@@ -32,17 +32,18 @@ neu(T, "bildgerade", "lueckenweg", L(
     {0: [(7, "fb.verhaeltnis.addiert_statt_malgenommen", "2 + 5 gerechnet statt 2 · 5", "2 + 5")], 1: [(10, "fb.verhaeltnis.addiert_statt_malgenommen", "5 + 5 gerechnet statt 5 · 5", "5 + 5")],
      2: [(20, None, "mit der Geraden g statt mit g' gerechnet: 3 · 6 + 2", "3 * 6 + 2")]}), regel=R)
 neu(T, "bildgerade", "zwei_wege", Z(
-    "Die Gerade g: y = 2x + 5 wird mit dem Zentrum O(0 | 0) und dem Faktor k = 3 gestreckt. Wie groß ist der y-Achsenabschnitt der Bildgeraden g'? Rechne auf zwei Wegen. Weg A: Strecke den Punkt (0 | 5) von g und lies den y-Achsenabschnitt ab. Weg B: Strecke zwei andere Punkte von g, zum Beispiel die mit x = 1 und x = 2, und bestimme die Gerade durch die beiden Bildpunkte.",
-    15, "5 * 3", "(2 * 1 + 5) * 3 - (((2 * 2 + 5) * 3) - ((2 * 1 + 5) * 3)) / (2 * 3 - 1 * 3) * (1 * 3)", "Beide Wege müssen dasselbe ergeben. Bei Weg B brauchst du zuerst die beiden Bildpunkte.",
-    "Weg A: (0 | 5) wird zu (0 | 15), der Achsenabschnitt ist 15. Weg B: (1 | 7) wird zu (3 | 21), (2 | 9) wird zu (6 | 27). Steigung: (27 − 21) : (6 − 3) = 2. Dann 21 − 2 · 3 = 15. Beide Wege: 15.",
-    [(5, None, "den y-Achsenabschnitt von g übernommen", "5"), (8, "fb.verhaeltnis.addiert_statt_malgenommen", "5 + 3 gerechnet statt 5 · 3", "5 + 3"), (21, None, "den y-Wert des Bildpunkts (3 | 21) als Achsenabschnitt angegeben: (2 · 1 + 5) · 3", "(2 * 1 + 5) * 3")]), regel=R)
+    "Die Gerade g: y = 2x + 5 wird mit dem Zentrum O(0 | 0) und dem Faktor k = 3 gestreckt. Wie groß ist der y-Achsenabschnitt der Bildgeraden g'? Rechne auf zwei Wegen. Weg A: Strecke den Punkt (0 | 5) von g und lies den y-Achsenabschnitt ab. Weg B: Ein Punkt (x' | y') liegt genau dann auf g', wenn (x' : 3 | y' : 3) auf g liegt. Setze x = x' : 3 und y = y' : 3 in die Gleichung von g ein und löse nach y' auf.",
+    15, "5 * 3", "3 * 5", "Beide Wege müssen dasselbe ergeben. Bei Weg B brauchst du zuerst die beiden Bildpunkte.",
+    "Weg A: (0 | 5) wird zu (0 | 15), der Achsenabschnitt ist 15. Weg B: y' : 3 = 2 · (x' : 3) + 5. Mit 3 malnehmen: y' = 2x' + 15. Der y-Achsenabschnitt ist 15. Beide Wege: 15.",
+    [(5, None, "den y-Achsenabschnitt von g übernommen", "5"), (8, "fb.verhaeltnis.addiert_statt_malgenommen", "5 + 3 gerechnet statt 5 · 3", "5 + 3"), (45, None, "den Faktor 3 zweimal angewandt: 5 · 3 · 3", "5 * 3 * 3")]), regel=R)
 neu(T, "bildgerade", "fehler_detektiv", FD(
     "Die Gerade g: y = −x + 4 wird mit dem Zentrum O(0 | 0) und dem Faktor k = 2 gestreckt. Kim bestimmt die Bildgerade g'.",
     [("g hat die Steigung −1 und den y-Achsenabschnitt 4.", True, True),
      ("Die Streckung verdoppelt auch die Steigung: g' hat die Steigung −2.", False, True),
      ("Der y-Achsenabschnitt wird verdoppelt auf 8. Also ist g': y = −2x + 8.", False, 2 * 4 == 8)],
     "Wie liegen eine Gerade und ihre Bildgerade zueinander, wenn das Zentrum nicht auf der Geraden liegt? Was folgt daraus für die Steigung?",
-    "Eine Gerade und ihre Bildgerade sind parallel, die Steigung bleibt −1. Nur der Achsenabschnitt wird verdoppelt. g': y = −x + 8. Der erste Fehler steht in Zeile 2."), regel=R)
+    "Eine Gerade und ihre Bildgerade sind parallel, die Steigung bleibt −1. Nur der Achsenabschnitt wird verdoppelt. g': y = −x + 8. Der erste Fehler steht in Zeile 2.",
+    rueck={2: "Zeile 3 übernimmt die falsche Steigung −2 aus Zeile 2. Dass der Achsenabschnitt 8 ist, ist richtig. Der erste Fehler steht in Zeile 2."}), regel=R)
 
 # ───────── schwerpunkt ─────────
 neu(T, "schwerpunkt", "lueckenweg", L(
@@ -52,13 +53,12 @@ neu(T, "schwerpunkt", "lueckenweg", L(
     "x: 1 + 8 + 3 = 12. y: 2 + 3 + 10 = 15. S = (12 : 3 | 15 : 3) = (4 | 5).",
     {2: [(6, None, "durch 2 statt durch 3 geteilt: 12 : 2", "{1} / 2")], 3: [(7.5, None, "durch 2 statt durch 3 geteilt: 15 : 2", "{2} / 2")]}), regel=R)
 neu(T, "schwerpunkt", "umkehren", Z(
-    "Ein Dreieck ABC hat den Schwerpunkt S(3 | 2). Es gilt A(1 | 0) und B(6 | 1). Wie groß ist die y-Koordinate von C?",
-    5, "3 * 2 - 0 - 1", "2 * 3 - (0 + 1)", "Die y-Koordinate von S ist der Mittelwert der drei y-Koordinaten. Stelle die Gleichung nach der unbekannten Zahl um.",
-    "Es gilt (0 + 1 + y) : 3 = 2. Also 0 + 1 + y = 6 und y = 6 − 1 = 5. Probe: (0 + 1 + 5) : 3 = 2.",
-    [(1, None, "2 − 0 − 1 gerechnet: den Faktor 3 vergessen", "2 - 0 - 1"), (7, None, "die y-Koordinaten von A und B addiert statt abgezogen: 3 · 2 + 0 + 1", "3 * 2 + 0 + 1")], "")
-, g="rueckwaerts", regel=R)
+    "Ein Dreieck ABC hat die Eckpunkte A(0 | 0) und B(12 | 0). Sein Schwerpunkt ist S(8 | 3). Die Einheit im Koordinatensystem ist 1 cm. Wie lang ist die Seite AC in cm?",
+    15, "wurzel((3 * 8 - 0 - 12) ** 2 + (3 * 3 - 0 - 0) ** 2)", "sqrt(12 ** 2 + 9 ** 2)", "Zwei Dinge musst du nacheinander bestimmen: zuerst, wo C liegt, dann, wie weit C von A entfernt ist.",
+    "Für den Schwerpunkt gilt: x-Koordinate von S = (0 + 12 + x) : 3 = 8, also x = 12. y-Koordinate von S = (0 + 0 + y) : 3 = 3, also y = 9. C(12 | 9). AC² = 12² + 9² = 144 + 81 = 225, AC = 15 cm.",
+    [(5, None, "C als Unterschied von S und B bestimmt, also C(−4 | 3), und davon die Entfernung zu A berechnet", "wurzel((8 - 12) ** 2 + 3 ** 2)"), (21, "fb.rechtwinklig.ohne_quadrate", "die Koordinaten von C addiert statt die Länge AC zu berechnen: 12 + 9", "12 + 9"), (9, None, "nur die y-Koordinate von C als Länge angegeben", "3 * 3")], "cm"), g="rueckwaerts", regel=R)
 neu(T, "schwerpunkt", "anwenden", Z(
-    "Eine dünne Platte hat überall die gleiche Dicke und die Form eines Dreiecks ABC mit A(0 | 0), B(12 | 0) und C(3 | 9). Die Maße sind in cm. Die Platte soll waagerecht auf einer Spitze balancieren. Wie weit ist der Auflagepunkt von der Seite AB entfernt? Gib den Abstand in cm an.",
+    "Eine dünne Platte besteht überall aus demselben Material mit gleicher Dichte und hat überall dieselbe Dicke. Sie hat die Form eines Dreiecks ABC mit A(0 | 0), B(12 | 0) und C(3 | 9). Die Maße sind in cm. Die Platte soll waagerecht auf einer Spitze balancieren. Wie weit ist der Auflagepunkt von der Seite AB entfernt? Gib den Abstand in cm an.",
     3, "(0 + 0 + 9) / 3", "9 / 3", "Der Auflagepunkt ist der Schwerpunkt des Dreiecks. Gefragt ist nur sein Abstand von der Seite AB, also die y-Koordinate.",
     "S = ((0 + 12 + 3) : 3 | (0 + 0 + 9) : 3) = (5 | 3). Die Seite AB liegt auf der x-Achse, der Abstand ist die y-Koordinate 3 cm.",
     [(4.5, None, "die halbe Höhe genommen: 9 : 2", "9 / 2"), (6, None, "zwei Drittel der Höhe genommen: 2 · 9 : 3", "2 * 9 / 3"), (9, None, "die Höhe von C angegeben", "9")], "cm"), g="einkleidung", regel=R)
@@ -117,7 +117,7 @@ neu(T, "strahlensatz2", "umkehren", Z(
     "Zwei Strahlen mit dem Anfangspunkt S werden von zwei parallelen Geraden geschnitten. Die erste schneidet in A und B, die zweite in A' und B'. A und A' liegen auf dem einen Strahl, B und B' auf dem anderen, A liegt zwischen S und A'. Es gilt A'B' : AB = 5 : 2 und SA = 8 cm. Wie lang ist die Strecke AA'?",
     12, "8 * 5 / 2 - 8", "8 * (5 / 2 - 1)", "Zuerst brauchst du SA'. Dann ist AA' das Stück von SA', das nicht zu SA gehört.",
     "Nach dem 2. Strahlensatz ist SA' : SA = A'B' : AB = 5 : 2. Also SA' = 8 · 5 : 2 = 20 cm. AA' = SA' − SA = 20 − 8 = 12 cm.",
-    [(20, None, "SA' statt AA' angegeben", "8 * 5 / 2"), (3.2, "fb.verhaeltnis.falsche_richtung", "das Verhältnis umgekehrt: 8 · 2 : 5", "8 * 2 / 5")], "cm"), g="umkehr", regel=R)
+    [(20, None, "SA' statt AA' angegeben", "8 * 5 / 2"), (3.2, None, "zwei Fehler: das Verhältnis umgekehrt (SA' = 8 · 2 : 5 = 3,2) und SA' als Antwort genannt, ohne SA abzuziehen", "8 * 2 / 5")], "cm"), g="umkehr", regel=R)
 neu(T, "strahlensatz2", "fehler_detektiv", FD(
     "Zwei Strahlen mit dem Anfangspunkt S werden von zwei parallelen Geraden geschnitten. Die erste schneidet in A und B, die zweite in A' und B'. A und A' liegen auf dem einen Strahl, B und B' auf dem anderen. Es gilt SA = 5 cm, SA' = 8 cm und AB = 10 cm. Kim berechnet A'B'.",
     [("2. Strahlensatz: A'B' : AB = SA : SA'.", False, True),
@@ -132,17 +132,17 @@ neu(T, "flaeche_volumen", "lueckenweg", L(
     "① = □; ② = □; ③ = □; ④ = □", [3, 9, 27, 216], ["6 / 2", "{1} ** 2", "{1} ** 3", "8 * {3}"], ["3", "9", "27", "6 * 6 * 6"],
     "Längen werden mit k vervielfacht. Für Flächen und Rauminhalte gilt eine andere Regel: Zähle die Richtungen, in denen gestreckt wird.",
     "k = 6 : 2 = 3. Flächenfaktor 3² = 9. Volumenfaktor 3³ = 27. Volumen: 8 · 27 = 216 cm³. Probe: 6 · 6 · 6 = 216.",
-    {0: [(4, None, "6 − 2 gerechnet statt 6 : 2", "6 - 2")], 1: [(6, None, "3 · 2 statt 3² gerechnet", "{1} * 2")], 2: [(9, None, "3² statt 3³ gerechnet", "{1} ** 2")], 3: [(24, "fb.aehnlich.flaeche_mit_k", "das Volumen nur mit k vervielfacht: 8 · 3", "8 * {1}")]}), regel=R)
+    {0: [(4, None, "6 − 2 gerechnet statt 6 : 2", "6 - 2")], 1: [(6, None, "3 · 2 statt 3² gerechnet", "{1} * 2")], 2: [(9, None, "3² statt 3³ gerechnet", "{1} ** 2")], 3: [(24, None, "das Volumen nur mit k statt mit k³ vervielfacht: 8 · 3", "8 * {1}")]}), regel=R)
 neu(T, "flaeche_volumen", "zwei_wege", Z(
-    "Ein kleines Dreieck hat die Grundseite 4 cm und den Flächeninhalt 12 cm². Ein dazu ähnliches großes Dreieck hat die Grundseite 10 cm. Wie groß ist der Flächeninhalt des großen Dreiecks in cm²? Rechne auf zwei Wegen. Weg A: mit dem Streckfaktor der Längen und dem Flächenfaktor. Weg B: berechne die Höhe des kleinen Dreiecks, dann die Höhe des großen Dreiecks, dann seine Fläche.",
+    "Ein kleines Dreieck hat die Grundseite 4 cm und den Flächeninhalt 12 cm². Ein dazu ähnliches großes Dreieck hat die Grundseite 10 cm. Diese Seite entspricht der 4-cm-Seite des kleinen Dreiecks. Wie groß ist der Flächeninhalt des großen Dreiecks in cm²? Rechne auf zwei Wegen. Weg A: mit dem Streckfaktor der Längen und dem Flächenfaktor. Weg B: berechne die Höhe des kleinen Dreiecks, dann die Höhe des großen Dreiecks, dann seine Fläche.",
     75, "12 * (10 / 4) ** 2", "10 * (2 * 12 / 4 * (10 / 4)) / 2", "Beide Wege müssen dasselbe ergeben. Der Streckfaktor der Längen ist 10 : 4.",
     "Weg A: k = 10 : 4 = 2,5. Flächenfaktor 2,5² = 6,25. Fläche: 12 · 6,25 = 75 cm². Weg B: Höhe klein: 2 · 12 : 4 = 6 cm. Höhe groß: 6 · 2,5 = 15 cm. Fläche: 10 · 15 : 2 = 75 cm².",
     [(30, "fb.aehnlich.flaeche_mit_k", "die Fläche nur mit k vervielfacht: 12 · 2,5", "12 * 2.5"), (18, None, "den Unterschied der Grundseiten addiert: 12 + 6", "12 + (10 - 4)")], "cm²"), regel=R)
 neu(T, "flaeche_volumen", "anwenden", Z(
-    "Ein Modellschiff ist eine genaue Verkleinerung eines echten Schiffs im Maßstab 1 : 25. Der Rumpf des Modells fasst 2 Liter Wasser. Wie viele Liter fasst der Rumpf des echten Schiffs?",
-    31250, "2 * 25 ** 3", "2 * 25 * 25 * 25", "Der Maßstab 1 : 25 gilt für Längen. Rauminhalte wachsen anders.",
-    "Alle Längen sind 25-mal so groß, der Rauminhalt ist 25³ = 15 625-mal so groß. 2 · 15 625 = 31 250 Liter.",
-    [(50, "fb.aehnlich.flaeche_mit_k", "nur mit dem Längenfaktor 25 vervielfacht: 2 · 25", "2 * 25"), (1250, None, "mit dem Flächenfaktor 625 statt dem Rauminhaltsfaktor vervielfacht: 2 · 625", "2 * 25 ** 2")], "Liter"), g="transfer", regel=R)
+    "Ein Modellboot ist eine genaue Verkleinerung eines echten Boots aus demselben Rumpfform-Entwurf. Das Modell ist 0,6 m lang, sein Rumpf fasst 4 Liter. Der Rumpf des echten Boots fasst 4 000 Liter. Wie lang ist das echte Boot in Metern?",
+    6, "0.6 * 10", "0.6 * (4000 / 4) ** (1 / 3)", "Fasse zuerst zusammen, wie oft das Fassungsvermögen des echten Boots in das des Modells passt. Überlege dann, was das für die Längen heißt.",
+    "Das Fassungsvermögen ist 4 000 : 4 = 1 000-mal so groß. Rauminhalte wachsen mit dem Faktor k³, also ist k³ = 1 000 und k = 10, denn 10 · 10 · 10 = 1 000. Länge des echten Boots: 0,6 · 10 = 6 m.",
+    [(600, None, "den Rauminhaltsfaktor 1 000 als Längenfaktor genommen: 0,6 · 1 000", "0.6 * 1000"), (19, None, "mit der Quadratwurzel aus 1 000 statt mit der dritten Wurzel gerechnet (gerundet)", "round(0.6 * sqrt(1000), 0)"), (60, None, "den Flächenfaktor 100 als Längenfaktor genommen: 0,6 · 100", "0.6 * 100")], "m"), g="transfer", regel=R)
 
 # ───────── anwendung ─────────
 neu(T, "anwendung", "lueckenweg", L(
@@ -183,6 +183,6 @@ neu(T, "streckung_vektor", "bruecke", W(
     grafik=TAB(["", "nach rechts", "nach oben"], ["von Z zu P", "2", "1"], ["von Z zu P'", "−4", "−2"])), regel=R)
 neu(T, "streckung_vektor", "umkehren", Z(
     "Eine zentrische Streckung hat den Faktor k = −2. Sie bildet den Punkt P(7 | 3) auf den Punkt P'(−2 | −3) ab. Wie groß ist die x-Koordinate des Zentrums Z?",
-    4, "(7 * (-2) - (-2)) / (-2 - 1)", "(-2 - (-2) * 7) / (1 - (-2))", "Für das Bild gilt: P' = Z + k · (P − Z). Setze die x-Koordinaten ein und löse nach der x-Koordinate von Z auf.",
+    4, "(7 * (-2) - (-2)) / (-2 - 1)", "(-2 - (-2) * 7) / (1 - (-2))", "Das Bild P' entsteht durch Strecken von P vom Zentrum Z aus. Stelle für die x-Koordinaten eine Gleichung auf, in der die x-Koordinate von Z die Unbekannte ist.",
     "Mit x für die x-Koordinate von Z: −2 = x + (−2) · (7 − x) = x − 14 + 2x = 3x − 14. Also 3x = 12 und x = 4. Probe: 4 + (−2) · (7 − 4) = 4 − 6 = −2.",
     [(2.5, None, "den Mittelpunkt von P und P' genommen: (7 + (−2)) : 2", "(7 + (-2)) / 2"), (-9, None, "die Differenz der x-Koordinaten genommen: −2 − 7", "-2 - 7")]), g="rueckwaerts", regel=R)

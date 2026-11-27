@@ -34,10 +34,10 @@ neu(T, "verhaeltnisse", "lueckenweg", L(
 neu(T, "verhaeltnisse", "bruecke", W(
     "Die Tabelle zeigt drei rechtwinklige Dreiecke. Gemessen sind jeweils die Gegenkathete des Winkels α und die Hypotenuse. Bei welchen Dreiecken ist der Winkel α gleich groß?",
     "Bei Dreieck 1 und Dreieck 2", [("Bei Dreieck 2 und Dreieck 3, denn bei beiden unterscheiden sich Hypotenuse und Gegenkathete um 4 cm", "Unterschiede statt Verhältnisse verglichen"), ("Bei allen drei Dreiecken", "Dreieck 3 hat ein anderes Verhältnis"),
-                                    ("Bei Dreieck 1 und Dreieck 3, denn beide haben eine Gegenkathete unter 9 cm", "ein Nebenmerkmal statt des Verhältnisses geprüft")],
+                                    ("Bei Dreieck 1 und Dreieck 3, weil sich ihre Hypotenusen um 7 cm unterscheiden", "ein Längenunterschied prüft nicht, ob die Verhältnisse gleich sind")],
     "Der Winkel α ist durch das Verhältnis Gegenkathete : Hypotenuse bestimmt. Berechne es für jede Zeile.",
     "Dreieck 1: 3 : 5 = 0,6. Dreieck 2: 6 : 10 = 0,6. Dreieck 3: 8 : 12 ≈ 0,67. Gleiches Verhältnis heißt gleicher Winkel α: Dreieck 1 und Dreieck 2. Dreieck 3 hat einen größeren Winkel α.",
-    lambda: 3 / 5 == 6 / 10 and 8 / 12 != 6 / 10 and 10 - 6 == 12 - 8,
+    lambda: 3 / 5 == 6 / 10 and 8 / 12 != 6 / 10 and 10 - 6 == 12 - 8 and 12 - 5 == 7,
     grafik=TAB(["Dreieck", "Gegenkathete von α", "Hypotenuse"], ["1", "3 cm", "5 cm"], ["2", "6 cm", "10 cm"], ["3", "8 cm", "12 cm"])), regel=R)
 neu(T, "verhaeltnisse", "fehler_detektiv", FD(
     "Im Dreieck ABC ist der Winkel bei C ein rechter Winkel. Es gilt BC = 8 cm, AC = 15 cm und AB = 17 cm. Kim berechnet cos α für den Winkel α bei A.",
@@ -45,7 +45,8 @@ neu(T, "verhaeltnisse", "fehler_detektiv", FD(
      ("Die Gegenkathete von α ist BC = 8 cm, die Hypotenuse ist AB = 17 cm.", True, True),
      ("Also ist cos α = 8 : 17 ≈ 0,47.", False, round(8 / 17, 2) == 0.47)],
     "Welche Kathete liegt an α an? Welches Verhältnis gehört zum Kosinus?",
-    "Der Kosinus ist das Verhältnis Ankathete : Hypotenuse. Die Ankathete von α ist AC = 15 cm. cos α = 15 : 17 ≈ 0,88. Das Verhältnis 8 : 17 gehört zum Sinus. Der erste Fehler steht in Zeile 1."), regel=R)
+    "Der Kosinus ist das Verhältnis Ankathete : Hypotenuse. Die Ankathete von α ist AC = 15 cm. cos α = 15 : 17 ≈ 0,88. Das Verhältnis 8 : 17 gehört zum Sinus. Der erste Fehler steht in Zeile 1.",
+    rueck={1: "Diese Zeile ist für sich richtig: BC liegt dem Winkel α bei A gegenüber (Gegenkathete) und AB ist die Hypotenuse. Der erste Fehler steht schon in Zeile 1, bei der Erklärung von cos α."}), regel=R)
 
 # ───────── seite ─────────
 neu(T, "seite", "lueckenweg", L(
@@ -69,10 +70,10 @@ assert wert_ls == 124
 
 # ───────── winkel ─────────
 neu(T, "winkel", "lueckenweg", L(
-    "Ein Dreieck ABC hat bei C einen rechten Winkel. Es gilt BC = 6 cm, AC = 8 cm und AB = 10 cm. Der Winkel α bei A liegt der Seite BC gegenüber, und es gilt sin α = 0,6. Mit der Umkehrfunktion des Sinus am Taschenrechner (Gradmaß) ist α auf ganze Grad gerundet ① Grad groß. Der Winkel β bei B ist ② Grad groß.",
+    "Ein Dreieck ABC hat bei C einen rechten Winkel. Es gilt BC = 6 cm, AC = 8 cm und AB = 10 cm. Der Winkel α bei A liegt der Seite BC gegenüber, und es gilt sin α = 0,6. Mit der Umkehrfunktion des Sinus am Taschenrechner (Gradmaß) ist α auf ganze Grad gerundet ① Grad groß. Der Winkel β bei B ist auf ganze Grad gerundet ② Grad groß.",
     "① = □; ② = □", [37, 53], [rd("asin(0.6)", 0)[1], "90 - {1}"], ["round(asin(0.6), 0)", "round(asin(0.8), 0)"],
     "Der Winkel α ist der Winkel, dessen Sinus 0,6 ist. Die Winkel in einem Dreieck ergeben zusammen 180°, und einer davon ist ein rechter Winkel.",
-    "α = sin⁻¹(0,6) ≈ 36,87°, gerundet 37°. β = 180° − 90° − 37° = 53°. Probe: cos β = sin α, und sin⁻¹(0,8) ≈ 53,13°.",
+    "α = sin⁻¹(0,6) ≈ 36,87°, gerundet 37°. β = 90° − α ≈ 90° − 36,87° = 53,13°, gerundet 53°. Probe: cos β = sin α, und sin⁻¹(0,8) ≈ 53,13°.",
     {0: [(53, None, "mit dem falschen Verhältnis 0,8 gerechnet: sin⁻¹(0,8) (gerundet)", "round(asin(0.8), 0)"), (31, None, "den Tangens-Umkehrwert genommen: tan⁻¹(0,6) (gerundet)", "round(atan(0.6), 0)")],
      1: [(143, None, "180° − 37° gerechnet, den rechten Winkel nicht beachtet", "180 - {1}")]}), regel=R)
 neu(T, "winkel", "zwei_wege", Z(
@@ -86,7 +87,7 @@ neu(T, "winkel", "fehler_detektiv", FD(
      ("Gesucht ist der Winkel, dessen Tangens 0,75 ist, also α = tan⁻¹(0,75).", True, True),
      ("Mit dem Taschenrechner (Bogenmaß, RAD) erhalte ich α ≈ 0,64°.", False, round(math.atan(0.75), 2) == 0.64)],
     "In welcher Einheit soll der Winkel angegeben werden? Auf welche Einstellung muss der Taschenrechner dann stehen?",
-    "Der Taschenrechner muss auf Gradmaß (DEG) stehen. Dann ist α = tan⁻¹(0,75) ≈ 36,9°. Der Wert 0,64 ist der Winkel im Bogenmaß. Der Fehler steckt in Zeile 3."), regel=R)
+    "Der Taschenrechner muss auf Gradmaß (DEG) stehen. Dann ist α = tan⁻¹(0,75) ≈ 36,9°. Der Rechner stand auf RAD: 0,64 rad wurden fälschlich als Grad angegeben. Mit DEG ergibt sich 36,9°, oder man rechnet 0,64 rad mit 180° : π um. Der Fehler steckt in Zeile 3."), regel=R)
 
 # ───────── beziehungen ─────────
 neu(T, "beziehungen", "lueckenweg", L(
@@ -94,7 +95,7 @@ neu(T, "beziehungen", "lueckenweg", L(
     "① = □; ② = □; ③ = □", [36, 64, 80], ["100 * 0.6 ** 2", "100 - {1}", "wurzel(100 * {2})"], ["36", "64", "80"],
     "Zwischen Sinus und Kosinus desselben Winkels gibt es eine Beziehung mit Quadraten. Die Beziehung gilt für sin² α und cos² α, nicht für sin α und cos α.",
     "sin² α = 0,36, also 100 · sin² α = 36. Aus sin² α + cos² α = 1 folgt cos² α = 0,64 und 100 · cos² α = 64. Dann ist (100 · cos α)² = 100 · 64 = 6 400, also 100 · cos α = 80, cos α = 0,8.",
-    {0: [(60, None, "nicht quadriert: 100 · 0,6", "100 * 0.6")], 1: [(94, None, "sin α statt sin² α abgezogen: 100 − 6", "100 - 6")], 2: [(64, None, "cos² α statt cos α genommen", "{2}")]}), regel=R)
+    {0: [(60, None, "nicht quadriert: 100 · 0,6", "100 * 0.6")], 1: [(40, None, "sin α statt sin² α verwendet: 100 · (1 − 0,6)", "100 * (1 - 0.6)")], 2: [(64, None, "cos² α statt cos α genommen", "{2}")]}), regel=R)
 neu(T, "beziehungen", "zwei_wege", Z(
     "Für einen spitzen Winkel α gilt sin α = 0,6. Berechne cos α auf zwei Wegen. Weg A: mit der Beziehung sin² α + cos² α = 1. Weg B: berechne zuerst den Winkel α mit der Umkehrfunktion des Sinus, dann cos α mit dem Taschenrechner. Runde auf zwei Dezimalen. " + GRAD,
     0.8, "wurzel(1 - 0.6 ** 2)", "round(cos(asin(0.6)), 2)", "Beide Wege müssen denselben Wert ergeben. Bei Weg A steht am Ende eine Wurzel.",
@@ -110,7 +111,7 @@ neu(T, "beziehungen", "fehler_detektiv", FD(
 
 # ───────── anwendung ─────────
 neu(T, "anwendung", "lueckenweg", L(
-    "Ein Drachen hängt an einer 24 m langen, straff gespannten Schnur, die mit dem waagerechten Boden einen Winkel von 30° bildet. Es gilt sin 30° = 0,5. Der Drachen ist ① m hoch über dem Boden. Eine 5-mal so lange Schnur bildet denselben Winkel. Dann ist der Drachen ② m hoch. Er ist dann ③ m höher als vorher.",
+    "Ein Drachen hängt an einer 24 m langen, straff gespannten Schnur, die am Boden befestigt ist und mit dem waagerechten Boden einen Winkel von 30° bildet. Es gilt sin 30° = 0,5. Der Drachen ist ① m hoch über dem Boden. Eine 5-mal so lange Schnur bildet denselben Winkel. Dann ist der Drachen ② m hoch. Er ist dann ③ m höher als vorher.",
     "① = □; ② = □; ③ = □", [12, 60, 48], ["24 * 0.5", "5 * {1}", "{2} - {1}"], ["12", "60", "60 - 12"],
     "Die Schnur ist die Hypotenuse, die Höhe die Gegenkathete des Winkels am Boden. Berechne die Gegenkathete aus Hypotenuse und Sinus.",
     "Höhe: 24 · 0,5 = 12 m. Bei der 5-mal so langen Schnur ist die Höhe auch 5-mal so groß: 60 m. Unterschied: 60 − 12 = 48 m.",
@@ -124,7 +125,7 @@ wert_ma, c_ma = rd("(20 - 1.6) / tan(25)", 0)
 neu(T, "anwendung", "umkehren", Z(
     "Ein senkrechter Mast ist 20 m hoch und steht auf ebenem Boden. Eine Person, deren Augen 1,6 m über dem Boden liegen, soll die Mastspitze unter einem Höhenwinkel von 25° sehen. Der Höhenwinkel ist der Winkel zwischen der Waagerechten durch die Augen und der Blickrichtung. Wie weit vom Fußpunkt des Mastes muss die Person stehen? Runde auf ganze Meter. " + GRAD,
     wert_ma, c_ma, "round(18.4 / tan(25), 0)", "Zeichne die Waagerechte durch die Augen. Die Gegenkathete des Winkels 25° ist nicht die ganze Masthöhe. Gesucht ist die Ankathete.",
-    "Die Spitze liegt 20 − 1,6 = 18,4 m über den Augen. tan 25° = 18,4 : d, also d = 18,4 : tan 25° ≈ 39,5 m. Gerundet etwa 39 m. Probe: 18,4 : 39 ≈ 0,47 und tan 25° ≈ 0,47.",
+    "Die Spitze liegt 20 − 1,6 = 18,4 m über den Augen. tan 25° = 18,4 : d, also d = 18,4 : tan 25° ≈ 39,459 m, auf ganze Meter gerundet 39 m. Probe: 18,4 : 39 ≈ 0,47 und tan 25° ≈ 0,47.",
     [(43, None, "die Augenhöhe vergessen: 20 : tan 25° (gerundet)", "round(20 / tan(25), 0)"), (46, None, "die Augenhöhe addiert statt abgezogen: 21,6 : tan 25° (gerundet)", "round((20 + 1.6) / tan(25), 0)"), (9, None, "den Tangens malgenommen statt geteilt: 18,4 · tan 25° (gerundet)", "round(18.4 * tan(25), 0)")], "m"), g="rueckwaerts", regel=R)
 assert wert_ma == 39
 

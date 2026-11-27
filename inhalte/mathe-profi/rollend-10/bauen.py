@@ -40,6 +40,7 @@ THEMEN = {
     "messen.prisma_zylinder_teil2": ("messen.prisma_zylinder", ["cavalieri"]),
 }
 KUERZEL = "K9B"
+REGEL_AUSNAHME = {("raum.pyramide_kegel_kugel", "id.flaeche_raum.haut")}      # Oberfläche von Pyramide und Kegel: Idee „Haut“ passt dem Text nach, Themenliste nennt sie nicht
 GEPRUEFT = ("umkehren", "zwei_wege", "bruecke", "anwenden")
 ZAEHLT_JA_AUS = ("umkehren", "zwei_wege", "bruecke", "verfahren_waehlen", "anwenden")
 
@@ -192,7 +193,9 @@ for a in A:
     gleich_ok = bool(q.pop("_gleich_ok", False))
     zaehler += 1
     kenn = f"{KUERZEL}-V{zaehler:03d}"
-    assert a["regel"] in REGELN, (kenn, a["regel"])
+    assert a["regel"] is None or a["regel"] in REGELN, (kenn, a["regel"])
+    # Katalog (kennungen.json): die tragende Idee muss zum Thema passen (Ausnahmen von Hand gelesen), Kennung leer, wenn der Katalog nichts Passendes hat
+    assert a["regel"] is None or datei in REGELN[a["regel"]]["themen"] or (datei, a["regel"]) in REGEL_AUSNAHME, (kenn, a["regel"], "Thema steht nicht in der Themenliste der Idee")
     assert ip.STUFE_VON[a["g"]] == a["s"], kenn
     assert (datei, a["lk"]) in KARTE, (kenn, a["lk"])
     q.update({"l": a["lk"], "t": KARTE[(datei, a["lk"])], "p": "uebung", "s": a["s"], "g": a["g"]})
@@ -217,11 +220,11 @@ for a in A:
     alle_texte.add(text)
     alle_bau[datei].add(b)
     eintrag = dict(kennung=kenn, thema=a["thema"], lernkarte=a["lk"], stufe=a["s"], typ=FORM[a["form"]][0], form=a["form"], antwortform=q["y"],
-                   regel=a["regel"], regel_name=REGELN[a["regel"]]["name"], zaehlt=a["zaehlt"], fehlbilder=[])
+                   regel=a["regel"], regel_name=REGELN[a["regel"]]["name"] if a["regel"] else None, zaehlt=a["zaehlt"], fehlbilder=[])
 
     def fb_eintrag(ort, antwort, fbk, beschr):
         global n_fb
-        assert fbk is None or fbk in FEHLBILD, (kenn, fbk)
+        assert fbk is None or fbk in FEHLBILD, (kenn, fbk, "Fehlbild-Kennung nicht im Katalog")
         assert beschr and len(beschr) > 5, (kenn, "Beschreibung des Fehlbilds")
         n_fb += 1
         eintrag["fehlbilder"].append(dict(**ort, antwort=antwort, fehlbild=fbk, regel_des_fehlbilds=FEHLBILD.get(fbk), beschreibung=beschr))

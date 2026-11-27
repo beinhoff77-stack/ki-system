@@ -273,10 +273,10 @@
      "beschreibung": "5 + 3 gerechnet statt 5 · 3"
     },
     {
-     "antwort": 21,
+     "antwort": 45,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den y-Wert des Bildpunkts (3 | 21) als Achsenabschnitt angegeben: (2 · 1 + 5) · 3"
+     "beschreibung": "den Faktor 3 zweimal angewandt: 5 · 3 · 3"
     }
    ],
    "aufgabe": {
@@ -287,14 +287,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Die Gerade g: y = 2x + 5 wird mit dem Zentrum O(0 | 0) und dem Faktor k = 3 gestreckt. Wie groß ist der y-Achsenabschnitt der Bildgeraden g'? Rechne auf zwei Wegen. Weg A: Strecke den Punkt (0 | 5) von g und lies den y-Achsenabschnitt ab. Weg B: Strecke zwei andere Punkte von g, zum Beispiel die mit x = 1 und x = 2, und bestimme die Gerade durch die beiden Bildpunkte."
+     "text": "Die Gerade g: y = 2x + 5 wird mit dem Zentrum O(0 | 0) und dem Faktor k = 3 gestreckt. Wie groß ist der y-Achsenabschnitt der Bildgeraden g'? Rechne auf zwei Wegen. Weg A: Strecke den Punkt (0 | 5) von g und lies den y-Achsenabschnitt ab. Weg B: Ein Punkt (x' | y') liegt genau dann auf g', wenn (x' : 3 | y' : 3) auf g liegt. Setze x = x' : 3 und y = y' : 3 in die Gleichung von g ein und löse nach y' auf."
     },
     "o": {
      "wert": 15
     },
     "c": "5 * 3",
     "h": "Beide Wege müssen dasselbe ergeben. Bei Weg B brauchst du zuerst die beiden Bildpunkte.",
-    "w": "Weg A: (0 | 5) wird zu (0 | 15), der Achsenabschnitt ist 15. Weg B: (1 | 7) wird zu (3 | 21), (2 | 9) wird zu (6 | 27). Steigung: (27 − 21) : (6 − 3) = 2. Dann 21 − 2 · 3 = 15. Beide Wege: 15."
+    "w": "Weg A: (0 | 5) wird zu (0 | 15), der Achsenabschnitt ist 15. Weg B: y' : 3 = 2 · (x' : 3) + 5. Mit 3 malnehmen: y' = 2x' + 15. Der y-Achsenabschnitt ist 15. Beide Wege: 15."
    }
   },
   {
@@ -321,7 +321,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "Zeile 3 übernimmt die falsche Steigung −2 aus Zeile 2. Dass der Achsenabschnitt 8 ist, ist richtig. Der erste Fehler steht in Zeile 2."
     }
    ],
    "aufgabe": {
@@ -442,7 +442,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Eine dünne Platte hat überall die gleiche Dicke und die Form eines Dreiecks ABC mit A(0 | 0), B(12 | 0) und C(3 | 9). Die Maße sind in cm. Die Platte soll waagerecht auf einer Spitze balancieren. Wie weit ist der Auflagepunkt von der Seite AB entfernt? Gib den Abstand in cm an."
+     "text": "Eine dünne Platte besteht überall aus demselben Material mit gleicher Dichte und hat überall dieselbe Dicke. Sie hat die Form eines Dreiecks ABC mit A(0 | 0), B(12 | 0) und C(3 | 9). Die Maße sind in cm. Die Platte soll waagerecht auf einer Spitze balancieren. Wie weit ist der Auflagepunkt von der Seite AB entfernt? Gib den Abstand in cm an."
     },
     "o": {
      "wert": 3,
@@ -466,16 +466,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 1,
+     "antwort": 5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "2 − 0 − 1 gerechnet: den Faktor 3 vergessen"
+     "beschreibung": "C als Unterschied von S und B bestimmt, also C(−4 | 3), und davon die Entfernung zu A berechnet"
     },
     {
-     "antwort": 7,
+     "antwort": 21,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die Koordinaten von C addiert statt die Länge AC zu berechnen: 12 + 9"
+    },
+    {
+     "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die y-Koordinaten von A und B addiert statt abgezogen: 3 · 2 + 0 + 1"
+     "beschreibung": "nur die y-Koordinate von C als Länge angegeben"
     }
    ],
    "aufgabe": {
@@ -486,14 +492,15 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein Dreieck ABC hat den Schwerpunkt S(3 | 2). Es gilt A(1 | 0) und B(6 | 1). Wie groß ist die y-Koordinate von C?"
+     "text": "Ein Dreieck ABC hat die Eckpunkte A(0 | 0) und B(12 | 0). Sein Schwerpunkt ist S(8 | 3). Die Einheit im Koordinatensystem ist 1 cm. Wie lang ist die Seite AC in cm?"
     },
     "o": {
-     "wert": 5
+     "wert": 15,
+     "einheit": "cm"
     },
-    "c": "3 * 2 - 0 - 1",
-    "h": "Die y-Koordinate von S ist der Mittelwert der drei y-Koordinaten. Stelle die Gleichung nach der unbekannten Zahl um.",
-    "w": "Es gilt (0 + 1 + y) : 3 = 2. Also 0 + 1 + y = 6 und y = 6 − 1 = 5. Probe: (0 + 1 + 5) : 3 = 2."
+    "c": "15",
+    "h": "Zwei Dinge musst du nacheinander bestimmen: zuerst, wo C liegt, dann, wie weit C von A entfernt ist.",
+    "w": "Für den Schwerpunkt gilt: x-Koordinate von S = (0 + 12 + x) : 3 = 8, also x = 12. y-Koordinate von S = (0 + 0 + y) : 3 = 3, also y = 9. C(12 | 9). AC² = 12² + 9² = 144 + 81 = 225, AC = 15 cm."
    }
   },
   {
@@ -939,9 +946,9 @@
     },
     {
      "antwort": 3.2,
-     "fehlbild": "fb.verhaeltnis.falsche_richtung",
-     "regel_des_fehlbilds": "rr.verhaeltnis",
-     "beschreibung": "das Verhältnis umgekehrt: 8 · 2 : 5"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zwei Fehler: das Verhältnis umgekehrt (SA' = 8 · 2 : 5 = 3,2) und SA' als Antwort genannt, ohne SA abzuziehen"
     }
    ],
    "aufgabe": {
@@ -1048,9 +1055,9 @@
     {
      "luecke": 4,
      "antwort": 24,
-     "fehlbild": "fb.aehnlich.flaeche_mit_k",
-     "regel_des_fehlbilds": "id.geometrie.aehnlich",
-     "beschreibung": "das Volumen nur mit k vervielfacht: 8 · 3"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen nur mit k statt mit k³ vervielfacht: 8 · 3"
     }
    ],
    "aufgabe": {
@@ -1116,7 +1123,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein kleines Dreieck hat die Grundseite 4 cm und den Flächeninhalt 12 cm². Ein dazu ähnliches großes Dreieck hat die Grundseite 10 cm. Wie groß ist der Flächeninhalt des großen Dreiecks in cm²? Rechne auf zwei Wegen. Weg A: mit dem Streckfaktor der Längen und dem Flächenfaktor. Weg B: berechne die Höhe des kleinen Dreiecks, dann die Höhe des großen Dreiecks, dann seine Fläche."
+     "text": "Ein kleines Dreieck hat die Grundseite 4 cm und den Flächeninhalt 12 cm². Ein dazu ähnliches großes Dreieck hat die Grundseite 10 cm. Diese Seite entspricht der 4-cm-Seite des kleinen Dreiecks. Wie groß ist der Flächeninhalt des großen Dreiecks in cm²? Rechne auf zwei Wegen. Weg A: mit dem Streckfaktor der Längen und dem Flächenfaktor. Weg B: berechne die Höhe des kleinen Dreiecks, dann die Höhe des großen Dreiecks, dann seine Fläche."
     },
     "o": {
      "wert": 75,
@@ -1140,16 +1147,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 50,
-     "fehlbild": "fb.aehnlich.flaeche_mit_k",
-     "regel_des_fehlbilds": "id.geometrie.aehnlich",
-     "beschreibung": "nur mit dem Längenfaktor 25 vervielfacht: 2 · 25"
-    },
-    {
-     "antwort": 1250,
+     "antwort": 600,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit dem Flächenfaktor 625 statt dem Rauminhaltsfaktor vervielfacht: 2 · 625"
+     "beschreibung": "den Rauminhaltsfaktor 1 000 als Längenfaktor genommen: 0,6 · 1 000"
+    },
+    {
+     "antwort": 19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Quadratwurzel aus 1 000 statt mit der dritten Wurzel gerechnet (gerundet)"
+    },
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Flächenfaktor 100 als Längenfaktor genommen: 0,6 · 100"
     }
    ],
    "aufgabe": {
@@ -1160,15 +1173,15 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Ein Modellschiff ist eine genaue Verkleinerung eines echten Schiffs im Maßstab 1 : 25. Der Rumpf des Modells fasst 2 Liter Wasser. Wie viele Liter fasst der Rumpf des echten Schiffs?"
+     "text": "Ein Modellboot ist eine genaue Verkleinerung eines echten Boots aus demselben Rumpfform-Entwurf. Das Modell ist 0,6 m lang, sein Rumpf fasst 4 Liter. Der Rumpf des echten Boots fasst 4 000 Liter. Wie lang ist das echte Boot in Metern?"
     },
     "o": {
-     "wert": 31250,
-     "einheit": "Liter"
+     "wert": 6,
+     "einheit": "m"
     },
-    "c": "2 * 25 ** 3",
-    "h": "Der Maßstab 1 : 25 gilt für Längen. Rauminhalte wachsen anders.",
-    "w": "Alle Längen sind 25-mal so groß, der Rauminhalt ist 25³ = 15 625-mal so groß. 2 · 15 625 = 31 250 Liter."
+    "c": "0.6 * 10",
+    "h": "Fasse zuerst zusammen, wie oft das Fassungsvermögen des echten Boots in das des Modells passt. Überlege dann, was das für die Längen heißt.",
+    "w": "Das Fassungsvermögen ist 4 000 : 4 = 1 000-mal so groß. Rauminhalte wachsen mit dem Faktor k³, also ist k³ = 1 000 und k = 10, denn 10 · 10 · 10 = 1 000. Länge des echten Boots: 0,6 · 10 = 6 m."
    }
   },
   {
@@ -1519,7 +1532,7 @@
      "wert": 4
     },
     "c": "(7 * (-2) - (-2)) / (-2 - 1)",
-    "h": "Für das Bild gilt: P' = Z + k · (P − Z). Setze die x-Koordinaten ein und löse nach der x-Koordinate von Z auf.",
+    "h": "Das Bild P' entsteht durch Strecken von P vom Zentrum Z aus. Stelle für die x-Koordinaten eine Gleichung auf, in der die x-Koordinate von Z die Unbekannte ist.",
     "w": "Mit x für die x-Koordinate von Z: −2 = x + (−2) · (7 − x) = x − 14 + 2x = 3x − 14. Also 3x = 12 und x = 4. Probe: 4 + (−2) · (7 − 4) = 4 − 6 = −2."
    }
   }

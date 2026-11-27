@@ -46,3 +46,12 @@ Alle 108 Aufgaben vollständig gelesen (Frage, Antworten, Schablone, Tipp, Lösu
 - Fehlbild-Texte der Auswahl-Aufgaben (V008, V044, V050, V074, V077, V083, V089, V099 u. a.) von Hand gegen die Antwort gelesen.
 - Offen / fraglich (nicht geändert): Stufe 3 bleibt eher mittelschwer bei V027, V039, V054, V069, V075, V081, V084, V087, V093 (ein bis zwei Schritte, Klasse 9 gewohnt). V023 Weg B ist dasselbe Streckungsverfahren an anderen Punkten (Verfahren, nicht Rechnung, verschieden). V095 Weg B (Abwicklung) gibt rechnerisch π · r · s. V050 falsche Antwort „Dreieck 1 und 3“: der Grund gilt auch für Dreieck 2, die Antwort bleibt falsch.
 - Skript: V104 prüft jetzt die Tabellenwerte gegen π; weitere Funde waren Wortlaut, den `vorrat_pruefen.py` und `bauen.py` nicht erkennen können.
+
+## Nach Gegenprüfung (Werkstatt 1081)
+Alle Punkte der Arbeitsliste abgearbeitet, `bauen.py` OK, `rollend_sql.py --runden 10` ohne Fehler.
+- Kennungen: jede gesetzte Fehlbild- und Regel-Kennung gegen den Katalog gelesen. 18 Fehlbild-Kennungen geleert (V037, V039, V067, V069, V075, V081, V082, V084, V085, V091, V095, V097, V098, V099, V100, V101 und weitere Fehlwerte derselben Aufgaben). Regel leer bei V097, V099, V101, V104 (Kugel, Katalog hat dafür nichts); V098 und V106 bis V108 auf „Aus dem Quader“.
+- Fehler-Detektive: Rückmeldungen zu allen Zeilen nach dem Fehler geprüft; unabhängig richtige Zeilen eigens begründet (V009, V051, V105), Mischfall V024. `FD(..., rueck=...)` in `kern.py`.
+- Fehlwert-Texte berichtigt (V010, V035, V057, V058, V067, V069, V075). Voraussetzungen und Eingabefragen ergänzt (V017, V026, V038, V055, V061, V063, V084, V098, V101).
+- Stufe 3 angehoben oder Tipp entschärft: V027, V039, V075, V081, V084 neu gefasst; Tipps von V012, V015, V045, V069, V087, V093, V099, V102 nur noch Anstoß.
+- V023 Weg B jetzt Einsetzen von x = x' : 3 und y = y' : 3 (anderes Verfahren). V050 letzter Ablenker ersetzt.
+- `bauen.py`: Regel-Kennung muss im Katalog stehen und zum Thema passen (eine begründete Ausnahme), Fehlbild-Kennung muss im Katalog stehen, Regel darf leer sein.

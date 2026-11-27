@@ -143,11 +143,11 @@
      "c": "12 * 9"
     },
     {
-     "antwort": 0.17,
+     "antwort": 90,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "falsch herum geteilt: 18 : 108",
-     "c": "18 / (12 * 9)"
+     "beschreibung": "abgezogen statt geteilt: 108 − 18",
+     "c": "12 * 9 - 18"
     }
    ],
    "aufgabe": {
@@ -373,8 +373,16 @@
      "antwort": 14,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nicht durch 6 geteilt: die Summe angegeben",
+     "beschreibung": "die Summe der parallelen Seiten statt ihrer Hälfte angegeben",
      "c": "(14)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 42,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche statt der Länge angegeben: nicht durch 6 geteilt",
+     "c": "(42)"
     }
    ],
    "aufgabe": {
@@ -534,11 +542,27 @@
     },
     {
      "luecke": 3,
-     "antwort": 3.5,
+     "antwort": 144,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Fläche nicht verdoppelt: 84 : 24",
-     "c": "84 / (24)"
+     "beschreibung": "abgezogen statt geteilt",
+     "c": "(168) - (24)"
+    },
+    {
+     "luecke": 4,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht in Millimeter umgerechnet",
+     "c": "(7)"
+    },
+    {
+     "luecke": 4,
+     "antwort": 700,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 100 statt mit 10 malgenommen",
+     "c": "(7) * 100"
     }
    ],
    "aufgabe": {
@@ -549,24 +573,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Trapez hat die Fläche 84 cm². Die parallelen Seiten sind 10 cm und 14 cm lang. Die Summe der parallelen Seiten ist ① cm. Zweimal die Fläche ist ② cm². Die Höhe ist ③ cm.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Ein Trapez hat die Fläche 84 cm². Die parallelen Seiten sind 10 cm und 14 cm lang. Die Summe der parallelen Seiten ist ① cm. Zweimal die Fläche ist ② cm². Die Höhe ist ③ cm. Das sind ④ Millimeter.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       24,
       168,
-      7
+      7,
+      70
      ]
     },
     "c": [
      "10 + 14",
      "84 * 2",
-     "(168) / (24)"
+     "(168) / (24)",
+     "(7) * 10"
     ],
     "h": "Stelle die Formel A = (a + c) · h : 2 nach h um.",
-    "w": "Aus 84 = 24 · h : 2 folgt 168 = 24 · h. Also h = 168 : 24 = 7 cm."
+    "w": "Aus 84 = 24 · h : 2 folgt 168 = 24 · h. Also h = 168 : 24 = 7 cm = 70 mm."
    }
   },
   {
@@ -710,6 +736,14 @@
      "regel_des_fehlbilds": null,
      "beschreibung": "den Giebel nicht halbiert: 60 + 40",
      "c": "(60) + 10 * 4"
+    },
+    {
+     "luecke": 4,
+     "antwort": 80,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe statt des Unterschieds angegeben",
+     "c": "(60) + (20)"
     }
    ],
    "aufgabe": {
@@ -720,24 +754,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Haus hat vorn die Form eines Fünfecks: ein Rechteck (10 m breit, 6 m hoch) und darüber ein Dreieck als Giebel (Grundseite 10 m, Höhe 4 m). Das Rechteck hat ① m². Der Giebel hat ② m². Zusammen sind es ③ m².",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Ein Haus hat vorn die Form eines Fünfecks: ein Rechteck (10 m breit, 6 m hoch) und darüber ein Dreieck als Giebel (Grundseite 10 m, Höhe 4 m). Das Rechteck hat ① m². Der Giebel hat ② m². Zusammen sind es ③ m². Der Giebel ist um ④ m² kleiner als das Rechteck.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       60,
       20,
-      80
+      80,
+      40
      ]
     },
     "c": [
      "10 * 6",
      "10 * 4 / 2",
-     "(60) + (20)"
+     "(60) + (20)",
+     "(60) - (20)"
     ],
     "h": "Zerlege die Figur in ein Rechteck und ein Dreieck.",
-    "w": "Rechteck: 10 · 6 = 60 m². Dreieck: 10 · 4 : 2 = 20 m². Zusammen 80 m²."
+    "w": "Rechteck: 10 · 6 = 60 m². Dreieck: 10 · 4 : 2 = 20 m². Zusammen 80 m². Unterschied: 60 m² − 20 m² = 40 m²."
    }
   },
   {
@@ -867,6 +903,14 @@
      "regel_des_fehlbilds": null,
      "beschreibung": "die Dreiecke vergessen",
      "c": "(720)"
+    },
+    {
+     "luecke": 4,
+     "antwort": 828,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe statt des Unterschieds angegeben",
+     "c": "(108) + (720)"
     }
    ],
    "aufgabe": {
@@ -877,24 +921,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein dreiseitiges Prisma ist 20 cm lang. Seine Grundfläche ist ein rechtwinkliges Dreieck mit den Seiten 9 cm, 12 cm und 15 cm. Die beiden Dreiecke haben zusammen ① cm². Die drei Rechtecke (Mantel) haben zusammen ② cm². Die Oberfläche ist ③ cm².",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Ein dreiseitiges Prisma ist 20 cm lang. Seine Grundfläche ist ein rechtwinkliges Dreieck mit den Seiten 9 cm, 12 cm und 15 cm. Die beiden Dreiecke haben zusammen ① cm². Die drei Rechtecke (Mantel) haben zusammen ② cm². Die Oberfläche ist ③ cm². Der Mantel ist um ④ cm² größer als die beiden Dreiecke zusammen.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       108,
       720,
-      828
+      828,
+      612
      ]
     },
     "c": [
      "2 * 9 * 12 / 2",
      "(9 + 12 + 15) * 20",
-     "(108) + (720)"
+     "(108) + (720)",
+     "(720) - (108)"
     ],
     "h": "Der Mantel ist ein Rechteck: Umfang des Dreiecks mal Länge.",
-    "w": "Dreiecke: 2 · (9 · 12 : 2) = 108 cm². Mantel: (9 + 12 + 15) · 20 = 720 cm². Oberfläche: 108 + 720 = 828 cm²."
+    "w": "Dreiecke: 2 · (9 · 12 : 2) = 108 cm². Mantel: (9 + 12 + 15) · 20 = 720 cm². Oberfläche: 108 + 720 = 828 cm². Unterschied: 720 cm² − 108 cm² = 612 cm²."
    }
   },
   {
@@ -1208,6 +1254,14 @@
      "regel_des_fehlbilds": null,
      "beschreibung": "nicht halbiert",
      "c": "(192)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 2 statt durch 4 geteilt: nur eine Diagonale halbiert",
+     "c": "(96) / 2"
     }
    ],
    "aufgabe": {
@@ -1218,22 +1272,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Eine Raute hat die Diagonalen e = 16 cm und f = 12 cm. Das Rechteck, das die Raute genau umschließt, hat ① cm². Die Raute hat ② cm².",
-     "schablone": "① = □; ② = □",
+     "text": "Eine Raute hat die Diagonalen e = 16 cm und f = 12 cm. Das Rechteck, das die Raute genau umschließt, hat ① cm². Die Raute hat ② cm². Wird jede Diagonale halbiert, hat die kleinere Raute ③ cm².",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       192,
-      96
+      96,
+      24
      ]
     },
     "c": [
      "16 * 12",
-     "(192) / 2"
+     "(192) / 2",
+     "(96) / 4"
     ],
     "h": "Die Raute füllt genau die Hälfte des umschließenden Rechtecks.",
-    "w": "Rechteck: 16 · 12 = 192 cm². Raute: 192 : 2 = 96 cm². Formel: A = e · f : 2."
+    "w": "Rechteck: 16 · 12 = 192 cm². Raute: 192 : 2 = 96 cm². Formel: A = e · f : 2. Halbe Diagonalen: 8 · 6 : 2 = 24 cm², das ist ein Viertel von 96 cm²."
    }
   },
   {
@@ -1278,7 +1334,7 @@
      "einheit": "cm²"
     },
     "c": "14 * 8 / 2",
-    "h": "Die Diagonalen der Raute sind so lang wie die Seiten des Rechtecks.",
+    "h": "Wo liegen die beiden Diagonalen der Raute im Rechteck?",
     "w": "Die Diagonalen der Raute sind 14 cm und 8 cm lang. A = e · f : 2 = 14 · 8 : 2 = 56 cm². Das ist die Hälfte der Rechteckfläche 112 cm²."
    }
   },

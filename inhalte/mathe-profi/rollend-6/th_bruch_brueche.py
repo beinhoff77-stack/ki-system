@@ -1,10 +1,11 @@
 T = "bruch.brueche"
 # ───────── bruchteil_von ─────────
 neu(T, "bruchteil_von", "lueckenweg", L(
-    "Berechne 3/8 von 56 kg. Zuerst teilst du durch den Nenner: Ein Achtel sind ① kg. Dann nimmst du so viele Teile, wie der Zähler sagt: 3/8 sind ② kg.",
-    KOMM(2), [7, 21], ["56 / 8", "{1} * 3"], ["7", "21"], "Der Nenner sagt, in wie viele gleiche Teile du das Ganze teilst.",
-    "56 kg : 8 = 7 kg ist ein Achtel. Drei Achtel sind 3 · 7 kg = 21 kg.",
-    {0: [(448, None, "mit dem Nenner malgenommen statt durch ihn geteilt", "56 * 8")], 1: [(10, None, "den Zähler dazugezählt statt malgenommen", "{1} + 3")]}), regel="rr.bruchrechnen")
+    "Berechne 3/8 von 56 kg. Zuerst teilst du durch den Nenner: Ein Achtel sind ① kg. Dann nimmst du so viele Teile, wie der Zähler sagt: 3/8 sind ② kg. Der Rest der 56 kg wiegt ③ kg.",
+    KOMM(3), [7, 21, 35], ["56 / 8", "{1} * 3", "56 - {2}"], ["7", "21", "35"], "Der Nenner sagt, in wie viele gleiche Teile du das Ganze teilst.",
+    "56 kg : 8 = 7 kg ist ein Achtel. Drei Achtel sind 3 · 7 kg = 21 kg. Der Rest ist 56 kg − 21 kg = 35 kg.",
+    {0: [(448, None, "mit dem Nenner malgenommen statt durch ihn geteilt", "56 * 8")], 1: [(10, None, "den Zähler dazugezählt statt malgenommen", "{1} + 3")],
+     2: [(21, None, "den Teil statt des Rests angegeben", "{2}"), (49, None, "nur ein Achtel abgezogen statt drei Achtel", "56 - {1}")]}), regel="rr.bruchrechnen")
 neu(T, "bruchteil_von", "umkehren", Z(
     "Von einer 72 m langen Schnur wird ein Stück abgeschnitten. Es ist ?/8 der Schnur und 45 m lang. Welche Zahl steht an der Stelle des Fragezeichens?",
     5, "45 / (72 / 8)", "45 * 8 / 72", "Wie lang ist ein Achtel der ganzen Schnur?",
@@ -14,7 +15,7 @@ neu(T, "bruchteil_von", "anwenden", Z(
     "Ein Wanderweg ist 24 km lang. Am ersten Tag geht die Gruppe 3/8 des ganzen Weges, am zweiten Tag 1/4 des ganzen Weges. Wie viele Kilometer bleiben für den dritten Tag?",
     9, "24 * (1 - 3/8 - 1/4)", "24 - 9 - 6", "Rechne beide Tagesstrecken aus. Was bleibt vom ganzen Weg übrig?",
     "Erster Tag: 24 km : 8 · 3 = 9 km. Zweiter Tag: 24 km : 4 = 6 km. Rest: 24 km − 9 km − 6 km = 9 km.",
-    [(15, None, "die schon gegangene Strecke statt des Rests angegeben", "24 * (3/8 + 1/4)"), (3.75, None, "1/4 vom Rest (15 km) statt vom ganzen Weg genommen", "(24 - 24 * 3/8) / 4")], "km"), g="transfer", regel="rr.bruchrechnen")
+    [(15, None, "die schon gegangene Strecke statt des Rests angegeben", "24 * (3/8 + 1/4)"), (11.25, None, "am zweiten Tag 1/4 vom Rest (15 km) statt vom ganzen Weg genommen", "(24 - 24 * 3/8) - (24 - 24 * 3/8) / 4")], "km"), g="transfer", regel="rr.bruchrechnen")
 
 # ───────── anteil_bestimmen ─────────
 neu(T, "anteil_bestimmen", "lueckenweg", L(
@@ -36,10 +37,11 @@ neu(T, "anteil_bestimmen", "fehler_detektiv", FD(
 
 # ───────── ganzes_bestimmen ─────────
 neu(T, "ganzes_bestimmen", "lueckenweg", L(
-    "3/5 einer Strecke sind 27 km lang. Zuerst bestimmst du, wie lang ein Fünftel ist: ① km. Dann bekommst du die ganze Strecke: ② km.",
-    KOMM(2), [9, 45], ["27 / 3", "{1} * 5"], ["9", "45"], "Teile zuerst durch den Zähler, um ein Teil zu erhalten.",
-    "27 km : 3 = 9 km ist ein Fünftel. Das Ganze sind 5 Fünftel: 5 · 9 km = 45 km.",
-    {0: [(81, None, "den Zähler mit 27 malgenommen statt geteilt", "27 * 3")], 1: [(27, None, "mit dem Zähler statt dem Nenner malgenommen", "{1} * 3")]}), regel="rr.bruchrechnen")
+    "3/5 einer Strecke sind 27 km lang. Zuerst bestimmst du, wie lang ein Fünftel ist: ① km. Dann bekommst du die ganze Strecke: ② km. Ohne diese 27 km ist die Strecke noch ③ km lang.",
+    KOMM(3), [9, 45, 18], ["27 / 3", "{1} * 5", "{2} - 27"], ["9", "45", "18"], "Teile zuerst durch den Zähler, um ein Teil zu erhalten.",
+    "27 km : 3 = 9 km ist ein Fünftel. Das Ganze sind 5 Fünftel: 5 · 9 km = 45 km. Ohne die 27 km bleiben 45 km − 27 km = 18 km.",
+    {0: [(81, None, "den Zähler mit 27 malgenommen statt geteilt", "27 * 3")], 1: [(27, None, "mit dem Zähler statt dem Nenner malgenommen", "{1} * 3")],
+     2: [(72, None, "die 27 km dazugezählt statt abgezogen", "{2} + 27")]}), regel="rr.bruchrechnen")
 neu(T, "ganzes_bestimmen", "anwenden", Z(
     "Ein Händler verkauft am Montag 2/5 seiner Äpfel. Das sind 18 kg. Wie viele Kilogramm Äpfel hatte er vorher?",
     45, "18 / 2 * 5", "18 * 5 / 2", "Wie viel kg sind ein Fünftel?",
@@ -53,15 +55,16 @@ neu(T, "ganzes_bestimmen", "umkehren", Z(
 
 # ───────── erweitern ─────────
 neu(T, "erweitern", "lueckenweg", L(
-    "Erweitere 5/6 auf den Nenner 42. Wie oft passt der alte Nenner in den neuen? Die Erweiterungszahl ist ①. Der neue Zähler ist ②.",
-    KOMM(2), [7, 35], ["42 / 6", "5 * {1}"], ["7", "35"], "Mit welcher Zahl wird aus dem Nenner 6 der Nenner 42?",
-    "42 : 6 = 7. Zähler und Nenner werden mit 7 malgenommen: 5 · 7 = 35. Also 5/6 = 35/42.",
-    {0: [(36, None, "42 − 6 gerechnet statt zu teilen", "42 - 6")], 1: [(12, None, "die Erweiterungszahl zum Zähler addiert statt malgenommen", "5 + {1}")]}), regel="rr.kuerzen")
+    "Erweitere 3/8 auf den Nenner 56. Wie oft passt der alte Nenner in den neuen? Die Erweiterungszahl ist ①. Der neue Zähler ist ②. Bis zum Ganzen fehlen dem Bruch dann ③ Sechsundfünfzigstel.",
+    KOMM(3), [7, 21, 35], ["56 / 8", "3 * {1}", "56 - {2}"], ["7", "21", "35"], "Mit welcher Zahl wird aus dem Nenner 8 der Nenner 56?",
+    "56 : 8 = 7. Zähler und Nenner werden mit 7 malgenommen: 3 · 7 = 21. Also 3/8 = 21/56. Das Ganze sind 56/56, es fehlen 56 − 21 = 35 Sechsundfünfzigstel.",
+    {0: [(48, None, "56 − 8 gerechnet statt zu teilen", "56 - 8")], 1: [(10, None, "die Erweiterungszahl zum Zähler addiert statt malgenommen", "3 + {1}")],
+     2: [(21, None, "den Zähler selbst als fehlenden Teil angegeben", "{2}")]}), regel="rr.kuerzen")
 neu(T, "erweitern", "umkehren", Z(
-    "Der Bruch 7/9 wurde erweitert. Es entstand 63/81. Mit welcher Zahl wurde erweitert?",
-    9, "63 / 7", "81 / 9", "Wie oft passt der alte Zähler in den neuen?",
-    "63 : 7 = 9 und 81 : 9 = 9. Es wurde mit 9 erweitert.",
-    [(7, None, "63 durch den alten Nenner 9 geteilt", "63 / 9"), (18, None, "81 − 63 gerechnet", "81 - 63")]), regel="rr.kuerzen")
+    "Der Bruch 6/7 wurde erweitert. Es entstand 48/56. Mit welcher Zahl wurde erweitert?",
+    8, "48 / 6", "56 / 7", "Wie oft passt der alte Zähler in den neuen?",
+    "48 : 6 = 8 und 56 : 7 = 8. Es wurde mit 8 erweitert.",
+    [(42, None, "48 − 6 gerechnet", "48 - 6"), (49, None, "56 − 7 gerechnet", "56 - 7")]), regel="rr.kuerzen")
 neu(T, "erweitern", "anwenden", Z(
     "Eine Pizza ist in 8 gleiche Stücke geschnitten. Tim isst 3 Stücke. Eine zweite, gleich große Pizza ist in 24 gleiche Stücke geschnitten. Wie viele von diesen kleinen Stücken muss Ben essen, um genauso viel Pizza zu essen wie Tim?",
     9, "3 * (24 / 8)", "24 * 3 / 8", "Wie viele kleine Stücke ergeben ein großes Stück?",
@@ -93,13 +96,14 @@ neu(T, "ggt", "fehler_detektiv", FD(
 
 # ───────── kuerzen ─────────
 neu(T, "kuerzen", "lueckenweg", L(
-    "Kürze 84/126 vollständig. Zuerst durch 6: ①/②. Dann durch 7: ③/3.",
-    KOMM(3), [14, 21, 2], ["84 / 6", "126 / 6", "{1} / 7"], ["14", "21", "2"], "Teile Zähler und Nenner durch dieselbe Zahl.",
+    "Kürze 84/126 vollständig. Zuerst durch 6: ①/②. Dann durch 7: ③/④.",
+    KOMM(4), [14, 21, 2, 3], ["84 / 6", "126 / 6", "{1} / 7", "{2} / 7"], ["14", "21", "2", "3"], "Teile Zähler und Nenner durch dieselbe Zahl.",
     "84 : 6 = 14 und 126 : 6 = 21. Dann durch 7: 14 : 7 = 2 und 21 : 7 = 3. Also 84/126 = 2/3.",
-    {0: [(78, None, "6 abgezogen statt geteilt", "84 - 6")], 1: [(120, None, "6 abgezogen statt geteilt", "126 - 6")], 2: [(7, None, "durch 2 statt durch 7 geteilt", "{1} / 2")]}), regel="rr.kuerzen")
+    {0: [(78, None, "6 abgezogen statt geteilt", "84 - 6")], 1: [(120, None, "6 abgezogen statt geteilt", "126 - 6")], 2: [(7, None, "durch 2 statt durch 7 geteilt", "{1} / 2")],
+     3: [(7, None, "durch 3 statt durch 7 geteilt", "{2} / 3")]}), regel="rr.kuerzen")
 neu(T, "kuerzen", "bruecke", L(
-    "Ein Rabatt von 35 % soll als vollständig gekürzter Bruch geschrieben werden. 35 % bedeutet 35/100. Schreibe den Bruch gekürzt.",
-    "□/□", [7, 20], ["35 / 5", "100 / 5"], ["7", "20"], "Prozent heißt „von hundert“. Kürze dann mit dem ggT von 35 und 100.",
+    "Ein Rabatt von 35 % soll als vollständig gekürzter Bruch geschrieben werden. Schreibe den Bruch gekürzt.",
+    "□/□", [7, 20], ["35 / 5", "100 / 5"], ["7", "20"], "Prozent heißt „von hundert“. Kürze danach vollständig.",
     "35 % = 35/100. Der ggT von 35 und 100 ist 5. 35 : 5 = 7 und 100 : 5 = 20. Also 35 % = 7/20.",
     {0: [(35, None, "nicht gekürzt: Zähler 35 stehen gelassen", "35 / 1")], 1: [(100, None, "nicht gekürzt: Nenner 100 stehen gelassen", "100 / 1")]},
     hinweis="Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."), regel="rr.kuerzen")
@@ -111,10 +115,11 @@ neu(T, "kuerzen", "umkehren", Z(
 
 # ───────── verhaeltnis_kuerzen ─────────
 neu(T, "verhaeltnis_kuerzen", "lueckenweg", L(
-    "Kürze das Verhältnis 72 : 120 vollständig. Teile beide Zahlen durch 12: ① : ②. Teile dann durch 2: ③ : 5.",
-    KOMM(3), [6, 10, 3], ["72 / 12", "120 / 12", "{1} / 2"], ["6", "10", "3"], "Du teilst beide Zahlen des Verhältnisses durch dieselbe Zahl.",
+    "Kürze das Verhältnis 72 : 120 vollständig. Teile beide Zahlen durch 12: ① : ②. Teile dann durch 2: ③ : ④.",
+    KOMM(4), [6, 10, 3, 5], ["72 / 12", "120 / 12", "{1} / 2", "{2} / 2"], ["6", "10", "3", "5"], "Du teilst beide Zahlen des Verhältnisses durch dieselbe Zahl.",
     "72 : 12 = 6 und 120 : 12 = 10. Dann durch 2: 3 : 5. Das Verhältnis ist 3 : 5.",
-    {0: [(60, None, "12 abgezogen statt geteilt", "72 - 12")], 1: [(108, None, "12 abgezogen statt geteilt", "120 - 12")], 2: [(4, None, "2 abgezogen statt geteilt", "{1} - 2")]}), regel="id.verhaeltnisse.groesse")
+    {0: [(60, None, "12 abgezogen statt geteilt", "72 - 12")], 1: [(108, None, "12 abgezogen statt geteilt", "120 - 12")], 2: [(4, None, "2 abgezogen statt geteilt", "{1} - 2")],
+     3: [(8, None, "2 abgezogen statt geteilt", "{2} - 2")]}), regel="id.verhaeltnisse.groesse")
 neu(T, "verhaeltnis_kuerzen", "anwenden", Z(
     "Ein Müsli besteht aus 450 g Haferflocken und 270 g Nüssen. Das Verhältnis Haferflocken : Nüsse wird vollständig gekürzt und als a : b geschrieben. Wie groß ist a + b?",
     8, "450 / 90 + 270 / 90", "5 + 3", "Kürze mit dem ggT von 450 und 270.",
@@ -129,15 +134,17 @@ neu(T, "verhaeltnis_kuerzen", "fehler_detektiv", FD(
 
 # ───────── gleichwertig ─────────
 neu(T, "gleichwertig", "lueckenweg", L(
-    "Das Verhältnis 24 : ? soll gleichwertig zu 6 : 8 sein. Die Erweiterungszahl ist ①. Die gesuchte Zahl ist ②.",
-    KOMM(2), [4, 32], ["24 / 6", "8 * {1}"], ["4", "32"], "Mit welcher Zahl wird aus der 6 die 24?",
-    "24 : 6 = 4. Beide Zahlen werden mit 4 malgenommen: 8 · 4 = 32. 24 : 32 ist gleichwertig zu 6 : 8.",
-    {0: [(18, None, "24 − 6 gerechnet statt zu teilen", "24 - 6")], 1: [(12, None, "8 + 4 gerechnet statt 8 · 4", "8 + {1}")]}), regel="id.verhaeltnisse.groesse")
+    "Das Verhältnis 24 : ? soll gleichwertig zu 6 : 8 sein. Die Erweiterungszahl ist ①. Die gesuchte Zahl ist ②. Die Summe aus 24 und der gesuchten Zahl ist ③.",
+    KOMM(3), [4, 32, 56], ["24 / 6", "8 * {1}", "24 + {2}"], ["4", "32", "56"], "Mit welcher Zahl wird aus der 6 die 24?",
+    "24 : 6 = 4. Beide Zahlen werden mit 4 malgenommen: 8 · 4 = 32. 24 : 32 ist gleichwertig zu 6 : 8. Die Summe ist 24 + 32 = 56.",
+    {0: [(18, None, "24 − 6 gerechnet statt zu teilen", "24 - 6")], 1: [(12, None, "8 + 4 gerechnet statt 8 · 4", "8 + {1}")],
+     2: [(32, None, "nur die gesuchte Zahl angegeben, die 24 nicht dazugezählt", "{2}")]}), regel="id.verhaeltnisse.groesse")
 neu(T, "gleichwertig", "bruecke", L(
-    "Wasser und Sirup werden im Verhältnis 5 : 3 gemischt. Welcher Bruchteil der Mischung ist Sirup? Schreibe ihn als Bruch.",
-    "□/□", [3, 8], ["3", "5 + 3"], ["3", "8"], "Wie viele gleiche Teile hat die ganze Mischung?",
-    "5 Teile Wasser und 3 Teile Sirup sind zusammen 8 Teile. Sirup ist 3/8 der Mischung.",
-    {0: [(5, None, "den Wasseranteil als Zähler genommen", "5")], 1: [(5, None, "den anderen Teil statt des Ganzen als Nenner genommen", "5")]},
+    "Eine Farbmischung besteht aus 12 Teilen Blau und 18 Teilen Weiß. Welcher Bruchteil der Mischung ist Blau? Schreibe ihn als vollständig gekürzten Bruch.",
+    "□/□", [2, 5], ["12 / 6", "(12 + 18) / 6"], ["2", "5"], "Wie viele gleiche Teile hat die ganze Mischung? Kürze danach vollständig.",
+    "12 Teile Blau und 18 Teile Weiß sind zusammen 30 Teile. Blau ist 12/30 der Mischung, gekürzt durch 6: 2/5.",
+    {0: [(12, None, "nicht gekürzt: die 12 Teile Blau als Zähler stehen gelassen", "12 / 1")],
+     1: [(3, None, "den Nenner aus den Teilen Weiß gebildet und gekürzt: 18 durch 6", "18 / 6"), (30, None, "nicht gekürzt: alle 30 Teile als Nenner stehen gelassen", "(12 + 18) / 1")]},
     hinweis="Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."), regel="id.verhaeltnisse.groesse")
 neu(T, "gleichwertig", "anwenden", Z(
     "Auf einer Karte entsprechen 3 cm in Wirklichkeit 12 km. Zwei Orte sind auf der Karte 8,5 cm voneinander entfernt. Wie weit sind sie in Wirklichkeit voneinander entfernt, in Kilometern?",
@@ -147,10 +154,11 @@ neu(T, "gleichwertig", "anwenden", Z(
 
 # ───────── gemischte_zahlen ─────────
 neu(T, "gemischte_zahlen", "lueckenweg", L(
-    "Schreibe 47/6 als gemischte Zahl. Die 6 passt ganz ① Mal in 47. Der Rest ist ②. Also ist 47/6 = ① ②/6.",
-    KOMM(2), [7, 5], ["47 // 6", "47 - 6 * {1}"], ["7", "5"], "Wie oft passt der Nenner ganz in den Zähler?",
-    "47 : 6 = 7 Rest 5. Die gemischte Zahl ist 7 5/6.",
-    {0: [(8, None, "aufgerundet statt abgerundet", "47 // 6 + 1")], 1: [(11, None, "den Rest mit nur 6 Ganzen berechnet: 47 − 6 · 6", "47 - 6 * 6")]}), regel="id.zahlen.schreibweisen")
+    "Schreibe 59/8 als gemischte Zahl. Die 8 passt ganz ① Mal in 59. Der Rest ist ②. Also ist 59/8 = ① + ②/8. Bis zur nächsten ganzen Zahl fehlen noch ③ Achtel.",
+    KOMM(3), [7, 3, 5], ["59 // 8", "59 - 8 * {1}", "8 - {2}"], ["7", "3", "5"], "Wie oft passt der Nenner ganz in den Zähler?",
+    "59 : 8 = 7 Rest 3. Die gemischte Zahl ist 7 3/8. Bis zur 8 fehlen 8 − 3 = 5 Achtel.",
+    {0: [(8, None, "aufgerundet statt abgerundet", "59 // 8 + 1")], 1: [(11, None, "den Rest mit nur 6 Ganzen berechnet: 59 − 6 · 8", "59 - 8 * 6")],
+     2: [(3, None, "den Rest selbst als fehlenden Teil angegeben", "{2}")]}), regel="id.zahlen.schreibweisen")
 neu(T, "gemischte_zahlen", "anwenden", Z(
     "Ein Brett ist 2 3/4 m lang. Daraus werden Stücke von je 1/4 m Länge gesägt. Wie viele Stücke ergibt das?",
     11, "(2 + 3/4) / (1/4)", "2 * 4 + 3", "Wie viele Viertelmeter sind ein ganzer Meter?",
@@ -208,10 +216,10 @@ neu(T, "zahlenstrahl", "lueckenweg", L(
     {0: [(1, None, "nur durch 1 gekürzt: das ist ein gemeinsamer Teiler, aber nicht der größte", False)],
      1: [(10, None, "den Zähler nicht gekürzt", "10 / 1")], 2: [(15, None, "den Nenner nicht gekürzt", "15 / 1")]}), regel="id.zahlen.zahlengerade")
 neu(T, "zahlenstrahl", "bruecke", Z(
-    "Ein Zahlenstrahl geht von 0 bis 2. Er ist in 16 gleich lange Abschnitte geteilt. Der Punkt P liegt nach 6 Abschnitten. Welche Dezimalzahl gehört zu P?",
-    0.75, "2 * 6 / 16", "6 * 0.125", "Wie lang ist ein Abschnitt?",
-    "Ein Abschnitt ist 2 : 16 = 0,125 lang. Sechs Abschnitte sind 6 · 0,125 = 0,75.",
-    [(0.375, None, "die Strecke als 1 statt 2 gerechnet: 6 von 16 Teilen", "6 / 16"), (12, None, "6 · 2 gerechnet", "6 * 2")]), regel="id.zahlen.zahlengerade")
+    "Zwischen den Beschriftungen 0 und 1 liegen auf einem Zahlenstrahl 8 gleich lange Abschnitte. Der Punkt P liegt 13 Abschnitte rechts von 0. Welche Dezimalzahl gehört zu P?",
+    1.625, "13 / 8", "13 * 0.125", "Wie lang ist ein Abschnitt?",
+    "Ein Abschnitt ist 1 : 8 = 0,125 lang. 13 Abschnitte sind 13 · 0,125 = 1,625. P liegt zwischen 1 und 2, bei 1 5/8 = 1,625.",
+    [(1.3, None, "13 Abschnitte als 1,3 gelesen", "13 / 10"), (0.625, None, "nur die 5 Abschnitte hinter der 1 gerechnet, das Ganze vergessen", "5 / 8")]), regel="id.zahlen.zahlengerade")
 neu(T, "zahlenstrahl", "umkehren", L(
     "Auf dem Zahlenstrahl liegt B bei 5/6. Der Punkt M bei 1/2 ist die Mitte der Strecke von A bis B. Wo liegt A? Schreibe A als Bruch.",
     "□/□", [1, 6], ["(2 * (1/2) - 5/6) * 6", "6"], ["1", "6"], "Von A bis M ist der Weg genauso lang wie von M bis B.",
@@ -221,10 +229,11 @@ neu(T, "zahlenstrahl", "umkehren", L(
 
 # ───────── zahlbereiche ─────────
 neu(T, "zahlbereiche", "lueckenweg", L(
-    "Zähle die ganzen Zahlen, die größer als −6 und kleiner als 3 sind. Negative Zahlen: ①. Positive Zahlen: ②. Dazu kommt noch die Null. Insgesamt sind es ③ ganze Zahlen.",
-    KOMM(3), [5, 2, 8], ["6 - 1", "3 - 1", "{1} + {2} + 1"], ["5", "2", "8"], "Die Grenzen selbst gehören nicht dazu.",
-    "Negativ: −5, −4, −3, −2, −1 (5 Zahlen). Positiv: 1, 2 (2 Zahlen). Dazu die 0: 5 + 2 + 1 = 8.",
-    {0: [(6, None, "die Grenze −6 mitgezählt", "6")], 1: [(3, None, "die Grenze 3 mitgezählt", "3")], 2: [(7, None, "die Null vergessen", "{1} + {2}")]},
+    "Zähle die ganzen Zahlen, die größer als −6 und kleiner als 3 sind. Negative Zahlen: ①. Positive Zahlen: ②. Dazu kommt noch die Null. Insgesamt sind es ③ ganze Zahlen. Nimmt man die beiden Grenzen noch dazu, sind es ④ ganze Zahlen.",
+    KOMM(4), [5, 2, 8, 10], ["6 - 1", "3 - 1", "{1} + {2} + 1", "{3} + 2"], ["5", "2", "8", "10"], "Die Grenzen selbst gehören nicht dazu.",
+    "Negativ: −5, −4, −3, −2, −1 (5 Zahlen). Positiv: 1, 2 (2 Zahlen). Dazu die 0: 5 + 2 + 1 = 8. Mit den Grenzen −6 und 3 sind es 8 + 2 = 10.",
+    {0: [(6, None, "die Grenze −6 mitgezählt", "6")], 1: [(3, None, "die Grenze 3 mitgezählt", "3")], 2: [(7, None, "die Null vergessen", "{1} + {2}")],
+     3: [(8, None, "die Grenzen nicht dazugezählt", "{3}")]},
     hinweis="Je Lücke eine ganze Zahl."), regel="id.zahlen.zahlengerade")
 neu(T, "zahlbereiche", "bruecke", Z(
     "Die ganze Zahl −3 soll als Bruch mit dem Nenner 4 geschrieben werden: −3 = ?/4. Welche Zahl steht im Zähler?",

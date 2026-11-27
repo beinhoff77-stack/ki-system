@@ -45,7 +45,7 @@ neu(T, "einheiten", "bruecke", W(
     [("34 dm³", "mit 100 statt mit 1000 umgerechnet"), ("0,34 dm³", "mit 10 000 geteilt"), ("3,4 m³", "dm³ mit m³ verwechselt")],
     "Wie viele cm³ hat ein dm³?",
     "1 dm³ = 1000 cm³. 3 400 cm³ : 1000 = 3,4 dm³.",
-    lambda: F(3400, 1000) == F(34, 10)), regel="id.flaeche_raum.aus_dem_quader")
+    lambda: F(3400, 1000) == F(34, 10) and F(3400, 100) == 34 and F(3400, 10000) == F(34, 100) and F(34, 10) * 1000 == 3400 and F(34, 10) != 3400 * 1000), regel="id.flaeche_raum.aus_dem_quader")
 neu(T, "einheiten", "anwenden", Z(
     "Ein Schwimmbecken enthält 45 m³ Wasser. Mit einem Eimer, der 12 Liter fasst, soll es leer geschöpft werden. Wie oft muss man den Eimer füllen? (1 m³ sind 1000 Liter)",
     3750, "45 * 1000 / 12", "45000 / 12", "Rechne zuerst die Wassermenge in Liter um.",
@@ -57,7 +57,7 @@ neu(T, "liter", "lueckenweg", L(
     "Ein Aquarium ist innen 60 cm lang, 30 cm breit und 40 cm hoch. Sein Volumen ist ① cm³. Das sind ② Liter. Steht das Wasser 5 cm unter dem Rand, sind ③ Liter darin.",
     KOMM(3), [72000, 72, 63], ["60 * 30 * 40", "{1} / 1000", "{2} - 60 * 30 * 5 / 1000"], ["72000", "72", "63"], "Ein Liter ist 1 dm³ = 1000 cm³.",
     "V = 60 · 30 · 40 = 72 000 cm³ = 72 Liter. Die 5 cm unter dem Rand sind 60 · 30 · 5 = 9000 cm³ = 9 Liter. 72 − 9 = 63 Liter.",
-    {0: [(130, None, "die Maße addiert", "60 + 30 + 40")], 1: [(7.2, None, "durch 10 000 statt durch 1000 geteilt", "{1} / 10000")], 2: [(9, None, "nur die fehlende Schicht angegeben", "60 * 30 * 5 / 1000")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.aus_dem_quader")
+    {0: [(130, None, "die Maße addiert", "60 + 30 + 40")], 1: [(720, None, "durch 100 statt durch 1000 geteilt", "{1} / 100")], 2: [(9, None, "nur die fehlende Schicht angegeben", "60 * 30 * 5 / 1000")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.aus_dem_quader")
 neu(T, "liter", "bruecke", Z(
     "In ein quaderförmiges Becken (50 cm lang, 30 cm breit) wird Wasser eingefüllt. Der Wasserspiegel steigt dabei um 4 cm. Wie viele Liter Wasser wurden eingefüllt?",
     6, "50 * 30 * 4 / 1000", "1500 * 4 / 1000", "Das eingefüllte Wasser bildet einen flachen Quader.",
@@ -87,10 +87,11 @@ neu(T, "rueckwaerts", "fehler_detektiv", FD(
 
 # ───────── zusammengesetzt ─────────
 neu(T, "zusammengesetzt", "lueckenweg", L(
-    "Ein Körper besteht aus einem großen Quader (12 cm lang, 5 cm breit, 4 cm hoch). Obendrauf liegt ein kleiner Quader (4 cm lang, 5 cm breit, 3 cm hoch). Der große Quader hat ① cm³. Der kleine hat ② cm³. Zusammen sind es ③ cm³.",
-    KOMM(3), [240, 60, 300], ["12 * 5 * 4", "4 * 5 * 3", "{1} + {2}"], ["240", "60", "300"], "Rechne jeden Quader einzeln und addiere dann.",
-    "Großer Quader: 12 · 5 · 4 = 240 cm³. Kleiner Quader: 4 · 5 · 3 = 60 cm³. Zusammen: 300 cm³.",
-    {0: [(21, None, "die Maße addiert", "12 + 5 + 4")], 1: [(12, None, "die Maße addiert", "4 + 5 + 3")], 2: [(180, None, "abgezogen statt addiert", "{1} - {2}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.aus_dem_quader")
+    "Ein Körper besteht aus einem großen Quader (12 cm lang, 5 cm breit, 4 cm hoch). Obendrauf liegt ein kleiner Quader (4 cm lang, 5 cm breit, 3 cm hoch). Der große Quader hat ① cm³. Der kleine hat ② cm³. Zusammen sind es ③ cm³. Der Körper besteht aus Ton, jeder cm³ wiegt 2 g. Der Körper wiegt ④ g.",
+    KOMM(4), [240, 60, 300, 600], ["12 * 5 * 4", "4 * 5 * 3", "{1} + {2}", "{3} * 2"], ["240", "60", "300", "600"], "Rechne jeden Quader einzeln und addiere dann.",
+    "Großer Quader: 12 · 5 · 4 = 240 cm³. Kleiner Quader: 4 · 5 · 3 = 60 cm³. Zusammen: 300 cm³. Gewicht: 300 · 2 g = 600 g.",
+    {0: [(21, None, "die Maße addiert", "12 + 5 + 4")], 1: [(12, None, "die Maße addiert", "4 + 5 + 3")], 2: [(180, None, "abgezogen statt addiert", "{1} - {2}")],
+     3: [(300, None, "das Gewicht je cm³ nicht beachtet", "{3}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.aus_dem_quader")
 neu(T, "zusammengesetzt", "zwei_wege", Z(
     "Aus einem Quader (8 cm lang, 6 cm breit, 5 cm hoch) wird an einer oberen Kante ein Quader von 3 cm Länge, 6 cm Breite und 2 cm Höhe herausgeschnitten. Weg A: Rechne den ganzen Quader minus den herausgeschnittenen Teil. Weg B: Zerlege den Rest in zwei Quader und addiere. Wie groß ist das Volumen des Restkörpers in cm³?",
     204, "8 * 6 * 5 - 3 * 6 * 2", "8 * 6 * 3 + (8 - 3) * 6 * 2", "Beide Wege müssen dasselbe Volumen ergeben.",
@@ -104,15 +105,16 @@ neu(T, "zusammengesetzt", "anwenden", Z(
 
 # ───────── verstehen ─────────
 neu(T, "verstehen", "lueckenweg", L(
-    "Ein Würfel hat die Kantenlänge 5 cm. Sein Volumen ist ① cm³. Wird jede Kante verdoppelt, ist die neue Kantenlänge ② cm und das neue Volumen ③ cm³.",
-    KOMM(3), [125, 10, 1000], ["5 ** 3", "5 * 2", "{2} ** 3"], ["125", "10", "1000"], "Bei einem Würfel wird die Kantenlänge dreimal malgenommen.",
-    "V = 5 · 5 · 5 = 125 cm³. Neue Kante: 10 cm. Neues Volumen: 10 · 10 · 10 = 1000 cm³. Das Volumen ist 8-mal so groß.",
-    {0: [(15, None, "5 · 3 gerechnet", "5 * 3")], 1: [(7, None, "2 addiert statt verdoppelt", "5 + 2")], 2: [(250, None, "das Volumen nur verdoppelt", "{1} * 2")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.aus_dem_quader")
+    "Ein Würfel hat die Kantenlänge 5 cm. Sein Volumen ist ① cm³. Wird jede Kante verdoppelt, ist die neue Kantenlänge ② cm und das neue Volumen ③ cm³. Das neue Volumen ist ④-mal so groß wie das alte.",
+    KOMM(4), [125, 10, 1000, 8], ["5 ** 3", "5 * 2", "{2} ** 3", "{3} / {1}"], ["125", "10", "1000", "8"], "Bei einem Würfel wird die Kantenlänge dreimal malgenommen.",
+    "V = 5 · 5 · 5 = 125 cm³. Neue Kante: 10 cm. Neues Volumen: 10 · 10 · 10 = 1000 cm³. Das Volumen ist 1000 : 125 = 8-mal so groß.",
+    {0: [(15, None, "5 · 3 gerechnet", "5 * 3")], 1: [(7, None, "2 addiert statt verdoppelt", "5 + 2")], 2: [(250, None, "das Volumen nur verdoppelt", "{1} * 2")],
+     3: [(2, None, "gedacht, mit der Kante verdoppelt sich auch das Volumen", "2"), (4, None, "wie bei der Fläche gerechnet: 2 · 2", "2 * 2")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.aus_dem_quader")
 neu(T, "verstehen", "umkehren", Z(
     "Ein Würfel hat das Volumen 343 cm³. Wie viele Quadratzentimeter hat eine seiner Seitenflächen?",
     49, "7 * 7", "343 / 7", "Wie lang ist eine Kante? Welche Zahl mal sich selbst mal sich selbst ergibt 343?",
     "7 · 7 · 7 = 343, die Kante ist 7 cm lang. Eine Seitenfläche ist 7 · 7 = 49 cm². Probe: 343 : 7 = 49.",
-    [(343, None, "das Volumen angegeben", "343"), (114.33, None, "343 durch 3 geteilt", "343 / 3"), (7, None, "nur die Kantenlänge angegeben", "7")], "cm²"), regel="id.flaeche_raum.aus_dem_quader")
+    [(343, None, "das Volumen angegeben", "343"), (294, None, "die Oberfläche statt einer Seitenfläche angegeben", "6 * 7 * 7"), (7, None, "nur die Kantenlänge angegeben", "7")], "cm²"), regel="id.flaeche_raum.aus_dem_quader")
 neu(T, "verstehen", "fehler_detektiv", FD(
     "Tim behauptet: „Verdoppelt man die Kantenlänge eines Würfels, verdoppelt sich das Volumen.“ Er prüft es.",
     [("Kante 2 cm: V = 2 · 2 · 2 = 8 cm³", 2 ** 3 == 8), ("Kante 4 cm: V = 4 · 4 · 4 = 64 cm³", 4 ** 3 == 64), ("64 : 8 = 8", F(64, 8) == 8), ("Also hat sich das Volumen verdoppelt.", F(64, 8) == 2)],

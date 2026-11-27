@@ -39,6 +39,22 @@
      "regel_des_fehlbilds": null,
      "beschreibung": "den Zähler dazugezählt statt malgenommen",
      "c": "(7) + 3"
+    },
+    {
+     "luecke": 3,
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Teil statt des Rests angegeben",
+     "c": "(21)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 49,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Achtel abgezogen statt drei Achtel",
+     "c": "56 - (7)"
     }
    ],
    "aufgabe": {
@@ -49,22 +65,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Berechne 3/8 von 56 kg. Zuerst teilst du durch den Nenner: Ein Achtel sind ① kg. Dann nimmst du so viele Teile, wie der Zähler sagt: 3/8 sind ② kg.",
-     "schablone": "① = □; ② = □",
+     "text": "Berechne 3/8 von 56 kg. Zuerst teilst du durch den Nenner: Ein Achtel sind ① kg. Dann nimmst du so viele Teile, wie der Zähler sagt: 3/8 sind ② kg. Der Rest der 56 kg wiegt ③ kg.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       7,
-      21
+      21,
+      35
      ]
     },
     "c": [
      "56 / 8",
-     "(7) * 3"
+     "(7) * 3",
+     "56 - (21)"
     ],
     "h": "Der Nenner sagt, in wie viele gleiche Teile du das Ganze teilst.",
-    "w": "56 kg : 8 = 7 kg ist ein Achtel. Drei Achtel sind 3 · 7 kg = 21 kg."
+    "w": "56 kg : 8 = 7 kg ist ein Achtel. Drei Achtel sind 3 · 7 kg = 21 kg. Der Rest ist 56 kg − 21 kg = 35 kg."
    }
   },
   {
@@ -132,11 +150,11 @@
      "c": "24 * (3/8 + 1/4)"
     },
     {
-     "antwort": 3.75,
+     "antwort": 11.25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "1/4 vom Rest (15 km) statt vom ganzen Weg genommen",
-     "c": "(24 - 24 * 3/8) / 4"
+     "beschreibung": "am zweiten Tag 1/4 vom Rest (15 km) statt vom ganzen Weg genommen",
+     "c": "(24 - 24 * 3/8) - (24 - 24 * 3/8) / 4"
     }
    ],
    "aufgabe": {
@@ -348,6 +366,14 @@
      "regel_des_fehlbilds": null,
      "beschreibung": "mit dem Zähler statt dem Nenner malgenommen",
      "c": "(9) * 3"
+    },
+    {
+     "luecke": 3,
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 27 km dazugezählt statt abgezogen",
+     "c": "(45) + 27"
     }
    ],
    "aufgabe": {
@@ -358,22 +384,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "3/5 einer Strecke sind 27 km lang. Zuerst bestimmst du, wie lang ein Fünftel ist: ① km. Dann bekommst du die ganze Strecke: ② km.",
-     "schablone": "① = □; ② = □",
+     "text": "3/5 einer Strecke sind 27 km lang. Zuerst bestimmst du, wie lang ein Fünftel ist: ① km. Dann bekommst du die ganze Strecke: ② km. Ohne diese 27 km ist die Strecke noch ③ km lang.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       9,
-      45
+      45,
+      18
      ]
     },
     "c": [
      "27 / 3",
-     "(9) * 5"
+     "(9) * 5",
+     "(45) - 27"
     ],
     "h": "Teile zuerst durch den Zähler, um ein Teil zu erhalten.",
-    "w": "27 km : 3 = 9 km ist ein Fünftel. Das Ganze sind 5 Fünftel: 5 · 9 km = 45 km."
+    "w": "27 km : 3 = 9 km ist ein Fünftel. Das Ganze sind 5 Fünftel: 5 · 9 km = 45 km. Ohne die 27 km bleiben 45 km − 27 km = 18 km."
    }
   },
   {
@@ -482,19 +510,27 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 36,
+     "antwort": 48,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "42 − 6 gerechnet statt zu teilen",
-     "c": "42 - 6"
+     "beschreibung": "56 − 8 gerechnet statt zu teilen",
+     "c": "56 - 8"
     },
     {
      "luecke": 2,
-     "antwort": 12,
+     "antwort": 10,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Erweiterungszahl zum Zähler addiert statt malgenommen",
-     "c": "5 + (7)"
+     "c": "3 + (7)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler selbst als fehlenden Teil angegeben",
+     "c": "(21)"
     }
    ],
    "aufgabe": {
@@ -505,22 +541,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Erweitere 5/6 auf den Nenner 42. Wie oft passt der alte Nenner in den neuen? Die Erweiterungszahl ist ①. Der neue Zähler ist ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Erweitere 3/8 auf den Nenner 56. Wie oft passt der alte Nenner in den neuen? Die Erweiterungszahl ist ①. Der neue Zähler ist ②. Bis zum Ganzen fehlen dem Bruch dann ③ Sechsundfünfzigstel.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       7,
+      21,
       35
      ]
     },
     "c": [
-     "42 / 6",
-     "5 * (7)"
+     "56 / 8",
+     "3 * (7)",
+     "56 - (21)"
     ],
-    "h": "Mit welcher Zahl wird aus dem Nenner 6 der Nenner 42?",
-    "w": "42 : 6 = 7. Zähler und Nenner werden mit 7 malgenommen: 5 · 7 = 35. Also 5/6 = 35/42."
+    "h": "Mit welcher Zahl wird aus dem Nenner 8 der Nenner 56?",
+    "w": "56 : 8 = 7. Zähler und Nenner werden mit 7 malgenommen: 3 · 7 = 21. Also 3/8 = 21/56. Das Ganze sind 56/56, es fehlen 56 − 21 = 35 Sechsundfünfzigstel."
    }
   },
   {
@@ -536,18 +574,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 7,
+     "antwort": 42,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "63 durch den alten Nenner 9 geteilt",
-     "c": "63 / 9"
+     "beschreibung": "48 − 6 gerechnet",
+     "c": "48 - 6"
     },
     {
-     "antwort": 18,
+     "antwort": 49,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "81 − 63 gerechnet",
-     "c": "81 - 63"
+     "beschreibung": "56 − 7 gerechnet",
+     "c": "56 - 7"
     }
    ],
    "aufgabe": {
@@ -558,14 +596,14 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Der Bruch 7/9 wurde erweitert. Es entstand 63/81. Mit welcher Zahl wurde erweitert?"
+     "text": "Der Bruch 6/7 wurde erweitert. Es entstand 48/56. Mit welcher Zahl wurde erweitert?"
     },
     "o": {
-     "wert": 9
+     "wert": 8
     },
-    "c": "63 / 7",
+    "c": "48 / 6",
     "h": "Wie oft passt der alte Zähler in den neuen?",
-    "w": "63 : 7 = 9 und 81 : 9 = 9. Es wurde mit 9 erweitert."
+    "w": "48 : 6 = 8 und 56 : 7 = 8. Es wurde mit 8 erweitert."
    }
   },
   {
@@ -819,6 +857,14 @@
      "regel_des_fehlbilds": null,
      "beschreibung": "durch 2 statt durch 7 geteilt",
      "c": "(14) / 2"
+    },
+    {
+     "luecke": 4,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 3 statt durch 7 geteilt",
+     "c": "(21) / 3"
     }
    ],
    "aufgabe": {
@@ -829,21 +875,23 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Kürze 84/126 vollständig. Zuerst durch 6: ①/②. Dann durch 7: ③/3.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Kürze 84/126 vollständig. Zuerst durch 6: ①/②. Dann durch 7: ③/④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       14,
       21,
-      2
+      2,
+      3
      ]
     },
     "c": [
      "84 / 6",
      "126 / 6",
-     "(14) / 7"
+     "(14) / 7",
+     "(21) / 7"
     ],
     "h": "Teile Zähler und Nenner durch dieselbe Zahl.",
     "w": "84 : 6 = 14 und 126 : 6 = 21. Dann durch 7: 14 : 7 = 2 und 21 : 7 = 3. Also 84/126 = 2/3."
@@ -886,7 +934,7 @@
     "g": "darstellung",
     "y": "luecken",
     "f": {
-     "text": "Ein Rabatt von 35 % soll als vollständig gekürzter Bruch geschrieben werden. 35 % bedeutet 35/100. Schreibe den Bruch gekürzt.",
+     "text": "Ein Rabatt von 35 % soll als vollständig gekürzter Bruch geschrieben werden. Schreibe den Bruch gekürzt.",
      "schablone": "□/□",
      "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
     },
@@ -900,7 +948,7 @@
      "35 / 5",
      "100 / 5"
     ],
-    "h": "Prozent heißt „von hundert“. Kürze dann mit dem ggT von 35 und 100.",
+    "h": "Prozent heißt „von hundert“. Kürze danach vollständig.",
     "w": "35 % = 35/100. Der ggT von 35 und 100 ist 5. 35 : 5 = 7 und 100 : 5 = 20. Also 35 % = 7/20."
    }
   },
@@ -984,6 +1032,14 @@
      "regel_des_fehlbilds": null,
      "beschreibung": "2 abgezogen statt geteilt",
      "c": "(6) - 2"
+    },
+    {
+     "luecke": 4,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 abgezogen statt geteilt",
+     "c": "(10) - 2"
     }
    ],
    "aufgabe": {
@@ -994,21 +1050,23 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Kürze das Verhältnis 72 : 120 vollständig. Teile beide Zahlen durch 12: ① : ②. Teile dann durch 2: ③ : 5.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Kürze das Verhältnis 72 : 120 vollständig. Teile beide Zahlen durch 12: ① : ②. Teile dann durch 2: ③ : ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       6,
       10,
-      3
+      3,
+      5
      ]
     },
     "c": [
      "72 / 12",
      "120 / 12",
-     "(6) / 2"
+     "(6) / 2",
+     "(10) / 2"
     ],
     "h": "Du teilst beide Zahlen des Verhältnisses durch dieselbe Zahl.",
     "w": "72 : 12 = 6 und 120 : 12 = 10. Dann durch 2: 3 : 5. Das Verhältnis ist 3 : 5."
@@ -1137,6 +1195,14 @@
      "regel_des_fehlbilds": null,
      "beschreibung": "8 + 4 gerechnet statt 8 · 4",
      "c": "8 + (4)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 32,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die gesuchte Zahl angegeben, die 24 nicht dazugezählt",
+     "c": "(32)"
     }
    ],
    "aufgabe": {
@@ -1147,22 +1213,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Das Verhältnis 24 : ? soll gleichwertig zu 6 : 8 sein. Die Erweiterungszahl ist ①. Die gesuchte Zahl ist ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Das Verhältnis 24 : ? soll gleichwertig zu 6 : 8 sein. Die Erweiterungszahl ist ①. Die gesuchte Zahl ist ②. Die Summe aus 24 und der gesuchten Zahl ist ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       4,
-      32
+      32,
+      56
      ]
     },
     "c": [
      "24 / 6",
-     "8 * (4)"
+     "8 * (4)",
+     "24 + (32)"
     ],
     "h": "Mit welcher Zahl wird aus der 6 die 24?",
-    "w": "24 : 6 = 4. Beide Zahlen werden mit 4 malgenommen: 8 · 4 = 32. 24 : 32 ist gleichwertig zu 6 : 8."
+    "w": "24 : 6 = 4. Beide Zahlen werden mit 4 malgenommen: 8 · 4 = 32. 24 : 32 ist gleichwertig zu 6 : 8. Die Summe ist 24 + 32 = 56."
    }
   },
   {
@@ -1179,19 +1247,27 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 5,
+     "antwort": 12,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Wasseranteil als Zähler genommen",
-     "c": "5"
+     "beschreibung": "nicht gekürzt: die 12 Teile Blau als Zähler stehen gelassen",
+     "c": "12 / 1"
     },
     {
      "luecke": 2,
-     "antwort": 5,
+     "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den anderen Teil statt des Ganzen als Nenner genommen",
-     "c": "5"
+     "beschreibung": "den Nenner aus den Teilen Weiß gebildet und gekürzt: 18 durch 6",
+     "c": "18 / 6"
+    },
+    {
+     "luecke": 2,
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht gekürzt: alle 30 Teile als Nenner stehen gelassen",
+     "c": "(12 + 18) / 1"
     }
    ],
    "aufgabe": {
@@ -1202,22 +1278,22 @@
     "g": "darstellung",
     "y": "luecken",
     "f": {
-     "text": "Wasser und Sirup werden im Verhältnis 5 : 3 gemischt. Welcher Bruchteil der Mischung ist Sirup? Schreibe ihn als Bruch.",
+     "text": "Eine Farbmischung besteht aus 12 Teilen Blau und 18 Teilen Weiß. Welcher Bruchteil der Mischung ist Blau? Schreibe ihn als vollständig gekürzten Bruch.",
      "schablone": "□/□",
      "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
     },
     "o": {
      "werte": [
-      3,
-      8
+      2,
+      5
      ]
     },
     "c": [
-     "3",
-     "5 + 3"
+     "12 / 6",
+     "(12 + 18) / 6"
     ],
-    "h": "Wie viele gleiche Teile hat die ganze Mischung?",
-    "w": "5 Teile Wasser und 3 Teile Sirup sind zusammen 8 Teile. Sirup ist 3/8 der Mischung."
+    "h": "Wie viele gleiche Teile hat die ganze Mischung? Kürze danach vollständig.",
+    "w": "12 Teile Blau und 18 Teile Weiß sind zusammen 30 Teile. Blau ist 12/30 der Mischung, gekürzt durch 6: 2/5."
    }
   },
   {
@@ -1284,15 +1360,23 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "aufgerundet statt abgerundet",
-     "c": "47 // 6 + 1"
+     "c": "59 // 8 + 1"
     },
     {
      "luecke": 2,
      "antwort": 11,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Rest mit nur 6 Ganzen berechnet: 47 − 6 · 6",
-     "c": "47 - 6 * 6"
+     "beschreibung": "den Rest mit nur 6 Ganzen berechnet: 59 − 6 · 8",
+     "c": "59 - 8 * 6"
+    },
+    {
+     "luecke": 3,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rest selbst als fehlenden Teil angegeben",
+     "c": "(3)"
     }
    ],
    "aufgabe": {
@@ -1303,22 +1387,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Schreibe 47/6 als gemischte Zahl. Die 6 passt ganz ① Mal in 47. Der Rest ist ②. Also ist 47/6 = ① ②/6.",
-     "schablone": "① = □; ② = □",
+     "text": "Schreibe 59/8 als gemischte Zahl. Die 8 passt ganz ① Mal in 59. Der Rest ist ②. Also ist 59/8 = ① + ②/8. Bis zur nächsten ganzen Zahl fehlen noch ③ Achtel.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       7,
+      3,
       5
      ]
     },
     "c": [
-     "47 // 6",
-     "47 - 6 * (7)"
+     "59 // 8",
+     "59 - 8 * (7)",
+     "8 - (3)"
     ],
     "h": "Wie oft passt der Nenner ganz in den Zähler?",
-    "w": "47 : 6 = 7 Rest 5. Die gemischte Zahl ist 7 5/6."
+    "w": "59 : 8 = 7 Rest 3. Die gemischte Zahl ist 7 3/8. Bis zur 8 fehlen 8 − 3 = 5 Achtel."
    }
   },
   {
@@ -1822,18 +1908,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 0.375,
+     "antwort": 1.3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Strecke als 1 statt 2 gerechnet: 6 von 16 Teilen",
-     "c": "6 / 16"
+     "beschreibung": "13 Abschnitte als 1,3 gelesen",
+     "c": "13 / 10"
     },
     {
-     "antwort": 12,
+     "antwort": 0.625,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "6 · 2 gerechnet",
-     "c": "6 * 2"
+     "beschreibung": "nur die 5 Abschnitte hinter der 1 gerechnet, das Ganze vergessen",
+     "c": "5 / 8"
     }
    ],
    "aufgabe": {
@@ -1844,14 +1930,14 @@
     "g": "darstellung",
     "y": "zahl",
     "f": {
-     "text": "Ein Zahlenstrahl geht von 0 bis 2. Er ist in 16 gleich lange Abschnitte geteilt. Der Punkt P liegt nach 6 Abschnitten. Welche Dezimalzahl gehört zu P?"
+     "text": "Zwischen den Beschriftungen 0 und 1 liegen auf einem Zahlenstrahl 8 gleich lange Abschnitte. Der Punkt P liegt 13 Abschnitte rechts von 0. Welche Dezimalzahl gehört zu P?"
     },
     "o": {
-     "wert": 0.75
+     "wert": 1.625
     },
-    "c": "2 * 6 / 16",
+    "c": "13 / 8",
     "h": "Wie lang ist ein Abschnitt?",
-    "w": "Ein Abschnitt ist 2 : 16 = 0,125 lang. Sechs Abschnitte sind 6 · 0,125 = 0,75."
+    "w": "Ein Abschnitt ist 1 : 8 = 0,125 lang. 13 Abschnitte sind 13 · 0,125 = 1,625. P liegt zwischen 1 und 2, bei 1 5/8 = 1,625."
    }
   },
   {
@@ -1944,6 +2030,14 @@
      "regel_des_fehlbilds": null,
      "beschreibung": "die Null vergessen",
      "c": "(5) + (2)"
+    },
+    {
+     "luecke": 4,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grenzen nicht dazugezählt",
+     "c": "(8)"
     }
    ],
    "aufgabe": {
@@ -1954,24 +2048,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Zähle die ganzen Zahlen, die größer als −6 und kleiner als 3 sind. Negative Zahlen: ①. Positive Zahlen: ②. Dazu kommt noch die Null. Insgesamt sind es ③ ganze Zahlen.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Zähle die ganzen Zahlen, die größer als −6 und kleiner als 3 sind. Negative Zahlen: ①. Positive Zahlen: ②. Dazu kommt noch die Null. Insgesamt sind es ③ ganze Zahlen. Nimmt man die beiden Grenzen noch dazu, sind es ④ ganze Zahlen.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       5,
       2,
-      8
+      8,
+      10
      ]
     },
     "c": [
      "6 - 1",
      "3 - 1",
-     "(5) + (2) + 1"
+     "(5) + (2) + 1",
+     "(8) + 2"
     ],
     "h": "Die Grenzen selbst gehören nicht dazu.",
-    "w": "Negativ: −5, −4, −3, −2, −1 (5 Zahlen). Positiv: 1, 2 (2 Zahlen). Dazu die 0: 5 + 2 + 1 = 8."
+    "w": "Negativ: −5, −4, −3, −2, −1 (5 Zahlen). Positiv: 1, 2 (2 Zahlen). Dazu die 0: 5 + 2 + 1 = 8. Mit den Grenzen −6 und 3 sind es 8 + 2 = 10."
    }
   },
   {

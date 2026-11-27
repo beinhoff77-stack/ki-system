@@ -97,11 +97,11 @@
      "c": "14 / 40"
     },
     {
-     "antwort": 2.8,
+     "antwort": 65,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur durch 5 geteilt",
-     "c": "14 / 5"
+     "beschreibung": "den Anteil der nicht gefärbten Kästchen berechnet",
+     "c": "(40 - 14) / 40 * 100"
     }
    ],
    "aufgabe": {
@@ -517,11 +517,11 @@
     },
     {
      "luecke": 2,
-     "antwort": 6.75,
+     "antwort": 103,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "15 % von 45 gerechnet statt den Grundwert gesucht",
-     "c": "45 * 15 / 100"
+     "beschreibung": "100 dazugezählt statt malgenommen",
+     "c": "(3) + 100"
     },
     {
      "luecke": 3,
@@ -904,15 +904,15 @@
      "antwort": 14.4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "40 durch 10 statt durch 100 geteilt",
-     "c": "40 / 100 * 36"
+     "beschreibung": "1 % als 0,36° statt als 3,6° gerechnet",
+     "c": "40 * 0.36"
     },
     {
-     "antwort": 160,
+     "antwort": 40,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "40 · 4 gerechnet",
-     "c": "40 * 4"
+     "beschreibung": "die Prozentzahl als Gradzahl genommen",
+     "c": "40"
     }
    ],
    "aufgabe": {

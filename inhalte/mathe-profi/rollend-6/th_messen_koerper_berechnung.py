@@ -18,10 +18,11 @@ neu(T, "quader", "umkehren", Z(
 
 # ───────── oberflaeche ─────────
 neu(T, "oberflaeche", "lueckenweg", L(
-    "Ein Quader ist 10 cm lang, 6 cm breit und 4 cm hoch. Boden und Deckel zusammen haben ① cm². Vorder- und Rückseite zusammen haben ② cm². Die beiden Seitenflächen zusammen haben ③ cm². Die Oberfläche ist ④ cm².",
-    KOMM(4), [120, 80, 48, 248], ["2 * 10 * 6", "2 * 10 * 4", "2 * 6 * 4", "{1} + {2} + {3}"], ["120", "80", "48", "248"], "Jede Fläche kommt zweimal vor.",
-    "Boden und Deckel: 2 · 10 · 6 = 120 cm². Vorn und hinten: 2 · 10 · 4 = 80 cm². Seiten: 2 · 6 · 4 = 48 cm². Zusammen 248 cm².",
-    {0: [(60, None, "nur eine Fläche gerechnet", "10 * 6")], 1: [(40, None, "nur eine Fläche gerechnet", "10 * 4")], 2: [(24, None, "nur eine Fläche gerechnet", "6 * 4")], 3: [(124, None, "jede Fläche nur einmal gezählt", "10 * 6 + 10 * 4 + 6 * 4")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.haut")
+    "Ein Quader ist 10 cm lang, 6 cm breit und 4 cm hoch. Boden und Deckel zusammen haben ① cm². Vorder- und Rückseite zusammen haben ② cm². Die beiden Seitenflächen zusammen haben ③ cm². Die Oberfläche ist ④ cm². Ein Würfel mit 6 cm Kante hat 216 cm² Oberfläche. Der Quader hat ⑤ cm² mehr.",
+    KOMM(5), [120, 80, 48, 248, 32], ["2 * 10 * 6", "2 * 10 * 4", "2 * 6 * 4", "{1} + {2} + {3}", "{4} - 216"], ["120", "80", "48", "248", "32"], "Jede Fläche kommt zweimal vor.",
+    "Boden und Deckel: 2 · 10 · 6 = 120 cm². Vorn und hinten: 2 · 10 · 4 = 80 cm². Seiten: 2 · 6 · 4 = 48 cm². Zusammen 248 cm². Gegenüber dem Würfel: 248 cm² − 216 cm² = 32 cm².",
+    {0: [(60, None, "nur eine Fläche gerechnet", "10 * 6")], 1: [(40, None, "nur eine Fläche gerechnet", "10 * 4")], 2: [(24, None, "nur eine Fläche gerechnet", "6 * 4")], 3: [(124, None, "jede Fläche nur einmal gezählt", "10 * 6 + 10 * 4 + 6 * 4")],
+     4: [(464, None, "addiert statt abgezogen", "{4} + 216")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.haut")
 neu(T, "oberflaeche", "anwenden", Z(
     "Ein offener Karton (ohne Deckel) ist 40 cm lang, 30 cm breit und 20 cm hoch. Ein Quadratmeter Pappe kostet 6 €. Wie viel Euro kostet die Pappe für einen Karton?",
     2.4, "(40 * 30 + 2 * 40 * 20 + 2 * 30 * 20) / 10000 * 6", "4000 / 10000 * 6", "Rechne die Fläche zuerst in Quadratzentimetern und dann in Quadratmetern. 1 m² = 10 000 cm².",
@@ -35,10 +36,11 @@ neu(T, "oberflaeche", "umkehren", Z(
 
 # ───────── sachaufgaben ─────────
 neu(T, "sachaufgaben", "lueckenweg", L(
-    "Ein Zimmer ist 5 m lang, 4 m breit und 2,5 m hoch. Die vier Wände und die Decke werden gestrichen, der Boden nicht. Die vier Wände haben zusammen ① m². Die Decke hat ② m². Zusammen sind das ③ m².",
-    KOMM(3), [45, 20, 65], ["2 * (5 + 4) * 2.5", "5 * 4", "{1} + {2}"], ["45", "20", "65"], "Die Wände bilden zusammen einen Streifen: Umfang des Bodens mal Höhe.",
-    "Wände: Umfang 2 · (5 + 4) = 18 m, mal 2,5 m = 45 m². Decke: 5 · 4 = 20 m². Zusammen 65 m².",
-    {0: [(22.5, None, "nur zwei Wände gerechnet", "(5 + 4) * 2.5")], 1: [(9, None, "5 + 4 gerechnet", "5 + 4")], 2: [(25, None, "abgezogen statt addiert", "{1} - {2}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.haut")
+    "Ein Zimmer ist 5 m lang, 4 m breit und 2,5 m hoch. Die vier Wände und die Decke werden gestrichen, der Boden nicht. Die vier Wände haben zusammen ① m². Die Decke hat ② m². Zusammen sind das ③ m². Ein Liter Farbe reicht für 5 m². Man braucht ④ Liter.",
+    KOMM(4), [45, 20, 65, 13], ["2 * (5 + 4) * 2.5", "5 * 4", "{1} + {2}", "{3} / 5"], ["45", "20", "65", "13"], "Die Wände bilden zusammen einen Streifen: Umfang des Bodens mal Höhe.",
+    "Wände: Umfang 2 · (5 + 4) = 18 m, mal 2,5 m = 45 m². Decke: 5 · 4 = 20 m². Zusammen 65 m². Farbe: 65 : 5 = 13 Liter.",
+    {0: [(25, None, "nur die beiden langen Wände gerechnet", "2 * 5 * 2.5")], 1: [(9, None, "5 + 4 gerechnet", "5 + 4")], 2: [(25, None, "abgezogen statt addiert", "{1} - {2}")],
+     3: [(325, None, "mit 5 malgenommen statt geteilt", "{3} * 5")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.haut")
 neu(T, "sachaufgaben", "zwei_wege", Z(
     "Eine Schachtel ist 20 cm lang, 10 cm breit und 5 cm hoch. Weg A: Berechne die sechs Seitenflächen einzeln. Weg B: Berechne den Mantel (Umfang des Bodens mal Höhe) und addiere Boden und Deckel. Wie viel Quadratzentimeter Pappe braucht man für die ganze Schachtel?",
     700, "2 * (20 * 10 + 20 * 5 + 10 * 5)", "2 * (20 + 10) * 5 + 2 * 20 * 10", "Beide Wege müssen dieselbe Fläche ergeben.",
@@ -58,21 +60,22 @@ neu(T, "zusammengesetzt", "lueckenweg", L(
     {0: [(24, None, "nur eine Fläche gerechnet", "6 * 4")], 1: [(96, None, "nur einen Würfel gerechnet", "{1}")], 2: [(16, None, "nur eine verklebte Fläche abgezogen", "4 * 4")], 3: [(224, None, "die verklebten Flächen addiert statt abgezogen", "{2} + {3}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.haut")
 neu(T, "zusammengesetzt", "zwei_wege", Z(
     "Fünf Würfel mit je 2 cm Kante liegen so zusammengeklebt: Vier Würfel bilden eine gerade Reihe, ein fünfter Würfel ist an der Seite des ersten Würfels der Reihe angeklebt. Alles liegt auf einer Ebene. Weg A: Zähle alle Würfelflächen (5 · 6) und ziehe die verdeckten Flächen ab (jede Klebestelle verdeckt 2 Flächen). Weg B: Zähle die sichtbaren Flächen von oben, unten, vorn, hinten, links und rechts. Wie groß ist die Oberfläche in cm²?",
-    88, "(5 * 6 - 2 * 4) * 4", "(5 + 5 + 4 + 4 + 2 + 2) * 2 * 2", "Eine Würfelfläche hat 4 cm². Beide Wege müssen 22 Flächen ergeben.",
+    88, "(5 * 6 - 2 * 4) * 4", "(5 + 5 + 4 + 4 + 2 + 2) * 2 * 2", "Eine Würfelfläche hat 2 · 2 = 4 cm². Beide Wege müssen dieselbe Zahl an Flächen ergeben.",
     "Weg A: 30 Flächen. Es gibt 4 Klebestellen, die 8 Flächen verdecken. 22 Flächen. Weg B: oben 5, unten 5, vorn 4, hinten 4, links 2, rechts 2: ebenfalls 22 Flächen. 22 · 4 cm² = 88 cm².",
     [(120, None, "alle Flächen gezählt, nichts abgezogen", "5 * 6 * 4"), (22, None, "nur die Zahl der Flächen angegeben", "5 * 6 - 2 * 4"), (96, None, "nur drei Klebestellen abgezogen", "(5 * 6 - 2 * 3) * 4")], "cm²"), g="mehrschritt", regel="id.flaeche_raum.haut")
 neu(T, "zusammengesetzt", "umkehren", Z(
     "Zwei gleiche Würfel werden mit je einer Fläche aufeinandergeklebt. Der entstandene Quader hat die Oberfläche 160 cm². Wie lang ist die Kante eines Würfels in Zentimetern?",
     4, "160 / 10 / 4", "16 / 4", "Aus wie vielen Würfelflächen besteht die Oberfläche des Quaders?",
     "Zwei Würfel haben 12 Flächen, zwei davon sind verdeckt: 10 Flächen bleiben. 160 : 10 = 16 cm² je Fläche. Eine Fläche ist a · a = 16, also a = 4 cm.",
-    [(16, None, "nur die Fläche einer Würfelseite angegeben", "160 / 10"), (13.33, None, "durch 12 statt durch 10 Flächen geteilt", "160 / 12"), (20, None, "durch 8 geteilt", "160 / 8")], "cm"), g="rueckwaerts", regel="id.flaeche_raum.haut")
+    [(16, None, "nur die Fläche einer Würfelseite angegeben", "160 / 10"), (8, None, "die Länge des ganzen Quaders (zwei Kanten) angegeben", "2 * 4"), (20, None, "durch 8 geteilt", "160 / 8")], "cm"), g="rueckwaerts", regel="id.flaeche_raum.haut")
 
 # ───────── verstehen ─────────
 neu(T, "verstehen", "lueckenweg", L(
-    "Ein Würfel hat die Kantenlänge 5 cm. Seine Oberfläche ist ① cm². Wird jede Kante verdoppelt, ist die neue Kante ② cm lang. Die neue Oberfläche ist dann ③ cm².",
-    KOMM(3), [150, 10, 600], ["6 * 5 * 5", "5 * 2", "6 * {2} * {2}"], ["150", "10", "600"], "Ein Würfel hat sechs gleiche Flächen.",
-    "Oberfläche: 6 · 5 · 5 = 150 cm². Neue Kante: 10 cm. Neue Oberfläche: 6 · 10 · 10 = 600 cm². Das ist das Vierfache.",
-    {0: [(30, None, "6 · 5 gerechnet", "6 * 5")], 1: [(7, None, "2 addiert statt verdoppelt", "5 + 2")], 2: [(300, None, "die Oberfläche nur verdoppelt", "{1} * 2")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.haut")
+    "Ein Würfel hat die Kantenlänge 5 cm. Seine Oberfläche ist ① cm². Wird jede Kante verdoppelt, ist die neue Kante ② cm lang. Die neue Oberfläche ist dann ③ cm². Die neue Oberfläche ist ④-mal so groß wie die alte.",
+    KOMM(4), [150, 10, 600, 4], ["6 * 5 * 5", "5 * 2", "6 * {2} * {2}", "{3} / {1}"], ["150", "10", "600", "4"], "Ein Würfel hat sechs gleiche Flächen.",
+    "Oberfläche: 6 · 5 · 5 = 150 cm². Neue Kante: 10 cm. Neue Oberfläche: 6 · 10 · 10 = 600 cm². Das ist 600 : 150 = 4-mal so viel.",
+    {0: [(30, None, "6 · 5 gerechnet", "6 * 5")], 1: [(7, None, "2 addiert statt verdoppelt", "5 + 2")], 2: [(300, None, "die Oberfläche nur verdoppelt", "{1} * 2")],
+     3: [(2, None, "gedacht, mit der Kante verdoppelt sich auch die Oberfläche", "2")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.haut")
 neu(T, "verstehen", "bruecke", W(
     "Welche Aussage passt zur Rechnung 2 · (5 · 4 + 5 · 3 + 4 · 3) = 94? Die Maße sind in cm angegeben.",
     "Oberfläche eines Quaders mit den Kanten 5 cm, 4 cm und 3 cm: 94 cm²",

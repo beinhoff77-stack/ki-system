@@ -203,6 +203,7 @@ for a in A:
     q = dict(l=q.pop("l"), t=q.pop("t"), p=q.pop("p"), s=q.pop("s"), g=q.pop("g"), **q)
     a["aufgabe"] = q
     assert q["y"] in ("zahl", "auswahl", "luecken"), kenn
+    formpruefen(kenn, a["thema"], q)
     assert a["form"] != "lueckenweg" or q["y"] == "luecken", (kenn, "Lückenweg nur mit Lücken")
     assert a["form"] != "lueckenweg" or a["s"] == 1, (kenn, "Lückenweg gehört auf Stufe 1")
     assert a["form"] != "fehler_detektiv" or a["s"] == 3, (kenn, "Fehler-Detektiv gehört auf Stufe 3")
@@ -284,7 +285,6 @@ for a in A:
                     assert n <= i, (kenn, "Verweis nach vorn")
                     assert hang_ab(vorlagen[i], soll, i, n), (kenn, i + 1, n, "Lücke hängt in Wahrheit nicht vom früheren Wert ab")
             n_abhaengig += 1
-        formpruefen(kenn, a["thema"], q)
         if a["form"] == "lueckenweg":
             assert len(soll) >= 2 and q["y"] == "luecken", (kenn, "Lückenweg: mindestens zwei Lücken")
             assert gleich_ok or len(set(soll)) == len(soll), (kenn, "Lückenwerte sollen verschieden sein")

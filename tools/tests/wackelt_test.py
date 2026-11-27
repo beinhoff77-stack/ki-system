@@ -18,26 +18,29 @@ def main():
     pg = T.PG(b)
     try:
         pg.sql(T.nachbau_sql())
-        rc, probe, err = T.py('tools/tests/wackelt_einspielen.py', '--probe'); assert rc == 0, err
-        out = pg.sql(probe, erwartet_fehler='PROBELAUF bestanden')
-        assert '"mit_fehlbild": false' in out, out[-600:]
-        rc, ein, err = T.py('tools/tests/wackelt_einspielen.py'); assert rc == 0, err
-        assert 'WW-S eingespielt' in pg.sql(ein)
-        rc, rb, err = T.py('tools/tests/regelbezug_einspielen.py'); pg.sql(rb)
+        aus = T.WURZEL / 'tools/tests/aus'
+        lies = lambda n: (aus / n).read_text(encoding='utf-8')
+        probe = lies('ww_s_probe.sql')
+        out = pg.paket(probe, erwartet_fehler='PROBELAUF bestanden')
+        assert '"mit_fehlbild": false' in out and '"tagesgrenze"' in out and '"karte_sitzt_nicht_faellig"' in out and 'laufzeit_ms_testkind' in out, out[-1500:]
+        # Karte im Nachbau (karte_buchen wie live laut Repo): 1. Fehler an der sitzenden Karte -> bleibt sitzen (wdh_fehler 1), 2. Fehler -> wieder offen
+        assert '"nach_1_fehler": {"sitzt": true, "wdh_fehler": 1}' in out and '"nach_2_fehler": {"sitzt": false, "geoeffnet": true, "wdh_fehler": 0}' in out, out[-1500:]
+        assert 'WW-S eingespielt' in pg.paket(lies('ww_s_einspielen.sql'))
+        pg.paket(lies('rb_s_einspielen.sql'))   # RB-S nach WW-S (umgekehrte Reihenfolge geht auch)
         for r in T.ALLE:
-            rc, p, err = T.py('tools/regelbezug_sql.py', '--runden', str(r), '--sql'); pg.sql(p)
-        out = pg.sql(probe.replace('PROBELAUF bestanden', 'PROBELAUF bestanden'), erwartet_fehler='PROBELAUF bestanden')
+            pg.paket(lies(f'rb_nachtrag_r{r:02d}.sql'))
+        out = pg.paket(probe, erwartet_fehler='PROBELAUF bestanden')
         assert '"mit_fehlbild": true' in out, out[-600:]
-        # Rechte über die api-Aktionen (Nachbau-Schlüssel: 'eltern:<kind>' / 'kind:<kind>')
-        pg.sql("select api.schule_wackelt_analyse('kind:1', '{\"lernender_id\": 1}');", erwartet_fehler='Nur Eltern/Lehrer')
-        pg.sql("select api.schule_nachueben_schicken('kind:1', '{\"lernender_id\": 1, \"versuch_ids\": [1]}');", erwartet_fehler='Nur Eltern/Lehrer')
-        pg.sql("select api.schule_wackelt_analyse('eltern:2', '{\"lernender_id\": 1}');", erwartet_fehler='Kein Zugriff')
-        out = pg.sql("\\pset tuples_only on\nselect api.schule_wackelt_analyse('eltern:1', '{\"lernender_id\": 1, \"tage\": 0}')->>'ok';")
-        assert 'true' in out
-        pg.sql("select api.schule_nachueben_lesen('kind:2', '{\"lernender_id\": 1}');", erwartet_fehler='Kein Zugriff')
-        out = pg.sql("\\pset tuples_only on\nselect api.schule_nachueben_lesen('kind:1', '{\"lernender_id\": 1}')->>'ok';")
-        assert 'true' in out
-        pg.sql("select api.schule_wackelt_analyse('eltern:1', '{\"lernender_id\": 1, \"tage\": 3}');", erwartet_fehler='tage')
+        # Rechte über die api-Aktionen mit echten Lern-Schlüsseln (Funktionen aus der Zugangs-Migration)
+        pg.sql("""insert into schule.lern_login (name, rolle, lernender_id, code_hash) values ('K1', 'kind', 1, 'c1'), ('K2', 'kind', 2, 'c2'), ('E', 'eltern', null, 'c3');
+insert into schule.lern_sitzung (token_hash, login_id, laeuft_ab) select 't' || id, id, now() + interval '1 hour' from schule.lern_login;""")
+        kid = lambda n: "(select 'lern:t' || id from schule.lern_login where code_hash = 'c%d')" % n
+        pg.sql(f"select api.schule_wackelt_analyse({kid(1)}, '{{\"lernender_id\": 1}}');", erwartet_fehler='Nur Eltern/Lehrer')
+        pg.sql(f"select api.schule_nachueben_schicken({kid(1)}, '{{\"lernender_id\": 1, \"versuch_ids\": [1]}}');", erwartet_fehler='Nur Eltern/Lehrer')
+        pg.sql(f"select api.schule_nachueben_lesen({kid(2)}, '{{\"lernender_id\": 1}}');", erwartet_fehler='Kein Zugriff')
+        assert 'true' in pg.sql(f"\\pset tuples_only on\nselect api.schule_nachueben_lesen({kid(1)}, '{{\"lernender_id\": 1}}')->>'ok';")
+        assert 'true' in pg.sql(f"\\pset tuples_only on\nselect api.schule_wackelt_analyse({kid(3)}, '{{\"lernender_id\": 1, \"tage\": 0}}')->>'ok';")
+        pg.sql(f"select api.schule_wackelt_analyse({kid(3)}, '{{\"lernender_id\": 1, \"tage\": 3}}');", erwartet_fehler='tage')
         print('WW-S im Nachbau bestanden')
     finally:
         pg.ende()

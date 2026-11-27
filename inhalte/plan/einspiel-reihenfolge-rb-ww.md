@@ -1,0 +1,47 @@
+# Einspielen RB-S und WW-S – Schrittfolge für den Projektleiter
+
+Stand 27.11.2026, Zweig `helfer-regelbezug` (nicht in lernen-app gemergt). Gegenprüfung: Werkstatt 1129. **Jeder echte Schritt nur mit dem ausdrücklichen Satz des Nutzers.** Vorher `werkstatt_sperre`, nachher `werkstatt_aenderung`.
+
+Technik: Jede Datei unter `tools/tests/aus/` ist **ein** Schritt – eine SQL-Datei, in **einem** `execute` lauffähig (kein psql-Meta, kein eigenes BEGIN/COMMIT, alle unter 1,5 MB). Holen per `net.http_get` von raw.githubusercontent.com (Zweig `helfer-regelbezug`), md5 gegen die Tabelle unten prüfen, im `do`-Block per `execute` ausführen. Probe = derselbe Block mit `raise exception` am Ende; für die beiden Migrationen gibt es zusätzlich eigene Probe-Dateien (`*_probe.sql`), die selbst zurückrollen und einen Bericht melden. Im lokalen Nachbau sind alle Dateien genau so gelaufen (Test `regelbezug_sql_test.py`, `wackelt_test.py`: Inhalt in `do $…$ begin execute …; end $…$;`).
+Die Dateien erzeugt `python3 -I tools/tests/rb_ww_pakete.py` (der Test prüft, dass sie auf dem Stand sind). Ändert sich eine Aufgaben-Datei oder Migration, ändern sich Dateien und md5 – dann diese Tabelle neu erzeugen.
+
+## Schritte
+
+| Nr | Schritt | Datei | Erwartet | Abbruch, wenn |
+|---|---|---|---|---|
+| 0 | Nutzungspause prüfen | – | `select count(*) from schule.versuch where am > now() - interval '15 minutes';` = 0, kein Kind angemeldet (`select count(*) from schule.lern_sitzung where zuletzt > now() - interval '15 minutes';`) | ein Kind übt gerade |
+| 1 | Probe RB-S | `rb_s_probe.sql` | Fehler „PROBELAUF bestanden, ALLES zurückgerollt …“ mit `"fehler": 0`, `"bestand_gleich": true`, `trigger_versuch` beginnt mit `versuch_fehlbild`, `versuch_hilfe_merken` dahinter | jede andere Meldung („RB-S ABBRUCH …“, „weder im alten noch im fertigen Zustand“, Sperre nach 3 s) |
+| 2 | RB-S echt | `rb_s_einspielen.sql` | Hinweis „RB-S eingespielt: …“, `"fehler": 0`; danach `select to_regclass('schule.aufgabe_fehlbild'), (select count(*) from schule.aufgabe_fehlbild);` = Tabelle, 0 | jede Ausnahme (dann ist nichts geändert) |
+| 3 | Nachträge rundenweise, je erst Probe (Block + `raise exception`), dann echt | `rb_nachtrag_r01.sql` … `rb_nachtrag_r13.sql` (Reihenfolge egal) | Hinweis „RB-S Regelbezug: N Aufgaben, R Regeln neu, F Fehlbilder neu“ mit den Zahlen der Tabelle unten; ein zweiter Lauf: „0 Regeln neu, 0 Fehlbilder neu“ | „RB-S Regelbezug ABBRUCH …“ (Liste der Kennungen: Platz leer/doppelt, Text/Typ/Lernkarte/Optionen oder **Lösung** anders als eingespielt, Fehlbild nicht wiedererkannt) – Liste an den Helfer, nicht von Hand berichtigen |
+| 4 | Probe WW-S | `ww_s_probe.sql` | „PROBELAUF bestanden …“ mit `"fehler": 0`, `tagesgrenze` {3, 2, 3}, `karte_sitzt_nicht_faellig` mit beobachteten Zuständen, `laufzeit_ms_testkind`, `laufzeit_ms_groesstes_kind` (Warnung im Bericht, wenn über 500 ms – dann vor Schritt 5 melden) | „WW-S ABBRUCH …“ |
+| 5 | WW-S echt | `ww_s_einspielen.sql` | Hinweis „WW-S eingespielt: …“, `"fehler": 0` | jede Ausnahme |
+| 6 | Edge-Funktion `lernen-api` 0.9.4 | `supabase/functions/lernen-api/index.ts` (vier Einträge in `AKTIONEN`) | vorher mit der ausgelieferten Fassung vergleichen (Repo stand auf 0.9.3); nach dem Ausliefern `GET /lernen-api/hilfe` listet die vier Aktionen | Unterschied zur ausgelieferten Fassung außer den vier Zeilen und der Version |
+| 7 | App | Client-Stellen: `regelbezug.md` („Was der Client später braucht“), `wackelt-server.md` („Client-Stellen“) | – | – |
+
+WW-S ist unabhängig von RB-S (Schritte 4–5 gehen auch vor 1–3; ohne RB-S meldet die Analyse `mit_fehlbild: false`). Die Nachträge (Schritt 3) brauchen RB-S (Schritt 2), sonst bricht jede Datei mit „erst die Migration … einspielen“ ab.
+Ein Nachtrag sperrt nur die neuen Tabellen (Einfügen) – keine Nutzungspause nötig; die Schritte 2 und 5 ändern `schule.versuch` bzw. legen Tabellen an (Schritt 2 sperrt `schule.versuch` bis zum Ende der Transaktion) – nur in der Pause.
+
+## Dateien, md5 und erwartete Zahlen
+
+| Datei | Bytes | md5 | erwartet |
+|---|---|---|---|
+| `tools/tests/aus/rb_s_probe.sql` | 42 397 | `4891c0306ea947f4029e5d745dd1a400` | Meldung „PROBELAUF bestanden …“ mit "fehler": 0 |
+| `tools/tests/aus/rb_s_einspielen.sql` | 42 340 | `531e23d9790ccc68d8aba3a00d2d06ff` | Hinweis „RB-S eingespielt: …“, "fehler": 0 |
+| `tools/tests/aus/rb_nachtrag_r01.sql` | 56 397 | `591ece09fa7f2c402c2be2751f625f56` | 76 Aufgaben, 76 Regeln neu, 159 Fehlbilder neu (zweiter Lauf: 0 und 0) |
+| `tools/tests/aus/rb_nachtrag_r02.sql` | 78 070 | `2fb440ef88de115075c6ac692df499bb` | 116 Aufgaben, 116 Regeln neu, 214 Fehlbilder neu (zweiter Lauf: 0 und 0) |
+| `tools/tests/aus/rb_nachtrag_r03.sql` | 82 758 | `171022193c6bb7e6ea8aeadc3ead33cb` | 127 Aufgaben, 127 Regeln neu, 241 Fehlbilder neu (zweiter Lauf: 0 und 0) |
+| `tools/tests/aus/rb_nachtrag_r04.sql` | 173 831 | `bde4a0d9d92647369947b71a65132ade` | 314 Aufgaben, 314 Regeln neu, 777 Fehlbilder neu (zweiter Lauf: 0 und 0) |
+| `tools/tests/aus/rb_nachtrag_r05.sql` | 88 381 | `70ea693476f0b3c545a5667a3025f764` | 174 Aufgaben, 174 Regeln neu, 381 Fehlbilder neu (zweiter Lauf: 0 und 0) |
+| `tools/tests/aus/rb_nachtrag_r06.sql` | 117 204 | `137fae481001e20974bfa434f4d5e7a7` | 198 Aufgaben, 142 Regeln neu, 534 Fehlbilder neu (zweiter Lauf: 0 und 0) |
+| `tools/tests/aus/rb_nachtrag_r07.sql` | 108 477 | `5b58fb7f44ea9040549329276c0a2cbb` | 183 Aufgaben, 183 Regeln neu, 464 Fehlbilder neu (zweiter Lauf: 0 und 0) |
+| `tools/tests/aus/rb_nachtrag_r08.sql` | 84 238 | `5c090084e4c71e612ad487e89aaacfa3` | 156 Aufgaben, 156 Regeln neu, 349 Fehlbilder neu (zweiter Lauf: 0 und 0) |
+| `tools/tests/aus/rb_nachtrag_r09.sql` | 115 602 | `30b9208be7c01f1111aefdacbcb3420a` | 174 Aufgaben, 149 Regeln neu, 521 Fehlbilder neu (zweiter Lauf: 0 und 0) |
+| `tools/tests/aus/rb_nachtrag_r10.sql` | 72 410 | `974a130ff2b8852ecfa8df26c1956645` | 108 Aufgaben, 98 Regeln neu, 296 Fehlbilder neu (zweiter Lauf: 0 und 0) |
+| `tools/tests/aus/rb_nachtrag_r11.sql` | 43 108 | `d3744a23f62258a7a92b70585ae6db67` | 60 Aufgaben, 42 Regeln neu, 170 Fehlbilder neu (zweiter Lauf: 0 und 0) |
+| `tools/tests/aus/rb_nachtrag_r12.sql` | 127 142 | `c54e233eb300ded02d40f95b889ff7b3` | 210 Aufgaben, 106 Regeln neu, 575 Fehlbilder neu (zweiter Lauf: 0 und 0) |
+| `tools/tests/aus/rb_nachtrag_r13.sql` | 87 423 | `05600fafc761fbb3d8682109dc67b13d` | 132 Aufgaben, 112 Regeln neu, 366 Fehlbilder neu (zweiter Lauf: 0 und 0) |
+| `tools/tests/aus/ww_s_probe.sql` | 56 692 | `1b9eef2f47a7baf1ee95a71357e20974` | Meldung „PROBELAUF bestanden …“ mit "fehler": 0 |
+| `tools/tests/aus/ww_s_einspielen.sql` | 56 635 | `0e96871b89f32a90134dc24c2907eeed` | Hinweis „WW-S eingespielt: …“, "fehler": 0 |
+
+Zusammen nach Schritt 3: **1 795 Regeln, 5 047 Fehlbilder** an 2 028 Aufgaben (Z2-02: Regel ja, Fehlbilder nein – Abweichung Datei/eingespielt).
+Prüfabfrage danach: `select (select count(*) from schule.aufgabe_regel), (select count(*) from schule.aufgabe_fehlbild), (select count(*) from schule.aufgabe_fehlbild where fehlbild is not null);` → 1795, 5047, 478.

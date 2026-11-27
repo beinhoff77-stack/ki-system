@@ -2,6 +2,36 @@
 
 Neueste oben.
 
+## 2026-11-27 – FERTIG 0.94.0 Form-Takt (Zweig `helfer-app`, Cache v184)
+
+**Geliefert**
+- Auswahl (`lernen.js`): `lernWaehleBordkarte(warte, e, letzte, gesehenTyp, takt)` ist jetzt ein Aufsatz auf `lernWaehleKern` (= Auswahl von 0.93.8, nur mit optionalem Vorrat-Filter). Hilfen: `lernSollStufe`, `lernAnders`, `lernFormPlatz`, `lernAnwendenFehlt`, `lernIstAnwenden`.
+  Reihenfolge: schwere Bordkarte nötig → Lückenweg nach 2 Fehlern in Folge → Sachaufgabe fehlt → Form-Platz (ungelöste Bordkarte mit `form`, Stufe die dran ist, anderer Typ als die letzte) → Bordkarten ohne `form`, solange es ungelöste gibt → alle.
+  Hat keine Bordkarte `form` und fehlt keine Sachaufgabe, läuft unverändert der alte Weg (Kern ohne Filter).
+- Platz = `bearbeitungen` (etappen_stand) + in der Sitzung abgeschlossene Bearbeitungen dieser Lernkarte + 1. Liefert die Antwort `bearbeitungen` (in `karte` oder daneben), gilt dieser Stand und der Sitzungszähler fängt bei 0 an; fehlt er (auch: `karte` fehlt ganz), zählt die App selbst +1. Zweiter Anlauf = dieselbe Bearbeitung; Mischkarten zählen nicht.
+- Takt nur beim normalen Üben einer offenen Lernkarte (Auswahl läuft heute schon nicht bei gewählter Stufe, gelandeter/fälliger Karte = Wiederholung); Mischkarten, Knobel, Expedition, Test unberührt. Nach dem Wiederöffnen läuft der Platz am Gesamtstand weiter.
+- Regel 4: `fehlFolge === 2` setzt einmal „nachFehler“; nie zwei Lückenwege hintereinander; nach einem Fehler kein `fehler_detektiv` (auch nicht auf dem Form-Platz – dann eine andere Form oder normal).
+- Regel 6: Checkliste zeigt „○ Eine Sachaufgabe fehlt noch“ (gleiche Stelle/Stil wie „schwere“), nur wenn `anwenden_noetig && !anwenden_ok` und sonst alles erfüllt (eigene ≥ ziel, Typen, schwer, Folge). Dann wird eine ungelöste zählende Sachaufgabe (`typ` einkleidung/transfer/pruefung, `zaehlt` ≠ nein) vorgelegt.
+- `zaehlt: "nein"`: im Kopf der Bordkarte (neues und altes Design) klein „Zum Aufwärmen – zählt nicht für die Landung“, Farbe der Kopfzeile (`.lr-zaehlt-nicht` in `style.css`).
+- Nachtrag Werkstatt 1030–1032, Bruch-Erkennung: `lernZeichenAb`/`lernZeichenVor` prüfen an allen vier Grenzen (Klammer-Zähler, Zähler, Klammer-Nenner, Nenner) ganze Codepoints; „4/x𐞥“, „4/(x)𐞥“ bleiben Text.
+- Version 0.94.0 in den fünf Dateien, Cache v184.
+
+**Tests**
+- `tests/lernen-takt.test.cjs` (neu, ohne Browser): 6/6 – darunter 4000 Zufallsfälle: ohne neue Felder wählt die App genau wie 0.93.8 (Vergleich gegen die wörtliche alte Funktion).
+- `tests/lernen-bruch.test.cjs`: 24/24 (22 alte + 2 neue: Fälle U+107A5 und systematische Probe über alle Codepoints der Klasse `LERN_HOCH_ALLG`, vorwärts und rückwärts; die neuen Tests schlagen mit dem alten Code fehl).
+- `tools/bruch_durchsicht.cjs`: 0 Texte mit geändertem Ergebnis (13 323 / 13 323 gestapelte Brüche), verdächtige Reste 0/0.
+- Gesamttest `tests/lernen.test.cjs`: 212 Tests, 212 bestanden, 0 fehlgeschlagen (203 alte + 9 neue „Form-Takt …“). Ein erster Gesamtlauf vor dem Nachtrag: 209/209.
+
+**Annahmen (nicht prüfbar, Server noch nicht eingespielt)**
+- `bearbeitungen` in der Antwort von `schule_uebung_pruefen` zählt die gerade beantwortete Bearbeitung schon mit.
+- Der Server zählt Antworten in der Wiederholung mit (Bau-Bericht (e)/(f)); die App zählt sie in der Sitzung ebenso, damit der Platz nach dem Wiederöffnen gleich bleibt. Knobel-Antworten zählt die App nicht; falls der Server sie zählt, gleicht die nächste Antwort mit `bearbeitungen` das aus.
+- `form_jede` steht oben in `schule_einheit_lesen`; `form`/`zaehlt` je Übung; `anwenden_noetig`/`anwenden_ok` in `etappen_stand[lz]` und `karte` (nur wenn `eigene_loesungen` geliefert wird – neue Regel).
+- „Solange es welche ohne form gibt“ = solange es UNGELÖSTE ohne form gibt (sonst bekämen Kinder auf zwei von drei Plätzen nur noch gezählte Wiederholungen).
+
+**Offen / nicht geprüft**
+- Nicht gegen den echten Server geprüft (nur Simulation). Keine Sichtprüfung auf Handy/Tablet/Rechner, hell/dunkel; keine Vorschau-Bilder erneuert.
+- Schwer-Vorrang bleibt wie heute ohne Takt-Vorrat (eine schwere Bordkarte mit `form` kann dort auch außerhalb des Form-Platzes kommen).
+
 ## 2026-11-27 – FERTIG 0.93.8 (Bruch-Erkennung nachgebessert, Zweig `helfer-bruch2`, Commit f3e24697, Cache v183)
 
 - Zweideutige Gruppe im Zähler („2 125/128“, „1 200/x“) bleibt ganz Text; gestapelt nur, wenn auch der Nenner eine Tausendergruppe hat („11 880/20 736“). Gemischte Zahlen „2 1/2“, „3 25/48“ unverändert.

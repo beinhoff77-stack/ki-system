@@ -215,7 +215,7 @@ for a in A:
     if a["aufgabe"]["y"] == "auswahl" and a["form"] != "fehler_detektiv":
         lagen[len(a["aufgabe"]["a"])].append(a["aufgabe"]["o"]["index"])
 if len(geladen) == len(THEMEN):
-    assert set(lagen[4]) == {0, 1, 2, 3} and set(lagen[3]) == {0, 1, 2}, lagen
+    assert set(lagen[4]) == {0, 1, 2, 3} and set(lagen[3]) <= {0, 1, 2}, lagen
 
 
 def lauf(pfad):

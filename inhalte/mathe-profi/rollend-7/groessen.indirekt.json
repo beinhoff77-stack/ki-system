@@ -1,0 +1,1141 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-7",
+ "kuerzel": "K8",
+ "flug": "k8-groessen.indirekt",
+ "titel": "groessen.indirekt",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen": [
+  "groessen.indirekt"
+ ],
+ "themen_datei_im_bestand": "groessen.indirekt",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K8-V163",
+   "thema": "groessen.indirekt",
+   "lernkarte": "erkennen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 27,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "3 + 24 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Stunden von 3 Helfern übernommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 6,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "mit 6 statt 72 : 9 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "erkennen",
+    "t": "erkennen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "3 Helfer brauchen 24 Stunden, 6 Helfer brauchen 12 Stunden. Bei einer indirekten Proportionalität ist das Produkt aus Helfern und Stunden immer gleich. Dieses Produkt ist ①. Dann brauchen 4 Helfer ② Stunden und 9 Helfer ③ Stunden.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      72,
+      18,
+      8
+     ]
+    },
+    "c": [
+     "3 * 24",
+     "3 * 24 // 4",
+     "3 * 24 // 9"
+    ],
+    "h": "Rechne Helfer mal Stunden. Teile dieses Produkt durch die neue Zahl der Helfer.",
+    "w": "3 · 24 = 72 und 6 · 12 = 72. 72 : 4 = 18 und 72 : 9 = 8."
+   }
+  },
+  {
+   "kennung": "K8-V164",
+   "thema": "groessen.indirekt",
+   "lernkarte": "erkennen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Direkt proportional: Der Quotient ist immer gleich.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Art vertauscht, die Zeit wird kleiner"
+    },
+    {
+     "index": 2,
+     "antwort": "Indirekt proportional: Die Differenz ist immer gleich.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Differenz statt Produkt geprüft"
+    },
+    {
+     "index": 3,
+     "antwort": "Weder noch: Die Zeiten werden kleiner.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„wird kleiner“ als Ausschluss gelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "erkennen",
+    "t": "erkennen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt, wie lange verschiedene Zahlen von Helfern für eine Arbeit brauchen. Welche Aussage passt?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Helfer",
+       "2",
+       "4",
+       "8"
+      ],
+      "zeilen": [
+       [
+        "Stunden",
+        "12",
+        "6",
+        "3"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "Indirekt proportional: Das Produkt ist immer 24.",
+     "Direkt proportional: Der Quotient ist immer gleich.",
+     "Indirekt proportional: Die Differenz ist immer gleich.",
+     "Weder noch: Die Zeiten werden kleiner."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Bilde für jede Spalte das Produkt aus Helfern und Stunden.",
+    "w": "2 · 12 = 24, 4 · 6 = 24, 8 · 3 = 24. Das Produkt ist immer gleich. Die Zuordnung ist indirekt proportional."
+   }
+  },
+  {
+   "kennung": "K8-V165",
+   "thema": "groessen.indirekt",
+   "lernkarte": "erkennen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "erkennen",
+    "t": "erkennen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim prüft, ob die Zuordnung Arbeiter → Tage indirekt proportional ist: 2 Arbeiter brauchen 30 Tage, 5 Arbeiter brauchen 12 Tage, 10 Arbeiter brauchen 7 Tage. Zeile 1: Ich prüfe, ob das Produkt aus Arbeitern und Tagen immer gleich ist. Zeile 2: Die Produkte sind 2 · 30 = 60, 5 · 12 = 60 und 10 · 7 = 70. Zeile 3: 60, 60 und 70 sind fast gleich, also ist die Zuordnung indirekt proportional. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Muss das Produkt genau gleich sein oder reicht „fast“?",
+    "w": "Bei einer indirekten Proportionalität muss das Produkt immer genau gleich sein. 70 ist nicht 60. Die Zuordnung ist nicht indirekt proportional."
+   }
+  },
+  {
+   "kennung": "K8-V166",
+   "thema": "groessen.indirekt",
+   "lernkarte": "vervielfachen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 36,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "mit 2 malgenommen statt geteilt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 54,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "mit 3 malgenommen statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vervielfachen",
+    "t": "erkennen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Zuordnung Pumpen → Stunden ist indirekt proportional. 4 Pumpen brauchen 18 Stunden. Doppelt so viele Pumpen brauchen nur die Hälfte der Zeit. 8 Pumpen brauchen ① Stunden. Dreimal so viele Pumpen wie anfangs brauchen ein Drittel der Zeit. 12 Pumpen brauchen ② Stunden.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      9,
+      6
+     ]
+    },
+    "c": [
+     "18 // 2",
+     "18 // 3"
+    ],
+    "h": "Mehr Pumpen: Die Zeit wird durch denselben Faktor geteilt.",
+    "w": "8 Pumpen: 18 : 2 = 9 Stunden. 12 Pumpen: 18 : 3 = 6 Stunden. Probe: 4 · 18 = 72 = 8 · 9 = 12 · 6."
+   }
+  },
+  {
+   "kennung": "K8-V167",
+   "thema": "groessen.indirekt",
+   "lernkarte": "vervielfachen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 26.67,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "direkt proportional gerechnet: 20 · 8 : 6"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "20 − 2 gerechnet, weil 2 Maler mehr kommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vervielfachen",
+    "t": "erkennen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "6 Maler streichen ein Haus in 20 Tagen. Wie viele Tage brauchen 8 Maler? Rechne auf zwei Wegen. Weg A: erst ausrechnen, wie lange ein Maler braucht. Weg B: mit dem Faktor 6 : 8 für die Zahl der Maler."
+    },
+    "o": {
+     "wert": 15,
+     "einheit": "Tage"
+    },
+    "c": "6 * 20 / 8",
+    "h": "Beide Wege müssen dasselbe ergeben. Mehr Maler: Die Zeit wird kürzer.",
+    "w": "Weg A: 1 Maler braucht 6 · 20 = 120 Tage, 8 Maler brauchen 120 : 8 = 15 Tage. Weg B: 20 · 6/8 = 15 Tage."
+   }
+  },
+  {
+   "kennung": "K8-V168",
+   "thema": "groessen.indirekt",
+   "lernkarte": "vervielfachen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6.67,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "10 · 8 : 12 gerechnet"
+    },
+    {
+     "antwort": 14,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "12 − 8 = 4 zu 10 dazugezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vervielfachen",
+    "t": "erkennen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "10 gleich starke Pumpen leeren ein Becken in 12 Stunden. Es soll in nur 8 Stunden leer sein. Wie viele solche Pumpen braucht man mindestens?"
+    },
+    "o": {
+     "wert": 15,
+     "einheit": "Pumpen"
+    },
+    "c": "10 * 12 / 8",
+    "h": "Das Produkt aus Pumpen und Stunden bleibt gleich. Rechne zurück von der Zeit zur Zahl der Pumpen.",
+    "w": "10 · 12 = 120 Pumpenstunden. 120 : 8 = 15. Man braucht 15 Pumpen."
+   }
+  },
+  {
+   "kennung": "K8-V169",
+   "thema": "groessen.indirekt",
+   "lernkarte": "produkt",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 17,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "5 + 12 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 48,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "12 · 4 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "produkt",
+    "t": "erkennen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Eine Tabelle gehört zu einer indirekten Proportionalität. Für x = 5 ist y = 12. Das Produkt x · y ist ①. Für x = 4 ist dann y = ②. Für x = 20 ist y = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      60,
+      15,
+      3
+     ]
+    },
+    "c": [
+     "5 * 12",
+     "5 * 12 // 4",
+     "5 * 12 // 20"
+    ],
+    "h": "Das Produkt aus x und y bleibt immer gleich. Teile es durch das neue x.",
+    "w": "5 · 12 = 60. 60 : 4 = 15. 60 : 20 = 3."
+   }
+  },
+  {
+   "kennung": "K8-V170",
+   "thema": "groessen.indirekt",
+   "lernkarte": "produkt",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 32,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "36 − 4 gerechnet"
+    },
+    {
+     "antwort": 144,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "36 · 4 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "produkt",
+    "t": "erkennen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Rechteck soll immer die Fläche 36 cm² haben. Die Zuordnung Breite → Länge ist dann indirekt proportional. Wie lang ist das Rechteck, wenn es 4 cm breit ist?"
+    },
+    "o": {
+     "wert": 9,
+     "einheit": "cm"
+    },
+    "c": "36 / 4",
+    "h": "Die Fläche ist Breite mal Länge. Sie bleibt gleich.",
+    "w": "Breite · Länge = 36. Bei 4 cm Breite: Länge = 36 : 4 = 9 cm."
+   }
+  },
+  {
+   "kennung": "K8-V171",
+   "thema": "groessen.indirekt",
+   "lernkarte": "produkt",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 11.25,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "direkt proportional gerechnet: 7,5 · 12 : 8"
+    },
+    {
+     "antwort": 12.8,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "8 · 12 : 7,5 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "produkt",
+    "t": "erkennen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Bei einer indirekten Proportionalität ist y = 7,5, wenn x = 8 ist. Für welches x ist y = 12?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "7.5 * 8 / 12",
+    "h": "Berechne zuerst das Produkt aus x und y.",
+    "w": "x · y = 8 · 7,5 = 60. Für y = 12 gilt x = 60 : 12 = 5. Probe: 5 · 12 = 60."
+   }
+  },
+  {
+   "kennung": "K8-V172",
+   "thema": "groessen.indirekt",
+   "lernkarte": "dreisatz",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 64.8,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "direkt proportional gerechnet: 36 · 9 : 5"
+    },
+    {
+     "antwort": 40,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "36 + 4 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreisatz",
+    "t": "rechnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "5 gleiche Rohre füllen einen Tank in 36 Minuten. Wie viele Minuten brauchen 9 solche Rohre? Rechne auf zwei Wegen. Weg A: erst ausrechnen, wie lange 1 Rohr braucht. Weg B: Das Produkt aus Rohren und Minuten bleibt gleich."
+    },
+    "o": {
+     "wert": 20,
+     "einheit": "min"
+    },
+    "c": "5 * 36 / 9",
+    "h": "Beide Wege müssen dasselbe ergeben. Mehr Rohre: kürzere Zeit.",
+    "w": "Weg A: 1 Rohr braucht 5 · 36 = 180 Minuten, 9 Rohre brauchen 180 : 9 = 20 Minuten. Weg B: 5 · 36 = 180 = 9 · 20."
+   }
+  },
+  {
+   "kennung": "K8-V173",
+   "thema": "groessen.indirekt",
+   "lernkarte": "dreisatz",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "10 : 12 · 8 ≈ 6,7 Tage.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "direkt proportional gerechnet"
+    },
+    {
+     "index": 1,
+     "antwort": "12 − 8 = 4 Arbeiter weniger, also 10 + 4 = 14 Tage.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Differenz statt des Produkts benutzt"
+    },
+    {
+     "index": 2,
+     "antwort": "10 · 8 = 80 Tage.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der neuen Arbeiterzahl malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreisatz",
+    "t": "rechnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "12 Arbeiter brauchen für eine Arbeit 10 Tage. Es sind aber nur 8 Arbeiter da. Welcher Weg führt zur richtigen Zahl der Tage?"
+    },
+    "a": [
+     "10 : 12 · 8 ≈ 6,7 Tage.",
+     "12 − 8 = 4 Arbeiter weniger, also 10 + 4 = 14 Tage.",
+     "10 · 8 = 80 Tage.",
+     "12 · 10 = 120 Arbeitertage, dann 120 : 8 = 15 Tage."
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Weniger Arbeiter: Die Arbeit dauert länger. Was bleibt gleich?",
+    "w": "Die gesamte Arbeit ist 12 · 10 = 120 Arbeitertage. Mit 8 Arbeitern: 120 : 8 = 15 Tage."
+   }
+  },
+  {
+   "kennung": "K8-V174",
+   "thema": "groessen.indirekt",
+   "lernkarte": "dreisatz",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "die 3 Tage nicht abgezogen: 60 : 6"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die restlichen Tage ohne die neuen Hunde übernommen"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "15 : 3 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreisatz",
+    "t": "rechnen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Vorrat Hundefutter reicht für 4 Hunde genau 15 Tage. Nach 3 Tagen kommen 2 Hunde dazu, es sind jetzt 6 Hunde. Wie viele Tage reicht der Rest des Futters noch?"
+    },
+    "o": {
+     "wert": 8,
+     "einheit": "Tage"
+    },
+    "c": "4 * (15 - 3) / 6",
+    "h": "Wie viel Futter ist nach 3 Tagen noch da? Rechne in „Hundetagen“.",
+    "w": "Noch da: 12 Tage für 4 Hunde, das sind 4 · 12 = 48 Hundetage. 48 : 6 = 8. Der Rest reicht noch 8 Tage."
+   }
+  },
+  {
+   "kennung": "K8-V175",
+   "thema": "groessen.indirekt",
+   "lernkarte": "graph",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 48,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "24 · 2 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 192,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "24 · 8 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "graph",
+    "t": "darstellen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Der Graph gehört zu y = 24/x (für x > 0). Für x = 2 liegt der Punkt bei y = ①. Für x = 8 liegt er bei y = ②. Für x = 6 liegt er bei y = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      12,
+      3,
+      4
+     ]
+    },
+    "c": [
+     "24 // 2",
+     "24 // 8",
+     "24 // 6"
+    ],
+    "h": "Teile 24 durch den x-Wert.",
+    "w": "24 : 2 = 12. 24 : 8 = 3. 24 : 6 = 4. Je größer x, desto kleiner y."
+   }
+  },
+  {
+   "kennung": "K8-V176",
+   "thema": "groessen.indirekt",
+   "lernkarte": "graph",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "y = x : 12",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x und 12 vertauscht"
+    },
+    {
+     "index": 2,
+     "antwort": "y = 12 · x",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "direkt proportional gerechnet"
+    },
+    {
+     "index": 3,
+     "antwort": "y = x + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Gerade statt einer Hyperbel"
+    }
+   ],
+   "aufgabe": {
+    "l": "graph",
+    "t": "darstellen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Graph zeigt eine indirekt proportionale Zuordnung und den Punkt P(3 | 4). Welche Gleichung gehört zum Graphen?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       0,
+       13
+      ],
+      "y": [
+       0,
+       13
+      ],
+      "graphen": [
+       {
+        "art": "hyperbel",
+        "a": 12,
+        "b": 0,
+        "c": 0,
+        "name": "f"
+       }
+      ],
+      "punkte": [
+       {
+        "x": 3,
+        "y": 4,
+        "name": "P"
+       }
+      ]
+     }
+    },
+    "a": [
+     "y = x : 12",
+     "y = 12 : x",
+     "y = 12 · x",
+     "y = x + 1"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Setze die Koordinaten von P in die Gleichungen ein. Welche Gleichung stimmt?",
+    "w": "Für P(3 | 4) gilt x · y = 12. Also y = 12 : x. Probe: 12 : 3 = 4."
+   }
+  },
+  {
+   "kennung": "K8-V177",
+   "thema": "groessen.indirekt",
+   "lernkarte": "graph",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "4 · 2 gerechnet"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Produkt 24 nicht durch 2 geteilt"
+    },
+    {
+     "antwort": 48,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "24 · 2 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "graph",
+    "t": "darstellen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Der Punkt P(4 | 6) liegt auf dem Graphen einer indirekten Proportionalität. Der Punkt Q(x | 2) liegt auf demselben Graphen. Welche x-Koordinate hat Q?"
+    },
+    "o": {
+     "wert": 12
+    },
+    "c": "4 * 6 / 2",
+    "h": "Berechne das Produkt der Koordinaten von P. Es ist für jeden Punkt des Graphen gleich.",
+    "w": "x · y = 4 · 6 = 24. Für Q: x · 2 = 24, also x = 12. Probe: 12 · 2 = 24."
+   }
+  },
+  {
+   "kennung": "K8-V178",
+   "thema": "groessen.indirekt",
+   "lernkarte": "unterscheiden",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Es reicht, dass y kleiner wird, wenn x größer wird.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„wird kleiner“ reicht nicht"
+    },
+    {
+     "index": 2,
+     "antwort": "Alle Quotienten y : x müssen gleich sein.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prüfung für direkte Proportionalität benutzt"
+    },
+    {
+     "index": 3,
+     "antwort": "Alle Summen x + y müssen gleich sein.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe statt des Produkts geprüft"
+    }
+   ],
+   "aufgabe": {
+    "l": "unterscheiden",
+    "t": "darstellen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Wie prüfst du sicher, ob eine Wertetabelle zu einer indirekten Proportionalität gehört?"
+    },
+    "a": [
+     "Es reicht, dass y kleiner wird, wenn x größer wird.",
+     "Alle Produkte x · y müssen gleich sein.",
+     "Alle Quotienten y : x müssen gleich sein.",
+     "Alle Summen x + y müssen gleich sein."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Denke an die Helfer-Aufgabe: Doppelt so viele Helfer, halb so lange. Was bleibt gleich?",
+    "w": "Bei einer indirekten Proportionalität ist x · y immer derselbe Wert. „Wird kleiner“ gilt auch für andere Zuordnungen, zum Beispiel y = 20 − x."
+   }
+  },
+  {
+   "kennung": "K8-V179",
+   "thema": "groessen.indirekt",
+   "lernkarte": "unterscheiden",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Indirekt proportional: Der Preis wird größer.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„wird größer“ mit „indirekt“ verwechselt"
+    },
+    {
+     "index": 1,
+     "antwort": "Indirekt proportional: Das Produkt ist immer gleich.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Produkt statt Quotient geprüft"
+    },
+    {
+     "index": 2,
+     "antwort": "Weder noch, weil die Zahlen verschieden sind.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Verschiedenheit der Zahlen als Ausschluss gelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "unterscheiden",
+    "t": "darstellen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt, wie viel verschiedene Mengen Äpfel kosten. Welche Zuordnung passt?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Menge in kg",
+       "2",
+       "4",
+       "6"
+      ],
+      "zeilen": [
+       [
+        "Preis in €",
+        "5",
+        "10",
+        "15"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "Indirekt proportional: Der Preis wird größer.",
+     "Indirekt proportional: Das Produkt ist immer gleich.",
+     "Weder noch, weil die Zahlen verschieden sind.",
+     "Direkt proportional: Der Quotient Preis : Menge ist immer 2,5."
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Prüfe Quotient und Produkt in jeder Spalte.",
+    "w": "5 : 2 = 2,5; 10 : 4 = 2,5; 15 : 6 = 2,5. Der Quotient ist immer gleich, also direkt proportional. Die Produkte 10, 40, 90 sind verschieden."
+   }
+  },
+  {
+   "kennung": "K8-V180",
+   "thema": "groessen.indirekt",
+   "lernkarte": "unterscheiden",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "unterscheiden",
+    "t": "darstellen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim ordnet eine Taxifahrt ein. Der Preis besteht aus 3 € Grundgebühr und 2 € je Kilometer. 2 km kosten 7 €, 4 km kosten 11 €. Zeile 1: Wenn die Strecke größer wird, wird auch der Preis größer. Also ist die Zuordnung direkt proportional. Zeile 2: Dann kosten 8 km das Vierfache von 2 km: 4 · 7 = 28 €. Zeile 3: Die Fahrt von 8 km kostet 28 €. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Reicht „mehr gibt mehr“ für direkte Proportionalität? Prüfe: Kosten 4 km doppelt so viel wie 2 km?",
+    "w": "Direkt proportional heißt: doppelte Strecke, doppelter Preis. Hier ist 11 € nicht 14 €. Die Zuordnung ist nicht proportional. 8 km kosten 3 + 16 = 19 €."
+   }
+  },
+  {
+   "kennung": "K8-V181",
+   "thema": "groessen.indirekt",
+   "lernkarte": "sach",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 47,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "45 + 2 gerechnet"
+    },
+    {
+     "antwort": 33.75,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "45 · 6 : 8 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "rechnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Miete für eine Hütte wird gleichmäßig auf alle Personen verteilt. Bei 8 Personen zahlt jede Person 45 €. Zwei Personen sagen ab. Wie viel Euro muss jede der übrigen Personen zahlen?"
+    },
+    "o": {
+     "wert": 60,
+     "einheit": "€"
+    },
+    "c": "8 * 45 / 6",
+    "h": "Wie hoch ist die gesamte Miete? Sie ändert sich nicht.",
+    "w": "Gesamtmiete: 8 · 45 = 360 €. Jetzt 6 Personen: 360 : 6 = 60 €."
+   }
+  },
+  {
+   "kennung": "K8-V182",
+   "thema": "groessen.indirekt",
+   "lernkarte": "sach",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 32,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "direkt proportional gerechnet: 24 · 20 : 15"
+    },
+    {
+     "antwort": 19,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "24 − 5 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "rechnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Futtervorrat reicht für 15 Schafe 24 Tage. Wie viele Tage reicht er für 20 Schafe? Rechne auf zwei Wegen. Weg A: Der Vorrat ist 15 · 24 „Schaftage“; teile durch 20. Weg B: Die Schafzahl wird mit 20/15 malgenommen, die Tage mit 15/20."
+    },
+    "o": {
+     "wert": 18,
+     "einheit": "Tage"
+    },
+    "c": "15 * 24 / 20",
+    "h": "Beide Wege müssen dasselbe ergeben. Mehr Schafe: weniger Tage.",
+    "w": "Weg A: 15 · 24 = 360 Schaftage, 360 : 20 = 18 Tage. Weg B: 24 · 3/4 = 18 Tage."
+   }
+  },
+  {
+   "kennung": "K8-V183",
+   "thema": "groessen.indirekt",
+   "lernkarte": "sach",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die restliche Zeit angegeben"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "doppelte Zeit für eine Pumpe, ohne die ersten 3 Stunden zu berücksichtigen"
+    },
+    {
+     "antwort": 13.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 + 4,5 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "rechnen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei gleiche Pumpen füllen ein Becken in 9 Stunden. Nach 3 Stunden fällt eine Pumpe aus. Die andere pumpt allein weiter. Wie viele Stunden dauert das Füllen insgesamt?"
+    },
+    "o": {
+     "wert": 15,
+     "einheit": "Stunden"
+    },
+    "c": "3 + (2 * 9 - 2 * 3) / 1",
+    "h": "Rechne in Pumpenstunden: Wie viel ist insgesamt nötig, wie viel ist nach 3 Stunden getan?",
+    "w": "Insgesamt nötig: 2 · 9 = 18 Pumpenstunden. Nach 3 Stunden: 2 · 3 = 6 getan. Rest: 12 Pumpenstunden mit einer Pumpe: 12 Stunden. Insgesamt 3 + 12 = 15 Stunden."
+   }
+  }
+ ]
+}

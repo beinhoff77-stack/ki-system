@@ -67,14 +67,14 @@ Z(T, "umkehraufgabe_mal", "umkehren",
 # ───────── schriftlich: Brücke (fehlenden Gitterwert nur über die Teilzeilensumme erschließen) ─────────
 assert 46 * 30 == 1380 and 40 * 30 == 1200 and 1380 - 1200 == 180
 Z(T, "schriftlich", "bruecke",
-  "Das Malgitter gehört zu einer schriftlichen Multiplikation. Die Zahlen am Rand fehlen. Die linke Spalte gehört zur Zehnerziffer des zweiten Faktors, die rechte Spalte zur Einerziffer. "
-  "Kim rechnet dieselbe Aufgabe schriftlich. Seine erste Zeile (die Multiplikation mit der Zehnerziffer) ergibt 1 380. Welche Zahl gehört in das Feld mit dem Fragezeichen?",
+  "Das Malgitter gehört zu einer schriftlichen Multiplikation. Die Zahlen am Rand fehlen, das Feld unten rechts ist verdeckt. Die linke Spalte gehört zum Zehnerwert des zweiten Faktors, die rechte Spalte zum Einerwert. "
+  "Kim rechnet dieselbe Aufgabe schriftlich. Seine erste Zeile (die Multiplikation mit dem Zehnerwert) ergibt 1 380. Welche Zahl gehört in das Feld mit dem Fragezeichen?",
   180, "1380 - 1200", "1380 - 1200 + 0",
   "Welche Felder des Gitters gehören zu Kims erster Zeile? Was muss ihre Summe ergeben?",
   "Kims erste Zeile ist die Summe der Felder der linken Spalte: 1 200 + ? = 1 380. Also ist ? = 1 380 − 1 200 = 180. "
-  "Die rechte Spalte (320 und 48) gehört zur zweiten Zeile, der Multiplikation mit der Einerziffer.",
+  "Die rechte Spalte (320 und 48) gehört zur zweiten Zeile, der Multiplikation mit dem Einerwert.",
   [(1380, "1380", "die ganze erste Zeile genannt statt des einen Feldes"),
    (2580, "1380 + 1200", "1 200 zu 1 380 dazugezählt statt abgezogen"),
    (1060, "1380 - 320", "ein Feld der rechten Spalte (320) statt des Feldes 1 200 abgezogen")],
   None,
-  grafik={"typ": "tabelle", "kopf": ["Feld", "linke Spalte", "rechte Spalte"], "zeilen": [["oben", "1 200", "320"], ["unten", "?", "48"]]})
+  grafik={"typ": "tabelle", "kopf": ["Feld", "linke Spalte", "rechte Spalte"], "zeilen": [["oben", "1 200", "320"], ["unten", "?", "verdeckt"]]})

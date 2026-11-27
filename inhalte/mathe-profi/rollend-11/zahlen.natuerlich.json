@@ -1,0 +1,415 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-11",
+ "kuerzel": "S3",
+ "thema": "zahlen.natuerlich",
+ "titel": "zahlen.natuerlich",
+ "fuer": "Klasse 5",
+ "klasse": 5,
+ "themen_datei_im_bestand": "zahlen.natuerlich",
+ "hinweis": "Je Lernkarte ohne Aufgabe auf Stufe 3 in rollend-5/rollend-7 genau eine zählende Aufgabe der Stufe 3 in neuer Form. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ, form, zaehlt, Regel-Kennung, Fehlbilder (mit rechnung) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "S3-V001",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "stellenwert",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 520,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur zwei Nullen wieder entfernt (durch 100 geteilt)",
+     "rechnung": "52000 / 100"
+    },
+    {
+     "antwort": 5200,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Null wieder entfernt (durch 10 geteilt)",
+     "rechnung": "52000 / 10"
+    },
+    {
+     "antwort": 52000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Schritte richtig rückwärts gerechnet, aber die angehängten Nullen nicht wieder entfernt",
+     "rechnung": "52330 - 400 + 70"
+    }
+   ],
+   "aufgabe": {
+    "l": "stellenwert",
+    "t": "stellenwert",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ich denke mir eine Zahl. Ich hänge hinten drei Nullen an. Dann zähle ich 4 Hunderter dazu und ziehe 7 Zehner ab. Jetzt steht 52 330 da. Welche Zahl habe ich mir gedacht?"
+    },
+    "o": {
+     "wert": 52
+    },
+    "c": "(52330 - 400 + 70) / 1000",
+    "h": "Mache die Schritte in umgekehrter Reihenfolge rückgängig. Was bewirkt es, wenn man hinten drei Nullen anhängt?",
+    "w": "Rückwärts: Die 7 Zehner wurden abgezogen, also 70 wieder dazu: 52 330 + 70 = 52 400. Die 4 Hunderter wurden dazugezählt, also 400 wieder weg: 52 400 − 400 = 52 000. Die drei angehängten Nullen entfernt man durch 1 000: 52 000 : 1 000 = 52. Probe: 52 000 + 400 − 70 = 52 330."
+   }
+  },
+  {
+   "kennung": "S3-V002",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "ziffern_zu_zahlwort",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 2",
+     "rechnung": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus der falschen Zeile 2 richtig; der erste Fehler steckt weiter oben",
+     "rechnung": null
+    }
+   ],
+   "fehlerzeile": 2,
+   "fehler": "„vierhunderttausend“ mit nur vier Nullen weniger geschrieben: 40 000 statt 400 000",
+   "zeilen": [
+    {
+     "zeile": 1,
+     "text": "„dreißig Millionen“ sind 30 000 000.",
+     "stimmt": true
+    },
+    {
+     "zeile": 2,
+     "text": "„vierhunderttausend“ sind 40 000, zusammen 30 040 000.",
+     "stimmt": false
+    },
+    {
+     "zeile": 3,
+     "text": "„zwölf“ sind 12, zusammen 30 040 012.",
+     "stimmt": true
+    }
+   ],
+   "aufgabe": {
+    "l": "ziffern_zu_zahlwort",
+    "t": "ziffern_zu_zahlwort",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim schreibt das Zahlwort „dreißig Millionen vierhunderttausendzwölf“ mit Ziffern. Zeile 1: „dreißig Millionen“ sind 30 000 000. Zeile 2: „vierhunderttausend“ sind 40 000, zusammen 30 040 000. Zeile 3: „zwölf“ sind 12, zusammen 30 040 012. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wie viele Nullen hat „tausend“? Rechne jede Zeile einzeln nach.",
+    "w": "In Zeile 2 sind „vierhunderttausend“ 400 · 1 000 = 400 000, nicht 40 000. Zeile 3 rechnet mit dem falschen Wert richtig weiter. Richtig: 30 000 000 + 400 000 + 12 = 30 400 012."
+   }
+  },
+  {
+   "kennung": "S3-V003",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "strahl_eintragen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Teilstrich davor genommen statt des nächstgelegenen",
+     "rechnung": "1913 - 1900"
+    },
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Länge eines Abschnitts genannt statt des Abstands zum Teilstrich",
+     "rechnung": "(2000 - 1800) / 8"
+    },
+    {
+     "antwort": 113,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abstand zum Anfang des Strahls genannt",
+     "rechnung": "1913 - 1800"
+    }
+   ],
+   "aufgabe": {
+    "l": "strahl_eintragen",
+    "t": "strahl_eintragen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Im Geschichtsraum einer Schule hängt ein Zeitstrahl von 1800 bis 2000. Er ist in 8 gleich lange Abschnitte geteilt, die Teilstriche liegen also gleich weit auseinander. Ein altes Foto der Schule stammt aus dem Jahr 1913 und soll auf dem Strahl eingetragen werden. Wie viele Jahre liegt 1913 vom nächstgelegenen Teilstrich entfernt?"
+    },
+    "o": {
+     "wert": 12,
+     "einheit": "Jahre"
+    },
+    "c": "min(1913 - 1900, 1925 - 1913)",
+    "h": "Wie viele Jahre umfasst ein Abschnitt? Schreibe dir die Jahre der Teilstriche auf.",
+    "w": "Ein Abschnitt umfasst (2000 − 1800) : 8 = 25 Jahre. Die Teilstriche liegen bei 1800, 1825, …, 1900, 1925, … 1913 liegt zwischen 1900 (13 Jahre davor) und 1925 (12 Jahre danach). Der nächstgelegene Teilstrich ist 1925, der Abstand beträgt 12 Jahre."
+   }
+  },
+  {
+   "kennung": "S3-V004",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "runden_regel",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.buendeln",
+   "regel_name": "Bündeln in Zehnern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 3",
+     "rechnung": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 3",
+     "rechnung": null
+    }
+   ],
+   "fehlerzeile": 3,
+   "fehler": "in zwei Schritten gerundet (erst auf Zehner, dann auf Hunderter), obwohl nur die Ziffer rechts der Hunderterstelle zählt",
+   "zeilen": [
+    {
+     "zeile": 1,
+     "text": "Auf Zehner gerundet: 28 446 ≈ 28 450.",
+     "stimmt": true
+    },
+    {
+     "zeile": 2,
+     "text": "Auf Hunderter gerundet: 28 450 ≈ 28 500.",
+     "stimmt": true
+    },
+    {
+     "zeile": 3,
+     "text": "Also ist 28 446 auf Hunderter gerundet 28 500.",
+     "stimmt": false
+    }
+   ],
+   "aufgabe": {
+    "l": "runden_regel",
+    "t": "runden_regel",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim möchte die Zahl 28 446 auf Hunderter runden und geht in Schritten vor. Zeile 1: Auf Zehner gerundet: 28 446 ≈ 28 450. Zeile 2: Auf Hunderter gerundet: 28 450 ≈ 28 500. Zeile 3: Also ist 28 446 auf Hunderter gerundet 28 500. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Welche Ziffer steht rechts neben der Hunderterstelle? Nur diese Ziffer entscheidet.",
+    "w": "Zeile 1 und Zeile 2 sind für sich richtig gerundet. Aber das Ergebnis darf nicht in zwei Schritten gerundet werden: Bei 28 446 steht rechts neben der Hunderterstelle die 4, also wird abgerundet. Richtig ist 28 400."
+   }
+  },
+  {
+   "kennung": "S3-V005",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "runden_sinnvoll",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.buendeln",
+   "regel_name": "Bündeln in Zehnern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 119,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Abstand von Weg A zum genauen Betrag genannt",
+     "rechnung": "4500 - 4381"
+    },
+    {
+     "antwort": 19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Abstand von Weg B zum genauen Betrag genannt",
+     "rechnung": "4400 - 4381"
+    },
+    {
+     "antwort": 138,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Abstände addiert statt voneinander abgezogen",
+     "rechnung": "119 + 19"
+    }
+   ],
+   "aufgabe": {
+    "l": "runden_sinnvoll",
+    "t": "runden_sinnvoll",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Sportverein erhält in drei Monaten Spenden von 1 452 €, 1 468 € und 1 461 €. Weg A: Jede Spende auf Hunderter runden, dann addieren. Weg B: Erst genau addieren, dann die Summe auf Hunderter runden. Um wie viel Euro liegt das Ergebnis von Weg A weiter vom genauen Betrag entfernt als das Ergebnis von Weg B?"
+    },
+    "o": {
+     "wert": 100,
+     "einheit": "€"
+    },
+    "c": "(4500 - 4381) - (4400 - 4381)",
+    "h": "Berechne zuerst den genauen Betrag. Dann beide Wege einzeln.",
+    "w": "Genauer Betrag: 1 452 + 1 468 + 1 461 = 4 381 €. Weg A: jede Spende wird auf 1 500 € gerundet, zusammen 4 500 €. Weg B: 4 381 € wird auf 4 400 € gerundet. Abstand zum genauen Betrag: Weg A 119 €, Weg B 19 €. Der Unterschied ist 119 − 19 = 100 €."
+   }
+  },
+  {
+   "kennung": "S3-V006",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "roemisch_schreiben",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2042,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "XC als 10 + 100 = 110 gelesen statt als 100 − 10 = 90",
+     "rechnung": "1000 + 500 + 300 + 110 + 7 + 125"
+    },
+    {
+     "antwort": 1897,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Baujahr richtig gelesen, aber die 125 Jahre vergessen",
+     "rechnung": "1000 + 500 + 300 + 90 + 7"
+    },
+    {
+     "antwort": 1772,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "125 Jahre abgezogen statt addiert",
+     "rechnung": "1897 - 125"
+    }
+   ],
+   "aufgabe": {
+    "l": "roemisch_schreiben",
+    "t": "roemisch_schreiben",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Über dem Tor eines Rathauses steht das Baujahr MDCCCXCVII. 125 Jahre später wurde das Rathaus erneuert. In welchem Jahr (mit Ziffern geschrieben) war das?"
+    },
+    "o": {
+     "wert": 2022
+    },
+    "c": "1000 + 500 + 300 + 90 + 7 + 125",
+    "h": "Zerlege die römische Zahl in Gruppen. Ein kleines Zeichen vor einem größeren wird abgezogen.",
+    "w": "MDCCCXCVII = M (1 000) + D (500) + CCC (300) + XC (100 − 10 = 90) + VII (7) = 1 897. 1 897 + 125 = 2 022. Das Rathaus wurde 2022 erneuert."
+   }
+  },
+  {
+   "kennung": "S3-V007",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "dualsystem",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 91,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Stellenwerte von links statt von rechts angelegt (1, 2, 4, …)",
+     "rechnung": "1 + 2 + 8 + 16 + 64"
+    },
+    {
+     "antwort": 218,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Stellenwerte um eine Stelle verschoben (Einer = 2)",
+     "rechnung": "128 + 64 + 16 + 8 + 2"
+    },
+    {
+     "antwort": 1101101,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ziffern als normale Zahl gelesen",
+     "rechnung": null
+    }
+   ],
+   "aufgabe": {
+    "l": "dualsystem",
+    "t": "dualsystem",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Welche normale Zahl gehört zur Zweierzahl 1101101? Weg A: Schreibe die Stellenwerte 64, 32, 16, 8, 4, 2, 1 unter die Ziffern und addiere die Stellenwerte der Einsen. Weg B: Beginne mit der ersten Ziffer. Verdopple bei jeder weiteren Ziffer das bisherige Ergebnis und addiere die neue Ziffer."
+    },
+    "o": {
+     "wert": 109
+    },
+    "c": "64 + 32 + 8 + 4 + 1",
+    "h": "Beide Wege müssen dieselbe Zahl ergeben. Welche Stellen tragen eine 1?",
+    "w": "Weg A: Die Einsen stehen bei 64, 32, 8, 4 und 1: 64 + 32 + 8 + 4 + 1 = 109. Weg B: 1; 1 · 2 + 1 = 3; 3 · 2 + 0 = 6; 6 · 2 + 1 = 13; 13 · 2 + 1 = 27; 27 · 2 + 0 = 54; 54 · 2 + 1 = 109. Die Zahl ist 109."
+   }
+  }
+ ]
+}

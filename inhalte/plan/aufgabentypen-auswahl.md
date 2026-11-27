@@ -88,6 +88,13 @@ Der Nutzer erwartet, dass neue Aufgaben laufend geschrieben werden und dass die 
 
 **Abhängigkeit:** Die 78 Aufgaben aus Schritt 1 und alle weiteren warten mit der Regel-Zuordnung auf die fertige Liste des Regel-Universums.
 
+## Neue Aufgabenformen bevorzugt ziehen – fester Teil des Plans (Auftrag des Nutzers vom 27.11.: „das darfst du nicht vergessen“)
+
+- **Problem:** Die neuen Formen kommen zum Bestand dazu. Je Flug sind es etwa 14 bis 20 neue gegen 60 bis 220 vorhandene Übungen – meist um 10 %. Zieht die App nur zufällig, sieht ein Kind die neuen Formen selten.
+- **Auftrag:** Die Auswahl in der App und in der Datenbank ansehen (wie wird aus dem Vorrat einer Lernkarte gezogen?) und so ändern, dass die neuen Formen bevorzugt kommen. Vorschlag an den Nutzer mit Verhältnis (z. B. jede zweite oder dritte Aufgabe einer Lernkarte in neuer Form, solange Vorrat da ist), dann Gegenprüfung, dann sein Satz.
+- **Zeitpunkt:** Bevor oder zusammen mit dem Einspielen der Vorrats-Aufgaben (`inhalte/plan/rollend-einspielen.md`). Ohne diesen Schritt bringt das Einspielen wenig.
+- **Stand:** offen, noch nicht angesehen.
+
 ## Darstellung verbessern – als fester Teil des Plans (Erinnerung des Nutzers vom 26.11.)
 Die Verbesserungen an der Darstellung, die die Recherche schon gefunden hat (`inhalte/recherche/tief-11-bedienung-eltern.md`, Lieferung 2 und Lieferung 5), gehören in den Plan. Sie waren am 25.11. zurückgestellt („nicht der Kern“), sind aber nicht gestrichen.
 

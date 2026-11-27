@@ -19,4 +19,4 @@ Alle zwölf werden gezeichnet; die Rechnungen habe ich an den Bildern nachvollzo
 1. Gegenprüfung der Inhalte durch ChatGPT (fachlich, Sprache, Schwierigkeit).
 2. Entscheidung zu D1-14 und den Tabellen nach Blick am Gerät (Testkind).
 3. Satz des Nutzers. Das SQL ist rund 70 KB groß; es wird je Einheit einzeln ausgeführt.
-4. Offen und nicht nachgesehen: wie die App aus dem Vorrat einer Lernkarte auswählt (ob neue Formen bevorzugt werden oder nur zufällig dazukommen).
+4. **Pflicht (Auftrag des Nutzers vom 27.11.):** neue Formen bevorzugt ziehen – siehe `aufgabentypen-auswahl.md`, Abschnitt „Neue Aufgabenformen bevorzugt ziehen“. Bisher offen und nicht nachgesehen: wie die App aus dem Vorrat einer Lernkarte auswählt (ob neue Formen bevorzugt werden oder nur zufällig dazukommen).

@@ -84,7 +84,8 @@ function bauen() {
     try { const d = json('inhalte', 'themen', f); if (d.thema_schluessel && d.thema_id) themenIds[d.thema_schluessel] = d.thema_id; } catch { /* keine Themen-Datei */ }
   }
   const loesungVon = (a) => { const o = a.o || {}; return 'werte' in o ? o.werte.join(', ') : 'wert' in o ? String(o.wert) : 'index' in o && a.a ? a.a[o.index] : ''; };
-  const aufgabe = (a, kopf) => ({ kopf, text: a.f.text, auswahl: a.a || null, loesung: loesungVon(a), weg: a.w || '' });
+  const vorn = aufgT8.umhaengen.text_voranstellen || {}; // Ausschlüsse der Definitionsmenge stehen vor der Aufgabe (Gegenprüfung 1090)
+  const aufgabe = (a, kopf, kennung) => ({ kopf, text: (vorn[kennung] || '') + a.f.text, auswahl: a.a || null, loesung: loesungVon(a), weg: a.w || '' });
   const dateien = {};
   const lehrer = {};
   for (const r of regeln) {
@@ -95,13 +96,13 @@ function bauen() {
       if (s && s.befund === 'passt nicht') continue; // Stichprobe des Mathe-Profis: Zuordnung falsch → nicht als Beispiel zeigen
       if (!(e.thema in dateien)) { const p = path.join(repo, ...mp, 'schritt1', e.thema + '.neu.json'); dateien[e.thema] = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : []; }
       const liste = etik.filter((x) => x.thema === e.thema), a = dateien[e.thema][liste.indexOf(e)];
-      if (a) aufgaben.push(aufgabe(a, `${e.kennung} · Klasse ${e.klasse} · Lernkarte „${e.lernkarte}“`));
+      if (a) aufgaben.push(aufgabe(a, `${e.kennung} · Klasse ${e.klasse} · Lernkarte „${e.lernkarte}“`, e.kennung));
     }
     const z = aufgT8.zuordnung.find((x) => x.entwurf_schluessel === r.id);
     if (z) for (const x of z.aufgaben.slice(0, 3 - aufgaben.length)) {
       const d = JSON.parse(fs.readFileSync(path.join(repo, x.datei), 'utf8')), a = d.aufgaben[x.index_in_aufgaben];
       assert.ok(a && a.l === x.lernkarte, `${x.datei} Stelle ${x.index_in_aufgaben}`);
-      aufgaben.push(aufgabe(a, `${path.basename(x.datei, '.json')} · Stelle ${x.index_in_aufgaben} · Klasse ${x.klasse} · Lernkarte „${x.lernkarte}“`));
+      aufgaben.push(aufgabe(a, `${path.basename(x.datei, '.json')} · Stelle ${x.index_in_aufgaben} · Klasse ${x.klasse} · Lernkarte „${x.lernkarte}“`, `${path.basename(x.datei, '.json')}#${x.index_in_aufgaben}`));
     }
     const lp = lehrplanT8.find((x) => x.entwurf_schluessel === r.id);
     lehrer[r.id] = { kennung: L.kennung, klassen: k.klassen || {}, grundlage: k.klassen_grundlage || '',

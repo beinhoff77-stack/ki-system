@@ -337,7 +337,7 @@
    "entwurf_schluessel": "R7",
    "name": "Minus vor der Klammer",
    "merksatz": "Minus vor der Klammer dreht alle Zeichen um.",
-   "urteil": "richtig",
+   "urteil": "richtig; bei Klammern in der Klammer gilt „alle Zeichen“ nur für die äußere Klammer",
    "merksatz_geaendert": false,
    "aenderung": null,
    "im_bestand_gedeckt": [
@@ -347,8 +347,8 @@
    "luecken": [
     {
      "wo": "genau",
-     "text": "Alle Plus und Minus in der Klammer tauschen, auch das unsichtbare Plus des ersten Summanden: −(x − 3) = −x + 3 und −(−3 + x) = 3 − x.",
-     "grund": "„Alle Zeichen“ schließt das erste, nicht geschriebene Vorzeichen ein; das sagt nur der Fehler, nicht „Genau gesagt“.",
+     "text": "Alle Plus und Minus in der Klammer tauschen, auch das unsichtbare Plus des ersten Summanden: −(x − 3) = −x + 3 und −(−3 + x) = 3 − x. Steht eine Klammer in der Klammer, wechseln zuerst die Summanden der äußeren Klammer: −(a + (b − c)) = −a − (b − c); das innere Minus löst man danach auf: −a − b + c.",
+     "grund": "„Alle Zeichen“ schließt das erste, nicht geschriebene Vorzeichen ein; das sagt nur der Fehler, nicht „Genau gesagt“. Zweite Gegenprüfung 1090: Bei verschachtelten Klammern werden nur die Summanden der äußeren Klammer negiert; das innere Minus bleibt im ersten Schritt stehen.",
      "pruefung": [
       {
        "l": "-(x-3)",
@@ -364,6 +364,36 @@
        "r": "3-x",
        "mit": {
         "x": 5
+       }
+      },
+      {
+       "l": "-(a+(b-c))",
+       "rel": "==",
+       "r": "-a-(b-c)",
+       "mit": {
+        "a": 2,
+        "b": 5,
+        "c": 3
+       }
+      },
+      {
+       "l": "-a-(b-c)",
+       "rel": "==",
+       "r": "-a-b+c",
+       "mit": {
+        "a": 2,
+        "b": 5,
+        "c": 3
+       }
+      },
+      {
+       "l": "-(a+(b-c))",
+       "rel": "==",
+       "r": "-a-b+c",
+       "mit": {
+        "a": 7,
+        "b": -4,
+        "c": 9
        }
       }
      ]
@@ -457,8 +487,8 @@
     },
     {
      "wo": "genau",
-     "text": "Geteilt geht nur mit einer Zahl, die in Zähler und Nenner ohne Rest aufgeht: 12/18 wird durch 6 zu 2/3; durch 5 lässt sich 12/18 nicht kürzen, weil 12 : 5 Rest 2 lässt.",
-     "grund": "„dasselbe geteilt“ gilt in ganzen Zahlen nur bei gemeinsamem Teiler.",
+     "text": "Für das Kürzen eines Bruchs aus ganzen Zahlen auf ganze Zahlen nimmt man einen gemeinsamen Teiler; allgemein teilt man Zähler und Nenner durch dieselbe Zahl ungleich null. 12/18 wird durch 6 zu 2/3; durch 5 lässt sich 12/18 nicht auf ganze Zahlen kürzen, weil 12 : 5 Rest 2 lässt.",
+     "grund": "„dasselbe geteilt“ gilt in ganzen Zahlen nur bei gemeinsamem Teiler. Zweite Gegenprüfung 1090: allgemein genügt jede Zahl ungleich null.",
      "pruefung": [
       {
        "l": "12/18",
@@ -469,6 +499,11 @@
        "l": "12 % 5",
        "rel": "==",
        "r": "2"
+      },
+      {
+       "l": "12/18",
+       "rel": "==",
+       "r": "(12/5)/(18/5)"
       }
      ]
     }
@@ -571,8 +606,8 @@
    "luecken": [
     {
      "wo": "voraus",
-     "text": "Das Vorgehen „erst auf eins“ klappt auch bei umgekehrter Proportionalität, nur mit umgekehrten Rechenarten: 3 Arbeiter brauchen 12 Tage, 1 Arbeiter dann 36 Tage, 4 Arbeiter 9 Tage. Nicht anwendbar ist es, wenn ein fester Betrag dazukommt.",
-     "grund": "Berichtigung (Gegenprüfung 1078): Der Bestandstext „Gilt nur bei direkter Proportionalität“ war für das Vorgehen zu eng; er ist in inhalt.json ersetzt, diese Ergänzung nennt den umgekehrten Fall.",
+     "text": "Das Vorgehen „erst auf eins“ klappt auch bei umgekehrter Proportionalität, nur mit umgekehrten Rechenarten. Bei gleicher Leistung jeder Person gilt: 3 Arbeiter brauchen 12 Tage, 1 Arbeiter dann 36 Tage, 4 Arbeiter 9 Tage. Nicht anwendbar ist es, wenn ein fester Betrag dazukommt.",
+     "grund": "Berichtigung (Gegenprüfung 1078): Der Bestandstext „Gilt nur bei direkter Proportionalität“ war für das Vorgehen zu eng; er ist in inhalt.json ersetzt, diese Ergänzung nennt den umgekehrten Fall. Zweite Gegenprüfung 1090: Das Arbeiterbeispiel setzt gleiche Leistung jeder Person voraus.",
      "pruefung": [
       {
        "l": "3*12",

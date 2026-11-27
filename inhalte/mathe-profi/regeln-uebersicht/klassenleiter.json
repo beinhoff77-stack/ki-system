@@ -3441,7 +3441,7 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "abbildungen.kongruenz",
-     "text": "Spiegeln: [AB] = 3, danach [A′B′] = 3",
+     "text": "Spiegeln: |AB| = 3, danach |A′B′| = 3",
      "wirkende_stelle": [
       "3",
       "3"
@@ -3528,14 +3528,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "raum.pyramide_kegel_kugel",
-     "text": "Pyramide, Spitze bei halber Höhe abgeschnitten: Kanten · ½, Volumen · ⅛",
+     "text": "Pyramide, Schnitt parallel zur Grundfläche auf halber Höhe: Die abgeschnittene Spitze hat halbe Kantenlängen (· ½) und ⅛ des ursprünglichen Volumens, der Stumpf ⅞",
      "wirkende_stelle": [
       "· ½"
      ],
      "wirkende_stelle_positionen": [
       [
-       55,
-       58
+       110,
+       113
       ]
      ]
     }
@@ -3935,7 +3935,7 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "messen.prisma_zylinder",
-     "text": "Prisma (Dreieck 3 · 4 · 5 cm, Höhe 6 cm): 2 · 6 + 18 + 24 + 30 = 84 cm²",
+     "text": "Gerades Prisma (Dreiecksseiten 3, 4, 5 cm, Höhe 6 cm): 2 · 6 + 18 + 24 + 30 = 84 cm²",
      "wirkende_stelle": [
       "+",
       "+",
@@ -3943,16 +3943,16 @@
      ],
      "wirkende_stelle_positionen": [
       [
-       48,
-       49
+       61,
+       62
       ],
       [
-       53,
-       54
+       66,
+       67
       ],
       [
-       58,
-       59
+       71,
+       72
       ]
      ]
     },

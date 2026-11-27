@@ -836,7 +836,7 @@
    "satz_bestand": "Mit dem Hauptnenner malnehmen; die Lösung muss in der Definitionsmenge liegen. Bruch gleich Bruch: über Kreuz.",
    "begruendung": "Bruchgleichungen verbinden Waage, Definitionsmenge und Hauptnenner und sind die Hürde von Klasse 8.",
    "beispiel": {
-    "text": "3/x + 1/2 = 5/x, mal 2x: 6 + x = 10, also x = 4. Probe: 3/4 + 1/2 = 5/4."
+    "text": "3/x + 1/2 = 5/x für x ≠ 0, mal 2x: 6 + x = 10, also x = 4. Probe: 3/4 + 1/2 = 5/4."
    },
    "grenze": {
     "art": "gilt nicht",
@@ -1084,7 +1084,7 @@
    },
    "grenze": {
     "art": "gilt nicht",
-    "text": "Bei Plus gilt nichts davon: 2³ + 2⁴ = 8 + 16 = 24, nicht 2⁷ = 128. Verschiedene Basis und verschiedene Hochzahl lassen sich nicht zusammenfassen."
+    "text": "Bei Plus gilt nichts davon: 2³ + 2⁴ = 8 + 16 = 24, nicht 2⁷ = 128. Verschiedene Basis und verschiedene Hochzahl lassen sich nicht zusammenfassen. Die Gesetze gelten für ganze Hochzahlen und Basen ungleich null; gebrochene Hochzahlen verlangen eine Basis ab null."
    },
    "pruefung": [
     {

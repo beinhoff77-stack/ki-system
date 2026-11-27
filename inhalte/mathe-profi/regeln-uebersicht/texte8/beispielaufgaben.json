@@ -160,6 +160,16 @@
    "BG-05": "rr.waage",
    "BG-09": "rr.waage",
    "GF-10": "rr.gegenrechnung"
+  },
+  "text_voranstellen": {
+   "BG-01": "Ausgeschlossen: x ≠ 3 und x ≠ −3 (die Nenner dürfen nicht null sein). ",
+   "BG-02": "Ausgeschlossen: x ≠ −4 und x ≠ 2 (die Nenner dürfen nicht null sein). ",
+   "BG-03": "Ausgeschlossen: x ≠ 0 (der Nenner darf nicht null sein). ",
+   "BG-13": "Ausgeschlossen: x ≠ 0 und x ≠ −9 (die Nenner dürfen nicht null sein). ",
+   "PG-01": "Alle Basen sind ungleich null. ",
+   "PG-02": "Alle Basen sind ungleich null. ",
+   "PG-03": "Alle Basen sind ungleich null. ",
+   "terme.bruchterme#93": "Es gilt x ≠ 0. "
   }
  },
  "stichprobe_bestehende_zuordnung": {
@@ -218,7 +228,7 @@
      "BG-13"
     ],
     "befund": "teilweise",
-    "text": "BG-01, BG-02 und BG-09 lösen Bruchgleichungen „über Kreuz“. Entschieden (Gegenprüfung 1078): „Über Kreuz“ gehört primär zu Regel 13 (Waage; beide Nenner ungleich null); sie sind dort eingeordnet. Nur BG-13 (Verhältnisgleichung 2/3 = 8/?) bleibt bei Regel 11, weil es um gleiche Verhältnisse geht. Ein klassischer Dreisatz fehlt in Schritt 1; die Ersatzaufgaben stehen unten.",
+    "text": "BG-01, BG-02 und BG-09 lösen Bruchgleichungen „über Kreuz“. Entschieden: „Über Kreuz“ gehört primär zu Regel 13 (Waage; beide Nenner ungleich null); sie sind dort eingeordnet. Nur BG-13 (Verhältnisgleichung 2/3 = 8/?) bleibt bei Regel 11, weil es um gleiche Verhältnisse geht. Ein klassischer Dreisatz fehlt in Schritt 1; die Ersatzaufgaben stehen unten.",
     "vorschlag": [
      {
       "datei": "inhalte/themen/groessen.proportional.json",
@@ -251,7 +261,7 @@
      "GF-10"
     ],
     "befund": "teilweise",
-    "text": "RG-01 und RG-08 passen. GF-10 („K = G + n · p nach n umstellen, welcher Schritt zuerst?“) entscheidet über die Reihenfolge des Rückwärtsrechnens und gehört zu Regel 12 (Gegenrechnung); dort ist es eingeordnet (umhaengen)."
+    "text": "RG-01 und RG-08 passen. GF-10 („K = G + n · p nach n umstellen, welcher Schritt zuerst?“) entscheidet über die Reihenfolge des Rückwärtsrechnens und gehört zu Regel 12 (Gegenrechnung); dort ist es eingeordnet."
    },
    {
     "regel": "rr.waage",

@@ -1,5 +1,27 @@
 # Postfach mathe-profi
 
+## 2026-11-27 02:10 (Berlin) – AUFTRAG 20 vom Projektleiter: Berichtigungen nach der Inhaltsprüfung (`rollend-1`, `rollend-2`) – nach der Verhältnis-Frage erledigen
+Die Gegenprüfung hat alle 142 Aufgaben in den alten Antwortformen einzeln geprüft (Werkstatt-Nachricht 1020; 156 Rechnungen nachgerechnet, keine Abweichung). Urteil: `ge1`, `ge2`, `a4` Ja; `f1` Ja mit Auflage (nur Darstellung der Tabelle, behebe ich in der App); die anderen sechs Dateien erst nach Berichtigung. **Die Ziel-Flüge sind freigegeben: Was eingefügt ist, lässt sich nicht mehr ändern. Deshalb jetzt sauber.** Befunde in meinen Worten:
+
+**Muss vorher (Inhalt – dein Teil)**
+- **Z2-07:** „kleinste Zahl in beiden Reihen“ lässt 0 zu. Nach dem kleinsten gemeinsamen **positiven** Vielfachen fragen; 24 bleibt.
+- **A1-04:** Die Antwort „noch einmal auf demselben Weg lösen“ ist nicht falsch, nur nicht gemeint. Frage auf die Einsetzprobe zuschneiden („Wie machst du die Einsetzprobe für x = 9?“), dann passt nur eine Antwort.
+- **G1-07, G8-01, G8-04:** Lücken hinter einem fest vorgegebenen „0,“ sind Ziffernfolgen, die App vergleicht sie aber als ganze Zahlen: „08“ zählt als 8 (ergäbe 0,08), „80“ wird abgewiesen (wäre 0,80). Kommazahlen nimmt der Lückentyp nicht an. Umbauen ohne neuen Antworttyp, z. B. G1-07 Weg B in Millimetern; G8-01 den ganzen Zähler abfragen („Faktor = ②/100“); G8-04 „Faktor = ①/10“. Frage, Tipp, Lösungsweg und Rechenanker jeweils anpassen. **Prüfe alle Lückenaufgaben aller drei Runden auf dasselbe Muster** und nimm die Prüfung in `bauen.py` auf.
+- **G1-12:** Leergewicht ausdrücklich nennen („Der leere Lieferwagen wiegt …; dazu kommen … Ladung“).
+- **G2T2-03:** „gleiche Brötchen“ garantiert kein „immer proportional“ (Mengenrabatt). Die richtige Antwort braucht die Voraussetzung: fester Stückpreis, kein Rabatt, keine Grundgebühr.
+
+**Muss vorher (Darstellung – mein Teil, erledigt im Arbeitsstand):** Tabellen hatten Zeilenhöhe 0; die Legende des Kreisdiagramms wurde abgeschnitten (D1-14). Beides behoben, geht mit dem nächsten „Live“ hinaus. An deinen Daten musst du dafür nichts ändern.
+
+**Kann so – bitte trotzdem entscheiden und im README je Punkt „geändert“ oder „bleibt, weil …“ notieren**
+- GE1-06: die gesuchte 6 steht schon in Weg A. · GE1-13, GE2-12, A1-12: Stufe 3 zu hoch, eher 2. · A4-06: zwei Lückenwerte stehen später ausgeschrieben in der Frage.
+- G1-04, G1-08: Tipp als Stellenwert-Beziehung fassen (1 cm = 0,01 m; 1 g = 0,001 kg), nicht als „immer so viele Stellen“.
+- D1-02, -03, -04, -05, -06, -10, -13, -14: Prozent, relative Häufigkeit und Kreisdiagramm sind am bayerischen Gymnasium Stoff der 6. Klasse. Der Flug erklärt das schon; im README als Vorgriff kennzeichnen, nicht als Mindeststand Klasse 5.
+- D1-12: „wirkt größer“ braucht die Annahme gleicher Zeichenfläche – nennen oder direkt nach dem Höhenverhältnis fragen.
+- G8-14: 1,1 durch Probieren bestätigen lassen, kein Wurzelziehen voraussetzen.
+- F1-07, F1-15: Achsenzahlen liegen auf Graph bzw. Kreis – wenn deine Daten das beeinflussen können (Ausschnitt, Beschriftung), entschärfen.
+
+**Ablieferung:** geänderte Dateien, `bauen.py` jeweils „OK“, im README eine Tabelle „Kennung · Befund · was geändert“. Dieselben Fehlermuster (0 als Lösung möglich, nicht-falsche Falschantwort, Ziffernfolge als Zahl, fehlende Modellvoraussetzung) auch in `rollend-3` suchen und dort gleich berichtigen. Nichts einspielen. Melde dich mit: Geliefert / Offen / Nicht geprüft / Annahmen.
+
 ## 2026-11-27 01:45 (Berlin) – FRAGE vom Projektleiter (vor Auftrag 19 beantworten, kurz): In welchem Verhältnis kommen neue Formen und Rechenaufgaben?
 Befund: Die App zieht nicht zufällig, sondern je Lernkarte die erste passende Aufgabe in der gelieferten Reihenfolge. Neue Aufgaben stünden hinten und kämen fast nie dran. Sie einfach nach vorn zu stellen hat der Nutzer abgelehnt: Dann kommen nur noch solche, und die Kinder rechnen nicht mehr. Verlangt ist ein Verhältnis, das grundsätzlich stimmt. Mein Entwurf steht in `inhalte/plan/aufgabentypen-auswahl.md`, Abschnitt „Neue Aufgabenformen bevorzugt ziehen“ (Kennzeichen „rechnen“/„verstehen“, fester Takt, Platz im Ablauf, „sitzt“ bleibt ans Rechnen gebunden).
 Bitte beantworte fachlich, mit Begründung, auf höchstens einer Seite (`inhalte/mathe-profi/rollend-2/verhaeltnis.md`):

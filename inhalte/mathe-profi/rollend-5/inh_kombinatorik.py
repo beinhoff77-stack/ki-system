@@ -12,7 +12,7 @@ neu(TH, "systematisch", "lueckenweg", "direkt", L(
     {1: [(5, None, "3 + 2 gerechnet")]}), ST)
 neu(TH, "systematisch", "bruecke", "darstellung", Z(
     "Die Tabelle zeigt die Eisbecher mit Vanille und mit Schoko. Jedes Feld steht für einen Becher. Die Zeile für Erdbeere fehlt noch. Sie hätte dieselben Soßen wie die anderen Zeilen. Wie viele Becher-Felder hätte die Tabelle insgesamt, wenn die Zeile für Erdbeere dazukäme?",
-    "3*2", "2*2+2", "Wie viele Felder hat eine Zeile? Wie viele Zeilen hätte die Tabelle dann?", "Jede Zeile hat 2 Felder (2 Soßen). Mit Erdbeere sind es 3 Zeilen: 3 · 2 = 6 Becher.",
+    "3*2", "2*2+2", "Wie viele Becher stünden in der Zeile für Erdbeere? Wie viele Zeilen hätte die Tabelle dann?", "Jede Zeile hat 2 Felder (2 Soßen). Mit Erdbeere sind es 3 Zeilen: 3 · 2 = 6 Becher.",
     [(4, None, "nur die gezeichneten Zeilen gezählt"), (5, None, "3 + 2 gerechnet")],
     grafik=TAB(["", "Karamell", "Himbeer"], ["Vanille", "Becher 1", "Becher 2"], ["Schoko", "Becher 3", "Becher 4"])), ST)
 neu(TH, "systematisch", "anwenden", "einkleidung", Z(
@@ -97,12 +97,12 @@ neu(TH, "grenzen", "anwenden", "einkleidung", Z(
 
 # ── verstehen ──
 neu(TH, "verstehen", "fehler_detektiv", "fehler", FDZ(
-    "Kim zählt Wörter aus den vier Buchstaben A, B, C und D. Jeder Buchstabe darf in einem Wort genau einmal vorkommen, jedes Wort hat vier Buchstaben.",
-    [("Für den ersten Buchstaben gibt es 4 Möglichkeiten.", True), ("Für den zweiten bleiben 3, für den dritten 2, für den vierten 1.", True), ("Die Buchstaben werden nacheinander gewählt.", True), ("Also gibt es 4 + 3 + 2 + 1 = 10 Wörter.", 4 + 3 + 2 + 1 == 4 * 3 * 2 * 1)],
-    "Wie verbindet man Anzahlen bei Wahlen nacheinander?", "Nacheinander heißt malnehmen: 4 · 3 · 2 · 1 = 24 Wörter."), ST)
+    "Kim zählt Buchstabenfolgen aus den vier Buchstaben A, B, C und D. Die Folgen müssen keine Bedeutung haben. Jeder Buchstabe darf in einer Folge genau einmal vorkommen, jede Folge hat vier Buchstaben.",
+    [("Für den ersten Buchstaben gibt es 4 Möglichkeiten.", True), ("Für den zweiten bleiben 3, für den dritten 2, für den vierten 1.", True), ("Die Buchstaben werden nacheinander gewählt.", True), ("Also gibt es 4 + 3 + 2 + 1 = 10 Folgen.", 4 + 3 + 2 + 1 == 4 * 3 * 2 * 1)],
+    "Wie verbindet man Anzahlen bei Wahlen nacheinander?", "Nacheinander heißt malnehmen: 4 · 3 · 2 · 1 = 24 Folgen."), ST)
 neu(TH, "verstehen", "verfahren_waehlen", "erkennen", W(
     "Drei Freunde bestellen jeweils ein Getränk aus 4 Sorten. Dieselbe Sorte darf mehrfach bestellt werden. Es zählt, wer was bestellt: Nimmt Freund 1 Cola und Freund 2 Tee, ist das etwas anderes, als wenn es umgekehrt ist. Welche Rechnung zählt die möglichen Bestellungen?",
-    "4 · 4 · 4", [("4 · 3 · 2", "als dürfte sich nichts wiederholen"), ("4 + 4 + 4", "Anzahlen addiert"), ("4 · 3", "nur zwei Freunde gezählt")],
+    "4 · 4 · 4", [("4 · 3 · 2", "als dürfte sich nichts wiederholen"), ("4 + 4 + 4", "Anzahlen addiert"), ("4 · 3", "Zahl der Sorten mal Zahl der Freunde gerechnet statt 4 · 4 · 4")],
     "Darf sich etwas wiederholen? Dann bleibt die Auswahl bei jeder Wahl gleich groß.", "Jeder der 3 Freunde hat 4 Sorten zur Wahl. 4 · 4 · 4 = 64 Bestellungen.",
     4 ** 3 == 64 and 4 * 3 * 2 != 64 and 4 + 4 + 4 != 64 and 4 * 3 != 64), ST)
 assert 5 ** 3 == 125

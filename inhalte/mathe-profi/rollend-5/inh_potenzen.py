@@ -95,15 +95,15 @@ neu(TH, "negativ", "umkehren", "umkehr", Z(
 
 # ── sach ──
 neu(TH, "sach", "fehler_detektiv", "fehler", FDZ(
-    "Kim faltet ein Blatt Papier 5-mal. Er will wissen, wie viele Lagen es dann sind.",
+    "Kim faltet ein Blatt Papier 5-mal. Jedes Mal faltet er das ganze schon gefaltete Paket in der Mitte. Er will wissen, wie viele Lagen es dann sind.",
     [("Nach dem 1. Falten sind es 2 Lagen.", 2 ** 1 == 2), ("Bei jedem weiteren Falten kommen 2 Lagen dazu.", 2 + 2 * 4 == 2 ** 5), ("Nach dem 5. Falten sind es 2 + 2 · 4 = 10 Lagen.", 2 + 2 * 4 == 10)],
-    "Wie viele Lagen sind es nach dem 2. Falten? Nimm ein Blatt und falte.", "Beim Falten verdoppelt sich die Zahl der Lagen: 2, 4, 8, 16, 32. Nach 5-mal sind es 2⁵ = 32 Lagen."), PO)
+    "Wie viele Lagen sind es nach dem 3. Falten? Nimm ein Blatt und falte.", "Beim Falten verdoppelt sich die Zahl der Lagen: 2, 4, 8, 16, 32. Nach 5-mal sind es 2⁵ = 32 Lagen."), PO)
 neu(TH, "sach", "anwenden", "einkleidung", Z(
-    "Eine Kettennachricht: In Runde 1 schickt eine Person sie an 3 Personen. In jeder weiteren Runde schickt jede Person, die sie in der Runde davor neu bekommen hat, sie an 3 weitere Personen. Jeder Empfänger hat die Nachricht vorher noch nicht gehabt, und keine Person bekommt sie von zwei Absendern. Wie viele Personen bekommen die Nachricht in Runde 4 neu?",
+    "Eine Kettennachricht: In Runde 1 schickt eine Person sie an 3 Personen. In jeder weiteren Runde schickt jede Person, die sie in der Runde davor neu bekommen hat, sie an 3 weitere Personen. Niemand bekommt die Nachricht zweimal: Alle Empfänger sind neu und verschieden. Wie viele Personen bekommen die Nachricht in Runde 4 neu?",
     "3**4", "3*3*3*3", "Runde 1: 3, Runde 2: 9. Jede Runde mal 3.", "Runde 1: 3, Runde 2: 9, Runde 3: 27, Runde 4: 81. Das ist 3⁴.",
     [(12, "fb.potenz.basis_mal_hochzahl", "3 · 4 gerechnet"), (64, None, "Basis und Exponent vertauscht")]), PO)
 neu(TH, "sach", "bruecke", "darstellung", Z(
-    "Die Tabelle zeigt, wie viele Lagen ein gefaltetes Papier nach dem Falten hat. Wie viele Lagen sind es nach dem 7. Falten?",
+    "Die Tabelle zeigt, wie viele Lagen ein gefaltetes Papier nach dem Falten hat. Bei jedem Falten wird das ganze schon gefaltete Paket in der Mitte gefaltet. Wie viele Lagen sind es nach dem 7. Falten?",
     "2**7", "2*2*2*2*2*2*2", "Wie wächst die untere Zeile von Spalte zu Spalte?", "Die Lagen verdoppeln sich jedes Mal: 2, 4, 8, 16, 32, 64, 128. Das ist 2⁷ = 128.",
     [(14, None, "2 · 7 gerechnet"), (64, None, "nur sechs Verdopplungen")],
     grafik=TAB(["Falten", "1", "2", "3", "4"], ["Lagen", "2", "4", "8", "16"])), PO)

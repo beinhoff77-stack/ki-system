@@ -1,0 +1,116 @@
+[
+ {
+  "f": "schule.aufgabe_anzeige(schule.aufgabe, boolean)",
+  "alt": "'typ', a.typ, 'bonus'",
+  "neu": "'typ', a.typ, 'form', a.form, 'zaehlt', a.zaehlt, 'bonus'",
+  "soll": 1
+ },
+ {
+  "f": "schule.aufgaben_einfuegen(bigint, jsonb)",
+  "alt": "reihenfolge, pool, typ)",
+  "neu": "reihenfolge, pool, typ, form, zaehlt)",
+  "soll": 1
+ },
+ {
+  "f": "schule.aufgaben_einfuegen(bigint, jsonb)",
+  "alt": "x->>'g' from q",
+  "neu": "x->>'g', x->>'form', x->>'zaehlt' from q",
+  "soll": 1
+ },
+ {
+  "f": "schule.karte_buchen(bigint, bigint, boolean, smallint, timestamp with time zone)",
+  "alt": "if a.id is null or a.pool <> 'uebung' then return; end if;",
+  "neu": "if a.id is null or a.pool <> 'uebung' or not schule.aufgabe_zaehlt(a) then return; end if;",
+  "soll": 1
+ },
+ {
+  "f": "schule.misch_buchen(bigint, bigint, boolean, smallint, timestamp with time zone)",
+  "alt": "if a.id is null or a.pool <> 'uebung' then return; end if;",
+  "neu": "if a.id is null or a.pool <> 'uebung' or not schule.aufgabe_zaehlt(a) then return; end if;",
+  "soll": 1
+ },
+ {
+  "f": "schule.expedition_buchen(bigint, bigint, boolean, smallint, smallint, timestamp with time zone)",
+  "alt": "coalesce(p_anlauf, 1) = 1 then",
+  "neu": "coalesce(p_anlauf, 1) = 1 and schule.aufgabe_zaehlt(a) then",
+  "soll": 1
+ },
+ {
+  "f": "schule.expedition_buchen(bigint, bigint, boolean, smallint, smallint, timestamp with time zone)",
+  "alt": "a.variante_gruppe, p_zeit); -- H8",
+  "neu": "a.variante_gruppe, p_zeit) where schule.aufgabe_zaehlt(a); -- H8",
+  "soll": 1
+ },
+ {
+  "f": "schule.karte_landet(schule.karte_stand)",
+  "alt": "least(3, schule.karte_ziel(k.einheit_id, k.lernziel));",
+  "neu": "least(3, schule.karte_ziel(k.einheit_id, k.lernziel))\n     and (schule.karte_anwenden_ok(k) or not schule.karte_anwenden_pflicht(k, k.einheit_id, k.lernziel)); -- FT-S Regel 6",
+  "soll": 1
+ },
+ {
+  "f": "schule.karte_ziel(bigint, text)",
+  "alt": "where a.einheit_id = p_einheit and",
+  "neu": "where schule.aufgabe_zaehlt(a) and a.einheit_id = p_einheit and",
+  "soll": 1
+ },
+ {
+  "f": "schule.karte_typen_noetig(bigint, text)",
+  "alt": "where a.einheit_id = p_einheit and",
+  "neu": "where schule.aufgabe_zaehlt(a) and a.einheit_id = p_einheit and",
+  "soll": 1
+ },
+ {
+  "f": "schule.karte_schwer_noetig(bigint, text)",
+  "alt": "where a.einheit_id = p_einheit and",
+  "neu": "where schule.aufgabe_zaehlt(a) and a.einheit_id = p_einheit and",
+  "soll": 1
+ },
+ {
+  "f": "schule.folge_nachrechnen(bigint, bigint, text, timestamp with time zone)",
+  "alt": "a.variante_gruppe = p_lz and a.pool = 'uebung'",
+  "neu": "a.variante_gruppe = p_lz and schule.aufgabe_zaehlt(a) and a.pool = 'uebung'",
+  "soll": 1
+ },
+ {
+  "f": "schule.landung_zaehlen(bigint, bigint, text)",
+  "alt": "a.variante_gruppe = p_lz and a.pool = 'uebung'",
+  "neu": "a.variante_gruppe = p_lz and schule.aufgabe_zaehlt(a) and a.pool = 'uebung'",
+  "soll": 2
+ },
+ {
+  "f": "schule.wdh_aufgabe_waehlen(bigint, bigint, text, boolean)",
+  "alt": "where a.einheit_id = p_e and",
+  "neu": "where schule.aufgabe_zaehlt(a) and a.einheit_id = p_e and",
+  "soll": 1
+ },
+ {
+  "f": "schule.wdh_aufgabe_da(bigint, bigint, text)",
+  "alt": "where a.einheit_id = p_e and",
+  "neu": "where schule.aufgabe_zaehlt(a) and a.einheit_id = p_e and",
+  "soll": 1
+ },
+ {
+  "f": "schule.wdh_aufgabe_da(bigint, text)",
+  "alt": "where a.einheit_id = p_e and",
+  "neu": "where schule.aufgabe_zaehlt(a) and a.einheit_id = p_e and",
+  "soll": 1
+ },
+ {
+  "f": "schule.uebung_pruefen_intern(bigint, jsonb)",
+  "alt": "'schwer_ok', k.schwer_ok, 'schwer_noetig'",
+  "neu": "'schwer_ok', k.schwer_ok, 'anwenden_noetig', schule.karte_anwenden_pflicht(k, k.einheit_id, k.lernziel), 'anwenden_ok', schule.karte_anwenden_ok(k),\n                'bearbeitungen', schule.karte_bearbeitungen(k.lernender_id, k.einheit_id, k.lernziel), 'schwer_noetig'",
+  "soll": 1
+ },
+ {
+  "f": "schule.etappen_stand(bigint, bigint)",
+  "alt": "'schwer_ok', coalesce(k.schwer_ok, false), 'schwer_noetig'",
+  "neu": "'schwer_ok', coalesce(k.schwer_ok, false), 'anwenden_noetig', schule.karte_anwenden_pflicht(k, p_einheit, z.lz), 'anwenden_ok', coalesce(schule.karte_anwenden_ok(k), false),\n           'bearbeitungen', schule.karte_bearbeitungen(p_lernender, p_einheit, z.lz), 'schwer_noetig'",
+  "soll": 1
+ },
+ {
+  "f": "schule.einheit_lesen_intern(bigint, bigint)",
+  "alt": "'heute_tag', schule.heute_tag(p_lernender), 'heute_bis'",
+  "neu": "'heute_tag', schule.heute_tag(p_lernender), 'form_jede', schule.wd_regel('form_jede', 3), 'heute_bis'",
+  "soll": 1
+ }
+]

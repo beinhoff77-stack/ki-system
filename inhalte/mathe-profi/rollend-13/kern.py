@@ -183,3 +183,18 @@ def wert_an(s, wert, var="x"):
 def pole(*terme, bereich=range(-9, 10)):
     """Menge der ganzen Zahlen im Bereich, an denen mindestens einer der Terme nicht definiert ist."""
     return {k for k in bereich if any(undef(t, k) for t in terme)}
+
+
+def loes(gleichung, var="x"):
+    """Lösung einer in var linearen Gleichung 'links = rechts' (Python-Schreibweise): Bruch, 'alle' (jede Zahl) oder 'keine'."""
+    l, r = gleichung.split("=")
+    f = lambda v: _ev(l, {var: F(v)}) - _ev(r, {var: F(v)})
+    a = f(1) - f(0)
+    if a == 0:
+        return "alle" if f(0) == 0 else "keine"
+    return -f(0) / a
+
+
+def gleichwertig(g1, g2, var="x"):
+    """Zwei lineare Gleichungen haben dieselbe Lösungsmenge."""
+    return loes(g1, var) == loes(g2, var)

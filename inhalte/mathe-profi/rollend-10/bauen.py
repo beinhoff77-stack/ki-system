@@ -33,6 +33,7 @@ THEMEN = {
     "trigo.pythagoras": ("trigo.pythagoras", ["hypotenuse", "kathete", "umkehrung", "koordinaten", "raum", "anwendung"]),
     "abbildungen.aehnlichkeit": ("abbildungen.aehnlichkeit", ["streckung", "bildgerade", "schwerpunkt", "aehnlich", "strahlensatz1", "strahlensatz2", "flaeche_volumen", "anwendung", "streckung_vektor"]),
     "trigo.rechtwinklig": ("trigo.rechtwinklig", ["seiten", "verhaeltnisse", "seite", "winkel", "beziehungen", "anwendung", "schnittwinkel"]),
+    "trigo.rechtwinklig": ("trigo.rechtwinklig", ["seiten", "verhaeltnisse", "seite", "winkel", "beziehungen", "anwendung", "schnittwinkel"]),
     "messen.kreisberechnung": ("messen.kreisberechnung", ["umfang", "flaeche", "exakt", "verstehen", "sektor", "zusammengesetzt"]),
     "raum.pyramide_kegel_kugel": ("raum.pyramide_kegel_kugel", ["pyr_volumen", "pyr_oberflaeche", "kegel_volumen", "kegel_mantel", "kugel", "sachkontext", "verstehen"]),
     "messen.prisma_zylinder_teil2": ("messen.prisma_zylinder", ["cavalieri"]),

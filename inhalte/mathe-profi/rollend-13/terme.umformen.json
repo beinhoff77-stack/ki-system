@@ -168,7 +168,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Aus einem Tank fließt Wasser ab. Pro Minute ändert sich die Füllmenge um (−4a) Liter. Das Ventil bleibt 3b Minuten offen. Dabei ist a = 5 und b = 2. Um wie viele Liter ändert sich die Füllmenge insgesamt? Gib die Abnahme als negative Zahl an."
+     "text": "Aus einem Tank fließt Wasser ab. Pro Minute ändert sich die Füllmenge um (−4a) Liter. Das Ventil bleibt 3b Minuten offen. Dabei ist a = 5 und b = 2. Eine Abnahme zählt als negative Zahl. Um wie viele Liter ändert sich die Füllmenge insgesamt?"
     },
     "o": {
      "wert": -120,
@@ -347,8 +347,8 @@
     },
     {
      "antwort": 178,
-     "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
-     "regel_des_fehlbilds": "rr.ausmultiplizieren",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "Weg B: nur die 7 mit 24 malgenommen, die 10 nur addiert"
     },
     {

@@ -26,14 +26,14 @@
    "fehlbilder": [
     {
      "antwort": 250,
-     "fehlbild": "fb.waage.zeichen_nicht_gedreht",
-     "regel_des_fehlbilds": "rr.waage",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "die Gewichtsstücke addiert statt abgezogen: (350 + 150) : 2"
     },
     {
      "antwort": 200,
-     "fehlbild": "fb.waage.nur_ein_summand",
-     "regel_des_fehlbilds": "rr.waage",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "nur die Gewichtsstücke abgezogen und nicht durch 2 geteilt"
     },
     {
@@ -150,7 +150,7 @@
     "g": "darstellung",
     "y": "zahl",
     "f": {
-     "text": "Die Zeichnung zeigt die Geraden zu y = 3x − 2 und y = x + 4. Bei welcher Zahl x haben beide Terme denselben Wert? Das ist die Lösung der Gleichung 3x − 2 = x + 4.",
+     "text": "Die Zeichnung zeigt die Geraden zu y = 3x − 2 und y = x + 4. Wo sich die Geraden schneiden, haben beide Terme denselben Wert. Das ist die Lösung der Gleichung 3x − 2 = x + 4. Bei welcher Zahl x ist das der Fall?",
      "grafik": {
       "typ": "koordinaten",
       "x": [
@@ -230,7 +230,7 @@
      "wert": -3
     },
     "c": "2 * 4 + 9 - 5 * 4",
-    "h": "Setze x = 4 in beide Seiten ein. Dann bleibt eine Gleichung nur mit a.",
+    "h": "Eine Lösung macht die Gleichung wahr. Was passiert, wenn du sie einsetzt?",
     "w": "Links: 5 · 4 + a = 20 + a. Rechts: 2 · 4 + 9 = 17. Aus 20 + a = 17 folgt a = −3. Probe: 5x − 3 = 2x + 9 hat die Lösung x = 4, denn 17 = 17."
    }
   },
@@ -242,8 +242,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "rr.tauschen",
-   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -292,8 +292,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "rr.tauschen",
-   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -312,7 +312,7 @@
      "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Klammer falsch gelesen: 5 + a = 9 statt 5 − a = 4"
+     "beschreibung": "aus 5 − a = 4 wird a = 5 + 4 gemacht statt a = 5 − 4"
     }
    ],
    "aufgabe": {
@@ -329,7 +329,7 @@
      "wert": 1
     },
     "c": "5 - (2 * 5 + 6) / 4",
-    "h": "Setze x = 5 ein. Die rechte Seite lässt sich ausrechnen. Wie groß muss dann die Klammer links sein?",
+    "h": "Setze x = 5 ein. Was kannst du dann auf der rechten Seite ausrechnen?",
     "w": "Rechts: 2 · 5 + 6 = 16. Links: 4(5 − a) = 16, also 5 − a = 4 und a = 1. Probe: 4(5 − 1) = 16."
    }
   },
@@ -372,7 +372,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Kim hat die Gleichung 2(x + 5) − 3 = 4x − 7 gelöst und x = 9 erhalten. Bei der Probe vergleicht man die beiden Seiten. Wie groß ist der Unterschied „linke Seite minus rechte Seite“ für x = 9? Weg A: Beide Seiten für x = 9 einzeln ausrechnen und den Unterschied bilden. Weg B: Zuerst den Unterschied 2(x + 5) − 3 − (4x − 7) zu einem Term in x zusammenfassen und dann x = 9 einsetzen."
+     "text": "Kim hat die Gleichung 2(x + 5) − 3 = 4x − 7 gelöst und x = 9 erhalten. Bei der Probe vergleicht man die beiden Seiten. Weg A: Beide Seiten für x = 9 einzeln ausrechnen und den Unterschied bilden. Weg B: Zuerst den Unterschied 2(x + 5) − 3 − (4x − 7) zu einem Term in x zusammenfassen und dann x = 9 einsetzen. Wie groß ist der Unterschied „linke Seite minus rechte Seite“ für x = 9?"
     },
     "o": {
      "wert": -4
@@ -521,7 +521,7 @@
      "antwort": 2,
      "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
      "regel_des_fehlbilds": "rr.ausmultiplizieren",
-     "beschreibung": "die Klammer nicht ausmultipliziert: die 2 aus der Klammer als k genommen"
+     "beschreibung": "nur x mit 3 malgenommen: aus 3(x + 2) wird 3x + 2, also k = 2"
     },
     {
      "antwort": 5,
@@ -593,7 +593,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Zwei Rucksäcke wiegen zusammen 54 kg. Der schwerere ist 8 kg schwerer als der leichtere. Wie schwer ist der schwerere Rucksack? Weg A: Stelle eine Gleichung auf. Weg B: Nimm den Unterschied erst weg, teile den Rest gerecht auf und gib ihn dann wieder dazu. Wie viele Kilogramm wiegt der schwerere Rucksack?"
+     "text": "Zwei Rucksäcke wiegen zusammen 54 kg. Der schwerere ist 8 kg schwerer als der leichtere. Weg A: Stelle eine Gleichung auf. Weg B: Nimm den Unterschied erst weg, teile den Rest gerecht auf und gib dem schwereren Rucksack den Unterschied dann wieder dazu. Wie viele Kilogramm wiegt der schwerere Rucksack?"
     },
     "o": {
      "wert": 31,
@@ -650,7 +650,7 @@
      "einheit": "€"
     },
     "c": "(53 - 5) / 0.8",
-    "h": "Gehe rückwärts: Was hat Tom für die Jacke allein bezahlt? Die Jacke kostet nach dem Rabatt 80 % des ursprünglichen Preises.",
+    "h": "Gehe rückwärts: Was hat Tom für die Jacke allein bezahlt? Wie viel Prozent des ursprünglichen Preises sind das?",
     "w": "Gleichung: 0,8x + 5 = 53. Dann 0,8x = 48 und x = 48 : 0,8 = 60. Die Jacke kostete 60 €. Probe: 20 % von 60 € sind 12 €, 60 − 12 = 48 und 48 + 5 = 53."
    }
   }

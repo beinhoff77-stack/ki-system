@@ -12,7 +12,7 @@ neu(T, "begriffe", "bruecke", Z(
     grafik=TAB(["Feld", "1", "2", "3", "4", "5", "6", "7", "8"], ["Zahl", "2", "3", "3", "5", "8", "8", "2", "7"])), g="darstellung", regel=AN)
 assert sum(1 for n in _zahl if _prim(n)) == 6 and sum(1 for n in _zahl if not _prim(n)) == 2 and len({n for n in _zahl if not _prim(n)}) == 1 and len({n for n in _zahl if _prim(n)}) == 4
 neu(T, "begriffe", "zwei_wege", Z(
-    "Ein Glücksrad hat 12 gleich große Felder mit den Zahlen 1 bis 12. Ein Ergebnis ist die Zahl, bei der das Rad stehen bleibt. Ereignis A: „Die Zahl ist durch 3 teilbar“. Ereignis B: „Die Zahl ist größer als 6“. Wie viele Ergebnisse gehören zum Ereignis „A oder B“ (A, B oder beides)? Weg A: Die Zahlen von A und B aufschreiben und doppelte nur einmal zählen. Weg B: Die Anzahl der Zahlen von A und die von B zusammenzählen und die Anzahl der Zahlen abziehen, die in beiden Ereignissen stehen.",
+    "Ein Glücksrad hat 12 gleich große Felder mit den Zahlen 1 bis 12. Ein Ergebnis ist die Zahl, bei der das Rad stehen bleibt. Ereignis A: „Die Zahl ist durch 3 teilbar“. Ereignis B: „Die Zahl ist größer als 6“. Weg A: Die Zahlen von A und B aufschreiben und doppelte nur einmal zählen. Weg B: Die Anzahl der Zahlen von A und die von B zusammenzählen und die Anzahl der Zahlen abziehen, die in beiden Ereignissen stehen. Wie viele Ergebnisse gehören zum Ereignis „A oder B“ (A, B oder beides)?",
     8, "4 + 6 - 2", "12 - 4", "Welche Zahlen stehen in A und in B zugleich? Sie dürfen nur einmal gezählt werden.",
     "A hat die Zahlen 3, 6, 9, 12 (4 Ergebnisse). B hat die Zahlen 7, 8, 9, 10, 11, 12 (6 Ergebnisse). In beiden stehen 9 und 12. Weg A: 3, 6, 7, 8, 9, 10, 11, 12 sind 8 Zahlen. Weg B: 4 + 6 − 2 = 8. Probe: Das Gegenereignis hat die Zahlen 1, 2, 4, 5. Das sind 4 Zahlen, und 12 − 4 = 8.",
     [(10, None, "die Zahlen aus beiden Ereignissen gezählt und die doppelten nicht abgezogen", "4 + 6"), (2, None, "„und“ statt „oder“ gezählt: nur Zahlen, die in beiden stehen", "2"), (4, None, "das Gegenereignis von „A oder B“ gezählt", "12 - 8")]), g="verknuepfen", regel=AN)
@@ -37,7 +37,7 @@ neu(T, "darstellen", "anwenden", Z(
     "Bei einem Spiel wird zuerst eine Münze geworfen. Fällt Zahl, ist das Spiel zu Ende. Fällt Wappen, wird danach ein Würfel mit den Zahlen 1 bis 6 geworfen. Das Spiel wird als Baumdiagramm gezeichnet. Wie viele Wege führen vom Start bis zu einem Ende?",
     7, "1 + 6", "6 * 1 + 1", "Zeichne den Baum. Wie viele Wege gehen durch den Ast „Wappen“, wie viele durch den Ast „Zahl“?",
     "Der Ast „Zahl“ endet sofort: 1 Weg. Der Ast „Wappen“ teilt sich in 6 Äste für den Würfel: 6 Wege. Zusammen sind es 1 + 6 = 7 Wege. Nicht 2 · 6, denn nach „Zahl“ wird nicht gewürfelt.",
-    [(12, None, "auch nach „Zahl“ noch gewürfelt: Münze und Würfel in jedem Fall", "2 * 6"), (8, None, "die Äste der zweiten Stufe und der ersten Stufe gezählt statt der Wege", "2 + 6"), (6, None, "den Weg über „Zahl“ vergessen", "6")]), g="einkleidung", regel=ST)
+    [(12, None, "auch nach „Zahl“ noch gewürfelt: Münze und Würfel in jedem Fall", "2 * 6"), (8, None, "die Äste der zweiten Stufe und der ersten Stufe gezählt statt der Wege", "2 + 6"), (6, None, "den Weg über „Zahl“ vergessen", "6")]), g="einkleidung", regel=None)
 neu(T, "darstellen", "fehler_detektiv", FD(
     "Kim zieht zweimal hintereinander eine Kugel aus einer Urne mit den Kugeln 1, 2, 3 und 4. Die gezogene Kugel wird nicht zurückgelegt. Kim zeichnet das Baumdiagramm und zählt.",
     [("Beim ersten Zug gibt es 4 Möglichkeiten.", len(range(1, 5)) == 4, True),
@@ -46,4 +46,4 @@ neu(T, "darstellen", "fehler_detektiv", FD(
      ("Zum Ereignis „Die Summe ist 5“ gehören die Wege (1 | 4), (2 | 3), (3 | 2), (4 | 1) und (2 | 2). Das sind 5 Wege.",
       len([p for p in itertools.permutations(range(1, 5), 2) if sum(p) == 5]) == 5, len([p for p in itertools.permutations(range(1, 5), 2) if sum(p) == 5]) == 5)],
     "Prüfe jede Zeile einzeln: Passt sie zu der Regel, dass die Kugel nicht zurückgelegt wird?",
-    "Zeile 1 bis 3 stimmen: 4 · 3 = 12 Wege. In Zeile 4 steht der Weg (2 | 2). Kugel 2 ist nach dem ersten Zug draußen und kann nicht noch einmal gezogen werden. Es gehören nur 4 Wege zum Ereignis. Dass die Summe 5 ist, reicht nicht: Der Weg muss im Baum vorkommen."), g="fehler", regel=ST)
+    "Zeile 1 bis 3 stimmen: 4 · 3 = 12 Wege. In Zeile 4 steht der Weg (2 | 2). Kugel 2 ist nach dem ersten Zug draußen und kann nicht noch einmal gezogen werden. Es gehören nur 4 Wege zum Ereignis. Dass die Summe 5 ist, reicht nicht: Der Weg muss im Baum vorkommen."), g="fehler", regel=None)

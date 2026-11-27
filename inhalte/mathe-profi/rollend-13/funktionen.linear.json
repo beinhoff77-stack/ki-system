@@ -20,8 +20,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.funktionen.gleichung_form",
-   "regel_name": "Gleichung und Form",
+   "regel": "id.funktionen.wachstum",
+   "regel_name": "Wachstum",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -70,8 +70,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.funktionen.gleichung_form",
-   "regel_name": "Gleichung und Form",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -101,7 +101,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Wie groß ist die Steigung m der Geraden mit der Gleichung 4x − 2y = 10? Weg A: Löse die Gleichung nach y auf und lies m ab. Weg B: Bestimme zwei Punkte der Geraden (zum Beispiel für x = 0 und für x = 1) und berechne die Steigung aus ihnen."
+     "text": "Eine Gerade hat die Gleichung 4x − 2y = 10. Weg A: Löse die Gleichung nach y auf und lies m ab. Weg B: Bestimme zwei Punkte der Geraden (zum Beispiel für x = 0 und für x = 1) und berechne die Steigung aus ihnen. Wie groß ist die Steigung m der Geraden?"
     },
     "o": {
      "wert": 2
@@ -119,8 +119,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.funktionen.gleichung_form",
-   "regel_name": "Gleichung und Form",
+   "regel": "id.funktionen.wachstum",
+   "regel_name": "Wachstum",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -199,27 +199,27 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.funktionen.gleichung_form",
-   "regel_name": "Gleichung und Form",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 8,
+     "antwort": 12,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "3 addiert statt abgezogen"
+     "beschreibung": "nur 14 − 2 gerechnet und nicht durch die Steigung geteilt"
     },
     {
-     "antwort": 4.25,
+     "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Steigung abgezogen und nicht 0,75 mal 4"
+     "beschreibung": "mit der Steigung 0,75 malgenommen statt geteilt: 12 · 0,75"
     },
     {
-     "antwort": 5,
+     "antwort": 14,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den y-Wert von P als t genommen"
+     "beschreibung": "den y-Wert als Stelle genommen"
     }
    ],
    "aufgabe": {
@@ -230,14 +230,43 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Die Gerade y = 0,75x + t geht durch den Punkt P(4 | 5). Welche Zahl ist t?"
+     "text": "Die Zeichnung zeigt einen Teil einer Geraden g. Sie geht durch die markierten Punkte und läuft nach rechts und oben über das Bild hinaus weiter. Bei welcher Stelle x hat g den y-Wert 14?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       0,
+       8
+      ],
+      "y": [
+       0,
+       8
+      ],
+      "graphen": [
+       {
+        "art": "linear",
+        "m": 0.75,
+        "t": 2,
+        "name": "g"
+       }
+      ],
+      "punkte": [
+       {
+        "x": 0,
+        "y": 2
+       },
+       {
+        "x": 4,
+        "y": 5
+       }
+      ]
+     }
     },
     "o": {
-     "wert": 2
+     "wert": 16
     },
-    "c": "5 - 0.75 * 4",
-    "h": "Setze die Koordinaten von P in die Geradengleichung ein. Dann bleibt eine Gleichung nur mit t.",
-    "w": "Aus 5 = 0,75 · 4 + t folgt 5 = 3 + t, also t = 2. Probe: y = 0,75x + 2 gibt für x = 4 den Wert 5."
+    "c": "(14 - 2) / 0.75",
+    "h": "Was kannst du am Graphen ablesen, um die Gleichung der Geraden aufzustellen?",
+    "w": "Am Graphen: t = 2 (Punkt (0 | 2)). Von (0 | 2) nach (4 | 5) geht es 4 nach rechts und 3 nach oben, also m = 3 : 4 = 0,75. Gleichung: y = 0,75x + 2. Für y = 14: 0,75x + 2 = 14, also 0,75x = 12 und x = 16. Probe: 0,75 · 16 + 2 = 14."
    }
   },
   {
@@ -253,7 +282,7 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "y = 6x − 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -293,12 +322,12 @@
      }
     },
     "a": [
-     "y = 6x − 1",
      "y = 2x + 3",
+     "y = 6x − 1",
      "y = 2x + 5"
     ],
     "o": {
-     "index": 1
+     "index": 0
     },
     "h": "Berechne zuerst die Steigung aus den beiden Punkten. Setze dann einen Punkt ein, um t zu bestimmen.",
     "w": "Steigung: (11 − 5) : (4 − 1) = 6 : 3 = 2. Aus 5 = 2 · 1 + t folgt t = 3. Probe mit dem zweiten Punkt: 2 · 4 + 3 = 11. Bei y = 6x − 1 ergibt x = 4 den Wert 23, bei y = 2x + 5 ergibt x = 1 den Wert 7."
@@ -343,7 +372,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Eine Gerade geht durch A(−2 | 1) und B(4 | 7). Welchen y-Wert hat der Punkt der Geraden mit x = 10? Weg A: Bestimme die Gleichung y = m·x + t und setze x = 10 ein. Weg B: Gehe von B aus mit der Steigung weiter: Wie weit musst du nach rechts, und um wie viel geht es dabei nach oben?"
+     "text": "Eine Gerade geht durch A(−2 | 1) und B(4 | 7). Weg A: Bestimme die Gleichung y = m·x + t und setze x = 10 ein. Weg B: Gehe von B aus mit der Steigung weiter: so weit nach rechts, wie es bis x = 10 nötig ist, und um die dazu passende Strecke nach oben. Welchen y-Wert hat der Punkt der Geraden mit x = 10?"
     },
     "o": {
      "wert": 13
@@ -439,22 +468,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 486,
-     "fehlbild": "fb.verhaeltnis.falsche_richtung",
-     "regel_des_fehlbilds": "rr.verhaeltnis",
-     "beschreibung": "mit 4,5 malgenommen statt geteilt"
-    },
-    {
-     "antwort": 6,
+     "antwort": 24,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur 108 durch 18 geteilt, die 4 Minuten vergessen"
+     "beschreibung": "nur die erste Pumpe berücksichtigt: 108 : 4,5"
     },
     {
-     "antwort": 112,
+     "antwort": 14.4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "108 und 4 addiert"
+     "beschreibung": "nur die zweite Pumpe berücksichtigt: 108 : 7,5"
+    },
+    {
+     "antwort": 38.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Einzelzeiten addiert statt die Mengen je Minute"
     }
    ],
    "aufgabe": {
@@ -465,15 +494,15 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Eine Pumpe fördert gleichmäßig 18 Liter in 4 Minuten. Die geförderte Menge ist proportional zur Zeit. In wie vielen Minuten füllt sie einen Tank mit 108 Litern?"
+     "text": "Eine Pumpe fördert gleichmäßig 18 Liter in 4 Minuten, eine zweite gleichmäßig 15 Liter in 2 Minuten. Beide pumpen gleichzeitig in einen Tank mit 108 Litern. Die Menge jeder Pumpe ist proportional zur Zeit. Nach wie vielen Minuten ist der Tank voll?"
     },
     "o": {
-     "wert": 24,
+     "wert": 9,
      "einheit": "Minuten"
     },
-    "c": "108 / (18 / 4)",
-    "h": "Wie viele Liter fördert die Pumpe in einer Minute? Wie oft passt diese Menge in 108 Liter?",
-    "w": "Pro Minute: 18 : 4 = 4,5 Liter. Für 108 Liter: 108 : 4,5 = 24 Minuten. Probe: 4,5 · 24 = 108."
+    "c": "108 / (18 / 4 + 15 / 2)",
+    "h": "Wie viele Liter kommen pro Minute insgesamt dazu?",
+    "w": "Pumpe 1: 18 : 4 = 4,5 Liter je Minute. Pumpe 2: 15 : 2 = 7,5 Liter je Minute. Zusammen 12 Liter je Minute. Für 108 Liter: 108 : 12 = 9 Minuten. Probe: 4,5 · 9 + 7,5 · 9 = 40,5 + 67,5 = 108."
    }
   },
   {
@@ -484,12 +513,12 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "auswahl",
-   "regel": "rr.waage",
-   "regel_name": "Gleichung als Waage",
+   "regel": "id.funktionen.wachstum",
+   "regel_name": "Wachstum",
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "h = 150 + 400t",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -533,12 +562,12 @@
      }
     },
     "a": [
-     "h = 400 + 150t",
      "h = 150 + 400t",
+     "h = 400 + 150t",
      "h = 550 + 150t"
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
     "h": "Welche Höhe gehört zu t = 0? Wie viel kommt von einer Stunde zur nächsten dazu?",
     "w": "Bei t = 0 ist die Höhe 400 m (das ist der Wert ohne t im Term). Von Stunde zu Stunde kommen 150 m dazu (Steigung m = 150). Also h = 400 + 150t. Probe: t = 3 gibt 400 + 450 = 850."
@@ -552,8 +581,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "rr.waage",
-   "regel_name": "Gleichung als Waage",
+   "regel": "id.funktionen.wachstum",
+   "regel_name": "Wachstum",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -589,7 +618,7 @@
      "wert": 1
     },
     "c": "7 - 2 * ((19 - 7) / (6 - 2))",
-    "h": "Berechne zuerst die Steigung aus den beiden bekannten Werten. Wie viel ändert sich f, wenn x von 2 auf 0 geht?",
+    "h": "Eine lineare Funktion ändert sich bei jedem Schritt in x um gleich viel.",
     "w": "Steigung: (19 − 7) : (6 − 2) = 12 : 4 = 3. Von x = 2 zurück zu x = 0 sind es 2 Schritte, also 2 · 3 = 6 weniger: f(0) = 7 − 6 = 1. Probe: f(x) = 3x + 1 gibt f(2) = 7 und f(6) = 19."
    }
   },
@@ -601,8 +630,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "rr.waage",
-   "regel_name": "Gleichung als Waage",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -632,7 +661,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Wo schneiden sich die Geraden g: y = 2x + 1 und h: y = −x + 7? Gib die x-Koordinate des Schnittpunkts an. Weg A: Lege für x = 0, 1, 2, 3, 4 eine Wertetabelle für beide Geraden an und suche die Spalte mit gleichen y-Werten. Weg B: Setze 2x + 1 = −x + 7 und löse die Gleichung."
+     "text": "Die Geraden g: y = 2x + 1 und h: y = −x + 7 schneiden sich in einem Punkt. Weg A: Lege für x = 0, 1, 2, 3, 4 eine Wertetabelle für beide Geraden an und suche die Spalte mit gleichen y-Werten. Weg B: Setze 2x + 1 = −x + 7 und löse die Gleichung. Wie groß ist die x-Koordinate des Schnittpunkts?"
     },
     "o": {
      "wert": 2
@@ -650,8 +679,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "rr.waage",
-   "regel_name": "Gleichung als Waage",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -687,7 +716,7 @@
      "wert": -1
     },
     "c": "(2 * 2 + 1 - 7) / 2",
-    "h": "Berechne den y-Wert von g an der Stelle x = 2. Im Schnittpunkt hat h denselben y-Wert.",
+    "h": "Im Schnittpunkt haben g und h denselben y-Wert.",
     "w": "g(2) = 2 · 2 + 1 = 5. Auch h hat dort den Wert 5: 2a + 7 = 5, also 2a = −2 und a = −1. Probe: h(2) = −2 + 7 = 5."
    }
   },
@@ -699,8 +728,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "auswahl",
-   "regel": "id.funktionen.gleichung_form",
-   "regel_name": "Gleichung und Form",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -711,7 +740,7 @@
      "beschreibung": "nur das Vorzeichen der Steigung gewechselt: die Steigungen 2 und −2 ergeben miteinander −4, nicht −1"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "y = 0,5x + 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -764,11 +793,11 @@
     },
     "a": [
      "y = −2x + 3",
-     "y = 0,5x + 3",
-     "y = −0,5x + 3"
+     "y = −0,5x + 3",
+     "y = 0,5x + 3"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
     "h": "Lies die Steigung von g ab. Bei senkrechten Geraden ist das Produkt der Steigungen −1.",
     "w": "Die Gerade g geht durch (0 | −1) und (1 | 1): Steigung 2. Für die senkrechte Gerade gilt m · 2 = −1, also m = −0,5. Sie geht durch (0 | 3), also t = 3: y = −0,5x + 3."
@@ -782,8 +811,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.funktionen.gleichung_form",
-   "regel_name": "Gleichung und Form",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -820,7 +849,7 @@
      "einheit": "m"
     },
     "c": "4 + 2 * 4",
-    "h": "Die Steigungen zweier senkrechter Geraden haben das Produkt −1. Weg B geht durch P.",
+    "h": "Was weißt du über die Steigungen zweier senkrechter Geraden? Weg B geht durch P.",
     "w": "Steigung von Weg B: m · 0,5 = −1, also m = −2. Durch P(4 | 4): 4 = −2 · 4 + t, also t = 12. Weg B schneidet die y-Achse bei y = 12. Probe: −2 · 4 + 12 = 4."
    }
   },
@@ -832,8 +861,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.funktionen.gleichung_form",
-   "regel_name": "Gleichung und Form",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -844,8 +873,8 @@
     },
     {
      "antwort": 1,
-     "fehlbild": "fb.reihenfolge.links_nach_rechts",
-     "regel_des_fehlbilds": "rr.reihenfolge",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "die Klammer um k + 1 weggelassen: nur die 1 mit x malgenommen und k addiert"
     },
     {
@@ -863,14 +892,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Gegeben ist die Schar y = (k + 1)·x − 2k. Wie groß ist y für k = 3 und x = 4? Weg A: Setze zuerst k = 3 ein und dann x = 4. Weg B: Schreibe den Term zuerst um in y = k·(x − 2) + x und setze dann beide Zahlen ein."
+     "text": "Gegeben ist die Schar y = (k + 1)·x − 2k. Weg A: Setze zuerst k = 3 ein und dann x = 4. Weg B: Setze zuerst x = 4 ein, vereinfache den Term in k und setze dann k = 3 ein. Wie groß ist y für k = 3 und x = 4?"
     },
     "o": {
      "wert": 10
     },
     "c": "(3 + 1) * 4 - 2 * 3",
-    "h": "Beide Wege müssen dieselbe Zahl ergeben. Beim Umschreiben wird (k + 1)·x zu k·x + x.",
-    "w": "Weg A: y = (3 + 1) · 4 − 2 · 3 = 16 − 6 = 10. Weg B: (k + 1)x − 2k = kx + x − 2k = k(x − 2) + x. Für k = 3 und x = 4: 3 · 2 + 4 = 10."
+    "h": "Beide Wege müssen dieselbe Zahl ergeben. Beim Vereinfachen werden die k-Glieder zusammengefasst.",
+    "w": "Weg A: y = (3 + 1) · 4 − 2 · 3 = 16 − 6 = 10. Weg B: Mit x = 4 ist y = (k + 1) · 4 − 2k = 4k + 4 − 2k = 2k + 4. Für k = 3: 6 + 4 = 10."
    }
   },
   {
@@ -901,7 +930,7 @@
      "antwort": 1.5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Zahlen zusammengefasst: 9 durch 6 geteilt"
+     "beschreibung": "5k − 6 = 9 falsch gelöst: 9 durch 6 geteilt"
     }
    ],
    "aufgabe": {
@@ -1034,14 +1063,14 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "y = m·(x + 2) + 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Vorzeichen in der Klammer vertauscht: der gemeinsame Punkt wäre (−2 | 3)"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "y = m·(x − 3) + 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1093,12 +1122,12 @@
      }
     },
     "a": [
+     "y = m·(x − 2) + 3",
      "y = m·(x + 2) + 3",
-     "y = m·(x − 3) + 2",
-     "y = m·(x − 2) + 3"
+     "y = m·(x − 3) + 2"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "h": "Wo schneiden sich die drei Geraden? Welcher Punkt ergibt sich, wenn in y = m·(x − a) + b der Wert x = a eingesetzt wird?",
     "w": "Alle drei Geraden gehen durch den Punkt (2 | 3). In y = m·(x − 2) + 3 verschwindet der Klammerterm für x = 2, und y = 3 gilt für jede Steigung m. Die Geraden in der Zeichnung gehören zu m = −1, m = 0,5 und m = 2."
@@ -1150,7 +1179,7 @@
      "einheit": "Einheiten"
     },
     "c": "(3 + 0.75 * (6 - 2)) - (3 - 0.25 * (6 - 2))",
-    "h": "Jeder Strahl liegt auf einer Geraden durch P. Berechne für beide die Höhe bei x = 6.",
+    "h": "Auf welcher Geraden durch P liegt jeder Strahl?",
     "w": "Strahl A: y = 0,75 · (x − 2) + 3, bei x = 6 ist y = 0,75 · 4 + 3 = 6. Strahl B: y = −0,25 · (x − 2) + 3, bei x = 6 ist y = −1 + 3 = 2. Abstand der Treffpunkte: 6 − 2 = 4 Einheiten."
    }
   },
@@ -1167,14 +1196,14 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Die Sonnenblume war am Anfang 1,5 cm hoch und wächst jeden Tag um 12 cm.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Anfangshöhe und Wachstum pro Tag vertauscht"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Die Sonnenblume ist nach 12 Tagen 1,5 cm hoch.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1192,12 +1221,12 @@
      "text": "Die Höhe einer Sonnenblume wird durch H(t) = 12 + 1,5·t beschrieben (t in Tagen, H in Zentimetern). Welche Aussage stimmt?"
     },
     "a": [
-     "Die Sonnenblume war am Anfang 12 cm hoch und wächst jeden Tag um 1,5 cm.",
      "Die Sonnenblume war am Anfang 1,5 cm hoch und wächst jeden Tag um 12 cm.",
-     "Die Sonnenblume ist nach 12 Tagen 1,5 cm hoch."
+     "Die Sonnenblume ist nach 12 Tagen 1,5 cm hoch.",
+     "Die Sonnenblume war am Anfang 12 cm hoch und wächst jeden Tag um 1,5 cm."
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "h": "Welche Höhe gehört zu t = 0? Um wie viel ändert sich H, wenn t um 1 größer wird?",
     "w": "Für t = 0 ist H = 12: Am Anfang ist die Pflanze 12 cm hoch. Jeder Tag bringt 1,5 cm dazu, denn 1,5 steht vor t. Nach 10 Tagen ist H = 27 cm."
@@ -1242,7 +1271,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Tarif A kostet K_A(x) = 5 + 0,2x, Tarif B kostet K_B(x) = 12 + 0,1x (x Minuten Gesprächszeit, Kosten in Euro, abgerechnet wird nur für ganze Minuten). Wie viele ganze Minuten muss man mindestens telefonieren, damit Tarif B billiger ist als Tarif A? Weg A: Löse die Ungleichung 12 + 0,1x < 5 + 0,2x. Weg B: Bestimme die Minute, bei der beide Tarife gleich viel kosten, und überlege mit den Steigungen, welcher Tarif danach billiger ist."
+     "text": "Tarif A kostet K_A(x) = 5 + 0,2x, Tarif B kostet K_B(x) = 12 + 0,1x (x Minuten Gesprächszeit, Kosten in Euro, abgerechnet wird nur für ganze Minuten). Weg A: Löse die Ungleichung 12 + 0,1x < 5 + 0,2x. Weg B: Bestimme die Minute, bei der beide Tarife gleich viel kosten, und überlege mit den Steigungen, welcher Tarif danach billiger ist. Wie viele ganze Minuten muss man mindestens telefonieren, damit Tarif B billiger ist als Tarif A?"
     },
     "o": {
      "wert": 71,

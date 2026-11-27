@@ -20,8 +20,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.haut",
-   "regel_name": "Haut des Körpers",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -88,8 +88,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.haut",
-   "regel_name": "Haut des Körpers",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -119,7 +119,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Ein Quader hat die Ecken A(0 | 0 | 0), C(6 | 4 | 0), E(0 | 0 | 3) und G(6 | 4 | 3). Seine Kanten verlaufen parallel zu den Achsen. Grundfläche ist ABCD, Deckfläche ist EFGH, E liegt über A und G liegt über C. M ist der Mittelpunkt der Deckfläche. Wie groß ist die Summe der drei Koordinaten von M? Weg A: M ist die Mitte der Strecke von E nach G. Weg B: M liegt senkrecht über dem Mittelpunkt N der Grundfläche ABCD."
+     "text": "Ein Quader hat die Ecken A(0 | 0 | 0), C(6 | 4 | 0), E(0 | 0 | 3) und G(6 | 4 | 3). Seine Kanten verlaufen parallel zu den Achsen. Grundfläche ist ABCD, Deckfläche ist EFGH, E liegt über A und G liegt über C. M ist der Mittelpunkt der Deckfläche. Weg A: M ist die Mitte der Strecke von E nach G. Weg B: M liegt senkrecht über dem Mittelpunkt N der Grundfläche ABCD. Wie groß ist die Summe der drei Koordinaten von M?"
     },
     "o": {
      "wert": 8
@@ -137,8 +137,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.haut",
-   "regel_name": "Haut des Körpers",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -187,8 +187,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.flaeche_raum.haut",
-   "regel_name": "Haut des Körpers",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -236,8 +236,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.haut",
-   "regel_name": "Haut des Körpers",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -286,8 +286,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.haut",
-   "regel_name": "Haut des Körpers",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -374,8 +374,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.haut",
-   "regel_name": "Haut des Körpers",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -423,8 +423,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.flaeche_raum.haut",
-   "regel_name": "Haut des Körpers",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {

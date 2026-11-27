@@ -127,7 +127,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Ein Glücksrad hat 12 gleich große Felder mit den Zahlen 1 bis 12. Ein Ergebnis ist die Zahl, bei der das Rad stehen bleibt. Ereignis A: „Die Zahl ist durch 3 teilbar“. Ereignis B: „Die Zahl ist größer als 6“. Wie viele Ergebnisse gehören zum Ereignis „A oder B“ (A, B oder beides)? Weg A: Die Zahlen von A und B aufschreiben und doppelte nur einmal zählen. Weg B: Die Anzahl der Zahlen von A und die von B zusammenzählen und die Anzahl der Zahlen abziehen, die in beiden Ereignissen stehen."
+     "text": "Ein Glücksrad hat 12 gleich große Felder mit den Zahlen 1 bis 12. Ein Ergebnis ist die Zahl, bei der das Rad stehen bleibt. Ereignis A: „Die Zahl ist durch 3 teilbar“. Ereignis B: „Die Zahl ist größer als 6“. Weg A: Die Zahlen von A und B aufschreiben und doppelte nur einmal zählen. Weg B: Die Anzahl der Zahlen von A und die von B zusammenzählen und die Anzahl der Zahlen abziehen, die in beiden Ereignissen stehen. Wie viele Ergebnisse gehören zum Ereignis „A oder B“ (A, B oder beides)?"
     },
     "o": {
      "wert": 8
@@ -251,8 +251,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.stufen",
-   "regel_name": "Stufen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -300,8 +300,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.daten.stufen",
-   "regel_name": "Stufen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {

@@ -105,7 +105,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "Diese Zeile ist für sich richtig: Über Kreuz ergibt 5(x − 1) = 2(x + 4). Der erste Fehler steht schon in Zeile 1, bei x + 4 = 0."
     }
    ],
    "aufgabe": {
@@ -137,24 +137,22 @@
    "stufe": 2,
    "typ": "Brücke",
    "form": "bruecke",
-   "antwortform": "auswahl",
-   "regel": "id.algebra.gleichung_loesen",
-   "regel_name": "Gleichung lösen",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
-     "antwort": "36/(x + 5) = 14",
+     "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 5 schon im Nenner addiert: die Reihenfolge der Rechenschritte falsch übersetzt"
+     "beschreibung": "36/x = 9 gefunden, aber x = 9 gesetzt"
     },
     {
-     "index": 2,
-     "antwort": "36/x = 14 + 5",
+     "antwort": 324,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 5 beim Umstellen mit dem falschen Vorzeichen auf die andere Seite gebracht"
+     "beschreibung": "36/x = 9 mit 9 malgenommen statt 36 durch 9 geteilt"
     }
    ],
    "aufgabe": {
@@ -163,20 +161,16 @@
     "p": "uebung",
     "s": 2,
     "g": "darstellung",
-    "y": "auswahl",
+    "y": "zahl",
     "f": {
-     "text": "Wenn man 36 durch eine Zahl x teilt und zum Ergebnis 5 addiert, erhält man 14. Welche Gleichung gehört zu dieser Aussage (x ≠ 0)?"
+     "text": "Wenn man 36 durch eine Zahl x teilt und zum Ergebnis 5 addiert, erhält man 14. Welche Zahl ist x (x ≠ 0)?"
     },
-    "a": [
-     "36/x + 5 = 14",
-     "36/(x + 5) = 14",
-     "36/x = 14 + 5"
-    ],
     "o": {
-     "index": 0
+     "wert": 4
     },
-    "h": "Was passiert zuerst mit der Zahl x, was danach? Setze zur Probe x = 4 ein.",
-    "w": "Erst wird 36 durch x geteilt: 36/x. Dann wird 5 addiert: 36/x + 5. Das Ergebnis ist 14. Mit x = 4 gilt 9 + 5 = 14. Die anderen Gleichungen stimmen für x = 4 nicht: 36/9 ist 4, und 36/4 = 9 ist nicht 19."
+    "c": "36 / (14 - 5)",
+    "h": "Schreibe die Aussage zuerst als Gleichung: Was passiert zuerst mit x, was danach?",
+    "w": "Erst wird 36 durch x geteilt: 36/x. Dann wird 5 addiert. Gleichung: 36/x + 5 = 14. Also 36/x = 9. Mit x multipliziert ist 36 = 9x und x = 4. Probe: 36/4 + 5 = 9 + 5 = 14."
    }
   },
   {
@@ -187,8 +181,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.algebra.gleichung_loesen",
-   "regel_name": "Gleichung lösen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -285,8 +279,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "rr.verhaeltnis",
-   "regel_name": "Verhältnis (Dreisatz)",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -323,7 +317,7 @@
      "einheit": "Minuten"
     },
     "c": "30 * 6 / (9 - 6)",
-    "h": "Die Geschwindigkeit ist Strecke durch Zeit. Beide Geschwindigkeiten sind gleich: 6/t und 9/(t + 30) sind gleich groß.",
+    "h": "Die Geschwindigkeit ist Strecke durch Zeit. Wie schnell ist jeder Läufer, ausgedrückt mit t?",
     "w": "Gleichung: 6/t = 9/(t + 30). Über Kreuz: 6(t + 30) = 9t, also 6t + 180 = 9t und t = 60. Läufer A braucht 60 Minuten, B 90 Minuten. Probe: 6 km in 60 min = 0,1 km/min und 9 km in 90 min = 0,1 km/min."
    }
   },
@@ -335,8 +329,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "rr.bruchrechnen",
-   "regel_name": "Rechnen mit Brüchen",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -434,8 +428,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "auswahl",
-   "regel": "id.algebra.gleichung_loesen",
-   "regel_name": "Gleichung lösen",
+   "regel": "id.algebra.erlaubte_zahlen",
+   "regel_name": "Erlaubte Zahlen",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -446,7 +440,7 @@
      "beschreibung": "beim Umformen entsteht x = 2, aber für x = 2 ist der Nenner 0; dort gibt es keinen Punkt auf den Graphen"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Die Gleichung hat unendlich viele Lösungen, weil beide Brüche denselben Nenner haben.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -492,11 +486,11 @@
     },
     "a": [
      "Die Gleichung hat genau eine Lösung, nämlich x = 2, denn dort laufen beide Graphen zusammen.",
-     "Die Gleichung hat unendlich viele Lösungen, weil beide Brüche denselben Nenner haben.",
-     "Die Gleichung hat keine Lösung: Die Graphen haben keinen gemeinsamen Punkt, und die Zahl 2 ist nur eine Scheinlösung."
+     "Die Gleichung hat keine Lösung: Die Graphen haben keinen gemeinsamen Punkt, und die Zahl 2 ist nur eine Scheinlösung.",
+     "Die Gleichung hat unendlich viele Lösungen, weil beide Brüche denselben Nenner haben."
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
     "h": "Haben die beiden Graphen einen gemeinsamen Punkt? Welche Zahl x ergibt sich beim Umformen, und darf man sie einsetzen?",
     "w": "Mit (x − 2) multipliziert bleibt x = 2. Für x = 2 ist der Nenner 0, die Zahl gehört nicht zur Definitionsmenge. Die Graphen liegen immer 1 Einheit auseinander, denn x/(x − 2) = 1 + 2/(x − 2). Die Lösungsmenge ist leer."
@@ -510,19 +504,19 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "auswahl",
-   "regel": "id.algebra.gleichung_loesen",
-   "regel_name": "Gleichung lösen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Pumpe B braucht allein 18 Stunden.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Vorzeichen übersehen: x = −18 ist keine mögliche Zeit"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Pumpe B braucht allein 3 Stunden.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -540,15 +534,15 @@
      "text": "Pumpe A füllt ein Becken allein in 6 Stunden. Pumpe B füllt es allein in x Stunden. Es wird behauptet, beide zusammen brauchen 9 Stunden. Beide pumpen gleichmäßig. Aus der Gleichung 1/6 + 1/x = 1/9 ergibt sich x = −18. Was bedeutet das für die Behauptung?"
     },
     "a": [
+     "Die Behauptung kann nicht stimmen: Eine negative Zeit ist unmöglich, und zusammen müssten die Pumpen schneller sein als A allein.",
      "Pumpe B braucht allein 18 Stunden.",
-     "Pumpe B braucht allein 3 Stunden.",
-     "Die Behauptung kann nicht stimmen: Eine negative Zeit ist unmöglich, und zusammen müssten die Pumpen schneller sein als A allein."
+     "Pumpe B braucht allein 3 Stunden."
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "h": "Die Zeit von Pumpe B muss eine positive Zahl sein. Wie lange brauchen zwei Pumpen zusammen im Vergleich zu einer allein?",
-    "w": "1/x = 1/9 − 1/6 = 2/18 − 3/18 = −1/18, also x = −18. Eine Zeit kann nicht negativ sein. Das passt zur Überlegung: Mit einer zweiten Pumpe geht es schneller als mit A allein, also in weniger als 6 Stunden, nicht in 9. Die Rechnung liefert nur eine Scheinlösung für die Sachaufgabe."
+    "w": "1/x = 1/9 − 1/6 = 2/18 − 3/18 = −1/18, also x = −18. Die Zahl −18 liegt zwar in der Definitionsmenge (x ≠ 0), aber eine Zeit kann nicht negativ sein. Das passt zur Überlegung: Mit einer zweiten Pumpe geht es schneller als mit A allein, also in weniger als 6 Stunden, nicht in 9. Eine Lösung muss immer auch zur Sachaufgabe passen."
    }
   },
   {
@@ -590,7 +584,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Sirup und Wasser werden im Verhältnis 3 : 8 gemischt. Wie viel Liter Wasser gehören zu 4,5 Litern Sirup? Weg A: Verhältnisgleichung 3/8 = 4,5/x über Kreuz lösen. Weg B: den Faktor bestimmen, mit dem aus 3 die Zahl 4,5 wird, und 8 mit demselben Faktor malnehmen."
+     "text": "Sirup und Wasser werden im Verhältnis 3 : 8 gemischt. Weg A: Verhältnisgleichung 3/8 = 4,5/x über Kreuz lösen. Weg B: den Faktor bestimmen, mit dem aus 3 die Zahl 4,5 wird, und 8 mit demselben Faktor malnehmen. Wie viel Liter Wasser gehören zu 4,5 Litern Sirup?"
     },
     "o": {
      "wert": 12,
@@ -658,8 +652,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.funktionen.zuordnung",
-   "regel_name": "Zuordnung",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -734,8 +728,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.funktionen.zuordnung",
-   "regel_name": "Zuordnung",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -771,7 +765,7 @@
      "wert": 24
     },
     "c": "(2 * 4 - 2) * 4",
-    "h": "Berechne zuerst den y-Wert der Geraden bei x = 4. Der Schnittpunkt liegt auch auf der Hyperbel.",
+    "h": "Welcher Punkt liegt auf beiden Graphen?",
     "w": "Gerade bei x = 4: y = 2 · 4 − 2 = 6. Der Punkt (4 | 6) liegt auch auf der Hyperbel: 6 = k/4. Also k = 24. Probe: 24/4 = 6."
    }
   }

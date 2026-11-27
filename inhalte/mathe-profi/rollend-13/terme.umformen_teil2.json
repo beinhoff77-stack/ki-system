@@ -107,7 +107,7 @@
      "wert": 3
     },
     "c": "7 - 4",
-    "h": "Beim Ausmultiplizieren entsteht x² + (a + b)x + a · b. Welche zwei Zahlen haben die Summe 7 und das Produkt 12?",
+    "h": "Multipliziere (x + a)(x + b) aus und vergleiche mit der rechten Seite. Was muss für a und b gelten?",
     "w": "(x + a)(x + b) = x² + (a + b)x + ab. Also gilt a + b = 7 und ab = 12. Mit 0 < a < b passt nur a = 3 und b = 4. Probe: (x + 3)(x + 4) = x² + 7x + 12."
    }
   },
@@ -128,7 +128,7 @@
      "antwort": "4(x + 5)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Breite und Höhe vertauscht: dieser Term ist 4x + 20, also 4x + 20 statt 5x + 20"
+     "beschreibung": "die 4 und die 5 vertauscht: dieser Term ist 4x + 20, also 4x + 20 statt 5x + 20"
     },
     {
      "index": 2,
@@ -333,7 +333,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "Diese Zeile ist für sich richtig: 2ab = 2 · 3x · 5 = 30x und b² = 25. Der erste Fehler steht schon in Zeile 1, beim Quadrat von 3x."
     },
     {
      "index": 2,
@@ -372,24 +372,28 @@
    "stufe": 2,
    "typ": "Brücke",
    "form": "bruecke",
-   "antwortform": "auswahl",
-   "regel": "id.algebra.gleichung_loesen",
-   "regel_name": "Gleichung lösen",
+   "antwortform": "zahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "x² + 4² = x² + 56",
+     "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Fläche des größeren Quadrats als x² + 4² gerechnet; diese Gleichung hat keine Lösung, weil 16 = 56 nicht stimmt"
+     "beschreibung": "die 16 vergessen: 8x = 56"
     },
     {
-     "index": 1,
-     "antwort": "(x + 4)² = 56",
+     "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die neue Fläche mit dem Zuwachs gleichgesetzt; für x = 5 ergibt die linke Seite 81, nicht 56"
+     "beschreibung": "die 16 addiert statt abgezogen: 8x = 72"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Mittelglied nur als 4x statt 8x gerechnet: 4x + 16 = 56"
     }
    ],
    "aufgabe": {
@@ -398,20 +402,17 @@
     "p": "uebung",
     "s": 2,
     "g": "darstellung",
-    "y": "auswahl",
+    "y": "zahl",
     "f": {
-     "text": "Ein Quadrat hat die Seitenlänge x cm. Verlängert man jede Seite um 4 cm, so wird die Fläche um 56 cm² größer. Welche Gleichung beschreibt diese Aussage?"
+     "text": "Ein Quadrat hat die Seitenlänge x cm. Verlängert man jede Seite um 4 cm, so wird die Fläche um 56 cm² größer. Wie groß ist x in Zentimetern?"
     },
-    "a": [
-     "x² + 4² = x² + 56",
-     "(x + 4)² = 56",
-     "(x + 4)² = x² + 56"
-    ],
     "o": {
-     "index": 2
+     "wert": 5,
+     "einheit": "cm"
     },
-    "h": "Wie groß ist die neue Fläche? Wie groß ist sie, wenn sie um 56 cm² wächst?",
-    "w": "Neue Seitenlänge x + 4, neue Fläche (x + 4)². Sie ist um 56 größer als die alte Fläche x². Also (x + 4)² = x² + 56. Ausmultipliziert: 8x + 16 = 56, also x = 5. Probe: 81 = 25 + 56."
+    "c": "(56 - 16) / 8",
+    "h": "Die neue Fläche ist (x + 4)². Sie ist um 56 cm² größer als x². Schreibe das als Gleichung und multipliziere die Klammer aus.",
+    "w": "Neue Seitenlänge x + 4, neue Fläche (x + 4)². Sie ist um 56 größer als die alte Fläche x². Gleichung: (x + 4)² = x² + 56. Ausmultipliziert: x² + 8x + 16 = x² + 56, also 8x = 40 und x = 5. Probe: 81 = 25 + 56."
    }
   },
   {
@@ -422,8 +423,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.algebra.gleichung_loesen",
-   "regel_name": "Gleichung lösen",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
    "zaehlt": "ja",
    "fehlbilder": [
     {

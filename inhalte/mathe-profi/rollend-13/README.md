@@ -26,7 +26,7 @@ Stufen: 66 Aufgaben auf Stufe 2, 66 auf Stufe 3. Die Stufe folgt aus der Zahl g 
 
 ## Geprüft (maschinell, `python3 -I inhalte/mathe-profi/rollend-13/bauen.py`, Ergebnis „OK“)
 - Alle 132 Lösungen zweimal unabhängig nachgerechnet (Ausdruck c und zweite Rechnung).
-- 281 Fehlbilder mit Rechnung nachgerechnet, keines ohne Rechnung.
+- 286 Fehlbilder mit Rechnung nachgerechnet; 23 davon tragen eine Fehlbild-Kennung aus dem Katalog.
 - Auswahl-Aufgaben: genau eine richtige Antwort, Probe per Programm; Lage der richtigen Antwort wechselt.
 - Fehler-Detektiv: Zeilen vor der Fehlerzeile stimmen, spätere Zeilen folgen aus der Zeile davor.
   Fehlerzeile je Zeile {1: 5, 2: 5, 3: 4, 4: 2} bei 16 Aufgaben, keine Zeile über einem Drittel plus eins.
@@ -38,6 +38,22 @@ Stufen: 66 Aufgaben auf Stufe 2, 66 auf Stufe 3. Die Stufe folgt aus der Zahl g 
 8 Aufgaben geändert: V025 (zwei_wege war unehrlich: Weg A konnte die Lösung nicht liefern, jetzt Frage nach dem Unterschied der Seiten),
 V026 (Probe-Gleichung eindeutig benannt), V042 und V110 und V111 (Wortlaut), V049 (Weg B ist jetzt wirklich ein anderer Weg:
 Wertetabelle statt gleicher Gleichung), V050 (Läufer und Läuferin vereinheitlicht), V085 (Bezeichnung t doppelt benutzt).
+
+## Vorprüfung (unabhängig, alle 132 Aufgaben einzeln gelesen und nachgerechnet)
+96 Aufgaben geändert (Quelle und Neubau). Befunde nach Art, Zahlen gerundet auf die Aufgaben, die davon betroffen waren:
+- Regel-Kennung passte nicht zum Thema oder zur Aufgabe: etwa 60, auf die passende Kennung gesetzt oder geleert.
+- Fehlbild-Kennung passte nicht genau zur Rechnung: 23 geprüft, mehrere geleert, Texte angepasst (Vorzeichen, Richtung).
+- Fehler-Detektiv: Rückmeldung für jede wählbare Zeile ergänzt (Parameter `rueck` in `kern.py`), Fragetexte eindeutig gemacht.
+- Aufgabe fachlich neu gebaut, weil sie die Lernkarte nicht übte oder nicht eindeutig war: V017, V036, V047, V060, V071, V080, V084, V103, V121.
+- Fragetext: Eingabefrage steht zuletzt, fehlende Vorbedingung ergänzt, Schreibweise (Klammern, Einheiten, Dezimalkomma).
+- Tipp zu stark oder Stufe 3 kaum schwerer als Stufe 2: etwa 12 Tipps entschärft.
+- `bauen.py` prüft jetzt: Regel-Kennung und Fehlbild-Kennung stehen im Katalog `regeln-uebersicht/kennungen.json` und gehören zum Thema
+  (Ausnahmen nur über die Listen `REGEL_AUSNAHME` und `FEHLBILD_GELESEN`, von Hand gelesen).
+Nicht verlässlich beurteilt:
+- Zeichnungen V071, V080, V103, V121 (neu oder geändert) nicht im Browser angesehen.
+- V123, V124, V017, V047 passen nur teilweise zum Titel der Lernkarte; V054 nur teilweise zur Scheinlösung.
+- V107 ist eher Stufe 3, steht auf Stufe 2; V058 und V112 auf Stufe 3 bleiben recht einfach.
+- V007 (zwei Wege unterscheiden sich nur in der Zerlegung), V039 und V045 (schwache Brücke), V068 (Fehlbild grenzwertig).
 
 ## Annahmen und offene Punkte (nicht als geprüfte Tatsachen zu lesen)
 - Die Aufgabe „Fliesenleger/Raute“ (V124) kommt ohne Satz des Pythagoras aus, weil dieser in der Konstruktions-Lernkarte im Bestand nicht vorkommt.

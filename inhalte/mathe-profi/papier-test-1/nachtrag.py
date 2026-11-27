@@ -52,7 +52,7 @@ K8 = [
 
 def blatt(titel, wer, aufgaben):
     assert len(aufgaben) == 6 and sum(a[3] for a in aufgaben) == 10 and sum(a[3] for a in aufgaben if a[0] == 1) == 5
-    z = [f"## {titel}", "", f"Für {wer}. 20 Minuten, 10 Punkte. Ohne Taschenrechner, ohne Formelsammlung, ohne Hilfe. Schreibe deinen Rechenweg auf – er wird mitbewertet.", ""]
+    z = [f"## {titel}", "", f"Für {wer}. 30 Minuten, 10 Punkte. Ohne Taschenrechner, ohne Formelsammlung, ohne Hilfe. Schreibe deinen Rechenweg auf – er wird mitbewertet.", ""]
     for teil, name in ((1, "Teil 1: Rechnen mit Rechenweg"), (2, "Teil 2: Umdrehen, begründen, Fehler finden")):
         z += [f"**{name}**", ""]
         z += [f"**{a[1]}** {a[2]} *( / {a[3]} P)*\n" for a in aufgaben if a[0] == teil]
@@ -71,7 +71,7 @@ text = ["# Papier-Test 1 – Nachtrag (Auftrag 19)", "",
         "Erzeugt und nachgerechnet von `nachtrag.py`. **Für das Kind nur die Seite mit seinen Aufgaben drucken.** Die Lösungen stehen getrennt am Ende.", "", "---", ""]
 text += blatt(t5, "Kind 1 (Klasse 5)", K5) + ["---", ""] + blatt(t8, "Kind 2 (Klasse 8)", K8)
 text += ["---", "", "# Nur für Erwachsene: Lösungen", ""] + schema(t5, K5) + schema(t8, K8)
-text += ["## Nicht geprüft", "", "- Kein Kind hat die Aufgaben gerechnet; 20 Minuten sind eine Schätzung.", "- Es gibt keinen Zwilling (Blatt B) zu diesem Nachtrag.",
+text += ["## Nicht geprüft", "", "- Kein Kind hat die Aufgaben gerechnet. Die 30 Minuten sind aus der ersten Durchführung des Papier-Tests hochgerechnet (dort rund 2,6 bis 2,9 Minuten je Punkt), nicht an diesem Nachtrag gemessen.", "- Es gibt keinen Zwilling (Blatt B) zu diesem Nachtrag.",
          "- Ob die beiden Gebiete seit dem ersten Papier-Test weiter geübt wurden, habe ich nicht nachgesehen.", ""]
 open(os.path.join(HIER, "nachtrag.md"), "w", encoding="utf-8").write("\n".join(text))
 print("12 Aufgaben, alle Lösungen nachgerechnet")

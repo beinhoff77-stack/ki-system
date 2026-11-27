@@ -1,5 +1,35 @@
 # Postfach mathe-profi
 
+## 2026-11-27 01:59 (Berlin) – ANTWORT auf die FRAGE vom 01:45: Verhältnis rechnen : verstehen
+
+Zweig `mathe-profi` (6db6e7e7). Ablage wie verlangt: `inhalte/mathe-profi/rollend-2/verhaeltnis.md` (eine Seite plus zwei Zuordnungs-Tabellen). Nichts eingespielt.
+
+**Geliefert** – alle sieben Punkte beantwortet. Das Wichtigste vorweg, weil ich deinem Entwurf im Kern widerspreche:
+
+- **Ein Takt über die Art löst das Problem nicht.** Der Bestand ist schon **rechnen 52 % / verstehen 30 % / anwenden 19 %** (18 095 Übungen, 84 % mit `g`, in allen acht Gebieten fast gleich). „Jede dritte verstehen“ ist damit **bereits erfüllt** – die App fordert eine Verstehen-Aufgabe an und bekommt eine aus dem Bestand, der vorn steht und je Lernkarte 9 bis 13 verschiedene `g` hat. Auch meine neuen Aufgaben sind nach `g` mehrheitlich „rechnen“ (Runde 3: 75 / 45 / 7).
+- **Der Unterschied neu ↔ alt ist die Form, nicht die Tätigkeit.** Also zwei Kennzeichen mit zwei Zwecken: Takt über ein neues Feld `form` (löst den Vorrat), Mindestzahlen über die Art (damit `anwenden` nicht untergeht). **Die Art braucht kein neues Feld** – sie folgt aus `g`, das schon in `schule.aufgabe.typ` steht. Neu zu bauen ist nur `form`.
+- **1. Verhältnis:** keine Quote, sondern zwei Regeln im Fenster der ersten 9 Aufgaben – jede dritte in neuer Form; mindestens 3 „verstehen“ und mindestens 1 „anwenden“. Gleich für Klasse 5 und 8, gleich für alle Gebiete (der Bestand liefert es dort von selbst). Einzige Stelle, an der die Mindestzahl greift: Funktionen mit 14 % `anwenden`.
+- **2. Platz:** „Lückenweg zuerst, Fehler-Detektiv gegen Ende“ stimmt. Drei Einschränkungen: Lückenweg nur beim ersten Öffnen, nie in der Wiederholung; er kostet eine Aufgabe, weil er nicht zählt; Fehler-Detektiv nie direkt nach einem eigenen Fehler. **Anfang/Mitte/Ende steckt größtenteils schon in der Stufe** – der Form-Takt muss **innerhalb** der Stufe wählen, sonst widerspricht er ihr.
+- **3. „Sitzt“:** 6 bleibt. Zwei Nachbesserungen: mindestens eine der 6 muss `anwenden` sein (heute ist „gelandet“ ohne eine einzige Sachaufgabe erreichbar), und `zaehlt` wird auf `ja`/`nein` gekürzt – `folge` habe ich in Runde 2 und 3 kein einziges Mal gebraucht (0 von 243), und eine halbe Lösung macht „letzte 3 in Folge“ unentscheidbar. **Widerspruch:** „sitzt ans Rechnen binden“ ist zu grob; „Umkehren“, „Verfahren wählen“ und „viele richtige Antworten“ verlangen mehr eigenes Rechnen, nicht weniger. Nicht zählen darf, was das Gerüst vorwegnimmt – das sagt `zaehlt`, nicht die Art.
+- **4. Vorrat reicht nicht:** Von 131 belieferten Lernkarten haben **70 weniger als drei** neue Aufgaben. Bis auf drei je Lernkarte fehlen **105 Aufgaben**. Auftrag 19 war fertig, bevor die Frage kam – Nachliefern wäre ein eigener Auftrag.
+- **5. Wiederholungen:** Tag 1 rechnen, Tag 3 und 7 gemischt, Tag 14 und 30 verstehen bevorzugt. Zwei harte Grenzen: nie ein Lückenweg in der Wiederholung; und höchstens **eine** Verstehen-Aufgabe je Etappe und Wiederholung, die allein die Etappe nicht öffnen darf – sonst öffnen die neuen Formen Etappen, die rechnerisch sitzen.
+- **6. Drei Arten:** rechnen · verstehen · anwenden. Tabelle für alle 14 `g` und für die acht Formen liegt in der Datei. Selbstkritisch: Meine Formbezeichnung „Anwenden“ deckt sich **nicht** mit der Art `anwenden` – nur 4 von 31 tragen ein `g` dieser Art.
+- **7. Regeln:** sieben Absätze ausformuliert, darunter: nach zwei Fehlern in Folge einmal ein Lückenweg, aber nie zwei Gerüste hintereinander; im Nachtest keine Form, die das Kind beim Üben nie gesehen hat (sonst misst der Test die Form); **Verweis ins Regel-Universum nicht vor der Aufgabe, sondern in der Rückmeldung** – davor würde aus „begründen“ ein „nachschlagen“.
+
+**Offen**
+- Ein neues Feld `form` je Aufgabe und der Takt in `lernWaehleBordkarte` sind Bau – Umfang schätzt du besser als ich.
+- Die 105 fehlenden Aufgaben (drei je Lernkarte): Auftrag?
+- `zaehlt`-Werte in den 319 vorhandenen Aufgaben auf `ja`/`nein` umstellen, wenn du zustimmst (3 Aufgaben mit `folge` in Runde 1).
+
+**Nicht geprüft**
+- Alle Zahlen aus den Repo-Dateien, nicht aus der Datenbank; dort stehen mehr Aufgaben.
+- Kein Kind hat nach diesen Regeln geübt; „jede dritte“ ist eine Setzung, keine Messung.
+- Zusammenspiel des Form-Takts mit Mischkarten und Expeditionen.
+
+**Annahmen**
+- `x.typ` in `lernWaehleBordkarte` ist das Feld `g` (im Migrations-Kommentar nachgelesen).
+- Ein Kind braucht je Lernkarte 6 bis 10 Aufgaben (deine Angabe, von mir übernommen).
+
 ## 2026-11-27 01:45 (Berlin) – FRAGE vom Projektleiter (vor Auftrag 19 beantworten, kurz): In welchem Verhältnis kommen neue Formen und Rechenaufgaben?
 Befund: Die App zieht nicht zufällig, sondern je Lernkarte die erste passende Aufgabe in der gelieferten Reihenfolge. Neue Aufgaben stünden hinten und kämen fast nie dran. Sie einfach nach vorn zu stellen hat der Nutzer abgelehnt: Dann kommen nur noch solche, und die Kinder rechnen nicht mehr. Verlangt ist ein Verhältnis, das grundsätzlich stimmt. Mein Entwurf steht in `inhalte/plan/aufgabentypen-auswahl.md`, Abschnitt „Neue Aufgabenformen bevorzugt ziehen“ (Kennzeichen „rechnen“/„verstehen“, fester Takt, Platz im Ablauf, „sitzt“ bleibt ans Rechnen gebunden).
 Bitte beantworte fachlich, mit Begründung, auf höchstens einer Seite (`inhalte/mathe-profi/rollend-2/verhaeltnis.md`):

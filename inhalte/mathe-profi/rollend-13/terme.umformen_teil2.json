@@ -253,7 +253,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim klammert in 8a²b + 12ab² den größten gemeinsamen Faktor aus. Zeile 1: Der größte gemeinsame Teiler von 8 und 12 ist 4. Beide Glieder enthalten a und b. Ausgeklammert wird 4ab. Zeile 2: Teilen durch 4ab: 8a²b : 4ab = 2 und 12ab² : 4ab = 3. Zeile 3: Also gilt 8a²b + 12ab² = 4ab(2 + 3) = 20ab. In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim klammert in 8a²b + 12ab² den größten gemeinsamen Faktor aus. Zeile 1: Der größte gemeinsame Teiler von 8 und 12 ist 4. Beide Glieder enthalten a und b. Ausgeklammert wird 4ab. Zeile 2: Jedes Glied wird in 4ab mal Rest zerlegt: 8a²b = 4ab · 2 und 12ab² = 4ab · 3. Zeile 3: Also gilt 8a²b + 12ab² = 4ab(2 + 3) = 20ab. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -263,8 +263,8 @@
     "o": {
      "index": 1
     },
-    "h": "Teile 8a²b durch 4ab. Welche Buchstaben bleiben übrig?",
-    "w": "8a²b : 4ab = 2a und 12ab² : 4ab = 3b. Richtig: 8a²b + 12ab² = 4ab(2a + 3b). In Zeile 2 sind die Buchstaben verloren gegangen, Zeile 3 rechnet damit nur weiter."
+    "h": "Multipliziere 4ab · 2 aus. Kommt 8a²b heraus? Prüfe so jedes Glied.",
+    "w": "Aus den Potenzen: 8a²b = 4ab · 2a und 12ab² = 4ab · 3b. Richtig: 8a²b + 12ab² = 4ab(2a + 3b). Das Ausmultiplizieren bestätigt es: 4ab · 2a + 4ab · 3b = 8a²b + 12ab². In Zeile 2 sind die Buchstaben verloren gegangen, Zeile 3 rechnet damit nur weiter."
    }
   },
   {

@@ -43,9 +43,9 @@ neu(T, "extremwert", "fehler_detektiv", FD(
     "Der größte Wert 7 stimmt. Aber (x − 3)² ist null bei x = 3 und nicht bei x = 7. Probe: g(3) = −9 + 18 − 2 = 7, aber g(7) = −49 + 42 − 2 = −9. Der größte Wert 7 wird bei x = 3 angenommen."), g="fehler", regel=AT)
 # ───────── mit_faktor ─────────
 neu(T, "mit_faktor", "umkehren", Z(
-    "Die Funktion f(x) = a·x² − 12x + 5 mit a ≠ 0 hat ihren Scheitel bei x = 3. Welche Zahl ist a?",
-    2, "12 / (2 * 3)", "6 / 3", "Klammere a bei den Gliedern mit x aus und ergänze dann in der Klammer quadratisch. Was steht dann in der Klammer neben x?",
-    "f(x) = a(x² − (12/a)·x) + 5. Die Klammer wird zu (x − 6/a)² − 36/a². Der Scheitel liegt also bei x = 6/a. Aus 6/a = 3 folgt a = 2. Probe: f(x) = 2x² − 12x + 5 = 2(x − 3)² − 13, der Scheitel liegt bei x = 3.",
+    "Die Funktion f(x) = a·x² − 12x + 5 mit a ≠ 0 hat ihren Scheitel bei x = 3. Für eine Funktion f(x) = ax² + bx + c liegt die Scheitelstelle bei x = −b/(2a). Welche Zahl ist a?",
+    2, "12 / (2 * 3)", "6 / 3", "Welche Zahl ist hier b? Setze b und die Scheitelstelle 3 in x = −b/(2a) ein.",
+    "Hier ist b = −12, also x = 12/(2a) = 6/a. Aus 6/a = 3 folgt a = 2. Dieselbe Stelle ergibt die quadratische Ergänzung: f(x) = a(x² − (12/a)·x) + 5. Die Klammer wird zu (x − 6/a)² − 36/a². Der Scheitel liegt bei x = 6/a. Probe: f(x) = 2x² − 12x + 5 = 2(x − 3)² − 13, der Scheitel liegt bei x = 3.",
     [(6, None, "die Zahl 12 durch 2 geteilt und die Stelle 3 nicht benutzt", "12 / 2"), (4, None, "die Zahl 12 durch die Stelle 3 geteilt, ohne zu halbieren", "12 / 3"), (0.5, None, "den Bruch verkehrt herum gerechnet: Stelle durch 6", "3 / 6")]), g="umkehr", regel=AT)
 assert gl("2*x**2-12*x+5", "2*(x-3)**2-13")
 neu(T, "mit_faktor", "anwenden", Z(
@@ -56,9 +56,9 @@ neu(T, "mit_faktor", "anwenden", Z(
 assert gl("-2*x**2+20*x-30", "-2*(x-5)**2+20")
 # ───────── optimierung ─────────
 neu(T, "optimierung", "umkehren", Z(
-    "Mit einem Zaun der Länge L wird ein Rechteck vollständig umzäunt. Der ganze Zaun wird verbaut. Die größte Fläche, die man so umzäunen kann, ist 100 m². Wie lang ist der Zaun in Metern?",
-    40, "4 * 10", "16 * 100 / 40", "Schreibe die Fläche mit einer Seite b als Funktion und suche ihren größten Wert.",
-    "Die andere Seite ist L/2 − b. Die Fläche ist A(b) = b(L/2 − b). Ihr größter Wert liegt in der Mitte der Nullstellen 0 und L/2, bei b = L/4. Dort ist A = (L/4)² = L²/16. Aus L²/16 = 100 folgt L² = 1600 und L = 40 (L > 0). Probe: Quadrat mit Seite 10 hat Umfang 40 und Fläche 100.",
+    "Mit einem Zaun der Länge L wird ein Rechteck vollständig umzäunt. Der ganze Zaun wird verbaut. Bei festem Umfang hat das Quadrat die größte Fläche. Die größte Fläche, die man so umzäunen kann, ist 100 m². Wie lang ist der Zaun in Metern?",
+    40, "4 * 10", "16 * 100 / 40", "Welche Form hat das Rechteck mit der größten Fläche? Wie hängt dann die Seitenlänge mit L zusammen?",
+    "Das beste Rechteck ist ein Quadrat mit Seite s, die Fläche ist s² = 100, also s = 10 und L = 4 · 10 = 40. Dasselbe zeigt die Rechnung: Die andere Seite ist L/2 − b. Die Fläche ist A(b) = b(L/2 − b). Ihr größter Wert liegt in der Mitte der Nullstellen 0 und L/2, bei b = L/4. Dort ist A = (L/4)² = L²/16. Aus L²/16 = 100 folgt L² = 1600 und L = 40 (L > 0). Probe: Quadrat mit Seite 10 hat Umfang 40 und Fläche 100.",
     [(10, None, "nur die Seite des besten Rechtecks angegeben", "10"), (25, None, "die Fläche durch 4 geteilt, ohne Wurzel zu ziehen", "100 / 4"), (400, None, "die Fläche mit 4 malgenommen", "4 * 100")], "m"), g="umkehr", regel=None)
 neu(T, "optimierung", "zwei_wege", Z(
     "Ein Landwirt zäunt an einer langen Mauer ein Rechteck ab. Die Mauer ist eine Seite. Für die drei anderen Seiten hat er 40 m Zaun, der ganz verbaut wird. Weg A: Funktion der Fläche in Scheitelform umschreiben. Weg B: Nullstellen der Funktion bestimmen und die Symmetrie der Parabel nutzen. Wie groß ist die größte Fläche in Quadratmetern?",

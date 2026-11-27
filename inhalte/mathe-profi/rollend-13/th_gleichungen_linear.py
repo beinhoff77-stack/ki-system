@@ -52,7 +52,8 @@ neu(T, "probe", "fehler_detektiv", FD(
      ("Beide Seiten minus 3x und plus 2: x = 3.", gleichwertig("4*x-2 = 3*x+1", "x = 3"), True),
      ("Probe in der Gleichung 4x − 2 = 3x + 1: links 4 · 3 − 2 = 10, rechts 3 · 3 + 1 = 10. Also stimmt x = 3.", 4 * 3 - 2 == 10 and 3 * 3 + 1 == 10, True)],
     "Wie lautet die Ausgangsgleichung? Setze x = 3 genau dort ein.",
-    "4(x − 2) = 4x − 8, nicht 4x − 2: Die 2 wird auch mit 4 malgenommen. Dann ist 4x − 8 = 3x + 1 und x = 9. Die Probe in Zeile 3 benutzt die fehlerhafte Gleichung aus Zeile 1. Eine Probe gehört in die Ausgangsgleichung: 4(3 − 2) = 4, aber 3 · 3 + 1 = 10."), regel="id.algebra.gleichung_loesen")
+    "4(x − 2) = 4x − 8, nicht 4x − 2: Die 2 wird auch mit 4 malgenommen. Dann ist 4x − 8 = 3x + 1 und x = 9. Die Probe in Zeile 3 benutzt die fehlerhafte Gleichung aus Zeile 1. Eine Probe gehört in die Ausgangsgleichung: 4(3 − 2) = 4, aber 3 · 3 + 1 = 10.",
+    rueck={2: "diese Zeile enthält einen eigenen methodischen Fehler: Die Probe wurde in der umgeformten, schon fehlerhaften Gleichung gemacht und nicht in der Ausgangsgleichung. So kann sie den Fehler aus Zeile 1 nicht finden"}), regel="id.algebra.gleichung_loesen")
 # ───────── sonderfaelle ─────────
 neu(T, "sonderfaelle", "bruecke", W(
     "Die Zeichnung zeigt die Geraden zu y = 2x + 3 und y = 2x + 5. Gesucht sind alle Zahlen x (aus ℚ), für die 2x + 3 = 2x + 5 gilt. Was sagt die Zeichnung über diese Gleichung?",
@@ -60,7 +61,7 @@ neu(T, "sonderfaelle", "bruecke", W(
     [("Die Gleichung hat genau eine Lösung, nämlich x = 0, denn dort schneiden die Geraden die y-Achse.", "die Achsenabschnitte 3 und 5 mit einer Lösung verwechselt: bei x = 0 sind die Werte 3 und 5, nicht gleich"),
      ("Jede Zahl ist Lösung, denn beide Geraden haben dieselbe Steigung.", "gleiche Steigung mit gleichen Werten verwechselt: die Geraden liegen 2 Einheiten auseinander")],
     "Wo hätten die Geraden einen gemeinsamen Punkt? Vergleiche die y-Werte bei x = 0 und bei x = 1.",
-    "Beide Geraden haben die Steigung 2 und sind parallel. Sie liegen immer 2 Einheiten auseinander und haben keinen gemeinsamen Punkt. Rechnung: 2x + 3 = 2x + 5 führt auf 3 = 5, das ist falsch. Die Lösungsmenge ist leer.",
+    "Beide Geraden haben die Steigung 2 und sind parallel. Bei gleichem x unterscheiden sich die y-Werte um 2, sie liegen immer 2 Einheiten auseinander und haben keinen gemeinsamen Punkt. Rechnung: 2x + 3 = 2x + 5 führt auf 3 = 5, das ist falsch. Die Lösungsmenge ist leer.",
     lambda: loes("2*x+3 = 2*x+5") == "keine" and loes("2*x+3 = 2*x+3") == "alle",
     grafik={"typ": "koordinaten", "x": [-3, 3], "y": [-2, 12], "graphen": [{"art": "linear", "m": 2, "t": 3, "name": "y = 2x + 3"}, {"art": "linear", "m": 2, "t": 5, "name": "y = 2x + 5"}]}), g="darstellung", regel="id.algebra.gleichung_loesen")
 neu(T, "sonderfaelle", "zwei_wege", Z(

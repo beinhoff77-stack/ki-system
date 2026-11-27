@@ -16,14 +16,14 @@ neu(T, "vierecke", "zwei_wege", Z(
     [(50, None, "den ganzen Winkel α der Raute angegeben, nicht die Hälfte", "50"), (65, None, "den Basiswinkel mit α statt mit β als Winkel an der Spitze gerechnet", "(180 - 50) / 2"), (130, None, "den Nachbarwinkel β angegeben", "180 - 50")], "°"), g="verknuepfen", regel=WI)
 # ───────── vierecke_konstruieren ─────────
 neu(T, "vierecke_konstruieren", "umkehren", Z(
-    "Du konstruierst ein Parallelogramm ABCD mit a = AB = 7 cm und α = 60°. Gegenüberliegende Seiten sind gleich lang. Der Umfang soll 24 cm betragen. Wie lang in Zentimetern muss die Seite b = BC sein?",
+    "Du konstruierst ein Parallelogramm ABCD: Du zeichnest AB mit a = 7 cm, trägst in A den Winkel α = 60° an und trägst auf dem freien Schenkel von A aus die Seite b = AD ab. Durch D zeichnest du die Parallele zu AB und durch B die Parallele zu AD; ihr Schnittpunkt ist C. Gegenüberliegende Seiten sind gleich lang. Der Umfang soll 24 cm betragen. Wie lang in Zentimetern muss die Seite b = AD = BC sein?",
     5, "24 / 2 - 7", "(24 - 2 * 7) / 2", "Wie viele Seiten haben die Länge a und wie viele die Länge b?",
-    "Der Umfang ist 2a + 2b = 24. Mit a = 7 ist 14 + 2b = 24, also 2b = 10 und b = 5. Probe: 2 · 7 + 2 · 5 = 24. Der Winkel 60° ändert den Umfang nicht.",
+    "Der Umfang ist 2a + 2b = 24. Mit a = 7 ist 14 + 2b = 24, also 2b = 10 und b = 5. Probe: 2 · 7 + 2 · 5 = 24. Der Winkel 60° ändert den Umfang nicht. Mit a, α und b = 5 cm liegen A, B und D fest; C ergibt sich eindeutig als Schnittpunkt der beiden Parallelen.",
     [(17, None, "nur a vom Umfang abgezogen", "24 - 7"), (8.5, None, "a nur einmal abgezogen und durch 2 geteilt", "(24 - 7) / 2"), (10, None, "2a vom Umfang abgezogen, aber nicht durch 2 geteilt", "24 - 2 * 7")], "cm"), g="umkehr", regel=None)
 assert 2 * 7 + 2 * 5 == 24
 neu(T, "vierecke_konstruieren", "anwenden", Z(
-    "Ein Fliesenleger konstruiert eine Raute ABCD aus nur zwei Angaben: der Seitenlänge 9 cm und dem Winkel α = 60° bei A. Er schneidet die Raute entlang der Diagonale BD in zwei Dreiecke. In einer Raute sind alle vier Seiten gleich lang. Wie viele Zentimeter ist der Rand eines der beiden Dreiecke lang?",
-    27, "9 + 9 + 9", "3 * 9", "Welche zwei Seiten und welcher Winkel gehören zum Dreieck ABD? Was weißt du dann über die anderen Winkel?",
-    "Im Dreieck ABD ist AB = AD = 9 cm und der Winkel bei A ist 60°. Die beiden anderen Winkel sind gleich groß: (180° − 60°) : 2 = 60°. Alle drei Winkel sind 60°, das Dreieck ist gleichseitig, also ist BD = 9 cm. Der Rand ist 9 + 9 + 9 = 27 cm lang.",
+    "Ein Fliesenleger konstruiert eine Raute ABCD aus nur zwei Angaben: der Seitenlänge 9 cm und dem Winkel α = 60° bei A. Er zeichnet AB = 9 cm, trägt in A den Winkel 60° an und trägt auf dem freien Schenkel von A aus 9 cm ab; das ist D. Danach zeichnet er durch D die Parallele zu AB und durch B die Parallele zu AD; ihr Schnittpunkt ist C. Dann schneidet er die Raute entlang der Diagonale BD in zwei Dreiecke. In einer Raute sind alle vier Seiten gleich lang. Wie viele Zentimeter ist der Rand eines der beiden Dreiecke lang?",
+    27, "9 + 9 + 9", "3 * 9", "Welche Länge hat AD, weil die Seitenlänge von A aus abgetragen wird? Welche zwei Seiten und welcher Winkel gehören dann zum Dreieck ABD?",
+    "Konstruktion: D liegt auf dem freien Schenkel im Abstand 9 cm von A, C liegt auf den beiden Parallelen, also ist auch BC = CD = 9 cm. Im Dreieck ABD ist AB = AD = 9 cm und der Winkel bei A ist 60°. Die beiden anderen Winkel sind gleich groß: (180° − 60°) : 2 = 60°. Alle drei Winkel sind 60°, das Dreieck ist gleichseitig, also ist BD = 9 cm. Der Rand ist 9 + 9 + 9 = 27 cm lang.",
     [(18, None, "die Diagonale BD vergessen: nur die zwei Raute-Seiten gezählt", "9 + 9"), (36, None, "den Umfang der ganzen Raute angegeben", "4 * 9"), (22.5, None, "die Diagonale BD als halb so lang wie die Seite angenommen", "9 + 9 + 9 / 2")], "cm"), g="verknuepfen", regel=DK)
 assert (180 - 60) / 2 == 60

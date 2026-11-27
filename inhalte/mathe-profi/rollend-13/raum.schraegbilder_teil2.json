@@ -450,7 +450,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim zählt die Symmetrieebenen einer geraden Pyramide, deren Grundfläche ein regelmäßiges Sechseck ist. Zeile 1: Die Spitze liegt senkrecht über dem Mittelpunkt des Sechsecks. Zeile 2: Jede Symmetrieebene der Pyramide enthält die Höhe, denn sonst würde die Spitze verschoben. Zeile 3: Ein regelmäßiges Sechseck hat 6 Symmetrieachsen und die Pyramide hat zusätzlich die Grundfläche als Ebene. Das sind 7 Symmetrieebenen. In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim zählt die Symmetrieebenen einer geraden Pyramide, deren Grundfläche ein regelmäßiges Sechseck ist. Zeile 1: Die Spitze liegt senkrecht über dem Mittelpunkt des Sechsecks. Zeile 2: Jede Symmetrieebene der Pyramide enthält die Höhe: Die Spiegelung erhält auch die sechseckige Grundfläche und deren Mittelpunkt. Spitze und Mittelpunkt bleiben also an ihrem Platz, deshalb liegt die Höhenlinie in der Spiegelebene. Zeile 3: Ein regelmäßiges Sechseck hat 6 Symmetrieachsen und die Pyramide hat zusätzlich die Grundfläche als Ebene. Das sind 7 Symmetrieebenen. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",

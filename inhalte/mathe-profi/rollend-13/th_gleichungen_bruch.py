@@ -1,9 +1,9 @@
 T = "gleichungen.bruch"
 # ───────── definitionsmenge ─────────
 neu(T, "definitionsmenge", "bruecke", Z(
-    "Die Zeichnung zeigt den Graphen von y = 2/(x − 3). Für genau eine Zahl x gibt es auf dem Graphen keinen Punkt. Welche Zahl x darf in der Gleichung 2/(x − 3) = 1 nicht eingesetzt werden?",
-    3, "0 + 3", 3, "Bei welcher Zahl x ist der Nenner 0? An dieser Stelle bricht der Graph ab.",
-    "Der Nenner x − 3 ist 0 für x = 3. Dort ist der Term nicht definiert, der Graph hat an dieser Stelle eine Lücke. Die Definitionsmenge der Gleichung ist ℚ \\ {3}. (Die Gleichung selbst hat die Lösung x = 5: 2/2 = 1.)",
+    "Die Zeichnung zeigt den Graphen von y = 2/(x − 3). Für genau eine Zahl x gibt es auf dem Graphen keinen Punkt, nämlich dort, wo der Nenner x − 3 gleich 0 ist. Welche Zahl x darf in der Gleichung 2/(x − 3) = 1 nicht eingesetzt werden?",
+    3, "0 + 3", 3, "Löse x − 3 = 0. An dieser Stelle bricht der Graph ab.",
+    "Der Nenner x − 3 ist 0 genau für x = 3 (die Lösung von x − 3 = 0). Dort ist der Term nicht definiert, der Graph hat an dieser Stelle eine Lücke. Die Definitionsmenge der Gleichung ist ℚ \\ {3}. (Die Gleichung selbst hat die Lösung x = 5: 2/2 = 1.)",
     [(-3, None, "x + 3 = 0 gelöst: das Vorzeichen der Nullstelle des Nenners verdreht", "-3"), (5, None, "die Lösung der Gleichung berechnet statt der verbotenen Zahl: 2 + 3", "2 + 3"), (1, None, "die rechte Seite der Gleichung als verbotene Zahl genommen", "1")],
     grafik={"typ": "koordinaten", "x": [-2, 8], "y": [-6, 6], "graphen": [{"art": "hyperbel", "a": 2, "b": -3, "c": 0, "name": "y = 2/(x − 3)"}]}), g="darstellung", regel="id.algebra.erlaubte_zahlen")
 neu(T, "definitionsmenge", "fehler_detektiv", FD(
@@ -28,9 +28,9 @@ neu(T, "ein_bruch", "umkehren", Z(
     [(3, None, "a/4 = 3 gefunden, aber a = 3 gesetzt", "5 - 2"), (28, None, "5 plus 2 statt 5 minus 2 gerechnet und mit 4 malgenommen", "(5 + 2) * 4"), (20, None, "die 2 vergessen: a/4 = 5", "5 * 4")]), g="rueckwaerts", regel=None)
 # ───────── ueber_kreuz ─────────
 neu(T, "ueber_kreuz", "zwei_wege", Z(
-    "Löse 3/(x + 2) = 5/(x + 6) auf zwei Wegen (x ≠ −2 und x ≠ −6). Weg A: über Kreuz multiplizieren. Weg B: beide Seiten für x = 0, 1, 2, 3, 4, 5 ausrechnen (als Dezimalzahlen) und die Zahl suchen, bei der beide Seiten gleich sind. Welche Zahl ist die Lösung?",
+    "Löse 3/(x + 2) = 5/(x + 6) auf zwei Wegen (x ≠ −2 und x ≠ −6). Weg A: über Kreuz multiplizieren. Weg B: beide Seiten für x = 0, 1, 2, 3, 4, 5 ausrechnen (als auf zwei Stellen gerundete Dezimalzahlen, also Näherungen) und die Zahl suchen, bei der beide Seiten gleich sind. Welche Zahl ist die Lösung?",
     4, "(5 * 2 - 3 * 6) / (3 - 5)", "(18 - 10) / 2", "Beide Wege müssen dieselbe Zahl ergeben. Bei Weg B hilft es, zuerst die Nenner x + 2 und x + 6 für jede Zahl auszurechnen.",
-    "Weg A: 3(x + 6) = 5(x + 2), also 3x + 18 = 5x + 10 und 8 = 2x. Weg B: Linke Seite für x = 0 bis 5: 1,5; 1; 0,75; 0,6; 0,5; 0,43. Rechte Seite: 0,83; 0,71; 0,63; 0,56; 0,5; 0,45. Gleich sind beide Seiten bei x = 4, nämlich 0,5. Probe: 3/6 = 5/10.",
+    "Weg A: 3(x + 6) = 5(x + 2), also 3x + 18 = 5x + 10 und 8 = 2x. Weg B (gerundete Näherungswerte): Linke Seite für x = 0 bis 5: 1,5; 1; 0,75; 0,6; 0,5; 0,43. Rechte Seite: 0,83; 0,71; 0,63; 0,56; 0,5; 0,45. Gleich sind beide Seiten bei x = 4, nämlich 0,5. Probe: 3/6 = 5/10.",
     [(2, "fb.ausmultiplizieren.nur_erster_summand", "in beiden Produkten nur x malgenommen: aus 3(x + 6) wird 3x + 6 und aus 5(x + 2) wird 5x + 2", "(6 - 2) / (5 - 3)"), (-4, None, "beim Umstellen die Vorzeichen vertauscht: −8 durch 2", "-8 / 2"), (8, None, "nur 18 − 10 gerechnet und nicht durch 2 geteilt", "18 - 10")]), g="mehrschritt", regel="rr.waage")
 assert ist_loesung("3*(x+6)", "5*(x+2)", 4) and F(3, 4 + 2) == F(5, 4 + 6)
 neu(T, "ueber_kreuz", "anwenden", Z(
@@ -55,20 +55,20 @@ neu(T, "hauptnenner", "fehler_detektiv", FD(
     "Beim Addieren gleichnamiger Brüche werden nur die Zähler addiert, der Nenner bleibt: 4/(2x) + 3/(2x) = 7/(2x). Dann ist 7/(2x) = 7/4 und x = 2. Zeile 3 rechnet mit dem falschen Ergebnis der Zeile 2 richtig weiter."), regel="rr.bruchrechnen")
 # ───────── scheinloesung ─────────
 neu(T, "scheinloesung", "bruecke", W(
-    "Die Zeichnung zeigt die Graphen von y = x/(x − 2) und y = 2/(x − 2). Welche Aussage über die Gleichung x/(x − 2) = 2/(x − 2) stimmt?",
+    "Die Zeichnung zeigt die Graphen von y = x/(x − 2) und y = 2/(x − 2). Bei gleichem x ist der Abstand der Graphen die Differenz ihrer Funktionswerte. Welche Aussage über die Gleichung x/(x − 2) = 2/(x − 2) stimmt?",
     "Die Gleichung hat keine Lösung: Die Graphen haben keinen gemeinsamen Punkt, und die Zahl 2 ist nur eine Scheinlösung.",
     [("Die Gleichung hat genau eine Lösung, nämlich x = 2, denn dort laufen beide Graphen zusammen.", "beim Umformen entsteht x = 2, aber für x = 2 ist der Nenner 0; dort gibt es keinen Punkt auf den Graphen"), ("Die Gleichung hat unendlich viele Lösungen, weil beide Brüche denselben Nenner haben.", "gleiche Nenner machen die Brüche nicht gleich: die Zähler x und 2 sind nur für x = 2 gleich")],
     "Haben die beiden Graphen einen gemeinsamen Punkt? Welche Zahl x ergibt sich beim Umformen, und darf man sie einsetzen?",
-    "Mit (x − 2) multipliziert bleibt x = 2. Für x = 2 ist der Nenner 0, die Zahl gehört nicht zur Definitionsmenge. Die Graphen liegen immer 1 Einheit auseinander, denn x/(x − 2) = 1 + 2/(x − 2). Die Lösungsmenge ist leer.",
+    "Mit (x − 2) multipliziert bleibt x = 2. Für x = 2 ist der Nenner 0, die Zahl gehört nicht zur Definitionsmenge. Bei gleichem x ist der Abstand der Graphen die Differenz der Funktionswerte: x/(x − 2) − 2/(x − 2) = (x − 2)/(x − 2) = 1. Die Graphen liegen also immer 1 Einheit auseinander. Die Lösungsmenge ist leer.",
     lambda: all(wert_an("x/(x-2)", k) != wert_an("2/(x-2)", k) for k in range(-10, 11) if k != 2) and undef("x/(x-2)", 2) and gl("x/(x-2)", "1+2/(x-2)"),
     grafik={"typ": "koordinaten", "x": [-4, 8], "y": [-6, 8], "graphen": [{"art": "hyperbel", "a": 2, "b": -2, "c": 1, "name": "y = x/(x − 2)"}, {"art": "hyperbel", "a": 2, "b": -2, "c": 0, "name": "y = 2/(x − 2)"}]}), g="darstellung", regel="id.algebra.erlaubte_zahlen")
 neu(T, "scheinloesung", "anwenden", W(
-    "Pumpe A füllt ein Becken allein in 6 Stunden. Pumpe B füllt es allein in x Stunden. Es wird behauptet, beide zusammen brauchen 9 Stunden. Beide pumpen gleichmäßig. Aus der Gleichung 1/6 + 1/x = 1/9 ergibt sich x = −18. Was bedeutet das für die Behauptung?",
-    "Die Behauptung kann nicht stimmen: Eine negative Zeit ist unmöglich, und zusammen müssten die Pumpen schneller sein als A allein.",
-    [("Pumpe B braucht allein 18 Stunden.", "das Vorzeichen übersehen: x = −18 ist keine mögliche Zeit"), ("Pumpe B braucht allein 3 Stunden.", "9 − 6 gerechnet: die Zeiten wurden einfach abgezogen statt die Teilarbeiten zu addieren")],
-    "Die Zeit von Pumpe B muss eine positive Zahl sein. Wie lange brauchen zwei Pumpen zusammen im Vergleich zu einer allein?",
-    "1/x = 1/9 − 1/6 = 2/18 − 3/18 = −1/18, also x = −18. Die Zahl −18 liegt zwar in der Definitionsmenge (x ≠ 0), aber eine Zeit kann nicht negativ sein. Das passt zur Überlegung: Mit einer zweiten Pumpe geht es schneller als mit A allein, also in weniger als 6 Stunden, nicht in 9. Eine Lösung muss immer auch zur Sachaufgabe passen.",
-    lambda: F(1, 9) - F(1, 6) == F(-1, 18) and 1 / (F(1, 9) - F(1, 6)) == -18 and F(1, 6) + F(1, 18) == F(2, 9)), g="transfer", regel=None)
+    "Gegeben ist die Gleichung (x² − 4)/(x − 2) = 0. Beide Seiten werden mit (x − 2) multipliziert, es bleibt x² − 4 = 0. Daraus folgen die Zahlen x = 2 und x = −2. Welche davon gehören zur Lösungsmenge der ursprünglichen Gleichung?",
+    "Nur x = −2: Für x = 2 ist der Nenner 0, diese Zahl ist eine Scheinlösung.",
+    [("Beide Zahlen, x = 2 und x = −2, denn beide lösen x² − 4 = 0.", "nur die umgeformte Gleichung geprüft; für x = 2 ist der Nenner der ursprünglichen Gleichung 0"), ("Nur x = 2, denn dort wird der Zähler 0.", "übersehen, dass für x = 2 auch der Nenner 0 wird; durch 0 darf man nicht teilen")],
+    "Setze beide Zahlen in die ursprüngliche Gleichung ein, nicht in die umgeformte. Was passiert mit dem Nenner?",
+    "Mit (x − 2) multipliziert bleibt x² − 4 = 0, also x = 2 oder x = −2. Probe in der ursprünglichen Gleichung: Für x = 2 ist der Nenner 0, die Zahl gehört nicht zur Definitionsmenge. Für x = −2 gilt (4 − 4)/(−4) = 0, das stimmt. Die Lösungsmenge ist {−2}.",
+    lambda: undef("(x**2-4)/(x-2)", 2) and wert_an("(x**2-4)/(x-2)", -2) == 0 and sorted(k for k in range(-5, 6) if k != 2 and wert_an("(x**2-4)/(x-2)", k) == 0) == [-2]), g="transfer", regel="id.algebra.erlaubte_zahlen")
 # ───────── verhaeltnis ─────────
 neu(T, "verhaeltnis", "zwei_wege", Z(
     "Sirup und Wasser werden im Verhältnis 3 : 8 gemischt. Weg A: Verhältnisgleichung 3/8 = 4,5/x über Kreuz lösen. Weg B: den Faktor bestimmen, mit dem aus 3 die Zahl 4,5 wird, und 8 mit demselben Faktor malnehmen. Wie viel Liter Wasser gehören zu 4,5 Litern Sirup?",
@@ -90,7 +90,8 @@ neu(T, "graphisch", "anwenden", Z(
     [(4, None, "die andere Seite 12/x statt x angegeben", "12 / 3"), (-4, None, "den Schnittpunkt mit negativem x abgelesen, obwohl x > 0 verlangt ist", "-4"), (12, None, "die Fläche als Seitenlänge genommen", "3 * 4")], "cm",
     grafik={"typ": "koordinaten", "x": [-6, 6], "y": [-6, 8], "graphen": [{"art": "hyperbel", "a": 12, "b": 0, "c": 0, "name": "y = 12/x"}, {"art": "linear", "m": 1, "t": 1, "name": "y = x + 1"}]}), g="einkleidung", regel=None)
 neu(T, "graphisch", "umkehren", Z(
-    "Die Hyperbel y = k/x und die Gerade y = 2x − 2 schneiden sich an der Stelle x = 4. Welche Zahl ist k?",
-    24, "(2 * 4 - 2) * 4", 24, "Welcher Punkt liegt auf beiden Graphen?",
-    "Gerade bei x = 4: y = 2 · 4 − 2 = 6. Der Punkt (4 | 6) liegt auch auf der Hyperbel: 6 = k/4. Also k = 24. Probe: 24/4 = 6.",
-    [(6, None, "den y-Wert der Geraden als k genommen", "2 * 4 - 2"), (1.5, None, "6 durch 4 geteilt statt mit 4 malgenommen", "6 / 4"), (10, None, "6 + 4 gerechnet statt 6 · 4", "6 + 4")]), g="rueckwaerts", regel=None)
+    "Die Zeichnung zeigt die Gerade y = 2x − 2 und den markierten Schnittpunkt S mit der Hyperbel y = k/x. Lies die Koordinaten von S ab. Welche Zahl ist k?",
+    24, "(2 * 4 - 2) * 4", 24, "Welche Koordinaten hat S? Der Punkt liegt auch auf der Hyperbel: setze ihn in y = k/x ein.",
+    "Aus der Zeichnung: S = (4 | 6). Kontrolle mit der Geraden: 2 · 4 − 2 = 6. Der Punkt (4 | 6) liegt auch auf der Hyperbel: 6 = k/4. Also k = 24. Probe: 24/4 = 6.",
+    [(6, None, "den y-Wert der Geraden als k genommen", "2 * 4 - 2"), (1.5, None, "6 durch 4 geteilt statt mit 4 malgenommen", "6 / 4"), (10, None, "6 + 4 gerechnet statt 6 · 4", "6 + 4")],
+    grafik={"typ": "koordinaten", "x": [0, 6], "y": [0, 10], "graphen": [{"art": "linear", "m": 2, "t": -2}], "punkte": [{"x": 4, "y": 6}]}), g="rueckwaerts", regel=None)

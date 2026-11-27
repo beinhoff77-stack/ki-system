@@ -46,10 +46,10 @@ neu(T, "minusklammer", "umkehren", Z(
 assert gl("5*x-(2*x+4)-(x-3)", "2*x-1")
 # ───────── ausmultiplizieren ─────────
 neu(T, "ausmultiplizieren", "zwei_wege", Z(
-    "In einem Saal stehen 17 Reihen mit je 24 Stühlen. Berechne die Zahl der Stühle im Kopf mit dem Verteilungsgesetz auf zwei Wegen. Weg A: 17 · (20 + 4). Weg B: (10 + 7) · 24. Wie viele Stühle sind es?",
-    408, "17 * (20 + 4)", "(10 + 7) * 24", "Beide Wege müssen dasselbe Ergebnis haben. Jeder Summand in der Klammer wird mit dem anderen Faktor malgenommen.",
-    "Weg A: 17 · 20 + 17 · 4 = 340 + 68 = 408. Weg B: 10 · 24 + 7 · 24 = 240 + 168 = 408. Beide Wege führen auf 408 Stühle.",
-    [(344, "fb.ausmultiplizieren.nur_erster_summand", "Weg A: nur die 20 mit 17 malgenommen, die 4 nur addiert", "17 * 20 + 4"), (178, None, "Weg B: nur die 7 mit 24 malgenommen, die 10 nur addiert", "10 + 7 * 24"), (68, None, "nur den zweiten Summanden berücksichtigt: 17 · 4", "17 * 4")], "Stühle"), g="mehrschritt", regel="rr.ausmultiplizieren")
+    "In einem Saal stehen 17 Reihen mit je 24 Stühlen. Berechne die Zahl der Stühle im Kopf mit dem Verteilungsgesetz auf zwei Wegen. Weg A: 17 · (20 + 4). Weg B: 24 · (20 − 3). Wie viele Stühle sind es?",
+    408, "17 * (20 + 4)", "24 * (20 - 3)", "Beide Wege müssen dasselbe Ergebnis haben. Jeder Summand in der Klammer wird mit dem anderen Faktor malgenommen.",
+    "Weg A: 17 · 20 + 17 · 4 = 340 + 68 = 408. Weg B: 24 · 20 − 24 · 3 = 480 − 72 = 408. Beide Wege führen auf 408 Stühle.",
+    [(344, "fb.ausmultiplizieren.nur_erster_summand", "Weg A: nur die 20 mit 17 malgenommen, die 4 nur addiert", "17 * 20 + 4"), (477, None, "Weg B: nur die 20 mit 24 malgenommen, die 3 nur abgezogen", "24 * 20 - 3"), (68, None, "nur den zweiten Summanden berücksichtigt: 17 · 4", "17 * 4")], "Stühle"), g="mehrschritt", regel="rr.ausmultiplizieren")
 neu(T, "ausmultiplizieren", "fehler_detektiv", FD(
     "Kim löst die Klammer auf und fasst zusammen: −2x(3x − 4) + 5x.",
     [("−2x(3x − 4) = −6x² − 8x", gl("-2*x*(3*x-4)", "-6*x**2-8*x"), True),
@@ -60,7 +60,7 @@ neu(T, "ausmultiplizieren", "fehler_detektiv", FD(
 # ───────── aequivalenz ─────────
 neu(T, "aequivalenz", "anwenden", Z(
     "Für ein Fest kauft ein Verein n Brezeln zu je 2 € und n Getränke zu je 1 €. Dazu kommt ein Plakat für 8 €. Der Gesamtpreis in Euro ist 3n + 8. Ein Helfer schreibt ihn auf drei andere Arten auf: (1) 2(n + 4) + n, (2) 3(n + 8), (3) 8 + 2n + n. Wie viele dieser drei Terme geben für jede Zahl n denselben Preis wie 3n + 8?",
-    2, "2", 2, "Fasse jeden Term zusammen. Oder setze n = 0 und n = 1 ein.",
+    2, "2", 2, "Fasse jeden Term zusammen. Bei linearen Termen (nur n, kein n²) genügt auch: setze n = 0 und n = 1 ein.",
     "(1) 2n + 8 + n = 3n + 8. Gleich. (2) 3n + 24. Nicht gleich, schon bei n = 0 ist es 24 statt 8. (3) 8 + 3n. Gleich. Es sind 2 Terme.",
     [(3, None, "alle drei Terme für gleich gehalten, ohne (2) auszumultiplizieren", lambda: 3 == len(["2*(n+4)+n", "3*(n+8)", "8+2*n+n"])),
      (1, None, "nur den Term mit gleicher Reihenfolge der Glieder erkannt, (1) wegen der Klammer verworfen", lambda: gl("2*(n+4)+n", "3*n+8") and not gl("3*(n+8)", "3*n+8"))]), g="einkleidung", regel="id.algebra.term")

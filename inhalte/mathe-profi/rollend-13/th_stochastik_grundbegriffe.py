@@ -28,10 +28,10 @@ neu(T, "rel_haeufigkeit", "verfahren_waehlen", W(
     "Der Teil sind 28 Würfe, das Ganze sind 80 Würfe. 28 : 80 = 0,35 und 0,35 · 100 = 35 Prozent. Die anderen Rechnungen geben ungefähr 286 Prozent, 22,4 und 65 Prozent.",
     lambda: abs(28 / 80 * 100 - 35) < 1e-9 and all(abs(v - 35) > 1e-9 for v in (80 / 28 * 100, 28 * 80 / 100, (80 - 28) / 80 * 100))), g="mehrschritt", regel=AN)
 neu(T, "rel_haeufigkeit", "umkehren", Z(
-    "Ein Würfel wird mehrmals geworfen. Die Sechs fällt 15-mal. Die relative Häufigkeit der Sechs ist 20 Prozent. Wie oft wurde der Würfel geworfen?",
-    75, "15 * 100 / 20", "15 * 5", "Wie hängen die Anzahl der Sechsen, die Zahl aller Würfe und die relative Häufigkeit zusammen?",
-    "Relative Häufigkeit = Anzahl der Sechsen geteilt durch Anzahl aller Würfe. 20 Prozent sind 0,2, also 15 : n = 0,2. Daraus folgt n = 15 : 0,2 = 75. Probe: 15 : 75 = 0,2.",
-    [(3, None, "die Anzahl mit 0,2 malgenommen statt durch 0,2 geteilt", "15 * 2 / 10"), (35, None, "die Anzahl der Sechsen und die Prozentzahl 20 addiert", "15 + 20"), (300, None, "die Anzahl der Sechsen mit der Prozentzahl 20 malgenommen", "15 * 20")]), g="rueckwaerts", regel=AN)
+    "Ein Würfel wird in einer ersten Serie mehrmals geworfen. Die Sechs fällt 15-mal, ihre relative Häufigkeit ist 20 Prozent. In einer zweiten Serie wird derselbe Würfel noch 25-mal geworfen, dabei fällt die Sechs wieder 15-mal. Wie groß ist die relative Häufigkeit der Sechs in beiden Serien zusammen (in Prozent)?",
+    30, "(15 + 15) / (15 * 100 / 20 + 25) * 100", "30 / 100 * 100", "Wie viele Würfe hatte die erste Serie? Zähle dann alle Sechsen und alle Würfe zusammen.",
+    "Erste Serie: 15 : n = 0,2, also n = 15 : 0,2 = 75 Würfe. Beide Serien: 75 + 25 = 100 Würfe und 15 + 15 = 30 Sechsen. Relative Häufigkeit: 30 : 100 = 0,3, das sind 30 Prozent. Probe: 20 Prozent von 75 sind 15.",
+    [(40, None, "die beiden relativen Häufigkeiten 20 und 60 Prozent gemittelt, ohne die Zahl der Würfe zu beachten", "(20 + 60) / 2"), (60, None, "nur die zweite Serie betrachtet: 15 von 25", "15 / 25 * 100"), (20, None, "nur die erste Serie betrachtet", "15 / 75 * 100")], "%"), g="rueckwaerts", regel=AN)
 # ───────── darstellen ─────────
 neu(T, "darstellen", "anwenden", Z(
     "Bei einem Spiel wird zuerst eine Münze geworfen. Fällt Zahl, ist das Spiel zu Ende. Fällt Wappen, wird danach ein Würfel mit den Zahlen 1 bis 6 geworfen. Das Spiel wird als Baumdiagramm gezeichnet. Wie viele Wege führen vom Start bis zu einem Ende?",
@@ -43,7 +43,7 @@ neu(T, "darstellen", "fehler_detektiv", FD(
     [("Beim ersten Zug gibt es 4 Möglichkeiten.", len(range(1, 5)) == 4, True),
      ("Die gezogene Kugel bleibt draußen. Beim zweiten Zug gibt es nur noch 3 Möglichkeiten.", 4 - 1 == 3, True),
      ("Das Baumdiagramm hat 12 Wege, denn 4 mal 3 sind 12.", len(list(itertools.permutations(range(1, 5), 2))) == 12, True),
-     ("Zum Ereignis „Die Summe ist 5“ gehören die Wege (1 | 4), (2 | 3), (3 | 2), (4 | 1) und (2 | 2). Das sind 5 Wege.",
-      len([p for p in itertools.permutations(range(1, 5), 2) if sum(p) == 5]) == 5, len([p for p in itertools.permutations(range(1, 5), 2) if sum(p) == 5]) == 5)],
+     ("Zum Ereignis „Die Summe ist 6“ gehören die Wege (2 | 4), (4 | 2) und (3 | 3). Das sind 3 Wege.",
+      len([p for p in itertools.permutations(range(1, 5), 2) if sum(p) == 6]) == 3, False)],
     "Prüfe jede Zeile einzeln: Passt sie zu der Regel, dass die Kugel nicht zurückgelegt wird?",
-    "Zeile 1 bis 3 stimmen: 4 · 3 = 12 Wege. In Zeile 4 steht der Weg (2 | 2). Kugel 2 ist nach dem ersten Zug draußen und kann nicht noch einmal gezogen werden. Es gehören nur 4 Wege zum Ereignis. Dass die Summe 5 ist, reicht nicht: Der Weg muss im Baum vorkommen."), g="fehler", regel=None)
+    "Zeile 1 bis 3 stimmen: 4 · 3 = 12 Wege. In Zeile 4 steht der Weg (3 | 3). Kugel 3 ist nach dem ersten Zug draußen und kann nicht noch einmal gezogen werden. Zur Summe 6 gehören nur (2 | 4) und (4 | 2), also 2 Wege. Die Summe 6 allein reicht nicht: Der Weg muss im Baum vorkommen."), g="fehler", regel=None)

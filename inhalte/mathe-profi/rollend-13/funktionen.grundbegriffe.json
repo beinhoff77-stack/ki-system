@@ -513,7 +513,7 @@
      "antwort": 845,
      "fehlbild": "fb.reihenfolge.links_nach_rechts",
      "regel_des_fehlbilds": "rr.reihenfolge",
-     "beschreibung": "von links nach rechts gerechnet: (1,8 + 32) · 25 statt 1,8 · 25 + 32"
+     "beschreibung": "von links nach rechts gerechnet: (32 + 1,8) · 25 statt 32 + 1,8 · 25"
     }
    ],
    "aufgabe": {
@@ -524,7 +524,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Die Temperatur in Grad Fahrenheit hängt von der Temperatur C in Grad Celsius ab: F(C) = 1,8 · C + 32. Die Tabelle zeigt einige Werte. Wie viel Grad Fahrenheit sind 25 °C?",
+     "text": "Die Temperatur in Grad Fahrenheit hängt von der Temperatur C in Grad Celsius ab: F(C) = 32 + 1,8 · C. Die Tabelle zeigt einige Werte. Wie viel Grad Fahrenheit sind 25 °C?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
@@ -549,9 +549,9 @@
      "wert": 77,
      "einheit": "°F"
     },
-    "c": "1.8 * 25 + 32",
+    "c": "32 + 1.8 * 25",
     "h": "Setze C = 25 in die Gleichung ein. Rechne zuerst das Malnehmen, dann das Addieren.",
-    "w": "F(25) = 1,8 · 25 + 32 = 45 + 32 = 77. 25 °C sind 77 °F. Passende Kontrolle mit der Tabelle: bei 20 °C sind es 68 °F und bei 30 °C sind es 86 °F, 77 liegt genau in der Mitte."
+    "w": "F(25) = 32 + 1,8 · 25 = 32 + 45 = 77. 25 °C sind 77 °F. Passende Kontrolle mit der Tabelle: bei 20 °C sind es 68 °F und bei 30 °C sind es 86 °F, 77 liegt genau in der Mitte."
    }
   },
   {
@@ -580,9 +580,9 @@
     },
     {
      "antwort": 77,
-     "fehlbild": "fb.vorzeichen.falsches_zeichen",
-     "regel_des_fehlbilds": "rr.vorzeichen",
-     "beschreibung": "das Minus vor dem Glied 6x übersehen und 36 + 36 + 5 gerechnet"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen des Summanden −6x überlesen und 36 + 36 + 5 gerechnet"
     }
    ],
    "aufgabe": {
@@ -1041,7 +1041,7 @@
     },
     "c": "5.5 - (-0.05 * 12 ** 2 + 12)",
     "h": "Vergleiche zwei Höhen an derselben Stelle x = 12.",
-    "w": "h(12) = −0,05 · 144 + 12 = −7,2 + 12 = 4,8. Die Baumspitze liegt bei 5,5 m, der Ball fliegt dort nur 4,8 m hoch. Unterschied: 5,5 − 4,8 = 0,7 m. Der Punkt P liegt nicht auf dem Graphen, sondern 0,7 m darüber; der Ball trifft den Baum."
+    "w": "h(12) = −0,05 · 144 + 12 = −7,2 + 12 = 4,8. Die Baumspitze liegt bei 5,5 m, der Ball fliegt dort nur 4,8 m hoch. Unterschied: 5,5 − 4,8 = 0,7 m. Der Punkt P liegt nicht auf dem Graphen, sondern 0,7 m darüber."
    }
   },
   {
@@ -1133,7 +1133,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Kerze A ist 24 cm hoch und brennt gleichmäßig um 2 cm pro Stunde ab. Kerze B ist 30 cm hoch und brennt gleichmäßig um 3 cm pro Stunde ab. Beide werden gleichzeitig angezündet. Weg A: Gleichung 24 − 2t = 30 − 3t lösen. Weg B: eine Tabelle für t = 0, 1, 2, … anlegen und die Zeile mit gleichen Höhen suchen. Nach wie vielen Stunden sind beide gleich hoch?"
+     "text": "Kerze A ist 24 cm hoch und brennt gleichmäßig um 2 cm pro Stunde ab. Kerze B ist 30 cm hoch und brennt gleichmäßig um 3 cm pro Stunde ab. Beide werden gleichzeitig angezündet. Weg A: Gleichung 24 − 2t = 30 − 3t lösen. Weg B: eine Tabelle für t = 0, 1, 2, … anlegen und die Zeile mit gleichen Höhen suchen. Nach wie vielen Stunden sind beide erstmals gleich hoch, während beide noch brennen?"
     },
     "o": {
      "wert": 6,

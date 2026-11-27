@@ -6050,3 +6050,9 @@ body.rk-kopf-oben:has(#tabs[hidden]) { padding-bottom: 0; }
 .rk-seite .rk-ru-link { padding: 0 6px; }
 .rk-sj-reihe { border-top: 1px solid var(--linieF); margin: -4px 0 -6px; }
 .rk-sj-reihe .rk-sj-zeile { border-top: 0; margin: 0; }
+/* Menü verkürzt: Merkheft im Regel-Universum (Einstieg im Kopf), Reiter Regel-Universum · Mein Merkheft auf der Merkheft-Seite */
+.ru .ru-merkheft-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 999px; border: 1.5px solid var(--ru-linie, #C9C4B6); background: var(--ru-flaeche, transparent); text-decoration: none; font-weight: 700; font-size: 14px; white-space: nowrap; color: inherit; flex: none; }
+.ru .ru-merkheft-link:hover, .ru .ru-merkheft-link:focus-visible { background: #FFD23F; color: #11161D; border-color: #FFD23F; }
+.lr-ru-reiter { grid-template-columns: 1fr 1fr; margin: 4px 0 14px; }
+.lr-ru-reiter a { min-height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 99px; color: var(--lr-text); font-weight: 800; text-decoration: none; font-size: .95rem; }
+.lr-ru-reiter a.on { background: var(--lr-akzent); color: var(--lr-auf-akzent); }

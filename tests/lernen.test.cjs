@@ -623,7 +623,7 @@ test('Gestaltung Abflug: Abflugtafel, Bordkarte mit Tastenfeld, Kurskorrektur, L
   // Menüblatt statt Leiste
   assert.equal(await page.locator('.lr-nav').count(), 0);
   await page.getByRole('button', { name: 'Menü', exact: true }).first().click();
-  assert.deepEqual(await page.locator('.lr-blatt-liste a').allInnerTexts(), ['Abflugtafel', 'Mein Weg', 'Merkheft', 'Reisepass', 'Regel-Universum']); // K2: 4 Einträge · RU-App: Regel-Universum als fünfter
+  assert.deepEqual(await page.locator('.lr-blatt-liste a').allInnerTexts(), ['Abflugtafel', 'Regel-Universum', 'Mein Weg']); // Menü verkürzt: Merkheft im Universum, Reisepass in „Mein Weg“ (+ Ansicht, Schließen)
   await page.screenshot({ path: path.join(root, 'test-results/abflug-menue-390.png') });
   await page.getByRole('button', { name: 'Schließen' }).click();
   await page.locator('.lr-flug-jetzt').click(); // KJ 2 S6: solange die Tafel zu sehen ist, startet man über ihre Zeile (die schwebende Leiste ist aus)
@@ -920,12 +920,12 @@ test('N5–N7: Detektiv nur ohne Fehlermuster; Test-Kopf „Ort · Flug“; Test
   await page.screenshot({ path: path.join(root, 'test-results/n7-testergebnis-390.png'), fullPage: true });
 });
 
-test('K2: Mein Weg – Reiter Stand · Kontinente · Karte; Antarktis von oben; alte Weltkarte führt in den Reiter Karte', async (t) => {
+test('K2: Mein Weg – Reiter Stand · Kontinente · Reisepass (Menü verkürzt; „Karte“ ist die Startseite); Antarktis von oben; alte Weltkarte führt zur Startseite', async (t) => {
   const { page } = await setup(t, { gestaltung: 'nacht' });
   await page.goto(origin + '/#/weg/1');
   const reiter = page.locator('.lr-weg-reiter a');
   await reiter.first().waitFor();
-  assert.deepEqual(await reiter.allInnerTexts(), ['Stand', 'Kontinente', 'Karte']);
+  assert.deepEqual(await reiter.allInnerTexts(), ['Stand', 'Kontinente', 'Reisepass']);
   assert.equal(await page.locator('.lr-weg-reiter a.on').innerText(), 'Stand');
   await page.locator('.lr-linienplan').waitFor(); // K3: Linienplan ersetzt die alte Box „Mein Stand · Gymnasium Klasse 5“
   assert.equal(await page.locator('.lr-mini3 .lr-mini').count(), 3);
@@ -936,10 +936,9 @@ test('K2: Mein Weg – Reiter Stand · Kontinente · Karte; Antarktis von oben; 
   assert.deepEqual(await page.locator('.lr-kontinent-kopf b').allInnerTexts(), ['Zahlen', 'Geld und Verhältnisse']);
   await page.screenshot({ path: path.join(root, 'test-results/k2-kontinente-390.png'), fullPage: true });
   await page.goto(origin + '/#/weltkarte/1');
-  await page.waitForURL(/#\/weg\/1-karte$/);
-  await page.locator('.lr-weg-reiter a.on', { hasText: 'Karte' }).waitFor();
+  await page.waitForURL(/#\/reise\/1$/); await page.locator('.lr-abflugtafel, .rk').first().waitFor(); // alte Weltkarte/„Karte“ → Startseite
   // Antarktis von oben (Testdaten): eigene Karte mit dem Südpol in der Mitte
-  await page.evaluate(() => { const box = document.querySelector('.lr-karte-box'); box.replaceChildren(lernPolarKarte([
+  await page.evaluate(() => { const box = document.createElement('div'); document.querySelector('.lr-inhalt').prepend(box); box.replaceChildren(lernPolarKarte([
     { stadt: 'Neumayer-Station III', lat: -70.67, lon: -8.27, zustand: 'jetzt' }, { stadt: 'McMurdo', lat: -77.85, lon: 166.67, zustand: 'offen' }])); });
   const polar = page.locator('svg.lr-karte-polar');
   await polar.waitFor();
@@ -1190,7 +1189,7 @@ test('M8: Menüknopf schwebt nicht über dem Inhalt (Handy und Tablet, beim Roll
 test('P2: Mein Weg · Karte wählt die Orte nach derselben Regel wie „Stand“ (Schulart des Kindes)', async (t) => {
   // RS-Kind Klasse 6: Athen (Teilbarkeit rs_by 6) gehört dazu, Rom (rs_by 5) nicht – obwohl block.ziel_klasse 5 ist
   const rs = (aktion, e) => { const u = standAnpassen()(aktion, e); if (!u || aktion !== 'schule_uebersicht') return u; Object.assign(u.lernende[0], { schulart: 'rs_by', klasse: 6, stufen: {} }); return u; };
-  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: rs });
+  const { page } = await setup(t, { anpassen: rs }); // altes Design: dort gibt es den Reiter „Karte“ noch (neues Design: Startseite)
   await page.goto(origin + '/#/weg/1-karte');
   await page.locator('.lr-ortliste li').first().waitFor();
   const orte = await page.locator('.lr-ortliste').innerText();
@@ -4891,7 +4890,7 @@ test('RK-App: Schalter „Abflugtafel“ (bis zur Freigabe) und zurück; Start, 
   await page.evaluate(() => localStorage.setItem('lern.rk.1', 'tafel')); await page.reload(); await page.locator('.rk .rk-pin').first().waitFor();
   assert.equal(await page.locator('.lr-abflugtafel').count(), 0, 'gemerkte Wahl ignoriert'); assert.equal(await page.evaluate(() => localStorage.getItem('lern.rk.1')), null, 'alter Eintrag entfernt');
   assert.equal(await page.locator('.rk-schwebe .rk-start').getAttribute('href'), zielKarte);
-  assert.deepEqual(await page.locator('.lr-blatt-liste a').allTextContents(), ['Reisekarte', 'Mein Weg', 'Merkheft', 'Reisepass', 'Regel-Universum'], 'Menü: Reisekarte');
+  assert.deepEqual(await page.locator('.lr-blatt-liste a').allTextContents(), ['Reisekarte', 'Regel-Universum', 'Mein Weg'], 'Menü: Reisekarte');
   // einmal je Sitzung: Seite wechseln und zurück
   const vorher = calls.filter((c) => c.aktion === 'schule_reise_karte').length;
   await page.evaluate(() => { location.hash = '#/reisepass/1'; }); await page.locator('.lr-stats-box').waitFor();
@@ -6069,4 +6068,34 @@ test('Karte: Regel-Universum schwebt auf allen Ebenen, verdeckt keine Pins/Halte
   // Rückfall Tafel (ohne Karte): Link zum Regel-Universum
   const alt = rkServer({ karte: false }); const { page: p2 } = await setup(t, { gestaltung: 'tag', anpassen: alt.anpassen }); await p2.goto(origin + '/#/reise/1'); await p2.locator('.lr-abflugtafel').waitFor();
   assert.equal(await p2.locator('.lr-ru-link').getAttribute('href'), '#/regeln/1');
+});
+
+// ---------- Menü verkürzt: Reisekarte · Regel-Universum (mit Merkheft) · Mein Weg (mit Reisepass) · Ansicht ----------
+test('Menü verkürzt: vier Einträge; Merkheft als Reiter im Regel-Universum, Reisepass als Reiter in „Mein Weg“; alte Routen landen richtig; Reiter per Tastatur (400 hell)', async (t) => {
+  const bilder = path.join(root, 'inhalte/pruefung/menue/bilder'); fs.mkdirSync(bilder, { recursive: true });
+  const { page } = await rkOeffnen(t, 400, 860);
+  await page.getByRole('button', { name: 'Menü', exact: true }).first().click(); const liste = page.locator('dialog.lr-blatt[open] .lr-blatt-liste'); await liste.waitFor();
+  assert.deepEqual((await liste.locator('a, button:not(.lr-blatt-zu)').allInnerTexts()).map((x) => x.trim()), ['Reisekarte', 'Regel-Universum', 'Mein Weg', 'Dunkle Ansicht']);
+  await page.screenshot({ path: path.join(bilder, 'menue-400-hell.jpg'), type: 'jpeg', quality: 80 });
+  await liste.getByRole('button', { name: 'Schließen' }).click();
+  // Merkheft: alte Route gilt, Reiter „Mein Merkheft“ im Regel-Universum, Menü markiert „Regel-Universum“
+  await page.goto(origin + '/#/merkheft/1'); const ruR = page.locator('.lr-ru-reiter'); await ruR.waitFor(); await page.locator('.lr-merkliste').waitFor();
+  assert.deepEqual(await ruR.locator('a').allInnerTexts(), ['Regel-Universum', 'Mein Merkheft']); assert.equal(await ruR.locator('a.on').innerText(), 'Mein Merkheft');
+  assert.equal(await page.locator('.lr-blatt-liste a.on').textContent(), 'Regel-Universum');
+  await page.screenshot({ path: path.join(bilder, 'merkheft-im-universum-400-hell.jpg'), type: 'jpeg', quality: 80 });
+  await ruR.getByRole('link', { name: 'Regel-Universum' }).focus(); await page.keyboard.press('Enter'); await page.waitForURL(/#\/regeln\/1$/);
+  const ein = page.locator('.ru-kopf .ru-merkheft-link'); await ein.waitFor(); assert.equal(await ein.getAttribute('href'), '#/merkheft/1');
+  await page.waitForTimeout(300); await page.screenshot({ path: path.join(bilder, 'universum-mit-merkheft-einstieg-400-hell.jpg'), type: 'jpeg', quality: 80 });
+  await ein.focus(); await page.keyboard.press('Enter'); await page.waitForURL(/#\/merkheft\/1$/); await page.locator('.lr-merkliste').waitFor();
+  // Reisepass: alte Route gilt, als Reiter von „Mein Weg“; Menü markiert „Mein Weg“
+  await page.goto(origin + '/#/reisepass/1'); const wr = page.locator('.lr-weg-reiter'); await wr.waitFor(); await page.locator('.lr-stats-box').waitFor();
+  assert.deepEqual(await wr.locator('a').allInnerTexts(), ['Stand', 'Kontinente', 'Reisepass']); assert.equal(await wr.locator('a.on').innerText(), 'Reisepass');
+  assert.equal(await page.locator('.lr-blatt-liste a.on').textContent(), 'Mein Weg');
+  await page.screenshot({ path: path.join(bilder, 'reisepass-in-mein-weg-400-hell.jpg'), type: 'jpeg', quality: 80 });
+  await wr.getByRole('link', { name: 'Stand' }).focus(); await page.keyboard.press('Enter'); await page.waitForURL(/#\/weg\/1-stand$/);
+  await page.locator('.lr-weg-reiter a.on', { hasText: 'Stand' }).waitFor();
+  await page.locator('.lr-weg-reiter').getByRole('link', { name: 'Reisepass' }).focus(); await page.keyboard.press('Enter'); await page.waitForURL(/#\/reisepass\/1$/); await page.locator('.lr-stats-box').waitFor();
+  // ★-Chip der Karte führt weiter zum Reisepass; alter Reiter „Karte“ → Startseite
+  await page.goto(origin + '/#/weg/1-karte'); await page.waitForURL(/#\/reise\/1$/); await page.locator('.rk .rk-pin').first().waitFor();
+  assert.equal(await page.locator('.rk-stern').getAttribute('href'), '#/reisepass/1');
 });

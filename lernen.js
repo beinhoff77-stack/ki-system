@@ -224,8 +224,9 @@ function lernRahmen(kind, aktiv, ...inhalt) {
     const zu = () => { if (blatt.open) blatt.close(); };
     blatt.addEventListener('click', (ev) => { if (ev.target === blatt) zu(); });
     lernAnhaengen(blatt, el('div', { class: 'lr-blatt-liste' },
-      ...[['reise', lernStartWort(kind.id)], ['weg', 'Mein Weg'], ['merkheft', 'Merkheft'], ['reisepass', 'Reisepass'], ['regeln', 'Regel-Universum']].map(([v, t]) => // K2: Weltkarte ist jetzt in „Mein Weg“ · RU-App: Regel-Universum (lernen-regeln.js)
-        el('a', { href: `#/${v}/${kind.id}`, class: v === aktiv ? 'on' : '', ...(v === aktiv ? { 'aria-current': 'page' } : {}), onclick: zu }, t)),
+      // Menü verkürzt (Wunsch des Nutzers): Startseite · Regel-Universum (mit Merkheft) · Mein Weg (mit Reisepass) · Ansicht. Alte Routen bleiben gültig.
+      ...[['reise', lernStartWort(kind.id)], ['regeln', 'Regel-Universum'], ['weg', 'Mein Weg']].map(([v, t]) => { const an = v === aktiv || (v === 'regeln' && aktiv === 'merkheft') || (v === 'weg' && aktiv === 'reisepass');
+        return el('a', { href: `#/${v}/${kind.id}`, class: an ? 'on' : '', ...(an ? { 'aria-current': 'page' } : {}), onclick: zu }, t); }),
       el('button', { type: 'button', onclick: () => { try { localStorage.setItem('lern.gestaltung.' + kind.id, g === 'nacht' ? 'tag' : 'nacht'); } catch { /* egal */ } zu(); render(); } }, g === 'nacht' ? 'Helle Ansicht' : 'Dunkle Ansicht'),
       el('button', { type: 'button', class: 'lr-blatt-zu', onclick: zu }, 'Schließen')));
     // M8: Der Menüknopf schwebt nicht mehr über dem Inhalt (verdeckte Text und Knöpfe) – er steht oben rechts und am Seitenende im Fluss der Seite.
@@ -2693,6 +2694,7 @@ async function viewReisepass(arg) {
   el('p', { class: 'lr-ueber' }, 'STIL'), el('div', { class: 'lr-chips' }, ...LERN_STILE.map(([s, t, h]) =>
     el('button', { type: 'button', class: kind.stil === s ? 'on' : '', 'aria-pressed': String(kind.stil === s), onclick: () => setze(s, kind.welt || 'Ozean') }, t, el('small', {}, ' · ' + h)))));
   lernErsetze(main, lernRahmen(kind, 'reisepass',
+    ...(lernNeu(kind) ? [el('header', { class: 'lr-kopf' }, el('p', { class: 'lr-ueber' }, `MATHE${kind.klasse ? ' · KLASSE ' + kind.klasse : ''}`), el('h1', { class: 'lr-titel' }, 'Mein Weg')), lernWegReiter(kind, 'reisepass')] : []), // Reisepass als Reiter von „Mein Weg“
     lernKopf('REISEPASS', kind.name), lernStats(konto, { d }),
     // AB-A: Abzeichen der Landungen (gleichwertig nebeneinander)
     konto?.abzeichen ? el('section', { class: 'lr-karte-box lr-abzeichen-zeile' }, el('h2', {}, 'Abzeichen'),
@@ -4533,23 +4535,30 @@ const lernEtappenZahl = (m) => { const n = (m?.etappen || []).length; const f = 
 
 // ---------- Kind: Mein Weg (K2) – Reiter Stand · Kontinente · Karte ----------
 // #/weg/<kind>[-stand|-kontinente|-karte]. Die Weltkarte (früher eigener Menüeintrag) ist der Reiter „Karte“.
-const LERN_WEG_REITER = [['stand', 'Stand'], ['kontinente', 'Kontinente'], ['karte', 'Karte']];
+// Mein Weg nimmt den Reisepass auf (Reiter „Reisepass“ = Route reisepass); der Reiter „Karte“ entfällt – die Reisekarte ist die Startseite.
+// Das alte Design (ohne Reisekarte, mit unterer Leiste) behält „Karte“.
+const LERN_WEG_REITER = [['stand', 'Stand'], ['kontinente', 'Kontinente'], ['reisepass', 'Reisepass']];
+const LERN_WEG_REITER_ALT = [['stand', 'Stand'], ['kontinente', 'Kontinente'], ['karte', 'Karte']];
+const lernWegReiterListe = (kind) => (lernNeu(kind) ? LERN_WEG_REITER : LERN_WEG_REITER_ALT);
+const lernWegReiter = (kind, reiter) => el('nav', { class: 'lr-tabs lr-tabs-3 lr-weg-reiter', 'aria-label': 'Mein Weg' },
+  ...lernWegReiterListe(kind).map(([k, t]) => el('a', { href: k === 'reisepass' ? `#/reisepass/${kind.id}` : `#/weg/${kind.id}-${k}`, class: k === reiter ? 'on' : '', ...(k === reiter ? { 'aria-current': 'page' } : {}) }, t)));
 // Ein Flug gilt als gelandet, wenn alle Pflicht-Etappen sitzen; auch „kann schon“ und geschaffte Orte zählen (Rechenregel „Stand“).
 const lernGelandet = (e) => e.geschafft || e.ortFertig || e.gruppe === 'kann';
 async function viewWeg(arg) {
   setChrome('Mein Weg', { back: true, showTabs: false });
   const live = viewGuard();
   const [kindArg, reiterArg, ...tiefer] = String(arg || '').split('-'); // K3: #/weg/<kind>-stand-<schulart>-<stufe>-<kontinent>
-  const reiter = LERN_WEG_REITER.some(([k]) => k === reiterArg) ? reiterArg : 'stand';
+  if (reiterArg === 'reisepass') { location.replace(`#/reisepass/${kindArg}`); return; }
   loading();
   const d = await lernLadeKind(kindArg);
   if (!d || !live()) return;
+  if (reiterArg === 'karte' && lernNeu(d.kind)) { location.replace(`#/reise/${d.kind.id}`); return; } // alter Reiter „Karte“ → Startseite (Reisekarte)
+  const reiter = lernWegReiterListe(d.kind).some(([k]) => k === reiterArg) ? reiterArg : 'stand';
   const merk = reiter === 'stand' ? await lernMerkDaten(d).catch(() => []) : [];
   if (!live()) return;
   const { kind } = d;
   $('#title').textContent = 'Mein Weg';
-  const tabs = el('nav', { class: 'lr-tabs lr-tabs-3 lr-weg-reiter', 'aria-label': 'Mein Weg' },
-    ...LERN_WEG_REITER.map(([k, t]) => el('a', { href: `#/weg/${kind.id}-${k}`, class: k === reiter ? 'on' : '', ...(k === reiter ? { 'aria-current': 'page' } : {}) }, t)));
+  const tabs = lernWegReiter(kind, reiter);
   const kopf = el('header', { class: 'lr-kopf' }, el('p', { class: 'lr-ueber' }, `MATHE${kind.klasse ? ' · KLASSE ' + kind.klasse : ''}`), el('h1', { class: 'lr-titel' }, 'Mein Weg'));
   const teile = reiter === 'karte' ? lernWegKarte(d) : reiter === 'kontinente' ? lernWegKontinente(d) : lernWegStand(d, merk, tiefer);
   lernErsetze(main, lernRahmen(kind, 'weg', kopf, tabs, ...teile));
@@ -4760,6 +4769,9 @@ function lernPolarKarte(orte) {
 }
 
 // ---------- Kind: Merkheft (K2) – nur Geschafftes, Kontinent → Flug → Etappe, Suche oben ----------
+// Regel-Universum und Merkheft: zwei Reiter (Merkheft-Route bleibt gültig)
+const lernRuReiter = (kind, aktiv) => el('nav', { class: 'lr-tabs lr-ru-reiter', 'aria-label': 'Regel-Universum' },
+  ...[['regeln', 'Regel-Universum'], ['merkheft', 'Mein Merkheft']].map(([k, t]) => el('a', { href: `#/${k}/${kind.id}`, class: k === aktiv ? 'on' : '', ...(k === aktiv ? { 'aria-current': 'page' } : {}) }, t)));
 async function viewMerkheft(arg) {
   setChrome('Merkheft', { back: true, showTabs: false });
   const live = viewGuard();
@@ -4802,6 +4814,7 @@ async function viewMerkheft(arg) {
   suche.addEventListener('input', zeichne);
   zeichne();
   lernErsetze(main, lernRahmen(kind, 'merkheft',
+    lernNeu(kind) ? lernRuReiter(kind, 'merkheft') : null, // Merkheft gehört zum Regel-Universum (Menü verkürzt)
     el('header', { class: 'lr-kopf' }, el('h1', { class: 'lr-titel' }, 'Merkheft'), el('p', { class: 'lr-leise' }, 'Was du geschafft hast – zum Nachlesen, jederzeit.')),
     eintraege.length ? suche : null, liste));
 }

@@ -393,6 +393,8 @@ function ruAufbauen(I, k, kind, schluessel) {
     el('form', { class: 'ru-suche', role: 'search', onsubmit: (ev) => { ev.preventDefault(); suchen(); feld.blur(); } },
       el('label', {}, el('span', { class: 'ru-unsichtbar' }, 'Im Regel-Universum suchen'), lupe, feld))));
   const seite = el('div', { class: 'ru-seite' });
+  // Menü verkürzt: das Merkheft gehört zum Regel-Universum – beim Kind ein Einstieg „Mein Merkheft“ in der Kopfzeile (neben Suche und Menü)
+  if (k.art === 'kind' && kind?.id) kopf.firstChild.append(el('a', { class: 'ru-merkheft-link', href: `#/merkheft/${kind.id}` }, el('span', { 'aria-hidden': 'true' }, '📒 '), 'Mein Merkheft'));
   const wurzel = el('div', { class: 'ru' + (k.art === 'kind' ? ' ru-im-kind' : ' ru-in-app'), 'data-ru-g': g }, kopf, seite);
   wurzel.insertAdjacentHTML('afterbegin', RU_DEFS);
   const zurSchicht = (t) => { const s = t.closest && t.closest('.ru-sc-ziel'); if (s) wurzel.querySelector('#ru-schicht-' + s.dataset.schicht)?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); return !!s; };

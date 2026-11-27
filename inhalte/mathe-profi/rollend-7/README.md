@@ -51,3 +51,8 @@ Eine unabhängige Gegenprüfung hat Aufgaben gefunden, bei denen Frage, Antworte
 
 - Nachgebessert: Fehlbild und Rechenweg bei einer Bruchgleichung mit zwei Wegen (die Fehlantwort folgt jetzt wirklich aus dem beschriebenen Fehler); Wertetabellen-Aufgabe so geführt, dass beide Tabellenwerte gebraucht werden; Sonderfall-Lückenweg mit Prüfrechnung für Widerspruch (0 Lösungen) und Identität (unendlich viele, als Merkwert 99 markiert); „über ℚ“ bei einer Definitionsmenge ergänzt; Zylinder-Fehlbild ausdrücklich auf den Weg mit π ≈ 3,14 bezogen; zwei Fehlbild-Beschreibungen berichtigt, die einen richtigen Wert als falsch bezeichneten; Minimalwert und tiefster Punkt getrennt benannt.
 - Alle 464 Fehlbild-Beschreibungen wurden noch einmal gegen ihre Antwort gelesen (auch die ohne Rechnung): beschriebener Fehler muss zur gespeicherten Antwort führen, und nichts Richtiges darf als falsch bezeichnet sein.
+
+### Nachprüfung (Werkstatt 1063)
+
+- Tipp einer Bruchgleichung ohne Zahlwort für einen Lückenwert; Blechdose ausdrücklich als gerade zylinderförmig beschrieben.
+- Neu in `bauen.py`: Kein Lückenwert eines Lückenwegs darf als Ziffer oder Zahlwort (null bis zwanzig, kein, nie) in Fragetext, Schablone, Hinweis oder Tipp stehen. Gefäße und Körper in den Messen-Themen (Dose, Glas, Fass, Tank, Rohr …) brauchen im Aufgabentext ein Formwort (Zylinder, Prisma, Quader …). Weitere Treffer gab es nicht.

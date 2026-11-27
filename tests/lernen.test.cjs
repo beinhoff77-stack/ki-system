@@ -5767,7 +5767,7 @@ test('RU: Eltern/Lehrer öffnen „Regeln“ → Blatt Regel 6 (alle Abschnitte 
     await page.locator('.ru-rueck-form').waitFor({ state: 'detached' }); await merk.filter({ hasText: 'Gesendet' }).waitFor();
     assert.equal(await merk.getAttribute('aria-expanded'), 'false'); assert.match(page.url(), /#\/regeln\/lehrer-r6$/); assert.ok(Math.abs((await page.evaluate(() => scrollY)) - y0) < 2, 'kein Seitensprung');
     await page.locator('.ru-lehrer-band a', { hasText: 'So sieht es das Kind' }).click();
-    await page.locator('.ru-regelseite .ru-merksatz').waitFor(); assert.match(page.url(), /#\/regeln\/kind-r6$/);
+    await page.locator('.ru-band-kind').waitFor(); await page.locator('.ru-regelseite .ru-merksatz').waitFor(); assert.match(page.url(), /#\/regeln\/kind-r6$/);   // erst auf das Band der Kinderansicht warten: der Merksatz steht auch schon auf dem Lehrer-Blatt
     assert.equal(await page.locator('.ru-band-kind').count(), 1); assert.ok(await page.locator('.ru-ae').count() >= 10, 'Schüleransicht für Erwachsene: „Ändern lassen“ an den Feldern');
     await ruPruefen(page, `${b} Kinderansicht`);
     await page.locator('.ru-band-kind a').click(); await page.locator('.ru-l-kopf h2').first().waitFor();

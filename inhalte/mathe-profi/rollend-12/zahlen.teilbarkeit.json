@@ -150,7 +150,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Wie viele Zahlen von 105 bis 203 sind Vielfache von 7? Die Grenzen 105 und 203 zählen mit. Weg A: Schreibe die Vielfachen der Reihe nach auf und zähle. Weg B: Bestimme, das wievielte Vielfache von 7 die 105 und das wievielte die 203 ist, und rechne mit diesen beiden Nummern. Gib die Zahl der Vielfachen an."
+     "text": "Betrachte die Zahlen von 105 bis 203 einschließlich beider Grenzen. Weg A: Schreibe die Vielfachen der Reihe nach auf und zähle. Weg B: Bestimme, das wievielte Vielfache von 7 die 105 und das wievielte die 203 ist, und rechne mit diesen beiden Nummern. Gib die Zahl der Vielfachen an."
     },
     "o": {
      "wert": 15,
@@ -224,21 +224,21 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "275 €",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Endziffer 5: durch 5 teilbar, also mit 5-Euro-Scheinen zahlbar."
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "340 €",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Endziffer 0: durch 5 teilbar, also zahlbar."
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "1 205 €",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -256,13 +256,13 @@
      "text": "Eine Kasse hat nur 5-Euro-Scheine und 10-Euro-Scheine. Welcher Betrag kann damit nicht genau bezahlt werden?"
     },
     "a": [
+     "4 902 €",
      "275 €",
      "340 €",
-     "1 205 €",
-     "4 902 €"
+     "1 205 €"
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
     "h": "Alle Beträge, die man mit 5-Euro-Scheinen zahlen kann, sind Vielfache von 5. Woran erkennt man Vielfache von 5?",
     "w": "Vielfache von 5 enden auf 0 oder 5. 275, 340 und 1 205 enden auf 5 oder 0. 4 902 endet auf 2, ist also kein Vielfaches von 5 und lässt sich mit 5-€- und 10-€-Scheinen nicht genau zahlen."
@@ -331,14 +331,14 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Los 2 378",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Quersumme 20, nicht durch 3 teilbar."
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Los 4 123",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -363,13 +363,13 @@
      "text": "Bei einer Tombola gewinnt jedes Los, dessen Nummer durch 3 teilbar ist. Welches dieser Lose gewinnt?"
     },
     "a": [
-     "Los 1 245",
      "Los 2 378",
      "Los 4 123",
+     "Los 1 245",
      "Los 5 606"
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "h": "Eine Zahl ist durch 3 teilbar, wenn ihre Quersumme durch 3 teilbar ist.",
     "w": "Quersummen: 1 245 → 12 (durch 3 teilbar), 2 378 → 20, 4 123 → 10, 5 606 → 17. Nur 12 ist durch 3 teilbar, es gewinnt Los 1 245."
@@ -421,7 +421,7 @@
     },
     "c": "2749 % 3",
     "h": "Bei Weg B zählst du zuerst die Ziffern zusammen.",
-    "w": "Weg A: 2 749 : 3 = 916 Rest 1. Weg B: Quersumme 2 + 7 + 4 + 9 = 22, 22 : 3 = 7 Rest 1. Beide Wege geben Rest 1."
+    "w": "Weg A schriftlich: 27 : 3 = 9 Rest 0; die 4 herunterholen: 4 : 3 = 1 Rest 1; die 9 herunterholen: 19 : 3 = 6 Rest 1. Ergebnis: 2 749 : 3 = 916 Rest 1. Weg B: Quersumme 2 + 7 + 4 + 9 = 22, 22 : 3 = 7 Rest 1. Beide Wege geben Rest 1."
    }
   },
   {

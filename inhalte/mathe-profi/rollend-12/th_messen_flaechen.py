@@ -33,7 +33,7 @@ neu(T, "einheiten", "anwenden", Z(
     "1 a = 100 m². 7 200 m² = 72 a (7 200 : 100). 72 · 2 kg = 144 kg.",
     [(14400, None, "mit m² statt mit Ar gerechnet", "7200 * 2"), (14.4, None, "durch 1 000 statt durch 100 umgerechnet", "7200 / 1000 * 2"), (72, None, "die Fläche in Ar genannt", "7200 / 100")], "kg"))
 neu(T, "einheiten", "zwei_wege", Z(
-    "Wie viele m² sind 3 ha? Weg A: Rechne mit 1 ha = 10 000 m². Weg B: Ein Quadrat mit 100 m Seitenlänge hat 1 ha. Berechne die Fläche von 3 solchen Quadraten in m².",
+    "Eine Fläche von 3 ha soll in m² angegeben werden. Weg A: Rechne mit 1 ha = 10 000 m². Weg B: Ein Quadrat mit 100 m Seitenlänge hat 1 ha. Berechne die Fläche von 3 solchen Quadraten in m². Gib an, wie viele m² 3 ha sind.",
     30000, "3 * 10000", "3 * (100 * 100)", "Wie groß ist die Fläche eines Quadrats mit der Seitenlänge 100 m?",
     "Weg A: 3 · 10 000 m² = 30 000 m². Weg B: Ein Quadrat hat 100 m · 100 m = 10 000 m². Drei Quadrate: 30 000 m².",
     [(3000, None, "mit 1 ha = 1 000 m² gerechnet", "3 * 1000"), (300000, None, "mit 1 ha = 100 000 m² gerechnet", "3 * 100000"), (300, None, "mit 1 ha = 100 m² gerechnet", "3 * 100")], "m²"), g="verknuepfen")
@@ -42,11 +42,11 @@ neu(T, "einheiten", "zwei_wege", Z(
 neu(T, "kommaschreibweise", "umkehren", Z(
     "Eine Fläche wurde zuerst in dm² angegeben und dann in m² umgerechnet. Das Ergebnis lautet 8,4 m². Welche Zahl stand vorher in dm²?",
     840, "8.4 * 100", "8.4 * 10 * 10", "Wie viele dm² hat ein m²? Mache die Umrechnung rückgängig.",
-    "1 m² = 100 dm². Rückwärts wird mit 100 malgenommen: 8,4 m² = 8,4 · 100 dm² = 840 dm². Probe: 840 dm² : 100 = 8,4 m².",
+    "1 m² = 100 dm². Rückwärts wird mit 100 malgenommen: 8,4 m² = 8,4 · 100 dm² = 840 dm². Probe: 840 dm² = 8,4 m², denn 100 dm² = 1 m².",
     [(84, None, "mit 10 statt mit 100 malgenommen", "8.4 * 10"), (8400, None, "mit 1 000 malgenommen", "8.4 * 1000"), (0.084, None, "durch 100 geteilt statt malgenommen", "8.4 / 100")], "dm²"), g="umkehr")
 neu(T, "kommaschreibweise", "fehler_detektiv", FD(
     "Mia berechnet 3,2 m² + 45 dm² und gibt das Ergebnis in m² an.",
-    [("1 m² sind 100 dm², also sind 45 dm² gleich 0,45 m².", 45 / 100 == 0.45, True, "Zeile 1 stimmt: 45 dm² : 100 = 0,45 m². Der Fehler steckt später."),
+    [("1 m² sind 100 dm², also sind 45 dm² gleich 0,45 m².", 45 / 100 == 0.45, True, "Zeile 1 stimmt: 45 dm² = 0,45 m², denn 100 dm² = 1 m². Der Fehler steckt später."),
      ("3,2 m² + 0,45 m² = 3,47 m².", round(3.2 + 0.45, 2) == 3.47, True),
      ("Das Ergebnis ist 3,47 m².", True, True, "Zeile 3 übernimmt nur das Ergebnis aus Zeile 2. Der Fehler liegt schon in Zeile 2.")],
     "Prüfe jede Zeile für sich und rechne beim Addieren Komma unter Komma nach. Welche Zeile enthält zuerst einen Fehler?",
@@ -72,7 +72,7 @@ neu(T, "sachaufgaben", "bruecke", Z(
     [(432, None, "mit dem Preis des Laminats gerechnet", "24 * 18"), (840, None, "mit dem Preis des Parketts gerechnet", "24 * 35"), (12, None, "nur den Preis je m² genannt", "12")], "€",
     grafik=TAB(["Belag", "Preis je m²"], ["Laminat", "18 €"], ["Teppich", "12 €"], ["Parkett", "35 €"])))
 neu(T, "sachaufgaben", "zwei_wege", Z(
-    "Ein Gartenweg ist 6 m lang und 80 cm breit. Er wird lückenlos mit quadratischen Platten von 20 cm Seitenlänge belegt. Wie viele Platten braucht man? Weg A: Teile die Fläche des Wegs durch die Fläche einer Platte (beides in cm²). Weg B: Bestimme, wie viele Platten in der Länge und wie viele in der Breite nebeneinander passen. Gib die Zahl der Platten an.",
+    "Ein Gartenweg ist 6 m lang und 80 cm breit. Er wird lückenlos mit quadratischen Platten von 20 cm Seitenlänge belegt. Weg A: Teile die Fläche des Wegs durch die Fläche einer Platte (beides in cm²). Weg B: Bestimme, wie viele Platten in der Länge und wie viele in der Breite nebeneinander passen. Gib die Zahl der Platten an.",
     120, "(600 * 80) / (20 * 20)", "(600 / 20) * (80 / 20)", "Rechne alle Maße in cm. Wie viele Platten von 20 cm passen in 6 m?",
     "Weg A: Weg 600 cm · 80 cm = 48 000 cm², Platte 20 · 20 = 400 cm². 48 000 : 400 = 120. Weg B: 600 : 20 = 30 Platten in der Länge, 80 : 20 = 4 in der Breite. 30 · 4 = 120.",
     [(34, None, "Platten in der Länge und in der Breite addiert", "30 + 4"), (4.8, None, "die Fläche in m² als Zahl der Platten genommen", "6 * 0.8"), (480, None, "durch 100 statt durch 400 geteilt", "48000 / 100")], "Platten"), g="verknuepfen", regel=AL)

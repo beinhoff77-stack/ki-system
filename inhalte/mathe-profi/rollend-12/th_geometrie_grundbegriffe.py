@@ -18,7 +18,7 @@ neu(T, "koordinaten", "zwei_wege", Z(
 
 # ───────── strecken ─────────
 neu(T, "strecken", "zwei_wege", Z(
-    "Ein Weg verläuft waagrecht vom Punkt A(−4 | 1) zum Punkt B(5 | 1). Eine Einheit im Koordinatensystem entspricht 20 m. Wie lang ist der Weg in Metern? Weg A: Rechne mit den Koordinaten 5 − (−4). Weg B: Zähle die Einheiten von A bis zum Schnittpunkt (0 | 1) mit der y-Achse und von dort bis B. Wie lang ist der Weg in Metern?",
+    "Ein Weg verläuft waagrecht vom Punkt A(−4 | 1) zum Punkt B(5 | 1). Eine Einheit im Koordinatensystem entspricht 20 m. Weg A: Rechne mit den Koordinaten 5 − (−4). Weg B: Zähle die Einheiten von A bis zum Schnittpunkt (0 | 1) mit der y-Achse und von dort bis B. Wie lang ist der Weg in Metern?",
     180, "(5 - (-4)) * 20", "(4 + 5) * 20", "Der Weg schneidet die y-Achse im Punkt (0 | 1). Wie viele Einheiten sind es von A bis dorthin, wie viele von dort bis B?",
     "Weg A: 5 − (−4) = 9 Einheiten. Weg B: Von A(−4 | 1) bis (0 | 1) sind es 4 Einheiten, von (0 | 1) bis B(5 | 1) sind es 5 Einheiten, zusammen 4 + 5 = 9 Einheiten. Der Weg ist 9 Einheiten lang: 9 · 20 m = 180 m.",
     [(20, None, "nur die Beträge voneinander abgezogen (das Minus von −4 nicht beachtet)", "(5 - 4) * 20"), (100, None, "nur die x-Koordinate von B genommen", "5 * 20"), (9, None, "die Länge in Einheiten statt in Metern angegeben", "5 + 4")], "m"))

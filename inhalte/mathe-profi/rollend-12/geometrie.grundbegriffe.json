@@ -158,7 +158,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Weg verläuft waagrecht vom Punkt A(−4 | 1) zum Punkt B(5 | 1). Eine Einheit im Koordinatensystem entspricht 20 m. Wie lang ist der Weg in Metern? Weg A: Rechne mit den Koordinaten 5 − (−4). Weg B: Zähle die Einheiten von A bis zum Schnittpunkt (0 | 1) mit der y-Achse und von dort bis B. Wie lang ist der Weg in Metern?"
+     "text": "Ein Weg verläuft waagrecht vom Punkt A(−4 | 1) zum Punkt B(5 | 1). Eine Einheit im Koordinatensystem entspricht 20 m. Weg A: Rechne mit den Koordinaten 5 − (−4). Weg B: Zähle die Einheiten von A bis zum Schnittpunkt (0 | 1) mit der y-Achse und von dort bis B. Wie lang ist der Weg in Metern?"
     },
     "o": {
      "wert": 180,
@@ -449,14 +449,14 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Bis zur 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Eine Vierteldrehung ist ein rechter Winkel (90°)."
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Bis zur 6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -481,13 +481,13 @@
      "text": "Der Minutenzeiger einer Uhr startet bei der 12 und dreht sich im Uhrzeigersinn bis zu einer Zahl auf dem Zifferblatt. Bis zu welcher Zahl hat er einen überstumpfen Winkel überstrichen?"
     },
     "a": [
+     "Bis zur 9",
      "Bis zur 3",
      "Bis zur 6",
-     "Bis zur 9",
      "Bis zur 12 nach einer ganzen Runde"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "h": "Welcher Teil einer ganzen Runde ist bis zur Zahl geschafft? Überstumpf liegt zwischen gestreckt und Vollwinkel.",
     "w": "Von der 12 bis zur 3 ist es eine Vierteldrehung: 90°, ein rechter Winkel. Bis zur 6: halbe Drehung, 180°, gestreckt. Bis zur 9: Dreivierteldrehung, 270°, überstumpf. Bis zur 12 nach einer ganzen Runde: 360°, Vollwinkel."
@@ -550,21 +550,21 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Viereck A",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Alle Seiten gleich lang und vier rechte Winkel: das ist ein Quadrat."
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Viereck C",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Vier rechte Winkel, aber nicht alle Seiten gleich lang: ein Rechteck."
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Viereck D",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -612,13 +612,13 @@
      }
     },
     "a": [
-     "Viereck B",
      "Viereck A",
      "Viereck C",
-     "Viereck D"
+     "Viereck D",
+     "Viereck B"
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "h": "Eine Raute hat vier gleich lange Seiten. Ein Quadrat hat zusätzlich vier rechte Winkel.",
     "w": "Eine Raute hat vier gleich lange Seiten. Ein Quadrat hätte zusätzlich vier rechte Winkel. Gesucht ist also: gleich lange Seiten (ja), rechte Winkel (nein). Das ist Viereck B."
@@ -778,14 +778,14 @@
      "beschreibung": "Das Quadrat passt zu Toms Aussage und widerlegt sie nicht."
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Ein Rechteck mit den Seiten 3 cm und 5 cm",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Dieses Viereck hat keine vier gleich langen Seiten, es sagt über Toms Aussage nichts."
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Ein Parallelogramm mit den Seiten 4 cm und 6 cm",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -804,12 +804,12 @@
     },
     "a": [
      "Ein Quadrat mit 5 cm Seitenlänge",
+     "Eine Raute mit 5 cm Seitenlänge und den Winkeln 60° und 120°",
      "Ein Rechteck mit den Seiten 3 cm und 5 cm",
-     "Ein Parallelogramm mit den Seiten 4 cm und 6 cm",
-     "Eine Raute mit 5 cm Seitenlänge und den Winkeln 60° und 120°"
+     "Ein Parallelogramm mit den Seiten 4 cm und 6 cm"
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "h": "Ein Gegenbeispiel muss die Voraussetzung (vier gleich lange Seiten) erfüllen, aber trotzdem kein Quadrat sein.",
     "w": "Gesucht ist ein Viereck mit vier gleich langen Seiten, das kein Quadrat ist: Die Raute mit den Winkeln 60° und 120° hat vier gleich lange Seiten, aber keine rechten Winkel."

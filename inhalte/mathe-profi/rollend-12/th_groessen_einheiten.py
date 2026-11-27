@@ -8,9 +8,9 @@ neu(T, "schaetzen", "zwei_wege", Z(
     "Weg A: 9 m = 900 cm, 900 : 20 = 45. Weg B: 1 m = 100 cm, das sind 100 : 20 = 5 Stufen. Für 9 m sind es 9 · 5 = 45 Stufen.",
     [(180, None, "9 mal 20 gerechnet", "9 * 20"), (0.45, None, "9 durch 20 geteilt, ohne die Meter in cm umzurechnen", "9 / 20"), (5, None, "nur die Stufen für 1 m genannt", "100 / 20")], "Stufen"), regel=GR)
 neu(T, "schaetzen", "umkehren", Z(
-    "Ein Kind geht einen 150 m langen Weg in 250 Schritten, ein Erwachsener braucht für denselben Weg 200 Schritte. Um wie viel cm ist ein Schritt des Erwachsenen länger als ein Schritt des Kindes?",
-    15, "150 * 100 / 200 - 150 * 100 / 250", "75 - 60", "Was ist bei beiden gleich, was ist verschieden? Was vergleichst du am Ende?",
-    "150 m = 15 000 cm. Kind: 15 000 cm : 250 = 60 cm je Schritt. Erwachsener: 15 000 cm : 200 = 75 cm je Schritt. Unterschied: 75 cm − 60 cm = 15 cm. Probe: 200 · 75 cm = 15 000 cm = 150 m.",
+    "Ein Kind geht einen 150 m langen Weg im Durchschnitt in 250 Schritten, ein Erwachsener braucht für denselben Weg im Durchschnitt 200 Schritte. Entscheide zuerst mit einem Überschlag aus den Schrittzahlen, ob ein Schritt des Erwachsenen im Durchschnitt um etwa 2 cm, 20 cm oder 2 m länger ist als ein Schritt des Kindes. Berechne dann den genauen Unterschied. Um wie viel cm ist ein Schritt des Erwachsenen im Durchschnitt länger?",
+    15, "150 * 100 / 200 - 150 * 100 / 250", "75 - 60", "Für 150 m braucht das Kind mehr Schritte als der Erwachsene. Wie lang ist dann ungefähr ein Schritt von jedem?",
+    "Überschlag: Für 150 m braucht das Kind 250 und der Erwachsene 200 Schritte, ein Schritt ist also etwa 60 cm bzw. 75 cm lang. Der Unterschied liegt bei etwa 20 cm; 2 cm wären zu wenig, und 2 m wäre ein Sprung. Genau: 150 m = 15 000 cm. Kind: 15 000 cm : 250 = 60 cm je Schritt. Erwachsener: 15 000 cm : 200 = 75 cm je Schritt. Unterschied: 75 cm − 60 cm = 15 cm. Probe: 200 · 75 cm = 15 000 cm = 150 m.",
     [(75, None, "nur die Schrittlänge des Erwachsenen genannt: 15 000 : 200", "150 * 100 / 200"), (50, None, "die Schrittzahlen statt der Schrittlängen verglichen: 250 − 200", "250 - 200"), (0.15, None, "das Ergebnis in Metern statt in cm angegeben: 0,75 m − 0,6 m", "150 / 200 - 150 / 250")], "cm"), g="rueckwaerts", regel=GR)
 
 # ───────── laenge ─────────
@@ -89,11 +89,11 @@ neu(T, "massstab", "anwenden", Z(
 
 # ───────── verstehen ─────────
 neu(T, "verstehen", "bruecke", Z(
-    "Die Tabelle nennt fünf Beispiele für Gegenstände mit einer Größenangabe. Bei wie vielen Gegenständen ist die Angabe nicht realistisch?",
+    "Die Tabelle nennt fünf Beispiele mit einer Größenangabe. Bei wie vielen Beispielen ist die Angabe nicht realistisch?",
     2, "2", "1 + 1", "Vergleiche mit etwas, das du kennst: Wie lang ist ein Lineal? Wie schwer ist ein Apfel?",
     "Ein Bleistift mit 5 kg wäre so schwer wie fünf Packungen Zucker, er wiegt nur wenige Gramm. Ein Kind mit 14 m wäre höher als ein Haus. Die anderen Angaben passen: Heft 21 cm, Zimmerhöhe 3 m, Apfel 150 g. Es sind 2 Angaben.",
     [(1, None, "nur eine unrealistische Angabe gefunden", "1"), (3, None, "auch die Höhe des Klassenzimmers (3 m) für unrealistisch gehalten", "2 + 1"), (5, None, "alle Angaben für unrealistisch gehalten", "5")], "Angaben",
-    grafik=TAB(["Gegenstand", "Angabe"], ["Schulheft", "21 cm lang"], ["Bleistift", "5 kg schwer"], ["Klassenzimmer", "3 m hoch"], ["Apfel", "150 g schwer"], ["Kind mit 10 Jahren", "14 m groß"])), g="darstellung")
+    grafik=TAB(["Beispiel", "Angabe"], ["Schulheft", "21 cm lang"], ["Bleistift", "5 kg schwer"], ["Klassenzimmer", "3 m hoch"], ["Apfel", "150 g schwer"], ["Kind mit 10 Jahren", "14 m groß"])), g="darstellung")
 _ab = lambda h, m, dh, dm: ((h * 60 + m - dh * 60 - dm) // 60, (h * 60 + m - dh * 60 - dm) % 60)
 neu(T, "verstehen", "umkehren", W(
     "Ein Zug kommt um 15:12 Uhr an. Die Fahrt hat 2,5 Stunden gedauert. Tim sagt: „Er ist um 12:22 Uhr abgefahren.“ Welche Abfahrtszeit ist richtig?",

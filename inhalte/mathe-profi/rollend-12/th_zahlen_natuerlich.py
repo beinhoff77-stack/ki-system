@@ -128,15 +128,19 @@ neu(T, "runden_sinnvoll", "fehler_detektiv", FD(
 
 # ───────── unendlich ─────────
 neu(T, "unendlich", "zwei_wege", Z(
-    "Tim behauptet: „999 999 ist die größte natürliche Zahl.“ Du widerlegst das mit dem Nachfolger. Weg A: Addiere 1 zu 999 999. Weg B: Überlege, welche Zahl direkt nach 999 999 kommt, wenn du die Zahlen bis zur Million aufzählst. Wie heißt der Nachfolger von 999 999?",
+    "Tim behauptet: „999 999 ist die größte natürliche Zahl.“ Du widerlegst das mit dem Nachfolger. Weg A: Addiere 1 zu 999 999. Weg B: Beginne bei 999 997 und zähle drei Schritte weiter. Wie heißt der Nachfolger von 999 999?",
     1000000, "999999 + 1", "10 ** 6", "Welche Zahl kommt unmittelbar nach 999 999? Was geschieht mit den Neunen?",
-    "Weg A: 999 999 + 1 = 1 000 000. Weg B: Beim Zählen auf die Million kommt nach 999 999 die Zahl 1 000 000. Der Nachfolger ist größer, also ist Tims Zahl nicht die größte. Dasselbe gilt für jede Zahl, die jemand als größte nennt: Ihr Nachfolger ist größer. Darum gibt es keine größte natürliche Zahl.",
+    "Weg A: 999 999 + 1 = 1 000 000. Weg B: 999 997, 999 998, 999 999, 1 000 000: Nach drei Schritten steht man bei 1 000 000, und das ist der Nachfolger von 999 999. Der Nachfolger ist größer, also ist Tims Zahl nicht die größte. Dasselbe gilt für jede Zahl, die jemand als größte nennt: Ihr Nachfolger ist größer. Darum gibt es keine größte natürliche Zahl.",
     [(999998, None, "den Vorgänger statt des Nachfolgers genommen: 999 999 − 1", "999999 - 1"), (1000001, None, "zwei Schritte statt einen weitergezählt: 999 999 + 2", "999999 + 2"), (100000, None, "nur eine 1 mit fünf Nullen geschrieben", "10 ** 5")]))
-neu(T, "unendlich", "umkehren", Z(
-    "Anna behauptet, ihre Zahl sei die größte natürliche Zahl. Ben widerlegt sie, indem er den Nachfolger ihrer Zahl nennt: 2 000 000. Welche Zahl hat Anna genannt?",
-    1999999, "2000000 - 1", "1999999", "Ben hat zu Annas Zahl 1 addiert. Wie kommst du zu Annas Zahl zurück?",
-    "Der Nachfolger von Annas Zahl ist 2 000 000, also ist Annas Zahl der Vorgänger: 2 000 000 − 1 = 1 999 999. Probe: 1 999 999 + 1 = 2 000 000. Zu jeder Zahl gibt es einen Nachfolger, der größer ist; darum kann Annas Zahl nicht die größte sein.",
-    [(2000001, None, "den Nachfolger statt des Vorgängers genommen: 2 000 000 + 1", "2000000 + 1"), (1999998, None, "zwei Schritte statt einen zurückgegangen: 2 000 000 − 2", "2000000 - 2"), (1000000, None, "die Zahl halbiert: 2 000 000 : 2", "2000000 / 2")]), g="rueckwaerts")
+neu(T, "unendlich", "umkehren", W(
+    "Anna behauptet, 2 000 000 sei die größte natürliche Zahl. Welche Begründung zeigt, dass es überhaupt keine größte natürliche Zahl gibt?",
+    "Für jede vorgeschlagene natürliche Zahl n ist n + 1 eine größere natürliche Zahl.",
+    [("Die Zahl 2 000 001 ist größer als 2 000 000.", "Das zeigt nur einen einzelnen Fall und sagt nichts über jede vorgeschlagene Zahl."),
+     ("Die Zahl 1 000 000 000 ist größer als 2 000 000.", "Auch das gilt nur für diese eine Zahl; für größere Vorschläge fehlt die Begründung."),
+     ("Die Zahl 5 000 000 ist größer als 2 000 000.", "Das ist wieder nur ein einzelner Fall.")],
+    "Eine Begründung muss für jede vorgeschlagene Zahl gelten, nicht nur für 2 000 000.",
+    "Zu jeder natürlichen Zahl n gibt es den Nachfolger n + 1, und der ist größer. Das gilt für 2 000 000 genauso wie für jede andere vorgeschlagene Zahl, darum kann keine Zahl die größte sein. Die anderen Aussagen nennen nur eine einzelne größere Zahl und begründen nichts für jeden Vorschlag.",
+    lambda: 2000001 > 2000000 and 10 ** 9 > 2000000 and 5000000 > 2000000), g="begruenden")
 
 # ───────── roemisch_schreiben ─────────
 _RW = [("MCMLXXXIV", 1984), ("MCMLXXXVI", 1986), ("MDCLXXXIV", 1684), ("MCMLXXIV", 1974)]
@@ -158,11 +162,11 @@ neu(T, "roemisch_schreiben", "fehler_detektiv", FD(
 
 # ───────── roemisch_system ─────────
 neu(T, "roemisch_system", "umkehren", W(
-    "Das Doppelte einer Zahl ist MCM. Welche römische Zahl ist es?",
-    "CML",
-    [("ML", "Das ist 1 050: MCM wurde als 1 000 + 100 + 1 000 = 2 100 gelesen und halbiert, dabei wurde das C falsch addiert."), ("MMMDCCC", "Das ist 3 800: Es wurde verdoppelt statt halbiert.")],
+    "Das Doppelte einer Zahl ist MCM. Welche römische Zahl ist es, und warum zählt das C in MCM nicht 100, sondern wird abgezogen?",
+    "CML, denn das C steht vor dem größeren Zeichen M und wird deshalb abgezogen: MCM ist 1 900, die Hälfte ist 950.",
+    [("ML, denn das C steht zwischen zwei M und wird addiert.", "Das ist 1 050: MCM wurde als 1 000 + 100 + 1 000 = 2 100 gelesen und halbiert, dabei wurde das C falsch addiert."), ("MMMDCCC, denn das C steht vor dem größeren Zeichen M und wird abgezogen; die 1 900 werden dann verdoppelt.", "Das ist 3 800: Es wurde verdoppelt statt halbiert.")],
     "Schreibe MCM zuerst mit Ziffern. Rechne dann rückwärts.",
-    "MCM ist 1 900 (M = 1 000 und CM = 900). Die Zahl ist die Hälfte: 1 900 : 2 = 950. 950 = 900 + 50 = CM + L = CML. Probe: 2 · 950 = 1 900. Das Zeichen C hat immer den Grundwert 100; steht es vor M, wird es abgezogen: CM = 1 000 − 100 = 900. Das Zeichen behält seinen Wert, nur seine Stellung vor oder nach einem anderen Zeichen entscheidet, ob addiert oder abgezogen wird.",
+    "MCM ist 1 900 (M = 1 000 und CM = 900). Die Zahl ist die Hälfte: 1 900 : 2 = 950. 950 = 900 + 50 = CM + L = CML. Probe: 2 · 950 = 1 900. Das Zeichen C hat immer den Grundwert 100. Steht ein kleineres Zeichen vor einem größeren Zeichen, das direkt folgt (hier C vor M), wird es abgezogen: CM = 1 000 − 100 = 900. Das Zeichen behält seinen Wert, nur seine Stellung vor oder nach einem anderen Zeichen entscheidet, ob addiert oder abgezogen wird.",
     lambda: roem_wert("MCM") == 1900 and roem(950) == "CML" and roem_wert("ML") == 1050 == (roem_wert("M") + roem_wert("C") + roem_wert("M")) // 2 and roem_wert("MMMDCCC") == 2 * 1900))
 neu(T, "roemisch_system", "anwenden", Z(
     "Römische Zahlen haben keinen Stellenwert und keine Null. Die Zahl 888 hat in Ziffern 3 Zeichen. Bei 888 benötigt jeder der drei Teile 800, 80 und 8 vier römische Zeichen. Wie viele Zeichen mehr braucht ihre römische Schreibweise (DCCCLXXXVIII)?",

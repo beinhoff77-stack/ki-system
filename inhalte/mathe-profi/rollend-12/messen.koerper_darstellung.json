@@ -518,14 +518,14 @@
      "beschreibung": "Von oben sieht ein Kegel wie ein Kreis aus."
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Dreiecksprisma (liegend)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Von oben sieht man ein Rechteck, von der Seite ein Rechteck."
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Würfel",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -544,12 +544,12 @@
     },
     "a": [
      "Kegel",
-     "Pyramide mit quadratischer Grundfläche",
      "Dreiecksprisma (liegend)",
-     "Würfel"
+     "Würfel",
+     "Pyramide mit quadratischer Grundfläche"
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "h": "Was verraten dir die Ansichten von vorn und von der Seite über die Form des Körpers nach oben? Und was die Ansicht von oben über die Grundfläche?",
     "w": "Dreieck von vorn und von der Seite heißt: Der Körper läuft nach oben spitz zu. Das Quadrat von oben ist die Grundfläche. Das ist die Pyramide mit quadratischer Grundfläche."
@@ -594,7 +594,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Jan behauptet: „Ein Würfel hat 6 Flächen mit je 4 Kanten, also 24 Kanten.“ Wie viele Kanten hat ein Würfel wirklich? Weg A: Zähle die Kanten oben, unten und die senkrechten Kanten. Weg B: Prüfe Jans Rechnung: Jede Kante gehört zu genau zwei Flächen. Gib die wirkliche Zahl der Kanten an."
+     "text": "Jan behauptet: „Ein Würfel hat 6 Flächen mit je 4 Kanten, also 24 Kanten.“ Weg A: Zähle die Kanten oben, unten und die senkrechten Kanten. Weg B: Prüfe Jans Rechnung: Jede Kante gehört zu genau zwei Flächen. Gib die wirkliche Zahl der Kanten an."
     },
     "o": {
      "wert": 12,

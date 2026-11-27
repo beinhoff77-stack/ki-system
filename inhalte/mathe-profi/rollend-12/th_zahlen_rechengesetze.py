@@ -151,7 +151,7 @@ neu(T, "ueberschlag", "anwenden", W(
 neu(T, "schriftlich", "zwei_wege", Z(
     "Weg A: Teile schriftlich. Weg B: Zerlege 728 in 700 + 28 und teile beide Teile einzeln durch 14. Berechne 728 : 14.",
     52, "728 / 14", "700 / 14 + 28 / 14", "Bei Weg B: Wie oft passt 14 in 700? Wie oft in 28?",
-    "Weg A schriftlich: 72 : 14 = 5 (5 · 14 = 70), Rest 2; die 8 herunterholen: 28 : 14 = 2 (2 · 14 = 28), Rest 0; Ergebnis 52. Weg B: 700 : 14 = 50 und 28 : 14 = 2, zusammen 52. Probe: 52 · 14 = 728.",
+    "Weg A schriftlich: 72 : 14 = 5 Rest 2 (5 · 14 = 70); die 8 herunterholen: 28 : 14 = 2 Rest 0 (2 · 14 = 28); Ergebnis 52. Weg B: 700 : 14 = 50 und 28 : 14 = 2, zusammen 52. Probe: 52 · 14 = 728.",
     [(50, None, "nur 700 : 14 gerechnet", "700 / 14"), (2, None, "nur 28 : 14 gerechnet", "28 / 14")]))
 neu(T, "schriftlich", "fehler_detektiv", FD(
     "Tom rechnet schriftlich 346 · 27 und zerlegt: 27 = 20 + 7.",
@@ -170,7 +170,7 @@ neu(T, "schriftlich_geteilt", "anwenden", Z(
 neu(T, "schriftlich_geteilt", "zwei_wege", Z(
     "Weg A: Teile schriftlich. Weg B: Ziehe von 3 128 zuerst 24 · 100 ab, dann so oft 24, wie es geht. Wie groß ist der Rest bei 3 128 : 24?",
     8, "3128 % 24", "3128 - 2400 - 30 * 24", "Bei Weg B: Nach 24 · 100 bleibt eine Zahl übrig. Wie viele 24er passen noch hinein?",
-    "Weg A: 3 128 : 24 = 130 Rest 8. Weg B: 3 128 − 2 400 = 728. 728 − 30 · 24 = 728 − 720 = 8.",
+    "Weg A schriftlich: 31 : 24 = 1 Rest 7 (1 · 24 = 24); die 2 herunterholen: 72 : 24 = 3 Rest 0 (3 · 24 = 72); die 8 herunterholen: 8 : 24 = 0 Rest 8. Ergebnis: 3 128 : 24 = 130 Rest 8. Weg B: 3 128 − 2 400 = 728. 728 − 30 · 24 = 728 − 720 = 8.",
     [(130, None, "den Quotienten statt des Rests genannt", "3128 // 24"), (128, None, "3 128 − 3 000 gerechnet", "3128 - 3000")]), g="verknuepfen")
 
 # ───────── sach ─────────

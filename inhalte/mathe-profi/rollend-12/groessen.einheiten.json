@@ -101,15 +101,15 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein Kind geht einen 150 m langen Weg in 250 Schritten, ein Erwachsener braucht für denselben Weg 200 Schritte. Um wie viel cm ist ein Schritt des Erwachsenen länger als ein Schritt des Kindes?"
+     "text": "Ein Kind geht einen 150 m langen Weg im Durchschnitt in 250 Schritten, ein Erwachsener braucht für denselben Weg im Durchschnitt 200 Schritte. Entscheide zuerst mit einem Überschlag aus den Schrittzahlen, ob ein Schritt des Erwachsenen im Durchschnitt um etwa 2 cm, 20 cm oder 2 m länger ist als ein Schritt des Kindes. Berechne dann den genauen Unterschied. Um wie viel cm ist ein Schritt des Erwachsenen im Durchschnitt länger?"
     },
     "o": {
      "wert": 15,
      "einheit": "cm"
     },
     "c": "150 * 100 / 200 - 150 * 100 / 250",
-    "h": "Was ist bei beiden gleich, was ist verschieden? Was vergleichst du am Ende?",
-    "w": "150 m = 15 000 cm. Kind: 15 000 cm : 250 = 60 cm je Schritt. Erwachsener: 15 000 cm : 200 = 75 cm je Schritt. Unterschied: 75 cm − 60 cm = 15 cm. Probe: 200 · 75 cm = 15 000 cm = 150 m."
+    "h": "Für 150 m braucht das Kind mehr Schritte als der Erwachsene. Wie lang ist dann ungefähr ein Schritt von jedem?",
+    "w": "Überschlag: Für 150 m braucht das Kind 250 und der Erwachsene 200 Schritte, ein Schritt ist also etwa 60 cm bzw. 75 cm lang. Der Unterschied liegt bei etwa 20 cm; 2 cm wären zu wenig, und 2 m wäre ein Sprung. Genau: 150 m = 15 000 cm. Kind: 15 000 cm : 250 = 60 cm je Schritt. Erwachsener: 15 000 cm : 200 = 75 cm je Schritt. Unterschied: 75 cm − 60 cm = 15 cm. Probe: 200 · 75 cm = 15 000 cm = 150 m."
    }
   },
   {
@@ -789,11 +789,11 @@
     "g": "darstellung",
     "y": "zahl",
     "f": {
-     "text": "Die Tabelle nennt fünf Beispiele für Gegenstände mit einer Größenangabe. Bei wie vielen Gegenständen ist die Angabe nicht realistisch?",
+     "text": "Die Tabelle nennt fünf Beispiele mit einer Größenangabe. Bei wie vielen Beispielen ist die Angabe nicht realistisch?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
-       "Gegenstand",
+       "Beispiel",
        "Angabe"
       ],
       "zeilen": [
@@ -842,21 +842,21 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "17:42 Uhr",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Die Fahrzeit wurde addiert statt abgezogen."
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "12:12 Uhr",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Die 2,5 Stunden wurden als 3 Stunden gerechnet."
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "12:22 Uhr",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -874,13 +874,13 @@
      "text": "Ein Zug kommt um 15:12 Uhr an. Die Fahrt hat 2,5 Stunden gedauert. Tim sagt: „Er ist um 12:22 Uhr abgefahren.“ Welche Abfahrtszeit ist richtig?"
     },
     "a": [
+     "12:42 Uhr",
      "17:42 Uhr",
      "12:12 Uhr",
-     "12:22 Uhr",
-     "12:42 Uhr"
+     "12:22 Uhr"
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
     "h": "Rechne 2,5 Stunden in Stunden und Minuten um. Gehe dann rückwärts von der Ankunftszeit und prüfe Tims Angabe.",
     "w": "2,5 h = 2 h 30 min. Rückwärts von 15:12 Uhr: 2 h zurück ergibt 13:12 Uhr, weitere 30 min zurück ergibt 12:42 Uhr. Probe: 12:42 Uhr + 2 h 30 min = 15:12 Uhr."

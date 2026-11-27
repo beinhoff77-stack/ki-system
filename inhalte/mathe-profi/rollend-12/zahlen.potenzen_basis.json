@@ -222,10 +222,10 @@
      "beschreibung": "Basis mal Hochzahl gerechnet: 15 · 2"
     },
     {
-     "antwort": 150,
+     "antwort": 375,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur 15 · 10 gerechnet"
+     "beschreibung": "statt abzuziehen addiert: 300 + 75"
     },
     {
      "antwort": 25,
@@ -242,14 +242,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Weg A: Rechne 15 · 15 schriftlich. Weg B: Zerlege den zweiten Faktor in 10 + 5 und rechne 15 · 10 + 15 · 5. Berechne 15² auf zwei Wegen."
+     "text": "Weg A: Rechne 15 · 15 schriftlich. Weg B: Schreibe den zweiten Faktor als 20 − 5 und rechne 15 · (20 − 5) = 15 · 20 − 15 · 5. Berechne 15² auf zwei Wegen."
     },
     "o": {
      "wert": 225
     },
     "c": "15 * 15",
-    "h": "Bei Weg B rechnest du zwei einfachere Malaufgaben und addierst.",
-    "w": "Weg A schriftlich: 15 · 1 = 15, das sind 150 (eine Stelle nach links), dann 15 · 5 = 75; 150 + 75 = 225. Weg B: 15 · 10 = 150, 15 · 5 = 75, 150 + 75 = 225."
+    "h": "Bei Weg B rechnest du zwei einfachere Malaufgaben und ziehst ab.",
+    "w": "Weg A schriftlich: 15 · 1 = 15, das sind 150 (eine Stelle nach links), dann 15 · 5 = 75; 150 + 75 = 225. Weg B: 15 · 20 = 300, 15 · 5 = 75, 300 − 75 = 225."
    }
   },
   {

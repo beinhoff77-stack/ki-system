@@ -544,6 +544,111 @@ neu(f, "beurteilen", "VW", W("Kim sagt: „Jede Zahl im Intervall [0; 5] liegt a
     "Prüfe die Grenzen einzeln, besonders die Klammern.", "0 gehört zu [0; 5], aber nicht zu ]0; 6[. Ein Gegenbeispiel genügt: Die Aussage ist falsch.",
     lambda: (0 <= 0 <= 5) and not (0 < 0 < 6) and (0 < 5 < 6)), g="mehrschritt", thema=INT)
 
+# ═════════════════════ Kind 1 · Flug a1 · Einfache Gleichungen ═════════════════════
+f = "a1"
+neu(f, "zwei_schritte", "FD", FDZ("Kim löst 2 · x − 5 = 17.",
+    [("Erst 5 abziehen: 2 · x = 12.", 17 - 5 == 17 + 5), ("Dann durch 2 teilen: x = 6.", 12 // 2 == 6), ("Die Lösung ist x = 6.", True)],
+    "Der letzte Schritt war „minus 5“. Wie machst du ihn rückgängig?", "Minus 5 macht man mit plus 5 rückgängig: 2 · x = 22, also x = 11. Probe: 2 · 11 − 5 = 17."))
+neu(f, "probe", "LW", L("Kim meint, dass x = 7 die Gleichung 4 · x − 5 = 19 löst. Probe: 4 · 7 = ①. Dann ① − 5 = ②. Das ist nicht 19, also hat Kim sich geirrt. Rückwärts: 19 + 5 = 24 und 24 : 4 = ③.",
+    K(3), [28, 23, 6], ["4 * 7", "4 * 7 - 5", "(19 + 5) // 4"], ["7 * 4", "28 - 5", "24 / 4"], "Setze erst x ein, rechne dann Mal vor Minus.", "4 · 7 = 28, 28 − 5 = 23. Das ist nicht 19. Richtig ist x = 6.",
+    {1: [(33, None, "5 addiert statt abgezogen")]}, hinweis=GZ))
+neu(f, "aufstellen", "LW", L("Ich denke mir eine Zahl x. Das Dreifache von x, vermindert um 4, ergibt 17. Gleichung: 3 · x − 4 = 17. Rückwärts: 17 + 4 = ①. Dann ① : 3 = ②. Die gedachte Zahl ist ②.",
+    K(2), [21, 7], ["17 + 4", "(17 + 4) // 3"], ["20 + 1", "7"], "Kehre die Schritte in umgekehrter Reihenfolge um.", "17 + 4 = 21. 21 : 3 = 7. Probe: 3 · 7 − 4 = 17.",
+    {1: [(13, None, "erst durch 3 geteilt, dann 4 addiert")]}, hinweis=GZ))
+neu(f, "aufstellen", "FD", FDZ("Das Vierfache einer Zahl, um 6 vermehrt, ergibt 30. Kim sucht die Zahl.",
+    [("Die gesuchte Zahl heißt x.", True), ("Das Vierfache ist 4 · x, um 6 vermehrt: 4 · x + 6 = 30.", True), ("Rückwärts: 30 − 6 = 24 und 24 : 4 = 6. Die Zahl ist 24.", 24 // 4 == 24)],
+    "Was hast du am Ende ausgerechnet: x oder 4 · x?", "24 ist 4 · x. Danach hat Kim noch durch 4 geteilt: x = 6. Die gesuchte Zahl ist 6."))
+neu(f, "ohne_loesung", "LW", L("Hat 5 · x = 22 eine Lösung in den natürlichen Zahlen? Rechne 22 : 5 = ① Rest ②. Weil ein Rest bleibt, geht die Teilung nicht auf. Es gibt keine Lösung.",
+    K(2), [4, 2], ["22 // 5", "22 % 5"], ["20 // 5", "22 - 20"], "Wie oft passt die 5 ganz in die 22?", "5 passt 4-mal in 22. 4 · 5 = 20, es bleibt der Rest 2.",
+    {0: [(5, None, "aufgerundet statt abgerundet")]}, hinweis=GZ))
+
+# ═════════════════════ Kind 1 · Flug d1 · Daten darstellen ═════════════════════
+f = "d1"
+neu(f, "absolute_haeufigkeit", "FD", FDZ("Kim hat 20-mal gewürfelt. Seine Strichliste: Augenzahl 1 dreimal, 2 fünfmal, 3 viermal, 4 zweimal, 5 viermal, 6 dreimal.",
+    [("Alle Häufigkeiten zusammen müssen 20 ergeben.", True), ("3 + 5 + 4 + 2 + 4 + 3 = 20.", 3 + 5 + 4 + 2 + 4 + 3 == 20), ("Die Strichliste passt also zu 20 Würfen.", True)],
+    "Rechne die Summe der sechs Anzahlen selbst nach.", "3 + 5 + 4 + 2 + 4 + 3 = 21. Die Liste hat einen Strich zu viel."))
+neu(f, "absolute_haeufigkeit", "VW", W("25 Kinder werden nach ihrem Haustier gefragt: 9 haben einen Hund, 7 eine Katze, 4 einen Fisch. Alle anderen haben kein Tier. Wie findest du die Zahl der Kinder ohne Tier?",
+    "25 − (9 + 7 + 4) = 5", [("9 + 7 + 4 = 20", "die Kinder mit Tier gezählt"), ("25 − 9 = 16", "nur eine Tierart abgezogen"), ("25 + 20 = 45", "addiert statt abgezogen")],
+    "Alle Gruppen zusammen sind die Gesamtzahl.", "Kinder mit Tier: 9 + 7 + 4 = 20. Ohne Tier: 25 − 20 = 5.",
+    lambda: 25 - (9 + 7 + 4) == 5 and 9 + 7 + 4 != 5 and 25 - 9 != 5 and 25 + 20 != 5), g="einkleidung")
+neu(f, "relative_haeufigkeit", "FD", FDZ("Bei 40 Würfen fällt 12-mal die Sechs. Kim berechnet die relative Häufigkeit.",
+    [("Relative Häufigkeit = Anzahl : Gesamtzahl.", True), ("12 : 40 = 0,3.", 12 / 40 == 0.3), ("0,3 sind 3 %.", 0.3 == 0.03)],
+    "0,3 sind 30 Hundertstel. Wie viel Prozent ist das?", "0,3 = 30/100 = 30 %. Kim hat die Prozentzahl um eine Stelle verschoben."))
+neu(f, "tabelle_auswerten", "LW", L("In einer Tabelle stehen die Anzahlen Rot 6, Blau 9 und Grün 5. Summe: 6 + 9 + 5 = ①. Der Anteil von Blau ist 9 von ①. In Prozent sind das ② %.",
+    K(2), [20, 45], ["6 + 9 + 5", "9 * 100 // (6 + 9 + 5)"], ["2 * 10", "9 * 5"], "Zähle zuerst alle Anzahlen zusammen. Dann erweiterst du den Bruch auf Hundertstel.", "9/20 = 45/100 = 45 %.",
+    {1: [(9, None, "die Anzahl als Prozentzahl genommen")]}, hinweis=GZ))
+neu(f, "tabelle_auswerten", "FD", FDZ("Eine Tabelle zeigt, wie 30 Kinder zur Schule kommen: Bus 12, Rad 8, zu Fuß 10.",
+    [("Summe: 12 + 8 + 10 = 30.", 12 + 8 + 10 == 30), ("Der Anteil Bus ist 12 von 30, also 12 : 30 = 0,4 = 40 %.", 12 / 30 == 0.4), ("Der Anteil zu Fuß ist 10 von 12.", 12 == 30)],
+    "Durch welche Zahl teilt man, um einen Anteil zu bekommen?", "Man teilt immer durch die Summe aller Anzahlen: 10 von 30 sind etwa 33 %."))
+neu(f, "saeulendiagramm", "LW", L("In einem Säulendiagramm steht 1 cm Höhe für 5 Kinder. Eine Säule ist 6 cm hoch. Sie gehört zu 6 · 5 = ① Kindern. Eine andere Säule gehört zu 35 Kindern. Sie ist 35 : 5 = ② cm hoch.",
+    K(2), [30, 7], ["6 * 5", "35 // 5"], ["5 * 6", "30 + 5 - 35 + 7"], "Höhe mal Maßstab gibt die Anzahl.", "6 · 5 = 30 Kinder. 35 : 5 = 7 cm.",
+    {1: [(175, None, "mal 5 statt geteilt durch 5")]}, hinweis=GZ))
+neu(f, "saeulendiagramm", "FD", FDZ("Im Säulendiagramm steht 1 cm Höhe für 4 Kinder. Eine Säule ist 7 cm hoch. Kim liest sie ab.",
+    [("Jeder Zentimeter steht für 4 Kinder.", True), ("Die Säule gehört also zu 7 : 4 Kindern, das sind weniger als 2 Kinder.", 7 // 4 >= 28), ("Eine Säule für 12 Kinder wäre 12 : 4 = 3 cm hoch.", 12 // 4 == 3)],
+    "Aus der Höhe in cm bekommst du die Anzahl mit mal oder mit geteilt?", "Höhe mal Maßstab: 7 · 4 = 28 Kinder."))
+neu(f, "kreisdiagramm", "LW", L("Ein Kreis hat 360°. 10 % davon sind 360° : 10 = ①°. 30 % sind dreimal so viel: ②°.",
+    K(2), [36, 108], ["360 // 10", "3 * (360 // 10)"], ["36", "360 * 30 // 100"], "30 % sind dreimal 10 %.", "10 % sind 36°. 30 % sind 3 · 36° = 108°.",
+    {0: [(3600, None, "mal 10 statt geteilt durch 10")]}, hinweis=GZ))
+neu(f, "irrefuehrend", "LW", L("Die Achse eines Säulendiagramms beginnt bei 40 statt bei 0. Säule A reicht bis 50, Säule B bis 100. Die sichtbare Höhe von B ist (100 − 40) : (50 − 40) = ①-mal so groß wie die von A. In Wahrheit ist B nur 100 : 50 = ②-mal so hoch.",
+    K(2), [6, 2], ["(100 - 40) // (50 - 40)", "100 // 50"], ["60 / 10", "50 * 2 // 50"], "Zieh bei der gekürzten Achse erst 40 ab.", "Sichtbar: 60 und 10, also 6-mal so groß. In Wahrheit: 100 : 50 = 2.",
+    {0: [(2, None, "den Achsenanfang nicht beachtet")]}, hinweis=GZ))
+
+# ═════════════════════ Kind 1 · Flug g1 · Größen und Einheiten ═════════════════════
+f = "g1"
+neu(f, "schaetzen", "LW", L("Eine Tür ist etwa 2 m hoch. Eine Schokoladentafel wiegt etwa 100 g. 10 Tafeln wiegen ① g. Das sind ② kg.",
+    K(2), [1000, 1], ["10 * 100", "10 * 100 // 1000"], ["100 * 10", "1000 // 1000"], "10 mal 100, dann in kg umrechnen.", "10 · 100 g = 1 000 g = 1 kg.",
+    {1: [(1000, None, "nicht umgerechnet")]}, hinweis=GZ))
+neu(f, "schaetzen", "FD", FDZ("Kim soll schätzen, wie hoch sein Klassenzimmer ist.",
+    [("Bezugsgröße: Eine Tür ist etwa 2 m hoch.", True), ("Das Zimmer ist etwa so hoch wie zwei Türen übereinander.", True), ("Es ist also etwa 2 · 2 = 4 cm hoch.", False)],
+    "Eine Tür ist 2 m hoch. In welcher Einheit rechnest du weiter?", "2 · 2 m = 4 m. Bei einer Größe gehört immer die richtige Einheit zur Zahl."))
+neu(f, "laenge", "FD", FDZ("Kim rechnet 3 km 40 m in Meter um.",
+    [("1 km = 1 000 m.", True), ("3 km = 3 000 m.", 3 * 1000 == 3000), ("3 000 m + 40 m = 3 400 m.", 3000 + 40 == 3400)],
+    "Wie viele Stellen hat 3 040 im Vergleich zu 3 400?", "3 000 + 40 = 3 040. Also 3 km 40 m = 3 040 m."))
+neu(f, "masse", "LW", L("2 kg 350 g sind 2 · 1 000 g + 350 g = ① g. 4 500 g sind 4 kg und ② g.",
+    K(2), [2350, 500], ["2 * 1000 + 350", "4500 - 4 * 1000"], ["2000 + 350", "4500 % 1000"], "1 kg sind 1 000 g.", "2 000 g + 350 g = 2 350 g. 4 500 g − 4 000 g = 500 g.",
+    {0: [(2035, "fb.stellenwert.eine_stelle_daneben", "350 als 35 behandelt")]}, hinweis=GZ))
+neu(f, "masse", "FD", FDZ("Kim rechnet 7,5 kg in Gramm um.",
+    [("1 kg = 1 000 g.", True), ("7 kg = 7 000 g.", 7 * 1000 == 7000), ("0,5 kg = 50 g.", 0.5 * 1000 == 50), ("Zusammen sind es 7 050 g.", 7000 + 50 == 7050)],
+    "Eine halbe Tonne? Nein, ein halbes Kilogramm: Wie viel ist das?", "Ein halbes Kilogramm sind 500 g. Zusammen 7 000 g + 500 g = 7 500 g."))
+neu(f, "masse", "VW", W("Ein Paket wiegt 2 kg 400 g. Drei solche Pakete werden verschickt. Wie rechnest du das Gesamtgewicht richtig?",
+    "Alles in g umrechnen: 2 400 g · 3 = 7 200 g, das sind 7 kg 200 g",
+    [("2 kg · 3 + 400 g = 6 kg 400 g", "nur die kg verdreifacht"), ("2 kg 400 g + 3 = 2 kg 403 g", "3 einfach addiert"), ("2 400 · 3 = 7 200 kg", "die Einheit falsch gesetzt")],
+    "Rechne beide Teile des Pakets mit dem Faktor 3.", "2 400 g · 3 = 7 200 g = 7 kg 200 g.",
+    lambda: 2400 * 3 == 7200 and 2 * 3 * 1000 + 400 != 7200 and 2400 + 3 != 7200), g="einkleidung")
+neu(f, "zeit", "FD", FDZ("Ein Film beginnt um 17:45 Uhr und dauert 2 h 30 min. Kim berechnet das Ende.",
+    [("17:45 Uhr plus 15 min ist 18:00 Uhr.", True), ("Dann bleiben noch 2 h 30 min − 15 min = 2 h 25 min.", 30 - 15 == 25), ("18:00 Uhr plus 2 h 25 min ist 20:25 Uhr.", True)],
+    "Rechne 30 min − 15 min noch einmal nach.", "30 min − 15 min = 15 min. Es bleiben 2 h 15 min, der Film endet um 20:15 Uhr."))
+neu(f, "zeit", "VW", W("Ein Zug fährt um 9:50 Uhr ab und kommt um 12:20 Uhr an. Wie rechnest du die Fahrzeit richtig?",
+    "Bis zur vollen Stunde: 10 min bis 10:00, 2 h bis 12:00, 20 min bis 12:20. Das sind 2 h 30 min",
+    [("12 − 9 = 3 h und 50 − 20 = 30 min. Das sind 3 h 30 min", "Stunden und Minuten einzeln abgezogen und falsch herum"), ("12,20 − 9,50 = 2,70. Das sind 2 h 70 min", "mit Dezimalzahlen statt mit Zeit gerechnet"), ("12:20 − 10:00 = 2 h 20 min", "die Minuten bis 10:00 vergessen")],
+    "Gehe erst bis zur vollen Stunde, dann weiter.", "10 min + 2 h + 20 min = 2 h 30 min. Probe: 9:50 + 2 h 30 min = 12:20.",
+    lambda: (12 * 60 + 20) - (9 * 60 + 50) == 150 and 150 == 2 * 60 + 30 and 3 * 60 + 30 != 150 and 2 * 60 + 70 != 150 and 140 != 150), g="mehrschritt")
+neu(f, "kommaschreibweise", "LW", L("Hinter dem Komma bekommt jede kleinere Einheit ihre Stellen. 2,35 m sind 2 m 35 cm. Das sind insgesamt ① cm. 7,04 m sind 7 m ② cm.",
+    K(2), [235, 4], ["2 * 100 + 35", "704 - 700"], ["200 + 35", "4"], "Bei m und cm sind es zwei Stellen hinter dem Komma.", "2 m = 200 cm, dazu 35 cm: 235 cm. 7,04 m = 7 m 04 cm = 7 m 4 cm.",
+    {1: [(40, "fb.stellenwert.eine_stelle_daneben", "04 als 40 gelesen")]}, hinweis=GZ))
+neu(f, "rechnen", "LW", L("Ein Seil ist 3 m 20 cm lang, ein zweites 85 cm. In cm: 3 m 20 cm = ① cm. Zusammen sind die Seile ① cm + 85 cm = ② cm lang.",
+    K(2), [320, 405], ["3 * 100 + 20", "3 * 100 + 20 + 85"], ["300 + 20", "320 + 85"], "Beide Längen in dieselbe Einheit bringen.", "3 m 20 cm = 320 cm. 320 cm + 85 cm = 405 cm.",
+    {1: [(328, None, "nur 8 cm dazugezählt")]}, hinweis=GZ))
+neu(f, "massstab", "LW", L("Eine Karte hat den Maßstab 1 : 50 000. Auf der Karte sind es 4 cm. In Wirklichkeit sind es 4 · 50 000 = ① cm. Das sind ② m und ③ km.",
+    K(3), [200000, 2000, 2], ["4 * 50000", "4 * 50000 // 100", "4 * 50000 // 100000"], ["50000 * 2 * 2", "4 * 500", "4 // 2"], "100 cm sind 1 m. 1 000 m sind 1 km.", "4 · 50 000 = 200 000 cm = 2 000 m = 2 km.",
+    {1: [(20000, None, "nur durch 10 geteilt")]}, hinweis=GZ))
+neu(f, "massstab", "VW", W("Auf einer Karte 1 : 25 000 sind zwei Orte 6 cm voneinander entfernt. Wie weit sind sie in Wirklichkeit entfernt?",
+    "6 · 25 000 cm = 150 000 cm = 1 500 m, also 1,5 km",
+    [("6 · 25 000 = 150 000 m, also 150 km", "die Einheit cm nicht umgerechnet"), ("6 · 25 = 150 m", "Nullen des Maßstabs weggelassen"), ("25 000 : 6 ≈ 4 167 cm", "geteilt statt malgenommen")],
+    "Wirklichkeit = Kartenlänge mal Maßstabszahl. Die Einheit bleibt zunächst cm.", "6 cm · 25 000 = 150 000 cm. 100 cm = 1 m: 1 500 m. 1 000 m = 1 km: 1,5 km.",
+    lambda: 6 * 25000 // 100 == 1500 and 6 * 25 != 1500 and 6 * 25000 // 1000 != 1500 and 25000 // 6 != 6 * 25000), g="mehrschritt")
+neu(f, "verstehen", "LW", L("Ein Schulbus ist etwa 12 m lang. Das sind ① cm. Ein Schulweg ist 2 km lang. Das sind ② m.",
+    K(2), [1200, 2000], ["12 * 100", "2 * 1000"], ["120 * 10", "2000"], "1 m sind 100 cm und 1 km sind 1 000 m.", "12 · 100 cm = 1 200 cm. 2 · 1 000 m = 2 000 m.",
+    {0: [(120, None, "mit 10 statt mit 100 umgerechnet")]}, hinweis=GZ))
+neu(f, "verstehen", "FD", FDZ("Kim behauptet: „Ein Bleistift ist 19 m lang.“ Er prüft die Angabe.",
+    [("Eine Tür ist etwa 2 m hoch.", True), ("19 m sind fast zehn Türen übereinander.", abs(19 / 2 - 10) < 1), ("Das passt zu einem Bleistift.", False)],
+    "Passt ein Bleistift neben eine Tür, die so hoch ist wie zehn Türen?", "Ein Bleistift ist etwa 19 cm lang, nicht 19 m. Die Einheit war falsch."))
+neu(f, "verstehen", "VW", W("Kim sagt: „Ein Buch wiegt 500 kg.“ Wie prüfst du das?",
+    "Ein Mensch wiegt etwa 50 kg. 500 kg wären zehn Menschen. Das passt nicht zu einem Buch",
+    [("Eine Schokoladentafel wiegt 100 g. 500 kg sind etwa 5 Tafeln. Das passt zu einem Buch", "kg und g nicht umgerechnet"), ("500 kg sind 500 000 g. Das ist nur eine große Zahl, also passt es", "kein Vergleich mit einer Bezugsgröße"), ("Ein Buch hat Seiten und kg ist eine Einheit für Gewicht, also passt es", "nur auf die Einheit geschaut")],
+    "Vergleiche mit etwas, dessen Gewicht du kennst.", "500 : 50 = 10: Das wären zehn Menschen. Ein Buch wiegt eher 500 g. Die Einheit war falsch.",
+    lambda: 500 / 50 == 10 and 500 / 0.1 != 5), g="mehrschritt")
+
 # ═════════════════════ Prüfen ═════════════════════
 KOMMA_LUECKE = re.compile(r"\d\s*,\s*[①②③④⑤□]")          # Lücke unmittelbar hinter dem Komma: wäre eine Ziffernfolge, keine Zahl (Auftrag 20)
 KOMMA_NEBEN = re.compile(r"[①②③④⑤□],|,[①②③④⑤□]")      # Komma direkt neben einem Lückenzeichen

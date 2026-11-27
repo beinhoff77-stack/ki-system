@@ -1,0 +1,246 @@
+{
+ "stand": "2026-11-27",
+ "flug": "a1",
+ "titel": "Einfache Gleichungen",
+ "fuer": "Kind 1",
+ "klasse": 5,
+ "themen": [
+  "gleichungen.einfach"
+ ],
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Lückenweg, Fehler-Detektiv, Verfahren wählen, Zwei Wege vergleichen, Brücke), rollend-4. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag ja/nein) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: Stufe aufsteigend.",
+ "aufgaben": [
+  {
+   "kennung": "A1-V01",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "probe",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 33,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 addiert statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "probe",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Kim meint, dass x = 7 die Gleichung 4 · x − 5 = 19 löst. Probe: 4 · 7 = ①. Dann ① − 5 = ②. Das ist nicht 19, also hat Kim sich geirrt. Rückwärts: 19 + 5 = 24 und 24 : 4 = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      28,
+      23,
+      6
+     ]
+    },
+    "c": [
+     "4 * 7",
+     "4 * 7 - 5",
+     "(19 + 5) // 4"
+    ],
+    "h": "Setze erst x ein, rechne dann Mal vor Minus.",
+    "w": "4 · 7 = 28, 28 − 5 = 23. Das ist nicht 19. Richtig ist x = 6."
+   }
+  },
+  {
+   "kennung": "A1-V02",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "aufstellen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "erst durch 3 geteilt, dann 4 addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "aufstellen",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ich denke mir eine Zahl x. Das Dreifache von x, vermindert um 4, ergibt 17. Gleichung: 3 · x − 4 = 17. Rückwärts: 17 + 4 = ①. Dann ① : 3 = ②. Die gedachte Zahl ist ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      21,
+      7
+     ]
+    },
+    "c": [
+     "17 + 4",
+     "(17 + 4) // 3"
+    ],
+    "h": "Kehre die Schritte in umgekehrter Reihenfolge um.",
+    "w": "17 + 4 = 21. 21 : 3 = 7. Probe: 3 · 7 − 4 = 17."
+   }
+  },
+  {
+   "kennung": "A1-V03",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "ohne_loesung",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aufgerundet statt abgerundet"
+    }
+   ],
+   "aufgabe": {
+    "l": "ohne_loesung",
+    "t": "loesbarkeit",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Hat 5 · x = 22 eine Lösung in den natürlichen Zahlen? Rechne 22 : 5 = ① Rest ②. Weil ein Rest bleibt, geht die Teilung nicht auf. Es gibt keine Lösung.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      4,
+      2
+     ]
+    },
+    "c": [
+     "22 // 5",
+     "22 % 5"
+    ],
+    "h": "Wie oft passt die 5 ganz in die 22?",
+    "w": "5 passt 4-mal in 22. 4 · 5 = 20, es bleibt der Rest 2."
+   }
+  },
+  {
+   "kennung": "A1-V04",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "zwei_schritte",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_schritte",
+    "t": "umkehren",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim löst 2 · x − 5 = 17. Zeile 1: Erst 5 abziehen: 2 · x = 12. Zeile 2: Dann durch 2 teilen: x = 6. Zeile 3: Die Lösung ist x = 6. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Der letzte Schritt war „minus 5“. Wie machst du ihn rückgängig?",
+    "w": "Minus 5 macht man mit plus 5 rückgängig: 2 · x = 22, also x = 11. Probe: 2 · 11 − 5 = 17."
+   }
+  },
+  {
+   "kennung": "A1-V05",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "aufstellen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "aufstellen",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Das Vierfache einer Zahl, um 6 vermehrt, ergibt 30. Kim sucht die Zahl. Zeile 1: Die gesuchte Zahl heißt x. Zeile 2: Das Vierfache ist 4 · x, um 6 vermehrt: 4 · x + 6 = 30. Zeile 3: Rückwärts: 30 − 6 = 24 und 24 : 4 = 6. Die Zahl ist 24. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Was hast du am Ende ausgerechnet: x oder 4 · x?",
+    "w": "24 ist 4 · x. Danach hat Kim noch durch 4 geteilt: x = 6. Die gesuchte Zahl ist 6."
+   }
+  }
+ ]
+}

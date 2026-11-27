@@ -649,6 +649,113 @@ neu(f, "verstehen", "VW", W("Kim sagt: „Ein Buch wiegt 500 kg.“ Wie prüfst 
     "Vergleiche mit etwas, dessen Gewicht du kennst.", "500 : 50 = 10: Das wären zehn Menschen. Ein Buch wiegt eher 500 g. Die Einheit war falsch.",
     lambda: 500 / 50 == 10 and 500 / 0.1 != 5), g="mehrschritt")
 
+# ═════════════════════ Kind 2 · Flug g8 · Prozent mit verändertem Grundwert ═════════════════════
+f = "g8"
+neu(f, "faktor", "FD", FDZ("Kim bestimmt den Wachstumsfaktor für 15 % Rabatt.",
+    [("Beim Rabatt zahlt man noch 100 % − 15 % = 85 %.", 100 - 15 == 85), ("85 % sind 0,85.", 85 / 100 == 0.85), ("Der Faktor ist also 1,15.", 1.15 == 0.85)],
+    "Bei einem Rabatt wird der Preis kleiner. Ist der Faktor dann größer oder kleiner als 1?", "Beim Rabatt ist der Faktor 0,85. 1,15 wäre ein Aufschlag von 15 %."))
+neu(f, "vermehrt", "LW", L("Ein Preis von 80 € steigt um 25 %. Der Wachstumsfaktor ist 1,25. 25 % von 80 € sind ① €. Neuer Preis: 80 € + ① € = ② €.",
+    K(2), [20, 100], ["80 * 25 // 100", "80 + 80 * 25 // 100"], ["80 // 4", "80 * 125 // 100"], "25 % sind ein Viertel.", "25 % von 80 € = 20 €. 80 € + 20 € = 100 €. Mit Faktor: 80 · 1,25 = 100.",
+    {1: [(105, "fb.prozent.prozente_addiert", "25 € statt 25 % dazugezählt")]}, hinweis=GZ))
+neu(f, "vermehrt", "FD", FDZ("Ein Fahrrad kostet 200 €. Der Preis steigt um 10 %. Kim berechnet den neuen Preis.",
+    [("Der Wachstumsfaktor ist 1,10.", 100 + 10 == 110), ("200 · 1,10 = 22.", 200 * 1.1 == 22), ("Das Fahrrad kostet jetzt 22 €.", True)],
+    "Ein Preis, der um 10 % steigt, wird nicht kleiner als vorher.", "200 · 1,10 = 220. Das Fahrrad kostet jetzt 220 €."))
+neu(f, "vermindert", "LW", L("Eine Jacke kostet 60 €. Sie wird um 20 % billiger. 20 % von 60 € sind ① €. Neuer Preis: 60 € − ① € = ② €.",
+    K(2), [12, 48], ["60 * 20 // 100", "60 - 60 * 20 // 100"], ["60 // 5", "60 * 80 // 100"], "20 % sind ein Fünftel.", "20 % von 60 € = 12 €. 60 € − 12 € = 48 €. Mit Faktor: 60 · 0,8 = 48.",
+    {1: [(72, "fb.prozent.prozente_addiert", "aufgeschlagen statt abgezogen")]}, hinweis=GZ))
+neu(f, "vermindert", "FD", FDZ("Ein Spiel kostet 50 €. Es gibt 30 % Rabatt. Kim berechnet den neuen Preis.",
+    [("Man zahlt noch 100 % − 30 % = 70 %.", 100 - 30 == 70), ("Der Faktor ist 0,7.", 70 / 100 == 0.7), ("50 · 0,7 = 30, also kostet das Spiel 30 €.", 50 * 0.7 == 30)],
+    "Rechne 50 · 0,7 noch einmal: 5 · 7 = 35.", "50 · 0,7 = 35. Das Spiel kostet 35 €."))
+neu(f, "zurueck", "VW", W("Nach 20 % Rabatt kostet ein Schal 48 €. Wie findest du den alten Preis?",
+    "48 : 0,8 = 60 €, denn der neue Preis ist 80 % vom alten",
+    [("48 · 1,2 = 57,60 €", "20 % auf den neuen Preis aufgeschlagen"), ("48 + 20 = 68 €", "die Prozentzahl als Euro addiert"), ("48 : 0,2 = 240 €", "durch den Rabatt-Anteil statt den Rest-Anteil geteilt")],
+    "Nach 20 % Rabatt sind noch wie viel Prozent vom alten Preis übrig?", "Der neue Preis ist 80 % des alten: 0,8 · alt = 48. Also alt = 48 : 0,8 = 60.",
+    lambda: 48 / 0.8 == 60 and 48 * 1.2 != 60 and 48 + 20 != 60 and 48 / 0.2 != 60 and 60 * 0.8 == 48), g="umkehr")
+neu(f, "prozentsatz", "LW", L("Ein Preis sinkt von 80 € auf 60 €. Die Änderung ist 80 − 60 = ① €. Bezogen auf den alten Preis sind ① von 80 genau ② %.",
+    K(2), [20, 25], ["80 - 60", "(80 - 60) * 100 // 80"], ["10 + 10", "80 // 4 + 5"], "Teile die Änderung durch den alten Preis.", "20 : 80 = 1/4 = 25 %.",
+    {1: [(33, None, "durch den neuen Preis geteilt")]}, hinweis=GZ))
+neu(f, "mehrfach", "LW", L("Ein Preis von 200 € steigt erst um 10 % und dann noch einmal um 10 %. 10 % von 200 € sind ① €. Nach dem ersten Mal kostet es ② €. 10 % von ② € sind ③ €. Nach dem zweiten Mal kostet es ④ €.",
+    K(4), [20, 220, 22, 242], ["200 * 10 // 100", "200 + 200 * 10 // 100", "(200 + 200 * 10 // 100) * 10 // 100", "200 * 110 * 110 // 10000"], ["200 // 10", "220", "22", "200 * 121 // 100"], "Beim zweiten Mal gehören die 10 % zum neuen Preis.", "200 + 20 = 220. 10 % von 220 sind 22. 220 + 22 = 242. Nicht 240!",
+    {3: [(240, "fb.prozent.prozente_addiert", "zweimal 20 € dazugezählt")]}, hinweis=GZ))
+neu(f, "formel", "LW", L("Ein Wert verdoppelt sich jedes Jahr, also ist q = 2. Am Anfang sind es 300 €. Nach 3 Jahren: K = 300 · 2³. Es ist 2³ = ①. Also ist K = 300 · ① = ② €.",
+    K(2), [8, 2400], ["2 ** 3", "300 * 2 ** 3"], ["2 * 2 * 2", "300 * 8"], "2³ heißt 2 · 2 · 2.", "2³ = 8. 300 · 8 = 2 400 €.",
+    {0: [(6, "fb.potenz.basis_mal_hochzahl", "2 · 3 gerechnet")]}, hinweis=GZ))
+neu(f, "formel", "FD", FDZ("Kim berechnet, wie viel 2 000 € bei 5 % Zinsen nach 2 Jahren wert sind.",
+    [("Der Faktor ist q = 1,05.", True), ("K₂ = 2 000 · 1,05 · 2 = 4 200.", 2000 * 1.05 ** 2 == 2000 * 1.05 * 2), ("Das Kapital beträgt nach 2 Jahren also 4 200 €.", True)],
+    "Die Hochzahl n gehört an den Faktor q.", "K₂ = 2 000 · 1,05² = 2 205. Kim hat den Faktor mit 2 multipliziert statt ihn zu quadrieren."))
+neu(f, "formel", "VW", W("500 € werden 3 Jahre lang mit 4 % verzinst. Welche Rechnung gibt das Kapital am Ende?",
+    "500 · 1,04³ ≈ 562,43 €",
+    [("500 · 1,04 · 3 = 1 560 €", "den Faktor mit 3 multipliziert statt hoch 3"), ("500 · 1,12 = 560 €", "die Prozentsätze addiert"), ("500 · 0,04³ ≈ 0,03 €", "mit dem Zinssatz statt dem Wachstumsfaktor gerechnet")],
+    "Der Wachstumsfaktor bei 4 % ist 1,04. Er wird dreimal angewendet.", "K₃ = 500 · 1,04³ = 500 · 1,124864 ≈ 562,43 €.",
+    lambda: round(500 * 1.04 ** 3, 2) == 562.43 and 500 * 1.04 * 3 != 562.43 and 500 * 1.12 != 562.43 and round(500 * 0.04 ** 3, 2) == 0.03), g="mehrschritt")
+neu(f, "argumente", "LW", L("Behauptung: „Erst 50 % mehr, dann 50 % weniger ergibt wieder den Anfangswert.“ Prüfe mit 200 €. 50 % von 200 € sind ① €. Nach dem Aufschlag sind es ② €. 50 % von ② € sind ③ €. Nach dem Abschlag sind es ④ €. Das ist nicht 200 €.",
+    K(4), [100, 300, 150, 150], ["200 * 50 // 100", "200 + 200 * 50 // 100", "(200 + 200 * 50 // 100) * 50 // 100", "200 + 200 * 50 // 100 - (200 + 200 * 50 // 100) * 50 // 100"], ["200 // 2", "200 * 3 // 2", "300 // 2", "200 * 3 * 1 // (2 * 2)"], "Der Abschlag bezieht sich auf den neuen, größeren Wert.", "200 + 100 = 300. 50 % von 300 sind 150. 300 − 150 = 150, nicht 200.",
+    {3: [(200, None, "den Abschlag auf 200 € statt auf 300 € bezogen")]}, hinweis=GZ))
+neu(f, "argumente", "VW", W("Kim sagt: „Wenn ein Preis erst um 10 % steigt und dann um 10 % sinkt, ist er danach wieder wie am Anfang.“ Wie prüfst du das?",
+    "Mit 100 € rechnen: 100 · 1,1 = 110, dann 110 · 0,9 = 99. Das sind nicht 100 €: Die Aussage ist falsch",
+    [("Es stimmt, denn +10 % und −10 % heben sich auf", "Prozentsätze wie Zahlen addiert"), ("Es stimmt, denn 1,1 · 0,9 = 1", "den Faktor falsch ausgerechnet"), ("Die Aussage ist falsch, denn 1,1 · 0,9 = 1,1", "den Faktor falsch ausgerechnet, aber das Urteil getroffen")],
+    "Wähle eine einfache Startzahl und rechne beide Schritte mit Faktoren.", "100 € · 1,1 = 110 €. 110 € · 0,9 = 99 €. Die 10 % beziehen sich auf verschiedene Grundwerte.",
+    lambda: abs(100 * 1.1 * 0.9 - 99) < 1e-9 and abs(1.1 * 0.9 - 1) > 0.001 and abs(1.1 * 0.9 - 1.1) > 0.001), g="mehrschritt")
+
+# ═════════════════════ Kind 2 · Flug f1 · Funktionsbegriff ═════════════════════
+f = "f1"
+neu(f, "eindeutig", "LW", L("Die Zuordnung x ↦ x² ordnet der Zahl 3 den Wert ① zu. Der Zahl −3 ordnet sie den Wert ② zu. Jede Eingabe hat genau einen Wert. Also ist die Zuordnung eine Funktion.",
+    K(2), [9, 9], ["3 ** 2", "(-3) ** 2"], ["3 * 3", "(-3) * (-3)"], "Quadrieren heißt: mit sich selbst malnehmen.", "3² = 9 und (−3)² = (−3) · (−3) = 9. Zwei Eingaben dürfen denselben Wert haben.",
+    {1: [(-9, "fb.reihenfolge.minus_ins_quadrat", "das Minus nicht mitquadriert")]}, hinweis=GZ))
+neu(f, "mengen", "LW", L("Die Funktion f(x) = 12 : (x − 5) ist nicht für jede Zahl erlaubt. Für x = 7 ist der Nenner 7 − 5 = ①. Also ist f(7) = 12 : ① = ②. Für x = 5 wäre der Nenner 0. Dann darf man nicht teilen.",
+    K(2), [2, 6], ["7 - 5", "12 // (7 - 5)"], ["1 + 1", "3 * 2"], "Rechne erst die Klammer aus.", "7 − 5 = 2. 12 : 2 = 6.",
+    {1: [(5, None, "x − 5 mit 12 : 7 verwechselt")]}, hinweis=GZ))
+neu(f, "mengen", "FD", FDZ("Kim bestimmt die Definitionsmenge von f(x) = 6 : (x + 2).",
+    [("Man darf nicht durch 0 teilen.", True), ("x + 2 = 0 gilt für x = 2.", 2 + 2 == 0), ("Also ist D = ℝ ohne {2}.", True)],
+    "Setze x = 2 in den Nenner ein: Kommt 0 heraus?", "x + 2 = 0 gilt für x = −2. Richtig: D = ℝ ohne {−2}."))
+neu(f, "mengen", "VW", W("Welche Zahl darf man in g(x) = 10 : (2x − 6) nicht einsetzen?",
+    "x = 3, denn dann ist der Nenner 2 · 3 − 6 = 0", [("x = 6", "die Zahl aus dem Nenner übernommen"), ("x = −3", "das Vorzeichen vertauscht"), ("x = 5", "10 : 2 gerechnet")],
+    "Der Nenner darf nicht 0 sein. Wann ist 2x − 6 gleich 0?", "2x − 6 = 0 ergibt 2x = 6 und x = 3. Nur dort ist der Nenner 0.",
+    lambda: 2 * 3 - 6 == 0 and 2 * 6 - 6 != 0 and 2 * (-3) - 6 != 0 and 2 * 5 - 6 != 0), g="mehrschritt")
+neu(f, "funktionswert", "FD", FDZ("Kim berechnet f(−2) für f(x) = x² − 3x.",
+    [("Einsetzen: (−2)² − 3 · (−2).", True), ("(−2)² = −4 und −3 · (−2) = 6.", (-2) ** 2 == -4), ("Zusammen: −4 + 6 = 2.", -4 + 6 == 2)],
+    "Eine Zahl mal sich selbst: Kann das Ergebnis negativ sein, wenn die Zahl negativ ist?", "(−2)² = (−2) · (−2) = 4. Dann 4 + 6 = 10."))
+neu(f, "funktionswert", "VW", W("Für f(x) = 2x² + 1 soll f(−3) berechnet werden. Welche Rechnung ist richtig?",
+    "2 · (−3)² + 1 = 2 · 9 + 1 = 19",
+    [("2 · (−3)² + 1 = 2 · (−9) + 1 = −17", "das Minus nicht mitquadriert"), ("(2 · (−3))² + 1 = (−6)² + 1 = 37", "die 2 mit quadriert"), ("2 · 3 + 1 = 7", "x² mit x verwechselt")],
+    "Quadrieren kommt vor dem Malnehmen mit 2.", "(−3)² = 9. Dann 2 · 9 = 18 und 18 + 1 = 19.",
+    lambda: 2 * (-3) ** 2 + 1 == 19 and 2 * (-9) + 1 != 19 and (2 * -3) ** 2 + 1 != 19 and 2 * 3 + 1 != 19), g="mehrschritt")
+neu(f, "stelle", "FD", FDZ("Für f(x) = 3x − 4 wird die Zahl x gesucht, bei der f(x) = 11 gilt. Kim rechnet.",
+    [("Gesucht ist x mit f(x) = 11.", True), ("Ich setze 11 für x ein: f(11) = 3 · 11 − 4 = 29.", False), ("Also ist x = 29.", True)],
+    "11 ist das Ergebnis, nicht die Eingabe. Was löst du stattdessen?", "Du löst 3x − 4 = 11: 3x = 15, also x = 5. Probe: 3 · 5 − 4 = 11."))
+neu(f, "wertetabelle", "LW", L("Zur Funktion f(x) = 2x + 3 gibt es eine Wertetabelle. Oben steht x, darunter f(x). Für x = 4 ist f(4) = ①. Für x = 10 ist f(10) = ②.",
+    K(2), [11, 23], ["2 * 4 + 3", "2 * 10 + 3"], ["8 + 3", "20 + 3"], "Erst mal, dann plus.", "f(4) = 2 · 4 + 3 = 11. f(10) = 2 · 10 + 3 = 23.",
+    {0: [(20, "fb.reihenfolge.links_nach_rechts", "2 · (4 + 3) gerechnet")]}, hinweis=GZ))
+neu(f, "wertetabelle", "FD", FDZ("Eine Wertetabelle zeigt x = 1, 2, 3, 4 und f(x) = 5, 7, 9, 11. Kim sucht den Term.",
+    [("f(x) wächst bei jedem Schritt von x um 2.", True), ("Also hat der Term die Form f(x) = 2x + c.", True), ("Für x = 1 muss 5 herauskommen: 2 · 1 + c = 5, also c = 2. Der Term ist f(x) = 2x + 2.", 2 * 1 + 2 == 5)],
+    "Setze zur Probe x = 2 in 2x + 2 ein. Kommt 7 heraus?", "2 · 1 + c = 5 ergibt c = 3. Richtig: f(x) = 2x + 3. Probe: f(2) = 7."))
+neu(f, "graph_lesen", "LW", L("Am Graphen von f liest du ab: Bei x = 2 liegt der Graph bei y = 4, bei x = 5 bei y = 13. Von x = 2 bis x = 5 sind es 5 − 2 = ① Schritte nach rechts. Der Graph steigt um 13 − 4 = ②. Pro Schritt steigt er um ② : ① = ③.",
+    K(3), [3, 9, 3], ["5 - 2", "13 - 4", "(13 - 4) // (5 - 2)"], ["1 + 1 + 1", "10 - 1", "9 // 3"], "Steigung: Anstieg geteilt durch Schritte.", "5 − 2 = 3. 13 − 4 = 9. 9 : 3 = 3.",
+    {2: [(27, None, "mal statt geteilt")]}, hinweis=GZ))
+neu(f, "graph_lesen", "FD", FDZ("Der Graph von f steigt gleichmäßig. Er geht durch die Punkte (1 | 3), (2 | 5) und (4 | 9). Kim liest f(3) ab.",
+    [("Von (1 | 3) nach (2 | 5) steigt der Graph um 2.", 5 - 3 == 2), ("Bei x = 3 liegt der Graph also zwischen 5 und 9.", 5 < 7 < 9), ("Dort liest Kim f(3) = 8 ab.", 2 * 3 + 1 == 8)],
+    "Von (2 | 5) aus geht es um 2 nach oben.", "f(3) = 5 + 2 = 7. Probe: Von (3 | 7) nach (4 | 9) sind es wieder 2."))
+neu(f, "nullstellen", "LW", L("Die Nullstelle von f(x) = 2x + 10 ist die Stelle, an der f(x) = 0 gilt. Aus 2x + 10 = 0 folgt x = ①. Der Graph schneidet die x-Achse also im Punkt (① | 0).",
+    K(1), [-5], ["-10 // 2"], ["(0 - 10) / 2"], "Bringe erst die 10 auf die andere Seite.", "2x = −10, also x = −5. Der Punkt ist (−5 | 0).",
+    {0: [(5, "fb.plusminus.zeichen_des_ergebnisses", "das Minus vergessen")]}, hinweis=GZ))
+neu(f, "nullstellen", "FD", FDZ("Kim berechnet die Nullstelle von f(x) = x − 6.",
+    [("Ich rechne f(0) = 0 − 6 = −6.", 0 - 6 == -6), ("Also ist die Nullstelle bei x = −6.", False), ("Der Graph schneidet die x-Achse bei (−6 | 0).", True)],
+    "Die Nullstelle ist die Stelle x, bei der der Funktionswert 0 ist, nicht umgekehrt.", "Du löst f(x) = 0: x − 6 = 0, also x = 6. f(0) = −6 ist der Schnittpunkt mit der y-Achse."))
+neu(f, "punkt_graph", "LW", L("Liegt P(3 | 8) auf dem Graphen von f(x) = 2x + 1? Setze x = 3 ein: f(3) = 2 · 3 + 1 = ①. Der y-Wert von P ist 8, und ① ist nicht 8. Also liegt P nicht auf dem Graphen.",
+    K(1), [7], ["2 * 3 + 1"], ["6 + 1"], "Setze die erste Zahl des Punktes in den Term ein.", "f(3) = 6 + 1 = 7. Der Graph geht durch (3 | 7), nicht durch (3 | 8).",
+    {0: [(8, None, "den y-Wert des Punktes übernommen")]}, hinweis=GZ))
+neu(f, "punkt_graph", "VW", W("Wie prüfst du, ob Q(−2 | 9) auf dem Graphen von f(x) = x² + 5 liegt?",
+    "x = −2 einsetzen: (−2)² + 5 = 9. Das ist der y-Wert, also liegt Q auf dem Graphen",
+    [("y = 9 einsetzen: 9² + 5 = 86. Das ist nicht −2, also liegt Q nicht auf dem Graphen", "den y-Wert für x eingesetzt"), ("x = −2 einsetzen: −2² + 5 = 1. Das ist nicht 9, also liegt Q nicht auf dem Graphen", "das Minus beim Quadrieren nicht mitgenommen"), ("Nur x² = 4 ansehen: 4 ist nicht 9, also liegt Q nicht auf dem Graphen", "die 5 vergessen")],
+    "Setze x aus dem Punkt in den Term ein und vergleiche mit y.", "(−2)² + 5 = 4 + 5 = 9. Der Punkt Q(−2 | 9) liegt auf dem Graphen.",
+    lambda: (-2) ** 2 + 5 == 9 and 9 ** 2 + 5 != -2 and -(2 ** 2) + 5 != 9 and 4 + 5 == 9), g="mehrschritt")
+neu(f, "sachzusammenhang", "LW", L("Ein Handytarif kostet 5 € Grundgebühr und 2 € je Gigabyte (GB). Für 4 GB zahlt man 5 + 2 · 4 = ① €. Für 10 GB zahlt man 5 + 2 · 10 = ② €.",
+    K(2), [13, 25], ["5 + 2 * 4", "5 + 2 * 10"], ["5 + 8", "25"], "Erst malnehmen, dann die Grundgebühr dazu.", "5 + 8 = 13 €. 5 + 20 = 25 €.",
+    {0: [(28, "fb.reihenfolge.links_nach_rechts", "(5 + 2) · 4 gerechnet")]}, hinweis=GZ))
+neu(f, "sachzusammenhang", "FD", FDZ("Eine Kerze ist 30 cm lang und brennt in jeder Stunde 2 cm ab. Kim stellt den Term für die Länge L(t) nach t Stunden auf.",
+    [("Feste Größe am Anfang: 30 cm.", True), ("Änderung pro Stunde: −2 cm.", True), ("Term: L(t) = 2 − 30 · t.", False)],
+    "Die feste Größe steht allein, die Änderung steht beim t.", "Die Länge am Anfang ist 30, pro Stunde kommt −2 dazu: L(t) = 30 − 2 · t."))
+
 # ═════════════════════ Prüfen ═════════════════════
 KOMMA_LUECKE = re.compile(r"\d\s*,\s*[①②③④⑤□]")          # Lücke unmittelbar hinter dem Komma: wäre eine Ziffernfolge, keine Zahl (Auftrag 20)
 KOMMA_NEBEN = re.compile(r"[①②③④⑤□],|,[①②③④⑤□]")      # Komma direkt neben einem Lückenzeichen

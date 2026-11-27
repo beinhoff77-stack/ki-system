@@ -1,0 +1,830 @@
+{
+ "stand": "2026-11-27",
+ "flug": "f1",
+ "titel": "Funktionsbegriff",
+ "fuer": "Kind 2",
+ "klasse": 8,
+ "themen": [
+  "funktionen.grundbegriffe"
+ ],
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Lückenweg, Fehler-Detektiv, Verfahren wählen, Zwei Wege vergleichen, Brücke), rollend-4. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag ja/nein) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: Stufe aufsteigend.",
+ "aufgaben": [
+  {
+   "kennung": "F1-V01",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "eindeutig",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": -9,
+     "fehlbild": "fb.reihenfolge.minus_ins_quadrat",
+     "regel_des_fehlbilds": "rr.reihenfolge",
+     "beschreibung": "das Minus nicht mitquadriert"
+    }
+   ],
+   "aufgabe": {
+    "l": "eindeutig",
+    "t": "eindeutig",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Zuordnung x ↦ x² ordnet der Zahl 3 den Wert ① zu. Der Zahl −3 ordnet sie den Wert ② zu. Jede Eingabe hat genau einen Wert. Also ist die Zuordnung eine Funktion.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      9,
+      9
+     ]
+    },
+    "c": [
+     "3 ** 2",
+     "(-3) ** 2"
+    ],
+    "h": "Quadrieren heißt: mit sich selbst malnehmen.",
+    "w": "3² = 9 und (−3)² = (−3) · (−3) = 9. Zwei Eingaben dürfen denselben Wert haben."
+   }
+  },
+  {
+   "kennung": "F1-V02",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "mengen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x − 5 mit 12 : 7 verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "mengen",
+    "t": "mengen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Funktion f(x) = 12 : (x − 5) ist nicht für jede Zahl erlaubt. Für x = 7 ist der Nenner 7 − 5 = ①. Also ist f(7) = 12 : ① = ②. Für x = 5 wäre der Nenner 0. Dann darf man nicht teilen.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      2,
+      6
+     ]
+    },
+    "c": [
+     "7 - 5",
+     "12 // (7 - 5)"
+    ],
+    "h": "Rechne erst die Klammer aus.",
+    "w": "7 − 5 = 2. 12 : 2 = 6."
+   }
+  },
+  {
+   "kennung": "F1-V03",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "wertetabelle",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 20,
+     "fehlbild": "fb.reihenfolge.links_nach_rechts",
+     "regel_des_fehlbilds": "rr.reihenfolge",
+     "beschreibung": "2 · (4 + 3) gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "wertetabelle",
+    "t": "wertetabelle",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Zur Funktion f(x) = 2x + 3 gibt es eine Wertetabelle. Oben steht x, darunter f(x). Für x = 4 ist f(4) = ①. Für x = 10 ist f(10) = ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      11,
+      23
+     ]
+    },
+    "c": [
+     "2 * 4 + 3",
+     "2 * 10 + 3"
+    ],
+    "h": "Erst mal, dann plus.",
+    "w": "f(4) = 2 · 4 + 3 = 11. f(10) = 2 · 10 + 3 = 23."
+   }
+  },
+  {
+   "kennung": "F1-V04",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "graph_lesen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 3,
+     "antwort": 27,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "graph_lesen",
+    "t": "graph_lesen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Am Graphen von f liest du ab: Bei x = 2 liegt der Graph bei y = 4, bei x = 5 bei y = 13. Von x = 2 bis x = 5 sind es 5 − 2 = ① Schritte nach rechts. Der Graph steigt um 13 − 4 = ②. Pro Schritt steigt er um ② : ① = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      9,
+      3
+     ]
+    },
+    "c": [
+     "5 - 2",
+     "13 - 4",
+     "(13 - 4) // (5 - 2)"
+    ],
+    "h": "Steigung: Anstieg geteilt durch Schritte.",
+    "w": "5 − 2 = 3. 13 − 4 = 9. 9 : 3 = 3."
+   }
+  },
+  {
+   "kennung": "F1-V05",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "nullstellen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 5,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "das Minus vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "nullstellen",
+    "t": "nullstellen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Nullstelle von f(x) = 2x + 10 ist die Stelle, an der f(x) = 0 gilt. Aus 2x + 10 = 0 folgt x = ①. Der Graph schneidet die x-Achse also im Punkt (① | 0).",
+     "schablone": "① = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      -5
+     ]
+    },
+    "c": [
+     "-10 // 2"
+    ],
+    "h": "Bringe erst die 10 auf die andere Seite.",
+    "w": "2x = −10, also x = −5. Der Punkt ist (−5 | 0)."
+   }
+  },
+  {
+   "kennung": "F1-V06",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "punkt_graph",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Wert des Punktes übernommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "punkt_graph",
+    "t": "punkt_graph",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Liegt P(3 | 8) auf dem Graphen von f(x) = 2x + 1? Setze x = 3 ein: f(3) = 2 · 3 + 1 = ①. Der y-Wert von P ist 8, und ① ist nicht 8. Also liegt P nicht auf dem Graphen.",
+     "schablone": "① = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      7
+     ]
+    },
+    "c": [
+     "2 * 3 + 1"
+    ],
+    "h": "Setze die erste Zahl des Punktes in den Term ein.",
+    "w": "f(3) = 6 + 1 = 7. Der Graph geht durch (3 | 7), nicht durch (3 | 8)."
+   }
+  },
+  {
+   "kennung": "F1-V07",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "sachzusammenhang",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 28,
+     "fehlbild": "fb.reihenfolge.links_nach_rechts",
+     "regel_des_fehlbilds": "rr.reihenfolge",
+     "beschreibung": "(5 + 2) · 4 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachzusammenhang",
+    "t": "sachzusammenhang",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Handytarif kostet 5 € Grundgebühr und 2 € je Gigabyte (GB). Für 4 GB zahlt man 5 + 2 · 4 = ① €. Für 10 GB zahlt man 5 + 2 · 10 = ② €.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      13,
+      25
+     ]
+    },
+    "c": [
+     "5 + 2 * 4",
+     "5 + 2 * 10"
+    ],
+    "h": "Erst malnehmen, dann die Grundgebühr dazu.",
+    "w": "5 + 8 = 13 €. 5 + 20 = 25 €."
+   }
+  },
+  {
+   "kennung": "F1-V08",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "mengen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "x = 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl aus dem Nenner übernommen"
+    },
+    {
+     "index": 2,
+     "antwort": "x = −3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen vertauscht"
+    },
+    {
+     "index": 3,
+     "antwort": "x = 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "10 : 2 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "mengen",
+    "t": "mengen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Zahl darf man in g(x) = 10 : (2x − 6) nicht einsetzen?"
+    },
+    "a": [
+     "x = 6",
+     "x = 3, denn dann ist der Nenner 2 · 3 − 6 = 0",
+     "x = −3",
+     "x = 5"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Der Nenner darf nicht 0 sein. Wann ist 2x − 6 gleich 0?",
+    "w": "2x − 6 = 0 ergibt 2x = 6 und x = 3. Nur dort ist der Nenner 0."
+   }
+  },
+  {
+   "kennung": "F1-V09",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "funktionswert",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "2 · (−3)² + 1 = 2 · (−9) + 1 = −17",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus nicht mitquadriert"
+    },
+    {
+     "index": 1,
+     "antwort": "(2 · (−3))² + 1 = (−6)² + 1 = 37",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 2 mit quadriert"
+    },
+    {
+     "index": 2,
+     "antwort": "2 · 3 + 1 = 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x² mit x verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "funktionswert",
+    "t": "funktionswert",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Für f(x) = 2x² + 1 soll f(−3) berechnet werden. Welche Rechnung ist richtig?"
+    },
+    "a": [
+     "2 · (−3)² + 1 = 2 · (−9) + 1 = −17",
+     "(2 · (−3))² + 1 = (−6)² + 1 = 37",
+     "2 · 3 + 1 = 7",
+     "2 · (−3)² + 1 = 2 · 9 + 1 = 19"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Quadrieren kommt vor dem Malnehmen mit 2.",
+    "w": "(−3)² = 9. Dann 2 · 9 = 18 und 18 + 1 = 19."
+   }
+  },
+  {
+   "kennung": "F1-V10",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "punkt_graph",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "y = 9 einsetzen: 9² + 5 = 86. Das ist nicht −2, also liegt Q nicht auf dem Graphen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Wert für x eingesetzt"
+    },
+    {
+     "index": 2,
+     "antwort": "x = −2 einsetzen: −2² + 5 = 1. Das ist nicht 9, also liegt Q nicht auf dem Graphen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus beim Quadrieren nicht mitgenommen"
+    },
+    {
+     "index": 3,
+     "antwort": "Nur x² = 4 ansehen: 4 ist nicht 9, also liegt Q nicht auf dem Graphen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 5 vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "punkt_graph",
+    "t": "punkt_graph",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Wie prüfst du, ob Q(−2 | 9) auf dem Graphen von f(x) = x² + 5 liegt?"
+    },
+    "a": [
+     "x = −2 einsetzen: (−2)² + 5 = 9. Das ist der y-Wert, also liegt Q auf dem Graphen",
+     "y = 9 einsetzen: 9² + 5 = 86. Das ist nicht −2, also liegt Q nicht auf dem Graphen",
+     "x = −2 einsetzen: −2² + 5 = 1. Das ist nicht 9, also liegt Q nicht auf dem Graphen",
+     "Nur x² = 4 ansehen: 4 ist nicht 9, also liegt Q nicht auf dem Graphen"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Setze x aus dem Punkt in den Term ein und vergleiche mit y.",
+    "w": "(−2)² + 5 = 4 + 5 = 9. Der Punkt Q(−2 | 9) liegt auf dem Graphen."
+   }
+  },
+  {
+   "kennung": "F1-V11",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "mengen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "mengen",
+    "t": "mengen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim bestimmt die Definitionsmenge von f(x) = 6 : (x + 2). Zeile 1: Man darf nicht durch 0 teilen. Zeile 2: x + 2 = 0 gilt für x = 2. Zeile 3: Also ist D = ℝ ohne {2}. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Setze x = 2 in den Nenner ein: Kommt 0 heraus?",
+    "w": "x + 2 = 0 gilt für x = −2. Richtig: D = ℝ ohne {−2}."
+   }
+  },
+  {
+   "kennung": "F1-V12",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "funktionswert",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "funktionswert",
+    "t": "funktionswert",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim berechnet f(−2) für f(x) = x² − 3x. Zeile 1: Einsetzen: (−2)² − 3 · (−2). Zeile 2: (−2)² = −4 und −3 · (−2) = 6. Zeile 3: Zusammen: −4 + 6 = 2. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Eine Zahl mal sich selbst: Kann das Ergebnis negativ sein, wenn die Zahl negativ ist?",
+    "w": "(−2)² = (−2) · (−2) = 4. Dann 4 + 6 = 10."
+   }
+  },
+  {
+   "kennung": "F1-V13",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "stelle",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "stelle",
+    "t": "stelle",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Für f(x) = 3x − 4 wird die Zahl x gesucht, bei der f(x) = 11 gilt. Kim rechnet. Zeile 1: Gesucht ist x mit f(x) = 11. Zeile 2: Ich setze 11 für x ein: f(11) = 3 · 11 − 4 = 29. Zeile 3: Also ist x = 29. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "11 ist das Ergebnis, nicht die Eingabe. Was löst du stattdessen?",
+    "w": "Du löst 3x − 4 = 11: 3x = 15, also x = 5. Probe: 3 · 5 − 4 = 11."
+   }
+  },
+  {
+   "kennung": "F1-V14",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "wertetabelle",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "wertetabelle",
+    "t": "wertetabelle",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Wertetabelle zeigt x = 1, 2, 3, 4 und f(x) = 5, 7, 9, 11. Kim sucht den Term. Zeile 1: f(x) wächst bei jedem Schritt von x um 2. Zeile 2: Also hat der Term die Form f(x) = 2x + c. Zeile 3: Für x = 1 muss 5 herauskommen: 2 · 1 + c = 5, also c = 2. Der Term ist f(x) = 2x + 2. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Setze zur Probe x = 2 in 2x + 2 ein. Kommt 7 heraus?",
+    "w": "2 · 1 + c = 5 ergibt c = 3. Richtig: f(x) = 2x + 3. Probe: f(2) = 7."
+   }
+  },
+  {
+   "kennung": "F1-V15",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "graph_lesen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "graph_lesen",
+    "t": "graph_lesen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Graph von f steigt gleichmäßig. Er geht durch die Punkte (1 | 3), (2 | 5) und (4 | 9). Kim liest f(3) ab. Zeile 1: Von (1 | 3) nach (2 | 5) steigt der Graph um 2. Zeile 2: Bei x = 3 liegt der Graph also zwischen 5 und 9. Zeile 3: Dort liest Kim f(3) = 8 ab. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Von (2 | 5) aus geht es um 2 nach oben.",
+    "w": "f(3) = 5 + 2 = 7. Probe: Von (3 | 7) nach (4 | 9) sind es wieder 2."
+   }
+  },
+  {
+   "kennung": "F1-V16",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "nullstellen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "nullstellen",
+    "t": "nullstellen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim berechnet die Nullstelle von f(x) = x − 6. Zeile 1: Ich rechne f(0) = 0 − 6 = −6. Zeile 2: Also ist die Nullstelle bei x = −6. Zeile 3: Der Graph schneidet die x-Achse bei (−6 | 0). In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Die Nullstelle ist die Stelle x, bei der der Funktionswert 0 ist, nicht umgekehrt.",
+    "w": "Du löst f(x) = 0: x − 6 = 0, also x = 6. f(0) = −6 ist der Schnittpunkt mit der y-Achse."
+   }
+  },
+  {
+   "kennung": "F1-V17",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "sachzusammenhang",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachzusammenhang",
+    "t": "sachzusammenhang",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Kerze ist 30 cm lang und brennt in jeder Stunde 2 cm ab. Kim stellt den Term für die Länge L(t) nach t Stunden auf. Zeile 1: Feste Größe am Anfang: 30 cm. Zeile 2: Änderung pro Stunde: −2 cm. Zeile 3: Term: L(t) = 2 − 30 · t. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Die feste Größe steht allein, die Änderung steht beim t.",
+    "w": "Die Länge am Anfang ist 30, pro Stunde kommt −2 dazu: L(t) = 30 − 2 · t."
+   }
+  }
+ ]
+}

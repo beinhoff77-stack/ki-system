@@ -661,7 +661,7 @@ test('Gestaltung Abflug: Abflugtafel, Bordkarte mit Tastenfeld, Kurskorrektur, L
     await page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: 'Prüfen' }).click();
     if (i === 0) { await page.getByText(/An Bord/).waitFor(); await page.getByRole('button', { name: 'Neue Bordkarte ›' }).click(); }
   }
-  await page.getByText('GELANDET').waitFor();
+  await page.locator('.lr-ab-dahinter', { hasText: /gelandet/i }).waitFor(); // nicht getByText: der Zufalls-Sticker „Nice gelandet!“ passt sonst auch
   await page.getByRole('link', { name: 'Zur Abflugtafel' }).waitFor();
   await page.screenshot({ path: path.join(root, 'test-results/abflug-gelandet-390.png') });
   // Andere Aufgabenarten auf der Bordkarte: Zahlenstrahl (ohne Tastenfeld) und Lücken (mit Tastenfeld)

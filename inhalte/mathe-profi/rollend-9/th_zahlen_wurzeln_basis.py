@@ -47,7 +47,7 @@ neu(T, "kubikwurzel", "lueckenweg", L(
     KOMM(4), [7, -7, 3, -10], ["7", "-{1}", "3", "{2} - {3}"], ["kw(343)", "kw(-343)", "kw(27)", "kw(-343) - kw(27)"],
     "Rechne zur Probe: Zahl mal Zahl mal Zahl. Achte auf das Vorzeichen.",
     "7 · 7 · 7 = 343, also ∛343 = 7. Wegen des Minus ist ∛(−343) = −7, denn (−7) · (−7) · (−7) = −343. ∛27 = 3. Dann ist −7 − 3 = −10.",
-    {1: [(7, "fb.vorzeichen.falsches_zeichen", "das Minuszeichen vergessen", "{1}")], 3: [(4, None, "mit +7 statt −7 gerechnet: 7 − 3", "{1} - {3}")]}), regel=HZ)
+    {1: [(7, None, "bei der dritten Wurzel aus der negativen Zahl das Minuszeichen weggelassen: 7 statt −7", "{1}")], 3: [(4, None, "mit +7 statt −7 gerechnet: 7 − 3", "{1} - {3}")]}), regel=HZ)
 neu(T, "kubikwurzel", "zwei_wege", Z(
     "Berechne ∛1728 auf zwei Wegen. Weg A: Zerlege 1728 = 8 · 216 und ziehe aus beiden Faktoren die dritte Wurzel. Weg B: Schätze zwischen 10³ = 1000 und 20³ = 8000 und achte auf die Endziffer. Wie groß ist ∛1728?",
     12, "2 * 6", lambda: kw(1728),
@@ -57,9 +57,9 @@ neu(T, "kubikwurzel", "zwei_wege", Z(
 neu(T, "kubikwurzel", "anwenden", Z(
     "Ein würfelförmiger Komposter fasst 343 Liter. Wie viele Zentimeter ist eine Innenkante lang? Es gilt 1 Liter = 1 dm³.",
     70, "343 / 49 * 10", lambda: kw(343) * 10,
-    "Zuerst die Kante in dm bestimmen, dann in cm umrechnen.",
+    "Welche Größe liefert die Wurzel, und in welcher Einheit ist sie angegeben?",
     "343 Liter sind 343 dm³. Die Kante ist ∛343 = 7 dm. 1 dm = 10 cm, also 7 · 10 = 70 cm.",
-    [(7, None, "in dm stehen geblieben, nicht in cm umgerechnet", "cbrt(343)"), (114.33, None, "durch drei geteilt statt die dritte Wurzel gezogen (auf zwei Stellen gerundet)", "round(343 / 3, 2)"), (700, None, "mit 100 statt mit 10 umgerechnet", "cbrt(343) * 100")], "cm"), g="transfer", regel=HZ)
+    [(7, None, "in dm stehen geblieben, nicht in cm umgerechnet", "cbrt(343)"), (114.33, None, "durch drei geteilt statt die dritte Wurzel gezogen und nicht von dm in cm umgerechnet (auf zwei Stellen gerundet)", "round(343 / 3, 2)"), (700, None, "mit 100 statt mit 10 umgerechnet", "cbrt(343) * 100")], "cm"), g="transfer", regel=HZ)
 
 # ───────── abschaetzen ─────────
 neu(T, "abschaetzen", "lueckenweg", L(
@@ -78,7 +78,7 @@ neu(T, "abschaetzen", "bruecke", W(
 neu(T, "abschaetzen", "anwenden", Z(
     "Ein quadratisches Beet soll mindestens 40 m² groß sein. Die Seitenlänge ist eine ganze Zahl in Metern. Rundherum soll ein Zaun stehen. Wie viele Meter Zaun braucht man dann mindestens?",
     28, "4 * (6 + 1)", lambda: 4 * next(n for n in range(1, 50) if n * n >= 40),
-    "Finde zuerst die kleinste ganze Seitenlänge, deren Quadrat mindestens 40 ist.",
+    "Was bedeutet „mindestens 40 m²“ für die Seitenlänge, wenn sie eine ganze Zahl sein muss?",
     "6² = 36 ist zu klein, 7² = 49 reicht. Die Seite ist mindestens 7 m lang. Der Zaun ist der Umfang: 4 · 7 = 28 m.",
     [(24, None, "mit der abgerundeten Seite 6 m gerechnet: 4 · 6", "4 * 6"), (160, None, "mit der Fläche statt der Seite gerechnet: 4 · 40", "4 * 40"), (7, None, "nur die Seitenlänge angegeben, nicht den Zaun", "7")], "m"), g="transfer", regel=HZ)
 
@@ -94,8 +94,9 @@ neu(T, "wurzel_deuten", "fehler_detektiv", FD(
     [("(−7)² = 49", 49 == (-7) ** 2, None),
      ("√49 = −7, denn Wurzel und Quadrat heben sich auf.", wz(49) == -7, None),
      ("(√9)² = 9, also ist die Summe −7 + 9 = 2.", 7 + 9 == 2, -7 + 9 == 2 and 3 ** 2 == 9)],
-    "Was bedeutet √49? Die Wurzel ist nie negativ.",
-    "Zeile 1 stimmt. In Zeile 2 steht der Fehler: √49 ist die nicht negative Zahl, deren Quadrat 49 ist, also 7. Zeile 3 rechnet mit −7 richtig weiter. Richtig ist 7 + 9 = 16."), regel=HZ)
+    "Prüfe jede Zeile durch Quadrieren. Frage dich, ob der Wert zur Bedeutung der Wurzel passt.",
+    "Zeile 1 stimmt. In Zeile 2 steht der Fehler: √49 ist die nicht negative Zahl, deren Quadrat 49 ist, also 7. Zeile 3 rechnet mit −7 richtig weiter. Richtig ist 7 + 9 = 16.",
+    rueck={2: "Der Teil (√9)² = 9 stimmt. Die Summe −7 + 9 = 2 übernimmt aber den Wert −7 aus Zeile 2. Der erste Fehler steht früher."}), regel=HZ)
 neu(T, "wurzel_deuten", "umkehren", Z(
     "Unter einer Wurzel steht der Term x + 5. Die Wurzel hat den Wert 6. Wie groß ist x?",
     31, "6 ** 2 - 5", lambda: next(x for x in range(-5, 200) if math.isqrt(x + 5) ** 2 == x + 5 and math.isqrt(x + 5) == 6),
@@ -113,7 +114,7 @@ neu(T, "wurzel_sache", "lueckenweg", L(
 neu(T, "wurzel_sache", "umkehren", Z(
     "Ein quadratisches Feld wird auf jeder Seite um 3 m verlängert. Danach hat es 144 m² Fläche. Wie groß war die Fläche vor der Verlängerung?",
     81, "(12 - 3) ** 2", lambda: (wz(144) - 3) ** 2,
-    "Rechne rückwärts: erst von der neuen Fläche zur neuen Seite.",
+    "Beginne bei dem, was am Ende bekannt ist, und gehe die Rechnung rückwärts.",
     "Die neue Seite ist √144 = 12 m. Vorher war sie 12 − 3 = 9 m lang. Die alte Fläche ist 9² = 81 m².",
     [(141, None, "von der Fläche einfach 3 abgezogen: 144 − 3", "144 - 3"), (9, None, "die alte Seitenlänge als Fläche angegeben: 12 − 3", "12 - 3")], "m²"), g="rueckwaerts", regel=HZ)
 neu(T, "wurzel_sache", "anwenden", Z(

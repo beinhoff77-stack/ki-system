@@ -104,7 +104,7 @@ def W(text, richtig, falsch, h, w, probe, grafik=None):
     return mit({"y": "auswahl", "f": {"text": text}, "a": antworten, "o": {"index": p}, "h": h, "w": w}, grafik), probe, fb
 
 
-def FD(einleitung, zeilen, h, w, frage="In welcher Zeile passiert der erste Fehler?", grafik=None):
+def FD(einleitung, zeilen, h, w, frage="In welcher Zeile passiert der erste Fehler?", grafik=None, rueck=None):
     """Fehler-Detektiv. zeilen: [(Text, stimmt, folgt)]. stimmt: Zeile ist für sich richtig (im Programm berechnet).
     folgt: nur für Zeilen NACH der Fehlerzeile: die Zeile folgt rechnerisch richtig aus der Zeile davor (sonst None).
     Genau eine Zeile darf nicht stimmen; alle Zeilen davor stimmen; jede Folgezeile folgt aus der Zeile davor."""
@@ -119,6 +119,11 @@ def FD(einleitung, zeilen, h, w, frage="In welcher Zeile passiert der erste Fehl
     text = einleitung + " " + " ".join(f"Zeile {i + 1}: {z[0]}" for i, z in enumerate(zeilen)) + " " + frage
     ant = [f"In Zeile {i + 1}" for i in range(len(zeilen))]
     fb = {i: (None, "diese Zeile ist richtig; der Fehler steckt woanders" if i < err else "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher", None) for i in range(len(zeilen)) if i != err}
+    for i in range(err + 1, len(zeilen)):    # eine Zeile nach dem Fehler, die für sich richtig ist, braucht eine Rückmeldung von Hand (nicht „Folge des Fehlers“)
+        assert not zeilen[i][1] or i in (rueck or {}), (einleitung, i + 1, "Zeile ist für sich richtig: rueck= mit „Diese Zeile ist richtig, weil …“ nötig")
+    for i, t in (rueck or {}).items():      # Rückmeldung von Hand, wo eine Zeile nach dem Fehler unabhängig richtig oder nur teilweise Folge ist
+        assert i > err, (einleitung, "rueck nur für Zeilen nach der Fehlerzeile")
+        fb[i] = (None, t, None)
     return mit({"y": "auswahl", "f": {"text": text}, "a": ant, "o": {"index": err}, "h": h, "w": w}, grafik), lambda: True, fb
 
 

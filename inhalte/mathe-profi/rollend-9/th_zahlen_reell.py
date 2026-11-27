@@ -21,19 +21,19 @@ neu(T, "zahlarten", "fehler_detektiv", FD(
     [("Eine Wurzel ist immer irrational.", wz(36).denominator != 0 and wz(36) in (F(6),) and False, None),
      ("Also ist auch −√36 irrational.", False, True),
      ("Darum gehört −√36 nicht zu ℚ, sondern nur zu ℝ.", False, True)],
-    "Rechne √36 aus. Ist das Ergebnis eine rationale Zahl?",
+    "Lies die Zeilen der Reihe nach und prüfe jede Aussage an einem Beispiel.",
     "Zeile 1 ist falsch: √36 = 6 ist rational. Die Wurzel aus einer Quadratzahl ist rational. Die Zeilen 2 und 3 folgen aus Zeile 1 richtig. Richtig: −√36 = −6 gehört zu ℤ, ℚ und ℝ."), regel=HZ)
 
 # ───────── eingrenzen ─────────
 neu(T, "eingrenzen", "lueckenweg", L(
-    "Grenze √90 auf eine Nachkommastelle ein. Dazu werden 94 und 95 quadriert und mit 90 · 100 verglichen. Es ist 94² = ①. Dann ist 95² = ②. Also liegt 95² um ③ über 90 · 100.",
-    KOMM(3), [8836, 9025, 25], ["8836", "{1} + 2 * 94 + 1", "{2} - 9000"], ["94 * 94", "95 * 95", "95 * 95 - 90 * 100"],
-    "Rechne 94 · 94 als 90 · 94 plus 4 · 94. Vergleichen musst du mit 90 · 100, nicht mit 90.",
-    "94² = 8 836 und 95² = 9 025. Die Vergleichszahl ist 90 · 100 = 9 000. Es gilt 8 836 < 9 000 < 9 025, also 9,4 < √90 < 9,5. 95² liegt um 9 025 − 9 000 = 25 über 9 000.",
-    {0: [(188, None, "94 verdoppelt statt quadriert: 94 · 2", "94 * 2")], 2: [(8935, None, "mit 90 statt mit 9 000 verglichen: 9 025 − 90", "{2} - 90")]}), regel=HZ)
+    "Grenze √90 auf eine Nachkommastelle ein, also auf ganze Zehntel. Dazu sucht man zwei ganze Zahlen, deren Quadrate 90 · 100 = 9 000 einschließen. Die größte ganze Zahl z mit z² ≤ 9 000 ist ①. Ihr Quadrat ist ②. Das Quadrat der nächsten ganzen Zahl ist ③. Also liegt √90 zwischen ① Zehnteln und ④ Zehnteln.",
+    KOMM(4), [94, 8836, 9025, 95], ["94", "{1} ** 2", "({1} + 1) ** 2", "{1} + 1"], ["isq(9000)", "isq(9000) ** 2", "(isq(9000) + 1) ** 2", "isq(9000) + 1"],
+    "Quadriere ganze Zahlen zwischen 90 und 100, bis du 9 000 eingeschlossen hast. Danach rechnest du mit der gefundenen Zahl weiter.",
+    "Die größte ganze Zahl z mit z² ≤ 9 000 ist 94, denn 94² = 8 836 und 95² = 9 025 liegt über 9 000. Es gilt 8 836 < 9 000 < 9 025, also 94 : 10 < √90 < 95 : 10, das heißt 9,4 < √90 < 9,5.",
+    {0: [(95, None, "aufgerundet: 95² = 9 025 liegt schon über 9 000, also ist 95 nicht die größte Zahl mit z² ≤ 9 000", "95"), (900, None, "9 000 durch 10 geteilt statt die Wurzel gezogen", "9000 / 10")], 1: [(188, None, "die Zahl verdoppelt statt quadriert: 94 · 2", "{1} * 2")], 2: [(190, None, "die nächste Zahl verdoppelt statt quadriert: (94 + 1) · 2", "({1} + 1) * 2")], 3: [(94, None, "als obere Grenze wieder die untere Zahl genommen", "{1}")]}), regel=HZ)
 neu(T, "eingrenzen", "bruecke", W(
     "Die Tabelle zeigt Quadrate von Zahlen mit einer Nachkommastelle. Zwischen welchen beiden Zahlen der oberen Zeile liegt √7?",
-    "zwischen 2,6 und 2,7", [("zwischen 2,7 und 2,8", "die Zeile mit 7,29 als untere Grenze genommen: 7,29 liegt über 7"), ("zwischen 2,5 und 2,6", "eine Spalte zu weit links abgelesen: 7 liegt über 6,76, nicht zwischen 6,25 und 6,76"), ("zwischen 6,76 und 7,29", "die Quadrate aus der unteren Zeile als Grenzen der Wurzel genommen")],
+    "zwischen 2,6 und 2,7", [("zwischen 2,7 und 2,8", "eine Spalte zu weit rechts abgelesen: Du hast die Spalte mit 7,29 als untere Grenze genommen, aber 7,29 liegt über 7"), ("zwischen 2,5 und 2,6", "eine Spalte zu weit links abgelesen: 7 liegt über 6,76, nicht zwischen 6,25 und 6,76"), ("zwischen 6,76 und 7,29", "die Quadrate aus der unteren Zeile als Grenzen der Wurzel genommen")],
     "In der unteren Zeile suchst du zwei Quadrate, zwischen denen 7 liegt. Die Wurzel steht darüber.",
     "6,76 < 7 < 7,29. Die Quadrate gehören zu 2,6 und 2,7. Also gilt 2,6 < √7 < 2,7.",
     lambda: F("2.6") ** 2 < 7 < F("2.7") ** 2 and not F("2.7") ** 2 < 7 < F("2.8") ** 2 and not F("2.5") ** 2 < 7 < F("2.6") ** 2,
@@ -41,7 +41,7 @@ neu(T, "eingrenzen", "bruecke", W(
 neu(T, "eingrenzen", "anwenden", Z(
     "Eine quadratische Holzplatte hat 7 m² Fläche. Wie lang ist eine Seite in Zentimetern? Runde auf ganze Zentimeter.",
     265, RC(math.sqrt(70000), 0), lambda: dwurzel(70000, 0),
-    "Rechne erst die Fläche in cm² um: 1 m² = 10 000 cm².",
+    "Achte auf die Einheiten: In welcher Einheit soll das Ergebnis stehen?",
     "7 m² = 70 000 cm². Die Seite ist √70 000 ≈ 264,58 cm. Gerundet auf ganze Zentimeter: 265 cm. Probe: 265 · 265 = 70 225, das ist nahe an 70 000.",
     [(2.65, None, "in Metern stehen geblieben (auf zwei Stellen gerundet)", "round(sqrt(7), 2)"), (264, None, "abgeschnitten statt gerundet", "floor(sqrt(70000))"), (3.5, "fb.hoch_zurueck.wurzel_halbiert", "7 halbiert statt die Wurzel gezogen", "7 / 2")], "cm"), g="transfer", regel=HZ)
 
@@ -69,7 +69,7 @@ neu(T, "heron", "anwenden", Z(
 neu(T, "wurzel_mal", "lueckenweg", L(
     "Berechne √18 · √8 − √25. Beide Wurzeln werden zu einer Wurzel zusammengefasst. Unter der Wurzel steht dann ①. Die Wurzel daraus ist ②. Dann ist das Ergebnis der ganzen Rechnung ③.",
     KOMM(3), [144, 12, 7], ["18 * 8", "12", "{2} - 5"], ["18 * 8", "wz(18 * 8)", "wz(18 * 8) - wz(25)"],
-    "Es gilt √a · √b = √(a · b). Zum Schluss nicht vergessen, √25 zu berechnen.",
+    "Für reelle Zahlen a, b ≥ 0 gilt √a · √b = √(a · b). Zum Schluss nicht vergessen, √25 zu berechnen.",
     "√18 · √8 = √(18 · 8) = √144 = 12. Dann ist 12 − √25 = 12 − 5 = 7.",
     {0: [(26, None, "unter der Wurzel addiert: 18 + 8", "18 + 8")], 1: [(72, "fb.hoch_zurueck.wurzel_halbiert", "144 halbiert statt die Wurzel gezogen", "{1} / 2")], 2: [(-13, None, "25 statt √25 abgezogen: 12 − 25", "{2} - 25")]}), regel=HZ)
 neu(T, "wurzel_mal", "fehler_detektiv", FD(
@@ -77,8 +77,9 @@ neu(T, "wurzel_mal", "fehler_detektiv", FD(
     [("√(5x) · √(20x) = √(5x · 20x)", all(abs(math.sqrt(5 * x) * math.sqrt(20 * x) - math.sqrt(5 * x * 20 * x)) < 1e-9 for x in (1, 2, 7)), None),
      ("= √(25x)", all(abs(5 * x * 20 * x - 25 * x) < 1e-9 for x in (1, 2, 7)), None),
      ("= 5 · √x", all(abs(math.sqrt(25 * x) - 5 * math.sqrt(x)) < 1e-9 for x in (1, 2, 7)), True)],
-    "Rechne 5x · 20x für x = 2 aus und vergleiche mit der Zeile.",
-    "Zeile 1 stimmt. In Zeile 2 wurde 5x · 20x falsch berechnet: 5 · 20 = 100 und x · x = x², also √(100x²) = 10x. Zeile 3 rechnet mit √(25x) richtig weiter: √(25x) = 5 · √x."), regel=HZ)
+    "Prüfe jede Zeile mit einem selbst gewählten Wert für x.",
+    "Zeile 1 stimmt. In Zeile 2 wurde 5x · 20x falsch berechnet: 5 · 20 = 100 und x · x = x², also √(100x²) = 10x. Zeile 3 rechnet mit √(25x) richtig weiter: √(25x) = 5 · √x.",
+    rueck={2: "Diese Zeile ist richtig, weil √(25x) = √25 · √x = 5 · √x gilt. Sie übernimmt aber den Term √(25x) aus Zeile 2, und der ist falsch. Der erste Fehler steht früher."}), regel=HZ)
 neu(T, "wurzel_mal", "umkehren", Z(
     "Für eine positive Zahl a gilt √a · √12 = 18. Wie groß ist a?",
     27, "18 ** 2 / 12", lambda: next(a for a in range(1, 1000) if abs(math.sqrt(a) * math.sqrt(12) - 18) < 1e-9),
@@ -88,7 +89,7 @@ neu(T, "wurzel_mal", "umkehren", Z(
 
 # ───────── teilweise ─────────
 neu(T, "teilweise", "lueckenweg", L(
-    "Schreibe √288 als a · √b mit möglichst kleiner Zahl b. Es gilt 288 = 144 · b. Die Zahl b ist ①. Die Wurzel aus 144 ist ②. Dann ist a gleich ②. Also ist a + b gleich ③.",
+    "Schreibe √288 als a · √b mit positiven ganzen Zahlen a und b, wobei b möglichst klein ist. Es gilt 288 = 144 · b. Die Zahl b ist ①. Die Wurzel aus 144 ist ②. Dann ist a gleich ②. Also ist a + b gleich ③.",
     KOMM(3), [2, 12, 14], ["288 // 144", "12", "{1} + {2}"], ["288 / 144", "wz(144)", "wz(144) + 288 / 144"],
     "Welche Zahl mal 144 ergibt 288? Zum Schluss werden die beiden Zahlen addiert.",
     "b = 288 : 144 = 2 und a = √144 = 12. Also √288 = 12 · √2. Die Summe ist a + b = 12 + 2 = 14.",
@@ -104,7 +105,7 @@ neu(T, "teilweise", "zwei_wege", Z(
     30, "2 * 3 * 5", lambda: next(a for a in range(1, 100) if a * a * 2 == 1800),
     "Beide Wege müssen dasselbe a ergeben.",
     "Weg A: 1800 = 900 · 2 und √900 = 30. Weg B: Paare 2 · 2, 3 · 3 und 5 · 5. Aus jedem Paar kommt eine Zahl vor die Wurzel: 2 · 3 · 5 = 30. Die einzelne 2 bleibt unter der Wurzel. Also √1800 = 30 · √2.",
-    [(900, "fb.hoch_zurueck.wurzel_halbiert", "1800 halbiert statt die Wurzel gezogen", "1800 / 2"), (15, None, "das Paar aus den Zweien vergessen: 3 · 5", "3 * 5"), (180, None, "durch 10 geteilt statt die Wurzel gezogen: 1800 : 10", "1800 / 10")]), g="verknuepfen", regel=HZ)
+    [(900, None, "den Faktor 900 unter der Wurzel angegeben, also a² = 1800 : 2 = 900: Ziehe aus a² noch die positive Wurzel.", "1800 / 2"), (15, None, "das Paar aus den Zweien vergessen: 3 · 5", "3 * 5"), (180, None, "durch 10 geteilt statt die Wurzel gezogen: 1800 : 10", "1800 / 10")]), g="verknuepfen", regel=HZ)
 
 # ───────── zusammenfassen ─────────
 neu(T, "zusammenfassen", "lueckenweg", L(
@@ -119,7 +120,7 @@ neu(T, "zusammenfassen", "fehler_detektiv", FD(
      ("Die Wurzel aus 27 ist gleich 3√3.", abs(math.sqrt(27) - 3 * math.sqrt(3)) < 1e-9, None),
      ("2√3 + 3√3 = 5√6", abs(2 * math.sqrt(3) + 3 * math.sqrt(3) - 5 * math.sqrt(6)) < 1e-9, None),
      ("5√6 ≈ 12,25", False, abs(5 * math.sqrt(6) - 12.25) < 0.005)],
-    "Bei gleichen Wurzeln werden nur die Zahlen vor der Wurzel zusammengefasst. Prüfe, was dabei mit der Zahl unter der Wurzel passiert.",
+    "Prüfe jede Zeile durch Nachrechnen mit Näherungswerten.",
     "Zeile 1 und 2 stimmen. In Zeile 3 wurde die Zahl unter der Wurzel verändert. Richtig: 2√3 + 3√3 = 5√3. Zeile 4 rechnet mit dem falschen Wert richtig weiter. Richtig: 5√3 ≈ 8,66.", ), regel=HZ)
 neu(T, "zusammenfassen", "anwenden", Z(
     "Ein rechteckiger Bilderrahmen hat die Seitenlängen √18 dm und √8 dm. Wie lang ist sein Umfang? Runde auf eine Nachkommastelle.",
@@ -144,19 +145,19 @@ neu(T, "nenner_rational", "zwei_wege", Z(
 neu(T, "nenner_rational", "umkehren", Z(
     "Der Bruch a/(2√5) hat denselben Wert wie 3√5. Wie groß ist a?",
     30, "3 * 2 * 5", lambda: next(a for a in range(1, 200) if abs(a / (2 * math.sqrt(5)) - 3 * math.sqrt(5)) < 1e-9),
-    "Multipliziere beide Seiten mit dem Nenner 2√5. Dann gilt √5 · √5 = 5.",
+    "Wie kommst du von a/(2√5) zu a? Was gilt für √5 · √5?",
     "Aus a/(2√5) = 3√5 folgt a = 3√5 · 2√5 = 3 · 2 · 5 = 30. Probe: 30/(2√5) = 15/√5 = 15√5/5 = 3√5.",
     [(6, None, "die Wurzeln vergessen: 3 · 2", "3 * 2"), (15, None, "den Faktor 2 aus dem Nenner vergessen: 3 · 5", "3 * 5"), (150, None, "√5 · √5 zweimal gerechnet: 3 · 2 · 5 · 5", "3 * 2 * 5 * 5")]), g="rueckwaerts", regel=HZ)
 
 # ───────── irrational_beweis ─────────
 neu(T, "irrational_beweis", "verfahren_waehlen", W(
-    "Du sollst beweisen, dass √5 irrational ist. Welcher Weg führt zum Ziel?",
-    "Annahme: √5 = p/q mit teilerfremden ganzen Zahlen p und q. Quadrieren gibt p² = 5q². Dann folgt, dass p und q beide durch 5 teilbar wären. Das ist ein Widerspruch.",
-    [("√5 mit dem Taschenrechner auf 20 Stellen ausrechnen und prüfen, dass sich keine Ziffernfolge wiederholt.", "endlich viele Stellen können nichts beweisen"),
+    "Du sollst beweisen, dass √5 irrational ist, und willst dazu einen Widerspruchsbeweis führen. Welcher Weg ist ein vollständiger Beweis?",
+    "Annahme: √5 = p/q mit einem vollständig gekürzten Bruch (p und q teilerfremde ganze Zahlen). Quadrieren gibt p² = 5q². Dann folgt, dass p und q beide durch 5 teilbar wären. Das ist ein Widerspruch zur Kürzung.",
+    [("√5 mit dem Taschenrechner auf 20 Stellen ausrechnen und prüfen, dass sich keine Ziffernfolge wiederholt.", "endlich viele Dezimalstellen beweisen keine Irrationalität"),
      ("Zeigen, dass √5 keine ganze Zahl ist: 2² = 4 und 3² = 9.", "damit ist nur gezeigt, dass √5 nicht ganz ist, nicht dass es kein Bruch ist"),
      ("Annahme: √5 ist irrational. Dann einen Widerspruch suchen.", "die Annahme steht verkehrt herum: man nimmt das Gegenteil dessen an, was man zeigen will")],
     "Beim indirekten Beweis nimmt man das Gegenteil der Behauptung an.",
-    "Ein indirekter Beweis nimmt das Gegenteil an: √5 ist rational, also ein gekürzter Bruch p/q. Quadrieren gibt p² = 5q². Dann ist p durch 5 teilbar, und mit p = 5r auch q. Das widerspricht der Kürzung. Zahlenbeispiele oder Taschenrechner beweisen nichts.",
+    "Ein indirekter Beweis nimmt das Gegenteil an: √5 ist rational, also ein gekürzter Bruch p/q. Quadrieren gibt p² = 5q². Dann ist p durch 5 teilbar, und mit p = 5r auch q. Das widerspricht der Kürzung. Endlich viele Dezimalstellen beweisen keine Irrationalität, denn die Ziffern könnten sich später doch wiederholen; auch Zahlenbeispiele beweisen nichts.",
     lambda: True), g="erkennen", regel=HZ)
 neu(T, "irrational_beweis", "fehler_detektiv", FD(
     "Kim beweist, dass √3 irrational ist.",
@@ -164,11 +165,11 @@ neu(T, "irrational_beweis", "fehler_detektiv", FD(
      ("Quadrieren: p² = 3q².", all(abs((q * math.sqrt(3)) ** 2 - 3 * q * q) < 1e-9 for q in (1, 5, 7)), None),
      ("Dann ist p² durch 3 teilbar, also ist p durch 9 teilbar.", (6 ** 2 % 3 != 0) or (6 % 9 == 0), None),
      ("Mit p = 9r folgt 81r² = 3q², also q² = 27r². Dann ist auch q durch 3 teilbar.", False, all(81 * r * r // 3 == 27 * r * r for r in (1, 2, 5)) and all((27 * r * r) % 3 == 0 for r in (1, 2, 5)))],
-    "Wenn p² durch 3 teilbar ist: Durch welche Zahl muss p dann teilbar sein? Probiere p = 6.",
+    "Wenn p² durch 3 teilbar ist: Durch welche Zahl muss p dann teilbar sein? Suche selbst eine Zahl p, die durch 3 teilbar ist, aber nicht durch 9, und prüfe, ob p² durch 3 teilbar ist.",
     "Zeile 1 und 2 stimmen. In Zeile 3 steht der Fehler: Aus „p² ist durch 3 teilbar“ folgt nur „p ist durch 3 teilbar“ (zum Beispiel p = 6, aber 6 ist nicht durch 9 teilbar). Richtig: p = 3r. Zeile 4 rechnet mit p = 9r richtig weiter."), regel=HZ)
 neu(T, "irrational_beweis", "umkehren", W(
-    "Ein Beweis endet so: „Aus p² = 3q² folgt, dass p durch 3 teilbar ist. Dann ist auch q durch 3 teilbar. Das widerspricht der Kürzung.“ Für welche Zahl wurde bewiesen, dass sie irrational ist?",
+    "Ein Beweis endet so: „Weil p² das Dreifache von q² ist, ist p durch 3 teilbar. Dann ist auch q durch 3 teilbar. Das widerspricht der Kürzung.“ Dabei war p/q ein vollständig gekürzter Bruch. Für welche Zahl wurde bewiesen, dass sie irrational ist?",
     "√3", [("√2", "den Faktor 2 statt 3 genommen"), ("√6", "6 = 2 · 3 genommen; dann stünde p² = 6q² da"), ("√9", "9 = 3 · 3 genommen; √9 = 3 ist aber rational")],
-    "Welche Gleichung für p² steht am Anfang des Beweises? Sie verrät die Zahl unter der Wurzel.",
-    "Aus √x = p/q folgt p² = x · q². Im Beweis steht p² = 3q², also ist x = 3. Der Beweis zeigt: √3 ist irrational. Bei √9 wäre der Satz unsinnig, denn √9 = 3 ist rational.",
+    "Quadriere √x = p/q. Welche Gleichung für p² entsteht? Vergleiche sie mit dem Satz im Beweis.",
+    "Aus √x = p/q folgt p² = x · q². Im Beweis ist p² das Dreifache von q², also p² = 3q² und x = 3. Der Beweis zeigt: √3 ist irrational. Bei √9 wäre der Satz unsinnig, denn √9 = 3 ist rational.",
     lambda: 3 * 1 == 3 and wz(9) == 3), g="umkehr", regel=HZ)

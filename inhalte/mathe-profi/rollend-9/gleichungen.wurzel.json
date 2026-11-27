@@ -27,9 +27,9 @@
     {
      "luecke": 1,
      "antwort": -5,
-     "fehlbild": "fb.vorzeichen.falsches_zeichen",
-     "regel_des_fehlbilds": "rr.vorzeichen",
-     "beschreibung": "das Vorzeichen falsch: −15 : 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Umstellen von 3x − 15 = 0 die 15 mit Minus auf die andere Seite gebracht: 3x = −15 und x = −15 : 3",
      "c": "-15 / 3"
     },
     {
@@ -203,7 +203,7 @@
     "o": {
      "index": 0
     },
-    "h": "Setze eine Zahl, die größer als die Grenze ist, in den Radikand ein.",
+    "h": "Prüfe die Aussage jeder Zeile an einer Zahl, die du selbst wählst.",
     "w": "Zeile 1 enthält den Fehler: Aus 10 − 2x ≥ 0 folgt 10 ≥ 2x, also x ≤ 5. Die Zeilen 2 und 3 folgen aus Zeile 1 richtig weiter. Richtig ist D = {x | x ≤ 5}. Probe: x = 6 gibt 10 − 12 = −2 < 0."
    }
   },
@@ -300,9 +300,9 @@
     },
     {
      "antwort": -14,
-     "fehlbild": "fb.vorzeichen.falsches_zeichen",
-     "regel_des_fehlbilds": "rr.vorzeichen",
-     "beschreibung": "Vorzeichen vertauscht: 11 − 25",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in der falschen Reihenfolge abgezogen: 11 − 25 statt 25 − 11",
      "c": "11 - 25"
     }
    ],
@@ -371,7 +371,7 @@
     "o": {
      "index": 1
     },
-    "h": "Rechne 4² nach. Mache am Ende die Probe in der Ausgangsgleichung.",
+    "h": "Lies die Zeilen der Reihe nach und rechne jede Zeile selbst nach.",
     "w": "Zeile 1 stimmt. In Zeile 2 steht der Fehler: 4² = 16, nicht 8. Richtig: x − 1 = 16, also x = 17. Zeile 3 rechnet mit 8 richtig weiter. Probe: √(17 − 1) + 3 = 4 + 3 = 7."
    }
   },
@@ -541,7 +541,7 @@
      "einheit": "m"
     },
     "c": "(3.1 - 0.1) ** 2 * 5",
-    "h": "Die Fallzeit ist kürzer als 3,1 s. Stelle erst t fest, dann löse die Gleichung nach h.",
+    "h": "Welche Zeit gehört zur Fallbewegung allein? Danach brauchst du die Formel.",
     "w": "Fallzeit: 3,1 − 0,1 = 3 s. Aus 3 = √(h : 5) folgt 9 = h : 5, also h = 45 m."
    }
   },
@@ -647,7 +647,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Löse √(x + 20) = x über ℝ auf zwei Wegen. Weg A: Quadriere, löse die entstehende Gleichung und setze beide Kandidaten in die Ausgangsgleichung ein. Weg B: Halte vorher fest, dass die rechte Seite nicht negativ sein darf. Quadriere dann und behalte nur Kandidaten, die diese Bedingung erfüllen. Wie lautet die Lösung?"
+     "text": "Löse √(x + 20) = x über ℝ und vergleiche zwei Absicherungen. Weg A (Einsetzprobe danach): Quadriere, löse die entstehende Gleichung und setze beide Kandidaten in die Ausgangsgleichung ein. Weg B (Vorzeichenbedingung vor dem Quadrieren): Halte zuerst fest, dass die rechte Seite nicht negativ sein darf. Quadriere dann und behalte nur Kandidaten, die diese Bedingung erfüllen. Wie lautet die Lösung?"
     },
     "o": {
      "wert": 5
@@ -713,7 +713,7 @@
     "o": {
      "index": 2
     },
-    "h": "Setze beide Zahlen in die Gleichung √(x + 12) = x ein, also in die Ausgangsgleichung.",
+    "h": "Lies die Zeilen der Reihe nach und prüfe, ob jede Aussage wirklich folgt.",
     "w": "Zeile 1 und 2 stimmen. In Zeile 3 wurde mit der quadrierten Gleichung geprüft. Die Probe muss in der Ausgangsgleichung stattfinden: x = 4 gibt √16 = 4 ✓. x = −3 gibt √9 = 3, aber rechts steht −3. Das stimmt nicht. Richtig ist L = {4}. Zeile 4 folgt aus Zeile 3."
    }
   },
@@ -810,9 +810,9 @@
     },
     {
      "antwort": -4,
-     "fehlbild": "fb.vorzeichen.falsches_zeichen",
-     "regel_des_fehlbilds": "rr.vorzeichen",
-     "beschreibung": "Vorzeichen vertauscht: 5 − 9",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in der falschen Reihenfolge abgezogen: 5 − 9 statt 9 − 5",
      "c": "5 - 9"
     }
    ],
@@ -867,7 +867,7 @@
      "antwort": "Es gibt keine Lösung, weil die Graphen sich nur berühren.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die Graphen schneiden sich, sie berühren sich nicht",
+     "beschreibung": "Die Graphen schneiden sich bei x = 4, sie berühren sich nicht; und auch ein Berührpunkt wäre eine Lösung, denn dort sind die y-Werte gleich",
      "c": null
     }
    ],
@@ -913,7 +913,7 @@
     "o": {
      "index": 2
     },
-    "h": "Eine Lösung ist eine Stelle, an der beide Graphen denselben y-Wert haben. Prüfe x = 1 und x = 4.",
+    "h": "Eine Lösung ist eine Stelle, an der beide Graphen denselben y-Wert haben. Prüfe die Kandidaten im Bild.",
     "w": "Bei x = 4 haben beide Graphen den y-Wert 2: √4 = 2 und 4 − 2 = 2. Bei x = 1 ist √1 = 1, aber 1 − 2 = −1. Dort sind die y-Werte verschieden. Also ist x = 1 eine Scheinlösung."
    }
   },
@@ -1099,7 +1099,7 @@
     "o": {
      "index": 3
     },
-    "h": "Prüfe die Einheit des Ergebnisses. In welcher Einheit ist l angegeben?",
+    "h": "Lies die Zeilen der Reihe nach. Prüfe jede Zeile gegen die Angaben der Aufgabe.",
     "w": "Die Zeilen 1 bis 3 stimmen: l = 6,25. In Zeile 4 steht die falsche Einheit. l ist in Metern angegeben, das Pendel ist also 6,25 m lang."
    }
   }

@@ -20,32 +20,32 @@
    "typ": "Verfahren wählen (einfache Form)",
    "form": "verfahren_waehlen",
    "antwortform": "auswahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "{2; 3; 6; 9}",
+     "antwort": "Nur die Zahlen von 1 bis 9 prüfen, denn größere Zahlen können keine Teiler von 18 sein.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl 1 und die Zahl 18 selbst vergessen",
+     "beschreibung": "die Zahl 18 selbst als Teiler vergessen: Jede Zahl ist Teiler ihrer selbst",
      "c": null
     },
     {
      "index": 2,
-     "antwort": "{1; 2; 3; 6; 9}",
+     "antwort": "Die Vielfachen von 18 aufschreiben: 18, 36, 54, …",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl 18 selbst vergessen",
+     "beschreibung": "Teiler und Vielfache verwechselt",
      "c": null
     },
     {
      "index": 3,
-     "antwort": "{1; 2; 3; 6; 9; 12; 18}",
+     "antwort": "Nur die Primfaktoren 2 und 3 aufschreiben.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl 12 aufgenommen, obwohl sie 18 nicht teilt",
+     "beschreibung": "nur die Primfaktoren genannt: Teiler wie 6, 9 und 18 fehlen dann",
      "c": null
     }
    ],
@@ -57,19 +57,19 @@
     "g": "erkennen",
     "y": "auswahl",
     "f": {
-     "text": "A sind die Teiler von 18. Welche Aufzählung ist A?"
+     "text": "Du sollst die Menge A aller Teiler von 18 vollständig aufzählen. Welche Vorgehensweise führt sicher zum Ziel?"
     },
     "a": [
-     "{2; 3; 6; 9}",
-     "{1; 2; 3; 6; 9; 18}",
-     "{1; 2; 3; 6; 9}",
-     "{1; 2; 3; 6; 9; 12; 18}"
+     "Nur die Zahlen von 1 bis 9 prüfen, denn größere Zahlen können keine Teiler von 18 sein.",
+     "Jede Zahl von 1 bis 18 prüfen: Geht 18 : n ohne Rest auf? Alle Zahlen, bei denen das gilt, aufschreiben.",
+     "Die Vielfachen von 18 aufschreiben: 18, 36, 54, …",
+     "Nur die Primfaktoren 2 und 3 aufschreiben."
     ],
     "o": {
      "index": 1
     },
-    "h": "Prüfe jede Zahl von 1 bis 18: Geht 18 : n ohne Rest auf? Jeder Teiler zählt einmal.",
-    "w": "18 : 1, 18 : 2, 18 : 3, 18 : 6, 18 : 9 und 18 : 18 gehen auf. Also ist A = {1; 2; 3; 6; 9; 18}. 12 teilt 18 nicht."
+    "h": "Ein Teiler geht ohne Rest auf. Welche Zahlen kommen als Teiler überhaupt in Frage?",
+    "w": "Ein Teiler n von 18 geht ohne Rest auf, also 18 : n ohne Rest. Prüft man alle n von 1 bis 18, entdeckt man 1, 2, 3, 6, 9 und 18. So wird keiner vergessen, auch 18 selbst nicht. Vielfache sind etwas anderes, und die Primfaktoren 2 und 3 sind nur zwei der Teiler."
    }
   },
   {
@@ -80,8 +80,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -114,7 +114,7 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Die Menge A enthält alle Vielfachen von 6, die höchstens so groß sind wie die Zahl n. Die Vielfachen beginnen bei 6. A hat genau 5 Elemente. Welches ist der kleinste mögliche Wert von n?"
+     "text": "Die Menge A enthält alle Vielfachen von 6, die höchstens so groß sind wie die natürliche Zahl n. Die Vielfachen beginnen bei 6. A hat genau 5 Elemente. Welches ist der kleinste mögliche Wert von n?"
     },
     "o": {
      "wert": 30
@@ -132,8 +132,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -171,7 +171,7 @@
     "o": {
      "index": 1
     },
-    "h": "Prüfe jede Zahl der Aufzählung: Hat sie außer 1 und sich selbst noch einen Teiler?",
+    "h": "Prüfe jede genannte Zahl anhand der Definition einer Primzahl.",
     "w": "21 = 3 · 7 ist keine Primzahl. Richtig ist A = {11; 13; 17; 19; 23; 29} mit 6 Elementen. Zeile 3 folgt aus der falschen Zeile 2."
    }
   },
@@ -183,8 +183,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -256,8 +256,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -346,8 +346,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -380,7 +380,7 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "A besteht aus den Vielfachen von 4 bis 40. B besteht aus den Vielfachen einer Zahl k bis 40, wobei die Vielfachen bei k beginnen und k mindestens 2 ist. B hat genau 4 Elemente, und es gilt A ∩ B = {20; 40}. Bestimme k."
+     "text": "A besteht aus den Vielfachen von 4 bis 40. B besteht aus den Vielfachen einer natürlichen Zahl k bis 40, wobei die Vielfachen bei k beginnen und k mindestens 2 ist. B hat genau 4 Elemente, und es gilt A ∩ B = {20; 40}. Bestimme k."
     },
     "o": {
      "wert": 10
@@ -398,8 +398,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -471,8 +471,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -523,8 +523,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -560,7 +560,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Aus den Zahlen von 1 bis 20 wird zufällig eine gezogen. A: „durch 2 teilbar“, B: „durch 3 teilbar“. Ben bestimmt P(A und nicht B). Zeile 1: A hat 10 Elemente, B hat 6 Elemente. Zeile 2: A ∩ B besteht aus 6, 12 und 18. Zeile 3: Nur in A liegen 10 − 3 = 7 Zahlen. Zeile 4: P(A und nicht B) = 7 : 20 = 0,45. In welcher Zeile passiert der erste Fehler?"
+     "text": "Aus den Zahlen von 1 bis 20 wird zufällig eine gezogen, jede Zahl mit derselben Wahrscheinlichkeit. A: „durch 2 teilbar“, B: „durch 3 teilbar“. Ben bestimmt P(A und nicht B). Zeile 1: A hat 10 Elemente, B hat 6 Elemente. Zeile 2: A ∩ B besteht aus 6, 12 und 18. Zeile 3: Nur in A liegen 10 − 3 = 7 Zahlen. Zeile 4: P(A und nicht B) = 7 : 20 = 0,45. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -648,8 +648,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -701,8 +701,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -741,7 +741,7 @@
      "wert": 0.2
     },
     "c": "0.6 + 0.5 - (1 - 0.1)",
-    "h": "Wie groß ist P(A ∪ B)? Setze dann in den Additionssatz ein und löse nach P(A ∩ B) auf.",
+    "h": "Was sagt P(Ā ∩ B̄) über P(A ∪ B)? Welche Regel verbindet das mit P(A ∩ B)?",
     "w": "P(A ∪ B) = 1 − 0,1 = 0,9. Aus 0,9 = 0,6 + 0,5 − P(A ∩ B) folgt P(A ∩ B) = 1,1 − 0,9 = 0,2."
    }
   },
@@ -753,8 +753,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -826,8 +826,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -897,8 +897,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -937,7 +937,7 @@
      "wert": 13
     },
     "c": "26 + 22 - (40 - 5)",
-    "h": "Wie viele mögen mindestens eins von beiden? Wie oft wurden Personen bei 26 + 22 doppelt gezählt?",
+    "h": "Wie viele Personen mögen mindestens eins von beiden? Was passiert beim Addieren von 26 und 22?",
     "w": "Mindestens eins mögen 40 − 5 = 35 Personen. Bei 26 + 22 = 48 werden die Personen, die beides mögen, doppelt gezählt: 48 − 35 = 13."
    }
   },
@@ -949,13 +949,13 @@
    "typ": "Verfahren wählen (einfache Form)",
    "form": "verfahren_waehlen",
    "antwortform": "auswahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "A ∪ B hat genau 13 Elemente.",
+     "antwort": "Die Elemente beider Mengen addieren: A ∪ B hat immer 13 Elemente.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Überschneidung nicht beachtet",
@@ -963,7 +963,7 @@
     },
     {
      "index": 2,
-     "antwort": "A ∪ B hat höchstens 5 Elemente.",
+     "antwort": "Nur die kleinere Menge betrachten: A ∪ B hat höchstens 5 Elemente.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die kleinere Menge als Obergrenze genommen",
@@ -971,7 +971,7 @@
     },
     {
      "index": 3,
-     "antwort": "A ∪ B hat genau 40 Elemente.",
+     "antwort": "Die Zahlen der Elemente multiplizieren: A ∪ B hat 8 · 5 = 40 Elemente.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Zahlen der Elemente multipliziert",
@@ -986,19 +986,19 @@
     "g": "erkennen",
     "y": "auswahl",
     "f": {
-     "text": "Die Menge A hat 8 Elemente und die Menge B hat 5 Elemente. Welche Aussage über A ∪ B stimmt immer?"
+     "text": "Die Menge A hat 8 Elemente und die Menge B hat 5 Elemente. Du sollst herausfinden, wie viele Elemente A ∪ B haben kann, wenn du sonst nichts weißt. Welche Vorgehensweise führt zum Ziel?"
     },
     "a": [
-     "A ∪ B hat genau 13 Elemente.",
-     "Die Zahl der Elemente von A ∪ B ist mindestens 8 und höchstens 13.",
-     "A ∪ B hat höchstens 5 Elemente.",
-     "A ∪ B hat genau 40 Elemente."
+     "Die Elemente beider Mengen addieren: A ∪ B hat immer 13 Elemente.",
+     "Die kleinste und die größte mögliche Überschneidung betrachten: Liegt B ganz in A, sind es 8 + 5 − 5 = 8 Elemente. Ohne gemeinsames Element sind es 8 + 5 = 13. Also mindestens 8 und höchstens 13 Elemente.",
+     "Nur die kleinere Menge betrachten: A ∪ B hat höchstens 5 Elemente.",
+     "Die Zahlen der Elemente multiplizieren: A ∪ B hat 8 · 5 = 40 Elemente."
     ],
     "o": {
      "index": 1
     },
     "h": "Fange mit der kleinstmöglichen und der größtmöglichen Überschneidung an.",
-    "w": "Liegt B ganz in A, dann hat A ∪ B nur 8 Elemente. Haben A und B kein gemeinsames Element, dann hat A ∪ B 8 + 5 = 13 Elemente. Dazwischen ist alles möglich."
+    "w": "Liegt B ganz in A, dann hat A ∪ B nur 8 Elemente. Haben A und B kein gemeinsames Element, dann hat A ∪ B 8 + 5 = 13 Elemente. Dazwischen ist alles möglich. Die Vereinigung hat also mindestens 8 und höchstens 13 Elemente."
    }
   },
   {
@@ -1009,8 +1009,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1061,8 +1061,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1098,7 +1098,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "A hat 12 Elemente, B hat 7 Elemente, A ∩ B hat 4 Elemente. Jana bestimmt, wie viele Elemente A ∪ B hat. Zeile 1: Nur in A liegen 12 − 4 = 8 Elemente. Zeile 2: Nur in B liegen 7 − 4 = 3 Elemente. Zeile 3: A ∪ B besteht aus den Elementen nur in A und nur in B, zusammen 11 Elemente. Zeile 4: Außerhalb von B liegen in A ∪ B dann 11 − 7 = 4 Elemente. In welcher Zeile passiert der erste Fehler?"
+     "text": "A hat 12 Elemente, B hat 7 Elemente, A ∩ B hat 4 Elemente. Jana bestimmt, wie viele Elemente A ∪ B hat. Zeile 1: Nur in A liegen 12 − 4 = 8 Elemente. Zeile 2: Nur in B liegen 7 − 4 = 3 Elemente. Zeile 3: A ∪ B besteht nur aus den Elementen, die nur in A oder nur in B liegen. Zeile 4: Also hat die Vereinigung 11 Elemente. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1109,8 +1109,8 @@
     "o": {
      "index": 2
     },
-    "h": "Die vier Elemente im Schnitt gehören zu A ∪ B. Wurden sie mitgezählt?",
-    "w": "Zeile 3 vergisst die 4 Elemente von A ∩ B. Richtig ist 8 + 3 + 4 = 15. Zeile 4 folgt aus der falschen Zeile 3."
+    "h": "Prüfe jede Zeile gegen die Angaben: Welche Elemente gehören zu A ∪ B?",
+    "w": "Zeile 3 vergisst die 4 Elemente von A ∩ B. Richtig ist 8 + 3 + 4 = 15. Zeile 4 folgt aus der falschen Zeile 3: 8 + 3 = 11."
    }
   },
   {
@@ -1121,8 +1121,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -1174,7 +1174,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Von 120 Gästen eines Festes haben 70 gegessen (A), 45 von ihnen haben auch getrunken (B). Insgesamt haben 60 getrunken. In der Vierfeldertafel steht bei „A und nicht B“ die Zahl ①. Dann steht bei „A oder B“ die Zahl ②. Also steht bei „weder A noch B“ die Zahl ③.",
+     "text": "Von 120 Gästen eines Festes haben 70 gegessen (A), 45 von ihnen haben auch getrunken (B). Insgesamt haben 60 getrunken. In der Vierfeldertafel steht bei „A und nicht B“ die Zahl ①. Dann ist die Summe der drei Innenfelder „A und nicht B“, „A und B“ und „nicht A und B“ gleich ②. Also steht bei „weder A noch B“ die Zahl ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -1191,7 +1191,7 @@
      "120 - (85)"
     ],
     "h": "Trage 120, 70, 60 und 45 in die Tafel ein. Rechne dann Zeile für Zeile.",
-    "w": "A und nicht B: 70 − 45 = 25. Nur B: 60 − 45 = 15. A oder B: 25 + 45 + 15 = 85. Weder noch: 120 − 85 = 35."
+    "w": "A und nicht B: 70 − 45 = 25. Nur B: 60 − 45 = 15. Die drei Innenfelder zusammen: 25 + 45 + 15 = 85. Weder noch: 120 − 85 = 35."
    }
   },
   {
@@ -1202,8 +1202,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1273,8 +1273,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1313,7 +1313,7 @@
      "wert": 50
     },
     "c": "120 + 100 - (200 - 30)",
-    "h": "Wie viele Personen haben mindestens eines der Merkmale? Wie viele werden bei 120 + 100 doppelt gezählt?",
+    "h": "Was weißt du über die Zahl der Personen mit mindestens einem Merkmal? Was passiert beim Addieren von 120 und 100?",
     "w": "A oder B haben 200 − 30 = 170 Personen. Aus 170 = 120 + 100 − x folgt x = 220 − 170 = 50."
    }
   },
@@ -1370,7 +1370,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Tafel zeigt 200 Personen. A: „fährt Rad“, B: „fährt Bus“. Eine Person wird zufällig ausgewählt. Dann ist P(A) = ① %. Weiter ist P(B) = ② %. Also ist P(A ∪ B) = ③ %.",
+     "text": "Die Tafel zeigt 200 Personen. A: „fährt Rad“, B: „fährt Bus“. Eine Person wird zufällig ausgewählt, jede mit derselben Wahrscheinlichkeit. Dann ist P(A) = ① %. Weiter ist P(B) = ② %. Also ist P(A ∪ B) = ③ %.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ).",
      "grafik": {
@@ -1427,8 +1427,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1543,7 +1543,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Die Tafel zeigt 250 Personen. Eine Person wird zufällig ausgewählt. Mit welcher Wahrscheinlichkeit trifft genau eines der Merkmale A und B zu? Gib das Ergebnis in Prozent an. Weg A: Addiere die Felder „A und nicht B“ und „nicht A und B“. Weg B: Nimm P(A) + P(B) und ziehe P(A ∩ B) zweimal ab.",
+     "text": "Die Tafel zeigt 250 Personen. Eine Person wird zufällig ausgewählt, jede mit derselben Wahrscheinlichkeit. Mit welcher Wahrscheinlichkeit trifft genau eines der Merkmale A und B zu? Gib das Ergebnis in Prozent an. Weg A: Addiere die Felder „A und nicht B“ und „nicht A und B“. Weg B: Nimm P(A) + P(B) und ziehe P(A ∩ B) zweimal ab.",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
@@ -1597,43 +1597,51 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 9,
+     "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Mädchen mit Haustier genannt",
-     "c": "9"
+     "beschreibung": "die Jungen mit Haustier genannt statt der Mädchen",
+     "c": "3"
+    },
+    {
+     "luecke": 1,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Kinder mit Haustier genannt",
+     "c": "12"
     },
     {
      "luecke": 2,
      "antwort": 25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Anteil der Jungen statt der Mädchen angegeben",
-     "c": "(3) * 100 / 12"
+     "beschreibung": "den Anteil der Jungen statt der Mädchen angegeben (3 von 12 Kindern mit Haustier)",
+     "c": "(12 - (9)) * 100 / 12"
     },
     {
      "luecke": 2,
      "antwort": 45,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch alle Kinder der Klasse geteilt",
-     "c": "9 * 100 / 20"
+     "beschreibung": "durch alle 20 Kinder der Klasse geteilt",
+     "c": "(9) * 100 / 20"
     },
     {
      "luecke": 3,
      "antwort": 75,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Bedingung und Ereignis vertauscht",
-     "c": "9 * 100 / 12"
+     "beschreibung": "Bedingung und Ereignis vertauscht: durch die 12 Kinder mit Haustier statt durch die 15 Mädchen geteilt",
+     "c": "(9) * 100 / 12"
     },
     {
      "luecke": 3,
      "antwort": 45,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch alle Kinder der Klasse geteilt",
-     "c": "9 * 100 / 20"
+     "beschreibung": "durch alle 20 Kinder der Klasse geteilt",
+     "c": "(9) * 100 / 20"
     }
    ],
    "aufgabe": {
@@ -1644,24 +1652,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "In einer Klasse mit 20 Kindern haben 12 ein Haustier (A). 9 dieser 12 Kinder sind Mädchen (B). Insgesamt sind 15 Kinder Mädchen. Unter den Kindern mit Haustier sind ① Jungen. Also ist P_A(B) = ② %. Dann ist P_B(A) = ③ %.",
+     "text": "In einer Klasse mit 20 Kindern haben 12 ein Haustier (A). Von den zwölf Kindern mit Haustier sind drei Jungen. Insgesamt sind 15 Kinder Mädchen (B). Unter den Kindern mit Haustier sind ① Mädchen. Also ist P_A(B) = ② %. Dann ist P_B(A) = ③ %.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      3,
+      9,
       75,
       60
      ]
     },
     "c": [
-     "12 - 9",
-     "(12 - (3)) * 100 / 12",
-     "(12 - (3)) * 100 / 15"
+     "12 - 3",
+     "(9) * 100 / 12",
+     "(9) * 100 / 15"
     ],
-    "h": "P_A(B) betrachtet nur die Kinder mit Haustier. P_B(A) betrachtet nur die Mädchen.",
-    "w": "Jungen mit Haustier: 12 − 9 = 3. P_A(B) = 9 : 12 = 75 %. P_B(A) = 9 : 15 = 60 %."
+    "h": "Die Mädchen mit Haustier gehören zu A und zu B. P_A(B) betrachtet nur die Kinder mit Haustier. P_B(A) betrachtet nur die Mädchen.",
+    "w": "Mädchen mit Haustier: 12 − 3 = 9. P_A(B) = 9 : 12 = 75 %. P_B(A) = 9 : 15 = 60 %."
    }
   },
   {
@@ -1672,8 +1680,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1766,7 +1774,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "beschreibung": "Diese Zeile ist richtig, weil in der Tafel 80 Personen B haben und 30 von ihnen auch A. Sie gehört aber zur falschen Bedingung aus Zeile 1. Der erste Fehler steht früher.",
      "c": null
     },
     {
@@ -1786,7 +1794,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Die Tafel zeigt 200 Personen. Tom bestimmt P_A(B), also die Wahrscheinlichkeit für B unter der Bedingung A. Zeile 1: Die Bedingung ist B, also zählen nur die Personen mit B. Zeile 2: Das sind 80 Personen, davon haben 30 auch A. Zeile 3: P_A(B) = 30 : 80 = 0,375. In welcher Zeile passiert der erste Fehler?",
+     "text": "Die Tafel zeigt 200 Personen. Tom bestimmt P_A(B). Zeile 1: Die Bedingung ist B, also zählen nur die Personen mit B. Zeile 2: Das sind 80 Personen, davon haben 30 auch A. Zeile 3: P_A(B) = 30 : 80 = 0,375. In welcher Zeile passiert der erste Fehler?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
@@ -1825,7 +1833,7 @@
     "o": {
      "index": 0
     },
-    "h": "Welche Gruppe steht nach dem Zeichen P_A(B) vor der Klammer, und welche Gruppe ist bekannt?",
+    "h": "Lies die Zeilen der Reihe nach. Wofür steht die Schreibweise P_A(B)?",
     "w": "Bei P_A(B) ist A die Bedingung, nur die 100 Personen mit A zählen. Richtig ist P_A(B) = 30 : 100 = 0,3. Die Zeilen 2 und 3 rechnen mit der falschen Gruppe, aber richtig weiter."
    }
   },
@@ -1837,8 +1845,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -1926,8 +1934,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1978,8 +1986,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -2019,7 +2027,7 @@
      "einheit": "%"
     },
     "c": "round(81.81818181818183, 0)",
-    "h": "Beide Wege müssen auf ganze Prozent gerundet dasselbe ergeben. Teile die richtigen Meldungen durch alle Meldungen.",
+    "h": "Beide Wege müssen auf ganze Prozent gerundet dasselbe ergeben. Überlege, welche Gruppe hier die Bedingung bildet.",
     "w": "Weg A: Von 1 000 Bauteilen sind 200 defekt, 180 davon werden gemeldet. Von den 800 intakten werden 40 gemeldet. Gemeldet werden 220, davon sind 180 defekt: 180 : 220 ≈ 0,818. Weg B: 0,2 · 0,9 = 0,18 und 0,8 · 0,05 = 0,04. Dann ist 0,18 : 0,22 ≈ 0,818. Das sind etwa 82 %."
    }
   },
@@ -2031,32 +2039,32 @@
    "typ": "Verfahren wählen (einfache Form)",
    "form": "verfahren_waehlen",
    "antwortform": "auswahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "P(A ∩ B) ist genau 0,42.",
+     "antwort": "P(A) und P(B) malnehmen: P(A ∩ B) = 0,6 · 0,7 = 0,42.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Wahrscheinlichkeiten multipliziert, ohne zu wissen, ob die Ereignisse unabhängig sind",
+     "beschreibung": "die Wahrscheinlichkeiten multipliziert, obwohl nicht bekannt ist, ob die Ereignisse unabhängig sind",
      "c": null
     },
     {
      "index": 1,
-     "antwort": "P(A ∩ B) kann 0 sein.",
+     "antwort": "Annehmen, dass A und B keine gemeinsamen Ergebnisse haben: P(A ∩ B) = 0.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Summe über 1 nicht beachtet",
+     "beschreibung": "die Summe 0,6 + 0,7 = 1,3 über 1 nicht beachtet: dann müssen sich A und B überschneiden",
      "c": null
     },
     {
      "index": 2,
-     "antwort": "P(A ∩ B) ist höchstens 0,3.",
+     "antwort": "P(A) und P(B) addieren: P(A ∩ B) = 0,6 + 0,7 = 1,3.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Unter- und Obergrenze vertauscht",
+     "beschreibung": "Schnitt und Vereinigung verwechselt: eine Wahrscheinlichkeit über 1 ist unmöglich",
      "c": null
     }
    ],
@@ -2068,19 +2076,19 @@
     "g": "erkennen",
     "y": "auswahl",
     "f": {
-     "text": "Für zwei Ereignisse gilt P(A) = 0,6 und P(B) = 0,7. Was weißt du über P(A ∩ B)?"
+     "text": "Für zwei Ereignisse gilt P(A) = 0,6 und P(B) = 0,7. Mehr ist nicht bekannt. Du sollst P(A ∩ B) so gut wie möglich eingrenzen. Welche Vorgehensweise führt zum Ziel?"
     },
     "a": [
-     "P(A ∩ B) ist genau 0,42.",
-     "P(A ∩ B) kann 0 sein.",
-     "P(A ∩ B) ist höchstens 0,3.",
-     "P(A ∩ B) ist mindestens 0,3."
+     "P(A) und P(B) malnehmen: P(A ∩ B) = 0,6 · 0,7 = 0,42.",
+     "Annehmen, dass A und B keine gemeinsamen Ergebnisse haben: P(A ∩ B) = 0.",
+     "P(A) und P(B) addieren: P(A ∩ B) = 0,6 + 0,7 = 1,3.",
+     "Mit dem Additionssatz und P(A ∪ B) ≤ 1 die untere Grenze bestimmen: 0,6 + 0,7 − 1 = 0,3. Die obere Grenze ist die kleinere der beiden Wahrscheinlichkeiten, 0,6. Ergebnis: 0,3 ≤ P(A ∩ B) ≤ 0,6. Der genaue Wert ist offen."
     ],
     "o": {
      "index": 3
     },
-    "h": "P(A ∪ B) darf nicht größer als 1 sein. Was folgt daraus für den Schnitt?",
-    "w": "Aus P(A ∪ B) = 0,6 + 0,7 − P(A ∩ B) ≤ 1 folgt P(A ∩ B) ≥ 0,3. Genaueres weißt du nicht, die Ereignisse könnten auch abhängig sein."
+    "h": "P(A ∪ B) darf nicht größer als 1 sein. Was folgt daraus für den Schnitt? Und der Schnitt kann nie größer sein als jede der beiden Mengen.",
+    "w": "Aus P(A ∪ B) = 0,6 + 0,7 − P(A ∩ B) ≤ 1 folgt P(A ∩ B) ≥ 0,3. Außerdem liegt A ∩ B in A und in B, also ist P(A ∩ B) ≤ 0,6. Genaueres weißt du nicht, die Ereignisse könnten auch abhängig sein."
    }
   },
   {
@@ -2091,8 +2099,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -2125,7 +2133,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Würfel wird zweimal geworfen. Wie viele der 36 möglichen Zahlenpaare haben die Augensumme mindestens 10? Weg A: Schreibe die passenden Paare auf. Weg B: Nimm das Gegenereignis „Augensumme höchstens 9“."
+     "text": "Ein fairer Würfel wird zweimal unabhängig geworfen, alle 36 Zahlenpaare sind gleich wahrscheinlich. Wie viele der 36 möglichen Zahlenpaare haben die Augensumme mindestens 10? Weg A: Schreibe die passenden Paare auf. Weg B: Nimm das Gegenereignis „Augensumme höchstens 9“."
     },
     "o": {
      "wert": 6
@@ -2143,8 +2151,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -2172,7 +2180,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "In einer Urne liegen 3 rote und 2 blaue Kugeln. Es wird zweimal zufällig ohne Zurücklegen gezogen. Mia bestimmt P(zwei rote Kugeln). Zeile 1: Beim ersten Zug ist die Wahrscheinlichkeit für rot 3/5. Zeile 2: Beim zweiten Zug liegen 4 Kugeln in der Urne, davon 3 rote: 3/4. Zeile 3: P(zwei rote Kugeln) = 3/5 · 3/4 = 9/20. In welcher Zeile passiert der erste Fehler?"
+     "text": "In einer Urne liegen 3 rote und 2 blaue Kugeln. Es wird zweimal ohne Zurücklegen gezogen, bei jedem Zug hat jede noch vorhandene Kugel dieselbe Wahrscheinlichkeit. Mia bestimmt P(zwei rote Kugeln). Zeile 1: Beim ersten Zug ist die Wahrscheinlichkeit für rot 3/5. Zeile 2: Beim zweiten Zug liegen 4 Kugeln in der Urne, davon 3 rote: 3/4. Zeile 3: P(zwei rote Kugeln) = 3/5 · 3/4 = 9/20. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -2182,7 +2190,7 @@
     "o": {
      "index": 1
     },
-    "h": "Nach dem ersten Zug wurde eine rote Kugel entnommen und nicht zurückgelegt. Wie viele rote Kugeln bleiben?",
+    "h": "Lies die Zeilen der Reihe nach. Prüfe jede Zeile gegen die Beschreibung des Ziehens.",
     "w": "Nach einer roten Kugel bleiben 2 rote unter 4 Kugeln, also 2/4. Richtig ist P = 3/5 · 2/4 = 6/20 = 3/10. Zeile 3 rechnet mit der falschen Zeile 2 richtig weiter."
    }
   }

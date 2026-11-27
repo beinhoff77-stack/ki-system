@@ -65,7 +65,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "In einer Urne liegen 4 rote, 7 blaue und 9 grüne Kugeln. Eine Kugel wird zufällig gezogen. Die Zahl der günstigen Kugeln für „nicht blau“ ist ①. Die Zahl aller Kugeln ist ②. Also ist P(nicht blau) gleich ③ %.",
+     "text": "In einer Urne liegen 4 rote, 7 blaue und 9 grüne Kugeln. Eine Kugel wird zufällig gezogen, jede Kugel mit derselben Wahrscheinlichkeit. Die Zahl der günstigen Kugeln für „nicht blau“ ist ①. Die Zahl aller Kugeln ist ②. Also ist P(nicht blau) gleich ③ %.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -115,7 +115,7 @@
      "antwort": 30,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahlen, die durch beides teilbar sind, doppelt abgezogen",
+     "beschreibung": "die Zahlen, die durch beides teilbar sind, nicht wieder dazugerechnet, also nur 6 von 20 Zahlen als passend gezählt",
      "c": "(20 - 10 - 4) * 100 / 20"
     }
    ],
@@ -127,7 +127,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Aus den Zahlen 1 bis 20 wird zufällig eine gezogen. Wie groß ist die Wahrscheinlichkeit in Prozent, dass sie weder durch 2 noch durch 5 teilbar ist? Weg A: Schreibe alle passenden Zahlen auf und zähle sie. Weg B: Zähle die durch 2 oder durch 5 teilbaren Zahlen mit dem Additionssatz (Überschneidung abziehen) und nimm das Gegenereignis."
+     "text": "Aus den Zahlen 1 bis 20 wird zufällig eine gezogen, jede Zahl mit derselben Wahrscheinlichkeit. Wie groß ist die Wahrscheinlichkeit in Prozent, dass sie weder durch 2 noch durch 5 teilbar ist? Weg A: Schreibe alle passenden Zahlen auf und zähle sie. Weg B: Zähle die durch 2 oder durch 5 teilbaren Zahlen mit dem Additionssatz (Überschneidung abziehen) und nimm das Gegenereignis."
     },
     "o": {
      "wert": 40,
@@ -180,13 +180,13 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Eine Urne enthält 20 Kugeln in den Farben rot, blau und grün. Es gilt P(rot) = 0,4. Es gibt doppelt so viele blaue wie grüne Kugeln. Wie viele grüne Kugeln liegen in der Urne?"
+     "text": "Eine Urne enthält 20 Kugeln in den Farben rot, blau und grün. Jede Kugel wird mit derselben Wahrscheinlichkeit gezogen, und es gilt P(rot) = 0,4. Es gibt doppelt so viele blaue wie grüne Kugeln. Wie viele grüne Kugeln liegen in der Urne?"
     },
     "o": {
      "wert": 4
     },
     "c": "(20 - 20 * 0.4) / 3",
-    "h": "Wie viele rote Kugeln gibt es? Was bleibt dann für blau und grün zusammen? Das ist ein Vielfaches der Zahl grüner Kugeln.",
+    "h": "Gesucht ist die Zahl grüner Kugeln. Welche Angaben legen die Zahl der anderen Farben fest?",
     "w": "Rot: 0,4 · 20 = 8 Kugeln. Blau und grün zusammen: 20 − 8 = 12. Mit g grünen und 2g blauen Kugeln gilt 3g = 12, also g = 4. Probe: 8 + 8 + 4 = 20."
    }
   },
@@ -235,7 +235,7 @@
     "g": "erkennen",
     "y": "auswahl",
     "f": {
-     "text": "Du sollst prüfen, ob ein Zufallsexperiment ein Laplace-Experiment ist. Welche Frage musst du beantworten?"
+     "text": "Du sollst prüfen, ob ein Zufallsexperiment mit endlich vielen möglichen Ergebnissen ein Laplace-Experiment ist. Welche Frage musst du beantworten?"
     },
     "a": [
      "Haben alle möglichen Ergebnisse dieselbe Wahrscheinlichkeit?",
@@ -375,7 +375,7 @@
     "g": "parameter",
     "y": "zahl",
     "f": {
-     "text": "Ein Würfel hat auf seinen sechs gleich großen Seiten die Zahlen 1, 2, 3, 4, 5 und x. Das Ergebnis ist die oben liegende Zahl. Dabei ist x eine ganze Zahl von 1 bis 12. Für wie viele Werte von x ist das Werfen ein Laplace-Experiment?"
+     "text": "Ein fairer sechsseitiger Würfel (jede Seite fällt mit derselben Wahrscheinlichkeit) hat auf seinen sechs Seiten die Zahlen 1, 2, 3, 4, 5 und x. Das Ergebnis ist die oben liegende Zahl. Dabei ist x eine ganze Zahl von 1 bis 12. Für wie viele Werte von x ist das Werfen ein Laplace-Experiment?"
     },
     "o": {
      "wert": 7
@@ -430,7 +430,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Zwei faire Würfel werden geworfen. Das Ergebnis ist ein Zahlenpaar. A: Die Augensumme ist größer als 4. Die Zahl aller möglichen Paare ist ①. Das Gegenereignis (Augensumme höchstens 4) hat ② Paare. Also hat A genau ③ Paare.",
+     "text": "Zwei faire Würfel werden unabhängig voneinander geworfen. Das Ergebnis ist ein Zahlenpaar. A: Die Augensumme ist größer als 4. Die Zahl aller möglichen Paare ist ①. Das Gegenereignis (Augensumme höchstens 4) hat ② Paare. Also hat A genau ③ Paare.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -485,7 +485,7 @@
     "g": "darstellung",
     "y": "zahl",
     "f": {
-     "text": "Das Kreisdiagramm zeigt, wie die Kinder einer Schule zur Schule kommen. Ein Kind wird zufällig ausgewählt. Wie groß ist die Wahrscheinlichkeit in Prozent, dass es nicht mit dem Bus kommt?",
+     "text": "Das Kreisdiagramm zeigt, wie die Kinder einer Schule zur Schule kommen. Ein Kind wird zufällig ausgewählt, jedes Kind mit derselben Wahrscheinlichkeit. Wie groß ist die Wahrscheinlichkeit in Prozent, dass es nicht mit dem Bus kommt?",
      "grafik": {
       "typ": "kreisdiagramm",
       "einheit": " %",
@@ -561,14 +561,14 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Bei einem Brettspiel darf man mit einem fairen Würfel dreimal würfeln. Man gewinnt, wenn mindestens eine Sechs fällt. Wie groß ist die Gewinnwahrscheinlichkeit? Runde auf ganze Prozent."
+     "text": "Bei einem Brettspiel darf man mit einem fairen Würfel dreimal würfeln. Die drei Würfe sind unabhängig voneinander. Man gewinnt, wenn mindestens eine Sechs fällt. Wie groß ist die Gewinnwahrscheinlichkeit? Runde auf ganze Prozent."
     },
     "o": {
      "wert": 42,
      "einheit": "%"
     },
     "c": "round(42.12962962962962, 0)",
-    "h": "Das Gegenereignis von „mindestens eine Sechs“ ist „keine Sechs in allen drei Würfen“.",
+    "h": "Überlege, ob das Gegenereignis einfacher zu berechnen ist.",
     "w": "P(keine Sechs in einem Wurf) = 5/6. In drei Würfen: (5/6)³ = 125/216 ≈ 0,579. Gegenereignis: 1 − 0,579 = 0,421, also etwa 42 %."
    }
   },
@@ -580,8 +580,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -617,7 +617,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Reißnagel landet in 500 Würfen 180-mal mit der Spitze nach oben. Die relative Häufigkeit dafür ist ① %. Damit erwartet man bei 2 000 weiteren Würfen ungefähr ② Würfe mit der Spitze nach oben. Also erwartet man bei allen 2 500 Würfen insgesamt ungefähr ③ Würfe mit der Spitze nach oben.",
+     "text": "Ein Reißnagel landet in 500 Würfen 180-mal mit der Spitze nach oben. Alle Würfe sind unabhängig und laufen unter gleichen Bedingungen. Die relative Häufigkeit dafür ist ① %. Damit erwartet man bei 2 000 weiteren Würfen ungefähr ② Würfe mit der Spitze nach oben. Also erwartet man bei allen 2 500 Würfen insgesamt ungefähr ③ Würfe mit der Spitze nach oben.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -645,8 +645,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -697,8 +697,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -731,15 +731,15 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Mit einem Glücksrad wurden drei Versuchsreihen gemacht: 50 Drehungen mit 18 Treffern, 200 Drehungen mit 66 Treffern und 1 000 Drehungen mit 331 Treffern. Schätze die Wahrscheinlichkeit für einen Treffer in Prozent, auf ganze Prozent gerundet. Weg A: Nimm nur die längste Reihe. Weg B: Fasse alle drei Reihen zusammen."
+     "text": "Ein Glücksrad wird unter gleichen Bedingungen gedreht, die Drehungen sind unabhängig. Es wurden drei Versuchsreihen gemacht: 50 Drehungen mit 18 Treffern, 200 Drehungen mit 66 Treffern und 1 000 Drehungen mit 331 Treffern. Schätze die Wahrscheinlichkeit für einen Treffer anhand der relativen Häufigkeit, in Prozent und auf ganze Prozent gerundet. Weg A: Nimm nur die längste Reihe. Weg B: Fasse alle drei Reihen zusammen."
     },
     "o": {
      "wert": 33,
      "einheit": "%"
     },
     "c": "round(33.2, 0)",
-    "h": "Beide Wege müssen auf ganze Prozent gerundet dasselbe ergeben.",
-    "w": "Weg A: 331 : 1 000 = 33,1 %. Weg B: (18 + 66 + 331) : (50 + 200 + 1 000) = 415 : 1 250 = 33,2 %. Gerundet sind es in beiden Fällen 33 %. Je mehr Versuche, desto verlässlicher die Schätzung."
+    "h": "Rechne beide Wege aus und runde jeweils auf ganze Prozent.",
+    "w": "Weg A: 331 : 1 000 = 33,1 %. Weg B: (18 + 66 + 331) : (50 + 200 + 1 000) = 415 : 1 250 = 33,2 %. Gerundet sind es in beiden Fällen 33 %. Dass beide Wege gerundet denselben Wert liefern, gilt nur für diese Daten; bei anderen Reihen können sich die Schätzwerte unterscheiden. Je mehr Versuche, desto verlässlicher die Schätzung."
    }
   }
  ]

@@ -27,9 +27,9 @@
     {
      "luecke": 1,
      "antwort": -4,
-     "fehlbild": "fb.vorzeichen.falsches_zeichen",
-     "regel_des_fehlbilds": "rr.vorzeichen",
-     "beschreibung": "das Vorzeichen falsch: −8 : 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl vor x halbiert (−8 : 2) und das Vorzeichen nicht gewechselt",
      "c": "-8 / 2"
     },
     {
@@ -65,7 +65,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Gegeben ist f(x) = x² − 8x + 3. Die x-Koordinate des Scheitels ist ①. Dann ist der y-Wert des Scheitels ②. Also hat der Punkt mit x = 1 denselben y-Wert wie der Punkt mit x = ③.",
+     "text": "Gegeben ist f(x) = x² − 8x + 3. Die x-Koordinate des Scheitels ist ①. Dann ist der y-Wert des Scheitels ②. Die andere Stelle x ≠ 1 mit demselben Funktionswert ist ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -81,8 +81,8 @@
      "(4) ** 2 - 8 * (4) + 3",
      "2 * (4) - 1"
     ],
-    "h": "Der Scheitel liegt in der Mitte zwischen den beiden Stellen mit gleichem y-Wert. Die Hälfte der Zahl vor x führt dich dorthin.",
-    "w": "x_S = 8 : 2 = 4. f(4) = 16 − 32 + 3 = −13. Die Parabel ist symmetrisch zu x = 4: Zu x = 1 (3 links vom Scheitel) gehört x = 4 + 3 = 7. Probe: f(1) = 1 − 8 + 3 = −4 und f(7) = 49 − 56 + 3 = −4."
+    "h": "Der Scheitel liegt in der Mitte zwischen den beiden Stellen mit gleichem y-Wert. Die x-Koordinate ist −b : (2a) mit den Zahlen b und a aus f(x) = ax² + bx + c.",
+    "w": "x_S = −b : (2a) = 8 : 2 = 4. f(4) = 16 − 32 + 3 = −13. Die Parabel ist symmetrisch zu x = 4: Zu x = 1 (3 links vom Scheitel) gehört x = 4 + 3 = 7. Probe: f(1) = 1 − 8 + 3 = −4 und f(7) = 49 − 56 + 3 = −4."
    }
   },
   {
@@ -118,7 +118,7 @@
      "antwort": "f(x) = (x − 1)² − 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "d und e vertauscht",
+     "beschreibung": "Du liest den Scheitel als (1 | −2).",
      "c": null
     }
    ],
@@ -191,7 +191,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "beschreibung": "Die Aussage selbst stimmt: Wegen a = −2 < 0 ist der Scheitel der höchste Punkt. Falsch ist nur der Punkt S(3 | 4), der aus Zeile 1 stammt; er liegt nicht auf dem Graphen. Der erste Fehler steht früher.",
      "c": null
     }
    ],
@@ -213,8 +213,8 @@
     "o": {
      "index": 0
     },
-    "h": "Schreibe x + 3 in der Form x − d. Welche Zahl ist dann d? Setze zur Probe x = 3 und x = −3 ein.",
-    "w": "Zeile 1 enthält den Fehler: x + 3 = x − (−3), also ist d = −3. Der Scheitel ist S(−3 | 4). Zeile 2 folgt aus Zeile 1, Zeile 3 ist eine richtige Aussage. Probe: f(−3) = 4, und f(3) = −72 + 4 = −68."
+    "h": "Der Scheitel liegt dort, wo die Klammer null wird. Prüfe diese Stelle.",
+    "w": "Zeile 1 enthält den Fehler: x + 3 = x − (−3), also ist d = −3. Der Scheitel ist S(−3 | 4). Zeile 2 folgt aus Zeile 1. Zeile 3 ist als allgemeine Aussage richtig (a < 0: Öffnung nach unten, der Scheitel ist der höchste Punkt); falsch ist nur ihre Anwendung auf S(3 | 4), und das ist ein Folgefehler aus Zeile 1. Probe: f(−3) = 4, und f(3) = −72 + 4 = −68, also liegt S(3 | 4) nicht auf dem Graphen."
    }
   },
   {
@@ -455,9 +455,9 @@
     {
      "luecke": 1,
      "antwort": -3,
-     "fehlbild": "fb.vorzeichen.falsches_zeichen",
-     "regel_des_fehlbilds": "rr.vorzeichen",
-     "beschreibung": "das Vorzeichen falsch: −6 : 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl vor x halbiert (−6 : 2) und das Vorzeichen nicht gewechselt",
      "c": "-6 / 2"
     },
     {
@@ -493,7 +493,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Parabel f(x) = x² − 6x + 13 hat den Scheitel S(① | ②). Spiegelt man an der x-Achse, so hat der neue Scheitel die y-Koordinate ③. Also hat nach einer Spiegelung an der y-Achse der neue Scheitel die x-Koordinate ④.",
+     "text": "Die Parabel f(x) = x² − 6x + 13 hat den Scheitel S(① | ②). Spiegle jeweils die Ausgangsparabel. Spiegelt man an der x-Achse, so hat der neue Scheitel die y-Koordinate ③. Spiegelt man dagegen an der y-Achse, so hat der neue Scheitel die x-Koordinate ④.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -623,7 +623,7 @@
     "o": {
      "index": 3
     },
-    "h": "Beim Spiegeln an der y-Achse bleiben die y-Werte erhalten. Welche Zahl im Term ändert den y-Wert des Scheitels?",
+    "h": "Prüfe jede Zeile an einem Punkt. Was bleibt beim Spiegeln an der y-Achse gleich?",
     "w": "Die Zeilen 1 bis 3 stimmen: g(x) = (x + 2)² + 3. In Zeile 4 wurde das Vorzeichen von e verändert. Bei der Spiegelung an der y-Achse bleibt e gleich. Probe: g(0) = 7 = f(0)."
    }
   },
@@ -783,7 +783,7 @@
      "antwort": 25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit falschem Vorzeichen: 7 + 2 · 9",
+     "beschreibung": "den Ausgleich −2 · 9 mit falschem Vorzeichen addiert: 7 + 2 · 9",
      "c": "7 + 2 * 9"
     },
     {
@@ -851,9 +851,9 @@
     {
      "luecke": 3,
      "antwort": -5,
-     "fehlbild": "fb.vorzeichen.falsches_zeichen",
-     "regel_des_fehlbilds": "rr.vorzeichen",
-     "beschreibung": "das Vorzeichen der größeren Nullstelle genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Gegenzahl der größeren Nullstelle genommen: −5",
      "c": "-5"
     }
    ],
@@ -882,7 +882,7 @@
      "6 - (5)"
     ],
     "h": "Löse f(x) = 0 wie eine Gleichung: erst 24 auf die andere Seite, dann durch den Faktor teilen. Die beiden Nullstellen liegen gleich weit von der Mitte entfernt.",
-    "w": "6(x − 3)² = 24 gibt (x − 3)² = 4. Also x − 3 = 2 oder x − 3 = −2, das heißt x = 5 oder x = 1. Probe: 6 · 4 − 24 = 0 und 6 · 4 − 24 = 0."
+    "w": "6(x − 3)² = 24 gibt (x − 3)² = 4. Also x − 3 = 2 oder x − 3 = −2, das heißt x = 5 oder x = 1. Probe: 6 · (5 − 3)² − 24 = 0 und 6 · (1 − 3)² − 24 = 0."
    }
   },
   {
@@ -946,7 +946,7 @@
      "antwort": 15,
      "fehlbild": "fb.vorzeichen.falsches_zeichen",
      "regel_des_fehlbilds": "rr.vorzeichen",
-     "beschreibung": "das Vorzeichen vergessen: 3 · 5",
+     "beschreibung": "(−3) · 5 als 3 · 5 gerechnet: das Minus des Produkts vergessen",
      "c": "3 * 5"
     },
     {
@@ -978,7 +978,7 @@
      "wert": -15
     },
     "c": "3 * (-5)",
-    "h": "Schreibe die Parabel mit den Nullstellen als (x − 3)(x + 5) und multipliziere aus.",
+    "h": "Die Nullstellen bestimmen die Faktoren der Parabel. Wie kommst du daraus auf b und c?",
     "w": "(x − 3)(x + 5) = x² + 2x − 15. Also ist b = 2 und c = −15. Probe: 9 + 6 − 15 = 0 und 25 − 10 − 15 = 0."
    }
   },
@@ -1139,7 +1139,7 @@
     "o": {
      "index": 0
     },
-    "h": "Rechne (−3)² und −3² einzeln aus. Sind sie gleich?",
+    "h": "Prüfe, wie Zeile 1 aus f(x) = x² − 2x − 1 durch Einsetzen von x = −3 entsteht.",
     "w": "Zeile 1 enthält den Fehler: (−3)² = 9, aber −3² = −9. Richtig: f(−3) = 9 + 6 − 1 = 14. Also liegt P auf der Parabel. Die Zeilen 2 und 3 rechnen mit dem falschen Wert richtig weiter."
    }
   },
@@ -1176,8 +1176,8 @@
      "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "9 und 27 vertauscht gerechnet: 27 : 3",
-     "c": "(9)"
+     "beschreibung": "Du hast durch den waagrechten Abstand 3 statt durch sein Quadrat 9 geteilt: 27 : 3 = 9.",
+     "c": "(27) / 3"
     }
    ],
    "aufgabe": {
@@ -1350,7 +1350,7 @@
      "einheit": "m"
     },
     "c": "-5 / 10 ** 2 * 6 ** 2 + 5",
-    "h": "Bestimme zuerst a mit der Randstelle: Dort ist h = 0.",
+    "h": "Eine Angabe der Aufgabe legt a fest. Welche hast du noch nicht benutzt?",
     "w": "Am Rand: 0 = a · 10² + 5, also a = −5 : 100 = −0,05. Dann ist h(6) = −0,05 · 36 + 5 = −1,8 + 5 = 3,2 m."
    }
   },
@@ -1385,9 +1385,9 @@
     {
      "luecke": 2,
      "antwort": 3,
-     "fehlbild": "fb.vorzeichen.falsches_zeichen",
-     "regel_des_fehlbilds": "rr.vorzeichen",
-     "beschreibung": "das Minus vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aus x + 3 = 0 die Lösung x = 3 gemacht statt x = −3",
      "c": "3"
     },
     {
@@ -1529,10 +1529,10 @@
    "fehlbilder": [
     {
      "antwort": 1,
-     "fehlbild": "fb.vorzeichen.falsches_zeichen",
-     "regel_des_fehlbilds": "rr.vorzeichen",
-     "beschreibung": "das Vorzeichen vergessen",
-     "c": "1"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Auflösen von 4c = −4 das Minus weggelassen: c = 4 : 4",
+     "c": "4 / 4"
     },
     {
      "antwort": 0,
@@ -1556,7 +1556,7 @@
      "wert": -1
     },
     "c": "-(2 ** 2) / 4",
-    "h": "Gleichsetzen gibt eine quadratische Gleichung. Sie soll genau eine Lösung haben. Was gilt dann für die Diskriminante?",
+    "h": "Gleichsetzen gibt eine quadratische Gleichung. Überlege, wie viele Lösungen sie bei einem Berührpunkt hat.",
     "w": "x² = 2x + c gibt x² − 2x − c = 0. Genau eine Lösung heißt D = 0: D = 4 + 4c = 0, also c = −1. Probe: x² − 2x + 1 = (x − 1)² hat die einzige Lösung x = 1."
    }
   },
@@ -1734,7 +1734,7 @@
     "o": {
      "index": 2
     },
-    "h": "Welches Vorzeichen hat die Zahl vor x²? Vergleiche A(9) mit A(5).",
+    "h": "Prüfe die Aussage in Zeile 3 an einigen Werten von A(x), zum Beispiel A(5), A(9) und A(13).",
     "w": "Die Zeilen 1 und 2 stimmen. In Zeile 3 steht der Fehler: Die Zahl vor x² ist −1, die Parabel ist nach unten geöffnet. Der Scheitel ist der höchste Punkt, also die größte Fläche. Zeile 4 rechnet richtig mit A(9) = 81 weiter. Richtig: Die größte Fläche ist 81 m²."
    }
   }

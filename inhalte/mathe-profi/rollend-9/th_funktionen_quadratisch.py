@@ -5,15 +5,15 @@ ZU = "id.funktionen.zuordnung"
 fq = lambda a, b, c: (lambda x: a * x * x + b * x + c)
 # ───────── scheitel ─────────
 neu(T, "scheitel", "lueckenweg", L(
-    "Gegeben ist f(x) = x² − 8x + 3. Die x-Koordinate des Scheitels ist ①. Dann ist der y-Wert des Scheitels ②. Also hat der Punkt mit x = 1 denselben y-Wert wie der Punkt mit x = ③.",
+    "Gegeben ist f(x) = x² − 8x + 3. Die x-Koordinate des Scheitels ist ①. Dann ist der y-Wert des Scheitels ②. Die andere Stelle x ≠ 1 mit demselben Funktionswert ist ③.",
     KOMM(3), [4, -13, 7], ["8 // 2", "{1} ** 2 - 8 * {1} + 3", "2 * {1} - 1"],
     [lambda: min(range(-50, 50), key=fq(1, -8, 3)), lambda: min(fq(1, -8, 3)(x) for x in range(-50, 50)), lambda: next(x for x in range(-50, 50) if x != 1 and fq(1, -8, 3)(x) == fq(1, -8, 3)(1))],
-    "Der Scheitel liegt in der Mitte zwischen den beiden Stellen mit gleichem y-Wert. Die Hälfte der Zahl vor x führt dich dorthin.",
-    "x_S = 8 : 2 = 4. f(4) = 16 − 32 + 3 = −13. Die Parabel ist symmetrisch zu x = 4: Zu x = 1 (3 links vom Scheitel) gehört x = 4 + 3 = 7. Probe: f(1) = 1 − 8 + 3 = −4 und f(7) = 49 − 56 + 3 = −4.",
-    {0: [(-4, "fb.vorzeichen.falsches_zeichen", "das Vorzeichen falsch: −8 : 2", "-8 / 2"), (8, None, "die Zahl 8 aus der Gleichung genommen", "8")], 1: [(3, None, "den y-Achsenabschnitt als y-Wert des Scheitels genommen", "3")], 2: [(5, None, "1 und 4 addiert statt gespiegelt: 1 + 4", "1 + {1}")]}), regel=GF)
+    "Der Scheitel liegt in der Mitte zwischen den beiden Stellen mit gleichem y-Wert. Die x-Koordinate ist −b : (2a) mit den Zahlen b und a aus f(x) = ax² + bx + c.",
+    "x_S = −b : (2a) = 8 : 2 = 4. f(4) = 16 − 32 + 3 = −13. Die Parabel ist symmetrisch zu x = 4: Zu x = 1 (3 links vom Scheitel) gehört x = 4 + 3 = 7. Probe: f(1) = 1 − 8 + 3 = −4 und f(7) = 49 − 56 + 3 = −4.",
+    {0: [(-4, None, "die Zahl vor x halbiert (−8 : 2) und das Vorzeichen nicht gewechselt", "-8 / 2"), (8, None, "die Zahl 8 aus der Gleichung genommen", "8")], 1: [(3, None, "den y-Achsenabschnitt als y-Wert des Scheitels genommen", "3")], 2: [(5, None, "1 und 4 addiert statt gespiegelt: 1 + 4", "1 + {1}")]}), regel=GF)
 neu(T, "scheitel", "bruecke", W(
     "Die Tabelle zeigt Werte einer Funktion f(x) = (x − d)² + e. Welche Gleichung gehört dazu?",
-    "f(x) = (x − 2)² − 1", [("f(x) = (x + 2)² − 1", "das Vorzeichen von d verwechselt"), ("f(x) = (x − 2)² + 1", "das Vorzeichen von e verwechselt"), ("f(x) = (x − 1)² − 2", "d und e vertauscht")],
+    "f(x) = (x − 2)² − 1", [("f(x) = (x + 2)² − 1", "das Vorzeichen von d verwechselt"), ("f(x) = (x − 2)² + 1", "das Vorzeichen von e verwechselt"), ("f(x) = (x − 1)² − 2", "Du liest den Scheitel als (1 | −2).")],
     "Der Scheitel ist der Punkt mit dem kleinsten y-Wert. Lies d und e daran ab und prüfe mit einem weiteren Tabellenwert.",
     "Der kleinste y-Wert −1 steht bei x = 2, also S(2 | −1) und f(x) = (x − 2)² − 1. Probe: f(0) = 4 − 1 = 3, f(4) = 4 − 1 = 3, f(1) = 1 − 1 = 0.",
     lambda: all((x - 2) ** 2 - 1 == y for x, y in zip(range(0, 5), (3, 0, -1, 0, 3))) and not all((x + 2) ** 2 - 1 == y for x, y in zip(range(0, 5), (3, 0, -1, 0, 3))) and not all((x - 2) ** 2 + 1 == y for x, y in zip(range(0, 5), (3, 0, -1, 0, 3))) and not all((x - 1) ** 2 - 2 == y for x, y in zip(range(0, 5), (3, 0, -1, 0, 3))),
@@ -23,8 +23,9 @@ neu(T, "scheitel", "fehler_detektiv", FD(
     [("Aus x + 3 = x − (−3) folgt d = 3 und e = 4.", False, None),
      ("Also ist der Scheitel S(3 | 4).", False, True),
      ("Wegen a = −2 < 0 ist S der höchste Punkt der Parabel.", False, True)],
-    "Schreibe x + 3 in der Form x − d. Welche Zahl ist dann d? Setze zur Probe x = 3 und x = −3 ein.",
-    "Zeile 1 enthält den Fehler: x + 3 = x − (−3), also ist d = −3. Der Scheitel ist S(−3 | 4). Zeile 2 folgt aus Zeile 1, Zeile 3 ist eine richtige Aussage. Probe: f(−3) = 4, und f(3) = −72 + 4 = −68."), g="fehler", regel=GF)
+    "Der Scheitel liegt dort, wo die Klammer null wird. Prüfe diese Stelle.",
+    "Zeile 1 enthält den Fehler: x + 3 = x − (−3), also ist d = −3. Der Scheitel ist S(−3 | 4). Zeile 2 folgt aus Zeile 1. Zeile 3 ist als allgemeine Aussage richtig (a < 0: Öffnung nach unten, der Scheitel ist der höchste Punkt); falsch ist nur ihre Anwendung auf S(3 | 4), und das ist ein Folgefehler aus Zeile 1. Probe: f(−3) = 4, und f(3) = −72 + 4 = −68, also liegt S(3 | 4) nicht auf dem Graphen.",
+    rueck={2: "Die Aussage selbst stimmt: Wegen a = −2 < 0 ist der Scheitel der höchste Punkt. Falsch ist nur der Punkt S(3 | 4), der aus Zeile 1 stammt; er liegt nicht auf dem Graphen. Der erste Fehler steht früher."}), g="fehler", regel=GF)
 
 # ───────── parameter ─────────
 neu(T, "parameter", "lueckenweg", L(
@@ -51,12 +52,12 @@ neu(T, "parameter", "fehler_detektiv", FD(
 
 # ───────── spiegeln ─────────
 neu(T, "spiegeln", "lueckenweg", L(
-    "Die Parabel f(x) = x² − 6x + 13 hat den Scheitel S(① | ②). Spiegelt man an der x-Achse, so hat der neue Scheitel die y-Koordinate ③. Also hat nach einer Spiegelung an der y-Achse der neue Scheitel die x-Koordinate ④.",
+    "Die Parabel f(x) = x² − 6x + 13 hat den Scheitel S(① | ②). Spiegle jeweils die Ausgangsparabel. Spiegelt man an der x-Achse, so hat der neue Scheitel die y-Koordinate ③. Spiegelt man dagegen an der y-Achse, so hat der neue Scheitel die x-Koordinate ④.",
     KOMM(4), [3, 4, -4, -3], ["6 // 2", "{1} ** 2 - 6 * {1} + 13", "-{2}", "-{1}"],
     [lambda: min(range(-50, 50), key=fq(1, -6, 13)), lambda: min(fq(1, -6, 13)(x) for x in range(-50, 50)), lambda: -min(fq(1, -6, 13)(x) for x in range(-50, 50)), lambda: -min(range(-50, 50), key=fq(1, -6, 13))],
     "Spiegeln an der x-Achse ändert die Vorzeichen der y-Werte. Spiegeln an der y-Achse ändert die Vorzeichen der x-Werte.",
     "x_S = 6 : 2 = 3, y_S = 9 − 18 + 13 = 4. An der x-Achse gespiegelt: S′(3 | −4). An der y-Achse gespiegelt: S″(−3 | 4).",
-    {0: [(-3, "fb.vorzeichen.falsches_zeichen", "das Vorzeichen falsch: −6 : 2", "-6 / 2")], 1: [(13, None, "den y-Achsenabschnitt als y-Wert des Scheitels genommen", "13")], 2: [(4, None, "die y-Koordinate beim Spiegeln nicht verändert", "{2}")], 3: [(3, None, "die x-Koordinate beim Spiegeln an der y-Achse nicht verändert", "{1}")]}), regel=GF)
+    {0: [(-3, None, "die Zahl vor x halbiert (−6 : 2) und das Vorzeichen nicht gewechselt", "-6 / 2")], 1: [(13, None, "den y-Achsenabschnitt als y-Wert des Scheitels genommen", "13")], 2: [(4, None, "die y-Koordinate beim Spiegeln nicht verändert", "{2}")], 3: [(3, None, "die x-Koordinate beim Spiegeln an der y-Achse nicht verändert", "{1}")]}), regel=GF)
 neu(T, "spiegeln", "umkehren", Z(
     "Die Parabel g(x) = −(x − 3)² + 5 entsteht aus der Parabel f durch Spiegelung an der x-Achse. Wie groß ist f(0)?",
     4, "(0 - 3) ** 2 - 5", lambda: -(-(0 - 3) ** 2 + 5),
@@ -69,7 +70,7 @@ neu(T, "spiegeln", "fehler_detektiv", FD(
      ("Also ist g(x) = f(−x) = (−x − 2)² + 3.", all(fq(1, -4, 7)(-x) == (-x - 2) ** 2 + 3 for x in range(-4, 5)), None),
      ("Es gilt (−x − 2)² = (x + 2)².", all((-x - 2) ** 2 == (x + 2) ** 2 for x in range(-4, 5)), None),
      ("Also ist g(x) = (x + 2)² − 3.", all((x + 2) ** 2 - 3 == (x + 2) ** 2 + 3 for x in range(-4, 5)), None)],
-    "Beim Spiegeln an der y-Achse bleiben die y-Werte erhalten. Welche Zahl im Term ändert den y-Wert des Scheitels?",
+    "Prüfe jede Zeile an einem Punkt. Was bleibt beim Spiegeln an der y-Achse gleich?",
     "Die Zeilen 1 bis 3 stimmen: g(x) = (x + 2)² + 3. In Zeile 4 wurde das Vorzeichen von e verändert. Bei der Spiegelung an der y-Achse bleibt e gleich. Probe: g(0) = 7 = f(0)."), g="fehler", regel=GF)
 
 # ───────── umformen ─────────
@@ -90,15 +91,15 @@ neu(T, "umformen", "zwei_wege", Z(
     -11, "2 * 3 ** 2 - 12 * 3 + 7", lambda: min(2 * x * x - 12 * x + 7 for x in range(-50, 50)),
     "Beide Wege müssen dieselbe y-Koordinate ergeben.",
     "Weg A: 2(x² − 6x) + 7 = 2((x − 3)² − 9) + 7 = 2(x − 3)² − 18 + 7 = 2(x − 3)² − 11. Weg B: x = 12 : 4 = 3, f(3) = 18 − 36 + 7 = −11. Der Scheitel ist S(3 | −11).",
-    [(-2, None, "beim Ausgleichen den Faktor 2 vergessen: −9 + 7", "-9 + 7"), (25, None, "mit falschem Vorzeichen: 7 + 2 · 9", "7 + 2 * 9"), (7, None, "den y-Achsenabschnitt als y-Koordinate des Scheitels genommen", "7")]), g="verknuepfen", regel=GF)
+    [(-2, None, "beim Ausgleichen den Faktor 2 vergessen: −9 + 7", "-9 + 7"), (25, None, "den Ausgleich −2 · 9 mit falschem Vorzeichen addiert: 7 + 2 · 9", "7 + 2 * 9"), (7, None, "den y-Achsenabschnitt als y-Koordinate des Scheitels genommen", "7")]), g="verknuepfen", regel=GF)
 
 # ───────── nullstellen ─────────
 neu(T, "nullstellen", "lueckenweg", L(
     "Berechne die Nullstellen von f(x) = 6(x − 3)² − 24. Für f(x) = 0 gilt (x − 3)² = ①. Die größere Nullstelle ist ②. Dann ist die kleinere Nullstelle ③.",
     KOMM(3), [4, 5, 1], ["24 // 6", "5", "6 - {2}"], ["24 / 6", "3 + wz(24 / 6)", "3 - wz(24 / 6)"],
     "Löse f(x) = 0 wie eine Gleichung: erst 24 auf die andere Seite, dann durch den Faktor teilen. Die beiden Nullstellen liegen gleich weit von der Mitte entfernt.",
-    "6(x − 3)² = 24 gibt (x − 3)² = 4. Also x − 3 = 2 oder x − 3 = −2, das heißt x = 5 oder x = 1. Probe: 6 · 4 − 24 = 0 und 6 · 4 − 24 = 0.",
-    {0: [(18, None, "24 − 6 gerechnet", "24 - 6"), (144, None, "24 · 6 gerechnet", "24 * 6")], 1: [(2, None, "nur die Wurzel genommen, die 3 vergessen", "2")], 2: [(-5, "fb.vorzeichen.falsches_zeichen", "das Vorzeichen der größeren Nullstelle genommen", "-5")]}), regel=GL)
+    "6(x − 3)² = 24 gibt (x − 3)² = 4. Also x − 3 = 2 oder x − 3 = −2, das heißt x = 5 oder x = 1. Probe: 6 · (5 − 3)² − 24 = 0 und 6 · (1 − 3)² − 24 = 0.",
+    {0: [(18, None, "24 − 6 gerechnet", "24 - 6"), (144, None, "24 · 6 gerechnet", "24 * 6")], 1: [(2, None, "nur die Wurzel genommen, die 3 vergessen", "2")], 2: [(-5, None, "die Gegenzahl der größeren Nullstelle genommen: −5", "-5")]}), regel=GL)
 neu(T, "nullstellen", "zwei_wege", Z(
     "Wie groß ist der Abstand der beiden Nullstellen von f(x) = x² − 2x − 8? Weg A: Lösungsformel. Weg B: Scheitelform aufstellen und die Symmetrie zur Achse nutzen.",
     6, "4 - (-2)", lambda: max(x for x in range(-50, 50) if x * x - 2 * x - 8 == 0) - min(x for x in range(-50, 50) if x * x - 2 * x - 8 == 0),
@@ -108,9 +109,9 @@ neu(T, "nullstellen", "zwei_wege", Z(
 neu(T, "nullstellen", "umkehren", Z(
     "Die Parabel y = x² + bx + c hat die Nullstellen x = 3 und x = −5. Wie groß ist c?",
     -15, "3 * (-5)", lambda: next(c for c in range(-100, 100) if all(x * x + (2) * x + c == 0 for x in (3, -5))),
-    "Schreibe die Parabel mit den Nullstellen als (x − 3)(x + 5) und multipliziere aus.",
+    "Die Nullstellen bestimmen die Faktoren der Parabel. Wie kommst du daraus auf b und c?",
     "(x − 3)(x + 5) = x² + 2x − 15. Also ist b = 2 und c = −15. Probe: 9 + 6 − 15 = 0 und 25 − 10 − 15 = 0.",
-    [(15, "fb.vorzeichen.falsches_zeichen", "das Vorzeichen vergessen: 3 · 5", "3 * 5"), (2, None, "b statt c angegeben: −(3 + (−5))", "-(3 + (-5))"), (-2, None, "die Summe der Nullstellen genommen: 3 + (−5)", "3 + (-5)")]), g="rueckwaerts", regel=GL)
+    [(15, "fb.vorzeichen.falsches_zeichen", "(−3) · 5 als 3 · 5 gerechnet: das Minus des Produkts vergessen", "3 * 5"), (2, None, "b statt c angegeben: −(3 + (−5))", "-(3 + (-5))"), (-2, None, "die Summe der Nullstellen genommen: 3 + (−5)", "3 + (-5)")]), g="rueckwaerts", regel=GL)
 
 # ───────── punkte ─────────
 neu(T, "punkte", "lueckenweg", L(
@@ -130,7 +131,7 @@ neu(T, "punkte", "fehler_detektiv", FD(
     [("Einsetzen: f(−3) = −3² − 2 · (−3) − 1.", fq(1, -2, -1)(-3) == -(3 ** 2) - 2 * (-3) - 1, None),
      ("= −9 + 6 − 1 = −4", False, -9 + 6 - 1 == -4),
      ("Wegen −4 ≠ 14 liegt P nicht auf der Parabel.", False, -4 != 14)],
-    "Rechne (−3)² und −3² einzeln aus. Sind sie gleich?",
+    "Prüfe, wie Zeile 1 aus f(x) = x² − 2x − 1 durch Einsetzen von x = −3 entsteht.",
     "Zeile 1 enthält den Fehler: (−3)² = 9, aber −3² = −9. Richtig: f(−3) = 9 + 6 − 1 = 14. Also liegt P auf der Parabel. Die Zeilen 2 und 3 rechnen mit dem falschen Wert richtig weiter."), g="fehler", regel=ZU)
 
 # ───────── bestimmen ─────────
@@ -139,7 +140,7 @@ neu(T, "bestimmen", "lueckenweg", L(
     KOMM(3), [9, 27, 3], ["(4 - 1) ** 2", "22 + 5", "{2} // {1}"], ["3 * 3", "22 - (-5)", "27 / 9"],
     "Setze x = 4 und y = 22 in die Gleichung ein und bringe die −5 auf die andere Seite.",
     "22 = a · (4 − 1)² − 5 gibt 27 = 9a, also a = 3. Die Gleichung ist f(x) = 3(x − 1)² − 5. Probe: 3 · 9 − 5 = 22.",
-    {0: [(3, None, "den Abstand nicht quadriert: 4 − 1", "4 - 1")], 1: [(17, None, "5 abgezogen statt addiert: 22 − 5", "22 - 5")], 2: [(9, None, "9 und 27 vertauscht gerechnet: 27 : 3", "{1}")]}), regel=GF)
+    {0: [(3, None, "den Abstand nicht quadriert: 4 − 1", "4 - 1")], 1: [(17, None, "5 abgezogen statt addiert: 22 − 5", "22 - 5")], 2: [(9, None, "Du hast durch den waagrechten Abstand 3 statt durch sein Quadrat 9 geteilt: 27 : 3 = 9.", "{2} / 3")]}), regel=GF)
 neu(T, "bestimmen", "bruecke", W(
     "Die Zeichnung zeigt eine Parabel mit dem Scheitel S und dem Punkt P. Welche Gleichung hat sie?",
     "f(x) = (x − 2)² − 1", [("f(x) = (x + 2)² − 1", "das Vorzeichen von d verwechselt"), ("f(x) = 2(x − 2)² − 1", "einen falschen Faktor a gewählt: P liegt dann nicht auf der Parabel"), ("f(x) = (x − 2)² + 1", "das Vorzeichen von e verwechselt")],
@@ -150,7 +151,7 @@ neu(T, "bestimmen", "bruecke", W(
 neu(T, "bestimmen", "anwenden", Z(
     "Ein parabelförmiger Brückenbogen ist in der Mitte 5 m hoch. Mit x als waagrechtem Abstand von der Mitte (in m) gilt für die Höhe h(x) = a · x² + 5. Am Rand, 10 m von der Mitte entfernt, ist die Höhe 0. Wie hoch ist der Bogen 6 m von der Mitte entfernt?",
     3.2, "-5 / 10 ** 2 * 6 ** 2 + 5", lambda: F(-5, 100) * 6 ** 2 + 5,
-    "Bestimme zuerst a mit der Randstelle: Dort ist h = 0.",
+    "Eine Angabe der Aufgabe legt a fest. Welche hast du noch nicht benutzt?",
     "Am Rand: 0 = a · 10² + 5, also a = −5 : 100 = −0,05. Dann ist h(6) = −0,05 · 36 + 5 = −1,8 + 5 = 3,2 m.",
     [(1.8, None, "den Höhenverlust statt der Höhe angegeben: 5 − 3,2", "5 - 3.2"), (4.7, None, "den Abstand nicht quadriert: 5 − 0,05 · 6", "5 - 0.05 * 6"), (-1.8, None, "die 5 m Höhe in der Mitte vergessen: −0,05 · 36", "-0.05 * 6 ** 2")], "m"), g="transfer", regel=GF)
 
@@ -160,7 +161,7 @@ neu(T, "schnittpunkte", "lueckenweg", L(
     KOMM(3), [5, -3, 25], ["5", "2 - {1}", "{1} ** 2"], [lambda: max(x for x in range(-50, 50) if x * x == 2 * x + 15), lambda: min(x for x in range(-50, 50) if x * x == 2 * x + 15), lambda: max(x for x in range(-50, 50) if x * x == 2 * x + 15) ** 2],
     "Die beiden Lösungen einer Gleichung x² − 2x − 15 = 0 haben zusammen den Wert 2. Den y-Wert findest du mit der Gleichung der Parabel.",
     "x² − 2x − 15 = (x − 5)(x + 3) = 0 gibt x = 5 oder x = −3. Der rechte Schnittpunkt ist (5 | 25). Probe: 2 · 5 + 15 = 25 und 5² = 25.",
-    {0: [(-3, None, "die kleinere Lösung angegeben", "-3"), (15, None, "die Zahl 15 aus der Gleichung abgeschrieben", "15")], 1: [(3, "fb.vorzeichen.falsches_zeichen", "das Minus vergessen", "3")], 2: [(10, None, "nur 2 · 5 gerechnet, die 15 vergessen", "2 * {1}")]}), regel=GL)
+    {0: [(-3, None, "die kleinere Lösung angegeben", "-3"), (15, None, "die Zahl 15 aus der Gleichung abgeschrieben", "15")], 1: [(3, None, "aus x + 3 = 0 die Lösung x = 3 gemacht statt x = −3", "3")], 2: [(10, None, "nur 2 · 5 gerechnet, die 15 vergessen", "2 * {1}")]}), regel=GL)
 neu(T, "schnittpunkte", "bruecke", W(
     "Die Zeichnung zeigt die Graphen von y = x² − 4 und y = x − 2. Welche Gleichung gehört zu den Schnittpunkten, und welche Lösungen hat sie?",
     "x² − 4 = x − 2 mit x = 2 und x = −1", [("x² − 4 = x − 2 mit x = −2 und x = 1", "die Vorzeichen der Lösungen vertauscht"), ("x² − 4 = x + 2 mit x = 3 und x = −2", "die Gerade falsch abgelesen"), ("x² − 4 = x − 2 mit x = 2", "die zweite Lösung vergessen")],
@@ -171,9 +172,9 @@ neu(T, "schnittpunkte", "bruecke", W(
 neu(T, "schnittpunkte", "umkehren", Z(
     "Für welchen Wert von c berührt die Gerade y = 2x + c die Parabel y = x² in genau einem Punkt?",
     -1, "-(2 ** 2) / 4", lambda: next(c for c in range(-50, 50) if 4 + 4 * c == 0),
-    "Gleichsetzen gibt eine quadratische Gleichung. Sie soll genau eine Lösung haben. Was gilt dann für die Diskriminante?",
+    "Gleichsetzen gibt eine quadratische Gleichung. Überlege, wie viele Lösungen sie bei einem Berührpunkt hat.",
     "x² = 2x + c gibt x² − 2x − c = 0. Genau eine Lösung heißt D = 0: D = 4 + 4c = 0, also c = −1. Probe: x² − 2x + 1 = (x − 1)² hat die einzige Lösung x = 1.",
-    [(1, "fb.vorzeichen.falsches_zeichen", "das Vorzeichen vergessen", "1"), (0, None, "die Gerade durch den Ursprung gewählt", "0")]), g="parameter", regel=GL)
+    [(1, None, "beim Auflösen von 4c = −4 das Minus weggelassen: c = 4 : 4", "4 / 4"), (0, None, "die Gerade durch den Ursprung gewählt", "0")]), g="parameter", regel=GL)
 
 # ───────── extremwert ─────────
 neu(T, "extremwert", "lueckenweg", L(
@@ -194,5 +195,5 @@ neu(T, "extremwert", "fehler_detektiv", FD(
      ("Die Fläche ist A(x) = x · (18 − x) = −x² + 18x.", all(x * (18 - x) == -x * x + 18 * x for x in range(0, 19)), None),
      ("Die Parabel ist nach oben geöffnet, also ist ihr Scheitel der tiefste Punkt und damit die kleinste Fläche.", False, None),
      ("Die kleinste Fläche ist 81 m² bei x = 9.", False, 9 * (18 - 9) == 81)],
-    "Welches Vorzeichen hat die Zahl vor x²? Vergleiche A(9) mit A(5).",
+    "Prüfe die Aussage in Zeile 3 an einigen Werten von A(x), zum Beispiel A(5), A(9) und A(13).",
     "Die Zeilen 1 und 2 stimmen. In Zeile 3 steht der Fehler: Die Zahl vor x² ist −1, die Parabel ist nach unten geöffnet. Der Scheitel ist der höchste Punkt, also die größte Fläche. Zeile 4 rechnet richtig mit A(9) = 81 weiter. Richtig: Die größte Fläche ist 81 m²."), g="fehler", regel=GF)

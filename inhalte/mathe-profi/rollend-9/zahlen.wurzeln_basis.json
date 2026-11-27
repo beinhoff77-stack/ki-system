@@ -364,9 +364,9 @@
     {
      "luecke": 2,
      "antwort": 7,
-     "fehlbild": "fb.vorzeichen.falsches_zeichen",
-     "regel_des_fehlbilds": "rr.vorzeichen",
-     "beschreibung": "das Minuszeichen vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei der dritten Wurzel aus der negativen Zahl das Minuszeichen weggelassen: 7 statt −7",
      "c": "(7)"
     },
     {
@@ -483,7 +483,7 @@
      "antwort": 114.33,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch drei geteilt statt die dritte Wurzel gezogen (auf zwei Stellen gerundet)",
+     "beschreibung": "durch drei geteilt statt die dritte Wurzel gezogen und nicht von dm in cm umgerechnet (auf zwei Stellen gerundet)",
      "c": "round(343 / 3, 2)"
     },
     {
@@ -509,7 +509,7 @@
      "einheit": "cm"
     },
     "c": "343 / 49 * 10",
-    "h": "Zuerst die Kante in dm bestimmen, dann in cm umrechnen.",
+    "h": "Welche Größe liefert die Wurzel, und in welcher Einheit ist sie angegeben?",
     "w": "343 Liter sind 343 dm³. Die Kante ist ∛343 = 7 dm. 1 dm = 10 cm, also 7 · 10 = 70 cm."
    }
   },
@@ -701,7 +701,7 @@
      "einheit": "m"
     },
     "c": "4 * (6 + 1)",
-    "h": "Finde zuerst die kleinste ganze Seitenlänge, deren Quadrat mindestens 40 ist.",
+    "h": "Was bedeutet „mindestens 40 m²“ für die Seitenlänge, wenn sie eine ganze Zahl sein muss?",
     "w": "6² = 36 ist zu klein, 7² = 49 reicht. Die Seite ist mindestens 7 m lang. Der Zaun ist der Umfang: 4 · 7 = 28 m."
    }
   },
@@ -839,7 +839,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "beschreibung": "Der Teil (√9)² = 9 stimmt. Die Summe −7 + 9 = 2 übernimmt aber den Wert −7 aus Zeile 2. Der erste Fehler steht früher.",
      "c": null
     }
    ],
@@ -861,7 +861,7 @@
     "o": {
      "index": 1
     },
-    "h": "Was bedeutet √49? Die Wurzel ist nie negativ.",
+    "h": "Prüfe jede Zeile durch Quadrieren. Frage dich, ob der Wert zur Bedeutung der Wurzel passt.",
     "w": "Zeile 1 stimmt. In Zeile 2 steht der Fehler: √49 ist die nicht negative Zahl, deren Quadrat 49 ist, also 7. Zeile 3 rechnet mit −7 richtig weiter. Richtig ist 7 + 9 = 16."
    }
   },
@@ -1025,7 +1025,7 @@
      "einheit": "m²"
     },
     "c": "(12 - 3) ** 2",
-    "h": "Rechne rückwärts: erst von der neuen Fläche zur neuen Seite.",
+    "h": "Beginne bei dem, was am Ende bekannt ist, und gehe die Rechnung rückwärts.",
     "w": "Die neue Seite ist √144 = 12 m. Vorher war sie 12 − 3 = 9 m lang. Die alte Fläche ist 9² = 81 m²."
    }
   }

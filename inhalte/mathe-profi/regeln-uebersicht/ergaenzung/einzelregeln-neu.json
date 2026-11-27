@@ -419,8 +419,8 @@
   {
    "kennung": "N-Z07",
    "name": "Schriftlich addieren",
-   "satz": "Schreibe die Zahlen stellengerecht untereinander (Einer unter Einer) und addiere Stelle für Stelle von rechts. Wird eine Stellensumme 10 oder mehr, schreibst du die Einerziffer hin und nimmst die 1 als Übertrag zur nächsten Stelle mit.",
-   "beispiel": "1 286 + 947: 6 + 7 = 13 (3, Übertrag 1); 8 + 4 + 1 = 13 (3, Übertrag 1); 2 + 9 + 1 = 12 (2, Übertrag 1); 1 + 1 = 2. Ergebnis 2 233. Überschlag: 1 300 + 900 = 2 200.",
+   "satz": "Schreibe die Zahlen stellengerecht untereinander (Einer unter Einer) und addiere Stelle für Stelle von rechts. Wird eine Stellensumme 10 oder mehr, schreibst du die Einerziffer hin und nimmst den ganzen Zehnerteil der Stellensumme als Übertrag mit (bei 13 die 1, bei 24 die 2).",
+   "beispiel": "1 286 + 947: 6 + 7 = 13 (3, Übertrag 1); 8 + 4 + 1 = 13 (3, Übertrag 1); 2 + 9 + 1 = 12 (2, Übertrag 1); 1 + 1 = 2. Ergebnis 2 233. Drei Summanden, 58 + 69 + 37: Einer 8 + 9 + 7 = 24 (4, Übertrag 2); Zehner 5 + 6 + 3 + 2 = 16 (6, Übertrag 1); Hunderter 1. Ergebnis 164.",
    "voraus": "Jede Stelle steht genau unter ihresgleichen. Bei zwei Zahlen ist der Übertrag höchstens 1, bei mehr Summanden kann er größer sein. Zur Probe ziehst du eine der Zahlen vom Ergebnis ab.",
    "fehler": "Den Übertrag vergessen: Es käme 1 123 heraus. Der Überschlag (etwa 2 200) zeigt, dass eine ganze Tausenderstelle fehlt.",
    "gym": "5",
@@ -488,6 +488,21 @@
      "l": "1123",
      "rel": "!=",
      "r": "2233"
+    },
+    {
+     "l": "58+69+37",
+     "rel": "==",
+     "r": "164"
+    },
+    {
+     "l": "8+9+7",
+     "rel": "==",
+     "r": "24"
+    },
+    {
+     "l": "5+6+3+2",
+     "rel": "==",
+     "r": "16"
     }
    ]
   },
@@ -804,7 +819,7 @@
    "name": "Im Kopf rechnen: Zahl zerlegen",
    "satz": "Zerlege eine Zahl in leichte Teile (Zehner und Einer oder 100 minus ein wenig), rechne jeden Teil einzeln und setze zusammen. Beim Malnehmen wird jeder Teil mit dem Faktor multipliziert.",
    "beispiel": "6 · 47 = 6 · 40 + 6 · 7 = 240 + 42 = 282. Oder 5 · 98 = 5 · 100 − 5 · 2 = 500 − 10 = 490.",
-   "voraus": "Gilt für a · (b + c) = a · b + a · c und für (b + c) : a = b : a + c : a. Nicht erlaubt ist a : (b + c) = a : b + a : c: 12 : (2 + 4) = 2, aber 12 : 2 + 12 : 4 = 9.",
+   "voraus": "Gilt für a · (b + c) = a · b + a · c und für (b + c) : a = b : a + c : a mit a ≠ 0. Nicht erlaubt ist a : (b + c) = a : b + a : c: 12 : (2 + 4) = 2, aber 12 : 2 + 12 : 4 = 9.",
    "fehler": "Den Faktor nur an einem Teil anbringen: 6 · 47 = 240 + 7 ist falsch, denn auch die 7 wird sechsmal genommen (6 · 7 = 42).",
    "gym": "5",
    "rs": "5",
@@ -2342,8 +2357,8 @@
   {
    "kennung": "N-G03",
    "name": "Winkel an der Uhr",
-   "satz": "Zwischen zwei benachbarten Zahlen liegen 30° (360° : 12). Der Minutenzeiger dreht in 1 Minute 6° (360° : 60), der Stundenzeiger in 1 Stunde 30°. Zähle die Zahlen-Abstände zwischen den Zeigern und rechne mal 30°.",
-   "beispiel": "Um 4:00 Uhr zeigen die Zeiger auf 12 und auf 4: 4 · 30° = 120°.",
+   "satz": "Zwischen zwei benachbarten Zahlen liegen 30° (360° : 12). Der Minutenzeiger dreht je Minute 6° (360° : 60), der Stundenzeiger je Minute 0,5° (30° : 60). Rechne von der 12 aus: Stundenzeiger = Stunden · 30° + Minuten · 0,5°, Minutenzeiger = Minuten · 6°; der Unterschied ist der Winkel.",
+   "beispiel": "Um 4:00 Uhr: Stundenzeiger 4 · 30° = 120°, Minutenzeiger 0°, Winkel 120°. Um 3:30 Uhr: Stundenzeiger 3 · 30° + 30 · 0,5° = 105°, Minutenzeiger 30 · 6° = 180°, Winkel 180° − 105° = 75°.",
    "voraus": "Gemeint ist der kleinere Winkel zwischen den Zeigern (höchstens 180°). Ist die Rechnung größer als 180°, nimm 360° minus Winkel. Zwischen vollen Stunden wandert auch der Stundenzeiger: um 3:30 Uhr steht er in der Mitte zwischen 3 und 4.",
    "fehler": "Für 15 Minuten 15° rechnen: Der Minutenzeiger dreht 6° je Minute, also 15 · 6° = 90°.",
    "gym": "5",
@@ -2410,6 +2425,21 @@
      "l": "360-240",
      "rel": "==",
      "r": "120"
+    },
+    {
+     "l": "3*30+30*0.5",
+     "rel": "==",
+     "r": "105"
+    },
+    {
+     "l": "30*6",
+     "rel": "==",
+     "r": "180"
+    },
+    {
+     "l": "180-105",
+     "rel": "==",
+     "r": "75"
     }
    ]
   },
@@ -2675,7 +2705,7 @@
    "name": "Streifen: höchstens so weit entfernt",
    "satz": "„Genau d entfernt“ ist eine Linie: die Kreislinie um M mit r = d, oder zwei Parallelen zu g im Abstand d. „Höchstens d entfernt“ ist die Fläche darin: die Kreisfläche bzw. der Streifen zwischen den beiden Parallelen. „Mindestens d entfernt“ ist alles außerhalb.",
    "beispiel": "g ist die Gerade y = 1. Abstand genau 2: die Parallelen y = 3 und y = −1. Abstand höchstens 2: der Streifen −1 ≤ y ≤ 3.",
-   "voraus": "g ist eine ganze Gerade (nicht nur eine Strecke), sonst gibt es an den Enden Halbkreise. Der Abstand wird senkrecht gemessen.",
+   "voraus": "g ist eine ganze Gerade (nicht nur eine Strecke), sonst gibt es an den Enden Halbkreise. Der Abstand wird senkrecht gemessen. Der Abstand d ist größer als 0; bei d = 0 ist „genau d entfernt“ und „höchstens d entfernt“ nur g selbst (beim Kreis nur der Punkt M).",
    "fehler": "Nur eine Parallele zeichnen: Die Punkte liegen auf beiden Seiten von g, also gibt es zwei Parallelen.",
    "gym": "5",
    "rs": "7",
@@ -3070,8 +3100,8 @@
   {
    "kennung": "N-G14",
    "name": "Zweite Lösung bei sin, cos und tan",
-   "satz": "Der Taschenrechner liefert nur x₁. Schritt 1: Bring x₁ in den Bereich 0° bis 360° (negativ: plus 360°). Schritt 2: Rechne die zweite Lösung x₂: bei sin x = v: 180° − x₁; bei cos x = v: 360° − x₁; bei tan x = v: x₁ + 180°. Auch x₂ muss im Bereich liegen (unter 0°: plus 360°, ab 360°: minus 360°). Schritt 3: Schreibe beide Lösungen der Größe nach auf.",
-   "beispiel": "tan x = −1: Rechner −45°, im Bereich 315°. x₂ = 315° + 180° = 495°, minus 360° gibt 135°. Lösungen sortiert: 135° und 315°. Probe: tan 135° = −1 und tan 315° = −1.",
+   "satz": "Der Taschenrechner liefert nur x₁. Schritt 1: Bring x₁ in den Bereich 0° bis 360° (negativ: plus 360°). Schritt 2: Rechne x₂: sin x = v: 180° − x₁; cos x = v: 360° − x₁; tan x = v: x₁ + 180° (ab x₁ = 180° rechne x₁ − 180°). Schritt 3: Bring auch x₂ in den Bereich (unter 0°: plus 360°, ab 360°: minus 360°) und schreibe beide der Größe nach auf.",
+   "beispiel": "tan x = −1: Rechner −45°, im Bereich 315°. Weil x₁ ab 180° liegt: x₂ = 315° − 180° = 135°. Sortiert: 135° und 315°. Probe: tan 135° = −1 und tan 315° = −1.",
    "voraus": "Bereich: 0° ≤ x < 360° (360° ist dasselbe wie 0°). Für sin und cos muss −1 ≤ v ≤ 1 sein. Bei v = ±1 gibt es genau eine Lösung (x₁ = x₂), bei |v| > 1 keine. tan x = v hat für jedes v zwei Lösungen; tan 90° und tan 270° sind nicht definiert.",
    "fehler": "Den Rechnerwert −45° stehen lassen oder nur eine Lösung angeben: Gesucht sind alle Lösungen von 0° bis 360°, hier 135° und 315°. Bei cos x = −0,5 mit 180° − x₁ = 60° rechnen ist falsch: cos 60° = +0,5.",
    "gym": "9",
@@ -3193,6 +3223,16 @@
      "l": "135",
      "rel": "<",
      "r": "315"
+    },
+    {
+     "l": "315-180",
+     "rel": "==",
+     "r": "135"
+    },
+    {
+     "l": "45+180",
+     "rel": "<",
+     "r": "360"
     }
    ]
   },
@@ -3261,9 +3301,9 @@
   {
    "kennung": "N-U01",
    "name": "Definitionsmenge und Wertemenge",
-   "satz": "Die Definitionsmenge D sind alle x, die man einsetzen darf. Die Wertemenge W sind alle y, die dabei herauskommen. Steht x im Nenner, ist jedes x verboten, das den Nenner 0 macht.",
+   "satz": "Die Definitionsmenge D sind alle x aus der Grundmenge der Aufgabe, die man einsetzen darf. Die Wertemenge W sind alle y, die dabei herauskommen. Steht x im Nenner, ist jedes x verboten, das den Nenner 0 macht.",
    "beispiel": "f(x) = 3x − 2 mit D = {1; 2; 4}: f(1) = 1, f(2) = 4, f(4) = 10, also W = {1; 4; 10}.",
-   "voraus": "D legt man fest oder sie ergibt sich aus dem Term (hier meist D ⊆ ℚ). W hängt von D ab und enthält nur Werte, die wirklich herauskommen. Bei f(x) = 1/(x − 2) ist D = ℚ \\ {2}.",
+   "voraus": "Die Grundmenge steht in der Aufgabe (oft ℚ, ab Klasse 9 ℝ); D legt man fest oder sie ergibt sich aus dem Term. W hängt von D ab und enthält nur Werte, die wirklich herauskommen. Bei f(x) = 1/(x − 2) ist D = ℚ \\ {2} (bei Grundmenge ℝ: ℝ \\ {2}).",
    "fehler": "Bei 1/(x − 2) die −2 verbieten: x − 2 = 0 gilt für x = 2, nicht für x = −2.",
    "gym": "8",
    "rs": "8",
@@ -3388,7 +3428,7 @@
   {
    "kennung": "N-U03",
    "name": "Gerade zeichnen",
-   "satz": "Zeichne zuerst den Punkt (0 | t) auf der y-Achse. Ist m = z/n, gehe von dort n nach rechts und z nach oben (bei negativem m nach unten). Verbinde die Punkte zu einer Geraden.",
+   "satz": "Zeichne zuerst den Punkt (0 | t) auf der y-Achse. Schreibe m = z/n mit positivem Nenner n (aus 3/(−2) wird −3/2). Gehe von dort n nach rechts und z nach oben (ist z negativ, nach unten). Verbinde die Punkte zu einer Geraden.",
    "beispiel": "y = 3/2 · x − 2: Start (0 | −2); 2 nach rechts, 3 nach oben: (2 | 1). Probe: 3/2 · 2 − 2 = 1.",
    "voraus": "Waagerecht zuerst (n), dann senkrecht (z). Eine senkrechte Gerade x = c ist keine Funktion und hat keine Steigung.",
    "fehler": "Das Steigungsdreieck kippen: 3 nach rechts und 2 nach oben von (0 | −2) liefert (3 | 0), das nicht auf der Geraden liegt (3/2 · 3 − 2 = 2,5).",
@@ -3440,6 +3480,11 @@
      "l": "3/2*0-2",
      "rel": "==",
      "r": "-2"
+    },
+    {
+     "l": "3/(-2)",
+     "rel": "==",
+     "r": "-3/2"
     }
    ]
   },
@@ -4209,7 +4254,7 @@
    "name": "Reihenfolgen ohne Wiederholung",
    "satz": "Darf nichts doppelt vorkommen, hast du bei jedem weiteren Platz eine Möglichkeit weniger: n · (n − 1) · (n − 2) · … Alle n Elemente auf n Plätze: n · (n − 1) · … · 2 · 1.",
    "beispiel": "6 Kinder laufen, 3 kommen aufs Podest: 6 · 5 · 4 = 120 Möglichkeiten. 4 Kinder auf 4 Plätzen: 4 · 3 · 2 · 1 = 24.",
-   "voraus": "Jedes Element wird höchstens einmal benutzt, und die Reihenfolge zählt (Erster ≠ Zweiter).",
+   "voraus": "Jedes Element wird höchstens einmal benutzt, und die Reihenfolge zählt (Erster ≠ Zweiter). Die Zahl der Plätze k ist höchstens n (k ≤ n); bei mehr Plätzen als Elementen gibt es keine Möglichkeit.",
    "fehler": "6 · 6 · 6 = 216 rechnen: Ein Kind kann nicht Erster und Zweiter zugleich sein, also bleibt jedes Mal eines weniger.",
    "gym": "5",
    "rs": "5",
@@ -4736,7 +4781,7 @@
   {
    "kennung": "V-01",
    "was": "Überschlag",
-   "ziel": "Arbeitsweise Überschlag",
+   "ziel": "aw.ueberschlag",
    "begruendung": "Die Arbeitsweise „Überschlag“ („Erst grob, dann genau.“) mit Beispiel 398 · 52 steht im Universum; es fehlt nur das Suchwort und die Verknüpfung der Lernkarte.",
    "stichwoerter": [
     "Überschlag",
@@ -5082,7 +5127,8 @@
      "lernkarte": "liter"
     }
    ],
-   "vorschlag": ""
+   "vorschlag": "",
+   "ziel_offen": "T-einheiten ist ein Platzhalter: Die Kennung der Tafel Einheiten vergibt der App-Bau; bis dahin offen."
   },
   {
    "kennung": "V-15",
@@ -5276,7 +5322,7 @@
   {
    "kennung": "V-21",
    "was": "Planfigur und Konstruktionsbeschreibung",
-   "ziel": "Arbeitsweise Skizze",
+   "ziel": "aw.skizze",
    "begruendung": "Die Arbeitsweise „Skizze“ trägt das Vorgehen; Planfigur ist nur ein anderer Name.",
    "stichwoerter": [
     "Planfigur",

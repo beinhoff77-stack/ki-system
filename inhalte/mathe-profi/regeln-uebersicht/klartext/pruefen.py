@@ -193,6 +193,13 @@ for i, grenze in (('G3', 140), ('G7', 245), ('I-algebra-4', 235), ('I-zahlen-5',
 fehlt('G3', 'neu_satz', '0° < α < 90°', 'α = 90°', '90° < α < 180°', 'α = 180°', '180° < α < 360°', 'α = 360°')
 fehlt('G7', 'neu_satz', 'Vereinbarung', 'mindestens ein Paar')
 fehlt('I-algebra-4', 'neu_satz', 'a > 0', 'a = 0', 'a < 0', 'reellen Zahlen')
+# Werkstatt 1138/1139
+fehlt('G7', 'neu_satz', 'hier geltende Vereinbarung'); fehlt('G7', 'bedingung', 'jedes Parallelogramm auch ein Trapez', 'hier geltende Vereinbarung')
+if 'Unterricht' in E['G7']['bedingung']: f('G7: „hängt vom Unterricht ab“ darf nicht mehr stehen')
+fehlt('I-geo-2', 'beispiel', 'Zirkel', 'Zusatz für höhere Klassen')
+if E['I-geo-2']['beispiel'].index('Zirkel') > E['I-geo-2']['beispiel'].index('Zusatz'): f('I-geo-2: Konstruktion muss vor dem Koordinatenbeispiel stehen')
+fehlt('I-fur-1', 'beispiel', 'cm³', 'Einheitswürfel')
+fehlt('F14', 'neu_satz', '45°', 'q = 1/2', 'Aufgabe kann andere Werte vorgeben'); fehlt('F14', 'bedingung', 'N-F08')
 
 # ---------- Nur unter klartext/ geschrieben? ----------
 git_hinweis = ''

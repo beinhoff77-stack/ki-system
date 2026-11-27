@@ -407,8 +407,10 @@
    "neu_satz": "Gleich weit von einem Punkt M: Kreis um M. Gleich weit von A und B: Mittelsenkrechte von [AB]. Gleich weit von zwei sich schneidenden Geraden: ihre beiden Winkelhalbierenden.",
    "neu_kurz": "Linien aus Punkten mit gleichem Abstand: Damit findet man die Mittelpunkte von Um- und Inkreis.",
    "neu_warum_einstieg": "",
-   "beispiel": "A(0 | 0), B(4 | 0), P(2 | 3): PA² = 2² + 3² = 13 und PB² = (2 − 4)² + 3² = 13, also liegt P auf der Mittelsenkrechten.",
+   "beispiel": "Zeichne [AB] mit |AB| = 6 cm. Stich mit dem Zirkel (r = 4 cm, mehr als die halbe Strecke 6 : 2 = 3 cm) um A und um B einen Kreisbogen; verbinde die beiden Schnittpunkte der Bögen: Das ist die Mittelsenkrechte, sie trifft [AB] bei 3 cm von A. Zusatz für höhere Klassen: A(0 | 0), B(4 | 0), P(2 | 3): PA² = 2² + 3² = 13 und PB² = (2 − 4)² + 3² = 13, also liegt P auf der Mittelsenkrechten.",
    "rechnung": [
+    "6/2 == 3",
+    "4 > 3",
     "2**2 + 3**2 == 13",
     "(2-4)**2 + 3**2 == 13"
    ],
@@ -439,9 +441,11 @@
    "neu_satz": "Fläche = Anzahl der Einheitsquadrate, die lückenlos hineinpassen (1 cm² = Quadrat mit 1 cm Seite). Volumen = Anzahl der Einheitswürfel.",
    "neu_kurz": "Formeln für Fläche und Rauminhalt sind Abkürzungen fürs Zählen: 4 Reihen zu je 6 Quadraten sind 6 · 4.",
    "neu_warum_einstieg": "",
-   "beispiel": "Rechteck 3 cm mal 4 cm: 3 · 4 = 12 Quadrate, also 12 cm².",
+   "beispiel": "Rechteck 3 cm mal 4 cm: 3 · 4 = 12 Quadrate, also 12 cm². Quader 3 cm lang, 2 cm breit, 2 cm hoch: Die untere Schicht hat 3 · 2 = 6 Einheitswürfel, bei 2 Schichten sind es 6 · 2 = 12 Würfel, also 12 cm³.",
    "rechnung": [
-    "3*4 == 12"
+    "3*4 == 12",
+    "3*2 == 6",
+    "6*2 == 12"
    ],
    "bedingung": "Die Quadrate liegen lückenlos und ohne Überlappung; die Einheit passt zur Größe (cm² für Flächen, cm³ für Körper).",
    "begruendung": "„Messen heißt auslegen und zählen“ klingt wie eine Lebensweisheit und nennt weder Einheit noch Rechnung.",
@@ -1188,14 +1192,14 @@
    "alt_satz": "Quadrat, Rechteck, Raute, Parallelogramm, Trapez, Drachenviereck: Jedes hat seine festen Eigenschaften.",
    "alt_kurz": "",
    "neu_name": "Besondere Vierecke",
-   "neu_satz": "Rechteck: vier rechte Winkel; Raute: vier gleich lange Seiten; Quadrat: beides; Parallelogramm: Gegenseiten parallel; Trapez: mindestens ein Paar paralleler Seiten (Vereinbarung); Drachenviereck: zwei Paare gleich langer Nachbarseiten.",
+   "neu_satz": "Rechteck: vier rechte Winkel; Raute: vier gleiche Seiten; Quadrat: beides; Parallelogramm: Gegenseiten parallel; Trapez: mindestens ein Paar paralleler Seiten (hier geltende Vereinbarung); Drachen: zwei Paare gleich langer Nachbarseiten.",
    "neu_kurz": "",
    "neu_warum_einstieg": "",
    "beispiel": "Rechteck 3 cm mal 4 cm: Beide Diagonalen sind 5 cm lang, denn 3² + 4² = 5².",
    "rechnung": [
     "3**2 + 4**2 == 5**2"
    ],
-   "bedingung": "Jedes Quadrat ist ein Rechteck und eine Raute, aber nicht jedes Rechteck ein Quadrat. „Trapez = mindestens ein Paar paralleler Seiten“ ist eine Vereinbarung; manche Bücher verlangen genau ein Paar, dann ist ein Parallelogramm kein Trapez.",
+   "bedingung": "Jedes Quadrat ist ein Rechteck und eine Raute, aber nicht jedes Rechteck ein Quadrat. Trapez: mindestens ein Paar gegenüberliegender paralleler Seiten; daher ist jedes Parallelogramm auch ein Trapez. Das ist die hier geltende Vereinbarung, wie in der Tafel „Figuren“.",
    "begruendung": "Der Satz zählte nur die Namen auf und nannte keine Eigenschaft, an der man ein Viereck erkennt.",
    "suchwoerter": [
     "Viereck",
@@ -1500,14 +1504,15 @@
    "alt_satz": "Das Netz zeigt die aufgefaltete Oberfläche; das Schrägbild zeigt den Körper räumlich.",
    "alt_kurz": "",
    "neu_name": "Netz und Schrägbild",
-   "neu_satz": "Das Netz klappt alle Flächen eines Körpers flach auf: Oberfläche = Summe der Netzflächen. Im Schrägbild bleibt die Vorderseite unverzerrt, Kanten nach hinten zeichnest du schräg (45°) und verkürzt.",
+   "neu_satz": "Das Netz klappt alle Flächen eines Körpers flach auf: Oberfläche = Summe der Netzflächen. Im Schrägbild bleibt die Vorderseite unverzerrt; Kanten nach hinten zeichnest du üblicherweise unter 45° und auf die Hälfte verkürzt (q = 1/2), die Aufgabe kann andere Werte vorgeben.",
    "neu_kurz": "",
    "neu_warum_einstieg": "",
-   "beispiel": "Würfel mit Kante 2 cm: Das Netz hat 6 Quadrate, O = 6 · 2 · 2 = 24 cm².",
+   "beispiel": "Würfel mit Kante 2 cm: Das Netz hat 6 Quadrate, O = 6 · 2 · 2 = 24 cm². Schrägbild: Eine Kante nach hinten ist 6 cm lang, gezeichnet 6 · 1/2 = 3 cm unter 45°.",
    "rechnung": [
-    "6*2*2 == 24"
+    "6*2*2 == 24",
+    "6*(1/2) == 3"
    ],
-   "bedingung": "Im Netz sind zusammengehörende Kanten gleich lang; es muss sich zu einem Körper falten lassen. Im Schrägbild misst man nur an unverzerrten Flächen.",
+   "bedingung": "45° und q = 1/2 sind die übliche Vereinbarung in Aufgaben (wie bei N-F08) und können abweichen; was gilt, steht in der Aufgabe. Im Netz sind zusammengehörende Kanten gleich lang; es muss sich zu einem Körper falten lassen. Im Schrägbild misst man nur an unverzerrten Flächen.",
    "begruendung": "Der Satz beschrieb, was Netz und Schrägbild sind, aber nicht, wie man sie zeichnet oder auswertet.",
    "suchwoerter": [
     "Netz",

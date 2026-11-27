@@ -1,7 +1,7 @@
 # Vorher und nachher: Klartext-Vorschläge für das Regel-Universum
 
 Entwurf, nichts eingespielt. 72 Einträge (B oder C): 23 Ideen, 48 Einzelregeln, 1 Rechenregel. A-Einträge sind unverändert.
-Alle Zahlenbeispiele werden von `pruefen.py` nachgerechnet. Maßstab: Ein Kind schlägt nach und kann danach eine Aufgabe lösen. Bei den 23 Ideen steht zusätzlich die Zeile „Genau gesagt“ (vorher/nachher). Überarbeitet nach den Auflagen aus Werkstatt 1133/1137.
+Alle Zahlenbeispiele werden von `pruefen.py` nachgerechnet. Maßstab: Ein Kind schlägt nach und kann danach eine Aufgabe lösen. Bei den 23 Ideen steht zusätzlich die Zeile „Genau gesagt“ (vorher/nachher). Überarbeitet nach den Auflagen aus Werkstatt 1133/1137 und 1138/1139.
 
 Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und Klasse-8-Stoff.
 
@@ -383,7 +383,7 @@ Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und K
 | Kurzbeschreibung | Eine Fläche misst man, indem man sie lückenlos mit gleich großen Quadraten auslegt und zählt. | Formeln für Fläche und Rauminhalt sind Abkürzungen fürs Zählen: 4 Reihen zu je 6 Quadraten sind 6 · 4. |
 | Genau gesagt | Messen heißt auslegen und zählen: Flächen mit Einheitsquadraten, Körper mit Einheitswürfeln. | Flächen misst man mit Einheitsquadraten, Körper mit Einheitswürfeln: Du zählst, wie viele lückenlos hineinpassen. Drei Reihen mit je vier Quadraten sind 3 · 4 = 12 Quadrate. |
 
-- **Beispiel (nachgerechnet):** Rechteck 3 cm mal 4 cm: 3 · 4 = 12 Quadrate, also 12 cm².
+- **Beispiel (nachgerechnet):** Rechteck 3 cm mal 4 cm: 3 · 4 = 12 Quadrate, also 12 cm². Quader 3 cm lang, 2 cm breit, 2 cm hoch: Die untere Schicht hat 3 · 2 = 6 Einheitswürfel, bei 2 Schichten sind es 6 · 2 = 12 Würfel, also 12 cm³.
 - **Gilt, wenn:** Die Quadrate liegen lückenlos und ohne Überlappung; die Einheit passt zur Größe (cm² für Flächen, cm³ für Körper).
 - **Problem der alten Fassung:** „Messen heißt auslegen und zählen“ klingt wie eine Lebensweisheit und nennt weder Einheit noch Rechnung.
 - **Suchwörter:** Flächeninhalt, Fläche, Quadratzentimeter, cm², Volumen, Rauminhalt, Kubikzentimeter, Einheitsquadrat
@@ -459,10 +459,10 @@ Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und K
 | | vorher | nachher |
 |---|---|---|
 | Name | Netz und Schrägbild | Netz und Schrägbild |
-| Merksatz | Das Netz zeigt die aufgefaltete Oberfläche; das Schrägbild zeigt den Körper räumlich. | Das Netz klappt alle Flächen eines Körpers flach auf: Oberfläche = Summe der Netzflächen. Im Schrägbild bleibt die Vorderseite unverzerrt, Kanten nach hinten zeichnest du schräg (45°) und verkürzt. |
+| Merksatz | Das Netz zeigt die aufgefaltete Oberfläche; das Schrägbild zeigt den Körper räumlich. | Das Netz klappt alle Flächen eines Körpers flach auf: Oberfläche = Summe der Netzflächen. Im Schrägbild bleibt die Vorderseite unverzerrt; Kanten nach hinten zeichnest du üblicherweise unter 45° und auf die Hälfte verkürzt (q = 1/2), die Aufgabe kann andere Werte vorgeben. |
 
-- **Beispiel (nachgerechnet):** Würfel mit Kante 2 cm: Das Netz hat 6 Quadrate, O = 6 · 2 · 2 = 24 cm².
-- **Gilt, wenn:** Im Netz sind zusammengehörende Kanten gleich lang; es muss sich zu einem Körper falten lassen. Im Schrägbild misst man nur an unverzerrten Flächen.
+- **Beispiel (nachgerechnet):** Würfel mit Kante 2 cm: Das Netz hat 6 Quadrate, O = 6 · 2 · 2 = 24 cm². Schrägbild: Eine Kante nach hinten ist 6 cm lang, gezeichnet 6 · 1/2 = 3 cm unter 45°.
+- **Gilt, wenn:** 45° und q = 1/2 sind die übliche Vereinbarung in Aufgaben (wie bei N-F08) und können abweichen; was gilt, steht in der Aufgabe. Im Netz sind zusammengehörende Kanten gleich lang; es muss sich zu einem Körper falten lassen. Im Schrägbild misst man nur an unverzerrten Flächen.
 - **Problem der alten Fassung:** Der Satz beschrieb, was Netz und Schrägbild sind, aber nicht, wie man sie zeichnet oder auswertet.
 - **Suchwörter:** Netz, Schrägbild, Körpernetz, Würfelnetz, Oberfläche, Prisma, Zylinder
 
@@ -516,7 +516,7 @@ Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und K
 | Kurzbeschreibung | Kreis um einen Punkt, Mittelsenkrechte zweier Punkte, Winkelhalbierende zweier sich schneidender Geraden. | Linien aus Punkten mit gleichem Abstand: Damit findet man die Mittelpunkte von Um- und Inkreis. |
 | Genau gesagt | Alle Punkte mit gleichem Abstand bilden eine Linie: Kreis, Mittelsenkrechte, Winkelhalbierende. Zwei sich schneidende Geraden haben zwei Winkelhalbierende, senkrecht zueinander; im Inneren eines Winkels liegt die innere. | Alle Punkte mit gleichem Abstand liegen auf einer Linie: von einem Punkt M auf einem Kreis, von A und B auf der Mittelsenkrechten von [AB], von zwei sich schneidenden Geraden auf deren Winkelhalbierenden. Zwei sich schneidende Geraden haben zwei Winkelhalbierende, die senkrecht aufeinander stehen. |
 
-- **Beispiel (nachgerechnet):** A(0 | 0), B(4 | 0), P(2 | 3): PA² = 2² + 3² = 13 und PB² = (2 − 4)² + 3² = 13, also liegt P auf der Mittelsenkrechten.
+- **Beispiel (nachgerechnet):** Zeichne [AB] mit |AB| = 6 cm. Stich mit dem Zirkel (r = 4 cm, mehr als die halbe Strecke 6 : 2 = 3 cm) um A und um B einen Kreisbogen; verbinde die beiden Schnittpunkte der Bögen: Das ist die Mittelsenkrechte, sie trifft [AB] bei 3 cm von A. Zusatz für höhere Klassen: A(0 | 0), B(4 | 0), P(2 | 3): PA² = 2² + 3² = 13 und PB² = (2 − 4)² + 3² = 13, also liegt P auf der Mittelsenkrechten.
 - **Gilt, wenn:** Die Mittelsenkrechte steht senkrecht auf [AB] durch dessen Mitte. Zwei sich schneidende Geraden haben zwei Winkelhalbierende, senkrecht zueinander; im Inneren eines Winkels liegt die innere.
 - **Problem der alten Fassung:** Der Name „Gleicher Abstand“ und der Satz nur über den Kreis sagten nicht, welche Linie man wann zeichnet.
 - **Suchwörter:** Kreis, Mittelsenkrechte, Winkelhalbierende, Abstand, Umkreis, Inkreis, Ortslinie, gleicher Abstand
@@ -538,10 +538,10 @@ Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und K
 | | vorher | nachher |
 |---|---|---|
 | Name | Besondere Vierecke | Besondere Vierecke |
-| Merksatz | Quadrat, Rechteck, Raute, Parallelogramm, Trapez, Drachenviereck: Jedes hat seine festen Eigenschaften. | Rechteck: vier rechte Winkel; Raute: vier gleich lange Seiten; Quadrat: beides; Parallelogramm: Gegenseiten parallel; Trapez: mindestens ein Paar paralleler Seiten (Vereinbarung); Drachenviereck: zwei Paare gleich langer Nachbarseiten. |
+| Merksatz | Quadrat, Rechteck, Raute, Parallelogramm, Trapez, Drachenviereck: Jedes hat seine festen Eigenschaften. | Rechteck: vier rechte Winkel; Raute: vier gleiche Seiten; Quadrat: beides; Parallelogramm: Gegenseiten parallel; Trapez: mindestens ein Paar paralleler Seiten (hier geltende Vereinbarung); Drachen: zwei Paare gleich langer Nachbarseiten. |
 
 - **Beispiel (nachgerechnet):** Rechteck 3 cm mal 4 cm: Beide Diagonalen sind 5 cm lang, denn 3² + 4² = 5².
-- **Gilt, wenn:** Jedes Quadrat ist ein Rechteck und eine Raute, aber nicht jedes Rechteck ein Quadrat. „Trapez = mindestens ein Paar paralleler Seiten“ ist eine Vereinbarung; manche Bücher verlangen genau ein Paar, dann ist ein Parallelogramm kein Trapez.
+- **Gilt, wenn:** Jedes Quadrat ist ein Rechteck und eine Raute, aber nicht jedes Rechteck ein Quadrat. Trapez: mindestens ein Paar gegenüberliegender paralleler Seiten; daher ist jedes Parallelogramm auch ein Trapez. Das ist die hier geltende Vereinbarung, wie in der Tafel „Figuren“.
 - **Problem der alten Fassung:** Der Satz zählte nur die Namen auf und nannte keine Eigenschaft, an der man ein Viereck erkennt.
 - **Suchwörter:** Viereck, Quadrat, Rechteck, Raute, Parallelogramm, Trapez, Drachenviereck, Haus der Vierecke
 

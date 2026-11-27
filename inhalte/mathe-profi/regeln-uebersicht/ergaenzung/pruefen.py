@@ -58,6 +58,7 @@ ids = {g['id']: g for g in uni['gesetze']}
 ids.update({r['id']: r for r in uni['regeln']})
 ideen = {i['id']: p['name'] for p in uni['planeten'] for i in p['ideen']}
 aw = {a['name'] for a in uni['arbeitsweisen']}
+AW_KENNUNGEN = {a['kennung_vorschlag'] for a in laden(repo / 'inhalte/mathe-profi/regeln-uebersicht/texte8/arbeitsweisen.json')['arbeitsweisen']}  # feste Kennungen der Arbeitsweisen
 THEMEN = repo / 'inhalte/themen'
 _th = {}
 def thema(t):
@@ -71,7 +72,7 @@ def lernkarte_da(t, l):
 D = laden(hier / 'einzelregeln-neu.json')
 R, V = D['regeln'], D['verweise']
 BUCH = {'Zahlen': 'Z', 'Algebra': 'A', 'Geld und Verhältnisse': 'V', 'Geometrie': 'G', 'Fläche und Raum': 'F', 'Funktionen': 'U', 'Daten und Zufall': 'D'}
-GRENZE = {'name': (3, 60), 'satz': (40, 420), 'beispiel': (15, 340), 'voraus': (15, 520), 'fehler': (15, 340), 'bezug_bestand': (10, 400)}
+GRENZE = {'name': (3, 60), 'satz': (40, 420), 'beispiel': (15, 420), 'voraus': (15, 520), 'fehler': (15, 340), 'bezug_bestand': (10, 400)}
 PFLICHT = ['kennung', 'name', 'satz', 'beispiel', 'voraus', 'fehler', 'gym', 'rs', 'gebiet', 'gehoert_zu', 'status', 'ergaenzt', 'bezug_bestand', 'stichwoerter', 'verwandt', 'lernkarten', 'pruefung']
 VERBOTEN = {'8535e86c8118', '6a61eb7383e8', 'ac818c81a10c'}  # Prüfsummen statt Klartext (öffentliches Repo)
 
@@ -162,6 +163,7 @@ for v in V:
     vk.add(o)
     z = v.get('ziel', '')
     if z in ids: pass
+    elif z in AW_KENNUNGEN: pass
     elif z.startswith('Arbeitsweise '):
         if z[len('Arbeitsweise '):] not in aw and not any(a.startswith(z[len('Arbeitsweise '):]) for a in aw): f('%s: Arbeitsweise %s gibt es nicht' % (o, z))
     elif z == 'T-einheiten':
@@ -200,9 +202,24 @@ muss('N-U07', 'satz', 'hängt von D ab', 'ℝ \\ {c}')
 if 'D = ℚ \\ {2; −4}' in RR['N-A03']['beispiel'] and 'Grundmenge ℚ' not in RR['N-A03']['beispiel']: f('N-A03: Beispiel nennt die Grundmenge nicht')
 muss('N-F08', 'satz', 'üblicherweise', 'kann andere Werte vorgeben'); muss('N-F08', 'voraus', 'übliche Vereinbarung', 'abweichen')
 muss('N-V01', 'voraus', '2,040 km = 2,04 km', 'Null am Ende', 'ändert den Wert nicht')
+# Auflagen aus Werkstatt 1138/1139
+muss('N-Z07', 'satz', 'ganzen Zehnerteil der Stellensumme'); muss('N-Z07', 'beispiel', 'Drei Summanden')
+if 58 + 69 + 37 != 164 or 8 + 9 + 7 != 24 or 5 + 6 + 3 + 2 != 16: f('N-Z07: Dreier-Beispiel rechnet nicht')
+muss('N-Z12', 'voraus', 'a ≠ 0')
+if '495' in RR['N-G14']['beispiel'] or '495' in RR['N-G14']['satz']: f('N-G14: Zwischenwert über 360° im Text')
+muss('N-G14', 'satz', 'Bring auch x₂ in den Bereich', 'der Größe nach')
+muss('N-G08', 'voraus', 'd ist größer als 0', 'd = 0')
+muss('N-D03', 'voraus', 'höchstens n')
+muss('N-U03', 'satz', 'positivem Nenner', 'negativ')
+muss('N-U01', 'satz', 'Grundmenge der Aufgabe'); muss('N-U01', 'voraus', 'oft ℚ, ab Klasse 9 ℝ', 'hängt von D ab')
+muss('N-G03', 'satz', '0,5°', '6°'); muss('N-G03', 'beispiel', '3:30', '75°')
+if 3 * 30 + 30 * F(1, 2) != 105 or 30 * 6 - 105 != 75: f('N-G03: 3:30 rechnet nicht')
+va = {v['kennung']: v for v in V}
+if va['V-01']['ziel'] != 'aw.ueberschlag' or va['V-21']['ziel'] != 'aw.skizze': f('V-01/V-21: Ziel muss die feste Kennung der Arbeitsweise sein')
+if 'T-einheiten' in va['V-14']['ziel'] and not va['V-14'].get('ziel_offen'): f('V-14: Abhängigkeit von der Einheiten-Tafel nicht als offen vermerkt')
 # Verweise-Abgleich: Datei vorhanden, nennt alle Verweise und jedes Ziel, das im Universum fehlt
 ab = (hier / 'verweise-abgleich.md').read_text(encoding='utf-8')
-bestand = set(ids) | {'Arbeitsweise ' + a for a in aw}
+bestand = set(ids) | {'Arbeitsweise ' + a for a in aw} | AW_KENNUNGEN
 for v in V:
     if '`%s`' % v['kennung'] not in ab: f('verweise-abgleich.md nennt %s nicht' % v['kennung'])
     if v['ziel'] not in bestand and ('`%s`' % v['ziel'] not in ab or 'fehlt im Bestand' not in ab): f('verweise-abgleich.md benennt das fehlende Ziel %s nicht' % v['ziel'])

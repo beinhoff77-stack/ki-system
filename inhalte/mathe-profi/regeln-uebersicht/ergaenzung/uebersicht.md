@@ -118,7 +118,7 @@ Abgleich mit dem Bestand: `verweise-abgleich.md`. Kein neuer Text; es genügt, d
 
 | Kennung | Gesuchter Stoff | Steht in | Stichwörter | Lernkarten | Vorschlag |
 |---|---|---|---|---|---|
-| `V-01` | Überschlag (Kl. 5) | Arbeitsweise Überschlag | Überschlag, überschlagen, schätzen, grob rechnen, Näherung | zahlen.rechengesetze (1) |  |
+| `V-01` | Überschlag (Kl. 5) | `aw.ueberschlag` (Arbeitsweise Überschlag) | Überschlag, überschlagen, schätzen, grob rechnen, Näherung | zahlen.rechengesetze (1) |  |
 | `V-05` | (−2)² und −2² (Kl. 5) | Z16 | Minus Quadrat, Klammer Potenz, negative Basis | zahlen.potenzen_basis, terme.potenzgesetze (2) | In Z16 zusätzlich (−2)² = 4 und −2² = −4 nennen (nachgerechnet: (−2) · (−2) = 4; erst 2² = 4, dann das Minus: −4). |
 | `V-12` | Gleichungen mit Umkehraufgaben lösen (Kl. 5) | R12 | Umkehraufgabe, Umkehrrechnung, rückwärts rechnen | zahlen.ganz, zahlen.rechengesetze (2) |  |
 | `V-13` | Zeit rechnen (2 h 30 min) (Kl. 5) | V1 | Zeitspanne, Uhrzeit, Stunden Minuten, Dauer berechnen | groessen.einheiten (1) |  |
@@ -131,7 +131,7 @@ Abgleich mit dem Bestand: `verweise-abgleich.md`. Kein neuer Text; es genügt, d
 | `V-20` | Dezimalzahlen runden, Stellen nach dem Komma (Kl. 6) | Z2 | Dezimalzahl runden, Zehntel, Hundertstel | bruch.dezimal (2) |  |
 | `V-24` | Brüche am Zahlenstrahl (Kl. 6) | Z4 | Zahlenstrahl Brüche | bruch.brueche (1) |  |
 | `V-04` | Prozente nicht addieren, mehrere Änderungen (Kl. 7) | V9 | mehrere Änderungen, Prozente addieren, erst plus dann minus | bruch.prozent_grundwert (2) |  |
-| `V-21` | Planfigur und Konstruktionsbeschreibung (Kl. 7) | Arbeitsweise Skizze | Planfigur, Skizze, Konstruktionsbeschreibung | geometrie.konstruktion (1) |  |
+| `V-21` | Planfigur und Konstruktionsbeschreibung (Kl. 7) | `aw.skizze` (Arbeitsweise Skizze) | Planfigur, Skizze, Konstruktionsbeschreibung | geometrie.konstruktion (1) |  |
 | `V-22` | Gleichungen mit Klammern, keine oder unendlich viele Lösungen (eine Gleichung) (Kl. 7) | A9 | Klammern lösen, keine Lösung, unendlich viele Lösungen | gleichungen.linear (2) |  |
 | `V-06` | Kürzen nur aus Produkten, nie aus Summen (Kl. 8) | A6 | aus Summen kürzen, kürzen, Bruchterm kürzen | terme.bruchterme (2) |  |
 | `V-07` | Mindestens einmal (Gegenereignis) (Kl. 8) | D14 | mindestens einmal, mindestens, keinmal, Gegenereignis | stochastik.mehrstufig, stochastik.grundbegriffe (2) |  |

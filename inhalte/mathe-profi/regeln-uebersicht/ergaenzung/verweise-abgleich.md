@@ -6,7 +6,7 @@ Das Universum hat heute **19 Suchwörter** (Abschnitt `stichwoerter`) und **8 Ar
 
 | Kennung | Gesuchter Stoff | Ziel | Ziel im Bestand | Suchwörter (neu) | Suchwort schon im Bestand | Lernkarten da |
 |---|---|---|---|---|---|---|
-| `V-01` | Überschlag | Arbeitsweise Überschlag | Arbeitsweise „Überschlag“ | Überschlag, überschlagen, schätzen, grob rechnen, Näherung, ungefähr | keines | 1 von 1 |
+| `V-01` | Überschlag | aw.ueberschlag | Arbeitsweise (feste Kennung) „Überschlag“ | Überschlag, überschlagen, schätzen, grob rechnen, Näherung, ungefähr | keines | 1 von 1 |
 | `V-02` | Welcher Anteil? (Teil durch Ganzes) | Z10 | Einzelregel „Bruch als Anteil“ | Anteil, welcher Anteil, Teil vom Ganzen, Anteil bestimmen | keines | 1 von 1 |
 | `V-03` | Rabatt und Aufschlag | V9 | Einzelregel „Wachstumsfaktor“ | Rabatt, Aufschlag, Preisnachlass, Skonto, Mehrwertsteuer, Preis nach Rabatt, Preis mit Aufschlag | keines | 4 von 4 |
 | `V-04` | Prozente nicht addieren, mehrere Änderungen | V9 | Einzelregel „Wachstumsfaktor“ | mehrere Änderungen, Prozente addieren, erst plus dann minus | keines | 2 von 2 |
@@ -26,7 +26,7 @@ Das Universum hat heute **19 Suchwörter** (Abschnitt `stichwoerter`) und **8 Ar
 | `V-18` | Verknüpfte Ereignisse (Schnitt, Vereinigung, Additionssatz, Venn) | D16 | Einzelregel „Additionssatz“ | Schnitt, Vereinigung, Venn, Additionssatz | keines | 11 von 11 |
 | `V-19` | Wurzelfunktion, Umkehrfunktion, x hoch minus n | U6 | Einzelregel „Umkehrfunktion“ | Umkehrfunktion, Wurzelfunktion, Potenzfunktion | keines | 10 von 10 |
 | `V-20` | Dezimalzahlen runden, Stellen nach dem Komma | Z2 | Einzelregel „Runden“ | Dezimalzahl runden, Zehntel, Hundertstel | keines | 2 von 2 |
-| `V-21` | Planfigur und Konstruktionsbeschreibung | Arbeitsweise Skizze | Arbeitsweise „Skizze“ | Planfigur, Skizze, Konstruktionsbeschreibung | keines | 1 von 1 |
+| `V-21` | Planfigur und Konstruktionsbeschreibung | aw.skizze | Arbeitsweise (feste Kennung) „Skizze“ | Planfigur, Skizze, Konstruktionsbeschreibung | keines | 1 von 1 |
 | `V-22` | Gleichungen mit Klammern, keine oder unendlich viele Lösungen (eine Gleichung) | A9 | Einzelregel „Wie viele Lösungen?“ | Klammern lösen, keine Lösung, unendlich viele Lösungen | keines | 2 von 2 |
 | `V-23` | Fläche und Umfang verstehen | F3 | Einzelregel „Fläche ist nicht Umfang“ | Umfang, Flächeninhalt, Fläche Umfang verwechseln | keines | 1 von 1 |
 | `V-24` | Brüche am Zahlenstrahl | Z4 | Einzelregel „Ordnung auf der Zahlengeraden“ | Zahlenstrahl Brüche | keines | 1 von 1 |
@@ -46,6 +46,8 @@ keine
 
 ## Kurzbefund
 
+- V-01 und V-21 zeigen über die festen Kennungen `aw.ueberschlag` und `aw.skizze` (Auflage aus Werkstatt 1138/1139) statt über einen abweichenden Zieltext.
+- V-14 bleibt offen: `T-einheiten` ist ein Platzhalter, die Kennung der Tafel Einheiten vergibt der App-Bau.
 - 25 Verweise; 22 Ziele sind Einzelregeln oder Rechenregeln des Bestands, 2 sind Arbeitsweisen, 1 ohne Eintrag im Universum (siehe oben).
 - Alle Lernkarten der Verweise gibt es in `inhalte/themen/` (Spalte „Lernkarten da“); `pruefen.py` prüft das bei jedem Lauf.
 - Kein Verweis legt ein neues Ziel an; die Verweise ändern nur Suchwörter und Lernkarten-Verknüpfungen.

@@ -359,7 +359,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Das Malgitter gehört zu einer schriftlichen Multiplikation. Die Zahlen am Rand fehlen. Die linke Spalte gehört zur Zehnerziffer des zweiten Faktors, die rechte Spalte zur Einerziffer. Kim rechnet dieselbe Aufgabe schriftlich. Seine erste Zeile (die Multiplikation mit der Zehnerziffer) ergibt 1 380. Welche Zahl gehört in das Feld mit dem Fragezeichen?",
+     "text": "Das Malgitter gehört zu einer schriftlichen Multiplikation. Die Zahlen am Rand fehlen, das Feld unten rechts ist verdeckt. Die linke Spalte gehört zum Zehnerwert des zweiten Faktors, die rechte Spalte zum Einerwert. Kim rechnet dieselbe Aufgabe schriftlich. Seine erste Zeile (die Multiplikation mit dem Zehnerwert) ergibt 1 380. Welche Zahl gehört in das Feld mit dem Fragezeichen?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
@@ -376,7 +376,7 @@
        [
         "unten",
         "?",
-        "48"
+        "verdeckt"
        ]
       ]
      }
@@ -386,7 +386,7 @@
     },
     "c": "1380 - 1200",
     "h": "Welche Felder des Gitters gehören zu Kims erster Zeile? Was muss ihre Summe ergeben?",
-    "w": "Kims erste Zeile ist die Summe der Felder der linken Spalte: 1 200 + ? = 1 380. Also ist ? = 1 380 − 1 200 = 180. Die rechte Spalte (320 und 48) gehört zur zweiten Zeile, der Multiplikation mit der Einerziffer."
+    "w": "Kims erste Zeile ist die Summe der Felder der linken Spalte: 1 200 + ? = 1 380. Also ist ? = 1 380 − 1 200 = 180. Die rechte Spalte (320 und 48) gehört zur zweiten Zeile, der Multiplikation mit dem Einerwert."
    }
   }
  ]

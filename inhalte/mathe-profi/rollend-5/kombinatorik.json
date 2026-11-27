@@ -675,7 +675,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Gesucht sind dreistellige Zahlen mit lauter verschiedenen Ziffern, deren erste Ziffer ungerade ist. Es gibt 10 Ziffern von null bis neun. Für die erste Ziffer gibt es ① Möglichkeiten. Für die zweite Ziffer darf jede Ziffer außer der ersten stehen, auch die 0: Das sind ② Möglichkeiten. Für die dritte Ziffer bleibt eine weniger als bei der zweiten: ③. Zusammen ① · ② · ③ = ④.",
+     "text": "Gesucht sind dreistellige Zahlen mit lauter verschiedenen Ziffern, deren erste Ziffer ungerade ist. Wir rechnen im Dezimalsystem. Für die erste Ziffer gibt es ① Möglichkeiten. Für die zweite Ziffer darf jede Ziffer außer der ersten stehen, auch die 0: Das sind ② Möglichkeiten. Für die dritte Ziffer bleibt eine weniger als bei der zweiten: ③. Zusammen ① · ② · ③ = ④.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -693,7 +693,7 @@
      "10-2",
      "5*9*8"
     ],
-    "h": "Beginne mit der Stelle, für die eine Bedingung gilt. Welche Ziffern von 0 bis 9 sind ungerade?",
+    "h": "Beginne mit der Stelle, für die eine Bedingung gilt. Welche Ziffern sind ungerade?",
     "w": "Ungerade Ziffern: 1, 3, 5, 7, 9. Das sind 5 Möglichkeiten. Zweite Ziffer: 10 minus die erste, also 9. Dritte Ziffer: 8. Zusammen 5 · 9 · 8 = 360."
    }
   },

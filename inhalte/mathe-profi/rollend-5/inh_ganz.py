@@ -7,9 +7,9 @@ ST = "rr.stellenwert"
 
 # ── deuten ──
 neu(TH, "deuten", "lueckenweg", "direkt", L(
-    "Es sind vier Grad unter null. Man schreibt ① °C. Dann wird es 7 Grad wärmer: ① + 7 = ② °C. Danach sinkt die Temperatur um 9 Grad: ② − 9 = ③ °C.",
-    ["-4", "-4+7", "-4+7-9"], ["-4", "3", "-6"], "Unter null schreibst du ein Minus vor die Zahl.", "Vier Grad unter null sind −4 °C. −4 + 7 = 3 °C. 3 − 9 = −6 °C.",
-    {0: [(4, None, "das Minus vergessen")], 1: [(11, "fb.plusminus.zeichen_des_ergebnisses", "4 + 7 gerechnet")], 2: [(2, None, "mit 11 weitergerechnet")]}), ZGR)
+    "Es sind vier Grad unter null. Das schreibt man als Zahl mit Vorzeichen. Dann wird es 7 Grad wärmer: Die neue Temperatur ist ① °C. Danach sinkt sie von ① °C um 9 Grad: Sie ist dann ② °C.",
+    ["-4+7", "-4+7-9"], ["3", "-6"], "Unter null schreibst du ein Minus vor die Zahl.", "Vier Grad unter null sind −4 °C. −4 + 7 = 3 °C. 3 − 9 = −6 °C.",
+    {0: [(11, "fb.plusminus.zeichen_des_ergebnisses", "4 + 7 gerechnet")], 1: [(2, None, "mit 11 weitergerechnet")]}), ZGR)
 neu(TH, "deuten", "bruecke", "darstellung", Z(
     "Die Tabelle zeigt die Temperatur an einem Wintertag. Um wie viele Grad ist es um 12 Uhr wärmer als um 6 Uhr?",
     "3-(-5)", "5+3", "Wie weit ist es von −5 bis 0, und wie weit von 0 bis 3?", "Von −5 bis 0 sind es 5 Grad, von 0 bis 3 noch 3 Grad. Zusammen 8 Grad.",
@@ -124,7 +124,7 @@ neu(TH, "umkehraufgabe", "anwenden", "einkleidung", Z(
 
 # ── ketten ──
 neu(TH, "ketten", "lueckenweg", "direkt", L(
-    "Rechne −4 + 9 − (−3) − 10. Wer eine negative Zahl abzieht, addiert ihre Gegenzahl. Sammle alles, was dazukommt: die 9 und die Zahl aus der Klammer ergeben zusammen ①. Sammle alles, was abgeht: die 4 und die 10 ergeben zusammen ②. Ergebnis: ① − ② = ③.",
+    "Rechne −4 + 9 − (−3) − 10. Wer eine negative Zahl abzieht, addiert ihre Gegenzahl. Sammle alles, was dazukommt: die 9 und die Gegenzahl der abgezogenen Zahl ergeben zusammen ①. Sammle alles, was abgeht: die 4 und die 10 ergeben zusammen ②. Ergebnis: ① − ② = ③.",
     ["9+3", "4+10", "9+3-(4+10)"], ["12", "14", "-2"], "Sammle erst alle Plus-Zahlen, dann alle Minus-Zahlen.", "Plus: 9 + 3 = 12. Minus: 4 + 10 = 14. 12 − 14 = −2.",
     {0: [(6, "fb.plusminus.doppelminus_uebersehen", "− (−3) als Minus gerechnet: 9 − 3")], 2: [(2, "fb.plusminus.zeichen_des_ergebnisses", "das Minus des Ergebnisses vergessen"), (-8, None, "mit ① = 6 weitergerechnet: 6 − 14")]}), PM)
 neu(TH, "ketten", "zwei_wege", "mehrschritt", Z(

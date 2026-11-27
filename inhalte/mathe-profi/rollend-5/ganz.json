@@ -20,20 +20,13 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 4,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "das Minus vergessen"
-    },
-    {
-     "luecke": 2,
      "antwort": 11,
      "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
      "regel_des_fehlbilds": "rr.plusminus",
      "beschreibung": "4 + 7 gerechnet"
     },
     {
-     "luecke": 3,
+     "luecke": 2,
      "antwort": 2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -48,19 +41,17 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Es sind vier Grad unter null. Man schreibt ① °C. Dann wird es 7 Grad wärmer: ① + 7 = ② °C. Danach sinkt die Temperatur um 9 Grad: ② − 9 = ③ °C.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Es sind vier Grad unter null. Das schreibt man als Zahl mit Vorzeichen. Dann wird es 7 Grad wärmer: Die neue Temperatur ist ① °C. Danach sinkt sie von ① °C um 9 Grad: Sie ist dann ② °C.",
+     "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      -4,
       3,
       -6
      ]
     },
     "c": [
-     "-4",
      "-4+7",
      "-4+7-9"
     ],
@@ -1286,7 +1277,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Rechne −4 + 9 − (−3) − 10. Wer eine negative Zahl abzieht, addiert ihre Gegenzahl. Sammle alles, was dazukommt: die 9 und die Zahl aus der Klammer ergeben zusammen ①. Sammle alles, was abgeht: die 4 und die 10 ergeben zusammen ②. Ergebnis: ① − ② = ③.",
+     "text": "Rechne −4 + 9 − (−3) − 10. Wer eine negative Zahl abzieht, addiert ihre Gegenzahl. Sammle alles, was dazukommt: die 9 und die Gegenzahl der abgezogenen Zahl ergeben zusammen ①. Sammle alles, was abgeht: die 4 und die 10 ergeben zusammen ②. Ergebnis: ① − ② = ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },

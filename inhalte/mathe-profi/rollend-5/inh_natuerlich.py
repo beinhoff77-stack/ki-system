@@ -40,7 +40,7 @@ neu(TH, "stellenwert", "anwenden", "einkleidung", Z(
 
 # ── zahlwort_zu_ziffern ──
 neu(TH, "zahlwort_zu_ziffern", "fehler_detektiv", "fehler", FDZ(
-    "Kim schreibt „drei Millionen vierzigtausend zwölf“ in Ziffern.",
+    "Kim schreibt „drei Millionen vierzigtausendzwölf“ in Ziffern.",
     [("Drei Millionen sind 3 000 000.", True), ("Vierzigtausend sind 400 000.", 40000 == 400000), ("Zusammen: 3 000 000 + 400 000 + 12 = 3 400 012.", 3000000 + 400000 + 12 == 3400012)],
     "Wie viele Nullen hat „vierzigtausend“?", "Vierzigtausend sind 40 000 (4 Zehntausender). Richtig: 3 000 000 + 40 000 + 12 = 3 040 012."), SS)
 neu(TH, "zahlwort_zu_ziffern", "umkehren", "umkehr", Z(
@@ -48,24 +48,24 @@ neu(TH, "zahlwort_zu_ziffern", "umkehren", "umkehr", Z(
     "8", str(len(str(50000300))), "Schreibe die Zahl zuerst auf. Von rechts: Dreiergruppen.", "50 Millionen = 50 000 000, dazu 300: 50 000 300. Das sind 8 Ziffern.",
     [(5, None, "50 300 geschrieben und die leere Gruppe weggelassen")]), SS)
 neu(TH, "zahlwort_zu_ziffern", "anwenden", "einkleidung", Z(
-    "Ein Verein meldet: „Wir haben zwei Millionen dreihunderttausend vierzig Euro gespendet.“ Ein anderer Verein hat 2 299 940 € gespendet. Wie viel Euro hat der erste Verein mehr gespendet?",
-    "2300040-2299940", "100", "Schreibe die Spende des ersten Vereins zuerst in Ziffern.", "„Zwei Millionen dreihunderttausend vierzig“ sind 2 300 040. 2 300 040 − 2 299 940 = 100.",
+    "Ein Verein meldet: „Wir haben zwei Millionen dreihunderttausendvierzig Euro gespendet.“ Ein anderer Verein hat 2 299 940 € gespendet. Wie viel Euro hat der erste Verein mehr gespendet?",
+    "2300040-2299940", "100", "Schreibe die Spende des ersten Vereins zuerst in Ziffern.", "„Zwei Millionen dreihunderttausendvierzig“ sind 2 300 040. 2 300 040 − 2 299 940 = 100.",
     [(460, None, "„vierzig“ als 400 gelesen")]), SS)
 
 # ── ziffern_zu_zahlwort ──
 neu(TH, "ziffern_zu_zahlwort", "lueckenweg", "direkt", L(
-    "Die Zahl 48 000 120 soll in Worten geschrieben werden. Sie hat ① Ziffern. Von diesen ① Ziffern bilden 6 Ziffern von rechts zwei volle Dreiergruppen. Links bleiben ② Ziffern übrig. Diese ② Ziffern stehen vor dem Wort „Millionen“. Die mittlere Gruppe ist eine Zahl mit dem Wert ③.",
-    ["8", "8-6", "0"], ["8", "2", "0"], "Zähle alle Ziffern. Schreibe die Zahl dann von rechts in Dreiergruppen.", "Die Zahl hat 8 Ziffern. Zwei volle Gruppen sind 6 Ziffern, links bleiben 2: 48 Millionen. Die mittlere Gruppe 000 hat den Wert 0 und wird nicht gelesen. Zahlwort: achtundvierzig Millionen einhundertzwanzig.",
-    {0: [(7, None, "eine Ziffer übersehen")], 1: [(3, None, "die linke Gruppe als volle Dreiergruppe angenommen")], 2: [(48, None, "die linke Gruppe statt der mittleren genannt"), (120, None, "die rechte Gruppe statt der mittleren genannt")]}), SS)
+    "Die Zahl 48 000 120 soll in Worten geschrieben werden. Sie hat ① Ziffern. Von diesen ① Ziffern bilden die letzten 6 volle Dreiergruppen. Links bleiben ② Ziffern übrig. Diese ② Ziffern stehen vor dem Wort „Millionen“ und bilden dort die Zahl ③.",
+    ["8", "8-6", "48000120//1000000"], ["8", "2", "48"], "Zähle alle Ziffern. Die übrigen Ziffern stehen ganz links in der Zahl.", "Die Zahl hat 8 Ziffern. 6 Ziffern sind volle Gruppen, links bleiben 2: Sie bilden 48 und werden „achtundvierzig Millionen“ gelesen. Die mittlere Gruppe 000 wird nicht gelesen. Zahlwort: achtundvierzig Millionen einhundertzwanzig.",
+    {0: [(7, None, "eine Ziffer übersehen")], 1: [(3, None, "die linke Gruppe als volle Dreiergruppe angenommen")], 2: [(480, None, "drei Ziffern statt zwei genommen"), (4, None, "nur die erste Ziffer genommen")]}), SS)
 neu(TH, "ziffern_zu_zahlwort", "zwei_wege", "mehrschritt", Z(
     "Zwei Wege für die Zahl 20 305 060: Weg A teilt von rechts in Dreiergruppen. Weg B rechnet: Zahl der Ziffern minus 3 minus 3. Wie viele Ziffern hat die Gruppe ganz links?",
     "8-3-3", "8%3", "Zähle zuerst alle Ziffern der Zahl.", "Die Zahl hat 8 Ziffern. Zwei volle Gruppen sind 6 Ziffern. Es bleiben 8 − 6 = 2 Ziffern ganz links: „zwanzig“.",
     [(3, None, "die linke Gruppe als voll angenommen"), (8, None, "alle Ziffern genannt")]), SS)
 neu(TH, "ziffern_zu_zahlwort", "bruecke", "darstellung", W(
     "Die Tafel zeigt, wie viele Millionen, Tausender und Einer eine Zahl hat. Welches Zahlwort gehört zu der Zahl?",
-    "sieben Millionen dreihundertfünftausend vierzig",
-    [("sieben Millionen dreihundertfünf vierzig", "das Wort „tausend“ vergessen"), ("sieben Millionen dreihundertfünftausend vierhundert", "die Einer-Gruppe 40 als 400 gelesen"), ("siebenhundertdreißigtausend fünfhundertvierzig", "die Zahl 730 540 gelesen: Gruppen falsch zusammengesetzt")],
-    "Lies die Gruppen von links nach rechts. Hinter jeder Gruppe steht ihr Wort.", "7 Millionen, 305 Tausender, 40 Einer: sieben Millionen dreihundertfünftausend vierzig. Die Zahl ist 7 305 040.",
+    "sieben Millionen dreihundertfünftausendvierzig",
+    [("sieben Millionen dreihundertfünfvierzig", "das Wort „tausend“ vergessen"), ("sieben Millionen dreihundertfünftausendvierhundert", "die Einer-Gruppe 40 als 400 gelesen"), ("siebenhundertdreißigtausendfünfhundertvierzig", "die Zahl 730 540 gelesen: Gruppen falsch zusammengesetzt")],
+    "Lies die Gruppen von links nach rechts. Hinter jeder Gruppe steht ihr Wort.", "7 Millionen, 305 Tausender, 40 Einer: sieben Millionen dreihundertfünftausendvierzig. Die Zahl ist 7 305 040.",
     7 * 10**6 + 305 * 10**3 + 40 == 7305040,
     grafik=TAB(["Mio.", "Tsd.", "Einer"], ["7", "305", "40"])), SS)
 

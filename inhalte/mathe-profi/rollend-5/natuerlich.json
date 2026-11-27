@@ -206,7 +206,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim schreibt „drei Millionen vierzigtausend zwölf“ in Ziffern. Zeile 1: Drei Millionen sind 3 000 000. Zeile 2: Vierzigtausend sind 400 000. Zeile 3: Zusammen: 3 000 000 + 400 000 + 12 = 3 400 012. In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim schreibt „drei Millionen vierzigtausendzwölf“ in Ziffern. Zeile 1: Drei Millionen sind 3 000 000. Zeile 2: Vierzigtausend sind 400 000. Zeile 3: Zusammen: 3 000 000 + 400 000 + 12 = 3 400 012. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -284,14 +284,14 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Verein meldet: „Wir haben zwei Millionen dreihunderttausend vierzig Euro gespendet.“ Ein anderer Verein hat 2 299 940 € gespendet. Wie viel Euro hat der erste Verein mehr gespendet?"
+     "text": "Ein Verein meldet: „Wir haben zwei Millionen dreihunderttausendvierzig Euro gespendet.“ Ein anderer Verein hat 2 299 940 € gespendet. Wie viel Euro hat der erste Verein mehr gespendet?"
     },
     "o": {
      "wert": 100
     },
     "c": "2300040-2299940",
     "h": "Schreibe die Spende des ersten Vereins zuerst in Ziffern.",
-    "w": "„Zwei Millionen dreihunderttausend vierzig“ sind 2 300 040. 2 300 040 − 2 299 940 = 100."
+    "w": "„Zwei Millionen dreihunderttausendvierzig“ sind 2 300 040. 2 300 040 − 2 299 940 = 100."
    }
   },
   {
@@ -322,17 +322,17 @@
     },
     {
      "luecke": 3,
-     "antwort": 48,
+     "antwort": 480,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die linke Gruppe statt der mittleren genannt"
+     "beschreibung": "drei Ziffern statt zwei genommen"
     },
     {
      "luecke": 3,
-     "antwort": 120,
+     "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die rechte Gruppe statt der mittleren genannt"
+     "beschreibung": "nur die erste Ziffer genommen"
     }
    ],
    "aufgabe": {
@@ -343,7 +343,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Zahl 48 000 120 soll in Worten geschrieben werden. Sie hat ① Ziffern. Von diesen ① Ziffern bilden 6 Ziffern von rechts zwei volle Dreiergruppen. Links bleiben ② Ziffern übrig. Diese ② Ziffern stehen vor dem Wort „Millionen“. Die mittlere Gruppe ist eine Zahl mit dem Wert ③.",
+     "text": "Die Zahl 48 000 120 soll in Worten geschrieben werden. Sie hat ① Ziffern. Von diesen ① Ziffern bilden die letzten 6 volle Dreiergruppen. Links bleiben ② Ziffern übrig. Diese ② Ziffern stehen vor dem Wort „Millionen“ und bilden dort die Zahl ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -351,16 +351,16 @@
      "werte": [
       8,
       2,
-      0
+      48
      ]
     },
     "c": [
      "8",
      "8-6",
-     "0"
+     "48000120//1000000"
     ],
-    "h": "Zähle alle Ziffern. Schreibe die Zahl dann von rechts in Dreiergruppen.",
-    "w": "Die Zahl hat 8 Ziffern. Zwei volle Gruppen sind 6 Ziffern, links bleiben 2: 48 Millionen. Die mittlere Gruppe 000 hat den Wert 0 und wird nicht gelesen. Zahlwort: achtundvierzig Millionen einhundertzwanzig."
+    "h": "Zähle alle Ziffern. Die übrigen Ziffern stehen ganz links in der Zahl.",
+    "w": "Die Zahl hat 8 Ziffern. 6 Ziffern sind volle Gruppen, links bleiben 2: Sie bilden 48 und werden „achtundvierzig Millionen“ gelesen. Die mittlere Gruppe 000 wird nicht gelesen. Zahlwort: achtundvierzig Millionen einhundertzwanzig."
    }
   },
   {
@@ -420,21 +420,21 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "sieben Millionen dreihundertfünf vierzig",
+     "antwort": "sieben Millionen dreihundertfünfvierzig",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Wort „tausend“ vergessen"
     },
     {
      "index": 1,
-     "antwort": "sieben Millionen dreihundertfünftausend vierhundert",
+     "antwort": "sieben Millionen dreihundertfünftausendvierhundert",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Einer-Gruppe 40 als 400 gelesen"
     },
     {
      "index": 3,
-     "antwort": "siebenhundertdreißigtausend fünfhundertvierzig",
+     "antwort": "siebenhundertdreißigtausendfünfhundertvierzig",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Zahl 730 540 gelesen: Gruppen falsch zusammengesetzt"
@@ -466,16 +466,16 @@
      }
     },
     "a": [
-     "sieben Millionen dreihundertfünf vierzig",
-     "sieben Millionen dreihundertfünftausend vierhundert",
-     "sieben Millionen dreihundertfünftausend vierzig",
-     "siebenhundertdreißigtausend fünfhundertvierzig"
+     "sieben Millionen dreihundertfünfvierzig",
+     "sieben Millionen dreihundertfünftausendvierhundert",
+     "sieben Millionen dreihundertfünftausendvierzig",
+     "siebenhundertdreißigtausendfünfhundertvierzig"
     ],
     "o": {
      "index": 2
     },
     "h": "Lies die Gruppen von links nach rechts. Hinter jeder Gruppe steht ihr Wort.",
-    "w": "7 Millionen, 305 Tausender, 40 Einer: sieben Millionen dreihundertfünftausend vierzig. Die Zahl ist 7 305 040."
+    "w": "7 Millionen, 305 Tausender, 40 Einer: sieben Millionen dreihundertfünftausendvierzig. Die Zahl ist 7 305 040."
    }
   },
   {

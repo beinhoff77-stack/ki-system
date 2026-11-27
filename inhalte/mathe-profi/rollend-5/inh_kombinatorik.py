@@ -68,8 +68,8 @@ neu(TH, "baumdiagramm", "umkehren", "umkehr", Z(
 
 # ── bedingungen ──
 neu(TH, "bedingungen", "lueckenweg", "direkt", L(
-    "Gesucht sind dreistellige Zahlen mit lauter verschiedenen Ziffern, deren erste Ziffer ungerade ist. Es gibt 10 Ziffern von null bis neun. Für die erste Ziffer gibt es ① Möglichkeiten. Für die zweite Ziffer darf jede Ziffer außer der ersten stehen, auch die 0: Das sind ② Möglichkeiten. Für die dritte Ziffer bleibt eine weniger als bei der zweiten: ③. Zusammen ① · ② · ③ = ④.",
-    ["10//2", "10-1", "10-2", "5*9*8"], ["5", "9", "8", "360"], "Beginne mit der Stelle, für die eine Bedingung gilt. Welche Ziffern von 0 bis 9 sind ungerade?", "Ungerade Ziffern: 1, 3, 5, 7, 9. Das sind 5 Möglichkeiten. Zweite Ziffer: 10 minus die erste, also 9. Dritte Ziffer: 8. Zusammen 5 · 9 · 8 = 360.",
+    "Gesucht sind dreistellige Zahlen mit lauter verschiedenen Ziffern, deren erste Ziffer ungerade ist. Wir rechnen im Dezimalsystem. Für die erste Ziffer gibt es ① Möglichkeiten. Für die zweite Ziffer darf jede Ziffer außer der ersten stehen, auch die 0: Das sind ② Möglichkeiten. Für die dritte Ziffer bleibt eine weniger als bei der zweiten: ③. Zusammen ① · ② · ③ = ④.",
+    ["10//2", "10-1", "10-2", "5*9*8"], ["5", "9", "8", "360"], "Beginne mit der Stelle, für die eine Bedingung gilt. Welche Ziffern sind ungerade?", "Ungerade Ziffern: 1, 3, 5, 7, 9. Das sind 5 Möglichkeiten. Zweite Ziffer: 10 minus die erste, also 9. Dritte Ziffer: 8. Zusammen 5 · 9 · 8 = 360.",
     {0: [(9, None, "nur „nicht 0“ beachtet statt „ungerade“"), (4, None, "eine ungerade Ziffer vergessen")], 1: [(10, None, "die erste Ziffer nicht abgezogen")], 3: [(648, None, "mit 9 · 9 · 8 gerechnet: nur die 0 vorn verboten"), (720, None, "mit 10 · 9 · 8 gerechnet: vorn keine Einschränkung")]}), ST)
 neu(TH, "bedingungen", "zwei_wege", "mehrschritt", Z(
     "Eine PIN hat 4 Ziffern. Die erste Ziffer darf nicht 0 sein, die anderen dürfen beliebig sein, auch gleich. Weg A rechnet 9 · 10 · 10 · 10. Weg B nimmt alle 10 000 Ziffernfolgen und zieht die 1 000 Folgen mit 0 vorn ab. Wie viele PINs gibt es?",

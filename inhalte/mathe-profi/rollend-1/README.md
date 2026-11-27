@@ -51,6 +51,11 @@ Geprüft: Ist jeder Hinweis fachlich richtig, und verrät er die Lösung? Zehn A
 Ohne Änderung: Aufgaben 2, 4, 5, 6, 7, 9, 10. Die Hinweise nennen dort nur den Wert, den das Kind selbst erzeugt hat („Deine Summe ist …“) – das verrät nichts.
 Eine Beobachtung, kein Fehler: In Aufgabe 4 (Bruchterm negativ) nennt der Hinweis zu „Term ist definiert“ die verbotene Stelle x = 2. Das ist dort richtig, weil das Kind sie selbst eingegeben hat.
 
+## Nachtrag 27.11.2026 (Auftrag 18)
+
+- Alle 20 „bedingung“-Aufgaben bestehen `pruefe_aufgabe` aus dem aktuellen `tools/bedingung.py`.
+- Sechs Namen von Bedingungen in `GE2-B1`, `GE2-B4`, `GE2-B5` nennen jetzt die Forderung statt des Wegs (Liste in `rollend-2/README.md`, Abschnitt 2). Prüf-Bäume und Hinweise sind unverändert.
+
 ## Nicht geprüft
 
 - Keine Aufgabe ist von einem Kind gerechnet worden; Stufen und Zählvorschläge sind Einschätzungen.

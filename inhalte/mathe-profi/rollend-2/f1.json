@@ -1,0 +1,1517 @@
+{
+ "stand": "2026-11-27",
+ "flug": "f1",
+ "titel": "Funktionsbegriff",
+ "fuer": "Kind 2",
+ "klasse": 8,
+ "thema": "funktionen.grundbegriffe",
+ "hinweis": "Aufgaben auf Vorrat, rollendes System Stufe 2. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: erst die Aufgaben ohne Bau, dann die des Typs „bedingung“, jeweils mit aufsteigender Stufe.",
+ "aufgaben": [
+  {
+   "kennung": "F1-01",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "funktionswert",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "(−2)² als −4 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": -6,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "Minus mal Minus als Minus"
+    },
+    {
+     "luecke": 3,
+     "antwort": -2,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "4 − 6 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": -10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Vorzeichen falsch"
+    }
+   ],
+   "aufgabe": {
+    "l": "funktionswert",
+    "t": "funktionswert",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "f(x) = x² − 3x. Berechne f(−2) in Schritten: (−2)² = ①. −3 · (−2) = ②. Zusammen: f(−2) = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      4,
+      6,
+      10
+     ]
+    },
+    "c": [
+     "(-2) ** 2",
+     "-3 * (-2)",
+     "(-2) ** 2 - 3 * (-2)"
+    ],
+    "h": "Setze −2 in Klammern ein.",
+    "w": "(−2)² = 4. −3 · (−2) = 6. Zusammen 4 + 6 = 10."
+   }
+  },
+  {
+   "kennung": "F1-02",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "eindeutig",
+   "stufe": 1,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Ja, jede Nummer gehört zu genau einer Person.",
+     "fehlbild": "fb.zuordnung.x_und_y_vertauscht",
+     "regel_des_fehlbilds": "id.funktionen.zuordnung",
+     "beschreibung": "Eingabe und Ausgabe vertauscht"
+    },
+    {
+     "index": 2,
+     "antwort": "Ja, es gibt mehr Nummern als Personen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Anzahl statt Eindeutigkeit geprüft"
+    },
+    {
+     "index": 3,
+     "antwort": "Nein, weil man mit Telefonnummern nicht rechnet.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "richtiges Urteil, falscher Grund"
+    }
+   ],
+   "aufgabe": {
+    "l": "eindeutig",
+    "t": "eindeutig",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Jeder Person wird ihre Telefonnummer zugeordnet. Herr Kim hat zwei Nummern. Ist diese Zuordnung eine Funktion?"
+    },
+    "a": [
+     "Ja, jede Nummer gehört zu genau einer Person.",
+     "Nein, zu Herrn Kim gehören zwei verschiedene Ausgaben.",
+     "Ja, es gibt mehr Nummern als Personen.",
+     "Nein, weil man mit Telefonnummern nicht rechnet."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Was ist hier die Eingabe, was die Ausgabe?",
+    "w": "Eingabe ist die Person, Ausgabe die Nummer. Herr Kim hat zwei Ausgaben – also keine Funktion."
+   }
+  },
+  {
+   "kennung": "F1-03",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "stelle",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "9 für x einsetzen",
+     "fehlbild": "fb.zuordnung.x_und_y_vertauscht",
+     "regel_des_fehlbilds": "id.funktionen.zuordnung",
+     "beschreibung": "das Ergebnis für x eingesetzt"
+    },
+    {
+     "index": 2,
+     "antwort": "f(0) berechnen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "kein Bezug zur 9"
+    }
+   ],
+   "aufgabe": {
+    "l": "stelle",
+    "t": "stelle",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "f(x) = 2x + 1. Gesucht ist das x mit f(x) = 9. Was tust du?"
+    },
+    "a": [
+     "2x + 1 = 9 nach x auflösen",
+     "9 für x einsetzen",
+     "f(0) berechnen"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Die 9 ist das Ergebnis, nicht die Eingabe.",
+    "w": "Das Ergebnis ist gegeben. Du löst 2x + 1 = 9: x = 4."
+   }
+  },
+  {
+   "kennung": "F1-04",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "stelle",
+   "stufe": 2,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 3,
+     "antwort": 50,
+     "fehlbild": "fb.zuordnung.x_und_y_vertauscht",
+     "regel_des_fehlbilds": "id.funktionen.zuordnung",
+     "beschreibung": "14 für x eingesetzt: f(14) = 50"
+    },
+    {
+     "luecke": 3,
+     "antwort": 2,
+     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "14 − 6 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "stelle",
+    "t": "stelle",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "f(x) = 4x − 6. Für welches x ist f(x) = 14? Gleichung: 4x − 6 = ①. Plus 6: 4x = ②. Geteilt durch 4: x = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      14,
+      20,
+      5
+     ]
+    },
+    "c": [
+     "14",
+     "14 + 6",
+     "(14 + 6) // 4"
+    ],
+    "h": "Das Ergebnis 14 steht rechts vom Gleichheitszeichen.",
+    "w": "4x − 6 = 14. Plus 6: 4x = 20. Geteilt durch 4: x = 5."
+   }
+  },
+  {
+   "kennung": "F1-05",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "wertetabelle",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "a und b vertauscht"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "das Minus verloren"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "a und b vertauscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "wertetabelle",
+    "t": "wertetabelle",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "luecken",
+    "f": {
+     "text": "Die Wertetabelle gehört zu einer Funktion der Form f(x) = a · x + b. Bestimme a und b.",
+     "schablone": "a = □; b = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ).",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "x",
+       "0",
+       "1",
+       "2",
+       "3"
+      ],
+      "zeilen": [
+       [
+        "f(x)",
+        "−4",
+        "−1",
+        "2",
+        "5"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "werte": [
+      3,
+      -4
+     ]
+    },
+    "c": [
+     "(-1) - (-4)",
+     "-4"
+    ],
+    "h": "b steht bei x = 0. a ist der Schritt von einer Spalte zur nächsten.",
+    "w": "Bei x = 0 steht −4, also b = −4. Von Spalte zu Spalte kommen 3 dazu, also a = 3. Probe: 3 · 3 − 4 = 5."
+   }
+  },
+  {
+   "kennung": "F1-06",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "wertetabelle",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 25,
+     "fehlbild": "fb.zuordnung.x_und_y_vertauscht",
+     "regel_des_fehlbilds": "id.funktionen.zuordnung",
+     "beschreibung": "−5 für x eingesetzt"
+    },
+    {
+     "antwort": -5,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "Vorzeichen beim Teilen falsch"
+    }
+   ],
+   "aufgabe": {
+    "l": "wertetabelle",
+    "t": "wertetabelle",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "f(x) = 10 − 3x. In der Wertetabelle steht unter einem x der Wert −5. Welches x ist das?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "(10 - (-5)) // 3",
+    "h": "Der Wert −5 ist das Ergebnis. Löse 10 − 3x = −5.",
+    "w": "10 − 3x = −5. Minus 10: −3x = −15. Geteilt durch −3: x = 5."
+   }
+  },
+  {
+   "kennung": "F1-07",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "graph_lesen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": "fb.zuordnung.x_und_y_vertauscht",
+     "regel_des_fehlbilds": "id.funktionen.zuordnung",
+     "beschreibung": "f(3) abgelesen statt die Stelle zu y = 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "graph_lesen",
+    "t": "graph_lesen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Lies am Graphen ab: Für welches x gilt f(x) = 3?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -4,
+       4
+      ],
+      "y": [
+       -5,
+       5
+      ],
+      "graphen": [
+       {
+        "art": "linear",
+        "m": 2,
+        "t": -1,
+        "name": "f"
+       }
+      ]
+     }
+    },
+    "o": {
+     "wert": 2
+    },
+    "c": "(3 + 1) // 2",
+    "h": "Geh von der 3 auf der y-Achse waagrecht zum Graphen, dann senkrecht zur x-Achse.",
+    "w": "Auf der Höhe y = 3 trifft man den Graphen bei x = 2."
+   }
+  },
+  {
+   "kennung": "F1-08",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "graph_lesen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1,
+     "fehlbild": "fb.gegenrechnung.zweite_loesung_fehlt",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "nur die Stelle rechts gesehen"
+    },
+    {
+     "antwort": -2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "f(1) abgelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "graph_lesen",
+    "t": "graph_lesen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele x-Werte gehören am Graphen zum y-Wert 1?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -4,
+       4
+      ],
+      "y": [
+       -4,
+       6
+      ],
+      "graphen": [
+       {
+        "art": "poly",
+        "k": [
+         -3,
+         0,
+         1
+        ],
+        "name": "f"
+       }
+      ]
+     }
+    },
+    "o": {
+     "wert": 2
+    },
+    "c": "1 + 1",
+    "h": "Zieh in Gedanken eine waagrechte Linie auf der Höhe y = 1.",
+    "w": "Die waagrechte Linie bei y = 1 trifft den Graphen zweimal: bei x = −2 und bei x = 2."
+   }
+  },
+  {
+   "kennung": "F1-09",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "nullstellen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 3,
+     "antwort": -12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "f(0) statt der Nullstelle genannt"
+    },
+    {
+     "luecke": 3,
+     "antwort": -4,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "Vorzeichen der Lösung falsch"
+    }
+   ],
+   "aufgabe": {
+    "l": "nullstellen",
+    "t": "nullstellen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "Nullstelle von f(x) = 3x − 12 auf zwei Wegen. Weg A: 3x − 12 = 0 lösen. Weg B: Werte ausrechnen – f(3) = ①, f(4) = ②. Die Nullstelle ist x = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      -3,
+      0,
+      4
+     ]
+    },
+    "c": [
+     "3 * 3 - 12",
+     "3 * 4 - 12",
+     "12 // 3"
+    ],
+    "h": "An der Nullstelle ist der Funktionswert 0.",
+    "w": "f(3) = −3, f(4) = 0. Die Nullstelle ist x = 4. Weg A: 3x = 12, x = 4."
+   }
+  },
+  {
+   "kennung": "F1-10",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "mengen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 7,
+     "fehlbild": "fb.zuordnung.x_und_y_vertauscht",
+     "regel_des_fehlbilds": "id.funktionen.zuordnung",
+     "beschreibung": "die 3 eingesetzt statt zurückgerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 23,
+     "fehlbild": "fb.zuordnung.x_und_y_vertauscht",
+     "regel_des_fehlbilds": "id.funktionen.zuordnung",
+     "beschreibung": "die 11 eingesetzt statt zurückgerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "mengen",
+    "t": "mengen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "luecken",
+    "f": {
+     "text": "f(x) = 2x + 1 hat die Wertemenge W = {3; 7; 11}. Aus welchen drei Zahlen besteht die Definitionsmenge? Kleinste zuerst.",
+     "schablone": "D = {□; □; □}",
+     "hinweis": "Kleinste Zahl zuerst."
+    },
+    "o": {
+     "werte": [
+      1,
+      3,
+      5
+     ]
+    },
+    "c": [
+     "(3 - 1) // 2",
+     "(7 - 1) // 2",
+     "(11 - 1) // 2"
+    ],
+    "h": "Zu jedem Wert aus W suchst du das x. Löse 2x + 1 = 3 und so weiter.",
+    "w": "2x + 1 = 3 gibt x = 1. 2x + 1 = 7 gibt x = 3. 2x + 1 = 11 gibt x = 5."
+   }
+  },
+  {
+   "kennung": "F1-11",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "sachzusammenhang",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "3x + 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "fest und je Stunde vertauscht"
+    },
+    {
+     "index": 1,
+     "antwort": "5x",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Zahlen zusammengezählt"
+    },
+    {
+     "index": 2,
+     "antwort": "2 · (x + 3)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Eintritt mitvervielfacht"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachzusammenhang",
+    "t": "sachzusammenhang",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Schwimmbad kostet 3 € Eintritt und dazu 2 € je Stunde. Welcher Term gibt den Preis für x Stunden an?"
+    },
+    "a": [
+     "3x + 2",
+     "5x",
+     "2 · (x + 3)",
+     "2x + 3"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Erst die feste Größe, dann die Änderung je Stunde.",
+    "w": "Fest sind 3 €. Je Stunde kommen 2 € dazu: 2x + 3. Probe für 4 Stunden: 2 · 4 + 3 = 11 €."
+   }
+  },
+  {
+   "kennung": "F1-12",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "punkt_graph",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Mia hat recht: P liegt nicht auf dem Graphen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie Mia die Klammer um −2 weggelassen"
+    },
+    {
+     "index": 1,
+     "antwort": "P liegt nicht auf dem Graphen, denn (−2)² + 3 = 1.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "(−2)² falsch ausgerechnet"
+    },
+    {
+     "index": 2,
+     "antwort": "Das lässt sich ohne Zeichnung nicht entscheiden.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Einsetzen genügt; eine Zeichnung ist nicht nötig"
+    }
+   ],
+   "aufgabe": {
+    "l": "punkt_graph",
+    "t": "punkt_graph",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Liegt P(−2 | 7) auf dem Graphen von f(x) = x² + 3? Mia rechnet: −2² + 3 = −4 + 3 = −1 und sagt Nein. Was stimmt?"
+    },
+    "a": [
+     "Mia hat recht: P liegt nicht auf dem Graphen.",
+     "P liegt nicht auf dem Graphen, denn (−2)² + 3 = 1.",
+     "Das lässt sich ohne Zeichnung nicht entscheiden.",
+     "P liegt auf dem Graphen, denn (−2)² + 3 = 7."
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Wie setzt man eine negative Zahl ein?",
+    "w": "Negative Zahlen werden in Klammern eingesetzt: (−2)² = 4. Also f(−2) = 4 + 3 = 7. P liegt auf dem Graphen."
+   }
+  },
+  {
+   "kennung": "F1-13",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "punkt_graph",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15,
+     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "9 + 6 gerechnet"
+    },
+    {
+     "antwort": -3,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "6 − 9 gerechnet"
+    },
+    {
+     "antwort": -25,
+     "fehlbild": "fb.zuordnung.x_und_y_vertauscht",
+     "regel_des_fehlbilds": "id.funktionen.zuordnung",
+     "beschreibung": "9 für x eingesetzt und 2 als Ergebnis genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "punkt_graph",
+    "t": "punkt_graph",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Für welches t liegt der Punkt P(2 | 9) auf dem Graphen von f(x) = 3x + t?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "9 - 3 * 2",
+    "h": "Setze x = 2 ein. Das Ergebnis soll 9 sein.",
+    "w": "3 · 2 + t = 9, also 6 + t = 9 und t = 3."
+   }
+  },
+  {
+   "kennung": "F1-14",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "sachzusammenhang",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Zeit ab der 12-cm-Marke gerechnet"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "18 : 6 gerechnet, ohne die 4 Stunden"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachzusammenhang",
+    "t": "sachzusammenhang",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Kerze ist am Anfang 18 cm hoch und brennt gleichmäßig ab. Nach 4 Stunden ist sie noch 12 cm hoch. Nach wie vielen Stunden (vom Anfang an) ist sie ganz abgebrannt?"
+    },
+    "o": {
+     "wert": 12,
+     "einheit": "h"
+    },
+    "c": "18 * 4 // (18 - 12)",
+    "h": "Wie viele Zentimeter brennen in einer Stunde ab? Wann ist die Höhe 0?",
+    "w": "In 4 Stunden 6 cm, also 1,5 cm je Stunde. Höhe: 18 − 1,5x. Null bei 18 : 1,5 = 12 Stunden."
+   }
+  },
+  {
+   "kennung": "F1-15",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "eindeutig",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Ja, zu jedem y gehört ein x.",
+     "fehlbild": "fb.zuordnung.x_und_y_vertauscht",
+     "regel_des_fehlbilds": "id.funktionen.zuordnung",
+     "beschreibung": "von y aus statt von x aus geprüft"
+    },
+    {
+     "index": 2,
+     "antwort": "Ja, die Linie ist geschlossen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Form der Linie statt Eindeutigkeit"
+    },
+    {
+     "index": 3,
+     "antwort": "Nein, weil ein Kreis keine Gleichung hat.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "richtiges Urteil, falscher Grund"
+    }
+   ],
+   "aufgabe": {
+    "l": "eindeutig",
+    "t": "eindeutig",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Im Koordinatensystem ist ein Kreis gezeichnet. Ist das der Graph einer Funktion?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -4,
+       4
+      ],
+      "y": [
+       -4,
+       4
+      ],
+      "kreise": [
+       {
+        "m": [
+         0,
+         0
+        ],
+        "r": 3,
+        "name": "k"
+       }
+      ]
+     }
+    },
+    "a": [
+     "Nein, zu x = 0 gehören zwei y-Werte: 3 und −3.",
+     "Ja, zu jedem y gehört ein x.",
+     "Ja, die Linie ist geschlossen.",
+     "Nein, weil ein Kreis keine Gleichung hat."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Geh von einem x aus senkrecht nach oben und unten. Wie oft triffst du die Linie?",
+    "w": "Über x = 0 liegen zwei Punkte der Linie: (0 | 3) und (0 | −3). Eine Eingabe mit zwei Ausgaben – keine Funktion."
+   }
+  },
+  {
+   "kennung": "F1-B1",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "funktionswert",
+   "stufe": 1,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "funktionswert",
+    "t": "funktionswert",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "bedingung",
+    "f": {
+     "text": "f(x) = 2x − 7. Nenne zuerst ein x, für das f(x) negativ ist, und dann ein x, für das f(x) größer als 10 ist.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "erstes x: f(x) ist negativ",
+       "pruefe": [
+        "<",
+        [
+         "-",
+         [
+          "*",
+          2,
+          "$1"
+         ],
+         7
+        ],
+        0
+       ],
+       "zeige": [
+        "-",
+        [
+         "*",
+         2,
+         "$1"
+        ],
+        7
+       ],
+       "hinweis": "Für dein erstes x ist f(x) = {}."
+      },
+      {
+       "name": "zweites x: f(x) ist größer als 10",
+       "pruefe": [
+        ">",
+        [
+         "-",
+         [
+          "*",
+          2,
+          "$2"
+         ],
+         7
+        ],
+        10
+       ],
+       "zeige": [
+        "-",
+        [
+         "*",
+         2,
+         "$2"
+        ],
+        7
+       ],
+       "hinweis": "Für dein zweites x ist f(x) = {}."
+      }
+     ],
+     "beispiel": [
+      0,
+      10
+     ],
+     "gut": [
+      [
+       -5,
+       9
+      ],
+      [
+       3,
+       "8,6"
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        4,
+        10
+       ],
+       "verletzt": "erstes x: f(x) ist negativ"
+      },
+      {
+       "werte": [
+        0,
+        8
+       ],
+       "verletzt": "zweites x: f(x) ist größer als 10"
+      },
+      {
+       "werte": [
+        "3,5",
+        10
+       ],
+       "verletzt": "erstes x: f(x) ist negativ"
+      }
+     ]
+    },
+    "h": "Setze dein x ein und rechne aus.",
+    "w": "f(0) = −7 ist negativ. f(10) = 13 ist größer als 10."
+   }
+  },
+  {
+   "kennung": "F1-B2",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "punkt_graph",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "punkt_graph",
+    "t": "punkt_graph",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne zwei verschiedene Punkte auf dem Graphen von f(x) = x² − 4. Mindestens einer soll unterhalb der x-Achse liegen. Reihenfolge der Felder: x und y des ersten Punkts, x und y des zweiten Punkts.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "erster Punkt liegt auf dem Graphen",
+       "pruefe": [
+        "=",
+        "$2",
+        [
+         "-",
+         [
+          "hoch",
+          "$1",
+          2
+         ],
+         4
+        ]
+       ],
+       "zeige": [
+        "-",
+        [
+         "hoch",
+         "$1",
+         2
+        ],
+        4
+       ],
+       "hinweis": "Für dein erstes x ist f(x) = {}."
+      },
+      {
+       "name": "zweiter Punkt liegt auf dem Graphen",
+       "pruefe": [
+        "=",
+        "$4",
+        [
+         "-",
+         [
+          "hoch",
+          "$3",
+          2
+         ],
+         4
+        ]
+       ],
+       "zeige": [
+        "-",
+        [
+         "hoch",
+         "$3",
+         2
+        ],
+        4
+       ],
+       "hinweis": "Für dein zweites x ist f(x) = {}."
+      },
+      {
+       "name": "verschiedene Punkte",
+       "pruefe": [
+        "!=",
+        "$1",
+        "$3"
+       ],
+       "hinweis": "Du hast zweimal denselben Punkt genannt."
+      },
+      {
+       "name": "einer unterhalb der x-Achse",
+       "pruefe": [
+        "oder",
+        [
+         "<",
+         "$2",
+         0
+        ],
+        [
+         "<",
+         "$4",
+         0
+        ]
+       ],
+       "hinweis": "Keiner deiner Punkte liegt unterhalb der x-Achse."
+      }
+     ],
+     "beispiel": [
+      0,
+      -4,
+      3,
+      5
+     ],
+     "gut": [
+      [
+       1,
+       -3,
+       -1,
+       -3
+      ],
+      [
+       "0,5",
+       "-3,75",
+       2,
+       0
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0,
+        4,
+        3,
+        5
+       ],
+       "verletzt": "erster Punkt liegt auf dem Graphen"
+      },
+      {
+       "werte": [
+        0,
+        -4,
+        3,
+        6
+       ],
+       "verletzt": "zweiter Punkt liegt auf dem Graphen"
+      },
+      {
+       "werte": [
+        3,
+        5,
+        3,
+        5
+       ],
+       "verletzt": "verschiedene Punkte"
+      },
+      {
+       "werte": [
+        3,
+        5,
+        -3,
+        5
+       ],
+       "verletzt": "einer unterhalb der x-Achse"
+      }
+     ]
+    },
+    "h": "Wähle ein x und rechne y = x² − 4 aus.",
+    "w": "Zum Beispiel (0 | −4) und (3 | 5): 0² − 4 = −4 und 3² − 4 = 5. Unterhalb der x-Achse liegt ein Punkt, wenn y negativ ist."
+   }
+  },
+  {
+   "kennung": "F1-B3",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "eindeutig",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "eindeutig",
+    "t": "eindeutig",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Eine Tabelle enthält die Paare (1 | 4) und (2 | 5). Nenne ein drittes Paar (x | y), mit dem die Tabelle KEINE Funktion mehr beschreibt.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "mit dem Paar ist es keine Funktion",
+       "pruefe": [
+        "oder",
+        [
+         "und",
+         [
+          "=",
+          "$1",
+          1
+         ],
+         [
+          "!=",
+          "$2",
+          4
+         ]
+        ],
+        [
+         "und",
+         [
+          "=",
+          "$1",
+          2
+         ],
+         [
+          "!=",
+          "$2",
+          5
+         ]
+        ]
+       ],
+       "hinweis": "Mit deinem Paar hat immer noch jede Eingabe genau eine Ausgabe."
+      }
+     ],
+     "beispiel": [
+      1,
+      7
+     ],
+     "gut": [
+      [
+       2,
+       0
+      ],
+      [
+       1,
+       -4
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        3,
+        4
+       ],
+       "verletzt": "mit dem Paar ist es keine Funktion"
+      },
+      {
+       "werte": [
+        1,
+        4
+       ],
+       "verletzt": "mit dem Paar ist es keine Funktion"
+      },
+      {
+       "werte": [
+        4,
+        1
+       ],
+       "verletzt": "mit dem Paar ist es keine Funktion"
+      }
+     ]
+    },
+    "h": "Wann ist eine Zuordnung keine Funktion?",
+    "w": "Eine Eingabe braucht zwei verschiedene Ausgaben: zum Beispiel (1 | 7) neben (1 | 4)."
+   }
+  },
+  {
+   "kennung": "F1-B4",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "nullstellen",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "nullstellen",
+    "t": "nullstellen",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "bedingung",
+    "f": {
+     "text": "Setze m und t so ein, dass f(x) = m · x + t die Nullstelle x = 3 hat und f(0) positiv ist.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "f(0) ist positiv",
+       "pruefe": [
+        ">",
+        "$2",
+        0
+       ],
+       "zeige": "$2",
+       "hinweis": "Bei dir ist f(0) = {}."
+      },
+      {
+       "name": "Nullstelle bei x = 3",
+       "pruefe": [
+        "=",
+        [
+         "+",
+         [
+          "*",
+          3,
+          "$1"
+         ],
+         "$2"
+        ],
+        0
+       ],
+       "zeige": [
+        "+",
+        [
+         "*",
+         3,
+         "$1"
+        ],
+        "$2"
+       ],
+       "hinweis": "Bei dir ist f(3) = {}."
+      }
+     ],
+     "beispiel": [
+      -2,
+      6
+     ],
+     "gut": [
+      [
+       -1,
+       3
+      ],
+      [
+       "-0,5",
+       "1,5"
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        2,
+        -6
+       ],
+       "verletzt": "f(0) ist positiv"
+      },
+      {
+       "werte": [
+        -2,
+        5
+       ],
+       "verletzt": "Nullstelle bei x = 3"
+      },
+      {
+       "werte": [
+        2,
+        6
+       ],
+       "verletzt": "Nullstelle bei x = 3"
+      }
+     ]
+    },
+    "h": "Was bedeutet Nullstelle? Setze x = 3 ein.",
+    "w": "f(3) = 3m + t muss 0 sein, und t = f(0) muss positiv sein. Zum Beispiel m = −2 und t = 6."
+   }
+  },
+  {
+   "kennung": "F1-B5",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "mengen",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.algebra.erlaubte_zahlen",
+   "regel_name": "Erlaubte Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "mengen",
+    "t": "mengen",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "bedingung",
+    "f": {
+     "text": "f(x) = 12/(x − a). Wähle eine negative Zahl a und ein x so, dass f(x) = 4 ist. Reihenfolge der Felder: a, x.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "a ist negativ",
+       "pruefe": [
+        "<",
+        "$1",
+        0
+       ],
+       "zeige": "$1",
+       "hinweis": "Dein a ist {}."
+      },
+      {
+       "name": "Term ist für dein x definiert",
+       "pruefe": [
+        "!=",
+        "$2",
+        "$1"
+       ],
+       "hinweis": "Für dein x ist der Nenner null. Der Term ist dort nicht definiert."
+      },
+      {
+       "name": "f(x) = 4",
+       "pruefe": [
+        "=",
+        12,
+        [
+         "*",
+         4,
+         [
+          "-",
+          "$2",
+          "$1"
+         ]
+        ]
+       ],
+       "zeige": [
+        "/",
+        12,
+        [
+         "-",
+         "$2",
+         "$1"
+        ]
+       ],
+       "hinweis": "Bei dir ist f(x) = {}."
+      }
+     ],
+     "beispiel": [
+      -1,
+      2
+     ],
+     "gut": [
+      [
+       -3,
+       0
+      ],
+      [
+       "-0,5",
+       "2,5"
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        1,
+        4
+       ],
+       "verletzt": "a ist negativ"
+      },
+      {
+       "werte": [
+        -1,
+        -1
+       ],
+       "verletzt": "Term ist für dein x definiert"
+      },
+      {
+       "werte": [
+        -1,
+        3
+       ],
+       "verletzt": "f(x) = 4"
+      },
+      {
+       "werte": [
+        -3,
+        3
+       ],
+       "verletzt": "f(x) = 4"
+      }
+     ]
+    },
+    "h": "Welchen Wert muss der Nenner haben, damit 12 durch ihn 4 ergibt?",
+    "w": "Der Nenner x − a muss 3 sein. Mit a = −1 ist x = 2: 12/(2 + 1) = 4."
+   }
+  }
+ ]
+}

@@ -1,0 +1,1377 @@
+{
+ "stand": "2026-11-27",
+ "flug": "g2-teil2",
+ "titel": "Dreisatz · Teil 2",
+ "fuer": "Kind 2",
+ "klasse": 5,
+ "thema": "groessen.proportional",
+ "hinweis": "Aufgaben auf Vorrat, rollendes System Stufe 2. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: erst die Aufgaben ohne Bau, dann die des Typs „bedingung“, jeweils mit aufsteigender Stufe.",
+ "aufgaben": [
+  {
+   "kennung": "G2T2-01",
+   "thema": "groessen.proportional",
+   "lernkarte": "vervielfachen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "4 Hefte mehr, also 4 € mehr"
+    },
+    {
+     "luecke": 3,
+     "antwort": 4,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "2 Hefte weniger, also 2 € weniger"
+    }
+   ],
+   "aufgabe": {
+    "l": "vervielfachen",
+    "t": "tabelle",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "4 Hefte kosten 6 €. 8 Hefte sind ①-mal so viele; sie kosten ② €. 2 Hefte kosten ③ €.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      2,
+      12,
+      3
+     ]
+    },
+    "c": [
+     "8 // 4",
+     "6 * 2",
+     "6 // 2"
+    ],
+    "h": "Was du mit der Menge tust, tust du auch mit dem Preis.",
+    "w": "Doppelte Menge, doppelter Preis: 12 €. Halbe Menge, halber Preis: 3 €."
+   }
+  },
+  {
+   "kennung": "G2T2-02",
+   "thema": "groessen.proportional",
+   "lernkarte": "pruefen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "nein",
+   "fehlbilder": [],
+   "aufgabe": {
+    "l": "pruefen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ist die Preisliste proportional? 2 kg kosten 5 €, 6 kg kosten 15 €, 10 kg kosten 24 €. Rechne jeweils den Preis für 1 kg in Cent: ①, ②, ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke ein Preis in Cent."
+    },
+    "o": {
+     "werte": [
+      250,
+      250,
+      240
+     ]
+    },
+    "c": [
+     "500 // 2",
+     "1500 // 6",
+     "2400 // 10"
+    ],
+    "h": "Teile jeden Preis durch seine Menge.",
+    "w": "5 € : 2 = 2,50 €. 15 € : 6 = 2,50 €. 24 € : 10 = 2,40 €. Der letzte Wert weicht ab: nicht proportional."
+   }
+  },
+  {
+   "kennung": "G2T2-03",
+   "thema": "groessen.proportional",
+   "lernkarte": "erkennen",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Alter → Körpergröße",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„wächst mit“ für proportional gehalten"
+    },
+    {
+     "index": 1,
+     "antwort": "Anzahl der Arbeiter → Dauer der Arbeit",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "je mehr, desto weniger: nicht proportional"
+    },
+    {
+     "index": 3,
+     "antwort": "Uhrzeit → Temperatur",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "kein fester Zusammenhang"
+    }
+   ],
+   "aufgabe": {
+    "l": "erkennen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Bei welcher dieser vier Zuordnungen gehört zur doppelten Menge immer der doppelte Wert?"
+    },
+    "a": [
+     "Alter → Körpergröße",
+     "Anzahl der Arbeiter → Dauer der Arbeit",
+     "Anzahl gleicher Brötchen → Preis",
+     "Uhrzeit → Temperatur"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Prüfe: Gehört zur doppelten Menge der doppelte Wert?",
+    "w": "Doppelt so viele Brötchen kosten doppelt so viel. Bei den anderen stimmt das nicht."
+   }
+  },
+  {
+   "kennung": "G2T2-04",
+   "thema": "groessen.proportional",
+   "lernkarte": "erkennen",
+   "stufe": 1,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Lina hat falsch verdoppelt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Rechnung 2 · 110 = 220 stimmt; falsch ist die Annahme"
+    },
+    {
+     "index": 2,
+     "antwort": "Nichts: doppeltes Alter, doppelte Größe.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Proportionalität ungeprüft angenommen"
+    },
+    {
+     "index": 3,
+     "antwort": "Lina müsste 110 + 5 rechnen.",
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "addiert statt geprüft"
+    }
+   ],
+   "aufgabe": {
+    "l": "erkennen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kind ist mit 5 Jahren 110 cm groß. Lina sagt: „Dann ist es mit 10 Jahren 220 cm groß.“ Was ist falsch?"
+    },
+    "a": [
+     "Die Zuordnung Alter → Größe ist nicht proportional.",
+     "Lina hat falsch verdoppelt.",
+     "Nichts: doppeltes Alter, doppelte Größe.",
+     "Lina müsste 110 + 5 rechnen."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Darf man hier überhaupt verdoppeln?",
+    "w": "Menschen wachsen nicht gleichmäßig weiter. Die Zuordnung ist nicht proportional, also gilt „doppelt – doppelt“ nicht."
+   }
+  },
+  {
+   "kennung": "G2T2-05",
+   "thema": "groessen.proportional",
+   "lernkarte": "pruefen",
+   "stufe": 1,
+   "typ": "Brücke",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.4,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "Menge : Preis gerechnet"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "abgezogen statt geteilt"
+    },
+    {
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "pruefen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "zahl",
+    "f": {
+     "text": "In einer proportionalen Tabelle gehört zu 4 Stück der Preis 10 €. Welche Zahl kommt in jeder Spalte bei „Preis : Menge“ heraus?"
+    },
+    "o": {
+     "wert": 2.5
+    },
+    "c": "10 / 4",
+    "h": "Rechne Preis geteilt durch Menge.",
+    "w": "10 : 4 = 2,5. In einer proportionalen Tabelle ist dieser Wert in jeder Spalte gleich."
+   }
+  },
+  {
+   "kennung": "G2T2-06",
+   "thema": "groessen.proportional",
+   "lernkarte": "pruefen",
+   "stufe": 2,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "der Preis bei 2 kg",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht für jede Spalte gerechnet"
+    },
+    {
+     "index": 1,
+     "antwort": "der Preis bei 3 kg",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Kommazahl für den Fehler gehalten"
+    },
+    {
+     "index": 3,
+     "antwort": "der Preis bei 8 kg",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht für jede Spalte gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "pruefen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle soll proportional sein. Ein Preis ist falsch. Welcher?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Menge (kg)",
+       "2",
+       "3",
+       "5",
+       "8"
+      ],
+      "zeilen": [
+       [
+        "Preis (€)",
+        "7",
+        "10,50",
+        "18",
+        "28"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "der Preis bei 2 kg",
+     "der Preis bei 3 kg",
+     "der Preis bei 5 kg",
+     "der Preis bei 8 kg"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Rechne für jede Spalte Preis : Menge.",
+    "w": "7 : 2 = 3,5. 10,50 : 3 = 3,5. 28 : 8 = 3,5. Aber 18 : 5 = 3,6. Richtig wären 17,50 €."
+   }
+  },
+  {
+   "kennung": "G2T2-07",
+   "thema": "groessen.proportional",
+   "lernkarte": "vervielfachen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 19,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "15 € mehr, also 15 Liter mehr"
+    },
+    {
+     "antwort": 31.5,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "mal 1,5 statt geteilt durch 1,5"
+    }
+   ],
+   "aufgabe": {
+    "l": "vervielfachen",
+    "t": "tabelle",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle ist proportional. Welche Zahl fehlt?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Liter",
+       "4",
+       "?"
+      ],
+      "zeilen": [
+       [
+        "Preis (€)",
+        "6",
+        "21"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 14,
+     "einheit": "Liter"
+    },
+    "c": "21 * 4 // 6",
+    "h": "Wie kommst du von 6 € zu 21 €? Dasselbe tust du mit den Litern.",
+    "w": "1 Liter kostet 6 € : 4 = 1,50 €. 21 € : 1,50 € = 14 Liter."
+   }
+  },
+  {
+   "kennung": "G2T2-08",
+   "thema": "groessen.proportional",
+   "lernkarte": "vervielfachen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "luecken",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 13,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "4 Flaschen mehr, also 4 € mehr"
+    }
+   ],
+   "aufgabe": {
+    "l": "vervielfachen",
+    "t": "tabelle",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "6 Flaschen kosten 9 €. Gesucht ist der Preis für 10 Flaschen. Weg A über 1 Flasche: 9 € : 6 = 1,50 €, dann mal 10. Weg B über 2 Flaschen: 2 Flaschen kosten ① €, 10 Flaschen kosten ② €.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      3,
+      15
+     ]
+    },
+    "c": [
+     "9 // 3",
+     "9 // 3 * 5"
+    ],
+    "h": "Von 6 nach 2 teilst du durch 3. Von 2 nach 10 nimmst du mal 5.",
+    "w": "2 Flaschen: 9 € : 3 = 3 €. 10 Flaschen: 3 € · 5 = 15 €. Weg A: 1,50 € · 10 = 15 €."
+   }
+  },
+  {
+   "kennung": "G2T2-09",
+   "thema": "groessen.proportional",
+   "lernkarte": "erkennen",
+   "stufe": 2,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Ja, jeder Kilometer kostet gleich viel.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gleichmäßig steigend mit proportional verwechselt"
+    },
+    {
+     "index": 2,
+     "antwort": "Ja, der Preis steigt gleichmäßig.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gleichmäßig steigend mit proportional verwechselt"
+    },
+    {
+     "index": 3,
+     "antwort": "Nein, weil der Preis nicht steigt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "der Preis steigt sehr wohl"
+    }
+   ],
+   "aufgabe": {
+    "l": "erkennen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Taxi kostet 4 € Grundpreis und dazu 2 € je Kilometer. Ist die Zuordnung Kilometer → Preis proportional?"
+    },
+    "a": [
+     "Ja, jeder Kilometer kostet gleich viel.",
+     "Nein, zu 0 km gehören schon 4 €.",
+     "Ja, der Preis steigt gleichmäßig.",
+     "Nein, weil der Preis nicht steigt."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Was gehört zu 0 km? Und kostet die doppelte Strecke das Doppelte?",
+    "w": "1 km kostet 6 €, 2 km kosten 8 € – nicht das Doppelte. Bei proportional gehört zu 0 die 0."
+   }
+  },
+  {
+   "kennung": "G2T2-10",
+   "thema": "groessen.proportional",
+   "lernkarte": "pruefen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 23,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "von 5 nach 8 sind es 3 mehr: 20 + 3"
+    },
+    {
+     "antwort": 28,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "wie von 12 nach 20 um 8 erhöht"
+    }
+   ],
+   "aufgabe": {
+    "l": "pruefen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Die Paare (3 | 12), (5 | 20) und (8 | □) sollen zu einer proportionalen Zuordnung gehören. Welche Zahl fehlt?"
+    },
+    "o": {
+     "wert": 32
+    },
+    "c": "12 // 3 * 8",
+    "h": "Welche Zahl kommt bei „Wert : Menge“ heraus?",
+    "w": "12 : 3 = 4 und 20 : 5 = 4. Also 8 · 4 = 32."
+   }
+  },
+  {
+   "kennung": "G2T2-11",
+   "thema": "groessen.proportional",
+   "lernkarte": "vervielfachen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 18,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "wie Paul einen festen Betrag dazugezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vervielfachen",
+    "t": "tabelle",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "zahl",
+    "f": {
+     "text": "5 Karten kosten 8 €. Paul rechnet für 15 Karten: „10 Karten mehr, also 10 € mehr: 18 €.“ Wie viel Euro kosten 15 Karten wirklich?"
+    },
+    "o": {
+     "wert": 24,
+     "einheit": "€"
+    },
+    "c": "8 * 3",
+    "h": "15 Karten sind wievielmal so viele wie 5?",
+    "w": "15 ist das Dreifache von 5. Also auch der dreifache Preis: 3 · 8 € = 24 €."
+   }
+  },
+  {
+   "kennung": "G2T2-12",
+   "thema": "groessen.proportional",
+   "lernkarte": "pruefen",
+   "stufe": 3,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Proportional, denn der Preis steigt mit der Zeit.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„steigt mit“ für proportional gehalten"
+    },
+    {
+     "index": 1,
+     "antwort": "Proportional, denn 2 + 3 = 5.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Rechnung ohne Bezug zu den Preisen"
+    },
+    {
+     "index": 2,
+     "antwort": "Nicht proportional, weil 5 Stunden keine Verdopplung sind.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "richtiges Urteil, falscher Grund"
+    }
+   ],
+   "aufgabe": {
+    "l": "pruefen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Boot kostet für 2 Stunden 14 €, für 3 Stunden 21 € und für 5 Stunden 30 €. Welche Begründung stimmt?"
+    },
+    "a": [
+     "Proportional, denn der Preis steigt mit der Zeit.",
+     "Proportional, denn 2 + 3 = 5.",
+     "Nicht proportional, weil 5 Stunden keine Verdopplung sind.",
+     "Nicht proportional: 14 : 2 und 21 : 3 ergeben 7, aber 30 : 5 ergibt 6."
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Rechne für jedes Paar Preis : Stunden.",
+    "w": "Zweimal kommt 7 heraus, einmal 6. Die Zuordnung ist nicht proportional (für 5 Stunden gibt es Rabatt)."
+   }
+  },
+  {
+   "kennung": "G2T2-13",
+   "thema": "groessen.proportional",
+   "lernkarte": "vervielfachen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 20 Liter nicht abgezogen"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "120 : 12 gerechnet, ohne auf 1 Minute zu schließen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vervielfachen",
+    "t": "tabelle",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Wasserhahn füllt gleichmäßig 12 Liter in 3 Minuten. Eine Wanne fasst 140 Liter; 20 Liter sind schon darin. Nach wie vielen Minuten ist sie voll?"
+    },
+    "o": {
+     "wert": 30,
+     "einheit": "min"
+    },
+    "c": "(140 - 20) // (12 // 3)",
+    "h": "Wie viele Liter fehlen noch? Wie viele Liter kommen in einer Minute?",
+    "w": "Es fehlen 120 Liter. In 1 Minute kommen 4 Liter. 120 : 4 = 30 Minuten."
+   }
+  },
+  {
+   "kennung": "G2T2-B1",
+   "thema": "groessen.proportional",
+   "lernkarte": "vervielfachen",
+   "stufe": 1,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "vervielfachen",
+    "t": "tabelle",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "bedingung",
+    "f": {
+     "text": "3 Kugeln Eis kosten 4,50 €. Jede Kugel kostet gleich viel. Nenne eine andere Anzahl von Kugeln und den passenden Preis in Euro.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "andere Anzahl, mindestens 1",
+       "pruefe": [
+        "und",
+        [
+         "!=",
+         "$1",
+         3
+        ],
+        [
+         ">=",
+         "$1",
+         1
+        ]
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine Anzahl ist {}."
+      },
+      {
+       "name": "Preis passt zur Anzahl",
+       "pruefe": [
+        "=",
+        [
+         "*",
+         "$2",
+         3
+        ],
+        [
+         "*",
+         "$1",
+         "4,5"
+        ]
+       ],
+       "zeige": [
+        "/",
+        "$2",
+        "$1"
+       ],
+       "hinweis": "Bei dir kostet eine Kugel {} €."
+      }
+     ],
+     "beispiel": [
+      6,
+      9
+     ],
+     "gut": [
+      [
+       1,
+       "1,5"
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       10,
+       15
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        3,
+        "4,5"
+       ],
+       "verletzt": "andere Anzahl, mindestens 1"
+      },
+      {
+       "werte": [
+        6,
+        "7,5"
+       ],
+       "verletzt": "Preis passt zur Anzahl"
+      },
+      {
+       "werte": [
+        0,
+        0
+       ],
+       "verletzt": "andere Anzahl, mindestens 1"
+      }
+     ]
+    },
+    "h": "Was du mit der Anzahl tust, tust du auch mit dem Preis.",
+    "w": "Zum Beispiel doppelt so viele: 6 Kugeln für 9 €. Oder 1 Kugel für 1,50 €."
+   }
+  },
+  {
+   "kennung": "G2T2-B2",
+   "thema": "groessen.proportional",
+   "lernkarte": "erkennen",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "erkennen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Erfinde eine Preisliste, die NICHT proportional ist: Preis für 1 Stück, für 2 Stück und für 4 Stück (in Euro). Die Preise sollen größer als 0 sein und von links nach rechts steigen.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "Preise größer als 0 und steigend",
+       "pruefe": [
+        "und",
+        [
+         ">",
+         "$1",
+         0
+        ],
+        [
+         ">",
+         "$2",
+         "$1"
+        ],
+        [
+         ">",
+         "$3",
+         "$2"
+        ]
+       ],
+       "hinweis": "Deine Preise sind nicht alle größer als 0, oder sie steigen nicht."
+      },
+      {
+       "name": "nicht proportional",
+       "pruefe": [
+        "oder",
+        [
+         "!=",
+         "$2",
+         [
+          "*",
+          2,
+          "$1"
+         ]
+        ],
+        [
+         "!=",
+         "$3",
+         [
+          "*",
+          4,
+          "$1"
+         ]
+        ]
+       ],
+       "zeige": [
+        "/",
+        "$3",
+        4
+       ],
+       "hinweis": "Deine Liste ist proportional: Jedes Stück kostet immer {} €."
+      }
+     ],
+     "beispiel": [
+      2,
+      "3,5",
+      6
+     ],
+     "gut": [
+      [
+       2,
+       4,
+       7
+      ],
+      [
+       1,
+       3,
+       4
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        2,
+        2,
+        4
+       ],
+       "verletzt": "Preise größer als 0 und steigend"
+      },
+      {
+       "werte": [
+        2,
+        4,
+        8
+       ],
+       "verletzt": "nicht proportional"
+      },
+      {
+       "werte": [
+        "1,5",
+        3,
+        6
+       ],
+       "verletzt": "nicht proportional"
+      }
+     ]
+    },
+    "h": "Was müsste bei einer proportionalen Liste zur doppelten Menge gehören?",
+    "w": "Proportional wäre zum Beispiel 2 €, 4 €, 8 €. Sobald ein Preis davon abweicht (etwa Mengenrabatt: 2 €, 3,50 €, 6 €), ist die Liste nicht proportional."
+   }
+  },
+  {
+   "kennung": "G2T2-B3",
+   "thema": "groessen.proportional",
+   "lernkarte": "pruefen",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "pruefen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "In einer proportionalen Tabelle gehört zur Menge 4 der Wert 10. Nenne zwei weitere Paare aus Menge und Wert. Die beiden Mengen sollen größer als 0, verschieden und nicht 4 sein. Reihenfolge der Felder: erste Menge, ihr Wert, zweite Menge, ihr Wert.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "Mengen verschieden und nicht 4",
+       "pruefe": [
+        "und",
+        [
+         "!=",
+         "$1",
+         "$3"
+        ],
+        [
+         "!=",
+         "$1",
+         4
+        ],
+        [
+         "!=",
+         "$3",
+         4
+        ]
+       ],
+       "hinweis": "Deine Mengen sollen verschieden und nicht 4 sein."
+      },
+      {
+       "name": "Mengen größer als 0",
+       "pruefe": [
+        "und",
+        [
+         ">",
+         "$1",
+         0
+        ],
+        [
+         ">",
+         "$3",
+         0
+        ]
+       ],
+       "hinweis": "Beide Mengen sollen größer als 0 sein."
+      },
+      {
+       "name": "erstes Paar passt zur Tabelle",
+       "pruefe": [
+        "=",
+        [
+         "*",
+         "$2",
+         4
+        ],
+        [
+         "*",
+         "$1",
+         10
+        ]
+       ],
+       "zeige": [
+        "/",
+        "$2",
+        "$1"
+       ],
+       "hinweis": "Bei deinem ersten Paar ist Wert : Menge = {}."
+      },
+      {
+       "name": "zweites Paar passt zur Tabelle",
+       "pruefe": [
+        "=",
+        [
+         "*",
+         "$4",
+         4
+        ],
+        [
+         "*",
+         "$3",
+         10
+        ]
+       ],
+       "zeige": [
+        "/",
+        "$4",
+        "$3"
+       ],
+       "hinweis": "Bei deinem zweiten Paar ist Wert : Menge = {}."
+      }
+     ],
+     "beispiel": [
+      2,
+      5,
+      6,
+      15
+     ],
+     "gut": [
+      [
+       1,
+       "2,5",
+       8,
+       20
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        4,
+        10,
+        6,
+        15
+       ],
+       "verletzt": "Mengen verschieden und nicht 4"
+      },
+      {
+       "werte": [
+        0,
+        0,
+        6,
+        15
+       ],
+       "verletzt": "Mengen größer als 0"
+      },
+      {
+       "werte": [
+        2,
+        6,
+        6,
+        15
+       ],
+       "verletzt": "erstes Paar passt zur Tabelle"
+      },
+      {
+       "werte": [
+        2,
+        5,
+        6,
+        16
+       ],
+       "verletzt": "zweites Paar passt zur Tabelle"
+      }
+     ]
+    },
+    "h": "Rechne für das gegebene Paar Wert : Menge.",
+    "w": "10 : 4 = 2,5. Jedes Paar braucht denselben Wert, zum Beispiel 2 und 5 oder 6 und 15."
+   }
+  },
+  {
+   "kennung": "G2T2-B4",
+   "thema": "groessen.proportional",
+   "lernkarte": "pruefen",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "pruefen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "bedingung",
+    "f": {
+     "text": "Die Paare (2 | a) und (5 | b) gehören zu einer proportionalen Zuordnung. a und b sind ganze Zahlen größer als 0, und b ist kleiner als 40. Nenne a und b.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "beide größer als 0",
+       "pruefe": [
+        ">",
+        [
+         "min",
+         "$alle"
+        ],
+        0
+       ],
+       "zeige": [
+        "min",
+        "$alle"
+       ],
+       "hinweis": "Deine kleinere Zahl ist {}."
+      },
+      {
+       "name": "b kleiner als 40",
+       "pruefe": [
+        "<",
+        "$2",
+        40
+       ],
+       "zeige": "$2",
+       "hinweis": "Dein b ist {}."
+      },
+      {
+       "name": "die Paare sind proportional",
+       "pruefe": [
+        "=",
+        [
+         "*",
+         5,
+         "$1"
+        ],
+        [
+         "*",
+         2,
+         "$2"
+        ]
+       ],
+       "zeige": [
+        "/",
+        [
+         "*",
+         5,
+         "$1"
+        ],
+        2
+       ],
+       "hinweis": "Zu deinem a würde bei 5 der Wert {} gehören."
+      }
+     ],
+     "beispiel": [
+      4,
+      10
+     ],
+     "gut": [
+      [
+       2,
+       5
+      ],
+      [
+       14,
+       35
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0,
+        0
+       ],
+       "verletzt": "beide größer als 0"
+      },
+      {
+       "werte": [
+        16,
+        40
+       ],
+       "verletzt": "b kleiner als 40"
+      },
+      {
+       "werte": [
+        4,
+        9
+       ],
+       "verletzt": "die Paare sind proportional"
+      },
+      {
+       "werte": [
+        3,
+        7
+       ],
+       "verletzt": "die Paare sind proportional"
+      }
+     ]
+    },
+    "h": "Bei beiden Paaren muss „Wert : Menge“ dasselbe ergeben.",
+    "w": "a : 2 muss gleich b : 5 sein. Zum Beispiel a = 4 und b = 10 (beide Male 2) oder a = 6 und b = 15 (beide Male 3)."
+   }
+  },
+  {
+   "kennung": "G2T2-B5",
+   "thema": "groessen.proportional",
+   "lernkarte": "vervielfachen",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "vervielfachen",
+    "t": "tabelle",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "bedingung",
+    "f": {
+     "text": "12 Brötchen kosten 4,80 €. Zwei Kinder kaufen verschieden viele Brötchen und zahlen zusammen genau 3,20 €. Nenne die beiden Anzahlen. Jedes Kind kauft mindestens ein Brötchen.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "jedes Kind mindestens ein Brötchen",
+       "pruefe": [
+        ">=",
+        [
+         "min",
+         "$alle"
+        ],
+        1
+       ],
+       "zeige": [
+        "min",
+        "$alle"
+       ],
+       "hinweis": "Deine kleinere Anzahl ist {}."
+      },
+      {
+       "name": "verschieden viele",
+       "pruefe": [
+        "verschieden",
+        "$alle"
+       ],
+       "hinweis": "Die beiden Kinder sollen verschieden viele Brötchen kaufen."
+      },
+      {
+       "name": "zusammen 3,20 €",
+       "pruefe": [
+        "=",
+        [
+         "/",
+         [
+          "*",
+          [
+           "+",
+           "$1",
+           "$2"
+          ],
+          40
+         ],
+         100
+        ],
+        "3,2"
+       ],
+       "zeige": [
+        "/",
+        [
+         "*",
+         [
+          "+",
+          "$1",
+          "$2"
+         ],
+         40
+        ],
+        100
+       ],
+       "hinweis": "Zusammen kosten deine Brötchen {} €."
+      }
+     ],
+     "beispiel": [
+      3,
+      5
+     ],
+     "gut": [
+      [
+       1,
+       7
+      ],
+      [
+       6,
+       2
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0,
+        8
+       ],
+       "verletzt": "jedes Kind mindestens ein Brötchen"
+      },
+      {
+       "werte": [
+        4,
+        4
+       ],
+       "verletzt": "verschieden viele"
+      },
+      {
+       "werte": [
+        3,
+        6
+       ],
+       "verletzt": "zusammen 3,20 €"
+      }
+     ]
+    },
+    "h": "Was kostet ein Brötchen?",
+    "w": "Ein Brötchen kostet 4,80 € : 12 = 0,40 €. Für 3,20 € gibt es 8 Brötchen, zum Beispiel 3 und 5."
+   }
+  }
+ ]
+}

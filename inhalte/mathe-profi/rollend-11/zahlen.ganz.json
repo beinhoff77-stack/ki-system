@@ -338,7 +338,7 @@
     "o": {
      "index": 2
     },
-    "h": "Wie lässt sich „minus eine negative Zahl“ ersetzen? Rechne jede Zeile einzeln nach.",
+    "h": "Rechne jede Zeile einzeln nach.",
     "w": "Zeile 1 und Zeile 2 stimmen. In Zeile 3 steht „− (−13)“. Das heißt „plus 13“, nicht „minus 13“. Richtig: −11 + 13 = 2."
    }
   },

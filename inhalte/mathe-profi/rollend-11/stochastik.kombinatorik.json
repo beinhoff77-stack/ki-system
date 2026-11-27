@@ -141,7 +141,7 @@
     "o": {
      "index": 3
     },
-    "h": "Zu jeder Anordnung der Mädchen gibt es alle Anordnungen der Jungen. Prüfe, ob man dann zählt oder malnimmt.",
+    "h": "Prüfe jede Zeile einzeln. Passt die Rechenart zur Frage?",
     "w": "Zeile 1 bis 3 stimmen. Weil zu jeder der 6 Anordnungen der Mädchen jede der 2 Anordnungen der Jungen passt, muss man malnehmen: 6 · 2 = 12 Reihenfolgen. In Zeile 4 wird stattdessen 6 + 2 = 8 gerechnet."
    }
   },
@@ -246,7 +246,7 @@
      "wert": 5
     },
     "c": "4 + 1",
-    "h": "Wie viele Möglichkeiten hat die erste Ziffer? Teile die Gesamtzahl durch diese Zahl und überlege, wie oft die 10 dann vorkommt.",
+    "h": "Wie viele Möglichkeiten hat die erste Ziffer? Wie viele hat jede weitere Ziffer?",
     "w": "Für die erste Ziffer gibt es 9 Möglichkeiten (1 bis 9). 90 000 : 9 = 10 000 = 10 · 10 · 10 · 10: Die übrigen Ziffern haben je 10 Möglichkeiten, und es sind 4 solche Stellen. Zusammen mit der ersten Ziffer hat der Code 5 Ziffern. Probe: 9 · 10 · 10 · 10 · 10 = 90 000."
    }
   }

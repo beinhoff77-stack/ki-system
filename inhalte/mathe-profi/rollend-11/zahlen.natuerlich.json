@@ -127,7 +127,7 @@
     "o": {
      "index": 1
     },
-    "h": "Wie viele Nullen hat „tausend“? Rechne jede Zeile einzeln nach.",
+    "h": "Rechne jede Zeile einzeln nach.",
     "w": "In Zeile 2 sind „vierhunderttausend“ 400 · 1 000 = 400 000, nicht 40 000. Zeile 3 rechnet mit dem falschen Wert richtig weiter. Richtig: 30 000 000 + 400 000 + 12 = 30 400 012."
    }
   },
@@ -250,7 +250,7 @@
     "o": {
      "index": 2
     },
-    "h": "Welche Ziffer steht rechts neben der Hunderterstelle? Nur diese Ziffer entscheidet.",
+    "h": "Runde 28 446 selbst direkt auf Hunderter und vergleiche.",
     "w": "Zeile 1 und Zeile 2 sind für sich richtig gerundet. Aber das Ergebnis darf nicht in zwei Schritten gerundet werden: Bei 28 446 steht rechts neben der Hunderterstelle die 4, also wird abgerundet. Richtig ist 28 400."
    }
   },

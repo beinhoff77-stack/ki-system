@@ -19,7 +19,7 @@ FD(T, "potenz_von_potenz",
    [("(a²)³ = a²·³ = a⁶", (b ** 2) ** 3 == b ** 6),
     ("a⁶ · a⁴ = a⁶·⁴ = a²⁴", b ** 6 * b ** 4 == b ** 24),
     ("Also ist (a²)³ · a⁴ = a²⁴", b ** 24 == b ** 24)],
-   "Prüfe mit a = 2. Wann werden Hochzahlen malgenommen und wann addiert?",
+   "Prüfe jede Zeile mit a = 2.",
    "Zeile 1 stimmt: Bei einer Potenz von einer Potenz werden die Hochzahlen malgenommen. In Zeile 2 steht aber ein Produkt gleicher Basen: Dort werden die Hochzahlen addiert, also a⁶ · a⁴ = a¹⁰. "
    "Zeile 3 folgt aus der falschen Zeile 2.",
    "rr.potenz", "bei einem Produkt gleicher Basen die Hochzahlen malgenommen statt addiert")

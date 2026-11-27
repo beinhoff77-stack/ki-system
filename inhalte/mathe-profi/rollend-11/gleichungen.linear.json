@@ -75,7 +75,7 @@
     "o": {
      "index": 1
     },
-    "h": "Setze das Ergebnis in die Gleichung am Anfang ein. Was muss mit einer Waage immer auf beiden Seiten geschehen?",
+    "h": "Setze das Ergebnis in die Gleichung am Anfang ein.",
     "w": "Zeile 1 stimmt. In Zeile 2 wird nur links 4 dazugelegt. Die Waage kippt: Auch rechts muss 4 dazukommen, also 4x = 24. Zeile 3 rechnet mit der falschen Zeile 2 richtig weiter. Richtig ist x = 6. Probe: 7 · 6 − 4 = 38 und 3 · 6 + 20 = 38."
    }
   },
@@ -121,7 +121,7 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Eine Pflanze A ist 12 cm hoch und wächst gleichmäßig 3 cm pro Woche. Eine Pflanze B ist 30 cm hoch und wächst gleichmäßig 1,5 cm pro Woche. Nach einiger Zeit sind beide gleich hoch. Löse die Gleichung und mache die Probe in der Aufgabe: Wie viele Zentimeter sind beide Pflanzen dann hoch?"
+     "text": "Eine Pflanze A ist 12 cm hoch und wächst gleichmäßig 3 cm pro Woche. Eine Pflanze B ist 30 cm hoch und wächst gleichmäßig 1,5 cm pro Woche. Nach einiger Zeit sind beide gleich hoch. Löse die Gleichung und rechne mit der Lösung die Höhe beider Pflanzen aus. Das ist zugleich die Probe. Wie viele Zentimeter sind beide Pflanzen dann hoch?"
     },
     "o": {
      "wert": 48,

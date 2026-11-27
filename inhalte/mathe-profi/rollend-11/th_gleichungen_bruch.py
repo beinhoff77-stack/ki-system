@@ -19,7 +19,7 @@ FD(T, "ein_bruch",
    [("Ich kürze die 2 im Bruch links: (2x + 6)/2 = x + 6, die Gleichung lautet also x + 6 = 7.", aequi("(2*x+6)/2", "7", "x+6", "7")),
     ("Von beiden Seiten 6 abziehen: x = 7 − 6 = 1.", aequi("x+6", "7", "x", "1")),
     ("Die Lösungsmenge ist L = {1}.", aequi("x", "1", "x", "1"))],
-   "Setze die Lösung in die Gleichung am Anfang ein. Darf man aus einer Summe im Zähler einzelne Summanden kürzen?",
+   "Setze die Lösung in die Gleichung am Anfang ein. ",
    "Gekürzt werden darf nur, wenn der ganze Zähler durch 2 geteilt wird: (2x + 6)/2 = x + 3. In Zeile 1 wurde nur die 2x gekürzt, die 6 blieb stehen. "
    "Die Zeilen 2 und 3 rechnen mit der falschen Zeile 1 richtig weiter. Richtig: x + 3 = 7, also x = 4. Probe: (8 + 6)/2 = 7.",
    "rr.kuerzen", "nur aus einem Summanden des Zählers gekürzt (aus einer Summe gekürzt)")
@@ -29,7 +29,7 @@ Z(T, "hauptnenner", "anwenden",
   "Ein Auto fährt eine Strecke hin mit 60 km/h und denselben Weg zurück mit 40 km/h. Die Länge s der einfachen Strecke ist nicht bekannt. "
   "Mit welcher gleichbleibenden Geschwindigkeit v (in km/h) müsste es Hin- und Rückweg fahren, um für beide Wege zusammen genauso lange zu brauchen?",
   48, "240 / 5", "2 / (1 / 60 + 1 / 40)",
-  "Stelle die Gleichung s/60 + s/40 = 2s/v auf. Das s kürzt sich weg (s ≠ 0). Multipliziere dann mit dem Hauptnenner 120v.",
+  "Zeit = Weg : Geschwindigkeit. Stelle für beide Fahrten die Gesamtzeit auf und setze die Zeiten gleich.",
   "Gleichung: s/60 + s/40 = 2s/v. Durch s teilen: 1/60 + 1/40 = 2/v. Mit 120v multiplizieren: 2v + 3v = 240, also 5v = 240 und v = 48 km/h. "
   "Probe: Mit s = 120 km: hin 2 h, zurück 3 h, zusammen 5 h; 240 km : 5 h = 48 km/h.",
   [(50, "(60 + 40) / 2", "den Mittelwert der beiden Geschwindigkeiten genommen"),

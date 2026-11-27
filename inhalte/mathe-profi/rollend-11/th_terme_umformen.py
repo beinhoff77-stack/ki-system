@@ -19,7 +19,7 @@ FD(T, "ausmultiplizieren",
     ("−3(x − 5) = −3x + 15", gl("-3*(x-5)", "-3*x+15")),
     ("−2(5 − x) = −10 − 2x", gl("-2*(5-x)", "-10-2*x")),
     ("Zusammen: 8x − 12 − 3x + 15 − 10 − 2x = 3x − 7", gl("8*x-12-3*x+15-10-2*x", "3*x-7"))],
-   "Prüfe jede Zeile mit einer Zahl für x, zum Beispiel x = 1. Achte auf die Vorzeichen bei negativem Faktor.",
+   "Prüfe jede Zeile mit einer Zahl für x, zum Beispiel x = 1.",
    "Zeile 1 und 2 stimmen. In Zeile 3 wird −2 mit 5 und mit (−x) multipliziert: −2 · 5 = −10 und −2 · (−x) = +2x. Richtig ist also −10 + 2x. Zeile 4 rechnet mit dem falschen Ergebnis richtig weiter. "
    "Mit dem richtigen Wert ergibt sich 7x − 7.",
    "rr.ausmultiplizieren", "−2 · (−x) als −2x gerechnet (Vorzeichen in der Klammer nicht beachtet)")

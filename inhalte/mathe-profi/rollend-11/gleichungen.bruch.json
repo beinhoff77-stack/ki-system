@@ -128,7 +128,7 @@
     "o": {
      "index": 0
     },
-    "h": "Setze die Lösung in die Gleichung am Anfang ein. Darf man aus einer Summe im Zähler einzelne Summanden kürzen?",
+    "h": "Setze die Lösung in die Gleichung am Anfang ein. ",
     "w": "Gekürzt werden darf nur, wenn der ganze Zähler durch 2 geteilt wird: (2x + 6)/2 = x + 3. In Zeile 1 wurde nur die 2x gekürzt, die 6 blieb stehen. Die Zeilen 2 und 3 rechnen mit der falschen Zeile 1 richtig weiter. Richtig: x + 3 = 7, also x = 4. Probe: (8 + 6)/2 = 7."
    }
   },
@@ -181,7 +181,7 @@
      "einheit": "km/h"
     },
     "c": "240 / 5",
-    "h": "Stelle die Gleichung s/60 + s/40 = 2s/v auf. Das s kürzt sich weg (s ≠ 0). Multipliziere dann mit dem Hauptnenner 120v.",
+    "h": "Zeit = Weg : Geschwindigkeit. Stelle für beide Fahrten die Gesamtzeit auf und setze die Zeiten gleich.",
     "w": "Gleichung: s/60 + s/40 = 2s/v. Durch s teilen: 1/60 + 1/40 = 2/v. Mit 120v multiplizieren: 2v + 3v = 240, also 5v = 240 und v = 48 km/h. Probe: Mit s = 120 km: hin 2 h, zurück 3 h, zusammen 5 h; 240 km : 5 h = 48 km/h."
    }
   },

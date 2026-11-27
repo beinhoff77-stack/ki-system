@@ -63,7 +63,7 @@ FD(T, "ketten",
    [("Die ersten drei Zahlen: −14 − (−9) + (−6) = −14 + 9 − 6 = −11", -14 - (-9) + (-6) == -14 + 9 - 6 == -11),
     ("Die Klammer: 8 − 21 = −13", 8 - 21 == -13),
     ("Zusammen: −11 − (−13) = −11 − 13 = −24", -11 - (-13) == -11 - 13)],
-   "Wie lässt sich „minus eine negative Zahl“ ersetzen? Rechne jede Zeile einzeln nach.",
+   "Rechne jede Zeile einzeln nach.",
    "Zeile 1 und Zeile 2 stimmen. In Zeile 3 steht „− (−13)“. Das heißt „plus 13“, nicht „minus 13“. Richtig: −11 + 13 = 2.",
    "rr.plusminus", "„− (−13)“ als „− 13“ aufgelöst")
 

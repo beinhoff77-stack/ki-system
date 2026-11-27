@@ -138,7 +138,7 @@
      "wert": 23
     },
     "c": "(2317 - 17) / 4 / 25",
-    "h": "Mache die Schritte in umgekehrter Reihenfolge rückgängig. Zwei der Schritte kann man zu einem zusammenfassen.",
+    "h": "Mache die Schritte in umgekehrter Reihenfolge rückgängig.",
     "w": "Rückwärts: 2 317 − 17 = 2 300. Das Malnehmen mit 25 und mit 4 ist zusammen ein Malnehmen mit 100. Also 2 300 : 100 = 23. Probe: 23 · 25 = 575, 575 · 4 = 2 300, 2 300 + 17 = 2 317."
    }
   },

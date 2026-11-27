@@ -24,7 +24,7 @@ FD(T, "ziffern_zu_zahlwort",
    [("„dreißig Millionen“ sind 30 000 000.", 30 * 1000000 == 30000000),
     ("„vierhunderttausend“ sind 40 000, zusammen 30 040 000.", 400 * 1000 == 40000 and 30000000 + 40000 == 30040000),
     ("„zwölf“ sind 12, zusammen 30 040 012.", 30040000 + 12 == 30040012)],
-   "Wie viele Nullen hat „tausend“? Rechne jede Zeile einzeln nach.",
+   "Rechne jede Zeile einzeln nach.",
    "In Zeile 2 sind „vierhunderttausend“ 400 · 1 000 = 400 000, nicht 40 000. Zeile 3 rechnet mit dem falschen Wert richtig weiter. Richtig: 30 000 000 + 400 000 + 12 = 30 400 012.",
    "rr.stellenwert", "„vierhunderttausend“ mit nur vier Nullen weniger geschrieben: 40 000 statt 400 000")
 
@@ -47,7 +47,7 @@ FD(T, "runden_regel",
    [("Auf Zehner gerundet: 28 446 ≈ 28 450.", rd(28446, 10) == 28450),
     ("Auf Hunderter gerundet: 28 450 ≈ 28 500.", rd(28450, 100) == 28500),
     ("Also ist 28 446 auf Hunderter gerundet 28 500.", rd(28446, 100) == 28500)],
-   "Welche Ziffer steht rechts neben der Hunderterstelle? Nur diese Ziffer entscheidet.",
+   "Runde 28 446 selbst direkt auf Hunderter und vergleiche.",
    "Zeile 1 und Zeile 2 sind für sich richtig gerundet. Aber das Ergebnis darf nicht in zwei Schritten gerundet werden: Bei 28 446 steht rechts neben der Hunderterstelle die 4, also wird abgerundet. "
    "Richtig ist 28 400.",
    "id.zahlen.buendeln", "in zwei Schritten gerundet (erst auf Zehner, dann auf Hunderter), obwohl nur die Ziffer rechts der Hunderterstelle zählt")

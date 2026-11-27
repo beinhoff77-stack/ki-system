@@ -18,7 +18,7 @@ FD(T, "gleiche_basis_ganz",
    [("a⁻⁴ · a⁷ = a⁻⁴⁺⁷ = a³", a ** -4 * a ** 7 == a ** 3),
     ("a³ : a⁻² = a³⁻⁽⁻²⁾ = a⁵", a ** 3 / a ** -2 == a ** 5),
     ("a⁵ · a⁻⁵ = a⁵⁺⁽⁻⁵⁾ = a⁰ = 0", a ** 5 * a ** -5 == 0)],
-   "Rechne jede Zeile mit einer Zahl nach, zum Beispiel a = 2. Was ist a⁰?",
+   "Rechne jede Zeile mit einer Zahl nach, zum Beispiel a = 2.",
    "Zeile 1 und 2 stimmen. In Zeile 3 ist die Hochzahl 5 + (−5) = 0 richtig, aber a⁰ ist 1 (für a ≠ 0), nicht 0. Man kann auch sehen: a⁵ · a⁻⁵ = a⁵ · 1/a⁵ = 1. Richtig ist das Ergebnis 1.",
    "rr.potenz", "a⁰ = 0 statt a⁰ = 1")
 

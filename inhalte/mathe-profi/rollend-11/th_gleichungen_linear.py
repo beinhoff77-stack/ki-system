@@ -6,7 +6,7 @@ FD(T, "waage",
    [("Auf beiden Seiten 3x wegnehmen: 4x − 4 = 20", aequi("7*x-4", "3*x+20", "4*x-4", "20")),
     ("Auf der linken Seite 4 dazulegen: 4x − 4 + 4 = 20, also 4x = 20", aequi("4*x-4", "20", "4*x", "20")),
     ("Beide Seiten durch 4 teilen: x = 5", aequi("4*x", "20", "x", "5"))],
-   "Setze das Ergebnis in die Gleichung am Anfang ein. Was muss mit einer Waage immer auf beiden Seiten geschehen?",
+   "Setze das Ergebnis in die Gleichung am Anfang ein.",
    "Zeile 1 stimmt. In Zeile 2 wird nur links 4 dazugelegt. Die Waage kippt: Auch rechts muss 4 dazukommen, also 4x = 24. Zeile 3 rechnet mit der falschen Zeile 2 richtig weiter. "
    "Richtig ist x = 6. Probe: 7 · 6 − 4 = 38 und 3 · 6 + 20 = 38.",
    "rr.waage", "die 4 nur auf einer Seite der Gleichung addiert")
@@ -15,7 +15,7 @@ FD(T, "waage",
 assert 12 + 3 * 12 == 30 + 1.5 * 12 == 48
 Z(T, "probe", "anwenden",
   "Eine Pflanze A ist 12 cm hoch und wächst gleichmäßig 3 cm pro Woche. Eine Pflanze B ist 30 cm hoch und wächst gleichmäßig 1,5 cm pro Woche. Nach einiger Zeit sind beide gleich hoch. "
-  "Löse die Gleichung und mache die Probe in der Aufgabe: Wie viele Zentimeter sind beide Pflanzen dann hoch?",
+  "Löse die Gleichung und rechne mit der Lösung die Höhe beider Pflanzen aus. Das ist zugleich die Probe. Wie viele Zentimeter sind beide Pflanzen dann hoch?",
   48, "12 + 3 * ((30 - 12) / (3 - 1.5))", "30 + 1.5 * 12",
   "Stelle für w Wochen eine Gleichung auf: Höhe von A = Höhe von B. Die Probe: Setze w in beide Höhen ein, beide Werte müssen gleich sein.",
   "Nach w Wochen: 12 + 3w = 30 + 1,5w. Daraus 1,5w = 18, also w = 12 Wochen. Probe: Pflanze A: 12 + 3 · 12 = 48 cm. Pflanze B: 30 + 1,5 · 12 = 48 cm. Beide sind 48 cm hoch.",

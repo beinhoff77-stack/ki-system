@@ -21,7 +21,7 @@ FD(T, "termwert",
    [("Zähler: (−2)² = −4, also 3 − (−4) = 7", (-2) ** 2 == -4 and 3 - (-4) == 7),
     ("Nenner: −2 + 4 = 2", -2 + 4 == 2),
     ("T(−2) = 7 : 2 = 3,5", 7 / 2 == 3.5)],
-   "Was ist (−2)²? Rechne T(−2) selbst mit dem Taschenrechner nach.",
+   "Rechne T(−2) selbst mit dem Taschenrechner nach.",
    "Zeile 1 enthält den Fehler: (−2)² = (−2) · (−2) = 4, nicht −4. Der Zähler ist also 3 − 4 = −1. Zeile 2 stimmt. Zeile 3 rechnet mit dem falschen Zähler 7 richtig weiter. Richtig ist T(−2) = −1 : 2 = −0,5.",
    "rr.reihenfolge", "(−2)² als −4 gerechnet (das Quadrat einer negativen Zahl)")
 

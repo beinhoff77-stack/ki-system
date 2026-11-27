@@ -127,7 +127,7 @@
     "o": {
      "index": 1
     },
-    "h": "Prüfe mit a = 2. Wann werden Hochzahlen malgenommen und wann addiert?",
+    "h": "Prüfe jede Zeile mit a = 2.",
     "w": "Zeile 1 stimmt: Bei einer Potenz von einer Potenz werden die Hochzahlen malgenommen. In Zeile 2 steht aber ein Produkt gleicher Basen: Dort werden die Hochzahlen addiert, also a⁶ · a⁴ = a¹⁰. Zeile 3 folgt aus der falschen Zeile 2."
    }
   }

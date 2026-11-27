@@ -151,7 +151,7 @@
     "o": {
      "index": 0
     },
-    "h": "Was ist (−2)²? Rechne T(−2) selbst mit dem Taschenrechner nach.",
+    "h": "Rechne T(−2) selbst mit dem Taschenrechner nach.",
     "w": "Zeile 1 enthält den Fehler: (−2)² = (−2) · (−2) = 4, nicht −4. Der Zähler ist also 3 − 4 = −1. Zeile 2 stimmt. Zeile 3 rechnet mit dem falschen Zähler 7 richtig weiter. Richtig ist T(−2) = −1 : 2 = −0,5."
    }
   },

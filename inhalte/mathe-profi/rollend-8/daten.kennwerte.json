@@ -24,9 +24,19 @@
      "luecke": 2,
      "index": null,
      "antwort": 20,
+     "rechnung": "L1 // 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "durch 2 statt durch 4 geteilt"
+    },
+    {
+     "luecke": 3,
+     "index": null,
+     "antwort": 9,
+     "rechnung": "15 - 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem kleinsten Wert statt mit dem Mittelwert verglichen"
     }
    ],
    "aufgabe": {
@@ -37,22 +47,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Vier Kinder haben 6, 8, 11 und 15 Punkte. Zusammen sind das 6 + 8 + 11 + 15 = ① Punkte. Bei gerechter Verteilung bekommt jedes Kind ① : 4 = ② Punkte.",
-     "schablone": "① = □; ② = □",
+     "text": "Vier Kinder haben 6, 8, 11 und 15 Punkte. Zusammen sind das ① Punkte. Bei gerechter Verteilung bekommt jedes Kind ② Punkte. Das Kind mit den meisten Punkten gibt dafür ③ Punkte ab.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       40,
-      10
+      10,
+      5
      ]
     },
     "c": [
      "6 + 8 + 11 + 15",
-     "(6 + 8 + 11 + 15) // 4"
+     "(6 + 8 + 11 + 15) // 4",
+     "15 - ((6 + 8 + 11 + 15) // 4)"
     ],
-    "h": "Erst alles zusammenzählen, dann durch die Anzahl teilen.",
-    "w": "Die Summe ist 40 Punkte. Auf 4 Kinder verteilt: 40 : 4 = 10 Punkte für jedes Kind."
+    "h": "Erst alles zusammenzählen, dann gleichmäßig auf die Kinder verteilen.",
+    "w": "Die Summe ist 40 Punkte. Auf 4 Kinder verteilt: 40 : 4 = 10 Punkte für jedes Kind. Das Kind mit 15 Punkten gibt 15 − 10 = 5 Punkte ab."
    }
   },
   {
@@ -70,6 +82,7 @@
      "luecke": null,
      "index": null,
      "antwort": 70,
+     "rechnung": "12 * 3 + 14 + 20",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "bei der Summe stehen geblieben"
@@ -78,6 +91,7 @@
      "luecke": null,
      "index": null,
      "antwort": 12,
+     "rechnung": "12",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den häufigsten Wert genannt"
@@ -91,14 +105,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Fünf Messwerte sind 12; 12; 12; 14 und 20. Weg A: alle Werte addieren und durch 5 teilen. Weg B: die drei gleichen Werte als 3 · 12 zusammenfassen und dann 14 und 20 dazu. Wie groß ist der Mittelwert?"
+     "text": "Fünf Messwerte sind 12; 12; 12; 14 und 20. Weg A: alle Werte addieren und durch 5 teilen. Weg B: 12 als Schätzwert nehmen, die Abweichungen der Werte von 12 addieren, diese Summe durch 5 teilen und das Ergebnis zu 12 addieren. Wie groß ist der Mittelwert?"
     },
     "o": {
      "wert": 14
     },
     "c": "(12 * 3 + 14 + 20) // 5",
-    "h": "Beide Wege müssen dieselbe Summe ergeben.",
-    "w": "Weg A: 12 + 12 + 12 + 14 + 20 = 70, also 70 : 5 = 14. Weg B: 36 + 14 + 20 = 70, dasselbe Ergebnis."
+    "h": "Beide Wege müssen denselben Mittelwert ergeben.",
+    "w": "Weg A: 12 + 12 + 12 + 14 + 20 = 70, also 70 : 5 = 14. Weg B: Die Abweichungen von 12 sind 0, 0, 0, 2 und 8, zusammen 10. 10 : 5 = 2, und 12 + 2 = 14. Beide Wege geben 14."
    }
   },
   {
@@ -116,6 +130,7 @@
      "luecke": null,
      "index": null,
      "antwort": 110,
+     "rechnung": "18 + 24 + 15 + 30 + 23",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Summe genannt"
@@ -124,6 +139,7 @@
      "luecke": null,
      "index": null,
      "antwort": 23,
+     "rechnung": "23",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "einen einzelnen Tag genannt"
@@ -163,6 +179,7 @@
      "luecke": null,
      "index": 1,
      "antwort": "(1 + 2 + 3) : 3",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Häufigkeiten weggelassen"
@@ -171,6 +188,7 @@
      "luecke": null,
      "index": 2,
      "antwort": "(2 + 5 + 3) : 3",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur die Häufigkeiten addiert"
@@ -179,6 +197,7 @@
      "luecke": null,
      "index": 3,
      "antwort": "(1 · 2 + 2 · 5 + 3 · 3) : 3",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "durch die Zahl der Spalten geteilt statt durch die Zahl der Noten"
@@ -222,6 +241,7 @@
      "luecke": null,
      "index": null,
      "antwort": 74,
+     "rechnung": "4 * 3 + 6 * 2 + 10 * 5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "bei der Summe stehen geblieben"
@@ -230,6 +250,7 @@
      "luecke": null,
      "index": null,
      "antwort": 6.67,
+     "rechnung": "(4 + 6 + 10) / 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur (4 + 6 + 10) : 3 gerechnet"
@@ -243,14 +264,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "In einer Tabelle kommt der Wert 4 dreimal vor, der Wert 6 zweimal und der Wert 10 fünfmal. Weg A: jeden Wert mal seine Anzahl, addieren und durch 10 teilen. Weg B: alle zehn Werte einzeln hinschreiben und addieren. Wie groß ist der Mittelwert?"
+     "text": "In einer Tabelle kommt der Wert 4 dreimal vor, der Wert 6 zweimal und der Wert 10 fünfmal. Weg A: jeden Wert mal seine Anzahl, addieren und durch 10 teilen. Weg B: den Anteil jedes Werts an den zehn Werten bestimmen (3/10, 2/10, 5/10), jeden Wert mit seinem Anteil malnehmen und addieren. Wie groß ist der Mittelwert?"
     },
     "o": {
      "wert": 7.4
     },
     "c": "(4 * 3 + 6 * 2 + 10 * 5) / 10",
-    "h": "Beide Wege müssen dieselbe Summe ergeben.",
-    "w": "Weg A: 4 · 3 = 12, 6 · 2 = 12 und 10 · 5 = 50, zusammen 74. 74 : 10 = 7,4. Weg B gibt dieselben 74."
+    "h": "Beide Wege müssen denselben Mittelwert ergeben.",
+    "w": "Weg A: 4 · 3 = 12, 6 · 2 = 12 und 10 · 5 = 50, zusammen 74. 74 : 10 = 7,4. Weg B: 4 · 0,3 + 6 · 0,2 + 10 · 0,5 = 1,2 + 1,2 + 5 = 7,4."
    }
   },
   {
@@ -268,6 +289,7 @@
      "luecke": null,
      "index": null,
      "antwort": 7,
+     "rechnung": "7",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Mittelwert als fehlenden Wert genommen"
@@ -276,6 +298,7 @@
      "luecke": null,
      "index": null,
      "antwort": 42,
+     "rechnung": "7 * 6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Summe genannt"
@@ -314,6 +337,7 @@
      "luecke": null,
      "index": null,
      "antwort": 10,
+     "rechnung": "10",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Mittelwert als fehlenden Wert angenommen"
@@ -322,6 +346,7 @@
      "luecke": null,
      "index": null,
      "antwort": 40,
+     "rechnung": "10 * 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Gesamtsumme genannt"
@@ -341,7 +366,7 @@
      "wert": 13
     },
     "c": "10 * 4 - (7 + 12 + 8)",
-    "h": "Summe = Mittelwert · Anzahl.",
+    "h": "Wie hängen Mittelwert, Anzahl und Summe zusammen?",
     "w": "Summe aller vier Tests: 10 · 4 = 40 Punkte. Bekannt sind 7 + 12 + 8 = 27. Der vierte Test hatte 40 − 27 = 13 Punkte."
    }
   },
@@ -349,7 +374,7 @@
    "kennung": "K7-V071",
    "thema": "daten.kennwerte",
    "lernkarte": "mittel_rueckwaerts",
-   "stufe": 3,
+   "stufe": 2,
    "typ": "Anwenden",
    "antwortform": "zahl",
    "regel": "id.daten.kennzahl",
@@ -359,37 +384,39 @@
     {
      "luecke": null,
      "index": null,
-     "antwort": 9,
+     "antwort": 5,
+     "rechnung": "13 - 8",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Mittelwert als Tagesstrecke genommen"
+     "beschreibung": "den fünften Tag mit dem alten Mittelwert verglichen"
     },
     {
      "luecke": null,
      "index": null,
-     "antwort": 45,
+     "antwort": 9,
+     "rechnung": "(8 * 4 + 13) / 5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Gesamtstrecke genannt"
+     "beschreibung": "den neuen Mittelwert genannt, nicht den Anstieg"
     }
    ],
    "aufgabe": {
     "l": "mittel_rueckwaerts",
     "t": "mittel_rueckwaerts",
     "p": "uebung",
-    "s": 3,
-    "g": "transfer",
+    "s": 2,
+    "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Eine Läuferin will an fünf Trainingstagen im Mittel 9 km pro Tag laufen. An den ersten vier Tagen lief sie 6, 9, 7 und 10 km. Wie viele Kilometer muss sie am fünften Tag laufen?"
+     "text": "Eine Läuferin ist an vier Trainingstagen im Mittel 8 km pro Tag gelaufen. Am fünften Tag läuft sie 13 km. Um wie viele Kilometer steigt der Mittelwert pro Tag durch den fünften Tag?"
     },
     "o": {
-     "wert": 13,
+     "wert": 1,
      "einheit": "km"
     },
-    "c": "9 * 5 - (6 + 9 + 7 + 10)",
-    "h": "Rechne zuerst, wie viele Kilometer insgesamt nötig sind.",
-    "w": "Insgesamt nötig: 9 · 5 = 45 km. Gelaufen sind 6 + 9 + 7 + 10 = 32 km. Am fünften Tag fehlen 45 − 32 = 13 km."
+    "c": "(8 * 4 + 13) / 5 - 8",
+    "h": "Rechne zuerst, wie viele Kilometer es an den ersten vier Tagen zusammen waren.",
+    "w": "Die ersten vier Tage: 8 · 4 = 32 km. Mit dem fünften Tag: 32 + 13 = 45 km. Neuer Mittelwert: 45 : 5 = 9 km. Er steigt um 9 − 8 = 1 km."
    }
   },
   {
@@ -406,26 +433,29 @@
     {
      "luecke": null,
      "index": 1,
-     "antwort": "Jede der sechs Zahlen ist 12.",
+     "antwort": "S · 6 = 12",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das wäre ein Sonderfall, nicht die Regel"
+     "beschreibung": "mit der Anzahl malgenommen statt geteilt"
     },
     {
      "luecke": null,
      "index": 2,
-     "antwort": "Die größte der sechs Zahlen ist 12.",
+     "antwort": "S + 6 = 12",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Werte über dem Mittelwert sind erlaubt"
+     "beschreibung": "die Anzahl addiert statt zu teilen"
     },
     {
      "luecke": null,
      "index": 3,
-     "antwort": "Alle sechs Zahlen liegen zwischen 6 und 12.",
+     "antwort": "S : 12 = 12",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "der Mittelwert sagt nichts über die Spannweite"
+     "beschreibung": "durch den Mittelwert statt durch die Anzahl geteilt"
     }
    ],
    "aufgabe": {
@@ -436,19 +466,19 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "Ein Satz lautet: „Der Mittelwert von sechs Zahlen ist 12.“ Was weiß man damit sicher?"
+     "text": "Ein Satz lautet: „Der Mittelwert von sechs Zahlen ist 12.“ Die Summe der sechs Zahlen heißt S. Welche Gleichung sagt dasselbe?"
     },
     "a": [
-     "Die Summe der sechs Zahlen ist 72.",
-     "Jede der sechs Zahlen ist 12.",
-     "Die größte der sechs Zahlen ist 12.",
-     "Alle sechs Zahlen liegen zwischen 6 und 12."
+     "S : 6 = 12",
+     "S · 6 = 12",
+     "S + 6 = 12",
+     "S : 12 = 12"
     ],
     "o": {
      "index": 0
     },
-    "h": "Summe = Mittelwert · Anzahl.",
-    "w": "Aus dem Mittelwert folgt nur die Summe: 12 · 6 = 72. Die einzelnen Zahlen können sehr verschieden sein, auch größer als 12."
+    "h": "Wie wird ein Mittelwert aus der Summe berechnet?",
+    "w": "Der Mittelwert ist die Summe geteilt durch die Anzahl: S : 6 = 12. Daraus folgt S = 12 · 6 = 72."
    }
   }
  ]

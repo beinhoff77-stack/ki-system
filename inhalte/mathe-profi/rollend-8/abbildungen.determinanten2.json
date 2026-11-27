@@ -21,12 +21,22 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
+     "luecke": 3,
      "index": null,
      "antwort": 41,
+     "rechnung": "L1 + L2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die beiden Produkte addiert"
+    },
+    {
+     "luecke": 3,
+     "index": null,
+     "antwort": -29,
+     "rechnung": "L2 - L1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Produkte in der falschen Reihenfolge abgezogen"
     }
    ],
    "aufgabe": {
@@ -37,21 +47,23 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Vektoren sind a = (5 | 3) und b = (2 | 7). Über Kreuz malnehmen: 5 · 7 = ① und 3 · 2 = 6. Die Determinante ist ① − 6 = ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Die Vektoren sind a = (5 | 3) und b = (2 | 7). Das erste Kreuzprodukt (oben links mal unten rechts) ist ①, das zweite (unten links mal oben rechts) ist ②. Die Determinante ist ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       35,
+      6,
       29
      ]
     },
     "c": [
      "5 * 7",
-     "5 * 7 - 3 * 2"
+     "3 * 2",
+     "(5 * 7) - (3 * 2)"
     ],
-    "h": "Oben links mal unten rechts, dann minus unten links mal oben rechts.",
+    "h": "Das erste Produkt kommt zuerst, das zweite wird abgezogen.",
     "w": "5 · 7 = 35 und 3 · 2 = 6. Die Determinante ist 35 − 6 = 29."
    }
   },
@@ -70,6 +82,7 @@
      "luecke": null,
      "index": null,
      "antwort": 4,
+     "rechnung": "30 - 26",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "beim letzten Schritt nicht durch 2 geteilt"
@@ -78,6 +91,7 @@
      "luecke": null,
      "index": null,
      "antwort": 28,
+     "rechnung": "26 + 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "26 und 2 addiert"
@@ -116,6 +130,7 @@
      "luecke": null,
      "index": 0,
      "antwort": "In Zeile 1",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig: beide Kreuzprodukte stimmen"
@@ -124,6 +139,7 @@
      "luecke": null,
      "index": 2,
      "antwort": "In Zeile 3",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile rechnet nur mit dem falschen Zeichen aus Zeile 2 weiter"
@@ -137,7 +153,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Kind berechnet die Determinante von a = (6 | 4) und b = (2 | 5). Zeile 1: Über Kreuz malnehmen: 6 · 5 = 30 und 4 · 2 = 8. Zeile 2: Zwischen den beiden Produkten steht ein Plus. Zeile 3: Also ist die Determinante 30 + 8 = 38. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Kind berechnet die Determinante von a = (6 | 4) und b = (2 | 5). Zeile 1: Über Kreuz malnehmen: 6 · 5 = 30 und 4 · 2 = 8. Zeile 2: Zwischen den beiden Produkten steht ein Plus. Zeile 3: Also ist die Determinante 30 + 8 = 38. In welcher Zeile steckt der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -163,12 +179,22 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
+     "luecke": 3,
      "index": null,
-     "antwort": 32,
+     "antwort": 26,
+     "rechnung": "L1 + L2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Produkte addiert"
+    },
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 8,
+     "rechnung": "2 * 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die falschen Zahlen über Kreuz genommen"
     }
    ],
    "aufgabe": {
@@ -179,22 +205,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Parallelogramm hat A(0 | 0), B(6 | 2) und D(1 | 5). Die Pfeile sind AB = (6 | 2) und AD = (1 | 5). Über Kreuz: 6 · 5 = ① und 2 · 1 = 2. Die Fläche ist ① − 2 = ② FE.",
-     "schablone": "① = □; ② = □",
+     "text": "Ein Parallelogramm hat A(0 | 0), B(5 | 2) und D(3 | 4). Die Pfeile sind AB = (5 | 2) und AD = (3 | 4). Das erste Kreuzprodukt ist ①, das zweite ②. Die Fläche des Parallelogramms ist ③ FE.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      30,
-      28
+      20,
+      6,
+      14
      ]
     },
     "c": [
-     "6 * 5",
-     "6 * 5 - 2 * 1"
+     "5 * 4",
+     "2 * 3",
+     "(5 * 4) - (2 * 3)"
     ],
     "h": "Erst beide Produkte, dann die Differenz.",
-    "w": "6 · 5 = 30 und 2 · 1 = 2. Die Determinante ist 30 − 2 = 28, das Parallelogramm hat 28 FE."
+    "w": "5 · 4 = 20 und 2 · 3 = 6. Die Determinante ist 20 − 6 = 14, das Parallelogramm hat 14 FE."
    }
   },
   {
@@ -212,6 +240,7 @@
      "luecke": null,
      "index": null,
      "antwort": 12,
+     "rechnung": "6 * 4 // 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "wie beim Dreieck halbiert"
@@ -220,6 +249,7 @@
      "luecke": null,
      "index": null,
      "antwort": 20,
+     "rechnung": "2 * (6 + 4)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Grundseite und Höhe addiert und verdoppelt"
@@ -259,6 +289,7 @@
      "luecke": null,
      "index": null,
      "antwort": 12,
+     "rechnung": "8 * 3 // 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "halbiert, als wäre es ein Dreieck"
@@ -267,9 +298,10 @@
      "luecke": null,
      "index": null,
      "antwort": 30,
+     "rechnung": "10 * 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit den Punkten gerechnet statt mit den Pfeilen"
+     "beschreibung": "die Koordinaten der Ecke C malgenommen"
     }
    ],
    "aufgabe": {
@@ -306,9 +338,19 @@
      "luecke": 2,
      "index": null,
      "antwort": 28,
+     "rechnung": "L1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Halbieren vergessen"
+    },
+    {
+     "luecke": 3,
+     "index": null,
+     "antwort": 112,
+     "rechnung": "4 * L1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Determinante statt mit der Dreiecksfläche umgerechnet"
     }
    ],
    "aufgabe": {
@@ -319,22 +361,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Dreieck hat A(0 | 0), B(6 | 1) und C(2 | 5). Die Pfeile sind AB = (6 | 1) und AC = (2 | 5). Die Determinante ist 6 · 5 − 1 · 2 = ①. Das Dreieck ist die Hälfte davon: ① : 2 = ② FE.",
-     "schablone": "① = □; ② = □",
+     "text": "Ein Dreieck hat A(0 | 0), B(6 | 1) und C(2 | 5), die Pfeile sind AB = (6 | 1) und AC = (2 | 5). Die Determinante ist ①. Das Dreieck hat ② FE. Eine Flächeneinheit sind 4 m²; das Dreieck hat also ③ m².",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       28,
-      14
+      14,
+      56
      ]
     },
     "c": [
      "6 * 5 - 1 * 2",
-     "(6 * 5 - 1 * 2) // 2"
+     "(6 * 5 - 1 * 2) // 2",
+     "4 * ((6 * 5 - 1 * 2) // 2)"
     ],
     "h": "Das Dreieck ist das halbe Parallelogramm.",
-    "w": "Die Determinante ist 30 − 2 = 28. Das Dreieck hat 28 : 2 = 14 FE."
+    "w": "Die Determinante ist 30 − 2 = 28. Das Dreieck hat 28 : 2 = 14 FE, das sind 14 · 4 m² = 56 m²."
    }
   },
   {
@@ -351,26 +395,29 @@
     {
      "luecke": null,
      "index": 1,
-     "antwort": "23 FE",
+     "antwort": "4 · 3 − 1 · 1",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Halbieren vergessen"
+     "beschreibung": "das Halbieren vergessen, das ist die Fläche des Parallelogramms"
     },
     {
      "luecke": null,
      "index": 2,
-     "antwort": "46 FE",
+     "antwort": "(4 · 1 − 1 · 3) : 2",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "verdoppelt statt halbiert"
+     "beschreibung": "die falschen Zahlen über Kreuz genommen"
     },
     {
      "luecke": null,
      "index": 3,
-     "antwort": "nicht bestimmbar",
+     "antwort": "(4 · 3 + 1 · 1) : 2",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Determinante genügt, man braucht die Punkte nicht"
+     "beschreibung": "die Produkte addiert statt abgezogen"
     }
    ],
    "aufgabe": {
@@ -381,19 +428,19 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "Ein Satz lautet: „Die Determinante aus AB und AC ist 23.“ Wie groß ist dann die Fläche des Dreiecks ABC?"
+     "text": "Im Dreieck ABC sind die Pfeile AB = (4 | 1) und AC = (1 | 3) gegeben. Welche Rechnung gibt die Fläche des Dreiecks?"
     },
     "a": [
-     "11,5 FE",
-     "23 FE",
-     "46 FE",
-     "nicht bestimmbar"
+     "(4 · 3 − 1 · 1) : 2",
+     "4 · 3 − 1 · 1",
+     "(4 · 1 − 1 · 3) : 2",
+     "(4 · 3 + 1 · 1) : 2"
     ],
     "o": {
      "index": 0
     },
-    "h": "Das Dreieck ist halb so groß wie das Parallelogramm.",
-    "w": "Die Determinante gibt die Fläche des Parallelogramms: 23 FE. Das Dreieck ist die Hälfte, also 11,5 FE."
+    "h": "Wofür steht die Determinante der beiden Pfeile geometrisch?",
+    "w": "Die Determinante 4 · 3 − 1 · 1 = 11 ist die Fläche des Parallelogramms aus den beiden Pfeilen. Das Dreieck ist die Hälfte: 5,5 FE."
    }
   },
   {
@@ -409,19 +456,21 @@
    "fehlbilder": [
     {
      "luecke": null,
-     "index": 0,
-     "antwort": "In Zeile 1",
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig: 42 − 6 = 36"
+     "beschreibung": "diese Zeile folgt richtig aus Zeile 1: die Determinante gibt das Parallelogramm"
     },
     {
      "luecke": null,
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig: die Determinante gibt das Parallelogramm"
+     "beschreibung": "diese Zeile folgt richtig aus Zeile 2: 9 : 2 = 4,5"
     }
    ],
    "aufgabe": {
@@ -432,7 +481,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Kind berechnet die Fläche des Dreiecks ABC mit AB = (7 | 2) und AC = (3 | 6). Zeile 1: Die Determinante ist 7 · 6 − 2 · 3 = 36. Zeile 2: Das ist die Fläche des zugehörigen Parallelogramms. Zeile 3: Also hat das Dreieck auch 36 FE. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Kind berechnet die Fläche des Dreiecks ABC mit AB = (7 | 2) und AC = (3 | 6). Zeile 1: Die Determinante ist 7 · 3 − 2 · 6 = 9. Zeile 2: Das ist die Fläche des zugehörigen Parallelogramms, also 9 FE. Zeile 3: Das Dreieck ist die Hälfte davon, also 4,5 FE. In welcher Zeile steckt der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -440,10 +489,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Wie groß ist das Dreieck im Vergleich zum Parallelogramm?",
-    "w": "Zeile 1 und 2 stimmen. Das Dreieck ist die Hälfte: 36 : 2 = 18 FE."
+    "h": "Welche Zahlen gehören über Kreuz zusammen?",
+    "w": "Zeile 1 ist falsch: Die Determinante ist 7 · 6 − 2 · 3 = 36 (oben links mal unten rechts). Die Zeilen 2 und 3 folgen richtig aus dem falschen Wert. Richtig wären 36 FE und 18 FE."
    }
   },
   {
@@ -461,6 +510,7 @@
      "luecke": null,
      "index": 1,
      "antwort": "Die Fläche ist −9,5 FE.",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "eine Fläche kann nicht negativ sein"
@@ -469,6 +519,7 @@
      "luecke": null,
      "index": 2,
      "antwort": "Die drei Punkte liegen auf einer Geraden.",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das gilt nur bei der Determinante 0"
@@ -477,6 +528,7 @@
      "luecke": null,
      "index": 3,
      "antwort": "Die Fläche ist 19 FE.",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Halbieren vergessen"
@@ -490,7 +542,7 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "Für ein Dreieck ergibt die Determinante −19. Welcher Satz passt dazu?"
+     "text": "Für ein Dreieck ABC ergibt die Determinante aus AB und AC den Wert −19. Welcher Satz passt dazu?"
     },
     "a": [
      "Die Ecken laufen im Uhrzeigersinn, die Fläche ist 9,5 FE.",
@@ -501,7 +553,7 @@
     "o": {
      "index": 0
     },
-    "h": "Flächen sind nie negativ.",
+    "h": "Überlege, was ein Minus bei einer Fläche bedeuten kann.",
     "w": "Das Minus zeigt nur die Reihenfolge der Ecken. Die Fläche ist der halbe Betrag: 19 : 2 = 9,5 FE."
    }
   },
@@ -509,7 +561,7 @@
    "kennung": "K7-V125",
    "thema": "abbildungen.determinanten2",
    "lernkarte": "umlaufsinn",
-   "stufe": 2,
+   "stufe": 1,
    "typ": "Verfahren wählen (einfache Form)",
    "antwortform": "auswahl",
    "regel": "id.geometrie.deckungsgleich",
@@ -519,49 +571,52 @@
     {
      "luecke": null,
      "index": 1,
-     "antwort": "das Ergebnis als negative Fläche aufschreiben",
+     "antwort": "alle Koordinaten mit −1 malnehmen",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Flächen sind nie negativ"
+     "beschreibung": "beide Pfeile wechseln das Vorzeichen, die Determinante bleibt gleich"
     },
     {
      "luecke": null,
      "index": 2,
-     "antwort": "die Rechnung als falsch verwerfen und neu beginnen",
+     "antwort": "die Determinante durch 2 teilen",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Rechnung ist richtig, nur die Reihenfolge der Ecken ist anders"
+     "beschreibung": "das ergibt die Dreiecksfläche, das Vorzeichen bleibt"
     },
     {
      "luecke": null,
      "index": 3,
-     "antwort": "die Determinante mit vertauschten Spalten noch einmal rechnen und beide Werte addieren",
+     "antwort": "die Koordinaten von A um 1 verschieben",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "beim Vertauschen kehrt sich nur das Vorzeichen um, die Summe wäre 0"
+     "beschreibung": "dann sind die Pfeile andere, der Betrag ändert sich meist"
     }
    ],
    "aufgabe": {
     "l": "umlaufsinn",
     "t": "umlaufsinn",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 1,
+    "g": "erkennen",
     "y": "auswahl",
     "f": {
-     "text": "Du hast für ein Viereck die Determinante −30 erhalten. Wie gehst du weiter vor?"
+     "text": "Für ein Dreieck ABC ergibt die Determinante aus AB und AC den Wert 18. Du willst, dass sich nur das Vorzeichen ändert und der Betrag gleich bleibt. Was änderst du?"
     },
     "a": [
-     "den Betrag nehmen und festhalten, dass die Ecken im Uhrzeigersinn benannt sind",
-     "das Ergebnis als negative Fläche aufschreiben",
-     "die Rechnung als falsch verwerfen und neu beginnen",
-     "die Determinante mit vertauschten Spalten noch einmal rechnen und beide Werte addieren"
+     "zwei Ecken in der Reihenfolge vertauschen, zum Beispiel B und C",
+     "alle Koordinaten mit −1 malnehmen",
+     "die Determinante durch 2 teilen",
+     "die Koordinaten von A um 1 verschieben"
     ],
     "o": {
      "index": 0
     },
-    "h": "Was bedeutet das Vorzeichen?",
-    "w": "Das Minus zeigt den Umlaufsinn. Man nimmt den Betrag, hier 30, und hält fest, dass die Ecken im Uhrzeigersinn benannt sind."
+    "h": "Was ändert sich am Umlaufsinn, wenn du zwei Ecken tauschst?",
+    "w": "Tauscht man B und C, vertauschen sich die beiden Pfeile, und die Determinante wechselt das Vorzeichen: −18. Alle Koordinaten mit −1 zu nehmen dreht die Figur um 180°, die Determinante bleibt 18. Durch 2 teilen halbiert den Betrag, und eine Verschiebung von A ändert die Pfeile und meist den Betrag."
    }
   },
   {
@@ -579,6 +634,7 @@
      "luecke": null,
      "index": 0,
      "antwort": "In Zeile 1",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig: 2 − 30 = −28"
@@ -587,6 +643,7 @@
      "luecke": null,
      "index": 1,
      "antwort": "In Zeile 2",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig, so ist das Vorzeichen zu deuten"
@@ -600,7 +657,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Kind rechnet mit AB = (2 | 5) und AC = (6 | 1). Zeile 1: Die Determinante ist 2 · 1 − 5 · 6 = −28. Zeile 2: Das Minus zeigt, dass A, B und C im Uhrzeigersinn liegen. Zeile 3: Die Fläche des Dreiecks ist deshalb −14 FE. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Kind rechnet mit AB = (2 | 5) und AC = (6 | 1). Zeile 1: Die Determinante ist 2 · 1 − 5 · 6 = −28. Zeile 2: Das Minus zeigt, dass A, B und C im Uhrzeigersinn liegen. Zeile 3: Die Fläche des Dreiecks ist deshalb −14 FE. In welcher Zeile steckt der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -626,12 +683,22 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
+     "luecke": 3,
      "index": null,
      "antwort": 40,
+     "rechnung": "L1 + L2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Halbieren vergessen"
+    },
+    {
+     "luecke": 3,
+     "index": null,
+     "antwort": 13,
+     "rechnung": "L1 // 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Dreieck ABC gerechnet"
     }
    ],
    "aufgabe": {
@@ -642,21 +709,23 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Viereck hat A(0 | 0), B(6 | 2), C(5 | 6) und D(1 | 4). Die Diagonale AC teilt es in die Dreiecke ABC und ACD. Für ABC: 6 · 6 − 2 · 5 = ①. Für ACD: 5 · 4 − 6 · 1 = 14. Die Fläche ist (① + 14) : 2 = ② FE.",
-     "schablone": "① = □; ② = □",
+     "text": "Ein Viereck hat A(0 | 0), B(6 | 2), C(5 | 6) und D(1 | 4). Die Diagonale AC teilt es in die Dreiecke ABC und ACD. Die Determinante für ABC (aus AB und AC) ist ①, die für ACD (aus AC und AD) ist ②. Die Fläche des Vierecks ist ③ FE.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       26,
+      14,
       20
      ]
     },
     "c": [
      "6 * 6 - 2 * 5",
-     "(6 * 6 - 2 * 5 + 14) // 2"
+     "5 * 4 - 6 * 1",
+     "((6 * 6 - 2 * 5) + (5 * 4 - 6 * 1)) // 2"
     ],
-    "h": "Erst beide Determinanten, dann addieren und halbieren.",
+    "h": "Beide Determinanten werden addiert, dann wird halbiert.",
     "w": "Für ABC: 36 − 10 = 26. Für ACD: 20 − 6 = 14. Zusammen 40, halbiert 20 FE."
    }
   },
@@ -675,6 +744,7 @@
      "luecke": null,
      "index": null,
      "antwort": 24,
+     "rechnung": "12 + 12",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "bei Weg A das Halbieren vergessen"
@@ -683,9 +753,10 @@
      "luecke": null,
      "index": null,
      "antwort": 6,
+     "rechnung": "12 // 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur ein Dreieck gerechnet"
+     "beschreibung": "nur ein Dreieck gerechnet und halbiert"
     }
    ],
    "aufgabe": {
@@ -722,6 +793,7 @@
      "luecke": null,
      "index": null,
      "antwort": 100,
+     "rechnung": "60 + 40",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Halbieren vergessen"
@@ -729,7 +801,8 @@
     {
      "luecke": null,
      "index": null,
-     "antwort": 60,
+     "antwort": 30,
+     "rechnung": "60 // 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur das Dreieck ABC gerechnet"
@@ -758,7 +831,7 @@
    "kennung": "K7-V130",
    "thema": "abbildungen.determinanten2",
    "lernkarte": "vieleck",
-   "stufe": 2,
+   "stufe": 1,
    "typ": "Verfahren wählen (einfache Form)",
    "antwortform": "auswahl",
    "regel": "id.geometrie.deckungsgleich",
@@ -769,6 +842,7 @@
      "luecke": null,
      "index": 1,
      "antwort": "AB mit AD, AD mit AE",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Dreieck ABC fehlt, ein Pfeil wurde übersprungen"
@@ -777,6 +851,7 @@
      "luecke": null,
      "index": 2,
      "antwort": "AB mit AC, AB mit AD, AB mit AE",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "immer von AB aus: Stücke zählen doppelt"
@@ -785,6 +860,7 @@
      "luecke": null,
      "index": 3,
      "antwort": "AB mit AC, AC mit AE",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "AD fehlt, damit fehlt ein Dreieck"
@@ -794,8 +870,8 @@
     "l": "vieleck",
     "t": "vieleck",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 1,
+    "g": "erkennen",
     "y": "auswahl",
     "f": {
      "text": "Ein Fünfeck ABCDE soll von A aus in Dreiecke zerlegt werden. Welche Determinanten rechnest du?"
@@ -809,7 +885,7 @@
     "o": {
      "index": 0
     },
-    "h": "Immer zwei benachbarte Pfeile.",
+    "h": "Zeichne ein Fünfeck und die Diagonalen von A aus.",
     "w": "Von A aus entstehen die Dreiecke ABC, ACD und ADE. Dazu nimmt man immer zwei benachbarte Pfeile: AB mit AC, AC mit AD, AD mit AE."
    }
   },
@@ -828,6 +904,7 @@
      "luecke": null,
      "index": null,
      "antwort": -4,
+     "rechnung": "27 - (12 + 19)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "mit der Fläche statt mit der doppelten Fläche gerechnet"
@@ -836,6 +913,7 @@
      "luecke": null,
      "index": null,
      "antwort": 31,
+     "rechnung": "12 + 19",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Summe der beiden bekannten genannt"
@@ -849,13 +927,13 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Ein Fünfeck hat die Fläche 27 FE. Zwei der drei Determinanten von A aus sind 12 und 19. Wie groß ist die dritte?"
+     "text": "Ein konvexes Fünfeck, dessen Ecken gegen den Uhrzeigersinn benannt sind, hat die Fläche 27 FE. Von A aus wird es in drei Dreiecke zerlegt. Zwei der drei Determinanten sind 12 und 19. Wie groß ist die dritte?"
     },
     "o": {
      "wert": 23
     },
     "c": "27 * 2 - (12 + 19)",
-    "h": "Die Summe aller Determinanten ist die doppelte Fläche.",
+    "h": "Wie hängen die drei Dreiecksflächen mit der Fläche des Fünfecks zusammen?",
     "w": "Die Summe der Determinanten ist 2 · 27 = 54. Bekannt sind 12 + 19 = 31. Die dritte ist 54 − 31 = 23."
    }
   },
@@ -874,6 +952,7 @@
      "luecke": null,
      "index": null,
      "antwort": 120,
+     "rechnung": "40 + 60 + 20",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Halbieren vergessen"
@@ -882,9 +961,10 @@
      "luecke": null,
      "index": null,
      "antwort": 50,
+     "rechnung": "(40 + 60) // 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "ein Dreieck übersprungen"
+     "beschreibung": "das Dreieck ADE übersprungen"
     }
    ],
    "aufgabe": {

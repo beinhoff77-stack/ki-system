@@ -23,10 +23,20 @@
     {
      "luecke": 1,
      "index": null,
-     "antwort": 10,
+     "antwort": 22,
+     "rechnung": "16 + 6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur den dritten Wert genommen"
+     "beschreibung": "die mittleren Plätze der ungeordneten Liste genommen"
+    },
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 11,
+     "rechnung": "(16 + 6) // 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit den Werten der ungeordneten Mitte weitergerechnet"
     }
    ],
    "aufgabe": {
@@ -37,22 +47,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Werte 10; 3; 15; 6 werden geordnet: 3; 6; 10; 15. Es sind vier Werte, in der Mitte stehen 6 und 10. Der Median ist (6 + 10) : 2 = ①. Die Spannweite ist 15 − 3 = ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Die sechs Werte 10; 4; 16; 6; 12; 8 sollen ihren Median bekommen. Man ordnet sie zuerst der Größe nach. Dann stehen in der Mitte zwei Werte; ihre Summe ist ①. Der Median ist die Hälfte davon: ②. Er liegt um ③ über dem kleinsten Wert.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      8,
-      12
+      18,
+      9,
+      5
      ]
     },
     "c": [
-     "(6 + 10) // 2",
-     "15 - 3"
+     "8 + 10",
+     "(8 + 10) // 2",
+     "((8 + 10) // 2) - 4"
     ],
-    "h": "Bei gerader Anzahl liegt der Median zwischen den beiden mittleren Werten.",
-    "w": "Der Median ist (6 + 10) : 2 = 8. Die Spannweite ist 15 − 3 = 12."
+    "h": "Ordne zuerst, dann suche die Mitte.",
+    "w": "Geordnet: 4; 6; 8; 10; 12; 16. In der Mitte stehen 8 und 10, ihre Summe ist 18. Der Median ist 18 : 2 = 9. Der kleinste Wert ist 4, also liegt der Median um 9 − 4 = 5 darüber."
    }
   },
   {
@@ -70,6 +82,7 @@
      "luecke": null,
      "index": null,
      "antwort": 4,
+     "rechnung": "4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur den Zuschlag genannt"
@@ -78,6 +91,7 @@
      "luecke": null,
      "index": null,
      "antwort": 11,
+     "rechnung": "11",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den vierten Wert genommen"
@@ -91,13 +105,13 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Fünf Werte stehen geordnet da: 2; 5; x; 11; 14. Der Median ist um 4 größer als der zweite Wert. Wie groß ist x?"
+     "text": "Fünf Werte stehen der Größe nach geordnet da: 2; 5; x; 11; 14. Der Median ist um 4 größer als der zweite Wert. Wie groß ist x?"
     },
     "o": {
      "wert": 9
     },
     "c": "5 + 4",
-    "h": "Bei fünf geordneten Werten ist der dritte der Median.",
+    "h": "Welche Stelle in einer Reihe aus fünf geordneten Werten ist die Mitte?",
     "w": "Der Median ist der dritte Wert, also x. Er ist 5 + 4 = 9. Die Reihenfolge stimmt dann auch: 9 liegt zwischen 5 und 11."
    }
   },
@@ -116,6 +130,7 @@
      "luecke": null,
      "index": 0,
      "antwort": "In Zeile 1",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig, so ist der Median bestimmt"
@@ -124,6 +139,7 @@
      "luecke": null,
      "index": 2,
      "antwort": "In Zeile 3",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig: bei ungerader Anzahl gibt es einen mittleren Wert"
@@ -137,7 +153,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Kind bestimmt den Median von 8; 2; 11; 5; 14. Zeile 1: Der Median ist der mittlere Wert. Zeile 2: In der Mitte dieser Liste steht die 11, also ist der Median 11. Zeile 3: Es sind fünf Werte, deshalb gibt es genau einen mittleren Wert. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Kind bestimmt den Median von 8; 2; 11; 5; 14. Zeile 1: Der Median ist der mittlere Wert der der Größe nach geordneten Liste. Zeile 2: In der Mitte der Liste 8; 2; 11; 5; 14 steht die 11, also ist der Median 11. Zeile 3: Es sind fünf Werte, deshalb gibt es genau einen mittleren Wert. In welcher Zeile steckt der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -147,8 +163,8 @@
     "o": {
      "index": 1
     },
-    "h": "Was muss vor dem Ablesen passieren?",
-    "w": "Zeile 1 und 3 stimmen. Vor dem Ablesen muss man ordnen: 2; 5; 8; 11; 14. Der mittlere Wert ist 8."
+    "h": "Bestimme den Median selbst und vergleiche.",
+    "w": "Zeile 1 stimmt. Zeile 2 ordnet die Liste nicht: Geordnet ist 2; 5; 8; 11; 14, der mittlere Wert ist 8. Zeile 3 ist für sich richtig: bei fünf Werten gibt es einen mittleren Wert."
    }
   },
   {
@@ -166,9 +182,19 @@
      "luecke": 2,
      "index": null,
      "antwort": 7,
+     "rechnung": "7",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den häufigsten Wert als Mittelwert genommen"
+    },
+    {
+     "luecke": 3,
+     "index": null,
+     "antwort": 11,
+     "rechnung": "14 - 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem kleinsten Wert statt mit dem Mittelwert verglichen"
     }
    ],
    "aufgabe": {
@@ -179,22 +205,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Fünf Kinder haben 3, 7, 7, 9 und 14 Bücher. Zusammen sind das ① Bücher. Der Mittelwert ist ① : 5 = ② Bücher.",
-     "schablone": "① = □; ② = □",
+     "text": "Fünf Kinder haben 3, 7, 7, 9 und 14 Bücher. Zusammen sind das ① Bücher. Der Mittelwert ist ② Bücher. Das Kind mit den meisten Büchern hat ③ Bücher mehr als der Mittelwert.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       40,
-      8
+      8,
+      6
      ]
     },
     "c": [
      "3 + 7 + 7 + 9 + 14",
-     "(3 + 7 + 7 + 9 + 14) // 5"
+     "(3 + 7 + 7 + 9 + 14) // 5",
+     "14 - ((3 + 7 + 7 + 9 + 14) // 5)"
     ],
     "h": "Summe durch Anzahl.",
-    "w": "3 + 7 + 7 + 9 + 14 = 40 und 40 : 5 = 8 Bücher. Der Modalwert wäre 7, die Spannweite 11."
+    "w": "3 + 7 + 7 + 9 + 14 = 40 und 40 : 5 = 8 Bücher. Das größte Kind hat 14 − 8 = 6 Bücher mehr. Der häufigste Wert wäre 7, die Spannweite 11."
    }
   },
   {
@@ -212,6 +240,7 @@
      "luecke": null,
      "index": null,
      "antwort": 30,
+     "rechnung": "30",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den größten Wert genannt"
@@ -220,6 +249,7 @@
      "luecke": null,
      "index": null,
      "antwort": 25,
+     "rechnung": "25",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den häufigsten Wert genannt"
@@ -233,15 +263,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Sechs Zeiten sind 21; 25; 19; 30; 25 und 22 Sekunden. Weg A: größten und kleinsten Wert suchen und voneinander abziehen. Weg B: alle Werte ordnen und die beiden Randwerte vergleichen. Wie groß ist die Spannweite?"
+     "text": "Sechs Zeiten sind 21; 25; 19; 30; 25 und 22 Sekunden. Weg A: größten und kleinsten Wert suchen und voneinander abziehen. Weg B: alle Werte ordnen und die Abstände zwischen je zwei benachbarten Werten addieren. Wie groß ist die Spannweite?"
     },
     "o": {
      "wert": 11,
      "einheit": "s"
     },
     "c": "30 - 19",
-    "h": "Die Spannweite ist der Abstand zwischen größtem und kleinstem Wert.",
-    "w": "Der größte Wert ist 30 s, der kleinste 19 s: 30 − 19 = 11 s. Beide Wege führen zu denselben Randwerten."
+    "h": "Beide Wege müssen dieselbe Spannweite ergeben.",
+    "w": "Weg A: Der größte Wert ist 30 s, der kleinste 19 s: 30 − 19 = 11 s. Weg B: geordnet 19; 21; 22; 25; 25; 30, die Abstände sind 2, 1, 3, 0 und 5, zusammen 11 s."
    }
   },
   {
@@ -259,6 +289,7 @@
      "luecke": null,
      "index": null,
      "antwort": 27,
+     "rechnung": "(24 * 3 + 30 + 31 + 29) // 6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Mittelwert genannt"
@@ -267,6 +298,7 @@
      "luecke": null,
      "index": null,
      "antwort": 7,
+     "rechnung": "31 - 24",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Spannweite genommen"
@@ -304,26 +336,29 @@
     {
      "luecke": null,
      "index": 1,
-     "antwort": "Alle Werte liegen dicht beieinander.",
+     "antwort": "2; 3; 4; 5; 6",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "dann sind Median und Mittelwert fast gleich"
+     "beschreibung": "gleichmäßig verteilt: Mittelwert und Median sind beide 4"
     },
     {
      "luecke": null,
      "index": 2,
-     "antwort": "Es gibt genau zwei verschiedene Werte.",
+     "antwort": "1; 2; 3; 4; 5",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl der verschiedenen Werte entscheidet nicht"
+     "beschreibung": "gleichmäßig verteilt: Mittelwert und Median sind beide 3"
     },
     {
      "luecke": null,
      "index": 3,
-     "antwort": "Die Anzahl der Werte ist gerade.",
+     "antwort": "1; 30; 31; 32; 33",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das ändert nur die Berechnung des Medians, nicht seine Aussagekraft"
+     "beschreibung": "ein sehr kleiner Wert zieht den Mittelwert unter den Median"
     }
    ],
    "aufgabe": {
@@ -334,26 +369,26 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "Ein Satz lautet: „Bei diesen Daten beschreibt der Median die Mitte besser als der Mittelwert.“ Welche Lage passt dazu?"
+     "text": "Ein Satz lautet: „Bei diesen Daten ist der Mittelwert größer als der Median.“ Welche Zahlenreihe passt dazu?"
     },
     "a": [
-     "Ein einzelner sehr großer Wert zieht den Mittelwert nach oben.",
-     "Alle Werte liegen dicht beieinander.",
-     "Es gibt genau zwei verschiedene Werte.",
-     "Die Anzahl der Werte ist gerade."
+     "1; 2; 3; 4; 30",
+     "2; 3; 4; 5; 6",
+     "1; 2; 3; 4; 5",
+     "1; 30; 31; 32; 33"
     ],
     "o": {
      "index": 0
     },
-    "h": "Welcher der beiden Kennwerte reagiert stark auf einen Ausreißer?",
-    "w": "Ein Ausreißer zieht den Mittelwert zu sich, der Median bleibt in der Mitte der geordneten Liste. Liegen alle Werte dicht beieinander, sind beide Kennwerte ähnlich."
+    "h": "Rechne bei jeder Reihe Mittelwert und Median aus.",
+    "w": "Reihe 1: Mittelwert 40 : 5 = 8, Median 3 – der Mittelwert ist größer. Reihe 2 und 3: Mittelwert und Median sind gleich (4 bzw. 3). Reihe 4: Mittelwert 127 : 5 = 25,4, Median 31 – der Mittelwert ist kleiner."
    }
   },
   {
    "kennung": "K7-V080",
    "thema": "daten.boxplot",
    "lernkarte": "mittel_median",
-   "stufe": 2,
+   "stufe": 1,
    "typ": "Verfahren wählen (einfache Form)",
    "antwortform": "auswahl",
    "regel": "id.daten.kennzahl",
@@ -364,6 +399,7 @@
      "luecke": null,
      "index": 1,
      "antwort": "den Mittelwert nehmen, weil er alle Werte benutzt",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "der Ausreißer zieht ihn auf 3 960 €, das verdient niemand in der Gruppe"
@@ -372,6 +408,7 @@
      "luecke": null,
      "index": 2,
      "antwort": "die Spannweite nehmen",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Spannweite beschreibt die Streuung, nicht die Mitte"
@@ -380,6 +417,7 @@
      "luecke": null,
      "index": 3,
      "antwort": "den größten Wert nehmen",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das ist gerade der Ausreißer"
@@ -389,11 +427,11 @@
     "l": "mittel_median",
     "t": "mittel_median",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 1,
+    "g": "erkennen",
     "y": "auswahl",
     "f": {
-     "text": "In einer Gruppe verdienen fünf Personen 1 800 €, 1 900 €, 2 000 €, 2 100 € und 12 000 €. Du sollst den typischen Verdienst angeben. Welches Vorgehen passt?"
+     "text": "In einer Gruppe verdienen fünf Personen 1 800 €, 1 900 €, 2 000 €, 2 100 € und 12 000 €. Du sollst den Verdienst angeben, der zu den meisten Personen der Gruppe passt. Welches Vorgehen passt?"
     },
     "a": [
      "den Median nehmen, weil ein Ausreißer dabei ist",
@@ -404,7 +442,7 @@
     "o": {
      "index": 0
     },
-    "h": "Schau, ob ein Wert weit außerhalb der anderen liegt.",
+    "h": "Vergleiche die fünf Werte miteinander: Was fällt auf?",
     "w": "Der Median ist 2 000 €, der Mittelwert 3 960 €. Vier der fünf Personen verdienen rund 2 000 €; der Median beschreibt die Gruppe deshalb besser."
    }
   },
@@ -421,19 +459,21 @@
    "fehlbilder": [
     {
      "luecke": null,
-     "index": 0,
-     "antwort": "In Zeile 1",
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig: die Summe ist 145"
+     "beschreibung": "diese Zeile ist richtig: die Summe ist 145, geteilt durch 5 sind 29"
     },
     {
      "luecke": null,
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig: der dritte von fünf Werten ist 11"
+     "beschreibung": "diese Zeile folgt richtig aus den Werten 54,5 und 29"
     }
    ],
    "aufgabe": {
@@ -444,7 +484,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Kind vergleicht Mittelwert und Median von 8; 11; 11; 14; 101. Zeile 1: Der Mittelwert ist 145 : 5 = 29. Zeile 2: Der Median ist 11. Zeile 3: Also liegen die meisten Werte bei etwa 29. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Kind vergleicht Mittelwert und Median von 8; 11; 11; 14; 101. Zeile 1: Der Median ist der Mittelwert aus kleinstem und größtem Wert: (8 + 101) : 2 = 54,5. Zeile 2: Der Mittelwert aller fünf Werte ist 145 : 5 = 29. Zeile 3: Also liegt der Median weit über dem Mittelwert. In welcher Zeile steckt der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -452,10 +492,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Zähle, wie viele Werte wirklich in der Nähe von 29 liegen.",
-    "w": "Zeile 1 und 2 stimmen. Vier der fünf Werte liegen zwischen 8 und 14. Der Mittelwert 29 entsteht nur durch den Ausreißer 101; die meisten Werte liegen bei etwa 11."
+    "h": "Ordne die Werte und suche den mittleren.",
+    "w": "Zeile 1 ist falsch: Der Median ist der mittlere Wert der geordneten Liste, also 11. Zeile 2 ist richtig (8 + 11 + 11 + 14 + 101 = 145). Zeile 3 folgt richtig aus Zeile 1 und 2 – mit dem richtigen Median 11 läge der Median dagegen weit unter dem Mittelwert."
    }
   },
   {
@@ -470,12 +510,22 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 1,
+     "luecke": 2,
      "index": null,
-     "antwort": 4,
+     "antwort": 5,
+     "rechnung": "5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den zweiten Wert genommen statt den Median der Hälfte"
+    },
+    {
+     "luecke": 3,
+     "index": null,
+     "antwort": 14,
+     "rechnung": "14",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den zweiten Wert der oberen Hälfte genommen statt den Median"
     }
    ],
    "aufgabe": {
@@ -486,22 +536,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Acht Werte stehen geordnet da: 2; 4; 8; 10; 12; 14; 18; 20. Die untere Hälfte ist 2; 4; 8; 10, ihr Median ist Q₁ = (4 + 8) : 2 = ①. Die obere Hälfte ist 12; 14; 18; 20, ihr Median ist Q₃ = (14 + 18) : 2 = ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Acht Werte stehen geordnet da: 2; 5; 7; 9; 11; 14; 18; 21. Die untere Hälfte besteht aus den vier kleinsten Werten. Die beiden mittleren Werte dieser Hälfte haben die Summe ①. Ihr Median ist Q₁ = ②. Q₃ ist der Median der oberen Hälfte: ③. Der Abstand von Q₁ bis Q₃ ist ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
+      12,
       6,
-      16
+      16,
+      10
      ]
     },
     "c": [
-     "(4 + 8) // 2",
-     "(14 + 18) // 2"
+     "5 + 7",
+     "(5 + 7) // 2",
+     "(14 + 18) // 2",
+     "((14 + 18) // 2) - ((5 + 7) // 2)"
     ],
     "h": "Q₁ und Q₃ sind die Mediane der beiden Hälften.",
-    "w": "Q₁ = (4 + 8) : 2 = 6 und Q₃ = (14 + 18) : 2 = 16. Zwischen beiden liegt die mittlere Hälfte der Werte."
+    "w": "Untere Hälfte 2; 5; 7; 9: mittlere Werte 5 und 7, Summe 12, Q₁ = 6. Obere Hälfte 11; 14; 18; 21: mittlere Werte 14 und 18, Q₃ = 16. Abstand: 16 − 6 = 10."
    }
   },
   {
@@ -519,14 +573,16 @@
      "luecke": null,
      "index": null,
      "antwort": 4,
+     "rechnung": "4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "einen der mittleren Werte genommen statt ihres Mittels"
+     "beschreibung": "den dritten Wert genommen statt die Mitte zwischen zweitem und drittem"
     },
     {
      "luecke": null,
      "index": null,
      "antwort": 2,
+     "rechnung": "2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den zweiten Wert als Q₁ genommen"
@@ -540,14 +596,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Neun Werte stehen geordnet da: 1; 2; 4; 5; 7; 8; 10; 11; 15. Weg A: den Median streichen und von der unteren Hälfte den Median nehmen. Weg B: die vier kleinsten Werte nehmen und deren Median bilden. Wie groß ist Q₁?"
+     "text": "Neun Werte stehen geordnet da: 1; 2; 4; 5; 7; 8; 10; 11; 15. Weg A: den Median streichen und von der unteren Hälfte den Median nehmen. Weg B: die Stelle (9 + 1) : 4 = 2,5 ausrechnen, an der ein Viertel der Reihe erreicht ist, und den Wert in der Mitte zwischen dem 2. und dem 3. Wert nehmen. Wie groß ist Q₁?"
     },
     "o": {
      "wert": 3
     },
     "c": "(2 + 4) // 2",
-    "h": "Bei ungerader Anzahl gehört der Median zu keiner der beiden Hälften.",
-    "w": "Der Median ist 7. Die untere Hälfte ist 1; 2; 4; 5, ihr Median ist (2 + 4) : 2 = 3. Beide Wege nehmen dieselben vier Werte."
+    "h": "Beide Wege müssen denselben Wert ergeben.",
+    "w": "Weg A: Der Median ist 7. Die untere Hälfte ist 1; 2; 4; 5, ihr Median ist (2 + 4) : 2 = 3. Weg B: Zwischen dem 2. Wert (2) und dem 3. Wert (4) liegt die Mitte 3. Beide Wege geben hier 3."
    }
   },
   {
@@ -565,6 +621,7 @@
      "luecke": null,
      "index": null,
      "antwort": 2,
+     "rechnung": "14 - 12",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Breite abgezogen statt dazugezählt"
@@ -573,6 +630,7 @@
      "luecke": null,
      "index": null,
      "antwort": 12,
+     "rechnung": "12",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Breite als Q₃ genannt"
@@ -592,7 +650,7 @@
      "wert": 26
     },
     "c": "14 + 12",
-    "h": "Die Box reicht von Q₁ bis Q₃.",
+    "h": "Was misst die Breite der Box?",
     "w": "Die Breite der Box ist Q₃ − Q₁. Also ist Q₃ = 14 + 12 = 26."
    }
   },
@@ -608,12 +666,22 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
+     "luecke": 3,
      "index": null,
-     "antwort": 32,
+     "antwort": 10,
+     "rechnung": "40 - 30",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "von 8 bis 40 gerechnet, das ist die Spannweite"
+     "beschreibung": "nur die rechte Antenne gerechnet"
+    },
+    {
+     "luecke": 3,
+     "index": null,
+     "antwort": 46,
+     "rechnung": "L2 + L1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Box und Gesamtlänge addiert statt abgezogen"
     }
    ],
    "aufgabe": {
@@ -624,22 +692,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Boxplot zeigt: kleinster Wert 8, Q₁ = 16, Median 22, Q₃ = 30, größter Wert 40. Die Box reicht von 16 bis 30, ist also ① Einheiten breit. Die rechte Antenne reicht von 30 bis 40, ist also ② Einheiten lang.",
-     "schablone": "① = □; ② = □",
+     "text": "Ein Boxplot zeigt: kleinster Wert 8, Q₁ = 16, Median 22, Q₃ = 30, größter Wert 40. Die Box ist ① Einheiten breit. Der ganze Boxplot (von ganz links bis ganz rechts) ist ② Einheiten lang. Die beiden Antennen zusammen sind ③ Einheiten lang.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       14,
-      10
+      32,
+      18
      ]
     },
     "c": [
      "30 - 16",
-     "40 - 30"
+     "40 - 8",
+     "(40 - 8) - (30 - 16)"
     ],
     "h": "Ziehe jeweils die beiden Randwerte voneinander ab.",
-    "w": "Die Box ist 30 − 16 = 14 breit, die rechte Antenne 40 − 30 = 10 lang. In der Box liegt die mittlere Hälfte der Werte, in der Antenne ein Viertel."
+    "w": "Die Box ist 30 − 16 = 14 breit, der ganze Boxplot 40 − 8 = 32 lang. Für die Antennen bleibt 32 − 14 = 18: links 16 − 8 = 8, rechts 40 − 30 = 10."
    }
   },
   {
@@ -657,6 +727,7 @@
      "luecke": null,
      "index": 1,
      "antwort": "Etwa drei Viertel der Werte sind höchstens 23.",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "am Median liegt die Hälfte, nicht drei Viertel"
@@ -665,6 +736,7 @@
      "luecke": null,
      "index": 2,
      "antwort": "Genau 30 Werte liegen in der Box.",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "30 ist ein Messwert, keine Anzahl"
@@ -673,6 +745,7 @@
      "luecke": null,
      "index": 3,
      "antwort": "Der größte Wert ist 30.",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "rechts von Q₃ geht die Antenne noch weiter"
@@ -705,7 +778,7 @@
    "kennung": "K7-V087",
    "thema": "daten.boxplot",
    "lernkarte": "boxplot",
-   "stufe": 3,
+   "stufe": 2,
    "typ": "Anwenden",
    "antwortform": "zahl",
    "regel": "id.daten.kennzahl",
@@ -716,6 +789,7 @@
      "luecke": null,
      "index": null,
      "antwort": 20,
+     "rechnung": "40 // 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Hälfte genommen, das gilt für den Median"
@@ -724,6 +798,7 @@
      "luecke": null,
      "index": null,
      "antwort": 25,
+     "rechnung": "25",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Wartezeit als Anzahl genommen"
@@ -733,8 +808,8 @@
     "l": "boxplot",
     "t": "boxplot",
     "p": "uebung",
-    "s": 3,
-    "g": "transfer",
+    "s": 2,
+    "g": "einkleidung",
     "y": "zahl",
     "f": {
      "text": "Ein Boxplot zeigt die Wartezeiten von 40 Personen. Q₃ liegt bei 25 Minuten. Wie viele Personen haben etwa länger als 25 Minuten gewartet?"
@@ -744,7 +819,7 @@
      "einheit": "Personen"
     },
     "c": "40 // 4",
-    "h": "Rechts von Q₃ liegt ein Viertel der Werte.",
+    "h": "Welcher Anteil der Werte liegt rechts von Q₃?",
     "w": "Rechts von Q₃ liegt ein Viertel der Daten: 40 : 4 = 10 Personen."
    }
   },
@@ -752,7 +827,7 @@
    "kennung": "K7-V088",
    "thema": "daten.boxplot",
    "lernkarte": "vergleichen",
-   "stufe": 2,
+   "stufe": 1,
    "typ": "Verfahren wählen (einfache Form)",
    "antwortform": "auswahl",
    "regel": "id.daten.kennzahl",
@@ -763,6 +838,7 @@
      "luecke": null,
      "index": 1,
      "antwort": "die Spannweiten vergleichen",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Spannweite beschreibt die Streuung"
@@ -771,6 +847,7 @@
      "luecke": null,
      "index": 2,
      "antwort": "die längsten Antennen vergleichen",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Antennen zeigen die äußeren Viertel, nicht die Mitte"
@@ -779,6 +856,7 @@
      "luecke": null,
      "index": 3,
      "antwort": "die Anzahl der Kinder vergleichen",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "ein Boxplot zeigt die Anzahl gar nicht"
@@ -788,8 +866,8 @@
     "l": "vergleichen",
     "t": "vergleichen",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 1,
+    "g": "erkennen",
     "y": "auswahl",
     "f": {
      "text": "Zwei Klassen haben Laufzeiten gemessen, beide Boxplots liegen vor. Du sollst sagen, welche Klasse in der Mitte schneller ist. Welches Vorgehen passt?"
@@ -803,7 +881,7 @@
     "o": {
      "index": 0
     },
-    "h": "Welcher Kennwert beschreibt die Mitte?",
+    "h": "Lies noch einmal, was genau verglichen werden soll.",
     "w": "Die Mitte beschreibt der Median. Spannweite und Antennen zeigen die Streuung; die Anzahl der Kinder sagt über die Zeiten nichts."
    }
   },
@@ -822,6 +900,7 @@
      "luecke": null,
      "index": null,
      "antwort": 9,
+     "rechnung": "27 - 18",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur die Box von B gerechnet"
@@ -830,6 +909,7 @@
      "luecke": null,
      "index": null,
      "antwort": 2,
+     "rechnung": "24 - 22",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Mediane verglichen"
@@ -869,6 +949,7 @@
      "luecke": null,
      "index": 0,
      "antwort": "In Zeile 1",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile liest nur ab"
@@ -877,6 +958,7 @@
      "luecke": null,
      "index": 1,
      "antwort": "In Zeile 2",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig: größere Spannweite heißt mehr Streuung"
@@ -890,7 +972,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Kind vergleicht zwei Boxplots. Zeile 1: Klasse A hat die Spannweite 20, Klasse B die Spannweite 12. Zeile 2: Bei A streuen die Werte also stärker. Zeile 3: Deshalb hat Klasse A mehr Kinder als Klasse B. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Kind vergleicht zwei Boxplots. Zeile 1: Klasse A hat die Spannweite 20, Klasse B die Spannweite 12. Zeile 2: Gemessen an der Spannweite streuen die Werte bei A also stärker. Zeile 3: Deshalb hat Klasse A mehr Kinder als Klasse B. In welcher Zeile steckt der erste Fehler?"
     },
     "a": [
      "In Zeile 1",

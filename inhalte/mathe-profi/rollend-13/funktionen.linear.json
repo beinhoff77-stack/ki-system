@@ -1254,7 +1254,7 @@
      "antwort": 35,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur durch die Steigung von Tarif A geteilt"
+     "beschreibung": "durch die Steigung von Tarif A statt durch den Unterschied der Steigungen geteilt und zusätzlich die strenge Ungleichung übersehen (aus 7 < 0,2x folgt x > 35, die erste ganze Minute wäre dann 36)"
     },
     {
      "antwort": -70,

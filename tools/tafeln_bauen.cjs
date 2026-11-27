@@ -126,12 +126,18 @@ const KARTEN = {
 const SONST = [{ gesetz: 'V2' }, { tafel: 'bruch-dezimal-prozent', kennung: 'bd-02' }, { tafel: 'bruch-dezimal-prozent', kennung: 'bd-03' }, { tafel: 'bruch-dezimal-prozent', kennung: 'bd-04' },
   { tafel: 'bruch-dezimal-prozent', kennung: 'bd-05' }, { gesetz: 'D3', kurz: ['Mittelwert = Summe aller Werte : Anzahl der Werte'] }, { tafel: 'figuren', kennung: 'fg-07' }, { gesetz: 'A4' },
   { tafel: 'bruch-dezimal-prozent', kennung: 'bd-06' },
-  { gesetz: 'D4', kurz: ['Median: der mittlere Wert der geordneten Liste', 'Modalwert: der häufigste Wert', 'Spannweite = größter Wert − kleinster Wert'] },
+  { gesetz: 'D4', kurz: ['Median: der mittlere Wert der geordneten Liste; bei gerader Anzahl der Mittelwert der beiden mittleren Werte', 'Modalwert: der häufigste Wert; bei Gleichstand gibt es mehrere Modalwerte', 'Spannweite = größter Wert − kleinster Wert'] },
   { gesetz: 'D13', kurz: ['P = günstige Ergebnisse : mögliche Ergebnisse'], bed: 'nur wenn alle Ergebnisse gleich wahrscheinlich sind' },
   { gesetz: 'U7', kurz: ['y = m · x + t'], bed: 'm ist die Steigung, t der Abschnitt auf der y-Achse' },
   { gesetz: 'G24', kurz: ['a² + b² = c²'], bed: 'nur im rechtwinkligen Dreieck; a, b Katheten, c Hypotenuse' },
-  { gesetz: 'G25', kurz: ['sin α = Gegenkathete : Hypotenuse', 'cos α = Ankathete : Hypotenuse', 'tan α = Gegenkathete : Ankathete'] },
+  { gesetz: 'G25', kurz: ['sin α = Gegenkathete : Hypotenuse', 'cos α = Ankathete : Hypotenuse', 'tan α = Gegenkathete : Ankathete'], bed: 'im rechtwinkligen Dreieck, für den spitzen Winkel α' },
   { gesetz: 'A19', kurz: ['x = (−b ± √(b² − 4ac)) : (2a)'], bed: 'für a · x² + b · x + c = 0 mit a ≠ 0' }];
+// Ergänzungen für die Einzelheiten einer Zeile (Befund inhalte/mathe-profi/regeln-uebersicht/nachtrag/kurzformen.md); die Kurzzeile bleibt kurz.
+// Eigene Liste, damit SONST in der Form bleibt, die nachtrag/pruefen.py liest.
+const SONST_MEHR = {
+  G25: ['Gegenkathete und Ankathete beziehen sich auf α.', 'Taschenrechner auf Grad (DEG).'],
+  A19: ['Zuerst die Gleichung auf die Form a · x² + b · x + c = 0 bringen.', 'Diskriminante D = b² − 4ac: D > 0 zwei Lösungen, D = 0 eine, D < 0 keine (über den reellen Zahlen).'],
+};
 const ID_ART = { 'Länge': 'laenge', 'Fläche': 'flaeche', 'Volumen und Hohlmaße': 'volumen', 'Masse': 'masse', 'Zeit': 'zeit', 'Geld': 'geld', 'Geschwindigkeit': 'tempo', 'Dichte': 'dichte' };
 
 function tafelnBauen(json) {
@@ -141,7 +147,7 @@ function tafelnBauen(json) {
   const tafeln = TAFELN.map((t) => {
     if (t.id === 'formeln') { // nur Verweise; die App liest Formeln und Sätze aus den Tafeln und den Einzelregeln
       for (const z of SONST) assert.ok(z.gesetz || quellen[z.tafel].eintraege.some((e) => e.kennung === z.kennung), JSON.stringify(z));
-      return { id: t.id, titel: t.titel, kurz: t.kurz, chip: t.chip, gebiet: t.gebiet, gebiete: t.gebiete, stich: t.stich, ikon: svg('0 0 64 52', IKON[t.id], ''), teile: ['formeln-flaechen', 'formeln-koerper'], sonst: SONST };
+      return { id: t.id, titel: t.titel, kurz: t.kurz, chip: t.chip, gebiet: t.gebiet, gebiete: t.gebiete, stich: t.stich, ikon: svg('0 0 64 52', IKON[t.id], ''), teile: ['formeln-flaechen', 'formeln-koerper'], sonst: SONST.map((z) => (z.gesetz && SONST_MEHR[z.gesetz] ? { ...z, mehr: SONST_MEHR[z.gesetz] } : z)) };
     }
     const q = quellen[t.id], aus = { id: t.id, titel: t.titel || q.titel, kurz: t.kurz, chip: t.chip, gebiet: t.gebiet, gebiete: t.gebiete, ...(t.unter ? { unter: t.unter } : {}), stich: t.stich, stand: q.stand, ikon: svg('0 0 64 52', IKON[t.id], '') };
     if (t.id === 'einheiten') {

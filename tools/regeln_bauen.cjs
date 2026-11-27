@@ -9,6 +9,7 @@
 //   inhalte/mathe-profi/regeln-uebersicht/texte8/*.json  Berichtigungen und Ergänzungen des Mathe-Profis (README dort, Punkte 1–6)
 //   inhalte/mathe-profi/regeln-uebersicht/kennungen.json, inhalte/mathe-profi/schritt1/*, inhalte/themen/*.json   Lehrer-Blatt
 //   inhalte/mathe-profi/regeln-uebersicht/einheiten/einheiten.json, …/tafeln/*/*.json   Tafeln zum Nachschlagen (über tools/tafeln_bauen.cjs)
+//   inhalte/mathe-profi/regeln-uebersicht/nachtrag/klassen-nachtrag.json   Berichtigungen (berichtigungen: Satz alt → neu, z. B. V1 Flächen Klasse 5)
 // Entscheidungen des Projektleiters (27.11.): Regel 10 bekommt die kürzere Merksatz-Fassung; Regel 6 und 7 (1112): Merksatz = Kurzbeschreibung (inhalt.json).
 'use strict';
 const fs = require('node:fs');
@@ -63,6 +64,12 @@ function bauen() {
     g.beispiel = e.beispiel.text;
     if (e.grenze.art === 'gilt nicht') anhaengen(g, 'voraus', e.grenze.text); else anhaengen(g, 'fehler', e.grenze.text);
     g.ausgearbeitet = 8; }
+  // Berichtigungen des Mathe-Profis (nachtrag/klassen-nachtrag.json, Schlüssel „berichtigungen“): Satz alt → neu im genannten Feld einer Einzelregel.
+  // V1: Flächeneinheiten ab Klasse 5 (nicht 6). Die Textquelle (texte8) bleibt, wie sie ist; der Bau setzt den berichtigten Satz ein.
+  for (const b of json('inhalte', 'mathe-profi', 'regeln-uebersicht', 'nachtrag', 'klassen-nachtrag.json').berichtigungen || []) {
+    const m = /Gesetz (\w+) .*Feld (\w+)/.exec(b.ziel || ''); assert.ok(m, 'Berichtigung ohne Ziel: ' + b.ziel);
+    const g = gesetz[m[1]]; assert.ok(g && typeof g[m[2]] === 'string', b.ziel);
+    if (!g[m[2]].includes(b.neu)) { assert.ok(g[m[2]].includes(b.alt), `Berichtigung ${m[1]}.${m[2]}: alter Satz nicht gefunden`); g[m[2]] = g[m[2]].replace(b.alt, b.neu); } }
 
   // ---------- Planeten und Ideen (nur, was die App zeigt) ----------
   const planeten = inhalt.planeten.filter((p) => PLANET_BILD[p.name]).map((p) => ({ name: p.name, kuerzel: KUERZEL[p.name], farbe: PLANET_BILD[p.name].farbe, zeichen: PLANET_BILD[p.name].zeichen,

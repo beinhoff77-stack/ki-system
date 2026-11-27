@@ -1,5 +1,23 @@
 # Postfach mathe-profi
 
+## 2026-11-27 04:0x (Berlin) – AUFTRAG 21 ERLEDIGT: Vorrat neue Formen, Klasse 7 (rollend-8)
+
+Zweig `mathe-profi`, letzter Commit `9e2520cc`. Nur Inhalte, nichts eingespielt. Ablage: `inhalte/mathe-profi/rollend-8/` (zehn JSON-Dateien, `bauen.py`, `teile/`, `README.md`).
+
+**Geliefert** – 10 Themen, **52 Lernkarten, 156 Aufgaben**, je Lernkarte genau drei, Kennungen `K7-V001` bis `K7-V156`. Jede Aufgabe trägt das Feld `thema`; Schrägbilder Teil 2 steht als `raum.schraegbilder_teil2`.
+Formen: Lückenweg 33 · Fehler-Detektiv 23 · Anwenden 25 · Umkehren 20 · Zwei Wege 20 · Brücke 20 · Verfahren wählen 15. `zaehlt`: ja 123, nein 33. Stufen 1/2/3: 33/91/32. Antwortformen: zahl 63, auswahl 60, luecken 33 – kein `bedingung`, keine neuen Bauteile, keine Zeichnungen.
+Mischung für alle 52 Lernkarten vom Programm geprüft: höchstens ein Lückenweg (Stufe 1, zählt nein), höchstens ein Fehler-Detektiv, mindestens eine zählende Aufgabe aus Umkehren/Zwei Wege/Brücke/Verfahren wählen/Anwenden; je Thema jede dieser vier Formen mindestens zweimal.
+
+**Zurückgestellt: keine Lernkarte.** Wo eine Form fachlich nicht passte, steht es im README: `daten.kennwerte` und `terme.potenzgesetze` haben nur drei Lernkarten (neun Plätze), dort kein Fehler-Detektiv und nur ein Lückenweg – der Bestand hat in diesen Karten schon Fehler-Aufgaben. Bei den qualitativen Karten (`lage`, `repraesentativ`, `fehlerquellen`, `vergleichen_pruefen`) kein Lückenweg bzw. kein Fehler-Detektiv.
+
+**Geprüft** – `python3 -I inhalte/mathe-profi/rollend-8/bauen.py` endet mit „OK": jede Lösung aus `c` mit Brüchen nachgerechnet und mit dem von Hand erwarteten Wert verglichen; Lückenwege auf ganze Zahlen, Komma neben Lücke, Kleinbuchstabe in der Schablone und „gesuchte Zahl steht im Text" geprüft; Auswahl auf genau eine richtige Antwort und ein Fehlbild je Falschantwort; keine Dopplung zum Bestand (wörtlich und mit nur anderen Zahlen). `tools/inhalt_pruefen.py` an Kopien aller zehn Themen-Dateien: Code 0. `typ`/`zaehlt` gegen die acht erlaubten Formen aus `tools/rollend_sql.py`.
+
+**Nicht geprüft** – keine Prüfung in der App, keine durch die Kinder. `tools/rollend_sql.py` listet alle zehn Dateien als „ohne Zuordnung", weil die Themen in `inhalte/plan/rollend-einheiten.json` fehlen; Werkzeug und Plan-Datei habe ich nicht angefasst (anderer Helfer), wie zuvor bei rollend-3.
+
+**Annahmen** – Stufen und `g` nach `form-takt.md`: Lückenweg Stufe 1/`nein`/`direkt`, Fehler-Detektiv Stufe 3/`fehler`, Verfahren wählen und Zwei Wege Stufe 2 `mehrschritt`, Umkehren `umkehr`, Brücke `darstellung`, Anwenden `einkleidung` bzw. Stufe 3 `transfer`.
+
+**Ein Befund außerhalb meines Ordners** (nichts geändert, weil ich nur in `inhalte/mathe-profi/rollend-8/` schreibe): In `daten.boxplot` begründet der Hinweis zur Spannweite bei negativen Werten eine **Strichrechnung** mit der Vorzeichenregel der **Punktrechnung**. Das sind zwei getrennte Kennungen des Regel-Universums (`rr.plusminus`, `rr.vorzeichen`) und gehört getrennt formuliert – derselbe Fehlertyp liegt auch in `inhalte/beispiel_vorlage.json` und in `inhalte/vorlage_generator.py`, also in der Vorlage für neue Aufgaben. Wenn du willst, berichtige ich das als eigenen Auftrag.
+
 ## 2026-11-27 02:49 (Berlin) – VORSCHLAG: fünf Erkenntnisse aus dem Papier-Test für die App, dazu eine Lieferung
 
 Zweig `mathe-profi` (b1331f63). Nur Inhalte, nichts eingespielt. **Keine Ergebnisse und keine Namen** – jede Zahl unten ist im Repo oder in der Datenbank gemessen und gilt unabhängig vom Test. Der Test war nur der Anlass.

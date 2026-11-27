@@ -21,7 +21,8 @@ neu(T, "vierecke_konstruieren", "umkehren", Z(
     [(17, None, "nur a vom Umfang abgezogen", "24 - 7"), (8.5, None, "a nur einmal abgezogen und durch 2 geteilt", "(24 - 7) / 2"), (10, None, "2a vom Umfang abgezogen, aber nicht durch 2 geteilt", "24 - 2 * 7")], "cm"), g="umkehr", regel=DK)
 assert 2 * 7 + 2 * 5 == 24
 neu(T, "vierecke_konstruieren", "anwenden", Z(
-    "Ein Metallrahmen hat die Form einer Raute. Die beiden Diagonalen sind 24 cm und 10 cm lang. In einer Raute halbieren sich die Diagonalen, und sie stehen senkrecht aufeinander. Wie viele Zentimeter Rahmenstab werden für den ganzen Rand der Raute gebraucht?",
-    52, "4 * wurzel(12 ** 2 + 5 ** 2)", "4 * 13", "Die Diagonalen teilen die Raute in vier gleiche Dreiecke. Welche Seiten hat jedes Dreieck?",
-    "Die halben Diagonalen sind 12 cm und 5 cm lang und stehen senkrecht aufeinander. Die Seite der Raute ist die längste Seite eines rechtwinkligen Dreiecks: s² = 12² + 5² = 169, also s = 13 cm. Der Rand besteht aus 4 gleich langen Seiten: 4 · 13 = 52 cm.",
-    [(13, None, "nur eine Seite der Raute angegeben", "wurzel(12 ** 2 + 5 ** 2)"), (34, None, "die beiden ganzen Diagonalen addiert", "24 + 10"), (68, None, "die Seite als Summe der halben Diagonalen gerechnet", "4 * (12 + 5)")], "cm"), g="verknuepfen", regel=DK)
+    "Ein Fliesenleger schneidet eine Raute ABCD mit der Seitenlänge 9 cm und dem Winkel α = 60° bei A entlang der Diagonale BD in zwei Dreiecke. In einer Raute sind alle vier Seiten gleich lang. Wie viele Zentimeter ist der Rand eines der beiden Dreiecke lang?",
+    27, "9 + 9 + 9", "3 * 9", "Welche zwei Seiten und welcher Winkel gehören zum Dreieck ABD? Was weißt du dann über die anderen Winkel?",
+    "Im Dreieck ABD ist AB = AD = 9 cm und der Winkel bei A ist 60°. Die beiden anderen Winkel sind gleich groß: (180° − 60°) : 2 = 60°. Alle drei Winkel sind 60°, das Dreieck ist gleichseitig, also ist BD = 9 cm. Der Rand ist 9 + 9 + 9 = 27 cm lang.",
+    [(18, None, "die Diagonale BD vergessen: nur die zwei Raute-Seiten gezählt", "9 + 9"), (36, None, "den Umfang der ganzen Raute angegeben", "4 * 9"), (22.5, None, "die Diagonale BD als halb so lang wie die Seite angenommen", "9 + 9 + 9 / 2")], "cm"), g="verknuepfen", regel=DK)
+assert (180 - 60) / 2 == 60

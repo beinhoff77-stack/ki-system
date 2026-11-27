@@ -213,22 +213,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 13,
+     "antwort": 18,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur eine Seite der Raute angegeben"
+     "beschreibung": "die Diagonale BD vergessen: nur die zwei Raute-Seiten gezählt"
     },
     {
-     "antwort": 34,
+     "antwort": 36,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die beiden ganzen Diagonalen addiert"
+     "beschreibung": "den Umfang der ganzen Raute angegeben"
     },
     {
-     "antwort": 68,
+     "antwort": 22.5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Seite als Summe der halben Diagonalen gerechnet"
+     "beschreibung": "die Diagonale BD als halb so lang wie die Seite angenommen"
     }
    ],
    "aufgabe": {
@@ -239,15 +239,15 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Ein Metallrahmen hat die Form einer Raute. Die beiden Diagonalen sind 24 cm und 10 cm lang. In einer Raute halbieren sich die Diagonalen, und sie stehen senkrecht aufeinander. Wie viele Zentimeter Rahmenstab werden für den ganzen Rand der Raute gebraucht?"
+     "text": "Ein Fliesenleger schneidet eine Raute ABCD mit der Seitenlänge 9 cm und dem Winkel α = 60° bei A entlang der Diagonale BD in zwei Dreiecke. In einer Raute sind alle vier Seiten gleich lang. Wie viele Zentimeter ist der Rand eines der beiden Dreiecke lang?"
     },
     "o": {
-     "wert": 52,
+     "wert": 27,
      "einheit": "cm"
     },
-    "c": "4 * 13",
-    "h": "Die Diagonalen teilen die Raute in vier gleiche Dreiecke. Welche Seiten hat jedes Dreieck?",
-    "w": "Die halben Diagonalen sind 12 cm und 5 cm lang und stehen senkrecht aufeinander. Die Seite der Raute ist die längste Seite eines rechtwinkligen Dreiecks: s² = 12² + 5² = 169, also s = 13 cm. Der Rand besteht aus 4 gleich langen Seiten: 4 · 13 = 52 cm."
+    "c": "9 + 9 + 9",
+    "h": "Welche zwei Seiten und welcher Winkel gehören zum Dreieck ABD? Was weißt du dann über die anderen Winkel?",
+    "w": "Im Dreieck ABD ist AB = AD = 9 cm und der Winkel bei A ist 60°. Die beiden anderen Winkel sind gleich groß: (180° − 60°) : 2 = 60°. Alle drei Winkel sind 60°, das Dreieck ist gleichseitig, also ist BD = 9 cm. Der Rand ist 9 + 9 + 9 = 27 cm lang."
    }
   }
  ]

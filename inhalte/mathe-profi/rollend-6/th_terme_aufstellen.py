@@ -1,7 +1,7 @@
 T = "terme.aufstellen"
 # ───────── struktur ─────────
 neu(T, "struktur", "lueckenweg", L(
-    "Berechne den Term (3 + a) · 4 − 2 für a = 5. Schritt für Schritt: Die Klammer hat den Wert ①. Mal 4 ergibt ②. Minus 2 ergibt ③.",
+    "Die letzte Rechnung bestimmt die Termart. Berechne dazu (3 + a) · 4 − 2 für a = 5 Schritt für Schritt: Die Klammer hat den Wert ①. Mal 4 ergibt ②. Die letzte Rechnung, minus 2, ergibt ③. Der Term ist also eine Differenz.",
     KOMM(3), [8, 32, 30], ["3 + 5", "{1} * 4", "{2} - 2"], ["8", "32", "30"], "Die Klammer wird zuerst gerechnet.",
     "Klammer: 3 + 5 = 8. Mal 4: 8 · 4 = 32. Minus 2: 30.",
     {0: [(15, None, "3 mal 5 gerechnet statt 3 plus 5", "3 * 5")], 1: [(23, None, "die Klammer ignoriert: 3 + 5 · 4", "3 + 5 * 4")], 2: [(34, None, "plus statt minus 2", "{2} + 2")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.algebra.term")
@@ -15,7 +15,7 @@ neu(T, "struktur", "verfahren_waehlen", W(
 neu(T, "struktur", "fehler_detektiv", FD(
     "Tim berechnet 3 + 4 · a für a = 2.",
     [("Man rechnet zuerst 3 + 4 und dann mal a.", 3 + 4 * 2 == (3 + 4) * 2), ("3 + 4 = 7, also 7 · 2 = 14", (3 + 4) * 2 == 14), ("Der Wert des Terms ist 14.", True)],
-    "Welche Rechnung kommt zuerst: Plus oder Mal?", "Punktrechnung geht vor Strichrechnung: 4 · 2 = 8, dann 3 + 8 = 11. Zeile 1 beschreibt eine falsche Reihenfolge, die Folgezeilen rechnen damit richtig weiter."), regel="id.algebra.term")
+    "Welche Rechnung kommt zuerst: Plus oder Mal?", "Punktrechnung geht vor Strichrechnung: 4 · 2 = 8, dann 3 + 8 = 11. Zeile 1 beschreibt eine falsche Reihenfolge, die Folgezeilen rechnen damit richtig weiter.", rueck={1: '3 + 4 = 7 und 7 · 2 = 14 ist für sich richtig gerechnet. Es folgt aber der falschen Reihenfolge aus Zeile 1; dort steht der erste Fehler.', 2: 'Zeile 3 übernimmt nur das Ergebnis aus Zeile 2. Der erste Fehler steht schon in Zeile 1.'}), regel="id.algebra.term")
 
 # ───────── termwert ─────────
 neu(T, "termwert", "lueckenweg", L(
@@ -24,19 +24,19 @@ neu(T, "termwert", "lueckenweg", L(
     "4² = 16. 2 · 16 = 32. 3 · 5 = 15. 32 − 15 = 17.",
     {0: [(8, None, "Basis mal Hochzahl: 4 · 2", "4 * 2")], 1: [(64, None, "erst 2 · 4 = 8, dann quadriert", "(2 * 4) ** 2")], 2: [(8, None, "3 + 5 gerechnet", "3 + 5")], 3: [(47, None, "plus statt minus", "{2} + {3}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.algebra.term")
 neu(T, "termwert", "zwei_wege", Z(
-    "Berechne den Wert von 4 · (a + 3) − 2a für a = 5. Weg A: Setze a = 5 sofort ein. Weg B: Multipliziere die Klammer aus, fasse zusammen und setze dann a = 5 ein.",
+    "Berechne den Wert von 4 · (a + 3) − 2a für a = 5 auf zwei Wegen. Weg A: Setze a = 5 sofort ein. Weg B: Multipliziere die Klammer aus, fasse zusammen und setze dann a = 5 ein. Wie groß ist der Wert des Terms?",
     22, "4 * (5 + 3) - 2 * 5", "2 * 5 + 12", "Beide Wege müssen denselben Wert ergeben.",
     "Weg A: 4 · 8 − 10 = 32 − 10 = 22. Weg B: 4a + 12 − 2a = 2a + 12. Für a = 5: 10 + 12 = 22.",
     [(13, None, "nur 4 · a ausmultipliziert, die 3 vergessen mit 4 zu multiplizieren", "4 * 5 + 3 - 2 * 5"), (42, None, "plus statt minus 2a", "4 * (5 + 3) + 2 * 5")]), g="mehrschritt", regel="id.algebra.term")
 neu(T, "termwert", "umkehren", Z(
-    "Für welchen Wert von a hat der Term 5a − 7 den Wert 38?",
-    9, "(38 + 7) / 5", "45 / 5", "Kehre die Rechenschritte um, beginnend beim letzten.",
-    "5a − 7 = 38. Erst 7 addieren: 5a = 45. Dann durch 5 teilen: a = 9. Probe: 5 · 9 − 7 = 38.",
-    [(6.2, None, "7 abgezogen statt addiert", "(38 - 7) / 5"), (45, None, "nur 7 addiert, nicht durch 5 geteilt", "38 + 7")]), g="rueckwaerts", regel="id.algebra.term")
+    "Für welchen Wert von a hat der Term 4a − 3 den Wert 21?",
+    6, "(21 + 3) / 4", "24 / 4", "Kehre die Rechenschritte um, beginnend beim letzten.",
+    "4a − 3 = 21. Erst 3 addieren: 4a = 24. Dann durch 4 teilen: a = 6. Probe: 4 · 6 − 3 = 21.",
+    [(4.5, None, "3 abgezogen statt addiert", "(21 - 3) / 4"), (24, None, "nur 3 addiert, nicht durch 4 geteilt", "21 + 3")]), g="rueckwaerts", regel="id.algebra.term")
 
 # ───────── uebersetzen ─────────
 neu(T, "uebersetzen", "lueckenweg", L(
-    "Ein Taxi kostet 3 € Grundgebühr und 2 € für jeden gefahrenen Kilometer. Eine Fahrt über 7 km kostet ① €. Eine Fahrt über 12 km kostet ② €. Die längere Fahrt ist um ③ € teurer. Zwei Fahrten über je 12 km kosten zusammen ④ €.",
+    "Ein Taxi kostet 3 € Grundgebühr und 2 € für jeden gefahrenen Kilometer. Für k Kilometer ergibt das den Term 3 + 2 · k. Setze ein: Eine Fahrt über 7 km kostet ① €. Eine Fahrt über 12 km kostet ② €. Die längere Fahrt ist um ③ € teurer. Zwei Fahrten über je 12 km kosten zusammen ④ €.",
     KOMM(4), [17, 27, 10, 54], ["3 + 2 * 7", "3 + 2 * 12", "{2} - {1}", "2 * {2}"], ["17", "27", "10", "54"], "Die Grundgebühr zahlst du nur einmal je Fahrt.",
     "7 km: 3 € + 2 · 7 € = 17 €. 12 km: 3 € + 2 · 12 € = 27 €. Unterschied: 27 € − 17 € = 10 €. Zwei Fahrten über 12 km: 2 · 27 € = 54 €.",
     {0: [(35, None, "die Grundgebühr mit dazugerechnet: (3 + 2) · 7", "(3 + 2) * 7")], 1: [(36, None, "nur 3 mal 12 gerechnet", "3 * 12")], 2: [(44, None, "addiert statt abgezogen", "{1} + {2}")],
@@ -67,7 +67,7 @@ neu(T, "sachsituation", "anwenden", Z(
     "Brezeln: 3 · 0,80 € = 2,40 €. Äpfel: 2 · 0,60 € = 1,20 €. Zusammen 3,60 €. Rückgeld: 5 € − 3,60 € = 1,40 €.",
     [(3.6, None, "den Preis statt des Rückgelds angegeben", "0.8 * 3 + 0.6 * 2"), (1.6, None, "die Stückzahlen vertauscht: 2 Brezeln und 3 Äpfel", "5 - (0.8 * 2 + 0.6 * 3)")], "€"), regel="id.algebra.term")
 neu(T, "sachsituation", "zwei_wege", Z(
-    "Tarif A kostet 8 € Grundgebühr und 0,05 € je Minute. Tarif B kostet 2 € Grundgebühr und 0,15 € je Minute. Nach wie vielen Minuten kosten beide Tarife gleich viel? Weg A: Lege eine Tabelle mit den Preisen für 10, 20, 30 … Minuten an und suche die Stelle, an der beide Preise gleich sind. Weg B: Teile den Unterschied der Grundgebühren durch den Unterschied der Minutenpreise.",
+    "Tarif A kostet 8 € Grundgebühr und 0,05 € je Minute. Tarif B kostet 2 € Grundgebühr und 0,15 € je Minute. Weg A: Lege eine Tabelle mit den Preisen für 10, 20, 30 … Minuten an und suche die Stelle, an der beide Preise gleich sind. Weg B: Teile den Unterschied der Grundgebühren durch den Unterschied der Minutenpreise. Nach wie vielen Minuten kosten beide Tarife gleich viel?",
     60, "(8 - 2) / (0.15 - 0.05)", "60", "Wie viel mehr Grundgebühr zahlt man bei A, wie viel weniger pro Minute?",
     "Weg A: Die Tabelle zeigt bei 60 Minuten für A 8 € + 3 € = 11 € und für B 2 € + 9 € = 11 €. Weg B: 6 € Unterschied bei der Grundgebühr, pro Minute spart A 0,10 €. 6 : 0,10 = 60 Minuten.",
     [(50, None, "die Grundgebühren und die Minutenpreise addiert statt Unterschiede gebildet", "(8 + 2) / (0.15 + 0.05)"), (6, None, "nur den Unterschied der Grundgebühren angegeben", "8 - 2")], "min"), g="verknuepfen", regel="id.algebra.term")
@@ -87,10 +87,10 @@ neu(T, "muster", "bruecke", W(
     "Von Zeile zu Zeile kommen 3 dazu, also 3n + etwas. Für n = 1: 3 + 4 = 7. Probe n = 4: 3 · 4 + 4 = 16.",
     lambda: all(3 * n + 4 == 7 + 3 * (n - 1) for n in range(1, 5)) and not all(3 * n + 7 == 7 + 3 * (n - 1) for n in range(1, 5)) and not all(n + 6 == 7 + 3 * (n - 1) for n in range(1, 5)) and not all(7 * n == 7 + 3 * (n - 1) for n in range(1, 5))), regel="id.algebra.term")
 neu(T, "muster", "umkehren", Z(
-    "Figur n eines Musters hat 5n + 3 Plättchen. Bei welcher Figur sind es genau 53 Plättchen?",
-    10, "(53 - 3) / 5", "50 / 5", "Kehre die Rechnung um: Was passiert zuletzt mit 5n?",
-    "5n + 3 = 53. Erst 3 abziehen: 5n = 50. Dann durch 5 teilen: n = 10. Probe: 5 · 10 + 3 = 53.",
-    [(10.6, None, "die 3 vergessen: 53 : 5", "53 / 5"), (11.2, None, "3 addiert statt abgezogen", "(53 + 3) / 5")]), g="rueckwaerts", regel="id.algebra.term")
+    "Figur n eines Musters hat 4n + 3 Plättchen. Bei welcher Figur sind es genau 27 Plättchen?",
+    6, "(27 - 3) / 4", "24 / 4", "Kehre die Rechnung um: Was passiert zuletzt mit 4n?",
+    "4n + 3 = 27. Erst 3 abziehen: 4n = 24. Dann durch 4 teilen: n = 6. Probe: 4 · 6 + 3 = 27.",
+    [(6.75, None, "die 3 vergessen: 27 : 4", "27 / 4"), (7.5, None, "3 addiert statt abgezogen", "(27 + 3) / 4")]), g="rueckwaerts", regel="id.algebra.term")
 
 # ───────── deuten ─────────
 neu(T, "deuten", "lueckenweg", L(
@@ -108,4 +108,4 @@ neu(T, "deuten", "bruecke", W(
 neu(T, "deuten", "fehler_detektiv", FD(
     "Nina vereinfacht den Term 4x + 15, der den Preis für das Ausleihen eines Rollers für x Stunden beschreibt.",
     [("Man darf die Zahlen 4 und 15 zusammenzählen: 4x + 15 = 19x.", all(4 * x + 15 == 19 * x for x in (2, 3))), ("Für x = 2 ergibt 19x den Wert 38.", 19 * 2 == 38), ("Also kostet das Ausleihen für 2 Stunden 38 €.", True)],
-    "Setze x = 2 in den ursprünglichen Term ein und vergleiche.", "4x + 15 hat für x = 2 den Wert 4 · 2 + 15 = 23. Die 15 gehört nicht zu x, man darf sie nicht mit der 4 zusammenzählen. Die Zeilen 2 und 3 rechnen mit 19x richtig weiter."), regel="id.algebra.term")
+    "Setze x = 2 in den ursprünglichen Term ein und vergleiche.", "4x + 15 hat für x = 2 den Wert 4 · 2 + 15 = 23. Die 15 gehört nicht zu x, man darf sie nicht mit der 4 zusammenzählen. Die Zeilen 2 und 3 rechnen mit 19x richtig weiter.", rueck={1: 'Für x = 2 ergibt 19x tatsächlich 38. Der Term 19x ist aber durch den Fehler in Zeile 1 entstanden; dort steht der erste Fehler.', 2: 'Zeile 3 übernimmt nur den Wert aus Zeile 2. Der erste Fehler steht schon in Zeile 1.'}), regel="id.algebra.term")

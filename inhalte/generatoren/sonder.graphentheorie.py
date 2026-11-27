@@ -307,7 +307,7 @@ def g_verstehen(s):
                        ['Ja – es ist zusammenhängend.', f'Ja – {n} Straßen für {n} Orte ist genau richtig.', 'Das hängt von den Längen der Straßen ab.'],
                        f'Ein zusammenhängender Graph mit n Knoten und mehr als n − 1 Kanten enthält einen Kreis.', 'Wie viele Kanten hat ein Baum mit n Knoten?')
     r = 'Falsch: Mit genau zwei ungeraden Knoten gibt es einen Eulerweg, aber keinen Eulerkreis.'
-    return auswahl('Leo sagt: „Mein Graph ist zusammenhängend und hat genau zwei Knoten mit ungeradem Grad, also gibt es einen Eulerkreis.“ Stimmt das?', r,
+    return auswahl('Kim sagt: „Mein Graph ist zusammenhängend und hat genau zwei Knoten mit ungeradem Grad, also gibt es einen Eulerkreis.“ Stimmt das?', r,
                    ['Richtig.', 'Falsch: Es gibt dann gar keinen Eulerweg.', 'Falsch: Man braucht dafür genau vier ungerade Knoten.'],
                    'Eulerkreis: alle Grade gerade. Zwei ungerade Knoten: nur ein Eulerweg von einem zum anderen.', 'Wie war die Regel für Eulerkreis und Eulerweg?')
 
@@ -486,7 +486,7 @@ def g2_spannbaum(s):
 def g2_verstehen(s):
     if s < 3: return g_verstehen(s)
     art = art3('fehler_euler', 'max_kanten', 'gerade_reicht_nicht', ['baum_kreis', 'max_kanten', 'gerade_reicht_nicht', 'max_kanten', 'gerade_reicht_nicht'])
-    if art == 'fehler_euler': return _filter(g_verstehen, 3, 'Leo')
+    if art == 'fehler_euler': return _filter(g_verstehen, 3, 'Kim')
     if art == 'baum_kreis': return _filter(g_verstehen, 3, 'Straßennetz')
     return verst3(art)
 
@@ -757,7 +757,7 @@ ST.typ('verstehen', '/^Kann es einen Graphen/', 'erkennen', s=1)
 ST.typ('verstehen', '/^/', 'direkt', s=1)
 ST.typ('verstehen', '/Ist es ein Baum/', 'einkleidung', s=2)
 ST.typ('verstehen', '/^/', 'mehrschritt', s=2)
-ST.typ('verstehen', '/^Leo/', 'fehler')
+ST.typ('verstehen', '/^Kim/', 'fehler')
 ST.typ('verstehen', '/höchstens/', 'verknuepfen')
 ST.typ('verstehen', '/Ist es ein Baum/', 'transfer')
 ST.typ('verstehen', '/^/', 'begruenden', s=3)

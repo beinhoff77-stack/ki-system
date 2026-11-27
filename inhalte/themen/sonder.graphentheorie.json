@@ -11489,7 +11489,7 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Leo sagt: „Mein Graph ist zusammenhängend und hat genau zwei Knoten mit ungeradem Grad, also gibt es einen Eulerkreis.“ Stimmt das?"
+    "text": "Kim sagt: „Mein Graph ist zusammenhängend und hat genau zwei Knoten mit ungeradem Grad, also gibt es einen Eulerkreis.“ Stimmt das?"
    },
    "a": [
     "Falsch: Es gibt dann gar keinen Eulerweg.",

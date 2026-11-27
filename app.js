@@ -278,7 +278,7 @@ function viewStart() {
 }
 
 // ---------- Ansicht: Lernen Schule ----------
-// Das Merkblatt liegt als eigenständige, öffentliche Seite unter mathe/ (ohne Anmeldung erreichbar, z. B. für Leo und Lehrkräfte).
+// Das Merkblatt liegt als eigenständige, öffentliche Seite unter mathe/ (ohne Anmeldung erreichbar, z. B. für Lernende und Lehrkräfte).
 // viewLernen und viewLernEinheit: lernen.js (W150)
 
 // ---------- Ansicht: Login ----------

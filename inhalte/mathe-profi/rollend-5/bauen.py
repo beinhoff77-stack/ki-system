@@ -101,7 +101,7 @@ for a in sorted(A, key=lambda a: (THEMEN.index(a["thema"]), KARTEN[a["thema"]].i
     for t in texte_von(q):
         assert not ZWEIDEUTIG.search(t), (kenn, "Bruch nicht eindeutig", t)
         assert not GETRENNT.search(t), (kenn, "Zahlwort getrennt geschrieben", t)
-        assert "Leo" not in re.findall(r"\w+", t) and "Rosa" not in re.findall(r"\w+", t), (kenn, "Name")
+        assert not {__import__("hashlib").sha256(w.lower().encode()).hexdigest()[:12] for w in re.findall(r"\w+", t)} & {"8535e86c8118", "6a61eb7383e8", "ac818c81a10c"}, (kenn, "Name")
     assert text not in alle_texte and text not in BESTAND_TEXT[a["thema"]], (kenn, "Fragetext schon vorhanden")
     b = bau_ohne_zahl(text)
     assert b not in alle_bau[a["thema"]] and b not in BESTAND_BAU[a["thema"]], (kenn, "gleicher Bau schon vorhanden", b)

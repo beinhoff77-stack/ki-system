@@ -5,7 +5,7 @@ Projekt Lern-App (Mathe). Du schreibst Übungsaufgaben in NEUEN FORMEN für Them
 ## Harte Regeln
 - Arbeite NUR in deinem Git-Worktree (im Auftrag genannt). Keine Datenbank-, Council- oder Konten-Werkzeuge. Kein App-Code (`lernen.js`, `style.css`, `app.js`, `sw.js`, `lernen/`), keine Migrationen ändern. `tools/rollend_sql.py` und `inhalte/plan/rollend-einheiten.json` NICHT ändern (ein anderer Helfer arbeitet daran).
 - Du schreibst nur in deinen neuen Ordner `inhalte/mathe-profi/<runde>/`.
-- Repo ist öffentlich: keine Namen von Kindern/Familie; in Sachaufgaben NICHT die Vornamen „Leo“ oder „Rosa“. Keine Schulbuch- oder Prüfungsaufgaben wörtlich, nichts wörtlich aus dem Bestand.
+- Repo ist öffentlich: keine Namen von Kindern/Familie; in Sachaufgaben NICHT die Vornamen der Kinder des Nutzers (der Projektleiter nennt sie im Auftrag; `bauen.py` prüft sie über Prüfsummen, nicht im Klartext). Keine Schulbuch- oder Prüfungsaufgaben wörtlich, nichts wörtlich aus dem Bestand.
 - Einfaches Deutsch, kurze Sätze, altersgerecht für die genannte Klasse (bayerischer Lehrplan Realschule/Gymnasium).
 - Nur deinen eigenen Zweig pushen. Commit-Meldungen enden mit:
 Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>

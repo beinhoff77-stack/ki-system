@@ -1,0 +1,1146 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-7",
+ "kuerzel": "K8",
+ "flug": "k8-gleichungen.bruch",
+ "titel": "gleichungen.bruch",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen": [
+  "gleichungen.bruch"
+ ],
+ "themen_datei_im_bestand": "gleichungen.bruch",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K8-V067",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "definitionsmenge",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.erlaubte_zahlen",
+   "regel_name": "Erlaubte Zahlen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 2 nicht geteilt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Minus der Lösung vergessen"
+    },
+    {
+     "luecke": 2,
+     "antwort": -12,
+     "fehlbild": "fb.waage.nur_ein_summand",
+     "regel_des_fehlbilds": "rr.waage",
+     "beschreibung": "die 12 nicht durch 3 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "definitionsmenge",
+    "t": "definitionsmenge",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Bestimme die Definitionsmenge von 7/(2x − 10) = 1/(3x + 12). Setze jeden Nenner gleich 0. Der erste Nenner ist 0 für x = ①. Der zweite Nenner ist 0 für x = ②. Das Produkt dieser beiden verbotenen Zahlen ist ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      5,
+      -4,
+      -20
+     ]
+    },
+    "c": [
+     "10 // 2",
+     "-12 // 3",
+     "(10 // 2) * (-12 // 3)"
+    ],
+    "h": "Löse jede Nenner-Gleichung wie eine Waage.",
+    "w": "2x − 10 = 0 ergibt x = 5. 3x + 12 = 0 ergibt x = −4. 5 · (−4) = −20. D = ℚ \\ {−4; 5}."
+   }
+  },
+  {
+   "kennung": "K8-V068",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "definitionsmenge",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.erlaubte_zahlen",
+   "regel_name": "Erlaubte Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "3/(x + 2) = 7/(x − 5)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Vorzeichen der verbotenen Zahlen vertauscht"
+    },
+    {
+     "index": 1,
+     "antwort": "3/(x − 2) = 7/x",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die zweite verbotene Zahl durch 0 ersetzt"
+    },
+    {
+     "index": 2,
+     "antwort": "3/(x − 2) = (x + 5)/7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine verbotene Zahl, weil rechts kein x im Nenner steht"
+    }
+   ],
+   "aufgabe": {
+    "l": "definitionsmenge",
+    "t": "definitionsmenge",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche dieser Gleichungen hat die Definitionsmenge ℚ \\ {−5; 2}?"
+    },
+    "a": [
+     "3/(x + 2) = 7/(x − 5)",
+     "3/(x − 2) = 7/x",
+     "3/(x − 2) = (x + 5)/7",
+     "3/(x − 2) = 7/(x + 5)"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Welche Zahl macht welchen Nenner zu 0? Das müssen genau −5 und 2 sein.",
+    "w": "x − 2 ist 0 für x = 2. x + 5 ist 0 für x = −5. Nur die erste Gleichung schließt genau diese beiden Zahlen aus."
+   }
+  },
+  {
+   "kennung": "K8-V069",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "definitionsmenge",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.erlaubte_zahlen",
+   "regel_name": "Erlaubte Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Den Nenner gleich 0 setzen: x² − 4 = 0 führt zu x = 2. Nur 2 wird ausgeschlossen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die zweite Lösung der Quadratgleichung vergessen"
+    },
+    {
+     "index": 2,
+     "antwort": "Den Zähler gleich 0 setzen: 5 ist nie 0, also wird keine Zahl ausgeschlossen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zähler und Nenner verwechselt"
+    },
+    {
+     "index": 3,
+     "antwort": "Die Gleichung zuerst lösen und die Lösung ausschließen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Definitionsmenge hängt nicht von der Lösung ab"
+    }
+   ],
+   "aufgabe": {
+    "l": "definitionsmenge",
+    "t": "definitionsmenge",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Du sollst die Definitionsmenge von 5/(x² − 4) = 1 bestimmen. Welcher Weg ist richtig?"
+    },
+    "a": [
+     "Den Nenner gleich 0 setzen: x² − 4 = 0 hat die Lösungen 2 und −2. Beide werden ausgeschlossen.",
+     "Den Nenner gleich 0 setzen: x² − 4 = 0 führt zu x = 2. Nur 2 wird ausgeschlossen.",
+     "Den Zähler gleich 0 setzen: 5 ist nie 0, also wird keine Zahl ausgeschlossen.",
+     "Die Gleichung zuerst lösen und die Lösung ausschließen."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Die Definitionsmenge steht fest, bevor du die Gleichung löst. Was darf im Nenner nie herauskommen?",
+    "w": "x² − 4 = 0 gilt für x = 2 und für x = −2. Beide Zahlen machen den Nenner zu 0. D = ℚ \\ {−2; 2}."
+   }
+  },
+  {
+   "kennung": "K8-V070",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "ein_bruch",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 144,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 3 malgenommen statt gekürzt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 32,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "16 mit 2 malgenommen statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "ein_bruch",
+    "t": "ein_bruch",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Löse 48/(3x) = 2 (x ≠ 0). Kürze zuerst den Bruch links mit 3. Der Zähler des gekürzten Bruchs ist ①. Dann ist x = ②. Der Nenner 3x hat für dieses x den Wert ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      16,
+      8,
+      24
+     ]
+    },
+    "c": [
+     "48 // 3",
+     "(48 // 3) // 2",
+     "3 * ((48 // 3) // 2)"
+    ],
+    "h": "Aus dem gekürzten Bruch folgt: mit x multiplizieren, dann durch die Zahl rechts teilen.",
+    "w": "48 : 3 = 16. Aus 16/x = 2 folgt 16 = 2x und x = 8. Probe: 48/24 = 2."
+   }
+  },
+  {
+   "kennung": "K8-V071",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "ein_bruch",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 54,
+     "fehlbild": "fb.waage.nur_eine_seite",
+     "regel_des_fehlbilds": "rr.waage",
+     "beschreibung": "18 · 3 gerechnet"
+    },
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "18 − 3 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "ein_bruch",
+    "t": "ein_bruch",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Löse 18/x = 3 (x ≠ 0) auf zwei Wegen. Weg A: beide Seiten mit x multiplizieren und dann durch 3 teilen. Weg B: auf beiden Seiten den Kehrwert bilden und dann mit 18 malnehmen. Wie groß ist x?"
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "18 / 3",
+    "h": "Beide Wege müssen dasselbe x ergeben.",
+    "w": "Weg A: 18 = 3x, also x = 6. Weg B: x/18 = 1/3, also x = 18 · 1/3 = 6. Probe: 18 : 6 = 3."
+   }
+  },
+  {
+   "kennung": "K8-V072",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "ein_bruch",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1350,
+     "fehlbild": "fb.waage.nur_eine_seite",
+     "regel_des_fehlbilds": "rr.waage",
+     "beschreibung": "90 · 15 gerechnet"
+    },
+    {
+     "antwort": 75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "90 − 15 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "ein_bruch",
+    "t": "ein_bruch",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Wasserhahn füllt einen Eimer mit 90 Litern in x Minuten. Dabei fließen 90/x Liter in jeder Minute. Es sollen 15 Liter in jeder Minute fließen. Wie viele Minuten dauert das Füllen?"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "min"
+    },
+    "c": "90 / 15",
+    "h": "Stelle die Gleichung 90/x = 15 auf. Multipliziere dann mit x.",
+    "w": "90/x = 15 ergibt 90 = 15x und x = 6. Das Füllen dauert 6 Minuten."
+   }
+  },
+  {
+   "kennung": "K8-V073",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "ueber_kreuz",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -2,
+     "fehlbild": "fb.waage.zeichen_nicht_gedreht",
+     "regel_des_fehlbilds": "rr.waage",
+     "beschreibung": "6 − 4 gerechnet statt 6 + 4"
+    },
+    {
+     "luecke": 2,
+     "antwort": -1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aus 2x = −2 gefolgert, also 6 − 4 statt 6 + 4 weitergerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "ueber_kreuz",
+    "t": "ueber_kreuz",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Löse 6/(x + 1) = 4/(x − 1) (x ≠ −1 und x ≠ 1). Du multiplizierst über Kreuz und sortierst: die x links und die Zahlen rechts. Dann steht dort 2x = ①. Also ist x = ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      10,
+      5
+     ]
+    },
+    "c": [
+     "6 + 4",
+     "(6 + 4) / 2"
+    ],
+    "h": "Über Kreuz: Zähler links mal Nenner rechts, Zähler rechts mal Nenner links.",
+    "w": "6(x − 1) = 4(x + 1), also 6x − 6 = 4x + 4. Dann 2x = 10 und x = 5. Probe: 6/6 = 1 und 4/4 = 1."
+   }
+  },
+  {
+   "kennung": "K8-V074",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "ueber_kreuz",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": "fb.waage.nur_ein_summand",
+     "regel_des_fehlbilds": "rr.waage",
+     "beschreibung": "nur 3 + a = 6 gelesen, die 3 nicht abgezogen"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 + 3 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "ueber_kreuz",
+    "t": "ueber_kreuz",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Die Gleichung 6/(x + a) = 2/(x − 1) hat die Lösung x = 3. Wie groß ist die Zahl a?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "6 / (2 / (3 - 1)) - 3",
+    "h": "Setze x = 3 ein und rechne die rechte Seite aus. Dann steht links 6/(3 + a) = dieser Wert.",
+    "w": "Rechts: 2/(3 − 1) = 1. Links: 6/(3 + a) = 1, also 3 + a = 6 und a = 3. Probe: 6/6 = 1."
+   }
+  },
+  {
+   "kennung": "K8-V075",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "ueber_kreuz",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "ueber_kreuz",
+    "t": "ueber_kreuz",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim löst 5/(x + 2) = 3/(x − 4) (x ≠ −2 und x ≠ 4). Zeile 1: Über Kreuz: 5(x − 4) = 3(x + 2) Zeile 2: Ausmultiplizieren: 5x − 20 = 3x + 6 Zeile 3: Sortieren: 2x = 26 Zeile 4: Teilen: x = 26 · 2 = 52 In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Wie bekommst du x allein, wenn 2x = 26 dasteht? Mach die Probe.",
+    "w": "2x = 26 heißt: durch 2 teilen. x = 13. Probe: 5/15 = 1/3 und 3/9 = 1/3."
+   }
+  },
+  {
+   "kennung": "K8-V076",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "hauptnenner",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 5,
+     "fehlbild": "fb.bruchrechnen.zaehler_und_nenner_addiert",
+     "regel_des_fehlbilds": "rr.bruchrechnen",
+     "beschreibung": "2 + 3 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler nicht mit erweitert"
+    }
+   ],
+   "aufgabe": {
+    "l": "hauptnenner",
+    "t": "hauptnenner",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Löse 3/(2x) + 1/(3x) = 11/24 (x ≠ 0). Der Hauptnenner der linken Seite ist ①x. Der erste Bruch hat dann den Zähler ②. Die linke Seite hat die Summe der Zähler als Zähler. Der Bruch soll 11/24 sein, also muss der Nenner ①x gleich 24 sein. Also ist x = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      6,
+      9,
+      4
+     ]
+    },
+    "c": [
+     "6",
+     "3 * 3",
+     "24 // 6"
+    ],
+    "h": "Der Hauptnenner ist das kleinste gemeinsame Vielfache von 2 und 3, mal x.",
+    "w": "HN = 6x. 3/(2x) = 9/(6x) und 1/(3x) = 2/(6x). Summe: 11/(6x) = 11/24. Dann 6x = 24 und x = 4. Probe: 3/8 + 1/12 = 9/24 + 2/24 = 11/24."
+   }
+  },
+  {
+   "kennung": "K8-V077",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "hauptnenner",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": "fb.waage.nur_eine_seite",
+     "regel_des_fehlbilds": "rr.waage",
+     "beschreibung": "2 + 1 = 3 gerechnet und das x vergessen"
+    },
+    {
+     "antwort": 0.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3x = 3/2 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "hauptnenner",
+    "t": "hauptnenner",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Löse 1/x + 1/(2x) = 3/2 (x ≠ 0) auf zwei Wegen. Weg A: erst die Brüche links zusammenfassen. Weg B: beide Seiten sofort mit dem Hauptnenner 2x multiplizieren. Wie groß ist x?"
+    },
+    "o": {
+     "wert": 1
+    },
+    "c": "3 / 3",
+    "h": "Beide Wege müssen dasselbe x ergeben.",
+    "w": "Weg A: 2/(2x) + 1/(2x) = 3/(2x) = 3/2, also 2x = 2 und x = 1. Weg B: 2 + 1 = 3x, also x = 1."
+   }
+  },
+  {
+   "kennung": "K8-V078",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "hauptnenner",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "x + 2x = 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zeiten statt der Füllanteile je Stunde addiert"
+    },
+    {
+     "index": 1,
+     "antwort": "1/x + 1/(2x) = 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "rechts die Zeit statt des Anteils je Stunde"
+    },
+    {
+     "index": 3,
+     "antwort": "1/x · 1/(2x) = 1/4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anteile malgenommen statt addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "hauptnenner",
+    "t": "hauptnenner",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Pumpe füllt ein Becken allein in x Stunden. Eine zweite Pumpe braucht allein 2x Stunden. Zusammen füllen sie das Becken in 4 Stunden. Welche Gleichung gehört dazu (x ≠ 0)?"
+    },
+    "a": [
+     "x + 2x = 4",
+     "1/x + 1/(2x) = 4",
+     "1/x + 1/(2x) = 1/4",
+     "1/x · 1/(2x) = 1/4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Was schafft jede Pumpe in einer Stunde? Diese Anteile werden addiert.",
+    "w": "Pumpe 1 schafft 1/x je Stunde, Pumpe 2 schafft 1/(2x). Zusammen 1/4 je Stunde. Daraus folgt 3/(2x) = 1/4 und x = 6."
+   }
+  },
+  {
+   "kennung": "K8-V079",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "scheinloesung",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 10,
+     "fehlbild": "fb.waage.zeichen_nicht_gedreht",
+     "regel_des_fehlbilds": "rr.waage",
+     "beschreibung": "11 − 1 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 2 · 4 gerechnet, die 8 nicht abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheinloesung",
+    "t": "scheinloesung",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Löse (3x − 1)/(2x − 8) = 11/(2x − 8). Beide Seiten haben denselben Nenner. Multipliziere mit diesem Nenner und sortiere: 3x = ①. Dann ist x = ②. Für diese Zahl hat der Nenner den Wert ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      12,
+      4,
+      0
+     ]
+    },
+    "c": [
+     "11 + 1",
+     "(11 + 1) // 3",
+     "2 * ((11 + 1) // 3) - 8"
+    ],
+    "h": "Aus gleichen Nennern folgt: Die Zähler müssen gleich sein.",
+    "w": "3x − 1 = 11 ergibt 3x = 12 und x = 4. Der Nenner ist 2 · 4 − 8 = 0. Die Zahl 4 ist ausgeschlossen. L = { }."
+   }
+  },
+  {
+   "kennung": "K8-V080",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "scheinloesung",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheinloesung",
+    "t": "scheinloesung",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim löst x/(x − 2) = 2/(x − 2) mit der Definitionsmenge ℚ \\ {2}. Zeile 1: Mit (x − 2) multiplizieren: x = 2 Zeile 2: Die Zahl 2 gehört zur Lösung, weil die Rechnung x = 2 ergeben hat. Zeile 3: Also ist L = {2}. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Für x = 2 ist der Nenner x − 2 gleich …? Darf man dann einsetzen?",
+    "w": "Für x = 2 ist der Nenner 0. Die Zahl 2 liegt nicht in der Definitionsmenge. Sie ist eine Scheinlösung. Richtig: L = { }."
+   }
+  },
+  {
+   "kennung": "K8-V081",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "scheinloesung",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "fehlbild": "fb.waage.zeichen_nicht_gedreht",
+     "regel_des_fehlbilds": "rr.waage",
+     "beschreibung": "7 + 3 gerechnet"
+    },
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die rechte Zahl abgeschrieben"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheinloesung",
+    "t": "scheinloesung",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche Zahl a ist x = 3 bei der Gleichung (x + a)/(x − 3) = 7/(x − 3) eine Scheinlösung? Beim Lösen kommt dabei x = 3 heraus."
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "7 - 3",
+    "h": "Wenn nach dem Multiplizieren x = 3 herauskommt, gilt x + a = 7 für x = 3.",
+    "w": "Nach dem Multiplizieren mit (x − 3) steht x + a = 7. Mit x = 3 folgt a = 4. Dann ist 3 eine Scheinlösung, denn der Nenner ist 0."
+   }
+  },
+  {
+   "kennung": "K8-V082",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "verhaeltnis",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 23,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "8 + 15 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 : 120 gerechnet statt 120 : 12"
+    }
+   ],
+   "aufgabe": {
+    "l": "verhaeltnis",
+    "t": "verhaeltnis",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Löse x : 8 = 15 : 12. Über Kreuz multipliziert steht links 12x. Rechts steht ①. Dann ist x = ②. Das Verhältnis x : 8 lässt sich mit diesem x zu ③ : 4 kürzen.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      120,
+      10,
+      5
+     ]
+    },
+    "c": [
+     "8 * 15",
+     "(8 * 15) // 12",
+     "((8 * 15) // 12) // 2"
+    ],
+    "h": "Über Kreuz: Außenglieder mal Innenglieder.",
+    "w": "12x = 8 · 15 = 120, also x = 10. 10 : 8 = 5 : 4."
+   }
+  },
+  {
+   "kennung": "K8-V083",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "verhaeltnis",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "x : 450 = 300 : 180",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Mehl und Wasser im zweiten Verhältnis vertauscht"
+    },
+    {
+     "index": 1,
+     "antwort": "x : 300 = 180 : 450",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die gegebenen Zahlen falsch zugeordnet"
+    },
+    {
+     "index": 3,
+     "antwort": "x · 450 = 180 · 300",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen statt Verhältnis gleichgesetzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "verhaeltnis",
+    "t": "verhaeltnis",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt ein Rezept. Für 450 g Mehl soll die Wassermenge x bestimmt werden. Welche Verhältnisgleichung gehört dazu?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "",
+       "Mehl",
+       "Wasser"
+      ],
+      "zeilen": [
+       [
+        "Rezept",
+        "300 g",
+        "180 ml"
+       ],
+       [
+        "gesucht",
+        "450 g",
+        "x"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "x : 450 = 300 : 180",
+     "x : 300 = 180 : 450",
+     "x : 450 = 180 : 300",
+     "x · 450 = 180 · 300"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Gleiche Stoffe stehen in beiden Verhältnissen an derselben Stelle.",
+    "w": "x : 450 = 180 : 300. Über Kreuz: 300x = 450 · 180 = 81 000, also x = 270. Man braucht 270 ml Wasser."
+   }
+  },
+  {
+   "kennung": "K8-V084",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "verhaeltnis",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 200,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "Karte und Wirklichkeit vertauscht: 50 · 12 : 3"
+    },
+    {
+     "antwort": 15,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "3 + 12 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "verhaeltnis",
+    "t": "verhaeltnis",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Auf einer Karte sind 3 cm in Wirklichkeit 12 km. Eine Wanderstrecke ist in Wirklichkeit 50 km lang. Wie viele Zentimeter lang ist sie auf der Karte?"
+    },
+    "o": {
+     "wert": 12.5,
+     "einheit": "cm"
+    },
+    "c": "50 * 3 / 12",
+    "h": "Stelle eine Verhältnisgleichung auf: Kartenlänge zu Wirklichkeit ist immer gleich.",
+    "w": "x : 50 = 3 : 12. Über Kreuz: 12x = 150, also x = 12,5. Die Strecke ist 12,5 cm lang."
+   }
+  },
+  {
+   "kennung": "K8-V085",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "graphisch",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 − 4 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 · 2 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "graphisch",
+    "t": "graphisch",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Du löst 12/x = 2 mit einer Wertetabelle (x ≠ 0). Für x = 4 hat 12/x den Wert ①. Für x = 12 hat 12/x den Wert ②. Der Wert 2 wird bei x = ③ erreicht.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      1,
+      6
+     ]
+    },
+    "c": [
+     "12 // 4",
+     "12 // 12",
+     "12 // 2"
+    ],
+    "h": "Teile 12 durch den x-Wert. Wo kommt genau der gesuchte Wert heraus?",
+    "w": "12 : 4 = 3 und 12 : 12 = 1. Der Wert 2 liegt dazwischen: 12 : 6 = 2. Die Lösung ist x = 6."
+   }
+  },
+  {
+   "kennung": "K8-V086",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "graphisch",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "8/x = x",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Gerade als y = x gelesen"
+    },
+    {
+     "index": 2,
+     "antwort": "2/x = 8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zähler und Zahl vertauscht"
+    },
+    {
+     "index": 3,
+     "antwort": "8/x + 2 = 0",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Gerade als y = −2 gelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "graphisch",
+    "t": "graphisch",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Zeichnung zeigt zwei Graphen. Sie gehören zu den beiden Seiten einer Gleichung. Welche Gleichung wird mit dem Schnittpunkt gelöst?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -7,
+       7
+      ],
+      "y": [
+       -6,
+       6
+      ],
+      "graphen": [
+       {
+        "art": "hyperbel",
+        "a": 8,
+        "b": 0,
+        "c": 0,
+        "name": "y = 8/x"
+       },
+       {
+        "art": "linear",
+        "m": 0,
+        "t": 2,
+        "name": "y = 2"
+       }
+      ]
+     }
+    },
+    "a": [
+     "8/x = 2",
+     "8/x = x",
+     "2/x = 8",
+     "8/x + 2 = 0"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Eine Seite ist die Hyperbel, die andere die waagrechte Gerade. Lies ihre Gleichungen ab.",
+    "w": "Die Hyperbel gehört zu y = 8/x, die Gerade zu y = 2. Gleichsetzen: 8/x = 2. Der Schnittpunkt liegt bei x = 4."
+   }
+  },
+  {
+   "kennung": "K8-V087",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "graphisch",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": "fb.waage.nur_ein_summand",
+     "regel_des_fehlbilds": "rr.waage",
+     "beschreibung": "12 : 4 = 3 gerechnet und die 2 vergessen"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": "fb.waage.zeichen_nicht_gedreht",
+     "regel_des_fehlbilds": "rr.waage",
+     "beschreibung": "3 + 2 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "graphisch",
+    "t": "graphisch",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Löse 12/(x + 2) = 4 (x ≠ −2) auf zwei Wegen. Weg A: rechnerisch, indem du mit dem Nenner multiplizierst. Weg B: mit einer Wertetabelle, in der du x-Werte ausprobierst. Wie groß ist x?"
+    },
+    "o": {
+     "wert": 1
+    },
+    "c": "12 / 4 - 2",
+    "h": "Beide Wege müssen dasselbe x ergeben.",
+    "w": "Weg A: 12 = 4(x + 2), also x + 2 = 3 und x = 1. Weg B: Für x = 1 ist 12/3 = 4. Probe stimmt."
+   }
+  }
+ ]
+}

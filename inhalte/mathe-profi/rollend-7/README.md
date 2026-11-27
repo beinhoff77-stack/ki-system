@@ -1,0 +1,38 @@
+# rollend-7 – neue Aufgabenformen, Klasse 8 (Kennung K8-V001 …)
+
+Ein JSON je Thema, erzeugt mit `python3 -I bauen.py` (Hilfen in `kern.py`, Aufgaben in `th_*.py`).
+
+| Thema | Lernkarten | Aufgaben | lw/fd/vw/zw/um/br/an | zaehlt ja/nein |
+|---|---|---|---|---|
+| terme.umformen | 5 | 15 | 5/2/0/2/2/2/2 | 10/5 |
+| terme.umformen_teil2 | 4 | 12 | 3/1/0/2/2/2/2 | 9/3 |
+| gleichungen.linear | 6 | 18 | 6/2/0/2/3/3/2 | 12/6 |
+| terme.bruchterme | 7 | 21 | 6/3/3/3/2/2/2 | 15/6 |
+| gleichungen.bruch | 7 | 21 | 7/2/1/3/3/3/2 | 14/7 |
+| terme.quadratische_extreme | 5 | 15 | 5/2/0/2/2/2/2 | 10/5 |
+| terme.potenzgesetze_natuerlich | 5 | 15 | 4/2/1/2/2/2/2 | 11/4 |
+| terme.potenzgesetze_ganzzahlig | 5 | 15 | 3/2/2/2/2/2/2 | 12/3 |
+| stochastik.grundbegriffe | 3 | 9 | 1/0/0/2/2/2/2 | 8/1 |
+| messen.prisma_zylinder | 7 | 21 | 6/2/1/3/2/3/4 | 15/6 |
+| groessen.indirekt | 7 | 21 | 4/2/2/3/3/3/4 | 17/4 |
+| Summe | 61 | 183 | 50/20/10/26/25/26/26 | 133/50 |
+
+Formen: lw Lückenweg, fd Fehler-Detektiv, vw Verfahren wählen, zw Zwei Wege, um Umkehren, br Brücke, an Anwenden.
+
+## Abweichung vom Auftrag
+Der Auftrag nennt 65 Lernkarten / 195 Aufgaben. Die aufgelisteten Lernkarten ergeben 61 (183 Aufgaben). Alle aufgelisteten Lernkarten sind abgedeckt, je drei Aufgaben.
+
+## Wie geprüft
+- `bauen.py` rechnet jede Lösung zweifach nach (`c` und unabhängige Zweitrechnung), bei auswahl genau eine richtige Antwort, Termgleichheit mit exakten Brüchen an mehreren Stellen.
+- Fehlbilder (446) werden neu berechnet, nicht von Hand übernommen.
+- Mischung je Lernkarte: höchstens 1 Lückenweg (zaehlt nein), höchstens 1 Fehler-Detektiv, mindestens 1 zaehlt-ja-Aufgabe aus umkehren/zwei_wege/bruecke/verfahren_waehlen/anwenden. Je Thema umkehren, zwei_wege, bruecke, anwenden mindestens zweimal.
+- Lückenweg: Antwortform luecken, mindestens zwei Lücken, verschiedene Werte, kein Lückenwert in Text, Schablone oder Hinweis.
+- Fehler-Detektiv: genau ein unabhängiger Fehler, so viele Antworten wie Zeilen. Fehlerzeile: Zeile 1: 5, Zeile 2: 5, Zeile 3: 6, Zeile 4: 4 (von 20).
+- `tools/inhalt_pruefen.py` (mit `-I`) läuft in `bauen.py` auf Kopien der Stoff-Themendateien mit den neuen Aufgaben; alle Themen Code 0.
+- Antworttypen nur zahl, auswahl, luecken. Zeichnungen nur tabelle und koordinaten (19 Aufgaben).
+
+## Gesichert und offen
+- Gesichert: Rechnung, Eindeutigkeit der Lösung, Formregeln oben.
+- Nicht gesichert: Anzeige in der App nicht getestet, keine Probe mit Kindern, Schwierigkeit (Stufe) nur aus dem Aufgabentyp abgeleitet.
+- Annahmen stehen in den Aufgabentexten (zum Beispiel „indirekt proportional“, Definitionsmenge, Rundung).
+- Lernkarten, bei denen eine Form nicht passte: keine zurückgestellt. Einzelne Formen fehlen bewusst, wo sie fachlich nicht passen (zum Beispiel kein Fehler-Detektiv in stochastik.grundbegriffe).

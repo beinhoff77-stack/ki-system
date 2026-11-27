@@ -93,20 +93,20 @@ def texte_von(q):
 
 
 # Antwort als Zahl lesen (nur um gleiche Werte bei Auswahl zu erkennen und Rechnungen zu prüfen)
-ANT = re.compile(r"^\s*(?:(\d+)\s+)?([−-]?\d+(?:[  ]\d{3})*(?:,\d+)?)(?:/(\d+))?\s*(?:%|€|ct|Cent|cm²|cm³|dm²|dm³|m²|m³|mm²|mm³|cm|dm|mm|km|kg|g|ml|l|m|h|min|s|°|Stücke|Stück)?\s*$")
+ANT = re.compile(r"^\s*(?:(\d+)\s+)?([−-]?\d+(?:[  ]\d{3})*(?:,\d+)?)(?:/(\d+))?\s*(%|€|ct|Cent|cm²|cm³|dm²|dm³|m²|m³|mm²|mm³|cm|dm|mm|km|kg|g|ml|l|m|h|min|s|°|Stücke|Stück)?\s*$")
 
 
 def ant_wert(s):
     m = ANT.match(s)
     if not m:
         return None
-    ganz, z, n = m.groups()
+    ganz, z, n, unit = m.groups()
     z = F(re.sub(r"[  ]", "", z).replace("−", "-").replace(",", "."))
     if n:
         z = z / int(n)
     if ganz:
         z = z + int(ganz)
-    return z
+    return (z, unit)
 
 
 # ═════════ Bestand laden ═════════
@@ -304,6 +304,7 @@ for a in A:
                 v = ant_wert(q["a"][i])
                 assert v is not None, (kenn, q["a"][i], "Antwort nicht als Zahl lesbar, aber Rechnung angegeben")
                 r = ip.rechne(rech)
+                v = v[0]
                 assert r == v, (kenn, q["a"][i], "Rechnung", rech, "ergibt", float(r))
                 ct = rech
                 n_fb_rechnung += 1

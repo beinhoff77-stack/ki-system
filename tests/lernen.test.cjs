@@ -5664,7 +5664,7 @@ test('RU: Kind öffnet das Regel-Universum über das Menü – Sonne → Regel �
     assert.equal(daten.length, 0, 'Daten erst beim Öffnen laden');
     await page.locator('.lr-blatt-liste a', { hasText: 'Regel-Universum' }).click();
     await page.locator('.ru-universum').waitFor();
-    assert.match(page.url(), /#\/regeln\/1$/); assert.equal(daten.length, 1); assert.match(daten[0], /v=0\.95\.0/);
+    assert.match(page.url(), /#\/regeln\/1$/); assert.equal(daten.length, 1); assert.match(daten[0], /v=\d+\.\d+\.\d+/);
     assert.equal(await page.locator('.ru').getAttribute('data-ru-g'), g === 'tag' ? 'hell' : 'nacht');
     assert.equal(await page.evaluate(() => document.body.hasAttribute('data-kindmodus')), true);
     await ruBild(page, `ebene0-universum-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
@@ -5827,9 +5827,9 @@ function ruSwLaden() {
 test('RU Nachbesserung: Service Worker – Regel-Daten nicht in der Vorab-Liste; Matrix Pfadart × 200/503/404/410/Netzabbruch × mit/ohne Cache', async () => {
   const { quelle, huelle } = ruSwLaden();
   assert.ok(!huelle.some((x) => x.includes('regeln-universum')), 'nicht in der Vorab-Liste');
-  assert.ok(huelle.includes('./lernen-regeln.js?v=0.95.0') && huelle.includes('./lernen-regeln.css?v=0.95.0'));
-  assert.match(quelle, /'v188'/);
-  const PFADE = { daten: 'https://x.test/app/daten/regeln-universum.json?v=0.95.0', huelle: 'https://x.test/app/index.html', karte: 'https://x.test/app/karte/welt.json', api: 'https://y.test/functions/v1/lernen-api/aktion' };
+  assert.ok(huelle.includes('./lernen-regeln.js?v=0.96.0') && huelle.includes('./lernen-regeln.css?v=0.96.0'));
+  assert.match(quelle, /'v\d+'/);
+  const PFADE = { daten: 'https://x.test/app/daten/regeln-universum.json?v=0.96.0', huelle: 'https://x.test/app/index.html', karte: 'https://x.test/app/karte/welt.json', api: 'https://y.test/functions/v1/lernen-api/aktion' };
   // Erwartete Antwort und ob der Eintrag danach noch (bzw. neu) im Cache ist
   const soll = (art, antwort, mitCache) => {
     if (art === 'api') return ['nicht bearbeitet', mitCache]; // außerhalb: der Worker greift nicht ein

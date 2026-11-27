@@ -346,22 +346,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 4.5,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "rechte Seite minus linke Seite gerechnet: das Vorzeichen des Unterschieds stimmt nicht"
+    },
+    {
+     "antwort": -9,
      "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
      "regel_des_fehlbilds": "rr.ausmultiplizieren",
      "beschreibung": "die 5 in der Klammer nicht mit 2 malgenommen: aus 2(x + 5) wird 2x + 5"
     },
     {
-     "antwort": 10,
+     "antwort": 2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das −3 als +3 gerechnet"
-    },
-    {
-     "antwort": -7,
-     "fehlbild": "fb.waage.zeichen_nicht_gedreht",
-     "regel_des_fehlbilds": "rr.waage",
-     "beschreibung": "beim Umstellen das Vorzeichen vergessen: 2x = −14 statt 2x = 14"
     }
    ],
    "aufgabe": {
@@ -372,14 +372,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Kim hat die Gleichung 2(x + 5) − 3 = 4x − 7 gelöst und x = 9 erhalten. Weg A: Prüfe das mit einer Probe in der Gleichung, so wie sie dasteht. Weg B: Löse die Gleichung selbst. Welche Zahl ist die Lösung?"
+     "text": "Kim hat die Gleichung 2(x + 5) − 3 = 4x − 7 gelöst und x = 9 erhalten. Bei der Probe vergleicht man die beiden Seiten. Wie groß ist der Unterschied „linke Seite minus rechte Seite“ für x = 9? Weg A: Beide Seiten für x = 9 einzeln ausrechnen und den Unterschied bilden. Weg B: Zuerst den Unterschied 2(x + 5) − 3 − (4x − 7) zu einem Term in x zusammenfassen und dann x = 9 einsetzen."
     },
     "o": {
-     "wert": 7
+     "wert": -4
     },
-    "c": "(7 + 7) / (4 - 2)",
-    "h": "Setze bei Weg A die Zahl in beide Seiten der Ausgangsgleichung ein. Wenn die Seiten verschieden sind, muss neu gelöst werden.",
-    "w": "Weg A: Für x = 9 ist die linke Seite 2 · 14 − 3 = 25, die rechte 4 · 9 − 7 = 29. Die Seiten sind verschieden, also stimmt x = 9 nicht. Weg B: 2x + 10 − 3 = 4x − 7, also 2x + 7 = 4x − 7 und 14 = 2x. Es folgt x = 7. Probe: 2 · 12 − 3 = 21 und 28 − 7 = 21."
+    "c": "2 * (9 + 5) - 3 - (4 * 9 - 7)",
+    "h": "Beide Wege müssen denselben Unterschied ergeben. Wäre x = 9 eine Lösung, müsste der Unterschied null sein.",
+    "w": "Weg A: Links ist 2 · 14 − 3 = 25, rechts ist 4 · 9 − 7 = 29. Der Unterschied ist 25 − 29 = −4. Weg B: 2x + 10 − 3 − 4x + 7 = −2x + 14. Für x = 9 ist das −18 + 14 = −4. Der Unterschied ist nicht null, also ist x = 9 keine Lösung. Richtig ist x = 7."
    }
   },
   {
@@ -417,7 +417,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim löst 4(x − 2) = 3x + 1 und macht eine Probe. Zeile 1: Ausmultiplizieren: 4(x − 2) = 4x − 2, also 4x − 2 = 3x + 1. Zeile 2: Beide Seiten minus 3x und plus 2: x = 3. Zeile 3: Probe in der ersten Gleichung: links 4 · 3 − 2 = 10, rechts 3 · 3 + 1 = 10. Also stimmt x = 3. In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim löst 4(x − 2) = 3x + 1 und macht eine Probe. Zeile 1: Ausmultiplizieren: 4(x − 2) = 4x − 2, also 4x − 2 = 3x + 1. Zeile 2: Beide Seiten minus 3x und plus 2: x = 3. Zeile 3: Probe in der Gleichung 4x − 2 = 3x + 1: links 4 · 3 − 2 = 10, rechts 3 · 3 + 1 = 10. Also stimmt x = 3. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -428,7 +428,7 @@
      "index": 0
     },
     "h": "Wie lautet die Ausgangsgleichung? Setze x = 3 genau dort ein.",
-    "w": "4(x − 2) = 4x − 8, nicht 4x − 2: Die 2 wird auch mit 4 malgenommen. Dann ist 4x − 8 = 3x + 1 und x = 9. Die Probe in Zeile 3 benutzt die schon fehlerhafte erste Gleichung. Eine Probe gehört in die Ausgangsgleichung: 4(3 − 2) = 4, aber 3 · 3 + 1 = 10."
+    "w": "4(x − 2) = 4x − 8, nicht 4x − 2: Die 2 wird auch mit 4 malgenommen. Dann ist 4x − 8 = 3x + 1 und x = 9. Die Probe in Zeile 3 benutzt die fehlerhafte Gleichung aus Zeile 1. Eine Probe gehört in die Ausgangsgleichung: 4(3 − 2) = 4, aber 3 · 3 + 1 = 10."
    }
   },
   {

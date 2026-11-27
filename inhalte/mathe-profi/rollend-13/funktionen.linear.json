@@ -541,7 +541,7 @@
      "index": 0
     },
     "h": "Welche Höhe gehört zu t = 0? Wie viel kommt von einer Stunde zur nächsten dazu?",
-    "w": "Bei t = 0 ist die Höhe 400 m (Anfangshöhe t). Von Stunde zu Stunde kommen 150 m dazu (Steigung m = 150). Also h = 400 + 150t. Probe: t = 3 gibt 400 + 450 = 850."
+    "w": "Bei t = 0 ist die Höhe 400 m (das ist der Wert ohne t im Term). Von Stunde zu Stunde kommen 150 m dazu (Steigung m = 150). Also h = 400 + 150t. Probe: t = 3 gibt 400 + 450 = 850."
    }
   },
   {

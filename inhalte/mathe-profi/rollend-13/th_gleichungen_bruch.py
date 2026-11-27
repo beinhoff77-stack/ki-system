@@ -28,13 +28,13 @@ neu(T, "ein_bruch", "umkehren", Z(
     [(3, None, "a/4 = 3 gefunden, aber a = 3 gesetzt", "5 - 2"), (28, None, "5 plus 2 statt 5 minus 2 gerechnet und mit 4 malgenommen", "(5 + 2) * 4"), (20, None, "die 2 vergessen: a/4 = 5", "5 * 4")]), g="rueckwaerts", regel="id.algebra.gleichung_loesen")
 # ───────── ueber_kreuz ─────────
 neu(T, "ueber_kreuz", "zwei_wege", Z(
-    "Löse 3/(x + 2) = 5/(x + 6) auf zwei Wegen (x ≠ −2 und x ≠ −6). Weg A: über Kreuz multiplizieren. Weg B: auf beiden Seiten den Kehrwert bilden und dann beide Seiten mit 15 malnehmen. Welche Zahl ist die Lösung?",
-    4, "(5 * 2 - 3 * 6) / (3 - 5)", "(18 - 10) / 2", "Beide Wege führen zu derselben Gleichung ohne Bruch. Mit dem Kehrwert wird aus 3/(x + 2) der Bruch (x + 2)/3.",
-    "Weg A: 3(x + 6) = 5(x + 2), also 3x + 18 = 5x + 10 und 8 = 2x. Weg B: (x + 2)/3 = (x + 6)/5. Mal 15: 5(x + 2) = 3(x + 6). Das ist dieselbe Gleichung. x = 4. Probe: 3/6 = 5/10.",
+    "Löse 3/(x + 2) = 5/(x + 6) auf zwei Wegen (x ≠ −2 und x ≠ −6). Weg A: über Kreuz multiplizieren. Weg B: beide Seiten für x = 0, 1, 2, 3, 4, 5 ausrechnen (als Dezimalzahlen) und die Zahl suchen, bei der beide Seiten gleich sind. Welche Zahl ist die Lösung?",
+    4, "(5 * 2 - 3 * 6) / (3 - 5)", "(18 - 10) / 2", "Beide Wege müssen dieselbe Zahl ergeben. Bei Weg B hilft es, zuerst die Nenner x + 2 und x + 6 für jede Zahl auszurechnen.",
+    "Weg A: 3(x + 6) = 5(x + 2), also 3x + 18 = 5x + 10 und 8 = 2x. Weg B: Linke Seite für x = 0 bis 5: 1,5; 1; 0,75; 0,6; 0,5; 0,43. Rechte Seite: 0,83; 0,71; 0,63; 0,56; 0,5; 0,45. Gleich sind beide Seiten bei x = 4, nämlich 0,5. Probe: 3/6 = 5/10.",
     [(2, "fb.ausmultiplizieren.nur_erster_summand", "in beiden Produkten nur x malgenommen: aus 3(x + 6) wird 3x + 6 und aus 5(x + 2) wird 5x + 2", "(6 - 2) / (5 - 3)"), (-4, None, "beim Umstellen die Vorzeichen vertauscht: −8 durch 2", "-8 / 2"), (8, None, "nur 18 − 10 gerechnet und nicht durch 2 geteilt", "18 - 10")]), g="mehrschritt", regel="rr.waage")
 assert ist_loesung("3*(x+6)", "5*(x+2)", 4) and F(3, 4 + 2) == F(5, 4 + 6)
 neu(T, "ueber_kreuz", "anwenden", Z(
-    "Läufer A läuft 6 km in t Minuten. Läuferin B läuft 9 km und braucht 30 Minuten länger als Läufer A. Beide laufen gleichmäßig und haben dieselbe Durchschnittsgeschwindigkeit. Wie viele Minuten braucht Läufer A für seine 6 km?",
+    "Läufer A läuft 6 km in t Minuten. Läufer B läuft 9 km und braucht 30 Minuten länger als Läufer A. Beide laufen gleichmäßig und haben dieselbe Durchschnittsgeschwindigkeit. Wie viele Minuten braucht Läufer A für seine 6 km?",
     60, "30 * 6 / (9 - 6)", "180 // 3", "Die Geschwindigkeit ist Strecke durch Zeit. Beide Geschwindigkeiten sind gleich: 6/t und 9/(t + 30) sind gleich groß.",
     "Gleichung: 6/t = 9/(t + 30). Über Kreuz: 6(t + 30) = 9t, also 6t + 180 = 9t und t = 60. Läufer A braucht 60 Minuten, B 90 Minuten. Probe: 6 km in 60 min = 0,1 km/min und 9 km in 90 min = 0,1 km/min.",
     [(10, "fb.ausmultiplizieren.nur_erster_summand", "die 30 nicht mit 6 malgenommen: aus 6(t + 30) wird 6t + 30", "30 / 3"), (90, None, "die Zeit von B statt die von A angegeben", "30 * 6 / (9 - 6) + 30"), (-90, None, "die Strecken den falschen Zeiten zugeordnet: 9/t = 6/(t + 30)", "-270 / 3")], "Minuten"), g="transfer", regel="rr.verhaeltnis")

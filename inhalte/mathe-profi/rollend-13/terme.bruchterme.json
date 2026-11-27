@@ -639,7 +639,7 @@
     },
     "c": "4 / 2",
     "h": "Kürze zuerst alles, was oben und unten gleich vorkommt. Vergleiche dann den Rest mit 2/x.",
-    "w": "Im Produkt kürzt sich x − 2 weg, und ein x kürzt sich auch. Es bleibt 4 durch a mal x, also 4/(a · x). Das soll 2/x sein, also 4/a = 2 und a = 2. Probe: 4x/(2x²) = 2/x."
+    "w": "Im Produkt kürzt sich x − 2 weg, und ein x kürzt sich auch. Es bleibt der Bruch 4/(a · x). Das soll 2/x sein, also 4/a = 2 und a = 2. Probe: 4x/(2x²) = 2/x."
    }
   },
   {

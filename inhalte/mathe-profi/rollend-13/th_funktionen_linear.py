@@ -58,7 +58,7 @@ neu(T, "aufstellen", "bruecke", W(
     "h = 400 + 150t",
     [("h = 150 + 400t", "Anfangshöhe und Zunahme pro Stunde vertauscht: dieser Term ergibt für t = 1 den Wert 550, für t = 2 aber 950 statt 700"), ("h = 550 + 150t", "die Höhe nach einer Stunde als Anfangshöhe genommen: für t = 0 ergibt der Term 550 statt 400")],
     "Welche Höhe gehört zu t = 0? Wie viel kommt von einer Stunde zur nächsten dazu?",
-    "Bei t = 0 ist die Höhe 400 m (Anfangshöhe t). Von Stunde zu Stunde kommen 150 m dazu (Steigung m = 150). Also h = 400 + 150t. Probe: t = 3 gibt 400 + 450 = 850.",
+    "Bei t = 0 ist die Höhe 400 m (das ist der Wert ohne t im Term). Von Stunde zu Stunde kommen 150 m dazu (Steigung m = 150). Also h = 400 + 150t. Probe: t = 3 gibt 400 + 450 = 850.",
     lambda: all(400 + 150 * t == h for t, h in _w) and not all(150 + 400 * t == h for t, h in _w) and not all(550 + 150 * t == h for t, h in _w),
     grafik=TAB(["t in h", "0", "1", "2", "3"], ["h in m", "400", "550", "700", "850"])), g="darstellung", regel="rr.waage")
 neu(T, "aufstellen", "umkehren", Z(

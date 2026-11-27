@@ -80,7 +80,7 @@ assert gl("(x**2-4)/(x+3)*(x+3)/(x-2)", "x+2")
 neu(T, "multiplizieren", "umkehren", Z(
     "Das Produkt 4x/(x − 2) · (x − 2)/(a · x²) soll für alle Zahlen x mit x ≠ 0 und x ≠ 2 gleich 2/x sein. Welche Zahl a ist das?",
     2, "4 / 2", 2, "Kürze zuerst alles, was oben und unten gleich vorkommt. Vergleiche dann den Rest mit 2/x.",
-    "Im Produkt kürzt sich x − 2 weg, und ein x kürzt sich auch. Es bleibt 4 durch a mal x, also 4/(a · x). Das soll 2/x sein, also 4/a = 2 und a = 2. Probe: 4x/(2x²) = 2/x.",
+    "Im Produkt kürzt sich x − 2 weg, und ein x kürzt sich auch. Es bleibt der Bruch 4/(a · x). Das soll 2/x sein, also 4/a = 2 und a = 2. Probe: 4x/(2x²) = 2/x.",
     [(8, None, "4 · 2 gerechnet statt 4 : 2", "4 * 2"), (0.5, None, "2 : 4 gerechnet statt 4 : 2", "2 / 4"), (6, None, "4 + 2 gerechnet", "4 + 2")]), g="rueckwaerts", regel="rr.bruchrechnen")
 assert gl("4*x/(x-2)*(x-2)/(2*x**2)", "2/x")
 # ───────── fehler_finden ─────────

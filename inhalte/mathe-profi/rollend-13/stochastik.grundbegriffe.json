@@ -127,7 +127,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Ein Glücksrad hat 12 gleich große Felder mit den Zahlen 1 bis 12. Ein Ergebnis ist die Zahl, bei der das Rad stehen bleibt. Ereignis A: „Die Zahl ist durch 3 teilbar“. Ereignis B: „Die Zahl ist größer als 6“. Wie viele Ergebnisse gehören zum Ereignis „A oder B“ (A, B oder beides)? Weg A: Die Zahlen von A und B aufschreiben und doppelte nur einmal zählen. Weg B: Zahlen von A und von B zählen und die Zahlen abziehen, die in beiden Ereignissen stehen."
+     "text": "Ein Glücksrad hat 12 gleich große Felder mit den Zahlen 1 bis 12. Ein Ergebnis ist die Zahl, bei der das Rad stehen bleibt. Ereignis A: „Die Zahl ist durch 3 teilbar“. Ereignis B: „Die Zahl ist größer als 6“. Wie viele Ergebnisse gehören zum Ereignis „A oder B“ (A, B oder beides)? Weg A: Die Zahlen von A und B aufschreiben und doppelte nur einmal zählen. Weg B: Die Anzahl der Zahlen von A und die von B zusammenzählen und die Anzahl der Zahlen abziehen, die in beiden Ereignissen stehen."
     },
     "o": {
      "wert": 8
@@ -165,7 +165,7 @@
     },
     {
      "index": 2,
-     "antwort": "80 minus 28 durch 80 teilen und mit 100 malnehmen",
+     "antwort": "die Differenz von 80 und 28 durch 80 teilen und das Ergebnis mit 100 malnehmen",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Würfe mit Spitze nach unten gezählt: das ist die relative Häufigkeit des Gegenereignisses"
@@ -184,7 +184,7 @@
     "a": [
      "80 durch 28 teilen und das Ergebnis mit 100 malnehmen",
      "28 mit 80 malnehmen und durch 100 teilen",
-     "80 minus 28 durch 80 teilen und mit 100 malnehmen",
+     "die Differenz von 80 und 28 durch 80 teilen und das Ergebnis mit 100 malnehmen",
      "28 durch 80 teilen und das Ergebnis mit 100 malnehmen"
     ],
     "o": {

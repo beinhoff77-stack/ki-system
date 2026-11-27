@@ -41,18 +41,18 @@ neu(T, "klammern", "umkehren", Z(
 assert loes("4*(x-1) = 2*x+6") == 5
 # ───────── probe ─────────
 neu(T, "probe", "zwei_wege", Z(
-    "Kim hat die Gleichung 2(x + 5) − 3 = 4x − 7 gelöst und x = 9 erhalten. Weg A: Prüfe das mit einer Probe in der Gleichung, so wie sie dasteht. Weg B: Löse die Gleichung selbst. Welche Zahl ist die Lösung?",
-    7, "(7 + 7) / (4 - 2)", "(10 - 3 + 7) / 2", "Setze bei Weg A die Zahl in beide Seiten der Ausgangsgleichung ein. Wenn die Seiten verschieden sind, muss neu gelöst werden.",
-    "Weg A: Für x = 9 ist die linke Seite 2 · 14 − 3 = 25, die rechte 4 · 9 − 7 = 29. Die Seiten sind verschieden, also stimmt x = 9 nicht. Weg B: 2x + 10 − 3 = 4x − 7, also 2x + 7 = 4x − 7 und 14 = 2x. Es folgt x = 7. Probe: 2 · 12 − 3 = 21 und 28 − 7 = 21.",
-    [(4.5, "fb.ausmultiplizieren.nur_erster_summand", "die 5 in der Klammer nicht mit 2 malgenommen: aus 2(x + 5) wird 2x + 5", "(7 + 2) / 2"), (10, None, "das −3 als +3 gerechnet", "(13 + 7) / 2"), (-7, "fb.waage.zeichen_nicht_gedreht", "beim Umstellen das Vorzeichen vergessen: 2x = −14 statt 2x = 14", "(-7 - 7) / 2")]), g="mehrschritt", regel="id.algebra.gleichung_loesen")
+    "Kim hat die Gleichung 2(x + 5) − 3 = 4x − 7 gelöst und x = 9 erhalten. Bei der Probe vergleicht man die beiden Seiten. Wie groß ist der Unterschied „linke Seite minus rechte Seite“ für x = 9? Weg A: Beide Seiten für x = 9 einzeln ausrechnen und den Unterschied bilden. Weg B: Zuerst den Unterschied 2(x + 5) − 3 − (4x − 7) zu einem Term in x zusammenfassen und dann x = 9 einsetzen.",
+    -4, "2 * (9 + 5) - 3 - (4 * 9 - 7)", "14 - 2 * 9", "Beide Wege müssen denselben Unterschied ergeben. Wäre x = 9 eine Lösung, müsste der Unterschied null sein.",
+    "Weg A: Links ist 2 · 14 − 3 = 25, rechts ist 4 · 9 − 7 = 29. Der Unterschied ist 25 − 29 = −4. Weg B: 2x + 10 − 3 − 4x + 7 = −2x + 14. Für x = 9 ist das −18 + 14 = −4. Der Unterschied ist nicht null, also ist x = 9 keine Lösung. Richtig ist x = 7.",
+    [(4, None, "rechte Seite minus linke Seite gerechnet: das Vorzeichen des Unterschieds stimmt nicht", "4 * 9 - 7 - (2 * (9 + 5) - 3)"), (-9, "fb.ausmultiplizieren.nur_erster_summand", "die 5 in der Klammer nicht mit 2 malgenommen: aus 2(x + 5) wird 2x + 5", "2 * 9 + 5 - 3 - (4 * 9 - 7)"), (2, None, "das −3 als +3 gerechnet", "2 * (9 + 5) + 3 - (4 * 9 - 7)")]), g="mehrschritt", regel="id.algebra.gleichung_loesen")
 assert loes("2*(x+5)-3 = 4*x-7") == 7
 neu(T, "probe", "fehler_detektiv", FD(
     "Kim löst 4(x − 2) = 3x + 1 und macht eine Probe.",
     [("Ausmultiplizieren: 4(x − 2) = 4x − 2, also 4x − 2 = 3x + 1.", gl("4*(x-2)", "4*x-2"), True),
      ("Beide Seiten minus 3x und plus 2: x = 3.", gleichwertig("4*x-2 = 3*x+1", "x = 3"), True),
-     ("Probe in der ersten Gleichung: links 4 · 3 − 2 = 10, rechts 3 · 3 + 1 = 10. Also stimmt x = 3.", 4 * 3 - 2 == 10 and 3 * 3 + 1 == 10, True)],
+     ("Probe in der Gleichung 4x − 2 = 3x + 1: links 4 · 3 − 2 = 10, rechts 3 · 3 + 1 = 10. Also stimmt x = 3.", 4 * 3 - 2 == 10 and 3 * 3 + 1 == 10, True)],
     "Wie lautet die Ausgangsgleichung? Setze x = 3 genau dort ein.",
-    "4(x − 2) = 4x − 8, nicht 4x − 2: Die 2 wird auch mit 4 malgenommen. Dann ist 4x − 8 = 3x + 1 und x = 9. Die Probe in Zeile 3 benutzt die schon fehlerhafte erste Gleichung. Eine Probe gehört in die Ausgangsgleichung: 4(3 − 2) = 4, aber 3 · 3 + 1 = 10."), regel="id.algebra.gleichung_loesen")
+    "4(x − 2) = 4x − 8, nicht 4x − 2: Die 2 wird auch mit 4 malgenommen. Dann ist 4x − 8 = 3x + 1 und x = 9. Die Probe in Zeile 3 benutzt die fehlerhafte Gleichung aus Zeile 1. Eine Probe gehört in die Ausgangsgleichung: 4(3 − 2) = 4, aber 3 · 3 + 1 = 10."), regel="id.algebra.gleichung_loesen")
 # ───────── sonderfaelle ─────────
 neu(T, "sonderfaelle", "bruecke", W(
     "Die Zeichnung zeigt die Geraden zu y = 2x + 3 und y = 2x + 5. Gesucht sind alle Zahlen x (aus ℚ), für die 2x + 3 = 2x + 5 gilt. Was sagt die Zeichnung über diese Gleichung?",

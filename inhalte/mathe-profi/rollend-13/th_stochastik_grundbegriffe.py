@@ -12,7 +12,7 @@ neu(T, "begriffe", "bruecke", Z(
     grafik=TAB(["Feld", "1", "2", "3", "4", "5", "6", "7", "8"], ["Zahl", "2", "3", "3", "5", "8", "8", "2", "7"])), g="darstellung", regel=AN)
 assert sum(1 for n in _zahl if _prim(n)) == 6 and sum(1 for n in _zahl if not _prim(n)) == 2 and len({n for n in _zahl if not _prim(n)}) == 1 and len({n for n in _zahl if _prim(n)}) == 4
 neu(T, "begriffe", "zwei_wege", Z(
-    "Ein Glücksrad hat 12 gleich große Felder mit den Zahlen 1 bis 12. Ein Ergebnis ist die Zahl, bei der das Rad stehen bleibt. Ereignis A: „Die Zahl ist durch 3 teilbar“. Ereignis B: „Die Zahl ist größer als 6“. Wie viele Ergebnisse gehören zum Ereignis „A oder B“ (A, B oder beides)? Weg A: Die Zahlen von A und B aufschreiben und doppelte nur einmal zählen. Weg B: Zahlen von A und von B zählen und die Zahlen abziehen, die in beiden Ereignissen stehen.",
+    "Ein Glücksrad hat 12 gleich große Felder mit den Zahlen 1 bis 12. Ein Ergebnis ist die Zahl, bei der das Rad stehen bleibt. Ereignis A: „Die Zahl ist durch 3 teilbar“. Ereignis B: „Die Zahl ist größer als 6“. Wie viele Ergebnisse gehören zum Ereignis „A oder B“ (A, B oder beides)? Weg A: Die Zahlen von A und B aufschreiben und doppelte nur einmal zählen. Weg B: Die Anzahl der Zahlen von A und die von B zusammenzählen und die Anzahl der Zahlen abziehen, die in beiden Ereignissen stehen.",
     8, "4 + 6 - 2", "12 - 4", "Welche Zahlen stehen in A und in B zugleich? Sie dürfen nur einmal gezählt werden.",
     "A hat die Zahlen 3, 6, 9, 12 (4 Ergebnisse). B hat die Zahlen 7, 8, 9, 10, 11, 12 (6 Ergebnisse). In beiden stehen 9 und 12. Weg A: 3, 6, 7, 8, 9, 10, 11, 12 sind 8 Zahlen. Weg B: 4 + 6 − 2 = 8. Probe: Das Gegenereignis hat die Zahlen 1, 2, 4, 5. Das sind 4 Zahlen, und 12 − 4 = 8.",
     [(10, None, "die Zahlen aus beiden Ereignissen gezählt und die doppelten nicht abgezogen", "4 + 6"), (2, None, "„und“ statt „oder“ gezählt: nur Zahlen, die in beiden stehen", "2"), (4, None, "das Gegenereignis von „A oder B“ gezählt", "12 - 8")]), g="verknuepfen", regel=AN)
@@ -23,7 +23,7 @@ neu(T, "rel_haeufigkeit", "verfahren_waehlen", W(
     "28 durch 80 teilen und das Ergebnis mit 100 malnehmen",
     [("80 durch 28 teilen und das Ergebnis mit 100 malnehmen", "Gesamtzahl durch die günstige Anzahl geteilt: das Ergebnis wäre über 100 Prozent"),
      ("28 mit 80 malnehmen und durch 100 teilen", "die beiden Zahlen multipliziert, aber keinen Anteil gebildet"),
-     ("80 minus 28 durch 80 teilen und mit 100 malnehmen", "die Würfe mit Spitze nach unten gezählt: das ist die relative Häufigkeit des Gegenereignisses")],
+     ("die Differenz von 80 und 28 durch 80 teilen und das Ergebnis mit 100 malnehmen", "die Würfe mit Spitze nach unten gezählt: das ist die relative Häufigkeit des Gegenereignisses")],
     "Relative Häufigkeit ist ein Anteil. Wovon ist der Teil, und was ist das Ganze?",
     "Der Teil sind 28 Würfe, das Ganze sind 80 Würfe. 28 : 80 = 0,35 und 0,35 · 100 = 35 Prozent. Die anderen Rechnungen geben ungefähr 286 Prozent, 22,4 und 65 Prozent.",
     lambda: abs(28 / 80 * 100 - 35) < 1e-9 and all(abs(v - 35) > 1e-9 for v in (80 / 28 * 100, 28 * 80 / 100, (80 - 28) / 80 * 100))), g="mehrschritt", regel=AN)

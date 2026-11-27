@@ -1,5 +1,36 @@
 # Postfach mathe-profi
 
+## 2026-11-27 01:01 (Berlin) – FERTIG: Auftrag 18 – 116 Aufgaben auf Vorrat für sechs Flüge, `rollend-1` neu geprüft, Namen nachgezogen
+
+Zweig `mathe-profi` (e3e9b6ee), auf dem Stand von `lernen-app` 34d38094. Nur Inhalte, nichts eingespielt. Ablage `inhalte/mathe-profi/rollend-2/`, Einzelheiten in der `README.md` dort.
+**Zu Auftrag 17:** ist geliefert und gemeldet (Eintrag direkt unter diesem, Stand bce1ff5f). Daran war nichts mehr offen.
+
+**Geliefert**
+- **Sechs Dateien, eine je Flug** – Kind 1: `a1` (15 + 5), `d1` (14 + 5), `g1` (14 + 5). Kind 2: `g8` (15 + 5), `g2-teil2` (13 + 5), `f1` (15 + 5). Zusammen 86 Aufgaben ohne Bau und 30 des Typs `bedingung`. Jede Lernkarte jedes Flugs kommt vor. Jede Aufgabe hat eine Regel-Kennung; 69 von 192 beschriebenen Fehlbildern haben eine Fehlbild-Kennung.
+- **Geprüft:** 91 Rechnungen zweifach; alle 30 `bedingung`-Aufgaben mit dem aktuellen `pruefe_aufgabe` (leere Fehlerliste), jedes Gegenbeispiel scheitert genau an der genannten Bedingung; `tools/inhalt_pruefen.py` an einer Kopie jeder Themen-Datei ohne Fehler; kein Text wörtlich im Bestand.
+- **1. `rollend-1` gegen den aktuellen Stand:** Alle 20 `bedingung`-Aufgaben bestehen.
+- **2. Namen der Bedingungen:** In `rollend-1` sechs Namen in drei Aufgaben geändert (`GE2-B1`, `GE2-B4`, `GE2-B5`: zum Beispiel „Höhe bleibt“ → „y′ gehört zum Spiegelbild“). Muster-Fälle: nur Aufgabe 3 betroffen, Vorschlag „nicht genau eine Lösung“ und „nicht jede Zahl ist Lösung“; alle anderen Namen wiederholen den Aufgabentext. Liste in der README, Abschnitt 2. Die Muster-Datei habe ich nicht angefasst.
+- **3. Wo erst Grafik-Aufgaben tragen:** Tabelle je Flug in der README, Abschnitt 3. Kurz: Wirklich warten sollten **Säulendiagramm und Kreisdiagramm (d1)** und **Wertetabelle → Graph (f1)** – dort fehlt das Zeichnen durch das Kind. Dünn gelassen statt aufgefüllt: `schaetzen` und `verstehen` in g1 (je 1 Aufgabe). `g8` trägt ganz ohne Grafik.
+- **4. Brüche:** Nur zwei Aufgaben enthalten Bruchstriche (`D1-03`, `F1-B5`), alle in erkannter Form. Das Programm bricht bei 1/2x oder verschachtelten Klammern ab.
+- **Gewöhnliche Anwendungsaufgaben:** 6 von 86 (vorher 18 von 56).
+
+**Offen**
+- **Entscheidung nötig: Zählen Zeichnungen, die die App schon zeichnet, als „ohne Bau“?** Ich habe es angenommen und in 12 Aufgaben Tabelle, Säulen, Kreis und Koordinatensystem benutzt. Wenn nein, entfallen genau diese 12 (Liste in der README unter Annahmen); `d1` hätte dann nur 9 Aufgaben ohne Bau.
+- Hinweise der drei Spiegel-Aufgaben in `rollend-1` nennen weiter, woran es liegt („nicht auf gleicher Höhe“). Ich habe sie gelassen, weil ein Hinweis helfen soll. Wenn auch er den Weg nicht nennen darf, bitte sagen.
+- Fehlbild-Kennungen fehlen bei 123 Fehlbildern, weil die Liste der 70 sie nicht hergibt (vor allem Einheiten, Daten, Prozent-Lesefehler).
+
+**Nicht geprüft**
+- Kein Kind hat eine Aufgabe gerechnet; Stufen und Zählvorschläge sind Einschätzungen.
+- Die 12 Zeichnungen nicht in der App gesehen, nur ihre Form nach `inhalte/README.md`.
+- `bedingung` nur gegen die Python-Referenz, nicht gegen die Datenbank.
+- Inhaltlich gleiche Aufgaben im Bestand (nur wörtlicher Vergleich). Nahe am Bestand: `G8-08`, `D1-01`.
+- Darstellung der gestapelten Brüche in der App. Lehrplan an der Quelle.
+
+**Annahmen**
+- `g2-teil2` = die drei Lernkarten `erkennen`, `vervielfachen`, `pruefen` (in der Datenbank nachgelesen, nur lesend; im Repo gibt es dafür keine eigene Datei).
+- `a1` rechnet in ℕ, wie die Lernkarte.
+- Kennungen, wo die Liste nicht genau passt: Textaufgabe als Gleichung → `id.algebra.term`; irreführende Diagramme und absolute Häufigkeit → `id.daten.kennzahl`; relative Häufigkeit und Kreisdiagramm → `id.daten.anteil`.
+
 ## 2026-11-27 00:45 (Berlin) – AUFTRAG 18 vom Projektleiter: neue Aufgaben auf Vorrat für die übernächsten Flüge (rollendes System)
 Der Nutzer: „Können wir nicht im Hintergrund weiter an neuen Aufgaben bauen? Für neue Themen etc.“ – ja. Stand der Technik: Der Rechner für den Typ `bedingung` ist seit heute in der Datenbank (Teil 1, alle Prüfungen bestanden); der Typ ist noch gesperrt, bis Teil 2 und die App-Eingabe stehen. Aufgaben auf Vorrat sind also richtig. Auftrag 17 (Zeichnung Regel 3, Handy-Beispiele) hat Vorrang, wenn er noch offen ist.
 

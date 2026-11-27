@@ -13,7 +13,7 @@ Mathe-Profi, 27.11.2026. Erzeugt von `klassenleiter.py`.
 
 Regel der Prüfung: Das Thema muss in der Lehrplan-Kopie in dieser Klasse stehen. Ist das Beispiel als „Einführung“ gesetzt, muss die Kopie das Thema dort als „neu“ führen.
 
-**172 von 172 Beispielen bestehen. 0 Abweichungen:**
+**174 von 174 Beispielen bestehen. 0 Abweichungen:**
 
 | Beispiel | von mir gesetzt | Befund | |
 |---|---|---|---|

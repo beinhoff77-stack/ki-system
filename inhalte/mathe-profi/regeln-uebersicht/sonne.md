@@ -95,7 +95,7 @@ In jeder Zeile markiert: Das „· 10“ (oder „· 100“, „· 10⁻⁴“) 
 |---|---|---|---|
 | 5 | 34 ⟦· 10⟧ = 340 | Einführung | `zahlen.natuerlich` |
 | 6 | 2,5 ⟦· 10⟧ = 25 | Einführung | `bruch.dezimal` |
-| 7 | 0,15 ⟦· 100⟧ = 15, also 0,15 = 15 % | Anwendung | `bruch.prozent_grundwert` |
+| 7 | 0,15 ⟦· 100⟧ = 15, also 15 % | Anwendung | `bruch.prozent_grundwert` |
 | 8 | 3 ⟦· 10⁻⁴⟧ = 0,0003 | Anwendung | `terme.potenzgesetze_ganzzahlig` |
 | 9 | *kommt nicht vor – kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt* | – | – |
 | 10 | *kommt nicht vor – kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt* | – | – |
@@ -145,9 +145,9 @@ In jeder Zeile markiert: Die zwei Minuszeichen nebeneinander: Rechenzeichen und 
 | 5 | 3 ⟦−⟧ (⟦−⟧2) = 3 + 2 = 5 | Einführung | `zahlen.ganz` |
 | 6 | ½ ⟦−⟧ (⟦−⟧¼) = ½ + ¼ = ¾ | Anwendung | `bruch.rechnen` |
 | 7 | 3x ⟦−⟧ (⟦−⟧2x) = 3x + 2x = 5x | Anwendung | `terme.umformen` |
-| 8 | f(x) = 3 − x an der Stelle −2: 3 ⟦−⟧ (⟦−⟧2) = 3 + 2 = 5 | Anwendung | `funktionen.linear` |
+| 8 | f(x) = 3 − x, x = −2: 3 ⟦−⟧ (⟦−⟧2) = 3 + 2 = 5 | Anwendung | `funktionen.linear` |
 | 9 | 3√2 ⟦−⟧ (⟦−⟧2√2) = 3√2 + 2√2 = 5√2 | Anwendung | `zahlen.reell` |
-| 10 | f(x) = 3 − 2x³ an der Stelle −1: 3 ⟦−⟧ (⟦−⟧2) = 3 + 2 = 5 | Anwendung | `funktionen.ganzrational` |
+| 10 | f(x) = 3 − 2x³, x = −1: 3 ⟦−⟧ (⟦−⟧2) = 3 + 2 = 5 | Anwendung | `funktionen.ganzrational` |
 
 **Weitere Beispiele**
 
@@ -187,16 +187,16 @@ In jeder Zeile markiert: Die zwei Minuszeichen nebeneinander: Rechenzeichen und 
 
 **Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
 
-In jeder Zeile markiert: Die Vorzeichen der beiden Zahlen und das Vorzeichen des Ergebnisses.
+In jeder Zeile markiert: Die Vorzeichen der Zahlen und das Vorzeichen des Ergebnisses. In Klasse 10 sind es drei Minus: Ein Umdrehen bleibt übrig.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
 | 5 | (⟦−⟧3) · (⟦−⟧4) = ⟦+⟧12 | Einführung | `zahlen.rechengesetze` |
 | 6 | (⟦−⟧⅔) · (⟦−⟧¾) = ⟦+⟧½ | Anwendung | `bruch.rechnen` |
 | 7 | (⟦−⟧3x) · (⟦−⟧4) = ⟦+⟧12x | Anwendung | `terme.umformen` |
-| 8 | Steigung aus zwei Punkten: (⟦−⟧6) : (⟦−⟧2) = ⟦+⟧3 | Anwendung | `funktionen.linear` |
+| 8 | Steigung: (⟦−⟧6) : (⟦−⟧2) = ⟦+⟧3 | Anwendung | `funktionen.linear` |
 | 9 | (⟦−⟧5)² = (⟦−⟧5) · (⟦−⟧5) = ⟦+⟧25 | Anwendung | `gleichungen.quadratisch` |
-| 10 | (⟦−⟧2)³ = (⟦−⟧2) · (⟦−⟧2) · (⟦−⟧2) = ⟦−⟧8 – drei Minus: einmal umdrehen bleibt übrig | Anwendung | `funktionen.ganzrational` |
+| 10 | (⟦−⟧2)³ = (⟦−⟧2) · (⟦−⟧2) · (⟦−⟧2) = ⟦−⟧8 | Anwendung | `funktionen.ganzrational` |
 
 **Weitere Beispiele**
 
@@ -245,16 +245,16 @@ In jeder Zeile markiert: Die Vorzeichen der beiden Zahlen und das Vorzeichen des
 
 **Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
 
-In jeder Zeile markiert: Der Teil, der zuerst gerechnet wird – in jeder Zeile der Punkt-Teil hinter dem Plus.
+In jeder Zeile markiert: Der Teil, der zuerst gerechnet wird – in jeder Zeile der Punkt-Teil hinter dem Plus. Steht darin ein Hoch (Klasse 9 und 10), kommt es noch davor.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
 | 5 | 2 + ⟦3 · 4⟧ = 2 + 12 = 14 | Einführung | `zahlen.rechengesetze` |
 | 6 | ½ + ⟦½ · ½⟧ = ½ + ¼ = ¾ | Anwendung | `bruch.rechnen` |
 | 7 | 2 + ⟦3 · x⟧ bleibt 2 + 3x – nicht 5x | Anwendung | `terme.umformen` |
-| 8 | f(x) = 2 + 3x an der Stelle 4: 2 + ⟦3 · 4⟧ = 2 + 12 = 14 | Anwendung | `funktionen.linear` |
-| 9 | f(x) = 2 + 3x² an der Stelle 2: 2 + ⟦3 · 2²⟧ = 2 + 3 · 4 = 14 – im Punkt-Teil zuerst das Hoch | Anwendung | `funktionen.quadratisch` |
-| 10 | f(x) = 2 + 3 · 2ˣ an der Stelle 2: 2 + ⟦3 · 2²⟧ = 2 + 3 · 4 = 14 | Anwendung | `funktionen.exponential_log` |
+| 8 | f(x) = 2 + 3x, x = 4: 2 + ⟦3 · 4⟧ = 14 | Anwendung | `funktionen.linear` |
+| 9 | f(x) = 2 + 3x², x = 2: 2 + ⟦3 · 2²⟧ = 14 | Anwendung | `funktionen.quadratisch` |
+| 10 | f(x) = 2 + 3 · 2ˣ, x = 2: 2 + ⟦3 · 2²⟧ = 14 | Anwendung | `funktionen.exponential_log` |
 
 **Weitere Beispiele**
 
@@ -303,7 +303,7 @@ In jeder Zeile markiert: Der Summand, der wandert – immer zusammen mit seinem 
 | 5 | 12 − 30 ⟦+ 18⟧ = 12 ⟦+ 18⟧ − 30 = 0 | Einführung | `zahlen.ganz` |
 | 6 | ¼ − ½ ⟦+ ¾⟧ = ¼ ⟦+ ¾⟧ − ½ = ½ | Anwendung | `bruch.rechnen` |
 | 7 | 3a + 2b ⟦+ 4a⟧ = 3a ⟦+ 4a⟧ + 2b = 7a + 2b | Einführung | `terme.umformen` |
-| 8 | Zwei Gleichungen addieren: 2x + 3y ⟦− 2x⟧ + y = 2x ⟦− 2x⟧ + 3y + y = 4y | Anwendung | `gleichungen.lgs2` |
+| 8 | 2x + 3y ⟦− 2x⟧ + y = 2x ⟦− 2x⟧ + 4y = 4y | Anwendung | `gleichungen.lgs2` |
 | 9 | 3√2 + 5 ⟦+ 2√2⟧ = 3√2 ⟦+ 2√2⟧ + 5 = 5√2 + 5 | Anwendung | `zahlen.reell` |
 | 10 | 3x³ + 2x ⟦+ 4x³⟧ = 3x³ ⟦+ 4x³⟧ + 2x = 7x³ + 2x | Anwendung | `funktionen.ganzrational` |
 
@@ -352,7 +352,7 @@ In jeder Zeile markiert: Der Faktor vor der Klammer – an allen drei Stellen, a
 | 5 | ⟦6⟧ · (20 + 2) = ⟦6⟧ · 20 + ⟦6⟧ · 2 = 132 | Einführung | `zahlen.rechengesetze` |
 | 6 | ⟦4⟧ · (2 + ½) = ⟦4⟧ · 2 + ⟦4⟧ · ½ = 10 | Anwendung | `bruch.rechnen` |
 | 7 | ⟦3⟧ · (x + 2) = ⟦3⟧ · x + ⟦3⟧ · 2 = 3x + 6 | Einführung | `terme.umformen` |
-| 8 | ⟦x⟧ · (3/x + ½) = ⟦x⟧ · 3/x + ⟦x⟧ · ½ = 3 + x/2, für x ≠ 0 | Anwendung | `gleichungen.bruch` |
+| 8 | ⟦x⟧ · (3/x + ½) = ⟦x⟧ · 3/x + ⟦x⟧ · ½, für x ≠ 0 | Anwendung | `gleichungen.bruch` |
 | 9 | ⟦√2⟧ · (√2 + 3) = ⟦√2⟧ · √2 + ⟦√2⟧ · 3 = 2 + 3√2 | Anwendung | `zahlen.reell` |
 | 10 | ⟦x⟧ · (x² − 4) = ⟦x⟧ · x² − ⟦x⟧ · 4 = x³ − 4x | Anwendung | `gleichungen.polynom` |
 
@@ -404,7 +404,7 @@ In jeder Zeile markiert: Das Minus vor der Klammer und das Zeichen in der Klamme
 | 6 | 2 ⟦−⟧ (¾ ⟦−⟧ ¼) = 2 ⟦−⟧ ¾ ⟦+⟧ ¼ = 1½ | Vorwissen | `bruch.rechnen` |
 | 7 | 5x ⟦−⟧ (3x ⟦−⟧ 2) = 5x ⟦−⟧ 3x ⟦+⟧ 2 = 2x + 2 | Einführung | `terme.umformen` |
 | 8 | 7 ⟦−⟧ (2x ⟦−⟧ 6) = 7 ⟦−⟧ 2x ⟦+⟧ 6 = 13 − 2x | Anwendung | `gleichungen.ungleichungen` |
-| 9 | (x + 1)² ⟦−⟧ (x² ⟦−⟧ 3) = x² + 2x + 1 ⟦−⟧ x² ⟦+⟧ 3 = 2x + 4 | Anwendung | `gleichungen.quadratisch` |
+| 9 | x² ⟦−⟧ (x² ⟦−⟧ 3x) = x² ⟦−⟧ x² ⟦+⟧ 3x = 3x | Anwendung | `gleichungen.quadratisch` |
 | 10 | x³ ⟦−⟧ (x³ ⟦−⟧ 4x) = x³ ⟦−⟧ x³ ⟦+⟧ 4x = 4x | Anwendung | `gleichungen.polynom` |
 
 **Weitere Beispiele**
@@ -452,7 +452,7 @@ In jeder Zeile markiert: Die Hochzahlen: Sie zählen die Faktoren und werden bei
 | 6 | 10⟦³⟧ · 10⟦²⟧ = 10⟦⁵⟧ = 100 000 | Anwendung | `zahlen.potenzen_zehner` |
 | 7 | x⟦³⟧ · x⟦²⟧ = (x · x · x) · (x · x) = x⟦⁵⟧ | Einführung | `terme.potenzgesetze_natuerlich` |
 | 8 | x⟦³⟧ · x⟦⁻²⟧ = x⟦¹⟧ = x, für x ≠ 0 | Einführung | `terme.potenzgesetze_ganzzahlig` |
-| 9 | x^⟦½⟧ · x^⟦½⟧ = x⟦¹⟧ = x, für x ≥ 0 – also ist x^½ die Wurzel aus x | Einführung | `zahlen.rationale_exponenten` |
+| 9 | x^⟦½⟧ · x^⟦½⟧ = x⟦¹⟧ = x, für x ≥ 0 | Einführung | `zahlen.rationale_exponenten` |
 | 10 | 2⟦ˣ⟧ · 2⟦³⟧ = 2 hoch ⟦x + 3⟧ | Anwendung | `funktionen.exponential_log` |
 
 **Weitere Beispiele**
@@ -500,9 +500,9 @@ In jeder Zeile markiert: Der gemeinsame Faktor – einmal im Zähler, einmal im 
 | 5 | *kommt nicht vor – der Stoff dafür beginnt später (Brüche ab Klasse 6)* | – | – |
 | 6 | 12/18 = (2 · ⟦6⟧) / (3 · ⟦6⟧) = 2/3 | Einführung | `bruch.brueche` |
 | 7 | 6x/9 = (2x · ⟦3⟧) / (3 · ⟦3⟧) = 2x/3 | Anwendung | `gleichungen.linear` |
-| 8 | (3x + 6) / (x + 2) = (3 · ⟦(x + 2)⟧) / (1 · ⟦(x + 2)⟧) = 3, für x ≠ −2 | Anwendung | `terme.bruchterme` |
-| 9 | Seitenverhältnis 6 cm : 9 cm = (2 · ⟦3⟧) : (3 · ⟦3⟧) = 2 : 3 | Anwendung | `abbildungen.aehnlichkeit` |
-| 10 | Zweiter Zug aus der Urne: 2/4 = (1 · ⟦2⟧) / (2 · ⟦2⟧) = ½ | Anwendung | `stochastik.mehrstufig` |
+| 8 | (3 · ⟦(x + 2)⟧) / (1 · ⟦(x + 2)⟧) = 3, für x ≠ −2 | Anwendung | `terme.bruchterme` |
+| 9 | 6 cm : 9 cm = (2 · ⟦3⟧) : (3 · ⟦3⟧) = 2 : 3 | Anwendung | `abbildungen.aehnlichkeit` |
+| 10 | 2/4 = (1 · ⟦2⟧) / (2 · ⟦2⟧) = ½ | Anwendung | `stochastik.mehrstufig` |
 
 **Weitere Beispiele**
 
@@ -552,8 +552,8 @@ In jeder Zeile markiert: Der gemeinsame Nenner – in jedem der drei Brüche.
 | 6 | 1/2 + 1/3 = 3/⟦6⟧ + 2/⟦6⟧ = 5/⟦6⟧ | Einführung | `bruch.rechnen` |
 | 7 | x/2 + x/3 = 3x/⟦6⟧ + 2x/⟦6⟧ = 5x/⟦6⟧ | Anwendung | `gleichungen.linear` |
 | 8 | 1/x + 1/(2x) = 2/⟦2x⟧ + 1/⟦2x⟧ = 3/⟦2x⟧, für x ≠ 0 | Anwendung | `terme.bruchterme` |
-| 9 | Additionssatz: 1/2 + 1/3 − 1/6 = 3/⟦6⟧ + 2/⟦6⟧ − 1/⟦6⟧ = 4/⟦6⟧ = ⅔ | Anwendung | `stochastik.verknuepft` |
-| 10 | Zwei Pfade addieren: 1/6 + 1/3 = 1/⟦6⟧ + 2/⟦6⟧ = 3/⟦6⟧ = ½ | Anwendung | `stochastik.mehrstufig` |
+| 9 | 1/2 + 1/3 − 1/6 = 3/⟦6⟧ + 2/⟦6⟧ − 1/⟦6⟧ = 4/⟦6⟧ | Anwendung | `stochastik.verknuepft` |
+| 10 | 1/6 + 1/3 = 1/⟦6⟧ + 2/⟦6⟧ = 3/⟦6⟧ | Anwendung | `stochastik.mehrstufig` |
 
 **Weitere Beispiele**
 
@@ -594,16 +594,16 @@ In jeder Zeile markiert: Der gemeinsame Nenner – in jedem der drei Brüche.
 
 **Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
 
-In jeder Zeile markiert: Die mittlere Zeile: der Wert für eins.
+In jeder Zeile markiert: Die Eins in der Mitte: erst auf eins, dann auf viele.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | 3 kg kosten 7,50 € → ⟦1 kg kostet 2,50 €⟧ → 5 kg kosten 12,50 € | Einführung | `groessen.proportional` |
-| 6 | 100 % sind 60 € → ⟦1 % sind 0,60 €⟧ → 25 % sind 15 € | Einführung | `bruch.prozent` |
-| 7 | 80 % sind 48 € → ⟦1 % sind 0,60 €⟧ → 100 % sind 60 € | Anwendung | `bruch.prozent_grundwert` |
-| 8 | 2 nach rechts, 3 nach oben → ⟦1 nach rechts, 1,5 nach oben⟧ → 4 nach rechts, 6 nach oben (Steigung 1,5) | Anwendung | `funktionen.linear` |
-| 9 | 2 cm gehören zu 3 cm → ⟦1 cm gehört zu 1,5 cm⟧ → 4 cm gehören zu 6 cm (Strahlensatz) | Anwendung | `abbildungen.aehnlichkeit` |
-| 10 | 360° sind 2π → ⟦1° ist π/180⟧ → 90° sind π/2 (Bogenmaß) | Anwendung | `funktionen.trig` |
+| 5 | 3 kg: 7,50 € → ⟦1 kg⟧: 2,50 € → 5 kg: 12,50 € | Einführung | `groessen.proportional` |
+| 6 | 100 %: 60 € → ⟦1 %⟧: 0,60 € → 25 %: 15 € | Einführung | `bruch.prozent` |
+| 7 | 80 %: 48 € → ⟦1 %⟧: 0,60 € → 100 %: 60 € | Anwendung | `bruch.prozent_grundwert` |
+| 8 | x = 2: y = 3 → ⟦x = 1⟧: y = 1,5 → x = 4: y = 6 | Anwendung | `funktionen.linear` |
+| 9 | 2 cm: 3 cm → ⟦1 cm⟧: 1,5 cm → 4 cm: 6 cm | Anwendung | `abbildungen.aehnlichkeit` |
+| 10 | 360°: 2π → ⟦1°⟧: π/180 → 90°: π/2 | Anwendung | `funktionen.trig` |
 
 **Weitere Beispiele**
 
@@ -650,8 +650,8 @@ In jeder Zeile markiert: Die Rechnung und ihre Gegenrechnung – als Paar.
 | 5 | □ ⟦+ 7⟧ = 3, also □ = 3 ⟦− 7⟧ = −4 | Einführung | `gleichungen.einfach` |
 | 6 | □ ⟦· ¾⟧ = 12, also □ = 12 ⟦: ¾⟧ = 16 | Anwendung | `bruch.rechnen` |
 | 7 | G ⟦· 1,2⟧ = 60 €, also G = 60 € ⟦: 1,2⟧ = 50 € | Anwendung | `bruch.prozent_grundwert` |
-| 8 | A = g ⟦· h⟧, also g = A ⟦: h⟧ – mit A = 42 und h = 7 ist g = 6 | Anwendung | `gleichungen.formeln` |
-| 9 | x ⟦hoch 2⟧ = 49, also x = ⟦±√⟧49: x = 7 oder x = −7 | Einführung | `gleichungen.quadratisch` |
+| 8 | A = g ⟦· h⟧, also g = A ⟦: h⟧ | Anwendung | `gleichungen.formeln` |
+| 9 | x ⟦hoch 2⟧ = 49, also x = ⟦±√⟧49 = ±7 | Einführung | `gleichungen.quadratisch` |
 | 10 | 2 ⟦hoch x⟧ = 8, also x = ⟦log₂⟧ 8 = 3 | Einführung | `gleichungen.exponential` |
 
 **Weitere Beispiele**
@@ -746,12 +746,12 @@ In jeder Zeile markiert: Die Null rechts und der Faktor, der null wird.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | ⟦□⟧ · 7 = ⟦0⟧, also □ = 0 | Vorwissen | `gleichungen.einfach` |
+| 5 | ⟦□⟧ · 7 = ⟦0⟧: □ = 0 | Vorwissen | `gleichungen.einfach` |
 | 6 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 7 | *kommt nicht vor – kein Thema der App in dieser Klasse (Gleichungen mit x² erst ab Klasse 9)* | – | – |
-| 8 | Der Nenner ⟦x⟧ · ⟦(x − 4)⟧ wird ⟦0⟧ für x = 0 oder x = 4 – diese Zahlen sind nicht erlaubt | Vorwissen | `terme.bruchterme` |
-| 9 | ⟦(x − 2)⟧ · ⟦(x + 3)⟧ = ⟦0⟧, also x = 2 oder x = −3 | Einführung | `gleichungen.quadratisch` |
-| 10 | ⟦x⟧ · ⟦(x − 2)⟧ · ⟦(x + 2)⟧ = ⟦0⟧, also x = 0, x = 2 oder x = −2 | Anwendung | `gleichungen.polynom` |
+| 8 | Nenner ⟦x⟧ · ⟦(x − 4)⟧ = ⟦0⟧: x = 0 oder 4 | Vorwissen | `terme.bruchterme` |
+| 9 | ⟦(x − 2)⟧ · ⟦(x + 3)⟧ = ⟦0⟧: x = 2 oder −3 | Einführung | `gleichungen.quadratisch` |
+| 10 | ⟦x⟧ · ⟦(x − 2)⟧ · ⟦(x + 2)⟧ = ⟦0⟧: x = 0, 2 oder −2 | Anwendung | `gleichungen.polynom` |
 
 **Weitere Beispiele**
 

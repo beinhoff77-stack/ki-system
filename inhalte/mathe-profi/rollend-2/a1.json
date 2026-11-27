@@ -1,0 +1,1351 @@
+{
+ "stand": "2026-11-27",
+ "flug": "a1",
+ "titel": "Einfache Gleichungen",
+ "fuer": "Kind 1",
+ "klasse": 5,
+ "thema": "gleichungen.einfach",
+ "hinweis": "Aufgaben auf Vorrat, rollendes System Stufe 2. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: erst die Aufgaben ohne Bau, dann die des Typs „bedingung“, jeweils mit aufsteigender Stufe.",
+ "aufgaben": [
+  {
+   "kennung": "A1-01",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "waage",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 29,
+     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "8 dazugezählt statt weggenommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 21,
+     "fehlbild": "fb.waage.nur_eine_seite",
+     "regel_des_fehlbilds": "rr.waage",
+     "beschreibung": "rechts nichts weggenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "waage",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "x + 8 = 21 als Waage: Links bleibt nur x übrig, wenn du ① wegnimmst. Dasselbe nimmst du rechts weg. Rechts bleiben dann ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      8,
+      13
+     ]
+    },
+    "c": [
+     "8",
+     "21 - 8"
+    ],
+    "h": "Was du links wegnimmst, nimmst du auch rechts weg.",
+    "w": "Auf beiden Seiten 8 weg: links bleibt x, rechts 21 − 8 = 13. Also x = 13."
+   }
+  },
+  {
+   "kennung": "A1-02",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "zwei_schritte",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 38,
+     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "31 + 7 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_schritte",
+    "t": "umkehren",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Löse 4 · x + 7 = 31 rückwärts. Erst 31 − 7 = ①. Dann ① : 4 = ②. Also x = ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      24,
+      6
+     ]
+    },
+    "c": [
+     "31 - 7",
+     "(31 - 7) // 4"
+    ],
+    "h": "Der letzte Schritt war „+ 7“. Den machst du zuerst rückgängig.",
+    "w": "31 − 7 = 24, dann 24 : 4 = 6. Probe: 4 · 6 + 7 = 31."
+   }
+  },
+  {
+   "kennung": "A1-03",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "zwei_schritte",
+   "stufe": 1,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Es müsste − 3 statt + 3 heißen.",
+     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "dieselbe Rechnung statt der Gegenrechnung"
+    },
+    {
+     "index": 1,
+     "antwort": "Es müsste · 5 statt : 5 heißen.",
+     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "dieselbe Rechnung statt der Gegenrechnung"
+    },
+    {
+     "index": 2,
+     "antwort": "Nichts, der Weg stimmt.",
+     "fehlbild": "fb.gegenrechnung.reihenfolge_nicht_umgekehrt",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "den Fehler in der Reihenfolge nicht bemerkt"
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_schritte",
+    "t": "umkehren",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Jemand löst 5 · x − 3 = 32 so: Schritt 1: 32 : 5. Schritt 2: Ergebnis + 3. Was ist falsch?"
+    },
+    "a": [
+     "Es müsste − 3 statt + 3 heißen.",
+     "Es müsste · 5 statt : 5 heißen.",
+     "Nichts, der Weg stimmt.",
+     "Die Reihenfolge: erst + 3, dann : 5."
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Welcher Schritt kam in der Gleichung zuletzt?",
+    "w": "Zuletzt wurde 3 abgezogen. Das wird zuerst rückgängig gemacht: 32 + 3 = 35, dann 35 : 5 = 7."
+   }
+  },
+  {
+   "kennung": "A1-04",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "probe",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "40 für x einsetzen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Ergebnis statt der Lösung eingesetzt"
+    },
+    {
+     "index": 2,
+     "antwort": "9 und 40 zusammenzählen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "kein Bezug zur Gleichung"
+    },
+    {
+     "index": 3,
+     "antwort": "die Gleichung noch einmal auf demselben Weg lösen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "derselbe Weg wiederholt auch denselben Fehler"
+    }
+   ],
+   "aufgabe": {
+    "l": "probe",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Du willst prüfen, ob x = 9 die Gleichung 6 · x − 14 = 40 löst. Was tust du?"
+    },
+    "a": [
+     "40 für x einsetzen",
+     "9 für x einsetzen und beide Seiten vergleichen",
+     "9 und 40 zusammenzählen",
+     "die Gleichung noch einmal auf demselben Weg lösen"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Eine Lösung macht beide Seiten gleich.",
+    "w": "Einsetzen: 6 · 9 − 14 = 40. Beide Seiten sind gleich, also ist 9 die Lösung."
+   }
+  },
+  {
+   "kennung": "A1-05",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "ohne_loesung",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "14 ist nicht durch 6 teilbar.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falscher Grund: 6 · x + 2 = 14 hat die Lösung 2, obwohl 14 nicht durch 6 teilbar ist"
+    },
+    {
+     "index": 2,
+     "antwort": "20 ist größer als 6.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Vergleich ohne Bedeutung"
+    },
+    {
+     "index": 3,
+     "antwort": "Links steht ein Plus.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Vergleich ohne Bedeutung"
+    }
+   ],
+   "aufgabe": {
+    "l": "ohne_loesung",
+    "t": "loesbarkeit",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Woran erkennst du, dass 6 · x + 20 = 14 in ℕ keine Lösung hat?"
+    },
+    "a": [
+     "14 ist nicht durch 6 teilbar.",
+     "Rückwärts müsstest du 14 − 20 rechnen. Das geht in ℕ nicht.",
+     "20 ist größer als 6.",
+     "Links steht ein Plus."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Rechne den ersten Schritt rückwärts.",
+    "w": "Rückwärts: 14 − 20. Das Ergebnis läge unter 0. In ℕ gibt es deshalb keine Lösung."
+   }
+  },
+  {
+   "kennung": "A1-06",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "zwei_schritte",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "48 − 12 gerechnet, dann : 6"
+    },
+    {
+     "antwort": 20,
+     "fehlbild": "fb.gegenrechnung.reihenfolge_nicht_umgekehrt",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "erst : 6, dann + 12"
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_schritte",
+    "t": "umkehren",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ich denke mir eine Zahl, nehme sie mal 6 und ziehe 12 ab. Ich erhalte 48. Welche Zahl habe ich mir gedacht?"
+    },
+    "o": {
+     "wert": 10
+    },
+    "c": "(48 + 12) // 6",
+    "h": "Rechne rückwärts. Was kam zuletzt?",
+    "w": "Zuletzt wurde 12 abgezogen: 48 + 12 = 60. Davor mal 6: 60 : 6 = 10."
+   }
+  },
+  {
+   "kennung": "A1-07",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "waage",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": "fb.waage.nur_ein_summand",
+     "regel_des_fehlbilds": "rr.waage",
+     "beschreibung": "die 12 nicht mitgeteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "waage",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei Wege für 3 · x + 12 = 30. Weg A: erst − 12, dann : 3. Weg B: erst beide Seiten durch 3 teilen. Dann steht da x + ? = 10. Welche Zahl steht für das Fragezeichen?"
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "12 // 3",
+    "h": "Beim Teilen wird links jeder Summand geteilt.",
+    "w": "Geteilt durch 3: aus 3 · x wird x, aus 12 wird 4, aus 30 wird 10. Also x + 4 = 10 und x = 6 – wie bei Weg A."
+   }
+  },
+  {
+   "kennung": "A1-08",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "waage",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "luecken",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 4,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die 4 weggenommen, nicht geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "waage",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "luecken",
+    "f": {
+     "text": "Links liegen drei gleiche Säckchen mit je x Kugeln und 4 einzelne Kugeln. Rechts liegen 19 Kugeln. Die Waage ist im Gleichgewicht. Schreibe die Gleichung und löse sie.",
+     "schablone": "□ · x + □ = □; x = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      3,
+      4,
+      19,
+      5
+     ]
+    },
+    "c": [
+     "3",
+     "4",
+     "19",
+     "(19 - 4) // 3"
+    ],
+    "h": "Säckchen sind das x. Einzelne Kugeln sind Zahlen.",
+    "w": "3 · x + 4 = 19. Auf beiden Seiten 4 weg: 3 · x = 15. Geteilt durch 3: x = 5."
+   }
+  },
+  {
+   "kennung": "A1-09",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "aufstellen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "4 · (x − 5) = 23",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„vermindert um 5“ auf die Zahl statt auf das Vierfache bezogen"
+    },
+    {
+     "index": 1,
+     "antwort": "5 − 4 · x = 23",
+     "fehlbild": "fb.tauschen.minus_getauscht",
+     "regel_des_fehlbilds": "rr.tauschen",
+     "beschreibung": "beim Minus die Reihenfolge getauscht"
+    },
+    {
+     "index": 3,
+     "antwort": "x : 4 − 5 = 23",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„das Vierfache“ als geteilt durch 4 gelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "aufstellen",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "„Das Vierfache einer Zahl, vermindert um 5, ergibt 23.“ Welche Gleichung passt?"
+    },
+    "a": [
+     "4 · (x − 5) = 23",
+     "5 − 4 · x = 23",
+     "4 · x − 5 = 23",
+     "x : 4 − 5 = 23"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Übersetze Stück für Stück: erst „das Vierfache“, dann „vermindert um 5“.",
+    "w": "Das Vierfache: 4 · x. Vermindert um 5: 4 · x − 5. Ergibt 23: 4 · x − 5 = 23. (Lösung: x = 7.)"
+   }
+  },
+  {
+   "kennung": "A1-10",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "aufstellen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Das Dreifache einer Zahl, vermehrt um 6, ergibt 27.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammer nicht beachtet"
+    },
+    {
+     "index": 2,
+     "antwort": "Eine Zahl wird durch 3 geteilt und um 6 vermehrt. Das ergibt 27.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal 3 als geteilt durch 3 gelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "aufstellen",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "auswahl",
+    "f": {
+     "text": "Welcher Satz passt zur Gleichung (x + 6) · 3 = 27?"
+    },
+    "a": [
+     "Das Dreifache einer Zahl, vermehrt um 6, ergibt 27.",
+     "Zu einer Zahl wird 6 addiert. Das Dreifache dieser Summe ist 27.",
+     "Eine Zahl wird durch 3 geteilt und um 6 vermehrt. Das ergibt 27."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Was passiert wegen der Klammer zuerst?",
+    "w": "Die Klammer kommt zuerst: x + 6. Dann mal 3. Der erste Satz gehört zu 3 · x + 6 = 27."
+   }
+  },
+  {
+   "kennung": "A1-11",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "probe",
+   "stufe": 2,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 6 nicht abgezogen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Noras falsche Lösung übernommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "probe",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "Nora löst 8 · x − 6 = 50 und erhält x = 6. Mach die Probe: Mit x = 6 ergibt die linke Seite ①. Das ist nicht 50. Die richtige Lösung ist x = ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      42,
+      7
+     ]
+    },
+    "c": [
+     "8 * 6 - 6",
+     "(50 + 6) // 8"
+    ],
+    "h": "Setze 6 ein. Löse dann selbst rückwärts.",
+    "w": "8 · 6 − 6 = 42, also stimmt 6 nicht. Rückwärts: 50 + 6 = 56, 56 : 8 = 7."
+   }
+  },
+  {
+   "kennung": "A1-12",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "probe",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 46,
+     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "26 + 20 gerechnet"
+    },
+    {
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 5 abgezogen, das Malnehmen vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "probe",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Die Gleichung 4 · x + □ = 26 soll die Lösung x = 5 haben. Welche Zahl gehört in das Kästchen?"
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "26 - 4 * 5",
+    "h": "Setze 5 für x ein.",
+    "w": "4 · 5 = 20. Bis 26 fehlen 6."
+   }
+  },
+  {
+   "kennung": "A1-13",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "zwei_schritte",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 28,
+     "fehlbild": "fb.gegenrechnung.reihenfolge_nicht_umgekehrt",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "in der Reihenfolge der Gleichung zurückgerechnet: · 3, − 4, : 2"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nach dem zweiten Schritt aufgehört"
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_schritte",
+    "t": "umkehren",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "(x : 3 + 4) · 2 = 20. Rechne rückwärts: Welche Zahl ist x?"
+    },
+    "o": {
+     "wert": 18
+    },
+    "c": "(20 // 2 - 4) * 3",
+    "h": "Drei Schritte. Der letzte war „· 2“.",
+    "w": "20 : 2 = 10. Dann 10 − 4 = 6. Dann 6 · 3 = 18. Probe: 18 : 3 + 4 = 10, mal 2 ist 20."
+   }
+  },
+  {
+   "kennung": "A1-14",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "ohne_loesung",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Nein: x = 5 ist eine Lösung.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht nachgerechnet: 7 · 5 + 3 = 38"
+    },
+    {
+     "index": 2,
+     "antwort": "Nein: Jede Gleichung hat eine Lösung.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Regel der Lernkarte nicht beachtet"
+    },
+    {
+     "index": 3,
+     "antwort": "Ja: weil 3 kleiner ist als 7.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "richtiges Urteil, falscher Grund"
+    }
+   ],
+   "aufgabe": {
+    "l": "ohne_loesung",
+    "t": "loesbarkeit",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Tom sagt: „7 · x + 3 = 40 hat in ℕ keine Lösung.“ Stimmt das?"
+    },
+    "a": [
+     "Ja: 40 − 3 = 37, und 37 lässt sich nicht ohne Rest durch 7 teilen.",
+     "Nein: x = 5 ist eine Lösung.",
+     "Nein: Jede Gleichung hat eine Lösung.",
+     "Ja: weil 3 kleiner ist als 7."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Rechne rückwärts und schau, ob das Teilen aufgeht.",
+    "w": "40 − 3 = 37. 37 : 7 geht nicht auf (7 · 5 = 35, 7 · 6 = 42). In ℕ gibt es keine Lösung."
+   }
+  },
+  {
+   "kennung": "A1-15",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "aufstellen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 27,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die 4 € abgezogen"
+    },
+    {
+     "antwort": 35,
+     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "die 4 € dazugezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "aufstellen",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Drei Freunde kaufen zusammen ein Geschenk für 31 €. Jeder zahlt gleich viel. Die fehlenden 4 € kommen aus der Klassenkasse. Wie viel Euro zahlt jeder?"
+    },
+    "o": {
+     "wert": 9,
+     "einheit": "€"
+    },
+    "c": "(31 - 4) // 3",
+    "h": "Nenne den Betrag eines Freundes x und stelle eine Gleichung auf.",
+    "w": "3 · x + 4 = 31. Rückwärts: 31 − 4 = 27, 27 : 3 = 9."
+   }
+  },
+  {
+   "kennung": "A1-B1",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "probe",
+   "stufe": 1,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "probe",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne eine natürliche Zahl x, für die 3 · x + 2 größer als 20 und kleiner als 30 ist.",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "größer als 20",
+       "pruefe": [
+        ">",
+        [
+         "+",
+         [
+          "*",
+          3,
+          "$1"
+         ],
+         2
+        ],
+        20
+       ],
+       "zeige": [
+        "+",
+        [
+         "*",
+         3,
+         "$1"
+        ],
+        2
+       ],
+       "hinweis": "Mit deiner Zahl hat 3 · x + 2 den Wert {}."
+      },
+      {
+       "name": "kleiner als 30",
+       "pruefe": [
+        "<",
+        [
+         "+",
+         [
+          "*",
+          3,
+          "$1"
+         ],
+         2
+        ],
+        30
+       ],
+       "zeige": [
+        "+",
+        [
+         "*",
+         3,
+         "$1"
+        ],
+        2
+       ],
+       "hinweis": "Mit deiner Zahl hat 3 · x + 2 den Wert {}."
+      }
+     ],
+     "beispiel": [
+      7
+     ],
+     "gut": [
+      [
+       8
+      ],
+      [
+       9
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        6
+       ],
+       "verletzt": "größer als 20"
+      },
+      {
+       "werte": [
+        10
+       ],
+       "verletzt": "kleiner als 30"
+      },
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "größer als 20"
+      }
+     ]
+    },
+    "h": "Setze eine Zahl ein und rechne aus.",
+    "w": "Es passen 7, 8 und 9: Sie ergeben 23, 26 und 29."
+   }
+  },
+  {
+   "kennung": "A1-B2",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "aufstellen",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "aufstellen",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Erfinde ein Zahlenrätsel zur gedachten Zahl 7: „Ich nehme meine Zahl mal □ und zähle □ dazu. Ich erhalte □.“ Die erste Zahl soll größer als 1 sein, die zweite größer als 0.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "erste Zahl größer als 1",
+       "pruefe": [
+        ">",
+        "$1",
+        1
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine erste Zahl ist {}."
+      },
+      {
+       "name": "zweite Zahl größer als 0",
+       "pruefe": [
+        ">",
+        "$2",
+        0
+       ],
+       "zeige": "$2",
+       "hinweis": "Deine zweite Zahl ist {}."
+      },
+      {
+       "name": "das Rätsel stimmt für die 7",
+       "pruefe": [
+        "=",
+        [
+         "+",
+         [
+          "*",
+          "$1",
+          7
+         ],
+         "$2"
+        ],
+        "$3"
+       ],
+       "zeige": [
+        "+",
+        [
+         "*",
+         "$1",
+         7
+        ],
+        "$2"
+       ],
+       "hinweis": "Mit der 7 kommt bei deinem Rätsel {} heraus."
+      }
+     ],
+     "beispiel": [
+      3,
+      4,
+      25
+     ],
+     "gut": [
+      [
+       2,
+       1,
+       15
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        1,
+        4,
+        11
+       ],
+       "verletzt": "erste Zahl größer als 1"
+      },
+      {
+       "werte": [
+        3,
+        0,
+        21
+       ],
+       "verletzt": "zweite Zahl größer als 0"
+      },
+      {
+       "werte": [
+        3,
+        4,
+        24
+       ],
+       "verletzt": "das Rätsel stimmt für die 7"
+      }
+     ]
+    },
+    "h": "Rechne dein Rätsel mit der 7 durch.",
+    "w": "Zum Beispiel mal 3 und plus 4: 7 · 3 + 4 = 25."
+   }
+  },
+  {
+   "kennung": "A1-B3",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "waage",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "waage",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "bedingung",
+    "f": {
+     "text": "Links liegen einige gleiche Säckchen und 2 einzelne Kugeln, rechts 20 Kugeln. Die Waage ist im Gleichgewicht. Nenne eine mögliche Zahl der Säckchen und die Zahl der Kugeln in jedem Säckchen. Beide Zahlen sollen größer als 1 sein.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "beide größer als 1",
+       "pruefe": [
+        ">",
+        [
+         "min",
+         "$alle"
+        ],
+        1
+       ],
+       "zeige": [
+        "min",
+        "$alle"
+       ],
+       "hinweis": "Deine kleinere Zahl ist {}."
+      },
+      {
+       "name": "Waage im Gleichgewicht",
+       "pruefe": [
+        "=",
+        [
+         "+",
+         [
+          "*",
+          "$1",
+          "$2"
+         ],
+         2
+        ],
+        20
+       ],
+       "zeige": [
+        "+",
+        [
+         "*",
+         "$1",
+         "$2"
+        ],
+        2
+       ],
+       "hinweis": "Links liegen bei dir {} Kugeln."
+      }
+     ],
+     "beispiel": [
+      3,
+      6
+     ],
+     "gut": [
+      [
+       2,
+       9
+      ],
+      [
+       9,
+       2
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        1,
+        18
+       ],
+       "verletzt": "beide größer als 1"
+      },
+      {
+       "werte": [
+        3,
+        5
+       ],
+       "verletzt": "Waage im Gleichgewicht"
+      },
+      {
+       "werte": [
+        4,
+        5
+       ],
+       "verletzt": "Waage im Gleichgewicht"
+      }
+     ]
+    },
+    "h": "Wie viele Kugeln müssen in allen Säckchen zusammen sein?",
+    "w": "In den Säckchen sind zusammen 18 Kugeln. Es passen 2 Säckchen mit 9, 3 mit 6, 6 mit 3 oder 9 mit 2."
+   }
+  },
+  {
+   "kennung": "A1-B4",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "ohne_loesung",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "ohne_loesung",
+    "t": "loesbarkeit",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "bedingung",
+    "f": {
+     "text": "Setze eine Zahl zwischen 1 und 19 ein, sodass die Gleichung 3 · x + □ = 20 in ℕ keine Lösung hat.",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "zwischen 1 und 19",
+       "pruefe": [
+        "und",
+        [
+         ">=",
+         "$1",
+         1
+        ],
+        [
+         "<=",
+         "$1",
+         19
+        ]
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine Zahl ist {}."
+      },
+      {
+       "name": "keine Lösung in ℕ",
+       "pruefe": [
+        "nicht",
+        [
+         "teilbar",
+         [
+          "-",
+          20,
+          "$1"
+         ],
+         3
+        ]
+       ],
+       "zeige": [
+        "/",
+        [
+         "-",
+         20,
+         "$1"
+        ],
+        3
+       ],
+       "hinweis": "Mit deiner Zahl ist x = {} eine Lösung."
+      }
+     ],
+     "beispiel": [
+      4
+     ],
+     "gut": [
+      [
+       1
+      ],
+      [
+       19
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        25
+       ],
+       "verletzt": "zwischen 1 und 19"
+      },
+      {
+       "werte": [
+        2
+       ],
+       "verletzt": "keine Lösung in ℕ"
+      },
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "zwischen 1 und 19"
+      },
+      {
+       "werte": [
+        17
+       ],
+       "verletzt": "keine Lösung in ℕ"
+      }
+     ]
+    },
+    "h": "Rechne rückwärts: Was muss sich dann durch 3 teilen lassen?",
+    "w": "Rückwärts bleibt 20 minus deine Zahl. Lässt sich das nicht ohne Rest durch 3 teilen, gibt es keine Lösung. Zum Beispiel 4: 16 : 3 geht nicht auf."
+   }
+  },
+  {
+   "kennung": "A1-B5",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "zwei_schritte",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "zwei_schritte",
+    "t": "umkehren",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "bedingung",
+    "f": {
+     "text": "Baue eine Gleichung der Form □ · x − □ = □ mit der Lösung x = 6. Die drei Zahlen sollen verschieden und alle größer als 1 sein.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "alle größer als 1",
+       "pruefe": [
+        ">",
+        [
+         "min",
+         "$alle"
+        ],
+        1
+       ],
+       "zeige": [
+        "min",
+        "$alle"
+       ],
+       "hinweis": "Deine kleinste Zahl ist {}."
+      },
+      {
+       "name": "verschieden",
+       "pruefe": [
+        "verschieden",
+        "$alle"
+       ],
+       "hinweis": "Die drei Zahlen sollen verschieden sein."
+      },
+      {
+       "name": "x = 6 ist die Lösung",
+       "pruefe": [
+        "=",
+        [
+         "-",
+         [
+          "*",
+          "$1",
+          6
+         ],
+         "$2"
+        ],
+        "$3"
+       ],
+       "zeige": [
+        "-",
+        [
+         "*",
+         "$1",
+         6
+        ],
+        "$2"
+       ],
+       "hinweis": "Mit x = 6 hat deine linke Seite den Wert {}."
+      }
+     ],
+     "beispiel": [
+      3,
+      4,
+      14
+     ],
+     "gut": [
+      [
+       2,
+       3,
+       9
+      ],
+      [
+       5,
+       10,
+       20
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        2,
+        1,
+        11
+       ],
+       "verletzt": "alle größer als 1"
+      },
+      {
+       "werte": [
+        3,
+        3,
+        15
+       ],
+       "verletzt": "verschieden"
+      },
+      {
+       "werte": [
+        3,
+        4,
+        15
+       ],
+       "verletzt": "x = 6 ist die Lösung"
+      }
+     ]
+    },
+    "h": "Wähle die ersten zwei Zahlen und rechne mit x = 6 die linke Seite aus.",
+    "w": "Zum Beispiel 3 · x − 4 = 14, denn 3 · 6 − 4 = 14."
+   }
+  }
+ ]
+}

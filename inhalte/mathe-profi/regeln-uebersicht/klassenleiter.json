@@ -54,7 +54,7 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "bruch.prozent_grundwert",
-     "text": "0,15 · 100 = 15, also 0,15 = 15 %",
+     "text": "0,15 · 100 = 15, also 15 %",
      "wirkende_stelle": [
       "· 100"
      ],
@@ -178,19 +178,19 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "funktionen.linear",
-     "text": "f(x) = 3 − x an der Stelle −2: 3 − (−2) = 3 + 2 = 5",
+     "text": "f(x) = 3 − x, x = −2: 3 − (−2) = 3 + 2 = 5",
      "wirkende_stelle": [
       "−",
       "−"
      ],
      "wirkende_stelle_positionen": [
       [
-       33,
-       34
+       24,
+       25
       ],
       [
-       36,
-       37
+       27,
+       28
       ]
      ]
     },
@@ -220,19 +220,19 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "funktionen.ganzrational",
-     "text": "f(x) = 3 − 2x³ an der Stelle −1: 3 − (−2) = 3 + 2 = 5",
+     "text": "f(x) = 3 − 2x³, x = −1: 3 − (−2) = 3 + 2 = 5",
      "wirkende_stelle": [
       "−",
       "−"
      ],
      "wirkende_stelle_positionen": [
       [
-       35,
-       36
+       26,
+       27
       ],
       [
-       38,
-       39
+       29,
+       30
       ]
      ]
     }
@@ -244,7 +244,7 @@
    "ort": "Sonne",
    "name": "Vorzeichen bei Mal und Geteilt",
    "merksatz": "Minus mal Minus gibt Plus, Minus mal Plus gibt Minus.",
-   "in_jeder_zeile_markiert": "Die Vorzeichen der beiden Zahlen und das Vorzeichen des Ergebnisses.",
+   "in_jeder_zeile_markiert": "Die Vorzeichen der Zahlen und das Vorzeichen des Ergebnisses. In Klasse 10 sind es drei Minus: Ein Umdrehen bleibt übrig.",
    "klassen_mit_beispiel": [
     5,
     6,
@@ -338,7 +338,7 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "funktionen.linear",
-     "text": "Steigung aus zwei Punkten: (−6) : (−2) = +3",
+     "text": "Steigung: (−6) : (−2) = +3",
      "wirkende_stelle": [
       "−",
       "−",
@@ -346,16 +346,16 @@
      ],
      "wirkende_stelle_positionen": [
       [
-       28,
-       29
+       11,
+       12
       ],
       [
-       35,
-       36
+       18,
+       19
       ],
       [
-       41,
-       42
+       24,
+       25
       ]
      ]
     },
@@ -395,7 +395,7 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "funktionen.ganzrational",
-     "text": "(−2)³ = (−2) · (−2) · (−2) = −8 – drei Minus: einmal umdrehen bleibt übrig",
+     "text": "(−2)³ = (−2) · (−2) · (−2) = −8",
      "wirkende_stelle": [
       "−",
       "−",
@@ -434,7 +434,7 @@
    "ort": "Sonne",
    "name": "Reihenfolge beim Rechnen",
    "merksatz": "Klammer zuerst, dann Hoch, dann Punkt vor Strich.",
-   "in_jeder_zeile_markiert": "Der Teil, der zuerst gerechnet wird – in jeder Zeile der Punkt-Teil hinter dem Plus.",
+   "in_jeder_zeile_markiert": "Der Teil, der zuerst gerechnet wird – in jeder Zeile der Punkt-Teil hinter dem Plus. Steht darin ein Hoch (Klasse 9 und 10), kommt es noch davor.",
    "klassen_mit_beispiel": [
     5,
     6,
@@ -498,14 +498,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "funktionen.linear",
-     "text": "f(x) = 2 + 3x an der Stelle 4: 2 + 3 · 4 = 2 + 12 = 14",
+     "text": "f(x) = 2 + 3x, x = 4: 2 + 3 · 4 = 14",
      "wirkende_stelle": [
       "3 · 4"
      ],
      "wirkende_stelle_positionen": [
       [
-       35,
-       40
+       26,
+       31
       ]
      ]
     },
@@ -514,14 +514,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "funktionen.quadratisch",
-     "text": "f(x) = 2 + 3x² an der Stelle 2: 2 + 3 · 2² = 2 + 3 · 4 = 14 – im Punkt-Teil zuerst das Hoch",
+     "text": "f(x) = 2 + 3x², x = 2: 2 + 3 · 2² = 14",
      "wirkende_stelle": [
       "3 · 2²"
      ],
      "wirkende_stelle_positionen": [
       [
-       36,
-       42
+       27,
+       33
       ]
      ]
     },
@@ -530,14 +530,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "funktionen.exponential_log",
-     "text": "f(x) = 2 + 3 · 2ˣ an der Stelle 2: 2 + 3 · 2² = 2 + 3 · 4 = 14",
+     "text": "f(x) = 2 + 3 · 2ˣ, x = 2: 2 + 3 · 2² = 14",
      "wirkende_stelle": [
       "3 · 2²"
      ],
      "wirkende_stelle_positionen": [
       [
-       39,
-       45
+       30,
+       36
       ]
      ]
     }
@@ -628,19 +628,19 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "gleichungen.lgs2",
-     "text": "Zwei Gleichungen addieren: 2x + 3y − 2x + y = 2x − 2x + 3y + y = 4y",
+     "text": "2x + 3y − 2x + y = 2x − 2x + 4y = 4y",
      "wirkende_stelle": [
       "− 2x",
       "− 2x"
      ],
      "wirkende_stelle_positionen": [
       [
-       35,
-       39
+       8,
+       12
       ],
       [
-       49,
-       53
+       22,
+       26
       ]
      ]
     },
@@ -788,7 +788,7 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "gleichungen.bruch",
-     "text": "x · (3/x + ½) = x · 3/x + x · ½ = 3 + x/2, für x ≠ 0",
+     "text": "x · (3/x + ½) = x · 3/x + x · ½, für x ≠ 0",
      "wirkende_stelle": [
       "x",
       "x",
@@ -1009,7 +1009,7 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "gleichungen.quadratisch",
-     "text": "(x + 1)² − (x² − 3) = x² + 2x + 1 − x² + 3 = 2x + 4",
+     "text": "x² − (x² − 3x) = x² − x² + 3x = 3x",
      "wirkende_stelle": [
       "−",
       "−",
@@ -1018,20 +1018,20 @@
      ],
      "wirkende_stelle_positionen": [
       [
+       3,
+       4
+      ],
+      [
        9,
        10
       ],
       [
-       15,
-       16
+       20,
+       21
       ],
       [
-       34,
-       35
-      ],
-      [
-       39,
-       40
+       25,
+       26
       ]
      ]
     },
@@ -1194,7 +1194,7 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "zahlen.rationale_exponenten",
-     "text": "x^½ · x^½ = x¹ = x, für x ≥ 0 – also ist x^½ die Wurzel aus x",
+     "text": "x^½ · x^½ = x¹ = x, für x ≥ 0",
      "wirkende_stelle": [
       "½",
       "½",
@@ -1311,19 +1311,19 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "terme.bruchterme",
-     "text": "(3x + 6) / (x + 2) = (3 · (x + 2)) / (1 · (x + 2)) = 3, für x ≠ −2",
+     "text": "(3 · (x + 2)) / (1 · (x + 2)) = 3, für x ≠ −2",
      "wirkende_stelle": [
       "(x + 2)",
       "(x + 2)"
      ],
      "wirkende_stelle_positionen": [
       [
-       26,
-       33
+       5,
+       12
       ],
       [
-       42,
-       49
+       21,
+       28
       ]
      ]
     },
@@ -1332,19 +1332,19 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "abbildungen.aehnlichkeit",
-     "text": "Seitenverhältnis 6 cm : 9 cm = (2 · 3) : (3 · 3) = 2 : 3",
+     "text": "6 cm : 9 cm = (2 · 3) : (3 · 3) = 2 : 3",
      "wirkende_stelle": [
       "3",
       "3"
      ],
      "wirkende_stelle_positionen": [
       [
-       36,
-       37
+       19,
+       20
       ],
       [
-       46,
-       47
+       29,
+       30
       ]
      ]
     },
@@ -1353,19 +1353,19 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "stochastik.mehrstufig",
-     "text": "Zweiter Zug aus der Urne: 2/4 = (1 · 2) / (2 · 2) = ½",
+     "text": "2/4 = (1 · 2) / (2 · 2) = ½",
      "wirkende_stelle": [
       "2",
       "2"
      ],
      "wirkende_stelle_positionen": [
       [
-       37,
-       38
+       11,
+       12
       ],
       [
-       47,
-       48
+       21,
+       22
       ]
      ]
     }
@@ -1475,7 +1475,7 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "stochastik.verknuepft",
-     "text": "Additionssatz: 1/2 + 1/3 − 1/6 = 3/6 + 2/6 − 1/6 = 4/6 = ⅔",
+     "text": "1/2 + 1/3 − 1/6 = 3/6 + 2/6 − 1/6 = 4/6",
      "wirkende_stelle": [
       "6",
       "6",
@@ -1484,20 +1484,20 @@
      ],
      "wirkende_stelle_positionen": [
       [
-       35,
-       36
+       20,
+       21
       ],
       [
-       41,
-       42
+       26,
+       27
       ],
       [
-       47,
-       48
+       32,
+       33
       ],
       [
-       53,
-       54
+       38,
+       39
       ]
      ]
     },
@@ -1506,7 +1506,7 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "stochastik.mehrstufig",
-     "text": "Zwei Pfade addieren: 1/6 + 1/3 = 1/6 + 2/6 = 3/6 = ½",
+     "text": "1/6 + 1/3 = 1/6 + 2/6 = 3/6",
      "wirkende_stelle": [
       "6",
       "6",
@@ -1514,16 +1514,16 @@
      ],
      "wirkende_stelle_positionen": [
       [
-       35,
-       36
+       14,
+       15
       ],
       [
-       41,
-       42
+       20,
+       21
       ],
       [
-       47,
-       48
+       26,
+       27
       ]
      ]
     }
@@ -1535,7 +1535,7 @@
    "ort": "Sonne",
    "name": "Verhältnis (Dreisatz)",
    "merksatz": "Erst auf eins, dann auf viele.",
-   "in_jeder_zeile_markiert": "Die mittlere Zeile: der Wert für eins.",
+   "in_jeder_zeile_markiert": "Die Eins in der Mitte: erst auf eins, dann auf viele.",
    "klassen_mit_beispiel": [
     5,
     6,
@@ -1551,14 +1551,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "groessen.proportional",
-     "text": "3 kg kosten 7,50 € → 1 kg kostet 2,50 € → 5 kg kosten 12,50 €",
+     "text": "3 kg: 7,50 € → 1 kg: 2,50 € → 5 kg: 12,50 €",
      "wirkende_stelle": [
-      "1 kg kostet 2,50 €"
+      "1 kg"
      ],
      "wirkende_stelle_positionen": [
       [
-       21,
-       39
+       15,
+       19
       ]
      ]
     },
@@ -1567,14 +1567,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "bruch.prozent",
-     "text": "100 % sind 60 € → 1 % sind 0,60 € → 25 % sind 15 €",
+     "text": "100 %: 60 € → 1 %: 0,60 € → 25 %: 15 €",
      "wirkende_stelle": [
-      "1 % sind 0,60 €"
+      "1 %"
      ],
      "wirkende_stelle_positionen": [
       [
-       18,
-       33
+       14,
+       17
       ]
      ]
     },
@@ -1583,14 +1583,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "bruch.prozent_grundwert",
-     "text": "80 % sind 48 € → 1 % sind 0,60 € → 100 % sind 60 €",
+     "text": "80 %: 48 € → 1 %: 0,60 € → 100 %: 60 €",
      "wirkende_stelle": [
-      "1 % sind 0,60 €"
+      "1 %"
      ],
      "wirkende_stelle_positionen": [
       [
-       17,
-       32
+       13,
+       16
       ]
      ]
     },
@@ -1599,14 +1599,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "funktionen.linear",
-     "text": "2 nach rechts, 3 nach oben → 1 nach rechts, 1,5 nach oben → 4 nach rechts, 6 nach oben (Steigung 1,5)",
+     "text": "x = 2: y = 3 → x = 1: y = 1,5 → x = 4: y = 6",
      "wirkende_stelle": [
-      "1 nach rechts, 1,5 nach oben"
+      "x = 1"
      ],
      "wirkende_stelle_positionen": [
       [
-       29,
-       57
+       15,
+       20
       ]
      ]
     },
@@ -1615,14 +1615,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "abbildungen.aehnlichkeit",
-     "text": "2 cm gehören zu 3 cm → 1 cm gehört zu 1,5 cm → 4 cm gehören zu 6 cm (Strahlensatz)",
+     "text": "2 cm: 3 cm → 1 cm: 1,5 cm → 4 cm: 6 cm",
      "wirkende_stelle": [
-      "1 cm gehört zu 1,5 cm"
+      "1 cm"
      ],
      "wirkende_stelle_positionen": [
       [
-       23,
-       44
+       13,
+       17
       ]
      ]
     },
@@ -1631,14 +1631,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "funktionen.trig",
-     "text": "360° sind 2π → 1° ist π/180 → 90° sind π/2 (Bogenmaß)",
+     "text": "360°: 2π → 1°: π/180 → 90°: π/2",
      "wirkende_stelle": [
-      "1° ist π/180"
+      "1°"
      ],
      "wirkende_stelle_positionen": [
       [
-       15,
-       27
+       11,
+       13
       ]
      ]
     }
@@ -1729,7 +1729,7 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "gleichungen.formeln",
-     "text": "A = g · h, also g = A : h – mit A = 42 und h = 7 ist g = 6",
+     "text": "A = g · h, also g = A : h",
      "wirkende_stelle": [
       "· h",
       ": h"
@@ -1750,7 +1750,7 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "gleichungen.quadratisch",
-     "text": "x hoch 2 = 49, also x = ±√49: x = 7 oder x = −7",
+     "text": "x hoch 2 = 49, also x = ±√49 = ±7",
      "wirkende_stelle": [
       "hoch 2",
       "±√"
@@ -1932,7 +1932,7 @@
      "kommt_vor": true,
      "art": "Vorwissen",
      "thema": "gleichungen.einfach",
-     "text": "□ · 7 = 0, also □ = 0",
+     "text": "□ · 7 = 0: □ = 0",
      "wirkende_stelle": [
       "□",
       "0"
@@ -1963,7 +1963,7 @@
      "kommt_vor": true,
      "art": "Vorwissen",
      "thema": "terme.bruchterme",
-     "text": "Der Nenner x · (x − 4) wird 0 für x = 0 oder x = 4 – diese Zahlen sind nicht erlaubt",
+     "text": "Nenner x · (x − 4) = 0: x = 0 oder 4",
      "wirkende_stelle": [
       "x",
       "(x − 4)",
@@ -1971,16 +1971,16 @@
      ],
      "wirkende_stelle_positionen": [
       [
+       7,
+       8
+      ],
+      [
        11,
-       12
+       18
       ],
       [
-       15,
+       21,
        22
-      ],
-      [
-       28,
-       29
       ]
      ]
     },
@@ -1989,7 +1989,7 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "gleichungen.quadratisch",
-     "text": "(x − 2) · (x + 3) = 0, also x = 2 oder x = −3",
+     "text": "(x − 2) · (x + 3) = 0: x = 2 oder −3",
      "wirkende_stelle": [
       "(x − 2)",
       "(x + 3)",
@@ -2015,7 +2015,7 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "gleichungen.polynom",
-     "text": "x · (x − 2) · (x + 2) = 0, also x = 0, x = 2 oder x = −2",
+     "text": "x · (x − 2) · (x + 2) = 0: x = 0, 2 oder −2",
      "wirkende_stelle": [
       "x",
       "(x − 2)",
@@ -2063,7 +2063,7 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "zahlen.ganz",
-     "text": "−3 < 2 – die −3 liegt links von der 2",
+     "text": "−3 < 2",
      "wirkende_stelle": [
       "<"
      ],
@@ -2100,19 +2100,19 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "zahlen.intervalle",
-     "text": "Im Intervall ]−3; 2] liegen alle Zahlen mit −3 < x ≤ 2",
+     "text": "Intervall ]−3; 2]: −3 < x ≤ 2",
      "wirkende_stelle": [
       "<",
       "≤"
      ],
      "wirkende_stelle_positionen": [
       [
-       47,
-       48
+       22,
+       23
       ],
       [
-       51,
-       52
+       26,
+       27
       ]
      ]
     },
@@ -2121,7 +2121,7 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "zahlen.reell",
-     "text": "1 < √2 < 2 – auch √2 ≈ 1,41 hat ihren Platz",
+     "text": "1 < √2 < 2",
      "wirkende_stelle": [
       "<",
       "<"
@@ -2163,7 +2163,7 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "zahlen.natuerlich",
-     "text": "10 Einer = 1 Zehner: 347 liegt zwischen 340 und 350",
+     "text": "10 Einer = 1 Zehner",
      "wirkende_stelle": [
       "10"
      ],
@@ -2179,7 +2179,7 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "bruch.dezimal",
-     "text": "10 Zehntel = 1 Einer: 0,9 + 0,1 = 1,0",
+     "text": "10 Zehntel = 1 Einer",
      "wirkende_stelle": [
       "10"
      ],
@@ -2200,7 +2200,7 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "terme.potenzgesetze_ganzzahlig",
-     "text": "10 Tausendstel = 1 Hundertstel: 10 · 10⁻³ = 10⁻²",
+     "text": "10 Tausendstel = 1 Hundertstel",
      "wirkende_stelle": [
       "10"
      ],
@@ -2258,7 +2258,7 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "bruch.brueche",
-     "text": "12/18 = (2 · 2 · 3) / (2 · 3 · 3) = 2/3 – gemeinsame Bausteine 2 und 3 kürzen",
+     "text": "12/18 = (2 · 2 · 3) / (2 · 3 · 3) = 2/3",
      "wirkende_stelle": [
       "2 · 2 · 3",
       "2 · 3 · 3"
@@ -2374,19 +2374,19 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "stochastik.grundbegriffe",
-     "text": "Wahrscheinlichkeit ¼ = 0,25 = 25 %",
+     "text": "¼ = 0,25 = 25 %",
      "wirkende_stelle": [
       "=",
       "="
      ],
      "wirkende_stelle_positionen": [
       [
-       21,
-       22
+       2,
+       3
       ],
       [
-       28,
-       29
+       9,
+       10
       ]
      ]
     },
@@ -2395,14 +2395,19 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "zahlen.reell",
-     "text": "⅓ = 0,333… – eine Kommazahl, die nie endet, aber sich wiederholt",
+     "text": "⅓ = 0,333… ≈ 33,3 %",
      "wirkende_stelle": [
-      "="
+      "=",
+      "≈"
      ],
      "wirkende_stelle_positionen": [
       [
        2,
        3
+      ],
+      [
+       11,
+       12
       ]
      ]
     },
@@ -2544,7 +2549,7 @@
    "ort": "Algebra",
    "name": "Term",
    "merksatz": "Ein Term ist ein Rechenrezept: Zahl hinein, Ergebnis heraus.",
-   "in_jeder_zeile_markiert": "Die Zahl, die eingesetzt wird – in jeder Zeile die 5.",
+   "in_jeder_zeile_markiert": "Die Zahl, die eingesetzt wird – die 5, in Klasse 10 die 2 (3⁵ wäre unhandlich).",
    "klassen_mit_beispiel": [
     5,
     7,
@@ -2580,19 +2585,19 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "terme.aufstellen",
-     "text": "T(x) = 2 · x + 3; T(5) = 2 · 5 + 3 = 13",
+     "text": "T(5) = 2 · 5 + 3 = 13",
      "wirkende_stelle": [
       "5",
       "5"
      ],
      "wirkende_stelle_positionen": [
       [
-       20,
-       21
+       2,
+       3
       ],
       [
-       29,
-       30
+       11,
+       12
       ]
      ]
     },
@@ -2601,19 +2606,19 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "funktionen.grundbegriffe",
-     "text": "f(x) = 2 · x + 3; f(5) = 2 · 5 + 3 = 13",
+     "text": "f(5) = 2 · 5 + 3 = 13",
      "wirkende_stelle": [
       "5",
       "5"
      ],
      "wirkende_stelle_positionen": [
       [
-       20,
-       21
+       2,
+       3
       ],
       [
-       29,
-       30
+       11,
+       12
       ]
      ]
     },
@@ -2622,19 +2627,19 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "funktionen.quadratisch",
-     "text": "f(x) = 2 · x² + 3; f(5) = 2 · 5² + 3 = 53",
+     "text": "f(5) = 2 · 5² + 3 = 53",
      "wirkende_stelle": [
       "5",
       "5"
      ],
      "wirkende_stelle_positionen": [
       [
-       21,
-       22
+       2,
+       3
       ],
       [
-       30,
-       31
+       11,
+       12
       ]
      ]
     },
@@ -2643,14 +2648,19 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "funktionen.exponential_log",
-     "text": "f(x) = 2 · 3ˣ + 3; f(2) = 2 · 3² + 3 = 21 – hier die 2, weil 3⁵ unhandlich wird",
+     "text": "f(x) = 2 · 3ˣ + 3; f(2) = 2 · 3² + 3 = 21",
      "wirkende_stelle": [
-      "2"
+      "2",
+      "²"
      ],
      "wirkende_stelle_positionen": [
       [
        21,
        22
+      ],
+      [
+       31,
+       32
       ]
      ]
     }
@@ -2662,7 +2672,7 @@
    "ort": "Algebra",
    "name": "Erlaubte Zahlen",
    "merksatz": "Durch null teilen geht nie – prüfe das zuerst.",
-   "in_jeder_zeile_markiert": "Die Zahl, die nicht eingesetzt werden darf.",
+   "in_jeder_zeile_markiert": "Die Bedingung für x: Kein Nenner wird 0, unter keiner Wurzel steht etwas Negatives.",
    "klassen_mit_beispiel": [
     8,
     9,
@@ -2690,14 +2700,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "terme.bruchterme",
-     "text": "1 : (x − 2): nicht erlaubt ist x = 2, denn der Nenner wäre 0",
+     "text": "1 : (x − 2): nicht erlaubt x = 2",
      "wirkende_stelle": [
       "x = 2"
      ],
      "wirkende_stelle_positionen": [
       [
-       31,
-       36
+       27,
+       32
       ]
      ]
     },
@@ -2706,14 +2716,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "zahlen.wurzeln_basis",
-     "text": "√(x − 2): erlaubt ist nur x ≥ 2, denn unter der Wurzel darf nichts Negatives stehen",
+     "text": "√(x − 2): erlaubt nur x ≥ 2",
      "wirkende_stelle": [
       "x ≥ 2"
      ],
      "wirkende_stelle_positionen": [
       [
-       26,
-       31
+       22,
+       27
       ]
      ]
     },
@@ -2722,14 +2732,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "funktionen.exponential_log",
-     "text": "log₂(x − 2): erlaubt ist nur x > 2",
+     "text": "log₂(x − 2): erlaubt nur x > 2",
      "wirkende_stelle": [
       "x > 2"
      ],
      "wirkende_stelle_positionen": [
       [
-       29,
-       34
+       25,
+       30
       ]
      ]
     }
@@ -2849,7 +2859,7 @@
    "ort": "Algebra",
    "name": "Höherer Grad",
    "merksatz": "Steht x im Quadrat: erst null auf eine Seite, dann zerlegen.",
-   "in_jeder_zeile_markiert": "Die Null auf der einen Seite und die Faktoren auf der anderen.",
+   "in_jeder_zeile_markiert": "Die Null auf der rechten Seite – erst dann wird zerlegt.",
    "klassen_mit_beispiel": [
     9,
     10
@@ -2881,24 +2891,19 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "gleichungen.quadratisch",
-     "text": "x² + x = 6 → x² + x − 6 = 0 → (x − 2) · (x + 3) = 0 → x = 2 oder x = −3",
+     "text": "x² + x − 6 = 0 → (x − 2) · (x + 3) = 0",
      "wirkende_stelle": [
       "0",
-      "(x − 2) · (x + 3)",
       "0"
      ],
      "wirkende_stelle_positionen": [
       [
-       26,
-       27
+       13,
+       14
       ],
       [
-       30,
-       47
-      ],
-      [
-       50,
-       51
+       37,
+       38
       ]
      ]
     },
@@ -2907,24 +2912,19 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "gleichungen.polynom",
-     "text": "x³ = 4x → x³ − 4x = 0 → x · (x − 2) · (x + 2) = 0 → x = 0, x = 2 oder x = −2",
+     "text": "x³ − 4x = 0 → x · (x − 2) · (x + 2) = 0",
      "wirkende_stelle": [
       "0",
-      "x · (x − 2) · (x + 2)",
       "0"
      ],
      "wirkende_stelle_positionen": [
       [
-       20,
-       21
+       10,
+       11
       ],
       [
-       24,
-       45
-      ],
-      [
-       48,
-       49
+       38,
+       39
       ]
      ]
     }
@@ -3027,7 +3027,7 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "funktionen.trig",
-     "text": "180° = π im Bogenmaß – andere Einheit, andere Zahl",
+     "text": "180° = π im Bogenmaß",
      "wirkende_stelle": [
       "180",
       "π"
@@ -3051,7 +3051,7 @@
    "ort": "Geld und Verhältnisse",
    "name": "Wert für eins",
    "merksatz": "Doppelt so viel kostet doppelt so viel.",
-   "in_jeder_zeile_markiert": "Das „· 2“ auf beiden Seiten.",
+   "in_jeder_zeile_markiert": "Das „· 2“ – es gilt für beide Größen zugleich.",
    "klassen_mit_beispiel": [
     5,
     6,
@@ -3066,19 +3066,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "groessen.proportional",
-     "text": "3 kg kosten 7,50 €; doppelt so viel: 6 kg kosten doppelt so viel: 15 €",
+     "text": "3 kg: 7,50 € · 2 → 6 kg: 15 €",
      "wirkende_stelle": [
-      "doppelt so viel",
-      "doppelt so viel"
+      "· 2"
      ],
      "wirkende_stelle_positionen": [
       [
-       20,
-       35
-      ],
-      [
-       49,
-       64
+       13,
+       16
       ]
      ]
     },
@@ -3087,19 +3082,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "bruch.prozent",
-     "text": "25 % sind 15 €; doppelt so viel: 50 % sind doppelt so viel: 30 €",
+     "text": "25 %: 15 € · 2 → 50 %: 30 €",
      "wirkende_stelle": [
-      "doppelt so viel",
-      "doppelt so viel"
+      "· 2"
      ],
      "wirkende_stelle_positionen": [
       [
-       16,
-       31
-      ],
-      [
-       43,
-       58
+       11,
+       14
       ]
      ]
     },
@@ -3108,19 +3098,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "bruch.prozent_grundwert",
-     "text": "40 % sind 24 €; doppelt so viel: 80 % sind doppelt so viel: 48 €",
+     "text": "40 %: 24 € · 2 → 80 %: 48 €",
      "wirkende_stelle": [
-      "doppelt so viel",
-      "doppelt so viel"
+      "· 2"
      ],
      "wirkende_stelle_positionen": [
       [
-       16,
-       31
-      ],
-      [
-       43,
-       58
+       11,
+       14
       ]
      ]
     },
@@ -3129,19 +3114,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "funktionen.linear",
-     "text": "y = 2,5 · x: zu x = 3 gehört 7,5; zu doppeltem x = 6 gehört das Doppelte: 15",
+     "text": "x = 3: y = 7,5 · 2 → x = 6: y = 15",
      "wirkende_stelle": [
-      "doppeltem",
-      "Doppelte"
+      "· 2"
      ],
      "wirkende_stelle_positionen": [
       [
-       37,
-       46
-      ],
-      [
-       64,
-       72
+       15,
+       18
       ]
      ]
     },
@@ -3150,14 +3130,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "abbildungen.aehnlichkeit",
-     "text": "Im Bild mit Faktor 2 ist jede Länge doppelt so lang: aus 3 cm werden 6 cm, aus 4 cm werden 8 cm",
+     "text": "3 cm: 4,5 cm · 2 → 6 cm: 9 cm",
      "wirkende_stelle": [
-      "doppelt so lang"
+      "· 2"
      ],
      "wirkende_stelle_positionen": [
       [
-       36,
-       51
+       13,
+       16
       ]
      ]
     },
@@ -3225,14 +3205,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "stochastik.grundbegriffe",
-     "text": "12 von 48 Würfen: 12 : 48 = 0,25 = 25 %",
+     "text": "12 von 48: 12 : 48 = 0,25 = 25 %",
      "wirkende_stelle": [
       "0,25"
      ],
      "wirkende_stelle_positionen": [
       [
-       28,
-       32
+       21,
+       25
       ]
      ]
     },
@@ -3246,19 +3226,19 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "funktionen.exponential_log",
-     "text": "1 000 € zwei Jahre lang plus 5 %: 1,05 · 1,05 · 1 000 € = 1 102,50 €",
+     "text": "Zweimal plus 5 %: 1,05 · 1,05 · 1 000 € = 1 102,50 €",
      "wirkende_stelle": [
       "1,05",
       "1,05"
      ],
      "wirkende_stelle_positionen": [
       [
-       34,
-       38
+       18,
+       22
       ],
       [
-       41,
-       45
+       25,
+       29
       ]
      ]
     }
@@ -3270,7 +3250,7 @@
    "ort": "Geometrie",
    "name": "Winkel an Geraden",
    "merksatz": "Gleiche Winkel an Parallelen – darum im Dreieck immer 180 Grad.",
-   "in_jeder_zeile_markiert": "Die Winkel, die zusammen eine feste Summe ergeben.",
+   "in_jeder_zeile_markiert": "Die Summe 180° – die gerade Linie.",
    "klassen_mit_beispiel": [
     5,
     7,
@@ -3283,13 +3263,13 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "geometrie.grundbegriffe",
-     "text": "Volle Drehung: 90° + 90° + 90° + 90° = 360°",
+     "text": "Gestreckter Winkel: 90° + 90° = 180°",
      "wirkende_stelle": [
-      "90° + 90° + 90° + 90°"
+      "180°"
      ],
      "wirkende_stelle_positionen": [
       [
-       15,
+       32,
        36
       ]
      ]
@@ -3306,12 +3286,12 @@
      "thema": "geometrie.winkelsaetze",
      "text": "Dreieck: 50° + 60° + 70° = 180°",
      "wirkende_stelle": [
-      "50° + 60° + 70°"
+      "180°"
      ],
      "wirkende_stelle_positionen": [
       [
-       9,
-       24
+       27,
+       31
       ]
      ]
     },
@@ -3325,14 +3305,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "trigo.rechtwinklig",
-     "text": "Rechtwinkliges Dreieck: 90° + 30° + 60° = 180° – die zwei spitzen Winkel ergeben 90°",
+     "text": "Rechtwinklig: 90° + 30° + 60° = 180°",
      "wirkende_stelle": [
-      "90° + 30° + 60°"
+      "180°"
      ],
      "wirkende_stelle_positionen": [
       [
-       24,
-       39
+       32,
+       36
       ]
      ]
     },
@@ -3362,19 +3342,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "geometrie.ortslinien",
-     "text": "Alle Punkte, die von M 3 cm entfernt sind: Kreis um M mit Radius 3 cm",
+     "text": "Kreis um M: alle Punkte 3 cm von M",
      "wirkende_stelle": [
-      "3 cm",
       "3 cm"
      ],
      "wirkende_stelle_positionen": [
       [
-       23,
-       27
-      ],
-      [
-       65,
-       69
+       24,
+       28
       ]
      ]
     },
@@ -3388,14 +3363,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "geometrie.konstruktion",
-     "text": "A(0 | 0), B(4 | 0): Der Punkt (2 | 3) ist von A und von B gleich weit entfernt – er liegt auf der Mittelsenkrechten",
+     "text": "Mittelsenkrechte: von A und B gleich weit",
      "wirkende_stelle": [
       "gleich weit"
      ],
      "wirkende_stelle_positionen": [
       [
-       58,
-       69
+       30,
+       41
       ]
      ]
     },
@@ -3409,19 +3384,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "trigo.pythagoras",
-     "text": "Der Punkt (3 | 4) ist vom Ursprung 5 entfernt, denn 3² + 4² = 5²",
+     "text": "(3 | 4) ist vom Ursprung 5 entfernt",
      "wirkende_stelle": [
-      "5",
       "5"
      ],
      "wirkende_stelle_positionen": [
       [
-       35,
-       36
-      ],
-      [
-       62,
-       63
+       25,
+       26
       ]
      ]
     },
@@ -3450,14 +3420,14 @@
      "kommt_vor": true,
      "art": "Vorwissen",
      "thema": "geometrie.grundbegriffe",
-     "text": "Im Rechteck sind gegenüberliegende Seiten gleich lang",
+     "text": "Rechteck: Gegenseiten gleich lang",
      "wirkende_stelle": [
       "gleich lang"
      ],
      "wirkende_stelle_positionen": [
       [
-       42,
-       53
+       22,
+       33
       ]
      ]
     },
@@ -3471,19 +3441,19 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "abbildungen.kongruenz",
-     "text": "Spiegeln an der y-Achse: A(2 | 1) → A′(−2 | 1), B(5 | 1) → B′(−5 | 1); die Strecke ist vorher 3 lang und nachher 3",
+     "text": "Spiegeln: [AB] = 3, danach [A′B′] = 3",
      "wirkende_stelle": [
       "3",
       "3"
      ],
      "wirkende_stelle_positionen": [
       [
-       94,
-       95
+       17,
+       18
       ],
       [
-       113,
-       114
+       36,
+       37
       ]
      ]
     },
@@ -3542,14 +3512,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "abbildungen.aehnlichkeit",
-     "text": "Dreieck 3 cm, 4 cm, 5 cm · 2 → 6 cm, 8 cm, 10 cm; alle Winkel bleiben",
+     "text": "3, 4, 5 cm · 2 → 6, 8, 10 cm",
      "wirkende_stelle": [
       "· 2"
      ],
      "wirkende_stelle_positionen": [
       [
-       25,
-       28
+       11,
+       14
       ]
      ]
     },
@@ -3558,14 +3528,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "raum.pyramide_kegel_kugel",
-     "text": "Schneidet man eine Pyramide auf halber Höhe ab, ist die kleine Pyramide ähnlich: Kanten · ½, Volumen · ⅛",
+     "text": "Pyramide, obere Hälfte: Kanten · ½, Volumen · ⅛",
      "wirkende_stelle": [
       "· ½"
      ],
      "wirkende_stelle_positionen": [
       [
-       88,
-       91
+       31,
+       34
       ]
      ]
     }
@@ -3609,14 +3579,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "trigo.pythagoras",
-     "text": "Katheten 3 cm und 4 cm: 3² + 4² = 5², die Hypotenuse ist 5 cm lang",
+     "text": "Dreieck 3, 4, 5 cm: 3² + 4² = 5²",
      "wirkende_stelle": [
       "3² + 4² = 5²"
      ],
      "wirkende_stelle_positionen": [
       [
-       24,
-       36
+       20,
+       32
       ]
      ]
     },
@@ -3625,14 +3595,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "raum.pyramide_kegel_kugel",
-     "text": "Kegel mit r = 3 cm und h = 4 cm: 3² + 4² = 5², die Mantellinie ist 5 cm lang",
+     "text": "Kegel r = 3, h = 4, s = 5: 3² + 4² = 5²",
      "wirkende_stelle": [
       "3² + 4² = 5²"
      ],
      "wirkende_stelle_positionen": [
       [
-       33,
-       45
+       27,
+       39
       ]
      ]
     }
@@ -3644,7 +3614,7 @@
    "ort": "Fläche und Raum",
    "name": "Auslegen und zählen",
    "merksatz": "Messen heißt auslegen und zählen.",
-   "in_jeder_zeile_markiert": "Das Zählen in Reihen und Schichten.",
+   "in_jeder_zeile_markiert": "Das, was gezählt wird: Reihen und Schichten.",
    "klassen_mit_beispiel": [
     5,
     6,
@@ -3657,14 +3627,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "messen.flaechen",
-     "text": "Rechteck 6 cm mal 4 cm: 4 Reihen zu je 6 = 24 cm²",
+     "text": "Rechteck: 4 Reihen zu je 6 = 24 cm²",
      "wirkende_stelle": [
-      "4 Reihen zu je 6"
+      "4 Reihen"
      ],
      "wirkende_stelle_positionen": [
       [
-       24,
-       40
+       10,
+       18
       ]
      ]
     },
@@ -3673,14 +3643,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "messen.volumen",
-     "text": "Quader 5 cm, 4 cm, 3 cm: 3 Schichten zu je 20 = 60 cm³",
+     "text": "Quader: 3 Schichten zu je 20 = 60 cm³",
      "wirkende_stelle": [
-      "3 Schichten zu je 20"
+      "3 Schichten"
      ],
      "wirkende_stelle_positionen": [
       [
-       25,
-       45
+       8,
+       19
       ]
      ]
     },
@@ -3689,14 +3659,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "terme.aufstellen",
-     "text": "Rechteck mit den Seiten x und 4: 4 Reihen zu je x = 4x",
+     "text": "Rechteck: 4 Reihen zu je x = 4x",
      "wirkende_stelle": [
-      "4 Reihen zu je x"
+      "4 Reihen"
      ],
      "wirkende_stelle_positionen": [
       [
-       33,
-       49
+       10,
+       18
       ]
      ]
     },
@@ -3723,7 +3693,7 @@
    "ort": "Fläche und Raum",
    "name": "Aus dem Rechteck",
    "merksatz": "Aus dem Rechteck entsteht jede Fläche.",
-   "in_jeder_zeile_markiert": "Die Grundseite mal die Höhe – das Rechteck, das in jeder Formel steckt.",
+   "in_jeder_zeile_markiert": "Grundseite mal Höhe – das Rechteck, das in jeder Formel steckt. Längen in cm.",
    "klassen_mit_beispiel": [
     5,
     6,
@@ -3738,13 +3708,29 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "messen.flaechen",
-     "text": "Rechteck: 6 cm · 4 cm = 24 cm²",
+     "text": "Rechteck: 6 · 4 = 24 cm²",
      "wirkende_stelle": [
-      "6 cm · 4 cm"
+      "6 · 4"
      ],
      "wirkende_stelle_positionen": [
       [
        10,
+       15
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "kommt_vor": true,
+     "art": "Einführung",
+     "thema": "messen.flaechen_vielecke",
+     "text": "Parallelogramm: 6 · 4 = 24 cm²",
+     "wirkende_stelle": [
+      "6 · 4"
+     ],
+     "wirkende_stelle_positionen": [
+      [
+       16,
        21
       ]
      ]
@@ -3754,19 +3740,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "messen.flaechen_vielecke",
-     "text": "Parallelogramm: 6 cm · 4 cm = 24 cm². Dreieck: 6 cm · 4 cm : 2 = 12 cm²",
+     "text": "Dreieck: 6 · 4 : 2 = 12 cm²",
      "wirkende_stelle": [
-      "6 cm · 4 cm",
-      "6 cm · 4 cm"
+      "6 · 4"
      ],
      "wirkende_stelle_positionen": [
       [
-       16,
-       27
-      ],
-      [
-       47,
-       58
+       9,
+       14
       ]
      ]
     },
@@ -3780,14 +3761,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "messen.kreisberechnung",
-     "text": "Kreis mit r = 3 cm, umgelegt zu einem Fast-Rechteck: π · 3 cm · 3 cm ≈ 28,3 cm²",
+     "text": "Kreis, r = 3: π · 3 · 3 ≈ 28,3 cm²",
      "wirkende_stelle": [
-      "π · 3 cm · 3 cm"
+      "π · 3 · 3"
      ],
      "wirkende_stelle_positionen": [
       [
-       53,
-       68
+       14,
+       23
       ]
      ]
     },
@@ -3796,14 +3777,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "trigo.pythagoras",
-     "text": "Gleichseitiges Dreieck mit Seite 6 cm: Höhe √27 cm ≈ 5,2 cm, also 6 cm · 5,2 cm : 2 ≈ 15,6 cm²",
+     "text": "Gleichseitig, a = 6: 6 · 5,2 : 2 ≈ 15,6 cm²",
      "wirkende_stelle": [
-      "6 cm · 5,2 cm"
+      "6 · 5,2"
      ],
      "wirkende_stelle_positionen": [
       [
-       66,
-       79
+       21,
+       28
       ]
      ]
     },
@@ -3812,14 +3793,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "raum.pyramide_kegel_kugel",
-     "text": "Mantel der Pyramide (Grundkante 6 cm, Seitenhöhe 5 cm): vier Dreiecke, je 6 cm · 5 cm : 2 = 15 cm², zusammen 60 cm²",
+     "text": "Pyramidenmantel: 4 mal 6 · 5 : 2 = 60 cm²",
      "wirkende_stelle": [
-      "6 cm · 5 cm"
+      "6 · 5"
      ],
      "wirkende_stelle_positionen": [
       [
-       74,
-       85
+       23,
+       28
       ]
      ]
     }
@@ -3831,7 +3812,7 @@
    "ort": "Fläche und Raum",
    "name": "Aus dem Quader",
    "merksatz": "Grundfläche mal Höhe – bei Spitzen nur ein Drittel.",
-   "in_jeder_zeile_markiert": "Grundfläche mal Höhe.",
+   "in_jeder_zeile_markiert": "Grundfläche mal Höhe. Grundfläche in cm², Höhe in cm.",
    "klassen_mit_beispiel": [
     6,
     8,
@@ -3849,14 +3830,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "messen.volumen",
-     "text": "Quader: 20 cm² · 3 cm = 60 cm³",
+     "text": "Quader: 20 · 3 = 60 cm³",
      "wirkende_stelle": [
-      "20 cm² · 3 cm"
+      "20 · 3"
      ],
      "wirkende_stelle_positionen": [
       [
        8,
-       21
+       14
       ]
      ]
     },
@@ -3870,14 +3851,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "messen.prisma_zylinder",
-     "text": "Prisma mit dreieckiger Grundfläche: 6 cm² · 10 cm = 60 cm³",
+     "text": "Prisma: 6 · 10 = 60 cm³",
      "wirkende_stelle": [
-      "6 cm² · 10 cm"
+      "6 · 10"
      ],
      "wirkende_stelle_positionen": [
       [
-       36,
-       49
+       8,
+       14
       ]
      ]
     },
@@ -3891,14 +3872,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "raum.pyramide_kegel_kugel",
-     "text": "Pyramide: 36 cm² · 4 cm : 3 = 48 cm³",
+     "text": "Pyramide: 36 · 4 : 3 = 48 cm³",
      "wirkende_stelle": [
-      "36 cm² · 4 cm"
+      "36 · 4"
      ],
      "wirkende_stelle_positionen": [
       [
        10,
-       23
+       16
       ]
      ]
     }
@@ -3910,7 +3891,7 @@
    "ort": "Fläche und Raum",
    "name": "Haut des Körpers",
    "merksatz": "Aufklappen zeigt die ganze Haut des Körpers.",
-   "in_jeder_zeile_markiert": "Die Flächen, die zusammengezählt werden.",
+   "in_jeder_zeile_markiert": "Das Plus: Die Flächen der Haut werden zusammengezählt.",
    "klassen_mit_beispiel": [
     5,
     8,
@@ -3923,14 +3904,19 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "messen.koerper_berechnung",
-     "text": "Quader 5 cm, 4 cm, 3 cm: 2 · 20 + 2 · 15 + 2 · 12 = 94 cm²",
+     "text": "Quader: 40 + 30 + 24 = 94 cm²",
      "wirkende_stelle": [
-      "2 · 20 + 2 · 15 + 2 · 12"
+      "+",
+      "+"
      ],
      "wirkende_stelle_positionen": [
       [
-       25,
-       49
+       11,
+       12
+      ],
+      [
+       16,
+       17
       ]
      ]
     },
@@ -3949,14 +3935,24 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "messen.prisma_zylinder",
-     "text": "Prisma (Dreieck 3 cm, 4 cm, 5 cm; Höhe 6 cm): 2 · 6 + 18 + 24 + 30 = 84 cm²",
+     "text": "Prisma: 12 + 18 + 24 + 30 = 84 cm²",
      "wirkende_stelle": [
-      "2 · 6 + 18 + 24 + 30"
+      "+",
+      "+",
+      "+"
      ],
      "wirkende_stelle_positionen": [
       [
-       46,
-       66
+       11,
+       12
+      ],
+      [
+       16,
+       17
+      ],
+      [
+       21,
+       22
       ]
      ]
     },
@@ -3970,14 +3966,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "raum.pyramide_kegel_kugel",
-     "text": "Pyramide (Grundkante 6 cm, Seitenhöhe 5 cm): 36 + 4 · 15 = 96 cm²",
+     "text": "Pyramide: 36 + 60 = 96 cm²",
      "wirkende_stelle": [
-      "36 + 4 · 15"
+      "+"
      ],
      "wirkende_stelle_positionen": [
       [
-       45,
-       56
+       13,
+       14
       ]
      ]
     }
@@ -4004,7 +4000,7 @@
      "kommt_vor": true,
      "art": "Vorwissen",
      "thema": "groessen.proportional",
-     "text": "Zu 3 kg gehört genau ein Preis: 7,50 €",
+     "text": "zu 3 kg gehört 7,50 €",
      "wirkende_stelle": [
       "3 kg",
       "7,50 €"
@@ -4015,8 +4011,8 @@
        7
       ],
       [
-       32,
-       38
+       15,
+       21
       ]
      ]
     },
@@ -4130,14 +4126,14 @@
      "kommt_vor": true,
      "art": "Vorwissen",
      "thema": "groessen.proportional",
-     "text": "Je Kilogramm + 2,50 €: 2,50 €; 5 €; 7,50 €",
+     "text": "Preis je kg: 2,50; 5; 7,50 – immer + 2,50",
      "wirkende_stelle": [
-      "+ 2,50 €"
+      "+ 2,50"
      ],
      "wirkende_stelle_positionen": [
       [
-       13,
-       21
+       35,
+       41
       ]
      ]
     },
@@ -4156,14 +4152,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "funktionen.linear",
-     "text": "y = 1 + 2x: von Schritt zu Schritt + 2: 1; 3; 5; 7; 9",
+     "text": "y = 1 + 2x: 1; 3; 5; 7 – immer + 2",
      "wirkende_stelle": [
       "+ 2"
      ],
      "wirkende_stelle_positionen": [
       [
-       35,
-       38
+       31,
+       34
       ]
      ]
     },
@@ -4177,14 +4173,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "funktionen.exponential_log",
-     "text": "y = 2ˣ: von Schritt zu Schritt · 2: 1; 2; 4; 8; 16",
+     "text": "y = 2ˣ: 1; 2; 4; 8 – immer · 2",
      "wirkende_stelle": [
       "· 2"
      ],
      "wirkende_stelle_positionen": [
       [
-       31,
-       34
+       27,
+       30
       ]
      ]
     }
@@ -4256,7 +4252,7 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "funktionen.quadratisch",
-     "text": "y = x²: Parabel. y = (x − 3)²: dieselbe Parabel, 3 nach rechts",
+     "text": "y = x²: Parabel",
      "wirkende_stelle": [
       "x²"
      ],
@@ -4272,7 +4268,7 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "funktionen.ganzrational",
-     "text": "y = x³ − 4x: Kurve mit drei Nullstellen −2, 0, 2",
+     "text": "y = x³ − 4x: drei Nullstellen",
      "wirkende_stelle": [
       "x³"
      ],
@@ -4308,19 +4304,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "daten.kennwerte",
-     "text": "4, 5, 5, 6: Mittelwert 5. Und 1, 2, 8, 9: Mittelwert auch 5",
+     "text": "4, 5, 5, 6: Mittelwert 5",
      "wirkende_stelle": [
-      "5",
       "5"
      ],
      "wirkende_stelle_positionen": [
       [
        23,
        24
-      ],
-      [
-       58,
-       59
       ]
      ]
     },
@@ -4329,7 +4320,7 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "daten.boxplot",
-     "text": "2, 3, 3, 4, 18: Median 3, Mittelwert 6 – der Ausreißer zieht nur den Mittelwert mit",
+     "text": "2, 3, 3, 4, 18: Median 3, Mittelwert 6",
      "wirkende_stelle": [
       "3"
      ],
@@ -4363,7 +4354,7 @@
    "ort": "Daten und Zufall",
    "name": "Vom Teil aufs Ganze",
    "merksatz": "Wenige sagen nur etwas über alle, wenn der Zufall sie auswählt.",
-   "in_jeder_zeile_markiert": "Der Anteil in der Stichprobe.",
+   "in_jeder_zeile_markiert": "Der Anteil in der Stichprobe – er schätzt den Anteil im Ganzen.",
    "klassen_mit_beispiel": [
     8,
     10
@@ -4390,14 +4381,14 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "stochastik.grundbegriffe",
-     "text": "Von 100 zufällig gezogenen Kugeln sind 30 rot: geschätzter Anteil 30 %",
+     "text": "30 von 100 gezogenen Kugeln rot: 30 %",
      "wirkende_stelle": [
       "30 %"
      ],
      "wirkende_stelle_positionen": [
       [
-       66,
-       70
+       33,
+       37
       ]
      ]
     },
@@ -4411,14 +4402,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "stochastik.simulation",
-     "text": "Ein Versuch wird sehr oft nachgespielt; der Anteil der Treffer schätzt die Wahrscheinlichkeit",
+     "text": "493 Treffer in 1 000 Versuchen: 49,3 %",
      "wirkende_stelle": [
-      "Anteil der Treffer"
+      "49,3 %"
      ],
      "wirkende_stelle_positionen": [
       [
-       44,
-       62
+       32,
+       38
       ]
      ]
     }
@@ -4430,7 +4421,7 @@
    "ort": "Daten und Zufall",
    "name": "Anteil",
    "merksatz": "Wahrscheinlichkeit: günstige durch mögliche.",
-   "in_jeder_zeile_markiert": "Günstige durch mögliche.",
+   "in_jeder_zeile_markiert": "Die Zahl der Möglichkeiten – ab Klasse 8 mit den günstigen davor.",
    "klassen_mit_beispiel": [
     5,
     8,
@@ -4444,14 +4435,14 @@
      "kommt_vor": true,
      "art": "Vorwissen",
      "thema": "stochastik.kombinatorik",
-     "text": "3 Hosen und 2 Hemden: 3 · 2 = 6 Möglichkeiten",
+     "text": "3 Hosen, 2 Hemden: 3 · 2 = 6 Möglichkeiten",
      "wirkende_stelle": [
-      "6 Möglichkeiten"
+      "6"
      ],
      "wirkende_stelle_positionen": [
       [
-       30,
-       45
+       27,
+       28
       ]
      ]
     },
@@ -4486,14 +4477,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "stochastik.verknuepft",
-     "text": "Würfel, „gerade oder größer als 4“: günstig sind 2, 4, 5, 6 – 4 von 6 = ⅔",
+     "text": "Würfel, gerade oder über 4: 4 von 6 = ⅔",
      "wirkende_stelle": [
       "4 von 6"
      ],
      "wirkende_stelle_positionen": [
       [
-       62,
-       69
+       28,
+       35
       ]
      ]
     },
@@ -4502,14 +4493,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "stochastik.mehrstufig",
-     "text": "Zwei Münzwürfe, zweimal Kopf: 1 von 4 = ¼",
+     "text": "Zweimal Kopf: 1 von 4 = ¼",
      "wirkende_stelle": [
       "1 von 4"
      ],
      "wirkende_stelle_positionen": [
       [
-       30,
-       37
+       14,
+       21
       ]
      ]
     }
@@ -4557,19 +4548,30 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "stochastik.mehrstufig",
-     "text": "Zwei Münzwürfe, erst Kopf, dann Zahl: ½ · ½ = ¼. Genau einmal Kopf: ¼ + ¼ = ½",
+     "text": "Kopf, dann Zahl: ½ · ½ = ¼",
      "wirkende_stelle": [
-      "·",
+      "·"
+     ],
+     "wirkende_stelle_positionen": [
+      [
+       19,
+       20
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "kommt_vor": true,
+     "art": "Einführung",
+     "thema": "stochastik.mehrstufig",
+     "text": "Genau einmal Kopf: ¼ + ¼ = ½",
+     "wirkende_stelle": [
       "+"
      ],
      "wirkende_stelle_positionen": [
       [
-       40,
-       41
-      ],
-      [
-       70,
-       71
+       21,
+       22
       ]
      ]
     }

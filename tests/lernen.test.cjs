@@ -53,7 +53,7 @@ function bewerte(a, w) {
 }
 
 async function setup(t, opt = {}) {
-  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: 'block' });
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: 'block', ...(opt.touch ? { hasTouch: true, isMobile: true } : {}) });
   t.after(() => context.close());
   if (!opt.lernSeite) await context.addInitScript(() => { localStorage.setItem('ks_token', 'synthetic-test-session'); });
   // Die bisherigen Tests prüfen das bisherige Design; das neue („Abflug“) hat eigene Tests (opt.gestaltung).
@@ -4548,7 +4548,7 @@ function rkServer({ karte = true, basis = null, lage = null, startGesperrt = fal
     return r; };
   f.neueAktionen = true; return { anpassen: f, daten };
 }
-const rkOeffnen = async (t, b, h, opt = {}) => { const srv = rkServer(opt); const { page, calls } = await setup(t, { gestaltung: opt.gestaltung || 'tag', anpassen: srv.anpassen });
+const rkOeffnen = async (t, b, h, opt = {}) => { const srv = rkServer(opt); const { page, calls } = await setup(t, { gestaltung: opt.gestaltung || 'tag', anpassen: srv.anpassen, touch: opt.touch });
   const flaggen = []; page.on('request', (r) => { if (/\/karte\/flaggen\//.test(r.url())) flaggen.push(r.url()); });
   await page.setViewportSize({ width: b, height: h }); await page.goto(origin + '/#/reise/1'); await page.locator('.rk .rk-pin').first().waitFor(); await page.waitForTimeout(200); return { page, calls, flaggen, srv }; };
 
@@ -4724,7 +4724,7 @@ test('RK-App 3 Sperre (RK-D): ohne Plan nur gedämpft, kein Schloss (Kl.-5-Lage 
     await page.locator('.rk-pfad-teil', { hasText: 'Welt' }).click(); await page.locator('.rk-kname', { hasText: 'AFRIKA' }).dispatchEvent('click'); await page.locator('.rk-pfad-teil.an', { hasText: 'Afrika' }).waitFor(); await page.waitForTimeout(300);
     assert.equal(await page.locator('.rk-schloss').count(), 0, 'Afrika ohne Plan: 0 Schlösser');
     const n = await page.locator('.rk-pin-gesperrt').count(); assert.ok(n >= 10, `gedämpft ${n}`);
-    assert.equal(await page.locator('.rk-pin-gesperrt').first().evaluate((e) => getComputedStyle(e).opacity), '0.4');
+    assert.equal(await page.locator('.rk-pin-gesperrt').first().evaluate((e) => getComputedStyle(e).opacity), '0.6'); // Karte: gedämpft, Flagge in Farbe mit gestricheltem Ring
     assert.equal(await page.locator('.rk-pin-gesperrt .rk-phs').count(), 0, 'ohne Hauptstadt-Zeile');
     await page.screenshot({ path: path.join(root, 'test-results/rk3-kl5-afrika-400.png') });
     // Grund beim Antippen: Klasse
@@ -5880,4 +5880,102 @@ test('RU Nachbesserung: echter Service Worker im Browser – Regel-Daten 200 ges
   ruDatenStatus = 200; await page.getByRole('button', { name: 'Noch einmal versuchen' }).click(); await page.locator('.ru-universum').waitFor();
   assert.equal(await imCache(), true, 'wiederhergestellt: wieder gespeichert');
   assert.deepEqual(fehler, []);
+});
+
+// ---------- Karte: Länder ohne Thema zeigen Flagge (in Farbe) und Hauptstadt; Doppelklick/Doppeltipp auf ein Land mit Thema führt in die Land-Ebene ----------
+test('Karte: Land ohne Thema – farbige Flagge, Hauptstadt, „noch kein Thema“ (Beschriftung und Infofeld), kleiner, ohne Abzeichen, überdeckt keine Pins mit Thema', async (t) => {
+  for (const [b, h] of [[1280, 800], [400, 860]]) {
+    const { page } = await rkOeffnen(t, b, h);
+    const pt = page.locator('.rk-pin[data-id="PT"]'); await pt.waitFor();
+    assert.equal(await pt.getAttribute('aria-label'), 'Portugal, Hauptstadt Lissabon, noch kein Thema');
+    assert.ok(await pt.evaluate((e) => e.classList.contains('rk-pin-ohne') && !e.classList.contains('rk-pin-flug')));
+    assert.equal(await pt.locator('.rk-marke').count(), 0, 'ohne Abzeichen');
+    assert.equal(await pt.locator('image').evaluate((e) => getComputedStyle(e).filter), 'none', 'Flagge in Farbe');
+    const [ro, rm] = [await pt.locator('.rk-kopfring').boundingBox(), await page.locator('.rk-pin[data-id="ES"] .rk-kopfring').boundingBox()]; assert.ok(ro.width < rm.width - 4, `kleiner (${ro.width} / ${rm.width})`);
+    if (b >= 1100) assert.equal(await pt.locator('.rk-phs').textContent(), 'Lissabon', 'Hauptstadt als Text, wo Platz ist');
+    assert.ok(await page.locator('.rk-pin-ohne .rk-phs').count() >= (b >= 1100 ? 10 : 3), 'viele Hauptstädte ohne Thema beschriftet');
+    // Pins mit Thema haben Vorrang: kein Kopf ohne Thema liegt auf einem Kopf mit Thema
+    const mit = await rkKasten(page.locator('.rk-pin-flug .rk-kopfring')); const ohne = await rkKasten(page.locator('.rk-pin-ohne .rk-kopfring'));
+    for (const o of ohne) for (const m of mit) assert.ok(!rkUeber(o, m, 1), `${b}: ${o.n} auf ${m.n}`);
+    // Algerien (Thema in Afrika) auf der Europa-Karte: nicht „noch kein Thema“, sondern Hinweis auf den Kontinent
+    assert.match(await page.locator('.rk-pin[data-id="DZ"]').getAttribute('aria-label'), /^Algerien, Hauptstadt Algier, Thema auf dem Kontinent Afrika$/);
+    await pt.dispatchEvent('click'); const bl = page.locator(b >= 1100 ? '.rk-seite-blatt' : '.rk-blatt:not([hidden])'); await bl.waitFor();
+    assert.match(await bl.innerText(), /LAND[\s\S]*Portugal[\s\S]*Hauptstadt: Lissabon[\s\S]*Hier gibt es noch kein Thema\./);
+    assert.equal(await bl.locator('.rk-plakette').count(), 1, 'Flagge im Infofeld'); assert.equal(await bl.getByRole('button', { name: /Städte in/ }).count(), 0);
+    await page.locator('.rk-pin[data-id="PT"]').dispatchEvent('click'); await page.locator('.rk-pin[data-id="PT"]').dispatchEvent('click'); await page.waitForTimeout(300);
+    assert.equal(await page.evaluate(() => document.querySelector('.rk')._z.ebene), 'kontinent', 'Doppelklick ohne Thema bleibt auf dem Kontinent');
+    await page.locator('.rk-pin[data-id="DZ"]').dispatchEvent('click'); await bl.getByRole('button', { name: 'Zu Algerien ›' }).click(); await page.locator('.rk-pfad-teil.an', { hasText: 'Afrika' }).waitFor();
+    // Land-Ebene: Nachbarn ohne Thema nur angedeutet (nicht antippbar, ohne Schild)
+    await page.locator('.rk-pfad-teil').first().click(); await page.locator('.rk-kname', { hasText: 'EUROPA' }).dispatchEvent('click'); await page.locator('.rk-pin[data-id="IT"]').waitFor();
+    await page.locator('.rk-pin[data-id="IT"]').dblclick(); await page.locator('.rk-st-hier').waitFor(); await page.waitForTimeout(600);
+    assert.equal(await page.locator('.rk-pin-angedeutet .rk-pland').count(), 0); assert.equal(await page.locator('.rk-pin-angedeutet[role="button"]').count(), 0);
+  }
+});
+
+test('Karte: Doppelklick auf ein Land mit Thema führt in die Land-Ebene, Einfachklick öffnet das Infofeld, gesperrt kein Durchgriff, Tastatur zweimal Enter', async (t) => {
+  const ebene = (page) => page.evaluate(() => document.querySelector('.rk')._z.ebene);
+  for (const [b, h] of [[1280, 800], [400, 860]]) {
+    const { page } = await rkOeffnen(t, b, h); const bl = page.locator(b >= 1100 ? '.rk-seite-blatt' : '.rk-blatt:not([hidden])');
+    // Einfachklick: Infofeld, bleibt auf dem Kontinent
+    await page.locator('.rk-pin[data-id="CH"]').click(); await bl.waitFor(); await page.waitForTimeout(600);
+    assert.equal(await ebene(page), 'kontinent'); assert.match(await bl.innerText(), /Schweiz/);
+    assert.equal(await page.locator('.rk-pin[data-id="CH"]').getAttribute('aria-description'), 'Zweimal antippen oder zweimal Enter: Städte ansehen');
+    // Doppelklick: Land-Ebene mit Route
+    await page.locator('.rk-pin[data-id="IT"]').dblclick(); await page.locator('.rk-st-hier').waitFor();
+    assert.equal(await ebene(page), 'land'); assert.equal(await page.evaluate(() => document.querySelector('.rk')._z.land), 'IT');
+    assert.equal(await page.locator('.rk-stadt').count(), 13);
+    // Doppelklick auf die Landfläche (Deutschland, zwei Klicks kurz nacheinander) ebenso
+    const zurueck = async () => { await page.locator(b <= 760 ? '.rk-pfad-kurz' : '.rk-pfad-teil:has-text("Europa")').click(); await page.locator('.rk-pin[data-id="IT"]').waitFor(); await page.waitForTimeout(500); };
+    await zurueck(); await page.locator('.rk-land[data-id="DE"]').dispatchEvent('click'); await page.locator('.rk-land[data-id="DE"]').dispatchEvent('click');
+    await page.locator('.rk-stadt').first().waitFor(); assert.equal(await page.evaluate(() => document.querySelector('.rk')._z.land), 'DE', 'Landfläche');
+    // Tastatur: Enter → Infofeld (Fokus bleibt am Pin), zweites Enter → hinein
+    await zurueck();
+    await page.locator('.rk-pin[data-id="CH"]').waitFor(); await page.waitForTimeout(500);
+    await page.locator('.rk-pin[data-id="CH"]').focus(); await page.keyboard.press('Enter'); await bl.waitFor(); await page.waitForTimeout(600);
+    assert.equal(await ebene(page), 'kontinent', 'erstes Enter: Infofeld');
+    assert.equal(await page.evaluate(() => document.activeElement?.getAttribute('data-id')), 'CH', 'Fokus bleibt am Pin');
+    await page.keyboard.press('Enter'); await page.locator('.rk-stadt').first().waitFor(); assert.equal(await ebene(page), 'land', 'zweites Enter: hinein');
+    assert.equal(await page.evaluate(() => document.querySelector('.rk')._z.land), 'CH');
+  }
+  // gesperrt (ohne Plan, Klasse): Doppelklick öffnet nur das Infofeld
+  const { page } = await rkOeffnen(t, 1280, 800, { lage: 'kl5' });
+  await page.locator('.rk-pfad-teil', { hasText: 'Welt' }).click(); await page.locator('.rk-kname', { hasText: 'AFRIKA' }).dispatchEvent('click'); await page.locator('.rk-pfad-teil.an', { hasText: 'Afrika' }).waitFor(); await page.waitForTimeout(300);
+  const kb = await page.locator('.rk-karte').boundingBox();
+  const id = await page.locator('.rk-pin-gesperrt').evaluateAll((ps, k0) => ps.map((p) => [p.getAttribute('data-id'), p.querySelector('.rk-kopfring').getBoundingClientRect()])
+    .find(([, r]) => r.left > k0.x + 80 && r.right < k0.x + k0.width - 80 && r.top > k0.y + 40 && r.bottom < k0.y + k0.height - 40)[0], kb);
+  assert.equal(await page.locator(`.rk-pin[data-id="${id}"]`).getAttribute('aria-description'), null);
+  const r0 = await page.locator(`.rk-pin[data-id="${id}"] .rk-kopfring`).boundingBox(); await page.mouse.dblclick(r0.x + r0.width / 2, r0.y + r0.height / 2); await page.locator('.rk-seite-blatt').waitFor(); await page.waitForTimeout(600);
+  assert.equal(await ebene(page), 'kontinent', 'gesperrt: kein Durchgriff'); assert.match(await page.locator('.rk-seite-blatt').innerText(), /🔒/);
+  await page.locator(`.rk-pin[data-id="${id}"]`).focus(); await page.keyboard.press('Enter'); await page.keyboard.press('Enter'); await page.waitForTimeout(500);
+  assert.equal(await ebene(page), 'kontinent', 'gesperrt: auch zweimal Enter nicht');
+});
+
+test('Karte: Doppeltipp (Touch) auf ein Land mit Thema führt in die Land-Ebene, einfacher Tipp öffnet das Infofeld, kein Seitenzoom', async (t) => {
+  const { page } = await rkOeffnen(t, 400, 860, { touch: true });
+  const ebene = () => page.evaluate(() => document.querySelector('.rk')._z.ebene);
+  assert.equal(await page.locator('.rk-rahmen').evaluate((e) => getComputedStyle(e).touchAction), 'none', 'Karte fängt Doppeltipp-Zoom ab');
+  const mitte = async (id) => { const r = await page.locator(`.rk-pin[data-id="${id}"] .rk-kopfring`).boundingBox(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; };
+  let p = await mitte('CH'); await page.touchscreen.tap(p.x, p.y); await page.locator('.rk-blatt:not([hidden])').waitFor(); await page.waitForTimeout(600);
+  assert.equal(await ebene(), 'kontinent', 'ein Tipp: Infofeld');
+  p = await mitte('IT'); await page.touchscreen.tap(p.x, p.y); await page.waitForTimeout(80); await page.touchscreen.tap(p.x, p.y);
+  await page.locator('.rk-st-hier').waitFor(); assert.equal(await ebene(), 'land'); assert.equal(await page.evaluate(() => document.querySelector('.rk')._z.land), 'IT');
+  assert.equal(await page.evaluate(() => (window.visualViewport ? visualViewport.scale : 1)), 1, 'Seite nicht gezoomt');
+});
+
+// ---------- Karte: themenlose Länder und Doppelklick – Bilder vorher/nachher (nur mit KARTE_BILDER=vorher|nachher) ----------
+test('Karte-Bilder: Kontinent und Land bei 400 px hell/dunkel und 1280 px hell', { skip: !process.env.KARTE_BILDER }, async (t) => {
+  const ziel = path.join(root, 'inhalte/pruefung/karte/bilder'); fs.mkdirSync(ziel, { recursive: true }); const art = process.env.KARTE_BILDER;
+  for (const [b, h, g] of [[400, 860, 'tag'], [400, 860, 'nacht'], [1280, 800, 'tag']]) {
+    const { page } = await rkOeffnen(t, b, h, { gestaltung: g }); await page.waitForTimeout(400);
+    await page.screenshot({ path: path.join(ziel, `${art}-kontinent-${b}-${g === 'tag' ? 'hell' : 'dunkel'}.jpg`), type: 'jpeg', quality: 80 });
+    await page.locator('.rk-pin[data-id="IT"]').click(); await page.locator(b >= 1100 ? '.rk-seite-blatt' : '.rk-blatt:not([hidden])').getByRole('button', { name: 'Städte in Italien ansehen ›' }).click();
+    await page.locator('.rk-st-hier').waitFor(); await page.waitForTimeout(700);
+    await page.screenshot({ path: path.join(ziel, `${art}-land-${b}-${g === 'tag' ? 'hell' : 'dunkel'}.jpg`), type: 'jpeg', quality: 80 });
+  }
+  // Vorschlag gesperrt/wartend mit Thema: Klasse-8-Lage (Europa, Deutschland wartet) und Klasse-5-Lage (Afrika, alles gesperrt)
+  for (const [lage, kont] of [['kl8', null], ['kl5', 'AFRIKA']]) for (const [b, h] of [[400, 860], [1280, 800]]) {
+    const { page } = await rkOeffnen(t, b, h, { lage }); await page.waitForTimeout(300);
+    if (kont) { await page.locator('.rk-pfad-teil').first().click(); await page.locator('.rk-kname', { hasText: kont }).dispatchEvent('click'); await page.locator('.rk-pfad-teil.an', { hasText: 'Afrika' }).waitFor(); await page.waitForTimeout(400); }
+    await page.screenshot({ path: path.join(ziel, `${art}-gesperrt-${lage}-${b}-hell.jpg`), type: 'jpeg', quality: 80 });
+  }
 });

@@ -5841,6 +5841,16 @@ body.rk-kopf-oben:has(#tabs[hidden]) { padding-bottom: 0; }
 /* RK-App 3 (0.92.3) – RK-D: gesperrt / wartet / abgelegt (Prüfung RK-App 2, Abschnitt 3) */
 .rk-pin-gesperrt { opacity: .4; } .rk-pin-gesperrt .rk-nadel { fill: #9AA19D; }
 .rk-blass { filter: grayscale(1) opacity(.85); }
+/* Karte (themenlose Länder): Flagge in Farbe, Unterschied über Größe, feinen Ring, kein Abzeichen und leichtere Schrift statt Entfärben.
+   Gesperrt/wartend mit Thema: Flagge ebenfalls in Farbe, aber gestrichelter grauer Ring und gedämpft – erkennbar „noch nicht dran“. */
+.rk-pin-ohne .rk-kopfring { stroke-width: 1.25; }
+.rk-pin-ohne .rk-nadel { stroke-width: 1; filter: drop-shadow(0 1px 1px #0004); }
+.rk-phs.k { font-size: 9.5px; }
+.rk-pin-angedeutet { opacity: .5; pointer-events: none; }
+.rk-pin-fremd { opacity: .8; }
+.rk-pin-gesperrt { opacity: .6; } .rk-pin-gesperrt .rk-blass { filter: saturate(.55); }
+.rk-pin-gesperrt .rk-kopfring { stroke: #9AA19D; stroke-width: 2.5; stroke-dasharray: 3.2 2.4; }
+.rk-ohne-thema { margin: 8px 0 2px; font-size: 14.5px; font-weight: 700; color: var(--leise); }
 .rk-pland.grau { fill: var(--leise); font-weight: 700; }
 .rk-n-wartet { fill: #8C918E; } .rk-n-gesperrt { fill: #9AA19D; }
 .rk-m-wartet { fill: #9AA19D; } .rk-m-schloss { fill: #fff; stroke: #9AA19D; } .rk-schloss-t { font-size: 8px; }

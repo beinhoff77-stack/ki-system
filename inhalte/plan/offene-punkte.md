@@ -13,7 +13,7 @@ Stand 27.11.2026, 03:00 (Berlin). Jede Zeile bleibt stehen, bis sie erledigt ode
 | 6 | **Eingangsdiagnose für Lücken aus früheren Klassen** (Vorschlag 2): Papier-Blatt | geliefert (`inhalte/mathe-profi/diagnose-1/`), PDFs beim Nutzer (kann nicht drucken: Aufgaben am Bildschirm, 30 Minuten, Strich, Zugabe) | Fotos und Zeiten vom Nutzer auswerten |
 | 7 | **13 Aufgaben Wort → Term** für den laufenden Flug (`inhalte/mathe-profi/fachwoerter/`) | geliefert | Inhaltsprüfung, dann mit Punkt 3 einspielen |
 | 8 | **Aufgaben mit vielen richtigen Antworten** (80 Stück, Typ `bedingung`) | Datenbank und App sind fertig und live | einspielen zusammen mit Punkt 3 |
-| 9 | **Regel-Universum in die App** (Verlinkung mit Erklärungen, Feld Regel-Kennung/Fehlbild) | Designer Runde 6 geliefert | ansehen, Nutzer wählt Übersicht A oder B, Einbau planen |
+| 9 | **Regel-Universum in die App** (Verlinkung mit Erklärungen, Feld Regel-Kennung/Fehlbild) | **Entschieden am 27.11.: Übersicht A „Sonnensystem“** (Liste B liegt hinter der Sonne). Inhalts-Helfer bereitet Texte der 15 Regel-Karten und Zuordnung Regel → Lernkarten vor (Zweig `helfer-regeln`, Ordner `inhalte/regeln/`) | Lieferung prüfen; Bau in zwei Stufen nach dem Form-Takt (Stufe 1 ohne Server: Übersicht + Karten; Stufe 2 mit Server: Stand je Regel, Wege b und c) → Gegenprüfung → „Live“ |
 
 ## Zurückgestellt (vom Nutzer so entschieden) – später wieder vorlegen
 - **„Später noch einmal“-Knopf** (Vorschlag 3 des Mathe-Profis): später. Risiko: alles Schwere wird weggeklickt.

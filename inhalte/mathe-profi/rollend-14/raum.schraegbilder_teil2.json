@@ -1,0 +1,588 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-14",
+ "kuerzel": "R14",
+ "flug": "r14-raum.schraegbilder_teil2",
+ "titel": "raum.schraegbilder_teil2",
+ "fuer": "Klasse 6 und 8",
+ "klasse": 8,
+ "themen": [
+  "raum.schraegbilder_teil2"
+ ],
+ "themen_datei_im_bestand": "raum.schraegbilder",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R14-V031",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "koordinaten",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die z-Koordinate vergessen: nur 6 und 3 addiert"
+    },
+    {
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen des Zimmers statt der Koordinatensumme angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Zimmer hat die Form eines Quaders. Die Ecke A liegt im Ursprung (0 | 0 | 0). Das Zimmer ist 6 m lang (x-Richtung), 3 m breit (y-Richtung) und 4 m hoch (z-Richtung). Die Ecke G liegt A genau gegenüber, an der Decke. Wie groß ist die Summe der drei Koordinaten von G?"
+    },
+    "o": {
+     "wert": 13
+    },
+    "c": "6 + 3 + 4",
+    "h": "Wie weit ist G von A entfernt, in x-, in y- und in z-Richtung?",
+    "w": "G liegt 6 m in x-Richtung, 3 m in y-Richtung und 4 m in z-Richtung von A entfernt. Also G(6 | 3 | 4). Die Summe ist 6 + 3 + 4 = 13."
+   }
+  },
+  {
+   "kennung": "R14-V032",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "koordinaten",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Mittelpunkt der Grundfläche genommen: z-Koordinate 0"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ecke G statt des Mittelpunkts genommen"
+    },
+    {
+     "antwort": 6.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Verschiebung von A vergessen: Mitte der Kantenlängen 3, 1,5 und 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quader ABCDEFGH hat die Ecken A(1 | 2 | 0), B(7 | 2 | 0), D(1 | 5 | 0) und E(1 | 2 | 4). Seine Kanten verlaufen parallel zu den Achsen. M ist der Mittelpunkt des ganzen Quaders. Wie groß ist die Summe der drei Koordinaten von M? Gib das Ergebnis als Dezimalzahl an."
+    },
+    "o": {
+     "wert": 9.5
+    },
+    "c": "(1 + 7) / 2 + (2 + 5) / 2 + (0 + 4) / 2",
+    "h": "Der Mittelpunkt liegt in jeder Richtung genau in der Mitte zwischen der kleinsten und der größten Koordinate. Welche Ecke liegt A gegenüber?",
+    "w": "Die Ecke G liegt A gegenüber: G(7 | 5 | 4). M ist die Mitte von A und G: x = (1 + 7) : 2 = 4, y = (2 + 5) : 2 = 3,5, z = (0 + 4) : 2 = 2. Also M(4 | 3,5 | 2). Die Summe ist 4 + 3,5 + 2 = 9,5."
+   }
+  },
+  {
+   "kennung": "R14-V033",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "koordinaten",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen nur durch 8 geteilt"
+    },
+    {
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen nur durch 6 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quader steht mit der Ecke A im Ursprung. Seine Kanten verlaufen parallel zu den Achsen. Die Ecke G, die A gegenüberliegt, hat die Koordinaten (8 | 6 | h). Das Volumen des Quaders ist 240 Volumeneinheiten. Wie groß ist h?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "240 / (8 * 6)",
+    "h": "Die Koordinaten von G sind die Kantenlängen des Quaders. Das Volumen ist Länge mal Breite mal Höhe.",
+    "w": "Die Kanten sind 8, 6 und h lang. Das Volumen ist 8 · 6 · h = 48h = 240. Also ist h = 240 : 48 = 5. Probe: 8 · 6 · 5 = 240."
+   }
+  },
+  {
+   "kennung": "R14-V034",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "rotation",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1017.36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Radius und Höhe vertauscht: r = 9 cm und h = 4 cm"
+    },
+    {
+     "antwort": 1808.64,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Durchmesser 8 cm statt des Radius 4 cm quadriert"
+    },
+    {
+     "antwort": 113.04,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Radius nicht quadriert"
+    }
+   ],
+   "aufgabe": {
+    "l": "rotation",
+    "t": "rotation",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Töpfer stellt sich vor, dass ein Rechteck mit den Seiten 4 cm und 9 cm um die 9-cm-Seite rotiert. Es entsteht ein Zylinder. Wie groß ist sein Volumen in cm³? Rechne mit π ≈ 3,14."
+    },
+    "o": {
+     "wert": 452.16,
+     "einheit": "cm³"
+    },
+    "c": "3.14 * 4 ** 2 * 9",
+    "h": "Welche Seite liegt auf der Drehachse? Die andere Seite wird zum Radius des Kreises.",
+    "w": "Die 9-cm-Seite liegt auf der Achse und wird die Höhe, die 4-cm-Seite wird der Radius. V = π · r² · h ≈ 3,14 · 16 · 9 = 452,16 cm³."
+   }
+  },
+  {
+   "kennung": "R14-V035",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "rotation",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 628,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Volumen des kleineren Zylinders angegeben"
+    },
+    {
+     "antwort": 1004.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Volumen des größeren Zylinders angegeben"
+    },
+    {
+     "antwort": 1632.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Volumina addiert statt den Unterschied zu bilden"
+    }
+   ],
+   "aufgabe": {
+    "l": "rotation",
+    "t": "rotation",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Rechteck mit den Seiten 5 cm und 8 cm dreht sich einmal um die 8-cm-Seite und einmal um die 5-cm-Seite. So entstehen zwei verschiedene Zylinder. Um wie viele Kubikzentimeter ist der größere Zylinder größer als der kleinere? Rechne mit π ≈ 3,14."
+    },
+    "o": {
+     "wert": 376.8,
+     "einheit": "cm³"
+    },
+    "c": "3.14 * 8 ** 2 * 5 - 3.14 * 5 ** 2 * 8",
+    "h": "Berechne beide Volumina. Beachte, welche Seite jeweils zum Radius und welche zur Höhe wird.",
+    "w": "Um die 8-cm-Seite: r = 5 cm, h = 8 cm, V = 3,14 · 25 · 8 = 628 cm³. Um die 5-cm-Seite: r = 8 cm, h = 5 cm, V = 3,14 · 64 · 5 = 1 004,8 cm³. Unterschied: 1 004,8 − 628 = 376,8 cm³."
+   }
+  },
+  {
+   "kennung": "R14-V036",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "rotation",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel nicht gezogen: r² als Breite angegeben"
+    },
+    {
+     "antwort": 28.26,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen nur durch die Höhe geteilt"
+    },
+    {
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen nur durch 3,14 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "rotation",
+    "t": "rotation",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Rechteck dreht sich um eine Seite, die 8 cm lang ist. Der entstehende Zylinder hat das Volumen 226,08 cm³. Rechne mit π ≈ 3,14. Wie breit ist das Rechteck in Zentimetern?"
+    },
+    "o": {
+     "wert": 3,
+     "einheit": "cm"
+    },
+    "c": "3",
+    "h": "Die gesuchte Breite wird beim Drehen zum Radius. Stelle die Volumenformel nach r² um.",
+    "w": "Die 8-cm-Seite wird die Höhe, die gesuchte Breite wird der Radius r. Aus 3,14 · r² · 8 = 226,08 folgt r² = 226,08 : 25,12 = 9. Also ist r = 3 cm. Probe: 3,14 · 9 · 8 = 226,08."
+   }
+  },
+  {
+   "kennung": "R14-V037",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "axialschnitt",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Dreieck wie ein Rechteck berechnet: Durchmesser mal Höhe"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Radius 3 cm statt des Durchmessers als Grundseite gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "axialschnitt",
+    "t": "axialschnitt",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Eiswaffel hat die Form eines Kegels mit dem Radius 3 cm und der Höhe 12 cm. Sam schneidet sie der Länge nach genau durch die Achse. Wie groß ist die Fläche der Schnittfläche in cm²?"
+    },
+    "o": {
+     "wert": 36,
+     "einheit": "cm²"
+    },
+    "c": "6 * 12 / 2",
+    "h": "Der Axialschnitt eines Kegels ist ein Dreieck. Wie lang ist seine Grundseite, und wie hoch ist es?",
+    "w": "Der Axialschnitt ist ein gleichschenkliges Dreieck. Die Grundseite ist der Durchmesser 2 · 3 = 6 cm, die Höhe ist 12 cm. A = 6 · 12 : 2 = 36 cm²."
+   }
+  },
+  {
+   "kennung": "R14-V038",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "axialschnitt",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Radius quadriert, aber nicht mit π malgenommen"
+    },
+    {
+     "antwort": 628,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Umfang mal Radius gerechnet"
+    },
+    {
+     "antwort": 62.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Umfang als Fläche angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "axialschnitt",
+    "t": "axialschnitt",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Holzkugel wird genau durch ihren Mittelpunkt in zwei Hälften gesägt. Der Umfang der Schnittfläche ist 62,8 cm. Rechne mit π ≈ 3,14. Wie groß ist die Fläche der Schnittfläche in cm²?"
+    },
+    "o": {
+     "wert": 314,
+     "einheit": "cm²"
+    },
+    "c": "3.14 * (62.8 / (2 * 3.14)) ** 2",
+    "h": "Die Schnittfläche ist ein Kreis mit dem Radius der Kugel. Berechne zuerst den Radius aus dem Umfang.",
+    "w": "Der Schnitt ist ein Kreis mit dem Radius r der Kugel. Aus dem Umfang 2 · 3,14 · r = 62,8 folgt r = 62,8 : 6,28 = 10 cm. Die Fläche ist 3,14 · 10 · 10 = 314 cm²."
+   }
+  },
+  {
+   "kennung": "R14-V039",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "axialschnitt",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5425.92,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Seite 12 cm als Radius genommen"
+    },
+    {
+     "antwort": 10851.84,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Umfang nur durch 2 geteilt: Seite 24 cm"
+    }
+   ],
+   "aufgabe": {
+    "l": "axialschnitt",
+    "t": "axialschnitt",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Der Axialschnitt eines Zylinders ist ein Quadrat mit dem Umfang 48 cm. Rechne mit π ≈ 3,14. Wie groß ist das Volumen des Zylinders in cm³?"
+    },
+    "o": {
+     "wert": 1356.48,
+     "einheit": "cm³"
+    },
+    "c": "3.14 * (48 / 4 / 2) ** 2 * (48 / 4)",
+    "h": "Wie lang ist die Seite des Quadrats? Welche Seite des Quadrats ist der Durchmesser, welche die Höhe des Zylinders?",
+    "w": "Die Seite des Quadrats ist 48 : 4 = 12 cm. Sie ist zugleich der Durchmesser und die Höhe. Also ist r = 6 cm und h = 12 cm. V = 3,14 · 36 · 12 = 1 356,48 cm³."
+   }
+  },
+  {
+   "kennung": "R14-V040",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "koerper_symmetrie",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie bei einem Quader mit lauter verschiedenen Kanten gezählt"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie beim Würfel gezählt"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ebene in halber Höhe vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "koerper_symmetrie",
+    "t": "koerper_symmetrie",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Pralinenschachtel hat die Form eines Quaders. Ihre Grundfläche ist ein Quadrat, die Höhe ist aber nicht gleich der Länge der Grundseite. Wie viele Symmetrieebenen hat die Schachtel?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "4 + 1",
+    "h": "Zähle erst die Ebenen, die die Höhe enthalten (Symmetrieachsen des Quadrats). Dann die Ebene parallel zur Grundfläche.",
+    "w": "Ebenen durch die Höhe: Sie entsprechen den 4 Symmetrieachsen des Quadrats (2 Mittellinien, 2 Diagonalen). Dazu kommt die Ebene in halber Höhe, parallel zur Grundfläche. Zusammen 4 + 1 = 5 Symmetrieebenen."
+   }
+  },
+  {
+   "kennung": "R14-V041",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "koerper_symmetrie",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Prisma die Ebene in halber Höhe vergessen"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei der Pyramide eine Ebene in halber Höhe dazugezählt"
+    },
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Würfel mit 5 Ebenen gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "koerper_symmetrie",
+    "t": "koerper_symmetrie",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Spielzeughändler hat drei Körper: einen Würfel, eine gerade Pyramide mit quadratischer Grundfläche und ein gerades Prisma, dessen Grundfläche ein gleichseitiges Dreieck ist. Wie viele Symmetrieebenen haben die drei Körper zusammen?"
+    },
+    "o": {
+     "wert": 17,
+     "einheit": "Ebenen"
+    },
+    "c": "9 + 4 + (3 + 1)",
+    "h": "Der Würfel hat 9 Ebenen. Für Pyramide und Prisma zählst du erst die Symmetrieachsen der Grundfläche. Beim Prisma kommt noch eine Ebene dazu.",
+    "w": "Würfel: 9 Ebenen. Gerade Pyramide über dem Quadrat: 4 Ebenen (eine je Symmetrieachse des Quadrats). Gerades Prisma über dem gleichseitigen Dreieck: 3 Ebenen durch die Achsen des Dreiecks und 1 Ebene in halber Höhe, also 4. Zusammen 9 + 4 + 4 = 17."
+   }
+  },
+  {
+   "kennung": "R14-V042",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "koerper_symmetrie",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "n = 7 genommen: die Zahl der Ebenen als Eckenzahl"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Kanten der Grund- und der Deckfläche gezählt"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Eckenzahl der Grundfläche als Kantenzahl angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "koerper_symmetrie",
+    "t": "koerper_symmetrie",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein gerades Prisma hat als Grundfläche ein regelmäßiges Vieleck mit n Ecken und genau 7 Symmetrieebenen. Wie viele Kanten hat das Prisma?"
+    },
+    "o": {
+     "wert": 18,
+     "einheit": "Kanten"
+    },
+    "c": "3 * (7 - 1)",
+    "h": "Wie hängt die Zahl der Symmetrieebenen eines geraden Prismas mit der Eckenzahl n der Grundfläche zusammen? Wie viele Kanten hat ein Prisma mit n-Eck?",
+    "w": "Ein gerades Prisma über einem regelmäßigen n-Eck hat n + 1 Symmetrieebenen. Aus n + 1 = 7 folgt n = 6. Ein Prisma über einem Sechseck hat 6 Kanten unten, 6 oben und 6 senkrechte: 3 · 6 = 18 Kanten."
+   }
+  }
+ ]
+}

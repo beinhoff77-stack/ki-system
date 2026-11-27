@@ -1,0 +1,742 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-14",
+ "kuerzel": "R14",
+ "flug": "r14-terme.potenzgesetze_ganzzahlig",
+ "titel": "terme.potenzgesetze_ganzzahlig",
+ "fuer": "Klasse 6 und 8",
+ "klasse": 8,
+ "themen": [
+  "terme.potenzgesetze_ganzzahlig"
+ ],
+ "themen_datei_im_bestand": "terme.potenzgesetze_ganzzahlig",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R14-V007",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "warum_gilt",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5120,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen der Hochzahl übersehen und mit 2⁵ statt 2⁻⁵ gerechnet"
+    },
+    {
+     "antwort": 32,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Potenz 2⁵ als Menge angegeben"
+    },
+    {
+     "antwort": 800,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "160 · 5 gerechnet statt 5-mal zu halbieren"
+    }
+   ],
+   "aufgabe": {
+    "l": "warum_gilt",
+    "t": "warum_gilt",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Menge eines Wirkstoffs im Blut halbiert sich jede Stunde. Zu Beginn sind es 160 mg. Nach n Stunden sind es 160 · 2⁻ⁿ mg. Wie viel Milligramm sind es nach 5 Stunden?"
+    },
+    "o": {
+     "wert": 5,
+     "einheit": "mg"
+    },
+    "c": "160 / 2 ** 5",
+    "h": "2⁻ⁿ bedeutet: n-mal halbieren. Schreibe 2⁻⁵ als Bruch.",
+    "w": "2⁻⁵ ist der Bruch 1/2⁵ = 1/32. Also sind es nach 5 Stunden 160 · 1/32 = 160 : 32 = 5 mg. Probe: 160, 80, 40, 20, 10, 5 – fünfmal halbiert."
+   }
+  },
+  {
+   "kennung": "R14-V008",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "warum_gilt",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.125,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das dritte Stück angegeben"
+    },
+    {
+     "antwort": 1.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle drei Stücke als halbe Meter gezählt"
+    },
+    {
+     "antwort": 0.375,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das erste Stück (die Hälfte) vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "warum_gilt",
+    "t": "warum_gilt",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Kim schneidet von einem 1 m langen Seil zuerst die Hälfte ab. Vom Rest schneidet Kim wieder die Hälfte ab, und danach noch einmal die Hälfte vom neuen Rest. Die drei abgeschnittenen Stücke sind 2⁻¹ m, 2⁻² m und 2⁻³ m lang. Wie viele Meter sind die drei Stücke zusammen lang? Gib das Ergebnis als Dezimalzahl an."
+    },
+    "o": {
+     "wert": 0.875,
+     "einheit": "m"
+    },
+    "c": "1 / 2 + 1 / 4 + 1 / 8",
+    "h": "Schreibe jedes Stück als Bruch. Was bedeutet 2⁻³?",
+    "w": "2⁻¹ = 1/2, 2⁻² = 1/4, 2⁻³ = 1/8. Zusammen: 1/2 + 1/4 + 1/8 = 4/8 + 2/8 + 1/8 = 7/8 = 0,875 m. Probe: Das Seil hat noch 1/8 m übrig, und 1 − 1/8 = 7/8."
+   }
+  },
+  {
+   "kennung": "R14-V009",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "warum_gilt",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "t = 2 statt t = −2 eingesetzt, also mit 2⁻² statt 2² gerechnet"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Stunde zurückgerechnet: 3 · 2"
+    },
+    {
+     "antwort": 1.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Menge halbiert statt verdoppelt"
+    }
+   ],
+   "aufgabe": {
+    "l": "warum_gilt",
+    "t": "warum_gilt",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Substanz zerfällt so, dass ihre Menge jede Stunde auf die Hälfte sinkt. Jetzt sind 3 g da. Die Formel M(t) = 3 · 2⁻ᵗ gibt die Menge in Gramm t Stunden nach jetzt an. Für t = −2 liefert die Formel die Menge von vor 2 Stunden. Wie viel Gramm waren es vor 2 Stunden?"
+    },
+    "o": {
+     "wert": 12,
+     "einheit": "g"
+    },
+    "c": "3 * 2 ** 2",
+    "h": "Setze t = −2 ein. Was bedeutet 2 hoch (−(−2))? Was passiert mit der Menge, wenn man zwei Stunden zurückgeht?",
+    "w": "Für t = −2 ist 2⁻ᵗ = 2²= 4. Also M(−2) = 3 · 4 = 12 g. Das passt: Von vor 2 Stunden bis jetzt wurde die Menge zweimal halbiert, 12 → 6 → 3."
+   }
+  },
+  {
+   "kennung": "R14-V010",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "gleiche_basis_ganz",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Staubkorn durch Blatt geteilt: 10⁻⁵ : 10⁻⁴ = 10⁻¹, also 50 · 0,1"
+    },
+    {
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Zahl der Blätter angegeben"
+    },
+    {
+     "antwort": 5000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "10² statt 10¹ Staubkörner je Blatt gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleiche_basis_ganz",
+    "t": "gleiche_basis_ganz",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Staubkorn ist 10⁻⁵ m dick. Ein Blatt Papier ist 10⁻⁴ m dick. 50 Blätter liegen aufeinander. Wie viele Staubkörner müsste man aufeinanderlegen, um dieselbe Dicke zu erreichen?"
+    },
+    "o": {
+     "wert": 500,
+     "einheit": "Staubkörner"
+    },
+    "c": "50 / 10 ** 4 * 10 ** 5",
+    "h": "Wie viele Staubkörner sind so dick wie ein Blatt? Teile 10⁻⁴ durch 10⁻⁵.",
+    "w": "Ein Blatt: 10⁻⁴ : 10⁻⁵ = 10⁻⁴⁻⁽⁻⁵⁾ = 10¹ = 10 Staubkörner. Bei 50 Blättern sind es 50 · 10 = 500 Staubkörner."
+   }
+  },
+  {
+   "kennung": "R14-V011",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "gleiche_basis_ganz",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 400,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen falsch subtrahiert: 10³ statt 10⁴"
+    },
+    {
+     "antwort": 25000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlenfaktoren vertauscht (5 durch 2 statt 2 durch 5)"
+    },
+    {
+     "antwort": 40000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahl 5 statt 4 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleiche_basis_ganz",
+    "t": "gleiche_basis_ganz",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Transistor auf einem Chip ist 5 · 10⁻⁹ m breit. Ein Streifen auf dem Chip ist 2 · 10⁻⁵ m lang. Auf dem Streifen sollen Transistoren lückenlos nebeneinander liegen. Wie viele Transistoren passen auf den Streifen?"
+    },
+    "o": {
+     "wert": 4000,
+     "einheit": "Transistoren"
+    },
+    "c": "2 / 10 ** 5 / (5 / 10 ** 9)",
+    "h": "Teile die Länge des Streifens durch die Breite eines Transistors. Rechne Zahlen und Zehnerpotenzen getrennt.",
+    "w": "Anzahl = (2 · 10⁻⁵) : (5 · 10⁻⁹) = (2 : 5) · 10⁻⁵⁻⁽⁻⁹⁾ = 0,4 · 10⁴ = 4 000. Es passen 4 000 Transistoren."
+   }
+  },
+  {
+   "kennung": "R14-V012",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "gleiche_basis_ganz",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "−3 und 2 addiert statt k aus −3 + k = 2 zu bestimmen"
+    },
+    {
+     "antwort": -5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen von k falsch bestimmt"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleiche_basis_ganz",
+    "t": "gleiche_basis_ganz",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Kristall wiegt 10⁻³ g. Ein Päckchen enthält 10ᵏ solche Kristalle und wiegt zusammen 10² g. Welche ganze Zahl ist k?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "2 - (-3)",
+    "h": "Gesamtgewicht = Gewicht eines Kristalls mal Anzahl. Die Hochzahlen der Zehnerpotenzen werden dabei addiert.",
+    "w": "Es gilt 10⁻³ · 10ᵏ = 10², also 10⁻³⁺ᵏ = 10². Daraus folgt −3 + k = 2 und k = 5. Probe: 10⁻³ · 10⁵ = 10² = 100 g."
+   }
+  },
+  {
+   "kennung": "R14-V013",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "exponent_und_potenz",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.125,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Seitenlänge 2⁻³ als Fläche angegeben"
+    },
+    {
+     "antwort": 64,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen der Hochzahl vergessen: 2⁶"
+    },
+    {
+     "antwort": 0.0625,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche als 2⁻⁴ gerechnet (−3 + (−1))"
+    }
+   ],
+   "aufgabe": {
+    "l": "exponent_und_potenz",
+    "t": "exponent_und_potenz",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein quadratisches Pixel auf einem Bildschirm hat die Seitenlänge 2⁻³ mm. Wie groß ist die Fläche des Pixels in mm²? Gib sie als Dezimalzahl an."
+    },
+    "o": {
+     "wert": 0.015625,
+     "einheit": "mm²"
+    },
+    "c": "1 / 2 ** 6",
+    "h": "Fläche eines Quadrats = Seite mal Seite. Welche Hochzahl hat (2⁻³)²?",
+    "w": "A = (2⁻³)² = 2⁻³˙² = 2⁻⁶ = 1/64 = 0,015625 mm². Probe: 1/8 · 1/8 = 1/64."
+   }
+  },
+  {
+   "kennung": "R14-V014",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "exponent_und_potenz",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 125000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen der Hochzahl vergessen: 5³ m³ = 125 m³ in Liter"
+    },
+    {
+     "antwort": 0.008,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen in m³ nicht in Liter umgerechnet"
+    },
+    {
+     "antwort": 200,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Kantenlänge 0,2 m mal 1 000 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "exponent_und_potenz",
+    "t": "exponent_und_potenz",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein würfelförmiger Behälter hat die Kantenlänge 5⁻¹ m. Wie viele Liter fasst er? Es gilt 1 m³ = 1 000 Liter."
+    },
+    "o": {
+     "wert": 8,
+     "einheit": "l"
+    },
+    "c": "1000 / 5 ** 3",
+    "h": "Das Volumen eines Würfels ist Kante mal Kante mal Kante. Rechne zuerst in m³, dann in Liter.",
+    "w": "V = (5⁻¹)³ m³ = 5⁻³ m³ = 1/125 m³. Das sind 1 000 : 125 = 8 Liter. Probe: Die Kante ist 0,2 m = 2 dm, und 2 dm · 2 dm · 2 dm = 8 dm³ = 8 Liter."
+   }
+  },
+  {
+   "kennung": "R14-V015",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "exponent_und_potenz",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "7 plus 1 statt 7 minus 1 gerechnet"
+    },
+    {
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen von k falsch bestimmt"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahl 6 aus −2k + 7 = 1 nicht durch 2 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "exponent_und_potenz",
+    "t": "exponent_und_potenz",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Alex hat ein Zahlenrätsel gestellt: Es gibt genau eine ganze Zahl k, für die (3⁻²)ᵏ · 3⁷ = 3 gilt. Welche Zahl ist k?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "(7 - 1) / 2",
+    "h": "Fasse die linke Seite zu einer einzigen Potenz von 3 zusammen. Welche Hochzahl hat (3⁻²)ᵏ?",
+    "w": "(3⁻²)ᵏ = 3⁻²ᵏ. Dann ist 3⁻²ᵏ · 3⁷ = 3⁻²ᵏ⁺⁷. Das soll 3¹ sein, also −2k + 7 = 1, 2k = 6 und k = 3. Probe: (3⁻²)³ · 3⁷ = 3⁻⁶ · 3⁷ = 3."
+   }
+  },
+  {
+   "kennung": "R14-V016",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "terme_vereinfachen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x⁻² als x² gedeutet"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x⁻² vergessen"
+    },
+    {
+     "antwort": 1.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x⁻² als x⁻¹ gerechnet: 3 : 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "terme_vereinfachen",
+    "t": "terme_vereinfachen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Rechteck hat den Flächeninhalt 6x⁴ cm². Eine Seite ist 2x⁶ cm lang. Dabei ist x = 2. Wie lang ist die andere Seite in Zentimetern?"
+    },
+    "o": {
+     "wert": 0.75,
+     "einheit": "cm"
+    },
+    "c": "6 * 2 ** 4 / (2 * 2 ** 6)",
+    "h": "Länge der anderen Seite = Fläche : bekannte Seite. Vereinfache den Bruch zuerst, setze x = 2 zuletzt ein.",
+    "w": "Andere Seite = 6x⁴ : (2x⁶) = 3 · x⁴⁻⁶ = 3x⁻² = 3/x². Für x = 2: 3/4 = 0,75 cm. Probe: 2 · 2⁶ = 128 cm mal 0,75 cm = 96 cm², und 6 · 2⁴ = 96."
+   }
+  },
+  {
+   "kennung": "R14-V017",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "terme_vereinfachen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 125,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x⁻² als x² gedeutet"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x⁻² vergessen"
+    },
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x⁻² als x⁻¹ gerechnet: 5 : 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "terme_vereinfachen",
+    "t": "terme_vereinfachen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Der Preis für ein Bastelset (in Euro) wird durch K(x) = 20x⁵ : (4x⁷) beschrieben. Dabei ist x die Zahl der gekauften Hunderterpackungen. Wie viel Euro kostet ein Set bei x = 5?"
+    },
+    "o": {
+     "wert": 0.2,
+     "einheit": "€"
+    },
+    "c": "20 * 5 ** 5 / (4 * 5 ** 7)",
+    "h": "Vereinfache K(x) zuerst: Zahlen für sich, Potenzen von x für sich. Danach setzt du x = 5 ein.",
+    "w": "K(x) = (20 : 4) · x⁵⁻⁷ = 5x⁻² = 5/x². Für x = 5: 5/25 = 0,2. Ein Set kostet 0,20 €."
+   }
+  },
+  {
+   "kennung": "R14-V018",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "terme_vereinfachen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Teilen durch x⁻¹ die Hochzahl 1 abgezogen statt −1, also 2x¹"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 2 aus der Teilung der Zahlen vergessen, also x³"
+    },
+    {
+     "antwort": 32,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahl 4 statt 3 gerechnet: 2x⁴"
+    }
+   ],
+   "aufgabe": {
+    "l": "terme_vereinfachen",
+    "t": "terme_vereinfachen",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Alex vereinfacht den Term (6x⁻³ · x⁵) : (3x⁻¹) zu einem Produkt c · xⁿ. Danach setzt er x = 2 ein. Welchen Wert erhält er?"
+    },
+    "o": {
+     "wert": 16
+    },
+    "c": "6 / 2 ** 3 * 2 ** 5 / (3 / 2)",
+    "h": "Fasse Zähler und Nenner getrennt zusammen. Beim Teilen durch x⁻¹ wird die Hochzahl −1 abgezogen.",
+    "w": "Zähler: 6x⁻³ · x⁵ = 6x². Dann 6x² : (3x⁻¹) = 2 · x²⁻⁽⁻¹⁾ = 2x³. Für x = 2: 2 · 8 = 16. Probe mit dem Ausgangsterm: 6 · 2⁻³ · 2⁵ = 24 und 3 · 2⁻¹ = 1,5, und 24 : 1,5 = 16."
+   }
+  },
+  {
+   "kennung": "R14-V019",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "fehler_ganz",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die linke Seite angegeben"
+    },
+    {
+     "antwort": 0.0625,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die rechte Seite angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "fehler_ganz",
+    "t": "fehler_ganz",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Kim behauptet: 4⁻¹ + 4⁻¹ = 4⁻². Mit einer Zahlenprobe kann man das prüfen. Um wie viel ist die linke Seite größer als die rechte Seite? Gib das Ergebnis als Dezimalzahl an."
+    },
+    "o": {
+     "wert": 0.4375
+    },
+    "c": "1 / 4 + 1 / 4 - 1 / 16",
+    "h": "Berechne beide Seiten einzeln als Bruch oder als Dezimalzahl. Dann bildest du die Differenz.",
+    "w": "Linke Seite: 4⁻¹ + 4⁻¹ = 1/4 + 1/4 = 1/2 = 0,5. Rechte Seite: 4⁻² = 1/16 = 0,0625. Die Behauptung stimmt nicht. Unterschied: 0,5 − 0,0625 = 0,4375. Beim Addieren gleicher Potenzen werden die Hochzahlen nicht addiert."
+   }
+  },
+  {
+   "kennung": "R14-V020",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "fehler_ganz",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Teilen durch 10⁻¹ nicht beachtet"
+    },
+    {
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "statt −1 die Hochzahl 1 abgezogen, also 10² statt 10⁴"
+    }
+   ],
+   "aufgabe": {
+    "l": "fehler_ganz",
+    "t": "fehler_ganz",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Kim berechnet 10⁻² · 10⁵ : 10⁻¹ und erhält 100. Die Zahlenprobe zeigt: Das stimmt nicht. Wie groß ist der richtige Wert?"
+    },
+    "o": {
+     "wert": 10000
+    },
+    "c": "10 ** 5 / 10 ** 2 * 10",
+    "h": "Kim hat beim Teilen durch 10⁻¹ vermutlich die Hochzahl falsch abgezogen. Rechne mit Brüchen nach.",
+    "w": "Beim Malnehmen addiert man: −2 + 5 = 3, also 10³. Beim Teilen durch 10⁻¹ zieht man −1 ab: 3 − (−1) = 4, also 10⁴ = 10 000. Probe mit Zahlen: 0,01 · 100 000 = 1 000, und 1 000 : 0,1 = 10 000."
+   }
+  },
+  {
+   "kennung": "R14-V021",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "fehler_ganz",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen −6 und 5 so verrechnet, dass 1 statt −1 herauskommt (a¹)"
+    },
+    {
+     "antwort": 0.015625,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Produkt mit a⁵ vergessen"
+    },
+    {
+     "antwort": 32,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur a⁵ berechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "fehler_ganz",
+    "t": "fehler_ganz",
+    "p": "uebung",
+    "s": 3,
+    "g": "pruefung",
+    "y": "zahl",
+    "f": {
+     "text": "Kim behauptet für a ≠ 0: (a⁻²)³ · a⁵ = a. Wie groß ist die linke Seite für a = 2, wenn man richtig rechnet?"
+    },
+    "o": {
+     "wert": 0.5
+    },
+    "c": "1 / 2 ** 6 * 2 ** 5",
+    "h": "Berechne zuerst (a⁻²)³ mit der Regel für Potenz einer Potenz. Danach multiplizierst du mit a⁵.",
+    "w": "(a⁻²)³ = a⁻⁶. Dann a⁻⁶ · a⁵ = a⁻¹ = 1/a. Für a = 2 ist das 1/2 = 0,5. Kims Rechnung bricht bei −6 + 5 ab, das ist −1 und nicht 1. Probe: 2⁻⁶ · 2⁵ = 32/64 = 0,5."
+   }
+  }
+ ]
+}

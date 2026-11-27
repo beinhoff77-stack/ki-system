@@ -5,8 +5,8 @@
 create role anon nologin;
 create role authenticated nologin;
 create schema schule;
-create table schule.lernender (id bigserial primary key, ist_test boolean not null default false);
-create table schule.thema (id bigint primary key, schluessel text not null unique);
+create table schule.lernender (id bigserial primary key, ist_test boolean not null default false, aktiv boolean not null default true, zeitzone text);
+create table schule.thema (id bigint primary key, schluessel text not null unique, unterthema text);
 create table schule.einheit (id bigint primary key, thema_id bigint references schule.thema(id), status text not null default 'freigegeben', inhalt jsonb default '{}');
 create table schule.aufgabe (
   id bigserial primary key, einheit_id bigint references schule.einheit(id), thema_id bigint, teilfaehigkeit text, art text default 'uebung', stufe smallint,
@@ -81,3 +81,23 @@ begin return schule.uebung_pruefen_intern(p_l, p_daten); end $$;
 create or replace function schule.aufgabe_anzeige(a schule.aufgabe, p_mit_tipp boolean) returns jsonb language sql stable set search_path to '' as $$
   select jsonb_build_object('id', a.id, 'antworttyp', a.antworttyp, 'frage', a.frage, 'antworten', a.antworten, 'einheit', a.loesung->>'einheit', 'tipp', case when p_mit_tipp then a.tipp end) $$;
 insert into schule.lernender (ist_test) values (true), (false);
+
+-- für WW-S (Was wackelt): Zugriff, Regeln, endgültig falsch – stark vereinfacht
+create schema api;
+create table schule.regel (schluessel text primary key, wert jsonb not null, hinweis text);
+create or replace function schule.wd_regel(p text, p_vorgabe integer) returns integer language sql stable set search_path to '' as $$
+  select coalesce((select (r.wert #>> '{}')::int from schule.regel r where r.schluessel = p), p_vorgabe) $$;
+-- Nachbau: endgültig falsch = falsch und nicht 1. Anlauf (echte Regel: LW-S 2 mit versuch_wertung und 30 Minuten)
+create or replace function schule.fehler_endgueltig_am(v schule.versuch) returns timestamptz language sql stable set search_path to '' as $$
+  select case when not v.richtig and coalesce(v.anlauf, 0) <> 1 then v.am end $$;
+-- Schlüssel im Nachbau: 'eltern:<kind>' sieht Kind <kind>, 'kind:<kind>' ist das Kind selbst
+create or replace function schule.ist_lern(p text) returns boolean language sql stable as $$ select true $$;
+create or replace function schule.lern_ich(p text) returns table (rolle text, name text, login_id bigint) language sql stable as $$
+  select split_part(p, ':', 1), 'Probe', 1::bigint $$;
+create or replace function schule.wer_tn(p text) returns bigint language sql stable as $$ select -1::bigint $$;
+create or replace function schule.ist_leiter(p text) returns boolean language sql stable as $$ select split_part(p, ':', 1) in ('eltern', 'lehrer') $$;
+create or replace function schule.zugriff(p text, p_l bigint) returns bigint language plpgsql stable as $$
+begin
+  if split_part(p, ':', 2) = p_l::text then return -1; end if;
+  raise exception 'Kein Zugriff auf diesen Lernenden' using errcode = 'P0001';
+end $$;

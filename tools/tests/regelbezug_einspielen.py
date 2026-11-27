@@ -32,7 +32,8 @@ from pathlib import Path
 MIG = Path(__file__).resolve().parent.parent.parent / 'supabase/migrations/20261204_rb_s_regelbezug.sql'
 NEU = ['schule.regelbezug_schutz()', 'schule.fehlbild_finden(schule.aufgabe, jsonb)', 'schule.regelbezug_antwort(schule.aufgabe, jsonb, boolean, boolean)',
        'schule.versuch_fehlbild()', 'schule.versuch_regelbezug(schule.versuch)', 'schule.fehlbild_probeantwort(schule.aufgabe, text, integer, text)']
-LESER = {'fehlbild_finden', 'regelbezug_antwort', 'versuch_fehlbild', 'versuch_regelbezug', 'regelbezug_schutz', 'uebung_pruefen_intern'}
+LESER = {'fehlbild_finden', 'regelbezug_antwort', 'versuch_fehlbild', 'versuch_regelbezug', 'regelbezug_schutz', 'uebung_pruefen_intern',
+         'ww_fehlerart', 'wackelt_analyse'}   # WW-S: nur Eltern/Lehrer (api.schule_wackelt_analyse prüft ist_leiter)
 A2_NEU = "'hinweis', b->>'hinweis', 'regelbezug', schule.regelbezug_antwort(a, p_daten->'antwort', false, false)));"
 A2_ALT = "'hinweis', b->>'hinweis'));"
 

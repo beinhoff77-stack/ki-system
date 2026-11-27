@@ -10,7 +10,7 @@
  "hinweis": "Je Lernkarte ohne Aufgabe auf Stufe 3 in rollend-5/rollend-7 genau eine zählende Aufgabe der Stufe 3 in neuer Form. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ, form, zaehlt, Regel-Kennung, Fehlbilder (mit rechnung) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
  "aufgaben": [
   {
-   "kennung": "S3-V008",
+   "kennung": "S3-V017",
    "thema": "zahlen.ganz",
    "lernkarte": "deuten",
    "stufe": 3,
@@ -63,7 +63,7 @@
    }
   },
   {
-   "kennung": "S3-V009",
+   "kennung": "S3-V018",
    "thema": "zahlen.ganz",
    "lernkarte": "ordnen",
    "stufe": 3,
@@ -137,7 +137,7 @@
    }
   },
   {
-   "kennung": "S3-V010",
+   "kennung": "S3-V019",
    "thema": "zahlen.ganz",
    "lernkarte": "schriftlich_plus_minus",
    "stufe": 3,
@@ -221,7 +221,7 @@
    }
   },
   {
-   "kennung": "S3-V011",
+   "kennung": "S3-V020",
    "thema": "zahlen.ganz",
    "lernkarte": "subtrahieren",
    "stufe": 3,
@@ -273,7 +273,7 @@
    }
   },
   {
-   "kennung": "S3-V012",
+   "kennung": "S3-V021",
    "thema": "zahlen.ganz",
    "lernkarte": "ketten",
    "stufe": 3,
@@ -343,7 +343,7 @@
    }
   },
   {
-   "kennung": "S3-V013",
+   "kennung": "S3-V022",
    "thema": "zahlen.ganz",
    "lernkarte": "sach",
    "stufe": 3,

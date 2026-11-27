@@ -1,0 +1,240 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-11",
+ "kuerzel": "S3",
+ "thema": "stochastik.kombinatorik",
+ "titel": "stochastik.kombinatorik",
+ "fuer": "Klasse 5",
+ "klasse": 5,
+ "themen_datei_im_bestand": "stochastik.kombinatorik",
+ "hinweis": "Je Lernkarte ohne Aufgabe auf Stufe 3 in rollend-5/rollend-7 genau eine zählende Aufgabe der Stufe 3 in neuer Form. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ, form, zaehlt, Regel-Kennung, Fehlbilder (mit rechnung) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "S3-V023",
+   "thema": "stochastik.kombinatorik",
+   "lernkarte": "systematisch",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Zahlen mit verschiedenen Ziffern gezählt, ohne die Bedingung zu beachten",
+     "rechnung": "5 * 4"
+    },
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gleiche Ziffern wie 11, 33, 55, 22, 44 mitgezählt, obwohl die Ziffern verschieden sein sollen",
+     "rechnung": "3 * 3 + 2 * 2"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Zahlen mit zwei ungeraden Ziffern gezählt",
+     "rechnung": "3 * 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "systematisch",
+    "t": "systematisch",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Aus den Ziffern 1, 2, 3, 4 und 5 werden zweistellige Zahlen mit zwei verschiedenen Ziffern gebildet. Wie viele davon haben eine gerade Quersumme? Weg A: Schreibe alle diese Zahlen systematisch auf und zähle die passenden. Weg B: Zähle getrennt die Zahlen mit zwei ungeraden Ziffern und die Zahlen mit zwei geraden Ziffern."
+    },
+    "o": {
+     "wert": 8
+    },
+    "c": "3 * 2 + 2 * 1",
+    "h": "Beide Wege müssen dieselbe Anzahl ergeben. Welche der Ziffern sind gerade, welche ungerade?",
+    "w": "Weg A: Passend sind 13, 15, 31, 35, 51, 53 (zwei ungerade Ziffern) und 24, 42 (zwei gerade Ziffern): 8 Zahlen. Weg B: Zwei ungerade Ziffern aus 1, 3, 5: 3 · 2 = 6 Zahlen. Zwei gerade Ziffern aus 2, 4: 2 · 1 = 2 Zahlen. Zusammen 6 + 2 = 8. Bei einer geraden und einer ungeraden Ziffer ist die Quersumme ungerade."
+   }
+  },
+  {
+   "kennung": "S3-V024",
+   "thema": "stochastik.kombinatorik",
+   "lernkarte": "reihenfolgen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 3",
+     "rechnung": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 3",
+     "rechnung": null
+    }
+   ],
+   "fehlerzeile": 3,
+   "fehler": "die Möglichkeiten addiert statt malgenommen",
+   "zeilen": [
+    {
+     "zeile": 1,
+     "text": "Für die Mädchen gibt es auf den Plätzen 1 bis 3 genau 3 · 2 · 1 = 6 Möglichkeiten.",
+     "stimmt": true
+    },
+    {
+     "zeile": 2,
+     "text": "Für die Jungen gibt es auf den Plätzen 4 und 5 genau 2 · 1 = 2 Möglichkeiten.",
+     "stimmt": true
+    },
+    {
+     "zeile": 3,
+     "text": "Die Möglichkeiten der Mädchen und der Jungen werden zusammengezählt: 6 + 2 = 8 Reihenfolgen.",
+     "stimmt": false
+    }
+   ],
+   "aufgabe": {
+    "l": "reihenfolgen",
+    "t": "reihenfolgen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Fünf verschiedene Kinder stellen sich in einer Reihe auf. Die 3 Mädchen stehen auf den Plätzen 1 bis 3, die 2 Jungen auf den Plätzen 4 und 5. Kim zählt die möglichen Reihenfolgen. Zeile 1: Für die Mädchen gibt es auf den Plätzen 1 bis 3 genau 3 · 2 · 1 = 6 Möglichkeiten. Zeile 2: Für die Jungen gibt es auf den Plätzen 4 und 5 genau 2 · 1 = 2 Möglichkeiten. Zeile 3: Die Möglichkeiten der Mädchen und der Jungen werden zusammengezählt: 6 + 2 = 8 Reihenfolgen. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Zu jeder Anordnung der Mädchen gibt es alle Anordnungen der Jungen. Prüfe, ob man dann zählt oder malnimmt.",
+    "w": "Zeile 1 und Zeile 2 stimmen. Zu jeder der 6 Anordnungen der Mädchen gibt es jede der 2 Anordnungen der Jungen. Deshalb muss man malnehmen: 6 · 2 = 12 Reihenfolgen, nicht 6 + 2 = 8."
+   }
+  },
+  {
+   "kennung": "S3-V025",
+   "thema": "stochastik.kombinatorik",
+   "lernkarte": "baumdiagramm",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei jedem Hauptgericht 4 Soßen angenommen: 3 · 4 · 2",
+     "rechnung": "3 * 4 * 2"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wege bis zur Soße gezählt und den Nachtisch vergessen",
+     "rechnung": "3 + 2 + 4"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei jedem Hauptgericht nur 2 Soßen angenommen: 3 · 2 · 2",
+     "rechnung": "3 * 2 * 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "baumdiagramm",
+    "t": "baumdiagramm",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Bei einem Schulfest wählt jedes Kind zuerst ein Hauptgericht. Zur Wahl stehen Nudeln (dazu 3 Soßen zur Wahl), Reis (dazu 2 Soßen) und Kartoffeln (dazu 4 Soßen). Danach gibt es zu jedem Gericht einen Nachtisch zur Wahl aus 2 Sorten. Ein Menü besteht aus Hauptgericht, Soße und Nachtisch. Wie viele verschiedene Menüs sind möglich?"
+    },
+    "o": {
+     "wert": 18,
+     "einheit": "Menüs"
+    },
+    "c": "(3 + 2 + 4) * 2",
+    "h": "Zeichne die Äste für das Hauptgericht. Bei den Soßen ist die Zahl der Äste nicht bei jedem Ast gleich.",
+    "w": "Baumdiagramm: Nudeln hat 3 Soßen, Reis 2, Kartoffeln 4. Das sind 3 + 2 + 4 = 9 Wege bis zur Soße. Jeder dieser Wege teilt sich in 2 Nachtische: 9 · 2 = 18 Menüs. Man kann auch rechnen: 3 · 2 + 2 · 2 + 4 · 2 = 6 + 4 + 8 = 18."
+   }
+  },
+  {
+   "kennung": "S3-V026",
+   "thema": "stochastik.kombinatorik",
+   "lernkarte": "bedingungen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die vier Stellen mit 10 Möglichkeiten gezählt und die erste Ziffer vergessen",
+     "rechnung": "5 - 1"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Stelle zu viel gezählt: 10 000 hat 5 Ziffern",
+     "rechnung": "5 + 1"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Möglichkeiten der ersten Ziffer genannt statt der Zahl der Ziffern",
+     "rechnung": "90000 / 10000"
+    }
+   ],
+   "aufgabe": {
+    "l": "bedingungen",
+    "t": "bedingungen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Zahlencode besteht nur aus Ziffern von 0 bis 9. Die erste Ziffer darf nicht 0 sein, die übrigen Ziffern sind beliebig und dürfen sich wiederholen. Alle Codes sind gleich lang. Es gibt insgesamt 90 000 mögliche Codes. Wie viele Ziffern hat ein Code?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "4 + 1",
+    "h": "Wie viele Möglichkeiten hat die erste Ziffer? Teile die Gesamtzahl durch diese Zahl und überlege, wie oft die 10 dann vorkommt.",
+    "w": "Für die erste Ziffer gibt es 9 Möglichkeiten (1 bis 9). 90 000 : 9 = 10 000 = 10 · 10 · 10 · 10: Die übrigen Ziffern haben je 10 Möglichkeiten, und es sind 4 solche Stellen. Zusammen mit der ersten Ziffer hat der Code 5 Ziffern. Probe: 9 · 10 · 10 · 10 · 10 = 90 000."
+   }
+  }
+ ]
+}

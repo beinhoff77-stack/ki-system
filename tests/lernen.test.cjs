@@ -1277,17 +1277,13 @@ test('F: Knobel falsch kostet nichts und zeigt den Weg; ohne Bonus-Aufgaben kein
   assert.deepEqual(r.slice(1), [null, null]);
 });
 
-test('F: Knobeln des Tages auf der Abflugtafel (einmal je Tag), Knobel-Sterne im Reisepass, Eltern sehen Stufe, Typ und Knobel x von y', async (t) => {
+test('F: Knobeln des Tages abgeschaltet (Entscheidung des Nutzers), Knobel-Sterne im Reisepass, Eltern sehen Stufe, Typ und Knobel x von y', async (t) => {
   const tag = (aktion, e) => { const x = mitBonus(aktion, e); if (aktion !== 'schule_konto') return x;
     x.knobel_tag = { ...zeig(AUFG[501]), einheit_id: 1, stadt: 'Rom', etappe: 'Welchen Wert hat eine Ziffer?' }; return x; };
   const { page } = await setup(t, { gestaltung: 'nacht', anpassen: tag });
   await page.goto(origin + '/#/reise/1');
-  const box = page.locator('.lr-knobel-tag'); await box.waitFor();
-  assert.match(await box.innerText(), /KNOBELN DES TAGES[\s\S]*Welchen Wert hat eine Ziffer\?/);
-  await box.getByRole('button', { name: 'Knobeln für Profis' }).click();
-  await box.locator('.lr-knobel input').waitFor();
-  await page.reload(); await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
-  assert.equal(await page.locator('.lr-knobel-tag').count(), 0, 'heute nur einmal');
+  // „Knobeln des Tages“ abgeschaltet (Entscheidung des Nutzers 27.11.): trotz knobel_tag vom Server nirgends angeboten
+  await page.locator('.lr-abflugtafel, .rk .rk-pin').first().waitFor(); assert.equal(await page.locator('.lr-knobel-tag').count(), 0, 'kein Knobeln des Tages');
   await page.goto(origin + '/#/reisepass/1'); await page.getByText('★ Knobel-Sterne: 2').waitFor();
   // Eltern: Lernstand und Inhalte
   await page.goto(origin + '/#/wackelt/1'); await page.locator('.ls-alle summary').click(); await page.locator('.ls-knobel').first().waitFor();
@@ -6247,65 +6243,28 @@ test('Menü verkürzt: vier Einträge; Merkheft als Reiter im Regel-Universum, R
   assert.equal(await page.locator('.rk-stern').getAttribute('href'), '#/reisepass/1');
 });
 
-// Teil 1 (0.96.0): Die Abflugtafel bleibt aus – ihre Einstiege liegen jetzt als schlanke Leiste über der Reisekarte (Inhalt aus den bisherigen Funktionen)
-test('Teil 1: Knobeln des Tages, „Alle offenen Flüge“, „Was kommt wann wieder?“, Erklärungen und Meine Route von der Reisekarte aus (390/1280, hell/dunkel, Tastatur); Karte als Gruppe mit einzeln bedienbaren Pins', async (t) => {
-  const knobelTag = (aktion, e) => { if (aktion === 'schule_uebersicht' && e) { const x = structuredClone(e); x.einheiten.find((y) => y.id === 2).ziel_klasse = 5; return x; } // ein zweiter offener Flug (New York)
-    if (aktion !== 'schule_konto' || !e) return e; const x = structuredClone(e); x.knobel_tag = { ...zeig(AUFG[501]), einheit_id: 1, stadt: 'Rom', etappe: 'Welchen Wert hat eine Ziffer?' }; return x; };
-  const bilder = process.env.APP3_BILDER || null;
+// Teil 1 (0.96.0): Die Karte bleibt, wie sie war (Entscheidung des Nutzers) – nur die Rolle des SVG ist berichtigt; „Was kommt wann wieder?“ im Menü; „Knobeln des Tages“ abgeschaltet
+test('Teil 1: Reisekarte ohne zusätzliche Leiste; Karte als Gruppe mit einzeln bedienbaren Pins; „Was kommt wann wieder?“ im Menü; kein „Knobeln des Tages“; alte Routen leiten weiter', async (t) => {
+  const knobelTag = (aktion, e) => { if (aktion !== 'schule_konto' || !e) return e; const x = structuredClone(e); x.knobel_tag = { ...zeig(AUFG[501]), einheit_id: 1, stadt: 'Rom', etappe: 'Welchen Wert hat eine Ziffer?' }; return x; };
   for (const [b, h, g] of [[390, 844, 'tag'], [1280, 800, 'tag'], [390, 844, 'nacht']]) {
     const { page } = await rkOeffnen(t, b, h, { basis: knobelTag, gestaltung: g });
-    assert.equal(await page.locator('.lr-abflugtafel').count(), 0, 'Abflugtafel bleibt aus');
-    const leiste = page.getByRole('navigation', { name: 'Mehr zur Reise' }); await leiste.waitFor();
-    // Leiste über der Karte, Karte füllt weiter das Fenster, kein Rollen
-    const lb = await leiste.boundingBox(); const kb = await page.locator('.rk-karte').boundingBox();
-    if (b >= 1100) assert.ok(lb.y + lb.height <= kb.y + 1 && lb.height <= 48, `Rechner: Leiste schlank über der Karte (${lb.height})`);
-    else { const zb = await page.locator('.rk-zoom').boundingBox(); assert.ok(lb.y >= kb.y && lb.y + lb.height <= kb.y + 56 && lb.x + lb.width <= zb.x + 1, `Handy: Leiste oben in der Karte neben den Kartenknöpfen (${JSON.stringify(lb)})`);
-      const ub = await page.locator('.rk-universum').boundingBox(); assert.ok(ub.y >= lb.y + lb.height - 1 || ub.x >= lb.x + lb.width, 'Regel-Universum nicht unter der Leiste'); }
-    assert.ok(kb.y + kb.height >= h - 24, 'Karte bis unten'); assert.ok(await page.evaluate(() => document.documentElement.scrollHeight <= innerHeight + 1), 'Seite rollt nicht');
-    assert.ok(await ohneQuerrollen(page), 'kein Querrollen');
-    const knobel = leiste.getByRole('button', { name: 'Knobeln des Tages' }); const fluege = leiste.getByRole('button', { name: /^Alle offenen Flüge/ });
-    const wdh = leiste.getByRole('button', { name: 'Was kommt wann wieder?' });
-    for (const k of [knobel, fluege, wdh]) { assert.equal(await k.getAttribute('aria-haspopup'), 'dialog'); assert.ok((await k.boundingBox()).height >= 40, 'Tippfläche'); }
-    assert.match(await leiste.getByRole('link', { name: 'Erklärungen ansehen' }).getAttribute('href'), /^#\/lerneinheit\/1-1$/);
-    assert.equal(await leiste.getByRole('link', { name: 'Meine Route 5–10' }).getAttribute('href'), '#/route/1');
-    // Karte: Gruppe (kein Bild), Pins einzeln im Barrierefreiheits-Baum
+    assert.equal(await page.locator('.lr-abflugtafel, .rk-leiste, .rk-chip').count(), 0, 'keine Tafel, keine Leiste');
+    assert.equal(await page.getByText('Knobeln des Tages', { exact: false }).count(), 0, 'Knobeln des Tages abgeschaltet');
     assert.equal(await page.locator('.rk-svg').getAttribute('role'), 'group'); assert.equal(await page.locator('.rk-svg').getAttribute('aria-label'), 'Reisekarte');
     assert.match(await page.getByRole('group', { name: 'Reisekarte' }).ariaSnapshot(), /button "Italien, Hauptstadt Rom, gerade dran[^"]*"/);
-    if (bilder && g === 'tag') await page.screenshot({ path: path.join(bilder, `karte-${b}-hell.png`), fullPage: true });
-    if (bilder && g === 'nacht') await page.screenshot({ path: path.join(bilder, `karte-${b}-dunkel.png`), fullPage: true });
-    // 2 Alle offenen Flüge – Tastatur: Enter öffnet, Fokus im Blatt, Escape schließt, Fokus zurück
-    await fluege.focus(); await page.keyboard.press('Enter');
-    const dlgF = page.getByRole('dialog', { name: 'Alle offenen Flüge' }); await dlgF.waitFor();
-    assert.equal(await page.evaluate(() => document.activeElement.getAttribute('aria-label')), 'Schließen');
-    const zeilen = dlgF.locator('.rk-mehr-liste a.lr-zeile'); assert.equal(await zeilen.count(), 1, 'offene Flüge gelistet'); assert.match(await zeilen.first().innerText(), /New York|Zinsen/);
-    if (bilder) await page.waitForTimeout(400), await page.screenshot({ path: path.join(bilder, `karte-${b}-${g === 'nacht' ? 'dunkel' : 'hell'}-fluege.png`), fullPage: true });
-    await page.keyboard.press('Escape'); await dlgF.waitFor({ state: 'detached' });
-    assert.equal(await page.evaluate(() => document.activeElement.textContent.includes('Alle offenen Flüge')), true, 'Fokus zurück am Chip');
-    assert.equal(await fluege.evaluate((e) => e.matches(':focus-visible')), true, 'Fokus sichtbar');
-    // 3 Was kommt wann wieder? – derselbe Text wie unter der Tafel
-    await wdh.click(); const dlgW = page.getByRole('dialog', { name: 'Was kommt wann wieder?' }); await dlgW.waitFor();
-    assert.match(await dlgW.innerText(), /nach 1, 3, 7, 14 und 30 Lerntagen/);
-    if (bilder) await page.waitForTimeout(400), await page.screenshot({ path: path.join(bilder, `karte-${b}-${g === 'nacht' ? 'dunkel' : 'hell'}-wiederholung.png`), fullPage: true });
-    await dlgW.getByRole('button', { name: 'Schließen' }).click(); await dlgW.waitFor({ state: 'detached' });
-    // 1 Knobeln des Tages – derselbe Kasten, startet wie bisher; danach ist es für heute weg
-    await knobel.click(); const dlgK = page.getByRole('dialog', { name: 'Knobeln des Tages' }); await dlgK.waitFor();
-    assert.match(await dlgK.innerText(), /KNOBELN DES TAGES[\s\S]*Welchen Wert hat eine Ziffer\?/);
-    if (bilder) await page.waitForTimeout(400), await page.screenshot({ path: path.join(bilder, `karte-${b}-${g === 'nacht' ? 'dunkel' : 'hell'}-knobeln.png`), fullPage: true });
-    await dlgK.getByRole('button', { name: 'Knobeln für Profis' }).click(); await dlgK.locator('.lr-knobel input').waitFor();
-    await page.keyboard.press('Escape'); await dlgK.waitFor({ state: 'detached' });
-    assert.equal(await knobel.count(), 0, 'heute nur einmal');
-    await page.reload(); await page.locator('.rk .rk-pin').first().waitFor();
-    assert.equal(await page.getByRole('button', { name: 'Knobeln des Tages' }).count(), 0, 'auch nach dem Neuladen weg');
-    // Antippen eines offenen Flugs öffnet ihn wie bisher
-    await page.getByRole('button', { name: /^Alle offenen Flüge/ }).click(); const z1 = page.getByRole('dialog', { name: 'Alle offenen Flüge' }).locator('.rk-mehr-liste a.lr-zeile').first();
-    const ziel = await z1.getAttribute('href'); assert.match(ziel, /^#\/lerneinheit\/1-\d+$/); assert.notEqual(ziel, '#/lerneinheit/1-1', 'der Flug des Startknopfs steht nicht in der Liste');
-    await z1.click(); await page.waitForURL(new RegExp(ziel.replace(/[/#-]/g, (c) => '\\' + c) + '$')); await page.locator('.rk-mehr-blatt').waitFor({ state: 'detached' });
+    const pin = page.locator('.rk-pin[data-id="IT"]'); await pin.focus(); assert.equal(await pin.evaluate((e) => e === document.activeElement), true, 'Pin per Tastatur erreichbar');
+    if (process.env.APP3_BILDER) await page.screenshot({ path: path.join(process.env.APP3_BILDER, `karte-${b}-${g === 'nacht' ? 'dunkel' : 'hell'}.png`), fullPage: true });
+    // Menü ≡ → „Was kommt wann wieder?“ (derselbe Text wie unter der Tafel)
+    await page.locator('header.top .rk-menue').click(); const blatt = page.locator('dialog.lr-blatt[open]'); await blatt.waitFor();
+    const wdh = blatt.locator('summary', { hasText: 'Was kommt wann wieder?' }); await wdh.focus(); await page.keyboard.press('Enter');
+    await blatt.getByText('nach 1, 3, 7, 14 und 30 Lerntagen', { exact: false }).waitFor();
+    if (process.env.APP3_BILDER) await page.waitForTimeout(300), await page.screenshot({ path: path.join(process.env.APP3_BILDER, `karte-${b}-${g === 'nacht' ? 'dunkel' : 'hell'}-menue.png`), fullPage: true });
   }
-});
-test('Teil 1: ohne Knobeln heute kein Knobel-Chip; alte Routen leiten weiter wie bisher; ohne Kartendaten weiter die Tafel (Rückfall)', async (t) => {
   const { page } = await rkOeffnen(t, 390, 844);
-  assert.equal(await page.getByRole('button', { name: 'Knobeln des Tages' }).count(), 0);
-  await page.getByRole('navigation', { name: 'Mehr zur Reise' }).getByRole('button', { name: 'Was kommt wann wieder?' }).waitFor();
   for (const alt of ['#/weltkarte/1', '#/weg/1-karte']) { await page.goto(origin + '/' + alt); await page.waitForURL(/#\/reise\/1$/); await page.locator('.rk .rk-pin').first().waitFor(); }
-  assert.equal(await page.locator('.lr-abflugtafel').count(), 0);
+  // Rückfall ohne Kartendaten: Tafel wie bisher, aber ohne Knobeln des Tages
+  const tag = (aktion, e) => { if (aktion !== 'schule_konto' || !e) return e; const x = structuredClone(e); x.knobel_tag = { ...zeig(AUFG[501]), einheit_id: 1, stadt: 'Rom', etappe: 'Welchen Wert hat eine Ziffer?' }; return x; };
+  const { page: p2 } = await setup(t, { gestaltung: 'nacht', anpassen: tag }); p2._ohneKarte = true;
+  await p2.goto(origin + '/#/reise/1'); await p2.locator('.lr-abflugtafel').waitFor();
+  assert.equal(await p2.locator('.lr-knobel-tag').count(), 0, 'auch auf der Rückfall-Tafel kein Knobeln des Tages');
 });

@@ -1,0 +1,1341 @@
+{
+ "stand": "2026-11-27",
+ "flug": "g1",
+ "titel": "Größen und Einheiten",
+ "fuer": "Kind 1",
+ "klasse": 5,
+ "thema": "groessen.einheiten",
+ "hinweis": "Aufgaben auf Vorrat, rollendes System Stufe 2. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: erst die Aufgaben ohne Bau, dann die des Typs „bedingung“, jeweils mit aufsteigender Stufe.",
+ "aufgaben": [
+  {
+   "kennung": "G1-01",
+   "thema": "groessen.einheiten",
+   "lernkarte": "laenge",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 340,
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "mit 100 statt mit 1 000 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3004,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "als 3 km und 4 m gelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "laenge",
+    "t": "laenge",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "3,4 km in Meter: 1 km = ① m, also 3,4 km = ② m.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      1000,
+      3400
+     ]
+    },
+    "c": [
+     "1000",
+     "3.4 * 1000"
+    ],
+    "h": "In die kleinere Einheit nimmst du mal.",
+    "w": "1 km = 1 000 m. 3,4 · 1 000 = 3 400 m."
+   }
+  },
+  {
+   "kennung": "G1-02",
+   "thema": "groessen.einheiten",
+   "lernkarte": "zeit",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 3,
+     "antwort": 175,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie mit Kommazahlen gerechnet: 11,15 − 9,40 = 1,75"
+    },
+    {
+     "luecke": 3,
+     "antwort": 135,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1 h 35 min als 135 min geschrieben"
+    }
+   ],
+   "aufgabe": {
+    "l": "zeit",
+    "t": "zeit",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Von 9:40 Uhr bis 11:15 Uhr: Bis 10:00 Uhr sind es ① min. Von 10:00 Uhr bis 11:15 Uhr sind es ② min. Zusammen: ③ min.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      20,
+      75,
+      95
+     ]
+    },
+    "c": [
+     "60 - 40",
+     "60 + 15",
+     "60 - 40 + 60 + 15"
+    ],
+    "h": "Rechne erst bis zur vollen Stunde.",
+    "w": "Bis 10:00 Uhr 20 min, dann 1 h 15 min = 75 min. Zusammen 95 min."
+   }
+  },
+  {
+   "kennung": "G1-03",
+   "thema": "groessen.einheiten",
+   "lernkarte": "schaetzen",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "eine Tafel Schokolade (100 g)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Masse statt Länge"
+    },
+    {
+     "index": 2,
+     "antwort": "eine Schulstunde (45 min)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeit statt Länge"
+    },
+    {
+     "index": 3,
+     "antwort": "eine Packung Milch (1 Liter)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Rauminhalt statt Länge"
+    }
+   ],
+   "aufgabe": {
+    "l": "schaetzen",
+    "t": "schaetzen",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Du sollst die Höhe eines Zimmers schätzen. Welche Bezugsgröße hilft dir?"
+    },
+    "a": [
+     "eine Tür (etwa 2 m hoch)",
+     "eine Tafel Schokolade (100 g)",
+     "eine Schulstunde (45 min)",
+     "eine Packung Milch (1 Liter)"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Die Bezugsgröße muss dieselbe Art von Größe sein.",
+    "w": "Die Höhe ist eine Länge. Die Tür ist etwa 2 m hoch; das Zimmer ist etwas höher, etwa 2,50 m."
+   }
+  },
+  {
+   "kennung": "G1-04",
+   "thema": "groessen.einheiten",
+   "lernkarte": "kommaschreibweise",
+   "stufe": 1,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Mia hat recht.",
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "7 cm als 0,7 m: eine Stelle daneben"
+    },
+    {
+     "index": 1,
+     "antwort": "Richtig ist 47 m.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Komma weggelassen"
+    },
+    {
+     "index": 2,
+     "antwort": "Richtig ist 4,007 m.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "drei Stellen wie bei kg und g"
+    }
+   ],
+   "aufgabe": {
+    "l": "kommaschreibweise",
+    "t": "kommaschreibweise",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Mia schreibt: 4 m 7 cm = 4,7 m. Was stimmt?"
+    },
+    "a": [
+     "Mia hat recht.",
+     "Richtig ist 47 m.",
+     "Richtig ist 4,007 m.",
+     "7 cm sind 0,07 m. Richtig ist 4,07 m."
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Bei m und cm gibt es zwei Stellen hinter dem Komma.",
+    "w": "1 cm ist ein Hundertstel Meter. 7 cm = 0,07 m, also 4,07 m. 4,7 m wären 4 m 70 cm."
+   }
+  },
+  {
+   "kennung": "G1-05",
+   "thema": "groessen.einheiten",
+   "lernkarte": "rechnen",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "2,5 + 750 rechnen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "verschiedene Einheiten zusammengezählt"
+    },
+    {
+     "index": 1,
+     "antwort": "750 durch 2,5 teilen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsche Rechenart"
+    },
+    {
+     "index": 2,
+     "antwort": "das Komma weglassen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Weglassen des Kommas ist kein Umrechnen"
+    }
+   ],
+   "aufgabe": {
+    "l": "rechnen",
+    "t": "rechnen",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Du sollst 2,5 kg + 750 g rechnen. Was tust du zuerst?"
+    },
+    "a": [
+     "2,5 + 750 rechnen",
+     "750 durch 2,5 teilen",
+     "das Komma weglassen",
+     "beide Größen in dieselbe Einheit bringen"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Vor plus und minus brauchen beide Größen dieselbe Einheit.",
+    "w": "Erst umrechnen: 2,5 kg = 2 500 g. Dann 2 500 g + 750 g = 3 250 g."
+   }
+  },
+  {
+   "kennung": "G1-06",
+   "thema": "groessen.einheiten",
+   "lernkarte": "masse",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1550,
+     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "350 dazugezählt statt abgezogen"
+    },
+    {
+     "antwort": -230,
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "1,2 kg als 120 g"
+    }
+   ],
+   "aufgabe": {
+    "l": "masse",
+    "t": "masse",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "□ g + 350 g = 1,2 kg. Welche Zahl gehört in das Kästchen?"
+    },
+    "o": {
+     "wert": 850,
+     "einheit": "g"
+    },
+    "c": "1.2 * 1000 - 350",
+    "h": "Bring erst alles auf Gramm.",
+    "w": "1,2 kg = 1 200 g. 1 200 − 350 = 850."
+   }
+  },
+  {
+   "kennung": "G1-07",
+   "thema": "groessen.einheiten",
+   "lernkarte": "rechnen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 235,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dazugezählt statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "rechnen",
+    "t": "rechnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "1,5 m − 85 cm auf zwei Wegen. Weg A in cm: 150 cm − 85 cm = ① cm. Weg B in m: 1,50 m − 0,85 m = 0,② m.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      65,
+      65
+     ]
+    },
+    "c": [
+     "150 - 85",
+     "(1.5 - 0.85) * 100"
+    ],
+    "h": "Beide Wege müssen dieselbe Länge ergeben.",
+    "w": "150 − 85 = 65 cm. In Metern: 1,50 − 0,85 = 0,65 m. Das ist dasselbe."
+   }
+  },
+  {
+   "kennung": "G1-08",
+   "thema": "groessen.einheiten",
+   "lernkarte": "kommaschreibweise",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "zahl",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3.4,
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "40 g als 0,4 kg"
+    },
+    {
+     "antwort": 3.004,
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "40 g als 0,004 kg"
+    }
+   ],
+   "aufgabe": {
+    "l": "kommaschreibweise",
+    "t": "kommaschreibweise",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Schreibe 3 kg 40 g als Kommazahl in Kilogramm."
+    },
+    "o": {
+     "wert": 3.04,
+     "einheit": "kg"
+    },
+    "c": "3 + 40 / 1000",
+    "h": "Bei kg und g gibt es drei Stellen hinter dem Komma.",
+    "w": "40 g = 0,040 kg. Also 3,040 kg = 3,04 kg."
+   }
+  },
+  {
+   "kennung": "G1-09",
+   "thema": "groessen.einheiten",
+   "lernkarte": "laenge",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "0,5 km",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die größte Einheit gewählt"
+    },
+    {
+     "index": 1,
+     "antwort": "480 m",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht umgerechnet"
+    },
+    {
+     "index": 2,
+     "antwort": "51 000 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Maßzahl verglichen"
+    }
+   ],
+   "aufgabe": {
+    "l": "laenge",
+    "t": "laenge",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Länge ist am größten?"
+    },
+    "a": [
+     "0,5 km",
+     "480 m",
+     "51 000 cm",
+     "5 300 dm"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Rechne alle vier in dieselbe Einheit um.",
+    "w": "In Metern: 500 m, 480 m, 510 m und 530 m. Am größten sind 5 300 dm."
+   }
+  },
+  {
+   "kennung": "G1-10",
+   "thema": "groessen.einheiten",
+   "lernkarte": "laenge",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.08,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1,2 : 15 ohne Umrechnen"
+    },
+    {
+     "antwort": 80,
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "1,2 m als 1 200 cm"
+    }
+   ],
+   "aufgabe": {
+    "l": "laenge",
+    "t": "laenge",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Von einem 1,2 m langen Band werden Stücke von je 15 cm abgeschnitten. Wie viele Stücke werden es?"
+    },
+    "o": {
+     "wert": 8
+    },
+    "c": "120 // 15",
+    "h": "Bring beide Längen auf dieselbe Einheit.",
+    "w": "1,2 m = 120 cm. 120 : 15 = 8 Stücke."
+   }
+  },
+  {
+   "kennung": "G1-11",
+   "thema": "groessen.einheiten",
+   "lernkarte": "massstab",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.8,
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "4 km als 40 000 cm"
+    },
+    {
+     "antwort": 200000,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "4 · 50 000 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "massstab",
+    "t": "massstab",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei Orte liegen 4 km auseinander. Wie viele Zentimeter sind das auf einer Karte im Maßstab 1 : 50 000?"
+    },
+    "o": {
+     "wert": 8
+    },
+    "c": "4 * 100000 // 50000",
+    "h": "Rechne die 4 km erst in Zentimeter um. Auf der Karte ist alles 50 000-mal kleiner.",
+    "w": "4 km = 400 000 cm. 400 000 : 50 000 = 8 cm."
+   }
+  },
+  {
+   "kennung": "G1-12",
+   "thema": "groessen.einheiten",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Ja, 3 700 kg sind weniger als 35 000 kg.",
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "3,5 t als 35 000 kg"
+    },
+    {
+     "index": 2,
+     "antwort": "Ja, 2 800 kg sind weniger als 3,5 t.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ladung vergessen"
+    },
+    {
+     "index": 3,
+     "antwort": "Nein, er wiegt 37 t.",
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "3 700 kg als 37 t"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Auf einem Schild steht: „Brücke bis 3,5 t“. Ein Lieferwagen wiegt 2 800 kg und hat 900 kg geladen. Darf er über die Brücke fahren?"
+    },
+    "a": [
+     "Ja, 3 700 kg sind weniger als 35 000 kg.",
+     "Nein, er wiegt zusammen 3 700 kg. Erlaubt sind 3 500 kg.",
+     "Ja, 2 800 kg sind weniger als 3,5 t.",
+     "Nein, er wiegt 37 t."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Bring beide Angaben auf dieselbe Einheit.",
+    "w": "2 800 kg + 900 kg = 3 700 kg. 3,5 t = 3 500 kg. Der Wagen ist 200 kg zu schwer."
+   }
+  },
+  {
+   "kennung": "G1-13",
+   "thema": "groessen.einheiten",
+   "lernkarte": "massstab",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 300,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "wie Jan vergrößert statt verkleinert"
+    },
+    {
+     "antwort": 1.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in Zentimetern angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "massstab",
+    "t": "massstab",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Käfer ist in einem Buch im Maßstab 5 : 1 abgebildet und dort 6 cm lang. Jan sagt: „In Wirklichkeit ist er 30 cm lang.“ Wie viele Millimeter ist der Käfer wirklich lang?"
+    },
+    "o": {
+     "wert": 12,
+     "einheit": "mm"
+    },
+    "c": "6 * 10 // 5",
+    "h": "5 : 1 heißt: Das Bild ist 5-mal so groß wie der Käfer.",
+    "w": "Das Bild ist vergrößert. Wirklich: 6 cm : 5 = 1,2 cm = 12 mm."
+   }
+  },
+  {
+   "kennung": "G1-14",
+   "thema": "groessen.einheiten",
+   "lernkarte": "zeit",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die volle Stunde abgezogen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "50 − 15 gerechnet, statt über die volle Stunde zu gehen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "10 Minuten in die falsche Richtung"
+    }
+   ],
+   "aufgabe": {
+    "l": "zeit",
+    "t": "zeit",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Film dauert 1 h 50 min und endet um 21:15 Uhr. Wann hat er begonnen?",
+     "schablone": "□:□ Uhr",
+     "hinweis": "Erst die Stunde, dann die Minuten."
+    },
+    "o": {
+     "werte": [
+      19,
+      25
+     ]
+    },
+    "c": [
+     "(21 * 60 + 15 - 110) // 60",
+     "(21 * 60 + 15 - 110) % 60"
+    ],
+    "h": "Geh erst 2 Stunden zurück und dann 10 Minuten wieder vor.",
+    "w": "2 Stunden vor 21:15 Uhr ist 19:15 Uhr. Der Film ist 10 Minuten kürzer, also begann er um 19:25 Uhr."
+   }
+  },
+  {
+   "kennung": "G1-B1",
+   "thema": "groessen.einheiten",
+   "lernkarte": "laenge",
+   "stufe": 1,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "laenge",
+    "t": "laenge",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne eine Länge in ganzen Zentimetern, die größer als 1,2 m und kleiner als 1,3 m ist.",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "größer als 1,2 m",
+       "pruefe": [
+        ">",
+        "$1",
+        120
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine Länge ist {} cm."
+      },
+      {
+       "name": "kleiner als 1,3 m",
+       "pruefe": [
+        "<",
+        "$1",
+        130
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine Länge ist {} cm."
+      }
+     ],
+     "beispiel": [
+      125
+     ],
+     "gut": [
+      [
+       121
+      ],
+      [
+       129
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        12
+       ],
+       "verletzt": "größer als 1,2 m"
+      },
+      {
+       "werte": [
+        130
+       ],
+       "verletzt": "kleiner als 1,3 m"
+      },
+      {
+       "werte": [
+        1250
+       ],
+       "verletzt": "kleiner als 1,3 m"
+      },
+      {
+       "werte": [
+        120
+       ],
+       "verletzt": "größer als 1,2 m"
+      }
+     ]
+    },
+    "h": "Rechne beide Grenzen in Zentimeter um.",
+    "w": "1,2 m = 120 cm und 1,3 m = 130 cm. Es passt jede Zahl von 121 bis 129."
+   }
+  },
+  {
+   "kennung": "G1-B2",
+   "thema": "groessen.einheiten",
+   "lernkarte": "masse",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "masse",
+    "t": "masse",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Zwei Pakete wiegen zusammen genau 2 kg. Das erste ist schwerer als 1,2 kg. Nenne beide Gewichte in Gramm.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "zusammen 2 kg",
+       "pruefe": [
+        "=",
+        [
+         "summe",
+         "$alle"
+        ],
+        2000
+       ],
+       "zeige": [
+        "summe",
+        "$alle"
+       ],
+       "hinweis": "Zusammen wiegen deine Pakete {} g."
+      },
+      {
+       "name": "erstes Paket schwerer als 1,2 kg",
+       "pruefe": [
+        ">",
+        "$1",
+        1200
+       ],
+       "zeige": "$1",
+       "hinweis": "Dein erstes Paket wiegt {} g."
+      },
+      {
+       "name": "jedes Paket wiegt mehr als 0 g",
+       "pruefe": [
+        ">",
+        "$2",
+        0
+       ],
+       "zeige": "$2",
+       "hinweis": "Dein zweites Paket wiegt {} g."
+      }
+     ],
+     "beispiel": [
+      1500,
+      500
+     ],
+     "gut": [
+      [
+       1201,
+       799
+      ],
+      [
+       1999,
+       1
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        1500,
+        600
+       ],
+       "verletzt": "zusammen 2 kg"
+      },
+      {
+       "werte": [
+        1200,
+        800
+       ],
+       "verletzt": "erstes Paket schwerer als 1,2 kg"
+      },
+      {
+       "werte": [
+        2000,
+        0
+       ],
+       "verletzt": "jedes Paket wiegt mehr als 0 g"
+      },
+      {
+       "werte": [
+        2,
+        0
+       ],
+       "verletzt": "zusammen 2 kg"
+      }
+     ]
+    },
+    "h": "Rechne die Kilogramm-Angaben in Gramm um.",
+    "w": "2 kg = 2 000 g. Das erste Paket wiegt mehr als 1 200 g, das zweite den Rest, zum Beispiel 1 500 g und 500 g."
+   }
+  },
+  {
+   "kennung": "G1-B3",
+   "thema": "groessen.einheiten",
+   "lernkarte": "zeit",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "zeit",
+    "t": "zeit",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne eine Uhrzeit am Vormittag (Stunde und Minute). Von ihr bis 12:00 Uhr sollen es mehr als 90 Minuten sein, aber weniger als 2 Stunden.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "Uhrzeit am Vormittag",
+       "pruefe": [
+        "und",
+        [
+         ">=",
+         "$1",
+         0
+        ],
+        [
+         "<=",
+         "$1",
+         11
+        ],
+        [
+         ">=",
+         "$2",
+         0
+        ],
+        [
+         "<=",
+         "$2",
+         59
+        ]
+       ],
+       "hinweis": "Das ist keine Uhrzeit am Vormittag. Stunde von 0 bis 11, Minute von 0 bis 59."
+      },
+      {
+       "name": "mehr als 90 Minuten bis 12:00 Uhr",
+       "pruefe": [
+        ">",
+        [
+         "-",
+         720,
+         [
+          "+",
+          [
+           "*",
+           60,
+           "$1"
+          ],
+          "$2"
+         ]
+        ],
+        90
+       ],
+       "zeige": [
+        "-",
+        720,
+        [
+         "+",
+         [
+          "*",
+          60,
+          "$1"
+         ],
+         "$2"
+        ]
+       ],
+       "hinweis": "Von deiner Uhrzeit bis 12:00 Uhr sind es {} Minuten."
+      },
+      {
+       "name": "weniger als 2 Stunden bis 12:00 Uhr",
+       "pruefe": [
+        "<",
+        [
+         "-",
+         720,
+         [
+          "+",
+          [
+           "*",
+           60,
+           "$1"
+          ],
+          "$2"
+         ]
+        ],
+        120
+       ],
+       "zeige": [
+        "-",
+        720,
+        [
+         "+",
+         [
+          "*",
+          60,
+          "$1"
+         ],
+         "$2"
+        ]
+       ],
+       "hinweis": "Von deiner Uhrzeit bis 12:00 Uhr sind es {} Minuten."
+      }
+     ],
+     "beispiel": [
+      10,
+      15
+     ],
+     "gut": [
+      [
+       10,
+       1
+      ],
+      [
+       10,
+       29
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        10,
+        75
+       ],
+       "verletzt": "Uhrzeit am Vormittag"
+      },
+      {
+       "werte": [
+        10,
+        30
+       ],
+       "verletzt": "mehr als 90 Minuten bis 12:00 Uhr"
+      },
+      {
+       "werte": [
+        10,
+        0
+       ],
+       "verletzt": "weniger als 2 Stunden bis 12:00 Uhr"
+      },
+      {
+       "werte": [
+        9,
+        45
+       ],
+       "verletzt": "weniger als 2 Stunden bis 12:00 Uhr"
+      }
+     ]
+    },
+    "h": "90 Minuten sind 1 h 30 min. Geh von 12:00 Uhr aus zurück.",
+    "w": "2 Stunden vor 12:00 Uhr ist 10:00 Uhr, 90 Minuten davor ist 10:30 Uhr. Es passt jede Uhrzeit von 10:01 Uhr bis 10:29 Uhr."
+   }
+  },
+  {
+   "kennung": "G1-B4",
+   "thema": "groessen.einheiten",
+   "lernkarte": "rechnen",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "rechnen",
+    "t": "rechnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne drei verschiedene Längen in ganzen Zentimetern, die zusammen genau 2,5 m ergeben. Jede soll länger als ein halber Meter sein.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "verschieden",
+       "pruefe": [
+        "verschieden",
+        "$alle"
+       ],
+       "hinweis": "Die drei Längen sollen verschieden sein."
+      },
+      {
+       "name": "jede länger als ein halber Meter",
+       "pruefe": [
+        ">",
+        [
+         "min",
+         "$alle"
+        ],
+        50
+       ],
+       "zeige": [
+        "min",
+        "$alle"
+       ],
+       "hinweis": "Deine kürzeste Länge ist {} cm."
+      },
+      {
+       "name": "zusammen 2,5 m",
+       "pruefe": [
+        "=",
+        [
+         "summe",
+         "$alle"
+        ],
+        250
+       ],
+       "zeige": [
+        "summe",
+        "$alle"
+       ],
+       "hinweis": "Zusammen sind es bei dir {} cm."
+      }
+     ],
+     "beispiel": [
+      60,
+      90,
+      100
+     ],
+     "gut": [
+      [
+       51,
+       52,
+       147
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        80,
+        80,
+        90
+       ],
+       "verletzt": "verschieden"
+      },
+      {
+       "werte": [
+        50,
+        90,
+        110
+       ],
+       "verletzt": "jede länger als ein halber Meter"
+      },
+      {
+       "werte": [
+        60,
+        90,
+        110
+       ],
+       "verletzt": "zusammen 2,5 m"
+      }
+     ]
+    },
+    "h": "Rechne 2,5 m und den halben Meter in Zentimeter um.",
+    "w": "2,5 m = 250 cm, ein halber Meter = 50 cm. Zum Beispiel 60 cm, 90 cm und 100 cm."
+   }
+  },
+  {
+   "kennung": "G1-B5",
+   "thema": "groessen.einheiten",
+   "lernkarte": "massstab",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "massstab",
+    "t": "massstab",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "bedingung",
+    "f": {
+     "text": "Ein Zimmer ist 4 m lang. Wähle einen Maßstab 1 : □ (ganze Zahl), bei dem das Zimmer auf dem Plan länger als 5 cm, aber kürzer als 12 cm ist.",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "Maßstabszahl größer als 0",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine Zahl ist {}."
+      },
+      {
+       "name": "auf dem Plan länger als 5 cm",
+       "pruefe": [
+        ">",
+        [
+         "/",
+         400,
+         "$1"
+        ],
+        5
+       ],
+       "zeige": [
+        "/",
+        400,
+        "$1"
+       ],
+       "hinweis": "Auf deinem Plan ist das Zimmer {} cm lang."
+      },
+      {
+       "name": "auf dem Plan kürzer als 12 cm",
+       "pruefe": [
+        "<",
+        [
+         "/",
+         400,
+         "$1"
+        ],
+        12
+       ],
+       "zeige": [
+        "/",
+        400,
+        "$1"
+       ],
+       "hinweis": "Auf deinem Plan ist das Zimmer {} cm lang."
+      }
+     ],
+     "beispiel": [
+      50
+     ],
+     "gut": [
+      [
+       40
+      ],
+      [
+       34
+      ],
+      [
+       79
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "Maßstabszahl größer als 0"
+      },
+      {
+       "werte": [
+        100
+       ],
+       "verletzt": "auf dem Plan länger als 5 cm"
+      },
+      {
+       "werte": [
+        20
+       ],
+       "verletzt": "auf dem Plan kürzer als 12 cm"
+      },
+      {
+       "werte": [
+        80
+       ],
+       "verletzt": "auf dem Plan länger als 5 cm"
+      }
+     ]
+    },
+    "h": "Planlänge ist wirkliche Länge durch Maßstabszahl. Rechne die 4 m erst in Zentimeter um.",
+    "w": "4 m = 400 cm. Bei 1 : 50 sind es 8 cm. Es passt jede Zahl von 34 bis 79."
+   }
+  }
+ ]
+}

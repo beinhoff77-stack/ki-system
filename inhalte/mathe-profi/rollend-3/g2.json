@@ -1,0 +1,1372 @@
+{
+ "stand": "2026-11-27",
+ "flug": "g2",
+ "titel": "Dreisatz und direkte Proportionalität (Teil 1)",
+ "fuer": "Kind 1",
+ "klasse": 5,
+ "themen": [
+  "groessen.proportional"
+ ],
+ "hinweis": "Aufgaben auf Vorrat, rollendes System Stufe 3. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: erst die Aufgaben ohne Bau, dann die des Typs „bedingung“, jeweils mit aufsteigender Stufe.",
+ "aufgaben": [
+  {
+   "kennung": "G2-01",
+   "thema": "groessen.proportional",
+   "lernkarte": "einheit",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 1000,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "200 · 5 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 195,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "abgezogen statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheit",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "5 Äpfel kosten 2 €. Rechne in Cent: 200 Cent : ① = ② Cent für einen Apfel.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      5,
+      40
+     ]
+    },
+    "c": [
+     "5",
+     "200 // 5"
+    ],
+    "h": "Wert durch Anzahl ergibt den Preis für 1 Stück.",
+    "w": "200 Cent : 5 = 40 Cent."
+   }
+  },
+  {
+   "kennung": "G2-02",
+   "thema": "groessen.proportional",
+   "lernkarte": "dreisatz",
+   "stufe": 1,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Er müsste 4,50 € · 5 rechnen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das wäre der Preis für 15 Hefte"
+    },
+    {
+     "index": 2,
+     "antwort": "Nichts.",
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "den Fehler nicht bemerkt"
+    },
+    {
+     "index": 3,
+     "antwort": "Er müsste 4,50 € − 2 € rechnen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 Hefte kosten mehr als 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreisatz",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "3 Hefte kosten 4,50 €. Gesucht ist der Preis für 5 Hefte. Emil rechnet: 4,50 € + 2 € = 6,50 €. Was ist falsch?"
+    },
+    "a": [
+     "Er zählt für 2 Hefte einfach 2 € dazu, statt erst den Preis für 1 Heft zu berechnen.",
+     "Er müsste 4,50 € · 5 rechnen.",
+     "Nichts.",
+     "Er müsste 4,50 € − 2 € rechnen."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Was kostet 1 Heft?",
+    "w": "1 Heft kostet 4,50 € : 3 = 1,50 €. 5 Hefte kosten 5 · 1,50 € = 7,50 €."
+   }
+  },
+  {
+   "kennung": "G2-03",
+   "thema": "groessen.proportional",
+   "lernkarte": "sach",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Ein Kind ist mit 6 Jahren 1,20 m groß. Wie groß ist es mit 12 Jahren?",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Wachstum ist nicht proportional"
+    },
+    {
+     "index": 2,
+     "antwort": "Ein Lied dauert 3 Minuten, wenn ein Kind es singt. Wie lange dauert es, wenn 4 Kinder es zusammen singen?",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Dauer hängt nicht von der Zahl der Kinder ab"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Bei welcher Aufgabe darfst du mit dem Dreisatz rechnen?"
+    },
+    "a": [
+     "3 kg Kartoffeln kosten 4,50 €. Was kosten 5 kg?",
+     "Ein Kind ist mit 6 Jahren 1,20 m groß. Wie groß ist es mit 12 Jahren?",
+     "Ein Lied dauert 3 Minuten, wenn ein Kind es singt. Wie lange dauert es, wenn 4 Kinder es zusammen singen?"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Prüfe: doppelte Menge, doppelter Wert?",
+    "w": "Doppelt so viele Kartoffeln kosten doppelt so viel. Größe und Liedlänge verdoppeln sich nicht."
+   }
+  },
+  {
+   "kennung": "G2-04",
+   "thema": "groessen.proportional",
+   "lernkarte": "geschickt",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "5 Flaschen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "passt in keine der beiden Zahlen"
+    },
+    {
+     "index": 1,
+     "antwort": "10 Flaschen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "passt in keine der beiden Zahlen"
+    },
+    {
+     "index": 2,
+     "antwort": "7 Flaschen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "passt in keine der beiden Zahlen"
+    }
+   ],
+   "aufgabe": {
+    "l": "geschickt",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "12 Flaschen kosten 18 €. Gesucht ist der Preis für 8 Flaschen. Welche Zwischenmenge ist geschickt?"
+    },
+    "a": [
+     "5 Flaschen",
+     "10 Flaschen",
+     "7 Flaschen",
+     "4 Flaschen"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Die Zwischenmenge soll in 12 und in 8 passen.",
+    "w": "4 passt in beide: 12 : 3 = 4 und 4 · 2 = 8. Also 18 € : 3 = 6 €, dann 6 € · 2 = 12 €."
+   }
+  },
+  {
+   "kennung": "G2-05",
+   "thema": "groessen.proportional",
+   "lernkarte": "dreisatz",
+   "stufe": 2,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 540,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "3 Brötchen mehr, also 3 € mehr"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreisatz",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "4 Brötchen kosten 2,40 €. Wie viel kosten 7? Erst auf 1 Brötchen: 240 Cent : 4 = ① Cent. Dann auf 7 Brötchen: ① Cent · 7 = ② Cent.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      60,
+      420
+     ]
+    },
+    "c": [
+     "240 // 4",
+     "240 // 4 * 7"
+    ],
+    "h": "Erst auf 1 Stück schließen, dann auf das Gesuchte.",
+    "w": "240 : 4 = 60 Cent. 60 · 7 = 420 Cent = 4,20 €."
+   }
+  },
+  {
+   "kennung": "G2-06",
+   "thema": "groessen.proportional",
+   "lernkarte": "dreisatz",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "luecken",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1193,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "7 abgezogen statt durch 8 geteilt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 1197,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "3 Karten weniger, also 3 Cent weniger"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreisatz",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "luecken",
+    "f": {
+     "text": "Ergänze die Dreisatz-Tabelle. Die Preise stehen in Cent.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke ein Preis in Cent.",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Karten",
+       "8",
+       "1",
+       "5"
+      ],
+      "zeilen": [
+       [
+        "Preis (Cent)",
+        "1200",
+        "①",
+        "②"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "werte": [
+      150,
+      750
+     ]
+    },
+    "c": [
+     "1200 // 8",
+     "1200 // 8 * 5"
+    ],
+    "h": "Was du oben tust, tust du auch unten.",
+    "w": "Geteilt durch 8: 1 200 : 8 = 150 Cent. Mal 5: 150 · 5 = 750 Cent."
+   }
+  },
+  {
+   "kennung": "G2-07",
+   "thema": "groessen.proportional",
+   "lernkarte": "geschickt",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "luecken",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 1800,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "3 kg mehr, also 3 € mehr"
+    }
+   ],
+   "aufgabe": {
+    "l": "geschickt",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "6 kg kosten 15 €. Gesucht ist der Preis für 9 kg. Weg A über 1 kg: 15 € : 6 = 2,50 €, dann mal 9. Weg B über 3 kg: 3 kg kosten ① Cent, 9 kg kosten ② Cent.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke ein Preis in Cent."
+    },
+    "o": {
+     "werte": [
+      750,
+      2250
+     ]
+    },
+    "c": [
+     "1500 // 2",
+     "1500 // 2 * 3"
+    ],
+    "h": "Von 6 nach 3 teilst du durch 2. Von 3 nach 9 nimmst du mal 3.",
+    "w": "3 kg: 15 € : 2 = 7,50 €. 9 kg: 7,50 € · 3 = 22,50 €. Weg A: 2,50 € · 9 = 22,50 €."
+   }
+  },
+  {
+   "kennung": "G2-08",
+   "thema": "groessen.proportional",
+   "lernkarte": "einheit",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9.6,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "12 · 0,80 gerechnet"
+    },
+    {
+     "antwort": 150,
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "0,80 € als 8 Cent"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheit",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Stift kostet 0,80 €. Für wie viele Stifte reichen 12 €?"
+    },
+    "o": {
+     "wert": 15
+    },
+    "c": "1200 // 80",
+    "h": "Rechne in Cent. Wie oft passt der Preis für 1 Stift in 12 €?",
+    "w": "1 200 Cent : 80 Cent = 15 Stifte."
+   }
+  },
+  {
+   "kennung": "G2-09",
+   "thema": "groessen.proportional",
+   "lernkarte": "einheit",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "bei A, um 5 Cent",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Packungen vertauscht"
+    },
+    {
+     "index": 2,
+     "antwort": "bei A, um 1,10 €",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Packungspreise statt der Stückpreise verglichen"
+    },
+    {
+     "index": 3,
+     "antwort": "bei beiden gleich",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheit",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Packung A: 6 Riegel für 2,40 €. Packung B: 10 Riegel für 3,50 €. Bei welcher Packung ist ein Riegel billiger, und um wie viel?"
+    },
+    "a": [
+     "bei A, um 5 Cent",
+     "bei B, um 5 Cent",
+     "bei A, um 1,10 €",
+     "bei beiden gleich"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Berechne für jede Packung den Preis für 1 Riegel.",
+    "w": "A: 240 Cent : 6 = 40 Cent. B: 350 Cent : 10 = 35 Cent. Bei B ist ein Riegel 5 Cent billiger."
+   }
+  },
+  {
+   "kennung": "G2-10",
+   "thema": "groessen.proportional",
+   "lernkarte": "dreisatz",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 32,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "den Preis für 20 Liter berechnet"
+    },
+    {
+     "antwort": 17,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "12 € mehr, also 12 Liter mehr"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreisatz",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "5 Liter Saft kosten 8 €. Wie viele Liter bekommt man für 20 €?"
+    },
+    "o": {
+     "wert": 12.5,
+     "einheit": "Liter"
+    },
+    "c": "20 * 5 / 8",
+    "h": "Wie viele Liter bekommt man für 1 €? Oder: Wievielmal so viel Geld ist es?",
+    "w": "20 € sind 2,5-mal so viel wie 8 €. Also 2,5 · 5 Liter = 12,5 Liter."
+   }
+  },
+  {
+   "kennung": "G2-11",
+   "thema": "groessen.proportional",
+   "lernkarte": "sach",
+   "stufe": 2,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Jule hat recht.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Proportionalität ungeprüft angenommen"
+    },
+    {
+     "index": 1,
+     "antwort": "Zwei Maler brauchen auch 3 Stunden.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zwei arbeiten schneller als einer"
+    },
+    {
+     "index": 3,
+     "antwort": "Zwei Maler brauchen 5 Stunden.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "geraten"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Maler streicht eine Wand in 3 Stunden. Jule rechnet mit dem Dreisatz: „Dann brauchen 2 Maler 6 Stunden.“ Was stimmt?"
+    },
+    "a": [
+     "Jule hat recht.",
+     "Zwei Maler brauchen auch 3 Stunden.",
+     "Jule darf den Dreisatz hier nicht nehmen: Mehr Maler brauchen weniger Zeit.",
+     "Zwei Maler brauchen 5 Stunden."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Prüfe zuerst: Gehört zur doppelten Zahl der doppelte Wert?",
+    "w": "Mehr Maler sind schneller fertig. Die Zuordnung ist nicht proportional, also kein Dreisatz."
+   }
+  },
+  {
+   "kennung": "G2-12",
+   "thema": "groessen.proportional",
+   "lernkarte": "aenderung",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 54,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "18 · 3 gerechnet"
+    },
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "18 − 3 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "aenderung",
+    "t": "aenderung",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Becken verliert gleichmäßig 3 Liter Wasser pro Stunde. Jetzt sind 50 Liter darin. Nach wie vielen Stunden sind es noch 32 Liter?"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "h"
+    },
+    "c": "(50 - 32) // 3",
+    "h": "Wie viele Liter müssen abfließen?",
+    "w": "Es fließen 50 − 32 = 18 Liter ab. 18 : 3 = 6 Stunden."
+   }
+  },
+  {
+   "kennung": "G2-13",
+   "thema": "groessen.proportional",
+   "lernkarte": "geschickt",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3.6,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "den Preis für 6 Hefte berechnet"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "3 € weniger, also 3 Hefte weniger"
+    }
+   ],
+   "aufgabe": {
+    "l": "geschickt",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "15 Hefte kosten 9 €. Wie viele Hefte bekommt man für 6 €?"
+    },
+    "o": {
+     "wert": 10
+    },
+    "c": "15 * 6 // 9",
+    "h": "Suche einen Zwischenbetrag, der in 9 € und in 6 € passt.",
+    "w": "Für 3 € gibt es 15 : 3 = 5 Hefte. Für 6 € gibt es 2 · 5 = 10 Hefte."
+   }
+  },
+  {
+   "kennung": "G2-14",
+   "thema": "groessen.proportional",
+   "lernkarte": "aenderung",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "zahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "wie Nico ohne Minus"
+    },
+    {
+     "antwort": -10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die ganze Änderung statt der Rate"
+    }
+   ],
+   "aufgabe": {
+    "l": "aenderung",
+    "t": "aenderung",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "zahl",
+    "f": {
+     "text": "Die Temperatur fällt in 5 Stunden gleichmäßig von 12 °C auf 2 °C. Nico gibt als Änderungsrate „2 °C pro Stunde“ an. Wie lautet die Änderungsrate richtig? Gib die Zahl mit Vorzeichen an."
+    },
+    "o": {
+     "wert": -2
+    },
+    "c": "(2 - 12) // 5",
+    "h": "Nimmt die Größe zu oder ab?",
+    "w": "Änderung: 2 − 12 = −10 °C. Geteilt durch 5 Stunden: −2 °C pro Stunde. Das Minus zeigt: Es wird kälter."
+   }
+  },
+  {
+   "kennung": "G2-15",
+   "thema": "groessen.proportional",
+   "lernkarte": "sach",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aufgerundet, obwohl das Mehl nicht reicht"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ganze Rezepte gezählt: 3 · 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Für 4 Personen braucht ein Rezept 300 g Mehl. Im Schrank ist 1 kg Mehl. Für wie viele Personen reicht das höchstens?"
+    },
+    "o": {
+     "wert": 13
+    },
+    "c": "1000 // (300 // 4)",
+    "h": "Wie viel Mehl braucht eine Person? Rechne das Kilogramm in Gramm um.",
+    "w": "Eine Person: 300 g : 4 = 75 g. 1 000 g : 75 g = 13, Rest 25 g. Es reicht für 13 Personen."
+   }
+  },
+  {
+   "kennung": "G2-B1",
+   "thema": "groessen.proportional",
+   "lernkarte": "einheit",
+   "stufe": 1,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "einheit",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "bedingung",
+    "f": {
+     "text": "Ein Stück kostet zwischen 30 und 40 Cent. Nenne eine Stückzahl größer als 1 und einen passenden Gesamtpreis in Cent.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "mehr als 1 Stück",
+       "pruefe": [
+        ">",
+        "$1",
+        1
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine Stückzahl ist {}."
+      },
+      {
+       "name": "Stückpreis zwischen 30 und 40 Cent",
+       "pruefe": [
+        "und",
+        [
+         ">=",
+         "$2",
+         [
+          "*",
+          30,
+          "$1"
+         ]
+        ],
+        [
+         "<=",
+         "$2",
+         [
+          "*",
+          40,
+          "$1"
+         ]
+        ]
+       ],
+       "zeige": [
+        "/",
+        "$2",
+        "$1"
+       ],
+       "hinweis": "Bei dir kostet ein Stück {} Cent."
+      }
+     ],
+     "beispiel": [
+      4,
+      140
+     ],
+     "gut": [
+      [
+       2,
+       60
+      ],
+      [
+       10,
+       400
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        1,
+        35
+       ],
+       "verletzt": "mehr als 1 Stück"
+      },
+      {
+       "werte": [
+        4,
+        200
+       ],
+       "verletzt": "Stückpreis zwischen 30 und 40 Cent"
+      },
+      {
+       "werte": [
+        5,
+        100
+       ],
+       "verletzt": "Stückpreis zwischen 30 und 40 Cent"
+      }
+     ]
+    },
+    "h": "Gesamtpreis durch Stückzahl ergibt den Preis für 1 Stück.",
+    "w": "Zum Beispiel 4 Stück für 140 Cent: 140 : 4 = 35 Cent je Stück."
+   }
+  },
+  {
+   "kennung": "G2-B2",
+   "thema": "groessen.proportional",
+   "lernkarte": "dreisatz",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "dreisatz",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "4 kg Äpfel kosten 10 €. Nenne eine andere Menge in kg und ihren Preis in Euro. Der Preis soll keine ganze Zahl sein.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "andere Menge, größer als 0",
+       "pruefe": [
+        "und",
+        [
+         ">",
+         "$1",
+         0
+        ],
+        [
+         "!=",
+         "$1",
+         4
+        ]
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine Menge ist {} kg."
+      },
+      {
+       "name": "Preis passt zur Menge",
+       "pruefe": [
+        "=",
+        [
+         "*",
+         4,
+         "$2"
+        ],
+        [
+         "*",
+         10,
+         "$1"
+        ]
+       ],
+       "zeige": [
+        "/",
+        "$2",
+        "$1"
+       ],
+       "hinweis": "Bei dir kostet 1 kg {} €."
+      },
+      {
+       "name": "Preis ist keine ganze Zahl",
+       "pruefe": [
+        "nicht",
+        [
+         "ganzzahlig",
+         "$2"
+        ]
+       ],
+       "zeige": "$2",
+       "hinweis": "Dein Preis ist {} € – das ist eine ganze Zahl."
+      }
+     ],
+     "beispiel": [
+      3,
+      "7,5"
+     ],
+     "gut": [
+      [
+       1,
+       "2,5"
+      ],
+      [
+       5,
+       "12,5"
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        4,
+        10
+       ],
+       "verletzt": "andere Menge, größer als 0"
+      },
+      {
+       "werte": [
+        3,
+        7
+       ],
+       "verletzt": "Preis passt zur Menge"
+      },
+      {
+       "werte": [
+        2,
+        5
+       ],
+       "verletzt": "Preis ist keine ganze Zahl"
+      }
+     ]
+    },
+    "h": "Was kostet 1 kg?",
+    "w": "1 kg kostet 2,50 €. Zum Beispiel 3 kg für 7,50 € oder 1 kg für 2,50 €."
+   }
+  },
+  {
+   "kennung": "G2-B3",
+   "thema": "groessen.proportional",
+   "lernkarte": "geschickt",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "geschickt",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "9 Hefte kosten 6 €. Nenne eine Stückzahl zwischen 10 und 30, deren Preis ein ganzer Euro-Betrag ist, und diesen Preis.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "Stückzahl zwischen 10 und 30",
+       "pruefe": [
+        "und",
+        [
+         ">=",
+         "$1",
+         10
+        ],
+        [
+         "<=",
+         "$1",
+         30
+        ]
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine Stückzahl ist {}."
+      },
+      {
+       "name": "Preis passt zur Stückzahl",
+       "pruefe": [
+        "=",
+        [
+         "*",
+         9,
+         "$2"
+        ],
+        [
+         "*",
+         6,
+         "$1"
+        ]
+       ],
+       "zeige": [
+        "/",
+        [
+         "*",
+         6,
+         "$1"
+        ],
+        9
+       ],
+       "hinweis": "Zu deiner Stückzahl gehört der Preis {} €."
+      }
+     ],
+     "beispiel": [
+      12,
+      8
+     ],
+     "gut": [
+      [
+       15,
+       10
+      ],
+      [
+       30,
+       20
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        9,
+        6
+       ],
+       "verletzt": "Stückzahl zwischen 10 und 30"
+      },
+      {
+       "werte": [
+        12,
+        9
+       ],
+       "verletzt": "Preis passt zur Stückzahl"
+      },
+      {
+       "werte": [
+        10,
+        7
+       ],
+       "verletzt": "Preis passt zur Stückzahl"
+      }
+     ]
+    },
+    "h": "3 Hefte kosten 2 €. Welche Stückzahlen lassen sich aus Dreier-Päckchen bauen?",
+    "w": "3 Hefte kosten 2 €. Jede durch 3 teilbare Stückzahl passt: 12 Hefte für 8 €, 15 für 10 €, 30 für 20 €."
+   }
+  },
+  {
+   "kennung": "G2-B4",
+   "thema": "groessen.proportional",
+   "lernkarte": "aenderung",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "aenderung",
+    "t": "aenderung",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "bedingung",
+    "f": {
+     "text": "Eine Größe ändert sich gleichmäßig. Nenne Startwert, Endwert und Zeitspanne in Stunden so, dass die Änderungsrate genau −4 pro Stunde ist. Die Zeitspanne soll größer als 1 sein.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "Zeitspanne größer als 1",
+       "pruefe": [
+        ">",
+        "$3",
+        1
+       ],
+       "zeige": "$3",
+       "hinweis": "Deine Zeitspanne ist {} Stunden."
+      },
+      {
+       "name": "Änderungsrate ist −4",
+       "pruefe": [
+        "=",
+        [
+         "-",
+         "$2",
+         "$1"
+        ],
+        [
+         "*",
+         -4,
+         "$3"
+        ]
+       ],
+       "zeige": [
+        "/",
+        [
+         "-",
+         "$2",
+         "$1"
+        ],
+        "$3"
+       ],
+       "hinweis": "Deine Änderungsrate ist {} pro Stunde."
+      }
+     ],
+     "beispiel": [
+      20,
+      8,
+      3
+     ],
+     "gut": [
+      [
+       0,
+       -8,
+       2
+      ],
+      [
+       100,
+       60,
+       10
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        20,
+        16,
+        1
+       ],
+       "verletzt": "Zeitspanne größer als 1"
+      },
+      {
+       "werte": [
+        8,
+        20,
+        3
+       ],
+       "verletzt": "Änderungsrate ist −4"
+      },
+      {
+       "werte": [
+        20,
+        8,
+        4
+       ],
+       "verletzt": "Änderungsrate ist −4"
+      }
+     ]
+    },
+    "h": "Änderungsrate ist Änderung geteilt durch Zeitspanne.",
+    "w": "In 3 Stunden muss die Größe um 12 abnehmen, zum Beispiel von 20 auf 8."
+   }
+  },
+  {
+   "kennung": "G2-B5",
+   "thema": "groessen.proportional",
+   "lernkarte": "sach",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "bedingung",
+    "f": {
+     "text": "3 Kugeln Eis kosten 3,60 €. Du hast 10 €. Nenne eine Zahl von Kugeln, nach deren Kauf dir mehr als 2 €, aber weniger als 5 € bleiben.",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "mindestens 1 Kugel",
+       "pruefe": [
+        ">=",
+        "$1",
+        1
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine Zahl ist {}."
+      },
+      {
+       "name": "es bleiben mehr als 2 €",
+       "pruefe": [
+        ">",
+        [
+         "/",
+         [
+          "-",
+          1000,
+          [
+           "*",
+           120,
+           "$1"
+          ]
+         ],
+         100
+        ],
+        2
+       ],
+       "zeige": [
+        "/",
+        [
+         "-",
+         1000,
+         [
+          "*",
+          120,
+          "$1"
+         ]
+        ],
+        100
+       ],
+       "hinweis": "Dir bleiben {} €."
+      },
+      {
+       "name": "es bleiben weniger als 5 €",
+       "pruefe": [
+        "<",
+        [
+         "/",
+         [
+          "-",
+          1000,
+          [
+           "*",
+           120,
+           "$1"
+          ]
+         ],
+         100
+        ],
+        5
+       ],
+       "zeige": [
+        "/",
+        [
+         "-",
+         1000,
+         [
+          "*",
+          120,
+          "$1"
+         ]
+        ],
+        100
+       ],
+       "hinweis": "Dir bleiben {} €."
+      }
+     ],
+     "beispiel": [
+      5
+     ],
+     "gut": [
+      [
+       6
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "mindestens 1 Kugel"
+      },
+      {
+       "werte": [
+        7
+       ],
+       "verletzt": "es bleiben mehr als 2 €"
+      },
+      {
+       "werte": [
+        4
+       ],
+       "verletzt": "es bleiben weniger als 5 €"
+      }
+     ]
+    },
+    "h": "Was kostet eine Kugel?",
+    "w": "Eine Kugel kostet 1,20 €. 5 Kugeln kosten 6 €, es bleiben 4 €. Auch 6 Kugeln passen (es bleiben 2,80 €)."
+   }
+  }
+ ]
+}

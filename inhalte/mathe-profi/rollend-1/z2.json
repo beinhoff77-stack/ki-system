@@ -1,0 +1,1444 @@
+{
+ "stand": "2026-11-26",
+ "flug": "z2",
+ "titel": "Teilbarkeit",
+ "fuer": "Kind 1",
+ "klasse": 5,
+ "hinweis": "Neue Aufgaben, rollendes System Stufe 1. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: erst die Aufgaben ohne Bau, dann die des Typs „bedingung“, jeweils mit aufsteigender Stufe.",
+ "aufgaben": [
+  {
+   "kennung": "Z2-01",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "teiler",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "nein",
+   "fehlbilder": [],
+   "aufgabe": {
+    "l": "teiler",
+    "t": "teiler",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Alle Teilerpaare von 36: 1 · ①, 2 · ②, 3 · ③, 4 · ④, 6 · ⑤.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □; ⑤ = □",
+     "hinweis": "Je Lücke eine Zahl."
+    },
+    "o": {
+     "werte": [
+      36,
+      18,
+      12,
+      9,
+      6
+     ]
+    },
+    "c": [
+     "36 // 1",
+     "36 // 2",
+     "36 // 3",
+     "36 // 4",
+     "36 // 6"
+    ],
+    "h": "Teile 36 der Reihe nach durch 1, 2, 3, 4 und 6.",
+    "w": "36 = 1 · 36 = 2 · 18 = 3 · 12 = 4 · 9 = 6 · 6."
+   }
+  },
+  {
+   "kennung": "Z2-02",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "quersumme",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "nein",
+   "fehlbilder": [],
+   "aufgabe": {
+    "l": "quersumme",
+    "t": "quersumme",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ist 5 271 durch 3 teilbar? Quersumme: 5 + 2 + 7 + 1 = ①. Dann ① : 3 = ②, es bleibt kein Rest. Also geht auch 5 271 : 3 auf: ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine Zahl."
+    },
+    "o": {
+     "werte": [
+      15,
+      5,
+      1757
+     ]
+    },
+    "c": [
+     "5 + 2 + 7 + 1",
+     "15 // 3",
+     "5271 // 3"
+    ],
+    "h": "Die Quersumme ist die Summe der Ziffern.",
+    "w": "Quersumme 15, und 15 : 3 = 5. Also ist 5 271 durch 3 teilbar: 5 271 : 3 = 1 757."
+   }
+  },
+  {
+   "kennung": "Z2-03",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "primfaktoren",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "nein",
+   "fehlbilder": [],
+   "aufgabe": {
+    "l": "primfaktoren",
+    "t": "primfaktoren",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Zerlege 84 Schritt für Schritt: 84 = 2 · ① = 2 · 2 · ② = 2 · 2 · 3 · ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine Zahl."
+    },
+    "o": {
+     "werte": [
+      42,
+      21,
+      7
+     ]
+    },
+    "c": [
+     "84 // 2",
+     "42 // 2",
+     "21 // 3"
+    ],
+    "h": "Teile immer durch die kleinste Primzahl, die passt.",
+    "w": "84 : 2 = 42, 42 : 2 = 21, 21 : 3 = 7. Also 84 = 2 · 2 · 3 · 7."
+   }
+  },
+  {
+   "kennung": "Z2-04",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "endziffer",
+   "stufe": 1,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "4 320",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auch durch 10 teilbar"
+    },
+    {
+     "index": 2,
+     "antwort": "2 551",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die vordere 5 statt der Endziffer angesehen"
+    },
+    {
+     "index": 3,
+     "antwort": "9 008",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Endziffer 8: weder durch 5 noch durch 10"
+    }
+   ],
+   "aufgabe": {
+    "l": "endziffer",
+    "t": "endziffer",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Zahl ist durch 5 teilbar, aber nicht durch 10?"
+    },
+    "a": [
+     "4 320",
+     "7 135",
+     "2 551",
+     "9 008"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Schau nur auf die letzte Ziffer.",
+    "w": "Endziffer 5: durch 5 teilbar, aber nicht durch 10. 4 320 endet auf 0 und ist auch durch 10 teilbar."
+   }
+  },
+  {
+   "kennung": "Z2-05",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "primzahl",
+   "stufe": 1,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "1",
+     "fehlbild": "fb.bausteine.eins_als_primzahl",
+     "regel_des_fehlbilds": "id.zahlen.bausteine",
+     "beschreibung": "die 1 als Primzahl gezählt"
+    },
+    {
+     "index": 1,
+     "antwort": "51",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Teilbarkeit durch 3 nicht geprüft (Quersumme 6)"
+    },
+    {
+     "index": 2,
+     "antwort": "57",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Teilbarkeit durch 3 nicht geprüft (Quersumme 12)"
+    }
+   ],
+   "aufgabe": {
+    "l": "primzahl",
+    "t": "primzahl",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche dieser Zahlen ist eine Primzahl?"
+    },
+    "a": [
+     "1",
+     "51",
+     "57",
+     "59"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Prüfe bei den ungeraden Zahlen die Teilbarkeit durch 3.",
+    "w": "59 hat nur die Teiler 1 und 59. 51 = 3 · 17, 57 = 3 · 19, und die 1 ist keine Primzahl."
+   }
+  },
+  {
+   "kennung": "Z2-06",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "teiler",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 6 doppelt gezählt"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Paare statt Teiler gezählt"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 6 ganz weggelassen"
+    }
+   ],
+   "aufgabe": {
+    "l": "teiler",
+    "t": "teiler",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele verschiedene Teiler hat die Zahl 36?"
+    },
+    "o": {
+     "wert": 9
+    },
+    "c": "2 * 4 + 1",
+    "h": "Schreib die Teilerpaare auf. Achte auf das Paar 6 · 6.",
+    "w": "Paare: 1 · 36, 2 · 18, 3 · 12, 4 · 9, 6 · 6. Das sind 4 Paare mit je zwei Teilern und die 6 nur einmal: 9 Teiler."
+   }
+  },
+  {
+   "kennung": "Z2-07",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "vielfache",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 · 8 genommen – das ist ein gemeinsames Vielfaches, aber nicht das kleinste"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den größten gemeinsamen Teiler genannt"
+    },
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 + 8 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "vielfache",
+    "t": "vielfache",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Welches ist die kleinste Zahl, die sowohl in der Sechserreihe als auch in der Achterreihe vorkommt?"
+    },
+    "o": {
+     "wert": 24
+    },
+    "c": "6 * 8 // 2",
+    "h": "Schreib die Achterreihe auf und prüfe jede Zahl auf Teilbarkeit durch 6.",
+    "w": "Achterreihe: 8, 16, 24 … Die 24 ist auch 4 · 6. Kleiner geht es nicht."
+   }
+  },
+  {
+   "kennung": "Z2-08",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "endziffer",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Regel für 5 beachtet"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Regel für 2 beachtet"
+    }
+   ],
+   "aufgabe": {
+    "l": "endziffer",
+    "t": "endziffer",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Die vierstellige Zahl 473□ soll durch 2 und durch 5 teilbar sein. Welche Ziffer gehört in das Kästchen?"
+    },
+    "o": {
+     "wert": 0
+    },
+    "c": "0",
+    "h": "Welche Endziffern passen zur 5? Welche davon ist gerade?",
+    "w": "Durch 5: Endziffer 0 oder 5. Durch 2: gerade. Beides zusammen: nur die 0."
+   }
+  },
+  {
+   "kennung": "Z2-09",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "quersumme",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bis 18 ergänzt – das passt, ist aber nicht die kleinste Ziffer"
+    },
+    {
+     "antwort": 0,
+     "fehlbild": "fb.bausteine.endziffer_statt_quersumme",
+     "regel_des_fehlbilds": "id.zahlen.bausteine",
+     "beschreibung": "nicht mit der Quersumme geprüft"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bis 16 ergänzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "quersumme",
+    "t": "quersumme",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Welches ist die kleinste Ziffer für das Kästchen, damit 82□4 durch 3 teilbar ist?"
+    },
+    "o": {
+     "wert": 1
+    },
+    "c": "15 - (8 + 2 + 4)",
+    "h": "Bilde die Quersumme ohne das Kästchen. Wie viel fehlt bis zur nächsten Zahl der Dreierreihe?",
+    "w": "8 + 2 + 4 = 14. Bis 15 fehlt 1. Probe: 8 214 hat die Quersumme 15."
+   }
+  },
+  {
+   "kennung": "Z2-10",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "neunerregel",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": "fb.bausteine.aus_drei_folgt_neun",
+     "regel_des_fehlbilds": "id.zahlen.bausteine",
+     "beschreibung": "auf Quersumme 12 ergänzt: durch 3 teilbar, aber nicht durch 9"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 9 selbst eingesetzt"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Quersumme genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "neunerregel",
+    "t": "neunerregel",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Welche Ziffer gehört in das Kästchen, damit 4□31 durch 9 teilbar ist?"
+    },
+    "o": {
+     "wert": 1
+    },
+    "c": "9 - (4 + 3 + 1)",
+    "h": "Die Quersumme muss in der Neunerreihe liegen.",
+    "w": "4 + 3 + 1 = 8. Bis 9 fehlt 1. Probe: 4 131 hat die Quersumme 9."
+   }
+  },
+  {
+   "kennung": "Z2-11",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "primzahl",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine zusammengesetzte Zahl mitgezählt, zum Beispiel 27 oder 39"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Primzahl übersehen"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zwei zusammengesetzte Zahlen mitgezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "primzahl",
+    "t": "primzahl",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele Primzahlen liegen zwischen 20 und 40?"
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "4",
+    "h": "Streiche erst alle geraden Zahlen, dann die Vielfachen von 3 und von 5.",
+    "w": "Es bleiben 23, 29, 31 und 37."
+   }
+  },
+  {
+   "kennung": "Z2-12",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "primfaktoren",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt malgenommen"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine 3 vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "primfaktoren",
+    "t": "primfaktoren",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Zahl hat die Primfaktorzerlegung 2 · 3 · 3 · 5. Welche Zahl ist es?"
+    },
+    "o": {
+     "wert": 90
+    },
+    "c": "2 * 3 * 3 * 5",
+    "h": "Nimm die Primfaktoren wieder mal.",
+    "w": "2 · 3 = 6, 6 · 3 = 18, 18 · 5 = 90."
+   }
+  },
+  {
+   "kennung": "Z2-13",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "neunerregel",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Die Zahl ist durch 3, aber nicht durch 9 teilbar.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Quersumme 18 nicht geprüft"
+    },
+    {
+     "index": 1,
+     "antwort": "Die Begründung stimmt: Jede Zahl, die durch 3 teilbar ist, ist auch durch 9 teilbar.",
+     "fehlbild": "fb.bausteine.aus_drei_folgt_neun",
+     "regel_des_fehlbilds": "id.zahlen.bausteine",
+     "beschreibung": "aus „durch 3“ auf „durch 9“ geschlossen"
+    },
+    {
+     "index": 3,
+     "antwort": "Die Zahl ist weder durch 3 noch durch 9 teilbar.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Quersumme falsch gebildet"
+    }
+   ],
+   "aufgabe": {
+    "l": "neunerregel",
+    "t": "neunerregel",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Jemand sagt: „7 263 ist durch 3 teilbar, also ist die Zahl auch durch 9 teilbar.“ Was stimmt?"
+    },
+    "a": [
+     "Die Zahl ist durch 3, aber nicht durch 9 teilbar.",
+     "Die Begründung stimmt: Jede Zahl, die durch 3 teilbar ist, ist auch durch 9 teilbar.",
+     "Die Zahl ist durch 9 teilbar, aber die Begründung ist falsch: Aus „durch 3“ folgt nicht „durch 9“.",
+     "Die Zahl ist weder durch 3 noch durch 9 teilbar."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Prüfe zwei Dinge getrennt: die Zahl und die Begründung.",
+    "w": "Quersumme 7 + 2 + 6 + 3 = 18, also ist 7 263 durch 9 teilbar. Die Begründung stimmt trotzdem nicht: 12 ist durch 3 teilbar, aber nicht durch 9."
+   }
+  },
+  {
+   "kennung": "Z2-14",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "primfaktoren",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1,
+     "fehlbild": "fb.bausteine.nicht_zu_ende_zerlegt",
+     "regel_des_fehlbilds": "id.zahlen.bausteine",
+     "beschreibung": "die 4 oder die 6 nicht weiter zerlegt"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine 2 zu viel gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "primfaktoren",
+    "t": "primfaktoren",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei Wege, die Zahl 60 zu zerlegen. Weg A beginnt mit 60 = 6 · 10, Weg B mit 60 = 4 · 15. Beide werden zu Ende geführt, bis nur Primzahlen dastehen. Wie oft kommt die 2 am Ende vor?"
+    },
+    "o": {
+     "wert": 2
+    },
+    "c": "2",
+    "h": "Führe beide Wege zu Ende. Vergleiche die Primfaktoren.",
+    "w": "Weg A: 6 · 10 = 2 · 3 · 2 · 5. Weg B: 4 · 15 = 2 · 2 · 3 · 5. Beide Male kommt die 2 zweimal vor."
+   }
+  },
+  {
+   "kennung": "Z2-B1",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "teiler",
+   "stufe": 1,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "teiler",
+    "t": "teiler",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne zwei verschiedene Zahlen, die beide größer als 1 sind und deren Produkt 48 ist.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "beide größer als 1",
+       "pruefe": [
+        "und",
+        [
+         ">",
+         "$1",
+         1
+        ],
+        [
+         ">",
+         "$2",
+         1
+        ]
+       ],
+       "hinweis": "Beide Zahlen sollen größer als 1 sein."
+      },
+      {
+       "name": "Produkt ist 48",
+       "pruefe": [
+        "=",
+        [
+         "*",
+         "$1",
+         "$2"
+        ],
+        48
+       ],
+       "zeige": [
+        "*",
+        "$1",
+        "$2"
+       ],
+       "hinweis": "Dein Produkt ist {}."
+      }
+     ],
+     "beispiel": [
+      6,
+      8
+     ],
+     "gut": [
+      [
+       2,
+       24
+      ],
+      [
+       16,
+       3
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        1,
+        48
+       ],
+       "verletzt": "beide größer als 1"
+      },
+      {
+       "werte": [
+        6,
+        9
+       ],
+       "verletzt": "Produkt ist 48"
+      },
+      {
+       "werte": [
+        -6,
+        -8
+       ],
+       "verletzt": "beide größer als 1"
+      }
+     ]
+    },
+    "h": "Such ein Teilerpaar von 48.",
+    "w": "Teilerpaare von 48 ohne die 1: 2 · 24, 3 · 16, 4 · 12, 6 · 8."
+   }
+  },
+  {
+   "kennung": "Z2-B2",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "quersumme",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "quersumme",
+    "t": "quersumme",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne eine dreistellige Zahl, die durch 3, aber nicht durch 9 teilbar ist.",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "dreistellig",
+       "pruefe": [
+        "und",
+        [
+         ">=",
+         "$1",
+         100
+        ],
+        [
+         "<=",
+         "$1",
+         999
+        ]
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine Zahl {} ist nicht dreistellig."
+      },
+      {
+       "name": "durch 3 teilbar",
+       "pruefe": [
+        "teilbar",
+        "$1",
+        3
+       ],
+       "hinweis": "Deine Zahl lässt beim Teilen durch 3 einen Rest."
+      },
+      {
+       "name": "nicht durch 9 teilbar",
+       "pruefe": [
+        "nicht",
+        [
+         "teilbar",
+         "$1",
+         9
+        ]
+       ],
+       "hinweis": "Deine Zahl ist auch durch 9 teilbar."
+      }
+     ],
+     "beispiel": [
+      123
+     ],
+     "gut": [
+      [
+       102
+      ],
+      [
+       996
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        12
+       ],
+       "verletzt": "dreistellig"
+      },
+      {
+       "werte": [
+        124
+       ],
+       "verletzt": "durch 3 teilbar"
+      },
+      {
+       "werte": [
+        126
+       ],
+       "verletzt": "nicht durch 9 teilbar"
+      }
+     ]
+    },
+    "h": "Was muss für die Quersumme gelten?",
+    "w": "Die Quersumme muss in der Dreierreihe liegen, aber nicht in der Neunerreihe – zum Beispiel 6: 123."
+   }
+  },
+  {
+   "kennung": "Z2-B3",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "vielfache",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "vielfache",
+    "t": "vielfache",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne zwei Zahlen zwischen 10 und 50, die beide Vielfache von 6 sind und sich um genau 18 unterscheiden.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "zwischen 10 und 50",
+       "pruefe": [
+        "und",
+        [
+         ">",
+         "$1",
+         10
+        ],
+        [
+         "<",
+         "$1",
+         50
+        ],
+        [
+         ">",
+         "$2",
+         10
+        ],
+        [
+         "<",
+         "$2",
+         50
+        ]
+       ],
+       "hinweis": "Beide Zahlen sollen zwischen 10 und 50 liegen."
+      },
+      {
+       "name": "Vielfache von 6",
+       "pruefe": [
+        "und",
+        [
+         "teilbar",
+         "$1",
+         6
+        ],
+        [
+         "teilbar",
+         "$2",
+         6
+        ]
+       ],
+       "hinweis": "Mindestens eine deiner Zahlen steht nicht in der Sechserreihe."
+      },
+      {
+       "name": "Unterschied 18",
+       "pruefe": [
+        "=",
+        [
+         "betrag",
+         [
+          "-",
+          "$1",
+          "$2"
+         ]
+        ],
+        18
+       ],
+       "zeige": [
+        "betrag",
+        [
+         "-",
+         "$1",
+         "$2"
+        ]
+       ],
+       "hinweis": "Deine Zahlen unterscheiden sich um {}."
+      }
+     ],
+     "beispiel": [
+      12,
+      30
+     ],
+     "gut": [
+      [
+       48,
+       30
+      ],
+      [
+       18,
+       36
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        6,
+        24
+       ],
+       "verletzt": "zwischen 10 und 50"
+      },
+      {
+       "werte": [
+        12,
+        31
+       ],
+       "verletzt": "Vielfache von 6"
+      },
+      {
+       "werte": [
+        12,
+        24
+       ],
+       "verletzt": "Unterschied 18"
+      }
+     ]
+    },
+    "h": "Schreib die Sechserreihe zwischen 10 und 50 auf.",
+    "w": "Sechserreihe: 12, 18, 24, 30, 36, 42, 48. Drei Schritte weiter sind 18 mehr: 12 und 30, 18 und 36, 24 und 42, 30 und 48."
+   }
+  },
+  {
+   "kennung": "Z2-B4",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "endziffer",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "endziffer",
+    "t": "endziffer",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne eine Zahl zwischen 100 und 200, die durch 2, durch 3 und durch 5 teilbar ist.",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "zwischen 100 und 200",
+       "pruefe": [
+        "und",
+        [
+         ">",
+         "$1",
+         100
+        ],
+        [
+         "<",
+         "$1",
+         200
+        ]
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine Zahl {} liegt nicht zwischen 100 und 200."
+      },
+      {
+       "name": "durch 2 und durch 5 teilbar",
+       "pruefe": [
+        "und",
+        [
+         "teilbar",
+         "$1",
+         2
+        ],
+        [
+         "teilbar",
+         "$1",
+         5
+        ]
+       ],
+       "hinweis": "Schau auf die letzte Ziffer deiner Zahl."
+      },
+      {
+       "name": "durch 3 teilbar",
+       "pruefe": [
+        "teilbar",
+        "$1",
+        3
+       ],
+       "hinweis": "Schau auf die Quersumme deiner Zahl."
+      }
+     ],
+     "beispiel": [
+      150
+     ],
+     "gut": [
+      [
+       120
+      ],
+      [
+       180
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        90
+       ],
+       "verletzt": "zwischen 100 und 200"
+      },
+      {
+       "werte": [
+        135
+       ],
+       "verletzt": "durch 2 und durch 5 teilbar"
+      },
+      {
+       "werte": [
+        140
+       ],
+       "verletzt": "durch 3 teilbar"
+      }
+     ]
+    },
+    "h": "Welche Endziffer passt zu 2 und zu 5 zugleich?",
+    "w": "Endziffer 0 und eine Quersumme aus der Dreierreihe: 120, 150 oder 180."
+   }
+  },
+  {
+   "kennung": "Z2-B5",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "primzahl",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "primzahl",
+    "t": "primzahl",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne drei verschiedene Primzahlen, deren Summe 30 ist.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "erste Zahl ist eine Primzahl",
+       "pruefe": [
+        "oder",
+        [
+         "oder",
+         [
+          "=",
+          "$1",
+          2
+         ],
+         [
+          "=",
+          "$1",
+          3
+         ],
+         [
+          "=",
+          "$1",
+          5
+         ],
+         [
+          "=",
+          "$1",
+          7
+         ],
+         [
+          "=",
+          "$1",
+          11
+         ]
+        ],
+        [
+         "oder",
+         [
+          "=",
+          "$1",
+          13
+         ],
+         [
+          "=",
+          "$1",
+          17
+         ],
+         [
+          "=",
+          "$1",
+          19
+         ],
+         [
+          "=",
+          "$1",
+          23
+         ],
+         [
+          "=",
+          "$1",
+          29
+         ]
+        ]
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine erste Zahl {} ist keine Primzahl unter 30."
+      },
+      {
+       "name": "zweite Zahl ist eine Primzahl",
+       "pruefe": [
+        "oder",
+        [
+         "oder",
+         [
+          "=",
+          "$2",
+          2
+         ],
+         [
+          "=",
+          "$2",
+          3
+         ],
+         [
+          "=",
+          "$2",
+          5
+         ],
+         [
+          "=",
+          "$2",
+          7
+         ],
+         [
+          "=",
+          "$2",
+          11
+         ]
+        ],
+        [
+         "oder",
+         [
+          "=",
+          "$2",
+          13
+         ],
+         [
+          "=",
+          "$2",
+          17
+         ],
+         [
+          "=",
+          "$2",
+          19
+         ],
+         [
+          "=",
+          "$2",
+          23
+         ],
+         [
+          "=",
+          "$2",
+          29
+         ]
+        ]
+       ],
+       "zeige": "$2",
+       "hinweis": "Deine zweite Zahl {} ist keine Primzahl unter 30."
+      },
+      {
+       "name": "dritte Zahl ist eine Primzahl",
+       "pruefe": [
+        "oder",
+        [
+         "oder",
+         [
+          "=",
+          "$3",
+          2
+         ],
+         [
+          "=",
+          "$3",
+          3
+         ],
+         [
+          "=",
+          "$3",
+          5
+         ],
+         [
+          "=",
+          "$3",
+          7
+         ],
+         [
+          "=",
+          "$3",
+          11
+         ]
+        ],
+        [
+         "oder",
+         [
+          "=",
+          "$3",
+          13
+         ],
+         [
+          "=",
+          "$3",
+          17
+         ],
+         [
+          "=",
+          "$3",
+          19
+         ],
+         [
+          "=",
+          "$3",
+          23
+         ],
+         [
+          "=",
+          "$3",
+          29
+         ]
+        ]
+       ],
+       "zeige": "$3",
+       "hinweis": "Deine dritte Zahl {} ist keine Primzahl unter 30."
+      },
+      {
+       "name": "verschieden",
+       "pruefe": [
+        "verschieden",
+        "$alle"
+       ],
+       "hinweis": "Die drei Zahlen sollen verschieden sein."
+      },
+      {
+       "name": "Summe ist 30",
+       "pruefe": [
+        "=",
+        [
+         "summe",
+         "$alle"
+        ],
+        30
+       ],
+       "zeige": [
+        "summe",
+        "$alle"
+       ],
+       "hinweis": "Deine Summe ist {}."
+      }
+     ],
+     "beispiel": [
+      2,
+      5,
+      23
+     ],
+     "gut": [
+      [
+       11,
+       2,
+       17
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        1,
+        6,
+        23
+       ],
+       "verletzt": "erste Zahl ist eine Primzahl"
+      },
+      {
+       "werte": [
+        2,
+        9,
+        19
+       ],
+       "verletzt": "zweite Zahl ist eine Primzahl"
+      },
+      {
+       "werte": [
+        2,
+        7,
+        21
+       ],
+       "verletzt": "dritte Zahl ist eine Primzahl"
+      },
+      {
+       "werte": [
+        2,
+        2,
+        23
+       ],
+       "verletzt": "verschieden"
+      },
+      {
+       "werte": [
+        3,
+        5,
+        23
+       ],
+       "verletzt": "Summe ist 30"
+      }
+     ]
+    },
+    "h": "Drei ungerade Zahlen ergeben zusammen eine ungerade Zahl. Was heißt das für die Summe 30?",
+    "w": "Eine der drei Primzahlen muss gerade sein, also die 2. Die beiden anderen ergeben zusammen 28: 5 + 23 oder 11 + 17."
+   }
+  }
+ ]
+}

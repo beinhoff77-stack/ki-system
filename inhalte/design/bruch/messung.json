@@ -1,0 +1,570 @@
+{
+ "a-frage-3-4-360-tag": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Frage",
+    "text": "Eine Klasse hat 32 Kinder. ⏎3⏎4⏎ der Kinder fahren mit dem B",
+    "schrift": 18,
+    "zeilenhoehe": 27.5,
+    "hoehe": 123,
+    "brueche": 1,
+    "ziffer": 18,
+    "bruchHoehe": 40,
+    "bruchBreiteMax": 19,
+    "breite": 294,
+    "ragtRaus": false
+   }
+  ]
+ },
+ "a-frage-3-4-360-nacht": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Frage",
+    "text": "Eine Klasse hat 32 Kinder. ⏎3⏎4⏎ der Kinder fahren mit dem B",
+    "schrift": 18,
+    "zeilenhoehe": 27.5,
+    "hoehe": 123,
+    "brueche": 1,
+    "ziffer": 18,
+    "bruchHoehe": 40,
+    "bruchBreiteMax": 19,
+    "breite": 294,
+    "ragtRaus": false
+   }
+  ]
+ },
+ "a-frage-3-4-400-tag": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Frage",
+    "text": "Eine Klasse hat 32 Kinder. ⏎3⏎4⏎ der Kinder fahren mit dem B",
+    "schrift": 18,
+    "zeilenhoehe": 27.5,
+    "hoehe": 95,
+    "brueche": 1,
+    "ziffer": 18,
+    "bruchHoehe": 40,
+    "bruchBreiteMax": 19,
+    "breite": 334,
+    "ragtRaus": false
+   }
+  ]
+ },
+ "a-frage-3-4-400-nacht": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Frage",
+    "text": "Eine Klasse hat 32 Kinder. ⏎3⏎4⏎ der Kinder fahren mit dem B",
+    "schrift": 18,
+    "zeilenhoehe": 27.5,
+    "hoehe": 95,
+    "brueche": 1,
+    "ziffer": 18,
+    "bruchHoehe": 40,
+    "bruchBreiteMax": 19,
+    "breite": 334,
+    "ragtRaus": false
+   }
+  ]
+ },
+ "b-auswahl-360-tag": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Frage",
+    "text": "Welcher ist der größte Bruch: ⏎3⏎4⏎, ⏎1⏎2⏎, ⏎5⏎6⏎, ⏎4⏎7⏎?",
+    "schrift": 18,
+    "zeilenhoehe": 27.5,
+    "hoehe": 68,
+    "brueche": 4,
+    "ziffer": 18,
+    "bruchHoehe": 40,
+    "bruchBreiteMax": 19,
+    "breite": 294,
+    "ragtRaus": false
+   },
+   {
+    "was": "Antwortknopf",
+    "text": "1⏎2",
+    "schrift": 14,
+    "zeilenhoehe": 21.7,
+    "hoehe": 56,
+    "brueche": 1,
+    "ziffer": 11.5,
+    "bruchHoehe": 26,
+    "bruchBreiteMax": 12,
+    "breite": 294,
+    "ragtRaus": false
+   },
+   {
+    "was": "Antwortknopf",
+    "text": "5⏎6",
+    "schrift": 14,
+    "zeilenhoehe": 21.7,
+    "hoehe": 56,
+    "brueche": 1,
+    "ziffer": 11.5,
+    "bruchHoehe": 26,
+    "bruchBreiteMax": 12,
+    "breite": 294,
+    "ragtRaus": false
+   },
+   {
+    "was": "Antwortknopf",
+    "text": "4⏎7",
+    "schrift": 14,
+    "zeilenhoehe": 21.7,
+    "hoehe": 56,
+    "brueche": 1,
+    "ziffer": 11.5,
+    "bruchHoehe": 26,
+    "bruchBreiteMax": 12,
+    "breite": 294,
+    "ragtRaus": false
+   },
+   {
+    "was": "Antwortknopf",
+    "text": "3⏎4",
+    "schrift": 14,
+    "zeilenhoehe": 21.7,
+    "hoehe": 56,
+    "brueche": 1,
+    "ziffer": 11.5,
+    "bruchHoehe": 26,
+    "bruchBreiteMax": 12,
+    "breite": 294,
+    "ragtRaus": false
+   }
+  ]
+ },
+ "b-auswahl-360-nacht": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Frage",
+    "text": "Welcher ist der größte Bruch: ⏎3⏎4⏎, ⏎1⏎2⏎, ⏎5⏎6⏎, ⏎4⏎7⏎?",
+    "schrift": 18,
+    "zeilenhoehe": 27.5,
+    "hoehe": 68,
+    "brueche": 4,
+    "ziffer": 18,
+    "bruchHoehe": 40,
+    "bruchBreiteMax": 19,
+    "breite": 294,
+    "ragtRaus": false
+   },
+   {
+    "was": "Antwortknopf",
+    "text": "1⏎2",
+    "schrift": 14,
+    "zeilenhoehe": 21.7,
+    "hoehe": 56,
+    "brueche": 1,
+    "ziffer": 11.5,
+    "bruchHoehe": 26,
+    "bruchBreiteMax": 12,
+    "breite": 294,
+    "ragtRaus": false
+   },
+   {
+    "was": "Antwortknopf",
+    "text": "5⏎6",
+    "schrift": 14,
+    "zeilenhoehe": 21.7,
+    "hoehe": 56,
+    "brueche": 1,
+    "ziffer": 11.5,
+    "bruchHoehe": 26,
+    "bruchBreiteMax": 12,
+    "breite": 294,
+    "ragtRaus": false
+   },
+   {
+    "was": "Antwortknopf",
+    "text": "4⏎7",
+    "schrift": 14,
+    "zeilenhoehe": 21.7,
+    "hoehe": 56,
+    "brueche": 1,
+    "ziffer": 11.5,
+    "bruchHoehe": 26,
+    "bruchBreiteMax": 12,
+    "breite": 294,
+    "ragtRaus": false
+   },
+   {
+    "was": "Antwortknopf",
+    "text": "3⏎4",
+    "schrift": 14,
+    "zeilenhoehe": 21.7,
+    "hoehe": 56,
+    "brueche": 1,
+    "ziffer": 11.5,
+    "bruchHoehe": 26,
+    "bruchBreiteMax": 12,
+    "breite": 294,
+    "ragtRaus": false
+   }
+  ]
+ },
+ "b-auswahl-400-tag": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Frage",
+    "text": "Welcher ist der größte Bruch: ⏎3⏎4⏎, ⏎1⏎2⏎, ⏎5⏎6⏎, ⏎4⏎7⏎?",
+    "schrift": 18,
+    "zeilenhoehe": 27.5,
+    "hoehe": 68,
+    "brueche": 4,
+    "ziffer": 18,
+    "bruchHoehe": 40,
+    "bruchBreiteMax": 19,
+    "breite": 334,
+    "ragtRaus": false
+   },
+   {
+    "was": "Antwortknopf",
+    "text": "1⏎2",
+    "schrift": 14,
+    "zeilenhoehe": 21.7,
+    "hoehe": 56,
+    "brueche": 1,
+    "ziffer": 11.5,
+    "bruchHoehe": 26,
+    "bruchBreiteMax": 12,
+    "breite": 334,
+    "ragtRaus": false
+   },
+   {
+    "was": "Antwortknopf",
+    "text": "5⏎6",
+    "schrift": 14,
+    "zeilenhoehe": 21.7,
+    "hoehe": 56,
+    "brueche": 1,
+    "ziffer": 11.5,
+    "bruchHoehe": 26,
+    "bruchBreiteMax": 12,
+    "breite": 334,
+    "ragtRaus": false
+   },
+   {
+    "was": "Antwortknopf",
+    "text": "4⏎7",
+    "schrift": 14,
+    "zeilenhoehe": 21.7,
+    "hoehe": 56,
+    "brueche": 1,
+    "ziffer": 11.5,
+    "bruchHoehe": 26,
+    "bruchBreiteMax": 12,
+    "breite": 334,
+    "ragtRaus": false
+   },
+   {
+    "was": "Antwortknopf",
+    "text": "3⏎4",
+    "schrift": 14,
+    "zeilenhoehe": 21.7,
+    "hoehe": 56,
+    "brueche": 1,
+    "ziffer": 11.5,
+    "bruchHoehe": 26,
+    "bruchBreiteMax": 12,
+    "breite": 334,
+    "ragtRaus": false
+   }
+  ]
+ },
+ "b-auswahl-400-nacht": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Frage",
+    "text": "Welcher ist der größte Bruch: ⏎3⏎4⏎, ⏎1⏎2⏎, ⏎5⏎6⏎, ⏎4⏎7⏎?",
+    "schrift": 18,
+    "zeilenhoehe": 27.5,
+    "hoehe": 68,
+    "brueche": 4,
+    "ziffer": 18,
+    "bruchHoehe": 40,
+    "bruchBreiteMax": 19,
+    "breite": 334,
+    "ragtRaus": false
+   },
+   {
+    "was": "Antwortknopf",
+    "text": "1⏎2",
+    "schrift": 14,
+    "zeilenhoehe": 21.7,
+    "hoehe": 56,
+    "brueche": 1,
+    "ziffer": 11.5,
+    "bruchHoehe": 26,
+    "bruchBreiteMax": 12,
+    "breite": 334,
+    "ragtRaus": false
+   },
+   {
+    "was": "Antwortknopf",
+    "text": "5⏎6",
+    "schrift": 14,
+    "zeilenhoehe": 21.7,
+    "hoehe": 56,
+    "brueche": 1,
+    "ziffer": 11.5,
+    "bruchHoehe": 26,
+    "bruchBreiteMax": 12,
+    "breite": 334,
+    "ragtRaus": false
+   },
+   {
+    "was": "Antwortknopf",
+    "text": "4⏎7",
+    "schrift": 14,
+    "zeilenhoehe": 21.7,
+    "hoehe": 56,
+    "brueche": 1,
+    "ziffer": 11.5,
+    "bruchHoehe": 26,
+    "bruchBreiteMax": 12,
+    "breite": 334,
+    "ragtRaus": false
+   },
+   {
+    "was": "Antwortknopf",
+    "text": "3⏎4",
+    "schrift": 14,
+    "zeilenhoehe": 21.7,
+    "hoehe": 56,
+    "brueche": 1,
+    "ziffer": 11.5,
+    "bruchHoehe": 26,
+    "bruchBreiteMax": 12,
+    "breite": 334,
+    "ragtRaus": false
+   }
+  ]
+ },
+ "c-loesungsweg-bruchterm-360-tag": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Frage",
+    "text": "Das Ergebnis von ⏎3x − 6⏎x + 1⏎ : ⏎x − 2⏎2x + 2⏎ ist eine Za",
+    "schrift": 18,
+    "zeilenhoehe": 27.5,
+    "hoehe": 108,
+    "brueche": 2,
+    "ziffer": 18,
+    "bruchHoehe": 40,
+    "bruchBreiteMax": 61,
+    "breite": 294,
+    "ragtRaus": false
+   }
+  ]
+ },
+ "c-loesungsweg-bruchterm-360-nacht": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Frage",
+    "text": "Das Ergebnis von ⏎3x − 6⏎x + 1⏎ : ⏎x − 2⏎2x + 2⏎ ist eine Za",
+    "schrift": 18,
+    "zeilenhoehe": 27.5,
+    "hoehe": 108,
+    "brueche": 2,
+    "ziffer": 18,
+    "bruchHoehe": 40,
+    "bruchBreiteMax": 61,
+    "breite": 294,
+    "ragtRaus": false
+   }
+  ]
+ },
+ "c-loesungsweg-bruchterm-400-tag": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Frage",
+    "text": "Das Ergebnis von ⏎3x − 6⏎x + 1⏎ : ⏎x − 2⏎2x + 2⏎ ist eine Za",
+    "schrift": 18,
+    "zeilenhoehe": 27.5,
+    "hoehe": 81,
+    "brueche": 2,
+    "ziffer": 18,
+    "bruchHoehe": 40,
+    "bruchBreiteMax": 61,
+    "breite": 334,
+    "ragtRaus": false
+   }
+  ]
+ },
+ "c-loesungsweg-bruchterm-400-nacht": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Frage",
+    "text": "Das Ergebnis von ⏎3x − 6⏎x + 1⏎ : ⏎x − 2⏎2x + 2⏎ ist eine Za",
+    "schrift": 18,
+    "zeilenhoehe": 27.5,
+    "hoehe": 81,
+    "brueche": 2,
+    "ziffer": 18,
+    "bruchHoehe": 40,
+    "bruchBreiteMax": 61,
+    "breite": 334,
+    "ragtRaus": false
+   }
+  ]
+ },
+ "c2-loesungsweg-bruchgleichung-360-tag": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Rückmeldung",
+    "text": "x + 6⏎x − 2⏎ = 3 ⇒ x + 6 = 3x − 6 ⇒ x = 6. Saft: x + 6 = 12 ",
+    "schrift": 13.1,
+    "zeilenhoehe": 22.4,
+    "hoehe": 74,
+    "brueche": 1,
+    "ziffer": 13.1,
+    "bruchHoehe": 30,
+    "bruchBreiteMax": 36,
+    "breite": 300,
+    "ragtRaus": false
+   }
+  ]
+ },
+ "c2-loesungsweg-bruchgleichung-360-nacht": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Rückmeldung",
+    "text": "x + 6⏎x − 2⏎ = 3 ⇒ x + 6 = 3x − 6 ⇒ x = 6. Saft: x + 6 = 12 ",
+    "schrift": 13.1,
+    "zeilenhoehe": 22.4,
+    "hoehe": 74,
+    "brueche": 1,
+    "ziffer": 13.1,
+    "bruchHoehe": 30,
+    "bruchBreiteMax": 36,
+    "breite": 300,
+    "ragtRaus": false
+   }
+  ]
+ },
+ "c2-loesungsweg-bruchgleichung-400-tag": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Rückmeldung",
+    "text": "x + 6⏎x − 2⏎ = 3 ⇒ x + 6 = 3x − 6 ⇒ x = 6. Saft: x + 6 = 12 ",
+    "schrift": 13.1,
+    "zeilenhoehe": 22.4,
+    "hoehe": 52,
+    "brueche": 1,
+    "ziffer": 13.1,
+    "bruchHoehe": 30,
+    "bruchBreiteMax": 36,
+    "breite": 340,
+    "ragtRaus": false
+   }
+  ]
+ },
+ "c2-loesungsweg-bruchgleichung-400-nacht": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Rückmeldung",
+    "text": "x + 6⏎x − 2⏎ = 3 ⇒ x + 6 = 3x − 6 ⇒ x = 6. Saft: x + 6 = 12 ",
+    "schrift": 13.1,
+    "zeilenhoehe": 22.4,
+    "hoehe": 52,
+    "brueche": 1,
+    "ziffer": 13.1,
+    "bruchHoehe": 30,
+    "bruchBreiteMax": 36,
+    "breite": 340,
+    "ragtRaus": false
+   }
+  ]
+ },
+ "d-gemischte-zahl-360-tag": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Frage",
+    "text": "Wie viel Prozent sind 1 ⏎1⏎4⏎?",
+    "schrift": 18,
+    "zeilenhoehe": 27.5,
+    "hoehe": 40,
+    "brueche": 1,
+    "ziffer": 18,
+    "bruchHoehe": 40,
+    "bruchBreiteMax": 19,
+    "breite": 294,
+    "ragtRaus": false
+   }
+  ]
+ },
+ "d-gemischte-zahl-360-nacht": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Frage",
+    "text": "Wie viel Prozent sind 1 ⏎1⏎4⏎?",
+    "schrift": 18,
+    "zeilenhoehe": 27.5,
+    "hoehe": 40,
+    "brueche": 1,
+    "ziffer": 18,
+    "bruchHoehe": 40,
+    "bruchBreiteMax": 19,
+    "breite": 294,
+    "ragtRaus": false
+   }
+  ]
+ },
+ "d-gemischte-zahl-400-tag": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Frage",
+    "text": "Wie viel Prozent sind 1 ⏎1⏎4⏎?",
+    "schrift": 18,
+    "zeilenhoehe": 27.5,
+    "hoehe": 40,
+    "brueche": 1,
+    "ziffer": 18,
+    "bruchHoehe": 40,
+    "bruchBreiteMax": 19,
+    "breite": 334,
+    "ragtRaus": false
+   }
+  ]
+ },
+ "d-gemischte-zahl-400-nacht": {
+  "quer": false,
+  "orte": [
+   {
+    "was": "Frage",
+    "text": "Wie viel Prozent sind 1 ⏎1⏎4⏎?",
+    "schrift": 18,
+    "zeilenhoehe": 27.5,
+    "hoehe": 40,
+    "brueche": 1,
+    "ziffer": 18,
+    "bruchHoehe": 40,
+    "bruchBreiteMax": 19,
+    "breite": 334,
+    "ragtRaus": false
+   }
+  ]
+ }
+}

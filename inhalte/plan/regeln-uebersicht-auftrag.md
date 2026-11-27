@@ -1,0 +1,86 @@
+# Gemeinsamer Auftrag: Übersicht der Grundregeln (26.11.2026)
+
+**Der Nutzer hat beide bisherigen Fassungen abgelehnt** – die des Designers (Sonnensystem, Planetenreihe, Regel-Karte) und die des Projektleiters (15 Regeln in 5 Stufen). Mathe-Profi, ChatGPT und Designer sollen es gemeinsam durchgehen, bevor er wieder etwas sieht.
+
+## Was der Nutzer will (seine Worte, sinngemäß zusammengefasst)
+- „Ich will übersichtlich den gesamten Aufbau der Regeln und die Darstellung, dass es für viele Klassen dasselbe ist.“
+- „Sehr anschaulich dargestellt, aufeinander aufbauend.“
+- Wie die Regeln später mit den Aufgaben verknüpft werden und was dem Kind dort erklärt wird, überlässt er dem Team. **Er will die Übersicht.**
+
+## Was er abgelehnt hat und warum
+- Designer-Fassung: „Katastrophal. Verstehe nicht einmal ich, was ihr mir sagen wollt.“ Ursachen nach Einschätzung des Projektleiters: erfundene Insider-Namen („Zeichen-Paar“, „Wert bleibt“), Etiketten und Monde statt der Regel selbst, Lernstand im Mittelpunkt statt Inhalt.
+- Projektleiter-Fassung: „Das sind doch keine professionellen Erklärungen. Regel: oben und unten dasselbe tun – super!?“ und „Darstellung ist auch noch nichts.“ Außerdem war nicht sofort klar, dass 15 Regeln in 5 Stufen stehen.
+- Sein eigener Vorschlag: **„Das könnten ja auch 15 einprägende Sätze sein, die sich ein Kind merkt.“**
+
+## Ziel
+Eine Übersicht, die ein Vater ohne Vorwissen und ein Kind in Klasse 5 sofort verstehen:
+1. **Merksätze:** je Regel ein Satz, den man sich merkt und der fachlich sauber ist (Vorbild: „Punkt vor Strich“, „Minus mal Minus gibt Plus“). Keine erfundenen Fachwörter, keine Babysprache.
+2. **Professionelle Erklärung** je Regel: zwei bis drei Sätze, warum sie gilt, und wo sie nicht gilt.
+3. **Dieselbe Regel in vielen Klassen:** je Regel ein Beispiel für jede Klasse, in der sie vorkommt (5 bis 9 oder 10), gegen den Lehrplan geprüft.
+4. **Aufbau sichtbar:** Was baut worauf auf? Nicht als Liste von Stufen behauptet, sondern so dargestellt, dass man es sieht.
+5. **Anschaulich:** je Regel ein Bild oder eine Darstellung, die die Regel zeigt, nicht schmückt.
+6. Rechnen ist nicht alles: Sag ausdrücklich, was für Geometrie, Daten und Sachaufgaben gilt (Arbeitsweisen) und wie das auf die Übersicht kommt.
+
+Die Zahl 15 ist nicht heilig. Wenn weniger Regeln das Ganze tragen oder zwei zusammengehören, begründen.
+
+## Ablauf
+1. **Mathe-Profi:** Inhalt. Merksätze, Erklärungen, Beispiele je Klasse, Aufbau (was setzt was voraus), Bildidee je Regel. Datei `inhalte/mathe-profi/regeln-uebersicht/inhalt.md`.
+2. **ChatGPT:** greift den Inhalt an – fachlich falsch, missverständlich, nicht merkbar, nicht kindgerecht, fehlende Regel. Antwort in der Werkstatt.
+3. **Mathe-Profi** arbeitet ein.
+4. **Designer:** Darstellung aus dem abgestimmten Inhalt. Eine Seite, die ohne Antippen lesbar ist; am Rechner und am Handy. Zwei Fassungen. Kein Lernstand, keine Planeten als Pflicht – das Sonnensystem ist nur erlaubt, wenn es das Verstehen trägt.
+5. **Gegenlesen durch alle drei.** Erst danach geht es an den Nutzer, mit einem Satz je Beteiligtem: „Ich halte das für gut, weil …“ oder „Ich bin nicht einverstanden, weil …“.
+
+Maßstab für alle: Würde ein Erwachsener, der Mathe seit 25 Jahren nicht gebraucht hat, nach einer Minute sagen können, was die Seite ihm sagt?
+
+## Nachtrag des Nutzers (26.11., kurz danach)
+- „Oder spielt mit einprägsamen Bildern oder schönen Darstellungen! Lasst euch was einfallen.“ – Die Form ist ausdrücklich frei: Merksatz, Bild, Eselsbrücke, Figur, Geschichte, Plakat. Gesucht ist, was im Kopf bleibt. Bitte mehrere Wege je Regel ausprobieren und den besten wählen, nicht den ersten.
+- **„Gibt es wirklich nur diese 15 Regeln?“** – Bitte ehrlich und vollständig beantworten:
+  1. Sind die 15 die Rechenregeln für Zahlen und Terme der Klassen 5 bis 10, oder fehlt dort etwas (z. B. Runden und Überschlag, Wurzelgesetze, Logarithmus, Betrag, Ungleichung umdrehen)?
+  2. Welche festen Sätze und Formeln tragen Geometrie (Winkelsumme, Flächen- und Volumenformeln, Pythagoras, Strahlensatz, Kongruenz), Funktionen (Steigung, Achsenabschnitt), Daten und Zufall (Mittelwert, Anteil, Wahrscheinlichkeit)?
+  3. Wie sieht die ganze Landkarte aus: wenige Grundregeln, darüber die Sätze der Gebiete, daneben die Arbeitsweisen? Eine ehrliche Zahl nennen, auch wenn sie nicht 15 ist.
+
+## Klarstellung des Nutzers: das „Gesetzbuch“ (26.11., maßgeblich)
+Auf die Antwort „Nein, die 15 sind nur die Rechenregeln; Geometrie, Funktionen, Daten haben eigene Sätze und Formeln“ sagte der Nutzer: **„Das meinte ich aber! Das sollte dann in Planeten, und ich will auch die Regeln der anderen! Also wie ein separates Gesetzbuch daneben!“**
+
+Damit ist das Ziel:
+- **Ein Gesetzbuch der Mathematik**, als eigener Bereich neben der Lernreise, jederzeit aufschlagbar. Es enthält **alle** festen Regeln, Sätze und Formeln der Klassen 5 bis 10 – nicht nur die Rechenregeln.
+- **Planeten = Gebiete.** Jedes Gebiet hat seinen Planeten mit seinen Gesetzen (Geometrie, Fläche und Raum, Funktionen, Daten und Zufall, Geld und Verhältnisse …). Lesart des Projektleiters, zu prüfen: **die Sonne = die Grundregeln des Rechnens**, weil sie in jedem Gebiet wiederkehren; die Planeten = die Gesetze der einzelnen Gebiete. Die Gebiete der App (Kontinente) sind der naheliegende Schnitt – bitte prüfen, ob er trägt.
+- Je Gesetz: Merksatz oder Bild, das im Kopf bleibt; saubere Erklärung; dasselbe Gesetz in den Klassen, in denen es vorkommt; wo es nicht gilt; worauf es aufbaut.
+- Arbeitsweisen (Skizze, Überschlag, Probe, Einheiten) gehören hinein, an einem eigenen Ort.
+
+**Für den Mathe-Profi heißt das:** zuerst das vollständige Inhaltsverzeichnis des Gesetzbuchs (alle Gesetze je Gebiet, mit Klasse und Schulart, gegen die Lehrpläne der App geprüft, mit ehrlicher Gesamtzahl), dann die Ausarbeitung – beginnend mit der Sonne und einem Planeten als Muster, damit der Nutzer früh etwas sieht.
+**Für den Designer (Schritt 4):** Gesetzbuch und Sonnensystem sind jetzt eine Idee. Die frühere Fassung A darf als Ausgangspunkt dienen, aber die Gesetze selbst müssen lesbar im Mittelpunkt stehen.
+
+## Entscheidung des Nutzers nach dem ersten Inhalt (26.11.) – jetzt maßgeblich
+Die Zahl 174 ist als Übersicht unbrauchbar. Der Nutzer hat den Vorschlag „zwei Ebenen“ an Beispielen gesehen und beauftragt: ausarbeiten, zusammen mit dem Designer, mit echten Zeichnungen.
+
+**Zwei Ebenen**
+1. **Die Übersicht:** die Sonne mit den 14 Rechenregeln und je Planet 3 bis 5 tragende Ideen. Zusammen rund 35 bis 45 Sätze, auf einen Blick erfassbar.
+2. **Zum Nachschlagen:** hinter jeder tragenden Idee die einzelnen Gesetze und Formeln, die aus ihr folgen. Über eine Suche erreichbar, ohne den Planeten kennen zu müssen.
+
+Beispiel Fläche und Raum, drei Ideen: „Messen heißt auslegen und zählen“ · „Aus dem Rechteck entsteht jede Fläche“ · „Aus dem Quader entsteht jeder Körper“. Für Geometrie Vorschlag des Projektleiters, zu prüfen: Winkelsumme 180° · drei passende Angaben legen ein Dreieck fest · Spiegeln, Schieben, Drehen ändert weder Längen noch Winkel · ähnliche Figuren · Pythagoras.
+
+**Zeichnungen sind Pflicht:** zu jeder Rechenregel und jeder tragenden Idee eine echte Zeichnung, die die Idee zeigt. Der Designer zeichnet; der Mathe-Profi legt fest, was mathematisch genau zu sehen sein muss.
+
+**Gegenprüfung zum ersten Inhalt:** liegt in der Werkstatt vor (zwei Nachrichten von ChatGPT zu Wunsch 176, direkt nach der Prüfbitte zum Gesetzbuch). Urteil: Sonne und sieben Gebietsplaneten als Einstieg beibehalten; Muss-Korrekturen an Merksätzen, Geltungsbedingungen und Klassenzuordnungen; Suche nötig; kein Punktgitter über alle Einträge als Startseite. Einzuarbeiten.
+
+**Neuer Ablauf**
+- Mathe-Profi und Designer arbeiten gleichzeitig und stimmen sich über ihre Postfächer ab.
+- Erste Lieferung an den Nutzer: die Sonne und zwei Planeten fertig (Fläche und Raum, Geometrie) – Sätze, Zeichnungen, Darstellung. Erst danach die übrigen Planeten.
+- Vor dem Zeigen liest ChatGPT gegen; alle drei geben ihr Urteil in einem Satz.
+
+## Name (26.11.)
+Der Nutzer will den Namen „Gesetzbuch“ nicht; das Wort war nur ein Bild. Arbeitsname „Mathe-Regeln“, Einträge heißen „Regel“. Endgültiger Name: Entscheidung des Nutzers offen.
+
+**Entschieden (26.11.): Der Name ist „Regel-Universum“.**
+
+## Nachtrag 26.11. – Verknüpfung mit Erklärungen und Aufgaben (vom Nutzer bestätigt: „Passt“)
+Das Regel-Universum ersetzt die Erklärungen nicht, es wird verlinkt. Jede Aufgabe trägt eine Regel-Kennung. In Anfangs-Erklärung, Lösungsweg und Fehler-Rückmeldung steht ein Feld „Regel dahinter“; ein Tipp öffnet die Regel als Blatt, Zurück führt an dieselbe Stelle. Im Regel-Universum steht je Regel, in welchen Themen sie vorkommt. Das Feld erscheint nur bei echtem Zusammenhang. Gebaut ist davon nichts; Gegenprüfung durch ChatGPT ist angefragt (Werkstatt, Nachricht 1004).
+
+## Entscheidungen des Nutzers vom 26.11. (23:58 Berlin)
+- „Genau gesagt“ steht nicht auf der Übersicht, nur in der aufgeschlagenen Regel.
+- Rechenregel 3: Hauptzeichnung „Mal (−1) heißt umdrehen“ an der Zahlengeraden, passend zu Regel 2; die Treppe bleibt als „Warum“.
+- Offen, vom Nutzer nicht entschieden: 30 Abweichungen beim IB zwischen Themenliste und Lehrplan-Kopie (zurückgestellt bis vor dem ersten IB-Inhalt).
+
+## Stand 27.11. (00:25 Berlin) – Rückmeldung des Nutzers nach Runde 5
+Der Nutzer: Das Regel-Universum „scheint jetzt besser zu sein“. Er lässt die Kinder je eine Regel am Handy ansehen (Kind 1: Rechenregel 2, Kind 2: Rechenregel 13). Fragen an die Kinder: Was sagt die Regel in eigenen Worten? Was ist in den Klassen gleich? Was ist unklar? Danach: Handy-Fassung glätten (Auftrag 17 an den Mathe-Profi), dann Einbau in die App planen. Noch nicht entschieden: Übersicht A oder B.

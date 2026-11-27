@@ -1,0 +1,1502 @@
+{
+ "stand": "2026-11-26",
+ "flug": "ge2",
+ "titel": "Spiegeln und Symmetrie",
+ "fuer": "Kind 2",
+ "klasse": 7,
+ "hinweis": "Neue Aufgaben, rollendes System Stufe 1. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: erst die Aufgaben ohne Bau, dann die des Typs „bedingung“, jeweils mit aufsteigender Stufe.",
+ "aufgaben": [
+  {
+   "kennung": "GE2-01",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "achsenspiegelung",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": -5,
+     "fehlbild": "fb.deckungsgleich.an_koordinatenachse_gespiegelt",
+     "regel_des_fehlbilds": "id.geometrie.deckungsgleich",
+     "beschreibung": "an der y-Achse statt an der genannten Achse gespiegelt"
+    },
+    {
+     "luecke": 2,
+     "antwort": -4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von 0 statt von der Achse aus gezählt"
+    },
+    {
+     "luecke": 3,
+     "antwort": -2,
+     "fehlbild": "fb.deckungsgleich.falsche_koordinate_gespiegelt",
+     "regel_des_fehlbilds": "id.geometrie.deckungsgleich",
+     "beschreibung": "auch die Höhe gespiegelt"
+    }
+   ],
+   "aufgabe": {
+    "l": "achsenspiegelung",
+    "t": "achsenspiegelung",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Spiegle P(5 | 2) an der senkrechten Achse durch (1 | 0). P liegt ① Einheiten rechts von der Achse. Der Bildpunkt liegt gleich weit links davon: x′ = ②. Die Höhe bleibt: y′ = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      4,
+      -3,
+      2
+     ]
+    },
+    "c": [
+     "5 - 1",
+     "1 - (5 - 1)",
+     "2"
+    ],
+    "h": "Gleich weit auf die andere Seite der Achse.",
+    "w": "5 − 1 = 4. Von der Achse 4 nach links: 1 − 4 = −3. Also P′(−3 | 2)."
+   }
+  },
+  {
+   "kennung": "GE2-02",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "winkelhalbierende",
+   "stufe": 1,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 152,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "verdoppelt statt halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "winkelhalbierende",
+    "t": "winkelhalbierende",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Winkel hat 76°. Seine Winkelhalbierende teilt ihn in zwei Teile. Wie viel Grad hat jeder Teil?"
+    },
+    "o": {
+     "wert": 38
+    },
+    "c": "76 // 2",
+    "h": "Halbieren heißt: zwei gleich große Teile.",
+    "w": "Die Winkelhalbierende teilt den Winkel in zwei gleich große Teile: 76° : 2 = 38°."
+   }
+  },
+  {
+   "kennung": "GE2-03",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "verschiebung",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "3 − (−5) gerechnet: abgezogen statt addiert"
+    },
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "5 − 3 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": -5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "abgezogen statt addiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": -3,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "Vorzeichen des Ergebnisses falsch"
+    }
+   ],
+   "aufgabe": {
+    "l": "verschiebung",
+    "t": "verschiebung",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Verschiebe A(3 | −1) mit dem Vektor (−5 | 4). Bildpunkt A′(① | ②).",
+     "schablone": "A′(□ | □)",
+     "hinweis": "Erst x, dann y."
+    },
+    "o": {
+     "werte": [
+      -2,
+      3
+     ]
+    },
+    "c": [
+     "3 + (-5)",
+     "-1 + 4"
+    ],
+    "h": "Erste Zahl zu x, zweite Zahl zu y.",
+    "w": "3 + (−5) = −2 und −1 + 4 = 3. Also A′(−2 | 3)."
+   }
+  },
+  {
+   "kennung": "GE2-04",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "symmetrie",
+   "stufe": 1,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "keine",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Mittellinien übersehen"
+    },
+    {
+     "index": 2,
+     "antwort": "4",
+     "fehlbild": "fb.deckungsgleich.diagonale_als_achse",
+     "regel_des_fehlbilds": "id.geometrie.deckungsgleich",
+     "beschreibung": "die Diagonalen mitgezählt"
+    },
+    {
+     "index": 3,
+     "antwort": "1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Mittellinie gesehen"
+    }
+   ],
+   "aufgabe": {
+    "l": "symmetrie",
+    "t": "symmetrie",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Wie viele Symmetrieachsen hat ein Rechteck, das kein Quadrat ist?"
+    },
+    "a": [
+     "keine",
+     "2",
+     "4",
+     "1"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Stell dir vor, du faltest das Rechteck. Wann liegen die Hälften genau aufeinander?",
+    "w": "Nur die beiden Mittellinien sind Achsen. Faltet man an einer Diagonale, passen die Hälften nicht aufeinander."
+   }
+  },
+  {
+   "kennung": "GE2-05",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "eigenschaften",
+   "stufe": 1,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "die Seitenlängen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Längen bleiben erhalten"
+    },
+    {
+     "index": 1,
+     "antwort": "die Winkelgrößen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Winkel bleiben erhalten"
+    },
+    {
+     "index": 2,
+     "antwort": "der Flächeninhalt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "der Flächeninhalt bleibt erhalten"
+    }
+   ],
+   "aufgabe": {
+    "l": "eigenschaften",
+    "t": "eigenschaften",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Dreieck ABC wird an einer Achse gespiegelt. Was ändert sich dabei?"
+    },
+    "a": [
+     "die Seitenlängen",
+     "die Winkelgrößen",
+     "der Flächeninhalt",
+     "der Umlaufsinn"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Was bleibt bei jeder Kongruenzabbildung gleich?",
+    "w": "Längen, Winkel und Flächeninhalt bleiben. Nur der Umlaufsinn dreht sich um: A, B, C laufen nach dem Spiegeln andersherum."
+   }
+  },
+  {
+   "kennung": "GE2-06",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "achsenspiegelung",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -4,
+     "fehlbild": "fb.deckungsgleich.an_koordinatenachse_gespiegelt",
+     "regel_des_fehlbilds": "id.geometrie.deckungsgleich",
+     "beschreibung": "an der x-Achse gespiegelt"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "Vorzeichen verloren"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": "fb.deckungsgleich.falsche_koordinate_gespiegelt",
+     "regel_des_fehlbilds": "id.geometrie.deckungsgleich",
+     "beschreibung": "die x-Koordinate gespiegelt"
+    }
+   ],
+   "aufgabe": {
+    "l": "achsenspiegelung",
+    "t": "achsenspiegelung",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "P(−3 | 4) wird an der waagrechten Achse durch (0 | 1) gespiegelt. Weg A: P liegt 3 über der Achse, also liegt P′ 3 darunter. Weg B: y′ = 2 · 1 − 4. Welche y-Koordinate hat P′?"
+    },
+    "o": {
+     "wert": -2
+    },
+    "c": "2 * 1 - 4",
+    "h": "Rechne beide Wege. Sie müssen dasselbe ergeben.",
+    "w": "Weg A: 1 − 3 = −2. Weg B: 2 − 4 = −2. Also P′(−3 | −2)."
+   }
+  },
+  {
+   "kennung": "GE2-07",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "punktspiegelung",
+   "stufe": 2,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "folge",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": -1,
+     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "1 − 2 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "Betrag von 1 − 2"
+    },
+    {
+     "luecke": 3,
+     "antwort": -1,
+     "fehlbild": "fb.deckungsgleich.an_koordinatenachse_gespiegelt",
+     "regel_des_fehlbilds": "id.geometrie.deckungsgleich",
+     "beschreibung": "am Ursprung statt an Z gespiegelt"
+    },
+    {
+     "luecke": 4,
+     "antwort": 2,
+     "fehlbild": "fb.deckungsgleich.an_koordinatenachse_gespiegelt",
+     "regel_des_fehlbilds": "id.geometrie.deckungsgleich",
+     "beschreibung": "am Ursprung statt an Z gespiegelt"
+    }
+   ],
+   "aufgabe": {
+    "l": "punktspiegelung",
+    "t": "punktspiegelung",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "Spiegle P(1 | −2) am Punkt Z(4 | 1). Von P zu Z geht es ① nach rechts und ② nach oben. Denselben Weg noch einmal von Z aus: P′(③ | ④).",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      3,
+      7,
+      4
+     ]
+    },
+    "c": [
+     "4 - 1",
+     "1 - (-2)",
+     "4 + 3",
+     "1 + 3"
+    ],
+    "h": "Z ist die Mitte zwischen P und P′.",
+    "w": "Von P zu Z: 3 nach rechts, 3 nach oben. Von Z weiter: (4 + 3 | 1 + 3) = (7 | 4)."
+   }
+  },
+  {
+   "kennung": "GE2-08",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "punktspiegelung",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": "fb.abstand.halbe_laenge_statt_mitte",
+     "regel_des_fehlbilds": "id.geometrie.abstand",
+     "beschreibung": "die halbe Entfernung genannt"
+    },
+    {
+     "antwort": -4,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "(−6 − 2) : 2 gerechnet"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die ganze Entfernung genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "punktspiegelung",
+    "t": "punktspiegelung",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Bei einer Punktspiegelung fällt P(−6 | 3) auf P′(2 | 3). Welche x-Koordinate hat das Zentrum Z?"
+    },
+    "o": {
+     "wert": -2
+    },
+    "c": "(-6 + 2) // 2",
+    "h": "Z liegt genau in der Mitte zwischen P und P′.",
+    "w": "Mitte von −6 und 2: (−6 + 2) : 2 = −2."
+   }
+  },
+  {
+   "kennung": "GE2-09",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "mittelsenkrechte",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": "fb.abstand.halbe_laenge_statt_mitte",
+     "regel_des_fehlbilds": "id.geometrie.abstand",
+     "beschreibung": "die halbe Streckenlänge genannt"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Streckenlänge genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "mittelsenkrechte",
+    "t": "mittelsenkrechte",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "A(−1 | 2) und B(7 | 2). Die Mittelsenkrechte von [AB] ist eine senkrechte Linie. Durch welchen x-Wert geht sie?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "(-1 + 7) // 2",
+    "h": "Die Mittelsenkrechte geht durch die Mitte der Strecke.",
+    "w": "Die Strecke ist 8 lang. Von −1 aus 4 weiter: x = 3."
+   }
+  },
+  {
+   "kennung": "GE2-10",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "gegenvektor",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "folge",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": -7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das erste Vorzeichen umgedreht"
+    },
+    {
+     "luecke": 3,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "noch einmal in dieselbe Richtung verschoben"
+    },
+    {
+     "luecke": 4,
+     "antwort": -5,
+     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "noch einmal −7 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "gegenvektor",
+    "t": "gegenvektor",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Punkt B wurde mit dem Vektor (4 | −7) verschoben und liegt jetzt bei B′(1 | 2). Der Gegenvektor ist (① | ②). Damit kommst du zurück: B(③ | ④).",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      -4,
+      7,
+      -3,
+      9
+     ]
+    },
+    "c": [
+     "0 - 4",
+     "0 - (-7)",
+     "1 - 4",
+     "2 - (-7)"
+    ],
+    "h": "Der Gegenvektor dreht beide Vorzeichen um.",
+    "w": "Gegenvektor (−4 | 7). Zurück: 1 − 4 = −3 und 2 + 7 = 9. Also B(−3 | 9)."
+   }
+  },
+  {
+   "kennung": "GE2-11",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "drehung",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "fehlbild": "fb.deckungsgleich.drehrichtung",
+     "regel_des_fehlbilds": "id.geometrie.deckungsgleich",
+     "beschreibung": "nach rechts gedreht"
+    },
+    {
+     "luecke": 1,
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "um 180° gedreht"
+    },
+    {
+     "luecke": 2,
+     "antwort": -3,
+     "fehlbild": "fb.deckungsgleich.drehrichtung",
+     "regel_des_fehlbilds": "id.geometrie.deckungsgleich",
+     "beschreibung": "nach rechts gedreht"
+    },
+    {
+     "luecke": 2,
+     "antwort": -1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "um 180° gedreht"
+    }
+   ],
+   "aufgabe": {
+    "l": "drehung",
+    "t": "drehung",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "Drehe P(3 | 1) um den Ursprung um 90° nach links (gegen den Uhrzeigersinn). Bildpunkt P′(□ | □).",
+     "schablone": "P′(□ | □)",
+     "hinweis": "Erst x, dann y."
+    },
+    "o": {
+     "werte": [
+      -1,
+      3
+     ]
+    },
+    "c": [
+     "0 - 1",
+     "3"
+    ],
+    "h": "Aus (x | y) wird (−y | x).",
+    "w": "Aus (3 | 1) wird (−1 | 3). Probe mit einer Skizze: P liegt rechts, P′ liegt oben."
+   }
+  },
+  {
+   "kennung": "GE2-12",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "achsenspiegelung",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": "fb.abstand.halbe_laenge_statt_mitte",
+     "regel_des_fehlbilds": "id.geometrie.abstand",
+     "beschreibung": "den halben Abstand genannt"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den ganzen Abstand genannt"
+    },
+    {
+     "antwort": 0,
+     "fehlbild": "fb.deckungsgleich.an_koordinatenachse_gespiegelt",
+     "regel_des_fehlbilds": "id.geometrie.deckungsgleich",
+     "beschreibung": "die x-Achse angenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "achsenspiegelung",
+    "t": "achsenspiegelung",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "P(2 | 7) wird an einer waagrechten Achse gespiegelt und fällt auf P′(2 | −1). Durch welchen y-Wert geht die Achse?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "(7 + (-1)) // 2",
+    "h": "Die Achse liegt genau in der Mitte zwischen P und P′.",
+    "w": "Mitte von 7 und −1: (7 − 1) : 2 = 3. Probe: P liegt 4 darüber, P′ 4 darunter."
+   }
+  },
+  {
+   "kennung": "GE2-13",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "mittelsenkrechte",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "P ist die Mitte von [AB].",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Punkt der Linie betrachtet"
+    },
+    {
+     "index": 1,
+     "antwort": "P liegt auf der Strecke [AB].",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Punkt der Linie betrachtet"
+    },
+    {
+     "index": 3,
+     "antwort": "Das Dreieck ABP hat bei P einen rechten Winkel.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "der rechte Winkel liegt an der Strecke, nicht bei P"
+    }
+   ],
+   "aufgabe": {
+    "l": "mittelsenkrechte",
+    "t": "mittelsenkrechte",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Punkt P liegt auf der Mittelsenkrechten von [AB]. Welche Aussage stimmt dann sicher?"
+    },
+    "a": [
+     "P ist die Mitte von [AB].",
+     "P liegt auf der Strecke [AB].",
+     "P ist von A und von B gleich weit entfernt.",
+     "Das Dreieck ABP hat bei P einen rechten Winkel."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Welche Eigenschaft haben alle Punkte der Mittelsenkrechten?",
+    "w": "Jeder Punkt der Mittelsenkrechten ist von A und B gleich weit entfernt. Die Mitte ist nur einer davon."
+   }
+  },
+  {
+   "kennung": "GE2-14",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "vierecke_ordnen",
+   "stufe": 3,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Drachenviereck",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Drachenviereck: eine Achse, nicht punktsymmetrisch"
+    },
+    {
+     "index": 2,
+     "antwort": "gleichschenkliges Trapez",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gleichschenkliges Trapez: eine Achse, nicht punktsymmetrisch"
+    },
+    {
+     "index": 3,
+     "antwort": "Raute",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Raute: punktsymmetrisch, hat aber zwei Achsen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke_ordnen",
+    "t": "vierecke_ordnen",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Welches Viereck ist immer punktsymmetrisch, hat aber im Allgemeinen keine Symmetrieachse?"
+    },
+    "a": [
+     "Parallelogramm",
+     "Drachenviereck",
+     "gleichschenkliges Trapez",
+     "Raute"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Punktsymmetrisch heißt: Nach einer halben Drehung sieht die Figur gleich aus.",
+    "w": "Ein Parallelogramm geht bei einer halben Drehung um seinen Mittelpunkt in sich über. Achsen hat es nur in Sonderfällen (Rechteck, Raute)."
+   }
+  },
+  {
+   "kennung": "GE2-B1",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "achsenspiegelung",
+   "stufe": 1,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "achsenspiegelung",
+    "t": "achsenspiegelung",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne einen Punkt P(x | y), der nicht auf der y-Achse liegt, und sein Spiegelbild P′(x′ | y′) bei der Spiegelung an der y-Achse. Reihenfolge der Felder: x, y, x′, y′.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "P nicht auf der Achse",
+       "pruefe": [
+        "!=",
+        "$1",
+        0
+       ],
+       "hinweis": "Dein Punkt P liegt auf der Achse."
+      },
+      {
+       "name": "y′ gehört zum Spiegelbild",
+       "pruefe": [
+        "=",
+        "$2",
+        "$4"
+       ],
+       "hinweis": "P und P′ liegen bei dir nicht auf gleicher Höhe."
+      },
+      {
+       "name": "x′ gehört zum Spiegelbild",
+       "pruefe": [
+        "=",
+        [
+         "+",
+         "$1",
+         "$3"
+        ],
+        0
+       ],
+       "hinweis": "P′ liegt bei dir nicht gleich weit auf der anderen Seite der Achse."
+      }
+     ],
+     "beispiel": [
+      3,
+      2,
+      -3,
+      2
+     ],
+     "gut": [
+      [
+       -5,
+       0,
+       5,
+       0
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0,
+        2,
+        0,
+        2
+       ],
+       "verletzt": "P nicht auf der Achse"
+      },
+      {
+       "werte": [
+        3,
+        2,
+        -3,
+        -2
+       ],
+       "verletzt": "y′ gehört zum Spiegelbild"
+      },
+      {
+       "werte": [
+        3,
+        2,
+        3,
+        2
+       ],
+       "verletzt": "x′ gehört zum Spiegelbild"
+      }
+     ]
+    },
+    "h": "Welche Koordinate ändert sich beim Spiegeln an der y-Achse?",
+    "w": "Die y-Koordinate bleibt, die x-Koordinate wechselt das Vorzeichen: zum Beispiel P(3 | 2) und P′(−3 | 2)."
+   }
+  },
+  {
+   "kennung": "GE2-B2",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "verschiebung",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "verschiebung",
+    "t": "verschiebung",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne einen Vektor (a | b), der den Punkt P(2 | −1) in das Feld links oben verschiebt: Der Bildpunkt soll eine negative x-Koordinate und eine positive y-Koordinate haben. Beide Zahlen des Vektors sollen zwischen −5 und 5 liegen.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "zwischen −5 und 5",
+       "pruefe": [
+        "und",
+        [
+         ">=",
+         "$1",
+         -5
+        ],
+        [
+         "<=",
+         "$1",
+         5
+        ],
+        [
+         ">=",
+         "$2",
+         -5
+        ],
+        [
+         "<=",
+         "$2",
+         5
+        ]
+       ],
+       "hinweis": "Beide Zahlen des Vektors sollen zwischen −5 und 5 liegen."
+      },
+      {
+       "name": "Bildpunkt links der y-Achse",
+       "pruefe": [
+        "<",
+        [
+         "+",
+         2,
+         "$1"
+        ],
+        0
+       ],
+       "zeige": [
+        "+",
+        2,
+        "$1"
+       ],
+       "hinweis": "Dein Bildpunkt hat die x-Koordinate {}."
+      },
+      {
+       "name": "Bildpunkt über der x-Achse",
+       "pruefe": [
+        ">",
+        [
+         "+",
+         -1,
+         "$2"
+        ],
+        0
+       ],
+       "zeige": [
+        "+",
+        -1,
+        "$2"
+       ],
+       "hinweis": "Dein Bildpunkt hat die y-Koordinate {}."
+      }
+     ],
+     "beispiel": [
+      -4,
+      3
+     ],
+     "gut": [
+      [
+       -3,
+       2
+      ],
+      [
+       -5,
+       5
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        -9,
+        3
+       ],
+       "verletzt": "zwischen −5 und 5"
+      },
+      {
+       "werte": [
+        -2,
+        3
+       ],
+       "verletzt": "Bildpunkt links der y-Achse"
+      },
+      {
+       "werte": [
+        -4,
+        1
+       ],
+       "verletzt": "Bildpunkt über der x-Achse"
+      }
+     ]
+    },
+    "h": "Wie weit muss P mindestens nach links, wie weit mindestens nach oben?",
+    "w": "Mehr als 2 nach links (a ist −3, −4 oder −5) und mehr als 1 nach oben (b ist 2, 3, 4 oder 5)."
+   }
+  },
+  {
+   "kennung": "GE2-B3",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "mittelsenkrechte",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "mittelsenkrechte",
+    "t": "mittelsenkrechte",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "A(0 | 0) und B(6 | 0). Nenne zwei verschiedene Punkte, die von A und von B gleich weit entfernt sind. Reihenfolge der Felder: x und y des ersten Punkts, x und y des zweiten Punkts.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "erster Punkt gleich weit",
+       "pruefe": [
+        "=",
+        [
+         "+",
+         [
+          "hoch",
+          [
+           "-",
+           "$1",
+           0
+          ],
+          2
+         ],
+         [
+          "hoch",
+          "$2",
+          2
+         ]
+        ],
+        [
+         "+",
+         [
+          "hoch",
+          [
+           "-",
+           "$1",
+           6
+          ],
+          2
+         ],
+         [
+          "hoch",
+          "$2",
+          2
+         ]
+        ]
+       ],
+       "hinweis": "Dein erster Punkt ist von A und B nicht gleich weit entfernt."
+      },
+      {
+       "name": "zweiter Punkt gleich weit",
+       "pruefe": [
+        "=",
+        [
+         "+",
+         [
+          "hoch",
+          [
+           "-",
+           "$3",
+           0
+          ],
+          2
+         ],
+         [
+          "hoch",
+          "$4",
+          2
+         ]
+        ],
+        [
+         "+",
+         [
+          "hoch",
+          [
+           "-",
+           "$3",
+           6
+          ],
+          2
+         ],
+         [
+          "hoch",
+          "$4",
+          2
+         ]
+        ]
+       ],
+       "hinweis": "Dein zweiter Punkt ist von A und B nicht gleich weit entfernt."
+      },
+      {
+       "name": "verschieden",
+       "pruefe": [
+        "oder",
+        [
+         "!=",
+         "$1",
+         "$3"
+        ],
+        [
+         "!=",
+         "$2",
+         "$4"
+        ]
+       ],
+       "hinweis": "Die zwei Punkte sollen verschieden sein."
+      }
+     ],
+     "beispiel": [
+      3,
+      1,
+      3,
+      -2
+     ],
+     "gut": [
+      [
+       3,
+       0,
+       3,
+       100
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        2,
+        1,
+        3,
+        -2
+       ],
+       "verletzt": "erster Punkt gleich weit"
+      },
+      {
+       "werte": [
+        3,
+        1,
+        4,
+        0
+       ],
+       "verletzt": "zweiter Punkt gleich weit"
+      },
+      {
+       "werte": [
+        3,
+        1,
+        3,
+        1
+       ],
+       "verletzt": "verschieden"
+      }
+     ]
+    },
+    "h": "Auf welcher Linie liegen alle Punkte, die von A und B gleich weit entfernt sind?",
+    "w": "Alle solchen Punkte liegen auf der Mittelsenkrechten von [AB], also bei x = 3: zum Beispiel (3 | 1) und (3 | −2)."
+   }
+  },
+  {
+   "kennung": "GE2-B4",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "achsenspiegelung",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "achsenspiegelung",
+    "t": "achsenspiegelung",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "A(1 | 4) wird an einer senkrechten Achse gespiegelt. Nenne den x-Wert der Achse und den Bildpunkt A′(x′ | y′) so, dass A′ links von der y-Achse liegt. Reihenfolge der Felder: x-Wert der Achse, x′, y′.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "Bildpunkt links der y-Achse",
+       "pruefe": [
+        "<",
+        "$2",
+        0
+       ],
+       "zeige": "$2",
+       "hinweis": "Dein x′ ist {}."
+      },
+      {
+       "name": "y′ gehört zum Spiegelbild",
+       "pruefe": [
+        "=",
+        "$3",
+        4
+       ],
+       "zeige": "$3",
+       "hinweis": "Dein y′ ist {}."
+      },
+      {
+       "name": "Achse passt zu A und A′",
+       "pruefe": [
+        "=",
+        [
+         "*",
+         2,
+         "$1"
+        ],
+        [
+         "+",
+         1,
+         "$2"
+        ]
+       ],
+       "zeige": [
+        "/",
+        [
+         "+",
+         1,
+         "$2"
+        ],
+        2
+       ],
+       "hinweis": "Die Mitte zwischen A und deinem A′ liegt bei x = {}."
+      }
+     ],
+     "beispiel": [
+      -1,
+      -3,
+      4
+     ],
+     "gut": [
+      [
+       "-0,5",
+       -2,
+       4
+      ],
+      [
+       0,
+       -1,
+       4
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        2,
+        3,
+        4
+       ],
+       "verletzt": "Bildpunkt links der y-Achse"
+      },
+      {
+       "werte": [
+        -1,
+        -3,
+        -4
+       ],
+       "verletzt": "y′ gehört zum Spiegelbild"
+      },
+      {
+       "werte": [
+        0,
+        -3,
+        4
+       ],
+       "verletzt": "Achse passt zu A und A′"
+      }
+     ]
+    },
+    "h": "Wähle zuerst A′. Wo muss dann die Achse liegen?",
+    "w": "Die Achse liegt in der Mitte zwischen A und A′. Zum Beispiel A′(−3 | 4): Mitte von 1 und −3 ist −1."
+   }
+  },
+  {
+   "kennung": "GE2-B5",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "punktspiegelung",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "punktspiegelung",
+    "t": "punktspiegelung",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "bedingung",
+    "f": {
+     "text": "Bei einer Punktspiegelung am Zentrum Z(a | b) fällt der Punkt P(x | y) auf P′(4 | 0). Nenne Z und P so, dass P im Feld links unten liegt (beide Koordinaten negativ). Reihenfolge der Felder: a, b, x, y.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "P links unten",
+       "pruefe": [
+        "und",
+        [
+         "<",
+         "$3",
+         0
+        ],
+        [
+         "<",
+         "$4",
+         0
+        ]
+       ],
+       "hinweis": "Dein Punkt P liegt nicht im Feld links unten."
+      },
+      {
+       "name": "Z passt zu P und P′ (x-Richtung)",
+       "pruefe": [
+        "=",
+        [
+         "*",
+         2,
+         "$1"
+        ],
+        [
+         "+",
+         "$3",
+         4
+        ]
+       ],
+       "zeige": [
+        "/",
+        [
+         "+",
+         "$3",
+         4
+        ],
+        2
+       ],
+       "hinweis": "Die Mitte zwischen deinem P und P′ liegt bei x = {}."
+      },
+      {
+       "name": "Z passt zu P und P′ (y-Richtung)",
+       "pruefe": [
+        "=",
+        [
+         "*",
+         2,
+         "$2"
+        ],
+        "$4"
+       ],
+       "zeige": [
+        "/",
+        "$4",
+        2
+       ],
+       "hinweis": "Die Mitte zwischen deinem P und P′ liegt bei y = {}."
+      }
+     ],
+     "beispiel": [
+      1,
+      -1,
+      -2,
+      -2
+     ],
+     "gut": [
+      [
+       "1,5",
+       "-0,5",
+       -1,
+       -1
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        1,
+        -1,
+        2,
+        -2
+       ],
+       "verletzt": "P links unten"
+      },
+      {
+       "werte": [
+        2,
+        -1,
+        -2,
+        -2
+       ],
+       "verletzt": "Z passt zu P und P′ (x-Richtung)"
+      },
+      {
+       "werte": [
+        1,
+        1,
+        -2,
+        -2
+       ],
+       "verletzt": "Z passt zu P und P′ (y-Richtung)"
+      }
+     ]
+    },
+    "h": "Wähle zuerst P. Das Zentrum liegt dann in der Mitte zwischen P und P′.",
+    "w": "Zum Beispiel P(−2 | −2): Mitte von −2 und 4 ist 1, Mitte von −2 und 0 ist −1. Also Z(1 | −1)."
+   }
+  }
+ ]
+}

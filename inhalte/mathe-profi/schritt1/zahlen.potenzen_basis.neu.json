@@ -1,0 +1,295 @@
+[
+ {
+  "l": "berechnen",
+  "t": "berechnen",
+  "p": "uebung",
+  "s": 1,
+  "g": "direkt",
+  "y": "luecken",
+  "f": {
+   "text": "Fülle den Rechenweg aus: 2⁵ = 2 · 2 · 2 · 2 · 2 = 4 · 2 · 2 · 2 = ① · 2 · 2 = ② · 2 = ③",
+   "schablone": "① = □; ② = □; ③ = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    8,
+    16,
+    32
+   ]
+  },
+  "c": [
+   "2 ** 3",
+   "2 ** 4",
+   "2 ** 5"
+  ],
+  "h": "In jeder Zeile werden die ersten beiden Zahlen malgenommen.",
+  "w": "4 · 2 = 8, 8 · 2 = 16, 16 · 2 = 32. Die 2 steht fünfmal als Faktor da."
+ },
+ {
+  "l": "negativ",
+  "t": "negativ",
+  "p": "uebung",
+  "s": 2,
+  "g": "mehrschritt",
+  "y": "luecken",
+  "f": {
+   "text": "Der erste Schritt ist gemacht. Rechne zu Ende: (−3)⁴ = (−3) · (−3) · (−3) · (−3) = 9 · (−3) · (−3) = ① · (−3) = ②",
+   "schablone": "① = □; ② = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    -27,
+    81
+   ]
+  },
+  "c": [
+   "9 * (-3)",
+   "(-3) ** 4"
+  ],
+  "h": "Achte bei jedem Malnehmen auf das Zeichen.",
+  "w": "9 · (−3) = −27. Dann (−27) · (−3) = 81. Vier Minuszeichen ergeben plus."
+ },
+ {
+  "l": "negativ",
+  "t": "negativ",
+  "p": "uebung",
+  "s": 2,
+  "g": "mehrschritt",
+  "y": "luecken",
+  "f": {
+   "text": "Rechne in zwei Zeilen: (−2)⁵ + 5² = ① + ② = ③",
+   "schablone": "① = □; ② = □; ③ = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    -32,
+    25,
+    -7
+   ]
+  },
+  "c": [
+   "(-2) ** 5",
+   "5 ** 2",
+   "(-2) ** 5 + 5 ** 2"
+  ],
+  "h": "Rechne jede Potenz für sich. Wie oft steht das Minus als Faktor da?",
+  "w": "(−2)⁵ = −32, weil fünf Minuszeichen minus ergeben. 5² = 25. Zusammen −32 + 25 = −7."
+ },
+ {
+  "l": "schreibweise",
+  "t": "begriff",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "luecken",
+  "f": {
+   "text": "Zwillingszeilen – nicht ausrechnen, nur umschreiben. Zeile 1: 5 · 5 · 5 = 5ᵏ. Zeile 2: 12 · 12 · 12 · 12 · 12 · 12 · 12 = 12ⁿ.",
+   "schablone": "k = □; n = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    3,
+    7
+   ]
+  },
+  "c": [
+   "3",
+   "7"
+  ],
+  "h": "Zähle die Faktoren, nicht die Malzeichen.",
+  "w": "Die Hochzahl sagt, wie oft die Basis als Faktor dasteht: dreimal die 5, siebenmal die 12."
+ },
+ {
+  "l": "zehner",
+  "t": "zehner",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "luecken",
+  "f": {
+   "text": "Zwillingszeilen – nicht ausrechnen, nur die Hochzahl bestimmen. Zeile 1: 10 · 10 · 10 = 1 000 = 10ᵏ. Zeile 2: 4 000 000 = 4 · 10ⁿ.",
+   "schablone": "k = □; n = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    3,
+    6
+   ]
+  },
+  "c": [
+   "3",
+   "6"
+  ],
+  "h": "Vergleiche in Zeile 1 die Hochzahl mit der Zahl der Nullen.",
+  "w": "1 000 hat drei Nullen: 10³. 4 000 000 hat sechs Nullen: 4 · 10⁶."
+ },
+ {
+  "l": "quadrat",
+  "t": "berechnen",
+  "p": "uebung",
+  "s": 2,
+  "g": "mehrschritt",
+  "y": "zahl",
+  "f": {
+   "text": "Zwei Wege für 15². Weg A rechnet 15 · 15 schriftlich. Weg B zerlegt: 15 · 10 + 15 · 5 = 150 + ?. Welche Zahl fehlt in Weg B?"
+  },
+  "o": {
+   "wert": 75
+  },
+  "c": "15 * 5",
+  "h": "Womit wird die zweite 15 in Weg B malgenommen?",
+  "w": "15 · 5 = 75. Zusammen 150 + 75 = 225 – dasselbe wie 15 · 15."
+ },
+ {
+  "l": "vertauschen",
+  "t": "begriff",
+  "p": "uebung",
+  "s": 2,
+  "g": "umkehr",
+  "y": "zahl",
+  "f": {
+   "text": "Zwei Wege zum selben Wert: 4³ und 2ⁿ ergeben beide 64. Weg A rechnet 4 · 4 · 4. Weg B schreibt jede 4 als 2 · 2. Wie groß ist n?"
+  },
+  "o": {
+   "wert": 6
+  },
+  "c": "3 * 2",
+  "h": "Schreibe Weg B aus und zähle die Zweien.",
+  "w": "4 · 4 · 4 = (2 · 2) · (2 · 2) · (2 · 2). Das sind sechs Zweien: 2⁶ = 64."
+ },
+ {
+  "l": "berechnen",
+  "t": "berechnen",
+  "p": "uebung",
+  "s": 3,
+  "g": "fehler",
+  "y": "auswahl",
+  "f": {
+   "text": "Jemand rechnet in drei Zeilen: (1) 2⁴ + 3² (2) = 8 + 6 (3) = 14. In welcher Zeile passiert der erste Fehler?"
+  },
+  "a": [
+   "Zeile 3: 8 + 6 ist nicht 14.",
+   "Nirgends. 14 stimmt.",
+   "Zeile 2: Es wurde Basis mal Hochzahl gerechnet. Richtig ist 16 + 9.",
+   "Zeile 2: Nur 3² ist falsch, 2⁴ = 8 stimmt."
+  ],
+  "o": {
+   "index": 2
+  },
+  "h": "Schreibe beide Potenzen lang aus.",
+  "w": "2⁴ = 2 · 2 · 2 · 2 = 16 und 3² = 3 · 3 = 9. Zusammen 25. In Zeile 2 wurde 2 · 4 und 3 · 2 gerechnet."
+ },
+ {
+  "l": "negativ",
+  "t": "negativ",
+  "p": "uebung",
+  "s": 3,
+  "g": "fehler",
+  "y": "zahl",
+  "f": {
+   "text": "Jemand rechnet (−5)² = −25. In der Rechnung steckt ein Fehler. Was kommt richtig heraus?"
+  },
+  "o": {
+   "wert": 25
+  },
+  "c": "(-5) ** 2",
+  "h": "Schreibe die Potenz als Malaufgabe mit beiden Klammern.",
+  "w": "(−5)² = (−5) · (−5) = 25. Minus mal minus ist plus."
+ },
+ {
+  "l": "sach",
+  "t": "anwenden",
+  "p": "uebung",
+  "s": 1,
+  "g": "erkennen",
+  "y": "auswahl",
+  "f": {
+   "text": "Ein Blatt Papier wird 6-mal gefaltet. Jedes Falten verdoppelt die Zahl der Lagen. Mit welcher Rechnung findest du die Zahl der Lagen?"
+  },
+  "a": [
+   "6 · 2",
+   "2⁶",
+   "6²",
+   "2 + 6"
+  ],
+  "o": {
+   "index": 1
+  },
+  "h": "Probiere es mit zweimal Falten: Wie viele Lagen sind es dann?",
+  "w": "Sechsmal verdoppeln heißt 2 · 2 · 2 · 2 · 2 · 2 = 2⁶ = 64 Lagen."
+ },
+ {
+  "l": "vertauschen",
+  "t": "begriff",
+  "p": "uebung",
+  "s": 1,
+  "g": "erkennen",
+  "y": "auswahl",
+  "f": {
+   "text": "Du willst wissen, welche Zahl größer ist: 3⁴ oder 4³. Welcher Weg führt sicher zum Ziel?"
+  },
+  "a": [
+   "Die größere Basis gewinnt.",
+   "Die größere Hochzahl gewinnt.",
+   "Beide ausrechnen und vergleichen.",
+   "Sie sind gleich, weil dieselben Ziffern vorkommen."
+  ],
+  "o": {
+   "index": 2
+  },
+  "h": "Gibt es eine Abkürzung, die immer stimmt? Teste sie an 2³ und 3².",
+  "w": "3⁴ = 81 und 4³ = 64. Keine Faustregel stimmt immer: Bei 2³ = 8 und 3² = 9 gewinnt die größere Basis, hier die größere Hochzahl."
+ },
+ {
+  "l": "zehner",
+  "t": "zehner",
+  "p": "uebung",
+  "s": 1,
+  "g": "direkt",
+  "y": "luecken",
+  "f": {
+   "text": "Fülle den Rechenweg aus: 6 · 10⁴ = 6 · 10 · 10 · 10 · 10 = 6 · ① = ②",
+   "schablone": "① = □; ② = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    10000,
+    60000
+   ]
+  },
+  "c": [
+   "10 ** 4",
+   "6 * 10 ** 4"
+  ],
+  "h": "Die Hochzahl sagt, wie viele Nullen hinter der 1 stehen.",
+  "w": "10⁴ = 10 000 (vier Nullen). 6 · 10 000 = 60 000."
+ },
+ {
+  "l": "negativ",
+  "t": "negativ",
+  "p": "uebung",
+  "s": 3,
+  "g": "begruenden",
+  "y": "auswahl",
+  "f": {
+   "text": "Ohne auszurechnen: Ist (−7)¹⁵ positiv oder negativ?"
+  },
+  "a": [
+   "Positiv, weil 15 positiv ist.",
+   "Negativ, weil die Hochzahl ungerade ist.",
+   "Positiv, weil minus mal minus plus ergibt.",
+   "Das kann man ohne Ausrechnen nicht sagen."
+  ],
+  "o": {
+   "index": 1
+  },
+  "h": "Wie oft steht das Minus als Faktor da? Bilde Paare.",
+  "w": "15 Minuszeichen: Je zwei ergeben plus, sieben Paare, eines bleibt übrig. Das Ergebnis ist negativ."
+ }
+]

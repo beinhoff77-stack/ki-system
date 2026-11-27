@@ -1,0 +1,1531 @@
+{
+ "stand": "2026-11-27",
+ "flug": "f2",
+ "titel": "Lineare Funktionen",
+ "fuer": "Kind 2",
+ "klasse": 8,
+ "themen": [
+  "funktionen.linear"
+ ],
+ "hinweis": "Aufgaben auf Vorrat, rollendes System Stufe 3. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: erst die Aufgaben ohne Bau, dann die des Typs „bedingung“, jeweils mit aufsteigender Stufe.",
+ "aufgaben": [
+  {
+   "kennung": "F2-01",
+   "thema": "funktionen.linear",
+   "lernkarte": "ablesen",
+   "stufe": 1,
+   "typ": "Brücke",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die erste Zahl für m gehalten"
+    },
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "das Minus nicht mitgenommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die zweite Zahl für t gehalten"
+    }
+   ],
+   "aufgabe": {
+    "l": "ablesen",
+    "t": "ablesen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Gib Steigung und Achsenabschnitt der Geraden y = 4 − 3x an.",
+     "schablone": "m = □; t = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      -3,
+      4
+     ]
+    },
+    "c": [
+     "-3",
+     "4"
+    ],
+    "h": "m steht vor dem x, t steht allein. Die Reihenfolge im Term spielt keine Rolle.",
+    "w": "Umgestellt: y = −3x + 4. Also m = −3 und t = 4."
+   }
+  },
+  {
+   "kennung": "F2-02",
+   "thema": "funktionen.linear",
+   "lernkarte": "zwei_punkte",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "nein",
+   "fehlbilder": [],
+   "aufgabe": {
+    "l": "zwei_punkte",
+    "t": "zwei_punkte",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "A(1 | 2) und B(4 | 11) liegen auf einer Geraden. Nach rechts: 4 − 1 = ①. Nach oben: 11 − 2 = ②. Steigung: m = ② : ① = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      3,
+      9,
+      3
+     ]
+    },
+    "c": [
+     "4 - 1",
+     "11 - 2",
+     "(11 - 2) // (4 - 1)"
+    ],
+    "h": "Steigung ist „nach oben“ geteilt durch „nach rechts“.",
+    "w": "3 nach rechts, 9 nach oben: m = 9 : 3 = 3."
+   }
+  },
+  {
+   "kennung": "F2-03",
+   "thema": "funktionen.linear",
+   "lernkarte": "graph_ablesen",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "−1 auf der x-Achse markieren, dann 3 nach rechts und 2 nach oben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "t auf der falschen Achse"
+    },
+    {
+     "index": 2,
+     "antwort": "bei (2 | 3) beginnen und 1 nach unten gehen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zähler und Nenner als Punkt gelesen"
+    },
+    {
+     "index": 3,
+     "antwort": "−1 auf der y-Achse markieren, dann 2 nach rechts und 3 nach oben",
+     "fehlbild": "fb.zuordnung.x_und_y_vertauscht",
+     "regel_des_fehlbilds": "id.funktionen.zuordnung",
+     "beschreibung": "im Steigungsdreieck rechts und oben vertauscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "graph_ablesen",
+    "t": "graph_ablesen",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Du zeichnest die Gerade y = 2x/3 − 1. Wie gehst du vor?"
+    },
+    "a": [
+     "−1 auf der y-Achse markieren, dann 3 nach rechts und 2 nach oben",
+     "−1 auf der x-Achse markieren, dann 3 nach rechts und 2 nach oben",
+     "bei (2 | 3) beginnen und 1 nach unten gehen",
+     "−1 auf der y-Achse markieren, dann 2 nach rechts und 3 nach oben"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Erst t auf der y-Achse, dann das Steigungsdreieck.",
+    "w": "t = −1 liegt auf der y-Achse. m = 2/3: 3 nach rechts, 2 nach oben."
+   }
+  },
+  {
+   "kennung": "F2-04",
+   "thema": "funktionen.linear",
+   "lernkarte": "lage",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "y = 2x − 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gleiche Steigung: parallel"
+    },
+    {
+     "index": 1,
+     "antwort": "y = −2x + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Vorzeichen gewechselt"
+    },
+    {
+     "index": 3,
+     "antwort": "y = 0,5x + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Kehrwert genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "lage",
+    "t": "lage",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "g: y = 2x + 1. Welche Gerade steht senkrecht auf g?"
+    },
+    "a": [
+     "y = 2x − 3",
+     "y = −2x + 1",
+     "y = −0,5x + 4",
+     "y = 0,5x + 1"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Das Produkt der beiden Steigungen muss −1 sein.",
+    "w": "2 · (−0,5) = −1. Also steht y = −0,5x + 4 senkrecht auf g."
+   }
+  },
+  {
+   "kennung": "F2-05",
+   "thema": "funktionen.linear",
+   "lernkarte": "wirkung",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Sie wird steiler.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "k für die Steigung gehalten"
+    },
+    {
+     "index": 2,
+     "antwort": "Sie dreht sich um den Ursprung.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "k für die Steigung gehalten"
+    },
+    {
+     "index": 3,
+     "antwort": "Sie wird flacher.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "k für die Steigung gehalten"
+    }
+   ],
+   "aufgabe": {
+    "l": "wirkung",
+    "t": "wirkung",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "y = 2x + k. Was passiert mit der Geraden, wenn k größer wird?"
+    },
+    "a": [
+     "Sie wird steiler.",
+     "Sie verschiebt sich nach oben.",
+     "Sie dreht sich um den Ursprung.",
+     "Sie wird flacher."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wo steht der Parameter: vor dem x oder allein?",
+    "w": "k steht allein, es ist der Achsenabschnitt. Wird k größer, rutscht die ganze Gerade nach oben. Die Steigung 2 bleibt."
+   }
+  },
+  {
+   "kennung": "F2-06",
+   "thema": "funktionen.linear",
+   "lernkarte": "einsetzen",
+   "stufe": 1,
+   "typ": "Brücke",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": -1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das k vor dem x ersetzt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die −1 vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "einsetzen",
+    "t": "einsetzen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Geradenschar y = k · x + 2k − 1. Welche Gerade gehört zu k = 3? Gib Steigung und Achsenabschnitt an.",
+     "schablone": "m = □; t = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      5
+     ]
+    },
+    "c": [
+     "3",
+     "2 * 3 - 1"
+    ],
+    "h": "Ersetze jedes k durch 3.",
+    "w": "y = 3x + 2 · 3 − 1 = 3x + 5."
+   }
+  },
+  {
+   "kennung": "F2-07",
+   "thema": "funktionen.linear",
+   "lernkarte": "ablesen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "luecken",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 6,
+     "fehlbild": "fb.waage.nur_ein_summand",
+     "regel_des_fehlbilds": "rr.waage",
+     "beschreibung": "6x nicht mitgeteilt"
+    },
+    {
+     "luecke": 2,
+     "antwort": -8,
+     "fehlbild": "fb.waage.nur_ein_summand",
+     "regel_des_fehlbilds": "rr.waage",
+     "beschreibung": "die 8 nicht mitgeteilt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "das Minus verloren"
+    }
+   ],
+   "aufgabe": {
+    "l": "ablesen",
+    "t": "ablesen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "luecken",
+    "f": {
+     "text": "Die Gerade ist als 2y = 6x − 8 gegeben. Bringe sie in die Form y = m · x + t.",
+     "schablone": "m = □; t = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      -4
+     ]
+    },
+    "c": [
+     "6 // 2",
+     "-8 // 2"
+    ],
+    "h": "Teile beide Seiten durch 2 – jeden Summanden.",
+    "w": "y = 3x − 4. Also m = 3 und t = −4."
+   }
+  },
+  {
+   "kennung": "F2-08",
+   "thema": "funktionen.linear",
+   "lernkarte": "graph_ablesen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "fallende Gerade mit positiver Steigung"
+    },
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "m und t vertauscht"
+    },
+    {
+     "luecke": 2,
+     "antwort": -2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "m und t vertauscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "graph_ablesen",
+    "t": "graph_ablesen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "luecken",
+    "f": {
+     "text": "Lies am Graphen die Steigung m und den Achsenabschnitt t ab.",
+     "schablone": "m = □; t = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ).",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -4,
+       4
+      ],
+      "y": [
+       -5,
+       5
+      ],
+      "graphen": [
+       {
+        "art": "linear",
+        "m": -2,
+        "t": 3,
+        "name": "g"
+       }
+      ]
+     }
+    },
+    "o": {
+     "werte": [
+      -2,
+      3
+     ]
+    },
+    "c": [
+     "(1 - 3) // (1 - 0)",
+     "3"
+    ],
+    "h": "t liest du auf der y-Achse ab. Geh dann 1 nach rechts: Wie weit geht es nach oben oder unten?",
+    "w": "Die Gerade schneidet die y-Achse bei 3. Bei 1 nach rechts geht es 2 nach unten: m = −2."
+   }
+  },
+  {
+   "kennung": "F2-09",
+   "thema": "funktionen.linear",
+   "lernkarte": "proportional",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 62.5,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "25 · 2,5 gerechnet"
+    },
+    {
+     "antwort": 19,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "15 mehr bei y, also 15 mehr bei x"
+    }
+   ],
+   "aufgabe": {
+    "l": "proportional",
+    "t": "proportional",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Ursprungsgerade geht durch P(4 | 10). Für welches x ist y = 25?"
+    },
+    "o": {
+     "wert": 10
+    },
+    "c": "25 * 4 // 10",
+    "h": "Berechne zuerst k als y : x.",
+    "w": "k = 10 : 4 = 2,5. Aus 2,5 · x = 25 folgt x = 10."
+   }
+  },
+  {
+   "kennung": "F2-10",
+   "thema": "funktionen.linear",
+   "lernkarte": "aufstellen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "luecken",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 13,
+     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "7 + 6 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "aufstellen",
+    "t": "aufstellen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "Gerade durch P(2 | 7) mit m = 3. Weg A: Punkt einsetzen: 7 = 3 · 2 + t, also t = ①. Weg B: von P aus 2 nach links gehen: y sinkt dabei um ②, also t = 7 − ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      1,
+      6
+     ]
+    },
+    "c": [
+     "7 - 3 * 2",
+     "3 * 2"
+    ],
+    "h": "Beide Wege müssen dasselbe t ergeben.",
+    "w": "7 = 6 + t, also t = 1. Weg B: 2 nach links heißt 2 · 3 = 6 nach unten: 7 − 6 = 1."
+   }
+  },
+  {
+   "kennung": "F2-11",
+   "thema": "funktionen.linear",
+   "lernkarte": "aufstellen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "luecken",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die x-Differenz genannt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 7,
+     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "4 + 3 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die y-Koordinate von A als t genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "aufstellen",
+    "t": "aufstellen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Gerade geht durch A(1 | 4) und B(3 | 10). Bestimme m und t.",
+     "schablone": "m = □; t = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      1
+     ]
+    },
+    "c": [
+     "(10 - 4) // (3 - 1)",
+     "4 - 3 * 1"
+    ],
+    "h": "Erst m aus den zwei Punkten, dann einen Punkt einsetzen.",
+    "w": "m = (10 − 4) : (3 − 1) = 3. Einsetzen von A: 4 = 3 · 1 + t, also t = 1."
+   }
+  },
+  {
+   "kennung": "F2-12",
+   "thema": "funktionen.linear",
+   "lernkarte": "schnittpunkte",
+   "stufe": 2,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x abgezogen statt dazugezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "schnittpunkte",
+    "t": "schnittpunkte",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "Schnittpunkt von g: y = 3x − 2 und h: y = −x + 6. Gleichsetzen: 3x − 2 = −x + 6. Plus x: ①x − 2 = 6. Plus 2: ①x = ②. Also x = ③ und y = ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      4,
+      8,
+      2,
+      4
+     ]
+    },
+    "c": [
+     "3 + 1",
+     "6 + 2",
+     "(6 + 2) // (3 + 1)",
+     "3 * 2 - 2"
+    ],
+    "h": "Für den Schnittpunkt setzt du die Terme gleich.",
+    "w": "4x = 8, x = 2. Einsetzen: y = 3 · 2 − 2 = 4. Probe in h: −2 + 6 = 4."
+   }
+  },
+  {
+   "kennung": "F2-13",
+   "thema": "funktionen.linear",
+   "lernkarte": "schnittpunkte",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "luecken",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -3,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "Vorzeichen falsch"
+    },
+    {
+     "luecke": 1,
+     "antwort": -6,
+     "fehlbild": "fb.zuordnung.x_und_y_vertauscht",
+     "regel_des_fehlbilds": "id.funktionen.zuordnung",
+     "beschreibung": "die beiden Achsen vertauscht"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "fehlbild": "fb.zuordnung.x_und_y_vertauscht",
+     "regel_des_fehlbilds": "id.funktionen.zuordnung",
+     "beschreibung": "die beiden Achsen vertauscht"
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "das Minus verloren"
+    }
+   ],
+   "aufgabe": {
+    "l": "schnittpunkte",
+    "t": "schnittpunkte",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "luecken",
+    "f": {
+     "text": "g: y = 2x − 6. Wo schneidet g die x-Achse, und wo die y-Achse?",
+     "schablone": "x-Achse: (□ | 0); y-Achse: (0 | □)",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      -6
+     ]
+    },
+    "c": [
+     "6 // 2",
+     "-6"
+    ],
+    "h": "Auf der x-Achse ist y = 0. Auf der y-Achse ist x = 0.",
+    "w": "y = 0: 2x = 6, x = 3. x = 0: y = −6."
+   }
+  },
+  {
+   "kennung": "F2-14",
+   "thema": "funktionen.linear",
+   "lernkarte": "deuten",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.wachstum",
+   "regel_name": "Wachstum",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "y = 4x + 60",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Abnahme als Zunahme geschrieben"
+    },
+    {
+     "index": 1,
+     "antwort": "y = 60x − 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Start und Änderung vertauscht"
+    },
+    {
+     "index": 3,
+     "antwort": "y = −60x + 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Start und Änderung vertauscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "deuten",
+    "t": "deuten",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Tank enthält 60 Liter. Pro Minute fließen 4 Liter ab. Welche Gleichung beschreibt den Inhalt y (in Litern) nach x Minuten?"
+    },
+    "a": [
+     "y = 4x + 60",
+     "y = 60x − 4",
+     "y = −4x + 60",
+     "y = −60x + 4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "t ist der Start, m die Änderung pro Minute.",
+    "w": "Start 60, pro Minute 4 weniger: y = −4x + 60. Probe: nach 5 Minuten 60 − 20 = 40 Liter."
+   }
+  },
+  {
+   "kennung": "F2-15",
+   "thema": "funktionen.linear",
+   "lernkarte": "zwei_punkte",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "Betrag richtig, Vorzeichen falsch"
+    },
+    {
+     "antwort": -0.5,
+     "fehlbild": "fb.zuordnung.x_und_y_vertauscht",
+     "regel_des_fehlbilds": "id.funktionen.zuordnung",
+     "beschreibung": "„nach rechts“ durch „nach oben“ geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_punkte",
+    "t": "zwei_punkte",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "zahl",
+    "f": {
+     "text": "P(−2 | 5) und Q(2 | −3) liegen auf einer Geraden. Jan rechnet m = (5 − 3) : (2 − 2). Wie groß ist die Steigung wirklich?"
+    },
+    "o": {
+     "wert": -2
+    },
+    "c": "(-3 - 5) / (2 - (-2))",
+    "h": "Setze die negativen Koordinaten in Klammern.",
+    "w": "m = (−3 − 5) : (2 − (−2)) = −8 : 4 = −2. Jan hat beide Minuszeichen weggelassen."
+   }
+  },
+  {
+   "kennung": "F2-16",
+   "thema": "funktionen.linear",
+   "lernkarte": "lage",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "4 + 1 gerechnet"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "k mit der Steigung gleichgesetzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "lage",
+    "t": "lage",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Für welches k sind die Geraden y = (k + 1) · x − 2 und y = 4x + 5 parallel?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "4 - 1",
+    "h": "Parallele Geraden haben dieselbe Steigung.",
+    "w": "k + 1 = 4, also k = 3."
+   }
+  },
+  {
+   "kennung": "F2-17",
+   "thema": "funktionen.linear",
+   "lernkarte": "bueschel",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -2,
+     "fehlbild": "fb.gleichung_form.falsche_richtung_verschoben",
+     "regel_des_fehlbilds": "id.funktionen.gleichung_form",
+     "beschreibung": "das Vorzeichen in der Klammer falsch gelesen"
+    },
+    {
+     "luecke": 1,
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x = 0 eingesetzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "bueschel",
+    "t": "bueschel",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "luecken",
+    "f": {
+     "text": "Alle Geraden y = k · (x − 2) + 3 gehen durch einen gemeinsamen Punkt Z. Gib Z an.",
+     "schablone": "Z(□ | □)",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      2,
+      3
+     ]
+    },
+    "c": [
+     "2",
+     "0 * (2 - 2) + 3"
+    ],
+    "h": "Für welches x hat k keinen Einfluss mehr?",
+    "w": "Für x = 2 ist die Klammer 0. Dann ist y = 3, egal wie groß k ist. Z(2 | 3)."
+   }
+  },
+  {
+   "kennung": "F2-18",
+   "thema": "funktionen.linear",
+   "lernkarte": "deuten",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.wachstum",
+   "regel_name": "Wachstum",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": "fb.gleichung_loesen.grenze_mitgezaehlt",
+     "regel_des_fehlbilds": "id.algebra.gleichung_loesen",
+     "beschreibung": "bei 4 Stunden sind beide gleich teuer"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "10 : 4,5 gerechnet und aufgerundet: die 2 € je Stunde von Tarif A vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "deuten",
+    "t": "deuten",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Tarif A kostet 10 € Grundgebühr und 2 € je Stunde. Tarif B hat keine Grundgebühr und kostet 4,50 € je Stunde. Ab wie vielen ganzen Stunden ist Tarif A billiger?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "10 // 2.5 + 1",
+    "h": "Wann sind beide gleich teuer?",
+    "w": "Gleich teuer: 10 + 2x = 4,5x, also x = 4. Bei 4 Stunden kosten beide 18 €. Billiger ist A erst ab 5 Stunden (20 € gegen 22,50 €)."
+   }
+  },
+  {
+   "kennung": "F2-B1",
+   "thema": "funktionen.linear",
+   "lernkarte": "ablesen",
+   "stufe": 1,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "ablesen",
+    "t": "ablesen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne m und t einer fallenden Geraden y = m · x + t, die die y-Achse oberhalb von 2 schneidet.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "Gerade fällt",
+       "pruefe": [
+        "<",
+        "$1",
+        0
+       ],
+       "zeige": "$1",
+       "hinweis": "Dein m ist {}."
+      },
+      {
+       "name": "schneidet die y-Achse oberhalb von 2",
+       "pruefe": [
+        ">",
+        "$2",
+        2
+       ],
+       "zeige": "$2",
+       "hinweis": "Dein t ist {}."
+      }
+     ],
+     "beispiel": [
+      -1,
+      5
+     ],
+     "gut": [
+      [
+       "-0,5",
+       "2,1"
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        1,
+        5
+       ],
+       "verletzt": "Gerade fällt"
+      },
+      {
+       "werte": [
+        -1,
+        2
+       ],
+       "verletzt": "schneidet die y-Achse oberhalb von 2"
+      },
+      {
+       "werte": [
+        0,
+        3
+       ],
+       "verletzt": "Gerade fällt"
+      }
+     ]
+    },
+    "h": "Welche Zahl entscheidet über Steigen oder Fallen, welche über den Schnitt mit der y-Achse?",
+    "w": "Fallend heißt m negativ. Der Schnitt mit der y-Achse ist t. Zum Beispiel m = −1 und t = 5."
+   }
+  },
+  {
+   "kennung": "F2-B2",
+   "thema": "funktionen.linear",
+   "lernkarte": "zwei_punkte",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "zwei_punkte",
+    "t": "zwei_punkte",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne zwei Punkte mit ganzen Koordinaten und verschiedenen x-Werten, durch die eine Gerade mit der Steigung −3 geht. Reihenfolge der Felder: x und y des ersten Punkts, x und y des zweiten Punkts.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "verschiedene x-Werte",
+       "pruefe": [
+        "!=",
+        "$1",
+        "$3"
+       ],
+       "hinweis": "Deine beiden Punkte haben denselben x-Wert."
+      },
+      {
+       "name": "Steigung ist −3",
+       "pruefe": [
+        "=",
+        [
+         "-",
+         "$4",
+         "$2"
+        ],
+        [
+         "*",
+         -3,
+         [
+          "-",
+          "$3",
+          "$1"
+         ]
+        ]
+       ],
+       "zeige": [
+        "/",
+        [
+         "-",
+         "$4",
+         "$2"
+        ],
+        [
+         "-",
+         "$3",
+         "$1"
+        ]
+       ],
+       "hinweis": "Die Steigung zwischen deinen Punkten ist {}."
+      }
+     ],
+     "beispiel": [
+      0,
+      0,
+      1,
+      -3
+     ],
+     "gut": [
+      [
+       2,
+       5,
+       4,
+       -1
+      ],
+      [
+       1,
+       1,
+       -1,
+       7
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        1,
+        2,
+        1,
+        5
+       ],
+       "verletzt": "verschiedene x-Werte"
+      },
+      {
+       "werte": [
+        0,
+        0,
+        1,
+        3
+       ],
+       "verletzt": "Steigung ist −3"
+      },
+      {
+       "werte": [
+        0,
+        0,
+        3,
+        -1
+       ],
+       "verletzt": "Steigung ist −3"
+      }
+     ]
+    },
+    "h": "Was heißt Steigung −3 für einen Schritt nach rechts?",
+    "w": "1 nach rechts, 3 nach unten: zum Beispiel (0 | 0) und (1 | −3)."
+   }
+  },
+  {
+   "kennung": "F2-B3",
+   "thema": "funktionen.linear",
+   "lernkarte": "aufstellen",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "aufstellen",
+    "t": "aufstellen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne m und t so, dass die Gerade y = m · x + t durch den Punkt P(2 | 5) geht und nicht waagrecht ist.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "nicht waagrecht",
+       "pruefe": [
+        "!=",
+        "$1",
+        0
+       ],
+       "hinweis": "Mit m = 0 ist die Gerade waagrecht."
+      },
+      {
+       "name": "geht durch P(2 | 5)",
+       "pruefe": [
+        "=",
+        [
+         "+",
+         [
+          "*",
+          2,
+          "$1"
+         ],
+         "$2"
+        ],
+        5
+       ],
+       "zeige": [
+        "+",
+        [
+         "*",
+         2,
+         "$1"
+        ],
+        "$2"
+       ],
+       "hinweis": "Bei x = 2 hat deine Gerade den Wert {}."
+      }
+     ],
+     "beispiel": [
+      1,
+      3
+     ],
+     "gut": [
+      [
+       2,
+       1
+      ],
+      [
+       -1,
+       7
+      ],
+      [
+       "0,5",
+       4
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0,
+        5
+       ],
+       "verletzt": "nicht waagrecht"
+      },
+      {
+       "werte": [
+        1,
+        4
+       ],
+       "verletzt": "geht durch P(2 | 5)"
+      },
+      {
+       "werte": [
+        2,
+        2
+       ],
+       "verletzt": "geht durch P(2 | 5)"
+      }
+     ]
+    },
+    "h": "Setze x = 2 ein. Was muss herauskommen?",
+    "w": "2m + t muss 5 sein. Zum Beispiel m = 1 und t = 3, oder m = 2 und t = 1."
+   }
+  },
+  {
+   "kennung": "F2-B4",
+   "thema": "funktionen.linear",
+   "lernkarte": "lage",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "lage",
+    "t": "lage",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne die Steigungen zweier Geraden, die senkrecht aufeinander stehen. Keine der beiden Steigungen soll 1 oder −1 sein.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "keine Steigung ist 1 oder −1",
+       "pruefe": [
+        "und",
+        [
+         "!=",
+         [
+          "betrag",
+          "$1"
+         ],
+         1
+        ],
+        [
+         "!=",
+         [
+          "betrag",
+          "$2"
+         ],
+         1
+        ]
+       ],
+       "hinweis": "Eine deiner Steigungen ist 1 oder −1."
+      },
+      {
+       "name": "Geraden stehen senkrecht",
+       "pruefe": [
+        "=",
+        [
+         "*",
+         "$1",
+         "$2"
+        ],
+        -1
+       ],
+       "zeige": [
+        "*",
+        "$1",
+        "$2"
+       ],
+       "hinweis": "Das Produkt deiner Steigungen ist {}."
+      }
+     ],
+     "beispiel": [
+      2,
+      "-0,5"
+     ],
+     "gut": [
+      [
+       -4,
+       "0,25"
+      ],
+      [
+       "2/3",
+       "-3/2"
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        1,
+        -1
+       ],
+       "verletzt": "keine Steigung ist 1 oder −1"
+      },
+      {
+       "werte": [
+        2,
+        "0,5"
+       ],
+       "verletzt": "Geraden stehen senkrecht"
+      },
+      {
+       "werte": [
+        2,
+        -2
+       ],
+       "verletzt": "Geraden stehen senkrecht"
+      }
+     ]
+    },
+    "h": "Was gilt für das Produkt der Steigungen senkrechter Geraden?",
+    "w": "Das Produkt muss −1 sein: zum Beispiel 2 und −0,5, oder −4 und 0,25."
+   }
+  },
+  {
+   "kennung": "F2-B5",
+   "thema": "funktionen.linear",
+   "lernkarte": "deuten",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.funktionen.wachstum",
+   "regel_name": "Wachstum",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "deuten",
+    "t": "deuten",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "bedingung",
+    "f": {
+     "text": "Eine Kerze brennt gleichmäßig ab. Ihre Höhe nach x Stunden ist y = m · x + t (in cm). Nenne m und t so, dass die Kerze am Anfang höher als 10 cm ist und nach genau 6 Stunden abgebrannt ist.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "am Anfang höher als 10 cm",
+       "pruefe": [
+        ">",
+        "$2",
+        10
+       ],
+       "zeige": "$2",
+       "hinweis": "Am Anfang ist deine Kerze {} cm hoch."
+      },
+      {
+       "name": "nach 6 Stunden abgebrannt",
+       "pruefe": [
+        "=",
+        [
+         "+",
+         [
+          "*",
+          6,
+          "$1"
+         ],
+         "$2"
+        ],
+        0
+       ],
+       "zeige": [
+        "+",
+        [
+         "*",
+         6,
+         "$1"
+        ],
+        "$2"
+       ],
+       "hinweis": "Nach 6 Stunden ist deine Kerze {} cm hoch."
+      }
+     ],
+     "beispiel": [
+      -2,
+      12
+     ],
+     "gut": [
+      [
+       -3,
+       18
+      ],
+      [
+       "-2,5",
+       15
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        -1,
+        6
+       ],
+       "verletzt": "am Anfang höher als 10 cm"
+      },
+      {
+       "werte": [
+        -2,
+        13
+       ],
+       "verletzt": "nach 6 Stunden abgebrannt"
+      },
+      {
+       "werte": [
+        2,
+        12
+       ],
+       "verletzt": "nach 6 Stunden abgebrannt"
+      }
+     ]
+    },
+    "h": "t ist die Höhe am Anfang, m die Änderung pro Stunde. Abgebrannt heißt: Höhe 0.",
+    "w": "6m + t = 0. Zum Beispiel t = 12 und m = −2: Die Kerze verliert 2 cm pro Stunde."
+   }
+  }
+ ]
+}

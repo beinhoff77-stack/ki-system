@@ -1,0 +1,3734 @@
+{
+ "hinweis": "Gemeinsame Prüf-Fälle für den Antworttyp „bedingung“. Die Python-Referenz (tools/bedingung.py) und später die Datenbank-Fassung müssen hier dasselbe liefern. Aufgaben nach den Mustern des Mathe-Profis (Typen 6, 7, 8), in die Datensprache übertragen.",
+ "aufgaben": [
+  {
+   "id": "6-K5-1",
+   "y": "bedingung",
+   "f": {
+    "text": "Nenne drei verschiedene ganze Zahlen mit der Summe 0. Genau eine davon soll positiv sein.",
+    "felder": [
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     }
+    ]
+   },
+   "o": {
+    "bedingungen": [
+     {
+      "name": "verschieden",
+      "pruefe": [
+       "verschieden",
+       "$alle"
+      ],
+      "hinweis": "Die drei Zahlen sollen verschieden sein."
+     },
+     {
+      "name": "Summe ist 0",
+      "pruefe": [
+       "=",
+       [
+        "summe",
+        "$alle"
+       ],
+       0
+      ],
+      "zeige": [
+       "summe",
+       "$alle"
+      ],
+      "hinweis": "Deine Summe ist {}."
+     },
+     {
+      "name": "genau eine positiv",
+      "pruefe": [
+       "=",
+       [
+        "anzahl_positiv",
+        "$alle"
+       ],
+       1
+      ],
+      "zeige": [
+       "anzahl_positiv",
+       "$alle"
+      ],
+      "hinweis": "Bei dir sind {} Zahlen positiv."
+     }
+    ],
+    "beispiel": [
+     5,
+     -2,
+     -3
+    ],
+    "gut": [
+     [
+      1,
+      0,
+      -1
+     ]
+    ],
+    "gegenbeispiele": [
+     {
+      "werte": [
+       2,
+       3,
+       -5
+      ],
+      "verletzt": "genau eine positiv"
+     },
+     {
+      "werte": [
+       4,
+       -1,
+       -2
+      ],
+      "verletzt": "Summe ist 0"
+     },
+     {
+      "werte": [
+       0,
+       0,
+       0
+      ],
+      "verletzt": "verschieden"
+     }
+    ]
+   }
+  },
+  {
+   "id": "6-K5-2",
+   "y": "bedingung",
+   "f": {
+    "text": "Nenne zwei ganze Zahlen: Ihr Produkt ist −24, ihre Summe ist positiv.",
+    "felder": [
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     }
+    ]
+   },
+   "o": {
+    "bedingungen": [
+     {
+      "name": "Produkt ist −24",
+      "pruefe": [
+       "=",
+       [
+        "*",
+        "$1",
+        "$2"
+       ],
+       -24
+      ],
+      "zeige": [
+       "*",
+       "$1",
+       "$2"
+      ],
+      "hinweis": "Dein Produkt ist {}."
+     },
+     {
+      "name": "Summe ist positiv",
+      "pruefe": [
+       ">",
+       [
+        "+",
+        "$1",
+        "$2"
+       ],
+       0
+      ],
+      "zeige": [
+       "+",
+       "$1",
+       "$2"
+      ],
+      "hinweis": "Deine Summe ist {}."
+     }
+    ],
+    "beispiel": [
+     -3,
+     8
+    ],
+    "gut": [
+     [
+      12,
+      -2
+     ],
+     [
+      24,
+      -1
+     ]
+    ],
+    "gegenbeispiele": [
+     {
+      "werte": [
+       3,
+       -8
+      ],
+      "verletzt": "Summe ist positiv"
+     },
+     {
+      "werte": [
+       4,
+       6
+      ],
+      "verletzt": "Produkt ist −24"
+     }
+    ]
+   }
+  },
+  {
+   "id": "6-K8-1",
+   "y": "bedingung",
+   "f": {
+    "text": "Setze a und b so ein, dass die Gleichung a · x + b = 3x − 6 keine Lösung hat.",
+    "felder": [
+     {
+      "art": "rational"
+     },
+     {
+      "art": "rational"
+     }
+    ]
+   },
+   "o": {
+    "bedingungen": [
+     {
+      "name": "x fällt weg",
+      "pruefe": [
+       "=",
+       "$1",
+       3
+      ],
+      "hinweis": "Mit diesem a bleibt x stehen. Dann gibt es genau eine Lösung."
+     },
+     {
+      "name": "es bleibt eine falsche Aussage",
+      "pruefe": [
+       "!=",
+       "$2",
+       -6
+      ],
+      "hinweis": "Bei b = −6 ist jede Zahl eine Lösung."
+     }
+    ],
+    "beispiel": [
+     3,
+     1
+    ],
+    "gut": [
+     [
+      3,
+      "-6,5"
+     ]
+    ],
+    "gegenbeispiele": [
+     {
+      "werte": [
+       3,
+       -6
+      ],
+      "verletzt": "es bleibt eine falsche Aussage"
+     },
+     {
+      "werte": [
+       2,
+       1
+      ],
+      "verletzt": "x fällt weg"
+     }
+    ]
+   }
+  },
+  {
+   "id": "6-K8-2",
+   "y": "bedingung",
+   "f": {
+    "text": "Nenne eine Zahl x, für die der Bruchterm (x + 1)/(x − 2) negativ ist.",
+    "felder": [
+     {
+      "art": "rational"
+     }
+    ]
+   },
+   "o": {
+    "bedingungen": [
+     {
+      "name": "Term ist definiert",
+      "pruefe": [
+       "!=",
+       "$1",
+       2
+      ],
+      "hinweis": "Für x = 2 ist der Nenner null. Der Term ist dort nicht definiert."
+     },
+     {
+      "name": "Termwert ist negativ",
+      "pruefe": [
+       "<",
+       [
+        "/",
+        [
+         "+",
+         "$1",
+         1
+        ],
+        [
+         "-",
+         "$1",
+         2
+        ]
+       ],
+       0
+      ],
+      "zeige": [
+       "/",
+       [
+        "+",
+        "$1",
+        1
+       ],
+       [
+        "-",
+        "$1",
+        2
+       ]
+      ],
+      "hinweis": "Dein Termwert ist {}."
+     }
+    ],
+    "beispiel": [
+     0
+    ],
+    "gut": [
+     [
+      "1,5"
+     ],
+     [
+      "-1/2"
+     ]
+    ],
+    "gegenbeispiele": [
+     {
+      "werte": [
+       2
+      ],
+      "verletzt": "Term ist definiert"
+     },
+     {
+      "werte": [
+       3
+      ],
+      "verletzt": "Termwert ist negativ"
+     },
+     {
+      "werte": [
+       -1
+      ],
+      "verletzt": "Termwert ist negativ"
+     },
+     {
+      "werte": [
+       -4
+      ],
+      "verletzt": "Termwert ist negativ"
+     }
+    ]
+   }
+  },
+  {
+   "id": "7-K5-1",
+   "y": "bedingung",
+   "f": {
+    "text": "Baue eine Liste aus fünf verschiedenen ganzen Zahlen: Die kleinste ist −6, die größte ist 3, die Summe ist −5.",
+    "felder": [
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     }
+    ]
+   },
+   "o": {
+    "bedingungen": [
+     {
+      "name": "verschieden",
+      "pruefe": [
+       "verschieden",
+       "$alle"
+      ],
+      "hinweis": "Die fünf Zahlen sollen verschieden sein."
+     },
+     {
+      "name": "kleinste ist −6",
+      "pruefe": [
+       "=",
+       [
+        "min",
+        "$alle"
+       ],
+       -6
+      ],
+      "zeige": [
+       "min",
+       "$alle"
+      ],
+      "hinweis": "Deine kleinste Zahl ist {}."
+     },
+     {
+      "name": "größte ist 3",
+      "pruefe": [
+       "=",
+       [
+        "max",
+        "$alle"
+       ],
+       3
+      ],
+      "zeige": [
+       "max",
+       "$alle"
+      ],
+      "hinweis": "Deine größte Zahl ist {}."
+     },
+     {
+      "name": "Summe ist −5",
+      "pruefe": [
+       "=",
+       [
+        "summe",
+        "$alle"
+       ],
+       -5
+      ],
+      "zeige": [
+       "summe",
+       "$alle"
+      ],
+      "hinweis": "Deine Summe ist {}."
+     }
+    ],
+    "beispiel": [
+     -6,
+     -3,
+     -1,
+     2,
+     3
+    ],
+    "gut": [
+     [
+      3,
+      0,
+      -6,
+      1,
+      -3
+     ]
+    ],
+    "gegenbeispiele": [
+     {
+      "werte": [
+       -6,
+       -2,
+       0,
+       1,
+       3
+      ],
+      "verletzt": "Summe ist −5"
+     },
+     {
+      "werte": [
+       -6,
+       -6,
+       1,
+       3,
+       3
+      ],
+      "verletzt": "verschieden"
+     },
+     {
+      "werte": [
+       -7,
+       -1,
+       0,
+       1,
+       2
+      ],
+      "verletzt": "kleinste ist −6"
+     },
+     {
+      "werte": [
+       -6,
+       -1,
+       0,
+       1,
+       2
+      ],
+      "verletzt": "größte ist 3"
+     }
+    ]
+   }
+  },
+  {
+   "id": "7-K5-2",
+   "y": "bedingung",
+   "f": {
+    "text": "Baue eine Liste aus vier ganzen Zahlen: Die Summe ist 0, das Produkt ist positiv.",
+    "felder": [
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     }
+    ]
+   },
+   "o": {
+    "bedingungen": [
+     {
+      "name": "Summe ist 0",
+      "pruefe": [
+       "=",
+       [
+        "summe",
+        "$alle"
+       ],
+       0
+      ],
+      "zeige": [
+       "summe",
+       "$alle"
+      ],
+      "hinweis": "Deine Summe ist {}."
+     },
+     {
+      "name": "Produkt ist positiv",
+      "pruefe": [
+       ">",
+       [
+        "produkt",
+        "$alle"
+       ],
+       0
+      ],
+      "zeige": [
+       "produkt",
+       "$alle"
+      ],
+      "hinweis": "Dein Produkt ist {}."
+     }
+    ],
+    "beispiel": [
+     -3,
+     -1,
+     1,
+     3
+    ],
+    "gut": [
+     [
+      5,
+      -5,
+      2,
+      -2
+     ]
+    ],
+    "gegenbeispiele": [
+     {
+      "werte": [
+       -3,
+       1,
+       1,
+       1
+      ],
+      "verletzt": "Produkt ist positiv"
+     },
+     {
+      "werte": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "verletzt": "Produkt ist positiv"
+     },
+     {
+      "werte": [
+       1,
+       2,
+       3,
+       4
+      ],
+      "verletzt": "Summe ist 0"
+     }
+    ]
+   }
+  },
+  {
+   "id": "7-K8-1",
+   "y": "bedingung",
+   "f": {
+    "text": "Baue eine Liste aus fünf ganzen Zahlen: kleinste Zahl −2, Median 3, Mittelwert 5.",
+    "felder": [
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     }
+    ]
+   },
+   "o": {
+    "bedingungen": [
+     {
+      "name": "kleinste ist −2",
+      "pruefe": [
+       "=",
+       [
+        "min",
+        "$alle"
+       ],
+       -2
+      ],
+      "zeige": [
+       "min",
+       "$alle"
+      ],
+      "hinweis": "Deine kleinste Zahl ist {}."
+     },
+     {
+      "name": "Median ist 3",
+      "pruefe": [
+       "=",
+       [
+        "median",
+        "$alle"
+       ],
+       3
+      ],
+      "zeige": [
+       "median",
+       "$alle"
+      ],
+      "hinweis": "Dein Median ist {}."
+     },
+     {
+      "name": "Mittelwert ist 5",
+      "pruefe": [
+       "=",
+       [
+        "mittelwert",
+        "$alle"
+       ],
+       5
+      ],
+      "zeige": [
+       "mittelwert",
+       "$alle"
+      ],
+      "hinweis": "Dein Mittelwert ist {}."
+     }
+    ],
+    "beispiel": [
+     -2,
+     0,
+     3,
+     10,
+     14
+    ],
+    "gut": [
+     [
+      3,
+      -2,
+      3,
+      3,
+      18
+     ]
+    ],
+    "gegenbeispiele": [
+     {
+      "werte": [
+       -2,
+       3,
+       5,
+       8,
+       11
+      ],
+      "verletzt": "Median ist 3"
+     },
+     {
+      "werte": [
+       -2,
+       0,
+       3,
+       4,
+       5
+      ],
+      "verletzt": "Mittelwert ist 5"
+     },
+     {
+      "werte": [
+       0,
+       1,
+       3,
+       9,
+       12
+      ],
+      "verletzt": "kleinste ist −2"
+     }
+    ]
+   }
+  },
+  {
+   "id": "7-K8-2",
+   "y": "bedingung",
+   "f": {
+    "text": "Baue eine Liste aus vier Zahlen: Mittelwert 0, Median 1, Abstand zwischen kleinster und größter Zahl 10.",
+    "felder": [
+     {
+      "art": "rational"
+     },
+     {
+      "art": "rational"
+     },
+     {
+      "art": "rational"
+     },
+     {
+      "art": "rational"
+     }
+    ]
+   },
+   "o": {
+    "bedingungen": [
+     {
+      "name": "Mittelwert ist 0",
+      "pruefe": [
+       "=",
+       [
+        "summe",
+        "$alle"
+       ],
+       0
+      ],
+      "zeige": [
+       "mittelwert",
+       "$alle"
+      ],
+      "hinweis": "Dein Mittelwert ist {}."
+     },
+     {
+      "name": "Median ist 1",
+      "pruefe": [
+       "=",
+       [
+        "median",
+        "$alle"
+       ],
+       1
+      ],
+      "zeige": [
+       "median",
+       "$alle"
+      ],
+      "hinweis": "Dein Median ist {}."
+     },
+     {
+      "name": "Abstand ist 10",
+      "pruefe": [
+       "=",
+       [
+        "-",
+        [
+         "max",
+         "$alle"
+        ],
+        [
+         "min",
+         "$alle"
+        ]
+       ],
+       10
+      ],
+      "zeige": [
+       "-",
+       [
+        "max",
+        "$alle"
+       ],
+       [
+        "min",
+        "$alle"
+       ]
+      ],
+      "hinweis": "Dein Abstand ist {}."
+     }
+    ],
+    "beispiel": [
+     -6,
+     1,
+     1,
+     4
+    ],
+    "gut": [
+     [
+      -6,
+      0,
+      2,
+      4
+     ]
+    ],
+    "gegenbeispiele": [
+     {
+      "werte": [
+       -5,
+       0,
+       0,
+       5
+      ],
+      "verletzt": "Median ist 1"
+     },
+     {
+      "werte": [
+       -4,
+       1,
+       1,
+       2
+      ],
+      "verletzt": "Abstand ist 10"
+     },
+     {
+      "werte": [
+       -5,
+       1,
+       1,
+       5
+      ],
+      "verletzt": "Mittelwert ist 0"
+     }
+    ]
+   }
+  },
+  {
+   "id": "8-K5-1",
+   "y": "bedingung",
+   "f": {
+    "text": "Ergänze zwei ganze Zahlen, sodass die Rechnung stimmt: (□ − 9) · □ = −20. Die erste Zahl soll positiv sein.",
+    "felder": [
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     }
+    ]
+   },
+   "o": {
+    "bedingungen": [
+     {
+      "name": "erste Zahl positiv",
+      "pruefe": [
+       ">",
+       "$1",
+       0
+      ],
+      "hinweis": "Die erste Zahl soll positiv sein."
+     },
+     {
+      "name": "Rechnung stimmt",
+      "pruefe": [
+       "=",
+       [
+        "*",
+        [
+         "-",
+         "$1",
+         9
+        ],
+        "$2"
+       ],
+       -20
+      ],
+      "zeige": [
+       "*",
+       [
+        "-",
+        "$1",
+        9
+       ],
+       "$2"
+      ],
+      "hinweis": "Bei dir kommt {} heraus."
+     }
+    ],
+    "beispiel": [
+     5,
+     5
+    ],
+    "gut": [
+     [
+      4,
+      4
+     ],
+     [
+      7,
+      10
+     ],
+     [
+      13,
+      -5
+     ]
+    ],
+    "gegenbeispiele": [
+     {
+      "werte": [
+       9,
+       3
+      ],
+      "verletzt": "Rechnung stimmt"
+     },
+     {
+      "werte": [
+       -1,
+       2
+      ],
+      "verletzt": "erste Zahl positiv"
+     },
+     {
+      "werte": [
+       5,
+       -5
+      ],
+      "verletzt": "Rechnung stimmt"
+     }
+    ]
+   }
+  },
+  {
+   "id": "8-K5-2",
+   "y": "bedingung",
+   "f": {
+    "text": "Ergänze zwei ganze Zahlen: □ · 6 − □ = −15. Die erste Zahl soll negativ sein.",
+    "felder": [
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     }
+    ]
+   },
+   "o": {
+    "bedingungen": [
+     {
+      "name": "erste Zahl negativ",
+      "pruefe": [
+       "<",
+       "$1",
+       0
+      ],
+      "hinweis": "Die erste Zahl soll negativ sein."
+     },
+     {
+      "name": "Rechnung stimmt",
+      "pruefe": [
+       "=",
+       [
+        "-",
+        [
+         "*",
+         "$1",
+         6
+        ],
+        "$2"
+       ],
+       -15
+      ],
+      "zeige": [
+       "-",
+       [
+        "*",
+        "$1",
+        6
+       ],
+       "$2"
+      ],
+      "hinweis": "Bei dir kommt {} heraus."
+     }
+    ],
+    "beispiel": [
+     -1,
+     9
+    ],
+    "gut": [
+     [
+      -2,
+      3
+     ],
+     [
+      -3,
+      -3
+     ]
+    ],
+    "gegenbeispiele": [
+     {
+      "werte": [
+       1,
+       21
+      ],
+      "verletzt": "erste Zahl negativ"
+     },
+     {
+      "werte": [
+       -2,
+       -3
+      ],
+      "verletzt": "Rechnung stimmt"
+     }
+    ]
+   }
+  },
+  {
+   "id": "last-1",
+   "y": "bedingung",
+   "f": {
+    "text": "Prüf-Fall Lastgrenze (kein Inhalt für Kinder): Nenne zwei ganze Zahlen, deren Produkt hoch 6 größer als 1 000 ist.",
+    "felder": [
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     }
+    ]
+   },
+   "o": {
+    "bedingungen": [
+     {
+      "name": "groß genug",
+      "pruefe": [
+       ">",
+       [
+        "hoch",
+        [
+         "*",
+         "$1",
+         "$2"
+        ],
+        6
+       ],
+       1000
+      ],
+      "zeige": [
+       "hoch",
+       [
+        "*",
+        "$1",
+        "$2"
+       ],
+       6
+      ],
+      "hinweis": "Bei dir kommt {} heraus."
+     }
+    ],
+    "beispiel": [
+     2,
+     2
+    ],
+    "gut": [
+     [
+      -4,
+      1
+     ]
+    ],
+    "gegenbeispiele": [
+     {
+      "werte": [
+       1,
+       1
+      ],
+      "verletzt": "groß genug"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ops-1",
+   "f": {
+    "text": "Prüf-Fall für die Rechensprache (kein Inhalt für Kinder).",
+    "felder": [
+     {
+      "art": "rational"
+     },
+     {
+      "art": "rational"
+     }
+    ]
+   },
+   "o": {
+    "bedingungen": [
+     {
+      "name": "Produkt ganzzahlig",
+      "pruefe": [
+       "ganzzahlig",
+       [
+        "*",
+        "$1",
+        "$2"
+       ]
+      ],
+      "zeige": [
+       "*",
+       "$1",
+       "$2"
+      ],
+      "hinweis": "Dein Produkt ist {}."
+     },
+     {
+      "name": "Produkt durch 3 teilbar",
+      "pruefe": [
+       "teilbar",
+       [
+        "*",
+        "$1",
+        "$2"
+       ],
+       3
+      ],
+      "hinweis": "Dein Produkt ist nicht durch 3 teilbar."
+     },
+     {
+      "name": "Abstand höchstens 10",
+      "pruefe": [
+       "<=",
+       [
+        "betrag",
+        [
+         "-",
+         "$1",
+         "$2"
+        ]
+       ],
+       10
+      ],
+      "zeige": [
+       "betrag",
+       [
+        "-",
+        "$1",
+        "$2"
+       ]
+      ],
+      "hinweis": "Dein Abstand ist {}."
+     },
+     {
+      "name": "keine Gegenzahlen",
+      "pruefe": [
+       "nicht",
+       [
+        "=",
+        "$1",
+        [
+         "neg",
+         "$2"
+        ]
+       ]
+      ],
+      "hinweis": "Die Zahlen sollen keine Gegenzahlen sein."
+     },
+     {
+      "name": "erste positiv oder beide klein",
+      "pruefe": [
+       "oder",
+       [
+        ">",
+        "$1",
+        0
+       ],
+       [
+        "und",
+        [
+         "<",
+         "$1",
+         -1
+        ],
+        [
+         "<",
+         "$2",
+         0
+        ]
+       ]
+      ],
+      "hinweis": "Die erste Zahl passt nicht."
+     }
+    ],
+    "beispiel": [
+     3,
+     2
+    ],
+    "gut": [
+     [
+      -3,
+      -2
+     ],
+     [
+      "1/2",
+      6
+     ],
+     [
+      "4,5",
+      2
+     ]
+    ],
+    "gegenbeispiele": [
+     {
+      "werte": [
+       "1/2",
+       3
+      ],
+      "verletzt": "Produkt ganzzahlig"
+     },
+     {
+      "werte": [
+       2,
+       2
+      ],
+      "verletzt": "Produkt durch 3 teilbar"
+     },
+     {
+      "werte": [
+       30,
+       1
+      ],
+      "verletzt": "Abstand höchstens 10"
+     },
+     {
+      "werte": [
+       3,
+       -3
+      ],
+      "verletzt": "keine Gegenzahlen"
+     },
+     {
+      "werte": [
+       -1,
+       -3
+      ],
+      "verletzt": "erste positiv oder beide klein"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ops-2",
+   "f": {
+    "text": "Prüf-Fall für die Rechensprache (kein Inhalt für Kinder).",
+    "felder": [
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     }
+    ]
+   },
+   "o": {
+    "bedingungen": [
+     {
+      "name": "alle bis auf eine negativ",
+      "pruefe": [
+       "=",
+       [
+        "anzahl_negativ",
+        "$alle"
+       ],
+       [
+        "-",
+        [
+         "anzahl",
+         "$alle"
+        ],
+        1
+       ]
+      ],
+      "zeige": [
+       "anzahl_negativ",
+       "$alle"
+      ],
+      "hinweis": "Bei dir sind {} Zahlen negativ."
+     },
+     {
+      "name": "Kehrwert-Quadrat groß genug",
+      "pruefe": [
+       ">",
+       [
+        "hoch",
+        "$3",
+        -2
+       ],
+       "1/100"
+      ],
+      "zeige": [
+       "hoch",
+       "$3",
+       -2
+      ],
+      "hinweis": "Bei dir kommt {} heraus."
+     },
+     {
+      "name": "erste beide negativ",
+      "pruefe": [
+       "<",
+       [
+        "max",
+        [
+         "liste",
+         "$1",
+         "$2"
+        ]
+       ],
+       0
+      ],
+      "zeige": [
+       "max",
+       [
+        "liste",
+        "$1",
+        "$2"
+       ]
+      ],
+      "hinweis": "Die größere der ersten beiden ist {}."
+     }
+    ],
+    "beispiel": [
+     -1,
+     -2,
+     5
+    ],
+    "gut": [
+     [
+      -7,
+      -1,
+      2
+     ],
+     [
+      -1,
+      -1,
+      9
+     ]
+    ],
+    "gegenbeispiele": [
+     {
+      "werte": [
+       1,
+       2,
+       3
+      ],
+      "verletzt": "alle bis auf eine negativ"
+     },
+     {
+      "werte": [
+       -1,
+       -2,
+       0
+      ],
+      "verletzt": "Kehrwert-Quadrat groß genug"
+     },
+     {
+      "werte": [
+       -1,
+       -2,
+       20
+      ],
+      "verletzt": "Kehrwert-Quadrat groß genug"
+     },
+     {
+      "werte": [
+       -1,
+       5,
+       -2
+      ],
+      "verletzt": "erste beide negativ"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ops-3",
+   "f": {
+    "text": "Prüf-Fall: zu großer Wert nur in der Anzeige (kein Inhalt für Kinder).",
+    "felder": [
+     {
+      "art": "ganz"
+     },
+     {
+      "art": "ganz"
+     }
+    ]
+   },
+   "o": {
+    "bedingungen": [
+     {
+      "name": "erste negativ",
+      "pruefe": [
+       "<",
+       "$1",
+       0
+      ],
+      "zeige": [
+       "hoch",
+       [
+        "*",
+        "$1",
+        "$2"
+       ],
+       6
+      ],
+      "hinweis": "Bei dir kommt {} heraus."
+     }
+    ],
+    "beispiel": [
+     -1,
+     1
+    ],
+    "gegenbeispiele": [
+     {
+      "werte": [
+       1,
+       1
+      ],
+      "verletzt": "erste negativ"
+     }
+    ]
+   }
+  },
+  {
+   "id": "grenzen-1",
+   "f": {
+    "text": "Prüf-Fall: Bereich eines Feldes (kein Inhalt für Kinder).",
+    "felder": [
+     {
+      "art": "rational",
+      "min": -2,
+      "max": 3
+     }
+    ]
+   },
+   "o": {
+    "bedingungen": [
+     {
+      "name": "nicht null",
+      "pruefe": [
+       "!=",
+       "$1",
+       0
+      ],
+      "hinweis": "Null ist nicht erlaubt."
+     }
+    ],
+    "beispiel": [
+     1
+    ],
+    "gegenbeispiele": [
+     {
+      "werte": [
+       0
+      ],
+      "verletzt": "nicht null"
+     }
+    ]
+   }
+  },
+  {
+   "id": "grenze-tiefe-8",
+   "f": {
+    "text": "Prüf-Fall: Tiefe genau 8.",
+    "felder": [
+     {
+      "art": "ganz"
+     }
+    ]
+   },
+   "o": {
+    "bedingungen": [
+     {
+      "name": "b",
+      "pruefe": [
+       ">",
+       [
+        "neg",
+        [
+         "neg",
+         [
+          "neg",
+          [
+           "neg",
+           [
+            "neg",
+            [
+             "neg",
+             "$1"
+            ]
+           ]
+          ]
+         ]
+        ]
+       ],
+       0
+      ]
+     }
+    ],
+    "beispiel": [
+     1
+    ],
+    "gegenbeispiele": [
+     {
+      "werte": [
+       0
+      ],
+      "verletzt": "b"
+     }
+    ]
+   }
+  },
+  {
+   "id": "grenze-knoten-60",
+   "f": {
+    "text": "Prüf-Fall: genau 60 Knoten.",
+    "felder": [
+     {
+      "art": "ganz"
+     }
+    ]
+   },
+   "o": {
+    "bedingungen": [
+     {
+      "name": "b",
+      "pruefe": [
+       ">",
+       [
+        "+",
+        [
+         "+",
+         [
+          "+",
+          "$1",
+          1,
+          1,
+          1,
+          1,
+          1
+         ],
+         [
+          "+",
+          "$1",
+          1,
+          1,
+          1
+         ],
+         1
+        ],
+        [
+         "+",
+         [
+          "+",
+          "$1",
+          1,
+          1,
+          1,
+          1,
+          1
+         ],
+         [
+          "+",
+          "$1",
+          1,
+          1,
+          1
+         ],
+         1
+        ],
+        [
+         "+",
+         [
+          "+",
+          "$1",
+          1,
+          1,
+          1,
+          1,
+          1
+         ],
+         [
+          "+",
+          "$1",
+          1,
+          1,
+          1
+         ],
+         1
+        ],
+        [
+         "+",
+         [
+          "+",
+          "$1",
+          1,
+          1,
+          1,
+          1,
+          1
+         ],
+         [
+          "+",
+          "$1",
+          1,
+          1,
+          1
+         ],
+         1
+        ],
+        1
+       ],
+       0
+      ]
+     }
+    ],
+    "beispiel": [
+     1
+    ],
+    "gegenbeispiele": [
+     {
+      "werte": [
+       -9
+      ],
+      "verletzt": "b"
+     }
+    ]
+   }
+  }
+ ],
+ "format": [
+  {"aufgabe": "grenzen-1", "antwort": {"werte": [1.00000000000000001]}, "format_ok": false},
+  {"aufgabe": "grenzen-1", "antwort": {"werte": [1.0]}, "format_ok": true},
+  {"aufgabe": "grenzen-1", "antwort": {"werte": [2e0]}, "format_ok": true},
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "-3",
+     "8"
+    ]
+   },
+   "format_ok": true
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "−3",
+     " 8 "
+    ]
+   },
+   "format_ok": true
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "+12",
+     "-2"
+    ]
+   },
+   "format_ok": true
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "-3"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "-3",
+     "8",
+     "1"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "-3",
+     ""
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "-3",
+     "acht"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "-3",
+     "8,5"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "-3",
+     "8.0"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "-3",
+     "1/2"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "-3",
+     "12345678"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "wert": "-3"
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": "-3;8"
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K8-2",
+   "antwort": {
+    "werte": [
+     "1,5"
+    ]
+   },
+   "format_ok": true
+  },
+  {
+   "aufgabe": "6-K8-2",
+   "antwort": {
+    "werte": [
+     "-1/2"
+    ]
+   },
+   "format_ok": true
+  },
+  {
+   "aufgabe": "6-K8-2",
+   "antwort": {
+    "werte": [
+     "1/0"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K8-2",
+   "antwort": {
+    "werte": [
+     "1,2345"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K8-2",
+   "antwort": {
+    "werte": [
+     "1.5"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K8-2",
+   "antwort": {
+    "werte": [
+     "1e5"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K8-2",
+   "antwort": {
+    "werte": [
+     "1/2/3"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "last-1",
+   "antwort": {
+    "werte": [
+     "999999",
+     "999999"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "last-1",
+   "antwort": {
+    "werte": [
+     "99",
+     "99"
+    ]
+   },
+   "format_ok": true
+  },
+  {
+   "aufgabe": "grenzen-1",
+   "antwort": {
+    "werte": [
+     "3"
+    ]
+   },
+   "format_ok": true
+  },
+  {
+   "aufgabe": "grenzen-1",
+   "antwort": {
+    "werte": [
+     "3,001"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "grenzen-1",
+   "antwort": {
+    "werte": [
+     "-2"
+    ]
+   },
+   "format_ok": true
+  },
+  {
+   "aufgabe": "grenzen-1",
+   "antwort": {
+    "werte": [
+     "-2,001"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "grenzen-1",
+   "antwort": {
+    "werte": [
+     "7/2"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "grenzen-1",
+   "antwort": {
+    "werte": [
+     "-9/4"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "grenzen-1",
+   "antwort": {
+    "werte": [
+     "5/2"
+    ]
+   },
+   "format_ok": true
+  },
+  {
+   "aufgabe": "grenzen-1",
+   "antwort": {
+    "werte": [
+     "-2/1"
+    ]
+   },
+   "format_ok": true
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "+-3",
+     "8"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "--3",
+     "8"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "+3",
+     "8"
+    ]
+   },
+   "format_ok": true
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     5.0,
+     "8"
+    ]
+   },
+   "format_ok": true
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     2.5,
+     "8"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     true,
+     "8"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     [
+      1
+     ],
+     "8"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     {
+      "a": 1
+     },
+     "8"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "3                                        ",
+     "8"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "                              3",
+     "8"
+    ]
+   },
+   "format_ok": true
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     100.0,
+     "8"
+    ]
+   },
+   "format_ok": true
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     1234567,
+     "8"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "ops-3",
+   "antwort": {
+    "werte": [
+     "999999",
+     "999999"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "ops-3",
+   "antwort": {
+    "werte": [
+     "99",
+     "99"
+    ]
+   },
+   "format_ok": true
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "                                         ",
+     "8"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "                                        ",
+     "8"
+    ]
+   },
+   "format_ok": false
+  }
+ ],
+ "hinweise": [
+  {
+   "aufgabe": "6-K5-1",
+   "werte": [
+    4,
+    -1,
+    -2
+   ],
+   "hinweis": "Deine Summe ist 1."
+  },
+  {
+   "aufgabe": "6-K5-1",
+   "werte": [
+    2,
+    3,
+    -5
+   ],
+   "hinweis": "Bei dir sind 2 Zahlen positiv."
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "werte": [
+    3,
+    -8
+   ],
+   "hinweis": "Deine Summe ist −5."
+  },
+  {
+   "aufgabe": "6-K8-2",
+   "werte": [
+    -4
+   ],
+   "hinweis": "Dein Termwert ist 0,5."
+  },
+  {
+   "aufgabe": "6-K8-2",
+   "werte": [
+    "5/2"
+   ],
+   "hinweis": "Dein Termwert ist 7."
+  },
+  {
+   "aufgabe": "6-K8-2",
+   "werte": [
+    5
+   ],
+   "hinweis": "Dein Termwert ist 2."
+  },
+  {
+   "aufgabe": "6-K8-2",
+   "werte": [
+    9
+   ],
+   "hinweis": "Dein Termwert ist 10/7."
+  },
+  {
+   "aufgabe": "7-K8-1",
+   "werte": [
+    -2,
+    0,
+    3,
+    4,
+    5
+   ],
+   "hinweis": "Dein Mittelwert ist 2."
+  },
+  {
+   "aufgabe": "7-K8-2",
+   "werte": [
+    -5,
+    0,
+    0,
+    5
+   ],
+   "hinweis": "Dein Median ist 0."
+  },
+  {
+   "aufgabe": "7-K8-2",
+   "werte": [
+    -5,
+    1,
+    1,
+    5
+   ],
+   "hinweis": "Dein Mittelwert ist 0,5."
+  },
+  {
+   "aufgabe": "8-K5-1",
+   "werte": [
+    5,
+    -5
+   ],
+   "hinweis": "Bei dir kommt 20 heraus."
+  },
+  {
+   "aufgabe": "last-1",
+   "werte": [
+    1,
+    -3
+   ],
+   "hinweis": "Bei dir kommt 729 heraus."
+  },
+  {
+   "aufgabe": "ops-2",
+   "werte": [
+    -1,
+    -2,
+    20
+   ],
+   "hinweis": "Bei dir kommt 1/400 heraus."
+  },
+  {
+   "aufgabe": "ops-2",
+   "werte": [
+    -1,
+    -2,
+    0
+   ],
+   "hinweis": null
+  },
+  {
+   "aufgabe": "ops-1",
+   "werte": [
+    "1/2",
+    3
+   ],
+   "hinweis": "Dein Produkt ist 1,5."
+  },
+  {
+   "aufgabe": "ops-1",
+   "werte": [
+    30,
+    1
+   ],
+   "hinweis": "Dein Abstand ist 29."
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "werte": [
+    "                                         ",
+    "8"
+   ],
+   "hinweis": "In dieses Feld gehört eine ganze Zahl, zum Beispiel −3."
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "werte": [
+    "                                        ",
+    "8"
+   ],
+   "hinweis": "Bitte fülle alle Felder aus."
+  }
+ ],
+ "unzulaessig": [
+  {
+   "warum": "unbekannte Rechenart",
+   "aufgabe": {
+    "f": {
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "a",
+       "pruefe": [
+        "wurzel",
+        "$1"
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        2
+       ],
+       "verletzt": "a"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "freier Text statt Baum",
+   "aufgabe": {
+    "f": {
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "a",
+       "pruefe": "select 1"
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        2
+       ],
+       "verletzt": "a"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Baum zu tief",
+   "aufgabe": {
+    "f": {
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "a",
+       "pruefe": [
+        "=",
+        [
+         "neg",
+         [
+          "neg",
+          [
+           "neg",
+           [
+            "neg",
+            [
+             "neg",
+             [
+              "neg",
+              [
+               "neg",
+               [
+                "neg",
+                "$1"
+               ]
+              ]
+             ]
+            ]
+           ]
+          ]
+         ]
+        ],
+        1
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        2
+       ],
+       "verletzt": "a"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "beispiel fehlt",
+   "aufgabe": {
+    "f": {
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "a",
+       "pruefe": [
+        "=",
+        "$1",
+        1
+       ]
+      }
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        2
+       ],
+       "verletzt": "a"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "beispiel besteht nicht",
+   "aufgabe": {
+    "f": {
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "a",
+       "pruefe": [
+        "=",
+        "$1",
+        1
+       ]
+      }
+     ],
+     "beispiel": [
+      3
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        2
+       ],
+       "verletzt": "a"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Gegenbeispiel scheitert an anderer Bedingung",
+   "aufgabe": {
+    "f": {
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "a",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      },
+      {
+       "name": "b",
+       "pruefe": [
+        "<",
+        "$1",
+        5
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        -2
+       ],
+       "verletzt": "b"
+      },
+      {
+       "werte": [
+        7
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Bedingung ohne Gegenbeispiel",
+   "aufgabe": {
+    "f": {
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "a",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      },
+      {
+       "name": "b",
+       "pruefe": [
+        "<",
+        "$1",
+        5
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        7
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Feld, das es nicht gibt",
+   "aufgabe": {
+    "f": {
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "a",
+       "pruefe": [
+        "=",
+        "$2",
+        1
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        2
+       ],
+       "verletzt": "a"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Zahl mit Wahrheitswert verglichen",
+   "aufgabe": {
+    "f": {
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "a",
+       "pruefe": [
+        "+",
+        "$1",
+        1
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        2
+       ],
+       "verletzt": "a"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "zeige fehlt bei Platzhalter",
+   "aufgabe": {
+    "f": {
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "a",
+       "pruefe": [
+        "=",
+        "$1",
+        1
+       ],
+       "hinweis": "Bei dir {}."
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        2
+       ],
+       "verletzt": "a"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Operand mit falschem Typ in einem Ast, den die Auswertung überspringen könnte",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b",
+       "pruefe": [
+        "oder",
+        [
+         ">",
+         "$1",
+         0
+        ],
+        [
+         "und",
+         [
+          "<",
+          "$1",
+          -1
+         ],
+         1
+        ]
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "zeige liefert eine Liste",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ],
+       "zeige": "$alle",
+       "hinweis": "{}"
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "zeige liefert einen Wahrheitswert",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ],
+       "zeige": [
+        ">",
+        "$1",
+        0
+       ],
+       "hinweis": "{}"
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "pruefe liefert eine Zahl",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b",
+       "pruefe": [
+        "+",
+        "$1",
+        1
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "keine Bedingung",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "neun Bedingungen",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b0",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      },
+      {
+       "name": "b1",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      },
+      {
+       "name": "b2",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      },
+      {
+       "name": "b3",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      },
+      {
+       "name": "b4",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      },
+      {
+       "name": "b5",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      },
+      {
+       "name": "b6",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      },
+      {
+       "name": "b7",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      },
+      {
+       "name": "b8",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "sieben Felder",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      }
+     ],
+     "beispiel": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Konstante über 999 999",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b",
+       "pruefe": [
+        ">",
+        "$1",
+        1000000
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Konstante ist keine ganze Zahl",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b",
+       "pruefe": [
+        ">",
+        "$1",
+        0.5
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Bruch-Konstante mit Nenner null",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b",
+       "pruefe": [
+        ">",
+        "$1",
+        "1/0"
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Baum tiefer als 8",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b",
+       "pruefe": [
+        ">",
+        [
+         "neg",
+         [
+          "neg",
+          [
+           "neg",
+           [
+            "neg",
+            [
+             "neg",
+             [
+              "neg",
+              [
+               "neg",
+               [
+                "neg",
+                "$1"
+               ]
+              ]
+             ]
+            ]
+           ]
+          ]
+         ]
+        ],
+        -5
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "mehr als 60 Knoten",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b",
+       "pruefe": [
+        ">",
+        [
+         "+",
+         [
+          "+",
+          [
+           "+",
+           "$1",
+           1,
+           1,
+           1,
+           1,
+           1
+          ],
+          [
+           "+",
+           "$1",
+           1,
+           1,
+           1,
+           1,
+           1
+          ]
+         ],
+         [
+          "+",
+          [
+           "+",
+           "$1",
+           1,
+           1,
+           1,
+           1,
+           1
+          ],
+          [
+           "+",
+           "$1",
+           1,
+           1,
+           1,
+           1,
+           1
+          ]
+         ],
+         [
+          "+",
+          [
+           "+",
+           "$1",
+           1,
+           1,
+           1,
+           1,
+           1
+          ],
+          [
+           "+",
+           "$1",
+           1,
+           1,
+           1,
+           1,
+           1
+          ]
+         ],
+         [
+          "+",
+          [
+           "+",
+           "$1",
+           1,
+           1,
+           1,
+           1,
+           1
+          ],
+          [
+           "+",
+           "$1",
+           1,
+           1,
+           1,
+           1,
+           1
+          ]
+         ],
+         [
+          "+",
+          [
+           "+",
+           "$1",
+           1,
+           1,
+           1,
+           1,
+           1
+          ],
+          [
+           "+",
+           "$1",
+           1,
+           1,
+           1,
+           1,
+           1
+          ]
+         ]
+        ],
+        0
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "min ist keine ganze Zahl",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "rational",
+       "min": 0.1
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "min größer als max",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz",
+       "min": 5,
+       "max": 1
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Feld $2 gibt es nicht",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b",
+       "pruefe": [
+        ">",
+        "$2",
+        0
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "unbekannte Operation",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b",
+       "pruefe": [
+        "wurzel",
+        "$1"
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Beispiel besteht nicht",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      }
+     ],
+     "beispiel": [
+      -1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Name ist eine Zahl",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": 5,
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Name ist ein Objekt",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": {
+        "x": 1
+       },
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Name ist eine Liste",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": [
+        "x"
+       ],
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Name ist leer",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Hinweis ist eine Zahl",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ],
+       "hinweis": 42
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Hinweis ist null",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ],
+       "hinweis": null
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

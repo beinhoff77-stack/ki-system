@@ -1,0 +1,285 @@
+[
+ {
+  "l": "geometrie",
+  "t": "geometrie",
+  "p": "uebung",
+  "s": 1,
+  "g": "direkt",
+  "y": "luecken",
+  "f": {
+   "text": "Fülle den Rechenweg aus: Trapez mit A = (a + c) · h : 2, A = 60, a = 9, c = 11. Eingesetzt: 60 = (9 + 11) · h : 2. Klammer: 60 = ① · h : 2. Mal 2: ② = ① · h. Ergebnis: h = ③.",
+   "schablone": "① = □; ② = □; ③ = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    20,
+    120,
+    6
+   ]
+  },
+  "c": [
+   "9 + 11",
+   "60 * 2",
+   "60 * 2 / (9 + 11)"
+  ],
+  "h": "Was zuletzt gerechnet wurde, kommt zuerst weg: Zuletzt wurde durch 2 geteilt.",
+  "w": "9 + 11 = 20. Mal 2: 120 = 20 · h. Durch 20: h = 6. Probe: 20 · 6 : 2 = 60."
+ },
+ {
+  "l": "zwei_schritte",
+  "t": "zwei_schritte",
+  "p": "uebung",
+  "s": 2,
+  "g": "mehrschritt",
+  "y": "luecken",
+  "f": {
+   "text": "Der erste Schritt ist gemacht. K = G + n · p mit K = 86, G = 30, p = 7. Eingesetzt: 86 = 30 + n · 7. Minus 30: ① = n · 7. Durch 7: n = ②.",
+   "schablone": "① = □; ② = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    56,
+    8
+   ]
+  },
+  "c": [
+   "86 - 30",
+   "(86 - 30) / 7"
+  ],
+  "h": "Erst das Plus rückgängig machen, dann das Mal.",
+  "w": "86 − 30 = 56. 56 : 7 = 8. Probe: 30 + 8 · 7 = 86."
+ },
+ {
+  "l": "einsetzen",
+  "t": "einsetzen",
+  "p": "uebung",
+  "s": 2,
+  "g": "mehrschritt",
+  "y": "luecken",
+  "f": {
+   "text": "Rechne zu Ende: V = G · h mit V = 240 und h = 15. Umgestellt: G = ① : ②. Ergebnis: G = ③.",
+   "schablone": "① = □; ② = □; ③ = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    240,
+    15,
+    16
+   ]
+  },
+  "c": [
+   "240",
+   "15",
+   "240 / 15"
+  ],
+  "h": "Welche Rechnung macht „mal h“ rückgängig?",
+  "w": "G = V : h = 240 : 15 = 16. Probe: 16 · 15 = 240."
+ },
+ {
+  "l": "ein_schritt",
+  "t": "ein_schritt",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "luecken",
+  "f": {
+   "text": "Zwillingszeilen. Zeile 1 mit Zahlen: 24 = 6 · 4, also 4 = 24 : ①. Zeile 2 mit Buchstaben: A = a · b, also b = A : a. Rechne mit Zeile 2 für A = 91 und a = 7: b = ②.",
+   "schablone": "① = □; ② = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    6,
+    13
+   ]
+  },
+  "c": [
+   "24 / 4",
+   "91 / 7"
+  ],
+  "h": "Zeile 1 kannst du nachrechnen. Zeile 2 ist genauso gebaut.",
+  "w": "24 : 6 = 4. Genauso: b = 91 : 7 = 13. Probe: 7 · 13 = 91."
+ },
+ {
+  "l": "zwei_schritte",
+  "t": "zwei_schritte",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "luecken",
+  "f": {
+   "text": "Zwillingszeilen. Zeile 1 mit Zahlen: 23 = 5 + 3 · 6, also 6 = (23 − ①) : 3. Zeile 2 mit Buchstaben: K = G + n · p, also p = (K − G) : n. Rechne mit Zeile 2 für K = 50, G = 8, n = 6: p = ②.",
+   "schablone": "① = □; ② = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    5,
+    7
+   ]
+  },
+  "c": [
+   "23 - 3 * 6",
+   "(50 - 8) / 6"
+  ],
+  "h": "Was wurde in Zeile 1 zuletzt gerechnet? Das kommt zuerst weg.",
+  "w": "Zuletzt kam + 5 dazu, also zuerst 23 − 5 = 18, dann 18 : 3 = 6. Genauso: (50 − 8) : 6 = 7."
+ },
+ {
+  "l": "zwei_schritte",
+  "t": "zwei_schritte",
+  "p": "uebung",
+  "s": 2,
+  "g": "umkehr",
+  "y": "zahl",
+  "f": {
+   "text": "Zwei Wege, um aus u = 2 · (a + b) die Seite b zu finden, mit u = 34 und a = 9. Weg A teilt zuerst durch 2: 17 = 9 + b. Weg B multipliziert zuerst aus: 34 = 18 + ?. Welche Zahl steht in Weg B für das Fragezeichen?"
+  },
+  "o": {
+   "wert": 16
+  },
+  "c": "34 - 2 * 9",
+  "h": "Wofür steht das Fragezeichen: für b oder für 2 · b?",
+  "w": "Ausmultipliziert: 34 = 18 + 2 · b. Das Fragezeichen ist 2 · b = 16, also b = 8 – wie in Weg A."
+ },
+ {
+  "l": "geometrie",
+  "t": "geometrie",
+  "p": "uebung",
+  "s": 2,
+  "g": "mehrschritt",
+  "y": "zahl",
+  "f": {
+   "text": "Zwei Wege für die Höhe eines Dreiecks mit A = g · h : 2, A = 42 und g = 12. Weg A nimmt zuerst mal 2: 84 = 12 · h. Weg B rechnet zuerst 12 : 2 aus: 42 = ? · h. Welche Zahl steht in Weg B vor dem h?"
+  },
+  "o": {
+   "wert": 6
+  },
+  "c": "12 / 2",
+  "h": "g · h : 2 darf man auch als (g : 2) · h lesen.",
+  "w": "12 : 2 = 6, also 42 = 6 · h und h = 7. Weg A: 84 : 12 = 7."
+ },
+ {
+  "l": "zwei_schritte",
+  "t": "zwei_schritte",
+  "p": "uebung",
+  "s": 3,
+  "g": "fehler",
+  "y": "auswahl",
+  "f": {
+   "text": "Jemand stellt in drei Zeilen um: (1) K = G + n · p (2) K : p = G + n (3) n = K : p − G. In welcher Zeile passiert der erste Fehler?"
+  },
+  "a": [
+   "Zeile 2: Beim Teilen durch p muss auch G geteilt werden.",
+   "Zeile 3: G muss addiert werden.",
+   "Nirgends. Die Umstellung stimmt.",
+   "Zeile 2: Man hätte mit p malnehmen müssen."
+  ],
+  "o": {
+   "index": 0
+  },
+  "h": "Prüfe mit erfundenen Zahlen, zum Beispiel G = 30, n = 8, p = 7.",
+  "w": "Teilen trifft die ganze Seite: K : p = G : p + n. Besser zuerst G abziehen: K − G = n · p, dann n = (K − G) : p. Mit Zahlen: 86 : 7 − 30 ist nicht 8."
+ },
+ {
+  "l": "geometrie",
+  "t": "geometrie",
+  "p": "uebung",
+  "s": 3,
+  "g": "fehler",
+  "y": "zahl",
+  "f": {
+   "text": "Ein Dreieck hat A = 36 cm² und g = 9 cm. Jemand rechnet h = 36 : 9 = 4 cm. In der Rechnung steckt ein Fehler. Wie hoch ist das Dreieck wirklich?"
+  },
+  "o": {
+   "wert": 8,
+   "einheit": "cm"
+  },
+  "c": "2 * 36 / 9",
+  "h": "Schreibe zuerst die Formel für die Dreiecksfläche auf.",
+  "w": "A = g · h : 2. Mal 2: 72 = 9 · h, also h = 8 cm. Probe: 9 · 8 : 2 = 36."
+ },
+ {
+  "l": "zwei_schritte",
+  "t": "zwei_schritte",
+  "p": "uebung",
+  "s": 1,
+  "g": "erkennen",
+  "y": "auswahl",
+  "f": {
+   "text": "Du willst K = G + n · p nach n umstellen. Welcher Schritt kommt zuerst?"
+  },
+  "a": [
+   "durch p teilen",
+   "G abziehen",
+   "n abziehen",
+   "mit p malnehmen"
+  ],
+  "o": {
+   "index": 1
+  },
+  "h": "Was wurde beim Ausrechnen von K zuletzt gerechnet?",
+  "w": "Zuletzt wurde G dazugezählt. Das kommt zuerst weg: K − G = n · p. Danach durch p teilen."
+ },
+ {
+  "l": "pruefen",
+  "t": "pruefen",
+  "p": "uebung",
+  "s": 1,
+  "g": "erkennen",
+  "y": "auswahl",
+  "f": {
+   "text": "Du hast aus A = g · h : 2 die Umstellung h = 2 · A : g erhalten und bist unsicher. Wie prüfst du sie am besten?"
+  },
+  "a": [
+   "Zwei erfundene Zahlen für g und h nehmen, A ausrechnen und mit der Umstellung zurückrechnen.",
+   "Mit g = 1 und h = 1 testen.",
+   "Die Einheiten weglassen und noch einmal schauen.",
+   "Noch einmal genauso umstellen."
+  ],
+  "o": {
+   "index": 0
+  },
+  "h": "Eine gute Probe muss einen Fehler sichtbar machen können.",
+  "w": "Mit g = 4 und h = 5: A = 10. Zurück: 2 · 10 : 4 = 5 – stimmt. Mit 1 und 1 fielen viele Fehler nicht auf."
+ },
+ {
+  "l": "einsetzen",
+  "t": "einsetzen",
+  "p": "uebung",
+  "s": 2,
+  "g": "umkehr",
+  "y": "zahl",
+  "f": {
+   "text": "Für den Umfang eines Rechtecks gilt u = 2 · (a + b). Ein Rechteck hat den Umfang 46 cm und die Seite a = 14 cm. Wie lang ist b?"
+  },
+  "o": {
+   "wert": 9,
+   "einheit": "cm"
+  },
+  "c": "46 / 2 - 14",
+  "h": "Was wurde beim Ausrechnen von u zuletzt gerechnet?",
+  "w": "Durch 2: 23 = 14 + b. Minus 14: b = 9 cm. Probe: 2 · (14 + 9) = 46."
+ },
+ {
+  "l": "ein_schritt",
+  "t": "ein_schritt",
+  "p": "uebung",
+  "s": 2,
+  "g": "umkehr",
+  "y": "zahl",
+  "f": {
+   "text": "Für die Zinsen eines Jahres gilt Z = K · p : 100. Ein Guthaben bringt bei p = 4 in einem Jahr 30 € Zinsen. Wie groß ist das Guthaben K?"
+  },
+  "o": {
+   "wert": 750,
+   "einheit": "€"
+  },
+  "c": "30 * 100 / 4",
+  "h": "Mache erst das „: 100“ rückgängig, dann das „· p“.",
+  "w": "Mal 100: 3 000 = K · 4. Durch 4: K = 750 €. Probe: 750 · 4 : 100 = 30."
+ }
+]

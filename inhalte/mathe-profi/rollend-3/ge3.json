@@ -1,0 +1,1494 @@
+{
+ "stand": "2026-11-27",
+ "flug": "ge3",
+ "titel": "Winkel",
+ "fuer": "Kind 1",
+ "klasse": 5,
+ "themen": [
+  "geometrie.winkel"
+ ],
+ "hinweis": "Aufgaben auf Vorrat, rollendes System Stufe 3. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: erst die Aufgaben ohne Bau, dann die des Typs „bedingung“, jeweils mit aufsteigender Stufe.",
+ "aufgaben": [
+  {
+   "kennung": "GE3-01",
+   "thema": "geometrie.winkel",
+   "lernkarte": "ergaenzen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 53,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auch beim gestreckten Winkel auf 90° ergänzt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 323,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auf 360° ergänzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "ergaenzen",
+    "t": "ergaenzen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein rechter Winkel wird in zwei Teile geteilt. Ein Teil hat 37°, der andere 90° − 37° = ①°. Ein gestreckter Winkel wird in zwei Teile geteilt. Ein Teil hat 37°, der andere ②°.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      53,
+      143
+     ]
+    },
+    "c": [
+     "90 - 37",
+     "180 - 37"
+    ],
+    "h": "Das Ganze ist erst 90°, dann 180°.",
+    "w": "90° − 37° = 53°. 180° − 37° = 143°."
+   }
+  },
+  {
+   "kennung": "GE3-02",
+   "thema": "geometrie.winkel",
+   "lernkarte": "kreuzung",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 65,
+     "fehlbild": "fb.winkel.neben_statt_scheitel",
+     "regel_des_fehlbilds": "id.geometrie.winkel",
+     "beschreibung": "Nachbarwinkel wie den gegenüberliegenden behandelt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auf 90° ergänzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "kreuzung",
+    "t": "kreuzung",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Zwei Geraden schneiden sich. Ein Winkel hat 65°. Gegenüber liegt ein Winkel von ①°. Jeder der beiden Nachbarwinkel hat ②°. Alle vier zusammen ergeben ③°.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      65,
+      115,
+      360
+     ]
+    },
+    "c": [
+     "65",
+     "180 - 65",
+     "65 + 115 + 65 + 115"
+    ],
+    "h": "Gegenüberliegende Winkel sind gleich. Nachbarwinkel ergeben zusammen 180°.",
+    "w": "Gegenüber: 65°. Daneben: 180° − 65° = 115°. Zusammen 360°."
+   }
+  },
+  {
+   "kennung": "GE3-03",
+   "thema": "geometrie.winkel",
+   "lernkarte": "ergaenzen",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "90° minus den bekannten Winkel",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "rechter statt gestreckter Winkel"
+    },
+    {
+     "index": 1,
+     "antwort": "Er ist gleich groß.",
+     "fehlbild": "fb.winkel.neben_statt_scheitel",
+     "regel_des_fehlbilds": "id.geometrie.winkel",
+     "beschreibung": "Nebenwinkel wie Scheitelwinkel behandelt"
+    },
+    {
+     "index": 3,
+     "antwort": "360° minus den bekannten Winkel",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "voller Winkel statt gestreckter"
+    }
+   ],
+   "aufgabe": {
+    "l": "ergaenzen",
+    "t": "ergaenzen",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Winkel liegen nebeneinander an einer Geraden und bilden zusammen einen gestreckten Winkel. Einer ist bekannt. Wie findest du den anderen?"
+    },
+    "a": [
+     "90° minus den bekannten Winkel",
+     "Er ist gleich groß.",
+     "180° minus den bekannten Winkel",
+     "360° minus den bekannten Winkel"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Wie groß ist ein gestreckter Winkel?",
+    "w": "Ein gestreckter Winkel hat 180°. Der fehlende Winkel ist 180° minus der bekannte."
+   }
+  },
+  {
+   "kennung": "GE3-04",
+   "thema": "geometrie.winkel",
+   "lernkarte": "kreuzung",
+   "stufe": 1,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Ole hat recht.",
+     "fehlbild": "fb.winkel.neben_statt_scheitel",
+     "regel_des_fehlbilds": "id.geometrie.winkel",
+     "beschreibung": "wie Ole Nachbarwinkel für gleich gehalten"
+    },
+    {
+     "index": 1,
+     "antwort": "Der Winkel daneben hat 40°.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auf 90° ergänzt"
+    },
+    {
+     "index": 2,
+     "antwort": "Alle vier Winkel haben 90°.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gilt nur, wenn die Geraden senkrecht stehen"
+    }
+   ],
+   "aufgabe": {
+    "l": "kreuzung",
+    "t": "kreuzung",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Geraden schneiden sich. Ein Winkel hat 50°. Ole sagt: „Dann hat der Winkel direkt daneben auch 50°.“ Was stimmt?"
+    },
+    "a": [
+     "Ole hat recht.",
+     "Der Winkel daneben hat 40°.",
+     "Alle vier Winkel haben 90°.",
+     "Der Winkel daneben hat 130°. 50° hat der gegenüberliegende Winkel."
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Welche Winkel an einer Kreuzung sind gleich groß?",
+    "w": "Gleich groß sind die gegenüberliegenden Winkel. Nachbarwinkel ergeben 180°: 180° − 50° = 130°."
+   }
+  },
+  {
+   "kennung": "GE3-05",
+   "thema": "geometrie.winkel",
+   "lernkarte": "verstehen",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "viele Beispiele mit spitzen Winkeln",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Beispiele widerlegen nichts"
+    },
+    {
+     "index": 2,
+     "antwort": "ein Beispiel mit zwei Winkeln von 40°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein passendes Beispiel widerlegt nichts"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Du willst die Behauptung „Gegenüberliegende Winkel an einer Kreuzung sind immer spitz“ widerlegen. Was genügt?"
+    },
+    "a": [
+     "ein Gegenbeispiel: zwei Geraden, bei denen ein Winkel 120° hat",
+     "viele Beispiele mit spitzen Winkeln",
+     "ein Beispiel mit zwei Winkeln von 40°"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Was braucht man, um „immer“ zu widerlegen?",
+    "w": "Ein einziges Gegenbeispiel genügt: Hat ein Winkel 120°, dann hat der gegenüberliegende auch 120° – und das ist nicht spitz."
+   }
+  },
+  {
+   "kennung": "GE3-06",
+   "thema": "geometrie.winkel",
+   "lernkarte": "um_punkt",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 180° statt 360° gerechnet"
+    },
+    {
+     "antwort": 120,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 60° nicht abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "um_punkt",
+    "t": "um_punkt",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Um einen Punkt liegen vier Winkel: drei gleich große und einer mit 60°. Wie groß ist jeder der drei gleichen Winkel?"
+    },
+    "o": {
+     "wert": 100,
+     "einheit": "°"
+    },
+    "c": "(360 - 60) // 3",
+    "h": "Alle Winkel um einen Punkt ergeben zusammen 360°.",
+    "w": "360° − 60° = 300°. Geteilt durch 3: 100°."
+   }
+  },
+  {
+   "kennung": "GE3-07",
+   "thema": "geometrie.winkel",
+   "lernkarte": "um_punkt",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 235,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auf 360° ergänzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "um_punkt",
+    "t": "um_punkt",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "Auf einer Seite einer Geraden liegen drei Winkel nebeneinander: 40°, ein unbekannter und 85°. Weg A: 180° − 40° − 85°. Weg B: erst 40° + 85° = ①°, dann 180° − ①° = ②°.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      125,
+      55
+     ]
+    },
+    "c": [
+     "40 + 85",
+     "180 - (40 + 85)"
+    ],
+    "h": "Beide Wege müssen denselben Winkel ergeben.",
+    "w": "40° + 85° = 125°. 180° − 125° = 55°. Weg A: 180° − 40° = 140°, 140° − 85° = 55°."
+   }
+  },
+  {
+   "kennung": "GE3-08",
+   "thema": "geometrie.winkel",
+   "lernkarte": "uhr",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 30 geteilt: Abstände zwischen den Zahlen statt Minuten"
+    },
+    {
+     "antwort": 900,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "mal 6 statt geteilt durch 6"
+    }
+   ],
+   "aufgabe": {
+    "l": "uhr",
+    "t": "uhr",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Der Minutenzeiger einer Uhr hat sich um 150° gedreht. Wie viele Minuten sind vergangen?"
+    },
+    "o": {
+     "wert": 25,
+     "einheit": "min"
+    },
+    "c": "150 // 6",
+    "h": "Um wie viel Grad dreht sich der Minutenzeiger in einer Minute?",
+    "w": "In 60 Minuten 360°, also 6° je Minute. 150° : 6° = 25 Minuten."
+   }
+  },
+  {
+   "kennung": "GE3-09",
+   "thema": "geometrie.winkel",
+   "lernkarte": "drehungen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Osten",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 90° gedreht"
+    },
+    {
+     "index": 2,
+     "antwort": "Süden",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "180° gedreht"
+    },
+    {
+     "index": 3,
+     "antwort": "Südwesten",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "einen Schritt zu weit"
+    }
+   ],
+   "aufgabe": {
+    "l": "drehungen",
+    "t": "drehungen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Du schaust nach Norden und drehst dich im Uhrzeigersinn um 135°. In welche Richtung schaust du jetzt?"
+    },
+    "a": [
+     "Osten",
+     "Südosten",
+     "Süden",
+     "Südwesten"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Zwischen zwei Nachbarrichtungen liegen 45°.",
+    "w": "135° sind drei Schritte von 45°: Nordosten, Osten, Südosten."
+   }
+  },
+  {
+   "kennung": "GE3-10",
+   "thema": "geometrie.winkel",
+   "lernkarte": "drehungen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 225,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den längeren Weg genommen"
+    },
+    {
+     "antwort": 90,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur bis Norden gedreht"
+    },
+    {
+     "antwort": 180,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Gegenrichtung genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "drehungen",
+    "t": "drehungen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Du schaust nach Westen und drehst dich auf dem kürzesten Weg nach Nordosten. Um wie viel Grad drehst du dich?"
+    },
+    "o": {
+     "wert": 135,
+     "einheit": "°"
+    },
+    "c": "3 * 45",
+    "h": "Zähle die Schritte: Westen, Nordwesten, Norden, Nordosten.",
+    "w": "Drei Schritte von je 45°: 135°."
+   }
+  },
+  {
+   "kennung": "GE3-11",
+   "thema": "geometrie.winkel",
+   "lernkarte": "figuren",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 152,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auf 180° ergänzt"
+    },
+    {
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Teile für gleich gehalten"
+    }
+   ],
+   "aufgabe": {
+    "l": "figuren",
+    "t": "figuren",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "In einem Rechteck teilt die Diagonale eine Ecke in zwei Winkel. Einer hat 28°. Wie groß ist der andere?"
+    },
+    "o": {
+     "wert": 62,
+     "einheit": "°"
+    },
+    "c": "90 - 28",
+    "h": "Wie groß ist jede Ecke im Rechteck?",
+    "w": "Jede Ecke hat 90°. 90° − 28° = 62°."
+   }
+  },
+  {
+   "kennung": "GE3-12",
+   "thema": "geometrie.winkel",
+   "lernkarte": "kreuzung",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 110,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den größeren Winkel genannt"
+    },
+    {
+     "antwort": 140,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "180 − 40 nicht halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "kreuzung",
+    "t": "kreuzung",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei Geraden schneiden sich. Ein Winkel ist um 40° größer als sein Nachbarwinkel. Wie groß ist der kleinere der beiden?"
+    },
+    "o": {
+     "wert": 70,
+     "einheit": "°"
+    },
+    "c": "(180 - 40) // 2",
+    "h": "Beide zusammen ergeben 180°.",
+    "w": "Kleiner Winkel x, großer x + 40°. Zusammen 2x + 40° = 180°, also x = 70°."
+   }
+  },
+  {
+   "kennung": "GE3-13",
+   "thema": "geometrie.winkel",
+   "lernkarte": "uhr",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 90,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie Kim: Stundenzeiger auf der 3 festgehalten"
+    },
+    {
+     "antwort": 105,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 15° dazugezählt statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "uhr",
+    "t": "uhr",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "zahl",
+    "f": {
+     "text": "Es ist 3:30 Uhr. Kim sagt: „Der Stundenzeiger steht auf der 3, der Minutenzeiger auf der 6. Der Winkel ist 90°.“ Wie groß ist der Winkel zwischen den Zeigern wirklich?"
+    },
+    "o": {
+     "wert": 75,
+     "einheit": "°"
+    },
+    "c": "90 - 30 // 2",
+    "h": "Bleibt der Stundenzeiger eine halbe Stunde lang auf der 3 stehen?",
+    "w": "In 30 Minuten wandert der Stundenzeiger 15° weiter Richtung 4. Der Winkel ist 90° − 15° = 75°."
+   }
+  },
+  {
+   "kennung": "GE3-14",
+   "thema": "geometrie.winkel",
+   "lernkarte": "figuren",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ecke in drei gleiche Teile geteilt"
+    },
+    {
+     "antwort": 22.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den äußeren Winkel genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "figuren",
+    "t": "figuren",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Ecke eines Quadrats wird durch zwei Linien in drei Winkel geteilt. Der mittlere ist doppelt so groß wie jeder der beiden äußeren. Wie groß ist der mittlere Winkel?"
+    },
+    "o": {
+     "wert": 45,
+     "einheit": "°"
+    },
+    "c": "90 / 4 * 2",
+    "h": "Die drei Teile ergeben zusammen 90°. Wie viele „äußere Winkel“ sind das?",
+    "w": "Äußerer Winkel x, mittlerer 2x: x + 2x + x = 90°, also x = 22,5°. Der mittlere hat 45°."
+   }
+  },
+  {
+   "kennung": "GE3-15",
+   "thema": "geometrie.winkel",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Das stimmt immer.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "kein Gegenbeispiel gesucht"
+    },
+    {
+     "index": 1,
+     "antwort": "Das stimmt nie.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "90° und 90° ist ein Fall, in dem es stimmt"
+    },
+    {
+     "index": 3,
+     "antwort": "Das stimmt, denn 90° + 90° = 180°.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Beispiel beweist kein „immer“"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Behauptung: „Zwei Winkel, die zusammen 180° ergeben, sind immer gleich groß.“ Was stimmt?"
+    },
+    "a": [
+     "Das stimmt immer.",
+     "Das stimmt nie.",
+     "Das stimmt nicht immer: 70° und 110° ergeben 180° und sind verschieden.",
+     "Das stimmt, denn 90° + 90° = 180°."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Suche ein Gegenbeispiel.",
+    "w": "70° + 110° = 180°, aber 70° ist nicht 110°. Ein Gegenbeispiel genügt. Gleich groß sind sie nur bei 90° und 90°."
+   }
+  },
+  {
+   "kennung": "GE3-B1",
+   "thema": "geometrie.winkel",
+   "lernkarte": "ergaenzen",
+   "stufe": 1,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "ergaenzen",
+    "t": "ergaenzen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne zwei verschiedene Winkel (ganze Grad), die zusammen einen rechten Winkel ergeben. Beide sollen größer als 20° sein.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "beide größer als 20°",
+       "pruefe": [
+        ">",
+        [
+         "min",
+         "$alle"
+        ],
+        20
+       ],
+       "zeige": [
+        "min",
+        "$alle"
+       ],
+       "hinweis": "Dein kleinerer Winkel hat {}°."
+      },
+      {
+       "name": "verschieden",
+       "pruefe": [
+        "verschieden",
+        "$alle"
+       ],
+       "hinweis": "Die zwei Winkel sollen verschieden sein."
+      },
+      {
+       "name": "zusammen ein rechter Winkel",
+       "pruefe": [
+        "=",
+        [
+         "summe",
+         "$alle"
+        ],
+        90
+       ],
+       "zeige": [
+        "summe",
+        "$alle"
+       ],
+       "hinweis": "Deine Winkel ergeben zusammen {}°."
+      }
+     ],
+     "beispiel": [
+      30,
+      60
+     ],
+     "gut": [
+      [
+       21,
+       69
+      ],
+      [
+       50,
+       40
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        10,
+        80
+       ],
+       "verletzt": "beide größer als 20°"
+      },
+      {
+       "werte": [
+        45,
+        45
+       ],
+       "verletzt": "verschieden"
+      },
+      {
+       "werte": [
+        30,
+        70
+       ],
+       "verletzt": "zusammen ein rechter Winkel"
+      }
+     ]
+    },
+    "h": "Wie groß ist ein rechter Winkel?",
+    "w": "Ein rechter Winkel hat 90°. Zum Beispiel 30° und 60°."
+   }
+  },
+  {
+   "kennung": "GE3-B2",
+   "thema": "geometrie.winkel",
+   "lernkarte": "kreuzung",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "kreuzung",
+    "t": "kreuzung",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Zwei Geraden schneiden sich. Nenne die vier Winkel der Reihe nach im Kreis herum. Der erste soll stumpf sein.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "erster Winkel stumpf",
+       "pruefe": [
+        "und",
+        [
+         ">",
+         "$1",
+         90
+        ],
+        [
+         "<",
+         "$1",
+         180
+        ]
+       ],
+       "zeige": "$1",
+       "hinweis": "Dein erster Winkel hat {}°."
+      },
+      {
+       "name": "gegenüberliegende Winkel passen",
+       "pruefe": [
+        "und",
+        [
+         "=",
+         "$1",
+         "$3"
+        ],
+        [
+         "=",
+         "$2",
+         "$4"
+        ]
+       ],
+       "hinweis": "Bei dir sind gegenüberliegende Winkel nicht gleich groß."
+      },
+      {
+       "name": "Nachbarwinkel passen",
+       "pruefe": [
+        "=",
+        [
+         "+",
+         "$1",
+         "$2"
+        ],
+        180
+       ],
+       "zeige": [
+        "+",
+        "$1",
+        "$2"
+       ],
+       "hinweis": "Dein erster und dein zweiter Winkel ergeben zusammen {}°."
+      }
+     ],
+     "beispiel": [
+      120,
+      60,
+      120,
+      60
+     ],
+     "gut": [
+      [
+       91,
+       89,
+       91,
+       89
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        60,
+        120,
+        60,
+        120
+       ],
+       "verletzt": "erster Winkel stumpf"
+      },
+      {
+       "werte": [
+        120,
+        60,
+        110,
+        70
+       ],
+       "verletzt": "gegenüberliegende Winkel passen"
+      },
+      {
+       "werte": [
+        120,
+        70,
+        120,
+        70
+       ],
+       "verletzt": "Nachbarwinkel passen"
+      }
+     ]
+    },
+    "h": "Der erste und der dritte Winkel liegen sich gegenüber.",
+    "w": "Zum Beispiel 120°, 60°, 120°, 60°: Gegenüber gleich, nebeneinander zusammen 180°."
+   }
+  },
+  {
+   "kennung": "GE3-B3",
+   "thema": "geometrie.winkel",
+   "lernkarte": "um_punkt",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "um_punkt",
+    "t": "um_punkt",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne drei verschiedene Winkel (ganze Grad), die zusammen genau um einen Punkt herum passen. Einer davon soll überstumpf sein, also größer als 180°.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "jeder Winkel größer als 0°",
+       "pruefe": [
+        ">",
+        [
+         "min",
+         "$alle"
+        ],
+        0
+       ],
+       "zeige": [
+        "min",
+        "$alle"
+       ],
+       "hinweis": "Dein kleinster Winkel hat {}°."
+      },
+      {
+       "name": "verschieden",
+       "pruefe": [
+        "verschieden",
+        "$alle"
+       ],
+       "hinweis": "Die drei Winkel sollen verschieden sein."
+      },
+      {
+       "name": "passen genau um einen Punkt",
+       "pruefe": [
+        "=",
+        [
+         "summe",
+         "$alle"
+        ],
+        360
+       ],
+       "zeige": [
+        "summe",
+        "$alle"
+       ],
+       "hinweis": "Deine Winkel ergeben zusammen {}°."
+      },
+      {
+       "name": "einer ist überstumpf",
+       "pruefe": [
+        "=",
+        [
+         "anzahl_positiv",
+         [
+          "liste",
+          [
+           "-",
+           "$1",
+           180
+          ],
+          [
+           "-",
+           "$2",
+           180
+          ],
+          [
+           "-",
+           "$3",
+           180
+          ]
+         ]
+        ],
+        1
+       ],
+       "zeige": [
+        "max",
+        "$alle"
+       ],
+       "hinweis": "Dein größter Winkel hat {}°."
+      }
+     ],
+     "beispiel": [
+      200,
+      100,
+      60
+     ],
+     "gut": [
+      [
+       181,
+       100,
+       79
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        200,
+        170,
+        -10
+       ],
+       "verletzt": "jeder Winkel größer als 0°"
+      },
+      {
+       "werte": [
+        200,
+        80,
+        80
+       ],
+       "verletzt": "verschieden"
+      },
+      {
+       "werte": [
+        200,
+        100,
+        50
+       ],
+       "verletzt": "passen genau um einen Punkt"
+      },
+      {
+       "werte": [
+        150,
+        120,
+        90
+       ],
+       "verletzt": "einer ist überstumpf"
+      }
+     ]
+    },
+    "h": "Wie viel Grad hat der volle Winkel?",
+    "w": "Zusammen 360°. Zum Beispiel 200°, 100° und 60°."
+   }
+  },
+  {
+   "kennung": "GE3-B4",
+   "thema": "geometrie.winkel",
+   "lernkarte": "uhr",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "uhr",
+    "t": "uhr",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne eine volle Stunde (1 bis 12), zu der der kleinere Winkel zwischen den beiden Zeigern größer als 90° ist, aber kein gestreckter Winkel.",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "volle Stunde von 1 bis 12",
+       "pruefe": [
+        "und",
+        [
+         ">=",
+         "$1",
+         1
+        ],
+        [
+         "<=",
+         "$1",
+         12
+        ]
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine Zahl ist {}."
+      },
+      {
+       "name": "Winkel größer als 90°",
+       "pruefe": [
+        ">",
+        [
+         "min",
+         [
+          "liste",
+          [
+           "*",
+           30,
+           "$1"
+          ],
+          [
+           "-",
+           360,
+           [
+            "*",
+            30,
+            "$1"
+           ]
+          ]
+         ]
+        ],
+        90
+       ],
+       "zeige": [
+        "min",
+        [
+         "liste",
+         [
+          "*",
+          30,
+          "$1"
+         ],
+         [
+          "-",
+          360,
+          [
+           "*",
+           30,
+           "$1"
+          ]
+         ]
+        ]
+       ],
+       "hinweis": "Zu deiner Uhrzeit ist der Winkel {}°."
+      },
+      {
+       "name": "kein gestreckter Winkel",
+       "pruefe": [
+        "!=",
+        [
+         "min",
+         [
+          "liste",
+          [
+           "*",
+           30,
+           "$1"
+          ],
+          [
+           "-",
+           360,
+           [
+            "*",
+            30,
+            "$1"
+           ]
+          ]
+         ]
+        ],
+        180
+       ],
+       "zeige": [
+        "min",
+        [
+         "liste",
+         [
+          "*",
+          30,
+          "$1"
+         ],
+         [
+          "-",
+          360,
+          [
+           "*",
+           30,
+           "$1"
+          ]
+         ]
+        ]
+       ],
+       "hinweis": "Zu deiner Uhrzeit ist der Winkel {}° – das ist ein gestreckter Winkel."
+      }
+     ],
+     "beispiel": [
+      4
+     ],
+     "gut": [
+      [
+       5
+      ],
+      [
+       7
+      ],
+      [
+       8
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        13
+       ],
+       "verletzt": "volle Stunde von 1 bis 12"
+      },
+      {
+       "werte": [
+        3
+       ],
+       "verletzt": "Winkel größer als 90°"
+      },
+      {
+       "werte": [
+        6
+       ],
+       "verletzt": "kein gestreckter Winkel"
+      },
+      {
+       "werte": [
+        11
+       ],
+       "verletzt": "Winkel größer als 90°"
+      }
+     ]
+    },
+    "h": "Zwischen zwei Zahlen auf der Uhr liegen 30°.",
+    "w": "Um 4 Uhr sind es 4 · 30° = 120°. Es passen 4, 5, 7 und 8 Uhr."
+   }
+  },
+  {
+   "kennung": "GE3-B5",
+   "thema": "geometrie.winkel",
+   "lernkarte": "drehungen",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "drehungen",
+    "t": "drehungen",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "bedingung",
+    "f": {
+     "text": "Du drehst dich zweimal nacheinander im Uhrzeigersinn. Jede Drehung ist ein Vielfaches von 45°, größer als 0° und kleiner als 360°. Die erste Drehung ist kleiner als die zweite. Am Ende schaust du genau in die Gegenrichtung. Nenne beide Drehungen in Grad.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "Vielfache von 45° zwischen 0° und 360°",
+       "pruefe": [
+        "und",
+        [
+         "teilbar",
+         "$1",
+         45
+        ],
+        [
+         "teilbar",
+         "$2",
+         45
+        ],
+        [
+         ">",
+         [
+          "min",
+          "$alle"
+         ],
+         0
+        ],
+        [
+         "<",
+         [
+          "max",
+          "$alle"
+         ],
+         360
+        ]
+       ],
+       "hinweis": "Jede Drehung soll ein Vielfaches von 45° sein, größer als 0° und kleiner als 360°."
+      },
+      {
+       "name": "erste Drehung kleiner als die zweite",
+       "pruefe": [
+        "<",
+        "$1",
+        "$2"
+       ],
+       "hinweis": "Deine erste Drehung ist nicht kleiner als die zweite."
+      },
+      {
+       "name": "am Ende Gegenrichtung",
+       "pruefe": [
+        "oder",
+        [
+         "=",
+         [
+          "summe",
+          "$alle"
+         ],
+         180
+        ],
+        [
+         "=",
+         [
+          "summe",
+          "$alle"
+         ],
+         540
+        ]
+       ],
+       "zeige": [
+        "summe",
+        "$alle"
+       ],
+       "hinweis": "Zusammen drehst du dich um {}°."
+      }
+     ],
+     "beispiel": [
+      45,
+      135
+     ],
+     "gut": [
+      [
+       225,
+       315
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        40,
+        140
+       ],
+       "verletzt": "Vielfache von 45° zwischen 0° und 360°"
+      },
+      {
+       "werte": [
+        135,
+        45
+       ],
+       "verletzt": "erste Drehung kleiner als die zweite"
+      },
+      {
+       "werte": [
+        45,
+        90
+       ],
+       "verletzt": "am Ende Gegenrichtung"
+      },
+      {
+       "werte": [
+        90,
+        90
+       ],
+       "verletzt": "erste Drehung kleiner als die zweite"
+      }
+     ]
+    },
+    "h": "Um wie viel Grad muss man sich insgesamt drehen, um in die Gegenrichtung zu schauen?",
+    "w": "Insgesamt 180° (oder eine volle Drehung mehr: 540°). Zum Beispiel 45° und 135°."
+   }
+  }
+ ]
+}

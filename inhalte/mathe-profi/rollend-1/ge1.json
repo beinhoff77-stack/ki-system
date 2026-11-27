@@ -1,0 +1,1332 @@
+{
+ "stand": "2026-11-26",
+ "flug": "ge1",
+ "titel": "Formen und Grundbegriffe",
+ "fuer": "Kind 1",
+ "klasse": 5,
+ "hinweis": "Neue Aufgaben, rollendes System Stufe 1. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: erst die Aufgaben ohne Bau, dann die des Typs „bedingung“, jeweils mit aufsteigender Stufe.",
+ "aufgaben": [
+  {
+   "kennung": "GE1-01",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "koordinaten",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "fehlbild": "fb.abstand.koordinaten_vertauscht",
+     "regel_des_fehlbilds": "id.geometrie.abstand",
+     "beschreibung": "x und y vertauscht"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": "fb.abstand.koordinaten_vertauscht",
+     "regel_des_fehlbilds": "id.geometrie.abstand",
+     "beschreibung": "x und y vertauscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Vom Ursprung zum Punkt P(−4 | 3): erst ① Schritte nach links, dann ② Schritte nach oben.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine Anzahl von Schritten."
+    },
+    "o": {
+     "werte": [
+      4,
+      3
+     ]
+    },
+    "c": [
+     "abs(-4)",
+     "3"
+    ],
+    "h": "Die erste Zahl sagt rechts oder links, die zweite oben oder unten.",
+    "w": "x = −4: 4 Schritte nach links. y = 3: 3 Schritte nach oben."
+   }
+  },
+  {
+   "kennung": "GE1-02",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "strecken",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 3,
+     "antwort": 2,
+     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "5 − 3 gerechnet: die Null zwischen den Punkten übersehen"
+    }
+   ],
+   "aufgabe": {
+    "l": "strecken",
+    "t": "strecken",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "A(−3 | 2) und B(5 | 2) liegen auf einer waagrechten Linie. Von A bis zur y-Achse sind es ① Einheiten, von der y-Achse bis B sind es ②. Die Strecke [AB] ist ③ lang.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine Länge."
+    },
+    "o": {
+     "werte": [
+      3,
+      5,
+      8
+     ]
+    },
+    "c": [
+     "abs(-3)",
+     "5",
+     "5 - (-3)"
+    ],
+    "h": "Die Null liegt zwischen den beiden Punkten.",
+    "w": "Links der Achse 3, rechts 5, zusammen 8. Als Rechnung: 5 − (−3) = 8."
+   }
+  },
+  {
+   "kennung": "GE1-03",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "kreis_lage",
+   "stufe": 1,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "eine Sekante",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Abstand kleiner als der Radius angenommen"
+    },
+    {
+     "index": 2,
+     "antwort": "eine Passante",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Abstand größer als der Radius angenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "kreis_lage",
+    "t": "kreis_lage",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kreis hat den Radius 4 cm. Sein Mittelpunkt ist 4 cm von der Geraden g entfernt. Was ist g für diesen Kreis?"
+    },
+    "a": [
+     "eine Sekante",
+     "eine Tangente",
+     "eine Passante"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Vergleiche den Abstand mit dem Radius.",
+    "w": "Abstand und Radius sind gleich: g berührt den Kreis in genau einem Punkt. Das ist eine Tangente."
+   }
+  },
+  {
+   "kennung": "GE1-04",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "winkelarten",
+   "stufe": 1,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "spitz",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 360° − 200° verwechselt"
+    },
+    {
+     "index": 1,
+     "antwort": "stumpf",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "stumpf endet bei 180°"
+    },
+    {
+     "index": 2,
+     "antwort": "gestreckt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gestreckt ist genau 180°"
+    }
+   ],
+   "aufgabe": {
+    "l": "winkelarten",
+    "t": "winkelarten",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Winkel hat 200°. Welche Winkelart ist das?"
+    },
+    "a": [
+     "spitz",
+     "stumpf",
+     "gestreckt",
+     "überstumpf"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Vergleiche mit 90° und mit 180°.",
+    "w": "200° ist größer als 180° und kleiner als 360°: überstumpf."
+   }
+  },
+  {
+   "kennung": "GE1-05",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "vierecke",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Quadrat",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "rechte Winkel nicht geprüft"
+    },
+    {
+     "index": 2,
+     "antwort": "Rechteck",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Rechteck hat rechte Winkel"
+    },
+    {
+     "index": 3,
+     "antwort": "Trapez",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zu allgemein: nicht der genaueste Name"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke",
+    "t": "vierecke",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Viereck hat vier gleich lange Seiten, aber keinen rechten Winkel. Welcher Name ist der genaueste?"
+    },
+    "a": [
+     "Quadrat",
+     "Raute",
+     "Rechteck",
+     "Trapez"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Prüfe erst die Seiten, dann die Winkel.",
+    "w": "Vier gleich lange Seiten: Raute. Für ein Quadrat bräuchte es zusätzlich rechte Winkel."
+   }
+  },
+  {
+   "kennung": "GE1-06",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "strecken",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -6,
+     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "das Minus der −6 stehen gelassen"
+    }
+   ],
+   "aufgabe": {
+    "l": "strecken",
+    "t": "strecken",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei Wege für die Länge von [CD] mit C(2 | −6) und D(2 | 9). Weg A: 6 + 9. Weg B: 9 − (−6) = 9 + ?. Welche Zahl steht für das Fragezeichen?"
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "0 - (-6)",
+    "h": "Beide Wege müssen dieselbe Länge ergeben.",
+    "w": "Minus (−6) heißt plus 6. Beide Wege ergeben 15."
+   }
+  },
+  {
+   "kennung": "GE1-07",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "strecken",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "2 + 7 gerechnet: das Minus der −2 übersehen"
+    },
+    {
+     "antwort": -9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nach links statt nach rechts gegangen"
+    }
+   ],
+   "aufgabe": {
+    "l": "strecken",
+    "t": "strecken",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Die Strecke [EF] ist waagrecht und 7 Einheiten lang. E(−2 | 4), und F liegt rechts von E. Welche x-Koordinate hat F?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "-2 + 7",
+    "h": "Geh von E aus 7 Schritte nach rechts.",
+    "w": "−2 + 7 = 5, also F(5 | 4)."
+   }
+  },
+  {
+   "kennung": "GE1-08",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "lagebeziehungen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "4 − 2 gerechnet"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": "fb.abstand.koordinaten_vertauscht",
+     "regel_des_fehlbilds": "id.geometrie.abstand",
+     "beschreibung": "die x-Koordinate genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "lagebeziehungen",
+    "t": "lagebeziehungen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Die Gerade g ist die waagrechte Linie durch (0 | −2). Welchen Abstand hat der Punkt P(5 | 4) von g?"
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "4 - (-2)",
+    "h": "Der Abstand wird senkrecht gemessen. Welche Koordinate brauchst du?",
+    "w": "Senkrecht von y = 4 hinunter bis y = −2: 4 − (−2) = 6."
+   }
+  },
+  {
+   "kennung": "GE1-09",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "winkelarten",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 90,
+     "fehlbild": "fb.winkel.teil_der_drehung",
+     "regel_des_fehlbilds": "id.geometrie.winkel",
+     "beschreibung": "nur das fehlende Viertel genannt"
+    },
+    {
+     "antwort": 75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 100 statt 360 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "winkelarten",
+    "t": "winkelarten",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Zeiger dreht sich um drei Viertel einer vollen Drehung. Um wie viel Grad hat er sich gedreht?"
+    },
+    "o": {
+     "wert": 270
+    },
+    "c": "360 // 4 * 3",
+    "h": "Wie viel Grad hat eine volle Drehung? Und ein Viertel davon?",
+    "w": "Ein Viertel von 360° sind 90°. Drei Viertel sind 270°."
+   }
+  },
+  {
+   "kennung": "GE1-10",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "kreislinie",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von 0 statt von M aus gezählt"
+    },
+    {
+     "luecke": 1,
+     "antwort": 5,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "Vorzeichen verloren"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von 0 statt von M aus gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "kreislinie",
+    "t": "kreislinie",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "Welche Punkte auf der waagrechten Linie durch M(−1 | 2) haben von M den Abstand 4? Gib ihre x-Koordinaten an (kleinere zuerst).",
+     "schablone": "x = □ und x = □",
+     "hinweis": "Kleinere Zahl zuerst."
+    },
+    "o": {
+     "werte": [
+      -5,
+      3
+     ]
+    },
+    "c": [
+     "(-1) - 4",
+     "(-1) + 4"
+    ],
+    "h": "Geh von M aus nach links und nach rechts.",
+    "w": "4 nach links: −5. 4 nach rechts: 3."
+   }
+  },
+  {
+   "kennung": "GE1-11",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "parallelen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von der x-Achse statt von g aus gemessen"
+    },
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "3 − 1 statt 1 − 3"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von der x-Achse statt von g aus gemessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "parallelen",
+    "t": "parallelen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "g ist die waagrechte Linie durch (0 | 1). Alle Punkte mit dem Abstand 3 von g liegen auf zwei Parallelen. Durch welche y-Werte gehen sie (kleinerer zuerst)?",
+     "schablone": "y = □ und y = □",
+     "hinweis": "Kleinere Zahl zuerst."
+    },
+    "o": {
+     "werte": [
+      -2,
+      4
+     ]
+    },
+    "c": [
+     "1 - 3",
+     "1 + 3"
+    ],
+    "h": "Auf jeder Seite von g liegt eine Parallele.",
+    "w": "3 unter g: 1 − 3 = −2. 3 über g: 1 + 3 = 4."
+   }
+  },
+  {
+   "kennung": "GE1-12",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "sachsituationen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "eine Kreislinie mit Radius 6 m",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„genau 6 m“ statt „höchstens 6 m“ gelesen"
+    },
+    {
+     "index": 1,
+     "antwort": "ein Streifen von 6 m Breite",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Abstand zu einer Geraden statt zu einem Punkt"
+    },
+    {
+     "index": 3,
+     "antwort": "eine Kreisfläche mit Durchmesser 6 m",
+     "fehlbild": "fb.aus_dem_rechteck.durchmesser_statt_radius",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
+     "beschreibung": "Reichweite als Durchmesser genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachsituationen",
+    "t": "sachsituationen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Rasensprenger steht fest an einer Stelle und wirft das Wasser in alle Richtungen bis zu 6 m weit. Welche Form hat die nasse Fläche?"
+    },
+    "a": [
+     "eine Kreislinie mit Radius 6 m",
+     "ein Streifen von 6 m Breite",
+     "eine Kreisfläche mit Radius 6 m",
+     "eine Kreisfläche mit Durchmesser 6 m"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "„Bis zu 6 m“ heißt: höchstens 6 m entfernt.",
+    "w": "Alle Punkte, die höchstens 6 m vom Sprenger entfernt sind, bilden eine Kreisfläche mit Radius 6 m."
+   }
+  },
+  {
+   "kennung": "GE1-13",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "kreis_lage",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -4,
+     "fehlbild": "fb.abstand.nur_eine_seite",
+     "regel_des_fehlbilds": "id.geometrie.abstand",
+     "beschreibung": "die Tangente links von M genommen"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von 0 statt von M aus gemessen"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": "fb.abstand.koordinaten_vertauscht",
+     "regel_des_fehlbilds": "id.geometrie.abstand",
+     "beschreibung": "mit der y-Koordinate von M gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "kreis_lage",
+    "t": "kreis_lage",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Kreis um M(1 | 3) hat den Radius 5. Die Gerade h verläuft senkrecht (parallel zur y-Achse), liegt rechts von M und ist eine Tangente des Kreises. Durch welchen x-Wert geht h?"
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "1 + 5",
+    "h": "Wie weit ist eine Tangente vom Mittelpunkt entfernt?",
+    "w": "Eine Tangente hat vom Mittelpunkt genau den Abstand r. Rechts von M: 1 + 5 = 6."
+   }
+  },
+  {
+   "kennung": "GE1-14",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "zwei_kreise",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Radius als x-Koordinate genommen"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Länge von [AB] genannt"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die y-Koordinate eines Schnittpunkts genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_kreise",
+    "t": "zwei_kreise",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "A(0 | 0) und B(8 | 0). Ein Kreis um A und ein Kreis um B haben beide den Radius 5 und schneiden sich in zwei Punkten. Welche x-Koordinate haben beide Schnittpunkte?"
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "8 // 2",
+    "h": "Die Schnittpunkte sind von A und von B gleich weit entfernt.",
+    "w": "Beide Schnittpunkte sind von A und B gleich weit entfernt (je 5). Sie liegen deshalb über und unter der Mitte von [AB]: x = 4."
+   }
+  },
+  {
+   "kennung": "GE1-B1",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "koordinaten",
+   "stufe": 1,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne einen Punkt P(x | y), der links von der y-Achse und oberhalb der x-Achse liegt.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "links von der y-Achse",
+       "pruefe": [
+        "<",
+        "$1",
+        0
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine x-Koordinate ist {}."
+      },
+      {
+       "name": "oberhalb der x-Achse",
+       "pruefe": [
+        ">",
+        "$2",
+        0
+       ],
+       "zeige": "$2",
+       "hinweis": "Deine y-Koordinate ist {}."
+      }
+     ],
+     "beispiel": [
+      -3,
+      2
+     ],
+     "gut": [
+      [
+       -1,
+       1
+      ],
+      [
+       -20,
+       7
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        3,
+        2
+       ],
+       "verletzt": "links von der y-Achse"
+      },
+      {
+       "werte": [
+        -3,
+        -2
+       ],
+       "verletzt": "oberhalb der x-Achse"
+      },
+      {
+       "werte": [
+        0,
+        2
+       ],
+       "verletzt": "links von der y-Achse"
+      }
+     ]
+    },
+    "h": "Welche Zahl sagt links oder rechts, welche oben oder unten?",
+    "w": "Links heißt: x ist negativ. Oben heißt: y ist positiv."
+   }
+  },
+  {
+   "kennung": "GE1-B2",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "strecken",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "strecken",
+    "t": "strecken",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne zwei Punkte A(x | y) und B(x | y) auf derselben waagrechten Linie. A liegt links von der y-Achse, B rechts davon, und die Strecke [AB] ist genau 6 lang. Reihenfolge der Felder: x von A, y von A, x von B, y von B.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "gleiche Höhe",
+       "pruefe": [
+        "=",
+        "$2",
+        "$4"
+       ],
+       "hinweis": "Deine beiden Punkte liegen nicht auf derselben waagrechten Linie."
+      },
+      {
+       "name": "A links von der y-Achse",
+       "pruefe": [
+        "<",
+        "$1",
+        0
+       ],
+       "zeige": "$1",
+       "hinweis": "Die x-Koordinate von A ist {}."
+      },
+      {
+       "name": "B rechts von der y-Achse",
+       "pruefe": [
+        ">",
+        "$3",
+        0
+       ],
+       "zeige": "$3",
+       "hinweis": "Die x-Koordinate von B ist {}."
+      },
+      {
+       "name": "Länge 6",
+       "pruefe": [
+        "=",
+        [
+         "-",
+         "$3",
+         "$1"
+        ],
+        6
+       ],
+       "zeige": [
+        "-",
+        "$3",
+        "$1"
+       ],
+       "hinweis": "Deine Strecke ist {} lang."
+      }
+     ],
+     "beispiel": [
+      -2,
+      1,
+      4,
+      1
+     ],
+     "gut": [
+      [
+       -5,
+       0,
+       1,
+       0
+      ],
+      [
+       -1,
+       -3,
+       5,
+       -3
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        -2,
+        1,
+        4,
+        2
+       ],
+       "verletzt": "gleiche Höhe"
+      },
+      {
+       "werte": [
+        2,
+        1,
+        8,
+        1
+       ],
+       "verletzt": "A links von der y-Achse"
+      },
+      {
+       "werte": [
+        -8,
+        1,
+        -2,
+        1
+       ],
+       "verletzt": "B rechts von der y-Achse"
+      },
+      {
+       "werte": [
+        -2,
+        1,
+        3,
+        1
+       ],
+       "verletzt": "Länge 6"
+      }
+     ]
+    },
+    "h": "Die Null liegt zwischen den beiden Punkten.",
+    "w": "Links und rechts der Achse zusammen 6, zum Beispiel 2 links und 4 rechts."
+   }
+  },
+  {
+   "kennung": "GE1-B3",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "parallelen",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "parallelen",
+    "t": "parallelen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "g ist die waagrechte Linie durch (0 | 2). Nenne einen Punkt P(x | y), der rechts von der y-Achse liegt und von g genau den Abstand 3 hat.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "rechts von der y-Achse",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine x-Koordinate ist {}."
+      },
+      {
+       "name": "Abstand 3 von g",
+       "pruefe": [
+        "=",
+        [
+         "betrag",
+         [
+          "-",
+          "$2",
+          2
+         ]
+        ],
+        3
+       ],
+       "zeige": [
+        "betrag",
+        [
+         "-",
+         "$2",
+         2
+        ]
+       ],
+       "hinweis": "Dein Punkt hat von g den Abstand {}."
+      }
+     ],
+     "beispiel": [
+      1,
+      5
+     ],
+     "gut": [
+      [
+       4,
+       -1
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        -1,
+        5
+       ],
+       "verletzt": "rechts von der y-Achse"
+      },
+      {
+       "werte": [
+        1,
+        3
+       ],
+       "verletzt": "Abstand 3 von g"
+      },
+      {
+       "werte": [
+        1,
+        -3
+       ],
+       "verletzt": "Abstand 3 von g"
+      }
+     ]
+    },
+    "h": "Der Abstand wird senkrecht gemessen – nach oben oder nach unten.",
+    "w": "3 über g liegt y = 5, 3 unter g liegt y = −1. Die x-Koordinate ist frei, solange sie positiv ist."
+   }
+  },
+  {
+   "kennung": "GE1-B4",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "koordinaten",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Ein Rechteck hat seine Seiten parallel zu den Achsen und die Ecke A(−2 | 1). Nenne die gegenüberliegende Ecke C(x | y) so, dass das Rechteck 5 breit und 3 hoch ist.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "5 breit",
+       "pruefe": [
+        "=",
+        [
+         "betrag",
+         [
+          "-",
+          "$1",
+          -2
+         ]
+        ],
+        5
+       ],
+       "zeige": [
+        "betrag",
+        [
+         "-",
+         "$1",
+         -2
+        ]
+       ],
+       "hinweis": "Dein Rechteck ist {} breit."
+      },
+      {
+       "name": "3 hoch",
+       "pruefe": [
+        "=",
+        [
+         "betrag",
+         [
+          "-",
+          "$2",
+          1
+         ]
+        ],
+        3
+       ],
+       "zeige": [
+        "betrag",
+        [
+         "-",
+         "$2",
+         1
+        ]
+       ],
+       "hinweis": "Dein Rechteck ist {} hoch."
+      }
+     ],
+     "beispiel": [
+      3,
+      4
+     ],
+     "gut": [
+      [
+       -7,
+       -2
+      ],
+      [
+       3,
+       -2
+      ],
+      [
+       -7,
+       4
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        5,
+        4
+       ],
+       "verletzt": "5 breit"
+      },
+      {
+       "werte": [
+        3,
+        3
+       ],
+       "verletzt": "3 hoch"
+      }
+     ]
+    },
+    "h": "Von A aus kannst du nach rechts oder links und nach oben oder unten gehen.",
+    "w": "Von x = −2 aus 5 weiter: 3 oder −7. Von y = 1 aus 3 weiter: 4 oder −2. Es gibt vier richtige Ecken."
+   }
+  },
+  {
+   "kennung": "GE1-B5",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "winkelarten",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "winkelarten",
+    "t": "winkelarten",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne drei Winkel in Grad: zuerst einen spitzen, dann einen stumpfen, dann einen überstumpfen. Zusammen sollen sie genau 360° ergeben.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "erster Winkel spitz",
+       "pruefe": [
+        "und",
+        [
+         ">",
+         "$1",
+         0
+        ],
+        [
+         "<",
+         "$1",
+         90
+        ]
+       ],
+       "zeige": "$1",
+       "hinweis": "Dein erster Winkel hat {}°."
+      },
+      {
+       "name": "zweiter Winkel stumpf",
+       "pruefe": [
+        "und",
+        [
+         ">",
+         "$2",
+         90
+        ],
+        [
+         "<",
+         "$2",
+         180
+        ]
+       ],
+       "zeige": "$2",
+       "hinweis": "Dein zweiter Winkel hat {}°."
+      },
+      {
+       "name": "dritter Winkel überstumpf",
+       "pruefe": [
+        "und",
+        [
+         ">",
+         "$3",
+         180
+        ],
+        [
+         "<",
+         "$3",
+         360
+        ]
+       ],
+       "zeige": "$3",
+       "hinweis": "Dein dritter Winkel hat {}°."
+      },
+      {
+       "name": "zusammen 360°",
+       "pruefe": [
+        "=",
+        [
+         "summe",
+         "$alle"
+        ],
+        360
+       ],
+       "zeige": [
+        "summe",
+        "$alle"
+       ],
+       "hinweis": "Deine Winkel ergeben zusammen {}°."
+      }
+     ],
+     "beispiel": [
+      30,
+      120,
+      210
+     ],
+     "gut": [
+      [
+       10,
+       100,
+       250
+      ],
+      [
+       80,
+       95,
+       185
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        90,
+        120,
+        150
+       ],
+       "verletzt": "erster Winkel spitz"
+      },
+      {
+       "werte": [
+        30,
+        180,
+        150
+       ],
+       "verletzt": "zweiter Winkel stumpf"
+      },
+      {
+       "werte": [
+        30,
+        120,
+        180
+       ],
+       "verletzt": "dritter Winkel überstumpf"
+      },
+      {
+       "werte": [
+        30,
+        120,
+        200
+       ],
+       "verletzt": "zusammen 360°"
+      }
+     ]
+    },
+    "h": "Fang mit dem überstumpfen Winkel an: Wie viel bleibt dann für die beiden anderen?",
+    "w": "Zum Beispiel 30° (spitz), 120° (stumpf), 210° (überstumpf): 30 + 120 + 210 = 360."
+   }
+  }
+ ]
+}

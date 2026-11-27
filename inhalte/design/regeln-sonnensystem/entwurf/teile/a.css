@@ -1,0 +1,36 @@
+body[data-g="nacht"] { --planet-rand: rgba(255, 255, 255, .16); }
+body[data-g="hell"] { --planet-rand: rgba(17, 22, 29, .5); }
+body { background: var(--himmel-unten); }
+.kopf { position: absolute; left: 0; right: 0; top: 0; pointer-events: none; }
+.kopf-zurueck { pointer-events: auto; background: var(--flaeche); border: 1.5px solid var(--linie); padding: 0; width: 44px; justify-content: center; }
+.himmel { position: relative; overflow: hidden; min-height: 100dvh; }
+.himmel svg { display: block; }
+.himmel text { font-family: "Space Grotesk", system-ui, sans-serif; }
+.himmel text.name { font-size: 18px; font-weight: 700; fill: var(--text); paint-order: stroke; stroke: var(--himmel-unten); stroke-width: 6px; stroke-linejoin: round; }
+.himmel text.unter { font-size: 16px; font-weight: 500; fill: var(--leise); paint-order: stroke; stroke: var(--himmel-unten); stroke-width: 6px; stroke-linejoin: round; }
+.himmel text.titel { font-size: 22px; font-weight: 700; fill: var(--text); paint-order: stroke; stroke: var(--himmel-unten); stroke-width: 6px; stroke-linejoin: round; }
+.planet { cursor: pointer; outline: none; }
+.planet:hover text.name { text-decoration: underline; text-underline-offset: 3px; }
+.planet:focus-visible > circle:first-child { stroke: var(--text); stroke-width: 3px; stroke-dasharray: 5 4; }
+.planet.sonne:focus-visible > circle:first-child { stroke: var(--text); stroke-width: 5px; stroke-dasharray: none; }
+.planet.guertel:focus-visible rect { stroke: var(--text); stroke-width: 3px; }
+.kreisen { animation: kreisen 50s linear infinite; }
+@keyframes kreisen { to { transform: rotate(360deg); } }
+.anflug { animation: anflug .9s cubic-bezier(.2, .8, .2, 1) backwards; }
+@keyframes anflug { from { transform: rotate(-16deg); opacity: 0; } }
+.schild { animation: schild .4s ease backwards; }
+@keyframes schild { from { opacity: 0; } }
+.funkeln { animation: funkeln 5s ease-in-out infinite; }
+@keyframes funkeln { 50% { opacity: .12; } }
+.schein { animation: schein 7s ease-in-out infinite; }
+@keyframes schein { 50% { opacity: .6; } }
+.warten { animation: funkeln 1.4s ease-in-out infinite; }
+body[data-ruhe="1"] .himmel *, body.still .anflug, body.still .schild { animation: none !important; }
+.stoerung { position: absolute; left: 50%; top: 44%; transform: translate(-50%, -50%); width: min(340px, calc(100% - 32px)); background: var(--flaeche); border-radius: 18px; padding: 18px 16px 16px; box-shadow: var(--schatten); text-align: center; }
+.stoerung p { margin: 0 0 6px; } .stoerung .haupt { margin-top: 12px; }
+.a-legende { position: absolute; left: 0; right: 0; bottom: 10px; display: flex; justify-content: center; pointer-events: none; }
+.a-legende .legende { margin: 0; justify-content: center; background: var(--himmel-unten); border-radius: 999px; padding: 4px 14px; }
+@media (min-width: 900px) { .a-legende { justify-content: flex-start; left: 20px; bottom: 14px; } }
+.ankunft { animation: ankunft 1.1s ease-out .2s 2 backwards; }
+@keyframes ankunft { from { transform: scale(1); opacity: .9; } to { transform: scale(2.6); opacity: 0; } }
+@media (min-width: 600px) { .himmel text.name { font-size: 21px; } .himmel text.unter { font-size: 17px; } .himmel text.titel { font-size: 26px; } .a-legende .legende { font-size: 17px; } }

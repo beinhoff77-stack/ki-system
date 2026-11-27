@@ -2,6 +2,23 @@
 
 Neueste Meldung oben.
 
+## 2026-11-25 – LETZTER STAND (lehrplan-lb, vor dem Archivieren)
+
+- **Hochgeladen:** Die Arbeitsskripte lagen bisher nur in der Arbeitsumgebung. Sie stehen jetzt in `inhalte/pruefung/lehrplan/werkzeuge/` (mit `LIESMICH.md`).
+  - Die Lese-Abzüge aus der echten DB und der Lernstand der Kinder sind bewusst nicht im Repo.
+- **Alles andere ist auf den Zweigen:**
+  - `lehrplan-lb`: LP-RS, LK-D 1–4, LK-D Einspiel, NT-D, NT-D 2, NT-D 3.
+  - `pruefung-kinderansicht`: Vorgabe EX, Nachprüfung 0.89.1.
+  - Werkstatt-Prüfergebnisse 952 und 958 stehen in der Werkstatt.
+- **Offene Befunde, nicht von mir zu erledigen (stehen in den jeweiligen Meldungen):**
+  - 48 bzw. 58 Etappen „Vertiefung in der Themendatei, aber Pflicht nach Lehrplan“: Sebastian/TL-S entscheidet (LK-D 4).
+  - Pflicht je Schulart für **ungeteilte** Themen (z. B. 1, 31, 20, 47, 99) ist in der DB noch nicht gesetzt. Der Vorrat dafür ist mit NT-D 3 schon aufgefüllt.
+  - Expedition `8-schulfest` verweist noch auf `stochastik.grundbegriffe_teil2` (Prüfskript-Fehler seit 83ada52) → `bau-lehrer`.
+  - `stufe_etappen` bei leerer Pflichtliste: alle Etappen (Werkstatt 952/958, kein Muss).
+  - LW-3: N4–N7 aus der Nachprüfung 0.89.1.
+  - Annahmen in der Vorgabe EX: Minuten je Teil, neue Serverfelder (EX-S).
+- **Offene Zusagen:** keine. Die Nachlieferung der Nachtest-Aufgaben aus 958 ist mit NT-D 3 erledigt.
+
 ## 2026-11-23 – MELDUNG NT-D 3 (lehrplan-lb)
 
 Grundlage: `lernen-app` 83ada52, „Bau-Auftrag NT“, „Rückläufer Prüfung 951“, Werkstatt 958. Nichts eingespielt.

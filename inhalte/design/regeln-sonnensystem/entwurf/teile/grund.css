@@ -1,0 +1,136 @@
+/* Grundlage aller Entwürfe „Regeln am Himmel“. Farben = Gestaltung „Abflug hell“ / „Abflug dunkel“ der App (style.css Z. 3641/3644), ergänzt um Himmel und Planeten. */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { font-family: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 18px; font-weight: 500; line-height: 1.35;
+  background: var(--bg); color: var(--text); -webkit-text-size-adjust: 100%; }
+body[data-g="nacht"] { color-scheme: dark;
+  --bg: #0B0F14; --flaeche: #151B24; --flaeche2: #1D2530; --text: #F2F4F7; --leise: #A9B3C1; --akzent: #FFD23F; --akzent-tief: #C79E1C; --auf-akzent: #11161D; --linie: #2E3947; --gut: #45E0A0; --kurs: #FFAD7A; --kurs-bg: #33201A;
+  --himmel-oben: #060911; --himmel-unten: #0B0F14; --bahn: #334154; --stern: #F2F4F7; --sonne: #FFD23F; --sonne-rand: #FFE58A; --sonne-schein: rgba(255, 210, 63, .22);
+  --schleier: rgba(3, 5, 9, .62); --schatten: 0 18px 50px rgba(0, 0, 0, .55); --marke: #FFD23F; --marke-text: #11161D; --grenze-bg: #2A1A1C; --grenze-rand: #FF8A8A; --grenze-text: #FFC9C9; }
+body[data-g="hell"] { color-scheme: light;
+  --bg: #F3F1EA; --flaeche: #FFFFFF; --flaeche2: #F3F1EA; --text: #11161D; --leise: #4A5563; --akzent: #FFD23F; --akzent-tief: #C79E1C; --auf-akzent: #11161D; --linie: #C9C4B6; --gut: #0B7A4B; --kurs: #A8410F; --kurs-bg: #FFE9DC;
+  --himmel-oben: #ECE8DC; --himmel-unten: #F3F1EA; --bahn: #BDB7A6; --stern: #A39C88; --sonne: #FFD23F; --sonne-rand: #C79E1C; --sonne-schein: rgba(255, 210, 63, .30);
+  --schleier: rgba(17, 22, 29, .38); --schatten: 0 18px 44px rgba(17, 22, 29, .22); --marke: #FFD23F; --marke-text: #11161D; --grenze-bg: #FFF0EE; --grenze-rand: #B3261E; --grenze-text: #7A1712; }
+:root { --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace; --radius: 18px; --radius-klein: 14px; }
+button { font: inherit; color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--akzent); outline-offset: 2px; }
+body[data-g="hell"] button:focus-visible, body[data-g="hell"] [tabindex]:focus-visible { outline-color: #11161D; }
+.nur-vorleser { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Kopf: eine Zeile, 56 px */
+.kopf { height: 56px; display: flex; align-items: center; gap: 8px; padding: 0 8px 0 6px; position: relative; z-index: 3; }
+.kopf-zurueck { min-width: 44px; height: 44px; border-radius: 12px; border: 0; background: transparent; display: inline-flex; align-items: center; gap: 6px; padding: 0 10px 0 6px; font-weight: 600; font-size: 16px; }
+.kopf-zurueck:hover { background: var(--flaeche2); }
+.kopf-zurueck svg { width: 22px; height: 22px; }
+.kopf-titel { font-size: 18px; font-weight: 700; margin: 0; flex: 1; text-align: center; padding-right: 44px; }
+
+/* Knöpfe */
+.haupt { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 56px; border: 0; border-radius: 16px; background: var(--akzent); color: var(--auf-akzent); font-weight: 700; font-size: 18px; padding: 10px 18px; box-shadow: 0 3px 0 var(--akzent-tief); }
+.haupt:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--akzent-tief); }
+.zweit { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; border: 1.5px solid var(--linie); border-radius: 14px; background: var(--flaeche); color: var(--text); font-weight: 600; font-size: 16px; padding: 8px 16px; }
+.zweit:hover { border-color: var(--leise); }
+.leise { color: var(--leise); }
+.ueber { font-family: var(--mono); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--leise); font-weight: 600; margin: 0; }
+
+/* Zustands-Zeichen: Form, nie nur Farbe */
+.mond { display: inline-block; width: 14px; height: 14px; border-radius: 50%; flex: none; vertical-align: -1px; }
+.mond.sitzt { background: var(--text); border: 2px solid var(--text); }
+.mond.arbeit { background: transparent; border: 2.5px solid var(--text); }
+.mond.spaeter { background: transparent; border: 2px dotted var(--leise); }
+.mond.aus { display: none; }
+
+/* Blatt (Planet, Sonne, Gürtel, Regel-Karte) */
+.schleier { position: fixed; inset: 0; background: var(--schleier); z-index: 20; opacity: 0; pointer-events: none; transition: opacity .2s ease; }
+.schleier.offen { opacity: 1; pointer-events: auto; }
+.blatt { position: fixed; z-index: 21; left: 0; right: 0; bottom: 0; max-height: 92dvh; background: var(--flaeche); border-radius: 24px 24px 0 0; box-shadow: var(--schatten); display: flex; flex-direction: column; transform: translateY(105%); transition: transform .28s cubic-bezier(.2, .8, .2, 1); visibility: hidden; }
+.blatt.offen { transform: none; visibility: visible; }
+.blatt.voll { top: 0; max-height: none; border-radius: 0; }
+.blatt-kopf { display: flex; align-items: center; gap: 10px; padding: 10px 10px 6px 16px; flex: none; min-height: 60px; }
+.blatt-kopf h2 { margin: 0; font-size: 22px; font-weight: 700; flex: 1; line-height: 1.15; }
+.blatt-kopf .ueber { margin-bottom: 2px; }
+.zu { width: 44px; height: 44px; border-radius: 12px; border: 1.5px solid var(--linie); background: var(--flaeche); display: inline-flex; align-items: center; justify-content: center; flex: none; }
+.zu svg { width: 20px; height: 20px; }
+.blatt-inhalt { overflow-y: auto; padding: 4px 16px 20px; flex: 1; overscroll-behavior: contain; }
+.blatt-fuss { flex: none; padding: 10px 16px calc(12px + env(safe-area-inset-bottom)); border-top: 1px solid var(--linie); background: var(--flaeche); }
+@media (min-width: 820px) {
+  .blatt { left: auto; right: 16px; top: 16px; bottom: 16px; width: 460px; max-height: none; border-radius: 24px; transform: translateX(calc(100% + 32px)); }
+  .blatt.voll { top: 16px; border-radius: 24px; }
+  .blatt.offen { transform: none; }
+}
+@media (min-width: 1200px) { .blatt { width: 520px; } }
+
+/* Zeilen in den Blättern */
+.zeile { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 64px; text-align: left; border: 1.5px solid var(--linie); border-radius: var(--radius-klein); background: var(--flaeche); padding: 10px 12px 10px 14px; margin-top: 8px; }
+.zeile:hover { border-color: var(--leise); }
+.zeile b { display: block; font-size: 18px; font-weight: 700; line-height: 1.2; }
+.zeile span.satz { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 16px; color: var(--leise); line-height: 1.3; margin-top: 2px; }
+.zeile .txt { flex: 1; min-width: 0; }
+.zeile .pfeil { flex: none; color: var(--leise); font-size: 22px; line-height: 1; }
+.zeile .nr { font-family: var(--mono); font-size: 14px; color: var(--leise); flex: none; width: 22px; text-align: right; }
+.legende { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 16px; color: var(--leise); margin: 14px 2px 0; }
+.legende span { display: inline-flex; align-items: center; gap: 7px; }
+.hinweis { font-size: 16px; color: var(--leise); margin: 12px 2px 0; }
+
+/* Regel-Karte */
+.rk-satz { font-size: 22px; font-weight: 700; line-height: 1.22; margin: 6px 0 4px; text-wrap: balance; }
+.rk-satz2 { font-size: 17px; color: var(--leise); margin: 0 0 4px; }
+.rk-teil { margin-top: 20px; }
+.rk-teil > .ueber { margin-bottom: 8px; }
+.rk-bild { border: 1.5px solid var(--linie); border-radius: var(--radius); background: var(--flaeche2); padding: 10px 8px 6px; }
+.rk-bild svg { display: block; width: 100%; height: auto; }
+.rk-bild figcaption { font-size: 16px; color: var(--leise); text-align: center; padding: 4px 8px 6px; }
+.gewand { display: flex; flex-direction: column; gap: 8px; }
+.gewand button { display: block; width: 100%; text-align: left; border: 1.5px solid var(--linie); border-radius: var(--radius-klein); background: var(--flaeche); padding: 8px 12px 10px; min-height: 64px; }
+.gewand button[aria-pressed="true"] { border-color: var(--text); box-shadow: inset 4px 0 0 var(--akzent); }
+.gewand .ueber { display: flex; justify-content: space-between; align-items: center; }
+.gewand .zeigt { font-family: "Space Grotesk", system-ui, sans-serif; letter-spacing: 0; text-transform: none; font-size: 16px; font-weight: 500; }
+.blatt:focus { outline: none; }
+@media (max-width: 379px) { .gewand .rechnung { font-size: 15.5px; } .rechnung .f { padding: 2px 4px; } }
+.rechnung { font-family: var(--mono); font-size: 17px; font-weight: 600; line-height: 1.9; white-space: nowrap; display: block; margin-top: 2px; }
+.rechnung .f { background: var(--marke); color: var(--marke-text); border-radius: 6px; padding: 2px 5px; }
+.rechnung .d { border-bottom: 3px solid var(--kurs); padding-bottom: 1px; }
+.br { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-size: .78em; line-height: 1.05; margin: 0 1px; }
+.br i { font-style: normal; padding: 0 2px; }
+.br i:first-child { border-bottom: 2px solid currentColor; }
+.grenze { border: 1.5px dashed var(--grenze-rand); background: var(--grenze-bg); border-radius: var(--radius); padding: 12px 14px 14px; }
+.grenze .ueber { color: var(--grenze-text); }
+.grenze p { margin: 6px 0 0; font-size: 17px; }
+.grenze .rechnung { font-size: 16px; }
+.grenze .ungleich { color: var(--grenze-text); font-size: 1.25em; padding: 0 2px; }
+.grenze .rechnung { white-space: normal; line-height: 1.7; margin-top: 6px; }
+.probe { border: 1.5px solid var(--linie); border-radius: var(--radius); padding: 12px 14px 14px; background: var(--flaeche); }
+.probe p { margin: 0 0 10px; font-size: 17px; }
+.probe-wahl { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 16px; }
+.probe-wahl button { min-width: 48px; min-height: 48px; border-radius: 12px; border: 1.5px solid var(--linie); background: var(--flaeche); font-family: var(--mono); font-weight: 700; font-size: 18px; }
+.probe-wahl button[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+.probe-seiten { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 10px; }
+.probe-seiten div { border-radius: 12px; background: var(--flaeche2); padding: 8px 12px; display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 10px; }
+.probe-seiten small { grid-column: 1 / -1; }
+.probe-seiten small { display: block; font-size: 16px; color: var(--leise); }
+.probe-seiten .rechnung { font-size: 16px; line-height: 1.5; margin: 0; }
+.probe-seiten strong { font-family: var(--mono); font-size: 22px; }
+.probe-gleich { margin: 10px 0 0; font-size: 17px; font-weight: 700; display: flex; gap: 8px; align-items: center; }
+.probe-gleich svg { width: 22px; height: 22px; color: var(--gut); flex: none; }
+.orte { list-style: none; margin: 0; padding: 0; border-radius: var(--radius-klein); overflow: hidden; background: #05080C; color: #E9EDF2; font-family: var(--mono); }
+body[data-g="hell"] .orte { background: #11161D; }
+.orte li { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: baseline; padding: 10px 12px; border-top: 1px solid #1F2733; font-size: 16px; }
+.orte li:first-child { border-top: 0; }
+.orte .ort { color: #FFD23F; font-weight: 700; letter-spacing: .1em; }
+.orte .kl { color: #A9B3C1; font-size: 14px; }
+.rk-ruf { display: flex; gap: 12px; align-items: center; border-radius: var(--radius); background: var(--kurs-bg); color: var(--text); padding: 12px 14px; margin: 4px 0 10px; font-size: 17px; font-weight: 600; }
+.rk-ruf svg { width: 26px; height: 26px; flex: none; color: var(--kurs); }
+.rk-fuss-klein { font-size: 16px; color: var(--leise); text-align: center; margin: 8px 0 0; }
+
+/* Entwurfs-Schalter: gehört nicht zur App */
+.entwurf { position: fixed; left: 10px; bottom: 10px; z-index: 50; font-family: system-ui, sans-serif; font-size: 13px; }
+.entwurf > button { border: 1px solid #8884; background: #1f2937; color: #fff; border-radius: 999px; padding: 7px 12px; font: inherit; opacity: .85; }
+.entwurf-feld { position: absolute; left: 0; bottom: 40px; width: 268px; background: #1f2937; color: #fff; border-radius: 14px; padding: 12px; box-shadow: 0 10px 30px #0008; display: none; }
+.entwurf.offen .entwurf-feld { display: block; }
+.entwurf-feld p { margin: 0 0 8px; line-height: 1.35; }
+.entwurf-feld label { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 6px; }
+.entwurf-feld select { font: inherit; padding: 4px 6px; border-radius: 8px; max-width: 150px; }
+.entwurf-feld a { color: #FFD23F; }
+body.bild .entwurf { display: none; }
+
+@media (prefers-reduced-motion: reduce) { .blatt, .schleier { transition: none; } }
+body[data-ruhe="1"] .blatt, body[data-ruhe="1"] .schleier { transition: none; }

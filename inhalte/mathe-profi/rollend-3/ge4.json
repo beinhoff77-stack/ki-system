@@ -1,0 +1,1797 @@
+{
+ "stand": "2026-11-27",
+ "flug": "ge4",
+ "titel": "Dreiecke, Vierecke und Konstruktion",
+ "fuer": "Kind 2",
+ "klasse": 7,
+ "themen": [
+  "geometrie.winkelsaetze",
+  "geometrie.konstruktion"
+ ],
+ "hinweis": "Aufgaben auf Vorrat, rollendes System Stufe 3. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: erst die Aufgaben ohne Bau, dann die des Typs „bedingung“, jeweils mit aufsteigender Stufe.",
+ "aufgaben": [
+  {
+   "kennung": "GE4-01",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "scheitel_neben",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 48,
+     "fehlbild": "fb.winkel.neben_statt_scheitel",
+     "regel_des_fehlbilds": "id.geometrie.winkel",
+     "beschreibung": "Nebenwinkel wie Scheitelwinkel behandelt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 42,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auf 90° ergänzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheitel_neben",
+    "t": "scheitel_neben",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Zwei Geraden schneiden sich. α = 48°. Der Scheitelwinkel von α hat ①°. Jeder Nebenwinkel von α hat ②°.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      48,
+      132
+     ]
+    },
+    "c": [
+     "48",
+     "180 - 48"
+    ],
+    "h": "Scheitelwinkel sind gleich groß. Nebenwinkel ergeben zusammen 180°.",
+    "w": "Scheitelwinkel: 48°. Nebenwinkel: 180° − 48° = 132°."
+   }
+  },
+  {
+   "kennung": "GE4-02",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "stufen_wechsel",
+   "stufe": 1,
+   "typ": "Brücke",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 110,
+     "fehlbild": "fb.winkel.neben_statt_scheitel",
+     "regel_des_fehlbilds": "id.geometrie.winkel",
+     "beschreibung": "den Nebenwinkel als Stufenwinkel genannt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 70,
+     "fehlbild": "fb.winkel.neben_statt_scheitel",
+     "regel_des_fehlbilds": "id.geometrie.winkel",
+     "beschreibung": "Nebenwinkel für gleich groß gehalten"
+    }
+   ],
+   "aufgabe": {
+    "l": "stufen_wechsel",
+    "t": "stufen_wechsel",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "g ∥ h. Bei S ist der Winkel rechts oberhalb 70° groß. Wie groß ist sein Stufenwinkel bei T, und wie groß ist der Winkel bei T links oberhalb?",
+     "schablone": "Stufenwinkel: □°; links oberhalb: □°",
+     "hinweis": "Je Lücke ein Winkel in Grad.",
+     "grafik": {
+      "typ": "figur",
+      "punkte": {
+       "S": [
+        3.092,
+        3.0
+       ],
+       "_SR": [
+        4.692,
+        3.0
+       ],
+       "_SL": [
+        1.492,
+        3.0
+       ],
+       "_SU": [
+        3.639,
+        4.504
+       ],
+       "_SD": [
+        2.545,
+        1.496
+       ],
+       "T": [
+        2.0,
+        0.0
+       ],
+       "_TR": [
+        3.6,
+        0.0
+       ],
+       "_TL": [
+        0.4,
+        0.0
+       ],
+       "_TU": [
+        2.547,
+        1.504
+       ],
+       "_TD": [
+        1.453,
+        -1.504
+       ],
+       "_g1": [
+        -1.0,
+        3.0
+       ],
+       "_g2": [
+        6.0920000000000005,
+        3.0
+       ],
+       "_h1": [
+        -1.0,
+        0.0
+       ],
+       "_h2": [
+        6.0920000000000005,
+        0.0
+       ],
+       "_k1": [
+        1.453,
+        -1.504
+       ],
+       "_k2": [
+        3.639,
+        4.504
+       ]
+      },
+      "linien": [
+       [
+        "_g1",
+        "_g2",
+        "g"
+       ],
+       [
+        "_h1",
+        "_h2",
+        "h"
+       ],
+       [
+        "_k1",
+        "_k2",
+        "k"
+       ]
+      ],
+      "winkel": [
+       [
+        "S",
+        "_SR",
+        "_SU",
+        "70°"
+       ],
+       [
+        "T",
+        "_TR",
+        "_TU",
+        "?"
+       ],
+       [
+        "T",
+        "_TU",
+        "_TL",
+        "?"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "werte": [
+      70,
+      110
+     ]
+    },
+    "c": [
+     "70",
+     "180 - 70"
+    ],
+    "h": "Der Stufenwinkel liegt bei T an derselben Stelle wie bei S.",
+    "w": "Stufenwinkel an Parallelen sind gleich: 70°. Der Winkel daneben ist sein Nebenwinkel: 110°."
+   }
+  },
+  {
+   "kennung": "GE4-03",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "parallel_pruefen",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "g und h sind parallel.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "fast gleich für gleich genommen"
+    },
+    {
+     "index": 2,
+     "antwort": "g und h stehen senkrecht aufeinander.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "kein rechter Winkel im Spiel"
+    },
+    {
+     "index": 3,
+     "antwort": "Dazu lässt sich nichts sagen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "der Kehrsatz der Stufenwinkel entscheidet es"
+    }
+   ],
+   "aufgabe": {
+    "l": "parallel_pruefen",
+    "t": "parallel_pruefen",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Gerade schneidet g unter 64°. Der Stufenwinkel dazu an der Geraden h hat 66°. Was folgt?"
+    },
+    "a": [
+     "g und h sind parallel.",
+     "g und h sind nicht parallel.",
+     "g und h stehen senkrecht aufeinander.",
+     "Dazu lässt sich nichts sagen."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Was gilt für Stufenwinkel an Parallelen?",
+    "w": "An Parallelen sind Stufenwinkel gleich groß. 64° und 66° sind verschieden, also sind g und h nicht parallel."
+   }
+  },
+  {
+   "kennung": "GE4-04",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "parkett",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "gleichseitige Dreiecke (Innenwinkel 60°)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 · 60° = 360° passt"
+    },
+    {
+     "index": 1,
+     "antwort": "Quadrate (90°)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 · 90° = 360° passt"
+    },
+    {
+     "index": 3,
+     "antwort": "regelmäßige Sechsecke (120°)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 · 120° = 360° passt"
+    }
+   ],
+   "aufgabe": {
+    "l": "parkett",
+    "t": "parkett",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Mit welchen Fliesen allein kann man einen Boden NICHT lückenlos auslegen?"
+    },
+    "a": [
+     "gleichseitige Dreiecke (Innenwinkel 60°)",
+     "Quadrate (90°)",
+     "regelmäßige Fünfecke (108°)",
+     "regelmäßige Sechsecke (120°)"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "An einer Ecke müssen die Winkel zusammen 360° ergeben.",
+    "w": "360° ist durch 60°, 90° und 120° teilbar, aber nicht durch 108°. Drei Fünfecke ergeben 324°, vier schon 432°."
+   }
+  },
+  {
+   "kennung": "GE4-05",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "kongruenzsatz",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "SSS",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "es sind nur zwei Seiten gegeben"
+    },
+    {
+     "index": 2,
+     "antwort": "WSW",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "es ist nur ein Winkel gegeben"
+    },
+    {
+     "index": 3,
+     "antwort": "SsW",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei SsW liegt der Winkel der größeren Seite gegenüber, nicht dazwischen"
+    }
+   ],
+   "aufgabe": {
+    "l": "kongruenzsatz",
+    "t": "kongruenzsatz",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Von einem Dreieck kennst du a = 5 cm, b = 7 cm und den Winkel γ zwischen diesen beiden Seiten. Welcher Kongruenzsatz sichert, dass das Dreieck eindeutig ist?"
+    },
+    "a": [
+     "SSS",
+     "SWS",
+     "WSW",
+     "SsW"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wo liegt der Winkel: zwischen den Seiten oder einer Seite gegenüber?",
+    "w": "Zwei Seiten und der Winkel dazwischen: SWS."
+   }
+  },
+  {
+   "kennung": "GE4-06",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "vierecke_konstruieren",
+   "stufe": 1,
+   "typ": "Brücke",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Gesamtzahl genannt"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die vorhandenen Stücke genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke_konstruieren",
+    "t": "vierecke_konstruieren",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Parallelogramm braucht 3 Bestimmungsstücke. Du kennst eine Seite und einen Winkel. Wie viele Stücke fehlen noch?"
+    },
+    "o": {
+     "wert": 1
+    },
+    "c": "3 - 2",
+    "h": "Zähle, was du schon hast.",
+    "w": "Seite und Winkel sind 2 Stücke. Es fehlt 1, zum Beispiel die zweite Seite."
+   }
+  },
+  {
+   "kennung": "GE4-07",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "innenwinkelsumme",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "120° durch 2 geteilt"
+    },
+    {
+     "antwort": 80,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "β statt α genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "innenwinkelsumme",
+    "t": "innenwinkelsumme",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "In einem Dreieck ist β doppelt so groß wie α, und γ = 60°. Wie groß ist α?"
+    },
+    "o": {
+     "wert": 40,
+     "einheit": "°"
+    },
+    "c": "(180 - 60) // 3",
+    "h": "α und β zusammen sind drei „α“.",
+    "w": "α + 2α + 60° = 180°, also 3α = 120° und α = 40°."
+   }
+  },
+  {
+   "kennung": "GE4-08",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "aussenwinkel",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 65,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Innenwinkel statt des Außenwinkels genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "aussenwinkel",
+    "t": "aussenwinkel",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "Dreieck mit α = 50° und β = 65°. Gesucht ist der Außenwinkel bei C. Weg A: γ = 180° − 50° − 65° = ①°, Außenwinkel = 180° − ①° = ②°. Weg B: 50° + 65°.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl.",
+     "grafik": {
+      "typ": "figur",
+      "punkte": {
+       "A": [
+        0,
+        0
+       ],
+       "B": [
+        6,
+        0
+       ],
+       "C": [
+        3.857,
+        4.596
+       ]
+      },
+      "linien": [
+       [
+        "A",
+        "B"
+       ],
+       [
+        "B",
+        "C"
+       ],
+       [
+        "C",
+        "A"
+       ]
+      ],
+      "winkel": [
+       [
+        "A",
+        "B",
+        "C",
+        "α"
+       ],
+       [
+        "B",
+        "C",
+        "A",
+        "β"
+       ],
+       [
+        "C",
+        "A",
+        "B",
+        "γ"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "werte": [
+      65,
+      115
+     ]
+    },
+    "c": [
+     "180 - 50 - 65",
+     "180 - (180 - 50 - 65)"
+    ],
+    "h": "Der Außenwinkel ist so groß wie die beiden anderen Innenwinkel zusammen.",
+    "w": "γ = 65°. Außenwinkel: 180° − 65° = 115°. Weg B: 50° + 65° = 115°."
+   }
+  },
+  {
+   "kennung": "GE4-09",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "vieleck",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 2 nicht dazugezählt"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "noch einmal 2 abgezogen statt dazugezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vieleck",
+    "t": "vieleck",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Vieleck hat die Winkelsumme 900°. Wie viele Ecken hat es?"
+    },
+    "o": {
+     "wert": 7
+    },
+    "c": "900 // 180 + 2",
+    "h": "Die Winkelsumme ist (n − 2) · 180°. Rechne rückwärts.",
+    "w": "900° : 180° = 5. Das ist n − 2, also n = 7."
+   }
+  },
+  {
+   "kennung": "GE4-10",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "parallel_pruefen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 115,
+     "fehlbild": "fb.winkel.neben_statt_scheitel",
+     "regel_des_fehlbilds": "id.geometrie.winkel",
+     "beschreibung": "den Wechselwinkel selbst genannt"
+    },
+    {
+     "antwort": 245,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auf 360° ergänzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "parallel_pruefen",
+    "t": "parallel_pruefen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Gerade schneidet g unter 115°. An der Geraden h wird der Nebenwinkel des zugehörigen Wechselwinkels gemessen. Wie groß muss er sein, damit g und h parallel sind?"
+    },
+    "o": {
+     "wert": 65,
+     "einheit": "°"
+    },
+    "c": "180 - 115",
+    "h": "Wie groß muss der Wechselwinkel selbst sein?",
+    "w": "Bei Parallelen ist der Wechselwinkel auch 115°. Sein Nebenwinkel hat 180° − 115° = 65°."
+   }
+  },
+  {
+   "kennung": "GE4-11",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "gleichschenklig",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 108,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Basiswinkel abgezogen"
+    },
+    {
+     "antwort": 54,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "72° als Spitzenwinkel genommen: (180 − 72) : 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleichschenklig",
+    "t": "gleichschenklig",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "In einem gleichschenkligen Dreieck hat ein Basiswinkel 72°. Wie groß ist der Winkel an der Spitze?"
+    },
+    "o": {
+     "wert": 36,
+     "einheit": "°"
+    },
+    "c": "180 - 2 * 72",
+    "h": "Es gibt zwei gleich große Basiswinkel.",
+    "w": "Beide Basiswinkel zusammen: 144°. Spitze: 180° − 144° = 36°."
+   }
+  },
+  {
+   "kennung": "GE4-12",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "konstruierbar",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": "fb.gleichung_loesen.grenze_mitgezaehlt",
+     "regel_des_fehlbilds": "id.algebra.gleichung_loesen",
+     "beschreibung": "bei 5 cm liegt alles auf einer Linie: kein Dreieck"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die größte statt der kleinsten Länge genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "konstruierbar",
+    "t": "konstruierbar",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei Seiten eines Dreiecks sind 4 cm und 9 cm lang. Die dritte Seite ist eine ganze Zahl von Zentimetern. Wie lang muss sie mindestens sein?"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "cm"
+    },
+    "c": "9 - 4 + 1",
+    "h": "Die dritte Seite und die 4 cm müssen zusammen länger als 9 cm sein.",
+    "w": "4 cm + x muss größer als 9 cm sein, also x größer als 5 cm. Die kleinste ganze Zahl ist 6."
+   }
+  },
+  {
+   "kennung": "GE4-13",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "planfigur",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "c zeichnen; Kreis um A mit 4 cm; Kreis um B mit 6 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Konstruktion nach SSS, die dritte Seite ist aber nicht gegeben"
+    },
+    {
+     "index": 1,
+     "antwort": "α zeichnen; c irgendwo anlegen; b messen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ohne festen Anfang"
+    },
+    {
+     "index": 2,
+     "antwort": "b zeichnen; α im Punkt C antragen; mit B verbinden",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "α liegt bei A, nicht bei C"
+    }
+   ],
+   "aufgabe": {
+    "l": "planfigur",
+    "t": "planfigur",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Du konstruierst ein Dreieck aus c = 6 cm, α = 50° und b = 4 cm (SWS). Welche Reihenfolge führt zum Ziel?"
+    },
+    "a": [
+     "c zeichnen; Kreis um A mit 4 cm; Kreis um B mit 6 cm",
+     "α zeichnen; c irgendwo anlegen; b messen",
+     "b zeichnen; α im Punkt C antragen; mit B verbinden",
+     "c zeichnen; α im Punkt A antragen; auf dem freien Schenkel 4 cm abtragen; C mit B verbinden"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Beginne mit einer gegebenen Seite. Wo liegt der Winkel α?",
+    "w": "α liegt bei A zwischen c und b. Also: c zeichnen, α in A antragen, 4 cm abtragen ergibt C, dann C mit B verbinden."
+   }
+  },
+  {
+   "kennung": "GE4-14",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "vierecke",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den kleineren Winkel genannt"
+    },
+    {
+     "antwort": 150,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "180° − 30° nicht halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke",
+    "t": "vierecke",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "In einem Parallelogramm ist ein Winkel um 30° größer als sein Nachbarwinkel. Wie groß ist der größere der beiden?"
+    },
+    "o": {
+     "wert": 105,
+     "einheit": "°"
+    },
+    "c": "(180 + 30) // 2",
+    "h": "Benachbarte Winkel im Parallelogramm ergeben 180°.",
+    "w": "x + (x + 30°) = 180°, also x = 75°. Der größere hat 105°."
+   }
+  },
+  {
+   "kennung": "GE4-15",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "aussenwinkel",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie Mia den Innenwinkel γ berechnet"
+    },
+    {
+     "antwort": 185,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "α dazugezählt statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "aussenwinkel",
+    "t": "aussenwinkel",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "zahl",
+    "f": {
+     "text": "In einem Dreieck ist der Außenwinkel bei C 130° groß, und α = 55°. Mia rechnet: β = 180° − 130° = 50°. Wie groß ist β wirklich?"
+    },
+    "o": {
+     "wert": 75,
+     "einheit": "°"
+    },
+    "c": "130 - 55",
+    "h": "Was hat Mia mit 180° − 130° wirklich berechnet?",
+    "w": "180° − 130° = 50° ist der Innenwinkel γ. Der Außenwinkel ist α + β, also β = 130° − 55° = 75°."
+   }
+  },
+  {
+   "kennung": "GE4-16",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "figuren",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 95,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "125° − 30° gerechnet: Nebenwinkel vergessen"
+    },
+    {
+     "antwort": 85,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "55° + 30° gerechnet"
+    },
+    {
+     "antwort": 55,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 30° nicht abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "figuren",
+    "t": "figuren",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "g ∥ h. Die Gerade k schneidet g in S und h in T. Bei S ist der Winkel links oberhalb 125° groß. Eine zweite Gerade durch T bildet mit h rechts oberhalb von T den Winkel 30°. Wie groß ist der Winkel bei T zwischen dieser zweiten Geraden und k?",
+     "grafik": {
+      "typ": "figur",
+      "punkte": {
+       "S": [
+        4.101,
+        3.0
+       ],
+       "_SR": [
+        5.701,
+        3.0
+       ],
+       "_SL": [
+        2.501,
+        3.0
+       ],
+       "_SU": [
+        5.019,
+        4.311
+       ],
+       "_SD": [
+        3.183,
+        1.689
+       ],
+       "T": [
+        2.0,
+        0.0
+       ],
+       "_TR": [
+        3.6,
+        0.0
+       ],
+       "_TL": [
+        0.4,
+        0.0
+       ],
+       "_TU": [
+        2.918,
+        1.311
+       ],
+       "_TD": [
+        1.082,
+        -1.311
+       ],
+       "_g1": [
+        -1.0,
+        3.0
+       ],
+       "_g2": [
+        7.101,
+        3.0
+       ],
+       "_h1": [
+        -1.0,
+        0.0
+       ],
+       "_h2": [
+        7.101,
+        0.0
+       ],
+       "_k1": [
+        1.082,
+        -1.311
+       ],
+       "_k2": [
+        5.019,
+        4.311
+       ]
+      },
+      "linien": [
+       [
+        "_g1",
+        "_g2",
+        "g"
+       ],
+       [
+        "_h1",
+        "_h2",
+        "h"
+       ],
+       [
+        "_k1",
+        "_k2",
+        "k"
+       ]
+      ],
+      "winkel": [
+       [
+        "S",
+        "_SU",
+        "_SL",
+        "125°"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 25,
+     "einheit": "°"
+    },
+    "c": "(180 - 125) - 30",
+    "h": "Bestimme zuerst den Winkel bei T rechts oberhalb zwischen h und k. Welcher Winkelsatz hilft?",
+    "w": "Bei S rechts oberhalb: 180° − 125° = 55° (Nebenwinkel). Bei T rechts oberhalb ebenfalls 55° (Stufenwinkel). Davon gehen 30° ab: 25°."
+   }
+  },
+  {
+   "kennung": "GE4-17",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "beweisen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Scheitelwinkel sind gleich groß.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Winkel liegen nicht an derselben Kreuzung"
+    },
+    {
+     "index": 2,
+     "antwort": "Nebenwinkel ergeben 180°.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Winkel liegen nicht nebeneinander"
+    },
+    {
+     "index": 3,
+     "antwort": "Die Winkelsumme im Dreieck ist 180°.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zirkelschluss: Das soll gerade bewiesen werden"
+    }
+   ],
+   "aufgabe": {
+    "l": "beweisen",
+    "t": "beweisen",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Beweis der Winkelsumme im Dreieck: Durch C wird die Parallele zu AB gezeichnet. Welcher Satz begründet, dass der Winkel, der dort links neben γ liegt, so groß ist wie α?"
+    },
+    "a": [
+     "Wechselwinkel an Parallelen sind gleich groß.",
+     "Scheitelwinkel sind gleich groß.",
+     "Nebenwinkel ergeben 180°.",
+     "Die Winkelsumme im Dreieck ist 180°."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Welche zwei Geraden sind parallel, und welche Gerade schneidet beide?",
+    "w": "AB und die Gerade durch C sind parallel, AC schneidet beide. α und der Winkel bei C sind Wechselwinkel."
+   }
+  },
+  {
+   "kennung": "GE4-18",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "satz_kehrsatz",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Der Kehrsatz stimmt auch.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "kein Gegenbeispiel gesucht"
+    },
+    {
+     "index": 2,
+     "antwort": "Der Kehrsatz ist falsch, weil ein Quadrat keine rechten Winkel hat.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsche Aussage über das Quadrat"
+    },
+    {
+     "index": 3,
+     "antwort": "Der Kehrsatz lautet: „Wenn ein Viereck kein Quadrat ist, hat es keine rechten Winkel.“",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "verneint statt vertauscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "satz_kehrsatz",
+    "t": "satz_kehrsatz",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Satz: „Wenn ein Viereck ein Quadrat ist, dann hat es vier rechte Winkel.“ Was gilt für den Kehrsatz?"
+    },
+    "a": [
+     "Der Kehrsatz stimmt auch.",
+     "Der Kehrsatz ist falsch: Ein Rechteck, das kein Quadrat ist, hat auch vier rechte Winkel.",
+     "Der Kehrsatz ist falsch, weil ein Quadrat keine rechten Winkel hat.",
+     "Der Kehrsatz lautet: „Wenn ein Viereck kein Quadrat ist, hat es keine rechten Winkel.“"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Vertausche Wenn und Dann. Suche dann ein Gegenbeispiel.",
+    "w": "Kehrsatz: „Wenn ein Viereck vier rechte Winkel hat, dann ist es ein Quadrat.“ Ein Rechteck mit 3 cm und 5 cm widerlegt ihn."
+   }
+  },
+  {
+   "kennung": "GE4-B1",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "innenwinkelsumme",
+   "stufe": 1,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "innenwinkelsumme",
+    "t": "innenwinkelsumme",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne die drei Innenwinkel eines stumpfwinkligen Dreiecks (ganze Grad).",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "jeder Winkel größer als 0°",
+       "pruefe": [
+        ">",
+        [
+         "min",
+         "$alle"
+        ],
+        0
+       ],
+       "zeige": [
+        "min",
+        "$alle"
+       ],
+       "hinweis": "Dein kleinster Winkel hat {}°."
+      },
+      {
+       "name": "Winkel eines Dreiecks",
+       "pruefe": [
+        "=",
+        [
+         "summe",
+         "$alle"
+        ],
+        180
+       ],
+       "zeige": [
+        "summe",
+        "$alle"
+       ],
+       "hinweis": "Deine Winkel ergeben zusammen {}°."
+      },
+      {
+       "name": "ein Winkel ist stumpf",
+       "pruefe": [
+        ">",
+        [
+         "max",
+         "$alle"
+        ],
+        90
+       ],
+       "zeige": [
+        "max",
+        "$alle"
+       ],
+       "hinweis": "Dein größter Winkel hat {}°."
+      }
+     ],
+     "beispiel": [
+      100,
+      50,
+      30
+     ],
+     "gut": [
+      [
+       91,
+       88,
+       1
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        100,
+        90,
+        -10
+       ],
+       "verletzt": "jeder Winkel größer als 0°"
+      },
+      {
+       "werte": [
+        100,
+        50,
+        40
+       ],
+       "verletzt": "Winkel eines Dreiecks"
+      },
+      {
+       "werte": [
+        60,
+        60,
+        60
+       ],
+       "verletzt": "ein Winkel ist stumpf"
+      },
+      {
+       "werte": [
+        90,
+        45,
+        45
+       ],
+       "verletzt": "ein Winkel ist stumpf"
+      }
+     ]
+    },
+    "h": "Wie groß ist die Winkelsumme im Dreieck? Was heißt stumpf?",
+    "w": "Zusammen 180°, einer größer als 90°. Zum Beispiel 100°, 50° und 30°."
+   }
+  },
+  {
+   "kennung": "GE4-B2",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "gleichschenklig",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "gleichschenklig",
+    "t": "gleichschenklig",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne die drei Innenwinkel eines gleichschenkligen Dreiecks, das nicht gleichseitig ist. Alle Winkel sollen spitz und ganze Grad sein.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "alle Winkel spitz",
+       "pruefe": [
+        "und",
+        [
+         ">",
+         [
+          "min",
+          "$alle"
+         ],
+         0
+        ],
+        [
+         "<",
+         [
+          "max",
+          "$alle"
+         ],
+         90
+        ]
+       ],
+       "zeige": [
+        "max",
+        "$alle"
+       ],
+       "hinweis": "Dein größter Winkel hat {}°."
+      },
+      {
+       "name": "Winkel eines Dreiecks",
+       "pruefe": [
+        "=",
+        [
+         "summe",
+         "$alle"
+        ],
+        180
+       ],
+       "zeige": [
+        "summe",
+        "$alle"
+       ],
+       "hinweis": "Deine Winkel ergeben zusammen {}°."
+      },
+      {
+       "name": "gleichschenklig",
+       "pruefe": [
+        "oder",
+        [
+         "=",
+         "$1",
+         "$2"
+        ],
+        [
+         "=",
+         "$2",
+         "$3"
+        ],
+        [
+         "=",
+         "$1",
+         "$3"
+        ]
+       ],
+       "hinweis": "Bei dir sind keine zwei Winkel gleich groß."
+      },
+      {
+       "name": "nicht gleichseitig",
+       "pruefe": [
+        "nicht",
+        [
+         "und",
+         [
+          "=",
+          "$1",
+          "$2"
+         ],
+         [
+          "=",
+          "$2",
+          "$3"
+         ]
+        ]
+       ],
+       "hinweis": "Dein Dreieck ist gleichseitig."
+      }
+     ],
+     "beispiel": [
+      70,
+      70,
+      40
+     ],
+     "gut": [
+      [
+       50,
+       80,
+       50
+      ],
+      [
+       89,
+       2,
+       89
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        100,
+        40,
+        40
+       ],
+       "verletzt": "alle Winkel spitz"
+      },
+      {
+       "werte": [
+        70,
+        70,
+        50
+       ],
+       "verletzt": "Winkel eines Dreiecks"
+      },
+      {
+       "werte": [
+        50,
+        60,
+        70
+       ],
+       "verletzt": "gleichschenklig"
+      },
+      {
+       "werte": [
+        60,
+        60,
+        60
+       ],
+       "verletzt": "nicht gleichseitig"
+      }
+     ]
+    },
+    "h": "Welche Winkel sind im gleichschenkligen Dreieck gleich groß?",
+    "w": "Zwei Basiswinkel sind gleich, zum Beispiel 70° und 70°. Für die Spitze bleiben 40°."
+   }
+  },
+  {
+   "kennung": "GE4-B3",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "konstruierbar",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "konstruierbar",
+    "t": "konstruierbar",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Zwei Seiten eines Dreiecks sind 5 cm und 8 cm lang. Nenne eine dritte Seitenlänge in cm, mit der sich das Dreieck konstruieren lässt und die länger ist als jede der beiden anderen.",
+     "felder": [
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "länger als beide anderen Seiten",
+       "pruefe": [
+        ">",
+        "$1",
+        8
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine Seite ist {} cm lang."
+      },
+      {
+       "name": "Dreieck lässt sich konstruieren",
+       "pruefe": [
+        "<",
+        "$1",
+        13
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine Seite ist {} cm lang. Die beiden anderen sind zusammen nur 13 cm lang."
+      }
+     ],
+     "beispiel": [
+      10
+     ],
+     "gut": [
+      [
+       "8,5"
+      ],
+      [
+       "12,9"
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        7
+       ],
+       "verletzt": "länger als beide anderen Seiten"
+      },
+      {
+       "werte": [
+        13
+       ],
+       "verletzt": "Dreieck lässt sich konstruieren"
+      },
+      {
+       "werte": [
+        20
+       ],
+       "verletzt": "Dreieck lässt sich konstruieren"
+      }
+     ]
+    },
+    "h": "Zwei Seiten zusammen müssen länger sein als die dritte.",
+    "w": "5 cm + 8 cm = 13 cm. Die dritte Seite muss kürzer als 13 cm sein und soll länger als 8 cm sein, zum Beispiel 10 cm."
+   }
+  },
+  {
+   "kennung": "GE4-B4",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "vieleck",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "vieleck",
+    "t": "vieleck",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne die Eckenzahl eines regelmäßigen Vielecks, dessen Innenwinkel größer als 130° ist, und diesen Innenwinkel in Grad.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "mindestens 3 Ecken",
+       "pruefe": [
+        ">=",
+        "$1",
+        3
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine Eckenzahl ist {}."
+      },
+      {
+       "name": "Innenwinkel passt zur Eckenzahl",
+       "pruefe": [
+        "=",
+        [
+         "*",
+         "$1",
+         "$2"
+        ],
+        [
+         "*",
+         [
+          "-",
+          "$1",
+          2
+         ],
+         180
+        ]
+       ],
+       "zeige": [
+        "/",
+        [
+         "*",
+         [
+          "-",
+          "$1",
+          2
+         ],
+         180
+        ],
+        "$1"
+       ],
+       "hinweis": "Zu deiner Eckenzahl gehört der Innenwinkel {}°."
+      },
+      {
+       "name": "Innenwinkel größer als 130°",
+       "pruefe": [
+        ">",
+        "$2",
+        130
+       ],
+       "zeige": "$2",
+       "hinweis": "Dein Innenwinkel hat {}°."
+      }
+     ],
+     "beispiel": [
+      8,
+      135
+     ],
+     "gut": [
+      [
+       9,
+       140
+      ],
+      [
+       10,
+       144
+      ],
+      [
+       12,
+       150
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        2,
+        0
+       ],
+       "verletzt": "mindestens 3 Ecken"
+      },
+      {
+       "werte": [
+        8,
+        140
+       ],
+       "verletzt": "Innenwinkel passt zur Eckenzahl"
+      },
+      {
+       "werte": [
+        6,
+        120
+       ],
+       "verletzt": "Innenwinkel größer als 130°"
+      }
+     ]
+    },
+    "h": "Winkelsumme (n − 2) · 180°, geteilt durch die Zahl der Ecken.",
+    "w": "Achteck: 6 · 180° = 1 080°, geteilt durch 8 sind 135°. Auch 9 Ecken (140°) oder 10 Ecken (144°) passen."
+   }
+  },
+  {
+   "kennung": "GE4-B5",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "aussenwinkel",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "aussenwinkel",
+    "t": "aussenwinkel",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "bedingung",
+    "f": {
+     "text": "Ein Dreieck hat bei C den Außenwinkel 110°. Nenne α und β (beide größer als 0°) so, dass α mehr als doppelt so groß ist wie β.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "beide größer als 0°",
+       "pruefe": [
+        ">",
+        [
+         "min",
+         "$alle"
+        ],
+        0
+       ],
+       "zeige": [
+        "min",
+        "$alle"
+       ],
+       "hinweis": "Dein kleinerer Winkel hat {}°."
+      },
+      {
+       "name": "passt zum Außenwinkel 110°",
+       "pruefe": [
+        "=",
+        [
+         "summe",
+         "$alle"
+        ],
+        110
+       ],
+       "zeige": [
+        "summe",
+        "$alle"
+       ],
+       "hinweis": "Dein α und dein β ergeben zusammen {}°."
+      },
+      {
+       "name": "α mehr als doppelt so groß wie β",
+       "pruefe": [
+        ">",
+        "$1",
+        [
+         "*",
+         2,
+         "$2"
+        ]
+       ],
+       "zeige": [
+        "*",
+        2,
+        "$2"
+       ],
+       "hinweis": "Das Doppelte von deinem β ist {}°."
+      }
+     ],
+     "beispiel": [
+      80,
+      30
+     ],
+     "gut": [
+      [
+       100,
+       10
+      ],
+      [
+       "74,5",
+       "35,5"
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        110,
+        0
+       ],
+       "verletzt": "beide größer als 0°"
+      },
+      {
+       "werte": [
+        80,
+        40
+       ],
+       "verletzt": "passt zum Außenwinkel 110°"
+      },
+      {
+       "werte": [
+        70,
+        40
+       ],
+       "verletzt": "α mehr als doppelt so groß wie β"
+      }
+     ]
+    },
+    "h": "Wie hängt der Außenwinkel mit α und β zusammen?",
+    "w": "α + β = 110°. Zum Beispiel α = 80° und β = 30°: 80° ist mehr als 60°."
+   }
+  }
+ ]
+}

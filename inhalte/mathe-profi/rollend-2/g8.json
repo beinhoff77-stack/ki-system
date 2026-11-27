@@ -1,0 +1,1387 @@
+{
+ "stand": "2026-11-27",
+ "flug": "g8",
+ "titel": "Prozent mit verändertem Grundwert",
+ "fuer": "Kind 2",
+ "klasse": 7,
+ "thema": "bruch.prozent_grundwert",
+ "hinweis": "Aufgaben auf Vorrat, rollendes System Stufe 2. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: erst die Aufgaben ohne Bau, dann die des Typs „bedingung“, jeweils mit aufsteigender Stufe.",
+ "aufgaben": [
+  {
+   "kennung": "G8-01",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "faktor",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rabatt selbst als Faktor genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "faktor",
+    "t": "faktor",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Preis sinkt um 35 %. Es bleiben ① % des alten Preises. Der Faktor ist 0,②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      65,
+      65
+     ]
+    },
+    "c": [
+     "100 - 35",
+     "100 - 35"
+    ],
+    "h": "Rechne erst 100 % minus den Rabatt.",
+    "w": "100 % − 35 % = 65 %. Als Faktor: 0,65."
+   }
+  },
+  {
+   "kennung": "G8-02",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "faktor",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "1,4",
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "4 % als 0,4"
+    },
+    {
+     "index": 1,
+     "antwort": "0,04",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Zuwachs genommen"
+    },
+    {
+     "index": 3,
+     "antwort": "4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentzahl als Faktor"
+    }
+   ],
+   "aufgabe": {
+    "l": "faktor",
+    "t": "faktor",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Wert soll um 4 % erhöht werden. Mit welchem Faktor rechnest du?"
+    },
+    "a": [
+     "1,4",
+     "0,04",
+     "1,04",
+     "4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Rechne erst 100 % plus 4 %.",
+    "w": "100 % + 4 % = 104 % = 1,04."
+   }
+  },
+  {
+   "kennung": "G8-03",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "prozentsatz",
+   "stufe": 1,
+   "typ": "Brücke",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 85,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rest statt der Abnahme genannt"
+    },
+    {
+     "antwort": 0.15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "als Dezimalzahl statt in Prozent"
+    }
+   ],
+   "aufgabe": {
+    "l": "prozentsatz",
+    "t": "prozentsatz",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "zahl",
+    "f": {
+     "text": "Nach einer Änderung ist ein Wert das 0,85-Fache des alten Werts. Um wie viel Prozent hat er abgenommen?"
+    },
+    "o": {
+     "wert": 15,
+     "einheit": "%"
+    },
+    "c": "100 - 85",
+    "h": "Schreibe den Faktor in Prozent und vergleiche mit 100 %.",
+    "w": "0,85 = 85 %. Bis 100 % fehlen 15 %."
+   }
+  },
+  {
+   "kennung": "G8-04",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "zurueck",
+   "stufe": 2,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 76.8,
+     "fehlbild": "fb.prozent.falscher_grundwert",
+     "regel_des_fehlbilds": "id.verhaeltnisse.prozent",
+     "beschreibung": "20 % von 64 € aufgeschlagen"
+    }
+   ],
+   "aufgabe": {
+    "l": "zurueck",
+    "t": "zurueck",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "Nach 20 % Rabatt kostet eine Jacke 64 €. Der Faktor war 0,①. Zurück zum alten Preis: 64 € : 0,① = ② €.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      8,
+      80
+     ]
+    },
+    "c": [
+     "(100 - 20) // 10",
+     "64 * 10 // 8"
+    ],
+    "h": "Teilen macht das Malnehmen rückgängig.",
+    "w": "Faktor 0,8. 64 € : 0,8 = 80 €. Probe: 80 € · 0,8 = 64 €."
+   }
+  },
+  {
+   "kennung": "G8-05",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "vermindert",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rabatt statt des neuen Preises genannt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "30 € statt 30 % abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vermindert",
+    "t": "vermindert",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Pullover kostet 60 €, es gibt 30 % Rabatt. Weg A: Rabatt ausrechnen und abziehen: 60 € − ① € = ② €. Weg B: 60 € · 0,7.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      18,
+      42
+     ]
+    },
+    "c": [
+     "60 * 30 // 100",
+     "60 - 60 * 30 // 100"
+    ],
+    "h": "Beide Wege müssen denselben Preis ergeben.",
+    "w": "30 % von 60 € sind 18 €. 60 € − 18 € = 42 €. Weg B: 60 · 0,7 = 42."
+   }
+  },
+  {
+   "kennung": "G8-06",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "vermehrt",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied in Euro genannt"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Prozentsatz statt des Faktors genannt"
+    },
+    {
+     "antwort": 1.6,
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "6 % als 0,6"
+    }
+   ],
+   "aufgabe": {
+    "l": "vermehrt",
+    "t": "vermehrt",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Preis von 250 € wird erhöht und beträgt danach 265 €. Mit welchem Faktor wurde er malgenommen?"
+    },
+    "o": {
+     "wert": 1.06
+    },
+    "c": "265 / 250",
+    "h": "Teile neu durch alt.",
+    "w": "265 : 250 = 1,06. Das ist eine Erhöhung um 6 %."
+   }
+  },
+  {
+   "kennung": "G8-07",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "vermehrt",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Heft",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 Cent mehr mit 20 % verwechselt"
+    },
+    {
+     "index": 2,
+     "antwort": "Stift",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht nachgerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "vermehrt",
+    "t": "vermehrt",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt alte und neue Preise. Bei welchem Artikel wurde der Preis mit dem Faktor 1,2 malgenommen?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Artikel",
+       "alt",
+       "neu"
+      ],
+      "zeilen": [
+       [
+        "Heft",
+        "2,00 €",
+        "2,20 €"
+       ],
+       [
+        "Mappe",
+        "5,00 €",
+        "6,00 €"
+       ],
+       [
+        "Stift",
+        "1,50 €",
+        "1,65 €"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "Heft",
+     "Mappe",
+     "Stift"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Rechne für jede Zeile neu durch alt.",
+    "w": "Mappe: 6 : 5 = 1,2. Heft: 2,20 : 2 = 1,1. Stift: 1,65 : 1,50 = 1,1."
+   }
+  },
+  {
+   "kennung": "G8-08",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "mehrfach",
+   "stufe": 2,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Er ist wieder so hoch wie am Anfang.",
+     "fehlbild": "fb.prozent.prozente_addiert",
+     "regel_des_fehlbilds": "id.verhaeltnisse.prozent",
+     "beschreibung": "plus 20 % und minus 20 % zu 0 % addiert"
+    },
+    {
+     "index": 1,
+     "antwort": "Er ist 4 % höher als am Anfang.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Richtung der Änderung verwechselt"
+    },
+    {
+     "index": 2,
+     "antwort": "Er ist 40 % niedriger als am Anfang.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentsätze zusammengezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "mehrfach",
+    "t": "mehrfach",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Preis steigt erst um 20 % und sinkt dann um 20 %. Was gilt für den Endpreis?"
+    },
+    "a": [
+     "Er ist wieder so hoch wie am Anfang.",
+     "Er ist 4 % höher als am Anfang.",
+     "Er ist 40 % niedriger als am Anfang.",
+     "Er ist 4 % niedriger als am Anfang."
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Nimm die beiden Faktoren mal.",
+    "w": "1,2 · 0,8 = 0,96. Der Endpreis liegt 4 % unter dem Anfangspreis: Die 20 % Rabatt beziehen sich auf den höheren Preis."
+   }
+  },
+  {
+   "kennung": "G8-09",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "mehrfach",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.8,
+     "fehlbild": "fb.prozent.prozente_addiert",
+     "regel_des_fehlbilds": "id.verhaeltnisse.prozent",
+     "beschreibung": "10 % + 10 % = 20 % gerechnet"
+    },
+    {
+     "antwort": 0.9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Rabatt beachtet"
+    }
+   ],
+   "aufgabe": {
+    "l": "mehrfach",
+    "t": "mehrfach",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Erst 10 % Rabatt, dann noch einmal 10 % Rabatt auf den neuen Preis. Mit welchem einen Faktor kommst du direkt vom alten Preis zum Endpreis?"
+    },
+    "o": {
+     "wert": 0.81
+    },
+    "c": "0.9 * 0.9",
+    "h": "Bei mehreren Änderungen nimmst du die Faktoren mal.",
+    "w": "0,9 · 0,9 = 0,81. Das sind zusammen 19 % Rabatt, nicht 20 %."
+   }
+  },
+  {
+   "kennung": "G8-10",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "formel",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 520,
+     "fehlbild": "fb.wachstum.plus_statt_mal",
+     "regel_des_fehlbilds": "id.funktionen.wachstum",
+     "beschreibung": "zweimal 10 € dazugezählt"
+    },
+    {
+     "antwort": 510,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Jahr gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "formel",
+    "t": "formel",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "500 € werden zu 2 % Zinsen im Jahr angelegt. Die Zinsen bleiben auf dem Konto. Wie viel Euro sind es nach 2 Jahren?"
+    },
+    "o": {
+     "wert": 520.2,
+     "einheit": "€"
+    },
+    "c": "500 * 1.02 ** 2",
+    "h": "Jedes Jahr mal 1,02.",
+    "w": "500 € · 1,02 = 510 €. 510 € · 1,02 = 520,20 €."
+   }
+  },
+  {
+   "kennung": "G8-11",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "zurueck",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 375,
+     "fehlbild": "fb.prozent.falscher_grundwert",
+     "regel_des_fehlbilds": "id.verhaeltnisse.prozent",
+     "beschreibung": "wie Ben: 25 % vom neuen Preis abgezogen"
+    },
+    {
+     "antwort": 625,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "noch einmal erhöht"
+    }
+   ],
+   "aufgabe": {
+    "l": "zurueck",
+    "t": "zurueck",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Fahrrad kostet nach einer Preiserhöhung um 25 % jetzt 500 €. Ben rechnet: 500 € − 25 % = 375 €. Wie viel Euro kostete das Rad vorher wirklich?"
+    },
+    "o": {
+     "wert": 400,
+     "einheit": "€"
+    },
+    "c": "500 * 100 // 125",
+    "h": "Die 25 % beziehen sich auf den alten Preis, nicht auf 500 €.",
+    "w": "Alter Preis · 1,25 = 500 €. Also 500 € : 1,25 = 400 €. Probe: 400 € + 100 € = 500 €."
+   }
+  },
+  {
+   "kennung": "G8-12",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "prozentsatz",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 25,
+     "fehlbild": "fb.prozent.falscher_grundwert",
+     "regel_des_fehlbilds": "id.verhaeltnisse.prozent",
+     "beschreibung": "wie Anna auf den neuen Preis bezogen"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Euro als Prozent genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "prozentsatz",
+    "t": "prozentsatz",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Preis fällt von 50 € auf 40 €. Anna sagt: „Er ist um 25 % gefallen, denn 10 € sind 25 % von 40 €.“ Um wie viel Prozent ist er wirklich gefallen?"
+    },
+    "o": {
+     "wert": 20,
+     "einheit": "%"
+    },
+    "c": "(50 - 40) * 100 // 50",
+    "h": "Worauf bezieht sich die Änderung: auf alt oder auf neu?",
+    "w": "Verglichen wird mit dem alten Preis: 10 € von 50 € sind 20 %."
+   }
+  },
+  {
+   "kennung": "G8-13",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "mehrfach",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 25,
+     "fehlbild": "fb.prozent.falscher_grundwert",
+     "regel_des_fehlbilds": "id.verhaeltnisse.prozent",
+     "beschreibung": "dieselben 25 % genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "mehrfach",
+    "t": "mehrfach",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Preis wurde um 25 % erhöht. Um wie viel Prozent muss der neue Preis sinken, damit wieder der alte Preis gilt?"
+    },
+    "o": {
+     "wert": 20,
+     "einheit": "%"
+    },
+    "c": "100 - 100 * 100 // 125",
+    "h": "Mit welchem Faktor kommst du von 1,25 zurück zur 1?",
+    "w": "1 : 1,25 = 0,8. Der neue Preis muss um 20 % sinken. Beispiel: 100 € → 125 € → 100 €; 25 € von 125 € sind 20 %."
+   }
+  },
+  {
+   "kennung": "G8-14",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "formel",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den ganzen Zuwachs als Jahreszins genommen"
+    },
+    {
+     "antwort": 10.5,
+     "fehlbild": "fb.prozent.prozente_addiert",
+     "regel_des_fehlbilds": "id.verhaeltnisse.prozent",
+     "beschreibung": "21 % durch 2 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "formel",
+    "t": "formel",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Kapital wächst in 2 Jahren von 400 € auf 484 €, jedes Jahr mit demselben Faktor. Wie viel Prozent Zinsen gibt es im Jahr?"
+    },
+    "o": {
+     "wert": 10,
+     "einheit": "%"
+    },
+    "c": "(1.1 - 1) * 100",
+    "h": "Welcher Faktor ergibt zweimal hintereinander 1,21?",
+    "w": "484 : 400 = 1,21. Gesucht ist q mit q · q = 1,21: q = 1,1. Das sind 10 % im Jahr."
+   }
+  },
+  {
+   "kennung": "G8-15",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "argumente",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "50 % + 50 % = 100 %: Es stimmt, die Ware ist geschenkt.",
+     "fehlbild": "fb.prozent.prozente_addiert",
+     "regel_des_fehlbilds": "id.verhaeltnisse.prozent",
+     "beschreibung": "die Prozentsätze addiert"
+    },
+    {
+     "index": 2,
+     "antwort": "0,5 + 0,5 = 1: Der Preis bleibt gleich.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Faktoren addiert statt malgenommen"
+    },
+    {
+     "index": 3,
+     "antwort": "50 · 50 = 2 500: Der Rabatt ist noch größer.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Prozentzahlen malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "argumente",
+    "t": "argumente",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Laden wirbt: „Erst 50 % Rabatt, dann noch einmal 50 % – also geschenkt!“ Welche Rechnung zeigt, was wirklich gilt?"
+    },
+    "a": [
+     "0,5 · 0,5 = 0,25: Ein Viertel des Preises ist noch zu zahlen.",
+     "50 % + 50 % = 100 %: Es stimmt, die Ware ist geschenkt.",
+     "0,5 + 0,5 = 1: Der Preis bleibt gleich.",
+     "50 · 50 = 2 500: Der Rabatt ist noch größer."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Der zweite Rabatt bezieht sich auf den schon halbierten Preis.",
+    "w": "Die Faktoren werden malgenommen: 0,5 · 0,5 = 0,25. Es bleiben 25 % des Preises zu zahlen."
+   }
+  },
+  {
+   "kennung": "G8-B1",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "faktor",
+   "stufe": 1,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "faktor",
+    "t": "faktor",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne einen Faktor, der einen Wert um mehr als 10 %, aber um weniger als 20 % verkleinert.",
+     "felder": [
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "verkleinert um mehr als 10 %",
+       "pruefe": [
+        "<",
+        "$1",
+        "0,9"
+       ],
+       "zeige": [
+        "*",
+        "$1",
+        100
+       ],
+       "hinweis": "Mit deinem Faktor bleiben {} % des Werts."
+      },
+      {
+       "name": "verkleinert um weniger als 20 %",
+       "pruefe": [
+        ">",
+        "$1",
+        "0,8"
+       ],
+       "zeige": [
+        "*",
+        "$1",
+        100
+       ],
+       "hinweis": "Mit deinem Faktor bleiben {} % des Werts."
+      }
+     ],
+     "beispiel": [
+      "0,85"
+     ],
+     "gut": [
+      [
+       "0,82"
+      ],
+      [
+       "7/8"
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        "0,95"
+       ],
+       "verletzt": "verkleinert um mehr als 10 %"
+      },
+      {
+       "werte": [
+        "0,8"
+       ],
+       "verletzt": "verkleinert um weniger als 20 %"
+      },
+      {
+       "werte": [
+        "1,15"
+       ],
+       "verletzt": "verkleinert um mehr als 10 %"
+      },
+      {
+       "werte": [
+        15
+       ],
+       "verletzt": "verkleinert um mehr als 10 %"
+      }
+     ]
+    },
+    "h": "Wie viel Prozent bleiben nach dem Verkleinern?",
+    "w": "Es bleiben zwischen 80 % und 90 %. Der Faktor liegt zwischen 0,8 und 0,9, zum Beispiel 0,85."
+   }
+  },
+  {
+   "kennung": "G8-B2",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "vermindert",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "vermindert",
+    "t": "vermindert",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Ein Artikel kostet nach einem Rabatt genau 60 €. Nenne einen möglichen alten Preis in Euro und den Rabatt in Prozent. Der Rabatt soll mindestens 10 % betragen.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "Rabatt mindestens 10 %",
+       "pruefe": [
+        "und",
+        [
+         ">=",
+         "$2",
+         10
+        ],
+        [
+         "<",
+         "$2",
+         100
+        ]
+       ],
+       "zeige": "$2",
+       "hinweis": "Dein Rabatt ist {} %."
+      },
+      {
+       "name": "neuer Preis ist 60 €",
+       "pruefe": [
+        "=",
+        [
+         "/",
+         [
+          "*",
+          "$1",
+          [
+           "-",
+           100,
+           "$2"
+          ]
+         ],
+         100
+        ],
+        60
+       ],
+       "zeige": [
+        "/",
+        [
+         "*",
+         "$1",
+         [
+          "-",
+          100,
+          "$2"
+         ]
+        ],
+        100
+       ],
+       "hinweis": "Mit deinen Zahlen kostet der Artikel danach {} €."
+      }
+     ],
+     "beispiel": [
+      75,
+      20
+     ],
+     "gut": [
+      [
+       80,
+       25
+      ],
+      [
+       100,
+       40
+      ],
+      [
+       120,
+       50
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        63,
+        5
+       ],
+       "verletzt": "Rabatt mindestens 10 %"
+      },
+      {
+       "werte": [
+        70,
+        20
+       ],
+       "verletzt": "neuer Preis ist 60 €"
+      },
+      {
+       "werte": [
+        60,
+        100
+       ],
+       "verletzt": "Rabatt mindestens 10 %"
+      }
+     ]
+    },
+    "h": "Alter Preis mal Faktor ergibt 60 €.",
+    "w": "Zum Beispiel 75 € mit 20 % Rabatt: 75 · 0,8 = 60. Oder 80 € mit 25 %, 100 € mit 40 %, 120 € mit 50 %."
+   }
+  },
+  {
+   "kennung": "G8-B3",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "mehrfach",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "mehrfach",
+    "t": "mehrfach",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne zwei positive Faktoren, die nacheinander angewendet einen Wert genau halbieren. Keiner der beiden Faktoren soll 0,5 oder 1 sein.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "beide Faktoren positiv",
+       "pruefe": [
+        ">",
+        [
+         "min",
+         "$alle"
+        ],
+        0
+       ],
+       "zeige": [
+        "min",
+        "$alle"
+       ],
+       "hinweis": "Dein kleinerer Faktor ist {}."
+      },
+      {
+       "name": "kein Faktor ist 0,5 oder 1",
+       "pruefe": [
+        "und",
+        [
+         "!=",
+         "$1",
+         "0,5"
+        ],
+        [
+         "!=",
+         "$1",
+         1
+        ],
+        [
+         "!=",
+         "$2",
+         "0,5"
+        ],
+        [
+         "!=",
+         "$2",
+         1
+        ]
+       ],
+       "hinweis": "Einer deiner Faktoren ist 0,5 oder 1."
+      },
+      {
+       "name": "zusammen wird halbiert",
+       "pruefe": [
+        "=",
+        [
+         "*",
+         "$1",
+         "$2"
+        ],
+        "0,5"
+       ],
+       "zeige": [
+        "*",
+        "$1",
+        "$2"
+       ],
+       "hinweis": "Nacheinander ergeben deine Faktoren den Faktor {}."
+      }
+     ],
+     "beispiel": [
+      "0,8",
+      "0,625"
+     ],
+     "gut": [
+      [
+       2,
+       "0,25"
+      ],
+      [
+       "1,25",
+       "0,4"
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        -1,
+        "-0,5"
+       ],
+       "verletzt": "beide Faktoren positiv"
+      },
+      {
+       "werte": [
+        1,
+        "0,5"
+       ],
+       "verletzt": "kein Faktor ist 0,5 oder 1"
+      },
+      {
+       "werte": [
+        "0,8",
+        "0,6"
+       ],
+       "verletzt": "zusammen wird halbiert"
+      },
+      {
+       "werte": [
+        "0,25",
+        "0,25"
+       ],
+       "verletzt": "zusammen wird halbiert"
+      }
+     ]
+    },
+    "h": "Was machst du mit zwei Faktoren, die nacheinander wirken?",
+    "w": "Die Faktoren werden malgenommen und müssen 0,5 ergeben, zum Beispiel 0,8 · 0,625 oder 2 · 0,25."
+   }
+  },
+  {
+   "kennung": "G8-B4",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "zurueck",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "zurueck",
+    "t": "zurueck",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "bedingung",
+    "f": {
+     "text": "Ein Preis wird erst um p % erhöht und danach um q % gesenkt. Am Ende ist er genau so hoch wie am Anfang. Nenne p und q. Beide sollen größer als 0 sein.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "beide größer als 0",
+       "pruefe": [
+        ">",
+        [
+         "min",
+         "$alle"
+        ],
+        0
+       ],
+       "zeige": [
+        "min",
+        "$alle"
+       ],
+       "hinweis": "Deine kleinere Zahl ist {}."
+      },
+      {
+       "name": "Endpreis gleich Anfangspreis",
+       "pruefe": [
+        "=",
+        [
+         "/",
+         [
+          "*",
+          [
+           "+",
+           100,
+           "$1"
+          ],
+          [
+           "-",
+           100,
+           "$2"
+          ]
+         ],
+         100
+        ],
+        100
+       ],
+       "zeige": [
+        "/",
+        [
+         "*",
+         [
+          "+",
+          100,
+          "$1"
+         ],
+         [
+          "-",
+          100,
+          "$2"
+         ]
+        ],
+        100
+       ],
+       "hinweis": "Aus 100 € werden mit deinen Zahlen am Ende {} €."
+      }
+     ],
+     "beispiel": [
+      25,
+      20
+     ],
+     "gut": [
+      [
+       100,
+       50
+      ],
+      [
+       60,
+       "37,5"
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0,
+        0
+       ],
+       "verletzt": "beide größer als 0"
+      },
+      {
+       "werte": [
+        20,
+        20
+       ],
+       "verletzt": "Endpreis gleich Anfangspreis"
+      },
+      {
+       "werte": [
+        25,
+        25
+       ],
+       "verletzt": "Endpreis gleich Anfangspreis"
+      }
+     ]
+    },
+    "h": "Die beiden Faktoren müssen malgenommen 1 ergeben.",
+    "w": "Zum Beispiel plus 25 % und minus 20 %: 1,25 · 0,8 = 1. Oder plus 100 % und minus 50 %: 2 · 0,5 = 1."
+   }
+  },
+  {
+   "kennung": "G8-B5",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "formel",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "formel",
+    "t": "formel",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "bedingung",
+    "f": {
+     "text": "1 000 € werden zwei Jahre lang mit demselben Zinssatz verzinst; die Zinsen bleiben auf dem Konto. Nenne einen Zinssatz in Prozent, bei dem am Ende mehr als 1 100 €, aber weniger als 1 200 € auf dem Konto sind.",
+     "felder": [
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "Zinssatz größer als 0",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ],
+       "zeige": "$1",
+       "hinweis": "Dein Zinssatz ist {} %."
+      },
+      {
+       "name": "am Ende mehr als 1 100 €",
+       "pruefe": [
+        ">",
+        [
+         "/",
+         [
+          "hoch",
+          [
+           "+",
+           100,
+           "$1"
+          ],
+          2
+         ],
+         10
+        ],
+        1100
+       ],
+       "zeige": [
+        "/",
+        [
+         "hoch",
+         [
+          "+",
+          100,
+          "$1"
+         ],
+         2
+        ],
+        10
+       ],
+       "hinweis": "Nach zwei Jahren sind es bei dir {} €."
+      },
+      {
+       "name": "am Ende weniger als 1 200 €",
+       "pruefe": [
+        "<",
+        [
+         "/",
+         [
+          "hoch",
+          [
+           "+",
+           100,
+           "$1"
+          ],
+          2
+         ],
+         10
+        ],
+        1200
+       ],
+       "zeige": [
+        "/",
+        [
+         "hoch",
+         [
+          "+",
+          100,
+          "$1"
+         ],
+         2
+        ],
+        10
+       ],
+       "hinweis": "Nach zwei Jahren sind es bei dir {} €."
+      }
+     ],
+     "beispiel": [
+      5
+     ],
+     "gut": [
+      [
+       9
+      ],
+      [
+       "7,5"
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        -205
+       ],
+       "verletzt": "Zinssatz größer als 0"
+      },
+      {
+       "werte": [
+        4
+       ],
+       "verletzt": "am Ende mehr als 1 100 €"
+      },
+      {
+       "werte": [
+        10
+       ],
+       "verletzt": "am Ende weniger als 1 200 €"
+      }
+     ]
+    },
+    "h": "Rechne mit Kₙ = K₀ · qⁿ und probiere einen Zinssatz aus.",
+    "w": "Bei 5 %: 1 000 € · 1,05 · 1,05 = 1 102,50 €. Es passen die Zinssätze von 5 % bis 9 %; bei 10 % sind es schon 1 210 €."
+   }
+  }
+ ]
+}

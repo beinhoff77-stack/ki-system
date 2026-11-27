@@ -1,0 +1,28 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../style.css">
+<style>body{margin:0;padding:12px;} .fall{margin:0 0 18px;padding:10px;border:1px dashed #999;border-radius:10px} .fall>h6{margin:0 0 6px;font:600 11px/1.2 monospace;opacity:.7} #err{color:#b00;font:12px monospace;white-space:pre-wrap}</style></head>
+<body class="lr-ozean lr-abflug" style="background:var(--lr-bg);color:var(--lr-text)"><div id="err"></div><div id="aus"></div>
+<script>window.addEventListener('error', (e) => { document.getElementById('err').textContent += 'FEHLER: ' + e.message + ' @' + (e.filename||'').split('/').pop() + ':' + e.lineno + '\n'; });</script>
+<script src="../app.js"></script>
+<script src="../lernen.js"></script>
+<script>
+try {
+  const aus = document.getElementById('aus');
+  const fall = (titel, ...k) => aus.append(el('div', { class: 'fall' }, el('h6', {}, titel), ...k));
+  const A = (a, vorher, opts) => lernAufgabe(a, vorher, opts || {});
+  fall('Frage mit Zahlenbruch und gemischter Zahl', A({ id: 1, antworttyp: 'zahl', frage: { text: 'Addiere 2 1/2 und 3/4. Kürze danach 6/8 vollständig.' } }).node);
+  fall('Auswahl mit Brüchen', A({ id: 2, antworttyp: 'auswahl', frage: { text: 'Welcher Bruch ist gleich (x + 1)/(x − 2) für x = 4?' }, antworten: ['5/2', '2/5', '1 1/4', '3x/4'] }).node);
+  fall('Lösungsweg', el('p', {}, el('b', {}, 'So geht’s: '), lernMathe('Erweitere 2/x mit (x + 1) und 3/(x + 1) mit x: (2x + 2)/(x(x + 1)) + 3x/(x(x + 1)). Bei 60 km/h und x^(1/2) bleibt alles Text. −1/2 · a/b = −a/(2b).')));
+  fall('Lösung (Lücken-Bruch)', el('p', {}, el('b', {}, 'Richtig ist: ', lernMathe(lernLoesungText({ antworttyp: 'luecken', frage: { schablone: '□/□' }, loesung: { werte: [3, 4] } })))));
+  const b3 = { id: 3, antworttyp: 'bedingung', frage: { text: 'Nenne drei verschiedene ganze Zahlen mit der Summe 0. Genau eine davon ist positiv.', felder: [{ art: 'ganz' }, { art: 'ganz' }, { art: 'ganz' }] }, loesung: { beispiel: [5, -2, -3], bedingungen: ['drei verschiedene Zahlen', 'Summe ist 0', 'genau eine positiv'] } };
+  fall('bedingung, 3 Felder, leer (mit Tastenfeld-Modus)', A(b3, null, { tasten: true }).node);
+  fall('bedingung, 3 Felder, gefüllt', A(b3, { werte: ['4', '−1', '−2'] }, { tasten: true }).node);
+  const r1 = { richtig: false, verletzt: 'Summe ist 0', hinweis: 'Deine Summe ist 1.', loesung: b3.loesung };
+  fall('Rückmeldung 1. Fehlversuch', el('div', { class: 'lr-rueck lr-rueck-nochmal' }, el('b', {}, 'Noch nicht – du hast einen zweiten Versuch.'), lernBedingungRueck(r1), el('p', {}, 'Ändere deine Zahlen.')));
+  fall('Rückmeldung endgültig falsch', el('div', { class: 'lr-rueck lr-rueck-falsch' }, el('b', {}, 'Noch nicht. Richtig ist: ', lernMathe(lernLoesungText(b3))), lernBedingungRueck(r1), lernBedingungListe(b3, r1)));
+  fall('Rückmeldung richtig', el('div', { class: 'lr-rueck lr-rueck-richtig' }, el('b', {}, 'Richtig!'), lernBedingungListe(b3, { richtig: true, loesung: b3.loesung })));
+  const b6 = { id: 4, antworttyp: 'bedingung', frage: { text: 'Nenne sechs Zahlen mit dem Mittelwert 2,5 und dem Median 1/2.', felder: Array.from({ length: 6 }, () => ({ art: 'rational' })) } };
+  fall('bedingung, 6 Felder', A(b6, { werte: ['−3', '0', '1/2', '1/2', '7', '10'] }, { tasten: true }).node);
+  fall('Antwort-Text', el('p', {}, 'Deine Antwort: ', el('b', {}, lernMathe(lernAntwortText(b6, { werte: ['-3', '0', '1/2', '1/2', '7', '10'] })))));
+} catch (e) { document.getElementById('err').textContent += 'HARNESS: ' + e.message + '\n' + (e.stack||'').split('\n').slice(0,3).join('\n'); }
+</script></body></html>

@@ -1,0 +1,110 @@
+# Vorschlag Dreißigste Runde: neue Voraussetzungen (thema, braucht, art, begruendung) und eigenständige Themen
+NEU = [
+ (8, 68, 'hart', 'Etappe reinquadratisch: x² = a mit der Quadratwurzel lösen (Stoff von 12 steht jetzt hier)'),
+ (49, 46, 'empfohlen', 'Verschiebung und Gegenvektor aus den Kongruenzabbildungen (ersetzt 48)'),
+ (74, 46, 'empfohlen', 'Verschiebung und Gegenvektor aus den Kongruenzabbildungen (ersetzt 48)'),
+ (74, 50, 'empfohlen', 'Determinanten berechnen Flächeninhalte von Parallelogramm und Dreieck'),
+ (76, 28, 'empfohlen', 'Term für das n-te Glied (Folgen stehen jetzt in diesem Flug, ersetzt 41)'),
+ (2, 28, 'hart', 'Gleichungen bestehen aus Termen mit Variablen'),
+ (2, 16, 'empfohlen', 'Lösungen und Umformungen mit negativen Zahlen'),
+ (4, 29, 'empfohlen', 'beim Umstellen werden Terme umgeformt'),
+ (6, 33, 'empfohlen', 'graphisches Lösen über den Schnittpunkt zweier Geraden'),
+ (11, 39, 'empfohlen', 'Nullstellen ganzrationaler Funktionen = Lösungen der Polynomgleichung'),
+ (13, 8, 'empfohlen', 'Wurzelgleichungen führen oft auf quadratische Gleichungen'),
+ (17, 18, 'empfohlen', 'Teiler und Vielfache beruhen auf Multiplizieren und Dividieren'),
+ (18, 15, 'hart', 'Rechnen im Stellenwertsystem mit natürlichen Zahlen'),
+ (19, 67, 'hart', 'Potenzbegriff: Basis und Exponent'),
+ (19, 22, 'empfohlen', 'kleine Zahlen als Dezimalzahl und als Zehnerpotenz'),
+ (20, 68, 'hart', 'Quadratwurzel als Grundbegriff'),
+ (21, 18, 'empfohlen', 'Bruch als Teilen; Kürzen und Erweitern durch Multiplizieren und Dividieren'),
+ (21, 17, 'empfohlen', 'Kürzen mit gemeinsamen Teilern'),
+ (22, 21, 'empfohlen', 'Dezimalzahlen als Zehnerbrüche'),
+ (23, 22, 'empfohlen', 'rationale Zahlen auch als Dezimalzahlen'),
+ (23, 16, 'empfohlen', 'Vorzeichenregeln der ganzen Zahlen'),
+ (24, 22, 'empfohlen', 'Prozentsätze als Dezimalzahl'),
+ (25, 18, 'empfohlen', 'Umrechnen durch Multiplizieren und Dividieren mit 10, 100, 1000'),
+ (28, 18, 'empfohlen', 'Rechenarten und Rechengesetze in Termen'),
+ (29, 102, 'hart', 'Produkte wie a · a² · a³ brauchen das Potenzgesetz'),
+ (30, 21, 'empfohlen', 'negativer Exponent bedeutet Kehrbruch'),
+ (31, 29, 'hart', 'Zähler und Nenner werden als Terme umgeformt'),
+ (34, 32, 'empfohlen', 'Funktionsbegriff, Definitionsmenge'),
+ (34, 93, 'empfohlen', 'indirekte Proportionalität führt auf die Hyperbel'),
+ (36, 35, 'empfohlen', 'Parabel als erste Potenzfunktion'),
+ (37, 103, 'empfohlen', 'Potenzgesetze mit ganzzahligen Exponenten'),
+ (43, 42, 'empfohlen', 'Strahl, Scheitel und Gerade'),
+ (44, 43, 'empfohlen', 'Winkel messen und zeichnen'),
+ (44, 98, 'empfohlen', 'Winkelsumme bei Existenz und Konstruktion von Dreiecken'),
+ (44, 46, 'empfohlen', 'Grundkonstruktionen (Mittelsenkrechte, Lot, Winkelhalbierende)'),
+ (45, 42, 'empfohlen', 'Kreis, Radius, Gerade'),
+ (45, 98, 'empfohlen', 'Satz des Thales wird über die Winkelsumme im Dreieck begründet'),
+ (45, 73, 'empfohlen', 'Umkreis und Inkreis über Mittelsenkrechte und Winkelhalbierende'),
+ (46, 42, 'empfohlen', 'Gerade, Senkrechte, Koordinatensystem'),
+ (50, 42, 'empfohlen', 'Rechteck, Quadrat und Vielecke'),
+ (52, 42, 'empfohlen', 'ebene Figuren für Netze und Seitenflächen'),
+ (55, 54, 'empfohlen', 'fehlende Seiten mit Pythagoras'),
+ (58, 22, 'empfohlen', 'Mittelwerte sind oft Dezimalzahlen'),
+ (59, 57, 'empfohlen', 'Daten erfassen und darstellen'),
+ (59, 33, 'empfohlen', 'Trendgerade als lineare Funktion'),
+ (64, 61, 'hart', 'Zufallsexperiment und relative Häufigkeit'),
+ (66, 3, 'empfohlen', 'Bedingungen als lineare Ungleichungen'),
+ (66, 33, 'empfohlen', 'Randgeraden zeichnen'),
+ (67, 18, 'hart', 'Potenz als wiederholtes Multiplizieren'),
+ (68, 67, 'empfohlen', 'Quadratzahlen'),
+ (69, 16, 'empfohlen', 'Zahlengerade mit negativen Zahlen'),
+ (70, 22, 'empfohlen', 'Runden von Dezimalzahlen'),
+ (73, 42, 'hart', 'Kreis, Gerade, Abstand'),
+ (75, 32, 'empfohlen', 'Funktionsbegriff'),
+ (75, 16, 'empfohlen', 'Betrag einer ganzen Zahl'),
+ (81, 57, 'empfohlen', 'Daten erheben und darstellen'),
+ (81, 58, 'empfohlen', 'Kenngrößen zum Vergleich von Stichproben'),
+ (92, 101, 'empfohlen', 'Pyramide und Kegel im Vergleich zu Prisma und Zylinder'),
+ (98, 43, 'empfohlen', 'Winkel messen, Scheitel- und Nebenwinkel'),
+ (99, 50, 'empfohlen', 'Flächeninhalt von Rechteck und Quadrat; Zerlegen'),
+ (100, 50, 'empfohlen', 'Grundfläche des Quaders'),
+ (100, 25, 'empfohlen', 'Einheiten umrechnen'),
+ (101, 99, 'empfohlen', 'Grundflächen Dreieck, Trapez, Parallelogramm'),
+ (101, 100, 'empfohlen', 'Volumenbegriff und Volumeneinheiten'),
+ (101, 51, 'empfohlen', 'Kreisfläche und -umfang für den Zylinder'),
+ (102, 30, 'hart', 'Potenzbegriff (Basis, Exponent, Hoch 0)'),
+ (102, 28, 'hart', 'Terme mit Variablen'),
+ (103, 102, 'hart', 'Potenzgesetze mit natürlichen Exponenten'),
+ (103, 30, 'empfohlen', 'negative Exponenten als Kehrbruch'),
+ (96, 103, 'empfohlen', 'Potenzgesetze werden auf rationale Exponenten erweitert'),
+]
+# Begründung einer vorhandenen Verbindung anpassen (kein Löschen)
+BEGR_NEU = {(96, 30): 'Potenzbegriff und negative Exponenten'}
+EIGEN = {
+ 15: 'Einstieg Klasse 5; setzt nur Grundschulwissen voraus',
+ 42: 'Einstieg Geometrie Klasse 5; setzt nur Grundschulwissen voraus',
+ 57: 'Zählen und Ablesen aus der Grundschule genügen',
+ 60: 'systematisches Zählen; setzt nur Grundschulwissen voraus',
+ 65: 'Entdecker-Insel mit eigenen Begriffen (Knoten, Kanten)',
+ 83: 'Entdecker-Insel; Mengenbegriff wird hier eingeführt',
+ 84: 'Entdecker-Insel; Aussagen und Wahrheitswerte werden hier eingeführt',
+}
+KLASSE = {}
+LERNBEREICH = {4: {'gym_by': 'M8 1 Funktion und Term'}}
+REIHENFOLGE_GYM = {}
+
+# IB: 32 nach MYP 3 vor 33 (harte Voraussetzung 33 <- 32 darf nicht in späterer Klasse liegen)
+IB_NEU = {3: [30, 102, 29, 94, 32, 33, 46, 44, 51, 52, 92, 47, 54, 83]}
+IB_TEXT_32 = 'Annahme: Zuordnungen schon in MYP 3 vor linearen Funktionen (harte Voraussetzung); Funktionsschreibweise, Definitions- und Wertebereich laut Framework MYP 4–5'
+
+AUFGELOEST = sorted(AUF_SET := {12, 27, 40, 41, 48, 72, 77, 78, 82, 83})
+LOESCHEN = [
+ (8, 12, 'Quadratische Gleichungen braucht 12: Stoff steht jetzt als Etappe reinquadratisch in 8 selbst; ersetzt durch 8 ← 68'),
+ (12, 68, '12 ist aufgelöst (Entwurf ohne freigegebene Einheit)'),
+ (49, 48, 'Matrizen braucht 48: Vektor-Flug aufgelöst; ersetzt durch 49 ← 46'),
+ (74, 48, 'Determinanten brauchen 48: Vektor-Flug aufgelöst; ersetzt durch 74 ← 46 und 74 ← 50'),
+ (76, 41, 'Reihen braucht 41: Folgen stehen jetzt als Etappen in 76; ersetzt durch 76 ← 28'),
+ (72, 67, '72 ist aufgelöst (Stoff in 94 und 37)'),
+ (72, 71, '72 ist aufgelöst (Stoff in 94 und 37)'),
+ (77, 32, '77 ist aufgelöst (Stoff in 36)'),
+ (78, 33, '78 ist aufgelöst (Stoff in 33 und 6)'),
+ (82, 21, '82 ist aufgelöst (Stoff in 63 und 62)'),
+ (82, 23, '82 ist aufgelöst (Stoff in 63 und 62)'),
+ (82, 61, '82 ist aufgelöst (Stoff in 63 und 62)'),
+]
+
+# Runde 30 c: auf empfohlen gesetzt, weil sonst neue Reise-Sperre (v_ort_visum)
+C_EMPF = [(2, 16), (17, 18), (21, 18), (22, 21), (23, 16), (23, 22), (25, 18), (28, 18), (30, 21), (34, 32), (43, 42), (44, 43), (45, 42), (45, 98), (46, 42), (50, 42), (52, 42), (59, 33), (59, 57), (66, 3), (66, 33), (68, 67), (69, 16), (70, 22), (74, 50), (75, 16), (75, 32), (76, 28), (81, 57), (96, 103), (98, 43), (99, 50), (100, 25), (100, 50), (101, 51), (101, 99), (101, 100), (103, 30)]

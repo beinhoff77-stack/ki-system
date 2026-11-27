@@ -8,12 +8,14 @@
 //   inhalte/design/gesetzbuch/entwurf7/teile/kurz.json   Kurzbeschreibungen (Designer)
 //   inhalte/mathe-profi/regeln-uebersicht/texte8/*.json  Berichtigungen und Ergänzungen des Mathe-Profis (README dort, Punkte 1–6)
 //   inhalte/mathe-profi/regeln-uebersicht/kennungen.json, inhalte/mathe-profi/schritt1/*, inhalte/themen/*.json   Lehrer-Blatt
+//   inhalte/mathe-profi/regeln-uebersicht/einheiten/einheiten.json, …/tafeln/*/*.json   Tafeln zum Nachschlagen (über tools/tafeln_bauen.cjs)
 // Entscheidungen des Projektleiters (27.11.): Regel 10 bekommt die kürzere Merksatz-Fassung; Regel 6 und 7 (1112): Merksatz = Kurzbeschreibung (inhalt.json).
 'use strict';
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 const assert = require('node:assert/strict');
+const { tafelnBauen } = require('./tafeln_bauen.cjs'); // Tafeln zum Nachschlagen: Quellen und Zeichnungen dort
 
 const repo = path.resolve(__dirname, '..');
 const lies = (...p) => fs.readFileSync(path.join(repo, ...p), 'utf8');
@@ -115,7 +117,7 @@ function bauen() {
   const daten = {
     hinweis: 'Erzeugt mit tools/regeln_bauen.cjs – nicht von Hand ändern. Mathe-Inhalt vom Mathe-Profi (inhalt.json Stand ' + inhalt.stand + ', texte8), Darstellung vom Designer (entwurf7).',
     etagen: inhalt.etagen, regeln, leitern: inhalt.leitern, planeten, gesetze, stichwoerter: inhalt.stichwoerter, formeln: inhalt.formeln, arbeitsweisen, themen: inhalt.themen,
-    kurz, zeichnungen, lehrer,
+    kurz, zeichnungen, lehrer, tafeln: tafelnBauen(json),
   };
   // Klassen der Daten-HTML bekommen das Präfix der App (ru-), damit keine Stilregel der App hineinwirkt
   const text = JSON.stringify(daten).replace(/class=\\"([^"\\]*)\\"/g, (_, c) => `class=\\"${c.split(/\s+/).filter(Boolean).map((x) => 'ru-' + x).join(' ')}\\"`);
@@ -123,6 +125,7 @@ function bauen() {
     gesetze: gesetze.length, zeichnungen: Object.keys(zeichnungen).length, luecken, einzelregeln: einzel.length, kurz: Object.keys(kurz).length,
     aufgaben: Object.fromEntries(Object.entries(lehrer).map(([k, v]) => [k, v.aufgaben.length])) };
   assert.deepEqual([zahlen.regeln, zahlen.schichten, zahlen.gebiete, zahlen.ideen, zahlen.arbeitsweisen, zahlen.luecken, zahlen.einzelregeln, zahlen.kurz], [14, 4, 7, 28, 8, 25, 30, 42]);
+  zahlen.tafeln = daten.tafeln.length; assert.equal(zahlen.tafeln, 9); // Tafeln (Gesamtübersicht Formeln + 8) getrennt gezählt, keine Regel-Nummer (einheiten/vorschlag.md, Abschnitt 5)
   return { text: text + '\n', zahlen };
 }
 

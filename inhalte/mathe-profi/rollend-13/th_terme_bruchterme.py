@@ -45,11 +45,11 @@ neu(T, "erweitern", "umkehren", Z(
     "Der Bruchterm 4/(x − 2) wurde so erweitert, dass der neue Nenner x² − 4 ist (x ≠ 2 und x ≠ −2). Welchen Wert hat der neue Zähler für x = 5?",
     28, "4 * (5 + 2)", "28", "Womit musst du x − 2 malnehmen, um x² − 4 zu erhalten? Mit demselben Term wird auch der Zähler malgenommen.",
     "x² − 4 = (x − 2)(x + 2). Es wurde mit x + 2 erweitert. Der neue Zähler ist 4(x + 2). Für x = 5: 4 · 7 = 28. Probe: 4/3 = 28/21.",
-    [(7, None, "nur den Erweiterungsfaktor x + 2 berechnet, den Zähler 4 nicht mitgenommen", "5 + 2"), (4, None, "den Zähler nicht mit erweitert", "4"), (22, None, "den Faktor addiert statt malgenommen: 4 · 5 + 2", "4 * 5 + 2")]), g="umkehr", regel="rr.kuerzen")
+    [(7, None, "nur den Erweiterungsfaktor x + 2 berechnet, den Zähler 4 nicht mitgenommen", "5 + 2"), (4, None, "den Zähler nicht mit erweitert", "4"), (22, None, "nur x mit 4 multipliziert, die 2 anschließend addiert", "4 * 5 + 2")]), g="umkehr", regel="rr.kuerzen")
 assert gl("4/(x-2)", "4*(x+2)/(x**2-4)")
 neu(T, "erweitern", "fehler_detektiv", FD(
     "Kim erweitert 2/(x − 1) so, dass der Nenner x² − 1 wird.",
-    [("Es ist x² − 1 = (x − 1)(x + 1). Also wird mit x + 1 erweitert.", gl("x**2-1", "(x-1)*(x+1)"), True),
+    [("Es ist x² − 1 = (x − 1)(x + 1), erlaubt sind x ≠ 1 und x ≠ −1. Also wird mit x + 1 erweitert.", gl("x**2-1", "(x-1)*(x+1)"), True),
      ("Der Zähler wird 2 · (x + 1) = 2x + 1.", gl("2*(x+1)", "2*x+1"), True),
      ("Ergebnis: (2x + 1)/(x² − 1) mit x ≠ 1 und x ≠ −1.", gl("(2*x+1)/(x**2-1)", "(2*x+1)/(x**2-1)"), True)],
     "Rechne 2 · (x + 1) einzeln aus. Wird jeder Summand malgenommen?",
@@ -61,7 +61,7 @@ neu(T, "addieren", "bruecke", W(
     "(2x + 1)/(x² + x)",
     [("2/(2x + 1)", "Zähler und Nenner getrennt addiert; für x = 1 ergibt der Term 2/3 statt 3/2"), ("2/(x² + x)", "nur die Zähler addiert, aber die Nenner malgenommen; für x = 1 ergibt der Term 1 statt 3/2")],
     "Setze x = 1 in jeden Term ein und vergleiche mit der Tabelle.",
-    "Hauptnenner x(x + 1) = x² + x: 1/x = (x + 1)/(x² + x) und 1/(x + 1) = x/(x² + x). Summe: (2x + 1)/(x² + x). Für x = 1: 3/2, für x = 2: 5/6, für x = 3: 7/12, für x = 4: 9/20.",
+    "Hauptnenner x(x + 1) = x² + x: 1/x = (x + 1)/(x² + x) und 1/(x + 1) = x/(x² + x). Summe: (2x + 1)/(x² + x). Für x = 1: 3/2, für x = 2: 5/6, für x = 3: 7/12, für x = 4: 9/20. Die Tabellenspalte widerlegt die falschen Terme: 2/(2x + 1) ergibt für x = 2 nur 2/5 statt 5/6, und 2/(x² + x) ergibt für x = 2 nur 1/3 statt 5/6. Der Hauptnenner x² + x begründet den richtigen Term für alle x.",
     lambda: all(wert_an("(2*x+1)/(x**2+x)", k) == v for k, v in _ta) and gl("1/x+1/(x+1)", "(2*x+1)/(x**2+x)") and not gl("1/x+1/(x+1)", "2/(2*x+1)") and not gl("1/x+1/(x+1)", "2/(x**2+x)"),
     grafik=TAB(["x", "1", "2", "3", "4"], ["T(x)", "3/2", "5/6", "7/12", "9/20"])), g="darstellung", regel="rr.bruchrechnen")
 neu(T, "addieren", "umkehren", Z(
@@ -78,8 +78,8 @@ neu(T, "multiplizieren", "zwei_wege", Z(
     [(168, None, "nur die Zähler der beiden Brüche malgenommen", "(5 ** 2 - 4) * (5 + 3)"), (3, None, "x² − 4 falsch als (x − 2)(x − 2) zerlegt, dann bleibt beim Kürzen x − 2", "5 - 2"), (2.625, None, "nur den ersten Bruch ausgerechnet", "(5 ** 2 - 4) / (5 + 3)")]), g="mehrschritt", regel="rr.bruchrechnen")
 assert gl("(x**2-4)/(x+3)*(x+3)/(x-2)", "x+2")
 neu(T, "multiplizieren", "umkehren", Z(
-    "Das Produkt 4x/(x − 2) · (x − 2)/(a · x²) soll für alle Zahlen x mit x ≠ 0 und x ≠ 2 gleich 2/x sein. Welche Zahl a ist das?",
-    2, "4 / 2", 2, "Kürze zuerst alles, was oben und unten gleich vorkommt. Vergleiche dann den Rest mit 2/x.",
+    "Das Produkt 4x/(x − 2) · (x − 2)/(a · x²) soll für alle Zahlen x mit x ≠ 0 und x ≠ 2 gleich 2/x sein (a ≠ 0). Welche Zahl a ist das?",
+    2, "4 / 2", 2, "Kürze gemeinsame, von null verschiedene Faktoren. Vergleiche dann den Rest mit 2/x.",
     "Im Produkt kürzt sich x − 2 weg, und ein x kürzt sich auch. Es bleibt der Bruch 4/(a · x). Das soll 2/x sein, also 4/a = 2 und a = 2. Probe: 4x/(2x²) = 2/x.",
     [(8, None, "4 · 2 gerechnet statt 4 : 2", "4 * 2"), (0.5, None, "2 : 4 gerechnet statt 4 : 2", "2 / 4"), (6, None, "4 + 2 gerechnet", "4 + 2")]), g="rueckwaerts", regel="rr.bruchrechnen")
 assert gl("4*x/(x-2)*(x-2)/(2*x**2)", "2/x")

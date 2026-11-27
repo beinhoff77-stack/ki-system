@@ -207,22 +207,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 3,
+     "antwort": 40,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Anzahl mit 0,2 malgenommen statt durch 0,2 geteilt"
+     "beschreibung": "die beiden relativen Häufigkeiten 20 und 60 Prozent gemittelt, ohne die Zahl der Würfe zu beachten"
     },
     {
-     "antwort": 35,
+     "antwort": 60,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Anzahl der Sechsen und die Prozentzahl 20 addiert"
+     "beschreibung": "nur die zweite Serie betrachtet: 15 von 25"
     },
     {
-     "antwort": 300,
+     "antwort": 20,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Anzahl der Sechsen mit der Prozentzahl 20 malgenommen"
+     "beschreibung": "nur die erste Serie betrachtet"
     }
    ],
    "aufgabe": {
@@ -233,14 +233,15 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein Würfel wird mehrmals geworfen. Die Sechs fällt 15-mal. Die relative Häufigkeit der Sechs ist 20 Prozent. Wie oft wurde der Würfel geworfen?"
+     "text": "Ein Würfel wird in einer ersten Serie mehrmals geworfen. Die Sechs fällt 15-mal, ihre relative Häufigkeit ist 20 Prozent. In einer zweiten Serie wird derselbe Würfel noch 25-mal geworfen, dabei fällt die Sechs wieder 15-mal. Wie groß ist die relative Häufigkeit der Sechs in beiden Serien zusammen (in Prozent)?"
     },
     "o": {
-     "wert": 75
+     "wert": 30,
+     "einheit": "%"
     },
-    "c": "15 * 100 / 20",
-    "h": "Wie hängen die Anzahl der Sechsen, die Zahl aller Würfe und die relative Häufigkeit zusammen?",
-    "w": "Relative Häufigkeit = Anzahl der Sechsen geteilt durch Anzahl aller Würfe. 20 Prozent sind 0,2, also 15 : n = 0,2. Daraus folgt n = 15 : 0,2 = 75. Probe: 15 : 75 = 0,2."
+    "c": "(15 + 15) / (15 * 100 / 20 + 25) * 100",
+    "h": "Wie viele Würfe hatte die erste Serie? Zähle dann alle Sechsen und alle Würfe zusammen.",
+    "w": "Erste Serie: 15 : n = 0,2, also n = 15 : 0,2 = 75 Würfe. Beide Serien: 75 + 25 = 100 Würfe und 15 + 15 = 30 Sechsen. Relative Häufigkeit: 30 : 100 = 0,3, das sind 30 Prozent. Probe: 20 Prozent von 75 sind 15."
    }
   },
   {
@@ -334,7 +335,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim zieht zweimal hintereinander eine Kugel aus einer Urne mit den Kugeln 1, 2, 3 und 4. Die gezogene Kugel wird nicht zurückgelegt. Kim zeichnet das Baumdiagramm und zählt. Zeile 1: Beim ersten Zug gibt es 4 Möglichkeiten. Zeile 2: Die gezogene Kugel bleibt draußen. Beim zweiten Zug gibt es nur noch 3 Möglichkeiten. Zeile 3: Das Baumdiagramm hat 12 Wege, denn 4 mal 3 sind 12. Zeile 4: Zum Ereignis „Die Summe ist 5“ gehören die Wege (1 | 4), (2 | 3), (3 | 2), (4 | 1) und (2 | 2). Das sind 5 Wege. In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim zieht zweimal hintereinander eine Kugel aus einer Urne mit den Kugeln 1, 2, 3 und 4. Die gezogene Kugel wird nicht zurückgelegt. Kim zeichnet das Baumdiagramm und zählt. Zeile 1: Beim ersten Zug gibt es 4 Möglichkeiten. Zeile 2: Die gezogene Kugel bleibt draußen. Beim zweiten Zug gibt es nur noch 3 Möglichkeiten. Zeile 3: Das Baumdiagramm hat 12 Wege, denn 4 mal 3 sind 12. Zeile 4: Zum Ereignis „Die Summe ist 6“ gehören die Wege (2 | 4), (4 | 2) und (3 | 3). Das sind 3 Wege. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -346,7 +347,7 @@
      "index": 3
     },
     "h": "Prüfe jede Zeile einzeln: Passt sie zu der Regel, dass die Kugel nicht zurückgelegt wird?",
-    "w": "Zeile 1 bis 3 stimmen: 4 · 3 = 12 Wege. In Zeile 4 steht der Weg (2 | 2). Kugel 2 ist nach dem ersten Zug draußen und kann nicht noch einmal gezogen werden. Es gehören nur 4 Wege zum Ereignis. Dass die Summe 5 ist, reicht nicht: Der Weg muss im Baum vorkommen."
+    "w": "Zeile 1 bis 3 stimmen: 4 · 3 = 12 Wege. In Zeile 4 steht der Weg (3 | 3). Kugel 3 ist nach dem ersten Zug draußen und kann nicht noch einmal gezogen werden. Zur Summe 6 gehören nur (2 | 4) und (4 | 2), also 2 Wege. Die Summe 6 allein reicht nicht: Der Weg muss im Baum vorkommen."
    }
   }
  ]

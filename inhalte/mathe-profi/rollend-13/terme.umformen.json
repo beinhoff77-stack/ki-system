@@ -346,10 +346,10 @@
      "beschreibung": "Weg A: nur die 20 mit 17 malgenommen, die 4 nur addiert"
     },
     {
-     "antwort": 178,
+     "antwort": 477,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Weg B: nur die 7 mit 24 malgenommen, die 10 nur addiert"
+     "beschreibung": "Weg B: nur die 20 mit 24 malgenommen, die 3 nur abgezogen"
     },
     {
      "antwort": 68,
@@ -366,7 +366,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "In einem Saal stehen 17 Reihen mit je 24 Stühlen. Berechne die Zahl der Stühle im Kopf mit dem Verteilungsgesetz auf zwei Wegen. Weg A: 17 · (20 + 4). Weg B: (10 + 7) · 24. Wie viele Stühle sind es?"
+     "text": "In einem Saal stehen 17 Reihen mit je 24 Stühlen. Berechne die Zahl der Stühle im Kopf mit dem Verteilungsgesetz auf zwei Wegen. Weg A: 17 · (20 + 4). Weg B: 24 · (20 − 3). Wie viele Stühle sind es?"
     },
     "o": {
      "wert": 408,
@@ -374,7 +374,7 @@
     },
     "c": "17 * (20 + 4)",
     "h": "Beide Wege müssen dasselbe Ergebnis haben. Jeder Summand in der Klammer wird mit dem anderen Faktor malgenommen.",
-    "w": "Weg A: 17 · 20 + 17 · 4 = 340 + 68 = 408. Weg B: 10 · 24 + 7 · 24 = 240 + 168 = 408. Beide Wege führen auf 408 Stühle."
+    "w": "Weg A: 17 · 20 + 17 · 4 = 340 + 68 = 408. Weg B: 24 · 20 − 24 · 3 = 480 − 72 = 408. Beide Wege führen auf 408 Stühle."
    }
   },
   {
@@ -465,7 +465,7 @@
      "wert": 2
     },
     "c": "2",
-    "h": "Fasse jeden Term zusammen. Oder setze n = 0 und n = 1 ein.",
+    "h": "Fasse jeden Term zusammen. Bei linearen Termen (nur n, kein n²) genügt auch: setze n = 0 und n = 1 ein.",
     "w": "(1) 2n + 8 + n = 3n + 8. Gleich. (2) 3n + 24. Nicht gleich, schon bei n = 0 ist es 24 statt 8. (3) 8 + 3n. Gleich. Es sind 2 Terme."
    }
   },

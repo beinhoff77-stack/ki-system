@@ -26,10 +26,10 @@ neu(T, "ausklammern", "bruecke", W(
 neu(T, "ausklammern", "fehler_detektiv", FD(
     "Kim klammert in 8a²b + 12ab² den größten gemeinsamen Faktor aus.",
     [("Der größte gemeinsame Teiler von 8 und 12 ist 4. Beide Glieder enthalten a und b. Ausgeklammert wird 4ab.", math.gcd(8, 12) == 4, True),
-     ("Teilen durch 4ab: 8a²b : 4ab = 2 und 12ab² : 4ab = 3.", gl("8*a**2*b/(4*a*b)", "2") and gl("12*a*b**2/(4*a*b)", "3"), True),
+     ("Jedes Glied wird in 4ab mal Rest zerlegt: 8a²b = 4ab · 2 und 12ab² = 4ab · 3.", gl("4*a*b*2", "8*a**2*b") and gl("4*a*b*3", "12*a*b**2"), True),
      ("Also gilt 8a²b + 12ab² = 4ab(2 + 3) = 20ab.", gl("4*a*b*(2+3)", "20*a*b"), True)],
-    "Teile 8a²b durch 4ab. Welche Buchstaben bleiben übrig?",
-    "8a²b : 4ab = 2a und 12ab² : 4ab = 3b. Richtig: 8a²b + 12ab² = 4ab(2a + 3b). In Zeile 2 sind die Buchstaben verloren gegangen, Zeile 3 rechnet damit nur weiter."), regel="rr.ausmultiplizieren")
+    "Multipliziere 4ab · 2 aus. Kommt 8a²b heraus? Prüfe so jedes Glied.",
+    "Aus den Potenzen: 8a²b = 4ab · 2a und 12ab² = 4ab · 3b. Richtig: 8a²b + 12ab² = 4ab(2a + 3b). Das Ausmultiplizieren bestätigt es: 4ab · 2a + 4ab · 3b = 8a²b + 12ab². In Zeile 2 sind die Buchstaben verloren gegangen, Zeile 3 rechnet damit nur weiter."), regel="rr.ausmultiplizieren")
 # ───────── binomisch ─────────
 neu(T, "binomisch", "zwei_wege", Z(
     "Berechne 47² auf zwei Wegen. Weg A: 47 · (40 + 7) mit dem Verteilungsgesetz. Weg B: (50 − 3)² mit der zweiten binomischen Formel. Welchen Wert hat 47²?",

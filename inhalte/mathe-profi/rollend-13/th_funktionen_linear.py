@@ -16,7 +16,7 @@ neu(T, "ablesen", "zwei_wege", Z(
 assert gl("(4*x-10)/2", "2*x-5")
 # ───────── graph_ablesen ─────────
 neu(T, "graph_ablesen", "anwenden", Z(
-    "Ein Heißluftballon steigt gleichmäßig. Die Zeichnung zeigt seine Höhe h in Metern in Abhängigkeit von der Zeit t in Minuten. Mit welcher Geschwindigkeit steigt der Ballon (in Metern pro Minute)?",
+    "Ein Heißluftballon steigt gleichmäßig. Die Zeichnung zeigt seine Höhe h in Metern in Abhängigkeit von der Zeit t in Minuten. Die Gerade geht durch die markierten Punkte (0 | 20) und (4 | 56). Mit welcher Geschwindigkeit steigt der Ballon (in Metern pro Minute)?",
     9, "(56 - 20) / (4 - 0)", 9, "Lies zwei markierte Punkte ab. Wie viel Meter kommen in wie vielen Minuten dazu?",
     "Die markierten Punkte sind (0 | 20) und (4 | 56). In 4 Minuten steigt der Ballon um 56 − 20 = 36 m. Geschwindigkeit: 36 : 4 = 9 Meter pro Minute.",
     [(36, None, "nur den Höhenunterschied angegeben, nicht durch die Zeit geteilt", "56 - 20"), (14, None, "die Höhe am Ende durch die Zeit geteilt", "56 / 4"), (20, None, "die Starthöhe als Geschwindigkeit angegeben", "20")], "m/min",
@@ -50,7 +50,7 @@ neu(T, "proportional", "bruecke", Z(
     [(6, None, "den y-Wert des Punktes als k angegeben", "6"), (4, None, "den x-Wert des Punktes als k angegeben", "4"), (10, None, "die Koordinaten addiert", "4 + 6")],
     grafik={"typ": "koordinaten", "x": [-1, 6], "y": [-1, 9], "graphen": [{"art": "linear", "m": 1.5, "t": 0}], "punkte": [{"x": 4, "y": 6}]}), g="darstellung", regel="rr.verhaeltnis")
 neu(T, "proportional", "anwenden", Z(
-    "Eine Pumpe fördert gleichmäßig 18 Liter in 4 Minuten, eine zweite gleichmäßig 15 Liter in 2 Minuten. Beide pumpen gleichzeitig in einen Tank mit 108 Litern. Die Menge jeder Pumpe ist proportional zur Zeit. Nach wie vielen Minuten ist der Tank voll?",
+    "Eine Pumpe fördert gleichmäßig 18 Liter in 4 Minuten, eine zweite gleichmäßig 15 Liter in 2 Minuten. Beide Pumpen beginnen gleichzeitig, einen leeren Tank mit 108 Litern Fassungsvermögen zu füllen. Die Menge jeder Pumpe ist proportional zur Zeit. Nach wie vielen Minuten ist der Tank voll?",
     9, "108 / (18 / 4 + 15 / 2)", "108 / 12", "Wie viele Liter kommen pro Minute insgesamt dazu?",
     "Pumpe 1: 18 : 4 = 4,5 Liter je Minute. Pumpe 2: 15 : 2 = 7,5 Liter je Minute. Zusammen 12 Liter je Minute. Für 108 Liter: 108 : 12 = 9 Minuten. Probe: 4,5 · 9 + 7,5 · 9 = 40,5 + 67,5 = 108.",
     [(24, None, "nur die erste Pumpe berücksichtigt: 108 : 4,5", "108 / (18 / 4)"), (14.4, None, "nur die zweite Pumpe berücksichtigt: 108 : 7,5", "108 / (15 / 2)"), (38.4, None, "die beiden Einzelzeiten addiert statt die Mengen je Minute", "108 / (18 / 4) + 108 / (15 / 2)")], "Minuten"), g="transfer", regel="rr.verhaeltnis")
@@ -93,7 +93,7 @@ neu(T, "lage", "anwenden", Z(
     "Im Plan eines Parks (Einheit 1 m) liegt Weg A auf der Geraden y = 0,5x + 2. Im Punkt P(4 | 4) auf Weg A zweigt rechtwinklig ein Weg B ab. Bei welchem y-Wert schneidet Weg B die y-Achse?",
     12, "4 + 2 * 4", "4 - (-2) * 4", "Was weißt du über die Steigungen zweier senkrechter Geraden? Weg B geht durch P.",
     "Steigung von Weg B: m · 0,5 = −1, also m = −2. Durch P(4 | 4): 4 = −2 · 4 + t, also t = 12. Weg B schneidet die y-Achse bei y = 12. Probe: −2 · 4 + 12 = 4.",
-    [(-4, None, "die Steigung 2 statt −2 genommen: t = 4 − 2 · 4", "4 - 2 * 4"), (6, None, "nur den Kehrwert −0,5 als Steigung genommen: t = 4 + 0,5 · 4", "4 + 0.5 * 4"), (4, None, "den y-Wert von P als Achsenabschnitt genommen", "4")], "m"), g="transfer", regel=None)
+    [(-4, None, "die Steigung 2 statt −2 genommen: t = 4 − 2 · 4", "4 - 2 * 4"), (6, None, "Nur das Vorzeichen gewechselt und die Steigung −0,5 verwendet: t = 4 + 0,5 · 4", "4 + 0.5 * 4"), (4, None, "den y-Wert von P als Achsenabschnitt genommen", "4")], "m"), g="transfer", regel=None)
 assert 0.5 * 4 + 2 == 4
 # ───────── einsetzen ─────────
 neu(T, "einsetzen", "zwei_wege", Z(
@@ -114,7 +114,7 @@ neu(T, "wirkung", "anwenden", Z(
     "Die Grundgebühr bleibt gleich. Pro kWh kommen 0,40 − 0,30 = 0,10 € dazu. Für 50 kWh sind das 50 · 0,10 = 5 €. Probe: alt 8 + 15 = 23 €, neu 8 + 20 = 28 €.",
     [(0.1, None, "nur die Preisänderung pro kWh angegeben", "0.4 - 0.3"), (28, None, "die neue Rechnung statt der Erhöhung angegeben", "8 + 0.4 * 50"), (20, None, "nur den neuen Verbrauchspreis für 50 kWh berechnet", "0.4 * 50")], "€"), g="einkleidung", regel=GF)
 neu(T, "wirkung", "umkehren", Z(
-    "Die Gerade y = (k − 1)·x + 3 soll doppelt so steil sein wie die Gerade y = 2x + 3. Welche Zahl ist k?",
+    "Die Gerade y = (k − 1)·x + 3 hat eine Steigung, die doppelt so groß ist wie die Steigung von y = 2x + 3. Welche Zahl ist k?",
     5, "2 * 2 + 1", 5, "Wie groß ist die Steigung der gesuchten Geraden? Wie hängt sie mit k zusammen?",
     "Die Gerade y = 2x + 3 hat die Steigung 2. Doppelt so steil bedeutet die Steigung 4. Es gilt k − 1 = 4, also k = 5. Probe: y = 4x + 3.",
     [(3, None, "die Steigung 2 statt 4 gleichgesetzt: k − 1 = 2", "2 + 1"), (4, None, "die gesuchte Steigung als k angegeben", "2 * 2"), (7, None, "als Steigung 2 plus 4 statt 2 mal 2 genommen", "2 + 4 + 1")]), g="rueckwaerts", regel=GF)
@@ -144,4 +144,4 @@ neu(T, "deuten", "zwei_wege", Z(
     "Tarif A kostet K_A(x) = 5 + 0,2x, Tarif B kostet K_B(x) = 12 + 0,1x (x Minuten Gesprächszeit, Kosten in Euro, abgerechnet wird nur für ganze Minuten). Weg A: Löse die Ungleichung 12 + 0,1x < 5 + 0,2x. Weg B: Bestimme die Minute, bei der beide Tarife gleich viel kosten, und überlege mit den Steigungen, welcher Tarif danach billiger ist. Wie viele ganze Minuten muss man mindestens telefonieren, damit Tarif B billiger ist als Tarif A?",
     71, "(12 - 5) / (0.2 - 0.1) + 1", "70 + 1", "Beide Wege müssen dieselbe Zahl ergeben. Der Tarif mit der größeren Steigung wird mit der Zeit teurer.",
     "Weg A: 12 + 0,1x < 5 + 0,2x gibt 7 < 0,1x, also x > 70. Weg B: Gleich teuer bei 12 + 0,1x = 5 + 0,2x, also x = 70 (beide 19 €). Tarif A hat die größere Steigung, wird also danach teurer. Ab 71 Minuten ist B billiger. Probe: 71 Minuten kosten bei A 19,20 € und bei B 19,10 €.",
-    [(70, None, "die Schnittstelle als Antwort angegeben: dort kosten beide gleich viel", "(12 - 5) / (0.2 - 0.1)"), (35, None, "nur durch die Steigung von Tarif A geteilt", "(12 - 5) / 0.2"), (-70, None, "die Zahlen im Nenner vertauscht", "(12 - 5) / (0.1 - 0.2)")], "Minuten"), g="verknuepfen", regel="id.funktionen.wachstum")
+    [(70, None, "die Schnittstelle als Antwort angegeben: dort kosten beide gleich viel; die strenge Ungleichung (billiger, nicht gleich teuer) übersehen", "(12 - 5) / (0.2 - 0.1)"), (35, None, "nur durch die Steigung von Tarif A geteilt", "(12 - 5) / 0.2"), (-70, None, "die Zahlen im Nenner vertauscht", "(12 - 5) / (0.1 - 0.2)")], "Minuten"), g="verknuepfen", regel="id.funktionen.wachstum")

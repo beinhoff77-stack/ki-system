@@ -150,7 +150,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Heißluftballon steigt gleichmäßig. Die Zeichnung zeigt seine Höhe h in Metern in Abhängigkeit von der Zeit t in Minuten. Mit welcher Geschwindigkeit steigt der Ballon (in Metern pro Minute)?",
+     "text": "Ein Heißluftballon steigt gleichmäßig. Die Zeichnung zeigt seine Höhe h in Metern in Abhängigkeit von der Zeit t in Minuten. Die Gerade geht durch die markierten Punkte (0 | 20) und (4 | 56). Mit welcher Geschwindigkeit steigt der Ballon (in Metern pro Minute)?",
      "grafik": {
       "typ": "koordinaten",
       "x": [
@@ -494,7 +494,7 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Eine Pumpe fördert gleichmäßig 18 Liter in 4 Minuten, eine zweite gleichmäßig 15 Liter in 2 Minuten. Beide pumpen gleichzeitig in einen Tank mit 108 Litern. Die Menge jeder Pumpe ist proportional zur Zeit. Nach wie vielen Minuten ist der Tank voll?"
+     "text": "Eine Pumpe fördert gleichmäßig 18 Liter in 4 Minuten, eine zweite gleichmäßig 15 Liter in 2 Minuten. Beide Pumpen beginnen gleichzeitig, einen leeren Tank mit 108 Litern Fassungsvermögen zu füllen. Die Menge jeder Pumpe ist proportional zur Zeit. Nach wie vielen Minuten ist der Tank voll?"
     },
     "o": {
      "wert": 9,
@@ -825,7 +825,7 @@
      "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur den Kehrwert −0,5 als Steigung genommen: t = 4 + 0,5 · 4"
+     "beschreibung": "Nur das Vorzeichen gewechselt und die Steigung −0,5 verwendet: t = 4 + 0,5 · 4"
     },
     {
      "antwort": 4,
@@ -1040,7 +1040,7 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Die Gerade y = (k − 1)·x + 3 soll doppelt so steil sein wie die Gerade y = 2x + 3. Welche Zahl ist k?"
+     "text": "Die Gerade y = (k − 1)·x + 3 hat eine Steigung, die doppelt so groß ist wie die Steigung von y = 2x + 3. Welche Zahl ist k?"
     },
     "o": {
      "wert": 5
@@ -1248,7 +1248,7 @@
      "antwort": 70,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Schnittstelle als Antwort angegeben: dort kosten beide gleich viel"
+     "beschreibung": "die Schnittstelle als Antwort angegeben: dort kosten beide gleich viel; die strenge Ungleichung (billiger, nicht gleich teuer) übersehen"
     },
     {
      "antwort": 35,

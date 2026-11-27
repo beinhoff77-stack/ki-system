@@ -47,7 +47,7 @@ neu(T, "koerper_symmetrie", "anwenden", Z(
 neu(T, "koerper_symmetrie", "fehler_detektiv", FD(
     "Kim zählt die Symmetrieebenen einer geraden Pyramide, deren Grundfläche ein regelmäßiges Sechseck ist.",
     [("Die Spitze liegt senkrecht über dem Mittelpunkt des Sechsecks.", True, True),
-     ("Jede Symmetrieebene der Pyramide enthält die Höhe, denn sonst würde die Spitze verschoben.", True, True),
+     ("Jede Symmetrieebene der Pyramide enthält die Höhe: Die Spiegelung erhält auch die sechseckige Grundfläche und deren Mittelpunkt. Spitze und Mittelpunkt bleiben also an ihrem Platz, deshalb liegt die Höhenlinie in der Spiegelebene.", True, True),
      ("Ein regelmäßiges Sechseck hat 6 Symmetrieachsen und die Pyramide hat zusätzlich die Grundfläche als Ebene. Das sind 7 Symmetrieebenen.", 6 + 1 == 6, 6 + 1 == 7)],
     "Wird die Pyramide an der Ebene der Grundfläche auf sich selbst abgebildet? Wo liegt die Spitze nach dem Spiegeln?",
     "Die Zeilen 1 und 2 stimmen. In Zeile 3 ist die Grundfläche keine Symmetrieebene: Die Spitze würde unter die Grundfläche gespiegelt und die Pyramide fiele nicht auf sich. Jede der 6 Achsen des Sechsecks gibt zusammen mit der Höhe eine Symmetrieebene. Es gibt also 6 Symmetrieebenen, nicht 7."), g="fehler", regel=None)

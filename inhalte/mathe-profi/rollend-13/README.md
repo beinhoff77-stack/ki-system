@@ -65,3 +65,10 @@ Nicht verlässlich beurteilt:
 - verfahren_waehlen kommt nur einmal vor (V111). In den anderen Lernkarten gab es die Form schon, oder es fand sich keine ehrliche Aufgabe
   dazu. Zurückgestellt wurde keine Lernkarte.
 - Namen wie Kim, Tom, Ali, Zoe, Mia sind erfundene Allerweltsnamen wie im Bestand. Keine Namen von Kindern oder Familie.
+
+## Nach Gegenprüfung (Werkstatt 1097)
+Arbeitsliste mit 11 Muss-Punkten und 19 Auflagen vollständig umgesetzt; die 102 mit „Ja“ bewerteten Aufgaben blieben unverändert.
+Umgebaut oder angepasst: V007, V009, V014, V026, V027, V037, V038, V039, V042, V045, V049, V053, V054, V058, V067, V068, V074, V076, V079,
+V084, V090, V094, V098, V105, V107, V112, V114, V123, V124, V132. Alle umgebauten Aufgaben wurden danach wie neue geprüft
+(Lösung nachgerechnet, Fehlbilder gegen den Fehlwert, Rückmeldung je Detektiv-Zeile, Tipp, Stufe, Eingabefrage am Ende, Zeichnungsdaten).
+Offen: die Zeichnungen (auch V058 mit neuem Graphen) sind nicht im Browser angesehen.

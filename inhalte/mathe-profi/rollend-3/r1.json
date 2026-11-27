@@ -1,0 +1,1398 @@
+{
+ "stand": "2026-11-27",
+ "flug": "r1",
+ "titel": "Umfang und Fläche",
+ "fuer": "Kind 1",
+ "klasse": 5,
+ "themen": [
+  "messen.flaechen"
+ ],
+ "hinweis": "Aufgaben auf Vorrat, rollendes System Stufe 3. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: erst die Aufgaben ohne Bau, dann die des Typs „bedingung“, jeweils mit aufsteigender Stufe.",
+ "aufgaben": [
+  {
+   "kennung": "R1-01",
+   "thema": "messen.flaechen",
+   "lernkarte": "einheitsquadrate",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 3,
+     "antwort": 20,
+     "fehlbild": "fb.auslegen.umfang_statt_flaeche",
+     "regel_des_fehlbilds": "id.flaeche_raum.auslegen",
+     "beschreibung": "den Umfang berechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Länge und Höhe zusammengezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheitsquadrate",
+    "t": "einheitsquadrate",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Rechteck ist 6 cm lang und 4 cm hoch. Du legst es mit Quadraten von 1 cm² aus: Es werden ① Reihen mit je ② Quadraten. Fläche: ③ cm².",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      4,
+      6,
+      24
+     ]
+    },
+    "c": [
+     "4",
+     "6",
+     "4 * 6"
+    ],
+    "h": "Wie viele Quadrate passen in eine Reihe, wie viele Reihen übereinander?",
+    "w": "4 Reihen mit je 6 Quadraten: 4 · 6 = 24 cm²."
+   }
+  },
+  {
+   "kennung": "R1-02",
+   "thema": "messen.flaechen",
+   "lernkarte": "einheiten",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 10,
+     "fehlbild": "fb.groesse.flaeche_mit_zehn",
+     "regel_des_fehlbilds": "id.verhaeltnisse.groesse",
+     "beschreibung": "Umrechnungszahl der Längen genommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 30,
+     "fehlbild": "fb.groesse.flaeche_mit_zehn",
+     "regel_des_fehlbilds": "id.verhaeltnisse.groesse",
+     "beschreibung": "mit 10 umgerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 50,
+     "fehlbild": "fb.groesse.flaeche_mit_zehn",
+     "regel_des_fehlbilds": "id.verhaeltnisse.groesse",
+     "beschreibung": "durch 10 geteilt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 50000,
+     "fehlbild": "fb.groesse.falsche_richtung",
+     "regel_des_fehlbilds": "id.verhaeltnisse.groesse",
+     "beschreibung": "malgenommen statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheiten",
+    "t": "einheiten",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "1 m² = ① dm², also 3 m² = ② dm². Und 500 mm² = ③ cm².",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      100,
+      300,
+      5
+     ]
+    },
+    "c": [
+     "10 * 10",
+     "3 * 100",
+     "500 // 100"
+    ],
+    "h": "Bei Flächen ist die Umrechnungszahl 100.",
+    "w": "1 m² = 100 dm². 3 m² = 300 dm². 500 mm² = 5 cm²."
+   }
+  },
+  {
+   "kennung": "R1-03",
+   "thema": "messen.flaechen",
+   "lernkarte": "einheitsquadrate",
+   "stufe": 1,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Nichts.",
+     "fehlbild": "fb.auslegen.umfang_statt_flaeche",
+     "regel_des_fehlbilds": "id.flaeche_raum.auslegen",
+     "beschreibung": "den Fehler nicht bemerkt"
+    },
+    {
+     "index": 1,
+     "antwort": "Sie hat sich verrechnet: Es sind 18 cm².",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht nachgerechnet"
+    },
+    {
+     "index": 3,
+     "antwort": "Die Fläche ist 8 cm².",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur zwei Seiten zusammengezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheitsquadrate",
+    "t": "einheitsquadrate",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Rechteck ist 5 cm lang und 3 cm breit. Pia rechnet 5 + 3 + 5 + 3 = 16 und sagt: „Die Fläche ist 16 cm².“ Was ist falsch?"
+    },
+    "a": [
+     "Nichts.",
+     "Sie hat sich verrechnet: Es sind 18 cm².",
+     "Sie hat den Umfang berechnet. Die Fläche ist 15 cm².",
+     "Die Fläche ist 8 cm²."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Was misst man, wenn man alle Seiten zusammenzählt?",
+    "w": "Alle Seiten zusammen sind der Umfang: 16 cm. Die Fläche ist 5 · 3 = 15 cm²."
+   }
+  },
+  {
+   "kennung": "R1-04",
+   "thema": "messen.flaechen",
+   "lernkarte": "einheiten",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Weil Flächen größer sind als Längen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "kein Grund"
+    },
+    {
+     "index": 1,
+     "antwort": "Weil 1 m = 100 cm ist.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Längen-Umrechnung m in cm, nicht der Grund für Flächen"
+    },
+    {
+     "index": 3,
+     "antwort": "Das ist nur eine Abmachung.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "es lässt sich begründen"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheiten",
+    "t": "einheiten",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Warum ist die Umrechnungszahl bei Flächen 100 und nicht 10?"
+    },
+    "a": [
+     "Weil Flächen größer sind als Längen.",
+     "Weil 1 m = 100 cm ist.",
+     "Weil in ein Quadrat mit 1 dm Seitenlänge 10 Reihen mit je 10 Quadraten von 1 cm² passen.",
+     "Das ist nur eine Abmachung."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Lege in Gedanken ein Quadrat von 1 dm² mit Zentimeter-Quadraten aus.",
+    "w": "1 dm = 10 cm. In das Quadrat passen 10 Reihen mit je 10 Quadraten: 100 cm²."
+   }
+  },
+  {
+   "kennung": "R1-05",
+   "thema": "messen.flaechen",
+   "lernkarte": "sachaufgaben",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Rasen für einen Garten säen",
+     "fehlbild": "fb.auslegen.umfang_statt_flaeche",
+     "regel_des_fehlbilds": "id.flaeche_raum.auslegen",
+     "beschreibung": "Fläche und Umfang verwechselt"
+    },
+    {
+     "index": 2,
+     "antwort": "Farbe für eine Wand kaufen",
+     "fehlbild": "fb.auslegen.umfang_statt_flaeche",
+     "regel_des_fehlbilds": "id.flaeche_raum.auslegen",
+     "beschreibung": "Fläche und Umfang verwechselt"
+    },
+    {
+     "index": 3,
+     "antwort": "Fliesen für den Boden zählen",
+     "fehlbild": "fb.auslegen.umfang_statt_flaeche",
+     "regel_des_fehlbilds": "id.flaeche_raum.auslegen",
+     "beschreibung": "Fläche und Umfang verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgaben",
+    "t": "sachaufgaben",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Für welche Aufgabe brauchst du den Umfang?"
+    },
+    "a": [
+     "Rasen für einen Garten säen",
+     "Einen Zaun um den Garten bauen",
+     "Farbe für eine Wand kaufen",
+     "Fliesen für den Boden zählen"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Geht es um den Rand oder um das, was innen liegt?",
+    "w": "Der Zaun läuft außen um den Garten herum: Umfang. Rasen, Farbe und Fliesen bedecken eine Fläche."
+   }
+  },
+  {
+   "kennung": "R1-06",
+   "thema": "messen.flaechen",
+   "lernkarte": "rechteck",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Breite genannt"
+    },
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur Länge plus Breite"
+    },
+    {
+     "antwort": 112,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 · 8 + 2 · 48 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "rechteck",
+    "t": "rechteck",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Rechteck hat die Fläche 48 cm² und ist 8 cm lang. Wie groß ist sein Umfang?"
+    },
+    "o": {
+     "wert": 28,
+     "einheit": "cm"
+    },
+    "c": "2 * 8 + 2 * (48 // 8)",
+    "h": "Berechne zuerst die Breite.",
+    "w": "Breite: 48 : 8 = 6 cm. Umfang: 2 · 8 + 2 · 6 = 28 cm."
+   }
+  },
+  {
+   "kennung": "R1-07",
+   "thema": "messen.flaechen",
+   "lernkarte": "kommaschreibweise",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "zahl",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4.6,
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "nur eine Stelle für die dm²"
+    },
+    {
+     "antwort": 4.006,
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "drei Stellen für die dm²"
+    }
+   ],
+   "aufgabe": {
+    "l": "kommaschreibweise",
+    "t": "kommaschreibweise",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Schreibe 4 m² 6 dm² als Kommazahl in m²."
+    },
+    "o": {
+     "wert": 4.06,
+     "einheit": "m²"
+    },
+    "c": "4 + 6 / 100",
+    "h": "Bei Flächen bekommt jede kleinere Einheit zwei Stellen.",
+    "w": "6 dm² = 0,06 m². Also 4,06 m²."
+   }
+  },
+  {
+   "kennung": "R1-08",
+   "thema": "messen.flaechen",
+   "lernkarte": "kommaschreibweise",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "luecken",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 350,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 1 000 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 80,
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "eine Stelle daneben"
+    }
+   ],
+   "aufgabe": {
+    "l": "kommaschreibweise",
+    "t": "kommaschreibweise",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "luecken",
+    "f": {
+     "text": "2,35 a = 2 a ① m². Und 0,08 m² = ② dm².",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      35,
+      8
+     ]
+    },
+    "c": [
+     "(2.35 - 2) * 100",
+     "0.08 * 100"
+    ],
+    "h": "Die zwei Stellen hinter dem Komma gehören zur nächstkleineren Einheit.",
+    "w": "2,35 a = 2 a 35 m². 0,08 m² = 8 dm²."
+   }
+  },
+  {
+   "kennung": "R1-09",
+   "thema": "messen.flaechen",
+   "lernkarte": "zerlegen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 54,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dazugezählt statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "zerlegen",
+    "t": "zerlegen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "Aus einem Rechteck von 8 m mal 6 m wird an einer Ecke ein Rechteck von 3 m mal 2 m herausgeschnitten. Weg A (ergänzen und abziehen): 48 m² − ① m² = ② m². Weg B (zerlegen): 8 m · 4 m + 5 m · 2 m.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      6,
+      42
+     ]
+    },
+    "c": [
+     "3 * 2",
+     "8 * 6 - 3 * 2"
+    ],
+    "h": "Beide Wege müssen dieselbe Fläche ergeben.",
+    "w": "Herausgeschnitten: 3 · 2 = 6 m². 48 − 6 = 42 m². Weg B: 32 + 10 = 42 m²."
+   }
+  },
+  {
+   "kennung": "R1-10",
+   "thema": "messen.flaechen",
+   "lernkarte": "sachaufgaben",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Tür nicht abgezogen"
+    },
+    {
+     "antwort": 17.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche statt des Umfangs berechnet"
+    },
+    {
+     "antwort": 7.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur zwei Seiten gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgaben",
+    "t": "sachaufgaben",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Zimmer ist 5 m lang und 3,5 m breit. Ringsum kommt eine Fußleiste, nur an der 1 m breiten Tür nicht. Wie viele Meter Leiste braucht man?"
+    },
+    "o": {
+     "wert": 16,
+     "einheit": "m"
+    },
+    "c": "2 * 5 + 2 * 3.5 - 1",
+    "h": "Die Leiste läuft am Rand entlang.",
+    "w": "Umfang: 2 · 5 m + 2 · 3,5 m = 17 m. Ohne die Tür: 16 m."
+   }
+  },
+  {
+   "kennung": "R1-11",
+   "thema": "messen.flaechen",
+   "lernkarte": "sachaufgaben",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche statt der Eimer genannt"
+    },
+    {
+     "antwort": 72,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "12 · 6 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgaben",
+    "t": "sachaufgaben",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Wand ist 5 m lang und 2,4 m hoch. Ein Eimer Farbe reicht für 6 m². Wie viele Eimer braucht man?"
+    },
+    "o": {
+     "wert": 2
+    },
+    "c": "5 * 2.4 / 6",
+    "h": "Berechne erst die Fläche der Wand.",
+    "w": "5 m · 2,4 m = 12 m². 12 : 6 = 2 Eimer."
+   }
+  },
+  {
+   "kennung": "R1-12",
+   "thema": "messen.flaechen",
+   "lernkarte": "rechteck",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Seitenlänge genannt"
+    },
+    {
+     "antwort": 1296,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "36 · 36 gerechnet"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "9 · 2 statt 9 · 9"
+    }
+   ],
+   "aufgabe": {
+    "l": "rechteck",
+    "t": "rechteck",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quadrat hat den Umfang 36 cm. Wie groß ist seine Fläche?"
+    },
+    "o": {
+     "wert": 81,
+     "einheit": "cm²"
+    },
+    "c": "(36 // 4) ** 2",
+    "h": "Wie lang ist eine Seite?",
+    "w": "Eine Seite: 36 : 4 = 9 cm. Fläche: 9 · 9 = 81 cm²."
+   }
+  },
+  {
+   "kennung": "R1-13",
+   "thema": "messen.flaechen",
+   "lernkarte": "zerlegen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 104,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie Tim dazugezählt statt abgezogen"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Loch berechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "zerlegen",
+    "t": "zerlegen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Bilderrahmen ist außen 10 cm mal 8 cm groß. Innen ist ein Rechteck von 6 cm mal 4 cm ausgeschnitten. Tim rechnet 10 · 8 + 6 · 4. Wie viele cm² hat der Rahmen wirklich?"
+    },
+    "o": {
+     "wert": 56,
+     "einheit": "cm²"
+    },
+    "c": "10 * 8 - 6 * 4",
+    "h": "Gehört das Loch zum Rahmen?",
+    "w": "Das ausgeschnittene Stück wird abgezogen: 80 − 24 = 56 cm²."
+   }
+  },
+  {
+   "kennung": "R1-14",
+   "thema": "messen.flaechen",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Brücke",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gleicher Umfang, also gleiche Fläche angenommen"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Längen verglichen"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei Rechtecke haben beide den Umfang 20 cm. Das eine ist 9 cm lang, das andere 5 cm. Um wie viele cm² unterscheiden sich ihre Flächen?"
+    },
+    "o": {
+     "wert": 16,
+     "einheit": "cm²"
+    },
+    "c": "5 * 5 - 9 * 1",
+    "h": "Berechne zu jeder Länge erst die Breite.",
+    "w": "Länge plus Breite ist 10 cm. Erstes: 9 · 1 = 9 cm². Zweites: 5 · 5 = 25 cm². Unterschied: 16 cm²."
+   }
+  },
+  {
+   "kennung": "R1-15",
+   "thema": "messen.flaechen",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Lars hat recht.",
+     "fehlbild": "fb.aehnlich.flaeche_mit_k",
+     "regel_des_fehlbilds": "id.geometrie.aehnlich",
+     "beschreibung": "die Fläche wie die Länge wachsen lassen"
+    },
+    {
+     "index": 2,
+     "antwort": "Die Fläche bleibt gleich.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht gerechnet"
+    },
+    {
+     "index": 3,
+     "antwort": "Die Fläche wird achtmal so groß.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Rauminhalt verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Bei einem Rechteck werden die Länge und die Breite beide verdoppelt. Lars sagt: „Dann ist auch die Fläche doppelt so groß.“ Was stimmt?"
+    },
+    "a": [
+     "Lars hat recht.",
+     "Die Fläche wird viermal so groß, denn 2a · 2b = 4 · a · b.",
+     "Die Fläche bleibt gleich.",
+     "Die Fläche wird achtmal so groß."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Probiere es mit einem Rechteck von 3 cm mal 2 cm.",
+    "w": "3 · 2 = 6 cm². Verdoppelt: 6 · 4 = 24 cm². Das ist das Vierfache."
+   }
+  },
+  {
+   "kennung": "R1-B1",
+   "thema": "messen.flaechen",
+   "lernkarte": "rechteck",
+   "stufe": 1,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "rechteck",
+    "t": "rechteck",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne Länge und Breite (ganze Zentimeter) eines Rechtecks mit der Fläche 36 cm², das kein Quadrat ist.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "beide Seiten größer als 0",
+       "pruefe": [
+        ">",
+        [
+         "min",
+         "$alle"
+        ],
+        0
+       ],
+       "zeige": [
+        "min",
+        "$alle"
+       ],
+       "hinweis": "Deine kürzere Seite ist {} cm."
+      },
+      {
+       "name": "kein Quadrat",
+       "pruefe": [
+        "verschieden",
+        "$alle"
+       ],
+       "hinweis": "Dein Rechteck ist ein Quadrat."
+      },
+      {
+       "name": "Fläche 36 cm²",
+       "pruefe": [
+        "=",
+        [
+         "produkt",
+         "$alle"
+        ],
+        36
+       ],
+       "zeige": [
+        "produkt",
+        "$alle"
+       ],
+       "hinweis": "Dein Rechteck hat {} cm²."
+      }
+     ],
+     "beispiel": [
+      9,
+      4
+     ],
+     "gut": [
+      [
+       36,
+       1
+      ],
+      [
+       3,
+       12
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        -6,
+        -6
+       ],
+       "verletzt": "beide Seiten größer als 0"
+      },
+      {
+       "werte": [
+        6,
+        6
+       ],
+       "verletzt": "kein Quadrat"
+      },
+      {
+       "werte": [
+        9,
+        5
+       ],
+       "verletzt": "Fläche 36 cm²"
+      }
+     ]
+    },
+    "h": "Länge mal Breite soll 36 ergeben.",
+    "w": "Zum Beispiel 9 cm mal 4 cm, 12 cm mal 3 cm oder 18 cm mal 2 cm."
+   }
+  },
+  {
+   "kennung": "R1-B2",
+   "thema": "messen.flaechen",
+   "lernkarte": "einheiten",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "einheiten",
+    "t": "einheiten",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne eine Fläche in ganzen dm², die größer als 2,5 m² und kleiner als 2,6 m² ist.",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "größer als 2,5 m²",
+       "pruefe": [
+        ">",
+        "$1",
+        250
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine Fläche ist {} dm²."
+      },
+      {
+       "name": "kleiner als 2,6 m²",
+       "pruefe": [
+        "<",
+        "$1",
+        260
+       ],
+       "zeige": "$1",
+       "hinweis": "Deine Fläche ist {} dm²."
+      }
+     ],
+     "beispiel": [
+      255
+     ],
+     "gut": [
+      [
+       251
+      ],
+      [
+       259
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        25
+       ],
+       "verletzt": "größer als 2,5 m²"
+      },
+      {
+       "werte": [
+        260
+       ],
+       "verletzt": "kleiner als 2,6 m²"
+      },
+      {
+       "werte": [
+        2550
+       ],
+       "verletzt": "kleiner als 2,6 m²"
+      },
+      {
+       "werte": [
+        250
+       ],
+       "verletzt": "größer als 2,5 m²"
+      }
+     ]
+    },
+    "h": "Rechne beide Grenzen in dm² um.",
+    "w": "2,5 m² = 250 dm² und 2,6 m² = 260 dm². Es passt jede Zahl von 251 bis 259."
+   }
+  },
+  {
+   "kennung": "R1-B3",
+   "thema": "messen.flaechen",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne Länge und Breite (ganze Zentimeter) eines Rechtecks mit dem Umfang 24 cm und einer Fläche von weniger als 30 cm².",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "beide Seiten größer als 0",
+       "pruefe": [
+        ">",
+        [
+         "min",
+         "$alle"
+        ],
+        0
+       ],
+       "zeige": [
+        "min",
+        "$alle"
+       ],
+       "hinweis": "Deine kürzere Seite ist {} cm."
+      },
+      {
+       "name": "Umfang 24 cm",
+       "pruefe": [
+        "=",
+        [
+         "*",
+         2,
+         [
+          "summe",
+          "$alle"
+         ]
+        ],
+        24
+       ],
+       "zeige": [
+        "*",
+        2,
+        [
+         "summe",
+         "$alle"
+        ]
+       ],
+       "hinweis": "Dein Rechteck hat den Umfang {} cm."
+      },
+      {
+       "name": "Fläche weniger als 30 cm²",
+       "pruefe": [
+        "<",
+        [
+         "produkt",
+         "$alle"
+        ],
+        30
+       ],
+       "zeige": [
+        "produkt",
+        "$alle"
+       ],
+       "hinweis": "Dein Rechteck hat {} cm²."
+      }
+     ],
+     "beispiel": [
+      10,
+      2
+     ],
+     "gut": [
+      [
+       11,
+       1
+      ],
+      [
+       3,
+       9
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0,
+        12
+       ],
+       "verletzt": "beide Seiten größer als 0"
+      },
+      {
+       "werte": [
+        10,
+        3
+       ],
+       "verletzt": "Umfang 24 cm"
+      },
+      {
+       "werte": [
+        6,
+        6
+       ],
+       "verletzt": "Fläche weniger als 30 cm²"
+      },
+      {
+       "werte": [
+        8,
+        4
+       ],
+       "verletzt": "Fläche weniger als 30 cm²"
+      }
+     ]
+    },
+    "h": "Länge plus Breite ist der halbe Umfang.",
+    "w": "Länge plus Breite ist 12 cm. Schmale Rechtecke haben wenig Fläche: 10 · 2 = 20 cm², 9 · 3 = 27 cm², 11 · 1 = 11 cm²."
+   }
+  },
+  {
+   "kennung": "R1-B4",
+   "thema": "messen.flaechen",
+   "lernkarte": "zerlegen",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "zerlegen",
+    "t": "zerlegen",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "bedingung",
+    "f": {
+     "text": "Aus einem Rechteck von 10 cm mal 6 cm wird an einer Ecke ein kleineres Rechteck herausgeschnitten (ganze Zentimeter). Übrig bleiben genau 48 cm². Nenne Länge und Breite des herausgeschnittenen Stücks.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "Stück passt in die Ecke",
+       "pruefe": [
+        "und",
+        [
+         ">=",
+         "$1",
+         1
+        ],
+        [
+         "<",
+         "$1",
+         10
+        ],
+        [
+         ">=",
+         "$2",
+         1
+        ],
+        [
+         "<",
+         "$2",
+         6
+        ]
+       ],
+       "hinweis": "Dein Stück passt nicht in die Ecke: Länge 1 bis 9 cm, Breite 1 bis 5 cm."
+      },
+      {
+       "name": "übrig bleiben 48 cm²",
+       "pruefe": [
+        "=",
+        [
+         "-",
+         60,
+         [
+          "*",
+          "$1",
+          "$2"
+         ]
+        ],
+        48
+       ],
+       "zeige": [
+        "-",
+        60,
+        [
+         "*",
+         "$1",
+         "$2"
+        ]
+       ],
+       "hinweis": "Bei dir bleiben {} cm² übrig."
+      }
+     ],
+     "beispiel": [
+      4,
+      3
+     ],
+     "gut": [
+      [
+       6,
+       2
+      ],
+      [
+       3,
+       4
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        12,
+        1
+       ],
+       "verletzt": "Stück passt in die Ecke"
+      },
+      {
+       "werte": [
+        2,
+        6
+       ],
+       "verletzt": "Stück passt in die Ecke"
+      },
+      {
+       "werte": [
+        5,
+        2
+       ],
+       "verletzt": "übrig bleiben 48 cm²"
+      }
+     ]
+    },
+    "h": "Wie groß ist die ganze Fläche? Wie viel muss also weg?",
+    "w": "Das ganze Rechteck hat 60 cm². Es müssen 12 cm² weg: 4 cm mal 3 cm, 6 cm mal 2 cm oder 3 cm mal 4 cm."
+   }
+  },
+  {
+   "kennung": "R1-B5",
+   "thema": "messen.flaechen",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne zwei Rechtecke (ganze Zentimeter) mit gleicher Fläche, aber verschiedenem Umfang. Reihenfolge der Felder: Länge und Breite des ersten, Länge und Breite des zweiten.",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "alle Seiten größer als 0",
+       "pruefe": [
+        ">",
+        [
+         "min",
+         "$alle"
+        ],
+        0
+       ],
+       "zeige": [
+        "min",
+        "$alle"
+       ],
+       "hinweis": "Deine kürzeste Seite ist {} cm."
+      },
+      {
+       "name": "gleiche Fläche",
+       "pruefe": [
+        "=",
+        [
+         "*",
+         "$1",
+         "$2"
+        ],
+        [
+         "*",
+         "$3",
+         "$4"
+        ]
+       ],
+       "zeige": [
+        "*",
+        "$1",
+        "$2"
+       ],
+       "hinweis": "Dein erstes Rechteck hat {} cm², das zweite nicht."
+      },
+      {
+       "name": "verschiedener Umfang",
+       "pruefe": [
+        "!=",
+        [
+         "+",
+         "$1",
+         "$2"
+        ],
+        [
+         "+",
+         "$3",
+         "$4"
+        ]
+       ],
+       "zeige": [
+        "*",
+        2,
+        [
+         "+",
+         "$1",
+         "$2"
+        ]
+       ],
+       "hinweis": "Beide Rechtecke haben bei dir den Umfang {} cm."
+      }
+     ],
+     "beispiel": [
+      6,
+      2,
+      4,
+      3
+     ],
+     "gut": [
+      [
+       12,
+       1,
+       3,
+       4
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0,
+        5,
+        0,
+        3
+       ],
+       "verletzt": "alle Seiten größer als 0"
+      },
+      {
+       "werte": [
+        6,
+        2,
+        4,
+        4
+       ],
+       "verletzt": "gleiche Fläche"
+      },
+      {
+       "werte": [
+        6,
+        2,
+        2,
+        6
+       ],
+       "verletzt": "verschiedener Umfang"
+      }
+     ]
+    },
+    "h": "Suche zwei verschiedene Malaufgaben mit demselben Ergebnis.",
+    "w": "Zum Beispiel 6 · 2 = 12 und 4 · 3 = 12. Umfang: 16 cm und 14 cm."
+   }
+  }
+ ]
+}

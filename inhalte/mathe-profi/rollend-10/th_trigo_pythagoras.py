@@ -20,7 +20,7 @@ neu(T, "hypotenuse", "anwenden", Z(
     "Der rechteckige Bildschirm eines Fernsehers ist 70 cm breit und 40 cm hoch. Die Größe eines Bildschirms wird als Länge seiner Diagonalen in Zoll angegeben. Es gilt 1 Zoll = 2,54 cm. Wie groß ist dieser Bildschirm? Runde auf ganze Zoll.",
     wert_tv, c_tv, "round(sqrt(4900 + 1600) / 2.54, 0)", "Die Diagonale teilt das Rechteck in zwei rechtwinklige Dreiecke. Rechne am Ende von cm in Zoll um.",
     "Diagonale: d² = 70² + 40² = 4 900 + 1 600 = 6 500, d = √6 500 ≈ 80,6 cm. 80,6 : 2,54 ≈ 31,7. Der Bildschirm hat etwa 32 Zoll.",
-    [(81, None, "die Diagonale in cm gerundet, die Umrechnung in Zoll vergessen", "round(sqrt(70 ** 2 + 40 ** 2), 0)"), (43, "fb.rechtwinklig.ohne_quadrate", "Breite plus Höhe (110 cm) statt der Diagonalen in Zoll umgerechnet", "round((70 + 40) / 2.54, 0)")], "Zoll"), g="einkleidung", regel=R)
+    [(81, None, "die Diagonale in cm gerundet, die Umrechnung in Zoll vergessen", "round(sqrt(70 ** 2 + 40 ** 2), 0)"), (43, "fb.rechtwinklig.ohne_quadrate", "Breite plus Höhe (110 cm) statt der Diagonalen in Zoll umgerechnet", "round((70 + 40) / 2.54, 0)")], "Zoll"), g="transfer", regel=R)
 assert wert_tv == 32
 
 # ───────── kathete ─────────
@@ -62,15 +62,13 @@ neu(T, "umkehrung", "bruecke", W(
     "36 + 49 = 85. Die Summe der beiden kleineren Quadrate ist so groß wie das größte Quadrat. Nach der Umkehrung des Satzes von Pythagoras ist das Dreieck rechtwinklig. Der rechte Winkel liegt der längsten Seite gegenüber, also der Seite mit dem Quadrat 85 cm².",
     lambda: 36 + 49 == 85 and 36 + 85 != 49 and math.sqrt(85) != int(math.sqrt(85)),
     grafik=TAB(["Seite", "Fläche des Quadrats über der Seite"], ["a", "36 cm²"], ["b", "49 cm²"], ["c", "85 cm²"])), regel=R)
-neu(T, "umkehrung", "verfahren_waehlen", W(
-    "Ein Dreieck hat die Seitenlängen 20 cm, 21 cm und 29 cm. Du willst genau prüfen, ob es einen rechten Winkel hat. Welcher Rechenweg ist richtig?",
-    "Das Quadrat der längsten Seite mit der Summe der Quadrate der beiden anderen Seiten vergleichen: 29² und 20² + 21²",
-    [("Die längste Seite mit der Summe der beiden anderen Seiten vergleichen: 29 und 20 + 21", "ohne Quadrate gerechnet; das prüft nur, ob ein Dreieck überhaupt möglich ist"),
-     ("Das Quadrat der kürzesten Seite mit der Summe der Quadrate der beiden anderen vergleichen: 20² und 21² + 29²", "die falsche Seite als Hypotenuse genommen"),
-     ("Alle drei Quadrate addieren und prüfen, ob die Summe eine Quadratzahl ist: 20² + 21² + 29²", "die längste Seite zur Summe gezählt")],
-    "Welche Seite liegt dem rechten Winkel gegenüber, wenn es einen gibt?",
-    "Der rechte Winkel läge der längsten Seite gegenüber. Also vergleicht man 29² = 841 mit 20² + 21² = 400 + 441 = 841. Beides ist gleich, das Dreieck ist rechtwinklig.",
-    lambda: 29 ** 2 == 20 ** 2 + 21 ** 2 and 20 ** 2 != 21 ** 2 + 29 ** 2 and 20 ** 2 + 21 ** 2 + 29 ** 2 == 1682 and math.isqrt(1682) ** 2 != 1682), g="erkennen", regel=R)
+neu(T, "umkehrung", "fehler_detektiv", FD(
+    "Kim prüft, ob ein Dreieck mit den Seitenlängen 7 cm, 9 cm und 12 cm einen rechten Winkel hat.",
+    [("Die längste Seite ist 12 cm. Ihr Quadrat ist 12 · 2 = 24.", 12 * 2 == 12 ** 2, True),
+     ("Die Quadrate der beiden anderen Seiten ergeben zusammen 7² + 9² = 49 + 81 = 130.", 49 + 81 == 130, 7 ** 2 + 9 ** 2 == 130),
+     ("130 ist nicht gleich 24, also hat das Dreieck keinen rechten Winkel.", True, 130 != 24)],
+    "Wie berechnet man das Quadrat einer Zahl?",
+    "Das Quadrat von 12 ist 12² = 144, nicht 24. Dann vergleicht man 144 mit 130: Beides ist verschieden, das Dreieck hat keinen rechten Winkel. Das Ergebnis stimmt, aber der Fehler steckt in Zeile 1."), regel=R)
 
 # ───────── koordinaten ─────────
 neu(T, "koordinaten", "lueckenweg", L(
@@ -104,13 +102,13 @@ neu(T, "raum", "umkehren", Z(
     7, "wurzel(9 ** 2 - 4 ** 2 - 4 ** 2)", "sqrt(81 - 16 - 16)", "Für die Raumdiagonale d gilt: d² ist die Summe der Quadrate der drei Kanten. Hier ist eine Kante unbekannt.",
     "d² = 4² + 4² + h². 81 = 16 + 16 + h², also h² = 49 und h = 7 cm. Probe: 16 + 16 + 49 = 81 = 9².",
     [(49, None, "das Quadrat der Höhe als Höhe angegeben", "9 ** 2 - 4 ** 2 - 4 ** 2"), (5, None, "9 − 4 gerechnet", "9 - 4"), (8, None, "nur eine Grundkante abgezogen und gerundet", "round(sqrt(9 ** 2 - 4 ** 2), 0)")], "cm"), g="rueckwaerts", regel=R)
-neu(T, "raum", "fehler_detektiv", FD(
-    "Kim berechnet die Raumdiagonale d eines Würfels mit der Kantenlänge 6 cm.",
-    [("Diagonale e einer Seitenfläche: e² = 6² + 6² = 72.", 6 ** 2 + 6 ** 2 == 72, True),
-     ("Raumdiagonale: d² = e² + 6² = 72 + 36 = 108.", 72 + 6 ** 2 == 108, 72 + 36 == 108),
-     ("Also ist d = 108 : 2 = 54 cm.", 54 ** 2 == 108, 108 / 2 == 54)],
-    "Wie wird aus einem Quadrat die Seitenlänge?",
-    "Aus d² = 108 folgt d = √108 ≈ 10,4 cm, nicht 108 : 2. Probe: 54² = 2 916, nicht 108. Der Fehler steckt in Zeile 3."), regel=R)
+wert_ka, c_ka = rd("sqrt(60 ** 2 + 40 ** 2 + 30 ** 2)", 0)
+neu(T, "raum", "anwenden", Z(
+    "Ein quaderförmiger Karton ist innen 60 cm lang, 40 cm breit und 30 cm hoch. Man will einen möglichst langen, geraden, dünnen Stab hineinlegen. Wie lang darf der Stab höchstens sein? Gib die Länge in ganzen Zentimetern an und runde ab.",
+    wert_ka, c_ka, "round(sqrt(3600 + 1600 + 900), 0)", "Der längste Stab liegt auf der Raumdiagonale des Kartons.",
+    "d² = 60² + 40² + 30² = 3 600 + 1 600 + 900 = 6 100. d = √6 100 ≈ 78,1 cm. Der Stab darf höchstens 78 cm lang sein.",
+    [(130, "fb.rechtwinklig.ohne_quadrate", "die drei Kanten addiert: 60 + 40 + 30", "60 + 40 + 30"), (72, None, "nur die Diagonale des Bodens genommen, die Höhe vergessen", "round(sqrt(60 ** 2 + 40 ** 2), 0)"), (6100, None, "die Wurzel nicht gezogen", "60 ** 2 + 40 ** 2 + 30 ** 2")], "cm"), g="einkleidung", regel=R)
+assert wert_ka == 78
 
 # ───────── anwendung ─────────
 neu(T, "anwendung", "lueckenweg", L(
@@ -128,4 +126,4 @@ neu(T, "anwendung", "anwenden", Z(
     "Ein Satteldach hat zwei gleich große, rechteckige Dachflächen. Das Haus ist 12 m breit, das Dach ist 9 m lang. Der First liegt 4,5 m höher als die Decke und genau über der Mitte des Hauses. Wie viele Quadratmeter Dachfläche hat das Dach insgesamt? Der Dachüberstand wird nicht berücksichtigt.",
     135, "2 * wurzel(6 ** 2 + 4.5 ** 2) * 9", "2 * sqrt(36 + 20.25) * 9", "Die Schräge einer Dachfläche ist die Hypotenuse eines rechtwinkligen Dreiecks. Eine Kathete ist die halbe Hausbreite.",
     "Halbe Breite: 6 m. Schräge: √(6² + 4,5²) = √(36 + 20,25) = √56,25 = 7,5 m. Eine Dachfläche: 7,5 · 9 = 67,5 m². Zwei Dachflächen: 135 m².",
-    [(108, None, "mit der halben Breite 6 m statt der Schräge gerechnet: 2 · 6 · 9", "2 * 6 * 9"), (81, None, "mit der Höhe 4,5 m statt der Schräge gerechnet: 2 · 4,5 · 9", "2 * 4.5 * 9"), (67.5, None, "nur eine Dachfläche berechnet", "7.5 * 9")], "m²"), g="einkleidung", regel=R)
+    [(108, None, "mit der halben Breite 6 m statt der Schräge gerechnet: 2 · 6 · 9", "2 * 6 * 9"), (81, None, "mit der Höhe 4,5 m statt der Schräge gerechnet: 2 · 4,5 · 9", "2 * 4.5 * 9"), (67.5, None, "nur eine Dachfläche berechnet", "7.5 * 9")], "m²"), g="transfer", regel=R)

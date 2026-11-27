@@ -137,7 +137,7 @@
    "kennung": "K9B-V003",
    "thema": "trigo.pythagoras",
    "lernkarte": "hypotenuse",
-   "stufe": 2,
+   "stufe": 3,
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
@@ -162,8 +162,8 @@
     "l": "hypotenuse",
     "t": "hypotenuse",
     "p": "uebung",
-    "s": 2,
-    "g": "einkleidung",
+    "s": 3,
+    "g": "transfer",
     "y": "zahl",
     "f": {
      "text": "Der rechteckige Bildschirm eines Fernsehers ist 70 cm breit und 40 cm hoch. Die Größe eines Bildschirms wird als Länge seiner Diagonalen in Zoll angegeben. Es gilt 1 Zoll = 2,54 cm. Wie groß ist dieser Bildschirm? Runde auf ganze Zoll."
@@ -515,9 +515,9 @@
    "kennung": "K9B-V009",
    "thema": "trigo.pythagoras",
    "lernkarte": "umkehrung",
-   "stufe": 1,
-   "typ": "Verfahren wählen (einfache Form)",
-   "form": "verfahren_waehlen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
    "antwortform": "auswahl",
    "regel": "id.geometrie.rechtwinklig",
    "regel_name": "Rechtwinkliges Dreieck",
@@ -525,47 +525,39 @@
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "Die längste Seite mit der Summe der beiden anderen Seiten vergleichen: 29 und 20 + 21",
+     "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "ohne Quadrate gerechnet; das prüft nur, ob ein Dreieck überhaupt möglich ist"
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
     },
     {
      "index": 2,
-     "antwort": "Das Quadrat der kürzesten Seite mit der Summe der Quadrate der beiden anderen vergleichen: 20² und 21² + 29²",
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die falsche Seite als Hypotenuse genommen"
-    },
-    {
-     "index": 3,
-     "antwort": "Alle drei Quadrate addieren und prüfen, ob die Summe eine Quadratzahl ist: 20² + 21² + 29²",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die längste Seite zur Summe gezählt"
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
     }
    ],
    "aufgabe": {
     "l": "umkehrung",
     "t": "umkehrung",
     "p": "uebung",
-    "s": 1,
-    "g": "erkennen",
+    "s": 3,
+    "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Dreieck hat die Seitenlängen 20 cm, 21 cm und 29 cm. Du willst genau prüfen, ob es einen rechten Winkel hat. Welcher Rechenweg ist richtig?"
+     "text": "Kim prüft, ob ein Dreieck mit den Seitenlängen 7 cm, 9 cm und 12 cm einen rechten Winkel hat. Zeile 1: Die längste Seite ist 12 cm. Ihr Quadrat ist 12 · 2 = 24. Zeile 2: Die Quadrate der beiden anderen Seiten ergeben zusammen 7² + 9² = 49 + 81 = 130. Zeile 3: 130 ist nicht gleich 24, also hat das Dreieck keinen rechten Winkel. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
-     "Das Quadrat der längsten Seite mit der Summe der Quadrate der beiden anderen Seiten vergleichen: 29² und 20² + 21²",
-     "Die längste Seite mit der Summe der beiden anderen Seiten vergleichen: 29 und 20 + 21",
-     "Das Quadrat der kürzesten Seite mit der Summe der Quadrate der beiden anderen vergleichen: 20² und 21² + 29²",
-     "Alle drei Quadrate addieren und prüfen, ob die Summe eine Quadratzahl ist: 20² + 21² + 29²"
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
     ],
     "o": {
      "index": 0
     },
-    "h": "Welche Seite liegt dem rechten Winkel gegenüber, wenn es einen gibt?",
-    "w": "Der rechte Winkel läge der längsten Seite gegenüber. Also vergleicht man 29² = 841 mit 20² + 21² = 400 + 441 = 841. Beides ist gleich, das Dreieck ist rechtwinklig."
+    "h": "Wie berechnet man das Quadrat einer Zahl?",
+    "w": "Das Quadrat von 12 ist 12² = 144, nicht 24. Dann vergleicht man 144 mit 130: Beides ist verschieden, das Dreieck hat keinen rechten Winkel. Das Ergebnis stimmt, aber der Fehler steckt in Zeile 1."
    }
   },
   {
@@ -802,6 +794,56 @@
    "kennung": "K9B-V014",
    "thema": "trigo.pythagoras",
    "lernkarte": "raum",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 130,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die drei Kanten addiert: 60 + 40 + 30"
+    },
+    {
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Diagonale des Bodens genommen, die Höhe vergessen"
+    },
+    {
+     "antwort": 6100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel nicht gezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "raum",
+    "t": "raum",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein quaderförmiger Karton ist innen 60 cm lang, 40 cm breit und 30 cm hoch. Man will einen möglichst langen, geraden, dünnen Stab hineinlegen. Wie lang darf der Stab höchstens sein? Gib die Länge in ganzen Zentimetern an und runde ab."
+    },
+    "o": {
+     "wert": 78,
+     "einheit": "cm"
+    },
+    "c": "round(78.10249675906654, 0)",
+    "h": "Der längste Stab liegt auf der Raumdiagonale des Kartons.",
+    "w": "d² = 60² + 40² + 30² = 3 600 + 1 600 + 900 = 6 100. d = √6 100 ≈ 78,1 cm. Der Stab darf höchstens 78 cm lang sein."
+   }
+  },
+  {
+   "kennung": "K9B-V015",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "raum",
    "stufe": 3,
    "typ": "Umkehren",
    "form": "umkehren",
@@ -846,55 +888,6 @@
     "c": "7",
     "h": "Für die Raumdiagonale d gilt: d² ist die Summe der Quadrate der drei Kanten. Hier ist eine Kante unbekannt.",
     "w": "d² = 4² + 4² + h². 81 = 16 + 16 + h², also h² = 49 und h = 7 cm. Probe: 16 + 16 + 49 = 81 = 9²."
-   }
-  },
-  {
-   "kennung": "K9B-V015",
-   "thema": "trigo.pythagoras",
-   "lernkarte": "raum",
-   "stufe": 3,
-   "typ": "Fehler-Detektiv (einfache Form)",
-   "form": "fehler_detektiv",
-   "antwortform": "auswahl",
-   "regel": "id.geometrie.rechtwinklig",
-   "regel_name": "Rechtwinkliges Dreieck",
-   "zaehlt": "ja",
-   "fehlbilder": [
-    {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
-     "index": 1,
-     "antwort": "In Zeile 2",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    }
-   ],
-   "aufgabe": {
-    "l": "raum",
-    "t": "raum",
-    "p": "uebung",
-    "s": 3,
-    "g": "fehler",
-    "y": "auswahl",
-    "f": {
-     "text": "Kim berechnet die Raumdiagonale d eines Würfels mit der Kantenlänge 6 cm. Zeile 1: Diagonale e einer Seitenfläche: e² = 6² + 6² = 72. Zeile 2: Raumdiagonale: d² = e² + 6² = 72 + 36 = 108. Zeile 3: Also ist d = 108 : 2 = 54 cm. In welcher Zeile passiert der erste Fehler?"
-    },
-    "a": [
-     "In Zeile 1",
-     "In Zeile 2",
-     "In Zeile 3"
-    ],
-    "o": {
-     "index": 2
-    },
-    "h": "Wie wird aus einem Quadrat die Seitenlänge?",
-    "w": "Aus d² = 108 folgt d = √108 ≈ 10,4 cm, nicht 108 : 2. Probe: 54² = 2 916, nicht 108. Der Fehler steckt in Zeile 3."
    }
   },
   {
@@ -1015,7 +1008,7 @@
    "kennung": "K9B-V018",
    "thema": "trigo.pythagoras",
    "lernkarte": "anwendung",
-   "stufe": 2,
+   "stufe": 3,
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
@@ -1046,8 +1039,8 @@
     "l": "anwendung",
     "t": "anwendung",
     "p": "uebung",
-    "s": 2,
-    "g": "einkleidung",
+    "s": 3,
+    "g": "transfer",
     "y": "zahl",
     "f": {
      "text": "Ein Satteldach hat zwei gleich große, rechteckige Dachflächen. Das Haus ist 12 m breit, das Dach ist 9 m lang. Der First liegt 4,5 m höher als die Decke und genau über der Mitte des Hauses. Wie viele Quadratmeter Dachfläche hat das Dach insgesamt? Der Dachüberstand wird nicht berücksichtigt."

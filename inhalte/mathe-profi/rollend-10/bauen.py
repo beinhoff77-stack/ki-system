@@ -316,6 +316,9 @@ for schl in geladen:
         assert formen["lueckenweg"] <= 1, (schl, lk, "höchstens ein Lückenweg")
         assert formen["fehler_detektiv"] <= 1, (schl, lk, "höchstens ein Fehler-Detektiv")
         assert any(e["zaehlt"] == "ja" and e["form"] in ZAEHLT_JA_AUS for e in xs), (schl, lk, "mindestens eine Aufgabe mit zaehlt ja aus umkehren/zwei_wege/bruecke/verfahren_waehlen/anwenden")
+        stufen_ja = {e["stufe"] for e in xs if e["zaehlt"] == "ja"}
+        assert {2, 3} <= stufen_ja, (schl, lk, "je Lernkarte mindestens eine zählende Aufgabe auf Stufe 2 und eine auf Stufe 3", sorted(e["stufe"] for e in xs))
+        assert sorted(e["stufe"] for e in xs if e["form"] == "lueckenweg") in ([], [1]), (schl, lk)
         mix.append((schl, lk, formen))
 AUSNAHME = {}     # (Thema, Form): Begründung, wenn die Form fachlich nicht zweimal passt
 for schl in geladen:

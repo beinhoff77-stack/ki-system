@@ -32,6 +32,15 @@ Claude-Session: https://claude.ai/code/session_01RWRKSArQNYwC5Aun9rPxAd
 - `bauen.py` oder Prüfskript im Ordner (nach Muster rollend-4), das alle Dateien lädt, Pflichtfelder, Formen, `zaehlt`, Mischungsregeln je Lernkarte, eindeutige Kennungen und die nachgerechneten Lösungen prüft und mit „OK“ endet. Zusätzlich `python3 -I tools/inhalt_pruefen.py` so anwenden, wie die README von rollend-4 es beschreibt.
 - `README.md` im Ordner (höchstens 60 Zeilen): Tabelle Thema / Lernkarten / Aufgaben / Formen-Verteilung / zaehlt-Verteilung, wie geprüft, Annahmen und offene Punkte getrennt von Gesichertem, Lernkarten, bei denen eine Form fachlich nicht passte.
 
+## Gerüst-Aufgaben (Lückenweg) – Vorgabe des Nutzers vom 27.11.: nicht erratbar
+Das Kind darf die richtige Antwort nicht sofort raten können. Für jede `lueckenweg`-Aufgabe gilt:
+- Antwortform `luecken` (Zahlen eintragen). Keine Auswahl-Antwort für einen Lückenweg.
+- Mindestens ZWEI, besser drei Lücken, an verschiedenen Schritten des Wegs.
+- Mindestens eine Lücke sitzt an der ENTSCHEIDENDEN Stelle des Verfahrens (dort, wo der typische Fehler passiert: Vorzeichen, Umkehrrechnung, Reihenfolge, Einheit), nicht nur beim letzten Ausrechnen.
+- Kein Lückenwert steht schon im Aufgabentext, in der Schablone oder im Hinweis, und keiner ergibt sich durch bloßes Abschreiben einer gegebenen Zahl.
+- Spätere Lücken hängen von früheren ab (wer vorne rät, liegt hinten falsch); die Zahlen sind so gewählt, dass der typische Fehler zu einer anderen, ebenfalls glatten Zahl führt.
+- Der Text erklärt den Schritt, nennt aber nicht das Zwischenergebnis.
+
 ## Arbeitsweise
 Thema für Thema: schreiben, prüfen, committen und pushen (nach jedem Thema, damit nichts verloren geht). Qualität vor Menge: lieber eine Lernkarte als „zurückgestellt“ melden als eine schwache Aufgabe liefern.
 

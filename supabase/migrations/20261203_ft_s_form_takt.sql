@@ -25,6 +25,13 @@
 --    bearbeitungen = Zahl der Bearbeitungen des Kindes an der Lernkarte (Übungsversuche ohne Test und ohne Mischkarte, der 2. Anlauf derselben
 --    Aufgabe zählt nicht extra) – daraus der Platz im Takt, über Geräte und Sitzungen gleich.
 -- 6. aufgaben_einfuegen übernimmt form und zaehlt aus dem JSON.
+-- 7. Nachträge nach Gegenprüfung 1030/1032:
+--    a) Schalter anwenden_pflicht (Regel in schule.regel, 0 = aus, 1 = an; beim Einspielen 0). Er sitzt an EINER Stelle, in
+--       schule.karte_anwenden_pflicht – die nutzen karte_landet (Landeregel) und beide Ausgaben anwenden_noetig. Aus = keine Sachaufgaben-Pflicht,
+--       anwenden_noetig = false. Einschalten: update schule.regel set wert = '1'::jsonb where schluessel = 'anwenden_pflicht';
+--       Ein zweiter Lauf der Migration setzt den Schalter nicht zurück (on conflict do nothing).
+--    b) uebung_pruefen_intern: die Antwort auf eine Übung (Weg mit Lösung, nicht Mischkarte/Knobel/Expedition) trägt bearbeitungen auch
+--       AUSSERHALB von karte – nach der ersten nicht zählenden Aufgabe einer Lernkarte gibt es noch keine Kartenzeile und damit kein karte.
 --
 -- WIE: neue Hilfsfunktionen mit create or replace (Rechte: revoke von public, anon, authenticated). Bestehende Funktionen per Text-Patch auf die
 -- Live-Definition (je Stelle: alter Text, neuer Text, erwartete Anzahl; drei Zustände wie BD-S2: alt -> ersetzen, fertig -> nichts, sonst Abbruch;
@@ -66,6 +73,9 @@ end $$;
 -- 2. Regel
 insert into schule.regel (schluessel, wert, hinweis) values ('form_jede', '3'::jsonb, 'FT-S: je Lernkarte jede n-te Bearbeitung eine Aufgabe mit neuer Form (Plätze n, 2n, …), wenn eine ungelöste da ist')
   on conflict (schluessel) do nothing;
+-- Schalter Sachaufgaben-Pflicht (Nachtrag 1032): 0 = aus bis zur App 0.94.0. Kein Zurücksetzen bei einem zweiten Lauf.
+insert into schule.regel (schluessel, wert, hinweis) values ('anwenden_pflicht', '0'::jsonb, 'FT-S Regel 6: Sachaufgaben-Pflicht 1 = an, 0 = aus (an erst mit App ab 0.94.0)')
+  on conflict (schluessel) do nothing;
 
 -- 3./4. Hilfsfunktionen
 create or replace function schule.aufgabe_zaehlt(a schule.aufgabe)
@@ -92,9 +102,10 @@ $function$;
 create or replace function schule.karte_anwenden_pflicht(k schule.karte_stand, p_einheit bigint, p_lz text)
  returns boolean language sql stable set search_path to ''
 as $function$
-  select k.sitzt_am is null and not coalesce(k.sitzt, false) and schule.karte_anwenden_noetig(p_einheit, p_lz);
+  select schule.wd_regel('anwenden_pflicht', 0) = 1
+     and k.sitzt_am is null and not coalesce(k.sitzt, false) and schule.karte_anwenden_noetig(p_einheit, p_lz);
 $function$;
-comment on function schule.karte_anwenden_pflicht(schule.karte_stand, bigint, text) is 'FT-S Regel 6: Sachaufgabe nötig – nur für nie gelandete Karten und nur, wenn die Lernkarte eine freigegebene, zählende Übung der Art anwenden hat';
+comment on function schule.karte_anwenden_pflicht(schule.karte_stand, bigint, text) is 'FT-S Regel 6: Sachaufgabe nötig – nur bei Schalter anwenden_pflicht = 1, nur für nie gelandete Karten und nur, wenn die Lernkarte eine freigegebene, zählende Übung der Art anwenden hat';
 
 create or replace function schule.karte_anwenden_ok(k schule.karte_stand)
  returns boolean language sql stable set search_path to ''
@@ -159,7 +170,8 @@ declare
       jsonb_build_array($a$where a.einheit_id = p_e and$a$, $a$where schule.aufgabe_zaehlt(a) and a.einheit_id = p_e and$a$, 1))),
     jsonb_build_object('f', 'schule.uebung_pruefen_intern(bigint, jsonb)', 'p', jsonb_build_array(
       jsonb_build_array($a$'schwer_ok', k.schwer_ok, 'schwer_noetig'$a$, $a$'schwer_ok', k.schwer_ok, 'anwenden_noetig', schule.karte_anwenden_pflicht(k, k.einheit_id, k.lernziel), 'anwenden_ok', schule.karte_anwenden_ok(k),
-                'bearbeitungen', schule.karte_bearbeitungen(k.lernender_id, k.einheit_id, k.lernziel), 'schwer_noetig'$a$, 1))),
+                'bearbeitungen', schule.karte_bearbeitungen(k.lernender_id, k.einheit_id, k.lernziel), 'schwer_noetig'$a$, 1),
+      jsonb_build_array($a$k.lernziel = a.variante_gruppe)));$a$, $a$k.lernziel = a.variante_gruppe), 'bearbeitungen', schule.karte_bearbeitungen(p_lernender, a.einheit_id, a.variante_gruppe)));$a$, 1))),
     jsonb_build_object('f', 'schule.etappen_stand(bigint, bigint)', 'p', jsonb_build_array(
       jsonb_build_array($a$'schwer_ok', coalesce(k.schwer_ok, false), 'schwer_noetig'$a$, $a$'schwer_ok', coalesce(k.schwer_ok, false), 'anwenden_noetig', schule.karte_anwenden_pflicht(k, p_einheit, z.lz), 'anwenden_ok', coalesce(schule.karte_anwenden_ok(k), false),
            'bearbeitungen', schule.karte_bearbeitungen(p_lernender, p_einheit, z.lz), 'schwer_noetig'$a$, 1))),

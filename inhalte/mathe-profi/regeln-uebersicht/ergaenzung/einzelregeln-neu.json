@@ -1,0 +1,5342 @@
+{
+ "hinweis": "Vorschlag für fehlende Einzelregeln des Regel-Universums (Entwurf, nichts eingespielt, kein bestehender Text geändert). Aufbau wie daten/regeln-universum.json (gesetze): kennung, name, satz, beispiel, voraus, fehler, gym, rs; dazu gebiet/gehoert_zu (Idee, begründet), status, bezug_bestand, stichwoerter, verwandt, lernkarten und pruefung (nachgerechnet von pruefen.py). Kennungen N-… sind vorläufig und kollidieren nicht mit Z/A/V/G/F/U/D/E. Verweise: Lücken, die unter anderem Namen schon im Universum stehen.",
+ "stand": "2026-11-27",
+ "schreibweise": "Dezimalkomma, Malpunkt „·“, Tausender mit Leerzeichen, Einheit mit Leerzeichen; Kennzeichen: status = neu (Regel fehlt) oder ausarbeitung (bestehende Regel nennt nur Name oder Halbsatz; ergaenzt = deren Kennung).",
+ "felder": {
+  "satz": "was man tut und wie man rechnet",
+  "beispiel": "kürzestes nachgerechnetes Zahlenbeispiel",
+  "voraus": "Bedingungen: wann es gilt und wann nicht",
+  "fehler": "typischer Fehler, konkret",
+  "gym": "Klasse Gymnasium Bayern (aus dem Lernkarten-Thema)",
+  "rs": "Klasse Realschule: kleinste Klasse des Lernkarten-Themas (kann für den Stoff der einzelnen Regel früher liegen, z. B. beim Prisma; kein Lehrplan-Abgleich)",
+  "gehoert_zu": "Gebiet und Idee, begründet",
+  "lernkarten": "Lernkarten (Thema und Lernkarte = lernziel), die auf die Regel verweisen sollen",
+  "pruefung": "Rechenproben; falsch = Aussage muss falsch sein; fuer = alle Werte der Variablen"
+ },
+ "regeln": [
+  {
+   "kennung": "N-Z01",
+   "name": "Große Zahlen lesen und schreiben",
+   "satz": "Teile die Zahl von rechts in Dreiergruppen: Einer, Tausender, Millionen, Milliarden. Jede Gruppe nach der ersten hat genau drei Ziffern; was nicht gesagt wird, ist eine Null.",
+   "beispiel": "Zwölf Millionen achttausend: Millionen 12, Tausender 008, Einer 000, also 12 008 000.",
+   "voraus": "1 Million = 1 000 Tausender, 1 Milliarde = 1 000 Millionen. Im Deutschen ist eine Billion eine Million Millionen (10¹²), nicht tausend Millionen wie im englischen „billion“.",
+   "fehler": "Die Nullen weglassen: 128 000 ist nicht zwölf Millionen achttausend, denn die Tausendergruppe braucht drei Ziffern (008).",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Zahlen",
+   "gehoert_zu": {
+    "gebiet": "Zahlen",
+    "idee": "I-zahlen-2",
+    "begruendung": "Dreiergruppen sind das Bündeln in Tausendern; die Idee „Bündeln in Zehnern“ trägt Z1."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Z1 trägt nur das Prinzip der Stellen; „Million“, „Milliarde“, „Billion“ stehen im Gesetzbuch nirgends.",
+   "stichwoerter": [
+    "Million",
+    "Milliarde",
+    "Billion",
+    "große Zahlen",
+    "Zahlwort",
+    "Dreiergruppen",
+    "Tausender"
+   ],
+   "verwandt": [
+    "Z1",
+    "Z18",
+    "R1"
+   ],
+   "lernkarten": [
+    {
+     "thema": "zahlen.natuerlich",
+     "lernkarte": "zahlwort_zu_ziffern"
+    },
+    {
+     "thema": "zahlen.natuerlich",
+     "lernkarte": "ziffern_zu_zahlwort"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "12*1000000+8*1000",
+     "rel": "==",
+     "r": "12008000"
+    },
+    {
+     "l": "12008000",
+     "rel": "!=",
+     "r": "128000"
+    },
+    {
+     "l": "1000*1000",
+     "rel": "==",
+     "r": "1000000"
+    },
+    {
+     "l": "1000000*1000000",
+     "rel": "==",
+     "r": "10**12"
+    }
+   ]
+  },
+  {
+   "kennung": "N-Z02",
+   "name": "Römische Zahlen schreiben und lesen",
+   "satz": "I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1 000. Zerlege die Zahl in Tausender, Hunderter, Zehner und Einer und schreibe jeden Teil einzeln; abgezogen wird nur bei IV, IX, XL, XC, CD und CM.",
+   "beispiel": "1 994 = 1 000 + 900 + 90 + 4 = M + CM + XC + IV = MCMXCIV.",
+   "voraus": "Gilt für die Zahlen von 1 bis 3 999. I, X, C und M stehen höchstens dreimal hintereinander, V, L und D nie doppelt. Römische Zahlen haben keinen Stellenwert: X ist immer zehn.",
+   "fehler": "490 als XD schreiben: Dieses Paar gibt es nicht. Richtig ist 490 = 400 + 90 = CDXC.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Zahlen",
+   "gehoert_zu": {
+    "gebiet": "Zahlen",
+    "idee": "I-zahlen-2",
+    "begruendung": "Römische Zahlen sind eine andere Zahlschrift; Z3 (Idee „Bündeln in Zehnern“) trägt nur den Namen."
+   },
+   "status": "ausarbeitung",
+   "ergaenzt": [
+    "Z3"
+   ],
+   "bezug_bestand": "Z3 „Andere Zahlschriften“ nennt römische Zahlen nur im Satz, ohne Zeichen, Beispiel und Abzugsregel.",
+   "stichwoerter": [
+    "römische Zahlen",
+    "römisch",
+    "Zahlzeichen",
+    "IV",
+    "IX",
+    "XL",
+    "MCM"
+   ],
+   "verwandt": [
+    "Z3",
+    "Z1"
+   ],
+   "lernkarten": [
+    {
+     "thema": "zahlen.natuerlich",
+     "lernkarte": "roemisch_schreiben"
+    },
+    {
+     "thema": "zahlen.natuerlich",
+     "lernkarte": "roemisch_system"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "roemisch('MCMXCIV')",
+     "rel": "==",
+     "r": "1994"
+    },
+    {
+     "l": "zahl_roem(1994)",
+     "rel": "==",
+     "r": "'MCMXCIV'"
+    },
+    {
+     "l": "zahl_roem(490)",
+     "rel": "==",
+     "r": "'CDXC'"
+    },
+    {
+     "l": "zahl_roem(490)",
+     "rel": "!=",
+     "r": "'XD'"
+    },
+    {
+     "l": "zahl_roem(39)",
+     "rel": "==",
+     "r": "'XXXIX'"
+    }
+   ]
+  },
+  {
+   "kennung": "N-Z03",
+   "name": "Zweiersystem (Dualzahlen)",
+   "satz": "Im Zweiersystem gibt es nur die Ziffern 0 und 1. Die Stellenwerte von rechts nach links sind 1, 2, 4, 8, 16, …: Zähle die Stellenwerte zusammen, unter denen eine 1 steht.",
+   "beispiel": "Die Zweierzahl 1101 ist 8 + 4 + 0 + 1 = 13.",
+   "voraus": "Die Zahl dazuschreiben, in welchem System sie steht: 1101 im Zweiersystem ist 13, im Zehnersystem tausendeinhunderteins. Jede Stelle verdoppelt sich, nicht verzehnfacht.",
+   "fehler": "10110 als zehntausendeinhundertzehn lesen: Die vordere 1 ist nur 16 wert, die Zahl ist 16 + 4 + 2 = 22.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Zahlen",
+   "gehoert_zu": {
+    "gebiet": "Zahlen",
+    "idee": "I-zahlen-2",
+    "begruendung": "Das Zweiersystem bündelt in Zweiern statt in Zehnern; es ist der Gegenpol zu Z1 und gehört zur Idee „Bündeln“."
+   },
+   "status": "ausarbeitung",
+   "ergaenzt": [
+    "Z3"
+   ],
+   "bezug_bestand": "Z3 nennt das Zweiersystem nur im Satz; Suchwort „Binärsystem“ hat keinen Treffer.",
+   "stichwoerter": [
+    "Zweiersystem",
+    "Dualsystem",
+    "Binärsystem",
+    "Binärzahl",
+    "Dualzahl",
+    "0 und 1"
+   ],
+   "verwandt": [
+    "Z3",
+    "Z1"
+   ],
+   "lernkarten": [
+    {
+     "thema": "zahlen.natuerlich",
+     "lernkarte": "dualsystem"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "1*8+1*4+0*2+1*1",
+     "rel": "==",
+     "r": "13"
+    },
+    {
+     "l": "dual(1101)",
+     "rel": "==",
+     "r": "13"
+    },
+    {
+     "l": "dual(10110)",
+     "rel": "==",
+     "r": "22"
+    },
+    {
+     "l": "16+4+2",
+     "rel": "==",
+     "r": "22"
+    },
+    {
+     "l": "2*2*2*2",
+     "rel": "==",
+     "r": "16"
+    }
+   ]
+  },
+  {
+   "kennung": "N-Z04",
+   "name": "Zahlenstrahl ablesen",
+   "satz": "Rechne zuerst den Abschnittswert aus: (Ende − Anfang) : Anzahl der Abschnitte. Dann gilt: Zahl an der Marke = Anfang + Zahl der Abschnitte bis zur Marke · Abschnittswert.",
+   "beispiel": "Strahl von 500 bis 1 000 mit 10 Abschnitten: Abschnittswert 500 : 10 = 50. Die Marke nach 2 Abschnitten ist 500 + 2 · 50 = 600.",
+   "voraus": "Die Abschnitte sind gleich lang. Zähle die Abschnitte (Zwischenräume), nicht die Striche: 11 Striche sind 10 Abschnitte.",
+   "fehler": "Die Anfangszahl vergessen: 2 · 50 = 100 ist nicht die Zahl an der Marke, es sind 600.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Zahlen",
+   "gehoert_zu": {
+    "gebiet": "Zahlen",
+    "idee": "I-zahlen-1",
+    "begruendung": "Ablesen am Zahlenstrahl ist die Zahlengerade in Zahlen übersetzt (Z4 zeigt nur die Ordnung)."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Z4 sagt nur „weiter links ist kleiner“; das Ablesen mit dem Abschnittswert fehlt.",
+   "stichwoerter": [
+    "Zahlenstrahl",
+    "Abschnittswert",
+    "ablesen",
+    "Skala",
+    "Zahl eintragen"
+   ],
+   "verwandt": [
+    "Z4",
+    "I-zahlen-1"
+   ],
+   "lernkarten": [
+    {
+     "thema": "zahlen.natuerlich",
+     "lernkarte": "strahl_ablesen"
+    },
+    {
+     "thema": "zahlen.natuerlich",
+     "lernkarte": "strahl_eintragen"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "(1000-500)/10",
+     "rel": "==",
+     "r": "50"
+    },
+    {
+     "l": "500+2*50",
+     "rel": "==",
+     "r": "600"
+    },
+    {
+     "l": "2*50",
+     "rel": "!=",
+     "r": "600"
+    },
+    {
+     "l": "11-1",
+     "rel": "==",
+     "r": "10"
+    }
+   ]
+  },
+  {
+   "kennung": "N-Z05",
+   "name": "Nachfolger und „größte Zahl“",
+   "satz": "Zu jeder natürlichen Zahl gibt es einen Nachfolger: Zähle 1 dazu. Deshalb gibt es keine größte natürliche Zahl.",
+   "beispiel": "Der Nachfolger von 999 999 999 ist 999 999 999 + 1 = 1 000 000 000.",
+   "voraus": "Gilt für alle natürlichen Zahlen. „Unendlich“ ist keine Zahl, die man aufschreiben oder ausrechnen kann.",
+   "fehler": "„Die größte Zahl ist eine Milliarde“: Eine Milliarde und eins ist größer.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Zahlen",
+   "gehoert_zu": {
+    "gebiet": "Zahlen",
+    "idee": "I-zahlen-1",
+    "begruendung": "Der Nachfolger ist der Schritt nach rechts auf der Zahlengeraden; sie hört nie auf."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Im Gesetzbuch kommt „Nachfolger“ nicht vor.",
+   "stichwoerter": [
+    "Nachfolger",
+    "größte Zahl",
+    "unendlich",
+    "natürliche Zahlen"
+   ],
+   "verwandt": [
+    "Z4",
+    "Z1"
+   ],
+   "lernkarten": [
+    {
+     "thema": "zahlen.natuerlich",
+     "lernkarte": "unendlich"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "999999999+1",
+     "rel": "==",
+     "r": "1000000000"
+    },
+    {
+     "l": "1000000000+1",
+     "rel": ">",
+     "r": "1000000000"
+    },
+    {
+     "l": "1",
+     "rel": "<",
+     "r": "1000000000"
+    }
+   ]
+  },
+  {
+   "kennung": "N-Z06",
+   "name": "Teilbarkeit durch 4, 6, 8 und 25",
+   "satz": "Durch 4: Die letzten zwei Ziffern müssen durch 4 teilbar sein. Durch 8: die letzten drei Ziffern durch 8. Durch 25: Die Zahl endet auf 00, 25, 50 oder 75. Durch 6: Die Zahl ist durch 2 und durch 3 teilbar.",
+   "beispiel": "3 724: Die letzten zwei Ziffern 24 sind durch 4 teilbar, also ist 3 724 durch 4 teilbar (3 724 : 4 = 931). Die letzten drei Ziffern 724 sind nicht durch 8 teilbar (724 : 8 = 90,5), also ist 3 724 nicht durch 8 teilbar.",
+   "voraus": "Für 6 müssen beide Bedingungen erfüllt sein. „Durch 2 und durch 4, also durch 8“ stimmt nicht: 12 ist durch 2 und durch 4 teilbar, aber nicht durch 8.",
+   "fehler": "Für 4 die Quersumme oder nur die letzte Ziffer prüfen: 14 endet auf eine gerade Ziffer, ist aber nicht durch 4 teilbar; 124 hat Quersumme 7 und ist doch durch 4 teilbar.",
+   "gym": "5",
+   "rs": "–",
+   "gebiet": "Zahlen",
+   "gehoert_zu": {
+    "gebiet": "Zahlen",
+    "idee": "I-zahlen-3",
+    "begruendung": "Teilbarkeitsregeln sind Teil der Idee „Bausteine“ (Z7); Z7 nennt die 4 nur im Feld „voraus“."
+   },
+   "status": "ausarbeitung",
+   "ergaenzt": [
+    "Z7"
+   ],
+   "bezug_bestand": "Z7 nennt 2, 5, 10, 3, 9; 4 nur im Feld „voraus“. 6, 8 und 25 fehlen. Keine Lernkarte im Bestand behandelt 4, 6, 8, 25 (zahlen.teilbarkeit: nur 2, 3, 5, 9, 10); Abschnitt A, nicht B des Berichts.",
+   "stichwoerter": [
+    "Teilbarkeit",
+    "teilbar durch 4",
+    "teilbar durch 6",
+    "teilbar durch 8",
+    "teilbar durch 25",
+    "Teilbarkeitsregel"
+   ],
+   "verwandt": [
+    "Z7",
+    "Z6"
+   ],
+   "lernkarten": [],
+   "pruefung": [
+    {
+     "l": "3724 % 4",
+     "rel": "==",
+     "r": "0"
+    },
+    {
+     "l": "24 % 4",
+     "rel": "==",
+     "r": "0"
+    },
+    {
+     "l": "3724/4",
+     "rel": "==",
+     "r": "931"
+    },
+    {
+     "l": "724 % 8",
+     "rel": "!=",
+     "r": "0"
+    },
+    {
+     "l": "724/8",
+     "rel": "==",
+     "r": "90.5"
+    },
+    {
+     "l": "12 % 8",
+     "rel": "!=",
+     "r": "0"
+    },
+    {
+     "l": "14 % 4",
+     "rel": "!=",
+     "r": "0"
+    },
+    {
+     "l": "124 % 4",
+     "rel": "==",
+     "r": "0"
+    },
+    {
+     "l": "1+2+4",
+     "rel": "==",
+     "r": "7"
+    }
+   ]
+  },
+  {
+   "kennung": "N-Z07",
+   "name": "Schriftlich addieren",
+   "satz": "Schreibe die Zahlen stellengerecht untereinander (Einer unter Einer) und addiere Stelle für Stelle von rechts. Wird eine Stellensumme 10 oder mehr, schreibst du die Einerziffer hin und nimmst die 1 als Übertrag zur nächsten Stelle mit.",
+   "beispiel": "1 286 + 947: 6 + 7 = 13 (3, Übertrag 1); 8 + 4 + 1 = 13 (3, Übertrag 1); 2 + 9 + 1 = 12 (2, Übertrag 1); 1 + 1 = 2. Ergebnis 2 233. Überschlag: 1 300 + 900 = 2 200.",
+   "voraus": "Jede Stelle steht genau unter ihresgleichen. Bei zwei Zahlen ist der Übertrag höchstens 1, bei mehr Summanden kann er größer sein. Zur Probe ziehst du eine der Zahlen vom Ergebnis ab.",
+   "fehler": "Den Übertrag vergessen: Es käme 1 123 heraus. Der Überschlag (etwa 2 200) zeigt, dass eine ganze Tausenderstelle fehlt.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Zahlen",
+   "gehoert_zu": {
+    "gebiet": "Zahlen",
+    "idee": "I-zahlen-2",
+    "begruendung": "Stelle für Stelle rechnen und den Übertrag mitnehmen ist das Bündeln in Zehnern (Z1) in Aktion."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Verfahren steht nirgends im Universum; Suchwörter „schriftlich“, „Addition“, „Summand“ ohne Treffer.",
+   "stichwoerter": [
+    "schriftlich addieren",
+    "schriftlich rechnen",
+    "Übertrag",
+    "untereinander",
+    "Addition",
+    "Summand"
+   ],
+   "verwandt": [
+    "Z1",
+    "R1",
+    "R5"
+   ],
+   "lernkarten": [
+    {
+     "thema": "zahlen.ganz",
+     "lernkarte": "schriftlich_plus_minus"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "1286+947",
+     "rel": "==",
+     "r": "2233"
+    },
+    {
+     "l": "6+7",
+     "rel": "==",
+     "r": "13"
+    },
+    {
+     "l": "8+4+1",
+     "rel": "==",
+     "r": "13"
+    },
+    {
+     "l": "2+9+1",
+     "rel": "==",
+     "r": "12"
+    },
+    {
+     "l": "1300+900",
+     "rel": "==",
+     "r": "2200"
+    },
+    {
+     "l": "2233-947",
+     "rel": "==",
+     "r": "1286"
+    },
+    {
+     "l": "1123",
+     "rel": "!=",
+     "r": "2233"
+    }
+   ]
+  },
+  {
+   "kennung": "N-Z08",
+   "name": "Schriftlich subtrahieren",
+   "satz": "Rechne Stelle für Stelle von rechts. Ist die obere Ziffer kleiner als die untere, tausche 1 von der nächsten Stelle links gegen 10 dieser Stelle und rechne weiter; die Ziffer links davon wird um 1 kleiner.",
+   "beispiel": "842 − 359: Einer 12 − 9 = 3; Zehner 3 − 5 geht nicht, also 13 − 5 = 8; Hunderter 7 − 3 = 4. Ergebnis 483. Probe: 483 + 359 = 842.",
+   "voraus": "Die obere Zahl (Minuend) ist größer oder gleich der unteren, sonst wird das Ergebnis negativ. Steht in der Stelle links eine 0, tausche zuerst von der nächsten Stelle weiter links.",
+   "fehler": "In jeder Spalte die kleinere von der größeren Ziffer abziehen, auch wenn oben die kleinere steht: Es käme 517 heraus; Probe 517 + 359 = 876, nicht 842.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Zahlen",
+   "gehoert_zu": {
+    "gebiet": "Zahlen",
+    "idee": "I-zahlen-2",
+    "begruendung": "Beim Entbündeln (1 Hunderter gegen 10 Zehner tauschen) wird das Zehnersystem (Z1) rückwärts benutzt."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Verfahren steht nirgends; „Subtraktion“, „Minuend“, „Subtrahend“, „Differenz“ ohne Treffer.",
+   "stichwoerter": [
+    "schriftlich subtrahieren",
+    "schriftlich abziehen",
+    "Subtraktion",
+    "Minuend",
+    "Subtrahend",
+    "Differenz",
+    "borgen",
+    "entbündeln"
+   ],
+   "verwandt": [
+    "Z1",
+    "R2",
+    "R12"
+   ],
+   "lernkarten": [
+    {
+     "thema": "zahlen.ganz",
+     "lernkarte": "schriftlich_plus_minus"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "842-359",
+     "rel": "==",
+     "r": "483"
+    },
+    {
+     "l": "483+359",
+     "rel": "==",
+     "r": "842"
+    },
+    {
+     "l": "12-9",
+     "rel": "==",
+     "r": "3"
+    },
+    {
+     "l": "13-5",
+     "rel": "==",
+     "r": "8"
+    },
+    {
+     "l": "7-3",
+     "rel": "==",
+     "r": "4"
+    },
+    {
+     "l": "517+359",
+     "rel": "!=",
+     "r": "842"
+    },
+    {
+     "l": "517+359",
+     "rel": "==",
+     "r": "876"
+    }
+   ]
+  },
+  {
+   "kennung": "N-Z09",
+   "name": "Schriftlich multiplizieren",
+   "satz": "Zerlege den zweiten Faktor in seine Stellen. Multipliziere die obere Zahl mit jeder Ziffer und rücke das Teilprodukt für die Zehnerstelle um eine Stelle nach links (mal 10), für die Hunderterstelle um zwei Stellen (mal 100). Addiere die Teilprodukte stellengerecht.",
+   "beispiel": "428 · 35: 428 · 30 = 12 840; 428 · 5 = 2 140; zusammen 14 980. Überschlag: 400 · 35 = 14 000.",
+   "voraus": "Das Ergebnis ist die Summe der Teilprodukte, weil a · (b + c) = a · b + a · c gilt (R6). Auch bei Faktoren mit Komma: erst ohne Komma rechnen, dann die Nachkommastellen beider Faktoren zählen (Z14).",
+   "fehler": "Das Teilprodukt der Zehnerziffer nicht verschieben: 428 · 3 + 428 · 5 = 1 284 + 2 140 = 3 424 statt 14 980.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Zahlen",
+   "gehoert_zu": {
+    "gebiet": "Zahlen",
+    "idee": "I-zahlen-2",
+    "begruendung": "Teilprodukte stellengerecht untereinander setzen ist die Stellenwertregel (Z1, R1) in der Rechnung."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Verfahren steht nirgends; „Multiplikation“, „schriftlich“ ohne Treffer.",
+   "stichwoerter": [
+    "schriftlich multiplizieren",
+    "schriftlich malnehmen",
+    "Multiplikation",
+    "Teilprodukt",
+    "Faktor",
+    "Produkt"
+   ],
+   "verwandt": [
+    "R6",
+    "Z14",
+    "R1"
+   ],
+   "lernkarten": [
+    {
+     "thema": "zahlen.rechengesetze",
+     "lernkarte": "schriftlich"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "428*35",
+     "rel": "==",
+     "r": "14980"
+    },
+    {
+     "l": "428*30",
+     "rel": "==",
+     "r": "12840"
+    },
+    {
+     "l": "428*5",
+     "rel": "==",
+     "r": "2140"
+    },
+    {
+     "l": "12840+2140",
+     "rel": "==",
+     "r": "14980"
+    },
+    {
+     "l": "428*3",
+     "rel": "==",
+     "r": "1284"
+    },
+    {
+     "l": "1284+2140",
+     "rel": "==",
+     "r": "3424"
+    },
+    {
+     "l": "3424",
+     "rel": "!=",
+     "r": "14980"
+    }
+   ]
+  },
+  {
+   "kennung": "N-Z10",
+   "name": "Schriftlich dividieren mit Rest",
+   "satz": "Teile von links Stelle für Stelle: teilen, malnehmen, abziehen, die nächste Ziffer herunterholen. Bei jeder heruntergeholten Ziffer schreibst du eine Ziffer ins Ergebnis, notfalls eine 0. Was am Ende übrig bleibt, ist der Rest; er ist kleiner als der Teiler. Probe: Ergebnis · Teiler + Rest.",
+   "beispiel": "1 239 : 6: 12 : 6 = 2; 3 : 6 = 0 (die Null hinschreiben); 39 : 6 = 6 Rest 3. Also 1 239 : 6 = 206 Rest 3. Probe: 206 · 6 + 3 = 1 239.",
+   "voraus": "Der Teiler ist nicht 0. Der Rest ist immer kleiner als der Teiler; ist er größer oder gleich, passt der Teiler noch einmal hinein.",
+   "fehler": "Die Null im Ergebnis vergessen: 26 Rest 3 ist falsch, denn 26 · 6 + 3 = 159 und nicht 1 239.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Zahlen",
+   "gehoert_zu": {
+    "gebiet": "Zahlen",
+    "idee": "I-zahlen-2",
+    "begruendung": "Stellenweise teilen und herunterholen beruht auf dem Stellenwertsystem; Rest und Teiler führen zu Z6."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Verfahren steht nirgends; „schriftlich dividieren“, „Division“, „Dividend“, „Divisor“ ohne Treffer.",
+   "stichwoerter": [
+    "schriftlich dividieren",
+    "schriftlich teilen",
+    "Division",
+    "Rest",
+    "Divisor",
+    "Dividend",
+    "Quotient",
+    "Division mit Rest",
+    "herunterholen"
+   ],
+   "verwandt": [
+    "R3",
+    "R12",
+    "Z6"
+   ],
+   "lernkarten": [
+    {
+     "thema": "zahlen.rechengesetze",
+     "lernkarte": "schriftlich"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "206*6+3",
+     "rel": "==",
+     "r": "1239"
+    },
+    {
+     "l": "12/6",
+     "rel": "==",
+     "r": "2"
+    },
+    {
+     "l": "39-6*6",
+     "rel": "==",
+     "r": "3"
+    },
+    {
+     "l": "3",
+     "rel": "<",
+     "r": "6"
+    },
+    {
+     "l": "26*6+3",
+     "rel": "!=",
+     "r": "1239"
+    },
+    {
+     "l": "26*6+3",
+     "rel": "==",
+     "r": "159"
+    }
+   ]
+  },
+  {
+   "kennung": "N-Z11",
+   "name": "Schriftlich dividieren durch zweistellige Zahlen",
+   "satz": "Schreibe dir zuerst die Vielfachen des Teilers auf (1 mal, 2 mal, 3 mal …). Hole so viele Ziffern, bis die Zahl mindestens so groß wie der Teiler ist, und wähle das größte Vielfache, das noch hineinpasst; dann abziehen, nächste Ziffer herunterholen.",
+   "beispiel": "5 904 : 18 (Vielfache 18, 36, 54, 72, …): 59 : 18 = 3 (54), Rest 5; 50 : 18 = 2 (36), Rest 14; 144 : 18 = 8, Rest 0. Ergebnis 328. Überschlag: 6 000 : 20 = 300.",
+   "voraus": "Der Rest nach jedem Schritt muss kleiner als der Teiler sein. Ist er größer, war das gewählte Vielfache zu klein.",
+   "fehler": "Zu kleines Vielfache wählen: 59 : 18 = 2 (36) lässt den Rest 23, und der ist größer als 18. Es passt also noch ein weiteres Mal (3 mal).",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Zahlen",
+   "gehoert_zu": {
+    "gebiet": "Zahlen",
+    "idee": "I-zahlen-2",
+    "begruendung": "Gleiches Verfahren wie N-Z10, nur mit Vielfachen des Teilers statt des Einmaleins."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Steht nirgends.",
+   "stichwoerter": [
+    "zweistelliger Teiler",
+    "schriftlich dividieren",
+    "Vielfache des Teilers",
+    "große Zahlen teilen"
+   ],
+   "verwandt": [
+    "N-Z10",
+    "R3",
+    "Z6"
+   ],
+   "lernkarten": [
+    {
+     "thema": "zahlen.rechengesetze",
+     "lernkarte": "schriftlich_geteilt"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "18*3",
+     "rel": "==",
+     "r": "54"
+    },
+    {
+     "l": "59-54",
+     "rel": "==",
+     "r": "5"
+    },
+    {
+     "l": "18*2",
+     "rel": "==",
+     "r": "36"
+    },
+    {
+     "l": "50-36",
+     "rel": "==",
+     "r": "14"
+    },
+    {
+     "l": "18*8",
+     "rel": "==",
+     "r": "144"
+    },
+    {
+     "l": "18*328",
+     "rel": "==",
+     "r": "5904"
+    },
+    {
+     "l": "59-36",
+     "rel": "==",
+     "r": "23"
+    },
+    {
+     "l": "23",
+     "rel": ">",
+     "r": "18"
+    },
+    {
+     "l": "6000/20",
+     "rel": "==",
+     "r": "300"
+    }
+   ]
+  },
+  {
+   "kennung": "N-Z12",
+   "name": "Im Kopf rechnen: Zahl zerlegen",
+   "satz": "Zerlege eine Zahl in leichte Teile (Zehner und Einer oder 100 minus ein wenig), rechne jeden Teil einzeln und setze zusammen. Beim Malnehmen wird jeder Teil mit dem Faktor multipliziert.",
+   "beispiel": "6 · 47 = 6 · 40 + 6 · 7 = 240 + 42 = 282. Oder 5 · 98 = 5 · 100 − 5 · 2 = 500 − 10 = 490.",
+   "voraus": "Gilt für a · (b + c) = a · b + a · c und für (b + c) : a = b : a + c : a. Nicht erlaubt ist a : (b + c) = a : b + a : c: 12 : (2 + 4) = 2, aber 12 : 2 + 12 : 4 = 9.",
+   "fehler": "Den Faktor nur an einem Teil anbringen: 6 · 47 = 240 + 7 ist falsch, denn auch die 7 wird sechsmal genommen (6 · 7 = 42).",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Zahlen",
+   "gehoert_zu": {
+    "gebiet": "Zahlen",
+    "idee": "I-zahlen-2",
+    "begruendung": "Zerlegen in Zehner und Einer (oder „100 minus ein bisschen“) nutzt das Stellenwertsystem; der Rechenvorteil kommt aus R6."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "R5 und R6 tragen das Gesetz abstrakt; das Vorgehen „Zahl zerlegen“ fehlt.",
+   "stichwoerter": [
+    "Kopfrechnen",
+    "im Kopf rechnen",
+    "geschickt rechnen",
+    "zerlegen",
+    "Rechenvorteil"
+   ],
+   "verwandt": [
+    "R5",
+    "R6",
+    "Z1"
+   ],
+   "lernkarten": [
+    {
+     "thema": "zahlen.rechengesetze",
+     "lernkarte": "kopfrechnen"
+    },
+    {
+     "thema": "zahlen.rechengesetze",
+     "lernkarte": "vorteil"
+    },
+    {
+     "thema": "zahlen.rechengesetze",
+     "lernkarte": "verteilen"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "6*47",
+     "rel": "==",
+     "r": "282"
+    },
+    {
+     "l": "6*40+6*7",
+     "rel": "==",
+     "r": "282"
+    },
+    {
+     "l": "5*98",
+     "rel": "==",
+     "r": "490"
+    },
+    {
+     "l": "5*100-5*2",
+     "rel": "==",
+     "r": "490"
+    },
+    {
+     "l": "240+7",
+     "rel": "!=",
+     "r": "282"
+    },
+    {
+     "l": "12/(2+4)",
+     "rel": "==",
+     "r": "2"
+    },
+    {
+     "l": "12/2+12/4",
+     "rel": "==",
+     "r": "9"
+    },
+    {
+     "l": "12/(2+4)",
+     "rel": "!=",
+     "r": "12/2+12/4"
+    }
+   ]
+  },
+  {
+   "kennung": "N-Z13",
+   "name": "Gemischte Zahl in unechten Bruch umwandeln",
+   "satz": "Rechne Ganze mal Nenner plus Zähler und schreibe das Ergebnis über den alten Nenner: a b/c = (a · c + b)/c.",
+   "beispiel": "2 3/4 = (2 · 4 + 3)/4 = 11/4.",
+   "voraus": "2 3/4 bedeutet 2 + 3/4 (zwei Ganze und drei Viertel), nicht 2 · 3/4. Der Bruchteil b/c ist ein echter Bruch (b < c, c ≠ 0). Bei Mal und Geteilt (R10) zuerst in einen Bruch umwandeln.",
+   "fehler": "2 3/4 als 2 · 3/4 = 3/2 lesen: 3/2 ist kleiner als 2, die gemischte Zahl 2 3/4 ist größer als 2.",
+   "gym": "6",
+   "rs": "6",
+   "gebiet": "Zahlen",
+   "gehoert_zu": {
+    "gebiet": "Zahlen",
+    "idee": "I-zahlen-4",
+    "begruendung": "Eine gemischte Zahl ist eine zweite Schreibweise derselben Zahl wie der unechte Bruch (Idee „Schreibweisen“)."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "R10 verlangt im Feld „voraus“ die Umwandlung, erklärt aber nicht wie; „gemischte Zahl“ erreicht Z10 nicht über die Suche.",
+   "stichwoerter": [
+    "gemischte Zahl",
+    "gemischte Zahlen",
+    "unechter Bruch",
+    "Bruch umwandeln",
+    "Ganze und Bruch"
+   ],
+   "verwandt": [
+    "Z10",
+    "R10",
+    "Z12"
+   ],
+   "lernkarten": [
+    {
+     "thema": "bruch.brueche",
+     "lernkarte": "gemischte_zahlen"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "2+3/4",
+     "rel": "==",
+     "r": "11/4"
+    },
+    {
+     "l": "(2*4+3)/4",
+     "rel": "==",
+     "r": "11/4"
+    },
+    {
+     "l": "2*(3/4)",
+     "rel": "==",
+     "r": "3/2"
+    },
+    {
+     "l": "3/2",
+     "rel": "<",
+     "r": "2"
+    },
+    {
+     "l": "11/4",
+     "rel": ">",
+     "r": "2"
+    }
+   ]
+  },
+  {
+   "kennung": "N-Z14",
+   "name": "Unechten Bruch in gemischte Zahl umwandeln",
+   "satz": "Teile den Zähler durch den Nenner mit Rest. Das Ergebnis ist die Zahl der Ganzen, der Rest ist der neue Zähler, der Nenner bleibt.",
+   "beispiel": "17/5: 17 : 5 = 3 Rest 2, also 17/5 = 3 2/5. Probe: 3 · 5 + 2 = 17.",
+   "voraus": "Für Zähler ≥ Nenner und Nenner ≠ 0. Der Rest ist kleiner als der Nenner. Bei negativen Brüchen zuerst das Vorzeichen abtrennen: −17/5 = −3 2/5.",
+   "fehler": "Rest und Nenner vertauschen: 3 5/2 ist keine gemischte Zahl, der Rest 2 muss oben stehen und kleiner als 5 sein.",
+   "gym": "6",
+   "rs": "6",
+   "gebiet": "Zahlen",
+   "gehoert_zu": {
+    "gebiet": "Zahlen",
+    "idee": "I-zahlen-4",
+    "begruendung": "Umkehrung von N-Z13: dieselbe Zahl in der anderen Schreibweise."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Steht nirgends.",
+   "stichwoerter": [
+    "unechter Bruch",
+    "gemischte Zahl",
+    "Bruch mit Rest",
+    "Zähler größer als Nenner"
+   ],
+   "verwandt": [
+    "Z10",
+    "R10",
+    "N-Z13"
+   ],
+   "lernkarten": [
+    {
+     "thema": "bruch.brueche",
+     "lernkarte": "gemischte_zahlen"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "17-5*3",
+     "rel": "==",
+     "r": "2"
+    },
+    {
+     "l": "3+2/5",
+     "rel": "==",
+     "r": "17/5"
+    },
+    {
+     "l": "3*5+2",
+     "rel": "==",
+     "r": "17"
+    },
+    {
+     "l": "2",
+     "rel": "<",
+     "r": "5"
+    }
+   ]
+  },
+  {
+   "kennung": "N-Z15",
+   "name": "Bruchteil einer Größe berechnen",
+   "satz": "Erst durch den Nenner teilen (ein Teil), dann mal den Zähler: z/n von G ist G : n · z.",
+   "beispiel": "3/4 von 20 € = 20 € : 4 · 3 = 5 € · 3 = 15 €.",
+   "voraus": "Der Nenner n ist nicht 0. Bei einem echten Bruch ist der Bruchteil kleiner als das Ganze.",
+   "fehler": "Erst durch den Zähler, dann mal den Nenner: 20 : 3 · 4 ≈ 26,67 ist mehr als das Ganze, obwohl 3/4 weniger als 1 ist.",
+   "gym": "6",
+   "rs": "6",
+   "gebiet": "Zahlen",
+   "gehoert_zu": {
+    "gebiet": "Zahlen",
+    "idee": "I-zahlen-4",
+    "begruendung": "Ein Bruchteil von etwas ist die Idee „Bruch als Anteil“ (Z10), angewandt auf eine Größe."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Z10 nennt nur „Anteil = Teil durch Ganzes“, ohne Beispiel und ohne den Weg „durch Nenner, mal Zähler“.",
+   "stichwoerter": [
+    "Bruchteil",
+    "Bruchteil von",
+    "Bruch von einer Größe",
+    "drei Viertel von",
+    "Anteil berechnen"
+   ],
+   "verwandt": [
+    "Z10",
+    "R10",
+    "R11"
+   ],
+   "lernkarten": [
+    {
+     "thema": "bruch.brueche",
+     "lernkarte": "bruchteil_von"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "20/4*3",
+     "rel": "==",
+     "r": "15"
+    },
+    {
+     "l": "20/4",
+     "rel": "==",
+     "r": "5"
+    },
+    {
+     "l": "5*3",
+     "rel": "==",
+     "r": "15"
+    },
+    {
+     "l": "20/3*4",
+     "rel": ">",
+     "r": "15"
+    },
+    {
+     "l": "20/3*4",
+     "rel": ">",
+     "r": "20"
+    }
+   ]
+  },
+  {
+   "kennung": "N-Z16",
+   "name": "Das Ganze aus dem Teil berechnen",
+   "satz": "Rückwärts teilst du durch den Zähler und nimmst mal den Nenner: Ist z/n von G gleich T, dann ist G = T : z · n.",
+   "beispiel": "2/5 einer Klasse sind 12 Kinder: 12 : 2 = 6 (ein Fünftel), 6 · 5 = 30 Kinder.",
+   "voraus": "Zähler und Nenner sind nicht 0. Probe: 2/5 von 30 ist 12.",
+   "fehler": "Wie beim Bruchteil rechnen (12 : 5 · 2 = 4,8): Dann wäre die Klasse kleiner als ihr Teil von 12 Kindern.",
+   "gym": "6",
+   "rs": "6",
+   "gebiet": "Zahlen",
+   "gehoert_zu": {
+    "gebiet": "Zahlen",
+    "idee": "I-zahlen-4",
+    "begruendung": "Umkehrung von N-Z15 (Gegenrechnung, R12)."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Steht nirgends.",
+   "stichwoerter": [
+    "Ganzes",
+    "Ganzes aus Teil",
+    "rückwärts Bruch",
+    "Grundwert Bruch"
+   ],
+   "verwandt": [
+    "Z10",
+    "R12",
+    "N-Z15"
+   ],
+   "lernkarten": [
+    {
+     "thema": "bruch.brueche",
+     "lernkarte": "ganzes_bestimmen"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "12/2*5",
+     "rel": "==",
+     "r": "30"
+    },
+    {
+     "l": "30/5*2",
+     "rel": "==",
+     "r": "12"
+    },
+    {
+     "l": "12/5*2",
+     "rel": "==",
+     "r": "4.8"
+    },
+    {
+     "l": "4.8",
+     "rel": "<",
+     "r": "12"
+    }
+   ]
+  },
+  {
+   "kennung": "N-Z17",
+   "name": "Dezimalzahlen vergleichen",
+   "satz": "Fülle die Zahlen mit Endnullen auf die gleiche Stellenzahl und vergleiche Stelle für Stelle von links: erst die Ganzen, dann die Zehntel, dann die Hundertstel und so weiter.",
+   "beispiel": "0,45 und 0,5: 0,5 = 0,50. Bei den Zehnteln ist 4 < 5, also ist 0,45 < 0,5.",
+   "voraus": "Endnullen ändern den Wert nicht (0,5 = 0,50), Nullen direkt hinter dem Komma schon (0,05 ≠ 0,5). Bei negativen Dezimalzahlen dreht sich die Reihenfolge um: −0,45 > −0,5.",
+   "fehler": "Die Ziffern wie ganze Zahlen vergleichen: „45 > 5, also 0,45 > 0,5“ ist falsch, denn 0,5 sind 50 Hundertstel.",
+   "gym": "6",
+   "rs": "6",
+   "gebiet": "Zahlen",
+   "gehoert_zu": {
+    "gebiet": "Zahlen",
+    "idee": "I-zahlen-1",
+    "begruendung": "Größer oder kleiner heißt links oder rechts auf der Zahlengeraden (I-zahlen-1); Z11 behandelt nur Brüche."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Z11 „Brüche vergleichen“ behandelt nur Brüche, nicht Dezimalzahlen.",
+   "stichwoerter": [
+    "Dezimalzahlen vergleichen",
+    "Komma vergleichen",
+    "größer kleiner Dezimalzahl",
+    "Endnullen",
+    "ordnen"
+   ],
+   "verwandt": [
+    "Z1",
+    "Z4",
+    "Z11"
+   ],
+   "lernkarten": [
+    {
+     "thema": "bruch.dezimal",
+     "lernkarte": "vergleichen_ordnen"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "0.45",
+     "rel": "<",
+     "r": "0.5"
+    },
+    {
+     "l": "0.5",
+     "rel": "==",
+     "r": "0.50"
+    },
+    {
+     "l": "0.05",
+     "rel": "!=",
+     "r": "0.5"
+    },
+    {
+     "l": "-0.45",
+     "rel": ">",
+     "r": "-0.5"
+    },
+    {
+     "l": "45",
+     "rel": ">",
+     "r": "5"
+    }
+   ]
+  },
+  {
+   "kennung": "N-Z18",
+   "name": "Wissenschaftliche Schreibweise",
+   "satz": "Setze das Komma hinter die erste Ziffer, die nicht 0 ist, und schreibe a · 10ⁿ mit 1 ≤ a < 10. n ist die Zahl der Stellen, um die das Komma gewandert ist: n positiv bei großen Zahlen (Komma nach links), n negativ bei Zahlen unter 1 (Komma nach rechts).",
+   "beispiel": "150 000 000 = 1,5 · 10⁸ und 0,00047 = 4,7 · 10⁻⁴.",
+   "voraus": "Vor dem Komma steht genau eine Ziffer von 1 bis 9. 15 · 10⁷ hat denselben Wert wie 1,5 · 10⁸, ist aber nicht wissenschaftlich geschrieben. Gilt für Zahlen ungleich 0.",
+   "fehler": "Bei kleinen Zahlen eine positive Hochzahl schreiben: 4,7 · 10⁴ = 47 000 und nicht 0,00047.",
+   "gym": "6",
+   "rs": "7",
+   "gebiet": "Zahlen",
+   "gehoert_zu": {
+    "gebiet": "Zahlen",
+    "idee": "I-zahlen-2",
+    "begruendung": "Zehnerpotenzen sind das Bündeln in Zehnern mit Hochzahl (Z18 gehört zur selben Idee)."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Z18 nennt nur 10ⁿ und 10⁻ⁿ; „wissenschaftliche Schreibweise“ steht nicht im Gesetzbuch (Suche trifft Z18 nicht unter den ersten 14).",
+   "stichwoerter": [
+    "wissenschaftliche Schreibweise",
+    "Zehnerpotenz schreiben",
+    "große Zahlen kurz",
+    "Standardform",
+    "10 hoch"
+   ],
+   "verwandt": [
+    "Z18",
+    "R8",
+    "Z17"
+   ],
+   "lernkarten": [
+    {
+     "thema": "zahlen.potenzen_zehner",
+     "lernkarte": "gross_wissenschaftlich"
+    },
+    {
+     "thema": "zahlen.potenzen_zehner",
+     "lernkarte": "klein_wissenschaftlich"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "1.5*10**8",
+     "rel": "==",
+     "r": "150000000"
+    },
+    {
+     "l": "4.7*10**(-4)",
+     "rel": "==",
+     "r": "0.00047"
+    },
+    {
+     "l": "15*10**7",
+     "rel": "==",
+     "r": "1.5*10**8"
+    },
+    {
+     "l": "4.7*10**4",
+     "rel": "==",
+     "r": "47000"
+    },
+    {
+     "l": "47000",
+     "rel": "!=",
+     "r": "0.00047"
+    }
+   ]
+  },
+  {
+   "kennung": "N-Z19",
+   "name": "Vorsilben: Kilo, Mega, Milli, Mikro …",
+   "satz": "Ersetze die Vorsilbe durch ihre Zehnerpotenz: kilo (k) 10³, mega (M) 10⁶, giga (G) 10⁹, tera (T) 10¹²; dezi (d) 10⁻¹, zenti (c) 10⁻², milli (m) 10⁻³, mikro (µ) 10⁻⁶, nano (n) 10⁻⁹.",
+   "beispiel": "2,5 MW = 2,5 · 10⁶ W = 2 500 000 W.",
+   "voraus": "Bei Flächen und Raummaßen gilt die Potenz für die Länge: 1 km² = (10³ m)² = 10⁶ m², nicht 10³ m². Alle Umrechnungen mit Einheiten: Tafel „Einheiten umrechnen“ (einheiten/).",
+   "fehler": "1 µm = 0,001 m: Das wäre ein Millimeter. Mikro heißt 10⁻⁶, also 1 µm = 0,000001 m.",
+   "gym": "6",
+   "rs": "7",
+   "gebiet": "Zahlen",
+   "gehoert_zu": {
+    "gebiet": "Zahlen",
+    "idee": "I-zahlen-2",
+    "begruendung": "Vorsilben sind benannte Zehnerpotenzen (Z18)."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Z18 hat nur den Halbsatz „Kilo, Mega, Milli, Mikro sind Zehnerpotenzen“ ohne Werte; „Vorsilbe“, „Zenti“, „Nano“ ohne Treffer. Werte-Tafel siehe auch einheiten/.",
+   "stichwoerter": [
+    "Vorsilbe",
+    "Kilo",
+    "Mega",
+    "Giga",
+    "Tera",
+    "Milli",
+    "Mikro",
+    "Nano",
+    "Zenti",
+    "Dezi"
+   ],
+   "verwandt": [
+    "Z18",
+    "V1"
+   ],
+   "lernkarten": [
+    {
+     "thema": "zahlen.potenzen_zehner",
+     "lernkarte": "vorsilben_gross"
+    },
+    {
+     "thema": "zahlen.potenzen_zehner",
+     "lernkarte": "vorsilben_klein"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "2.5*10**6",
+     "rel": "==",
+     "r": "2500000"
+    },
+    {
+     "l": "10**(-6)",
+     "rel": "==",
+     "r": "0.000001"
+    },
+    {
+     "l": "10**(-3)",
+     "rel": "!=",
+     "r": "0.000001"
+    },
+    {
+     "l": "(10**3)**2",
+     "rel": "==",
+     "r": "10**6"
+    },
+    {
+     "l": "10**3*10**3",
+     "rel": "==",
+     "r": "10**6"
+    }
+   ]
+  },
+  {
+   "kennung": "N-V01",
+   "name": "Größen mit Komma schreiben",
+   "satz": "Hinter dem Komma bekommt die kleinere Einheit so viele Stellen, wie die Umrechnungszahl Nullen hat: m und cm (100) zwei Stellen, kg und g (1 000) drei, € und ct (100) zwei. Leere Stellen füllst du mit 0.",
+   "beispiel": "3 m 5 cm = 3,05 m, denn 5 cm sind 5 Hundertstel Meter. Wie beim Geld: 4 € 7 ct = 4,07 €.",
+   "voraus": "Die Stellenzahl hängt vom Sprung ab: Von m nach dm (Umrechnungszahl 10) ist es eine Stelle: 3 m 5 dm = 3,5 m. Von km nach m sind es drei Stellen: 2 km 40 m = 2,040 km = 2,04 km. Alle Umrechnungen: Tafel „Einheiten umrechnen“ (einheiten/).",
+   "fehler": "3 m 5 cm = 3,5 m schreiben: Das sind 3 m 50 cm. Wie beim Geld: 4,50 € und 4,05 € sind verschieden.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Geld und Verhältnisse",
+   "gehoert_zu": {
+    "gebiet": "Geld und Verhältnisse",
+    "idee": "I-geld-1",
+    "begruendung": "Kommaschreibweise ist die Idee „Größe“ (kleinere Einheit, größere Zahl) mit dem Komma als Trenner."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "V1 enthält die Umrechnungen, aber nicht die Kommaschreibweise.",
+   "stichwoerter": [
+    "Kommaschreibweise",
+    "Größen mit Komma",
+    "m und cm",
+    "Komma bei Größen",
+    "Euro und Cent",
+    "kg und g"
+   ],
+   "verwandt": [
+    "V1",
+    "I-geld-1",
+    "F1"
+   ],
+   "lernkarten": [
+    {
+     "thema": "groessen.einheiten",
+     "lernkarte": "kommaschreibweise"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "3+5/100",
+     "rel": "==",
+     "r": "3.05"
+    },
+    {
+     "l": "3.05*100",
+     "rel": "==",
+     "r": "305"
+    },
+    {
+     "l": "3.5*100",
+     "rel": "==",
+     "r": "350"
+    },
+    {
+     "l": "3.5",
+     "rel": "!=",
+     "r": "3.05"
+    },
+    {
+     "l": "3+5/10",
+     "rel": "==",
+     "r": "3.5"
+    },
+    {
+     "l": "2+40/1000",
+     "rel": "==",
+     "r": "2.04"
+    },
+    {
+     "l": "4+7/100",
+     "rel": "==",
+     "r": "4.07"
+    }
+   ]
+  },
+  {
+   "kennung": "N-V02",
+   "name": "Grundwert zurückrechnen (nach Rabatt oder Aufschlag)",
+   "satz": "Der neue Wert ist alter Wert mal Faktor (Faktor = 1 − p/100 bei Rabatt, 1 + p/100 bei Aufschlag). Rückwärts teilst du den neuen Wert durch den Faktor.",
+   "beispiel": "Nach 25 % Rabatt kostet eine Jacke 60 €. Faktor 1 − 0,25 = 0,75, alter Preis 60 € : 0,75 = 80 €. Probe: 80 € · 0,75 = 60 €.",
+   "voraus": "Die Prozente beziehen sich auf den alten Preis (den Grundwert). Der Faktor ist nicht 0.",
+   "fehler": "25 % auf den neuen Preis aufschlagen (60 € · 1,25 = 75 €): Das ist nicht der alte Preis, denn 80 € · 0,75 = 60 €.",
+   "gym": "7",
+   "rs": "7",
+   "gebiet": "Geld und Verhältnisse",
+   "gehoert_zu": {
+    "gebiet": "Geld und Verhältnisse",
+    "idee": "I-geld-3",
+    "begruendung": "Der Faktor 1 ± p/100 (V9) wird rückwärts benutzt: durch den Faktor teilen."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "V9 nennt den Faktor, aber nicht den Weg zurück.",
+   "stichwoerter": [
+    "Grundwert zurück",
+    "alter Preis",
+    "ursprünglicher Preis",
+    "rückwärts Prozent",
+    "Rabatt zurückrechnen"
+   ],
+   "verwandt": [
+    "V8",
+    "V9",
+    "R12"
+   ],
+   "lernkarten": [
+    {
+     "thema": "bruch.prozent_grundwert",
+     "lernkarte": "zurueck"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "60/0.75",
+     "rel": "==",
+     "r": "80"
+    },
+    {
+     "l": "80*0.75",
+     "rel": "==",
+     "r": "60"
+    },
+    {
+     "l": "1-0.25",
+     "rel": "==",
+     "r": "0.75"
+    },
+    {
+     "l": "60*1.25",
+     "rel": "!=",
+     "r": "80"
+    },
+    {
+     "l": "60*1.25",
+     "rel": "==",
+     "r": "75"
+    }
+   ]
+  },
+  {
+   "kennung": "N-F01",
+   "name": "Ar und Hektar",
+   "satz": "1 Ar (a) ist ein Quadrat von 10 m mal 10 m: 1 a = 100 m². 1 Hektar (ha) ist ein Quadrat von 100 m mal 100 m: 1 ha = 100 a = 10 000 m². Die Treppe km² –100→ ha –100→ a –100→ m²: abwärts mal 100, aufwärts durch 100.",
+   "beispiel": "2,5 ha = 250 a = 25 000 m², denn 2,5 · 100 = 250 und 250 · 100 = 25 000.",
+   "voraus": "Gilt für Flächen; Ar und Hektar nimmt man für Grundstücke und Felder. Die ganze Treppe mit Beispielen: Tafel „Einheiten umrechnen“ (einheiten/). Das Kurzzeichen „a“ steht hier für Ar, nicht für eine Variable.",
+   "fehler": "Mit 1 000 statt 10 000 m² für 1 ha rechnen: 2,5 ha sind 25 000 m² und nicht 2 500 m².",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Fläche und Raum",
+   "gehoert_zu": {
+    "gebiet": "Fläche und Raum",
+    "idee": "I-fur-1",
+    "begruendung": "Ar und Hektar sind Stufen der Flächentreppe (F1); die Tafel „Einheiten umrechnen“ zeigt die ganze Treppe."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "F1 nennt m², dm², cm² und im Feld „voraus“ „a, ha, km²“ ohne Umrechnung; V1 kennt keine Flächen. Der Inhalt der Treppe liegt in einheiten/ (Tafel).",
+   "stichwoerter": [
+    "Hektar",
+    "ha",
+    "Ar",
+    "Flächeneinheiten",
+    "Grundstück",
+    "Feldgröße",
+    "Quadratkilometer"
+   ],
+   "verwandt": [
+    "F1",
+    "V1"
+   ],
+   "lernkarten": [
+    {
+     "thema": "messen.flaechen",
+     "lernkarte": "einheiten"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "10*10",
+     "rel": "==",
+     "r": "100"
+    },
+    {
+     "l": "100*100",
+     "rel": "==",
+     "r": "10000"
+    },
+    {
+     "l": "2.5*100",
+     "rel": "==",
+     "r": "250"
+    },
+    {
+     "l": "250*100",
+     "rel": "==",
+     "r": "25000"
+    },
+    {
+     "l": "2.5*10000",
+     "rel": "==",
+     "r": "25000"
+    },
+    {
+     "l": "2.5*1000",
+     "rel": "!=",
+     "r": "25000"
+    },
+    {
+     "l": "1000*1000",
+     "rel": "==",
+     "r": "100*10000"
+    }
+   ]
+  },
+  {
+   "kennung": "N-F02",
+   "name": "Flächen mit Komma schreiben",
+   "satz": "Bei Flächen bekommt die nächstkleinere Einheit zwei Stellen hinter dem Komma, weil die Umrechnungszahl 100 ist. Leere Stellen füllst du mit 0.",
+   "beispiel": "6 m² 5 dm² = 6,05 m², denn 5 dm² sind 5 Hundertstel m². Und 4 a 7 m² = 4,07 a.",
+   "voraus": "Gilt für benachbarte Stufen der Flächentreppe. Zwei Stufen weiter sind es vier Stellen: 1 m² 5 cm² = 1,0005 m².",
+   "fehler": "6 m² 5 dm² = 6,5 m² schreiben: Das sind 6 m² 50 dm².",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Fläche und Raum",
+   "gehoert_zu": {
+    "gebiet": "Fläche und Raum",
+    "idee": "I-fur-1",
+    "begruendung": "Wie N-V01, aber mit Umrechnungszahl 100 (F1): zwei Stellen je Einheit."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "F1 enthält die Umrechnung, nicht die Kommaschreibweise.",
+   "stichwoerter": [
+    "Flächen mit Komma",
+    "Kommaschreibweise Fläche",
+    "m² und dm²",
+    "a und m²"
+   ],
+   "verwandt": [
+    "F1",
+    "N-V01"
+   ],
+   "lernkarten": [
+    {
+     "thema": "messen.flaechen",
+     "lernkarte": "kommaschreibweise"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "6+5/100",
+     "rel": "==",
+     "r": "6.05"
+    },
+    {
+     "l": "6.05*100",
+     "rel": "==",
+     "r": "605"
+    },
+    {
+     "l": "6*100+5",
+     "rel": "==",
+     "r": "605"
+    },
+    {
+     "l": "6.5*100",
+     "rel": "==",
+     "r": "650"
+    },
+    {
+     "l": "6.5",
+     "rel": "!=",
+     "r": "6.05"
+    },
+    {
+     "l": "4+7/100",
+     "rel": "==",
+     "r": "4.07"
+    },
+    {
+     "l": "1+5/10000",
+     "rel": "==",
+     "r": "1.0005"
+    }
+   ]
+  },
+  {
+   "kennung": "N-F03",
+   "name": "Quader: Ecken, Kanten, Flächen und Kantenlänge",
+   "satz": "Ein Quader hat 6 Flächen, 12 Kanten und 8 Ecken. Je 4 Kanten sind gleich lang; die Länge aller Kanten zusammen ist 4 · (a + b + c).",
+   "beispiel": "a = 6 cm, b = 4 cm, c = 3 cm: 4 · (6 + 4 + 3) cm = 4 · 13 cm = 52 cm Kantenlänge insgesamt.",
+   "voraus": "Ein Würfel mit Kante a ist ein Quader mit a = b = c: Kantenlänge 12 · a. Alle Maße müssen in derselben Einheit stehen.",
+   "fehler": "a + b + c als Gesamtlänge nehmen (6 + 4 + 3 = 13 cm): Jede Kantenlänge kommt viermal vor.",
+   "gym": "5",
+   "rs": "6",
+   "gebiet": "Fläche und Raum",
+   "gehoert_zu": {
+    "gebiet": "Fläche und Raum",
+    "idee": "I-fur-4",
+    "begruendung": "Die Außenhaut des Quaders besteht aus Flächen, Kanten und Ecken; Netz und Oberfläche (F13, F14) bauen darauf auf."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "F12/F13 nennen Volumen und Oberfläche; Zahl der Ecken, Kanten, Flächen und die Kantenlänge fehlen.",
+   "stichwoerter": [
+    "Quader",
+    "Kanten",
+    "Ecken",
+    "Flächen",
+    "Kantenlänge",
+    "Würfel",
+    "Draht"
+   ],
+   "verwandt": [
+    "F12",
+    "F13",
+    "F14"
+   ],
+   "lernkarten": [
+    {
+     "thema": "messen.koerper_berechnung",
+     "lernkarte": "quader"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "4*(6+4+3)",
+     "rel": "==",
+     "r": "52"
+    },
+    {
+     "l": "4*6+4*4+4*3",
+     "rel": "==",
+     "r": "52"
+    },
+    {
+     "l": "6+4+3",
+     "rel": "!=",
+     "r": "52"
+    },
+    {
+     "l": "4+4+4",
+     "rel": "==",
+     "r": "12"
+    },
+    {
+     "l": "2*3*2",
+     "rel": "==",
+     "r": "12"
+    },
+    {
+     "l": "4*(5+5+5)",
+     "rel": "==",
+     "r": "12*5"
+    }
+   ]
+  },
+  {
+   "kennung": "N-F04",
+   "name": "Oberfläche zusammengesetzter Körper",
+   "satz": "Addiere die Oberflächen der Teilkörper und ziehe für jede Berührstelle die Berührfläche zweimal ab (einmal von jedem der beiden Körper).",
+   "beispiel": "Zwei Würfel mit Kante 2 cm nebeneinander: 2 · (6 · 4 cm²) = 48 cm². Die Berührfläche ist 4 cm², zweimal abgezogen: 48 cm² − 8 cm² = 40 cm².",
+   "voraus": "Gilt für die Oberfläche. Das Volumen addiert man einfach, hier fällt nichts weg. Die Berührfläche ist die gemeinsame Fläche der beiden Körper, auch wenn sie nur ein Teil einer Seitenfläche ist.",
+   "fehler": "Die Berührfläche nur einmal abziehen: 48 cm² − 4 cm² = 44 cm² ist falsch, denn die Fläche fehlt an beiden Würfeln.",
+   "gym": "5",
+   "rs": "6",
+   "gebiet": "Fläche und Raum",
+   "gehoert_zu": {
+    "gebiet": "Fläche und Raum",
+    "idee": "I-fur-4",
+    "begruendung": "Die Oberfläche ist die Haut des Körpers (F13); wo zwei Körper aneinanderkleben, ist keine Haut mehr."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "F13 sagt „jede Fläche genau einmal zählen“; die Berührflächen werden nicht genannt.",
+   "stichwoerter": [
+    "Berührfläche",
+    "zusammengesetzte Körper",
+    "Oberfläche zusammengesetzt",
+    "Klebefläche",
+    "angemalt"
+   ],
+   "verwandt": [
+    "F13",
+    "F4"
+   ],
+   "lernkarten": [
+    {
+     "thema": "messen.koerper_berechnung",
+     "lernkarte": "zusammengesetzt"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "2*(6*4)",
+     "rel": "==",
+     "r": "48"
+    },
+    {
+     "l": "48-2*4",
+     "rel": "==",
+     "r": "40"
+    },
+    {
+     "l": "2*(2*2+2*4+2*4)",
+     "rel": "==",
+     "r": "40"
+    },
+    {
+     "l": "48-4",
+     "rel": "!=",
+     "r": "40"
+    },
+    {
+     "l": "2*2",
+     "rel": "==",
+     "r": "4"
+    }
+   ]
+  },
+  {
+   "kennung": "N-F05",
+   "name": "Höhe aus der Fläche berechnen",
+   "satz": "Rückwärts: Beim Parallelogramm ist h = A : g, beim Dreieck h = 2 · A : g. Grundseite und Höhe gehören zusammen.",
+   "beispiel": "Dreieck mit A = 15 cm² und g = 5 cm: h = 2 · 15 : 5 = 6 cm. Probe: 5 · 6 : 2 = 15.",
+   "voraus": "g ist nicht 0. Einheiten: cm² : cm = cm. Die Höhe steht senkrecht auf der gewählten Grundseite g.",
+   "fehler": "Das Verdoppeln beim Dreieck vergessen: 15 : 5 = 3 cm ist nur die halbe Höhe.",
+   "gym": "6",
+   "rs": "6",
+   "gebiet": "Fläche und Raum",
+   "gehoert_zu": {
+    "gebiet": "Fläche und Raum",
+    "idee": "I-fur-2",
+    "begruendung": "Die Flächenformeln (F5, F6) rückwärts gelesen; Gegenrechnung R12."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "A13 (Formeln umstellen) ist allgemein; das Vorgehen für Parallelogramm und Dreieck mit Zahlen fehlt.",
+   "stichwoerter": [
+    "Höhe berechnen",
+    "Höhe aus Fläche",
+    "Grundseite berechnen",
+    "fehlende Länge",
+    "rückwärts Fläche"
+   ],
+   "verwandt": [
+    "F5",
+    "F6",
+    "A13",
+    "R12"
+   ],
+   "lernkarten": [
+    {
+     "thema": "messen.flaechen_vielecke",
+     "lernkarte": "rueckwaerts"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "2*15/5",
+     "rel": "==",
+     "r": "6"
+    },
+    {
+     "l": "5*6/2",
+     "rel": "==",
+     "r": "15"
+    },
+    {
+     "l": "15/5",
+     "rel": "!=",
+     "r": "6"
+    },
+    {
+     "l": "24/8",
+     "rel": "==",
+     "r": "3"
+    },
+    {
+     "l": "8*3",
+     "rel": "==",
+     "r": "24"
+    }
+   ]
+  },
+  {
+   "kennung": "N-F06",
+   "name": "Höhe aus dem Volumen berechnen",
+   "satz": "Rückwärts: Höhe = Volumen : Grundfläche. Rechne vorher in passende Einheiten um (1 l = 1 dm³).",
+   "beispiel": "90 l Wasser in einem Becken mit dem Boden 5 dm · 3 dm: 90 l = 90 dm³, Grundfläche 15 dm², Höhe 90 : 15 = 6 dm.",
+   "voraus": "Gilt für Quader und andere gerade Körper mit gleicher Grundfläche. Die Grundfläche ist nicht 0.",
+   "fehler": "Nur durch eine Kante teilen: 90 : 5 = 18 ist keine Höhe, geteilt wird durch die ganze Grundfläche 15 dm².",
+   "gym": "6",
+   "rs": "6",
+   "gebiet": "Fläche und Raum",
+   "gehoert_zu": {
+    "gebiet": "Fläche und Raum",
+    "idee": "I-fur-1",
+    "begruendung": "Die Volumenformel V = G · h (F12, F15) rückwärts gelesen."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "F12 nennt nur V = a · b · c.",
+   "stichwoerter": [
+    "Füllhöhe",
+    "Höhe aus Volumen",
+    "fehlende Kante",
+    "Liter Wasser",
+    "Aquarium"
+   ],
+   "verwandt": [
+    "F12",
+    "F11",
+    "A13"
+   ],
+   "lernkarten": [
+    {
+     "thema": "messen.volumen",
+     "lernkarte": "rueckwaerts"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "5*3",
+     "rel": "==",
+     "r": "15"
+    },
+    {
+     "l": "90/15",
+     "rel": "==",
+     "r": "6"
+    },
+    {
+     "l": "15*6",
+     "rel": "==",
+     "r": "90"
+    },
+    {
+     "l": "90/5",
+     "rel": "!=",
+     "r": "6"
+    }
+   ]
+  },
+  {
+   "kennung": "N-F07",
+   "name": "Prisma: Ecken, Kanten, Flächen",
+   "satz": "Ein Prisma mit n-eckiger Grundfläche hat 2n Ecken, 3n Kanten und n + 2 Flächen (n Seitenflächen und 2 Grundflächen).",
+   "beispiel": "Dreiecksprisma (n = 3): 6 Ecken, 9 Kanten, 5 Flächen (3 Rechtecke und 2 Dreiecke).",
+   "voraus": "n ≥ 3. Die beiden Grundflächen sind deckungsgleiche n-Ecke in parallelen Ebenen. Beim geraden Prisma sind die Seitenflächen Rechtecke, sonst Parallelogramme.",
+   "fehler": "Ein sechseckiger Bleistift hat nicht 6 Flächen: Zu den 6 Seitenflächen kommen 2 Grundflächen, also 8.",
+   "gym": "8",
+   "rs": "5",
+   "gebiet": "Fläche und Raum",
+   "gehoert_zu": {
+    "gebiet": "Fläche und Raum",
+    "idee": "I-fur-4",
+    "begruendung": "Prismen gehören zur Haut des Körpers (F14, F15)."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "F15 nennt V und Mantel, nicht die Zahl der Ecken, Kanten, Flächen.",
+   "stichwoerter": [
+    "Prisma",
+    "Ecken Kanten Flächen",
+    "n-Eck Prisma",
+    "Dreiecksprisma",
+    "Grundfläche Seitenfläche"
+   ],
+   "verwandt": [
+    "F15",
+    "F14",
+    "N-F03"
+   ],
+   "lernkarten": [
+    {
+     "thema": "messen.koerper_darstellung",
+     "lernkarte": "prisma"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "2*3",
+     "rel": "==",
+     "r": "6"
+    },
+    {
+     "l": "3*3",
+     "rel": "==",
+     "r": "9"
+    },
+    {
+     "l": "3+2",
+     "rel": "==",
+     "r": "5"
+    },
+    {
+     "l": "2*6",
+     "rel": "==",
+     "r": "12"
+    },
+    {
+     "l": "6+2",
+     "rel": "==",
+     "r": "8"
+    },
+    {
+     "l": "2*n-3*n+(n+2)",
+     "rel": "==",
+     "r": "2",
+     "fuer": {
+      "n": [
+       3,
+       4,
+       5,
+       6,
+       8,
+       10
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "N-F08",
+   "name": "Schrägbild zeichnen",
+   "satz": "Zeichne die Vorderfläche in wahrer Größe. Kanten nach hinten zeichnest du unter 45° und auf die Hälfte verkürzt (Verkürzungsfaktor q = 1/2); verdeckte Kanten zeichnest du gestrichelt.",
+   "beispiel": "Quader 6 cm breit, 4 cm hoch, 8 cm tief: Vorderfläche 6 cm · 4 cm, Kante nach hinten im Schrägbild 8 cm · 1/2 = 4 cm unter 45°.",
+   "voraus": "Gilt, wenn Winkel 45° und q = 1/2 vereinbart sind (andere Werte stehen dann in der Aufgabe). Wirkliche Länge einer Kante nach hinten = Länge im Bild : q. Nur an der Vorderfläche kannst du im Bild direkt messen.",
+   "fehler": "Die Kante nach hinten in voller Länge (8 cm) zeichnen: Der Quader wirkt dann viel zu tief. Verkürzt wird nur nach hinten, nicht in der Breite oder Höhe.",
+   "gym": "8",
+   "rs": "5",
+   "gebiet": "Fläche und Raum",
+   "gehoert_zu": {
+    "gebiet": "Fläche und Raum",
+    "idee": "I-fur-4",
+    "begruendung": "Das Schrägbild ist die zweite Darstellung neben dem Netz (F14)."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "F14 hat einen Satz („Kanten nach hinten werden schräg und verkürzt gezeichnet“) ohne 45°, Verkürzungsfaktor und Beispiel.",
+   "stichwoerter": [
+    "Schrägbild",
+    "Kavalierperspektive",
+    "45 Grad",
+    "Körper zeichnen",
+    "verkürzt",
+    "hinten"
+   ],
+   "verwandt": [
+    "F14",
+    "F13"
+   ],
+   "lernkarten": [
+    {
+     "thema": "messen.koerper_darstellung",
+     "lernkarte": "schraegbild"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "8*(1/2)",
+     "rel": "==",
+     "r": "4"
+    },
+    {
+     "l": "4/(1/2)",
+     "rel": "==",
+     "r": "8"
+    },
+    {
+     "l": "8",
+     "rel": ">",
+     "r": "4"
+    }
+   ]
+  },
+  {
+   "kennung": "N-F09",
+   "name": "Ansichten von Körpern",
+   "satz": "Eine Ansicht zeigt den Körper aus einer Richtung als flache Figur: von vorn (Vorderansicht), von der Seite (Seitenansicht), von oben (Draufsicht). Zeichne nur, was du aus dieser Richtung siehst.",
+   "beispiel": "Zylinder (r = 3 cm, h = 10 cm), auf dem Boden stehend: Vorderansicht Rechteck 6 cm · 10 cm, Draufsicht Kreis mit Radius 3 cm.",
+   "voraus": "Der Körper steht auf seiner Grundfläche. Die Breite der Vorderansicht ist beim Zylinder der Durchmesser 2 · r.",
+   "fehler": "Die Draufsicht des stehenden Zylinders als Rechteck zeichnen: Von oben sieht man den Deckel, einen Kreis.",
+   "gym": "8",
+   "rs": "5",
+   "gebiet": "Fläche und Raum",
+   "gehoert_zu": {
+    "gebiet": "Fläche und Raum",
+    "idee": "I-fur-4",
+    "begruendung": "Ansichten sind flache Zeichnungen der Haut des Körpers von einer Richtung."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Im Gesetzbuch kommt „Ansicht“ nicht vor.",
+   "stichwoerter": [
+    "Ansichten",
+    "Vorderansicht",
+    "Seitenansicht",
+    "Draufsicht",
+    "von oben",
+    "von vorn"
+   ],
+   "verwandt": [
+    "F14",
+    "F15"
+   ],
+   "lernkarten": [
+    {
+     "thema": "messen.koerper_darstellung",
+     "lernkarte": "ansichten"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "2*3",
+     "rel": "==",
+     "r": "6"
+    },
+    {
+     "l": "3*2",
+     "rel": "==",
+     "r": "6"
+    },
+    {
+     "l": "6*10",
+     "rel": "==",
+     "r": "60"
+    }
+   ]
+  },
+  {
+   "kennung": "N-F10",
+   "name": "Kreisring",
+   "satz": "Kreisring: A = π · R² − π · r² = π · (R² − r²) mit dem äußeren Radius R und dem inneren Radius r. Erst beide Radien quadrieren, dann abziehen.",
+   "beispiel": "R = 5 cm, r = 3 cm: A = π · (25 − 9) cm² = 16π cm² ≈ 50,3 cm².",
+   "voraus": "Beide Kreise haben denselben Mittelpunkt, und es ist R > r. Die Breite des Rings ist R − r.",
+   "fehler": "Erst die Radien abziehen und dann quadrieren: π · (5 − 3)² cm² = 4π cm² ≈ 12,6 cm² ist falsch. Es gilt R² − r², nicht (R − r)².",
+   "gym": "8",
+   "rs": "9",
+   "gebiet": "Fläche und Raum",
+   "gehoert_zu": {
+    "gebiet": "Fläche und Raum",
+    "idee": "I-fur-2",
+    "begruendung": "Aus dem Kreis (F9) zusammengesetzt: großer Kreis minus kleiner Kreis."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Im Gesetzbuch steht kein Kreisring; F9 trägt nur den vollen Kreis.",
+   "stichwoerter": [
+    "Kreisring",
+    "Ring",
+    "Donut",
+    "großer Kreis minus kleiner Kreis",
+    "äußerer Radius",
+    "innerer Radius"
+   ],
+   "verwandt": [
+    "F9",
+    "F4"
+   ],
+   "lernkarten": [
+    {
+     "thema": "messen.kreisberechnung",
+     "lernkarte": "zusammengesetzt"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "25-9",
+     "rel": "==",
+     "r": "16"
+    },
+    {
+     "l": "5**2-3**2",
+     "rel": "==",
+     "r": "16"
+    },
+    {
+     "l": "rund(16*pi, 1)",
+     "rel": "==",
+     "r": "50.3"
+    },
+    {
+     "l": "(5-3)**2",
+     "rel": "!=",
+     "r": "5**2-3**2"
+    },
+    {
+     "l": "rund(4*pi, 1)",
+     "rel": "==",
+     "r": "12.6"
+    }
+   ]
+  },
+  {
+   "kennung": "N-F11",
+   "name": "Kreisabschnitt",
+   "satz": "Kreisabschnitt = Kreisausschnitt minus das Dreieck aus Mittelpunkt und den beiden Enden der Sehne. Bei 90° ist das Dreieck rechtwinklig mit den Katheten r und r: A = ¼ · π · r² − ½ · r².",
+   "beispiel": "r = 4 cm, 90°: Viertelkreis ¼ · π · 16 = 4π ≈ 12,57 cm², Dreieck ½ · 4 · 4 = 8 cm², Abschnitt ≈ 12,57 − 8 = 4,57 cm².",
+   "voraus": "Gilt, wenn der Mittelpunktswinkel kleiner als 180° ist. Bei einem Winkel über 180° wird das Dreieck nicht abgezogen, sondern dazugezählt.",
+   "fehler": "Nur den Viertelkreis nehmen (12,57 cm²) und das Dreieck vergessen: Das ist der Ausschnitt, nicht der Abschnitt.",
+   "gym": "8",
+   "rs": "9",
+   "gebiet": "Fläche und Raum",
+   "gehoert_zu": {
+    "gebiet": "Fläche und Raum",
+    "idee": "I-fur-2",
+    "begruendung": "Zusammengesetzt aus Kreisausschnitt (F10) und Dreieck (F6)."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Im Gesetzbuch fehlt der Kreisabschnitt (F10 nennt nur den Ausschnitt).",
+   "stichwoerter": [
+    "Kreisabschnitt",
+    "Segment",
+    "Viertelkreis minus Dreieck",
+    "Sehne",
+    "Kreisbogen"
+   ],
+   "verwandt": [
+    "F10",
+    "F6",
+    "F9"
+   ],
+   "lernkarten": [
+    {
+     "thema": "messen.kreisberechnung",
+     "lernkarte": "zusammengesetzt"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "1/4*16",
+     "rel": "==",
+     "r": "4"
+    },
+    {
+     "l": "rund(4*pi, 2)",
+     "rel": "==",
+     "r": "12.57"
+    },
+    {
+     "l": "1/2*4*4",
+     "rel": "==",
+     "r": "8"
+    },
+    {
+     "l": "rund(4*pi-8, 2)",
+     "rel": "==",
+     "r": "4.57"
+    },
+    {
+     "l": "4*pi",
+     "rel": ">",
+     "r": "8"
+    }
+   ]
+  },
+  {
+   "kennung": "N-G01",
+   "name": "Winkel nach der Größe benennen",
+   "satz": "Spitz: kleiner als 90°. Recht: genau 90°. Stumpf: zwischen 90° und 180°. Gestreckt: genau 180°. Überstumpf: zwischen 180° und 360°. Voll: genau 360°.",
+   "beispiel": "235° liegt zwischen 180° und 360°, ist also überstumpf. 135° liegt zwischen 90° und 180°, ist also stumpf.",
+   "voraus": "Die Grenzen haben eigene Namen: 90° ist recht (weder spitz noch stumpf), 180° ist gestreckt, 360° ist voll.",
+   "fehler": "235° stumpf nennen: Stumpf heißt nur zwischen 90° und 180°; 235° ist überstumpf.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Geometrie",
+   "gehoert_zu": {
+    "gebiet": "Geometrie",
+    "idee": "I-geo-1",
+    "begruendung": "Winkelnamen sind die Einteilung der Drehung in 360° (G3)."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "G3 nennt im Satz nur 360°, 180° und 90°; spitz, stumpf und überstumpf stehen nur im Klassenbeispiel, „Vollwinkel“ als Name fehlt.",
+   "stichwoerter": [
+    "spitzer Winkel",
+    "stumpfer Winkel",
+    "rechter Winkel",
+    "überstumpf",
+    "gestreckter Winkel",
+    "Vollwinkel",
+    "Winkelarten",
+    "Winkel benennen"
+   ],
+   "verwandt": [
+    "G3",
+    "G4"
+   ],
+   "lernkarten": [
+    {
+     "thema": "geometrie.grundbegriffe",
+     "lernkarte": "winkelarten"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "90",
+     "rel": "<",
+     "r": "235"
+    },
+    {
+     "l": "235",
+     "rel": ">",
+     "r": "180"
+    },
+    {
+     "l": "235",
+     "rel": "<",
+     "r": "360"
+    },
+    {
+     "l": "135",
+     "rel": ">",
+     "r": "90"
+    },
+    {
+     "l": "135",
+     "rel": "<",
+     "r": "180"
+    },
+    {
+     "l": "360",
+     "rel": "==",
+     "r": "2*180"
+    }
+   ]
+  },
+  {
+   "kennung": "N-G02",
+   "name": "Winkel addieren und ergänzen",
+   "satz": "Nebeneinander liegende Winkel mit demselben Scheitel addierst du. Fehlt ein Winkel: An einer Geraden ergeben alle Winkel zusammen 180°, um einen Punkt 360°; rechne die bekannten zusammen und ziehe sie von 180° bzw. 360° ab.",
+   "beispiel": "Auf einer Geraden liegen 35° und 70° nebeneinander; der fehlende Winkel ist 180° − 35° − 70° = 75°.",
+   "voraus": "Die Winkel liegen ohne Lücke und ohne Überlappung nebeneinander und haben denselben Scheitel.",
+   "fehler": "Von 360° statt von 180° abziehen, obwohl die Winkel an einer Geraden liegen: 360° − 105° = 255° ist falsch.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Geometrie",
+   "gehoert_zu": {
+    "gebiet": "Geometrie",
+    "idee": "I-geo-1",
+    "begruendung": "Winkel an einer Geraden (180°) und um einen Punkt (360°) sind der Kern der Idee „Winkel an Geraden“."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "G4 nennt Nebenwinkel (180°); das Addieren benachbarter Winkel und der Vollwinkel um einen Punkt fehlen als Rechenweg.",
+   "stichwoerter": [
+    "Winkel addieren",
+    "Winkel ergänzen",
+    "fehlender Winkel",
+    "Winkel um einen Punkt",
+    "180 Grad",
+    "360 Grad",
+    "gestreckter Winkel"
+   ],
+   "verwandt": [
+    "G3",
+    "G4",
+    "G6"
+   ],
+   "lernkarten": [
+    {
+     "thema": "geometrie.winkel",
+     "lernkarte": "ergaenzen"
+    },
+    {
+     "thema": "geometrie.winkel",
+     "lernkarte": "um_punkt"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "180-35-70",
+     "rel": "==",
+     "r": "75"
+    },
+    {
+     "l": "35+70+75",
+     "rel": "==",
+     "r": "180"
+    },
+    {
+     "l": "360-105",
+     "rel": "!=",
+     "r": "180-105"
+    },
+    {
+     "l": "360-100-90-80",
+     "rel": "==",
+     "r": "90"
+    }
+   ]
+  },
+  {
+   "kennung": "N-G03",
+   "name": "Winkel an der Uhr",
+   "satz": "Zwischen zwei benachbarten Zahlen liegen 30° (360° : 12). Der Minutenzeiger dreht in 1 Minute 6° (360° : 60), der Stundenzeiger in 1 Stunde 30°. Zähle die Zahlen-Abstände zwischen den Zeigern und rechne mal 30°.",
+   "beispiel": "Um 4:00 Uhr zeigen die Zeiger auf 12 und auf 4: 4 · 30° = 120°.",
+   "voraus": "Gemeint ist der kleinere Winkel zwischen den Zeigern (höchstens 180°). Ist die Rechnung größer als 180°, nimm 360° minus Winkel. Zwischen vollen Stunden wandert auch der Stundenzeiger: um 3:30 Uhr steht er in der Mitte zwischen 3 und 4.",
+   "fehler": "Für 15 Minuten 15° rechnen: Der Minutenzeiger dreht 6° je Minute, also 15 · 6° = 90°.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Geometrie",
+   "gehoert_zu": {
+    "gebiet": "Geometrie",
+    "idee": "I-geo-1",
+    "begruendung": "Das Zifferblatt ist ein Vollwinkel von 360° (G3), in 12 gleiche Teile geteilt."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Suchwort „Uhr“ ohne Treffer; im Gesetzbuch nirgends.",
+   "stichwoerter": [
+    "Uhr",
+    "Winkel an der Uhr",
+    "Zeiger",
+    "Minutenzeiger",
+    "Stundenzeiger",
+    "Zifferblatt"
+   ],
+   "verwandt": [
+    "G3",
+    "N-G04"
+   ],
+   "lernkarten": [
+    {
+     "thema": "geometrie.winkel",
+     "lernkarte": "uhr"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "360/12",
+     "rel": "==",
+     "r": "30"
+    },
+    {
+     "l": "360/60",
+     "rel": "==",
+     "r": "6"
+    },
+    {
+     "l": "4*30",
+     "rel": "==",
+     "r": "120"
+    },
+    {
+     "l": "15*6",
+     "rel": "==",
+     "r": "90"
+    },
+    {
+     "l": "15*6",
+     "rel": "!=",
+     "r": "15"
+    },
+    {
+     "l": "30/60",
+     "rel": "==",
+     "r": "1/2"
+    },
+    {
+     "l": "360-240",
+     "rel": "==",
+     "r": "120"
+    }
+   ]
+  },
+  {
+   "kennung": "N-G04",
+   "name": "Drehung und Windrose",
+   "satz": "Zwischen zwei benachbarten Richtungen der Windrose (N, NO, O, SO, S, SW, W, NW) liegen 45° (360° : 8). Zähle die Schritte und rechne mal 45°. Eine Vierteldrehung sind 90°, eine halbe 180°.",
+   "beispiel": "Von N im Uhrzeigersinn bis SO: N → NO → O → SO sind 3 Schritte, 3 · 45° = 135°.",
+   "voraus": "Im Uhrzeigersinn gerechnet. In die andere Richtung sind es 360° − 135° = 225° (5 Schritte).",
+   "fehler": "Von Norden nach Osten 180° rechnen: Das ist nur eine Vierteldrehung, also 90°; 180° wäre Süden.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Geometrie",
+   "gehoert_zu": {
+    "gebiet": "Geometrie",
+    "idee": "I-geo-1",
+    "begruendung": "Eine Drehung wird in Grad gemessen (G3); die Windrose teilt die volle Drehung in 8 Teile."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "G15 nennt Drehen als Abbildung, nicht die Drehwinkel.",
+   "stichwoerter": [
+    "Windrose",
+    "Himmelsrichtungen",
+    "Kompass",
+    "Drehung",
+    "Vierteldrehung",
+    "Norden Osten"
+   ],
+   "verwandt": [
+    "G3",
+    "G15"
+   ],
+   "lernkarten": [
+    {
+     "thema": "geometrie.winkel",
+     "lernkarte": "drehungen"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "360/8",
+     "rel": "==",
+     "r": "45"
+    },
+    {
+     "l": "3*45",
+     "rel": "==",
+     "r": "135"
+    },
+    {
+     "l": "5*45",
+     "rel": "==",
+     "r": "225"
+    },
+    {
+     "l": "135+225",
+     "rel": "==",
+     "r": "360"
+    },
+    {
+     "l": "2*45",
+     "rel": "==",
+     "r": "90"
+    },
+    {
+     "l": "4*45",
+     "rel": "==",
+     "r": "180"
+    }
+   ]
+  },
+  {
+   "kennung": "N-G05",
+   "name": "Strecke im Koordinatensystem messen",
+   "satz": "Liegen zwei Punkte waagerecht nebeneinander (gleiches y), zählst du die Einheiten zwischen den x-Werten; liegen sie senkrecht übereinander (gleiches x), zwischen den y-Werten. Liegt die 0 dazwischen, addierst du die beiden Beträge, sonst ziehst du die kleinere Zahl von der größeren ab.",
+   "beispiel": "A(−3 | 2) und B(4 | 2): gleiches y, die 0 liegt dazwischen: 3 + 4 = 7 Einheiten, also |AB| = 7.",
+   "voraus": "Gilt nur für waagerechte oder senkrechte Strecken. Für schräge Strecken braucht man den Satz des Pythagoras (Klasse 9).",
+   "fehler": "Einfach 4 − 3 = 1 rechnen, obwohl der x-Wert von A negativ ist: A liegt links, B rechts der 0, der Abstand ist 4 − (−3) = 7.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Geometrie",
+   "gehoert_zu": {
+    "gebiet": "Geometrie",
+    "idee": "I-geo-2",
+    "begruendung": "Der Abstand zweier Punkte auf einer Achsenparallelen ist die Differenz der Koordinaten (G1, G2)."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "G2 behandelt den Abstand Punkt–Gerade; die Streckenlänge zwischen zwei Punkten mit negativen Koordinaten steht nur im Klassenbeispiel von G2/G1.",
+   "stichwoerter": [
+    "Streckenlänge",
+    "Strecke im Koordinatensystem",
+    "Länge von A nach B",
+    "Abstand zweier Punkte",
+    "Entfernung",
+    "Strecke messen"
+   ],
+   "verwandt": [
+    "G1",
+    "G2",
+    "G24",
+    "R2"
+   ],
+   "lernkarten": [
+    {
+     "thema": "geometrie.grundbegriffe",
+     "lernkarte": "strecken"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "4-(-3)",
+     "rel": "==",
+     "r": "7"
+    },
+    {
+     "l": "3+4",
+     "rel": "==",
+     "r": "7"
+    },
+    {
+     "l": "4-3",
+     "rel": "!=",
+     "r": "7"
+    },
+    {
+     "l": "abs(-3)+abs(4)",
+     "rel": "==",
+     "r": "7"
+    },
+    {
+     "l": "9-4",
+     "rel": "==",
+     "r": "5"
+    }
+   ]
+  },
+  {
+   "kennung": "N-G06",
+   "name": "Sekante, Tangente, Passante",
+   "satz": "Vergleiche den Abstand d der Geraden vom Mittelpunkt mit dem Radius r. d < r: Sekante (zwei Schnittpunkte). d = r: Tangente (ein Berührpunkt). d > r: Passante (kein gemeinsamer Punkt).",
+   "beispiel": "Radius r = 4 cm, die Gerade ist 3 cm vom Mittelpunkt entfernt: 3 < 4, also eine Sekante mit zwei Schnittpunkten.",
+   "voraus": "Der Abstand d wird senkrecht von M zur Geraden gemessen (Lot). Gilt in der Ebene für eine Gerade und einen Kreis.",
+   "fehler": "Bei d = r von zwei Schnittpunkten sprechen: Die Tangente berührt den Kreis nur in einem Punkt.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Geometrie",
+   "gehoert_zu": {
+    "gebiet": "Geometrie",
+    "idee": "I-geo-2",
+    "begruendung": "Die Lage einer Geraden zum Kreis folgt aus dem Abstand zum Mittelpunkt (Idee „Gleicher Abstand“, G13)."
+   },
+   "status": "ausarbeitung",
+   "ergaenzt": [
+    "G13"
+   ],
+   "bezug_bestand": "G13 behandelt nur die Tangente; Sekante und Passante und der Vergleich d mit r fehlen.",
+   "stichwoerter": [
+    "Sekante",
+    "Tangente",
+    "Passante",
+    "Gerade und Kreis",
+    "Schnittpunkte Kreis Gerade"
+   ],
+   "verwandt": [
+    "G13",
+    "G2"
+   ],
+   "lernkarten": [
+    {
+     "thema": "geometrie.grundbegriffe",
+     "lernkarte": "kreis_lage"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "3",
+     "rel": "<",
+     "r": "4"
+    },
+    {
+     "l": "4",
+     "rel": "==",
+     "r": "4"
+    },
+    {
+     "l": "5",
+     "rel": ">",
+     "r": "4"
+    }
+   ]
+  },
+  {
+   "kennung": "N-G07",
+   "name": "Zwei Kreise: Schnittpunkte zählen",
+   "satz": "Vergleiche den Abstand e der Mittelpunkte mit den Radien r₁ und r₂. e > r₁ + r₂: kein Schnittpunkt. e = r₁ + r₂: ein Berührpunkt (von außen). |r₁ − r₂| < e < r₁ + r₂: zwei Schnittpunkte. e = |r₁ − r₂|: ein Berührpunkt (von innen). e < |r₁ − r₂|: kein Schnittpunkt (ein Kreis im anderen).",
+   "beispiel": "r₁ = 3 cm, r₂ = 2 cm, e = 4 cm: |3 − 2| = 1 < 4 < 5 = 3 + 2, also zwei Schnittpunkte.",
+   "voraus": "Die Mittelpunkte sind verschieden (e > 0). Ausnahme e = 0: gleiche Mittelpunkte, bei r₁ = r₂ ist es derselbe Kreis, sonst gibt es keinen gemeinsamen Punkt.",
+   "fehler": "Immer zwei Schnittpunkte erwarten: Bei e = 7 cm und r₁ + r₂ = 5 cm berühren sich die Kreise nicht einmal.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Geometrie",
+   "gehoert_zu": {
+    "gebiet": "Geometrie",
+    "idee": "I-geo-2",
+    "begruendung": "Zwei Ortslinien „gleicher Abstand“ (G8) schneiden sich in null, einem oder zwei Punkten."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "G8 gibt die Ortslinien, aber nicht die Zahl der Schnittpunkte.",
+   "stichwoerter": [
+    "zwei Kreise",
+    "Schnittpunkte zweier Kreise",
+    "Kreise schneiden",
+    "berühren",
+    "Abstand der Mittelpunkte"
+   ],
+   "verwandt": [
+    "G8",
+    "G13"
+   ],
+   "lernkarten": [
+    {
+     "thema": "geometrie.ortslinien",
+     "lernkarte": "zwei_kreise"
+    },
+    {
+     "thema": "geometrie.grundbegriffe",
+     "lernkarte": "kreis_lage"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "abs(3-2)",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "1",
+     "rel": "<",
+     "r": "4"
+    },
+    {
+     "l": "4",
+     "rel": "<",
+     "r": "3+2"
+    },
+    {
+     "l": "7",
+     "rel": ">",
+     "r": "3+2"
+    },
+    {
+     "l": "3+2",
+     "rel": "==",
+     "r": "5"
+    }
+   ]
+  },
+  {
+   "kennung": "N-G08",
+   "name": "Streifen: höchstens so weit entfernt",
+   "satz": "„Genau d entfernt“ ist eine Linie: die Kreislinie um M mit r = d, oder zwei Parallelen zu g im Abstand d. „Höchstens d entfernt“ ist die Fläche darin: die Kreisfläche bzw. der Streifen zwischen den beiden Parallelen. „Mindestens d entfernt“ ist alles außerhalb.",
+   "beispiel": "g ist die Gerade y = 1. Abstand genau 2: die Parallelen y = 3 und y = −1. Abstand höchstens 2: der Streifen −1 ≤ y ≤ 3.",
+   "voraus": "g ist eine ganze Gerade (nicht nur eine Strecke), sonst gibt es an den Enden Halbkreise. Der Abstand wird senkrecht gemessen.",
+   "fehler": "Nur eine Parallele zeichnen: Die Punkte liegen auf beiden Seiten von g, also gibt es zwei Parallelen.",
+   "gym": "5",
+   "rs": "7",
+   "gebiet": "Geometrie",
+   "gehoert_zu": {
+    "gebiet": "Geometrie",
+    "idee": "I-geo-2",
+    "begruendung": "Ergänzung zu den Ortslinien (G8): Aus „genau d“ wird mit „höchstens d“ eine Fläche."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "G8 nennt Kreis, Mittelsenkrechte, Winkelhalbierende; „Streifen“ und „höchstens“ nicht.",
+   "stichwoerter": [
+    "Streifen",
+    "höchstens",
+    "Abstand höchstens",
+    "Ortslinie Fläche",
+    "Parallelen im Abstand",
+    "Kreisfläche"
+   ],
+   "verwandt": [
+    "G8",
+    "G2"
+   ],
+   "lernkarten": [
+    {
+     "thema": "geometrie.ortslinien",
+     "lernkarte": "parallelen"
+    },
+    {
+     "thema": "geometrie.ortslinien",
+     "lernkarte": "kreislinie"
+    },
+    {
+     "thema": "geometrie.ortslinien",
+     "lernkarte": "verknuepfen"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "1+2",
+     "rel": "==",
+     "r": "3"
+    },
+    {
+     "l": "1-2",
+     "rel": "==",
+     "r": "-1"
+    },
+    {
+     "l": "3-(-1)",
+     "rel": "==",
+     "r": "2*2"
+    },
+    {
+     "l": "2*2",
+     "rel": "!=",
+     "r": "2"
+    }
+   ]
+  },
+  {
+   "kennung": "N-G09",
+   "name": "Viereck erkennen",
+   "satz": "Prüfe Seiten, Winkel und parallele Seiten und nimm den genauesten Namen. Vier gleiche Seiten und vier rechte Winkel: Quadrat. Vier gleiche Seiten: Raute. Vier rechte Winkel: Rechteck. Beide Paare gegenüberliegender Seiten parallel: Parallelogramm. Zwei Paare gleich langer Nachbarseiten: Drachenviereck.",
+   "beispiel": "Ein Viereck mit vier Seiten zu je 4 cm und ohne rechten Winkel ist eine Raute. Hat es zusätzlich vier rechte Winkel, ist es ein Quadrat.",
+   "voraus": "Jedes Quadrat ist auch Raute, Rechteck und Parallelogramm; jede Raute und jedes Rechteck ist auch ein Parallelogramm. Die Winkelsumme im Viereck ist 360°, bei vier rechten Winkeln 4 · 90°. Eigenschaften je Viereck (Diagonalen, Symmetrie): Tafel „Haus der Vierecke“.",
+   "fehler": "„Ein Quadrat ist keine Raute“: falsch, denn ein Quadrat hat vier gleich lange Seiten.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Geometrie",
+   "gehoert_zu": {
+    "gebiet": "Geometrie",
+    "idee": "I-geo-3",
+    "begruendung": "Besondere Vierecke (G7) sind durch Seiten und Winkel festgelegt; das Erkennen ist das Verfahren dazu."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "G7 hat nur den Satz „Jedes hat seine festen Eigenschaften“. Hier das Erkennen; die Eigenschaftentafel (Diagonalen, Symmetrie) ist eine eigene Tafel-Aufgabe (Bericht D, Rang 3). Das Trapez ist bewusst nicht aufgenommen (Definition offen, siehe Zweifelsfälle).",
+   "stichwoerter": [
+    "Viereck",
+    "Quadrat",
+    "Rechteck",
+    "Raute",
+    "Parallelogramm",
+    "Drachenviereck",
+    "Haus der Vierecke",
+    "besondere Vierecke"
+   ],
+   "verwandt": [
+    "G7",
+    "G16",
+    "F8"
+   ],
+   "lernkarten": [
+    {
+     "thema": "geometrie.grundbegriffe",
+     "lernkarte": "vierecke"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "4*4",
+     "rel": "==",
+     "r": "16"
+    },
+    {
+     "l": "4*90",
+     "rel": "==",
+     "r": "360"
+    },
+    {
+     "l": "4+4+4+4",
+     "rel": "==",
+     "r": "16"
+    }
+   ]
+  },
+  {
+   "kennung": "N-G10",
+   "name": "Figur verschieben (Koordinaten)",
+   "satz": "Verschiebung um (a | b): Rechne bei jedem Punkt a zu x und b zu y. Ein Minus heißt nach links bzw. nach unten.",
+   "beispiel": "A(5 | 1) wird um (−2 | 3) verschoben: A′(5 + (−2) | 1 + 3) = A′(3 | 4).",
+   "voraus": "Alle Punkte der Figur werden um dieselbe Zahlen verschoben. Die erste Zahl gehört zu x, die zweite zu y.",
+   "fehler": "Die beiden Zahlen vertauschen: Mit (3 | −2) statt (−2 | 3) landet A bei (8 | −1) statt bei (3 | 4).",
+   "gym": "7",
+   "rs": "6",
+   "gebiet": "Geometrie",
+   "gehoert_zu": {
+    "gebiet": "Geometrie",
+    "idee": "I-geo-3",
+    "begruendung": "Die Verschiebung ist eine der Abbildungen, die Form und Größe erhalten (G15, G17)."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "G15 und G17 sagen es in Worten („Spitze minus Fuß“); die Koordinatenregel steht nicht dabei.",
+   "stichwoerter": [
+    "Verschiebung",
+    "verschieben",
+    "Verschiebungsvektor",
+    "x plus a y plus b"
+   ],
+   "verwandt": [
+    "G15",
+    "G17"
+   ],
+   "lernkarten": [
+    {
+     "thema": "abbildungen.kongruenz",
+     "lernkarte": "verschiebung"
+    },
+    {
+     "thema": "abbildungen.kongruenz",
+     "lernkarte": "vektor_koordinaten"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "5+(-2)",
+     "rel": "==",
+     "r": "3"
+    },
+    {
+     "l": "1+3",
+     "rel": "==",
+     "r": "4"
+    },
+    {
+     "l": "5+3",
+     "rel": "==",
+     "r": "8"
+    },
+    {
+     "l": "1+(-2)",
+     "rel": "==",
+     "r": "-1"
+    },
+    {
+     "l": "3",
+     "rel": "!=",
+     "r": "8"
+    }
+   ]
+  },
+  {
+   "kennung": "N-G11",
+   "name": "Punkt an einem Punkt spiegeln",
+   "satz": "Punktspiegelung an Z(a | b): Aus P(x | y) wird P′(2a − x | 2b − y). Anschaulich: Gehe von P bis Z und dann denselben Weg noch einmal. Z ist die Mitte der Strecke PP′. Am Ursprung: (x | y) → (−x | −y).",
+   "beispiel": "P(4 | 1) an Z(2 | 3): P′(2 · 2 − 4 | 2 · 3 − 1) = P′(0 | 5). Probe: Mitte von P und P′ ist (2 | 3).",
+   "voraus": "P ist nicht Z (für P = Z ist P′ = Z). Die Spiegelung an einem Punkt unterscheidet sich von der Achsenspiegelung: Hier gibt es kein Lot auf eine Achse.",
+   "fehler": "Beim Zentrum stehen bleiben: P′(2 | 3) wäre Z selbst. Man geht doppelt so weit wie von P bis Z.",
+   "gym": "7",
+   "rs": "6",
+   "gebiet": "Geometrie",
+   "gehoert_zu": {
+    "gebiet": "Geometrie",
+    "idee": "I-geo-3",
+    "begruendung": "Die Punktspiegelung ist eine der deckungsgleichen Abbildungen (G15, G16)."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "G15 nennt Punktspiegelung nur im Titel; die Rechenregel fehlt.",
+   "stichwoerter": [
+    "Punktspiegelung",
+    "an einem Punkt spiegeln",
+    "Spiegelung am Zentrum",
+    "Z ist die Mitte",
+    "180 Grad drehen"
+   ],
+   "verwandt": [
+    "G15",
+    "G16"
+   ],
+   "lernkarten": [
+    {
+     "thema": "abbildungen.kongruenz",
+     "lernkarte": "punktspiegelung"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "2*2-4",
+     "rel": "==",
+     "r": "0"
+    },
+    {
+     "l": "2*3-1",
+     "rel": "==",
+     "r": "5"
+    },
+    {
+     "l": "(4+0)/2",
+     "rel": "==",
+     "r": "2"
+    },
+    {
+     "l": "(1+5)/2",
+     "rel": "==",
+     "r": "3"
+    },
+    {
+     "l": "2*2-4",
+     "rel": "!=",
+     "r": "2"
+    }
+   ]
+  },
+  {
+   "kennung": "N-G12",
+   "name": "Drehung um den Ursprung (90° und 180°)",
+   "satz": "Drehung um O(0 | 0) um 90° gegen den Uhrzeigersinn: (x | y) → (−y | x). Um 180°: (x | y) → (−x | −y). Um 90° im Uhrzeigersinn: (x | y) → (y | −x).",
+   "beispiel": "P(4 | 1) um 90° gegen den Uhrzeigersinn: P′(−1 | 4). Der Abstand zu O bleibt gleich: 4² + 1² = 17 und (−1)² + 4² = 17.",
+   "voraus": "Das Drehzentrum ist der Ursprung, die Drehrichtung muss dabei stehen. Für andere Zentren gilt die Regel nicht ohne Weiteres.",
+   "fehler": "Bei 90° nur die Vorzeichen ändern: (−4 | −1) ist die Drehung um 180°, nicht um 90°.",
+   "gym": "7",
+   "rs": "6",
+   "gebiet": "Geometrie",
+   "gehoert_zu": {
+    "gebiet": "Geometrie",
+    "idee": "I-geo-3",
+    "begruendung": "Die Drehung ist eine der deckungsgleichen Abbildungen (G15, G16)."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "G15 nennt die Drehung nur als Wort; die Koordinatenregel fehlt.",
+   "stichwoerter": [
+    "Drehung",
+    "drehen um den Ursprung",
+    "90 Grad drehen",
+    "Rotation",
+    "gegen den Uhrzeigersinn"
+   ],
+   "verwandt": [
+    "G15",
+    "G17"
+   ],
+   "lernkarten": [
+    {
+     "thema": "abbildungen.kongruenz",
+     "lernkarte": "drehung"
+    },
+    {
+     "thema": "abbildungen.kongruenz",
+     "lernkarte": "vektor_drehen"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "-y",
+     "rel": "==",
+     "r": "-1",
+     "mit": {
+      "y": 1
+     }
+    },
+    {
+     "l": "4**2+1**2",
+     "rel": "==",
+     "r": "17"
+    },
+    {
+     "l": "(-1)**2+4**2",
+     "rel": "==",
+     "r": "17"
+    },
+    {
+     "l": "(-4)**2+(-1)**2",
+     "rel": "==",
+     "r": "17"
+    }
+   ]
+  },
+  {
+   "kennung": "N-G13",
+   "name": "Strahlensatz anwenden (Verhältnisse aufstellen)",
+   "satz": "Zwei Geraden schneiden sich in S und werden von zwei parallelen Geraden geschnitten (A, B auf den ersten, A′, B′ auf den zweiten). 1. Strahlensatz: SA : SA′ = SB : SB′. 2. Strahlensatz: AB : A′B′ = SA : SA′. Alle Strecken werden von S aus gemessen.",
+   "beispiel": "SA = 3 cm, SA′ = 5 cm, SB = 4,5 cm: SB′ = 4,5 · 5 : 3 = 7,5 cm. Probe: 3 : 5 = 0,6 und 4,5 : 7,5 = 0,6.",
+   "voraus": "Die Geraden AB und A′B′ sind parallel. Mit den Teilstücken gilt der 1. Strahlensatz in der Form SA : AA′ = SB : BB′ (A zwischen S und A′, B zwischen S und B′).",
+   "fehler": "Das Teilstück statt des Abschnitts von S aus einsetzen: 4,5 · 2 : 3 = 3 cm ist nur das Stück BB′, gesucht war SB′ = 7,5 cm.",
+   "gym": "9",
+   "rs": "9",
+   "gebiet": "Geometrie",
+   "gehoert_zu": {
+    "gebiet": "Geometrie",
+    "idee": "I-geo-4",
+    "begruendung": "Strahlensätze sind Verhältnisgleichungen für ähnliche Figuren (G20, G21)."
+   },
+   "status": "ausarbeitung",
+   "ergaenzt": [
+    "G21"
+   ],
+   "bezug_bestand": "G21 sagt es in Worten (Abschnitte im selben Verhältnis) ohne Formel und ohne Beispiel.",
+   "stichwoerter": [
+    "Strahlensatz",
+    "Strahlensätze",
+    "Strahlensatz Formel",
+    "parallele Geraden Verhältnis",
+    "Verhältnisgleichung"
+   ],
+   "verwandt": [
+    "G21",
+    "G20",
+    "R11"
+   ],
+   "lernkarten": [
+    {
+     "thema": "abbildungen.aehnlichkeit",
+     "lernkarte": "strahlensatz1"
+    },
+    {
+     "thema": "abbildungen.aehnlichkeit",
+     "lernkarte": "strahlensatz2"
+    },
+    {
+     "thema": "abbildungen.aehnlichkeit",
+     "lernkarte": "anwendung"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "4.5*5/3",
+     "rel": "==",
+     "r": "7.5"
+    },
+    {
+     "l": "3/5",
+     "rel": "==",
+     "r": "0.6"
+    },
+    {
+     "l": "4.5/7.5",
+     "rel": "==",
+     "r": "0.6"
+    },
+    {
+     "l": "3/5",
+     "rel": "==",
+     "r": "4.5/7.5"
+    },
+    {
+     "l": "4.5*2/3",
+     "rel": "==",
+     "r": "3"
+    },
+    {
+     "l": "7.5-4.5",
+     "rel": "==",
+     "r": "3"
+    }
+   ]
+  },
+  {
+   "kennung": "N-G14",
+   "name": "Zweite Lösung bei sin, cos und tan",
+   "satz": "Der Taschenrechner liefert nur x₁. Zwischen 0° und 360° gibt es die zweite Lösung: bei sin x = v: x₂ = 180° − x₁; bei cos x = v: x₂ = 360° − x₁; bei tan x = v: x₂ = x₁ + 180°. Ist x₁ negativ, nimm statt x₁ den Winkel x₁ + 360°.",
+   "beispiel": "cos x = −0,5: x₁ = 120°, x₂ = 360° − 120° = 240°. Probe: cos 240° = −0,5.",
+   "voraus": "Für sin und cos muss −1 ≤ v ≤ 1 sein. Bei v = ±1 gibt es genau eine Lösung (x₁ = x₂), bei |v| > 1 keine. tan x = v hat für jedes v zwei Lösungen; tan 90° und tan 270° sind nicht definiert.",
+   "fehler": "Bei cos x = −0,5 mit 180° − x₁ = 60° rechnen: cos 60° = +0,5, das ist nicht die gesuchte Lösung.",
+   "gym": "9",
+   "rs": "10",
+   "gebiet": "Geometrie",
+   "gehoert_zu": {
+    "gebiet": "Geometrie",
+    "idee": "I-geo-5",
+    "begruendung": "Zu G30 (nur sin, „meist zwei Winkel“): hier die Rechenregel für alle drei Winkelfunktionen."
+   },
+   "status": "ausarbeitung",
+   "ergaenzt": [
+    "G30"
+   ],
+   "bezug_bestand": "G30 sagt nur „meist zwei Winkel“ und gilt für sin/cos allgemein; die drei Rechenregeln fehlen.",
+   "stichwoerter": [
+    "sin x gleich",
+    "cos x gleich",
+    "tan x gleich",
+    "zweite Lösung",
+    "trigonometrische Gleichung",
+    "Winkel aus Sinus"
+   ],
+   "verwandt": [
+    "G30",
+    "G25",
+    "G27"
+   ],
+   "lernkarten": [
+    {
+     "thema": "gleichungen.trig",
+     "lernkarte": "sinus"
+    },
+    {
+     "thema": "gleichungen.trig",
+     "lernkarte": "kosinus"
+    },
+    {
+     "thema": "gleichungen.trig",
+     "lernkarte": "tangens"
+    },
+    {
+     "thema": "gleichungen.trig",
+     "lernkarte": "anzahl"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "rund(cos_d(120), 6)",
+     "rel": "==",
+     "r": "-0.5"
+    },
+    {
+     "l": "360-120",
+     "rel": "==",
+     "r": "240"
+    },
+    {
+     "l": "rund(cos_d(240), 6)",
+     "rel": "==",
+     "r": "-0.5"
+    },
+    {
+     "l": "rund(cos_d(60), 6)",
+     "rel": "==",
+     "r": "0.5"
+    },
+    {
+     "l": "rund(sin_d(30), 6)",
+     "rel": "==",
+     "r": "0.5"
+    },
+    {
+     "l": "rund(sin_d(150), 6)",
+     "rel": "==",
+     "r": "0.5"
+    },
+    {
+     "l": "180-30",
+     "rel": "==",
+     "r": "150"
+    },
+    {
+     "l": "rund(tan_d(45), 6)",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "rund(tan_d(225), 6)",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "45+180",
+     "rel": "==",
+     "r": "225"
+    }
+   ]
+  },
+  {
+   "kennung": "N-G15",
+   "name": "Flächeninhalt eines Dreiecks mit dem Sinus",
+   "satz": "Sind zwei Seiten a und b und der von ihnen eingeschlossene Winkel γ bekannt, gilt A = ½ · a · b · sin γ.",
+   "beispiel": "a = 8 cm, b = 5 cm, γ = 30°: A = ½ · 8 · 5 · 0,5 = 10 cm².",
+   "voraus": "γ liegt zwischen den Seiten a und b, 0° < γ < 180°. Bei γ = 90° ist sin γ = 1 und es bleibt ½ · a · b.",
+   "fehler": "A = ½ · a · b ohne sin γ rechnen: Das stimmt nur bei γ = 90°; hier ergäbe es 20 cm² statt 10 cm².",
+   "gym": "9",
+   "rs": "10",
+   "gebiet": "Geometrie",
+   "gehoert_zu": {
+    "gebiet": "Geometrie",
+    "idee": "I-geo-5",
+    "begruendung": "Aus F6 (g · h : 2) und G25 (sin = Gegenkathete : Hypotenuse): h = a · sin γ."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "F6 gibt nur g · h : 2; die Sinus-Form fehlt.",
+   "stichwoerter": [
+    "Flächeninhalt Dreieck Sinus",
+    "A gleich ein halb a b sin",
+    "Dreieck Fläche Winkel",
+    "Fläche ohne Höhe"
+   ],
+   "verwandt": [
+    "F6",
+    "G25"
+   ],
+   "lernkarten": [
+    {
+     "thema": "trigo.allgemein",
+     "lernkarte": "flaeche"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "1/2*8*5*0.5",
+     "rel": "==",
+     "r": "10"
+    },
+    {
+     "l": "rund(sin_d(30), 6)",
+     "rel": "==",
+     "r": "0.5"
+    },
+    {
+     "l": "1/2*8*5",
+     "rel": "==",
+     "r": "20"
+    },
+    {
+     "l": "20",
+     "rel": "!=",
+     "r": "10"
+    },
+    {
+     "l": "rund(sin_d(90), 6)",
+     "rel": "==",
+     "r": "1"
+    }
+   ]
+  },
+  {
+   "kennung": "N-U01",
+   "name": "Definitionsmenge und Wertemenge",
+   "satz": "Die Definitionsmenge D sind alle x, die man einsetzen darf. Die Wertemenge W sind alle y, die dabei herauskommen. Steht x im Nenner, ist jedes x verboten, das den Nenner 0 macht.",
+   "beispiel": "f(x) = 3x − 2 mit D = {1; 2; 4}: f(1) = 1, f(2) = 4, f(4) = 10, also W = {1; 4; 10}.",
+   "voraus": "D legt man fest oder sie ergibt sich aus dem Term (hier meist D ⊆ ℚ). W hängt von D ab und enthält nur Werte, die wirklich herauskommen. Bei f(x) = 1/(x − 2) ist D = ℚ \\ {2}.",
+   "fehler": "Bei 1/(x − 2) die −2 verbieten: x − 2 = 0 gilt für x = 2, nicht für x = −2.",
+   "gym": "8",
+   "rs": "8",
+   "gebiet": "Funktionen",
+   "gehoert_zu": {
+    "gebiet": "Funktionen",
+    "idee": "I-funktionen-1",
+    "begruendung": "Zu „jedem x gehört genau ein y“ (U1) gehört die Frage, welche x erlaubt sind und welche y herauskommen."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "U1 trägt nur „zu jedem x genau ein y“; A5 behandelt nur die Definitionsmenge von Bruchtermen. „Wertemenge“ kommt im Gesetzbuch nicht vor.",
+   "stichwoerter": [
+    "Definitionsmenge",
+    "Wertemenge",
+    "D und W",
+    "erlaubte x",
+    "Definitionsbereich",
+    "Wertebereich"
+   ],
+   "verwandt": [
+    "U1",
+    "A5",
+    "R14"
+   ],
+   "lernkarten": [
+    {
+     "thema": "funktionen.grundbegriffe",
+     "lernkarte": "mengen"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "3*1-2",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "3*2-2",
+     "rel": "==",
+     "r": "4"
+    },
+    {
+     "l": "3*4-2",
+     "rel": "==",
+     "r": "10"
+    },
+    {
+     "l": "2-2",
+     "rel": "==",
+     "r": "0"
+    },
+    {
+     "l": "-2-2",
+     "rel": "!=",
+     "r": "0"
+    }
+   ]
+  },
+  {
+   "kennung": "N-U02",
+   "name": "Wertetabelle ausfüllen",
+   "satz": "Setze jedes x der Tabelle in den Funktionsterm ein und trage das Ergebnis f(x) darunter ein. Ein Term, den du aus der Tabelle erraten willst, muss zu allen Spalten passen.",
+   "beispiel": "f(x) = 2x + 3. Für x = 1, 2, 3 ergibt sich f(x) = 5, 7, 9; mit x = 3: 2 · 3 + 3 = 9.",
+   "voraus": "Nur Werte der Definitionsmenge dürfen in der Tabelle stehen. Bei gleich großen x-Schritten ändert sich f(x) bei einer linearen Funktion um den gleichen Betrag.",
+   "fehler": "Den Term nur an einer Spalte prüfen: 4x + 1 passt für x = 1 (5), aber für x = 2 ergibt es 9 statt 7.",
+   "gym": "8",
+   "rs": "8",
+   "gebiet": "Funktionen",
+   "gehoert_zu": {
+    "gebiet": "Funktionen",
+    "idee": "I-funktionen-1",
+    "begruendung": "Eine Wertetabelle listet Paare (x | f(x)) der Zuordnung (U1, U2)."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Im Gesetzbuch kommt „Wertetabelle“ nicht vor (Suchwort ohne Treffer in den ersten 14).",
+   "stichwoerter": [
+    "Wertetabelle",
+    "Tabelle ausfüllen",
+    "Funktionswerte",
+    "x und f(x)"
+   ],
+   "verwandt": [
+    "U1",
+    "U2"
+   ],
+   "lernkarten": [
+    {
+     "thema": "funktionen.grundbegriffe",
+     "lernkarte": "wertetabelle"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "2*1+3",
+     "rel": "==",
+     "r": "5"
+    },
+    {
+     "l": "2*2+3",
+     "rel": "==",
+     "r": "7"
+    },
+    {
+     "l": "2*3+3",
+     "rel": "==",
+     "r": "9"
+    },
+    {
+     "l": "4*1+1",
+     "rel": "==",
+     "r": "5"
+    },
+    {
+     "l": "4*2+1",
+     "rel": "!=",
+     "r": "7"
+    }
+   ]
+  },
+  {
+   "kennung": "N-U03",
+   "name": "Gerade zeichnen",
+   "satz": "Zeichne zuerst den Punkt (0 | t) auf der y-Achse. Ist m = z/n, gehe von dort n nach rechts und z nach oben (bei negativem m nach unten). Verbinde die Punkte zu einer Geraden.",
+   "beispiel": "y = 3/2 · x − 2: Start (0 | −2); 2 nach rechts, 3 nach oben: (2 | 1). Probe: 3/2 · 2 − 2 = 1.",
+   "voraus": "Waagerecht zuerst (n), dann senkrecht (z). Eine senkrechte Gerade x = c ist keine Funktion und hat keine Steigung.",
+   "fehler": "Das Steigungsdreieck kippen: 3 nach rechts und 2 nach oben von (0 | −2) liefert (3 | 0), das nicht auf der Geraden liegt (3/2 · 3 − 2 = 2,5).",
+   "gym": "8",
+   "rs": "8",
+   "gebiet": "Funktionen",
+   "gehoert_zu": {
+    "gebiet": "Funktionen",
+    "idee": "I-funktionen-2",
+    "begruendung": "Die Gerade y = m · x + t (U7) wird mit t und dem Steigungsdreieck gezeichnet."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "U7 nennt m und t; wie man zeichnet, steht nirgends („Graph“ ohne Treffer).",
+   "stichwoerter": [
+    "Gerade zeichnen",
+    "Graph zeichnen",
+    "Steigungsdreieck",
+    "y gleich mx plus t",
+    "Gerade einzeichnen"
+   ],
+   "verwandt": [
+    "U7",
+    "U1"
+   ],
+   "lernkarten": [
+    {
+     "thema": "funktionen.linear",
+     "lernkarte": "graph_ablesen"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "3/2*2-2",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "3/2*3-2",
+     "rel": "==",
+     "r": "2.5"
+    },
+    {
+     "l": "2.5",
+     "rel": "!=",
+     "r": "0"
+    },
+    {
+     "l": "3/2*0-2",
+     "rel": "==",
+     "r": "-2"
+    }
+   ]
+  },
+  {
+   "kennung": "N-U04",
+   "name": "Steigung aus zwei Punkten",
+   "satz": "Bei zwei Punkten P(x₁ | y₁) und Q(x₂ | y₂) ist m = (y₂ − y₁) : (x₂ − x₁): Unterschied nach oben durch Unterschied nach rechts. In Zähler und Nenner dieselbe Punktreihenfolge nehmen.",
+   "beispiel": "P(2 | 5) und Q(6 | −3): m = (−3 − 5) : (6 − 2) = −8 : 4 = −2.",
+   "voraus": "Es muss x₁ ≠ x₂ sein; bei x₁ = x₂ ist die Gerade senkrecht und hat keine Steigung. Vertauschst du P und Q in beiden Differenzen, kommt dasselbe heraus.",
+   "fehler": "Zähler und Nenner vertauschen: 4 : (−8) = −0,5 ist falsch. Der Höhenunterschied kommt in den Zähler.",
+   "gym": "8",
+   "rs": "8",
+   "gebiet": "Funktionen",
+   "gehoert_zu": {
+    "gebiet": "Funktionen",
+    "idee": "I-funktionen-2",
+    "begruendung": "Steigung = Änderung je Schritt (U7, V7); das ist die Rechenvorschrift dazu."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "Nur im Beispiel von U7 („m = (7 − 3) : (3 − 1) = 2“), nicht als Satz und ohne Grenze x₁ ≠ x₂.",
+   "stichwoerter": [
+    "Steigung",
+    "Steigung aus zwei Punkten",
+    "m berechnen",
+    "Steigungsformel",
+    "Differenzenquotient",
+    "Höhenunterschied durch Längenunterschied"
+   ],
+   "verwandt": [
+    "U7",
+    "V7",
+    "U9"
+   ],
+   "lernkarten": [
+    {
+     "thema": "funktionen.linear",
+     "lernkarte": "zwei_punkte"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "(-3-5)/(6-2)",
+     "rel": "==",
+     "r": "-2"
+    },
+    {
+     "l": "(5-(-3))/(2-6)",
+     "rel": "==",
+     "r": "-2"
+    },
+    {
+     "l": "4/(-8)",
+     "rel": "==",
+     "r": "-0.5"
+    },
+    {
+     "l": "-0.5",
+     "rel": "!=",
+     "r": "-2"
+    },
+    {
+     "l": "6-2",
+     "rel": "!=",
+     "r": "0"
+    }
+   ]
+  },
+  {
+   "kennung": "N-U05",
+   "name": "Geradengleichung aufstellen",
+   "satz": "Gesucht ist y = m · x + t. Kennst du zwei Punkte, berechne zuerst m. Setze dann einen Punkt (x | y) ein und löse nach t auf: t = y − m · x. Prüfe mit dem anderen Punkt.",
+   "beispiel": "Durch P(2 | 5) und Q(6 | −3): m = −2. P einsetzen: 5 = −2 · 2 + t, also t = 9 und y = −2x + 9. Probe mit Q: −2 · 6 + 9 = −3.",
+   "voraus": "Die beiden Punkte sind verschieden und nicht senkrecht übereinander (x₁ ≠ x₂). Eine senkrechte Gerade hat die Gleichung x = c, nicht y = m · x + t.",
+   "fehler": "x und y beim Einsetzen vertauschen: 2 = −2 · 5 + t liefert t = 12, und y = −2x + 12 geht nicht durch P (−2 · 2 + 12 = 8, nicht 5).",
+   "gym": "8",
+   "rs": "8",
+   "gebiet": "Funktionen",
+   "gehoert_zu": {
+    "gebiet": "Funktionen",
+    "idee": "I-funktionen-2",
+    "begruendung": "Aus Steigung und einem Punkt wird t berechnet (U7, U2)."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "U7 sagt nur y = m · x + t; „t aus einem Punkt“ steht nur im Beispiel („t = 3 − 2 · 1 = 1“).",
+   "stichwoerter": [
+    "Geradengleichung",
+    "Gerade durch zwei Punkte",
+    "Gerade aufstellen",
+    "Gleichung der Geraden",
+    "t berechnen",
+    "y-Achsenabschnitt berechnen"
+   ],
+   "verwandt": [
+    "U7",
+    "U2",
+    "N-U04"
+   ],
+   "lernkarten": [
+    {
+     "thema": "funktionen.linear",
+     "lernkarte": "aufstellen"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "5-(-2)*2",
+     "rel": "==",
+     "r": "9"
+    },
+    {
+     "l": "-2*2+9",
+     "rel": "==",
+     "r": "5"
+    },
+    {
+     "l": "-2*6+9",
+     "rel": "==",
+     "r": "-3"
+    },
+    {
+     "l": "2+2*5",
+     "rel": "==",
+     "r": "12"
+    },
+    {
+     "l": "-2*2+12",
+     "rel": "!=",
+     "r": "5"
+    },
+    {
+     "l": "-2*2+12",
+     "rel": "==",
+     "r": "8"
+    }
+   ]
+  },
+  {
+   "kennung": "N-U06",
+   "name": "Hyperbel verschieben",
+   "satz": "f(x) = a/(x + b) + c ist die Hyperbel a/x, verschoben um b nach links (b negativ: nach rechts) und um c nach oben (c negativ: nach unten). Das Vorzeichen in der Klammer wirkt umgekehrt.",
+   "beispiel": "f(x) = 2/(x − 3) + 1: Die Hyperbel 2/x ist 3 nach rechts und 1 nach oben verschoben. Der verbotene Wert ist x = 3, denn 3 − 3 = 0.",
+   "voraus": "a ≠ 0, a, b, c rationale Zahlen. Definitionsmenge D = ℚ \\ {−b}.",
+   "fehler": "1/(x − 3) nach links schieben: Die Lücke liegt bei x = 3 und das ist rechts von der 0.",
+   "gym": "8",
+   "rs": "–",
+   "gebiet": "Funktionen",
+   "gehoert_zu": {
+    "gebiet": "Funktionen",
+    "idee": "I-funktionen-3",
+    "begruendung": "Verschieben ist U5; hier konkret für die Hyperbel a/x (U11): (x + b) in den Nenner, + c am Ende."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "U11 hat nur y = a : x; die verschobene Form fehlt.",
+   "stichwoerter": [
+    "Hyperbel verschieben",
+    "verschobene Hyperbel",
+    "a durch x plus b plus c",
+    "gebrochen-rationale Funktion",
+    "Funktion mit x im Nenner"
+   ],
+   "verwandt": [
+    "U11",
+    "U5",
+    "A5"
+   ],
+   "lernkarten": [
+    {
+     "thema": "funktionen.gebrochen",
+     "lernkarte": "parameter"
+    },
+    {
+     "thema": "funktionen.gebrochen",
+     "lernkarte": "definitionsmenge"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "3-3",
+     "rel": "==",
+     "r": "0"
+    },
+    {
+     "l": "2/(x-3)+1",
+     "rel": "==",
+     "r": "3",
+     "mit": {
+      "x": 4
+     }
+    },
+    {
+     "l": "-3",
+     "rel": "!=",
+     "r": "3"
+    },
+    {
+     "l": "x-3",
+     "rel": "!=",
+     "r": "0",
+     "mit": {
+      "x": -3
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "N-U07",
+   "name": "Asymptoten der Hyperbel",
+   "satz": "Bei f(x) = a/(x + b) + c: Die senkrechte Asymptote ist x = −b (dort ist der Nenner 0), die waagerechte ist y = c. Der Graph kommt den Asymptoten beliebig nahe und erreicht sie nie. Wertemenge W = ℚ \\ {c}.",
+   "beispiel": "f(x) = 2/(x + 4) − 3: senkrechte Asymptote x = −4, waagerechte y = −3. Für x = 1 000 ist f(x) = 2/1 004 − 3 ≈ −2,998.",
+   "voraus": "a ≠ 0; a, b, c rational. Der Bruch 2/(x + 4) wird nie 0, deshalb wird f(x) nie −3.",
+   "fehler": "Den Zähler als waagerechte Asymptote nehmen (y = 2): Sie liegt bei y = c = −3.",
+   "gym": "8",
+   "rs": "–",
+   "gebiet": "Funktionen",
+   "gehoert_zu": {
+    "gebiet": "Funktionen",
+    "idee": "I-funktionen-3",
+    "begruendung": "Die Asymptoten der verschobenen Hyperbel (U11) folgen aus b und c."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "U11 nennt „Asymptoten“ im Satz, aber nicht, wie man sie bei der verschobenen Hyperbel findet.",
+   "stichwoerter": [
+    "Asymptote",
+    "Asymptoten",
+    "senkrechte Asymptote",
+    "waagerechte Asymptote",
+    "Hyperbel",
+    "Polstelle"
+   ],
+   "verwandt": [
+    "U11",
+    "A5",
+    "U3"
+   ],
+   "lernkarten": [
+    {
+     "thema": "funktionen.gebrochen",
+     "lernkarte": "asymptoten"
+    },
+    {
+     "thema": "funktionen.gebrochen",
+     "lernkarte": "achsenpunkte"
+    },
+    {
+     "thema": "funktionen.gebrochen",
+     "lernkarte": "beurteilen"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "x+4",
+     "rel": "==",
+     "r": "0",
+     "mit": {
+      "x": -4
+     }
+    },
+    {
+     "l": "rund(2/(x+4)-3, 2)",
+     "rel": "==",
+     "r": "-3",
+     "mit": {
+      "x": 1000
+     }
+    },
+    {
+     "l": "2/(x+4)",
+     "rel": "!=",
+     "r": "0",
+     "mit": {
+      "x": 1000
+     }
+    },
+    {
+     "l": "-3",
+     "rel": "!=",
+     "r": "2"
+    }
+   ]
+  },
+  {
+   "kennung": "N-A01",
+   "name": "Wortterme in Terme übersetzen",
+   "satz": "Übersetze Wort für Wort: Summe +, Differenz −, Produkt ·, Quotient :, das Doppelte von 2 · . Was zuerst gerechnet wird, kommt in Klammern.",
+   "beispiel": "„Das Doppelte der Summe aus x und 5“ ist 2 · (x + 5) = 2x + 10. Probe mit x = 3: 2 · 8 = 16 und 2 · 3 + 10 = 16.",
+   "voraus": "Bei „Differenz von a und b“ und „Quotient von a und b“ gilt die Reihenfolge der Wörter: a − b und a : b. Das Doppelte gilt für die ganze Klammer.",
+   "fehler": "2x + 5 schreiben: Dann wird nur x verdoppelt, die 5 nicht. Für x = 3 ergäbe das 11 statt 16.",
+   "gym": "7",
+   "rs": "6",
+   "gebiet": "Algebra",
+   "gehoert_zu": {
+    "gebiet": "Algebra",
+    "idee": "I-algebra-1",
+    "begruendung": "Ein Term ist ein Rechenrezept (A1); Übersetzen heißt, das Rezept aus Worten aufzuschreiben."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "A1 erklärt Term und Variable, aber nicht das Übersetzen aus Wörtern; Fachwörter Summe, Differenz, Produkt, Quotient fehlen.",
+   "stichwoerter": [
+    "Term aufstellen",
+    "Wortterm",
+    "Summe",
+    "Differenz",
+    "Produkt",
+    "Quotient",
+    "das Doppelte",
+    "Text in Term"
+   ],
+   "verwandt": [
+    "A1",
+    "A2",
+    "R4"
+   ],
+   "lernkarten": [
+    {
+     "thema": "terme.aufstellen",
+     "lernkarte": "uebersetzen"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "2*(x+5)",
+     "rel": "==",
+     "r": "2*x+10",
+     "mit": {
+      "x": 3
+     }
+    },
+    {
+     "l": "2*(x+5)",
+     "rel": "==",
+     "r": "16",
+     "mit": {
+      "x": 3
+     }
+    },
+    {
+     "l": "2*x+5",
+     "rel": "==",
+     "r": "11",
+     "mit": {
+      "x": 3
+     }
+    },
+    {
+     "l": "11",
+     "rel": "!=",
+     "r": "16"
+    }
+   ]
+  },
+  {
+   "kennung": "N-A02",
+   "name": "Figurenfolge als Term",
+   "satz": "Zähle, wie viel von Figur zu Figur dazukommt: Das ist die Zahl vor n. Dann setze Figur 1 ein und gleiche die feste Zahl an: Term = Zunahme · n + fester Betrag.",
+   "beispiel": "Dreiecke aus Streichhölzern in einer Reihe: 3, 5, 7, … Hölzer. Es kommen 2 je Figur dazu, Figur 1 hat 3: Term 2n + 1. Figur 10 hat 2 · 10 + 1 = 21 Hölzer.",
+   "voraus": "Gilt, wenn bei jeder Figur gleich viel dazukommt. Probe an einer weiteren Figur (hier Figur 2: 2 · 2 + 1 = 5).",
+   "fehler": "n + 2 als Term nehmen, weil „2 dazukommt“: Für Figur 2 ergäbe das 4 statt 5. Die 2 gehört vor das n.",
+   "gym": "7",
+   "rs": "6",
+   "gebiet": "Algebra",
+   "gehoert_zu": {
+    "gebiet": "Algebra",
+    "idee": "I-algebra-1",
+    "begruendung": "Der Term beschreibt jede Figur der Folge (A1); die Zunahme je Figur wird zum Faktor vor n."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "A1 und U19 (Folgen) tragen es nicht; keine Regel für Figurenfolgen.",
+   "stichwoerter": [
+    "Figurenfolge",
+    "Streichhölzer",
+    "Muster",
+    "n-te Figur",
+    "Term für Muster"
+   ],
+   "verwandt": [
+    "A1",
+    "U19"
+   ],
+   "lernkarten": [
+    {
+     "thema": "terme.aufstellen",
+     "lernkarte": "muster"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "2*1+1",
+     "rel": "==",
+     "r": "3"
+    },
+    {
+     "l": "2*2+1",
+     "rel": "==",
+     "r": "5"
+    },
+    {
+     "l": "2*3+1",
+     "rel": "==",
+     "r": "7"
+    },
+    {
+     "l": "2*10+1",
+     "rel": "==",
+     "r": "21"
+    },
+    {
+     "l": "n+2",
+     "rel": "!=",
+     "r": "5",
+     "mit": {
+      "n": 2
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "N-A03",
+   "name": "Bruchgleichung über Kreuz lösen",
+   "satz": "Steht links ein Bruch und rechts ein Bruch, bestimme zuerst D (jeder Nenner ≠ 0). Dann a/b = c/d ⇔ a · d = c · b: Zähler links mal Nenner rechts gleich Zähler rechts mal Nenner links. Löse die lineare Gleichung und prüfe, ob die Lösung in D liegt.",
+   "beispiel": "3/(x − 2) = 6/(x + 4) mit D = ℚ \\ {2; −4}: 3 · (x + 4) = 6 · (x − 2), also 3x + 12 = 6x − 12 und x = 8. 8 liegt in D. Probe: 3/6 = 1/2 und 6/12 = 1/2.",
+   "voraus": "Nur bei genau einem Bruch (oder einer Zahl) auf jeder Seite, sonst mit dem Hauptnenner multiplizieren. Liegt die Lösung nicht in D, ist es eine Scheinlösung und L = { }.",
+   "fehler": "Jeden Zähler mit dem eigenen Nenner malnehmen: 3 · (x − 2) = 6 · (x + 4) liefert x = −10, aber 3/(−12) = −0,25 ist nicht 6/(−6) = −1.",
+   "gym": "8",
+   "rs": "8",
+   "gebiet": "Algebra",
+   "gehoert_zu": {
+    "gebiet": "Algebra",
+    "idee": "I-algebra-2",
+    "begruendung": "Die Definitionsmenge steht zuerst (A5, A12); „über Kreuz“ ist der Sonderfall mit je einem Bruch auf jeder Seite."
+   },
+   "status": "ausarbeitung",
+   "ergaenzt": [
+    "A12"
+   ],
+   "bezug_bestand": "A12 nennt „Bruch gleich Bruch: über Kreuz“ nur als Halbsatz, ohne Rechenweg, ohne Definitionsmenge im Satz.",
+   "stichwoerter": [
+    "über Kreuz",
+    "über Kreuz multiplizieren",
+    "Bruchgleichung",
+    "Kreuzprodukt",
+    "Verhältnisgleichung"
+   ],
+   "verwandt": [
+    "A12",
+    "A5",
+    "R9",
+    "R13"
+   ],
+   "lernkarten": [
+    {
+     "thema": "gleichungen.bruch",
+     "lernkarte": "ueber_kreuz"
+    },
+    {
+     "thema": "gleichungen.bruch",
+     "lernkarte": "definitionsmenge"
+    },
+    {
+     "thema": "gleichungen.bruch",
+     "lernkarte": "scheinloesung"
+    },
+    {
+     "thema": "gleichungen.bruch",
+     "lernkarte": "verhaeltnis"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "3*(x+4)",
+     "rel": "==",
+     "r": "6*(x-2)",
+     "mit": {
+      "x": 8
+     }
+    },
+    {
+     "l": "3/(x-2)",
+     "rel": "==",
+     "r": "6/(x+4)",
+     "mit": {
+      "x": 8
+     }
+    },
+    {
+     "l": "3/6",
+     "rel": "==",
+     "r": "1/2"
+    },
+    {
+     "l": "3/(x-2)",
+     "rel": "!=",
+     "r": "6/(x+4)",
+     "mit": {
+      "x": -10
+     }
+    },
+    {
+     "l": "3*(x-2)",
+     "rel": "==",
+     "r": "6*(x+4)",
+     "mit": {
+      "x": -10
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "N-A04",
+   "name": "Gleichungssystem: Wie viele Lösungen?",
+   "satz": "Fällt beim Lösen x (und y) weg, entscheidet die übrig bleibende Aussage: Falsch (z. B. 0 = 5) heißt keine Lösung, wahr (0 = 0) heißt unendlich viele Lösungen. Bleibt x übrig, gibt es genau eine Lösung.",
+   "beispiel": "I: x + y = 4 und II: 2x + 2y = 10. I mal 2 gibt 2x + 2y = 8; II minus das: 0 = 2. Das ist falsch, also keine Lösung (die Geraden sind parallel).",
+   "voraus": "Zwei lineare Gleichungen mit zwei Unbekannten: zwei Geraden, die sich schneiden (eine Lösung), parallel sind (keine) oder zusammenfallen (unendlich viele).",
+   "fehler": "Bei 0 = 0 „x = 0“ als Lösung angeben: Die Aussage stimmt für jedes x, es gibt unendlich viele Lösungen.",
+   "gym": "8",
+   "rs": "9",
+   "gebiet": "Algebra",
+   "gehoert_zu": {
+    "gebiet": "Algebra",
+    "idee": "I-algebra-3",
+    "begruendung": "Wie bei einer Gleichung (A9) entscheidet der Rest, wenn die Unbekannte wegfällt (A14)."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "A9 gilt für eine Gleichung; A14 erwähnt nur „Nicht immer genau eine Lösung“ im Feld voraus.",
+   "stichwoerter": [
+    "keine Lösung",
+    "unendlich viele Lösungen",
+    "Gleichungssystem Lösungen",
+    "Lösbarkeit",
+    "0 gleich 0",
+    "parallele Geraden"
+   ],
+   "verwandt": [
+    "A14",
+    "A9",
+    "U4"
+   ],
+   "lernkarten": [
+    {
+     "thema": "gleichungen.lgs2",
+     "lernkarte": "loesbarkeit"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "2*4",
+     "rel": "==",
+     "r": "8"
+    },
+    {
+     "l": "10-8",
+     "rel": "==",
+     "r": "2"
+    },
+    {
+     "l": "2",
+     "rel": "!=",
+     "r": "0"
+    },
+    {
+     "l": "2*(x+y)",
+     "rel": "==",
+     "r": "8",
+     "mit": {
+      "x": 1,
+      "y": 3
+     }
+    },
+    {
+     "l": "2*(x+y)",
+     "rel": "!=",
+     "r": "10",
+     "mit": {
+      "x": 1,
+      "y": 3
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "N-A05",
+   "name": "Intervalle mit unendlich",
+   "satz": "Bei −∞ und ∞ steht immer die Klammer nach außen: ]−∞; 3] und [2; ∞[. Unendlich ist keine Zahl und gehört nie zum Intervall.",
+   "beispiel": "x ≥ 2 ist [2; ∞[ (die 2 gehört dazu); x < 5 ist ]−∞; 5[ (die 5 gehört nicht dazu).",
+   "voraus": "Nur an der echten Zahlgrenze entscheidet „≤“ oder „<“ über die Klammer. Alle Zahlen dazwischen gehören dazu, nicht nur die ganzen.",
+   "fehler": "[2; ∞] schreiben: Bei ∞ muss die Klammer nach außen zeigen: [2; ∞[.",
+   "gym": "8",
+   "rs": "7",
+   "gebiet": "Algebra",
+   "gehoert_zu": {
+    "gebiet": "Algebra",
+    "idee": "I-algebra-3",
+    "begruendung": "Ergänzung zu A11: Bei −∞ und ∞ gibt es keine Grenze, die dazugehören könnte."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "A11 erklärt eckige und runde Klammern, aber nicht den Fall ±∞.",
+   "stichwoerter": [
+    "Intervall unendlich",
+    "unendlich Klammer",
+    "offenes Intervall",
+    "halboffen",
+    "größer gleich"
+   ],
+   "verwandt": [
+    "A11",
+    "Z22"
+   ],
+   "lernkarten": [
+    {
+     "thema": "zahlen.intervalle",
+     "lernkarte": "lesen"
+    },
+    {
+     "thema": "zahlen.intervalle",
+     "lernkarte": "schreiben"
+    },
+    {
+     "thema": "zahlen.intervalle",
+     "lernkarte": "beurteilen"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "2",
+     "rel": ">=",
+     "r": "2"
+    },
+    {
+     "l": "4.5",
+     "rel": "<",
+     "r": "5"
+    },
+    {
+     "l": "5",
+     "rel": "<",
+     "r": "5",
+     "falsch": true
+    },
+    {
+     "l": "2.5",
+     "rel": ">",
+     "r": "2"
+    }
+   ]
+  },
+  {
+   "kennung": "N-D01",
+   "name": "Alle Möglichkeiten systematisch aufschreiben",
+   "satz": "Halte die erste Wahl fest und schreibe alle zweiten Wahlen dazu; dann kommt die nächste erste Wahl dran. Zähle am Ende die Zeilen.",
+   "beispiel": "Zweistellige Zahlen aus den Ziffern 1, 2, 3 (Wiederholung erlaubt): 11, 12, 13 | 21, 22, 23 | 31, 32, 33. Das sind 9 Zahlen, also 3 · 3.",
+   "voraus": "Gilt, wenn die Möglichkeiten in jedem Schritt gleich viele sind. Ist eine Kombination verboten, streiche sie aus der Liste.",
+   "fehler": "Statt zu multiplizieren die Möglichkeiten addieren: 3 + 3 = 6 ist falsch, denn zu jeder der 3 ersten Wahlen passen alle 3 zweiten.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Daten und Zufall",
+   "gehoert_zu": {
+    "gebiet": "Daten und Zufall",
+    "idee": "I-daten-3",
+    "begruendung": "Vor dem Zählprinzip (D11) steht das geordnete Aufschreiben: nichts doppelt, nichts vergessen."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "D11 nennt das Zählprinzip; das systematische Aufschreiben fehlt, „Kombinatorik“ ohne Treffer.",
+   "stichwoerter": [
+    "systematisch zählen",
+    "alle Möglichkeiten",
+    "Kombinationen",
+    "Kombinatorik",
+    "aufschreiben"
+   ],
+   "verwandt": [
+    "D11"
+   ],
+   "lernkarten": [
+    {
+     "thema": "stochastik.kombinatorik",
+     "lernkarte": "systematisch"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "3*3",
+     "rel": "==",
+     "r": "9"
+    },
+    {
+     "l": "3+3",
+     "rel": "!=",
+     "r": "9"
+    },
+    {
+     "l": "3+3+3",
+     "rel": "==",
+     "r": "9"
+    }
+   ]
+  },
+  {
+   "kennung": "N-D02",
+   "name": "Baumdiagramm zum Zählen",
+   "satz": "Zeichne für jede Stufe Äste. Jeder Weg vom Start bis zum Ende ist ein Ergebnis. Gibt es auf jeder Stufe gleich viele Äste, malnimm die Astzahlen; zähle dann die Wege, die zur Frage passen.",
+   "beispiel": "Münze dreimal werfen: 2 · 2 · 2 = 8 Wege. Genau zweimal Kopf: KKZ, KZK, ZKK, also 3 Wege.",
+   "voraus": "Jeder Weg ist ein eigenes Ergebnis: KZK und ZKK sind verschieden. Das Malnehmen der Äste gilt nur, wenn jede Stufe immer gleich viele Äste hat.",
+   "fehler": "Bei „genau zweimal Kopf“ nur KKZ zählen: KZK und ZKK sind andere Wege und zählen mit.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Daten und Zufall",
+   "gehoert_zu": {
+    "gebiet": "Daten und Zufall",
+    "idee": "I-daten-4",
+    "begruendung": "Das Baumdiagramm ist die Zeichnung zu „am Pfad entlang mal“ (D19), hier schon als Zählhilfe."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "D19 (Pfadregeln, Klasse 10) setzt das Baumdiagramm voraus, führt es aber nicht ein; „Baumdiagramm“ ohne Treffer.",
+   "stichwoerter": [
+    "Baumdiagramm",
+    "Baum",
+    "Äste",
+    "Pfad zählen",
+    "Weg im Baum"
+   ],
+   "verwandt": [
+    "D11",
+    "D19",
+    "D12"
+   ],
+   "lernkarten": [
+    {
+     "thema": "stochastik.kombinatorik",
+     "lernkarte": "baumdiagramm"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "2*2*2",
+     "rel": "==",
+     "r": "8"
+    },
+    {
+     "l": "1+1+1",
+     "rel": "==",
+     "r": "3"
+    },
+    {
+     "l": "3",
+     "rel": "<",
+     "r": "8"
+    },
+    {
+     "l": "8*(1/2)**3",
+     "rel": "==",
+     "r": "1"
+    }
+   ]
+  },
+  {
+   "kennung": "N-D03",
+   "name": "Reihenfolgen ohne Wiederholung",
+   "satz": "Darf nichts doppelt vorkommen, hast du bei jedem weiteren Platz eine Möglichkeit weniger: n · (n − 1) · (n − 2) · … Alle n Elemente auf n Plätze: n · (n − 1) · … · 2 · 1.",
+   "beispiel": "6 Kinder laufen, 3 kommen aufs Podest: 6 · 5 · 4 = 120 Möglichkeiten. 4 Kinder auf 4 Plätzen: 4 · 3 · 2 · 1 = 24.",
+   "voraus": "Jedes Element wird höchstens einmal benutzt, und die Reihenfolge zählt (Erster ≠ Zweiter).",
+   "fehler": "6 · 6 · 6 = 216 rechnen: Ein Kind kann nicht Erster und Zweiter zugleich sein, also bleibt jedes Mal eines weniger.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Daten und Zufall",
+   "gehoert_zu": {
+    "gebiet": "Daten und Zufall",
+    "idee": "I-daten-3",
+    "begruendung": "Sonderfall des Zählprinzips (D11), bei dem sich die Möglichkeiten Schritt für Schritt verkleinern."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "D11 sagt nur „malnehmen“; „ohne Wiederholung“ kommt nirgends vor.",
+   "stichwoerter": [
+    "ohne Wiederholung",
+    "Reihenfolge",
+    "Podest",
+    "Plätze verteilen",
+    "Anordnungen",
+    "Fakultät"
+   ],
+   "verwandt": [
+    "D11"
+   ],
+   "lernkarten": [
+    {
+     "thema": "stochastik.kombinatorik",
+     "lernkarte": "reihenfolgen"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "6*5*4",
+     "rel": "==",
+     "r": "120"
+    },
+    {
+     "l": "4*3*2*1",
+     "rel": "==",
+     "r": "24"
+    },
+    {
+     "l": "6*6*6",
+     "rel": "==",
+     "r": "216"
+    },
+    {
+     "l": "216",
+     "rel": "!=",
+     "r": "120"
+    }
+   ]
+  },
+  {
+   "kennung": "N-D04",
+   "name": "Wenn die Reihenfolge egal ist: Paare zählen",
+   "satz": "Ist die Reihenfolge egal und wählst du 2 aus n, zählt n · (n − 1) jedes Paar doppelt. Teile durch 2: n · (n − 1) : 2.",
+   "beispiel": "5 Kinder geben sich alle die Hand: 5 · 4 = 20 zählt A–B und B–A getrennt, also 20 : 2 = 10 Handschläge.",
+   "voraus": "Gilt für Paare (2 aus n). Bei 3 aus n teilt man durch 6 = 3 · 2 · 1: 5 · 4 · 3 : 6 = 10.",
+   "fehler": "5 · 4 = 20 Handschläge rechnen: A gibt B die Hand und B gibt A die Hand ist derselbe Handschlag.",
+   "gym": "5",
+   "rs": "5",
+   "gebiet": "Daten und Zufall",
+   "gehoert_zu": {
+    "gebiet": "Daten und Zufall",
+    "idee": "I-daten-3",
+    "begruendung": "Grenze des Zählprinzips (D11): Jedes Paar wird doppelt gezählt."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "D11 sagt im Feld „voraus“ nur, dass man verbotene Kombinationen abzieht; die Grenze „Reihenfolge egal“ steht nicht dort.",
+   "stichwoerter": [
+    "Händeschütteln",
+    "Reihenfolge egal",
+    "Paare",
+    "Handschläge",
+    "durch 2 teilen",
+    "Spiele Turnier"
+   ],
+   "verwandt": [
+    "D11",
+    "N-D03"
+   ],
+   "lernkarten": [
+    {
+     "thema": "stochastik.kombinatorik",
+     "lernkarte": "grenzen"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "5*4/2",
+     "rel": "==",
+     "r": "10"
+    },
+    {
+     "l": "5*4*3/6",
+     "rel": "==",
+     "r": "10"
+    },
+    {
+     "l": "5*4",
+     "rel": "!=",
+     "r": "10"
+    }
+   ]
+  },
+  {
+   "kennung": "N-D05",
+   "name": "Säulendiagramm zeichnen",
+   "satz": "Wähle einen Maßstab (z. B. 1 cm für 4 Kinder). Die Höhe jeder Säule ist Anzahl : Maßstab. Die Achse beginnt bei 0, alle Säulen sind gleich breit.",
+   "beispiel": "18 Kinder, Maßstab 1 cm für 4 Kinder: 18 : 4 = 4,5, die Säule ist 4,5 cm hoch.",
+   "voraus": "Alle Säulen haben denselben Maßstab. Beginnt die Achse nicht bei 0, wirken Unterschiede größer, als sie sind (D2).",
+   "fehler": "Die Zahl 18 als 18 cm hoch zeichnen: Das sprengt das Heft. Erst den Maßstab wählen, dann teilen.",
+   "gym": "6",
+   "rs": "5",
+   "gebiet": "Daten und Zufall",
+   "gehoert_zu": {
+    "gebiet": "Daten und Zufall",
+    "idee": "I-daten-1",
+    "begruendung": "Ein Diagramm ist eine Kennzahl für viele Werte (Idee „Kennzahl“); D2 behandelt das Lesen, nicht das Zeichnen."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "D2 behandelt nur „Diagramme lesen“ und die abgeschnittene Achse.",
+   "stichwoerter": [
+    "Säulendiagramm",
+    "Balkendiagramm",
+    "Maßstab Diagramm",
+    "Diagramm zeichnen",
+    "Strichliste"
+   ],
+   "verwandt": [
+    "D1",
+    "D2",
+    "V2"
+   ],
+   "lernkarten": [
+    {
+     "thema": "daten.darstellen",
+     "lernkarte": "saeulendiagramm"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "18/4",
+     "rel": "==",
+     "r": "4.5"
+    },
+    {
+     "l": "4.5*4",
+     "rel": "==",
+     "r": "18"
+    },
+    {
+     "l": "18",
+     "rel": ">",
+     "r": "4.5"
+    }
+   ]
+  },
+  {
+   "kennung": "N-D06",
+   "name": "Kreisdiagramm: Winkel berechnen",
+   "satz": "Winkel = relative Häufigkeit · 360°: Rechne Anzahl : Gesamtzahl und multipliziere mit 360°. Alle Winkel zusammen ergeben 360°; 1 % entspricht 3,6°.",
+   "beispiel": "9 von 24 Kindern fahren Rad: 9 : 24 = 0,375 und 0,375 · 360° = 135°.",
+   "voraus": "Die Gesamtzahl ist die Summe aller Teile. Die Winkel müssen am Ende 360° ergeben.",
+   "fehler": "30 % als 30° zeichnen: Dann wäre der ganze Kreis nur 100° groß; 30 % sind 0,3 · 360° = 108°.",
+   "gym": "6",
+   "rs": "5",
+   "gebiet": "Daten und Zufall",
+   "gehoert_zu": {
+    "gebiet": "Daten und Zufall",
+    "idee": "I-daten-1",
+    "begruendung": "Der Winkel im Kreisdiagramm ist der Anteil an 360° (D2, G3)."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "D2 sagt, dass jedem Anteil derselbe Anteil von 360° gehört, ohne den Rechenweg (relative Häufigkeit mal 360°).",
+   "stichwoerter": [
+    "Kreisdiagramm",
+    "Tortendiagramm",
+    "Winkel Diagramm",
+    "3,6 Grad",
+    "relative Häufigkeit"
+   ],
+   "verwandt": [
+    "D1",
+    "D2",
+    "G3",
+    "V8"
+   ],
+   "lernkarten": [
+    {
+     "thema": "daten.darstellen",
+     "lernkarte": "kreisdiagramm"
+    },
+    {
+     "thema": "daten.darstellen",
+     "lernkarte": "relative_haeufigkeit"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "9/24",
+     "rel": "==",
+     "r": "0.375"
+    },
+    {
+     "l": "0.375*360",
+     "rel": "==",
+     "r": "135"
+    },
+    {
+     "l": "0.3*360",
+     "rel": "==",
+     "r": "108"
+    },
+    {
+     "l": "1*3.6",
+     "rel": "==",
+     "r": "0.01*360"
+    },
+    {
+     "l": "0.3*360",
+     "rel": "!=",
+     "r": "30"
+    }
+   ]
+  },
+  {
+   "kennung": "N-D07",
+   "name": "Mittelwert aus einer Häufigkeitstabelle",
+   "satz": "Multipliziere jeden Wert mit seiner Häufigkeit, addiere alles und teile durch die Gesamtzahl der Werte.",
+   "beispiel": "Viermal die 2, sechsmal die 3, zweimal die 5: (4 · 2 + 6 · 3 + 2 · 5) : 12 = 36 : 12 = 3.",
+   "voraus": "Geteilt wird durch die Gesamtzahl der Werte (4 + 6 + 2 = 12), nicht durch die Zahl der verschiedenen Werte.",
+   "fehler": "Nur die verschiedenen Werte mitteln: (2 + 3 + 5) : 3 ≈ 3,33 ist falsch, weil die 3 sechsmal vorkommt, die 5 nur zweimal.",
+   "gym": "6",
+   "rs": "7",
+   "gebiet": "Daten und Zufall",
+   "gehoert_zu": {
+    "gebiet": "Daten und Zufall",
+    "idee": "I-daten-1",
+    "begruendung": "Der Mittelwert (D3) für Werte, die mehrfach vorkommen."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "D3 hat nur „Alle Werte addieren, durch die Anzahl teilen“; „Durchschnitt“ erreicht D3 nicht unter den ersten 14 Treffern.",
+   "stichwoerter": [
+    "Mittelwert Tabelle",
+    "Durchschnitt",
+    "Durchschnittsnote",
+    "gewichteter Mittelwert",
+    "Häufigkeitstabelle"
+   ],
+   "verwandt": [
+    "D3",
+    "D1"
+   ],
+   "lernkarten": [
+    {
+     "thema": "daten.kennwerte",
+     "lernkarte": "mittel_tabelle"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "(4*2+6*3+2*5)/12",
+     "rel": "==",
+     "r": "3"
+    },
+    {
+     "l": "4+6+2",
+     "rel": "==",
+     "r": "12"
+    },
+    {
+     "l": "(2+3+5)/3",
+     "rel": "!=",
+     "r": "3"
+    }
+   ]
+  },
+  {
+   "kennung": "N-D08",
+   "name": "Mittelwert rückwärts: fehlender Wert",
+   "satz": "Rückwärts gilt: Summe = Mittelwert · Anzahl. Ziehe von dieser Summe die bekannten Werte ab; der Rest ist der fehlende Wert.",
+   "beispiel": "Mittelwert 6,5 aus 4 Werten, bekannt sind 5, 7 und 8: Summe 6,5 · 4 = 26; fehlender Wert 26 − (5 + 7 + 8) = 6.",
+   "voraus": "Die Anzahl enthält auch den fehlenden Wert. Probe: (5 + 7 + 8 + 6) : 4 = 6,5.",
+   "fehler": "Den fehlenden Wert gleich dem Mittelwert setzen: (5 + 7 + 8 + 6,5) : 4 ≈ 6,6 ist nicht 6,5.",
+   "gym": "6",
+   "rs": "7",
+   "gebiet": "Daten und Zufall",
+   "gehoert_zu": {
+    "gebiet": "Daten und Zufall",
+    "idee": "I-daten-1",
+    "begruendung": "Umkehrung des Mittelwerts (D3, Gegenrechnung R12): Summe = Mittelwert · Anzahl."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "D3 trägt nur die Vorwärtsrechnung.",
+   "stichwoerter": [
+    "Mittelwert rückwärts",
+    "fehlende Note",
+    "fehlender Wert",
+    "Durchschnitt erreichen",
+    "Summe Mittelwert Anzahl"
+   ],
+   "verwandt": [
+    "D3",
+    "R12"
+   ],
+   "lernkarten": [
+    {
+     "thema": "daten.kennwerte",
+     "lernkarte": "mittel_rueckwaerts"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "6.5*4",
+     "rel": "==",
+     "r": "26"
+    },
+    {
+     "l": "26-(5+7+8)",
+     "rel": "==",
+     "r": "6"
+    },
+    {
+     "l": "(5+7+8+6)/4",
+     "rel": "==",
+     "r": "6.5"
+    },
+    {
+     "l": "(5+7+8+6.5)/4",
+     "rel": "!=",
+     "r": "6.5"
+    }
+   ]
+  },
+  {
+   "kennung": "N-D09",
+   "name": "Vierfeldertafel ausfüllen",
+   "satz": "Trage die Gesamtzahl unten rechts ein, dazu die bekannten Felder und Randsummen. Ein fehlendes Feld ist Randsumme minus das andere Feld derselben Zeile oder Spalte.",
+   "beispiel": "30 Kinder, 18 mit Fahrrad, davon 10 mit Helm: Fahrrad ohne Helm 18 − 10 = 8; ohne Fahrrad 30 − 18 = 12.",
+   "voraus": "Zwei Merkmale mit je „ja“ und „nein“; jedes Kind steht in genau einem der vier Felder. Die Felder einer Zeile ergeben die Randsumme der Zeile, die einer Spalte die Randsumme der Spalte.",
+   "fehler": "Die Randsumme 18 (alle mit Fahrrad) mit dem Feld „Fahrrad und Helm“ (10) verwechseln: Zu den 18 gehören auch die 8 ohne Helm.",
+   "gym": "8",
+   "rs": "9",
+   "gebiet": "Daten und Zufall",
+   "gehoert_zu": {
+    "gebiet": "Daten und Zufall",
+    "idee": "I-daten-4",
+    "begruendung": "D17 sagt, was eine Vierfeldertafel ist; hier das Ausfüllen mit Häufigkeiten."
+   },
+   "status": "ausarbeitung",
+   "ergaenzt": [
+    "D17"
+   ],
+   "bezug_bestand": "D17 (Klasse 9) beschreibt die Tafel in einem Satz; die Lernkarte steht bei Klasse 8.",
+   "stichwoerter": [
+    "Vierfeldertafel",
+    "Vierfeldertabelle",
+    "Randsumme",
+    "Kontingenztafel"
+   ],
+   "verwandt": [
+    "D17",
+    "D1"
+   ],
+   "lernkarten": [
+    {
+     "thema": "stochastik.grundbegriffe",
+     "lernkarte": "darstellen"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "18-10",
+     "rel": "==",
+     "r": "8"
+    },
+    {
+     "l": "30-18",
+     "rel": "==",
+     "r": "12"
+    },
+    {
+     "l": "10+8",
+     "rel": "==",
+     "r": "18"
+    },
+    {
+     "l": "18+12",
+     "rel": "==",
+     "r": "30"
+    }
+   ]
+  },
+  {
+   "kennung": "N-D10",
+   "name": "Ziehen ohne Zurücklegen",
+   "satz": "Ohne Zurücklegen ändern sich die Wahrscheinlichkeiten der zweiten Stufe: Im Nenner steht eine Kugel weniger, bei gleicher Sorte auch im Zähler. Entlang des Pfades wird malgenommen.",
+   "beispiel": "Urne mit 3 roten und 2 blauen Kugeln, zweimal ziehen ohne Zurücklegen: P(rot, rot) = 3/5 · 2/4 = 6/20 = 3/10.",
+   "voraus": "Es müssen nach dem ersten Zug noch genug Kugeln da sein. Mit Zurücklegen bleiben die Äste gleich (3/5 · 3/5).",
+   "fehler": "Mit 3/5 · 3/5 = 9/25 rechnen: Das gilt nur mit Zurücklegen, hier fehlt nach dem ersten Zug eine rote Kugel.",
+   "gym": "10",
+   "rs": "10",
+   "gebiet": "Daten und Zufall",
+   "gehoert_zu": {
+    "gebiet": "Daten und Zufall",
+    "idee": "I-daten-4",
+    "begruendung": "Pfadregeln (D19) mit verkleinerter zweiter Stufe."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "D19 sagt „am Pfad entlang malnehmen“ ohne den Fall „ohne Zurücklegen“.",
+   "stichwoerter": [
+    "ohne Zurücklegen",
+    "Urne",
+    "Kugeln ziehen",
+    "Pfadregel",
+    "zweimal ziehen"
+   ],
+   "verwandt": [
+    "D19",
+    "D13"
+   ],
+   "lernkarten": [
+    {
+     "thema": "stochastik.mehrstufig",
+     "lernkarte": "ohne_zuruecklegen"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "3/5*2/4",
+     "rel": "==",
+     "r": "3/10"
+    },
+    {
+     "l": "6/20",
+     "rel": "==",
+     "r": "3/10"
+    },
+    {
+     "l": "3/5*3/5",
+     "rel": "==",
+     "r": "9/25"
+    },
+    {
+     "l": "9/25",
+     "rel": "!=",
+     "r": "3/10"
+    },
+    {
+     "l": "3+2-1",
+     "rel": "==",
+     "r": "4"
+    }
+   ]
+  },
+  {
+   "kennung": "N-D11",
+   "name": "Erwartete Trefferzahl n · p",
+   "satz": "Bei n gleichen, voneinander unabhängigen Versuchen mit Trefferwahrscheinlichkeit p erwartest du etwa n · p Treffer. Die tatsächliche Zahl schwankt um diesen Wert.",
+   "beispiel": "Ein Würfel wird 600-mal geworfen: p = 1/6, erwartet werden etwa 600 · 1/6 = 100 Sechsen.",
+   "voraus": "n · p muss keine ganze Zahl sein, und „etwa“ heißt: Auch 94 oder 107 sind normal. Mit größerem n liegt die relative Häufigkeit meist näher bei p (D15); der Unterschied zu n · p in absoluten Zahlen kann dabei wachsen.",
+   "fehler": "Nach 5 Würfen ohne Sechs „muss“ eine Sechs kommen: Der Würfel hat kein Gedächtnis, die Wahrscheinlichkeit bleibt 1/6.",
+   "gym": "10",
+   "rs": "10",
+   "gebiet": "Daten und Zufall",
+   "gehoert_zu": {
+    "gebiet": "Daten und Zufall",
+    "idee": "I-daten-2",
+    "begruendung": "Verbindet Wahrscheinlichkeit und Häufigkeit (D13, D15)."
+   },
+   "status": "neu",
+   "ergaenzt": [],
+   "bezug_bestand": "D15 nennt nur „relative Häufigkeit nahe bei der Wahrscheinlichkeit“; „Erwartungswert“ ohne Treffer.",
+   "stichwoerter": [
+    "Erwartungswert",
+    "erwartete Anzahl",
+    "wie oft erwartet man",
+    "n mal p",
+    "Simulation"
+   ],
+   "verwandt": [
+    "D13",
+    "D15",
+    "D20"
+   ],
+   "lernkarten": [
+    {
+     "thema": "stochastik.mehrstufig",
+     "lernkarte": "simulation"
+    }
+   ],
+   "pruefung": [
+    {
+     "l": "600/6",
+     "rel": "==",
+     "r": "100"
+    },
+    {
+     "l": "600*(1/6)",
+     "rel": "==",
+     "r": "100"
+    },
+    {
+     "l": "1/6",
+     "rel": "<",
+     "r": "0.2"
+    },
+    {
+     "l": "94/600",
+     "rel": "!=",
+     "r": "1/6"
+    }
+   ]
+  }
+ ],
+ "verweise": [
+  {
+   "kennung": "V-01",
+   "was": "Überschlag",
+   "ziel": "Arbeitsweise Überschlag",
+   "begruendung": "Die Arbeitsweise „Überschlag“ („Erst grob, dann genau.“) mit Beispiel 398 · 52 steht im Universum; es fehlt nur das Suchwort und die Verknüpfung der Lernkarte.",
+   "stichwoerter": [
+    "Überschlag",
+    "überschlagen",
+    "schätzen",
+    "grob rechnen",
+    "Näherung",
+    "ungefähr"
+   ],
+   "lernkarten": [
+    {
+     "thema": "zahlen.rechengesetze",
+     "lernkarte": "ueberschlag"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-02",
+   "was": "Welcher Anteil? (Teil durch Ganzes)",
+   "ziel": "Z10",
+   "begruendung": "Z10 sagt „Anteil = Teil durch Ganzes“. Es fehlen nur Beispiel und Fehler; Vorschlag für Z10: „12 von 30 Kindern: 12/30 = 2/5 (durch 6 gekürzt). Fehler: 30/12 – der Teil steht oben, das Ganze unten.“",
+   "stichwoerter": [
+    "Anteil",
+    "welcher Anteil",
+    "Teil vom Ganzen",
+    "Anteil bestimmen"
+   ],
+   "lernkarten": [
+    {
+     "thema": "bruch.brueche",
+     "lernkarte": "anteil_bestimmen"
+    }
+   ],
+   "vorschlag": "Z10 um Beispiel 12 von 30 = 2/5 und den Fehler 30/12 ergänzen (nachgerechnet: 12 : 6 = 2, 30 : 6 = 5)."
+  },
+  {
+   "kennung": "V-03",
+   "was": "Rabatt und Aufschlag",
+   "ziel": "V9",
+   "begruendung": "V9 „Wachstumsfaktor“ sagt: plus p % heißt mal (1 + p/100), minus p % heißt mal (1 − p/100). Das ist die Rabatt-Regel; es fehlt nur das Wort „Rabatt“ in Name oder Stichwort. Klasse in V9 ist 7, die Lernkarte „rabatt_aufschlag“ steht bei Klasse 6: Klasse prüfen.",
+   "stichwoerter": [
+    "Rabatt",
+    "Aufschlag",
+    "Preisnachlass",
+    "Skonto",
+    "Mehrwertsteuer",
+    "Preis nach Rabatt",
+    "Preis mit Aufschlag"
+   ],
+   "lernkarten": [
+    {
+     "thema": "bruch.prozent",
+     "lernkarte": "rabatt_aufschlag"
+    },
+    {
+     "thema": "bruch.prozent_grundwert",
+     "lernkarte": "faktor"
+    },
+    {
+     "thema": "bruch.prozent_grundwert",
+     "lernkarte": "vermehrt"
+    },
+    {
+     "thema": "bruch.prozent_grundwert",
+     "lernkarte": "vermindert"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-04",
+   "was": "Prozente nicht addieren, mehrere Änderungen",
+   "ziel": "V9",
+   "begruendung": "V9 nennt „Erst plus 10 %, dann minus 10 % ist nicht wieder der Anfang.“ Das trägt „mehrfach“ und „Aussagen prüfen“.",
+   "stichwoerter": [
+    "mehrere Änderungen",
+    "Prozente addieren",
+    "erst plus dann minus"
+   ],
+   "lernkarten": [
+    {
+     "thema": "bruch.prozent_grundwert",
+     "lernkarte": "mehrfach"
+    },
+    {
+     "thema": "bruch.prozent_grundwert",
+     "lernkarte": "argumente"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-05",
+   "was": "(−2)² und −2²",
+   "ziel": "Z16",
+   "begruendung": "Z16 hat im Feld „voraus“: „Ohne Klammer ist die Basis 2, nicht −2: −2⁴ = −16, denn erst Hoch, dann das Minus (Regel 4).“ Vorschlag: Beispiel mit der Hochzahl 2 ergänzen: (−2)² = 4 und −2² = −4.",
+   "stichwoerter": [
+    "Minus Quadrat",
+    "Klammer Potenz",
+    "negative Basis"
+   ],
+   "lernkarten": [
+    {
+     "thema": "zahlen.potenzen_basis",
+     "lernkarte": "negativ"
+    },
+    {
+     "thema": "terme.potenzgesetze",
+     "lernkarte": "fehler_finden"
+    }
+   ],
+   "vorschlag": "In Z16 zusätzlich (−2)² = 4 und −2² = −4 nennen (nachgerechnet: (−2) · (−2) = 4; erst 2² = 4, dann das Minus: −4)."
+  },
+  {
+   "kennung": "V-06",
+   "was": "Kürzen nur aus Produkten, nie aus Summen",
+   "ziel": "A6",
+   "begruendung": "A6 enthält im Feld „fehler“ genau diesen Fall: (x + 6)/(x + 2) ist nicht 3 (für x = 2 ist der Wert 2). Es fehlt nur die Verknüpfung der Lernkarten.",
+   "stichwoerter": [
+    "aus Summen kürzen",
+    "kürzen",
+    "Bruchterm kürzen"
+   ],
+   "lernkarten": [
+    {
+     "thema": "terme.bruchterme",
+     "lernkarte": "kuerzen"
+    },
+    {
+     "thema": "terme.bruchterme",
+     "lernkarte": "fehler_finden"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-07",
+   "was": "Mindestens einmal (Gegenereignis)",
+   "ziel": "D14",
+   "begruendung": "D14 hat als Beispiel „Mindestens eine Sechs bei zwei Würfen: 1 − (5/6)² = 11/36.“ Es fehlt nur das Stichwort „mindestens“.",
+   "stichwoerter": [
+    "mindestens einmal",
+    "mindestens",
+    "keinmal",
+    "Gegenereignis"
+   ],
+   "lernkarten": [
+    {
+     "thema": "stochastik.mehrstufig",
+     "lernkarte": "gegenereignis"
+    },
+    {
+     "thema": "stochastik.grundbegriffe",
+     "lernkarte": "gegenereignis"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-08",
+   "was": "π schätzen (Zufallspunkte)",
+   "ziel": "D20",
+   "begruendung": "D20 „Simulation“ trägt das Nachspielen mit Zufallszahlen; π ist nur ein Anwendungsfall.",
+   "stichwoerter": [
+    "π schätzen",
+    "Monte-Carlo",
+    "Zufallspunkte"
+   ],
+   "lernkarten": [
+    {
+     "thema": "stochastik.mehrstufig",
+     "lernkarte": "pi_schaetzen"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-09",
+   "was": "Zylindermantel",
+   "ziel": "F15",
+   "begruendung": "F15 sagt „Beim geraden Körper ist der Mantel: Umfang der Grundfläche mal Höhe.“ und im Feld „warum“: abgerollt ein Rechteck. Es fehlt nur die Verknüpfung der Lernkarte.",
+   "stichwoerter": [
+    "Mantel",
+    "Mantelfläche",
+    "Zylinder Netz",
+    "Etikett"
+   ],
+   "lernkarten": [
+    {
+     "thema": "messen.koerper_darstellung",
+     "lernkarte": "zylinder"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-10",
+   "was": "Formeln umstellen",
+   "ziel": "A13",
+   "begruendung": "A13 hat Satz, Beispiel (h = 2A : g mit Probe) und Fehler. Die fünf Lernkarten von gleichungen.formeln sind nur nicht verknüpft; das Rückwärts-Vorgehen steht in R12 „Gegenrechnung“.",
+   "stichwoerter": [
+    "umstellen",
+    "Formel umstellen",
+    "nach h auflösen",
+    "Formel auflösen"
+   ],
+   "lernkarten": [
+    {
+     "thema": "gleichungen.formeln",
+     "lernkarte": "ein_schritt"
+    },
+    {
+     "thema": "gleichungen.formeln",
+     "lernkarte": "zwei_schritte"
+    },
+    {
+     "thema": "gleichungen.formeln",
+     "lernkarte": "pruefen"
+    },
+    {
+     "thema": "gleichungen.formeln",
+     "lernkarte": "einsetzen"
+    },
+    {
+     "thema": "gleichungen.formeln",
+     "lernkarte": "geometrie"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-11",
+   "was": "Funktionswert, Punktprobe, Nullstelle, Ablesen",
+   "ziel": "U2",
+   "begruendung": "U2 (Punktprobe) und U3 (Nullstelle und Achsenabschnitt) tragen die Rechnung mit Beispiel; das Ablesen am Graphen steht in der Arbeitsweise „Ablesen und Darstellen“. Nur Verknüpfung fehlt.",
+   "stichwoerter": [
+    "Funktionswert",
+    "f(x) berechnen",
+    "Punkt auf dem Graphen",
+    "Nullstelle",
+    "am Graphen ablesen"
+   ],
+   "lernkarten": [
+    {
+     "thema": "funktionen.grundbegriffe",
+     "lernkarte": "funktionswert"
+    },
+    {
+     "thema": "funktionen.grundbegriffe",
+     "lernkarte": "stelle"
+    },
+    {
+     "thema": "funktionen.grundbegriffe",
+     "lernkarte": "punkt_graph"
+    },
+    {
+     "thema": "funktionen.grundbegriffe",
+     "lernkarte": "nullstellen"
+    },
+    {
+     "thema": "funktionen.grundbegriffe",
+     "lernkarte": "graph_lesen"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-12",
+   "was": "Gleichungen mit Umkehraufgaben lösen",
+   "ziel": "R12",
+   "begruendung": "R12 „Gegenrechnung“ trägt das Rückwärtsrechnen mit Beispiel; es fehlt nur die Verknüpfung.",
+   "stichwoerter": [
+    "Umkehraufgabe",
+    "Umkehrrechnung",
+    "rückwärts rechnen"
+   ],
+   "lernkarten": [
+    {
+     "thema": "zahlen.ganz",
+     "lernkarte": "umkehraufgabe"
+    },
+    {
+     "thema": "zahlen.rechengesetze",
+     "lernkarte": "umkehraufgabe_mal"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-13",
+   "was": "Zeit rechnen (2 h 30 min)",
+   "ziel": "V1",
+   "begruendung": "V1 sagt „2 h 30 min = 150 min“ und warnt vor dezimalem Rechnen (2,5 h sind 2 h 30 min). Die Zeitspanne „bis zur vollen Stunde“ steht nirgends, ist aber Rechenweg der Lernkarte; Vorschlag: nur Stichwort und Verknüpfung.",
+   "stichwoerter": [
+    "Zeitspanne",
+    "Uhrzeit",
+    "Stunden Minuten",
+    "Dauer berechnen"
+   ],
+   "lernkarten": [
+    {
+     "thema": "groessen.einheiten",
+     "lernkarte": "zeit"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-14",
+   "was": "Einheitentafel (dm, t, ct, s, ha, Treppen)",
+   "ziel": "T-einheiten",
+   "begruendung": "Die Tafel „Einheiten umrechnen“ (einheiten/tafel.md, einheiten.json) trägt alle Treppen und Beispiele. Keine neue Einzelregel; V1, F1, F11 und die Lernkarten verlinken dorthin.",
+   "stichwoerter": [
+    "cm",
+    "kg",
+    "ml",
+    "ha",
+    "Zentimeter",
+    "Hektar",
+    "Tonne",
+    "umrechnen"
+   ],
+   "lernkarten": [
+    {
+     "thema": "groessen.einheiten",
+     "lernkarte": "laenge"
+    },
+    {
+     "thema": "groessen.einheiten",
+     "lernkarte": "masse"
+    },
+    {
+     "thema": "messen.flaechen",
+     "lernkarte": "einheiten"
+    },
+    {
+     "thema": "messen.volumen",
+     "lernkarte": "einheiten"
+    },
+    {
+     "thema": "messen.volumen",
+     "lernkarte": "liter"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-15",
+   "was": "Merkwerte Bruch, Dezimalzahl, Prozent",
+   "ziel": "Z12",
+   "begruendung": "Z12 hat ½ = 0,5 = 50 %. Die Merkwerte 1/4, 3/4, 1/5, 1/8 sind eine Tafel (Bericht D, Rang 6), keine Einzelregel.",
+   "stichwoerter": [
+    "Merkwerte",
+    "Bruch Dezimalzahl Prozent",
+    "ein Viertel",
+    "drei Viertel"
+   ],
+   "lernkarten": [
+    {
+     "thema": "bruch.dezimal",
+     "lernkarte": "merkwerte"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-16",
+   "was": "Quadratzahlen bis 20²",
+   "ziel": "Z15",
+   "begruendung": "Z15 sagt „bis 20² weiß man auswendig“; die Liste ist eine Tafel (Bericht D, Rang 4). Keine Einzelregel.",
+   "stichwoerter": [
+    "Quadratzahlen",
+    "Quadratzahl",
+    "14 hoch 2"
+   ],
+   "lernkarten": [
+    {
+     "thema": "zahlen.potenzen_basis",
+     "lernkarte": "quadrat"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-17",
+   "was": "Schwerpunkt des Dreiecks",
+   "ziel": "G23",
+   "begruendung": "G23 „Schwerpunkt“ trägt den Inhalt; die Lernkarte ist nur nicht verknüpft.",
+   "stichwoerter": [
+    "Schwerpunkt",
+    "Seitenhalbierende"
+   ],
+   "lernkarten": [
+    {
+     "thema": "abbildungen.aehnlichkeit",
+     "lernkarte": "schwerpunkt"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-18",
+   "was": "Verknüpfte Ereignisse (Schnitt, Vereinigung, Additionssatz, Venn)",
+   "ziel": "D16",
+   "begruendung": "D16 (Additionssatz), D17 (Vierfeldertafel) und E1 (Mengen) tragen den Inhalt; 7 Lernkarten sind nur nicht verknüpft.",
+   "stichwoerter": [
+    "Schnitt",
+    "Vereinigung",
+    "Venn",
+    "Additionssatz"
+   ],
+   "lernkarten": [
+    {
+     "thema": "stochastik.verknuepft",
+     "lernkarte": "elemente"
+    },
+    {
+     "thema": "stochastik.verknuepft",
+     "lernkarte": "schnitt"
+    },
+    {
+     "thema": "stochastik.verknuepft",
+     "lernkarte": "verknuepfen"
+    },
+    {
+     "thema": "stochastik.verknuepft",
+     "lernkarte": "additionssatz"
+    },
+    {
+     "thema": "stochastik.verknuepft",
+     "lernkarte": "venn"
+    },
+    {
+     "thema": "stochastik.verknuepft",
+     "lernkarte": "mengen_verstehen"
+    },
+    {
+     "thema": "stochastik.verknuepft",
+     "lernkarte": "vierfeld"
+    },
+    {
+     "thema": "stochastik.verknuepft",
+     "lernkarte": "tafel_wkeit"
+    },
+    {
+     "thema": "stochastik.verknuepft",
+     "lernkarte": "bedingt"
+    },
+    {
+     "thema": "stochastik.verknuepft",
+     "lernkarte": "rueckschluss"
+    },
+    {
+     "thema": "stochastik.verknuepft",
+     "lernkarte": "verstehen"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-19",
+   "was": "Wurzelfunktion, Umkehrfunktion, x hoch minus n",
+   "ziel": "U6",
+   "begruendung": "U6 (Umkehrfunktion), U13 (Potenzfunktionen), Z17 (negative Hochzahl) und Z23 (n-te Wurzel) tragen den Inhalt; alle Lernkarten von funktionen.potenz sind nur nicht verknüpft.",
+   "stichwoerter": [
+    "Umkehrfunktion",
+    "Wurzelfunktion",
+    "Potenzfunktion"
+   ],
+   "lernkarten": [
+    {
+     "thema": "funktionen.potenz",
+     "lernkarte": "werte"
+    },
+    {
+     "thema": "funktionen.potenz",
+     "lernkarte": "symmetrie"
+    },
+    {
+     "thema": "funktionen.potenz",
+     "lernkarte": "verlauf"
+    },
+    {
+     "thema": "funktionen.potenz",
+     "lernkarte": "parameter"
+    },
+    {
+     "thema": "funktionen.potenz",
+     "lernkarte": "negativ"
+    },
+    {
+     "thema": "funktionen.potenz",
+     "lernkarte": "umkehrbar"
+    },
+    {
+     "thema": "funktionen.potenz",
+     "lernkarte": "linear"
+    },
+    {
+     "thema": "funktionen.potenz",
+     "lernkarte": "wurzelfunktion"
+    },
+    {
+     "thema": "funktionen.potenz",
+     "lernkarte": "quadratisch"
+    },
+    {
+     "thema": "funktionen.potenz",
+     "lernkarte": "spiegeln"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-20",
+   "was": "Dezimalzahlen runden, Stellen nach dem Komma",
+   "ziel": "Z2",
+   "begruendung": "Z2 (Runden) und Z1 (Stellenwert, „auch hinter dem Komma“) tragen den Inhalt.",
+   "stichwoerter": [
+    "Dezimalzahl runden",
+    "Zehntel",
+    "Hundertstel"
+   ],
+   "lernkarten": [
+    {
+     "thema": "bruch.dezimal",
+     "lernkarte": "runden"
+    },
+    {
+     "thema": "bruch.dezimal",
+     "lernkarte": "stellenwerte"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-21",
+   "was": "Planfigur und Konstruktionsbeschreibung",
+   "ziel": "Arbeitsweise Skizze",
+   "begruendung": "Die Arbeitsweise „Skizze“ trägt das Vorgehen; Planfigur ist nur ein anderer Name.",
+   "stichwoerter": [
+    "Planfigur",
+    "Skizze",
+    "Konstruktionsbeschreibung"
+   ],
+   "lernkarten": [
+    {
+     "thema": "geometrie.konstruktion",
+     "lernkarte": "planfigur"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-22",
+   "was": "Gleichungen mit Klammern, keine oder unendlich viele Lösungen (eine Gleichung)",
+   "ziel": "A9",
+   "begruendung": "A9 „Wie viele Lösungen?“ trägt den Fall mit Beispiel (0 · x = 5, 0 · x = 0); Klammern lösen trägt R13 und R6.",
+   "stichwoerter": [
+    "Klammern lösen",
+    "keine Lösung",
+    "unendlich viele Lösungen"
+   ],
+   "lernkarten": [
+    {
+     "thema": "gleichungen.linear",
+     "lernkarte": "klammern"
+    },
+    {
+     "thema": "gleichungen.linear",
+     "lernkarte": "sonderfaelle"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-23",
+   "was": "Fläche und Umfang verstehen",
+   "ziel": "F3",
+   "begruendung": "F2 sagt „Umfang = einmal außen herum“ und warnt vor Verwechslung; F3 „Fläche ist nicht Umfang“ ist abstrakt (kein Beispiel). Vorschlag: F3 ein Beispiel geben: Rechtecke mit Umfang 12 cm: 4 cm · 2 cm hat 8 cm², 3 cm · 3 cm hat 9 cm².",
+   "stichwoerter": [
+    "Umfang",
+    "Flächeninhalt",
+    "Fläche Umfang verwechseln"
+   ],
+   "lernkarten": [
+    {
+     "thema": "messen.flaechen",
+     "lernkarte": "verstehen"
+    }
+   ],
+   "vorschlag": "F3 um das Beispiel zweier Rechtecke mit gleichem Umfang ergänzen (nachgerechnet: 2 · (4 + 2) = 12, 2 · (3 + 3) = 12; 4 · 2 = 8, 3 · 3 = 9)."
+  },
+  {
+   "kennung": "V-24",
+   "was": "Brüche am Zahlenstrahl",
+   "ziel": "Z4",
+   "begruendung": "Z4 trägt die Ordnung am Zahlenstrahl auch für Brüche.",
+   "stichwoerter": [
+    "Zahlenstrahl Brüche"
+   ],
+   "lernkarten": [
+    {
+     "thema": "bruch.brueche",
+     "lernkarte": "zahlenstrahl"
+    }
+   ],
+   "vorschlag": ""
+  },
+  {
+   "kennung": "V-25",
+   "was": "Lineare Gleichungssysteme: Verfahren",
+   "ziel": "A14",
+   "begruendung": "A14 nennt Einsetzen, Gleichsetzen und Addieren und hat Beispiel und Fehler; nur die Suchwörter fehlen.",
+   "stichwoerter": [
+    "LGS",
+    "Einsetzungsverfahren",
+    "Gleichsetzungsverfahren",
+    "Additionsverfahren",
+    "Gleichungssystem"
+   ],
+   "lernkarten": [
+    {
+     "thema": "gleichungen.lgs2",
+     "lernkarte": "einsetzen"
+    },
+    {
+     "thema": "gleichungen.lgs2",
+     "lernkarte": "gleichsetzen"
+    },
+    {
+     "thema": "gleichungen.lgs2",
+     "lernkarte": "addition"
+    },
+    {
+     "thema": "gleichungen.lgs2",
+     "lernkarte": "verfahren"
+    }
+   ],
+   "vorschlag": ""
+  }
+ ]
+}

@@ -1277,17 +1277,13 @@ test('F: Knobel falsch kostet nichts und zeigt den Weg; ohne Bonus-Aufgaben kein
   assert.deepEqual(r.slice(1), [null, null]);
 });
 
-test('F: Knobeln des Tages auf der Abflugtafel (einmal je Tag), Knobel-Sterne im Reisepass, Eltern sehen Stufe, Typ und Knobel x von y', async (t) => {
+test('F: Knobeln des Tages abgeschaltet (Entscheidung des Nutzers), Knobel-Sterne im Reisepass, Eltern sehen Stufe, Typ und Knobel x von y', async (t) => {
   const tag = (aktion, e) => { const x = mitBonus(aktion, e); if (aktion !== 'schule_konto') return x;
     x.knobel_tag = { ...zeig(AUFG[501]), einheit_id: 1, stadt: 'Rom', etappe: 'Welchen Wert hat eine Ziffer?' }; return x; };
   const { page } = await setup(t, { gestaltung: 'nacht', anpassen: tag });
   await page.goto(origin + '/#/reise/1');
-  const box = page.locator('.lr-knobel-tag'); await box.waitFor();
-  assert.match(await box.innerText(), /KNOBELN DES TAGES[\s\S]*Welchen Wert hat eine Ziffer\?/);
-  await box.getByRole('button', { name: 'Knobeln für Profis' }).click();
-  await box.locator('.lr-knobel input').waitFor();
-  await page.reload(); await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
-  assert.equal(await page.locator('.lr-knobel-tag').count(), 0, 'heute nur einmal');
+  // „Knobeln des Tages“ abgeschaltet (Entscheidung des Nutzers 27.11.): trotz knobel_tag vom Server nirgends angeboten
+  await page.locator('.lr-abflugtafel, .rk .rk-pin').first().waitFor(); assert.equal(await page.locator('.lr-knobel-tag').count(), 0, 'kein Knobeln des Tages');
   await page.goto(origin + '/#/reisepass/1'); await page.getByText('★ Knobel-Sterne: 2').waitFor();
   // Eltern: Lernstand und Inhalte
   await page.goto(origin + '/#/wackelt/1'); await page.locator('.ls-alle summary').click(); await page.locator('.ls-knobel').first().waitFor();
@@ -5857,15 +5853,35 @@ test('RU Tafeln: Einstieg im Universum, alle Tafeln erreichbar (Kind und Erwachs
     await page.setViewportSize({ width: b, height: h });
     await page.goto(origin + '/lernen/'); await page.getByLabel('Lern-Code').fill('ABCD-EFGH-JKLM'); await page.getByRole('button', { name: 'Anmelden' }).click(); await page.waitForURL(/#\/reise\/1$/);
     await page.goto(origin + '/lernen/#/regeln/1'); await page.locator('.ru-universum').waitFor();
-    // Einstieg: Teil „Tafeln“ im Umschalter (immer), am Rechner zusätzlich die Karte „Tafeln zum Nachschlagen“
-    const station = b < 700 ? page.locator('.ru-umsch-tafeln') : page.locator('.ru-tafel-station');
-    assert.equal(await page.locator('.ru-umsch-tafeln').isVisible(), true); assert.equal(await page.locator('.ru-tafel-station').isVisible(), b >= 700);
-    assert.ok((await station.boundingBox()).y + 40 < h, 'Einstieg im ersten Bildschirm');
+    // Teil 1b (28.11.): kein Reiter „Tafeln“ und keine große Karte mehr – die Tafeln stehen ganz oben in ihren Gebieten („Auf einen Blick“)
+    assert.equal(await page.locator('.ru-umsch-tafeln, .ru-tafel-station').count(), 0, 'kein Reiter, keine Karte');
+    assert.deepEqual((await page.locator('.ru-umschalter a').allInnerTexts()).map((x) => x.trim()), ['Aufbau', 'Durch die Klassen']);
+    // Hinweis je Gebiet auf der Startseite (klein, in der Zeile des Gebiets)
+    assert.match((await page.locator('.ru-planet0', { hasText: 'Zahlen' }).innerText()).replace(/\s+/g, ' '), /3 Übersichten/);
+    assert.match((await page.locator('.ru-planet0', { hasText: 'Fläche und Raum' }).innerText()).replace(/\s+/g, ' '), /2 Übersichten/);
+    assert.match((await page.locator('.ru-sonne0').innerText()).replace(/\s+/g, ' '), /1 Übersicht/);
     await tafelBild(page, `universum-${b}-${hd}`);
-    await station.click(); await page.locator('.ru-tafel-kacheln').first().waitFor();
-    assert.match(page.url(), /#\/regeln\/1-tafeln$/);
-    assert.equal(await page.locator('.ru-tafel-kachel').count(), 9);
-    await ruPruefen(page, `${b} Tafeln`); await tafelBild(page, `tafeln-${b}-${hd}`);
+    // jede der neun Tafeln: vom Gebiet (bzw. der Sonne) aus mit einem Tipp; Brotkrumen Universum › Gebiet › Tafel
+    const erreicht = new Set();
+    for (const [von, name] of [['sonne', 'Sonne'], ['gebiet-zahlen', 'Zahlen'], ['gebiet-geld', 'Geld und Verhältnisse'], ['gebiet-geo', 'Geometrie'], ['gebiet-fur', 'Fläche und Raum'], ['gebiet-algebra', 'Algebra'], ['gebiet-funktionen', 'Funktionen'], ['gebiet-daten', 'Daten und Zufall']]) {
+      await page.goto(origin + '/lernen/#/regeln/1-' + von); const blick = page.locator('.ru-blick'); await blick.waitFor();
+      // ganz oben: vor den tragenden Ideen bzw. vor dem Schnitt der Sonne
+      assert.ok(await page.evaluate(() => { const b0 = document.querySelector('.ru-blick'), n = document.querySelector('.ru-ideen1, .ru-schnitt'); return !!(b0.compareDocumentPosition(n) & Node.DOCUMENT_POSITION_FOLLOWING); }), von + ': vor den Ideen');
+      assert.ok((await blick.boundingBox()).y < h * 0.6, von + ': im ersten Bildschirm');
+      if (von === 'gebiet-fur' || von === 'gebiet-zahlen') await tafelBild(page, `gebiet-${von.slice(7)}-${b}-${hd}`);
+      const ziele = await blick.locator('a').evaluateAll((xs) => xs.map((x) => x.getAttribute('href')));
+      for (const z of ziele) { const m = z.match(/1-tafel-([a-z-]+?)(?:\.[a-z0-9-]+)?$/); assert.ok(m, z); erreicht.add(m[1]); }
+      const erstes = blick.locator('a').first(); const ziel = await erstes.getAttribute('href'); await erstes.click();
+      await page.locator('.ru-tafel-seite').waitFor();
+      const krumen = (await page.locator('.ru-pfad').innerText()).replace(/\s+/g, ' ');
+      assert.ok(krumen.includes(name) && krumen.startsWith('‹ Universum'), `${von} → ${ziel}: ${krumen}`);
+    }
+    assert.deepEqual([...erreicht].sort(), [...TAFEL_IDS].sort(), 'alle neun Tafeln mit einem Tipp aus einem Gebiet');
+    // Maßeinheiten an zwei Gebieten: die Brotkrumen nennen das Gebiet, aus dem man kam; von der Suche aus das erste
+    await page.goto(origin + '/lernen/#/regeln/1-gebiet-fur'); await page.locator('.ru-blick a', { hasText: 'Maßeinheiten' }).click(); await page.locator('.ru-tafel-seite[data-tafel="einheiten"]').waitFor();
+    assert.match(await page.locator('.ru-pfad').innerText(), /Fläche und Raum[\s\S]*Maßeinheiten/);
+    // alte Route der Übersicht → Startseite (kein toter Link)
+    await page.goto(origin + '/lernen/#/regeln/1-tafeln'); await page.locator('.ru-universum').waitFor(); await page.waitForURL(/#\/regeln\/1-universum$/);
     for (const id of TAFEL_IDS) {
       await page.goto(origin + '/lernen/#/regeln/1-tafel-' + id); await page.locator(`.ru-tafel-seite[data-tafel="${id}"]`).waitFor();
       assert.equal(await page.locator('.ru-ae').count(), 0, id + ': Kind sieht keinen Knopf „Ändern lassen“');
@@ -6225,4 +6241,30 @@ test('Menü verkürzt: vier Einträge; Merkheft als Reiter im Regel-Universum, R
   // ★-Chip der Karte führt weiter zum Reisepass; alter Reiter „Karte“ → Startseite
   await page.goto(origin + '/#/weg/1-karte'); await page.waitForURL(/#\/reise\/1$/); await page.locator('.rk .rk-pin').first().waitFor();
   assert.equal(await page.locator('.rk-stern').getAttribute('href'), '#/reisepass/1');
+});
+
+// Teil 1 (0.96.0): Die Karte bleibt, wie sie war (Entscheidung des Nutzers) – nur die Rolle des SVG ist berichtigt; „Was kommt wann wieder?“ im Menü; „Knobeln des Tages“ abgeschaltet
+test('Teil 1: Reisekarte ohne zusätzliche Leiste; Karte als Gruppe mit einzeln bedienbaren Pins; „Was kommt wann wieder?“ im Menü; kein „Knobeln des Tages“; alte Routen leiten weiter', async (t) => {
+  const knobelTag = (aktion, e) => { if (aktion !== 'schule_konto' || !e) return e; const x = structuredClone(e); x.knobel_tag = { ...zeig(AUFG[501]), einheit_id: 1, stadt: 'Rom', etappe: 'Welchen Wert hat eine Ziffer?' }; return x; };
+  for (const [b, h, g] of [[390, 844, 'tag'], [1280, 800, 'tag'], [390, 844, 'nacht']]) {
+    const { page } = await rkOeffnen(t, b, h, { basis: knobelTag, gestaltung: g });
+    assert.equal(await page.locator('.lr-abflugtafel, .rk-leiste, .rk-chip').count(), 0, 'keine Tafel, keine Leiste');
+    assert.equal(await page.getByText('Knobeln des Tages', { exact: false }).count(), 0, 'Knobeln des Tages abgeschaltet');
+    assert.equal(await page.locator('.rk-svg').getAttribute('role'), 'group'); assert.equal(await page.locator('.rk-svg').getAttribute('aria-label'), 'Reisekarte');
+    assert.match(await page.getByRole('group', { name: 'Reisekarte' }).ariaSnapshot(), /button "Italien, Hauptstadt Rom, gerade dran[^"]*"/);
+    const pin = page.locator('.rk-pin[data-id="IT"]'); await pin.focus(); assert.equal(await pin.evaluate((e) => e === document.activeElement), true, 'Pin per Tastatur erreichbar');
+    if (process.env.APP3_BILDER) await page.screenshot({ path: path.join(process.env.APP3_BILDER, `karte-${b}-${g === 'nacht' ? 'dunkel' : 'hell'}.png`), fullPage: true });
+    // Menü ≡ → „Was kommt wann wieder?“ (derselbe Text wie unter der Tafel)
+    await page.locator('header.top .rk-menue').click(); const blatt = page.locator('dialog.lr-blatt[open]'); await blatt.waitFor();
+    const wdh = blatt.locator('summary', { hasText: 'Was kommt wann wieder?' }); await wdh.focus(); await page.keyboard.press('Enter');
+    await blatt.getByText('nach 1, 3, 7, 14 und 30 Lerntagen', { exact: false }).waitFor();
+    if (process.env.APP3_BILDER) await page.waitForTimeout(300), await page.screenshot({ path: path.join(process.env.APP3_BILDER, `karte-${b}-${g === 'nacht' ? 'dunkel' : 'hell'}-menue.png`), fullPage: true });
+  }
+  const { page } = await rkOeffnen(t, 390, 844);
+  for (const alt of ['#/weltkarte/1', '#/weg/1-karte']) { await page.goto(origin + '/' + alt); await page.waitForURL(/#\/reise\/1$/); await page.locator('.rk .rk-pin').first().waitFor(); }
+  // Rückfall ohne Kartendaten: Tafel wie bisher, aber ohne Knobeln des Tages
+  const tag = (aktion, e) => { if (aktion !== 'schule_konto' || !e) return e; const x = structuredClone(e); x.knobel_tag = { ...zeig(AUFG[501]), einheit_id: 1, stadt: 'Rom', etappe: 'Welchen Wert hat eine Ziffer?' }; return x; };
+  const { page: p2 } = await setup(t, { gestaltung: 'nacht', anpassen: tag }); p2._ohneKarte = true;
+  await p2.goto(origin + '/#/reise/1'); await p2.locator('.lr-abflugtafel').waitFor();
+  assert.equal(await p2.locator('.lr-knobel-tag').count(), 0, 'auch auf der Rückfall-Tafel kein Knobeln des Tages');
 });

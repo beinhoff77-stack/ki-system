@@ -355,7 +355,9 @@ test('Tafeln: Seiten bauen für Kind und Erwachsene; Knopf „Ändern lassen“ 
     if (h !== 'tafeln') { assert.ok((e.match(/class="ru-ae"/g) || []).length >= 3, h + ': Erwachsene mit Knopf'); assert.ok(e.includes(`data-wo="Regel-Universum · Tafel ${h.slice(6)} · `), h); }
     assert.ok(!/style="/.test(k.replace(/<svg[\s\S]*?<\/svg>/g, '')), h + ': keine Inline-Stile');
   }
-  assert.match(kind.seite('universum'), /class="ru-umsch-tafeln" href="#\/regeln\/1-tafeln"/); assert.match(kind.seite('universum'), /ru-tafel-station/);
+  assert.doesNotMatch(kind.seite('universum'), /ru-umsch-tafeln|ru-tafel-station/, 'kein Reiter „Tafeln“'); assert.match(kind.seite('universum'), /ru-blick-hinweis/);
+  assert.equal(kind.seite('tafeln'), kind.seite('universum'), 'alte Übersicht → Startseite');
+  for (const t of I.TAFELN) assert.ok(t.gebiete.length && t.gebiete.some((g) => kind.seite(g === 'Sonne' ? 'sonne' : 'gebiet-' + I.PLANET[g].kuerzel).includes(`href="#/regeln/1-tafel-${t.id}"`)), t.id + ': aus einem Gebiet erreichbar');
   assert.match(kind.seite('idee-fur-1'), /ru-tafel-v" href="#\/regeln\/1-tafel-formeln/, 'Flächen-Idee → Formeln');
   assert.match(kind.seite('idee-geld-1'), /ru-tafel-v" href="#\/regeln\/1-tafel-einheiten/, 'Idee Größe → Maßeinheiten');
   assert.match(kind.seite('regel-v1'), /ru-tafel-v" href="#\/regeln\/1-tafel-einheiten/, 'Größe und Einheit → Maßeinheiten');

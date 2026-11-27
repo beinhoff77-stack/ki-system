@@ -227,6 +227,8 @@ function lernRahmen(kind, aktiv, ...inhalt) {
       // Menü verkürzt (Wunsch des Nutzers): Startseite · Regel-Universum (mit Merkheft) · Mein Weg (mit Reisepass) · Ansicht. Alte Routen bleiben gültig.
       ...[['reise', lernStartWort(kind.id)], ['regeln', 'Regel-Universum'], ['weg', 'Mein Weg']].map(([v, t]) => { const an = v === aktiv || (v === 'regeln' && aktiv === 'merkheft') || (v === 'weg' && aktiv === 'reisepass');
         return el('a', { href: `#/${v}/${kind.id}`, class: an ? 'on' : '', ...(an ? { 'aria-current': 'page' } : {}), onclick: zu }, t); }),
+      // „Was kommt wann wieder?“ lag nur auf der (abgeschalteten) Abflugtafel: schlicht im Menü, unter „Mein Weg“ (Text wie bisher, Stand des neuen Servers mit Check-in)
+      (() => { const w = lernWdhErklaert(true); w.classList.remove('lr-mehr'); return w; })(), // eigene Optik im Menü (nicht wie die Aufklapper der Seite)
       el('button', { type: 'button', onclick: () => { try { localStorage.setItem('lern.gestaltung.' + kind.id, g === 'nacht' ? 'tag' : 'nacht'); } catch { /* egal */ } zu(); render(); } }, g === 'nacht' ? 'Helle Ansicht' : 'Dunkle Ansicht'),
       el('button', { type: 'button', class: 'lr-blatt-zu', onclick: zu }, 'Schließen')));
     // M8: Der Menüknopf schwebt nicht mehr über dem Inhalt (verdeckte Text und Knöpfe) – er steht oben rechts und am Seitenende im Fluss der Seite.
@@ -339,6 +341,8 @@ function lernKnobel(ziel, a, ctx, { ortCode = '', zurueck, titel = 'KNOBEL-BORDK
   ziel.scrollIntoView?.({ block: 'start' });
 }
 // F: „Knobeln des Tages“ auf der Abflugtafel – höchstens einmal je Lerntag, aus einer sitzenden Etappe (schule_konto.knobel_tag)
+// Abgeschaltet auf Entscheidung des Nutzers (27.11.): wird nirgends mehr angeboten (das Feld knobel_tag wird nicht mehr angezeigt).
+// Die Knobel-Bordkarte nach einer gelandeten Etappe bleibt unverändert.
 function lernKnobelDesTages(d) {
   const a = d.knobelTag; if (!a) return null;
   const tag = lernHeuteTag(d.kind.id), schl = `lern.knobel.${d.kind.id}`; // Teil 6: Tag des Kindes (heute_bis), nicht UTC
@@ -1845,7 +1849,7 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, wdhFertig = false, ort =
     el('a', { class: 'lr-textlink lr-ru-link', href: `#/regeln/${kind.id}` }, 'Regel-Universum ›'), // auch im Rückfall ohne Karte erreichbar
     // KJ 2 M2: keine Mini-Linien GYM · RS · IB mehr auf der Abflugtafel (widersprachen „Mein Schuljahr“); sie bleiben unter „Meine Route 5–10“ bzw. im Linienplan
     el('div', { class: 'lr-tafelchips' }, el('a', { href: `#/reisepass/${kind.id}` }, `◎ ${d.konto?.stempel ?? 0} Stempel`), el('span', {}, 'Abflug, wann es dir passt')),
-    lernKnobelDesTages(d),
+    // „Knobeln des Tages“ abgeschaltet (Entscheidung des Nutzers 27.11.)
     wdhRest ? el('a', { class: 'lr-textlink', href: `#/wiederholen/${kind.id}` }, `Noch ${wdhRest} ${wdhRest === 1 ? 'Wiederholung' : 'Wiederholungen'} offen – wenn du magst`) : null,
     nWdh ? null : lernExtraLink(ws, kind.id),
     el('a', { class: 'lr-textlink', href: `#/lerneinheit/${kind.id}-${n.id}` }, 'Erst die Erklärungen ansehen'),
@@ -2113,7 +2117,8 @@ function lernReisekarte(d, karte, start) {
   if (z.kont === undefined || z.kont === null) z.ebene = 'welt';
   const ns = 'http://www.w3.org/2000/svg';
   const s = (tag, a = {}, ...kids) => { const e = document.createElementNS(ns, tag); for (const [k, v] of Object.entries(a)) if (v !== null && v !== undefined && v !== false) e.setAttribute(k, v); for (const c of kids.flat()) if (c !== null && c !== undefined && c !== false) e.append(c); return e; };
-  const svg = s('svg', { class: 'rk-svg', role: 'img', 'aria-label': 'Reisekarte' });
+  // Barrierefreiheit: Gruppe statt Bild – die Pins darin sind einzeln bedienbare Knöpfe (role=img würde sie verschlucken)
+  const svg = s('svg', { class: 'rk-svg', role: 'group', 'aria-label': 'Reisekarte' });
   const ebenen = { meer: s('g'), land: s('g', { class: 'rk-laender' }), kette: s('g', { class: 'rk-kette' }), route: s('g', { class: 'rk-routen' }), oben: s('g', { class: 'rk-oben' }) };
   svg.append(s('defs', {}, s('pattern', { id: 'rk-schraffur', width: 6, height: 6, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)' }, s('rect', { width: 6, height: 6, class: 'rk-schr-g' }), s('line', { x1: 0, y1: 0, x2: 0, y2: 6, class: 'rk-schr-l' })),
     s('clipPath', { id: 'rk-kreis', clipPathUnits: 'objectBoundingBox' }, s('circle', { cx: 0.5, cy: 0.5, r: 0.5 }))), ebenen.meer, ebenen.land, ebenen.kette, ebenen.route, ebenen.oben);

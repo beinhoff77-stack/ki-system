@@ -521,37 +521,27 @@
 .ru .ru-tafel-anker { display: block; height: 0; }
 .ru .ru-tafel-ziel { outline: 3px solid var(--ru-marke); outline-offset: 2px; border-radius: 10px; }
 
-/* Einstieg auf der Universum-Startseite */
-.ru .ru-tafel-station { display: grid; grid-template-columns: 48px minmax(0, 1fr) 20px; gap: 12px; align-items: center; text-decoration: none; background: var(--ru-flaeche);
-  border: 1.5px solid var(--ru-text); border-radius: 16px; padding: 10px 12px; margin: 0 0 12px; --ru-tafel-f: #B4E86A; --ru-tafel-tint: color-mix(in srgb, #B4E86A 26%, var(--ru-flaeche)); }
-.ru .ru-tafel-station:hover { background: var(--ru-flaeche2); }
-.ru .ru-tafel-station > svg { width: 48px; height: 40px; }
-.ru .ru-tafel-station b { display: block; font-size: 18px; }
-.ru .ru-tafel-station small { display: block; font-size: 15px; color: var(--ru-leise); }
-.ru .ru-tafel-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
-.ru .ru-tafel-chips span, .ru .ru-tafel-chip { font-family: var(--mono); font-size: 13px; font-weight: 700; border-radius: 8px; padding: 2px 7px; border: 1.5px solid var(--ru-linie); background: var(--ru-flaeche2); white-space: nowrap; }
-.ru .ru-tafel-chip { display: inline-block; margin-top: 4px; }
+/* „Auf einen Blick“: Tafeln ganz oben im Gebiet bzw. bei der Sonne (Wunsch des Nutzers 28.11.: kein eigener Reiter) */
+.ru [data-gebiet="sonne"] { --ru-tafel-f: #FFD23F; }
+.ru .ru-blick { margin: 4px 0 16px; }
+.ru .ru-blick > h2 { display: flex; align-items: center; gap: 6px; margin: 0 0 8px; }
+.ru .ru-blick-sym { width: 16px; height: 12px; flex: none; vertical-align: -1px; }
+.ru .ru-blick-liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.ru .ru-blick-k { display: grid; grid-template-columns: 48px minmax(0, 1fr) 20px; gap: 12px; align-items: center; text-decoration: none; color: var(--ru-text); background: var(--ru-flaeche);
+  border: 1.5px solid var(--ru-linie); border-left: 8px solid var(--ru-tafel-f); border-radius: 16px; padding: 10px 12px 10px 10px; min-height: 64px; box-sizing: border-box; }
+.ru .ru-blick-k:hover { border-color: var(--ru-text); border-left-color: var(--ru-tafel-f); }
+.ru .ru-blick-k:focus-visible, .ru .ru-blick-unter a:focus-visible { outline: 3px solid var(--ru-marke); outline-offset: 2px; }
+.ru .ru-blick-k > svg { width: 48px; height: 40px; color: var(--ru-text); }
+.ru .ru-blick-t b { display: block; font-size: 17px; line-height: 1.25; }
+.ru .ru-blick-t small { display: block; font-size: 14px; color: var(--ru-leise); line-height: 1.3; }
+.ru .ru-tafel-chip { display: inline-block; margin-top: 4px; font-family: var(--mono); font-size: 13px; font-weight: 700; border-radius: 8px; padding: 2px 7px; border: 1.5px solid var(--ru-linie); background: var(--ru-flaeche2); white-space: nowrap; }
 .ru .ru-tafel-pf { font-size: 24px; color: var(--ru-leise); }
-@media (min-width: 900px) { .ru .ru-universum .ru-tafel-station { max-width: 760px; } }
-/* Umschalter mit drittem Teil „Tafeln“; die große Karte nur, wo Platz ist (am Handy blieben sonst nicht sechs Gebiete im ersten Bildschirm) */
-.ru .ru-umschalter:has(.ru-umsch-tafeln) { grid-template-columns: 1fr 1.7fr 1fr; }
-.ru .ru-umsch-tafeln::before { content: ""; width: 16px; height: 12px; margin-right: 6px; flex: none; border-radius: 3px; border: 2px solid currentColor; box-shadow: 4px 4px 0 -1px var(--ru-flaeche2), 4px 4px 0 1px currentColor; }
-@media (max-width: 699px) { .ru .ru-universum .ru-tafel-station { display: none; } }
-
-/* Übersicht der Tafeln */
-.ru .ru-tafel-kacheln { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 14px; }
-.ru .ru-tafel-kachel { display: grid; grid-template-columns: 64px minmax(0, 1fr) 20px; gap: 12px; align-items: center; text-decoration: none; background: var(--ru-flaeche);
-  border: 1.5px solid var(--ru-linie); border-left: 8px solid var(--ru-tafel-f); border-radius: 16px; padding: 12px 12px 12px 10px; min-height: 84px; }
-.ru .ru-tafel-kachel:hover { border-color: var(--ru-text); border-left-color: var(--ru-tafel-f); }
-.ru .ru-tafel-kachel > svg { width: 64px; height: 52px; color: var(--ru-text); }
-.ru .ru-tafel-kachel b { display: block; font-size: 19px; line-height: 1.2; }
-.ru .ru-tafel-kachel small { display: block; font-size: 15px; color: var(--ru-leise); }
-.ru .ru-tafel-kachel.ru-tafel-klein { min-height: 64px; grid-template-columns: 48px minmax(0, 1fr) 20px; }
-.ru .ru-tafel-kachel.ru-tafel-klein > svg { width: 48px; height: 40px; }
-.ru .ru-tafel-kachel.ru-tafel-klein b { font-size: 17px; }
-.ru .ru-tafel-kachel.ru-tafel-klein .ru-tafel-chip { display: none; }
-.ru .ru-tafel-zw { font-size: 15px; color: var(--ru-leise); margin: 18px 2px 0; }
-@media (min-width: 700px) { .ru .ru-tafel-kacheln { grid-template-columns: repeat(2, 1fr); } }
+.ru .ru-blick-unter { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 6px 0 0 18px; }
+.ru .ru-blick-unter a { font-size: 15px; font-weight: 700; color: var(--ru-text); min-height: 44px; display: inline-flex; align-items: center; }
+.ru .ru-blick-unter { margin-top: 0; }
+.ru .ru-blick-hinweis { display: inline-flex; align-items: center; gap: 3px; margin-left: 6px; padding: 0 6px; border: 1.2px solid var(--ru-linie); border-radius: 999px; font-size: 12px; font-weight: 700; line-height: 18px; white-space: nowrap; vertical-align: 1px; }
+.ru .ru-blick-hinweis .ru-blick-sym { width: 13px; height: 10px; opacity: .85; }
+@media (min-width: 700px) { .ru .ru-blick-liste { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* Kopf einer Tafel: Klassenfilter und Drucken */
 .ru .ru-tafel-kopf { margin-bottom: 10px; }

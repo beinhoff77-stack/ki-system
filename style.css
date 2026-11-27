@@ -6056,3 +6056,12 @@ body.rk-kopf-oben:has(#tabs[hidden]) { padding-bottom: 0; }
 .lr-ru-reiter { grid-template-columns: 1fr 1fr; margin: 4px 0 14px; }
 .lr-ru-reiter a { min-height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 99px; color: var(--lr-text); font-weight: 800; text-decoration: none; font-size: .95rem; }
 .lr-ru-reiter a.on { background: var(--lr-akzent); color: var(--lr-auf-akzent); }
+/* 0.96.0: „Was kommt wann wieder?“ im Menü der Kinderseite (lag nur auf der abgeschalteten Abflugtafel) – aufklappbar wie die Einträge darüber */
+.lr-blatt-liste .lr-wdh-erklaert { margin: 0; border: 0; background: transparent; padding: 0; }
+.lr-blatt-liste .lr-wdh-erklaert > summary { color: var(--lr-text); min-height: 56px; display: flex; align-items: center; padding: 0 14px; border-radius: 12px; font-size: 20px; font-weight: 600; cursor: pointer; list-style: none; }
+.lr-blatt-liste .lr-wdh-erklaert > summary::-webkit-details-marker { display: none; }
+.lr-blatt-liste .lr-wdh-erklaert > summary::after { content: "▾"; margin-left: 8px; font-size: 16px; opacity: .7; }
+.lr-blatt-liste .lr-wdh-erklaert[open] > summary::after { content: "▴"; }
+.lr-blatt-liste .lr-wdh-erklaert > summary:focus-visible { outline: 3px solid var(--lr-akzent); outline-offset: -3px; }
+.lr-blatt-liste .lr-wdh-erklaert > p { margin: 0 14px 10px; font-size: 15px; line-height: 1.45; color: var(--lr-text); }
+.lr-blatt[open] { max-height: 92dvh; overflow: auto; }

@@ -125,6 +125,7 @@ function bauen() {
     gesetze: gesetze.length, zeichnungen: Object.keys(zeichnungen).length, luecken, einzelregeln: einzel.length, kurz: Object.keys(kurz).length,
     aufgaben: Object.fromEntries(Object.entries(lehrer).map(([k, v]) => [k, v.aufgaben.length])) };
   assert.deepEqual([zahlen.regeln, zahlen.schichten, zahlen.gebiete, zahlen.ideen, zahlen.arbeitsweisen, zahlen.luecken, zahlen.einzelregeln, zahlen.kurz], [14, 4, 7, 28, 8, 25, 30, 42]);
+  for (const t of daten.tafeln) { assert.ok(t.gebiete && t.gebiete.length, t.id + ': gebiete'); for (const g of t.gebiete) assert.ok(g === 'Sonne' || planeten.some((p) => p.name === g), t.id + ': Gebiet ' + g); }
   zahlen.tafeln = daten.tafeln.length; assert.equal(zahlen.tafeln, 9); // Tafeln (Gesamtübersicht Formeln + 8) getrennt gezählt, keine Regel-Nummer (einheiten/vorschlag.md, Abschnitt 5)
   return { text: text + '\n', zahlen };
 }

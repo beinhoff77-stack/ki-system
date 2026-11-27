@@ -206,16 +206,16 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
   const fehlerTeile = (t) => (t || '').split(/\s*Und:\s*/).filter(Boolean);
   const fehlerListe = (t) => `<ul class="ru-fehlerliste">${fehlerTeile(t).map((x) => `<li>${x.charAt(0).toUpperCase() + x.slice(1)}</li>`).join('')}</ul>`;
   const VERGLEICH_OFFEN = false; // Stufe 4 standardmäßig zu (umsetzung7.md, Abschnitt 3: gemessen fast oder mehr als eine Bildschirmhöhe)
-  const umschalter = (an) => `<nav class="ru-umschalter" aria-label="Ansicht"><a href="${Z('universum')}"${an === 'aufbau' ? ' aria-current="page"' : ''}>Aufbau</a><a href="${Z('klassen')}"${an === 'klassen' ? ' aria-current="page"' : ''}>Durch die Klassen</a>${D.tafeln && D.tafeln.length ? `<a class="ru-umsch-tafeln" href="${Z('tafeln')}"${an === 'tafeln' ? ' aria-current="page"' : ''}>Tafeln</a>` : ''}</nav>`;
-  // Tafeln zum Nachschlagen: dritter Teil des Umschalters (am Handy der Einstieg im ersten Bildschirm, ohne die Gebiete nach unten zu schieben), am Rechner zusätzlich die Karte (tafelEinstieg)
+  const umschalter = (an) => `<nav class="ru-umschalter" aria-label="Ansicht"><a href="${Z('universum')}"${an === 'aufbau' ? ' aria-current="page"' : ''}>Aufbau</a><a href="${Z('klassen')}"${an === 'klassen' ? ' aria-current="page"' : ''}>Durch die Klassen</a></nav>`;
+  // Tafeln zum Nachschlagen (Wunsch des Nutzers 28.11.): kein eigener Reiter mehr – jede Tafel steht ganz oben in ihrem Gebiet („Auf einen Blick“, Zuordnung aus den Daten: tafel.gebiete)
   // Eltern/Lehrer sehen die Kinderseite: schmale Leiste mit dem Weg zurück zum Blatt
   const elternBand = (rid) => (ansicht === 'ansicht' ? `<div class="ru-lehrer-band ru-band-kind"><span>So sieht es das Kind</span><a class="ru-verweis" href="${rid ? '#/regeln/lehrer-' + rid.toLowerCase() : '#/regeln'}">${rid ? 'Blatt für Eltern und Lehrer ›' : 'Alle Regeln (Eltern und Lehrer) ›'}</a></div>` : '');
 
   // Ebene 0: das Universum – nur die großen Teile, je eine antippbare Fläche
   function sichtUniversum() {
-    const bahnen = PLANETEN.map((p, n) => `<li class="ru-bahn0${n % 2 ? ' ru-rechts' : ''}"><a class="ru-planet0" href="${Z(adr.gebiet(p.name))}">${planetScheibe(p.name, 44)}<span><b>${esc(p.name)}</b><small>${p.ideen.length} tragende Ideen</small></span></a></li>`).join('');
-    return `<div class="ru-breite ru-schmal ru-start ru-universum">${elternBand()}<h1 class="ru-titel">Regel-Universum</h1><p class="ru-lead">Alle festen Regeln der Mathematik, Klasse 5 bis 10. Tippe auf einen Teil.</p>${umschalter('aufbau')}${tafelEinstieg()}
-      <a class="ru-sonne0" href="${Z('sonne')}"><span class="ru-s0-kreis" aria-hidden="true"></span><span class="ru-s0-text"><small>Die Sonne · die Grundlage</small><b>14 Rechenregeln</b><small>gelten in jedem Gebiet und jeder Klasse</small></span></a>
+    const bahnen = PLANETEN.map((p, n) => `<li class="ru-bahn0${n % 2 ? ' ru-rechts' : ''}"><a class="ru-planet0" href="${Z(adr.gebiet(p.name))}">${planetScheibe(p.name, 44)}<span><b>${esc(p.name)}${blickHinweis(p.name)}</b><small>${p.ideen.length} tragende Ideen</small></span></a></li>`).join('');
+    return `<div class="ru-breite ru-schmal ru-start ru-universum">${elternBand()}<h1 class="ru-titel">Regel-Universum</h1><p class="ru-lead">Alle festen Regeln der Mathematik, Klasse 5 bis 10. Tippe auf einen Teil.</p>${umschalter('aufbau')}
+      <a class="ru-sonne0" href="${Z('sonne')}"><span class="ru-s0-kreis" aria-hidden="true"></span><span class="ru-s0-text"><small>Die Sonne · die Grundlage</small><b>14 Rechenregeln</b><small>gelten in jedem Gebiet und jeder Klasse${blickHinweis('Sonne')}</small></span></a>
       <p class="ru-u-zwischen">Darum die sieben Gebiete:</p>
       <ol class="ru-bahnen0">${bahnen}</ol>
       <a class="ru-guertel0" href="${Z('weisen')}"><b>8 Arbeitsweisen</b><small>wie man vorgeht – gilt überall</small></a>${systemBild()}</div>`;
@@ -240,7 +240,7 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
   // Ebene 1: die Sonne – die 14 Rechenregeln in vier Schichten (Name, Band, Merksatz)
   function sichtSonne() {
     const schichten = [1, 2, 3, 4].map((nr) => `<li class="ru-schicht ru-s${nr}"><div class="ru-schicht-kopf" id="ru-schicht-${nr}">${ringBild(nr)}<span class="ru-sk-nr">Schicht ${nr}</span><b>${esc(ETAGE[nr])}</b>${ae('Schicht', nr, ETAGE[nr], 'name')}</div><ul class="ru-zeilen">${D.regeln.filter((r) => r.etage === nr).map((r) => `<li><a class="ru-zeile ru-mit-satz" href="${Z(adr.regel(r.id))}"><span class="ru-z-nr">${r.nr}</span><span class="ru-z-text"><span class="ru-z-name">${esc(r.name)}</span><span class="ru-z-merk">${satzZeile(r.satz)}</span></span>${band(r.id)}</a></li>`).join('')}</ul></li>`).join('');
-    return `<div class="ru-breite ru-schmal ru-start">${elternBand()}${pfad()}<header class="ru-e-kopf"><span class="ru-s0-mini" aria-hidden="true"></span><div><p class="ru-ueber">Die Sonne</p><h1>14 Rechenregeln</h1></div></header>
+    return `<div class="ru-breite ru-schmal ru-start">${elternBand()}${pfad()}<header class="ru-e-kopf"><span class="ru-s0-mini" aria-hidden="true"></span><div><p class="ru-ueber">Die Sonne</p><h1>14 Rechenregeln</h1></div></header>${aufEinenBlick('Sonne')}
       <p class="ru-lead">In vier Schichten, von den Grundlagen nach außen. Die Schichten ordnen, sie sperren nichts.</p>${sonnenSchnitt()}
       ${LEGENDE}<ol class="ru-schichten">${schichten}</ol>
       <a class="ru-verweis ru-weiter" href="${Z('klassen')}">Dieselben Regeln durch die Klassen ›</a></div>`;
@@ -248,7 +248,7 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
   // Ebene 1: ein Gebiet – seine tragenden Ideen mit Merksatz und Band
   function sichtGebiet(name) {
     const p = PLANET[name], n = PLANETEN.indexOf(p), vor = PLANETEN[n - 1], nach = PLANETEN[n + 1];
-    return `<div class="ru-breite ru-schmal ru-start">${elternBand()}${pfad()}<header class="ru-e-kopf">${planetScheibe(p.name, 48)}<div><p class="ru-ueber">Gebiet ${n + 1} von 7</p><h1>${esc(p.name)}</h1></div></header>
+    return `<div class="ru-breite ru-schmal ru-start">${elternBand()}${pfad()}<header class="ru-e-kopf">${planetScheibe(p.name, 48)}<div><p class="ru-ueber">Gebiet ${n + 1} von 7</p><h1>${esc(p.name)}</h1></div></header>${aufEinenBlick(p.name)}
       <p class="ru-lead">${p.ideen.length} tragende Ideen. Hinter ihnen stehen ${I.zahlGesetze(p)} einzelne Regeln und Formeln.</p>${aeZeile(ae('Gebiet', p.kuerzel, p.name, 'name und Ideen'))}${LEGENDE}
       <ol class="ru-ideen1">${p.ideen.map((i) => `<li><a class="ru-idee1" href="${Z(adr.idee(i.id))}"><span class="ru-z-nr">${i.nr}</span><span class="ru-i1-text"><span class="ru-i1-name">${esc(i.kurz)}</span><span class="ru-i1-satz">${i.satz}</span></span>${band(i.id)}</a></li>`).join('')}</ol>
       ${blaettern(vor && { href: Z(adr.gebiet(vor.name)), ueber: 'Gebiet ' + n, name: vor.name }, nach && { href: Z(adr.gebiet(nach.name)), ueber: 'Gebiet ' + (n + 2), name: nach.name })}</div>`;
@@ -446,22 +446,31 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
   const tfGebiet = (t) => (PLANET[t.gebiet] ? PLANET[t.gebiet].kuerzel : '');
   function tafelSeite(t, inhalt, lead, eltern) {
     tfNr = 0;
-    return `<div class="ru-breite ru-schmal ru-start ru-tafel-seite" data-tafel="${t.id}" data-gebiet="${tfGebiet(t)}">${elternBand()}${pfad(`<a href="${Z(adr.tafeln())}">Tafeln</a>`, eltern ? `<a href="${Z(adr.tafel('formeln'))}">Formeln</a>` : '')}
+    return `<div class="ru-breite ru-schmal ru-start ru-tafel-seite" data-tafel="${t.id}" data-gebiet="${tfGebiet(t)}">${elternBand()}${pfad(gebietKrume(t), eltern ? `<a href="${Z(adr.tafel('formeln'))}">Formeln</a>` : '', `<span aria-current="page">${esc(t.titel)}</span>`)}
       <header class="ru-tafel-kopf">${aeKopf(`<h1 class="ru-titel">${esc(t.titel)}</h1>`, tfAe(t, '', t.titel, 'ganze Tafel'))}${lead ? `<p class="ru-lead">${lead}</p>` : ''}${werkzeug()}</header>${inhalt}</div>`;
   }
 
-  // ---------- Übersicht aller Tafeln ----------
-  const HAUPT = ['formeln', 'einheiten', 'zahlen', 'stellenwert', 'bruch-dezimal-prozent', 'figuren', 'zeichen-woerter'];
-  const kachel = (t, klein) => `<a class="ru-tafel-kachel${klein ? ' ru-tafel-klein' : ''}" data-gebiet="${tfGebiet(t)}" href="${Z(adr.tafel(t.id))}">${t.ikon}<span><b>${esc(t.titel)}</b><small>${esc(t.kurz)}</small><span class="ru-tafel-chip">${esc(t.chip)}</span></span><span class="ru-tafel-pf" aria-hidden="true">›</span></a>`;
-  function sichtTafeln() {
-    const tf = HAUPT.filter((id) => TAFEL[id]).map((id) => TAFEL[id]);
-    return `<div class="ru-breite ru-schmal ru-start ru-tafel-start">${elternBand()}${pfad('<span>Tafeln</span>')}${aeKopf('<h1 class="ru-titel">Tafeln zum Nachschlagen</h1>', ae('Tafel', 'Übersicht', 'Tafeln zum Nachschlagen', 'Auswahl und Reihenfolge'))}
-      <p class="ru-lead">Alles auf einen Blick – zum schnellen Nachschauen und zum Ausdrucken.</p>${umschalter('tafeln')}
-      <div class="ru-tafel-kacheln">${tf.map((t) => kachel(t)).join('')}</div>
-      <p class="ru-tafel-zw">Einzelheiten zu den Formeln:</p><div class="ru-tafel-kacheln">${['formeln-flaechen', 'formeln-koerper'].filter((id) => TAFEL[id]).map((id) => kachel(TAFEL[id], true)).join('')}</div></div>`;
+  // ---------- „Auf einen Blick“: Tafeln im Gebiet (bzw. bei der Sonne) – Zuordnung aus den Daten (tafel.gebiete, tafel.unter) ----------
+  // Dazu die Zeilen aus „Was man sonst noch braucht“ (Formeln), deren Einzelregel in diesem Gebiet liegt und deren Tafel nicht schon hier steht.
+  const blickTafeln = (name) => I.TAFELN.filter((t) => (t.gebiete || []).includes(name) && !t.unter);
+  const blickSonst = (name) => (TAFEL.formeln && !blickTafeln(name).includes(TAFEL.formeln) ? (TAFEL.formeln.sonst || []).filter((z) => z.gesetz && GESETZ[z.gesetz] && GESETZ[z.gesetz].planet === name) : []);
+  const blickZahl = (name) => blickTafeln(name).length + (blickSonst(name).length ? 1 : 0);
+  const TAFEL_SYM = '<svg class="ru-blick-sym" viewBox="0 0 16 12" aria-hidden="true"><rect x="1" y="1" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M1 4.5H15M6 4.5V11" stroke="currentColor" stroke-width="1.4"/></svg>';
+  // Startseite: kleines Tafel-Zeichen mit Zahl in der Zeile des Gebiets (ausgeschrieben für Screenreader und als Titel) – die Zeile bleibt einzeilig, alle Gebiete im ersten Bildschirm
+  const blickHinweis = (name) => { const n = blickZahl(name); const w = `${n} ${n === 1 ? 'Übersicht' : 'Übersichten'}`; return n ? ` <span class="ru-blick-hinweis" title="${w}">${TAFEL_SYM}${n}<span class="ru-unsichtbar"> ${n === 1 ? 'Übersicht' : 'Übersichten'}</span></span>` : ''; };
+  const gebietFarbe = (name) => (PLANET[name] ? PLANET[name].kuerzel : 'sonne');
+  function aufEinenBlick(name) {
+    const tl = blickTafeln(name), so = blickSonst(name); if (!tl.length && !so.length) return '';
+    const karte = (href, t, titel, klein, chip) => `<a class="ru-blick-k" href="${href}">${t.ikon}<span class="ru-blick-t"><b>${esc(titel)}</b><small>${klein}</small>${chip ? `<span class="ru-tafel-chip">${esc(chip)}</span>` : ''}</span><span class="ru-tafel-pf" aria-hidden="true">›</span></a>`;
+    const eintraege = tl.map((t) => { const unter = I.TAFELN.filter((u) => u.unter === t.id && (u.gebiete || []).includes(name));
+      return `<li class="ru-blick-e">${karte(Z(adr.tafel(t.id)), t, t.titel, esc(t.kurz), t.chip)}${unter.length ? `<p class="ru-blick-unter">${unter.map((u) => `<a href="${Z(adr.tafel(u.id))}">${esc(u.titel.replace(/^Formeln: /, ''))} im Einzelnen ›</a>`).join('')}</p>` : ''}</li>`; });
+    if (so.length) { const f = TAFEL.formeln, ziel = so.length === 1 ? adr.tafel('formeln', 'so-' + so[0].gesetz.toLowerCase()) : adr.tafel('formeln', 'sonst');
+      eintraege.push(`<li class="ru-blick-e">${karte(Z(ziel), f, f.titel + ' · Was man sonst noch braucht', so.map((z) => esc(GESETZ[z.gesetz].name)).join(' · '), '')}</li>`); }
+    return `<section class="ru-blick" data-gebiet="${esc(gebietFarbe(name))}" aria-labelledby="ru-blick-kopf"><h2 class="ru-ueber" id="ru-blick-kopf">${TAFEL_SYM}Auf einen Blick</h2><ul class="ru-blick-liste">${eintraege.join('')}</ul></section>`;
   }
-  // Einstieg auf der Universum-Startseite (entwurf1, Bild 01)
-  const tafelEinstieg = () => (I.TAFELN.length ? `<a class="ru-tafel-station" href="${Z(adr.tafeln())}">${TAFEL.einheiten ? TAFEL.einheiten.ikon : ''}<span><b>Tafeln zum Nachschlagen</b><small>Alles auf einen Blick</small><span class="ru-tafel-chips"><span>km · m · cm</span><span>A = a · b</span><span>V = a · b · c</span></span></span><span class="ru-tafel-pf" aria-hidden="true">›</span></a>` : '');
+  // Brotkrumen einer Tafel: das Gebiet, aus dem man kam (wenn die Tafel dort steht), sonst das erste ihrer Gebiete
+  const gebietKrume = (t) => { const gs = t.gebiete || []; const von = zustand.gebiet && (gs.includes(zustand.gebiet) || (t.id === 'formeln' && blickSonst(zustand.gebiet).length)) ? zustand.gebiet : gs[0];
+    return !von ? '' : von === 'Sonne' ? `<a href="${Z('sonne')}">Sonne</a>` : PLANET[von] ? `<a href="${Z(adr.gebiet(von))}">${esc(von)}</a>` : ''; };
   // Verweis von Regel, Idee oder Einzelregel auf die passende Tafel
   const tafelVerweis = (ids) => { const v = I.tafelnZu(ids); return v.length ? `<nav class="ru-tafel-verweise" aria-label="Tafeln zum Nachschlagen">${v.map((x) => `<a class="ru-verweis ru-tafel-v" href="${Z(x.ziel)}"><span class="ru-nr">Tafel</span>${esc(x.t.id === 'formeln-flaechen' || x.t.id === 'formeln-koerper' ? TAFEL.formeln.titel : x.t.titel)}${x.teil ? ' › ' + esc(x.teil.titel) : ''}</a>`).join('')}</nav>` : ''; };
 
@@ -704,7 +713,7 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
     if ((m = h.match(/^idee-([a-z]+-\d+)$/)) && IDEE['I-' + m[1]]) return sichtIdee('I-' + m[1]);
     if ((m = h.match(/^weise-(\d)$/)) && D.arbeitsweisen[m[1] - 1]) return sichtWeise(+m[1]);
     if ((m = h.match(/^regel-([a-z]+\d+)$/)) && GESETZ[m[1].toUpperCase()]) return sichtGesetz(m[1].toUpperCase());
-    if (h === 'tafeln') return sichtTafeln();
+    if (h === 'tafeln') return sichtUniversum(); // alte Übersicht der Tafeln (Reiter entfallen): Startseite des Universums (ruZeigen setzt die Adresse um)
     if ((m = h.match(/^tafel-([a-z-]+?)(?:\.[a-z0-9-]+)?$/)) && TAFEL[m[1]]) return sichtTafel(m[1]);
     if (h === 'suche') return sichtSuche();
     if (h === 'sonne') return sichtSonne();
@@ -713,7 +722,7 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
     if ((m = h.match(/^klassen(?:-(\d+))?$/))) { if (m[1] && KL.includes(+m[1])) zustand.klasse = +m[1]; return sichtKlassen(); }
     return sichtUniversum();
   }
-  return { seite };
+  return { seite, gebietName: (k) => KUERZEL_ZU[k] || null };
 }
 
 // ===================== In der App: Laden, Kopf, Rahmen, Rückmeldung =====================
@@ -857,6 +866,10 @@ function ruTafelSprung(seite, anker) {
 }
 function ruZeigen(h) {
   const { seite, sichten, feld } = ruAktiv;
+  if (h === 'tafeln') { history.replaceState(null, '', ruAktiv.ziel('universum')); h = 'universum'; } // alte Route der Tafel-Übersicht → Startseite
+  // Gebiet, aus dem man kommt (Brotkrumen der Tafeln): Gebiet oder Sonne; Tafel-Seiten behalten es, alles andere setzt es zurück
+  const gm = h.match(/^gebiet-([a-z]+)$/);
+  if (gm) ruZustand.gebiet = (ruAktiv.sichten.gebietName || (() => null))(gm[1]); else if (h === 'sonne') ruZustand.gebiet = 'Sonne'; else if (!h.startsWith('tafel-')) ruZustand.gebiet = null;
   seite.innerHTML = sichten.seite(h);
   const e = ruEbene(h), vorher = ruLetzte;
   ruAktiv.wurzel.classList.toggle('ru-weltraum', e <= 1 && h !== 'liste');

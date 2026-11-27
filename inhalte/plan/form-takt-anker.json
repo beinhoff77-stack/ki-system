@@ -102,6 +102,12 @@
   "soll": 1
  },
  {
+  "f": "schule.uebung_pruefen_intern(bigint, jsonb)",
+  "alt": "k.lernziel = a.variante_gruppe)));",
+  "neu": "k.lernziel = a.variante_gruppe), 'bearbeitungen', schule.karte_bearbeitungen(p_lernender, a.einheit_id, a.variante_gruppe)));",
+  "soll": 1
+ },
+ {
   "f": "schule.etappen_stand(bigint, bigint)",
   "alt": "'schwer_ok', coalesce(k.schwer_ok, false), 'schwer_noetig'",
   "neu": "'schwer_ok', coalesce(k.schwer_ok, false), 'anwenden_noetig', schule.karte_anwenden_pflicht(k, p_einheit, z.lz), 'anwenden_ok', coalesce(schule.karte_anwenden_ok(k), false),\n           'bearbeitungen', schule.karte_bearbeitungen(p_lernender, p_einheit, z.lz), 'schwer_noetig'",

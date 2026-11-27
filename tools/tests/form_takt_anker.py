@@ -11,6 +11,7 @@ zweite Lauf „fertig“ nicht), (4) nach dem Einbau: alt 0-mal, neu wie erwarte
 Aufruf:  python3 -I tools/tests/form_takt_anker.py            -> Prüfung, Ausgabe OK oder Fehler
          python3 -I tools/tests/form_takt_anker.py --tabelle  -> Markdown-Tabelle aller Anker (für den Bericht)
          python3 -I tools/tests/form_takt_anker.py --zeige schule.karte_landet  -> rekonstruierter Text
+         python3 -I tools/tests/form_takt_anker.py --json     -> schreibt inhalte/plan/form-takt-anker.json (Anker-Liste für die Live-Zählung)
 """
 import re
 from pathlib import Path
@@ -264,6 +265,10 @@ def main():
     import sys
     stand = rekonstruieren(None)
     plan = plan_lesen()
+    if '--json' in sys.argv:
+        import json
+        d = [{'f': s, 'alt': a, 'neu': n, 'soll': k} for s, p in plan for a, n, k in p]
+        (WURZEL / 'inhalte/plan/form-takt-anker.json').write_text(json.dumps(d, indent=1, ensure_ascii=False), encoding='utf-8'); print(len(d), 'Anker geschrieben'); return
     if '--zeige' in sys.argv:
         x = finde(stand, sys.argv[sys.argv.index('--zeige') + 1]); print('\n'.join(x['log'])); print(x['text']); return
     fehler, zeilen, n_anker = [], [], 0

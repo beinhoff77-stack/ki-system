@@ -56,7 +56,7 @@ Neu (create or replace, Rechte entzogen für public, anon, authenticated): `aufg
 
 ## (c) Tabelle ALLER Anker (zum Zählen gegen die Live-Datenbank)
 
-19 Anker in 17 Funktionen. Gezählt wird im Text von `pg_get_functiondef(...)`, so wie es das Paket tut: `(length(d) - length(replace(d, alt, ''))) / length(alt)`. Erwartet ist der Zustand „alt“; „neu“ muss 0-mal vorkommen. ⏎ = Zeilenumbruch (kommt nicht vor). Erzeugt mit `python3 -I tools/tests/form_takt_anker.py --tabelle`.
+20 Anker in 17 Funktionen (Nr. 18 ist neu, Nachtrag 1032 – siehe Abschnitt Nachträge). Gezählt wird im Text von `pg_get_functiondef(...)`, so wie es das Paket tut: `(length(d) - length(replace(d, alt, ''))) / length(alt)`. Erwartet ist der Zustand „alt“; „neu“ muss 0-mal vorkommen. ⏎ = Zeilenumbruch (kommt nicht vor). Erzeugt mit `python3 -I tools/tests/form_takt_anker.py --tabelle`.
 
 | Nr | Funktion (Signatur) | alter Text (wörtlich) | erwartet | Rekonstruktion |
 |---|---|---|---|---|
@@ -77,8 +77,9 @@ Neu (create or replace, Rechte entzogen für public, anon, authenticated): `aufg
 | 15 | `schule.wdh_aufgabe_da(bigint, bigint, text)` | `where a.einheit_id = p_e and` | 1 | voll (20261122_wd_s4_nacharbeit_921.sql) |
 | 16 | `schule.wdh_aufgabe_da(bigint, text)` | `where a.einheit_id = p_e and` | 1 | voll (20261122_wd_s_wiederholungen.sql) |
 | 17 | `schule.uebung_pruefen_intern(bigint, jsonb)` | `'schwer_ok', k.schwer_ok, 'schwer_noetig'` | 1 | voll (20261116_w150_r2_fehlermuster_zweiter_versuch.sql) |
-| 18 | `schule.etappen_stand(bigint, bigint)` | `'schwer_ok', coalesce(k.schwer_ok, false), 'schwer_noetig'` | 1 | voll (20261114_w150_lernkarten_meisterschaft.sql) |
-| 19 | `schule.einheit_lesen_intern(bigint, bigint)` | `'heute_tag', schule.heute_tag(p_lernender), 'heute_bis'` | 1 | TEIL (–) |
+| 18 | `schule.uebung_pruefen_intern(bigint, jsonb)` | `k.lernziel = a.variante_gruppe)));` | 1 | voll (20261116_w150_r2_fehlermuster_zweiter_versuch.sql) |
+| 19 | `schule.etappen_stand(bigint, bigint)` | `'schwer_ok', coalesce(k.schwer_ok, false), 'schwer_noetig'` | 1 | voll (20261114_w150_lernkarten_meisterschaft.sql) |
+| 20 | `schule.einheit_lesen_intern(bigint, bigint)` | `'heute_tag', schule.heute_tag(p_lernender), 'heute_bis'` | 1 | TEIL (–) |
 
 Zum Zählen nur lesend, z. B. je Zeile:
 `select (length(d) - length(replace(d, '<alt>', ''))) / length('<alt>') from (select pg_get_functiondef('<Signatur>'::regprocedure) d) x;` (einfache Anführungszeichen im alten Text verdoppeln).
@@ -109,7 +110,7 @@ Zum Zählen nur lesend, z. B. je Zeile:
 | dito | `anwenden_noetig` | true = für DIESE Karte gilt die Sachaufgaben-Pflicht (nie gelandet und es gibt eine freigegebene, zählende Sachaufgabe) |
 | dito | `anwenden_ok` | true = eine Sachaufgabe ist schon gezählt |
 
-„Sachaufgabe fehlt noch“ zeigen: `anwenden_noetig and not anwenden_ok` und alle übrigen Bedingungen erfüllt (eigene_loesungen ≥ ziel, typen_anzahl ≥ typen_noetig, schwer_ok oder nicht schwer_noetig, folge ≥ folge_ziel). Dann eine ungelöste Übung der Lernkarte mit `typ` in (`einkleidung`, `transfer`, `pruefung`) und `zaehlt` ≠ `nein` vorlegen. Hinweis: `zaehlt` = `nein` ändert an `karte` nichts; existiert für die Lernkarte noch keine Zeile, fehlt `karte` in der Antwort ganz.
+„Sachaufgabe fehlt noch“ zeigen: `anwenden_noetig and not anwenden_ok` und alle übrigen Bedingungen erfüllt (eigene_loesungen ≥ ziel, typen_anzahl ≥ typen_noetig, schwer_ok oder nicht schwer_noetig, folge ≥ folge_ziel). Dann eine ungelöste Übung der Lernkarte mit `typ` in (`einkleidung`, `transfer`, `pruefung`) und `zaehlt` ≠ `nein` vorlegen. Hinweis: `zaehlt` = `nein` ändert an `karte` nichts; existiert für die Lernkarte noch keine Zeile, fehlt `karte` in der Antwort ganz. **Überholt bzw. ergänzt durch die Nachträge unten:** `bearbeitungen` steht jetzt auch außerhalb von `karte`; `anwenden_noetig` ist false, solange der Schalter `anwenden_pflicht` aus ist.
 
 ## (f) Risiken und was ich NICHT prüfen konnte
 
@@ -121,3 +122,53 @@ Zum Zählen nur lesend, z. B. je Zeile:
 - Größe: Paket 38 877 Zeichen (Probe 39 003). Die Migration ist darin ohne ihre ganzzeiligen Kommentare eingebettet (sonst unverändert).
 - `rollend_sql.py`: meldet in der Übersicht OK (142 Aufgaben aus rollend-1/-2; mit `--mit-bedingung` 192). Offen: **drei Aufgaben mit `zaehlt = folge`** (A4-06, GE2-07, GE2-10) – die Übersicht meldet sie als OFFEN, `--sql` bricht ab, bis der Mathe-Profi ja/nein setzt (Inhalte habe ich nicht geändert). Sechs Flüge aus rollend-3 (127 Aufgaben) haben keine Zuordnung in `rollend-einheiten.json` und werden übersprungen. Das erzeugte SQL setzt FT-S voraus und prüft das.
 - Takt-Feld `bearbeitungen` zählt auch Antworten in der Wiederholung dieser Karte mit; wenn der Takt nur beim Üben laufen soll, muss die App das wissen (die Vorgabe sagt „Bearbeitungen an der Lernkarte“).
+
+## Nachträge nach Gegenprüfung 1030/1032
+
+Stand 27.11.2026, Helfer „Bau Server“. Nur Dateien; nichts gegen die Projektdatenbank ausgeführt.
+
+### Was geändert ist
+1. **Schalter `anwenden_pflicht`** (Aufgabe C). Neue Regel in `schule.regel`, Wert `0` (aus) beim Einspielen, `on conflict do nothing` – ein zweiter Lauf setzt einen eingeschalteten Schalter nicht zurück. Abgefragt an **einer** Stelle: in der neuen Hilfsfunktion `schule.karte_anwenden_pflicht` (`schule.wd_regel('anwenden_pflicht', 0) = 1 and …`). Diese Funktion nutzen schon `karte_landet` (Landeregel) und beide Ausgaben `anwenden_noetig` (`uebung_pruefen_intern.karte`, `etappen_stand`). Darum war kein weiterer Text-Patch nötig. Das ist kleiner als ein eigener Schalter in `karte_landet` und in beiden Ausgaben (drei Stellen, drei neue Anker).
+   - Aus (0): keine Sachaufgaben-Pflicht, `anwenden_noetig` = false überall; `anwenden_ok` wird weiter gemeldet.
+   - **Einschalten (ein Befehl, mit der App 0.94.0):** `update schule.regel set wert = '1'::jsonb where schluessel = 'anwenden_pflicht';`
+   - Ausschalten entsprechend mit `'0'::jsonb`. Erlaubt sind nur 0 und 1; jeder andere Wert gilt als aus.
+2. **`bearbeitungen` außerhalb von `karte`** (Aufgabe B). Antwort: **nein**, vorher kam `bearbeitungen` nur in `karte` mit. Nach der ersten nicht zählenden Aufgabe einer Lernkarte gibt es noch keine Kartenzeile, also fehlte `karte` und mit ihr der Stand. Neu: ein zweiter Text-Patch in `uebung_pruefen_intern`, im letzten `return` (normale Übung mit Lösung) am Ende des Objekts:
+   - alt `k.lernziel = a.variante_gruppe)));` (1-mal)
+   - neu `k.lernziel = a.variante_gruppe), 'bearbeitungen', schule.karte_bearbeitungen(p_lernender, a.einheit_id, a.variante_gruppe)));`
+   - Das ist Anker **Nr. 18** (die Nummern 18/19 von vorher heißen jetzt 19/20). `inhalte/plan/form-takt-anker.json` ist neu erzeugt (`form_takt_anker.py --json`, 20 Einträge). `karte.bearbeitungen` bleibt.
+   - Gilt NICHT für: ersten Fehlversuch mit „nochmal“, wiederholte Übertragung (`wiederholt`), Mischkarte, Knobel, Expedition. Diese Antworten haben weiter kein `bearbeitungen` (die nächste Aufgabe ist dort entweder der 2. Anlauf derselben Aufgabe oder liegt außerhalb des Takts).
+3. **Prüfpaket** (`tools/tests/form_takt_einspielen.py`): neue Abschnitte 8–12, alter Abschnitt 8 ist jetzt 13. Neue Hilfe `pg_temp.ft_antx` (Antwort mit beliebigen Zusatzfeldern, z. B. `misch`). Abschnitt 6 schaltet den Schalter in seiner Untertransaktion mit genau dem Einschalt-Befehl ein. Bestand-Vergleich (Abschnitt 3) blendet zusätzlich das neue Feld `bearbeitungen` oben aus und verlangt es bei `falsch-2` und `richtig`.
+
+### Was das Paket jetzt zusätzlich nachweist
+Alle Proben am Testkind mit im Paket angelegten Aufgaben/Lernkarten (`ft-probe-f` … `ft-probe-l`), jede in einer zurückgerollten Untertransaktion. Jede Abweichung landet in der Fehlerliste; ist sie nicht leer, bricht der Prüfblock mit `raise exception` ab (alles zurück).
+- **Abschnitt 1:** Schalter steht nach dem Einspielen auf 0.
+- **Abschnitt 4 (Aufgabe B):** erste nicht zählende Aufgabe einer neuen Lernkarte: kein `karte`, aber `bearbeitungen` = 1. Erste zählende danach: `bearbeitungen` = 2 oben und in `karte`.
+- **Abschnitt 8 (A1):** sitzende Karte, ausdrücklich fällig gemacht (`karte_faellig` = true geprüft). Aufgabe mit `zaehlt = nein` über `uebung_pruefen_wd`: richtig, endgültig falsch (1. + 2. Anlauf), mit Misch-Wunsch. Nach jeder Antwort ist die **ganze Kartenzeile** (Text der Zeile, damit auch `wdh_stufe`, `faellig_am`, `wdh_ab`, `folge`, `zuletzt`) gleich, keine Antwort enthält `wiederholung`, der Misch-Wunsch ist nicht gültig. `bearbeitungen` steigt um 1, 1, 1 (2. Anlauf zählt nicht extra). Derselbe `client_id` noch einmal: Antwort `wiederholt`, Zahl der Versuche bleibt 4, `bearbeitungen` bleibt, Zeile bleibt.
+- **Abschnitt 9 (A2):** Typ `umkehr` nur in einer Aufgabe mit `zaehlt = nein` → `karte_typen_noetig` = 1 (Gegenprobe mit `zaehlt = ja`: 2). Einzige Stufe-3-Aufgabe mit `zaehlt = nein` → `karte_schwer_noetig` = false (Gegenprobe: true). Die Karte landet mit 6 Lösungen eines Typs auf Stufe 1. Folge: richtig, richtig, nicht zählender endgültiger Fehler, richtig → Buchung 3, `folge_nachrechnen` 3 (ohne Filter wäre es 1).
+- **Abschnitt 10 (A3):** a) Sachaufgabe aus dem Bestand (`form`/`zaehlt` leer) schon in `gezaehlt`, bevor der Schalter an ist → nach dem Einschalten `karte_anwenden_pflicht` und `karte_anwenden_ok` beide true, die nächste Lösung lässt die Karte landen. b) Karte bei Schalter aus ohne Sachaufgabe gelandet, Schalter an, zwei endgültige Fehler → wieder offen (`sitzt_am` bleibt, `geoeffnet_am` gesetzt, Pflicht false), drei richtige → landet wieder ohne Sachaufgabe.
+- **Abschnitt 11 (A4):** offener erster Fehlversuch an einer zählenden Aufgabe, danach eine nicht zählende Aufgabe: der Fehlversuch wird endgültig `falsch` gebucht (Karte `falsch` 1, `fehler_folge` 1), die nicht zählende ändert nichts weiter.
+- **Abschnitt 12 (C):** Schalter aus: Karte mit freigegebener, zählender Sachaufgabe landet nach 6 Lösungen ohne sie, `anwenden_noetig` false vorher und nachher. Einschalt-Befehl → Regel 1; ein weiterer vollständiger Lauf der Migration lässt sie auf 1. Danach: keine Probe-Karte und Schalter wieder 0.
+- **Abschnitt 13:** wie bisher, die Prüfung „keine sitzende Karte hätte eine Sachaufgaben-Pflicht“ läuft jetzt bei eingeschaltetem Schalter (Untertransaktion), sonst wäre sie leer erfüllt.
+
+### Lokal geprüft (gesichert)
+- `python3 -I tools/tests/form_takt_anker.py`: OK, 17 Funktionen, 20 Anker (gegen die Rekonstruktion; `einheit_lesen_intern` weiter nur TEIL).
+- Eigene PostgreSQL-16-Instanz unter `/tmp` (nicht die Projektdatenbank): Grundtabellen von Hand nachgebaut, alle Migrationsdateien des Repos nacheinander eingespielt (Fehler an Rand-Teilen wie Reise, Lehrplan, Teilung hingenommen), danach alle 187 vollständig rekonstruierten `schule.*`-Funktionen aus `form_takt_anker.py` darübergelegt; `einheit_lesen_intern` als kleiner Ersatz (nur `uebungen`, `etappen_stand`, `heute_tag`, `heute_bis`). Testdaten: drei Kinder, eine Einheit, zwölf Übungen, zwei fremde Karten.
+- Darauf: **Probe-Paket bestanden** (alle Abschnitte 1–13); **Einspiel-Paket** auf einer Kopie bestanden und eingespielt (Schalter 0, `form_jede` 3, keine Probe-Aufgaben übrig).
+- Gegenproben (Funktion nach der Migration absichtlich verdorben): ohne Filter in `karte_buchen` schlagen die Abschnitte 4 und 8 an; ohne `bearbeitungen` oben die Abschnitte 4, 8, 11; ohne Filter in `karte_typen_noetig`/`folge_nachrechnen` der Abschnitt 9; Schalter ohne Wirkung → Abschnitte 10b und 12.
+
+### NICHT geprüft / Annahmen
+- **Nicht gegen die Live-Datenbank gelaufen.** Anker Nr. 18 ist nur gegen die Rekonstruktion gezählt (er stammt aus `20261116_w150_r2`, derselben Datei wie Anker 17, der live passte). Annahme: Live steht das Ende des letzten `return` genau so. Wenn nicht, bricht das Paket mit „weder im alten noch im fertigen Zustand“ ab – also zuerst wieder `--probe`.
+- Die lokale Instanz hat nicht alle Trigger und Tabellen der Live-Datenbank (z. B. Zusatz-Plan, Reise, Teilung, `sterne_aus_versuch` fehlten oder liefen nur teilweise). Die Abschnitte 8–12 erzeugen mehrere Landungen (`ft-probe-f`, `-g`, `-i`, `-j`, `-l`); Trigger nach Landungen sind live wie bei den alten Abschnitten nur über den Probelauf geprüft.
+- Abschnitt 8 macht die Karte über ein direktes `update` von `faellig_am`/`wdh_ab` fällig (Testdaten, zurückgerollt); live greift dabei der Trigger `karte_wdh_ereignis` (lokal vorhanden, ohne Wirkung, weil sich `richtig`/`falsch` nicht ändern).
+- Abschnitt 9 ändert `zaehlt` von Probe-Aufgaben per `update`, bevor es Versuche an ihnen gibt (der Versionsschutz greift erst bei Aufgaben mit Versuch). Annahme: live kein weiterer Trigger, der das abweist.
+- Übergang A3a ist mit einer Bestand-Sachaufgabe (`zaehlt` leer) bei ausgeschaltetem Schalter nachgestellt, nicht mit Daten von vor FT-S. Gleichwertig, weil `karte_buchen` für Aufgaben mit leerem `zaehlt` vor und nach FT-S gleich bucht (einzige Änderung dort: Rücksprung bei `nein`).
+- Paketgröße jetzt 57 413 Zeichen (Probe 57 539).
+
+### Schnittstelle App (aktualisiert)
+| Wo | Feld | Bedeutung |
+|---|---|---|
+| Antwort `schule_uebung_pruefen` (normale Übung mit Lösung) | `bearbeitungen` (oben, NEU) | wie `karte.bearbeitungen`, kommt auch, wenn `karte` fehlt (erste nicht zählende Aufgabe einer Lernkarte). Fehlt bei „nochmal“, `wiederholt`, Mischkarte, Knobel, Expedition |
+| `karte` und `etappen_stand[lernziel]` | `anwenden_noetig` | true nur, wenn der Schalter an ist UND die Karte nie gelandet ist UND die Lernkarte eine freigegebene, zählende Sachaufgabe hat. Bis zum Einschalten immer false → App 0.94.0 zeigt „Sachaufgabe fehlt noch“ nur bei true, ältere Apps sehen keine Hürde |
+| dito | `anwenden_ok` | unverändert (unabhängig vom Schalter) |
+| Regel | `anwenden_pflicht` | 0/1; die App muss sie nicht lesen, `anwenden_noetig` enthält sie schon |
+

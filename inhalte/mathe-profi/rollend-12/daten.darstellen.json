@@ -1,0 +1,704 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-12",
+ "kuerzel": "R5",
+ "flug": "r5-reserve-daten.darstellen",
+ "titel": "daten.darstellen",
+ "fuer": "Klasse 5",
+ "klasse": 5,
+ "themen": [
+  "daten.darstellen"
+ ],
+ "themen_datei_im_bestand": "daten.darstellen",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag „Reserve“ (zwei zählende Aufgaben je Lernkarte, Stufe 2 und 3). Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R5-V159",
+   "thema": "daten.darstellen",
+   "lernkarte": "absolute_haeufigkeit",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur Fußball und Schwimmen zusammengezählt"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Nennungen für Fußball von 30 abgezogen"
+    },
+    {
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Zahlen addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "absolute_haeufigkeit",
+    "t": "absolute_haeufigkeit",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Bei einer Umfrage unter 30 Kindern nannten 12 Kinder Fußball und 8 Kinder Schwimmen als Lieblingssport. Alle übrigen Kinder nannten Tanzen. Wie oft wurde Tanzen genannt?"
+    },
+    "o": {
+     "wert": 10,
+     "einheit": "Nennungen"
+    },
+    "c": "30 - 12 - 8",
+    "h": "Wie viele Kinder haben schon etwas anderes genannt? Was bleibt von allen Befragten übrig?",
+    "w": "Fußball und Schwimmen zusammen: 12 + 8 = 20 Nennungen. Von 30 Kindern bleiben 30 − 20 = 10 für Tanzen. Probe: 12 + 8 + 10 = 30."
+   }
+  },
+  {
+   "kennung": "R5-V160",
+   "thema": "daten.darstellen",
+   "lernkarte": "absolute_haeufigkeit",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Wochenende vergessen"
+    },
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Wochenende genannt"
+    },
+    {
+     "antwort": 150,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Wochenende als die Hälfte von 75 und doppelt gezählt: 75 + 75"
+    }
+   ],
+   "aufgabe": {
+    "l": "absolute_haeufigkeit",
+    "t": "absolute_haeufigkeit",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Kiosk zählt, wie viele Eis er von Montag bis Freitag verkauft: Montag 12, Dienstag 15, Mittwoch 9, Donnerstag 18, Freitag 21. Am Wochenende (Samstag und Sonntag zusammen) verkauft er ein Drittel so viele Eis wie von Montag bis Freitag zusammen. Wie viele Eis verkauft er in der ganzen Woche?"
+    },
+    "o": {
+     "wert": 100,
+     "einheit": "Eis"
+    },
+    "c": "(12 + 15 + 9 + 18 + 21) + (12 + 15 + 9 + 18 + 21) / 3",
+    "h": "Zähle zuerst die Eis von Montag bis Freitag zusammen. Wie viele sind ein Drittel davon?",
+    "w": "Montag bis Freitag: 12 + 15 + 9 + 18 + 21 = 75 Eis. Ein Drittel davon: 75 : 3 = 25 Eis am Wochenende. Insgesamt 75 + 25 = 100 Eis."
+   }
+  },
+  {
+   "kennung": "R5-V161",
+   "thema": "daten.darstellen",
+   "lernkarte": "relative_haeufigkeit",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler als Prozentzahl genommen"
+    },
+    {
+     "antwort": 0.72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Ergebnis der Division nicht in Prozent umgerechnet"
+    },
+    {
+     "antwort": 43,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zähler und Nenner addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "relative_haeufigkeit",
+    "t": "relative_haeufigkeit",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Gib 18 von 25 als Prozentzahl an. Weg A: Erweitere den Bruch 18/25 auf den Nenner 100. Weg B: Rechne 18 : 25 und schreibe das Ergebnis in Prozent."
+    },
+    "o": {
+     "wert": 72,
+     "einheit": "%"
+    },
+    "c": "18 * 4",
+    "h": "Mit welcher Zahl musst du 25 malnehmen, um 100 zu erhalten?",
+    "w": "Weg A: 25 · 4 = 100, also 18 · 4 = 72 und 18/25 = 72/100 = 72 %. Weg B: 18 : 25 = 0,72 und 0,72 = 72 %."
+   }
+  },
+  {
+   "kennung": "R5-V162",
+   "thema": "daten.darstellen",
+   "lernkarte": "relative_haeufigkeit",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 120,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Fahrschüler genannt"
+    },
+    {
+     "antwort": 200,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hälfte aller Kinder genommen"
+    },
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentzahl halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "relative_haeufigkeit",
+    "t": "relative_haeufigkeit",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "An einer Schule lernen 400 Kinder. 30 % davon sind Fahrschüler. Die Hälfte der Fahrschüler kommt mit dem Bus. Wie viele Kinder kommen mit dem Bus?"
+    },
+    "o": {
+     "wert": 60,
+     "einheit": "Kinder"
+    },
+    "c": "400 * 30 / 100 / 2",
+    "h": "Berechne zuerst, wie viele Kinder Fahrschüler sind.",
+    "w": "30 % von 400 sind 400 : 100 · 30 = 120 Fahrschüler. Die Hälfte davon: 120 : 2 = 60 Kinder."
+   }
+  },
+  {
+   "kennung": "R5-V163",
+   "thema": "daten.darstellen",
+   "lernkarte": "tabelle_auswerten",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Fußball-Kinder genannt"
+    },
+    {
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle befragten Kinder genannt"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur Schwimmen und Tennis addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "tabelle_auswerten",
+    "t": "tabelle_auswerten",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle zeigt eine Umfrage zum Lieblingssport. Wie viele Kinder haben nicht „Fußball“ gewählt? Weg A: Addiere die Anzahlen aller anderen Sportarten. Weg B: Berechne zuerst, wie viele Kinder insgesamt befragt wurden, und ziehe dann die Anzahl für Fußball ab.",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Sportart",
+       "Anzahl Kinder"
+      ],
+      "zeilen": [
+       [
+        "Fußball",
+        "11"
+       ],
+       [
+        "Schwimmen",
+        "6"
+       ],
+       [
+        "Tennis",
+        "4"
+       ],
+       [
+        "Tanzen",
+        "7"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 17,
+     "einheit": "Kinder"
+    },
+    "c": "6 + 4 + 7",
+    "h": "Welche Zeilen der Tabelle zählen zu „nicht Fußball“?",
+    "w": "Weg A: Schwimmen 6 + Tennis 4 + Tanzen 7 = 17. Weg B: Insgesamt 11 + 6 + 4 + 7 = 28 Kinder. 28 − 11 = 17."
+   }
+  },
+  {
+   "kennung": "R5-V164",
+   "thema": "daten.darstellen",
+   "lernkarte": "tabelle_auswerten",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 82,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den besten Tag gerechnet"
+    },
+    {
+     "antwort": 76,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Eis genannt, nicht den Preis"
+    },
+    {
+     "antwort": 148,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Mittwoch und Donnerstag genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "tabelle_auswerten",
+    "t": "tabelle_auswerten",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle zeigt, wie viele Eis ein Kiosk an vier Tagen verkauft hat. Ein Eis kostet 2 €. Wie viel Euro hat der Kiosk an den zwei Tagen mit den meisten verkauften Eis zusammen eingenommen?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Tag",
+       "Verkaufte Eis"
+      ],
+      "zeilen": [
+       [
+        "Montag",
+        "35"
+       ],
+       [
+        "Dienstag",
+        "28"
+       ],
+       [
+        "Mittwoch",
+        "41"
+       ],
+       [
+        "Donnerstag",
+        "33"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 152,
+     "einheit": "€"
+    },
+    "c": "(41 + 35) * 2",
+    "h": "Finde die beiden Tage mit den meisten Eis. Wie viele Eis sind das zusammen?",
+    "w": "Die meisten Eis gab es am Mittwoch (41) und am Montag (35). Zusammen 41 + 35 = 76 Eis. 76 · 2 € = 152 €."
+   }
+  },
+  {
+   "kennung": "R5-V165",
+   "thema": "daten.darstellen",
+   "lernkarte": "saeulendiagramm",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Brezeln als Preis genannt"
+    },
+    {
+     "antwort": 3500,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in Cent statt in Euro angegeben"
+    },
+    {
+     "antwort": 3.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 10 statt durch 100 umgerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "saeulendiagramm",
+    "t": "saeulendiagramm",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Das Säulendiagramm zeigt, wie viele Kinder in vier Klassen eine Brezel bestellt haben. Eine Brezel kostet 70 Cent. Wie viel Euro kosten alle bestellten Brezeln?",
+     "grafik": {
+      "typ": "saeulen",
+      "werte": [
+       {
+        "name": "5a",
+        "wert": 14
+       },
+       {
+        "name": "5b",
+        "wert": 11
+       },
+       {
+        "name": "5c",
+        "wert": 9
+       },
+       {
+        "name": "5d",
+        "wert": 16
+       }
+      ]
+     }
+    },
+    "o": {
+     "wert": 35,
+     "einheit": "€"
+    },
+    "c": "(14 + 11 + 9 + 16) * 70 / 100",
+    "h": "Lies die vier Säulen ab und zähle sie zusammen. Wie viele Brezeln sind das?",
+    "w": "Bestellt wurden 14 + 11 + 9 + 16 = 50 Brezeln. 50 · 70 Cent = 3 500 Cent = 35 €."
+   }
+  },
+  {
+   "kennung": "R5-V166",
+   "thema": "daten.darstellen",
+   "lernkarte": "saeulendiagramm",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 34,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe der sichtbaren Säulen genannt"
+    },
+    {
+     "antwort": 84,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Zahlen addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "saeulendiagramm",
+    "t": "saeulendiagramm",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Säulendiagramm zeigt vier Klassen. Die ersten drei Säulen sind 12, 7 und 15 Kinder hoch, die vierte Säule ist verdeckt. Insgesamt wurden 50 Kinder befragt. Wie hoch ist die verdeckte Säule?"
+    },
+    "o": {
+     "wert": 16,
+     "einheit": "Kinder"
+    },
+    "c": "50 - (12 + 7 + 15)",
+    "h": "Wie viele Kinder zeigen die drei sichtbaren Säulen zusammen? Wie viele fehlen bis 50?",
+    "w": "Die drei sichtbaren Säulen zeigen 12 + 7 + 15 = 34 Kinder. Es fehlen 50 − 34 = 16 Kinder. Die verdeckte Säule ist 16 hoch."
+   }
+  },
+  {
+   "kennung": "R5-V167",
+   "thema": "daten.darstellen",
+   "lernkarte": "kreisdiagramm",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentzahl als Winkel genommen"
+    },
+    {
+     "antwort": 3.6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 1 % berechnet"
+    },
+    {
+     "antwort": 90,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Winkel für Fußball (25 %) genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "kreisdiagramm",
+    "t": "kreisdiagramm",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle zeigt, welchen Anteil vier Sportarten bei einer Umfrage haben. Daraus wird ein Kreisdiagramm gezeichnet. Wie groß ist der Winkel des Sektors „Schwimmen“?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Sportart",
+       "Anteil"
+      ],
+      "zeilen": [
+       [
+        "Fußball",
+        "25 %"
+       ],
+       [
+        "Schwimmen",
+        "10 %"
+       ],
+       [
+        "Tanzen",
+        "40 %"
+       ],
+       [
+        "Sonstige",
+        "25 %"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 36,
+     "einheit": "°"
+    },
+    "c": "360 / 100 * 10",
+    "h": "Ein ganzer Kreis hat 360°. Wie viel Grad entsprechen 1 %?",
+    "w": "1 % entspricht 360° : 100 = 3,6°. Für 10 % ist der Winkel 10 · 3,6° = 36°."
+   }
+  },
+  {
+   "kennung": "R5-V168",
+   "thema": "daten.darstellen",
+   "lernkarte": "kreisdiagramm",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anteil in Prozent angegeben (20 %)"
+    },
+    {
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Winkel als Personenzahl genommen"
+    },
+    {
+     "antwort": 300,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "60 · 5 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "kreisdiagramm",
+    "t": "kreisdiagramm",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Im Kreisdiagramm einer Umfrage hat ein Sektor den Winkel 72°. Insgesamt wurden 60 Personen befragt. Wie viele Personen gehören zu diesem Sektor?"
+    },
+    "o": {
+     "wert": 12,
+     "einheit": "Personen"
+    },
+    "c": "72 / 360 * 60",
+    "h": "Welcher Bruchteil des ganzen Kreises sind 72°?",
+    "w": "72° von 360° sind 72/360 = 1/5 des Kreises. Ein Fünftel von 60 Personen sind 60 : 5 = 12 Personen."
+   }
+  },
+  {
+   "kennung": "R5-V169",
+   "thema": "daten.darstellen",
+   "lernkarte": "irrefuehrend",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1560,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Wert der ersten Säule mit 3 malgenommen"
+    },
+    {
+     "antwort": 580,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "60 zum Wert der ersten Säule addiert"
+    },
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Zuwachs über der Achse genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "irrefuehrend",
+    "t": "irrefuehrend",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Die Hochachse eines Säulendiagramms beginnt bei 500. Die erste Säule steht für 520 und ist 2 cm hoch gezeichnet. Die zweite Säule wirkt 3-mal so hoch wie die erste. Für welchen Wert steht die zweite Säule?"
+    },
+    "o": {
+     "wert": 560
+    },
+    "c": "500 + 3 * (520 - 500)",
+    "h": "Welcher Zuwachs über 500 gehört zu 2 cm? Was bedeutet 3-mal so hoch?",
+    "w": "2 cm stehen für 520 − 500 = 20. Die zweite Säule ist 3 · 2 cm = 6 cm hoch, das sind 3 · 20 = 60 über 500. Wert: 500 + 60 = 560."
+   }
+  },
+  {
+   "kennung": "R5-V170",
+   "thema": "daten.darstellen",
+   "lernkarte": "irrefuehrend",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1.1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das echte Verhältnis der Umsätze genannt, gerundet auf eine Stelle"
+    },
+    {
+     "antwort": 800,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied der Umsätze in € genannt"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "800 : 400 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "irrefuehrend",
+    "t": "irrefuehrend",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Firma zeigt ein Säulendiagramm, dessen Hochachse bei 8 000 € beginnt. Der Umsatz 2024 war 8 400 €, der Umsatz 2025 war 9 200 €. Wie oft so hoch wie die Säule für 2024 wirkt die Säule für 2025?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "(9200 - 8000) / (8400 - 8000)",
+    "h": "Die Achse beginnt nicht bei null. Wie hoch sind die Säulen über 8 000 gezeichnet?",
+    "w": "Über der Achsenmarke 8 000 ragen die Säulen 400 und 1 200 hinaus. 1 200 : 400 = 3. Die zweite Säule wirkt 3-mal so hoch, obwohl der Umsatz nur um etwa 10 % gestiegen ist."
+   }
+  }
+ ]
+}

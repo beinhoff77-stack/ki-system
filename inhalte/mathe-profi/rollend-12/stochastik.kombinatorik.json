@@ -1,0 +1,714 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-12",
+ "kuerzel": "R5",
+ "flug": "r5-reserve-stochastik.kombinatorik",
+ "titel": "stochastik.kombinatorik",
+ "fuer": "Klasse 5",
+ "klasse": 5,
+ "themen": [
+  "stochastik.kombinatorik"
+ ],
+ "themen_datei_im_bestand": "stochastik.kombinatorik",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag „Reserve“ (zwei zählende Aufgaben je Lernkarte, Stufe 2 und 3). Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R5-V171",
+   "thema": "stochastik.kombinatorik",
+   "lernkarte": "systematisch",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Möglichkeiten für den ersten Platz gezählt"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 · 3 gerechnet (Buchstaben dürfen sich wiederholen)"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 · 2 · 2 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "systematisch",
+    "t": "systematisch",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele verschiedene dreibuchstabige Wörter kann man aus den Buchstaben A, B und C bilden, wenn jeder Buchstabe genau einmal vorkommt? Weg A: Schreibe alle Wörter geordnet nach dem Anfangsbuchstaben auf und zähle. Weg B: Rechne: 3 Möglichkeiten für den ersten Platz, dann 2 für den zweiten, dann 1 für den dritten."
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "Wörter"
+    },
+    "c": "3 * 2 * 1",
+    "h": "Schreibe zuerst alle Wörter mit A am Anfang auf. Wie viele sind es?",
+    "w": "Weg A: ABC, ACB, BAC, BCA, CAB, CBA sind 6 Wörter. Weg B: 3 · 2 · 1 = 6."
+   }
+  },
+  {
+   "kennung": "R5-V172",
+   "thema": "stochastik.kombinatorik",
+   "lernkarte": "systematisch",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch 5 geteilt"
+    },
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch 4 geteilt"
+    },
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Hosen mal T-Shirts als Zahl der Jacken genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "systematisch",
+    "t": "systematisch",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Kind hat 5 Hosen und 4 T-Shirts. Mit mehreren Jacken kann es genau 60 verschiedene Outfits aus je einer Hose, einem T-Shirt und einer Jacke zusammenstellen. Wie viele Jacken hat es?"
+    },
+    "o": {
+     "wert": 3,
+     "einheit": "Jacken"
+    },
+    "c": "60 / (5 * 4)",
+    "h": "Wie viele Outfits gibt es nur mit Hose und T-Shirt? Wie oft passt das in 60?",
+    "w": "Hose und T-Shirt ergeben 5 · 4 = 20 Möglichkeiten. Mit der Jacke: 20 · Jacken = 60, also Jacken = 60 : 20 = 3."
+   }
+  },
+  {
+   "kennung": "R5-V173",
+   "thema": "stochastik.kombinatorik",
+   "lernkarte": "zaehlprinzip",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 von 42 abgezogen"
+    },
+    {
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 zu 42 addiert"
+    },
+    {
+     "antwort": 252,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 · 42 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "zaehlprinzip",
+    "t": "zaehlprinzip",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Eisdiele bietet 6 Eissorten an. Man kann einen Becher mit genau einer Sorte und genau einer Soße bestellen. So gibt es 42 verschiedene Becher. Wie viele Soßen gibt es?"
+    },
+    "o": {
+     "wert": 7,
+     "einheit": "Soßen"
+    },
+    "c": "42 / 6",
+    "h": "Jede Sorte lässt sich mit jeder Soße zu einem Becher kombinieren. Mache das Malnehmen rückgängig.",
+    "w": "Sorten · Soßen = 42, also Soßen = 42 : 6 = 7. Probe: 6 · 7 = 42."
+   }
+  },
+  {
+   "kennung": "R5-V174",
+   "thema": "stochastik.kombinatorik",
+   "lernkarte": "zaehlprinzip",
+   "stufe": 3,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Astzahlen addiert"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die ersten beiden Stufen gezählt"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die zweite Stufe vergessen: 3 · 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "zaehlprinzip",
+    "t": "zaehlprinzip",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Baumdiagramm hat in der ersten Stufe 3 Äste. An jedem dieser Äste gibt es in der zweiten Stufe 2 Äste und an jedem davon in der dritten Stufe 4 Äste. Wie viele Pfade führen von der Wurzel bis zu den Enden?"
+    },
+    "o": {
+     "wert": 24,
+     "einheit": "Pfade"
+    },
+    "c": "3 * 2 * 4",
+    "h": "Jeder Pfad geht durch alle drei Stufen. Wie viele Möglichkeiten gibt es in jeder Stufe?",
+    "w": "Die Zahl der Pfade ist das Produkt der Astzahlen: 3 · 2 · 4 = 24."
+   }
+  },
+  {
+   "kennung": "R5-V175",
+   "thema": "stochastik.kombinatorik",
+   "lernkarte": "reihenfolgen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen von 1 bis 4 addiert"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 · 4 gerechnet"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur an 2 Stellen eingefügt: 6 · 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "reihenfolgen",
+    "t": "reihenfolgen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Auf wie viele Arten können 4 Kinder in einer Reihe stehen? Weg A: Wähle nacheinander das Kind für den 1., 2., 3. und 4. Platz und multipliziere die Möglichkeiten. Weg B: Schreibe zuerst alle Reihenfolgen für 3 Kinder auf (es sind 6) und überlege, an wie vielen Stellen das vierte Kind eingefügt werden kann."
+    },
+    "o": {
+     "wert": 24,
+     "einheit": "Möglichkeiten"
+    },
+    "c": "4 * 3 * 2 * 1",
+    "h": "Wenn 3 Kinder in einer Reihe stehen: An wie vielen Stellen kann sich ein viertes Kind einreihen (auch ganz vorn und ganz hinten)?",
+    "w": "Weg A: 4 · 3 · 2 · 1 = 24. Weg B: Bei jeder der 6 Reihenfolgen von 3 Kindern kann das vierte Kind an 4 Stellen stehen (vorn, zwei Lücken, hinten): 6 · 4 = 24."
+   }
+  },
+  {
+   "kennung": "R5-V176",
+   "thema": "stochastik.kombinatorik",
+   "lernkarte": "reihenfolgen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 720,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle 6 Kinder frei angeordnet: 6 · 5 · 4 · 3 · 2 · 1"
+    },
+    {
+     "antwort": 240,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auch die Reihenfolge Eva vor Tim mitgezählt"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 · 5 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "reihenfolgen",
+    "t": "reihenfolgen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Fotografin stellt 6 Kinder in einer Reihe auf. Tim und Eva sollen unmittelbar nebeneinander stehen, und zwar Tim links neben Eva. Wie viele verschiedene Aufstellungen gibt es?"
+    },
+    "o": {
+     "wert": 120,
+     "einheit": "Aufstellungen"
+    },
+    "c": "5 * 4 * 3 * 2 * 1",
+    "h": "Behandle Tim und Eva wie ein einziges Paket. Wie viele Teile werden dann angeordnet?",
+    "w": "Tim und Eva bilden ein festes Paar (Tim links). Es werden 5 Teile angeordnet: das Paar und 4 weitere Kinder. 5 · 4 · 3 · 2 · 1 = 120 Aufstellungen."
+   }
+  },
+  {
+   "kennung": "R5-V177",
+   "thema": "stochastik.kombinatorik",
+   "lernkarte": "baumdiagramm",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Astzahlen addiert"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 · 4 gerechnet"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die erste Stufe gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "baumdiagramm",
+    "t": "baumdiagramm",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Glücksrad hat 4 gleich große Felder A, B, C und D. Es wird einmal gedreht, danach wird eine Münze geworfen (Kopf oder Zahl). Wie viele Pfade hat das Baumdiagramm für diesen Versuch?"
+    },
+    "o": {
+     "wert": 8,
+     "einheit": "Pfade"
+    },
+    "c": "4 * 2",
+    "h": "In der ersten Stufe gibt es mehrere Äste, an jedem hängen weitere Äste der zweiten Stufe.",
+    "w": "Erste Stufe: 4 Äste (A, B, C, D). An jedem Ast hängen 2 Äste (Kopf, Zahl). 4 · 2 = 8 Pfade."
+   }
+  },
+  {
+   "kennung": "R5-V178",
+   "thema": "stochastik.kombinatorik",
+   "lernkarte": "baumdiagramm",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Ergebnisfolgen gezählt: 2 · 2 · 2 · 2"
+    },
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Folge gezählt"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 · 4 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "baumdiagramm",
+    "t": "baumdiagramm",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Münze wird 4-mal geworfen. Bei wie vielen der Ergebnisfolgen kommt genau 1-mal Kopf vor? Weg A: Zeichne den Baum und zähle die passenden Pfade. Weg B: Überlege, an welcher der 4 Stellen der einzige Kopf stehen kann."
+    },
+    "o": {
+     "wert": 4,
+     "einheit": "Folgen"
+    },
+    "c": "4",
+    "h": "Alle anderen Würfe sind Zahl. Es kommt nur darauf an, wann der Kopf fällt.",
+    "w": "Weg A: KZZZ, ZKZZ, ZZKZ, ZZZK sind die passenden Pfade, das sind 4. Weg B: Der Kopf kann beim 1., 2., 3. oder 4. Wurf fallen: 4 Möglichkeiten."
+   }
+  },
+  {
+   "kennung": "R5-V179",
+   "thema": "stochastik.kombinatorik",
+   "lernkarte": "bedingungen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Möglichkeiten addiert"
+    },
+    {
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Ziffern an beiden Rädchen erlaubt: 10 · 10"
+    },
+    {
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "10 · 5 gerechnet (eine Bedingung vergessen)"
+    }
+   ],
+   "aufgabe": {
+    "l": "bedingungen",
+    "t": "bedingungen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Zahlenschloss hat zwei Rädchen. Am ersten Rädchen steht eine ungerade Ziffer (1, 3, 5, 7 oder 9), am zweiten eine gerade Ziffer (0, 2, 4, 6 oder 8). Wie viele verschiedene Codes sind möglich?"
+    },
+    "o": {
+     "wert": 25,
+     "einheit": "Codes"
+    },
+    "c": "5 * 5",
+    "h": "Wie viele Möglichkeiten gibt es am ersten, wie viele am zweiten Rädchen?",
+    "w": "Erstes Rädchen: 5 Möglichkeiten. Zweites Rädchen: 5 Möglichkeiten. Zusammen 5 · 5 = 25 Codes."
+   }
+  },
+  {
+   "kennung": "R5-V180",
+   "thema": "stochastik.kombinatorik",
+   "lernkarte": "bedingungen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "n = 6 gewählt, das ergäbe aber 120 Zahlen"
+    },
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "60 durch 3 geteilt"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "n = 4 gewählt, das ergäbe nur 24 Zahlen"
+    }
+   ],
+   "aufgabe": {
+    "l": "bedingungen",
+    "t": "bedingungen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Aus n verschiedenen Ziffern ohne die Null werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Es gibt genau 60 solche Zahlen. Wie groß ist n?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "5",
+    "h": "Wie viele Möglichkeiten gibt es für die erste, die zweite und die dritte Stelle? Probiere kleine Werte für n.",
+    "w": "Für die erste Stelle gibt es n Möglichkeiten, für die zweite n − 1, für die dritte n − 2. Für n = 5 ist 5 · 4 · 3 = 60. Für n = 4 wäre es 24, für n = 6 wären es 120. Also ist n = 5."
+   }
+  },
+  {
+   "kennung": "R5-V181",
+   "thema": "stochastik.kombinatorik",
+   "lernkarte": "grenzen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
+    },
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 · 6 gerechnet"
+    },
+    {
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 + 4 + 3 + 2 + 1 + 6 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "grenzen",
+    "t": "grenzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "6 Personen begrüßen sich bei einem Treffen, indem jede jeder anderen genau einmal die Hand gibt. Wie viele Handschläge gibt es? Weg A: Zähle der Reihe nach: Die erste Person gibt 5 Handschläge, die zweite noch 4 neue und so weiter. Weg B: Jede der 6 Personen gibt 5 Handschläge; dabei wird jeder Handschlag zweimal gezählt."
+    },
+    "o": {
+     "wert": 15,
+     "einheit": "Handschläge"
+    },
+    "c": "5 + 4 + 3 + 2 + 1",
+    "h": "Bei Weg B: Wie oft wird ein einzelner Handschlag gezählt? Was musst du am Ende tun?",
+    "w": "Weg A: 5 + 4 + 3 + 2 + 1 = 15. Weg B: 6 · 5 = 30, aber jeder Handschlag wurde zweimal gezählt: 30 : 2 = 15."
+   }
+  },
+  {
+   "kennung": "R5-V182",
+   "thema": "stochastik.kombinatorik",
+   "lernkarte": "grenzen",
+   "stufe": 3,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Seiten mitgezählt"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Ecken genannt"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von jeder Ecke 3 Diagonalen gezählt, nicht halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "grenzen",
+    "t": "grenzen",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Sechseck hat 6 Ecken. Eine Diagonale ist eine Strecke zwischen zwei Ecken, die nicht nebeneinander liegen. Wie viele Diagonalen hat das Sechseck?"
+    },
+    "o": {
+     "wert": 9,
+     "einheit": "Diagonalen"
+    },
+    "c": "6 * 5 / 2 - 6",
+    "h": "Wie viele Strecken gibt es zwischen allen Paaren von Ecken? Wie viele davon sind Seiten des Sechsecks?",
+    "w": "Zwischen 6 Ecken gibt es 6 · 5 : 2 = 15 Strecken. 6 davon sind Seiten des Sechsecks. Die übrigen 15 − 6 = 9 sind Diagonalen."
+   }
+  },
+  {
+   "kennung": "R5-V183",
+   "thema": "stochastik.kombinatorik",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "auswahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Ja, es sind 6 + 4 + 3 = 13 Becher mehr als 100.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Zahlen wurden addiert statt malgenommen und das Ergebnis falsch verglichen."
+    },
+    {
+     "index": 1,
+     "antwort": "Ja, es sind 6 · 4 · 3 · 2 = 144 Becher.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Es wurde ein Faktor 2 zu viel gerechnet."
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Eis-Imbiss wirbt: „Über 100 verschiedene Eisbecher!“ Man wählt genau eine von 6 Sorten, eine von 4 Soßen und eines von 3 Toppings. Stimmt die Werbung?"
+    },
+    "a": [
+     "Ja, es sind 6 + 4 + 3 = 13 Becher mehr als 100.",
+     "Ja, es sind 6 · 4 · 3 · 2 = 144 Becher.",
+     "Nein, es sind nur 72 Becher."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Aus jeder Gruppe wird genau eines gewählt. Wie viele Kombinationen gibt es nach dem Zählprinzip?",
+    "w": "Nach dem Zählprinzip: 6 · 4 · 3 = 72 Becher. 72 ist weniger als 100, die Werbung stimmt nicht."
+   }
+  },
+  {
+   "kennung": "R5-V184",
+   "thema": "stochastik.kombinatorik",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 + 2 + 2 gerechnet"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur zwei Stellen gezählt"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 · 3 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele dreistellige Zahlen gibt es, die nur aus den Ziffern 1 und 2 bestehen? Ziffern dürfen mehrfach vorkommen. Weg A: Schreibe alle Zahlen geordnet auf (111, 112, 121, …) und zähle. Weg B: Rechne mit der Zahl der Möglichkeiten für jede Stelle."
+    },
+    "o": {
+     "wert": 8,
+     "einheit": "Zahlen"
+    },
+    "c": "2 * 2 * 2",
+    "h": "Wie viele Ziffern kommen für die erste Stelle in Frage? Und für die zweite und dritte?",
+    "w": "Weg A: 111, 112, 121, 122, 211, 212, 221, 222 sind 8 Zahlen. Weg B: Jede der 3 Stellen hat 2 Möglichkeiten: 2 · 2 · 2 = 8."
+   }
+  }
+ ]
+}

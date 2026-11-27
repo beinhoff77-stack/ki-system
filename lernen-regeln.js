@@ -61,15 +61,59 @@ function ruIndex(D) {
   const ohneHoch = (w) => w.replace(/[²³]$/, '');
   const trifft = (liste, t) => (t.length <= 3 || !/^[a-z]/.test(t) ? liste.some((w) => w === t || (!/[²³]$/.test(t) && ohneHoch(w) === t))
     : liste.some((w) => w === t || w.includes(t) || (w.length >= 5 && t.includes(w))));
+  // ---------- Tafeln zum Nachschlagen (D.tafeln, gebaut von tools/tafeln_bauen.cjs) ----------
+  // Adresse: tafeln (Übersicht) · tafel-<id> · tafel-<id>.<anker> (springt an die Stelle; eine Zeile mit Einzelheiten klappt dabei auf)
+  const TAFELN = D.tafeln || [], TAFEL = Object.fromEntries(TAFELN.map((t) => [t.id, t]));
+  adr.tafeln = () => 'tafeln'; adr.tafel = (id, anker) => 'tafel-' + id + (anker ? '.' + anker : '');
+  const kennVon = (liste) => (liste || []).map((r) => r.kennung);
+  // Abschnitte je Tafel: Anker, Titel, Klasse, Stichwörter, Kennungen im Universum (für Verweise); „wo“: Tafel und Anker, an denen der Abschnitt steht
+  function tafelTeile(t) {
+    if (t.id === 'formeln') return [{ anker: 'flaechen', titel: 'Ebene Figuren: Umfang und Flächeninhalt', stich: [], kenn: [] }, { anker: 'koerper', titel: 'Körper: Oberfläche und Volumen', stich: [], kenn: [] },
+      { anker: 'sonst', titel: 'Was man sonst noch braucht', stich: [], kenn: [] }];
+    if (t.arten) { const v = t.arten.find((x) => x.anker === 'volumen'), w = ((v && v.weitere_treppen) || [])[0];
+      return [...t.arten.map((x) => ({ anker: x.anker, titel: x.art, kl: x.kl, stich: x.stich, kenn: kennVon(x.regeln), vorschau: x.darstellung })),
+        ...(w ? [{ anker: 'hohlmass', titel: w.name, kl: v.kl, stich: [w.name, ...w.treppe.flatMap((s) => [s.einheit, s.name])], kenn: [], vorschau: w.darstellung }] : [])]; }
+    // Formeln der Figuren und Körper stehen in der Gesamtübersicht (Zeile klappt auf); die Tafel selbst ist die Detailansicht
+    if (t.karten) return t.karten.map((k) => ({ anker: k.anker, titel: k.name, kl: k.kl, stich: k.stich, wo: ['formeln', k.anker], vorschau: k.zeilen.map((z) => z.formel).join(' · '),
+      kenn: [...new Set([...k.zeilen, ...k.zusatz].flatMap((z) => [z.ziel, ...kennVon(z.regeln)]).filter(Boolean))] }));
+    return t.eintraege.map((e) => ({ anker: e.kennung, titel: e.titel, kl: e.kl, stich: e.stich, kenn: kennVon(e.regeln),
+      vorschau: e.formel || e.merksatz || e.regel_text || e.bedeutung || e.satz || e.verwendung || e.definition || e.bereich || e.gegeben || '' }));
+  }
+  const TEILE = Object.fromEntries(TAFELN.map((t) => [t.id, tafelTeile(t)]));
+  const tafelZiel = (t, teil) => (teil && teil.wo ? adr.tafel(...teil.wo) : adr.tafel(t.id, teil && teil.anker));
+  // Flächen und Körper: Einstieg ist die Gesamtübersicht der Formeln (die Tafeln selbst sind die Detailansichten)
+  const tafelStart = (t) => (t.id === 'formeln-flaechen' ? adr.tafel('formeln', 'flaechen') : t.id === 'formeln-koerper' ? adr.tafel('formeln', 'koerper') : adr.tafel(t.id));
+  const ZU_TAFEL = {};
+  for (const t of TAFELN) { if (t.richtung) (ZU_TAFEL[t.richtung.kennung] ||= []).push({ t, teil: null }); for (const x of TEILE[t.id]) for (const k of x.kenn) (ZU_TAFEL[k] ||= []).push({ t, teil: x }); }
+  // Verweise einer Regel, Idee oder Einzelregel auf Tafeln: je Tafel eine Stelle (mehrere Abschnitte derselben Tafel → Anfang der Tafel)
+  function tafelnZu(ids) {
+    const je = new Map(); for (const id of ids) for (const v of ZU_TAFEL[id] || []) { const a = je.get(v.t.id) || { t: v.t, teile: new Set() }; a.teile.add(v.teil); je.set(v.t.id, a); }
+    return [...je.values()].map(({ t, teile }) => { const tl = [...teile]; const teil = tl.length === 1 ? tl[0] : null; return { t, teil, ziel: teil ? tafelZiel(t, teil) : tafelStart(t) }; });
+  }
+  // Suche in den Tafeln: alle Suchwörter müssen treffen; genaues Stichwort vor Wort im Namen vor Wortteil. Die ganze Tafel gewinnt bei Gleichstand.
+  const TSUCH = TAFELN.flatMap((t) => [{ t, teil: null, name: t.titel, stich: t.stich, vorschau: t.kurz }, ...TEILE[t.id].filter((x) => x.stich.length).map((x) => ({ t, teil: x, name: x.titel, stich: x.stich, vorschau: x.vorschau }))])
+    .map((e) => ({ ...e, wn: woerter(e.name), wk: e.stich.map((s) => woerter(s)) }));
+  function tafelSuche(teile) {
+    return TSUCH.map((e, i) => { let p = 0;
+      for (const w of teile) { const q = e.wk.some((l) => l.length === 1 && l[0] === w) ? 10 : e.wn.includes(w) ? 9 : e.wk.some((l) => l.includes(w)) ? 6 : trifft(e.wn, w) ? 4 : e.wk.some((l) => trifft(l, w)) ? 3 : 0;
+        if (!q) return null; p += q; }
+      return { e, p: p + (e.teil ? 0 : 0.5), i }; }).filter(Boolean).sort((a, b) => b.p - a.p || a.i - b.i).slice(0, 4)
+      .map(({ e }) => ({ id: 'tafel ' + e.t.id + (e.teil ? ' ' + e.teil.anker : ''), art: 'Tafel', tafel: true, name: e.name, satz: ruEsc(e.vorschau || ''), ort: 'Tafeln · ' + e.t.titel,
+        ziel: e.teil ? tafelZiel(e.t, e.teil) : tafelStart(e.t), ae: ['Tafel', e.t.id + (e.teil ? ' ' + e.teil.anker : '')] }));
+  }
   function suche(q) {
     const teile = frageWoerter(q); if (!teile.length) return [];
+    // Tafeln zuerst (Nachschlagen: „cm“, „Kreis“, „Volumen“ landen auf der passenden Tafel), danach Regeln, Ideen, Formeln
+    return [...tafelSuche(teile), ...sucheRegeln(teile)].slice(0, 16);
+  }
+  function sucheRegeln(teile) {
     return SUCHBAR.map((e) => { let p = 0, kopf = 0, ueber = null; for (const t of teile) { const k = e.wk.findIndex((l) => trifft(l, t)); if (k >= 0) { p += e.wk[k].includes(t) ? 9 : 5; ueber = e.stich[k]; kopf++; }
       const n = trifft(e.wn, t); if (n) kopf++; p += (n ? 6 : 0) + (trifft(e.ws, t) ? 3 : 0) + (trifft(e.wm, t) ? 1 : 0); } return { ...e, p, kopf, ueber }; })
       // Treffer in Name oder Stichwort vor Treffern nur im Text
       .filter((x) => x.p > 0).sort((a, b) => b.kopf - a.kopf || b.p - a.p || (a.art === 'Formel') - (b.art === 'Formel')).slice(0, 14);
   }
   return { D, LEITER, KURZ, LEHRER, REGEL, GESETZ, ETAGE, PLANETEN, PLANET, KUERZEL_ZU, IDEE, IDEEN, ideeVon, thema, klasseVon, bandStufen, spanneText,
-    brauchtRegeln, ideeBraucht, regelTraegt, erklaertUeber, hilftBei, zahlGesetze, felder, adr, suche };
+    brauchtRegeln, ideeBraucht, regelTraegt, erklaertUeber, hilftBei, zahlGesetze, felder, adr, suche, TAFELN, TAFEL, TEILE, tafelnZu };
 }
 
 // „Ändern lassen“ (Eltern/Lehrer): ein Knopf an jedem Element. Die Fundstelle steht vollständig im Knopf (data-wo) und später am Anfang des Auftrags:
@@ -82,7 +126,7 @@ const ruAendernKnopf = (wo) => `<button class="ru-ae" type="button" data-wo="${r
 const ruEbene = (h) => (h === 'universum' || !h ? 0 : /^(sonne|weisen|gebiet-|klassen|suche|liste)/.test(h) ? 1 : h.startsWith('regel-') ? 3 : 2);
 
 // ===================== Seiten als HTML (aus dem Entwurf entwurf7/teile/app.js, Klassen mit Präfix ru-) =====================
-// I: ruIndex · ziel(adresse) → href · zustand: { klasse, frage } · ansicht: 'kind' | 'ansicht' (Eltern sehen die Kinderseite) | 'lehrer'
+// I: ruIndex · ziel(adresse) → href · zustand: { klasse, frage, bis } · ansicht: 'kind' (Kind angemeldet) | 'leitung' (Erwachsener in der Ansicht eines Kindes) | 'ansicht' (Eltern sehen die Kinderseite) | 'lehrer'
 function ruSichten(I, ziel, zustand, ansicht = 'kind') {
   const { D, LEITER, KURZ, LEHRER, REGEL, GESETZ, ETAGE, PLANETEN, PLANET, KUERZEL_ZU, IDEE, IDEEN, adr } = I;
   const esc = ruEsc, KL = RU_KL, Z = ziel;
@@ -162,14 +206,15 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
   const fehlerTeile = (t) => (t || '').split(/\s*Und:\s*/).filter(Boolean);
   const fehlerListe = (t) => `<ul class="ru-fehlerliste">${fehlerTeile(t).map((x) => `<li>${x.charAt(0).toUpperCase() + x.slice(1)}</li>`).join('')}</ul>`;
   const VERGLEICH_OFFEN = false; // Stufe 4 standardmäßig zu (umsetzung7.md, Abschnitt 3: gemessen fast oder mehr als eine Bildschirmhöhe)
-  const umschalter = (an) => `<nav class="ru-umschalter" aria-label="Ansicht"><a href="${Z('universum')}"${an === 'aufbau' ? ' aria-current="page"' : ''}>Aufbau</a><a href="${Z('klassen')}"${an === 'klassen' ? ' aria-current="page"' : ''}>Durch die Klassen</a></nav>`;
+  const umschalter = (an) => `<nav class="ru-umschalter" aria-label="Ansicht"><a href="${Z('universum')}"${an === 'aufbau' ? ' aria-current="page"' : ''}>Aufbau</a><a href="${Z('klassen')}"${an === 'klassen' ? ' aria-current="page"' : ''}>Durch die Klassen</a>${D.tafeln && D.tafeln.length ? `<a class="ru-umsch-tafeln" href="${Z('tafeln')}"${an === 'tafeln' ? ' aria-current="page"' : ''}>Tafeln</a>` : ''}</nav>`;
+  // Tafeln zum Nachschlagen: dritter Teil des Umschalters (am Handy der Einstieg im ersten Bildschirm, ohne die Gebiete nach unten zu schieben), am Rechner zusätzlich die Karte (tafelEinstieg)
   // Eltern/Lehrer sehen die Kinderseite: schmale Leiste mit dem Weg zurück zum Blatt
   const elternBand = (rid) => (ansicht === 'ansicht' ? `<div class="ru-lehrer-band ru-band-kind"><span>So sieht es das Kind</span><a class="ru-verweis" href="${rid ? '#/regeln/lehrer-' + rid.toLowerCase() : '#/regeln'}">${rid ? 'Blatt für Eltern und Lehrer ›' : 'Alle Regeln (Eltern und Lehrer) ›'}</a></div>` : '');
 
   // Ebene 0: das Universum – nur die großen Teile, je eine antippbare Fläche
   function sichtUniversum() {
     const bahnen = PLANETEN.map((p, n) => `<li class="ru-bahn0${n % 2 ? ' ru-rechts' : ''}"><a class="ru-planet0" href="${Z(adr.gebiet(p.name))}">${planetScheibe(p.name, 44)}<span><b>${esc(p.name)}</b><small>${p.ideen.length} tragende Ideen</small></span></a></li>`).join('');
-    return `<div class="ru-breite ru-schmal ru-start ru-universum">${elternBand()}<h1 class="ru-titel">Regel-Universum</h1><p class="ru-lead">Alle festen Regeln der Mathematik, Klasse 5 bis 10. Tippe auf einen Teil.</p>${umschalter('aufbau')}
+    return `<div class="ru-breite ru-schmal ru-start ru-universum">${elternBand()}<h1 class="ru-titel">Regel-Universum</h1><p class="ru-lead">Alle festen Regeln der Mathematik, Klasse 5 bis 10. Tippe auf einen Teil.</p>${umschalter('aufbau')}${tafelEinstieg()}
       <a class="ru-sonne0" href="${Z('sonne')}"><span class="ru-s0-kreis" aria-hidden="true"></span><span class="ru-s0-text"><small>Die Sonne · die Grundlage</small><b>14 Rechenregeln</b><small>gelten in jedem Gebiet und jeder Klasse</small></span></a>
       <p class="ru-u-zwischen">Darum die sieben Gebiete:</p>
       <ol class="ru-bahnen0">${bahnen}</ol>
@@ -256,7 +301,7 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
   function sichtRegel(id) {
     const r = REGEL[id], n = r.nr, vor = REGEL['R' + (n - 1)], nach = REGEL['R' + (n + 1)], w = wer.regel(id);
     return `<article class="ru-breite ru-schmal ru-regelseite">${elternBand(id)}${pfad(`<a href="${Z('sonne')}">Sonne</a>`, `<span>Schicht ${r.etage}</span>`)}${regelKopf(r, w)}${merksatz(r.satz, aeW(w, 'satz'))}
-      <section class="ru-bsp">${bspKopf(I.felder(id)[0] ? null : w)}${beispiel(id, w)}</section>
+      <section class="ru-bsp">${bspKopf(I.felder(id)[0] ? null : w)}${beispiel(id, w)}</section>${tafelVerweis([id])}
       <div class="ru-stufen">${stufe('klassen', `Dieselbe Regel in ${I.spanneText(id)}`, band(id), vergleichInhalt(id, w), VERGLEICH_OFFEN)}
       ${stufe('genau', 'Genau erklärt', 'warum · wann', genauInhalt(r, id, w))}
       ${stufe('fehler', 'Typische Fehler', fehlerTeile(r.fehler).length + '', aeZeile(aeW(w, 'fehler')) + fehlerListe(r.fehler))}
@@ -269,7 +314,7 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
     const folge = `<ol class="ru-folge">${i.gesetze.map((gid) => { const g = GESETZ[gid]; return `<li><a class="ru-karte" href="${Z(adr.gesetz(gid))}"><span class="ru-f-name"><span class="ru-nr">${gid}</span> ${esc(g.name)}</span><span class="ru-f-satz">${g.satz}</span></a></li>`; }).join('')}</ol>`;
     return `<article class="ru-breite ru-schmal ru-regelseite">${elternBand()}${pfad(`<a href="${Z(adr.gebiet(i.planet))}">${esc(i.planet)}</a>`)}
       <header class="ru-r-kopf"><p class="ru-ueber">${esc(i.planet)} · tragende Idee ${i.nr} von ${i.von}</p><h1>${esc(i.kurz)}</h1>${kurzZeile(w, KURZ[id] || '')}</header>${merksatz(i.satz, aeW(w, 'satz'))}
-      <section class="ru-bsp">${bspKopf(I.felder(id)[0] ? null : w)}${beispiel(id, w)}</section>
+      <section class="ru-bsp">${bspKopf(I.felder(id)[0] ? null : w)}${beispiel(id, w)}</section>${tafelVerweis([id, ...i.gesetze])}
       <div class="ru-stufen">${stufe('klassen', LEITER[id].klassen.length > 1 ? `Dieselbe Idee in ${I.spanneText(id)}` : `Kommt nur in Klasse ${LEITER[id].klassen[0]} vor`, band(id), vergleichInhalt(id, w), VERGLEICH_OFFEN)}
       ${stufe('genau', 'Genau erklärt', 'warum', genauInhalt(i, id, w))}
       ${stufe('folge', 'Die Regeln und Formeln dahinter', i.gesetze.length + '', aeZeile(aeW(w, 'gesetze (Auswahl, Reihenfolge)')) + folge)}
@@ -291,7 +336,7 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
     const bsp = g.beispiel ? `<p class="ru-fliess ru-bsp-text">${esc(g.beispiel)}</p>` : k.length ? `<p class="ru-rechnung ru-gross-r">${esc(k[0].text)}</p><p class="ru-kl">Klasse ${k[0].klasse} · ${k[0].art}</p>` : '';
     return `<article class="ru-breite ru-schmal ru-regelseite">${elternBand()}${pfad(PLANET[g.planet] ? `<a href="${Z(adr.gebiet(g.planet))}">${esc(g.planet)}</a>` : `<span>${esc(g.planet)}</span>`, i ? `<a href="${Z(adr.idee(i.id))}">${esc(i.kurz)}</a>` : '')}
       <header class="ru-r-kopf"><p class="ru-ueber">Regel ${id} · ${esc(I.klasseVon(g))}</p><h1>${esc(g.name)}</h1>${aeZeile(aeW(w, 'name'))}</header>${merksatz(g.satz, aeW(w, 'satz'))}
-      ${bsp ? `<section class="ru-bsp">${bspKopf(w)}${bsp}</section>` : ''}
+      ${bsp ? `<section class="ru-bsp">${bspKopf(w)}${bsp}</section>` : ''}${tafelVerweis([id])}
       <div class="ru-stufen">${k.length > 1 || (g.beispiel && k.length) ? stufe('klassen', 'In den Klassen', k.length + '', beispielListe(k, w)) : ''}
       ${g.warum || g.voraus || g.genau ? stufe('genau', 'Genau erklärt', 'warum · wann', genauInhalt(g, '', w)) : ''}
       ${g.fehler ? stufe('fehler', 'Typische Fehler', fehlerTeile(g.fehler).length + '', aeZeile(aeW(w, 'fehler')) + fehlerListe(g.fehler)) : ''}
@@ -317,7 +362,8 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
       <h1 class="ru-titel ru-lz-titel">Regeln</h1><p class="ru-lead">Alle festen Regeln der Lern-App, Klasse 5 bis 10: 14 Rechenregeln (die Sonne), 28 tragende Ideen in sieben Gebieten und 8 Arbeitsweisen. Je Rechenregel gibt es ein Blatt mit Erklärung, Lehrplan-Bezug und Rückmeldung.</p>
       <section class="ru-l-abschnitt"><h2>Rechenregeln (14)</h2>${sonne}</section>
       <section class="ru-l-abschnitt"><h2>Tragende Ideen der Gebiete (28)</h2><p class="ru-klein ru-leise">Stufe 1: Für die Ideen gibt es noch kein eigenes Blatt; der Verweis öffnet die Seite des Kindes (mit Erklärung, Klassen und den Regeln dahinter).</p>${gebiete}</section>
-      <section class="ru-l-abschnitt"><h2>Arbeitsweisen (8)</h2>${weisen}</section></div>`;
+      <section class="ru-l-abschnitt"><h2>Arbeitsweisen (8)</h2>${weisen}</section>
+      ${I.TAFELN.length ? `<section class="ru-l-abschnitt"><h2>Tafeln zum Nachschlagen (${I.TAFELN.length})</h2><ul class="ru-lz-liste">${I.TAFELN.map((t, n) => zeile(Z(adr.tafel(t.id)), n + 1, t.titel, esc(t.kurz), 'Tafel')).join('')}</ul></section>` : ''}</div>`;
   }
 
   // ---------- Eltern und Lehrer: Blatt einer Rechenregel (regeln-lehrer.md Regel 2, alle Abschnitte offen) ----------
@@ -349,6 +395,306 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
       ${blaettern(vor && { href: '#/regeln/' + adr.lehrer(vor.id), ueber: 'Regel ' + vor.nr, name: vor.name }, nach && { href: '#/regeln/' + adr.lehrer(nach.id), ueber: 'Regel ' + nach.nr, name: nach.name })}</article>`;
   }
 
+  // ===================== Tafeln zum Nachschlagen =====================
+  // Vorgabe: inhalte/design/tafeln/entwurf1/umsetzung1.md, Kurskorrektur des Nutzers (27.11.): zuerst die Schnellübersicht als Matrix, Einzelheiten beim Antippen.
+  // Bausteine (alle Klassen ru-tafel-…, Optik nur in lernen-regeln.css): Karte, Matrix (eigener Rollbereich, erste Spalte fest, Zeile klappt auf), Aufklapper, Kette.
+  const { TAFEL } = I;
+  let tfNr = 0;
+  const tfZahl = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  // Text der Vorschläge mit geschütztem Leerzeichen in Zahlen und vor Einheiten („3 500 m“ bricht nicht um; einheiten/vorschlag.md, Abschnitt 5.6)
+  const nb = (s) => esc(s).replace(/(\d) (?=\d{3}(?!\d))/g, '$1 ').replace(/(\d) (?=(?:[A-Za-zµ²³/]{1,6}|€|%|°)(?![A-Za-zäöüß]))/g, '$1 ');
+  // Formel mit Umbruchstellen nur vor Rechenzeichen außerhalb von Klammern (auf dem Handy zwei, drei Zeilen statt waagrecht rollen)
+  function formel(text) {
+    // Formel aus Wörtern („Summe aller Werte : Anzahl“) bricht wie Text um
+    const [l, ...r] = String(text).split(' = '); if (!r.length || !/ [·+−:] /.test(r.join(' = ')) || /[A-Za-zäöüß]{4,}/.test(r.join(' = '))) return nb(text);
+    const gruppen = [], toks = r.join(' = ').split(' '); let g = '', tiefe = 0;
+    for (const tk of toks) { const op = /^[·+−:=<>≤≥-]$/.test(tk);
+      if (g && op && (g + ' ' + tk).length > (tiefe ? 12 : 8)) { gruppen.push(g); g = tk; } else g = g ? g + ' ' + tk : tk;
+      tiefe += (tk.match(/\(/g) || []).length - (tk.match(/\)/g) || []).length; }
+    if (g) gruppen.push(g);
+    return [l + ' = ' + gruppen[0], ...gruppen.slice(1)].map((x) => `<span class="ru-tafel-fg">${nb(x)}</span>`).join(' ');
+  }
+  // Mini-Zeichnung in der ersten Spalte: ohne Beschriftung (zu klein zum Lesen), die volle Zeichnung steht in den Einzelheiten
+  const miniSvg = (x) => x.replace('<svg ', '<svg class="ru-tafel-mini" aria-hidden="true" ').replace(/ role="img" aria-label="[^"]*"/, '').replace(/<text[^>]*>[^<]*<\/text>/g, '');
+  const tfKl = (kl) => `<span class="ru-tafel-kl">${kl ? 'ab Kl. ' + kl : 'Kl. offen'}</span>`;
+  const dkl = (kl) => (kl != null ? ` data-kl="${kl}"` : '');
+  const tfErw = (t) => (ERW && t ? `<p class="ru-tafel-erw"><b>Für Eltern:</b> ${esc(t)}</p>` : '');
+  const tfMerk = (t) => (t ? `<p class="ru-tafel-merk">${nb(t)}</p>` : '');
+  const tfListe = (a, tag = 'ul') => (a && a.length ? `<${tag} class="ru-tafel-liste">${a.map((x) => `<li>${nb(x)}</li>`).join('')}</${tag}>` : '');
+  const tfH3 = (t) => `<h3 class="ru-tafel-h3">${t}</h3>`;
+  const tfBruch = (b) => { const [z, n] = String(b).split('/'); return n ? `<span class="ru-br" aria-label="${esc(b)}"><i>${esc(z)}</i><i>${esc(n)}</i></span>` : esc(b); };
+  // „Warum?“: Verweise auf Regeln, Ideen und Einzelregeln des Universums
+  const tfRegeln = (kenn) => { const z = [...new Set(kenn.filter(Boolean))].map((k) => (GESETZ[k] ? [adr.gesetz(k), GESETZ[k].name] : IDEE[k] ? [adr.idee(k), IDEE[k].kurz] : REGEL[k] ? [adr.regel(k), REGEL[k].name] : null)).filter(Boolean);
+    return z.length ? `<p class="ru-tafel-warum-zeile">${z.map(([h, n]) => `<a class="ru-tafel-warum" href="${Z(h)}">Warum? ${esc(n)} ›</a>`).join('')}</p>` : ''; };
+  const tfAe = (t, anker, name, feld) => ae('Tafel', t.id + (anker ? ' ' + anker : ''), ohneTags(name), feld);
+  // Karte: Überschrift mit „Ändern lassen“ (Abschnitt), Inhalt
+  const tfKarte = (t, anker, titel, inhalt, o = {}) => `<section class="ru-tafel-karte${o.klasse ? ' ' + o.klasse : ''}" id="ru-tf-${anker}"${dkl(o.kl)}>${aeKopf(`<h2 class="ru-tafel-h2">${titel}${o.kl !== undefined ? ' ' + tfKl(o.kl) : ''}</h2>`, tfAe(t, anker, titel, 'Abschnitt'))}${inhalt}</section>`;
+  const tfMehr = (titel, inhalt, o = {}) => `<details class="ru-tafel-mehr"${o.anker ? ` id="ru-tf-${o.anker}"` : ''}${dkl(o.kl)}${o.offen ? ' open' : ''}><summary><span class="ru-tafel-mehr-t">${titel}</span>${CHEVRON}</summary><div class="ru-tafel-mehr-in">${inhalt}</div></details>`;
+  const tfAnker = (...a) => a.map((x) => `<span class="ru-tafel-anker" id="ru-tf-${x}"></span>`).join('');
+  // Matrix: kopf = Spaltenköpfe; zeilen: { anker, kl, kopf (erste Spalte, HTML), zellen (HTML), detail (HTML, klappt beim Antippen auf) } oder { gruppe }
+  function matrix(kopf, zeilen, o = {}) {
+    const n = kopf.length;
+    const koerper = zeilen.map((z) => {
+      if (z.gruppe) return `<tbody class="ru-tafel-gruppe"${dkl(z.kl)}><tr><th colspan="${n}" scope="colgroup">${z.gruppe}</th></tr></tbody>`;
+      const did = 'ru-tfd-' + (z.anker || 'z' + (++tfNr));
+      const erste = z.detail ? `<button type="button" class="ru-tafel-auf" aria-expanded="false" aria-controls="${did}"><span class="ru-tafel-zk">${z.kopf}</span>${CHEVRON}</button>` : `<span class="ru-tafel-zk">${z.kopf}</span>`;
+      return `<tbody class="ru-tafel-z${z.klasse ? ' ' + z.klasse : ''}"${z.anker ? ` id="ru-tf-${z.anker}"` : ''}${dkl(z.kl)}><tr><th scope="row" class="ru-tafel-fest">${erste}</th>${z.zellen.map((c) => `<td>${c}</td>`).join('')}</tr>${z.detail ? `<tr class="ru-tafel-detail" id="${did}" hidden><td colspan="${n}"><div class="ru-tafel-d">${z.detail}</div></td></tr>` : ''}</tbody>`;
+    }).join('');
+    return `<div class="ru-tafel-roll${o.klasse ? ' ' + o.klasse : ''}" role="region" aria-label="${esc(o.titel || 'Tabelle')}" tabindex="0"><table class="ru-tafel-matrix"><thead><tr>${kopf.map((k, i) => `<th scope="col"${i ? '' : ' class="ru-tafel-fest"'}>${k}</th>`).join('')}</tr></thead>${koerper}</table></div>`;
+  }
+  const werkzeug = () => `<div class="ru-tafel-werkzeug"><div class="ru-tafel-kf" role="group" aria-label="Zeigen bis Klasse"><span>bis Klasse</span>${['5', '6', '7', '8', '9', '10', 'alle'].map((k) => `<button type="button" data-bis="${k}" aria-pressed="${k === 'alle'}">${k}</button>`).join('')}</div><button type="button" class="ru-tafel-drucken">Drucken</button></div>`;
+  const tfGebiet = (t) => (PLANET[t.gebiet] ? PLANET[t.gebiet].kuerzel : '');
+  function tafelSeite(t, inhalt, lead, eltern) {
+    tfNr = 0;
+    return `<div class="ru-breite ru-schmal ru-start ru-tafel-seite" data-tafel="${t.id}" data-gebiet="${tfGebiet(t)}">${elternBand()}${pfad(`<a href="${Z(adr.tafeln())}">Tafeln</a>`, eltern ? `<a href="${Z(adr.tafel('formeln'))}">Formeln</a>` : '')}
+      <header class="ru-tafel-kopf">${aeKopf(`<h1 class="ru-titel">${esc(t.titel)}</h1>`, tfAe(t, '', t.titel, 'ganze Tafel'))}${lead ? `<p class="ru-lead">${lead}</p>` : ''}${werkzeug()}</header>${inhalt}</div>`;
+  }
+
+  // ---------- Übersicht aller Tafeln ----------
+  const HAUPT = ['formeln', 'einheiten', 'zahlen', 'stellenwert', 'bruch-dezimal-prozent', 'figuren', 'zeichen-woerter'];
+  const kachel = (t, klein) => `<a class="ru-tafel-kachel${klein ? ' ru-tafel-klein' : ''}" data-gebiet="${tfGebiet(t)}" href="${Z(adr.tafel(t.id))}">${t.ikon}<span><b>${esc(t.titel)}</b><small>${esc(t.kurz)}</small><span class="ru-tafel-chip">${esc(t.chip)}</span></span><span class="ru-tafel-pf" aria-hidden="true">›</span></a>`;
+  function sichtTafeln() {
+    const tf = HAUPT.filter((id) => TAFEL[id]).map((id) => TAFEL[id]);
+    return `<div class="ru-breite ru-schmal ru-start ru-tafel-start">${elternBand()}${pfad('<span>Tafeln</span>')}${aeKopf('<h1 class="ru-titel">Tafeln zum Nachschlagen</h1>', ae('Tafel', 'Übersicht', 'Tafeln zum Nachschlagen', 'Auswahl und Reihenfolge'))}
+      <p class="ru-lead">Alles auf einen Blick – zum schnellen Nachschauen und zum Ausdrucken.</p>${umschalter('tafeln')}
+      <div class="ru-tafel-kacheln">${tf.map((t) => kachel(t)).join('')}</div>
+      <p class="ru-tafel-zw">Einzelheiten zu den Formeln:</p><div class="ru-tafel-kacheln">${['formeln-flaechen', 'formeln-koerper'].filter((id) => TAFEL[id]).map((id) => kachel(TAFEL[id], true)).join('')}</div></div>`;
+  }
+  // Einstieg auf der Universum-Startseite (entwurf1, Bild 01)
+  const tafelEinstieg = () => (I.TAFELN.length ? `<a class="ru-tafel-station" href="${Z(adr.tafeln())}">${TAFEL.einheiten ? TAFEL.einheiten.ikon : ''}<span><b>Tafeln zum Nachschlagen</b><small>Alles auf einen Blick</small><span class="ru-tafel-chips"><span>km · m · cm</span><span>A = a · b</span><span>V = a · b · c</span></span></span><span class="ru-tafel-pf" aria-hidden="true">›</span></a>` : '');
+  // Verweis von Regel, Idee oder Einzelregel auf die passende Tafel
+  const tafelVerweis = (ids) => { const v = I.tafelnZu(ids); return v.length ? `<nav class="ru-tafel-verweise" aria-label="Tafeln zum Nachschlagen">${v.map((x) => `<a class="ru-verweis ru-tafel-v" href="${Z(x.ziel)}"><span class="ru-nr">Tafel</span>${esc(x.t.id === 'formeln-flaechen' || x.t.id === 'formeln-koerper' ? TAFEL.formeln.titel : x.t.titel)}${x.teil ? ' › ' + esc(x.teil.titel) : ''}</a>`).join('')}</nav>` : ''; };
+
+  // ---------- Maßeinheiten: Schnellübersicht (Matrix aller Größen) + je Größe „1 … = …“ ----------
+  const fZahl = (s) => Number(String(s).replace(/\s/g, '').replace(',', '.'));
+  // Treppe (groß → klein) zu Einheiten mit Umrechnungszahl zur nächsten; ohne Zusatz-Stufen werden deren Zahlen zusammengerechnet
+  function kette(treppe, mitZusatz) {
+    const aus = []; let f = 1;
+    for (const s of treppe) { if (mitZusatz || !s.zusatz) { if (aus.length) aus[aus.length - 1].f = f; aus.push({ e: s.einheit, name: s.name, zusatz: !!s.zusatz, f: null }); f = 1; } f *= s.zur_naechsten ? fZahl(s.zur_naechsten) : 1; }
+    return aus;
+  }
+  // Zeile der Schnellübersicht: klein → groß, dazwischen die Zahl („mm ·10 cm“: 1 cm = 10 mm)
+  // Zahl und Einheit bleiben zusammen („·10 cm“), die Kette darf zwischen den Paaren umbrechen
+  const ketteHtml = (k) => `<span class="ru-tafel-kette">${[...k].reverse().map((u, i, r) => `<span class="ru-tafel-paar">${i ? `<span class="ru-tafel-fak" title="1 ${esc(u.e)} = ${tfZahl(u.f)} ${esc(r[i - 1].e)}">·${tfZahl(u.f)}</span>` : ''}<b class="ru-tafel-eh${u.zusatz ? ' ru-tafel-zus' : ''}" title="${esc(u.name)}">${esc(u.e)}</b></span>`).join('')}</span>`;
+  // Kreuztabelle „1 … = …“: alle Einheiten als Zeile und Spalte, Diagonale 1. Zur kleineren Einheit die Umrechnungszahl (ab einer Million als „Mio.“, „Mrd.“, „Bio.“),
+  // zur größeren der Bruchteil: Zehnerbruch als Dezimalzahl (0,1 · 0,01 · 0,001), sonst als Bruch (1/60); kleiner als ein Tausendstel bleibt die Zelle leer.
+  const gross = (n) => { for (const [z, w] of [[1e12, 'Bio.'], [1e9, 'Mrd.'], [1e6, 'Mio.']]) if (n >= z && n % z === 0) return `${tfZahl(n / z)}\u00a0${w}`; return tfZahl(n); };
+  const teilwert = (p) => (p > 1000 ? '' : /^10*$/.test(String(p)) ? '0,' + '0'.repeat(String(p).length - 2) + '1' : '1/' + tfZahl(p));
+  function kreuz(k, titel) {
+    const prod = (a, b) => { let p = 1; for (let j = a; j < b; j++) p *= k[j].f; return p; };
+    const zeilen = k.map((u, r) => ({ kopf: `1\u00a0${esc(u.e)}\u00a0=`, klasse: u.zusatz ? 'ru-tafel-zus' : '',
+      zellen: k.map((v, c) => { const w = c === r ? '1' : c > r ? gross(prod(r, c)) : teilwert(prod(c, r));
+        return w ? `<span class="ru-tafel-wert${c === r ? ' ru-tafel-eins' : ''}" title="1 ${esc(u.e)} = ${w.replace(/\u00a0/g, ' ')} ${esc(v.e)}">${w}</span>` : '<span class="ru-tafel-leer" aria-hidden="true">·</span>'; }) }));
+    return matrix(['1 … =', ...k.map((v) => `<span class="${v.zusatz ? 'ru-tafel-zus' : ''}">${esc(v.e)}</span>`)], zeilen, { titel, klasse: 'ru-tafel-kreuz' });
+  }
+  function einheitDetails(t, x) {
+    const b0 = x.beispiele[0];
+    return `${(x.so_gehts || []).length ? tfH3('So geht’s') + tfListe(x.so_gehts, 'ol') : ''}
+      ${tfH3('Beispiele')}<ul class="ru-tafel-liste ru-tafel-bsp-liste">${x.beispiele.map((y) => `<li><span class="ru-rechnung">${nb(y.von)} = ${nb(y.nach)}</span>, denn ${nb(y.denn)}.${y.achtung ? ' ' + nb(y.achtung) : ''}</li>`).join('')}</ul>
+      ${(x.stolperstellen || []).length ? tfH3('Stolperstellen') + `<ul class="ru-tafel-liste">${x.stolperstellen.map((y) => `<li><b>${nb(y.fehler)}</b> ${nb(y.richtig)}</li>`).join('')}</ul>` : ''}
+      ${(x.hinweise || []).length ? tfH3('Gut zu wissen') + tfListe(x.hinweise) : ''}${(x.herleitung || []).length ? tfH3('Warum?') + tfListe(x.herleitung.map((h) => h.text)) : ''}
+      ${tfRegeln(kennVonT(x.regeln))}${tfErw(x.ab_klasse_hinweis)}${b0 ? '' : ''}`;
+  }
+  const kennVonT = (l) => (l || []).map((r) => r.kennung);
+  function einheitAbschnitt(t, x, offen) {
+    const k = kette(x.treppe, true), w = (x.weitere_treppen || [])[0], b0 = x.beispiele[0];
+    // mehr als fünf Einheiten (Fläche): zwei Tafeln, die sich in der mittleren Einheit treffen – so passt jede aufs Handy
+    const m = Math.floor((k.length - 1) / 2), teile = k.length > 5 ? [k.slice(0, m + 1), k.slice(m)] : [k];
+    const inhalt = `${aeZeile(tfAe(t, x.anker, x.art, 'Abschnitt (Umrechnung, Beispiele, Stolperstellen)'))}${teile.map((kk) => `${teile.length > 1 ? tfH3(`${esc(kk[0].e)} bis ${esc(kk[kk.length - 1].e)}`) : ''}${kreuz(kk, '1 … = … ' + x.art)}`).join('')}
+      ${w ? `${tfAnker('hohlmass')}${tfH3(esc(w.name))}${kreuz(kette(w.treppe, true), '1 … = … ' + w.name)}` : ''}
+      ${(x.verbindung || []).length ? `<p class="ru-tafel-verb">${x.verbindung.map((v) => `<b>${nb(v.links)} = ${nb(v.rechts)}</b>`).join(' · ')}</p>` : ''}
+      ${k.some((u) => u.zusatz) || (w && w.treppe.some((u) => u.zusatz)) ? '<p class="ru-tafel-hinweis">Grau: kommt in den Lernkarten nicht vor, ist aber gebräuchlich.</p>' : ''}
+      ${tfMerk(x.merksatz)}${b0 ? `<p class="ru-tafel-bsp"><span class="ru-rechnung">${nb(b0.von)} = ${nb(b0.nach)}</span> <small>denn ${nb(b0.denn)}</small></p>` : ''}
+      ${tfMehr('So geht’s · Beispiele · Stolperstellen', einheitDetails(t, x))}`;
+    return tfMehr(`${esc(x.art)} ${tfKl(x.kl)}`, inhalt, { anker: x.anker, kl: x.kl, offen });
+  }
+  const KURZNAME = { 'Volumen und Hohlmaße': 'Volumen', 'Hohlmaße': 'Hohlmaß' };
+  function tafelEinheiten(t) {
+    const A = Object.fromEntries(t.arten.map((x) => [x.anker, x])), v = A.volumen, w = v && (v.weitere_treppen || [])[0];
+    const reihen = [['laenge', A.laenge], ['flaeche', A.flaeche], ['volumen', v], ['hohlmass', w && { art: w.name, treppe: w.treppe, kl: v.kl }], ['masse', A.masse], ['zeit', A.zeit], ['geld', A.geld]].filter(([, x]) => x);
+    const schnell = matrix(['Größe', 'Einheiten von klein nach groß'], reihen.map(([a, x]) => ({ kl: x.kl, kopf: `<span class="ru-tafel-zk-text"><a class="ru-tafel-sprung" href="${Z(adr.tafel(t.id, a))}">${esc(KURZNAME[x.art] || x.art)}</a>${tfKl(x.kl)}</span>`, zellen: [ketteHtml(kette(x.treppe, false)) + (a === 'hohlmass' && (v.verbindung || []).length ? `<small class="ru-tafel-verb-k">${[...v.verbindung].reverse().map((y) => `${nb(y.links)} = ${nb(y.rechts)}`).join(' · ')}</small>` : '')] })), { titel: 'Schnellübersicht Maßeinheiten', klasse: 'ru-tafel-schnell' });
+    const hoeher = ['tempo', 'dichte'].map((a) => A[a]).filter(Boolean);
+    return `${tfKarte(t, 'schnell', 'Schnellübersicht', `<p class="ru-tafel-leitsatz"><b>Zur größeren Einheit teilen, zur kleineren malnehmen.</b> <span>${nb(t.richtung.merksatz)}</span></p>${schnell}
+        <p class="ru-tafel-hinweis">Die Zahl zwischen zwei Einheiten sagt, wie viele kleine eine große sind: <b class="ru-rechnung">mm ·10 cm</b> heißt 1 cm = 10 mm.${w && (w.treppe || []).some((s) => s.zusatz) ? ' hl, dl und cl stehen unten bei Volumen.' : ''}</p>`, { klasse: 'ru-tafel-erste' })}
+      ${tfKarte(t, 'je-groesse', '1 … = … je Größe', `<p class="ru-tafel-hinweis">Zeile lesen: 1 m = 10 dm = 100 cm = 1 000 mm, und 1 m = 0,001 km. Leer: kleiner als ein Tausendstel.</p>${t.arten.filter((x) => !['tempo', 'dichte'].includes(x.anker)).map((x) => einheitAbschnitt(t, x, ['laenge', 'masse'].includes(x.anker))).join('')}`)}
+      ${hoeher.length ? tfKarte(t, 'hoeher', 'Für höhere Klassen', hoeher.map((x) => tfMehr(`${esc(x.art)} ${tfKl(x.kl)}`, `${aeZeile(tfAe(t, x.anker, x.art, 'Abschnitt'))}<p class="ru-tafel-kette-z">${ketteHtml(kette(x.treppe, true))}</p>${tfMerk(x.merksatz)}${(x.so_gehts || []).length ? tfListe(x.so_gehts, 'ol') : ''}${tfMehr('Beispiele · Stolperstellen', einheitDetails(t, { ...x, so_gehts: [] }))}`, { anker: x.anker, kl: x.kl })).join('')) : ''}
+      ${ERW && (t.nicht_aufgenommen || []).length ? `<p class="ru-tafel-erw"><b>Für Eltern – nicht aufgenommen:</b> ${t.nicht_aufgenommen.map((n) => `${esc(n.art)} (${esc(n.grund)})`).join(' ')}</p>` : ''}`;
+  }
+
+  // ---------- Formeln: Figuren und Körper ----------
+  const SPALTEN = { 'formeln-flaechen': [['Umfang', /Umfang|Bogen/], ['Flächeninhalt', /./]], 'formeln-koerper': [['Oberfläche', /Mantel|Oberfläche/], ['Volumen', /./]] };
+  const teilName = (f) => f.fuer.split(' – ').slice(1).join(' – ');
+  // kleine Beschriftung einer Formel, wenn sie nicht die erwartete Größe der Spalte ist (Bogen, Mantel, Raute …)
+  function formelLabel(f, karte, spalte) {
+    const rest = f.figur !== karte.name ? (f.figur.startsWith(karte.name + ' ') ? f.figur.slice(karte.name.length + 1) : f.figur) : '';
+    const teil = teilName(f), std = ['Fläche', 'Umfang', 'Volumen', 'Oberfläche'].includes(teil) && (spalte === teil || (spalte === 'Flächeninhalt' && teil === 'Fläche'));
+    return [std ? '' : teil, rest].filter(Boolean).join(', ');
+  }
+  const formelHtml = (f, lab) => `<span class="ru-tafel-fz"${dkl(f.kl)}>${lab ? `<small>${esc(lab)}</small>` : ''}<span class="ru-tafel-f">${formel(f.formel)}</span></span>`;
+  function karteSpalten(t, k, ohneMantel) {
+    const sp = SPALTEN[t.id], zellen = sp.map(() => []);
+    // Gesamtübersicht (ohneMantel): in der Körper-Matrix nur O und V, der Mantel steht in den Einzelheiten
+    for (const f of k.zeilen) { if (ohneMantel && /^Mantel/.test(teilName(f))) continue; const i = sp.findIndex(([, re]) => re.test(teilName(f))); zellen[i].push(formelHtml(f, formelLabel(f, k, sp[i][0]))); }
+    return zellen.map((z) => (z.length ? z.join('') : '<span class="ru-tafel-leer" aria-label="keine Formel auf der Tafel">–</span>'));
+  }
+  function bezeichnungen(k) {
+    const seen = new Map();
+    for (const f of [...k.zeilen, ...k.zusatz]) for (const g of [f.ergebnis, ...(f.groessen || [])]) { const key = g.zeichen + '|' + g.name; if (![...seen.keys()].some((x) => x === key)) seen.set(key, g); }
+    return `<dl class="ru-tafel-bez">${[...seen.values()].map((g) => `<div><dt>${esc(g.zeichen)}</dt><dd>${esc(g.name)}${g.einheit ? ` <span class="ru-leise">(in ${esc(g.einheit)})</span>` : ''}</dd></div>`).join('')}</dl>`;
+  }
+  const bedingungen = (liste, k) => { const b = liste.filter((f) => f.bedingung && f.bedingung !== '–'); return b.length ? `<ul class="ru-tafel-liste ru-tafel-bed">${b.map((f) => `<li><b>${esc(teilName(f))}${f.figur !== k.name ? ' (' + esc(f.figur) + ')' : ''}:</b> ${nb(f.bedingung)}</li>`).join('')}</ul>` : ''; };
+  const beispiele = (liste) => `<ul class="ru-tafel-liste ru-tafel-bsp-liste">${liste.filter((f) => f.beispiel).map((f) => `<li><span class="ru-rechnung">${nb(f.beispiel.rechnung)}</span>${f.beispiel.hilfe ? ` <small>${nb(f.beispiel.hilfe)}</small>` : ''}</li>`).join('')}</ul>`;
+  const zusatzHtml = (k) => (k.zusatz.length ? `${tfH3('Zusatz')}<ul class="ru-tafel-liste">${k.zusatz.map((f) => `<li${dkl(f.kl)}><b>${esc(teilName(f))}:</b> <span class="ru-tafel-f">${formel(f.formel)}</span> ${tfKl(f.kl)}${f.beispiel ? `<br><span class="ru-rechnung ru-leise">${nb(f.beispiel.rechnung)}</span>` : ''}</li>`).join('')}</ul>` : '');
+  const karteErw = (k) => [...k.zeilen, ...k.zusatz].map((f) => [f.ab_klasse_hinweis, f.regeln_hinweis].filter(Boolean).map((h) => tfErw(`${f.fuer}: ${h}`)).join('')).join('');
+  const karteKenn = (k) => [...k.zeilen, ...k.zusatz].flatMap((f) => [f.ziel, ...kennVonT(f.regeln)]);
+  const miniBild = (k) => miniSvg(k.bild);
+  // Zeile der Gesamtübersicht (Matrix): Mini-Zeichnung, Name, Klasse; beim Antippen Zeichnung, Bezeichnungen, Bedingungen, Verweise
+  const mantel = (k) => { const m = k.zeilen.filter((f) => /^Mantel/.test(teilName(f))); return m.length ? `${tfH3('Mantel')}<p>${m.map((f) => `<span class="ru-tafel-f">${formel(f.formel)}</span>`).join('<br>')}</p>` : ''; };
+  const formelZeile = (t, k) => ({ anker: k.anker, kl: k.kl, kopf: `${miniBild(k)}<span class="ru-tafel-zk-text"><b>${esc(k.name)}</b>${tfKl(k.kl)}</span>`, zellen: karteSpalten(t, k, true),
+    detail: `<div class="ru-tafel-d-kopf"><div class="ru-tafel-bild">${k.bild}</div><div>${mantel(k)}${tfH3('Bezeichnungen')}${bezeichnungen(k)}</div></div>${bedingungen([...k.zeilen], k)}${zusatzHtml(k)}
+      <p class="ru-tafel-d-fuss"><a class="ru-tafel-warum" href="${Z(adr.tafel(t.id, k.anker))}">Alle Einzelheiten und Beispiele ›</a></p>${tfRegeln(karteKenn(k))}${karteErw(k)}${aeZeile(tfAe(t, k.anker, k.name, 'Zeile (Formeln, Bezeichnungen)'))}` });
+  const formelMatrix = (t, kopf) => matrix([kopf, ...SPALTEN[t.id].map(([s]) => s)], t.karten.map((k) => formelZeile(t, k)), { titel: t.titel, klasse: 'ru-tafel-formeln' });
+  // „Was man sonst noch braucht“: Formeln der Tafeln (Prozent, Zinsen, Winkelsumme) und Einzelregeln mit Formel im Merksatz
+  function sonstZeile(z) {
+    if (z.gesetz) { const g = GESETZ[z.gesetz]; if (!g) return null; const kl = Number(((g.gym || '').match(/\d+/) || [])[0]) || null;
+      const zelle = z.kurz ? `${z.kurz.map((x) => `<span class="ru-tafel-fz"><span class="ru-tafel-f">${formel(x)}</span></span>`).join('')}${z.bed ? `<small class="ru-tafel-bed-k">${nb(z.bed)}</small>` : ''}` : `<span class="ru-tafel-satz">${g.satz}</span>`;
+      return { anker: 'so-' + z.gesetz.toLowerCase(), kl, kopf: `<span class="ru-tafel-zk-text"><b>${esc(g.name)}</b>${tfKl(kl)}</span>`, zellen: [zelle],
+        detail: `${z.kurz ? `${tfH3('Merksatz')}<p>${g.satz}</p>` : ''}${g.beispiel ? `${tfH3('Beispiel')}<p>${nb(g.beispiel)}</p>` : ''}${tfRegeln([z.gesetz])}${aeZeile(ae('Einzelregel', z.gesetz, g.name, 'satz (Tafel Formeln)'))}` }; }
+    const q = TAFEL[z.tafel], e = q && q.eintraege.find((x) => x.kennung === z.kennung); if (!e) return null;
+    return { anker: 'so-' + e.kennung, kl: e.kl, kopf: `<span class="ru-tafel-zk-text"><b>${esc(e.titel)}</b>${tfKl(e.kl)}</span>`, zellen: [`<span class="ru-tafel-f">${formel(e.formel)}</span>${e.bedingung && e.bedingung !== '–' ? `<small class="ru-tafel-bed-k">${nb(e.bedingung)}</small>` : ''}`],
+      detail: `${eintragFormelDetail(e)}<p class="ru-tafel-d-fuss"><a class="ru-tafel-warum" href="${Z(adr.tafel(q.id, e.kennung))}">Auf der Tafel „${esc(q.titel)}“ ›</a></p>${tfRegeln(kennVonT(e.regeln))}${aeZeile(tfAe(q, e.kennung, e.titel, 'Zeile (Tafel Formeln)'))}` };
+  }
+  function eintragFormelDetail(e) {
+    const b = e.beispiel || {};
+    return `${(e.groessen || []).length ? `${tfH3('Bezeichnungen')}<dl class="ru-tafel-bez">${e.groessen.map((g) => `<div><dt>${esc(g.zeichen)}</dt><dd>${esc(g.name)}</dd></div>`).join('')}</dl>` : ''}
+      ${e.aufgabe ? `${tfH3('Aufgabe')}<p>${nb(e.aufgabe)}</p>` : ''}${(e.so_gehts || []).length ? tfH3('So geht’s') + tfListe(e.so_gehts, 'ol') : ''}
+      ${b.rechnung || b.q_rechnung ? `${tfH3('Beispiel')}<ul class="ru-tafel-liste ru-tafel-bsp-liste">${[b.q_rechnung, ...(b.schritte || []), b.rechnung, b.danach, b.probe ? 'Probe: ' + b.probe : '', b.zinsen_gesamt].filter(Boolean).map((r) => `<li><span class="ru-rechnung">${nb(r)}</span></li>`).join('')}</ul>${b.achtung ? `<p class="ru-tafel-achtung">${nb(b.achtung)}</p>` : ''}` : ''}`;
+  }
+  function tafelFormeln(t) {
+    const F = TAFEL['formeln-flaechen'], K = TAFEL['formeln-koerper'];
+    const legende = (q) => (q && q.groessenarten ? `<p class="ru-tafel-hinweis">${Object.entries(q.groessenarten).filter(([k]) => k !== 'Winkel').map(([k, v]) => `${esc(k)}: ${esc(v)}`).join(' · ')}. Tippe auf eine Zeile für Bezeichnungen und Bedingungen.</p>` : '');
+    return `${F ? tfKarte(t, 'flaechen', 'Ebene Figuren', `${formelMatrix(F, 'Figur')}${legende(F)}<p class="ru-tafel-weiter"><a class="ru-tafel-warum" href="${Z(adr.tafel(F.id))}">Alle Figuren mit Beispielen ›</a></p>`, { klasse: 'ru-tafel-erste' }) : ''}
+      ${K ? tfKarte(t, 'koerper', 'Körper', `${formelMatrix(K, 'Körper')}<p class="ru-tafel-hinweis">Volumen in cm³, Oberfläche und Mantel in cm². G ist die Grundfläche, M der Mantel – beide stehen bei den ebenen Figuren.</p><p class="ru-tafel-weiter"><a class="ru-tafel-warum" href="${Z(adr.tafel(K.id))}">Alle Körper mit Beispielen ›</a></p>`) : ''}
+      ${tfKarte(t, 'sonst', 'Was man sonst noch braucht', matrix(['Wofür', 'Formel oder Regel'], (t.sonst || []).map(sonstZeile).filter(Boolean), { titel: 'Weitere Formeln', klasse: 'ru-tafel-sonst' }))}`;
+  }
+  // Detailansicht Flächen bzw. Körper: je Figur eine Karte mit Zeichnung, Formeln, Bezeichnungen, Beispielen (entwurf1, Bild 04/05)
+  function tafelFormelKarten(t) {
+    const sp = SPALTEN[t.id];
+    return `<div class="ru-tafel-figuren">${t.karten.map((k) => { const zellen = karteSpalten(t, k);
+      return `<section class="ru-tafel-figur" id="ru-tf-${k.anker}"${dkl(k.kl)}><div class="ru-tafel-bild">${k.bild}</div><div class="ru-tafel-figur-kt">${aeKopf(`<h2 class="ru-tafel-h2">${esc(k.name)}</h2>`, tfAe(t, k.anker, k.name, 'Karte'))}${tfKl(k.kl)}</div>
+        <dl class="ru-tafel-fdl">${sp.map(([s], i) => `<dt>${s}</dt><dd>${zellen[i]}</dd>`).join('')}</dl>
+        ${tfH3('Bezeichnungen')}${bezeichnungen(k)}${bedingungen(k.zeilen, k)}${tfMehr('Beispiele', beispiele(k.zeilen) + zusatzHtml(k))}${tfRegeln(karteKenn(k))}${karteErw(k)}</section>`; }).join('')}</div>`;
+  }
+
+  // ---------- Zahlen ----------
+  function tafelZahlen(t) {
+    const E = Object.fromEntries(t.eintraege.map((e) => [e.kennung, e])), q = E['zz-01'], k3 = E['zz-02'], z2 = E['zz-03'];
+    const ns = [...new Set([...z2.liste.map((x) => x.exponent), ...q.liste.map((x) => x.n), ...k3.liste.map((x) => x.n)])].sort((a, b) => a - b);
+    const wert = (l, n, f, key) => { const x = l.find((y) => y[key] === n); return x ? `<span class="ru-tafel-wert">${tfZahl(x[f])}</span>` : ''; };
+    const pot = matrix(['n', 'n²', 'n³', '2ⁿ'], ns.map((n) => ({ kopf: String(n), zellen: [wert(q.liste, n, 'quadrat', 'n'), wert(k3.liste, n, 'kubik', 'n'), wert(z2.liste, n, 'wert', 'exponent')] })), { titel: 'Quadrat-, Kubik- und Zweierpotenzen', klasse: 'ru-tafel-zahlen' });
+    const pr = E['zz-06'], prim = new Set(pr.liste);
+    const gitter = `<div class="ru-tafel-gitter" role="img" aria-label="Zahlen 1 bis 100, die ${pr.anzahl} Primzahlen hervorgehoben: ${pr.liste.join(', ')}">${Array.from({ length: 100 }, (_, i) => `<span${prim.has(i + 1) ? ' class="ru-tafel-prim"' : ''}>${i + 1}</span>`).join('')}</div>`;
+    const teil = t.eintraege.filter((e) => e.art === 'teilbarkeit');
+    const tb = matrix(['Teilbar durch', 'Sieh an', 'Regel'], teil.map((e) => ({ anker: e.kennung, kl: e.kl, kopf: `<span class="ru-tafel-zk-text"><b class="ru-tafel-gross">${e.teiler}</b>${tfKl(e.kl)}</span>`, zellen: [esc(e.sieh_an), nb(e.regel_text)],
+      detail: `<p><b>Ja:</b> <span class="ru-rechnung">${nb(e.ja.zahl)}</span> – ${nb(e.ja.weg)}</p><p><b>Nein:</b> <span class="ru-rechnung">${nb(e.nein.zahl)}</span> – ${nb(e.nein.weg)}</p>${tfRegeln(kennVonT(e.regeln))}${tfErw(e.ab_klasse_hinweis)}${tfErw(e.regeln_hinweis)}${aeZeile(tfAe(t, e.kennung, e.titel, 'Zeile'))}` })), { titel: 'Teilbarkeitsregeln', klasse: 'ru-tafel-teilbar' });
+    const zp = [E['zz-04'], E['zz-05']].filter(Boolean);
+    const zehn = matrix(['Potenz', 'Zahl', 'Name'], zp.flatMap((e) => (e.kennung === 'zz-04' ? [...e.liste].reverse() : e.liste).map((x) => ({ kl: e.kl, kopf: esc(x.potenz), zellen: [`<span class="ru-tafel-wert">${nb(x.zahl)}</span>`, esc(x.name)] }))), { titel: 'Zehnerpotenzen', klasse: 'ru-tafel-zehn' });
+    return `${tfKarte(t, 'zz-01', 'Quadrat-, Kubik- und Zweierpotenzen', `${tfAnker('zz-02', 'zz-03')}${pot}${tfMehr('Merksätze und Trick', `${[q, k3, z2].map((e) => tfMerk(e.merksatz)).join('')}${q.trick ? `<p class="ru-tafel-bsp">${nb(q.trick.text)}</p>` : ''}${tfRegeln([q, k3, z2].flatMap((e) => kennVonT(e.regeln)))}`)}`, { kl: q.kl, klasse: 'ru-tafel-erste' })}
+      ${tfKarte(t, 'zz-06', esc(pr.titel), `${gitter}${tfMerk(pr.merksatz)}<p>${nb(pr.so_testest_du)}</p>${tfMehr('Warum nur bis 7? · Beispiele', `<p>${nb(pr.warum_nur_bis_7)}</p>${tfListe(pr.beispiele.map((b) => b.weg))}${tfRegeln(kennVonT(pr.regeln))}`)}`, { kl: pr.kl })}
+      ${tfKarte(t, 'teilbarkeit', 'Teilbarkeitsregeln', `${tb}<p class="ru-tafel-hinweis">Tippe auf eine Zeile: ein Beispiel, das teilbar ist, und eins, das es nicht ist.</p>`)}
+      ${tfKarte(t, 'zz-04', 'Zehnerpotenzen mit Namen', `${tfAnker('zz-05')}${zehn}${tfMehr('Merksätze', zp.map((e) => tfMerk(e.merksatz)).join('') + tfRegeln(zp.flatMap((e) => kennVonT(e.regeln))) + zp.map((e) => tfErw(e.ab_klasse_hinweis)).join(''))}`)}`;
+  }
+
+  // ---------- Stellenwert, Runden, römische Zahlen, Vorsilben ----------
+  function tafelStellenwert(t) {
+    const E = Object.fromEntries(t.eintraege.map((e) => [e.kennung, e])), s1 = E['sw-01'], s2 = E['sw-02'], s3 = E['sw-03'];
+    const zeilen = []; let gruppe = null;
+    for (const s of [...s1.stellen].reverse()) { if (s.gruppe !== gruppe) { gruppe = s.gruppe; zeilen.push({ gruppe: esc(gruppe) }); } zeilen.push({ kopf: `<span class="ru-tafel-zk-text"><b>${esc(s.name)}</b><small class="ru-tafel-kurz">${esc(s.kurz)}</small></span>`, zellen: [`<span class="ru-tafel-wert">${nb(s.wert)}</span><small class="ru-tafel-pot">= ${esc(s.potenz)}</small>`] }); }
+    if (s2) { zeilen.push({ gruppe: 'Komma – hinter dem Komma', kl: s2.kl }); for (const s of s2.stellen) zeilen.push({ kl: s2.kl, kopf: `<span class="ru-tafel-zk-text"><b>${esc(s.name)}</b><small class="ru-tafel-kurz">${esc(s.kurz)}</small></span>`, zellen: [`<span class="ru-tafel-wert">${nb(s.wert)}</span><small class="ru-tafel-pot">= ${esc(s.potenz)}</small>`] }); }
+    const stellen = matrix(['Stelle', 'Wert'], zeilen, { titel: 'Stellenwerttafel', klasse: 'ru-tafel-stellen' });
+    const runden = t.eintraege.filter((e) => e.art === 'runden');
+    const rm = matrix(['Zahl', 'runden auf', 'Ergebnis'], runden.flatMap((e) => e.beispiele.map((b, i) => ({ kl: e.kl, kopf: `<span class="ru-rechnung">${nb(b.zahl)}</span>`, zellen: [esc(b.stelle), `<b class="ru-rechnung">${nb(b.ergebnis)}</b>`], detail: `<p>${nb(b.grund)}</p>` }))), { titel: 'Runden: Beispiele' });
+    const ro = E['sw-06'];
+    const roem = ro ? `${matrix(['Zeichen', ...ro.zeichen.map((z) => `<b class="ru-tafel-gross">${esc(z.zeichen)}</b>`)], [{ kopf: 'Wert', zellen: ro.zeichen.map((z) => nb(z.wert)) }], { titel: 'Römische Zahlzeichen', klasse: 'ru-tafel-roem' })}
+      ${tfH3('Nur diese sechs Abzüge')}${matrix(['Paar', ...ro.abzuege.map((z) => `<b>${esc(z.paar)}</b>`)], [{ kopf: 'Wert', zellen: ro.abzuege.map((z) => tfZahl(z.wert)) }], { titel: 'Erlaubte Abzüge', klasse: 'ru-tafel-roem' })}
+      ${tfMehr('Regeln · Beispiele · Fehler', `<p>${nb(ro.addieren)}</p><p>${nb(ro.abziehen)} ${nb(ro.abzug_merkregel)}</p>${tfH3('Beispiele')}${tfListe(ro.beispiele.map((b) => b.rechnung))}${tfH3('So nicht')}<ul class="ru-tafel-liste">${ro.falsch.map((f) => `<li><s>${esc(f.falsch)}</s> → <b>${esc(f.richtig)}</b> = ${tfZahl(f.zahl)}</li>`).join('')}</ul><p class="ru-tafel-hinweis">${nb(ro.hinweis)}</p>${tfRegeln(kennVonT(ro.regeln))}`)}` : '';
+    const vs = t.eintraege.filter((e) => e.art === 'vorsilbe').sort((a, b) => b.exponent - a.exponent);
+    const vm = matrix(['Vorsilbe', 'Faktor', 'Beispiel'], vs.map((e) => ({ anker: e.kennung, kl: e.kl, kopf: `<span class="ru-tafel-zk-text"><b>${esc(e.vorsilbe)} <span class="ru-tafel-gross">${esc(e.kurz)}</span></b><small>${esc(e.bedeutet)}</small>${tfKl(e.kl)}</span>`,
+      zellen: [`<span class="ru-tafel-wert">${nb(e.faktor)}</span><small class="ru-tafel-pot">= ${esc(e.potenz)}</small>`, `<span class="ru-rechnung">${nb(e.beispiel.text)}</span>`] })), { titel: 'Vorsilben', klasse: 'ru-tafel-vorsilben' });
+    const vsErw = vs.map((e) => [e.ab_klasse_hinweis, e.regeln_hinweis].filter(Boolean).map((h) => tfErw(`${e.vorsilbe}: ${h}`)).join('')).join('');
+    return `${tfKarte(t, 'sw-01', 'Stellenwerttafel', `${tfAnker('sw-02')}${stellen}${tfMerk(s1.merksatz)}${s2 ? tfMerk(s2.merksatz) : ''}
+        ${tfMehr('Beispiele', `<p class="ru-tafel-bsp"><span class="ru-rechnung">${nb(s1.beispiel.text)}</span><small>${esc(s1.beispiel.wort)}</small></p>${s2 ? `<p class="ru-tafel-bsp"><span class="ru-rechnung">${nb(s2.beispiel.text)}</span><small>${esc(s2.beispiel.lesen)}</small></p>` : ''}${tfRegeln([s1, s2].filter(Boolean).flatMap((e) => kennVonT(e.regeln)))}${[s1, s2].filter(Boolean).map((e) => tfErw(e.ab_klasse_hinweis)).join('')}`)}
+        ${s3 ? tfMehr(esc(s3.titel), `${tfListe(s3.so_gehts, 'ol')}${matrix(['Zahl', 'gelesen'], s3.beispiele.map((b) => ({ kopf: `<span class="ru-tafel-wert">${nb(b.zahl)}</span>`, zellen: [esc(b.wort)] })), { titel: 'Große Zahlen lesen', klasse: 'ru-tafel-lesen' })}<p class="ru-tafel-hinweis">${nb(s3.hinweis)}</p>`, { anker: 'sw-03', kl: s3.kl }) : ''}`, { klasse: 'ru-tafel-erste' })}
+      ${tfKarte(t, 'sw-04', 'Runden', `${tfAnker('sw-05')}${runden.map((e) => `<p class="ru-tafel-merk"${dkl(e.kl)}><b>${esc(e.titel.replace(/^Runden: /, ''))}:</b> ${nb(e.merksatz)}</p>`).join('')}${rm}${tfMehr('Schritt für Schritt', `${tfListe(runden[0].schritte, 'ol')}<p>${nb(runden[0].zeichen)}</p>${tfRegeln(kennVonT(runden[0].regeln))}`)}`)}
+      ${ro ? tfKarte(t, 'sw-06', 'Römische Zahlen', roem, { kl: ro.kl }) : ''}
+      ${tfKarte(t, 'vorsilben', 'Vorsilben', `${vm}${tfRegeln(vs.flatMap((e) => kennVonT(e.regeln)))}${vsErw}`)}`;
+  }
+
+  // ---------- Bruch, Dezimalzahl, Prozent ----------
+  function tafelProzent(t) {
+    const E = Object.fromEntries(t.eintraege.map((e) => [e.kennung, e])), tb = E['bd-01'];
+    // Periode mit Strich darüber (CSS) statt des kombinierenden Zeichens, das in Festbreitenschrift verrutscht; Ziffern aus den Feldern ganz, vor, periode
+    const zahlMitPeriode = (x, prozent) => (x && x.ganz != null ? `${esc(x.ganz)}${x.vor || x.periode ? ',' + esc(x.vor) + (x.periode ? `<span class="ru-tafel-periode">${esc(x.periode)}</span>` : '') : ''}${prozent ? '\u00a0%' : ''}` : nb(x && x.text));
+    const um = matrix(['Bruch', 'Dezimalzahl', 'Prozent'], tb.zeilen.map((z) => ({ kopf: tfBruch(z.bruch), zellen: [`<span class="ru-tafel-wert" aria-label="${esc(z.dezimal.text)}">${zahlMitPeriode(z.dezimal)}</span>`, `<span class="ru-tafel-wert" aria-label="${esc(z.prozent.text)}">${zahlMitPeriode(z.prozent, true)}</span>`] })), { titel: 'Bruch, Dezimalzahl, Prozent', klasse: 'ru-tafel-bdp' });
+    const fo = t.eintraege.filter((e) => e.formel);
+    const fm = matrix(['Gesucht', 'Formel'], fo.map((e) => ({ anker: e.kennung, kl: e.kl, kopf: `<span class="ru-tafel-zk-text"><b>${esc(e.titel)}</b>${tfKl(e.kl)}</span>`, zellen: [`<span class="ru-tafel-f">${formel(e.formel)}</span><small class="ru-tafel-bed-k">${nb(e.bedingung)}</small>`],
+      detail: `${eintragFormelDetail(e)}${tfRegeln(kennVonT(e.regeln))}${aeZeile(tfAe(t, e.kennung, e.titel, 'Zeile'))}` })), { titel: 'Prozent und Zinsen', klasse: 'ru-tafel-prozent' });
+    return `${tfKarte(t, 'bd-01', 'Umrechnen', `${um}<p class="ru-tafel-hinweis">${nb(tb.hinweis)}</p>${tfMehr('So rechnest du um', tfListe(tb.so_gehts, 'ol') + tfRegeln(kennVonT(tb.regeln)))}`, { kl: tb.kl, klasse: 'ru-tafel-erste' })}
+      ${tfKarte(t, 'prozent', 'Prozent und Zinsen', `${tfAnker(...fo.map((e) => 'p-' + e.kennung))}${fm}<p class="ru-tafel-hinweis">Tippe auf eine Zeile: Bezeichnungen, Rechenweg und Beispiel.</p>`)}`;
+  }
+
+  // ---------- Figuren: Winkel, Dreiecke, Vierecke, Kongruenz ----------
+  const VIER_SPALTEN = [['parallele_paare_mindestens', 'parallele Seiten&shy;paare'], ['alle_seiten_gleich_lang', 'alle Seiten gleich'], ['gegenseiten_gleich_lang', 'Gegen&shy;seiten gleich'],
+    ['nachbarseitenpaare_gleich_lang', 'Nachbar&shy;seiten paarweise gleich'], ['vier_rechte_winkel', '4 rechte Winkel'], ['gegenueberliegende_winkel_gleich', 'Gegen&shy;winkel gleich'],
+    ['diagonalen_gleich_lang', 'Diago&shy;nalen gleich lang'], ['diagonalen_senkrecht', 'Diago&shy;nalen senk&shy;recht'], ['diagonalen_halbieren_sich', 'Diago&shy;nalen halbieren sich'],
+    ['symmetrieachsen_mindestens', 'Symmetrie&shy;achsen'], ['punktsymmetrisch', 'punkt&shy;symme&shy;trisch']];
+  const jaNein = (v) => (v === true ? '<span class="ru-tafel-ja" aria-label="ja">✓</span>' : v === false ? '<span class="ru-tafel-nein" aria-label="nein">–</span>' : `<b>${esc(v)}</b>`);
+  function tafelFiguren(t) {
+    const nach = (a) => t.eintraege.filter((e) => e.art === a), E = Object.fromEntries(t.eintraege.map((e) => [e.kennung, e]));
+    const winkel = matrix(['Winkel', 'Größe', 'So erkennst du ihn'], nach('winkelart').map((e) => ({ anker: e.kennung, kl: e.kl, kopf: `${miniSvg(e.bild)}<span class="ru-tafel-zk-text"><b>${esc(e.titel)}</b>${tfKl(e.kl)}</span>`, zellen: [`<span class="ru-tafel-f">${nb(e.bereich)}</span>`, nb(e.so_erkennst_du)] })), { titel: 'Winkelarten', klasse: 'ru-tafel-winkel' });
+    const ws = E['fg-07'], dr = nach('dreieck');
+    const dreiecke = matrix(['Dreieck', 'Merkmal'], [['seiten', 'nach den Seiten'], ['winkel', 'nach den Winkeln']].flatMap(([n, g]) => [{ gruppe: g }, ...dr.filter((e) => e.nach === n).map((e) => ({ anker: e.kennung, kl: e.kl,
+      kopf: `${miniSvg(e.bild)}<span class="ru-tafel-zk-text"><b>${esc(e.titel)}</b>${tfKl(e.kl)}</span>`, zellen: [nb(e.definition)],
+      detail: `<div class="ru-tafel-d-kopf"><div class="ru-tafel-bild">${e.bild}</div><div>${tfListe(e.eigenschaften)}<p class="ru-rechnung">${nb(e.winkelsumme)}</p></div></div>${tfRegeln(kennVonT(e.regeln))}${tfErw(e.ab_klasse_hinweis)}${aeZeile(tfAe(t, e.kennung, e.titel, 'Zeile'))}` }))]), { titel: 'Dreiecke', klasse: 'ru-tafel-dreiecke' });
+    const vier = nach('viereck');
+    const vm = matrix(['Viereck', ...VIER_SPALTEN.map(([, s]) => s)], vier.map((e) => ({ anker: e.kennung, kl: e.kl, kopf: `${miniSvg(e.bild)}<span class="ru-tafel-zk-text"><b>${esc(e.titel)}</b>${tfKl(e.kl)}</span>`,
+      zellen: VIER_SPALTEN.map(([k]) => jaNein(e.immer ? e.immer[k] : null)),
+      detail: `<div class="ru-tafel-d-kopf"><div class="ru-tafel-bild">${e.bild}</div><dl class="ru-tafel-eig"><div><dt>Seiten</dt><dd>${nb(e.seiten)}</dd></div><div><dt>Winkel</dt><dd>${nb(e.winkel)}</dd></div><div><dt>Diagonalen</dt><dd>${nb(e.diagonalen)}</dd></div><div><dt>Symmetrieachsen</dt><dd>${nb(e.achsen_text)}${e.punktsymmetrisch ? '; punktsymmetrisch' : ''}</dd></div>${e.sonderfall_von.length ? `<div><dt>Sonderfall von</dt><dd>${e.sonderfall_von.map(esc).join(', ')}</dd></div>` : ''}</dl></div>${tfRegeln(kennVonT(e.regeln))}${tfErw(e.regeln_hinweis)}${aeZeile(tfAe(t, e.kennung, e.titel, 'Zeile'))}` })), { titel: 'Vierecke: Eigenschaften', klasse: 'ru-tafel-vierecke' });
+    const haus = E['fg-22'];
+    const hausHtml = haus ? `<div class="ru-tafel-haus" id="ru-tf-fg-22"${dkl(haus.kl)}>${tfH3('Haus der Vierecke ' + tfKl(haus.kl))}<ol class="ru-tafel-haus-l" aria-label="Von oben (am meisten Eigenschaften) nach unten (am wenigsten)">${haus.geschichtet.map((r) => `<li>${r.map((n) => `<span>${esc(n)}</span>`).join('')}</li>`).join('')}</ol>${tfMerk(haus.merksatz)}
+      ${tfMehr('Wer ist Sonderfall von wem?', `<ul class="ru-tafel-liste">${haus.beziehungen.map((b) => `<li>Jedes <b>${esc(b.sonderfall)}</b> ist ein ${esc(b.von)}.</li>`).join('')}</ul><p class="ru-tafel-hinweis">${nb(haus.definition_trapez)}</p>${tfRegeln(kennVonT(haus.regeln))}${aeZeile(tfAe(t, 'fg-22', haus.titel, 'Haus der Vierecke'))}`)}</div>` : '';
+    const ko = [...nach('kongruenzsatz'), ...nach('kongruenz_nicht')];
+    const km = matrix(['Satz', 'Gegeben', 'Bedingung'], ko.map((e) => ({ anker: e.kennung, kl: e.kl, kopf: `<b class="ru-tafel-gross">${esc(e.kuerzel || 'WWW')}</b>`, klasse: e.art === 'kongruenz_nicht' ? 'ru-tafel-nicht' : '',
+      zellen: e.art === 'kongruenz_nicht' ? [`<b>Reicht nicht.</b> ${nb(e.merksatz)}`, ''] : [nb(e.gegeben), nb(e.bedingung)],
+      detail: `${e.name ? `<p><b>${esc(e.name)}</b></p>` : ''}${e.art === 'kongruenz_nicht' ? '' : tfMerk(e.merksatz)}${tfH3('Beispiel')}<p class="ru-rechnung">${nb(e.beispiel)}</p>${tfRegeln(kennVonT(e.regeln))}${aeZeile(tfAe(t, e.kennung, e.titel, 'Zeile'))}` })), { titel: 'Kongruenzsätze', klasse: 'ru-tafel-kongruenz' });
+    return `${tfKarte(t, 'winkel', 'Winkelarten', `${tfAnker(...nach('winkelart').map((e) => 'w-' + e.kennung))}${winkel}`, { klasse: 'ru-tafel-erste' })}
+      ${tfKarte(t, 'dreiecke', 'Dreiecke', `${ws ? `<div class="ru-tafel-formelzeile" id="ru-tf-fg-07"${dkl(ws.kl)}><span class="ru-tafel-f ru-tafel-f-gross">${formel(ws.formel)}</span>${tfKl(ws.kl)}<small>${nb(ws.bedingung)}</small></div>${tfMehr('So rechnest du den dritten Winkel aus', eintragFormelDetail(ws) + tfRegeln(kennVonT(ws.regeln)))}` : ''}${dreiecke}`)}
+      ${tfKarte(t, 'vierecke', 'Vierecke', `${vm}<p class="ru-tafel-hinweis">✓ gilt immer · – gilt nicht immer. Tippe auf ein Viereck für Bild und Beschreibung.</p>${hausHtml}`)}
+      ${tfKarte(t, 'kongruenz', 'Kongruenzsätze', `${km}<p class="ru-tafel-hinweis">Kongruent heißt deckungsgleich. Tippe auf einen Satz für ein Beispiel.</p>`)}`;
+  }
+
+  // ---------- Zeichen und Wörter ----------
+  function tafelZeichen(t) {
+    const E = Object.fromEntries(t.eintraege.map((e) => [e.kennung, e]));
+    const bsp = (l) => (l && l.length ? `<ul class="ru-tafel-liste ru-tafel-bsp-liste">${l.map((b) => `<li><span class="ru-rechnung">${nb(b.text)}</span>${b.gilt === true ? ' <span class="ru-tafel-ja">stimmt</span>' : b.gilt === false ? ' <span class="ru-tafel-falsch">stimmt nicht</span>' : ''}</li>`).join('')}</ul>` : '');
+    const ARTEN = {
+      zeichen: [['Zeichen', 'Sprechweise', 'Bedeutung'], (e) => ({ kopf: `<b class="ru-tafel-zeichen">${esc(e.zeichen)}</b>`, zellen: [esc(e.sprechweise), nb(e.bedeutung)],
+        detail: `${bsp(e.beispiele)}${e.merke ? `<p><b>Merke:</b> ${nb(e.merke)}</p>` : ''}${e.bedingung ? `<p><b>Bedingung:</b> ${nb(e.bedingung)}</p>` : ''}${e.auch ? `<p>Auch: <b>${esc(e.auch)}</b></p>` : ''}${e.hinweis ? `<p class="ru-tafel-hinweis">${nb(e.hinweis)}</p>` : ''}` })],
+      griechisch: [['Buchstabe', 'Name', 'Wofür'], (e) => ({ kopf: `<b class="ru-tafel-zeichen">${esc(e.buchstabe)}</b>`, zellen: [esc(e.name), nb(e.verwendung)], detail: `<p class="ru-rechnung">${nb(e.beispiel)}</p>${e.schreibung ? `<p class="ru-tafel-hinweis">${esc(e.schreibung === 'klein' ? 'Kleinbuchstabe' : e.schreibung === 'groß' ? 'Großbuchstabe' : e.schreibung)}</p>` : ''}` })],
+      fachwort: [['Wort', 'Bedeutung'], (e) => ({ kopf: `<b>${esc(e.begriff)}</b>`, zellen: [nb(e.satz)], detail: `<p class="ru-rechnung">${nb(e.beispiel)}</p>${(e.rolle_im_beispiel || []).length ? `<p class="ru-tafel-rollen">${e.rolle_im_beispiel.map((r) => `<span>${nb(r)}</span>`).join('')}</p>` : ''}` })],
+    };
+    return (t.abschnitte || []).map((a, i) => { const [kopf, fn] = ARTEN[a.art] || ARTEN.fachwort;
+      let liste = a.kennungen.map((k) => E[k]).filter(Boolean); if (a.art === 'fachwort') liste = [...liste].sort((x, y) => x.begriff.localeCompare(y.begriff, 'de'));
+      return tfKarte(t, 'ab-' + a.art, esc(a.name), `${matrix(kopf, liste.map((e) => { const z = fn(e); return { ...z, anker: e.kennung, kl: e.kl, detail: z.detail + tfRegeln(kennVonT(e.regeln)) + tfErw(e.ab_klasse_hinweis) + aeZeile(tfAe(t, e.kennung, e.titel, 'Zeile')) }; }), { titel: a.name, klasse: 'ru-tafel-m-' + a.art })}`, { klasse: i ? '' : 'ru-tafel-erste' });
+    }).join('') + '<p class="ru-tafel-hinweis">Tippe auf eine Zeile für Beispiele.</p>';
+  }
+
+  const TAFEL_SICHT = { formeln: [tafelFormeln, 'Ebene Figuren, Körper und was man sonst noch braucht – auf einen Blick. Tippe auf eine Zeile für Einzelheiten.'],
+    einheiten: [tafelEinheiten, ''], 'formeln-flaechen': [tafelFormelKarten, 'Jede Figur mit Zeichnung, Formeln, Bezeichnungen und Beispielen.', true],
+    'formeln-koerper': [tafelFormelKarten, 'Jeder Körper mit Schrägbild, Formeln, Bezeichnungen und Beispielen.', true], zahlen: [tafelZahlen, ''], stellenwert: [tafelStellenwert, ''],
+    'bruch-dezimal-prozent': [tafelProzent, ''], figuren: [tafelFiguren, ''], 'zeichen-woerter': [tafelZeichen, ''] };
+  const sichtTafel = (id) => { const [fn, lead, eltern] = TAFEL_SICHT[id] || [() => '', '']; return tafelSeite(TAFEL[id], fn(TAFEL[id]), lead, eltern); };
+
   // ---------- Weiche: Adresse → HTML (unbekannte Adresse → Universum) ----------
   function seite(h) {
     let m;
@@ -358,6 +704,8 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
     if ((m = h.match(/^idee-([a-z]+-\d+)$/)) && IDEE['I-' + m[1]]) return sichtIdee('I-' + m[1]);
     if ((m = h.match(/^weise-(\d)$/)) && D.arbeitsweisen[m[1] - 1]) return sichtWeise(+m[1]);
     if ((m = h.match(/^regel-([a-z]+\d+)$/)) && GESETZ[m[1].toUpperCase()]) return sichtGesetz(m[1].toUpperCase());
+    if (h === 'tafeln') return sichtTafeln();
+    if ((m = h.match(/^tafel-([a-z-]+?)(?:\.[a-z0-9-]+)?$/)) && TAFEL[m[1]]) return sichtTafel(m[1]);
     if (h === 'suche') return sichtSuche();
     if (h === 'sonne') return sichtSonne();
     if (h === 'weisen') return sichtWeisen();
@@ -370,7 +718,7 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
 
 // ===================== In der App: Laden, Kopf, Rahmen, Rückmeldung =====================
 let ruDaten = null, ruLadeP = null, ruAktiv = null, ruLetzte = { h: '', e: 0 };
-const ruZustand = { klasse: 5, frage: '' };
+const ruZustand = { klasse: 5, frage: '', bis: 'alle' };
 const ruDatenUrl = () => (typeof LERN_SEITE !== 'undefined' && LERN_SEITE ? '../' : '') + 'daten/regeln-universum.json?v=' + APP_VERSION;
 function ruDatenHolen() {
   if (ruDaten) return Promise.resolve(ruDaten);
@@ -440,9 +788,10 @@ function ruAufbauen(I, k, kind, schluessel) {
   const ziel = (h) => (h === 'liste' ? '#/regeln' : h.startsWith('lehrer-') ? '#/regeln/' + h : '#/regeln/' + k.praefix + h);
   const g = kind ? (lernGestaltung(kind) === 'tag' ? 'hell' : lernGestaltung(kind) === 'nacht' ? 'nacht' : matchMedia('(prefers-color-scheme: dark)').matches ? 'nacht' : 'hell')
     : matchMedia('(prefers-color-scheme: dark)').matches ? 'nacht' : 'hell';
-  // Rolle wie in der übrigen App (lernRolle): Kinder-Zugang und Kinderseiten zeigen nie „Ändern lassen“
-  const alsKind = k.art === 'kind' || (typeof lernRolle === 'function' && lernRolle() === 'kind');
-  const sichten = ruSichten(I, ziel, ruZustand, alsKind ? 'kind' : 'ansicht');
+  // Rolle wie in der übrigen App (lernRolle): Ist ein Kind angemeldet, gibt es nie „Ändern lassen“. Öffnet ein angemeldeter Erwachsener
+  // in der Eltern-App die Universum-Ansicht eines Kindes (#/regeln/<id>-…), sieht er den Knopf – wie auf den Flugseiten (leitung). Entscheidung des Nutzers 27.11.
+  const alsKind = typeof lernRolle !== 'function' || lernRolle() === 'kind';
+  const sichten = ruSichten(I, ziel, ruZustand, alsKind ? 'kind' : k.art === 'kind' ? 'leitung' : 'ansicht');
   ruLetzte = { h: '', e: 0 };
   const lupe = el('span', { class: 'ru-lupe', 'aria-hidden': 'true' }); lupe.innerHTML = ruLupe;
   const feld = el('input', { type: 'search', name: 'q', placeholder: 'Suchen', autocomplete: 'off', enterkeyhint: 'search' });
@@ -461,6 +810,7 @@ function ruAufbauen(I, k, kind, schluessel) {
   seite.addEventListener('keydown', (ev) => { if ((ev.key === 'Enter' || ev.key === ' ') && zurSchicht(ev.target)) ev.preventDefault(); });
   seite.addEventListener('click', (ev) => {
     if (zurSchicht(ev.target)) return;
+    if (ruTafelKlick(ev.target, seite)) return;
     const t = ev.target.closest('[data-thema-id]');
     if (t && typeof lernMx !== 'undefined') { const id = Number(t.dataset.themaId); if (lernMx) lernMx.sel = id; else lernMx = { sa: 'gym_by', kind: null, sel: id, q: '', inhalt: '' }; return; }
     const b = ev.target.closest('.ru-ae'); if (!b || alsKind) return;
@@ -473,6 +823,38 @@ function ruAufbauen(I, k, kind, schluessel) {
   lernErsetze(main, rahmen);
   return { schluessel, wurzel, seite, sichten, feld, ziel };
 }
+// Tafeln: Zeile aufklappen, Klassenfilter („bis Klasse“, bleibt beim Blättern zwischen Tafeln stehen), Drucken (alles aufgeklappt)
+function ruTafelZeile(knopf, auf) {
+  const d = knopf && document.getElementById(knopf.getAttribute('aria-controls')); if (!d) return;
+  const offen = auf ?? d.hidden; d.hidden = !offen; knopf.setAttribute('aria-expanded', String(offen));
+}
+function ruTafelFilter(seite) {
+  const bis = ruZustand.bis || 'alle';
+  for (const b of seite.querySelectorAll('.ru-tafel-kf button')) b.setAttribute('aria-pressed', String(b.dataset.bis === bis));
+  for (const x of seite.querySelectorAll('.ru-tafel-seite [data-kl]')) x.toggleAttribute('data-aus', bis !== 'alle' && Number(x.dataset.kl) > Number(bis));
+}
+function ruTafelKlick(ziel, seite) {
+  const auf = ziel.closest('.ru-tafel-auf'); if (auf) { ruTafelZeile(auf); return true; }
+  const kf = ziel.closest('.ru-tafel-kf button'); if (kf) { ruZustand.bis = kf.dataset.bis; ruTafelFilter(seite); return true; }
+  if (ziel.closest('.ru-tafel-drucken')) {
+    const zu = [...seite.querySelectorAll('.ru-tafel-seite details:not([open])')], knoepfe = [...seite.querySelectorAll('.ru-tafel-auf[aria-expanded="false"]')];
+    zu.forEach((d) => { d.open = true; }); knoepfe.forEach((k) => ruTafelZeile(k, true));
+    addEventListener('afterprint', () => { zu.forEach((d) => { d.open = false; }); knoepfe.forEach((k) => ruTafelZeile(k, false)); }, { once: true });
+    print(); return true;
+  }
+  return false;
+}
+// Sprung an eine Stelle der Tafel (Suche, Verweis): Abschnitt aufklappen, Zeile mit Einzelheiten öffnen, hinrollen, kurz hervorheben
+function ruTafelSprung(seite, anker) {
+  const x = seite.querySelector('#ru-tf-' + CSS.escape(anker)); if (!x) return false;
+  if (x.closest('[data-aus]')) { ruZustand.bis = 'alle'; ruTafelFilter(seite); }
+  for (let d = x.closest('details'); d; d = d.parentElement.closest('details')) d.open = true;
+  if (x.tagName === 'DETAILS') x.open = true;
+  const knopf = x.querySelector(':scope > tr .ru-tafel-auf'); if (knopf) ruTafelZeile(knopf, true);
+  x.scrollIntoView({ block: 'start' });
+  x.classList.add('ru-tafel-ziel'); setTimeout(() => x.classList.remove('ru-tafel-ziel'), 2200);
+  return true;
+}
 function ruZeigen(h) {
   const { seite, sichten, feld } = ruAktiv;
   seite.innerHTML = sichten.seite(h);
@@ -482,6 +864,9 @@ function ruZeigen(h) {
     seite.animate([{ opacity: 0, transform: `scale(${e > vorher.e ? 0.965 : 1.035})` }, { opacity: 1, transform: 'none' }], { duration: 220, easing: 'cubic-bezier(.2,.7,.2,1)' });
   if (h !== 'suche' && document.activeElement !== feld) feld.value = '';
   // Beim Wechsel der Klasse und in der Suche bleibt die Seite stehen, sonst nach oben
+  if (seite.querySelector('.ru-tafel-seite')) ruTafelFilter(seite);
+  const anker = (h.match(/^tafel-[a-z-]+?\.([a-z0-9-]+)$/) || [])[1];
+  if (anker && ruTafelSprung(seite, anker)) { ruLetzte = { h, e }; return; }
   if (!(h.startsWith('klassen') && vorher.h.startsWith('klassen')) && h !== 'suche') scrollTo(0, 0);
   ruLetzte = { h, e };
 }

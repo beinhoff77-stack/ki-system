@@ -5727,7 +5727,7 @@ test('RU: Kind öffnet das Regel-Universum über das Menü – Sonne → Regel �
     await page.locator('.ru-treffer .ru-karte').first().waitFor();
     assert.match(page.url(), /1-suche$/); assert.equal(await page.evaluate(() => document.activeElement?.closest('.ru-suche') !== null), true);
     assert.match(await page.locator('.ru-treffer .ru-karte').first().innerText(), /Kegel/);
-    await page.locator('.ru-treffer .ru-karte').first().click(); await page.locator('.ru-regelseite').waitFor();
+    await page.locator('.ru-treffer .ru-karte:not([href*="-tafel-"])').first().click(); await page.locator('.ru-regelseite').waitFor(); // erster Regel-Treffer (Tafeln stehen davor)
     await ruPruefen(page, `${b} Treffer`);
     // Zurück-Knopf der App
     await page.locator('#btn-back').click(); await page.waitForURL(/1-suche$/);
@@ -5744,7 +5744,7 @@ test('RU: Eltern/Lehrer öffnen „Regeln“ → Blatt Regel 6 (alle Abschnitte 
     await page.locator('.lern-nachschlagen').getByRole('link', { name: 'Regeln', exact: true }).click();
     await page.locator('.ru-lz').first().waitFor();
     assert.match(page.url(), /#\/regeln$/);
-    assert.equal(await page.locator('.ru-lz').count(), 14 + 28 + 8);
+    assert.equal(await page.locator('.ru-lz').count(), 14 + 28 + 8 + 9); // + Tafeln zum Nachschlagen (Gesamtübersicht Formeln und 8 Tafeln)
     assert.equal(await page.evaluate(() => document.body.hasAttribute('data-kindmodus')), false);
     await ruPruefen(page, `${b} Liste`);
     await page.locator('.ru-lz', { hasText: 'Ausmultiplizieren' }).click();
@@ -5804,15 +5804,17 @@ test('RU „Ändern lassen“: Erwachsene an jedem Feld (Idee, Einzelregel, Such
     // Suche nach „cm“: Treffer mit Knopf
     await page.locator('.ru-suche input').fill('cm'); await page.locator('.ru-suche input').press('Enter');
     await page.locator('.ru-treffer .ru-karte').first().waitFor();
-    assert.match(await page.locator('.ru-treffer .ru-karte').first().innerText(), /Größe und Einheit/);
+    assert.match(await page.locator('.ru-treffer .ru-karte').first().innerText(), /Tafel[\s\S]*Länge/); // Tafeln zuerst (Nachschlagen)
+    assert.ok(await page.locator('.ru-treffer .ru-karte', { hasText: 'Größe und Einheit' }).count() >= 1);
     assert.equal(await page.locator('.ru-treffer li').count(), await page.locator('.ru-treffer .ru-ae').count());
     await ruPruefen(page, `${b} Suche cm (Erwachsene)`);
   }
-  // Kinderseite in der App der Eltern und Kinder-Zugang: kein Knopf
+  // Erwachsener in der Eltern-App öffnet die Universum-Ansicht eines Kindes: Knopf da (Entscheidung des Nutzers 27.11., wie auf den Flugseiten); Kinder-Zugang: nie
   { const { page } = await setup(t, { gestaltung: 'nacht' });
     for (const a of ['1-r6', '1-idee-fur-2', '1-regel-f17', '1-sonne']) { await page.goto(origin + '/#/regeln/' + a); await page.locator('.ru-seite > *').first().waitFor();
       for (const z of await page.locator('.ru-stufe > summary').all()) await z.click();
-      assert.equal(await page.locator('.ru-ae, .ru-erw').count(), 0, a); } }
+      assert.ok(await page.locator('.ru-ae').count() > 0, a);
+      assert.equal(await page.locator('.ru-lehrer-band').count(), 0, a + ': kein Band „So sieht es das Kind“ in der Ansicht des Kindes'); } }
   { const { page } = await setup(t, { lernSeite: true, rolle: 'kind' });
     await page.goto(origin + '/lernen/'); await page.getByLabel('Lern-Code').fill('ABCD-EFGH-JKLM'); await page.getByRole('button', { name: 'Anmelden' }).click(); await page.waitForURL(/#\/reise\/1$/);
     await page.goto(origin + '/lernen/#/regeln/1-r6'); await page.locator('.ru-regelseite').waitFor();
@@ -5840,6 +5842,81 @@ test('RU Nachbesserung: Kopf am Handy ohne Doppel – Ebene 0 zeigt bei 400 × 8
     await ruBild(page, `ebene0-universum-400-${g === 'tag' ? 'hell' : 'dunkel'}`);
     await page.locator('.lr-menue').first().click(); await page.locator('.lr-blatt-liste a', { hasText: 'Regel-Universum' }).waitFor(); // Menü funktioniert weiter
   }
+});
+
+// ---------- Tafeln zum Nachschlagen (lernen-regeln.js, daten/regeln-universum.json → tafeln) ----------
+// Bildschirmfotos nur auf Wunsch: TAFEL_BILDER=<Ordner außerhalb des Repos> (ganze Seite, 390/1280 hell, 390 dunkel)
+const TAFEL_IDS = ['formeln', 'einheiten', 'formeln-flaechen', 'formeln-koerper', 'zahlen', 'stellenwert', 'bruch-dezimal-prozent', 'figuren', 'zeichen-woerter'];
+const tafelBild = async (page, name) => { if (!process.env.TAFEL_BILDER) return; await page.waitForFunction(() => !(document.querySelector('.ru-seite')?.getAnimations() || []).length);
+  fs.mkdirSync(process.env.TAFEL_BILDER, { recursive: true }); await page.screenshot({ path: path.join(process.env.TAFEL_BILDER, name + '.jpg'), quality: 80, fullPage: true }); };
+test('RU Tafeln: Einstieg im Universum, alle Tafeln erreichbar (Kind und Erwachsene), Matrix klappt auf, Suche springt an die Stelle, kein Querscrollen (390 und 1280 px)', async (t) => {
+  for (const [b, h, g] of [[390, 844, 'tag'], [1280, 800, 'tag'], [390, 844, 'nacht']]) {
+    const hd = g === 'tag' ? 'hell' : 'dunkel';
+    // als Kind angemeldet (Kinder-Zugang /lernen/): so sieht es das Kind, ohne „Ändern lassen“
+    const { page } = await setup(t, { gestaltung: g, lernSeite: true, rolle: 'kind' });
+    await page.setViewportSize({ width: b, height: h });
+    await page.goto(origin + '/lernen/'); await page.getByLabel('Lern-Code').fill('ABCD-EFGH-JKLM'); await page.getByRole('button', { name: 'Anmelden' }).click(); await page.waitForURL(/#\/reise\/1$/);
+    await page.goto(origin + '/lernen/#/regeln/1'); await page.locator('.ru-universum').waitFor();
+    // Einstieg: Teil „Tafeln“ im Umschalter (immer), am Rechner zusätzlich die Karte „Tafeln zum Nachschlagen“
+    const station = b < 700 ? page.locator('.ru-umsch-tafeln') : page.locator('.ru-tafel-station');
+    assert.equal(await page.locator('.ru-umsch-tafeln').isVisible(), true); assert.equal(await page.locator('.ru-tafel-station').isVisible(), b >= 700);
+    assert.ok((await station.boundingBox()).y + 40 < h, 'Einstieg im ersten Bildschirm');
+    await tafelBild(page, `universum-${b}-${hd}`);
+    await station.click(); await page.locator('.ru-tafel-kacheln').first().waitFor();
+    assert.match(page.url(), /#\/regeln\/1-tafeln$/);
+    assert.equal(await page.locator('.ru-tafel-kachel').count(), 9);
+    await ruPruefen(page, `${b} Tafeln`); await tafelBild(page, `tafeln-${b}-${hd}`);
+    for (const id of TAFEL_IDS) {
+      await page.goto(origin + '/lernen/#/regeln/1-tafel-' + id); await page.locator(`.ru-tafel-seite[data-tafel="${id}"]`).waitFor();
+      assert.equal(await page.locator('.ru-ae').count(), 0, id + ': Kind sieht keinen Knopf „Ändern lassen“');
+      assert.ok(await page.locator('.ru-tafel-karte, .ru-tafel-figur').count() >= 1, id);
+      await ruPruefen(page, `${b} Tafel ${id}`);
+      await tafelBild(page, `tafel-${id}-${b}-${hd}`);
+      if (id === 'einheiten' || id === 'formeln') { // alles aufgeklappt: Kreuztabellen und Zeilen passen ohne Querscrollen der Seite
+        await page.evaluate(() => { document.querySelectorAll('.ru-tafel-seite details').forEach((d) => { d.open = true; }); document.querySelectorAll('.ru-tafel-auf[aria-expanded="false"]').forEach((k) => k.click()); });
+        assert.equal(await page.locator('.ru-ae, .ru-tafel-erw').count(), 0, id + ' aufgeklappt: nichts für Erwachsene');
+        await ruPruefen(page, `${b} Tafel ${id} aufgeklappt`); await tafelBild(page, `tafel-${id}-offen-${b}-${hd}`);
+      }
+    }
+    // Matrix: Zeile antippen klappt die Einzelheiten auf, die Seite rollt dabei nicht waagrecht
+    await page.goto(origin + '/lernen/#/regeln/1-tafel-formeln'); await page.locator('#ru-tf-kreis').waitFor();
+    await page.locator('#ru-tf-kreis .ru-tafel-auf').click();
+    assert.equal(await page.locator('#ru-tf-kreis .ru-tafel-detail').isVisible(), true);
+    assert.match(await page.locator('#ru-tf-kreis').innerText(), /A = π · r²/);
+    await ruPruefen(page, `${b} Formeln, Kreis offen`);
+    // Klassenfilter: bis Klasse 5 blendet Kreis (ab Kl. 8) aus
+    await page.locator('.ru-tafel-kf button[data-bis="5"]').click();
+    assert.equal(await page.locator('#ru-tf-kreis').isVisible(), false); assert.equal(await page.locator('#ru-tf-rechteck').isVisible(), true);
+    await page.locator('.ru-tafel-kf button[data-bis="alle"]').click();
+    // Suche: Tafel zuerst, Sprung an die Stelle
+    for (const [q, ziel, sel] of [['cm', /1-tafel-einheiten\.laenge$/, '#ru-tf-laenge'], ['Kreis', /1-tafel-formeln\.kreis$/, '#ru-tf-kreis .ru-tafel-detail'], ['Volumen', /1-tafel-formeln\.koerper$/, '#ru-tf-koerper']]) {
+      await page.locator('.ru-suche input').fill(q); await page.locator('.ru-suche input').press('Enter');
+      await page.locator('.ru-treffer .ru-karte').first().waitFor();
+      assert.match(await page.locator('.ru-treffer .ru-karte').first().innerText(), /Tafel/, q);
+      if (q !== 'Volumen') { await ruPruefen(page, `${b} Suche ${q}`); await tafelBild(page, `suche-${q.toLowerCase()}-${b}-${hd}`); }
+      await page.locator('.ru-treffer .ru-karte').first().click(); await page.waitForURL(ziel);
+      await page.locator(sel).waitFor();
+      assert.equal(await page.locator(sel).isVisible(), true, q + ': Stelle aufgeklappt');
+      await page.waitForFunction((s) => { const r = document.querySelector(s).getBoundingClientRect(); return r.top >= 0 && r.top < innerHeight - 40; }, sel.split(' ')[0]);
+    }
+    // Verweis von der Idee auf die Tafel
+    await page.goto(origin + '/lernen/#/regeln/1-idee-fur-1'); await page.locator('.ru-regelseite').waitFor();
+    assert.ok(await page.locator('.ru-tafel-v').count() >= 1, 'Idee „Fläche“ verweist auf eine Tafel');
+  }
+  // Erwachsener in der Eltern-App öffnet die Ansicht des Kindes (#/regeln/1-…): Knopf „Ändern lassen“ an jeder Tafel (Entscheidung des Nutzers 27.11.)
+  { const { page } = await setup(t);
+    for (const id of TAFEL_IDS) { await page.goto(origin + '/#/regeln/1-tafel-' + id); await page.locator(`.ru-tafel-seite[data-tafel="${id}"]`).waitFor();
+      assert.ok(await page.locator('.ru-ae').count() > 0, id); } }
+  // Erwachsene: „Ändern lassen“ an Tafel, Abschnitten und Zeilen; Liste nennt die Tafeln
+  const { page, calls } = await setup(t);
+  await page.goto(origin + '/#/regeln/kind-tafel-einheiten'); await page.locator('.ru-tafel-seite').waitFor();
+  assert.ok(await page.locator('.ru-ae').count() >= 8);
+  await page.locator('.ru-tafel-kopf .ru-ae').click(); const box = page.locator('.ru-rueck-form'); await box.waitFor();
+  await box.locator('textarea').fill('Bitte Kubikmillimeter ergänzen.'); await box.getByRole('button', { name: 'Auftrag senden' }).click();
+  await page.locator('.ru-rueck-form').waitFor({ state: 'detached' });
+  assert.match(calls.filter((c) => c.aktion === 'schule_rueckmeldung_geben').pop().daten.text, /^Regel-Universum · Tafel einheiten · Maßeinheiten · Feld ganze Tafel · Vorschlag: /);
+  await page.goto(origin + '/#/regeln'); await page.locator('.ru-lehrer').waitFor();
+  assert.equal(await page.locator('.ru-l-abschnitt', { hasText: 'Tafeln zum Nachschlagen' }).locator('.ru-lz').count(), 9);
 });
 
 test('RU Nachbesserung: Daten laden nicht – kindgerechte Meldung mit „Noch einmal versuchen“, danach das Universum', async (t) => {

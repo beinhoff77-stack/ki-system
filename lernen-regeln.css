@@ -505,3 +505,261 @@
 .ru .ru-erw-text { flex: 1 1 auto; min-width: 0; padding: 6px 0; overflow-wrap: anywhere; }
 /* Absenden-Knopf im Formular: Schrift in der Gegenfarbe des Akzents (sonst erbt er über .ru button die Textfarbe) */
 .ru .ru-rueck-form button.primary { color: var(--on-accent, #fff); }
+
+/* ===================== Tafeln zum Nachschlagen (lernen-regeln.js, Abschnitt „Tafeln“) =====================
+   Gestaltung nach inhalte/design/tafeln/entwurf1/ und der Rückmeldung des Nutzers: zuerst die Schnellübersicht als Matrix, Einzelheiten beim Antippen.
+   Alle Klassen ru-tafel-…; Farbe der Tafel über data-gebiet (Gebietsfarbe des Universums), Fläche der Zeichnungen über --ru-tafel-tint. */
+.ru { --ru-tafel-f: var(--ru-linie); }
+.ru [data-gebiet] { --ru-tafel-tint: color-mix(in srgb, var(--ru-tafel-f) 26%, var(--ru-flaeche)); }
+.ru [data-gebiet="zahlen"] { --ru-tafel-f: #FF8A66; }
+.ru [data-gebiet="algebra"] { --ru-tafel-f: #A99BFF; }
+.ru [data-gebiet="geld"] { --ru-tafel-f: #B4E86A; }
+.ru [data-gebiet="geo"] { --ru-tafel-f: #3AD6C5; }
+.ru [data-gebiet="fur"] { --ru-tafel-f: #5AAEFF; }
+.ru [data-aus] { display: none !important; }
+.ru [id^="ru-tf-"] { scroll-margin-top: 76px; }
+.ru .ru-tafel-anker { display: block; height: 0; }
+.ru .ru-tafel-ziel { outline: 3px solid var(--ru-marke); outline-offset: 2px; border-radius: 10px; }
+
+/* Einstieg auf der Universum-Startseite */
+.ru .ru-tafel-station { display: grid; grid-template-columns: 48px minmax(0, 1fr) 20px; gap: 12px; align-items: center; text-decoration: none; background: var(--ru-flaeche);
+  border: 1.5px solid var(--ru-text); border-radius: 16px; padding: 10px 12px; margin: 0 0 12px; --ru-tafel-f: #B4E86A; --ru-tafel-tint: color-mix(in srgb, #B4E86A 26%, var(--ru-flaeche)); }
+.ru .ru-tafel-station:hover { background: var(--ru-flaeche2); }
+.ru .ru-tafel-station > svg { width: 48px; height: 40px; }
+.ru .ru-tafel-station b { display: block; font-size: 18px; }
+.ru .ru-tafel-station small { display: block; font-size: 15px; color: var(--ru-leise); }
+.ru .ru-tafel-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.ru .ru-tafel-chips span, .ru .ru-tafel-chip { font-family: var(--mono); font-size: 13px; font-weight: 700; border-radius: 8px; padding: 2px 7px; border: 1.5px solid var(--ru-linie); background: var(--ru-flaeche2); white-space: nowrap; }
+.ru .ru-tafel-chip { display: inline-block; margin-top: 4px; }
+.ru .ru-tafel-pf { font-size: 24px; color: var(--ru-leise); }
+@media (min-width: 900px) { .ru .ru-universum .ru-tafel-station { max-width: 760px; } }
+/* Umschalter mit drittem Teil „Tafeln“; die große Karte nur, wo Platz ist (am Handy blieben sonst nicht sechs Gebiete im ersten Bildschirm) */
+.ru .ru-umschalter:has(.ru-umsch-tafeln) { grid-template-columns: 1fr 1.7fr 1fr; }
+.ru .ru-umsch-tafeln::before { content: ""; width: 16px; height: 12px; margin-right: 6px; flex: none; border-radius: 3px; border: 2px solid currentColor; box-shadow: 4px 4px 0 -1px var(--ru-flaeche2), 4px 4px 0 1px currentColor; }
+@media (max-width: 699px) { .ru .ru-universum .ru-tafel-station { display: none; } }
+
+/* Übersicht der Tafeln */
+.ru .ru-tafel-kacheln { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 14px; }
+.ru .ru-tafel-kachel { display: grid; grid-template-columns: 64px minmax(0, 1fr) 20px; gap: 12px; align-items: center; text-decoration: none; background: var(--ru-flaeche);
+  border: 1.5px solid var(--ru-linie); border-left: 8px solid var(--ru-tafel-f); border-radius: 16px; padding: 12px 12px 12px 10px; min-height: 84px; }
+.ru .ru-tafel-kachel:hover { border-color: var(--ru-text); border-left-color: var(--ru-tafel-f); }
+.ru .ru-tafel-kachel > svg { width: 64px; height: 52px; color: var(--ru-text); }
+.ru .ru-tafel-kachel b { display: block; font-size: 19px; line-height: 1.2; }
+.ru .ru-tafel-kachel small { display: block; font-size: 15px; color: var(--ru-leise); }
+.ru .ru-tafel-kachel.ru-tafel-klein { min-height: 64px; grid-template-columns: 48px minmax(0, 1fr) 20px; }
+.ru .ru-tafel-kachel.ru-tafel-klein > svg { width: 48px; height: 40px; }
+.ru .ru-tafel-kachel.ru-tafel-klein b { font-size: 17px; }
+.ru .ru-tafel-kachel.ru-tafel-klein .ru-tafel-chip { display: none; }
+.ru .ru-tafel-zw { font-size: 15px; color: var(--ru-leise); margin: 18px 2px 0; }
+@media (min-width: 700px) { .ru .ru-tafel-kacheln { grid-template-columns: repeat(2, 1fr); } }
+
+/* Kopf einer Tafel: Klassenfilter und Drucken */
+.ru .ru-tafel-kopf { margin-bottom: 10px; }
+.ru .ru-tafel-werkzeug { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px; margin-top: 10px; }
+.ru .ru-tafel-kf { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.ru .ru-tafel-kf > span { font-size: 14px; color: var(--ru-leise); margin-right: 2px; }
+.ru .ru-tafel-kf button { min-width: 40px; min-height: 44px; border-radius: 10px; border: 1.5px solid var(--ru-linie); background: var(--ru-flaeche); font-family: var(--mono); font-weight: 700; font-size: 14px; padding: 0 6px; }
+.ru .ru-tafel-kf button[aria-pressed="true"] { background: var(--ru-text); color: var(--ru-bg); border-color: var(--ru-text); }
+.ru .ru-tafel-drucken { border: 0; background: none; color: var(--ru-leise); text-decoration: underline; text-underline-offset: 3px; font-size: 15px; min-height: 44px; padding: 0 4px; }
+@media (max-width: 420px) { .ru .ru-tafel-kf button { min-width: 37px; padding: 0 4px; } .ru .ru-tafel-kf > span { width: 100%; } }
+
+/* Karte (Abschnitt) */
+.ru .ru-tafel-karte { background: var(--ru-flaeche); border: 1.5px solid var(--ru-linie); border-radius: 16px; padding: 10px 12px 8px; margin: 0 0 12px; min-width: 0; }
+.ru .ru-tafel-karte.ru-tafel-erste { border-top: 6px solid var(--ru-tafel-f); }
+.ru .ru-tafel-h2 { font-size: 20px; font-weight: 700; line-height: 1.2; display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; padding: 4px 0 8px; }
+.ru .ru-tafel-h3 { font-size: 15px; font-weight: 700; color: var(--ru-leise); margin: 10px 0 4px; }
+.ru .ru-tafel-kl { font-family: var(--mono); font-size: 12.5px; font-weight: 600; color: var(--ru-leise); white-space: nowrap; }
+.ru .ru-tafel-merk { font-size: 16px; margin: 8px 0 4px; }
+.ru .ru-tafel-hinweis { font-size: 15px; color: var(--ru-leise); margin: 8px 0 4px; }
+.ru .ru-tafel-hinweis b { color: var(--ru-text); }
+.ru .ru-tafel-leitsatz { margin: 0 0 10px; font-size: 15px; color: var(--ru-leise); }
+.ru .ru-tafel-leitsatz b { display: block; font-size: 19px; color: var(--ru-text); line-height: 1.25; margin-bottom: 2px; }
+.ru .ru-tafel-bsp { font-size: 16px; border-top: 1px dashed var(--ru-linie); padding-top: 8px; margin-top: 8px; }
+.ru .ru-tafel-bsp small { display: block; font-size: 14px; color: var(--ru-leise); }
+.ru .ru-tafel-verb { font-family: var(--mono); font-size: 15px; margin: 8px 0 2px; }
+.ru .ru-tafel-liste { margin: 2px 0 6px; padding-left: 20px; font-size: 16px; display: grid; gap: 4px; }
+.ru .ru-tafel-liste b { font-weight: 600; }
+.ru .ru-tafel-achtung { font-size: 15px; border-left: 4px solid var(--ru-marke); padding: 2px 0 2px 10px; margin: 6px 0; }
+.ru .ru-tafel-erw { font-size: 14px; color: var(--ru-leise); border: 1.5px dashed var(--ru-linie); border-radius: 10px; padding: 6px 10px; margin: 8px 0 4px; }
+.ru .ru-tafel-warum-zeile { display: flex; flex-wrap: wrap; gap: 0 16px; margin: 4px 0 0; }
+.ru .ru-tafel-warum { font-size: 15px; font-weight: 700; text-underline-offset: 3px; display: inline-flex; align-items: center; min-height: 44px; }
+.ru .ru-tafel-weiter { margin: 2px 0 0; }
+.ru .ru-tafel-verweise { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 4px; }
+.ru .ru-tafel-zus { color: var(--ru-leise); font-weight: 500; }
+
+/* Aufklapper */
+.ru .ru-tafel-mehr { border-top: 1px solid var(--ru-linie); margin-top: 6px; }
+.ru .ru-tafel-mehr > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px; min-height: 44px; font-size: 16px; font-weight: 700; }
+.ru .ru-tafel-mehr > summary::-webkit-details-marker { display: none; }
+.ru .ru-tafel-mehr-t { flex: 1 1 auto; display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; }
+.ru .ru-tafel-mehr > summary .ru-chev, .ru .ru-tafel-auf .ru-chev { width: 22px; height: 22px; flex: none; color: var(--ru-leise); transition: transform .15s; }
+.ru .ru-tafel-mehr[open] > summary .ru-chev, .ru .ru-tafel-auf[aria-expanded="true"] .ru-chev { transform: rotate(180deg); }
+.ru .ru-tafel-mehr-in { padding: 0 0 8px; min-width: 0; }
+.ru .ru-tafel-mehr .ru-tafel-mehr > summary { font-size: 15px; color: var(--ru-leise); }
+
+/* Matrix: eigener waagrechter Rollbereich, erste Spalte fest; die Seite selbst rollt nicht waagrecht */
+.ru .ru-tafel-roll { overflow-x: auto; max-width: 100%; container-type: inline-size; margin: 2px 0 4px; border: 1px solid var(--ru-linie); border-radius: 12px; background: var(--ru-flaeche); overscroll-behavior-x: contain; }
+.ru .ru-tafel-roll:focus-visible { outline: 3px solid var(--ru-text); outline-offset: 2px; }
+.ru .ru-tafel-matrix { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 16px; }
+.ru .ru-tafel-matrix th, .ru .ru-tafel-matrix td { text-align: left; vertical-align: middle; padding: 6px 10px; border-bottom: 1px solid color-mix(in srgb, var(--ru-linie) 70%, transparent); }
+.ru .ru-tafel-matrix tbody:last-child tr:last-child > * { border-bottom: 0; }
+.ru .ru-tafel-matrix thead th { font-family: var(--mono); font-size: 12.5px; font-weight: 700; color: var(--ru-leise); background: var(--ru-flaeche2); border-bottom: 1.5px solid var(--ru-linie); vertical-align: bottom; line-height: 1.25; }
+.ru .ru-tafel-matrix th.ru-tafel-fest { position: sticky; left: 0; z-index: 1; background: var(--ru-flaeche); box-shadow: inset -1.5px 0 0 var(--ru-linie); font-weight: 500; }
+.ru .ru-tafel-matrix th.ru-tafel-fest { max-width: 12em; }
+.ru :is(.ru-tafel-formeln, .ru-tafel-sonst, .ru-tafel-prozent, .ru-tafel-dreiecke, .ru-tafel-vierecke, .ru-tafel-winkel) th.ru-tafel-fest { min-width: 6.5em; }
+.ru .ru-tafel-matrix thead th.ru-tafel-fest { background: var(--ru-flaeche2); z-index: 2; }
+.ru .ru-tafel-matrix td { line-height: 1.35; }
+.ru .ru-tafel-matrix th, .ru .ru-tafel-matrix td { overflow-wrap: normal; word-break: normal; hyphens: manual; }
+.ru .ru-tafel-gruppe th { font-family: var(--mono); font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ru-text); padding: 5px 10px;
+  background: color-mix(in srgb, var(--ru-tafel-f) 22%, var(--ru-flaeche)); position: sticky; left: 0; }
+.ru .ru-tafel-zk { display: flex; align-items: center; gap: 8px; min-height: 32px; }
+.ru .ru-tafel-zk-text { display: flex; flex-direction: column; line-height: 1.2; }
+.ru .ru-tafel-zk-text b { font-size: 16px; overflow-wrap: normal; word-break: keep-all; hyphens: manual; }
+.ru .ru-tafel-auf { display: flex; align-items: center; justify-content: space-between; gap: 6px; width: 100%; min-height: 44px; padding: 0; margin: 0; border: 0; background: none; text-align: left; font: inherit; color: inherit; }
+.ru .ru-tafel-auf:hover .ru-tafel-zk-text b, .ru .ru-tafel-auf:hover .ru-tafel-zk > b { text-decoration: underline; text-underline-offset: 3px; }
+.ru .ru-tafel-z:has(.ru-tafel-auf[aria-expanded="true"]) > tr:first-child > * { background: var(--ru-flaeche2); border-bottom-color: transparent; }
+.ru .ru-tafel-detail > td { padding: 0; background: var(--ru-flaeche2); }
+.ru .ru-tafel-d { position: sticky; left: 0; width: 100cqw; max-width: 100cqw; padding: 4px 12px 10px; white-space: normal; font-size: 16px; }
+.ru .ru-tafel-d p + p { margin-top: 4px; }
+.ru .ru-tafel-d-kopf { display: grid; grid-template-columns: 108px minmax(0, 1fr); gap: 4px 14px; align-items: start; padding-top: 6px; }
+.ru .ru-tafel-d-fuss { margin: 2px 0 0; }
+.ru .ru-tafel-mini { width: 46px; height: auto; flex: none; color: var(--ru-text); }
+.ru .ru-tafel-bild svg { display: block; width: 108px; height: auto; color: var(--ru-text); }
+.ru .ru-tafel-f { font-family: var(--grotesk); font-weight: 700; font-size: 17px; line-height: 1.3; font-variant-numeric: tabular-nums; }
+.ru .ru-tafel-fg { white-space: nowrap; }
+.ru .ru-tafel-f-gross { font-size: 19px; }
+.ru .ru-tafel-fz { display: block; padding: 1px 0; }
+.ru .ru-tafel-fz + .ru-tafel-fz { margin-top: 4px; }
+.ru .ru-tafel-fz small, .ru .ru-tafel-bed-k { display: block; font-family: var(--grotesk); font-weight: 600; hyphens: auto; font-size: 13px; color: var(--ru-leise); line-height: 1.2; white-space: normal; }
+.ru .ru-tafel-bed-k { max-width: 30ch; margin-top: 2px; }
+.ru .ru-tafel-leer { color: var(--ru-leise); }
+.ru .ru-tafel-wert { font-family: var(--mono); font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.ru .ru-tafel-gross { font-family: var(--mono); font-size: 19px; font-weight: 700; white-space: nowrap; }
+.ru .ru-tafel-zeichen { font-family: var(--mono); font-size: 22px; font-weight: 700; display: inline-block; min-width: 1.6em; text-align: center; }
+.ru .ru-tafel-satz { display: block; min-width: 16ch; }
+.ru .ru-tafel-ja { color: #2E9E5B; font-weight: 700; }
+.ru[data-ru-g="nacht"] .ru-tafel-ja { color: #6BD39A; }
+.ru .ru-tafel-nein { color: var(--ru-leise); }
+.ru .ru-tafel-falsch { color: var(--z-rot); font-weight: 700; }
+.ru .ru-tafel-bez { display: grid; gap: 2px; margin: 0 0 4px; }
+.ru .ru-tafel-bez > div { display: grid; grid-template-columns: 2.2em minmax(0, 1fr); gap: 6px; }
+.ru .ru-tafel-bez dt { font-family: var(--mono); font-weight: 700; }
+.ru .ru-tafel-bez dd { margin: 0; }
+.ru .ru-tafel-eig { display: grid; gap: 4px; margin: 0; font-size: 15px; }
+.ru .ru-tafel-eig dt { font-weight: 700; font-size: 14px; color: var(--ru-leise); }
+.ru .ru-tafel-eig dd { margin: 0; }
+.ru .ru-tafel-rollen { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.ru .ru-tafel-rollen span { font-family: var(--mono); font-size: 14px; border-radius: 8px; padding: 1px 7px; background: var(--ru-tafel-tint); }
+/* Maßeinheiten: Kette (klein → groß) und Kreuztabelle */
+.ru .ru-tafel-kette { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px 4px; }
+.ru .ru-tafel-paar { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.ru .ru-tafel-eh { font-family: var(--mono); font-weight: 700; font-size: 16px; min-width: 40px; text-align: center; border-radius: 8px; padding: 3px 7px; background: var(--ru-tafel-tint); border: 1.5px solid var(--ru-tafel-f); }
+.ru .ru-tafel-eh.ru-tafel-zus { border-style: dashed; color: var(--ru-leise); }
+.ru .ru-tafel-fak { font-family: var(--mono); font-size: 13.5px; font-weight: 700; color: var(--ru-leise); padding: 0 1px; }
+.ru .ru-tafel-schnell td { padding-top: 8px; padding-bottom: 8px; }
+.ru .ru-tafel-schnell th .ru-tafel-sprung { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; text-underline-offset: 3px; }
+.ru .ru-tafel-schnell td { width: 100%; }
+.ru .ru-tafel-schnell th.ru-tafel-fest { min-width: 5.4em; }
+.ru .ru-tafel-schnell .ru-tafel-eh { min-width: 34px; padding: 3px 6px; }
+.ru .ru-tafel-kette-z { margin: 4px 0; overflow-x: auto; }
+.ru .ru-tafel-kreuz td { white-space: nowrap; text-align: right; }
+.ru .ru-tafel-kreuz thead th:not(.ru-tafel-fest) { text-align: right; }
+.ru .ru-tafel-kreuz .ru-tafel-eins { color: var(--ru-leise); }
+.ru .ru-tafel-kreuz tbody > tr > * { border-bottom-style: dashed; }
+.ru .ru-tafel-verb-k { display: block; font-family: var(--mono); font-size: 13px; font-weight: 600; color: var(--ru-text); margin-top: 6px; }
+/* Rollbereich, der breiter ist als der Platz: Schatten am rechten Rand zeigt, dass es weitergeht */
+.ru .ru-tafel-roll { background: linear-gradient(to left, var(--ru-flaeche) 40%, transparent) right center / 24px 100% no-repeat local,
+  radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, .25), transparent) right center / 14px 100% no-repeat scroll, var(--ru-flaeche); }
+.ru .ru-tafel-kreuz th.ru-tafel-fest { font-family: var(--mono); font-weight: 700; white-space: nowrap; }
+.ru .ru-tafel-kreuz thead th { font-size: 14px; color: var(--ru-text); }
+.ru .ru-tafel-kreuz .ru-tafel-eh-k { color: var(--ru-leise); font-family: var(--mono); font-size: 14px; }
+.ru .ru-tafel-kreuz tbody.ru-tafel-zus th, .ru .ru-tafel-kreuz thead .ru-tafel-zus { color: var(--ru-leise); font-weight: 500; }
+/* Zahlen: Primzahlgitter */
+.ru .ru-tafel-gitter { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 3px; max-width: 460px; margin: 4px 0 6px; }
+.ru .ru-tafel-gitter span { font-family: var(--mono); font-size: 14px; text-align: center; padding: 5px 0; border-radius: 6px; color: var(--ru-leise); background: var(--ru-flaeche2); }
+.ru .ru-tafel-gitter span.ru-tafel-prim { color: var(--ru-text); font-weight: 800; background: var(--ru-tafel-tint); box-shadow: inset 0 0 0 1.5px var(--ru-tafel-f); }
+.ru .ru-tafel-roem td, .ru .ru-tafel-roem th { text-align: center; }
+/* Figuren: Haus der Vierecke, Formelzeile, Eigenschaften-Matrix */
+.ru .ru-tafel-haus { margin-top: 10px; }
+.ru .ru-tafel-haus-l { list-style: none; margin: 4px 0; padding: 0; display: grid; gap: 6px; justify-items: center; }
+.ru .ru-tafel-haus-l li { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.ru .ru-tafel-haus-l span { font-size: 15px; font-weight: 700; border-radius: 9px; padding: 3px 10px; background: var(--ru-tafel-tint); border: 1.5px solid var(--ru-tafel-f); }
+.ru .ru-tafel-formelzeile { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; padding: 4px 0 2px; }
+.ru .ru-tafel-formelzeile small { flex-basis: 100%; font-size: 14px; color: var(--ru-leise); }
+.ru .ru-tafel-vierecke thead th:not(.ru-tafel-fest) { min-width: 78px; hyphens: manual; }
+.ru .ru-tafel-vierecke td { text-align: center; font-size: 18px; }
+.ru .ru-tafel-nicht th, .ru .ru-tafel-nicht td { color: var(--ru-leise); }
+.ru .ru-tafel-zahlen td, .ru .ru-tafel-zahlen thead th { text-align: right; }
+.ru .ru-tafel-zahlen th.ru-tafel-fest { font-family: var(--mono); font-weight: 700; }
+@media (max-width: 420px) { .ru .ru-tafel-stellen .ru-tafel-wert, .ru .ru-tafel-zehn .ru-tafel-wert { font-size: 13px; } }
+/* Detailansicht Flächen/Körper: je Figur eine Karte (entwurf1, Bild 04/05) */
+.ru .ru-tafel-figuren { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.ru .ru-tafel-figur { display: grid; grid-template-columns: 108px minmax(0, 1fr); gap: 6px 14px; align-items: center; background: var(--ru-flaeche); border: 1.5px solid var(--ru-linie); border-radius: 16px; padding: 12px 14px 6px; min-width: 0; }
+.ru .ru-tafel-figur > :not(.ru-tafel-bild):not(.ru-tafel-figur-kt) { grid-column: 1 / -1; }
+.ru .ru-tafel-figur-kt { display: grid; gap: 2px; align-content: center; min-width: 0; }
+.ru .ru-tafel-figur-kt .ru-tafel-h2 { padding: 0; font-size: 19px; }
+.ru .ru-tafel-fdl { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 4px 10px; align-items: baseline; margin: 0; padding-top: 8px; border-top: 1px solid var(--ru-linie); }
+.ru .ru-tafel-fdl dt { font-size: 14px; color: var(--ru-leise); }
+.ru .ru-tafel-fdl dd { margin: 0; min-width: 0; overflow-x: auto; }
+.ru .ru-tafel-fdl .ru-tafel-f { font-size: 17.5px; }
+@media (max-width: 560px) {
+  .ru .ru-tafel-karte { padding-left: 8px; padding-right: 8px; }
+  .ru .ru-tafel-matrix th, .ru .ru-tafel-matrix td { padding-left: 7px; padding-right: 7px; }
+  .ru .ru-tafel-matrix th.ru-tafel-fest { max-width: 9.5em; }
+  .ru :is(.ru-tafel-formeln, .ru-tafel-dreiecke, .ru-tafel-vierecke, .ru-tafel-winkel) th.ru-tafel-fest { min-width: 5.6em; }
+  .ru .ru-tafel-kreuz th.ru-tafel-fest { min-width: 0; }
+  .ru .ru-tafel-kreuz th, .ru .ru-tafel-kreuz td { padding: 6px 4px; }
+  .ru .ru-tafel-kreuz .ru-tafel-wert, .ru .ru-tafel-kreuz th.ru-tafel-fest { font-size: 12.5px; }
+  .ru .ru-tafel-kreuz thead th { font-size: 13px; }
+  .ru .ru-tafel-sonst th.ru-tafel-fest, .ru .ru-tafel-prozent th.ru-tafel-fest { min-width: 7.5em; }
+  .ru .ru-tafel-formeln .ru-tafel-zk, .ru .ru-tafel-winkel .ru-tafel-zk, .ru .ru-tafel-dreiecke .ru-tafel-zk, .ru .ru-tafel-vierecke .ru-tafel-zk { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .ru .ru-tafel-formeln .ru-tafel-mini, .ru .ru-tafel-winkel .ru-tafel-mini, .ru .ru-tafel-dreiecke .ru-tafel-mini, .ru .ru-tafel-vierecke .ru-tafel-mini { width: 38px; }
+  .ru .ru-tafel-zk-text b { font-size: 15px; }
+  .ru .ru-tafel-auf .ru-chev { width: 18px; height: 18px; }
+  .ru .ru-tafel-f { font-size: 16px; }
+}
+@media (max-width: 420px) {
+  .ru .ru-tafel-karte { padding-left: 6px; padding-right: 6px; }
+  .ru .ru-tafel-karte > .ru-ae-kopf, .ru .ru-tafel-karte > .ru-tafel-h2, .ru .ru-tafel-karte > p { padding-left: 4px; padding-right: 4px; }
+  .ru .ru-tafel-matrix th, .ru .ru-tafel-matrix td { padding-left: 5px; padding-right: 5px; }
+  .ru .ru-tafel-formeln .ru-tafel-zk-text b, .ru .ru-tafel-sonst .ru-tafel-zk-text b { font-size: 14px; }
+  .ru .ru-tafel-formeln .ru-tafel-f, .ru .ru-tafel-sonst .ru-tafel-f { font-size: 15px; }
+  .ru .ru-tafel-auf { gap: 2px; }
+  .ru .ru-tafel-auf .ru-chev { width: 16px; height: 16px; }
+}
+@media (min-width: 900px) {
+  .ru .ru-tafel-figuren { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ru .ru-tafel-f { font-size: 17px; }
+  .ru .ru-tafel-karte { padding: 12px 16px 10px; }
+}
+@media print {
+  .ru .ru-kopf, .ru .ru-pfad, .ru .ru-tafel-werkzeug, .ru .ru-ae, .ru .ru-lehrer-band, .ru .ru-tafel-mehr > summary .ru-chev, .ru .ru-tafel-auf .ru-chev, .ru .ru-tafel-warum { display: none !important; }
+  .ru .ru-tafel-roll { overflow: visible; border-color: #999; }
+  .ru .ru-tafel-matrix th.ru-tafel-fest, .ru .ru-tafel-gruppe th { position: static; }
+  .ru .ru-tafel-d { position: static; width: auto; max-width: none; }
+  .ru .ru-tafel-karte, .ru .ru-tafel-figur { break-inside: avoid; border-color: #999; }
+}
+.ru .ru-tafel-pot, .ru .ru-tafel-kurz { display: block; font-family: var(--mono); font-size: 13px; color: var(--ru-leise); font-weight: 600; }
+.ru .ru-tafel-zk-text small:not(.ru-tafel-kurz) { font-size: 14px; color: var(--ru-leise); font-weight: 500; }
+.ru .ru-tafel-vorsilben .ru-tafel-gross { font-size: 17px; margin-left: 4px; }
+.ru .ru-tafel-stellen td, .ru .ru-tafel-stellen thead th:last-child { text-align: right; }
+.ru .ru-tafel-winkel td:nth-child(2) .ru-tafel-f { white-space: nowrap; font-size: 15px; }
+.ru .ru-tafel-kongruenz th.ru-tafel-fest .ru-tafel-gross { font-size: 17px; }
+.ru .ru-tafel-periode { text-decoration: overline; text-decoration-thickness: 1.5px; }
+.ru .ru-tafel-bdp th.ru-tafel-fest .ru-br { font-size: 15px; }
+.ru .ru-tafel-bdp td { font-size: 17px; }
+/* Fließtext-Spalten dürfen silbentrennen (nur dort; Namen in der ersten Spalte nie) */
+.ru :is(.ru-tafel-m-zeichen, .ru-tafel-m-griechisch, .ru-tafel-m-fachwort, .ru-tafel-teilbar, .ru-tafel-kongruenz, .ru-tafel-dreiecke, .ru-tafel-zehn, .ru-tafel-winkel) td { hyphens: auto; }
+.ru .ru-tafel-lesen td { hyphens: auto; overflow-wrap: anywhere; }
+.ru .ru-tafel-vorsilben td .ru-rechnung { font-size: 14px; }
+@media (max-width: 420px) {
+  .ru .ru-tafel-formeln .ru-tafel-zk-text b { font-size: 13.5px; }
+  .ru .ru-tafel-formeln td { padding-left: 4px; padding-right: 4px; }
+  .ru .ru-tafel-zehn .ru-tafel-wert { font-size: 12.5px; }
+}
+@media (max-width: 420px) { .ru .ru-tafel-vorsilben .ru-tafel-wert { font-size: 13px; } }
+@media (min-width: 900px) {
+  .ru .ru-tafel-seite[data-tafel="figuren"].ru-schmal { max-width: 1120px; }
+  .ru .ru-tafel-matrix th.ru-tafel-fest { max-width: 16em; }
+}
+.ru .ru-tafel-auf, .ru .ru-tafel-zk-text { min-width: 0; }

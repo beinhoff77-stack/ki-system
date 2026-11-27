@@ -5751,25 +5751,75 @@ test('RU: Eltern/Lehrer öffnen „Regeln“ → Blatt Regel 6 (alle Abschnitte 
     await page.locator('.ru-l-kopf h2').first().waitFor(); assert.match(page.url(), /#\/regeln\/lehrer-r6$/); // Blatt steht (die Liste hat auch ru-l-abschnitt)
     assert.deepEqual(await page.locator('.ru-l-kopf h2').allInnerTexts(), ['1 Merksatz', '2 Was das Kind sieht', '3 Fachliche Erklärung', '4 Verweise und Zuordnung', '5 Stand je Kind']);
     assert.equal(await page.locator('.ru-lehrer details').count(), 0, 'alles offen');
-    assert.equal(await page.locator('.ru-rueck').count(), 4);
+    assert.equal(await page.locator('.ru-l-kopf .ru-ae').count(), 4);
     assert.equal(await page.locator('.ru-aufgaben li').count(), 3);
     assert.match(await page.locator('.ru-lehrer').innerText(), /Nicht geprüft:/);
     await ruPruefen(page, `${b} Blatt`);
     await ruBild(page, `lehrer-regel6-${b}-hell`);
-    await page.locator('.ru-rueck[data-abschnitt="Merksatz"]').click();
+    const merk = page.locator('.ru-l-kopf', { hasText: '1 Merksatz' }).locator('.ru-ae');
+    await merk.click(); assert.equal(await merk.getAttribute('aria-expanded'), 'true');
     const form = page.locator('.ru-rueck-form form');
+    assert.match(await form.locator('.lern-auftrag-bezug').innerText(), /Regel-Universum · Rechenregel R6 \(rr\.ausmultiplizieren\) · Ausmultiplizieren und Ausklammern · Feld Abschnitt Merksatz/);
     await form.getByRole('button', { name: 'Frage', exact: true }).click();
     await form.locator('textarea').fill('Ist „jeden“ für Klasse 5 klar genug?');
+    const y0 = await page.evaluate(() => scrollY);
     await form.getByRole('button', { name: 'Auftrag senden' }).click();
     await form.getByText('Danke – der Auftrag ist angekommen.', { exact: false }).waitFor();
     const rm = calls.find((c) => c.aktion === 'schule_rueckmeldung_geben');
-    assert.deepEqual(rm.daten, { bezug: 'allgemein', art: 'sonstiges', text: 'Regel 6 · Ausmultiplizieren und Ausklammern (rr.ausmultiplizieren) · Merksatz · Frage: Ist „jeden“ für Klasse 5 klar genug?' });
+    assert.deepEqual(rm.daten, { bezug: 'allgemein', art: 'sonstiges', text: 'Regel-Universum · Rechenregel R6 (rr.ausmultiplizieren) · Ausmultiplizieren und Ausklammern · Feld Abschnitt Merksatz · Frage: Ist „jeden“ für Klasse 5 klar genug?' });
+    // danach: Formular zu, kurze Bestätigung am Knopf, kein Seitensprung
+    await page.locator('.ru-rueck-form').waitFor({ state: 'detached' }); await merk.filter({ hasText: 'Gesendet' }).waitFor();
+    assert.equal(await merk.getAttribute('aria-expanded'), 'false'); assert.match(page.url(), /#\/regeln\/lehrer-r6$/); assert.ok(Math.abs((await page.evaluate(() => scrollY)) - y0) < 2, 'kein Seitensprung');
     await page.locator('.ru-lehrer-band a', { hasText: 'So sieht es das Kind' }).click();
     await page.locator('.ru-regelseite .ru-merksatz').waitFor(); assert.match(page.url(), /#\/regeln\/kind-r6$/);
-    assert.equal(await page.locator('.ru-band-kind').count(), 1); assert.equal(await page.locator('.ru-rueck').count(), 0);
+    assert.equal(await page.locator('.ru-band-kind').count(), 1); assert.ok(await page.locator('.ru-ae').count() >= 10, 'Schüleransicht für Erwachsene: „Ändern lassen“ an den Feldern');
     await ruPruefen(page, `${b} Kinderansicht`);
     await page.locator('.ru-band-kind a').click(); await page.locator('.ru-l-kopf h2').first().waitFor();
   }
+});
+
+test('RU „Ändern lassen“: Erwachsene an jedem Feld (Idee, Einzelregel, Suche), Formular unter dem Feld, Bestätigung; das Kind sieht keinen Knopf', async (t) => {
+  for (const [b, h] of [[390, 844], [1280, 800]]) {
+    const { page, calls } = await setup(t);
+    await page.setViewportSize({ width: b, height: h });
+    // Idee in der Schüleransicht für Erwachsene: Feld „warum“
+    await page.goto(origin + '/#/regeln/kind-idee-fur-2'); await page.locator('.ru-regelseite').waitFor();
+    assert.ok(await page.locator('.ru-ae').filter({ visible: true }).count() >= 3, 'Knöpfe ohne Aufklappen: kurz, satz, Bild');
+    await page.locator('.ru-stufe[data-stufe="genau"] > summary').click();
+    const knopf = page.locator('.ru-ae[data-wo$="Idee I-fur-2 · Aus dem Rechteck · Feld warum"]');
+    await knopf.click();
+    const box = page.locator('.ru-ae-kopf:has(.ru-ae[aria-expanded="true"]) + .ru-rueck-form'); await box.waitFor(); // direkt unter dem Feldkopf
+    assert.equal(await page.locator('.ru-rueck-form').count(), 1);
+    await ruPruefen(page, `${b} Idee mit offenem Formular`);
+    await box.locator('textarea').fill('Bitte ein Bild zur Begründung.');
+    await box.getByRole('button', { name: 'Auftrag senden' }).click();
+    await page.locator('.ru-rueck-form').waitFor({ state: 'detached' }); await knopf.filter({ hasText: 'Gesendet' }).waitFor();
+    const rm = calls.filter((c) => c.aktion === 'schule_rueckmeldung_geben').pop();
+    assert.deepEqual(rm.daten, { bezug: 'allgemein', art: 'sonstiges', text: 'Regel-Universum · Idee I-fur-2 · Aus dem Rechteck · Feld warum · Vorschlag: Bitte ein Bild zur Begründung.' });
+    assert.match(page.url(), /#\/regeln\/kind-idee-fur-2$/);
+    // Zweimal tippen schließt wieder; Klassenbeispiel (Leiter) öffnet das Formular in der Zeile
+    await page.locator('.ru-stufe[data-stufe="klassen"] > summary').click();
+    const lk = page.locator('.ru-leiter .ru-ae').first(); await lk.click(); await page.locator('.ru-leiter .ru-rueck-form').waitFor();
+    await lk.click(); assert.equal(await page.locator('.ru-rueck-form').count(), 0);
+    // Suche nach „cm“: Treffer mit Knopf
+    await page.locator('.ru-suche input').fill('cm'); await page.locator('.ru-suche input').press('Enter');
+    await page.locator('.ru-treffer .ru-karte').first().waitFor();
+    assert.match(await page.locator('.ru-treffer .ru-karte').first().innerText(), /Größe und Einheit/);
+    assert.equal(await page.locator('.ru-treffer li').count(), await page.locator('.ru-treffer .ru-ae').count());
+    await ruPruefen(page, `${b} Suche cm (Erwachsene)`);
+  }
+  // Kinderseite in der App der Eltern und Kinder-Zugang: kein Knopf
+  { const { page } = await setup(t, { gestaltung: 'nacht' });
+    for (const a of ['1-r6', '1-idee-fur-2', '1-regel-f17', '1-sonne']) { await page.goto(origin + '/#/regeln/' + a); await page.locator('.ru-seite > *').first().waitFor();
+      for (const z of await page.locator('.ru-stufe > summary').all()) await z.click();
+      assert.equal(await page.locator('.ru-ae, .ru-erw').count(), 0, a); } }
+  { const { page } = await setup(t, { lernSeite: true, rolle: 'kind' });
+    await page.goto(origin + '/lernen/'); await page.getByLabel('Lern-Code').fill('ABCD-EFGH-JKLM'); await page.getByRole('button', { name: 'Anmelden' }).click(); await page.waitForURL(/#\/reise\/1$/);
+    await page.goto(origin + '/lernen/#/regeln/1-r6'); await page.locator('.ru-regelseite').waitFor();
+    for (const z of await page.locator('.ru-stufe > summary').all()) await z.click();
+    assert.equal(await page.locator('.ru-ae, .ru-erw').count(), 0, 'Kinder-Zugang');
+    await page.goto(origin + '/lernen/#/regeln/kind-r6'); await page.waitForURL(/#\/regeln\/1$/); await page.locator('.ru-universum').waitFor();
+    assert.equal(await page.locator('.ru-ae').count(), 0, 'Kind auf der Adresse der Erwachsenen'); }
 });
 
 test('RU Nachbesserung: Kopf am Handy ohne Doppel – Ebene 0 zeigt bei 400 × 860 mindestens sechs Gebiete, Menü und Suche in einer Zeile', async (t) => {

@@ -7,7 +7,7 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const { bauen, ZIEL } = require(path.join(root, 'tools', 'regeln_bauen.cjs'));
 const D = JSON.parse(fs.readFileSync(ZIEL, 'utf8'));
-const L = new Function(fs.readFileSync(path.join(root, 'lernen-regeln.js'), 'utf8') + '\nreturn { ruIndex, ruSichten, ruEbene, ruKontext, ruRueckVorsatz, RU_ARTEN };')();
+const L = new Function(fs.readFileSync(path.join(root, 'lernen-regeln.js'), 'utf8') + '\nreturn { ruIndex, ruSichten, ruEbene, ruKontext, ruFundstelle, ruVorsatz, RU_ARTEN };')();
 const I = L.ruIndex(D);
 const T8 = (f) => JSON.parse(fs.readFileSync(path.join(root, 'inhalte/mathe-profi/regeln-uebersicht/texte8', f), 'utf8'));
 const leer = (s) => typeof s !== 'string' || !s.replace(/<[^>]+>/g, '').trim();
@@ -80,8 +80,9 @@ test('Alle Seiten bauen ohne leere Texte, ohne „undefined“/„NaN“, mit Br
   // Liste der 14 Regeln: kein Bild, kein Beispiel; Merksatz in der Zeile (Regel 10 eine Zeile)
   const sonne = S.seite('sonne'); assert.equal((sonne.match(/class="ru-zeile ru-mit-satz"/g) || []).length, 14); assert.doesNotMatch(sonne, /ru-z-teil/);
   assert.match(sonne, /Plus\/Minus: erst gleiche Nenner\. Mal: oben mal oben, unten mal unten\. Geteilt: mal Kehrwert\./);
-  // Lehrer-Blatt: fünf Abschnitte, vier Rückmelde-Knöpfe, nichts zugeklappt, „Nicht geprüft“ offen
-  const bl = S.seite('lehrer-r6'); assert.equal((bl.match(/class="ru-l-abschnitt"/g) || []).length, 5); assert.equal((bl.match(/class="ru-rueck"/g) || []).length, 4);
+  // Lehrer-Blatt: fünf Abschnitte, vier Knöpfe „Ändern lassen“ in den Abschnittsköpfen, nichts zugeklappt, „Nicht geprüft“ offen
+  const bl = L.ruSichten(I, (h) => '#/regeln/kind-' + h, zustand, 'ansicht').seite('lehrer-r6'); assert.equal((bl.match(/class="ru-l-abschnitt"/g) || []).length, 5);
+  assert.equal((bl.match(/<h2>[^<]*<\/h2><button class="ru-ae"/g) || []).length, 4);
   assert.doesNotMatch(bl, /<details/); assert.match(bl, /Nicht geprüft:/); assert.match(bl, /Stand folgt/);
   // Ohne Lernstand: keine Platzhalter, die einen Stand vortäuschen
   for (const h of ['universum', 'sonne', 'r6', 'idee-fur-2']) assert.doesNotMatch(S.seite(h), /sitzt|geschafft|in Arbeit|Fortschritt/i, h);
@@ -97,7 +98,8 @@ test('Adressen und Ebenen; Rückmeldung nennt Regel, Name, Kennung und Abschnitt
   assert.deepEqual(L.ruKontext('lehrer-r6'), { art: 'lehrer', h: 'lehrer-r6', praefix: 'kind-' });
   assert.equal(L.ruKontext('kind-r6').art, 'ansicht');
   assert.deepEqual(['universum', 'sonne', 'gebiet-geo', 'weisen', 'klassen-7', 'suche', 'r6', 'idee-geo-1', 'weise-3', 'lehrer-r6', 'regel-f17'].map(L.ruEbene), [0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3]);
-  assert.equal(L.ruRueckVorsatz(I.REGEL.R6, 'rr.ausmultiplizieren', 'Karte')('Fehler'), 'Regel 6 · Ausmultiplizieren und Ausklammern (rr.ausmultiplizieren) · Karte · Fehler: ');
+  assert.equal(L.ruVorsatz(L.ruFundstelle('Rechenregel', 'R6 (rr.ausmultiplizieren)', 'Ausmultiplizieren und Ausklammern', 'Abschnitt Karte'))('Fehler'),
+    'Regel-Universum · Rechenregel R6 (rr.ausmultiplizieren) · Ausmultiplizieren und Ausklammern · Feld Abschnitt Karte · Fehler: ');
   // Arten passen zur Prüfbedingung der Tabelle schule.rueckmeldung (Migration 20261114_w150_lern_zugaenge_plan.sql)
   const erlaubt = fs.readFileSync(path.join(root, 'supabase/migrations/20261114_w150_lern_zugaenge_plan.sql'), 'utf8').match(/art text not null check \(art in \(([^)]*)\)\)/)[1];
   for (const a of L.RU_ARTEN) assert.ok(erlaubt.includes(`'${a[2]}'`), a[2]);
@@ -225,4 +227,67 @@ test('1112: Merksatz, Kurzbeschreibung und Langtexte widersprechen sich nicht (R
   assert.doesNotMatch(JSON.stringify(D.lehrer), /Ausgeschlossen: x|Alle Basen sind/);
   const e = D.arbeitsweisen.find((a) => a.name === 'Einheiten');
   assert.match(e.erklaerung, /umrechenbare Einheit wie cm statt m beweist keinen falschen Ansatz/); assert.doesNotMatch(JSON.stringify(e), /falsche Einheit/);
+});
+
+// ---------- „Ändern lassen“ überall im Regel-Universum (nur Eltern und Lehrer) ----------
+const knoepfe = (html) => [...html.matchAll(/<button class="ru-ae" type="button" data-wo="([^"]+)"/g)].map((m) => m[1].replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&'));
+test('„Ändern lassen“: Knopf an jeder Elementart für Erwachsene, mit eindeutiger Fundstelle; das Kind sieht ihn nie', () => {
+  const zustand = { klasse: 5, frage: 'Dreisatz' };
+  const E = L.ruSichten(I, (h) => '#/regeln/kind-' + h, zustand, 'ansicht'), K = L.ruSichten(I, (h) => '#/regeln/1-' + h, zustand, 'kind');
+  const S = (h) => knoepfe(E.seite(h));
+  const hat = (h, wo) => assert.ok(S(h).includes(wo), `${h}: ${wo}\n  vorhanden: ${S(h).slice(0, 40).join('\n  ')}`);
+  // Rechenregel (Schüleransicht für Erwachsene und Lehrer-Blatt), je Feld
+  for (const f of ['kurz', 'satz', 'genau', 'warum', 'voraus', 'verwandt', 'fehler', 'weg (Aufbau, Verweise)']) hat('r6', `Regel-Universum · Rechenregel R6 (rr.ausmultiplizieren) · Ausmultiplizieren und Ausklammern · Feld ${f}`);
+  hat('lehrer-r6', 'Regel-Universum · Rechenregel R6 (rr.ausmultiplizieren) · Ausmultiplizieren und Ausklammern · Feld Abschnitt Merksatz');
+  // Idee: Kurzbeschreibung, genau, warum, Beispiele je Klasse (Leiter), Zeichnung
+  const i = I.IDEE['I-fur-2'];
+  for (const f of ['kurz', 'satz', 'genau', 'warum']) hat('idee-fur-2', `Regel-Universum · Idee I-fur-2 · ${i.kurz} · Feld ${f}`);
+  const st6 = I.LEITER['I-fur-2'].stufen; const nr = (s) => (st6.filter((x) => x.klasse === s.klasse).length > 1 ? ' Beispiel ' + (st6.filter((x) => x.klasse === s.klasse).indexOf(s) + 1) : '');
+  for (const s of st6) hat('idee-fur-2', `Regel-Universum · Leiter I-fur-2 Klasse ${s.klasse}${nr(s)} · ${i.kurz} · Feld ${s.text ? 'Beispiel' : 'Lücke (kommt nicht vor)'}${s.thema ? ` (Thema ${s.thema})` : ''}`);
+  assert.ok(S('idee-fur-2').some((w) => w.startsWith('Regel-Universum · Zeichnung I-fur-2 Bild 1 · ' + i.kurz + ' · Feld Bild')), 'Zeichnung');
+  assert.ok(S('idee-fur-2').some((w) => w.startsWith('Regel-Universum · Zeichnung I-fur-2 Bild 2 ')), 'weitere Bilder');
+  // Einzelregel, Formel, Stichwort, Arbeitsweise, Schicht (Etage), Gebiet (Planet), Thema, Leiter der Einzelregel
+  hat('regel-f17', 'Regel-Universum · Einzelregel F17 · Pyramide und Kegel · Feld satz');
+  const fo = D.formeln.find((f) => f.ziel === 'F17'); hat('regel-f17', `Regel-Universum · Formel zu F17 · ${fo.fuer} · Feld formel`);
+  const st = D.stichwoerter.find((x) => x.ziel === 'R11'); hat('r11', `Regel-Universum · Stichwort zu R11 (${D.lehrer.R11.kennung}) · ${st.wort} · Feld wort`);
+  for (const f of ['kurz', 'satz', 'beispiel', 'erklaerung']) hat('weise-1', `Regel-Universum · Arbeitsweise 1 · ${D.arbeitsweisen[0].name} · Feld ${f}`);
+  for (const e of D.etagen) hat('sonne', `Regel-Universum · Schicht ${e.nr} · ${e.name} · Feld name`);
+  hat('gebiet-fur', 'Regel-Universum · Gebiet fur · Fläche und Raum · Feld name und Ideen');
+  const th = D.lehrer.R6.themen[0]; hat('lehrer-r6', `Regel-Universum · Thema ${th.schluessel} · ${th.titel} · Feld Zuordnung zu Rechenregel R6`);
+  const g = D.gesetze.find((x) => x.beispiel && (x.klassen || []).length > 1);
+  if (g) assert.ok(S(I.adr.gesetz(g.id)).some((w) => w.startsWith(`Regel-Universum · Leiter ${g.id} Klasse `)), g.id + ' Leiter');
+  // Treffer der Suche: Knopf je Treffer, über ein Stichwort gefunden → Stichwort
+  assert.ok(S('suche').includes(`Regel-Universum · Stichwort zu R11 (${D.lehrer.R11.kennung}) · Dreisatz · Feld wort`), 'Suche: Stichwort');
+  // Fundstellen eindeutig: auf keiner Seite zweimal dieselbe
+  for (const h of ['r6', 'idee-fur-2', 'regel-f17', 'weise-1', 'sonne', 'lehrer-r6', 'r10', 'idee-geo-1']) assert.equal(new Set(S(h)).size, S(h).length, h + ': doppelte Fundstelle');
+  // Kind: auf keiner Seite ein Knopf, keine Formel-/Stichwortliste für Erwachsene
+  const alle = ['universum', 'sonne', 'weisen', 'klassen', 'suche', ...D.regeln.map((r) => r.id.toLowerCase()), ...I.IDEEN.map((x) => I.adr.idee(x.id)), ...D.arbeitsweisen.map((_, n) => 'weise-' + (n + 1)),
+    ...D.planeten.map((p) => 'gebiet-' + p.kuerzel), ...D.gesetze.map((x) => I.adr.gesetz(x.id))];
+  for (const h of alle) { const html = K.seite(h); assert.doesNotMatch(html, /ru-ae|ru-erw|Ändern lassen/, h); }
+  // Erwachsene: jede Regel-, Ideen-, Einzelregel- und Arbeitsweisen-Seite hat Knöpfe; kein Knopf in einem Link (ungültiges HTML)
+  for (const h of alle.filter((x) => /^(r\d|idee-|regel-|weise-)/.test(x))) { const html = E.seite(h); assert.ok(knoepfe(html).length >= (h.startsWith("regel-") ? 2 : 4), h); assert.doesNotMatch(html, /<a [^>]*>(?:(?!<\/a>).)*<button/s, h + ': Knopf im Link'); }
+  // Fundstelle: Art, Kennung, Name, Feld; Sonderzeichen sicher im Attribut
+  assert.equal(L.ruFundstelle('Idee', 'I-funktionen-2', 'Wachstum', 'warum'), 'Regel-Universum · Idee I-funktionen-2 · Wachstum · Feld warum');
+  assert.match(E.seite('suche'), /data-wo="[^"<>]*"/);
+});
+
+test('Suche: kurze Wörter und Einheiten (cm, kg, m, %) als ganzes Wort; Name und Stichwort vor Fließtext; Umlaute und Groß/klein egal', () => {
+  const ids = (q) => I.suche(q).map((t) => t.id);
+  for (const q of ['cm', 'kg', 'm', 'km', 'mm', 'dm', 'ml', 'l', 'g', 'h', 'min', 's', '%']) assert.ok(I.suche(q).length > 0, q + ' findet etwas');
+  assert.equal(ids('cm')[0], 'V1', 'cm → Größe und Einheit zuerst'); assert.equal(ids('kg')[0], 'V1'); assert.equal(ids('m')[0], 'V1');
+  // ganzes Wort: „m“ leuchtet nicht bei jeder Regel mit dem Buchstaben m auf
+  const mitM = I.suche('m'); assert.ok(mitM.length <= 14);
+  const text = (t) => (t.name + ' ' + t.satz + ' ' + t.mehr + ' ' + t.stich.join(' ')).toLowerCase();
+  for (const t of mitM) assert.match(text(t), /(^|[^a-zäöüß])m(²|³)?([^a-zäöüß]|$)/, t.id + ' enthält „m“ als Wort');
+  const alleMitBuchstabeM = [...D.regeln, ...D.gesetze].filter((x) => /m/i.test(x.name + x.satz)).length; assert.ok(alleMitBuchstabeM > 40 && mitM.length < alleMitBuchstabeM);
+  for (const t of I.suche('kg')) assert.match(text(t), /(^|[^a-z])kg([^a-z]|$)/, t.id);
+  assert.ok(!ids('cm').some((id) => /^R(2|3|4|5|6|7)$/.test(id)), 'cm: keine Rechenregel ohne cm');
+  assert.ok(ids('%').some((id) => ['V8', 'V9', 'Z12'].includes(id)), '% → Prozent');
+  assert.deepEqual(ids('m²'), ids('m2')); assert.ok(ids('m²').includes('F1'));
+  // Groß/klein, Umlaute
+  assert.deepEqual(ids('CM'), ids('cm')); assert.deepEqual(ids('Fläche'), ids('flaeche')); assert.deepEqual(ids('FLÄCHE'), ids('fläche'));
+  // Name/Stichwort vor Fließtext
+  const tr = I.suche('Dreisatz'); assert.equal(tr[0].id, 'R11'); const kopf = tr.map((t) => t.kopf > 0); assert.deepEqual(kopf, [...kopf].sort((a, b) => b - a), 'erst Kopf-Treffer');
+  // Füllwörter zählen nicht neben einem anderen Wort
+  assert.deepEqual(ids('Fläche in cm').slice(0, 3), ids('Fläche cm').slice(0, 3));
 });

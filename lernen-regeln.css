@@ -463,3 +463,45 @@
 .ru .ru-menue-ort { flex: none; display: inline-flex; }
 .ru.ru-im-kind .ru-universum > .ru-titel { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .ru.ru-im-kind .ru-universum > .ru-lead { margin-top: 10px; }
+/* „Ändern lassen“ (nur Eltern und Lehrer): ein schlanker Knopf an jedem Element. Leise im Ruhezustand, Tippfläche 44 px,
+   steht in einer eigenen Zeile, im Kopf eines Felds rechts neben der Überschrift oder rechts in der Zeile einer Liste – nichts verschiebt sich beim Laden. */
+.ru .ru-ae { display: inline-flex; align-items: center; gap: 6px; flex: none; min-height: 44px; padding: 0 10px; margin: 0 -6px 0 auto; border: 0; border-radius: 10px;
+  background: transparent; color: var(--ru-leise); font-family: var(--grotesk); font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; line-height: 1;
+  white-space: nowrap; cursor: pointer; -webkit-tap-highlight-color: transparent; opacity: .85; }
+.ru .ru-ae svg { width: 16px; height: 16px; flex: none; }
+.ru .ru-ae:hover { opacity: 1; color: var(--ru-text); background: color-mix(in srgb, var(--ru-text) 7%, transparent); }
+.ru .ru-ae[aria-expanded="true"] { opacity: 1; color: var(--ru-text); background: color-mix(in srgb, var(--ru-text) 9%, transparent); box-shadow: inset 0 0 0 1.5px var(--ru-linie); }
+.ru .ru-ae.ru-ae-ok { opacity: 1; color: var(--ru-text); }
+.ru .ru-ae.ru-ae-ok svg { color: #2E9E5B; }
+.ru .ru-ae-zeile { display: flex; justify-content: flex-end; margin: 0; }
+.ru .ru-ae-kopf { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.ru .ru-ae-kopf > .ru-ueber { margin: 0; }
+.ru .ru-st-inhalt .ru-ae-kopf, .ru .ru-l-abschnitt .ru-ae-kopf { margin: 10px 0 0; }
+.ru .ru-st-inhalt > .ru-ae-kopf:first-child, .ru .ru-st-inhalt > .ru-ae-zeile:first-child { margin-top: -6px; }
+.ru .ru-merk .ru-ae-kopf { margin: -10px 0 -4px; }
+.ru .ru-bsp > .ru-ae-kopf { margin-bottom: 2px; }
+.ru .ru-r-kopf .ru-ae-zeile { margin-top: -2px; }
+.ru .ru-z-teil .ru-ae-zeile { margin-top: 2px; }
+.ru .ru-ae-in { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.ru .ru-ae-in > span:first-child { flex: 1 1 140px; min-width: 0; }
+.ru .ru-leiter.ru-gl li.ru-luecke p.ru-ae-in { align-self: start; }
+.ru .ru-schicht-kopf .ru-ae { margin: -6px -8px -6px 0; }
+.ru .ru-treffer .ru-ae-zeile { margin-top: 2px; }
+.ru .ru-lv-knoepfe { display: inline-flex; align-items: center; gap: 4px; flex: none; }
+.ru .ru-l-kopf .ru-ae { margin-right: -6px; }
+/* Formular unter dem Knopf: im Klassenbeispiel über die ganze Breite */
+.ru .ru-leiter li > .ru-rueck-form, .ru .ru-leiter li > div > .ru-rueck-form { grid-column: 1 / -1; }
+.ru .ru-leiter.ru-gl li > .ru-rueck-form { grid-column: 2 / -1; margin-left: 12px; }
+.ru .ru-lverweise li:has(> .ru-rueck-form), .ru .ru-erw-liste li:has(> .ru-rueck-form) { flex-wrap: wrap; }
+.ru .ru-lverweise li > .ru-rueck-form, .ru .ru-erw-liste li > .ru-rueck-form, .ru .ru-treffer li > .ru-rueck-form { flex-basis: 100%; width: 100%; }
+.ru .ru-rueck-form { color: var(--ru-text); }
+.ru .ru-rueck-form .lern-auftrag-bezug { overflow-wrap: anywhere; margin: 0 0 6px; }
+/* Nur für Eltern und Lehrer: Formeln und Stichwörter eines Elements */
+.ru .ru-erw { margin-top: 18px; padding: 10px 14px 6px; border: 1.5px dashed var(--ru-linie); border-radius: 14px; }
+.ru .ru-erw h3.ru-ueber { margin: 10px 0 2px; font-size: 12px; }
+.ru .ru-erw-liste { list-style: none; margin: 0; padding: 0; }
+.ru .ru-erw-liste li { display: flex; align-items: center; gap: 8px; font-size: 16px; }
+.ru .ru-erw-liste li + li { border-top: 1px solid color-mix(in srgb, var(--ru-linie) 60%, transparent); }
+.ru .ru-erw-text { flex: 1 1 auto; min-width: 0; padding: 6px 0; overflow-wrap: anywhere; }
+/* Absenden-Knopf im Formular: Schrift in der Gegenfarbe des Akzents (sonst erbt er über .ru button die Textfarbe) */
+.ru .ru-rueck-form button.primary { color: var(--on-accent, #fff); }

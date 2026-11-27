@@ -1,0 +1,219 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-11",
+ "kuerzel": "S3",
+ "thema": "terme.potenzgesetze_ganzzahlig",
+ "titel": "terme.potenzgesetze_ganzzahlig",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen_datei_im_bestand": "terme.potenzgesetze_ganzzahlig",
+ "hinweis": "Je Lernkarte ohne Aufgabe auf Stufe 3 in rollend-5/rollend-7 genau eine zählende Aufgabe der Stufe 3 in neuer Form. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ, form, zaehlt, Regel-Kennung, Fehlbilder (mit rechnung) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "S3-V052",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "warum_gilt",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 4",
+     "rechnung": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 4",
+     "rechnung": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 4",
+     "rechnung": null
+    }
+   ],
+   "fehlerzeile": 4,
+   "fehler": "bei der negativen Hochzahl 2 abgezogen statt durch 2 geteilt",
+   "zeilen": [
+    {
+     "zeile": 1,
+     "text": "2⁴ = 16, 2³ = 8, 2² = 4, 2¹ = 2",
+     "stimmt": true
+    },
+    {
+     "zeile": 2,
+     "text": "2⁰ = 2 : 2 = 1",
+     "stimmt": true
+    },
+    {
+     "zeile": 3,
+     "text": "2⁻¹ = 1 : 2 = 1/2",
+     "stimmt": true
+    },
+    {
+     "zeile": 4,
+     "text": "2⁻² = 1/2 − 2 = −3/2",
+     "stimmt": false
+    }
+   ],
+   "aufgabe": {
+    "l": "warum_gilt",
+    "t": "warum_gilt",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim setzt das Muster der Zweierpotenzen nach rechts fort. Bei jedem Schritt nach rechts wird durch 2 geteilt. Zeile 1: 2⁴ = 16, 2³ = 8, 2² = 4, 2¹ = 2 Zeile 2: 2⁰ = 2 : 2 = 1 Zeile 3: 2⁻¹ = 1 : 2 = 1/2 Zeile 4: 2⁻² = 1/2 − 2 = −3/2 In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Welche Rechenart steht bei jedem Schritt nach rechts? Rechne jede Zeile nach.",
+    "w": "Zeile 1 bis 3 stimmen. In Zeile 4 wird 2 abgezogen statt geteilt. Das Muster verlangt aber: 1/2 : 2 = 1/4. Also ist 2⁻² = 1/4, und eine negative Hochzahl macht die Potenz nicht negativ."
+   }
+  },
+  {
+   "kennung": "S3-V053",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "gleiche_basis_ganz",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 3",
+     "rechnung": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 3",
+     "rechnung": null
+    }
+   ],
+   "fehlerzeile": 3,
+   "fehler": "a⁰ = 0 statt a⁰ = 1",
+   "zeilen": [
+    {
+     "zeile": 1,
+     "text": "a⁻⁴ · a⁷ = a⁻⁴⁺⁷ = a³",
+     "stimmt": true
+    },
+    {
+     "zeile": 2,
+     "text": "a³ : a⁻² = a³⁻⁽⁻²⁾ = a⁵",
+     "stimmt": true
+    },
+    {
+     "zeile": 3,
+     "text": "a⁵ · a⁻⁵ = a⁵⁺⁽⁻⁵⁾ = a⁰ = 0",
+     "stimmt": false
+    }
+   ],
+   "aufgabe": {
+    "l": "gleiche_basis_ganz",
+    "t": "gleiche_basis_ganz",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim vereinfacht (a ≠ 0) den Term a⁻⁴ · a⁷ : a⁻² · a⁻⁵. Zeile 1: a⁻⁴ · a⁷ = a⁻⁴⁺⁷ = a³ Zeile 2: a³ : a⁻² = a³⁻⁽⁻²⁾ = a⁵ Zeile 3: a⁵ · a⁻⁵ = a⁵⁺⁽⁻⁵⁾ = a⁰ = 0 In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Rechne jede Zeile mit einer Zahl nach, zum Beispiel a = 2.",
+    "w": "Zeile 1 und 2 stimmen. In Zeile 3 ist die Hochzahl 5 + (−5) = 0 richtig, aber a⁰ ist 1 (für a ≠ 0), nicht 0. Man kann auch sehen: a⁵ · a⁻⁵ = a⁵ · 1/a⁵ = 1. Richtig ist das Ergebnis 1."
+   }
+  },
+  {
+   "kennung": "S3-V054",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "exponent_und_potenz",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.001953125,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Hochzahlen addiert: (−2) + (−3) + (−4) = −9",
+     "rechnung": "2 ** (-9)"
+    },
+    {
+     "antwort": 1024,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen von −4 falsch verrechnet: 6 + 4 = 10",
+     "rechnung": "2 ** 10"
+    },
+    {
+     "antwort": 64,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur (2⁻²)⁻³ berechnet und den Faktor 2⁻⁴ vergessen",
+     "rechnung": "(1 / 4) ** (-3)"
+    }
+   ],
+   "aufgabe": {
+    "l": "exponent_und_potenz",
+    "t": "exponent_und_potenz",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne (2⁻²)⁻³ · 2⁻⁴. Weg A: Verrechne die Hochzahlen mit den Potenzgesetzen und rechne dann die eine Potenz aus. Weg B: Schreibe die Potenzen mit negativer Hochzahl als Brüche und rechne mit den Brüchen."
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "2 ** ((-2) * (-3) + (-4))",
+    "h": "Beide Wege müssen denselben Wert ergeben. Bei einer Potenz von einer Potenz werden die Hochzahlen malgenommen, bei einem Produkt gleicher Basen addiert.",
+    "w": "Weg A: (2⁻²)⁻³ = 2⁽⁻²⁾·⁽⁻³⁾ = 2⁶. Dann 2⁶ · 2⁻⁴ = 2⁶⁺⁽⁻⁴⁾ = 2² = 4. Weg B: 2⁻² = 1/4. (1/4)⁻³ = 4³ = 64. 2⁻⁴ = 1/16. 64 · 1/16 = 4. Beide Wege: 4."
+   }
+  }
+ ]
+}

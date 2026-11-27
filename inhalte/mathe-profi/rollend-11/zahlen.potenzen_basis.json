@@ -1,0 +1,208 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-11",
+ "kuerzel": "S3",
+ "thema": "zahlen.potenzen_basis",
+ "titel": "zahlen.potenzen_basis",
+ "fuer": "Klasse 5",
+ "klasse": 5,
+ "themen_datei_im_bestand": "zahlen.potenzen_basis",
+ "hinweis": "Je Lernkarte ohne Aufgabe auf Stufe 3 in rollend-5/rollend-7 genau eine zählende Aufgabe der Stufe 3 in neuer Form. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ, form, zaehlt, Regel-Kennung, Fehlbilder (mit rechnung) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "S3-V014",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "berechnen",
+   "stufe": 3,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„mal 7“ statt „hoch 7“ gerechnet: 3 · 7",
+     "rechnung": "3 * 7"
+    },
+    {
+     "antwort": 729,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahl um 1 zu klein (3⁶)",
+     "rechnung": "3 ** 6"
+    },
+    {
+     "antwort": 343,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Basis und Hochzahl vertauscht: 7³",
+     "rechnung": "7 ** 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "berechnen",
+    "t": "berechnen",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle zeigt, wie viele Zellen eine Kultur nach 1, 2, 3 und 4 Stunden hat. Das Wachstum setzt sich in gleicher Weise fort. Wie viele Zellen sind es nach 7 Stunden?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Stunden",
+       "1",
+       "2",
+       "3",
+       "4"
+      ],
+      "zeilen": [
+       [
+        "Zellen",
+        "3",
+        "9",
+        "27",
+        "81"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 2187,
+     "einheit": "Zellen"
+    },
+    "c": "3 ** 7",
+    "h": "Wie entsteht jede Zahl der Tabelle aus der Zahl davor? Schreibe die Zahlen als Potenzen.",
+    "w": "Jede Zahl ist dreimal so groß wie die davor: 3 = 3¹, 9 = 3², 27 = 3³, 81 = 3⁴. Nach n Stunden sind es 3ⁿ Zellen. Nach 7 Stunden: 3⁷ = 2 187 Zellen."
+   }
+  },
+  {
+   "kennung": "S3-V015",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "vertauschen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus der falschen Zeile 1 richtig; der erste Fehler steckt weiter oben",
+     "rechnung": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus der falschen Zeile 1 richtig; der erste Fehler steckt weiter oben",
+     "rechnung": null
+    }
+   ],
+   "fehlerzeile": 1,
+   "fehler": "Basis und Hochzahl vertauscht: 4⁶ statt 6⁴",
+   "zeilen": [
+    {
+     "zeile": 1,
+     "text": "Bei 4 Rädchen mit je 6 Stellungen gibt es 4⁶ Einstellungen (Basis 4, Hochzahl 6).",
+     "stimmt": false
+    },
+    {
+     "zeile": 2,
+     "text": "4⁶ = 4 · 4 · 4 · 4 · 4 · 4 = 4 096.",
+     "stimmt": true
+    },
+    {
+     "zeile": 3,
+     "text": "Das Schloss hat also 4 096 Einstellungen.",
+     "stimmt": true
+    }
+   ],
+   "aufgabe": {
+    "l": "vertauschen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Zahlenschloss hat 4 Rädchen. Jedes Rädchen hat 6 Stellungen. Kim zählt, wie viele Einstellungen es gibt. Zeile 1: Bei 4 Rädchen mit je 6 Stellungen gibt es 4⁶ Einstellungen (Basis 4, Hochzahl 6). Zeile 2: 4⁶ = 4 · 4 · 4 · 4 · 4 · 4 = 4 096. Zeile 3: Das Schloss hat also 4 096 Einstellungen. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Überlege mit 2 Rädchen: Wie viele Einstellungen gibt es dann?",
+    "w": "Mit 2 Rädchen gäbe es 6 · 6 = 36 Einstellungen. Jedes Rädchen bringt den Faktor 6, und es gibt 4 Rädchen: Richtig ist 6⁴ = 1 296. In Zeile 1 sind Basis und Hochzahl vertauscht. Zeile 2 rechnet 4⁶ richtig aus, Zeile 3 folgt daraus."
+   }
+  },
+  {
+   "kennung": "S3-V016",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "negativ",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 96,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus vergessen: 3 · 2⁵",
+     "rechnung": "3 * 2 ** 5"
+    },
+    {
+     "antwort": -30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„hoch 5“ als „mal 5“ gerechnet: 3 · (−2) · 5",
+     "rechnung": "3 * (-2) * 5"
+    },
+    {
+     "antwort": -32,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Startwert 3 vergessen",
+     "rechnung": "(-2) ** 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "negativ",
+    "t": "negativ",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Bei einem Spiel wird der Punktestand nach jeder Runde mit (−2) malgenommen. Du startest mit 3 Punkten. Wie viele Punkte hast du nach 5 Runden?"
+    },
+    "o": {
+     "wert": -96,
+     "einheit": "Punkte"
+    },
+    "c": "3 * (-2) ** 5",
+    "h": "Schreibe die 5 Runden als Potenz. Wie oft kommt der Faktor (−2) vor, und was bedeutet das für das Vorzeichen?",
+    "w": "Nach 5 Runden wurde 5-mal mit (−2) malgenommen: 3 · (−2)⁵. (−2)⁵ = −32, denn bei einer ungeraden Zahl von Faktoren bleibt das Minus stehen. 3 · (−32) = −96 Punkte."
+   }
+  }
+ ]
+}

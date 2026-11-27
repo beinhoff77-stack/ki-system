@@ -1,0 +1,228 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-11",
+ "kuerzel": "S3",
+ "thema": "messen.koerper_darstellung",
+ "titel": "messen.koerper_darstellung",
+ "fuer": "Klasse 5",
+ "klasse": 5,
+ "themen_datei_im_bestand": "messen.koerper_darstellung",
+ "hinweis": "Je Lernkarte ohne Aufgabe auf Stufe 3 in rollend-5/rollend-7 genau eine zählende Aufgabe der Stufe 3 in neuer Form. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ, form, zaehlt, Regel-Kennung, Fehlbilder (mit rechnung) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "S3-V027",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "prisma",
+   "stufe": 3,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Eckenzahl der Grundfläche als Flächenzahl genannt",
+     "rechnung": "27 / 3"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Ecken des Prismas genannt (2 · 9)",
+     "rechnung": "27 / 3 * 2"
+    },
+    {
+     "antwort": 29,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zur Kantenzahl 2 addiert statt zur Eckenzahl der Grundfläche",
+     "rechnung": "27 + 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "prisma",
+    "t": "prisma",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle zeigt, wie viele Ecken, Flächen und Kanten gerade Prismen haben, deren Grundfläche ein Vieleck ist. Ein solches Prisma hat 27 Kanten. Wie viele Flächen hat es?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Grundfläche",
+       "3-Eck",
+       "4-Eck",
+       "5-Eck",
+       "6-Eck"
+      ],
+      "zeilen": [
+       [
+        "Ecken",
+        "6",
+        "8",
+        "10",
+        "12"
+       ],
+       [
+        "Flächen",
+        "5",
+        "6",
+        "7",
+        "8"
+       ],
+       [
+        "Kanten",
+        "9",
+        "12",
+        "15",
+        "18"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 11,
+     "einheit": "Flächen"
+    },
+    "c": "27 / 3 + 2",
+    "h": "Suche in der Tabelle ein Muster: Wie hängt die Zahl der Kanten mit der Zahl der Ecken der Grundfläche zusammen?",
+    "w": "In der Tabelle ist die Kantenzahl das Dreifache der Eckenzahl der Grundfläche: 3 · 3 = 9, 3 · 4 = 12, 3 · 5 = 15, 3 · 6 = 18. Bei 27 Kanten hat die Grundfläche 27 : 3 = 9 Ecken. Die Flächenzahl ist immer 2 mehr als die Eckenzahl der Grundfläche (Grund- und Deckfläche kommen zu den Seitenflächen dazu): 9 + 2 = 11 Flächen."
+   }
+  },
+  {
+   "kennung": "S3-V028",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "zylinder",
+   "stufe": 3,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Etikett der Dose C als größtes genommen (C minus A)",
+     "rechnung": "192 - 180"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Höhen der Dosen verglichen",
+     "rechnung": "12 - 7"
+    },
+    {
+     "antwort": 196,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Fläche des größten Etiketts genannt",
+     "rechnung": "28 * 7"
+    }
+   ],
+   "aufgabe": {
+    "l": "zylinder",
+    "t": "zylinder",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Drei Dosen werden einmal auf dem Tisch abgerollt (eine ganze Umdrehung). Die Tabelle zeigt die Länge der Spur und die Höhe jeder Dose. Zu jeder Dose gehört ein Etikett, das genau einmal rund um den Mantel passt, ohne Überstand. Um wie viele Quadratzentimeter ist das größte Etikett größer als das kleinste?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Dose",
+       "A",
+       "B",
+       "C"
+      ],
+      "zeilen": [
+       [
+        "Spur in cm",
+        "20",
+        "28",
+        "16"
+       ],
+       [
+        "Höhe in cm",
+        "9",
+        "7",
+        "12"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 16,
+     "einheit": "cm²"
+    },
+    "c": "28 * 7 - 20 * 9",
+    "h": "Wie lang ist die Spur im Vergleich zum Rand des Bodens? Welche Form hat ein Etikett, das man glatt auf den Tisch legt?",
+    "w": "Die Spur ist genau so lang wie der Umfang der Grundfläche. Das Etikett ist ein Rechteck mit Länge = Umfang und Breite = Höhe. A: 20 · 9 = 180 cm². B: 28 · 7 = 196 cm². C: 16 · 12 = 192 cm². Größtes Etikett B (196 cm²), kleinstes A (180 cm²): 196 − 180 = 16 cm²."
+   }
+  },
+  {
+   "kennung": "S3-V029",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "schraegbild",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die wahre Tiefe genannt, nicht die gezeichnete",
+     "rechnung": "288 / (8 * 6)"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Tiefe im Bild verdoppelt statt halbiert",
+     "rechnung": "288 / (8 * 6) * 2"
+    },
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch die Breite geteilt",
+     "rechnung": "288 / 8"
+    }
+   ],
+   "aufgabe": {
+    "l": "schraegbild",
+    "t": "schraegbild",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quader ist 8 cm breit und 6 cm hoch. Sein Volumen beträgt 288 cm³. Im Schrägbild wird die Tiefe halb so lang gezeichnet wie in Wirklichkeit. Wie lang ist die nach hinten führende Kante im Schrägbild?"
+    },
+    "o": {
+     "wert": 3,
+     "einheit": "cm"
+    },
+    "c": "288 / (8 * 6) / 2",
+    "h": "Das Volumen ist Breite · Höhe · Tiefe. Welche Tiefe gehört zum Volumen? Was passiert damit im Bild?",
+    "w": "Volumen = Breite · Höhe · Tiefe, also Tiefe = 288 : (8 · 6) = 288 : 48 = 6 cm. Im Schrägbild wird die Tiefe halbiert: 6 : 2 = 3 cm. Probe: 8 · 6 · 6 = 288."
+   }
+  }
+ ]
+}

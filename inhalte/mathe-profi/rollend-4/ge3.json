@@ -617,6 +617,105 @@
     "h": "Wie groß ist ein rechter Winkel?",
     "w": "Ein Quadrat hat in jeder Ecke 90°. Ein Teil hat 90° : 3 = 30°, zwei Teile haben zusammen 60°."
    }
+  },
+  {
+   "kennung": "GE3-V13",
+   "thema": "geometrie.winkel",
+   "lernkarte": "ergaenzen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 110,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den größeren Winkel angegeben"
+    },
+    {
+     "antwort": 140,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 40° von 180° abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "ergaenzen",
+    "t": "ergaenzen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "f": {
+     "text": "Zwei Nebenwinkel unterscheiden sich um 40°. Wie groß ist der kleinere der beiden Winkel?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 70,
+     "einheit": "°"
+    },
+    "c": "(180 - 40) // 2",
+    "h": "Nebenwinkel ergeben zusammen 180°. Überlege, wie die beiden Winkel um 40° auseinanderliegen.",
+    "w": "Der größere Winkel ist 40° größer als der kleinere. Nimmt man die 40° weg, bleiben 180° − 40° = 140° für zwei gleich große Winkel, jeder ist 70°. Der kleinere Winkel ist 70°, der größere 110°. Probe: 70° + 110° = 180° und 110° − 70° = 40°."
+   }
+  },
+  {
+   "kennung": "GE3-V14",
+   "thema": "geometrie.winkel",
+   "lernkarte": "verstehen",
+   "stufe": 1,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "spitz",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "spitze Winkel sind kleiner als 90°"
+    },
+    {
+     "index": 1,
+     "antwort": "stumpf",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "stumpfe Winkel liegen zwischen 90° und 180°"
+    },
+    {
+     "index": 2,
+     "antwort": "gestreckt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gestreckt ist genau 180°"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "f": {
+     "text": "Wie heißt ein Winkel mit 200°?"
+    },
+    "y": "auswahl",
+    "a": [
+     "spitz",
+     "stumpf",
+     "gestreckt",
+     "überstumpf"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Vergleiche mit dem gestreckten Winkel von 180°.",
+    "w": "Ein Winkel mit mehr als 180° und weniger als 360° heißt überstumpf. 200° ist größer als 180°, also ist er überstumpf."
+   }
   }
  ]
 }

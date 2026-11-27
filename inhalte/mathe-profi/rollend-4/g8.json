@@ -646,6 +646,148 @@
     "h": "Die Hochzahl n gehört an den Faktor q.",
     "w": "K₂ = 2 000 · 1,05² = 2 205. Kim hat den Faktor mit 2 multipliziert statt ihn zu quadrieren."
    }
+  },
+  {
+   "kennung": "G8-V14",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "argumente",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Er ist so groß wie der Anfangspreis, weil +20 % und −20 % sich aufheben.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Prozente beziehen sich auf verschiedene Grundwerte, deshalb heben sie sich nicht auf"
+    },
+    {
+     "index": 2,
+     "antwort": "Er ist größer als der Anfangspreis, weil man am Ende erhöht.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Reihenfolge allein entscheidet nichts, der Grundwert beim zweiten Schritt ist kleiner"
+    },
+    {
+     "index": 3,
+     "antwort": "Das lässt sich ohne den Anfangspreis nicht sagen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "der Anteil gilt für jeden Anfangspreis, man kann mit 100 € probieren"
+    }
+   ],
+   "aufgabe": {
+    "l": "argumente",
+    "t": "argumente",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "f": {
+     "text": "Ein Preis wird erst um 20 % gesenkt und danach um 20 % erhöht. Welche Aussage über den Endpreis stimmt und hat die richtige Begründung?"
+    },
+    "y": "auswahl",
+    "a": [
+     "Er ist kleiner als der Anfangspreis, weil die zweiten 20 % von einem kleineren Preis genommen werden.",
+     "Er ist so groß wie der Anfangspreis, weil +20 % und −20 % sich aufheben.",
+     "Er ist größer als der Anfangspreis, weil man am Ende erhöht.",
+     "Das lässt sich ohne den Anfangspreis nicht sagen."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Rechne mit einem einfachen Preis, zum Beispiel 100 €.",
+    "w": "100 € minus 20 % sind 80 €. Die 20 % beim Erhöhen werden vom kleineren Preis 80 € genommen und sind 16 €. Der Endpreis ist 96 €, also kleiner als der Anfangspreis."
+   }
+  },
+  {
+   "kennung": "G8-V15",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "faktor",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "50 % vom neuen Preis abgezogen"
+    },
+    {
+     "antwort": 225,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "150 € noch einmal um 50 % erhöht"
+    }
+   ],
+   "aufgabe": {
+    "l": "faktor",
+    "t": "faktor",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "f": {
+     "text": "Nach einer Preiserhöhung um 50 % kostet ein Gerät 150 €. Was kostete es vor der Erhöhung?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 100,
+     "einheit": "€"
+    },
+    "c": "150 * 2 // 3",
+    "h": "Der neue Preis ist ein Vielfaches des alten. Welcher Faktor gehört zu +50 %?",
+    "w": "+50 % bedeutet Faktor 1,5. Neuer Preis = alter Preis · 1,5. Also ist der alte Preis 150 : 1,5 = 100 €."
+   }
+  },
+  {
+   "kennung": "G8-V16",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "zurueck",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "25 % von 48 € aufgeschlagen"
+    },
+    {
+     "antwort": 73,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "25 € zum Preis addiert statt 25 %"
+    }
+   ],
+   "aufgabe": {
+    "l": "zurueck",
+    "t": "zurueck",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Ein Mantel kostet nach 25 % Rabatt noch 48 €. Weg A: 48 : 75 · 100. Weg B: 48 : 3 · 4. Wie viel kostete der Mantel vorher?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 64,
+     "einheit": "€"
+    },
+    "c": "48 * 100 // 75",
+    "h": "Der reduzierte Preis ist 75 % des alten Preises.",
+    "w": "Der Rabatt ist 25 %, also sind 48 € genau 75 % des alten Preises. Weg A: 48 : 75 = 0,64 für 1 %, mal 100 sind 64 €. Weg B: 48 : 3 = 16 sind 25 %, mal 4 sind 64 €. Der Mantel kostete 64 €."
+   }
   }
  ]
 }

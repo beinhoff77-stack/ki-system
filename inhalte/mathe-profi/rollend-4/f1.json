@@ -891,6 +891,146 @@
     "h": "Die feste Größe steht allein, die Änderung steht beim t.",
     "w": "Die Länge am Anfang ist 30, pro Stunde kommt −2 dazu: L(t) = 30 − 2 · t."
    }
+  },
+  {
+   "kennung": "F1-V18",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "eindeutig",
+   "stufe": 1,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Klasse → Schüler dieser Klasse",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zu einer Klasse gehören mehrere Schüler"
+    },
+    {
+     "index": 2,
+     "antwort": "Zahl → ihre Teiler",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Zahl hat meist mehrere Teiler"
+    },
+    {
+     "index": 3,
+     "antwort": "Zahl → eine kleinere Zahl",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zu einer Zahl passen viele kleinere Zahlen"
+    }
+   ],
+   "aufgabe": {
+    "l": "eindeutig",
+    "t": "eindeutig",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "f": {
+     "text": "Welche dieser Zuordnungen ist eindeutig, ordnet also jedem Wert genau einen Wert zu?"
+    },
+    "y": "auswahl",
+    "a": [
+     "Klasse → Schüler dieser Klasse",
+     "Schüler → seine Klasse",
+     "Zahl → ihre Teiler",
+     "Zahl → eine kleinere Zahl"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Prüfe: Gibt es einen Wert links, zu dem mehrere Werte rechts passen?",
+    "w": "Jeder Schüler hat genau eine Klasse, die Zuordnung Schüler → Klasse ist eindeutig. Zu einer Klasse gehören viele Schüler, zu einer Zahl gibt es mehrere Teiler und mehrere kleinere Zahlen, diese Zuordnungen sind nicht eindeutig."
+   }
+  },
+  {
+   "kennung": "F1-V19",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "funktionswert",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das +5 vergessen"
+    },
+    {
+     "antwort": 22,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 · (6 + 5) gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "funktionswert",
+    "t": "funktionswert",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Gegeben ist f(x) = 2x + 5. Gesucht ist f(6). Weg A: 6 für x einsetzen und rechnen. Weg B: bei f(0) beginnen und für jeden Schritt in x den Wert um die Steigung erhöhen. Wie groß ist f(6)?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 17
+    },
+    "c": "2 * 6 + 5",
+    "h": "Beide Wege müssen denselben Wert geben.",
+    "w": "Weg A: 2 · 6 + 5 = 12 + 5 = 17. Weg B: f(0) = 5, bei jedem Schritt kommt 2 dazu, nach 6 Schritten sind es 5 + 6 · 2 = 17. Also ist f(6) = 17."
+   }
+  },
+  {
+   "kennung": "F1-V20",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "stelle",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 49,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "19 in f eingesetzt statt rückwärts gerechnet"
+    },
+    {
+     "antwort": 27,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur +8 gerechnet, nicht durch 3 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "stelle",
+    "t": "stelle",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "f": {
+     "text": "Bei der Funktion f(x) = 3x − 8 ist der Funktionswert 19. An welcher Stelle x gehört er zu f?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 9
+    },
+    "c": "(19 + 8) // 3",
+    "h": "Mache beide Rechenschritte von f rückgängig, in umgekehrter Reihenfolge.",
+    "w": "f macht aus x erst 3x, dann 3x − 8. Rückwärts: 19 + 8 = 27, dann 27 : 3 = 9. Probe: 3 · 9 − 8 = 19."
+   }
   }
  ]
 }

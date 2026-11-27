@@ -29,7 +29,7 @@ Summe      137 5 261 261 137 0
 
 Gesamt: 261 neue Aufgaben (137 Lernkarten; 6 davon die beiden „verstehen“-Karten von ge1, siehe Nachtrag).
 
-Nach Form und Stufe: Fehler-Detektiv Stufe 3: 98; Lückenweg Stufe 1: 94 (zählt nein); Verfahren wählen Stufe 2: 58, Stufe 1: 2, Stufe 3: 2; Zwei Wege vergleichen Stufe 2: 1.
+Nach Form und Stufe (Stand 27.11. nach Mischung, 314 Aufgaben in rollend-4): Lückenweg 93, alle Stufe 1, zählt nein; Fehler-Detektiv 95, alle Stufe 3; Verfahren wählen 63 (Stufe 2: 59, Stufe 1: 2, Stufe 3: 2); Zwei Wege vergleichen 22 (Stufe 2: 21, Stufe 1: 1); Umkehren 22 (Stufe 2: 17, Stufe 3: 5); Brücke 19 (Stufe 2: 13, Stufe 1: 4, Stufe 3: 2). Die frühere Angabe zur Stufe der Fehler-Detektive und zur Zahl der Zwei-Wege-Aufgaben galt nur für den ersten Stand.
 
 ## Zurückgestellt
 
@@ -78,10 +78,35 @@ Neu in `ge1.json` (alle `zaehlt = ja`, kein Lückenweg):
 
 Folgen: Bei vier Karten fehlt jetzt in `rollend-4` die Stufe-3-Aufgabe (bei GE2-V25, A4-V24, R1-V07 wurde Stufe 2 daraus); bei `kommaschreibweise` entfällt der Lückenweg für Stufe 1. Der Takt zieht dann eine normale Aufgabe (Regel 2 in `form-takt.md`).
 
-**Liste statt Umbau:** 53 von 137 Lernkarten haben noch keine zählende Aufgabe der Formen Umkehren, Zwei Wege oder Brücke (sie haben aber mindestens zwei Formen). Nicht umgebaut, weil über die Regel hinaus: abbildungen.kongruenz (drehung, mittelsenkrechte, vektor_drehen, vektor_koordinaten, verschiebung, winkelhalbierende); bruch.prozent_grundwert (argumente, faktor, zurueck); funktionen.grundbegriffe (eindeutig, funktionswert, stelle); funktionen.linear (wirkung, zwei_punkte); geometrie.grundbegriffe (koordinaten, lagebeziehungen, vierecke, winkelarten); geometrie.konstruktion (kongruenzsatz, planfigur, satz_kehrsatz); geometrie.ortslinien (kreislinie, parallelen, sachsituationen, verknuepfen, zwei_kreise); geometrie.winkel (ergaenzen, verstehen); geometrie.winkelsaetze (beweisen, parkett, scheitel_neben); gleichungen.einfach (ohne_loesung); gleichungen.lgs2 (einsetzen, verfahren); gleichungen.ungleichungen (grafisch, intervall, klammern, pruefen, sachaufgabe, umdrehen, umformen); groessen.einheiten (schaetzen, verstehen); groessen.proportional (erkennen, sach); messen.flaechen (einheiten, sachaufgaben); zahlen.intervalle (beurteilen, enthalten, schreiben); zahlen.teilbarkeit (primzahl, teiler, vielfache).
+**Liste erledigt:** Für alle 53 Lernkarten, die noch keine zählende Aufgabe der Formen Umkehren, Zwei Wege oder Brücke hatten, ist je eine neue Aufgabe in `rollend-4` ergänzt (`zaehlt = ja`, Kennung fortlaufend, Rechenaufgaben mit Feld `c` nachgerechnet, Fragetext neu). Form: Umkehren 18, Zwei Wege 18, Brücke 17. Stufe nach dem Bestand der Karte: Stufe 1 bei den Karten, die dort nur Stufe 1 haben (eindeutig, verstehen in geometrie.winkel, ohne_loesung, sach) und bei erkennen (kein Bestand in rollend-4), Stufe 3 bei den Karten mit nur Stufe 3 (faktor, stelle, ergaenzen, einheiten in messen.flaechen) sowie bei satz_kehrsatz und beweisen, sonst Stufe 2. Die Karte `erkennen` in groessen.proportional gehört zum Flug g2-teil2; dafür gibt es die neue Datei `g2-teil2.json` (Kennung G2T2-V01). Alle anderen Aufgaben stehen in der Datei ihres Flugs.
 
 ### Prüfen (27.11.)
 - `python3 -I tools/rollend_sql.py --mit-bedingung`: ohne OFFEN und ohne Fehler; **580 Aufgaben** für 22 Einheiten (rollend-1 bis -4). Form: Lückenweg 126, Fehler-Detektiv 141, Verfahren wählen 91, Umkehren 61, Zwei Wege 21, Brücke 29, Anwenden 31, Viele Antworten 80. `zaehlt`: ja 454, nein 126, folge 0. `--sql` läuft durch (rund 390 KB).
 - `rollend-4` allein: 261 Aufgaben; Lückenweg 93 (alle nein), Fehler-Detektiv 95, Verfahren wählen 63, Zwei Wege 4, Umkehren 4, Brücke 2. `zaehlt`: ja 168, nein 93.
 - `inhalt_pruefen.py`: alle Aufgaben aus `rollend-4` an Kopien ihrer Themen-Dateien gehängt (18 Dateien): Code 0 bei allen.
 - Jede der 11 neuen oder umgewandelten Rechenaufgaben: Feld `c` nachgerechnet und mit der Lösung verglichen; die falschen Antworten sind von der Lösung verschieden.
+
+
+### Nachtrag Durchsicht nach Gegenprüfung (Werkstatt 1033/1034, Werkstatt 1036)
+Die Aufgaben von rollend-1 bis rollend-4 wurden nach der Gegenprüfung (Werkstatt 1033/1034 und für rollend-3 Werkstatt 1036) durchgesehen und berichtigt: Pflichtpunkte und Kann-Punkte mit Neurechnung, bei jeder geänderten Aufgabe passen Frage, Antworten, Hinweis und Lösungsweg zusammen. Die JSON-Dateien bleiben maßgeblich.
+
+**Fehler-Detektive (rollend-1 bis -4, 95 Zeilenaufgaben).** Wo nach dem Fehler nur noch Folgefehler kamen, lautet die Frage jetzt „In welcher Zeile passiert der erste Fehler?“. 33 Aufgaben wurden umgeschrieben. Fehlerzeile vorher/nachher:
+
+| Fehlerzeile | vorher | nachher |
+|---|---|---|
+| Zeile 1 | 6 | 31 |
+| Zeile 2 | 23 | 31 |
+| Zeile 3 | 66 | 33 |
+
+Größter Anteil einer Zeile: vorher 69,5 %, nachher 34,7 % (eine Aufgabe hat vier Zeilen).
+
+**Gerüst-Aufgaben (Lückenweg), 130 Aufgaben in rollend-1 bis -4 und fachwoerter.** Regeln: Antwortform `luecken`, mindestens zwei Lücken an verschiedenen Schritten, eine davon an der entscheidenden Stelle, kein Lückenwert im Text, in der Schablone oder im Hinweis, spätere Lücken hängen von früheren ab, der Text nennt kein Zwischenergebnis, `zaehlt = nein` bleibt. 81 Aufgaben wurden neu gebaut, die Fehlbilder gelten je Lücke. Zurückgestellt: GE2-V03 (kein sauberer Entwurf gefunden).
+
+| Lücken je Aufgabe | 1 | 2 | 3 | 4 | 5 | Mittel |
+|---|---|---|---|---|---|---|
+| vorher | 5 | 74 | 38 | 11 | 2 | 2,47 |
+| nachher | 0 | 37 | 72 | 20 | 1 | 2,88 |
+
+Antwortform vorher und nachher: `luecken` 130, `auswahl` 0 (Auswahl-Lückenwege fanden sich im Bestand nicht).
+
+**Prüfen (27.11., nach der Mischung).** `python3 -I tools/rollend_sql.py --mit-bedingung`: ohne OFFEN und ohne Fehler; 633 Aufgaben (rollend-1 bis -4). Form: Lückenweg 126, Fehler-Detektiv 141, Verfahren wählen 91, Umkehren 79, Zwei Wege 39, Brücke 46, Anwenden 31, Viele Antworten 80. `zaehlt`: ja 507, nein 126. `rollend-4` allein: 314 Aufgaben (Lückenweg 93, Fehler-Detektiv 95, Verfahren wählen 63, Zwei Wege 22, Umkehren 22, Brücke 19); `zaehlt`: ja 221, nein 93. Alle Aufgaben aus `rollend-4` an Kopien der Themen-Dateien gehängt (18 Dateien): `tools/inhalt_pruefen.py` Code 0 bei allen. Die Zahlen im Abschnitt „Prüfen (27.11.)“ oben gelten für den Stand vor dieser Durchsicht.

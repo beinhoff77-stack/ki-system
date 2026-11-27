@@ -801,6 +801,105 @@
     "h": "Passt ein Bleistift neben eine Tür, die so hoch ist wie zehn Türen?",
     "w": "Ein Bleistift ist etwa 19 cm lang, nicht 19 m. Die Einheit war falsch."
    }
+  },
+  {
+   "kennung": "G1-V16",
+   "thema": "groessen.einheiten",
+   "lernkarte": "schaetzen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "18 mm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "18 mm sind nur etwa so lang wie ein Fingernagel"
+    },
+    {
+     "index": 2,
+     "antwort": "18 dm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "18 dm sind fast 2 Meter"
+    },
+    {
+     "index": 3,
+     "antwort": "18 m",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "18 m ist so lang wie ein Klassenzimmer"
+    }
+   ],
+   "aufgabe": {
+    "l": "schaetzen",
+    "t": "schaetzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "f": {
+     "text": "Ein neuer Bleistift ist etwa 18 lang. Welche Einheit passt?"
+    },
+    "y": "auswahl",
+    "a": [
+     "18 mm",
+     "18 cm",
+     "18 dm",
+     "18 m"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Stelle dir den Bleistift in deiner Hand vor.",
+    "w": "Ein Bleistift ist ungefähr so lang wie eine Handspanne, also 18 cm. 18 mm wären kürzer als ein Fingernagel, 18 dm fast zwei Meter, 18 m so lang wie ein Klassenzimmer."
+   }
+  },
+  {
+   "kennung": "G1-V17",
+   "thema": "groessen.einheiten",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 340,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit 100 multipliziert"
+    },
+    {
+     "antwort": 34000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10000 multipliziert"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Wie viele Meter sind 3,4 km? Weg A: 3,4 · 1000. Weg B: 3 km in Meter umrechnen und 0,4 km in Meter umrechnen, dann addieren."
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 3400,
+     "einheit": "m"
+    },
+    "c": "3 * 1000 + 4 * 100",
+    "h": "Ein Kilometer hat 1000 Meter.",
+    "w": "Weg A: 3,4 · 1000 = 3400. Weg B: 3 km = 3000 m und 0,4 km = 400 m, zusammen 3400 m. Also sind 3,4 km gleich 3400 m."
+   }
   }
  ]
 }

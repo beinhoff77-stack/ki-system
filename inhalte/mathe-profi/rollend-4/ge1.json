@@ -1736,6 +1736,417 @@
     "h": "Reicht ein Beispiel, um eine „immer“-Aussage zu beweisen?",
     "w": "Ein einzelnes Beispiel kann eine „immer“-Aussage nicht beweisen. Es gibt Vierecke mit nur zwei rechten Winkeln, die kein Rechteck sind, zum Beispiel ein Trapez mit zwei rechten Winkeln."
    }
+  },
+  {
+   "kennung": "GE1-V33",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "koordinaten",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche 6 · 4 berechnet"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur Länge plus Breite, nicht mal 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Ein Rechteck hat die gegenüberliegenden Ecken A(1|1) und C(7|5), seine Seiten liegen parallel zu den Achsen. Weg A: Länge plus Breite, mal 2. Weg B: Länge verdoppeln, Breite verdoppeln und beides addieren. Wie groß ist der Umfang?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 20
+    },
+    "c": "(6 + 4) * 2",
+    "h": "Länge und Breite lesen sich an den Koordinaten ab.",
+    "w": "Länge: 7 − 1 = 6, Breite: 5 − 1 = 4. Weg A: (6 + 4) · 2 = 20. Weg B: 6 · 2 + 4 · 2 = 12 + 8 = 20. Der Umfang ist 20 Einheiten."
+   }
+  },
+  {
+   "kennung": "GE1-V34",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "lagebeziehungen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "g und h stehen senkrecht aufeinander.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "senkrechte Geraden schneiden sich, der Abstand ist dort 0"
+    },
+    {
+     "index": 2,
+     "antwort": "g und h schneiden sich in genau einem Punkt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "am Schnittpunkt wäre der Abstand 0, nicht 3 cm"
+    },
+    {
+     "index": 3,
+     "antwort": "g und h sind dieselbe Gerade.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dann wäre der Abstand überall 0, nicht 3 cm"
+    }
+   ],
+   "aufgabe": {
+    "l": "lagebeziehungen",
+    "t": "lagebeziehungen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "f": {
+     "text": "Die Gerade g hat von der Geraden h an jeder Stelle denselben Abstand von 3 cm. Welche Aussage über g und h stimmt?"
+    },
+    "y": "auswahl",
+    "a": [
+     "g und h sind parallel.",
+     "g und h stehen senkrecht aufeinander.",
+     "g und h schneiden sich in genau einem Punkt.",
+     "g und h sind dieselbe Gerade."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Überlege, ob sich Geraden mit überall gleichem Abstand je treffen.",
+    "w": "Überall gleicher Abstand bedeutet: Die beiden Geraden nähern sich nie und treffen sich nie. Sie sind parallel. Senkrechte Geraden schneiden sich, dort wäre der Abstand 0."
+   }
+  },
+  {
+   "kennung": "GE1-V35",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "vierecke",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 2 statt durch 4 geteilt"
+    },
+    {
+     "antwort": 144,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 4 multipliziert statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke",
+    "t": "vierecke",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Eine Raute hat vier gleich lange Seiten und den Umfang 36 cm. Wie lang ist eine Seite?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 9,
+     "einheit": "cm"
+    },
+    "c": "36 // 4",
+    "h": "Der Umfang ist die Summe aller vier Seiten.",
+    "w": "Alle vier Seiten sind gleich lang, der Umfang ist 4 · Seite. Also ist die Seite 36 : 4 = 9 cm."
+   }
+  },
+  {
+   "kennung": "GE1-V36",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "winkelarten",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 295,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "180° und 115° addiert"
+    },
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 90° statt 180° gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "winkelarten",
+    "t": "winkelarten",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Ein stumpfer Winkel ist 115° groß. Weg A: 180° − 115°. Weg B: erst 180° − 100°, dann noch 15° abziehen. Wie groß ist sein Nebenwinkel?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 65,
+     "einheit": "°"
+    },
+    "c": "180 - 115",
+    "h": "Winkel und Nebenwinkel ergeben zusammen einen gestreckten Winkel.",
+    "w": "Ein gestreckter Winkel hat 180°. Weg A: 180° − 115° = 65°. Weg B: 180° − 100° = 80°, 80° − 15° = 65°. Der Nebenwinkel ist 65° und damit ein spitzer Winkel."
+   }
+  },
+  {
+   "kennung": "GE1-V37",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "kreislinie",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 26,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Durchmesser als Radius genommen"
+    },
+    {
+     "antwort": 52,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "verdoppelt statt halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "kreislinie",
+    "t": "kreislinie",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Ein Rasensprenger bewässert alle Punkte, die höchstens r Meter von ihm entfernt sind. Das bewässerte Gebiet ist an seiner breitesten Stelle 26 m breit. Wie groß ist r?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 13,
+     "einheit": "m"
+    },
+    "c": "26 // 2",
+    "h": "Die breiteste Stelle des Kreises geht durch den Mittelpunkt.",
+    "w": "Die breiteste Stelle ist der Durchmesser, er ist 2 · r lang. Also ist r = 26 : 2 = 13 m."
+   }
+  },
+  {
+   "kennung": "GE1-V38",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "parallelen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den ganzen Abstand genommen"
+    },
+    {
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "verdoppelt statt halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "parallelen",
+    "t": "parallelen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Die parallelen Geraden g und h sind 14 cm voneinander entfernt. Die Mittelparallele liegt genau dazwischen. Weg A: 14 : 2. Weg B: Beide Abstände sind gleich groß, x + x = 14. Wie weit liegt die Mittelparallele von g?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 7,
+     "einheit": "cm"
+    },
+    "c": "14 // 2",
+    "h": "Die Mittelparallele hat von g und h denselben Abstand.",
+    "w": "Weg A: 14 : 2 = 7. Weg B: x + x = 14, also 2x = 14 und x = 7. Die Mittelparallele liegt 7 cm von g entfernt, und 7 cm von h."
+   }
+  },
+  {
+   "kennung": "GE1-V39",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "sachsituationen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die halbe Straßenbreite angegeben"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Grünstreifen addiert statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachsituationen",
+    "t": "sachsituationen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Ein Radweg liegt überall 6 m von der Mittellinie einer Straße entfernt. Zwischen Radweg und Straßenrand bleiben 2 m Grünstreifen. Wie breit ist die Straße?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 8,
+     "einheit": "m"
+    },
+    "c": "(6 - 2) * 2",
+    "h": "Von der Mittellinie bis zum Straßenrand ist es die halbe Straßenbreite.",
+    "w": "Von der Mittellinie bis zum Radweg sind es 6 m, davon sind 2 m Grünstreifen. Von der Mittellinie bis zum Straßenrand sind es also 6 − 2 = 4 m. Das ist die halbe Straße, die Straße ist 4 · 2 = 8 m breit."
+   }
+  },
+  {
+   "kennung": "GE1-V40",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "verknuepfen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "keinen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "der Radius 5 cm ist größer als 3 cm, der Kreis erreicht die Mittelsenkrechte"
+    },
+    {
+     "index": 1,
+     "antwort": "genau einen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur bei Radius 3 cm würde der Kreis die Mittelsenkrechte berühren"
+    },
+    {
+     "index": 3,
+     "antwort": "unendlich viele",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Kreis und eine Gerade schneiden sich höchstens zweimal"
+    }
+   ],
+   "aufgabe": {
+    "l": "verknuepfen",
+    "t": "verknuepfen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "f": {
+     "text": "Die Punkte A und B sind 6 cm voneinander entfernt. Gesucht sind alle Punkte, die von A und von B gleich weit entfernt sind und zugleich genau 5 cm von A entfernt sind. Wie viele solche Punkte gibt es?"
+    },
+    "y": "auswahl",
+    "a": [
+     "keinen",
+     "genau einen",
+     "genau zwei",
+     "unendlich viele"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Die Punkte gleich weit von A und B liegen auf der Mittelsenkrechten. Wie weit ist sie von A entfernt?",
+    "w": "Die Mittelsenkrechte schneidet AB in der Mitte, 3 cm von A. Der Kreis um A mit Radius 5 cm reicht über die Mittelsenkrechte hinaus (5 > 3) und schneidet sie deshalb zweimal, einmal auf jeder Seite von AB."
+   }
+  },
+  {
+   "kennung": "GE1-V41",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "zwei_kreise",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Kreise liegen nicht getrennt, die Radien reichen genau"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zwei Schnittpunkte gäbe es nur, wenn sich die Kreise überschneiden"
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_kreise",
+    "t": "zwei_kreise",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Die Punkte A und B sind 10 cm voneinander entfernt. Um A liegt eine Kreislinie mit Radius 4 cm, um B eine Kreislinie mit Radius 6 cm. Weg A: Die Summe der beiden Radien mit dem Abstand AB vergleichen. Weg B: Auf der Strecke AB von A aus 4 cm abtragen und schauen, wie weit es noch bis B ist. Wie viele Punkte haben die beiden Kreislinien gemeinsam?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 1
+    },
+    "c": "(4 + 6) // 10",
+    "h": "Wenn die Radien zusammen genau so lang sind wie der Abstand, berühren sich die Kreise.",
+    "w": "Weg A: 4 + 6 = 10, das ist genau der Abstand AB. Weg B: 4 cm von A aus, es bleiben 10 − 4 = 6 cm bis B, das ist genau der Radius um B. Die Kreise berühren sich in einem Punkt."
+   }
   }
  ]
 }

@@ -1102,6 +1102,104 @@
     "h": "Setze x = 0 in den Term ein.",
     "w": "K(0) = 2 · 0 + 3 = 3. Der Grundpreis ist das Glied ohne x (3 €), die Zahl vor dem x ist der Preis je Kilometer (2 €)."
    }
+  },
+  {
+   "kennung": "F2-V22",
+   "thema": "funktionen.linear",
+   "lernkarte": "wirkung",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Er ist steiler geworden.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Steigung ist unverändert"
+    },
+    {
+     "index": 2,
+     "antwort": "Er ist um 3 nach rechts verschoben.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Verschiebung nach rechts ändert die Gleichung anders"
+    },
+    {
+     "index": 3,
+     "antwort": "Seine Steigung ist von 2 auf 4 gewachsen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 4 ist der y-Achsenabschnitt, nicht die Steigung"
+    }
+   ],
+   "aufgabe": {
+    "l": "wirkung",
+    "t": "wirkung",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "f": {
+     "text": "Die Gerade y = 2x + 1 wird ersetzt durch y = 2x + 4. Wie hat sich der Graph verändert?"
+    },
+    "y": "auswahl",
+    "a": [
+     "Er ist um 3 nach oben verschoben und verläuft parallel zum alten.",
+     "Er ist steiler geworden.",
+     "Er ist um 3 nach rechts verschoben.",
+     "Seine Steigung ist von 2 auf 4 gewachsen."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Vergleiche, welche Zahl sich ändert: die vor dem x oder die am Ende.",
+    "w": "Die Zahl vor dem x ist gleich geblieben, die Steigung bleibt 2. Die Zahl am Ende wächst von 1 auf 4, der Graph schneidet die y-Achse 3 Einheiten höher. Er ist also um 3 nach oben verschoben, parallel zum alten."
+   }
+  },
+  {
+   "kennung": "F2-V23",
+   "thema": "funktionen.linear",
+   "lernkarte": "zwei_punkte",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 1 abgezogen, nicht durch 4 geteilt"
+    },
+    {
+     "antwort": 52,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "13 mit 4 multipliziert statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_punkte",
+    "t": "zwei_punkte",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Eine Gerade y = m · x + 1 geht durch den Punkt (4|13). Wie groß ist die Steigung m?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 3
+    },
+    "c": "(13 - 1) // 4",
+    "h": "Setze die Koordinaten des Punktes in die Gleichung ein und löse nach m auf.",
+    "w": "Einsetzen: 13 = m · 4 + 1. Dann 13 − 1 = 12 = 4m, also m = 12 : 4 = 3. Probe: 3 · 4 + 1 = 13."
+   }
   }
  ]
 }

@@ -1999,6 +1999,302 @@
     "h": "Gegenüberliegende Seiten im Parallelogramm sind gleich lang. Welche Seite liegt gegenüber von AB?",
     "w": "BC liegt gegenüber von AD, also BC = 4 cm. CD liegt gegenüber von AB, also CD = 6 cm."
    }
+  },
+  {
+   "kennung": "GE4-V38",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "kongruenzsatz",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "SSS",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "für SSS müssten alle drei Seiten gleich sein"
+    },
+    {
+     "index": 2,
+     "antwort": "WSW",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "für WSW müssten zwei Winkel und eine Seite gleich sein"
+    },
+    {
+     "index": 3,
+     "antwort": "Es gibt keinen passenden Satz.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "SWS ist genau dieser Fall"
+    }
+   ],
+   "aufgabe": {
+    "l": "kongruenzsatz",
+    "t": "kongruenzsatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "f": {
+     "text": "Von zwei Dreiecken weißt du: Zwei Seiten sind gleich lang, und der Winkel zwischen genau diesen beiden Seiten ist gleich groß. Welcher Kongruenzsatz zeigt, dass die Dreiecke deckungsgleich sind?"
+    },
+    "y": "auswahl",
+    "a": [
+     "SSS",
+     "SWS",
+     "WSW",
+     "Es gibt keinen passenden Satz."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Achte darauf, wo der gleiche Winkel liegt: zwischen den Seiten oder woanders.",
+    "w": "Es sind zwei Seiten und der eingeschlossene Winkel gleich. Das ist der Satz SWS (Seite – Winkel – Seite). SSS bräuchte drei Seiten, WSW zwei Winkel."
+   }
+  },
+  {
+   "kennung": "GE4-V39",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "planfigur",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 110,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Basiswinkel abgezogen"
+    },
+    {
+     "antwort": 55,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 110° noch halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "planfigur",
+    "t": "planfigur",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "In der Planfigur eines gleichschenkligen Dreiecks ABC mit der Basis AB ist der Basiswinkel α = 70° eingetragen. Wie groß ist der Winkel γ an der Spitze C?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 40,
+     "einheit": "°"
+    },
+    "c": "180 - 2 * 70",
+    "h": "Beide Basiswinkel sind gleich. Die Winkelsumme im Dreieck ist 180°.",
+    "w": "Beide Basiswinkel sind 70°, zusammen 140°. Der Winkel an der Spitze ist 180° − 140° = 40°."
+   }
+  },
+  {
+   "kennung": "GE4-V40",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "satz_kehrsatz",
+   "stufe": 3,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Wenn zwei Dreiecke gleiche Winkel haben, sind sie deckungsgleich. Der Kehrsatz gilt, weil gleiche Winkel gleiche Größe ergeben.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gleiche Winkel legen nur die Form fest, nicht die Größe"
+    },
+    {
+     "index": 2,
+     "antwort": "Wenn zwei Dreiecke nicht deckungsgleich sind, haben sie verschiedene Winkel. Der Kehrsatz gilt immer.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das ist eine andere Umkehrung, und sie stimmt nicht: eine Vergrößerung hat gleiche Winkel"
+    },
+    {
+     "index": 3,
+     "antwort": "Der Kehrsatz ist derselbe Satz mit vertauschten Dreiecken. Er gilt, weil der Satz gilt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Kehrsatz vertauscht Voraussetzung und Behauptung, er gilt nicht automatisch"
+    }
+   ],
+   "aufgabe": {
+    "l": "satz_kehrsatz",
+    "t": "satz_kehrsatz",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "f": {
+     "text": "Satz: „Wenn zwei Dreiecke deckungsgleich sind, haben sie gleiche Winkel.“ Welche Aussage über den Kehrsatz stimmt?"
+    },
+    "y": "auswahl",
+    "a": [
+     "Wenn zwei Dreiecke gleiche Winkel haben, sind sie deckungsgleich. Der Kehrsatz gilt nicht, denn ein Dreieck und seine Vergrößerung haben gleiche Winkel.",
+     "Wenn zwei Dreiecke gleiche Winkel haben, sind sie deckungsgleich. Der Kehrsatz gilt, weil gleiche Winkel gleiche Größe ergeben.",
+     "Wenn zwei Dreiecke nicht deckungsgleich sind, haben sie verschiedene Winkel. Der Kehrsatz gilt immer.",
+     "Der Kehrsatz ist derselbe Satz mit vertauschten Dreiecken. Er gilt, weil der Satz gilt."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Suche ein Dreieck und eine Vergrößerung davon.",
+    "w": "Der Kehrsatz lautet: Wenn zwei Dreiecke gleiche Winkel haben, sind sie deckungsgleich. Er gilt nicht: Ein Dreieck und seine Vergrößerung haben gleiche Winkel, sind aber verschieden groß. Ein einziges solches Gegenbeispiel genügt."
+   }
+  },
+  {
+   "kennung": "GE4-V41",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "beweisen",
+   "stufe": 3,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Scheitelwinkel sind gleich groß.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Scheitelwinkel entstehen an sich kreuzenden Geraden, hier geht es um Parallelen"
+    },
+    {
+     "index": 2,
+     "antwort": "Nebenwinkel ergeben zusammen 180°.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Nebenwinkel würden α und β nicht auf die andere Seite übertragen"
+    },
+    {
+     "index": 3,
+     "antwort": "Im Dreieck liegt der größte Winkel der längsten Seite gegenüber.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das ist ein anderer Satz und beweist die Winkelsumme nicht"
+    }
+   ],
+   "aufgabe": {
+    "l": "beweisen",
+    "t": "beweisen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "f": {
+     "text": "Beim Beweis der Winkelsumme im Dreieck ABC zeichnet man durch C die Parallele zu AB. Welcher Satz sorgt dafür, dass die Winkel bei C gleich α und β sind?"
+    },
+    "y": "auswahl",
+    "a": [
+     "Wechselwinkel an Parallelen sind gleich groß.",
+     "Scheitelwinkel sind gleich groß.",
+     "Nebenwinkel ergeben zusammen 180°.",
+     "Im Dreieck liegt der größte Winkel der längsten Seite gegenüber."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Die beiden Parallelen werden von AC und BC geschnitten.",
+    "w": "Die Parallele durch C und die Gerade AB sind parallel, die Dreiecksseiten AC und BC schneiden beide. Wechselwinkel an Parallelen sind gleich groß, deshalb liegen α und β bei C noch einmal. Mit dem Winkel γ ergibt sich ein gestreckter Winkel von 180°."
+   }
+  },
+  {
+   "kennung": "GE4-V42",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "parkett",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 90° statt 120° gerechnet"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur bis 240° gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "parkett",
+    "t": "parkett",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Um einen Punkt sollen regelmäßige Sechsecke mit dem Innenwinkel 120° ohne Lücke zusammenstoßen. Weg A: 360° : 120°. Weg B: 120°, 240°, 360° aufzählen und die Schritte zählen. Wie viele Sechsecke treffen sich?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 3
+    },
+    "c": "360 // 120",
+    "h": "Alle Winkel zusammen müssen einen Vollwinkel von 360° füllen.",
+    "w": "Weg A: 360° : 120° = 3. Weg B: 120°, 240°, 360° sind drei Schritte. Es treffen sich 3 Sechsecke."
+   }
+  },
+  {
+   "kennung": "GE4-V43",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "scheitel_neben",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 112,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nebenwinkel selbst als Scheitelwinkel genommen"
+    },
+    {
+     "antwort": 292,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "180° und 112° addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheitel_neben",
+    "t": "scheitel_neben",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Zwei Geraden schneiden sich. Der Nebenwinkel von α misst 112°. Wie groß ist der Scheitelwinkel von α?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 68,
+     "einheit": "°"
+    },
+    "c": "180 - 112",
+    "h": "Bestimme erst α aus dem Nebenwinkel. Der Scheitelwinkel von α ist so groß wie α.",
+    "w": "Winkel und Nebenwinkel ergeben 180°. Also ist α = 180° − 112° = 68°. Der Scheitelwinkel ist genauso groß, 68°."
+   }
   }
  ]
 }

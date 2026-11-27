@@ -257,6 +257,62 @@
     "h": "Was bedeutet „vermehrt“: Wird die Zahl größer oder kleiner?",
     "w": "„Um 6 vermehrt“ heißt plus 6: 4 · x + 6 = 30. Rückwärts: 30 − 6 = 24 und 24 : 4 = 6. Die Zeilen 2 und 3 passen zur falschen Gleichung aus Zeile 1."
    }
+  },
+  {
+   "kennung": "A1-V06",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "ohne_loesung",
+   "stufe": 1,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "2x = 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "hat die Lösung x = 3"
+    },
+    {
+     "index": 2,
+     "antwort": "x + 3 = 3 + x",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gilt für jedes x, hat unendlich viele Lösungen"
+    },
+    {
+     "index": 3,
+     "antwort": "x − 4 = 0",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "hat die Lösung x = 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "ohne_loesung",
+    "t": "loesbarkeit",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "f": {
+     "text": "Welche dieser Gleichungen hat keine Lösung?"
+    },
+    "y": "auswahl",
+    "a": [
+     "x + 3 = x + 5",
+     "2x = 6",
+     "x + 3 = 3 + x",
+     "x − 4 = 0"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Forme so um, dass x auf einer Seite allein steht. Entsteht dabei eine falsche Aussage?",
+    "w": "x + 3 = x + 5: Zieht man x ab, bleibt 3 = 5, eine falsche Aussage. Es gibt keine Lösung. 2x = 6 hat die Lösung 3, x + 3 = 3 + x gilt für jede Zahl, x − 4 = 0 hat die Lösung 4."
+   }
   }
  ]
 }

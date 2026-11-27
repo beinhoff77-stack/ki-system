@@ -896,6 +896,90 @@
     "h": "Wer zahlt 8 €? Zu welcher Unbekannten gehört die 8?",
     "w": "Erwachsene (x) zahlen 8 €, Kinder (y) zahlen 5 €: 8x + 5y = 620."
    }
+  },
+  {
+   "kennung": "A6-V18",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "einsetzen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "rr.minusklammer",
+   "regel_name": "Minus vor der Klammer",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "y ausgerechnet statt x"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 durch 2 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "einsetzen",
+    "t": "einsetzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Für x und y gilt: y = 2x und x + y = 12. Weg A: 2x für y einsetzen und x + 2x = 12 lösen. Weg B: y ist doppelt so groß wie x, also teilen sich 12 in drei gleiche Teile. Wie groß ist x?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 4
+    },
+    "c": "12 // 3",
+    "h": "Beide Wege zerlegen die 12 in x und das Doppelte von x.",
+    "w": "Weg A: x + 2x = 3x = 12, also x = 4. Weg B: x ist ein Teil, y sind zwei Teile, zusammen 3 Teile = 12, ein Teil ist 12 : 3 = 4. Dann ist y = 8 und die Probe 4 + 8 = 12 stimmt."
+   }
+  },
+  {
+   "kennung": "A6-V19",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "verfahren",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die halbe Summe genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "verfahren",
+    "t": "verfahren",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Die Summe zweier Zahlen ist 16, ihre Differenz ist 4. Wie groß ist die größere Zahl?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 10
+    },
+    "c": "(16 + 4) // 2",
+    "h": "Addiere beide Angaben. Was bleibt von der kleineren Zahl übrig?",
+    "w": "Größere Zahl g und kleinere k: g + k = 16 und g − k = 4. Beide Gleichungen addiert geben 2g = 20, also g = 10. Dann ist k = 6, die Probe 10 + 6 = 16 und 10 − 6 = 4 stimmt."
+   }
   }
  ]
 }

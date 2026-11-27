@@ -760,6 +760,146 @@
     "h": "Prüfe auch die Quersumme: Ist 5 + 1 durch 3 teilbar?",
     "w": "Die Quersumme 5 + 1 = 6 ist durch 3 teilbar. Also ist 51 = 3 · 17 und keine Primzahl."
    }
+  },
+  {
+   "kennung": "Z2-V15",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "primzahl",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "27",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "27 = 3 · 9"
+    },
+    {
+     "index": 1,
+     "antwort": "39",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "39 = 3 · 13"
+    },
+    {
+     "index": 3,
+     "antwort": "51",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "51 = 3 · 17"
+    }
+   ],
+   "aufgabe": {
+    "l": "primzahl",
+    "t": "primzahl",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "f": {
+     "text": "Eine dieser vier Zahlen lässt sich nicht als Produkt kleinerer Zahlen schreiben. Welche?"
+    },
+    "y": "auswahl",
+    "a": [
+     "27",
+     "39",
+     "41",
+     "51"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Suche bei jeder Zahl nach einem Teiler außer 1 und der Zahl selbst. Die Quersumme hilft bei 3.",
+    "w": "27 = 3 · 9, 39 = 3 · 13 und 51 = 3 · 17 haben jeweils den Teiler 3 (die Quersumme ist durch 3 teilbar). 41 hat keinen Teiler außer 1 und 41, sie ist eine Primzahl."
+   }
+  },
+  {
+   "kennung": "Z2-V16",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "teiler",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Paare gezählt"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 1 oder die 18 vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "teiler",
+    "t": "teiler",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Wie viele Teiler hat die Zahl 18? Weg A: alle Teilerpaare von 18 finden und die Teiler zählen. Weg B: 18 = 2 · 3 · 3 zerlegen und (1 + 1) · (2 + 1) rechnen."
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 6
+    },
+    "c": "(1 + 1) * (2 + 1)",
+    "h": "Beide Wege müssen dieselbe Anzahl geben. Zähle bei Weg A alle Zahlen der Paare, nicht die Paare.",
+    "w": "Weg A: Die Paare sind 1 · 18, 2 · 9 und 3 · 6, das sind die sechs Zahlen 1, 2, 3, 6, 9, 18. Weg B: (1 + 1) · (2 + 1) = 2 · 3 = 6. Die Zahl 18 hat 6 Teiler."
+   }
+  },
+  {
+   "kennung": "Z2-V17",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "vielfache",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "84 − 12 gerechnet"
+    },
+    {
+     "antwort": 1008,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "84 mal 12 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "vielfache",
+    "t": "vielfache",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Das 12-fache einer Zahl ist 84. Welche Zahl ist das?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 7
+    },
+    "c": "84 // 12",
+    "h": "Das 12-fache bedeutet mal 12. Wie macht man das rückgängig?",
+    "w": "Gesucht ist die Zahl, die mal 12 genau 84 ergibt. Rückwärts geteilt: 84 : 12 = 7. Probe: 7 · 12 = 84."
+   }
   }
  ]
 }

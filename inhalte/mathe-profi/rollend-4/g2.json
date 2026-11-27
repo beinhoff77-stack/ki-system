@@ -249,6 +249,49 @@
     "h": "Rechne 6 mal den Preis für ein Brötchen. Kommt 360 ct heraus?",
     "w": "360 : 6 = 60. Ein Brötchen kostet 60 ct. Probe: 6 · 60 ct = 360 ct."
    }
+  },
+  {
+   "kennung": "G2-V07",
+   "thema": "groessen.proportional",
+   "lernkarte": "sach",
+   "stufe": 1,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 + 5 gerechnet"
+    },
+    {
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit 5 multipliziert, nicht durch 3 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "f": {
+     "text": "3 kg Äpfel kosten 9 €. Weg A: erst den Preis für 1 kg bestimmen, dann mit 5 multiplizieren. Weg B: 9 · 5 : 3 rechnen. Wie viel kosten 5 kg?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 15,
+     "einheit": "€"
+    },
+    "c": "9 * 5 // 3",
+    "h": "Beide Wege bestimmen den Preis für 5 kg aus dem für 3 kg.",
+    "w": "Weg A: 9 : 3 = 3 € für 1 kg, 3 · 5 = 15 €. Weg B: 9 · 5 = 45, 45 : 3 = 15. 5 kg kosten 15 €."
+   }
   }
  ]
 }

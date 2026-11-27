@@ -509,6 +509,92 @@
     "h": "Der Umfang ist die Summe aller vier Seiten.",
     "w": "Umfang: 3 + 2 + 3 + 2 = 10 m. 3 · 2 = 6 wäre die Fläche in m²."
    }
+  },
+  {
+   "kennung": "R1-V11",
+   "thema": "messen.flaechen",
+   "lernkarte": "einheiten",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in Metern angegeben statt in Zentimetern"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit 10 statt mit 100 umgerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheiten",
+    "t": "einheiten",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "f": {
+     "text": "Ein Rechteck ist 2 m lang und hat die Fläche 6 m². Wie breit ist es in Zentimetern?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 300,
+     "einheit": "cm"
+    },
+    "c": "6 // 2 * 100",
+    "h": "Berechne die Breite zuerst in Metern und wechsle dann die Einheit.",
+    "w": "Fläche = Länge · Breite, also Breite = 6 : 2 = 3 m. 3 m sind 300 cm. Probe: 2 m · 3 m = 6 m²."
+   }
+  },
+  {
+   "kennung": "R1-V12",
+   "thema": "messen.flaechen",
+   "lernkarte": "sachaufgaben",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 − 5 gerechnet"
+    },
+    {
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 · 5 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgaben",
+    "t": "sachaufgaben",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Für den Anstrich einer Wand stehen 2 Eimer Farbe bereit, jeder Eimer deckt 10 m². Die Wand ist 5 m breit. Wie hoch darf sie höchstens sein, damit die Farbe genau reicht?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 4,
+     "einheit": "m"
+    },
+    "c": "2 * 10 // 5",
+    "h": "Berechne zuerst, wie viele Quadratmeter die Farbe deckt.",
+    "w": "Die Farbe deckt 2 · 10 = 20 m². Fläche = Breite · Höhe, also Höhe = 20 : 5 = 4 m. Probe: 5 m · 4 m = 20 m²."
+   }
   }
  ]
 }

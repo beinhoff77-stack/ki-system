@@ -7,7 +7,7 @@ Erzeugt und nachgerechnet von `nachtrag.py`. **Für das Kind nur die Seite mit s
 
 ## Nachtrag K5-N · Potenzen
 
-Für Kind 1 (Klasse 5). 20 Minuten, 10 Punkte. Ohne Taschenrechner, ohne Formelsammlung, ohne Hilfe. Schreibe deinen Rechenweg auf – er wird mitbewertet.
+Für Kind 1 (Klasse 5). 30 Minuten, 10 Punkte. Ohne Taschenrechner, ohne Formelsammlung, ohne Hilfe. Schreibe deinen Rechenweg auf – er wird mitbewertet.
 
 **Teil 1: Rechnen mit Rechenweg**
 
@@ -29,7 +29,7 @@ Für Kind 1 (Klasse 5). 20 Minuten, 10 Punkte. Ohne Taschenrechner, ohne Formels
 
 ## Nachtrag K8-N · Binomische Formeln
 
-Für Kind 2 (Klasse 8). 20 Minuten, 10 Punkte. Ohne Taschenrechner, ohne Formelsammlung, ohne Hilfe. Schreibe deinen Rechenweg auf – er wird mitbewertet.
+Für Kind 2 (Klasse 8). 30 Minuten, 10 Punkte. Ohne Taschenrechner, ohne Formelsammlung, ohne Hilfe. Schreibe deinen Rechenweg auf – er wird mitbewertet.
 
 **Teil 1: Rechnen mit Rechenweg**
 
@@ -79,6 +79,6 @@ Teil 1 „wie in der App“: 5 Punkte. Teil 2 „weiter“: 5 Punkte.
 
 ## Nicht geprüft
 
-- Kein Kind hat die Aufgaben gerechnet; 20 Minuten sind eine Schätzung.
+- Kein Kind hat die Aufgaben gerechnet. Die 30 Minuten sind aus der ersten Durchführung des Papier-Tests hochgerechnet (dort rund 2,6 bis 2,9 Minuten je Punkt), nicht an diesem Nachtrag gemessen.
 - Es gibt keinen Zwilling (Blatt B) zu diesem Nachtrag.
 - Ob die beiden Gebiete seit dem ersten Papier-Test weiter geübt wurden, habe ich nicht nachgesehen.

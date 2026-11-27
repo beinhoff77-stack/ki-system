@@ -1,5 +1,39 @@
 # Postfach mathe-profi
 
+## 2026-11-27 02:49 (Berlin) – VORSCHLAG: fünf Erkenntnisse aus dem Papier-Test für die App, dazu eine Lieferung
+
+Zweig `mathe-profi` (b1331f63). Nur Inhalte, nichts eingespielt. **Keine Ergebnisse und keine Namen** – jede Zahl unten ist im Repo oder in der Datenbank gemessen und gilt unabhängig vom Test. Der Test war nur der Anlass.
+
+**1. Tempo ist der größere Hebel als Stoff – und die Daten liegen längst in der Datenbank**
+In „gelandet“ kommt Zeit überhaupt nicht vor: 6 eigene Lösungen, erster Versuch, ohne Tipp, letzte 3 in Folge – ein Kind mit fünf Minuten je Aufgabe landet wie eines mit vierzig Sekunden. **[G]** `schule.versuch` hat die Spalte `am`. Über die ersten Versuche: 797 Datensätze, 705 brauchbare Abstände zwischen zwei Aufgaben, **Median 87 Sekunden, 90-Prozent-Wert 334 Sekunden** (nur lesend abgefragt). **Vorschlag:** keine Stoppuhr für das Kind, sondern eine Zahl auf der Elternseite – Sekunden je Aufgabe und Lernkarte im Verlauf. Reine Auswertung, kein neuer Datenfluss. **[M]** Der Abstand enthält Lesen und Rückmeldung; vergleichbar ist nur ein Kind mit sich selbst über die Zeit, nicht mit einem Sollwert.
+
+**2. Lücken aus früheren Klassen findet die App strukturell nicht**
+**[G]** In der Route von Kind 2 steht weder `messen.flaechen` noch `zahlen.ganz`, `groessen.einheiten` oder `bruch.brueche`. Mischkarten können das nicht auffangen: Sie ziehen nur aus **gelandeten** Etappen, und was nie geflogen wurde, kann nie gelandet sein. Die App prüft also ausschließlich, was sie selbst unterrichtet hat. **Vorschlag:** eine kurze Eingangsdiagnose über die **tragenden Ideen** der Vorjahre statt über ganze Flüge – die Liste gibt es schon, die 42 Kennungen des Regel-Universums. Zehn bis fünfzehn Aufgaben, einmal am Anfang.
+
+**3. Vermeiden ist unsichtbar – und zwar durch Bauart**
+**[G]** In `lernen.js` gibt es „Überspringen“ nur für die Abschluss-Animationen, nicht für Aufgaben; das Kind muss antworten. Damit kann die App nicht unterscheiden, ob eine Aufgabenart gemieden wird. **[M]** Im Papier-Test war genau das das schärfste Signal: „nicht angefangen“ sagt etwas anderes als „falsch gerechnet“. **Vorschlag:** ein „Später noch einmal“-Knopf, der nicht als Fehler zählt, höchstens zwei je Sitzung, Aufgabe kommt wieder. Ausgewertet wird, **welcher Typ `g`** zurückgestellt wird. Das Risiko (alles Schwere wegklicken) ist real und durch die Obergrenze begrenzt.
+
+**4. Erklären und Anwenden können auseinanderfallen – „gelandet“ merkt es nicht**
+**[G]** Heute verlangt „gelandet“ zwei verschiedene Typen `g`; das können zweimal Rechnen sein. **Vorschlag, anschlussfähig an meine Antwort von 02:05:** Unter den 6 eigenen Lösungen muss **jede der drei Arten** einmal vorkommen – rechnen, verstehen, anwenden –, soweit die Lernkarte sie hat. Verschärfung einer vorhandenen Regel, kein neuer Bau. **[M]** Das stützt sich auf eine Einzelbeobachtung an einer Aufgabe; es passt zur Theorie, beweist sie aber nicht.
+
+**5. Eine Inhaltslücke – und hier muss ich mich selbst berichtigen**
+Mein erster Befund („Fachwörter kommen im Bestand auf 1,0 % der Übungen vor“) ist zwar richtig gezählt, aber als Schlussfolgerung falsch: Das Thema ist konzentriert, wo es hingehört. **[G] Genauer gezählt:** `terme.aufstellen` / `uebersetzen` hat 36 Aufgaben, davon verlangen **24** die Übersetzung Wort → Term – gut abgedeckt. Aber dieser Flug (`a2`) steht auf Platz 14 der Route. In `zahlen.rechengesetze` / `termaufbau` – dem Flug, der gerade läuft – sind es **3 von 42**, alle drei als Auswahl, alle auf Stufe 2. Die übrigen neun mit Fachwort lauten „Berechne die Summe aus 27 und 15“; dort ist das Wort eine Vokabel, kein Ansatz.
+
+**Geliefert dazu:** `inhalte/mathe-profi/fachwoerter/` – **13 Aufgaben** für `zahlen.rechengesetze` / `termaufbau`, Stufen 4 / 6 / 3, davon **neun, in denen das Kind selbst schreibt** (5 Lücken, 4 Zahl) statt anzukreuzen. Schwerpunkt ist nicht die Vokabel, sondern Reihenfolge und Klammer: „Differenz aus 5 und 12“ ist 5 − 12; „subtrahiere … **von** 20“ dreht um; „das Dreifache **der Summe**“ braucht eine Klammer. 19 Rechnungen zweifach nachgerechnet, `inhalt_pruefen` an einer Kopie vorher = nachher, kein Text wörtlich im Bestand, `bauen.py` endet mit „OK“.
+
+**Offen**
+- Punkte 1 bis 4 sind Vorschläge an dich, kein Bau von mir. 1 und 4 sind klein, 2 ist eine eigene Lieferung (Aufgaben für die Eingangsdiagnose), 3 ist App-Bau.
+- Für Punkt 2 bräuchte ich von dir die Entscheidung, ob die Eingangsdiagnose ein eigener Flug wird oder ein Papier-Blatt.
+
+**Nicht geprüft**
+- Die 87 Sekunden sind ein Abstand zwischen zwei Übertragungen, keine gemessene Bearbeitungszeit.
+- Ob ein „Später noch einmal“-Knopf das Lernverhalten verschlechtert, weiß ich nicht; das zeigt erst der Einsatz.
+- Die 13 neuen Aufgaben hat kein Kind gerechnet.
+
+**Annahmen**
+- `lernIstTermVorlage` verlangt einen Kleinbuchstaben in der Schablone; deshalb liefern meine Schablonen (`□ : □`, `(□ − □) · (□ + □) = □`) je Lücke ein Zahlenfeld und keine freie Term-Eingabe. Im Code nachgesehen, nicht am Bildschirm.
+- `id.algebra.term` ist die passende Kennung für die Übersetzung; wo Klammer oder Reihenfolge die Hürde ist, steht `rr.reihenfolge`.
+
 ## 2026-11-27 02:25 (Berlin) – BERICHTIGUNG: Die 40 Minuten des Papier-Tests tragen nicht (gemessen)
 
 Zweig `mathe-profi` (364f5d84). Nur Inhalte, nichts eingespielt. Betrifft `inhalte/mathe-profi/papier-test-1/` (README und Nachtrag). Keine Ergebnisse und keine Namen im Repo – die gehen nur an den Nutzer.

@@ -1,0 +1,1004 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-5",
+ "thema": "zahlen.potenzen_basis",
+ "titel": "Potenzen",
+ "klasse": 5,
+ "hinweis": "Aufgaben auf Vorrat in neuen Formen (Feld form, Feld zaehlt). Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Form, zaehlt) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K5A-V082",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "schreibweise",
+   "stufe": 3,
+   "form": "fehler_detektiv",
+   "typ": "Fehler-Detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "schreibweise",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim schreibt 5 · 5 · 5 · 5 als Potenz und rechnet sie aus. Zeile 1: Die Basis ist 5. Sie kommt 4-mal als Faktor vor. Zeile 2: Als Potenz: 5⁴. Zeile 3: Ausgerechnet: 5⁴ = 5 · 4 = 20. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Was sagt der Exponent: Wie oft kommt die Basis als Faktor vor?",
+    "w": "5⁴ = 5 · 5 · 5 · 5 = 625. Der Exponent zählt die Faktoren, er wird nicht mit der Basis malgenommen."
+   }
+  },
+  {
+   "kennung": "K5A-V083",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "schreibweise",
+   "stufe": 2,
+   "form": "bruecke",
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "6³",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Basis und Exponent vertauscht"
+    },
+    {
+     "index": 2,
+     "antwort": "3 · 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "als Malaufgabe mit nur zwei Faktoren"
+    },
+    {
+     "index": 3,
+     "antwort": "3 + 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Plus statt Mal"
+    }
+   ],
+   "aufgabe": {
+    "l": "schreibweise",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Zahl 3 kommt sechsmal als Faktor vor. Welche Schreibweise gehört dazu?"
+    },
+    "a": [
+     "3⁶",
+     "6³",
+     "3 · 6",
+     "3 + 6"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Die Basis ist die Zahl, die malgenommen wird. Der Exponent sagt, wie oft.",
+    "w": "Sechs Faktoren 3: 3 · 3 · 3 · 3 · 3 · 3 = 3⁶ = 729. Die Potenz 6³ wäre 216."
+   }
+  },
+  {
+   "kennung": "K5A-V084",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "schreibweise",
+   "stufe": 2,
+   "form": "umkehren",
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 32,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hälfte statt des Exponenten genannt"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "einen Faktor zu wenig gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "schreibweise",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Potenz hat die Basis 2 und den Wert 64. Welcher Exponent steht dort?"
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "6",
+    "h": "Multipliziere 2 · 2 · … so lange, bis du bei 64 bist, und zähle die Zweier.",
+    "w": "2 · 2 = 4, · 2 = 8, 16, 32, 64: sechs Faktoren. Also 2⁶ = 64."
+   }
+  },
+  {
+   "kennung": "K5A-V085",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "berechnen",
+   "stufe": 1,
+   "form": "lueckenweg",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 3,
+     "antwort": 12,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "3 · 4 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "berechnen",
+    "t": "berechnen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Du rechnest 3⁴ = 3 · 3 · 3 · 3 Schritt für Schritt. Erst 3 · 3 = ①. Dann ① · 3 = ②. Dann ② · 3 = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      9,
+      27,
+      81
+     ]
+    },
+    "c": [
+     "3*3",
+     "3*3*3",
+     "3*3*3*3"
+    ],
+    "h": "Immer das letzte Ergebnis noch einmal mit 3 malnehmen.",
+    "w": "3 · 3 = 9, 9 · 3 = 27, 27 · 3 = 81."
+   }
+  },
+  {
+   "kennung": "K5A-V086",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "berechnen",
+   "stufe": 2,
+   "form": "zwei_wege",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "4 · 3 gerechnet"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nach dem ersten Schritt aufgehört"
+    }
+   ],
+   "aufgabe": {
+    "l": "berechnen",
+    "t": "berechnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne 4³. Weg A: 4 · 4 · 4 in einem Zug. Weg B: erst 4 · 4 = 16, dann 16 · 4. Wie groß ist das Ergebnis?"
+    },
+    "o": {
+     "wert": 64
+    },
+    "c": "4**3",
+    "h": "Beide Wege geben dieselbe Zahl. 4³ ist nicht 4 · 3.",
+    "w": "Weg A: 4 · 4 · 4 = 64. Weg B: 16 · 4 = 64."
+   }
+  },
+  {
+   "kennung": "K5A-V087",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "berechnen",
+   "stufe": 2,
+   "form": "anwenden",
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur dreimal verdoppelt"
+    },
+    {
+     "antwort": 160,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "fünfmal verdoppelt"
+    }
+   ],
+   "aufgabe": {
+    "l": "berechnen",
+    "t": "berechnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Bakterienkultur verdoppelt sich jede Stunde. Am Anfang sind es 5 Bakterien. Wie viele Bakterien sind es nach 4 Stunden?"
+    },
+    "o": {
+     "wert": 80
+    },
+    "c": "5*2**4",
+    "h": "Nach jeder Stunde mal 2. Das sind 4 Verdopplungen.",
+    "w": "2⁴ = 16. 5 · 16 = 80 Bakterien."
+   }
+  },
+  {
+   "kennung": "K5A-V088",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "quadrat",
+   "stufe": 3,
+   "form": "fehler_detektiv",
+   "typ": "Fehler-Detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "quadrat",
+    "t": "berechnen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim berechnet 13² und die Fläche eines Quadrats. Zeile 1: 13² heißt 13 · 2. Zeile 2: 13 · 2 = 26. Zeile 3: Ein Quadrat mit 13 cm Seitenlänge hat also 26 cm² Fläche. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Wie oft steht die 13 als Faktor da?",
+    "w": "13² heißt 13 · 13 = 169. Ein Quadrat mit 13 cm Seite hat 169 cm² Fläche."
+   }
+  },
+  {
+   "kennung": "K5A-V089",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "quadrat",
+   "stufe": 2,
+   "form": "umkehren",
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 98,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 2 geteilt"
+    },
+    {
+     "antwort": 49,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 4 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "quadrat",
+    "t": "berechnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quadrat hat die Fläche 196 cm². Wie lang ist eine Seite in cm?"
+    },
+    "o": {
+     "wert": 14,
+     "einheit": "cm"
+    },
+    "c": "14",
+    "h": "Welche Zahl mal sich selbst gibt 196? Probiere bei 10 und 15.",
+    "w": "14 · 14 = 196. Die Seite ist 14 cm lang."
+   }
+  },
+  {
+   "kennung": "K5A-V090",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "quadrat",
+   "stufe": 2,
+   "form": "anwenden",
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 36,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "18 · 2 gerechnet"
+    },
+    {
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Umfang genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "quadrat",
+    "t": "berechnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein quadratischer Spielplatz ist 18 m lang und 18 m breit. Er wird mit Platten zu je 1 m² ausgelegt. Wie viele Platten braucht man?"
+    },
+    "o": {
+     "wert": 324
+    },
+    "c": "18**2",
+    "h": "Fläche eines Quadrats: Seite mal Seite.",
+    "w": "18² = 18 · 18 = 324. Es sind 324 Platten."
+   }
+  },
+  {
+   "kennung": "K5A-V091",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "vertauschen",
+   "stufe": 1,
+   "form": "lueckenweg",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 15,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "5 · 3 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "vertauschen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Beachte: 5³ ist nicht 3⁵. Es ist 5³ = 5 · 5 · 5 = ①. Es ist 3⁵ = 3 · 3 · 3 · 3 · 3 = ②. Der Unterschied ist ② − ① = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      125,
+      243,
+      118
+     ]
+    },
+    "c": [
+     "5**3",
+     "3**5",
+     "3**5-5**3"
+    ],
+    "h": "Zähle die Faktoren: Der Exponent sagt, wie oft die Basis dasteht.",
+    "w": "5³ = 125. 3⁵ = 243. 243 − 125 = 118."
+   }
+  },
+  {
+   "kennung": "K5A-V092",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "vertauschen",
+   "stufe": 2,
+   "form": "zwei_wege",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsch herum abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vertauschen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Vergleiche 4³ und 3⁴. Weg A: beide Potenzen einzeln ausrechnen. Weg B: beide als Mal-Kette schreiben und rechnen. Um wie viel ist 3⁴ größer als 4³?"
+    },
+    "o": {
+     "wert": 17
+    },
+    "c": "3**4-4**3",
+    "h": "Die Zahlen sind dieselben, aber die Rollen sind vertauscht.",
+    "w": "4³ = 64. 3⁴ = 81. 81 − 64 = 17."
+   }
+  },
+  {
+   "kennung": "K5A-V093",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "vertauschen",
+   "stufe": 2,
+   "form": "anwenden",
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsch herum abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vertauschen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Schloss A hat 5 Rädchen mit je 2 Symbolen. Seine Einstellungen zählt man mit 2⁵. Schloss B hat 2 Rädchen mit je 5 Symbolen. Seine Einstellungen zählt man mit 5². Wie viele Einstellungen hat Schloss A mehr als Schloss B?"
+    },
+    "o": {
+     "wert": 7
+    },
+    "c": "2**5-5**2",
+    "h": "Rechne beide Potenzen getrennt aus.",
+    "w": "2⁵ = 32. 5² = 25. 32 − 25 = 7."
+   }
+  },
+  {
+   "kennung": "K5A-V094",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "zehner",
+   "stufe": 3,
+   "form": "fehler_detektiv",
+   "typ": "Fehler-Detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "zehner",
+    "t": "zehner",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim schreibt 7 · 10⁴ als Zahl. Zeile 1: 10⁴ ist eine 1 mit vier Nullen: 10 000. Zeile 2: 7 · 10⁴ heißt: 7 mal 10 000. Zeile 3: Das ist die 7 mit vier Nullen dahinter. Zeile 4: Also ist 7 · 10⁴ = 700 000. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Zähle die Nullen in deiner Zahl und vergleiche mit dem Exponenten.",
+    "w": "7 und vier Nullen sind 70 000, nicht 700 000."
+   }
+  },
+  {
+   "kennung": "K5A-V095",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "zehner",
+   "stufe": 2,
+   "form": "bruecke",
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "34 · 10⁶",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Null zu viel"
+    },
+    {
+     "index": 1,
+     "antwort": "34 · 10⁴",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Null zu wenig"
+    },
+    {
+     "index": 2,
+     "antwort": "340 · 10⁵",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Stelle zu viel"
+    }
+   ],
+   "aufgabe": {
+    "l": "zehner",
+    "t": "zehner",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Schreibweise ist gleich der Zahl 3 400 000?"
+    },
+    "a": [
+     "34 · 10⁶",
+     "34 · 10⁴",
+     "340 · 10⁵",
+     "34 · 10⁵"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Wie viele Nullen stehen hinter der 34?",
+    "w": "3 400 000 = 34 und fünf Nullen = 34 · 10⁵."
+   }
+  },
+  {
+   "kennung": "K5A-V096",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "zehner",
+   "stufe": 2,
+   "form": "umkehren",
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Ziffern der Zahl gezählt"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ziffern der 25 gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "zehner",
+    "t": "zehner",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Die Zahl 25 000 000 000 soll als 25 · 10ⁿ geschrieben werden. Welche Zahl ist n?"
+    },
+    "o": {
+     "wert": 9
+    },
+    "c": "9",
+    "h": "Zähle die Nullen hinter der 25.",
+    "w": "25 000 000 000 hat hinter der 25 genau 9 Nullen. n = 9."
+   }
+  },
+  {
+   "kennung": "K5A-V097",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "negativ",
+   "stufe": 1,
+   "form": "lueckenweg",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.vorzeichen",
+   "regel_name": "Vorzeichen bei Mal und Geteilt",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 8,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "Vorzeichen vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "negativ",
+    "t": "negativ",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Du rechnest (−2)⁴ = (−2) · (−2) · (−2) · (−2). Erst (−2) · (−2) = ①. Dann ① · (−2) = ②. Dann ② · (−2) = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      4,
+      -8,
+      16
+     ]
+    },
+    "c": [
+     "(-2)*(-2)",
+     "(-2)*(-2)*(-2)",
+     "(-2)**4"
+    ],
+    "h": "Gleiche Vorzeichen ergeben plus, verschiedene minus.",
+    "w": "(−2) · (−2) = 4; 4 · (−2) = −8; (−8) · (−2) = 16. Gerader Exponent: Ergebnis positiv."
+   }
+  },
+  {
+   "kennung": "K5A-V098",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "negativ",
+   "stufe": 2,
+   "form": "verfahren_waehlen",
+   "typ": "Verfahren wählen",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "(−3) · (−3) = 9",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus als Teil der Basis gelesen"
+    },
+    {
+     "index": 2,
+     "antwort": "−3 · 2 = −6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Basis mal Exponent gerechnet"
+    },
+    {
+     "index": 3,
+     "antwort": "−3 + 2 = −1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Plus statt Hoch"
+    }
+   ],
+   "aufgabe": {
+    "l": "negativ",
+    "t": "negativ",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Du sollst −3² berechnen (ohne Klammer um die −3). Welcher Weg ist richtig?"
+    },
+    "a": [
+     "(−3) · (−3) = 9",
+     "Erst 3² = 9, das Minus steht davor: −9",
+     "−3 · 2 = −6",
+     "−3 + 2 = −1"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Zu welcher Zahl gehört der Exponent 2?",
+    "w": "Der Exponent gehört nur zur 3. Erst 3² = 9, dann das Minus: −9. Mit Klammern wäre (−3)² = 9."
+   }
+  },
+  {
+   "kennung": "K5A-V099",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "negativ",
+   "stufe": 2,
+   "form": "umkehren",
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.vorzeichen",
+   "regel_name": "Vorzeichen bei Mal und Geteilt",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "Vorzeichen vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "negativ",
+    "t": "negativ",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine negative Zahl hoch 3 ergibt −125. Wie heißt die Basis?"
+    },
+    "o": {
+     "wert": -5
+    },
+    "c": "-5",
+    "h": "Welche Zahl dreimal mit sich malgenommen gibt 125? Dann das Vorzeichen.",
+    "w": "(−5) · (−5) · (−5) = 25 · (−5) = −125. Bei ungeradem Exponent bleibt das Minus."
+   }
+  },
+  {
+   "kennung": "K5A-V100",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "sach",
+   "stufe": 3,
+   "form": "fehler_detektiv",
+   "typ": "Fehler-Detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim faltet ein Blatt Papier 5-mal. Er will wissen, wie viele Lagen es dann sind. Zeile 1: Nach dem 1. Falten sind es 2 Lagen. Zeile 2: Bei jedem weiteren Falten kommen 2 Lagen dazu. Zeile 3: Nach dem 5. Falten sind es 2 + 2 · 4 = 10 Lagen. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wie viele Lagen sind es nach dem 2. Falten? Nimm ein Blatt und falte.",
+    "w": "Beim Falten verdoppelt sich die Zahl der Lagen: 2, 4, 8, 16, 32. Nach 5-mal sind es 2⁵ = 32 Lagen."
+   }
+  },
+  {
+   "kennung": "K5A-V101",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "sach",
+   "stufe": 2,
+   "form": "anwenden",
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "3 · 4 gerechnet"
+    },
+    {
+     "antwort": 64,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Basis und Exponent vertauscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Kettennachricht: In Runde 1 schickt eine Person sie an 3 Personen. In jeder weiteren Runde schickt jede neue Person sie an 3 weitere Personen. Wie viele Personen bekommen die Nachricht in Runde 4 neu?"
+    },
+    "o": {
+     "wert": 81
+    },
+    "c": "3**4",
+    "h": "Runde 1: 3, Runde 2: 9. Jede Runde mal 3.",
+    "w": "Runde 1: 3, Runde 2: 9, Runde 3: 27, Runde 4: 81. Das ist 3⁴."
+   }
+  },
+  {
+   "kennung": "K5A-V102",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "sach",
+   "stufe": 2,
+   "form": "bruecke",
+   "typ": "Brücke",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 · 7 gerechnet"
+    },
+    {
+     "antwort": 64,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur sechs Verdopplungen"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle zeigt, wie viele Lagen ein gefaltetes Papier nach dem Falten hat. Wie viele Lagen sind es nach dem 7. Falten?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Falten",
+       "1",
+       "2",
+       "3",
+       "4"
+      ],
+      "zeilen": [
+       [
+        "Lagen",
+        "2",
+        "4",
+        "8",
+        "16"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 128
+    },
+    "c": "2**7",
+    "h": "Wie wächst die untere Zeile von Spalte zu Spalte?",
+    "w": "Die Lagen verdoppeln sich jedes Mal: 2, 4, 8, 16, 32, 64, 128. Das ist 2⁷ = 128."
+   }
+  }
+ ]
+}

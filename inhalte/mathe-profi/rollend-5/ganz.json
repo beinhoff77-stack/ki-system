@@ -1,0 +1,1643 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-5",
+ "thema": "zahlen.ganz",
+ "titel": "Ganze Zahlen",
+ "klasse": 5,
+ "hinweis": "Aufgaben auf Vorrat in neuen Formen (Feld form, Feld zaehlt). Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Form, zaehlt) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K5A-V103",
+   "thema": "zahlen.ganz",
+   "lernkarte": "deuten",
+   "stufe": 1,
+   "form": "lueckenweg",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus vergessen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 11,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "4 + 7 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 11 weitergerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "deuten",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Es sind vier Grad unter null. Man schreibt ① °C. Dann wird es 7 Grad wärmer: ① + 7 = ② °C. Danach sinkt die Temperatur um 9 Grad: ② − 9 = ③ °C.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      -4,
+      3,
+      -6
+     ]
+    },
+    "c": [
+     "-4",
+     "-4+7",
+     "-4+7-9"
+    ],
+    "h": "Unter null schreibst du ein Minus vor die Zahl.",
+    "w": "Vier Grad unter null sind −4 °C. −4 + 7 = 3 °C. 3 − 9 = −6 °C."
+   }
+  },
+  {
+   "kennung": "K5A-V104",
+   "thema": "zahlen.ganz",
+   "lernkarte": "deuten",
+   "stufe": 2,
+   "form": "bruecke",
+   "typ": "Brücke",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "−5 und 3 ohne Vorzeichen subtrahiert"
+    },
+    {
+     "antwort": -8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsches Vorzeichen"
+    }
+   ],
+   "aufgabe": {
+    "l": "deuten",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle zeigt die Temperatur an einem Wintertag. Um wie viele Grad ist es um 12 Uhr wärmer als um 6 Uhr?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Uhrzeit",
+       "6 Uhr",
+       "12 Uhr",
+       "18 Uhr"
+      ],
+      "zeilen": [
+       [
+        "Grad",
+        "−5",
+        "3",
+        "−2"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 8
+    },
+    "c": "3-(-5)",
+    "h": "Wie weit ist es von −5 bis 0, und wie weit von 0 bis 3?",
+    "w": "Von −5 bis 0 sind es 5 Grad, von 0 bis 3 noch 3 Grad. Zusammen 8 Grad."
+   }
+  },
+  {
+   "kennung": "K5A-V105",
+   "thema": "zahlen.ganz",
+   "lernkarte": "deuten",
+   "stufe": 2,
+   "form": "anwenden",
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "4 − 3 gerechnet"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur bis zur 0 gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "deuten",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "In einem Hochhaus ist das zweite Kellergeschoss die Etage −2. Ein Aufzug fährt vom Parkdeck in Etage −3 bis in die Etage 4. Wie viele Etagen fährt er?"
+    },
+    "o": {
+     "wert": 7
+    },
+    "c": "4-(-3)",
+    "h": "Zähle von −3 bis 0 und dann von 0 bis 4.",
+    "w": "Von −3 bis 0 sind es 3 Etagen, von 0 bis 4 noch 4. Zusammen 7 Etagen."
+   }
+  },
+  {
+   "kennung": "K5A-V106",
+   "thema": "zahlen.ganz",
+   "lernkarte": "zahlengerade",
+   "stufe": 3,
+   "form": "fehler_detektiv",
+   "typ": "Fehler-Detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "zahlengerade",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Zahlengerade geht von −10 bis 10 und hat 10 Abschnitte. Der Punkt P liegt 3 Abschnitte links von 0. Kim bestimmt P. Zeile 1: Ein Abschnitt ist 10 : 10 = 1 wert. Zeile 2: P liegt 3 Abschnitte links von 0: 3 · 1 = 3, links also −3. Zeile 3: Also ist P = −3. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Wie lang ist die ganze Zahlengerade? Nicht nur die rechte Seite zählt.",
+    "w": "Die Gerade ist von −10 bis 10 insgesamt 20 lang. Ein Abschnitt ist 20 : 10 = 2 wert. 3 Abschnitte links von 0 sind −6."
+   }
+  },
+  {
+   "kennung": "K5A-V107",
+   "thema": "zahlen.ganz",
+   "lernkarte": "zahlengerade",
+   "stufe": 2,
+   "form": "zwei_wege",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "7 und 5 abgezogen"
+    },
+    {
+     "antwort": -12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsches Vorzeichen"
+    }
+   ],
+   "aufgabe": {
+    "l": "zahlengerade",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Der Punkt A liegt bei −7, der Punkt B bei 5. Weg A: zähle von −7 bis 0 und von 0 bis 5. Weg B: rechne 5 − (−7). Wie weit sind A und B voneinander entfernt?"
+    },
+    "o": {
+     "wert": 12
+    },
+    "c": "5-(-7)",
+    "h": "Beide Wege geben dieselbe Zahl.",
+    "w": "Weg A: 7 + 5 = 12. Weg B: 5 − (−7) = 5 + 7 = 12."
+   }
+  },
+  {
+   "kennung": "K5A-V108",
+   "thema": "zahlen.ganz",
+   "lernkarte": "zahlengerade",
+   "stufe": 2,
+   "form": "bruecke",
+   "typ": "Brücke",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "7 und 4 abgezogen"
+    },
+    {
+     "antwort": -11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsch herum gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "zahlengerade",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Zahlengerade zeigt die Punkte A und B. Wie viele Einheiten liegt B rechts von A?",
+     "grafik": {
+      "typ": "zahlenstrahl",
+      "start": -10,
+      "ende": 10,
+      "abschnitte": 20,
+      "punkte": [
+       {
+        "wert": -7,
+        "name": "A"
+       },
+       {
+        "wert": 4,
+        "name": "B"
+       }
+      ],
+      "beschriftet": "alle"
+     }
+    },
+    "o": {
+     "wert": 11
+    },
+    "c": "4-(-7)",
+    "h": "Lies zuerst die beiden Zahlen ab.",
+    "w": "A liegt bei −7, B bei 4. Von −7 bis 0 sind es 7, von 0 bis 4 noch 4: zusammen 11."
+   }
+  },
+  {
+   "kennung": "K5A-V109",
+   "thema": "zahlen.ganz",
+   "lernkarte": "ordnen",
+   "stufe": 1,
+   "form": "lueckenweg",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Beträge addiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": -6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 4 Schritte vergessen"
+    },
+    {
+     "luecke": 2,
+     "antwort": -10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "−15 + 9 − 4 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "ordnen",
+    "t": "ordnen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Vergleiche −15 und −6. Die Zahl −15 liegt weiter links, sie ist kleiner. Der Unterschied: (−6) − (−15) = ①. Starte bei −15, gehe ① Schritte nach rechts und dann noch 4 Schritte weiter. Du landest bei ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      9,
+      -2
+     ]
+    },
+    "c": [
+     "(-6)-(-15)",
+     "-15+((-6)-(-15))+4"
+    ],
+    "h": "Minus minus heißt plus. Rechts ist größer.",
+    "w": "(−6) − (−15) = −6 + 15 = 9. −15 + 9 = −6, dann −6 + 4 = −2."
+   }
+  },
+  {
+   "kennung": "K5A-V110",
+   "thema": "zahlen.ganz",
+   "lernkarte": "ordnen",
+   "stufe": 2,
+   "form": "umkehren",
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nach rechts gezählt"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "das Minus vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "ordnen",
+    "t": "ordnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Zahl ist um 4 größer als die gesuchte Zahl. Sie ist 1. Wie heißt die gesuchte Zahl?"
+    },
+    "o": {
+     "wert": -3
+    },
+    "c": "1-4",
+    "h": "Gehe von 1 vier Schritte nach links.",
+    "w": "Gesucht ist die Zahl, die 4 kleiner ist als 1: 1 − 4 = −3."
+   }
+  },
+  {
+   "kennung": "K5A-V111",
+   "thema": "zahlen.ganz",
+   "lernkarte": "ordnen",
+   "stufe": 2,
+   "form": "anwenden",
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "fehlbild": "fb.zahlengerade.nach_betrag_geordnet",
+     "regel_des_fehlbilds": "id.zahlen.zahlengerade",
+     "beschreibung": "−9 als größte Zahl gesehen"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "−9 und −4 verglichen"
+    }
+   ],
+   "aufgabe": {
+    "l": "ordnen",
+    "t": "ordnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "An drei Morgen wurden diese Temperaturen gemessen: −4 °C, −9 °C und 2 °C. Wie viel Grad wärmer ist der wärmste Morgen als der kälteste?"
+    },
+    "o": {
+     "wert": 11,
+     "einheit": "Grad"
+    },
+    "c": "2-(-9)",
+    "h": "Ordne zuerst. Der kälteste Morgen liegt am weitesten links.",
+    "w": "Wärmster: 2 °C, kältester: −9 °C. Unterschied: 2 − (−9) = 11 Grad."
+   }
+  },
+  {
+   "kennung": "K5A-V112",
+   "thema": "zahlen.ganz",
+   "lernkarte": "betrag",
+   "stufe": 3,
+   "form": "fehler_detektiv",
+   "typ": "Fehler-Detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "betrag",
+    "t": "ordnen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim sucht alle ganzen Zahlen, deren Betrag 5 ist. Zeile 1: |5| = 5. Zeile 2: Eine Zahl links von 0 kann nicht den Betrag 5 haben. Zeile 3: Es gibt nur eine solche Zahl, nämlich 5. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Der Betrag ist der Abstand zu 0. Gibt es auch links von 0 eine Zahl mit diesem Abstand?",
+    "w": "Der Betrag ist der Abstand zu 0. Auch −5 hat den Abstand 5. Es gibt zwei solche Zahlen: 5 und −5."
+   }
+  },
+  {
+   "kennung": "K5A-V113",
+   "thema": "zahlen.ganz",
+   "lernkarte": "betrag",
+   "stufe": 2,
+   "form": "umkehren",
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die positive Zahl genannt"
+    },
+    {
+     "antwort": -18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abstand als Zahl genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "betrag",
+    "t": "ordnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei Zahlen sind Gegenzahlen und liegen 18 Einheiten auseinander. Wie heißt die negative der beiden Zahlen?"
+    },
+    "o": {
+     "wert": -9
+    },
+    "c": "-18//2",
+    "h": "Gegenzahlen liegen gleich weit von 0 entfernt, auf beiden Seiten.",
+    "w": "Die 18 Einheiten teilen sich auf beide Seiten von 0: 18 : 2 = 9. Die negative Zahl ist −9."
+   }
+  },
+  {
+   "kennung": "K5A-V114",
+   "thema": "zahlen.ganz",
+   "lernkarte": "betrag",
+   "stufe": 2,
+   "form": "anwenden",
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "14 − 6 gerechnet"
+    },
+    {
+     "antwort": -20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "negativen Abstand angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "betrag",
+    "t": "ordnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Taucher ist 14 m unter der Wasseroberfläche (−14 m). Ein Kranhaken hängt 6 m über dem Wasser. Wie weit ist der Taucher vom Haken entfernt?"
+    },
+    "o": {
+     "wert": 20,
+     "einheit": "m"
+    },
+    "c": "abs(6-(-14))",
+    "h": "Rechne den Abstand: Das Ergebnis darf nicht negativ sein.",
+    "w": "Vom Taucher bis zur Oberfläche sind es 14 m, von dort bis zum Haken 6 m. Zusammen 20 m."
+   }
+  },
+  {
+   "kennung": "K5A-V115",
+   "thema": "zahlen.ganz",
+   "lernkarte": "schriftlich_plus_minus",
+   "stufe": 1,
+   "form": "lueckenweg",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 3,
+     "antwort": 5331,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Übertrag der Hunderter vergessen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 6231,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "einen Übertrag vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "schriftlich_plus_minus",
+    "t": "schriftlich",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Schriftlich 2 746 + 3 585. Einer: 6 + 5 = 11, ich schreibe 1 und merke 1. Zehner: 4 + 8 + 1 = ①. Ich schreibe 3 und merke 1. Hunderter: 7 + 5 + 1 = ②. Ich schreibe 3 und merke 1. Tausender: 2 + 3 + 1 = 6. Das Ergebnis besteht aus der 6 und der Einerziffer von ② und der Einerziffer von ① und der 1 der Einer. Das Ergebnis ist ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      13,
+      13,
+      6331
+     ]
+    },
+    "c": [
+     "4+8+1",
+     "7+5+1",
+     "2746+3585"
+    ],
+    "h": "Den Übertrag jedes Mal mitnehmen.",
+    "w": "4 + 8 + 1 = 13, 7 + 5 + 1 = 13, Tausender 6. Ergebnis: 6 331."
+   }
+  },
+  {
+   "kennung": "K5A-V116",
+   "thema": "zahlen.ganz",
+   "lernkarte": "schriftlich_plus_minus",
+   "stufe": 2,
+   "form": "zwei_wege",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2876,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Teil abgezogen statt addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "schriftlich_plus_minus",
+    "t": "schriftlich",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne 5 000 − 1 876. Weg A: schriftlich subtrahieren mit Tauschen. Weg B: erst 5 000 − 2 000 = 3 000, dann den zu viel abgezogenen Teil wieder addieren. Wie groß ist das Ergebnis?"
+    },
+    "o": {
+     "wert": 3124
+    },
+    "c": "5000-1876",
+    "h": "Wie viel hast du bei Weg B zu viel abgezogen?",
+    "w": "Weg A: 5 000 − 1 876 = 3 124. Weg B: 2 000 − 1 876 = 124 zu viel. 3 000 + 124 = 3 124."
+   }
+  },
+  {
+   "kennung": "K5A-V117",
+   "thema": "zahlen.ganz",
+   "lernkarte": "schriftlich_plus_minus",
+   "stufe": 2,
+   "form": "anwenden",
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 142870,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "einen Übertrag vergessen"
+    },
+    {
+     "antwort": 2644430,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "schriftlich_plus_minus",
+    "t": "schriftlich",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Flughafen hatte im Mai 1 245 780 Fluggäste und im Juni 1 398 650 Fluggäste. Wie viele Fluggäste kamen im Juni mehr?"
+    },
+    "o": {
+     "wert": 152870
+    },
+    "c": "1398650-1245780",
+    "h": "Rechne schriftlich minus und achte auf das Tauschen.",
+    "w": "1 398 650 − 1 245 780 = 152 870 Fluggäste mehr."
+   }
+  },
+  {
+   "kennung": "K5A-V118",
+   "thema": "zahlen.ganz",
+   "lernkarte": "addieren",
+   "stufe": 3,
+   "form": "fehler_detektiv",
+   "typ": "Fehler-Detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "addieren",
+    "t": "addieren",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim rechnet (−7) + 4. Zeile 1: Plus bedeutet auf der Zahlengeraden: nach links. Zeile 2: Ich starte bei −7 und gehe 4 Schritte nach links. Zeile 3: Ich lande bei −11. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "In welche Richtung geht es bei Plus?",
+    "w": "Plus heißt nach rechts. Von −7 vier Schritte nach rechts: −7 + 4 = −3."
+   }
+  },
+  {
+   "kennung": "K5A-V119",
+   "thema": "zahlen.ganz",
+   "lernkarte": "addieren",
+   "stufe": 2,
+   "form": "umkehren",
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "−2 + 9 gerechnet"
+    },
+    {
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Vorzeichen vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "addieren",
+    "t": "addieren",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Zu einer Zahl wird 9 addiert. Das Ergebnis ist −2. Wie heißt die Zahl?"
+    },
+    "o": {
+     "wert": -11
+    },
+    "c": "-2-9",
+    "h": "Kehre die Addition um: minus 9.",
+    "w": "−2 − 9 = −11. Probe: (−11) + 9 = −2."
+   }
+  },
+  {
+   "kennung": "K5A-V120",
+   "thema": "zahlen.ganz",
+   "lernkarte": "addieren",
+   "stufe": 2,
+   "form": "bruecke",
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "(−6) − 8 = −14",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsche Richtung"
+    },
+    {
+     "index": 2,
+     "antwort": "6 + 8 = 14",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus vergessen"
+    },
+    {
+     "index": 3,
+     "antwort": "(−6) + 2 = −4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Ziel als Sprunglänge genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "addieren",
+    "t": "addieren",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Sprung auf der Zahlengeraden beginnt bei −6 und endet bei 2. Welche Rechnung gehört dazu?",
+     "grafik": {
+      "typ": "zahlenstrahl",
+      "start": -10,
+      "ende": 10,
+      "abschnitte": 20,
+      "punkte": [
+       {
+        "wert": -6,
+        "name": "Start"
+       },
+       {
+        "wert": 2,
+        "name": "Ziel"
+       }
+      ],
+      "beschriftet": "alle"
+     }
+    },
+    "a": [
+     "(−6) − 8 = −14",
+     "(−6) + 8 = 2",
+     "6 + 8 = 14",
+     "(−6) + 2 = −4"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wie viele Schritte nach rechts sind es von −6 bis 2?",
+    "w": "Von −6 bis 0 sind es 6 Schritte, von 0 bis 2 noch 2: zusammen 8 Schritte nach rechts. (−6) + 8 = 2."
+   }
+  },
+  {
+   "kennung": "K5A-V121",
+   "thema": "zahlen.ganz",
+   "lernkarte": "subtrahieren",
+   "stufe": 1,
+   "form": "lueckenweg",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "das Minus vergessen"
+    },
+    {
+     "luecke": 2,
+     "antwort": -14,
+     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "Doppelminus übersehen: −8 − 6"
+    }
+   ],
+   "aufgabe": {
+    "l": "subtrahieren",
+    "t": "subtrahieren",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Minus eine Zahl heißt: plus die Gegenzahl. 5 − 13 = 5 + (−13) = ①. Dann ① − (−6) = ① + 6 = ②. Dann ② − (−11) = ② + 11 = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      -8,
+      -2,
+      9
+     ]
+    },
+    "c": [
+     "5-13",
+     "5-13+6",
+     "5-13+6+11"
+    ],
+    "h": "Minus minus wird plus.",
+    "w": "5 − 13 = −8. −8 + 6 = −2. −2 + 11 = 9."
+   }
+  },
+  {
+   "kennung": "K5A-V122",
+   "thema": "zahlen.ganz",
+   "lernkarte": "subtrahieren",
+   "stufe": 2,
+   "form": "zwei_wege",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -11,
+     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "Doppelminus übersehen"
+    },
+    {
+     "antwort": 19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 addiert statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "subtrahieren",
+    "t": "subtrahieren",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne 4 − (−9) − 6. Weg A: von links nach rechts. Weg B: erst 4 − 6 = −2, dann (−2) − (−9). Wie groß ist das Ergebnis?"
+    },
+    "o": {
+     "wert": 7
+    },
+    "c": "4-(-9)-6",
+    "h": "Minus minus ist plus. Beide Wege geben dieselbe Zahl.",
+    "w": "Weg A: 4 + 9 = 13, 13 − 6 = 7. Weg B: −2 + 9 = 7."
+   }
+  },
+  {
+   "kennung": "K5A-V123",
+   "thema": "zahlen.ganz",
+   "lernkarte": "subtrahieren",
+   "stufe": 2,
+   "form": "anwenden",
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -25,
+     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "Doppelminus übersehen"
+    },
+    {
+     "antwort": -11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsch herum gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "subtrahieren",
+    "t": "subtrahieren",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Taucher ist bei −18 m. Er steigt auf −7 m. Um wie viele Meter ist er gestiegen? Rechne Ende minus Anfang."
+    },
+    "o": {
+     "wert": 11,
+     "einheit": "m"
+    },
+    "c": "-7-(-18)",
+    "h": "Ende minus Anfang, also (−7) − (−18). Minus minus ist plus.",
+    "w": "(−7) − (−18) = −7 + 18 = 11. Er ist 11 m gestiegen."
+   }
+  },
+  {
+   "kennung": "K5A-V124",
+   "thema": "zahlen.ganz",
+   "lernkarte": "umkehraufgabe",
+   "stufe": 3,
+   "form": "fehler_detektiv",
+   "typ": "Fehler-Detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "umkehraufgabe",
+    "t": "gleichungen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim löst x + 7 = −3. Zeile 1: Die Umkehraufgabe von „plus 7“ ist „minus 7“. Zeile 2: Also ist x = −3 − 7. Zeile 3: Minus und Minus ergibt Plus, also rechne ich −3 + 7. Zeile 4: Also ist x = 4. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Hier steht nur ein Minus vor der 7, die −3 ist negativ. Gilt „minus und minus ergibt plus“?",
+    "w": "Hier steht kein Doppelminus: −3 − 7 heißt von −3 sieben Schritte nach links: −10. Probe: (−10) + 7 = −3."
+   }
+  },
+  {
+   "kennung": "K5A-V125",
+   "thema": "zahlen.ganz",
+   "lernkarte": "umkehraufgabe",
+   "stufe": 2,
+   "form": "verfahren_waehlen",
+   "typ": "Verfahren wählen",
+   "antwortform": "auswahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "x = −8 − 5 = −13",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Umkehraufgabe nicht benutzt"
+    },
+    {
+     "index": 1,
+     "antwort": "x = 8 + 5 = 13",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen von −8 vergessen"
+    },
+    {
+     "index": 2,
+     "antwort": "x = (−8) : 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Teilen statt Umkehren"
+    }
+   ],
+   "aufgabe": {
+    "l": "umkehraufgabe",
+    "t": "gleichungen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Du löst x − 5 = −8. Welcher Weg ist richtig?"
+    },
+    "a": [
+     "x = −8 − 5 = −13",
+     "x = 8 + 5 = 13",
+     "x = (−8) : 5",
+     "x = −8 + 5 = −3"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Welche Rechnung macht „minus 5“ rückgängig?",
+    "w": "Minus 5 macht man mit plus 5 rückgängig: x = −8 + 5 = −3. Probe: (−3) − 5 = −8."
+   }
+  },
+  {
+   "kennung": "K5A-V126",
+   "thema": "zahlen.ganz",
+   "lernkarte": "umkehraufgabe",
+   "stufe": 2,
+   "form": "anwenden",
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1,
+     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "6 − 5 gerechnet"
+    },
+    {
+     "antwort": -11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Vorzeichen falsch"
+    }
+   ],
+   "aufgabe": {
+    "l": "umkehraufgabe",
+    "t": "gleichungen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Morgens sind es 5 Grad unter null. Bis mittags steigt die Temperatur um einige Grad. Mittags zeigt das Thermometer 6 °C. Um wie viele Grad ist die Temperatur gestiegen?"
+    },
+    "o": {
+     "wert": 11,
+     "einheit": "Grad"
+    },
+    "c": "6-(-5)",
+    "h": "Gesucht ist x in: −5 + x = 6. Kehre um.",
+    "w": "x = 6 − (−5) = 6 + 5 = 11. Probe: −5 + 11 = 6."
+   }
+  },
+  {
+   "kennung": "K5A-V127",
+   "thema": "zahlen.ganz",
+   "lernkarte": "ketten",
+   "stufe": 1,
+   "form": "lueckenweg",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 3,
+     "antwort": 2,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "das Minus des Ergebnisses vergessen"
+    },
+    {
+     "luecke": 3,
+     "antwort": -8,
+     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "− (−3) als Minus gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "ketten",
+    "t": "verbinden",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Rechne −4 + 9 − (−3) − 10. Das Minus vor der Klammer wird zu plus: − (−3) = + 3. Plus-Zahlen: 9 + 3 = ①. Minus-Zahlen: 4 + 10 = ②. Ergebnis: ① − ② = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      12,
+      14,
+      -2
+     ]
+    },
+    "c": [
+     "9+3",
+     "4+10",
+     "9+3-(4+10)"
+    ],
+    "h": "Sammle erst alle Plus-Zahlen, dann alle Minus-Zahlen.",
+    "w": "Plus: 9 + 3 = 12. Minus: 4 + 10 = 14. 12 − 14 = −2."
+   }
+  },
+  {
+   "kennung": "K5A-V128",
+   "thema": "zahlen.ganz",
+   "lernkarte": "ketten",
+   "stufe": 2,
+   "form": "zwei_wege",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "Vorzeichen des Ergebnisses vergessen"
+    },
+    {
+     "antwort": -12,
+     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "Doppelminus übersehen"
+    }
+   ],
+   "aufgabe": {
+    "l": "ketten",
+    "t": "verbinden",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne 8 − (−5) + (−12) − 3. Weg A: von links nach rechts. Weg B: erst die Klammern auflösen zu 8 + 5 − 12 − 3. Wie groß ist das Ergebnis?"
+    },
+    "o": {
+     "wert": -2
+    },
+    "c": "8-(-5)+(-12)-3",
+    "h": "Beide Wege geben dieselbe Zahl.",
+    "w": "Weg A: 8 + 5 = 13, 13 − 12 = 1, 1 − 3 = −2. Weg B: 13 − 15 = −2."
+   }
+  },
+  {
+   "kennung": "K5A-V129",
+   "thema": "zahlen.ganz",
+   "lernkarte": "ketten",
+   "stufe": 2,
+   "form": "anwenden",
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -10,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "Vorzeichen des Ergebnisses falsch"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Schulden vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "ketten",
+    "t": "verbinden",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Dein Kontostand ist −20 €. Dann kommen 85 € Taschengeld dazu, 30 € werden abgebucht, 15 € werden gutgeschrieben und 40 € werden abgebucht. Wie hoch ist der Kontostand danach?"
+    },
+    "o": {
+     "wert": 10,
+     "einheit": "€"
+    },
+    "c": "-20+85-30+15-40",
+    "h": "Sammle alles, was dazukommt, und alles, was abgeht.",
+    "w": "Dazu: 85 + 15 = 100. Weg: 20 + 30 + 40 = 90. 100 − 90 = 10 €."
+   }
+  },
+  {
+   "kennung": "K5A-V130",
+   "thema": "zahlen.ganz",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "form": "fehler_detektiv",
+   "typ": "Fehler-Detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "begruenden",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim prüft die Aussage: „Wenn man etwas abzieht, wird das Ergebnis immer kleiner.“ Zeile 1: Beispiel: 10 − 4 = 6. Das ist kleiner als 10. Zeile 2: Noch ein Beispiel: 7 − 2 = 5. Das ist kleiner als 7. Zeile 3: Beide Beispiele stimmen. Zeile 4: Weil zwei Beispiele stimmen, ist die Aussage bewiesen. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Probiere eine negative Zahl zum Abziehen, zum Beispiel 10 − (−4).",
+    "w": "Ein Gegenbeispiel widerlegt die Aussage: 10 − (−4) = 14 ist größer als 10. Beispiele allein beweisen nichts."
+   }
+  },
+  {
+   "kennung": "K5A-V131",
+   "thema": "zahlen.ganz",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "form": "verfahren_waehlen",
+   "typ": "Verfahren wählen",
+   "antwortform": "auswahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Viele Beispiele mit positiven Zahlen sammeln",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Beispiele ohne Gegenbeispiel beweisen nichts"
+    },
+    {
+     "index": 2,
+     "antwort": "Nur den Fall b = 0 testen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Sonderfall geprüft"
+    },
+    {
+     "index": 3,
+     "antwort": "So lange rechnen, bis es stimmt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "kein Prüfverfahren"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "begruenden",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Du willst prüfen, ob die Aussage „a + b ist immer größer als a“ stimmt. Was ist der beste Weg?"
+    },
+    "a": [
+     "Ein Gegenbeispiel suchen, zum Beispiel mit negativem b: 5 + (−2) = 3",
+     "Viele Beispiele mit positiven Zahlen sammeln",
+     "Nur den Fall b = 0 testen",
+     "So lange rechnen, bis es stimmt"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Ein einziges Gegenbeispiel genügt, um eine Aussage zu widerlegen.",
+    "w": "Mit b = −2: 5 + (−2) = 3 ist kleiner als 5. Die Aussage stimmt nicht immer."
+   }
+  },
+  {
+   "kennung": "K5A-V132",
+   "thema": "zahlen.ganz",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "form": "umkehren",
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die letzte passende Zahl genannt"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Zahl zu weit"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "begruenden",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Kim behauptet: „a − 7 ist immer negativ.“ Für welche kleinste Zahl a (a = 0, 1, 2, …) stimmt das nicht mehr?"
+    },
+    "o": {
+     "wert": 7
+    },
+    "c": "7",
+    "h": "Für welches a ist a − 7 gleich 0 oder größer?",
+    "w": "Für a = 6 ist 6 − 7 = −1. Für a = 7 ist 7 − 7 = 0. Null ist nicht negativ. Das kleinste Gegenbeispiel ist a = 7."
+   }
+  },
+  {
+   "kennung": "K5A-V133",
+   "thema": "zahlen.ganz",
+   "lernkarte": "sach",
+   "stufe": 1,
+   "form": "lueckenweg",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "das Minus des Ergebnisses vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "verbinden",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Am Morgen sind es −6 °C. Bis mittags wird es 9 Grad wärmer: (−6) + 9 = ①. Am Abend wird es 5 Grad kälter: ① − 5 = ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      -2
+     ]
+    },
+    "c": [
+     "-6+9",
+     "-6+9-5"
+    ],
+    "h": "Wärmer heißt plus, kälter heißt minus.",
+    "w": "−6 + 9 = 3. 3 − 5 = −2. Am Abend sind es −2 °C."
+   }
+  },
+  {
+   "kennung": "K5A-V134",
+   "thema": "zahlen.ganz",
+   "lernkarte": "sach",
+   "stufe": 2,
+   "form": "umkehren",
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -5,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "−11 + 6 gerechnet"
+    },
+    {
+     "antwort": 17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "verbinden",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Taucher steigt 6 m auf und ist danach bei −11 m. Bei welcher Höhe war er vorher?"
+    },
+    "o": {
+     "wert": -17,
+     "einheit": "m"
+    },
+    "c": "-11-6",
+    "h": "Kehre das Aufsteigen um: Er war tiefer.",
+    "w": "Vorher war er 6 m tiefer: −11 − 6 = −17. Probe: −17 + 6 = −11."
+   }
+  },
+  {
+   "kennung": "K5A-V135",
+   "thema": "zahlen.ganz",
+   "lernkarte": "sach",
+   "stufe": 2,
+   "form": "anwenden",
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Start als 0 gerechnet"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Zahlen addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "verbinden",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Hochhaus hat drei Kellergeschosse (−3, −2, −1). Ein Aufzug startet im untersten Kellergeschoss (−3). Er fährt 8 Etagen hinauf, dann 5 Etagen hinunter und dann 2 Etagen hinauf. In welcher Etage hält er?"
+    },
+    "o": {
+     "wert": 2
+    },
+    "c": "-3+8-5+2",
+    "h": "Rechne Schritt für Schritt von der Startetage aus.",
+    "w": "−3 + 8 = 5. 5 − 5 = 0. 0 + 2 = 2. Er hält in Etage 2."
+   }
+  }
+ ]
+}

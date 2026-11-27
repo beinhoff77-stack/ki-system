@@ -1,15 +1,19 @@
 T = "terme.bruchterme"
 
 # ───────── definitionsmenge: Brücke ─────────
-nenner = lambda x: (x - 2) * (x + 1) * (x - 5)
-assert [nenner(x) for x in (-2, -1, 0, 1, 2, 3)] == [-28, 0, 10, 8, 0, -8] and [x for x in range(-9, 10) if nenner(x) == 0] == [-1, 2, 5]
+# c steht nicht im Text, nur in der Tabelle: aus dem Wert bei x = 0 folgt c = 5, die dritte Nullstelle liegt außerhalb der Tabelle
+nenner = lambda x, c=5: (x - 2) * (x + 1) * (x - c)
+assert [nenner(x) for x in (-2, -1, 0, 1, 2, 3)] == [-28, 0, 10, 8, 0, -8]
+assert [c for c in range(-30, 31) if [nenner(x, c) for x in (-2, -1, 0, 1, 2, 3)] == [-28, 0, 10, 8, 0, -8]] == [5]
+assert [x for x in range(-9, 10) if nenner(x) == 0] == [-1, 2, 5]
 Z(T, "definitionsmenge", "bruecke",
-  "Die Tabelle zeigt den Wert des Nenners N(x) = (x − 2)(x + 1)(x − 5) für einige Zahlen x. Der Term T(x) = 7/N(x) hat diesen Nenner. "
+  "Die Tabelle zeigt einige Werte des Nenners N(x) = (x − 2)(x + 1)(x − c) für eine feste Zahl c. Der Term T(x) = 7/N(x) hat diesen Nenner. "
   "Wie viele Zahlen muss man aus ℚ ausschließen, damit T(x) definiert ist?",
   3, "3", "1 + 1 + 1",
-  "Wann ist ein Produkt aus drei Faktoren gleich null? Die Tabelle zeigt nur einen Ausschnitt.",
-  "Der Nenner ist 0, wenn einer der Faktoren 0 ist: x = 2, x = −1 oder x = 5. Die Tabelle zeigt nur die Nullstellen −1 und 2, denn x = 5 liegt außerhalb der Tabelle. Man muss 3 Zahlen ausschließen: D = ℚ \\ {−1; 2; 5}.",
-  [(2, "3 - 1", "nur die in der Tabelle sichtbaren Nullstellen gezählt (x = 5 liegt außerhalb der Tabelle)"),
+  "Mit einem Wert aus der Tabelle kannst du c bestimmen. Wann ist ein Produkt aus drei Faktoren gleich null?",
+  "Für x = 0 ist N(0) = (−2) · 1 · (−c) = 2c. Laut Tabelle ist N(0) = 10, also c = 5. Probe mit x = 1: (−1) · 2 · (1 − 5) = 8, das passt zur Tabelle. "
+  "Der Nenner ist 0, wenn einer der Faktoren 0 ist: x = 2, x = −1 oder x = 5. Man muss 3 Zahlen ausschließen: D = ℚ \\ {−1; 2; 5}.",
+  [(2, "3 - 1", "nur die in der Tabelle sichtbaren Nullstellen −1 und 2 gezählt (die dritte, x = 5, liegt außerhalb der Tabelle)"),
    (6, "6", "die Zahl der Spalten der Tabelle genannt"),
    (1, "1", "nur eine Nullstelle des Nenners gezählt")],
   "id.algebra.erlaubte_zahlen", einheit="Zahlen",
@@ -29,11 +33,11 @@ FD(T, "termwert",
 assert gl("(x-2)*(x+2)", "x**2-4")
 Z(T, "erweitern", "zwei_wege",
   "Der Bruch 5/(x − 2) (x ≠ 2 und x ≠ −2) wird so erweitert, dass der Nenner x² − 4 lautet. "
-  "Weg A: Teile den neuen Nenner durch den alten Nenner, das ist der Erweiterungsfaktor. Weg B: Zerlege x² − 4 mit der dritten binomischen Formel in Faktoren und vergleiche mit dem alten Nenner. "
+  "Weg A: Setze x = 5 in den alten und in den neuen Nenner ein und vergleiche die beiden Zahlen. Weg B: Zerlege x² − 4 mit der dritten binomischen Formel in Faktoren und vergleiche mit dem alten Nenner. "
   "Welchen Wert hat der neue Zähler für x = 5?",
   35, "5 * (5 + 2)", "5 * (5 ** 2 - 4) / (5 - 2)",
-  "Beide Wege müssen denselben Erweiterungsfaktor liefern. Der Zähler wird mit demselben Faktor malgenommen wie der Nenner.",
-  "Weg A: (x² − 4) : (x − 2) = x + 2. Weg B: x² − 4 = (x − 2)(x + 2), der alte Nenner ist ein Faktor davon, der Erweiterungsfaktor ist x + 2. Neuer Zähler: 5(x + 2). Für x = 5: 5 · 7 = 35.",
+  "Beide Wege müssen denselben Wert ergeben. Der Zähler wird mit demselben Faktor malgenommen wie der Nenner.",
+  "Weg A: Für x = 5 ist der alte Nenner 5 − 2 = 3 und der neue Nenner 25 − 4 = 21. Der Nenner wurde mit 21 : 3 = 7 malgenommen, also auch der Zähler: 5 · 7 = 35. Weg B: x² − 4 = (x − 2)(x + 2), der alte Nenner ist ein Faktor davon, der Erweiterungsfaktor ist x + 2, für x = 5 also 7. Neuer Zähler: 5(x + 2) = 5 · 7 = 35. Beide Wege geben 35.",
   [(5, "5", "den Zähler nicht mit erweitert"),
    (15, "5 * (5 - 2)", "mit x − 2 statt mit x + 2 erweitert"),
    (25, "5 * 5", "mit x statt mit x + 2 erweitert")],

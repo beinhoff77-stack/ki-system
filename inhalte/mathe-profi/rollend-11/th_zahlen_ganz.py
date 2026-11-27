@@ -21,7 +21,7 @@ Z(T, "ordnen", "bruecke",
   40, "5 - (-35)", "35 + 5",
   "Welche Zahl liegt auf der Zahlengerade am weitesten links, welche als Nächstes? Mit negativen Zahlen kommt es nicht auf die Größe der Ziffer an.",
   "Von links nach rechts: −80, −35, −12, 5, 20. Der zweitniedrigste Stand ist −35 €, der zweithöchste ist 5 €. Zwischen ihnen liegen 5 − (−35) = 40 €.",
-  [(23, "35 - 12", "nach dem Betrag statt nach der Lage geordnet: 12, 35 statt −35, 5 → 35 − 12"),
+  [(23, "35 - 12", "nach dem Betrag statt nach der Lage geordnet: als zweitniedrigster Stand 12 und als zweithöchster 35 genommen, also 35 − 12"),
    (100, "20 - (-80)", "höchsten und niedrigsten Stand genommen statt des zweithöchsten und des zweitniedrigsten"),
    (17, "5 - (-12)", "den drittniedrigsten Stand (−12) statt des zweitniedrigsten (−35) genommen")],
   "id.zahlen.zahlengerade", einheit="€",
@@ -36,6 +36,9 @@ def add_zeile(name, summanden, uebertrag, summe, schreibe, merke):
     return f"{name}: {teile} = {summe}. Ich schreibe {schreibe} hin{mer}.", ok
 
 
+# Übertrag jeder Zeile = gemerkter Übertrag der Zeile davor (die Folgezeilen rechnen mit dem Fehler richtig weiter)
+_uebertrag, _gemerkt = [0, 1, 1, 2], [1, 1, 2, 0]
+assert _uebertrag[1:] == _gemerkt[:-1]
 FD(T, "schriftlich_plus_minus",
    "Kim addiert schriftlich 3 748 + 2 659 + 1 875 und rechnet von rechts nach links.",
    [add_zeile("Einer", [8, 9, 5], 0, 22, 2, 1), add_zeile("Zehner", [4, 5, 7], 1, 17, 7, 1),

@@ -30,7 +30,7 @@ Z(T, "aequivalenz", "zwei_wege",
   "Für welche Zahl k haben die Terme 4(x + 3) − k(x − 1) und 2x + 14 für jede Zahl x denselben Wert? "
   "Weg A: Multipliziere den ersten Term aus und vergleiche die Glieder mit x und die Zahlen. Weg B: Setze für x zwei geschickt gewählte Zahlen ein.",
   2, "14 - 12", "(4 - 2)",
-  "Beide Wege müssen dasselbe k ergeben. Welche Zahl für x lässt das Glied mit k ganz wegfallen, welche macht die Klammer einfach?",
+  "Beide Wege müssen dasselbe k ergeben. Welche Zahl für x macht die Rechnung besonders einfach? Prüfe das Ergebnis mit einer zweiten Zahl.",
   "Weg A: 4(x + 3) − k(x − 1) = 4x + 12 − kx + k = (4 − k)x + (12 + k). Vergleich mit 2x + 14: 4 − k = 2 und 12 + k = 14, beides gibt k = 2. "
   "Weg B: Für x = 0 ist 12 + k = 14, also k = 2. Zur Kontrolle x = 2: 4 · 5 − 2 · 1 = 18 und 2 · 2 + 14 = 18.",
   [(-2, "2 - 4", "bei den Gliedern mit x das Vorzeichen von −k(x − 1) übersehen: 4 + k = 2"),

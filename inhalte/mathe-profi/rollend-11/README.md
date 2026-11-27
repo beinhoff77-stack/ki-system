@@ -40,10 +40,16 @@ Summe Klasse 5: 29 Lernkarten, 29 Aufgaben (FD 7, UM 6, ZW 5, BR 6, AN 5). Summe
 
 ## Annahmen
 - Die Lernkarten ohne Stufe 3 wurden aus `aufgabe.s` in `rollend-5` und `rollend-7` gezählt (29 und 31).
-- `tools/vorrat_pruefen.py` erfasst nur `rollend-1` bis `-4`; es wurde nicht geändert und nicht auf `rollend-11` angewendet.
+- `tools/vorrat_pruefen.py` erfasst von sich aus nur `rollend-1` bis `-4`; es wurde nicht geändert. `bauen.py` importiert seine vier Prüfungen und wendet sie auf diese Runde an (Vorprüfung).
 
 ## Offen
 - Fehlbild-Kennungen (`fehlbild`) sind überall `null`; sie müssen bei Bedarf einem Fehlbild-Katalog zugeordnet werden.
-- Bei Fehler-Detektiven und einigen Auswahlaufgaben gibt es keine `rechnung` je Fehlbild, nur Beschreibungen (33 Fehlbilder). Einige Fehlbild-Rechnungen sind kurze Zahlen ("2", "4 + 1").
+- 33 Fehlbilder haben keine `rechnung` (`c` = null): 32 sind die Antworten „In Zeile k“ der 14 Fehler-Detektive (nicht rechnerisch; ihre Wahrheitswerte kommen aus der Rechnung in `th_*.py`), 1 ist V007 (Antwort 1101101, Ziffern als normale Zahl gelesen).
 - Anzeige in der App nicht getestet (Tabellen, Index-Antworten).
 - Lernkarten, die in `rollend-5/7` später noch Stufe 3 bekommen, würden hier doppelt besetzt.
+
+## Vorprüfung durch zweiten Helfer
+Alle 60 Aufgaben vollständig gelesen und von Hand nachgerechnet (Lösung, jede Antwortoption, jedes Fehlbild, jede Detektiv-Zeile samt Folgezeilen). Lösungen und Fehlbild-Rechnungen: keine falsche gefunden. Alle 14 Fehler-Detektive: Fehlerzeile spricht die falsche Behauptung aus, Zeilen davor richtig, Folgezeilen folgen richtig.
+- Geändert (12 Aufgaben): V002 (Fehlerbeschreibung „eine Null zu wenig“), V006, V016, V035, V046, V054 (Fehlbild-Beschreibungen so, dass die Rechnung maschinell nachvollziehbar ist), V013 (Tipp zeigte fast die Lösung), V014 (Wachstum ausdrücklich „immer mit derselben Zahl malgenommen“, vorher nicht eindeutig), V018 (Fehlbild-Text unklar), V025 (Nachtisch bei jedem Gericht gleich, vorher mehrdeutig), V032 (Tipp „x für k wegfallen“ führte in die Irre, x = 1 sagt nichts über k), V040 (Tabelle war überflüssig, die Faktorform stand im Text und glich dem Lückenweg derselben Lernkarte; jetzt Brücke: c steht nur in der Tabelle, aus N(0) folgt c = 5, dritte Nullstelle außerhalb), V042 (Weg A war dieselbe Rechnung wie Weg B; jetzt Zahlenvergleich der Nenner bei x = 5).
+- `bauen.py` neu: wendet `vorrat_pruefen.py` (i bis iv) auf die Runde an, 4 begründete Restmeldungen (V054 Potenzschreibweise, V036 Parser, V024 und V019: Fehlerzeile mit richtiger Zahlenrechnung, falsch ist die ausgesprochene Rechenart bzw. der Übertrag, steht aber in dieser Zeile); prüft je Detektiv genau eine falsche Zeile = Schlüssel; Übertragskette in V019.
+- Fraglich, nicht geändert: V004 (Zeile 2 ist als Aussage richtig, der Fehler ist die Zweitrundung und steht als Behauptung in Zeile 3; ein Kind könnte Zeile 2 wählen). Für Stufe 3 eher leicht in Klasse 8: V039, V044, V055, V057; in Klasse 5: V013, V014, V028. V017 und V060: Weg A und Weg B sind verwandt (beide Zwischenwerte), aber verschiedene Verfahren.

@@ -70,7 +70,7 @@ W(T, "schriftlich", "bruecke",
   "Welche beiden Felder des Gitters ergeben zusammen Kims erste Zeile 46 · 30?",
   ["1 200 und 180", "1 200 und 320", "320 und 48", "180 und 48"], 0,
   [1200 + 180 == 46 * 30, 1200 + 320 == 46 * 30, 320 + 48 == 46 * 30, 180 + 48 == 46 * 30],
-  "In welcher Spalte des Gitters steht der Faktor 30?",
+  "46 · 30 heißt: beide Teile von 46 mal 30. Welche Felder gehören dazu?",
   "Die erste Zeile 46 · 30 = 1 380 gehört zur Spalte mit 30: 40 · 30 = 1 200 und 6 · 30 = 180, zusammen 1 380. "
   "Die zweite Zeile 46 · 8 = 368 gehört zur Spalte mit 8: 320 + 48 = 368. Zusammen 1 380 + 368 = 1 748.",
   {1: ("ein Feld der Spalte 30 mit einem Feld der Spalte 8 gemischt: 1 200 + 320", "1200 + 320"),

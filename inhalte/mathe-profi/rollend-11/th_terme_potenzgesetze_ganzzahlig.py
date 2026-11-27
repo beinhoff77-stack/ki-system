@@ -30,7 +30,7 @@ Z(T, "exponent_und_potenz", "zwei_wege",
   4, "2 ** ((-2) * (-3) + (-4))", "(1 / 4) ** (-3) * (1 / 16)",
   "Beide Wege müssen denselben Wert ergeben. Bei einer Potenz von einer Potenz werden die Hochzahlen malgenommen, bei einem Produkt gleicher Basen addiert.",
   "Weg A: (2⁻²)⁻³ = 2⁽⁻²⁾·⁽⁻³⁾ = 2⁶. Dann 2⁶ · 2⁻⁴ = 2⁶⁺⁽⁻⁴⁾ = 2² = 4. Weg B: 2⁻² = 1/4. (1/4)⁻³ = 4³ = 64. 2⁻⁴ = 1/16. 64 · 1/16 = 4. Beide Wege: 4.",
-  [(0.001953125, "2 ** (-9)", "alle Hochzahlen addiert: (−2) + (−3) + (−4) = −9"),
+  [(0.001953125, "2 ** (-9)", "alle Hochzahlen addiert, also 2⁻⁹ = 1 : 512"),
    (1024, "2 ** 10", "das Vorzeichen von −4 falsch verrechnet: 6 + 4 = 10"),
    (64, "(1 / 4) ** (-3)", "nur (2⁻²)⁻³ berechnet und den Faktor 2⁻⁴ vergessen")],
   "rr.potenz")

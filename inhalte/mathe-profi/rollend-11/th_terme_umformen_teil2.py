@@ -36,7 +36,7 @@ Z(T, "binomisch", "zwei_wege",
   "Beide Wege müssen dasselbe ergeben. Die zweite binomische Formel hat in der Mitte das Glied −2ab.",
   "Weg A: (100 − 3)² = 10 000 − 600 + 9 = 9 409. (100 − 4)(100 − 2) = 10 000 − 200 − 400 + 8 = 9 408. Differenz 9 409 − 9 408 = 1. "
   "Weg B: 96 · 98 = (97 − 1)(97 + 1) = 97² − 1². Also 97² − 96 · 98 = 97² − (97² − 1) = 1.",
-  [(583, "9991 - 9408", "(100 − 3)² als 100² − 3² gerechnet (mittleres Glied vergessen): 9 991"),
+  [(583, "9991 - 9408", "(100 − 3)² als 100² − 3² gerechnet (mittleres Glied vergessen, 9 991), dann 9 991 − 9 408"),
    (-1, "9408 - 9409", "die Differenz in falscher Reihenfolge gerechnet"),
    (2, "98 - 96", "die Differenz der beiden Faktoren genannt")],
   "rr.ausmultiplizieren")

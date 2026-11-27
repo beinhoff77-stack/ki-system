@@ -25,7 +25,7 @@
      "antwort": 2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die in der Tabelle sichtbaren Nullstellen gezählt (x = 5 liegt außerhalb der Tabelle)",
+     "beschreibung": "nur die in der Tabelle sichtbaren Nullstellen −1 und 2 gezählt (die dritte, x = 5, liegt außerhalb der Tabelle)",
      "rechnung": "3 - 1"
     },
     {
@@ -51,7 +51,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Die Tabelle zeigt den Wert des Nenners N(x) = (x − 2)(x + 1)(x − 5) für einige Zahlen x. Der Term T(x) = 7/N(x) hat diesen Nenner. Wie viele Zahlen muss man aus ℚ ausschließen, damit T(x) definiert ist?",
+     "text": "Die Tabelle zeigt einige Werte des Nenners N(x) = (x − 2)(x + 1)(x − c) für eine feste Zahl c. Der Term T(x) = 7/N(x) hat diesen Nenner. Wie viele Zahlen muss man aus ℚ ausschließen, damit T(x) definiert ist?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
@@ -81,8 +81,8 @@
      "einheit": "Zahlen"
     },
     "c": "3",
-    "h": "Wann ist ein Produkt aus drei Faktoren gleich null? Die Tabelle zeigt nur einen Ausschnitt.",
-    "w": "Der Nenner ist 0, wenn einer der Faktoren 0 ist: x = 2, x = −1 oder x = 5. Die Tabelle zeigt nur die Nullstellen −1 und 2, denn x = 5 liegt außerhalb der Tabelle. Man muss 3 Zahlen ausschließen: D = ℚ \\ {−1; 2; 5}."
+    "h": "Mit einem Wert aus der Tabelle kannst du c bestimmen. Wann ist ein Produkt aus drei Faktoren gleich null?",
+    "w": "Für x = 0 ist N(0) = (−2) · 1 · (−c) = 2c. Laut Tabelle ist N(0) = 10, also c = 5. Probe mit x = 1: (−1) · 2 · (1 − 5) = 8, das passt zur Tabelle. Der Nenner ist 0, wenn einer der Faktoren 0 ist: x = 2, x = −1 oder x = 5. Man muss 3 Zahlen ausschließen: D = ℚ \\ {−1; 2; 5}."
    }
   },
   {
@@ -197,14 +197,14 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Der Bruch 5/(x − 2) (x ≠ 2 und x ≠ −2) wird so erweitert, dass der Nenner x² − 4 lautet. Weg A: Teile den neuen Nenner durch den alten Nenner, das ist der Erweiterungsfaktor. Weg B: Zerlege x² − 4 mit der dritten binomischen Formel in Faktoren und vergleiche mit dem alten Nenner. Welchen Wert hat der neue Zähler für x = 5?"
+     "text": "Der Bruch 5/(x − 2) (x ≠ 2 und x ≠ −2) wird so erweitert, dass der Nenner x² − 4 lautet. Weg A: Setze x = 5 in den alten und in den neuen Nenner ein und vergleiche die beiden Zahlen. Weg B: Zerlege x² − 4 mit der dritten binomischen Formel in Faktoren und vergleiche mit dem alten Nenner. Welchen Wert hat der neue Zähler für x = 5?"
     },
     "o": {
      "wert": 35
     },
     "c": "5 * (5 + 2)",
-    "h": "Beide Wege müssen denselben Erweiterungsfaktor liefern. Der Zähler wird mit demselben Faktor malgenommen wie der Nenner.",
-    "w": "Weg A: (x² − 4) : (x − 2) = x + 2. Weg B: x² − 4 = (x − 2)(x + 2), der alte Nenner ist ein Faktor davon, der Erweiterungsfaktor ist x + 2. Neuer Zähler: 5(x + 2). Für x = 5: 5 · 7 = 35."
+    "h": "Beide Wege müssen denselben Wert ergeben. Der Zähler wird mit demselben Faktor malgenommen wie der Nenner.",
+    "w": "Weg A: Für x = 5 ist der alte Nenner 5 − 2 = 3 und der neue Nenner 25 − 4 = 21. Der Nenner wurde mit 21 : 3 = 7 malgenommen, also auch der Zähler: 5 · 7 = 35. Weg B: x² − 4 = (x − 2)(x + 2), der alte Nenner ist ein Faktor davon, der Erweiterungsfaktor ist x + 2, für x = 5 also 7. Neuer Zähler: 5(x + 2) = 5 · 7 = 35. Beide Wege geben 35."
    }
   },
   {

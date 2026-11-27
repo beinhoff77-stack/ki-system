@@ -179,7 +179,7 @@
      "antwort": 0.001953125,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "alle Hochzahlen addiert: (−2) + (−3) + (−4) = −9",
+     "beschreibung": "alle Hochzahlen addiert, also 2⁻⁹ = 1 : 512",
      "rechnung": "2 ** (-9)"
     },
     {

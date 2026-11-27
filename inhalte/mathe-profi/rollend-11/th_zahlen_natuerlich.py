@@ -26,7 +26,7 @@ FD(T, "ziffern_zu_zahlwort",
     ("„zwölf“ sind 12, zusammen 30 040 012.", 30040000 + 12 == 30040012)],
    "Rechne jede Zeile einzeln nach.",
    "In Zeile 2 sind „vierhunderttausend“ 400 · 1 000 = 400 000, nicht 40 000. Zeile 3 rechnet mit dem falschen Wert richtig weiter. Richtig: 30 000 000 + 400 000 + 12 = 30 400 012.",
-   "rr.stellenwert", "„vierhunderttausend“ mit nur vier Nullen weniger geschrieben: 40 000 statt 400 000")
+   "rr.stellenwert", "bei „vierhunderttausend“ eine Null zu wenig geschrieben: 40 000 statt 400 000")
 
 # ───────── strahl_eintragen: Anwenden ─────────
 Z(T, "strahl_eintragen", "anwenden",
@@ -71,7 +71,7 @@ Z(T, "roemisch_schreiben", "anwenden",
   2022, "1000 + 500 + 300 + 90 + 7 + 125", "1897 + 125",
   "Zerlege die römische Zahl in Gruppen. Ein kleines Zeichen vor einem größeren wird abgezogen.",
   "MDCCCXCVII = M (1 000) + D (500) + CCC (300) + XC (100 − 10 = 90) + VII (7) = 1 897. 1 897 + 125 = 2 022. Das Rathaus wurde 2022 erneuert.",
-  [(2042, "1000 + 500 + 300 + 110 + 7 + 125", "XC als 10 + 100 = 110 gelesen statt als 100 − 10 = 90"),
+  [(2042, "1000 + 500 + 300 + 110 + 7 + 125", "XC als 110 gelesen statt als 90, also 1 000 + 500 + 300 + 110 + 7 + 125"),
    (1897, "1000 + 500 + 300 + 90 + 7", "das Baujahr richtig gelesen, aber die 125 Jahre vergessen"),
    (1772, "1897 - 125", "125 Jahre abgezogen statt addiert")],
   "id.zahlen.schreibweisen")

@@ -155,7 +155,7 @@
      "antwort": 100,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "beim Addieren der Brüche Zähler und Nenner addiert: 1/60 + 1/40 = 2/100",
+     "beschreibung": "beim Addieren der Brüche Zähler und Nenner addiert (1/60 + 1/40 = 2/100), also v = 2 : (2/100)",
      "rechnung": "2 / (2 / 100)"
     },
     {

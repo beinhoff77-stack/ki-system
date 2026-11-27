@@ -433,6 +433,117 @@ neu(f, "vektor_drehen", "VW", W("Der Vektor v = (2 | 5) wird zweimal hintereinan
     "Zweimal 90° ergibt eine Drehung um wie viel Grad?", "Erst (2 | 5) → (−5 | 2), dann (−5 | 2) → (−2 | −5). Das ist eine Drehung um 180°.",
     lambda: rot90(rot90((2, 5))) == (-2, -5) and rot90((2, 5)) != (-2, -5) and rotm90((2, 5)) != (-2, -5) and (2, -5) != (-2, -5)), g="mehrschritt", regel=DECK)
 
+# ═════════════════════ Kind 2 · Flug a4 · Lineare Ungleichungen und Intervalle ═════════════════════
+f = "a4"
+UNG, INT = "gleichungen.ungleichungen", "zahlen.intervalle"
+loesung = lambda bed, lo=-40, hi=40: [x for x in range(lo, hi + 1) if bed(x)]
+# umformen
+neu(f, "umformen", "FD", FDZ("Kim löst 5x + 8 > 33.",
+    [("Auf beiden Seiten 8 abziehen: 5x > 25.", 33 - 8 == 25), ("Durch 5 teilen: x > 5.", 25 / 5 == 5), ("Die Lösung sind alle Zahlen kleiner als 5.", all((5 * x + 8 > 33) == (x < 5) for x in range(-20, 21)))],
+    "Das Zeichen bleibt beim Teilen durch eine positive Zahl, wie es ist.", "Aus x > 5 folgt: alle Zahlen größer als 5. Kim hat das Ergebnis falsch gelesen."))
+neu(f, "umformen", "VW", W("Wie löst du 4x − 9 ≥ 15 richtig?",
+    "Auf beiden Seiten 9 addieren: 4x ≥ 24. Durch 4 teilen: x ≥ 6",
+    [("Auf beiden Seiten 9 abziehen: 4x ≥ 6. Durch 4 teilen: x ≥ 1,5", "bei der Gegenrechnung addiert statt subtrahiert"), ("Nur 4x durch 4 teilen: x − 9 ≥ 15. Dann 9 addieren: x ≥ 24", "nur einen Term geteilt"), ("Beide Seiten durch 4 teilen: x − 9 ≥ 3. Dann 9 addieren: x ≥ 12", "die 9 nicht mitgeteilt")],
+    "Erst die Zahl ohne x auf die andere Seite bringen. Dann teilen.", "4x − 9 ≥ 15, also 4x ≥ 24 und x ≥ 6. Probe: x = 6: 4 · 6 − 9 = 15.",
+    lambda: loesung(lambda x: 4 * x - 9 >= 15)[0] == 6 and loesung(lambda x: 4 * x - 9 >= 15, 1, 1) == [] and 6 != 1.5 and 6 != 24 and 6 != 12), g="mehrschritt")
+# umdrehen
+neu(f, "umdrehen", "VW", W("Löse −3x + 4 > 19. Welcher Weg ist richtig?",
+    "4 abziehen: −3x > 15. Durch −3 teilen und das Zeichen umdrehen: x < −5",
+    [("4 abziehen: −3x > 15. Durch −3 teilen, aber das Zeichen lassen: x > −5", "Zeichen nicht umgedreht"), ("4 abziehen: −3x > 15. Durch 3 teilen: x > 5", "das Minus vor der 3 ignoriert"), ("4 abziehen: −3x > 15. Durch −3 teilen und das Zeichen umdrehen: x < 5", "15 : (−3) falsch vorzeichenbehaftet gerechnet")],
+    "Beim Teilen durch eine negative Zahl dreht sich das Zeichen um.", "−3x > 15. Durch −3 teilen: x < −5. Probe: x = −6: −3 · (−6) + 4 = 22 > 19.",
+    lambda: all((-3 * x + 4 > 19) == (x < -5) for x in range(-30, 31)) and not all((-3 * x + 4 > 19) == (x > -5) for x in range(-30, 31)) and not all((-3 * x + 4 > 19) == (x > 5) for x in range(-30, 31)) and not all((-3 * x + 4 > 19) == (x < 5) for x in range(-30, 31))), g="mehrschritt")
+# klammern
+neu(f, "klammern", "FD", FDZ("Kim löst 2(x − 3) < x + 5.",
+    [("Klammer auflösen: 2x − 3 < x + 5.", all(2 * (x - 3) == 2 * x - 3 for x in range(-5, 6))), ("Auf beiden Seiten x abziehen: x − 3 < 5.", True), ("Auf beiden Seiten 3 addieren: x < 8.", True)],
+    "Beim Auflösen der Klammer wird jede Zahl in der Klammer mit 2 multipliziert.", "2(x − 3) = 2x − 6, nicht 2x − 3. Richtig: 2x − 6 < x + 5, also x < 11."))
+neu(f, "klammern", "VW", W("Löse 3(x + 2) ≥ 5x − 4. Welche Lösung stimmt?",
+    "Klammer auflösen: 3x + 6 ≥ 5x − 4. Daraus folgt x ≤ 5",
+    [("Klammer auflösen: 3x + 6 ≥ 5x − 4. Daraus folgt x ≥ 5", "beim Teilen durch −2 das Zeichen nicht umgedreht"), ("Klammer auflösen: 3x + 2 ≥ 5x − 4. Daraus folgt x ≤ 3", "die 2 in der Klammer nicht mit 3 multipliziert"), ("Klammer auflösen: 3x + 6 ≥ 5x − 4. Daraus folgt x ≥ −5", "Vorzeichen beim Umstellen verloren")],
+    "Ordne: x-Terme auf eine Seite, Zahlen auf die andere. Beachte das Vorzeichen von x am Ende.", "3x + 6 ≥ 5x − 4 → 10 ≥ 2x → x ≤ 5. Probe: x = 5: 3 · 7 = 21 ≥ 21.",
+    lambda: all((3 * (x + 2) >= 5 * x - 4) == (x <= 5) for x in range(-30, 31)) and not all((3 * (x + 2) >= 5 * x - 4) == (x >= 5) for x in range(-30, 31)) and not all((3 * (x + 2) >= 5 * x - 4) == (x <= 3) for x in range(-30, 31)) and not all((3 * (x + 2) >= 5 * x - 4) == (x >= -5) for x in range(-30, 31))), g="mehrschritt")
+# intervall
+neu(f, "intervall", "LW", L("Löse 2x + 6 ≥ 14. Auf beiden Seiten 6 abziehen: 2x ≥ ①. Durch 2 teilen: x ≥ ②. Die Lösungsmenge ist das Intervall [②; ∞[.",
+    K(2), [8, 4], ["14 - 6", "(14 - 6) // 2"], ["2 * 4", "8 / 2"], "Die Grenze gehört dazu, weil „≥“ dasteht.", "2x ≥ 8, also x ≥ 4. L = [4; ∞[.",
+    {0: [(20, None, "6 addiert statt abgezogen")]}, hinweis=GZ), regel="id.algebra.gleichung_loesen", thema=UNG)
+neu(f, "intervall", "FD", FDZ("Kim löst −2x ≤ 10 und schreibt die Lösung als Intervall.",
+    [("Durch −2 teilen und das Zeichen umdrehen: x ≥ −5.", all((-2 * x <= 10) == (x >= -5) for x in range(-20, 21))), ("Die Grenze −5 gehört dazu, die Klammer zeigt zur Zahl hin: [−5.", True), ("Es geht unbegrenzt nach rechts: L = [−5; ∞].", False)],
+    "Bei ∞ zeigt die Klammer immer nach außen.", "∞ ist keine Zahl und gehört nie dazu. Richtig: L = [−5; ∞[."), thema=UNG)
+neu(f, "intervall", "VW", W("Löse 5 − x < 2 und gib die Lösungsmenge als Intervall an. Welche Antwort stimmt?",
+    "−x < −3, durch −1 teilen und das Zeichen umdrehen: x > 3, also L = ]3; ∞[",
+    [("−x < −3, daraus folgt x < 3, also L = ]−∞; 3[", "Zeichen nicht umgedreht"), ("−x < −3, durch −1 teilen und das Zeichen umdrehen: x > 3, also L = [3; ∞[", "Klammer bei „>“ falsch gesetzt"), ("−x < −3, daraus folgt x > −3, also L = ]−3; ∞[", "das Vorzeichen der Zahl nicht geteilt")],
+    "Auch bei −x dreht sich das Zeichen um, denn du teilst durch −1.", "5 − x < 2 → −x < −3 → x > 3. Die 3 gehört nicht dazu: L = ]3; ∞[.",
+    lambda: all((5 - x < 2) == (x > 3) for x in range(-20, 21)) and not (5 - 3 < 2) and not all((5 - x < 2) == (x < 3) for x in range(-20, 21)) and not all((5 - x < 2) == (x > -3) for x in range(-20, 21))), g="mehrschritt", thema=UNG)
+# pruefen
+neu(f, "pruefen", "LW", L("Prüfe, ob x = 5 die Ungleichung 2x + 3 ≤ 11 löst. Einsetzen: 2 · 5 + 3 = ①. Das ist größer als 11, also ist 5 keine Lösung. Prüfe x = 3: 2 · 3 + 3 = ②. Das ist kleiner als 11, also ist 3 eine Lösung.",
+    K(2), [13, 9], ["2 * 5 + 3", "2 * 3 + 3"], ["10 + 3", "6 + 3"], "Erst mal, dann plus.", "2 · 5 + 3 = 13 > 11. 2 · 3 + 3 = 9 ≤ 11.",
+    {0: [(16, None, "erst 5 + 3, dann mal 2 gerechnet")]}, hinweis=GZ), thema=UNG)
+neu(f, "pruefen", "FD", FDZ("Kim löst −2x + 1 > 7 und prüft das Ergebnis.",
+    [("1 abziehen: −2x > 6.", 7 - 1 == 6), ("Durch −2 teilen: x > −3.", all((-2 * x + 1 > 7) == (x > -3) for x in range(-20, 21))), ("Probe mit x = 0: −2 · 0 + 1 = 1, und 1 > 7 stimmt nicht.", not (1 > 7))],
+    "Die Probe zeigt: 0 ist größer als −3 und trotzdem keine Lösung.", "Durch −2 teilen dreht das Zeichen um: x < −3. Die Probe mit x = 0 deckt den Fehler auf."), thema=UNG)
+# grafisch
+neu(f, "grafisch", "LW", L("Die Geraden f(x) = 2x + 1 und g(x) = x + 4 schneiden sich dort, wo 2x + 1 = x + 4 gilt: bei x = ①. An der Stelle x = 5 ist f(5) = ② und g(5) = ③. Dort liegt f über g.",
+    K(3), [3, 11, 9], ["(4 - 1) // (2 - 1)", "2 * 5 + 1", "5 + 4"], ["3", "10 + 1", "4 + 5"], "Beim Schnittpunkt sind beide Funktionswerte gleich.", "x + 1 = 4, also x = 3. f(5) = 11, g(5) = 9.",
+    {0: [(5, None, "die Zahlen 1 und 4 addiert")]}, hinweis=GZ), regel="id.algebra.gleichung_loesen", thema=UNG)
+neu(f, "grafisch", "FD", FDZ("Die Geraden f(x) = x + 2 und g(x) = 3x − 4 schneiden sich bei x = 3. Kim löst f(x) < g(x) mit den Graphen.",
+    [("Links von x = 3 liegt g unter f.", (3 * 2 - 4) < (2 + 2)), ("Rechts von x = 3 liegt g über f.", (3 * 5 - 4) > (5 + 2)), ("f(x) < g(x) gilt also für alle x < 3.", all((x + 2 < 3 * x - 4) == (x < 3) for x in range(-20, 21)))],
+    "f(x) < g(x) heißt: f liegt unter g. Wo ist das der Fall?", "f liegt unter g rechts vom Schnittpunkt. Richtig: x > 3."), regel="id.algebra.gleichung_loesen", thema=UNG)
+neu(f, "grafisch", "VW", W("Die Geraden f(x) = −x + 6 und g(x) = 2x schneiden sich bei x = 2. Für welche x gilt f(x) ≥ g(x)?",
+    "für x ≤ 2, denn links vom Schnittpunkt liegt f über g", [("für x ≥ 2, denn rechts vom Schnittpunkt liegt f über g", "links und rechts verwechselt"), ("für x ≤ 6, denn bei x = 6 ist f(x) = 0", "die Nullstelle von f für den Schnittpunkt gehalten"), ("für x ≥ 6, denn dort ist g größer", "Nullstelle genommen und Richtung falsch")],
+    "Setze eine Zahl links vom Schnittpunkt ein, zum Beispiel x = 0.", "f(0) = 6 und g(0) = 0: links liegt f über g. Also f(x) ≥ g(x) für x ≤ 2.",
+    lambda: all((-x + 6 >= 2 * x) == (x <= 2) for x in range(-20, 21)) and -2 + 6 == 2 * 2 and not all((-x + 6 >= 2 * x) == (x >= 2) for x in range(-20, 21))), g="mehrschritt", regel="id.algebra.gleichung_loesen", thema=UNG)
+# sachaufgabe
+neu(f, "sachaufgabe", "LW", L("Ein Lastenaufzug darf höchstens 500 kg tragen. Ein Rollwagen wiegt 30 kg. Jede Kiste darauf wiegt 40 kg. Für k Kisten muss gelten: 30 + 40 · k ≤ 500. Also ist 40 · k ≤ ①. Die größte ganze Zahl k, die passt, ist ②.",
+    K(2), [470, 11], ["500 - 30", "(500 - 30) // 40"], ["470", str(max(k for k in range(0, 40) if 30 + 40 * k <= 500))], "Teile durch 40 und lass die Nachkommastellen weg: Man kann keine halbe Kiste laden.", "40 · k ≤ 470, also k ≤ 11,75. Ganze Kisten: höchstens 11.",
+    {1: [(12, None, "aufgerundet statt abgerundet")]}, hinweis=GZ), thema=UNG)
+neu(f, "sachaufgabe", "FD", FDZ("Ein Verein verlangt 8 € Grundgebühr und 3 € für jeden Besuch. Kim hat höchstens 50 € zur Verfügung und will wissen, wie oft er kommen kann.",
+    [("Ansatz: 8 + 3x ≥ 50.", False), ("8 abziehen: 3x ≥ 42.", 50 - 8 == 42), ("Durch 3 teilen: x ≥ 14.", 42 // 3 == 14)],
+    "Welches Zeichen gehört zu „höchstens“?", "„Höchstens 50 €“ heißt: Die Kosten sind kleiner oder gleich 50. Richtig: 8 + 3x ≤ 50, also x ≤ 14."), thema=UNG)
+neu(f, "sachaufgabe", "VW", W("Ein Taxi kostet 3 € Grundpreis und 2 € je Kilometer. Du hast 25 €. Wie viele Kilometer kannst du höchstens fahren? Welcher Ansatz passt?",
+    "3 + 2x ≤ 25, also x ≤ 11: höchstens 11 km",
+    [("3 + 2x ≥ 25, also x ≥ 11: mindestens 11 km", "„höchstens“ als „≥“ gelesen"), ("2 + 3x ≤ 25, also x ≤ 7: höchstens 7 km", "Grundpreis und Kilometerpreis vertauscht"), ("2x ≤ 25, also x ≤ 12: höchstens 12 km", "den Grundpreis vergessen")],
+    "Gesamtkosten = Grundpreis + Preis je km mal Kilometer. Sie dürfen 25 € nicht übersteigen.", "3 + 2x ≤ 25 → 2x ≤ 22 → x ≤ 11. Bei 11 km zahlst du genau 25 €.",
+    lambda: max(x for x in range(0, 40) if 3 + 2 * x <= 25) == 11 and max(x for x in range(0, 40) if 2 + 3 * x <= 25) == 7 and max(x for x in range(0, 40) if 2 * x <= 25) == 12), g="einkleidung", thema=UNG)
+# lesen (zahlen.intervalle)
+neu(f, "lesen", "LW", L("Das Intervall ]−3; 5[ enthält alle Zahlen zwischen −3 und 5, ohne die Grenzen. Die kleinste ganze Zahl darin ist ①. Die größte ganze Zahl darin ist ②. Insgesamt liegen ③ ganze Zahlen darin.",
+    K(3), [-2, 4, 7], ["-3 + 1", "5 - 1", "4 - (-2) + 1"], ["-2", "4", str(len([x for x in range(-3, 6) if -3 < x < 5]))], "Die Grenzen selbst gehören nicht dazu.", "Ohne die Grenzen: −2 bis 4. Das sind −2, −1, 0, 1, 2, 3, 4: sieben Zahlen.",
+    {0: [(-3, None, "die Grenze mitgezählt")], 1: [(5, None, "die Grenze mitgezählt")]}, hinweis=GZ), thema=INT)
+neu(f, "lesen", "FD", FDZ("Kim liest das Intervall [2; 7[.",
+    [("Die 2 gehört dazu, weil die Klammer zur Zahl hin zeigt.", True), ("Die 7 gehört nicht dazu, weil die Klammer von der Zahl weg zeigt.", True), ("Also sind alle Zahlen x mit 2 ≤ x ≤ 7 gemeint.", False)],
+    "Gehört die 7 dazu? Dann darf in der Ungleichung kein ≤ stehen.", "Die 7 gehört nicht dazu. Richtig: 2 ≤ x < 7."), thema=INT)
+# schreiben
+neu(f, "schreiben", "LW", L("x + 3 ≥ 9 ergibt x ≥ ①. x − 2 < 5 ergibt x < ②. Beides zusammen: ① ≤ x < ②. Als Intervall schreibst du das so: L = [①; ②[.",
+    K(2), [6, 7], ["9 - 3", "5 + 2"], ["3 * 2", "10 - 3"], "Erst beide Ungleichungen einzeln lösen.", "x ≥ 6 und x < 7. Das Intervall ist [6; 7[.",
+    {0: [(12, None, "3 addiert statt abgezogen")]}, hinweis=GZ), thema=INT)
+neu(f, "schreiben", "FD", FDZ("Kim schreibt „alle Zahlen größer als −1 und höchstens 4“ als Intervall.",
+    [("Die untere Grenze −1: „größer als“, also gehört −1 nicht dazu. Die Klammer zeigt weg: ]−1.", True), ("Die obere Grenze 4: „höchstens“, also gehört 4 dazu. Die Klammer zeigt zur Zahl: 4].", True), ("Zusammen: L = ]−1; 4[.", False)],
+    "Gehört die 4 dazu? Dann muss die Klammer zur 4 hin zeigen.", "Zeile 2 sagt: 4 gehört dazu. Also L = ]−1; 4]."), thema=INT)
+neu(f, "schreiben", "VW", W("Ein Paket darf mindestens 2 kg und höchstens 9 kg wiegen. Wie schreibst du die erlaubten Gewichte als Intervall?",
+    "[2; 9], denn beide Grenzen gehören dazu",
+    [("]2; 9[", "beide Grenzen ausgeschlossen"), ("[2; 9[", "„höchstens“ als „kleiner als“ gelesen"), ("]2; 9]", "„mindestens“ als „größer als“ gelesen")],
+    "„Mindestens“ und „höchstens“ lassen die Grenze zu.", "Mindestens 2 heißt: 2 gehört dazu. Höchstens 9 heißt: 9 gehört dazu. L = [2; 9].",
+    lambda: (2 >= 2 and 9 <= 9) and not (2 > 2) and not (9 < 9)), g="einkleidung", thema=INT)
+# enthalten
+neu(f, "enthalten", "LW", L("Das Intervall [−1; 4[ enthält die ganzen Zahlen −1, 0, 1, 2 und ①. Die Zahl 4 gehört nicht dazu. Insgesamt sind es ② ganze Zahlen.",
+    K(2), [3, 5], ["4 - 1", "4 - (-1)"], ["2 + 1", str(len([x for x in range(-1, 4)]))], "Zähle von der unteren Grenze bis kurz vor der oberen.", "−1, 0, 1, 2, 3: fünf Zahlen.",
+    {1: [(6, None, "die Grenze 4 mitgezählt")]}, hinweis=GZ), thema=INT)
+neu(f, "enthalten", "FD", FDZ("Kim prüft, welche der Zahlen −2, 0, 3 und 7 zum Intervall ]−2; 7] gehören.",
+    [("−2 ist die Grenze. Die Klammer zeigt weg, also gehört −2 nicht dazu.", not (-2 > -2)), ("0 und 3 liegen zwischen −2 und 7, also gehören sie dazu.", -2 < 0 <= 7 and -2 < 3 <= 7), ("7 ist die Grenze. Die Klammer zeigt weg, also gehört 7 nicht dazu.", not (-2 < 7 <= 7))],
+    "Welche Seite der 7 ist die Klammer, die „]“ oder „[“?", "Am Ende steht „]“. Das ist die Klammer zur Zahl hin: 7 gehört dazu."), thema=INT)
+neu(f, "enthalten", "VW", W("Wie viele ganze Zahlen liegen im Intervall [−3; 4]? Welche Rechnung ist richtig?",
+    "4 − (−3) + 1 = 8, denn beide Grenzen gehören dazu",
+    [("4 − (−3) = 7", "den Abstand gerechnet, aber eine Grenze nicht mitgezählt"), ("4 − (−3) − 1 = 6", "beide Grenzen nicht mitgezählt"), ("4 − 3 + 1 = 2", "das Minus bei −3 übersehen")],
+    "Nimm als Beispiel [1; 3]: Wie viele ganze Zahlen sind das?", "Beide Grenzen zählen mit: −3, −2, −1, 0, 1, 2, 3, 4 sind 8 Zahlen. Rechnung: 4 + 3 + 1 = 8.",
+    lambda: len([x for x in range(-3, 5)]) == 8 and 4 - (-3) != 8 and 4 - (-3) - 1 != 8 and 4 - 3 + 1 != 8), g="mehrschritt", thema=INT)
+# beurteilen
+neu(f, "beurteilen", "LW", L("Kim sagt: „]1; 6[ und [2; 5] enthalten dieselben ganzen Zahlen.“ In ]1; 6[ liegen ① ganze Zahlen. In [2; 5] liegen ② ganze Zahlen. Kims Aussage stimmt, wenn beide Zahlen gleich sind.",
+    K(2), [4, 4], ["6 - 1 - 1", "5 - 2 + 1"], ["2 + 2", str(len([x for x in range(2, 6)]))], "Schreibe die ganzen Zahlen beider Intervalle auf.", "In ]1; 6[ liegen 2, 3, 4, 5. In [2; 5] liegen 2, 3, 4, 5. Beide Mengen sind gleich.",
+    {0: [(5, None, "eine Grenze mitgezählt")]}, hinweis=GZ), thema=INT)
+neu(f, "beurteilen", "VW", W("Kim sagt: „Jede Zahl im Intervall [0; 5] liegt auch im Intervall ]0; 6[.“ Wie prüfst du das?",
+    "Es stimmt nicht: 0 liegt in [0; 5], aber nicht in ]0; 6[",
+    [("Es stimmt, denn 5 ist kleiner als 6", "nur die obere Grenze verglichen"), ("Es stimmt, denn beide Intervalle beginnen bei 0", "die Klammern übersehen"), ("Es stimmt nicht: 5 liegt in [0; 5], aber nicht in ]0; 6[", "5 gehört zu ]0; 6[")],
+    "Prüfe die Grenzen einzeln, besonders die Klammern.", "0 gehört zu [0; 5], aber nicht zu ]0; 6[. Ein Gegenbeispiel genügt: Die Aussage ist falsch.",
+    lambda: (0 <= 0 <= 5) and not (0 < 0 < 6) and (0 < 5 < 6)), g="mehrschritt", thema=INT)
+
 # ═════════════════════ Prüfen ═════════════════════
 KOMMA_LUECKE = re.compile(r"\d\s*,\s*[①②③④⑤□]")          # Lücke unmittelbar hinter dem Komma: wäre eine Ziffernfolge, keine Zahl (Auftrag 20)
 KOMMA_NEBEN = re.compile(r"[①②③④⑤□],|,[①②③④⑤□]")      # Komma direkt neben einem Lückenzeichen

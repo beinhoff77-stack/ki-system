@@ -8,17 +8,17 @@ neu(T, "umfang", "lueckenweg", L(
     "Der Umfang eines Kreises ist π mal Durchmesser. Eine Umdrehung entspricht genau einem Umfang.",
     "u = 3,14 · 50 = 157 cm. 4 Umdrehungen: 4 · 157 = 628 cm. 1 570 : 157 = 10 Umdrehungen.",
     {0: [(78.5, None, "den Radius statt des Durchmessers in die Formel u = π · d eingesetzt: 3,14 · 25", "3.14 * 25")], 1: [(161, "fb.verhaeltnis.addiert_statt_malgenommen", "4 addiert statt malgenommen: 157 + 4", "{1} + 4")],
-     2: [(1413, None, "den Umfang von der Strecke abgezogen: 1 570 − 157", "1570 - {1}")]}), regel=R)
+     2: [(1413, None, "den Umfang von der Strecke abgezogen: 1 570 − 157", "1570 - {1}")]}), regel=None)
 neu(T, "umfang", "zwei_wege", Z(
     "Ein Kreis mit dem Durchmesser 10 cm hat den Umfang 31,4 cm. Wie groß ist der Umfang eines Kreises mit dem Durchmesser 70 cm? Rechne mit π ≈ 3,14. Weg A: mit der Formel u = π · d. Weg B: Der Umfang ist proportional zum Durchmesser. Der zweite Durchmesser ist ein Vielfaches des ersten, der Umfang wächst mit demselben Faktor.",
     219.8, "3.14 * 70", "31.4 * (70 / 10)", "Beide Wege müssen denselben Umfang ergeben. Bei Weg B brauchst du zuerst den Faktor von 10 cm auf 70 cm.",
     "Weg A: u = 3,14 · 70 = 219,8 cm. Weg B: Faktor 70 : 10 = 7. u = 31,4 · 7 = 219,8 cm.",
-    [(439.6, DM, "2 · π · d gerechnet, als wäre d der Radius: 2 · 3,14 · 70", "2 * 3.14 * 70"), (91.4, "fb.verhaeltnis.addiert_statt_malgenommen", "den Unterschied der Durchmesser addiert statt den Faktor zu nehmen: 31,4 + 60", "31.4 + (70 - 10)"), (21.98, None, "nur mit dem Faktor 7 und π gerechnet: 3,14 · 7", "3.14 * 7")], "cm"), regel=R)
+    [(439.6, DM, "2 · π · d gerechnet, als wäre d der Radius: 2 · 3,14 · 70", "2 * 3.14 * 70"), (91.4, "fb.verhaeltnis.addiert_statt_malgenommen", "den Unterschied der Durchmesser addiert statt den Faktor zu nehmen: 31,4 + 60", "31.4 + (70 - 10)"), (21.98, None, "nur mit dem Faktor 7 und π gerechnet: 3,14 · 7", "3.14 * 7")], "cm"), regel=None)
 neu(T, "umfang", "umkehren", Z(
     "Ein Band ist 94,2 cm lang. Es wird straff und ohne Überlappung genau einmal um einen kreisrunden Baumstamm gelegt und passt genau. Rechne mit π ≈ 3,14. Welchen Radius hat der Querschnitt des Stamms?",
     15, "94.2 / (2 * 3.14)", "94.2 / 3.14 / 2", "Das Band ist so lang wie der Umfang des Querschnitts.",
     "u = 2 · π · r, also r = u : (2 · π) = 94,2 : 6,28 = 15 cm. Probe: 2 · 3,14 · 15 = 94,2.",
-    [(30, None, "den Durchmesser (94,2 : 3,14) berechnet, aber der Radius ist gefragt", "94.2 / 3.14"), (7.5, None, "zweimal durch 2 geteilt: 94,2 : 3,14 : 4", "94.2 / 3.14 / 4"), (295.788, None, "mit π multipliziert statt dividiert: 94,2 · 3,14", "94.2 * 3.14")], "cm"), g="rueckwaerts", regel=R)
+    [(30, None, "den Durchmesser (94,2 : 3,14) berechnet, aber der Radius ist gefragt", "94.2 / 3.14"), (7.5, None, "zweimal durch 2 geteilt: 94,2 : 3,14 : 4", "94.2 / 3.14 / 4"), (295.788, None, "Du hast U mit π multipliziert. Für den Radius musst du U durch 2π teilen.", "94.2 * 3.14")], "cm"), g="rueckwaerts", regel=None)
 
 # ───────── flaeche ─────────
 neu(T, "flaeche", "lueckenweg", L(

@@ -20,8 +20,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "regel_name": "Aus dem Rechteck",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -82,8 +82,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "regel_name": "Aus dem Rechteck",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -132,8 +132,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "regel_name": "Aus dem Rechteck",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -152,7 +152,7 @@
      "antwort": 295.788,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit π multipliziert statt dividiert: 94,2 · 3,14"
+     "beschreibung": "Du hast U mit π multipliziert. Für den Radius musst du U durch 2π teilen."
     }
    ],
    "aufgabe": {

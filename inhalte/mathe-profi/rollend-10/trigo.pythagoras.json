@@ -874,7 +874,7 @@
      "antwort": 8,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur eine Grundkante abgezogen und gerundet"
+     "beschreibung": "Du hast nur eine der beiden Grundrichtungen berücksichtigt: √(9² − 4²) = √65 ≈ 8,1. Für die Höhe musst du beide Grundkantenquadrate abziehen."
     }
    ],
    "aufgabe": {

@@ -85,9 +85,9 @@ neu(T, "winkel", "fehler_detektiv", FD(
     "Ein Dreieck ABC hat bei C einen rechten Winkel. Die Gegenkathete von α ist 3 cm, die Ankathete 4 cm lang. Kim berechnet α in Grad.",
     [("tan α = Gegenkathete : Ankathete = 3 : 4 = 0,75.", 3 / 4 == 0.75, True),
      ("Gesucht ist der Winkel, dessen Tangens 0,75 ist, also α = tan⁻¹(0,75).", True, True),
-     ("Mit dem Taschenrechner (Bogenmaß, RAD) erhalte ich α ≈ 0,64°.", False, round(math.atan(0.75), 2) == 0.64)],
+     ("Mit dem Taschenrechner (Bogenmaß, RAD) erhalte ich α ≈ 0,643501°.", False, round(math.atan(0.75), 6) == 0.643501)],
     "In welcher Einheit soll der Winkel angegeben werden? Auf welche Einstellung muss der Taschenrechner dann stehen?",
-    "Der Taschenrechner muss auf Gradmaß (DEG) stehen. Dann ist α = tan⁻¹(0,75) ≈ 36,9°. Der Rechner stand auf RAD: 0,64 rad wurden fälschlich als Grad angegeben. Mit DEG ergibt sich 36,9°, oder man rechnet 0,64 rad mit 180° : π um. Der Fehler steckt in Zeile 3."), regel=R)
+    "Der Taschenrechner muss auf Gradmaß (DEG) stehen. Dann ist α = tan⁻¹(0,75) ≈ 36,9°. Der Rechner stand auf RAD: tan⁻¹(0,75) ≈ 0,643501 rad ≈ 36,87°, die 0,643501 wurden fälschlich als Grad angegeben. Mit DEG ergibt sich 36,87°, oder man rechnet 0,643501 rad mit 180° : π um. Der Fehler steckt in Zeile 3."), regel=R)
 
 # ───────── beziehungen ─────────
 neu(T, "beziehungen", "lueckenweg", L(
@@ -107,7 +107,7 @@ neu(T, "beziehungen", "fehler_detektiv", FD(
      ("Also ist cos α = 1 − sin α = 1 − 0,5 = 0,5.", False, 1 - 0.5 == 0.5),
      ("Dann sind sin α und cos α gleich, also ist α = 45°.", False, True)],
     "Welche Größen stehen in der Beziehung zwischen Sinus und Kosinus im Quadrat?",
-    "Es gilt cos² α = 1 − sin² α = 1 − 0,25 = 0,75, also cos α = √0,75 ≈ 0,87. Kim hat sin α nicht quadriert. Der Fehler steckt in Zeile 2; Zeile 3 folgt daraus."), regel=R)
+    "Es gilt cos² α = 1 − sin² α = 1 − 0,25 = 0,75, also cos α = √0,75 ≈ 0,87. Kim lässt auf beiden Seiten die Quadrate weg. Erst cos² α = 1 − sin² α bestimmen, dann für den spitzen Winkel die positive Wurzel ziehen. Der Fehler steckt in Zeile 2; Zeile 3 folgt daraus."), regel=R)
 
 # ───────── anwendung ─────────
 neu(T, "anwendung", "lueckenweg", L(

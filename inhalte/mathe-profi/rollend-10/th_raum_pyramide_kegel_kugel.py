@@ -49,7 +49,7 @@ neu(T, "kegel_volumen", "lueckenweg", L(
     "① = □; ② = □; ③ = □", [9, 90, 30], ["3 ** 2", "{1} * 10", "{2} / 3"], ["9", "90", "90 // 3"],
     "Die Grundfläche ist ein Kreis. Ein Kegel fasst nur einen Teil von dem Zylinder mit gleicher Grundfläche und Höhe.",
     "G = π · 3² = 9π cm². Zylinder: 9π · 10 = 90π cm³. Kegel: ein Drittel davon, 90π : 3 = 30π cm³.",
-    {0: [(6, "fb.potenz.basis_mal_hochzahl", "3 · 2 statt 3² gerechnet", "3 * 2")], 1: [(19, None, "Grundfläche und Höhe addiert statt malgenommen: 9 + 10", "{1} + 10")], 2: [(90, DR, "den Faktor ein Drittel vergessen", "{2}"), (270, None, "mit 3 malgenommen statt durch 3 geteilt", "{2} * 3")]}), regel=R)
+    {0: [(6, "fb.potenz.basis_mal_hochzahl", "3 · 2 statt 3² gerechnet", "3 * 2")], 1: [(19, None, "Du hast den π-Koeffizienten 9 zur Höhenmaßzahl 10 addiert. Für den gesuchten Volumenkoeffizienten musst du 9 · 10 rechnen.", "{1} + 10")], 2: [(90, DR, "den Faktor ein Drittel vergessen", "{2}"), (270, None, "mit 3 malgenommen statt durch 3 geteilt", "{2} * 3")]}), regel=R)
 neu(T, "kegel_volumen", "anwenden", Z(
     "Ein Sandhaufen hat die Form eines geraden Kegels. Sein Durchmesser am Boden ist 3 m, seine Höhe ist 1,2 m. Rechne mit π ≈ 3,14. Wie viele Kubikmeter Sand sind das? Gib das Ergebnis ohne Rundung an.",
     2.826, "3.14 * 1.5 ** 2 * 1.2 / 3", "3.14 * 2.25 * 0.4", "Der Radius ist halb so groß wie der Durchmesser.",
@@ -110,7 +110,7 @@ neu(T, "sachkontext", "anwenden", Z(
     "Ein kugelförmiger Wassertank hat den Innendurchmesser 2 m. Wie groß ist das Fassungsvermögen des Tanks in Litern? Rechne mit π ≈ 3,14 und 1 m³ = 1 000 Liter. Runde das Ergebnis auf ganze Liter.",
     4187, "round(4 * 3.14 * 1 ** 3 / 3 * 1000, 0)", "round(4 / 3 * 3.14 * 1000, 0)", "Der Radius ist halb so groß wie der Durchmesser. Rechne das Volumen zuerst in m³, dann in Liter.",
     "r = 1 m. V = 4/3 · 3,14 · 1³ ≈ 4,1867 m³. In Liter: 4,1867 · 1 000 ≈ 4 187 l. Es passen etwa 4 187 Liter hinein.",
-    [(12560, None, "den Faktor 1/3 der Kugelformel vergessen: 4 · 3,14 · 1 000", "4 * 3.14 * 1000"), (33493, DM, "den Durchmesser 2 m als Radius genommen (gerundet)", "round(4 / 3 * 3.14 * 2 ** 3 * 1000, 0)")], "Liter"), g="einkleidung", regel=None)
+    [(12560, None, "den Faktor 1/3 der Kugelformel vergessen: 4 · 3,14 · 1 000", "4 * 3.14 * 1000"), (33493, None, "den Durchmesser 2 m als Radius genommen (gerundet)", "round(4 / 3 * 3.14 * 2 ** 3 * 1000, 0)")], "Liter"), g="einkleidung", regel=None)
 neu(T, "sachkontext", "umkehren", Z(
     "Eine Wachskugel mit dem Radius 6 cm wird vollständig eingeschmolzen. Aus dem Wachs wird ein gerader Kegel mit dem Radius 6 cm gegossen. Das Volumen bleibt dabei gleich. Wie hoch ist der Kegel?",
     24, "4 * 6 ** 3 / 3 * 3 / 6 ** 2", "(4 / 3 * 6 ** 3) / (6 ** 2 / 3)", "Beim Einschmelzen und Neugießen ändert sich das Volumen nicht.",

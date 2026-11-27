@@ -293,7 +293,7 @@
      "wert": 15
     },
     "c": "5 * 3",
-    "h": "Beide Wege müssen dasselbe ergeben. Bei Weg B ist ein Bildpunkt (3 | 21).",
+    "h": "Beide Wege müssen dasselbe ergeben. Bei Weg B brauchst du zuerst die beiden Bildpunkte.",
     "w": "Weg A: (0 | 5) wird zu (0 | 15), der Achsenabschnitt ist 15. Weg B: (1 | 7) wird zu (3 | 21), (2 | 9) wird zu (6 | 27). Steigung: (27 − 21) : (6 − 3) = 2. Dann 21 − 2 · 3 = 15. Beide Wege: 15."
    }
   },

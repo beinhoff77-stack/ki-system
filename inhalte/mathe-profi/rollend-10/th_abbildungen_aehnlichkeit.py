@@ -33,7 +33,7 @@ neu(T, "bildgerade", "lueckenweg", L(
      2: [(20, None, "mit der Geraden g statt mit g' gerechnet: 3 · 6 + 2", "3 * 6 + 2")]}), regel=R)
 neu(T, "bildgerade", "zwei_wege", Z(
     "Die Gerade g: y = 2x + 5 wird mit dem Zentrum O(0 | 0) und dem Faktor k = 3 gestreckt. Wie groß ist der y-Achsenabschnitt der Bildgeraden g'? Rechne auf zwei Wegen. Weg A: Strecke den Punkt (0 | 5) von g und lies den y-Achsenabschnitt ab. Weg B: Strecke zwei andere Punkte von g, zum Beispiel die mit x = 1 und x = 2, und bestimme die Gerade durch die beiden Bildpunkte.",
-    15, "5 * 3", "(2 * 1 + 5) * 3 - (((2 * 2 + 5) * 3) - ((2 * 1 + 5) * 3)) / (2 * 3 - 1 * 3) * (1 * 3)", "Beide Wege müssen dasselbe ergeben. Bei Weg B ist ein Bildpunkt (3 | 21).",
+    15, "5 * 3", "(2 * 1 + 5) * 3 - (((2 * 2 + 5) * 3) - ((2 * 1 + 5) * 3)) / (2 * 3 - 1 * 3) * (1 * 3)", "Beide Wege müssen dasselbe ergeben. Bei Weg B brauchst du zuerst die beiden Bildpunkte.",
     "Weg A: (0 | 5) wird zu (0 | 15), der Achsenabschnitt ist 15. Weg B: (1 | 7) wird zu (3 | 21), (2 | 9) wird zu (6 | 27). Steigung: (27 − 21) : (6 − 3) = 2. Dann 21 − 2 · 3 = 15. Beide Wege: 15.",
     [(5, None, "den y-Achsenabschnitt von g übernommen", "5"), (8, "fb.verhaeltnis.addiert_statt_malgenommen", "5 + 3 gerechnet statt 5 · 3", "5 + 3"), (6, None, "die Steigung 2 mit dem Faktor 3 vervielfacht: 2 · 3", "2 * 3")]), regel=R)
 neu(T, "bildgerade", "fehler_detektiv", FD(

@@ -777,7 +777,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Eine Kugel hat den Radius 3 cm. Gib ihr Volumen in der Form V = □ · π cm³ an. Welche Zahl gehört in das Kästchen? Rechne auf zwei Wegen. Weg A: mit der Formel V = 4/3 · π · r³. Weg B: Ein Zylinder mit dem Radius 3 cm und der Höhe 6 cm hat ein Volumen. Davon werden zwei Kegel abgezogen (Radius 3 cm, Höhe 3 cm). Der Rest hat dasselbe Volumen wie die Kugel, weil er in jeder Höhe denselben Querschnitt hat."
+     "text": "Eine Kugel hat den Radius 3 cm. Gib ihr Volumen in der Form V = □ · π cm³ an. Welche Zahl gehört in das Kästchen? Rechne auf zwei Wegen. Weg A: mit der Formel V = 4/3 · π · r³. Weg B: Berechne das Volumen eines Zylinders mit dem Radius 3 cm und der Höhe 6 cm. Ziehe davon die Volumina von zwei Kegeln ab. Beide Kegel haben den Radius 3 cm und die Höhe 3 cm, ihre Spitzen liegen im Mittelpunkt des Zylinders, ihre Grundflächen sind Boden und Deckel. Der Rest hat dasselbe Volumen wie die Kugel, weil er in jeder Höhe denselben Querschnitt hat."
     },
     "o": {
      "wert": 36

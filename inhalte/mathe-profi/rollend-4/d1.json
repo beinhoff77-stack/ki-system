@@ -66,11 +66,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
-     "antwort": 175,
+     "luecke": 1,
+     "antwort": 2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mal 5 statt geteilt durch 5"
+     "beschreibung": "6 : 3 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 99,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal statt geteilt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied nicht in Kinder zurückgerechnet"
     }
    ],
    "aufgabe": {
@@ -81,22 +95,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "In einem Säulendiagramm steht 1 cm Höhe für 5 Kinder. Eine Säule ist 6 cm hoch. Sie gehört zu 6 · 5 = ① Kindern. Eine andere Säule gehört zu 35 Kindern. Sie ist 35 : 5 = ② cm hoch.",
-     "schablone": "① = □; ② = □",
+     "text": "In einem Säulendiagramm steht 1 cm Höhe für 3 Kinder. Eine Säule ist 6 cm hoch. Sie gehört zu 6 · 3 = ① Kindern. Eine zweite Säule gehört zu 33 Kindern. Sie ist 33 : 3 = ② cm hoch. Die zweite Säule ist ② − 6 cm höher, das sind (② − 6) · 3 = ③ Kinder mehr.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      30,
-      7
+      18,
+      11,
+      15
      ]
     },
     "c": [
-     "6 * 5",
-     "35 // 5"
+     "6*3",
+     "33//3",
+     "(33//3-6)*3"
     ],
     "h": "Höhe mal Maßstab gibt die Anzahl.",
-    "w": "6 · 5 = 30 Kinder. 35 : 5 = 7 cm."
+    "w": "6 · 3 = 18 Kinder. 33 : 3 = 11 cm. 11 − 6 = 5 cm Unterschied, 5 · 3 = 15 Kinder mehr (33 − 18 = 15)."
    }
   },
   {
@@ -161,6 +177,20 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Achsenanfang nicht beachtet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die gezeichneten Höhen statt der Werte genommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal statt geteilt"
     }
    ],
    "aufgabe": {
@@ -171,22 +201,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Achse eines Säulendiagramms beginnt bei 40 statt bei 0. Säule A reicht bis 50, Säule B bis 100. Die sichtbare Höhe von B ist (100 − 40) : (50 − 40) = ①-mal so groß wie die von A. In Wahrheit ist B nur 100 : 50 = ②-mal so hoch.",
-     "schablone": "① = □; ② = □",
+     "text": "Die Achse eines Säulendiagramms beginnt bei 40 statt bei 0. Säule A reicht bis 50, Säule B bis 100. Die gezeichnete Höhe von B ist (100 − 40) : (50 − 40) = ①-mal so groß wie die von A. Die dargestellten Werte sind aber 50 und 100: Der Wert von B ist 100 : 50 = ②-mal so groß wie der von A. Das Bild übertreibt also um den Faktor ① : ② = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       6,
-      2
+      2,
+      3
      ]
     },
     "c": [
-     "(100 - 40) // (50 - 40)",
-     "100 // 50"
+     "(100-40)//(50-40)",
+     "100//50",
+     "((100-40)//(50-40))//(100//50)"
     ],
     "h": "Zieh bei der gekürzten Achse erst 40 ab.",
-    "w": "Sichtbar: 60 und 10, also 6-mal so groß. In Wahrheit: 100 : 50 = 2."
+    "w": "Gezeichnet sind 60 und 10, also 6-mal so hoch. Dargestellt sind die Werte 100 und 50: 2-mal. Das Bild übertreibt um 6 : 2 = 3."
    }
   },
   {
@@ -230,7 +262,7 @@
     "g": "einkleidung",
     "y": "auswahl",
     "f": {
-     "text": "25 Kinder werden nach ihrem Haustier gefragt: 9 haben einen Hund, 7 eine Katze, 4 einen Fisch. Alle anderen haben kein Tier. Wie findest du die Zahl der Kinder ohne Tier?"
+     "text": "25 Kinder werden nach ihrem Lieblingstier gefragt. Jedes Kind nennt höchstens eines: 9 nennen den Hund, 7 die Katze, 4 den Fisch. Die übrigen nennen kein Tier. Wie findest du die Zahl der Kinder, die kein Tier nennen?"
     },
     "a": [
      "9 + 7 + 4 = 20",
@@ -242,7 +274,7 @@
      "index": 1
     },
     "h": "Alle Gruppen zusammen sind die Gesamtzahl.",
-    "w": "Kinder mit Tier: 9 + 7 + 4 = 20. Ohne Tier: 25 − 20 = 5."
+    "w": "Jedes Kind wird nur einmal gezählt. Mit Lieblingstier: 9 + 7 + 4 = 20. Ohne: 25 − 20 = 5."
    }
   },
   {
@@ -279,7 +311,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim hat 20-mal gewürfelt. Seine Strichliste: Augenzahl 1 dreimal, 2 fünfmal, 3 viermal, 4 zweimal, 5 viermal, 6 dreimal. Zeile 1: Alle Häufigkeiten zusammen müssen 20 ergeben. Zeile 2: 3 + 5 + 4 + 2 + 4 + 3 = 20. Zeile 3: Die Strichliste passt also zu 20 Würfen. In welcher Zeile steckt der Fehler?"
+     "text": "Kim hat 20-mal gewürfelt. Seine Strichliste: Augenzahl 1 dreimal, 2 fünfmal, 3 viermal, 4 zweimal, 5 viermal, 6 dreimal. Zeile 1: Alle Häufigkeiten zusammen müssen 20 ergeben. Zeile 2: 3 + 5 + 4 + 2 + 4 + 3 = 20. Zeile 3: Die Strichliste passt also zu 20 Würfen. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -312,11 +344,11 @@
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -327,7 +359,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Bei 40 Würfen fällt 12-mal die Sechs. Kim berechnet die relative Häufigkeit. Zeile 1: Relative Häufigkeit = Anzahl : Gesamtzahl. Zeile 2: 12 : 40 = 0,3. Zeile 3: 0,3 sind 3 %. In welcher Zeile steckt der Fehler?"
+     "text": "Bei 40 Würfen fällt 12-mal die Sechs. Kim berechnet die relative Häufigkeit. Zeile 1: Relative Häufigkeit = Anzahl : Gesamtzahl. Zeile 2: 12 : 40 = 0,03. Zeile 3: 0,03 sind 3 %. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -335,10 +367,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
-    "h": "0,3 sind 30 Hundertstel. Wie viel Prozent ist das?",
-    "w": "0,3 = 30/100 = 30 %. Kim hat die Prozentzahl um eine Stelle verschoben."
+    "h": "12 : 40 ist dasselbe wie 30 : 100. Wie schreibt man das als Dezimalzahl?",
+    "w": "12 : 40 = 0,3. 0,3 sind 30 %. Zeile 3 folgt richtig aus der falschen Zeile 2."
    }
   },
   {
@@ -423,7 +455,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Im Säulendiagramm steht 1 cm Höhe für 4 Kinder. Eine Säule ist 7 cm hoch. Kim liest sie ab. Zeile 1: Jeder Zentimeter steht für 4 Kinder. Zeile 2: Die Säule gehört also zu 7 : 4 Kindern, das sind weniger als 2 Kinder. Zeile 3: Eine Säule für 12 Kinder wäre 12 : 4 = 3 cm hoch. In welcher Zeile steckt der Fehler?"
+     "text": "Im Säulendiagramm steht 1 cm Höhe für 4 Kinder. Eine Säule ist 7 cm hoch. Kim liest sie ab. Zeile 1: Jeder Zentimeter steht für 4 Kinder. Zeile 2: Die Säule gehört also zu 7 : 4 Kindern, das sind weniger als 2 Kinder. Zeile 3: Eine Säule für 12 Kinder wäre 12 : 4 = 3 cm hoch. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",

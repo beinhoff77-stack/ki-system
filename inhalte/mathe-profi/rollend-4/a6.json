@@ -21,11 +21,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "minus statt plus gerechnet"
+    },
+    {
      "luecke": 2,
+     "antwort": -2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Unterschied falsch herum"
+    },
+    {
+     "luecke": 3,
      "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "in II plus gerechnet"
+     "beschreibung": "plus statt minus gerechnet"
     }
    ],
    "aufgabe": {
@@ -36,22 +50,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Prüfe, ob (6 | 1) das System I: x + y = 9 und II: x − y = 1 löst. Einsetzen in I: 6 + 1 = ①. Das ist nicht 9. Einsetzen in II: 6 − 1 = ②. Das ist nicht 1. Also ist (6 | 1) keine Lösung.",
-     "schablone": "① = □; ② = □",
+     "text": "Prüfe, ob (6 | 1) das System I: x + y = 9 und II: x − y = 1 löst. Einsetzen in I: 6 + 1 = ①. Es fehlen 9 − ① = ② bis zur rechten Seite. Einsetzen in II: 6 − 1 = ③. Das ist nicht 1. Also ist (6 | 1) keine Lösung.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       7,
+      2,
       5
      ]
     },
     "c": [
-     "6 + 1",
-     "6 - 1"
+     "6+1",
+     "9-(6+1)",
+     "6-1"
     ],
     "h": "Setze x = 6 und y = 1 in die linke Seite ein.",
-    "w": "6 + 1 = 7 und 6 − 1 = 5. Keine Gleichung stimmt."
+    "w": "In I: 6 + 1 = 7, es fehlen 2 bis 9. In II: 6 − 1 = 5, nicht 1."
    }
   },
   {
@@ -112,10 +128,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": -10,
-     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
-     "regel_des_fehlbilds": "rr.plusminus",
-     "beschreibung": "1 − 11 gerechnet"
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "11 abgezogen statt addiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal 4 statt geteilt durch 4"
+    },
+    {
+     "luecke": 3,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das +1 vergessen"
     }
    ],
    "aufgabe": {
@@ -126,22 +156,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Bei I: y = 2x + 1 und II: y = 6x − 11 steht zweimal y = …. Gleichsetzen: 2x + 1 = 6x − 11. Auf beiden Seiten 2x abziehen: 1 = 4x − 11. 11 addieren: ① = 4x. Also ist x = ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Bei I: y = 2x + 1 und II: y = 6x − 11 steht zweimal y = …. Gleichsetzen: 2x + 1 = 6x − 11. Auf beiden Seiten 2x abziehen: 1 = 4x − 11. 11 addieren: ① = 4x. Also ist x = ②. Dann ist y = 2 · ② + 1 = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       12,
-      3
+      3,
+      7
      ]
     },
     "c": [
-     "1 + 11",
-     "(1 + 11) // 4"
+     "1+11",
+     "(1+11)//4",
+     "2*((1+11)//4)+1"
     ],
     "h": "Die Zahl 11 steht mit Minus auf der rechten Seite.",
-    "w": "1 + 11 = 12. 12 : 4 = 3. Probe: y = 2 · 3 + 1 = 7 und y = 6 · 3 − 11 = 7."
+    "w": "1 + 11 = 12, also 4x = 12 und x = 3. y = 2 · 3 + 1 = 7. Probe in II: 6 · 3 − 11 = 7."
    }
   },
   {
@@ -203,11 +235,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
-     "antwort": 10,
+     "luecke": 1,
+     "antwort": 12,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nicht durch 2 geteilt"
+     "beschreibung": "1 addiert statt abgezogen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal 2 statt geteilt durch 2"
+    },
+    {
+     "luecke": 3,
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das +1 vergessen"
     }
    ],
    "aufgabe": {
@@ -218,22 +264,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Bei I: y = 4x + 1 und II: y = 2x + 11 steht zweimal y = …. Das Gleichsetzen ist hier geschickt: 4x + 1 = 2x + 11. Dann ist 2x = ①. Also ist x = ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Bei I: y = 4x + 1 und II: y = 2x + 11 steht zweimal y = …. Das Gleichsetzen ist hier geschickt: 4x + 1 = 2x + 11. Dann ist 2x = ①. Also ist x = ②. Dann ist y = 4 · ② + 1 = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       10,
-      5
+      5,
+      21
      ]
     },
     "c": [
-     "11 - 1",
-     "(11 - 1) // 2"
+     "11-1",
+     "(11-1)//2",
+     "4*((11-1)//2)+1"
     ],
     "h": "Auf beiden Seiten 2x abziehen, dann 1 abziehen.",
-    "w": "4x − 2x = 2x und 11 − 1 = 10. x = 5."
+    "w": "2x = 11 − 1 = 10, also x = 5. y = 4 · 5 + 1 = 21. Probe in II: 2 · 5 + 11 = 21."
    }
   },
   {
@@ -249,10 +297,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Achsenabschnitte addiert"
+    },
+    {
+     "luecke": 2,
      "antwort": 1,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit genau einer Lösung verwechselt"
+     "beschreibung": "eine Lösung angenommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abstand als Zahl der Lösungen genommen"
     }
    ],
    "aufgabe": {
@@ -263,20 +325,22 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "I: y = 2x + 1 und II: y = 2x + 5. Gleichsetzen: 2x + 1 = 2x + 5. Auf beiden Seiten 2x abziehen: 1 = 5. Das ist falsch. Beide Geraden haben dieselbe Steigung und schneiden sich nie. Das System hat ① Lösungen.",
-     "schablone": "① = □",
+     "text": "I: y = 2x + 1 und II: y = 2x + 5. Beide Geraden haben dieselbe Steigung. Der Unterschied der Achsenabschnitte ist 5 − 1 = ①. Die Geraden liegen ① Einheiten übereinander und berühren sich nie. Das System hat ② Lösungen.",
+     "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
+      4,
       0
      ]
     },
     "c": [
+     "5-1",
      "0"
     ],
     "h": "Eine falsche Aussage heißt: Es passt keine Zahl.",
-    "w": "1 = 5 ist falsch: keine Lösung."
+    "w": "Gleiche Steigung, andere Achsenabschnitte: Die Geraden sind parallel (Abstand 4 senkrecht gemessen in y-Richtung). Sie schneiden sich nie, es gibt 0 Lösungen."
    }
   },
   {
@@ -336,11 +400,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 3,
-     "antwort": 19,
+     "luecke": 1,
+     "antwort": 14,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "x und y verwechselt"
+     "beschreibung": "20 − 6 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 26,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x statt y genannt"
     }
    ],
    "aufgabe": {
@@ -351,7 +429,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Zwei Zahlen haben die Summe 20 und die Differenz 6. Addiert man x + y = 20 und x − y = 6, so ist 2x = ①. Die größere Zahl ist x = ②. Die kleinere Zahl ist y = ③.",
+     "text": "Zwei Zahlen haben die Summe 20 und die Differenz 6. Addiert man x + y = 20 und x − y = 6, so ist 2x = ①. Die größere Zahl ist x = ① : 2 = ②. Die kleinere Zahl ist y = 20 − ② = ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -363,12 +441,12 @@
      ]
     },
     "c": [
-     "20 + 6",
-     "(20 + 6) // 2",
-     "20 - (20 + 6) // 2"
+     "20+6",
+     "(20+6)//2",
+     "20-(20+6)//2"
     ],
     "h": "Das y fällt beim Addieren weg.",
-    "w": "2x = 26, x = 13. y = 20 − 13 = 7."
+    "w": "2x = 26, x = 13, y = 20 − 13 = 7. Probe: 13 − 7 = 6."
    }
   },
   {
@@ -495,18 +573,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -517,7 +595,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Prüfe das Paar (5 | 1) im System I: 2x + y = 11 und II: x − y = 1. Kim prüft. Zeile 1: In I: 2 · 5 + 1 = 11. Das stimmt. Zeile 2: In II: 5 − 1 = 4. Das ist nicht 1. Zeile 3: Eine Gleichung stimmt, also ist (5 | 1) eine Lösung des Systems. In welcher Zeile steckt der Fehler?"
+     "text": "Prüfe das Paar (5 | 1) im System I: 2x + y = 11 und II: x − y = 1. Kim prüft. Zeile 1: In I setze ich x = 1 und y = 5 ein: 2 · 1 + 5 = 7. Das ist nicht 11. Zeile 2: Eine Gleichung stimmt nicht, also ist (5 | 1) keine Lösung des Systems. Zeile 3: In II: 1 − 5 = −4. Das ist nicht 1. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -525,10 +603,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Ein Paar ist eine Lösung des Systems, wenn es zu beiden Gleichungen passt.",
-    "w": "Gleichung II stimmt nicht. (5 | 1) ist keine Lösung des Systems."
+    "h": "Welche Zahl des Paares gehört zu x, welche zu y?",
+    "w": "Im Paar (5 | 1) ist x = 5 und y = 1. In I: 2 · 5 + 1 = 11 stimmt. In II: 5 − 1 = 4 stimmt nicht. Also ist (5 | 1) keine Lösung des Systems."
    }
   },
   {
@@ -543,18 +621,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -565,7 +643,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Das System I: y = 3x − 2 und II: y = x + 6 wird durch Gleichsetzen gelöst. Kim rechnet. Zeile 1: Gleichsetzen: 3x − 2 = x + 6. Zeile 2: x abziehen: 2x − 2 = 6. Zeile 3: 2 abziehen: 2x = 4, also x = 2. In welcher Zeile steckt der Fehler?"
+     "text": "Das System I: y = 3x − 2 und II: y = x + 6 wird durch Gleichsetzen gelöst. Kim rechnet. Zeile 1: Gleichsetzen: 3x − 2 = x − 6. Zeile 2: x abziehen: 2x − 2 = −6. Zeile 3: 2 addieren: 2x = −4, also x = −2. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -573,10 +651,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Die −2 wird auf der anderen Seite zu +2.",
-    "w": "2x − 2 = 6 ergibt 2x = 8 und x = 4. Dann y = 4 + 6 = 10."
+    "h": "Schreibe die rechte Seite von II noch einmal ab. Was steht dort?",
+    "w": "Gleichsetzen: 3x − 2 = x + 6, nicht x − 6. Dann 2x − 2 = 6, 2x = 8, x = 4 und y = 10. Die Zeilen 2 und 3 folgen richtig aus der falschen Zeile 1."
    }
   },
   {
@@ -646,11 +724,11 @@
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -661,7 +739,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "System: I: x + y = 10 und II: x − y = 4. Kim wählt das Additionsverfahren. Zeile 1: In I und II stehen +y und −y. Das sind Gegenzahlen. Zeile 2: Darum ist das Additionsverfahren geschickt. Zeile 3: Addiert man beide Gleichungen, so ist 2x = 6, also x = 3. In welcher Zeile steckt der Fehler?"
+     "text": "System: I: x + y = 10 und II: x − y = 4. Kim wählt das Additionsverfahren. Zeile 1: In I und II stehen +y und −y. Das sind Gegenzahlen. Zeile 2: Man addiert nur die linken Seiten: x + y + x − y = 2x. Die rechte Seite bleibt 10. Zeile 3: Also ist 2x = 10 und x = 5. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -669,10 +747,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
-    "h": "Rechne 10 + 4 noch einmal.",
-    "w": "10 + 4 = 14. Also 2x = 14 und x = 7."
+    "h": "Beim Addieren der Gleichungen wird jede Seite mit der anderen Seite addiert. Was steht dann rechts?",
+    "w": "Rechts wird auch addiert: 10 + 4 = 14. Also 2x = 14, x = 7 und y = 3. Zeile 3 folgt richtig aus der falschen Zeile 2."
    }
   },
   {
@@ -805,7 +883,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Kino verkauft 100 Karten. Erwachsene zahlen 8 €, Kinder 5 €. Die Einnahmen sind 620 €. Kim stellt die Gleichungen auf. x ist die Zahl der Erwachsenen, y die der Kinder. Zeile 1: Karten: x + y = 100. Zeile 2: Einnahmen: 8y + 5x = 620. Zeile 3: Aus der ersten Gleichung folgt y = 100 − x. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Kino verkauft 100 Karten. Erwachsene zahlen 8 €, Kinder 5 €. Die Einnahmen sind 620 €. Kim stellt die Gleichungen auf. x ist die Zahl der Erwachsenen, y die der Kinder. Zeile 1: Karten: x + y = 100. Zeile 2: Einnahmen: 8y + 5x = 620. Zeile 3: Aus der ersten Gleichung folgt y = 100 − x. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -817,6 +895,90 @@
     },
     "h": "Wer zahlt 8 €? Zu welcher Unbekannten gehört die 8?",
     "w": "Erwachsene (x) zahlen 8 €, Kinder (y) zahlen 5 €: 8x + 5y = 620."
+   }
+  },
+  {
+   "kennung": "A6-V18",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "einsetzen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "rr.minusklammer",
+   "regel_name": "Minus vor der Klammer",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "y ausgerechnet statt x"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 durch 2 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "einsetzen",
+    "t": "einsetzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Für x und y gilt: y = 2x und x + y = 12. Weg A: 2x für y einsetzen und x + 2x = 12 lösen. Weg B: y ist doppelt so groß wie x, also teilen sich 12 in drei gleiche Teile. Wie groß ist x?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 4
+    },
+    "c": "12 // 3",
+    "h": "Beide Wege zerlegen die 12 in x und das Doppelte von x.",
+    "w": "Weg A: x + 2x = 3x = 12, also x = 4. Weg B: x ist ein Teil, y sind zwei Teile, zusammen 3 Teile = 12, ein Teil ist 12 : 3 = 4. Dann ist y = 8 und die Probe 4 + 8 = 12 stimmt."
+   }
+  },
+  {
+   "kennung": "A6-V19",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "verfahren",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die halbe Summe genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "verfahren",
+    "t": "verfahren",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Die Summe zweier Zahlen ist 16, ihre Differenz ist 4. Wie groß ist die größere Zahl?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 10
+    },
+    "c": "(16 + 4) // 2",
+    "h": "Addiere beide Angaben. Was bleibt von der kleineren Zahl übrig?",
+    "w": "Größere Zahl g und kleinere k: g + k = 16 und g − k = 4. Beide Gleichungen addiert geben 2g = 20, also g = 10. Dann ist k = 6, die Probe 10 + 6 = 16 und 10 − 6 = 4 stimmt."
    }
   }
  ]

@@ -22,10 +22,17 @@
    "fehlbilder": [
     {
      "luecke": 2,
-     "antwort": -9,
-     "fehlbild": "fb.reihenfolge.minus_ins_quadrat",
-     "regel_des_fehlbilds": "rr.reihenfolge",
-     "beschreibung": "das Minus nicht mitquadriert"
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus vergessen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide positiv gerechnet"
     }
    ],
    "aufgabe": {
@@ -36,22 +43,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Zuordnung x ↦ x² ordnet der Zahl 3 den Wert ① zu. Der Zahl −3 ordnet sie den Wert ② zu. Jede Eingabe hat genau einen Wert. Also ist die Zuordnung eine Funktion.",
-     "schablone": "① = □; ② = □",
+     "text": "Die Zuordnung x ↦ x² ordnet zwei verschiedenen Zahlen den Wert 25 zu. Die positive ist ①: ① · ① = 25. Die negative ist ②: ② · ② = 25. Zusammengezählt ergeben beide ① + ② = ③. Der Wert 25 gehört also zu zwei Eingaben. Das ist erlaubt: Es ist eine Funktion, weil jede Eingabe genau einen Wert hat.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      9,
-      9
+      5,
+      -5,
+      0
      ]
     },
     "c": [
-     "3 ** 2",
-     "(-3) ** 2"
+     "5",
+     "-5",
+     "5+(-5)"
     ],
     "h": "Quadrieren heißt: mit sich selbst malnehmen.",
-    "w": "3² = 9 und (−3)² = (−3) · (−3) = 9. Zwei Eingaben dürfen denselben Wert haben."
+    "w": "5 · 5 = 25 und (−5) · (−5) = 25. Die Summe ist 0. Zwei Eingaben mit demselben Wert sind erlaubt; verboten wäre eine Eingabe mit zwei Werten."
    }
   },
   {
@@ -112,10 +121,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 20,
-     "fehlbild": "fb.reihenfolge.links_nach_rechts",
-     "regel_des_fehlbilds": "rr.reihenfolge",
-     "beschreibung": "2 · (4 + 3) gerechnet"
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "erst 4 + 3, dann mal 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 26,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "erst 10 + 3, dann mal 2"
+    },
+    {
+     "luecke": 3,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die x-Differenz mal 1 gerechnet"
     }
    ],
    "aufgabe": {
@@ -126,22 +149,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Zur Funktion f(x) = 2x + 3 gibt es eine Wertetabelle. Oben steht x, darunter f(x). Für x = 4 ist f(4) = ①. Für x = 10 ist f(10) = ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Zur Funktion f(x) = 2x + 3 gibt es eine Wertetabelle. Oben steht x, darunter f(x). Für x = 4 ist f(4) = ①. Für x = 10 ist f(10) = ②. Von x = 4 bis x = 10 wächst f(x) um ② − ① = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       11,
-      23
+      23,
+      12
      ]
     },
     "c": [
-     "2 * 4 + 3",
-     "2 * 10 + 3"
+     "2*4+3",
+     "2*10+3",
+     "(2*10+3)-(2*4+3)"
     ],
     "h": "Erst mal, dann plus.",
-    "w": "f(4) = 2 · 4 + 3 = 11. f(10) = 2 · 10 + 3 = 23."
+    "w": "f(4) = 2 · 4 + 3 = 11. f(10) = 2 · 10 + 3 = 23. 23 − 11 = 12."
    }
   },
   {
@@ -171,7 +196,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Am Graphen von f liest du ab: Bei x = 2 liegt der Graph bei y = 4, bei x = 5 bei y = 13. Von x = 2 bis x = 5 sind es 5 − 2 = ① Schritte nach rechts. Der Graph steigt um 13 − 4 = ②. Pro Schritt steigt er um ② : ① = ③.",
+     "text": "Der Graph von f ist eine Gerade. Du liest ab: Bei x = 2 liegt der Graph bei y = 4, bei x = 5 bei y = 13. Von x = 2 bis x = 5 sind es 5 − 2 = ① Schritte nach rechts. Der Graph steigt um 13 − 4 = ②. Pro Schritt steigt er um ② : ① = ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -205,9 +230,23 @@
     {
      "luecke": 1,
      "antwort": 5,
-     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
-     "regel_des_fehlbilds": "rr.plusminus",
-     "beschreibung": "das Minus vergessen"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen vergessen"
+    },
+    {
+     "luecke": 1,
+     "antwort": -20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal 2 statt geteilt durch 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit x = 5 statt x = −5 gerechnet"
     }
    ],
    "aufgabe": {
@@ -218,20 +257,22 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Nullstelle von f(x) = 2x + 10 ist die Stelle, an der f(x) = 0 gilt. Aus 2x + 10 = 0 folgt x = ①. Der Graph schneidet die x-Achse also im Punkt (① | 0).",
-     "schablone": "① = □",
+     "text": "Die Nullstelle von f(x) = 2x + 10 ist die Stelle, an der f(x) = 0 gilt. Aus 2x + 10 = 0 folgt x = ①. Der Graph schneidet die x-Achse im Punkt (① | 0). Drei Schritte weiter rechts, bei x = ① + 3, ist f(① + 3) = ②.",
+     "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      -5
+      -5,
+      6
      ]
     },
     "c": [
-     "-10 // 2"
+     "-10//2",
+     "2*(-10//2+3)+10"
     ],
-    "h": "Bringe erst die 10 auf die andere Seite.",
-    "w": "2x = −10, also x = −5. Der Punkt ist (−5 | 0)."
+    "h": "Bring erst die Zahl ohne x auf die andere Seite. Achte auf das Vorzeichen.",
+    "w": "2x = −10, also x = −5. Bei x = −2 ist f(−2) = 2 · (−2) + 10 = 6."
    }
   },
   {
@@ -247,10 +288,17 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 8,
+     "antwort": 10,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den y-Wert des Punktes übernommen"
+     "beschreibung": "erst 4 + 1, dann mal 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Unterschied falsch herum"
     }
    ],
    "aufgabe": {
@@ -261,20 +309,22 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Liegt P(3 | 8) auf dem Graphen von f(x) = 2x + 1? Setze x = 3 ein: f(3) = 2 · 3 + 1 = ①. Der y-Wert von P ist 8, und ① ist nicht 8. Also liegt P nicht auf dem Graphen.",
-     "schablone": "① = □",
+     "text": "Liegt P(4 | 12) auf dem Graphen von f(x) = 2x + 1? Setze x = 4 ein: f(4) = 2 · 4 + 1 = ①. Der y-Wert von P ist 12. Der Unterschied ist 12 − ① = ②. Weil ② nicht 0 ist, liegt P nicht auf dem Graphen.",
+     "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      7
+      9,
+      3
      ]
     },
     "c": [
-     "2 * 3 + 1"
+     "2*4+1",
+     "12-(2*4+1)"
     ],
     "h": "Setze die erste Zahl des Punktes in den Term ein.",
-    "w": "f(3) = 6 + 1 = 7. Der Graph geht durch (3 | 7), nicht durch (3 | 8)."
+    "w": "f(4) = 9, nicht 12. Der Unterschied ist 3. P liegt nicht auf dem Graphen."
    }
   },
   {
@@ -291,9 +341,23 @@
     {
      "luecke": 1,
      "antwort": 28,
-     "fehlbild": "fb.reihenfolge.links_nach_rechts",
-     "regel_des_fehlbilds": "rr.reihenfolge",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "(5 + 2) · 4 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 70,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "(5 + 2) · 10 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die zusätzlichen GB gezählt"
     }
    ],
    "aufgabe": {
@@ -304,22 +368,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Handytarif kostet 5 € Grundgebühr und 2 € je Gigabyte (GB). Für 4 GB zahlt man 5 + 2 · 4 = ① €. Für 10 GB zahlt man 5 + 2 · 10 = ② €.",
-     "schablone": "① = □; ② = □",
+     "text": "Ein Handytarif kostet 5 € Grundgebühr und 2 € je Gigabyte (GB). Für 4 GB zahlt man 5 + 2 · 4 = ① €. Für 10 GB zahlt man 5 + 2 · 10 = ② €. Für 10 GB zahlt man also ② − ① = ③ € mehr als für 4 GB.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       13,
-      25
+      25,
+      12
      ]
     },
     "c": [
-     "5 + 2 * 4",
-     "5 + 2 * 10"
+     "5+2*4",
+     "5+2*10",
+     "(5+2*10)-(5+2*4)"
     ],
     "h": "Erst malnehmen, dann die Grundgebühr dazu.",
-    "w": "5 + 8 = 13 €. 5 + 20 = 25 €."
+    "w": "5 + 8 = 13 €. 5 + 20 = 25 €. 25 − 13 = 12 €: Nur die 6 zusätzlichen GB kosten extra (6 · 2 = 12), die Grundgebühr fällt nur einmal an."
    }
   },
   {
@@ -524,7 +590,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim bestimmt die Definitionsmenge von f(x) = 6 : (x + 2). Zeile 1: Man darf nicht durch 0 teilen. Zeile 2: x + 2 = 0 gilt für x = 2. Zeile 3: Also ist D = ℝ ohne {2}. In welcher Zeile steckt der Fehler?"
+     "text": "Kim bestimmt die Definitionsmenge von f(x) = 6 : (x + 2). Zeile 1: Man darf nicht durch 0 teilen. Zeile 2: x + 2 = 0 gilt für x = 2. Zeile 3: Also ist D = ℝ ohne {2}. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -572,7 +638,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim berechnet f(−2) für f(x) = x² − 3x. Zeile 1: Einsetzen: (−2)² − 3 · (−2). Zeile 2: (−2)² = −4 und −3 · (−2) = 6. Zeile 3: Zusammen: −4 + 6 = 2. In welcher Zeile steckt der Fehler?"
+     "text": "Kim berechnet f(−2) für f(x) = x² − 3x. Zeile 1: Einsetzen: (−2)² − 3 · (−2). Zeile 2: (−2)² = −4 und −3 · (−2) = 6. Zeile 3: Zusammen: −4 + 6 = 2. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -620,7 +686,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Für f(x) = 3x − 4 wird die Zahl x gesucht, bei der f(x) = 11 gilt. Kim rechnet. Zeile 1: Gesucht ist x mit f(x) = 11. Zeile 2: Ich setze 11 für x ein: f(11) = 3 · 11 − 4 = 29. Zeile 3: Also ist x = 29. In welcher Zeile steckt der Fehler?"
+     "text": "Für f(x) = 3x − 4 wird die Zahl x gesucht, bei der f(x) = 11 gilt. Kim rechnet. Zeile 1: Gesucht ist x mit f(x) = 11. Zeile 2: Ich setze 11 für x ein: f(11) = 3 · 11 − 4 = 29. Zeile 3: Also ist x = 29. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -646,18 +712,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -668,7 +734,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Eine Wertetabelle zeigt x = 1, 2, 3, 4 und f(x) = 5, 7, 9, 11. Kim sucht den Term. Zeile 1: f(x) wächst bei jedem Schritt von x um 2. Zeile 2: Also hat der Term die Form f(x) = 2x + c. Zeile 3: Für x = 1 muss 5 herauskommen: 2 · 1 + c = 5, also c = 2. Der Term ist f(x) = 2x + 2. In welcher Zeile steckt der Fehler?"
+     "text": "Die Wertetabelle einer linearen Funktion zeigt x = 1, 2, 3, 4 und f(x) = 5, 7, 9, 11. Kim sucht den Term. Zeile 1: Von x = 1 bis x = 4 wächst f(x) von 5 auf 11, also um 6. Pro Schritt wächst f(x) um 6. Zeile 2: Also hat der Term die Form f(x) = 6x + c. Zeile 3: Für x = 1 muss 5 herauskommen: 6 · 1 + c = 5, also c = −1. Der Term ist f(x) = 6x − 1. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -676,10 +742,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Setze zur Probe x = 2 in 2x + 2 ein. Kommt 7 heraus?",
-    "w": "2 · 1 + c = 5 ergibt c = 3. Richtig: f(x) = 2x + 3. Probe: f(2) = 7."
+    "h": "Von x = 1 bis x = 4: Wie viele Schritte nach rechts sind das?",
+    "w": "Von x = 1 bis x = 4 sind es 3 Schritte. 6 : 3 = 2 je Schritt. Mit 2 · 1 + c = 5 ist c = 3, also f(x) = 2x + 3. Probe: f(2) = 7. Die Zeilen 2 und 3 folgen richtig aus der falschen Zeile 1."
    }
   },
   {
@@ -694,18 +760,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -716,7 +782,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Der Graph von f steigt gleichmäßig. Er geht durch die Punkte (1 | 3), (2 | 5) und (4 | 9). Kim liest f(3) ab. Zeile 1: Von (1 | 3) nach (2 | 5) steigt der Graph um 2. Zeile 2: Bei x = 3 liegt der Graph also zwischen 5 und 9. Zeile 3: Dort liest Kim f(3) = 8 ab. In welcher Zeile steckt der Fehler?"
+     "text": "Der Graph von f steigt gleichmäßig. Er geht durch die Punkte (1 | 3), (2 | 5) und (4 | 9). Kim liest f(3) ab. Zeile 1: Von (1 | 3) nach (4 | 9) steigt der Graph um 9 − 3 = 6. Das ist der Anstieg pro Schritt nach rechts. Zeile 2: Von (2 | 5) nach x = 3 ist es ein Schritt, also f(3) = 5 + 6 = 11. Zeile 3: Kim liest f(3) = 11 ab. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -724,10 +790,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Von (2 | 5) aus geht es um 2 nach oben.",
-    "w": "f(3) = 5 + 2 = 7. Probe: Von (3 | 7) nach (4 | 9) sind es wieder 2."
+    "h": "Von x = 1 bis x = 4: Wie viele Schritte nach rechts sind das?",
+    "w": "Von x = 1 bis x = 4 sind es 3 Schritte, also 6 : 3 = 2 je Schritt. f(3) = 5 + 2 = 7. Probe: Von (3 | 7) nach (4 | 9) sind es wieder 2."
    }
   },
   {
@@ -764,7 +830,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim berechnet die Nullstelle von f(x) = x − 6. Zeile 1: Ich rechne f(0) = 0 − 6 = −6. Zeile 2: Also ist die Nullstelle bei x = −6. Zeile 3: Der Graph schneidet die x-Achse bei (−6 | 0). In welcher Zeile steckt der Fehler?"
+     "text": "Kim berechnet die Nullstelle von f(x) = x − 6. Zeile 1: Ich rechne f(0) = 0 − 6 = −6. Zeile 2: Also ist die Nullstelle bei x = −6. Zeile 3: Der Graph schneidet die x-Achse bei (−6 | 0). In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -775,7 +841,7 @@
      "index": 1
     },
     "h": "Die Nullstelle ist die Stelle x, bei der der Funktionswert 0 ist, nicht umgekehrt.",
-    "w": "Du löst f(x) = 0: x − 6 = 0, also x = 6. f(0) = −6 ist der Schnittpunkt mit der y-Achse."
+    "w": "Du löst f(x) = 0: x − 6 = 0, also x = 6. f(0) = −6 ist die y-Koordinate: Der Schnittpunkt mit der y-Achse ist (0 | −6)."
    }
   },
   {
@@ -824,6 +890,146 @@
     },
     "h": "Die feste Größe steht allein, die Änderung steht beim t.",
     "w": "Die Länge am Anfang ist 30, pro Stunde kommt −2 dazu: L(t) = 30 − 2 · t."
+   }
+  },
+  {
+   "kennung": "F1-V18",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "eindeutig",
+   "stufe": 1,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Klasse → Schüler dieser Klasse",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zu einer Klasse gehören mehrere Schüler"
+    },
+    {
+     "index": 2,
+     "antwort": "Zahl → ihre Teiler",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Zahl hat meist mehrere Teiler"
+    },
+    {
+     "index": 3,
+     "antwort": "Zahl → eine kleinere Zahl",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zu einer Zahl passen viele kleinere Zahlen"
+    }
+   ],
+   "aufgabe": {
+    "l": "eindeutig",
+    "t": "eindeutig",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "f": {
+     "text": "Welche dieser Zuordnungen ist eindeutig, ordnet also jedem Wert genau einen Wert zu?"
+    },
+    "y": "auswahl",
+    "a": [
+     "Klasse → Schüler dieser Klasse",
+     "Schüler → seine Klasse",
+     "Zahl → ihre Teiler",
+     "Zahl → eine kleinere Zahl"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Prüfe: Gibt es einen Wert links, zu dem mehrere Werte rechts passen?",
+    "w": "Jeder Schüler hat genau eine Klasse, die Zuordnung Schüler → Klasse ist eindeutig. Zu einer Klasse gehören viele Schüler, zu einer Zahl gibt es mehrere Teiler und mehrere kleinere Zahlen, diese Zuordnungen sind nicht eindeutig."
+   }
+  },
+  {
+   "kennung": "F1-V19",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "funktionswert",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das +5 vergessen"
+    },
+    {
+     "antwort": 22,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 · (6 + 5) gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "funktionswert",
+    "t": "funktionswert",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Gegeben ist f(x) = 2x + 5. Gesucht ist f(6). Weg A: 6 für x einsetzen und rechnen. Weg B: bei f(0) beginnen und für jeden Schritt in x den Wert um die Steigung erhöhen. Wie groß ist f(6)?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 17
+    },
+    "c": "2 * 6 + 5",
+    "h": "Beide Wege müssen denselben Wert geben.",
+    "w": "Weg A: 2 · 6 + 5 = 12 + 5 = 17. Weg B: f(0) = 5, bei jedem Schritt kommt 2 dazu, nach 6 Schritten sind es 5 + 6 · 2 = 17. Also ist f(6) = 17."
+   }
+  },
+  {
+   "kennung": "F1-V20",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "stelle",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 49,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "19 in f eingesetzt statt rückwärts gerechnet"
+    },
+    {
+     "antwort": 27,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur +8 gerechnet, nicht durch 3 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "stelle",
+    "t": "stelle",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "f": {
+     "text": "Bei der Funktion f(x) = 3x − 8 ist der Funktionswert 19. An welcher Stelle x gehört er zu f?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 9
+    },
+    "c": "(19 + 8) // 3",
+    "h": "Mache beide Rechenschritte von f rückgängig, in umgekehrter Reihenfolge.",
+    "w": "f macht aus x erst 3x, dann 3x − 8. Rückwärts: 19 + 8 = 27, dann 27 : 3 = 9. Probe: 3 · 9 − 8 = 19."
    }
   }
  ]

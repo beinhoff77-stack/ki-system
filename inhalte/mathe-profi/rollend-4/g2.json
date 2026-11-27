@@ -126,7 +126,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Becken wird leer gepumpt. Nach 2 Minuten sind es noch 90 l Wasser, nach 5 Minuten noch 60 l. Änderung des Wassers: 60 − 90 = ① l. Zeitspanne: 5 − 2 = ② min. Rate: ① : ② = ③ l je Minute.",
+     "text": "Ein Becken wird leer gepumpt. Nach 2 Minuten sind es noch 90 l Wasser, nach 5 Minuten noch 60 l. Wir berechnen die mittlere Änderung zwischen Minute 2 und Minute 5. Änderung des Wassers: 60 − 90 = ① l. Zeitspanne: 5 − 2 = ② min. Mittlere Rate: ① : ② = ③ l je Minute.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -143,7 +143,7 @@
      "(60 - 90) // (5 - 2)"
     ],
     "h": "Das Wasser wird weniger. Die Rate hat ein Minus.",
-    "w": "−30 l in 3 min: −30 : 3 = −10 l je Minute."
+    "w": "−30 l in 3 min: −30 : 3 = −10 l je Minute (im Mittel)."
    }
   },
   {
@@ -187,7 +187,7 @@
     "g": "mehrschritt",
     "y": "auswahl",
     "f": {
-     "text": "Eine Pflanze war nach 2 Wochen 14 cm hoch und nach 6 Wochen 30 cm. Wie berechnest du, wie viel sie pro Woche wächst?"
+     "text": "Eine Pflanze war nach 2 Wochen 14 cm hoch und nach 6 Wochen 30 cm. Wie berechnest du, wie viel sie zwischen Woche 2 und Woche 6 im Mittel pro Woche wächst?"
     },
     "a": [
      "30 : 6 = 5 cm pro Woche",
@@ -199,7 +199,7 @@
      "index": 3
     },
     "h": "Änderungsrate = Änderung : Zeitspanne.",
-    "w": "Die Höhe ändert sich um 16 cm in 4 Wochen: 16 : 4 = 4 cm je Woche."
+    "w": "Die Höhe ändert sich um 16 cm in 4 Wochen: 16 : 4 = 4 cm je Woche im Mittel."
    }
   },
   {
@@ -236,7 +236,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "6 Brötchen kosten 3,60 €. Kim berechnet den Preis für 1 Brötchen in Cent. Zeile 1: Preis durch Anzahl: 360 ct : 6. Zeile 2: 360 ct : 6 = 6 ct. Zeile 3: Ein Brötchen kostet also 6 ct. In welcher Zeile steckt der Fehler?"
+     "text": "6 Brötchen kosten 3,60 €. Kim berechnet den Preis für 1 Brötchen in Cent. Zeile 1: Preis durch Anzahl: 360 ct : 6. Zeile 2: 360 ct : 6 = 6 ct. Zeile 3: Ein Brötchen kostet also 6 ct. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -248,6 +248,49 @@
     },
     "h": "Rechne 6 mal den Preis für ein Brötchen. Kommt 360 ct heraus?",
     "w": "360 : 6 = 60. Ein Brötchen kostet 60 ct. Probe: 6 · 60 ct = 360 ct."
+   }
+  },
+  {
+   "kennung": "G2-V07",
+   "thema": "groessen.proportional",
+   "lernkarte": "sach",
+   "stufe": 1,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 + 5 gerechnet"
+    },
+    {
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit 5 multipliziert, nicht durch 3 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "f": {
+     "text": "3 kg Äpfel kosten 9 €. Weg A: erst den Preis für 1 kg bestimmen, dann mit 5 multiplizieren. Weg B: 9 · 5 : 3 rechnen. Wie viel kosten 5 kg?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 15,
+     "einheit": "€"
+    },
+    "c": "9 * 5 // 3",
+    "h": "Beide Wege bestimmen den Preis für 5 kg aus dem für 3 kg.",
+    "w": "Weg A: 9 : 3 = 3 € für 1 kg, 3 · 5 = 15 €. Weg B: 9 · 5 = 45, 45 : 3 = 15. 5 kg kosten 15 €."
    }
   }
  ]

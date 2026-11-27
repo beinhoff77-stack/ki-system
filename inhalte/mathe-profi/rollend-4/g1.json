@@ -68,9 +68,30 @@
     {
      "luecke": 1,
      "antwort": 2035,
-     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
-     "regel_des_fehlbilds": "rr.stellenwert",
-     "beschreibung": "350 als 35 behandelt"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "350 g als 35 g gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 6350,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 4 000 dazugezählt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aufgerundet statt abgerundet"
+    },
+    {
+     "luecke": 4,
+     "antwort": 685,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ziffern vertauscht"
     }
    ],
    "aufgabe": {
@@ -81,22 +102,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "2 kg 350 g sind 2 · 1 000 g + 350 g = ① g. 4 500 g sind 4 kg und ② g.",
-     "schablone": "① = □; ② = □",
+     "text": "2 kg 350 g sind 2 · 1 000 g + 350 g = ① g. Zusammen mit 4 500 g wiegen sie ① g + 4 500 g = ② g. Das sind ③ kg und ④ g.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       2350,
-      500
+      6850,
+      6,
+      850
      ]
     },
     "c": [
-     "2 * 1000 + 350",
-     "4500 - 4 * 1000"
+     "2*1000+350",
+     "2*1000+350+4500",
+     "(2*1000+350+4500)//1000",
+     "(2*1000+350+4500)%1000"
     ],
     "h": "1 kg sind 1 000 g.",
-    "w": "2 000 g + 350 g = 2 350 g. 4 500 g − 4 000 g = 500 g."
+    "w": "2 000 + 350 = 2 350 g. 2 350 + 4 500 = 6 850 g. Das sind 6 kg und 850 g."
    }
   },
   {
@@ -111,11 +136,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 2035,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 m als 2 000 cm gerechnet"
+    },
+    {
      "luecke": 2,
      "antwort": 40,
-     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
-     "regel_des_fehlbilds": "rr.stellenwert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "04 als 40 gelesen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 739,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsch zusammengezählt"
     }
    ],
    "aufgabe": {
@@ -126,22 +165,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Hinter dem Komma bekommt jede kleinere Einheit ihre Stellen. 2,35 m sind 2 m 35 cm. Das sind insgesamt ① cm. 7,04 m sind 7 m ② cm.",
-     "schablone": "① = □; ② = □",
+     "text": "Hinter dem Komma bekommt jede kleinere Einheit ihre Stellen. 2,35 m sind 2 m 35 cm. Das sind insgesamt ① cm. 7,04 m sind 7 m ② cm. Beide Längen zusammen sind ① cm + 704 cm = ③ cm.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       235,
-      4
+      4,
+      939
      ]
     },
     "c": [
-     "2 * 100 + 35",
-     "704 - 700"
+     "2*100+35",
+     "704-700",
+     "2*100+35+704"
     ],
     "h": "Bei m und cm sind es zwei Stellen hinter dem Komma.",
-    "w": "2 m = 200 cm, dazu 35 cm: 235 cm. 7,04 m = 7 m 04 cm = 7 m 4 cm."
+    "w": "2,35 m = 235 cm. 7,04 m = 7 m 4 cm = 704 cm. Zusammen 235 + 704 = 939 cm."
    }
   },
   {
@@ -252,7 +293,21 @@
      "antwort": 120,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit 10 statt mit 100 umgerechnet"
+     "beschreibung": "mal 10 statt mal 100"
+    },
+    {
+     "luecke": 2,
+     "antwort": 1205,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 dazugezählt statt malgenommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 10 statt durch 100"
     }
    ],
    "aufgabe": {
@@ -263,22 +318,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Schulbus ist etwa 12 m lang. Das sind ① cm. Ein Schulweg ist 2 km lang. Das sind ② m.",
-     "schablone": "① = □; ② = □",
+     "text": "Ein Schulbus ist etwa 12 m lang. Das sind ① cm. Stehen 5 solche Busse hintereinander, sind sie 5 · ① = ② cm lang. Das sind ③ m.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       1200,
-      2000
+      6000,
+      60
      ]
     },
     "c": [
-     "12 * 100",
-     "2 * 1000"
+     "12*100",
+     "5*12*100",
+     "5*12*100//100"
     ],
-    "h": "1 m sind 100 cm und 1 km sind 1 000 m.",
-    "w": "12 · 100 cm = 1 200 cm. 2 · 1 000 m = 2 000 m."
+    "h": "1 m sind 100 cm.",
+    "w": "12 m = 1 200 cm. 5 · 1 200 = 6 000 cm = 60 m."
    }
   },
   {
@@ -565,18 +622,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -587,7 +644,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim rechnet 3 km 40 m in Meter um. Zeile 1: 1 km = 1 000 m. Zeile 2: 3 km = 3 000 m. Zeile 3: 3 000 m + 40 m = 3 400 m. In welcher Zeile steckt der Fehler?"
+     "text": "Kim rechnet 3 km 40 m in Meter um. Zeile 1: 1 km = 100 m. Zeile 2: 3 km = 300 m. Zeile 3: 300 m + 40 m = 340 m. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -595,10 +652,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Wie viele Stellen hat 3 040 im Vergleich zu 3 400?",
-    "w": "3 000 + 40 = 3 040. Also 3 km 40 m = 3 040 m."
+    "h": "Wie viele Meter sind ein Kilometer?",
+    "w": "1 km = 1 000 m, also 3 km = 3 000 m. Dazu 40 m: 3 040 m. Die Zeilen 2 und 3 folgen richtig aus der falschen Zeile 1."
    }
   },
   {
@@ -620,18 +677,11 @@
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
-     "index": 3,
-     "antwort": "In Zeile 4",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -642,19 +692,18 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim rechnet 7,5 kg in Gramm um. Zeile 1: 1 kg = 1 000 g. Zeile 2: 7 kg = 7 000 g. Zeile 3: 0,5 kg = 50 g. Zeile 4: Zusammen sind es 7 050 g. In welcher Zeile steckt der Fehler?"
+     "text": "Kim rechnet 7,5 kg in Gramm um. Zeile 1: 1 kg = 1 000 g. Zeile 2: 7,5 · 1 000 g = 750 g. Zeile 3: 7,5 kg sind also 750 g. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
      "In Zeile 2",
-     "In Zeile 3",
-     "In Zeile 4"
+     "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
-    "h": "Eine halbe Tonne? Nein, ein halbes Kilogramm: Wie viel ist das?",
-    "w": "Ein halbes Kilogramm sind 500 g. Zusammen 7 000 g + 500 g = 7 500 g."
+    "h": "Das Komma wandert beim Malnehmen mit 1 000 um drei Stellen. In welche Richtung?",
+    "w": "7,5 · 1 000 = 7 500. 7,5 kg sind 7 500 g. Zeile 3 folgt richtig aus der falschen Zeile 2."
    }
   },
   {
@@ -691,7 +740,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Film beginnt um 17:45 Uhr und dauert 2 h 30 min. Kim berechnet das Ende. Zeile 1: 17:45 Uhr plus 15 min ist 18:00 Uhr. Zeile 2: Dann bleiben noch 2 h 30 min − 15 min = 2 h 25 min. Zeile 3: 18:00 Uhr plus 2 h 25 min ist 20:25 Uhr. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Film beginnt um 17:45 Uhr und dauert 2 h 30 min. Kim berechnet das Ende. Zeile 1: 17:45 Uhr plus 15 min ist 18:00 Uhr. Zeile 2: Dann bleiben noch 2 h 30 min − 15 min = 2 h 25 min. Zeile 3: 18:00 Uhr plus 2 h 25 min ist 20:25 Uhr. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -751,6 +800,105 @@
     },
     "h": "Passt ein Bleistift neben eine Tür, die so hoch ist wie zehn Türen?",
     "w": "Ein Bleistift ist etwa 19 cm lang, nicht 19 m. Die Einheit war falsch."
+   }
+  },
+  {
+   "kennung": "G1-V16",
+   "thema": "groessen.einheiten",
+   "lernkarte": "schaetzen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "18 mm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "18 mm sind nur etwa so lang wie ein Fingernagel"
+    },
+    {
+     "index": 2,
+     "antwort": "18 dm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "18 dm sind fast 2 Meter"
+    },
+    {
+     "index": 3,
+     "antwort": "18 m",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "18 m ist so lang wie ein Klassenzimmer"
+    }
+   ],
+   "aufgabe": {
+    "l": "schaetzen",
+    "t": "schaetzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "f": {
+     "text": "Ein neuer Bleistift ist etwa 18 lang. Welche Einheit passt?"
+    },
+    "y": "auswahl",
+    "a": [
+     "18 mm",
+     "18 cm",
+     "18 dm",
+     "18 m"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Stelle dir den Bleistift in deiner Hand vor.",
+    "w": "Ein Bleistift ist ungefähr so lang wie eine Handspanne, also 18 cm. 18 mm wären kürzer als ein Fingernagel, 18 dm fast zwei Meter, 18 m so lang wie ein Klassenzimmer."
+   }
+  },
+  {
+   "kennung": "G1-V17",
+   "thema": "groessen.einheiten",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 340,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit 100 multipliziert"
+    },
+    {
+     "antwort": 34000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10000 multipliziert"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Wie viele Meter sind 3,4 km? Weg A: 3,4 · 1000. Weg B: 3 km in Meter umrechnen und 0,4 km in Meter umrechnen, dann addieren."
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 3400,
+     "einheit": "m"
+    },
+    "c": "3 * 1000 + 4 * 100",
+    "h": "Ein Kilometer hat 1000 Meter.",
+    "w": "Weg A: 3,4 · 1000 = 3400. Weg B: 3 km = 3000 m und 0,4 km = 400 m, zusammen 3400 m. Also sind 3,4 km gleich 3400 m."
    }
   }
  ]

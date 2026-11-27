@@ -71,7 +71,21 @@
      "antwort": 16,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "erst 5 + 3, dann mal 2 gerechnet"
+     "beschreibung": "erst 5 + 3, dann mal 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": -1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Unterschied falsch herum gebildet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "erst 3 + 3, dann mal 2"
     }
    ],
    "aufgabe": {
@@ -82,22 +96,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Prüfe, ob x = 5 die Ungleichung 2x + 3 ≤ 11 löst. Einsetzen: 2 · 5 + 3 = ①. Das ist größer als 11, also ist 5 keine Lösung. Prüfe x = 3: 2 · 3 + 3 = ②. Das ist kleiner als 11, also ist 3 eine Lösung.",
-     "schablone": "① = □; ② = □",
+     "text": "Prüfe, ob x = 5 die Ungleichung 2x + 3 ≤ 12 löst. Einsetzen: 2 · 5 + 3 = ①. Das liegt um ① − 12 = ② über 12, also ist 5 keine Lösung. Prüfe x = 3: 2 · 3 + 3 = ③. Das ist kleiner als 12, also ist 3 eine Lösung.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       13,
+      1,
       9
      ]
     },
     "c": [
-     "2 * 5 + 3",
-     "2 * 3 + 3"
+     "2*5+3",
+     "2*5+3-12",
+     "2*3+3"
     ],
     "h": "Erst mal, dann plus.",
-    "w": "2 · 5 + 3 = 13 > 11. 2 · 3 + 3 = 9 ≤ 11."
+    "w": "2 · 5 + 3 = 13, das ist um 1 größer als 12. 2 · 3 + 3 = 9 ≤ 12."
    }
   },
   {
@@ -113,10 +129,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 5,
+     "antwort": 10,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahlen 1 und 4 addiert"
+     "beschreibung": "1 addiert statt abgezogen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das +1 vergessen"
     }
    ],
    "aufgabe": {
@@ -127,24 +157,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Geraden f(x) = 2x + 1 und g(x) = x + 4 schneiden sich dort, wo 2x + 1 = x + 4 gilt: bei x = ①. An der Stelle x = 5 ist f(5) = ② und g(5) = ③. Dort liegt f über g.",
+     "text": "Die Geraden f(x) = 3x + 1 und g(x) = x + 9 schneiden sich dort, wo 3x + 1 = x + 9 gilt. Auf beiden Seiten x und 1 abziehen: 2x = ①. Also ist x = ②. Der Schnittpunkt hat den y-Wert f(②) = ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      3,
-      11,
-      9
+      8,
+      4,
+      13
      ]
     },
     "c": [
-     "(4 - 1) // (2 - 1)",
-     "2 * 5 + 1",
-     "5 + 4"
+     "9-1",
+     "(9-1)//2",
+     "3*((9-1)//2)+1"
     ],
     "h": "Beim Schnittpunkt sind beide Funktionswerte gleich.",
-    "w": "x + 1 = 4, also x = 3. f(5) = 11, g(5) = 9."
+    "w": "2x = 8, also x = 4. f(4) = 3 · 4 + 1 = 13, und g(4) = 4 + 9 = 13."
    }
   },
   {
@@ -208,14 +238,21 @@
      "antwort": -3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Grenze mitgezählt"
+     "beschreibung": "Grenze mitgezählt"
     },
     {
      "luecke": 2,
      "antwort": 5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Grenze mitgezählt"
+     "beschreibung": "Grenze mitgezählt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das +1 vergessen"
     }
    ],
    "aufgabe": {
@@ -226,7 +263,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Das Intervall ]−3; 5[ enthält alle Zahlen zwischen −3 und 5, ohne die Grenzen. Die kleinste ganze Zahl darin ist ①. Die größte ganze Zahl darin ist ②. Insgesamt liegen ③ ganze Zahlen darin.",
+     "text": "Das Intervall ]−3; 5[ enthält alle Zahlen zwischen −3 und 5, ohne die Grenzen. Die kleinste ganze Zahl darin ist ①. Die größte ganze Zahl darin ist ②. Von ① bis ② liegen ② − (①) + 1 = ③ ganze Zahlen.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -238,12 +275,12 @@
      ]
     },
     "c": [
-     "-3 + 1",
-     "5 - 1",
-     "4 - (-2) + 1"
+     "-3+1",
+     "5-1",
+     "(5-1)-(-3+1)+1"
     ],
     "h": "Die Grenzen selbst gehören nicht dazu.",
-    "w": "Ohne die Grenzen: −2 bis 4. Das sind −2, −1, 0, 1, 2, 3, 4: sieben Zahlen."
+    "w": "Die kleinste ganze Zahl ist −2, die größte 4. Von −2 bis 4 sind es 4 − (−2) + 1 = 7 Zahlen."
    }
   },
   {
@@ -303,11 +340,18 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
-     "antwort": 6,
+     "luecke": 1,
+     "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Grenze 4 mitgezählt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das +1 vergessen"
     }
    ],
    "aufgabe": {
@@ -318,7 +362,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Das Intervall [−1; 4[ enthält die ganzen Zahlen −1, 0, 1, 2 und ①. Die Zahl 4 gehört nicht dazu. Insgesamt sind es ② ganze Zahlen.",
+     "text": "Das Intervall [−1; 4[ enthält die untere Grenze, aber nicht die obere. Die größte ganze Zahl darin ist 4 − 1 = ①. Die kleinste ist −1. Von −1 bis ① zählt man ① − (−1) + 1 = ② ganze Zahlen.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -329,11 +373,11 @@
      ]
     },
     "c": [
-     "4 - 1",
-     "4 - (-1)"
+     "4-1",
+     "(4-1)-(-1)+1"
     ],
     "h": "Zähle von der unteren Grenze bis kurz vor der oberen.",
-    "w": "−1, 0, 1, 2, 3: fünf Zahlen."
+    "w": "Die größte ganze Zahl ist 3. Von −1 bis 3 sind es 3 + 1 + 1 = 5 Zahlen: −1, 0, 1, 2, 3."
    }
   },
   {
@@ -353,6 +397,13 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "eine Grenze mitgezählt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das +1 vergessen"
     }
    ],
    "aufgabe": {
@@ -363,22 +414,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Kim sagt: „]1; 6[ und [2; 5] enthalten dieselben ganzen Zahlen.“ In ]1; 6[ liegen ① ganze Zahlen. In [2; 5] liegen ② ganze Zahlen. Kims Aussage stimmt, wenn beide Zahlen gleich sind.",
-     "schablone": "① = □; ② = □",
+     "text": "Kim sagt: „]1; 6[ und [2; 5] enthalten dieselben ganzen Zahlen.“ Schreibe beide Mengen auf und vergleiche die Elemente. In ]1; 6[ liegen ① ganze Zahlen, in [2; 5] liegen ② ganze Zahlen. Jede Zahl aus [2; 5] liegt auch in ]1; 6[. In [2; 5] fehlen also ① − ② = ③ der ganzen Zahlen aus ]1; 6[. Kims Aussage stimmt, wenn nichts fehlt.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       4,
-      4
+      4,
+      0
      ]
     },
     "c": [
-     "6 - 1 - 1",
-     "5 - 2 + 1"
+     "6-1-1",
+     "5-2+1",
+     "(6-1-1)-(5-2+1)"
     ],
     "h": "Schreibe die ganzen Zahlen beider Intervalle auf.",
-    "w": "In ]1; 6[ liegen 2, 3, 4, 5. In [2; 5] liegen 2, 3, 4, 5. Beide Mengen sind gleich."
+    "w": "In ]1; 6[ liegen 2, 3, 4, 5. In [2; 5] liegen 2, 3, 4, 5. Es fehlt nichts, die Mengen sind gleich. Gleich viele Zahlen allein würde als Beweis nicht reichen; man vergleicht die Elemente."
    }
   },
   {
@@ -953,18 +1006,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -975,7 +1028,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim löst 5x + 8 > 33. Zeile 1: Auf beiden Seiten 8 abziehen: 5x > 25. Zeile 2: Durch 5 teilen: x > 5. Zeile 3: Die Lösung sind alle Zahlen kleiner als 5. In welcher Zeile steckt der Fehler?"
+     "text": "Kim löst 4x + 6 > 30. Zeile 1: Auf beiden Seiten 6 addieren: 4x > 36. Zeile 2: Durch 4 teilen: x > 9. Zeile 3: Die Lösung sind alle Zahlen größer als 9. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -983,10 +1036,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Das Zeichen bleibt beim Teilen durch eine positive Zahl, wie es ist.",
-    "w": "Aus x > 5 folgt: alle Zahlen größer als 5. Kim hat das Ergebnis falsch gelesen."
+    "h": "Wie macht man „plus 6“ rückgängig?",
+    "w": "Plus 6 macht man mit minus 6 rückgängig: 4x > 24, also x > 6. Die Zeilen 2 und 3 folgen richtig aus der falschen Zeile 1."
    }
   },
   {
@@ -1023,7 +1076,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim löst 2(x − 3) < x + 5. Zeile 1: Klammer auflösen: 2x − 3 < x + 5. Zeile 2: Auf beiden Seiten x abziehen: x − 3 < 5. Zeile 3: Auf beiden Seiten 3 addieren: x < 8. In welcher Zeile steckt der Fehler?"
+     "text": "Kim löst 2(x − 3) < x + 5. Zeile 1: Klammer auflösen: 2x − 3 < x + 5. Zeile 2: Auf beiden Seiten x abziehen: x − 3 < 5. Zeile 3: Auf beiden Seiten 3 addieren: x < 8. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1049,18 +1102,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1071,7 +1124,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim löst −2x ≤ 10 und schreibt die Lösung als Intervall. Zeile 1: Durch −2 teilen und das Zeichen umdrehen: x ≥ −5. Zeile 2: Die Grenze −5 gehört dazu, die Klammer zeigt zur Zahl hin: [−5. Zeile 3: Es geht unbegrenzt nach rechts: L = [−5; ∞]. In welcher Zeile steckt der Fehler?"
+     "text": "Kim löst −2x ≤ 10 und schreibt die Lösung als Intervall. Zeile 1: Durch −2 teilen, das Zeichen bleibt: x ≤ −5. Zeile 2: Die Grenze −5 gehört dazu, die Klammer zeigt zur Zahl hin: −5]. Zeile 3: Es geht unbegrenzt nach links: L = ]−∞; −5]. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1079,10 +1132,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Bei ∞ zeigt die Klammer immer nach außen.",
-    "w": "∞ ist keine Zahl und gehört nie dazu. Richtig: L = [−5; ∞[."
+    "h": "Was passiert mit dem Zeichen, wenn du durch eine negative Zahl teilst?",
+    "w": "Beim Teilen durch −2 dreht sich das Zeichen um: x ≥ −5, also L = [−5; ∞[. Die Zeilen 2 und 3 passen zur falschen Zeile 1."
    }
   },
   {
@@ -1119,7 +1172,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim löst −2x + 1 > 7 und prüft das Ergebnis. Zeile 1: 1 abziehen: −2x > 6. Zeile 2: Durch −2 teilen: x > −3. Zeile 3: Probe mit x = 0: −2 · 0 + 1 = 1, und 1 > 7 stimmt nicht. In welcher Zeile steckt der Fehler?"
+     "text": "Kim löst −2x + 1 > 7 und prüft das Ergebnis. Zeile 1: 1 abziehen: −2x > 6. Zeile 2: Durch −2 teilen: x > −3. Zeile 3: Probe mit x = 0: −2 · 0 + 1 = 1, und 1 > 7 stimmt nicht. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1145,18 +1198,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1167,7 +1220,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Die Geraden f(x) = x + 2 und g(x) = 3x − 4 schneiden sich bei x = 3. Kim löst f(x) < g(x) mit den Graphen. Zeile 1: Links von x = 3 liegt g unter f. Zeile 2: Rechts von x = 3 liegt g über f. Zeile 3: f(x) < g(x) gilt also für alle x < 3. In welcher Zeile steckt der Fehler?"
+     "text": "Die Geraden f(x) = x + 2 und g(x) = 3x − 4 schneiden sich bei x = 3. Kim löst f(x) < g(x) mit den Graphen. Zeile 1: f(x) < g(x) heißt: Der Graph von f liegt über dem von g. Zeile 2: Links von x = 3 liegt g unter f, rechts von x = 3 liegt g über f. Zeile 3: f(x) < g(x) gilt also für alle x < 3. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1175,10 +1228,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "f(x) < g(x) heißt: f liegt unter g. Wo ist das der Fall?",
-    "w": "f liegt unter g rechts vom Schnittpunkt. Richtig: x > 3."
+    "h": "Bei f(x) < g(x): Welcher der beiden Graphen liegt unten?",
+    "w": "f(x) < g(x) heißt: f liegt unter g. Das ist rechts vom Schnittpunkt der Fall: x > 3."
    }
   },
   {
@@ -1215,7 +1268,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Verein verlangt 8 € Grundgebühr und 3 € für jeden Besuch. Kim hat höchstens 50 € zur Verfügung und will wissen, wie oft er kommen kann. Zeile 1: Ansatz: 8 + 3x ≥ 50. Zeile 2: 8 abziehen: 3x ≥ 42. Zeile 3: Durch 3 teilen: x ≥ 14. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Verein verlangt 8 € Grundgebühr und 3 € für jeden Besuch. Kim hat höchstens 50 € zur Verfügung und will wissen, wie oft er kommen kann. Zeile 1: Ansatz: 8 + 3x ≥ 50. Zeile 2: 8 abziehen: 3x ≥ 42. Zeile 3: Durch 3 teilen: x ≥ 14. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1241,18 +1294,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1263,7 +1316,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim schreibt „alle Zahlen größer als −1 und höchstens 4“ als Intervall. Zeile 1: Die untere Grenze −1: „größer als“, also gehört −1 nicht dazu. Die Klammer zeigt weg: ]−1. Zeile 2: Die obere Grenze 4: „höchstens“, also gehört 4 dazu. Die Klammer zeigt zur Zahl: 4]. Zeile 3: Zusammen: L = ]−1; 4[. In welcher Zeile steckt der Fehler?"
+     "text": "Kim schreibt „alle Zahlen größer als −1 und höchstens 4“ als Intervall. Zeile 1: Die untere Grenze −1: „größer als“, also gehört −1 dazu. Die Klammer zeigt zur Zahl: [−1. Zeile 2: Die obere Grenze 4: „höchstens“, also gehört 4 dazu. Die Klammer zeigt zur Zahl: 4]. Zeile 3: Zusammen: L = [−1; 4]. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1271,10 +1324,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Gehört die 4 dazu? Dann muss die Klammer zur 4 hin zeigen.",
-    "w": "Zeile 2 sagt: 4 gehört dazu. Also L = ]−1; 4]."
+    "h": "Gehört −1 dazu, wenn „größer als“ dasteht?",
+    "w": "„Größer als −1“ schließt −1 aus: Die Klammer zeigt weg, ]−1. Richtig ist L = ]−1; 4]. Zeile 3 folgt richtig aus Zeile 1 und 2."
    }
   },
   {
@@ -1289,18 +1342,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1311,7 +1364,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim prüft, welche der Zahlen −2, 0, 3 und 7 zum Intervall ]−2; 7] gehören. Zeile 1: −2 ist die Grenze. Die Klammer zeigt weg, also gehört −2 nicht dazu. Zeile 2: 0 und 3 liegen zwischen −2 und 7, also gehören sie dazu. Zeile 3: 7 ist die Grenze. Die Klammer zeigt weg, also gehört 7 nicht dazu. In welcher Zeile steckt der Fehler?"
+     "text": "Kim prüft, welche der Zahlen −2, 0, 3 und 7 zum Intervall ]−2; 7] gehören. Zeile 1: −2 ist die Grenze. Die Klammer zeigt zur Zahl hin, also gehört −2 dazu. Zeile 2: 0 und 3 liegen zwischen −2 und 7, also gehören sie dazu. Zeile 3: 7 ist die Grenze. Die Klammer zeigt zur Zahl hin, also gehört 7 dazu. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1319,10 +1372,473 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Welche Seite der 7 ist die Klammer, die „]“ oder „[“?",
-    "w": "Am Ende steht „]“. Das ist die Klammer zur Zahl hin: 7 gehört dazu."
+    "h": "Welche Klammer steht bei −2: eine, die zur Zahl zeigt, oder eine, die wegzeigt?",
+    "w": "Bei −2 steht „]“: Die Klammer zeigt weg von der Zahl, −2 gehört nicht dazu. Die Zahlen 0, 3 und 7 gehören dazu."
+   }
+  },
+  {
+   "kennung": "A4-V27",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "grafisch",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "ausgefüllter Punkt bei −1, Pfeil nach links",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "−1 gehört bei „kleiner als“ nicht zur Lösung"
+    },
+    {
+     "index": 2,
+     "antwort": "offener Kreis bei −1, Pfeil nach rechts",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "kleiner als −1 heißt nach links"
+    },
+    {
+     "index": 3,
+     "antwort": "offener Kreis bei 1, Pfeil nach links",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grenze ist −1, nicht 1"
+    }
+   ],
+   "aufgabe": {
+    "l": "grafisch",
+    "t": "grafisch",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "f": {
+     "text": "Die Ungleichung x < −1 soll auf der Zahlengeraden dargestellt werden. Welche Darstellung ist richtig?"
+    },
+    "y": "auswahl",
+    "a": [
+     "offener Kreis bei −1, Pfeil nach links",
+     "ausgefüllter Punkt bei −1, Pfeil nach links",
+     "offener Kreis bei −1, Pfeil nach rechts",
+     "offener Kreis bei 1, Pfeil nach links"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Ein ausgefüllter Punkt gehört zur Lösung, ein offener Kreis nicht.",
+    "w": "Die Zahl −1 selbst erfüllt x < −1 nicht, deshalb steht bei −1 ein offener Kreis. Gesucht sind Zahlen kleiner als −1, der Pfeil zeigt nach links."
+   }
+  },
+  {
+   "kennung": "A4-V28",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "intervall",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die +1 vergessen: Schritte statt Zahlen gezählt"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 − 2 + 1 gerechnet, das Vorzeichen von −2 übersehen"
+    }
+   ],
+   "aufgabe": {
+    "l": "intervall",
+    "t": "intervall",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Wie viele ganze Zahlen liegen im Intervall [−2; 5], beide Grenzen gehören dazu? Weg A: alle aufzählen. Weg B: 5 − (−2) + 1 rechnen."
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 8
+    },
+    "c": "5 - (-2) + 1",
+    "h": "Bei Grenzen, die dazugehören, zählt man beide Enden mit.",
+    "w": "Weg A: −2, −1, 0, 1, 2, 3, 4, 5 sind 8 Zahlen. Weg B: 5 − (−2) = 7 Schritte, dazu die 1 für das erste Ende, also 8."
+   }
+  },
+  {
+   "kennung": "A4-V29",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "klammern",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grenze selbst mitgezählt"
+    },
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 3 nur mit x multipliziert: 3x + 2 > 21"
+    }
+   ],
+   "aufgabe": {
+    "l": "klammern",
+    "t": "klammern",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Gelöst werden soll 3 · (x + 2) > 21. Weg A: die Klammer ausmultiplizieren, 3x + 6 > 21. Weg B: erst beide Seiten durch 3 teilen, x + 2 > 7. Wie lautet die kleinste ganze Zahl, die die Ungleichung erfüllt?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 6
+    },
+    "c": "15 // 3 + 1",
+    "h": "Beide Wege geben x > 5. Wird die 5 selbst erfüllt?",
+    "w": "Weg A: 3x > 15, also x > 5. Weg B: x > 5. Die Zahl 5 erfüllt „größer als 5“ nicht, die kleinste ganze Lösung ist 6. Probe: 3 · (6 + 2) = 24 > 21."
+   }
+  },
+  {
+   "kennung": "A4-V30",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "pruefen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "x = 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "7 ist nicht kleiner als 7"
+    },
+    {
+     "index": 2,
+     "antwort": "x = 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 · 6 − 3 = 9 ist größer als 7"
+    },
+    {
+     "index": 3,
+     "antwort": "x = 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 · 7 − 3 = 11 ist größer als 7"
+    }
+   ],
+   "aufgabe": {
+    "l": "pruefen",
+    "t": "pruefen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "f": {
+     "text": "Welche der Zahlen erfüllt die Ungleichung 2x − 3 < 7?"
+    },
+    "y": "auswahl",
+    "a": [
+     "x = 4",
+     "x = 5",
+     "x = 6",
+     "x = 7"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Setze jede Zahl ein und vergleiche mit 7.",
+    "w": "x = 4: 2 · 4 − 3 = 5, und 5 < 7 stimmt. x = 5 gibt 7, das ist nicht kleiner als 7. x = 6 gibt 9 und x = 7 gibt 11. Nur x = 4 passt."
+   }
+  },
+  {
+   "kennung": "A4-V31",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "sachaufgabe",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Grundpreis vergessen, 30 : 2 gerechnet"
+    },
+    {
+     "antwort": 26,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Grundpreis abgezogen, nicht durch 2 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgabe",
+    "t": "sachaufgabe",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Eine Taxifahrt kostet 4 € Grundpreis plus 2 € für jeden gefahrenen Kilometer. Du willst höchstens 30 € bezahlen. Wie viele ganze Kilometer darfst du höchstens fahren?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 13,
+     "einheit": "km"
+    },
+    "c": "(30 - 4) // 2",
+    "h": "Ziehe zuerst den Grundpreis ab. Was bleibt für die Kilometer?",
+    "w": "Für die Kilometer bleiben 30 − 4 = 26 €. Jeder Kilometer kostet 2 €, also 26 : 2 = 13 Kilometer. Probe: 4 + 13 · 2 = 30 €."
+   }
+  },
+  {
+   "kennung": "A4-V32",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "umdrehen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grenze selbst mitgezählt"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen der Grenze verloren, x < 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "umdrehen",
+    "t": "umdrehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Gelöst werden soll −2x > 6. Weg A: durch −2 teilen und das Zeichen umdrehen. Weg B: zu beiden Seiten 2x addieren, dann 6 abziehen, dann durch 2 teilen. Welche ganze Zahl ist die größte Lösung?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": -4
+    },
+    "c": "(6 // 2) * (-1) - 1",
+    "h": "Beide Wege geben x < −3. Die −3 selbst gehört nicht dazu.",
+    "w": "Weg A: durch −2 teilen, das Zeichen dreht sich um: x < −3. Weg B: 0 > 6 + 2x, dann −6 > 2x, dann −3 > x. Die größte ganze Zahl kleiner als −3 ist −4. Probe: −2 · (−4) = 8 > 6."
+   }
+  },
+  {
+   "kennung": "A4-V33",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "umformen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grenze selbst mitgezählt"
+    },
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 addiert statt abgezogen: 2x > 26"
+    }
+   ],
+   "aufgabe": {
+    "l": "umformen",
+    "t": "umformen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Du verdoppelst eine ganze Zahl und addierst 5. Das Ergebnis ist größer als 21. Wie lautet die kleinste ganze Zahl, auf die das zutrifft?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 9
+    },
+    "c": "(21 - 5) // 2 + 1",
+    "h": "Stelle die Ungleichung auf: 2x + 5 > 21, und forme um.",
+    "w": "2x + 5 > 21 gibt 2x > 16 und x > 8. Die Zahl 8 selbst erfüllt es nicht (2 · 8 + 5 = 21), die kleinste ganze Zahl ist 9."
+   }
+  },
+  {
+   "kennung": "A4-V34",
+   "thema": "zahlen.intervalle",
+   "lernkarte": "beurteilen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "7 liegt im Intervall, 2 nicht.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammern sind vertauscht gelesen"
+    },
+    {
+     "index": 2,
+     "antwort": "Beide Zahlen liegen im Intervall.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die runde Klammer schließt die 7 aus"
+    },
+    {
+     "index": 3,
+     "antwort": "Keine der beiden Zahlen liegt im Intervall.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die eckige Klammer schließt die 2 ein"
+    }
+   ],
+   "aufgabe": {
+    "l": "beurteilen",
+    "t": "beurteilen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "f": {
+     "text": "Welche Aussage über das Intervall [2; 7) stimmt?"
+    },
+    "y": "auswahl",
+    "a": [
+     "2 liegt im Intervall, 7 nicht.",
+     "7 liegt im Intervall, 2 nicht.",
+     "Beide Zahlen liegen im Intervall.",
+     "Keine der beiden Zahlen liegt im Intervall."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Eine eckige Klammer schließt die Grenze ein, eine runde schließt sie aus.",
+    "w": "Bei [2 gehört die 2 dazu, bei 7) gehört die 7 nicht dazu. Die Zahl 2 liegt im Intervall, die 7 nicht."
+   }
+  },
+  {
+   "kennung": "A4-V35",
+   "thema": "zahlen.intervalle",
+   "lernkarte": "enthalten",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Enden mitgezählt"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Enden ausgeschlossen"
+    }
+   ],
+   "aufgabe": {
+    "l": "enthalten",
+    "t": "enthalten",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Wie viele ganze Zahlen liegen im Intervall (1; 6], die 1 gehört nicht dazu, die 6 gehört dazu? Weg A: aufzählen. Weg B: 6 − 1 rechnen."
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 5
+    },
+    "c": "6 - 1",
+    "h": "Bei einer Grenze, die nicht dazugehört, wird sie nicht mitgezählt.",
+    "w": "Weg A: 2, 3, 4, 5, 6 sind 5 Zahlen. Weg B: 6 − 1 = 5, weil nur ein Ende mitzählt."
+   }
+  },
+  {
+   "kennung": "A4-V36",
+   "thema": "zahlen.intervalle",
+   "lernkarte": "schreiben",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 − 7 gerechnet"
+    },
+    {
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 · 7 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "schreiben",
+    "t": "schreiben",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Ein Intervall beginnt bei 4 (die 4 gehört dazu) und ist 7 lang. Wie lautet die obere Grenze?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 11
+    },
+    "c": "4 + 7",
+    "h": "Von der unteren Grenze aus geht es die Länge des Intervalls nach rechts.",
+    "w": "Obere Grenze = untere Grenze + Länge = 4 + 7 = 11. Das Intervall ist [4; 11]. Probe: 11 − 4 = 7."
    }
   }
  ]

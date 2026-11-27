@@ -113,11 +113,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
-     "antwort": 2,
+     "luecke": 1,
+     "antwort": 180,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "halbe Drehungen gezählt"
+     "beschreibung": "360 : 2 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "270 : 45 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit den 270° verwechselt"
     }
    ],
    "aufgabe": {
@@ -128,7 +142,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Du drehst dich im Uhrzeigersinn um 270°. Eine Vierteldrehung sind ①°. 270° sind also ② Vierteldrehungen. Eine ganze Drehung sind ③ Vierteldrehungen.",
+     "text": "Du drehst dich im Uhrzeigersinn um 270°. Eine ganze Drehung hat 360°. Eine Vierteldrehung ist ein Viertel von 360°, das sind ①°. 270° sind 270 : ① = ② Vierteldrehungen. Eine ganze Drehung sind 360 : ① = ③ Vierteldrehungen.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -140,12 +154,12 @@
      ]
     },
     "c": [
-     "360 // 4",
-     "270 // 90",
-     "4"
+     "360//4",
+     "270//(360//4)",
+     "360//(360//4)"
     ],
     "h": "Eine ganze Drehung hat 360°.",
-    "w": "360° : 4 = 90°. 270° : 90° = 3. Vier Vierteldrehungen sind eine ganze Drehung."
+    "w": "360 : 4 = 90. 270 : 90 = 3. 360 : 90 = 4."
    }
   },
   {
@@ -206,10 +220,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 70,
+     "antwort": 250,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den bekannten Winkel wiederholt"
+     "beschreibung": "plus statt minus"
+    },
+    {
+     "luecke": 2,
+     "antwort": -40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Unterschied falsch herum"
+    },
+    {
+     "luecke": 2,
+     "antwort": 110,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den ersten Winkel genannt"
     }
    ],
    "aufgabe": {
@@ -220,20 +248,22 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Kim sagt: „Zwei Winkel, die zusammen 180° ergeben, sind immer gleich groß.“ Gegenbeispiel: Ein Winkel hat 70°. Der andere hat 180° − 70° = ①°. ① ist nicht 70. Also ist die Behauptung falsch.",
-     "schablone": "① = □",
+     "text": "Kim sagt: „Zwei Winkel, die zusammen 180° ergeben, sind immer gleich groß.“ Gegenbeispiel: Ein Winkel hat 70°. Der andere hat 180° − 70° = ①°. Der Unterschied der beiden Winkel ist ① − 70° = ②°. Weil ② nicht 0 ist, sind sie nicht gleich groß. Also ist die Behauptung falsch.",
+     "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      110
+      110,
+      40
      ]
     },
     "c": [
-     "180 - 70"
+     "180-70",
+     "180-70-70"
     ],
     "h": "Ein einziges Beispiel genügt, um „immer“ zu widerlegen.",
-    "w": "180° − 70° = 110°. 110° ist nicht gleich 70°."
+    "w": "180 − 70 = 110. 110 − 70 = 40. Die Winkel sind verschieden, die Behauptung ist widerlegt. Ein einziges Gegenbeispiel genügt."
    }
   },
   {
@@ -382,7 +412,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Neben einem Winkel von 65° liegt an einer Geraden ein zweiter Winkel. Kim berechnet ihn. Zeile 1: Beide zusammen ergeben einen gestreckten Winkel. Zeile 2: Ein gestreckter Winkel hat 90°. Zeile 3: Der zweite Winkel hat 90° − 65° = 25°. In welcher Zeile steckt der Fehler?"
+     "text": "Neben einem Winkel von 65° liegt an einer Geraden ein zweiter Winkel. Kim berechnet ihn. Zeile 1: Beide zusammen ergeben einen gestreckten Winkel. Zeile 2: Ein gestreckter Winkel hat 90°. Zeile 3: Der zweite Winkel hat 90° − 65° = 25°. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -408,18 +438,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -430,7 +460,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Zwei Geraden schneiden sich. Ein Winkel hat 50°. Kim berechnet die anderen. Zeile 1: Der gegenüberliegende Winkel hat auch 50°. Zeile 2: Die beiden Nachbarwinkel haben je 180° − 50° = 130°. Zeile 3: Alle vier Winkel zusammen: 50° + 50° + 130° + 130° = 350°. In welcher Zeile steckt der Fehler?"
+     "text": "Zwei Geraden schneiden sich. Ein Winkel hat 50°. Kim berechnet die anderen. Zeile 1: Der gegenüberliegende Winkel hat 180° − 50° = 130°. Zeile 2: Die beiden Nachbarwinkel dieses Winkels haben je 180° − 130° = 50°. Zeile 3: Alle vier Winkel zusammen: 50° + 130° + 50° + 130° = 360°. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -438,10 +468,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Rechne die vier Winkel noch einmal zusammen.",
-    "w": "50 + 50 + 130 + 130 = 360. Um einen Punkt herum sind es immer 360°."
+    "h": "Welche Winkel sind bei sich schneidenden Geraden gleich groß: gegenüberliegende oder benachbarte?",
+    "w": "Gegenüberliegende Winkel (Scheitelwinkel) sind gleich groß: Der gegenüberliegende Winkel hat auch 50°. Die Nachbarwinkel haben 180° − 50° = 130°."
    }
   },
   {
@@ -478,7 +508,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Um einen Punkt liegen vier gleich große Winkel. Kim berechnet einen von ihnen. Zeile 1: Alle Winkel um einen Punkt ergeben 360°. Zeile 2: Jeder der vier Winkel hat 360° : 4 = 80°. Zeile 3: Ein Winkel hat also 80°. In welcher Zeile steckt der Fehler?"
+     "text": "Um einen Punkt liegen vier gleich große Winkel. Kim berechnet einen von ihnen. Zeile 1: Alle Winkel um einen Punkt ergeben 360°. Zeile 2: Jeder der vier Winkel hat 360° : 4 = 80°. Zeile 3: Ein Winkel hat also 80°. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -552,18 +582,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -574,7 +604,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "In einem Quadrat teilen zwei Linien aus einer Ecke den rechten Winkel in drei gleich große Teile. Kim berechnet zwei der Teile zusammen. Zeile 1: Ein Quadrat hat in jeder Ecke 90°. Zeile 2: Jeder der drei Teile hat 90° : 3 = 30°. Zeile 3: Zwei der Teile zusammen haben 30° + 30° = 90°. In welcher Zeile steckt der Fehler?"
+     "text": "In einem Quadrat teilen zwei Linien aus einer Ecke den rechten Winkel in drei gleich große Teile. Kim berechnet zwei der Teile zusammen. Zeile 1: Ein Quadrat hat in jeder Ecke 180°. Zeile 2: Jeder der drei Teile hat 180° : 3 = 60°. Zeile 3: Zwei der Teile zusammen haben 60° + 60° = 120°. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -582,10 +612,109 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Rechne 30 + 30 noch einmal nach.",
-    "w": "30° + 30° = 60°. Alle drei Teile zusammen sind 90°."
+    "h": "Wie groß ist ein rechter Winkel?",
+    "w": "Ein Quadrat hat in jeder Ecke 90°. Ein Teil hat 90° : 3 = 30°, zwei Teile haben zusammen 60°."
+   }
+  },
+  {
+   "kennung": "GE3-V13",
+   "thema": "geometrie.winkel",
+   "lernkarte": "ergaenzen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 110,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den größeren Winkel angegeben"
+    },
+    {
+     "antwort": 140,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 40° von 180° abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "ergaenzen",
+    "t": "ergaenzen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "f": {
+     "text": "Zwei Nebenwinkel unterscheiden sich um 40°. Wie groß ist der kleinere der beiden Winkel?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 70,
+     "einheit": "°"
+    },
+    "c": "(180 - 40) // 2",
+    "h": "Nebenwinkel ergeben zusammen 180°. Überlege, wie die beiden Winkel um 40° auseinanderliegen.",
+    "w": "Der größere Winkel ist 40° größer als der kleinere. Nimmt man die 40° weg, bleiben 180° − 40° = 140° für zwei gleich große Winkel, jeder ist 70°. Der kleinere Winkel ist 70°, der größere 110°. Probe: 70° + 110° = 180° und 110° − 70° = 40°."
+   }
+  },
+  {
+   "kennung": "GE3-V14",
+   "thema": "geometrie.winkel",
+   "lernkarte": "verstehen",
+   "stufe": 1,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "spitz",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "spitze Winkel sind kleiner als 90°"
+    },
+    {
+     "index": 1,
+     "antwort": "stumpf",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "stumpfe Winkel liegen zwischen 90° und 180°"
+    },
+    {
+     "index": 2,
+     "antwort": "gestreckt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gestreckt ist genau 180°"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "f": {
+     "text": "Wie heißt ein Winkel mit 200°?"
+    },
+    "y": "auswahl",
+    "a": [
+     "spitz",
+     "stumpf",
+     "gestreckt",
+     "überstumpf"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Vergleiche mit dem gestreckten Winkel von 180°.",
+    "w": "Ein Winkel mit mehr als 180° und weniger als 360° heißt überstumpf. 200° ist größer als 180°, also ist er überstumpf."
    }
   }
  ]

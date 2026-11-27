@@ -20,16 +20,23 @@
     {
      "luecke": 1,
      "antwort": 4,
-     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
-     "regel_des_fehlbilds": "rr.gegenrechnung",
-     "beschreibung": "noch einmal 7 abgezogen statt addiert"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "7 abgezogen statt addiert"
     },
     {
      "luecke": 2,
      "antwort": 15,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "3 abgezogen statt durch 3 geteilt"
+     "beschreibung": "nicht durch 3 geteilt, sondern 18 − 3"
+    },
+    {
+     "luecke": 3,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grenze 6 selbst genommen"
     }
    ],
    "aufgabe": {
@@ -40,22 +47,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Löse Schritt für Schritt: 3x − 7 < 11. Plus 7 auf beiden Seiten: 3x < ①. Geteilt durch 3 auf beiden Seiten: x < ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Löse Schritt für Schritt: 3x − 7 < 11. Plus 7 auf beiden Seiten: 3x < ①. Geteilt durch 3 auf beiden Seiten: x < ②. Die größte ganze Zahl, die passt, ist ② − 1 = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       18,
-      6
+      6,
+      5
      ]
     },
     "c": [
-     "11 + 7",
-     "18 // 3"
+     "11+7",
+     "(11+7)//3",
+     "(11+7)//3-1"
     ],
     "h": "Wie bei einer Gleichung. Das Zeichen bleibt, weil du durch eine positive Zahl teilst.",
-    "w": "11 + 7 = 18 und 18 : 3 = 6. Also x < 6."
+    "w": "11 + 7 = 18, 18 : 3 = 6, also x < 6. Die größte ganze Zahl ist 5."
    }
   },
   {
@@ -72,9 +81,16 @@
     {
      "luecke": 1,
      "antwort": 5,
-     "fehlbild": "fb.vorzeichen.falsches_zeichen",
-     "regel_des_fehlbilds": "rr.vorzeichen",
-     "beschreibung": "20 : (−4) als 5 gerechnet"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen übersehen"
+    },
+    {
+     "luecke": 2,
+     "antwort": -4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in die falsche Richtung gezählt"
     }
    ],
    "aufgabe": {
@@ -85,20 +101,22 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Löse: −4x ≥ 20. Geteilt durch −4 auf beiden Seiten; weil −4 negativ ist, dreht sich das Zeichen um: x ≤ ①.",
-     "schablone": "① = □",
+     "text": "Löse: −4x ≥ 20. Geteilt durch −4 auf beiden Seiten; weil −4 negativ ist, dreht sich das Zeichen um: x ≤ ①. Die größte ganze Zahl, die passt, ist ①. Die nächstkleinere ist ① − 1 = ②.",
+     "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      -5
+      -5,
+      -6
      ]
     },
     "c": [
-     "20 // (-4)"
+     "20//(-4)",
+     "20//(-4)-1"
     ],
     "h": "Plus durch Minus ergibt Minus.",
-    "w": "20 : (−4) = −5. Also x ≤ −5. Probe mit x = −6: −4 · (−6) = 24, und 24 ≥ 20 stimmt."
+    "w": "20 : (−4) = −5, also x ≤ −5. Die größte ganze Lösung ist −5, die nächste −6."
    }
   },
   {
@@ -282,38 +300,31 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 3,
-     "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
-     "regel_des_fehlbilds": "rr.ausmultiplizieren",
-     "beschreibung": "die 3 nicht mit 2 malgenommen"
-    },
-    {
-     "luecke": 2,
-     "antwort": 3,
-     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
-     "regel_des_fehlbilds": "rr.plusminus",
-     "beschreibung": "5 − 2 gerechnet"
-    },
-    {
-     "luecke": 2,
      "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "5x addiert statt abgezogen"
+     "beschreibung": "5 + 2 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 + 8 gerechnet"
     },
     {
      "luecke": 3,
-     "antwort": 3,
-     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
-     "regel_des_fehlbilds": "rr.gegenrechnung",
-     "beschreibung": "6 abgezogen statt addiert"
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "11 − 10 gerechnet"
     },
     {
      "luecke": 4,
-     "antwort": 5,
-     "fehlbild": "fb.vorzeichen.falsches_zeichen",
-     "regel_des_fehlbilds": "rr.vorzeichen",
-     "beschreibung": "15 : (−3) als 5 gerechnet"
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen beim Teilen vergessen"
     }
    ],
    "aufgabe": {
@@ -324,26 +335,26 @@
     "g": "mehrschritt",
     "y": "luecken",
     "f": {
-     "text": "Löse: 2 · (x − 3) > 5x + 9. Klammer auflösen: 2x − ① > 5x + 9. Minus 5x auf beiden Seiten: ② · x − ① > 9. Plus ①: ② · x > ③. Geteilt durch ②, Zeichen umdrehen: x < ④.",
+     "text": "Löse: 5 · (x − 2) > 8x + 11. Klammer auflösen: 5x − ① > 8x + 11. Minus 8x auf beiden Seiten: ② · x − ① > 11. Plus ①: ② · x > ③. Geteilt durch ②, Zeichen umdrehen: x < ④.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      6,
+      10,
       -3,
-      15,
-      -5
+      21,
+      -7
      ]
     },
     "c": [
-     "2 * 3",
-     "2 - 5",
-     "9 + 6",
-     "15 // (-3)"
+     "5*2",
+     "5-8",
+     "11+5*2",
+     "(11+5*2)//(5-8)"
     ],
     "h": "Jede Zeile ändert nur eine Stelle.",
-    "w": "2 · 3 = 6. 2x − 5x = −3x. 9 + 6 = 15. 15 : (−3) = −5. Also x < −5."
+    "w": "5x − 10 > 8x + 11. −3x − 10 > 11. −3x > 21. x < −7."
    }
   },
   {

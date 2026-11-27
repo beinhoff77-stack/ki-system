@@ -114,10 +114,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 5,
+     "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "aufgerundet statt abgerundet"
+     "beschreibung": "5 + 4 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 + 5 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Abstand zum nächsten Vielfachen statt Rest"
     }
    ],
    "aufgabe": {
@@ -128,22 +142,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Hat 5 · x = 22 eine Lösung in den natürlichen Zahlen? Rechne 22 : 5 = ① Rest ②. Weil ein Rest bleibt, geht die Teilung nicht auf. Es gibt keine Lösung.",
-     "schablone": "① = □; ② = □",
+     "text": "Hat 5 · x = 22 eine Lösung in den natürlichen Zahlen? Die Fünferreihe: 5 · 4 = ①. 5 · 5 = ②. Die Zahl 22 liegt zwischen ① und ② und ist also kein Vielfaches von 5. Der Rest von 22 : 5 ist 22 − ① = ③. Weil ein Rest bleibt, geht die Teilung nicht auf.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      4,
+      20,
+      25,
       2
      ]
     },
     "c": [
-     "22 // 5",
-     "22 % 5"
+     "5*4",
+     "5*5",
+     "22-5*4"
     ],
     "h": "Wie oft passt die 5 ganz in die 22?",
-    "w": "5 passt 4-mal in 22. 4 · 5 = 20, es bleibt der Rest 2."
+    "w": "5 · 4 = 20 und 5 · 5 = 25. 22 − 20 = 2. Es bleibt ein Rest, also gibt es keine Lösung in den natürlichen Zahlen."
    }
   },
   {
@@ -180,7 +196,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim löst 2 · x − 5 = 17. Zeile 1: Erst 5 abziehen: 2 · x = 12. Zeile 2: Dann durch 2 teilen: x = 6. Zeile 3: Die Lösung ist x = 6. In welcher Zeile steckt der Fehler?"
+     "text": "Kim löst 2 · x − 5 = 17. Zeile 1: Erst 5 abziehen: 2 · x = 12. Zeile 2: Dann durch 2 teilen: x = 6. Zeile 3: Die Lösung ist x = 6. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -206,18 +222,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -228,7 +244,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Das Vierfache einer Zahl, um 6 vermehrt, ergibt 30. Kim sucht die Zahl. Zeile 1: Die gesuchte Zahl heißt x. Zeile 2: Das Vierfache ist 4 · x, um 6 vermehrt: 4 · x + 6 = 30. Zeile 3: Rückwärts: 30 − 6 = 24 und 24 : 4 = 6. Die Zahl ist 24. In welcher Zeile steckt der Fehler?"
+     "text": "Das Vierfache einer Zahl, um 6 vermehrt, ergibt 30. Kim sucht die Zahl. Zeile 1: Als Gleichung: 4 · x − 6 = 30. Zeile 2: Rückwärts: 30 + 6 = 36. Zeile 3: 36 : 4 = 9. Die Zahl ist 9. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -236,10 +252,66 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Was hast du am Ende ausgerechnet: x oder 4 · x?",
-    "w": "24 ist 4 · x. Danach hat Kim noch durch 4 geteilt: x = 6. Die gesuchte Zahl ist 6."
+    "h": "Was bedeutet „vermehrt“: Wird die Zahl größer oder kleiner?",
+    "w": "„Um 6 vermehrt“ heißt plus 6: 4 · x + 6 = 30. Rückwärts: 30 − 6 = 24 und 24 : 4 = 6. Die Zeilen 2 und 3 passen zur falschen Gleichung aus Zeile 1."
+   }
+  },
+  {
+   "kennung": "A1-V06",
+   "thema": "gleichungen.einfach",
+   "lernkarte": "ohne_loesung",
+   "stufe": 1,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "2x = 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "hat die Lösung x = 3"
+    },
+    {
+     "index": 2,
+     "antwort": "x + 3 = 3 + x",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gilt für jedes x, hat unendlich viele Lösungen"
+    },
+    {
+     "index": 3,
+     "antwort": "x − 4 = 0",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "hat die Lösung x = 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "ohne_loesung",
+    "t": "loesbarkeit",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "f": {
+     "text": "Welche dieser Gleichungen hat keine Lösung?"
+    },
+    "y": "auswahl",
+    "a": [
+     "x + 3 = x + 5",
+     "2x = 6",
+     "x + 3 = 3 + x",
+     "x − 4 = 0"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Forme so um, dass x auf einer Seite allein steht. Entsteht dabei eine falsche Aussage?",
+    "w": "x + 3 = x + 5: Zieht man x ab, bleibt 3 = 5, eine falsche Aussage. Es gibt keine Lösung. 2x = 6 hat die Lösung 3, x + 3 = 3 + x gilt für jede Zahl, x − 4 = 0 hat die Lösung 4."
    }
   }
  ]

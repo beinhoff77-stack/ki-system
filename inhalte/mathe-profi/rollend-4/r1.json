@@ -21,11 +21,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Umfang als Fläche genommen"
+    },
+    {
      "luecke": 2,
-     "antwort": 36,
-     "fehlbild": "fb.auslegen.umfang_statt_flaeche",
-     "regel_des_fehlbilds": "id.flaeche_raum.auslegen",
-     "beschreibung": "die Fläche statt des Umfangs genannt"
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche als Umfang genommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 4 geteilt"
     }
    ],
    "aufgabe": {
@@ -36,22 +50,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Rechteck ist 9 m lang und 4 m breit. Die Fläche ist 9 · 4 = ① m². Der Umfang ist 2 · 9 + 2 · 4 = ② m.",
-     "schablone": "① = □; ② = □",
+     "text": "Ein Rechteck ist 9 m lang und 5 m breit. Die Fläche ist 9 · 5 = ① m². Der Umfang ist 2 · 9 + 2 · 5 = ② m. Ein Quadrat mit demselben Umfang hat die Seitenlänge ② : 4 = ③ m.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      36,
-      26
+      45,
+      28,
+      7
      ]
     },
     "c": [
-     "9 * 4",
-     "2 * 9 + 2 * 4"
+     "9*5",
+     "2*9+2*5",
+     "(2*9+2*5)//4"
     ],
     "h": "Fläche: Länge mal Breite. Umfang: alle Seiten zusammen.",
-    "w": "9 · 4 = 36 m². 18 + 8 = 26 m."
+    "w": "9 · 5 = 45 m². 18 + 10 = 28 m. 28 : 4 = 7 m."
    }
   },
   {
@@ -113,11 +129,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Umfang als Fläche genommen"
+    },
+    {
      "luecke": 2,
      "antwort": 20,
-     "fehlbild": "fb.auslegen.umfang_statt_flaeche",
-     "regel_des_fehlbilds": "id.flaeche_raum.auslegen",
-     "beschreibung": "die Fläche statt des Umfangs genannt"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche als Umfang genommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Tür dazugezählt"
     }
    ],
    "aufgabe": {
@@ -128,22 +158,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Zimmer ist 5 m lang und 4 m breit. Der Boden wird mit Fliesen belegt. Das ist eine Fläche: 5 · 4 = ① m². Für die Leiste an der Wand brauchst du den Umfang: 2 · 5 + 2 · 4 = ② m.",
-     "schablone": "① = □; ② = □",
+     "text": "Ein Zimmer ist 5 m lang und 4 m breit. Der Boden wird mit Fliesen belegt. Das ist eine Fläche: 5 · 4 = ① m². Für die Leiste an der Wand brauchst du den Umfang: 2 · 5 + 2 · 4 = ② m. Die Tür ist 1 m breit, dort kommt keine Leiste hin. Du brauchst also ② − 1 = ③ m Leiste.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       20,
-      18
+      18,
+      17
      ]
     },
     "c": [
-     "5 * 4",
-     "2 * 5 + 2 * 4"
+     "5*4",
+     "2*5+2*4",
+     "2*5+2*4-1"
     ],
     "h": "Boden: Fläche. Wand: Umfang.",
-    "w": "5 · 4 = 20 m². 10 + 8 = 18 m."
+    "w": "5 · 4 = 20 m². 10 + 8 = 18 m. 18 − 1 = 17 m Leiste."
    }
   },
   {
@@ -173,7 +205,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Rechteck ist 5 cm lang und 2 cm breit. Seine Fläche ist ① cm². Verdoppelt man Länge und Breite, ist die neue Fläche (2 · 5) · (2 · 2) = ② cm². Die neue Fläche ist ③-mal so groß wie die alte.",
+     "text": "Ein Rechteck ist 5 cm lang und 2 cm breit. Seine Fläche ist ① cm². Verdoppelt man Länge und Breite, ist die neue Fläche (2 · 5) · (2 · 2) = ② cm². Die neue Fläche ist ② : ① = ③-mal so groß wie die alte.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -187,7 +219,7 @@
     "c": [
      "5 * 2",
      "(2 * 5) * (2 * 2)",
-     "40 // 10"
+     "(2*5)*(2*2)//(5*2)"
     ],
     "h": "Verdopple beide Seiten, nicht nur eine.",
     "w": "Alt: 10 cm². Neu: 10 · 4 = 40 cm². 40 : 10 = 4."
@@ -368,7 +400,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Rechteck hat die Fläche 60 cm² und ist 12 cm lang. Kim berechnet die Breite. Zeile 1: Es gilt A = a · b, also 60 = 12 · b. Zeile 2: Dann ist b = 12 · 60 = 720. Zeile 3: Die Breite ist 720 cm. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Rechteck hat die Fläche 60 cm² und ist 12 cm lang. Kim berechnet die Breite. Zeile 1: Es gilt A = a · b, also 60 = 12 · b. Zeile 2: Dann ist b = 12 · 60 = 720. Zeile 3: Die Breite ist 720 cm. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -464,7 +496,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Beet ist 3 m lang und 2 m breit. Kim will einen Zaun um das ganze Beet kaufen. Zeile 1: Der Zaun läuft am Rand, also brauche ich den Umfang. Zeile 2: Umfang: 3 · 2 = 6. Zeile 3: Ich brauche 6 m Zaun. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Beet ist 3 m lang und 2 m breit. Kim will einen Zaun um das ganze Beet kaufen. Zeile 1: Der Zaun läuft am Rand, also brauche ich den Umfang. Zeile 2: Umfang: 3 · 2 = 6. Zeile 3: Ich brauche 6 m Zaun. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -476,6 +508,92 @@
     },
     "h": "Der Umfang ist die Summe aller vier Seiten.",
     "w": "Umfang: 3 + 2 + 3 + 2 = 10 m. 3 · 2 = 6 wäre die Fläche in m²."
+   }
+  },
+  {
+   "kennung": "R1-V11",
+   "thema": "messen.flaechen",
+   "lernkarte": "einheiten",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in Metern angegeben statt in Zentimetern"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit 10 statt mit 100 umgerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheiten",
+    "t": "einheiten",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "f": {
+     "text": "Ein Rechteck ist 2 m lang und hat die Fläche 6 m². Wie breit ist es in Zentimetern?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 300,
+     "einheit": "cm"
+    },
+    "c": "6 // 2 * 100",
+    "h": "Berechne die Breite zuerst in Metern und wechsle dann die Einheit.",
+    "w": "Fläche = Länge · Breite, also Breite = 6 : 2 = 3 m. 3 m sind 300 cm. Probe: 2 m · 3 m = 6 m²."
+   }
+  },
+  {
+   "kennung": "R1-V12",
+   "thema": "messen.flaechen",
+   "lernkarte": "sachaufgaben",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 − 5 gerechnet"
+    },
+    {
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 · 5 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgaben",
+    "t": "sachaufgaben",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Für den Anstrich einer Wand stehen 2 Eimer Farbe bereit, jeder Eimer deckt 10 m². Die Wand ist 5 m breit. Wie hoch darf sie höchstens sein, damit die Farbe genau reicht?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 4,
+     "einheit": "m"
+    },
+    "c": "2 * 10 // 5",
+    "h": "Berechne zuerst, wie viele Quadratmeter die Farbe deckt.",
+    "w": "Die Farbe deckt 2 · 10 = 20 m². Fläche = Breite · Höhe, also Höhe = 20 : 5 = 4 m. Probe: 5 m · 4 m = 20 m²."
    }
   }
  ]

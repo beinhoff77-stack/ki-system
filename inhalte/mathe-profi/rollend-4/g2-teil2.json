@@ -1,0 +1,69 @@
+{
+ "stand": "2026-11-27",
+ "flug": "g2-teil2",
+ "titel": "Dreisatz · Teil 2",
+ "fuer": "Kind 2",
+ "klasse": 5,
+ "themen": [
+  "groessen.proportional"
+ ],
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Lückenweg, Fehler-Detektiv, Verfahren wählen, Zwei Wege vergleichen, Brücke), rollend-4. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag ja/nein) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: Stufe aufsteigend.",
+ "aufgaben": [
+  {
+   "kennung": "G2T2-V01",
+   "thema": "groessen.proportional",
+   "lernkarte": "erkennen",
+   "stufe": 1,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Alter eines Kindes → Körpergröße",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Doppelte des Alters ist nicht die doppelte Größe"
+    },
+    {
+     "index": 2,
+     "antwort": "Anzahl der Arbeiter → Zeit für den Bau",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mehr Arbeiter brauchen weniger Zeit, das ist antiproportional"
+    },
+    {
+     "index": 3,
+     "antwort": "Seitenlänge eines Quadrats → Fläche",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "doppelte Seite gibt vierfache Fläche"
+    }
+   ],
+   "aufgabe": {
+    "l": "erkennen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "f": {
+     "text": "Welche dieser Zuordnungen ist proportional?"
+    },
+    "y": "auswahl",
+    "a": [
+     "Anzahl der Hefte → Gesamtpreis bei 2 € je Heft",
+     "Alter eines Kindes → Körpergröße",
+     "Anzahl der Arbeiter → Zeit für den Bau",
+     "Seitenlänge eines Quadrats → Fläche"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Bei einer proportionalen Zuordnung ergibt das Doppelte links das Doppelte rechts.",
+    "w": "Bei 2 € pro Heft kosten doppelt so viele Hefte doppelt so viel, die Zuordnung Anzahl → Preis ist proportional. Größe wächst nicht gleichmäßig mit dem Alter, mehr Arbeiter brauchen weniger Zeit (das ist antiproportional), und die Fläche eines Quadrats wächst mit dem Quadrat der Seite."
+   }
+  }
+ ]
+}

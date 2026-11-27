@@ -20,16 +20,23 @@
     {
      "luecke": 1,
      "antwort": 3,
-     "fehlbild": "fb.abstand.koordinaten_vertauscht",
-     "regel_des_fehlbilds": "id.geometrie.abstand",
-     "beschreibung": "x und y vertauscht"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen vergessen"
     },
     {
      "luecke": 2,
-     "antwort": 4,
-     "fehlbild": "fb.abstand.koordinaten_vertauscht",
-     "regel_des_fehlbilds": "id.geometrie.abstand",
-     "beschreibung": "x und y vertauscht"
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen falsch"
+    },
+    {
+     "luecke": 3,
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Schritte mit Vorzeichen addiert"
     }
    ],
    "aufgabe": {
@@ -40,22 +47,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Vom Ursprung zum Punkt P(−4 | 3): erst ① Schritte nach links, dann ② Schritte nach oben.",
-     "schablone": "① = □; ② = □",
+     "text": "Kim startet im Ursprung. Er geht 7 Schritte nach links, 8 nach unten, 4 nach rechts und 11 nach oben. Er steht jetzt bei x = −7 + 4 = ① und y = −8 + 11 = ②. Zurück zum Ursprung braucht er |①| + |②| = ③ Schritte, wenn er nur waagrecht und senkrecht geht.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine Anzahl von Schritten."
     },
     "o": {
      "werte": [
-      4,
-      3
+      -3,
+      3,
+      6
      ]
     },
     "c": [
-     "abs(-4)",
-     "3"
+     "-7+4",
+     "-8+11",
+     "abs(-7+4)+abs(-8+11)"
     ],
-    "h": "Die erste Zahl sagt rechts oder links, die zweite oben oder unten.",
-    "w": "x = −4: 4 Schritte nach links. y = 3: 3 Schritte nach oben."
+    "h": "Links und unten zählen negativ, rechts und oben positiv.",
+    "w": "x = −3 und y = 3. Zurück: 3 + 3 = 6 Schritte."
    }
   },
   {
@@ -70,11 +79,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "8 − 4 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die halbe Länge als Koordinate genommen"
+    },
+    {
      "luecke": 3,
-     "antwort": 2,
-     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
-     "regel_des_fehlbilds": "rr.plusminus",
-     "beschreibung": "5 − 3 gerechnet: die Null zwischen den Punkten übersehen"
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "8 + 2 gerechnet"
     }
    ],
    "aufgabe": {
@@ -85,24 +108,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "A(−3 | 2) und B(5 | 2) liegen auf einer waagrechten Linie. Von A bis zur y-Achse sind es ① Einheiten, von der y-Achse bis B sind es ②. Die Strecke [AB] ist ③ lang.",
+     "text": "A(−4 | 5) und B(8 | 5) liegen auf einer waagrechten Linie. Die Strecke [AB] ist 8 − (−4) = ① Einheiten lang. Die Mitte M liegt die Hälfte von ① Einheiten von A entfernt, also bei x = −4 + die Hälfte von ① = ②. Der Abstand von M zu B ist 8 − ② = ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine Länge."
     },
     "o": {
      "werte": [
-      3,
-      5,
-      8
+      12,
+      2,
+      6
      ]
     },
     "c": [
-     "abs(-3)",
-     "5",
-     "5 - (-3)"
+     "8-(-4)",
+     "-4+(8-(-4))//2",
+     "8-(-4+(8-(-4))//2)"
     ],
     "h": "Die Null liegt zwischen den beiden Punkten.",
-    "w": "Links der Achse 3, rechts 5, zusammen 8. Als Rechnung: 5 − (−3) = 8."
+    "w": "8 − (−4) = 12. Die Mitte liegt 6 von A entfernt: x = −4 + 6 = 2. Von M bis B: 8 − 2 = 6."
    }
   },
   {

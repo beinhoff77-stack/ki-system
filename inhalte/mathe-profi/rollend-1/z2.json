@@ -16,7 +16,36 @@
    "regel": "id.zahlen.bausteine",
    "regel_name": "Bausteine",
    "zaehlt": "nein",
-   "fehlbilder": [],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 22,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "48 − 2 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "48 − 3 gerechnet"
+    },
+    {
+     "luecke": 4,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "48 : 4 statt 48 : 6"
+    },
+    {
+     "luecke": 5,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "jedes Paar nur einmal gezählt"
+    }
+   ],
    "aufgabe": {
     "l": "teiler",
     "t": "teiler",
@@ -25,28 +54,28 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Alle Teilerpaare von 36: 1 · ①, 2 · ②, 3 · ③, 4 · ④, 6 · ⑤.",
+     "text": "Die Teilerpaare von 48 sind 1 · 48 und vier weitere: 2 · ①, 3 · ②, 4 · ③, 6 · ④. Jedes Paar liefert zwei Teiler. Insgesamt hat 48 also 5 · 2 = ⑤ Teiler.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □; ⑤ = □",
      "hinweis": "Je Lücke eine Zahl."
     },
     "o": {
      "werte": [
-      36,
-      18,
+      24,
+      16,
       12,
-      9,
-      6
+      8,
+      10
      ]
     },
     "c": [
-     "36 // 1",
-     "36 // 2",
-     "36 // 3",
-     "36 // 4",
-     "36 // 6"
+     "48//2",
+     "48//3",
+     "48//4",
+     "48//6",
+     "5*2"
     ],
-    "h": "Teile 36 der Reihe nach durch 1, 2, 3, 4 und 6.",
-    "w": "36 = 1 · 36 = 2 · 18 = 3 · 12 = 4 · 9 = 6 · 6."
+    "h": "Teile die Zahl der Reihe nach durch 2, 3, 4 und 6.",
+    "w": "48 = 1 · 48 = 2 · 24 = 3 · 16 = 4 · 12 = 6 · 8. Das sind 5 Paare, also 10 Teiler."
    }
   },
   {
@@ -59,7 +88,29 @@
    "regel": "id.zahlen.bausteine",
    "regel_name": "Bausteine",
    "zaehlt": "nein",
-   "fehlbilder": [],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Ziffer falsch addiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 63,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal 3 statt geteilt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 1536,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsch geteilt"
+    }
+   ],
    "aufgabe": {
     "l": "quersumme",
     "t": "quersumme",
@@ -68,24 +119,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ist 5 271 durch 3 teilbar? Quersumme: 5 + 2 + 7 + 1 = ①. Dann ① : 3 = ②, es bleibt kein Rest. Also geht auch 5 271 : 3 auf: ③.",
+     "text": "Ist 4 638 durch 3 teilbar? Quersumme: 4 + 6 + 3 + 8 = ①. Dann ① : 3 = ②, es bleibt kein Rest. Also geht auch 4 638 : 3 auf: ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine Zahl."
     },
     "o": {
      "werte": [
-      15,
-      5,
-      1757
+      21,
+      7,
+      1546
      ]
     },
     "c": [
-     "5 + 2 + 7 + 1",
-     "15 // 3",
-     "5271 // 3"
+     "4+6+3+8",
+     "(4+6+3+8)//3",
+     "4638//3"
     ],
     "h": "Die Quersumme ist die Summe der Ziffern.",
-    "w": "Quersumme 15, und 15 : 3 = 5. Also ist 5 271 durch 3 teilbar: 5 271 : 3 = 1 757."
+    "w": "Quersumme 21, 21 : 3 = 7 ohne Rest. 4 638 : 3 = 1 546."
    }
   },
   {

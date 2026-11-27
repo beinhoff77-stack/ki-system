@@ -26,9 +26,10 @@ FD(T, "reihenfolgen",
    "Fünf verschiedene Kinder stellen sich in einer Reihe auf. Die 3 Mädchen stehen auf den Plätzen 1 bis 3, die 2 Jungen auf den Plätzen 4 und 5. Kim zählt die möglichen Reihenfolgen.",
    [("Für die Mädchen gibt es auf den Plätzen 1 bis 3 genau 3 · 2 · 1 = 6 Möglichkeiten.", 3 * 2 * 1 == 6 == len({p[:3] for p in echte})),
     ("Für die Jungen gibt es auf den Plätzen 4 und 5 genau 2 · 1 = 2 Möglichkeiten.", 2 * 1 == 2 == len({p[3:] for p in echte})),
+    ("Zu jeder der 6 Anordnungen der Mädchen gibt es alle 2 Anordnungen der Jungen.", len(echte) == 6 * 2),
     ("Die Möglichkeiten der Mädchen und der Jungen werden zusammengezählt: 6 + 2 = 8 Reihenfolgen.", 6 + 2 == len(echte))],
    "Zu jeder Anordnung der Mädchen gibt es alle Anordnungen der Jungen. Prüfe, ob man dann zählt oder malnimmt.",
-   "Zeile 1 und Zeile 2 stimmen. Zu jeder der 6 Anordnungen der Mädchen gibt es jede der 2 Anordnungen der Jungen. Deshalb muss man malnehmen: 6 · 2 = 12 Reihenfolgen, nicht 6 + 2 = 8.",
+   "Zeile 1 bis 3 stimmen. Weil zu jeder der 6 Anordnungen der Mädchen jede der 2 Anordnungen der Jungen passt, muss man malnehmen: 6 · 2 = 12 Reihenfolgen. In Zeile 4 wird stattdessen 6 + 2 = 8 gerechnet.",
    "id.daten.stufen", "die Möglichkeiten addiert statt malgenommen")
 
 # ───────── baumdiagramm: Anwenden ─────────

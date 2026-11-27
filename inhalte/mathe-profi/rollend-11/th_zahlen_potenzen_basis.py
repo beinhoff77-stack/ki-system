@@ -15,12 +15,12 @@ Z(T, "berechnen", "bruecke",
 # ───────── vertauschen: Fehler-Detektiv ─────────
 FD(T, "vertauschen",
    "Ein Zahlenschloss hat 4 Rädchen. Jedes Rädchen hat 6 Stellungen. Kim zählt, wie viele Einstellungen es gibt.",
-   [("Mit nur 2 Rädchen gäbe es 6 · 6 = 36 Einstellungen.", 6 * 6 == 36),
-    ("Mit 4 Rädchen sind es also 4⁶ Einstellungen.", 4 ** 6 == 6 * 6 * 6 * 6),
-    ("4⁶ = 4 · 4 · 4 · 4 · 4 · 4 = 4 096 Einstellungen.", 4 * 4 * 4 * 4 * 4 * 4 == 4096)],
+   [("Bei 4 Rädchen mit je 6 Stellungen gibt es 4⁶ Einstellungen (Basis 4, Hochzahl 6).", 4 ** 6 == 6 ** 4),
+    ("4⁶ = 4 · 4 · 4 · 4 · 4 · 4 = 4 096.", 4 * 4 * 4 * 4 * 4 * 4 == 4096),
+    ("Das Schloss hat also 4 096 Einstellungen.", 4 ** 6 == 4096)],
    "Welche Zahl wird bei jedem Rädchen immer wieder malgenommen: die Zahl der Rädchen oder die Zahl der Stellungen?",
-   "Zeile 1 stimmt. In Zeile 2 sind Basis und Hochzahl vertauscht: Jedes Rädchen bringt den Faktor 6, und es gibt 4 Rädchen. Richtig ist 6⁴ = 1 296. "
-   "Zeile 3 rechnet 4⁶ richtig aus (4 096), folgt also richtig aus Zeile 2.",
+   "Mit 2 Rädchen gäbe es 6 · 6 = 36 Einstellungen. Jedes Rädchen bringt den Faktor 6, und es gibt 4 Rädchen: Richtig ist 6⁴ = 1 296. In Zeile 1 sind Basis und Hochzahl vertauscht. "
+   "Zeile 2 rechnet 4⁶ richtig aus, Zeile 3 folgt daraus.",
    "id.zahlen.hoch_zurueck", "Basis und Hochzahl vertauscht: 4⁶ statt 6⁴")
 
 # ───────── negativ: Anwenden ─────────

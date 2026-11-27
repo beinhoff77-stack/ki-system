@@ -71,3 +71,22 @@ def gl(a, b):
     """Zwei Terme (Python-Schreibweise, Variablen x y a b n) stimmen an sechs Prüfpunkten überein (Punkte mit Nenner 0 in beiden Termen zählen nicht)."""
     wa, wb = werte_von(a), werte_von(b)
     return wa == wb and any(v is not None for v in wa)
+
+
+def lsg(links, rechts, var="x"):
+    """Lösung einer linearen Gleichung links = rechts (exakt): Bruch, oder 'alle', oder 'keine'."""
+    def f(v):
+        env = {"x": F(0), "y": F(0), "a": F(0), "b": F(0), "n": F(0)}
+        env[var] = F(v)
+        return _ev(links, env) - _ev(rechts, env)
+    f0, f1, f2 = f(0), f(1), f(2)
+    assert f2 - f1 == f1 - f0, ("nicht linear", links, rechts)
+    m = f1 - f0
+    if m == 0:
+        return "alle" if f0 == 0 else "keine"
+    return -f0 / m
+
+
+def aequi(l1, r1, l2, r2):
+    """Zwei lineare Gleichungen haben dieselbe Lösung."""
+    return lsg(l1, r1) == lsg(l2, r2)

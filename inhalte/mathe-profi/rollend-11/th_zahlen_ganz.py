@@ -59,13 +59,12 @@ Z(T, "subtrahieren", "umkehren",
 
 # ───────── ketten: Fehler-Detektiv ─────────
 FD(T, "ketten",
-   "Kim berechnet −14 − (−9) + (−6) − (8 − 21) in Schritten.",
-   [("Die innere Klammer: 8 − 21 = −13", 8 - 21 == -13),
-    ("Der Term lautet jetzt −14 − (−9) + (−6) − (−13) = −14 + 9 − 6 − 13", -14 - (-9) + (-6) - (-13) == -14 + 9 - 6 - 13),
-    ("Von links nach rechts: −14 + 9 − 6 − 13 = −24", -14 + 9 - 6 - 13 == -24)],
+   "Kim berechnet −14 − (−9) + (−6) − (8 − 21) in Teilschritten.",
+   [("Die ersten drei Zahlen: −14 − (−9) + (−6) = −14 + 9 − 6 = −11", -14 - (-9) + (-6) == -14 + 9 - 6 == -11),
+    ("Die Klammer: 8 − 21 = −13", 8 - 21 == -13),
+    ("Zusammen: −11 − (−13) = −11 − 13 = −24", -11 - (-13) == -11 - 13)],
    "Wie lässt sich „minus eine negative Zahl“ ersetzen? Rechne jede Zeile einzeln nach.",
-   "Zeile 1 stimmt. In Zeile 2 steht vor der letzten Klammer „− (−13)“. Das heißt „plus 13“, nicht „minus 13“. Richtig: −14 + 9 − 6 + 13 = 2. "
-   "Zeile 3 rechnet mit der falschen Zeile 2 richtig weiter (−24).",
+   "Zeile 1 und Zeile 2 stimmen. In Zeile 3 steht „− (−13)“. Das heißt „plus 13“, nicht „minus 13“. Richtig: −11 + 13 = 2.",
    "rr.plusminus", "„− (−13)“ als „− 13“ aufgelöst")
 
 # ───────── sach: Zwei Wege ─────────

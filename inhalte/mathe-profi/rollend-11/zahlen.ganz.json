@@ -289,35 +289,35 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 2",
+     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 3",
      "rechnung": null
     },
     {
-     "index": 2,
-     "antwort": "In Zeile 3",
+     "index": 1,
+     "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile folgt aus der falschen Zeile 2 richtig; der erste Fehler steckt weiter oben",
+     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 3",
      "rechnung": null
     }
    ],
-   "fehlerzeile": 2,
+   "fehlerzeile": 3,
    "fehler": "„− (−13)“ als „− 13“ aufgelöst",
    "zeilen": [
     {
      "zeile": 1,
-     "text": "Die innere Klammer: 8 − 21 = −13",
+     "text": "Die ersten drei Zahlen: −14 − (−9) + (−6) = −14 + 9 − 6 = −11",
      "stimmt": true
     },
     {
      "zeile": 2,
-     "text": "Der Term lautet jetzt −14 − (−9) + (−6) − (−13) = −14 + 9 − 6 − 13",
-     "stimmt": false
+     "text": "Die Klammer: 8 − 21 = −13",
+     "stimmt": true
     },
     {
      "zeile": 3,
-     "text": "Von links nach rechts: −14 + 9 − 6 − 13 = −24",
-     "stimmt": true
+     "text": "Zusammen: −11 − (−13) = −11 − 13 = −24",
+     "stimmt": false
     }
    ],
    "aufgabe": {
@@ -328,7 +328,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim berechnet −14 − (−9) + (−6) − (8 − 21) in Schritten. Zeile 1: Die innere Klammer: 8 − 21 = −13 Zeile 2: Der Term lautet jetzt −14 − (−9) + (−6) − (−13) = −14 + 9 − 6 − 13 Zeile 3: Von links nach rechts: −14 + 9 − 6 − 13 = −24 In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim berechnet −14 − (−9) + (−6) − (8 − 21) in Teilschritten. Zeile 1: Die ersten drei Zahlen: −14 − (−9) + (−6) = −14 + 9 − 6 = −11 Zeile 2: Die Klammer: 8 − 21 = −13 Zeile 3: Zusammen: −11 − (−13) = −11 − 13 = −24 In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -336,10 +336,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 1
+     "index": 2
     },
     "h": "Wie lässt sich „minus eine negative Zahl“ ersetzen? Rechne jede Zeile einzeln nach.",
-    "w": "Zeile 1 stimmt. In Zeile 2 steht vor der letzten Klammer „− (−13)“. Das heißt „plus 13“, nicht „minus 13“. Richtig: −14 + 9 − 6 + 13 = 2. Zeile 3 rechnet mit der falschen Zeile 2 richtig weiter (−24)."
+    "w": "Zeile 1 und Zeile 2 stimmen. In Zeile 3 steht „− (−13)“. Das heißt „plus 13“, nicht „minus 13“. Richtig: −11 + 13 = 2."
    }
   },
   {

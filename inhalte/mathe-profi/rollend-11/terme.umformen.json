@@ -1,0 +1,202 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-11",
+ "kuerzel": "S3",
+ "thema": "terme.umformen",
+ "titel": "terme.umformen",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen_datei_im_bestand": "terme.umformen",
+ "hinweis": "Je Lernkarte ohne Aufgabe auf Stufe 3 in rollend-5/rollend-7 genau eine zählende Aufgabe der Stufe 3 in neuer Form. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ, form, zaehlt, Regel-Kennung, Fehlbilder (mit rechnung) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "S3-V001",
+   "thema": "terme.umformen",
+   "lernkarte": "produkte",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur a bestimmt und nicht die Länge 3a",
+     "rechnung": "2"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aus a³ = 8 fälschlich a = 8 geschlossen: Länge 3 · 8",
+     "rechnung": "3 * 8"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen einfach durch den Faktor 3 vor dem a geteilt",
+     "rechnung": "48 / 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "produkte",
+    "t": "produkte",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein quaderförmiges Aquarium ist 3a dm lang, 2a dm breit und a dm hoch (a ist eine positive ganze Zahl). Es fasst 48 Liter (1 dm³ ist 1 Liter). Wie viele Dezimeter ist das Aquarium lang?"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "dm"
+    },
+    "c": "3 * 2",
+    "h": "Fasse die drei Kantenlängen zu einem Term für das Volumen zusammen. Welche Zahl hoch 3 muss a sein?",
+    "w": "Volumen = 3a · 2a · a = 6a³ dm³. 6a³ = 48 ergibt a³ = 8, also a = 2 (denn 2 · 2 · 2 = 8). Die Länge ist 3a = 3 · 2 = 6 dm. Probe: 6 dm · 4 dm · 2 dm = 48 dm³."
+   }
+  },
+  {
+   "kennung": "S3-V002",
+   "thema": "terme.umformen",
+   "lernkarte": "ausmultiplizieren",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 3",
+     "rechnung": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 3",
+     "rechnung": null
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus der falschen Zeile 3 richtig; der erste Fehler steckt weiter oben",
+     "rechnung": null
+    }
+   ],
+   "fehlerzeile": 3,
+   "fehler": "−2 · (−x) als −2x gerechnet (Vorzeichen in der Klammer nicht beachtet)",
+   "zeilen": [
+    {
+     "zeile": 1,
+     "text": "4(2x − 3) = 8x − 12",
+     "stimmt": true
+    },
+    {
+     "zeile": 2,
+     "text": "−3(x − 5) = −3x + 15",
+     "stimmt": true
+    },
+    {
+     "zeile": 3,
+     "text": "−2(5 − x) = −10 − 2x",
+     "stimmt": false
+    },
+    {
+     "zeile": 4,
+     "text": "Zusammen: 8x − 12 − 3x + 15 − 10 − 2x = 3x − 7",
+     "stimmt": true
+    }
+   ],
+   "aufgabe": {
+    "l": "ausmultiplizieren",
+    "t": "ausmultiplizieren",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim vereinfacht 4(2x − 3) − 3(x − 5) − 2(5 − x) in Schritten. Zeile 1: 4(2x − 3) = 8x − 12 Zeile 2: −3(x − 5) = −3x + 15 Zeile 3: −2(5 − x) = −10 − 2x Zeile 4: Zusammen: 8x − 12 − 3x + 15 − 10 − 2x = 3x − 7 In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Prüfe jede Zeile mit einer Zahl für x, zum Beispiel x = 1. Achte auf die Vorzeichen bei negativem Faktor.",
+    "w": "Zeile 1 und 2 stimmen. In Zeile 3 wird −2 mit 5 und mit (−x) multipliziert: −2 · 5 = −10 und −2 · (−x) = +2x. Richtig ist also −10 + 2x. Zeile 4 rechnet mit dem falschen Ergebnis richtig weiter. Mit dem richtigen Wert ergibt sich 7x − 7."
+   }
+  },
+  {
+   "kennung": "S3-V003",
+   "thema": "terme.umformen",
+   "lernkarte": "aequivalenz",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.tauschen",
+   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei den Gliedern mit x das Vorzeichen von −k(x − 1) übersehen: 4 + k = 2",
+     "rechnung": "2 - 4"
+    },
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Zahlenglied 12 vergessen und k = 14 gesetzt",
+     "rechnung": "14"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "für die 12 fälschlich 4 genommen: 14 − 4",
+     "rechnung": "14 - 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "aequivalenz",
+    "t": "aequivalenz",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche Zahl k haben die Terme 4(x + 3) − k(x − 1) und 2x + 14 für jede Zahl x denselben Wert? Weg A: Multipliziere den ersten Term aus und vergleiche die Glieder mit x und die Zahlen. Weg B: Setze für x zwei geschickt gewählte Zahlen ein."
+    },
+    "o": {
+     "wert": 2
+    },
+    "c": "14 - 12",
+    "h": "Beide Wege müssen dasselbe k ergeben. Welche Zahl für x lässt das Glied mit k ganz wegfallen, welche macht die Klammer einfach?",
+    "w": "Weg A: 4(x + 3) − k(x − 1) = 4x + 12 − kx + k = (4 − k)x + (12 + k). Vergleich mit 2x + 14: 4 − k = 2 und 12 + k = 14, beides gibt k = 2. Weg B: Für x = 0 ist 12 + k = 14, also k = 2. Zur Kontrolle x = 2: 4 · 5 − 2 · 1 = 18 und 2 · 2 + 14 = 18."
+   }
+  }
+ ]
+}

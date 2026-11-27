@@ -1,0 +1,468 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-13",
+ "kuerzel": "R8",
+ "flug": "r8-raum.schraegbilder_teil2",
+ "titel": "raum.schraegbilder_teil2",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen": [
+  "raum.schraegbilder_teil2"
+ ],
+ "themen_datei_im_bestand": "raum.schraegbilder",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R8-V125",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "koordinaten",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die drei Kantenlängen addiert"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Grundfläche 6 mal 4 gerechnet"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 6 mal 3 gerechnet: die Kante in y-Richtung vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quader hat vier Ecken mit den Koordinaten aus der Tabelle. A liegt im Ursprung. B, D und E sind die drei Nachbarecken von A. Die Kanten des Quaders verlaufen parallel zu den Achsen. Wie viele Volumeneinheiten hat der Quader?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Ecke",
+       "A",
+       "B",
+       "D",
+       "E"
+      ],
+      "zeilen": [
+       [
+        "Koordinaten",
+        "(0 | 0 | 0)",
+        "(6 | 0 | 0)",
+        "(0 | 4 | 0)",
+        "(0 | 0 | 3)"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 72
+    },
+    "c": "6 * 4 * 3",
+    "h": "Welche Länge hat die Kante AB, welche AD und welche AE?",
+    "w": "Die Kanten von A aus sind AB = 6 (x-Richtung), AD = 4 (y-Richtung) und AE = 3 (z-Richtung). Volumen = Länge mal Breite mal Höhe = 6 · 4 · 3 = 72 Volumeneinheiten."
+   }
+  },
+  {
+   "kennung": "R8-V126",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "koordinaten",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe der Koordinaten der Ecke G angegeben"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Mittelpunkt der Grundfläche statt der Deckfläche genommen"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die z-Koordinate von M angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quader hat die Ecken A(0 | 0 | 0), C(6 | 4 | 0), E(0 | 0 | 3) und G(6 | 4 | 3). Seine Kanten verlaufen parallel zu den Achsen. Grundfläche ist ABCD, Deckfläche ist EFGH, E liegt über A und G liegt über C. M ist der Mittelpunkt der Deckfläche. Wie groß ist die Summe der drei Koordinaten von M? Weg A: M ist die Mitte der Strecke von E nach G. Weg B: M liegt senkrecht über dem Mittelpunkt N der Grundfläche ABCD."
+    },
+    "o": {
+     "wert": 8
+    },
+    "c": "(0 + 6) / 2 + (0 + 4) / 2 + 3",
+    "h": "Welche Koordinate ändert sich zwischen E und G nicht?",
+    "w": "Weg A: Mitte von E(0 | 0 | 3) und G(6 | 4 | 3): M(3 | 2 | 3). Weg B: N ist die Mitte von A und C, also N(3 | 2 | 0). M liegt 3 Einheiten senkrecht darüber: M(3 | 2 | 3). Beide Wege geben M(3 | 2 | 3). Summe: 3 + 2 + 3 = 8."
+   }
+  },
+  {
+   "kennung": "R8-V127",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "rotation",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch den Radius 4 statt durch sein Quadrat geteilt"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 2 mal den Radius geteilt"
+    },
+    {
+     "antwort": 1280,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Quadrat des Radius malgenommen statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "rotation",
+    "t": "rotation",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Rechteck mit den Seiten 4 cm und h cm dreht sich um die Seite mit der Länge h. Der entstehende Zylinder hat das Volumen 80π cm³. Wie lang ist h in Zentimetern?"
+    },
+    "o": {
+     "wert": 5,
+     "einheit": "cm"
+    },
+    "c": "80 / 4 ** 2",
+    "h": "Welche Seite liegt auf der Drehachse? Welche Seite wird beim Drehen zum Radius?",
+    "w": "Die Seite h liegt auf der Achse und wird die Höhe des Zylinders. Die andere Seite, 4 cm, wird der Radius. V = π · r² · h = π · 16 · h = 80π, also 16h = 80 und h = 5. Probe: π · 16 · 5 = 80π."
+   }
+  },
+  {
+   "kennung": "R8-V128",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "rotation",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "rotation",
+    "t": "rotation",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Rechteck mit den Seiten 3 cm und 5 cm dreht sich um die 5-cm-Seite. Kim bestimmt den entstehenden Körper und sein Volumen. Zeile 1: Es entsteht ein Zylinder mit dem Radius 5 cm und der Höhe 3 cm. Zeile 2: Das Volumen ist V = π · r² · h = π · 25 · 3, also V = 75π cm³. Zeile 3: Die Grundfläche des Zylinders ist ein Kreis mit dem Durchmesser 10 cm. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Fertige eine Skizze an. Welche Seite liegt beim Drehen auf der Drehachse?",
+    "w": "Die 5-cm-Seite liegt auf der Achse und wird die Höhe. Die andere Seite, 3 cm, wird der Radius. Zeile 1 vertauscht Radius und Höhe. Richtig ist V = π · 3² · 5 = 45π cm³. Die Zeilen 2 und 3 rechnen mit dem falschen Radius 5 cm."
+   }
+  },
+  {
+   "kennung": "R8-V129",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "axialschnitt",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Durchmesser statt des Radius angegeben"
+    },
+    {
+     "antwort": 2.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 4 mal die Höhe geteilt"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche nur durch 2 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "axialschnitt",
+    "t": "axialschnitt",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Der Axialschnitt eines Zylinders ist ein Rechteck mit dem Flächeninhalt 60 cm². Der Zylinder ist 6 cm hoch. Wie groß ist sein Radius in Zentimetern?"
+    },
+    "o": {
+     "wert": 5,
+     "einheit": "cm"
+    },
+    "c": "60 / (2 * 6)",
+    "h": "Wie breit ist das Schnittrechteck im Vergleich zum Radius?",
+    "w": "Der Axialschnitt ist ein Rechteck. Seine Breite ist der Durchmesser 2r, seine Höhe ist 6 cm. Aus 2r · 6 = 60 folgt 12r = 60 und r = 5. Probe: Durchmesser 10 cm, 10 · 6 = 60."
+   }
+  },
+  {
+   "kennung": "R8-V130",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "axialschnitt",
+   "stufe": 3,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche des Axialschnitts als Faktor von π angegeben"
+    },
+    {
+     "antwort": 720,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Durchmesser statt des Radius quadriert"
+    },
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "axialschnitt",
+    "t": "axialschnitt",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Die Zeichnung zeigt den Axialschnitt eines Zylinders. Die Breite des Rechtecks ist der Durchmesser der Grundfläche, seine Höhe ist die Höhe des Zylinders. Das Volumen ist V = n · π cm³. Welche Zahl ist n?",
+     "grafik": {
+      "typ": "figur",
+      "punkte": {
+       "A": [
+        0,
+        0
+       ],
+       "B": [
+        6,
+        0
+       ],
+       "C": [
+        6,
+        2.5
+       ],
+       "D": [
+        0,
+        2.5
+       ]
+      },
+      "flaeche": [
+       "A",
+       "B",
+       "C",
+       "D"
+      ],
+      "linien": [
+       [
+        "A",
+        "B",
+        "12 cm"
+       ],
+       [
+        "B",
+        "C",
+        "5 cm"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 180
+    },
+    "c": "6 ** 2 * 5",
+    "h": "Aus der Breite im Schnitt erhältst du zuerst den Radius.",
+    "w": "Die Breite 12 cm ist der Durchmesser, also ist r = 6 cm. Die Höhe ist 5 cm. V = π · r² · h = π · 36 · 5 = 180π cm³. Also ist n = 180."
+   }
+  },
+  {
+   "kennung": "R8-V131",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "koerper_symmetrie",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Symmetrieebenen eines Würfels genannt"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Symmetrieebenen eines Quaders mit quadratischer Grundfläche genannt"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die sechs Flächen gezählt statt der Symmetrieebenen"
+    }
+   ],
+   "aufgabe": {
+    "l": "koerper_symmetrie",
+    "t": "koerper_symmetrie",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Schuhkarton hat die Form eines Quaders. Alle drei Kantenlängen (Länge, Breite, Höhe) sind verschieden. Wie viele Symmetrieebenen hat der Karton?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "3",
+    "h": "Jede Symmetrieebene halbiert eine Kantenrichtung. Wie viele Kantenrichtungen gibt es?",
+    "w": "Der Quader hat drei Kantenrichtungen. Je eine Ebene geht durch die Mitte und steht senkrecht zu einer Richtung. Das sind 3 Symmetrieebenen. Andere Ebenen, etwa durch gegenüberliegende Kanten, bilden den Quader nicht auf sich ab, weil die Kanten verschieden lang sind."
+   }
+  },
+  {
+   "kennung": "R8-V132",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "koerper_symmetrie",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "koerper_symmetrie",
+    "t": "koerper_symmetrie",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim zählt die Symmetrieebenen einer geraden Pyramide, deren Grundfläche ein regelmäßiges Sechseck ist. Zeile 1: Die Spitze liegt senkrecht über dem Mittelpunkt des Sechsecks. Zeile 2: Jede Symmetrieebene der Pyramide enthält die Höhe, denn sonst würde die Spitze verschoben. Zeile 3: Ein regelmäßiges Sechseck hat 6 Symmetrieachsen und die Pyramide hat zusätzlich die Grundfläche als Ebene. Das sind 7 Symmetrieebenen. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Wird die Pyramide an der Ebene der Grundfläche auf sich selbst abgebildet? Wo liegt die Spitze nach dem Spiegeln?",
+    "w": "Die Zeilen 1 und 2 stimmen. In Zeile 3 ist die Grundfläche keine Symmetrieebene: Die Spitze würde unter die Grundfläche gespiegelt und die Pyramide fiele nicht auf sich. Jede der 6 Achsen des Sechsecks gibt zusammen mit der Höhe eine Symmetrieebene. Es gibt also 6 Symmetrieebenen, nicht 7."
+   }
+  }
+ ]
+}

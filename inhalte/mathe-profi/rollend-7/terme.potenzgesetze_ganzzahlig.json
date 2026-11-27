@@ -27,16 +27,23 @@
     {
      "luecke": 1,
      "antwort": 60,
-     "fehlbild": "fb.potenz.basis_mal_hochzahl",
-     "regel_des_fehlbilds": "rr.potenz",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "64 − 4 gerechnet"
     },
     {
      "luecke": 2,
-     "antwort": 0,
-     "fehlbild": "fb.potenz.negative_hochzahl_als_minus",
-     "regel_des_fehlbilds": "rr.potenz",
-     "beschreibung": "Hochzahl 0 als Wert 0 gelesen"
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4⁰ als 0 gelesen: 4 + 0"
+    },
+    {
+     "luecke": 2,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4⁰ als 4 gelesen: 4 + 4"
     }
    ],
    "aufgabe": {
@@ -47,22 +54,22 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Setze das Muster fort: 4⁴ = 256 und 4³ = 64. Bei jedem Schritt nach rechts wird durch 4 geteilt. Dann ist 4² = ① und 4⁰ = ②.",
+     "text": "Setze das Muster fort: 4⁴ = 256 und 4³ = 64. Bei jedem Schritt nach rechts wird durch 4 geteilt. Dann ist 4² = ① und die Summe 4¹ + 4⁰ ist ②.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       16,
-      1
+      5
      ]
     },
     "c": [
      "64 // 4",
-     "(64 // 4) // 4 // 4"
+     "(16) // 4 + (16) // 4 // 4"
     ],
     "h": "Teile den Wert immer wieder durch die Basis. Wie oft musst du teilen, bis du bei der Hochzahl 0 bist?",
-    "w": "64 : 4 = 16 für 4². Dann 16 : 4 = 4 für 4¹ und 4 : 4 = 1 für 4⁰. Also 4⁰ = 1."
+    "w": "64 : 4 = 16 für 4². Dann 16 : 4 = 4 für 4¹ und 4 : 4 = 1 für 4⁰. Also 4⁰ = 1 und 4¹ + 4⁰ = 4 + 1 = 5."
    }
   },
   {
@@ -139,7 +146,7 @@
     "o": {
      "index": 2
     },
-    "h": "Setze das Halbieren in der Tabelle von rechts nach rechts fort.",
+    "h": "Setze das Halbieren in der Tabelle von links nach rechts fort.",
     "w": "2⁰ = 1, 2⁻¹ = 1/2, 2⁻² = 1/4. Bei jedem Schritt nach rechts wird halbiert."
    }
   },
@@ -207,8 +214,8 @@
     {
      "luecke": 1,
      "antwort": 13,
-     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
-     "regel_des_fehlbilds": "rr.plusminus",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "4 + 9 gerechnet"
     },
     {
@@ -223,7 +230,7 @@
      "antwort": 11,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "5 + 6 gerechnet"
+     "beschreibung": "5 + 6 gerechnet, das Minus der Hochzahl vergessen"
     }
    ],
    "aufgabe": {
@@ -234,7 +241,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Vereinfache z⁴ · z⁻⁹ zu z^k. Die Hochzahlen werden addiert: k = ①. Multiplizierst du das Ergebnis noch mit z⁶, ergibt sich die Hochzahl ②.",
+     "text": "Vereinfache z⁴ · z⁻⁹ für z ≠ 0 zu z^k. Die Hochzahlen werden addiert: k = ①. Multiplizierst du das Ergebnis noch mit z⁶, ergibt sich die Hochzahl ②.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -246,7 +253,7 @@
     },
     "c": [
      "4 + (-9)",
-     "4 + (-9) + 6"
+     "(-5) + 6"
     ],
     "h": "Gleiche Basis beim Malnehmen: Hochzahlen addieren. Achte auf das Vorzeichen.",
     "w": "4 + (−9) = −5, also z⁻⁵. Mit z⁶: −5 + 6 = 1, also z¹ = z."
@@ -266,8 +273,8 @@
    "fehlbilder": [
     {
      "antwort": 128,
-     "fehlbild": "fb.potenz.negative_hochzahl_als_minus",
-     "regel_des_fehlbilds": "rr.potenz",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "5 + 2 gerechnet: 2⁷"
     },
     {
@@ -354,9 +361,9 @@
     {
      "luecke": 1,
      "antwort": 1,
-     "fehlbild": "fb.potenz.hochzahlen_malgenommen",
-     "regel_des_fehlbilds": "rr.potenz",
-     "beschreibung": "die Hochzahlen addiert: −3 + 4"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen addiert statt malgenommen: −3 + 4"
     },
     {
      "luecke": 1,
@@ -370,7 +377,7 @@
      "antwort": 48,
      "fehlbild": "fb.potenz.basis_mal_hochzahl",
      "regel_des_fehlbilds": "rr.potenz",
-     "beschreibung": "4 · 12 gerechnet"
+     "beschreibung": "4 · 12 gerechnet statt 2¹²"
     }
    ],
    "aufgabe": {
@@ -393,7 +400,7 @@
     },
     "c": [
      "-3 * 4",
-     "2 ** 12"
+     "2 ** (0 - (-12))"
     ],
     "h": "Eine Potenz wird noch einmal hoch genommen. Was geschieht mit den Hochzahlen?",
     "w": "(2⁻³)⁴ = 2⁻¹². Das ist 1/2¹² = 1/4 096."
@@ -432,7 +439,7 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "In der Rechnung (a⁻²)^k = a⁻¹⁰ fehlt die Hochzahl k. Wie groß ist k?"
+     "text": "Für welche ganze Zahl k gilt (a⁻²)^k = a⁻¹⁰ für alle Zahlen a ≠ 0?"
     },
     "o": {
      "wert": 5
@@ -621,19 +628,19 @@
      "antwort": 5000,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "10³ durch 2 geteilt, dabei eine Null zu viel"
+     "beschreibung": "10⁴ durch 2 geteilt, dabei eine Null zu viel"
     },
     {
      "antwort": 50,
-     "fehlbild": "fb.potenz.basis_mal_hochzahl",
-     "regel_des_fehlbilds": "rr.potenz",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "10² statt 10³ gerechnet"
     },
     {
      "antwort": 0.002,
-     "fehlbild": "fb.potenz.negative_hochzahl_als_minus",
-     "regel_des_fehlbilds": "rr.potenz",
-     "beschreibung": "die Hochzahlen falsch herum subtrahiert"
+     "fehlbild": "fb.gegenrechnung.reihenfolge_nicht_umgekehrt",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "Länge der Bakterie durch 1 mm geteilt statt umgekehrt"
     }
    ],
    "aufgabe": {

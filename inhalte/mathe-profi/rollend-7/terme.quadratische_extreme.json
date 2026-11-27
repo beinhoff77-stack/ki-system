@@ -34,16 +34,16 @@
     {
      "luecke": 1,
      "antwort": -10,
-     "fehlbild": "fb.potenz.basis_mal_hochzahl",
-     "regel_des_fehlbilds": "rr.potenz",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "nicht halbiert"
     },
     {
      "luecke": 2,
      "antwort": -25,
-     "fehlbild": "fb.vorzeichen.falsches_zeichen",
-     "regel_des_fehlbilds": "rr.vorzeichen",
-     "beschreibung": "(−5)² als −25 gerechnet"
+     "fehlbild": "fb.reihenfolge.minus_ins_quadrat",
+     "regel_des_fehlbilds": "rr.reihenfolge",
+     "beschreibung": "(−5)² als −5² gerechnet, also −25"
     },
     {
      "luecke": 2,
@@ -73,7 +73,7 @@
     },
     "c": [
      "-10 // 2",
-     "(-10 // 2) ** 2"
+     "(-5) ** 2"
     ],
     "h": "Nimm die Hälfte der Zahl vor x. Die Ergänzung ist deren Quadrat.",
     "w": "Die Hälfte von −10 ist −5. (−5)² = 25. Also x² − 10x + 25 = (x − 5)²."
@@ -93,9 +93,9 @@
    "fehlbilder": [
     {
      "antwort": 6,
-     "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
-     "regel_des_fehlbilds": "rr.ausmultiplizieren",
-     "beschreibung": "die 2 im doppelten Produkt vergessen"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 2 im doppelten Produkt vergessen: nur 6"
     },
     {
      "antwort": 18,
@@ -118,7 +118,7 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Für welche positive Zahl b ist x² + bx + 36 ein vollständiges Quadrat (x + c)² mit positivem c?"
+     "text": "Für welche positive Zahl b gilt x² + bx + 36 = (x + c)² für alle Zahlen x, mit einem positiven c?"
     },
     "o": {
      "wert": 12
@@ -232,7 +232,7 @@
     },
     "c": [
      "6 // 2",
-     "(6 // 2) ** 2 - 4"
+     "(3) ** 2 - 4"
     ],
     "h": "Die Zahl in der Klammer ist die Hälfte der Zahl vor x. Das Quadrat davon wird addiert und abgezogen.",
     "w": "x² + 6x + 9 − 9 + 4 = (x + 3)² − 5. Probe mit x = 0: 9 − 5 = 4."
@@ -407,8 +407,8 @@
     },
     "c": [
      "8 // 2",
-     "19 - (8 // 2) ** 2",
-     "(6 - 4) ** 2 + 3"
+     "19 - (4) ** 2",
+     "(6 - (4)) ** 2 + (3)"
     ],
     "h": "Halbiere die Zahl vor x. Das Quadrat davon ziehst du von 19 ab.",
     "w": "x² − 8x + 16 − 16 + 19 = (x − 4)² + 3. Das Minimum 3 liegt bei x = 4. Für x = 6: 4 + 3 = 7."
@@ -430,12 +430,12 @@
      "antwort": 1,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Höhe zu Beginn genommen"
+     "beschreibung": "die Höhe zu Beginn genommen: h(0)"
     },
     {
      "antwort": 3,
-     "fehlbild": "fb.vorzeichen.falsches_zeichen",
-     "regel_des_fehlbilds": "rr.vorzeichen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "die Zeit des Maximums statt der Höhe angegeben"
     },
     {
@@ -542,8 +542,8 @@
     {
      "luecke": 4,
      "antwort": 13,
-     "fehlbild": "fb.vorzeichen.falsches_zeichen",
-     "regel_des_fehlbilds": "rr.vorzeichen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "22 − 9 gerechnet, den Faktor 2 vergessen"
     }
    ],
@@ -569,9 +569,9 @@
     },
     "c": [
      "12 // 2",
-     "6 // 2",
-     "2 * (6 // 2) ** 2",
-     "22 - 2 * (6 // 2) ** 2"
+     "(6) // 2",
+     "2 * (3) ** 2",
+     "22 - (18)"
     ],
     "h": "Die ergänzte Zahl steht in der Klammer und wird mit dem Faktor vor der Klammer malgenommen.",
     "w": "2x² − 12x = 2(x² − 6x) = 2((x − 3)² − 9) = 2(x − 3)² − 18. Dazu 22: 2(x − 3)² + 4. Das Minimum ist 4 bei x = 3."
@@ -593,7 +593,7 @@
      "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Randwert T(2) als Minimum genommen"
+     "beschreibung": "den Wert am Rand der Tabelle T(2) als Minimum genommen"
     },
     {
      "antwort": 22,
@@ -603,8 +603,8 @@
     },
     {
      "antwort": 3,
-     "fehlbild": "fb.vorzeichen.falsches_zeichen",
-     "regel_des_fehlbilds": "rr.vorzeichen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "die Stelle des Minimums statt seines Werts genommen"
     }
    ],
@@ -616,14 +616,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Bestimme das Minimum von T(x) = 2x² − 12x + 22 auf zwei Wegen. Weg A: Faktor ausklammern und quadratisch ergänzen. Weg B: T(2), T(3) und T(4) ausrechnen und vergleichen (die Parabel ist symmetrisch). Wie groß ist das Minimum?"
+     "text": "Bestimme das Minimum von T(x) = 2x² − 12x + 22 auf zwei Wegen. Weg A: Faktor ausklammern und quadratisch ergänzen. Weg B: T(2), T(3) und T(4) ausrechnen. Weil T(2) und T(4) gleich sind, liegt die Symmetrieachse der Parabel in der Mitte bei x = 3. Die Parabel öffnet sich nach oben, weil vor x² die positive Zahl 2 steht. Also ist der kleinste dieser drei Werte das Minimum. Wie groß ist das Minimum?"
     },
     "o": {
      "wert": 4
     },
     "c": "22 - 2 * 3 ** 2",
     "h": "Beide Wege müssen dasselbe Minimum ergeben.",
-    "w": "Weg A: 2(x − 3)² + 4, Minimum 4. Weg B: T(2) = 6, T(3) = 4, T(4) = 6. Der kleinste Wert ist 4."
+    "w": "Weg A: 2(x − 3)² + 4, Minimum 4. Weg B: T(2) = 6, T(3) = 4, T(4) = 6. Wegen T(2) = T(4) liegt die Symmetrieachse bei x = 3. Die Parabel öffnet sich nach oben (Faktor 2 vor x² ist positiv), also ist T(3) = 4 der tiefste Punkt und damit das Minimum für alle x."
    }
   },
   {
@@ -731,8 +731,8 @@
     },
     "c": [
      "20 // 2",
-     "(20 // 2) // 2",
-     "((20 // 2) // 2) * ((20 // 2) - (20 // 2) // 2)"
+     "(10) // 2",
+     "(5) * ((10) - (5))"
     ],
     "h": "Die beiden Seiten zusammen sind der halbe Umfang. Die Fläche ist am größten, wenn beide Seiten gleich lang sind.",
     "w": "Halber Umfang 10. Andere Seite 10 − x. A(x) = −x² + 10x = −(x − 5)² + 25. Maximum bei x = 5, Fläche 25 m²."
@@ -780,7 +780,7 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "Ein Bauer hat 24 m Zaun. Er umzäunt ein Rechteck an einer Hauswand, sodass nur drei Seiten Zaun brauchen. Die beiden Seiten senkrecht zur Wand sind je x lang. Welcher Term gibt die Fläche des Rechtecks an?"
+     "text": "Ein Bauer hat 24 m Zaun. Er umzäunt ein Rechteck an einer Hauswand, sodass nur drei Seiten Zaun brauchen. Die Wand ist länger als der Zaun. Die beiden Seiten senkrecht zur Wand sind je x lang. Welcher Term gibt die Fläche des Rechtecks an?"
     },
     "a": [
      "x(24 − x)",

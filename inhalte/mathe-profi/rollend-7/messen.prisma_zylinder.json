@@ -47,7 +47,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Prisma hat als Grundfläche ein Dreieck mit der Grundseite 9 cm und der Höhe 4 cm. Das Prisma ist 15 cm hoch. Die Grundfläche ist ① cm². Das Volumen ist ② cm³.",
+     "text": "Ein gerades Prisma hat als Grundfläche ein Dreieck mit der Grundseite 9 cm und der zugehörigen Höhe 4 cm. Das Prisma ist 15 cm hoch. Die Grundfläche ist ① cm² groß. Das Volumen ist ② cm³.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -59,7 +59,7 @@
     },
     "c": [
      "9 * 4 / 2",
-     "9 * 4 / 2 * 15"
+     "(18) * 15"
     ],
     "h": "Die Grundfläche des Dreiecks ist die Hälfte von Grundseite mal Höhe. Das Volumen ist Grundfläche mal Körperhöhe.",
     "w": "G = 9 · 4 : 2 = 18 cm². V = 18 · 15 = 270 cm³."
@@ -98,7 +98,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Prisma hat als Grundfläche ein Dreieck mit der Grundseite 6 cm und der Höhe 5 cm. Es ist 8 cm hoch. Berechne das Volumen auf zwei Wegen. Weg A: Grundfläche des Dreiecks mal Körperhöhe. Weg B: Das Prisma ist die Hälfte eines Quaders mit den Kanten 6 cm, 5 cm und 8 cm. Wie groß ist das Volumen?"
+     "text": "Ein gerades Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Katheten 6 cm und 5 cm. Das Prisma ist 8 cm hoch. Berechne das Volumen auf zwei Wegen. Weg A: Grundfläche des Dreiecks mal Körperhöhe. Weg B: Zwei solche Prismen ergeben zusammen einen Quader mit den Kanten 6 cm, 5 cm und 8 cm, das Prisma ist also die Hälfte davon. Wie groß ist das Volumen?"
     },
     "o": {
      "wert": 120,
@@ -106,7 +106,7 @@
     },
     "c": "6 * 5 / 2 * 8",
     "h": "Beide Wege müssen dasselbe Volumen ergeben.",
-    "w": "Weg A: G = 15 cm², V = 15 · 8 = 120 cm³. Weg B: Quader 240 cm³, die Hälfte ist 120 cm³."
+    "w": "Weg A: G = 6 · 5 : 2 = 15 cm², V = 15 · 8 = 120 cm³. Weg B: Der Quader hat 6 · 5 · 8 = 240 cm³, die Hälfte ist 120 cm³."
    }
   },
   {
@@ -142,7 +142,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Zeltdach hat die Form eines liegenden Prismas. Die Grundfläche ist ein Dreieck, die Zeltöffnung: 4 m breit und 2,5 m hoch. Das Zelt ist 6 m lang. Wie viel Kubikmeter Luft passen in das Zelt?"
+     "text": "Ein Zelt hat die Form eines liegenden geraden Prismas. Die Grundfläche ist ein Dreieck, die Zeltöffnung: 4 m breit und 2,5 m hoch. Das Zelt ist 6 m lang. Wie viel Kubikmeter Luft passen in das Zelt?"
     },
     "o": {
      "wert": 30,
@@ -168,8 +168,8 @@
     {
      "luecke": 2,
      "antwort": 70,
-     "fehlbild": "fb.haut.nur_drei_flaechen",
-     "regel_des_fehlbilds": "id.flaeche_raum.haut",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "nur den halben Umfang genommen"
     },
     {
@@ -188,7 +188,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Prisma hat als Grundfläche ein Rechteck mit den Seiten 3 cm und 4 cm. Es ist 10 cm hoch. Die Grundfläche ist ① cm². Der Mantel ist ein Rechteck mit der Höhe 10 cm und dem Umfang der Grundfläche als Länge. Er ist ② cm² groß. Die Oberfläche ist ③ cm².",
+     "text": "Ein gerades Prisma hat als Grundfläche ein Rechteck mit den Seiten 3 cm und 4 cm. Es ist 10 cm hoch. Die Grundfläche ist ① cm². Der Mantel ist ein Rechteck mit der Höhe 10 cm und dem Umfang der Grundfläche als Länge. Er ist ② cm² groß. Die Oberfläche ist ③ cm².",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -202,7 +202,7 @@
     "c": [
      "3 * 4",
      "(3 + 4) * 2 * 10",
-     "2 * 12 + 140"
+     "2 * (12) + (140)"
     ],
     "h": "Die Oberfläche besteht aus zwei Grundflächen und dem Mantel.",
     "w": "G = 12 cm². Umfang 14 cm, Mantel 14 · 10 = 140 cm². O = 2 · 12 + 140 = 164 cm²."
@@ -225,7 +225,7 @@
      "antwort": "126 cm²",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur ein Dreieck gezählt"
+     "beschreibung": "nur eine Grundfläche gezählt: 6 + 120"
     },
     {
      "index": 1,
@@ -236,10 +236,10 @@
     },
     {
      "index": 2,
-     "antwort": "66 cm²",
+     "antwort": "252 cm²",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Teilflächen ohne die Anzahl addiert, nur eine Grundfläche"
+     "beschreibung": "die drei Rechtecke doppelt gezählt: 12 + 2 · 120"
     }
    ],
    "aufgabe": {
@@ -250,7 +250,7 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "Die Tabelle zeigt alle Teilflächen des Netzes eines Dreiecksprismas. Wie groß ist die Oberfläche?",
+     "text": "Die Tabelle zeigt alle Teilflächen des Netzes eines geraden Dreiecksprismas. Wie groß ist die Oberfläche?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
@@ -285,7 +285,7 @@
     "a": [
      "126 cm²",
      "120 cm²",
-     "66 cm²",
+     "252 cm²",
      "132 cm²"
     ],
     "o": {
@@ -330,7 +330,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim berechnet die Oberfläche eines Prismas mit einem Quadrat als Grundfläche. Die Seite ist 5 cm lang, die Höhe ist 8 cm. Zeile 1: Grundfläche: 5 · 5 = 25 cm². Zeile 2: Mantel: Umfang 4 · 5 = 20 cm, mal Höhe 8 cm = 160 cm². Zeile 3: Oberfläche: Mantel plus eine Grundfläche, also 160 + 25 = 185 cm². In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim berechnet die Oberfläche eines geraden Prismas mit einem Quadrat als Grundfläche. Die Seite des Quadrats ist 5 cm lang, die Körperhöhe des Prismas ist 8 cm. Zeile 1: Grundfläche: 5 · 5 = 25 cm². Zeile 2: Mantel: Umfang der Grundfläche 4 · 5 = 20 cm, mal die Körperhöhe 8 cm = 160 cm². Zeile 3: Oberfläche: Mantel plus eine Grundfläche, also 160 + 25 = 185 cm². In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -359,8 +359,8 @@
     {
      "luecke": 1,
      "antwort": 768,
-     "fehlbild": "fb.aus_dem_quader.drittel_vergessen",
-     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_quader",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "720 + 48 gerechnet"
     },
     {
@@ -386,7 +386,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Prisma hat das Volumen 720 cm³ und die Grundfläche 48 cm². Die Höhe ist ① cm. Ein zweites Prisma hat dieselbe Grundfläche und die doppelte Höhe. Seine Höhe ist ② cm und sein Volumen ③ cm³.",
+     "text": "Ein gerades Prisma hat das Volumen 720 cm³ und die Grundfläche 48 cm². Die Höhe ist ① cm. Ein zweites gerades Prisma hat dieselbe Grundfläche und die doppelte Höhe. Seine Höhe ist ② cm und sein Volumen ③ cm³.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -399,8 +399,8 @@
     },
     "c": [
      "720 // 48",
-     "2 * (720 // 48)",
-     "48 * 2 * (720 // 48)"
+     "2 * (15)",
+     "48 * (30)"
     ],
     "h": "Das Volumen ist Grundfläche mal Höhe. Stelle um: Höhe = Volumen : Grundfläche.",
     "w": "h = 720 : 48 = 15 cm. Doppelte Höhe: 30 cm. V = 48 · 30 = 1 440 cm³."
@@ -422,7 +422,7 @@
      "antwort": 3,
      "fehlbild": "fb.groesse.flaeche_mit_zehn",
      "regel_des_fehlbilds": "id.verhaeltnisse.groesse",
-     "beschreibung": "in dm statt in cm angegeben: 96 : 32"
+     "beschreibung": "in dm statt in cm angegeben: 96 : (8 · 4)"
     },
     {
      "antwort": 1200,
@@ -478,7 +478,7 @@
      "antwort": 18,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "36 : 2 gerechnet"
+     "beschreibung": "36 : 2 gerechnet statt die Wurzel zu ziehen"
     },
     {
      "antwort": 540,
@@ -495,7 +495,7 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein Prisma hat die Grundfläche 45 cm² und die Höhe 12 cm. Ein zweites Prisma hat dasselbe Volumen. Seine Grundfläche ist ein Quadrat und seine Höhe ist 15 cm. Wie lang ist eine Seite dieses Quadrats?"
+     "text": "Ein gerades Prisma hat die Grundfläche 45 cm² und die Höhe 12 cm. Ein zweites gerades Prisma hat dasselbe Volumen. Seine Grundfläche ist ein Quadrat und seine Höhe ist 15 cm. Wie lang ist eine Seite dieses Quadrats?"
     },
     "o": {
      "wert": 6,
@@ -554,8 +554,8 @@
     },
     "c": [
      "4 ** 2",
-     "4 ** 2 * 10",
-     "3 * 4 ** 2 * 10"
+     "(16) * 10",
+     "3 * (160)"
     ],
     "h": "Die Grundfläche ist ein Kreis: Radius mal Radius mal π.",
     "w": "G = π · 4² = 16π cm². V = 16π · 10 = 160π cm³. Mit π ≈ 3: 480 cm³."
@@ -575,21 +575,21 @@
    "fehlbilder": [
     {
      "antwort": 471,
-     "fehlbild": "fb.aus_dem_rechteck.halbieren_vergessen",
-     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "durch 2 geteilt"
     },
     {
      "antwort": 377,
      "fehlbild": "fb.potenz.basis_mal_hochzahl",
      "regel_des_fehlbilds": "rr.potenz",
-     "beschreibung": "π · 5 · 2 · 12 gerechnet: 5² als 5 · 2"
+     "beschreibung": "5² als 5 · 2 gerechnet: π · 5 · 2 · 12"
     },
     {
-     "antwort": 3770,
+     "antwort": 3768,
      "fehlbild": "fb.aus_dem_rechteck.durchmesser_statt_radius",
      "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
-     "beschreibung": "5 als Durchmesser verdoppelt: π · 10² · 12"
+     "beschreibung": "den Radius 5 verdoppelt, also mit 10 quadriert: π · 10² · 12"
     }
    ],
    "aufgabe": {
@@ -600,16 +600,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Zylinder hat den Radius 5 cm und die Höhe 12 cm. Berechne sein Volumen in cm³ auf ganze Zahlen gerundet auf zwei Wegen. Weg A: mit π = 3,14. Weg B: mit der π-Taste des Taschenrechners. Welchen Wert erhältst du?"
+     "text": "Ein Zylinder hat den Radius 5 cm und die Höhe 12 cm. Berechne sein Volumen in cm³ auf ganze Zahlen gerundet auf zwei Wegen. Weg A: mit π ≈ 3,14. Weg B: mit der π-Taste des Taschenrechners. Beide Wege führen auf dieselbe ganze Zahl. Welchen Wert erhältst du?"
     },
     "o": {
      "wert": 942,
-     "einheit": "cm³",
-     "toleranz": 1
+     "einheit": "cm³"
     },
-    "c": "round(3.141592653589793 * 5 ** 2 * 12)",
+    "c": "3.14 * 5 ** 2 * 12",
     "h": "Beide Wege dürfen sich nur in der Rundung unterscheiden.",
-    "w": "Weg A: 3,14 · 25 · 12 = 942. Weg B: π · 25 · 12 ≈ 942,48, also 942. V ≈ 942 cm³."
+    "w": "Weg A: 3,14 · 25 · 12 = 942. Weg B: π · 25 · 12 ≈ 942,48, gerundet 942. Das Volumen beträgt etwa 942 cm³."
    }
   },
   {
@@ -683,10 +682,10 @@
     },
     {
      "luecke": 2,
-     "antwort": 192,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "2 · 3 · 8 · 4 gerechnet"
+     "antwort": 96,
+     "fehlbild": "fb.aus_dem_rechteck.durchmesser_statt_radius",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
+     "beschreibung": "den Durchmesser 6 statt des Radius im Umfang genommen: 2 · 6 · 8"
     },
     {
      "luecke": 3,
@@ -718,7 +717,7 @@
     "c": [
      "3 ** 2",
      "2 * 3 * 8",
-     "2 * 3 ** 2 + 2 * 3 * 8"
+     "2 * (9) + (48)"
     ],
     "h": "Der Kreisumfang ist 2 mal π mal Radius. Die Oberfläche hat zwei Grundflächen und einen Mantel.",
     "w": "G = 9π. Mantel: 2π · 3 · 8 = 48π. O = 2 · 9π + 48π = 66π cm²."
@@ -840,16 +839,15 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Eine Blechdose hat den Durchmesser 8 cm und die Höhe 11 cm. Sie hat Boden, Deckel und Mantel. Wie viel Quadratzentimeter Blech braucht man für eine Dose, wenn nichts verschnitten wird? Runde auf ganze cm²."
+     "text": "Eine Blechdose hat den Durchmesser 8 cm und die Höhe 11 cm. Sie hat Boden, Deckel und Mantel. Wie viel Quadratzentimeter Blech braucht man für eine Dose, wenn nichts verschnitten wird? Rechne mit der π-Taste und runde auf ganze cm²."
     },
     "o": {
      "wert": 377,
-     "einheit": "cm²",
-     "toleranz": 1
+     "einheit": "cm²"
     },
     "c": "round(2 * 3.141592653589793 * 4 ** 2 + 2 * 3.141592653589793 * 4 * 11)",
     "h": "Der Radius ist halb so groß wie der Durchmesser.",
-    "w": "r = 4 cm. Zwei Kreise: 2 · π · 16 ≈ 100,5. Mantel: 2 · π · 4 · 11 ≈ 276,5. O ≈ 377 cm²."
+    "w": "r = 4 cm. Zwei Kreise: 2 · π · 16 ≈ 100,5. Mantel: 2 · π · 4 · 11 ≈ 276,5. O ≈ 377,0 cm², gerundet 377 cm². (Mit π ≈ 3,14 erhält man 376,8, gerundet ebenfalls 377.)"
    }
   },
   {
@@ -876,7 +874,7 @@
      "antwort": 10000,
      "fehlbild": "fb.stellenwert.eine_stelle_daneben",
      "regel_des_fehlbilds": "rr.stellenwert",
-     "beschreibung": "eine Null zu wenig"
+     "beschreibung": "eine Null zu wenig: mal 100 statt mal 1 000"
     },
     {
      "luecke": 3,
@@ -894,7 +892,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Schwimmbecken ist ein Prisma mit einer rechteckigen Grundfläche von 10 m mal 5 m. Es ist 2 m tief. Es fasst ① m³. In einen Kubikmeter passen 1 000 Liter, also fasst es ② Liter. Eine Pumpe schafft 4 000 Liter in der Stunde. Das Füllen dauert ③ Stunden.",
+     "text": "Ein Schwimmbecken ist ein gerades Prisma mit einer rechteckigen Grundfläche von 10 m mal 5 m. Es ist 2 m tief. Es fasst ① m³. In einen Kubikmeter passen 1 000 Liter, also fasst es ② Liter. Eine Pumpe schafft 4 000 Liter in der Stunde. Das Füllen dauert ③ Stunden.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -907,8 +905,8 @@
     },
     "c": [
      "10 * 5 * 2",
-     "10 * 5 * 2 * 1000",
-     "10 * 5 * 2 * 1000 // 4000"
+     "(100) * 1000",
+     "(100000) // 4000"
     ],
     "h": "Volumen = Länge mal Breite mal Tiefe. Dann in Liter umrechnen.",
     "w": "V = 10 · 5 · 2 = 100 m³ = 100 000 l. 100 000 : 4 000 = 25. Das Füllen dauert 25 Stunden."
@@ -918,7 +916,7 @@
    "kennung": "K8-V158",
    "thema": "messen.prisma_zylinder",
    "lernkarte": "sach",
-   "stufe": 2,
+   "stufe": 1,
    "typ": "Verfahren wählen (einfache Form)",
    "form": "verfahren_waehlen",
    "antwortform": "auswahl",
@@ -952,8 +950,8 @@
     "l": "sach",
     "t": "sach",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 1,
+    "g": "erkennen",
     "y": "auswahl",
     "f": {
      "text": "Du willst wissen, wie viel Erde in einen zylinderförmigen Blumenkübel passt. Der Kübel hat 40 cm Durchmesser und ist 30 cm hoch. Welcher Rechenweg ist richtig?"
@@ -1063,7 +1061,7 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "Die Tabelle zeigt zwei Zylinder. Wie verhält sich das Volumen von Zylinder B zu dem von Zylinder A?",
+     "text": "Die Tabelle zeigt zwei gerade Kreiszylinder. Wie verhält sich das Volumen von Zylinder B zu dem von Zylinder A?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
@@ -1112,9 +1110,9 @@
    "fehlbilder": [
     {
      "antwort": 360,
-     "fehlbild": "fb.aus_dem_rechteck.halbieren_vergessen",
-     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
-     "beschreibung": "die Höhe nicht halbiert"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe nicht halbiert: 60 · 6"
     },
     {
      "antwort": 120,
@@ -1137,7 +1135,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Prisma hat die Grundfläche 20 cm² und die Höhe 6 cm. Man verändert es: Die Grundfläche wird 3-mal so groß, die Höhe halb so groß. Wie groß ist das neue Volumen? Weg A: neue Grundfläche und neue Höhe ausrechnen, dann das Volumen. Weg B: das alte Volumen mit 3 und mit 1/2 verrechnen."
+     "text": "Ein gerades Prisma hat die Grundfläche 20 cm² und die Höhe 6 cm. Man verändert es: Die Grundfläche wird 3-mal so groß, die Höhe halb so groß. Wie groß ist das neue Volumen? Weg A: neue Grundfläche und neue Höhe ausrechnen, dann das Volumen. Weg B: das alte Volumen mit 3 und mit 1/2 verrechnen."
     },
     "o": {
      "wert": 180,

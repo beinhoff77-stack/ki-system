@@ -5,6 +5,7 @@ Lädt th_<Thema>.py (je Thema eine Datei mit den Aufgaben), prüft alles, schrei
 Nur Inhalte. Nichts wird eingespielt.
 """
 import json
+import math
 import os
 import re
 import subprocess
@@ -96,17 +97,72 @@ for datei, d in BESTAND.items():
 BESTAND_TEXT = {dat: {a["f"].get("text", "") for a in d["aufgaben"]} for dat, d in BESTAND.items()}
 BESTAND_BAU = {dat: {bau_ohne_zahl(a["f"].get("text", "")) for a in d["aufgaben"]} for dat, d in BESTAND.items()}
 
+
+# ═════════ Hilfen für Lücken und Fehlbilder ═════════
+GGT = re.compile(r"ggT\(\s*(\(?-?\d+\)?)\s*,\s*(\(?-?\d+\)?)\s*\)")
+PLATZ = re.compile(r"\{(\d+)\}")
+
+
+def setze_ein(ausdruck, frueher):
+    """{n} durch den Wert der n-ten Lücke (ab 1) ersetzen, ggT(a, b) ausrechnen. Gibt den fertigen Ausdruck zurück."""
+    def ers(m):
+        n = int(m.group(1))
+        assert 1 <= n <= len(frueher), (ausdruck, "Verweis auf eine spätere oder fehlende Lücke", n)
+        return f"({frueher[n - 1]})"
+    t = PLATZ.sub(ers, ausdruck)
+    return GGT.sub(lambda m: str(math.gcd(int(m.group(1).strip("()")), int(m.group(2).strip("()")))), t)
+
+
+def wert_von_c(ausdruck, frueher):
+    t = setze_ein(str(ausdruck), frueher)
+    v = ip.rechne(t)
+    return (int(v) if v.denominator == 1 else v), t
+
+
+def verweise(ausdruck):
+    return {int(n) for n in PLATZ.findall(str(ausdruck))}
+
+
+def hang_ab(vorlage, soll, i, n):
+    """Ändert sich der Wert der Lücke i (ab 0), wenn der frühere Wert n (ab 1) ein anderer wäre? (Abhängigkeit wirklich nötig)"""
+    ist = soll[i]
+    for neu_wert in (0, soll[n - 1] + 1, soll[n - 1] + 2, -soll[n - 1] - 1):
+        andere = list(soll[:i])
+        andere[n - 1] = neu_wert
+        try:
+            if wert_von_c(vorlage, andere)[0] != ist:
+                return True
+        except ZeroDivisionError:
+            return True
+    return False
+
+
+def fb_pruefen(kenn, ort, wert, rechnung, frueher=()):
+    """Das Fehlbild nennt eine Rechnung: sie muss den falschen Wert wirklich ergeben. Rückgabe: True = nachgerechnet, False = keine Rechnung."""
+    assert rechnung is not None, (kenn, ort, wert, "Fehlbild ohne Rechnung (4. Eintrag: Ausdruck, Funktion oder False)")
+    if rechnung is False:
+        return False
+    if callable(rechnung):
+        assert rechnung() is True, (kenn, ort, wert, "Fehlbild stimmt nicht")
+        return True
+    v, t = wert_von_c(rechnung, list(frueher))
+    ok = F(v) == ip.zahlwert(wert) or round(float(v), 2) == float(wert)
+    assert ok, (kenn, ort, "Fehlbild: Rechnung", t, "ergibt", float(v), "nicht", wert)
+    return True
+
+
 # ═════════ Prüfen ═════════
 reihe = {schl: i for i, schl in enumerate(THEMEN)}
-A.sort(key=lambda a: (reihe[a["thema"]], THEMEN[a["thema"]][1].index(a["lk"]), a["s"]))
+A.sort(key=lambda a: (reihe[a["thema"]], THEMEN[a["thema"]][1].index(a["lk"]), a["rang"]))   # rang: Kennungen bleiben stabil, auch wenn g nach der Tätigkeit gesetzt wird
 aus = defaultdict(list)
-n_rechnung = n_fb = n_grafik = 0
+n_rechnung = n_fb = n_grafik = n_fb_rechnung = n_fb_ohne = n_abhaengig = 0
 alle_texte, alle_bau = set(), defaultdict(set)
 zaehler = 0
 for a in A:
     assert a["thema"] in geladen and a["lk"] in THEMEN[a["thema"]][1], (a["thema"], a["lk"])
     datei = THEMEN[a["thema"]][0]
     q = a["aufgabe"]
+    gleich_ok = bool(q.pop("_gleich_ok", False))
     zaehler += 1
     kenn = f"{KUERZEL}-V{zaehler:03d}"
     assert a["regel"] in REGELN, (kenn, a["regel"])
@@ -159,30 +215,59 @@ for a in A:
             assert abs(soll) not in zahlen_im(q["h"]), (kenn, "Tipp verrät das Ergebnis")
         assert a["fb"], (kenn, "mindestens ein Fehlbild")
         werte = set()
-        for w, fbk, beschr in a["fb"]:
+        for t in a["fb"]:
+            assert len(t) == 4, (kenn, t[:1], "Fehlbild braucht 4 Einträge (Wert, Kennung, Beschreibung, Rechnung)")
+            w, fbk, beschr, rech = t
             assert w != q["o"]["wert"] and w not in werte, (kenn, w)
             werte.add(w)
+            if fb_pruefen(kenn, "Zahl", w, rech):
+                n_fb_rechnung += 1
+            else:
+                n_fb_ohne += 1
             fb_eintrag({}, w, fbk, beschr)
     elif q["y"] == "luecken":
         assert not KOMMA_LUECKE.search(text + " " + q["f"]["schablone"]), (kenn, "Lücke hinter dem Komma")
         assert not KOMMA_NEBEN.search(text + " " + q["f"]["schablone"]), (kenn, "Komma direkt neben einer Lücke")
-        soll = [ip.rechne(c) for c in q["c"]]
-        assert soll == q["o"]["werte"] == [z2(z) if isinstance(z, str) else F(z) for z in a["zweit"]], (kenn, soll, a["zweit"])
+        vorlagen = [str(c) for c in q["c"]]
+        soll, c_fertig = [], []
+        for v in vorlagen:
+            wert_i, t = wert_von_c(v, soll)
+            soll.append(wert_i)
+            c_fertig.append(t)
+        zw = [z2(z) if isinstance(z, str) else F(z) for z in a["zweit"]]
+        assert soll == q["o"]["werte"] == zw, (kenn, soll, a["zweit"])
+        assert not any(PLATZ.search(str(z)) for z in a["zweit"]), (kenn, "Zweitrechnung muss unabhängig sein")
+        q["c"] = c_fertig
         assert all(isinstance(w, int) for w in q["o"]["werte"]) and q["f"]["schablone"].count("□") == len(soll), kenn
         im_text = zahlen_im(text + " " + q["f"]["schablone"] + " " + q["f"].get("hinweis", ""))
         im_tipp = zahlen_im(q["h"])
         for v in soll:
             assert abs(v) not in im_text, (kenn, v, "Lückenwert steht schon in Text, Schablone oder Hinweis")
             assert abs(v) not in im_tipp, (kenn, v, "Tipp verrät den Lückenwert")
+        if len(soll) >= 2:
+            refs = [verweise(v) for v in vorlagen]
+            assert refs[-1], (kenn, "die letzte Lücke muss von einer früheren abhängen ({n} in c)")
+            assert sum(1 for r in refs[1:] if r) >= 1, kenn
+            for i, r in enumerate(refs):
+                for n in r:
+                    assert n <= i, (kenn, "Verweis nach vorn")
+                    assert hang_ab(vorlagen[i], soll, i, n), (kenn, i + 1, n, "Lücke hängt in Wahrheit nicht vom früheren Wert ab")
+            n_abhaengig += 1
         if a["form"] == "lueckenweg":
             assert len(soll) >= 2 and q["y"] == "luecken", (kenn, "Lückenweg: mindestens zwei Lücken")
-            assert len(set(soll)) == len(soll), (kenn, "Lückenwerte sollen verschieden sein")
+            assert gleich_ok or len(set(soll)) == len(soll), (kenn, "Lückenwerte sollen verschieden sein")
         n_rechnung += len(soll)
         for i, liste in sorted(a["fb"].items()):
             werte = set()
-            for w, fbk, beschr in liste:
+            for t in liste:
+                assert len(t) == 4, (kenn, i + 1, t[:1], "Fehlbild braucht 4 Einträge (Wert, Kennung, Beschreibung, Rechnung)")
+                w, fbk, beschr, rech = t
                 assert w != soll[i] and w not in werte, (kenn, i, w)
                 werte.add(w)
+                if fb_pruefen(kenn, f"Lücke {i + 1}", w, rech, soll[:i]):
+                    n_fb_rechnung += 1
+                else:
+                    n_fb_ohne += 1
                 fb_eintrag({"luecke": i + 1}, w, fbk, beschr)
     else:
         assert a["zweit"]() is True and len(set(q["a"])) == len(q["a"]) >= 3, kenn
@@ -260,6 +345,7 @@ for schl in geladen:
     print(f"{schl:30} {len(lks):10} {len(liste):9}  " + "/".join(str(c[f]) for f in FORM and KURZ) + f"   {z['ja']}/{z['nein']}")
 print()
 print("Summe Lernkarten", sum(len(THEMEN[s][1]) for s in geladen), "Aufgaben", len(A), "| Formen", dict(gesamt_f), "| zaehlt", dict(gesamt_z))
+print(f"{n_fb_rechnung} Fehlbilder mit Rechnung nachgerechnet, {n_fb_ohne} ohne Rechnung (Wert oder Auswahl); {n_abhaengig} Lückenaufgaben mit nachgewiesener Abhängigkeit der Lücken")
 print(f"{n_rechnung} Lösungen zweifach nachgerechnet; {n_fb} Fehlbilder, davon {sum(1 for fl in aus.values() for e in fl for x in e['fehlbilder'] if x['fehlbild'])} mit Kennung; {n_grafik} Aufgaben mit Zeichnung")
 fd = [(e["kennung"], e["aufgabe"]["o"]["index"] + 1, len(e["aufgabe"]["a"])) for l in aus.values() for e in l if e["form"] == "fehler_detektiv"]
 verteilung = Counter(z for _, z, _ in fd)

@@ -40,7 +40,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Multipliziere aus: (x + 5)(x + 3). Es entstehen vier Produkte. Fasse die beiden Produkte mit x zusammen. Das Ergebnis lautet x² + ①x + ②. Für x = 1 hat dieser Term den Wert ③.",
+     "text": "Multipliziere aus: (x + 5)(x + 3). Es entstehen vier Produkte. Fasse die beiden Produkte mit x zusammen. Das Ergebnis lautet x² + ①x + ②. Setzt du in dieses Ergebnis x = 1 ein, erhältst du ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -54,7 +54,7 @@
     "c": [
      "5 + 3",
      "5 * 3",
-     "1 + 8 + 15"
+     "1 + (8) + (15)"
     ],
     "h": "Jedes Glied der ersten Klammer wird mit jedem Glied der zweiten Klammer malgenommen.",
     "w": "x² + 3x + 5x + 15 = x² + 8x + 15. Für x = 1: 1 + 8 + 15 = 24."
@@ -228,8 +228,8 @@
     },
     "c": [
      "6",
-     "12 // 6",
-     "18 // 6"
+     "12 // (6)",
+     "18 // (6)"
     ],
     "h": "Welche größte Zahl teilt 12 und 18 ohne Rest?",
     "w": "Der größte gemeinsame Teiler ist 6. 12x : 6 = 2x und 18 : 6 = 3. Probe: 6(2x + 3) = 12x + 18."
@@ -347,6 +347,20 @@
      "fehlbild": "fb.potenz.basis_mal_hochzahl",
      "regel_des_fehlbilds": "rr.potenz",
      "beschreibung": "3 · 2 statt 3² gerechnet"
+    },
+    {
+     "luecke": 4,
+     "antwort": 109,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das mittlere Glied vergessen: nur 4a² + 9 mit a = 5 gerechnet"
+    },
+    {
+     "luecke": 4,
+     "antwort": 169,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das mittlere Glied addiert statt abgezogen: 100 + 60 + 9"
     }
    ],
    "aufgabe": {
@@ -357,24 +371,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Multipliziere mit der 2. binomischen Formel aus: (2a − 3)². Das Ergebnis lautet ①a² − ②a + ③.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Multipliziere mit der 2. binomischen Formel aus: (2a − 3)². Das Ergebnis lautet ①a² − ②a + ③. Setzt du in dieses Ergebnis a = 5 ein, erhältst du ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       4,
       12,
-      9
+      9,
+      49
      ]
     },
     "c": [
      "2 ** 2",
      "2 * 2 * 3",
-     "3 ** 2"
+     "3 ** 2",
+     "(4) * 5 ** 2 - (12) * 5 + (9)"
     ],
     "h": "Die Zahl vor a wird mitquadriert. Das mittlere Glied ist das doppelte Produkt.",
-    "w": "(2a)² = 4a². 2 · 2a · 3 = 12a. 3² = 9. Ergebnis: 4a² − 12a + 9."
+    "w": "(2a)² = 4a². 2 · 2a · 3 = 12a. 3² = 9. Ergebnis: 4a² − 12a + 9. Für a = 5: 100 − 60 + 9 = 49. Probe: (10 − 3)² = 49."
    }
   },
   {
@@ -391,9 +407,9 @@
    "fehlbilder": [
     {
      "antwort": 15,
-     "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
-     "regel_des_fehlbilds": "rr.ausmultiplizieren",
-     "beschreibung": "die 2 im doppelten Produkt vergessen"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 2 im doppelten Produkt vergessen: 3 · 5"
     },
     {
      "antwort": 8,
@@ -416,14 +432,14 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Für welche Zahl b gilt 9x² + bx + 25 = (3x + 5)²?"
+     "text": "Für welche Zahl b gilt 9x² + bx + 25 = (3x + 5)² für alle Zahlen x?"
     },
     "o": {
      "wert": 30
     },
     "c": "2 * 3 * 5",
     "h": "Multipliziere (3x + 5)² aus. Das mittlere Glied ist das doppelte Produkt.",
-    "w": "(3x + 5)² = 9x² + 2 · 3x · 5 + 25 = 9x² + 30x + 25. Also ist b = 30."
+    "w": "(3x + 5)² = 9x² + 2 · 3x · 5 + 25 = 9x² + 30x + 25. Das gilt für alle Zahlen x, wenn b = 30 ist."
    }
   },
   {

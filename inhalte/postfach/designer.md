@@ -2,6 +2,43 @@
 
 Neueste oben.
 
+## 2026-11-27 01:15 (Berlin) – FERTIG: Regel-Universum, sechste Runde (Vorgabe GB, Abschnitt F7)
+Zweig `designer`, Stand `lernen-app` 7e22808 eingemischt. `inhalte/design/gesetzbuch/`: `umsetzung.md` (Fassung 7, neu F7), `entwurf/` neu gebaut, `bilder/` (43 Bilder, alle neu).
+
+### Geliefert
+1. **Rechenregel 3 neu gezeichnet, Zeile für Zeile nach der Tabelle des Mathe-Profis:** Start ist ein voller Punkt bei 2, keine Figur. Oben ein gelber Bogen von 2 über die Null nach −2; unten derselbe Bogen und ein blauer zweiter unter der Geraden zurück zur 2. Erstes Minus gelb, zweites blau, kein gestrichelter Pfeil. Kopfzeile, Rechnungen, Unterzeilen und Satz wörtlich. **Treppe:** Punkt auf der Null-Linie; die kleinen „+2“ stehen im Freien. Bilder: `gesetz-R3-1280-hell.jpg`, `gesetz-R3-400-hell.jpg`, `gesetz-R3-400-dunkel.jpg`.
+2. **Klassenleitern neu eingelesen** (174 Beispiele). Nachgemessen:
+   - 360 px: 96 von 174 Sprossen zweizeilig (vorher 119 von 172), in 30 Leitern.
+   - 400 px: 68 von 174 (vorher 103), in 24 Leitern.
+   - 820 px: 0 (vorher 13). 1280 px: 10 (vorher 21).
+   - **Die Stelle selbst bricht nirgends mehr um** (vorher 6 Leitern bei 360 px, 2 bei 400 px).
+   - In allen 42 Leitern steht die erste Stelle bei allen vier Breiten auf einer Linie, nichts läuft über den Rand.
+3. **Übersicht A und B nebeneinander bei 400 px:** `bilder/vergleich-a-b-400-anfang.jpg` (Anfang beider Seiten) und `vergleich-a-b-400-ganz.jpg` (beide ganz). Ohne „Genau gesagt“.
+4. **Zur Zwischenlösung Brüche/Zahlenfelder** (`tests/sicht-bruch-und-zahlenfelder.html`, bei 400 px in Chrome angesehen, nichts geändert):
+   - Bruch in Antwortknöpfen weiter 11,5 px (mein Befund 1 aus `inhalte/design/bruch/befund.md` steht noch).
+   - Im Zahlenfeld steht „1/2“ mit Schrägstrich, in der Frage darüber gestapelt – zwei Schreibweisen in einer Aufgabe.
+   - Im Lösungsweg bleibt „(2x + 2)/(x(x + 1))“ Text neben gestapelten Brüchen.
+   - Die Seite zeigt oben „FEHLER: Script error“ (Meldung: „Cannot read properties of null (reading 'addEventListener')“), als Datei geöffnet. Ursache nicht untersucht.
+
+Selbstprüfung (Chrome): 304 Seitenaufrufe ohne Querrollen, keine Schrift unter 13 px, keine Skriptfehler.
+
+### Offen
+- Am Handy sind weiter 68 (400 px) bzw. 96 (360 px) Sprossen zweizeilig. Mit Umbruch allein geht es nicht weiter herunter; dafür müssten Zeilen noch kürzer werden (Mathe-Profi) oder die Schrift am Handy kleiner (jetzt 16 px) – das will ich nicht ohne Entscheidung.
+- Entscheidung des Nutzers: Übersicht A oder B.
+
+### Nicht geprüft
+- Kein echtes Gerät, kein Safari, kein Firefox; Kontraste nicht gemessen (auch nicht Blau auf Dunkel bei Rechenregel 3).
+- Ob ein Kind den Unterschied „gehen“ (Regel 2) und „springen“ (Regel 3) an den Zeichnungen erkennt – nicht erprobt.
+- Fachliche Gegenprüfung der neuen Zeichnung durch den Mathe-Profi steht aus.
+- Varianten der Zeichnung (Geteilt, Brüche, drei Minus) sind nicht gezeichnet.
+
+### Annahmen
+- Der blaue Bogen beginnt und endet unter den Zahlen der Geraden (nicht an der Linie), damit er keine Zahl durchstreicht. Die Vorgabe sagt nur „unterhalb der Geraden“.
+- Treppe: Die Werte −6, −4, −2 stehen jetzt im Balken an seinem Ende, damit die kleinen „+2“ daneben frei stehen; die „0“ steht links über dem Punkt.
+- Kopfzeile nach der Tabelle im Postfach („Erst ohne Vorzeichen: …“), nicht nach `sonne.md` („Erst ohne Vorzeichen rechnen: …“) – die Tabelle ist jünger.
+- Grenze „bricht nie in sich um“ von 12 auf 13 Zeichen gehoben (Primfaktoren der 60).
+- Kleine Änderung ohne Auftrag: In Übersicht B bricht „Kl. 10“ nicht mehr um.
+
 ## 2026-11-27 01:10 (Berlin) – AUFTRAG vom Projektleiter: Regel-Universum, sechste Runde (kurz)
 Deine fünfte Runde ist in `lernen-app` übernommen; der Nutzer findet das Regel-Universum „jetzt besser“ und zeigt den Kindern je eine Regel. Der Mathe-Profi hat geprüft und geliefert (Auftrag 17, in `lernen-app`); seine Berichtigung zu Rechenregel 3 steht weiter unten in diesem Postfach, Zeile für Zeile.
 1. **Rechenregel 3 nach seiner Vorgabe neu zeichnen:** Start bei 2, die Zahl springt über die Null (oben ein Sprung, unten zwei). Der Unterschied zu Regel 2 muss sitzen: dort geht die Figur, hier springt die Zahl auf die andere Seite. Kein gestrichelter Pfeil mit zwei Bedeutungen. Treppe: Punkt auf der Null-Linie ergänzen; die „+2“ bei 400 px nicht im Balken.
@@ -58,6 +95,25 @@ Deckungsgleich: alle drei Felder jetzt 96 und 72 (24 px je cm). Höherer Grad un
 - **Zeilen über 34 Zeichen: vorher 107, jetzt 59. Über 44 Zeichen: vorher 76, jetzt 4** (gezählt). Vorspanne heißen jetzt „f(x) = 3 − x, x = −2:“ statt „… an der Stelle −2:“.
 - Zwei Ideen haben eine Sprosse mehr (Fläche und Raum 2 in Klasse 6: Parallelogramm und Dreieck getrennt; Daten 4 in Klasse 10: Mal und Plus getrennt). 174 Beispiele statt 172.
 
+## 2026-11-27 00:22 (Berlin) – FERTIG: Bruch-Darstellung im Browser geprüft (lernen-app 7c76b324), kein Code geändert
+Ordner `inhalte/design/bruch/`: 20 Bilder (5 Fälle × 360/400 px × hell/dunkel), `befund.md`, `messung.json`.
+
+### Geliefert
+- Fälle mit **echten Aufgaben**: a Frage mit 3/4 · b Auswahl mit Brüchen als Antworten · c und c2 Lösungsweg mit Bruchterm · d gemischte Zahl 1 1/4.
+- Gemessen: kein Querrollen, kein Bruch ragt heraus, kein Umbruch im gestapelten Bruch, hell und dunkel lesbar.
+- **Schief:** (1) Bruch in Antwortknöpfen nur 11,5 px, klein links oben im Knopf. (2) Lösungsweg „3(x − 2)/(x + 1) · 2(x + 1)/(x − 2)“ wird nicht gestapelt und bricht im Nenner um; Frage gestapelt, Weg nicht. (3) Zeilen mit Bruch 40 px, ohne 27,5 px – Absatz unruhig. (4) Bei 360 px trennt der Umbruch zwei Brüche am Geteilt-Zeichen. (5) Bruchterm im Lösungsweg 13,1 px, eng. (6) Gemischte Zahl in Ordnung.
+
+### Offen
+- Einen Lösungsweg mit genau „(x + 1)/(x − 2)“ als eigenem Bruch gibt es in den Aufgaben nicht; gezeigt ist die einzige Aufgabe mit dieser Zeichenfolge (dort mit Vorfaktor, deshalb ungestapelt) und ein zweiter echter Weg mit „(x + 6)/(x − 2)“.
+- Entscheidung Programmierer/Mathe-Profi: Vorfaktor-Brüche stapeln? (24 Texte dieser Bauart, dazu 94 mit Klammer-Brüchen und 84 mit „ / “, die Text bleiben.)
+
+### Nicht geprüft
+Echtes Gerät, Safari, Firefox; Tipp, Fehler-Rückmeldung, Tabellen, Merkheft, Erklärkarten, Lehrer-Ansicht; Vorlesen.
+
+### Annahmen
+- Server-Antworten nachgestellt (eine Etappe mit genau einer Aufgabe, Antwort „richtig“); Kopfzeile und Stellenkästchen in den Bildern stammen daher und zählen nicht.
+- „Dunkel“ = Gestaltung „nacht“, „hell“ = „tag“.
+
 ## 2026-11-27 00:02 (Berlin) – VOM MATHE-PROFI an den Designer: Rechenregel 3 – neue Hauptzeichnung und berichtigte Treppe; deine elf Beispiele (Auftrag 16)
 
 Stand `origin/mathe-profi`, `inhalte/mathe-profi/regeln-uebersicht/sonne.md`, Abschnitt „3. Vorzeichen bei Mal und Geteilt“.
@@ -71,6 +127,7 @@ Stand `origin/mathe-profi`, `inhalte/mathe-profi/regeln-uebersicht/sonne.md`, Ab
 **2. Deine elf unmarkierten Beispiele (F5.2)**
 - **Mit `klassenleiter.json` erledigt:** In den Leitern der Regeln 1, 9, 11 und 13 steht die wirkende Stelle in jeder Zeile (Regel 1: „· 10“; Regel 9: der gemeinsame Faktor zweimal; Regel 11: die Zeile „für eins“; Regel 13: der Befehl hinter dem Strich).
 - Die elf Zeilen stammten aus der älteren Tabelle „Weitere Beispiele“ in `sonne.md`. Ich habe sie dort trotzdem umgeschrieben, damit nichts Unmarkierbares stehen bleibt – z. B. „12/18 = (2 · 6)/(3 · 6) = 2/3“ und „2x + 2 = 12 | − 2 → 2x = 10 | : 2 → x = 5“. Für die Klassenleiter bitte nur die JSON-Datei nehmen.
+
 ## 2026-11-27 00:20 (Berlin) – FERTIG: Regel-Universum, fünfte Runde (Vorgabe GB, Abschnitt F6) – alle sieben Punkte
 Zweig `designer`, Stand `lernen-app` cc4a5b1 eingemischt. Ordner `inhalte/design/gesetzbuch/`: `umsetzung.md` (Fassung 6, neu Abschnitt F6), `entwurf/` (vier HTML-Dateien neu gebaut), `bilder/` (40 Bilder neu).
 

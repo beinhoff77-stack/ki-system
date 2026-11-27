@@ -20,6 +20,11 @@ Alle zwölf werden gezeichnet; die Rechnungen habe ich an den Bildern nachvollzo
 - **Kreisdiagramm:** Die Breite war fest, lange Beschriftungen wurden abgeschnitten. Jetzt richtet sich die Breite nach der längsten Beschriftung (`lernKreisdiagramm`).
 - Nachher angesehen (Sichtseite, 420 px): Tabellen und Legende sind lesbar. Nicht geprüft: echtes Gerät, dunkle Ansicht.
 
+## Inhaltsprüfung der Gegenprüfung (Werkstatt 1020, 27.11.)
+- 142 Aufgaben einzeln geprüft, 156 Rechnungen nachgerechnet, keine Abweichung. Urteil je Datei: `ge1`, `ge2`, `a4` Ja; `f1` Ja mit Auflage (Tabelle); `z2`, `a1`, `d1`, `g1`, `g8`, `g2-teil2` erst nach Berichtigung.
+- Inhaltliche Muss-Befunde: Z2-07, A1-04, G1-07, G8-01, G8-04, G1-12, G2T2-03 → Auftrag 20 an den Mathe-Profi (Postfach). Darstellung (Tabellen, Legende) im Arbeitsstand behoben.
+- Verhältnis: Vorschlag 1 neue Form auf 2 Bestandsaufgaben je Lernkarte und Stufe, gemischt; „neu“ muss über ein eigenes Kennzeichen erkennbar sein. Technische Fragen (Werkstatt 1019, A–C) noch offen.
+
 ## Offen vor dem Einspielen
 1. Gegenprüfung der Inhalte durch ChatGPT (fachlich, Sprache, Schwierigkeit).
 2. Die beiden Darstellungs-Korrekturen müssen live sein, bevor die Aufgaben mit Tabelle oder Kreisdiagramm hineingehen (siehe Nachtrag).

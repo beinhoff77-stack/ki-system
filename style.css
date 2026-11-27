@@ -3859,6 +3859,8 @@ body:has(.lr-abflug) header.top h1 { font-size: 1.15rem; font-weight: 600; }
 .lern-bruch-text > span:first-child { border-bottom: .09em solid currentColor; padding: 0 .22em .04em; }
 .lern-bruch-text > span:last-child { padding: .04em .22em 0; }
 .lern-bruch-text > span { white-space: nowrap; }
+.lern-option .lern-bruch-text { font-size: 1em; } /* Antwortknopf: Bruch nicht verkleinern (Befund Designer 27.11.: 11,5 px waren zu klein) */
+.lern-option > span { align-self: center; }
 .lern-bruch-text > span:first-child { align-self: stretch; text-align: center; } /* Bruchstrich so breit wie der längere Teil */ /* Zähler und Nenner mit Rechenzeichen (x + 1) nicht umbrechen */
 /* A5: neue Wörter antippen */
 .lr-wort { all: unset; cursor: pointer; text-decoration: underline dotted; text-decoration-thickness: 2px; text-underline-offset: 4px; font: inherit; color: inherit; }

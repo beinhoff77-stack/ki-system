@@ -1,0 +1,757 @@
+{
+ "stand": "2026-11-27",
+ "flug": "g1",
+ "titel": "Größen und Einheiten",
+ "fuer": "Kind 1",
+ "klasse": 5,
+ "themen": [
+  "groessen.einheiten"
+ ],
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Lückenweg, Fehler-Detektiv, Verfahren wählen, Zwei Wege vergleichen, Brücke), rollend-4. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag ja/nein) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: Stufe aufsteigend.",
+ "aufgaben": [
+  {
+   "kennung": "G1-V01",
+   "thema": "groessen.einheiten",
+   "lernkarte": "schaetzen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 1000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht umgerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "schaetzen",
+    "t": "schaetzen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Eine Tür ist etwa 2 m hoch. Eine Schokoladentafel wiegt etwa 100 g. 10 Tafeln wiegen ① g. Das sind ② kg.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      1000,
+      1
+     ]
+    },
+    "c": [
+     "10 * 100",
+     "10 * 100 // 1000"
+    ],
+    "h": "10 mal 100, dann in kg umrechnen.",
+    "w": "10 · 100 g = 1 000 g = 1 kg."
+   }
+  },
+  {
+   "kennung": "G1-V02",
+   "thema": "groessen.einheiten",
+   "lernkarte": "masse",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2035,
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "350 als 35 behandelt"
+    }
+   ],
+   "aufgabe": {
+    "l": "masse",
+    "t": "masse",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "2 kg 350 g sind 2 · 1 000 g + 350 g = ① g. 4 500 g sind 4 kg und ② g.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      2350,
+      500
+     ]
+    },
+    "c": [
+     "2 * 1000 + 350",
+     "4500 - 4 * 1000"
+    ],
+    "h": "1 kg sind 1 000 g.",
+    "w": "2 000 g + 350 g = 2 350 g. 4 500 g − 4 000 g = 500 g."
+   }
+  },
+  {
+   "kennung": "G1-V03",
+   "thema": "groessen.einheiten",
+   "lernkarte": "kommaschreibweise",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 40,
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "04 als 40 gelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "kommaschreibweise",
+    "t": "kommaschreibweise",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Hinter dem Komma bekommt jede kleinere Einheit ihre Stellen. 2,35 m sind 2 m 35 cm. Das sind insgesamt ① cm. 7,04 m sind 7 m ② cm.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      235,
+      4
+     ]
+    },
+    "c": [
+     "2 * 100 + 35",
+     "704 - 700"
+    ],
+    "h": "Bei m und cm sind es zwei Stellen hinter dem Komma.",
+    "w": "2 m = 200 cm, dazu 35 cm: 235 cm. 7,04 m = 7 m 04 cm = 7 m 4 cm."
+   }
+  },
+  {
+   "kennung": "G1-V04",
+   "thema": "groessen.einheiten",
+   "lernkarte": "rechnen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 328,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 8 cm dazugezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "rechnen",
+    "t": "rechnen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Seil ist 3 m 20 cm lang, ein zweites 85 cm. In cm: 3 m 20 cm = ① cm. Zusammen sind die Seile ① cm + 85 cm = ② cm lang.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      320,
+      405
+     ]
+    },
+    "c": [
+     "3 * 100 + 20",
+     "3 * 100 + 20 + 85"
+    ],
+    "h": "Beide Längen in dieselbe Einheit bringen.",
+    "w": "3 m 20 cm = 320 cm. 320 cm + 85 cm = 405 cm."
+   }
+  },
+  {
+   "kennung": "G1-V05",
+   "thema": "groessen.einheiten",
+   "lernkarte": "massstab",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 20000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch 10 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "massstab",
+    "t": "massstab",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Eine Karte hat den Maßstab 1 : 50 000. Auf der Karte sind es 4 cm. In Wirklichkeit sind es 4 · 50 000 = ① cm. Das sind ② m und ③ km.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      200000,
+      2000,
+      2
+     ]
+    },
+    "c": [
+     "4 * 50000",
+     "4 * 50000 // 100",
+     "4 * 50000 // 100000"
+    ],
+    "h": "100 cm sind 1 m. 1 000 m sind 1 km.",
+    "w": "4 · 50 000 = 200 000 cm = 2 000 m = 2 km."
+   }
+  },
+  {
+   "kennung": "G1-V06",
+   "thema": "groessen.einheiten",
+   "lernkarte": "verstehen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 120,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10 statt mit 100 umgerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Schulbus ist etwa 12 m lang. Das sind ① cm. Ein Schulweg ist 2 km lang. Das sind ② m.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      1200,
+      2000
+     ]
+    },
+    "c": [
+     "12 * 100",
+     "2 * 1000"
+    ],
+    "h": "1 m sind 100 cm und 1 km sind 1 000 m.",
+    "w": "12 · 100 cm = 1 200 cm. 2 · 1 000 m = 2 000 m."
+   }
+  },
+  {
+   "kennung": "G1-V07",
+   "thema": "groessen.einheiten",
+   "lernkarte": "masse",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "2 kg · 3 + 400 g = 6 kg 400 g",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die kg verdreifacht"
+    },
+    {
+     "index": 1,
+     "antwort": "2 kg 400 g + 3 = 2 kg 403 g",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 einfach addiert"
+    },
+    {
+     "index": 2,
+     "antwort": "2 400 · 3 = 7 200 kg",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Einheit falsch gesetzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "masse",
+    "t": "masse",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Paket wiegt 2 kg 400 g. Drei solche Pakete werden verschickt. Wie rechnest du das Gesamtgewicht richtig?"
+    },
+    "a": [
+     "2 kg · 3 + 400 g = 6 kg 400 g",
+     "2 kg 400 g + 3 = 2 kg 403 g",
+     "2 400 · 3 = 7 200 kg",
+     "Alles in g umrechnen: 2 400 g · 3 = 7 200 g, das sind 7 kg 200 g"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Rechne beide Teile des Pakets mit dem Faktor 3.",
+    "w": "2 400 g · 3 = 7 200 g = 7 kg 200 g."
+   }
+  },
+  {
+   "kennung": "G1-V08",
+   "thema": "groessen.einheiten",
+   "lernkarte": "zeit",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "12 − 9 = 3 h und 50 − 20 = 30 min. Das sind 3 h 30 min",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Stunden und Minuten einzeln abgezogen und falsch herum"
+    },
+    {
+     "index": 2,
+     "antwort": "12,20 − 9,50 = 2,70. Das sind 2 h 70 min",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit Dezimalzahlen statt mit Zeit gerechnet"
+    },
+    {
+     "index": 3,
+     "antwort": "12:20 − 10:00 = 2 h 20 min",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Minuten bis 10:00 vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "zeit",
+    "t": "zeit",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Zug fährt um 9:50 Uhr ab und kommt um 12:20 Uhr an. Wie rechnest du die Fahrzeit richtig?"
+    },
+    "a": [
+     "Bis zur vollen Stunde: 10 min bis 10:00, 2 h bis 12:00, 20 min bis 12:20. Das sind 2 h 30 min",
+     "12 − 9 = 3 h und 50 − 20 = 30 min. Das sind 3 h 30 min",
+     "12,20 − 9,50 = 2,70. Das sind 2 h 70 min",
+     "12:20 − 10:00 = 2 h 20 min"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Gehe erst bis zur vollen Stunde, dann weiter.",
+    "w": "10 min + 2 h + 20 min = 2 h 30 min. Probe: 9:50 + 2 h 30 min = 12:20."
+   }
+  },
+  {
+   "kennung": "G1-V09",
+   "thema": "groessen.einheiten",
+   "lernkarte": "massstab",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "6 · 25 000 = 150 000 m, also 150 km",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Einheit cm nicht umgerechnet"
+    },
+    {
+     "index": 1,
+     "antwort": "6 · 25 = 150 m",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Nullen des Maßstabs weggelassen"
+    },
+    {
+     "index": 3,
+     "antwort": "25 000 : 6 ≈ 4 167 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "geteilt statt malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "massstab",
+    "t": "massstab",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Auf einer Karte 1 : 25 000 sind zwei Orte 6 cm voneinander entfernt. Wie weit sind sie in Wirklichkeit entfernt?"
+    },
+    "a": [
+     "6 · 25 000 = 150 000 m, also 150 km",
+     "6 · 25 = 150 m",
+     "6 · 25 000 cm = 150 000 cm = 1 500 m, also 1,5 km",
+     "25 000 : 6 ≈ 4 167 cm"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Wirklichkeit = Kartenlänge mal Maßstabszahl. Die Einheit bleibt zunächst cm.",
+    "w": "6 cm · 25 000 = 150 000 cm. 100 cm = 1 m: 1 500 m. 1 000 m = 1 km: 1,5 km."
+   }
+  },
+  {
+   "kennung": "G1-V10",
+   "thema": "groessen.einheiten",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Eine Schokoladentafel wiegt 100 g. 500 kg sind etwa 5 Tafeln. Das passt zu einem Buch",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "kg und g nicht umgerechnet"
+    },
+    {
+     "index": 1,
+     "antwort": "500 kg sind 500 000 g. Das ist nur eine große Zahl, also passt es",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "kein Vergleich mit einer Bezugsgröße"
+    },
+    {
+     "index": 3,
+     "antwort": "Ein Buch hat Seiten und kg ist eine Einheit für Gewicht, also passt es",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur auf die Einheit geschaut"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim sagt: „Ein Buch wiegt 500 kg.“ Wie prüfst du das?"
+    },
+    "a": [
+     "Eine Schokoladentafel wiegt 100 g. 500 kg sind etwa 5 Tafeln. Das passt zu einem Buch",
+     "500 kg sind 500 000 g. Das ist nur eine große Zahl, also passt es",
+     "Ein Mensch wiegt etwa 50 kg. 500 kg wären zehn Menschen. Das passt nicht zu einem Buch",
+     "Ein Buch hat Seiten und kg ist eine Einheit für Gewicht, also passt es"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Vergleiche mit etwas, dessen Gewicht du kennst.",
+    "w": "500 : 50 = 10: Das wären zehn Menschen. Ein Buch wiegt eher 500 g. Die Einheit war falsch."
+   }
+  },
+  {
+   "kennung": "G1-V11",
+   "thema": "groessen.einheiten",
+   "lernkarte": "schaetzen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "schaetzen",
+    "t": "schaetzen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim soll schätzen, wie hoch sein Klassenzimmer ist. Zeile 1: Bezugsgröße: Eine Tür ist etwa 2 m hoch. Zeile 2: Das Zimmer ist etwa so hoch wie zwei Türen übereinander. Zeile 3: Es ist also etwa 2 · 2 = 4 cm hoch. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Eine Tür ist 2 m hoch. In welcher Einheit rechnest du weiter?",
+    "w": "2 · 2 m = 4 m. Bei einer Größe gehört immer die richtige Einheit zur Zahl."
+   }
+  },
+  {
+   "kennung": "G1-V12",
+   "thema": "groessen.einheiten",
+   "lernkarte": "laenge",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "laenge",
+    "t": "laenge",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim rechnet 3 km 40 m in Meter um. Zeile 1: 1 km = 1 000 m. Zeile 2: 3 km = 3 000 m. Zeile 3: 3 000 m + 40 m = 3 400 m. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Wie viele Stellen hat 3 040 im Vergleich zu 3 400?",
+    "w": "3 000 + 40 = 3 040. Also 3 km 40 m = 3 040 m."
+   }
+  },
+  {
+   "kennung": "G1-V13",
+   "thema": "groessen.einheiten",
+   "lernkarte": "masse",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "masse",
+    "t": "masse",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim rechnet 7,5 kg in Gramm um. Zeile 1: 1 kg = 1 000 g. Zeile 2: 7 kg = 7 000 g. Zeile 3: 0,5 kg = 50 g. Zeile 4: Zusammen sind es 7 050 g. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Eine halbe Tonne? Nein, ein halbes Kilogramm: Wie viel ist das?",
+    "w": "Ein halbes Kilogramm sind 500 g. Zusammen 7 000 g + 500 g = 7 500 g."
+   }
+  },
+  {
+   "kennung": "G1-V14",
+   "thema": "groessen.einheiten",
+   "lernkarte": "zeit",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "zeit",
+    "t": "zeit",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Film beginnt um 17:45 Uhr und dauert 2 h 30 min. Kim berechnet das Ende. Zeile 1: 17:45 Uhr plus 15 min ist 18:00 Uhr. Zeile 2: Dann bleiben noch 2 h 30 min − 15 min = 2 h 25 min. Zeile 3: 18:00 Uhr plus 2 h 25 min ist 20:25 Uhr. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Rechne 30 min − 15 min noch einmal nach.",
+    "w": "30 min − 15 min = 15 min. Es bleiben 2 h 15 min, der Film endet um 20:15 Uhr."
+   }
+  },
+  {
+   "kennung": "G1-V15",
+   "thema": "groessen.einheiten",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim behauptet: „Ein Bleistift ist 19 m lang.“ Er prüft die Angabe. Zeile 1: Eine Tür ist etwa 2 m hoch. Zeile 2: 19 m sind fast zehn Türen übereinander. Zeile 3: Das passt zu einem Bleistift. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Passt ein Bleistift neben eine Tür, die so hoch ist wie zehn Türen?",
+    "w": "Ein Bleistift ist etwa 19 cm lang, nicht 19 m. Die Einheit war falsch."
+   }
+  }
+ ]
+}

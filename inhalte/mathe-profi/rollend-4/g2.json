@@ -1,0 +1,254 @@
+{
+ "stand": "2026-11-27",
+ "flug": "g2",
+ "titel": "Dreisatz und direkte Proportionalität (Teil 1)",
+ "fuer": "Kind 1",
+ "klasse": 5,
+ "themen": [
+  "groessen.proportional"
+ ],
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Lückenweg, Fehler-Detektiv, Verfahren wählen, Zwei Wege vergleichen, Brücke), rollend-4. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag ja/nein) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: Stufe aufsteigend.",
+ "aufgaben": [
+  {
+   "kennung": "G2-V01",
+   "thema": "groessen.proportional",
+   "lernkarte": "geschickt",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 € dazugezählt statt malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "geschickt",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Jedes Heft kostet gleich viel. 4 Hefte kosten 6 €. Von 4 Heften zu 12 Heften: 12 : 4 = ①. Der Preis wird auch ①-mal so groß: 6 € · ① = ② €.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      18
+     ]
+    },
+    "c": [
+     "12 // 4",
+     "6 * (12 // 4)"
+    ],
+    "h": "Wie oft passen 4 Hefte in 12 Hefte?",
+    "w": "12 : 4 = 3. 6 € · 3 = 18 €."
+   }
+  },
+  {
+   "kennung": "G2-V02",
+   "thema": "groessen.proportional",
+   "lernkarte": "sach",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 306,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 l und 300 km vermischt"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Auto verbraucht auf jedem Kilometer gleich viel. Auf 100 km braucht es 6 l Benzin. Für 300 km braucht es 300 : 100 = ① mal so viel. Das sind 6 l · ① = ② l.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      18
+     ]
+    },
+    "c": [
+     "300 // 100",
+     "6 * (300 // 100)"
+    ],
+    "h": "300 km sind mehrere Stücke von je 100 km.",
+    "w": "300 : 100 = 3. 3 · 6 l = 18 l."
+   }
+  },
+  {
+   "kennung": "G2-V03",
+   "thema": "groessen.proportional",
+   "lernkarte": "aenderung",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 30,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "das Minus vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "aenderung",
+    "t": "aenderung",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Becken wird leer gepumpt. Nach 2 Minuten sind es noch 90 l Wasser, nach 5 Minuten noch 60 l. Änderung des Wassers: 60 − 90 = ① l. Zeitspanne: 5 − 2 = ② min. Rate: ① : ② = ③ l je Minute.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      -30,
+      3,
+      -10
+     ]
+    },
+    "c": [
+     "60 - 90",
+     "5 - 2",
+     "(60 - 90) // (5 - 2)"
+    ],
+    "h": "Das Wasser wird weniger. Die Rate hat ein Minus.",
+    "w": "−30 l in 3 min: −30 : 3 = −10 l je Minute."
+   }
+  },
+  {
+   "kennung": "G2-V04",
+   "thema": "groessen.proportional",
+   "lernkarte": "aenderung",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "30 : 6 = 5 cm pro Woche",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anfangshöhe ignoriert"
+    },
+    {
+     "index": 1,
+     "antwort": "30 − 14 = 16 cm pro Woche",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch die Zeitspanne geteilt"
+    },
+    {
+     "index": 2,
+     "antwort": "(30 + 14) : (6 + 2) = 5,5 cm pro Woche",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Werte addiert statt der Änderungen"
+    }
+   ],
+   "aufgabe": {
+    "l": "aenderung",
+    "t": "aenderung",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Pflanze war nach 2 Wochen 14 cm hoch und nach 6 Wochen 30 cm. Wie berechnest du, wie viel sie pro Woche wächst?"
+    },
+    "a": [
+     "30 : 6 = 5 cm pro Woche",
+     "30 − 14 = 16 cm pro Woche",
+     "(30 + 14) : (6 + 2) = 5,5 cm pro Woche",
+     "(30 − 14) : (6 − 2) = 4 cm pro Woche"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Änderungsrate = Änderung : Zeitspanne.",
+    "w": "Die Höhe ändert sich um 16 cm in 4 Wochen: 16 : 4 = 4 cm je Woche."
+   }
+  },
+  {
+   "kennung": "G2-V05",
+   "thema": "groessen.proportional",
+   "lernkarte": "einheit",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheit",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "6 Brötchen kosten 3,60 €. Kim berechnet den Preis für 1 Brötchen in Cent. Zeile 1: Preis durch Anzahl: 360 ct : 6. Zeile 2: 360 ct : 6 = 6 ct. Zeile 3: Ein Brötchen kostet also 6 ct. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Rechne 6 mal den Preis für ein Brötchen. Kommt 360 ct heraus?",
+    "w": "360 : 6 = 60. Ein Brötchen kostet 60 ct. Probe: 6 · 60 ct = 360 ct."
+   }
+  }
+ ]
+}

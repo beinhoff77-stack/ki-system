@@ -1,0 +1,217 @@
+"""Gemeinsamer Kern für rollend-9 (Kürzel K9A): Hilfsfunktionen zum Schreiben der Aufgaben.
+Die Themen-Dateien th_*.py rufen neu(...) auf; bauen.py prüft und schreibt die JSON-Dateien."""
+import itertools
+import math
+import os
+import re
+import sys
+from fractions import Fraction as F
+
+sys.dont_write_bytecode = True
+HIER = os.path.dirname(os.path.abspath(__file__))
+WURZEL = os.path.abspath(os.path.join(HIER, "..", "..", ".."))
+sys.path.insert(0, os.path.join(WURZEL, "tools"))
+import inhalt_pruefen as ip      # noqa: E402
+
+# Form -> (Name wie in tools/rollend_sql.py FORM, Standard-g)
+FORM = {
+    "lueckenweg": ("Lückenweg", "direkt"),
+    "fehler_detektiv": ("Fehler-Detektiv (einfache Form)", "fehler"),
+    "verfahren_waehlen": ("Verfahren wählen (einfache Form)", "mehrschritt"),
+    "zwei_wege": ("Zwei Wege vergleichen", "mehrschritt"),
+    "umkehren": ("Umkehren", "umkehr"),
+    "bruecke": ("Brücke", "darstellung"),
+    "anwenden": ("Anwenden", "einkleidung"),
+}
+A = []
+POSITION = {3: itertools.cycle([1, 0, 2, 2, 0, 1]), 4: itertools.cycle([2, 0, 3, 1, 1, 3, 0, 2])}
+PI = math.pi
+
+# ---------- exaktes Nachrechnen von Termen (Brüche statt Kommazahlen) ----------
+PUNKTE = [dict(x=F(2), y=F(3), a=F(5), b=F(7), n=F(4)), dict(x=F(-3), y=F(5), a=F(-2), b=F(3), n=F(6)), dict(x=F(7), y=F(-4), a=F(3), b=F(-5), n=F(2)),
+          dict(x=F(1, 2), y=F(2), a=F(11), b=F(2), n=F(5)), dict(x=F(5), y=F(7), a=F(-7), b=F(-3), n=F(3)), dict(x=F(-6), y=F(-1), a=F(1, 3), b=F(9), n=F(7))]
+ZAHLWORT = re.compile(r"(?<![\w.])(\d+(?:\.\d+)?)(?![\w.])")
+
+
+def _ev(s, env):
+    s2 = ZAHLWORT.sub(lambda m: f"F('{m.group(1)}')", s)
+    return eval(s2, {"F": F, "__builtins__": {}}, dict(env))
+
+
+def werte_von(s):
+    r = []
+    for p in PUNKTE:
+        try:
+            r.append(_ev(s, p))
+        except ZeroDivisionError:
+            r.append(None)
+    return r
+
+
+def gl(a, b):
+    """Zwei Terme (Python-Schreibweise, Variablen x y a b n) stimmen an sechs Prüfpunkten überein (und sind überall definiert, wo einer es ist)."""
+    paare = [(u, v) for u, v in zip(werte_von(a), werte_von(b)) if u is not None and v is not None]
+    return len(paare) >= 4 and all(u == v for u, v in paare)
+
+
+def z2(ausdruck):
+    return F(_ev(ausdruck, {"wz": wz, "kw": kw, "isq": lambda n: F(math.isqrt(int(n))), "round": lambda x, n=0: F(round(x, int(n)))}))
+
+
+# ---------- Bausteine ----------
+def mit(d, grafik):
+    if grafik:
+        d["f"]["grafik"] = grafik
+    return d
+
+
+def L(text, schablone, werte, c, zweit, h, w, fb=None, hinweis="Je Lücke eine ganze Zahl (mit Minus, falls negativ).", grafik=None, gleich_ok=False):
+    """Lücken. c: ein Rechenausdruck je Lücke; {n} steht für den (richtigen) Wert der n-ten Lücke (ab 1), ggT(a, b) für den größten gemeinsamen Teiler.
+    bauen.py setzt die früheren Werte ein und prüft, dass spätere Lücken wirklich von früheren abhängen. zweit: unabhängige Zweitrechnung je Lücke (ohne {n}).
+    fb: {Nummer der Lücke ab 0: [(falscher Wert, Fehlbild-Kennung oder None, Beschreibung, Rechnung)]}. Rechnung: Ausdruck (darf {n} enthalten),
+    Funktion, die True liefert, oder False, wenn das Fehlbild keine Rechnung ist.
+    gleich_ok: gleiche Lückenwerte erlaubt (nur, wenn fachlich nötig)."""
+    d = mit({"y": "luecken", "f": {"text": text, "schablone": schablone, "hinweis": hinweis}, "o": {"werte": werte}, "c": c, "h": h, "w": w}, grafik)
+    if gleich_ok:
+        d["_gleich_ok"] = True
+    return d, zweit, fb or {}
+
+
+def Z(text, wert, c, zweit, h, w, fb, einheit=None, toleranz=None, grafik=None):
+    """Zahl. zweit: Ausdruck (Text) oder Zahl für die zweite, unabhängige Rechnung.
+    fb: [(falscher Wert, Kennung oder None, Beschreibung, Rechnung)]. Rechnung: Ausdruck, dessen Wert der falsche Wert ist (bei gerundeten Werten auf 2 Stellen gerundet),
+    Funktion, die True liefert, oder False, wenn das Fehlbild keine Rechnung ist. toleranz nur, wo fachlich nötig."""
+    o = {"wert": wert}
+    if einheit:
+        o["einheit"] = einheit
+    if toleranz is not None:
+        o["toleranz"] = toleranz
+    return mit({"y": "zahl", "f": {"text": text}, "o": o, "c": c, "h": h, "w": w}, grafik), zweit if isinstance(zweit, list) else [zweit], fb
+
+
+def W(text, richtig, falsch, h, w, probe, grafik=None):
+    """Auswahl. falsch: [(Antwort, Beschreibung, Fehlbild-Kennung oder None, Rechnung)]; die letzten beiden Angaben sind optional.
+    Rechnung: Ausdruck (Python mit sqrt, round ...), dessen Wert die (Zahl-)Antwort ergibt, oder Funktion, die True liefert, oder None (keine Rechnung; steht dann im README).
+    probe: Funktion, die True liefert, wenn die richtige Antwort stimmt und die anderen nicht."""
+    n = len(falsch) + 1
+    assert n in (3, 4), text
+    p = next(POSITION[n])
+    antworten = [f[0] for f in falsch]
+    antworten.insert(p, richtig)
+    fb = {}
+    for i, f in enumerate(falsch):
+        fb[i if i < p else i + 1] = (f[2] if len(f) > 2 else None, f[1], f[3] if len(f) > 3 else None)
+    return mit({"y": "auswahl", "f": {"text": text}, "a": antworten, "o": {"index": p}, "h": h, "w": w}, grafik), probe, fb
+
+
+def FD(einleitung, zeilen, h, w, frage="In welcher Zeile passiert der erste Fehler?", grafik=None):
+    """Fehler-Detektiv. zeilen: [(Text, stimmt, folgt)]. stimmt: Zeile ist für sich richtig (im Programm berechnet).
+    folgt: nur für Zeilen NACH der Fehlerzeile: die Zeile folgt rechnerisch richtig aus der Zeile davor (sonst None).
+    Genau eine Zeile darf nicht stimmen; alle Zeilen davor stimmen; jede Folgezeile folgt aus der Zeile davor."""
+    falsche = [i for i, z in enumerate(zeilen) if not z[1]]
+    assert len(zeilen[0]) == 3 and 3 <= len(zeilen) <= 4, einleitung
+    # Fehlerzeile = erste Zeile, die nicht stimmt; danach darf eine Zeile für sich falsch sein, wenn sie aus der Vorzeile folgt
+    err = falsche[0]
+    assert all(z[1] for z in zeilen[:err]), (einleitung, "Zeile vor dem Fehler stimmt nicht")
+    for i in range(err + 1, len(zeilen)):
+        assert zeilen[i][2] is True, (einleitung, i + 1, "Folgezeile folgt nicht aus der Zeile davor")
+    assert all(z[2] is None for z in zeilen[:err + 1]), (einleitung, "folgt nur für Zeilen nach dem Fehler")
+    text = einleitung + " " + " ".join(f"Zeile {i + 1}: {z[0]}" for i, z in enumerate(zeilen)) + " " + frage
+    ant = [f"In Zeile {i + 1}" for i in range(len(zeilen))]
+    fb = {i: (None, "diese Zeile ist richtig; der Fehler steckt woanders" if i < err else "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher", None) for i in range(len(zeilen)) if i != err}
+    return mit({"y": "auswahl", "f": {"text": text}, "a": ant, "o": {"index": err}, "h": h, "w": w}, grafik), lambda: True, fb
+
+
+def neu(thema, lk, form, bau, g=None, regel="rr.waage", thema_datei=None):
+    """form: Schlüssel aus FORM. g: Aufgabentyp (Standard je Form); die Stufe folgt aus g.
+    rang: Sortierrang für die Kennungen. Er bleibt die Stufe, die der Standard-Typ der Form hatte (Verfahren wählen: 2), damit die Kennungen K8-V… stabil bleiben,
+    auch wenn g nach der tatsächlichen Tätigkeit gesetzt wird."""
+    g = g or FORM[form][1]
+    aufgabe, zweit, fb = bau
+    rang = 2 if form == "verfahren_waehlen" else ip.STUFE_VON[g]
+    A.append(dict(thema=thema, lk=lk, form=form, g=g, regel=regel, zaehlt="nein" if form == "lueckenweg" else "ja", s=ip.STUFE_VON[g], rang=rang, aufgabe=aufgabe, zweit=zweit, fb=fb))
+
+
+KOMM = lambda n: "; ".join(f"{'①②③④⑤'[i]} = □" for i in range(n))
+TAB = lambda kopf, *zeilen: {"typ": "tabelle", "kopf": kopf, "zeilen": [list(z) for z in zeilen]}
+KO = lambda x, y, **mehr: {"typ": "koordinaten", "x": x, "y": y, **mehr}
+
+
+def ist_loesung(links, rechts, wert, var="x"):
+    """True, wenn die Gleichung links = rechts für var = wert stimmt (exakt)."""
+    env = {"x": F(0), "y": F(0), "a": F(0), "b": F(0), "n": F(0)}
+    env[var] = F(str(wert)) if not isinstance(wert, F) else wert
+    return _ev(links, env) == _ev(rechts, env)
+
+
+def undef(s, wert, var="x"):
+    """True, wenn der Term s für var = wert nicht definiert ist (Nenner 0)."""
+    env = {"x": F(1), "y": F(1), "a": F(1), "b": F(1), "n": F(1)}
+    env[var] = F(str(wert))
+    try:
+        _ev(s, env)
+        return False
+    except ZeroDivisionError:
+        return True
+
+
+def wert_an(s, wert, var="x"):
+    env = {"x": F(1), "y": F(1), "a": F(1), "b": F(1), "n": F(1)}
+    env[var] = F(str(wert))
+    return _ev(s, env)
+
+
+def pole(*terme, bereich=range(-9, 10)):
+    """Menge der ganzen Zahlen im Bereich, an denen mindestens einer der Terme nicht definiert ist."""
+    return {k for k in bereich if any(undef(t, k) for t in terme)}
+
+
+# ---------- Wurzeln und Gleitkomma-Hilfen (rollend-9) ----------
+import decimal
+decimal.getcontext().prec = 60
+_MATH = {"sqrt": math.sqrt, "cbrt": lambda x: math.copysign(abs(x) ** (1 / 3), x), "round": round, "abs": abs, "floor": math.floor, "pi": math.pi, "min": min, "max": max, "F": F}
+
+
+def evm(s, **env):
+    """Python-Ausdruck mit sqrt, cbrt, round (Kommazahlen); für Fehlbild-Rechnungen und Probefunktionen."""
+    return eval(str(s), {"__builtins__": {}}, {**_MATH, **env})
+
+
+def wz(n):
+    """Exakte Quadratwurzel einer Quadratzahl (ganz oder Bruch)."""
+    n = F(n)
+    a, b = math.isqrt(n.numerator), math.isqrt(n.denominator)
+    assert a * a == n.numerator and b * b == n.denominator, ("keine Quadratzahl", n)
+    return F(a, b)
+
+
+def kw(n):
+    """Exakte Kubikwurzel einer Kubikzahl (ganz, auch negativ)."""
+    n = F(n)
+    def c(m):
+        r = round(abs(m) ** (1 / 3))
+        assert r ** 3 == abs(m), ("keine Kubikzahl", n)
+        return r if m >= 0 else -r
+    return F(c(n.numerator), c(n.denominator))
+
+
+def dwurzel(n, stellen, k=2):
+    """k-te Wurzel von n, auf `stellen` Nachkommastellen kaufmännisch gerundet (Decimal, unabhängig von math)."""
+    x = decimal.Decimal(str(n))
+    r = x.sqrt() if k == 2 else x ** (decimal.Decimal(1) / decimal.Decimal(3))
+    q = decimal.Decimal(1).scaleb(-stellen)
+    return F(str(r.quantize(q, rounding=decimal.ROUND_HALF_UP)))
+
+
+def rund(x, stellen):
+    return round(float(x), stellen)
+
+
+def zahl_aus(antwort):
+    s = str(antwort).replace("−", "-").replace(",", ".").replace(" ", "")
+    return float(re.sub(r"[^0-9.\-]", "", s))
+
+
+def RC(x, n):
+    """Rechenausdruck „round(x, n)“ mit der Gleitkomma-Zahl x (für das Feld c bei gerundeten Ergebnissen)."""
+    return f"round({float(x)!r}, {n})"

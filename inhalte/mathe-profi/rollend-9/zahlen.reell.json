@@ -1,0 +1,1394 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-9",
+ "kuerzel": "K9A",
+ "flug": "k9a-zahlen.reell",
+ "titel": "zahlen.reell",
+ "fuer": "Klasse 9",
+ "klasse": 9,
+ "themen": [
+  "zahlen.reell"
+ ],
+ "themen_datei_im_bestand": "zahlen.reell",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K9A-V019",
+   "thema": "zahlen.reell",
+   "lernkarte": "zahlarten",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Den Taschenrechner benutzen. Die Anzeige 7,0710678 hört irgendwo auf, also ist √50 rational.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine endliche Anzeige für das Ende der Dezimalzahl gehalten",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "Zerlegen: √50 = 5 · √2. Weil 5 rational ist, ist auch 5 · √2 rational.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Produkt mit einer rationalen Zahl für rational gehalten",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "Prüfen, ob 50 gerade ist. Weil 50 gerade ist, ist √50 rational.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gerade Zahl unter der Wurzel mit rationalem Ergebnis verwechselt",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "zahlarten",
+    "t": "zahlarten",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Du sollst entscheiden, ob √50 eine rationale Zahl ist. Welcher Weg führt sicher zum Ziel?"
+    },
+    "a": [
+     "Prüfen, ob 50 eine Quadratzahl ist. Wegen 7² = 49 und 8² = 64 ist 50 keine Quadratzahl. Also ist √50 irrational.",
+     "Den Taschenrechner benutzen. Die Anzeige 7,0710678 hört irgendwo auf, also ist √50 rational.",
+     "Zerlegen: √50 = 5 · √2. Weil 5 rational ist, ist auch 5 · √2 rational.",
+     "Prüfen, ob 50 gerade ist. Weil 50 gerade ist, ist √50 rational."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Frage dich: Für welche natürlichen Zahlen n ist √n rational?",
+    "w": "Für natürliche Zahlen n gilt: √n ist nur dann rational, wenn n eine Quadratzahl ist. 7² = 49 < 50 < 64 = 8², also ist 50 keine Quadratzahl und √50 ist irrational. Eine endliche Taschenrechner-Anzeige beweist nichts, und 5 · √2 ist ebenfalls irrational."
+   }
+  },
+  {
+   "kennung": "K9A-V020",
+   "thema": "zahlen.reell",
+   "lernkarte": "zahlarten",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel statt der Zahl x angegeben",
+     "c": "8"
+    },
+    {
+     "antwort": 70,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Mitte des Bereichs genommen: (60 + 80) : 2",
+     "c": "(60 + 80) / 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "zahlarten",
+    "t": "zahlarten",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine natürliche Zahl x liegt zwischen 60 und 80. Außerdem ist √x eine rationale Zahl. Wie groß ist x?"
+    },
+    "o": {
+     "wert": 64
+    },
+    "c": "8 ** 2",
+    "h": "Welche Quadratzahlen liegen zwischen 60 und 80?",
+    "w": "√x ist für natürliche x nur rational, wenn x eine Quadratzahl ist. Zwischen 60 und 80 liegt nur 8² = 64 (denn 7² = 49 ist zu klein, 9² = 81 zu groß). Also ist x = 64."
+   }
+  },
+  {
+   "kennung": "K9A-V021",
+   "thema": "zahlen.reell",
+   "lernkarte": "zahlarten",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "zahlarten",
+    "t": "zahlarten",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim ordnet die Zahl −√36 in die Zahlenmengen ein. Zeile 1: Eine Wurzel ist immer irrational. Zeile 2: Also ist auch −√36 irrational. Zeile 3: Darum gehört −√36 nicht zu ℚ, sondern nur zu ℝ. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Rechne √36 aus. Ist das Ergebnis eine rationale Zahl?",
+    "w": "Zeile 1 ist falsch: √36 = 6 ist rational. Die Wurzel aus einer Quadratzahl ist rational. Die Zeilen 2 und 3 folgen aus Zeile 1 richtig. Richtig: −√36 = −6 gehört zu ℤ, ℚ und ℝ."
+   }
+  },
+  {
+   "kennung": "K9A-V022",
+   "thema": "zahlen.reell",
+   "lernkarte": "eingrenzen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 188,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "94 verdoppelt statt quadriert: 94 · 2",
+     "c": "94 * 2"
+    },
+    {
+     "luecke": 3,
+     "antwort": 8935,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 90 statt mit 9 000 verglichen: 9 025 − 90",
+     "c": "(9025) - 90"
+    }
+   ],
+   "aufgabe": {
+    "l": "eingrenzen",
+    "t": "eingrenzen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Grenze √90 auf eine Nachkommastelle ein. Dazu werden 94 und 95 quadriert und mit 90 · 100 verglichen. Es ist 94² = ①. Dann ist 95² = ②. Also liegt 95² um ③ über 90 · 100.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      8836,
+      9025,
+      25
+     ]
+    },
+    "c": [
+     "8836",
+     "(8836) + 2 * 94 + 1",
+     "(9025) - 9000"
+    ],
+    "h": "Rechne 94 · 94 als 90 · 94 plus 4 · 94. Vergleichen musst du mit 90 · 100, nicht mit 90.",
+    "w": "94² = 8 836 und 95² = 9 025. Die Vergleichszahl ist 90 · 100 = 9 000. Es gilt 8 836 < 9 000 < 9 025, also 9,4 < √90 < 9,5. 95² liegt um 9 025 − 9 000 = 25 über 9 000."
+   }
+  },
+  {
+   "kennung": "K9A-V023",
+   "thema": "zahlen.reell",
+   "lernkarte": "eingrenzen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "zwischen 2,7 und 2,8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zeile mit 7,29 als untere Grenze genommen: 7,29 liegt über 7",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "zwischen 2,5 und 2,6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zu weit links abgelesen: 6,76 ist schon näher an 7",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "zwischen 6,76 und 7,29",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Quadrate aus der unteren Zeile als Grenzen der Wurzel genommen",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "eingrenzen",
+    "t": "eingrenzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt Quadrate von Zahlen mit einer Nachkommastelle. Zwischen welchen beiden Zahlen der oberen Zeile liegt √7?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "x",
+       "2,5",
+       "2,6",
+       "2,7",
+       "2,8"
+      ],
+      "zeilen": [
+       [
+        "x²",
+        "6,25",
+        "6,76",
+        "7,29",
+        "7,84"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "zwischen 2,7 und 2,8",
+     "zwischen 2,5 und 2,6",
+     "zwischen 6,76 und 7,29",
+     "zwischen 2,6 und 2,7"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "In der unteren Zeile suchst du zwei Quadrate, zwischen denen 7 liegt. Die Wurzel steht darüber.",
+    "w": "6,76 < 7 < 7,29. Die Quadrate gehören zu 2,6 und 2,7. Also gilt 2,6 < √7 < 2,7."
+   }
+  },
+  {
+   "kennung": "K9A-V024",
+   "thema": "zahlen.reell",
+   "lernkarte": "eingrenzen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2.65,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in Metern stehen geblieben (auf zwei Stellen gerundet)",
+     "c": "round(sqrt(7), 2)"
+    },
+    {
+     "antwort": 264,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "abgeschnitten statt gerundet",
+     "c": "floor(sqrt(70000))"
+    },
+    {
+     "antwort": 3.5,
+     "fehlbild": "fb.hoch_zurueck.wurzel_halbiert",
+     "regel_des_fehlbilds": "id.zahlen.hoch_zurueck",
+     "beschreibung": "7 halbiert statt die Wurzel gezogen",
+     "c": "7 / 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "eingrenzen",
+    "t": "eingrenzen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Eine quadratische Holzplatte hat 7 m² Fläche. Wie lang ist eine Seite in Zentimetern? Runde auf ganze Zentimeter."
+    },
+    "o": {
+     "wert": 265,
+     "einheit": "cm"
+    },
+    "c": "round(264.5751311064591, 0)",
+    "h": "Rechne erst die Fläche in cm² um: 1 m² = 10 000 cm².",
+    "w": "7 m² = 70 000 cm². Die Seite ist √70 000 ≈ 264,58 cm. Gerundet auf ganze Zentimeter: 265 cm. Probe: 265 · 265 = 70 225, das ist nahe an 70 000."
+   }
+  },
+  {
+   "kennung": "K9A-V025",
+   "thema": "zahlen.reell",
+   "lernkarte": "heron",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 405,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 9 malgenommen statt geteilt: 45 · 9",
+     "c": "45 * 9"
+    },
+    {
+     "luecke": 2,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe nicht halbiert: 9 + 5",
+     "c": "9 + (5)"
+    }
+   ],
+   "aufgabe": {
+    "l": "heron",
+    "t": "heron",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Heron-Verfahren für √45 mit dem Startwert 9. Das Rechteck mit der Fläche 45 und der Seite 9 hat die andere Seite ①. Dann ist der neue Näherungswert, der Mittelwert der beiden Seiten, gleich ②. Das Quadrat dieses Werts ist ③. Also liegt es um ④ über 45.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      5,
+      7,
+      49,
+      4
+     ]
+    },
+    "c": [
+     "45 // 9",
+     "(9 + (5)) // 2",
+     "(7) ** 2",
+     "(49) - 45"
+    ],
+    "h": "Die andere Seite ist die Fläche geteilt durch die bekannte Seite. Der Mittelwert zweier Zahlen ist ihre Summe geteilt durch die Anzahl der Zahlen.",
+    "w": "45 : 9 = 5. Mittelwert: (9 + 5) : 2 = 7. Das Quadrat ist 7² = 49. Es liegt um 49 − 45 = 4 über 45. Der neue Wert 7 ist besser als 9, denn 9² = 81 liegt um 36 über 45."
+   }
+  },
+  {
+   "kennung": "K9A-V026",
+   "thema": "zahlen.reell",
+   "lernkarte": "heron",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3.333,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die andere Seite genommen, nicht gemittelt",
+     "c": "round(10 / 3, 3)"
+    },
+    {
+     "antwort": 6.333,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe der beiden Seiten nicht halbiert",
+     "c": "round(3 + 10 / 3, 3)"
+    }
+   ],
+   "aufgabe": {
+    "l": "heron",
+    "t": "heron",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein quadratisches Beet soll 10 m² Fläche haben. Als Startwert für die Seite wird 3 m genommen. Wie groß ist der neue Näherungswert für die Seite nach einem Schritt des Heron-Verfahrens? Runde auf drei Nachkommastellen."
+    },
+    "o": {
+     "wert": 3.167,
+     "einheit": "m"
+    },
+    "c": "round(3.166666666666667, 3)",
+    "h": "Das Rechteck mit der Fläche 10 und der Seite 3 hat eine zweite Seite. Dann wird der Mittelwert gebildet.",
+    "w": "Die andere Seite ist 10 : 3 ≈ 3,3333. Der Mittelwert ist (3 + 3,3333) : 2 ≈ 3,1667. Gerundet: 3,167 m. Zum Vergleich: √10 ≈ 3,1623."
+   }
+  },
+  {
+   "kennung": "K9A-V027",
+   "thema": "zahlen.reell",
+   "lernkarte": "heron",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3.47,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die obere Grenze der Schachtel genommen statt zu runden",
+     "c": "3.47"
+    },
+    {
+     "antwort": 3.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur auf eine Nachkommastelle gerundet",
+     "c": "round(sqrt(12), 1)"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": "fb.hoch_zurueck.wurzel_halbiert",
+     "regel_des_fehlbilds": "id.zahlen.hoch_zurueck",
+     "beschreibung": "12 halbiert statt die Wurzel gezogen",
+     "c": "12 / 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "heron",
+    "t": "heron",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Bestimme √12 auf zwei Nachkommastellen gerundet auf zwei Wegen. Weg A: Intervallschachtelung mit Zehntelzahlen, dann mit Hundertstelzahlen, und die Mitte der letzten Schachtel prüfen. Weg B: Heron-Verfahren mit dem Startwert 3,5 und zwei Schritten. Wie lautet der gerundete Wert?"
+    },
+    "o": {
+     "wert": 3.46
+    },
+    "c": "round(3.4641016151377544, 2)",
+    "h": "Beide Wege müssen denselben gerundeten Wert ergeben.",
+    "w": "Weg A: 3,4² = 11,56 < 12 < 12,25 = 3,5². Dann 3,46² = 11,9716 < 12 < 12,0409 = 3,47². Die Mitte 3,465² = 12,006… ist größer als 12, also liegt √12 unter 3,465 und wird zu 3,46 gerundet. Weg B: x₁ = (3,5 + 12 : 3,5) : 2 ≈ 3,4643, x₂ ≈ 3,4641. Gerundet 3,46."
+   }
+  },
+  {
+   "kennung": "K9A-V028",
+   "thema": "zahlen.reell",
+   "lernkarte": "wurzel_mal",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 26,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "unter der Wurzel addiert: 18 + 8",
+     "c": "18 + 8"
+    },
+    {
+     "luecke": 2,
+     "antwort": 72,
+     "fehlbild": "fb.hoch_zurueck.wurzel_halbiert",
+     "regel_des_fehlbilds": "id.zahlen.hoch_zurueck",
+     "beschreibung": "144 halbiert statt die Wurzel gezogen",
+     "c": "(144) / 2"
+    },
+    {
+     "luecke": 3,
+     "antwort": -13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "25 statt √25 abgezogen: 12 − 25",
+     "c": "(12) - 25"
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_mal",
+    "t": "wurzel_mal",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Berechne √18 · √8 − √25. Beide Wurzeln werden zu einer Wurzel zusammengefasst. Unter der Wurzel steht dann ①. Die Wurzel daraus ist ②. Dann ist das Ergebnis der ganzen Rechnung ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      144,
+      12,
+      7
+     ]
+    },
+    "c": [
+     "18 * 8",
+     "12",
+     "(12) - 5"
+    ],
+    "h": "Es gilt √a · √b = √(a · b). Zum Schluss nicht vergessen, √25 zu berechnen.",
+    "w": "√18 · √8 = √(18 · 8) = √144 = 12. Dann ist 12 − √25 = 12 − 5 = 7."
+   }
+  },
+  {
+   "kennung": "K9A-V029",
+   "thema": "zahlen.reell",
+   "lernkarte": "wurzel_mal",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 324,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur quadriert, nicht durch 12 geteilt",
+     "c": "18 ** 2"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen voneinander abgezogen: 18 − 12",
+     "c": "18 - 12"
+    },
+    {
+     "antwort": 216,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "18 mit 12 malgenommen: 18 · 12",
+     "c": "18 * 12"
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_mal",
+    "t": "wurzel_mal",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Für eine positive Zahl a gilt √a · √12 = 18. Wie groß ist a?"
+    },
+    "o": {
+     "wert": 27
+    },
+    "c": "18 ** 2 / 12",
+    "h": "Fasse beide Wurzeln zu einer Wurzel zusammen. Dann machst du das Wurzelziehen rückgängig.",
+    "w": "√a · √12 = √(12a) = 18. Quadrieren: 12a = 324. Also a = 324 : 12 = 27. Probe: √27 · √12 = √324 = 18."
+   }
+  },
+  {
+   "kennung": "K9A-V030",
+   "thema": "zahlen.reell",
+   "lernkarte": "wurzel_mal",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_mal",
+    "t": "wurzel_mal",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim vereinfacht √(5x) · √(20x) für x ≥ 0. Zeile 1: √(5x) · √(20x) = √(5x · 20x) Zeile 2: = √(25x) Zeile 3: = 5 · √x In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Rechne 5x · 20x für x = 2 aus und vergleiche mit der Zeile.",
+    "w": "Zeile 1 stimmt. In Zeile 2 wurde 5x · 20x falsch berechnet: 5 · 20 = 100 und x · x = x², also √(100x²) = 10x. Zeile 3 rechnet mit √(25x) richtig weiter: √(25x) = 5 · √x."
+   }
+  },
+  {
+   "kennung": "K9A-V031",
+   "thema": "zahlen.reell",
+   "lernkarte": "teilweise",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 144,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "288 − 144 gerechnet",
+     "c": "288 - 144"
+    },
+    {
+     "luecke": 2,
+     "antwort": 72,
+     "fehlbild": "fb.hoch_zurueck.wurzel_halbiert",
+     "regel_des_fehlbilds": "id.zahlen.hoch_zurueck",
+     "beschreibung": "144 halbiert statt die Wurzel gezogen",
+     "c": "144 / 2"
+    },
+    {
+     "luecke": 3,
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "a mal b statt a plus b: 12 · 2",
+     "c": "(2) * (12)"
+    }
+   ],
+   "aufgabe": {
+    "l": "teilweise",
+    "t": "teilweise",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Schreibe √288 als a · √b mit möglichst kleiner Zahl b. Es gilt 288 = 144 · b. Die Zahl b ist ①. Die Wurzel aus 144 ist ②. Dann ist a gleich ②. Also ist a + b gleich ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      2,
+      12,
+      14
+     ]
+    },
+    "c": [
+     "288 // 144",
+     "12",
+     "(2) + (12)"
+    ],
+    "h": "Welche Zahl mal 144 ergibt 288? Zum Schluss werden die beiden Zahlen addiert.",
+    "w": "b = 288 : 144 = 2 und a = √144 = 12. Also √288 = 12 · √2. Die Summe ist a + b = 12 + 2 = 14."
+   }
+  },
+  {
+   "kennung": "K9A-V032",
+   "thema": "zahlen.reell",
+   "lernkarte": "teilweise",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "√12",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen 6 und 2 unter der Wurzel malgenommen, die 6 aber nicht quadriert: 6 · 2",
+     "c": "6 * 2"
+    },
+    {
+     "index": 2,
+     "antwort": "√8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen 6 und 2 addiert: 6 + 2",
+     "c": "6 + 2"
+    },
+    {
+     "index": 3,
+     "antwort": "√38",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 quadriert, aber 2 addiert statt malgenommen: 6² + 2",
+     "c": "6 ** 2 + 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "teilweise",
+    "t": "teilweise",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Schreibe 6√2 als eine einzige Wurzel. Welche Wurzel ist es?"
+    },
+    "a": [
+     "√12",
+     "√72",
+     "√8",
+     "√38"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Die 6 muss in die Wurzel hinein. Dafür wird sie quadriert: √36 = 6.",
+    "w": "6 = √36. Also 6√2 = √36 · √2 = √(36 · 2) = √72. Probe: √72 = √(36 · 2) = 6√2."
+   }
+  },
+  {
+   "kennung": "K9A-V033",
+   "thema": "zahlen.reell",
+   "lernkarte": "teilweise",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 900,
+     "fehlbild": "fb.hoch_zurueck.wurzel_halbiert",
+     "regel_des_fehlbilds": "id.zahlen.hoch_zurueck",
+     "beschreibung": "1800 halbiert statt die Wurzel gezogen",
+     "c": "1800 / 2"
+    },
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Paar aus den Zweien vergessen: 3 · 5",
+     "c": "3 * 5"
+    },
+    {
+     "antwort": 180,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 10 geteilt statt die Wurzel gezogen: 1800 : 10",
+     "c": "1800 / 10"
+    }
+   ],
+   "aufgabe": {
+    "l": "teilweise",
+    "t": "teilweise",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Ziehe aus √1800 teilweise die Wurzel, bis √2 übrig bleibt: √1800 = a · √2. Weg A: Spalte die größte passende Quadratzahl als Faktor ab. Weg B: Zerlege 1800 in Primfaktoren (2 · 2 · 2 · 3 · 3 · 5 · 5) und bilde Paare. Wie groß ist a?"
+    },
+    "o": {
+     "wert": 30
+    },
+    "c": "2 * 3 * 5",
+    "h": "Beide Wege müssen dasselbe a ergeben.",
+    "w": "Weg A: 1800 = 900 · 2 und √900 = 30. Weg B: Paare 2 · 2, 3 · 3 und 5 · 5. Aus jedem Paar kommt eine Zahl vor die Wurzel: 2 · 3 · 5 = 30. Die einzelne 2 bleibt unter der Wurzel. Also √1800 = 30 · √2."
+   }
+  },
+  {
+   "kennung": "K9A-V034",
+   "thema": "zahlen.reell",
+   "lernkarte": "zusammenfassen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "54 : 6 = 9 stehen geblieben, die Wurzel nicht gezogen",
+     "c": "54 / 6"
+    },
+    {
+     "luecke": 4,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Vorfaktoren addiert: 3 + 4 + 2",
+     "c": "(3) + (4) + (2)"
+    },
+    {
+     "luecke": 4,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsch verrechnet: 3 − 4 + 2",
+     "c": "(3) - (4) + (2)"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammenfassen",
+    "t": "zusammenfassen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Fasse zusammen: √54 + √96 − √24. Jede Wurzel wird als Vielfaches von √6 geschrieben. Es gilt √54 = ①·√6. Es gilt √96 = ②·√6. Es gilt √24 = ③·√6. Also ist √54 + √96 − √24 = ④·√6.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      4,
+      2,
+      5
+     ]
+    },
+    "c": [
+     "3",
+     "4",
+     "2",
+     "(3) + (4) - (2)"
+    ],
+    "h": "Zerlege jede Zahl unter der Wurzel in eine Quadratzahl mal die gemeinsame Zahl. Am Ende werden nur die Vorfaktoren verrechnet.",
+    "w": "54 = 9 · 6, also √54 = 3√6. 96 = 16 · 6, also √96 = 4√6. 24 = 4 · 6, also √24 = 2√6. Dann 3 + 4 − 2 = 5. Ergebnis: 5√6."
+   }
+  },
+  {
+   "kennung": "K9A-V035",
+   "thema": "zahlen.reell",
+   "lernkarte": "zusammenfassen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 10.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen unter den Wurzeln addiert: 2 · √26",
+     "c": "round(2 * sqrt(26), 1)"
+    },
+    {
+     "antwort": 7.1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Umfang nur als Summe zweier Seiten gerechnet",
+     "c": "round(sqrt(18) + sqrt(8), 1)"
+    },
+    {
+     "antwort": 17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle vier Seiten so lang wie die längere Seite gerechnet",
+     "c": "round(4 * sqrt(18), 1)"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammenfassen",
+    "t": "zusammenfassen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein rechteckiger Bilderrahmen hat die Seitenlängen √18 dm und √8 dm. Wie lang ist sein Umfang? Runde auf eine Nachkommastelle."
+    },
+    "o": {
+     "wert": 14.1,
+     "einheit": "dm"
+    },
+    "c": "round(14.142135623730951, 1)",
+    "h": "Vereinfache zuerst beide Wurzeln. Dann kannst du zusammenfassen.",
+    "w": "√18 = 3√2 und √8 = 2√2. Umfang = 2 · (3√2 + 2√2) = 10√2 ≈ 14,142 dm. Gerundet: 14,1 dm."
+   }
+  },
+  {
+   "kennung": "K9A-V036",
+   "thema": "zahlen.reell",
+   "lernkarte": "zusammenfassen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammenfassen",
+    "t": "zusammenfassen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim fasst √12 + √27 zusammen. Zeile 1: Die Wurzel aus 12 ist gleich 2√3. Zeile 2: Die Wurzel aus 27 ist gleich 3√3. Zeile 3: 2√3 + 3√3 = 5√6 Zeile 4: 5√6 ≈ 12,25 In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Bei gleichen Wurzeln werden nur die Zahlen vor der Wurzel zusammengefasst. Prüfe, was dabei mit der Zahl unter der Wurzel passiert.",
+    "w": "Zeile 1 und 2 stimmen. In Zeile 3 wurde die Zahl unter der Wurzel verändert. Richtig: 2√3 + 3√3 = 5√3. Zeile 4 rechnet mit dem falschen Wert richtig weiter. Richtig: 5√3 ≈ 8,66."
+   }
+  },
+  {
+   "kennung": "K9A-V037",
+   "thema": "zahlen.reell",
+   "lernkarte": "nenner_rational",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 6 vergessen: nur √7 · √7",
+     "c": "7"
+    },
+    {
+     "luecke": 1,
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 + 7 gerechnet",
+     "c": "6 + 7"
+    },
+    {
+     "luecke": 4,
+     "antwort": 42,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht gekürzt, den Nenner stehen lassen",
+     "c": "(42)"
+    }
+   ],
+   "aufgabe": {
+    "l": "nenner_rational",
+    "t": "nenner_rational",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Mache den Nenner rational: 28/(6√7). Dazu wird der Bruch mit √7 erweitert. Der neue Nenner (ohne Wurzel) ist ①. Der größte gemeinsame Teiler von 28 und ① ist ②. Also ist das Ergebnis nach dem Kürzen ③ · √7 geteilt durch ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      42,
+      14,
+      2,
+      3
+     ]
+    },
+    "c": [
+     "6 * 7",
+     "14",
+     "28 // (14)",
+     "(42) // (14)"
+    ],
+    "h": "Beim Erweitern mit √7 gilt √7 · √7 = 7. Der Faktor vor der Wurzel im Nenner bleibt erhalten.",
+    "w": "Der Nenner wird 6 · √7 · √7 = 6 · 7 = 42. Der Zähler wird 28√7. Der größte gemeinsame Teiler von 28 und 42 ist 14. Kürzen: 28√7/42 = (2 · √7)/3."
+   }
+  },
+  {
+   "kennung": "K9A-V038",
+   "thema": "zahlen.reell",
+   "lernkarte": "nenner_rational",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nach dem Erweitern nicht durch 6 gekürzt",
+     "c": "30"
+    },
+    {
+     "antwort": 180,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 6 statt durch 6 gerechnet: 30 · 6",
+     "c": "30 * 6"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 abgezogen statt geteilt: 30 − 6",
+     "c": "30 - 6"
+    }
+   ],
+   "aufgabe": {
+    "l": "nenner_rational",
+    "t": "nenner_rational",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Schreibe 30/√6 als a · √6 auf zwei Wegen. Weg A: Erweitere den Bruch mit √6. Weg B: Schreibe 30 als 5 · 6 = 5 · √6 · √6 und kürze mit √6. Wie groß ist a?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "30 / 6",
+    "h": "Beide Wege müssen dasselbe a ergeben.",
+    "w": "Weg A: 30/√6 = (30 · √6)/(√6 · √6) = 30√6/6 = 5√6. Weg B: 30/√6 = (5 · √6 · √6)/√6 = 5√6. Also a = 5."
+   }
+  },
+  {
+   "kennung": "K9A-V039",
+   "thema": "zahlen.reell",
+   "lernkarte": "nenner_rational",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzeln vergessen: 3 · 2",
+     "c": "3 * 2"
+    },
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 2 aus dem Nenner vergessen: 3 · 5",
+     "c": "3 * 5"
+    },
+    {
+     "antwort": 150,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "√5 · √5 zweimal gerechnet: 3 · 2 · 5 · 5",
+     "c": "3 * 2 * 5 * 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "nenner_rational",
+    "t": "nenner_rational",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Der Bruch a/(2√5) hat denselben Wert wie 3√5. Wie groß ist a?"
+    },
+    "o": {
+     "wert": 30
+    },
+    "c": "3 * 2 * 5",
+    "h": "Multipliziere beide Seiten mit dem Nenner 2√5. Dann gilt √5 · √5 = 5.",
+    "w": "Aus a/(2√5) = 3√5 folgt a = 3√5 · 2√5 = 3 · 2 · 5 = 30. Probe: 30/(2√5) = 15/√5 = 15√5/5 = 3√5."
+   }
+  },
+  {
+   "kennung": "K9A-V040",
+   "thema": "zahlen.reell",
+   "lernkarte": "irrational_beweis",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "√5 mit dem Taschenrechner auf 20 Stellen ausrechnen und prüfen, dass sich keine Ziffernfolge wiederholt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "endlich viele Stellen können nichts beweisen",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "Zeigen, dass √5 keine ganze Zahl ist: 2² = 4 und 3² = 9.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "damit ist nur gezeigt, dass √5 nicht ganz ist, nicht dass es kein Bruch ist",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "Annahme: √5 ist irrational. Dann einen Widerspruch suchen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Annahme steht verkehrt herum: man nimmt das Gegenteil dessen an, was man zeigen will",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "irrational_beweis",
+    "t": "irrational_beweis",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Du sollst beweisen, dass √5 irrational ist. Welcher Weg führt zum Ziel?"
+    },
+    "a": [
+     "√5 mit dem Taschenrechner auf 20 Stellen ausrechnen und prüfen, dass sich keine Ziffernfolge wiederholt.",
+     "Annahme: √5 = p/q mit teilerfremden ganzen Zahlen p und q. Quadrieren gibt p² = 5q². Dann folgt, dass p und q beide durch 5 teilbar wären. Das ist ein Widerspruch.",
+     "Zeigen, dass √5 keine ganze Zahl ist: 2² = 4 und 3² = 9.",
+     "Annahme: √5 ist irrational. Dann einen Widerspruch suchen."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Beim indirekten Beweis nimmt man das Gegenteil der Behauptung an.",
+    "w": "Ein indirekter Beweis nimmt das Gegenteil an: √5 ist rational, also ein gekürzter Bruch p/q. Quadrieren gibt p² = 5q². Dann ist p durch 5 teilbar, und mit p = 5r auch q. Das widerspricht der Kürzung. Zahlenbeispiele oder Taschenrechner beweisen nichts."
+   }
+  },
+  {
+   "kennung": "K9A-V041",
+   "thema": "zahlen.reell",
+   "lernkarte": "irrational_beweis",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "√2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 2 statt 3 genommen",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "√6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 = 2 · 3 genommen; dann stünde p² = 6q² da",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "√9",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 = 3 · 3 genommen; √9 = 3 ist aber rational",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "irrational_beweis",
+    "t": "irrational_beweis",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Beweis endet so: „Aus p² = 3q² folgt, dass p durch 3 teilbar ist. Dann ist auch q durch 3 teilbar. Das widerspricht der Kürzung.“ Für welche Zahl wurde bewiesen, dass sie irrational ist?"
+    },
+    "a": [
+     "√2",
+     "√6",
+     "√9",
+     "√3"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Welche Gleichung für p² steht am Anfang des Beweises? Sie verrät die Zahl unter der Wurzel.",
+    "w": "Aus √x = p/q folgt p² = x · q². Im Beweis steht p² = 3q², also ist x = 3. Der Beweis zeigt: √3 ist irrational. Bei √9 wäre der Satz unsinnig, denn √9 = 3 ist rational."
+   }
+  },
+  {
+   "kennung": "K9A-V042",
+   "thema": "zahlen.reell",
+   "lernkarte": "irrational_beweis",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "irrational_beweis",
+    "t": "irrational_beweis",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim beweist, dass √3 irrational ist. Zeile 1: Annahme: √3 = p/q mit teilerfremden p und q. Zeile 2: Quadrieren: p² = 3q². Zeile 3: Dann ist p² durch 3 teilbar, also ist p durch 9 teilbar. Zeile 4: Mit p = 9r folgt 81r² = 3q², also q² = 27r². Dann ist auch q durch 3 teilbar. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Wenn p² durch 3 teilbar ist: Durch welche Zahl muss p dann teilbar sein? Probiere p = 6.",
+    "w": "Zeile 1 und 2 stimmen. In Zeile 3 steht der Fehler: Aus „p² ist durch 3 teilbar“ folgt nur „p ist durch 3 teilbar“ (zum Beispiel p = 6, aber 6 ist nicht durch 9 teilbar). Richtig: p = 3r. Zeile 4 rechnet mit p = 9r richtig weiter."
+   }
+  }
+ ]
+}

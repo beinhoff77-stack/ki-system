@@ -1,0 +1,1742 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-9",
+ "kuerzel": "K9A",
+ "flug": "k9a-funktionen.quadratisch",
+ "titel": "funktionen.quadratisch",
+ "fuer": "Klasse 9",
+ "klasse": 9,
+ "themen": [
+  "funktionen.quadratisch"
+ ],
+ "themen_datei_im_bestand": "funktionen.quadratisch",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K9A-V085",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "scheitel",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -4,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Vorzeichen falsch: −8 : 2",
+     "c": "-8 / 2"
+    },
+    {
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 8 aus der Gleichung genommen",
+     "c": "8"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Achsenabschnitt als y-Wert des Scheitels genommen",
+     "c": "3"
+    },
+    {
+     "luecke": 3,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1 und 4 addiert statt gespiegelt: 1 + 4",
+     "c": "1 + (4)"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheitel",
+    "t": "scheitel",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Gegeben ist f(x) = x² − 8x + 3. Die x-Koordinate des Scheitels ist ①. Dann ist der y-Wert des Scheitels ②. Also hat der Punkt mit x = 1 denselben y-Wert wie der Punkt mit x = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      4,
+      -13,
+      7
+     ]
+    },
+    "c": [
+     "8 // 2",
+     "(4) ** 2 - 8 * (4) + 3",
+     "2 * (4) - 1"
+    ],
+    "h": "Der Scheitel liegt in der Mitte zwischen den beiden Stellen mit gleichem y-Wert. Die Hälfte der Zahl vor x führt dich dorthin.",
+    "w": "x_S = 8 : 2 = 4. f(4) = 16 − 32 + 3 = −13. Die Parabel ist symmetrisch zu x = 4: Zu x = 1 (3 links vom Scheitel) gehört x = 4 + 3 = 7. Probe: f(1) = 1 − 8 + 3 = −4 und f(7) = 49 − 56 + 3 = −4."
+   }
+  },
+  {
+   "kennung": "K9A-V086",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "scheitel",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "f(x) = (x + 2)² − 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen von d verwechselt",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "f(x) = (x − 2)² + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen von e verwechselt",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "f(x) = (x − 1)² − 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "d und e vertauscht",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "scheitel",
+    "t": "scheitel",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt Werte einer Funktion f(x) = (x − d)² + e. Welche Gleichung gehört dazu?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "x",
+       "0",
+       "1",
+       "2",
+       "3",
+       "4"
+      ],
+      "zeilen": [
+       [
+        "f(x)",
+        "3",
+        "0",
+        "−1",
+        "0",
+        "3"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "f(x) = (x + 2)² − 1",
+     "f(x) = (x − 2)² − 1",
+     "f(x) = (x − 2)² + 1",
+     "f(x) = (x − 1)² − 2"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Der Scheitel ist der Punkt mit dem kleinsten y-Wert. Lies d und e daran ab und prüfe mit einem weiteren Tabellenwert.",
+    "w": "Der kleinste y-Wert −1 steht bei x = 2, also S(2 | −1) und f(x) = (x − 2)² − 1. Probe: f(0) = 4 − 1 = 3, f(4) = 4 − 1 = 3, f(1) = 1 − 1 = 0."
+   }
+  },
+  {
+   "kennung": "K9A-V087",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "scheitel",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "scheitel",
+    "t": "scheitel",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim liest den Scheitel von f(x) = −2(x + 3)² + 4 ab. Zeile 1: Aus x + 3 = x − (−3) folgt d = 3 und e = 4. Zeile 2: Also ist der Scheitel S(3 | 4). Zeile 3: Wegen a = −2 < 0 ist S der höchste Punkt der Parabel. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Schreibe x + 3 in der Form x − d. Welche Zahl ist dann d? Setze zur Probe x = 3 und x = −3 ein.",
+    "w": "Zeile 1 enthält den Fehler: x + 3 = x − (−3), also ist d = −3. Der Scheitel ist S(−3 | 4). Zeile 2 folgt aus Zeile 1, Zeile 3 ist eine richtige Aussage. Probe: f(−3) = 4, und f(3) = −72 + 4 = −68."
+   }
+  },
+  {
+   "kennung": "K9A-V088",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "parameter",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x selbst statt x² genommen",
+     "c": "2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch x statt durch x² geteilt: 12 : 2",
+     "c": "12 // 2"
+    },
+    {
+     "luecke": 3,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 nicht quadriert: 3 · 5",
+     "c": "(3) * 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "parameter",
+    "t": "parameter",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Parabel y = a · x² geht durch P(2 | 12). Für x = 2 ist x² gleich ①. Also ist a = ②. Dann hat der Punkt der Parabel mit x = 5 den y-Wert ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      4,
+      3,
+      75
+     ]
+    },
+    "c": [
+     "2 ** 2",
+     "12 // (4)",
+     "(3) * 5 ** 2"
+    ],
+    "h": "Setze die Koordinaten von P in die Gleichung ein und löse nach a.",
+    "w": "Für P gilt 12 = a · 2² = a · 4, also a = 3. Dann ist y = 3 · 5² = 75. Probe: 3 · 4 = 12."
+   }
+  },
+  {
+   "kennung": "K9A-V089",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "parameter",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "a = 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Wert von P als a genommen",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "a = 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den quadrierten x-Wert von P als a genommen",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "a = −0,5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen verändert: dann wäre die Parabel nach unten geöffnet",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "parameter",
+    "t": "parameter",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Zeichnung zeigt die Parabel y = x² und eine zweite Parabel y = a · x² durch den markierten Punkt P. Welcher Wert gehört zu a?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -4,
+       4
+      ],
+      "y": [
+       -2,
+       6
+      ],
+      "graphen": [
+       {
+        "art": "poly",
+        "k": [
+         0,
+         0,
+         1
+        ],
+        "name": "y = x²"
+       },
+       {
+        "art": "poly",
+        "k": [
+         0,
+         0,
+         0.5
+        ],
+        "name": "y = a · x²"
+       }
+      ],
+      "punkte": [
+       {
+        "x": 2,
+        "y": 2,
+        "name": "P"
+       }
+      ]
+     }
+    },
+    "a": [
+     "a = 2",
+     "a = 4",
+     "a = −0,5",
+     "a = 0,5"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Lies die Koordinaten von P ab und setze sie in y = a · x² ein.",
+    "w": "P hat die Koordinaten (2 | 2). Aus 2 = a · 2² = 4a folgt a = 0,5. Die Parabel ist flacher als y = x², weil 0 < a < 1."
+   }
+  },
+  {
+   "kennung": "K9A-V090",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "parameter",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "parameter",
+    "t": "parameter",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim vergleicht die Parabel g(x) = −0,5x² mit der Parabel f(x) = x². Zeile 1: Der Faktor a = −0,5 hat den Betrag 0,5. Zeile 2: Wegen a < 0 ist g nach unten geöffnet. Zeile 3: Der Scheitel von g liegt im Ursprung. Zeile 4: Weil 0,5 kleiner als 1 ist, ist g enger als f. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Vergleiche die Beträge der y-Werte von g und f an derselben Stelle, zum Beispiel x = 2.",
+    "w": "Die Zeilen 1 bis 3 stimmen. In Zeile 4 steht der Fehler: Bei x = 2 ist g(2) = −2 und f(2) = 4. Die y-Werte von g sind betragsmäßig kleiner, also ist g weiter (flacher) als f. Ein Faktor mit Betrag kleiner als 1 macht die Parabel weiter."
+   }
+  },
+  {
+   "kennung": "K9A-V091",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "spiegeln",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -3,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Vorzeichen falsch: −6 : 2",
+     "c": "-6 / 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Achsenabschnitt als y-Wert des Scheitels genommen",
+     "c": "13"
+    },
+    {
+     "luecke": 3,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die y-Koordinate beim Spiegeln nicht verändert",
+     "c": "(4)"
+    },
+    {
+     "luecke": 4,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die x-Koordinate beim Spiegeln an der y-Achse nicht verändert",
+     "c": "(3)"
+    }
+   ],
+   "aufgabe": {
+    "l": "spiegeln",
+    "t": "spiegeln",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Parabel f(x) = x² − 6x + 13 hat den Scheitel S(① | ②). Spiegelt man an der x-Achse, so hat der neue Scheitel die y-Koordinate ③. Also hat nach einer Spiegelung an der y-Achse der neue Scheitel die x-Koordinate ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      4,
+      -4,
+      -3
+     ]
+    },
+    "c": [
+     "6 // 2",
+     "(3) ** 2 - 6 * (3) + 13",
+     "-(4)",
+     "-(3)"
+    ],
+    "h": "Spiegeln an der x-Achse ändert die Vorzeichen der y-Werte. Spiegeln an der y-Achse ändert die Vorzeichen der x-Werte.",
+    "w": "x_S = 6 : 2 = 3, y_S = 9 − 18 + 13 = 4. An der x-Achse gespiegelt: S′(3 | −4). An der y-Achse gespiegelt: S″(−3 | 4)."
+   }
+  },
+  {
+   "kennung": "K9A-V092",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "spiegeln",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "g(0) statt f(0) berechnet",
+     "c": "-(0 - 3) ** 2 + 5"
+    },
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 addiert statt abgezogen: 9 + 5",
+     "c": "(0 - 3) ** 2 + 5"
+    },
+    {
+     "antwort": -14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Vorzeichen falsch: −9 − 5",
+     "c": "-(0 - 3) ** 2 - 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "spiegeln",
+    "t": "spiegeln",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Die Parabel g(x) = −(x − 3)² + 5 entsteht aus der Parabel f durch Spiegelung an der x-Achse. Wie groß ist f(0)?"
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "(0 - 3) ** 2 - 5",
+    "h": "Mache die Spiegelung rückgängig: Beim Spiegeln an der x-Achse wechseln alle y-Werte ihr Vorzeichen.",
+    "w": "Zurückgespiegelt gilt f(x) = −g(x) = (x − 3)² − 5. Dann ist f(0) = 9 − 5 = 4. Probe: g(0) = −9 + 5 = −4, und −(−4) = 4."
+   }
+  },
+  {
+   "kennung": "K9A-V093",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "spiegeln",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "spiegeln",
+    "t": "spiegeln",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim spiegelt f(x) = (x − 2)² + 3 an der y-Achse. Zeile 1: Bei der Spiegelung an der y-Achse wird x durch −x ersetzt. Zeile 2: Also ist g(x) = f(−x) = (−x − 2)² + 3. Zeile 3: Es gilt (−x − 2)² = (x + 2)². Zeile 4: Also ist g(x) = (x + 2)² − 3. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Beim Spiegeln an der y-Achse bleiben die y-Werte erhalten. Welche Zahl im Term ändert den y-Wert des Scheitels?",
+    "w": "Die Zeilen 1 bis 3 stimmen: g(x) = (x + 2)² + 3. In Zeile 4 wurde das Vorzeichen von e verändert. Bei der Spiegelung an der y-Achse bleibt e gleich. Probe: g(0) = 7 = f(0)."
+   }
+  },
+  {
+   "kennung": "K9A-V094",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "umformen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 6 nicht halbiert",
+     "c": "6"
+    },
+    {
+     "luecke": 2,
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 nur quadriert statt halbiert und quadriert: 6²",
+     "c": "6 ** 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur halbiert: 6 : 2",
+     "c": "(3)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 addiert statt abgezogen: 4 + 9",
+     "c": "4 + (9)"
+    }
+   ],
+   "aufgabe": {
+    "l": "umformen",
+    "t": "umformen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Bringe f(x) = x² + 6x + 4 auf die Form (x + d)² + e. Die Zahl d ist ①. Für die quadratische Ergänzung addiert und subtrahiert man ②. Dann ist e = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      9,
+      -5
+     ]
+    },
+    "c": [
+     "6 // 2",
+     "(3) ** 2",
+     "4 - (9)"
+    ],
+    "h": "Halbiere die Zahl vor x. Das Quadrat dieser Zahl wird addiert und gleichzeitig wieder abgezogen.",
+    "w": "d = 6 : 2 = 3. x² + 6x + 9 − 9 + 4 = (x + 3)² − 5. Also ist e = 4 − 9 = −5. Probe: f(0) = 4 und (0 + 3)² − 5 = 4."
+   }
+  },
+  {
+   "kennung": "K9A-V095",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "umformen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "f(x) = (x + 4)² + 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen von d verwechselt",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "f(x) = (x − 4)² + 19",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Wert e nicht angepasst",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "f(x) = (x − 4)² + 35",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "16 addiert statt abgezogen: 19 + 16",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "umformen",
+    "t": "umformen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Scheitelform gehört zu f(x) = x² − 8x + 19?"
+    },
+    "a": [
+     "f(x) = (x − 4)² + 3",
+     "f(x) = (x + 4)² + 3",
+     "f(x) = (x − 4)² + 19",
+     "f(x) = (x − 4)² + 35"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Halbiere die Zahl vor x und gleiche die Ergänzung bei der Konstanten aus. Prüfe mit x = 0.",
+    "w": "x² − 8x + 16 − 16 + 19 = (x − 4)² + 3. Probe: f(0) = 19 und (0 − 4)² + 3 = 19."
+   }
+  },
+  {
+   "kennung": "K9A-V096",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "umformen",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Ausgleichen den Faktor 2 vergessen: −9 + 7",
+     "c": "-9 + 7"
+    },
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit falschem Vorzeichen: 7 + 2 · 9",
+     "c": "7 + 2 * 9"
+    },
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Achsenabschnitt als y-Koordinate des Scheitels genommen",
+     "c": "7"
+    }
+   ],
+   "aufgabe": {
+    "l": "umformen",
+    "t": "umformen",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Bestimme den Scheitel von f(x) = 2x² − 12x + 7 auf zwei Wegen. Weg A: quadratische Ergänzung (erst 2 ausklammern). Weg B: x-Koordinate mit x = −b : (2a) bestimmen und in f einsetzen. Wie groß ist die y-Koordinate des Scheitels?"
+    },
+    "o": {
+     "wert": -11
+    },
+    "c": "2 * 3 ** 2 - 12 * 3 + 7",
+    "h": "Beide Wege müssen dieselbe y-Koordinate ergeben.",
+    "w": "Weg A: 2(x² − 6x) + 7 = 2((x − 3)² − 9) + 7 = 2(x − 3)² − 18 + 7 = 2(x − 3)² − 11. Weg B: x = 12 : 4 = 3, f(3) = 18 − 36 + 7 = −11. Der Scheitel ist S(3 | −11)."
+   }
+  },
+  {
+   "kennung": "K9A-V097",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "nullstellen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "24 − 6 gerechnet",
+     "c": "24 - 6"
+    },
+    {
+     "luecke": 1,
+     "antwort": 144,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "24 · 6 gerechnet",
+     "c": "24 * 6"
+    },
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Wurzel genommen, die 3 vergessen",
+     "c": "2"
+    },
+    {
+     "luecke": 3,
+     "antwort": -5,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Vorzeichen der größeren Nullstelle genommen",
+     "c": "-5"
+    }
+   ],
+   "aufgabe": {
+    "l": "nullstellen",
+    "t": "nullstellen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Berechne die Nullstellen von f(x) = 6(x − 3)² − 24. Für f(x) = 0 gilt (x − 3)² = ①. Die größere Nullstelle ist ②. Dann ist die kleinere Nullstelle ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      4,
+      5,
+      1
+     ]
+    },
+    "c": [
+     "24 // 6",
+     "5",
+     "6 - (5)"
+    ],
+    "h": "Löse f(x) = 0 wie eine Gleichung: erst 24 auf die andere Seite, dann durch den Faktor teilen. Die beiden Nullstellen liegen gleich weit von der Mitte entfernt.",
+    "w": "6(x − 3)² = 24 gibt (x − 3)² = 4. Also x − 3 = 2 oder x − 3 = −2, das heißt x = 5 oder x = 1. Probe: 6 · 4 − 24 = 0 und 6 · 4 − 24 = 0."
+   }
+  },
+  {
+   "kennung": "K9A-V098",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "nullstellen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Abstand einer Nullstelle zur Symmetrieachse genommen",
+     "c": "3"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahl der Nullstellen statt ihres Abstands angegeben",
+     "c": "2"
+    }
+   ],
+   "aufgabe": {
+    "l": "nullstellen",
+    "t": "nullstellen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Wie groß ist der Abstand der beiden Nullstellen von f(x) = x² − 2x − 8? Weg A: Lösungsformel. Weg B: Scheitelform aufstellen und die Symmetrie zur Achse nutzen."
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "4 - (-2)",
+    "h": "Beide Wege müssen denselben Abstand ergeben.",
+    "w": "Weg A: D = 4 + 32 = 36, x = (2 ± 6) : 2 gibt 4 und −2. Abstand 4 − (−2) = 6. Weg B: f(x) = (x − 1)² − 9. Die Nullstellen liegen bei x = 1 ± 3, also 3 links und 3 rechts der Achse. Abstand 6."
+   }
+  },
+  {
+   "kennung": "K9A-V099",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "nullstellen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Vorzeichen vergessen: 3 · 5",
+     "c": "3 * 5"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "b statt c angegeben: −(3 + (−5))",
+     "c": "-(3 + (-5))"
+    },
+    {
+     "antwort": -2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe der Nullstellen genommen: 3 + (−5)",
+     "c": "3 + (-5)"
+    }
+   ],
+   "aufgabe": {
+    "l": "nullstellen",
+    "t": "nullstellen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Die Parabel y = x² + bx + c hat die Nullstellen x = 3 und x = −5. Wie groß ist c?"
+    },
+    "o": {
+     "wert": -15
+    },
+    "c": "3 * (-5)",
+    "h": "Schreibe die Parabel mit den Nullstellen als (x − 3)(x + 5) und multipliziere aus.",
+    "w": "(x − 3)(x + 5) = x² + 2x − 15. Also ist b = 2 und c = −15. Probe: 9 + 6 − 15 = 0 und 25 − 10 − 15 = 0."
+   }
+  },
+  {
+   "kennung": "K9A-V100",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "punkte",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 mit 2 malgenommen statt quadriert: 4 · 2",
+     "c": "4 * 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 addiert statt abgezogen: 16 + 5",
+     "c": "(16) + 5"
+    },
+    {
+     "luecke": 3,
+     "antwort": -1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied andersherum gerechnet: 11 − 12",
+     "c": "(11) - 12"
+    }
+   ],
+   "aufgabe": {
+    "l": "punkte",
+    "t": "punkte",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Prüfe, ob P(4 | 12) auf der Parabel y = x² − 5 liegt. Für x = 4 ist x² gleich ①. Dann ist y = ②. Also ist der y-Wert von P um ③ größer als der y-Wert der Parabel.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      16,
+      11,
+      1
+     ]
+    },
+    "c": [
+     "4 ** 2",
+     "(16) - 5",
+     "12 - (11)"
+    ],
+    "h": "Setze x = 4 in die Gleichung der Parabel ein und vergleiche mit dem y-Wert von P.",
+    "w": "4² = 16. Dann ist y = 16 − 5 = 11. Der Punkt P hat y = 12, das ist um 1 mehr. Also liegt P nicht auf der Parabel."
+   }
+  },
+  {
+   "kennung": "K9A-V101",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "punkte",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 − 4 gerechnet",
+     "c": "5 - 4"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 + 4 gerechnet, die Wurzel nicht gezogen",
+     "c": "5 + 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "punkte",
+    "t": "punkte",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Der Punkt Q(a | 5) mit a > 0 liegt auf der Parabel y = x² − 4. Wie groß ist a?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "(5 + 4) / 3",
+    "h": "Setze y = 5 in die Gleichung der Parabel ein und löse nach x.",
+    "w": "5 = a² − 4 gibt a² = 9. Wegen a > 0 ist a = 3. Probe: 3² − 4 = 5."
+   }
+  },
+  {
+   "kennung": "K9A-V102",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "punkte",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "punkte",
+    "t": "punkte",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim prüft, ob P(−3 | 14) auf der Parabel f(x) = x² − 2x − 1 liegt. Zeile 1: Einsetzen: f(−3) = −3² − 2 · (−3) − 1. Zeile 2: = −9 + 6 − 1 = −4 Zeile 3: Wegen −4 ≠ 14 liegt P nicht auf der Parabel. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Rechne (−3)² und −3² einzeln aus. Sind sie gleich?",
+    "w": "Zeile 1 enthält den Fehler: (−3)² = 9, aber −3² = −9. Richtig: f(−3) = 9 + 6 − 1 = 14. Also liegt P auf der Parabel. Die Zeilen 2 und 3 rechnen mit dem falschen Wert richtig weiter."
+   }
+  },
+  {
+   "kennung": "K9A-V103",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "bestimmen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abstand nicht quadriert: 4 − 1",
+     "c": "4 - 1"
+    },
+    {
+     "luecke": 2,
+     "antwort": 17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 abgezogen statt addiert: 22 − 5",
+     "c": "22 - 5"
+    },
+    {
+     "luecke": 3,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 und 27 vertauscht gerechnet: 27 : 3",
+     "c": "(9)"
+    }
+   ],
+   "aufgabe": {
+    "l": "bestimmen",
+    "t": "bestimmen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Eine Parabel hat den Scheitel S(1 | −5) und geht durch P(4 | 22). Ihre Gleichung ist f(x) = a · (x − 1)² − 5. Setzt man P ein, gilt a · ① = ②. Dabei ist ① das Quadrat des waagrechten Abstands von P zum Scheitel, und ② ist der senkrechte Abstand von P zum Scheitel. Also ist a = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      9,
+      27,
+      3
+     ]
+    },
+    "c": [
+     "(4 - 1) ** 2",
+     "22 + 5",
+     "(27) // (9)"
+    ],
+    "h": "Setze x = 4 und y = 22 in die Gleichung ein und bringe die −5 auf die andere Seite.",
+    "w": "22 = a · (4 − 1)² − 5 gibt 27 = 9a, also a = 3. Die Gleichung ist f(x) = 3(x − 1)² − 5. Probe: 3 · 9 − 5 = 22."
+   }
+  },
+  {
+   "kennung": "K9A-V104",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "bestimmen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "f(x) = (x + 2)² − 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen von d verwechselt",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "f(x) = 2(x − 2)² − 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "einen falschen Faktor a gewählt: P liegt dann nicht auf der Parabel",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "f(x) = (x − 2)² + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen von e verwechselt",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "bestimmen",
+    "t": "bestimmen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Zeichnung zeigt eine Parabel mit dem Scheitel S und dem Punkt P. Welche Gleichung hat sie?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -1,
+       6
+      ],
+      "y": [
+       -3,
+       6
+      ],
+      "graphen": [
+       {
+        "art": "poly",
+        "k": [
+         3,
+         -4,
+         1
+        ]
+       }
+      ],
+      "punkte": [
+       {
+        "x": 2,
+        "y": -1,
+        "name": "S"
+       },
+       {
+        "x": 4,
+        "y": 3,
+        "name": "P"
+       }
+      ]
+     }
+    },
+    "a": [
+     "f(x) = (x + 2)² − 1",
+     "f(x) = 2(x − 2)² − 1",
+     "f(x) = (x − 2)² − 1",
+     "f(x) = (x − 2)² + 1"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Lies den Scheitel ab und setze dann P in die Gleichung ein, um a zu bestimmen.",
+    "w": "S(2 | −1) gibt f(x) = a(x − 2)² − 1. Mit P(4 | 3): 3 = a · 4 − 1, also a = 1. Probe: (4 − 2)² − 1 = 3."
+   }
+  },
+  {
+   "kennung": "K9A-V105",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "bestimmen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Höhenverlust statt der Höhe angegeben: 5 − 3,2",
+     "c": "5 - 3.2"
+    },
+    {
+     "antwort": 4.7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abstand nicht quadriert: 5 − 0,05 · 6",
+     "c": "5 - 0.05 * 6"
+    },
+    {
+     "antwort": -1.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 5 m Höhe in der Mitte vergessen: −0,05 · 36",
+     "c": "-0.05 * 6 ** 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "bestimmen",
+    "t": "bestimmen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein parabelförmiger Brückenbogen ist in der Mitte 5 m hoch. Mit x als waagrechtem Abstand von der Mitte (in m) gilt für die Höhe h(x) = a · x² + 5. Am Rand, 10 m von der Mitte entfernt, ist die Höhe 0. Wie hoch ist der Bogen 6 m von der Mitte entfernt?"
+    },
+    "o": {
+     "wert": 3.2,
+     "einheit": "m"
+    },
+    "c": "-5 / 10 ** 2 * 6 ** 2 + 5",
+    "h": "Bestimme zuerst a mit der Randstelle: Dort ist h = 0.",
+    "w": "Am Rand: 0 = a · 10² + 5, also a = −5 : 100 = −0,05. Dann ist h(6) = −0,05 · 36 + 5 = −1,8 + 5 = 3,2 m."
+   }
+  },
+  {
+   "kennung": "K9A-V106",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "schnittpunkte",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die kleinere Lösung angegeben",
+     "c": "-3"
+    },
+    {
+     "luecke": 1,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 15 aus der Gleichung abgeschrieben",
+     "c": "15"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Minus vergessen",
+     "c": "3"
+    },
+    {
+     "luecke": 3,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 2 · 5 gerechnet, die 15 vergessen",
+     "c": "2 * (5)"
+    }
+   ],
+   "aufgabe": {
+    "l": "schnittpunkte",
+    "t": "schnittpunkte",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Parabel y = x² und die Gerade y = 2x + 15 schneiden sich. Gleichsetzen und sortieren gibt x² − 2x − 15 = 0. Die größere x-Koordinate der Schnittpunkte ist ①. Dann ist die kleinere x-Koordinate ②. Also hat der rechte Schnittpunkt den y-Wert ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      5,
+      -3,
+      25
+     ]
+    },
+    "c": [
+     "5",
+     "2 - (5)",
+     "(5) ** 2"
+    ],
+    "h": "Die beiden Lösungen einer Gleichung x² − 2x − 15 = 0 haben zusammen den Wert 2. Den y-Wert findest du mit der Gleichung der Parabel.",
+    "w": "x² − 2x − 15 = (x − 5)(x + 3) = 0 gibt x = 5 oder x = −3. Der rechte Schnittpunkt ist (5 | 25). Probe: 2 · 5 + 15 = 25 und 5² = 25."
+   }
+  },
+  {
+   "kennung": "K9A-V107",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "schnittpunkte",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "x² − 4 = x − 2 mit x = −2 und x = 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Vorzeichen der Lösungen vertauscht",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "x² − 4 = x + 2 mit x = 3 und x = −2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Gerade falsch abgelesen",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "x² − 4 = x − 2 mit x = 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die zweite Lösung vergessen",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "schnittpunkte",
+    "t": "schnittpunkte",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Zeichnung zeigt die Graphen von y = x² − 4 und y = x − 2. Welche Gleichung gehört zu den Schnittpunkten, und welche Lösungen hat sie?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -4,
+       4
+      ],
+      "y": [
+       -5,
+       6
+      ],
+      "graphen": [
+       {
+        "art": "poly",
+        "k": [
+         -4,
+         0,
+         1
+        ],
+        "name": "y = x² − 4"
+       },
+       {
+        "art": "linear",
+        "m": 1,
+        "t": -2,
+        "name": "y = x − 2"
+       }
+      ]
+     }
+    },
+    "a": [
+     "x² − 4 = x − 2 mit x = −2 und x = 1",
+     "x² − 4 = x + 2 mit x = 3 und x = −2",
+     "x² − 4 = x − 2 mit x = 2 und x = −1",
+     "x² − 4 = x − 2 mit x = 2"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Schnittpunkte haben auf beiden Graphen denselben y-Wert. Prüfe die Lösungen im Bild.",
+    "w": "Gleichsetzen: x² − 4 = x − 2, also x² − x − 2 = 0 und (x − 2)(x + 1) = 0. Die Lösungen sind x = 2 und x = −1. Im Bild: Bei x = 2 sind beide y-Werte 0, bei x = −1 beide −3."
+   }
+  },
+  {
+   "kennung": "K9A-V108",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "schnittpunkte",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Vorzeichen vergessen",
+     "c": "1"
+    },
+    {
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Gerade durch den Ursprung gewählt",
+     "c": "0"
+    }
+   ],
+   "aufgabe": {
+    "l": "schnittpunkte",
+    "t": "schnittpunkte",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Für welchen Wert von c berührt die Gerade y = 2x + c die Parabel y = x² in genau einem Punkt?"
+    },
+    "o": {
+     "wert": -1
+    },
+    "c": "-(2 ** 2) / 4",
+    "h": "Gleichsetzen gibt eine quadratische Gleichung. Sie soll genau eine Lösung haben. Was gilt dann für die Diskriminante?",
+    "w": "x² = 2x + c gibt x² − 2x − c = 0. Genau eine Lösung heißt D = 0: D = 4 + 4c = 0, also c = −1. Probe: x² − 2x + 1 = (x − 1)² hat die einzige Lösung x = 1."
+   }
+  },
+  {
+   "kennung": "K9A-V109",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "extremwert",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 20 aus der Aufgabe genommen",
+     "c": "20"
+    },
+    {
+     "luecke": 2,
+     "antwort": 200,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "10 mit 20 malgenommen",
+     "c": "(10) * 20"
+    },
+    {
+     "luecke": 3,
+     "antwort": 96,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche für x = 8 statt des Unterschieds angegeben",
+     "c": "8 * (20 - 8)"
+    }
+   ],
+   "aufgabe": {
+    "l": "extremwert",
+    "t": "extremwert",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Rechteck hat 40 m Umfang. Eine Seite ist x m lang, die andere (20 − x) m. Die Fläche A(x) = x · (20 − x) ist am größten für x = ①. Dann ist die größte Fläche ② m². Also ist die Fläche für x = 8 um ③ m² kleiner.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      10,
+      100,
+      4
+     ]
+    },
+    "c": [
+     "20 // 2",
+     "(10) * (20 - (10))",
+     "(100) - 8 * (20 - 8)"
+    ],
+    "h": "Die Parabel A(x) hat ihre Nullstellen bei x = 0 und x = 20. Der höchste Punkt liegt genau in der Mitte.",
+    "w": "A(x) = −x² + 20x hat den Scheitel bei x = 10. A(10) = 10 · 10 = 100 m². Für x = 8 ist A(8) = 8 · 12 = 96 m². Der Unterschied ist 4 m²."
+   }
+  },
+  {
+   "kennung": "K9A-V110",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "extremwert",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zeit statt der Höhe angegeben",
+     "c": "3"
+    },
+    {
+     "antwort": 90,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 30 · 3 gerechnet, den Abzug vergessen",
+     "c": "30 * 3"
+    },
+    {
+     "antwort": 135,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abzug addiert: 90 + 45",
+     "c": "30 * 3 + 5 * 3 ** 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "extremwert",
+    "t": "extremwert",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Ball wird senkrecht nach oben geworfen. Seine Höhe über dem Boden ist h = −5t² + 30t (h in Metern, t in Sekunden). Wie hoch fliegt der Ball höchstens?"
+    },
+    "o": {
+     "wert": 45,
+     "einheit": "m"
+    },
+    "c": "-5 * 3 ** 2 + 30 * 3",
+    "h": "Der höchste Punkt ist der Scheitel der Parabel. Bestimme zuerst die Zeit t dafür.",
+    "w": "Nullstellen bei t = 0 und t = 6, also liegt der Scheitel bei t = 3. h(3) = −45 + 90 = 45 m."
+   }
+  },
+  {
+   "kennung": "K9A-V111",
+   "thema": "funktionen.quadratisch",
+   "lernkarte": "extremwert",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "extremwert",
+    "t": "extremwert",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim sucht die größte Fläche eines Rechtecks mit 36 m Umfang. Zeile 1: Die Seiten sind x und 18 − x. Zeile 2: Die Fläche ist A(x) = x · (18 − x) = −x² + 18x. Zeile 3: Die Parabel ist nach oben geöffnet, also ist ihr Scheitel der tiefste Punkt und damit die kleinste Fläche. Zeile 4: Die kleinste Fläche ist 81 m² bei x = 9. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Welches Vorzeichen hat die Zahl vor x²? Vergleiche A(9) mit A(5).",
+    "w": "Die Zeilen 1 und 2 stimmen. In Zeile 3 steht der Fehler: Die Zahl vor x² ist −1, die Parabel ist nach unten geöffnet. Der Scheitel ist der höchste Punkt, also die größte Fläche. Zeile 4 rechnet richtig mit A(9) = 81 weiter. Richtig: Die größte Fläche ist 81 m²."
+   }
+  }
+ ]
+}

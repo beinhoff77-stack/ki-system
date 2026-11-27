@@ -577,13 +577,13 @@
      "antwort": 3,
      "fehlbild": "fb.waage.nur_eine_seite",
      "regel_des_fehlbilds": "rr.waage",
-     "beschreibung": "2 + 1 = 3 gerechnet und das x vergessen"
+     "beschreibung": "die Summe 2 + 1 = 3 als Ergebnis genommen, ohne nach x aufzulösen"
     },
     {
-     "antwort": 0.5,
+     "antwort": 2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur links mit 2x multipliziert: 3x = 3/2"
+     "beschreibung": "die rechte Seite nur mit x statt mit 2x multipliziert: 3 = 3x/2"
     }
    ],
    "aufgabe": {
@@ -1031,7 +1031,7 @@
      "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Abstand zum falschen Wert 6 gebildet: 9 − 6"
+     "beschreibung": "von der Lösung 9 statt der Startstelle 3 die Zahl 6 abgezogen: 9 − 6"
     }
    ],
    "aufgabe": {
@@ -1042,7 +1042,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Du löst 36/x = 4 (x ≠ 0) mit einer Wertetabelle. Für x = 3 hat 36/x den Wert ①. Für x = 18 hat 36/x den Wert ②. Der gesuchte Wert 4 liegt dazwischen. Die Lösung ist x = ③. Von x = 3 bis zur Lösung wächst x um ④.",
+     "text": "Du löst 36/x = 4 (x ≠ 0) mit einer Wertetabelle. Für x = 3 hat 36/x den Wert ①. Für x = 18 hat 36/x den Wert ②. Der gesuchte Wert 4 liegt dazwischen und ist doppelt so groß wie ②. Bei dieser Zuordnung halbiert sich dann x gegenüber 18. Die Lösung ist x = ③. Von x = 3 bis zur Lösung wächst x um ④.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -1057,11 +1057,11 @@
     "c": [
      "36 // 3",
      "36 // 18",
-     "36 // 4",
+     "18 // (4 // (2))",
      "(9) - 3"
     ],
-    "h": "Teile 36 durch den x-Wert. Die Lösung ist die Zahl, bei der genau der gesuchte Wert herauskommt.",
-    "w": "36 : 3 = 12 und 36 : 18 = 2. Der Wert 4 liegt dazwischen: 36 : 9 = 4. Die Lösung ist x = 9. Von x = 3 bis 9 wächst x um 6."
+    "h": "Teile 36 durch den x-Wert. Ist der gesuchte Wert doppelt so groß wie der Wert bei x = 18, so wird x halbiert.",
+    "w": "36 : 3 = 12 und 36 : 18 = 2. Der gesuchte Wert 4 ist das Doppelte von 2, also wird x von 18 auf die Hälfte 9 verkleinert. Probe: 36 : 9 = 4. Die Lösung ist x = 9. Von x = 3 bis 9 wächst x um 6."
    }
   },
   {

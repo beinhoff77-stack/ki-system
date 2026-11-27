@@ -54,7 +54,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Bestimme die Definitionsmenge des Bruchs mit dem Zähler 9 und dem Nenner (3x − 12)(2x + 10). Ein Produkt ist 0, wenn ein Faktor 0 ist. Der erste Faktor ist 0 für x = ①. Der zweite Faktor ist 0 für x = ②. Zählst du beide ausgeschlossenen Zahlen zusammen, erhältst du ③.",
+     "text": "Bestimme über ℚ die Definitionsmenge des Bruchs mit dem Zähler 9 und dem Nenner (3x − 12)(2x + 10). Ein Produkt ist 0, wenn ein Faktor 0 ist. Der erste Faktor ist 0 für x = ①. Der zweite Faktor ist 0 für x = ②. Zählst du beide ausgeschlossenen Zahlen zusammen, erhältst du ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },

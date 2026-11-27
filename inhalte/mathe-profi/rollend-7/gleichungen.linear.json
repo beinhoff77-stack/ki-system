@@ -696,10 +696,10 @@
     "c": [
      "2 * 4",
      "(8) - 5",
-     "1 - min(1, abs((3)))"
+     "99 * (1 - min(1, abs((3))))"
     ],
     "h": "Die Zahl vor der Klammer gilt für jedes Glied in der Klammer. Dann zählt nur noch, ob die Zahlen übrig bleiben, die gleich sind.",
-    "w": "2(x + 4) = 2x + 8. Nach dem Abziehen von 2x steht links 8 und rechts 5. Der Unterschied ist 3. Die beiden Zahlen sind verschieden, für kein x ist die Gleichung erfüllt, also gibt es 0 Zahlen."
+    "w": "2(x + 4) = 2x + 8. Nach dem Abziehen von 2x steht links 8 und rechts 5. Der Unterschied ist 3. Die beiden Zahlen sind verschieden, für kein x ist die Gleichung erfüllt, also gibt es 0 Zahlen. (Wäre der Unterschied 0, stünde links und rechts dasselbe und jede Zahl wäre eine Lösung.)"
    }
   },
   {

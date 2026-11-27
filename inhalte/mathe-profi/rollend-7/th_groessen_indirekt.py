@@ -24,7 +24,7 @@ neu(T, "vervielfachen", "lueckenweg", L(
     "Die Zuordnung Pumpen → Stunden ist indirekt proportional (alle Pumpen leisten gleich viel). 4 Pumpen brauchen 24 Stunden. Doppelt so viele Pumpen brauchen nur die Hälfte der Zeit: 8 Pumpen brauchen ① Stunden. Verdoppelst du die Pumpenzahl noch einmal auf 16, halbiert sich die Zeit aus ① noch einmal: 16 Pumpen brauchen ② Stunden. Zur Probe rechnest du 16 mal ②. Das Ergebnis ist ③.",
     KOMM(3), [12, 6, 96], ["24 // 2", "{1} // 2", "16 * {2}"], ["12", "6", "4 * 24"], "Mehr Pumpen: Die Zeit wird durch denselben Faktor geteilt. Das Produkt aus Pumpen und Stunden bleibt gleich.",
     "8 Pumpen: 24 : 2 = 12 Stunden. 16 Pumpen: 12 : 2 = 6 Stunden. Probe: 16 · 6 = 96 und 4 · 24 = 96. Das Produkt bleibt gleich.",
-    {0: [(48, "fb.verhaeltnis.falsche_richtung", "mit 2 malgenommen statt geteilt", "24 * 2")], 1: [(24, "fb.verhaeltnis.falsche_richtung", "mit dem falschen Wert 12 weiter mit 2 malgenommen", "{1} * 2")]}), regel="rr.verhaeltnis")
+    {0: [(48, "fb.verhaeltnis.falsche_richtung", "mit 2 malgenommen statt geteilt", "24 * 2")], 1: [(24, "fb.verhaeltnis.falsche_richtung", "vom richtigen Wert 12 ausgegangen, aber mit 2 malgenommen statt durch 2 geteilt", "{1} * 2")]}), regel="rr.verhaeltnis")
 neu(T, "vervielfachen", "zwei_wege", Z(
     "6 Maler streichen ein Haus in 20 Tagen. Alle Maler arbeiten gleich schnell, und die Arbeit lässt sich beliebig aufteilen. Wie viele Tage brauchen 8 Maler? Rechne auf zwei Wegen. Weg A: erst ausrechnen, wie lange ein Maler braucht. Weg B: Die Zahl der Maler wächst um den Faktor 8/6, deshalb ändert sich die Zeit um den Faktor 6/8.",
     15, "6 * 20 / 8", "20 * 6 / 8", "Beide Wege müssen dasselbe ergeben. Mehr Maler: Die Zeit wird kürzer.",

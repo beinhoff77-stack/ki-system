@@ -64,7 +64,7 @@ neu(T, "zylinder_volumen", "zwei_wege", Z(
     "Ein Zylinder hat den Radius 5 cm und die Höhe 12 cm. Berechne sein Volumen in cm³ auf ganze Zahlen gerundet auf zwei Wegen. Weg A: mit π ≈ 3,14. Weg B: mit der π-Taste des Taschenrechners. Beide Wege führen auf dieselbe ganze Zahl. Welchen Wert erhältst du?",
     942, "3.14 * 5 ** 2 * 12", f"round({P} * 5 ** 2 * 12)", "Beide Wege dürfen sich nur in der Rundung unterscheiden.",
     "Weg A: 3,14 · 25 · 12 = 942. Weg B: π · 25 · 12 ≈ 942,48, gerundet 942. Das Volumen beträgt etwa 942 cm³.",
-    [(471, None, "durch 2 geteilt", "3.14 * 5 ** 2 * 12 / 2"), (377, "fb.potenz.basis_mal_hochzahl", "5² als 5 · 2 gerechnet: π · 5 · 2 · 12", "round(3.14 * 5 * 2 * 12)"), (3768, "fb.aus_dem_rechteck.durchmesser_statt_radius", "den Radius 5 verdoppelt, also mit 10 quadriert: π · 10² · 12", "3.14 * 10 ** 2 * 12")], "cm³"), regel="id.flaeche_raum.aus_dem_rechteck")
+    [(471, None, "durch 2 geteilt", "3.14 * 5 ** 2 * 12 / 2"), (377, "fb.potenz.basis_mal_hochzahl", "5² als 5 · 2 gerechnet: π · 5 · 2 · 12", "round(3.14 * 5 * 2 * 12)"), (3768, "fb.aus_dem_rechteck.durchmesser_statt_radius", "Weg A (π ≈ 3,14): den Radius 5 verdoppelt, also mit 10 quadriert: 3,14 · 10² · 12", "3.14 * 10 ** 2 * 12")], "cm³"), regel="id.flaeche_raum.aus_dem_rechteck")
 assert round(math.pi * 25 * 12) == 942 and round(3.14 * 25 * 12) == 942
 neu(T, "zylinder_volumen", "umkehren", Z(
     "Ein Zylinder ist 10 cm hoch. Sein Volumen beträgt etwa 785 cm³. Wie groß ist sein Radius in cm? Runde auf ganze cm.",

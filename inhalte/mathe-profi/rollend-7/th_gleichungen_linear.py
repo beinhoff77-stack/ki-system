@@ -73,9 +73,10 @@ neu(T, "probe", "umkehren", Z(
 
 # ───────── sonderfaelle ─────────
 neu(T, "sonderfaelle", "lueckenweg", L(
+    # Prüfrechnung ③: Unterschied ≠ 0 = Widerspruch = 0 Lösungen; Unterschied 0 = Identität = unendlich viele (hier als 99 markiert, kommt in dieser Aufgabe nicht vor)
     "Wie viele Zahlen x erfüllen die Gleichung 2(x + 4) = 2x + 5? Nach dem Ausmultiplizieren steht links 2x + ①. Ziehst du auf beiden Seiten 2x ab, so unterscheiden sich die Zahlen links und rechts um ②. Entscheide danach: Für ③ Zahlen x ist die Gleichung erfüllt.",
-    KOMM(3), [8, 3, 0], ["2 * 4", "{1} - 5", "1 - min(1, abs({2}))"], ["8", "3", "1 - 1"], "Die Zahl vor der Klammer gilt für jedes Glied in der Klammer. Dann zählt nur noch, ob die Zahlen übrig bleiben, die gleich sind.",
-    "2(x + 4) = 2x + 8. Nach dem Abziehen von 2x steht links 8 und rechts 5. Der Unterschied ist 3. Die beiden Zahlen sind verschieden, für kein x ist die Gleichung erfüllt, also gibt es 0 Zahlen.",
+    KOMM(3), [8, 3, 0], ["2 * 4", "{1} - 5", "99 * (1 - min(1, abs({2})))"], ["8", "3", "0"], "Die Zahl vor der Klammer gilt für jedes Glied in der Klammer. Dann zählt nur noch, ob die Zahlen übrig bleiben, die gleich sind.",
+    "2(x + 4) = 2x + 8. Nach dem Abziehen von 2x steht links 8 und rechts 5. Der Unterschied ist 3. Die beiden Zahlen sind verschieden, für kein x ist die Gleichung erfüllt, also gibt es 0 Zahlen. (Wäre der Unterschied 0, stünde links und rechts dasselbe und jede Zahl wäre eine Lösung.)",
     {2: [(1, None, "eine Lösung genannt, obwohl x herausfällt und links und rechts verschiedene Zahlen stehen", False)], 0: [(4, "fb.ausmultiplizieren.nur_erster_summand", "die Zahl vor der Klammer nur bei x gerechnet: 2x + 4", "4")]}), regel="id.algebra.gleichung_loesen")
 neu(T, "sonderfaelle", "fehler_detektiv", FD(
     "Kim löst die Gleichung 3(x − 2) + 6 = 3x.",

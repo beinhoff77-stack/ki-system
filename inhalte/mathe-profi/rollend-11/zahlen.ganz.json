@@ -236,7 +236,7 @@
      "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den ersten Schritt falsch rückgängig gemacht: −9 statt abgezogen noch einmal abgezogen",
+     "beschreibung": "Du hast von −2 nochmals (−9) abgezogen und so 7 erhalten. Um das Abziehen von −9 rückgängig zu machen, musst du (−9) addieren: −2 + (−9) = −11.",
      "rechnung": "-21 - (-5) + 14 - (-9)"
     },
     {

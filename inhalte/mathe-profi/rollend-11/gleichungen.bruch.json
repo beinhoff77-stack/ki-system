@@ -201,14 +201,14 @@
      "antwort": 240,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den neuen Zuckeranteil genannt statt der Mehlmenge",
+     "beschreibung": "die Zuckermenge nachher (240 g) genannt statt der Mehlmenge",
      "rechnung": "4 * 60"
     },
     {
      "antwort": 60,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Größe eines Teils genannt",
+     "beschreibung": "nur die Größe eines Teils (60 g) genannt",
      "rechnung": "120 / 2"
     },
     {
@@ -227,15 +227,15 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "In einer Mischung ist das Verhältnis Mehl : Zucker = 5 : 2. Nach dem Zugeben von 120 g Zucker ist das Verhältnis Mehl : Zucker = 5 : 4. Wie viel Gramm Mehl sind in der Mischung?"
+     "text": "In einer Mischung ist das Verhältnis Mehl : Zucker = 5 : 2. Nach dem Zugeben von 120 g Zucker ist das Verhältnis Mehl : Zucker = 5 : 4. Stelle mit m für die Mehlmenge eine Verhältnisgleichung auf und löse sie. Wie viel Gramm Mehl sind in der Mischung?"
     },
     "o": {
      "wert": 300,
      "einheit": "g"
     },
     "c": "120 / (4 - 2) * 5",
-    "h": "Wie viele Teile Zucker sind dazugekommen? Wie viel Gramm ist ein Teil?",
-    "w": "Vorher 5 Teile Mehl, 2 Teile Zucker, nachher 5 Teile Mehl und 4 Teile Zucker. Dazugekommen sind 4 − 2 = 2 Teile Zucker, und das sind 120 g. Ein Teil ist 60 g. Mehl: 5 · 60 = 300 g. Probe: Zucker vorher 2 · 60 = 120 g, nachher 240 g; 300 : 240 = 5 : 4."
+    "h": "Wie viel Gramm Zucker gehören vorher zu m Gramm Mehl? Wie viel Zucker ist es nachher? Nachher gilt Mehl : Zucker = 5 : 4.",
+    "w": "Mehl m Gramm. Vorher ist der Zucker 2m/5 Gramm, nachher 2m/5 + 120 Gramm. Verhältnisgleichung: m/(2m/5 + 120) = 5/4. Über Kreuz: 4m = 5 · (2m/5 + 120) = 2m + 600, also 2m = 600 und m = 300 g. Kontrolle mit Teilen: Dazugekommen sind 4 − 2 = 2 Teile Zucker, das sind 120 g, ein Teil ist 60 g, Mehl 5 · 60 = 300 g. Probe: Zucker vorher 120 g, nachher 240 g; 300 : 240 = 5 : 4."
    }
   },
   {
@@ -280,14 +280,14 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Die Gerade y = x + b schneidet den Graphen von y = 12/x an der Stelle x = −4. Sie schneidet ihn noch ein zweites Mal bei einer positiven Zahl x. Bestimme zuerst b. Suche dann mit einer Wertetabelle von y = 12/x und y = x + b den zweiten Schnittpunkt. Wie lautet seine x-Koordinate?"
+     "text": "Die Gerade y = x + b schneidet den Graphen von y = 12/x an der Stelle x = −4. Sie schneidet ihn noch ein zweites Mal bei einer positiven Zahl x. Bestimme zuerst b. Zeichne dann beide Graphen, lies die positive Schnittstelle ab und kontrolliere sie mit einer Wertetabelle. Wie lautet die x-Koordinate des zweiten Schnittpunkts?"
     },
     "o": {
      "wert": 3
     },
-    "c": "12 / 4",
-    "h": "Wie groß ist y = 12/x bei x = −4? Dieser y-Wert muss auch auf der Geraden liegen. Daraus folgt b.",
-    "w": "Bei x = −4 ist y = 12 : (−4) = −3. Auf der Geraden gilt −3 = −4 + b, also b = 1. Die Gerade ist y = x + 1. Wertetabelle für x > 0: x = 1: 12 und 2, x = 2: 6 und 3, x = 3: 4 und 4. Bei x = 3 sind beide Werte gleich. Der zweite Schnittpunkt liegt bei x = 3."
+    "c": "4 - 1",
+    "h": "Wie groß ist y = 12/x bei x = −4? Dieser y-Wert muss auch auf der Geraden liegen. Daraus folgt b. Die Schnittstelle liest du dort ab, wo sich beide Graphen treffen.",
+    "w": "Bei x = −4 ist y = 12 : (−4) = −3. Auf der Geraden gilt −3 = −4 + b, also b = 1. Die Gerade ist y = x + 1. Zeichnet man y = 12/x und y = x + 1, so treffen sich die Graphen für x > 0 bei x = 3. Kontrolle mit der Wertetabelle: x = 1: 12 und 2, x = 2: 6 und 3, x = 3: 4 und 4. Einsetzen von x = 3: 12/3 = 4 und 3 + 1 = 4, beide Funktionen haben dort den Wert 4. Der zweite Schnittpunkt liegt bei x = 3."
    }
   }
  ]

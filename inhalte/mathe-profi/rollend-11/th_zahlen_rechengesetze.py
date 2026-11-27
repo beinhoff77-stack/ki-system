@@ -64,17 +64,17 @@ Z(T, "umkehraufgabe_mal", "umkehren",
    (-18, "11 * (-3) + 15", "den Faktor (−6) nicht rückgängig gemacht")],
   "rr.gegenrechnung")
 
-# ───────── schriftlich: Brücke (fehlenden Gitterwert aus der schriftlichen Zeile rekonstruieren) ─────────
-assert 46 * 30 == 1380 and 40 * 30 == 1200 and 1380 - 1200 == 6 * 30 == 180
+# ───────── schriftlich: Brücke (fehlenden Gitterwert nur über die Teilzeilensumme erschließen) ─────────
+assert 46 * 30 == 1380 and 40 * 30 == 1200 and 1380 - 1200 == 180
 Z(T, "schriftlich", "bruecke",
-  "Das Malgitter zeigt die Teilprodukte von 46 · 38, ein Feld ist unleserlich. Kim rechnet dieselbe Aufgabe schriftlich. In seiner ersten Zeile (46 · 30) steht 1 380. "
-  "Welche Zahl gehört in das Feld mit dem Fragezeichen?",
-  180, "1380 - 1200", "6 * 30",
-  "Die erste Zeile der schriftlichen Rechnung ist die Summe von Feldern des Gitters. Welche Felder sind das? Was bleibt für das Fragezeichen übrig?",
-  "Die erste Zeile 46 · 30 = 1 380 besteht aus den Feldern 40 · 30 = 1 200 und 6 · 30. Also gilt 1 200 + ? = 1 380 und ? = 1 380 − 1 200 = 180. Kontrolle: 6 · 30 = 180. "
-  "Die zweite Zeile 46 · 8 = 368 besteht aus 320 und 48.",
-  [(18, "6 * 3", "6 · 3 gerechnet, die Null von 30 vergessen"),
-   (1380, "46 * 30", "die ganze erste Zeile genannt statt des einen Feldes"),
-   (2580, "1380 + 1200", "1 200 zu 1 380 dazugezählt statt abgezogen")],
+  "Das Malgitter gehört zu einer schriftlichen Multiplikation. Die Zahlen am Rand fehlen. Die linke Spalte gehört zur Zehnerziffer des zweiten Faktors, die rechte Spalte zur Einerziffer. "
+  "Kim rechnet dieselbe Aufgabe schriftlich. Seine erste Zeile (die Multiplikation mit der Zehnerziffer) ergibt 1 380. Welche Zahl gehört in das Feld mit dem Fragezeichen?",
+  180, "1380 - 1200", "1380 - 1200 + 0",
+  "Welche Felder des Gitters gehören zu Kims erster Zeile? Was muss ihre Summe ergeben?",
+  "Kims erste Zeile ist die Summe der Felder der linken Spalte: 1 200 + ? = 1 380. Also ist ? = 1 380 − 1 200 = 180. "
+  "Die rechte Spalte (320 und 48) gehört zur zweiten Zeile, der Multiplikation mit der Einerziffer.",
+  [(1380, "1380", "die ganze erste Zeile genannt statt des einen Feldes"),
+   (2580, "1380 + 1200", "1 200 zu 1 380 dazugezählt statt abgezogen"),
+   (1060, "1380 - 320", "ein Feld der rechten Spalte (320) statt des Feldes 1 200 abgezogen")],
   None,
-  grafik={"typ": "tabelle", "kopf": ["·", "30", "8"], "zeilen": [["40", "1 200", "320"], ["6", "?", "48"]]})
+  grafik={"typ": "tabelle", "kopf": ["Feld", "linke Spalte", "rechte Spalte"], "zeilen": [["oben", "1 200", "320"], ["unten", "?", "48"]]})

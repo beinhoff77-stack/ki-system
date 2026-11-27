@@ -207,7 +207,7 @@
      "einheit": "min"
     },
     "c": "(82 - 12) / (8 + 6)",
-    "h": "Wie viele Liter kommen bei A pro Minute dazu, wie viele gehen bei B pro Minute weg? Schreibe beide Wasserstände nach t Minuten als Term.",
+    "h": "Wie viele Liter kommen bei A pro Minute dazu, wie viele gehen bei B pro Minute weg? Schreibe beide Wassermengen nach t Minuten als Term.",
     "w": "Aus der Tabelle: A wächst um 8 Liter pro Minute, B nimmt um 6 Liter pro Minute ab. Nach t Minuten: A = 12 + 8t, B = 82 − 6t. Gleichsetzen: 12 + 8t = 82 − 6t, also 14t = 70 und t = 5. Probe: 12 + 40 = 52 und 82 − 30 = 52."
    }
   },

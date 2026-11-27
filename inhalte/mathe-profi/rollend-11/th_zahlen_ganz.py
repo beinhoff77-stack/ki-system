@@ -54,7 +54,7 @@ Z(T, "subtrahieren", "umkehren",
   -11, "-21 - (-5) + 14 + (-9)", "-21 + 10",
   "Mache jeden Schritt in umgekehrter Reihenfolge rückgängig. Was hebt „minus −9“ auf?",
   "Rückwärts, mit dem letzten Schritt zuerst: −21 − (−5) = −16. Dann −16 + 14 = −2. Dann −2 + (−9) = −11. Probe: −11 − (−9) = −2; −2 − 14 = −16; −16 + (−5) = −21. Die Zahl ist −11.",
-  [(7, "-21 - (-5) + 14 - (-9)", "den ersten Schritt falsch rückgängig gemacht: −9 statt abgezogen noch einmal abgezogen"),
+  [(7, "-21 - (-5) + 14 - (-9)", "Du hast von −2 nochmals (−9) abgezogen und so 7 erhalten. Um das Abziehen von −9 rückgängig zu machen, musst du (−9) addieren: −2 + (−9) = −11."),
    (-16, "-21 + 14 + (-9)", "den dritten Schritt (+ (−5)) nicht rückgängig gemacht"),
    (-31, "-21 + (-10)", "die Gesamtänderung −10 zum Ergebnis addiert statt von ihm abgezogen")],
   "rr.plusminus")

@@ -330,18 +330,11 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 18,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "6 · 3 gerechnet, die Null von 30 vergessen",
-     "rechnung": "6 * 3"
-    },
-    {
      "antwort": 1380,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die ganze erste Zeile genannt statt des einen Feldes",
-     "rechnung": "46 * 30"
+     "rechnung": "1380"
     },
     {
      "antwort": 2580,
@@ -349,6 +342,13 @@
      "regel_des_fehlbilds": null,
      "beschreibung": "1 200 zu 1 380 dazugezählt statt abgezogen",
      "rechnung": "1380 + 1200"
+    },
+    {
+     "antwort": 1060,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Feld der rechten Spalte (320) statt des Feldes 1 200 abgezogen",
+     "rechnung": "1380 - 320"
     }
    ],
    "aufgabe": {
@@ -359,22 +359,22 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Das Malgitter zeigt die Teilprodukte von 46 · 38, ein Feld ist unleserlich. Kim rechnet dieselbe Aufgabe schriftlich. In seiner ersten Zeile (46 · 30) steht 1 380. Welche Zahl gehört in das Feld mit dem Fragezeichen?",
+     "text": "Das Malgitter gehört zu einer schriftlichen Multiplikation. Die Zahlen am Rand fehlen. Die linke Spalte gehört zur Zehnerziffer des zweiten Faktors, die rechte Spalte zur Einerziffer. Kim rechnet dieselbe Aufgabe schriftlich. Seine erste Zeile (die Multiplikation mit der Zehnerziffer) ergibt 1 380. Welche Zahl gehört in das Feld mit dem Fragezeichen?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
-       "·",
-       "30",
-       "8"
+       "Feld",
+       "linke Spalte",
+       "rechte Spalte"
       ],
       "zeilen": [
        [
-        "40",
+        "oben",
         "1 200",
         "320"
        ],
        [
-        "6",
+        "unten",
         "?",
         "48"
        ]
@@ -385,8 +385,8 @@
      "wert": 180
     },
     "c": "1380 - 1200",
-    "h": "Die erste Zeile der schriftlichen Rechnung ist die Summe von Feldern des Gitters. Welche Felder sind das? Was bleibt für das Fragezeichen übrig?",
-    "w": "Die erste Zeile 46 · 30 = 1 380 besteht aus den Feldern 40 · 30 = 1 200 und 6 · 30. Also gilt 1 200 + ? = 1 380 und ? = 1 380 − 1 200 = 180. Kontrolle: 6 · 30 = 180. Die zweite Zeile 46 · 8 = 368 besteht aus 320 und 48."
+    "h": "Welche Felder des Gitters gehören zu Kims erster Zeile? Was muss ihre Summe ergeben?",
+    "w": "Kims erste Zeile ist die Summe der Felder der linken Spalte: 1 200 + ? = 1 380. Also ist ? = 1 380 − 1 200 = 180. Die rechte Spalte (320 und 48) gehört zur zweiten Zeile, der Multiplikation mit der Einerziffer."
    }
   }
  ]

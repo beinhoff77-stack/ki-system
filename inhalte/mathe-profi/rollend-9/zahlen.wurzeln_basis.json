@@ -1,0 +1,1033 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-9",
+ "kuerzel": "K9A",
+ "flug": "k9a-zahlen.wurzeln_basis",
+ "titel": "zahlen.wurzeln_basis",
+ "fuer": "Klasse 9",
+ "klasse": 9,
+ "themen": [
+  "zahlen.wurzeln_basis"
+ ],
+ "themen_datei_im_bestand": "zahlen.wurzeln_basis",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K9A-V001",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "quadratwurzel",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 4 stehen lassen, statt ihre Wurzel zu ziehen",
+     "c": "4"
+    },
+    {
+     "luecke": 3,
+     "antwort": 23,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzeln addiert statt malgenommen: 21 + 2",
+     "c": "(21) + (2)"
+    }
+   ],
+   "aufgabe": {
+    "l": "quadratwurzel",
+    "t": "quadratwurzel",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Berechne √1764 mit einer Zerlegung. Es gilt 1764 = 4 · 441. Die Wurzel aus einem Produkt ist das Produkt der beiden Wurzeln. Die Wurzel aus 441 ist ①. Die Wurzel aus 4 ist ②. Damit ist √1764 = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      21,
+      2,
+      42
+     ]
+    },
+    "c": [
+     "21",
+     "2",
+     "(21) * (2)"
+    ],
+    "h": "Suche eine Zahl, die mit sich selbst malgenommen 441 ergibt. Die beiden Wurzeln werden am Ende malgenommen.",
+    "w": "21 · 21 = 441, also ist die Wurzel aus 441 gleich 21. Die Wurzel aus 4 ist 2. Dann ist √1764 = 21 · 2 = 42. Probe: 42 · 42 = 1764."
+   }
+  },
+  {
+   "kennung": "K9A-V002",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "quadratwurzel",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 286,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "erst quadriert und danach 3 abgezogen",
+     "c": "17 ** 2 - 3"
+    },
+    {
+     "antwort": 400,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 addiert statt abgezogen und dann quadriert",
+     "c": "(17 + 3) ** 2"
+    },
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 3 abgezogen, aber nicht quadriert: 17 − 3",
+     "c": "17 - 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "quadratwurzel",
+    "t": "quadratwurzel",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Für eine Zahl n gilt: √n + 3 = 17. Wie groß ist n?"
+    },
+    "o": {
+     "wert": 196
+    },
+    "c": "(17 - 3) ** 2",
+    "h": "Mache zuerst das Addieren rückgängig. Dann das Wurzelziehen.",
+    "w": "Rückwärts: Erst 3 abziehen: √n = 17 − 3 = 14. Dann quadrieren: n = 14² = 196. Probe: √196 = 14 und 14 + 3 = 17."
+   }
+  },
+  {
+   "kennung": "K9A-V003",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "quadratwurzel",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aus den Primfaktoren nur je eine Sorte genommen: 3 · 5",
+     "c": "3 * 5"
+    },
+    {
+     "antwort": 1012.5,
+     "fehlbild": "fb.hoch_zurueck.wurzel_halbiert",
+     "regel_des_fehlbilds": "id.zahlen.hoch_zurueck",
+     "beschreibung": "2025 halbiert statt die Wurzel gezogen",
+     "c": "2025 / 2"
+    },
+    {
+     "antwort": 405,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 5 geteilt statt die Wurzel gezogen: 2025 : 5",
+     "c": "2025 / 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "quadratwurzel",
+    "t": "quadratwurzel",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne √2025 auf zwei Wegen. Weg A: Zerlege 2025 in Primfaktoren (3 · 3 · 3 · 3 · 5 · 5) und bilde Paare. Weg B: Schätze zwischen zwei Quadraten voller Zehner und achte auf die Endziffer. Wie groß ist √2025?"
+    },
+    "o": {
+     "wert": 45
+    },
+    "c": "3 * 3 * 5",
+    "h": "Beide Wege müssen dasselbe Ergebnis haben.",
+    "w": "Weg A: Aus jedem Paar gleicher Faktoren kommt eine Zahl: 3 · 3 und 5. Also 3 · 3 · 5 = 45. Weg B: 40² = 1600 und 50² = 2500, die Wurzel liegt zwischen 40 und 50. Endziffer 5 gibt 45. Probe: 45 · 45 = 2025."
+   }
+  },
+  {
+   "kennung": "K9A-V004",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "wurzel_dezimal",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 72,
+     "fehlbild": "fb.hoch_zurueck.wurzel_halbiert",
+     "regel_des_fehlbilds": "id.zahlen.hoch_zurueck",
+     "beschreibung": "144 halbiert statt die Wurzel gezogen",
+     "c": "144 / 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 5000,
+     "fehlbild": "fb.hoch_zurueck.wurzel_halbiert",
+     "regel_des_fehlbilds": "id.zahlen.hoch_zurueck",
+     "beschreibung": "10 000 halbiert statt die Wurzel gezogen",
+     "c": "10000 / 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 1000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Null gestrichen: 10 000 : 10",
+     "c": "10000 / 10"
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_dezimal",
+    "t": "wurzel_dezimal",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Berechne √0,0144 mit Brüchen. Es gilt 0,0144 = 144 : 10 000. Die Wurzel aus 144 ist ①. Die Wurzel aus 10 000 ist ②. Also ist √0,0144 genau ① : ② und das sind ③ Tausendstel.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      12,
+      100,
+      120
+     ]
+    },
+    "c": [
+     "12",
+     "100",
+     "(12) * 1000 // (100)"
+    ],
+    "h": "Ziehe die Wurzel aus Zähler und Nenner getrennt. Zum Schluss auf den Nenner 1000 erweitern.",
+    "w": "√144 = 12 und √10 000 = 100. Also ist √0,0144 = 12 : 100 = 0,12. Das sind 120 Tausendstel (0,120). Probe: 0,12 · 0,12 = 0,0144."
+   }
+  },
+  {
+   "kennung": "K9A-V005",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "wurzel_dezimal",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "0,36",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Bruch nur in eine Dezimalzahl umgewandelt, ohne die Wurzel zu ziehen: 9/25",
+     "c": "9/25"
+    },
+    {
+     "index": 1,
+     "antwort": "0,12",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur aus dem Zähler die Wurzel gezogen: 3/25",
+     "c": "3/25"
+    },
+    {
+     "index": 3,
+     "antwort": "1,8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur aus dem Nenner die Wurzel gezogen: 9/5",
+     "c": "9/5"
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_dezimal",
+    "t": "wurzel_dezimal",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Wurzel aus dem Bruch 9/25 soll als Dezimalzahl geschrieben werden. Welche Dezimalzahl ist √(9/25)?"
+    },
+    "a": [
+     "0,36",
+     "0,12",
+     "0,6",
+     "1,8"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Ziehe die Wurzel aus Zähler und Nenner und wandle dann den Bruch um.",
+    "w": "√(9/25) = √9 : √25 = 3/5 = 0,6. Probe: 0,6 · 0,6 = 0,36 = 9/25."
+   }
+  },
+  {
+   "kennung": "K9A-V006",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "wurzel_dezimal",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_dezimal",
+    "t": "wurzel_dezimal",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim berechnet √0,0081 ohne Taschenrechner. Zeile 1: 0,0081 = 81 : 10 000 Zeile 2: Die Wurzel aus 81 ist 9 und die Wurzel aus 10 000 ist 100. Zeile 3: √0,0081 = 9 : 10 = 0,9 In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Quadriere das Ergebnis und vergleiche mit der Zahl unter der Wurzel.",
+    "w": "Zeile 1 und 2 stimmen. In Zeile 3 wird durch 10 geteilt, aber die Wurzel aus 10 000 ist 100. Richtig: 9 : 100 = 0,09. Probe: 0,09 · 0,09 = 0,0081."
+   }
+  },
+  {
+   "kennung": "K9A-V007",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "kubikwurzel",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 7,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Minuszeichen vergessen",
+     "c": "(7)"
+    },
+    {
+     "luecke": 4,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit +7 statt −7 gerechnet: 7 − 3",
+     "c": "(7) - (3)"
+    }
+   ],
+   "aufgabe": {
+    "l": "kubikwurzel",
+    "t": "kubikwurzel",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Berechne ∛(−343) − ∛27 in Schritten. Die dritte Wurzel aus 343 ist ①. Die dritte Wurzel aus einer negativen Zahl ist negativ. Also ist ∛(−343) gleich ②. Die dritte Wurzel aus 27 ist ③. Das Ergebnis der ganzen Rechnung ist ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      7,
+      -7,
+      3,
+      -10
+     ]
+    },
+    "c": [
+     "7",
+     "-(7)",
+     "3",
+     "(-7) - (3)"
+    ],
+    "h": "Rechne zur Probe: Zahl mal Zahl mal Zahl. Achte auf das Vorzeichen.",
+    "w": "7 · 7 · 7 = 343, also ∛343 = 7. Wegen des Minus ist ∛(−343) = −7, denn (−7) · (−7) · (−7) = −343. ∛27 = 3. Dann ist −7 − 3 = −10."
+   }
+  },
+  {
+   "kennung": "K9A-V008",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "kubikwurzel",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Wurzeln addiert statt malgenommen: 2 + 6",
+     "c": "2 + 6"
+    },
+    {
+     "antwort": 576,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 3 geteilt statt die dritte Wurzel gezogen: 1728 : 3",
+     "c": "1728 / 3"
+    },
+    {
+     "antwort": 864,
+     "fehlbild": "fb.hoch_zurueck.wurzel_halbiert",
+     "regel_des_fehlbilds": "id.zahlen.hoch_zurueck",
+     "beschreibung": "1728 halbiert statt die dritte Wurzel gezogen",
+     "c": "1728 / 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "kubikwurzel",
+    "t": "kubikwurzel",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne ∛1728 auf zwei Wegen. Weg A: Zerlege 1728 = 8 · 216 und ziehe aus beiden Faktoren die dritte Wurzel. Weg B: Schätze zwischen 10³ = 1000 und 20³ = 8000 und achte auf die Endziffer. Wie groß ist ∛1728?"
+    },
+    "o": {
+     "wert": 12
+    },
+    "c": "2 * 6",
+    "h": "Beide Wege müssen dasselbe Ergebnis haben.",
+    "w": "Weg A: ∛8 = 2 und ∛216 = 6, also 2 · 6 = 12. Weg B: Wegen 1000 < 1728 < 8000 liegt die Wurzel zwischen 10 und 20. Eine Kubikzahl mit Endziffer 8 gehört zu einer Zahl mit Endziffer 2: also 12. Probe: 12 · 12 · 12 = 1728."
+   }
+  },
+  {
+   "kennung": "K9A-V009",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "kubikwurzel",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in dm stehen geblieben, nicht in cm umgerechnet",
+     "c": "cbrt(343)"
+    },
+    {
+     "antwort": 114.33,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch drei geteilt statt die dritte Wurzel gezogen (auf zwei Stellen gerundet)",
+     "c": "round(343 / 3, 2)"
+    },
+    {
+     "antwort": 700,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 100 statt mit 10 umgerechnet",
+     "c": "cbrt(343) * 100"
+    }
+   ],
+   "aufgabe": {
+    "l": "kubikwurzel",
+    "t": "kubikwurzel",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein würfelförmiger Komposter fasst 343 Liter. Wie viele Zentimeter ist eine Innenkante lang? Es gilt 1 Liter = 1 dm³."
+    },
+    "o": {
+     "wert": 70,
+     "einheit": "cm"
+    },
+    "c": "343 / 49 * 10",
+    "h": "Zuerst die Kante in dm bestimmen, dann in cm umrechnen.",
+    "w": "343 Liter sind 343 dm³. Die Kante ist ∛343 = 7 dm. 1 dm = 10 cm, also 7 · 10 = 70 cm."
+   }
+  },
+  {
+   "kennung": "K9A-V010",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "abschaetzen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die erste Zahl genommen, deren Quadrat schon über 300 liegt: 17 + 1",
+     "c": "17 + 1"
+    },
+    {
+     "luecke": 2,
+     "antwort": 290,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 1 zum Quadrat der ersten Zahl addiert",
+     "c": "(17) ** 2 + 1"
+    },
+    {
+     "luecke": 2,
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Zahlen addiert: 17 + 18",
+     "c": "(17) + ((17) + 1)"
+    }
+   ],
+   "aufgabe": {
+    "l": "abschaetzen",
+    "t": "abschaetzen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Schätze √300 mit Quadratzahlen. Die größte ganze Zahl a mit a² ≤ 300 ist ①. Das Quadrat der nächsten ganzen Zahl, also (a + 1)², ist ②. Dann liegt es um ③ über 300.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      17,
+      324,
+      24
+     ]
+    },
+    "c": [
+     "17",
+     "((17) + 1) ** 2",
+     "(324) - 300"
+    ],
+    "h": "Quadriere ganze Zahlen, bis du über 300 kommst.",
+    "w": "17² = 289 ≤ 300 und 18² = 324 > 300. Also a = 17. Dann ist (a + 1)² = 18² = 324. Der Unterschied zu 300 ist 24. Damit gilt 17 < √300 < 18."
+   }
+  },
+  {
+   "kennung": "K9A-V011",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "abschaetzen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "zwischen 13 und 14",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Spalte zu weit links abgelesen: 200 liegt über 196, nicht darunter",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "zwischen 15 und 16",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Spalte zu weit rechts abgelesen: 200 liegt unter 225",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "abschaetzen",
+    "t": "abschaetzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt Quadratzahlen. Zwischen welchen aufeinanderfolgenden ganzen Zahlen liegt √200?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "n",
+       "11",
+       "12",
+       "13",
+       "14",
+       "15",
+       "16"
+      ],
+      "zeilen": [
+       [
+        "n²",
+        "121",
+        "144",
+        "169",
+        "196",
+        "225",
+        "256"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "zwischen 13 und 14",
+     "zwischen 14 und 15",
+     "zwischen 15 und 16"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Suche in der unteren Zeile die beiden Zahlen, zwischen denen 200 liegt. Die Wurzeln stehen in der oberen Zeile.",
+    "w": "196 < 200 < 225. Die Quadratzahlen gehören zu 14 und 15. Also gilt 14 < √200 < 15."
+   }
+  },
+  {
+   "kennung": "K9A-V012",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "abschaetzen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der abgerundeten Seite 6 m gerechnet: 4 · 6",
+     "c": "4 * 6"
+    },
+    {
+     "antwort": 160,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Fläche statt der Seite gerechnet: 4 · 40",
+     "c": "4 * 40"
+    },
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Seitenlänge angegeben, nicht den Zaun",
+     "c": "7"
+    }
+   ],
+   "aufgabe": {
+    "l": "abschaetzen",
+    "t": "abschaetzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein quadratisches Beet soll mindestens 40 m² groß sein. Die Seitenlänge ist eine ganze Zahl in Metern. Rundherum soll ein Zaun stehen. Wie viele Meter Zaun braucht man dann mindestens?"
+    },
+    "o": {
+     "wert": 28,
+     "einheit": "m"
+    },
+    "c": "4 * (6 + 1)",
+    "h": "Finde zuerst die kleinste ganze Seitenlänge, deren Quadrat mindestens 40 ist.",
+    "w": "6² = 36 ist zu klein, 7² = 49 reicht. Die Seite ist mindestens 7 m lang. Der Zaun ist der Umfang: 4 · 7 = 28 m."
+   }
+  },
+  {
+   "kennung": "K9A-V013",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "wurzel_deuten",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 14,
+     "fehlbild": "fb.gegenrechnung.zweite_loesung_fehlt",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "nur die positive Lösung eingetragen",
+     "c": "(14)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Lösungen addiert: 14 + (−14)",
+     "c": "(14) + (-14)"
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_deuten",
+    "t": "wurzel_deuten",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Löse die Gleichung x² = 196. Die positive Lösung ist ①. Die negative Lösung ist ②. Dann liegen die beiden Lösungen auf der Zahlengeraden ③ Einheiten auseinander.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      14,
+      -14,
+      28
+     ]
+    },
+    "c": [
+     "14",
+     "-(14)",
+     "(14) - (-14)"
+    ],
+    "h": "Es gibt zwei Zahlen, die quadriert dieselbe Zahl ergeben. Achte auf das Vorzeichen.",
+    "w": "14 · 14 = 196 und (−14) · (−14) = 196. Die Lösungen sind 14 und −14. Ihr Abstand ist 14 − (−14) = 28."
+   }
+  },
+  {
+   "kennung": "K9A-V014",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "wurzel_deuten",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 5 abgezogen, nicht quadriert: 6 − 5",
+     "c": "6 - 5"
+    },
+    {
+     "antwort": 41,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 addiert statt abgezogen",
+     "c": "6 ** 2 + 5"
+    },
+    {
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Zahlen addiert: 6 + 5",
+     "c": "6 + 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_deuten",
+    "t": "wurzel_deuten",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Unter einer Wurzel steht der Term x + 5. Die Wurzel hat den Wert 6. Wie groß ist x?"
+    },
+    "o": {
+     "wert": 31
+    },
+    "c": "6 ** 2 - 5",
+    "h": "Mache das Wurzelziehen rückgängig. Dann die Addition.",
+    "w": "Rückwärts: Erst quadrieren: x + 5 = 6² = 36. Dann 5 abziehen: x = 31. Probe: √(31 + 5) = √36 = 6."
+   }
+  },
+  {
+   "kennung": "K9A-V015",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "wurzel_deuten",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_deuten",
+    "t": "wurzel_deuten",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim berechnet √((−7)²) + (√9)². Zeile 1: (−7)² = 49 Zeile 2: √49 = −7, denn Wurzel und Quadrat heben sich auf. Zeile 3: (√9)² = 9, also ist die Summe −7 + 9 = 2. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Was bedeutet √49? Die Wurzel ist nie negativ.",
+    "w": "Zeile 1 stimmt. In Zeile 2 steht der Fehler: √49 ist die nicht negative Zahl, deren Quadrat 49 ist, also 7. Zeile 3 rechnet mit −7 richtig weiter. Richtig ist 7 + 9 = 16."
+   }
+  },
+  {
+   "kennung": "K9A-V016",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "wurzel_sache",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1800,
+     "fehlbild": "fb.hoch_zurueck.wurzel_halbiert",
+     "regel_des_fehlbilds": "id.zahlen.hoch_zurueck",
+     "beschreibung": "3 600 halbiert statt die Wurzel gezogen",
+     "c": "3600 / 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 120,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur zwei Seiten gezählt: 2 · 60",
+     "c": "2 * (60)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 720,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Seitenlänge statt mit dem Zaun gerechnet: 60 · 12",
+     "c": "(60) * 12"
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_sache",
+    "t": "wurzel_sache",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein quadratischer Spielplatz hat 3 600 m² Fläche. Er wird rundherum eingezäunt. Ein Meter Zaun kostet 12 €. Die Seite des Platzes ist ① m lang. Dann ist der Zaun ② m lang. Also kostet der Zaun insgesamt ③ €.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      60,
+      240,
+      2880
+     ]
+    },
+    "c": [
+     "60",
+     "4 * (60)",
+     "(240) * 12"
+    ],
+    "h": "Aus der Fläche folgt die Seite. Der Zaun geht um den ganzen Platz herum.",
+    "w": "Die Seite ist √3600 = 60 m. Der Zaun ist so lang wie der Umfang: 4 · 60 = 240 m. Die Kosten sind 240 · 12 = 2 880 €."
+   }
+  },
+  {
+   "kennung": "K9A-V017",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "wurzel_sache",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 141,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von der Fläche einfach 3 abgezogen: 144 − 3",
+     "c": "144 - 3"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die alte Seitenlänge als Fläche angegeben: 12 − 3",
+     "c": "12 - 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_sache",
+    "t": "wurzel_sache",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein quadratisches Feld wird auf jeder Seite um 3 m verlängert. Danach hat es 144 m² Fläche. Wie groß war die Fläche vor der Verlängerung?"
+    },
+    "o": {
+     "wert": 81,
+     "einheit": "m²"
+    },
+    "c": "(12 - 3) ** 2",
+    "h": "Rechne rückwärts: erst von der neuen Fläche zur neuen Seite.",
+    "w": "Die neue Seite ist √144 = 12 m. Vorher war sie 12 − 3 = 9 m lang. Die alte Fläche ist 9² = 81 m²."
+   }
+  },
+  {
+   "kennung": "K9A-V018",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "wurzel_sache",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 144,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei der Fläche stehen geblieben: 36 000 : 250",
+     "c": "36000 / 250"
+    },
+    {
+     "antwort": 72,
+     "fehlbild": "fb.hoch_zurueck.wurzel_halbiert",
+     "regel_des_fehlbilds": "id.zahlen.hoch_zurueck",
+     "beschreibung": "die Fläche halbiert statt die Wurzel gezogen",
+     "c": "144 / 2"
+    },
+    {
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Umfang statt der Seite angegeben: 4 · 12",
+     "c": "4 * 12"
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_sache",
+    "t": "wurzel_sache",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein quadratisches Solarfeld soll eine Leistung von 36 kW haben. Ein Quadratmeter der Module liefert 250 W. Es gilt 1 kW = 1 000 W. Wie lang ist eine Seite des Feldes in Metern?"
+    },
+    "o": {
+     "wert": 12,
+     "einheit": "m"
+    },
+    "c": "144 / 12",
+    "h": "Teile zuerst die Gesamtleistung durch die Leistung je Quadratmeter. Das ergibt die Fläche.",
+    "w": "36 kW sind 36 000 W. Fläche: 36 000 : 250 = 144 m². Seite: √144 = 12 m."
+   }
+  }
+ ]
+}

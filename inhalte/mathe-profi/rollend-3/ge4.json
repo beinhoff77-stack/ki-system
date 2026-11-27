@@ -394,22 +394,31 @@
    "lernkarte": "vierecke_konstruieren",
    "stufe": 1,
    "typ": "Brücke",
-   "antwortform": "zahl",
+   "antwortform": "auswahl",
    "regel": "id.geometrie.deckungsgleich",
    "regel_name": "Deckungsgleich",
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 3,
+     "index": 0,
+     "antwort": "die Länge der Seite CD, die a gegenüberliegt",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Gesamtzahl genannt"
+     "beschreibung": "gegenüberliegende Seite ist gleich lang: keine neue Angabe"
     },
     {
-     "antwort": 2,
+     "index": 1,
+     "antwort": "der Winkel bei C, der α gegenüberliegt",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die vorhandenen Stücke genannt"
+     "beschreibung": "gegenüberliegender Winkel ist gleich groß: keine neue Angabe"
+    },
+    {
+     "index": 3,
+     "antwort": "der Winkel β bei B",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "β folgt aus α (180° − α): keine neue Angabe"
     }
    ],
    "aufgabe": {
@@ -418,16 +427,21 @@
     "p": "uebung",
     "s": 1,
     "g": "direkt",
-    "y": "zahl",
+    "y": "auswahl",
     "f": {
-     "text": "Ein Parallelogramm braucht 3 Bestimmungsstücke. Du kennst eine Seite und einen Winkel. Wie viele Stücke fehlen noch?"
+     "text": "Ein Parallelogramm ABCD ist durch 3 unabhängige Stücke festgelegt. Du kennst die Seite a = AB und den Winkel α bei A. Welche weitere Angabe fehlt noch?"
     },
     "o": {
-     "wert": 1
+     "index": 2
     },
-    "c": "3 - 2",
-    "h": "Zähle, was du schon hast.",
-    "w": "Seite und Winkel sind 2 Stücke. Es fehlt 1, zum Beispiel die zweite Seite."
+    "h": "Was folgt aus a und α schon von selbst? Gegenüberliegende Seiten und Winkel sind gleich, Nachbarwinkel ergeben 180°.",
+    "w": "Die Seite CD ist so lang wie a, der Winkel bei C so groß wie α, und β = 180° − α. Das sind keine neuen Angaben. Es fehlt eine zweite Seite: die Länge von b = AD.",
+    "a": [
+     "die Länge der Seite CD, die a gegenüberliegt",
+     "der Winkel bei C, der α gegenüberliegt",
+     "die Länge der zweiten benachbarten Seite b = AD",
+     "der Winkel β bei B"
+    ]
    }
   },
   {
@@ -920,7 +934,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "g ∥ h. Die Gerade k schneidet g in S und h in T. Bei S ist der Winkel links oberhalb 125° groß. Eine zweite Gerade durch T bildet mit h rechts oberhalb von T den Winkel 30°. Wie groß ist der Winkel bei T zwischen dieser zweiten Geraden und k?",
+     "text": "g ∥ h. Die Gerade k schneidet g in S und h in T. Bei S ist der Winkel links oberhalb 125° groß. Eine zweite Gerade m durch T bildet mit h rechts oberhalb von T den Winkel 30°. Wie groß ist der Winkel bei T zwischen m und k?",
      "grafik": {
       "typ": "figur",
       "punkte": {
@@ -987,6 +1001,14 @@
        "_k2": [
         5.019,
         4.311
+       ],
+       "_m1": [
+        4.598,
+        1.5
+       ],
+       "_m2": [
+        0.701,
+        -0.75
        ]
       },
       "linien": [
@@ -1004,6 +1026,11 @@
         "_k1",
         "_k2",
         "k"
+       ],
+       [
+        "_m1",
+        "_m2",
+        "m"
        ]
       ],
       "winkel": [
@@ -1012,6 +1039,12 @@
         "_SU",
         "_SL",
         "125°"
+       ],
+       [
+        "T",
+        "_TR",
+        "_m1",
+        "30°"
        ]
       ]
      }
@@ -1066,7 +1099,7 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Beweis der Winkelsumme im Dreieck: Durch C wird die Parallele zu AB gezeichnet. Welcher Satz begründet, dass der Winkel, der dort links neben γ liegt, so groß ist wie α?"
+     "text": "Beweis der Winkelsumme im Dreieck ABC: Durch C wird die Parallele p zu AB gezeichnet. D ist ein Punkt auf p, der auf derselben Seite von C liegt wie A. Welcher Satz begründet, dass der Winkel ∠DCA so groß ist wie α = ∠CAB?"
     },
     "a": [
      "Wechselwinkel an Parallelen sind gleich groß.",
@@ -1078,7 +1111,7 @@
      "index": 0
     },
     "h": "Welche zwei Geraden sind parallel, und welche Gerade schneidet beide?",
-    "w": "AB und die Gerade durch C sind parallel, AC schneidet beide. α und der Winkel bei C sind Wechselwinkel."
+    "w": "AB und p sind parallel, die Gerade AC schneidet beide. ∠CAB und ∠DCA liegen auf verschiedenen Seiten von AC und bei verschiedenen Parallelen: Es sind Wechselwinkel."
    }
   },
   {

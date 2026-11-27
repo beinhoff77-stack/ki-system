@@ -247,10 +247,10 @@
     },
     {
      "index": 2,
-     "antwort": "ein Beispiel mit zwei Winkeln von 40°",
+     "antwort": "die Definition: Ein spitzer Winkel ist kleiner als 90°",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "ein passendes Beispiel widerlegt nichts"
+     "beschreibung": "das erklärt nur, was „spitz“ heißt; ein Gegenbeispiel ist es nicht"
     }
    ],
    "aufgabe": {
@@ -266,7 +266,7 @@
     "a": [
      "ein Gegenbeispiel: zwei Geraden, bei denen ein Winkel 120° hat",
      "viele Beispiele mit spitzen Winkeln",
-     "ein Beispiel mit zwei Winkeln von 40°"
+     "die Definition: Ein spitzer Winkel ist kleiner als 90°"
     ],
     "o": {
      "index": 0

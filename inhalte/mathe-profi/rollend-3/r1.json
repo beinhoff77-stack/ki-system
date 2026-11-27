@@ -1135,7 +1135,7 @@
     "g": "parameter",
     "y": "bedingung",
     "f": {
-     "text": "Aus einem Rechteck von 10 cm mal 6 cm wird an einer Ecke ein kleineres Rechteck herausgeschnitten (ganze Zentimeter). Übrig bleiben genau 48 cm². Nenne Länge und Breite des herausgeschnittenen Stücks.",
+     "text": "Aus einem Rechteck von 10 cm mal 6 cm wird an einer Ecke ein kleineres Rechteck herausgeschnitten (ganze Zentimeter). Es bleibt eine L-förmige Fläche von genau 48 cm² übrig. Beide Seiten des Stücks sind kürzer als die Seiten des großen Rechtecks. Nenne im ersten Feld die Länge (waagrecht, kleiner als 10 cm) und im zweiten Feld die Breite (senkrecht, kleiner als 6 cm) des herausgeschnittenen Stücks.",
      "felder": [
       {
        "art": "ganz"
@@ -1148,7 +1148,7 @@
     "o": {
      "bedingungen": [
       {
-       "name": "Stück passt in die Ecke",
+       "name": "Stück lässt eine L-Form übrig",
        "pruefe": [
         "und",
         [
@@ -1172,7 +1172,7 @@
          6
         ]
        ],
-       "hinweis": "Dein Stück passt nicht in die Ecke: Länge 1 bis 9 cm, Breite 1 bis 5 cm."
+       "hinweis": "Dein Stück muss in der Ecke liegen und beide Seiten müssen kürzer sein als die des großen Rechtecks: Länge 1 bis 9 cm, Breite 1 bis 5 cm."
       },
       {
        "name": "übrig bleiben 48 cm²",
@@ -1221,14 +1221,14 @@
         12,
         1
        ],
-       "verletzt": "Stück passt in die Ecke"
+       "verletzt": "Stück lässt eine L-Form übrig"
       },
       {
        "werte": [
         2,
         6
        ],
-       "verletzt": "Stück passt in die Ecke"
+       "verletzt": "Stück lässt eine L-Form übrig"
       },
       {
        "werte": [
@@ -1240,7 +1240,7 @@
      ]
     },
     "h": "Wie groß ist die ganze Fläche? Wie viel muss also weg?",
-    "w": "Das ganze Rechteck hat 60 cm². Es müssen 12 cm² weg: 4 cm mal 3 cm, 6 cm mal 2 cm oder 3 cm mal 4 cm."
+    "w": "Das ganze Rechteck hat 60 cm². Es müssen 12 cm² weg. Länge unter 10 cm, Breite unter 6 cm: 4 cm mal 3 cm, 3 cm mal 4 cm oder 6 cm mal 2 cm. Ein Streifen 2 cm mal 6 cm ginge über die ganze Breite, dann bleibt keine L-Form."
    }
   },
   {

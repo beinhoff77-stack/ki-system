@@ -534,10 +534,10 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Jule hat recht.",
+     "antwort": "Nichts, Jule hat recht.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Proportionalität ungeprüft angenommen"
+     "beschreibung": "mehr Maler als mehr Zeit gedeutet"
     },
     {
      "index": 1,
@@ -562,19 +562,19 @@
     "g": "einkleidung",
     "y": "auswahl",
     "f": {
-     "text": "Ein Maler streicht eine Wand in 3 Stunden. Jule rechnet mit dem Dreisatz: „Dann brauchen 2 Maler 6 Stunden.“ Was stimmt?"
+     "text": "Ein Maler streicht eine Wand in 3 Stunden. Alle Maler arbeiten gleich schnell, und die Arbeit lässt sich beliebig aufteilen. Jule rechnet: „Dann brauchen 2 Maler 6 Stunden.“ Was ist an Jules Rechnung falsch?"
     },
     "a": [
-     "Jule hat recht.",
+     "Nichts, Jule hat recht.",
      "Zwei Maler brauchen auch 3 Stunden.",
-     "Jule darf den Dreisatz hier nicht nehmen: Mehr Maler brauchen weniger Zeit.",
+     "Bei doppelter Leistung halbiert sich die Zeit: Zwei Maler brauchen 1,5 Stunden, nicht 6.",
      "Zwei Maler brauchen 5 Stunden."
     ],
     "o": {
      "index": 2
     },
-    "h": "Prüfe zuerst: Gehört zur doppelten Zahl der doppelte Wert?",
-    "w": "Mehr Maler sind schneller fertig. Die Zuordnung ist nicht proportional, also kein Dreisatz."
+    "h": "Wenn doppelt so viele Maler arbeiten: Wird die Zeit länger oder kürzer?",
+    "w": "Bei gleich schnellen Malern und teilbarer Arbeit gilt: doppelte Leistung, halbe Zeit. Dreisatz: 1 Maler braucht 3 Stunden, 2 Maler brauchen 3 : 2 = 1,5 Stunden. Jule hat die Zeit verdoppelt statt halbiert."
    }
   },
   {
@@ -766,7 +766,7 @@
     "g": "direkt",
     "y": "bedingung",
     "f": {
-     "text": "Ein Stück kostet zwischen 30 und 40 Cent. Nenne eine Stückzahl größer als 1 und einen passenden Gesamtpreis in Cent.",
+     "text": "Ein Stück kostet mindestens 30 und höchstens 40 Cent. Nenne eine Stückzahl größer als 1 und einen passenden Gesamtpreis in Cent.",
      "felder": [
       {
        "art": "ganz"
@@ -789,7 +789,7 @@
        "hinweis": "Deine Stückzahl ist {}."
       },
       {
-       "name": "Stückpreis zwischen 30 und 40 Cent",
+       "name": "Stückpreis mindestens 30 und höchstens 40 Cent",
        "pruefe": [
         "und",
         [
@@ -846,14 +846,14 @@
         4,
         200
        ],
-       "verletzt": "Stückpreis zwischen 30 und 40 Cent"
+       "verletzt": "Stückpreis mindestens 30 und höchstens 40 Cent"
       },
       {
        "werte": [
         5,
         100
        ],
-       "verletzt": "Stückpreis zwischen 30 und 40 Cent"
+       "verletzt": "Stückpreis mindestens 30 und höchstens 40 Cent"
       }
      ]
     },
@@ -1008,7 +1008,7 @@
     "g": "umkehr",
     "y": "bedingung",
     "f": {
-     "text": "9 Hefte kosten 6 €. Nenne eine Stückzahl zwischen 10 und 30, deren Preis ein ganzer Euro-Betrag ist, und diesen Preis.",
+     "text": "9 Hefte kosten 6 €. Nenne eine Stückzahl von mindestens 10 bis höchstens 30, deren Preis ein ganzer Euro-Betrag ist, und diesen Preis.",
      "felder": [
       {
        "art": "ganz"
@@ -1021,7 +1021,7 @@
     "o": {
      "bedingungen": [
       {
-       "name": "Stückzahl zwischen 10 und 30",
+       "name": "Stückzahl mindestens 10 und höchstens 30",
        "pruefe": [
         "und",
         [
@@ -1085,7 +1085,7 @@
         9,
         6
        ],
-       "verletzt": "Stückzahl zwischen 10 und 30"
+       "verletzt": "Stückzahl mindestens 10 und höchstens 30"
       },
       {
        "werte": [

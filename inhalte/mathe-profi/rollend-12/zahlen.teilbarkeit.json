@@ -1,0 +1,714 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-12",
+ "kuerzel": "R5",
+ "flug": "r5-reserve-zahlen.teilbarkeit",
+ "titel": "zahlen.teilbarkeit",
+ "fuer": "Klasse 5",
+ "klasse": 5,
+ "themen": [
+  "zahlen.teilbarkeit"
+ ],
+ "themen_datei_im_bestand": "zahlen.teilbarkeit",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag „Reserve“ (zwei zählende Aufgaben je Lernkarte, Stufe 2 und 3). Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R5-V091",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "teiler",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Teiler gezählt statt der Paare"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "jedes Paar doppelt gezählt (4 × 9 und 9 × 4)"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Rechteck mit zwei gleich langen Seiten vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "teiler",
+    "t": "teiler",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Aus quadratischen Fliesen soll ein Rechteck mit der Fläche 36 Fliesen gelegt werden, beide Seitenlängen sind ganze Zahlen. Ein Rechteck 4 × 9 und ein Rechteck 9 × 4 gelten als dasselbe Rechteck. Wie viele verschiedene Rechtecke gibt es?"
+    },
+    "o": {
+     "wert": 5,
+     "einheit": "Rechtecke"
+    },
+    "c": "5",
+    "h": "Zu jeder Seitenlänge, die 36 teilt, gehört genau eine andere. Welche Zahlen teilen 36?",
+    "w": "Die Teiler von 36 sind 1, 2, 3, 4, 6, 9, 12, 18, 36. Paare: 1 × 36, 2 × 18, 3 × 12, 4 × 9, 6 × 6. Das sind 5 Rechtecke (6 × 6 ist ein Quadrat und zählt einmal)."
+   }
+  },
+  {
+   "kennung": "R5-V092",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "teiler",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Zahl mit 6 Teilern gewählt, die nicht die kleinste ist"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 6 selbst gewählt (sie hat nur 4 Teiler)"
+    },
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl mit den meisten Teilern in der Nähe gewählt (36 hat 9 Teiler)"
+    }
+   ],
+   "aufgabe": {
+    "l": "teiler",
+    "t": "teiler",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Welches ist die kleinste Zahl, die genau 6 Teiler hat?"
+    },
+    "o": {
+     "wert": 12
+    },
+    "c": "12",
+    "h": "Probiere nacheinander kleine Zahlen und zähle ihre Teiler. Zahlen mit wenigen Teilern kannst du schnell ausschließen.",
+    "w": "12 hat die Teiler 1, 2, 3, 4, 6 und 12, das sind 6. Die kleineren Zahlen haben weniger: 6 hat 4 Teiler, 8 hat 4, 10 hat 4, 9 hat 3, 11 hat 2. Also ist 12 die kleinste."
+   }
+  },
+  {
+   "kennung": "R5-V093",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "vielfache",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Vielfaches zu viel gezählt (erstes und letztes Glied beide mitgezählt, obwohl 100 kein Vielfaches ist)"
+    },
+    {
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Vielfache bis 200 gezählt"
+    },
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Vielfaches zu wenig gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vielfache",
+    "t": "vielfache",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele Vielfache von 7 liegen zwischen 100 und 200? Weg A: Schreibe sie der Reihe nach auf und zähle. Weg B: Überlege, wie viele Vielfache von 7 es bis 200 und wie viele es bis 100 gibt."
+    },
+    "o": {
+     "wert": 14,
+     "einheit": "Vielfache"
+    },
+    "c": "200 // 7 - 100 // 7",
+    "h": "Das erste Vielfache über 100 ist 105. Welches ist das letzte unter 200?",
+    "w": "Weg A: 105, 112, …, 196 sind 14 Zahlen. Weg B: Bis 200 gibt es 200 : 7 = 28 Rest 4, also 28 Vielfache (7 bis 196). Bis 100 gibt es 14 (7 bis 98). 28 − 14 = 14."
+   }
+  },
+  {
+   "kennung": "R5-V094",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "vielfache",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den größten gemeinsamen Teiler genommen"
+    },
+    {
+     "antwort": 216,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Zahlen malgenommen"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Zahlen addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "vielfache",
+    "t": "vielfache",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Bus der Linie A fährt alle 12 Minuten, ein Bus der Linie B alle 18 Minuten. Um 8:00 Uhr fahren beide gleichzeitig ab. Nach wie vielen Minuten fahren beide zum ersten Mal wieder gleichzeitig ab?"
+    },
+    "o": {
+     "wert": 36,
+     "einheit": "Minuten"
+    },
+    "c": "36",
+    "h": "Schreibe die Vielfachen von 12 und von 18 auf. Welche Zahl kommt in beiden Reihen zuerst vor?",
+    "w": "Vielfache von 12: 12, 24, 36, … Vielfache von 18: 18, 36, … Die erste gemeinsame Zahl ist 36. Nach 36 Minuten fahren beide wieder gleichzeitig ab."
+   }
+  },
+  {
+   "kennung": "R5-V095",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "endziffer",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "275 €",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Endziffer 5: durch 5 teilbar, also mit 5-Euro-Scheinen zahlbar."
+    },
+    {
+     "index": 2,
+     "antwort": "340 €",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Endziffer 0: durch 5 teilbar, also zahlbar."
+    },
+    {
+     "index": 3,
+     "antwort": "1 205 €",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Endziffer 5: durch 5 teilbar, also zahlbar."
+    }
+   ],
+   "aufgabe": {
+    "l": "endziffer",
+    "t": "endziffer",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Kasse hat nur 5-Euro-Scheine und 10-Euro-Scheine. Welcher Betrag kann damit nicht genau bezahlt werden?"
+    },
+    "a": [
+     "4 902 €",
+     "275 €",
+     "340 €",
+     "1 205 €"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Alle Beträge, die man mit 5-Euro-Scheinen zahlen kann, sind Vielfache von 5. Woran erkennt man Vielfache von 5?",
+    "w": "Vielfache von 5 enden auf 0 oder 5. 275, 340 und 1 205 enden auf 5 oder 0. 4 902 endet auf 2, ist also kein Vielfaches von 5 und lässt sich mit 5-€- und 10-€-Scheinen nicht genau zahlen."
+   }
+  },
+  {
+   "kennung": "R5-V096",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "endziffer",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 100 nicht mitgezählt"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Vielfache bis 150 gezählt"
+    },
+    {
+     "antwort": 51,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Zahlen von 100 bis 150 gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "endziffer",
+    "t": "endziffer",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele Zahlen von 100 bis 150 (beide Grenzen eingeschlossen) sind durch 5 teilbar? Weg A: Prüfe die Endziffern. Weg B: Überlege, wie viele Vielfache von 5 es bis 150 und wie viele es unter 100 gibt."
+    },
+    "o": {
+     "wert": 11,
+     "einheit": "Zahlen"
+    },
+    "c": "150 // 5 - 99 // 5",
+    "h": "Bis 99 gibt es 19 Vielfache von 5 (5 bis 95). Wie viele sind es bis 150?",
+    "w": "Weg A: Endziffer 0 oder 5: 100, 105, …, 150 sind 11 Zahlen. Weg B: Bis 150 gibt es 30 Vielfache, bis 99 gibt es 19. 30 − 19 = 11."
+   }
+  },
+  {
+   "kennung": "R5-V097",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "quersumme",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Los 2 378",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Quersumme 20, nicht durch 3 teilbar."
+    },
+    {
+     "index": 1,
+     "antwort": "Los 4 123",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Quersumme 10, nicht durch 3 teilbar."
+    },
+    {
+     "index": 3,
+     "antwort": "Los 5 606",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Quersumme 17, nicht durch 3 teilbar."
+    }
+   ],
+   "aufgabe": {
+    "l": "quersumme",
+    "t": "quersumme",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Bei einer Tombola gewinnt jedes Los, dessen Nummer durch 3 teilbar ist. Welches dieser Lose gewinnt?"
+    },
+    "a": [
+     "Los 2 378",
+     "Los 4 123",
+     "Los 1 245",
+     "Los 5 606"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Eine Zahl ist durch 3 teilbar, wenn ihre Quersumme durch 3 teilbar ist.",
+    "w": "Quersummen: 1 245 → 12 (durch 3 teilbar), 2 378 → 20, 4 123 → 10, 5 606 → 17. Nur 12 ist durch 3 teilbar, es gewinnt Los 1 245."
+   }
+  },
+  {
+   "kennung": "R5-V098",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "quersumme",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Quersumme selbst als Rest genannt"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Quotienten der Quersumme genannt"
+    },
+    {
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Quersumme durch 3 geprüft statt durch 9 (24 ist durch 3 teilbar)"
+    }
+   ],
+   "aufgabe": {
+    "l": "quersumme",
+    "t": "quersumme",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Welchen Rest lässt 7 836 bei der Division durch 9? Weg A: Dividiere schriftlich. Weg B: Bilde die Quersumme und bestimme ihren Rest bei der Division durch 9."
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "7836 % 9",
+    "h": "Bei Weg B zählst du zuerst die Ziffern zusammen.",
+    "w": "Weg A: 7 836 : 9 = 870 Rest 6. Weg B: Quersumme 7 + 8 + 3 + 6 = 24, 24 : 9 = 2 Rest 6. Beide Wege geben Rest 6."
+   }
+  },
+  {
+   "kennung": "R5-V099",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "neunerregel",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 23,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Quersumme als Rest genannt"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Quotienten der Quersumme genannt"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Quersumme 22 gerechnet (eine Ziffer falsch addiert)"
+    }
+   ],
+   "aufgabe": {
+    "l": "neunerregel",
+    "t": "neunerregel",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Fabrik verpackt 5 873 Stifte in Packungen zu je 9 Stück. Wie viele Stifte bleiben übrig, wenn so viele volle Packungen wie möglich gefüllt werden?"
+    },
+    "o": {
+     "wert": 5,
+     "einheit": "Stifte"
+    },
+    "c": "5873 % 9",
+    "h": "Mit der Quersumme findest du den Rest, ohne zu dividieren.",
+    "w": "Quersumme: 5 + 8 + 7 + 3 = 23. 23 : 9 = 2 Rest 5. Also bleibt Rest 5. Kontrolle: 5 873 = 9 · 652 + 5."
+   }
+  },
+  {
+   "kennung": "R5-V100",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "neunerregel",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Vielfaches zu viel gezählt"
+    },
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Vielfache bis 130 gezählt"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "126 vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "neunerregel",
+    "t": "neunerregel",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele Zahlen von 100 bis 130 sind durch 9 teilbar? Weg A: Prüfe bei jeder Zahl die Quersumme. Weg B: Überlege, wie viele Vielfache von 9 es bis 130 und wie viele es bis 99 gibt."
+    },
+    "o": {
+     "wert": 3,
+     "einheit": "Zahlen"
+    },
+    "c": "130 // 9 - 99 // 9",
+    "h": "Bis 99 sind es 11 Vielfache von 9 (9 bis 99). Bis 130?",
+    "w": "Weg A: Quersumme durch 9 teilbar nur bei 108, 117 und 126. Weg B: Bis 130: 130 : 9 = 14 Rest 4, also 14 Vielfache. Bis 99: 11. 14 − 11 = 3."
+   }
+  },
+  {
+   "kennung": "R5-V101",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "primzahl",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 23,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt abgezogen"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 − 4 gerechnet (Zahl ist außerdem keine Primzahl)"
+    }
+   ],
+   "aufgabe": {
+    "l": "primzahl",
+    "t": "primzahl",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Die Summe zweier Primzahlen ist 20. Eine der beiden Zahlen ist 3. Wie heißt die andere Zahl?"
+    },
+    "o": {
+     "wert": 17
+    },
+    "c": "20 - 3",
+    "h": "Mache die Addition rückgängig. Prüfe dann, ob das Ergebnis eine Primzahl ist.",
+    "w": "20 − 3 = 17. 17 ist eine Primzahl, denn sie hat nur die Teiler 1 und 17. Probe: 3 + 17 = 20."
+   }
+  },
+  {
+   "kennung": "R5-V102",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "primzahl",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "49 als Primzahl mitgezählt"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle ungeraden Zahlen gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "primzahl",
+    "t": "primzahl",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele Primzahlen liegen zwischen 30 und 50? Weg A: Prüfe jede Zahl auf Teiler. Weg B: Schreibe alle Zahlen von 31 bis 49 auf und streiche alle Vielfachen von 2, 3, 5 und 7."
+    },
+    "o": {
+     "wert": 5,
+     "einheit": "Primzahlen"
+    },
+    "c": "5",
+    "h": "Primzahlen sind größer als 1 und haben nur zwei Teiler. Gerade Zahlen über 2 fallen sofort weg.",
+    "w": "Es bleiben 31, 37, 41, 43 und 47. Bei 49 = 7 · 7 ist 7 ein Teiler. Bei Weg B werden Vielfache von 2, 3, 5 und 7 gestrichen, denn 11 · 11 ist schon größer als 50."
+   }
+  },
+  {
+   "kennung": "R5-V103",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "primfaktoren",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "2 · 2 · 3 · 15",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Der Faktor 15 ist noch nicht zu Ende zerlegt."
+    },
+    {
+     "index": 2,
+     "antwort": "2 · 3 · 3 · 5 · 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Ein Faktor 2 ist durch einen Faktor 5 ersetzt worden."
+    }
+   ],
+   "aufgabe": {
+    "l": "primfaktoren",
+    "t": "primfaktoren",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Faktorbaum für 180 sieht so aus: 180 = 2 · 90, dann 90 = 2 · 45, dann 45 = 3 · 15, dann 15 = 3 · 5. Welche Primfaktorzerlegung ergibt sich aus dem Baum?"
+    },
+    "a": [
+     "2 · 2 · 3 · 3 · 5",
+     "2 · 2 · 3 · 15",
+     "2 · 3 · 3 · 5 · 5"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Lies alle Enden des Baums ab: Welche Faktoren lassen sich nicht weiter zerlegen?",
+    "w": "Die Enden des Baums sind 2, 2, 3, 3 und 5. 2 · 2 · 3 · 3 · 5 = 180 und alle Faktoren sind Primzahlen."
+   }
+  },
+  {
+   "kennung": "R5-V104",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "primfaktoren",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die gemeinsamen Faktoren 2 und 3 genommen"
+    },
+    {
+     "antwort": 252,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Faktoren in der größeren Anzahl genommen (kleinstes gemeinsames Vielfaches)"
+    },
+    {
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "einen Faktor 2 vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "primfaktoren",
+    "t": "primfaktoren",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Boden ist 84 cm lang und 126 cm breit. Er soll lückenlos mit möglichst großen quadratischen Platten belegt werden, ohne dass eine Platte zerschnitten wird. Wie lang ist eine Seite einer Platte?"
+    },
+    "o": {
+     "wert": 42,
+     "einheit": "cm"
+    },
+    "c": "2 * 3 * 7",
+    "h": "Zerlege beide Zahlen in Primfaktoren. Welche Faktoren kommen in beiden vor?",
+    "w": "84 = 2 · 2 · 3 · 7 und 126 = 2 · 3 · 3 · 7. Gemeinsam sind 2, 3 und 7. 2 · 3 · 7 = 42. Die Platten sind 42 cm lang. Probe: 84 : 42 = 2 und 126 : 42 = 3."
+   }
+  }
+ ]
+}

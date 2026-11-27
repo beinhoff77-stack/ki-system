@@ -1,0 +1,1367 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-12",
+ "kuerzel": "R5",
+ "flug": "r5-reserve-zahlen.natuerlich",
+ "titel": "zahlen.natuerlich",
+ "fuer": "Klasse 5",
+ "klasse": 5,
+ "themen": [
+  "zahlen.natuerlich"
+ ],
+ "themen_datei_im_bestand": "zahlen.natuerlich",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag „Reserve“ (zwei zählende Aufgaben je Lernkarte, Stufe 2 und 3). Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R5-V001",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "stellenwert",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 100 statt durch 10 geteilt"
+    },
+    {
+     "antwort": 56,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Zehner aus den Hundertern und den Zehnern gezählt: 50 + 6"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Ziffer an der Zehnerstelle genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "stellenwert",
+    "t": "stellenwert",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele Zehner stecken insgesamt in der Zahl 4 560? Weg A: Teile die Zahl durch 10. Weg B: Zähle zusammen, wie viele Zehner in den Tausendern, in den Hundertern und in den Zehnern stecken."
+    },
+    "o": {
+     "wert": 456,
+     "einheit": "Zehner"
+    },
+    "c": "4560 / 10",
+    "h": "Ein Tausender besteht aus vielen Zehnern. Wie viele sind es?",
+    "w": "Weg A: 4 560 : 10 = 456. Weg B: 4 Tausender sind 400 Zehner, 5 Hunderter sind 50 Zehner, dazu 6 Zehner: 400 + 50 + 6 = 456. Beide Wege geben 456 Zehner."
+   }
+  },
+  {
+   "kennung": "R5-V002",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "stellenwert",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 16128,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt abgezogen: 12 078 + 4 050"
+    },
+    {
+     "antwort": 8078,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die 4 Tausender abgezogen, die Zehner vergessen"
+    },
+    {
+     "antwort": 7578,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 5 Zehner als 5 Hunderter abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "stellenwert",
+    "t": "stellenwert",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Zähler wurde um 4 Tausender und 5 Zehner erhöht. Jetzt zeigt er 12 078. Welche Zahl zeigte er vorher?"
+    },
+    "o": {
+     "wert": 8028
+    },
+    "c": "12078 - 4000 - 50",
+    "h": "Gehe den Weg rückwärts: Was musst du von der neuen Zahl wieder wegnehmen?",
+    "w": "Erhöht wurde um 4 000 + 50 = 4 050. Rückwärts wird abgezogen: 12 078 − 4 050 = 8 028. Probe: 8 028 + 4 050 = 12 078."
+   }
+  },
+  {
+   "kennung": "R5-V003",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "zahlwort_zu_ziffern",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die beiden Dreiergruppen hinter den Millionen gezählt: 3 + 3"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "vier Dreiergruppen angenommen: 4 · 3"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Tausender-Gruppe nur mit zwei Ziffern gezählt: 3 + 2 + 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "zahlwort_zu_ziffern",
+    "t": "zahlwort_zu_ziffern",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele Ziffern hat die Zahl „dreihundertzwölf Millionen vierzigtausend“, wenn man sie mit Ziffern schreibt? Weg A: Schreibe die Zahl mit Ziffern hin und zähle. Weg B: Überlege, wie viele Ziffern die Millionen-Gruppe und die beiden Dreiergruppen dahinter haben."
+    },
+    "o": {
+     "wert": 9,
+     "einheit": "Ziffern"
+    },
+    "c": "3 + 3 + 3",
+    "h": "Hinter den Millionen kommen immer zwei Gruppen mit je drei Ziffern.",
+    "w": "Weg A: 312 040 000 hat 9 Ziffern. Weg B: die Millionen-Gruppe 312 hat 3 Ziffern, die Tausender-Gruppe 040 hat 3 Ziffern, die Einer-Gruppe 000 hat 3 Ziffern. 3 + 3 + 3 = 9."
+   }
+  },
+  {
+   "kennung": "R5-V004",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "zahlwort_zu_ziffern",
+   "stufe": 3,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "zwei Millionen dreißigtausend",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Das sind 2 030 000 mit fünf Nullen."
+    },
+    {
+     "index": 1,
+     "antwort": "zwanzig Millionen dreitausend",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Das sind 20 003 000 mit sechs Nullen."
+    },
+    {
+     "index": 3,
+     "antwort": "zweihunderttausenddreißig",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Das sind 200 030 mit vier Nullen."
+    }
+   ],
+   "aufgabe": {
+    "l": "zahlwort_zu_ziffern",
+    "t": "zahlwort_zu_ziffern",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "auswahl",
+    "f": {
+     "text": "Vier Zahlen sind als Zahlwort angegeben. Schreibe sie in Ziffern. Welches Zahlwort gehört zu der Zahl, die in Ziffern geschrieben die meisten Nullen hat?"
+    },
+    "a": [
+     "zwei Millionen dreißigtausend",
+     "zwanzig Millionen dreitausend",
+     "zweihundert Millionen drei",
+     "zweihunderttausenddreißig"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Schreibe zuerst jede Zahl mit Ziffern. Zähle dann die Nullen.",
+    "w": "„zweihundert Millionen drei“ ist 200 000 003 mit sieben Nullen. 2 030 000 hat fünf, 20 003 000 hat sechs, 200 030 hat vier Nullen."
+   }
+  },
+  {
+   "kennung": "R5-V005",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "ziffern_zu_zahlwort",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "vierzigtausenddreihundertsechzig Euro",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Das ist 40 360 Euro."
+    },
+    {
+     "index": 2,
+     "antwort": "viertausenddreihundertsechs Euro",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Das ist 4 306 Euro."
+    },
+    {
+     "index": 3,
+     "antwort": "dreiundvierzigtausendsechs Euro",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Das ist 43 006 Euro."
+    }
+   ],
+   "aufgabe": {
+    "l": "ziffern_zu_zahlwort",
+    "t": "ziffern_zu_zahlwort",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Verein erhält eine Spende von 40 306 Euro. Der Betrag soll auf der Quittung in Worten stehen. Welche Schreibweise ist richtig?"
+    },
+    "a": [
+     "vierzigtausenddreihundertsechs Euro",
+     "vierzigtausenddreihundertsechzig Euro",
+     "viertausenddreihundertsechs Euro",
+     "dreiundvierzigtausendsechs Euro"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Lies die Zahl in Gruppen: erst die Tausender, dann Hunderter, Zehner und Einer. Eine Null bleibt stumm.",
+    "w": "40 306 hat 40 Tausender und 306 Einer: „vierzigtausend“ und „dreihundertsechs“, zusammen „vierzigtausenddreihundertsechs“."
+   }
+  },
+  {
+   "kennung": "R5-V006",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "ziffern_zu_zahlwort",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "ziffern_zu_zahlwort",
+    "t": "ziffern_zu_zahlwort",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Tim schreibt die Zahl 70 305 in Worten. Zeile 1: 70 305 hat 7 Zehntausender, 0 Tausender, 3 Hunderter, 0 Zehner und 5 Einer. Zeile 2: 7 Zehntausender sind siebzigtausend. Zeile 3: 3 Hunderter und 5 Einer sind dreihundertfünfzig. Zeile 4: Zusammen heißt die Zahl siebzigtausenddreihundertfünfzig. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Schreibe 3 Hunderter und 5 Einer als Zahl. Was steht an der Zehnerstelle?",
+    "w": "3 Hunderter und 5 Einer sind 305, also „dreihundertfünf“ (die Zehnerstelle ist leer). Richtig: siebzigtausenddreihundertfünf. Der erste Fehler steht in Zeile 3."
+   }
+  },
+  {
+   "kennung": "R5-V007",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "strahl_ablesen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4007,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "7 statt 7 Abschnitte à 100 addiert"
+    },
+    {
+     "antwort": 4070,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abschnitt mit 10 statt mit 100 gerechnet"
+    },
+    {
+     "antwort": 4300,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "7 Abschnitte von 5 000 aus zurückgezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "strahl_ablesen",
+    "t": "strahl_ablesen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Auf einem Zahlenstrahl sind die Marken 4 000 und 5 000 beschriftet. Zwischen ihnen liegen 10 gleich große Abschnitte. Ein Pfeil steht nach dem 7. Abschnitt, von 4 000 aus gezählt. Weg A: Bestimme die Länge eines Abschnitts und zähle von 4 000 aus vor. Weg B: Zähle von 5 000 aus zurück. Welche Zahl zeigt der Pfeil?"
+    },
+    "o": {
+     "wert": 4700
+    },
+    "c": "4000 + 7 * ((5000 - 4000) / 10)",
+    "h": "Wie viele Abschnitte liegen zwischen dem Pfeil und der Marke 5 000?",
+    "w": "Ein Abschnitt ist (5 000 − 4 000) : 10 = 100 lang. Weg A: 4 000 + 7 · 100 = 4 700. Weg B: Bis 5 000 sind es noch 3 Abschnitte: 5 000 − 3 · 100 = 4 700."
+   }
+  },
+  {
+   "kennung": "R5-V008",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "strahl_ablesen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1500,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 9 statt durch 10 geteilt (Striche statt Abschnitte gezählt)"
+    },
+    {
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Länge eines Abschnitts angegeben"
+    },
+    {
+     "antwort": 1459,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 statt 45 addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "strahl_ablesen",
+    "t": "strahl_ablesen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Auf einem Zahlenstrahl sind die Zahlen 1 450 und 1 900 markiert. Zwischen den beiden Marken liegen 9 weitere Striche, die alle gleich weit auseinander stehen. Bei welcher Zahl steht der Strich direkt rechts neben 1 450?"
+    },
+    "o": {
+     "wert": 1495
+    },
+    "c": "1450 + (1900 - 1450) / 10",
+    "h": "Wie viele Abschnitte entstehen, wenn 9 Striche zwischen zwei Marken liegen?",
+    "w": "9 Striche zwischen den Marken ergeben 10 gleich große Abschnitte. Ein Abschnitt ist 450 : 10 = 45. Der nächste Strich liegt bei 1 450 + 45 = 1 495."
+   }
+  },
+  {
+   "kennung": "R5-V009",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "strahl_eintragen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 100 statt durch die Länge eines Abschnitts geteilt"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit einem Abschnitt von 70 gerechnet"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Abschnitte des ganzen Strahls angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "strahl_eintragen",
+    "t": "strahl_eintragen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Zahlenstrahl beginnt bei 0 und endet bei 600. Er ist in 12 gleich große Abschnitte geteilt. Die Zahl 350 soll eingetragen werden. Nach wie vielen Abschnitten, von 0 aus gezählt, liegt sie?"
+    },
+    "o": {
+     "wert": 7,
+     "einheit": "Abschnitte"
+    },
+    "c": "350 / (600 / 12)",
+    "h": "Wie lang ist ein Abschnitt in Zahlen?",
+    "w": "Ein Abschnitt ist 600 : 12 = 50 lang. 350 : 50 = 7. Die Zahl 350 liegt nach 7 Abschnitten."
+   }
+  },
+  {
+   "kennung": "R5-V010",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "strahl_eintragen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "strahl_eintragen",
+    "t": "strahl_eintragen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Zahlenstrahl geht von 0 bis 400 und ist in 8 gleiche Abschnitte geteilt. Mia will die Zahl 250 eintragen. Zeile 1: Ein Abschnitt ist 400 : 8 = 40 lang. Zeile 2: Es gilt 250 : 40 = 6 Rest 10. Zeile 3: Die Marke liegt also 6 Abschnitte und noch ein Stück rechts von der 0. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Rechne 8 · 40 nach. Kommt dabei 400 heraus?",
+    "w": "400 : 8 = 50, nicht 40 (8 · 40 = 320). Richtig: ein Abschnitt ist 50 lang, 250 : 50 = 5, die Marke 250 liegt genau 5 Abschnitte von der 0 entfernt. Der erste Fehler steht in Zeile 1."
+   }
+  },
+  {
+   "kennung": "R5-V011",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "vergleichen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 48350,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die zweitgrößte statt der drittgrößten Zahl genommen"
+    },
+    {
+     "antwort": 40835,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die kleinste Zahl genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vergleichen",
+    "t": "vergleichen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle zeigt, wie viele Einwohner vier Orte haben. Wie viele Einwohner hat der Ort mit der drittgrößten Einwohnerzahl?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Ort",
+       "Einwohner"
+      ],
+      "zeilen": [
+       [
+        "Altbach",
+        "48 305"
+       ],
+       [
+        "Bergau",
+        "48 350"
+       ],
+       [
+        "Clausen",
+        "40 835"
+       ],
+       [
+        "Dorfen",
+        "84 053"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 48305,
+     "einheit": "Einwohner"
+    },
+    "c": "48305",
+    "h": "Ordne die vier Zahlen der Größe nach. Beginne mit der größten.",
+    "w": "Der Größe nach: 84 053 > 48 350 > 48 305 > 40 835. Die drittgrößte Zahl ist 48 305."
+   }
+  },
+  {
+   "kennung": "R5-V012",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "vergleichen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 297,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "vom vollsten Regal das zweitkleinste abgezogen: 1 502 − 1 205"
+    },
+    {
+     "antwort": 2554,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt den Unterschied zu bilden"
+    },
+    {
+     "antwort": 252,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "vom vollsten Regal das zweitvollste abgezogen: 1 502 − 1 250"
+    }
+   ],
+   "aufgabe": {
+    "l": "vergleichen",
+    "t": "vergleichen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "In der Schulbücherei stehen vier Regale. Sie enthalten 1 205, 1 250, 1 052 und 1 502 Bücher. Wie viele Bücher mehr steht im vollsten Regal als im leersten?"
+    },
+    "o": {
+     "wert": 450,
+     "einheit": "Bücher"
+    },
+    "c": "1502 - 1052",
+    "h": "Finde zuerst das Regal mit den meisten und das mit den wenigsten Büchern. Dann vergleiche.",
+    "w": "Die meisten Bücher hat das Regal mit 1 502, die wenigsten das mit 1 052. 1 502 − 1 052 = 450."
+   }
+  },
+  {
+   "kennung": "R5-V013",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "runden_regel",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.buendeln",
+   "regel_name": "Bündeln in Zehnern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7400,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aufgerundet, weil die Einerziffer 9 beachtet wurde"
+    },
+    {
+     "antwort": 7350,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auf Zehner gerundet"
+    },
+    {
+     "antwort": 7000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auf Tausender gerundet"
+    }
+   ],
+   "aufgabe": {
+    "l": "runden_regel",
+    "t": "runden_regel",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Runde 7 349 auf volle Hunderter. Weg A: Wende die Rundungsregel an und sieh dir die Ziffer rechts neben der Rundungsstelle an. Weg B: Schreibe die beiden benachbarten vollen Hunderter auf und prüfe, zu welchem 7 349 näher liegt."
+    },
+    "o": {
+     "wert": 7300
+    },
+    "c": "(7349 + 50) // 100 * 100",
+    "h": "Die Rundungsstelle ist die Hunderterstelle. Welche Ziffer rechts daneben entscheidet?",
+    "w": "Weg A: Rechts neben den Hundertern steht die 4 (Zehnerstelle). 4 ist kleiner als 5, also wird abgerundet: 7 300. Weg B: Die Nachbarn sind 7 300 und 7 400. Der Abstand zu 7 300 ist 49, zu 7 400 ist 51. 7 300 ist näher."
+   }
+  },
+  {
+   "kennung": "R5-V014",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "runden_regel",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.buendeln",
+   "regel_name": "Bündeln in Zehnern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "runden_regel",
+    "t": "runden_regel",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Mara rundet 38 428 auf volle Hunderter. Zeile 1: Die Hunderterstelle von 38 428 ist die 4. Zeile 2: Die Ziffer links neben der 4 ist die 8. Weil 8 mindestens 5 ist, wird aufgerundet. Zeile 3: Aus 4 Hundertern werden 5 Hunderter, rechts stehen Nullen: 38 500. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Auf welcher Seite der Rundungsstelle steht die Ziffer, die entscheidet?",
+    "w": "Entscheidend ist die Ziffer rechts neben der Rundungsstelle, hier die 2 der Zehnerstelle. 2 ist kleiner als 5, also wird abgerundet: 38 400. Der erste Fehler steht in Zeile 2."
+   }
+  },
+  {
+   "kennung": "R5-V015",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "runden_uebertrag",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.buendeln",
+   "regel_name": "Bündeln in Zehnern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "abgeschnitten statt gerundet (Zehner und Einer weggelassen)"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Werte von 2 950 bis 3 050 gezählt, auch 3 050"
+    }
+   ],
+   "aufgabe": {
+    "l": "runden_uebertrag",
+    "t": "runden_uebertrag",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Zeitung meldet die Besucherzahlen eines Museums, jeweils auf volle Hunderter gerundet. In der Tabelle stehen die echten Zahlen von sechs Tagen. An wie vielen dieser Tage steht in der Zeitung 3 000?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Tag",
+       "Besucher"
+      ],
+      "zeilen": [
+       [
+        "Mo",
+        "2 949"
+       ],
+       [
+        "Di",
+        "2 950"
+       ],
+       [
+        "Mi",
+        "3 049"
+       ],
+       [
+        "Do",
+        "3 050"
+       ],
+       [
+        "Fr",
+        "2 987"
+       ],
+       [
+        "Sa",
+        "3 012"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 4,
+     "einheit": "Tage"
+    },
+    "c": "4",
+    "h": "Runde jede Zahl der Tabelle einzeln auf Hunderter. Achte auf die Zehnerziffer.",
+    "w": "Gerundet: 2 949 → 2 900; 2 950 → 3 000; 3 049 → 3 000; 3 050 → 3 100; 2 987 → 3 000; 3 012 → 3 000. An 4 Tagen steht 3 000."
+   }
+  },
+  {
+   "kennung": "R5-V016",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "runden_uebertrag",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.buendeln",
+   "regel_name": "Bündeln in Zehnern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7900,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den kleineren vollen Hunderter genannt"
+    },
+    {
+     "antwort": 7949,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Zahl zu klein: 7 949 wird abgerundet"
+    },
+    {
+     "antwort": 7500,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Grenze für Tausender gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "runden_uebertrag",
+    "t": "runden_uebertrag",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Zahl wurde auf volle Hunderter gerundet und ergibt 8 000. Welches ist die kleinste ganze Zahl, bei der das passiert?"
+    },
+    "o": {
+     "wert": 7950
+    },
+    "c": "8000 - 50",
+    "h": "Ab welcher Zehnerziffer wird aufgerundet? Gehe vom nächsten kleineren vollen Hunderter aus.",
+    "w": "Aufgerundet wird ab einer Zehnerziffer 5. Der kleinere volle Hunderter ist 7 900. Die kleinste Zahl, die zu 8 000 aufgerundet wird, ist 7 950. 7 949 würde zu 7 900 abgerundet."
+   }
+  },
+  {
+   "kennung": "R5-V017",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "runden_sinnvoll",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.buendeln",
+   "regel_name": "Bündeln in Zehnern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "abgerundet: die übrigen 42 Personen bleiben ohne Platz"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "einen Bus zu viel bestellt"
+    }
+   ],
+   "aufgabe": {
+    "l": "runden_sinnvoll",
+    "t": "runden_sinnvoll",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Für 342 Personen sollen Busse bestellt werden. In jeden Bus passen 50 Personen. Wie viele Busse werden mindestens gebraucht? Weg A: Teile und runde sinnvoll. Weg B: Zähle die Plätze für 1, 2, 3 … Busse auf, bis es reicht."
+    },
+    "o": {
+     "wert": 7,
+     "einheit": "Busse"
+    },
+    "c": "-(-342 // 50)",
+    "h": "Passen 342 Personen in 6 Busse? Probiere es.",
+    "w": "Weg A: 342 : 50 = 6 Rest 42. Die 42 Personen brauchen noch einen Bus: 7 Busse. Weg B: 6 Busse haben 300 Plätze, das reicht nicht. 7 Busse haben 350 Plätze, das reicht."
+   }
+  },
+  {
+   "kennung": "R5-V018",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "runden_sinnvoll",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.buendeln",
+   "regel_name": "Bündeln in Zehnern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "runden_sinnvoll",
+    "t": "runden_sinnvoll",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Klasse bestellt Pizza. 47 Personen essen je 2 Stücke. Eine Pizza hat 8 Stücke. Nico rechnet. Zeile 1: 47 Personen essen zusammen 47 · 2 = 94 Stücke. Zeile 2: 94 geteilt durch 8 ergibt 11 Rest 6. Zeile 3: Es reichen 11 Pizzen, weil 6 Stücke weniger als eine halbe Pizza sind. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Rechne nach: Wie viele Stücke haben 11 Pizzen? Reichen sie für 94 Stücke?",
+    "w": "11 Pizzen haben nur 11 · 8 = 88 Stücke, es fehlen 6. Man muss aufrunden: 12 Pizzen (96 Stücke). Der erste Fehler steht in Zeile 3."
+   }
+  },
+  {
+   "kennung": "R5-V019",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "unendlich",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Unterschied genommen: 11 − 3"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 und 11 mitgezählt"
+    },
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Zahlen addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "unendlich",
+    "t": "unendlich",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele natürliche Zahlen liegen zwischen 3 und 11 (ohne 3 und 11 selbst)? Weg A: Schreibe sie alle auf und zähle. Weg B: Rechne mit dem Unterschied der beiden Zahlen."
+    },
+    "o": {
+     "wert": 7,
+     "einheit": "Zahlen"
+    },
+    "c": "11 - 3 - 1",
+    "h": "Gehören 3 und 11 selbst dazu?",
+    "w": "Weg A: 4, 5, 6, 7, 8, 9, 10 sind 7 Zahlen. Weg B: 11 − 3 = 8, davon ist eine Zahl zu viel gezählt: 8 − 1 = 7."
+   }
+  },
+  {
+   "kennung": "R5-V020",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "unendlich",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 52,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 14 nur addiert, die größere Zahl nicht mehr mitgezählt: 38 + 14"
+    },
+    {
+     "antwort": 54,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "einen Schritt zu viel: 38 + 14 + 2"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied der beiden Zahlen mit 14 vertauscht: 38 − 14"
+    }
+   ],
+   "aufgabe": {
+    "l": "unendlich",
+    "t": "unendlich",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Zwischen zwei natürlichen Zahlen liegen genau 14 weitere natürliche Zahlen. Die kleinere der beiden Zahlen ist 38. Wie heißt die größere?"
+    },
+    "o": {
+     "wert": 53
+    },
+    "c": "38 + 14 + 1",
+    "h": "Die kleinere Zahl und die 14 Zahlen dazwischen sind schon aufgezählt. Was kommt als Nächstes?",
+    "w": "Nach 38 kommen die 14 Zahlen 39 bis 52. Die nächste Zahl ist 53 und damit die größere. Probe: Zwischen 38 und 53 liegen 53 − 38 − 1 = 14 Zahlen."
+   }
+  },
+  {
+   "kennung": "R5-V021",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "roemisch_schreiben",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "MCMLXXXVI",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Das ist 1986."
+    },
+    {
+     "index": 1,
+     "antwort": "MDCLXXXIV",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Das ist 1684."
+    },
+    {
+     "index": 2,
+     "antwort": "MCMLXXIV",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Das ist 1974."
+    }
+   ],
+   "aufgabe": {
+    "l": "roemisch_schreiben",
+    "t": "roemisch_schreiben",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Über dem Eingang einer Schule soll das Baujahr 1984 in römischen Zahlzeichen stehen. Welche Schreibweise ist richtig?"
+    },
+    "a": [
+     "MCMLXXXVI",
+     "MDCLXXXIV",
+     "MCMLXXIV",
+     "MCMLXXXIV"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Zerlege 1984 in Tausender, Hunderter, Zehner und Einer. Schreibe jeden Teil einzeln.",
+    "w": "1984 = 1000 + 900 + 80 + 4 = M + CM + LXXX + IV = MCMLXXXIV."
+   }
+  },
+  {
+   "kennung": "R5-V022",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "roemisch_schreiben",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "roemisch_schreiben",
+    "t": "roemisch_schreiben",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Lena schreibt die Zahl 49 in römischen Zahlzeichen. Zeile 1: 49 ist 50 − 1. Das Zeichen für 50 ist L, das Zeichen für 1 ist I. Zeile 2: Steht ein kleineres Zeichen vor einem größeren, wird es abgezogen. Also kommt die I vor die L. Zeile 3: Also schreibt man 49 als IL. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Vor welchen Zeichen darf ein I stehen, um abgezogen zu werden?",
+    "w": "Die I darf nur vor V und X stehen. 49 = 40 + 9 = XL + IX = XLIX. Der erste Fehler steht in Zeile 3."
+   }
+  },
+  {
+   "kennung": "R5-V023",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "roemisch_system",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "DCCCL",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Das ist 850."
+    },
+    {
+     "index": 2,
+     "antwort": "MCL",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Das ist 1 150."
+    },
+    {
+     "index": 3,
+     "antwort": "CDL",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Das ist 450."
+    }
+   ],
+   "aufgabe": {
+    "l": "roemisch_system",
+    "t": "roemisch_system",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "auswahl",
+    "f": {
+     "text": "Das Doppelte einer Zahl ist MCM. Welche römische Zahl ist es?"
+    },
+    "a": [
+     "DCCCL",
+     "CML",
+     "MCL",
+     "CDL"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Schreibe MCM zuerst mit Ziffern. Rechne dann rückwärts.",
+    "w": "MCM ist 1 900. Die Zahl ist die Hälfte: 1 900 : 2 = 950. 950 = 900 + 50 = CM + L = CML. Probe: 2 · 950 = 1 900."
+   }
+  },
+  {
+   "kennung": "R5-V024",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "roemisch_system",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl des Zeichens als Minuten gelesen"
+    },
+    {
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 und 5 addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "roemisch_system",
+    "t": "roemisch_system",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Zifferblatt hat römische Zahlzeichen. Der große Zeiger zeigt auf das Zeichen VI. Wie viele Minuten nach der vollen Stunde ist es? Zwischen zwei Zeichen liegen 5 Minuten."
+    },
+    "o": {
+     "wert": 30,
+     "einheit": "Minuten"
+    },
+    "c": "6 * 5",
+    "h": "Welche Zahl bedeutet VI? Wie viele Minuten liegen zwischen zwei Zeichen?",
+    "w": "VI ist 6. Zwischen zwei Zeichen liegen 5 Minuten, also 6 · 5 = 30 Minuten nach der vollen Stunde."
+   }
+  },
+  {
+   "kennung": "R5-V025",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "dualsystem",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Einsen gezählt"
+    },
+    {
+     "antwort": 63,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Stellenwerte addiert, auch bei den Nullen"
+    }
+   ],
+   "aufgabe": {
+    "l": "dualsystem",
+    "t": "dualsystem",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Welche Zahl im Zehnersystem steht hinter der Dualzahl 101101? Weg A: Addiere die Stellenwerte 1, 2, 4, 8, 16, 32 dort, wo eine 1 steht. Weg B: Gehe von links nach rechts: Verdopple die bisherige Zahl und addiere die nächste Ziffer."
+    },
+    "o": {
+     "wert": 45
+    },
+    "c": "32 + 8 + 4 + 1",
+    "h": "Von rechts nach links verdoppeln sich die Stellenwerte: 1, 2, 4 …",
+    "w": "Weg A: 32 + 8 + 4 + 1 = 45. Weg B: 1, dann 1 · 2 + 0 = 2, 2 · 2 + 1 = 5, 5 · 2 + 1 = 11, 11 · 2 + 0 = 22, 22 · 2 + 1 = 45."
+   }
+  },
+  {
+   "kennung": "R5-V026",
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "dualsystem",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "dualsystem",
+    "t": "dualsystem",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ben schreibt die Zahl 13 als Dualzahl. Zeile 1: 13 = 8 + 4 + 1. Zeile 2: Die Stellenwerte sind 8, 4, 2, 1. Also steht bei 8 eine 1, bei 4 eine 0, bei 2 eine 1 und bei 1 eine 1. Zeile 3: Die Dualzahl ist 1011. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Welche Stellenwerte wurden in der Zerlegung 8 + 4 + 1 benutzt?",
+    "w": "In 13 = 8 + 4 + 1 kommt die 2 nicht vor. Richtig: bei 8 eine 1, bei 4 eine 1, bei 2 eine 0, bei 1 eine 1: 1101. Der erste Fehler steht in Zeile 2."
+   }
+  }
+ ]
+}

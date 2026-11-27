@@ -36,6 +36,7 @@ THEMEN = {
     "trigo.rechtwinklig": ("trigo.rechtwinklig", ["seiten", "verhaeltnisse", "seite", "winkel", "beziehungen", "anwendung", "schnittwinkel"]),
     "messen.kreisberechnung": ("messen.kreisberechnung", ["umfang", "flaeche", "exakt", "verstehen", "sektor", "zusammengesetzt"]),
     "raum.pyramide_kegel_kugel": ("raum.pyramide_kegel_kugel", ["pyr_volumen", "pyr_oberflaeche", "kegel_volumen", "kegel_mantel", "kugel", "sachkontext", "verstehen"]),
+    "raum.pyramide_kegel_kugel": ("raum.pyramide_kegel_kugel", ["pyr_volumen", "pyr_oberflaeche", "kegel_volumen", "kegel_mantel", "kugel", "sachkontext", "verstehen"]),
     "messen.prisma_zylinder_teil2": ("messen.prisma_zylinder", ["cavalieri"]),
 }
 KUERZEL = "K9B"
@@ -321,7 +322,7 @@ for schl in geladen:
         assert {2, 3} <= stufen_ja, (schl, lk, "je Lernkarte mindestens eine zählende Aufgabe auf Stufe 2 und eine auf Stufe 3", sorted(e["stufe"] for e in xs))
         assert sorted(e["stufe"] for e in xs if e["form"] == "lueckenweg") in ([], [1]), (schl, lk)
         mix.append((schl, lk, formen))
-AUSNAHME = {}     # (Thema, Form): Begründung, wenn die Form fachlich nicht zweimal passt
+AUSNAHME = {("messen.prisma_zylinder_teil2", f): "nur eine Lernkarte (3 Aufgaben)" for f in GEPRUEFT}     # (Thema, Form): Begründung, wenn die Form fachlich nicht zweimal passt
 for schl in geladen:
     c = Counter(e["form"] for e in aus[schl])
     for f in GEPRUEFT:

@@ -1,0 +1,1224 @@
+{
+ "stand": "2026-11-27",
+ "flug": "finanzen.zinsen",
+ "titel": "Zinsen",
+ "fuer": "Klasse 7",
+ "klasse": 7,
+ "themen": [
+  "finanzen.zinsen"
+ ],
+ "hinweis": "Vorrat an Aufgaben in neuer Form (Auftrag 21). Nicht eingespielt. Kennungen mit K7.",
+ "aufgaben": [
+  {
+   "kennung": "K7-V001",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "begriffe",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zinssatz als Zinsbetrag genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "begriffe",
+    "t": "begriffe",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Auf einem Sparkonto liegen 1 500 €. Die Bank zahlt 2 % Jahreszinssatz. 1 % des Kapitals sind 1 500 € : 100 = ① €. Die Zinsen für ein Jahr sind 2 · ① € = ② €.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      15,
+      30
+     ]
+    },
+    "c": [
+     "1500 // 100",
+     "2 * (1500 // 100)"
+    ],
+    "h": "Rechne zuerst 1 %, dann nimm mit der Prozentzahl mal.",
+    "w": "1 % von 1 500 € sind 15 €. 2 % sind 2 · 15 € = 30 €. Das Kapital bleibt 1 500 €, der Zinssatz ist 2 %."
+   }
+  },
+  {
+   "kennung": "K7-V002",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "begriffe",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 0,
+     "antwort": "Die Bank zahlt 40 % Zinsen auf 800 €.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zinsbetrag als Zinssatz gelesen"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "Die Bank zahlt im Jahr 5 € Zinsen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zinssatz als Betrag in Euro gelesen"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "Nach einem Jahr stehen 840 % auf dem Konto.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Euro und Prozent vertauscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "begriffe",
+    "t": "begriffe",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Konto wird kurz so beschrieben: K = 800 €, p = 5 %, Z = 40 €. Welcher Satz sagt dasselbe?"
+    },
+    "a": [
+     "Die Bank zahlt 40 % Zinsen auf 800 €.",
+     "Für 800 € bekommt man im Jahr 40 € Zinsen.",
+     "Die Bank zahlt im Jahr 5 € Zinsen.",
+     "Nach einem Jahr stehen 840 % auf dem Konto."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Lies nach, welche Größe in Euro steht und welche in Prozent.",
+    "w": "K = 800 € ist das Kapital, p = 5 % der Zinssatz, Z = 40 € der Zinsbetrag für ein Jahr. 5 % von 800 € sind wirklich 40 €."
+   }
+  },
+  {
+   "kennung": "K7-V003",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "begriffe",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig: das Kapital ist der Betrag auf dem Konto"
+    },
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig: 3 % heißt 3 € je 100 €"
+    }
+   ],
+   "aufgabe": {
+    "l": "begriffe",
+    "t": "begriffe",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kind erklärt ein Konto mit K = 2 400 € und p = 3 %. Zeile 1: Das Kapital ist der Betrag auf dem Konto, also 2 400 €. Zeile 2: Der Zinssatz 3 % bedeutet 3 € für je 100 €. Zeile 3: Die Zinsen für ein Jahr sind deshalb 3 €. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "In 2 400 € steckt die 100 mehrmals.",
+    "w": "Zeile 1 und 2 stimmen. In 2 400 € stecken 24-mal 100 €, also sind die Zinsen 24 · 3 € = 72 €."
+   }
+  },
+  {
+   "kennung": "K7-V004",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "rollen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "2 000 € · 6 : 100 − 500 € · 1 : 100 = 115 €",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bekommene Zinsen von gezahlten abgezogen, obwohl nur das Gezahlte gefragt ist"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "500 € · 1 : 100 = 5 €",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Sparkonto genommen, bei dem man Zinsen bekommt"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "2 000 € · 6 : 100 + 500 € · 1 : 100 = 125 €",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Zinsen zusammengezählt, ohne auf „zahlen“ und „bekommen“ zu achten"
+    }
+   ],
+   "aufgabe": {
+    "l": "rollen",
+    "t": "rollen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Familie hat einen Kredit über 2 000 € zu 6 % und ein Sparkonto mit 500 € zu 1 %. Gefragt ist, wie viel Zinsen sie im Jahr zahlt. Welche Rechnung passt?"
+    },
+    "a": [
+     "2 000 € · 6 : 100 = 120 €",
+     "2 000 € · 6 : 100 − 500 € · 1 : 100 = 115 €",
+     "500 € · 1 : 100 = 5 €",
+     "2 000 € · 6 : 100 + 500 € · 1 : 100 = 125 €"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Zinsen zahlt man nur für geliehenes Geld.",
+    "w": "Für den Kredit zahlt die Familie 2 000 € · 6 : 100 = 120 €. Die 5 € vom Sparkonto bekommt sie, sie zahlt sie nicht. Gefragt ist nur das Gezahlte: 120 €."
+   }
+  },
+  {
+   "kennung": "K7-V005",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "rollen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "Sie hat einen Kredit aufgenommen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei einem Kredit zahlt man Zinsen, man bekommt sie nicht"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "Sie hat Geld in einer Spardose.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in der Spardose benutzt niemand das Geld, es gibt keine Zinsen"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "Sie hat Geld verliehen, ohne Zinsen zu verlangen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ohne Zinssatz gibt es keine Gutschrift"
+    }
+   ],
+   "aufgabe": {
+    "l": "rollen",
+    "t": "rollen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "auswahl",
+    "f": {
+     "text": "Am Ende eines Jahres sind einer Person 18 € Zinsen gutgeschrieben worden. Sie hat die Zinsen also bekommen. Welche Lage passt dazu?"
+    },
+    "a": [
+     "Sie hat Geld verzinst angelegt.",
+     "Sie hat einen Kredit aufgenommen.",
+     "Sie hat Geld in einer Spardose.",
+     "Sie hat Geld verliehen, ohne Zinsen zu verlangen."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Wer Zinsen bekommt, hat sein Geld jemand anderem zur Verfügung gestellt.",
+    "w": "Gutgeschriebene Zinsen bekommt man. Das passt zum verzinsten Anlegen. Bei einem Kredit zahlt man Zinsen, in der Spardose und beim zinslosen Verleihen gibt es keine."
+   }
+  },
+  {
+   "kennung": "K7-V006",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "rollen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig: für geliehenes Geld zahlt man Zinsen"
+    },
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig: die Bank benutzt das Geld und zahlt dafür"
+    }
+   ],
+   "aufgabe": {
+    "l": "rollen",
+    "t": "rollen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kind sagt: Zeile 1: Wer einen Kredit hat, zahlt Zinsen. Zeile 2: Wer Geld auf einem Sparkonto hat, bekommt Zinsen. Zeile 3: Wer Geld in einer Spardose hat, bekommt auch Zinsen. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Überlege, wer das Geld in der Spardose benutzt.",
+    "w": "Zeile 1 und 2 stimmen. Das Geld in der Spardose benutzt niemand, deshalb gibt es dafür keine Zinsen."
+   }
+  },
+  {
+   "kennung": "K7-V007",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "jahreszinsen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentzahl als Zinsbetrag genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "jahreszinsen",
+    "t": "jahreszinsen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kapital von 2 500 € wird ein Jahr lang mit 3 % verzinst. 1 % des Kapitals sind 2 500 € : 100 = ① €. Die Jahreszinsen sind 3 · ① € = ② €.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      25,
+      75
+     ]
+    },
+    "c": [
+     "2500 // 100",
+     "3 * (2500 // 100)"
+    ],
+    "h": "Erst 1 %, dann mal die Prozentzahl.",
+    "w": "1 % von 2 500 € sind 25 €. 3 % sind 3 · 25 € = 75 €."
+   }
+  },
+  {
+   "kennung": "K7-V008",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "jahreszinsen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 7200,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei Weg B das Teilen durch 100 vergessen"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim 1-%-Schritt stehen geblieben"
+    }
+   ],
+   "aufgabe": {
+    "l": "jahreszinsen",
+    "t": "jahreszinsen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Kapital von 1 200 € wird mit 6 % verzinst. Weg A: 1 % sind 12 €, davon nimmst du 6-mal. Weg B: 1 200 · 6 = 7 200, dann durch 100 teilen. Wie hoch sind die Jahreszinsen?"
+    },
+    "o": {
+     "wert": 72,
+     "einheit": "€"
+    },
+    "c": "1200 * 6 // 100",
+    "h": "Beide Wege müssen denselben Betrag ergeben.",
+    "w": "Weg A: 6 · 12 € = 72 €. Weg B: 7 200 : 100 = 72 €. Die Jahreszinsen sind 72 €."
+   }
+  },
+  {
+   "kennung": "K7-V009",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "jahreszinsen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig: 900 € : 100 = 9 €"
+    },
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig: viermal der 1-%-Betrag"
+    }
+   ],
+   "aufgabe": {
+    "l": "jahreszinsen",
+    "t": "jahreszinsen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kind rechnet die Jahreszinsen für 900 € bei 4 %. Zeile 1: 1 % von 900 € sind 9 €. Zeile 2: 4 % sind 4 · 9 € = 36 €. Zeile 3: Auf dem Konto sind nach einem Jahr 900 € − 36 € = 864 €. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Überlege, ob Zinsen das Kapital größer oder kleiner machen.",
+    "w": "Zeile 1 und 2 stimmen. Zinsen kommen dazu: 900 € + 36 € = 936 €."
+   }
+  },
+  {
+   "kennung": "K7-V010",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "jahreszinsen_komma",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 32,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den halben Prozentschritt vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "jahreszinsen_komma",
+    "t": "jahreszinsen_komma",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kapital von 1 600 € wird mit 2,5 % verzinst. 1 % sind 16 €. Nimm mit der Prozentzahl mal: 16 € · 2 = ① € und 16 € · 0,5 = 8 €. Zusammen sind das ② €.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      32,
+      40
+     ]
+    },
+    "c": [
+     "16 * 2",
+     "16 * 2 + 8"
+    ],
+    "h": "Erst mit 2 malnehmen, dann die Hälfte von 16 € dazulegen.",
+    "w": "16 € · 2 = 32 € und 16 € · 0,5 = 8 €. 2,5 % sind 32 € + 8 € = 40 €."
+   }
+  },
+  {
+   "kennung": "K7-V011",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "jahreszinsen_komma",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 1 % statt 1,5 % gerechnet"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zinssatz als Betrag genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "jahreszinsen_komma",
+    "t": "jahreszinsen_komma",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Verein legt 4 000 € für ein Jahr zu 1,5 % an. Mit den Zinsen sollen neue Trikots bezahlt werden, ein Trikot kostet 20 €. Wie viele ganze Trikots kann der Verein davon bezahlen?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "(4000 * 15 // 1000) // 20",
+    "h": "Rechne zuerst die Jahreszinsen, dann teile durch den Preis.",
+    "w": "1 % von 4 000 € sind 40 €. 1,5 % sind 40 € + 20 € = 60 €. 60 € : 20 € = 3 Trikots."
+   }
+  },
+  {
+   "kennung": "K7-V012",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "jahreszinsen_komma",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig: 1 400 € : 100 = 14 €"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig, sie rechnet aber mit dem falschen Betrag aus Zeile 2 weiter"
+    }
+   ],
+   "aufgabe": {
+    "l": "jahreszinsen_komma",
+    "t": "jahreszinsen_komma",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kind rechnet 3,5 % von 1 400 €. Zeile 1: 1 % von 1 400 € sind 14 €. Zeile 2: Jetzt mit 0,035 malnehmen: 14 € · 0,035 = 0,49 €. Zeile 3: 0,49 € sind weniger als ein Euro. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Nach dem 1-%-Schritt nimmst du mit der Prozentzahl mal.",
+    "w": "Zeile 1 stimmt, und 0,49 € sind wirklich weniger als ein Euro. Falsch ist Zeile 2: Nach dem 1-%-Schritt nimmst du mit 3,5 mal, also 14 € · 3,5 = 49 €."
+   }
+  },
+  {
+   "kennung": "K7-V013",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "zinssatz",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Kapital durch Zinsen geteilt statt umgekehrt"
+    }
+   ],
+   "aufgabe": {
+    "l": "zinssatz",
+    "t": "zinssatz",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Für ein Kapital von 600 € gibt es im Jahr 24 € Zinsen. 1 % des Kapitals sind 600 € : 100 = ① €. In den 24 € stecken 24 : ① = ② Prozentschritte.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      6,
+      4
+     ]
+    },
+    "c": [
+     "600 // 100",
+     "24 // (600 // 100)"
+    ],
+    "h": "Finde zuerst, wie viel Euro 1 % sind.",
+    "w": "1 % von 600 € sind 6 €. In 24 € stecken 24 : 6 = 4 Schritte von 1 %, der Zinssatz ist also 4 %."
+   }
+  },
+  {
+   "kennung": "K7-V014",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "zinssatz",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "750 : 30 gerechnet, also falsch herum"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den 1-%-Schritt als Antwort genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "zinssatz",
+    "t": "zinssatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Kapital von 750 € bringt im Jahr 30 € Zinsen. Weg A: 1 % sind 7,50 €, und in 30 € stecken 30 : 7,50 Schritte. Weg B: 30 : 750 = 0,04, das mal 100. Wie hoch ist der Zinssatz in Prozent?"
+    },
+    "o": {
+     "wert": 4,
+     "einheit": "%"
+    },
+    "c": "30 * 100 // 750",
+    "h": "Beide Wege führen zur gleichen Prozentzahl.",
+    "w": "Weg A: 30 : 7,50 = 4. Weg B: 0,04 · 100 = 4. Der Zinssatz ist 4 %."
+   }
+  },
+  {
+   "kennung": "K7-V015",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "zinssatz",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig, sie beschreibt das Vorgehen"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig, sie zeigt nur, dass das Ergebnis aus Zeile 2 nicht stimmen kann"
+    }
+   ],
+   "aufgabe": {
+    "l": "zinssatz",
+    "t": "zinssatz",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kind sucht den Zinssatz für 800 € Kapital und 32 € Zinsen. Zeile 1: Der Zinssatz ist Zinsen durch Kapital, mal 100. Zeile 2: Also 800 : 32 · 100 = 2 500. Zeile 3: 2 500 % wären für ein Sparkonto unmöglich viel. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Welche Zahl steht in der Rechnung vorne?",
+    "w": "Zeile 1 stimmt, und 2 500 % wären wirklich unmöglich. Falsch ist Zeile 2: Die Zinsen stehen vorne, also 32 : 800 · 100 = 4. Der Zinssatz ist 4 %."
+   }
+  },
+  {
+   "kennung": "K7-V016",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "kapital",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 225,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 5 malgenommen statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "kapital",
+    "t": "kapital",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kapital bringt bei 5 % im Jahr 45 € Zinsen. 5 % sind 45 €, also ist 1 % ein Fünftel davon: 45 € : 5 = ① €. Das ganze Kapital sind 100 %, also ① € · 100 = ② €.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      9,
+      900
+     ]
+    },
+    "c": [
+     "45 // 5",
+     "(45 // 5) * 100"
+    ],
+    "h": "Rechne über 1 %.",
+    "w": "1 % sind 45 € : 5 = 9 €. 100 % sind 9 € · 100 = 900 €."
+   }
+  },
+  {
+   "kennung": "K7-V017",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "kapital",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "54 € · 3 : 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie bei den Jahreszinsen gerechnet, also in die falsche Richtung"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "54 € · 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit der Prozentzahl malgenommen"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "54 € : 100 · 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 100 geteilt statt mit 100 malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "kapital",
+    "t": "kapital",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Satz lautet: „3 % eines Kapitals sind 54 €.“ Welche Rechnung gibt das Kapital?"
+    },
+    "a": [
+     "54 € : 3 · 100",
+     "54 € · 3 : 100",
+     "54 € · 3",
+     "54 € : 100 · 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Gehe über 1 %: erst ein Prozent, dann hundert Prozent.",
+    "w": "1 % sind 54 € : 3 = 18 €. 100 % sind 18 € · 100 = 1 800 €. Die Rechnung ist 54 € : 3 · 100."
+   }
+  },
+  {
+   "kennung": "K7-V018",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "kapital",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "Zinsen mal den Zinssatz, dann durch 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das ist der Weg für die Jahreszinsen, nicht für das Kapital"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "Zinsen mal 100, dann mal den Zinssatz",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zweimal vergrößert statt einmal geteilt"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "Zinssatz durch die Zinsen, dann mal 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zinsen und Zinssatz vertauscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "kapital",
+    "t": "kapital",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Gesucht ist das Kapital. Bekannt sind die Jahreszinsen 60 € und der Zinssatz 4 %. Welches Vorgehen führt zum Ziel?"
+    },
+    "a": [
+     "Zinsen durch den Zinssatz, dann mal 100",
+     "Zinsen mal den Zinssatz, dann durch 100",
+     "Zinsen mal 100, dann mal den Zinssatz",
+     "Zinssatz durch die Zinsen, dann mal 100"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Der Weg geht über 1 %.",
+    "w": "60 € : 4 = 15 € sind 1 %. 15 € · 100 = 1 500 € sind das Kapital."
+   }
+  },
+  {
+   "kennung": "K7-V019",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "monatszinsen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 240,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 4 malgenommen statt 4/12 genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "monatszinsen",
+    "t": "monatszinsen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kapital von 3 000 € wird mit 2 % verzinst. Die Jahreszinsen sind 3 000 € · 2 : 100 = ① €. Für 4 Monate nimmt man 4/12 davon, also ① € : 3 = ② €.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      60,
+      20
+     ]
+    },
+    "c": [
+     "3000 * 2 // 100",
+     "(3000 * 2 // 100) // 3"
+    ],
+    "h": "4 Monate sind ein Drittel des Jahres.",
+    "w": "Die Jahreszinsen sind 60 €. 4/12 ist ein Drittel, also 60 € : 3 = 20 €."
+   }
+  },
+  {
+   "kennung": "K7-V020",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "monatszinsen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "24 € durch den Zinssatz geteilt"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Monatsbetrag als Antwort genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "monatszinsen",
+    "t": "monatszinsen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Kapital von 1 800 € ist mit 4 % verzinst. Für eine bestimmte Zahl von Monaten wurden 24 € Zinsen berechnet. Für wie viele Monate war das?"
+    },
+    "o": {
+     "wert": 4,
+     "einheit": "Monate"
+    },
+    "c": "24 * 12 // (1800 * 4 // 100)",
+    "h": "Rechne zuerst, wie viel ein einzelner Monat bringt.",
+    "w": "Jahreszinsen: 1 800 € · 4 : 100 = 72 €. Ein Monat bringt 72 € : 12 = 6 €. 24 € : 6 € = 4 Monate."
+   }
+  },
+  {
+   "kennung": "K7-V021",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "monatszinsen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 360,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Zinsen genannt, das geliehene Geld fehlt"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 6540,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Jahreszinsen genommen, nicht die für 8 Monate"
+    }
+   ],
+   "aufgabe": {
+    "l": "monatszinsen",
+    "t": "monatszinsen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Werkstatt leiht sich 6 000 € zu 9 % und zahlt den Betrag nach 8 Monaten vollständig zurück. Wie viel Euro zahlt sie insgesamt zurück?"
+    },
+    "o": {
+     "wert": 6360,
+     "einheit": "€"
+    },
+    "c": "6000 + (6000 * 9 // 100) * 8 // 12",
+    "h": "Erst die Zinsen für 8 Monate, dann das geliehene Geld dazu.",
+    "w": "Jahreszinsen: 6 000 € · 9 : 100 = 540 €. Für 8 Monate: 540 € · 8 : 12 = 360 €. Zurück zu zahlen sind 6 000 € + 360 € = 6 360 €."
+   }
+  },
+  {
+   "kennung": "K7-V022",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "zeitanteil",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "2 000 € · 3 : 100 · 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "verdoppelt statt halbiert"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "2 000 € · 3 : 100 : 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch die Zahl der Monate geteilt statt durch 2"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "2 000 € · 3 : 100 · 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Zahl der Monate malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "zeitanteil",
+    "t": "zeitanteil",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kapital von 2 000 € ist mit 3 % verzinst. Gesucht sind die Zinsen für ein halbes Jahr. Welche Rechnung passt?"
+    },
+    "a": [
+     "2 000 € · 3 : 100 : 2",
+     "2 000 € · 3 : 100 · 2",
+     "2 000 € · 3 : 100 : 6",
+     "2 000 € · 3 : 100 · 6"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Ein halbes Jahr bringt die Hälfte der Jahreszinsen.",
+    "w": "Jahreszinsen: 60 €. Ein halbes Jahr: 60 € : 2 = 30 €. Also durch 2 teilen."
+   }
+  },
+  {
+   "kennung": "K7-V023",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "zeitanteil",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 276,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Jahreszinsen abgezogen statt die für ein Vierteljahr"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zinsbetrag genannt statt des fehlenden Rests"
+    }
+   ],
+   "aufgabe": {
+    "l": "zeitanteil",
+    "t": "zeitanteil",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Jugendlicher legt 1 200 € aus einem Ferienjob für ein Vierteljahr zu 2 % an. Danach will er ein Fahrrad für 300 € kaufen. Wie viel Euro muss er zum Zinsbetrag dazulegen?"
+    },
+    "o": {
+     "wert": 294,
+     "einheit": "€"
+    },
+    "c": "300 - (1200 * 2 // 100) // 4",
+    "h": "Ein Vierteljahr bringt ein Viertel der Jahreszinsen.",
+    "w": "Jahreszinsen: 1 200 € · 2 : 100 = 24 €. Ein Vierteljahr: 24 € : 4 = 6 €. Es fehlen 300 € − 6 € = 294 €."
+   }
+  },
+  {
+   "kennung": "K7-V024",
+   "thema": "finanzen.zinsen",
+   "lernkarte": "zeitanteil",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig: 2 200 € · 3 : 100 = 66 €"
+    },
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig: ein halbes Jahr hat 6 Monate"
+    }
+   ],
+   "aufgabe": {
+    "l": "zeitanteil",
+    "t": "zeitanteil",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kind rechnet die Zinsen für ein halbes Jahr bei 2 200 € und 3 %. Zeile 1: Die Jahreszinsen sind 66 €. Zeile 2: Ein halbes Jahr sind 6 von 12 Monaten. Zeile 3: Also 66 € · 6 = 396 €. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "6 von 12 Monaten sind die Hälfte des Jahres.",
+    "w": "Zeile 1 und 2 stimmen. In Zeile 3 muss man 6/12 des Jahresbetrags nehmen: 66 € : 2 = 33 €. Das Sechsfache wären die Zinsen für sechs Jahre."
+   }
+  }
+ ]
+}

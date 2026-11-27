@@ -1,6 +1,6 @@
 # Quellen und Lizenzen der Reisekarte
 
-Erzeugt von `tools/karte/bauen.mjs` (2026-11-23).
+Erzeugt von `tools/karte/bauen.mjs` (2026-11-27).
 
 - **Natural Earth** (Ländergrenzen 1:110 m und 1:50 m über das npm-Paket world-atlas; Landesteile und Hauptstädte 1:10 m): gemeinfrei (public domain), https://www.naturalearthdata.com/
 - **GeoNames** (Städte der Reise, Lage und Namen; kommen aus der Datenbank, `schule_reise_karte`): CC BY 4.0, https://www.geonames.org/

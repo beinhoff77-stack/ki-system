@@ -138,7 +138,7 @@ def main():
     insert into schule.aufgabe ({SPALTEN}) select {feld(SPALTEN, **neu)} from schule.aufgabe where id = v_basis returning id into v_u;
     v_r := {uebung('v_u', 'b2-ls-1', extra=", 'anlauf', 2")};
     v_r := api.schule_lernstand(v_key, jsonb_build_object('lernender_id', k));
-    p := p || jsonb_build_object('lernstand', (select coalesce(jsonb_agg(f), '[]'::jsonb) from jsonb_path_query(v_r, '$.**.fehler[*]') f where f->>'antworttyp' = 'bedingung'),
+    p := p || jsonb_build_object('lernstand', (select coalesce(jsonb_agg(fe), '[]'::jsonb) from jsonb_path_query(v_r, '$.**.fehler[*]') fe where fe->>'antworttyp' = 'bedingung'),
                                  'lernstand_geheim', (select coalesce(jsonb_agg(g), '[]'::jsonb) from unnest(geheim) g where position(g in v_r::text) > 0));
     v_r := api.schule_inhalt_lesen(v_key, jsonb_build_object('einheit_id', v_einheit));
     p := p || jsonb_build_object('inhalt', (select coalesce(jsonb_agg(jsonb_build_object('id', a2->'id', 'pool', a2->'pool', 'loesung', a2->'loesung')), '[]'::jsonb) from jsonb_array_elements(v_r->'aufgaben') a2 where a2->>'antworttyp' = 'bedingung'),
@@ -177,7 +177,7 @@ def main():
     elsif p->'exp_alle'->'loesung' is distinct from v_sicht or p->'exp_alle'->'frage' is distinct from v_frage then fehler := fehler || ('Expeditionen gesamt: ' || left((p->'exp_alle')::text, 300))::text; end if;
     -- Lernstand: mindestens ein Fehler-Eintrag des neuen Typs, jeder exakt mit der öffentlichen Lösung
     if jsonb_array_length(p->'lernstand') = 0 then fehler := fehler || 'Lernstand: kein Fehler-Eintrag des neuen Typs (erwarteter Datensatz fehlt)'::text;
-    elsif exists (select 1 from jsonb_array_elements(p->'lernstand') f where f->'loesung' is distinct from v_sicht or f->>'frage' is distinct from v_frage->>'text' or f->'antwort' is distinct from falsch)
+    elsif exists (select 1 from jsonb_array_elements(p->'lernstand') fe where fe->'loesung' is distinct from v_sicht or fe->>'frage' is distinct from v_frage->>'text' or fe->'antwort' is distinct from falsch)
       then fehler := fehler || ('Lernstand: ' || left((p->'lernstand')::text, 400))::text; end if;
     -- Inhalt: Test- und Übungsaufgabe erscheinen, jede Aufgabe des neuen Typs exakt mit der öffentlichen Lösung
     if not (select coalesce(jsonb_agg(i2->'id'), '[]'::jsonb) from jsonb_array_elements(p->'inhalt') i2) @> jsonb_build_array(p->'inhalt_ids'->0, p->'inhalt_ids'->1)
@@ -263,7 +263,7 @@ begin
    where s.nspname in ('schule', 'api') and p.prosrc ~ '(^|[^_a-z])loesung([^_a-z]|$)';
   if v_fn is distinct from {fn_soll} then fehler := fehler || ('Funktionen mit „loesung“ sind nicht die erwarteten: ' || array_to_string(v_fn, ', '))::text; end if;
   select count(*), string_agg(s.nspname || '.' || p.proname, ', ') into n, v_txt from pg_proc p join pg_namespace s on s.oid = p.pronamespace
-   where s.nspname in ('schule', 'api') and p.prosrc ~* '(to_jsonb|row_to_json|to_json)[[:space:]]*[(][[:space:]]*a[[:space:]]*[)]';
+   where s.nspname in ('schule', 'api') and p.prosrc like '%schule.aufgabe%' and p.prosrc ~* '(to_jsonb|row_to_json|to_json)[[:space:]]*[(][[:space:]]*a[[:space:]]*[)]';
   if n <> 0 then fehler := fehler || ('ganze Aufgabenzeile wird gesendet in: ' || v_txt)::text; end if;
 
   -- 2. Mischstand (eine der fünf Stellen der Übung zurückgedreht) muss abgewiesen werden; Gegenprobe: alte Definitionen -> Einbau ergibt die neuen
@@ -439,5 +439,27 @@ end $pruef$;
 select b from b2_bericht;""")
 
 
+def wege_probe(voll):
+    """Kleiner Probelauf: Migration einmal, dann nur Abschnitt 4b (die fünf Ausgabewege), am Ende alles zurück."""
+    z = 'do $$ begin execute (select sql from b2_mig); end $$;\n'
+    kopf = voll[:voll.index(z) + len(z)]
+    i, j = kopf.index('create temp table b2_aus'), kopf.index(z)
+    kopf = kopf[:i] + kopf[j:]
+    pb = voll[voll.index('do $pruef$'):]
+    dekl = pb[:pb.index('  -- 1. Zweiter Lauf')]
+    w = pb[pb.index('  -- 4b.'):pb.index('  -- 5. Constraints')]
+    ende = """  if array_length(fehler, 1) > 0 then raise exception 'BD-S2 PROBELAUF WEGE, Fehler, alles zurückgerollt: % ### %', array_to_string(fehler, ' | '), left(p::text, 1500); end if;
+  raise exception 'PROBELAUF WEGE bestanden, ALLES zurückgerollt (nichts eingespielt): %', p::text;
+end $pruef$;"""
+    return kopf + dekl + w + ende
+
+
 if __name__ == '__main__':
-    main()
+    if '--probe-wege' in sys.argv[1:]:
+        import io, contextlib
+        puffer = io.StringIO()
+        with contextlib.redirect_stdout(puffer):
+            main()
+        print(wege_probe(puffer.getvalue()))
+    else:
+        main()

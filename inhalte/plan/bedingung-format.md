@@ -100,6 +100,11 @@ Danach nur lesend nachgesehen: neun Funktionen vorhanden, Zweig vorhanden, Sperr
   - *Fünf übrige Ausgabewege:* je ein gezielter Lauf in einer zurückgerollten Konstellation (Testkind, Probe-Aufgaben, Testsitzung, Expedition im Entwurf, Lehrer-Zugang auf Zeit): laufender Test (nur Formatstatus), Test-Abschluss, Expedition beim Kind vor/nach, Expeditionen gesamt, Lernstand, Inhalt.
   - *Schärfere Prüfungen:* alter Typ mit fünf fachlich erwarteten Antworten (nicht nur vorher = nachher); Rollenwechsel getrennt abgesichert; Typ-Constraint exakt die Sollmenge; Menge aller Funktionen mit dem Wort „loesung“ muss genau die erwarteten 13 sein.
   - *Neu: Probelauf.* `bedingung_einspielen2.py --probe` erzeugt dasselbe Paket, das am Ende absichtlich abbricht: alles läuft, nichts bleibt. **Offen:** Das Paket ist bisher nie gelaufen (keine lokale Datenbank). Unsicher sind vor allem die fünf neuen Läufe (z. B. ob der Lernstand den Flug des Testkinds zeigt).
+- **Probeläufe 27.11. auf der echten Datenbank (Satz des Nutzers „Probelauf Teil 2“; beide endeten mit Abbruch, danach nachgeprüft: nichts ist geblieben):**
+  - *Voller Probelauf:* abgebrochen mit zwei Fehlern **im Prüfpaket, nicht in der Migration**: (1) die Suche nach „ganze Aufgabenzeile wird gesendet“ traf drei fremde Funktionen (jetzt auf Funktionen begrenzt, die `schule.aufgabe` nennen); (2) ein Name im Lernstand-Lauf war doppelt belegt (umbenannt). Alle übrigen Abschnitte liefen ohne Fehlermeldung durch: zweimalige Migration, Mischstand, alter Typ, neuer Typ, Test, Expedition, Constraints, Rechte, Laufzeit.
+  - *Kleiner Probelauf (`--probe-wege`: Migration einmal + nur die fünf Ausgabewege):* bestanden. Lernstand und Inhalt zeigen für den neuen Typ exakt die öffentliche Lösung.
+  - **Offen:** Ein voller Probelauf mit der berichtigten Fassung ist noch nicht gelaufen. Zweite Gegenprüfung (Werkstatt 1015): „Ja mit Auflagen“ – vor dem Einspielen muss der volle Lauf grün sein.
+  - **Berichtigung zur Sperre:** Die Tabelle `schule.aufgabe` ist nicht nur während des Umbaus gesperrt, sondern bis zum Ende der ganzen Transaktion (auch für Lesen). Also nur in einer Nutzungspause laufen lassen.
 - **Reihenfolge:** Teil 2 erst, wenn Teil 1 eingespielt ist und die App die neuen Felder anzeigen kann. Vorher gibt es keine Aufgabe des Typs.
 
 ## Was als Nächstes kommt

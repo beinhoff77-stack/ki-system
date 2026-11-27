@@ -1,0 +1,614 @@
+{
+ "stand": "2026-11-27",
+ "flug": "raum.schraegbilder_teil2",
+ "titel": "Koordinaten, Rotationskörper und Axialschnitt",
+ "fuer": "Klasse 7",
+ "klasse": 7,
+ "themen": [
+  "raum.schraegbilder"
+ ],
+ "hinweis": "Vorrat an Aufgaben in neuer Form (Auftrag 21). Nicht eingespielt. Kennungen mit K7.",
+ "aufgaben": [
+  {
+   "kennung": "K7-V145",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "koordinaten",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe nicht dazugezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Quader liegt mit A im Ursprung und ist 5 lang, 3 breit und 2 hoch. Es ist C(5 | 3 | 0), und G liegt senkrecht über C. Die Summe der Koordinaten von C ist 5 + 3 + 0 = ①. Bei G kommt die Höhe des Quaders dazu, seine Koordinatensumme ist ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      8,
+      10
+     ]
+    },
+    "c": [
+     "5 + 3 + 0",
+     "5 + 3 + 2"
+    ],
+    "h": "G liegt so hoch wie der Quader.",
+    "w": "C(5 | 3 | 0) hat die Summe 8. G liegt 2 höher: G(5 | 3 | 2) mit der Summe 10."
+   }
+  },
+  {
+   "kennung": "K7-V146",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "koordinaten",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 84,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen gerechnet"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Umfang gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "In einem Quader mit A im Ursprung ist G(7 | 4 | 3) die Ecke gegenüber von A. Wie viele Flächeneinheiten hat die Grundfläche?"
+    },
+    "o": {
+     "wert": 28,
+     "einheit": "FE"
+    },
+    "c": "7 * 4",
+    "h": "Die ersten beiden Koordinaten geben Länge und Breite.",
+    "w": "Der Quader ist 7 lang und 4 breit; die Höhe 3 gehört nicht zur Grundfläche. Grundfläche: 7 · 4 = 28 FE."
+   }
+  },
+  {
+   "kennung": "K7-V147",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "koordinaten",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig: E liegt 2 über dem Ursprung"
+    },
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig: auf der y-Achse sind x und z null"
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Quader liegt mit A im Ursprung, ist 5 lang, 3 breit und 2 hoch; D liegt auf der y-Achse. Ein Kind sagt: Zeile 1: E liegt senkrecht über A, also E(0 | 0 | 2). Zeile 2: D liegt auf der y-Achse, also D(0 | 3 | 0). Zeile 3: H liegt über D, also H(0 | 0 | 2). In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Vergleiche die Koordinaten von H mit denen von E.",
+    "w": "Zeile 1 und 2 stimmen. H liegt über D, also H(0 | 3 | 2). In Zeile 3 stehen die Koordinaten von E."
+   }
+  },
+  {
+   "kennung": "K7-V148",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "rotation",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "ein Zylinder mit r = 7 cm und h = 4 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Radius und Höhe vertauscht"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "ein Kegel mit r = 4 cm und h = 7 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Kegel entsteht aus einem rechtwinkligen Dreieck"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "eine Kugel mit r = 7 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Kugel entsteht aus einem Halbkreis"
+    }
+   ],
+   "aufgabe": {
+    "l": "rotation",
+    "t": "rotation",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Rechteck mit den Seiten 4 cm und 7 cm dreht sich um die 7-cm-Seite. Welcher Körper entsteht, und mit welchen Maßen?"
+    },
+    "a": [
+     "ein Zylinder mit r = 4 cm und h = 7 cm",
+     "ein Zylinder mit r = 7 cm und h = 4 cm",
+     "ein Kegel mit r = 4 cm und h = 7 cm",
+     "eine Kugel mit r = 7 cm"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Die Seite auf der Achse wird zur Höhe.",
+    "w": "Die 7-cm-Seite liegt auf der Achse und wird die Höhe. Die 4-cm-Seite dreht sich im Kreis und wird der Radius: ein Zylinder mit r = 4 cm und h = 7 cm."
+   }
+  },
+  {
+   "kennung": "K7-V149",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "rotation",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "einen Viertelkreis um eine seiner geraden Kanten",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "daraus wird nur eine halbe Kugel"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "ein Rechteck um eine Seite",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "daraus wird ein Zylinder"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "ein rechtwinkliges Dreieck um eine Kathete",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "daraus wird ein Kegel"
+    }
+   ],
+   "aufgabe": {
+    "l": "rotation",
+    "t": "rotation",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Du sollst eine Kugel durch Drehen erzeugen. Welche Fläche nimmst du, und um welche Achse?"
+    },
+    "a": [
+     "einen Halbkreis um seinen Durchmesser",
+     "einen Viertelkreis um eine seiner geraden Kanten",
+     "ein Rechteck um eine Seite",
+     "ein rechtwinkliges Dreieck um eine Kathete"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Welche Umrisslinie gehört zur Kugel?",
+    "w": "Ein Halbkreis, der um seinen Durchmesser gedreht wird, ergibt die Kugel. Das Rechteck gibt einen Zylinder, das rechtwinklige Dreieck einen Kegel, der Viertelkreis nur eine halbe Kugel."
+   }
+  },
+  {
+   "kennung": "K7-V150",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "rotation",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Radius genannt"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe verdoppelt"
+    }
+   ],
+   "aufgabe": {
+    "l": "rotation",
+    "t": "rotation",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein rechtwinkliges Dreieck mit den Katheten 5 cm und 12 cm dreht sich um die 12-cm-Kathete. Wie groß ist der Durchmesser des entstehenden Kegels?"
+    },
+    "o": {
+     "wert": 10,
+     "einheit": "cm"
+    },
+    "c": "2 * 5",
+    "h": "Die Kathete auf der Achse wird zur Höhe, die andere zum Radius.",
+    "w": "Die 12-cm-Kathete liegt auf der Achse und wird die Höhe, die 5-cm-Kathete wird der Radius. Der Durchmesser ist 2 · 5 cm = 10 cm."
+   }
+  },
+  {
+   "kennung": "K7-V151",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "axialschnitt",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit dem Radius gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "axialschnitt",
+    "t": "axialschnitt",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Zylinder hat r = 4 cm und h = 9 cm. Der Axialschnitt geht durch die Achse und erfasst den ganzen Durchmesser: 2 · 4 cm = ① cm. Das Rechteck ist also ① cm breit und 9 cm hoch; seine Fläche ist ② cm².",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      8,
+      72
+     ]
+    },
+    "c": [
+     "2 * 4",
+     "2 * 4 * 9"
+    ],
+    "h": "Der Schnitt ist 2r breit, nicht r.",
+    "w": "Der Durchmesser ist 8 cm, die Höhe 9 cm. Die Schnittfläche ist 8 · 9 = 72 cm²."
+   }
+  },
+  {
+   "kennung": "K7-V152",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "axialschnitt",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit dem Radius gerechnet"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 120,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Hälften noch einmal verdoppelt"
+    }
+   ],
+   "aufgabe": {
+    "l": "axialschnitt",
+    "t": "axialschnitt",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Zylinder hat den Durchmesser 10 cm und die Höhe 6 cm. Weg A: Durchmesser mal Höhe. Weg B: zwei Rechtecke mit r = 5 cm und h = 6 cm nebeneinanderlegen. Wie groß ist die Fläche des Axialschnitts?"
+    },
+    "o": {
+     "wert": 60,
+     "einheit": "cm²"
+    },
+    "c": "10 * 6",
+    "h": "Beide Wege müssen dieselbe Fläche ergeben.",
+    "w": "Weg A: 10 · 6 = 60 cm². Weg B: 2 · (5 · 6) = 60 cm². Der Axialschnitt hat 60 cm²."
+   }
+  },
+  {
+   "kennung": "K7-V153",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "axialschnitt",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 33,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit dem Radius gerechnet"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 132,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Schnittflächen zusammengezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "axialschnitt",
+    "t": "axialschnitt",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Dose ist ein Zylinder mit r = 3 cm und h = 11 cm. Sie wird längs genau durch die Achse aufgeschnitten. Wie groß ist eine der beiden entstehenden Schnittflächen?"
+    },
+    "o": {
+     "wert": 66,
+     "einheit": "cm²"
+    },
+    "c": "2 * 3 * 11",
+    "h": "Der Schnitt geht durch die Achse und erfasst den ganzen Durchmesser.",
+    "w": "Die Breite ist 2 · 3 cm = 6 cm, die Höhe 11 cm. Jede Schnittfläche ist 6 · 11 = 66 cm²."
+   }
+  },
+  {
+   "kennung": "K7-V154",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "koerper_symmetrie",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "ein Quader mit drei verschiedenen Kantenlängen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "der hat nur 3 Ebenen"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "eine quadratische Säule, die kein Würfel ist",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die hat 5 Ebenen"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "eine gerade Pyramide über einem Quadrat",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die hat 4 Ebenen, eine je Seite des Quadrats"
+    }
+   ],
+   "aufgabe": {
+    "l": "koerper_symmetrie",
+    "t": "koerper_symmetrie",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Körper hat 9 Symmetrieebenen. Welcher Körper ist das?"
+    },
+    "a": [
+     "ein Würfel",
+     "ein Quader mit drei verschiedenen Kantenlängen",
+     "eine quadratische Säule, die kein Würfel ist",
+     "eine gerade Pyramide über einem Quadrat"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Je mehr Kanten gleich lang sind, desto mehr Ebenen.",
+    "w": "Der Würfel hat 9 Symmetrieebenen: 3 mittige und 6 diagonale. Der Quader hat 3, die quadratische Säule 5, die gerade Pyramide über einem Quadrat 4."
+   }
+  },
+  {
+   "kennung": "K7-V155",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "koerper_symmetrie",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Spitze nicht mitgezählt"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Kanten gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "koerper_symmetrie",
+    "t": "koerper_symmetrie",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine gerade Pyramide über einem regelmäßigen n-Eck hat 7 Symmetrieebenen. Wie viele Ecken hat diese Pyramide?"
+    },
+    "o": {
+     "wert": 8,
+     "einheit": "Ecken"
+    },
+    "c": "7 + 1",
+    "h": "Bei dieser Pyramide gibt es genau n Symmetrieebenen.",
+    "w": "7 Ebenen heißen n = 7, die Grundfläche ist ein Siebeneck. Ecken: 7 + 1 = 8."
+   }
+  },
+  {
+   "kennung": "K7-V156",
+   "thema": "raum.schraegbilder_teil2",
+   "lernkarte": "koerper_symmetrie",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die waagerechte Ebene vergessen"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie beim Würfel gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "koerper_symmetrie",
+    "t": "koerper_symmetrie",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein gerades Prisma hat ein regelmäßiges Sechseck als Grundfläche. Weg A: die Regel n + 1 für gerade Prismen über regelmäßigen n-Ecken anwenden. Weg B: die senkrechten Ebenen zählen und die mittige waagerechte dazunehmen. Wie viele Symmetrieebenen hat das Prisma?"
+    },
+    "o": {
+     "wert": 7,
+     "einheit": "Ebenen"
+    },
+    "c": "6 + 1",
+    "h": "Zu den senkrechten Ebenen kommt eine waagerechte.",
+    "w": "Weg A: n + 1 = 6 + 1 = 7. Weg B: 6 senkrechte Ebenen und 1 waagerechte, zusammen 7."
+   }
+  }
+ ]
+}

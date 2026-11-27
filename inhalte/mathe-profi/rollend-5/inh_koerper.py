@@ -36,7 +36,7 @@ neu(TH, "netz", "bruecke", "darstellung", Z(
 
 # ── zylinder ──
 neu(TH, "zylinder", "lueckenweg", "direkt", L(
-    "Eine zylindrische Dose ist 12 cm hoch. Der Umfang ihrer Grundfläche ist 30 cm. Der Mantel ist ein Rechteck: Länge = Umfang, Breite = Höhe. Die Mantelfläche einer Dose ist 30 · 12 = ①. Fünf solche Dosen sollen nur am Mantel gestrichen werden, ohne Deckel und Boden: Mantelfläche aller fünf Dosen ① · 5 = ②. Ein Eimer Farbe reicht für 600 cm². Man braucht ② : 600 = ③ Eimer.",
+    "Eine zylindrische Dose ist 12 cm hoch. Der Umfang ihrer Grundfläche ist 30 cm. Der Mantel ist ein Rechteck: Länge = Umfang, Breite = Höhe. Die Mantelfläche einer Dose ist 30 · 12 = ①. Fünf solche Dosen sollen nur außen am Mantel gestrichen werden, ohne Boden und Deckel: Mantelfläche aller fünf Dosen ① · 5 = ②. Ein Eimer Farbe reicht für 600 cm². Man braucht ② : 600 = ③ Eimer.",
     ["30*12", "30*12*5", "30*12*5//600"], ["360", "1800", "3"], "Der Mantel ist so lang wie der Umfang, nicht wie der Durchmesser.", "30 · 12 = 360 cm². 360 · 5 = 1 800 cm². 1 800 : 600 = 3 Eimer.",
     {0: [(42, None, "30 + 12 gerechnet")], 1: [(210, None, "mit 42 weitergerechnet")]}), HA)
 neu(TH, "zylinder", "umkehren", "umkehr", Z(
@@ -44,9 +44,9 @@ neu(TH, "zylinder", "umkehren", "umkehr", Z(
     "420//28", "15", "Fläche = Umfang mal Höhe. Welche Rechnung macht das Malnehmen rückgängig?", "420 : 28 = 15. Probe: 28 · 15 = 420. Die Dose ist 15 cm hoch.",
     [(448, None, "28 + 420 gerechnet"), (11760, None, "malgenommen statt geteilt")], einheit="cm"), HA)
 neu(TH, "zylinder", "anwenden", "einkleidung", Z(
-    "Für jede Dose braucht man ein Etikett: ein Rechteck, 24 cm lang und 10 cm hoch. Ein Papierbogen ist 100 cm lang und 100 cm breit. Alle Etiketten werden in gleicher Richtung gelegt, mit der 24-cm-Seite längs der Bogenlänge. Wie viele ganze Etiketten passen auf einen Bogen?",
-    "(100//24)*(100//10)", "4*10", "Wie viele Etiketten passen in die Länge, wie viele in die Breite? Ein Rest zählt nicht.", "In die Länge passen 100 : 24 = 4 Etiketten (Rest 4 cm). In die Breite passen 100 : 10 = 10 Etiketten. 4 · 10 = 40. Nach der Fläche allein wären es 41, aber der Rest am Rand reicht nicht für ein Etikett.",
-    [(41, None, "nur die Flächen geteilt: 10 000 : 240 (der Rest am Rand reicht nicht für ein Etikett)"), (50, None, "100 : 24 auf 5 aufgerundet: 5 · 10")]), HA)
+    "Für jede Dose braucht man ein Etikett: ein Rechteck, 24 cm lang und 10 cm hoch. Du hast ein Papierband, das 10 cm breit und 1 000 cm lang ist. Die Etiketten werden nacheinander in einer Reihe aus dem Band geschnitten, jedes mit der 24-cm-Seite längs des Bandes. Wie viele ganze Etiketten bekommst du aus dem Band?",
+    "1000//24", "41", "Das Band ist so breit wie ein Etikett hoch. Wie oft passt die Länge 24 cm in 1 000 cm? Ein Rest zählt nicht.", "1 000 : 24 = 41 Rest 16. Es passen 41 ganze Etiketten. Für ein 42. Etikett fehlen 8 cm.",
+    [(42, None, "aufgerundet: das 42. Etikett passt nicht mehr ganz auf das Band"), (100, None, "nur durch die Höhe 10 cm geteilt")]), HA)
 
 # ── schraegbild ──
 neu(TH, "schraegbild", "zwei_wege", "mehrschritt", Z(
@@ -65,9 +65,9 @@ neu(TH, "schraegbild", "anwenden", "einkleidung", Z(
 
 # ── ansichten ──
 neu(TH, "ansichten", "fehler_detektiv", "fehler", FDZ(
-    "Kim beschreibt die drei Ansichten einer stehenden zylindrischen Dose.",
+    "Kim beschreibt die drei Ansichten einer stehenden zylinderförmigen Dose.",
     [("Von vorn sieht man ein Rechteck.", True), ("Von der Seite sieht man ebenfalls ein Rechteck.", True), ("Von oben sieht man nur den Deckel.", True), ("Der Deckel ist ein Rechteck.", False)],
-    "Welche Form hat der Deckel einer zylindrischen Dose?", "Der Deckel ist ein Kreis. Von oben sieht man deshalb einen Kreis."), HA)
+    "Welche Form hat der Deckel einer zylinderförmigen Dose?", "Der Deckel ist ein Kreis. Von oben sieht man deshalb einen Kreis."), HA)
 neu(TH, "ansichten", "verfahren_waehlen", "erkennen", W(
     "Ein Körper sieht von vorn aus wie ein Rechteck, von der Seite auch wie ein Rechteck und von oben wie ein Kreis. Welcher Körper ist es?",
     "ein stehender Zylinder: oben ein Kreis, vorn und von der Seite je ein Rechteck",

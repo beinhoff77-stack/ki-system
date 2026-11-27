@@ -619,7 +619,21 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Übertrag aus den Einern vergessen"
+    },
+    {
      "luecke": 2,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Einerziffer von ① als Übertrag genommen"
+    },
+    {
+     "luecke": 3,
      "antwort": 12,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -627,13 +641,20 @@
     },
     {
      "luecke": 3,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 3 als Übertrag gerechnet"
+    },
+    {
+     "luecke": 4,
      "antwort": 5331,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Übertrag der Hunderter vergessen"
     },
     {
-     "luecke": 3,
+     "luecke": 4,
      "antwort": 6231,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -648,24 +669,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Schriftlich 2 746 + 3 585. Einer: 6 + 5 = 11, ich schreibe 1 und merke 1. Zehner: 4 + 8 und der gemerkte Übertrag ergeben ①. Hunderter: 7 + 5 und der Übertrag aus den Zehnern (die Zehnerziffer von ①) ergeben ②. Tausender: 2 + 3 und der Übertrag aus den Hundertern (die Zehnerziffer von ②) ergeben 6. Das Ergebnis liest du von links: erst die 6 und danach die Einerziffer von ② und danach die Einerziffer von ① und zuletzt die 1 der Einer. Es ist ③.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Schriftlich 2 746 + 3 585. Einer: 6 + 5 = 11. Ich schreibe die Einerziffer hin und merke den Übertrag. Zehner: 4 + 8 und der gemerkte Übertrag ergeben ①. Ich schreibe die Einerziffer von ① hin und merke den Übertrag ②. Hunderter: 7 + 5 + ② = ③. Ich schreibe die Einerziffer von ③ hin und merke wieder den Übertrag. Tausender: 2 + 3 und der Übertrag ergeben 6. Das Ergebnis liest du von links: erst die 6 und danach die Einerziffer von ③ und danach die Einerziffer von ① und zuletzt die Einerziffer von 11. Es ist ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       13,
+      1,
       13,
       6331
      ]
     },
     "c": [
      "4+8+1",
-     "7+5+1",
+     "(4+8+1)//10",
+     "7+5+(4+8+1)//10",
      "2746+3585"
     ],
-    "h": "Den Übertrag aus der Spalte rechts davon jedes Mal mitnehmen.",
-    "w": "4 + 8 + 1 = 13, 7 + 5 + 1 = 13, Tausender 6. Ergebnis: 6 331."
+    "h": "Der Übertrag ist die Zehnerziffer der Spaltensumme.",
+    "w": "Einer: 11, Übertrag 1. Zehner: 4 + 8 + 1 = 13, Übertrag 1. Hunderter: 7 + 5 + 1 = 13, Übertrag 1. Tausender: 2 + 3 + 1 = 6. Ergebnis: 6 331."
    }
   },
   {
@@ -794,7 +817,7 @@
      "index": 0
     },
     "h": "In welche Richtung gehst du, wenn du eine positive Zahl addierst?",
-    "w": "Eine positive Zahl zu addieren heißt: nach rechts gehen. Von −7 vier Schritte nach rechts: −7 + 4 = −3."
+    "w": "Hier wird +4 addiert: vier Schritte nach rechts. Die Richtung hängt vom Vorzeichen des Summanden ab: positiv nach rechts, negativ nach links. Von −7 vier Schritte nach rechts: −7 + 4 = −3."
    }
   },
   {
@@ -860,14 +883,14 @@
      "beschreibung": "falsche Richtung"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "6 + 8 = 14",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Minus vergessen"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "(−6) + 2 = −4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -898,17 +921,24 @@
         "name": "Ziel"
        }
       ],
+      "boegen": [
+       {
+        "von": -6,
+        "bis": 2,
+        "name": "Sprung"
+       }
+      ],
       "beschriftet": "alle"
      }
     },
     "a": [
      "(−6) − 8 = −14",
-     "(−6) + 8 = 2",
      "6 + 8 = 14",
-     "(−6) + 2 = −4"
+     "(−6) + 2 = −4",
+     "(−6) + 8 = 2"
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "h": "Wie viele Schritte nach rechts sind es von −6 bis 2?",
     "w": "Von −6 bis 0 sind es 6 Schritte, von 0 bis 2 noch 2: zusammen 8 Schritte nach rechts. (−6) + 8 = 2."
@@ -1126,21 +1156,21 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "x = −8 − 5 = −13",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Umkehraufgabe nicht benutzt"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "x = 8 + 5 = 13",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Vorzeichen von −8 vergessen"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "x = (−8) : 5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1158,13 +1188,13 @@
      "text": "Du löst x − 5 = −8. Welcher Weg ist richtig?"
     },
     "a": [
+     "x = −8 + 5 = −3",
      "x = −8 − 5 = −13",
      "x = 8 + 5 = 13",
-     "x = (−8) : 5",
-     "x = −8 + 5 = −3"
+     "x = (−8) : 5"
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
     "h": "Welche Rechnung macht „minus 5“ rückgängig?",
     "w": "Minus 5 macht man mit plus 5 rückgängig: x = −8 + 5 = −3. Probe: (−3) − 5 = −8."
@@ -1433,14 +1463,14 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Viele Beispiele mit positiven Zahlen sammeln",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Beispiele ohne Gegenbeispiel beweisen nichts"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Nur den Fall b = 1 testen",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1465,13 +1495,13 @@
      "text": "Du willst prüfen, ob die Aussage „a + b ist immer größer als a“ stimmt. Was ist der beste Weg?"
     },
     "a": [
-     "Ein Gegenbeispiel suchen, zum Beispiel mit negativem b: 5 + (−2) = 3",
      "Viele Beispiele mit positiven Zahlen sammeln",
      "Nur den Fall b = 1 testen",
+     "Ein Gegenbeispiel suchen, zum Beispiel mit negativem b: 5 + (−2) = 3",
      "So lange rechnen, bis es stimmt"
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "h": "Ein einziges Gegenbeispiel genügt, um eine Aussage zu widerlegen.",
     "w": "Mit b = −2: 5 + (−2) = 3 ist kleiner als 5. Die Aussage stimmt nicht immer."

@@ -111,7 +111,7 @@
      "wert": 6
     },
     "c": "3*2",
-    "h": "Wie viele Felder hat eine Zeile? Wie viele Zeilen hätte die Tabelle dann?",
+    "h": "Wie viele Becher stünden in der Zeile für Erdbeere? Wie viele Zeilen hätte die Tabelle dann?",
     "w": "Jede Zeile hat 2 Felder (2 Soßen). Mit Erdbeere sind es 3 Zeilen: 3 · 2 = 6 Becher."
    }
   },
@@ -968,7 +968,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim zählt Wörter aus den vier Buchstaben A, B, C und D. Jeder Buchstabe darf in einem Wort genau einmal vorkommen, jedes Wort hat vier Buchstaben. Zeile 1: Für den ersten Buchstaben gibt es 4 Möglichkeiten. Zeile 2: Für den zweiten bleiben 3, für den dritten 2, für den vierten 1. Zeile 3: Die Buchstaben werden nacheinander gewählt. Zeile 4: Also gibt es 4 + 3 + 2 + 1 = 10 Wörter. In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim zählt Buchstabenfolgen aus den vier Buchstaben A, B, C und D. Die Folgen müssen keine Bedeutung haben. Jeder Buchstabe darf in einer Folge genau einmal vorkommen, jede Folge hat vier Buchstaben. Zeile 1: Für den ersten Buchstaben gibt es 4 Möglichkeiten. Zeile 2: Für den zweiten bleiben 3, für den dritten 2, für den vierten 1. Zeile 3: Die Buchstaben werden nacheinander gewählt. Zeile 4: Also gibt es 4 + 3 + 2 + 1 = 10 Folgen. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -980,7 +980,7 @@
      "index": 3
     },
     "h": "Wie verbindet man Anzahlen bei Wahlen nacheinander?",
-    "w": "Nacheinander heißt malnehmen: 4 · 3 · 2 · 1 = 24 Wörter."
+    "w": "Nacheinander heißt malnehmen: 4 · 3 · 2 · 1 = 24 Folgen."
    }
   },
   {
@@ -996,14 +996,14 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "4 · 3 · 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "als dürfte sich nichts wiederholen"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "4 + 4 + 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1014,7 +1014,7 @@
      "antwort": "4 · 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur zwei Freunde gezählt"
+     "beschreibung": "Zahl der Sorten mal Zahl der Freunde gerechnet statt 4 · 4 · 4"
     }
    ],
    "aufgabe": {
@@ -1028,13 +1028,13 @@
      "text": "Drei Freunde bestellen jeweils ein Getränk aus 4 Sorten. Dieselbe Sorte darf mehrfach bestellt werden. Es zählt, wer was bestellt: Nimmt Freund 1 Cola und Freund 2 Tee, ist das etwas anderes, als wenn es umgekehrt ist. Welche Rechnung zählt die möglichen Bestellungen?"
     },
     "a": [
+     "4 · 4 · 4",
      "4 · 3 · 2",
      "4 + 4 + 4",
-     "4 · 4 · 4",
      "4 · 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "h": "Darf sich etwas wiederholen? Dann bleibt die Auswahl bei jeder Wahl gleich groß.",
     "w": "Jeder der 3 Freunde hat 4 Sorten zur Wahl. 4 · 4 · 4 = 64 Bestellungen."

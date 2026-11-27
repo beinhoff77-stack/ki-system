@@ -68,21 +68,21 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "6³",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Basis und Exponent vertauscht"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "3 · 6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "als Malaufgabe mit nur zwei Faktoren"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "3 + 6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -100,13 +100,13 @@
      "text": "Die Zahl 3 kommt sechsmal als Faktor vor. Welche Schreibweise gehört dazu?"
     },
     "a": [
-     "3⁶",
      "6³",
      "3 · 6",
-     "3 + 6"
+     "3 + 6",
+     "3⁶"
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "h": "Die Basis ist die Zahl, die malgenommen wird. Der Exponent sagt, wie oft.",
     "w": "Sechs Faktoren 3: 3 · 3 · 3 · 3 · 3 · 3 = 3⁶ = 729. Die Potenz 6³ wäre 216."
@@ -631,14 +631,14 @@
      "beschreibung": "eine Null zu viel"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "34 · 10⁴",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "eine Null zu wenig"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "3 400 · 10⁵",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -657,12 +657,12 @@
     },
     "a": [
      "34 · 10⁶",
+     "34 · 10⁵",
      "34 · 10⁴",
-     "3 400 · 10⁵",
-     "34 · 10⁵"
+     "3 400 · 10⁵"
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "h": "Wie viele Nullen stehen hinter der 34?",
     "w": "3 400 000 = 34 und fünf Nullen = 34 · 10⁵."
@@ -888,7 +888,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim faltet ein Blatt Papier 5-mal. Er will wissen, wie viele Lagen es dann sind. Zeile 1: Nach dem 1. Falten sind es 2 Lagen. Zeile 2: Bei jedem weiteren Falten kommen 2 Lagen dazu. Zeile 3: Nach dem 5. Falten sind es 2 + 2 · 4 = 10 Lagen. In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim faltet ein Blatt Papier 5-mal. Jedes Mal faltet er das ganze schon gefaltete Paket in der Mitte. Er will wissen, wie viele Lagen es dann sind. Zeile 1: Nach dem 1. Falten sind es 2 Lagen. Zeile 2: Bei jedem weiteren Falten kommen 2 Lagen dazu. Zeile 3: Nach dem 5. Falten sind es 2 + 2 · 4 = 10 Lagen. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -898,7 +898,7 @@
     "o": {
      "index": 1
     },
-    "h": "Wie viele Lagen sind es nach dem 2. Falten? Nimm ein Blatt und falte.",
+    "h": "Wie viele Lagen sind es nach dem 3. Falten? Nimm ein Blatt und falte.",
     "w": "Beim Falten verdoppelt sich die Zahl der Lagen: 2, 4, 8, 16, 32. Nach 5-mal sind es 2⁵ = 32 Lagen."
    }
   },
@@ -935,7 +935,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Eine Kettennachricht: In Runde 1 schickt eine Person sie an 3 Personen. In jeder weiteren Runde schickt jede Person, die sie in der Runde davor neu bekommen hat, sie an 3 weitere Personen. Jeder Empfänger hat die Nachricht vorher noch nicht gehabt, und keine Person bekommt sie von zwei Absendern. Wie viele Personen bekommen die Nachricht in Runde 4 neu?"
+     "text": "Eine Kettennachricht: In Runde 1 schickt eine Person sie an 3 Personen. In jeder weiteren Runde schickt jede Person, die sie in der Runde davor neu bekommen hat, sie an 3 weitere Personen. Niemand bekommt die Nachricht zweimal: Alle Empfänger sind neu und verschieden. Wie viele Personen bekommen die Nachricht in Runde 4 neu?"
     },
     "o": {
      "wert": 81
@@ -978,7 +978,7 @@
     "g": "darstellung",
     "y": "zahl",
     "f": {
-     "text": "Die Tabelle zeigt, wie viele Lagen ein gefaltetes Papier nach dem Falten hat. Wie viele Lagen sind es nach dem 7. Falten?",
+     "text": "Die Tabelle zeigt, wie viele Lagen ein gefaltetes Papier nach dem Falten hat. Bei jedem Falten wird das ganze schon gefaltete Paket in der Mitte gefaltet. Wie viele Lagen sind es nach dem 7. Falten?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [

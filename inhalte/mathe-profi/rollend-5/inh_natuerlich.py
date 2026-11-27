@@ -54,17 +54,19 @@ neu(TH, "zahlwort_zu_ziffern", "anwenden", "einkleidung", Z(
 
 # ── ziffern_zu_zahlwort ──
 neu(TH, "ziffern_zu_zahlwort", "lueckenweg", "direkt", L(
-    "Eine Zahl wird gelesen: „achtundvierzig Millionen einhundertzwanzig“. Die 48 steht vor „Millionen“: 48 · 1 000 000 = ①. Dazu kommen 120 Einer, dazwischen wird nichts gelesen: ① + 120 = ②. Die Zahl ② hat ③ Ziffern.",
-    ["48*1000000", "48*1000000+120", "8"], ["48*10**6", "48000000+120", "8"], "Die Zahl hat Dreiergruppen für Einer, Tausender und Millionen. Welche Gruppe bleibt hier leer?", "48 · 1 000 000 = 48 000 000. Dazu 120: 48 000 120. Die Tausendergruppe ist 000. Die Zahl hat 8 Ziffern.",
-    {0: [(4800000, "fb.stellenwert.eine_stelle_daneben", "eine Null zu wenig")], 1: [(48120, None, "die leere Tausendergruppe weggelassen")], 2: [(5, None, "die Ziffern von 48 120 gezählt")]}), SS)
+    "Die Zahl 48 000 120 soll in Worten geschrieben werden. Sie hat ① Ziffern. Von diesen ① Ziffern bilden 6 Ziffern von rechts zwei volle Dreiergruppen. Links bleiben ② Ziffern übrig. Diese ② Ziffern stehen vor dem Wort „Millionen“. Die mittlere Gruppe ist eine Zahl mit dem Wert ③.",
+    ["8", "8-6", "0"], ["8", "2", "0"], "Zähle alle Ziffern. Schreibe die Zahl dann von rechts in Dreiergruppen.", "Die Zahl hat 8 Ziffern. Zwei volle Gruppen sind 6 Ziffern, links bleiben 2: 48 Millionen. Die mittlere Gruppe 000 hat den Wert 0 und wird nicht gelesen. Zahlwort: achtundvierzig Millionen einhundertzwanzig.",
+    {0: [(7, None, "eine Ziffer übersehen")], 1: [(3, None, "die linke Gruppe als volle Dreiergruppe angenommen")], 2: [(48, None, "die linke Gruppe statt der mittleren genannt"), (120, None, "die rechte Gruppe statt der mittleren genannt")]}), SS)
 neu(TH, "ziffern_zu_zahlwort", "zwei_wege", "mehrschritt", Z(
     "Zwei Wege für die Zahl 20 305 060: Weg A teilt von rechts in Dreiergruppen. Weg B rechnet: Zahl der Ziffern minus 3 minus 3. Wie viele Ziffern hat die Gruppe ganz links?",
     "8-3-3", "8%3", "Zähle zuerst alle Ziffern der Zahl.", "Die Zahl hat 8 Ziffern. Zwei volle Gruppen sind 6 Ziffern. Es bleiben 8 − 6 = 2 Ziffern ganz links: „zwanzig“.",
     [(3, None, "die linke Gruppe als voll angenommen"), (8, None, "alle Ziffern genannt")]), SS)
-neu(TH, "ziffern_zu_zahlwort", "bruecke", "darstellung", Z(
-    "Die Tafel zeigt, wie viele Millionen, Tausender und Einer eine Zahl hat. Schreibe die Zahl in Ziffern.",
-    "7*1000000+305*1000+40", "7305040", "Die Einer-Gruppe hat immer drei Ziffern.", "7 Millionen, 305 Tausender, 40 Einer: 7 305 040. Die Einer-Gruppe heißt 040.",
-    [(730540, None, "die Einer-Gruppe nicht mit 040 geschrieben")],
+neu(TH, "ziffern_zu_zahlwort", "bruecke", "darstellung", W(
+    "Die Tafel zeigt, wie viele Millionen, Tausender und Einer eine Zahl hat. Welches Zahlwort gehört zu der Zahl?",
+    "sieben Millionen dreihundertfünftausend vierzig",
+    [("sieben Millionen dreihundertfünf vierzig", "das Wort „tausend“ vergessen"), ("sieben Millionen dreihundertfünftausend vierhundert", "die Einer-Gruppe 40 als 400 gelesen"), ("siebenhundertdreißigtausend fünfhundertvierzig", "die Zahl 730 540 gelesen: Gruppen falsch zusammengesetzt")],
+    "Lies die Gruppen von links nach rechts. Hinter jeder Gruppe steht ihr Wort.", "7 Millionen, 305 Tausender, 40 Einer: sieben Millionen dreihundertfünftausend vierzig. Die Zahl ist 7 305 040.",
+    7 * 10**6 + 305 * 10**3 + 40 == 7305040,
     grafik=TAB(["Mio.", "Tsd.", "Einer"], ["7", "305", "40"])), SS)
 
 # ── strahl_ablesen ──

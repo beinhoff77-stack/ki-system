@@ -65,9 +65,9 @@ neu(TH, "betrag", "anwenden", "einkleidung", Z(
 
 # ── schriftlich_plus_minus ──
 neu(TH, "schriftlich_plus_minus", "lueckenweg", "direkt", L(
-    "Schriftlich 2 746 + 3 585. Einer: 6 + 5 = 11, ich schreibe 1 und merke 1. Zehner: 4 + 8 und der gemerkte Übertrag ergeben ①. Hunderter: 7 + 5 und der Übertrag aus den Zehnern (die Zehnerziffer von ①) ergeben ②. Tausender: 2 + 3 und der Übertrag aus den Hundertern (die Zehnerziffer von ②) ergeben 6. Das Ergebnis liest du von links: erst die 6 und danach die Einerziffer von ② und danach die Einerziffer von ① und zuletzt die 1 der Einer. Es ist ③.",
-    ["4+8+1", "7+5+1", "2746+3585"], ["13", "13", "6331"], "Den Übertrag aus der Spalte rechts davon jedes Mal mitnehmen.", "4 + 8 + 1 = 13, 7 + 5 + 1 = 13, Tausender 6. Ergebnis: 6 331.",
-    {1: [(12, None, "den Übertrag aus den Zehnern vergessen")], 2: [(5331, None, "den Übertrag der Hunderter vergessen"), (6231, None, "einen Übertrag vergessen")]}), ST)
+    "Schriftlich 2 746 + 3 585. Einer: 6 + 5 = 11. Ich schreibe die Einerziffer hin und merke den Übertrag. Zehner: 4 + 8 und der gemerkte Übertrag ergeben ①. Ich schreibe die Einerziffer von ① hin und merke den Übertrag ②. Hunderter: 7 + 5 + ② = ③. Ich schreibe die Einerziffer von ③ hin und merke wieder den Übertrag. Tausender: 2 + 3 und der Übertrag ergeben 6. Das Ergebnis liest du von links: erst die 6 und danach die Einerziffer von ③ und danach die Einerziffer von ① und zuletzt die Einerziffer von 11. Es ist ④.",
+    ["4+8+1", "(4+8+1)//10", "7+5+(4+8+1)//10", "2746+3585"], ["13", "1", "13", "6331"], "Der Übertrag ist die Zehnerziffer der Spaltensumme.", "Einer: 11, Übertrag 1. Zehner: 4 + 8 + 1 = 13, Übertrag 1. Hunderter: 7 + 5 + 1 = 13, Übertrag 1. Tausender: 2 + 3 + 1 = 6. Ergebnis: 6 331.",
+    {0: [(12, None, "den Übertrag aus den Einern vergessen")], 1: [(3, None, "die Einerziffer von ① als Übertrag genommen")], 2: [(12, None, "den Übertrag aus den Zehnern vergessen"), (15, None, "mit 3 als Übertrag gerechnet")], 3: [(5331, None, "den Übertrag der Hunderter vergessen"), (6231, None, "einen Übertrag vergessen")]}), ST)
 neu(TH, "schriftlich_plus_minus", "zwei_wege", "mehrschritt", Z(
     "Berechne 5 000 − 1 876. Weg A: schriftlich subtrahieren mit Tauschen. Weg B: erst 5 000 − 2 000 = 3 000, dann den zu viel abgezogenen Teil wieder addieren. Wie groß ist das Ergebnis?",
     "5000-1876", "3000+(2000-1876)", "Wie viel hast du bei Weg B zu viel abgezogen?", "Weg A: 5 000 − 1 876 = 3 124. Weg B: 2 000 − 1 876 = 124 zu viel. 3 000 + 124 = 3 124.",
@@ -81,7 +81,7 @@ neu(TH, "schriftlich_plus_minus", "anwenden", "einkleidung", Z(
 neu(TH, "addieren", "fehler_detektiv", "fehler", FDZ(
     "Kim rechnet (−7) + 4.",
     [("Die 4 ist positiv. Wer sie addiert, geht auf der Zahlengeraden nach links.", (-7) + 4 == (-7) - 4), ("Ich starte bei −7 und gehe 4 Schritte nach links.", True), ("Ich lande bei −11.", True)],
-    "In welche Richtung gehst du, wenn du eine positive Zahl addierst?", "Eine positive Zahl zu addieren heißt: nach rechts gehen. Von −7 vier Schritte nach rechts: −7 + 4 = −3."), PM)
+    "In welche Richtung gehst du, wenn du eine positive Zahl addierst?", "Hier wird +4 addiert: vier Schritte nach rechts. Die Richtung hängt vom Vorzeichen des Summanden ab: positiv nach rechts, negativ nach links. Von −7 vier Schritte nach rechts: −7 + 4 = −3."), PM)
 neu(TH, "addieren", "umkehren", "umkehr", Z(
     "Zu einer Zahl wird 9 addiert. Das Ergebnis ist −2. Wie heißt die Zahl?",
     "-2-9", "-11", "Kehre die Addition um: minus 9.", "−2 − 9 = −11. Probe: (−11) + 9 = −2.",
@@ -91,7 +91,7 @@ neu(TH, "addieren", "bruecke", "darstellung", W(
     "(−6) + 8 = 2", [("(−6) − 8 = −14", "falsche Richtung"), ("6 + 8 = 14", "das Minus vergessen"), ("(−6) + 2 = −4", "das Ziel als Sprunglänge genommen")],
     "Wie viele Schritte nach rechts sind es von −6 bis 2?", "Von −6 bis 0 sind es 6 Schritte, von 0 bis 2 noch 2: zusammen 8 Schritte nach rechts. (−6) + 8 = 2.",
     -6 + 8 == 2 and -6 - 8 != 2 and 6 + 8 != 2 and -6 + 2 != 2,
-    grafik={"typ": "zahlenstrahl", "start": -10, "ende": 10, "abschnitte": 20, "punkte": [{"wert": -6, "name": "Start"}, {"wert": 2, "name": "Ziel"}], "beschriftet": "alle"}), PM)
+    grafik={"typ": "zahlenstrahl", "start": -10, "ende": 10, "abschnitte": 20, "punkte": [{"wert": -6, "name": "Start"}, {"wert": 2, "name": "Ziel"}], "boegen": [{"von": -6, "bis": 2, "name": "Sprung"}], "beschriftet": "alle"}), PM)
 
 # ── subtrahieren ──
 neu(TH, "subtrahieren", "lueckenweg", "direkt", L(

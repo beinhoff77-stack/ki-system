@@ -356,7 +356,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Eine zylindrische Dose ist 12 cm hoch. Der Umfang ihrer Grundfläche ist 30 cm. Der Mantel ist ein Rechteck: Länge = Umfang, Breite = Höhe. Die Mantelfläche einer Dose ist 30 · 12 = ①. Fünf solche Dosen sollen nur am Mantel gestrichen werden, ohne Deckel und Boden: Mantelfläche aller fünf Dosen ① · 5 = ②. Ein Eimer Farbe reicht für 600 cm². Man braucht ② : 600 = ③ Eimer.",
+     "text": "Eine zylindrische Dose ist 12 cm hoch. Der Umfang ihrer Grundfläche ist 30 cm. Der Mantel ist ein Rechteck: Länge = Umfang, Breite = Höhe. Die Mantelfläche einer Dose ist 30 · 12 = ①. Fünf solche Dosen sollen nur außen am Mantel gestrichen werden, ohne Boden und Deckel: Mantelfläche aller fünf Dosen ① · 5 = ②. Ein Eimer Farbe reicht für 600 cm². Man braucht ② : 600 = ③ Eimer.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -433,16 +433,16 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 41,
+     "antwort": 42,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Flächen geteilt: 10 000 : 240 (der Rest am Rand reicht nicht für ein Etikett)"
+     "beschreibung": "aufgerundet: das 42. Etikett passt nicht mehr ganz auf das Band"
     },
     {
-     "antwort": 50,
+     "antwort": 100,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "100 : 24 auf 5 aufgerundet: 5 · 10"
+     "beschreibung": "nur durch die Höhe 10 cm geteilt"
     }
    ],
    "aufgabe": {
@@ -453,14 +453,14 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Für jede Dose braucht man ein Etikett: ein Rechteck, 24 cm lang und 10 cm hoch. Ein Papierbogen ist 100 cm lang und 100 cm breit. Alle Etiketten werden in gleicher Richtung gelegt, mit der 24-cm-Seite längs der Bogenlänge. Wie viele ganze Etiketten passen auf einen Bogen?"
+     "text": "Für jede Dose braucht man ein Etikett: ein Rechteck, 24 cm lang und 10 cm hoch. Du hast ein Papierband, das 10 cm breit und 1 000 cm lang ist. Die Etiketten werden nacheinander in einer Reihe aus dem Band geschnitten, jedes mit der 24-cm-Seite längs des Bandes. Wie viele ganze Etiketten bekommst du aus dem Band?"
     },
     "o": {
-     "wert": 40
+     "wert": 41
     },
-    "c": "(100//24)*(100//10)",
-    "h": "Wie viele Etiketten passen in die Länge, wie viele in die Breite? Ein Rest zählt nicht.",
-    "w": "In die Länge passen 100 : 24 = 4 Etiketten (Rest 4 cm). In die Breite passen 100 : 10 = 10 Etiketten. 4 · 10 = 40. Nach der Fläche allein wären es 41, aber der Rest am Rand reicht nicht für ein Etikett."
+    "c": "1000//24",
+    "h": "Das Band ist so breit wie ein Etikett hoch. Wie oft passt die Länge 24 cm in 1 000 cm? Ein Rest zählt nicht.",
+    "w": "1 000 : 24 = 41 Rest 16. Es passen 41 ganze Etiketten. Für ein 42. Etikett fehlen 8 cm."
    }
   },
   {
@@ -526,21 +526,21 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "4 cm, 3 cm, 5 cm",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "alle Kanten halbiert"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "8 cm, 6 cm, 10 cm",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nichts verkürzt"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "8 cm, 3 cm, 10 cm",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -575,13 +575,13 @@
      }
     },
     "a": [
-     "8 cm, 6 cm, 5 cm",
      "4 cm, 3 cm, 5 cm",
      "8 cm, 6 cm, 10 cm",
-     "8 cm, 3 cm, 10 cm"
+     "8 cm, 3 cm, 10 cm",
+     "8 cm, 6 cm, 5 cm"
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "h": "Nur eine Richtung wird verkürzt. Welche?",
     "w": "Breite und Höhe liegen vorn und bleiben in wahrer Größe. Nur die Tiefe nach hinten wird halbiert: 10 : 2 = 5 cm."
@@ -673,7 +673,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim beschreibt die drei Ansichten einer stehenden zylindrischen Dose. Zeile 1: Von vorn sieht man ein Rechteck. Zeile 2: Von der Seite sieht man ebenfalls ein Rechteck. Zeile 3: Von oben sieht man nur den Deckel. Zeile 4: Der Deckel ist ein Rechteck. In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim beschreibt die drei Ansichten einer stehenden zylinderförmigen Dose. Zeile 1: Von vorn sieht man ein Rechteck. Zeile 2: Von der Seite sieht man ebenfalls ein Rechteck. Zeile 3: Von oben sieht man nur den Deckel. Zeile 4: Der Deckel ist ein Rechteck. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -684,7 +684,7 @@
     "o": {
      "index": 3
     },
-    "h": "Welche Form hat der Deckel einer zylindrischen Dose?",
+    "h": "Welche Form hat der Deckel einer zylinderförmigen Dose?",
     "w": "Der Deckel ist ein Kreis. Von oben sieht man deshalb einen Kreis."
    }
   },
@@ -708,14 +708,14 @@
      "beschreibung": "von oben sieht ein Quader nie rund aus"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "ein Kegel, denn er hat einen Kreis",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "von vorn sieht ein Kegel wie ein Dreieck aus"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "eine Kugel, denn sie ist rund",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -734,12 +734,12 @@
     },
     "a": [
      "ein Quader, denn er hat überall Rechtecke",
+     "ein stehender Zylinder: oben ein Kreis, vorn und von der Seite je ein Rechteck",
      "ein Kegel, denn er hat einen Kreis",
-     "eine Kugel, denn sie ist rund",
-     "ein stehender Zylinder: oben ein Kreis, vorn und von der Seite je ein Rechteck"
+     "eine Kugel, denn sie ist rund"
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "h": "Prüfe jeden Körper mit allen drei Ansichten.",
     "w": "Nur beim Zylinder passt alles: vorn und seitlich ein Rechteck, oben ein Kreis."

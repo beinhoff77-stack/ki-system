@@ -375,14 +375,14 @@
      "beschreibung": "Klammer gesetzt, die im Text nicht vorkommt"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "5 − 4 · 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Zahlen in falscher Reihenfolge"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "(5 + 4) · 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -401,12 +401,12 @@
     },
     "a": [
      "5 · (4 − 3)",
-     "5 · 4 − 3",
      "5 − 4 · 3",
-     "(5 + 4) · 3"
+     "(5 + 4) · 3",
+     "5 · 4 − 3"
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "h": "Das Fünffache von 4 ist eine Rechnung für sich.",
     "w": "Das Fünffache von 4 ist 5 · 4. Davon werden 3 abgezogen: 5 · 4 − 3 = 17."
@@ -792,21 +792,21 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "7 · 40 + 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Breite nur beim ersten Teil benutzt"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "7 + 40 · 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Längen und Breiten gemischt"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "7 · 40 · 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -844,13 +844,13 @@
      }
     },
     "a": [
+     "7 · 40 + 7 · 3",
      "7 · 40 + 3",
      "7 + 40 · 3",
-     "7 · 40 · 3",
-     "7 · 40 + 7 · 3"
+     "7 · 40 · 3"
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
     "h": "Fläche jedes Teils: Länge mal Breite. Dann zusammenzählen.",
     "w": "Links: 40 · 7, rechts: 3 · 7. Zusammen 7 · 40 + 7 · 3 = 280 + 21 = 301 m². Das ist auch 7 · 43."
@@ -1153,14 +1153,14 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "5 + (−12)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "addiert statt malgenommen"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "(−5) · (−12)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1185,13 +1185,13 @@
      "text": "Dein Kontostand sinkt an 5 Tagen um je 12 €. Welche Rechnung gibt die Änderung insgesamt?"
     },
     "a": [
-     "5 · (−12)",
      "5 + (−12)",
      "(−5) · (−12)",
+     "5 · (−12)",
      "(−12) : 5"
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "h": "5-mal dieselbe Änderung heißt: malnehmen. Sinken heißt: minus.",
     "w": "Jeden Tag −12 €, an 5 Tagen: 5 · (−12) = −60 €."
@@ -1815,14 +1815,14 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "24 durch 5 472 teilen",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Teiler und Zahl vertauscht"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Die Ziffern von 5 472 addieren und durch 24 teilen",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1847,13 +1847,13 @@
      "text": "Du teilst 5 472 durch 24 schriftlich. Was hilft dir dabei am meisten?"
     },
     "a": [
+     "Die Vielfachen von 24 aufschreiben: 24, 48, 72, 96, …",
      "24 durch 5 472 teilen",
      "Die Ziffern von 5 472 addieren und durch 24 teilen",
-     "Die Vielfachen von 24 aufschreiben: 24, 48, 72, 96, …",
      "Nur 5 : 24 rechnen und Nullen anhängen"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "h": "Welche Hilfsliste zeigt dir, wie oft 24 hineinpasst?",
     "w": "Mit den Vielfachen von 24 siehst du schnell, wie oft 24 in 54, 67 und 192 passt. Ergebnis: 5 472 : 24 = 228."

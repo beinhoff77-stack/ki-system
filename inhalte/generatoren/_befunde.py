@@ -55,7 +55,7 @@ class Befunde:
         self.zusatz = []       # (lz, s, aufgabe)
         self.ersetzt = []      # alte Fragetexte
         self.nicht = []        # (Befund, Begründung)
-        self.sebastian = []    # Hinweise „für den Nutzer“
+        self.nutzer = []    # Hinweise „für den Nutzer“
         self.zaehler = collections.Counter()
 
     # ---------- Bausteine ----------
@@ -96,8 +96,8 @@ class Befunde:
     def nicht_umgesetzt(self, befund, grund):
         self.nicht.append((befund, grund))
 
-    def fuer_sebastian(self, text):
-        self.sebastian.append(text)
+    def fuer_nutzer(self, text):
+        self.nutzer.append(text)
 
     # ---------- Anwenden ----------
     def _treffer(self, d, lz, text, enthaelt, pools):
@@ -179,7 +179,7 @@ def mit_befunden(baue, bef):
         print('  BEFUNDE ' + bef.bericht())
         # Liste für das Postfach (wird vom Bericht-Skript gelesen)
         (Path('/tmp') / f'befunde_{meta["thema_schluessel"]}.json').write_text(json.dumps(
-            {'ersetzt': bef.ersetzt, 'nicht': bef.nicht, 'sebastian': bef.sebastian, 'zaehler': dict(bef.zaehler)}, ensure_ascii=False, indent=1))
+            {'ersetzt': bef.ersetzt, 'nicht': bef.nicht, 'nutzer': bef.nutzer, 'zaehler': dict(bef.zaehler)}, ensure_ascii=False, indent=1))
         return d
     return baue_befunde
 
@@ -190,7 +190,7 @@ def befunde_anwenden(datei, bef):
     bef.anwenden(datei)
     print('  BEFUNDE ' + bef.bericht())
     (Path('/tmp') / f'befunde_{bef.thema}.json').write_text(json.dumps(
-        {'ersetzt': bef.ersetzt, 'nicht': bef.nicht, 'sebastian': bef.sebastian, 'zaehler': dict(bef.zaehler)}, ensure_ascii=False, indent=1))
+        {'ersetzt': bef.ersetzt, 'nicht': bef.nicht, 'nutzer': bef.nutzer, 'zaehler': dict(bef.zaehler)}, ensure_ascii=False, indent=1))
     return datei
 
 

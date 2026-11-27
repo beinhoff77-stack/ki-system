@@ -653,7 +653,7 @@ BF.ersetze('eliminieren', 'Gegeben: (I) −x − 2y − z = −10; (III) −2x �
     '(III) − 2 · (I): −2x − (−2x) = 0, −4y − (−4y) = 0, −z − (−2z) = z; rechts −20 − (−20) = 0. Es bleibt z = 0 – hier fallen x und y zugleich weg.',
     'Rechne Glied für Glied, auch auf der rechten Seite.'))
 BF.nicht_umgesetzt('loesen S3 „Wie viele Lösungen hat das System …?“ (unendlich viele)', 'Lösungen richtig; als Vertiefung vertretbar. Die Lernkarte bleibt unverändert (siehe „für den Nutzer“).')
-BF.fuer_sebastian('gleichungen.lgs3/loesen: Stufe-3-Aufgaben „Wie viele Lösungen hat das System …?“ (keine/unendlich viele) gehen über den LehrplanPLUS-Text hinaus und werden auf der Lernkarte nicht erklärt – Erklärung ergänzen oder als Vertiefung kennzeichnen?')
+BF.fuer_nutzer('gleichungen.lgs3/loesen: Stufe-3-Aufgaben „Wie viele Lösungen hat das System …?“ (keine/unendlich viele) gehen über den LehrplanPLUS-Text hinaus und werden auf der Lernkarte nicht erklärt – Erklärung ergänzen oder als Vertiefung kennzeichnen?')
 
 # ---- BEFUNDE ENDE ----
 
@@ -709,7 +709,7 @@ DS.neu('parabel', 3, DS.A('Jemand setzt den Punkt (−2 | 5) in y = ax² + bx + 
 # sachaufgabe: Zahlenrätsel wie Stufe 1; Sportverein wie Stufe 2
 DS.stufe('sachaufgabe', 'Drei Zahlen haben die Summe 20. Die zweite ist doppelt so groß wie die erste, die dritte um 4 größer als die erste. Wie heißen die Zahlen?', 1)
 DS.stufe('sachaufgabe', 'Ein Sportverein hat 75 Mitglieder in den Abteilungen Fußball, Tennis und Schwimmen (jedes Mitglied in genau einer). Fußball hat 3-mal so viele Mitglieder wie Tennis, Schwimmen 20 mehr als Tennis. Wie viele sind es je Abteilung?', 2)
-DS.fuer_sebastian('gleichungen.lgs3: Der LehrplanPLUS M9 2.2 verlangt LGS mit drei Unbekannten nur für Parabelpunkte; die ISB-Schwerpunktsetzung erlaubt „wenige, einfache Beispiele“. Sechs Lernkarten (Prüfen, Stufenform, Eliminieren, Lösen, Parabel, Sachaufgaben) sind dafür viel – Vorschlag: pruefen, stufenform, eliminieren als Vertiefung oder zusammenfassen.')
+DS.fuer_nutzer('gleichungen.lgs3: Der LehrplanPLUS M9 2.2 verlangt LGS mit drei Unbekannten nur für Parabelpunkte; die ISB-Schwerpunktsetzung erlaubt „wenige, einfache Beispiele“. Sechs Lernkarten (Prüfen, Stufenform, Eliminieren, Lösen, Parabel, Sachaufgaben) sind dafür viel – Vorschlag: pruefen, stufenform, eliminieren als Vertiefung oder zusammenfassen.')
 
 if __name__ == '__main__':
     durchsicht('gleichungen.lgs3', DS)

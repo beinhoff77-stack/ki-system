@@ -1,7 +1,7 @@
 """Sechsundzwanzigste Runde (Zweig potenz-teilen, 20.11.): Potenzgesetze in zwei eigene Flüge teilen.
 
 Grundlage: inhalte/AUFTRAEGE.md „Sechsundzwanzigste Runde“ und inhalte/postfach/lehrplan-lb.md (AUFTRAGSENTWURF,
-ENTSCHEIDUNG SEBASTIAN).
+ENTSCHEIDUNG DES NUTZERS).
 
   Flug A  terme.potenzgesetze_natuerlich (thema_id 102, Samarkand 62)  – die vier Potenz-Lernkarten aus terme.umformen,
           Lernziel-Schlüssel unverändert; Aufgaben mit negativen Exponenten → Flug B, ersetzt durch gleichwertige mit

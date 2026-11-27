@@ -390,7 +390,7 @@ DS.ersetze('zeitanteil', 'Jemand rechnet für 4 500 € zu 4 % und ein halbes Ja
 DS.neu('zeitanteil', 3, _DA('2 000 € liegen zu 3 % Jahreszinssatz auf einem Konto. Wie lange muss das Geld liegen, damit es 15 € Zinsen gibt?', 'ein Vierteljahr',
                           ['ein halbes Jahr', 'ein ganzes Jahr', 'einen Monat'], 'Ein Jahr bringt 60 €. 15 € sind ein Viertel davon, also ein Vierteljahr.', 'Rechne zuerst die Jahreszinsen aus.'))
 
-DS.fuer_sebastian('finanzen.zinsen überschneidet sich mit bruch.prozent / zinsen (Jahres-, Monats-, Kapital-Aufgaben in beiden Flügen).')
+DS.fuer_nutzer('finanzen.zinsen überschneidet sich mit bruch.prozent / zinsen (Jahres-, Monats-, Kapital-Aufgaben in beiden Flügen).')
 baue = mit_befunden(baue, DS)
 # ---- DURCHSICHT ENDE ----
 

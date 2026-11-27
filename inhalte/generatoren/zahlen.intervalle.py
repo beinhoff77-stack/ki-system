@@ -482,7 +482,7 @@ BF.stufe('schreiben', 'Schreibe als Intervall: alle Zahlen zwischen −5 und −
 BF.stufe('schreiben', 'Schreibe als Intervall: alle Zahlen zwischen −9 und −1, beide Grenzen eingeschlossen.', 2)
 BF.stufe('schreiben', 'Schreibe als Intervall: alle Zahlen zwischen −12 und 8, beide Grenzen ausgeschlossen.', 2)
 BF.nicht_umgesetzt('enthalten S1 „Welche Zahl liegt im Intervall [1; 7]?“ hat nur 3 Antworten', 'Zulässig und richtig; kein Fehler.')
-BF.fuer_sebastian('zahlen.intervalle: lehrplan_gym der Karten ist leer – das Thema hat keine eigene LehrplanPLUS-Zeile (Inhalt gehört zu Ungleichungen, Kl. 8). Karten-Text nicht geändert.')
+BF.fuer_nutzer('zahlen.intervalle: lehrplan_gym der Karten ist leer – das Thema hat keine eigene LehrplanPLUS-Zeile (Inhalt gehört zu Ungleichungen, Kl. 8). Karten-Text nicht geändert.')
 
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----

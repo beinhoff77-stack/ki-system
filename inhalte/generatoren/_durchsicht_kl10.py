@@ -46,7 +46,7 @@ class Durchsicht:
         self.karten = {}
         self.offen = []
         self.ersetzt = []
-        self.sebastian = []
+        self.nutzer = []
         self.z = collections.Counter()
 
     def A(self, text, richtig, falsche, w, h, grafik=None):
@@ -86,8 +86,8 @@ class Durchsicht:
     def offen_neu(self, text):
         self.offen.append(text)
 
-    def fuer_sebastian(self, text):
-        self.sebastian.append(text)
+    def fuer_nutzer(self, text):
+        self.nutzer.append(text)
 
     def anwenden(self, mindestens=4):
         pfad = THEMEN / f'{self.thema}.json'
@@ -143,7 +143,7 @@ class Durchsicht:
         pfad.write_text(json.dumps(d, ensure_ascii=False, indent=1) + ('\n' if roh.endswith('\n') else ''), encoding='utf-8')
         print(f'  DURCHSICHT {self.thema}: ' + ', '.join(f'{k} {v}' for k, v in self.z.items()))
         Path(f'/tmp/durchsicht_{self.thema}.json').write_text(json.dumps(
-            {'ersetzt': self.ersetzt, 'sebastian': self.sebastian, 'zaehler': dict(self.z), 'karten': sorted(self.karten)}, ensure_ascii=False, indent=1))
+            {'ersetzt': self.ersetzt, 'nutzer': self.nutzer, 'zaehler': dict(self.z), 'karten': sorted(self.karten)}, ensure_ascii=False, indent=1))
         return d
 
 

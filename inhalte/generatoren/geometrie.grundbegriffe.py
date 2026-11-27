@@ -823,7 +823,7 @@ BF.ersetze('kreis_lage', 'Zwei Kreise haben die Radien 7 cm und 4 cm. Ihre Mitte
     'Ein Kreis um M(2 | 1) hat den Radius 4. Die waagrechte Gerade g geht durch alle Punkte mit y = −3. Wie viele gemeinsame Punkte haben Kreis und g?', 1, '1',
     'Abstand von M zu g: 1 − (−3) = 4. Das ist genau der Radius. g berührt den Kreis in einem Punkt (2 | −3): g ist eine Tangente.',
     'Berechne den Abstand des Mittelpunkts von der Geraden und vergleiche ihn mit dem Radius.'))
-BF.fuer_sebastian('geometrie.grundbegriffe/kreis_lage: Die Lernkarte erklärt nur Kreis und Gerade; die übrigen Stufe-3-Aufgaben zu zwei Kreisen (von außen berühren, getrennt) setzen r₁ + r₂ voraus. Erklärung ergänzen oder Aufgaben belassen? Karten-Text nicht geändert.')
+BF.fuer_nutzer('geometrie.grundbegriffe/kreis_lage: Die Lernkarte erklärt nur Kreis und Gerade; die übrigen Stufe-3-Aufgaben zu zwei Kreisen (von außen berühren, getrennt) setzen r₁ + r₂ voraus. Erklärung ergänzen oder Aufgaben belassen? Karten-Text nicht geändert.')
 
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----

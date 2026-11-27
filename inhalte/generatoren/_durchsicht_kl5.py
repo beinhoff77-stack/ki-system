@@ -70,7 +70,7 @@ def durchsicht_anwenden(datei, ds):
     print('  DURCHSICHT ' + ds.bericht())
     (Path('/tmp') / f'durchsicht_{ds.thema}.json').write_text(json.dumps(
         {'zaehler': dict(ds.zaehler), 'ersetzt': ds.ersetzt, 'karten': [(lz, vn) for lz, _, vn in ds.karten],
-         'sebastian': ds.sebastian, 'nicht': ds.nicht}, ensure_ascii=False, indent=1))
+         'nutzer': ds.nutzer, 'nicht': ds.nicht}, ensure_ascii=False, indent=1))
     return datei
 
 

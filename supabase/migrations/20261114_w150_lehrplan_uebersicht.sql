@@ -43,5 +43,5 @@ begin
   execute d;
 end $$;
 
--- Leo ist in Klasse 8 (Nutzer, 14.11.).
+-- Kind 2 ist in Klasse 8 (Nutzer, 14.11.).
 update schule.lernender set klasse = 8 where id = 2 and klasse is distinct from 8;

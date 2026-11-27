@@ -701,7 +701,7 @@ def durchsicht():
     # term_bestimmen: a über einen anderen Punkt statt f(0) = gleiche Rechnung wie Stufe 2
     D.stufe([180, 181, 183, 184, 185], 2, 'Der Graph einer Funktion 3. Grades')
     D.stufe(182, 2, 'Der gezeichnete Graph hat die einfachen Nullstellen −1, 1, 2')
-    D.fuer_sebastian('funktionen.ganzrational/nullstellen: zwei Stufe-3-Übungen (x⁴ − 29x² + 100, x⁴ − 17x² − 200) brauchen die Substitution. Sie wird erst in '
+    D.fuer_nutzer('funktionen.ganzrational/nullstellen: zwei Stufe-3-Übungen (x⁴ − 29x² + 100, x⁴ − 17x² − 200) brauchen die Substitution. Sie wird erst in '
                      'gleichungen.polynom/substitution erklärt, das in der Reihenfolge danach kommt (beides LehrplanPLUS M10 4). Reihenfolge tauschen oder die Übungen dort führen?')
     D.anwenden()
 

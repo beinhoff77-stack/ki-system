@@ -579,7 +579,7 @@ BF.ersetze('verstehen', 'Stimmt die Aussage? „Taschengeld (€): 7, 4, 11, 12,
     ['Ja, ein Ausreißer verändert den Median nie.', 'Ja, der Median bleibt immer 11.'],
     'Geordnet 4, 7, 11, 12, 82: Median 11. Ohne 82 bleiben 4 Werte, der Median ist der Mittelwert der beiden mittleren: (7 + 11) : 2 = 9. Er ändert sich – aber viel weniger als der Mittelwert (23,2 → 8,5).',
     'Ordne die Werte und bestimme den Median vorher und nachher.'))
-BF.fuer_sebastian('daten.kennwerte: laut themenliste lehrplan_gym ist für Kl. 6 nur „Arithmetisches Mittel bestimmen“ vorgesehen; die Karten modal_spannweite und median gehen darüber hinaus (BMT8-Stoff bis Kl. 7). Als Vertiefung führen? Karten nicht geändert.')
+BF.fuer_nutzer('daten.kennwerte: laut themenliste lehrplan_gym ist für Kl. 6 nur „Arithmetisches Mittel bestimmen“ vorgesehen; die Karten modal_spannweite und median gehen darüber hinaus (BMT8-Stoff bis Kl. 7). Als Vertiefung führen? Karten nicht geändert.')
 
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
@@ -620,7 +620,7 @@ for _lz, _ts in _R.items():
 # mittel_tabelle: Mittelwert aus Tabelle ablesen = genau das Stufe-2-Muster
 _S('mittel_tabelle', 'Die Tabelle zeigt, wie viele Tore eine Mannschaft in ihren Spielen geschossen hat. Wie viele Tore schießt sie im Mittel pro Spiel?', 2, enthaelt='"s": 3', anzahl=2)
 _S('mittel_tabelle', 'Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?', 2, enthaelt='"s": 3')
-DS.fuer_sebastian('daten.kennwerte: Modalwert, Spannweite und Median stehen nicht im LehrplanPLUS M6 (dort: arithmetisches Mittel); die Karten modal_spannweite und median sind als Vertiefung markiert – so lassen?')
+DS.fuer_nutzer('daten.kennwerte: Modalwert, Spannweite und Median stehen nicht im LehrplanPLUS M6 (dort: arithmetisches Mittel); die Karten modal_spannweite und median sind als Vertiefung markiert – so lassen?')
 befunde_anwenden(DATEI, DS)
 # ---- DURCHSICHT ENDE ----
 

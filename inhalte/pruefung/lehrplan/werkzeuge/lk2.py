@@ -96,7 +96,7 @@ for v in L.V:
     if not gesetzt: KANTEN.append((knoten(t)[0], knoten(b)[0], art, 'bisher'))
 for t in TEIL:
     for i in range(1, len(TEIL[t])): KANTEN.append(((t, i), (t, i - 1), 'hart', 'Teilung'))
-HART_SEBASTIAN = {(102, 30)}
+HART_NUTZER = {(102, 30)}
 VERSTOSS = []
 for src, dst, art, her in KANTEN:
     for sp in SP_ALL:
@@ -108,7 +108,7 @@ for src, dst, art, her in KANTEN:
             VERSTOSS.append(dict(spur=sp, braucht_von=name(src), braucht=name(dst), art=art, herkunft=her, klasse=a, klasse_vor=b, befund='Voraussetzung liegt später'))
 for x in VERSTOSS:
     t = int(x['braucht_von'].split()[0]); b = int(x['braucht'].split()[0])
-    x['sebastian_hart'] = (t, b) in HART_SEBASTIAN
+    x['nutzer_hart'] = (t, b) in HART_NUTZER
 print('Kanten', len(KANTEN), 'Verstöße', collections.Counter((x['spur'], x['befund'][:22]) for x in VERSTOSS))
 for x in VERSTOSS:
     if x['spur'] in ('gym_by', 'rs_I'): print(x)

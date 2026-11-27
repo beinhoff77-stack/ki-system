@@ -930,9 +930,9 @@ def durchsicht():
     D.stufe([153, 157], 2, 'Eine quadratische Pyramide (als Modell')
     # verstehen: Fehler „π · r · h“ ist auf Stufe 2 schon dreimal da → Stufe 2
     D.stufe([180, 184, 185], 2, 'Jemand rechnet die Mantelfläche eines Kegels')
-    D.fuer_sebastian('raum.pyramide_kegel_kugel/verstehen: Zwei Übungen haben denselben Fragetext („Bei einem Kegel wird nur die Höhe verdoppelt. …“, Stufe 1 und Stufe 2). '
+    D.fuer_nutzer('raum.pyramide_kegel_kugel/verstehen: Zwei Übungen haben denselben Fragetext („Bei einem Kegel wird nur die Höhe verdoppelt. …“, Stufe 1 und Stufe 2). '
                      'Nicht ersetzt, weil die Sperre nach Fragetext beide träfe – eine davon bitte löschen oder umformulieren lassen.')
-    D.fuer_sebastian('raum.pyramide_kegel_kugel: Schrägbild und Netz von Pyramide und Kegel (M10 5) fehlen als eigene Aufgaben; '
+    D.fuer_nutzer('raum.pyramide_kegel_kugel: Schrägbild und Netz von Pyramide und Kegel (M10 5) fehlen als eigene Aufgaben; '
                      'die App kann Kegel-Schrägbilder und Kegelnetze nicht zeichnen (App-Wunsch).')
     D.anwenden()
 

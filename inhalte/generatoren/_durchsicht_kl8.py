@@ -81,6 +81,6 @@ def mit_durchsicht(baue, ds):
         print('  DURCHSICHT ' + ds.bericht())
         Path('/tmp').joinpath(f'durchsicht_{ds.thema}.json').write_text(json.dumps(
             {'ersetzt': ds.ersetzt, 'karten': {k: v[1] for k, v in ds.karten.items()}, 'stufen': ds.stufen_satz, 'zaehler': dict(ds.zaehler),
-             'sebastian': ds.sebastian}, ensure_ascii=False, indent=1))
+             'nutzer': ds.nutzer}, ensure_ascii=False, indent=1))
         return d
     return baue_durchsicht

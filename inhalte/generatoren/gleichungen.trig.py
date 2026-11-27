@@ -734,7 +734,7 @@ DS.ersetze('anwendung', 'Ein Dreieck hat die Seiten a = 5 cm und b = 8 cm und de
            DS.Z('Ein Dreieck hat die Seiten a = 5 cm und b = 8 cm und den Flächeninhalt A = 1/2 · a · b · sin γ = 10 cm². Der Winkel γ zwischen a und b ist stumpf. Wie groß ist γ?', 150, '180 - 30',
                 '1/2 · 5 · 8 · sin γ = 10 ⇒ sin γ = 0,5 ⇒ γ = 30° oder 150°. Stumpf: γ = 150°.',
                 'Setze die Zahlen in die Formel ein und löse nach sin γ auf.', einheit='°'))
-DS.fuer_sebastian('gleichungen.trig (Reihenfolge 13) steht vor trigo.allgemein (14). Der Einheitskreis, sin(180° − α) und die Flächenformel werden aber erst dort erklärt. Vorschlag: Reihenfolge tauschen.')
+DS.fuer_nutzer('gleichungen.trig (Reihenfolge 13) steht vor trigo.allgemein (14). Der Einheitskreis, sin(180° − α) und die Flächenformel werden aber erst dort erklärt. Vorschlag: Reihenfolge tauschen.')
 
 if __name__ == '__main__':
     durchsicht('gleichungen.trig', DS)

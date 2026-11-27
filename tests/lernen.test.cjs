@@ -265,11 +265,11 @@ test('Lernreise: Kind B (Studio, Nacht) – Rom geschafft als Stempel, Zinsen je
   await page.goto(origin + '/#/reise/2');
   await page.getByRole('heading', { name: 'Einfache Zinsen', exact: true }).waitFor();
   assert.equal(await page.locator('.lr.lr-nacht.lr-studio').count(), 1);
-  await page.screenshot({ path: path.join(root, 'test-results/lernreise-leo-390.png'), fullPage: true });
+  await page.screenshot({ path: path.join(root, 'test-results/lernreise-kind-390.png'), fullPage: true });
   await page.getByText('1 von 2 Etappen sitzen').waitFor();
   await page.getByRole('link', { name: 'Mein Weg' }).click();
   await page.locator('.lr-wegzeile', { hasText: 'Natürliche und ganze Zahlen' }).waitFor();
-  await page.screenshot({ path: path.join(root, 'test-results/lernreise-leo-weg-390.png'), fullPage: true });
+  await page.screenshot({ path: path.join(root, 'test-results/lernreise-kind-weg-390.png'), fullPage: true });
   await page.goto(origin + '/#/reisepass/2');
   await page.locator('.lr-stempel', { hasText: 'Rom' }).waitFor();
   await page.goto(origin + '/#/reise/3');

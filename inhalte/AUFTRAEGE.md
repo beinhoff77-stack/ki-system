@@ -2083,7 +2083,7 @@ Migration `…_lb3_nachbesserung.sql` mit Rauchtest (Rollback, nur Testkind); al
 
 # Sechsundzwanzigste Runde (20.11.): Potenzgesetze in zwei eigene Flüge teilen – Entscheidung vom Nutzer
 
-Grundlage: `inhalte/postfach/lehrplan-lb.md`, Einträge „AUFTRAGSENTWURF: Potenzgesetze in zwei eigene Flüge teilen“ und „ENTSCHEIDUNG SEBASTIAN“ (beide lesen – sie gelten, soweit hier nichts anderes steht). Neuer Inhalts-Chat **`potenz-teilen`**, Zweig `potenz-teilen` vom aktuellen `lernen-app`, Meldungen `inhalte/postfach/potenz-teilen.md`. Vorher lesen: `inhalte/README.md` (Themen-Bausatz, Stufen und Aufgabentypen, Vertiefung), `inhalte/generatoren/_aufloesen.py` und `_af_plan.py` (Werkzeug zum Umziehen von Lernkarten aus der Vierundzwanzigsten Runde).
+Grundlage: `inhalte/postfach/lehrplan-lb.md`, Einträge „AUFTRAGSENTWURF: Potenzgesetze in zwei eigene Flüge teilen“ und „ENTSCHEIDUNG DES NUTZERS“ (beide lesen – sie gelten, soweit hier nichts anderes steht). Neuer Inhalts-Chat **`potenz-teilen`**, Zweig `potenz-teilen` vom aktuellen `lernen-app`, Meldungen `inhalte/postfach/potenz-teilen.md`. Vorher lesen: `inhalte/README.md` (Themen-Bausatz, Stufen und Aufgabentypen, Vertiefung), `inhalte/generatoren/_aufloesen.py` und `_af_plan.py` (Werkzeug zum Umziehen von Lernkarten aus der Vierundzwanzigsten Runde).
 
 **Vom Haupt-Chat vergeben (nicht ändern):**
 

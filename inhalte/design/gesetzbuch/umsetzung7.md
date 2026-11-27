@@ -108,3 +108,40 @@ Für die anderen Regeln baut dieselbe Funktion das Blatt (`#lehrer-r1` …); Bei
 **Muss:** Ebenen und Adressen wie Abschnitt 2 · Brotkrumen ab „Universum“ auf jeder Ebene · Regelseite: Stufen 1–3 offen, 4–7 zu, Reihenfolge wie Abschnitt 3 · Liste der 14 Regeln ohne Satz, Bild, Beispiel · Klassenband mit vier Zuständen · Umschalter auf Ebene 0 und in „Durch die Klassen“ · Lehrer-Blatt alle Abschnitte offen, Rückmeldung an 4 Stellen · Tippflächen ≥ 44 px, Fließtext ≥ 16 px · nichts läuft bei 360 px über.
 **Soll:** Ebene 0 passt bis auf die Kapsel „Arbeitsweisen“ in 400 × 860 · Klassenwahl klebt · Wechsel der Klasse ohne Sprung nach oben · Blättern auf Regel-, Ideen-, Gebietsseite.
 **Kann:** Kurzbeschreibung für Arbeitsweisen, sobald geliefert · Tabelle „Durch die Klassen“ am Rechner mit klebender Kopfzeile (im Entwurf weggelassen, weil sie im Querlauf-Kasten falsch lag).
+
+## 10 Achte Runde (27.11.) – Merksätze in der Liste, stärkeres Bild, Band erklärt sich selbst
+Anlass: Der Nutzer hat die Vorschau gesehen: „Ansonsten ist es so, wie ich es mir vorstelle.“ Die Ebenen bleiben. Gilt vor den Abschnitten 3 und 4, wo es abweicht.
+**Geändert [G]**
+- **Liste der 14 Regeln:** Je Zeile steht oben links der Name (16 px fett) und rechts das Band; darunter steht der Merksatz über die ganze Breite (16 px, leise, wörtlich aus `satz`, bei Regel 10 die drei Sätze in einer Zeile hintereinander). Die ganze Zeile ist tippbar. Entscheidung: Das Band steht neben dem Namen, nicht neben dem Merksatz. Grund: Neben dem Merksatz blieben bei 400 px nur etwa 150 px Text übrig, das ergäbe 4 bis 5 Zeilen. Unter dem Text würde jede Zeile eine Zeile höher. Merksätze werden nicht abgeschnitten: Ein halber Merksatz wäre falsch. Bei 400 px haben 13 von 14 Merksätzen höchstens zwei Zeilen, Regel 10 hat drei.
+- **Klassenband vereinfacht:** In jedem Kästchen (20 × 20 px, in der Klappzeile 36 × 30 px) steht die Klasse. Es gibt drei Zustände: **gefüllt = neu** (Einführung), **Rahmen = kommt vor** (Anwendung oder Vorwissen), **blass ohne Rahmen = kommt nicht vor**. Die Legende ist eine Zeile direkt über der Liste (Sonne, Gebiet) und über der Leiter. „Anwendung“ und „Vorwissen“ unterscheidet weiter die Klassenleiter in ihrer Textzeile. Damit ist F6.5 aus `umsetzung.md` ersetzt.
+- **Schnitt durch die Sonne** (Ebene 1, über der Liste): Halbkreis mit vier Bändern von innen nach außen (Radien 56, 98, 140, 182 von 400). Jedes Band trägt „n Name der Schicht“ (15 px fett). Ein Tipp auf ein Band scrollt zur Schicht, sanft oder sofort bei `prefers-reduced-motion`. Darunter steht „Schnitt durch die Sonne: innen die Grundlage, außen, was darauf aufbaut. Tippe eine Schicht an.“ Jeder Schicht-Kasten zeigt statt des farbigen Randstreifens ein **Ringbild** (34 px: vier Ringe, die eigene Schicht kräftig mit Rand, die anderen 30 % deckend). Das Ringbild steht auch auf der Regelseite vor „Rechenregel n von 14“.
+- **Ebene 0 am Rechner (ab 900 px): echtes Sonnensystem-Bild** (SVG 1100 × 600). Die Sonne mit vier Ringen ist links angeschnitten und trägt „14 Rechenregeln / in vier Schichten“. Die sieben Gebiete liegen von innen nach außen auf Kreisbahnen (Abstand 78), der Planet ist 52 px groß, Name 19 px und „n tragende Ideen“ 15 px stehen auf der Bahn, mit einem Hof in Grundfarbe, damit keine Bahnlinie durch die Schrift läuft. Außen läuft eine gestrichelte Bahn mit der Kapsel „8 Arbeitsweisen“. Jedes Teil ist tippbar. Auf dem Handy bleibt die Fassung gestapelt.
+- **Planeten mit Tiefe:** Jede Scheibe hat einen Lichtverlauf (Glanzpunkt oben links, Schatten unten rechts). Farbe und Zeichen bleiben wie in Runde 6.
+- **Weltraum (dunkle Fassung):** Auf Ebene 0 und 1 liegt ein tieferes Schwarz (#070A10) mit leisem Sternenfeld (6 Punkte je 280 × 240 px, 30–55 % deckend). Der Kopf ist leicht durchscheinend. Auf Ebene 2 und 3 gibt es keine Sterne, wegen der Lesbarkeit langer Texte.
+- **Übergang zwischen Ebenen:** 220 ms, Deckkraft 0 → 1. Beim Weg nach innen wächst die Seite von 96,5 % auf 100 %, beim Weg zurück schrumpft sie von 103,5 % auf 100 %. Kein Übergang innerhalb einer Ebene (Klasse wechseln, blättern) und keiner bei `prefers-reduced-motion: reduce`.
+**Bewusst nicht**
+- Keine kleine Zeichnung in der Liste. Bei 50 px Breite sind die Zeichnungen (320 Einheiten, mehrere Beschriftungen) nicht zu erkennen und würden jede Zeile höher machen. Erkennen lässt sich eine Regel an Nummer, Name und Merksatz. Die Zeichnung bleibt die Stufe „Beispiel“ der Regelseite.
+- Kein „Hineinfliegen“ über mehrere Sekunden und kein Zoomen in den Planeten. [M] Das wirkt beim ersten Mal, stört aber beim zehnten Nachschlagen.
+- Keine neuen Namen, keine Monde, keine Bahnen mit Bedeutung. Die Reihenfolge der Bahnen ist die der Daten (von innen nach außen).
+**Gebiete und Arbeitsweisen:** Die Ideen-Listen hatten schon den Merksatz, neu sind dort das Band mit Ziffern (unter dem Satz am Handy, rechts ab 640 px) und die Legende über der Liste. Die Arbeitsweisen hatten ihren Satz schon (Feld `satz`); sie haben weiter kein Band, weil es keine Klassendaten gibt.
+**Neue Maße bei 400 × 860 [G]:**
+
+| Seite | Höhe |
+|---|---|
+| Ebene 0 | 982 px (unverändert) |
+| Liste der 14 Regeln | 1 602 px = 1,86 Bildschirmhöhen (vorher 935 px); bei 360 px 1 823 px |
+| Sonne-Seite ganz | 2 277 px (mit Schnitt-Bild 190 px) |
+| Gebiet Zahlen, Liste | 650 px |
+| Regel 6 | 1 252 px |
+
+[M] Mit „höchstens gut zwei Bildschirmhöhen“ ist die Liste noch übersichtlich, weil die Schichten sie gliedern und der Schnitt oben zeigt, wohin man springt.
+**Geprüft [G]:**
+- Klick-Prüfung wie in Abschnitt 7: 357 von 357 Schritten bestanden, keine Skriptfehler.
+- Kein Überlauf bei 360 und 400 px.
+- Tippflächen sind mindestens 44 px groß, nachgemessen nach dem Übergang.
+- Etiketten bis 11 px Größe: nur die Ziffern im Band.
+- Angesehene Bilder (`entwurf7/bilder/`, 19 Stück): Ebene 0, Sonne und Regel 6 je bei 400 und 1280 px hell und dunkel; dazu Gebiet, Idee, Klassen (400 und 1280 px), Lehrer-Blatt und Regel 6 mit offenem Vergleich. Berichtigt dabei: Unterzeile der Sonne lag im Dunklen über dem Rand; die Sonne im Rechner-Bild war zu klein für ihre Schrift; Planeten-Namen wurden von Bahnlinien gekreuzt; die Legende brach in zwei Zeilen um.
+**Nicht geprüft:**
+- Übergang auf echten Handys (Ruckeln).
+- Das Sternenfeld auf sehr hellen Bildschirmen.
+- Ob Kind 1 und Kind 2 das Ringbild ohne Erklärung als „Schicht n von innen“ lesen.

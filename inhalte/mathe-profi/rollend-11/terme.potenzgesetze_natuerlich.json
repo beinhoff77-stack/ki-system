@@ -1,0 +1,135 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-11",
+ "kuerzel": "S3",
+ "thema": "terme.potenzgesetze_natuerlich",
+ "titel": "terme.potenzgesetze_natuerlich",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen_datei_im_bestand": "terme.potenzgesetze_natuerlich",
+ "hinweis": "Je Lernkarte ohne Aufgabe auf Stufe 3 in rollend-5/rollend-7 genau eine zählende Aufgabe der Stufe 3 in neuer Form. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ, form, zaehlt, Regel-Kennung, Fehlbilder (mit rechnung) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "S3-V050",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "gleicher_exponent",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 10000000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das erste Produkt gerechnet und das zweite vergessen",
+     "rechnung": "10 ** 7"
+    },
+    {
+     "antwort": 1000000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das zweite Produkt genannt",
+     "rechnung": "10 ** 6"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Produkte geteilt statt voneinander abgezogen",
+     "rechnung": "10 ** 7 / 10 ** 6"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleicher_exponent",
+    "t": "gleicher_exponent",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne 2⁷ · 5⁷ − 2⁶ · 5⁶. Weg A: Rechne alle vier Potenzen einzeln aus und dann weiter. Weg B: Nimm in jedem Produkt zuerst die Basen mal, weil die Hochzahlen gleich sind."
+    },
+    "o": {
+     "wert": 9000000
+    },
+    "c": "10 ** 7 - 10 ** 6",
+    "h": "Beide Wege müssen denselben Wert ergeben. Welche Basis entsteht, wenn man 2 und 5 malnimmt?",
+    "w": "Weg B: 2⁷ · 5⁷ = (2 · 5)⁷ = 10⁷ = 10 000 000 und 2⁶ · 5⁶ = 10⁶ = 1 000 000. Differenz: 9 000 000. Weg A: 2⁷ = 128, 5⁷ = 78 125, 128 · 78 125 = 10 000 000; 2⁶ = 64, 5⁶ = 15 625, 64 · 15 625 = 1 000 000. Gleiches Ergebnis."
+   }
+  },
+  {
+   "kennung": "S3-V051",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "potenz_von_potenz",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 2",
+     "rechnung": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus der falschen Zeile 2 richtig; der erste Fehler steckt weiter oben",
+     "rechnung": null
+    }
+   ],
+   "fehlerzeile": 2,
+   "fehler": "bei einem Produkt gleicher Basen die Hochzahlen malgenommen statt addiert",
+   "zeilen": [
+    {
+     "zeile": 1,
+     "text": "(a²)³ = a²·³ = a⁶",
+     "stimmt": true
+    },
+    {
+     "zeile": 2,
+     "text": "a⁶ · a⁴ = a⁶·⁴ = a²⁴",
+     "stimmt": false
+    },
+    {
+     "zeile": 3,
+     "text": "Also ist (a²)³ · a⁴ = a²⁴",
+     "stimmt": true
+    }
+   ],
+   "aufgabe": {
+    "l": "potenz_von_potenz",
+    "t": "potenz_von_potenz",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim vereinfacht (a²)³ · a⁴ für eine Zahl a ≠ 0. Zeile 1: (a²)³ = a²·³ = a⁶ Zeile 2: a⁶ · a⁴ = a⁶·⁴ = a²⁴ Zeile 3: Also ist (a²)³ · a⁴ = a²⁴ In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Prüfe mit a = 2. Wann werden Hochzahlen malgenommen und wann addiert?",
+    "w": "Zeile 1 stimmt: Bei einer Potenz von einer Potenz werden die Hochzahlen malgenommen. In Zeile 2 steht aber ein Produkt gleicher Basen: Dort werden die Hochzahlen addiert, also a⁶ · a⁴ = a¹⁰. Zeile 3 folgt aus der falschen Zeile 2."
+   }
+  }
+ ]
+}

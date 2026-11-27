@@ -1,0 +1,66 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-11",
+ "kuerzel": "S3",
+ "thema": "terme.quadratische_extreme",
+ "titel": "terme.quadratische_extreme",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen_datei_im_bestand": "terme.quadratische_extreme",
+ "hinweis": "Je Lernkarte ohne Aufgabe auf Stufe 3 in rollend-5/rollend-7 genau eine zählende Aufgabe der Stufe 3 in neuer Form. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ, form, zaehlt, Regel-Kennung, Fehlbilder (mit rechnung) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "S3-V049",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "scheitelform",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.tauschen",
+   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Einheit vergessen: 14 statt 14 Hundert Euro",
+     "rechnung": "14"
+    },
+    {
+     "antwort": 600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den x-Wert des Scheitels genannt statt des Minimalwerts",
+     "rechnung": "6 * 100"
+    },
+    {
+     "antwort": 8600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die ergänzte 36 addiert statt abgezogen",
+     "rechnung": "(36 + 50) * 100"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheitelform",
+    "t": "scheitelform",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Hersteller berechnet seine Kosten mit K(x) = x² − 12x + 50. Dabei ist x die Produktmenge in Hundert Stück und K(x) sind die Kosten in Hundert Euro. Wie viel Euro betragen die kleinsten möglichen Kosten?"
+    },
+    "o": {
+     "wert": 1400,
+     "einheit": "€"
+    },
+    "c": "(50 - 36) * 100",
+    "h": "Forme K(x) mit quadratischer Ergänzung in die Scheitelform um. Der kleinste Wert steht im Scheitel. Beachte die Einheit „Hundert Euro“.",
+    "w": "x² − 12x + 50 = (x − 6)² − 36 + 50 = (x − 6)² + 14. Das Quadrat ist nie negativ, der kleinste Wert ist 14 und wird bei x = 6 erreicht. 14 Hundert Euro sind 1 400 €. Probe: K(6) = 36 − 72 + 50 = 14."
+   }
+  }
+ ]
+}

@@ -10,7 +10,7 @@
  "hinweis": "Je Lernkarte ohne Aufgabe auf Stufe 3 in rollend-5/rollend-7 genau eine zählende Aufgabe der Stufe 3 in neuer Form. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ, form, zaehlt, Regel-Kennung, Fehlbilder (mit rechnung) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
  "aufgaben": [
   {
-   "kennung": "S3-V050",
+   "kennung": "S3-V060",
    "thema": "groessen.indirekt",
    "lernkarte": "graph",
    "stufe": 3,

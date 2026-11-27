@@ -10,7 +10,7 @@
  "hinweis": "Je Lernkarte ohne Aufgabe auf Stufe 3 in rollend-5/rollend-7 genau eine zählende Aufgabe der Stufe 3 in neuer Form. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ, form, zaehlt, Regel-Kennung, Fehlbilder (mit rechnung) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
  "aufgaben": [
   {
-   "kennung": "S3-V045",
+   "kennung": "S3-V055",
    "thema": "stochastik.grundbegriffe",
    "lernkarte": "begriffe",
    "stufe": 3,
@@ -96,7 +96,7 @@
    }
   },
   {
-   "kennung": "S3-V046",
+   "kennung": "S3-V056",
    "thema": "stochastik.grundbegriffe",
    "lernkarte": "rel_haeufigkeit",
    "stufe": 3,
@@ -149,7 +149,7 @@
    }
   },
   {
-   "kennung": "S3-V047",
+   "kennung": "S3-V057",
    "thema": "stochastik.grundbegriffe",
    "lernkarte": "darstellen",
    "stufe": 3,

@@ -10,7 +10,7 @@
  "hinweis": "Je Lernkarte ohne Aufgabe auf Stufe 3 in rollend-5/rollend-7 genau eine zählende Aufgabe der Stufe 3 in neuer Form. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ, form, zaehlt, Regel-Kennung, Fehlbilder (mit rechnung) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
  "aufgaben": [
   {
-   "kennung": "S3-V001",
+   "kennung": "S3-V040",
    "thema": "terme.bruchterme",
    "lernkarte": "definitionsmenge",
    "stufe": 3,
@@ -86,7 +86,7 @@
    }
   },
   {
-   "kennung": "S3-V002",
+   "kennung": "S3-V041",
    "thema": "terme.bruchterme",
    "lernkarte": "termwert",
    "stufe": 3,
@@ -156,7 +156,7 @@
    }
   },
   {
-   "kennung": "S3-V003",
+   "kennung": "S3-V042",
    "thema": "terme.bruchterme",
    "lernkarte": "erweitern",
    "stufe": 3,
@@ -208,7 +208,7 @@
    }
   },
   {
-   "kennung": "S3-V004",
+   "kennung": "S3-V043",
    "thema": "terme.bruchterme",
    "lernkarte": "addieren",
    "stufe": 3,

@@ -363,22 +363,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Kim sagt: „]1; 6[ und [2; 5] enthalten dieselben ganzen Zahlen.“ In ]1; 6[ liegen ① ganze Zahlen. In [2; 5] liegen ② ganze Zahlen. Kims Aussage stimmt, wenn beide Zahlen gleich sind.",
-     "schablone": "① = □; ② = □",
+     "text": "Kim sagt: „]1; 6[ und [2; 5] enthalten dieselben ganzen Zahlen.“ Schreibe beide Mengen auf und vergleiche die Elemente. In ]1; 6[ liegen ① ganze Zahlen, in [2; 5] liegen ② ganze Zahlen. In beiden Intervallen zugleich liegen ③ ganze Zahlen. Kims Aussage stimmt, wenn alle drei Zahlen gleich sind.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
+      4,
       4,
       4
      ]
     },
     "c": [
      "6 - 1 - 1",
+     "5 - 2 + 1",
      "5 - 2 + 1"
     ],
-    "h": "Schreibe die ganzen Zahlen beider Intervalle auf.",
-    "w": "In ]1; 6[ liegen 2, 3, 4, 5. In [2; 5] liegen 2, 3, 4, 5. Beide Mengen sind gleich."
+    "h": "Schreibe die ganzen Zahlen beider Intervalle auf und streiche, was in beiden steht.",
+    "w": "In ]1; 6[ liegen 2, 3, 4, 5. In [2; 5] liegen 2, 3, 4, 5. Alle vier Zahlen stehen in beiden Mengen, die Mengen sind also gleich. Gleich viele Zahlen allein würde als Beweis nicht reichen."
    }
   },
   {

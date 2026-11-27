@@ -625,7 +625,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim liest bei y = 4 − 3x Steigung und Achsenabschnitt ab. Zeile 1: Die Steigung m ist die erste Zahl: m = 4. Zeile 2: Der Achsenabschnitt t ist die Zahl ohne x: t = −3. Zeile 3: Die Gerade geht also durch den Punkt (0 | −3). In welcher Zeile steckt der Fehler?"
+     "text": "Kim liest bei y = 4 − 3x Steigung und Achsenabschnitt ab. Zeile 1: Die Steigung m ist die erste Zahl: m = 4. Zeile 2: Der Achsenabschnitt t ist die Zahl ohne x: t = 4. Zeile 3: Die Gerade geht also durch den Punkt (0 | 4). In welcher Zeile steckt der Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -636,7 +636,7 @@
      "index": 0
     },
     "h": "m steht vor dem x, nicht am Anfang der Gleichung.",
-    "w": "m = −3, denn −3 steht vor dem x. t = 4 ist die Zahl ohne x. Die Gerade geht durch (0 | 4)."
+    "w": "m = −3, denn −3 steht vor dem x. Zeile 2 und 3 stimmen: t = 4 und die Gerade geht durch (0 | 4)."
    }
   },
   {
@@ -924,7 +924,7 @@
      "index": 2
     },
     "h": "Der Parameter a steht vor x. Was bewirkt das?",
-    "w": "Wird a größer, wird die Gerade steiler. Sie dreht sich um (0 | 3), sie verschiebt sich nicht."
+    "w": "Wird a größer, nimmt die Steigung zu: Die Gerade dreht sich um den Punkt (0 | 3). Sie verschiebt sich nicht nach oben. (Wie steil sie ist, hängt von |a| ab.)"
    }
   },
   {

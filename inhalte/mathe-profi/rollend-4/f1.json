@@ -171,7 +171,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Am Graphen von f liest du ab: Bei x = 2 liegt der Graph bei y = 4, bei x = 5 bei y = 13. Von x = 2 bis x = 5 sind es 5 − 2 = ① Schritte nach rechts. Der Graph steigt um 13 − 4 = ②. Pro Schritt steigt er um ② : ① = ③.",
+     "text": "Der Graph von f ist eine Gerade. Du liest ab: Bei x = 2 liegt der Graph bei y = 4, bei x = 5 bei y = 13. Von x = 2 bis x = 5 sind es 5 − 2 = ① Schritte nach rechts. Der Graph steigt um 13 − 4 = ②. Pro Schritt steigt er um ② : ① = ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -668,7 +668,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Eine Wertetabelle zeigt x = 1, 2, 3, 4 und f(x) = 5, 7, 9, 11. Kim sucht den Term. Zeile 1: f(x) wächst bei jedem Schritt von x um 2. Zeile 2: Also hat der Term die Form f(x) = 2x + c. Zeile 3: Für x = 1 muss 5 herauskommen: 2 · 1 + c = 5, also c = 2. Der Term ist f(x) = 2x + 2. In welcher Zeile steckt der Fehler?"
+     "text": "Die Wertetabelle einer linearen Funktion zeigt x = 1, 2, 3, 4 und f(x) = 5, 7, 9, 11. Kim sucht den Term. Zeile 1: f(x) wächst bei jedem Schritt von x um 2. Zeile 2: Also hat der Term die Form f(x) = 2x + c. Zeile 3: Für x = 1 muss 5 herauskommen: 2 · 1 + c = 5, also c = 2. Der Term ist f(x) = 2x + 2. In welcher Zeile steckt der Fehler?"
     },
     "a": [
      "In Zeile 1",

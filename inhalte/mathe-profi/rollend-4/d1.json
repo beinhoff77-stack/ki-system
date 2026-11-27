@@ -171,7 +171,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Achse eines Säulendiagramms beginnt bei 40 statt bei 0. Säule A reicht bis 50, Säule B bis 100. Die sichtbare Höhe von B ist (100 − 40) : (50 − 40) = ①-mal so groß wie die von A. In Wahrheit ist B nur 100 : 50 = ②-mal so hoch.",
+     "text": "Die Achse eines Säulendiagramms beginnt bei 40 statt bei 0. Säule A reicht bis 50, Säule B bis 100. Die gezeichnete Höhe von B ist (100 − 40) : (50 − 40) = ①-mal so groß wie die von A. Die dargestellten Werte sind aber 50 und 100: Der Wert von B ist 100 : 50 = ②-mal so groß wie der von A.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -186,7 +186,7 @@
      "100 // 50"
     ],
     "h": "Zieh bei der gekürzten Achse erst 40 ab.",
-    "w": "Sichtbar: 60 und 10, also 6-mal so groß. In Wahrheit: 100 : 50 = 2."
+    "w": "Gezeichnet sind 60 und 10, also 6-mal so hoch. Dargestellt sind die Werte 100 und 50: 100 : 50 = 2. Der Wert von B ist nur doppelt so groß."
    }
   },
   {
@@ -230,7 +230,7 @@
     "g": "einkleidung",
     "y": "auswahl",
     "f": {
-     "text": "25 Kinder werden nach ihrem Haustier gefragt: 9 haben einen Hund, 7 eine Katze, 4 einen Fisch. Alle anderen haben kein Tier. Wie findest du die Zahl der Kinder ohne Tier?"
+     "text": "25 Kinder werden nach ihrem Lieblingstier gefragt. Jedes Kind nennt höchstens eines: 9 nennen den Hund, 7 die Katze, 4 den Fisch. Die übrigen nennen kein Tier. Wie findest du die Zahl der Kinder, die kein Tier nennen?"
     },
     "a": [
      "9 + 7 + 4 = 20",
@@ -242,7 +242,7 @@
      "index": 1
     },
     "h": "Alle Gruppen zusammen sind die Gesamtzahl.",
-    "w": "Kinder mit Tier: 9 + 7 + 4 = 20. Ohne Tier: 25 − 20 = 5."
+    "w": "Jedes Kind wird nur einmal gezählt. Mit Lieblingstier: 9 + 7 + 4 = 20. Ohne: 25 − 20 = 5."
    }
   },
   {

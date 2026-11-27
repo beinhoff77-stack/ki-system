@@ -384,7 +384,7 @@
     "g": "mehrschritt",
     "y": "auswahl",
     "f": {
-     "text": "500 € werden 3 Jahre lang mit 4 % verzinst. Welche Rechnung gibt das Kapital am Ende?"
+     "text": "500 € werden 3 Jahre lang mit 4 % pro Jahr verzinst. Die Zinsen werden jedes Jahr gutgeschrieben und mitverzinst. Welche Rechnung gibt das Kapital am Ende?"
     },
     "a": [
      "500 · 1,04 · 3 = 1 560 €",
@@ -633,7 +633,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim berechnet, wie viel 2 000 € bei 5 % Zinsen nach 2 Jahren wert sind. Zeile 1: Der Faktor ist q = 1,05. Zeile 2: K₂ = 2 000 · 1,05 · 2 = 4 200. Zeile 3: Das Kapital beträgt nach 2 Jahren also 4 200 €. In welcher Zeile steckt der Fehler?"
+     "text": "Kim berechnet, wie viel 2 000 € bei 5 % Zinsen pro Jahr nach 2 Jahren wert sind. Die Zinsen werden jedes Jahr gutgeschrieben und mitverzinst. Zeile 1: Der Faktor ist q = 1,05. Zeile 2: K₂ = 2 000 · 1,05 · 2 = 4 200. Zeile 3: Das Kapital beträgt nach 2 Jahren also 4 200 €. In welcher Zeile steckt der Fehler?"
     },
     "a": [
      "In Zeile 1",

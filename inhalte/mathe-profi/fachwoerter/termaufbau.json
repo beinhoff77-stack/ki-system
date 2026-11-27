@@ -15,7 +15,7 @@
    "antwortform": "luecken",
    "regel": "id.algebra.term",
    "regel_name": "Term",
-   "zaehlt": "ja",
+   "zaehlt": "nein",
    "fehlbilder": [
     {
      "luecke": 1,
@@ -67,7 +67,7 @@
    "antwortform": "luecken",
    "regel": "id.algebra.term",
    "regel_name": "Term",
-   "zaehlt": "ja",
+   "zaehlt": "nein",
    "fehlbilder": [
     {
      "luecke": 1,
@@ -228,7 +228,7 @@
     },
     {
      "luecke": 5,
-     "antwort": 12,
+     "antwort": -12,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "(−8) + (−4) gerechnet: addiert statt malgenommen"
@@ -242,7 +242,7 @@
     "g": "mehrschritt",
     "y": "luecken",
     "f": {
-     "text": "Multipliziere die Differenz aus 3 und 11 mit der Summe aus −6 und 2. Setze die vier Zahlen ein und rechne aus.",
+     "text": "Multipliziere die Differenz aus 3 und 11 mit der Summe aus −6 und 2. Setze die vier Zahlen ein und rechne aus. Behalte die Reihenfolge der Nennung bei.",
      "schablone": "(□ − □) · (□ + □) = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -445,7 +445,7 @@
     "g": "darstellung",
     "y": "luecken",
     "f": {
-     "text": "Schreibe als Term: das Dreifache der Summe aus −5 und 9.",
+     "text": "Schreibe als Term: das Dreifache der Summe aus −5 und 9. Behalte die Reihenfolge der Nennung bei.",
      "schablone": "□ · (□ + □)",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -478,9 +478,9 @@
    "fehlbilder": [
     {
      "antwort": 81,
-     "fehlbild": "fb.reihenfolge.links_nach_rechts",
-     "regel_des_fehlbilds": "rr.reihenfolge",
-     "beschreibung": "72 + 18 : 15 − 6 ohne Klammern gerechnet"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "90 − 9 gerechnet: subtrahiert statt dividiert"
     },
     {
      "antwort": 9,

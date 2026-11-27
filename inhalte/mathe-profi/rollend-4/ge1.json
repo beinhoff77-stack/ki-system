@@ -143,7 +143,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Winkel hat 250°. Ein gestreckter Winkel hat ①°. Der Winkel ist ②° größer als ein gestreckter Winkel. Deshalb heißt er überstumpf.",
+     "text": "Ein Winkel hat 250°. Ein gestreckter Winkel hat ①°. Der Winkel ist ②° größer als ein gestreckter Winkel, aber kleiner als ein voller Winkel. Deshalb heißt er überstumpf.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -158,7 +158,7 @@
      "250 - 180"
     ],
     "h": "Ein gestreckter Winkel ist eine gerade Linie.",
-    "w": "Gestreckt: 180°. 250° − 180° = 70°. Größer als 180° heißt überstumpf."
+    "w": "Gestreckt: 180°. 250° − 180° = 70°. Überstumpf heißt: größer als 180° und kleiner als 360° (voller Winkel)."
    }
   },
   {

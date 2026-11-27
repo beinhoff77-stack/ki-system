@@ -2,6 +2,22 @@
 
 Neueste oben.
 
+## 2026-11-27 – FERTIG 0.94.0 Form-Takt, Nachbesserung nach Werkstatt 1039/1040 (Zweig `helfer-app2`, Cache v185)
+
+**Geliefert**
+- Eine zentrale Stelle `lernTaktErlaubt(letzte, takt)` in `lernen.js`: „nie zwei Lückenwege hintereinander“ und „kein Fehler-Detektiv direkt nach einem eigenen Fehler“. In `lernWaehleBordkarte` läuft jede Kandidatenliste durch diesen Filter (Schwer-Vorrang, Lückenweg nach 2 Fehlern, Sachaufgabe, Form-Platz, Bordkarten ohne form, alle). Das Muster „gefiltert, sonst ungefiltert“ je Schritt ist weg.
+- Notfall (neuer Grund `notfall`): Nur wenn mit den Verboten gar keine Bordkarte wählbar ist (außer höchstens der eben gelösten letzten), läuft die alte Auswahl ohne die Verbote. Begründung: Sonst stünde keine neue Bordkarte da bzw. dieselbe noch einmal; ein Gerüst oder Detektiv ist dann das kleinere Übel. Sobald eine andere wählbare da ist, kommt sie; die schwere wird später nachgeholt.
+- Pflicht „schwere Aufgabe“: Aufgaben mit `zaehlt = nein` werden vom Schwer-Vorrang nicht mehr gewählt (in `lernWaehleKern`, also auch auf dem alten Weg ohne form; ohne `zaehlt` wie bisher). Die normale Auswahl darf sie weiter ziehen.
+- Version bleibt 0.94.0, Cache v185.
+
+**Tests**
+- `tests/lernen-takt.test.cjs`: 10/10 (6 alte + 4 neue: beide nachgewiesenen Fälle samt Varianten Brücke/allgemeine Auswahl/Schwer nachholen, Punkt 3, Gegenproben „Vorrat leer“ → Notfall, Zufallstest 20 000 Lagen mit form als Invarianten). Die 4 neuen schlagen mit dem Stand vor der Nachbesserung fehl. Der 4000-Fälle-Vergleich mit 0.93.8 besteht weiter.
+- `tests/lernen-bruch.test.cjs`: 24/24. `tests/notifications.test.cjs`: 3/3.
+- Gesamttest `tests/lernen.test.cjs`: 212 Tests, 212 bestanden, 0 fehlgeschlagen.
+
+**Offen / nicht geprüft**
+- Nicht gegen den echten Server; keine Sichtprüfung auf Geräten. Kein Test zählt die Cache-Nummer (nur die Versionsgleichheit 0.94.0).
+
 ## 2026-11-27 – FERTIG 0.94.0 Form-Takt (Zweig `helfer-app`, Cache v184)
 
 **Geliefert**

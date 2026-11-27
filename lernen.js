@@ -368,11 +368,13 @@ function lernWaehleKern(warte, e, letzte, gesehenTyp, v = null, teil = null) {
   const anders = (x) => lernAnders(x, letzte);
   const neuTyp = (x) => !x.typ || !gesehenTyp.has(x.typ);
   if (teil !== 'rest') {
+    // Form-Takt: eine Aufgabe mit zaehlt = nein erfüllt die Pflicht nicht und wird hier nie als „die schwere“ gewählt (ohne zaehlt: wie bis 0.93.8)
+    const schwer = (x) => lernIstSchwer(x) && x.zaehlt !== 'nein';
     for (const ex of [(x) => anders(x) && neuTyp(x), anders]) {
-      if (p >= ziel && e.schwerNoetig && !e.schwerOk && vor(such((x) => lernIstSchwer(x) && x !== letzte && !x.geloest && ex(x)))) return true;
+      if (p >= ziel && e.schwerNoetig && !e.schwerOk && vor(such((x) => schwer(x) && x !== letzte && !x.geloest && ex(x)))) return true;
     }
-    if (p >= ziel && e.schwerNoetig && !e.schwerOk && vor(such((x) => lernIstSchwer(x) && x !== letzte && !x.geloest))) return true;
-    if (p >= ziel && e.schwerNoetig && !e.schwerOk && vor(such((x) => lernIstSchwer(x) && x !== letzte))) return true;
+    if (p >= ziel && e.schwerNoetig && !e.schwerOk && vor(such((x) => schwer(x) && x !== letzte && !x.geloest))) return true;
+    if (p >= ziel && e.schwerNoetig && !e.schwerOk && vor(such((x) => schwer(x) && x !== letzte))) return true;
     if (teil === 'schwer') return false;
   }
   const reihe = soll === 3 ? [3, 2, 1] : soll === 2 ? [2, 3, 1] : [1, 2, 3];
@@ -394,37 +396,43 @@ const lernAnwendenFehlt = (e) => !!(e.neueRegel && e.anwendenNoetig && !e.anwend
   && (e.typenNoetig || 0) <= (e.typenAnzahl || 0) && (!e.schwerNoetig || e.schwerOk) && (e.folge || 0) >= (e.folgeZiel || 3));
 // Ist der nächste Platz der Lernkarte ein Form-Platz? platz = bearbeitungen (Server) + in dieser Sitzung abgeschlossene + 1; jede = form_jede (Vorgabe 3; fehlt = kein Takt)
 const lernFormPlatz = (platz, jede) => Number(jede) > 0 && Number(platz) > 0 && Number(platz) % Number(jede) === 0;
-// takt: { platz, formJede, nachFehler (gerade 2 Fehler in Folge), letzteFalsch }. Gibt zurück, warum gewählt wurde (für Tests): schwer, lueckenweg, anwenden, form, normal.
+// Regel 4, zentral (Werkstatt 1039/1040): die zwei Verbote gelten für JEDE Kandidatenliste der Auswahl (Schwer-Vorrang, Lückenweg, Sachaufgabe, Form-Platz, Rückfälle):
+// nie zwei Gerüste (lueckenweg) hintereinander; kein Fehler-Detektiv direkt nach einem eigenen Fehler.
+const lernTaktErlaubt = (letzte, takt = {}) => (x) => !(letzte?.form === 'lueckenweg' && x.form === 'lueckenweg') && !(takt.letzteFalsch && x.form === 'fehler_detektiv');
+// takt: { platz, formJede, nachFehler (gerade 2 Fehler in Folge), letzteFalsch }. Gibt zurück, warum gewählt wurde (für Tests): schwer, lueckenweg, anwenden, form, normal, notfall.
 // Ohne Bordkarte mit `form` und ohne fehlende Sachaufgabe (alter Server) läuft genau die bisherige Auswahl.
+// „notfall“: es gibt keine erlaubte Bordkarte (außer höchstens der eben gelösten letzten) – dann kommt die gesperrte, sonst stünde gar keine neue Bordkarte da.
 function lernWaehleBordkarte(warte, e, letzte, gesehenTyp = new Set(), takt = {}) {
-  const k = (v, teil) => lernWaehleKern(warte, e, letzte, gesehenTyp, v, teil);
   const anwFehlt = lernAnwendenFehlt(e);
-  if (!warte.some((x) => x.form) && !anwFehlt) { k(); return 'normal'; }
+  if (!warte.some((x) => x.form) && !anwFehlt) { lernWaehleKern(warte, e, letzte, gesehenTyp); return 'normal'; }
+  const erlaubt = lernTaktErlaubt(letzte, takt);
   const und = (a, b) => (x) => a(x) && b(x);
-  const ohneDet = takt.letzteFalsch ? (x) => x.form !== 'fehler_detektiv' : () => true; // Regel 4: kein Fehler-Detektiv direkt nach einem eigenen Fehler
-  const versuch = (v, teil) => k(v ? und(v, ohneDet) : ohneDet, teil) || k(v, teil);
-  if (versuch(null, 'schwer')) return 'schwer';
-  // Regel 4: nach zwei Fehlern in Folge einmal ein Lückenweg (nie zwei hintereinander)
-  if (takt.nachFehler && letzte?.form !== 'lueckenweg') {
+  const k = (v, teil) => lernWaehleKern(warte, e, letzte, gesehenTyp, v ? und(v, erlaubt) : erlaubt, teil); // jede Liste läuft durch die Verbote
+  const gibt = (v) => warte.some(und(v, erlaubt));
+  if (k(null, 'schwer')) return 'schwer';
+  // Regel 4: nach zwei Fehlern in Folge einmal ein Lückenweg (nie zwei hintereinander: steckt in erlaubt)
+  if (takt.nachFehler) {
     const lw = (x) => x.form === 'lueckenweg' && !x.geloest && x !== letzte;
-    if (warte.some(lw) && k(lw, 'rest')) return 'lueckenweg';
+    if (gibt(lw) && k(lw, 'rest')) return 'lueckenweg';
   }
   // Regel 6: nur noch die Sachaufgabe fehlt – eine ungelöste, zählende Sachaufgabe (sonst eine noch nicht gezählte)
   if (anwFehlt) {
     const neuZ = (x) => !e.gezaehlt || !e.gezaehlt.has(Number(x.id));
     for (const v of [(x) => lernIstAnwenden(x) && !x.geloest && x !== letzte, (x) => lernIstAnwenden(x) && neuZ(x) && x !== letzte])
-      if (warte.some(und(v, ohneDet)) && versuch(v, 'rest')) return 'anwenden';
+      if (gibt(v) && k(v, 'rest')) return 'anwenden';
   }
   // Regel 2/3: Form-Platz – eine ungelöste Bordkarte mit `form` in der Stufe, die dran ist (Abwechslung gilt weiter); sonst normal, nichts aufstauen
   if (lernFormPlatz(takt.platz, takt.formJede)) {
     const soll = lernSollStufe(e);
-    const fv = (x) => !!x.form && !x.geloest && x !== letzte && (x.stufe || 2) === soll && lernAnders(x, letzte) && ohneDet(x);
-    if (warte.some(fv) && k(fv, 'rest')) return 'form';
+    const fv = (x) => !!x.form && !x.geloest && x !== letzte && (x.stufe || 2) === soll && lernAnders(x, letzte);
+    if (gibt(fv) && k(fv, 'rest')) return 'form';
   }
   // sonst Bordkarten ohne `form`, solange es ungelöste gibt (der Vorrat der neuen Formen bleibt für die Form-Plätze)
-  if (warte.some((x) => !x.form && !x.geloest && x !== letzte) && versuch((x) => !x.form, 'rest')) return 'normal';
-  versuch(null, 'rest');
-  return 'normal';
+  if (gibt((x) => !x.form && !x.geloest && x !== letzte) && k((x) => !x.form, 'rest')) return 'normal';
+  if (k(null, 'rest')) return 'normal';
+  // Notfall: keine erlaubte Bordkarte außer der letzten → Auswahl ohne die Verbote (Schwer-Vorrang eingeschlossen)
+  lernWaehleKern(warte, e, letzte, gesehenTyp);
+  return 'notfall';
 }
 // W176 Teil 3: Ist jetzt eine Mischkarte dran? Start erst, wenn im Flug mindestens „ab“ Etappen gelandet sind; dann jede „jede“-te Bordkarte.
 // Bevorzugt gleicher Flug, dann gleicher Kontinent; jede 3. Mischkarte aus einem älteren Flug. Nimmt die Karte aus rest heraus (keine Wiederholung in der Sitzung).

@@ -31,9 +31,9 @@ Stufen: 105 Aufgaben auf Stufe 2, 105 auf Stufe 3.
 - Zum Schluss streng durchgesehen (Checkliste B).
 
 ## Offen und Annahmen (nicht abgesichert)
-- Meldungen (iv): R5-V030, R5-V064, R5-V148, R5-V154. Die Fehlerzeile enthält nur richtige Rechnungen, der Fehler ist eine falsche Behauptung (Denkfehler); von Hand geprüft.
+- Meldungen (iv): R5-V030, R5-V064, R5-V148, R5-V154. Die Fehlerzeile enthält nur richtige Rechnungen, der Fehler ist eine falsche Behauptung (Denkfehler); in der Zweitprüfung von Hand gelesen: jede dieser Zeilen spricht die falsche Behauptung selbst aus (V064 jetzt ausdrücklich).
 - Auswahlaufgaben (Wähle) haben eine gerechnete Probe; ein reines `lambda: True` gibt es nicht mehr.
-- Zeichnungen nur als Tabelle oder Säulen (20 Aufgaben).
+- Zeichnungen: Tabelle, Säulen und eine Figur (R5-V129), zusammen 24 Aufgaben. Dafür lässt `bauen.py` jetzt den Typ `figur` zu (Punkte, Linien, Winkel müssen zueinander passen).
 - Keine Lernkarte zurückgestellt, bei jeder passte mindestens eine der gesuchten Formen.
 
 ## Vorprüfung
@@ -50,3 +50,17 @@ Gefunden und geändert (Zahl der Aufgaben, einige Aufgaben fallen unter mehrere 
 Kurz je Kennung der Regel, die geändert wurde: `id.zahlen.schreibweisen` (leer, Karten Zahlwort, römisch, dual), `id.zahlen.zahlengerade` (nur Zahlenstrahl ablesen/eintragen, sonst leer), `rr.stellenwert` (nur Zehner und Stellenwert, nicht Vergleichen), `rr.plusminus` (leer bei schriftlichem Rechnen ohne negative Zahlen), `id.zahlen.bausteine` (nur Primzahl und Primfaktoren), `id.geometrie.abstand` (nur Lage und Kreis), `id.geometrie.winkel` (nur Winkel ergänzen und Kreuzung), `id.flaeche_raum.*` (je Karte geprüft), `id.daten.teil_ganzes` und `id.daten.anteil` (leer, passen nicht zu Häufigkeiten), `id.daten.stufen` (nur Zählprinzip und Baumdiagramm), `id.verhaeltnisse.groesse` (nicht bei Zeitrechnung und Geld).
 
 Nicht sicher zu beurteilen: ob die Fehler-Detektiv-Aufgaben mit einer Denkfehler-Zeile (R5-V030, R5-V064, R5-V148, R5-V154) für Kinder eindeutig genug sind, ob einzelne „Brücke“-Aufgaben ohne Zeichnung die Darstellung wirklich tragen (zum Beispiel R5-V113, R5-V129), ob R5-V109 und R5-V128 genug „Umkehren“ bzw. „zwei Wege“ sind, und die Stufe 3 bei R5-V130/R5-V176 (nur knapp schwerer als Stufe 2).
+
+## Zweitprüfung (zweiter Helfer, der die Runde nicht geschrieben hat)
+Geprüft wie neue Aufgaben (Lösung selbst gerechnet, Eindeutigkeit, Fehlbild gegen Fehlwert, Rückmeldung je Zeile, Lernkarte, Stufe, Tipp, Schreibweise, Eingabefrage, Niveau): die 48 Aufgaben, deren Text, Lösung, Form oder Lernkarte sich in der Vorprüfung geändert hat, dazu die 13 als unsicher gemeldeten (davon 3 schon in den 48) und alle 25 Fehler-Detektive Zeile für Zeile. Zusammen 58 Aufgaben einzeln gelesen; Kennungen unverändert, weiter 210 Aufgaben.
+Geändert wurden 27 Aufgaben (Quellen `th_*.py`, neu gebaut):
+- Doppelung mit dem Bestand, Zahlen und Einkleidung geändert: V125 (Minutenzeiger in 25 Minuten, jetzt 20), V126 (Uhrzeit-Winkel wie Bestand, jetzt 2:50 Uhr mit Winkel über 180°), V129 (Quadrat-Diagonale), V130 (Teil „doppelt so groß“), V134 und V144 (Fliesen-Boden, jetzt Terrasse mit Beet und Gartenweg).
+- Form hielt nicht, was sie verspricht: V109 (Umkehren, jetzt echte Rückwärts-Verschiebung), V113 und V129 (Brücke ohne Darstellungswechsel: jetzt Drehung am Zifferblatt bzw. Zeichnung mit Winkeln), V199 (Brücke jetzt Tabelle), V103 (Faktorbaum nur im Text, jetzt Teilertabelle), V128 und V131 (zweiter Weg war dieselbe Rechnung: jetzt Windrose in 45°-Schritten bzw. Ergänzen zu 90°), V130 (zwei Wege jetzt Gleichung gegen Ausgleich).
+- Lernkarte nicht genau getroffen oder über Niveau: V195 (Division durch Dezimalzahl, jetzt Seil mit m und cm), V199 und V200 (Karte „Größen prüfen“: Realitätscheck bzw. Angabe von Tim prüfen), V194 (Stufe 3 war leichter als Stufe 2: jetzt 3,08 kg).
+- Eingabefrage stand nicht am Ende (Weg-B-Text zuletzt): V073, V098, V122, V125, V131, V146, V157, V184, V003 (V003: auch Weg B schärfer).
+- Tipp verriet den Lösungsweg oder führte in die Irre (Stufe 3 nicht zur Routine machen): V084, V146, V156, V157, V158, V176.
+- Fehlbild: V083 (9 als Hochzahl, Beschreibung stimmte nicht zur Rechnung), V146 (3 war kein plausibler Fehler), V103 (Fehlbild-Kennung „nicht zu Ende zerlegt“ entfällt mit dem neuen Text; Fehlbilder mit Kennung jetzt 24).
+- Fehler-Detektiv: alle 25 in Ordnung (Fehlerzeile spricht die falsche Behauptung aus, Zeilen davor richtig, Folgezeilen folgen richtig, Rückmeldung je Zeile stimmt); nur V064 (Fehlerzeile jetzt mit ausdrücklicher Behauptung) und V084 (Tipp) geändert.
+Entscheidung zu den Unsicheren: V030, V148, V154 bleiben (Fehlerzeile enthält die falsche Behauptung ausdrücklich: „von links nach rechts“, „doppelt so groß“, „verkürzt: 6 · 2“); V064 geschärft; V109, V113, V128, V129, V130, V134, V144, V126 umgebaut (siehe oben); V176 bleibt Stufe 3 (Paarbildung, schwerer als V175), nur Tipp neutral.
+Prüfläufe: `bauen.py` OK, `tools/vorrat_pruefen.py` (i) bis (iii) ohne Meldung, (iv) nur die vier Denkfehler-Zeilen; `tools/rollend_sql.py --runden 12` ohne Fehler, 210 Aufgaben.
+Offen: Bei den übrigen Zwei-Wege-Aufgaben (nicht in der Zweitprüfung gelesen) kann der Text noch mit Weg B enden statt mit der Frage; R5-V023 (römische Zahlen umkehren) trifft die Karte „Warum sind römische Zahlen anders?“ nur locker; R5-V008 ist als „Umkehren“ eher ein Rückschluss vom Pfeil auf den Abschnittswert; R5-V048 (Überschlag, Stufe 3) ist nur knapp schwerer als Stufe 2; R5-V093 (Vielfache von 7 zwischen 100 und 200) ähnelt einer Bestandsaufgabe (Vielfache von 6), nicht geändert. Die übrigen Aufgaben außerhalb der Fehler-Detektive wurden in der Zweitprüfung nicht gelesen.

@@ -330,7 +330,7 @@
      "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur zwei Faktoren 3 gemalt und 3 · 3 als Hochzahl genommen"
+     "beschreibung": "die Zahl als Hochzahl genommen, die mit sich selbst malgenommen 81 ergibt"
     }
    ],
    "aufgabe": {
@@ -396,7 +396,7 @@
     "o": {
      "index": 2
     },
-    "h": "Prüfe jede Zeile für sich und rechne die Werte genau nach. Welche Zeile enthält zuerst einen Fehler?",
+    "h": "Prüfe jede Zeile für sich: Stimmt die Rechnung, und stimmt der Schluss daraus? Welche Zeile enthält zuerst einen Fehler?",
     "w": "81 und 64 sind verschieden. Beim Vertauschen von Basis und Hochzahl ändert sich der Wert im Allgemeinen. Der erste Fehler steht in Zeile 3."
    }
   },

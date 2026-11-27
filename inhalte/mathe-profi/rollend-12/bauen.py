@@ -76,6 +76,9 @@ def grafik_ok(g):
         return all(len(z) == len(g["kopf"]) and all(isinstance(x, str) for x in z) for z in g["zeilen"]) and all(isinstance(x, str) for x in g["kopf"])
     if g["typ"] == "koordinaten":
         return len(g["x"]) == len(g["y"]) == 2 and set(g) <= {"typ", "x", "y", "graphen", "kreise", "punkte", "schritt_x", "schritt_y", "name_x", "name_y"}
+    if g["typ"] == "figur":   # Zeichnung wie im Bestand: Punkte (x, y), Linien und Winkel verweisen auf bekannte Punkte
+        P = g["punkte"]
+        return all(len(v) == 2 for v in P.values()) and all(set(l[:2]) <= set(P) for l in g["linien"]) and all(set(w[:3]) <= set(P) for w in g.get("winkel", []))
     if g["typ"] in ("saeulen", "kreisdiagramm"):
         return all(set(w) == {"name", "wert"} and len(w["name"]) <= 8 for w in g["werte"]) and (g["typ"] == "saeulen" or sum(w["wert"] for w in g["werte"]) == 100)
     return False

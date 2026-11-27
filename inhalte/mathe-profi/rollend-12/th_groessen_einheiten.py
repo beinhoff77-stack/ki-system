@@ -58,17 +58,17 @@ neu(T, "kommaschreibweise", "anwenden", Z(
     "12,5 km = 12 500 m. Noch zu gehen: 12 500 − 4 800 = 7 700 m.",
     [(7.7, None, "das Ergebnis in km statt in m angegeben", "12.5 - 4.8"), (-4787.5, None, "ohne Umrechnung 12,5 − 4 800 gerechnet", "12.5 - 4800"), (8500, None, "nur 4 000 m statt 4 800 m abgezogen", "12500 - 4000")], "m"), regel=GR)
 neu(T, "kommaschreibweise", "zwei_wege", Z(
-    "Wie viele Gramm sind 2,75 kg? Weg A: Rechne 2,75 · 1 000. Weg B: Schreibe 2,75 kg mit drei Stellen hinter dem Komma (2,750 kg) und lies kg und g ab.",
-    2750, "2.75 * 1000", "2 * 1000 + 750", "Ein Gramm ist ein Tausendstel eines Kilogramms. Welche Stellen hinter dem Komma gehören zu den Gramm?",
-    "Weg A: 2,75 · 1 000 = 2 750 g. Weg B: 2,75 kg = 2,750 kg. Vor dem Komma stehen die 2 kg, die drei Stellen dahinter sind die Gramm: 2 kg 750 g = 2 000 g + 750 g = 2 750 g.",
-    [(275, None, "mit 100 statt mit 1 000 malgenommen", "2.75 * 100"), (27500, None, "mit 10 000 malgenommen", "2.75 * 10000"), (2075, None, "0,75 kg als 75 g gerechnet", "2 * 1000 + 75")], "g"), g="verknuepfen", regel=GR)
+    "Wie viele Gramm sind 3,08 kg? Weg A: Rechne 3,08 · 1 000. Weg B: Schreibe 3,08 kg mit drei Stellen hinter dem Komma (3,080 kg) und lies kg und g ab. Gib die Masse in Gramm an.",
+    3080, "3.08 * 1000", "3 * 1000 + 80", "Ein Gramm ist ein Tausendstel eines Kilogramms. Welche Stellen hinter dem Komma gehören zu den Gramm?",
+    "Weg A: 3,08 · 1 000 = 3 080 g. Weg B: 3,08 kg = 3,080 kg. Vor dem Komma stehen die 3 kg, die drei Stellen dahinter (080) sind die Gramm: 3 kg 80 g = 3 000 g + 80 g = 3 080 g.",
+    [(308, None, "mit 100 statt mit 1 000 malgenommen", "3.08 * 100"), (30800, None, "mit 10 000 malgenommen", "3.08 * 10000"), (3008, None, "0,08 kg als 8 g gerechnet", "3 * 1000 + 8")], "g"), g="verknuepfen", regel=GR)
 
 # ───────── rechnen ─────────
 neu(T, "rechnen", "umkehren", Z(
-    "Mia hat Hefte gekauft, die je 2,35 € kosten. Sie hat insgesamt 14,10 € bezahlt. Wie viele Hefte hat sie gekauft?",
-    6, "14.1 / 2.35", "6", "Mit welcher Rechnung bekommt man den Gesamtpreis aus der Zahl der Hefte? Mache sie rückgängig.",
-    "Gesamtpreis = Zahl der Hefte · 2,35 €. Rückwärts: 14,10 € : 2,35 € = 6. Probe: 6 · 2,35 € = 14,10 €.",
-    [(33.135, None, "multipliziert statt geteilt", "14.1 * 2.35"), (11.75, None, "den Preis eines Hefts vom Gesamtpreis abgezogen", "14.1 - 2.35"), (16.45, None, "den Preis eines Hefts zum Gesamtpreis addiert", "14.1 + 2.35")], "Hefte"), g="umkehr")
+    "Von einem 5 m langen Seil werden zwei gleich lange Stücke abgeschnitten. Übrig bleibt ein Rest von 1 m 20 cm. Wie lang ist jedes abgeschnittene Stück in cm?",
+    190, "(500 - 120) / 2", "380 / 2", "Wie viel Seil wurde insgesamt abgeschnitten? Beide Längen müssen dazu in derselben Einheit stehen.",
+    "5 m = 500 cm und 1 m 20 cm = 120 cm. Abgeschnitten wurden 500 cm − 120 cm = 380 cm. Das sind zwei gleich lange Stücke: 380 cm : 2 = 190 cm. Probe: 2 · 190 cm + 120 cm = 500 cm.",
+    [(380, None, "nicht durch 2 geteilt", "500 - 120"), (310, None, "den Rest addiert statt abgezogen", "(500 + 120) / 2"), (240, None, "nur 20 cm statt 1 m 20 cm als Rest abgezogen", "(500 - 20) / 2")], "cm"), g="umkehr")
 neu(T, "rechnen", "anwenden", Z(
     "Vier Freunde teilen sich die Rechnung von 46,80 € und zusätzlich 2 € Trinkgeld gleichmäßig auf. Wie viel Euro zahlt jeder?",
     12.2, "(46.8 + 2) / 4", "46.8 / 4 + 0.5", "Wie viel kostet alles zusammen? Wie teilst du das auf vier Personen auf?",
@@ -88,18 +88,17 @@ neu(T, "massstab", "anwenden", Z(
     [(7, None, "nur die Länge in km genannt", "14 * 50000 / 100000"), (1.75, None, "die Zeit in Stunden angegeben", "7 / 4"), (420, None, "7 · 60 gerechnet (Geschwindigkeit nicht beachtet)", "7 * 60")], "min"), g="transfer", regel=GR)
 
 # ───────── verstehen ─────────
-neu(T, "verstehen", "bruecke", W(
-    "Welche Angabe ist genauso lang wie 3,5 Stunden?",
-    "3 h 30 min",
-    [("3 h 50 min", "Die Nachkommastelle 5 wurde als 50 Minuten gelesen."), ("3 h 5 min", "Die Nachkommastelle 5 wurde als 5 Minuten gelesen."), ("3 h 15 min", "Ein Viertel einer Stunde wurde mit einer halben Stunde verwechselt.")],
-    "Eine halbe Stunde hat wie viele Minuten? 0,5 h ist eine halbe Stunde.",
-    "0,5 h ist eine halbe Stunde, das sind 30 Minuten. 3,5 h = 3 h 30 min.",
-    lambda: 3.5 * 60 == 3 * 60 + 30 and all(3.5 * 60 != 3 * 60 + m for m in (50, 5, 15))))
+neu(T, "verstehen", "bruecke", Z(
+    "Die Tabelle nennt fünf Gegenstände mit einer Größenangabe. Bei wie vielen Gegenständen ist die Angabe nicht realistisch?",
+    2, "2", "1 + 1", "Vergleiche mit etwas, das du kennst: Wie lang ist ein Lineal? Wie schwer ist ein Apfel?",
+    "Ein Bleistift mit 5 kg wäre so schwer wie fünf Packungen Zucker, er wiegt nur wenige Gramm. Ein Kind mit 14 m wäre höher als ein Haus. Die anderen Angaben passen: Heft 21 cm, Zimmerhöhe 3 m, Apfel 150 g. Es sind 2 Angaben.",
+    [(1, None, "nur eine unrealistische Angabe gefunden", "1"), (3, None, "auch die Höhe des Klassenzimmers (3 m) für unrealistisch gehalten", "2 + 1"), (5, None, "alle Angaben für unrealistisch gehalten", "5")], "Angaben",
+    grafik=TAB(["Gegenstand", "Angabe"], ["Schulheft", "21 cm lang"], ["Bleistift", "5 kg schwer"], ["Klassenzimmer", "3 m hoch"], ["Apfel", "150 g schwer"], ["Kind mit 10 Jahren", "14 m groß"])), g="darstellung")
 _ab = lambda h, m, dh, dm: ((h * 60 + m - dh * 60 - dm) // 60, (h * 60 + m - dh * 60 - dm) % 60)
 neu(T, "verstehen", "umkehren", W(
-    "Ein Zug kommt um 15:12 Uhr an. Die Fahrt hat 2,5 Stunden gedauert. Wann ist er abgefahren?",
+    "Ein Zug kommt um 15:12 Uhr an. Die Fahrt hat 2,5 Stunden gedauert. Tim sagt: „Er ist um 12:22 Uhr abgefahren.“ Welche Abfahrtszeit ist richtig?",
     "12:42 Uhr",
-    [("17:42 Uhr", "Die Fahrzeit wurde addiert statt abgezogen."), ("12:12 Uhr", "Die 2,5 Stunden wurden als 3 Stunden gerechnet."), ("12:22 Uhr", "Die 0,5 Stunden wurden als 50 Minuten gerechnet.")],
-    "Rechne 2,5 Stunden in Stunden und Minuten um. Gehe dann rückwärts von der Ankunftszeit.",
+    [("17:42 Uhr", "Die Fahrzeit wurde addiert statt abgezogen."), ("12:12 Uhr", "Die 2,5 Stunden wurden als 3 Stunden gerechnet."), ("12:22 Uhr", "Das ist Tims Angabe. Er hat 0,5 Stunden als 50 Minuten gerechnet.")],
+    "Rechne 2,5 Stunden in Stunden und Minuten um. Gehe dann rückwärts von der Ankunftszeit und prüfe Tims Angabe.",
     "2,5 h = 2 h 30 min. Rückwärts von 15:12 Uhr: 2 h zurück ergibt 13:12 Uhr, weitere 30 min zurück ergibt 12:42 Uhr. Probe: 12:42 Uhr + 2 h 30 min = 15:12 Uhr.",
     lambda: _ab(15, 12, 2, 30) == (12, 42) and _ab(15, 12, -2, -30) == (17, 42) and _ab(15, 12, 3, 0) == (12, 12) and _ab(15, 12, 2, 50) == (12, 22)), g="rueckwaerts")

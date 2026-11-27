@@ -21,7 +21,7 @@ neu(T, "kreuzung", "anwenden", Z(
     "Der Nachbarwinkel von 38° ist 180° − 38° = 142°. Die anderen beiden Winkel sind 38° und 142° (gegenüberliegende Winkel sind gleich). Der größte ist 142°.",
     [(38, "fb.winkel.neben_statt_scheitel", "den gegebenen Winkel als größten genannt (Scheitelwinkel statt Nebenwinkel genommen)", "38"), (52, None, "zu einem rechten Winkel ergänzt: 90° − 38°", "90 - 38"), (322, "fb.winkel.teil_der_drehung", "von 360° abgezogen (den falschen Teil der vollen Drehung genommen)", "360 - 38")], "°"), regel=WI)
 neu(T, "kreuzung", "zwei_wege", Z(
-    "Zwei Geraden schneiden sich. Ein Winkel ist 24° größer als sein Nachbarwinkel. Wie groß ist der größere der beiden Winkel? Weg A: Nenne den kleineren Winkel w und löse w + (w + 24°) = 180°. Weg B: Wären beide Winkel gleich groß, hätte jeder 90°. Überlege, wie viel Grad vom einen zum anderen wandern müssen, damit der Unterschied 24° beträgt.",
+    "Zwei Geraden schneiden sich. Ein Winkel ist 24° größer als sein Nachbarwinkel. Wie groß ist der größere der beiden Winkel? Weg A: Nenne den kleineren Winkel w und löse w + (w + 24°) = 180°. Weg B: Wären beide Winkel gleich groß, hätte jeder 90°. Überlege, wie viel Grad vom einen zum anderen wandern müssen, damit der Unterschied 24° beträgt. Wie groß ist der größere Winkel?",
     102, "(180 + 24) / 2", "90 + 24 / 2", "Wie groß ist die Summe zweier Nachbarwinkel? Was geschieht mit dem Unterschied, wenn ein Winkel um 12° kleiner und der andere um 12° größer wird?",
     "Weg A: 2w + 24° = 180°, also 2w = 156°, w = 78°. Der größere Winkel ist 78° + 24° = 102°. Weg B: Von 90° und 90° wandern 12° vom einen zum anderen: 78° und 102°. Der Unterschied ist 24°. Probe: 102° + 78° = 180°.",
     [(204, None, "180° und 24° addiert und nicht halbiert", "180 + 24"), (78, None, "den kleineren Winkel genannt", "(180 - 24) / 2"), (156, None, "24° von 180° abgezogen und nicht halbiert", "180 - 24")], "°"), g="verknuepfen", regel=WI)
@@ -41,15 +41,15 @@ neu(T, "um_punkt", "anwenden", Z(
 
 # ───────── uhr ─────────
 neu(T, "uhr", "zwei_wege", Z(
-    "Um wie viel Grad dreht sich der Minutenzeiger einer Uhr in 25 Minuten? Weg A: Bestimme zuerst, um wie viel Grad er sich in 1 Minute dreht, und rechne dann mal 25. Weg B: Zwischen zwei Zahlen auf dem Zifferblatt liegen 5 Minuten. Bestimme den Winkel zwischen zwei Zahlen und überlege, wie oft 5 Minuten in 25 Minuten passen.",
-    150, "360 / 60 * 25", "25 / 5 * 30", "Eine ganze Stunde sind 360° für den Minutenzeiger. Wie viele Minuten hat eine Stunde, wie viele Zahlen das Zifferblatt?",
-    "Weg A: In 60 Minuten dreht er sich um 360°, in 1 Minute um 6°. 25 · 6° = 150°. Weg B: Zwischen zwei Zahlen liegen 5 Minuten und 360° : 12 = 30°. 25 Minuten sind 5 solche Schritte, 5 · 30° = 150°.",
-    [(750, None, "mit 30° pro Minute gerechnet (Stundenabstand statt Minute)", "30 * 25"), (25, None, "die Minuten als Grad angegeben", "25"), (125, None, "mit 5° pro Minute gerechnet", "5 * 25")], "°"))
+    "Um wie viel Grad dreht sich der Minutenzeiger einer Uhr in 20 Minuten? Weg A: Bestimme zuerst, um wie viel Grad er sich in 1 Minute dreht, und rechne dann mal 20. Weg B: Zwischen zwei Zahlen auf dem Zifferblatt liegen 5 Minuten. Bestimme den Winkel zwischen zwei Zahlen und überlege, wie oft 5 Minuten in 20 Minuten passen. Gib an, um wie viel Grad sich der Minutenzeiger in 20 Minuten dreht.",
+    120, "360 / 60 * 20", "20 / 5 * 30", "Eine ganze Stunde sind 360° für den Minutenzeiger. Wie viele Minuten hat eine Stunde, wie viele Zahlen das Zifferblatt?",
+    "Weg A: In 60 Minuten dreht er sich um 360°, in 1 Minute um 6°. 20 · 6° = 120°. Weg B: Zwischen zwei Zahlen liegen 5 Minuten und 360° : 12 = 30°. 20 Minuten sind 4 solche Schritte, 4 · 30° = 120°.",
+    [(600, None, "mit 30° pro Minute gerechnet (Stundenabstand statt Minute)", "30 * 20"), (20, None, "die Minuten als Grad angegeben", "20"), (100, None, "mit 5° pro Minute gerechnet", "5 * 20")], "°"))
 neu(T, "uhr", "anwenden", Z(
-    "Wie groß ist um 7:20 Uhr der kleinere Winkel zwischen Stundenzeiger und Minutenzeiger? Der Stundenzeiger dreht sich in einer Stunde um 30°, der Minutenzeiger in einer Stunde um 360°.",
-    100, "(7 * 30 + 20 / 2) - 20 * 6", "220 - 120", "Wo steht der Minutenzeiger, gemessen von der 12 aus? Wie weit ist der Stundenzeiger schon über die 7 hinaus?",
-    "Der Minutenzeiger hat nach 20 Minuten 20 · 6° = 120° zurückgelegt. Der Stundenzeiger hat 7 · 30° = 210° und in 20 Minuten noch 20 · 0,5° = 10° mehr, also 220°. Der Unterschied ist 220° − 120° = 100°. Das ist der kleinere Winkel, weil er kleiner als 180° ist.",
-    [(90, None, "den Stundenzeiger genau auf der 7 angenommen: 210° − 120°", "7 * 30 - 120"), (110, None, "den Stundenzeiger in den 20 Minuten um 20° statt um 10° weitergedreht: 230° − 120°", "7 * 30 + 20 - 120"), (120, None, "nur den Weg des Minutenzeigers genannt", "20 * 6")], "°"), g="transfer")
+    "Die Uhr am Bahnhof zeigt 2:50 Uhr. Der Stundenzeiger dreht sich in einer Stunde um 30°, der Minutenzeiger in einer Stunde um 360°. Beide Zeiger starten um 12:00 Uhr bei der 12. Wie groß ist der kleinere Winkel zwischen Stundenzeiger und Minutenzeiger?",
+    145, "360 - (50 * 6 - (2 * 30 + 50 / 2))", "360 - 215", "Beide Zeiger bewegen sich weiter, auch der kurze. Rechne für jeden Zeiger den Winkel von der 12 aus.",
+    "Der Minutenzeiger hat nach 50 Minuten 50 · 6° = 300° zurückgelegt. Der Stundenzeiger hat 2 · 30° = 60° und in 50 Minuten noch 50 · 0,5° = 25° mehr, also 85°. Der Unterschied ist 300° − 85° = 215°. Das ist größer als 180°, der kleinere Winkel ist 360° − 215° = 145°.",
+    [(120, None, "den Stundenzeiger genau auf der 2 angenommen: 300° − 60° = 240°, kleinerer Winkel 360° − 240°", "360 - (300 - 60)"), (170, None, "den Stundenzeiger in den 50 Minuten um 50° statt um 25° weitergedreht: 300° − 110° = 190°, kleinerer Winkel 360° − 190°", "360 - (300 - 110)"), (215, None, "den größeren statt den kleineren Winkel genommen: 300° − 85°", "300 - 85")], "°"), g="transfer")
 
 # ───────── drehungen ─────────
 neu(T, "drehungen", "anwenden", W(
@@ -60,28 +60,30 @@ neu(T, "drehungen", "anwenden", W(
     "Norden, 90° im Uhrzeigersinn: Osten. Von Osten 180° gegen den Uhrzeigersinn: Westen.",
     lambda: RI[(0 + 1) % 4] == "Osten" and RI[(1 - 2) % 4] == "Westen" and RI[1] != "Westen" and RI[(0 - 2) % 4] == "Süden"))
 neu(T, "drehungen", "zwei_wege", Z(
-    "Ein Schiff dreht sich um 90° nach rechts, dann um 45° nach links und danach um 180° nach rechts. Um wie viel Grad insgesamt hat es sich nach rechts gedreht? Weg A: Bestimme nach jeder Drehung die Gesamtdrehung. Weg B: Addiere alle Drehungen nach rechts und ziehe alle nach links ab.",
-    225, "90 - 45 + 180", "(90 + 180) - 45", "Links ist das Gegenteil von rechts. Was passiert mit den 45°?",
-    "Weg A: Nach der 1. Drehung 90° rechts, nach der 2. 45° rechts, nach der 3. 225° rechts. Weg B: Rechts: 90° + 180° = 270°, links: 45°. 270° − 45° = 225°.",
+    "Ein Schiff dreht sich um 90° nach rechts, dann um 45° nach links und danach um 180° nach rechts. Um wie viel Grad insgesamt hat es sich nach rechts gedreht? Weg A: Rechne mit Grad: Bestimme nach jeder Drehung die Gesamtdrehung. Weg B: Zähle auf der Windrose in Schritten von 45° (Abstand zweier Nachbarrichtungen): Wie viele Schritte sind es nach rechts, wie viele nach links? Gib die Gesamtdrehung nach rechts in Grad an.",
+    225, "90 - 45 + 180", "(2 - 1 + 4) * 45", "Eine Drehung nach links macht eine Drehung nach rechts zum Teil rückgängig.",
+    "Weg A: Nach der 1. Drehung 90° rechts, nach der 2. 45° rechts, nach der 3. 225° rechts. Weg B: 90° sind 2 Schritte nach rechts, 45° ist 1 Schritt nach links, 180° sind 4 Schritte nach rechts. Insgesamt 2 − 1 + 4 = 5 Schritte nach rechts. 5 · 45° = 225°.",
     [(315, None, "alle Drehungen addiert", "90 + 45 + 180"), (135, None, "die dritte Drehung nach rechts vergessen: 90° + 45°", "90 + 45"), (45, None, "nur die Drehung nach links genannt", "45")], "°"), g="verknuepfen")
 
 # ───────── figuren ─────────
+FIG = {"typ": "figur", "punkte": {"A": [0, 0], "B": [7, 0], "C": [7, 7], "D": [0, 7], "E": [7, 3.264], "F": [4.041, 7]}, "flaeche": ["A", "B", "C", "D"],
+       "linien": [["A", "B"], ["B", "C"], ["C", "D"], ["D", "A"], ["A", "E"], ["A", "F"]], "winkel": [["A", "B", "E", "25°"], ["A", "F", "D", "30°"], ["A", "E", "F", "?"]]}
 neu(T, "figuren", "bruecke", Z(
-    "Die Diagonale eines Quadrats geht durch eine Ecke und teilt den rechten Winkel dort in zwei gleich große Winkel. Wie groß ist jeder dieser beiden Winkel?",
-    45, "90 / 2", "180 / 4", "Wie groß ist ein Eckwinkel im Quadrat? In wie viele gleiche Teile wird er geteilt?",
-    "Der Eckwinkel im Quadrat ist 90°. Die Diagonale halbiert ihn: 90° : 2 = 45°.",
-    [(90, None, "den Eckwinkel genannt", "90"), (22.5, None, "durch 4 statt durch 2 geteilt", "90 / 4"), (180, None, "mit 2 malgenommen", "90 * 2")], "°"))
+    "Die Zeichnung zeigt ein Rechteck ABCD. Von der Ecke A gehen die Strecken [AE] und [AF] aus. Eingetragen sind ∠BAE = 25° und ∠FAD = 30°. Wie groß ist ∠EAF?",
+    35, "90 - 25 - 30", "90 - (25 + 30)", "Wie groß ist der Winkel bei A im Rechteck? Welche drei Winkel füllen ihn zusammen aus?",
+    "Der Eckwinkel des Rechtecks bei A ist 90°. Er besteht aus ∠BAE = 25°, ∠EAF und ∠FAD = 30°. Also ∠EAF = 90° − 25° − 30° = 35°. Probe: 25° + 35° + 30° = 90°.",
+    [(55, None, "die beiden gegebenen Winkel addiert: 25° + 30°", "25 + 30"), (65, None, "nur die 25° von 90° abgezogen", "90 - 25"), (60, None, "nur die 30° von 90° abgezogen", "90 - 30")], "°", grafik=FIG))
 neu(T, "figuren", "zwei_wege", Z(
-    "In einem Rechteck teilt eine Strecke von einer Ecke aus den rechten Winkel in zwei Teile. Der größere Teil ist doppelt so groß wie der kleinere. Wie groß ist der größere Teil? Weg A: Nenne den kleineren Teil w und löse w + 2 · w = 90°. Weg B: Teile den rechten Winkel in 3 gleich große Stücke. Der kleinere Teil ist ein Stück, der größere sind zwei Stücke.",
-    60, "90 / 3 * 2", "90 - 90 / 3", "Wie viele gleich große Stücke ergeben zusammen den rechten Winkel? Wie viele davon gehören zum größeren Teil?",
-    "Weg A: 3 · w = 90°, also w = 30°. Der größere Teil ist 2 · 30° = 60°. Weg B: Ein Stück ist 90° : 3 = 30° groß, der größere Teil hat zwei Stücke: 60°. Probe: 30° + 60° = 90°.",
-    [(30, None, "den kleineren Teil genannt", "90 / 3"), (45, None, "den rechten Winkel nur halbiert", "90 / 2"), (180, None, "mit 2 malgenommen", "90 * 2")], "°"), g="verknuepfen")
+    "In einem Rechteck gehen von einer Ecke aus zwei Strecken, die den rechten Winkel in drei Teile teilen. Der mittlere Teil ist 10° größer als der kleinste, der größte Teil ist 10° größer als der mittlere. Wie groß ist der größte Teil? Weg A: Nenne den kleinsten Teil k und löse k + (k + 10°) + (k + 20°) = 90°. Weg B: Wären alle drei Teile gleich groß, hätte jeder 30°. Überlege, wie der mittlere Teil dazu liegt und wie viel der größte Teil mehr hat. Gib die Größe des größten Teils an.",
+    40, "90 / 3 + 10", "(90 - 30) / 3 + 20", "Wie groß wäre jeder Teil bei gleich großen Teilen? Was passiert mit den Unterschieden von 10° nach unten und nach oben?",
+    "Weg A: 3k + 30° = 90°, also 3k = 60° und k = 20°. Die Teile sind 20°, 30° und 40°. Der größte Teil ist 40°. Weg B: Der kleinste Teil ist 10° kleiner als der mittlere, der größte 10° größer. Die Unterschiede gleichen sich aus, der mittlere Teil ist also 90° : 3 = 30° groß und der größte 30° + 10° = 40°. Probe: 20° + 30° + 40° = 90°.",
+    [(30, None, "den mittleren Teil genannt", "90 / 3"), (20, None, "den kleinsten Teil genannt", "90 / 3 - 10"), (50, None, "den größten Teil um 20° statt um 10° größer als den mittleren genommen", "90 / 3 + 20")], "°"), g="verknuepfen")
 
 # ───────── verstehen ─────────
 neu(T, "verstehen", "zwei_wege", Z(
-    "Tim behauptet: „Addiert man zwei spitze Winkel, ist die Summe immer ein stumpfer Winkel.“ Bei wie vielen der Paare 20° + 40°, 50° + 60°, 80° + 70°, 30° + 30°, 60° + 85° und 45° + 45° stimmt die Behauptung? Weg A: Rechne jede Summe aus und ordne sie ein. Weg B: Schätze jede Summe und vergleiche sie mit 90° und 180°.",
+    "Tim behauptet: „Addiert man zwei spitze Winkel, ist die Summe immer ein stumpfer Winkel.“ Bei wie vielen der Paare 20° + 40°, 50° + 60°, 80° + 70°, 30° + 30°, 60° + 85° und 45° + 45° stimmt die Behauptung? Weg A: Rechne jede Summe aus und ordne sie ein. Weg B: Ergänze den ersten Winkel zu 90° und vergleiche mit dem zweiten Winkel. Gib die Zahl der Paare an, bei denen die Behauptung stimmt.",
     3, "3", "1 + 1 + 1", "Ein stumpfer Winkel ist größer als 90° und kleiner als 180°. Ist 90° selbst stumpf?",
-    "Weg A: Die Summen sind 60°, 110°, 150°, 60°, 145° und 90°. Stumpf, also größer als 90° und kleiner als 180°, sind 110°, 150° und 145°. Die Summe 90° ist ein rechter Winkel, 60° ist spitz. Weg B: Die Summe zweier Winkel unter 90° ist immer kleiner als 180°, entscheidend ist nur, ob sie über 90° liegt. Es sind 3 Paare.",
+    "Weg A: Die Summen sind 60°, 110°, 150°, 60°, 145° und 90°. Stumpf, also größer als 90° und kleiner als 180°, sind 110°, 150° und 145°. Die Summe 90° ist ein rechter Winkel, 60° ist spitz. Weg B: Bei 20° fehlen 70° bis 90° und 40° ist weniger, die Summe bleibt unter 90°. Bei 50° fehlen 40° und 60° ist mehr: stumpf. Bei 80° fehlen 10° und 70° ist mehr: stumpf. Bei 30° fehlen 60° und 30° ist weniger: spitz. Bei 60° fehlen 30° und 85° ist mehr: stumpf. Bei 45° fehlen 45° und 45° ist genau so viel: rechter Winkel. Zwei spitze Winkel ergeben immer weniger als 180°. Es sind 3 Paare.",
     [(4, None, "den rechten Winkel 90° als stumpf mitgezählt", lambda: sum(a + b >= 90 for a, b in ((20, 40), (50, 60), (80, 70), (30, 30), (60, 85), (45, 45))) == 4), (6, None, "alle Paare gezählt, weil die Summe immer größer als jeder Summand ist", "3 + 3")], "Paare"))
 neu(T, "verstehen", "umkehren", Z(
     "Tim behauptet: „Wenn man einen Winkel verdoppelt und dann 20° dazuzählt, entsteht ein gestreckter Winkel.“ Für welchen Winkel stimmt Tims Aussage?",

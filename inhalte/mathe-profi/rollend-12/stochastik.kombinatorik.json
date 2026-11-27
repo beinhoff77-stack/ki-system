@@ -308,7 +308,7 @@
      "einheit": "Aufstellungen"
     },
     "c": "5 * 4 * 3 * 2 * 1",
-    "h": "Was passiert mit Tim und Eva, wenn sie immer zusammenbleiben müssen? Wie viele Einheiten werden dann angeordnet?",
+    "h": "Tim und Eva müssen immer nebeneinander stehen. Wie ändert das, was du anordnest?",
     "w": "Tim und Eva bilden ein festes Paar (Tim links). Es werden 5 Teile angeordnet: das Paar und 4 weitere Kinder. 5 · 4 · 3 · 2 · 1 = 120 Aufstellungen."
    }
   },
@@ -688,7 +688,7 @@
      "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "3 · 3 gerechnet"
+     "beschreibung": "mit 3 Möglichkeiten je Stelle gerechnet, nur für zwei Stellen: 3 · 3"
     }
    ],
    "aufgabe": {
@@ -699,7 +699,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Tim behauptet: „Aus den Ziffern 1 und 2 kann man nur 6 verschiedene dreistellige Zahlen bilden, denn es gibt 3 · 2 · 1 Anordnungen.“ Wie viele dreistellige Zahlen aus den Ziffern 1 und 2 gibt es wirklich, wenn Ziffern mehrfach vorkommen dürfen? Weg A: Schreibe alle Zahlen geordnet auf (111, 112, 121, …) und zähle. Weg B: Rechne mit der Zahl der Möglichkeiten für jede Stelle."
+     "text": "Tim behauptet: „Aus den Ziffern 1 und 2 kann man nur 6 verschiedene dreistellige Zahlen bilden, denn es gibt 3 · 2 · 1 Anordnungen.“ Wie viele dreistellige Zahlen aus den Ziffern 1 und 2 gibt es wirklich, wenn Ziffern mehrfach vorkommen dürfen? Weg A: Schreibe alle Zahlen geordnet auf (111, 112, 121, …) und zähle. Weg B: Rechne mit der Zahl der Möglichkeiten für jede Stelle. Gib die richtige Zahl der dreistelligen Zahlen an."
     },
     "o": {
      "wert": 8,

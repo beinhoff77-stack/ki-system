@@ -150,7 +150,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Welche Ziffer steht an der Zehntausenderstelle der Zahl „dreihundertzwölf Millionen vierzigtausend“? Weg A: Schreibe die ganze Zahl mit Ziffern hin und lies die Stelle ab. Weg B: Überlege, welches Zahlwort überhaupt bis zu den Zehntausendern reicht."
+     "text": "Welche Ziffer steht an der Zehntausenderstelle der Zahl „dreihundertzwölf Millionen vierzigtausend“? Weg A: Schreibe die ganze Zahl mit Ziffern hin und lies die Stelle ab. Weg B: Suche im Zahlwort den Teil, der die Zehntausender enthält, und lies dort die Ziffer ab. Welche Ziffer steht an der Zehntausenderstelle?"
     },
     "o": {
      "wert": 4,

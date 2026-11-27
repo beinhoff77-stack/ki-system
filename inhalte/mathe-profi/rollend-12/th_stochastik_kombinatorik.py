@@ -33,7 +33,7 @@ neu(T, "reihenfolgen", "zwei_wege", Z(
     [(10, None, "die Zahlen von 1 bis 4 addiert", "4 + 3 + 2 + 1"), (16, None, "4 · 4 gerechnet", "4 * 4"), (12, None, "nur an 2 Stellen eingefügt: 6 · 2", "6 * 2")], "Möglichkeiten"))
 neu(T, "reihenfolgen", "anwenden", Z(
     "Eine Fotografin stellt 6 Kinder in einer Reihe auf. Tim und Eva sollen unmittelbar nebeneinander stehen, und zwar Tim links neben Eva. Wie viele verschiedene Aufstellungen gibt es?",
-    120, "5 * 4 * 3 * 2 * 1", "120", "Was passiert mit Tim und Eva, wenn sie immer zusammenbleiben müssen? Wie viele Einheiten werden dann angeordnet?",
+    120, "5 * 4 * 3 * 2 * 1", "120", "Tim und Eva müssen immer nebeneinander stehen. Wie ändert das, was du anordnest?",
     "Tim und Eva bilden ein festes Paar (Tim links). Es werden 5 Teile angeordnet: das Paar und 4 weitere Kinder. 5 · 4 · 3 · 2 · 1 = 120 Aufstellungen.",
     [(720, None, "alle 6 Kinder frei angeordnet: 6 · 5 · 4 · 3 · 2 · 1", "6 * 5 * 4 * 3 * 2 * 1"), (240, None, "auch die Reihenfolge Eva vor Tim mitgezählt", "2 * 120"), (30, None, "6 · 5 gerechnet", "6 * 5")], "Aufstellungen"), g="transfer")
 
@@ -82,7 +82,7 @@ neu(T, "verstehen", "anwenden", W(
     "Nach dem Zählprinzip: 6 · 4 · 3 = 72 Becher. 72 ist weniger als 100, die Werbung stimmt nicht.",
     lambda: 6 * 4 * 3 == 72 and 6 + 4 + 3 == 13 and 6 * 4 * 3 * 2 == 144))
 neu(T, "verstehen", "zwei_wege", Z(
-    "Tim behauptet: „Aus den Ziffern 1 und 2 kann man nur 6 verschiedene dreistellige Zahlen bilden, denn es gibt 3 · 2 · 1 Anordnungen.“ Wie viele dreistellige Zahlen aus den Ziffern 1 und 2 gibt es wirklich, wenn Ziffern mehrfach vorkommen dürfen? Weg A: Schreibe alle Zahlen geordnet auf (111, 112, 121, …) und zähle. Weg B: Rechne mit der Zahl der Möglichkeiten für jede Stelle.",
+    "Tim behauptet: „Aus den Ziffern 1 und 2 kann man nur 6 verschiedene dreistellige Zahlen bilden, denn es gibt 3 · 2 · 1 Anordnungen.“ Wie viele dreistellige Zahlen aus den Ziffern 1 und 2 gibt es wirklich, wenn Ziffern mehrfach vorkommen dürfen? Weg A: Schreibe alle Zahlen geordnet auf (111, 112, 121, …) und zähle. Weg B: Rechne mit der Zahl der Möglichkeiten für jede Stelle. Gib die richtige Zahl der dreistelligen Zahlen an.",
     8, "2 * 2 * 2", "1 + 1 + 1 + 1 + 1 + 1 + 1 + 1", "Darf eine Ziffer mehrfach vorkommen? Wie viele Ziffern kommen dann für jede Stelle in Frage?",
     "Weg A: 111, 112, 121, 122, 211, 212, 221, 222 sind 8 Zahlen. Weg B: Jede der 3 Stellen hat 2 Möglichkeiten: 2 · 2 · 2 = 8. Tims Rechnung 3 · 2 · 1 gilt nur, wenn jede Ziffer genau einmal vorkommt.",
-    [(6, None, "Tims Zahl 3 · 2 · 1 übernommen (Anordnungen ohne Wiederholung)", "3 * 2 * 1"), (4, None, "nur zwei Stellen gezählt", "2 * 2"), (9, None, "3 · 3 gerechnet", "3 * 3")], "Zahlen"), g="verknuepfen")
+    [(6, None, "Tims Zahl 3 · 2 · 1 übernommen (Anordnungen ohne Wiederholung)", "3 * 2 * 1"), (4, None, "nur zwei Stellen gezählt", "2 * 2"), (9, None, "mit 3 Möglichkeiten je Stelle gerechnet, nur für zwei Stellen: 3 · 3", "3 * 3")], "Zahlen"), g="verknuepfen")

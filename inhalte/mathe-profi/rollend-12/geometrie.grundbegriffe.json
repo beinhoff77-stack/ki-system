@@ -257,10 +257,10 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": -3,
+     "antwort": 12,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "links statt rechts von g gerechnet"
+     "beschreibung": "noch einmal um 5 nach rechts statt zurück nach links gerechnet"
     },
     {
      "antwort": 5,
@@ -272,7 +272,7 @@
      "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "5 − 2 gerechnet"
+     "beschreibung": "die y-Koordinate des Punktes genommen"
     }
    ],
    "aufgabe": {
@@ -283,14 +283,14 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Die Gerade g geht durch A(2 | 1) und B(2 | 6). Die Gerade h ist parallel zu g, liegt rechts von g und hat von g den Abstand 5. Welche x-Koordinate haben alle Punkte von h?"
+     "text": "Eine Gerade g verläuft von oben nach unten (parallel zur y-Achse). Sie wird um 5 Einheiten nach rechts verschoben und heißt danach h. Die Geraden g und h sind also parallel und haben den Abstand 5. Die Gerade h geht durch den Punkt (7 | 3). Welche x-Koordinate haben alle Punkte von g?"
     },
     "o": {
-     "wert": 7
+     "wert": 2
     },
-    "c": "2 + 5",
-    "h": "Wie verläuft g, waagrecht oder senkrecht? Welche Koordinate bleibt bei h für alle Punkte gleich?",
-    "w": "g ist senkrecht (x = 2 für alle Punkte). Eine parallele Gerade ist auch senkrecht. Rechts mit Abstand 5: x = 2 + 5 = 7."
+    "c": "7 - 5",
+    "h": "Um wie viel und in welche Richtung wurde g verschoben? Wie kommst du von h zu g zurück?",
+    "w": "Alle Punkte von h haben die x-Koordinate 7, denn h geht durch (7 | 3) und verläuft von oben nach unten. g wurde um 5 nach rechts verschoben, also muss man um 5 nach links zurück: x = 7 − 5 = 2. Probe: 2 + 5 = 7, der Abstand von g und h ist 5."
    }
   },
   {
@@ -450,24 +450,24 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "170°",
+     "antwort": "Bis zur 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Das ist ein stumpfer Winkel (zwischen 90° und 180°)."
+     "beschreibung": "Eine Vierteldrehung ist ein rechter Winkel (90°)."
     },
     {
      "index": 1,
-     "antwort": "200°",
+     "antwort": "Bis zur 6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Das ist überstumpf, aber nicht kleiner als 200°."
+     "beschreibung": "Eine halbe Drehung ist ein gestreckter Winkel (180°)."
     },
     {
      "index": 3,
-     "antwort": "360°",
+     "antwort": "Bis zur 12 nach einer ganzen Runde",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Das ist ein Vollwinkel."
+     "beschreibung": "Eine ganze Drehung ist ein Vollwinkel (360°)."
     }
    ],
    "aufgabe": {
@@ -478,19 +478,19 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "Welche Gradzahl gehört zu einem überstumpfen Winkel, der kleiner als 200° ist?"
+     "text": "Der Minutenzeiger einer Uhr startet bei der 12 und dreht sich im Uhrzeigersinn bis zu einer Zahl auf dem Zifferblatt. Bis zu welcher Zahl hat er einen überstumpfen Winkel überstrichen?"
     },
     "a": [
-     "170°",
-     "200°",
-     "190°",
-     "360°"
+     "Bis zur 3",
+     "Bis zur 6",
+     "Bis zur 9",
+     "Bis zur 12 nach einer ganzen Runde"
     ],
     "o": {
      "index": 2
     },
-    "h": "Überstumpf heißt: größer als der gestreckte Winkel, aber kleiner als der Vollwinkel.",
-    "w": "Überstumpf ist ein Winkel zwischen 180° und 360°. Kleiner als 200° kommt nur 190° in Frage."
+    "h": "Welcher Teil einer ganzen Runde ist bis zur Zahl geschafft? Überstumpf liegt zwischen gestreckt und Vollwinkel.",
+    "w": "Von der 12 bis zur 3 ist es eine Vierteldrehung: 90°, ein rechter Winkel. Bis zur 6: halbe Drehung, 180°, gestreckt. Bis zur 9: Dreivierteldrehung, 270°, überstumpf. Bis zur 12 nach einer ganzen Runde: 360°, Vollwinkel."
    }
   },
   {

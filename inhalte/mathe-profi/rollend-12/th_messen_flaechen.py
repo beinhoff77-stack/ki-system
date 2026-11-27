@@ -8,10 +8,10 @@ neu(T, "einheitsquadrate", "zwei_wege", Z(
     "Weg A: 6 · 12 = 72. Weg B: Jede Hälfte ist 6 Quadrate breit und hat 6 Reihen: 6 · 6 = 36. Zwei Hälften: 2 · 36 = 72.",
     [(18, None, "6 und 12 addiert", "6 + 12"), (36, None, "nur eine Hälfte gezählt", "6 * 6"), (144, None, "12 · 12 gerechnet", "12 * 12")], "Quadrate"), regel=AL)
 neu(T, "einheitsquadrate", "anwenden", Z(
-    "Ein Zimmer ist 4 m lang und 3 m breit. Es wird lückenlos mit quadratischen Fliesen von 50 cm Seitenlänge belegt. Wie viele Fliesen braucht man?",
-    48, "(4 * 2) * (3 * 2)", "4 * 3 * 4", "Welche Einheit müssen Zimmer und Fliese gemeinsam haben? Wie viele Fliesen liegen nebeneinander?",
-    "In 1 m passen 2 Fliesen. Länge: 4 · 2 = 8 Fliesen, Breite: 3 · 2 = 6 Fliesen. 8 · 6 = 48 Fliesen. Kontrolle: 12 m² und jede Fliese hat 0,25 m², also 12 : 0,25 = 48.",
-    [(12, None, "die Fläche in m² als Zahl der Fliesen genommen", "4 * 3"), (24, None, "die Länge in Fliesen verdoppelt, die Breite nicht: 8 · 3", "(4 * 2) * 3"), (14, None, "Länge und Breite in Fliesen addiert", "8 + 6")], "Fliesen"), g="transfer", regel=AL)
+    "Eine Terrasse ist 6 m lang und 4 m breit. Sie wird lückenlos mit quadratischen Platten von 50 cm Seitenlänge belegt. Nur ein rechteckiges Beet von 3 m Länge und 1 m Breite bleibt frei. Wie viele Platten braucht man?",
+    84, "(6 * 2) * (4 * 2) - (3 * 2) * (1 * 2)", "(6 * 4 - 3 * 1) * 4", "Welche Einheit müssen Terrasse, Beet und Platte gemeinsam haben? Was wird nicht belegt?",
+    "In 1 m passen 2 Platten. Terrasse: 6 · 2 = 12 Platten in der Länge, 4 · 2 = 8 in der Breite, zusammen 12 · 8 = 96 Platten. Beet: 3 · 2 = 6 mal 1 · 2 = 2, also 12 Platten. 96 − 12 = 84 Platten. Kontrolle: 24 m² − 3 m² = 21 m², auf 1 m² passen 4 Platten: 21 · 4 = 84.",
+    [(21, None, "in m² gerechnet: 24 − 3", "6 * 4 - 3 * 1"), (96, None, "das Beet nicht abgezogen", "(6 * 2) * (4 * 2)"), (93, None, "das Beet in m² statt in Platten abgezogen: 96 − 3", "(6 * 2) * (4 * 2) - 3 * 1")], "Platten"), g="transfer", regel=AL)
 
 # ───────── rechteck ─────────
 neu(T, "rechteck", "bruecke", Z(
@@ -72,10 +72,10 @@ neu(T, "sachaufgaben", "bruecke", Z(
     [(432, None, "mit dem Preis des Laminats gerechnet", "24 * 18"), (840, None, "mit dem Preis des Parketts gerechnet", "24 * 35"), (12, None, "nur den Preis je m² genannt", "12")], "€",
     grafik=TAB(["Belag", "Preis je m²"], ["Laminat", "18 €"], ["Teppich", "12 €"], ["Parkett", "35 €"])))
 neu(T, "sachaufgaben", "zwei_wege", Z(
-    "Ein Boden ist 3 m lang und 2 m breit. Er wird lückenlos mit quadratischen Fliesen von 25 cm Seitenlänge belegt. Wie viele Fliesen braucht man? Weg A: Teile die Bodenfläche durch die Fläche einer Fliese (beides in cm²). Weg B: Bestimme, wie viele Fliesen in der Länge und wie viele in der Breite nebeneinander passen.",
-    96, "(300 * 200) / (25 * 25)", "(300 / 25) * (200 / 25)", "Rechne alle Maße in cm. Wie viele Fliesen von 25 cm passen in 3 m?",
-    "Weg A: Boden 300 cm · 200 cm = 60 000 cm², Fliese 25 · 25 = 625 cm². 60 000 : 625 = 96. Weg B: 300 : 25 = 12 Fliesen in der Länge, 200 : 25 = 8 in der Breite. 12 · 8 = 96.",
-    [(20, None, "Fliesen in der Länge und in der Breite addiert", "12 + 8"), (6, None, "die Fläche in m² als Zahl der Fliesen genommen", "3 * 2"), (600, None, "durch 100 statt durch 625 geteilt", "60000 / 100")], "Fliesen"), g="verknuepfen", regel=AL)
+    "Ein Gartenweg ist 6 m lang und 80 cm breit. Er wird lückenlos mit quadratischen Platten von 20 cm Seitenlänge belegt. Wie viele Platten braucht man? Weg A: Teile die Fläche des Wegs durch die Fläche einer Platte (beides in cm²). Weg B: Bestimme, wie viele Platten in der Länge und wie viele in der Breite nebeneinander passen. Gib die Zahl der Platten an.",
+    120, "(600 * 80) / (20 * 20)", "(600 / 20) * (80 / 20)", "Rechne alle Maße in cm. Wie viele Platten von 20 cm passen in 6 m?",
+    "Weg A: Weg 600 cm · 80 cm = 48 000 cm², Platte 20 · 20 = 400 cm². 48 000 : 400 = 120. Weg B: 600 : 20 = 30 Platten in der Länge, 80 : 20 = 4 in der Breite. 30 · 4 = 120.",
+    [(34, None, "Platten in der Länge und in der Breite addiert", "30 + 4"), (4.8, None, "die Fläche in m² als Zahl der Platten genommen", "6 * 0.8"), (480, None, "durch 100 statt durch 400 geteilt", "48000 / 100")], "Platten"), g="verknuepfen", regel=AL)
 
 # ───────── verstehen ─────────
 neu(T, "verstehen", "umkehren", Z(
@@ -84,7 +84,7 @@ neu(T, "verstehen", "umkehren", Z(
     "36 cm² = 9 cm · Breite, also Breite = 36 : 9 = 4 cm. Probe: 9 · 4 = 36.",
     [(27, None, "9 von 36 abgezogen", "36 - 9"), (6, None, "die Seite des Quadrats genannt", "6"), (45, None, "36 und 9 addiert", "36 + 9")], "cm"), g="umkehr")
 neu(T, "verstehen", "zwei_wege", Z(
-    "Bei einem Rechteck mit 5 cm Länge und 7 cm Breite werden Länge und Breite verdoppelt. Wie oft so groß wird dabei der Flächeninhalt und wie oft so groß der Umfang? Gib die Summe der beiden Faktoren an. Weg A: Berechne alte und neue Fläche und alten und neuen Umfang und teile jeweils. Weg B: Überlege, mit welcher Zahl jede Seite malgenommen wird und was das für Fläche und Umfang bedeutet.",
-    6, "(10 * 14) / (5 * 7) + (2 * (10 + 14)) / (2 * (5 + 7))", "2 * 2 + 2", "Berechne alte und neue Fläche und alten und neuen Umfang. Wie oft passt jeweils das Alte in das Neue?",
+    "Bei einem Rechteck mit 5 cm Länge und 7 cm Breite werden Länge und Breite verdoppelt. Wie oft so groß wird dabei der Flächeninhalt und wie oft so groß der Umfang? Weg A: Berechne alte und neue Fläche und alten und neuen Umfang und teile jeweils. Weg B: Überlege, mit welcher Zahl jede Seite malgenommen wird und was das für Fläche und Umfang bedeutet. Gib die Summe der beiden Faktoren an.",
+    6, "(10 * 14) / (5 * 7) + (2 * (10 + 14)) / (2 * (5 + 7))", "2 * 2 + 2", "Vergleiche jeweils die neue mit der alten Größe: Wie oft passt die alte in die neue?",
     "Weg A: Fläche 5 · 7 = 35 cm² wird 10 · 14 = 140 cm², das ist 4-mal so viel. Umfang 2 · (5 + 7) = 24 cm wird 2 · (10 + 14) = 48 cm, das ist 2-mal so viel. 4 + 2 = 6. Weg B: Jede Seite wird 2-mal so lang. Der Umfang besteht aus Seiten, er wird 2-mal so groß. Die Fläche ist Länge mal Breite, sie wird 2 · 2 = 4-mal so groß. 4 + 2 = 6.",
-    [(4, None, "nur den Faktor der Fläche genannt", "2 * 2"), (8, None, "den Faktor der Fläche auch für den Umfang genommen: 4 + 4", "2 * 2 + 2 * 2"), (3, None, "den Faktor 2 für den Umfang mit 1 addiert", "2 + 1")]), g="verknuepfen")
+    [(4, None, "für Fläche und Umfang jeweils den Faktor 2 genommen: 2 + 2", "2 + 2"), (8, None, "den Faktor der Fläche auch für den Umfang genommen: 4 + 4", "2 * 2 + 2 * 2"), (2, None, "nur den Faktor des Umfangs genannt", "2")]), g="verknuepfen")

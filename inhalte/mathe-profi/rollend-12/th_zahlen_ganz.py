@@ -66,7 +66,7 @@ neu(T, "schriftlich_plus_minus", "fehler_detektiv", FD(
     [("Einer: 4 − 6 geht nicht, also 14 − 6 = 8. Ich borge 1.", 14 - 6 == 8, True, "Zeile 1 stimmt: 14 − 6 = 8, und die geborgte 1 wird weitergegeben. Der Fehler steckt später."),
      ("Zehner: 1 + 10 − 8 − 1 = 2. Ich borge 1.", 1 + 10 - 8 - 1 == 2, True, "Zeile 2 stimmt: Die geborgte 1 wird abgezogen, 11 − 8 − 1 = 2, und wieder wird 1 geborgt. Der Fehler steckt später."),
      ("Hunderter: 2 + 10 − 5 − 1 = 6. Ich borge 1.", 2 + 10 - 5 - 1 == 6, True, "Zeile 3 stimmt: 12 − 5 − 1 = 6, und wieder wird 1 geborgt. Der Fehler steckt später."),
-     ("Tausender: 7 − 3 = 4. Das Ergebnis ist 4 628.", 7 - 3 - 1 == 4, True)],
+     ("Tausender: Dafür muss nichts mehr abgezogen werden, also 7 − 3 = 4. Das Ergebnis ist 4 628.", 7 - 3 - 1 == 4, True)],
     "Prüfe jede Zeile für sich und mache zum Schluss die Probe mit der Addition. Welche Zeile enthält zuerst einen Fehler?",
     "Beim Tausender muss das geborgte 1 noch abgezogen werden: 7 − 3 − 1 = 3. Richtig: 7 214 − 3 586 = 3 628. Der erste Fehler steht in Zeile 4."))
 
@@ -124,7 +124,7 @@ neu(T, "ketten", "fehler_detektiv", FD(
 
 # ───────── verstehen ─────────
 neu(T, "verstehen", "zwei_wege", Z(
-    "Lena behauptet: „Wenn ich von 5 eine Zahl abziehe, wird das Ergebnis immer kleiner als 5.“ Bei wie vielen der Zahlen −2, 3, −4, 6, −1, 2 und 7 stimmt die Behauptung nicht? Weg A: Rechne 5 − b für jede Zahl b aus und vergleiche mit 5. Weg B: Überlege nur mit dem Vorzeichen von b, was beim Abziehen passiert.",
+    "Lena behauptet: „Wenn ich von 5 eine Zahl abziehe, wird das Ergebnis immer kleiner als 5.“ Bei wie vielen der Zahlen −2, 3, −4, 6, −1, 2 und 7 stimmt die Behauptung nicht? Weg A: Rechne 5 − b für jede Zahl b aus und vergleiche mit 5. Weg B: Überlege nur mit dem Vorzeichen von b, was beim Abziehen passiert. Bei wie vielen der Zahlen stimmt Lenas Behauptung nicht?",
     3, "3", "1 + 1 + 1", "Was passiert mit 5, wenn man eine negative Zahl abzieht?",
     "Weg A: 5 − (−2) = 7, 5 − 3 = 2, 5 − (−4) = 9, 5 − 6 = −1, 5 − (−1) = 6, 5 − 2 = 3, 5 − 7 = −2. Größer als 5 wird es bei −2, −4 und −1. Weg B: Das Abziehen einer negativen Zahl macht größer, also sind alle drei negativen Zahlen Gegenbeispiele.",
     [(4, None, "die Zahlen gezählt, bei denen die Behauptung stimmt", "7 - 3"), (7, None, "alle Zahlen gezählt", "7"), (2, None, "die Zahl −1 übersehen", "3 - 1")], "Zahlen"))

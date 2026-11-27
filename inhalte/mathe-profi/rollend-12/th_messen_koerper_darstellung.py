@@ -67,18 +67,18 @@ neu(T, "ansichten", "umkehren", W(
     "Ein Körper wird von vorn und von der Seite betrachtet. In beiden Fällen sieht man ein Dreieck. Von oben sieht man ein Quadrat. Welcher Körper ist es?",
     "Pyramide mit quadratischer Grundfläche",
     [("Kegel", "Von oben sieht ein Kegel wie ein Kreis aus."), ("Dreiecksprisma (liegend)", "Von oben sieht man ein Rechteck, von der Seite ein Rechteck."), ("Würfel", "Von vorn sieht man ein Quadrat.")],
-    "Welcher Körper hat von oben die Form seiner Grundfläche und läuft nach oben spitz zu?",
+    "Was verraten dir die Ansichten von vorn und von der Seite über die Form des Körpers nach oben? Und was die Ansicht von oben über die Grundfläche?",
     "Dreieck von vorn und von der Seite heißt: Der Körper läuft nach oben spitz zu. Das Quadrat von oben ist die Grundfläche. Das ist die Pyramide mit quadratischer Grundfläche.",
     lambda: [v == ("Dreieck", "Dreieck", "Quadrat") for v in (("Dreieck", "Dreieck", "Quadrat"), ("Dreieck", "Dreieck", "Kreis"), ("Dreieck", "Rechteck", "Rechteck"), ("Quadrat", "Quadrat", "Quadrat"))] == [True, False, False, False]), g="rueckwaerts")
 
 # ───────── beurteilen ─────────
 neu(T, "beurteilen", "zwei_wege", Z(
-    "Jan behauptet: „Ein Würfel hat 6 Flächen mit je 4 Kanten, also 24 Kanten.“ Wie viele Kanten hat ein Würfel wirklich? Weg A: Zähle die Kanten oben, unten und die senkrechten Kanten. Weg B: Prüfe Jans Rechnung: Jede Kante gehört zu genau zwei Flächen.",
-    12, "4 + 4 + 4", "6 * 4 / 2", "Bei Weg B werden alle Kanten doppelt gezählt. Was musst du am Ende tun?",
+    "Jan behauptet: „Ein Würfel hat 6 Flächen mit je 4 Kanten, also 24 Kanten.“ Wie viele Kanten hat ein Würfel wirklich? Weg A: Zähle die Kanten oben, unten und die senkrechten Kanten. Weg B: Prüfe Jans Rechnung: Jede Kante gehört zu genau zwei Flächen. Gib die wirkliche Zahl der Kanten an.",
+    12, "4 + 4 + 4", "6 * 4 / 2", "Jede Kante grenzt an zwei Flächen. Wie oft hat Jan jede Kante gezählt?",
     "Weg A: oben 4, unten 4, senkrecht 4: 4 + 4 + 4 = 12. Weg B: 6 · 4 = 24 Kanten gezählt, aber jede wurde zweimal gezählt: 24 : 2 = 12.",
     [(24, None, "jede Kante doppelt gezählt", "6 * 4"), (8, None, "die Zahl der Ecken genannt", "8"), (6, None, "die Zahl der Flächen genannt", "6")], "Kanten"))
 neu(T, "beurteilen", "anwenden", Z(
     "Für das Kantenmodell eines Prismas stehen genau 30 Holzstäbe bereit. Jeder Stab ist eine Kante, und alle Stäbe werden gebraucht. Wie viele Ecken hat die Grundfläche des Prismas?",
-    10, "30 / 3", "5 + 5", "Wie viele Kanten gehören bei einem Prisma zu jeder Ecke der Grundfläche? Denke an Grundfläche, Deckfläche und die senkrechten Kanten.",
+    10, "30 / 3", "5 + 5", "Zähle zuerst die Kanten eines Prismas mit dreieckiger Grundfläche. Wie ändert sich die Zahl, wenn die Grundfläche mehr Ecken hat?",
     "Zu jeder Ecke der Grundfläche gehören 3 Kanten: eine in der Grundfläche, eine in der Deckfläche und eine senkrechte. 3 · n = 30, also n = 10. Das Prisma hat eine zehneckige Grundfläche. Probe: 3 · 10 = 30.",
     [(15, None, "nur Grund- und Deckfläche gezählt: 30 : 2", "30 / 2"), (90, None, "mit 3 malgenommen statt durch 3 geteilt", "30 * 3"), (27, None, "3 abgezogen statt durch 3 geteilt", "30 - 3")], "Ecken"), g="transfer")

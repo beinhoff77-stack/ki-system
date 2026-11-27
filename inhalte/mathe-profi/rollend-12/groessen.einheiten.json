@@ -513,22 +513,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 275,
+     "antwort": 308,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "mit 100 statt mit 1 000 malgenommen"
     },
     {
-     "antwort": 27500,
+     "antwort": 30800,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "mit 10 000 malgenommen"
     },
     {
-     "antwort": 2075,
+     "antwort": 3008,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "0,75 kg als 75 g gerechnet"
+     "beschreibung": "0,08 kg als 8 g gerechnet"
     }
    ],
    "aufgabe": {
@@ -539,15 +539,15 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Wie viele Gramm sind 2,75 kg? Weg A: Rechne 2,75 · 1 000. Weg B: Schreibe 2,75 kg mit drei Stellen hinter dem Komma (2,750 kg) und lies kg und g ab."
+     "text": "Wie viele Gramm sind 3,08 kg? Weg A: Rechne 3,08 · 1 000. Weg B: Schreibe 3,08 kg mit drei Stellen hinter dem Komma (3,080 kg) und lies kg und g ab. Gib die Masse in Gramm an."
     },
     "o": {
-     "wert": 2750,
+     "wert": 3080,
      "einheit": "g"
     },
-    "c": "2.75 * 1000",
+    "c": "3.08 * 1000",
     "h": "Ein Gramm ist ein Tausendstel eines Kilogramms. Welche Stellen hinter dem Komma gehören zu den Gramm?",
-    "w": "Weg A: 2,75 · 1 000 = 2 750 g. Weg B: 2,75 kg = 2,750 kg. Vor dem Komma stehen die 2 kg, die drei Stellen dahinter sind die Gramm: 2 kg 750 g = 2 000 g + 750 g = 2 750 g."
+    "w": "Weg A: 3,08 · 1 000 = 3 080 g. Weg B: 3,08 kg = 3,080 kg. Vor dem Komma stehen die 3 kg, die drei Stellen dahinter (080) sind die Gramm: 3 kg 80 g = 3 000 g + 80 g = 3 080 g."
    }
   },
   {
@@ -563,22 +563,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 33.135,
+     "antwort": 380,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "multipliziert statt geteilt"
+     "beschreibung": "nicht durch 2 geteilt"
     },
     {
-     "antwort": 11.75,
+     "antwort": 310,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Preis eines Hefts vom Gesamtpreis abgezogen"
+     "beschreibung": "den Rest addiert statt abgezogen"
     },
     {
-     "antwort": 16.45,
+     "antwort": 240,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Preis eines Hefts zum Gesamtpreis addiert"
+     "beschreibung": "nur 20 cm statt 1 m 20 cm als Rest abgezogen"
     }
    ],
    "aufgabe": {
@@ -589,15 +589,15 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Mia hat Hefte gekauft, die je 2,35 € kosten. Sie hat insgesamt 14,10 € bezahlt. Wie viele Hefte hat sie gekauft?"
+     "text": "Von einem 5 m langen Seil werden zwei gleich lange Stücke abgeschnitten. Übrig bleibt ein Rest von 1 m 20 cm. Wie lang ist jedes abgeschnittene Stück in cm?"
     },
     "o": {
-     "wert": 6,
-     "einheit": "Hefte"
+     "wert": 190,
+     "einheit": "cm"
     },
-    "c": "14.1 / 2.35",
-    "h": "Mit welcher Rechnung bekommt man den Gesamtpreis aus der Zahl der Hefte? Mache sie rückgängig.",
-    "w": "Gesamtpreis = Zahl der Hefte · 2,35 €. Rückwärts: 14,10 € : 2,35 € = 6. Probe: 6 · 2,35 € = 14,10 €."
+    "c": "(500 - 120) / 2",
+    "h": "Wie viel Seil wurde insgesamt abgeschnitten? Beide Längen müssen dazu in derselben Einheit stehen.",
+    "w": "5 m = 500 cm und 1 m 20 cm = 120 cm. Abgeschnitten wurden 500 cm − 120 cm = 380 cm. Das sind zwei gleich lange Stücke: 380 cm : 2 = 190 cm. Probe: 2 · 190 cm + 120 cm = 500 cm."
    }
   },
   {
@@ -757,31 +757,28 @@
    "stufe": 2,
    "typ": "Brücke",
    "form": "bruecke",
-   "antwortform": "auswahl",
+   "antwortform": "zahl",
    "regel": null,
    "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "3 h 50 min",
+     "antwort": 1,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die Nachkommastelle 5 wurde als 50 Minuten gelesen."
+     "beschreibung": "nur eine unrealistische Angabe gefunden"
     },
     {
-     "index": 1,
-     "antwort": "3 h 5 min",
+     "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die Nachkommastelle 5 wurde als 5 Minuten gelesen."
+     "beschreibung": "auch die Höhe des Klassenzimmers (3 m) für unrealistisch gehalten"
     },
     {
-     "index": 2,
-     "antwort": "3 h 15 min",
+     "antwort": 5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Ein Viertel einer Stunde wurde mit einer halben Stunde verwechselt."
+     "beschreibung": "alle Angaben für unrealistisch gehalten"
     }
    ],
    "aufgabe": {
@@ -790,21 +787,46 @@
     "p": "uebung",
     "s": 2,
     "g": "darstellung",
-    "y": "auswahl",
+    "y": "zahl",
     "f": {
-     "text": "Welche Angabe ist genauso lang wie 3,5 Stunden?"
+     "text": "Die Tabelle nennt fünf Gegenstände mit einer Größenangabe. Bei wie vielen Gegenständen ist die Angabe nicht realistisch?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Gegenstand",
+       "Angabe"
+      ],
+      "zeilen": [
+       [
+        "Schulheft",
+        "21 cm lang"
+       ],
+       [
+        "Bleistift",
+        "5 kg schwer"
+       ],
+       [
+        "Klassenzimmer",
+        "3 m hoch"
+       ],
+       [
+        "Apfel",
+        "150 g schwer"
+       ],
+       [
+        "Kind mit 10 Jahren",
+        "14 m groß"
+       ]
+      ]
+     }
     },
-    "a": [
-     "3 h 50 min",
-     "3 h 5 min",
-     "3 h 15 min",
-     "3 h 30 min"
-    ],
     "o": {
-     "index": 3
+     "wert": 2,
+     "einheit": "Angaben"
     },
-    "h": "Eine halbe Stunde hat wie viele Minuten? 0,5 h ist eine halbe Stunde.",
-    "w": "0,5 h ist eine halbe Stunde, das sind 30 Minuten. 3,5 h = 3 h 30 min."
+    "c": "2",
+    "h": "Vergleiche mit etwas, das du kennst: Wie lang ist ein Lineal? Wie schwer ist ein Apfel?",
+    "w": "Ein Bleistift mit 5 kg wäre so schwer wie fünf Packungen Zucker, er wiegt nur wenige Gramm. Ein Kind mit 14 m wäre höher als ein Haus. Die anderen Angaben passen: Heft 21 cm, Zimmerhöhe 3 m, Apfel 150 g. Es sind 2 Angaben."
    }
   },
   {
@@ -820,25 +842,25 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "17:42 Uhr",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Die Fahrzeit wurde addiert statt abgezogen."
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "12:12 Uhr",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Die 2,5 Stunden wurden als 3 Stunden gerechnet."
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "12:22 Uhr",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die 0,5 Stunden wurden als 50 Minuten gerechnet."
+     "beschreibung": "Das ist Tims Angabe. Er hat 0,5 Stunden als 50 Minuten gerechnet."
     }
    ],
    "aufgabe": {
@@ -849,18 +871,18 @@
     "g": "rueckwaerts",
     "y": "auswahl",
     "f": {
-     "text": "Ein Zug kommt um 15:12 Uhr an. Die Fahrt hat 2,5 Stunden gedauert. Wann ist er abgefahren?"
+     "text": "Ein Zug kommt um 15:12 Uhr an. Die Fahrt hat 2,5 Stunden gedauert. Tim sagt: „Er ist um 12:22 Uhr abgefahren.“ Welche Abfahrtszeit ist richtig?"
     },
     "a": [
-     "12:42 Uhr",
      "17:42 Uhr",
      "12:12 Uhr",
-     "12:22 Uhr"
+     "12:22 Uhr",
+     "12:42 Uhr"
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
-    "h": "Rechne 2,5 Stunden in Stunden und Minuten um. Gehe dann rückwärts von der Ankunftszeit.",
+    "h": "Rechne 2,5 Stunden in Stunden und Minuten um. Gehe dann rückwärts von der Ankunftszeit und prüfe Tims Angabe.",
     "w": "2,5 h = 2 h 30 min. Rückwärts von 15:12 Uhr: 2 h zurück ergibt 13:12 Uhr, weitere 30 min zurück ergibt 12:42 Uhr. Probe: 12:42 Uhr + 2 h 30 min = 15:12 Uhr."
    }
   }

@@ -45,13 +45,13 @@ neu(T, "vertauschen", "umkehren", Z(
     "Für welche Hochzahl gilt 3 hoch □ = 81?",
     4, "4", "81 / 27 + 1", "Wie oft muss die 3 als Faktor stehen, damit 81 herauskommt? Die Hochzahl sagt, wie oft die Basis als Faktor vorkommt.",
     "3 · 3 = 9, 9 · 3 = 27, 27 · 3 = 81: Die 3 steht 4-mal als Faktor da, also 3⁴ = 81. Nicht verwechseln: 4³ ist 4 · 4 · 4 = 64. Probe: 3⁴ = 81.",
-    [(3, None, "Basis und Hochzahl vertauscht: die Basis 3 als Hochzahl genommen", "3"), (27, None, "81 durch 3 geteilt", "81 / 3"), (9, None, "nur zwei Faktoren 3 gemalt und 3 · 3 als Hochzahl genommen", "3 * 3")]), g="umkehr", regel=PO)
+    [(3, None, "Basis und Hochzahl vertauscht: die Basis 3 als Hochzahl genommen", "3"), (27, None, "81 durch 3 geteilt", "81 / 3"), (9, None, "die Zahl als Hochzahl genommen, die mit sich selbst malgenommen 81 ergibt", "9")]), g="umkehr", regel=PO)
 neu(T, "vertauschen", "fehler_detektiv", FD(
     "Mia vergleicht 3⁴ und 4³.",
     [("3⁴ = 3 · 3 · 3 · 3 = 81.", 3 ** 4 == 81, True, "Zeile 1 stimmt: 3 · 3 · 3 · 3 = 81. Der Fehler steckt später."),
      ("4³ = 4 · 4 · 4 = 64.", 4 ** 3 == 64, True, "Zeile 2 stimmt: 4 · 4 · 4 = 64. Der Fehler steckt später."),
      ("Also sind die beiden Potenzen gleich, weil nur Basis und Hochzahl getauscht sind.", 3 ** 4 == 4 ** 3, True)],
-    "Prüfe jede Zeile für sich und rechne die Werte genau nach. Welche Zeile enthält zuerst einen Fehler?",
+    "Prüfe jede Zeile für sich: Stimmt die Rechnung, und stimmt der Schluss daraus? Welche Zeile enthält zuerst einen Fehler?",
     "81 und 64 sind verschieden. Beim Vertauschen von Basis und Hochzahl ändert sich der Wert im Allgemeinen. Der erste Fehler steht in Zeile 3."), regel=PO)
 
 # ───────── zehner ─────────

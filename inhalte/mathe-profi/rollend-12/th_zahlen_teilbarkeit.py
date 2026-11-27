@@ -49,7 +49,7 @@ neu(T, "quersumme", "anwenden", W(
     "Quersummen: 1 245 → 12 (durch 3 teilbar), 2 378 → 20, 4 123 → 10, 5 606 → 17. Nur 12 ist durch 3 teilbar, es gewinnt Los 1 245.",
     lambda: [n % 3 for n in (1245, 2378, 4123, 5606)] == [0, 2, 1, 2]))
 neu(T, "quersumme", "zwei_wege", Z(
-    "Welchen Rest lässt 2 749 bei der Division durch 3? Weg A: Dividiere schriftlich. Weg B: Bilde die Quersumme und bestimme ihren Rest bei der Division durch 3.",
+    "Welchen Rest lässt 2 749 bei der Division durch 3? Weg A: Dividiere schriftlich. Weg B: Bilde die Quersumme und bestimme ihren Rest bei der Division durch 3. Welchen Rest lässt 2 749 bei der Division durch 3?",
     1, "2749 % 3", "(2 + 7 + 4 + 9) % 3", "Bei Weg B zählst du zuerst die Ziffern zusammen.",
     "Weg A: 2 749 : 3 = 916 Rest 1. Weg B: Quersumme 2 + 7 + 4 + 9 = 22, 22 : 3 = 7 Rest 1. Beide Wege geben Rest 1.",
     [(22, None, "die Quersumme selbst als Rest genannt", "2 + 7 + 4 + 9"), (7, None, "den Quotienten der Quersumme genannt", "22 // 3"), (0, "fb.bausteine.endziffer_statt_quersumme", "nur die Endziffer 9 angesehen: Sie ist durch 3 teilbar, also Rest 0", "9 % 3")]), g="verknuepfen")
@@ -80,12 +80,13 @@ neu(T, "primzahl", "zwei_wege", Z(
 
 # ───────── primfaktoren ─────────
 neu(T, "primfaktoren", "bruecke", W(
-    "Ein Faktorbaum für 180 sieht so aus: 180 = 2 · 90, dann 90 = 2 · 45, dann 45 = 3 · 15, dann 15 = 3 · 5. Welche Primfaktorzerlegung ergibt sich aus dem Baum?",
+    "Die Tabelle zeigt, wie 180 durch Teilen zerlegt wurde: Jedes Mal wurde die Zahl durch die kleinste passende Primzahl geteilt, bis 1 übrig blieb. Welche Primfaktorzerlegung von 180 steht in der Tabelle?",
     "2 · 2 · 3 · 3 · 5",
-    [("2 · 2 · 3 · 15", "Der Faktor 15 ist noch nicht zu Ende zerlegt.", "fb.bausteine.nicht_zu_ende_zerlegt"), ("2 · 3 · 3 · 5 · 5", "Ein Faktor 2 ist durch einen Faktor 5 ersetzt worden.")],
-    "Lies alle Enden des Baums ab: Welche Faktoren lassen sich nicht weiter zerlegen?",
-    "Die Enden des Baums sind 2, 2, 3, 3 und 5. 2 · 2 · 3 · 3 · 5 = 180 und alle Faktoren sind Primzahlen.",
-    lambda: 2 * 2 * 3 * 3 * 5 == 180 and 2 * 2 * 3 * 15 == 180 and 2 * 3 * 3 * 5 * 5 == 450), regel=BA)
+    [("2 · 2 · 3 · 3 · 5 · 5", "Der Rest 5 aus der vorletzten Zeile wurde zusätzlich als Faktor genommen."), ("2 · 3 · 5", "Jede Primzahl wurde nur einmal genommen, obwohl sie mehrfach als Teiler vorkommt.")],
+    "Welche Spalte der Tabelle enthält die Primzahlen, durch die geteilt wurde?",
+    "Die Teiler in der Tabelle sind 2, 2, 3, 3 und 5. Es sind alles Primzahlen und das Produkt ist 2 · 2 · 3 · 3 · 5 = 180.",
+    lambda: 2 * 2 * 3 * 3 * 5 == 180 and 2 * 2 * 3 * 3 * 5 * 5 == 900 and 2 * 3 * 5 == 30,
+    grafik=TAB(["Zahl", "geteilt durch", "Ergebnis"], ["180", "2", "90"], ["90", "2", "45"], ["45", "3", "15"], ["15", "3", "5"], ["5", "5", "1"])), regel=BA)
 neu(T, "primfaktoren", "anwenden", Z(
     "Ein Boden ist 84 cm lang und 126 cm breit. Er soll lückenlos mit möglichst großen quadratischen Platten belegt werden, ohne dass eine Platte zerschnitten wird. Wie lang ist eine Seite einer Platte?",
     42, "2 * 3 * 7", "126 - 84", "Welche Eigenschaft muss die Seitenlänge der Platten für 84 cm und für 126 cm haben?",

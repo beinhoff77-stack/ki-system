@@ -515,7 +515,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Eva rechnet schriftlich 7 214 − 3 586 und beginnt bei den Einern. Dabei borgt sie immer 10 vom nächsten Stellenwert. Zeile 1: Einer: 4 − 6 geht nicht, also 14 − 6 = 8. Ich borge 1. Zeile 2: Zehner: 1 + 10 − 8 − 1 = 2. Ich borge 1. Zeile 3: Hunderter: 2 + 10 − 5 − 1 = 6. Ich borge 1. Zeile 4: Tausender: 7 − 3 = 4. Das Ergebnis ist 4 628. In welcher Zeile passiert der erste Fehler?"
+     "text": "Eva rechnet schriftlich 7 214 − 3 586 und beginnt bei den Einern. Dabei borgt sie immer 10 vom nächsten Stellenwert. Zeile 1: Einer: 4 − 6 geht nicht, also 14 − 6 = 8. Ich borge 1. Zeile 2: Zehner: 1 + 10 − 8 − 1 = 2. Ich borge 1. Zeile 3: Hunderter: 2 + 10 − 5 − 1 = 6. Ich borge 1. Zeile 4: Tausender: Dafür muss nichts mehr abgezogen werden, also 7 − 3 = 4. Das Ergebnis ist 4 628. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -940,7 +940,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Lena behauptet: „Wenn ich von 5 eine Zahl abziehe, wird das Ergebnis immer kleiner als 5.“ Bei wie vielen der Zahlen −2, 3, −4, 6, −1, 2 und 7 stimmt die Behauptung nicht? Weg A: Rechne 5 − b für jede Zahl b aus und vergleiche mit 5. Weg B: Überlege nur mit dem Vorzeichen von b, was beim Abziehen passiert."
+     "text": "Lena behauptet: „Wenn ich von 5 eine Zahl abziehe, wird das Ergebnis immer kleiner als 5.“ Bei wie vielen der Zahlen −2, 3, −4, 6, −1, 2 und 7 stimmt die Behauptung nicht? Weg A: Rechne 5 − b für jede Zahl b aus und vergleiche mit 5. Weg B: Überlege nur mit dem Vorzeichen von b, was beim Abziehen passiert. Bei wie vielen der Zahlen stimmt Lenas Behauptung nicht?"
     },
     "o": {
      "wert": 3,

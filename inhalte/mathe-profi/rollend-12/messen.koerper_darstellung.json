@@ -551,7 +551,7 @@
     "o": {
      "index": 1
     },
-    "h": "Welcher Körper hat von oben die Form seiner Grundfläche und läuft nach oben spitz zu?",
+    "h": "Was verraten dir die Ansichten von vorn und von der Seite über die Form des Körpers nach oben? Und was die Ansicht von oben über die Grundfläche?",
     "w": "Dreieck von vorn und von der Seite heißt: Der Körper läuft nach oben spitz zu. Das Quadrat von oben ist die Grundfläche. Das ist die Pyramide mit quadratischer Grundfläche."
    }
   },
@@ -594,14 +594,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Jan behauptet: „Ein Würfel hat 6 Flächen mit je 4 Kanten, also 24 Kanten.“ Wie viele Kanten hat ein Würfel wirklich? Weg A: Zähle die Kanten oben, unten und die senkrechten Kanten. Weg B: Prüfe Jans Rechnung: Jede Kante gehört zu genau zwei Flächen."
+     "text": "Jan behauptet: „Ein Würfel hat 6 Flächen mit je 4 Kanten, also 24 Kanten.“ Wie viele Kanten hat ein Würfel wirklich? Weg A: Zähle die Kanten oben, unten und die senkrechten Kanten. Weg B: Prüfe Jans Rechnung: Jede Kante gehört zu genau zwei Flächen. Gib die wirkliche Zahl der Kanten an."
     },
     "o": {
      "wert": 12,
      "einheit": "Kanten"
     },
     "c": "4 + 4 + 4",
-    "h": "Bei Weg B werden alle Kanten doppelt gezählt. Was musst du am Ende tun?",
+    "h": "Jede Kante grenzt an zwei Flächen. Wie oft hat Jan jede Kante gezählt?",
     "w": "Weg A: oben 4, unten 4, senkrecht 4: 4 + 4 + 4 = 12. Weg B: 6 · 4 = 24 Kanten gezählt, aber jede wurde zweimal gezählt: 24 : 2 = 12."
    }
   },
@@ -651,7 +651,7 @@
      "einheit": "Ecken"
     },
     "c": "30 / 3",
-    "h": "Wie viele Kanten gehören bei einem Prisma zu jeder Ecke der Grundfläche? Denke an Grundfläche, Deckfläche und die senkrechten Kanten.",
+    "h": "Zähle zuerst die Kanten eines Prismas mit dreieckiger Grundfläche. Wie ändert sich die Zahl, wenn die Grundfläche mehr Ecken hat?",
     "w": "Zu jeder Ecke der Grundfläche gehören 3 Kanten: eine in der Grundfläche, eine in der Deckfläche und eine senkrechte. 3 · n = 30, also n = 10. Das Prisma hat eine zehneckige Grundfläche. Probe: 3 · 10 = 30."
    }
   }

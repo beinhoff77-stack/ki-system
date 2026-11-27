@@ -15,7 +15,7 @@ neu(T, "stellenwert", "umkehren", Z(
 
 # ───────── zahlwort_zu_ziffern ─────────
 neu(T, "zahlwort_zu_ziffern", "zwei_wege", Z(
-    "Welche Ziffer steht an der Zehntausenderstelle der Zahl „dreihundertzwölf Millionen vierzigtausend“? Weg A: Schreibe die ganze Zahl mit Ziffern hin und lies die Stelle ab. Weg B: Überlege, welches Zahlwort überhaupt bis zu den Zehntausendern reicht.",
+    "Welche Ziffer steht an der Zehntausenderstelle der Zahl „dreihundertzwölf Millionen vierzigtausend“? Weg A: Schreibe die ganze Zahl mit Ziffern hin und lies die Stelle ab. Weg B: Suche im Zahlwort den Teil, der die Zehntausender enthält, und lies dort die Ziffer ab. Welche Ziffer steht an der Zehntausenderstelle?",
     4, "312040000 // 10000 % 10", "40000 // 10000", "Die Zehntausenderstelle ist die fünfte Stelle von rechts. Welcher Teil des Zahlworts liefert sie?",
     "Weg A: 312 040 000, von rechts gezählt: Einer 0, Zehner 0, Hunderter 0, Tausender 0, Zehntausender 4. Weg B: Die Millionen reichen nur bis zur Millionenstelle; „vierzigtausend“ ist 40 000 und hat 4 Zehntausender.",
     [(0, None, "die Hunderttausenderstelle abgelesen", "312040000 // 100000 % 10"), (2, None, "die Millionenstelle abgelesen", "312040000 // 1000000 % 10"), (3, None, "die erste Ziffer der Zahl genommen", "312040000 // 100000000")], "Ziffer"))

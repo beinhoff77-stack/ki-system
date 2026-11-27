@@ -31,10 +31,10 @@ neu(T, "strecken", "bruecke", Z(
 
 # ───────── lagebeziehungen ─────────
 neu(T, "lagebeziehungen", "umkehren", Z(
-    "Die Gerade g geht durch A(2 | 1) und B(2 | 6). Die Gerade h ist parallel zu g, liegt rechts von g und hat von g den Abstand 5. Welche x-Koordinate haben alle Punkte von h?",
-    7, "2 + 5", "7", "Wie verläuft g, waagrecht oder senkrecht? Welche Koordinate bleibt bei h für alle Punkte gleich?",
-    "g ist senkrecht (x = 2 für alle Punkte). Eine parallele Gerade ist auch senkrecht. Rechts mit Abstand 5: x = 2 + 5 = 7.",
-    [(-3, None, "links statt rechts von g gerechnet", "2 - 5"), (5, None, "den Abstand als x-Koordinate genommen", "5"), (3, None, "5 − 2 gerechnet", "5 - 2")]), g="umkehr", regel=AB)
+    "Eine Gerade g verläuft von oben nach unten (parallel zur y-Achse). Sie wird um 5 Einheiten nach rechts verschoben und heißt danach h. Die Geraden g und h sind also parallel und haben den Abstand 5. Die Gerade h geht durch den Punkt (7 | 3). Welche x-Koordinate haben alle Punkte von g?",
+    2, "7 - 5", "2", "Um wie viel und in welche Richtung wurde g verschoben? Wie kommst du von h zu g zurück?",
+    "Alle Punkte von h haben die x-Koordinate 7, denn h geht durch (7 | 3) und verläuft von oben nach unten. g wurde um 5 nach rechts verschoben, also muss man um 5 nach links zurück: x = 7 − 5 = 2. Probe: 2 + 5 = 7, der Abstand von g und h ist 5.",
+    [(12, None, "noch einmal um 5 nach rechts statt zurück nach links gerechnet", "7 + 5"), (5, None, "den Abstand als x-Koordinate genommen", "5"), (3, None, "die y-Koordinate des Punktes genommen", "3")]), g="umkehr", regel=AB)
 neu(T, "lagebeziehungen", "anwenden", Z(
     "Eine waagrechte Hauptstraße liegt auf y = 2. Zwei Nebenstraßen stehen senkrecht auf ihr. Die eine geht durch den Punkt (5 | 2), die andere durch den Punkt (−3 | 2). Wie viele Einheiten sind die beiden Nebenstraßen voneinander entfernt?",
     8, "5 - (-3)", "5 + 3", "Beide Nebenstraßen sind senkrecht. Welche Koordinate legt ihre Lage fest?",
@@ -55,12 +55,12 @@ neu(T, "kreis_lage", "umkehren", Z(
 
 # ───────── winkelarten ─────────
 neu(T, "winkelarten", "bruecke", W(
-    "Welche Gradzahl gehört zu einem überstumpfen Winkel, der kleiner als 200° ist?",
-    "190°",
-    [("170°", "Das ist ein stumpfer Winkel (zwischen 90° und 180°)."), ("200°", "Das ist überstumpf, aber nicht kleiner als 200°."), ("360°", "Das ist ein Vollwinkel.")],
-    "Überstumpf heißt: größer als der gestreckte Winkel, aber kleiner als der Vollwinkel.",
-    "Überstumpf ist ein Winkel zwischen 180° und 360°. Kleiner als 200° kommt nur 190° in Frage.",
-    lambda: [180 < w < 360 and w < 200 for w in (190, 170, 200, 360)] == [True, False, False, False]))
+    "Der Minutenzeiger einer Uhr startet bei der 12 und dreht sich im Uhrzeigersinn bis zu einer Zahl auf dem Zifferblatt. Bis zu welcher Zahl hat er einen überstumpfen Winkel überstrichen?",
+    "Bis zur 9",
+    [("Bis zur 3", "Eine Vierteldrehung ist ein rechter Winkel (90°)."), ("Bis zur 6", "Eine halbe Drehung ist ein gestreckter Winkel (180°)."), ("Bis zur 12 nach einer ganzen Runde", "Eine ganze Drehung ist ein Vollwinkel (360°).")],
+    "Welcher Teil einer ganzen Runde ist bis zur Zahl geschafft? Überstumpf liegt zwischen gestreckt und Vollwinkel.",
+    "Von der 12 bis zur 3 ist es eine Vierteldrehung: 90°, ein rechter Winkel. Bis zur 6: halbe Drehung, 180°, gestreckt. Bis zur 9: Dreivierteldrehung, 270°, überstumpf. Bis zur 12 nach einer ganzen Runde: 360°, Vollwinkel.",
+    lambda: [180 < 90 * k < 360 for k in (1, 2, 3, 4)] == [False, False, True, False]))
 neu(T, "winkelarten", "anwenden", Z(
     "Eine Tür lässt sich von 0° bis 180° öffnen. Ein Feststeller hält sie bei jedem Vielfachen von 15° fest (0°, 15°, 30°, … bis 180°). Bei wie vielen dieser Einstellungen ist der Öffnungswinkel ein stumpfer Winkel?",
     5, "(165 - 105) / 15 + 1", "5", "Zwischen welchen beiden Gradzahlen liegen stumpfe Winkel? Welche Einstellungen des Feststellers fallen in diesen Bereich?",

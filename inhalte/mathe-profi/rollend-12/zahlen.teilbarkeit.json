@@ -414,7 +414,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Welchen Rest lässt 2 749 bei der Division durch 3? Weg A: Dividiere schriftlich. Weg B: Bilde die Quersumme und bestimme ihren Rest bei der Division durch 3."
+     "text": "Welchen Rest lässt 2 749 bei der Division durch 3? Weg A: Dividiere schriftlich. Weg B: Bilde die Quersumme und bestimme ihren Rest bei der Division durch 3. Welchen Rest lässt 2 749 bei der Division durch 3?"
     },
     "o": {
      "wert": 1
@@ -625,17 +625,17 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "2 · 2 · 3 · 15",
-     "fehlbild": "fb.bausteine.nicht_zu_ende_zerlegt",
-     "regel_des_fehlbilds": "id.zahlen.bausteine",
-     "beschreibung": "Der Faktor 15 ist noch nicht zu Ende zerlegt."
+     "antwort": "2 · 2 · 3 · 3 · 5 · 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Der Rest 5 aus der vorletzten Zeile wurde zusätzlich als Faktor genommen."
     },
     {
      "index": 1,
-     "antwort": "2 · 3 · 3 · 5 · 5",
+     "antwort": "2 · 3 · 5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Ein Faktor 2 ist durch einen Faktor 5 ersetzt worden."
+     "beschreibung": "Jede Primzahl wurde nur einmal genommen, obwohl sie mehrfach als Teiler vorkommt."
     }
    ],
    "aufgabe": {
@@ -646,18 +646,53 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "Ein Faktorbaum für 180 sieht so aus: 180 = 2 · 90, dann 90 = 2 · 45, dann 45 = 3 · 15, dann 15 = 3 · 5. Welche Primfaktorzerlegung ergibt sich aus dem Baum?"
+     "text": "Die Tabelle zeigt, wie 180 durch Teilen zerlegt wurde: Jedes Mal wurde die Zahl durch die kleinste passende Primzahl geteilt, bis 1 übrig blieb. Welche Primfaktorzerlegung von 180 steht in der Tabelle?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Zahl",
+       "geteilt durch",
+       "Ergebnis"
+      ],
+      "zeilen": [
+       [
+        "180",
+        "2",
+        "90"
+       ],
+       [
+        "90",
+        "2",
+        "45"
+       ],
+       [
+        "45",
+        "3",
+        "15"
+       ],
+       [
+        "15",
+        "3",
+        "5"
+       ],
+       [
+        "5",
+        "5",
+        "1"
+       ]
+      ]
+     }
     },
     "a": [
-     "2 · 2 · 3 · 15",
-     "2 · 3 · 3 · 5 · 5",
+     "2 · 2 · 3 · 3 · 5 · 5",
+     "2 · 3 · 5",
      "2 · 2 · 3 · 3 · 5"
     ],
     "o": {
      "index": 2
     },
-    "h": "Lies alle Enden des Baums ab: Welche Faktoren lassen sich nicht weiter zerlegen?",
-    "w": "Die Enden des Baums sind 2, 2, 3, 3 und 5. 2 · 2 · 3 · 3 · 5 = 180 und alle Faktoren sind Primzahlen."
+    "h": "Welche Spalte der Tabelle enthält die Primzahlen, durch die geteilt wurde?",
+    "w": "Die Teiler in der Tabelle sind 2, 2, 3, 3 und 5. Es sind alles Primzahlen und das Produkt ist 2 · 2 · 3 · 3 · 5 = 180."
    }
   },
   {

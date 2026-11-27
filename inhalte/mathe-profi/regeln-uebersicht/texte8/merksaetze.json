@@ -302,7 +302,7 @@
    "luecken": [
     {
      "wo": "voraus",
-     "text": "Verteilt wird nur ein Faktor auf die Summanden einer Klammer. Steht ein Plus davor, wird nichts verteilt: 5 + (x − 2) = 5 + x − 2. Steht in der Klammer ein Produkt, malt man nur einen Faktor: 3 · (2 · 5) = 30, nicht (3 · 2) · (3 · 5) = 90.",
+     "text": "Verteilt wird nur ein Faktor auf die Summanden einer Klammer. Steht ein Plus davor, wird nichts verteilt: 5 + (x − 2) = 5 + x − 2. Steht in der Klammer ein Produkt, kann man zuerst die Faktoren in der Klammer multiplizieren: 3 · (2 · 5) = 3 · 10 = 30, nicht (3 · 2) · (3 · 5) = 90.",
      "grund": "„Was vor der Klammer steht“ und „jeden in der Klammer“ lassen offen, ob das Plus, ein Faktor, ein Summand oder ein Faktor in der Klammer gemeint ist. Die Voraussetzung nennt nur die Summe.",
      "pruefung": [
       {

@@ -396,10 +396,10 @@
    "herkunft": "gekürzt vom Designer",
    "kurz_alt": "Viele Linien der Geometrie sind „alle Punkte mit einer Abstandseigenschaft“.",
    "befund": "berichtigt",
-   "kurz_neu": "Gleiche Abstände: zu einem Punkt (Kreis), zwei Punkten (Mittelsenkrechte), zwei Geraden (Winkelhalbierende).",
-   "grund": "Die erste Fassung lässt offen, wovon der Abstand gilt; die neue nennt zu jedem Beispiel, wozu der Abstand gleich ist.",
-   "endfassung": "Gleiche Abstände: zu einem Punkt (Kreis), zwei Punkten (Mittelsenkrechte), zwei Geraden (Winkelhalbierende).",
-   "endfassung_laenge": 108,
+   "kurz_neu": "Kreis um einen Punkt, Mittelsenkrechte zweier Punkte, Winkelhalbierende zweier sich schneidender Geraden.",
+   "grund": "Die erste Fassung lässt offen, wovon der Abstand gilt; die neue nennt zu jedem Beispiel, wozu der Abstand gleich ist. Vierte Gegenprüfung 1121/1122: Winkelhalbierende gehören zu zwei sich schneidenden Geraden.",
+   "endfassung": "Kreis um einen Punkt, Mittelsenkrechte zweier Punkte, Winkelhalbierende zweier sich schneidender Geraden.",
+   "endfassung_laenge": 105,
    "kurz_alt_laenge": 76
   },
   {

@@ -111,7 +111,7 @@ const text = (k, kl) => D.leitern[k].stufen.find((s) => s.klasse === kl && s.tex
 test('Grenztexte stehen im aufgeschlagenen Text der Regel (Genau gesagt, Wann sie gilt, Typische Fehler)', () => {
   assert.match(D.regeln.find((r) => r.id === 'R4').voraus, /Beim Bruch fasst der Strich Zähler und Nenner jeweils zusammen\. Unter der Wurzel und zwischen Betragsstrichen gehört jeweils der ganze eingeschlossene Ausdruck zusammen/);
   assert.match(I.REGEL.R4.voraus, /2 hoch \(3²\) = 2 hoch 9 = 512|2 hoch \(3²\) = 2⁹ = 512/);
-  assert.match(I.REGEL.R6.voraus, /5 \+ \(x − 2\) = 5 \+ x − 2/); assert.match(I.REGEL.R6.voraus, /3 · \(2 · 5\) = 30/);
+  assert.match(I.REGEL.R6.voraus, /5 \+ \(x − 2\) = 5 \+ x − 2/); assert.match(I.REGEL.R6.voraus, /3 · \(2 · 5\) = 3 · 10 = 30/);
   assert.match(I.REGEL.R10.voraus, /Gemischte Zahlen zuerst in einen Bruch/); assert.match(I.REGEL.R10.fehler, /Kehrwert|kehren/);
   assert.match(I.REGEL.R11.voraus, /umgekehrt\w* Proportionalität/);
   assert.doesNotMatch(Object.values(I.REGEL.R11).filter((v) => typeof v === 'string').join(' '), /nur bei direkter Proportionalität/i, 'R11: alter Bestandstext muss weg');
@@ -214,7 +214,12 @@ test('1112: Merksatz, Kurzbeschreibung und Langtexte widersprechen sich nicht (R
   assert.equal(w.satz, 'Bei y = A · qˣ mit A > 0 steigt der Graph für q > 1, fällt für 0 < q < 1 und bleibt für q = 1 konstant.');
   assert.match(w.warum, /Schrittweite h ist der Faktor qʰ/);
   assert.match(I.GESETZ.D9.satz, /unabhängigen Zufallsstichprobe \(n > 1\).*vom Stichprobenmittel durch n − 1.*korrigierte Stichprobenvarianz.*Stichprobenstandardabweichung/);
-  assert.match(I.GESETZ.Z19.voraus, /erst nach einer passenden Umformung anwendbar: 2³ · 4² = 2³ · \(2²\)² = 2⁷/); assert.match(I.GESETZ.Z19.voraus, /Basis positiv/);
+  assert.match(I.GESETZ.Z19.voraus, /erst nach einer passenden Umformung anwendbar: 2³ · 4² = 2³ · \(2²\)² = 2⁷/); assert.match(I.GESETZ.Z19.voraus, /Mit positiver Basis gelten die Potenzgesetze für alle rationalen Exponenten/); assert.match(I.GESETZ.Z19.voraus, /ungeraden Nenner/);
+  // 1121/1122: stehen gebliebene pauschale Altsätze dürfen nicht wieder auftauchen
+  assert.doesNotMatch(I.GESETZ.Z19.voraus, /Verschiedene Basis und verschiedene Hochzahl lassen sich nicht zusammenfassen|Für rationale Exponenten muss die Basis positiv sein/);
+  assert.doesNotMatch(w.warum, /Wird in jedem gleich großen x-Schritt mit derselben Zahl q malgenommen/); assert.match(w.warum, /^.*Multipliziert sich der Funktionswert bei jedem x-Schritt der Länge 1 mit demselben positiven Faktor q, beschreibt y = A · qˣ das exponentielle Modell mit Anfangswert A > 0\./);
+  assert.doesNotMatch(I.REGEL.R6.voraus, /malt man nur einen Faktor/); assert.match(I.REGEL.R6.voraus, /kann man zuerst die Faktoren in der Klammer multiplizieren: 3 · \(2 · 5\) = 3 · 10 = 30/);
+  assert.equal(D.kurz['I-geo-2'], 'Kreis um einen Punkt, Mittelsenkrechte zweier Punkte, Winkelhalbierende zweier sich schneidender Geraden.');
   const bg = (k) => Object.values(D.lehrer).flatMap((l) => l.aufgaben).find((a) => a.kopf.startsWith(k));
   for (const [k, t] of [['BG-01', 'x ≠ 3 und x ≠ −3'], ['BG-02', 'x ≠ −4 und x ≠ 2'], ['BG-03', 'x ≠ 0'], ['BG-13', 'x ≠ 0 und x ≠ −9'], ['PG-01', 'a ≠ 0'], ['PG-02', 'x ≠ 0'], ['PG-03', 'a ≠ 0']]) assert.ok(bg(k).text.startsWith('Es gilt ' + t + '. '), k);
   assert.doesNotMatch(JSON.stringify(D.lehrer), /Ausgeschlossen: x|Alle Basen sind/);

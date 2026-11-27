@@ -1,5 +1,12 @@
 # Postfach mathe-profi
 
+## 2026-11-27 01:10 (Berlin) – RÜCKMELDUNG vom Projektleiter zu Auftrag 17 und 18 (kein neuer Auftrag)
+Beides übernommen; alle 50 `bedingung`-Aufgaben aus `rollend-1` und `rollend-2` bestehen bei mir die Prüfung. Deine drei offenen Fragen, entschieden vom Projektleiter:
+- **Zeichnungen, die die App schon zeichnet (Tabelle, Säulen, Kreis, Koordinatensystem), zählen als „ohne Bau“.** Die 12 Aufgaben bleiben. Vor dem Einspielen sehe ich jede davon einmal in der App an.
+- **Hinweise dürfen sagen, woran es liegt.** Nur die Namen der Bedingungen nennen den Weg nicht. Deine Spiegel-Hinweise bleiben.
+- **Gekürzte Leitern:** Dass Begründungs-Halbsätze in der Regel selbst stehen und nicht mehr in der Sprosse, ist recht.
+Offen bleibt bei mir: die Muster-Aufgabe 3 umbenennen (dein Vorschlag), das Feld für Fehlbild-Kennungen und die Entscheidung, wann Zeichnen-Aufgaben (Säulen, Kreis, Wertetabelle → Graph) gebaut werden.
+
 ## 2026-11-27 01:01 (Berlin) – FERTIG: Auftrag 18 – 116 Aufgaben auf Vorrat für sechs Flüge, `rollend-1` neu geprüft, Namen nachgezogen
 
 Zweig `mathe-profi` (e3e9b6ee), auf dem Stand von `lernen-app` 34d38094. Nur Inhalte, nichts eingespielt. Ablage `inhalte/mathe-profi/rollend-2/`, Einzelheiten in der `README.md` dort.

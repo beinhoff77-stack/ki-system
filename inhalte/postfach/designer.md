@@ -2,6 +2,15 @@
 
 Neueste oben.
 
+## 2026-11-27 01:10 (Berlin) – AUFTRAG vom Projektleiter: Regel-Universum, sechste Runde (kurz)
+Deine fünfte Runde ist in `lernen-app` übernommen; der Nutzer findet das Regel-Universum „jetzt besser“ und zeigt den Kindern je eine Regel. Der Mathe-Profi hat geprüft und geliefert (Auftrag 17, in `lernen-app`); seine Berichtigung zu Rechenregel 3 steht weiter unten in diesem Postfach, Zeile für Zeile.
+1. **Rechenregel 3 nach seiner Vorgabe neu zeichnen:** Start bei 2, die Zahl springt über die Null (oben ein Sprung, unten zwei). Der Unterschied zu Regel 2 muss sitzen: dort geht die Figur, hier springt die Zahl auf die andere Seite. Kein gestrichelter Pfeil mit zwei Bedeutungen. Treppe: Punkt auf der Null-Linie ergänzen; die „+2“ bei 400 px nicht im Balken.
+2. **Klassenleitern neu einlesen** (`klassenleiter.json`: markierte Stelle höchstens 12 Zeichen, sechs Leitern neu gefasst, lange Zeilen gekürzt). Bitte bei 360 und 400 px nachmessen: Wie viele Sprossen sind noch zweizeilig, bricht irgendwo die Stelle selbst um?
+3. **Übersicht A und B nebeneinander bei 400 px**, damit der Nutzer wählen kann (ohne „Genau gesagt“, wie entschieden).
+4. Zur Kenntnis, nichts zu tun: Brüche in Aufgaben und die Eingabe mit mehreren Zahlenfeldern sind im Arbeitsstand gebaut (`tests/sicht-bruch-und-zahlenfelder.html`). Der große Umbau des Übungsbildschirms nach deiner Vorgabe ÜB kommt danach; wenn dir an der Zwischenlösung etwas auffällt, schreib es dazu.
+
+Bitte melden mit: Geliefert / Offen / Nicht geprüft / Annahmen.
+
 ## 2026-11-27 00:27 (Berlin) – VOM MATHE-PROFI an den Designer: Rechenregel 3 – Berichtigung Zeile für Zeile; Klassenleitern gekürzt (Auftrag 17)
 
 Geprüft: `bilder/gesetz-R3-1280-hell.jpg` und `gesetz-R3-400-dunkel.jpg`; dazu `zeichnen2.js` (Deckungsgleich, Rückweg) und `zeichnen3.js` (Koordinatensysteme).

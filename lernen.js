@@ -6615,7 +6615,7 @@ async function viewWackelt(arg) {
   // 0.96.0 Teil 2: neue Seite (Entwurf 4, ohne Nachüben), sobald der Server schule_wackelt_analyse kennt – sonst wie bisher (Rückfall unten)
   const ww = await lernWwHolen(kindId, { tage: lernWwZeit });
   if (!live()) return;
-  if (ww.art !== 'alt') { await lernWwSeite(kindId, ww, live); return; }
+  if (ww.art === 'ok' || ww.art === 'fehler') { await lernWwSeite(kindId, ww, live); return; } // 'alt' (Aktion unbekannt) und 'form' (Antwort unvollständig): bisherige Ansicht
   const [d, wk] = await Promise.all([lernCall('schule_lernstand', { lernender_id: kindId }), lernWackeltLesen(kindId)]);
   if (!live()) return;
   lernWackeltZahl = wk ? { kind: kindId, n: Number(wk.zu_besprechen) || 0 } : null; if (lernWackeltZahl) lernZbSetzen(lernWackeltZahl.n);
@@ -6710,11 +6710,27 @@ async function viewWackelt(arg) {
 // Kennt der Server die Aktion nicht (lernen-api vor 0.9.5: „Unbekannte Aktion“, oder keine passende Antwort), bleibt es bei der bisherigen Ansicht.
 // Zeitraum: die Werte, die der Server annimmt (7, 14, 0 = alles); Vorgabe 14 wie im Entwurf.
 const LERN_WW_ZEIT = [[7, '7 Tage'], [14, '14 Tage'], [0, 'Alles']];
+// Grenzen des Servers (WW-S2): höchstens 200 IDs je schule_fehler_abhaken, 300 offene und 200 besprochene Fehler je Analyse
+const LERN_WW_PAKET = 200, LERN_WW_OFFEN_MAX = 300, LERN_WW_ERL_MAX = 200;
 let lernWwZeit = 14;
+// Auflagen aus Werkstatt 1155/1156 (c): nur eine VOLLSTÄNDIGE Antwort zählt – Pflichtfelder und Typen aller Listen, die die Seite benutzt (offen, auswertung.themen,
+// lerntage, wiederkehrend, einmal; mit erledigt: true auch erledigt[] mit erledigt.am), dazu derselbe Zeitraum wie angefragt. Sonst { art: 'form' }.
+const lernWwObj = (x) => !!x && typeof x === 'object' && !Array.isArray(x);
+const lernWwZahl = (x) => typeof x === 'number' && Number.isFinite(x) && x >= 0;
+const lernWwEintrag = (x) => lernWwObj(x) && Number.isInteger(x.versuch_id) && typeof x.am === 'string' && !isNaN(Date.parse(x.am)); // thema_id fehlt, wenn die Einheit kein Thema hat (strip_nulls)
+function lernWwFormOk(r, { tage, erledigt }) {
+  if (!lernWwObj(r) || r.ok === false || !Array.isArray(r.offen) || !lernWwZahl(r.offen_zahl) || r.offen_zahl < r.offen.length || !r.offen.every(lernWwEintrag)) return false;
+  if (r.tage !== undefined && Number(r.tage) !== Number(tage)) return false;
+  const a = r.auswertung; if (!lernWwObj(a) || !['themen', 'lerntage', 'wiederkehrend'].every((k) => Array.isArray(a[k])) || !lernWwObj(a.einmal)) return false;
+  if (!a.themen.every((t) => lernWwObj(t) && t.thema_id !== undefined && lernWwZahl(Number(t.offen)) && lernWwZahl(Number(t.gesamt)))) return false;
+  if (!a.lerntage.every((t) => lernWwObj(t) && typeof t.tag === 'string') || !a.wiederkehrend.every((w) => lernWwObj(w) && lernWwZahl(Number(w.anzahl)))) return false;
+  if (erledigt && (!Array.isArray(r.erledigt) || !r.erledigt.every((x) => lernWwEintrag(x) && lernWwObj(x.erledigt) && !isNaN(Date.parse(x.erledigt.am))))) return false;
+  return true;
+}
 async function lernWwHolen(kindId, { tage = 14, erledigt = false } = {}) {
   try {
     const r = await lernCall('schule_wackelt_analyse', { lernender_id: kindId, tage, ...(erledigt ? { erledigt: true } : {}) });
-    if (!r || r.ok === false || (!Array.isArray(r.offen) && r.offen_zahl === undefined && !r.auswertung)) return { art: 'alt' }; // keine Antwort in der Form des Plans
+    if (!lernWwFormOk(r, { tage, erledigt })) return { art: 'form' }; // keine (vollständige) Antwort in der Form des Plans
     return { art: 'ok', r };
   } catch (err) {
     if (/Unbekannte Aktion|unknown action/i.test(err.message || '')) return { art: 'alt' };
@@ -6738,8 +6754,8 @@ async function lernWwSeite(kindId, ww, live) {
   const u = await lernCall('schule_uebersicht').catch(() => null); if (!live()) return;
   const name = (u?.lernende || []).find((x) => x.id === kindId)?.name || 'dem Kind';
   $('#title').textContent = 'Was wackelt? · ' + name;
-  const S = { A: ww.art === 'ok' ? ww.r : null, fehler: ww.art === 'fehler' ? ww.fehler : null, laedt: false, aufRow: new Set(), themaAuf: new Map(),
-    B: null, Bfehler: null, Blaedt: false, besprAuf: false };
+  const S = { A: ww.art === 'ok' ? ww.r : null, fehler: ww.art === 'fehler' ? { tage: lernWwZeit, text: String(ww.fehler?.message || 'Fehler') } : null, laedt: false, aufRow: new Set(), themaAuf: new Map(),
+    zeit: lernWwZeit, wahl: lernWwZeit, nr: 0, B: null, Bfehler: null, Blaedt: false, bnr: 0, besprAuf: false, teil: null };
   const wurzel = el('div', { class: 'ww', 'aria-busy': 'false' });
   const toast = el('div', { class: 'lw-toast ww-toast', role: 'status', hidden: true }); let uhr = null;
   // Meldung unten; knoepfe: [[Text, Aktion]] (z. B. Rückgängig)
@@ -6749,24 +6765,28 @@ async function lernWwSeite(kindId, ww, live) {
     if (kn[0] && (!document.activeElement || document.activeElement === document.body || !document.activeElement.isConnected)) kn[0].focus({ preventScroll: true }); // der angetippte Knopf ist mit dem Thema verschwunden
     uhr = setTimeout(() => { toast.hidden = true; }, kn.length ? 8000 : 6000); };
   const da = () => document.body.contains(wurzel);
-  const laden = async ({ still = false } = {}) => {
-    S.laedt = true; wurzel.setAttribute('aria-busy', 'true'); if (!still) zeichne();
-    const x = await lernWwHolen(kindId, { tage: lernWwZeit });
-    if (!da()) return;
+  const zeitName = (v) => (LERN_WW_ZEIT.find(([x]) => x === v) || [v, String(v)])[1];
+  // Auflagen aus Werkstatt 1155/1156 (d): Anfragezähler – nur die letzte Anfrage zählt; S.zeit ist der Zeitraum der angezeigten Daten, S.wahl der gerade angefragte.
+  // Schlägt ein Wechsel fehl, bleiben die alten Daten mit dem alten Zeitraum stehen, dazu ein Hinweis mit „Noch einmal versuchen“.
+  const laden = async ({ still = false, tage = S.wahl } = {}) => {
+    const nr = ++S.nr; S.wahl = tage; S.laedt = true; wurzel.setAttribute('aria-busy', 'true'); if (!still) zeichne();
+    const x = await lernWwHolen(kindId, { tage });
+    if (nr !== S.nr || !da()) return x; // überholt (neuere Anfrage) oder Seite verlassen
     S.laedt = false; wurzel.setAttribute('aria-busy', 'false');
-    if (x.art === 'alt') { render(); return; } // Server kann es doch nicht (mehr): bisherige Ansicht
-    S.A = x.art === 'ok' ? x.r : S.A; S.fehler = x.art === 'fehler' ? x.fehler : null;
-    zeichne();
+    if (x.art === 'alt') { render(); return x; } // Server kennt die Aktion nicht (mehr): bisherige Ansicht
+    if (x.art === 'ok') { S.A = x.r; S.zeit = tage; lernWwZeit = tage; S.fehler = null; }
+    else { S.fehler = { tage, text: x.art === 'form' ? 'Die Antwort des Servers war unvollständig.' : String(x.fehler?.message || 'Fehler') }; S.wahl = S.zeit; lernWwZeit = S.zeit; }
+    zeichne(); return x;
   };
   // Besprochenes (alle Zeiträume, höchstens 200): für „besprochen am …“ und den Abschnitt „Besprochen“. Ein Ladefehler lässt die bisherige Liste stehen.
   const besprLaden = async () => {
-    S.Blaedt = true; if (da()) zeichne();
+    const nr = ++S.bnr; S.Blaedt = true; if (da()) zeichne();
     const x = await lernWwHolen(kindId, { tage: 0, erledigt: true });
-    if (!da()) return;
+    if (nr !== S.bnr || !da()) return null;
     S.Blaedt = false;
-    if (x.art === 'ok' && Array.isArray(x.r.erledigt)) { S.B = { liste: x.r.erledigt, voll: x.r.erledigt.length >= 200 }; S.Bfehler = null; }
-    else S.Bfehler = x.art === 'fehler' ? x.fehler.message : 'Antwort ohne besprochene Fehler';
-    zeichne();
+    if (x.art === 'ok') { S.B = { liste: x.r.erledigt, voll: x.r.erledigt.length >= LERN_WW_ERL_MAX }; S.Bfehler = null; }
+    else S.Bfehler = x.art === 'fehler' ? String(x.fehler?.message || 'Fehler') : 'Die Antwort des Servers war unvollständig.';
+    zeichne(); return x.art === 'ok' ? S.B : null;
   };
   // je Thema: Gesprächstermine (Tag), letzter Zeitpunkt, Zahl der Fehler
   const besprochenJe = () => { const m = new Map();
@@ -6775,26 +6795,47 @@ async function lernWwSeite(kindId, ww, live) {
       const tg = lernWwTagVon(x.erledigt.am); if (!t.termine.has(tg)) t.termine.set(tg, { tag: tg, am, ids: [] });
       const tt = t.termine.get(tg); tt.ids.push(Number(x.versuch_id)); tt.am = Math.max(tt.am, am); t.letzte = Math.max(t.letzte, am); t.n++; }
     return m; };
-  const senden = async (ids, zurueck) => lernCall('schule_fehler_abhaken', { lernender_id: kindId, versuch_ids: ids, ...(zurueck ? { zurueck: true } : {}) });
-  // „Besprochen“ (Thema): alle gezeigten offenen Fehler des Themas; verschwindet sofort, Meldung mit „Rückgängig“
-  const besprechen = async (k, t) => {
-    const ids = t.alle.map((x) => Number(x.versuch_id)); const weg = new Set(ids); const vorher = S.A;
+  // Auflagen (a): höchstens 200 IDs je Aufruf → Pakete; ein Paket zählt nur mit gültiger Bestätigung (geaendert ganzzahlig ≥ 0, uebersprungen Liste).
+  // Bricht ein Paket ab, bleiben die übrigen IDs für „Noch einmal versuchen“.
+  const senden = async (ids, zurueck) => { const e = { gesamt: ids.length, bestaetigt: 0, geaendert: 0, ueber: [], fehler: null, rest: [] };
+    for (let i = 0; i < ids.length; i += LERN_WW_PAKET) { const p = ids.slice(i, i + LERN_WW_PAKET);
+      try { const r = await lernCall('schule_fehler_abhaken', { lernender_id: kindId, versuch_ids: p, ...(zurueck ? { zurueck: true } : {}) });
+        if (!lernWwObj(r) || r.ok === false || !Number.isInteger(r.geaendert) || r.geaendert < 0 || r.geaendert > p.length || (r.uebersprungen !== undefined && !Array.isArray(r.uebersprungen))) throw new Error('Der Server hat das Speichern nicht bestätigt.');
+        e.bestaetigt += p.length; e.geaendert += r.geaendert; e.ueber.push(...(r.uebersprungen || [])); }
+      catch (err) { e.fehler = err; e.rest = ids.slice(i); break; } }
+    return e; };
+  // übersprungen erklären: vom Server abgewiesen (nicht gefunden, nicht endgültig falsch, richtig) bzw. ohne Änderung (schon von jemand anderem markiert)
+  const erklaeren = (e, zurueck) => { const abgewiesen = e.ueber.length, andere = Math.max(0, e.bestaetigt - abgewiesen - e.geaendert);
+    return [andere ? `${andere} ${zurueck ? 'war schon wieder offen' : 'schon von jemand anderem markiert'}` : '', abgewiesen ? `${abgewiesen} nicht mehr offen` : ''].filter(Boolean).join(', '); };
+  // „Besprochen“ (Thema): alle gezeigten offenen Fehler des Themas; verschwindet sofort, Meldung mit „Rückgängig“ (nur für selbst Geändertes, Auflage b)
+  const besprechen = async (k, t, ids = t.alle.map((x) => Number(x.versuch_id))) => {
+    const weg = new Set(ids); const vorher = S.A; const klick = Date.now(); S.teil = null;
     S.A = { ...S.A, offen: (S.A.offen || []).filter((x) => !weg.has(Number(x.versuch_id))), offen_zahl: Math.max(0, Number(S.A.offen_zahl || 0) - weg.size) }; zeichne();
-    try {
-      const r = await senden(ids, false);
-      const n = Number(r?.geaendert ?? ids.length);
-      meldung(`${t.name} als besprochen markiert`, [['Rückgängig', () => zurueckholen(ids, t.name)]]);
-      await Promise.all([laden({ still: true }), besprLaden()]); void n;
-    } catch (err) { S.A = vorher; zeichne(); meldung('Nicht gespeichert: ' + (err.message || 'Fehler')); }
+    const e = await senden(ids, false); if (!da()) return;
+    if (!e.bestaetigt) { S.A = vorher; zeichne(); meldung('Nicht gespeichert: ' + (e.fehler?.message || 'Fehler'), [['Noch einmal versuchen', () => besprechen(k, t, ids)]]); return; }
+    const [, B] = await Promise.all([laden({ still: true, tage: S.zeit }), besprLaden()]); if (!da()) return;
+    if (e.fehler) { // Teilerfolg: bleibt sichtbar, bis es erledigt ist
+      S.teil = { text: `${t.name}: ${e.bestaetigt} von ${e.gesamt} gespeichert`, nochmal: () => besprechen(k, t, e.rest), fehler: e.fehler.message }; zeichne();
+      meldung(`${e.bestaetigt} von ${e.gesamt} gespeichert – der Rest nicht`, [['Noch einmal versuchen', () => besprechen(k, t, e.rest)]]); return; }
+    const warum = erklaeren(e, false);
+    if (!e.geaendert) { meldung(`${t.name}: nichts geändert` + (warum ? ` – ${warum}` : '') + '.'); return; }
+    // Der Server nennt die geänderten IDs nicht einzeln: Rückgängig nur für IDs, die vorher offen waren und jetzt mit Zeitpunkt ≥ Klick besprochen sind –
+    // und nur, wenn das genau so viele sind, wie der Server geändert hat. Sonst (im Zweifel) kein Rückgängig, sondern ein Hinweis.
+    const meine = B ? B.liste.filter((x) => weg.has(Number(x.versuch_id)) && Date.parse(x.erledigt.am) >= klick).map((x) => Number(x.versuch_id)) : [];
+    const sicher = meine.length === e.geaendert;
+    meldung(`${t.name} als besprochen markiert` + (warum ? ` (${warum})` : '') + (sicher ? '' : ' – zurückholen unter „Besprochen“'), sicher ? [['Rückgängig', () => zurueckholen(meine, t.name)]] : []);
   };
   const zurueckholen = async (ids, was) => {
-    try { const r = await senden(ids, true); const n = Number(r?.geaendert ?? ids.length);
-      meldung(n ? `${was}: wieder offen` : `${was}: nichts geändert`); await Promise.all([laden({ still: true }), besprLaden()]); }
-    catch (err) { meldung('Nicht gespeichert: ' + (err.message || 'Fehler')); }
+    const e = await senden(ids, true); if (!da()) return;
+    if (!e.bestaetigt) { meldung('Nicht gespeichert: ' + (e.fehler?.message || 'Fehler'), [['Noch einmal versuchen', () => zurueckholen(ids, was)]]); return; }
+    await Promise.all([laden({ still: true, tage: S.zeit }), besprLaden()]); if (!da()) return;
+    if (e.fehler) { meldung(`${was}: ${e.bestaetigt} von ${e.gesamt} wieder offen – der Rest nicht`, [['Noch einmal versuchen', () => zurueckholen(e.rest, was)]]); return; }
+    const warum = erklaeren(e, true);
+    meldung(e.geaendert ? `${was}: wieder offen` + (warum ? ` (${warum})` : '') : `${was}: nichts geändert` + (warum ? ` – ${warum}` : ''));
   };
-  const segment = () => el('div', { class: 'ww-seg', role: 'group', 'aria-label': 'Zeitraum' }, ...LERN_WW_ZEIT.map(([v, t]) => el('button', { type: 'button', 'aria-pressed': String(lernWwZeit === v),
-    onclick: () => { if (lernWwZeit === v) return; lernWwZeit = v; laden(); } }, t)));
-  const zeitWort = () => (lernWwZeit ? `letzte ${lernWwZeit} Tage` : 'gesamt');
+  const segment = () => el('div', { class: 'ww-seg', role: 'group', 'aria-label': 'Zeitraum' }, ...LERN_WW_ZEIT.map(([v, t]) => el('button', { type: 'button', 'aria-pressed': String(S.wahl === v),
+    onclick: () => { if (S.wahl === v && !S.fehler) return; laden({ tage: v }); } }, t)));
+  const zeitWort = () => (S.zeit ? `letzte ${S.zeit} Tage` : 'gesamt');
   // Wiederkehrer: Thema mit offenen Fehlern, das schon besprochen wurde
   const wiederInfo = (k, offeneDesThemas, BJ) => { const b = BJ.get(k); if (!b) return null;
     const neu = offeneDesThemas.filter((x) => Date.parse(x.am) > b.letzte).length; const mal = b.termine.size;
@@ -6829,7 +6870,7 @@ async function lernWwSeite(kindId, ww, live) {
         el('b', {}, w.name), el('small', {}, `${w.neu} neu seit ${lernWwAm(w.b.letzte)}`)))))) : null;
     // Fazit (wie im Entwurf): häufigste wiederkehrende Fehlerart, dann das Thema mit den meisten offenen Fehlern, dann Fehler, die danach richtig gelöst wurden
     let fazit;
-    if (!Number(A.offen_zahl ?? (A.offen || []).length)) fazit = [`${lernWwZeit ? `In den letzten ${lernWwZeit} Tagen` : 'Bisher'} ${aw.antworten || 0} Aufgaben, davon `, el('b', {}, `${aw.richtig || 0} richtig`), '.'];
+    if (!Number(A.offen_zahl ?? (A.offen || []).length)) fazit = [`${S.zeit ? `In den letzten ${S.zeit} Tagen` : 'Bisher'} ${aw.antworten || 0} Aufgaben, davon `, el('b', {}, `${aw.richtig || 0} richtig`), '.'];
     else { const top = wieder[0]; const topThemen = new Set((top?.themen || []).map(Number));
       const themaTop = (aw.themen || []).find((t) => Number(t.offen) >= 2 && !topThemen.has(Number(t.thema_id)));
       const ausr = [...new Set((einmal.themen_danach_richtig || []).map(themaName).filter(Boolean))];
@@ -6899,7 +6940,7 @@ async function lernWwSeite(kindId, ww, live) {
     const kopf = el('div', { class: 'ww-titel' }, el('h2', {}, `Was wackelt bei ${name}`), segment());
     if (!S.A) { // Fehlerzustand (Server erreichbar, aber Fehler) bzw. noch nichts geladen
       lernErsetze(wurzel, kopf, S.laedt ? el('p', { class: 'muted', role: 'status' }, 'Lädt …') : el('section', { class: 'card ww-fehler', role: 'alert' }, el('h3', {}, '„Was wackelt“ lädt gerade nicht.'),
-        el('p', { class: 'muted small' }, String(S.fehler?.message || 'Unbekannter Fehler')), el('button', { type: 'button', class: 'secondary', onclick: () => laden() }, 'Noch einmal versuchen')), toast);
+        el('p', { class: 'muted small' }, S.fehler?.text || 'Unbekannter Fehler'), el('button', { type: 'button', class: 'secondary', onclick: () => laden({ tage: S.fehler?.tage ?? S.wahl }) }, 'Noch einmal versuchen')), toast);
       return; }
     const A = S.A; const offen = A.offen || []; const n = Number(A.offen_zahl ?? offen.length); const BJ = besprochenJe();
     const letzte = offen.slice(0, 5);
@@ -6910,22 +6951,30 @@ async function lernWwSeite(kindId, ww, live) {
     const themaOffen = (k, i) => (S.themaAuf.has(k) ? S.themaAuf.get(k) : i === 0);
     const wi = new Map(thSort.map(([k, t]) => [k, wiederInfo(k, t.alle, BJ)]));
     const wiederDa = thSort.filter(([k]) => wi.get(k)?.neu).map(([k, t]) => ({ k, name: t.name, ...wi.get(k) }));
+    // Auflagen (a): Zahlen je Thema aus auswertung.themen (der Server zählt alle); die Liste zeigt höchstens die 300 neuesten offenen Fehler
+    const begrenzt = offen.length < n; const thZahl = (k, t) => Math.max(t.alle.length, Number((A.auswertung?.themen || []).find((x) => String(x.thema_id) === k)?.offen) || 0);
     lernErsetze(wurzel, kopf,
-      S.fehler ? el('p', { class: 'err-text small', role: 'alert' }, 'Neu laden ging nicht: ' + S.fehler.message) : null,
-      n ? null : el('section', { class: 'ww-teil' }, el('p', { class: 'ww-karte ww-leer' }, el('b', {}, '✓ Nichts offen'), ` – ${name} hat ${lernWwZeit ? `in den letzten ${lernWwZeit} Tagen` : ''} keine offenen Fehler.`.replace('  ', ' '))),
+      S.fehler ? el('p', { class: 'ww-hinweis ww-ladefehler', role: 'alert' }, el('span', {}, S.fehler.tage === S.zeit ? 'Neu laden ging nicht' : `„${zeitName(S.fehler.tage)}“ lädt gerade nicht`, ` (${S.fehler.text})`,
+        el('span', { class: 'muted' }, ` · angezeigt: ${zeitName(S.zeit)}`)), el('button', { type: 'button', class: 'ww-link', onclick: () => laden({ tage: S.fehler.tage }) }, 'Noch einmal versuchen')) : null,
+      S.teil ? el('p', { class: 'ww-hinweis ww-teilerfolg', role: 'alert' }, el('span', {}, S.teil.text, el('span', { class: 'muted' }, ` (${S.teil.fehler})`)),
+        el('button', { type: 'button', class: 'ww-link', onclick: () => S.teil.nochmal() }, 'Noch einmal versuchen')) : null,
+      n ? null : el('section', { class: 'ww-teil' }, el('p', { class: 'ww-karte ww-leer' }, el('b', {}, '✓ Nichts offen'), ` – ${name} hat ${S.zeit ? `in den letzten ${S.zeit} Tagen` : ''} keine offenen Fehler.`.replace('  ', ' '))),
       auswertung(A, wiederDa),
       letzte.length ? el('section', { class: 'ww-teil', 'aria-labelledby': 'ww-h-letzte' }, el('div', { class: 'ww-teil-kopf' }, el('h2', { id: 'ww-h-letzte' }, 'Letzte Fehler'), el('span', {}, `die ${letzte.length} neuesten von ${n} offenen`)),
         el('div', { class: 'ww-karte ww-tabelle', role: 'table', 'aria-label': 'Letzte Fehler' }, tabKopf(true), ...letzte.flatMap((x) => zeile(x, true, BJ)))) : null,
-      thSort.length ? el('section', { class: 'ww-teil', 'aria-labelledby': 'ww-h-themen' }, el('div', { class: 'ww-teil-kopf' }, el('h2', { id: 'ww-h-themen' }, 'Nach Themen'), el('span', {}, `${n} offene Fehler in ${thSort.length} ${thSort.length === 1 ? 'Thema' : 'Themen'}`)),
+      thSort.length ? el('section', { class: 'ww-teil', 'aria-labelledby': 'ww-h-themen' }, el('div', { class: 'ww-teil-kopf' }, el('h2', { id: 'ww-h-themen' }, 'Nach Themen'), el('span', {}, `${n} offene Fehler in ${thSort.length} ${thSort.length === 1 ? 'Thema' : 'Themen'}`),
+          begrenzt ? el('span', { class: 'ww-grenze-kopf' }, `· die ${offen.length} neuesten Fehler werden gezeigt`) : null,
+          S.B?.voll ? el('span', { class: 'ww-grenze-kopf' }, '· „schon besprochen“ nur aus den 200 zuletzt besprochenen Fehlern – ältere Gespräche nicht geladen') : null),
         el('div', { class: 'ww-karte ww-tabelle ww-themen' }, ...thSort.map(([k, t], i) => { const auf = themaOffen(k, i); const arten = [...new Set(t.alle.map(lernWwArt))].filter((a) => a !== 'nicht erkannt'); const w = wi.get(k);
           return el('section', { class: 'ww-thema' + (auf ? ' ww-auf' : '') + (w ? ' ww-wiederda' : ''), 'data-ww-thema': k, 'aria-label': t.name },
             el('div', { class: 'ww-th-kopf' },
               el('button', { type: 'button', class: 'ww-th-titel', 'aria-expanded': String(auf), onclick: () => { S.themaAuf.set(k, !auf); zeichne(); } },
-                el('span', { class: 'ww-pf', 'aria-hidden': 'true' }, auf ? '▾' : '▸'), el('b', {}, t.name), el('span', { class: 'ww-zaehler', 'aria-label': `${t.alle.length} offen` }, String(t.alle.length)),
+                el('span', { class: 'ww-pf', 'aria-hidden': 'true' }, auf ? '▾' : '▸'), el('b', {}, t.name), el('span', { class: 'ww-zaehler', 'aria-label': `${thZahl(k, t)} offen` }, String(thZahl(k, t))),
                 auf ? null : el('span', { class: 'ww-th-arten' }, arten.join(' · '))),
               el('button', { type: 'button', class: 'ww-knopf-klein ww-bespr', title: 'Mit dem Kind besprochen: alle offenen Fehler des Themas als besprochen markieren', 'aria-label': `Besprochen: ${t.name} (${t.alle.length} ${t.alle.length === 1 ? 'Fehler' : 'Fehler'})`, onclick: () => besprechen(k, t) },
                 el('span', { class: 'ww-bespr-h', 'aria-hidden': 'true' }, '✓'), 'Besprochen')),
             w ? el('p', { class: 'ww-th-wieder' }, el('span', { 'aria-hidden': 'true' }, '↺ '), w.text) : null,
+            thZahl(k, t) > t.alle.length ? el('p', { class: 'ww-th-grenze muted small' }, `Gezeigt: die ${t.alle.length} neuesten von ${thZahl(k, t)} – „Besprochen“ markiert die gezeigten, ältere erscheinen danach.`) : null,
             auf ? el('div', { role: 'table', 'aria-label': t.name }, tabKopf(false), ...[...t.lk.values()].flatMap((lk) => [el('div', { class: 'ww-lk', role: 'row' }, el('span', { role: 'cell' }, lk.name, ' ', el('span', { class: 'ww-zaehler' }, String(lk.l.length)))), ...lk.l.flatMap((x) => zeile(x, false, BJ))])) : null); }))) : null,
       el('section', { class: 'ww-teil ww-teil-erl' }, besprochenTeil(BJ),
         el('p', { class: 'muted small ww-fuss' }, '„Besprochen“ nimmt die Fehler nur von dieser Seite. Wiederholungs- und Mischkarten des Kindes bleiben, wie sie sind.')),

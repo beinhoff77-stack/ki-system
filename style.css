@@ -6180,6 +6180,8 @@ body.rk-kopf-oben:has(#tabs[hidden]) { padding-bottom: 0; }
 .ww-mehr-ort .ww-link { min-height: 32px; padding: 0 2px; }
 .ww-hinweis { margin: 16px 0 0; padding: 10px 14px; border-radius: 13px; background: var(--warn-bg); font-size: 14.5px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
 .ww-hinweis .ww-link { color: var(--text); }
+.ww-th-grenze { margin: -4px 16px 8px 40px; }
+.ww-teil-kopf span.ww-grenze-kopf { color: var(--warn); }
 @media (max-width: 1100px) { .ww-kacheln { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 760px) {
   .ww-titel h2 { font-size: 21px; }

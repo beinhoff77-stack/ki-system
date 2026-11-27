@@ -146,16 +146,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 81,
+     "antwort": 89,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Diagonale in cm gerundet, die Umrechnung in Zoll vergessen"
+     "beschreibung": "die Breite als 16 von 25 Teilen der Diagonalen angenommen (gerundet)"
     },
     {
-     "antwort": 43,
-     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
-     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
-     "beschreibung": "Breite plus Höhe (110 cm) statt der Diagonalen in Zoll umgerechnet"
+     "antwort": 140,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Diagonale in cm als Breite angegeben (gerundet)"
+    },
+    {
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ohne Umrechnung in cm gerechnet: Breite in Zoll (gerundet)"
     }
    ],
    "aufgabe": {
@@ -166,15 +172,15 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Der rechteckige Bildschirm eines Fernsehers ist 70 cm breit und 40 cm hoch. Die Größe eines Bildschirms wird als Länge seiner Diagonalen in Zoll angegeben. Es gilt 1 Zoll = 2,54 cm. Wie groß ist dieser Bildschirm? Runde auf ganze Zoll."
+     "text": "Der rechteckige Bildschirm eines Fernsehers hat das Seitenverhältnis Breite : Höhe = 16 : 9. Seine Diagonale ist 55 Zoll lang. Es gilt 1 Zoll = 2,54 cm. Wie breit ist der Bildschirm? Gib die Breite in ganzen Zentimetern an und runde erst am Ende."
     },
     "o": {
-     "wert": 32,
-     "einheit": "Zoll"
+     "wert": 122,
+     "einheit": "cm"
     },
-    "c": "round(31.741172237395862, 0)",
-    "h": "Die Diagonale teilt das Rechteck in zwei rechtwinklige Dreiecke. Rechne am Ende von cm in Zoll um.",
-    "w": "Diagonale: d² = 70² + 40² = 4 900 + 1 600 = 6 500, d = √6 500 ≈ 80,6 cm. 80,6 : 2,54 ≈ 31,7. Der Bildschirm hat etwa 32 Zoll."
+    "c": "round(121.75910253629952, 0)",
+    "h": "Breite und Höhe bestehen aus 16 und 9 gleich langen Stücken. Die Diagonale ist die Hypotenuse des Dreiecks aus Breite und Höhe. Rechne zuerst die Diagonale in cm um.",
+    "w": "Diagonale: 55 · 2,54 = 139,7 cm. Ein Stück hat die Länge k: Breite 16k, Höhe 9k. Dann (16k)² + (9k)² = 139,7², also 337 · k² ≈ 19 516,1 und k ≈ 7,61 cm. Breite: 16 · 7,61 ≈ 121,8 cm. Der Bildschirm ist etwa 122 cm breit."
    }
   },
   {
@@ -1043,7 +1049,7 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Ein Satteldach hat zwei gleich große, rechteckige Dachflächen. Das Haus ist 12 m breit, das Dach ist 9 m lang. Der First liegt 4,5 m höher als die Decke und genau über der Mitte des Hauses. Wie viele Quadratmeter Dachfläche hat das Dach insgesamt? Der Dachüberstand wird nicht berücksichtigt."
+     "text": "Ein Satteldach hat zwei gleich große, rechteckige Dachflächen. Das Haus ist 12 m breit, das Dach ist 9 m lang. Der First liegt 4,5 m höher als die Oberkanten der Außenwände und genau über der Mitte des Hauses. Wie viele Quadratmeter Dachfläche hat das Dach insgesamt? Der Dachüberstand wird nicht berücksichtigt."
     },
     "o": {
      "wert": 135,

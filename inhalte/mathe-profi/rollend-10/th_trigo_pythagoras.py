@@ -15,13 +15,13 @@ neu(T, "hypotenuse", "zwei_wege", Z(
     13, "wurzel(5 ** 2 + 12 ** 2)", "sqrt((5 + 12) ** 2 - 4 * (5 * 12 / 2))", "Beide Wege müssen dieselbe Länge ergeben. Bei Weg B erhältst du zuerst eine Fläche.",
     "Weg A: c² = 5² + 12² = 25 + 144 = 169, c = 13 cm. Weg B: großes Quadrat 17² = 289 cm², vier Dreiecke 4 · (5 · 12 : 2) = 120 cm². Mittleres Quadrat: 289 − 120 = 169 cm², Seite √169 = 13 cm. Beide Wege führen auf 13 cm.",
     [(169, None, "die Wurzel nicht gezogen: die Fläche 169 cm² als Länge angegeben", "5 ** 2 + 12 ** 2"), (17, "fb.rechtwinklig.ohne_quadrate", "die Katheten addiert: 5 + 12", "5 + 12"), (7, None, "die Katheten subtrahiert: 12 − 5", "12 - 5")], "cm"), regel=R)
-wert_tv, c_tv = rd("sqrt(70 ** 2 + 40 ** 2) / 2.54", 0)
+wert_tv, c_tv = rd("55 * 2.54 * 16 / sqrt(16 ** 2 + 9 ** 2)", 0)
 neu(T, "hypotenuse", "anwenden", Z(
-    "Der rechteckige Bildschirm eines Fernsehers ist 70 cm breit und 40 cm hoch. Die Größe eines Bildschirms wird als Länge seiner Diagonalen in Zoll angegeben. Es gilt 1 Zoll = 2,54 cm. Wie groß ist dieser Bildschirm? Runde auf ganze Zoll.",
-    wert_tv, c_tv, "round(sqrt(4900 + 1600) / 2.54, 0)", "Die Diagonale teilt das Rechteck in zwei rechtwinklige Dreiecke. Rechne am Ende von cm in Zoll um.",
-    "Diagonale: d² = 70² + 40² = 4 900 + 1 600 = 6 500, d = √6 500 ≈ 80,6 cm. 80,6 : 2,54 ≈ 31,7. Der Bildschirm hat etwa 32 Zoll.",
-    [(81, None, "die Diagonale in cm gerundet, die Umrechnung in Zoll vergessen", "round(sqrt(70 ** 2 + 40 ** 2), 0)"), (43, "fb.rechtwinklig.ohne_quadrate", "Breite plus Höhe (110 cm) statt der Diagonalen in Zoll umgerechnet", "round((70 + 40) / 2.54, 0)")], "Zoll"), g="transfer", regel=R)
-assert wert_tv == 32
+    "Der rechteckige Bildschirm eines Fernsehers hat das Seitenverhältnis Breite : Höhe = 16 : 9. Seine Diagonale ist 55 Zoll lang. Es gilt 1 Zoll = 2,54 cm. Wie breit ist der Bildschirm? Gib die Breite in ganzen Zentimetern an und runde erst am Ende.",
+    wert_tv, c_tv, "round(55 * 2.54 / sqrt(337) * 16, 0)", "Breite und Höhe bestehen aus 16 und 9 gleich langen Stücken. Die Diagonale ist die Hypotenuse des Dreiecks aus Breite und Höhe. Rechne zuerst die Diagonale in cm um.",
+    "Diagonale: 55 · 2,54 = 139,7 cm. Ein Stück hat die Länge k: Breite 16k, Höhe 9k. Dann (16k)² + (9k)² = 139,7², also 337 · k² ≈ 19 516,1 und k ≈ 7,61 cm. Breite: 16 · 7,61 ≈ 121,8 cm. Der Bildschirm ist etwa 122 cm breit.",
+    [(89, None, "die Breite als 16 von 25 Teilen der Diagonalen angenommen (gerundet)", "round(55 * 2.54 * 16 / 25, 0)"), (140, None, "die Diagonale in cm als Breite angegeben (gerundet)", "round(55 * 2.54, 0)"), (48, None, "ohne Umrechnung in cm gerechnet: Breite in Zoll (gerundet)", "round(55 * 16 / sqrt(16 ** 2 + 9 ** 2), 0)")], "cm"), g="transfer", regel=R)
+assert wert_tv == 122
 
 # ───────── kathete ─────────
 neu(T, "kathete", "lueckenweg", L(
@@ -123,7 +123,7 @@ neu(T, "anwendung", "zwei_wege", Z(
     "Weg A: 9² + 12² = 81 + 144 = 225, √225 = 15 km. Weg B: 9 = 3 · 3 und 12 = 3 · 4, der Faktor ist 3. Die Hypotenuse ist 3 · 5 = 15 km.",
     [(21, "fb.rechtwinklig.ohne_quadrate", "die Strecken addiert: 9 + 12", "9 + 12"), (225, None, "die Wurzel nicht gezogen", "9 ** 2 + 12 ** 2"), (5, None, "den Faktor vergessen: die Hypotenuse 5 des kleinen Dreiecks genannt", "5")], "km"), regel=R)
 neu(T, "anwendung", "anwenden", Z(
-    "Ein Satteldach hat zwei gleich große, rechteckige Dachflächen. Das Haus ist 12 m breit, das Dach ist 9 m lang. Der First liegt 4,5 m höher als die Decke und genau über der Mitte des Hauses. Wie viele Quadratmeter Dachfläche hat das Dach insgesamt? Der Dachüberstand wird nicht berücksichtigt.",
+    "Ein Satteldach hat zwei gleich große, rechteckige Dachflächen. Das Haus ist 12 m breit, das Dach ist 9 m lang. Der First liegt 4,5 m höher als die Oberkanten der Außenwände und genau über der Mitte des Hauses. Wie viele Quadratmeter Dachfläche hat das Dach insgesamt? Der Dachüberstand wird nicht berücksichtigt.",
     135, "2 * wurzel(6 ** 2 + 4.5 ** 2) * 9", "2 * sqrt(36 + 20.25) * 9", "Die Schräge einer Dachfläche ist die Hypotenuse eines rechtwinkligen Dreiecks. Eine Kathete ist die halbe Hausbreite.",
     "Halbe Breite: 6 m. Schräge: √(6² + 4,5²) = √(36 + 20,25) = √56,25 = 7,5 m. Eine Dachfläche: 7,5 · 9 = 67,5 m². Zwei Dachflächen: 135 m².",
     [(108, None, "mit der halben Breite 6 m statt der Schräge gerechnet: 2 · 6 · 9", "2 * 6 * 9"), (81, None, "mit der Höhe 4,5 m statt der Schräge gerechnet: 2 · 4,5 · 9", "2 * 4.5 * 9"), (67.5, None, "nur eine Dachfläche berechnet", "7.5 * 9")], "m²"), g="transfer", regel=R)

@@ -273,10 +273,10 @@
      "beschreibung": "5 + 3 gerechnet statt 5 · 3"
     },
     {
-     "antwort": 6,
+     "antwort": 21,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Steigung 2 mit dem Faktor 3 vervielfacht: 2 · 3"
+     "beschreibung": "den y-Wert des Bildpunkts (3 | 21) als Achsenabschnitt angegeben: (2 · 1 + 5) · 3"
     }
    ],
    "aufgabe": {
@@ -342,7 +342,7 @@
     "o": {
      "index": 1
     },
-    "h": "Bei einer Streckung mit dem Zentrum O ist das Bild einer Geraden parallel zu ihr (wenn sie nicht durch O geht). Was heißt das für die Steigung?",
+    "h": "Wie liegen eine Gerade und ihre Bildgerade zueinander, wenn das Zentrum nicht auf der Geraden liegt? Was folgt daraus für die Steigung?",
     "w": "Eine Gerade und ihre Bildgerade sind parallel, die Steigung bleibt −1. Nur der Achsenabschnitt wird verdoppelt. g': y = −x + 8. Der erste Fehler steht in Zeile 2."
    }
   },
@@ -584,7 +584,7 @@
      "antwort": "A und B",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die kürzesten Seiten verglichen: sie sind im Verhältnis 1 : 2, die längsten aber 6 : 9"
+     "beschreibung": "nur die beiden kürzeren Seiten verglichen: beide im Verhältnis 1 : 2, die längsten aber 6 : 9"
     },
     {
      "index": 2,
@@ -1328,7 +1328,7 @@
     "o": {
      "index": 2
     },
-    "h": "Das Verhältnis Höhe : Schatten ist 1,5. Wie bekommt man daraus die Höhe, wenn der Schatten 10 m lang ist?",
+    "h": "Prüfe jede Zeile nach. Bei Stab und Fichte ist das Verhältnis Höhe : Schatten gleich.",
     "w": "Höhe = Verhältnis · Schatten = 1,5 · 10 = 15 m. Kim hat geteilt statt malgenommen. Eine Fichte, die niedriger ist als ihr Schatten, passt auch nicht zu einem Stab, der höher ist als sein Schatten."
    }
   },

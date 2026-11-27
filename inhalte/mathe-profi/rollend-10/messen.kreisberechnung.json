@@ -249,22 +249,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 628,
-     "fehlbild": "fb.aus_dem_rechteck.halbieren_vergessen",
-     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
-     "beschreibung": "den ganzen Umfang statt des halben genommen: 62,8 · 10"
+     "antwort": 31.4,
+     "fehlbild": "fb.aehnlich.flaeche_mit_k",
+     "regel_des_fehlbilds": "id.geometrie.aehnlich",
+     "beschreibung": "nur mit dem Längenfaktor 10 vervielfacht: 3,14 · 10"
     },
     {
      "antwort": 62.8,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur den Umfang berechnet"
+     "beschreibung": "nur den Umfang berechnet: 2 · 3,14 · 10"
     },
     {
-     "antwort": 31.4,
+     "antwort": 100,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den halben Umfang als Fläche angegeben"
+     "beschreibung": "nur den Flächenfaktor 100 als Fläche angegeben"
     }
    ],
    "aufgabe": {
@@ -275,15 +275,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Kreis hat den Radius 10 cm. Rechne mit π ≈ 3,14. Berechne den Flächeninhalt auf zwei Wegen. Weg A: mit der Formel A = π · r². Weg B: Zerlege den Kreis in sehr viele schmale Kreisstücke und lege sie abwechselnd zu einem fast rechteckigen Streifen zusammen. Seine Länge ist der halbe Umfang des Kreises, seine Breite der Radius."
+     "text": "Ein Kreis hat den Radius 10 cm. Rechne mit π ≈ 3,14. Berechne den Flächeninhalt auf zwei Wegen. Weg A: mit der Formel A = π · r². Weg B: Ein Kreis mit dem Radius 1 cm hat den Flächeninhalt 3,14 cm². Der Kreis mit dem Radius 10 cm entsteht daraus durch Vergrößern mit dem Längenfaktor 10. Wende den passenden Flächenfaktor an."
     },
     "o": {
      "wert": 314,
      "einheit": "cm²"
     },
     "c": "3.14 * 10 ** 2",
-    "h": "Beide Wege müssen denselben Flächeninhalt ergeben. Bei Weg B brauchst du zuerst den Umfang.",
-    "w": "Weg A: A = 3,14 · 10² = 314 cm². Weg B: Umfang 2 · 3,14 · 10 = 62,8 cm, halber Umfang 31,4 cm. Streifen: 31,4 · 10 = 314 cm²."
+    "h": "Beide Wege müssen denselben Flächeninhalt ergeben. Bei Weg B wird nicht nur eine Länge vergrößert.",
+    "w": "Weg A: A = 3,14 · 10² = 314 cm². Weg B: Längenfaktor 10, Flächenfaktor 10² = 100. A = 3,14 · 100 = 314 cm²."
    }
   },
   {
@@ -414,7 +414,7 @@
      "antwort": "21,98 cm²",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur 7 · 3,14 gerechnet, den Radius nicht quadriert"
+     "beschreibung": "nur 7 · 3,14 gerechnet: aus 49 die Wurzel gezogen"
     },
     {
      "index": 2,
@@ -717,10 +717,10 @@
     },
     {
      "luecke": 2,
-     "antwort": 24,
+     "antwort": 576,
      "fehlbild": "fb.aus_dem_rechteck.durchmesser_statt_radius",
      "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
-     "beschreibung": "mit dem Durchmesser gerechnet: 2 · 12"
+     "beschreibung": "mit dem Durchmesser statt dem Radius gerechnet: 24²"
     },
     {
      "luecke": 3,
@@ -738,7 +738,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Kreissektor hat den Radius 12 cm und den Mittelpunktswinkel 90°. Der Sektor ist der ①-te Teil des ganzen Kreises. Der ganze Kreis hat die Fläche ② · π cm². Der Sektor hat die Fläche ③ · π cm².",
+     "text": "Ein Kreissektor hat den Radius 12 cm und den Mittelpunktswinkel 90°. Der Sektor ist 1/① des ganzen Kreises. Der ganze Kreis hat die Fläche ② · π cm². Der Sektor hat die Fläche ③ · π cm².",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },

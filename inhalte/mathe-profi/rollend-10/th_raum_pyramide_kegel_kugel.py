@@ -101,11 +101,11 @@ neu(T, "kugel", "umkehren", Z(
 
 # ───────── sachkontext ─────────
 neu(T, "sachkontext", "lueckenweg", L(
-    "Eine Eiswaffel hat die Form eines geraden Kegels mit dem Radius 3 cm und der Höhe 9 cm. Auf der Öffnung liegt eine halbe Eiskugel mit demselben Radius. Rechne mit π ≈ 3. Das Volumen der Waffel ist ① cm³. Das Volumen der halben Kugel ist ② cm³. Zusammen sind das ③ cm³.",
+    "Eine Eiswaffel hat die Form eines geraden Kegels mit dem Radius 3 cm und der Höhe 9 cm. Auf der Öffnung liegt eine halbe Eiskugel mit demselben Radius. Rechne mit π ≈ 3. Das Volumen des Kegels ist ① cm³. Das Volumen der halben Kugel ist ② cm³. Zusammen sind das ③ cm³.",
     "① = □; ② = □; ③ = □", [81, 54, 135], ["3 * 3 ** 2 * 9 / 3", "4 * 3 * 3 ** 3 / 3 / 2", "{1} + {2}"], ["3 * 9 * 9 // 3", "2 * 3 * 27 // 3", "81 + 54"],
     "Das Volumen der Waffel ist das Volumen eines Kegels. Eine halbe Kugel ist die Hälfte einer ganzen Kugel.",
     "Kegel: V = 3 · 3² · 9 : 3 = 81 cm³. Ganze Kugel: 4/3 · 3 · 3³ = 108 cm³, halbe Kugel: 54 cm³. Zusammen: 81 + 54 = 135 cm³.",
-    {0: [(243, DR, "den Faktor ein Drittel vergessen: 3 · 9 · 9", "3 * 3 ** 2 * 9")], 1: [(108, "fb.aus_dem_rechteck.halbieren_vergessen", "die ganze Kugel statt der halben gerechnet", "4 * 3 * 3 ** 3 / 3")], 2: [(81, None, "nur die Waffel gezählt", "{1}")]}), regel=R)
+    {0: [(243, DR, "den Faktor ein Drittel vergessen: 3 · 9 · 9", "3 * 3 ** 2 * 9")], 1: [(108, "fb.aus_dem_rechteck.halbieren_vergessen", "die ganze Kugel statt der halben gerechnet", "4 * 3 * 3 ** 3 / 3")], 2: [(81, None, "nur den Kegel gezählt", "{1}")]}), regel=R)
 neu(T, "sachkontext", "anwenden", Z(
     "Ein kugelförmiger Wassertank hat den Innendurchmesser 2 m. Wie viele Liter Wasser passen höchstens hinein? Rechne mit π ≈ 3,14 und 1 m³ = 1 000 Liter. Runde auf ganze Liter.",
     4187, "round(4 * 3.14 * 1 ** 3 / 3 * 1000, 0)", "round(4 / 3 * 3.14 * 1000, 0)", "Der Radius ist halb so groß wie der Durchmesser. Rechne das Volumen zuerst in m³, dann in Liter.",
@@ -125,12 +125,12 @@ neu(T, "verstehen", "lueckenweg", L(
     "V₁ = 3 · 3 · 6 : 3 = 18 cm³. V₂ = 6 · 6 · 6 : 3 = 72 cm³. 72 : 18 = 4. Die Kante wurde verdoppelt, das Volumen wurde 4-mal so groß.",
     {0: [(54, DR, "den Faktor ein Drittel vergessen: 3 · 3 · 6", "3 * 3 * 6")], 1: [(36, None, "nur doppeltes Volumen angenommen: 2 · 18", "2 * {1}")], 2: [(2, None, "nur die Kanten verglichen: 6 : 3", "6 / 3")]}), regel=R)
 neu(T, "verstehen", "bruecke", W(
-    "Die Tabelle zeigt das Volumen von drei Kugeln (π ≈ 3,14, auf zwei Dezimalstellen gerundet). Wie hängt das Volumen vom Radius ab?",
+    "Die Tabelle zeigt das Volumen von drei Kugeln (mit dem genauen Wert von π berechnet und auf zwei Dezimalstellen gerundet). Wie hängt das Volumen vom Radius ab?",
     "Verdoppelt man den Radius, wird das Volumen 8-mal so groß.", [("Verdoppelt man den Radius, wird das Volumen doppelt so groß.", "nur die Radien verglichen"), ("Verdoppelt man den Radius, wird das Volumen 4-mal so groß.", "wie bei der Fläche gerechnet"),
                                                           ("Verdoppelt man den Radius, wird das Volumen 6-mal so groß.", "den Faktor 3 mit 2 malgenommen")],
     "Teile das Volumen bei r = 2 cm durch das Volumen bei r = 1 cm. Teile auch das Volumen bei r = 3 cm durch das bei r = 1 cm.",
     "33,51 : 4,19 ≈ 8 und 113,10 : 4,19 ≈ 27. Die Faktoren sind 2³ und 3³. Das Volumen wächst mit der dritten Potenz des Radius.",
-    lambda: abs(33.51 / 4.19 - 8) < 0.05 and abs(113.10 / 4.19 - 27) < 0.1 and round(4 / 3 * 3.14 * 8, 2) == 33.49,
+    lambda: abs(33.51 / 4.19 - 8) < 0.05 and abs(113.10 / 4.19 - 27) < 0.1 and round(4 / 3 * math.pi * 8, 2) == 33.51 and round(4 / 3 * math.pi, 2) == 4.19 and round(4 / 3 * math.pi * 27, 2) == 113.10,
     grafik=TAB(["Radius", "Volumen"], ["1 cm", "4,19 cm³"], ["2 cm", "33,51 cm³"], ["3 cm", "113,10 cm³"])), regel=R)
 neu(T, "verstehen", "fehler_detektiv", FD(
     "Kim vergleicht einen geraden Kegel mit einem geraden Zylinder. Beide haben denselben Radius und dieselbe Höhe. Der Zylinder hat den Radius 3 cm und die Höhe 5 cm.",

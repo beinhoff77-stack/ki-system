@@ -131,16 +131,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 8.4,
+     "antwort": 2.8,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch die Seitenkante statt durch die Grundfläche geteilt: 84 : 10"
+     "beschreibung": "durch die Seitenkante statt durch die senkrechte Höhe geteilt: 252 : 10 : 9"
     },
     {
-     "antwort": 10,
+     "antwort": 36,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Länge der Seitenkante als Höhe angegeben"
+     "beschreibung": "die Grundfläche statt der Breite angegeben"
+    },
+    {
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe vergessen: 252 : 9"
     }
    ],
    "aufgabe": {
@@ -151,15 +157,15 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein schiefes Prisma hat das Volumen 84 cm³ und die Grundfläche 12 cm². Seine schräge Seitenkante ist 10 cm lang. Wie groß ist der senkrechte Abstand zwischen Grund- und Deckfläche?"
+     "text": "Ein schiefes Prisma hat als Grundfläche ein Rechteck, das 9 cm lang ist. Der senkrechte Abstand zwischen Grund- und Deckfläche ist 7 cm, die schräge Seitenkante ist 10 cm lang. Das Volumen des Prismas beträgt 252 cm³. Wie breit ist das Rechteck der Grundfläche?"
     },
     "o": {
-     "wert": 7,
+     "wert": 4,
      "einheit": "cm"
     },
-    "c": "84 / 12",
-    "h": "Das Volumen eines schiefen Prismas ist Grundfläche mal senkrechte Höhe. Die Seitenkante wird nicht gebraucht.",
-    "w": "V = G · h, also h = V : G = 84 : 12 = 7 cm. Die Seitenkante von 10 cm ist länger als die Höhe und nicht nötig."
+    "c": "252 / 7 / 9",
+    "h": "Das Volumen eines schiefen Prismas ist Grundfläche mal senkrechte Höhe. Die Grundfläche ist ein Rechteck aus Länge und Breite.",
+    "w": "G = V : h = 252 : 7 = 36 cm². Breite = G : Länge = 36 : 9 = 4 cm. Probe: 9 · 4 · 7 = 252. Die Seitenkante von 10 cm ist nicht die Höhe und wird nicht gebraucht."
    }
   }
  ]

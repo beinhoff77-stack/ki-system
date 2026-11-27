@@ -229,7 +229,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Dreieck ABC hat bei C einen rechten Winkel. Die Gegenkathete BC von α ist 9 cm lang, die Ankathete AC ist 12 cm lang. Die Hypotenuse ist ① cm lang. Ein zweites Dreieck hat denselben Winkel α und einen rechten Winkel. Seine Hypotenuse ist 30 cm lang. Es entsteht durch Strecken mit dem Faktor ②. Die Gegenkathete von α ist in diesem Dreieck ③ cm lang, die Ankathete ④ cm.",
+     "text": "Ein Dreieck ABC hat bei C einen rechten Winkel. Die Gegenkathete BC von α ist 9 cm lang, die Ankathete AC ist 12 cm lang. Die Hypotenuse ist ① cm lang. Ein anderes Dreieck hat denselben Winkel α und einen rechten Winkel. Seine Hypotenuse ist 30 cm lang. Es entsteht durch Strecken mit dem Faktor ②. Die Gegenkathete von α ist in diesem Dreieck ③ cm lang, die Ankathete ④ cm.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -683,7 +683,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Dreieck ABC hat bei C einen rechten Winkel. Die Gegenkathete von α ist 3 cm, die Ankathete 4 cm lang. Kim berechnet α in Grad. Zeile 1: tan α = Gegenkathete : Ankathete = 3 : 4 = 0,75. Zeile 2: Gesucht ist der Winkel, dessen Tangens 0,75 ist, also α = tan⁻¹(0,75). Zeile 3: Mit dem Taschenrechner (Bogenmaß, RAD) erhalte ich α ≈ 0,64. In welcher Zeile passiert der erste Fehler?"
+     "text": "Ein Dreieck ABC hat bei C einen rechten Winkel. Die Gegenkathete von α ist 3 cm, die Ankathete 4 cm lang. Kim berechnet α in Grad. Zeile 1: tan α = Gegenkathete : Ankathete = 3 : 4 = 0,75. Zeile 2: Gesucht ist der Winkel, dessen Tangens 0,75 ist, also α = tan⁻¹(0,75). Zeile 3: Mit dem Taschenrechner (Bogenmaß, RAD) erhalte ich α ≈ 0,64°. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -982,16 +982,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
+     "antwort": 43,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Augenhöhe vergessen: 20 : tan 25° (gerundet)"
+    },
+    {
+     "antwort": 46,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Augenhöhe addiert statt abgezogen: 21,6 : tan 25° (gerundet)"
+    },
+    {
      "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Tangens malgenommen statt geteilt: 20 · tan 25° (gerundet)"
-    },
-    {
-     "antwort": 47,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "den Sinus statt des Tangens genommen: 20 : sin 25° (gerundet)"
+     "beschreibung": "den Tangens malgenommen statt geteilt: 18,4 · tan 25° (gerundet)"
     }
    ],
    "aufgabe": {
@@ -1002,15 +1008,15 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein senkrechter Mast ist 20 m hoch und steht auf ebenem Boden. Die Spitze soll von einem Punkt auf dem Boden unter einem Höhenwinkel von 25° zu sehen sein. Der Höhenwinkel ist der Winkel zwischen Waagerechter und Blickrichtung. Wie weit vom Fußpunkt des Mastes muss man stehen? Die Augenhöhe wird nicht beachtet. Runde auf ganze Meter. Der Taschenrechner steht auf Gradmaß (DEG)."
+     "text": "Ein senkrechter Mast ist 20 m hoch und steht auf ebenem Boden. Eine Person, deren Augen 1,6 m über dem Boden liegen, soll die Mastspitze unter einem Höhenwinkel von 25° sehen. Der Höhenwinkel ist der Winkel zwischen der Waagerechten durch die Augen und der Blickrichtung. Wie weit vom Fußpunkt des Mastes muss die Person stehen? Runde auf ganze Meter. Der Taschenrechner steht auf Gradmaß (DEG)."
     },
     "o": {
-     "wert": 43,
+     "wert": 39,
      "einheit": "m"
     },
-    "c": "round(42.89013841019117, 0)",
-    "h": "Der Mast ist die Gegenkathete des Winkels 25°. Gesucht ist die Ankathete.",
-    "w": "tan 25° = 20 : d, also d = 20 : tan 25° ≈ 42,9 m. Man muss etwa 43 m entfernt stehen. Probe: tan⁻¹(20 : 43) ≈ 25°."
+    "c": "round(39.458927337375876, 0)",
+    "h": "Zeichne die Waagerechte durch die Augen. Die Gegenkathete des Winkels 25° ist nicht die ganze Masthöhe. Gesucht ist die Ankathete.",
+    "w": "Die Spitze liegt 20 − 1,6 = 18,4 m über den Augen. tan 25° = 18,4 : d, also d = 18,4 : tan 25° ≈ 39,5 m. Gerundet etwa 39 m. Probe: 18,4 : 39 ≈ 0,47 und tan 25° ≈ 0,47."
    }
   },
   {
@@ -1151,16 +1157,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 7.1,
+     "antwort": 3.5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch den Tangens geteilt: 5 : tan 35° (gerundet)"
+     "beschreibung": "nur den Anstieg angegeben, die 2 von Q vergessen: 5 · tan 35° (gerundet)"
     },
     {
-     "antwort": 2.9,
+     "antwort": 9.1,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Sinus statt des Tangens genommen: 5 · sin 35° (gerundet)"
+     "beschreibung": "durch den Tangens geteilt statt mit ihm malgenommen (gerundet)"
+    },
+    {
+     "antwort": 4.9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Sinus statt des Tangens genommen (gerundet)"
     }
    ],
    "aufgabe": {
@@ -1171,14 +1183,14 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Die Gerade h geht durch den Ursprung O(0 | 0) und durch den Punkt P(5 | y) mit y > 0. Sie schneidet die x-Achse unter einem Winkel von 35°. Wie groß ist y? Runde auf eine Dezimale. Der Taschenrechner steht auf Gradmaß (DEG)."
+     "text": "Die Gerade h geht durch den Punkt Q(1 | 2) und steigt von links nach rechts. Sie schneidet die x-Achse unter einem Winkel von 35°. Auch der Punkt P(6 | y) liegt auf h. Wie groß ist y? Runde auf eine Dezimale. Der Taschenrechner steht auf Gradmaß (DEG)."
     },
     "o": {
-     "wert": 3.5
+     "wert": 5.5
     },
-    "c": "round(3.5010376910485483, 1)",
-    "h": "Die Strecke von O bis zum Fußpunkt (5 | 0) ist die Ankathete des Winkels 35°. Gesucht ist die Gegenkathete.",
-    "w": "tan 35° = y : 5, also y = 5 · tan 35° ≈ 3,501. Gerundet y = 3,5. Probe: tan⁻¹(3,5 : 5) ≈ 35°."
+    "c": "round(5.501037691048548, 1)",
+    "h": "Von Q nach P gehst du 5 Einheiten nach rechts. Die Steigung ist der Tangens des Winkels zur x-Achse.",
+    "w": "Steigung m = tan 35° ≈ 0,70. Von Q nach P: 5 Einheiten nach rechts, also 5 · 0,70 ≈ 3,50 nach oben. y = 2 + 3,50 ≈ 5,5. Probe: (5,5 − 2) : 5 = 0,7 und tan 35° ≈ 0,70."
    }
   }
  ]

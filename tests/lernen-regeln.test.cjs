@@ -32,9 +32,9 @@ test('Daten vollständig: 14 Regeln, 4 Schichten, 7 Gebiete, 28 Ideen, 8 Arbeits
   assert.equal(D.gesetze.filter((g) => g.beispiel).length, 30, '30 ausgearbeitete Einzelregeln');
 });
 
-test('Texte der achten Runde übernommen: Regel 10 kürzere Fassung, Regel 6 unverändert, 23 berichtigte Kurzbeschreibungen, 25 Lücken', () => {
+test('Texte der achten Runde übernommen: Regel 10 kürzere Fassung, Regel 6 und 7 als Merksatz = Kurzfassung, 23 berichtigte Kurzbeschreibungen, 25 Lücken', () => {
   assert.equal(I.REGEL.R10.satz, 'Plus/Minus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: mal Kehrwert.');
-  assert.equal(I.REGEL.R6.satz, 'Was vor der Klammer steht, nimmt jeden in der Klammer mal.');
+  assert.equal(I.REGEL.R6.satz, 'Ein Faktor vor einer Summe multipliziert jeden Summanden.'); assert.equal(I.REGEL.R7.satz, 'Beim Auflösen einer Minusklammer wechselt jeder Summand sein Vorzeichen.');
   const kb = T8('kurzbeschreibungen.json').eintraege;
   assert.equal(kb.filter((e) => e.befund === 'berichtigt').length, 23);
   for (const e of kb) assert.equal(I.KURZ[e.entwurf_schluessel], e.endfassung, e.entwurf_schluessel);
@@ -192,15 +192,32 @@ test('1090: Kurzkarten, Ideen-Texte und Einzelregeln zeigen die berichtigten Fas
   assert.match(ide('I-zahlen-5').satz, /√\(x²\) = \|x\|/); assert.match(I.GESETZ.V8.satz, /Grundwert 0/);
   assert.match(I.GESETZ.V1.satz, /1 kg = 1 000 g/); assert.match(I.GESETZ.V1.satz, /1 h = 60 min/); assert.match(I.GESETZ.V1.satz, /1 d = 24 h/);
   assert.match(I.GESETZ.D9.satz, /Nenner n/); assert.match(I.GESETZ.D9.satz, /n > 1/);
-  assert.match(I.GESETZ.Z23.satz, /positive ganze Zahl n/); assert.match(I.GESETZ.G6.satz, /einfache[nm] n-Eck/); assert.match(I.GESETZ.G6.voraus, /nur bei konvexen/);
+  assert.match(I.GESETZ.Z23.satz, /positive ganze Zahl n/); assert.match(I.GESETZ.G6.satz, /einfache[nm] n-Eck/); assert.match(I.GESETZ.G6.voraus, /Beim konvexen n-Eck gelingt das von jeder Ecke aus/); assert.match(I.GESETZ.G6.warum, /durch Diagonalen in n − 2 Dreiecke zerlegen/);
   assert.match(I.GESETZ.E3.satz, /zusammenhängender ungerichteter Graph.*genau dann.*jeder Knotengrad gerade/);
   assert.equal(I.GESETZ.G16.klassen.find((k) => k.klasse === 5).text, 'Ein nichtquadratisches Rechteck hat zwei Symmetrieachsen, ein Quadrat vier.');
   assert.equal(I.GESETZ.F3.klassen.find((k) => k.klasse === 9).text, 'Unter allen Rechtecken mit Umfang 20 cm hat das Quadrat die größte Fläche (25 cm²).');
   const bg = (r, k) => D.lehrer[r].aufgaben.find((a) => a.kopf.startsWith(k));
-  assert.match(bg('R13', 'BG-01').text, /^Ausgeschlossen: x ≠ 3 und x ≠ −3/); assert.match(bg('R13', 'BG-02').text, /^Ausgeschlossen: x ≠ −4 und x ≠ 2/);
-  assert.match(D.arbeitsweisen.find((a) => a.name === 'Begründen').satz, /allgemeinen Behauptung/); assert.match(D.arbeitsweisen.find((a) => a.name === 'Einheiten').satz, /kann einen Rechenfehler aufdecken/);
+  assert.match(bg('R13', 'BG-01').text, /^Es gilt x ≠ 3 und x ≠ −3\. /); assert.match(bg('R13', 'BG-02').text, /^Es gilt x ≠ −4 und x ≠ 2\. /);
+  assert.match(D.arbeitsweisen.find((a) => a.name === 'Begründen').satz, /allgemeinen Behauptung/); assert.match(D.arbeitsweisen.find((a) => a.name === 'Einheiten').satz, /unpassende Dimension.*zeigt einen Fehler an/);
   assert.match(text('I-geo-4', 10), /Schnitt parallel zur Grundfläche auf halber Höhe.*⅛ des ursprünglichen Volumens, der Stumpf ⅞/);
   assert.match(text('I-geo-3', 7), /^Spiegeln: \|AB\| = 3, danach \|A′B′\| = 3$/);
   // in den Texten der App steht kein Verweis auf interne Prüfnummern
   assert.doesNotMatch(JSON.stringify(D.lehrer), /Gegenprüfung|umhaengen|1078|1090/);
+});
+
+// ---------- Dritte Gegenprüfung (Werkstatt 1112): derselbe Inhalt in allen angezeigten Feldern ----------
+test('1112: Merksatz, Kurzbeschreibung und Langtexte widersprechen sich nicht (R6, R7, Wachstum, G6, D9, Z19, Aufgaben, Einheiten)', () => {
+  for (const r of ['R6', 'R7']) assert.equal(D.kurz[r], I.REGEL[r].satz, r + ': Kurzbeschreibung und Merksatz');
+  assert.match(I.REGEL.R7.genau, /Alle Plus und Minus der Summanden in der gerade aufgelösten Klammer tauschen/);
+  assert.match(I.REGEL.R7.warum, /jeder Summand sein Vorzeichen/); assert.doesNotMatch(JSON.stringify(D.regeln.filter((r) => ['R6', 'R7'].includes(r.id))), /nimmt jeden in der Klammer mal|dreht alle Zeichen um/);
+  const w = D.planeten.flatMap((p) => p.ideen).find((i) => i.id === 'I-funktionen-2');
+  assert.equal(w.satz, 'Bei y = A · qˣ mit A > 0 steigt der Graph für q > 1, fällt für 0 < q < 1 und bleibt für q = 1 konstant.');
+  assert.match(w.warum, /Schrittweite h ist der Faktor qʰ/);
+  assert.match(I.GESETZ.D9.satz, /unabhängigen Zufallsstichprobe \(n > 1\).*vom Stichprobenmittel durch n − 1.*korrigierte Stichprobenvarianz.*Stichprobenstandardabweichung/);
+  assert.match(I.GESETZ.Z19.voraus, /erst nach einer passenden Umformung anwendbar: 2³ · 4² = 2³ · \(2²\)² = 2⁷/); assert.match(I.GESETZ.Z19.voraus, /Basis positiv/);
+  const bg = (k) => Object.values(D.lehrer).flatMap((l) => l.aufgaben).find((a) => a.kopf.startsWith(k));
+  for (const [k, t] of [['BG-01', 'x ≠ 3 und x ≠ −3'], ['BG-02', 'x ≠ −4 und x ≠ 2'], ['BG-03', 'x ≠ 0'], ['BG-13', 'x ≠ 0 und x ≠ −9'], ['PG-01', 'a ≠ 0'], ['PG-02', 'x ≠ 0'], ['PG-03', 'a ≠ 0']]) assert.ok(bg(k).text.startsWith('Es gilt ' + t + '. '), k);
+  assert.doesNotMatch(JSON.stringify(D.lehrer), /Ausgeschlossen: x|Alle Basen sind/);
+  const e = D.arbeitsweisen.find((a) => a.name === 'Einheiten');
+  assert.match(e.erklaerung, /umrechenbare Einheit wie cm statt m beweist keinen falschen Ansatz/); assert.doesNotMatch(JSON.stringify(e), /falsche Einheit/);
 });

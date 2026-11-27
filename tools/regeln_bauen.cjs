@@ -8,7 +8,7 @@
 //   inhalte/design/gesetzbuch/entwurf7/teile/kurz.json   Kurzbeschreibungen (Designer)
 //   inhalte/mathe-profi/regeln-uebersicht/texte8/*.json  Berichtigungen und Ergänzungen des Mathe-Profis (README dort, Punkte 1–6)
 //   inhalte/mathe-profi/regeln-uebersicht/kennungen.json, inhalte/mathe-profi/schritt1/*, inhalte/themen/*.json   Lehrer-Blatt
-// Entscheidungen des Projektleiters (27.11.): Regel 10 bekommt die kürzere Merksatz-Fassung; Merksatz Regel 6 bleibt.
+// Entscheidungen des Projektleiters (27.11.): Regel 10 bekommt die kürzere Merksatz-Fassung; Regel 6 und 7 (1112): Merksatz = Kurzbeschreibung (inhalt.json).
 'use strict';
 const fs = require('node:fs');
 const path = require('node:path');

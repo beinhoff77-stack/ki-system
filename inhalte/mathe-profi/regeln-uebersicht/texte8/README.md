@@ -13,8 +13,8 @@ Prüfen: `python3 -I inhalte/mathe-profi/regeln-uebersicht/texte8/pruefen.py` (e
 | `abgleich_inhalt.py`, `berichtigung_inhalt.py` | Gleichen `inhalt.json` (Entwurf) mit `klassenleiter.json` ab und berichtigen rund 100 Texte dort (1078, 1090 und eigener Durchgang); wiederholbar. |
 
 ## Merksätze (berichtigte Aussage)
-- Von 14 Merksätzen der Regelseiten ist **keiner falsch**; **geändert ist nur Regel 10** (Liste und Seite): „Plus/Minus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: mal Kehrwert.“ (Entscheidung Projektleiter; „erst“ bleibt, sonst bliebe offen, dass man gleichnamig machen muss).
-- Mehrere Merksätze sind **nur mit ihrer Grenze richtig**: R4 (Bruch-, Wurzel-, Betragsstriche, Potenzturm), R6 (Plus vor der Klammer, Produkt in der Klammer; Merksatz bleibt), R10 (gemischte Zahlen, welcher Bruch gekehrt wird), R11, R12 (Runden, Betrag), R13 (Quadrieren), R14 (nicht durch x teilen). Diese Grenzen stehen in den Feldern genau/voraus/fehler und damit im aufgeschlagenen Text der Regelseite (Test).
+- Von 14 Merksätzen der Regelseiten ist **keiner falsch**; **geändert sind Regel 10** (Liste und Seite) **und, nach 1112, Regel 6 und 7** (Merksatz = Kurzbeschreibung: „Ein Faktor vor einer Summe multipliziert jeden Summanden.“ / „Beim Auflösen einer Minusklammer wechselt jeder Summand sein Vorzeichen.“). Regel 10: „Plus/Minus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: mal Kehrwert.“ (Entscheidung Projektleiter; „erst“ bleibt, sonst bliebe offen, dass man gleichnamig machen muss).
+- Mehrere Merksätze sind **nur mit ihrer Grenze richtig**: R4 (Bruch-, Wurzel-, Betragsstriche, Potenzturm), R6 (Plus vor der Klammer, Produkt in der Klammer), R10 (gemischte Zahlen, welcher Bruch gekehrt wird), R11, R12 (Runden, Betrag), R13 (Quadrieren), R14 (nicht durch x teilen). Diese Grenzen stehen in den Feldern genau/voraus/fehler und damit im aufgeschlagenen Text der Regelseite (Test).
 - R11: Der Bestandstext „gilt nur bei direkter Proportionalität“ ist ersetzt (auch umgekehrt proportional lässt sich „erst auf eins“ anwenden, mit umgekehrten Rechenarten).
 
 ## Entschieden / berichtigt gegenüber der Arbeitsliste [G]
@@ -27,7 +27,8 @@ Prüfen: `python3 -I inhalte/mathe-profi/regeln-uebersicht/texte8/pruefen.py` (e
 - **Kurzsätze haben eingeschränkte Gültigkeit:** Kurzbeschreibung und Merksatz sagen den Kern, die Grenze steht in genau/voraus/fehler (R6 „vor einer Summe“, R7 „Summand der äußeren Klammer“, R3 „ungleich null“, R8 „positive ganze Hochzahl“).
 - Eigener Durchgang über alle Merksätze, Kurzbeschreibungen, Ideen-Texte und Einzelregeln: Allaussagen, fehlende Definitionsbereiche (≠ 0, reell, positiv) und überzogene Aussagen sind in `berichtigung_inhalt.py` gesammelt (zweiter und dritter Block).
 - Ausschlüsse der Definitionsmenge stehen vor den Aufgaben BG-01, BG-02, BG-03, BG-13, PG-01 bis PG-03 und Stelle 93 (`umhaengen.text_voranstellen`, vom Bau angewendet; die Aufgaben-Dateien bleiben unverändert).
-- `kennungen.json` (Merksatz/Genau der Ideen) ist nicht nachgeführt; angezeigt wird `inhalt.json`.
+- `kennungen.json`: Merksatz R6/R7 nachgeführt; Merksatz/Genau der Ideen nicht, angezeigt wird `inhalt.json`.
+- 1112: Ausschlüsse vor den Aufgaben heißen „Es gilt x ≠ …“; der Test „1112“ prüft, dass Merksatz, Kurzbeschreibung und Langtexte sich nicht widersprechen.
 
 ## Annahmen [A]
 - Zeilenzahl der Regel-10-Fassung am Handy nicht gemessen.

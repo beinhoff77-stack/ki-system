@@ -205,6 +205,31 @@ AENDERUNGEN += [
  (gesetz, 'F9', 'warum', 'Der Umfang ist bei jedem Kreis dasselbe Vielfache des Durchmessers: π, etwas mehr als 3. Schneidet man den Kreis in Tortenstücke und legt sie abwechselnd um, entsteht fast ein Rechteck: halber Umfang breit, r hoch.',
   'Der Umfang ist bei jedem Kreis dasselbe Vielfache des Durchmessers: π, etwas mehr als 3. Schneidet man den Kreis in Tortenstücke und legt sie abwechselnd um, entsteht fast ein Rechteck: halber Umfang breit, r hoch – je feiner die Stücke, desto genauer, im Grenzwert exakt.'),
 ]
+# Dritte Gegenprüfung (1112): derselbe Inhalt in allen angezeigten Feldern (Merksatz, Warum, Wann sie gilt).
+AENDERUNGEN += [
+ (regel, 'R6', 'satz', 'Was vor der Klammer steht, nimmt jeden in der Klammer mal.',
+  'Ein Faktor vor einer Summe multipliziert jeden Summanden.'),
+ (regel, 'R7', 'satz', 'Minus vor der Klammer dreht alle Zeichen um.',
+  'Beim Auflösen einer Minusklammer wechselt jeder Summand sein Vorzeichen.'),
+ (regel, 'R7', 'warum', 'Ein Minus vor der Klammer heißt „mal (−1)“. Der Faktor −1 multipliziert jeden Summanden, also wechselt jedes Vorzeichen. Im Alltag: Wer 20 € hat und einen Einkauf von 8 € mit 3 € Rabatt bezahlt, behält 20 − 8 + 3 €.',
+  'Ein Minus vor der Klammer heißt „mal (−1)“. Der Faktor −1 multipliziert jeden Summanden, also wechselt jeder Summand sein Vorzeichen. Im Alltag: Wer 20 € hat und einen Einkauf von 8 € mit 3 € Rabatt bezahlt, behält 20 − 8 + 3 €.'),
+ (idee, ('Funktionen', 2), 'satz', 'Immer plus dasselbe gibt eine Gerade; immer mal denselben Faktor eine Kurve, die bei Faktor über 1 steigt und zwischen 0 und 1 fällt.',
+  'Bei y = A · qˣ mit A > 0 steigt der Graph für q > 1, fällt für 0 < q < 1 und bleibt für q = 1 konstant.'),
+ (idee, ('Funktionen', 2), 'warum', 'Es gibt zwei Grundarten zu wachsen. Kommt in jedem gleich großen x-Schritt gleich viel dazu, liegen die Punkte auf einer Geraden. Wird in jedem gleich großen x-Schritt mit derselben Zahl q malgenommen, entsteht y = A · qˣ (A > 0): Für q > 1 wird die Kurve immer steiler und überholt jede Gerade, für 0 < q < 1 fällt sie, für q = 1 bleibt sie konstant.',
+  'Es gibt zwei Grundarten zu wachsen. Kommt in jedem gleich großen x-Schritt gleich viel dazu, liegen die Punkte auf einer Geraden. Wird in jedem gleich großen x-Schritt mit derselben Zahl q malgenommen, entsteht y = A · qˣ (A > 0): Für q > 1 wird die Kurve immer steiler und überholt jede Gerade, für 0 < q < 1 fällt sie, für q = 1 bleibt sie konstant. Dabei ist q der Faktor je einem x-Schritt der Länge 1; bei der Schrittweite h ist der Faktor qʰ.'),
+ (gesetz, 'G6', 'warum', 'Die Parallele durch eine Ecke legt alle drei Winkel nebeneinander auf eine Gerade. Ein n-Eck lässt sich von einer Ecke aus in n − 2 Dreiecke teilen.',
+  'Die Parallele durch eine Ecke legt alle drei Winkel nebeneinander auf eine Gerade. Jedes einfache n-Eck lässt sich durch Diagonalen in n − 2 Dreiecke zerlegen. Beim konvexen n-Eck gelingt das von jeder Ecke aus.'),
+ (gesetz, 'G6', 'voraus', 'Gilt für jedes Dreieck in der Ebene. Die Vielecksformel gilt für die Innenwinkel jedes einfachen n-Ecks (die Seiten überschneiden sich nicht), auch für konkave. Die Zerlegung als Fächer von einer Ecke aus gelingt nur bei konvexen Vielecken; bei konkaven wählt man andere Diagonalen.',
+  'Gilt für jedes Dreieck in der Ebene. Die Vielecksformel gilt für die Innenwinkel jedes einfachen n-Ecks (die Seiten überschneiden sich nicht), auch für konkave. Jedes einfache n-Eck lässt sich durch Diagonalen in n − 2 Dreiecke zerlegen. Beim konvexen n-Eck gelingt das von jeder Ecke aus.'),
+ (gesetz, 'D9', 'satz', 'Die Standardabweichung ist die Wurzel aus dem Mittelwert der quadrierten Abweichungen vom Mittelwert (Nenner n) – ein Maß für die typische Abweichung der beschriebenen Datenreihe, auch wenn sie nur eine Stichprobe ist. Will man mit einer Stichprobe die Varianz der Grundgesamtheit schätzen (n > 1), teilt man die Summe der quadrierten Abweichungen durch n − 1 und zieht danach die Wurzel.',
+  'Die Standardabweichung ist die Wurzel aus dem Mittelwert der quadrierten Abweichungen vom Mittelwert (Nenner n) – ein Maß für die typische Abweichung der beschriebenen Datenreihe, auch wenn sie nur eine Stichprobe ist. Zur Schätzung der Populationsvarianz teilt man bei einer unabhängigen Zufallsstichprobe (n > 1) die Summe der quadrierten Abweichungen vom Stichprobenmittel durch n − 1. Das ergibt die korrigierte Stichprobenvarianz. Ihre Wurzel ist die Stichprobenstandardabweichung.'),
+ (arbeitsweise, 'Einheiten', 'satz', 'Rechne mit Einheiten – eine falsche Einheit im Ergebnis kann einen Rechenfehler aufdecken.',
+  'Rechne mit Einheiten – eine unpassende Dimension im Ergebnis zeigt einen Fehler an.'),
+]
+AENDERUNGEN += [
+ (idee, ('Algebra', 4), 'satz', 'Steht x im Quadrat: erst null auf eine Seite, dann zerlegen.',
+  'Steht x im Quadrat: meist erst null auf eine Seite, dann zerlegen.'),
+]
 KLASSEN = [  # (Tabelle, Schlüssel, Klasse, alt, neu): Text des Klassenbeispiels im Gesetz
  (gesetz, 'G16', 5, 'Rechteck: 2 Symmetrieachsen. Quadrat: 4',
   'Ein nichtquadratisches Rechteck hat zwei Symmetrieachsen, ein Quadrat vier.'),

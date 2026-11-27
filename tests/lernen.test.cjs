@@ -5684,7 +5684,7 @@ test('RU: Kind öffnet das Regel-Universum über das Menü – Sonne → Regel �
     await page.locator('.ru-zeile', { hasText: 'Ausmultiplizieren' }).click();
     await page.locator('.ru-regelseite .ru-merksatz').waitFor();
     assert.match(page.url(), /#\/regeln\/1-r6$/);
-    assert.equal(await page.locator('.ru-merksatz').innerText(), 'Was vor der Klammer steht, nimmt jeden in der Klammer mal.');
+    assert.equal(await page.locator('.ru-merksatz').innerText(), 'Ein Faktor vor einer Summe multipliziert jeden Summanden.');
     assert.equal(await page.locator('.ru-stufe[open]').count(), 0, 'Stufen 4–7 zu');
     await ruBild(page, `ebene2-regel6-zu-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
     for (const z of await page.locator('.ru-stufe > summary').all()) await z.click();

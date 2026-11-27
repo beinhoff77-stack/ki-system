@@ -1,7 +1,7 @@
 // Service Worker: hält nur die App-Hülle vor (Dateien dieser Seite). Daten kommen immer live von app-api.
 const CACHE_PREFIX = 'ki-system:' + self.registration.scope + ':';
-const CACHE = CACHE_PREFIX + 'v186';
-const HUELLE = ['./', './index.html', './stay-compare.js?v=0.95.0', './stay-refresh.js?v=0.95.0', './stay-workplace.js?v=0.95.0', './stay-notifications.js?v=0.95.0', './stay-photos.js?v=0.95.0', './stay-trips.js?v=0.95.0', './stay-review.js?v=0.95.0', './stay-desk.js?v=0.95.0', './app.js?v=0.95.0', './highlights.js?v=0.95.0', './roadbook.js?v=0.95.0', './lernen-welt.js?v=0.95.0', './lernen.js?v=0.95.0', './lernen-regeln.js?v=0.95.0', './lernen-regeln.css?v=0.95.0', './daten/regeln-universum.json?v=0.95.0', './stay-tools.js?v=0.95.0', './stay-research.js?v=0.95.0', './stay-form.js?v=0.95.0', './stay-details.js?v=0.95.0', './stay-districts.js?v=0.95.0', './vendor/leaflet-1.9.4/leaflet.js', './vendor/leaflet-1.9.4/leaflet.css', './style.css?v=0.95.0', './vendor/schriften/space-grotesk.woff2', './vendor/schriften/jetbrains-mono.woff2', './manifest.webmanifest', './icon.svg', './icon-180.png', './icon-512.png'];
+const CACHE = CACHE_PREFIX + 'v187';
+const HUELLE = ['./', './index.html', './stay-compare.js?v=0.95.0', './stay-refresh.js?v=0.95.0', './stay-workplace.js?v=0.95.0', './stay-notifications.js?v=0.95.0', './stay-photos.js?v=0.95.0', './stay-trips.js?v=0.95.0', './stay-review.js?v=0.95.0', './stay-desk.js?v=0.95.0', './app.js?v=0.95.0', './highlights.js?v=0.95.0', './roadbook.js?v=0.95.0', './lernen-welt.js?v=0.95.0', './lernen.js?v=0.95.0', './lernen-regeln.js?v=0.95.0', './lernen-regeln.css?v=0.95.0', './stay-tools.js?v=0.95.0', './stay-research.js?v=0.95.0', './stay-form.js?v=0.95.0', './stay-details.js?v=0.95.0', './stay-districts.js?v=0.95.0', './vendor/leaflet-1.9.4/leaflet.js', './vendor/leaflet-1.9.4/leaflet.css', './style.css?v=0.95.0', './vendor/schriften/space-grotesk.woff2', './vendor/schriften/jetbrains-mono.woff2', './manifest.webmanifest', './icon.svg', './icon-180.png', './icon-512.png'];
 const HUELLE_URLS = new Set(HUELLE.map(path => new URL(path, self.registration.scope).href));
 
 self.addEventListener('install', (e) => {
@@ -15,13 +15,15 @@ self.addEventListener('fetch', (e) => {
   url.hash = ''; // Hash-Routen gehören zur gleichen App-Hülle.
   // RK-App: Kartendateien (karte/*.json, karte/flaggen/*.svg) zusätzlich zwischenspeichern – Netz zuerst, bei schwachem Netz aus dem Cache
   // JW-App: Wortliste der Jugendwort-Sticker (daten/jugendwoerter.json) ebenso – Netz zuerst, sonst aus dem Cache
+  // RU-App: daten/regeln-universum.json (606 kB) steht bewusst NICHT in der Hülle – gespeichert wird sie hier beim ersten Öffnen des Regel-Universums
   const karte = e.request.method === 'GET' && url.origin === new URL(self.registration.scope).origin && ['karte/', 'daten/'].some((d) => url.pathname.startsWith(new URL(d, self.registration.scope).pathname));
   if (e.request.method !== 'GET' || (!HUELLE_URLS.has(url.href) && !karte)) return; // Nur die App-Hülle und die Kartendateien speichern.
   // Netz zuerst, bei Ausfall aus dem Cache (so kommen neue Versionen sofort an).
   e.respondWith(
-    fetch(e.request, { cache: 'no-cache' }).then((r) => {
-      if (r.ok) { const kopie = r.clone(); e.waitUntil(caches.open(CACHE).then((c) => c.put(e.request, kopie))); }
-      return r;
+    fetch(e.request, { cache: 'no-cache' }).then(async (r) => {
+      if (r.ok) { const kopie = r.clone(); e.waitUntil(caches.open(CACHE).then((c) => c.put(e.request, kopie))); return r; }
+      // RU-App: HTTP-Fehler (z. B. 503) – eine gespeicherte Fassung ist besser als die Fehlerseite; ohne Speicher die Antwort des Servers
+      return (await (await caches.open(CACHE)).match(e.request)) || r;
     }).catch(async () => {
       const cache = await caches.open(CACHE);
       return await cache.match(e.request) || (e.request.mode === 'navigate' ? await cache.match(new URL('./index.html', self.registration.scope).href) : null) || Response.error();

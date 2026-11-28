@@ -162,6 +162,56 @@
   {
    "kennung": "R15-V196",
    "thema": "stochastik.verknuepft",
+   "lernkarte": "verknuepfen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 66,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anteil für Frau oder Sauna statt für keines von beiden angegeben"
+    },
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Besucher mit beidem doppelt abgezogen"
+    },
+    {
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Besucher genommen, die keine Frau sind"
+    }
+   ],
+   "aufgabe": {
+    "l": "verknuepfen",
+    "t": "verknuepfen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Von den Besuchern einer Therme sind 55 % Frauen, 44 % nutzen die Sauna, und 33 % sind Frauen, die die Sauna nutzen. Wie viel Prozent aller Besucher sind weder Frau noch nutzen die Sauna?"
+    },
+    "o": {
+     "wert": 34,
+     "einheit": "%"
+    },
+    "c": "100 - (55 + 44 - 33)",
+    "h": "Die Besucher, die Frau sind oder die Sauna nutzen, bilden die Vereinigung. Wer beides ist, darf nur einmal zählen. Wie viel bleibt vom Ganzen übrig?",
+    "w": "Frau oder Sauna: 55 + 44 − 33 = 66 (die 33 stehen in beiden Zahlen). Weder noch ist das Gegenteil: 100 − 66 = 34. Es sind 34 % aller Besucher."
+   }
+  },
+  {
+   "kennung": "R15-V197",
+   "thema": "stochastik.verknuepft",
    "lernkarte": "additionssatz",
    "stufe": 1,
    "typ": "Lückenweg",
@@ -222,7 +272,7 @@
    }
   },
   {
-   "kennung": "R15-V197",
+   "kennung": "R15-V198",
    "thema": "stochastik.verknuepft",
    "lernkarte": "additionssatz",
    "stufe": 2,
@@ -271,7 +321,56 @@
    }
   },
   {
-   "kennung": "R15-V198",
+   "kennung": "R15-V199",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "additionssatz",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.77,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Wahrscheinlichkeiten nur addiert, die Vereinigung nicht abgezogen"
+    },
+    {
+     "antwort": 0.39,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wahrscheinlichkeit für keinen der beiden Preise genommen"
+    },
+    {
+     "antwort": 0.19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Vereinigung minus P(A) gerechnet, also den Anteil nur B"
+    }
+   ],
+   "aufgabe": {
+    "l": "additionssatz",
+    "t": "additionssatz",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Bei einer Verlosung gewinnt man mit Wahrscheinlichkeit 0,42 einen Hotelgutschein (A) und mit 0,35 einen Flugrabatt (B). Mit Wahrscheinlichkeit 0,61 gewinnt man mindestens einen der beiden Preise. Wie groß ist die Wahrscheinlichkeit, beide Preise zu gewinnen?"
+    },
+    "o": {
+     "wert": 0.16
+    },
+    "c": "0.42 + 0.35 - 0.61",
+    "h": "Der Additionssatz gilt auch rückwärts: P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Stelle nach P(A ∩ B) um.",
+    "w": "Aus P(A ∪ B) = P(A) + P(B) − P(A ∩ B) folgt P(A ∩ B) = P(A) + P(B) − P(A ∪ B) = 0,42 + 0,35 − 0,61 = 0,16."
+   }
+  },
+  {
+   "kennung": "R15-V200",
    "thema": "stochastik.verknuepft",
    "lernkarte": "venn",
    "stufe": 2,
@@ -320,7 +419,57 @@
    }
   },
   {
-   "kennung": "R15-V199",
+   "kennung": "R15-V201",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "venn",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 65,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Vereinigung (Fahrrad oder Kajak) statt genau eines der beiden Geräte angegeben"
+    },
+    {
+     "antwort": 83,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Anteile addiert, die Gäste mit beidem doppelt gezählt"
+    },
+    {
+     "antwort": 34,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Gäste genommen, die nur ein Fahrrad leihen"
+    }
+   ],
+   "aufgabe": {
+    "l": "venn",
+    "t": "venn",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Auf einem Campingplatz leihen 52 % der Gäste ein Fahrrad, 31 % ein Kajak und 18 % beides. Wie viel Prozent aller Gäste leihen genau eines der beiden Geräte?"
+    },
+    "o": {
+     "wert": 47,
+     "einheit": "%"
+    },
+    "c": "52 + 31 - 2 * 18",
+    "h": "Wer beides leiht, soll nicht zählen. Trenne: nur Fahrrad, nur Kajak. Wie viel vom Fahrrad-Anteil gehört auch zum Kajak-Anteil?",
+    "w": "Nur Fahrrad: 52 − 18 = 34. Nur Kajak: 31 − 18 = 13. Genau eines: 34 + 13 = 47. Es sind 47 % aller Gäste."
+   }
+  },
+  {
+   "kennung": "R15-V202",
    "thema": "stochastik.verknuepft",
    "lernkarte": "mengen_verstehen",
    "stufe": 3,
@@ -336,21 +485,21 @@
      "antwort": "A ∩ B = B und A ∪ B = A",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Schnitt und Vereinigung vertauscht"
+     "beschreibung": "Schnitt und Vereinigung vertauscht (das gilt nur im Sonderfall A = B)"
     },
     {
      "index": 1,
      "antwort": "A ∩ B = ∅ und A ∪ B = B",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Mengen haben gemeinsame Elemente, der Schnitt ist nicht leer"
+     "beschreibung": "der Schnitt ist A und ist nur dann leer, wenn A leer ist"
     },
     {
      "index": 3,
      "antwort": "A ∩ B = A und A ∪ B = A",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Vereinigung enthält auch die Elemente von B"
+     "beschreibung": "die Vereinigung ist B; sie ist nur dann gleich A, wenn A = B"
     }
    ],
    "aufgabe": {
@@ -361,7 +510,7 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Es gilt A ⊂ B: Jedes Element von A liegt auch in B. Welche Aussage über die Schnittmenge und die Vereinigung stimmt?"
+     "text": "Es gilt A ⊂ B: Jedes Element von A liegt auch in B. Welche Aussage über die Schnittmenge und die Vereinigung gilt immer?"
     },
     "a": [
      "A ∩ B = B und A ∪ B = A",
@@ -377,7 +526,7 @@
    }
   },
   {
-   "kennung": "R15-V200",
+   "kennung": "R15-V203",
    "thema": "stochastik.verknuepft",
    "lernkarte": "vierfeld",
    "stufe": 1,
@@ -439,7 +588,7 @@
    }
   },
   {
-   "kennung": "R15-V201",
+   "kennung": "R15-V204",
    "thema": "stochastik.verknuepft",
    "lernkarte": "vierfeld",
    "stufe": 2,
@@ -488,7 +637,7 @@
    }
   },
   {
-   "kennung": "R15-V202",
+   "kennung": "R15-V205",
    "thema": "stochastik.verknuepft",
    "lernkarte": "tafel_wkeit",
    "stufe": 2,
@@ -537,155 +686,6 @@
    }
   },
   {
-   "kennung": "R15-V203",
-   "thema": "stochastik.verknuepft",
-   "lernkarte": "bedingt",
-   "stufe": 2,
-   "typ": "Anwenden",
-   "form": "anwenden",
-   "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
-   "zaehlt": "ja",
-   "fehlbilder": [
-    {
-     "antwort": 66,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "den Anteil für Frau oder Sauna statt für keines von beiden angegeben"
-    },
-    {
-     "antwort": 1,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Besucher mit beidem doppelt abgezogen"
-    },
-    {
-     "antwort": 45,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Besucher genommen, die keine Frau sind"
-    }
-   ],
-   "aufgabe": {
-    "l": "bedingt",
-    "t": "bedingt",
-    "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
-    "y": "zahl",
-    "f": {
-     "text": "Von den Besuchern einer Therme sind 55 % Frauen, 44 % nutzen die Sauna, und 33 % sind Frauen, die die Sauna nutzen. Wie viel Prozent aller Besucher sind weder Frau noch nutzen die Sauna?"
-    },
-    "o": {
-     "wert": 34,
-     "einheit": "%"
-    },
-    "c": "100 - (55 + 44 - 33)",
-    "h": "Die Besucher, die Frau sind oder die Sauna nutzen, bilden die Vereinigung. Wer beides ist, darf nur einmal zählen. Wie viel bleibt vom Ganzen übrig?",
-    "w": "Frau oder Sauna: 55 + 44 − 33 = 66 (die 33 stehen in beiden Zahlen). Weder noch ist das Gegenteil: 100 − 66 = 34. Es sind 34 % aller Besucher."
-   }
-  },
-  {
-   "kennung": "R15-V204",
-   "thema": "stochastik.verknuepft",
-   "lernkarte": "bedingt",
-   "stufe": 2,
-   "typ": "Anwenden",
-   "form": "anwenden",
-   "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
-   "zaehlt": "ja",
-   "fehlbilder": [
-    {
-     "antwort": 65,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Vereinigung (Fahrrad oder Kajak) statt genau eines der beiden Geräte angegeben"
-    },
-    {
-     "antwort": 83,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "beide Anteile addiert, die Gäste mit beidem doppelt gezählt"
-    },
-    {
-     "antwort": 34,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Gäste genommen, die nur ein Fahrrad leihen"
-    }
-   ],
-   "aufgabe": {
-    "l": "bedingt",
-    "t": "bedingt",
-    "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
-    "y": "zahl",
-    "f": {
-     "text": "Auf einem Campingplatz leihen 52 % der Gäste ein Fahrrad, 31 % ein Kajak und 18 % beides. Wie viel Prozent aller Gäste leihen genau eines der beiden Geräte?"
-    },
-    "o": {
-     "wert": 47,
-     "einheit": "%"
-    },
-    "c": "52 + 31 - 2 * 18",
-    "h": "Wer beides leiht, soll nicht zählen. Trenne: nur Fahrrad, nur Kajak. Wie viel vom Fahrrad-Anteil gehört auch zum Kajak-Anteil?",
-    "w": "Nur Fahrrad: 52 − 18 = 34. Nur Kajak: 31 − 18 = 13. Genau eines: 34 + 13 = 47. Es sind 47 % aller Gäste."
-   }
-  },
-  {
-   "kennung": "R15-V205",
-   "thema": "stochastik.verknuepft",
-   "lernkarte": "rueckschluss",
-   "stufe": 3,
-   "typ": "Umkehren",
-   "form": "umkehren",
-   "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
-   "zaehlt": "ja",
-   "fehlbilder": [
-    {
-     "antwort": 0.77,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die beiden Wahrscheinlichkeiten nur addiert, die Vereinigung nicht abgezogen"
-    },
-    {
-     "antwort": 0.39,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Wahrscheinlichkeit für keinen der beiden Preise genommen"
-    },
-    {
-     "antwort": 0.19,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Vereinigung minus P(A) gerechnet, also den Anteil nur B"
-    }
-   ],
-   "aufgabe": {
-    "l": "rueckschluss",
-    "t": "rueckschluss",
-    "p": "uebung",
-    "s": 3,
-    "g": "rueckwaerts",
-    "y": "zahl",
-    "f": {
-     "text": "Bei einer Verlosung gewinnt man mit Wahrscheinlichkeit 0,42 einen Hotelgutschein (A) und mit 0,35 einen Flugrabatt (B). Mit Wahrscheinlichkeit 0,61 gewinnt man mindestens einen der beiden Preise. Wie groß ist die Wahrscheinlichkeit, beide Preise zu gewinnen?"
-    },
-    "o": {
-     "wert": 0.16
-    },
-    "c": "0.42 + 0.35 - 0.61",
-    "h": "Der Additionssatz gilt auch rückwärts: P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Stelle nach P(A ∩ B) um.",
-    "w": "Aus P(A ∪ B) = P(A) + P(B) − P(A ∩ B) folgt P(A ∩ B) = P(A) + P(B) − P(A ∪ B) = 0,42 + 0,35 − 0,61 = 0,16."
-   }
-  },
-  {
    "kennung": "R15-V206",
    "thema": "stochastik.verknuepft",
    "lernkarte": "verstehen",
@@ -724,14 +724,14 @@
     },
     "a": [
      "A liegt ganz in B (A ⊂ B).",
-     "Der Schnitt hat die Wahrscheinlichkeit 0: A und B können nicht gleichzeitig eintreten.",
+     "Der Schnitt hat die Wahrscheinlichkeit 0: P(A ∩ B) = 0.",
      "A und B sind gleich wahrscheinlich."
     ],
     "o": {
      "index": 1
     },
     "h": "Vergleiche mit dem Additionssatz P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Was muss P(A ∩ B) sein, damit beide Gleichungen stimmen?",
-    "w": "Der Additionssatz lautet P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Soll P(A ∪ B) = P(A) + P(B) gelten, muss P(A ∩ B) = 0 sein. Dann haben A und B keine gemeinsamen Ergebnisse und treten nie zugleich ein."
+    "w": "Der Additionssatz lautet P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Soll P(A ∪ B) = P(A) + P(B) gelten, muss P(A ∩ B) = 0 sein. Mehr folgt aus der Gleichung allein nicht."
    }
   },
   {

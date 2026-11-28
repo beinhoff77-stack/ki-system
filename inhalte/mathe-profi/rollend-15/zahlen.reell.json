@@ -65,7 +65,7 @@
     "o": {
      "index": 1
     },
-    "h": "Eine Wurzel ist rational, wenn der Radikand das Quadrat (oder die dritte Potenz) einer rationalen Zahl ist. Prüfe jede Zahl.",
+    "h": "Eine Quadratwurzel ist rational, wenn der Radikand das Quadrat einer rationalen Zahl ist; eine dritte Wurzel, wenn er die dritte Potenz einer rationalen Zahl ist. Prüfe jede Zahl.",
     "w": "50 ist keine Quadratzahl (7² = 49 und 8² = 64), und die Wurzel aus einer natürlichen Zahl, die keine Quadratzahl ist, ist nicht als Bruch darstellbar. Also ist √50 irrational. Die anderen sind 0,9, 4 und 7/3, also rational."
    }
   },
@@ -344,7 +344,7 @@
      "antwort": 68,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahlen unter den Wurzeln addiert"
+     "beschreibung": "die Zahlen unter den Wurzeln addiert und die Wurzel (√68) weggelassen"
     },
     {
      "antwort": 900,

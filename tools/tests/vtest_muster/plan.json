@@ -1,0 +1,22 @@
+{
+ "stand": "Testnachbau (erfunden)",
+ "fluege": {},
+ "grafik_typen_bekannt": [],
+ "einheiten": {
+  "muster.potenzen": {
+   "id": 9001,
+   "max_r": 100,
+   "lz": [
+    "potenz_sinn",
+    "rechnen",
+    "vorzeichen"
+   ],
+   "tf": [
+    "begriff",
+    "berechnen",
+    "negativ"
+   ],
+   "lernbereich": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division"
+  }
+ }
+}

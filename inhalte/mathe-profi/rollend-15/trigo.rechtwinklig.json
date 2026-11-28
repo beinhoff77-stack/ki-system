@@ -463,7 +463,7 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Es gilt sin 70° ≈ 0,9397. Für welchen Winkel hat der Kosinus denselben Wert?"
+     "text": "Es gilt sin 70° ≈ 0,9397. Für welchen spitzen Winkel hat der Kosinus denselben Wert?"
     },
     "a": [
      "für 20°",
@@ -607,7 +607,7 @@
      "antwort": 85.2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "12 statt 0,12 in den Tangens eingesetzt"
+     "beschreibung": "12 statt 0,12 in den Arkustangens eingesetzt (arctan 12 ≈ 85,2°)"
     },
     {
      "antwort": 83.2,

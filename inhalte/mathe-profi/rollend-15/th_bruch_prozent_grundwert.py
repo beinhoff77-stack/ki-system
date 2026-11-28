@@ -86,7 +86,7 @@ neu(T, "formel", "zwei_wege", Z(
 n_j = next(n for n in range(1, 40) if 2000 * 1.05 ** n > 2500)
 neu(T, "formel", "umkehren", Z(
     "Ein Guthaben von 2 000 € wird mit 5 % Zinseszins im Jahr angelegt. Nach wie vielen vollen Jahren ist das Guthaben zum ersten Mal höher als 2 500 €?",
-    n_j, "5", n_j, "Probiere die Jahre nacheinander aus: 2 000 · 1,05, dann · 1,05², und so weiter. Wann liegt das Ergebnis erstmals über 2 500?",
+    n_j, "5", n_j, "Multipliziere den Kontostand jedes Jahr wieder mit 1,05 (Stand nach 1 Jahr: 2 000 · 1,05, danach diesen Stand wieder mal 1,05, und so weiter) oder rechne für jedes Jahr n getrennt 2 000 · 1,05ⁿ. Wann liegt das Ergebnis erstmals über 2 500?",
     "Nach 4 Jahren: 2 000 · 1,05⁴ ≈ 2 431,01 €, das reicht noch nicht. Nach 5 Jahren: 2 000 · 1,05⁵ ≈ 2 552,56 €. Das ist höher als 2 500 €. Es sind 5 Jahre.",
     [B("4", "schon nach 4 Jahren gestoppt: dann sind es erst etwa 2 431 €"), B("6", "ohne Zinseszins gerechnet (nur 100 € Zinsen je Jahr): nach 5 Jahren sind es dann erst genau 2 500 €")], einheit="Jahre"), g="rueckwaerts", regel=P)
 # ───────── argumente ─────────

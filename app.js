@@ -210,12 +210,9 @@ tabs.addEventListener('click', (e) => { const b = e.target.closest('button'); if
 
 function loading(text = 'Lade …') { main.replaceChildren(el('div', { class: 'spinner' }, text)); }
 function showError(e) {
-  // Lernbereich: verständlich für Kinder, mit „Nochmal versuchen“ statt stehendem „Lade …“.
+  // Lernbereich: verständlich für Kinder, mit „Nochmal versuchen“ statt stehendem „Lade …“; der technische Text nur hinter „Einzelheiten“ (lernFehlerSeite)
   if (document.body.hasAttribute('data-kindmodus') || document.body.dataset.area === 'lernen') {
-    main.replaceChildren(el('div', { class: 'card lern-fehlerseite' }, el('h2', {}, 'Das hat gerade nicht geklappt.'),
-      el('p', {}, 'Prüfe das Internet und versuch es nochmal.'),
-      el('button', { type: 'button', class: 'primary', onclick: () => render() }, 'Nochmal versuchen'),
-      el('p', { class: 'small muted' }, String(e?.message || e))));
+    main.replaceChildren(lernFehlerSeite(e, () => render()));
     return;
   }
   main.append(el('div', { class: 'card err-text' }, 'Fehler: ' + (e?.message || e)));

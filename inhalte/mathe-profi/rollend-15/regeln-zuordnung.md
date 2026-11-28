@@ -2,13 +2,14 @@
 
 Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt), nicht das Thema. Jede Kennung wurde gegen `inhalte/mathe-profi/regeln-uebersicht/kennungen.json` gelesen; `bauen.py` prüft, dass sie im Katalog steht und das Thema in der Themenliste der Regel steht (Ausnahmen unten). Quelle der Daten: die Angaben `regel` / `ohne` / `zweifel` in `th_*.py`; `regeln.py` und diese Tabelle werden von `bauen.py` erzeugt.
 
-**87 Aufgaben mit Regel, 6 ohne.**
+**104 Aufgaben mit Regel, 6 ohne.**
 
 ## Verteilung
 
 | Regel | Name | Aufgaben |
 |---|---|---|
 | `id.geometrie.winkel` | Winkel an Geraden | 24 |
+| `rr.waage` | Gleichung als Waage | 17 |
 | `rr.potenz` | Potenzen | 15 |
 | `id.geometrie.deckungsgleich` | Deckungsgleich | 14 |
 | `id.verhaeltnisse.prozent` | Prozent als Faktor | 14 |
@@ -145,3 +146,20 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V091 | geometrie.konstruktion.satz_kehrsatz | – |
 | R15-V092 | geometrie.konstruktion.satz_kehrsatz | – |
 | R15-V093 | geometrie.konstruktion.satz_kehrsatz | – |
+| R15-V094 | gleichungen.linear.waage | `rr.waage` |
+| R15-V095 | gleichungen.linear.waage | `rr.waage` |
+| R15-V096 | gleichungen.linear.waage | `rr.waage` |
+| R15-V097 | gleichungen.linear.beide_seiten | `rr.waage` |
+| R15-V098 | gleichungen.linear.beide_seiten | `rr.waage` |
+| R15-V099 | gleichungen.linear.beide_seiten | `rr.waage` |
+| R15-V100 | gleichungen.linear.klammern | `rr.waage` |
+| R15-V101 | gleichungen.linear.klammern | `rr.waage` |
+| R15-V102 | gleichungen.linear.klammern | `rr.waage` |
+| R15-V103 | gleichungen.linear.probe | `rr.waage` |
+| R15-V104 | gleichungen.linear.probe | `rr.waage` |
+| R15-V105 | gleichungen.linear.sonderfaelle | `rr.waage` |
+| R15-V106 | gleichungen.linear.sonderfaelle | `rr.waage` |
+| R15-V107 | gleichungen.linear.sonderfaelle | `rr.waage` |
+| R15-V108 | gleichungen.linear.sach | `rr.waage` |
+| R15-V109 | gleichungen.linear.sach | `rr.waage` |
+| R15-V110 | gleichungen.linear.sach | `rr.waage` |

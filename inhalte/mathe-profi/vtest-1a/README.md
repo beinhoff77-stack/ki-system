@@ -14,6 +14,7 @@ Stand 28.11.2026. Nichts davon ist eingespielt; es sind nur Inhalte in `inhalte/
 | `bauen.py` | prüft alle Regeln des Auftrags, schreibt die JSON-Dateien und `regeln-zuordnung.md`, ruft `tools/vorrat_pruefen.py` und `tools/vtest_pruefen.py --runde 1a` auf; endet mit „OK“ |
 | `gegenrechnung.py` | rechnet alle 77 Sollantworten unabhängig neu; endet mit „0 Abweichungen“ |
 | `regeln-zuordnung.md` | Regel-Kennung je Aufgabe (erzeugt von `bauen.py`) |
+| `sonderfaelle.md`, `korrektur-nach-vorpruefung.md`, `vorpruefung.md` | Sonderfall-Durchsicht, Korrekturbericht, Bericht der Vorprüfung |
 
 Aufrufe vom Wurzelordner des Repos: `python3 -I inhalte/mathe-profi/vtest-1a/bauen.py`, `python3 -I inhalte/mathe-profi/vtest-1a/gegenrechnung.py`, `python3 -I tools/vtest_pruefen.py --runde 1a`.
 
@@ -21,19 +22,19 @@ Aufrufe vom Wurzelordner des Repos: `python3 -I inhalte/mathe-profi/vtest-1a/bau
 
 ### Je Lernziel
 
-| Einheit | Lernziel | test | korrektur | sicherung | Stufe 2 | Stufe 3 | zahl | auswahl |
-|---|---|---|---|---|---|---|---|---|
-| zahlen.potenzen_basis | schreibweise | 1 | 3 | 3 | 5 | 2 | 3 | 4 |
-| zahlen.potenzen_basis | quadrat | 1 | 3 | 3 | 4 | 3 | 4 | 3 |
-| zahlen.potenzen_basis | zehner | 1 | 3 | 3 | 4 | 3 | 5 | 2 |
-| zahlen.potenzen_basis | sach | 1 | 3 | 3 | 4 | 3 | 4 | 3 |
-| zahlen.rechengesetze | klammern | 1 | 3 | 3 | 4 | 3 | 2 | 5 |
-| zahlen.rechengesetze | termaufbau | 1 | 3 | 3 | 4 | 3 | 3 | 4 |
-| zahlen.rechengesetze | vorteil | 1 | 3 | 3 | 4 | 3 | 2 | 5 |
-| zahlen.rechengesetze | verteilen | 1 | 3 | 3 | 4 | 3 | 3 | 4 |
-| zahlen.rechengesetze | umkehraufgabe_mal | 1 | 3 | 3 | 4 | 3 | 3 | 4 |
-| zahlen.rechengesetze | ueberschlag | 1 | 3 | 3 | 4 | 3 | 4 | 3 |
-| zahlen.rechengesetze | sach | 1 | 3 | 3 | 4 | 3 | 5 | 2 |
+| Einheit | Lernziel | test | korrektur | sicherung | Stufe 2 | Stufe 3 | zahl | auswahl | Ideen |
+|---|---|---|---|---|---|---|---|---|---|
+| zahlen.potenzen_basis | schreibweise | 1 | 3 | 3 | 4 | 3 | 2 | 5 | 7 |
+| zahlen.potenzen_basis | quadrat | 1 | 3 | 3 | 4 | 3 | 3 | 4 | 7 |
+| zahlen.potenzen_basis | zehner | 1 | 3 | 3 | 4 | 3 | 3 | 4 | 7 |
+| zahlen.potenzen_basis | sach | 1 | 3 | 3 | 4 | 3 | 4 | 3 | 5 |
+| zahlen.rechengesetze | klammern | 1 | 3 | 3 | 4 | 3 | 1 | 6 | 5 |
+| zahlen.rechengesetze | termaufbau | 1 | 3 | 3 | 4 | 3 | 2 | 5 | 6 |
+| zahlen.rechengesetze | vorteil | 1 | 3 | 3 | 4 | 3 | 1 | 6 | 7 |
+| zahlen.rechengesetze | verteilen | 1 | 3 | 3 | 4 | 3 | 1 | 6 | 7 |
+| zahlen.rechengesetze | umkehraufgabe_mal | 1 | 3 | 3 | 4 | 3 | 3 | 4 | 6 |
+| zahlen.rechengesetze | ueberschlag | 1 | 3 | 3 | 4 | 3 | 2 | 5 | 6 |
+| zahlen.rechengesetze | sach | 1 | 3 | 3 | 4 | 3 | 5 | 2 | 6 |
 
 ### Verteilung
 
@@ -45,41 +46,40 @@ Aufrufe vom Wurzelordner des Repos: `python3 -I inhalte/mathe-profi/vtest-1a/bau
 
 | Stufe | zahlen.potenzen_basis | zahlen.rechengesetze | gesamt |
 |---|---|---|---|
-| 2 | 17 | 28 | 45 |
-| 3 | 11 | 21 | 32 |
+| 2 | 16 | 28 | 44 |
+| 3 | 12 | 21 | 33 |
 
 | Typ | zahlen.potenzen_basis | zahlen.rechengesetze | gesamt |
 |---|---|---|---|
-| begruenden | 5 | 10 | 15 |
-| darstellung | 6 | 7 | 13 |
-| mehrschritt | 3 | 7 | 10 |
+| begruenden | 8 | 9 | 17 |
+| darstellung | 8 | 10 | 18 |
+| mehrschritt | 1 | 5 | 6 |
 | parameter | 1 | 3 | 4 |
 | pruefung | 0 | 1 | 1 |
-| rueckwaerts | 2 | 4 | 6 |
-| transfer | 1 | 3 | 4 |
-| umkehr | 8 | 14 | 22 |
-| verknuepfen | 2 | 0 | 2 |
+| rueckwaerts | 2 | 3 | 5 |
+| transfer | 0 | 4 | 4 |
+| umkehr | 7 | 13 | 20 |
+| verknuepfen | 1 | 1 | 2 |
 
 | Form | zahlen.potenzen_basis | zahlen.rechengesetze | gesamt |
 |---|---|---|---|
-| anwenden | 1 | 3 | 4 |
-| bruecke | 6 | 7 | 13 |
-| ohne Form | 6 | 11 | 17 |
-| umkehren | 11 | 20 | 31 |
-| verfahren_waehlen | 1 | 2 | 3 |
-| zwei_wege | 3 | 6 | 9 |
+| bruecke | 5 | 8 | 13 |
+| ohne Form | 13 | 17 | 30 |
+| umkehren | 8 | 17 | 25 |
+| verfahren_waehlen | 0 | 2 | 2 |
+| zwei_wege | 2 | 5 | 7 |
 
 | Antwortform | zahlen.potenzen_basis | zahlen.rechengesetze | gesamt |
 |---|---|---|---|
-| auswahl | 12 | 27 | 39 |
-| zahl | 16 | 22 | 38 |
+| auswahl | 16 | 34 | 50 |
+| zahl | 12 | 15 | 27 |
 
 ## Aufbau der Pools
 
 - **test** (Stufe 3): eine Aufgabe je Lernziel, die die alte Test-Aufgabe ersetzen soll; verlangt Begründen, Rückwärtsdenken oder Übertragen.
 - **korrektur** (Stufe 2): Umkehraufgaben, Darstellungswechsel (Rechnung ↔ Text, Brücke), zwei Rechenwege vergleichen. Keine Rechenhilfe im Text.
 - **sicherung** (Stufe 2 und 3 gemischt): Begründen mit echten Fehlvorstellungen als Möglichkeiten, Fehler in einer Rechnung finden und berichtigen (als Auswahl vollständiger Aussagen), Parameter, Rückwärts, Transfer.
-- Antworttypen: nur `zahl` und `auswahl`. Auswahl immer mit 4 Möglichkeiten (eine mit 5 ist nicht dabei), die Lage der richtigen Antwort ist über die Aufgaben verteilt. Kein Tipp (`h`), keine Toleranz, kein Lückenweg.
+- Antworttypen: nur `zahl` und `auswahl`. Auswahl mit 4 Möglichkeiten (VT1A-029 hat 5), die Lage der richtigen Antwort ist über die Aufgaben verteilt. Kein Tipp (`h`), keine Toleranz, kein Lückenweg.
 - Fehlbilder: zu jeder falschen Zahl und jeder falschen Möglichkeit steht die Beschreibung des Denkfehlers; bei Zahlantworten zusätzlich eine `rechnung`, die genau die Fehlantwort ergibt (von `tools/vtest_pruefen.py` nachgerechnet). Die Katalog-Kennungen `fb.*` sind nicht vergeben.
 
 ## Lehrplan-Bezug
@@ -88,19 +88,24 @@ Aufrufe vom Wurzelordner des Repos: `python3 -I inhalte/mathe-profi/vtest-1a/bau
 
 ## Ehrlich: Zweifelsfälle und Grenzen
 
-1. **Lehrplan-Nummer.** Das Repo führt zwei Zuordnungen: `inhalte/pruefung/klassen/vorschlag-rsib.md` sagt „M5 1.3“, die Themenliste (und damit das Prüfwerkzeug) „M5 3“. Verwendet ist „M5 3“; amtlich nachgeprüft ist keines von beiden (Lehrplantext nicht einsehbar). Die Vorprüfung sollte das klären.
-2. **Zahl-Aufgaben mit fast fester Lösungsrechnung.** Bei einigen Rückwärts- und Zählaufgaben (z. B. VT1A-004, 017, 021, 023, 024, 027, 063, 070) ist `loesung_rechnung` nur der Wert selbst oder eine einfache Zeile; die eigentliche Probe liefert `gegenrechnung.py` mit einer Zählschleife. Das prüft die Zahl, aber nicht jeden Gedankenschritt. Entsprechend sind einige Fehlbild-`rechnung`en einfache Ausdrücke (z. B. „7“, „10“, „5 + 1“).
-3. **Typ und Form.** Die Pflicht zu einem Verstehens-Typ oder einer Verstehens-Form (V5) ist bei manchen `mehrschritt`-Aufgaben nur über die Form erfüllt (`zwei_wege`, `verfahren_waehlen`): VT1A-030, 034, 044, 046, 049, 067, 068. Dort gibt es sachlich zwei Wege (alle Terme ausrechnen oder geschickt vergleichen), aber auch einen sehr direkten. 31 von 77 Aufgaben haben die Form `umkehren`; das ist viel, passt aber zu den Lernzielen (Umkehren ist hier das Verstehen).
-4. **Fehler-Aufgaben.** „Finde den Fehler“ ist als Auswahl vollständiger Aussagen („Fehler: … Richtig wäre …“, daneben falsche Fehlerdiagnosen und „Kein Fehler: …“) gebaut. Das ist typ `begruenden` und nicht Fehler-Detektiv, weil V8 für diesen Typ mindestens drei nummerierte Zeilen verlangt; Aufgaben mit Zeilen wurden nicht gebaut (Klasse 5, wenige Rechnungen).
-5. **Verneinte Frage.** VT1A-016 („gehört NICHT zur Zahl“) und VT1A-054 („NICHT richtig“) sind verneint gestellt, im Text ist NICHT großgeschrieben. Falls die App keine verneinten Fragen will, diese zwei tauschen.
-6. **Eindeutigkeit.** Stellen, die die Vorprüfung ansehen sollte: VT1A-003 (Tabelle, Generationen: 1. Generation = Eltern, steht im Text), VT1A-012 (eine Reihe und eine Spalte kommen hinzu, 27 Bäume), VT1A-021 („kleiner als“ schließt Gleichheit aus), VT1A-065 und 070 (Rundungsregel „ab 5 bzw. ab 50 aufrunden“ steht im Text; 070 zählt die Zahlen 4 550 bis 4 649, ob die Null zu den natürlichen Zahlen gehört, spielt dort keine Rolle), VT1A-075 (Bäcker: „die Hälfte seiner Brötchen und noch 7 dazu“, die zweite Hälfte bezieht sich auf die übrigen).
-7. **Regeln.** Alle Aufgaben tragen die Regel ihrer Lernkarte. Bei `zahlen.rechengesetze` führen `umkehraufgabe_mal`, `sach` (`rr.gegenrechnung`) und `ueberschlag` (`id.zahlen.buendeln`) Regeln, die im Katalog `kennungen.json` die Einheit nicht in der Themenliste haben (siehe `regeln-zuordnung.md`). Bei `zahlen.potenzen_basis` hat `quadrat` keine Lernkarten-Regel (genommen: `rr.potenz`), ebenso `termaufbau` (genommen: `rr.reihenfolge`). Diese zwei Zuordnungen sind Vorschläge.
-8. **Gleiche Sollantwort im Lernziel.** `bauen.py` meldet, dass in `schreibweise` zweimal 3, in `zehner` zweimal 5 und in `termaufbau` zweimal 6 herauskommt. Die Aufgaben sind sonst verschieden; wer will, ändert Zahlen.
-9. **Auswahl.** Siehe `auswahl.md`: Abweichung vom Vorschlag des Auftraggebers, weil `negativ` und `mal_ganz` nicht Klasse 5 sind.
+(Stand nach der Korrektur zur Vorprüfung, siehe `korrektur-nach-vorpruefung.md`.)
+
+1. **Lehrplan-Nummer.** „M5 3“ ist laut Vorprüfung die Nummer des Gymnasiums; „M5 1.3“ im Repo (`vorschlag-rsib.md`) gehört zur Realschule. Eigene Quelle für den Lehrplanwortlaut habe ich nicht, ich stütze mich auf die Vorprüfung.
+2. **Ideen statt Typ-Etiketten.** Jede Aufgabe trägt ein Feld `idee` (Denkfigur). `bauen.py` verlangt je Lernziel mindestens 5 verschiedene Ideen und keine öfter als zweimal. Die Ideen sind meine Einteilung; die Vorprüfung sollte prüfen, ob sie die Aufgaben wirklich unterscheidet. Knapp sind `klammern` (genau 5) und `zahlen.potenzen_basis/sach` (5).
+3. **Zahl-Aufgaben mit fast fester Lösungsrechnung.** Bei einigen Zählaufgaben (z. B. 004, 017, 021, 023, 024, 070) ist `loesung_rechnung` nur der Wert selbst oder eine kurze Zeile; die eigentliche Probe liefert `gegenrechnung.py` mit einer Zählschleife.
+4. **Typ und Form.** Bei den mehrschritt-Aufgaben 045, 046, 053, 055, 067 trägt die Form (`verfahren_waehlen`, `zwei_wege`) den Verstehens-Anspruch; dort geht es wirklich um die Wahl oder den Vergleich zweier Wege, nicht um ein Etikett. 25 von 77 Aufgaben haben die Form `umkehren` (vorher 31).
+5. **Fehler-Aufgaben.** „Finde den Fehler“ ist als Auswahl vollständiger Aussagen („Fehler: … Richtig wäre …“) gebaut, Typ `begruenden`, nicht Fehler-Detektiv (V8 verlangt dafür nummerierte Zeilen).
+6. **Verneinte Frage.** Nur noch VT1A-016 („gehört NICHT zur Zahl 56 000 000“): eindeutig, drei richtige Schreibweisen, eine falsche.
+7. **Antwortformen.** 50 von 77 Aufgaben sind Auswahl (4 Möglichkeiten, nur VT1A-029 hat 5), 27 Zahl. Das Verhältnis hat sich zu Auswahl hin verschoben, weil Begründen und Darstellungswechsel nur als Auswahl abfragbar sind.
+8. **Regeln.** Bei `ueberschlag` steht keine Regel (kein Katalogeintrag trägt Überschlagen); Begründung in `regeln-zuordnung.md`, das Werkzeug meldet 7 Hinweise dazu. Bei `zahlen.rechengesetze` führen `umkehraufgabe_mal` und `sach` die Regel `rr.gegenrechnung`, die im Katalog die Einheit nicht in der Themenliste hat. `quadrat` (`rr.potenz`) und `termaufbau` (`rr.reihenfolge`) haben keine Lernkarten-Regel; das sind Vorschläge.
+9. **x und □.** In Aufgaben zu Gleichungen (VT1A-060 bis 063) steht x (Lehrplan M5 3.1), sonst □ für eine Lücke.
+10. **Auswahl.** Siehe `auswahl.md`: Abweichung vom Vorschlag des Auftraggebers; `negativ`, `mal_ganz`, `geteilt_ganz`, `vertauschen`, `schriftlich` sind für eine Folgerunde vorgemerkt.
+11. **Keine Bilder.** Keine Aufgabe nutzt `grafik`; alles steht im Fragetext.
 
 ## Ergebnis der Prüfungen
 
-- `bauen.py`: OK (77 Aufgaben, 230 Fehlbilder/falsche Möglichkeiten, davon 112 Zahl-Fehlbilder mit nachgerechneter Rechnung, 116 falsche Möglichkeiten mit geprüfter Aussage im Quelltext, 2 nur von Hand gelesen).
+- `bauen.py`: OK (77 Aufgaben, 229 Fehlbilder/falsche Möglichkeiten geprüft).
 - `gegenrechnung.py`: 77 Sollantworten neu gerechnet, 0 Abweichungen.
 - `tools/vorrat_pruefen.py` über die Dateien: 77 Aufgaben, 0 Meldungen.
-- `tools/vtest_pruefen.py --runde 1a`: keine Fehler; 3 Hinweise (Abweichung vom Vorschlag bei beiden Einheiten, Rhythmus RVVVRVRRRVVRRV bei `zahlen.rechengesetze`).
+- `tools/vtest_pruefen.py --runde 1a`: keine Fehler; 10 Hinweise (Abweichung vom Vorschlag bei beiden Einheiten, Rhythmus RVVVRVRRRVVRRV bei `zahlen.rechengesetze`, 7-mal „Regel fehlt“ bei `ueberschlag`).
+- Weitere Dateien: `sonderfaelle.md` (Durchsicht der Auswahl-Aufgaben), `korrektur-nach-vorpruefung.md`.

@@ -2,7 +2,7 @@
 
 Grundlage: `vorpruefung.md` (Zweig `vorpruefer-vt1a`, Commit 8257cf21). Alle A- und B-Befunde sind eingearbeitet, die C-Befunde einzeln umgesetzt oder begründet gelassen. Die Kennungen (VT1A-nnn) bleiben gleich: an derselben Stelle steht jetzt die neue Aufgabe. „Idee“ bezeichnet das Feld `idee` im JSON (Denkfigur der Aufgabe).
 
-Ergebnis: **40 Aufgaben ersetzt**, 8 geändert (Text, Lösungsweg oder Fehlbild), 29 unverändert. Je Lernziel mindestens 5 verschiedene Ideen, keine Idee öfter als zweimal (`bauen.py` prüft das; Ideen-Zahl je Lernziel: schreibweise 7, quadrat 7, zehner 7, sach (Potenzen) 5, klammern 5, termaufbau 6, vorteil 7, verteilen 7, umkehraufgabe_mal 6, ueberschlag 6, sach (Rechengesetze) 6).
+Ergebnis: **41 Aufgaben ersetzt**, 6 geändert (Text, Lösungsweg oder Fehlbild), 30 unverändert. Je Lernziel mindestens 5 verschiedene Ideen, keine Idee öfter als zweimal (`bauen.py` prüft das; Ideen-Zahl je Lernziel: schreibweise 7, quadrat 7, zehner 7, sach (Potenzen) 5, klammern 5, termaufbau 6, vorteil 7, verteilen 7, umkehraufgabe_mal 6, ueberschlag 6, sach (Rechengesetze) 6).
 
 ## A
 

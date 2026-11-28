@@ -1,0 +1,29 @@
+{
+ "stand": "Testnachbau",
+ "hinweis": "erfundene Einheit für tools/tests/vtest_sql_test.py",
+ "vorgabe_runde": "9",
+ "mengen": {
+  "test": 1,
+  "korrektur": 1,
+  "sicherung": 1
+ },
+ "runden": {
+  "9": {
+   "kuerzel": "VTM",
+   "ordner": "tools/tests/vtest_muster/runde",
+   "block": 9
+  }
+ },
+ "einheiten": [
+  {
+   "runde": "9",
+   "schluessel": "muster.potenzen",
+   "id": 9001,
+   "verstehen": [
+    "potenz_sinn",
+    "vorzeichen"
+   ],
+   "begruendung": "Muster V R V."
+  }
+ ]
+}

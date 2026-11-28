@@ -1,19 +1,24 @@
 #!/usr/bin/env python3
 """W2 – Prüfung einer Runde „Verstehen in Tests“ (Stufe 1, inhalte/mathe-profi/vtest-1/plan.md) und gemeinsame Regeln für W1 (tools/vtest_sql.py).
 
-Aufruf:  python3 -I tools/vtest_pruefen.py --runde 1               -> prüft inhalte/mathe-profi/vtest-1/*.json gegen auswahl.json (Runde 1)
+Aufruf:  python3 -I tools/vtest_pruefen.py --runde 1a              -> prüft den Ordner der Runde (auswahl.json „runden“, z. B. inhalte/mathe-profi/vtest-1a/*.json)
          python3 -I tools/vtest_pruefen.py --runde 1 --nur-auswahl -> prüft nur die Auswahl der Verstehens-Lernziele (alle Runden)
          Testumgebung: --auswahl DATEI --ordner DIR --plan DATEI --themen DIR (statt der Vorgaben unter inhalte/)
 Rückgabe 0 = keine FEHLER (HINWEISE sind zum Nachsehen von Hand), 1 = FEHLER.
 
 Was geprüft wird (FEHLER = W1 baut kein Paket):
-  Auswahl (auswahl.json): je Einheit genau ⌈n/2⌉ Verstehens-Lernziele (n = Lernziele der Einheit, Reihenfolge wie in rollend-einheiten.json „lz“),
-    nie zwei Rechen-Lernziele nebeneinander, nie drei Verstehens-Lernziele nebeneinander; jedes Lernziel hat eine Test-Aufgabe im Bestand (inhalte/themen).
-  Vollständigkeit: je Verstehens-Lernziel der Runde genau `mengen.test` Test-, mindestens `mengen.korrektur` Korrektur- und `mengen.sicherung`
-    Sicherungs-Aufgaben (höchstens zwei mehr); keine Aufgabe für ein Rechen-Lernziel oder eine Einheit außerhalb der Runde; Kennungen eindeutig (<KÜRZEL>-nnn).
+  Auswahl: Welche Lernziele Verstehen bekommen, ergibt sich aus den Aufgaben der Runde (Lernziele mit Aufgaben); auswahl.json ist der Vorschlag
+    (Abweichung = HINWEIS) und legt fest, welche Einheiten zu welcher Runde gehören. FEHLER: nicht genau ⌈n/2⌉ Verstehens-Lernziele je Einheit
+    (n = Lernziele der Einheit, Reihenfolge wie in rollend-einheiten.json „lz“); HINWEIS: zwei Rechen- oder drei Verstehens-Lernziele nebeneinander.
+    Jedes Lernziel hat genau eine Test-Aufgabe im Bestand (inhalte/themen), sonst FEHLER.
+  Vollständigkeit: je Verstehens-Lernziel der Runde genau `mengen.test` Test-Aufgabe (mit ersetzt_test = true), mindestens `mengen.korrektur`
+    Korrektur- und `mengen.sicherung` Sicherungs-Aufgaben (höchstens zwei mehr); keine Einheit außerhalb der Runde; Kennungen eindeutig (<KÜRZEL>-nnn).
+  Dateiformat: wie inhalte/mathe-profi/rollend-15 (je Einheit eine JSON-Datei mit „aufgaben“), dazu je Eintrag pool, typ (= Datenbank-typ; aufgabe.g
+    muss fehlen oder gleich sein), form, stufe (= aufgabe.s), zaehlt, lehrplan, ersetzt_test (nur Test-Aufgabe), regel; je Fehlbild „rechnung“;
+    Lösungsrechnung in „loesung_rechnung“ oder im Rechenanker aufgabe.c (zahl: ein Ausdruck, luecken: je Lücke einer).
   Verbote (aus inhalte/plan/neuer-stil/didaktik.md, geschärft; Entscheidungen 28.11.):
     V1 kein Lückenweg (form lueckenweg)                       V2 zaehlt muss „ja“ sein (nie „nein“, nie leer)
-    V3 Stufe nur 2 oder 3                                     V4 typ (Feld g) Pflicht, einer der 13 Übungs-Typen, nicht knobel/direkt
+    V3 Stufe nur 2 oder 3                                     V4 typ Pflicht, einer der 13 Übungs-Typen, nicht direkt/erkennen (Reproduktion) und nicht knobel
     V5 Verstehens-Aufgabe: typ in V-Typen ODER form in V-Formen (didaktik.md Abschnitt 2; anwenden nur mit typ transfer)
     V6 Antworttyp nur zahl, luecken, auswahl (text/markierung/bedingung erst in einer späteren Stufe)
     V7 auswahl: mindestens 4 verschiedene Möglichkeiten (Ratechance höchstens 25 %), Lösungsindex gültig
@@ -25,9 +30,10 @@ Was geprüft wird (FEHLER = W1 baut kein Paket):
        Nachkommastellen kaufmännisch gerundet)
     V11 Fehlbilder: zahl/luecken mindestens 2, jedes mit „rechnung“, die genau die Fehlantwort ergibt; auswahl: zu JEDER falschen Möglichkeit ein
        Fehlbild (Index + Beschreibung; ist die Möglichkeit eine Zahl, auch „rechnung“); alle von tools/regelbezug_sql.fehlbilder übernehmbar
-    V12 Regel-Kennung aus inhalte/mathe-profi/regeln-uebersicht/kennungen.json (leer nur, wenn die Lernkarte in regelbezug-lernkarten.json offen ist)
-    V13 Lehrplan: Feld „lehrplan“ = LehrplanPLUS-Lernbereich der Einheit (inhalte/themenliste.json, gym_by)
-    V14 Lösungsweg (w) und Abgrenzung (Satz: wie sich die Aufgabe von den Übungen der Etappe unterscheidet) nicht leer
+    V12 Regel-Kennung, wenn gesetzt, in der Schreibweise rr.…/id.… (nicht im Katalog regeln-uebersicht/kennungen.json oder fehlend = HINWEIS)
+    V13 Lehrplan: Feld „lehrplan“ beginnt mit dem LehrplanPLUS-Lernbereich der Einheit (inhalte/themenliste.json gym_by, z. B. „M5 3“ oder „M5 3.2“)
+    V14 Lösungsweg (w) nicht leer (Abgrenzung zu den Übungen: Feld „abgrenzung“ empfohlen, fehlend = HINWEIS)
+    V17 ersetzt_test = true genau bei der Test-Aufgabe; stufe = aufgabe.s
     V15 nicht ähnlich (siehe aehnlich()): weder einer Aufgabe derselben Etappe im Bestand (inhalte/themen: alle Vorräte; inhalte/mathe-profi/rollend-*:
        Übungen) noch einer anderen neuen Aufgabe derselben Etappe
     V16 Teilfähigkeit t aus „tf“ der Einheit oder die der alten Test-Aufgabe; l = Lernkarte; p = pool
@@ -137,8 +143,10 @@ def aehnlich(a, b):
 def kontext(runde=None, auswahl_datei=None, ordner=None, plan_datei=None, themen_dir=None, rollend_glob=None, themenliste=None):
     auswahl_datei = Path(auswahl_datei or WURZEL / 'inhalte/mathe-profi/vtest-1/auswahl.json')
     aw = lesen(auswahl_datei)
-    if runde is None: runde = aw.get('vorgabe_runde', 1)
-    rinfo = aw['runden'][str(runde)]
+    if runde is None: runde = aw.get('vorgabe_runde', '1a')
+    runde = str(runde)
+    if runde not in aw['runden']: raise SystemExit(f'Runde {runde} steht nicht in {auswahl_datei} (runden: {", ".join(aw["runden"])})')
+    rinfo = aw['runden'][runde]
     ordner = Path(ordner or WURZEL / rinfo['ordner'])
     plan = lesen(plan_datei or WURZEL / 'inhalte/plan/rollend-einheiten.json')['einheiten']
     themen_dir = Path(themen_dir or WURZEL / 'inhalte/themen')
@@ -170,7 +178,7 @@ def kontext(runde=None, auswahl_datei=None, ordner=None, plan_datei=None, themen
             d = lesen(p)
             if 'aufgaben' not in d: continue
             for x in d['aufgaben']: eintraege.append((p.name, x))
-    return dict(runde=int(runde), kuerzel=rinfo['kuerzel'], aw=aw, ordner=ordner, plan=plan, tl=tl, kenn=kenn, rbl=rbl, bestand=bestand,
+    return dict(runde=runde, block=int(rinfo['block']), kuerzel=rinfo['kuerzel'], aw=aw, ordner=ordner, plan=plan, tl=tl, kenn=kenn, rbl=rbl, bestand=bestand,
                 alt_test=alt_test, eintraege=eintraege, mengen=aw['mengen'])
 
 
@@ -225,10 +233,13 @@ def aufgabe_pruefen(x, s, l, k, alt):
     st = a.get('s')
     if st not in (2, 3) or isinstance(st, bool): f.append(f'{kn}: V3 Stufe {st!r} – im Test nur 2 oder 3')
     if x.get('stufe') is not None and x.get('stufe') != st: f.append(f'{kn}: stufe {x.get("stufe")} ≠ aufgabe.s {st}')
-    g = a.get('g')
-    if not g: f.append(f'{kn}: V4 typ (aufgabe.g) fehlt – Pflicht')
+    g = x.get('typ')
+    if a.get('g') is not None and a.get('g') != g: f.append(f'{kn}: aufgabe.g „{a.get("g")}“ ≠ typ „{g}“')
+    if (x.get('ersetzt_test') is True) != (pool == 'test'): f.append(f'{kn}: V17 ersetzt_test = true genau bei der Test-Aufgabe (pool {pool}, ersetzt_test {x.get("ersetzt_test")!r})')
+    if x.get('stufe') is None: f.append(f'{kn}: stufe fehlt')
+    if not g: f.append(f'{kn}: V4 typ fehlt – Pflicht')
     elif g not in TYPEN: f.append(f'{kn}: V4 typ „{g}“ unbekannt oder im Test verboten (erlaubt: {", ".join(TYPEN)}; nicht knobel)')
-    elif g == 'direkt': f.append(f'{kn}: V4 typ direkt = reine Reproduktion, im Test verboten')
+    elif g in ('direkt', 'erkennen'): f.append(f'{kn}: V4 typ {g} = Reproduktion, im Test verboten')
     if g and not (g in V_TYPEN or form in V_FORMEN or (form == 'anwenden' and g == 'transfer')):
         f.append(f'{kn}: V5 keine Verstehens-Aufgabe (typ {g}, form {form}); nötig: typ in {"/".join(V_TYPEN)} oder form in {"/".join(V_FORMEN)}')
     y = a.get('y')
@@ -275,7 +286,7 @@ def aufgabe_pruefen(x, s, l, k, alt):
                     if err is not None and int(i) < err and not ok: h.append(f'{kn}: Zeile {i} vor der Fehlerzeile {err} rechnet falsch: {kette}')
     # V10 Lösung nachrechenbar
     rd = x.get('runden')
-    lr = x.get('loesung_rechnung')
+    lr = x.get('loesung_rechnung', a.get('c'))
     if y == 'zahl' and isinstance(o.get('wert'), (int, float)):
         ok, t = gleich(lr, o['wert'], rd) if isinstance(lr, str) else (False, 'loesung_rechnung fehlt (ein Ausdruck)')
         if not ok: f.append(f'{kn}: V10 Lösung nicht nachgerechnet: {t}')
@@ -313,17 +324,19 @@ def aufgabe_pruefen(x, s, l, k, alt):
     rg = x.get('regel')
     lk = ((k['rbl'].get(basis(s)) or {}).get('lernkarten') or {}).get(l) or {}
     if rg is None:
-        if lk.get('regel'): f.append(f'{kn}: V12 Regel fehlt (Lernkarte hat {lk["regel"]})')
-    elif rg not in k['kenn']: f.append(f'{kn}: V12 Regel „{rg}“ steht nicht in regeln-uebersicht/kennungen.json')
+        if lk.get('regel'): h.append(f'{kn}: Regel fehlt (Lernkarte hat {lk["regel"]})')
+    elif not R.KENNUNG.match(str(rg)): f.append(f'{kn}: V12 Regel „{rg}“ ist keine Kennung (rr.…/id.…)')
+    elif rg not in k['kenn']: h.append(f'{kn}: Regel „{rg}“ steht nicht in regeln-uebersicht/kennungen.json')
     elif lk.get('regel') and rg != lk['regel'] and rg not in (lk.get('weitere') or []):
         h.append(f'{kn}: Regel {rg} weicht von der Lernkarte ab ({lk["regel"]})')
     # V13 Lehrplan
     lb = (k['plan'].get(s) or {}).get('lernbereich') or ((k['tl'].get(basis(s)) or {}).get('lernbereich') or {}).get('gym_by')
     if not lb: f.append(f'{kn}: V13 Lernbereich der Einheit unbekannt (themenliste)')
-    elif x.get('lehrplan') != lb: f.append(f'{kn}: V13 lehrplan „{x.get("lehrplan")}“ – soll „{lb}“')
+    elif not re.match(re.escape(' '.join(lb.split()[:2])) + r'(?:[.,]\d+)*(?!\d)', str(x.get('lehrplan') or '')):
+        f.append(f'{kn}: V13 lehrplan „{x.get("lehrplan")}“ – soll mit „{" ".join(lb.split()[:2])}“ beginnen ({lb})')
     # V14
     if not (a.get('w') or '').strip(): f.append(f'{kn}: V14 Lösungsweg (w) fehlt')
-    if not (x.get('abgrenzung') or '').strip(): f.append(f'{kn}: V14 Abgrenzung zu den Übungen der Etappe fehlt')
+    if not (x.get('abgrenzung') or '').strip(): h.append(f'{kn}: Feld abgrenzung (Unterschied zu den Übungen der Etappe) fehlt')
     # V16
     tf = set((k['plan'].get(s) or {}).get('tf') or []) | ({alt.get('t')} if isinstance(alt, dict) else set())
     if a.get('t') not in tf: f.append(f'{kn}: V16 Teilfähigkeit „{a.get("t")}“ nicht in tf der Einheit {sorted(x for x in tf if x)}')
@@ -339,6 +352,7 @@ def zeile(x):
     """Aufgaben-JSON für schule.aufgaben_einfuegen (ohne r)."""
     a = x.get('aufgabe') or {}
     r = {k: a[k] for k in FELDER if a.get(k) is not None}
+    if x.get('typ') is not None: r['g'] = x['typ']
     r['form'], r['zaehlt'] = x.get('form'), x.get('zaehlt')
     return r
 
@@ -346,21 +360,30 @@ def zeile(x):
 # ---------- Runde ----------
 def runde_pruefen(k):
     fehler, hinweise = auswahl_pruefen(k)[0], []
-    ein = {e['schluessel']: e for e in k['aw']['einheiten'] if e.get('runde') == k['runde']}
+    ein = {e['schluessel']: dict(e) for e in k['aw']['einheiten'] if str(e.get('runde')) == k['runde']}
     if not ein: fehler.append(f'Runde {k["runde"]}: keine Einheit in auswahl.json')
     kenn = Counter(x.get('kennung') for _, x in k['eintraege'])
     for kk, n in kenn.items():
         if n > 1: fehler.append(f'Kennung {kk} kommt {n}-mal vor')
-        if not re.fullmatch(re.escape(k['kuerzel']) + r'-\d{3}', str(kk)): fehler.append(f'Kennung {kk}: Schema {k["kuerzel"]}-nnn')
+        if not re.fullmatch(re.escape(k['kuerzel']) + r'-\d{3,4}', str(kk)): fehler.append(f'Kennung {kk}: Schema {k["kuerzel"]}-nnn')
     je = defaultdict(list)
     for datei, x in k['eintraege']:
         s, l = x.get('thema'), x.get('lernkarte')
-        if s not in ein: fehler.append(f'{x.get("kennung")}: Einheit {s} gehört nicht zu Runde {k["runde"]}'); continue
-        if l not in ein[s]['verstehen']: fehler.append(f'{x.get("kennung")}: Lernziel {s}/{l} ist kein Verstehens-Lernziel der Auswahl (Rechen-Lernziele bleiben in Stufe 1 unverändert)'); continue
+        if s not in ein: fehler.append(f'{x.get("kennung")}: Einheit {s} gehört nicht zu Runde {k["runde"]} (auswahl.json)'); continue
+        if l not in k['plan'][s]['lz']: fehler.append(f'{x.get("kennung")}: Lernkarte {l} gibt es in {s} nicht (lz: {k["plan"][s]["lz"]})'); continue
         if datei != f'{s}.json': hinweise.append(f'{x.get("kennung")}: steht in {datei}, erwartet {s}.json')
         je[(s, l)].append(x)
     for s, e in ein.items():
-        for l in e['verstehen']:
+        lz = k['plan'][s]['lz']
+        gewaehlt = [l for l in lz if je.get((s, l))]          # tatsächliche Auswahl = Lernziele mit Aufgaben
+        muster = ''.join('V' if l in gewaehlt else 'R' for l in lz)
+        soll = math.ceil(len(lz) / 2)
+        if not gewaehlt: fehler.append(f'{s}: keine Aufgaben in der Runde'); continue
+        if len(gewaehlt) != soll: fehler.append(f'{s}: {len(gewaehlt)} Verstehens-Lernziele ({muster}), Soll ⌈{len(lz)}/2⌉ = {soll}')
+        if 'RR' in muster or 'VVV' in muster: hinweise.append(f'{s}: Auswahl {muster} nicht abwechselnd (zwei R oder drei V nebeneinander)')
+        if set(gewaehlt) != set(e['verstehen']): hinweise.append(f'{s}: Auswahl weicht vom Vorschlag in auswahl.json ab: gewählt {gewaehlt}, Vorschlag {e["verstehen"]}')
+        e['verstehen'] = gewaehlt
+        for l in gewaehlt:
             xs = je.get((s, l), [])
             c = Counter(x.get('pool') for x in xs)
             m = k['mengen']
@@ -392,7 +415,7 @@ def optionen(argv):
             return argv[i + 1]
         return None
     r = wert('--runde')
-    return dict(runde=int(r) if r else None, auswahl_datei=wert('--auswahl'), ordner=wert('--ordner'), plan_datei=wert('--plan'),
+    return dict(runde=r, auswahl_datei=wert('--auswahl'), ordner=wert('--ordner'), plan_datei=wert('--plan'),
                 themen_dir=wert('--themen'), rollend_glob=wert('--rollend'), themenliste=wert('--themenliste'))
 
 

@@ -2,18 +2,18 @@
 
 Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt), nicht das Thema. Jede Kennung wurde gegen `inhalte/mathe-profi/regeln-uebersicht/kennungen.json` gelesen; `bauen.py` prüft, dass sie im Katalog steht und das Thema in der Themenliste der Regel steht (Ausnahmen unten). Quelle der Daten: die Angaben `regel` / `ohne` / `zweifel` in `th_*.py`; `regeln.py` und diese Tabelle werden von `bauen.py` erzeugt.
 
-**118 Aufgaben mit Regel, 7 ohne.**
+**128 Aufgaben mit Regel, 11 ohne.**
 
 ## Verteilung
 
 | Regel | Name | Aufgaben |
 |---|---|---|
 | `id.geometrie.winkel` | Winkel an Geraden | 24 |
+| `id.zahlen.hoch_zurueck` | Hoch und zurück | 24 |
 | `rr.waage` | Gleichung als Waage | 17 |
 | `rr.potenz` | Potenzen | 15 |
 | `id.geometrie.deckungsgleich` | Deckungsgleich | 14 |
 | `id.verhaeltnisse.prozent` | Prozent als Faktor | 14 |
-| `id.zahlen.hoch_zurueck` | Hoch und zurück | 14 |
 | `rr.tauschen` | Tauschen, Klammern, Zusammenfassen | 5 |
 | `rr.ausmultiplizieren` | Ausmultiplizieren und Ausklammern | 4 |
 | `id.geometrie.abstand` | Gleicher Abstand | 3 |
@@ -21,7 +21,7 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | `id.algebra.term` | Term | 2 |
 | `rr.gegenrechnung` | Gegenrechnung | 2 |
 | `rr.vorzeichen` | Vorzeichen bei Mal und Geteilt | 1 |
-| – (ohne Regel) |  | 7 |
+| – (ohne Regel) |  | 11 |
 
 ## Ausnahmen von der Themenliste des Katalogs (von Hand gelesen)
 
@@ -39,6 +39,10 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V092 | geometrie.konstruktion.satz_kehrsatz | Satz und Kehrsatz (Logik, Gegenbeispiel): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V093 | geometrie.konstruktion.satz_kehrsatz | Satz und Kehrsatz (Logik, Gegenbeispiel): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V123 | zahlen.wurzeln_basis.wurzel_deuten | Wurzel und Summe (Wurzel verteilt sich nicht auf Summanden): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V136 | zahlen.reell.zusammenfassen | Wurzeln zusammenfassen und umschreiben (a√b): keine Regel des Katalogs trägt genau diesen Schritt |
+| R15-V137 | zahlen.reell.nenner_rational | Nenner rational machen (Erweitern mit der Wurzel): keine Regel des Katalogs trägt genau diesen Schritt |
+| R15-V138 | zahlen.reell.irrational_beweis | Beweis durch Widerspruch (gerade/ungerade, gekürzter Bruch): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V139 | zahlen.reell.irrational_beweis | Beweis durch Widerspruch (gerade/ungerade, gekürzter Bruch): keine Regel des Katalogs trägt den Lösungsweg |
 
 ## Zweifelsfälle
 
@@ -52,6 +56,13 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V059 | abbildungen.kongruenz.eigenschaften | `id.geometrie.winkel` | Winkelsumme im Dreieck plus Erhaltung der Winkel; Ausnahme der Themenliste (id.geometrie.winkel), die Lernkarte nennt id.geometrie.deckungsgleich |
 | R15-V121 | zahlen.wurzeln_basis.wurzel_deuten | `id.zahlen.hoch_zurueck` | Definitionsbereich der Wurzel: hoch_zurueck trägt (Quadrat nie negativ), die Lernkarte nennt sonst keine Regel |
 | R15-V122 | zahlen.wurzeln_basis.wurzel_deuten | `id.zahlen.hoch_zurueck` | Definitionsmenge der Wurzel (Radikand ≥ 0); hoch_zurueck trägt nur teilweise |
+| R15-V126 | zahlen.reell.zahlarten | `id.zahlen.hoch_zurueck` | Rationale und irrationale Zahlen unterscheiden: hoch_zurueck trägt das Zurückrechnen der Wurzel, die Zahlarten selbst hat keine eigene Regel |
+| R15-V127 | zahlen.reell.zahlarten | `id.zahlen.hoch_zurueck` | Zahlen sortieren: hoch_zurueck trägt das Prüfen der Wurzeln |
+| R15-V128 | zahlen.reell.eingrenzen | `id.zahlen.hoch_zurueck` | Eingrenzen durch Quadrieren: hoch_zurueck trägt das Rückrechnen |
+| R15-V129 | zahlen.reell.eingrenzen | `id.zahlen.hoch_zurueck` | Eingrenzen durch Quadrieren: hoch_zurueck trägt das Rückrechnen |
+| R15-V130 | zahlen.reell.heron | `id.zahlen.hoch_zurueck` | Heron-Verfahren (Mittelwert aus Näherung und Quotient): hoch_zurueck trägt nur die Probe |
+| R15-V131 | zahlen.reell.heron | `id.zahlen.hoch_zurueck` | Heron-Verfahren als Rechteck: Flächenerhaltung, hoch_zurueck nur als Zielgröße |
+| R15-V133 | zahlen.reell.wurzel_mal | `id.zahlen.hoch_zurueck` | Rechengesetze für Wurzeln: hoch_zurueck, aber kein eigener Eintrag für das Zusammenfassen unter einer Wurzel |
 
 ## Alle Aufgaben
 
@@ -182,3 +193,17 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V123 | zahlen.wurzeln_basis.wurzel_deuten | – |
 | R15-V124 | zahlen.wurzeln_basis.wurzel_sache | `id.zahlen.hoch_zurueck` |
 | R15-V125 | zahlen.wurzeln_basis.wurzel_sache | `id.zahlen.hoch_zurueck` |
+| R15-V126 | zahlen.reell.zahlarten | `id.zahlen.hoch_zurueck` |
+| R15-V127 | zahlen.reell.zahlarten | `id.zahlen.hoch_zurueck` |
+| R15-V128 | zahlen.reell.eingrenzen | `id.zahlen.hoch_zurueck` |
+| R15-V129 | zahlen.reell.eingrenzen | `id.zahlen.hoch_zurueck` |
+| R15-V130 | zahlen.reell.heron | `id.zahlen.hoch_zurueck` |
+| R15-V131 | zahlen.reell.heron | `id.zahlen.hoch_zurueck` |
+| R15-V132 | zahlen.reell.wurzel_mal | `id.zahlen.hoch_zurueck` |
+| R15-V133 | zahlen.reell.wurzel_mal | `id.zahlen.hoch_zurueck` |
+| R15-V134 | zahlen.reell.teilweise | `id.zahlen.hoch_zurueck` |
+| R15-V135 | zahlen.reell.teilweise | `id.zahlen.hoch_zurueck` |
+| R15-V136 | zahlen.reell.zusammenfassen | – |
+| R15-V137 | zahlen.reell.nenner_rational | – |
+| R15-V138 | zahlen.reell.irrational_beweis | – |
+| R15-V139 | zahlen.reell.irrational_beweis | – |

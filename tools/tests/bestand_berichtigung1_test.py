@@ -163,7 +163,8 @@ def teil2(paare):
         # Voraussetzung NF-S fehlt (alte Funktionen) oder nur eine Funktion neu -> Abbruch, nichts geändert
         alt_a = f"create or replace function schule.nachtest_auswahl(p_l bigint, p_e bigint, p_lz text, p_anzahl int) returns bigint[] language sql stable set search_path to '' as $f${NF.auswahl_alt()}$f$;\n"
         alt_s = f"create or replace function schule.nachtest_stand(p_lernender bigint, p_einheit bigint) returns jsonb language plpgsql stable set search_path to '' as $f${NF.stand_alt()}$f$;\n"
-        for was, vor_sql in (('beide alt', alt_a + alt_s), ('nur nachtest_stand alt', alt_s), ('nur nachtest_auswahl alt', alt_a)):
+        alt_t = f"create or replace function schule.test_starten_intern(p_lernender bigint, p_daten jsonb) returns jsonb language plpgsql set search_path to '' as $f${NF.tsi_alt()}$f$;\n"
+        for was, vor_sql in (('alle drei alt', alt_a + alt_s + alt_t), ('nur nachtest_stand alt', alt_s), ('nur nachtest_auswahl alt', alt_a), ('nur test_starten_intern alt', alt_t)):
             for paket in (einsp, probe):
                 pg.sql(vor_sql + f"do $rbpaket$ begin execute $rbpaketinhalt${paket}$rbpaketinhalt$; end $rbpaket$;", erwartet_fehler='erst NF-S einspielen')
             nichts_geaendert('NF-S fehlt: ' + was)

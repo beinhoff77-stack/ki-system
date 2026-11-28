@@ -1,0 +1,80 @@
+
+declare v_einheit bigint := (p_daten->>'einheit_id')::bigint; v_art text := coalesce(p_daten->>'art','blocktest');
+  e schule.einheit; t schule.testsitzung; v_ids bigint[] := '{}'; v_leer text[] := '{}'; v_nf jsonb := '[]'; r record; v_aid bigint; v_runde smallint; v_ns jsonb; v_sel bigint[]; v_je int; /* NT-S */
+begin
+  if v_art not in ('blocktest','korrektur','nachtest') then raise exception 'Unbekannte Testart' using errcode = 'P0001'; end if;
+  select * into e from schule.einheit where id = v_einheit;
+  if e.id is null then raise exception 'Einheit nicht gefunden' using errcode = 'P0001'; end if;
+  perform schule.lernziele_anlegen(p_lernender, v_einheit);
+  perform schule.offene_entscheiden(p_lernender); -- I-3/H2: offene erste Anläufe über 30 Minuten entscheiden
+  perform pg_advisory_xact_lock(hashtext('schule_test'), p_lernender::int);
+
+  select * into t from schule.testsitzung where lernender_id = p_lernender and einheit_id = v_einheit and status = 'laeuft' order by id desc limit 1;
+  if t.id is null and v_art in ('blocktest', 'nachtest') and schule.flug_ohne_test(p_lernender, v_einheit) then -- LB-3
+    return jsonb_build_object('ok', false, 'grund', 'nichts_zu_testen', 'gesetzt', true, 'vorrat_erschoepft', '[]'::jsonb, 'noch_nicht_faellig', '[]'::jsonb);
+  end if;
+  if t.id is null then
+    if v_art = 'blocktest' then
+      if exists (select 1 from schule.testsitzung where lernender_id = p_lernender and einheit_id = v_einheit and art = 'blocktest' and status = 'abgeschlossen') then
+        -- W177 Nachtragstest: nach dem Flugtest neu hinzugekommene Pflicht-Etappen (Status 'offen') nachträglich testen
+        if not exists (select 1 from schule.lernziel_stand s where s.lernender_id = p_lernender and s.einheit_id = v_einheit and s.pflicht and s.status = 'offen') then
+          raise exception 'Der Blocktest ist schon abgeschlossen. Weiter mit Korrektur oder Nachtest.' using errcode = 'P0001';
+        end if;
+        for r in select s.lernziel from schule.lernziel_stand s where s.lernender_id = p_lernender and s.einheit_id = v_einheit and s.pflicht and s.status = 'offen' order by s.lernziel loop
+          select a.id into v_aid from schule.aufgabe a
+            where a.einheit_id = v_einheit and a.variante_gruppe = r.lernziel and a.pool in ('test', 'korrektur') and a.freigegeben
+              and not exists (select 1 from schule.versuch v where v.lernender_id = p_lernender and v.aufgabe_id = a.id)
+              and not exists (select 1 from schule.testsitzung x where x.lernender_id = p_lernender and a.id = any(x.aufgaben))
+            order by (a.pool = 'test') desc, a.reihenfolge limit 1;
+          if v_aid is null then v_leer := v_leer || r.lernziel; else v_ids := v_ids || v_aid; end if;
+          v_aid := null;
+        end loop;
+        if cardinality(v_leer) > 0 then
+          return jsonb_build_object('ok', false, 'grund', 'vorrat_erschoepft', 'vorrat_erschoepft', to_jsonb(v_leer), 'noch_nicht_faellig', '[]'::jsonb);
+        end if;
+      else
+        select coalesce(array_agg(a.id order by a.reihenfolge), '{}') into v_ids from schule.aufgabe a where a.einheit_id = v_einheit and a.pool = 'test';
+      end if;
+    elsif v_art = 'nachtest' then
+      v_ns := schule.nachtest_stand(p_lernender, v_einheit);
+      if not (v_ns->>'faellig')::boolean then
+        return jsonb_build_object('ok', false, 'grund', case v_ns->>'grund' when 'noch_nicht_faellig' then 'noch_nicht_faellig' when 'erst_korrektur' then 'erst_korrektur' else 'nichts_zu_testen' end,
+          'nachtest', v_ns, 'vorrat_erschoepft', '[]'::jsonb,
+          'noch_nicht_faellig', case when v_ns->>'grund' = 'noch_nicht_faellig' then jsonb_build_array(jsonb_build_object('lernziel', 'einheit',
+             'lerntage_seit', v_ns->'lerntage_seit', 'lerntage_noetig', v_ns->'lerntage_noetig')) else '[]'::jsonb end);
+      end if;
+      v_runde := (v_ns->>'runde')::smallint;
+      v_je := schule.nachtest_je_etappe((select count(*)::int from schule.lernziel_stand s where s.lernender_id = p_lernender and s.einheit_id = v_einheit and s.pflicht)); -- NT-S
+      for r in select s.lernziel from schule.lernziel_stand s where s.lernender_id = p_lernender and s.einheit_id = v_einheit and s.pflicht order by s.lernziel loop
+        v_sel := schule.nachtest_auswahl(p_lernender, v_einheit, r.lernziel, v_je); -- NT-S: Menge je Etappe nach der Regel
+        if cardinality(v_sel) <> v_je then v_leer := v_leer || r.lernziel; else v_ids := v_ids || v_sel; end if; -- NT-S 2: genau v_je, sonst kein Start
+        v_aid := null;
+      end loop;
+      if cardinality(v_leer) > 0 then
+        return jsonb_build_object('ok', false, 'grund', 'vorrat_erschoepft', 'vorrat_erschoepft', to_jsonb(v_leer), 'noch_nicht_faellig', '[]'::jsonb, 'nachtest', v_ns);
+      end if;
+    else
+      for r in select s.lernziel from schule.lernziel_stand s where s.lernender_id = p_lernender and s.einheit_id = v_einheit and s.status = 'fehler' order by s.lernziel loop
+        select a.id into v_aid from schule.aufgabe a
+          where a.einheit_id = v_einheit and a.variante_gruppe = r.lernziel and a.pool = 'korrektur'
+            and not exists (select 1 from schule.versuch v where v.lernender_id = p_lernender and v.aufgabe_id = a.id)
+            and not exists (select 1 from schule.testsitzung x where x.lernender_id = p_lernender and a.id = any(x.aufgaben))
+          order by a.reihenfolge limit 1;
+        if v_aid is null then v_leer := v_leer || r.lernziel; else v_ids := v_ids || v_aid; end if;
+        v_aid := null;
+      end loop;
+    end if;
+    if cardinality(v_ids) = 0 then
+      return jsonb_build_object('ok', false, 'grund', case when cardinality(v_leer) > 0 then 'vorrat_erschoepft' else 'nichts_zu_testen' end,
+        'vorrat_erschoepft', to_jsonb(v_leer), 'noch_nicht_faellig', v_nf);
+    end if;
+    insert into schule.testsitzung(lernender_id, art, block_id, thema_id, einheit_id, nachtest_runde, aufgaben, status, punkte_max, regel_version, gestartet_am)
+    values (p_lernender, v_art, e.block_id, e.thema_id, v_einheit, v_runde, v_ids, 'laeuft', cardinality(v_ids),
+            coalesce((select (wert #>> '{}')::int from schule.regel where schluessel = 'regel_version'), 1), now())
+    returning * into t;
+  end if;
+
+  return jsonb_build_object('ok', true, 'sitzung_id', t.id, 'art', t.art, 'nachtest_runde', t.nachtest_runde, 'vorrat_erschoepft', to_jsonb(v_leer), 'noch_nicht_faellig', v_nf,
+    'aufgaben', (select coalesce(jsonb_agg(schule.aufgabe_anzeige(a, false) order by array_position(t.aufgaben, a.id)), '[]') from schule.aufgabe a where a.id = any(t.aufgaben)),
+    'beantwortet', (select coalesce(jsonb_agg(v.aufgabe_id), '[]') from schule.versuch v where v.testsitzung_id = t.id));
+end 

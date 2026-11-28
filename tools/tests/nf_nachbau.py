@@ -29,6 +29,14 @@ as $function${NF.auswahl_alt()}$function$;
 create or replace function schule.nachtest_stand(p_lernender bigint, p_einheit bigint)
  returns jsonb language plpgsql stable set search_path to ''
 as $function${NF.stand_alt()}$function$;
+alter table schule.einheit add column if not exists block_id bigint;
+alter table schule.testsitzung add column if not exists block_id bigint, add column if not exists thema_id bigint, add column if not exists nachtest_runde smallint, add column if not exists punkte_max int,
+  add column if not exists regel_version int;
+create or replace function schule.lernziele_anlegen(p_l bigint, p_e bigint) returns void language sql set search_path to '' as $$ select 1 $$;
+create or replace function schule.offene_entscheiden(p_l bigint) returns void language sql set search_path to '' as $$ select 1 $$;
+create or replace function schule.test_starten_intern(p_lernender bigint, p_daten jsonb)
+ returns jsonb language plpgsql set search_path to ''
+as $function${NF.tsi_alt()}$function$;
 -- die vier Karten-Funktionen wie in den Migrationen (karte_ziel: 20261116 sitzt_regel_6; typen: t1_punkteregel; schwer; anwenden: ft_s)
 create or replace function schule.karte_ziel(p_einheit bigint, p_lz text) returns integer language sql stable set search_path to ''
 as $function$ select least(6, greatest(2, count(*)))::int from schule.aufgabe a where a.einheit_id = p_einheit and a.pool = 'uebung' and a.variante_gruppe = p_lz and a.freigegeben; $function$;

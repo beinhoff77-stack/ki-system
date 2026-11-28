@@ -1,5 +1,6 @@
 """Test für NF-S (Nachtest nur mit freigegebenen Aufgaben): tools/tests/nf_einspielen.py, Migration 20261208_nf_s_nachtest_freigegeben.sql, Pakete tools/tests/aus/nf_s_*.sql.
 
+Gegenstand: nachtest_auswahl, nachtest_stand, test_starten_intern (erster Flugtest pool 'test', Korrektur-Zweig pool 'korrektur').
 Teil 1 (immer): Pakete und Migration auf dem Stand (--pruefen), Migration = Einspiel-Datei byteidentisch, neue Funktionstexte unterscheiden sich vom alten Text
   nur um genau die eine Bedingung „and a.freigegeben“, Hash-Pins stimmen.
 Teil 2 (nur mit lokalem Postgres, NACHBAU, NICHT die echte Datenbank): ALTE Funktionen mit den Live-Eigenschaften; Probelauf rollt zurück; Einspielen; zweiter Lauf („neu -> neu“);
@@ -40,6 +41,9 @@ def teil1():
     a_alt, a_neu, s_alt, s_neu = NF.auswahl_alt(), NF.auswahl_neu(), NF.stand_alt(), NF.stand_neu()
     assert a_neu.replace(' and a.freigegeben)', ')') == a_alt and a_neu.count('a.freigegeben') == 1
     assert s_neu.replace(' and a.freigegeben\n', '\n') == s_alt and s_neu.count('a.freigegeben') == 1
+    t_alt, t_neu = NF.tsi_alt(), NF.tsi_neu()
+    assert t_neu.replace("'test' and a.freigegeben;", "'test';").replace("'korrektur' and a.freigegeben\n", "'korrektur'\n") == t_alt and t_neu.count('a.freigegeben') == 3, 'test_starten_intern: genau zwei Bedingungen ergänzt (plus die schon vorhandene)'
+    assert NF.md5(t_alt) == 'b226ac94131e47a507462e9be303ef8f' and len(t_alt) == 6739 and NF.md5(t_neu) in einsp and NF.md5(t_neu) in probe
     assert NF.md5(a_alt) == 'f25fab1c1599d980752c87b6849d557f' and len(a_alt) == 1109 and NF.md5(s_alt) == 'e73af9b462d741de80d4932d8fa7a38a' and len(s_alt) == 3778
     for m in (NF.md5(a_neu), NF.md5(s_neu)):
         assert m in einsp and m in probe
@@ -61,6 +65,11 @@ def daten(pg):
     for e, lz, n in ((e1, 'nfA', 6), (e1, 'nfB', 6), (e2, 'nfC', 4)):
         for i in range(1, n + 1):
             sql.append(f"insert into schule.aufgabe (einheit_id, variante_gruppe, antworttyp, frage, loesung, reihenfolge, pool, typ) values ({e}, '{lz}', 'zahl', '{{\"text\": \"{lz} {i}\"}}', '{{\"wert\": {i}}}', {100 + i}, 'sicherung', 'einkleidung');")
+    sql.append("insert into schule.lernender (ist_test) values (false), (false);")        # Kind 3 (Korrektur-Fälle), Kind 4 (laufender Flugtest)
+    for e, lz, pool, n, ab in ((e1, 'nfA', 'test', 3, 201), (e1, 'nfB', 'test', 2, 201), (e2, 'nfC', 'test', 2, 201), (e1, 'nfA', 'korrektur', 3, 301), (e1, 'nfB', 'korrektur', 2, 301), (e2, 'nfC', 'korrektur', 1, 301)):
+        for i in range(n):
+            sql.append(f"insert into schule.aufgabe (einheit_id, variante_gruppe, antworttyp, frage, loesung, reihenfolge, pool, typ) values ({e}, '{lz}', 'zahl', '{{\"text\": \"{pool} {lz} {i}\"}}', '{{\"wert\": {i}}}', {ab + i}, '{pool}', 'einkleidung');")
+    sql.append(f"insert into schule.lernziel_stand (lernender_id, einheit_id, lernziel, status) values (3, {e1}, 'nfA', 'fehler'), (3, {e1}, 'nfB', 'nachgewiesen');")
     for l in (1, 2):
         for e, lz, st in ((e1, 'nfA', 'gesichert'), (e1, 'nfB', 'wacklig'), (e2, 'nfC', 'wacklig')):
             sql.append(f"insert into schule.lernziel_stand (lernender_id, einheit_id, lernziel, status) values ({l}, {e}, '{lz}', '{st}');")
@@ -72,19 +81,30 @@ def daten(pg):
     return e1, e2
 
 
-def sperren(pg, e, lz, nr):
+def sperren(pg, e, lz, nr, pool='sicherung'):
     pg.sql("alter table schule.aufgabe disable trigger aufgabe_schutz;\n"
-           f"update schule.aufgabe set freigegeben = false where einheit_id = {e} and variante_gruppe = '{lz}' and pool = 'sicherung' and reihenfolge = {nr};\n"
+           f"update schule.aufgabe set freigegeben = false where einheit_id = {e} and variante_gruppe = '{lz}' and pool = '{pool}' and reihenfolge = {nr};\n"
            "alter table schule.aufgabe enable trigger aufgabe_schutz;")
-    return int(text(pg, f"select id from schule.aufgabe where einheit_id = {e} and variante_gruppe = '{lz}' and pool = 'sicherung' and reihenfolge = {nr};"))
+    return int(text(pg, f"select id from schule.aufgabe where einheit_id = {e} and variante_gruppe = '{lz}' and pool = '{pool}' and reihenfolge = {nr};"))
+
+
+def starten(pg, l, e, art, behalten=False):
+    """Startet über test_starten_intern; ohne behalten wird die Transaktion zurückgerollt. Rückgabe (grund, ids|None)."""
+    out = pg.sql("\\pset tuples_only on\n\\pset format unaligned\n"
+                 f"select 'GRUND=' || coalesce((schule.test_starten_intern({l}, jsonb_build_object('einheit_id', {e}, 'art', '{art}')))->>'grund', 'ok');\n"
+                 f"select 'IDS=' || coalesce((select aufgaben::text from schule.testsitzung where lernender_id = {l} and einheit_id = {e} and art = '{art}' order by id desc limit 1), 'keine');"
+                 + ('' if behalten else "\nrollback;"))
+    g = re.search(r'GRUND=(\w+)', out).group(1)
+    i = re.search(r'IDS=(\{[\d,]*\}|keine)', out).group(1)
+    return g, (None if i == 'keine' else [int(x) for x in i.strip('{}').split(',') if x])
 
 
 def zustand(pg):
     """prosrc-md5 + Eigenschaften der beiden Funktionen und md5 über ALLE anderen Funktionen des Schemas schule (Text + Eigenschaften)."""
     z = text(pg, "select concat(p.proname, ' ', md5(p.prosrc), ' ', p.provolatile, p.prosecdef::text, p.proisstrict::text, coalesce(p.proconfig::text, '')) from pg_proc p join pg_namespace n on n.oid = p.pronamespace "
-                 "where n.nspname = 'schule' and p.proname in ('nachtest_auswahl', 'nachtest_stand') order by 1;")
+                 "where n.nspname = 'schule' and p.proname in ('nachtest_auswahl', 'nachtest_stand', 'test_starten_intern') order by 1;")
     rest = text(pg, "select md5(string_agg(concat(p.oid::regprocedure::text, md5(p.prosrc), p.provolatile, p.prosecdef::text, p.proisstrict::text, coalesce(p.proconfig::text, ''), coalesce(p.proacl::text, '')), '|' order by p.oid::regprocedure::text)) "
-                    "from pg_proc p join pg_namespace n on n.oid = p.pronamespace where n.nspname = 'schule' and p.proname not in ('nachtest_auswahl', 'nachtest_stand');")
+                    "from pg_proc p join pg_namespace n on n.oid = p.pronamespace where n.nspname = 'schule' and p.proname not in ('nachtest_auswahl', 'nachtest_stand', 'test_starten_intern');")
     return z, rest
 
 
@@ -95,7 +115,7 @@ def teil2(probe, einsp):
     try:
         e1, e2 = daten(pg)
         z0, rest0 = zustand(pg)
-        assert f"nachtest_auswahl {NF.AUSWAHL_ALT_MD5} s" in z0 and f"nachtest_stand {NF.STAND_ALT_MD5} s" in z0, z0      # Nachbau = Live-Texte, STABLE/Invoker/nicht STRICT/search_path
+        assert f"nachtest_auswahl {NF.AUSWAHL_ALT_MD5} s" in z0 and f"nachtest_stand {NF.STAND_ALT_MD5} s" in z0 and f"test_starten_intern {NF.TSI_ALT_MD5} vfalsefalse" in z0, z0      # Nachbau = Live-Texte, STABLE/Invoker/nicht STRICT/search_path
         # --- Ausgangslage OHNE gesperrte Sicherungsaufgaben: Vergleich vorher = nachher überall
         out = pg.paket(probe, erwartet_fehler='PROBELAUF bestanden')
         assert '"nachtest_auswahl": "alt -> neu"' in out and '"nachtest_stand": "alt -> neu"' in out and '"abweichend_gesamt": 0' in out and '"abweichend_unerwartet": 0' in out, out[-1500:]
@@ -109,6 +129,15 @@ def teil2(probe, einsp):
         l_a = sperren(pg, e1, 'nfA', 102)
         l_b = sperren(pg, e1, 'nfB', 105)
         l_c = sperren(pg, e2, 'nfC', 101)
+        t_a = sperren(pg, e1, 'nfA', 202, 'test')                                    # ein Test-Auftrag in e1 gesperrt -> Flugtest wird kürzer
+        for r_ in (201, 202): sperren(pg, e2, 'nfC', r_, 'test')                      # ALLE Test-Aufgaben von e2 gesperrt -> nichts_zu_testen
+        k_a = sperren(pg, e1, 'nfA', 301, 'korrektur')                                # erste Korrektur-Aufgabe von nfA gesperrt
+        k_c = sperren(pg, e2, 'nfC', 301, 'korrektur')                                # einziges Korrektur-Aufgabe von nfC gesperrt
+        # ALT (Mangel): gesperrte IDs werden gezogen; Kind 4 bekommt eine laufende Sitzung mit der gesperrten ID
+        g, ids = starten(pg, 1, e1, 'blocktest'); assert g == 'ok' and t_a in ids and len(ids) == 5, (g, ids)
+        g, ids = starten(pg, 1, e2, 'blocktest'); assert g == 'ok' and len(ids) == 2, (g, ids)
+        g, ids = starten(pg, 3, e1, 'korrektur'); assert g == 'ok' and ids == [k_a], (g, ids, k_a)
+        g, sitz_alt = starten(pg, 4, e1, 'blocktest', behalten=True); assert t_a in sitz_alt
         ersatz = pg.sql(f"insert into schule.aufgabe (einheit_id, variante_gruppe, antworttyp, frage, loesung, reihenfolge, pool, typ) values ({e2}, 'nfC', 'zahl', '{{\"text\": \"Ersatz\"}}', '{{\"wert\": 1}}', 90101, 'sicherung', 'einkleidung');")
         # Vorher (ALT): gesperrte Aufgaben sind im Vorrat und werden gezogen -> der Mangel
         def ziehen(l, e, lz, n): return [int(x) for x in text(pg, f"select unnest(schule.nachtest_auswahl({l}, {e}, '{lz}', {n}));").split()]
@@ -118,6 +147,9 @@ def teil2(probe, einsp):
         je2 = zahl(pg, f"select schule.nachtest_je_etappe(count(*)::int) from schule.lernziel_stand where lernender_id = 1 and einheit_id = {e2};")
         assert vorrat_alt == str(5 // max(je2, 1)), (vorrat_alt, je2)       # alt: 4 alte (davon 1 gesperrt) + 1 Ersatz = 5 gezählt
         out = pg.paket(probe, erwartet_fehler='PROBELAUF bestanden')
+        assert f'"flugtest_einheiten_nichts_zu_testen_ids": [{e2}]' in out and '"flugtest_einheiten_nichts_zu_testen": 1' in out and '"flugtest_einheiten_gekuerzt": 1' in out, out[:2500]
+        assert '"korrektur_faelle_andere_aufgabe_neu": 1' in out and '"korrektur_faelle_vorrat_leer_neu": 0' in out and '"korrektur_lernziele_ohne_freigegebene_aufgabe_durch_sperre": 1' in out, out[:2500]
+        assert '"davon_neu_durch_sperre": 1' in out and '"test_starten_intern": "alt -> neu"' in out, out[:2500]
         assert '"abweichend_unerwartet": 0' in out and '"gesperrte_sicherungsaufgaben_live": 3' in out and '"abweichend_wegen_gesperrter_sicherungsaufgaben": 0' not in out, out[-1500:]
         assert zustand(pg) == (z0, rest0)
         print('Probelauf (3 gesperrte Aufgaben): bestanden; Abweichungen nur in Einheiten mit gesperrter Sicherungsaufgabe (gezählt, kein Abbruch)')
@@ -165,6 +197,15 @@ def teil2(probe, einsp):
         assert zahl(pg, f"select count(*) from schule.testsitzung where {l_b} = any(aufgaben) and status = 'laeuft'") == 1
         assert zahl(pg, f"select count(*) from schule.aufgabe where id = {l_b} and not freigegeben") == 1
         assert zahl(pg, f"select count(*) from schule.aufgabe a where a.pool = 'sicherung' and a.freigegeben and a.id in ({l_a}, {l_b}, {l_c})") == 0
+        # test_starten_intern: neue Sitzungen ziehen keine gesperrte ID; alles gesperrt -> nichts_zu_testen; laufende Sitzung bleibt
+        g, ids = starten(pg, 1, e1, 'blocktest'); assert g == 'ok' and t_a not in ids and len(ids) == 4, (g, ids)
+        g, ids = starten(pg, 1, e2, 'blocktest'); assert g == 'nichts_zu_testen' and ids is None, (g, ids)
+        g, ids = starten(pg, 3, e1, 'korrektur'); assert g == 'ok' and ids and k_a not in ids and len(ids) == 1, (g, ids)
+        g, ids = starten(pg, 3, e1, 'korrektur'); assert ids == starten(pg, 3, e1, 'korrektur')[1]
+        g, sitz_neu = starten(pg, 4, e1, 'blocktest'); assert sitz_neu == sitz_alt and t_a in sitz_neu, (sitz_alt, sitz_neu)
+        assert zahl(pg, "select count(*) from schule.testsitzung where lernender_id = 4 and art = 'blocktest'") == 1
+        out = pg.paket(probe, erwartet_fehler='PROBELAUF bestanden'); assert '"test_starten_intern": "neu -> neu"' in out
+        print('Flugtest/Korrektur: neue Sitzungen ziehen nie eine gesperrte ID (Flugtest 5 -> 4 Aufgaben), alles gesperrt -> nichts_zu_testen, laufende Sitzung mit gesperrter ID unverändert')
         print('Verhalten: neue Nachtests ziehen nie eine gesperrte ID (Kinder 1/2 × 3 Lernziele × Mengen 1-6); Vorrat zählt die Ersatzaufgabe genau einmal; laufende Sitzung mit alter ID unberührt')
     finally:
         pg.ende()
@@ -179,6 +220,11 @@ def teil2(probe, einsp):
             faelle += [(fn, f'alter function schule.{fn}({sig_}) strict;', 'Eigenschaften'),
                        (fn, f'alter function schule.{fn}({sig_}) volatile;', 'Eigenschaften'),
                        (fn, f'alter function schule.{fn}({sig_}) security definer;', 'Eigenschaften')]
+        faelle += [('test_starten_intern', 'alter function schule.test_starten_intern(bigint, jsonb) strict;', 'Eigenschaften'),
+                   ('test_starten_intern', 'alter function schule.test_starten_intern(bigint, jsonb) stable;', 'Eigenschaften'),
+                   ('test_starten_intern', 'alter function schule.test_starten_intern(bigint, jsonb) security definer;', 'Eigenschaften'),
+                   ('test_starten_intern', "create or replace function schule.test_starten_intern(p_lernender bigint, p_daten jsonb) returns jsonb language plpgsql set search_path to '' as $f$"
+                    + NF.tsi_alt().replace('begin', 'begin /* abweichend */', 1) + "$f$;", 'weicht vom Repo-Stand ab')]
         # abweichender Funktionstext (je Funktion): alte Fassung mit zusätzlichem Kommentar
         pg.sql("create table pg_temp.dummy(x int);")
         for fn, rueck, kopf, body in (('nachtest_auswahl', 'bigint[]', 'p_l bigint, p_e bigint, p_lz text, p_anzahl int', NF.auswahl_alt() + ' -- abweichend\n'),
@@ -190,12 +236,13 @@ def teil2(probe, einsp):
             assert fn in out and erwartet in out, (fn, aenderung[:60], out[-800:])
             assert zustand(pg) == (z0, rest0), f'{fn}: nichts darf geblieben sein'
         # die Funktion fehlt ganz
-        pg.sql("drop function schule.nachtest_stand(bigint, bigint);\n" + f"do $nfx$ begin execute $nfxinhalt${einsp}$nfxinhalt$; end $nfx$;", erwartet_fehler='NF-S ABBRUCH')
-        print(f'Negativfälle: {len(faelle) + 1} (abweichender Text / STRICT / VOLATILE / SECURITY DEFINER je Funktion, Funktion fehlt) -> Abbruch, nichts geblieben')
+        for fn_, sg_ in (('nachtest_stand', 'bigint, bigint'), ('test_starten_intern', 'bigint, jsonb')):
+            pg.sql(f"drop function schule.{fn_}({sg_});\n" + f"do $nfx$ begin execute $nfxinhalt${einsp}$nfxinhalt$; end $nfx$;", erwartet_fehler='NF-S ABBRUCH')
+        print(f'Negativfälle: {len(faelle) + 2} (abweichender Text / STRICT / VOLATILE bzw. STABLE / SECURITY DEFINER je Funktion, Funktion fehlt) -> Abbruch, nichts geblieben')
         # nur EINE Funktion schon neu, die andere alt: wird nachgezogen (zulässiger Zwischenzustand)
         pg.sql(f"create or replace function schule.nachtest_auswahl(p_l bigint, p_e bigint, p_lz text, p_anzahl int) returns bigint[] language sql stable set search_path to '' as $f${NF.auswahl_neu()}$f$;")
         out = pg.paket(einsp)
-        assert '"nachtest_auswahl": "neu -> neu"' in out and '"nachtest_stand": "alt -> neu"' in out, out[-1200:]
+        assert '"nachtest_auswahl": "neu -> neu"' in out and '"nachtest_stand": "alt -> neu"' in out and '"test_starten_intern": "alt -> neu"' in out, out[-1200:]
         print('Zwischenzustand (eine Funktion schon neu): zweite wird nachgezogen')
     finally:
         pg.ende()

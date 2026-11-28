@@ -87,3 +87,18 @@ IDEEN.update({
 })
 
 IDEEN.update({6: 'Guthaben, bei dem sich die Rollen ausgleichen'})
+
+# Urteil 1222: neue Kerne
+IDEEN.update({
+ 4: 'Bekommen und Zahlen gleichen sich aus', 12: 'Komma um eine Stelle verschiebt Zinssatz', 13: 'Halbes Kapital braucht doppelten Zinssatz',
+ 23: 'Doppelte Zeit und halber Zinssatz heben sich auf', 26: 'Kapital mal Monate als gemeinsames Maß',
+ 30: 'Gleichartige Paare zählen', 35: 'Wertänderung eines Terms bei x + 1', 36: 'Zwei Parameter durch Koeffizientenvergleich',
+ 39: 'Urteil über eine Klammerumformung mit Gegenprobe', 40: 'Gleichwertige Terme zu einer Minusklammer zählen',
+ 42: 'Gleichung mit Minusklammer rückwärts lösen', 53: 'Vollständig und unvollständig ausgeklammert unterscheiden',
+ 61: 'Quadrat ist nie negativ, aber kann null sein', 62: 'Unterschied zweier Terme als Term mit x',
+ 67: 'Rechter Winkel gibt Mittelpunkt der Hypotenuse', 69: 'Thales-Umkehrung als Durchmesser', 79: 'Grenzwinkel für außen liegenden Mittelpunkt',
+ 80: 'Winkelverhältnis bestimmt die Lage des Mittelpunkts', 82: 'Inkreismittelpunkt liegt immer innen',
+ 87: 'Stellenwerte beim Ersetzen von Ziffern', 90: 'Führende Null ausschließen beim Zählen', 93: 'Nullen in einer Zahl aus Klassen erschließen',
+ 98: 'Leere Klasse mit Nullen füllen', 101: 'Striche und Abstände unterscheiden', 104: 'Maßstab in Zahlenbereich übersetzen',
+ 107: 'Breite des Rundungsbereichs bestimmen', 112: 'Randzahlen eines Rundungsbereichs',
+})

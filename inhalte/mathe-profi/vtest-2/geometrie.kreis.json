@@ -13,8 +13,7 @@
    "kennung": "VT2-064",
    "thema": "geometrie.kreis",
    "lernkarte": "umkehrung",
-   "pool": "test",
-   "ersetzt_test": true,
+   "pool": "sicherung",
    "typ": "begruenden",
    "form": null,
    "stufe": 3,
@@ -33,7 +32,7 @@
     },
     {
      "index": 1,
-     "antwort": "MC wird immer kleiner, wenn AC länger wird, denn die beiden Strecken hängen eng zusammen.",
+     "antwort": "MC wird immer kleiner, wenn AC länger wird, denn AC und MC ergeben zusammen immer gleich viel.",
      "beschreibung": "Wandert C auf dem Kreis, ändern sich AC und BC, der Abstand zu M aber nicht: Alle Punkte des Kreises haben von M denselben Abstand.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -49,7 +48,7 @@
    "aufgabe": {
     "l": "umkehrung",
     "t": "umkehrung",
-    "p": "test",
+    "p": "sicherung",
     "s": 3,
     "g": "begruenden",
     "y": "auswahl",
@@ -58,7 +57,7 @@
     },
     "a": [
      "MC ist stets halb so lang wie AC plus BC, denn M liegt in der Mitte zwischen den Katheten.",
-     "MC wird immer kleiner, wenn AC länger wird, denn die beiden Strecken hängen eng zusammen.",
+     "MC wird immer kleiner, wenn AC länger wird, denn AC und MC ergeben zusammen immer gleich viel.",
      "MC wird größer, wenn AC länger wird, denn C entfernt sich dabei vom Kreis.",
      "MC bleibt immer gleich lang, denn alle möglichen Punkte C liegen auf dem Kreis um M."
     ],
@@ -192,21 +191,21 @@
    "antwortform": "luecken",
    "loesung_rechnung": [
     "3",
-    "10 : 2"
+    "14 : 2"
    ],
    "fehlbilder": [
     {
      "luecke": 2,
-     "antwort": 10,
-     "rechnung": "10",
-     "beschreibung": "die ganze Strecke AB statt der halben als Radius genommen",
+     "antwort": 14,
+     "rechnung": "14",
+     "beschreibung": "die ganze Strecke PQ statt der halben als Radius genommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 2,
-     "antwort": 20,
-     "rechnung": "10 · 2",
+     "antwort": 28,
+     "rechnung": "14 · 2",
      "beschreibung": "den Durchmesser verdoppelt statt halbiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -236,19 +235,19 @@
     "g": "fehler",
     "y": "luecken",
     "f": {
-     "text": "Mia untersucht ein Dreieck ABC mit AB = 10 cm und einem rechten Winkel bei C. Zeile 1: Nach der Umkehrung des Satzes des Thales liegt C auf einem Kreis durch A und B. Zeile 2: Der Mittelpunkt dieses Kreises ist die Mitte M von AB. Zeile 3: Der Radius des Kreises ist 10 cm. In welcher Zeile steckt der erste Fehler, und wie groß ist der Radius des Kreises (in cm)?",
+     "text": "Jonas untersucht ein Dreieck PQR mit PQ = 14 cm und einem rechten Winkel bei R. Zeile 1: Nach der Umkehrung des Satzes des Thales liegt R auf einem Kreis durch P und Q. Zeile 2: Der Mittelpunkt dieses Kreises ist die Mitte M von PQ. Zeile 3: Der Radius des Kreises ist 14 cm. In welcher Zeile steckt der erste Fehler, und wie groß ist der Radius des Kreises (in cm)?",
      "schablone": "Fehler in Zeile □, der Radius ist □ cm",
      "hinweis": "Je Feld eine ganze Zahl."
     },
     "o": {
      "werte": [
       3,
-      5
+      7
      ]
     },
-    "w": "Zeile 1 und 2 stimmen: C liegt auf dem Kreis mit Durchmesser AB, sein Mittelpunkt ist M. In Zeile 3 ist 10 cm der Durchmesser. Der Radius ist die Hälfte: 10 cm : 2 = 5 cm."
+    "w": "Zeile 1 und 2 stimmen: R liegt auf dem Kreis mit Durchmesser PQ, sein Mittelpunkt ist M. In Zeile 3 ist 14 cm der Durchmesser. Der Radius ist die Hälfte: 14 cm : 2 = 7 cm."
    },
-   "idee": "Fehlersuche Radius und Durchmesser"
+   "idee": "Rechter Winkel gibt Mittelpunkt der Hypotenuse"
   },
   {
    "kennung": "VT2-068",
@@ -265,14 +264,14 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Die Mittelsenkrechte von AB, also die Gerade durch M senkrecht zu AB",
      "beschreibung": "Auf der Mittelsenkrechten sind alle Punkte gleich weit von A und B entfernt; der Winkel bei C ist dort nur bei einem Punkt auf jeder Seite 90°.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Ein Kreis um A, dessen Radius 6 cm beträgt",
      "beschreibung": "Der Kreis um A mit Radius AB hat mit dem Thaleskreis nichts zu tun; der Thaleskreis hat den Mittelpunkt M.",
      "fehlbild": null,
@@ -297,13 +296,13 @@
      "text": "Die Strecke AB ist 6 cm lang. Du suchst alle Punkte C, von denen aus AB unter einem rechten Winkel erscheint (der Winkel bei C ist 90°). Welche Figur bilden diese Punkte?"
     },
     "a": [
-     "Ein Kreis um die Mitte M von AB mit Radius 3 cm (ohne A und B)",
      "Die Mittelsenkrechte von AB, also die Gerade durch M senkrecht zu AB",
      "Ein Kreis um A, dessen Radius 6 cm beträgt",
+     "Ein Kreis um die Mitte M von AB mit Radius 3 cm (ohne A und B)",
      "Ein Kreis um die Mitte M von AB, dessen Radius so lang ist wie ganz AB"
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "w": "Nach der Umkehrung des Satzes des Thales liegt C bei einem rechten Winkel auf dem Kreis um M mit Durchmesser AB, also Radius 3 cm. Die Punkte A und B selbst gehören nicht dazu, denn dort gibt es kein Dreieck."
    },
@@ -320,27 +319,27 @@
    "zaehlt": "ja",
    "lehrplan": "M7 5 (Kreis)",
    "regel": "id.geometrie.deckungsgleich",
-   "abgrenzung": "„Immer“-Aussage über alle rechtwinkligen Dreiecke wird begründet, auch gegen eine Aussage mit richtigem Ergebnis und falscher Begründung.",
+   "abgrenzung": "Eine Aussage über alle rechtwinkligen Dreiecke wird begründet; die falschen Möglichkeiten ziehen jeweils eine andere falsche Folgerung.",
    "antwortform": "auswahl",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Falsch, denn das gilt nur, wenn das Dreieck zusätzlich gleichschenklig ist.",
-     "beschreibung": "Die Umkehrung des Satzes des Thales gilt für jedes rechtwinklige Dreieck, nicht nur für gleichschenklige.",
+     "antwort": "Die Seite AC ist ein Durchmesser des Umkreises, denn sie liegt am rechten Winkel an.",
+     "beschreibung": "Eine Kathete liegt am rechten Winkel an; der Durchmesser ist die Hypotenuse AB.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
-     "antwort": "Richtig, denn die längste Seite ist in jedem Dreieck ein Durchmesser seines Umkreises.",
-     "beschreibung": "Die Schlussfolgerung stimmt hier, aber die Begründung nicht: In einem stumpfwinkligen Dreieck ist die längste Seite kein Durchmesser.",
+     "index": 1,
+     "antwort": "Der Mittelpunkt des Umkreises liegt außerhalb des Dreiecks, denn ein rechter Winkel macht den Umkreis besonders groß.",
+     "beschreibung": "Bei einem rechten Winkel liegt der Mittelpunkt des Umkreises in der Mitte von AB, also auf der Seite, nicht außerhalb.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 3,
-     "antwort": "Falsch, denn bei einem rechten Winkel ist die längere Kathete der Durchmesser.",
-     "beschreibung": "Eine Kathete liegt am rechten Winkel an; der Durchmesser ist die Hypotenuse AB.",
+     "antwort": "Die Seite AB ist nur dann ein Durchmesser, wenn das Dreieck zusätzlich gleichschenklig ist, denn nur dann liegt M gleich weit von A, B und C.",
+     "beschreibung": "Die Umkehrung des Satzes des Thales gilt für jedes rechtwinklige Dreieck, nicht nur für gleichschenklige.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -353,26 +352,27 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Jemand behauptet: „In jedem Dreieck ABC mit einem rechten Winkel bei C ist die Seite AB ein Durchmesser des Umkreises.“ Welche Antwort stimmt?"
+     "text": "Das Dreieck ABC hat bei C einen rechten Winkel. Welche Aussage über seinen Umkreis stimmt?"
     },
     "a": [
-     "Falsch, denn das gilt nur, wenn das Dreieck zusätzlich gleichschenklig ist.",
-     "Richtig, denn C liegt auf dem Kreis über AB, und dieser Kreis ist der Umkreis.",
-     "Richtig, denn die längste Seite ist in jedem Dreieck ein Durchmesser seines Umkreises.",
-     "Falsch, denn bei einem rechten Winkel ist die längere Kathete der Durchmesser."
+     "Die Seite AC ist ein Durchmesser des Umkreises, denn sie liegt am rechten Winkel an.",
+     "Der Mittelpunkt des Umkreises liegt außerhalb des Dreiecks, denn ein rechter Winkel macht den Umkreis besonders groß.",
+     "Die Seite AB ist ein Durchmesser des Umkreises, denn C liegt auf dem Kreis über AB, und dieser Kreis ist der Umkreis.",
+     "Die Seite AB ist nur dann ein Durchmesser, wenn das Dreieck zusätzlich gleichschenklig ist, denn nur dann liegt M gleich weit von A, B und C."
     ],
     "o": {
-     "index": 1
+     "index": 2
     },
-    "w": "Bei γ = 90° liegt C auf dem Kreis mit Durchmesser AB. Dieser Kreis geht durch A, B und C, ist also der Umkreis des Dreiecks. Die Hypotenuse AB ist sein Durchmesser, immer."
+    "w": "Bei γ = 90° liegt C auf dem Kreis mit Durchmesser AB. Dieser Kreis geht durch A, B und C, ist also der Umkreis des Dreiecks. Die Hypotenuse AB ist sein Durchmesser, in jedem rechtwinkligen Dreieck."
    },
-   "idee": "Hypotenuse als Durchmesser des Umkreises"
+   "idee": "Thales-Umkehrung als Durchmesser"
   },
   {
    "kennung": "VT2-070",
    "thema": "geometrie.kreis",
    "lernkarte": "umkehrung",
-   "pool": "sicherung",
+   "pool": "test",
+   "ersetzt_test": true,
    "typ": "umkehr",
    "form": "umkehren",
    "stufe": 3,
@@ -431,7 +431,7 @@
    "aufgabe": {
     "l": "umkehrung",
     "t": "umkehrung",
-    "p": "sicherung",
+    "p": "test",
     "s": 3,
     "g": "umkehr",
     "y": "luecken",
@@ -497,7 +497,7 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein Kreis um M hat einen Radius r, der eine ganze Zahl in cm ist. Geraden haben von M die Abstände d = 0, 1, 2, …, 10 cm (elf Geraden). Genau vier dieser Geraden sind Passanten, haben also keinen Punkt mit dem Kreis gemeinsam. Wie groß ist r in cm?"
+     "text": "Eine Gerade, deren Abstand d vom Mittelpunkt M kleiner als der Radius r ist, hat zwei Punkte mit dem Kreis gemeinsam (Sekante); bei d = r berührt sie ihn in einem Punkt (Tangente), bei d > r hat sie keinen Punkt mit ihm gemeinsam (Passante). Ein Kreis um M hat einen Radius r, der eine ganze Zahl in cm ist. Geraden haben von M die Abstände d = 0, 1, 2, …, 10 cm (elf Geraden). Genau vier dieser Geraden sind Passanten, haben also keinen Punkt mit dem Kreis gemeinsam. Wie groß ist r in cm?"
     },
     "o": {
      "wert": 6,
@@ -537,8 +537,8 @@
     },
     {
      "index": 3,
-     "antwort": "r ≤ 7 cm",
-     "beschreibung": "r ≤ 7 cm schließt den Tangentenfall r = 7 cm ein; dann gäbe es nur einen oder keinen Punkt.",
+     "antwort": "7 cm > r",
+     "beschreibung": "7 cm > r heißt r < 7 cm; dann läge der Mittelpunkt nicht weit genug von der Geraden weg, es gäbe keinen Schnittpunkt.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -551,13 +551,13 @@
     "g": "rueckwaerts",
     "y": "auswahl",
     "f": {
-     "text": "Eine Gerade schneidet einen Kreis um M in genau zwei Punkten. Die Gerade hat vom Mittelpunkt M den Abstand 7 cm. Welche Aussage über den Radius r des Kreises stimmt?"
+     "text": "Eine Gerade, deren Abstand d vom Mittelpunkt M kleiner als der Radius r ist, hat zwei Punkte mit dem Kreis gemeinsam (Sekante); bei d = r berührt sie ihn in einem Punkt (Tangente), bei d > r hat sie keinen Punkt mit ihm gemeinsam (Passante). Eine Gerade schneidet einen Kreis um M in genau zwei Punkten. Die Gerade hat vom Mittelpunkt M den Abstand 7 cm. Welche Aussage über den Radius r des Kreises stimmt?"
     },
     "a": [
      "r < 7 cm",
      "r = 7 cm",
      "r > 7 cm",
-     "r ≤ 7 cm"
+     "7 cm > r"
     ],
     "o": {
      "index": 2
@@ -625,7 +625,7 @@
     "g": "transfer",
     "y": "luecken",
     "f": {
-     "text": "Eine Gerade g berührt einen Kreis um M. Wie viele gemeinsame Punkte hat g mit einem Kreis um M, der doppelt so großen Radius hat, und wie viele mit einem Kreis um M, der halb so großen Radius hat?",
+     "text": "Eine Gerade, deren Abstand d vom Mittelpunkt M kleiner als der Radius r ist, hat zwei Punkte mit dem Kreis gemeinsam (Sekante); bei d = r berührt sie ihn in einem Punkt (Tangente), bei d > r hat sie keinen Punkt mit ihm gemeinsam (Passante). Eine Gerade g berührt einen Kreis um M. Wie viele gemeinsame Punkte hat g mit einem Kreis um M, der doppelt so großen Radius hat, und wie viele mit einem Kreis um M, der halb so großen Radius hat?",
      "schablone": "doppelt so großer Kreis: □ Punkte; halb so großer Kreis: □ Punkte",
      "hinweis": "Je Feld eine ganze Zahl."
     },
@@ -684,7 +684,7 @@
     "g": "darstellung",
     "y": "zahl",
     "f": {
-     "text": "Die Gerade t berührt einen Kreis mit dem Mittelpunkt M im Punkt B. A ist ein weiterer Punkt auf t, und der Winkel AMB beträgt 35°. Wie groß ist der Winkel MAB in Grad?"
+     "text": "Eine Tangente berührt einen Kreis in einem Punkt und steht auf dem Radius zu diesem Berührpunkt senkrecht. Die Gerade t berührt einen Kreis mit dem Mittelpunkt M im Punkt B. A ist ein weiterer Punkt auf t, und der Winkel AMB beträgt 35°. Wie groß ist der Winkel MAB in Grad?"
     },
     "o": {
      "wert": 55,
@@ -753,7 +753,7 @@
     "g": "transfer",
     "y": "luecken",
     "f": {
-     "text": "Zwei parallele Geraden g und h haben 12 cm Abstand. Ein Kreis mit dem Durchmesser 9 cm liegt zwischen ihnen und berührt g. Wie viele gemeinsame Punkte hat h mit dem Kreis, und wie weit (in cm) ist h vom Kreis entfernt?",
+     "text": "Eine Gerade, deren Abstand d vom Mittelpunkt M kleiner als der Radius r ist, hat zwei Punkte mit dem Kreis gemeinsam (Sekante); bei d = r berührt sie ihn in einem Punkt (Tangente), bei d > r hat sie keinen Punkt mit ihm gemeinsam (Passante). Zwei parallele Geraden g und h haben 12 cm Abstand. Ein Kreis mit dem Durchmesser 9 cm liegt zwischen ihnen und berührt g. Wie viele gemeinsame Punkte hat h mit dem Kreis, und wie weit (in cm) ist h vom Kreis entfernt?",
      "schablone": "h hat □ gemeinsame Punkte; Abstand von h zum Kreis: □ cm",
      "hinweis": "Je Feld eine ganze Zahl."
     },
@@ -827,7 +827,7 @@
     "g": "transfer",
     "y": "luecken",
     "f": {
-     "text": "Zwei Kreise haben denselben Mittelpunkt M. Der kleine hat den Radius 3 cm, der große den Radius 7 cm. Eine Gerade g hat von M den Abstand d. Wie viele gemeinsame Punkte hat g insgesamt mit beiden Kreisen zusammen, wenn d = 3 cm, d = 5 cm oder d = 7 cm ist?",
+     "text": "Eine Gerade, deren Abstand d vom Mittelpunkt M kleiner als der Radius r ist, hat zwei Punkte mit dem Kreis gemeinsam (Sekante); bei d = r berührt sie ihn in einem Punkt (Tangente), bei d > r hat sie keinen Punkt mit ihm gemeinsam (Passante). Zwei Kreise haben denselben Mittelpunkt M. Der kleine hat den Radius 3 cm, der große den Radius 7 cm. Eine Gerade g hat von M den Abstand d. Wie viele gemeinsame Punkte hat g insgesamt mit beiden Kreisen zusammen, wenn d = 3 cm, d = 5 cm oder d = 7 cm ist?",
      "schablone": "d = 3 cm: □; d = 5 cm: □; d = 7 cm: □",
      "hinweis": "Je Feld eine ganze Zahl."
     },
@@ -886,7 +886,7 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Eine Gerade g geht nicht durch den Mittelpunkt M. Mia sagt: „Wenn ich den Radius des Kreises um M immer weiter vergrößere, bekommt er mit g immer mehr gemeinsame Punkte, ohne Grenze.“ Welche Antwort stimmt?"
+     "text": "Eine Gerade, deren Abstand d vom Mittelpunkt M kleiner als der Radius r ist, hat zwei Punkte mit dem Kreis gemeinsam (Sekante); bei d = r berührt sie ihn in einem Punkt (Tangente), bei d > r hat sie keinen Punkt mit ihm gemeinsam (Passante). Eine Gerade g geht nicht durch den Mittelpunkt M. Mia sagt: „Wenn ich den Radius des Kreises um M immer weiter vergrößere, bekommt er mit g immer mehr gemeinsame Punkte, ohne Grenze.“ Welche Antwort stimmt?"
     },
     "a": [
      "Richtig: Ein größerer Kreis hat mehr Punkte, also schneidet er die Gerade immer öfter.",
@@ -947,7 +947,7 @@
     "g": "parameter",
     "y": "zahl",
     "f": {
-     "text": "Ein Dreieck hat den Winkel α = 70° und einen Winkel β, dessen Größe eine ganze Zahl in Grad ist (β ≥ 1, γ ≥ 1). Für wie viele Werte von β liegt der Umkreismittelpunkt außerhalb des Dreiecks?"
+     "text": "Der Mittelpunkt des Umkreises eines Dreiecks ist der Punkt, der von allen drei Ecken gleich weit entfernt ist. Er liegt innerhalb des Dreiecks, wenn alle drei Winkel kleiner als 90° sind, auf einer Seite, wenn ein Winkel genau 90° beträgt, und außerhalb, wenn ein Winkel größer als 90° ist. Ein Dreieck hat den Winkel α = 70° und einen Winkel β, dessen Größe eine ganze Zahl in Grad ist (β ≥ 1, γ ≥ 1). Für wie viele Werte von β liegt der Umkreismittelpunkt außerhalb des Dreiecks?"
     },
     "o": {
      "wert": 38
@@ -961,65 +961,34 @@
    "thema": "geometrie.kreis",
    "lernkarte": "umkreis_inkreis",
    "pool": "korrektur",
-   "typ": "darstellung",
+   "typ": "rueckwaerts",
    "form": null,
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M7 5 (Kreis)",
    "regel": "id.geometrie.abstand",
-   "abgrenzung": "Fünf Dreiecke werden nach der Lage des Umkreismittelpunkts sortiert und gezählt; die Übungen beurteilen ein einzelnes Dreieck.",
-   "antwortform": "luecken",
-   "loesung_rechnung": [
-    "1",
-    "2",
-    "2"
-   ],
+   "abgrenzung": "Vom Ergebnis (Mittelpunkt außen) wird auf eine Grenze für α zurückgeschlossen, der Randfall 45° gehört nicht dazu; die Übungen beurteilen gegebene Dreiecke.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "45 − 1",
    "fehlbilder": [
     {
-     "luecke": 1,
-     "antwort": 0,
-     "rechnung": "0",
-     "beschreibung": "Dreieck A (nur spitze Winkel) nicht als „innerhalb“ gezählt",
+     "antwort": 45,
+     "rechnung": "(180 − 90) : 2",
+     "beschreibung": "α = 45° gewählt; dann ist γ = 90°, und der Mittelpunkt liegt auf der Seite, nicht außerhalb",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 1,
-     "antwort": 3,
-     "rechnung": "3",
-     "beschreibung": "alle Dreiecke ohne stumpfen Winkel als „innerhalb“ gezählt",
+     "antwort": 89,
+     "rechnung": "90 − 1",
+     "beschreibung": "verlangt, dass die Basiswinkel spitz bleiben, den dritten Winkel aber nicht beachtet",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 2,
-     "antwort": 1,
-     "rechnung": "1",
-     "beschreibung": "nur das Dreieck B gezählt, das gleichschenklig-rechtwinklige D vergessen",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 2,
-     "antwort": 3,
-     "rechnung": "3",
-     "beschreibung": "ein Dreieck mit stumpfem Winkel mitgezählt",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 3,
-     "antwort": 1,
-     "rechnung": "1",
-     "beschreibung": "nur Dreieck E gezählt, Dreieck C vergessen",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 3,
-     "antwort": 3,
-     "rechnung": "3",
-     "beschreibung": "ein rechtwinkliges Dreieck als „außerhalb“ mitgezählt",
+     "antwort": 30,
+     "rechnung": "90 : 3",
+     "beschreibung": "den rechten Winkel durch 3 statt durch 2 geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1029,23 +998,18 @@
     "t": "umkreis_inkreis",
     "p": "korrektur",
     "s": 2,
-    "g": "darstellung",
-    "y": "luecken",
+    "g": "rueckwaerts",
+    "y": "zahl",
     "f": {
-     "text": "Fünf Dreiecke haben die Winkel A (50°, 60°, 70°), B (30°, 60°, 90°), C (100°, 40°, 40°), D (45°, 45°, 90°) und E (20°, 20°, 140°). Bei wie vielen Dreiecken liegt der Mittelpunkt des Umkreises innerhalb des Dreiecks, bei wie vielen auf einer Seite und bei wie vielen außerhalb?",
-     "schablone": "innerhalb: □; auf einer Seite: □; außerhalb: □",
-     "hinweis": "Je Feld eine ganze Zahl."
+     "text": "Der Mittelpunkt des Umkreises eines Dreiecks ist der Punkt, der von allen drei Ecken gleich weit entfernt ist. Er liegt innerhalb des Dreiecks, wenn alle drei Winkel kleiner als 90° sind, auf einer Seite, wenn ein Winkel genau 90° beträgt, und außerhalb, wenn ein Winkel größer als 90° ist. Ein gleichschenkliges Dreieck hat zwei gleich große Basiswinkel α, deren Größe eine ganze Zahl in Grad ist. Der Mittelpunkt des Umkreises liegt außerhalb des Dreiecks. Wie groß kann α höchstens sein (in Grad)?"
     },
     "o": {
-     "werte": [
-      1,
-      2,
-      2
-     ]
+     "wert": 44,
+     "einheit": "°"
     },
-    "w": "Innerhalb: nur A (alle Winkel unter 90°). Auf einer Seite: B und D (je ein rechter Winkel, Mittelpunkt in der Mitte der Hypotenuse). Außerhalb: C (100°) und E (140°), jeweils mit stumpfem Winkel. Zusammen 1, 2 und 2."
+    "w": "Der dritte Winkel ist γ = 180° − 2α. Der Mittelpunkt liegt außerhalb, wenn ein Winkel größer als 90° ist; die Basiswinkel sind kleiner als 90°, also muss γ stumpf sein: 180° − 2α > 90°, das heißt α < 45°. Die größte ganze Zahl ist 44°. Bei α = 45° wäre γ = 90°, der Mittelpunkt läge auf der Seite."
    },
-   "idee": "Dreiecke nach Lage des Umkreismittelpunkts zählen"
+   "idee": "Grenzwinkel für außen liegenden Mittelpunkt"
   },
   {
    "kennung": "VT2-080",
@@ -1058,26 +1022,26 @@
    "zaehlt": "ja",
    "lehrplan": "M7 5 (Kreis)",
    "regel": "id.geometrie.abstand",
-   "abgrenzung": "Erst der dritte Winkel entscheidet über die Lage; die Übungen geben alle Winkel an.",
+   "abgrenzung": "Die Winkel werden aus einem Verhältnis bestimmt, erst dann entscheidet das Kriterium über die Lage; die Übungen geben die Winkel an.",
    "antwortform": "luecken",
    "loesung_rechnung": [
-    "180 − 35 − 55",
-    "2"
+    "180 : 6 · 4",
+    "3"
    ],
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 125,
-     "rechnung": "180 − 55",
-     "beschreibung": "nur β von 180° abgezogen",
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "den Anteil 4 als Winkel angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 1,
-     "antwort": 145,
-     "rechnung": "180 − 35",
-     "beschreibung": "nur α von 180° abgezogen",
+     "antwort": 144,
+     "rechnung": "180 : 5 · 4",
+     "beschreibung": "durch 5 statt durch 6 Teile geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
@@ -1085,15 +1049,15 @@
      "luecke": 2,
      "antwort": 1,
      "rechnung": "1",
-     "beschreibung": "weil α und β spitz sind, innen gedacht; der dritte Winkel entscheidet aber auch",
+     "beschreibung": "wegen der zwei kleinen Winkel innen gewählt, den stumpfen Winkel nicht beachtet",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 2,
-     "antwort": 3,
-     "rechnung": "3",
-     "beschreibung": "außerhalb gewählt, obwohl kein Winkel stumpf ist",
+     "antwort": 2,
+     "rechnung": "2",
+     "beschreibung": "auf der Seite gewählt, obwohl kein Winkel genau 90° ist",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1106,19 +1070,19 @@
     "g": "transfer",
     "y": "luecken",
     "f": {
-     "text": "Von einem Dreieck ABC sind die Winkel α = 35° und β = 55° bekannt. Wie groß ist der Winkel γ? Liegt der Mittelpunkt des Umkreises innerhalb des Dreiecks (1), auf einer Seite (2) oder außerhalb (3)?",
-     "schablone": "γ = □°; Lage: □",
+     "text": "Der Mittelpunkt des Umkreises eines Dreiecks ist der Punkt, der von allen drei Ecken gleich weit entfernt ist. Er liegt innerhalb des Dreiecks, wenn alle drei Winkel kleiner als 90° sind, auf einer Seite, wenn ein Winkel genau 90° beträgt, und außerhalb, wenn ein Winkel größer als 90° ist. Die drei Winkel eines Dreiecks verhalten sich wie 1 : 1 : 4. Wie groß ist der größte Winkel, und wo liegt der Mittelpunkt des Umkreises (1 = innerhalb, 2 = auf einer Seite, 3 = außerhalb)?",
+     "schablone": "größter Winkel □°; Lage □",
      "hinweis": "Je Feld eine ganze Zahl."
     },
     "o": {
      "werte": [
-      90,
-      2
+      120,
+      3
      ]
     },
-    "w": "Der dritte Winkel ist γ = 180° − 35° − 55° = 90°. Bei einem rechten Winkel liegt der Mittelpunkt des Umkreises in der Mitte der gegenüberliegenden Seite AB (Satz des Thales), also auf einer Seite (2)."
+    "w": "Zusammen sind es 1 + 1 + 4 = 6 Teile, ein Teil ist 180° : 6 = 30°. Die Winkel sind 30°, 30° und 120°. Ein Winkel ist größer als 90°, also liegt der Mittelpunkt außerhalb des Dreiecks (3)."
    },
-   "idee": "Dritter Winkel entscheidet die Lage"
+   "idee": "Winkelverhältnis bestimmt die Lage des Mittelpunkts"
   },
   {
    "kennung": "VT2-081",
@@ -1204,27 +1168,27 @@
    "zaehlt": "ja",
    "lehrplan": "M7 5 (Kreis)",
    "regel": "id.geometrie.abstand",
-   "abgrenzung": "Inkreis und Umkreis werden gegeneinander abgegrenzt: Die „immer“-Aussage gilt für den Inkreis, nicht für den Umkreis.",
+   "abgrenzung": "Inkreis und Umkreis werden gegeneinander abgegrenzt: Die „immer innerhalb“-Aussage gilt für den Inkreis, nicht für den Umkreis; jede falsche Möglichkeit zieht eine andere falsche Folgerung.",
    "antwortform": "auswahl",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Richtig, denn der Inkreismittelpunkt ist der Schnittpunkt der Höhen, und die liegen immer im Dreieck.",
-     "beschreibung": "Das Urteil stimmt, aber die Begründung nicht: Der Inkreismittelpunkt liegt auf den Winkelhalbierenden, nicht auf den Höhen; und die Höhen liegen bei einem stumpfwinkligen Dreieck nicht im Dreieck.",
+     "antwort": "Er liegt bei einem gleichschenkligen Dreieck auf einer Seite, denn zwei Winkelhalbierende fallen dann zusammen.",
+     "beschreibung": "Auch im gleichschenkligen Dreieck schneiden sich die Winkelhalbierenden im Inneren; sie fallen nicht zusammen, nur eine ist zugleich Symmetrieachse.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
-     "antwort": "Falsch, denn bei einem rechtwinkligen Dreieck liegt er auf der Hypotenuse des Dreiecks.",
+     "index": 2,
+     "antwort": "Er liegt bei einem rechtwinkligen Dreieck auf der Hypotenuse, denn dort halbiert die Winkelhalbierende die Seite.",
      "beschreibung": "Das gilt für den Umkreismittelpunkt des rechtwinkligen Dreiecks, nicht für den Inkreismittelpunkt.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 3,
-     "antwort": "Falsch, denn bei einem stumpfwinkligen Dreieck liegt er außerhalb.",
-     "beschreibung": "Das gilt für den Umkreismittelpunkt, nicht für den Inkreismittelpunkt.",
+     "antwort": "Er liegt bei einem stumpfwinkligen Dreieck außerhalb des Dreiecks, denn dort liegt auch der Umkreismittelpunkt außerhalb.",
+     "beschreibung": "Das gilt für den Umkreismittelpunkt, nicht für den Inkreismittelpunkt: Die Winkelhalbierenden schneiden sich immer im Inneren.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1237,16 +1201,16 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Jemand behauptet: „Der Mittelpunkt des Inkreises liegt in jedem Dreieck innerhalb des Dreiecks.“ Welche Antwort stimmt?"
+     "text": "Welche Aussage über den Mittelpunkt des Inkreises eines Dreiecks stimmt?"
     },
     "a": [
-     "Richtig, denn der Inkreismittelpunkt ist der Schnittpunkt der Höhen, und die liegen immer im Dreieck.",
-     "Falsch, denn bei einem rechtwinkligen Dreieck liegt er auf der Hypotenuse des Dreiecks.",
-     "Richtig, denn der Inkreis liegt im Dreieck, also auch sein Mittelpunkt.",
-     "Falsch, denn bei einem stumpfwinkligen Dreieck liegt er außerhalb."
+     "Er liegt bei einem gleichschenkligen Dreieck auf einer Seite, denn zwei Winkelhalbierende fallen dann zusammen.",
+     "Er liegt bei einem beliebigen Dreieck innerhalb des Dreiecks, denn die Winkelhalbierenden laufen von den Ecken ins Innere.",
+     "Er liegt bei einem rechtwinkligen Dreieck auf der Hypotenuse, denn dort halbiert die Winkelhalbierende die Seite.",
+     "Er liegt bei einem stumpfwinkligen Dreieck außerhalb des Dreiecks, denn dort liegt auch der Umkreismittelpunkt außerhalb."
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
     "w": "Die Winkelhalbierenden laufen vom Eckpunkt ins Innere und schneiden sich im Inneren des Dreiecks. Der Inkreis liegt ganz im Dreieck, also auch sein Mittelpunkt. Beim Umkreis ist das anders: Dort hängt die Lage von den Winkeln ab."
    },
@@ -1342,14 +1306,14 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Sie fallen nie zusammen, denn sie werden durch verschiedene Geraden bestimmt, die sich nicht decken.",
      "beschreibung": "Die Geraden sind zwar verschieden definiert, aber im gleichseitigen Dreieck stimmen sie überein.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Der Inkreismittelpunkt liegt außerhalb, der Umkreismittelpunkt innerhalb des Dreiecks, denn der Inkreis berührt die Seiten von außen.",
      "beschreibung": "Beide Mittelpunkte liegen im gleichseitigen Dreieck innerhalb.",
      "fehlbild": null,
@@ -1374,13 +1338,13 @@
      "text": "Welche Aussage über den Mittelpunkt des Umkreises und den Mittelpunkt des Inkreises eines gleichseitigen Dreiecks stimmt?"
     },
     "a": [
+     "Sie fallen zusammen, denn Mittelsenkrechten und Winkelhalbierende sind hier dieselben Geraden.",
      "Sie fallen nie zusammen, denn sie werden durch verschiedene Geraden bestimmt, die sich nicht decken.",
      "Der Inkreismittelpunkt liegt außerhalb, der Umkreismittelpunkt innerhalb des Dreiecks, denn der Inkreis berührt die Seiten von außen.",
-     "Sie fallen zusammen, denn Mittelsenkrechten und Winkelhalbierende sind hier dieselben Geraden.",
      "Nur bei einem rechtwinkligen Dreieck fallen beide Mittelpunkte zusammen, denn dort liegt der Umkreismittelpunkt in der Mitte der Hypotenuse."
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "w": "Im gleichseitigen Dreieck halbiert jede Mittelsenkrechte einer Seite auch den gegenüberliegenden Winkel. Mittelsenkrechten und Winkelhalbierende sind dieselben Geraden, also ist ihr Schnittpunkt für Umkreis und Inkreis derselbe Punkt."
    },

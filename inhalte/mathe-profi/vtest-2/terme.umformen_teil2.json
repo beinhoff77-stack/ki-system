@@ -264,28 +264,27 @@
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.ausmultiplizieren",
-   "abgrenzung": "Die Übungen verlangen den größten gemeinsamen Faktor; hier wird geprüft, welche Produktformen überhaupt stimmen (Probe durch Ausmultiplizieren).",
-   "antwortform": "zahl",
-   "loesung_rechnung": "5 − 2",
+   "abgrenzung": "Gleichwertig und vollständig ausgeklammert werden unterschieden; die Übungen prüfen nur auf Gleichwertigkeit.",
+   "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "antwort": 5,
-     "rechnung": "5",
-     "beschreibung": "alle fünf für richtig gehalten, weil sie „ähnlich aussehen“",
+     "index": 0,
+     "antwort": "Nur (1) und (3) sind gleichwertig, denn bei (2) steht vor der Klammer ein x zu viel.",
+     "beschreibung": "3x · 2x = 6x² und 3x · 5 = 15x; bei (2) steht der Faktor 3x zu Recht vor der Klammer.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 1,
-     "rechnung": "1",
-     "beschreibung": "nur das Produkt mit dem größten gemeinsamen Faktor 3x gezählt",
+     "index": 2,
+     "antwort": "Nur (2) ist gleichwertig zu 6x² + 15x, denn die beiden anderen Produkte sind unvollständig ausgeklammert.",
+     "beschreibung": "Auch (1) und (3) ergeben ausmultipliziert 6x² + 15x; sie sind nur nicht vollständig ausgeklammert.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 4,
-     "rechnung": "5 − 1",
-     "beschreibung": "ein falsches Produkt mitgezählt, weil der Faktor 2x vor der Klammer „passt“",
+     "index": 3,
+     "antwort": "Keines der drei ist gleichwertig, denn beim Ausklammern verändert sich der Term.",
+     "beschreibung": "Ausklammern verändert den Wert des Terms nicht; ausmultipliziert ergibt jedes Produkt wieder 6x² + 15x.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -296,16 +295,22 @@
     "p": "korrektur",
     "s": 2,
     "g": "darstellung",
-    "y": "zahl",
+    "y": "auswahl",
     "f": {
-     "text": "Der Term 6x² + 15x wird auf fünf Arten als Produkt geschrieben: (1) 3(2x² + 5x), (2) 3x(2x + 5), (3) x(6x + 15), (4) 6x(x + 15), (5) 2x(3x + 5). Wie viele dieser fünf Produkte sind gleichwertig zu 6x² + 15x?"
+     "text": "Der Term 6x² + 15x wird auf drei Arten ausgeklammert: (1) 3(2x² + 5x), (2) 3x(2x + 5), (3) x(6x + 15). Welche Aussage stimmt?"
     },
+    "a": [
+     "Nur (1) und (3) sind gleichwertig, denn bei (2) steht vor der Klammer ein x zu viel.",
+     "Alle drei Produkte sind gleichwertig zu 6x² + 15x, denn jedes ergibt ausmultipliziert 6x² + 15x; nur (2) hat den größten Faktor.",
+     "Nur (2) ist gleichwertig zu 6x² + 15x, denn die beiden anderen Produkte sind unvollständig ausgeklammert.",
+     "Keines der drei ist gleichwertig, denn beim Ausklammern verändert sich der Term."
+    ],
     "o": {
-     "wert": 3
+     "index": 1
     },
-    "w": "Probe durch Ausmultiplizieren: (1) 6x² + 15x, (2) 6x² + 15x, (3) 6x² + 15x stimmen. (4) gibt 6x² + 90x und (5) gibt 6x² + 10x, beide sind falsch. Es sind also 3 Produkte gleichwertig; der größte gemeinsame Faktor 3x steht nur in (2), aber auch 3 und x allein sind erlaubte gemeinsame Faktoren."
+    "w": "(1) 3 · 2x² = 6x², 3 · 5x = 15x. (2) 3x · 2x = 6x², 3x · 5 = 15x. (3) x · 6x = 6x², x · 15 = 15x. Alle drei sind gleichwertig. Nur (2) hat den größten gemeinsamen Faktor 3x ausgeklammert."
    },
-   "idee": "Mehrere gleichwertige Produktformen prüfen"
+   "idee": "Vollständig und unvollständig ausgeklammert unterscheiden"
   },
   {
    "kennung": "VT2-054",
@@ -323,7 +328,7 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Man kann x ausklammern: x(6x + 4 + 5), denn x steckt in jedem Glied der Summe.",
+     "antwort": "Man kann x ausklammern: x(6x + 4 + 5), denn x steckt in jedem Glied der Summe, auch wenn man es nicht sieht.",
      "beschreibung": "Ausmultipliziert ergibt x(6x + 4 + 5) = 6x² + 4x + 5x; die 5 enthält kein x.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -336,7 +341,7 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Man kann 2x ausklammern: 2x(3x + 2 + 5), denn 2x steckt in den ersten beiden Gliedern und die 5 bleibt.",
      "beschreibung": "Ausmultipliziert ergibt 2x(3x + 2 + 5) = 6x² + 4x + 10x; es stimmt nicht.",
      "fehlbild": null,
@@ -354,13 +359,13 @@
      "text": "Welche Aussage über den Term 6x² + 4x + 5 ist richtig?"
     },
     "a": [
-     "Man kann x ausklammern: x(6x + 4 + 5), denn x steckt in jedem Glied der Summe.",
+     "Man kann x ausklammern: x(6x + 4 + 5), denn x steckt in jedem Glied der Summe, auch wenn man es nicht sieht.",
      "Man kann 2 ausklammern: 2(3x² + 2x + 5), denn die 2 steckt in 6 und in 4.",
-     "Man kann nichts außer 1 ausklammern, denn die 5 enthält weder die 2 noch ein x.",
-     "Man kann 2x ausklammern: 2x(3x + 2 + 5), denn 2x steckt in den ersten beiden Gliedern und die 5 bleibt."
+     "Man kann 2x ausklammern: 2x(3x + 2 + 5), denn 2x steckt in den ersten beiden Gliedern und die 5 bleibt.",
+     "Man kann nichts außer 1 ausklammern, denn die drei Glieder haben keinen gemeinsamen ganzzahligen Faktor über 1 und keinen gemeinsamen Faktor x."
     ],
     "o": {
-     "index": 2
+     "index": 3
     },
     "w": "Ein Faktor darf nur ausgeklammert werden, wenn er in jedem Glied steckt. Die 5 hat mit 6 und 4 keinen gemeinsamen Teiler außer 1 und enthält kein x. Die Proben ergeben: 2x · 5 = 10x, 2 · 5 = 10 und x · 5 = 5x, nie die 5."
    },
@@ -662,7 +667,7 @@
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "Die Formel stimmt nur, wenn b negativ ist.",
+     "antwort": "Die Formel stimmt nur, wenn b eine negative Zahl ist, denn dann ist das mittlere Glied gleich null.",
      "beschreibung": "Erfindet eine Einschränkung; die Formel stimmt nur, wenn a oder b gleich 0 ist (dann ist 2ab = 0).",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -694,7 +699,7 @@
     },
     "a": [
      "Für a = 3, b = 4 ist (3 + 4)² = 49 und 3² + 4² = 25: Das doppelte Produkt 2ab fehlt und ist nur bei a = 0 oder b = 0 gleich 0.",
-     "Die Formel stimmt nur, wenn b negativ ist.",
+     "Die Formel stimmt nur, wenn b eine negative Zahl ist, denn dann ist das mittlere Glied gleich null.",
      "Für a = 3 und b = 4 ist (3 + 4)² = 14 und 3² + 4² = 25; das Quadrat der Summe ist immer kleiner.",
      "Für a = 3 und b = 4 ist (3 + 4)² = 25 und 3² + 4² = 25; die Formel stimmt für alle Zahlen."
     ],
@@ -783,34 +788,33 @@
    "thema": "terme.umformen_teil2",
    "lernkarte": "binomisch",
    "pool": "sicherung",
-   "typ": "transfer",
-   "form": "bruecke",
-   "stufe": 3,
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.ausmultiplizieren",
-   "abgrenzung": "Die zweite binomische Formel erklärt den Abstand benachbarter Quadratzahlen; die Übungen berechnen nur ein Quadrat.",
-   "antwortform": "zahl",
-   "loesung_rechnung": "50 · 50 − (50 · 50 − 2 · 50 · 1 + 1)",
+   "abgrenzung": "Eine Aussage über alle Zahlen wird mit einem Gegenfall (x = 3) geprüft; die Übungen berechnen Werte.",
+   "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "antwort": 100,
-     "rechnung": "2 · 50 · 1",
-     "beschreibung": "nur das doppelte Produkt genommen, das letzte Quadrat vergessen",
+     "index": 0,
+     "antwort": "Nein: Der Wert ist nur für x größer als 3 positiv, denn nur dann ist die Klammer selbst positiv.",
+     "beschreibung": "Auch für x kleiner als 3 ist der Wert positiv, zum Beispiel (1 − 3)² = 4.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 1,
-     "rechnung": "1",
-     "beschreibung": "nur das letzte Quadrat 1² als Unterschied genommen",
+     "index": 2,
+     "antwort": "Nein: Für x kleiner als 3 ist (x − 3)² negativ, zum Beispiel (1 − 3)² = −4, denn die Klammer ist dann negativ.",
+     "beschreibung": "Die negative Klammer wird quadriert; Minus mal Minus ergibt Plus, der Wert ist positiv, zum Beispiel (0 − 3)² = 9.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 101,
-     "rechnung": "2 · 50 + 1",
-     "beschreibung": "den Unterschied zu 51² statt zu 49² berechnet",
+     "index": 3,
+     "antwort": "Ja: Ein Quadrat ist immer größer als 0, denn Minus mal Minus ergibt Plus.",
+     "beschreibung": "Für x = 3 ist die Klammer 0, und 0² ist 0, nicht größer als 0.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -819,51 +823,80 @@
     "l": "binomisch",
     "t": "binomisch",
     "p": "sicherung",
-    "s": 3,
-    "g": "transfer",
-    "y": "zahl",
+    "s": 2,
+    "g": "begruenden",
+    "y": "auswahl",
     "f": {
-     "text": "Um wie viel ist 50² größer als 49²? Überlege mit (50 − 1)²."
+     "text": "Mia behauptet: „(x − 3)² ist für jede Zahl x größer als 0.“ Welche Aussage stimmt?"
     },
+    "a": [
+     "Nein: Der Wert ist nur für x größer als 3 positiv, denn nur dann ist die Klammer selbst positiv.",
+     "Nein: Für x = 3 ist (x − 3)² = 0, denn die Klammer ist dann 0; sonst ist der Wert positiv.",
+     "Nein: Für x kleiner als 3 ist (x − 3)² negativ, zum Beispiel (1 − 3)² = −4, denn die Klammer ist dann negativ.",
+     "Ja: Ein Quadrat ist immer größer als 0, denn Minus mal Minus ergibt Plus."
+    ],
     "o": {
-     "wert": 99
+     "index": 1
     },
-    "w": "49² = (50 − 1)² = 50² − 2 · 50 · 1 + 1² = 2 500 − 100 + 1 = 2 401. Der Unterschied zu 50² = 2 500 ist 2 500 − 2 401 = 99."
+    "w": "Ein Quadrat ist nie negativ. (x − 3)² = x² − 6x + 9. Für x = 3 ist der Wert genau 0: (3 − 3)² = 0. Für jede andere Zahl ist er positiv, zum Beispiel (0 − 3)² = 9 und (5 − 3)² = 4."
    },
-   "idee": "Abstand benachbarter Quadrate"
+   "idee": "Quadrat ist nie negativ, aber kann null sein"
   },
   {
    "kennung": "VT2-062",
    "thema": "terme.umformen_teil2",
    "lernkarte": "binomisch",
    "pool": "sicherung",
-   "typ": "fehler",
-   "form": "fehler_detektiv",
-   "stufe": 3,
+   "typ": "transfer",
+   "form": null,
+   "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.ausmultiplizieren",
-   "abgrenzung": "Fehler-Detektiv beim Quadrieren eines Produkts im ersten Glied ((4x)² ≠ 4x²); die Übungen haben meist ein x ohne Faktor.",
-   "antwortform": "auswahl",
+   "abgrenzung": "Das gemischte Glied wird als Unterschied zwischen (x + 3)² und x² + 9 erkannt; die Übungen multiplizieren Klammern aus.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "49 − 25",
+    "2 · 3"
+   ],
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 3, weil 2 · 4x · 3 = 12x ist.",
-     "beschreibung": "2 · 4x · 3 = 24x stimmt.",
+     "luecke": 1,
+     "antwort": 49,
+     "rechnung": "7 · 7",
+     "beschreibung": "nur den Wert von (x + 3)² angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
-     "antwort": "In Zeile 1, weil bei (a + b)² das doppelte Produkt 2ab nicht vorkommen darf.",
-     "beschreibung": "Die Formel (a + b)² = a² + 2ab + b² wurde richtig angewendet; das Mittelglied muss vorkommen.",
+     "luecke": 1,
+     "antwort": 25,
+     "rechnung": "16 + 9",
+     "beschreibung": "nur den Wert von x² + 9 angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
-     "antwort": "In Zeile 4, weil 3² = 6 ist.",
-     "beschreibung": "3² = 9; die 9 in Zeile 4 ist richtig.",
+     "luecke": 1,
+     "antwort": 6,
+     "rechnung": "2 · 3",
+     "beschreibung": "die Zahl vor x statt des Unterschieds eingetragen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 9,
+     "rechnung": "3 · 3",
+     "beschreibung": "die Zahl 9 aus x² + 9 genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "rechnung": "3",
+     "beschreibung": "nur die 3 aus der Klammer genommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -872,24 +905,23 @@
     "l": "binomisch",
     "t": "binomisch",
     "p": "sicherung",
-    "s": 3,
-    "g": "fehler",
-    "y": "auswahl",
+    "s": 2,
+    "g": "transfer",
+    "y": "luecken",
     "f": {
-     "text": "Mia berechnet (4x + 3)². Zeile 1: (4x + 3)² = (4x)² + 2 · 4x · 3 + 3². Zeile 2: (4x)² = 4x². Zeile 3: 2 · 4x · 3 = 24x. Zeile 4: Also ist (4x + 3)² = 4x² + 24x + 9. In welcher Zeile steckt der erste Fehler, und warum?"
+     "text": "Für x = 4 ist (x + 3)² = 49, aber x² + 9 = 25. Der Unterschied der Terme (x + 3)² und x² + 9 lässt sich selbst als Term mit x schreiben. Wie groß ist er für x = 4, und welche Zahl steht in diesem Term vor x?",
+     "schablone": "Unterschied bei x = 4: □; Zahl vor x: □",
+     "hinweis": "Je Feld eine ganze Zahl."
     },
-    "a": [
-     "In Zeile 3, weil 2 · 4x · 3 = 12x ist.",
-     "In Zeile 2, weil (4x)² = 16x² ist und die 4 mitquadriert wird.",
-     "In Zeile 1, weil bei (a + b)² das doppelte Produkt 2ab nicht vorkommen darf.",
-     "In Zeile 4, weil 3² = 6 ist."
-    ],
     "o": {
-     "index": 1
+     "werte": [
+      24,
+      6
+     ]
     },
-    "w": "Zeile 1 stimmt. In Zeile 2: (4x)² = 4² · x² = 16x². Also (4x + 3)² = 16x² + 24x + 9. Probe mit x = 1: 7² = 49 und 16 + 24 + 9 = 49."
+    "w": "(x + 3)² = x² + 6x + 9. Das ist 6x mehr als x² + 9. Für x = 4 ist der Unterschied 6 · 4 = 24 (49 − 25 = 24). Vor x steht die Zahl 6; es ist das doppelte Produkt 2 · x · 3."
    },
-   "idee": "Fehlersuche beim gemischten Glied"
+   "idee": "Unterschied zweier Terme als Term mit x"
   },
   {
    "kennung": "VT2-063",
@@ -950,7 +982,7 @@
     "g": "umkehr",
     "y": "luecken",
     "f": {
-     "text": "Ein Quadrat hat den Flächeninhalt 9x² + 12x + 4 (in cm²). Wie groß ist sein Umfang? Gib ihn als Term an.",
+     "text": "Ein Quadrat hat den Flächeninhalt 9x² + 12x + 4 (in cm²), dabei ist x eine positive Zahl. Wie groß ist sein Umfang? Gib ihn als Term an.",
      "schablone": "Umfang = □x + □ cm",
      "hinweis": "Je Feld eine ganze Zahl."
     },

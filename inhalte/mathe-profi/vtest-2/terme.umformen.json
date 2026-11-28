@@ -75,50 +75,28 @@
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.tauschen",
-   "abgrenzung": "Die Übungen verlangen das ganze Ergebnis; hier zählt, wie viele Glieder übrig bleiben und wie das x²-Glied ausfällt (Vorzeichen).",
-   "antwortform": "luecken",
-   "loesung_rechnung": [
-    "3",
-    "3 − 1 − 3"
-   ],
+   "abgrenzung": "Gleichartigkeit wird als Zählaufgabe erkannt; die Übungen fassen fertig zusammen.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "1 + 1 + 1",
    "fehlbilder": [
     {
-     "luecke": 1,
-     "antwort": 7,
-     "rechnung": "7",
-     "beschreibung": "die Glieder des ursprünglichen Terms gezählt",
+     "antwort": 15,
+     "rechnung": "6 · 5 : 2",
+     "beschreibung": "alle möglichen Paare aus sechs Gliedern gezählt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 1,
-     "antwort": 4,
-     "rechnung": "3 + 1",
-     "beschreibung": "die Zahlen 4 und 7 nicht zusammengefasst",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 2,
      "antwort": 2,
      "rechnung": "3 − 1",
-     "beschreibung": "das letzte x²-Glied −3x² vergessen",
+     "beschreibung": "die Zahlen 4 und 7 nicht als gleichartig gezählt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 2,
-     "antwort": 7,
-     "rechnung": "3 + 1 + 3",
-     "beschreibung": "alle Zahlen vor x² ohne Vorzeichen addiert",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 2,
-     "antwort": 1,
-     "rechnung": "1",
-     "beschreibung": "das Vorzeichen verloren: x² statt −x² als Ergebnis",
+     "antwort": 6,
+     "rechnung": "6",
+     "beschreibung": "jedes Glied als eigenes Paar gezählt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -129,21 +107,16 @@
     "p": "korrektur",
     "s": 2,
     "g": "darstellung",
-    "y": "luecken",
+    "y": "zahl",
     "f": {
-     "text": "Der Term 3x² + 2x − x² + 4 + 5x − 3x² + 7 wird so weit wie möglich zusammengefasst. Wie viele Glieder hat das Ergebnis, und welche Zahl steht vor x²?",
-     "schablone": "Zahl der Glieder: □; Zahl vor x²: □",
-     "hinweis": "Je Feld eine ganze Zahl."
+     "text": "Unter den Gliedern 2x, 3x², −x, 4, 5x² und 7 gibt es Paare gleichartiger Glieder, die man zusammenfassen darf. Wie viele solche Paare gibt es insgesamt? Ein Paar besteht aus zwei verschiedenen Gliedern."
     },
     "o": {
-     "werte": [
-      3,
-      -1
-     ]
+     "wert": 3
     },
-    "w": "x²-Glieder: 3x² − x² − 3x² = −x². x-Glieder: 2x + 5x = 7x. Zahlen: 4 + 7 = 11. Das Ergebnis −x² + 7x + 11 hat 3 Glieder, vor x² steht −1."
+    "w": "Gleichartig sind Glieder mit derselben Variablen und derselben Hochzahl: 2x und −x, 3x² und 5x², 4 und 7. Das sind 3 Paare. 2x und 3x² sind nicht gleichartig, auch nicht x und eine Zahl."
    },
-   "idee": "Glieder zählen und Vorzeichen des x²-Gliedes"
+   "idee": "Gleichartige Paare zählen"
   },
   {
    "kennung": "VT2-031",
@@ -214,14 +187,14 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 1,
-     "antwort": "In Zeile 2, weil man 6x und 2x nicht addieren darf, wenn dazwischen y-Glieder stehen.",
+     "index": 0,
+     "antwort": "In Zeile 2, weil 6x + 2x = 8x nicht gilt, wenn dazwischen y-Glieder stehen.",
      "beschreibung": "Meint, die Reihenfolge im Term verbiete das Zusammenfassen; die Glieder dürfen vertauscht werden.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "In Zeile 4, weil das Ergebnis nur ein x-Glied haben darf.",
      "beschreibung": "Meint, ein Ergebnis dürfe nur eine Variable enthalten; 8x und y-Glieder bleiben getrennt stehen.",
      "fehlbild": null,
@@ -246,13 +219,13 @@
      "text": "Tim fasst 6x − 4y + 2x + 5y zusammen. Zeile 1: Gleichartig sind 6x und 2x sowie −4y und 5y. Zeile 2: Für die x-Glieder gilt 6x + 2x = 8x. Zeile 3: Für die y-Glieder gilt −4y + 5y = −9y. Zeile 4: Also ist 6x − 4y + 2x + 5y = 8x − 9y. In welcher Zeile steckt der erste Fehler, und warum?"
     },
     "a": [
-     "In Zeile 3, weil −4y + 5y = 1y = y ist und Tim 4 und 5 addiert hat, statt sie zu verrechnen.",
-     "In Zeile 2, weil man 6x und 2x nicht addieren darf, wenn dazwischen y-Glieder stehen.",
+     "In Zeile 2, weil 6x + 2x = 8x nicht gilt, wenn dazwischen y-Glieder stehen.",
      "In Zeile 4, weil das Ergebnis nur ein x-Glied haben darf.",
+     "In Zeile 3, weil −4y + 5y = 1y = y ist und Tim 4 und 5 addiert hat, statt sie zu verrechnen.",
      "In Zeile 1, weil x-Glieder und y-Glieder zusammengehören, denn in beiden steht eine Variable."
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "w": "Zeile 1 und 2 stimmen. In Zeile 3 gilt −4y + 5y = (−4 + 5)y = y. Das richtige Ergebnis ist 8x + y."
    },
@@ -392,32 +365,39 @@
    "pool": "sicherung",
    "typ": "transfer",
    "form": "anwenden",
-   "stufe": 3,
+   "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.tauschen",
-   "abgrenzung": "Die Differenz zweier Terme mit Minusklammer wird in einer Sachsituation gebildet; die Übungen fassen vorgegebene Terme nur zusammen.",
+   "abgrenzung": "Die Zahl vor x wird als Änderung je Schritt gedeutet; die Übungen berechnen einen Wert.",
    "antwortform": "zahl",
-   "loesung_rechnung": "4 · 5 + 3 · 2 − (3 · 5 + 2 · 2)",
+   "loesung_rechnung": "6 − 2",
    "fehlbilder": [
     {
-     "antwort": 26,
-     "rechnung": "4 · 5 + 3 · 2",
-     "beschreibung": "nur Bens Betrag angegeben, nicht den Unterschied",
+     "antwort": 6,
+     "rechnung": "6",
+     "beschreibung": "nur die Zahl vor dem ersten x genommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 45,
-     "rechnung": "26 + 19",
-     "beschreibung": "beide Beträge addiert statt den Unterschied zu bilden",
+     "antwort": 10,
+     "rechnung": "6 + 4",
+     "beschreibung": "die Zahlen vor dem ersten x und vor y addiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 19,
-     "rechnung": "3 · 5 + 2 · 2",
-     "beschreibung": "nur Annas Betrag angegeben",
+     "antwort": 1,
+     "rechnung": "4 − 3",
+     "beschreibung": "die Zahl vor y genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 8,
+     "rechnung": "6 + 2",
+     "beschreibung": "das Minus vor 2x übersehen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -426,18 +406,18 @@
     "l": "zusammenfassen",
     "t": "zusammenfassen",
     "p": "sicherung",
-    "s": 3,
+    "s": 2,
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Anna kauft x Brötchen zu je 3 € und y Getränke zu je 2 €. Ben zahlt für seinen Einkauf 4x + 3y Euro. Wie viel Euro zahlt Ben mehr als Anna, wenn x = 5 und y = 2 ist? Stelle zuerst den Unterschied als Term auf."
+     "text": "Der Term 6x + 4y − 2x − 3y wird zu 4x + y zusammengefasst. Um wie viel wächst sein Wert, wenn x um 1 größer wird und y gleich bleibt?"
     },
     "o": {
-     "wert": 7
+     "wert": 4
     },
-    "w": "Annas Betrag: 3x + 2y. Der Unterschied Ben − Anna ist (4x + 3y) − (3x + 2y) = 4x + 3y − 3x − 2y = x + y. Für x = 5 und y = 2 sind das 7 €. Probe: Ben zahlt 4 · 5 + 3 · 2 = 26 €, Anna 3 · 5 + 2 · 2 = 19 €, Unterschied 7 €."
+    "w": "Zusammengefasst ist der Term 4x + y. Wird x um 1 größer, wächst 4x um 4, und y ändert sich nicht: Der Wert wächst um 4. Die Zahl vor x im zusammengefassten Term sagt, um wie viel der Wert je 1 mehr x wächst."
    },
-   "idee": "Sachsituation in Terme übersetzen"
+   "idee": "Wertänderung eines Terms bei x + 1"
   },
   {
    "kennung": "VT2-036",
@@ -445,33 +425,48 @@
    "lernkarte": "minusklammer",
    "pool": "test",
    "ersetzt_test": true,
-   "typ": "fehler",
-   "form": "fehler_detektiv",
+   "typ": "parameter",
+   "form": null,
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.minusklammer",
-   "abgrenzung": "Die Übungen lösen eine Minusklammer auf; hier muss in einer Rechnung mit zwei Minusklammern der halb richtige Schritt erkannt werden.",
-   "antwortform": "auswahl",
+   "abgrenzung": "Zwei unbekannte Zahlen werden aus der Gleichwertigkeit bestimmt, wobei das Minus vor der Klammer das Vorzeichen von b dreht; die Übungen lösen Klammern nur auf.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2 + 3",
+    "9 − 5"
+   ],
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 4, weil das Ergebnis keine Zahl ohne x enthalten darf.",
-     "beschreibung": "Meint, ein Ergebnis dürfe keine Zahl ohne x enthalten; ein Term darf Zahlenglieder haben.",
+     "luecke": 1,
+     "antwort": -1,
+     "rechnung": "2 − 3",
+     "beschreibung": "die Zahl 3 aus der Minusklammer mit dem falschen Vorzeichen verrechnet",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
-     "antwort": "In Zeile 1, weil bei − (4x − 3) beide Vorzeichen in der Klammer gleich bleiben müssen.",
-     "beschreibung": "Glaubt, ein Minus vor der Klammer ändere nichts; es kehrt jedes Vorzeichen in der Klammer um.",
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "2",
+     "beschreibung": "a gleich dem x-Wert 2 von 2x + 9 gesetzt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
-     "antwort": "In Zeile 3, weil man 9x und 4x nicht zusammenfassen darf.",
-     "beschreibung": "Meint, gleichartige Glieder dürften nicht zusammengefasst werden; 9x, −4x und die anderen x-Glieder dürfen es.",
+     "luecke": 2,
+     "antwort": 14,
+     "rechnung": "9 + 5",
+     "beschreibung": "die Zahl 5 zu 9 addiert statt abgezogen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -4,
+     "rechnung": "5 − 9",
+     "beschreibung": "die Zahlen vertauscht abgezogen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -481,23 +476,22 @@
     "t": "minusklammer",
     "p": "test",
     "s": 3,
-    "g": "fehler",
-    "y": "auswahl",
+    "g": "parameter",
+    "y": "luecken",
     "f": {
-     "text": "Paul vereinfacht 9x − (4x − 3) − (2 − x). Zeile 1: 9x − (4x − 3) = 9x − 4x + 3. Zeile 2: − (2 − x) = −2 − x. Zeile 3: Zusammen ist 9x − 4x + 3 − 2 − x = 4x + 1. Zeile 4: Das Ergebnis lautet 4x + 1. In welcher Zeile steckt der erste Fehler, und warum?"
+     "text": "Die Terme (ax + 5) − (3x − b) und 2x + 9 sollen für jede Zahl x denselben Wert haben (a und b sind feste Zahlen). Bestimme a und b.",
+     "schablone": "a = □, b = □",
+     "hinweis": "Je Feld eine ganze Zahl."
     },
-    "a": [
-     "In Zeile 4, weil das Ergebnis keine Zahl ohne x enthalten darf.",
-     "In Zeile 2, weil − (2 − x) = −2 + x ist: Das Minus kehrt auch das Vorzeichen vor x um.",
-     "In Zeile 1, weil bei − (4x − 3) beide Vorzeichen in der Klammer gleich bleiben müssen.",
-     "In Zeile 3, weil man 9x und 4x nicht zusammenfassen darf."
-    ],
     "o": {
-     "index": 1
+     "werte": [
+      5,
+      4
+     ]
     },
-    "w": "Zeile 1 stimmt. In Zeile 2 kehrt das Minus beide Vorzeichen um: −(2 − x) = −2 + x. Dann ist 9x − 4x + 3 − 2 + x = 6x + 1. Zeile 3 und 4 sind Folgefehler."
+    "w": "Auflösen: (ax + 5) − (3x − b) = ax + 5 − 3x + b = (a − 3)x + (5 + b). Das soll 2x + 9 sein: a − 3 = 2, also a = 5; 5 + b = 9, also b = 4. Probe mit x = 1: (5 + 5) − (3 − 4) = 11 = 2 + 9."
    },
-   "idee": "Fehlersuche bei Minusklammern"
+   "idee": "Zwei Parameter durch Koeffizientenvergleich"
   },
   {
    "kennung": "VT2-037",
@@ -618,27 +612,27 @@
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.minusklammer",
-   "abgrenzung": "Gegenbeispiel durch Einsetzen als Begründung; die Übungen wenden die Regel nur an.",
+   "abgrenzung": "Eine falsche Umformung wird mit Zahlprobe widerlegt und berichtigt; jede falsche Möglichkeit gibt ein anderes falsches Urteil mit eigener falscher Begründung.",
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "Nele hat unrecht, denn eine Klammer mit Plus darf man nie auflösen.",
-     "beschreibung": "Behauptet etwas, was nicht zur Frage gehört; Klammern dürfen aufgelöst werden, wenn man die Regel beachtet.",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
      "index": 1,
-     "antwort": "Nele hat unrecht, denn für a = 2 ist 10 − (2 + 3) = 11 und 10 − 2 + 3 = 5; richtig ist 10 − a + 3.",
-     "beschreibung": "Die Rechnung mit a = 2 falsch ausgeführt: 10 − (2 + 3) = 10 − 5 = 5.",
+     "antwort": "Nele hat recht, denn beide Terme enthalten dieselben Zahlen und dieselben Rechenzeichen.",
+     "beschreibung": "Gleiche Zahlen und Zeichen reichen nicht; die Klammer verändert die Vorzeichen: Für a = 2 sind die Werte 5 und 11.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 2,
-     "antwort": "Nele hat recht, denn das Minus gilt nur für das erste Glied a der Klammer.",
-     "beschreibung": "Meint, das Minus wirke nur auf das erste Glied; es gilt für die ganze Klammer.",
+     "antwort": "Nele hat recht, denn beim Auflösen einer Klammer mit Minus davor ändert sich kein Vorzeichen.",
+     "beschreibung": "Ein Minus vor der Klammer kehrt die Vorzeichen in der Klammer um: 10 − (a + 3) = 10 − a − 3.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Nele hat recht, denn 10 − (a + 3) = 10 − a + 3, weil das Minus nur für das erste Glied a der Klammer gilt.",
+     "beschreibung": "Das Minus vor der Klammer gilt für beide Glieder: Für a = 2 ergibt 10 − (2 + 3) den Wert 5, 10 − 2 + 3 aber 11.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -651,69 +645,54 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Nele behauptet: „10 − (a + 3) ist dasselbe wie 10 − a + 3.“ Welche Antwort mit Begründung stimmt?"
+     "text": "Nele behauptet: „10 − (a + 3) ist dasselbe wie 10 − a + 3.“ Welche Aussage stimmt?"
     },
     "a": [
-     "Nele hat unrecht, denn eine Klammer mit Plus darf man nie auflösen.",
-     "Nele hat unrecht, denn für a = 2 ist 10 − (2 + 3) = 11 und 10 − 2 + 3 = 5; richtig ist 10 − a + 3.",
-     "Nele hat recht, denn das Minus gilt nur für das erste Glied a der Klammer.",
-     "Nele hat unrecht, denn für a = 2 ist 10 − (2 + 3) = 5 und 10 − 2 + 3 = 11."
+     "Nele irrt sich, denn für a = 2 ist 10 − (2 + 3) = 5, aber 10 − 2 + 3 = 11; richtig ist 10 − a − 3.",
+     "Nele hat recht, denn beide Terme enthalten dieselben Zahlen und dieselben Rechenzeichen.",
+     "Nele hat recht, denn beim Auflösen einer Klammer mit Minus davor ändert sich kein Vorzeichen.",
+     "Nele hat recht, denn 10 − (a + 3) = 10 − a + 3, weil das Minus nur für das erste Glied a der Klammer gilt."
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
-    "w": "Mit a = 2: 10 − (2 + 3) = 10 − 5 = 5, aber 10 − 2 + 3 = 11. Die Terme sind nicht gleich. Das Minus gilt für die ganze Klammer: 10 − (a + 3) = 10 − a − 3."
+    "w": "Das Minus vor der Klammer kehrt beide Vorzeichen in der Klammer um: 10 − (a + 3) = 10 − a − 3. Probe mit a = 2: 10 − 5 = 5 und 10 − 2 − 3 = 5, aber 10 − 2 + 3 = 11."
    },
-   "idee": "Begründen mit Gegenbeispiel"
+   "idee": "Urteil über eine Klammerumformung mit Gegenprobe"
   },
   {
    "kennung": "VT2-040",
    "thema": "terme.umformen",
    "lernkarte": "minusklammer",
    "pool": "sicherung",
-   "typ": "transfer",
+   "typ": "darstellung",
    "form": null,
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.minusklammer",
-   "abgrenzung": "Zwei Wege (Umformen und Einsetzen) müssen übereinstimmen; das x-Glied fällt weg – die Übungen haben immer ein x-Glied im Ergebnis.",
-   "antwortform": "luecken",
-   "loesung_rechnung": [
-    "0 − (0 − 5) − (0 + 4)",
-    "3 − 2 − 1",
-    "5 − 4"
-   ],
+   "abgrenzung": "Mehrere Terme werden auf die Wirkung des Minus vor der Klammer geprüft, auch bei vertauschter Reihenfolge; die Übungen lösen eine Klammer auf.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "1 + 1 + 1",
    "fehlbilder": [
     {
-     "luecke": 1,
-     "antwort": -9,
-     "rechnung": "0 − 5 − 4",
-     "beschreibung": "beide Minusklammern ohne Vorzeichenwechsel gerechnet: −5 − 4",
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "alle vier Terme für gleichwertig gehalten",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 1,
-     "antwort": 9,
-     "rechnung": "5 + 4",
-     "beschreibung": "die Klammerinhalte −5 und +4 als +5 und +4 addiert",
+     "antwort": 1,
+     "rechnung": "1",
+     "beschreibung": "nur C erkannt, die Umformungen zu D und E nicht",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 2,
-     "antwort": 6,
-     "rechnung": "3 + 2 + 1",
-     "beschreibung": "die x-Zahlen addiert statt 3 − 2 − 1 zu rechnen",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 3,
-     "antwort": 9,
-     "rechnung": "5 + 4",
-     "beschreibung": "die Zahlen 5 und 4 addiert statt 5 − 4",
+     "antwort": 2,
+     "rechnung": "2",
+     "beschreibung": "E nicht als gleichwertig erkannt, weil das x vorn steht",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -723,23 +702,17 @@
     "t": "minusklammer",
     "p": "sicherung",
     "s": 2,
-    "g": "transfer",
-    "y": "luecken",
+    "g": "darstellung",
+    "y": "zahl",
     "f": {
-     "text": "Anna löst die Klammern auf und fasst zusammen: 3x − (2x − 5) − (x + 4). Ben setzt stattdessen x = 0 ein und kommt auf denselben Wert wie Anna. Wie groß ist Bens Wert, und wie lautet Annas Ergebnis?",
-     "schablone": "Bens Wert □; Annas Ergebnis □x + □",
-     "hinweis": "Je Feld eine ganze Zahl."
+     "text": "Gegeben ist A = 12 − (x − 5). Wie viele der vier Terme B = 12 − x − 5, C = 12 − x + 5, D = 17 − x und E = −x + 17 sind gleichwertig zu A?"
     },
     "o": {
-     "werte": [
-      1,
-      0,
-      1
-     ]
+     "wert": 3
     },
-    "w": "Ben: 3 · 0 − (0 − 5) − (0 + 4) = 0 + 5 − 4 = 1. Anna: 3x − 2x + 5 − x − 4 = (3 − 2 − 1)x + (5 − 4) = 0x + 1 = 1. Der Term hat für jedes x den Wert 1."
+    "w": "A = 12 − x + 5 = 17 − x. C = 12 − x + 5 = 17 − x, D = 17 − x und E = −x + 17 sind gleichwertig. B = 12 − x − 5 = 7 − x ist es nicht, weil das Minus auch die 5 umkehrt. Also 3 Terme."
    },
-   "idee": "Einsetzprobe als Kontrolle"
+   "idee": "Gleichwertige Terme zu einer Minusklammer zählen"
   },
   {
    "kennung": "VT2-041",
@@ -821,65 +794,34 @@
    "thema": "terme.umformen",
    "lernkarte": "minusklammer",
    "pool": "sicherung",
-   "typ": "begruenden",
+   "typ": "rueckwaerts",
    "form": null,
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.minusklammer",
-   "abgrenzung": "Eine lange Klammer mit gemischten Vorzeichen: Das Minus wirkt auf jedes einzelne Glied; die Übungen haben zwei Glieder.",
-   "antwortform": "luecken",
-   "loesung_rechnung": [
-    "5",
-    "20 − 5 − 2 − 1",
-    "3 + 8"
-   ],
+   "abgrenzung": "Die lange Klammer wird aufgelöst, damit sich daraus x bestimmen lässt (rückwärts); die Übungen lösen Klammern nur auf.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "(35 − 11) : 12",
    "fehlbilder": [
     {
-     "luecke": 1,
-     "antwort": 3,
-     "rechnung": "3",
-     "beschreibung": "nur die Glieder mit x gezählt",
+     "antwort": 35,
+     "rechnung": "35",
+     "beschreibung": "den gegebenen Wert als x angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 1,
-     "antwort": 2,
-     "rechnung": "2",
-     "beschreibung": "nur die ersten beiden Glieder der Klammer gezählt",
+     "antwort": 24,
+     "rechnung": "35 − 11",
+     "beschreibung": "nur 11 abgezogen, aber nicht durch 12 geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 2,
-     "antwort": 18,
-     "rechnung": "20 − 5 + 2 + 1",
-     "beschreibung": "bei den Gliedern 2x und x das Vorzeichen nicht gewechselt",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 2,
-     "antwort": 28,
-     "rechnung": "20 + 5 + 2 + 1",
-     "beschreibung": "das Minus vor der Klammer als Plus gelesen",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 3,
-     "antwort": -11,
-     "rechnung": "−3 − 8",
-     "beschreibung": "bei −3 und −8 das Vorzeichen nicht gewechselt",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 3,
-     "antwort": 5,
-     "rechnung": "8 − 3",
-     "beschreibung": "die Zahlen −3 und −8 gegeneinander verrechnet",
+     "antwort": 46,
+     "rechnung": "35 + 11",
+     "beschreibung": "die 11 addiert statt abgezogen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -889,23 +831,17 @@
     "t": "minusklammer",
     "p": "sicherung",
     "s": 2,
-    "g": "begruenden",
-    "y": "luecken",
+    "g": "rueckwaerts",
+    "y": "zahl",
     "f": {
-     "text": "Löst man in 20x − (5x − 3 + 2x − 8 + x) die Klammer auf, ändern alle Glieder in der Klammer ihr Vorzeichen. Wie viele Glieder stehen in der Klammer, und wie lautet der zusammengefasste Term?",
-     "schablone": "Glieder in der Klammer: □; Ergebnis: □x + □",
-     "hinweis": "Je Feld eine ganze Zahl."
+     "text": "Für welche Zahl x hat der Term 20x − (5x − 3 + 2x − 8 + x) den Wert 35?"
     },
     "o": {
-     "werte": [
-      5,
-      12,
-      11
-     ]
+     "wert": 2
     },
-    "w": "In der Klammer stehen 5x, −3, 2x, −8 und x, das sind 5 Glieder. Das Minus davor kehrt alle fünf Vorzeichen um: 20x − 5x + 3 − 2x + 8 − x. Die x-Glieder ergeben 20 − 5 − 2 − 1 = 12, die Zahlen 3 + 8 = 11. Das Ergebnis ist 12x + 11."
+    "w": "Das Minus vor der Klammer kehrt alle Vorzeichen in der Klammer um: 20x − 5x + 3 − 2x + 8 − x = 12x + 11. Aus 12x + 11 = 35 folgt 12x = 24 und x = 2. Probe: 20 · 2 − (10 − 3 + 4 − 8 + 2) = 40 − 5 = 35."
    },
-   "idee": "Minus wirkt auf jedes Glied einer langen Klammer"
+   "idee": "Gleichung mit Minusklammer rückwärts lösen"
   },
   {
    "kennung": "VT2-043",

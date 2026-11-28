@@ -102,9 +102,31 @@ def A(lz, pool, typ, form, stufe, lp, text, opts, idx, fb, w, abgr, fest=False):
     return _fertig(x, lz, pool, stufe, typ, 'auswahl', {'text': text}, {'index': idx}, w, opts=opts)
 
 
+# Welle 1, Runde 2: Diese Einheiten wurden nicht überarbeitet. Ihre JSON-Dateien bleiben genau so, wie sie im Repo stehen
+# (der Neubau ergibt unter Python 3.13 bei VT2-010, 017, 054, 069 eine andere Reihenfolge der Möglichkeiten). Beim Bauen
+# werden sie deshalb von der Platte gelesen und nicht neu geschrieben; geprüft wird, dass sich nur die Reihenfolge der
+# Möglichkeiten unterscheidet. Die festen Prüfungen in bauen.py laufen so über genau die Dateien, die im Repo stehen.
+EINGEFROREN = ('finanzen.zinsen', 'terme.umformen_teil2', 'geometrie.kreis')
+
+
+def _einfrieren(s, xs):
+    alt = json.loads((HIER / f'{s}.json').read_text(encoding='utf-8'))['aufgaben']
+    assert [x['kennung'] for x in alt] == [x['kennung'] for x in xs], s
+    for a, b in zip(alt, xs):
+        A_, B_ = a['aufgabe'], b['aufgabe']
+        if A_.get('a') is not None:
+            assert sorted(A_['a']) == sorted(B_['a']) and A_['a'][A_['o']['index']] == B_['a'][B_['o']['index']], a['kennung']
+        else:
+            assert A_ == B_, a['kennung']
+    return alt
+
+
 def schreiben():
     from ideen import IDEEN
+    for s in EINGEFROREN:
+        if s in ERGEBNIS: ERGEBNIS[s] = _einfrieren(s, ERGEBNIS[s])
     for s, xs in ERGEBNIS.items():
+        if s in EINGEFROREN: continue
         for x in xs:
             x['idee'] = IDEEN[int(x['kennung'].split('-')[1])]
         d = {'stand': '2026-11-28', 'runde': 'vtest-2', 'kuerzel': 'VT2', 'titel': s, 'klasse': KLASSE[s], 'themen': [s],

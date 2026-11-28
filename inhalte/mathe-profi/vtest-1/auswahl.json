@@ -5,7 +5,7 @@
  "mengen": {
   "test": 1,
   "korrektur": 2,
-  "sicherung": 3
+  "sicherung": 2
  },
  "runden": {
   "1a": {
@@ -232,5 +232,5 @@
    "begruendung": "kreuzung (Scheitel-/Nebenwinkel begründen), uhr (Umkehren: welche Uhrzeit), figuren (Fehler-Detektiv), verstehen (Aussagen prüfen). Muster R V R V R V V."
   }
  ],
- "mengen_hinweis": "Mindestmengen je Verstehens-Lernziel (höchstens zwei mehr). Empfehlung des Werkzeug-Helfers: Korrektur 3 statt 2 (plan.md, Abschnitt Mengen) – nachschreiben, sobald möglich; das Werkzeug nimmt 2 bis 4 an."
+ "mengen_hinweis": "Mindestmengen je Verstehens-Lernziel (höchstens zwei mehr). Empfehlung des Werkzeug-Helfers: Korrektur 3 statt 2 (plan.md, Abschnitt Mengen) – nachschreiben, sobald möglich; das Werkzeug nimmt 2 bis 4 an. Entscheidung des Nutzers vom 29.11.: je Verstehens-Lernziel 5 Aufgaben = 1 Test + 2 Korrektur + 2 Sicherung; Mindestmenge Sicherung deshalb 2 (noch nicht gekürzte Einheiten mit 3 bleiben zulässig)."
 }

@@ -36,7 +36,7 @@ Für jeden Ersatz habe ich vor dem Festlegen im Bestand der Etappe (`inhalte/the
 | 005 | Zinssatz aus dem Sparbuch auf einen Kredit übertragen | nein (Bestand: „Kredit zu 5 %, insgesamt 2 100 € zurück“ rechnet mit 105 %) | kapital: „2 400 € bringen 72 € … 3 000 € beim gleichen Zinssatz?“ (selbe Rolle, Zinsen gesucht) | Rolle wechselt, Kapital aus Zinsen und übertragenem Satz |
 | 015 (Test) | höherer Zinssatz bei gleichen Zinsen: Kapital sinkt im Verhältnis 2 : 3 | nein (Bestand: nur qualitativ „kleinerem Zinssatz mehr Kapital“, und „Kapital bringt bei 3 % 36 € mehr als bei 2 %“, was ich vorher hatte) | kapital: „Stimmt die Aussage? Bei einem kleineren Zinssatz braucht man mehr Kapital …“ | hier gerechnet mit zwei Kapitalien und Unterschied |
 | 025 | Zinssatzwechsel im Jahr (zwei Zeitabschnitte mit zwei Sätzen) | nein | monatszinsen: „3 000 € 8 Monate zu 3 % oder 1 Jahr zu 2 %“ (Vergleich, ein Satz je Angebot) | ein Konto, ein Zeitraum, zwei Sätze nacheinander |
-| 042 | alle Glieder einer langen Klammer wechseln das Vorzeichen (5 Glieder) | teilweise (Bestand: verschachtelte Klammern, Kontostand mit zwei Gliedern) | minusklammer: „3x − (2x − (x − 4))“, „Konto 8x, abgebucht (3x − 5)“ | Klammer mit fünf Gliedern und gemischten Vorzeichen; Grenzfall, weiter schema-nah |
+| 042 | aequivalenz | themen #209 („für genau eine Zahl“) | Fallunterscheidung keine / genau eine / jede Übereinstimmung nach a und b |
 | 044 | zwei Zählweisen eines Streichholzmusters als Terme | nein (gesucht: Streich, Figur, Muster – keine Treffer in terme.umformen) | aequivalenz: Tabellenaufgaben („Welcher Term hat für alle vier Werte …“) | Sachbezug und Term aus einem Muster |
 | 046 | Zahlenrätsel: Term hat für jedes x denselben Wert | nein (gesucht: denk, gedacht, Zahlenrätsel) | zusammenfassen: Zauberquadrat | andere Idee, ein Rätsel mit vier Rechenschritten |
 | 048 | Übereinstimmung an zwei Stellen ist kein Beweis (x² + 6 und 5x) | nein im Bestand mit quadratischem Term | aequivalenz: „für genau eine Zahl“ (linear) | quadratischer Term, zwei Schnittstellen |
@@ -44,7 +44,71 @@ Für jeden Ersatz habe ich vor dem Festlegen im Bestand der Etappe (`inhalte/the
 | 055 | Faktor genau 6x, k zwischen 7 und 20 | nein | ausklammern: „Der Gewinn … 4x² + 28x … c + d“ | Parameter aus der Bedingung „genau dieser Faktor“, k steht nicht im Text |
 | 080 / 079 | dritter Winkel entscheidet die Lage; fünf Dreiecke zählen | teilweise (Bestand: Lage je Dreieck) | umkreis_inkreis: „Wo liegt der Umkreismittelpunkt?“ | 079 zählt über fünf Dreiecke (Lösung 1, 2, 2), 080 rechnet erst γ aus |
 | 116 | Rundungsbereich in eine Preisrechnung übernehmen | teilweise (Bestand: „Zuschauer höchstens“, „Summe der gerundeten Größen“) | runden_sinnvoll: „rund 63 000 Zuschauer … höchstens“ | der Bereich wird mit 15 multipliziert, untere und obere Grenze verlangt |
-| 118 | Rundungsbereich durch eine Zahl teilen, Rest fällt weg | nein | runden_sinnvoll: „Aufzug 80 kg“ | untere und obere Stückzahl |
+| 118 | dualsystem | themen #443, rollend-5 K5A-V039 (Lampen ablesen) | welche Zahlen eine bestimmte Stelle brauchen (genau die Hälfte) |
 | 122, 126 aus Runde 2b | siehe oben | – | – | – |
 
 Ehrlich offen: Bei 042, 116 und 079 bleibt eine Nähe zum Bestand im Teilkern (Klammer mit Minus, Rundungsbereich, Lage des Umkreismittelpunkts). Die Gegenprüfung sollte genau diese drei ansehen.
+
+## Welle 1, Runde 2: zahlen.natuerlich und terme.umformen (5 je Lernziel, neue Kennungen)
+
+Die Zeilen oben zu diesen beiden Einheiten gelten für die alte Nummerierung (VT2-029 … 049, 085 … 133) und sind überholt. Zuordnung alt → neu: `korrektur-nach-vorpruefung-w1.md`.
+
+Vorgehen: Vor dem Festlegen jeder Aufgabe habe ich alle Bestandsaufgaben der Etappe vollständig gelesen (inhalte/themen: Übung, Bonus, Test, Korrektur, Sicherung; alle `rollend-*` einschließlich rollend-15), dazu bei Zahlwort und römischen Zahlen die Nachbar-Etappen (`zahlwort_zu_ziffern`, `roemisch_system`), weil dort strukturelle Fragen stehen. N = Zahl der gelesenen Bestandsaufgaben der Etappe. Maßstab: gleiche Rechnung und gleiche Frage = Doppelung, auch mit anderen Zahlen; „gleiche Einsicht, andere Denkleistung“ ist erlaubt und steht in der Spalte Unterschied.
+
+| Kennung | Lernziel (N) | nächstliegender Bestandskern | Unterschied |
+|---|---|---|---|
+| 029 | zusammenfassen (40) | rollend-13 R8-V002 (k, damit ein Term für alle x gleich einem anderen ist); rollend-7 K8-V002 (Umfang eines Rechtecks als Term, dann einsetzen) | zwei Figuren, beide Umfänge als Term aufstellen und gleichsetzen; der Parameter steht in einer Seitenlänge. Teilkern Koeffizientenvergleich bleibt (Zweifel). |
+| 030 | zusammenfassen | rollend-15 R15-V034 (Fehler beim y-Glied, Zeile 3: 5y + y = 5y) | anderer Fehler (Vorzeichen −4y + 5y), Auswahl mit Begründung je Zeile |
+| 031 | zusammenfassen | themen #11 (welche zwei Glieder sind gleichartig) | über alle möglichen neuen Glieder entscheiden, was ein gleichartiges Glied bewirken kann (mindestens/höchstens) |
+| 032 | zusammenfassen | themen #26 („Welcher Term ergibt zusammengefasst genau 5x?“) | Wert an einer unbequemen Stelle, weil sich alle x-Glieder aufheben |
+| 033 | zusammenfassen | rollend-15 R15-V032, rollend-7 K8-V001 (zusammenfassen, dann Werte einsetzen) | kein Wert gefragt, sondern die Änderung bei gegenläufiger Änderung zweier Variablen |
+| 034 | minusklammer (43) | themen #96 („7x − (3x − 5) = 4x − 5. Was stimmt?“, nur das erste Vorzeichen gedreht) | gleiche Fehlvorstellung, aber deren Folge (Abweichung 2a) wird rückwärts genutzt; keine Beurteilung einer Zeile |
+| 035 | minusklammer | rollend-7 K8-V009 (zwei Minusklammern, Fehler in Zeile 1), rollend-15 R15-V040 (ein Glied nicht gedreht) | Fehler bei der Plusklammer im selben Term (Vorzeichen fälschlich gedreht) |
+| 036 | minusklammer | themen #89 (Konto 8x − (3x − 5)), #92 (Klassenkasse), rollend-15 R15-V039 (Reisegeld 400 − (3x + 15)) | dort ist der Term gegeben und wird ausgerechnet; hier ist zu entscheiden, welcher Term die Lage beschreibt |
+| 037 | minusklammer | themen #69 (3x − (2x − (x − 4))) | Muster über viele Stufen, Wert bei Nummer 10 und 11 ohne alle Terme aufzulösen |
+| 038 | minusklammer | kein Bestand mit zwei Variablen in der Minusklammer über alle Paare; nächstliegend #93 | Auflösen zeigt, dass nur b − a zählt; darüber wird gezählt |
+| 039 | aequivalenz (45) | themen #213, rollend-15 R15-V045, rollend-13 R8-V010 (ein bzw. zwei passende Beispiele beweisen nichts) | umgekehrte Einsicht: Bei der Form a · x + b beweisen zwei Stellen doch; Begründung statt Gegenbeispiel |
+| 040 | aequivalenz | themen #237 (zwei Zählterme prüfen), rollend-13 R8-V009 | umgekehrte Richtung: aus dem Aufbau eines Terms die Zählweise erschließen; alle angebotenen Zählweisen sind richtig |
+| 041 | aequivalenz | kein Zahlenrätsel im Bestand; nächstliegend #215 (zwei Kassen, gleicher Preis) | Rätsel als Term, Ergebnis unabhängig von x, rückwärts eine Zahl |
+| 042 | aequivalenz | themen #209 („für genau eine Zahl haben sie denselben Wert“) | hier keine Übereinstimmung, begründet durch den gleichbleibenden Unterschied |
+| 043 | aequivalenz | themen #211 (welche zwei von drei Termen sind äquivalent) | sechs Terme, Gruppen bilden und Paare zählen (Schema-Aufgabe des Satzes) |
+| 085 | stellenwert (41) | themen #22 („In 5 555 hat jede 5 denselben Wert“), #10 (Tausch 5 und 8) | aus dem Wertverhältnis den Stellenabstand erschließen und daraus die größte Zahl bauen |
+| 086 | stellenwert | themen #10 (in 58 476 werden 5 und 8 vertauscht – um wie viel größer?) | umgekehrt und allgemein: Was folgt sicher aus dem Zuwachs, was bleibt offen? Anderer Zuwachs (36 000) |
+| 087 | stellenwert | themen #25, #29 (Ziffer an der Zehntausenderstelle) | Fehler-Detektiv bei der Zuordnung; Schema-Aufgabe des Satzes |
+| 088 | stellenwert | themen #21 (4 Tausender und 7 Zehner als 47 geschrieben) | Begründung, welche Nullen nötig sind, auch die nicht gesprochene |
+| 089 | stellenwert | themen #15 (Kassierer, Bündel), #23 (Ziffernrätsel mit Quersumme) | feste Plättchenzahl, kleinste und größte Zahl über den Wert der Spalten |
+| 090 | ziffern_zu_zahlwort (43) | themen #97 („Jede Zahl ab 1 000 000 hat das Wort Million“); Nachbar-Etappe #62 (7 Stellen ohne „tausend“, Quersumme 10) | Zählen aller Zahlen eines Bereichs, bei denen ein Klassenwort wegfällt |
+| 091 | ziffern_zu_zahlwort | Nachbar-Etappe rollend-5 K5A-V005 („fünfzig Millionen dreihundert“ – wie viele Ziffern?), #50 | allgemeine Aussage über alle Zahlwörter mit diesem Anfang, vier verschiedene Urteile |
+| 092 | ziffern_zu_zahlwort | rollend-11 S3-V002 (30 400 012, mittlere Gruppe falsch gesprochen), rollend-12 R5-V006 | andere Zahl (ganze Klasse 000) und anderer Fehler (Ziffer der falschen Klasse zugeordnet); Schema-Aufgabe des Satzes |
+| 093 | ziffern_zu_zahlwort | rollend-5 K5A-V008 (zwei Wege für die linke Gruppe), themen #75 (wie viele Dreiergruppen) | Einteilung von links als falsche Regel: für welche Zahlen ergibt sie trotzdem das Richtige |
+| 094 | ziffern_zu_zahlwort | themen #85, #95 (wie oft „vierzig“/„dreißig“ in 40 040 040) | gleiche Einsicht (ein Wort je Klasse), aber Höchstzahl über alle Zahlen und kleinste Zahl dazu |
+| 095 | strahl_eintragen | rollend-5 K5A-V013, themen #154/#164 (Abschnittswert aus Anfang und Ende) | Zahlen unbekannt; gleicher Unterschied auf zwei Strahlen, Maßstab umgekehrt |
+| 096 | strahl_eintragen | themen #175 (360 auf einem Strich, kürzester Strahl), #178 (größter Abschnitt) | Eigenschaft für alle Strichzahlen bei verschobenem Anfang, immer/manchmal/nie |
+| 097 | strahl_eintragen | rollend-12 R5-V009, rollend-5 K5A-V015 (Abschnitte bis zu einer Zahl zählen) | Folge einer falschen Zählregel für alle Zahlen beurteilen |
+| 098 | strahl_eintragen | themen #178 | zwei Teilungen mit großen Zahlen; gemeinsame Striche in festem Abstand statt Auflisten |
+| 099 | strahl_eintragen | themen #160/#170 (gleich weit rechts) | falsche, „regelmäßig“ wirkende Beschriftung beurteilen |
+| 100 | runden_regel (45) | themen #253 (dreistellig, Zehner 350 und Hunderter 300) | Vergleich zweier Rundungen über einen ganzen Bereich mit Randfällen bei 0 und 100 |
+| 101 | runden_regel | runden_sinnvoll #313/#324 (zwei Zahlen gleicher Rundung, Unterschied höchstens) | Abweichung von der gerundeten Zahl, nicht Unterschied zweier Zahlen |
+| 102 | runden_regel | themen #249 (schrittweise gerundet), rollend-12 R5-V014, rollend-11 S3-V004 | anderer Fehler (Entscheidung „kleiner als 5 → aufrunden“); Schema-Aufgabe |
+| 103 | runden_regel | themen #250 („Auf Tausender gerundet ist nie kleiner als auf Hunderter“) | Vergleich mit der ursprünglichen Zahl, alle drei Fälle |
+| 104 | runden_regel | themen #250 | Reihenfolge bleibt erhalten, Gleichheit möglich |
+| 105 | runden_sinnvoll (41) | themen #321 (Aufzug, 8 Personen „rund 80 kg“) | Rundungsbereich durch eine Zahl geteilt, Rest fällt weg |
+| 106 | runden_sinnvoll | rollend-5 K5A-V027 (Becher in Packungen), rollend-12 R5-V017 (Busse) | dieselbe Rechnung mit zwei Sachlagen und entgegengesetzter Richtung (Teil B allein wäre Bestand; Zweifel) |
+| 107 | runden_sinnvoll | themen #305, #319 (Rundungsstelle erkennen) | zwei richtige Rundungen verschiedener Genauigkeit beurteilen |
+| 108 | runden_sinnvoll | rollend-5 K5A-V025 (gerundete Zahl mal 2) | Richtung des Schätzfehlers ohne Zahlen; bei gemischtem Runden offen |
+| 109 | runden_sinnvoll | rollend-11 S3-V005 (einzeln runden gegen Summe runden) | andere Größenordnung, Erklärung wählen statt Betrag rechnen |
+| 110 | roemisch_schreiben | Nachbar-Etappe roemisch_system #409/#425/#428 | rückwärts aus der Ersparnis 5 auf die Ziffern 4 und 9 |
+| 111 | roemisch_schreiben | themen #390 (490: XD, LD), #393 (IC) | Regelverstoß unter vier Zahlen; Schema-Aufgabe (B13) |
+| 112 | roemisch_schreiben | kein Bestand zu „plus 1, kürzer?“; nächstliegend #389 (XC + ? = C) | Behauptung über das Schreiben nach den Regeln mit Gegenbeispiel prüfen |
+| 113 | roemisch_schreiben | themen #383/#391 (meiste Zeichen) | größte schreibbare Zahl, nur aus den Regeln, ohne Anleitung |
+| 114 | roemisch_schreiben | roemisch_system #431 (1 bis 20 mit genau vier Zeichen), themen #383 | kleinste Zahl mit genau sechs Zeichen |
+| 115 | dualsystem | kein Bestand zur „Gegenzahl“; nächstliegend #436 (1111 + 1) | Zahl und Gegenzahl ergeben zusammen 31; rückwärts aus dem Unterschied |
+| 116 | dualsystem | kein Bestand zur führenden Null | Schema-Aufgabe (B18) |
+| 117 | dualsystem | themen #442 (1110 oder 10001 größer?) | allgemein: Die Zahl der Einsen sagt nichts über die Größe (gleiche Einsicht, Urteil statt Umrechnen) |
+| 118 | dualsystem | themen #437 („Endziffer 0 → gerade?“) | gleiche Einsicht erweitert (Endung 00 → durch 4), Schluss selbst ziehen statt Aussage prüfen |
+| 119 | dualsystem | themen #449 (100 hat 7 Stellen), #438 (5 Lampen, größte Zahl 31) | Stellenzahl in beiden Systemen über den Wertebereich, mindestens und höchstens |
+
+Ehrlich offen: Am nächsten am Bestand bleiben 029 (Koeffizientenvergleich wie R8-V002), 040 (Zählweisen wie #237), 094 (ein Wort je Klasse wie #85), 106 (Teil B wie K5A-V027) und 118 (Erweiterung von #437). Das Prüfwerkzeug meldet keine Textähnlichkeit (V15).
+
+
+Nachtrag nach der zweiten Vorprüfung W1: Die Zeilen 031, 038, 040, 042, 095, 097, 098, 108, 110, 112, 113, 115, 117 und 118 gelten für die ersetzten bzw. umgebauten Aufgaben (Stand nach `korrektur-nach-vorpruefung-w1-2.md`). Vor jeder Festlegung wurde der Bestand der Etappe erneut gelesen.

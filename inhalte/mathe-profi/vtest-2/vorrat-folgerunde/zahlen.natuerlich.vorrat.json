@@ -1,0 +1,1538 @@
+{
+ "stand": "2026-11-29",
+ "runde": "vtest-2",
+ "titel": "zahlen.natuerlich",
+ "hinweis": "Vorrat für eine Folgerunde, nicht eingespielt und von keinem Prüfwerkzeug gelesen (Schlüssel „vorrat“ statt „aufgaben“). Gestrichen wegen der 5er-Regel oder eines Befunds der Vorprüfung W1; vor einer neuen Verwendung neue Kennung vergeben und den Vermerk abarbeiten. Aufgaben mit einem Kern aus dem Bestand sind nicht hier, nur in der Versionsgeschichte (88ec767c).",
+ "vorrat": [
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "stellenwert",
+   "pool": "test",
+   "typ": "rueckwaerts",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "rr.stellenwert",
+   "abgrenzung": "Aus der Wirkung eines Ziffernaustauschs wird die Ziffer erschlossen (Rückwärts über zwei Stellenwerte); die Übungen fragen nach dem Wert einer Ziffer.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "27000 : 9000",
+   "fehlbilder": [
+    {
+     "antwort": 27,
+     "rechnung": "27000 : 1000",
+     "beschreibung": "nur durch den Wert 1 000 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 9,
+     "rechnung": "27000 : 3000",
+     "beschreibung": "durch 3 000 statt durch 9 000 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 6,
+     "rechnung": "27000 : 4500",
+     "beschreibung": "durch 4 500 (Mitte beider Stellenwerte) geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "stellenwert",
+    "t": "stellenwert",
+    "p": "test",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "In einer Zahl vertauschen die Ziffern an der Zehntausender- und der Tausenderstelle ihre Plätze. Eine der beiden Ziffern ist 0. Dadurch wird die Zahl um 27 000 größer. Welche Ziffer steht außer der 0 an diesen beiden Stellen?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "w": "Steht die Ziffer d zuerst an der Tausenderstelle, danach an der Zehntausenderstelle, so wird die Zahl um d · 10 000 − d · 1 000 = d · 9 000 größer. Aus d · 9 000 = 27 000 folgt d = 3. Probe: 03 000 wird zu 30 000, der Unterschied ist 27 000."
+   },
+   "idee": "Tausch benachbarter Stellen rückwärts",
+   "alte_kennung": "VT2-085",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2 (korrektur-nach-vorpruefung-w1.md)",
+    "vor_neuer_verwendung": "Rückwärts über den Ziffertausch; B1: Zuwachs ändern (nicht 27 000 wie themen #10) und die Probe ohne führende Null schreiben. Nicht zusammen mit VT2-086 (gleicher Kern) verwenden."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "stellenwert",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "rr.stellenwert",
+   "abgrenzung": "Zwei gleiche Ziffern an verschiedenen Stellen werden verglichen; die Übungen fragen nach dem Wert einer einzelnen Stelle.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Die vordere 5 ist 100-mal so viel wert wie die hintere, denn sie steht zwei Stellen weiter links.",
+     "beschreibung": "Wäre die vordere 5 an der Hunderterstelle, wäre sie 100-mal so viel wert; hier steht sie an der Tausenderstelle.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Die vordere 5 ist 10-mal so viel wert wie die hintere, denn sie steht eine Stelle weiter links.",
+     "beschreibung": "Wäre die vordere 5 an der Zehnerstelle, wäre sie 10-mal so viel wert; hier steht sie an der Tausenderstelle.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Beide Fünfen sind gleich viel wert, denn es ist dieselbe Ziffer.",
+     "beschreibung": "Der Wert einer Ziffer hängt von ihrer Stelle ab, nicht nur von der Ziffer.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "stellenwert",
+    "t": "stellenwert",
+    "p": "korrektur",
+    "s": 2,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "In der Zahl 5 205 kommt die Ziffer 5 zweimal vor. Welche Aussage über die beiden Fünfen stimmt?"
+    },
+    "a": [
+     "Die vordere 5 ist 100-mal so viel wert wie die hintere, denn sie steht zwei Stellen weiter links.",
+     "Die vordere 5 ist 1 000-mal so viel wert wie die hintere, denn sie steht drei Stellen weiter links.",
+     "Die vordere 5 ist 10-mal so viel wert wie die hintere, denn sie steht eine Stelle weiter links.",
+     "Beide Fünfen sind gleich viel wert, denn es ist dieselbe Ziffer."
+    ],
+    "o": {
+     "index": 1
+    },
+    "w": "Die vordere 5 steht an der Tausenderstelle und ist 5 000 wert, die hintere steht an der Einerstelle und ist 5 wert. 5 000 : 5 = 1 000."
+   },
+   "idee": "Gleiche Ziffer, verschiedener Wert",
+   "alte_kennung": "VT2-086",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2 (korrektur-nach-vorpruefung-w1.md)",
+    "vor_neuer_verwendung": "Schema (5 000 : 5), nahe themen #22."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "stellenwert",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "rr.stellenwert",
+   "abgrenzung": "Eine führende 0 macht aus einer dreistelligen Zahl keine; die Übungen vergleichen gegebene Zahlen.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "2 · 2",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "rechnung": "3 · 2 · 1",
+     "beschreibung": "alle Anordnungen gezählt, auch die mit der 0 vorn",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 3,
+     "rechnung": "3",
+     "beschreibung": "nur die Zahl der Ziffern genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 2,
+     "rechnung": "2",
+     "beschreibung": "nur die Möglichkeiten für die erste Stelle gezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "stellenwert",
+    "t": "stellenwert",
+    "p": "sicherung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Aus den Ziffern 0, 4 und 6 (jede genau einmal) werden dreistellige Zahlen gebildet. Eine Zahl darf nicht mit 0 beginnen. Wie viele verschiedene Zahlen gibt es?"
+    },
+    "o": {
+     "wert": 4
+    },
+    "w": "Die erste Stelle kann nur 4 oder 6 sein (2 Möglichkeiten). Für die beiden anderen Stellen bleiben zwei Ziffern in beliebiger Reihenfolge (2 Möglichkeiten). Das sind 2 · 2 = 4 Zahlen: 406, 460, 604 und 640."
+   },
+   "idee": "Führende Null ausschließen beim Zählen",
+   "alte_kennung": "VT2-090",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2 (korrektur-nach-vorpruefung-w1.md)",
+    "vor_neuer_verwendung": "Zweifel/Schema (führende Null beim Zählen von Anordnungen)."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "stellenwert",
+   "pool": "sicherung",
+   "typ": "rueckwaerts",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "rr.stellenwert",
+   "abgrenzung": "Rückwärts aus dem Zuwachs auf die Zahl; die Übungen fragen nach dem Wert der neuen Zahl.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "4050 : 9",
+   "fehlbilder": [
+    {
+     "antwort": 405,
+     "rechnung": "4050 : 10",
+     "beschreibung": "durch 10 geteilt, als wäre 4 050 die neue Zahl",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 45,
+     "rechnung": "4050 : 90",
+     "beschreibung": "durch 90 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 4050,
+     "rechnung": "4050",
+     "beschreibung": "den Zuwachs selbst als Zahl angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "stellenwert",
+    "t": "stellenwert",
+    "p": "sicherung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Hängt man an eine Zahl rechts eine Null an, so wird die Zahl um 4 050 größer. Wie heißt die Zahl?"
+    },
+    "o": {
+     "wert": 450
+    },
+    "w": "Durch die angehängte Null wird jede Ziffer um eine Stelle nach links geschoben, die Zahl wird zehnmal so groß. Zuwachs = 10 · n − n = 9 · n = 4 050. Also n = 4 050 : 9 = 450. Probe: 4 500 − 450 = 4 050."
+   },
+   "idee": "Rückwärts: Zahl nach Anhängen einer Null",
+   "alte_kennung": "VT2-091",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2 (korrektur-nach-vorpruefung-w1.md)",
+    "vor_neuer_verwendung": "Rückwärts (Null anhängen = 10-fach); B2: nicht zusammen mit einer Aufgabe verwenden, deren Lösungsweg „Zuwachs = 9 · …“ zeigt."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "ziffern_zu_zahlwort",
+   "pool": "test",
+   "typ": "transfer",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "id.zahlen.schreibweisen",
+   "abgrenzung": "Eine Zahl mit leeren Stellen in jeder Klasse wird aus dem Zahlwort aufgebaut und nach Stellenzahl und Stelle befragt; die Übungen lesen Zahlen vor.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "3 + 3 + 3",
+    "7"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 7,
+     "rechnung": "3 + 1 + 3",
+     "beschreibung": "die Tausenderklasse nur mit der einen Ziffer 7 statt dreistellig als 007 gezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 6,
+     "rechnung": "3 + 3",
+     "beschreibung": "nur Millionen- und Tausenderklasse gezählt, die Einerklasse vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 5,
+     "rechnung": "5",
+     "beschreibung": "die Ziffer an der Einerstelle statt an der Tausenderstelle genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 0,
+     "rechnung": "0",
+     "beschreibung": "die Hunderterstelle statt der Tausenderstelle angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "ziffern_zu_zahlwort",
+    "t": "ziffern_zu_zahlwort",
+    "p": "test",
+    "s": 3,
+    "g": "transfer",
+    "y": "luecken",
+    "f": {
+     "text": "Die Zahl „zweihundertvier Millionen siebentausendfünf“ wird in Ziffern geschrieben. Wie viele Stellen hat sie, und welche Ziffer steht an der Tausenderstelle?",
+     "schablone": "Stellen: □; Ziffer an der Tausenderstelle: □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      9,
+      7
+     ]
+    },
+    "w": "Die Zahl lautet 204 007 005: Millionenklasse 204, Tausenderklasse 007 (die Nullen vorn gehören dazu), Einerklasse 005. Das sind 3 + 3 + 3 = 9 Stellen. An der Tausenderstelle, der letzten Stelle der Tausenderklasse, steht die 7."
+   },
+   "idee": "Stellenzahl und Stelle aus dem Zahlwort",
+   "alte_kennung": "VT2-092",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2 (korrektur-nach-vorpruefung-w1.md)",
+    "vor_neuer_verwendung": "Schema (Zahlwort in Ziffern, Stellen zählen), nahe K5A-V007."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "strahl_eintragen",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "id.zahlen.zahlengerade",
+   "abgrenzung": "Eine fertige Skala wird auf gleichmäßige Abschnitte geprüft; die Übungen tragen Zahlen ein.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "250",
+     "beschreibung": "Der erste Abschnitt von 0 bis 250 legt den Schritt 250 fest; 250 passt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "rechnung": "250"
+    },
+    {
+     "index": 1,
+     "antwort": "500",
+     "beschreibung": "500 = 2 · 250 passt zum Schritt 250.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "rechnung": "500"
+    },
+    {
+     "index": 3,
+     "antwort": "1 000",
+     "beschreibung": "1 000 = 4 · 250 passt zum Schritt 250.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "rechnung": "1000"
+    }
+   ],
+   "aufgabe": {
+    "l": "strahl_eintragen",
+    "t": "strahl_eintragen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Zahlenstrahl hat gleich große Abschnitte. Die Striche sind mit 0, 250, 500, 800 und 1 000 beschriftet. Welche Beschriftung passt nicht zur Skala?"
+    },
+    "a": [
+     "250",
+     "500",
+     "800",
+     "1 000"
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "Der Schritt ist 250. Die Striche gehören zu 0, 250, 500, 750 und 1 000. Die Beschriftung 800 passt nicht; dort müsste 750 stehen."
+   },
+   "idee": "Falsch beschriftete Skala erkennen",
+   "alte_kennung": "VT2-100",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2 (korrektur-nach-vorpruefung-w1.md)",
+    "vor_neuer_verwendung": "Schema (Schrittweite prüfen), nahe themen #174."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "strahl_eintragen",
+   "pool": "korrektur",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "id.zahlen.zahlengerade",
+   "abgrenzung": "Striche und Abstände werden unterschieden (Zaunpfahl); die Übungen entscheiden nur nach der näheren Marke.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "700 + 7 · 50",
+   "fehlbilder": [
+    {
+     "antwort": 1100,
+     "rechnung": "700 + 8 · 50",
+     "beschreibung": "einen Abstand zu viel gezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 600,
+     "rechnung": "12 · 50",
+     "beschreibung": "den Strich einfach mit 50 malgenommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 1000,
+     "rechnung": "700 + 6 · 50",
+     "beschreibung": "einen Abstand zu wenig gezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "strahl_eintragen",
+    "t": "strahl_eintragen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Auf einem Zahlenstrahl sind Striche im gleichen Abstand von 50 eingezeichnet. Der 5. Strich von links trägt die Zahl 700. Welche Zahl gehört zum 12. Strich?"
+    },
+    "o": {
+     "wert": 1050
+    },
+    "w": "Vom 5. zum 12. Strich sind es 12 − 5 = 7 Abstände. 7 · 50 = 350. Also gehört zum 12. Strich die Zahl 700 + 350 = 1 050."
+   },
+   "idee": "Striche und Abstände unterscheiden",
+   "alte_kennung": "VT2-101",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2 (korrektur-nach-vorpruefung-w1.md)",
+    "vor_neuer_verwendung": "Schema (Striche und Abstände), nahe themen #164."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "strahl_eintragen",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "id.zahlen.zahlengerade",
+   "abgrenzung": "Fehler-Detektiv bei einem Maßstab; die Übungen setzen die Zahl direkt auf die Skala.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "3",
+    "7500 : 1000 · 2"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 14,
+     "rechnung": "7 · 2",
+     "beschreibung": "wie Ben die 500 nicht berücksichtigt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 16,
+     "rechnung": "8 · 2",
+     "beschreibung": "auf 8 000 aufgerundet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 150,
+     "rechnung": "7500 : 50",
+     "beschreibung": "ohne den Maßstab gerechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "2",
+     "beschreibung": "Zeile 2 für falsch gehalten, obwohl 20 cm : 10 = 2 cm stimmt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "strahl_eintragen",
+    "t": "strahl_eintragen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Auf einem Zahlenstrahl liegt 0 beim Nullpunkt, und 10 000 liegt 20 cm davon entfernt. Ben will die Zahl 7 500 eintragen. Zeile 1: 10 000 liegen 20 cm vom Nullpunkt entfernt. Zeile 2: Also gehören zu 1 000 genau 2 cm. Zeile 3: Zu 7 500 gehören 7 · 2 cm = 14 cm. In welcher Zeile steckt der erste Fehler, und wie viele cm liegt die 7 500 wirklich vom Nullpunkt entfernt?",
+     "schablone": "Fehler in Zeile □, die 7 500 liegt □ cm entfernt",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      3,
+      15
+     ]
+    },
+    "w": "1 000 entsprechen 20 cm : 10 = 2 cm. 7 500 sind 7,5 Tausender, also 7,5 · 2 cm = 15 cm. Ben hat die 500 vergessen; 14 cm gehören zu 7 000."
+   },
+   "idee": "Fehlersuche beim Maßstab",
+   "alte_kennung": "VT2-102",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2 (korrektur-nach-vorpruefung-w1.md)",
+    "vor_neuer_verwendung": "Schema (Fehler-Detektiv Maßstab); fragt dasselbe wie die Test-Aufgabe VT2-095 – nicht im selben Satz verwenden."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "strahl_eintragen",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "id.zahlen.zahlengerade",
+   "abgrenzung": "Ein Maßstab wird in einen Zahlenbereich übersetzt, Randzahlen zählen nicht; die Übungen lesen Striche ab.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "79 − 41 + 1",
+   "fehlbilder": [
+    {
+     "antwort": 40,
+     "rechnung": "80 − 40",
+     "beschreibung": "die Zahlen 40 und 80 mitgezählt oder die 60 vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 41,
+     "rechnung": "80 − 40 + 1",
+     "beschreibung": "beide Randzahlen 40 und 80 mitgezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 19,
+     "rechnung": "20 − 1",
+     "beschreibung": "nur eine Seite von 60 betrachtet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "strahl_eintragen",
+    "t": "strahl_eintragen",
+    "p": "sicherung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Auf einem Zahlenstrahl liegt 0 bei 0 cm und 120 bei 6 cm (die Skala ist gleichmäßig). Wie viele ganze Zahlen liegen weniger als 1 cm vom Punkt der Zahl 60 entfernt (die 60 selbst eingeschlossen)?"
+    },
+    "o": {
+     "wert": 39
+    },
+    "w": "1 cm entspricht 120 : 6 = 20. Die Zahl 60 liegt bei 3 cm. Weniger als 1 cm entfernt sind die Zahlen, die weniger als 20 von 60 abweichen, also 41 bis 79 (40 und 80 sind genau 1 cm entfernt). Das sind 79 − 41 + 1 = 39 Zahlen."
+   },
+   "idee": "Maßstab in Zahlenbereich übersetzen",
+   "alte_kennung": "VT2-104",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2 (korrektur-nach-vorpruefung-w1.md)",
+    "vor_neuer_verwendung": "Zweifel (Maßstab → Zahlenbereich); B15: Fehlbild 40 mit „… oder …“ eindeutig beschreiben."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "roemisch_schreiben",
+   "pool": "test",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "id.zahlen.schreibweisen",
+   "abgrenzung": "Regel anwenden und Längen vergleichen; der Fehler liegt in der letzten Zeile (die römische Subtraktionsschreibweise wird nicht verwendet).",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "4",
+    "1 + 2 + 2 + 5",
+    "1 + 2 + 2 + 2"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "2",
+     "beschreibung": "Zeile 2 für falsch gehalten, obwohl CD für 400 richtig ist",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "beschreibung": "Zeile 3 für falsch gehalten, obwohl XL für 40 richtig ist",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 7,
+     "rechnung": "1 + 2 + 2 + 2",
+     "beschreibung": "die Länge der richtigen Zahl schon für Nils’ Ergebnis angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 9,
+     "rechnung": "10 − 1",
+     "beschreibung": "ein Zeichen von MCDXLVIIII nicht mitgezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 10,
+     "rechnung": "1 + 2 + 2 + 5",
+     "beschreibung": "Nils’ Länge auch für die richtige Zahl angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 6,
+     "rechnung": "7 − 1",
+     "beschreibung": "ein Zeichen von MCDXLIX nicht mitgezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "roemisch_schreiben",
+    "t": "roemisch_schreiben",
+    "p": "test",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Nils schreibt 1 449 als römische Zahl nach den üblichen Regeln (ein Zeichen steht höchstens dreimal hintereinander). Zeile 1: 1 000 ist M. Zeile 2: 400 ist CD. Zeile 3: 40 ist XL. Zeile 4: 9 ist VIIII. Also schreibt er MCDXLVIIII. In welcher Zeile steckt der erste Fehler, aus wie vielen Zeichen besteht Nils’ Ergebnis, und aus wie vielen Zeichen besteht die richtig geschriebene Zahl?",
+     "schablone": "Fehler in Zeile □; Nils schreibt □ Zeichen; richtig sind □ Zeichen",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      4,
+      10,
+      7
+     ]
+    },
+    "w": "Zeile 1 bis 3 stimmen: M, CD und XL sind richtig. In Zeile 4 steht VIIII mit vier I hintereinander; nach der Regel (höchstens dreimal) muss die 9 als IX geschrieben werden. Nils’ Ergebnis MCDXLVIIII hat 1 + 2 + 2 + 5 = 10 Zeichen, die richtige Zahl MCDXLIX hat 1 + 2 + 2 + 2 = 7 Zeichen."
+   },
+   "idee": "Regel anwenden und Längen vergleichen",
+   "alte_kennung": "VT2-120",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2 (korrektur-nach-vorpruefung-w1.md)",
+    "vor_neuer_verwendung": "Zweifel (Regelverstoß VIIII, Zeichen zählen), nahe themen #381; C3: Abgrenzung ist sachlich falsch und muss neu geschrieben werden."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "roemisch_schreiben",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "id.zahlen.schreibweisen",
+   "abgrenzung": "Wozu die Subtraktionsregel gut ist (Zeichen sparen); die Übungen schreiben Zahlen nur nach der Regel.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "1 + 1 + 4 + 1 + 4 + 1 + 4",
+    "1 + 2 + 2 + 2"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 7,
+     "rechnung": "1 + 2 + 2 + 2",
+     "beschreibung": "die Länge der kürzeren Schreibweise auch für die längere angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 15,
+     "rechnung": "16 − 1",
+     "beschreibung": "ein Zeichen der langen Schreibweise vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 16,
+     "rechnung": "1 + 1 + 4 + 1 + 4 + 1 + 4",
+     "beschreibung": "die Länge der längeren Schreibweise auch für die Regel-Schreibweise angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 9,
+     "rechnung": "16 − 7",
+     "beschreibung": "den Unterschied der Längen statt der Länge angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "roemisch_schreiben",
+    "t": "roemisch_schreiben",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "luecken",
+    "f": {
+     "text": "Die Zahl 1 999 wird römisch einmal ohne die Subtraktionsregel geschrieben (es wird nur addiert, mit den Zeichen M, D, C, L, X, V und I; ein Zeichen darf dann auch öfter als dreimal stehen) und einmal mit der Subtraktionsregel nach den üblichen Regeln. Aus wie vielen Zeichen besteht jede der beiden Schreibweisen?",
+     "schablone": "Ohne Subtraktionsregel □ Zeichen; mit der Regel □ Zeichen",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      16,
+      7
+     ]
+    },
+    "w": "Nur addiert: 1 999 = M + D + CCCC + L + XXXX + V + IIII = MDCCCCLXXXXVIIII, das sind 1 + 1 + 4 + 1 + 4 + 1 + 4 = 16 Zeichen. Mit der Subtraktionsregel: M + CM + XC + IX = MCMXCIX, das sind 1 + 2 + 2 + 2 = 7 Zeichen. Die Regel spart 9 Zeichen."
+   },
+   "idee": "Warum die Subtraktionsregel Zeichen spart",
+   "alte_kennung": "VT2-122",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2 (korrektur-nach-vorpruefung-w1.md)",
+    "vor_neuer_verwendung": "A2: nicht eindeutig – in den Text „und jeweils mit möglichst wenigen Zeichen“ aufnehmen. Nicht zusammen mit VT2-110 verwenden (gleiche Einsicht)."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "roemisch_schreiben",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "id.zahlen.schreibweisen",
+   "abgrenzung": "Subtraktionspaare werden über die Endziffern und den Zehnerbaustein gezählt (nichts doppelt); die Übungen schreiben einzelne Zahlen.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "10 + 8",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "rechnung": "10",
+     "beschreibung": "nur die Paare IV und IX gezählt, die Zahlen 40 bis 49 mit XL vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 20,
+     "rechnung": "10 + 10",
+     "beschreibung": "die zehn Zahlen von 40 bis 49 dazugezählt, obwohl 44 und 49 schon mitgezählt waren",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 8,
+     "rechnung": "8",
+     "beschreibung": "nur die 8 zusätzlichen XL-Zahlen (ohne 44 und 49) gezählt, die 10 Zahlen mit IV oder IX vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "roemisch_schreiben",
+    "t": "roemisch_schreiben",
+    "p": "sicherung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Von den Zahlen 1 bis 50 werden die römischen Zahlen nach den üblichen Regeln geschrieben (zum Beispiel IV für 4, IX für 9 und XL für 40). Bei wie vielen dieser Zahlen kommt in der römischen Schreibweise mindestens eines der Paare IV, IX oder XL vor?"
+    },
+    "o": {
+     "wert": 18
+    },
+    "w": "IV und IX stehen bei allen Zahlen, die auf 4 oder 9 enden: 4, 9, 14, 19, 24, 29, 34, 39, 44, 49. Das sind 10 Zahlen. XL steht bei 40 bis 49; davon sind 44 und 49 schon gezählt, es kommen also 8 hinzu: 40, 41, 42, 43, 45, 46, 47, 48. Zusammen 10 + 8 = 18."
+   },
+   "idee": "Subtraktionspaare zählen",
+   "alte_kennung": "VT2-124",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2 (korrektur-nach-vorpruefung-w1.md)",
+    "vor_neuer_verwendung": "Verstehen (Subtraktionspaare über Endziffern zählen); nicht zusammen mit VT2-110 verwenden, dessen Lösungsweg die Einsicht verrät."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "dualsystem",
+   "pool": "test",
+   "typ": "transfer",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "id.zahlen.buendeln",
+   "abgrenzung": "Eine Länge im Zweiersystem wird in einen Wertebereich übersetzt und mit einer Schwelle abgeglichen; die Übungen wandeln einzelne Zahlen um.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "31 − 21 + 1",
+   "fehlbilder": [
+    {
+     "antwort": 16,
+     "rechnung": "32 − 16",
+     "beschreibung": "alle Zweierzahlen mit 5 Ziffern gezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 12,
+     "rechnung": "31 − 20 + 1",
+     "beschreibung": "die 20 mitgezählt, obwohl sie nicht über 20 liegt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 10,
+     "rechnung": "31 − 21",
+     "beschreibung": "beim Zählen das Plus 1 vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "dualsystem",
+    "t": "dualsystem",
+    "p": "test",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele Zweierzahlen mit genau 5 Ziffern (die erste Ziffer ist eine 1) haben im Zehnersystem einen Wert über 20?"
+    },
+    "o": {
+     "wert": 11
+    },
+    "w": "Mit fünf Ziffern und führender 1 ist die kleinste Zahl 10000 = 16 und die größte 11111 = 16 + 8 + 4 + 2 + 1 = 31. Über 20 liegen die Werte 21 bis 31, das sind 11 Zahlen."
+   },
+   "idee": "Länge im Zweiersystem als Wertebereich",
+   "alte_kennung": "VT2-127",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2 (korrektur-nach-vorpruefung-w1.md)",
+    "vor_neuer_verwendung": "Verstehen (Länge im Zweiersystem → Wertebereich); B12: nicht zusammen mit VT2-119 verwenden."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "dualsystem",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "id.zahlen.buendeln",
+   "abgrenzung": "Der Stellenwert der vordersten Stelle wird über den Unterschied zweier Zweierzahlen erschlossen; die Übungen wandeln eine Zahl um.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "13 − 5",
+   "fehlbilder": [
+    {
+     "antwort": 1,
+     "rechnung": "1",
+     "beschreibung": "die ersetzte Ziffer wie eine Einerziffer gezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 5,
+     "rechnung": "13 − 8",
+     "beschreibung": "den Wert der zweiten Zahl statt des Unterschieds angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "den Wert der dritten Stelle statt der vordersten genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "dualsystem",
+    "t": "dualsystem",
+    "p": "sicherung",
+    "s": 2,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Die Zweierzahl 1101 hat im Zehnersystem den Wert 13. Eine zweite Zweierzahl entsteht, indem man bei 1101 die erste Ziffer 1 durch 0 ersetzt (0101). Um wie viel ist die erste Zahl größer als die zweite?"
+    },
+    "o": {
+     "wert": 8
+    },
+    "w": "1101 = 8 + 4 + 1 = 13. 0101 = 4 + 1 = 5. Der Unterschied ist 13 − 5 = 8: Die vorderste Ziffer 1 steht an der Achterstelle und ist 8 wert."
+   },
+   "idee": "Wert der vordersten Zweierstelle über einen Unterschied",
+   "alte_kennung": "VT2-131",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2 (korrektur-nach-vorpruefung-w1.md)",
+    "vor_neuer_verwendung": "Schema (13 − 5), nahe K5A-V037."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "dualsystem",
+   "pool": "sicherung",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "id.zahlen.buendeln",
+   "abgrenzung": "Zahl der darstellbaren Zahlen (Zweierpotenzen) statt einzelner Umrechnungen; die Übungen rechnen Zahl für Zahl um.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "2 · 2 · 2 · 2 · 2",
+   "fehlbilder": [
+    {
+     "antwort": 31,
+     "rechnung": "2 · 2 · 2 · 2 · 2 − 1",
+     "beschreibung": "nur die größte Zahl 11111 = 31 angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 25,
+     "rechnung": "5 · 5",
+     "beschreibung": "Stellenzahl mit sich selbst multipliziert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 10,
+     "rechnung": "5 · 2",
+     "beschreibung": "Stellenzahl mal Ziffernzahl (2) gerechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "dualsystem",
+    "t": "dualsystem",
+    "p": "sicherung",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele verschiedene natürliche Zahlen (einschließlich der 0) kann man mit höchstens 5 Ziffern im Zweiersystem schreiben?"
+    },
+    "o": {
+     "wert": 32
+    },
+    "w": "Jede der 5 Stellen kann 0 oder 1 sein: 2 · 2 · 2 · 2 · 2 = 32 Möglichkeiten. Das sind die Zahlen von 0 (00000) bis 31 (11111), also 32 Zahlen."
+   },
+   "idee": "Anzahl darstellbarer Zahlen",
+   "alte_kennung": "VT2-132",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2 (korrektur-nach-vorpruefung-w1.md)",
+    "vor_neuer_verwendung": "B12: Denkfigur 2ⁿ; nahe themen #438 (5 Lampen, größte Zahl 31)."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "dualsystem",
+   "pool": "sicherung",
+   "typ": "rueckwaerts",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "id.zahlen.buendeln",
+   "abgrenzung": "Rückwärts aus dem Wert auf die Stellenzahl; die Übungen wandeln von der Zweierzahl in die Zehnerzahl um.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "8 − 1",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "rechnung": "7 − 1",
+     "beschreibung": "beim Wert 64 (der siebten Stelle) die Stellen falsch gezählt und 6 genannt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 127,
+     "rechnung": "127",
+     "beschreibung": "den Wert als Ziffernzahl angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 8,
+     "rechnung": "7 + 1",
+     "beschreibung": "weil 127 + 1 = 128 eine Zweierzahl-Stelle mehr hat, 8 Ziffern genannt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "dualsystem",
+    "t": "dualsystem",
+    "p": "sicherung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Zweierzahl besteht nur aus Einsen und hat im Zehnersystem den Wert 127. Wie viele Ziffern hat sie?"
+    },
+    "o": {
+     "wert": 7
+    },
+    "w": "Mit lauter Einsen ergeben sich die Werte 1, 3, 7, 15, 31, 63, 127: Jede weitere Eins verdoppelt den Wert und addiert 1. Bei 127 sind es 7 Einsen. Probe: 1111111 = 64 + 32 + 16 + 8 + 4 + 2 + 1 = 127."
+   },
+   "idee": "Rückwärts: Länge aus dem Wert",
+   "alte_kennung": "VT2-133",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2 (korrektur-nach-vorpruefung-w1.md)",
+    "vor_neuer_verwendung": "B12: Denkfigur 2ⁿ − 1; nahe themen #436; C8 loesung_rechnung ohne Bezug zum Lösungsweg."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "strahl_eintragen",
+   "pool": "test",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "id.zahlen.zahlengerade",
+   "abgrenzung": "Die Übungen markieren eine Zahl auf einer vorgegebenen Skala ab 0; hier muss ein Maßstab aus zwei Marken ohne Nullpunkt erschlossen und in beide Richtungen übertragen werden.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2200 : 200",
+    "1200 + 9 · 200"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2200,
+     "rechnung": "3400 − 1200",
+     "beschreibung": "die Zahlendifferenz als Strecke in cm angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 17,
+     "rechnung": "3400 : 200",
+     "beschreibung": "von 0 aus gerechnet statt ab der Marke 1 200",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 1800,
+     "rechnung": "9 · 200",
+     "beschreibung": "nur den Zuwachs angegeben, die Marke 1 200 nicht dazugerechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 1236,
+     "rechnung": "1200 + 9 · 4",
+     "beschreibung": "die 4 cm als Wert je cm genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "strahl_eintragen",
+    "t": "strahl_eintragen",
+    "p": "test",
+    "s": 3,
+    "g": "transfer",
+    "y": "luecken",
+    "f": {
+     "text": "Auf einem Zahlenstrahl mit gleichmäßiger Skala liegen die Marken 1 200 und 2 000 genau 4 cm auseinander. Wie viele cm ist die Marke 3 400 von der Marke 1 200 entfernt, und welche Zahl liegt 9 cm rechts von der Marke 1 200?",
+     "schablone": "Entfernung □ cm; Zahl □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      11,
+      3000
+     ]
+    },
+    "w": "4 cm entsprechen 2 000 − 1 200 = 800, also steht 1 cm für 200. Von 1 200 bis 3 400 sind es 2 200, das sind 2 200 : 200 = 11 cm. 9 cm entsprechen 9 · 200 = 1 800; 1 200 + 1 800 = 3 000."
+   },
+   "idee": "Skala ohne Nullpunkt: Maßstab aus zwei Marken",
+   "alte_kennung": "VT2-095 (Stand 9a986063)",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2, nach Vorprüfung W1-2 (korrektur-nach-vorpruefung-w1-2.md)",
+    "vor_neuer_verwendung": "Schema nach Vorprüfung W1-2 (A1): Maßstab bestimmen und anwenden wie rollend-5 K5A-V013; höchstens als Schema-Aufgabe, nicht als Test."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "strahl_eintragen",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "id.zahlen.zahlengerade",
+   "abgrenzung": "Die Übungen markieren Zahlen auf einem Strahl; hier werden zwei Maßstäbe verglichen, und es kommt nicht darauf an, wo die Zahlen genau liegen.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Das kann man nicht sagen, denn man weiß nicht, an welcher Stelle der beiden Strahlen jeweils die 0 liegt.",
+     "beschreibung": "Der Abstand zweier Marken hängt nur vom Unterschied der Zahlen (600) und vom Maßstab ab, nicht von der Lage der 0.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Auf beiden liegen die Marken gleich weit auseinander, denn es sind auf beiden dieselben zwei Zahlen.",
+     "beschreibung": "Dieselben Zahlen liegen nur bei gleichem Maßstab gleich weit auseinander: 12 cm auf A, 3 cm auf B.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Auf B liegen die Marken 4-mal so weit auseinander wie auf A, denn dort steht jeder Zentimeter für eine größere Zahl.",
+     "beschreibung": "Steht 1 cm für mehr, braucht man für den Unterschied 600 weniger cm: auf B 3 cm, auf A 12 cm.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "strahl_eintragen",
+    "t": "strahl_eintragen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Auf Zahlenstrahl A steht 1 cm für 50, auf Zahlenstrahl B steht 1 cm für 200. Auf beiden Strahlen werden die Zahlen 400 und 1 000 eingetragen. Welche Aussage über den Abstand der beiden Marken stimmt?"
+    },
+    "a": [
+     "Das kann man nicht sagen, denn man weiß nicht, an welcher Stelle der beiden Strahlen jeweils die 0 liegt.",
+     "Auf beiden liegen die Marken gleich weit auseinander, denn es sind auf beiden dieselben zwei Zahlen.",
+     "Auf A liegen die Marken 4-mal so weit auseinander wie auf B, denn dort braucht derselbe Unterschied mehr cm.",
+     "Auf B liegen die Marken 4-mal so weit auseinander wie auf A, denn dort steht jeder Zentimeter für eine größere Zahl."
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "Der Abstand hängt nur vom Unterschied 1 000 − 400 = 600 ab. Auf A sind das 600 : 50 = 12 cm, auf B 600 : 200 = 3 cm. 12 cm sind 4-mal so viel wie 3 cm. Das sieht man auch ohne Rechnen: Auf A steht 1 cm für ein Viertel so viel wie auf B, also braucht jeder Unterschied auf A 4-mal so viel Platz."
+   },
+   "idee": "Zwei Maßstäbe vergleichen ohne Lage der Zahlen",
+   "alte_kennung": "VT2-097 (Stand 9a986063)",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2, nach Vorprüfung W1-2 (korrektur-nach-vorpruefung-w1-2.md)",
+    "vor_neuer_verwendung": "Schema nach Vorprüfung W1-2 (A1): zwei Divisionen; nicht zusammen mit einer Aufgabe, die den Abstand aus dem Maßstab fragt."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "runden_sinnvoll",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "id.zahlen.buendeln",
+   "abgrenzung": "Die Übungen runden eine Zahl oder eine Summe; hier wird beim Produkt gerundet, und der Fehler wächst, wenn beide Faktoren aufgerundet werden.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "50 · 30 − 48 · 29",
+    "48 · 30 − 48 · 29"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 60,
+     "rechnung": "50 · 30 − 48 · 30",
+     "beschreibung": "nur den Unterschied zu Bens Schätzung angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 1500,
+     "rechnung": "50 · 30",
+     "beschreibung": "die Schätzung selbst statt der Abweichung angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "30 − 29",
+     "beschreibung": "nur den Fehler je Reihe (1 Platz) angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 1440,
+     "rechnung": "48 · 30",
+     "beschreibung": "die Schätzung selbst statt der Abweichung angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "runden_sinnvoll",
+    "t": "runden_sinnvoll",
+    "p": "sicherung",
+    "s": 3,
+    "g": "transfer",
+    "y": "luecken",
+    "f": {
+     "text": "In einem Saal gibt es 48 Reihen mit je 29 Plätzen. Anna schätzt die Platzzahl mit 50 · 30, Ben mit 48 · 30. Um wie viel liegt jede der beiden Schätzungen über der genauen Platzzahl?",
+     "schablone": "Annas Schätzung liegt □ darüber, Bens Schätzung liegt □ darüber",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      108,
+      48
+     ]
+    },
+    "w": "Genau: 48 · 29 = 1 392 Plätze. Anna: 50 · 30 = 1 500, das sind 108 zu viel. Ben: 48 · 30 = 1 440, das sind 48 zu viel (1 Platz zu viel je Reihe). Wer beide Faktoren aufrundet, verstärkt den Fehler."
+   },
+   "idee": "Fehler beim Aufrunden zweier Faktoren",
+   "alte_kennung": "VT2-108 (Stand 9a986063)",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2, nach Vorprüfung W1-2 (korrektur-nach-vorpruefung-w1-2.md)",
+    "vor_neuer_verwendung": "Schema nach Vorprüfung W1-2 (A2): drei Produkte ausrechnen; nahe K5A-V025."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "roemisch_schreiben",
+   "pool": "test",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "id.zahlen.schreibweisen",
+   "abgrenzung": "Die Übungen schreiben Zahlen nach den üblichen Regeln; hier werden zwei Schreibweisen über einen ganzen Zahlenbereich verglichen, um zu sehen, wo die Subtraktionsregel am meisten spart.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "49",
+    "9 − 4"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 90,
+     "rechnung": "90",
+     "beschreibung": "die größte erlaubte Zahl genommen; 90 spart nur 3 Zeichen (LXXXX gegen XC)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 44,
+     "rechnung": "44",
+     "beschreibung": "nur auf die Vieren geachtet; 44 spart 4 Zeichen (XXXXIIII gegen XLIV)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 9,
+     "rechnung": "9",
+     "beschreibung": "nur die Einerstelle betrachtet; 9 spart 3 Zeichen (VIIII gegen IX)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "rechnung": "5 − 2",
+     "beschreibung": "bei 49 nur die Ersparnis bei der 9 (VIIII gegen IX) gezählt, die bei der 40 vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "rechnung": "4 − 2",
+     "beschreibung": "bei 49 nur die Ersparnis bei der 40 (XXXX gegen XL) gezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "roemisch_schreiben",
+    "t": "roemisch_schreiben",
+    "p": "test",
+    "s": 3,
+    "g": "darstellung",
+    "y": "luecken",
+    "f": {
+     "text": "Eine Zahl kann man römisch auf zwei Arten schreiben. Art 1 (nur addieren): Die Zeichen I = 1, V = 5, X = 10, L = 50 und C = 100 stehen der Größe nach, ihre Werte werden addiert, ein Zeichen darf beliebig oft hintereinander stehen, und man nimmt möglichst wenige Zeichen (also V statt IIIII und L statt XXXXX). Art 2 (übliche Regeln): Ein Zeichen steht höchstens dreimal hintereinander; ein kleineres Zeichen links von einem größeren wird abgezogen, aber nur I vor V oder X und X vor L oder C. Bei welcher Zahl von 1 bis 90 spart Art 2 gegenüber Art 1 die meisten Zeichen, und wie viele Zeichen spart sie dort?",
+     "schablone": "Zahl □; gespart werden □ Zeichen",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      49,
+      5
+     ]
+    },
+    "w": "Beide Arten schreiben Zehner und Einer getrennt hintereinander. Unterschiede gibt es nur bei den Ziffern 4 und 9: Bei einer 4 spart Art 2 zwei Zeichen (IIII → IV, XXXX → XL), bei einer 9 drei Zeichen (VIIII → IX, LXXXX → XC), bei allen anderen Ziffern nichts. Bis 90 spart man am meisten mit der Zehnerziffer 4 und der Einerziffer 9: 49. Art 1: XXXXVIIII (9 Zeichen), Art 2: XLIX (4 Zeichen), gespart 5. Bei 90 sind es nur 3, bei 44 nur 4."
+   },
+   "idee": "Wo die Subtraktionsregel am meisten spart",
+   "alte_kennung": "VT2-110 (Stand 9a986063)",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2, nach Vorprüfung W1-2 (korrektur-nach-vorpruefung-w1-2.md)",
+    "vor_neuer_verwendung": "Verstehen, als Test zu lang (B1); mit kürzerem Text als Sicherung verwendbar, nicht zusammen mit dem neuen VT2-110."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "roemisch_schreiben",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "id.zahlen.schreibweisen",
+   "abgrenzung": "Die Übungen schreiben einzelne Zahlen; hier wird die römische Schrift mit dem Stellenwertsystem verglichen (die Länge sagt nichts über die Größe).",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Es stimmt immer, denn wie im Zehnersystem macht jedes weitere Zeichen die Zahl größer.",
+     "beschreibung": "Römische Zeichen haben verschieden große Werte: Das eine Zeichen L (50) ist mehr als VIII (8) mit vier Zeichen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Es stimmt nur bei Zahlen ohne Subtraktionsregel, denn erst Paare wie IV oder IX bringen die Länge durcheinander.",
+     "beschreibung": "Auch ohne Subtraktionsregel gilt es nicht: VIII (8) hat mehr Zeichen als L (50), ganz ohne abgezogenes Zeichen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Es stimmt nie, denn große Zahlen schreibt man römisch mit wenigen großen Zeichen, kleinere mit vielen.",
+     "beschreibung": "Mehr Zeichen können auch mehr bedeuten: XII (12) hat mehr Zeichen als X (10) und ist größer.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "roemisch_schreiben",
+    "t": "roemisch_schreiben",
+    "p": "korrektur",
+    "s": 2,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Im Zehnersystem gilt: Eine Zahl mit mehr Ziffern ist größer als eine Zahl mit weniger Ziffern. Gilt bei römischen Zahlen (nach den üblichen Regeln geschrieben) entsprechend: Eine römische Zahl mit mehr Zeichen ist größer als eine mit weniger Zeichen?"
+    },
+    "a": [
+     "Es stimmt immer, denn wie im Zehnersystem macht jedes weitere Zeichen die Zahl größer.",
+     "Es stimmt nur manchmal, denn XII ist mit drei Zeichen größer als X, VIII mit vier Zeichen dagegen kleiner als L.",
+     "Es stimmt nur bei Zahlen ohne Subtraktionsregel, denn erst Paare wie IV oder IX bringen die Länge durcheinander.",
+     "Es stimmt nie, denn große Zahlen schreibt man römisch mit wenigen großen Zeichen, kleinere mit vielen."
+    ],
+    "o": {
+     "index": 1
+    },
+    "w": "Im Zehnersystem hat jede Ziffer ihren Platz, deshalb bedeutet eine Stelle mehr eine größere Zahl. Römische Zeichen haben feste, aber verschieden große Werte: Ein einziges großes Zeichen kann mehr wert sein als viele kleine. Gegenbeispiel: VIII (4 Zeichen) = 8 ist kleiner als L (1 Zeichen) = 50. Beispiel, wo es stimmt: XII (3 Zeichen) = 12 ist größer als X = 10. Die Aussage stimmt also nur manchmal."
+   },
+   "idee": "Mehr Zeichen heißt nicht größer",
+   "alte_kennung": "VT2-112 (Stand 9a986063)",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2, nach Vorprüfung W1-2 (korrektur-nach-vorpruefung-w1-2.md)",
+    "vor_neuer_verwendung": "Passt zur Etappe roemisch_system (B12: Länge gegen Größe im Vergleich mit dem Stellenwertsystem); dort gegen #424/#429 prüfen."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "dualsystem",
+   "pool": "test",
+   "typ": "transfer",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "id.zahlen.buendeln",
+   "abgrenzung": "Die Übungen rechnen einzelne Zweierzahlen um; hier wird untersucht, wann eine falsche Zuordnung der Stellenwerte zufällig das Richtige liefert.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "1 + 1 + 2 + 2 + 4",
+   "fehlbilder": [
+    {
+     "antwort": 16,
+     "rechnung": "32 − 16",
+     "beschreibung": "alle Zahlen gezählt, die auf 1 enden; es müssen aber alle Ziffern von vorn und von hinten gelesen übereinstimmen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 5,
+     "rechnung": "5",
+     "beschreibung": "nur die Zahlen aus lauter Einsen gezählt (1, 11, 111, 1111, 11111)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 31,
+     "rechnung": "31",
+     "beschreibung": "gemeint, die Richtung der Stellenwerte sei egal",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 6,
+     "rechnung": "1 + 1 + 2 + 2",
+     "beschreibung": "die fünfstelligen Zahlen 10001, 10101, 11011 und 11111 vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "dualsystem",
+    "t": "dualsystem",
+    "p": "test",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Mia rechnet Zweierzahlen ins Zehnersystem um, ordnet die Stellenwerte 1, 2, 4, 8, 16 aber von links nach rechts zu statt von rechts nach links. Aus 110 macht sie so 1 · 1 + 1 · 2 + 0 · 4 = 3 statt 6. Betrachtet werden alle Zweierzahlen mit höchstens fünf Ziffern, die mit einer 1 beginnen (das sind die Zahlen 1 bis 31). Bei wie vielen davon bekommt Mia trotzdem den richtigen Wert?"
+    },
+    "o": {
+     "wert": 10
+    },
+    "w": "Mia bekommt den richtigen Wert genau dann, wenn die Zahl von hinten gelesen dieselbe Zweierzahl ist wie von vorn (Spiegelzahl). Endet die Zahl auf 0, beginnt sie von hinten gelesen mit 0 und ist bei Mia kleiner. Endet sie auf 1, haben beide Lesarten gleich viele Stellen, und gleich groß sind sie nur, wenn alle Ziffern übereinstimmen. Spiegelzahlen: 1; 11; 101, 111; 1001, 1111; 10001, 10101, 11011, 11111. Das sind 1 + 1 + 2 + 2 + 4 = 10."
+   },
+   "idee": "Falsche Leserichtung: nur Spiegelzahlen bleiben richtig",
+   "alte_kennung": "VT2-115 (Stand 9a986063)",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2, nach Vorprüfung W1-2 (korrektur-nach-vorpruefung-w1-2.md)",
+    "vor_neuer_verwendung": "Verstehen, als Test zu lang (B2) und gleiche Denkfigur wie die Einteilung von links (B8); mit höchstens vier Ziffern (Lösung 6) verwendbar."
+   }
+  },
+  {
+   "thema": "zahlen.natuerlich",
+   "lernkarte": "dualsystem",
+   "pool": "korrektur",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M5 1 (Natürliche Zahlen)",
+   "regel": "id.zahlen.buendeln",
+   "abgrenzung": "Die Übungen wandeln eine gegebene Zahl um; hier ist die Zahl nicht bekannt, und man muss sehen, dass die Änderung nur von den beiden getauschten Stellen abhängt.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "64 − 1",
+   "fehlbilder": [
+    {
+     "antwort": 64,
+     "rechnung": "64",
+     "beschreibung": "nur gesehen, dass die vordere 1 (Wert 64) wegfällt, die neue 1 an der Einerstelle aber nicht dazugezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 999999,
+     "rechnung": "1000000 − 1",
+     "beschreibung": "die Stellen wie im Zehnersystem bewertet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 127,
+     "rechnung": "64 + 32 + 16 + 8 + 4 + 2 + 1",
+     "beschreibung": "den größtmöglichen Wert einer siebenstelligen Zweierzahl angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 62,
+     "rechnung": "64 − 2",
+     "beschreibung": "der letzten Stelle den Wert 2 statt 1 gegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "dualsystem",
+    "t": "dualsystem",
+    "p": "korrektur",
+    "s": 2,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Zweierzahl hat sieben Ziffern, beginnt mit 1 und endet mit 0. Man vertauscht ihre erste und ihre letzte Ziffer; die Ziffern dazwischen bleiben stehen. Um wie viel wird der Wert der Zahl dadurch kleiner?"
+    },
+    "o": {
+     "wert": 63
+    },
+    "w": "Von rechts haben die Stellen die Werte 1, 2, 4, 8, 16, 32, 64. Die erste Ziffer steht an der Stelle mit dem Wert 64, die letzte an der Stelle mit dem Wert 1. Nach dem Tausch steht an der 64er-Stelle eine 0 und an der Einerstelle eine 1: 64 fallen weg, 1 kommt dazu. Die Ziffern dazwischen ändern nichts. Die Zahl wird um 64 − 1 = 63 kleiner, ganz gleich, wie die mittleren Ziffern lauten."
+   },
+   "idee": "Tausch zweier Stellen: Änderung unabhängig vom Rest",
+   "alte_kennung": "VT2-117 (Stand 9a986063)",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2, nach Vorprüfung W1-2 (korrektur-nach-vorpruefung-w1-2.md)",
+    "vor_neuer_verwendung": "Gleiche Denkfigur wie der Ziffertausch im Zehnersystem (B8), nicht zusammen mit VT2-086; Fehlbild 999 999 wenig plausibel (C5)."
+   }
+  }
+ ]
+}

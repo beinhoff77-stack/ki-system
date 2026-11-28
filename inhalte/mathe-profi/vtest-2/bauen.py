@@ -58,7 +58,7 @@ for x in alle:
         fehlt = [i for i in range(1, n + 1) if i not in fb_l]
         if fehlt: fehler.append(f'{x["kennung"]}: Lücke {fehlt} hat kein Fehlbild (jede Lücke braucht eins)')
 fd = {x['kennung']: (x['aufgabe']['o']['werte'][0] if x['aufgabe']['y'] == 'luecken' else None) for x in alle if x.get('form') == 'fehler_detektiv'}
-FD_AUSWAHL = {'VT2-032': 3, 'VT2-036': 2, 'VT2-062': 2, 'VT2-094': 3}      # bei Auswahl-Detektiven steht die Fehlerzeile im Text der richtigen Möglichkeit
+FD_AUSWAHL = {'VT2-030': 3, 'VT2-092': 3}      # bei Auswahl-Detektiven steht die Fehlerzeile im Text der richtigen Möglichkeit
 fd.update({k: v for k, v in FD_AUSWAHL.items() if k in fd})
 zeilen = list(fd.values())
 if None in zeilen: fehler.append('Fehler-Detektiv als Auswahl ohne eingetragene Fehlerzeile (FD_AUSWAHL in bauen.py)')
@@ -78,6 +78,23 @@ print('zu lang (>=1,25 mal längste falsche):', len(zu_lang), zu_lang, '| Nebens
 print('Sammel-Möglichkeiten', len(sam), 'davon richtig', sum(1 for s in sam if s[2]), '| denn/weil falsch/richtig %.0f/%.0f %%' % (100*_anteil(fa, _BEG), 100*_anteil(ri, _BEG)), '| Absolutwörter falsch/richtig %.0f/%.0f %%' % (100*_anteil(fa, _ABS), 100*_anteil(ri, _ABS)))
 print('Länge richtig/falsch %.2f' % _v)
 print('Auswahl', len(au), '| Test-Auswahl', len(tau), '| Plätze A-D', platz, '| richtige am längsten', len(laengste))
+# ---- Bauart-Muster (Urteil 1222): ein Zeichen/Wort nur in der richtigen Möglichkeit verrät sie ---------------------------
+_BAU = ('=', '<', '>', 'kleiner', 'größer', 'gleich', 'nicht')
+_bau_nur = {}
+for x in au:
+    ops = x['aufgabe']['a']; r = x['aufgabe']['o']['index']
+    for m_ in _BAU:
+        tr = [i for i, o_ in enumerate(ops) if m_ in o_.lower()]
+        if tr == [r] and len(ops) > 1: _bau_nur.setdefault(x['kennung'], []).append(m_)
+print('Bauart: nur in der richtigen Möglichkeit:', _bau_nur)
+if len(_bau_nur) > 0.10 * len(au): fehler.append(f'Bauart-Muster (Zeichen/Wort nur in der richtigen Möglichkeit) in {len(_bau_nur)} von {len(au)} Aufgaben: {sorted(_bau_nur)}')
+# ---- Vorprüfung W1-2, B4: „nicht entscheidbar / nichts Sicheres“ darf nicht systematisch falsch sein -----------------------
+_OFFEN = _re.compile(r'(nicht entscheid|nichts Sicheres|lässt sich nichts sagen|lässt sich nicht sagen|kann man nicht sagen|weiß man nicht|weiß man erst|hängt vom Rest ab)', _re.I)
+_off = [(x['kennung'], i == x['aufgabe']['o']['index']) for x in au for i, m in enumerate(x['aufgabe']['a']) if _OFFEN.search(m)]
+_off_r = sorted({k for k, r in _off if r})
+print('Offen-Möglichkeiten („nicht entscheidbar“ u. ä.):', len(_off), '| davon richtig in', _off_r)
+if len(_off) >= 4 and (len(_off_r) < 2 or len(_off_r) < 0.2 * len(_off)):
+    fehler.append(f'„nicht entscheidbar“-Möglichkeit ist systematisch falsch: {len(_off)} Vorkommen, richtig nur in {_off_r} (verlangt mindestens 2 und 20 %)')
 if fehler:
     print('FEHLER in den festen Prüfungen:'); [print('  ', f) for f in fehler]; raise SystemExit(1)
 print('feste Prüfungen: ok')

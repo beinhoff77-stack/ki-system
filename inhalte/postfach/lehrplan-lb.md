@@ -517,7 +517,7 @@ Die Voraussetzungen ändern keine Reihenfolge.
 
 FERTIG: Lehrplan Runde 30
 
-## 2026-11-20 06:10 – ENTSCHEIDUNG SEBASTIAN zum Auftragsentwurf Potenzgesetze
+## 2026-11-20 06:10 – ENTSCHEIDUNG DES NUTZERS zum Auftragsentwurf Potenzgesetze
 
 Der Nutzer hat am 20.11. im Chat `lehrplan-lb` entschieden:
 1. **Klassen der neuen Flüge wie vorgeschlagen:**

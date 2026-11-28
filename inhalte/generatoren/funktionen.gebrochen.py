@@ -762,7 +762,7 @@ for _t in ['Welche Aussage über f(x) = −3/(x + 4) − 1 ist FALSCH?', 'Welche
 DSX.stufen('beurteilen', 'S1 richtige Aussage; S2 und S3 dieselbe „FALSCH“-Aufgabe',
            'S1 richtige Aussage; S2 falsche Aussage finden; S3 Fehlvorstellungen (fällt also kleiner), Grenzverhalten, Schnittpunkte durch Probieren, Punkt ausschließen')
 DSX.stufen('indirekt_sach', 'S1 umgekehrter Dreisatz; S2 Art erkennen, Zahnräder, Tabelle; S3 Ausfall/Verkauf mitten im Vorgang, zwei Größen, Physik, Knobelaufgabe')
-DSX.fuer_sebastian('funktionen.gebrochen/indirekt und indirekt_sach überschneiden sich mit dem Flug groessen.indirekt (siehe dort).')
+DSX.fuer_nutzer('funktionen.gebrochen/indirekt und indirekt_sach überschneiden sich mit dem Flug groessen.indirekt (siehe dort).')
 baue = mit_durchsicht(baue, DSX)
 # ---- DURCHSICHT ENDE ----
 

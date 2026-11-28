@@ -1,0 +1,1715 @@
+{
+ "hinweis": "Nachtrag zu den Nachschlage-Tafeln (Entwurf, nichts in die App eingespielt): zwölf geprüfte Vorschläge für Lücken, die beim Einbau aufgefallen sind (Dreisatz, Strahlensätze, Geschwindigkeit, Dichte, Pyramide, Kreisring, Kongruenzsätze). Aufbau wie die Einträge der Tafeln (kennung, titel, formel, bedingung, groessen, beispiel, fehler, ab_klasse, regeln, stichwoerter); dazu schritte, zeichnung und skizze (Punkte mit Maßen, damit der App-Bau zeichnen kann). pruefung = Rechenproben, nachgerechnet von pruefen.py. Schreibweise wie im Bestand: Dezimalkomma, Tausender mit Leerzeichen, Malpunkt „·“, Geteilt „:“, Einheit mit Leerzeichen. Kennungen nt-… sind vorläufig.",
+ "stand": "2026-11-28",
+ "tafel": "nachtrag",
+ "titel": "Nachtrag: Dreisatz, Strahlensätze, Geschwindigkeit, Dichte, Pyramide, Kreisring, Kongruenzsätze",
+ "eintraege": [
+  {
+   "kennung": "nt-01",
+   "titel": "Dreisatz – proportional (mehr Menge, mehr Wert)",
+   "art": "verfahren",
+   "formel": "Wert für 1 = Wert : Menge; gesuchter Wert = Wert für 1 · gesuchte Menge",
+   "bedingung": "Der Wert pro Einheit bleibt gleich: Doppelte Menge heißt doppelter Wert, und es kommt kein fester Betrag dazu (keine Grundgebühr). Die Menge, durch die geteilt wird, ist positiv",
+   "groessen": [
+    {
+     "zeichen": "Menge",
+     "name": "Anzahl oder Maß, z. B. Stück, kg, Liter",
+     "einheit": "Stück, kg, l"
+    },
+    {
+     "zeichen": "Wert",
+     "name": "was dazugehört, z. B. Preis, Weg, Gewicht",
+     "einheit": "€, km, g"
+    }
+   ],
+   "schritte": [
+    "Schreibe auf, was du weißt: Menge links, Wert rechts (Zeile 1).",
+    "Teile beide Seiten durch die bekannte Menge (sie ist größer als 0). So erhältst du den Wert für 1 Stück (Zeile 2).",
+    "Multipliziere beide Seiten mit der gesuchten Menge (Zeile 3).",
+    "Prüfe: Mehr Menge muss mehr Wert ergeben. Schreibe die Einheit dazu."
+   ],
+   "zeichnung": "Tabelle mit drei Zeilen und zwei Spalten (Menge | Wert). Zeile 1 bekannt, Zeile 2 „durch 5“ mit Pfeil nach unten, Zeile 3 „mal 8“ mit Pfeil nach unten. Pfeile rechts und links gleich beschriften.",
+   "beispiel": {
+    "aufgabe": "5 Hefte kosten 6,50 €. Wie viel kosten 8 Hefte?",
+    "rechnung": "Zeile 1: 5 Hefte = 6,50 €. Zeile 2: 1 Heft = 6,50 € : 5 = 1,30 €. Zeile 3: 8 Hefte = 1,30 € · 8 = 10,40 €.",
+    "ergebnis": "10,40 €"
+   },
+   "pruefung": [
+    {
+     "l": "6.5/5",
+     "rel": "==",
+     "r": "1.3"
+    },
+    {
+     "l": "1.3*8",
+     "rel": "==",
+     "r": "10.4"
+    },
+    {
+     "l": "10.4/8",
+     "rel": "==",
+     "r": "6.5/5"
+    },
+    {
+     "l": "8 > 5 and 10.4 > 6.5",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "5 > 0",
+     "rel": "==",
+     "r": "1"
+    }
+   ],
+   "fehler": {
+    "falsch": "In Zeile 3 mit der alten Menge malnehmen: 1,30 € · 5 = 6,50 €. Das ist wieder der Preis für 5 Hefte, nicht für 8.",
+    "richtig": "In Zeile 3 mit der gesuchten Menge malnehmen: 1,30 € · 8 = 10,40 €.",
+    "pruefung": [
+     {
+      "l": "1.3*5",
+      "rel": "==",
+      "r": "6.5"
+     },
+     {
+      "l": "1.3*5",
+      "rel": "!=",
+      "r": "10.4"
+     }
+    ]
+   },
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 6,
+    "ib_myp": 2,
+    "beleg": [
+     {
+      "thema": "groessen.proportional",
+      "lernziel": "dreisatz",
+      "wort": "Dreisatz"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Gymnasium Klasse 5. Realschule, beides im Repo belegt: App-Thema (inhalte/themen/groessen.proportional.json) Klasse 6; erste Lehrplan-Zuordnung (inhalte/pruefung/lehrplan/lk_daten_2211.json, Lernbereich 4, Rolle neu) Klasse 5. ab_klasse folgt dem App-Thema (Klasse 6). Zweifel siehe nachtrag/uebersicht.md.",
+   "regeln": [
+    {
+     "kennung": "R11",
+     "name": "Verhältnis (Dreisatz)",
+     "passt": "Erst auf eins, dann auf viele."
+    },
+    {
+     "kennung": "V4",
+     "name": "Dreisatz",
+     "passt": "Dasselbe Verfahren in Kurzform."
+    }
+   ],
+   "stichwoerter": [
+    "Dreisatz",
+    "Dreisatz proportional",
+    "auf eins rechnen",
+    "Preis für ein Stück",
+    "mehr Menge mehr Preis",
+    "Verhältnisgleichung"
+   ]
+  },
+  {
+   "kennung": "nt-02",
+   "titel": "Dreisatz – antiproportional (mehr Personen, weniger Zeit)",
+   "art": "verfahren",
+   "formel": "Wert für 1 = Wert · Menge; gesuchter Wert = Wert für 1 : gesuchte Menge",
+   "bedingung": "Das Produkt Menge · Wert bleibt gleich (gleiche Gesamtarbeit, gleiche Leistung je Person oder Maschine). Dann gilt: doppelte Menge, halber Wert. Menge und Wert sind positiv; durch die gesuchte Menge wird geteilt",
+   "groessen": [
+    {
+     "zeichen": "Menge",
+     "name": "Anzahl, z. B. Personen, Maschinen, Pumpen",
+     "einheit": "Stück"
+    },
+    {
+     "zeichen": "Wert",
+     "name": "Zeit, die gebraucht wird",
+     "einheit": "h, Tage"
+    }
+   ],
+   "schritte": [
+    "Schreibe auf, was du weißt (Zeile 1).",
+    "Prüfe, ob das Produkt aus Menge und Wert gleich bleibt: gleiche Gesamtarbeit, gleiche Leistung je Person oder Maschine. Nur dann rechnest du antiproportional. „Mehr Menge, weniger Wert“ allein genügt nicht.",
+    "Zeile 2 (auf 1): Wert mal bekannte Menge. Eine Person allein braucht am längsten.",
+    "Zeile 3 (auf die gesuchte Menge): Wert durch die gesuchte Menge teilen.",
+    "Prüfe: Weniger Personen müssen mehr Zeit brauchen, mehr Personen weniger, und das Produkt Menge · Wert ist in jeder Zeile gleich."
+   ],
+   "zeichnung": "Tabelle wie beim proportionalen Dreisatz. Zeile 2 „mal 6“ am Wert, Zeile 3 „durch 4“ am Wert; die Pfeile zeigen nach rechts und links in verschiedene Richtungen (zum Unterschied zur proportionalen Tabelle).",
+   "beispiel": {
+    "aufgabe": "6 Maler streichen ein Haus in 8 Tagen (alle arbeiten gleich schnell). Wie lange brauchen 4 Maler?",
+    "rechnung": "Zeile 1: 6 Maler = 8 Tage. Zeile 2: 1 Maler = 8 Tage · 6 = 48 Tage. Zeile 3: 4 Maler = 48 Tage : 4 = 12 Tage.",
+    "ergebnis": "12 Tage"
+   },
+   "pruefung": [
+    {
+     "l": "8*6",
+     "rel": "==",
+     "r": "48"
+    },
+    {
+     "l": "48/4",
+     "rel": "==",
+     "r": "12"
+    },
+    {
+     "l": "6*8",
+     "rel": "==",
+     "r": "4*12"
+    },
+    {
+     "l": "4 > 0 and 6 > 0 and 8 > 0",
+     "rel": "==",
+     "r": "1"
+    }
+   ],
+   "fehler": {
+    "falsch": "Wie beim proportionalen Dreisatz rechnen: 8 Tage : 6 · 4 ergibt etwa 5,3 Tage. Das ist falsch, weil weniger Maler nicht schneller fertig werden.",
+    "richtig": "8 Tage · 6 : 4 = 12 Tage.",
+    "pruefung": [
+     {
+      "l": "rund(8/6*4, 1)",
+      "rel": "==",
+      "r": "5.3"
+     },
+     {
+      "l": "8/6*4",
+      "rel": "<",
+      "r": "8"
+     }
+    ]
+   },
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 7,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "groessen.indirekt",
+      "lernziel": "dreisatz",
+      "wort": "Dreisatz"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "R11",
+     "name": "Verhältnis (Dreisatz)",
+     "passt": "Das Vorgehen „erst auf eins“ klappt auch umgekehrt, nur mit umgekehrten Rechenarten."
+    },
+    {
+     "kennung": "V6",
+     "name": "Indirekte Proportionalität",
+     "passt": "Das Produkt beider Größen bleibt gleich."
+    }
+   ],
+   "stichwoerter": [
+    "Dreisatz",
+    "Dreisatz antiproportional",
+    "umgekehrter Dreisatz",
+    "indirekt proportional",
+    "je mehr desto weniger",
+    "Arbeiter Tage"
+   ],
+   "fehler_zusatz": [
+    {
+     "falsch": "„Gegenläufig“ als Erkennung nehmen: Ein Guthaben von 10 € sinkt nach 1 € Ausgabe auf 9 €, nach 2 € auf 8 €. Mehr Ausgabe, weniger Guthaben, aber das Produkt ist nicht gleich (1 · 9 = 9, 2 · 8 = 16). Das ist kein antiproportionaler Zusammenhang, der Dreisatz „auf 1“ passt nicht.",
+     "richtig": "Zuerst prüfen, ob das Produkt Menge · Wert gleich bleibt (wie 6 · 8 = 48 = 4 · 12). Bleibt es nicht gleich, ist der antiproportionale Dreisatz falsch.",
+     "pruefung": [
+      {
+       "l": "1*9",
+       "rel": "==",
+       "r": "9"
+      },
+      {
+       "l": "2*8",
+       "rel": "==",
+       "r": "16"
+      },
+      {
+       "l": "1*9",
+       "rel": "!=",
+       "r": "2*8"
+      },
+      {
+       "l": "10-1",
+       "rel": "==",
+       "r": "9"
+      },
+      {
+       "l": "10-2",
+       "rel": "==",
+       "r": "8"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kennung": "nt-03",
+   "titel": "1. Strahlensatz (Abschnitte auf den Strahlen)",
+   "art": "satz",
+   "formel": "SA : SA' = SB : SB'",
+   "umstellungen": [
+    "SB' = SB · SA' : SA",
+    "SA' = SA · SB' : SB"
+   ],
+   "bedingung": "Zwei Geraden schneiden sich in S. Zwei verschiedene parallele Geraden, die nicht durch S gehen, schneiden beide Geraden (in A und B bzw. A' und B', keiner dieser Punkte ist S). Die Abschnitte werden immer von S aus gemessen",
+   "groessen": [
+    {
+     "zeichen": "S",
+     "name": "Scheitel: der Punkt, in dem sich die zwei Geraden schneiden",
+     "einheit": ""
+    },
+    {
+     "zeichen": "SA, SA'",
+     "name": "Abschnitte auf der ersten Geraden, von S bis zur ersten und bis zur zweiten Parallelen",
+     "einheit": "cm"
+    },
+    {
+     "zeichen": "SB, SB'",
+     "name": "Abschnitte auf der zweiten Geraden, ebenfalls von S aus",
+     "einheit": "cm"
+    }
+   ],
+   "schritte": [
+    "Zeichne die Skizze und beschrifte S, A, A', B, B'. Markiere, dass AB und A'B' parallel sind.",
+    "Schreibe die Abschnitte von S aus auf: SA und SA' auf der einen, SB und SB' auf der anderen Geraden.",
+    "Stelle die Gleichung auf: SA : SA' = SB : SB'. Setze die bekannten Längen ein.",
+    "Löse nach der gesuchten Länge auf und prüfe: Der längere Abschnitt gehört zur weiter entfernten Parallelen."
+   ],
+   "zeichnung": "Zwei Geraden von S aus wie ein liegendes V: eine waagerecht nach rechts, eine schräg nach oben rechts (steigt 3 auf 4). Zwei senkrechte, parallele Striche schneiden beide Geraden: der erste im Abstand 4 cm von S (Punkte A unten, B oben), der zweite im Abstand 10 cm (A' unten, B' oben). Parallelzeichen an AB und A'B'. Abschnitte SA, SA', SB, SB' mit Maßpfeilen von S aus.",
+   "skizze": {
+    "punkte": {
+     "S": [
+      0,
+      0
+     ],
+     "A": [
+      4,
+      0
+     ],
+     "A'": [
+      10,
+      0
+     ],
+     "B": [
+      4,
+      3
+     ],
+     "B'": [
+      10,
+      7.5
+     ]
+    },
+    "gerade_durch": [
+     [
+      "S",
+      "A'"
+     ],
+     [
+      "S",
+      "B'"
+     ]
+    ],
+    "parallel": [
+     [
+      "A",
+      "B"
+     ],
+     [
+      "A'",
+      "B'"
+     ]
+    ]
+   },
+   "beispiel": {
+    "aufgabe": "Gegeben: SA = 4 cm, SA' = 10 cm, SB = 5 cm, AB ist parallel zu A'B'. Gesucht: SB'.",
+    "rechnung": "4 : 10 = 5 : SB'. Faktor von SA nach SA': 10 : 4 = 2,5. SB' = 5 cm · 2,5 = 12,5 cm.",
+    "ergebnis": "12,5 cm"
+   },
+   "pruefung": [
+    {
+     "l": "10/4",
+     "rel": "==",
+     "r": "2.5"
+    },
+    {
+     "l": "5*2.5",
+     "rel": "==",
+     "r": "12.5"
+    },
+    {
+     "l": "4/10",
+     "rel": "==",
+     "r": "5/12.5"
+    }
+   ],
+   "fehler": {
+    "falsch": "Den Abschnitt zwischen den Parallelen nehmen oder addieren: 5 cm + 6 cm = 11 cm. Die Strecken wachsen mit demselben Faktor, nicht um dieselbe Länge.",
+    "richtig": "SB' = 5 cm · 2,5 = 12,5 cm.",
+    "pruefung": [
+     {
+      "l": "5+(10-4)",
+      "rel": "==",
+      "r": "11"
+     },
+     {
+      "l": "5+(10-4)",
+      "rel": "!=",
+      "r": "12.5"
+     }
+    ]
+   },
+   "ab_klasse": {
+    "gymnasium_by": 9,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "abbildungen.aehnlichkeit",
+      "lernziel": "strahlensatz1",
+      "wort": "Strahlensatz"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G21",
+     "name": "Strahlensätze",
+     "passt": "Schneiden Parallelen zwei Strahlen, stehen die Abschnitte im selben Verhältnis."
+    },
+    {
+     "kennung": "G20",
+     "name": "Ähnlichkeit",
+     "passt": "Die ausgeschnittenen Dreiecke SAB und SA'B' sind ähnlich."
+    }
+   ],
+   "stichwoerter": [
+    "Strahlensatz",
+    "1. Strahlensatz",
+    "erster Strahlensatz",
+    "Strahlensätze",
+    "Abschnitte Strahlen",
+    "parallele Geraden",
+    "Scheitel"
+   ]
+  },
+  {
+   "kennung": "nt-04",
+   "titel": "2. Strahlensatz (parallele Strecken)",
+   "art": "satz",
+   "formel": "SA : SA' = AB : A'B'",
+   "umstellungen": [
+    "A'B' = AB · SA' : SA",
+    "AB = A'B' · SA : SA'"
+   ],
+   "bedingung": "Zwei Geraden schneiden sich in S. AB und A'B' liegen auf verschiedenen parallelen Geraden, die nicht durch S gehen. SA und SA' werden von S aus gemessen, nicht von A aus",
+   "groessen": [
+    {
+     "zeichen": "SA, SA'",
+     "name": "Abschnitte auf einer Geraden, von S aus gemessen",
+     "einheit": "cm"
+    },
+    {
+     "zeichen": "AB",
+     "name": "die kleinere parallele Strecke (näher an S)",
+     "einheit": "cm"
+    },
+    {
+     "zeichen": "A'B'",
+     "name": "die größere parallele Strecke (weiter von S)",
+     "einheit": "cm"
+    }
+   ],
+   "schritte": [
+    "Zeichne die Skizze mit S, A, A', B, B' und markiere AB ∥ A'B'.",
+    "Schreibe SA und SA' auf (beide von S aus!) und die zwei parallelen Strecken AB und A'B'.",
+    "Stelle auf: SA : SA' = AB : A'B'. Setze die bekannten Längen ein.",
+    "Löse nach der gesuchten Länge auf. Prüfe: Die weiter entfernte Parallele ist länger."
+   ],
+   "zeichnung": "Dieselbe Figur wie beim 1. Strahlensatz, aber die parallelen Strecken AB und A'B' in einer anderen Farbe dick nachziehen. Die Abschnitte SA und SA' auf der waagerechten Geraden mit Maßpfeilen, beide beginnen bei S.",
+   "skizze": {
+    "punkte": {
+     "S": [
+      0,
+      0
+     ],
+     "A": [
+      4,
+      0
+     ],
+     "A'": [
+      10,
+      0
+     ],
+     "B": [
+      4,
+      3
+     ],
+     "B'": [
+      10,
+      7.5
+     ]
+    },
+    "gerade_durch": [
+     [
+      "S",
+      "A'"
+     ],
+     [
+      "S",
+      "B'"
+     ]
+    ],
+    "parallel": [
+     [
+      "A",
+      "B"
+     ],
+     [
+      "A'",
+      "B'"
+     ]
+    ]
+   },
+   "beispiel": {
+    "aufgabe": "Gegeben: SA = 4 cm, SA' = 10 cm, AB = 3 cm, AB ist parallel zu A'B'. Gesucht: A'B'.",
+    "rechnung": "4 : 10 = 3 : A'B'. Faktor: 10 : 4 = 2,5. A'B' = 3 cm · 2,5 = 7,5 cm.",
+    "ergebnis": "7,5 cm"
+   },
+   "pruefung": [
+    {
+     "l": "10/4",
+     "rel": "==",
+     "r": "2.5"
+    },
+    {
+     "l": "3*2.5",
+     "rel": "==",
+     "r": "7.5"
+    },
+    {
+     "l": "4/10",
+     "rel": "==",
+     "r": "3/7.5"
+    }
+   ],
+   "fehler": {
+    "falsch": "Mit dem Teilstück AA' statt mit SA' rechnen: 3 cm · 6 : 4 = 4,5 cm. Der Abschnitt muss von S aus gemessen werden.",
+    "richtig": "SA' = 10 cm: A'B' = 3 cm · 10 : 4 = 7,5 cm.",
+    "pruefung": [
+     {
+      "l": "3*6/4",
+      "rel": "==",
+      "r": "4.5"
+     },
+     {
+      "l": "3*6/4",
+      "rel": "!=",
+      "r": "7.5"
+     }
+    ]
+   },
+   "ab_klasse": {
+    "gymnasium_by": 9,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "abbildungen.aehnlichkeit",
+      "lernziel": "strahlensatz2",
+      "wort": "Strahlensatz"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G21",
+     "name": "Strahlensätze",
+     "passt": "Die Parallelenstücke verhalten sich wie die Abschnitte ab dem Scheitel."
+    }
+   ],
+   "stichwoerter": [
+    "Strahlensatz",
+    "2. Strahlensatz",
+    "zweiter Strahlensatz",
+    "parallele Strecken",
+    "Schatten berechnen",
+    "Höhe schätzen"
+   ]
+  },
+  {
+   "kennung": "nt-05",
+   "titel": "Geschwindigkeit",
+   "art": "formel",
+   "formel": "v = s : t",
+   "umstellungen": [
+    "s = v · t",
+    "t = s : v"
+   ],
+   "bedingung": "Gleichbleibende Geschwindigkeit oder Durchschnitt über die ganze Strecke. Einheiten müssen passen: km, h und km/h oder m, s und m/s. Zum Teilen: t > 0 für v = s : t, v > 0 für t = s : v",
+   "groessen": [
+    {
+     "zeichen": "v",
+     "name": "Geschwindigkeit",
+     "einheit": "km/h oder m/s"
+    },
+    {
+     "zeichen": "s",
+     "name": "Strecke (Weg)",
+     "einheit": "km oder m"
+    },
+    {
+     "zeichen": "t",
+     "name": "Zeit",
+     "einheit": "h oder s"
+    }
+   ],
+   "schritte": [
+    "Schreibe auf, was gegeben ist und was gesucht ist.",
+    "Wähle die Formel zur gesuchten Größe: v = s : t, s = v · t oder t = s : v.",
+    "Rechne die Zeit passend um (30 min = 0,5 h) und setze mit Einheiten ein.",
+    "Prüfe die Einheit des Ergebnisses: km : h ergibt km/h, km/h · h ergibt km, km : km/h ergibt h."
+   ],
+   "zeichnung": "Dreieck-Merkhilfe: oben s, unten links v, unten rechts t; Trennlinie waagerecht, senkrechter Strich zwischen v und t. Gesuchte Größe mit dem Finger abdecken: Was bleibt, ist die Rechnung (s : t, s : v oder v · t).",
+   "beispiel": {
+    "aufgabe": "Ein Zug fährt 150 km in 2 h. Wie schnell ist er im Durchschnitt? Weitere Aufgaben: Wie weit kommt man bei 60 km/h in 30 min? Wie lange dauern 120 km bei 80 km/h?",
+    "rechnung": "v = 150 km : 2 h = 75 km/h. s = 60 km/h · 0,5 h = 30 km (denn 30 min = 0,5 h). t = 120 km : 80 km/h = 1,5 h.",
+    "ergebnis": "75 km/h; 30 km; 1,5 h"
+   },
+   "pruefung": [
+    {
+     "l": "150/2",
+     "rel": "==",
+     "r": "75"
+    },
+    {
+     "l": "60*0.5",
+     "rel": "==",
+     "r": "30"
+    },
+    {
+     "l": "30/60",
+     "rel": "==",
+     "r": "0.5"
+    },
+    {
+     "l": "120/80",
+     "rel": "==",
+     "r": "1.5"
+    },
+    {
+     "l": "75*2",
+     "rel": "==",
+     "r": "150"
+    },
+    {
+     "l": "150/75",
+     "rel": "==",
+     "r": "2"
+    },
+    {
+     "l": "2 > 0",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "75 > 0",
+     "rel": "==",
+     "r": "1"
+    }
+   ],
+   "fehler": {
+    "falsch": "Minuten ohne Umrechnen einsetzen: 60 km/h · 30 = 1 800. Das ist keine Strecke in km, denn 30 min sind nur 0,5 h.",
+    "richtig": "60 km/h · 0,5 h = 30 km.",
+    "pruefung": [
+     {
+      "l": "60*30",
+      "rel": "==",
+      "r": "1800"
+     },
+     {
+      "l": "60*30",
+      "rel": "!=",
+      "r": "30"
+     }
+    ]
+   },
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": null,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "gleichungen.formeln",
+      "lernziel": "einsetzen",
+      "wort": "v = s : t"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Nur das Gymnasium ist belegt (Gymnasium Klasse 8: gleichungen.formeln, Etappe einsetzen). Für die Realschule steht die Formel in keiner Etappe: Klasse offen (km/h kommt in groessen.indirekt vor, Realschule Klasse 7, aber ohne die Formel).",
+   "regeln": [],
+   "regeln_hinweis": "Keine Einzelregel nennt v = s : t. Umrechnung km/h und m/s steht in der Einheitentafel (einheiten.json, Geschwindigkeit).",
+   "stichwoerter": [
+    "Geschwindigkeit",
+    "Tempo",
+    "v = s : t",
+    "Weg durch Zeit",
+    "km/h",
+    "m/s",
+    "Strecke Zeit Geschwindigkeit",
+    "Durchschnittsgeschwindigkeit"
+   ]
+  },
+  {
+   "kennung": "nt-06",
+   "titel": "Dichte",
+   "art": "formel",
+   "formel": "ρ = m : V",
+   "umstellungen": [
+    "m = ρ · V",
+    "V = m : ρ"
+   ],
+   "bedingung": "Bei einem einheitlichen Stoff ist die Dichte überall gleich; bei uneinheitlichem Material liefert m : V die mittlere Dichte. Masse und Volumen müssen zu den Einheiten der Dichte passen: g und cm³ ergeben g/cm³. Zum Teilen: V > 0 für ρ = m : V, ρ > 0 für V = m : ρ",
+   "groessen": [
+    {
+     "zeichen": "ρ",
+     "name": "Dichte (sprich „rho“): Masse pro Volumen. Der Zahlenwert in g/cm³ ist die Masse von 1 cm³ in Gramm, in kg/m³ die Masse von 1 m³ in Kilogramm",
+     "einheit": "g/cm³ oder kg/m³"
+    },
+    {
+     "zeichen": "m",
+     "name": "Masse",
+     "einheit": "g oder kg"
+    },
+    {
+     "zeichen": "V",
+     "name": "Volumen",
+     "einheit": "cm³ oder m³"
+    }
+   ],
+   "schritte": [
+    "Schreibe auf, was gegeben ist (ρ, m oder V) und was gesucht ist.",
+    "Wähle die Formel: ρ = m : V, m = ρ · V oder V = m : ρ.",
+    "Setze mit Einheiten ein: g : cm³ ergibt g/cm³.",
+    "Prüfe die Einheit des Ergebnisses und ob der Wert sinnvoll ist (Wasser hat 1 g/cm³)."
+   ],
+   "zeichnung": "Dreieck-Merkhilfe wie bei der Geschwindigkeit: oben m, unten links ρ, unten rechts V. Daneben ein Würfel mit 1 cm Kante, beschriftet „1 cm³ Aluminium wiegt 2,7 g“.",
+   "beispiel": {
+    "aufgabe": "Ein Aluminiumstück hat die Masse 108 g und das Volumen 40 cm³. Wie groß ist die Dichte? Wie schwer sind 40 cm³ bei 2,7 g/cm³? Welches Volumen haben 108 g?",
+    "rechnung": "ρ = 108 g : 40 cm³ = 2,7 g/cm³. m = 2,7 g/cm³ · 40 cm³ = 108 g. V = 108 g : 2,7 g/cm³ = 40 cm³.",
+    "ergebnis": "2,7 g/cm³; 108 g; 40 cm³"
+   },
+   "pruefung": [
+    {
+     "l": "108/40",
+     "rel": "==",
+     "r": "2.7"
+    },
+    {
+     "l": "2.7*40",
+     "rel": "==",
+     "r": "108"
+    },
+    {
+     "l": "108/2.7",
+     "rel": "==",
+     "r": "40"
+    },
+    {
+     "l": "40 > 0",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "2.7 > 0",
+     "rel": "==",
+     "r": "1"
+    }
+   ],
+   "fehler": {
+    "falsch": "Die Formel umdrehen: ρ = V : m = 40 : 108 ≈ 0,37. Das ist keine Dichte, die Einheit cm³/g passt nicht.",
+    "richtig": "ρ = m : V = 108 g : 40 cm³ = 2,7 g/cm³.",
+    "pruefung": [
+     {
+      "l": "rund(40/108, 2)",
+      "rel": "==",
+      "r": "0.37"
+     },
+     {
+      "l": "40/108",
+      "rel": "!=",
+      "r": "2.7"
+     }
+    ]
+   },
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Klasse offen: Die Dichte steht in keiner Etappe der Themen (nur in Aufgaben, Gymnasium Klasse 8 und 10, Realschule Klasse 9) und kommt auch im Lehrplan-Auszug des Repos nicht als eigenes Lernziel vor.",
+   "regeln": [],
+   "regeln_hinweis": "Keine Einzelregel nennt die Dichte. Umrechnung g/cm³ und kg/m³ steht in der Einheitentafel (einheiten.json, Dichte).",
+   "stichwoerter": [
+    "Dichte",
+    "ρ",
+    "rho",
+    "Masse durch Volumen",
+    "ρ = m : V",
+    "g/cm³",
+    "kg/m³",
+    "wie schwer ist ein Stoff"
+   ]
+  },
+  {
+   "kennung": "nt-07",
+   "titel": "Quadratische Pyramide – Mantel und Oberfläche mit Seitenhöhe",
+   "art": "formel",
+   "figur": "Pyramide",
+   "formel": "M = 2 · a · hₛ",
+   "umstellungen": [
+    "O = a² + 2 · a · hₛ",
+    "hₛ² = h² + (a : 2)²"
+   ],
+   "bedingung": "Gerade Pyramide mit quadratischer Grundfläche (Seite a). hₛ ist die Höhe eines Seitendreiecks (senkrecht auf a), nicht die Höhe h der Pyramide und nicht die Kante",
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "Grundkante (Seite des Quadrats am Boden)",
+     "einheit": "cm"
+    },
+    {
+     "zeichen": "hₛ",
+     "name": "Seitenhöhe: Höhe eines Seitendreiecks, senkrecht auf a",
+     "einheit": "cm"
+    },
+    {
+     "zeichen": "h",
+     "name": "Höhe der Pyramide (nur, wenn hₛ erst berechnet werden muss)",
+     "einheit": "cm"
+    },
+    {
+     "zeichen": "M",
+     "name": "Mantel: alle vier Seitendreiecke zusammen",
+     "einheit": "cm²"
+    },
+    {
+     "zeichen": "O",
+     "name": "Oberfläche: Boden plus Mantel",
+     "einheit": "cm²"
+    }
+   ],
+   "schritte": [
+    "Prüfe, ob hₛ gegeben ist. Wenn nur h gegeben ist: hₛ² = h² + (a : 2)² mit dem Satz des Pythagoras, dann Wurzel ziehen.",
+    "Ein Seitendreieck hat die Fläche a · hₛ : 2. Vier Dreiecke: M = 4 · a · hₛ : 2 = 2 · a · hₛ.",
+    "Der Boden ist ein Quadrat: G = a · a.",
+    "Oberfläche O = G + M. Schreibe cm² dahinter."
+   ],
+   "zeichnung": "Pyramidennetz: Quadrat mit Seite a in der Mitte, an jeder Seite ein gleichschenkliges Dreieck. In einem Dreieck hₛ als gestrichelte Senkrechte von der Spitze auf die Mitte der Grundkante a, rechter Winkel markiert. Daneben Seitenansicht: Dreieck mit h (senkrecht), a : 2 (waagerecht) und hₛ (schräg) als rechtwinkliges Hilfsdreieck.",
+   "beispiel": {
+    "aufgabe": "Eine quadratische Pyramide hat die Grundkante a = 10 cm und die Höhe h = 12 cm. Berechne Mantel und Oberfläche.",
+    "rechnung": "a : 2 = 5 cm. hₛ² = 12² + 5² = 144 + 25 = 169, also hₛ = 13 cm. M = 2 · 10 cm · 13 cm = 260 cm². G = 10 cm · 10 cm = 100 cm². O = 100 cm² + 260 cm² = 360 cm².",
+    "ergebnis": "M = 260 cm²; O = 360 cm²"
+   },
+   "pruefung": [
+    {
+     "l": "10/2",
+     "rel": "==",
+     "r": "5"
+    },
+    {
+     "l": "12**2+5**2",
+     "rel": "==",
+     "r": "169"
+    },
+    {
+     "l": "13**2",
+     "rel": "==",
+     "r": "169"
+    },
+    {
+     "l": "2*10*13",
+     "rel": "==",
+     "r": "260"
+    },
+    {
+     "l": "4*(10*13/2)",
+     "rel": "==",
+     "r": "260"
+    },
+    {
+     "l": "10*10",
+     "rel": "==",
+     "r": "100"
+    },
+    {
+     "l": "100+260",
+     "rel": "==",
+     "r": "360"
+    }
+   ],
+   "fehler": {
+    "falsch": "Die Höhe h = 12 cm statt hₛ in die Mantelformel einsetzen: 2 · 10 cm · 12 cm = 240 cm². Die Pyramidenhöhe steht senkrecht im Inneren, nicht in der Seitenfläche.",
+    "richtig": "Erst hₛ = 13 cm berechnen: M = 2 · 10 cm · 13 cm = 260 cm².",
+    "pruefung": [
+     {
+      "l": "2*10*12",
+      "rel": "==",
+      "r": "240"
+     },
+     {
+      "l": "2*10*12",
+      "rel": "!=",
+      "r": "260"
+     }
+    ]
+   },
+   "ab_klasse": {
+    "gymnasium_by": 10,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "raum.pyramide_kegel_kugel",
+      "lernziel": "pyr_oberflaeche",
+      "wort": "Seitenhöhe"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F17",
+     "name": "Pyramide und Kegel",
+     "passt": "Mantel der Pyramide: Summe der Seitendreiecke, hier für das Quadrat als Grundfläche."
+    },
+    {
+     "kennung": "I-fur-4",
+     "name": "Haut des Körpers",
+     "passt": "Aufklappen zeigt Boden plus Seitendreiecke."
+    }
+   ],
+   "stichwoerter": [
+    "Pyramide",
+    "Mantel Pyramide",
+    "Oberfläche Pyramide",
+    "quadratische Pyramide",
+    "Seitenhöhe",
+    "zwei a h s",
+    "Pyramidenmantel"
+   ]
+  },
+  {
+   "kennung": "nt-08",
+   "titel": "Kreisring – Umfang (äußerer und innerer Rand)",
+   "art": "formel",
+   "figur": "Kreisring",
+   "formel": "äußerer Rand: uₐ = 2 · π · R; innerer Rand: uᵢ = 2 · π · r; Umfang des Kreisrings: u = uₐ + uᵢ = 2 · π · (R + r)",
+   "umstellungen": [
+    "Umfang des Kreisrings: u = uₐ + uᵢ = 2 · π · (R + r)"
+   ],
+   "bedingung": "Beide Kreise haben dieselbe Mitte. Der Umfang des Kreisrings ist die Summe seines äußeren und inneren Randes: u = 2 · π · (R + r). Voraussetzung R > r > 0",
+   "groessen": [
+    {
+     "zeichen": "R",
+     "name": "äußerer Radius (von der Mitte bis zum äußeren Rand)",
+     "einheit": "cm"
+    },
+    {
+     "zeichen": "r",
+     "name": "innerer Radius (von der Mitte bis zum inneren Rand)",
+     "einheit": "cm"
+    },
+    {
+     "zeichen": "uₐ",
+     "name": "Länge des äußeren Randes",
+     "einheit": "cm"
+    },
+    {
+     "zeichen": "uᵢ",
+     "name": "Länge des inneren Randes",
+     "einheit": "cm"
+    }
+   ],
+   "schritte": [
+    "Lies in der Aufgabe, was gemeint ist: der äußere Rand, der innere Rand oder der Umfang des Kreisrings (beide Ränder, z. B. Zaun außen und innen).",
+    "Außen: uₐ = 2 · π · R. Innen: uᵢ = 2 · π · r.",
+    "Für den Umfang des Kreisrings addiere: u = uₐ + uᵢ. Subtrahiere nie.",
+    "Schreibe cm dahinter und runde zuletzt."
+   ],
+   "zeichnung": "Zwei Kreise mit gemeinsamer Mitte M; der Ring dazwischen hell gefüllt. Der äußere Rand rot, der innere Rand blau nachziehen. R und r als Strecken von M zu den Rändern mit Maßpfeil.",
+   "beispiel": {
+    "aufgabe": "Ein Ring hat den äußeren Radius R = 5 cm und den inneren Radius r = 2 cm. Wie lang sind die beiden Ränder, und wie groß ist der Umfang des Kreisrings?",
+    "rechnung": "uₐ = 2 · π · 5 cm = 10π cm ≈ 31,42 cm. uᵢ = 2 · π · 2 cm = 4π cm ≈ 12,57 cm. Umfang: u = 10π cm + 4π cm = 14π cm ≈ 43,98 cm (aus 14π gerundet).",
+    "ergebnis": "uₐ ≈ 31,42 cm; uᵢ ≈ 12,57 cm; Umfang u = 14π cm ≈ 43,98 cm"
+   },
+   "pruefung": [
+    {
+     "l": "2*5",
+     "rel": "==",
+     "r": "10"
+    },
+    {
+     "l": "2*2",
+     "rel": "==",
+     "r": "4"
+    },
+    {
+     "l": "10+4",
+     "rel": "==",
+     "r": "14"
+    },
+    {
+     "l": "rund(10*pi, 2)",
+     "rel": "==",
+     "r": "31.42"
+    },
+    {
+     "l": "rund(4*pi, 2)",
+     "rel": "==",
+     "r": "12.57"
+    },
+    {
+     "l": "rund(14*pi, 2)",
+     "rel": "==",
+     "r": "43.98"
+    },
+    {
+     "l": "2*(5+2)",
+     "rel": "==",
+     "r": "14"
+    },
+    {
+     "l": "5 > 2 and 2 > 0",
+     "rel": "==",
+     "r": "1"
+    }
+   ],
+   "fehler": {
+    "falsch": "Wie bei der Fläche subtrahieren: 2 · π · (5 − 2) cm = 6π cm ≈ 18,85 cm. Das ist nur der Umfang eines Kreises mit Radius 3 cm, nicht der Umfang des Kreisrings.",
+    "richtig": "Jeden Rand einzeln rechnen, dann addieren: 10π cm + 4π cm = 14π cm ≈ 43,98 cm.",
+    "pruefung": [
+     {
+      "l": "2*(5-2)",
+      "rel": "==",
+      "r": "6"
+     },
+     {
+      "l": "rund(6*pi, 2)",
+      "rel": "==",
+      "r": "18.85"
+     },
+     {
+      "l": "2*(5-2)",
+      "rel": "!=",
+      "r": "14"
+     }
+    ]
+   },
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "messen.kreisberechnung",
+      "lernziel": "zusammengesetzt",
+      "wort": "Kreisring"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F9",
+     "name": "Kreis",
+     "passt": "Der Umfang eines Kreises ist 2 · π · r; hier zweimal angewandt, für jeden Rand einmal."
+    }
+   ],
+   "stichwoerter": [
+    "Kreisring",
+    "Umfang Kreisring",
+    "Ring Rand",
+    "innerer Rand äußerer Rand",
+    "Unterlegscheibe",
+    "beide Ränder"
+   ]
+  },
+  {
+   "kennung": "nt-09",
+   "titel": "Kongruenzsatz SSS (drei Seiten)",
+   "art": "kongruenz",
+   "formel": "SSS: a, b, c gegeben",
+   "bedingung": "Alle drei Seiten sind gegeben, und je zwei Seiten sind zusammen länger als die dritte. Alle Seitenlängen sind positiv, jeder Innenwinkel liegt zwischen 0° und 180°",
+   "groessen": [
+    {
+     "zeichen": "a, b, c",
+     "name": "die drei Seitenlängen des Dreiecks",
+     "einheit": "cm"
+    }
+   ],
+   "so_liegt_es": "Alle drei Seiten sind gegeben. Es ist kein Winkel gegeben. Die längste Seite c liegt unten, die Seiten a und b treffen sich oben im Punkt C.",
+   "schritte": [
+    "Zeichne die Seite c = 7 cm waagerecht. Ihre Endpunkte sind A und B.",
+    "Stich mit dem Zirkel um A einen Kreisbogen mit Radius b = 5 cm.",
+    "Stich mit dem Zirkel um B einen Kreisbogen mit Radius a = 6 cm.",
+    "Der Schnittpunkt der Bögen oben ist C. Verbinde C mit A und B. Es entsteht genau ein Dreieck, bis auf Spiegeln."
+   ],
+   "zeichnung": "Waagerechte Strecke AB unten (7 cm). Über AB zwei Kreisbögen: einer um A (Radius 5 cm), einer um B (Radius 6 cm); sie schneiden sich oben im Punkt C. Seiten mit Maßangabe beschriften, drei Striche-Markierungen für die drei gegebenen Seiten.",
+   "skizze": {
+    "punkte": {
+     "A": [
+      0,
+      0
+     ],
+     "B": [
+      7,
+      0
+     ],
+     "C": [
+      2.714,
+      4.199
+     ]
+    },
+    "markierungen": [
+     {
+      "typ": "seite",
+      "von": "A",
+      "nach": "B",
+      "text": "c = 7 cm"
+     },
+     {
+      "typ": "seite",
+      "von": "A",
+      "nach": "C",
+      "text": "b = 5 cm"
+     },
+     {
+      "typ": "seite",
+      "von": "B",
+      "nach": "C",
+      "text": "a = 6 cm"
+     }
+    ]
+   },
+   "beispiel": {
+    "aufgabe": "Reichen die Seiten 7 cm, 5 cm und 6 cm für genau ein Dreieck? Prüfe zuerst, ob zwei Seiten zusammen länger sind als die dritte.",
+    "rechnung": "5 cm + 6 cm = 11 cm, und 11 cm > 7 cm. 5 cm + 7 cm = 12 cm > 6 cm. 6 cm + 7 cm = 13 cm > 5 cm. Alle drei Prüfungen stimmen, also gibt es genau ein Dreieck (SSS).",
+    "ergebnis": "ja, genau ein Dreieck"
+   },
+   "pruefung": [
+    {
+     "l": "5+6 > 7",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "5+7 > 6",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "6+7 > 5",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "5+6",
+     "rel": "==",
+     "r": "11"
+    },
+    {
+     "l": "5+7",
+     "rel": "==",
+     "r": "12"
+    },
+    {
+     "l": "6+7",
+     "rel": "==",
+     "r": "13"
+    }
+   ],
+   "fehler": {
+    "falsch": "Die Dreiecksungleichung nicht prüfen: Mit 2 cm, 3 cm und 6 cm gibt es kein Dreieck, denn 2 cm + 3 cm = 5 cm ist kleiner als 6 cm. Die Bögen treffen sich nicht.",
+    "richtig": "Zwei Seiten zusammen müssen immer länger sein als die dritte.",
+    "pruefung": [
+     {
+      "l": "2+3",
+      "rel": "==",
+      "r": "5"
+     },
+     {
+      "l": "2+3 > 6",
+      "rel": "==",
+      "r": "0"
+     }
+    ]
+   },
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 7,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "geometrie.konstruktion",
+      "lernziel": "kongruenzsatz",
+      "wort": "SSS"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G10",
+     "name": "Kongruenzsätze",
+     "passt": "Drei passende Angaben legen ein Dreieck fest: SSS, SWS, WSW, SsW."
+    }
+   ],
+   "stichwoerter": [
+    "SSS",
+    "Kongruenzsatz SSS",
+    "drei Seiten",
+    "Dreieck aus drei Seiten",
+    "Dreieck konstruieren",
+    "Kongruenzsätze",
+    "Dreiecksungleichung"
+   ]
+  },
+  {
+   "kennung": "nt-10",
+   "titel": "Kongruenzsatz SWS (Seite, Winkel, Seite)",
+   "art": "kongruenz",
+   "formel": "SWS: b, c und der Winkel α zwischen b und c gegeben",
+   "bedingung": "Der gegebene Winkel liegt zwischen den beiden gegebenen Seiten. Alle Seitenlängen sind positiv, jeder Innenwinkel liegt zwischen 0° und 180°",
+   "groessen": [
+    {
+     "zeichen": "b, c",
+     "name": "zwei Seiten des Dreiecks",
+     "einheit": "cm"
+    },
+    {
+     "zeichen": "α",
+     "name": "der Winkel, der zwischen b und c liegt (an der Ecke A)",
+     "einheit": "°"
+    }
+   ],
+   "so_liegt_es": "Zwei Seiten sind gegeben und der Winkel, den sie einschließen. Der Winkel liegt genau zwischen den beiden Seiten, an der gemeinsamen Ecke A. Die Seite c liegt unten, die Seite b geht von A schräg nach oben.",
+   "schritte": [
+    "Zeichne die Seite c = 8 cm waagerecht. Endpunkte A und B.",
+    "Lege das Geodreieck an A an und trage α = 50° ab. Zeichne einen Strahl.",
+    "Miss auf dem Strahl von A aus b = 6 cm ab. Der Punkt ist C.",
+    "Verbinde C mit B. Das Dreieck ist festgelegt. Miss danach die gesuchte Länge BC mit dem Lineal."
+   ],
+   "zeichnung": "Waagerechte Strecke AB unten (8 cm). An A der Winkelbogen 50° zwischen AB und AC. AC schräg nach oben (6 cm). Winkelbogen deutlich zwischen den beiden gegebenen Seiten. BC gestrichelt (wird erst am Ende gezogen).",
+   "skizze": {
+    "punkte": {
+     "A": [
+      0,
+      0
+     ],
+     "B": [
+      8,
+      0
+     ],
+     "C": [
+      3.857,
+      4.596
+     ]
+    },
+    "markierungen": [
+     {
+      "typ": "seite",
+      "von": "A",
+      "nach": "B",
+      "text": "c = 8 cm"
+     },
+     {
+      "typ": "seite",
+      "von": "A",
+      "nach": "C",
+      "text": "b = 6 cm"
+     },
+     {
+      "typ": "winkel",
+      "scheitel": "A",
+      "von": "B",
+      "nach": "C",
+      "text": "α = 50°"
+     }
+    ]
+   },
+   "beispiel": {
+    "aufgabe": "Gegeben: b = 6 cm, c = 8 cm und α = 50° zwischen ihnen. Konstruiere das Dreieck, miss danach die dritte Seite a und gib an, ob das Dreieck festgelegt ist.",
+    "rechnung": "Die Angaben haben die Form Seite, Winkel dazwischen, Seite. Das ist SWS, das Dreieck ist eindeutig. Nach der Konstruktion misst du a = BC mit dem Lineal: etwa 6,2 cm. Spätere rechnerische Kontrolle (ab Klasse 10): Kosinussatz a² = 6² + 8² − 2 · 6 · 8 · cos 50° ≈ 36 + 64 − 61,71 = 38,29, also a ≈ 6,19 cm.",
+    "ergebnis": "SWS, eindeutig, a ≈ 6,2 cm (gemessen)"
+   },
+   "pruefung": [
+    {
+     "l": "6**2+8**2",
+     "rel": "==",
+     "r": "100"
+    },
+    {
+     "l": "rund(2*6*8*cos_d(50), 2)",
+     "rel": "==",
+     "r": "61.71"
+    },
+    {
+     "l": "rund(100-2*6*8*cos_d(50), 2)",
+     "rel": "==",
+     "r": "38.29"
+    },
+    {
+     "l": "rund(wurzel(100-2*6*8*cos_d(50)), 2)",
+     "rel": "==",
+     "r": "6.19"
+    },
+    {
+     "l": "6 > 0 and 8 > 0 and 0 < 50 and 50 < 180",
+     "rel": "==",
+     "r": "1"
+    }
+   ],
+   "fehler": {
+    "falsch": "Den Winkel nicht zwischen die Seiten legen. Beispiel: 6 cm, 8 cm und 30°, wobei der Winkel der 6-cm-Seite gegenüberliegt. Das ist kein SWS. Konstruktion: Seite AB = 8 cm, 30° an A, Kreisbogen mit 6 cm um B. Der Bogen schneidet den Strahl zweimal, du misst AC ≈ 11,4 cm oder AC ≈ 2,5 cm: zwei verschiedene Dreiecke.",
+    "richtig": "Bei SWS liegt der Winkel genau zwischen den beiden gegebenen Seiten, an ihrer gemeinsamen Ecke.",
+    "pruefung": [
+     {
+      "l": "rund(8*cos_d(30)+wurzel(6**2-(8*sin_d(30))**2), 1)",
+      "rel": "==",
+      "r": "11.4"
+     },
+     {
+      "l": "rund(8*cos_d(30)-wurzel(6**2-(8*sin_d(30))**2), 1)",
+      "rel": "==",
+      "r": "2.5"
+     },
+     {
+      "l": "8*sin_d(30) < 6 and 6 < 8",
+      "rel": "==",
+      "r": "1"
+     }
+    ]
+   },
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 7,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "geometrie.konstruktion",
+      "lernziel": "kongruenzsatz",
+      "wort": "SWS"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G10",
+     "name": "Kongruenzsätze",
+     "passt": "Drei passende Angaben legen ein Dreieck fest: SSS, SWS, WSW, SsW."
+    }
+   ],
+   "stichwoerter": [
+    "SWS",
+    "Kongruenzsatz SWS",
+    "zwei Seiten und der Winkel dazwischen",
+    "Dreieck aus Seite Winkel Seite",
+    "Dreieck konstruieren",
+    "Kongruenzsätze"
+   ]
+  },
+  {
+   "kennung": "nt-11",
+   "titel": "Kongruenzsatz WSW (Winkel, Seite, Winkel)",
+   "art": "kongruenz",
+   "formel": "WSW: c und die beiden Winkel α und β an den Enden von c gegeben",
+   "bedingung": "Die gegebene Seite liegt zwischen den beiden gegebenen Winkeln; die Winkel ergeben zusammen weniger als 180°. Alle Seitenlängen sind positiv, jeder Innenwinkel liegt zwischen 0° und 180°",
+   "groessen": [
+    {
+     "zeichen": "c",
+     "name": "eine Seite des Dreiecks",
+     "einheit": "cm"
+    },
+    {
+     "zeichen": "α, β",
+     "name": "die beiden Winkel an den Endpunkten dieser Seite",
+     "einheit": "°"
+    }
+   ],
+   "so_liegt_es": "Eine Seite ist gegeben und die beiden Winkel an ihren Enden. Die Seite c liegt unten, die beiden Winkel sitzen an ihren Enden A und B. Die dritte Ecke C ergibt sich oben.",
+   "schritte": [
+    "Zeichne die Seite c = 7 cm waagerecht. Endpunkte A und B.",
+    "Trage an A den Winkel α = 50° ab und zeichne einen Strahl nach oben.",
+    "Trage an B den Winkel β = 60° ab, nach links geöffnet, und zeichne einen Strahl.",
+    "Der Schnittpunkt beider Strahlen ist C. Das Dreieck ist festgelegt. Kontrolle: Der dritte Winkel ist 180° − 50° − 60° = 70°."
+   ],
+   "zeichnung": "Waagerechte Strecke AB unten (7 cm). An A der Winkelbogen 50°, an B der Winkelbogen 60° (zur Innenseite des Dreiecks). Zwei Strahlen nach oben, die sich in C schneiden. Die Seite AB liegt zwischen den beiden Winkelbögen.",
+   "skizze": {
+    "punkte": {
+     "A": [
+      0,
+      0
+     ],
+     "B": [
+      7,
+      0
+     ],
+     "C": [
+      4.147,
+      4.942
+     ]
+    },
+    "markierungen": [
+     {
+      "typ": "seite",
+      "von": "A",
+      "nach": "B",
+      "text": "c = 7 cm"
+     },
+     {
+      "typ": "winkel",
+      "scheitel": "A",
+      "von": "B",
+      "nach": "C",
+      "text": "α = 50°"
+     },
+     {
+      "typ": "winkel",
+      "scheitel": "B",
+      "von": "A",
+      "nach": "C",
+      "text": "β = 60°"
+     }
+    ]
+   },
+   "beispiel": {
+    "aufgabe": "Gegeben: c = 7 cm, α = 50°, β = 60°. Ist das Dreieck festgelegt, und wie groß ist der dritte Winkel γ?",
+    "rechnung": "Die Seite c liegt zwischen den Winkeln α und β. Das ist WSW, das Dreieck ist eindeutig. γ = 180° − 50° − 60° = 70°.",
+    "ergebnis": "WSW, eindeutig, γ = 70°"
+   },
+   "pruefung": [
+    {
+     "l": "180-50-60",
+     "rel": "==",
+     "r": "70"
+    },
+    {
+     "l": "50+60 < 180",
+     "rel": "==",
+     "r": "1"
+    }
+   ],
+   "fehler": {
+    "falsch": "Zwei Winkel mit 100° und 90° geben: Sie ergeben zusammen schon 190°, das ist mehr als 180°. Dann gibt es kein Dreieck, die beiden Strahlen treffen sich nie.",
+    "richtig": "Die beiden Winkel müssen zusammen kleiner als 180° sein.",
+    "pruefung": [
+     {
+      "l": "100+90",
+      "rel": "==",
+      "r": "190"
+     },
+     {
+      "l": "100+90 < 180",
+      "rel": "==",
+      "r": "0"
+     }
+    ]
+   },
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 7,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "geometrie.konstruktion",
+      "lernziel": "kongruenzsatz",
+      "wort": "WSW"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G10",
+     "name": "Kongruenzsätze",
+     "passt": "Drei passende Angaben legen ein Dreieck fest: SSS, SWS, WSW, SsW."
+    }
+   ],
+   "stichwoerter": [
+    "WSW",
+    "Kongruenzsatz WSW",
+    "zwei Winkel und die Seite dazwischen",
+    "Dreieck aus Winkel Seite Winkel",
+    "Dreieck konstruieren",
+    "Kongruenzsätze"
+   ]
+  },
+  {
+   "kennung": "nt-12",
+   "titel": "Kongruenzsatz SsW (zwei Seiten, Winkel der längeren Seite gegenüber)",
+   "art": "kongruenz",
+   "formel": "SsW: a, c und der Winkel γ gegenüber der längeren Seite c gegeben (c > a)",
+   "bedingung": "Der gegebene Winkel liegt der längeren der beiden gegebenen Seiten gegenüber. Alle Seitenlängen sind positiv, jeder Innenwinkel liegt zwischen 0° und 180°",
+   "groessen": [
+    {
+     "zeichen": "a, c",
+     "name": "zwei Seiten des Dreiecks; c ist die längere",
+     "einheit": "cm"
+    },
+    {
+     "zeichen": "γ",
+     "name": "der Winkel, der der längeren Seite c gegenüberliegt (an der Ecke C)",
+     "einheit": "°"
+    }
+   ],
+   "so_liegt_es": "Zwei Seiten sind gegeben und ein Winkel, der nicht zwischen ihnen liegt, sondern der längeren der beiden Seiten gegenüber. Die Seite a liegt unten (von C nach B), der Winkel γ sitzt an C. Die längere Seite c = AB liegt dem Winkel γ gegenüber.",
+   "schritte": [
+    "Zeichne die Seite a = 6 cm waagerecht. Endpunkte C (links) und B (rechts).",
+    "Trage an C den Winkel γ = 70° ab und zeichne einen Strahl nach oben.",
+    "Stich mit dem Zirkel um B einen Kreisbogen mit Radius c = 8 cm. Er schneidet den Strahl in A.",
+    "Verbinde A mit B. Weil c die längere Seite ist, schneidet der Bogen den Strahl nur einmal oberhalb von C: Es gibt genau ein Dreieck. Miss danach den gesuchten Winkel α an A mit dem Geodreieck."
+   ],
+   "zeichnung": "Waagerechte Strecke CB unten (6 cm), C links. An C Winkelbogen 70°, Strahl schräg nach oben rechts. Um B ein Kreisbogen mit 8 cm Radius; er schneidet den Strahl im Punkt A. Die Seite c = AB liegt dem Winkel γ gegenüber (gegenüberliegende Stelle durch Pfeil kennzeichnen).",
+   "skizze": {
+    "punkte": {
+     "C": [
+      0,
+      0
+     ],
+     "B": [
+      6,
+      0
+     ],
+     "A": [
+      2.643,
+      7.262
+     ]
+    },
+    "markierungen": [
+     {
+      "typ": "seite",
+      "von": "C",
+      "nach": "B",
+      "text": "a = 6 cm"
+     },
+     {
+      "typ": "seite",
+      "von": "A",
+      "nach": "B",
+      "text": "c = 8 cm"
+     },
+     {
+      "typ": "winkel",
+      "scheitel": "C",
+      "von": "B",
+      "nach": "A",
+      "text": "γ = 70°"
+     }
+    ]
+   },
+   "beispiel": {
+    "aufgabe": "Gegeben: a = 6 cm, c = 8 cm und γ = 70° (γ liegt gegenüber von c). Konstruiere das Dreieck, miss danach den Winkel α an A und gib an, ob das Dreieck eindeutig ist.",
+    "rechnung": "c = 8 cm ist länger als a = 6 cm, und γ liegt c gegenüber. Das ist SsW, das Dreieck ist eindeutig. Nach der Konstruktion misst du α mit dem Geodreieck: etwa 45°. Spätere rechnerische Kontrolle (ab Klasse 10): Sinussatz sin α = a · sin γ : c = 6 · sin 70° : 8 ≈ 0,705, also α ≈ 44,8°.",
+    "ergebnis": "SsW, eindeutig, α ≈ 45° (gemessen)"
+   },
+   "pruefung": [
+    {
+     "l": "8 > 6",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "rund(6*sin_d(70)/8, 3)",
+     "rel": "==",
+     "r": "0.705"
+    },
+    {
+     "l": "rund(asin_d(6*sin_d(70)/8), 1)",
+     "rel": "==",
+     "r": "44.8"
+    },
+    {
+     "l": "6 > 0 and 8 > 0 and 0 < 70 and 70 < 180",
+     "rel": "==",
+     "r": "1"
+    }
+   ],
+   "fehler": {
+    "falsch": "Den Winkel der kürzeren Seite gegenüber geben: a = 5 cm, c = 8 cm und α = 30° (gegenüber von a, der kürzeren Seite). Konstruktion: AB = 8 cm, 30° an A, Kreisbogen mit 5 cm um B. Der Bogen schneidet den Strahl zweimal, du misst AC ≈ 9,9 cm oder AC ≈ 3,9 cm: zwei verschiedene Dreiecke. SsW gilt dann nicht.",
+    "richtig": "Der gegebene Winkel muss der längeren Seite gegenüberliegen.",
+    "pruefung": [
+     {
+      "l": "rund(8*cos_d(30)+wurzel(5**2-(8*sin_d(30))**2), 1)",
+      "rel": "==",
+      "r": "9.9"
+     },
+     {
+      "l": "rund(8*cos_d(30)-wurzel(5**2-(8*sin_d(30))**2), 1)",
+      "rel": "==",
+      "r": "3.9"
+     },
+     {
+      "l": "8*sin_d(30) < 5 and 5 < 8",
+      "rel": "==",
+      "r": "1"
+     }
+    ]
+   },
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 7,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "geometrie.konstruktion",
+      "lernziel": "kongruenzsatz",
+      "wort": "SsW"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G10",
+     "name": "Kongruenzsätze",
+     "passt": "Drei passende Angaben legen ein Dreieck fest: SSS, SWS, WSW, SsW."
+    }
+   ],
+   "stichwoerter": [
+    "SsW",
+    "Kongruenzsatz SsW",
+    "zwei Seiten und der Winkel der längeren Seite gegenüber",
+    "Dreieck aus Seite Seite Winkel",
+    "Dreieck konstruieren",
+    "Kongruenzsätze",
+    "SSW"
+   ]
+  }
+ ],
+ "kurzformen_proben": {
+  "D3": [
+   {
+    "l": "(4+6+8+10)/4",
+    "rel": "==",
+    "r": "7"
+   },
+   {
+    "l": "4+6+8+10",
+    "rel": "==",
+    "r": "28"
+   },
+   {
+    "l": "28/4",
+    "rel": "==",
+    "r": "7"
+   }
+  ],
+  "D4": [
+   {
+    "l": "(3+5)/2",
+    "rel": "==",
+    "r": "4"
+   },
+   {
+    "l": "7-1",
+    "rel": "==",
+    "r": "6"
+   },
+   {
+    "l": "(3+5)/2",
+    "rel": "!=",
+    "r": "5"
+   }
+  ],
+  "D13": [
+   {
+    "l": "3/6",
+    "rel": "==",
+    "r": "1/2"
+   },
+   {
+    "l": "6/36",
+    "rel": "==",
+    "r": "1/6"
+   },
+   {
+    "l": "1/11",
+    "rel": "!=",
+    "r": "6/36"
+   }
+  ],
+  "U7": [
+   {
+    "l": "(7-3)/(3-1)",
+    "rel": "==",
+    "r": "2"
+   },
+   {
+    "l": "3-2*1",
+    "rel": "==",
+    "r": "1"
+   },
+   {
+    "l": "2*3+1",
+    "rel": "==",
+    "r": "7"
+   }
+  ],
+  "G24": [
+   {
+    "l": "3**2+4**2",
+    "rel": "==",
+    "r": "5**2"
+   },
+   {
+    "l": "5**2+12**2",
+    "rel": "==",
+    "r": "13**2"
+   },
+   {
+    "l": "3+4",
+    "rel": "!=",
+    "r": "5"
+   }
+  ],
+  "G25": [
+   {
+    "l": "3/5",
+    "rel": "==",
+    "r": "0.6"
+   },
+   {
+    "l": "(3/5)**2+(4/5)**2",
+    "rel": "==",
+    "r": "1"
+   },
+   {
+    "l": "(3/5)/(4/5)",
+    "rel": "==",
+    "r": "3/4"
+   }
+  ],
+  "A19": [
+   {
+    "l": "(-5)**2-4*1*6",
+    "rel": "==",
+    "r": "1"
+   },
+   {
+    "l": "(5+1)/2",
+    "rel": "==",
+    "r": "3"
+   },
+   {
+    "l": "3**2-5*3+6",
+    "rel": "==",
+    "r": "0"
+   },
+   {
+    "l": "1**2-4*1*1",
+    "rel": "<",
+    "r": "0"
+   }
+  ]
+ }
+}

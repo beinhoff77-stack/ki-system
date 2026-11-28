@@ -1,0 +1,982 @@
+{
+ "hinweis": "Inhalte für die Nachschlage-Tafel „Zahlen“ (Entwurf, nichts in die App eingespielt). Geprüft mit ../pruefen.py. Schreibweise wie im Bestand: Tausender mit Leerzeichen, Malpunkt „·“, Geteilt „:“.",
+ "stand": "2026-11-27",
+ "tafel": "zahlen",
+ "titel": "Zahlen zum Nachschlagen",
+ "eintraege": [
+  {
+   "kennung": "zz-01",
+   "titel": "Quadratzahlen bis 20² (und 25²)",
+   "art": "liste",
+   "merksatz": "n² heißt n · n: die Zahl mal sich selbst.",
+   "liste": [
+    {
+     "n": 0,
+     "text": "0² = 0",
+     "quadrat": 0
+    },
+    {
+     "n": 1,
+     "text": "1² = 1",
+     "quadrat": 1
+    },
+    {
+     "n": 2,
+     "text": "2² = 4",
+     "quadrat": 4
+    },
+    {
+     "n": 3,
+     "text": "3² = 9",
+     "quadrat": 9
+    },
+    {
+     "n": 4,
+     "text": "4² = 16",
+     "quadrat": 16
+    },
+    {
+     "n": 5,
+     "text": "5² = 25",
+     "quadrat": 25
+    },
+    {
+     "n": 6,
+     "text": "6² = 36",
+     "quadrat": 36
+    },
+    {
+     "n": 7,
+     "text": "7² = 49",
+     "quadrat": 49
+    },
+    {
+     "n": 8,
+     "text": "8² = 64",
+     "quadrat": 64
+    },
+    {
+     "n": 9,
+     "text": "9² = 81",
+     "quadrat": 81
+    },
+    {
+     "n": 10,
+     "text": "10² = 100",
+     "quadrat": 100
+    },
+    {
+     "n": 11,
+     "text": "11² = 121",
+     "quadrat": 121
+    },
+    {
+     "n": 12,
+     "text": "12² = 144",
+     "quadrat": 144
+    },
+    {
+     "n": 13,
+     "text": "13² = 169",
+     "quadrat": 169
+    },
+    {
+     "n": 14,
+     "text": "14² = 196",
+     "quadrat": 196
+    },
+    {
+     "n": 15,
+     "text": "15² = 225",
+     "quadrat": 225
+    },
+    {
+     "n": 16,
+     "text": "16² = 256",
+     "quadrat": 256
+    },
+    {
+     "n": 17,
+     "text": "17² = 289",
+     "quadrat": 289
+    },
+    {
+     "n": 18,
+     "text": "18² = 324",
+     "quadrat": 324
+    },
+    {
+     "n": 19,
+     "text": "19² = 361",
+     "quadrat": 361
+    },
+    {
+     "n": 20,
+     "text": "20² = 400",
+     "quadrat": 400
+    },
+    {
+     "n": 25,
+     "text": "25² = 625",
+     "quadrat": 625
+    }
+   ],
+   "trick": {
+    "text": "Endet die Zahl auf 5, rechne: Zehnerziffer z mal (z + 1), dahinter 25. Beispiel 35²: 3 · 4 = 12, dahinter 25 ergibt 1 225.",
+    "zahl": 35,
+    "quadrat": 1225
+   },
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.potenzen_basis",
+      "lernziel": "quadrat",
+      "wort": "Quadratzahl"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z15",
+     "name": "Quadratzahlen",
+     "passt": "Quadratzahlen bis 20² weiß man auswendig."
+    }
+   ],
+   "stichwoerter": [
+    "Quadratzahlen",
+    "Quadratzahl",
+    "hoch 2",
+    "zum Quadrat",
+    "n²",
+    "Quadrattafel"
+   ]
+  },
+  {
+   "kennung": "zz-02",
+   "titel": "Kubikzahlen bis 10³",
+   "art": "liste",
+   "merksatz": "n³ heißt n · n · n: die Zahl dreimal malnehmen.",
+   "liste": [
+    {
+     "n": 0,
+     "text": "0³ = 0",
+     "kubik": 0
+    },
+    {
+     "n": 1,
+     "text": "1³ = 1",
+     "kubik": 1
+    },
+    {
+     "n": 2,
+     "text": "2³ = 8",
+     "kubik": 8
+    },
+    {
+     "n": 3,
+     "text": "3³ = 27",
+     "kubik": 27
+    },
+    {
+     "n": 4,
+     "text": "4³ = 64",
+     "kubik": 64
+    },
+    {
+     "n": 5,
+     "text": "5³ = 125",
+     "kubik": 125
+    },
+    {
+     "n": 6,
+     "text": "6³ = 216",
+     "kubik": 216
+    },
+    {
+     "n": 7,
+     "text": "7³ = 343",
+     "kubik": 343
+    },
+    {
+     "n": 8,
+     "text": "8³ = 512",
+     "kubik": 512
+    },
+    {
+     "n": 9,
+     "text": "9³ = 729",
+     "kubik": 729
+    },
+    {
+     "n": 10,
+     "text": "10³ = 1 000",
+     "kubik": 1000
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.potenzen_basis",
+      "lernziel": "vertauschen",
+      "wort": "2³ = 2 · 2 · 2 = 8"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Das Wort „Kubikzahl“ und die Liste kommen im Bestand nicht vor; die Rechnung „hoch 3“ steht in zahlen.potenzen_basis (Klasse 5), 7³ = 343 in zahlen.wurzeln_basis (Klasse 9).",
+   "regeln": [
+    {
+     "kennung": "R8",
+     "name": "Potenzen",
+     "passt": "Hoch drei heißt: die Zahl dreimal hinschreiben und malnehmen."
+    }
+   ],
+   "stichwoerter": [
+    "Kubikzahlen",
+    "Kubikzahl",
+    "hoch 3",
+    "hoch drei",
+    "zur dritten Potenz",
+    "n³"
+   ]
+  },
+  {
+   "kennung": "zz-03",
+   "titel": "Zweierpotenzen 2⁰ bis 2¹⁰",
+   "art": "liste",
+   "merksatz": "Von einer Zweierpotenz zur nächsten verdoppelt sich der Wert; 2⁰ ist 1.",
+   "liste": [
+    {
+     "exponent": 0,
+     "text": "2⁰ = 1",
+     "wert": 1
+    },
+    {
+     "exponent": 1,
+     "text": "2¹ = 2",
+     "wert": 2
+    },
+    {
+     "exponent": 2,
+     "text": "2² = 4",
+     "wert": 4
+    },
+    {
+     "exponent": 3,
+     "text": "2³ = 8",
+     "wert": 8
+    },
+    {
+     "exponent": 4,
+     "text": "2⁴ = 16",
+     "wert": 16
+    },
+    {
+     "exponent": 5,
+     "text": "2⁵ = 32",
+     "wert": 32
+    },
+    {
+     "exponent": 6,
+     "text": "2⁶ = 64",
+     "wert": 64
+    },
+    {
+     "exponent": 7,
+     "text": "2⁷ = 128",
+     "wert": 128
+    },
+    {
+     "exponent": 8,
+     "text": "2⁸ = 256",
+     "wert": 256
+    },
+    {
+     "exponent": 9,
+     "text": "2⁹ = 512",
+     "wert": 512
+    },
+    {
+     "exponent": 10,
+     "text": "2¹⁰ = 1 024",
+     "wert": 1024
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.potenzen_basis",
+      "lernziel": "sach",
+      "wort": "5-mal verdoppeln heißt 2⁵-mal so viel"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "R8",
+     "name": "Potenzen",
+     "passt": "2ⁿ heißt: die 2 n-mal hinschreiben und malnehmen; 2⁰ = 1."
+    },
+    {
+     "kennung": "Z3",
+     "name": "Andere Zahlschriften",
+     "passt": "Das Zweiersystem bündelt in Zweiern; seine Stellenwerte sind Zweierpotenzen."
+    }
+   ],
+   "stichwoerter": [
+    "Zweierpotenzen",
+    "Zweierpotenz",
+    "Potenzen von 2",
+    "verdoppeln",
+    "Zweiersystem",
+    "2 hoch n",
+    "Dualsystem"
+   ]
+  },
+  {
+   "kennung": "zz-04",
+   "titel": "Zehnerpotenzen 10⁰ bis 10¹² mit Namen",
+   "art": "liste",
+   "merksatz": "10ⁿ ist eine 1 mit n Nullen.",
+   "liste": [
+    {
+     "exponent": 0,
+     "potenz": "10⁰",
+     "zahl": "1",
+     "name": "Eins",
+     "nullen": 0
+    },
+    {
+     "exponent": 1,
+     "potenz": "10¹",
+     "zahl": "10",
+     "name": "Zehn",
+     "nullen": 1
+    },
+    {
+     "exponent": 2,
+     "potenz": "10²",
+     "zahl": "100",
+     "name": "Hundert",
+     "nullen": 2
+    },
+    {
+     "exponent": 3,
+     "potenz": "10³",
+     "zahl": "1 000",
+     "name": "Tausend",
+     "nullen": 3
+    },
+    {
+     "exponent": 4,
+     "potenz": "10⁴",
+     "zahl": "10 000",
+     "name": "Zehntausend",
+     "nullen": 4
+    },
+    {
+     "exponent": 5,
+     "potenz": "10⁵",
+     "zahl": "100 000",
+     "name": "Hunderttausend",
+     "nullen": 5
+    },
+    {
+     "exponent": 6,
+     "potenz": "10⁶",
+     "zahl": "1 000 000",
+     "name": "Million",
+     "nullen": 6
+    },
+    {
+     "exponent": 7,
+     "potenz": "10⁷",
+     "zahl": "10 000 000",
+     "name": "Zehn Millionen",
+     "nullen": 7
+    },
+    {
+     "exponent": 8,
+     "potenz": "10⁸",
+     "zahl": "100 000 000",
+     "name": "Hundert Millionen",
+     "nullen": 8
+    },
+    {
+     "exponent": 9,
+     "potenz": "10⁹",
+     "zahl": "1 000 000 000",
+     "name": "Milliarde",
+     "nullen": 9
+    },
+    {
+     "exponent": 10,
+     "potenz": "10¹⁰",
+     "zahl": "10 000 000 000",
+     "name": "Zehn Milliarden",
+     "nullen": 10
+    },
+    {
+     "exponent": 11,
+     "potenz": "10¹¹",
+     "zahl": "100 000 000 000",
+     "name": "Hundert Milliarden",
+     "nullen": 11
+    },
+    {
+     "exponent": 12,
+     "potenz": "10¹²",
+     "zahl": "1 000 000 000 000",
+     "name": "Billion",
+     "nullen": 12
+    }
+   ],
+   "hinweis": "Billion heißt hier 10¹² (eine 1 mit zwölf Nullen), so wie im Deutschen; im Englischen heißt „billion“ 10⁹.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.potenzen_basis",
+      "lernziel": "zehner",
+      "wort": "Zehnerpotenz"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z18",
+     "name": "Zehnerpotenzen",
+     "passt": "10ⁿ ist eine 1 mit n Nullen."
+    }
+   ],
+   "stichwoerter": [
+    "Zehnerpotenzen",
+    "Zehnerpotenz",
+    "10 hoch",
+    "Million",
+    "Milliarde",
+    "Billion",
+    "wie viele Nullen",
+    "Nullen zählen"
+   ]
+  },
+  {
+   "kennung": "zz-05",
+   "titel": "Zehnerpotenzen 10⁻¹ bis 10⁻⁶ mit Namen",
+   "art": "liste",
+   "merksatz": "10⁻ⁿ: die 1 steht an der n-ten Stelle hinter dem Komma. Die Zahl ist klein, nicht negativ.",
+   "liste": [
+    {
+     "exponent": -1,
+     "potenz": "10⁻¹",
+     "zahl": "0,1",
+     "name": "Zehntel",
+     "nachkommastellen": 1
+    },
+    {
+     "exponent": -2,
+     "potenz": "10⁻²",
+     "zahl": "0,01",
+     "name": "Hundertstel",
+     "nachkommastellen": 2
+    },
+    {
+     "exponent": -3,
+     "potenz": "10⁻³",
+     "zahl": "0,001",
+     "name": "Tausendstel",
+     "nachkommastellen": 3
+    },
+    {
+     "exponent": -4,
+     "potenz": "10⁻⁴",
+     "zahl": "0,0001",
+     "name": "Zehntausendstel",
+     "nachkommastellen": 4
+    },
+    {
+     "exponent": -5,
+     "potenz": "10⁻⁵",
+     "zahl": "0,00001",
+     "name": "Hunderttausendstel",
+     "nachkommastellen": 5
+    },
+    {
+     "exponent": -6,
+     "potenz": "10⁻⁶",
+     "zahl": "0,000001",
+     "name": "Millionstel",
+     "nachkommastellen": 6
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 7,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "zahlen.potenzen_zehner",
+      "lernziel": "negativer_exponent",
+      "wort": "10⁻⁴"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z18",
+     "name": "Zehnerpotenzen",
+     "passt": "10⁻ⁿ hat n Stellen hinter dem Komma; die 1 steht an der n-ten Stelle."
+    }
+   ],
+   "stichwoerter": [
+    "Zehnerpotenzen negativ",
+    "10 hoch minus",
+    "Zehntel",
+    "Hundertstel",
+    "Tausendstel",
+    "Millionstel"
+   ]
+  },
+  {
+   "kennung": "zz-06",
+   "titel": "Primzahlen bis 100",
+   "art": "primzahlen",
+   "merksatz": "Eine Primzahl hat genau zwei Teiler: 1 und sich selbst. Die 1 ist keine Primzahl; die 2 ist die einzige gerade.",
+   "liste": [
+    2,
+    3,
+    5,
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    29,
+    31,
+    37,
+    41,
+    43,
+    47,
+    53,
+    59,
+    61,
+    67,
+    71,
+    73,
+    79,
+    83,
+    89,
+    97
+   ],
+   "anzahl": 25,
+   "so_testest_du": "Für eine Zahl von 2 bis 100: Ist es 2, 3, 5 oder 7, ist sie prim. Sonst teile sie einzeln durch 2, 3, 5 und 7. Geht keine Division ohne Rest auf, ist sie eine Primzahl.",
+   "warum_nur_bis_7": "Eine zusammengesetzte Zahl bis 100 hat einen Teiler von höchstens 7, denn 11 · 11 = 121 ist schon größer als 100. Für 97 reicht es sogar bis √97, das ist knapp unter 10: 9 · 9 = 81 und 10 · 10 = 100. Die Primteiler bis dahin sind 2, 3, 5 und 7.",
+   "beispiele": [
+    {
+     "zahl": 91,
+     "prim": false,
+     "weg": "91 ist nicht durch 2, 3, 5 teilbar, aber 7 · 13 = 91. Also keine Primzahl."
+    },
+    {
+     "zahl": 97,
+     "prim": true,
+     "weg": "97 : 2 ist 48 Rest 1; 97 : 3 ist 32 Rest 1; 97 : 5 ist 19 Rest 2; 97 : 7 ist 13 Rest 6. Kein Rest ist 0, weitere Primteiler bis √97 gibt es nicht: Primzahl."
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.teilbarkeit",
+      "lernziel": "primzahl",
+      "wort": "Primzahl"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z8",
+     "name": "Primzahlen und Primfaktoren",
+     "passt": "Eine Primzahl hat genau zwei Teiler: 1 und sich selbst."
+    }
+   ],
+   "stichwoerter": [
+    "Primzahlen",
+    "Primzahl",
+    "Primzahlen bis 100",
+    "ist das eine Primzahl",
+    "Primzahltafel",
+    "Sieb des Eratosthenes"
+   ]
+  },
+  {
+   "kennung": "zz-07",
+   "titel": "Teilbar durch 2",
+   "art": "teilbarkeit",
+   "teiler": 2,
+   "sieh_an": "letzte Ziffer",
+   "regel_text": "Sieh nur die letzte Ziffer an. Ist sie 0, 2, 4, 6 oder 8, ist die Zahl durch 2 teilbar.",
+   "ja": {
+    "zahl": "7 314",
+    "weg": "Letzte Ziffer 4: gerade, also durch 2 teilbar."
+   },
+   "nein": {
+    "zahl": "7 315",
+    "weg": "Letzte Ziffer 5: ungerade, also nicht durch 2 teilbar."
+   },
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.teilbarkeit",
+      "lernziel": "endziffer",
+      "wort": "Endziffer"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z7",
+     "name": "Teilbarkeitsregeln",
+     "passt": "Durch 2, 5 und 10: letzte Ziffer ansehen."
+    }
+   ],
+   "stichwoerter": [
+    "teilbar durch 2",
+    "Teilbarkeit",
+    "Teilbarkeitsregel",
+    "Teilbarkeitsregeln",
+    "durch 2 teilbar",
+    "Endziffer",
+    "Quersumme"
+   ]
+  },
+  {
+   "kennung": "zz-08",
+   "titel": "Teilbar durch 3",
+   "art": "teilbarkeit",
+   "teiler": 3,
+   "sieh_an": "Quersumme",
+   "regel_text": "Zähle alle Ziffern zusammen (Quersumme). Ist die Quersumme durch 3 teilbar, dann auch die Zahl.",
+   "ja": {
+    "zahl": "5 214",
+    "weg": "Quersumme: 5 + 2 + 1 + 4 = 12; 12 : 3 = 4, also durch 3 teilbar."
+   },
+   "nein": {
+    "zahl": "5 215",
+    "weg": "Quersumme: 5 + 2 + 1 + 5 = 13; 13 ist nicht durch 3 teilbar, also die Zahl auch nicht."
+   },
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.teilbarkeit",
+      "lernziel": "quersumme",
+      "wort": "Quersumme"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z7",
+     "name": "Teilbarkeitsregeln",
+     "passt": "Durch 3 und 9: Quersumme ansehen."
+    }
+   ],
+   "stichwoerter": [
+    "teilbar durch 3",
+    "Teilbarkeit",
+    "Teilbarkeitsregel",
+    "Teilbarkeitsregeln",
+    "durch 3 teilbar",
+    "Endziffer",
+    "Quersumme"
+   ]
+  },
+  {
+   "kennung": "zz-09",
+   "titel": "Teilbar durch 4",
+   "art": "teilbarkeit",
+   "teiler": 4,
+   "sieh_an": "letzte zwei Ziffern",
+   "regel_text": "Sieh die letzten zwei Ziffern als Zahl an. Ist sie durch 4 teilbar (auch 00), dann auch die ganze Zahl.",
+   "ja": {
+    "zahl": "3 124",
+    "weg": "Letzte zwei Ziffern: 24; 24 : 4 = 6, also durch 4 teilbar."
+   },
+   "nein": {
+    "zahl": "3 126",
+    "weg": "Letzte zwei Ziffern: 26; 4 · 6 = 24 und 4 · 7 = 28, also nicht durch 4 teilbar."
+   },
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Im Bestand steht für 4 nur der Vorgriff „letzte zwei Ziffern“ im Feld voraus von Z7; ein eigenes Lernziel gibt es nicht.",
+   "regeln": [],
+   "regeln_hinweis": "Z7 nennt nur 2, 3, 5, 9 und 10; für 4 fehlt eine passende Einzelregel.",
+   "stichwoerter": [
+    "teilbar durch 4",
+    "Teilbarkeit",
+    "Teilbarkeitsregel",
+    "Teilbarkeitsregeln",
+    "durch 4 teilbar",
+    "Endziffer",
+    "Quersumme"
+   ]
+  },
+  {
+   "kennung": "zz-10",
+   "titel": "Teilbar durch 5",
+   "art": "teilbarkeit",
+   "teiler": 5,
+   "sieh_an": "letzte Ziffer",
+   "regel_text": "Sieh nur die letzte Ziffer an. Ist sie 0 oder 5, ist die Zahl durch 5 teilbar.",
+   "ja": {
+    "zahl": "1 235",
+    "weg": "Letzte Ziffer 5: durch 5 teilbar."
+   },
+   "nein": {
+    "zahl": "1 236",
+    "weg": "Letzte Ziffer 6: nicht durch 5 teilbar."
+   },
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.teilbarkeit",
+      "lernziel": "endziffer",
+      "wort": "Endziffer"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z7",
+     "name": "Teilbarkeitsregeln",
+     "passt": "Durch 2, 5 und 10: letzte Ziffer ansehen."
+    }
+   ],
+   "stichwoerter": [
+    "teilbar durch 5",
+    "Teilbarkeit",
+    "Teilbarkeitsregel",
+    "Teilbarkeitsregeln",
+    "durch 5 teilbar",
+    "Endziffer",
+    "Quersumme"
+   ]
+  },
+  {
+   "kennung": "zz-11",
+   "titel": "Teilbar durch 6",
+   "art": "teilbarkeit",
+   "teiler": 6,
+   "sieh_an": "durch 2 und durch 3",
+   "regel_text": "Prüfe beides: Die Zahl muss durch 2 und durch 3 teilbar sein (gerade und Quersumme durch 3).",
+   "ja": {
+    "zahl": "4 218",
+    "weg": "Letzte Ziffer 8: gerade. Quersumme: 4 + 2 + 1 + 8 = 15; 15 : 3 = 5. Beides stimmt: durch 6 teilbar."
+   },
+   "nein": {
+    "zahl": "4 216",
+    "weg": "Letzte Ziffer 6: gerade. Quersumme: 4 + 2 + 1 + 6 = 13; 13 ist nicht durch 3 teilbar. Es stimmt nur eins von beiden: nicht durch 6 teilbar."
+   },
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Im Bestand gibt es keine Regel für 6.",
+   "regeln": [],
+   "regeln_hinweis": "Z7 nennt nur 2, 3, 5, 9 und 10; für 6 fehlt eine passende Einzelregel.",
+   "stichwoerter": [
+    "teilbar durch 6",
+    "Teilbarkeit",
+    "Teilbarkeitsregel",
+    "Teilbarkeitsregeln",
+    "durch 6 teilbar",
+    "Endziffer",
+    "Quersumme"
+   ]
+  },
+  {
+   "kennung": "zz-12",
+   "titel": "Teilbar durch 8",
+   "art": "teilbarkeit",
+   "teiler": 8,
+   "sieh_an": "letzte drei Ziffern",
+   "regel_text": "Sieh die letzten drei Ziffern als Zahl an. Ist sie durch 8 teilbar (auch 000), dann auch die ganze Zahl.",
+   "ja": {
+    "zahl": "5 128",
+    "weg": "Letzte drei Ziffern: 128; 128 : 8 = 16, also durch 8 teilbar."
+   },
+   "nein": {
+    "zahl": "5 124",
+    "weg": "Letzte drei Ziffern: 124; 8 · 15 = 120 und 8 · 16 = 128, also nicht durch 8 teilbar."
+   },
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Im Bestand gibt es keine Regel für 8.",
+   "regeln": [],
+   "regeln_hinweis": "Z7 nennt nur 2, 3, 5, 9 und 10; für 8 fehlt eine passende Einzelregel.",
+   "stichwoerter": [
+    "teilbar durch 8",
+    "Teilbarkeit",
+    "Teilbarkeitsregel",
+    "Teilbarkeitsregeln",
+    "durch 8 teilbar",
+    "Endziffer",
+    "Quersumme"
+   ]
+  },
+  {
+   "kennung": "zz-13",
+   "titel": "Teilbar durch 9",
+   "art": "teilbarkeit",
+   "teiler": 9,
+   "sieh_an": "Quersumme",
+   "regel_text": "Zähle alle Ziffern zusammen (Quersumme). Ist die Quersumme durch 9 teilbar, dann auch die Zahl.",
+   "ja": {
+    "zahl": "6 345",
+    "weg": "Quersumme: 6 + 3 + 4 + 5 = 18; 18 : 9 = 2, also durch 9 teilbar."
+   },
+   "nein": {
+    "zahl": "6 346",
+    "weg": "Quersumme: 6 + 3 + 4 + 6 = 19; 19 ist nicht durch 9 teilbar, also die Zahl auch nicht."
+   },
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.teilbarkeit",
+      "lernziel": "neunerregel",
+      "wort": "Quersumme"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z7",
+     "name": "Teilbarkeitsregeln",
+     "passt": "Durch 3 und 9: Quersumme ansehen."
+    }
+   ],
+   "stichwoerter": [
+    "teilbar durch 9",
+    "Teilbarkeit",
+    "Teilbarkeitsregel",
+    "Teilbarkeitsregeln",
+    "durch 9 teilbar",
+    "Endziffer",
+    "Quersumme"
+   ]
+  },
+  {
+   "kennung": "zz-14",
+   "titel": "Teilbar durch 10",
+   "art": "teilbarkeit",
+   "teiler": 10,
+   "sieh_an": "letzte Ziffer",
+   "regel_text": "Sieh nur die letzte Ziffer an. Ist sie 0, ist die Zahl durch 10 teilbar.",
+   "ja": {
+    "zahl": "8 560",
+    "weg": "Letzte Ziffer 0: durch 10 teilbar."
+   },
+   "nein": {
+    "zahl": "8 565",
+    "weg": "Letzte Ziffer 5: nicht durch 10 teilbar (aber durch 5)."
+   },
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.teilbarkeit",
+      "lernziel": "endziffer",
+      "wort": "Endziffer"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z7",
+     "name": "Teilbarkeitsregeln",
+     "passt": "Durch 2, 5 und 10: letzte Ziffer ansehen."
+    }
+   ],
+   "stichwoerter": [
+    "teilbar durch 10",
+    "Teilbarkeit",
+    "Teilbarkeitsregel",
+    "Teilbarkeitsregeln",
+    "durch 10 teilbar",
+    "Endziffer",
+    "Quersumme"
+   ]
+  },
+  {
+   "kennung": "zz-15",
+   "titel": "Teilbar durch 25",
+   "art": "teilbarkeit",
+   "teiler": 25,
+   "sieh_an": "letzte zwei Ziffern",
+   "regel_text": "Sieh die letzten zwei Ziffern an. Sind es 00, 25, 50 oder 75, ist die Zahl durch 25 teilbar.",
+   "ja": {
+    "zahl": "3 675",
+    "weg": "Letzte zwei Ziffern: 75; 25 · 3 = 75, also durch 25 teilbar."
+   },
+   "nein": {
+    "zahl": "3 665",
+    "weg": "Letzte zwei Ziffern: 65; 25 · 2 = 50 und 25 · 3 = 75, also nicht durch 25 teilbar."
+   },
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Im Bestand gibt es keine Regel für 25.",
+   "regeln": [],
+   "regeln_hinweis": "Z7 nennt nur 2, 3, 5, 9 und 10; für 25 fehlt eine passende Einzelregel.",
+   "stichwoerter": [
+    "teilbar durch 25",
+    "Teilbarkeit",
+    "Teilbarkeitsregel",
+    "Teilbarkeitsregeln",
+    "durch 25 teilbar",
+    "Endziffer",
+    "Quersumme"
+   ]
+  }
+ ]
+}

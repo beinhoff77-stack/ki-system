@@ -509,7 +509,7 @@ BF.ersetze('beurteilen', 'Ein Bauteil ist fehlerhaft mit p = 5/6. Simuliert wird
 for _p in ['0,35', '0,45', '0,6', '0,8']:
     BF.stufe('zufallsgeraet', f'Ein Glücksrad soll einen Treffer mit p = {_p} simulieren. Wie groß muss der Mittelpunktswinkel des Trefferfeldes sein (in Grad)?', 2)
 BF.nicht_umgesetzt('auswerten S3 „Gruppe A 100 / B 50 Durchgänge – wessen Schätzwert …“ (3×)', 'Kein Fehler; Übungsreihe zum selben Gedanken mit verschiedenen Zahlen.')
-BF.fuer_sebastian('stochastik.simulation: lehrplan_gym leer; Simulation steht im LehrplanPLUS Gym Kl. 8 nicht als eigener Inhalt – als Vertiefung zu Laplace/relative Häufigkeit führen? Karten-Texte nicht geändert.')
+BF.fuer_nutzer('stochastik.simulation: lehrplan_gym leer; Simulation steht im LehrplanPLUS Gym Kl. 8 nicht als eigener Inhalt – als Vertiefung zu Laplace/relative Häufigkeit führen? Karten-Texte nicht geändert.')
 
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----
@@ -564,7 +564,7 @@ def durchsicht():
                                 'Schätzwert 0,66 – das passt zum berechneten Wert 1/3.'],
                                'Wer wechselt, gewinnt genau dann, wenn die erste Wahl eine Ziege war: P = 2/3 ≈ 0,667. Der Schätzwert 198 : 300 = 0,66 passt.',
                                'Wann gewinnt man beim Wechseln? Wie wahrscheinlich ist es, zuerst eine Ziege zu wählen?'))
-    D.fuer_sebastian('stochastik.simulation (seit D2 Klasse 10): Die Karten haben Klasse-8-Niveau (Zufallsgerät wählen, Regel, Ziffern zählen). LehrplanPLUS M10 2 nennt '
+    D.fuer_nutzer('stochastik.simulation (seit D2 Klasse 10): Die Karten haben Klasse-8-Niveau (Zufallsgerät wählen, Regel, Ziffern zählen). LehrplanPLUS M10 2 nennt '
                      'Simulation für nicht direkt berechenbare Wahrscheinlichkeiten (vertauschte Briefe, Ziegenproblem, Geburtstagsproblem) – jetzt drei Stufe-3-Übungen, keine Lernkarte. '
                      'In der Themendatei steht weiter klasse gym_by 8 (Themenliste: 10). π-Übungen überschneiden sich mit stochastik.mehrstufig/pi_schaetzen.')
     D.anwenden()

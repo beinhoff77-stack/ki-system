@@ -1084,7 +1084,7 @@
    },
    "grenze": {
     "art": "gilt nicht",
-    "text": "Bei Plus gilt nichts davon: 2³ + 2⁴ = 8 + 16 = 24, nicht 2⁷ = 128. Verschiedene Basis und verschiedene Hochzahl lassen sich nicht zusammenfassen. Die Regeln für gleiche Basis oder gleiche Hochzahl sind erst nach einer passenden Umformung anwendbar: 2³ · 4² = 2³ · (2²)² = 2⁷. Für rationale Exponenten muss die Basis positiv sein; 0 ist als Basis bei positivem Exponenten möglich, bei negativem ausgeschlossen."
+    "text": "Bei Plus gilt nichts davon: 2³ + 2⁴ = 8 + 16 = 24, nicht 2⁷ = 128. Die Regeln für gleiche Basis oder gleiche Hochzahl sind erst nach einer passenden Umformung anwendbar: 2³ · 4² = 2³ · (2²)² = 2⁷. Mit positiver Basis gelten die Potenzgesetze für alle rationalen Exponenten. Die Basis 0 ist bei positivem Exponenten zulässig, bei negativem ausgeschlossen. Bei negativer Basis sind einzelne rationale Potenzen reell definiert, wenn der vollständig gekürzte Exponent einen ungeraden Nenner hat."
    },
    "pruefung": [
     {

@@ -51062,7 +51062,7 @@
    "klasse": 1,
    "klasse_vor": 2,
    "befund": "Voraussetzung liegt später",
-   "sebastian_hart": false
+   "nutzer_hart": false
   },
   {
    "spur": "ib_extended",
@@ -51073,7 +51073,7 @@
    "klasse": 1,
    "klasse_vor": 2,
    "befund": "Voraussetzung liegt später",
-   "sebastian_hart": false
+   "nutzer_hart": false
   },
   {
    "spur": "ib_standard",
@@ -51084,7 +51084,7 @@
    "klasse": 1,
    "klasse_vor": null,
    "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
-   "sebastian_hart": false
+   "nutzer_hart": false
   },
   {
    "spur": "ib_extended",
@@ -51095,7 +51095,7 @@
    "klasse": 1,
    "klasse_vor": null,
    "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
-   "sebastian_hart": false
+   "nutzer_hart": false
   },
   {
    "spur": "ib_standard",
@@ -51106,7 +51106,7 @@
    "klasse": 4,
    "klasse_vor": null,
    "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
-   "sebastian_hart": false
+   "nutzer_hart": false
   },
   {
    "spur": "ib_extended",
@@ -51117,7 +51117,7 @@
    "klasse": 4,
    "klasse_vor": null,
    "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
-   "sebastian_hart": false
+   "nutzer_hart": false
   },
   {
    "spur": "rs_II_III",
@@ -51128,7 +51128,7 @@
    "klasse": 10,
    "klasse_vor": null,
    "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
-   "sebastian_hart": false
+   "nutzer_hart": false
   },
   {
    "spur": "ib_standard",
@@ -51139,7 +51139,7 @@
    "klasse": 4,
    "klasse_vor": null,
    "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
-   "sebastian_hart": false
+   "nutzer_hart": false
   },
   {
    "spur": "ib_extended",
@@ -51150,7 +51150,7 @@
    "klasse": 4,
    "klasse_vor": null,
    "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
-   "sebastian_hart": false
+   "nutzer_hart": false
   },
   {
    "spur": "ib_standard",
@@ -51161,7 +51161,7 @@
    "klasse": 2,
    "klasse_vor": 3,
    "befund": "Voraussetzung liegt später",
-   "sebastian_hart": false
+   "nutzer_hart": false
   },
   {
    "spur": "ib_extended",
@@ -51172,7 +51172,7 @@
    "klasse": 2,
    "klasse_vor": 3,
    "befund": "Voraussetzung liegt später",
-   "sebastian_hart": false
+   "nutzer_hart": false
   },
   {
    "spur": "ib_standard",
@@ -51183,7 +51183,7 @@
    "klasse": 4,
    "klasse_vor": null,
    "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
-   "sebastian_hart": false
+   "nutzer_hart": false
   },
   {
    "spur": "ib_extended",
@@ -51194,7 +51194,7 @@
    "klasse": 4,
    "klasse_vor": null,
    "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
-   "sebastian_hart": false
+   "nutzer_hart": false
   },
   {
    "spur": "ib_standard",
@@ -51205,7 +51205,7 @@
    "klasse": 3,
    "klasse_vor": null,
    "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
-   "sebastian_hart": false
+   "nutzer_hart": false
   },
   {
    "spur": "ib_extended",
@@ -51216,7 +51216,7 @@
    "klasse": 3,
    "klasse_vor": null,
    "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
-   "sebastian_hart": false
+   "nutzer_hart": false
   },
   {
    "spur": "ib_standard",
@@ -51227,7 +51227,7 @@
    "klasse": 1,
    "klasse_vor": 2,
    "befund": "Voraussetzung liegt später",
-   "sebastian_hart": false
+   "nutzer_hart": false
   },
   {
    "spur": "ib_extended",
@@ -51238,7 +51238,7 @@
    "klasse": 1,
    "klasse_vor": 2,
    "befund": "Voraussetzung liegt später",
-   "sebastian_hart": false
+   "nutzer_hart": false
   },
   {
    "spur": "ib_standard",
@@ -51249,7 +51249,7 @@
    "klasse": 1,
    "klasse_vor": 2,
    "befund": "Voraussetzung liegt später",
-   "sebastian_hart": false
+   "nutzer_hart": false
   },
   {
    "spur": "ib_extended",
@@ -51260,7 +51260,7 @@
    "klasse": 1,
    "klasse_vor": 2,
    "befund": "Voraussetzung liegt später",
-   "sebastian_hart": false
+   "nutzer_hart": false
   },
   {
    "spur": "rs_II_III",
@@ -51271,7 +51271,7 @@
    "klasse": 10,
    "klasse_vor": null,
    "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
-   "sebastian_hart": false
+   "nutzer_hart": false
   }
  ],
  "aufbau_kette": [

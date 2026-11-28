@@ -3,7 +3,7 @@
 Aufgaben und Lernstände dieser Themen sind in Benutzung – hier werden nur die Erklärungen neu geschrieben (als Überlagerung, siehe AUFTRAEGE.md „Runde 7b“).
 Beispielzahlen und Bilder der Karten bitte beibehalten (die Aufgaben beziehen sich darauf).
 
-## zahlen.natuerlich (Klasse 5, Rom) – Rosas erstes Thema
+## zahlen.natuerlich (Klasse 5, Rom) – erstes Thema von Kind 1
 - stellenwert | Welchen Wert hat eine Ziffer?
   Regel: Jede Ziffer steht an einer Stelle. Die Stelle sagt, wie viel die Ziffer wert ist. Jede Stelle ist zehnmal so viel wert wie die Stelle rechts daneben.
   Beispiel: In 4 052 steht die ⟦4⟧ an der Tausenderstelle. // Also ist die 4 ⟦4 000⟧ wert.
@@ -85,7 +85,7 @@ Beispielzahlen und Bilder der Karten bitte beibehalten (die Aufgaben beziehen si
   Beispiel: Vielfache von 6: 6, ⟦12⟧, 18 … // 12 ist auch ein Vielfaches von 4 // kgV(4, 6) = 12
   Fehler: Nicht einfach malnehmen: 4 · 6 = 24 ist ein gemeinsames Vielfaches, aber nicht das kleinste.
 
-## terme.umformen (Klasse 7, Samarkand) – Leos Platz 4
+## terme.umformen (Klasse 7, Samarkand) – Platz 4 von Kind 2
 - zusammenfassen | Gleichartige Glieder zusammenfassen
   Regel: Nur gleichartige Glieder zusammenfassen – sie haben denselben Variablenteil (z. B. x, x² oder xy). Die Zahlen davor werden addiert, der Variablenteil bleibt.
   Beispiel: 3x + 5y − x + 2y // ⟦3x − x⟧ + ⟦5y + 2y⟧ // = 2x + 7y

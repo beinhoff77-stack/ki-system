@@ -961,7 +961,7 @@ BF.nicht_umgesetzt('erkennen S3 „… Je mehr, desto weniger, also indirekt pro
 BF.nicht_umgesetzt('unterscheiden S1/S2 „Welche Art von Zuordnung zeigt die Tabelle?“ (11×)', 'Kein Fehler; Stufe 2 hat den zusätzlichen Ablenker „nicht zu entscheiden“ und andere Tabellen.')
 BF.nicht_umgesetzt('sach S2 „Taxi … Was kosten 6 km?“ (weder noch)', 'Laut Befund gut als Abgrenzung; Lösung richtig.')
 BF.nicht_umgesetzt('Überschneidung mit funktionen.gebrochen/„indirekt“', 'Reihenfolge im Plan (Haupt-Chat), keine einzelne Aufgabe.')
-BF.fuer_sebastian('groessen.indirekt: lehrplan_gym leer und Überschneidung mit funktionen.gebrochen/„indirekt“ – Reihenfolge im Plan klären. Karten-Texte nicht geändert.')
+BF.fuer_nutzer('groessen.indirekt: lehrplan_gym leer und Überschneidung mit funktionen.gebrochen/„indirekt“ – Reihenfolge im Plan klären. Karten-Texte nicht geändert.')
 
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----
@@ -1032,7 +1032,7 @@ DSX.stufe('sach', 'Bei 80 km/h dauert eine Fahrt 90 Minuten. Wie viele Minuten d
 DSX.stufen('sach', 'S1 einfache Sachaufgabe; S2 Einkleidungen; S3 teils Fahrzeit wie S2',
           'S1 einfache Sachaufgabe; S2 Einkleidungen (Fliesen, Müsli, Fahrzeit), direkt oder indirekt?; S3 Fehler bei Grundgebühr, Wippe, Zahnrad, Gleichung mit Unbekannter, Prozent')
 DSX.stufen('produkt', 'S1 Produkt bilden, Wert ergänzen; S2 Tabelle prüfen; S3 Fehler in Tabelle, Preisgeld rückwärts, Wippe, Tabellenkalkulation, x = y')
-DSX.fuer_sebastian('groessen.indirekt überschneidet sich stark mit funktionen.gebrochen (Karten „indirekt“ und – seit der Achtzehnten Runde – „indirekt_sach“): '
+DSX.fuer_nutzer('groessen.indirekt überschneidet sich stark mit funktionen.gebrochen (Karten „indirekt“ und – seit der Achtzehnten Runde – „indirekt_sach“): '
                   'Doppelt → halb, Produktgleichheit, Dreisatz umgekehrt, Hyperbel und dieselben Pumpen-/Vorrat-Aufgaben kommen in beiden Flügen vor.')
 baue = mit_durchsicht(baue, DSX)
 # ---- DURCHSICHT ENDE ----

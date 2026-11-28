@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tafeln zum Nachschlagen – Entwurf 1 (Designer)</title>
+<style>
+/* Regel-Universum, Kinderansicht: Grundfarben und Schriften wie inhalte/design/gesetzbuch/entwurf/teile/grund.css (Abflug hell/dunkel),
+   Gebietsfarben aus daten/regeln-universum.json (planeten[].farbe). Formeln wörtlich aus daten/regeln-universum.json → formeln. */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; }
+:root { --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace; --grotesk: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --s1: #F59E00; --s2: #FFB81F; --s3: #FFD23F; --s4: #FFE68C; --fur: #5AAEFF; --geld: #B4E86A; }
+body { font-family: var(--grotesk); font-size: 16px; font-weight: 500; line-height: 1.4; background: var(--bg); color: var(--text); -webkit-text-size-adjust: 100%; }
+body[data-g="hell"] { color-scheme: light; --bg: #F3F1EA; --flaeche: #FFFFFF; --flaeche2: #F6F4EE; --text: #11161D; --leise: #4A5563; --linie: #C9C4B6; --papier: #FFFEFA;
+  --fur-fl: #DCEBFC; --geld-fl: #E8F6D2; --tint: #EAF3FE; }
+body[data-g="nacht"] { color-scheme: dark; --bg: #0B0F14; --flaeche: #151B24; --flaeche2: #1D2530; --text: #F2F4F7; --leise: #A9B3C1; --linie: #2E3947; --papier: #10161E;
+  --fur-fl: #16304C; --geld-fl: #24331A; --tint: #142638; }
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--text); outline-offset: 2px; border-radius: 6px; }
+h1, h2, h3, p { margin: 0; }
+.leise { color: var(--leise); }
+.ueber { font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--leise); font-weight: 600; }
+
+/* Kopf wie im Universum */
+.kopf { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--linie); }
+.kopf .breite { display: flex; align-items: center; gap: 10px; min-height: 60px; }
+.breite { max-width: 1240px; margin: 0 auto; padding: 0 16px; }
+.marke { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 17px; white-space: nowrap; }
+.marke i { width: 26px; height: 26px; border-radius: 50%; background: var(--s3); box-shadow: 0 0 0 4px rgba(255, 210, 63, .28); flex: none; }
+.suche { flex: 1; display: flex; justify-content: flex-end; position: relative; }
+.suche input { width: 100%; max-width: 420px; height: 44px; border-radius: 12px; border: 1.5px solid var(--linie); background: var(--flaeche); padding: 0 14px 0 40px; font-size: 16px; }
+.suche svg { position: absolute; right: calc(min(100%, 420px) - 32px); top: 12px; width: 20px; height: 20px; color: var(--leise); pointer-events: none; }
+main { padding-top: 6px; padding-bottom: 60px; }
+.schmal { max-width: 760px; margin: 0 auto; }
+.pfad { display: flex; flex-wrap: wrap; gap: 0 6px; align-items: center; font-size: 16px; color: var(--leise); padding: 12px 0 2px; }
+.pfad a { text-decoration: underline; text-underline-offset: 3px; min-height: 40px; display: inline-flex; align-items: center; }
+.titel { font-size: 26px; font-weight: 700; line-height: 1.15; margin-top: 4px; }
+.lead { font-size: 17px; color: var(--leise); margin-top: 4px; }
+
+/* Startebene: Ausschnitt des Universums mit dem neuen Zugang */
+.umschalter { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; margin: 12px 0 10px; background: var(--flaeche2); border: 1.5px solid var(--linie); border-radius: 14px; }
+.umschalter a { min-height: 44px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-weight: 700; color: var(--leise); border-radius: 10px; }
+.umschalter a[aria-current] { background: var(--text); color: var(--bg); }
+.station { display: grid; grid-template-columns: 48px minmax(0, 1fr) 24px; gap: 12px; align-items: center; text-decoration: none; background: var(--flaeche); border: 1.5px solid var(--text); border-radius: 16px; padding: 10px 12px; margin-bottom: 12px; }
+.station:hover { background: var(--flaeche2); }
+.station b { display: block; font-size: 18px; }
+.station small { display: block; font-size: 15px; color: var(--leise); }
+.station .pfeil { font-size: 24px; color: var(--leise); }
+.chips { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+.chips span { font-family: var(--mono); font-size: 13px; font-weight: 700; border-radius: 8px; padding: 2px 7px; border: 1.5px solid var(--linie); background: var(--flaeche2); }
+.sonne { height: 120px; border-radius: 0 0 18px 18px; overflow: hidden; position: relative; display: grid; place-items: end center; padding-bottom: 14px; color: #11161D; text-align: center;
+  background: radial-gradient(circle at 50% -60%, var(--s1) 0 38%, var(--s2) 38% 52%, var(--s3) 52% 66%, var(--s4) 66% 80%, transparent 80%); }
+.sonne small { display: block; font-size: 14px; } .sonne b { font-size: 22px; }
+.bahnen { list-style: none; margin: 8px 0 0; padding: 0; color: var(--leise); }
+.bahnen li { display: flex; align-items: center; gap: 12px; min-height: 52px; border-top: 1.5px solid var(--linie); padding-left: 6%; font-weight: 700; color: var(--text); }
+.bahnen li:nth-child(even) { padding-left: 40%; }
+.bahnen i { width: 36px; height: 36px; border-radius: 50%; display: block; flex: none; }
+.ausgeblendet { opacity: .45; }
+
+/* Tafel-Übersicht */
+.kacheln { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 14px; }
+.kachel { display: grid; grid-template-columns: 64px minmax(0, 1fr) 20px; gap: 12px; align-items: center; text-decoration: none; background: var(--flaeche); border: 1.5px solid var(--linie); border-left: 8px solid var(--gf); border-radius: 16px; padding: 12px 12px 12px 10px; min-height: 84px; }
+a.kachel:hover { border-color: var(--text); border-left-color: var(--gf); }
+.kachel b { font-size: 19px; display: block; }
+.kachel small { display: block; color: var(--leise); font-size: 15px; }
+.kachel svg { width: 64px; height: 52px; color: var(--text); }
+.kachel.kommt { border-style: dashed; border-left-width: 1.5px; padding-left: 16px; color: var(--leise); }
+.kachel.kommt b { color: var(--leise); }
+.kachel .pf { font-size: 22px; color: var(--leise); }
+.zw { font-size: 15px; color: var(--leise); margin: 18px 2px 0; }
+
+/* Tafel-Kopf: Klassen-Filter */
+.tafel-kopf { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; margin: 10px 0 12px; }
+.kf { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.kf span { font-size: 14px; color: var(--leise); margin-right: 2px; }
+.kf button { min-width: 36px; height: 36px; border-radius: 9px; border: 1.5px solid var(--linie); background: var(--flaeche); font-family: var(--mono); font-weight: 700; font-size: 14px; padding: 0 6px; }
+.kf button[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+.drucken { border: 0; background: none; color: var(--leise); text-decoration: underline; text-underline-offset: 3px; font-size: 14px; min-height: 36px; }
+.regel-hinweis { font-size: 15px; color: var(--leise); margin-bottom: 10px; }
+.regel-hinweis b { color: var(--text); }
+.folgt { font-size: 14px; color: var(--leise); border: 1.5px dashed var(--linie); border-radius: 10px; padding: 6px 10px; margin-bottom: 12px; }
+
+/* Tafel Maßeinheiten: Treppen */
+.treppen { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.treppe { background: var(--flaeche); border: 1.5px solid var(--linie); border-radius: 16px; padding: 12px 14px 10px; break-inside: avoid; }
+.tr-kopf { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.tr-kopf h3 { font-size: 19px; }
+.kl { font-family: var(--mono); font-size: 13px; font-weight: 600; color: var(--leise); white-space: nowrap; }
+.stufen { list-style: none; margin: 10px 0 8px; padding: 0; display: grid; gap: 2px; }
+.stufe { display: flex; align-items: center; gap: 8px; min-height: 32px; padding-left: calc(var(--i) * 22px); position: relative; }
+.einheit { font-family: var(--mono); font-weight: 700; font-size: 17px; min-width: 58px; text-align: center; border-radius: 8px; padding: 2px 8px; background: var(--gfl); border: 1.5px solid var(--gf); }
+.stufe .neben { font-family: var(--mono); font-size: 14px; color: var(--leise); }
+.faktor { font-family: var(--mono); font-size: 14px; font-weight: 700; position: absolute; left: calc(var(--i) * 22px + 64px); top: 17px; white-space: nowrap; }
+.stufe .neben { margin-left: 100px; }
+.faktor .pf-ab { color: var(--leise); font-weight: 400; }
+.legende { font-size: 14px; color: var(--leise); display: flex; gap: 14px; flex-wrap: wrap; margin: 0 2px 10px; }
+.legende b { font-family: var(--mono); color: var(--text); }
+.bsp { font-family: var(--mono); font-size: 15px; font-weight: 600; border-top: 1px dashed var(--linie); padding-top: 8px; }
+.mehr summary { list-style: none; cursor: pointer; font-size: 15px; font-weight: 700; color: var(--leise); min-height: 36px; display: flex; align-items: center; }
+.mehr summary::-webkit-details-marker { display: none; }
+.mehr summary::after { content: " ▸"; margin-left: 4px; } .mehr[open] summary::after { content: " ▾"; }
+.warum { font-size: 15px; font-weight: 700; text-underline-offset: 3px; display: inline-flex; min-height: 32px; align-items: center; }
+
+.leitsatz { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; margin: 0 2px 12px; font-size: 15px; color: var(--leise); }
+.leitsatz b { font-size: 20px; color: var(--text); }
+.merk { font-size: 15px; margin: 2px 0 6px; }
+.neben-treppe { font-size: 14px; color: var(--leise); font-family: var(--mono); margin: -2px 0 6px; }
+.neben-treppe b { color: var(--text); } .neben-treppe b.zus { color: var(--leise); font-weight: 500; } .neben-treppe i { font-style: normal; }
+.neben-treppe span { font-family: var(--grotesk); }
+.bsp small { display: block; font-family: var(--grotesk); font-weight: 500; font-size: 14px; color: var(--leise); }
+.mehr h4 { font-size: 14px; margin: 8px 0 2px; color: var(--leise); }
+.mehr ol, .mehr ul { margin: 0 0 4px; padding-left: 20px; font-size: 15px; display: grid; gap: 3px; }
+.mehr ul b { font-weight: 600; }
+details.dichte { margin-top: 12px; } details.dichte > summary { cursor: pointer; font-weight: 700; color: var(--leise); min-height: 40px; display: flex; align-items: center; list-style: none; }
+details.dichte > summary::-webkit-details-marker { display: none; } details.dichte > summary::after { content: " ▸"; margin-left: 4px; } details.dichte[open] > summary::after { content: " ▾"; }
+/* Tafeln Flächen und Körper */
+.figuren { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.figur { display: grid; grid-template-columns: 108px minmax(0, 1fr); gap: 8px 14px; background: var(--flaeche); border: 1.5px solid var(--linie); border-radius: 16px; padding: 12px 14px 8px; align-items: center; break-inside: avoid; }
+.figur svg { width: 108px; height: auto; color: var(--text); }
+.kt { display: grid; gap: 2px; align-content: center; }
+.kt h3 { font-size: 19px; line-height: 1.2; }
+.bed { font-size: 14px; color: var(--leise); }
+.formeln { grid-column: 1 / -1; display: grid; grid-template-columns: 92px minmax(0, 1fr); column-gap: 10px; row-gap: 4px; align-items: baseline; margin: 0; padding-top: 8px; border-top: 1px solid var(--linie); }
+.formeln dt { font-size: 14px; color: var(--leise); }
+.formeln dd { margin: 0; font-size: 19px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: .01em; }
+.formeln dd.fehlt { font-size: 14px; font-weight: 500; color: var(--leise); font-style: italic; }
+.figur .fuss { grid-column: 1 / -1; border-top: 1px dashed var(--linie); padding-top: 2px; }
+
+/* Suche */
+.treffer { list-style: none; margin: 10px 0; padding: 0; display: grid; gap: 6px; }
+.treffer a { display: block; text-decoration: none; background: var(--flaeche); border: 1.5px solid var(--linie); border-radius: 12px; padding: 10px 12px; }
+.treffer b { display: block; } .treffer small { color: var(--leise); font-size: 14px; }
+.treffer .art { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--leise); text-transform: uppercase; letter-spacing: .06em; }
+
+@media (min-width: 900px) {
+  .breite { padding: 0 28px; }
+  .kacheln { grid-template-columns: repeat(3, 1fr); }
+  .treppen { grid-template-columns: repeat(3, 1fr); }
+  .figuren { grid-template-columns: repeat(2, 1fr); }
+  .schmal.breit { max-width: 1180px; }
+}
+@media (min-width: 1200px) { .figuren { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 380px) { .marke span { display: none; } }
+@media (max-width: 440px) { .formeln { grid-template-columns: 84px minmax(0, 1fr); } .formeln dd { font-size: 17.5px; } }
+@media print {
+  .kopf, .pfad, .tafel-kopf .kf, .drucken, .warum, .mehr summary { display: none !important; }
+  body { background: #fff; } .treppe, .figur { border-color: #999; }
+  .mehr > *:not(summary) { display: block; }
+}
+/* Entwurfs-Schalter */
+.entwurf { position: fixed; right: 8px; bottom: 8px; z-index: 30; font: 13px system-ui, sans-serif; display: flex; gap: 4px; background: #2b2b2b; border-radius: 10px; padding: 4px; }
+.entwurf button { background: #444; color: #fff; border: 0; border-radius: 7px; padding: 5px 9px; }
+.ohne .entwurf { display: none; }
+@media print { .entwurf { display: none; } }
+</style>
+</head>
+<body data-g="hell">
+<header class="kopf"><div class="breite"><a class="marke" href="#universum"><i></i><span>Regel-Universum</span></a>
+  <label class="suche"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="suche" type="search" placeholder="Suchen" aria-label="Suchen"></label></div></header>
+<main class="breite" id="main"></main>
+<div class="entwurf"><button id="g">hell/dunkel</button></div>
+<script>
+'use strict';
+// ================= Inhalte =================
+// Formeln wörtlich aus daten/regeln-universum.json → formeln (fuer, formel, bedingung, ziel). Klasse „ab“ = erste Zahl von gesetze[ziel].gym.
+const FORMELN = [
+ ['Rechteck – Fläche', 'A = a · b', '–', 'F2'], ['Rechteck – Umfang', 'u = 2 · (a + b)', '–', 'F2'], ['Quadrat – Fläche', 'A = a²', '–', 'F2'],
+ ['Parallelogramm – Fläche', 'A = g · h', 'h senkrecht auf g', 'F5'], ['Dreieck – Fläche', 'A = g · h : 2', 'h senkrecht auf g', 'F6'],
+ ['Trapez – Fläche', 'A = (a + c) : 2 · h', 'a und c parallel, h ihr Abstand', 'F7'], ['Drachenviereck und Raute – Fläche', 'A = e · f : 2', 'Diagonalen e und f senkrecht zueinander', 'F8'],
+ ['Kreis – Umfang', 'u = 2 · π · r', '–', 'F9'], ['Kreis – Fläche', 'A = π · r²', '–', 'F9'],
+ ['Kreisausschnitt – Bogenlänge', 'b = α : 360° · 2 · π · r', 'α Mittelpunktswinkel', 'F10'], ['Kreisausschnitt – Fläche', 'A = α : 360° · π · r²', 'α Mittelpunktswinkel', 'F10'],
+ ['Quader – Volumen', 'V = a · b · c', '–', 'F12'], ['Würfel – Volumen', 'V = a³', '–', 'F12'], ['Quader – Oberfläche', 'O = 2 · (a · b + a · c + b · c)', '–', 'F13'], ['Würfel – Oberfläche', 'O = 6 · a²', '–', 'F13'],
+ ['Prisma – Volumen', 'V = G · h', 'h senkrecht auf G', 'F15'], ['Prisma – Mantel', 'M = u · h', 'gerades Prisma; u Umfang der Grundfläche', 'F15'], ['Prisma – Oberfläche', 'O = 2 · G + M', 'gerades Prisma', 'F15'],
+ ['Zylinder – Volumen', 'V = π · r² · h', 'h senkrecht auf G', 'F15'], ['Zylinder – Mantel', 'M = 2 · π · r · h', 'gerader Zylinder', 'F15'], ['Zylinder – Oberfläche', 'O = 2 · π · r² + 2 · π · r · h', 'gerader Zylinder', 'F15'],
+ ['Pyramide – Volumen', 'V = G · h : 3', 'h senkrecht auf G', 'F17'], ['Pyramide – Mantel (Pyramidenmantel)', 'M = Summe der Seitendreiecke', '–', 'F17'],
+ ['Kegel – Volumen', 'V = π · r² · h : 3', 'h senkrecht auf G', 'F17'], ['Kegel – Mantel (Kegelmantel)', 'M = π · r · s', 'gerader Kreiskegel; s Mantellinie, s² = r² + h²', 'F17'], ['Kegel – Oberfläche', 'O = π · r² + π · r · s', 'gerader Kreiskegel'],
+ ['Kugel – Volumen', 'V = 4/3 · π · r³', '–', 'F18'], ['Kugel – Oberfläche', 'O = 4 · π · r²', '–', 'F18'],
+].map(([fuer, formel, bed, ziel]) => ({ fuer, formel, bed, ziel: ziel || 'F17' }));
+const REGEL = { F2: ['Rechteck', 5], F5: ['Parallelogramm', 6], F6: ['Dreieck', 6], F7: ['Trapez', 6], F8: ['Drachenviereck und Raute', 6], F9: ['Kreis', 8], F10: ['Kreisausschnitt', 8],
+  F12: ['Quader', 6], F13: ['Oberfläche', 5], F15: ['Prisma und Zylinder', 8], F17: ['Pyramide und Kegel', 10], F18: ['Kugel', 10], V1: ['Größe und Einheit', 5], F1: ['Fläche messen', 5], F11: ['Volumen messen', 6] };
+const formel = (fuer) => FORMELN.find((f) => f.fuer === fuer || f.fuer.startsWith(fuer));
+
+// Einheiten: Inhalte wörtlich aus inhalte/mathe-profi/regeln-uebersicht/einheiten/einheiten.json (Redakteur, Stand 2026-11-27), hier eingebettet.
+const EH = {"hinweis": "Inhalte für die Nachschlage-Tafel „Einheiten umrechnen“ (Entwurf, nichts in die App eingespielt). Geprüft mit pruefen.py. Schreibweise wie im Bestand: Dezimalkomma, Tausender mit Leerzeichen, Malpunkt, Einheit mit Leerzeichen. Treppe: „1 [Einheit] = [Zahl] [nächste kleinere Einheit]“, abwärts mal, aufwärts geteilt.", "stand": "2026-11-27", "regel_der_richtung": {"merksatz": "Kleinere Einheit, größere Zahl – größere Einheit, kleinere Zahl.", "kennung": "I-geld-1", "abwaerts": "mal", "aufwaerts": "geteilt"}, "arten": [{"art": "Länge", "treppe": [{"einheit": "km", "name": "Kilometer", "zur_naechsten": "1 000"}, {"einheit": "m", "name": "Meter", "zur_naechsten": "10"}, {"einheit": "dm", "name": "Dezimeter", "zur_naechsten": "10"}, {"einheit": "cm", "name": "Zentimeter", "zur_naechsten": "10"}, {"einheit": "mm", "name": "Millimeter", "zur_naechsten": null}], "darstellung": "km –1 000→ m –10→ dm –10→ cm –10→ mm", "gleichungen": ["1 km = 1 000 m", "1 m = 10 dm", "1 m = 100 cm", "1 m = 1 000 mm", "1 dm = 10 cm", "1 cm = 10 mm", "1 km = 100 000 cm", "1 km = 1 000 000 mm"], "merksatz": "Abwärts malnehmen, aufwärts teilen: von km nach m ist es 1 000, sonst immer 10.", "so_gehts": ["Suche beide Einheiten auf der Treppe und zähle die Schritte dazwischen.", "Zur kleineren Einheit (abwärts) rechnest du mal, zur größeren (aufwärts) geteilt; jeder Schritt hat seine Zahl.", "Schreibe die neue Einheit hinter die Zahl und prüfe: Kleinere Einheit, größere Zahl."], "beispiele": [{"typ": ["kleinere", "komma"], "von": "3,5 km", "nach": "3 500 m", "rechnung": "3,5 · 1 000 = 3 500", "denn": "1 km = 1 000 m", "text": "3,5 km = 3 500 m, denn 1 km = 1 000 m."}, {"typ": ["groessere", "komma"], "von": "35 dm", "nach": "3,5 m", "rechnung": "35 : 10 = 3,5", "denn": "1 m = 10 dm", "text": "35 dm = 3,5 m, denn 1 m = 10 dm."}, {"typ": ["kleinere", "zwei_stufen", "komma"], "von": "2,4 m", "nach": "240 cm", "rechnung": "2,4 · 10 · 10 = 240", "denn": "1 m = 100 cm", "achtung": "Zwischen m und cm liegt dm: zwei Schritte, also mal 10 und noch einmal mal 10.", "text": "2,4 m = 240 cm, denn 1 m = 100 cm. Zwischen m und cm liegt dm: zwei Schritte, also mal 10 und noch einmal mal 10."}, {"typ": ["groessere", "zwei_stufen", "komma"], "von": "85 cm", "nach": "0,85 m", "rechnung": "85 : 10 : 10 = 0,85", "denn": "1 m = 100 cm", "text": "85 cm = 0,85 m, denn 1 m = 100 cm."}], "stolperstellen": [{"fehler": "Von km nach m mit 10 statt 1 000 gerechnet.", "richtig": "3,5 km sind 3 500 m, nicht 35 m.", "pruefung": [{"gleichung": "3,5 km = 3 500 m", "stimmt": true}, {"gleichung": "3,5 km = 35 m", "stimmt": false}]}, {"fehler": "Eine Stufe vergessen: Zwischen m und cm liegt dm, das sind zwei Schritte.", "richtig": "2,4 m sind 240 cm, nicht 24 cm.", "pruefung": [{"gleichung": "2,4 m = 240 cm", "stimmt": true}, {"gleichung": "2,4 m = 24 cm", "stimmt": false}]}, {"fehler": "In die größere Einheit malgenommen statt geteilt.", "richtig": "85 cm sind 0,85 m, nicht 8 500 m.", "pruefung": [{"gleichung": "85 cm = 0,85 m", "stimmt": true}, {"gleichung": "85 cm = 8 500 m", "stimmt": false}], "fehlbild": "fb.groesse.falsche_richtung"}, {"fehler": "Das Komma in die falsche Richtung geschoben.", "richtig": "35 dm sind 3,5 m, nicht 0,35 m.", "pruefung": [{"gleichung": "35 dm = 3,5 m", "stimmt": true}, {"gleichung": "35 dm = 0,35 m", "stimmt": false}]}, {"fehler": "Die Einheit vergessen.", "richtig": "Schreibe immer Zahl und Einheit: 240 cm, nicht nur 240."}], "ab_klasse": {"gymnasium_by": 5, "realschule_by": 5, "ib_myp": 2, "beleg": [{"thema": "groessen.einheiten", "lernziel": "laenge"}]}, "etappen_im_bestand": [{"thema": "groessen.einheiten", "lernziel": "laenge", "titel": "Längen umrechnen"}, {"thema": "groessen.einheiten", "lernziel": "kommaschreibweise", "titel": "Größen in Kommaschreibweise"}], "regeln": [{"kennung": "I-geld-1", "lang": "id.verhaeltnisse.groesse", "name": "Größe", "passt": "Kleinere Einheit, größere Zahl."}, {"kennung": "V1", "name": "Größe und Einheit", "passt": "Umrechnungszahlen für Längen."}, {"kennung": "R1", "lang": "rr.stellenwert", "name": "Stellenwert", "passt": "Mal 10 schiebt die Ziffern eine Stelle nach links."}, {"kennung": "Z18", "name": "Zehnerpotenzen", "passt": "Kilo und Milli sind Zehnerpotenzen."}], "hinweise": []}, {"art": "Fläche", "treppe": [{"einheit": "km²", "name": "Quadratkilometer", "zur_naechsten": "100"}, {"einheit": "ha", "name": "Hektar", "zur_naechsten": "100"}, {"einheit": "a", "name": "Ar", "zur_naechsten": "100"}, {"einheit": "m²", "name": "Quadratmeter", "zur_naechsten": "100"}, {"einheit": "dm²", "name": "Quadratdezimeter", "zur_naechsten": "100"}, {"einheit": "cm²", "name": "Quadratzentimeter", "zur_naechsten": "100"}, {"einheit": "mm²", "name": "Quadratmillimeter", "zur_naechsten": null}], "darstellung": "km² –100→ ha –100→ a –100→ m² –100→ dm² –100→ cm² –100→ mm²", "gleichungen": ["1 km² = 100 ha", "1 ha = 100 a", "1 a = 100 m²", "1 ha = 10 000 m²", "1 km² = 1 000 000 m²", "1 m² = 100 dm²", "1 m² = 10 000 cm²", "1 dm² = 100 cm²", "1 cm² = 100 mm²"], "herleitung": [{"text": "Eine Längeneinheit, die zehnmal kleiner ist, passt zehnmal in die Länge und zehnmal in die Breite.", "gleichungen": []}, {"text": "1 m ist 10 dm lang, also hat ein Quadrat von 1 m Seitenlänge 10 · 10 = 100 Quadrate von 1 dm Seitenlänge.", "gleichungen": ["1 m² = 100 dm²"]}], "merksatz": "Bei Flächen ist jeder Schritt der Treppe 100, nicht 10: abwärts mal, aufwärts geteilt.", "so_gehts": ["Suche beide Einheiten auf der Treppe und zähle die Schritte dazwischen.", "Jeder Schritt ist 100: abwärts mal 100, aufwärts durch 100 (zwei Schritte: mal 10 000).", "Schreibe das ² hinter die Einheit und prüfe: Kleinere Einheit, größere Zahl."], "beispiele": [{"typ": ["kleinere"], "von": "3 m²", "nach": "300 dm²", "rechnung": "3 · 100 = 300", "denn": "1 m² = 100 dm²", "text": "3 m² = 300 dm², denn 1 m² = 100 dm²."}, {"typ": ["groessere", "komma"], "von": "350 dm²", "nach": "3,5 m²", "rechnung": "350 : 100 = 3,5", "denn": "1 m² = 100 dm²", "text": "350 dm² = 3,5 m², denn 1 m² = 100 dm²."}, {"typ": ["kleinere", "zwei_stufen", "komma"], "von": "0,5 m²", "nach": "5 000 cm²", "rechnung": "0,5 · 100 · 100 = 5 000", "denn": "1 m² = 10 000 cm²", "text": "0,5 m² = 5 000 cm², denn 1 m² = 10 000 cm²."}, {"typ": ["kleinere", "zwei_stufen", "komma"], "von": "2,5 ha", "nach": "25 000 m²", "rechnung": "2,5 · 100 · 100 = 25 000", "denn": "1 ha = 10 000 m²", "text": "2,5 ha = 25 000 m², denn 1 ha = 10 000 m²."}], "stolperstellen": [{"fehler": "Mit 10 statt 100 gerechnet, weil bei Längen 10 gilt.", "richtig": "3 m² sind 300 dm², nicht 30 dm².", "pruefung": [{"gleichung": "3 m² = 300 dm²", "stimmt": true}, {"gleichung": "3 m² = 30 dm²", "stimmt": false}], "fehlbild": "fb.groesse.flaeche_mit_zehn"}, {"fehler": "Hektar und Ar verwechselt oder mit 1 000 statt 10 000 m² gerechnet.", "richtig": "2,5 ha sind 25 000 m², nicht 2 500 m².", "pruefung": [{"gleichung": "2,5 ha = 25 000 m²", "stimmt": true}, {"gleichung": "2,5 ha = 2 500 m²", "stimmt": false}]}, {"fehler": "In der Kommaschreibweise bekommt jede Stufe zwei Stellen, nicht eine.", "richtig": "3 m² 5 dm² sind 3,05 m², nicht 3,5 m².", "pruefung": [{"gleichung": "3 m² 5 dm² = 3,05 m²", "stimmt": true}, {"gleichung": "3 m² 5 dm² = 3,5 m²", "stimmt": false}]}, {"fehler": "Das ² vergessen.", "richtig": "Flächen schreibt man in m² oder cm², nicht in m oder cm."}], "ab_klasse": {"gymnasium_by": 5, "realschule_by": 5, "ib_myp": 1, "beleg": [{"thema": "messen.flaechen", "lernziel": "einheiten"}]}, "etappen_im_bestand": [{"thema": "messen.flaechen", "lernziel": "einheiten", "titel": "Flächeneinheiten umrechnen"}, {"thema": "messen.flaechen", "lernziel": "kommaschreibweise", "titel": "Flächen in Kommaschreibweise"}], "regeln": [{"kennung": "F1", "name": "Fläche messen", "passt": "Längeneinheit zehnmal kleiner, 100-mal so viele Einheitsquadrate."}, {"kennung": "I-geld-1", "lang": "id.verhaeltnisse.groesse", "name": "Größe", "passt": "Kleinere Einheit, größere Zahl; Fehlbild: Fläche mit 10."}, {"kennung": "R1", "lang": "rr.stellenwert", "name": "Stellenwert", "passt": "Mal 100 schiebt die Ziffern zwei Stellen nach links."}], "hinweise": ["1 a = 100 m² (ein Quadrat von 10 m Seitenlänge); 1 ha = 10 000 m² (ein Quadrat von 100 m Seitenlänge)."]}, {"art": "Volumen und Hohlmaße", "treppe": [{"einheit": "m³", "name": "Kubikmeter", "zur_naechsten": "1 000"}, {"einheit": "dm³", "name": "Kubikdezimeter", "zur_naechsten": "1 000"}, {"einheit": "cm³", "name": "Kubikzentimeter", "zur_naechsten": "1 000"}, {"einheit": "mm³", "name": "Kubikmillimeter", "zur_naechsten": null}], "darstellung": "m³ –1 000→ dm³ –1 000→ cm³ –1 000→ mm³", "weitere_treppen": [{"name": "Hohlmaße", "treppe": [{"einheit": "hl", "name": "Hektoliter", "zur_naechsten": "100", "zusatz": true}, {"einheit": "l", "name": "Liter", "zur_naechsten": "10"}, {"einheit": "dl", "name": "Deziliter", "zur_naechsten": "10", "zusatz": true}, {"einheit": "cl", "name": "Zentiliter", "zur_naechsten": "10", "zusatz": true}, {"einheit": "ml", "name": "Milliliter", "zur_naechsten": null}], "darstellung": "hl –100→ l –10→ dl –10→ cl –10→ ml"}], "verbindung": [{"links": "1 l", "rechts": "1 dm³"}, {"links": "1 ml", "rechts": "1 cm³"}], "gleichungen": ["1 l = 1 dm³", "1 ml = 1 cm³", "1 l = 1 000 ml", "1 l = 1 000 cm³", "1 m³ = 1 000 l", "1 hl = 100 l", "1 m³ = 1 000 000 cm³", "1 dm³ = 1 000 cm³", "1 cm³ = 1 000 mm³"], "herleitung": [{"text": "1 m ist 10 dm lang: Ein Würfel von 1 m Kantenlänge fasst 10 · 10 · 10 = 1 000 Würfel von 1 dm Kantenlänge.", "gleichungen": ["1 m³ = 1 000 dm³"]}, {"text": "Der Liter ist ein Würfel von 1 dm Kantenlänge; der Milliliter ist der tausendste Teil davon, also 1 cm³.", "gleichungen": ["1 l = 1 dm³", "1 ml = 1 cm³", "1 dm³ = 1 000 cm³"]}], "merksatz": "Bei Raummaßen ist jeder Schritt 1 000, und 1 l ist genau 1 dm³.", "so_gehts": ["Suche beide Einheiten auf der Treppe und zähle die Schritte dazwischen.", "Bei m³, dm³, cm³, mm³ ist jeder Schritt 1 000: abwärts mal 1 000, aufwärts durch 1 000.", "Für Liter: 1 l = 1 dm³ und 1 ml = 1 cm³; dann rechnest du auf der Treppe weiter."], "beispiele": [{"typ": ["kleinere"], "von": "2 dm³", "nach": "2 000 cm³", "rechnung": "2 · 1 000 = 2 000", "denn": "1 dm³ = 1 000 cm³", "text": "2 dm³ = 2 000 cm³, denn 1 dm³ = 1 000 cm³."}, {"typ": ["groessere", "komma"], "von": "3 400 cm³", "nach": "3,4 dm³", "rechnung": "3 400 : 1 000 = 3,4", "denn": "1 dm³ = 1 000 cm³", "text": "3 400 cm³ = 3,4 dm³, denn 1 dm³ = 1 000 cm³."}, {"typ": ["kleinere", "zwei_stufen", "komma"], "von": "0,5 m³", "nach": "500 000 cm³", "rechnung": "0,5 · 1 000 · 1 000 = 500 000", "denn": "1 m³ = 1 000 000 cm³", "text": "0,5 m³ = 500 000 cm³, denn 1 m³ = 1 000 000 cm³."}, {"typ": ["kleinere", "komma", "liter"], "von": "0,75 l", "nach": "750 cm³", "rechnung": "0,75 · 1 000 = 750", "denn": "1 l = 1 000 cm³", "achtung": "1 l = 1 dm³, und 1 dm³ = 1 000 cm³.", "text": "0,75 l = 750 cm³, denn 1 l = 1 000 cm³. 1 l = 1 dm³, und 1 dm³ = 1 000 cm³."}], "stolperstellen": [{"fehler": "Mit 10 oder 100 statt 1 000 gerechnet.", "richtig": "2 dm³ sind 2 000 cm³, nicht 200 cm³.", "pruefung": [{"gleichung": "2 dm³ = 2 000 cm³", "stimmt": true}, {"gleichung": "2 dm³ = 200 cm³", "stimmt": false}], "fehlbild": "fb.groesse.flaeche_mit_zehn"}, {"fehler": "Liter und cm³ verwechselt: Der Liter ist ein dm³, nicht ein cm³.", "richtig": "1 l sind 1 000 cm³; ein cm³ ist 1 ml.", "pruefung": [{"gleichung": "1 l = 1 000 cm³", "stimmt": true}, {"gleichung": "1 l = 1 cm³", "stimmt": false}, {"gleichung": "1 ml = 1 cm³", "stimmt": true}]}, {"fehler": "In der Kommaschreibweise bekommt jede Stufe drei Stellen.", "richtig": "2 dm³ 50 cm³ sind 2,05 dm³ (2,050 dm³), nicht 2,5 dm³.", "pruefung": [{"gleichung": "2 dm³ 50 cm³ = 2,05 dm³", "stimmt": true}, {"gleichung": "2 dm³ 50 cm³ = 2,5 dm³", "stimmt": false}]}, {"fehler": "Beim Hektoliter mit 1 000 statt 100 gerechnet.", "richtig": "1 hl sind 100 l, nicht 1 000 l.", "pruefung": [{"gleichung": "1 hl = 100 l", "stimmt": true}, {"gleichung": "1 hl = 1 000 l", "stimmt": false}]}], "ab_klasse": {"gymnasium_by": 6, "realschule_by": 6, "ib_myp": null, "beleg": [{"thema": "messen.volumen", "lernziel": "einheiten"}, {"thema": "messen.volumen", "lernziel": "liter"}]}, "etappen_im_bestand": [{"thema": "messen.volumen", "lernziel": "einheiten", "titel": "Volumeneinheiten umrechnen"}, {"thema": "messen.volumen", "lernziel": "liter", "titel": "Liter und Milliliter"}], "regeln": [{"kennung": "F11", "name": "Volumen messen", "passt": "Längeneinheit zehnmal kleiner, 1 000-mal so viele Einheitswürfel; 1 Liter = 1 dm³."}, {"kennung": "I-geld-1", "lang": "id.verhaeltnisse.groesse", "name": "Größe", "passt": "Kleinere Einheit, größere Zahl; Fehlbild: Raumeinheit mit 10."}, {"kennung": "R1", "lang": "rr.stellenwert", "name": "Stellenwert", "passt": "Mal 1 000 schiebt die Ziffern drei Stellen nach links."}], "hinweise": ["Nur bei m³, dm³, cm³, mm³ ist jeder Schritt 1 000; bei den Hohlmaßen gilt l zu ml 1 000, hl zu l 100.", "hl, dl und cl stehen nicht in den Lernkarten des Bestands (dort nur l und ml); sie sind hier als Zusatz markiert.", "Hohlmaße (l, ml) und Raummaße (dm³, cm³) messen dasselbe: den Rauminhalt."]}, {"art": "Masse", "treppe": [{"einheit": "t", "name": "Tonne", "zur_naechsten": "1 000"}, {"einheit": "kg", "name": "Kilogramm", "zur_naechsten": "1 000"}, {"einheit": "g", "name": "Gramm", "zur_naechsten": "1 000"}, {"einheit": "mg", "name": "Milligramm", "zur_naechsten": null}], "darstellung": "t –1 000→ kg –1 000→ g –1 000→ mg", "gleichungen": ["1 t = 1 000 kg", "1 kg = 1 000 g", "1 g = 1 000 mg", "1 t = 1 000 000 g", "1 kg = 1 000 000 mg"], "merksatz": "Bei Massen ist jeder Schritt 1 000: abwärts mal, aufwärts geteilt.", "so_gehts": ["Suche beide Einheiten auf der Treppe und zähle die Schritte dazwischen.", "Jeder Schritt ist 1 000: abwärts mal 1 000, aufwärts durch 1 000.", "Schreibe die neue Einheit dahinter und prüfe: Kleinere Einheit, größere Zahl."], "beispiele": [{"typ": ["kleinere", "komma"], "von": "2,5 t", "nach": "2 500 kg", "rechnung": "2,5 · 1 000 = 2 500", "denn": "1 t = 1 000 kg", "text": "2,5 t = 2 500 kg, denn 1 t = 1 000 kg."}, {"typ": ["groessere", "komma"], "von": "750 g", "nach": "0,75 kg", "rechnung": "750 : 1 000 = 0,75", "denn": "1 kg = 1 000 g", "text": "750 g = 0,75 kg, denn 1 kg = 1 000 g."}, {"typ": ["kleinere", "zwei_stufen", "komma"], "von": "0,4 kg", "nach": "400 000 mg", "rechnung": "0,4 · 1 000 · 1 000 = 400 000", "denn": "1 kg = 1 000 000 mg", "text": "0,4 kg = 400 000 mg, denn 1 kg = 1 000 000 mg."}, {"typ": ["groessere", "komma"], "von": "45 mg", "nach": "0,045 g", "rechnung": "45 : 1 000 = 0,045", "denn": "1 g = 1 000 mg", "text": "45 mg = 0,045 g, denn 1 g = 1 000 mg."}], "stolperstellen": [{"fehler": "Mit 100 statt 1 000 gerechnet.", "richtig": "3 kg sind 3 000 g, nicht 300 g.", "pruefung": [{"gleichung": "3 kg = 3 000 g", "stimmt": true}, {"gleichung": "3 kg = 300 g", "stimmt": false}]}, {"fehler": "Von t nach kg mit 100 gerechnet.", "richtig": "2,5 t sind 2 500 kg, nicht 250 kg.", "pruefung": [{"gleichung": "2,5 t = 2 500 kg", "stimmt": true}, {"gleichung": "2,5 t = 250 kg", "stimmt": false}]}, {"fehler": "Das Komma nur um eine Stelle geschoben.", "richtig": "750 g sind 0,75 kg, nicht 7,5 kg.", "pruefung": [{"gleichung": "750 g = 0,75 kg", "stimmt": true}, {"gleichung": "750 g = 7,5 kg", "stimmt": false}]}], "ab_klasse": {"gymnasium_by": 5, "realschule_by": 5, "ib_myp": 2, "beleg": [{"thema": "groessen.einheiten", "lernziel": "masse"}]}, "etappen_im_bestand": [{"thema": "groessen.einheiten", "lernziel": "masse", "titel": "Massen umrechnen"}], "regeln": [{"kennung": "I-geld-1", "lang": "id.verhaeltnisse.groesse", "name": "Größe", "passt": "Kleinere Einheit, größere Zahl."}, {"kennung": "V1", "name": "Größe und Einheit", "passt": "Umrechnungszahl für Massen 1 000."}, {"kennung": "R1", "lang": "rr.stellenwert", "name": "Stellenwert", "passt": "Mal 1 000 schiebt die Ziffern drei Stellen nach links."}, {"kennung": "Z18", "name": "Zehnerpotenzen", "passt": "Kilo und Milli sind Zehnerpotenzen."}], "hinweise": ["Was man im Alltag Gewicht nennt, heißt in Mathe Masse."]}, {"art": "Zeit", "treppe": [{"einheit": "d", "name": "Tag", "zur_naechsten": "24"}, {"einheit": "h", "name": "Stunde", "zur_naechsten": "60"}, {"einheit": "min", "name": "Minute", "zur_naechsten": "60"}, {"einheit": "s", "name": "Sekunde", "zur_naechsten": null}], "darstellung": "d –24→ h –60→ min –60→ s", "gleichungen": ["1 d = 24 h", "1 h = 60 min", "1 min = 60 s", "1 h = 3 600 s", "1 d = 1 440 min", "1 d = 86 400 s"], "merksatz": "Zeit zählt nicht in Zehnern: 1 h = 60 min, 1 min = 60 s, 1 d = 24 h.", "so_gehts": ["Suche beide Einheiten auf der Treppe: Tag, Stunde, Minute, Sekunde.", "Abwärts mal 24 oder mal 60, aufwärts durch 24 oder durch 60; ein Komma in der Zahl liest du als Dezimalzahl (1,5 h sind 1,5 · 60 min).", "Für Uhrzeiten und Zeitspannen rechnest du bis zur vollen Stunde und dann weiter, nicht wie mit Dezimalzahlen."], "beispiele": [{"typ": ["kleinere", "komma"], "von": "1,5 h", "nach": "90 min", "rechnung": "1,5 · 60 = 90", "denn": "1 h = 60 min", "achtung": "1,5 h sind 1 h 30 min, weil 0,5 h eine halbe Stunde sind.", "text": "1,5 h = 90 min, denn 1 h = 60 min. 1,5 h sind 1 h 30 min, weil 0,5 h eine halbe Stunde sind."}, {"typ": ["groessere", "komma"], "von": "150 min", "nach": "2,5 h", "rechnung": "150 : 60 = 2,5", "denn": "1 h = 60 min", "text": "150 min = 2,5 h, denn 1 h = 60 min."}, {"typ": ["kleinere", "zwei_stufen"], "von": "2 d", "nach": "2 880 min", "rechnung": "2 · 24 · 60 = 2 880", "denn": "1 d = 1 440 min", "text": "2 d = 2 880 min, denn 1 d = 1 440 min."}, {"typ": ["kleinere", "komma", "warnung"], "von": "1,30 h", "nach": "78 min", "rechnung": "1,3 · 60 = 78", "denn": "1 h = 60 min", "achtung": "1,30 h ist nicht 1 h 30 min: Die Zahl nach dem Komma zählt Zehntel einer Stunde, keine Minuten.", "nicht": [["1", "h"], ["30", "min"]], "text": "1,30 h = 78 min, denn 1 h = 60 min. 1,30 h ist nicht 1 h 30 min: Die Zahl nach dem Komma zählt Zehntel einer Stunde, keine Minuten."}], "stolperstellen": [{"fehler": "Zeit dezimal gelesen: die Zahl nach dem Komma als Minuten genommen.", "richtig": "1,5 h sind 1 h 30 min, nicht 1 h 50 min.", "pruefung": [{"gleichung": "1,5 h = 1 h 30 min", "stimmt": true}, {"gleichung": "1,5 h = 1 h 50 min", "stimmt": false}]}, {"fehler": "1,30 h mit 1 h 30 min verwechselt.", "richtig": "1,30 h sind 78 min; 1 h 30 min sind 90 min.", "pruefung": [{"gleichung": "1,30 h = 78 min", "stimmt": true}, {"gleichung": "1,30 h = 1 h 30 min", "stimmt": false}]}, {"fehler": "Mit 100 statt 60 gerechnet.", "richtig": "2 h sind 120 min, nicht 200 min.", "pruefung": [{"gleichung": "2 h = 120 min", "stimmt": true}, {"gleichung": "2 h = 200 min", "stimmt": false}]}, {"fehler": "Uhrzeiten wie normale Zahlen abgezogen: 2 015 − 1 840 = 175.", "richtig": "20:15 Uhr minus 18:40 Uhr sind 1 h 35 min, also 95 min, nicht 175 min.", "pruefung": [{"gleichung": "1 h 35 min = 95 min", "stimmt": true}, {"gleichung": "1 h 35 min = 175 min", "stimmt": false}]}], "ab_klasse": {"gymnasium_by": 5, "realschule_by": 5, "ib_myp": 2, "beleg": [{"thema": "groessen.einheiten", "lernziel": "zeit"}]}, "etappen_im_bestand": [{"thema": "groessen.einheiten", "lernziel": "zeit", "titel": "Mit Zeit rechnen"}], "regeln": [{"kennung": "V1", "name": "Größe und Einheit", "passt": "Umrechnungszahlen für Zeit 60 und 24; Zeit nicht dezimal umrechnen."}, {"kennung": "I-geld-1", "lang": "id.verhaeltnisse.groesse", "name": "Größe", "passt": "Kleinere Einheit, größere Zahl."}], "hinweise": ["1 Woche = 7 Tage.", "1 Jahr = 365 Tage, aber nur in einem Jahr ohne Schalttag; im Schaltjahr sind es 366 Tage.", "Ein Monat hat 28 bis 31 Tage: Dafür gibt es keine feste Umrechnungszahl."]}, {"art": "Geld", "treppe": [{"einheit": "€", "name": "Euro", "zur_naechsten": "100"}, {"einheit": "ct", "name": "Cent", "zur_naechsten": null}], "darstellung": "€ –100→ ct", "gleichungen": ["1 € = 100 ct"], "merksatz": "1 € = 100 ct: in Cent mal 100, in Euro durch 100.", "so_gehts": ["Euro in Cent: mal 100, das Komma wandert zwei Stellen nach rechts.", "Cent in Euro: durch 100, das Komma wandert zwei Stellen nach links; Euro schreibt man mit zwei Nachkommastellen.", "Geld hat nur diese eine Stufe."], "beispiele": [{"typ": ["kleinere", "komma"], "von": "4,50 €", "nach": "450 ct", "rechnung": "4,5 · 100 = 450", "denn": "1 € = 100 ct", "text": "4,50 € = 450 ct, denn 1 € = 100 ct."}, {"typ": ["groessere", "komma"], "von": "275 ct", "nach": "2,75 €", "rechnung": "275 : 100 = 2,75", "denn": "1 € = 100 ct", "text": "275 ct = 2,75 €, denn 1 € = 100 ct."}, {"typ": ["groessere", "komma"], "von": "7 ct", "nach": "0,07 €", "rechnung": "7 : 100 = 0,07", "denn": "1 € = 100 ct", "text": "7 ct = 0,07 €, denn 1 € = 100 ct."}, {"typ": ["kleinere", "komma"], "von": "12,07 €", "nach": "1 207 ct", "rechnung": "12,07 · 100 = 1 207", "denn": "1 € = 100 ct", "text": "12,07 € = 1 207 ct, denn 1 € = 100 ct."}], "stolperstellen": [{"fehler": "Die Null nach dem Komma weggelassen und falsch gelesen.", "richtig": "4,5 € sind 4,50 € und damit 450 ct; 4,05 € sind 405 ct.", "pruefung": [{"gleichung": "4,5 € = 4,50 €", "stimmt": true}, {"gleichung": "4,5 € = 4,05 €", "stimmt": false}, {"gleichung": "4,5 € = 450 ct", "stimmt": true}, {"gleichung": "4,05 € = 405 ct", "stimmt": true}]}, {"fehler": "Cent als Zehntel eines Euro gelesen.", "richtig": "7 ct sind 0,07 €, nicht 0,7 €.", "pruefung": [{"gleichung": "7 ct = 0,07 €", "stimmt": true}, {"gleichung": "7 ct = 0,7 €", "stimmt": false}]}, {"fehler": "Beim Wechsel in Cent geteilt statt malgenommen.", "richtig": "2,75 € sind 275 ct, nicht 0,0275 ct.", "pruefung": [{"gleichung": "2,75 € = 275 ct", "stimmt": true}, {"gleichung": "2,75 € = 0,0275 ct", "stimmt": false}], "fehlbild": "fb.groesse.falsche_richtung"}], "ab_klasse": {"gymnasium_by": 5, "realschule_by": 5, "ib_myp": 2, "beleg": [{"thema": "groessen.einheiten", "lernziel": "kommaschreibweise"}]}, "etappen_im_bestand": [{"thema": "groessen.einheiten", "lernziel": "kommaschreibweise", "titel": "Größen in Kommaschreibweise"}], "regeln": [{"kennung": "I-geld-1", "lang": "id.verhaeltnisse.groesse", "name": "Größe", "passt": "Kleinere Einheit, größere Zahl."}, {"kennung": "V1", "name": "Größe und Einheit", "passt": "Eine Größe ist Zahl mal Einheit."}, {"kennung": "R1", "lang": "rr.stellenwert", "name": "Stellenwert", "passt": "Mal 100 schiebt die Ziffern zwei Stellen nach links."}], "hinweise": ["Geld hat nur eine Stufe; ein Beispiel über zwei Stufen gibt es deshalb nicht."]}, {"art": "Geschwindigkeit", "zusammengesetzt": true, "treppe": [{"einheit": "m/s", "name": "Meter pro Sekunde", "zur_naechsten": "3,6"}, {"einheit": "km/h", "name": "Kilometer pro Stunde", "zur_naechsten": null}], "darstellung": "m/s –3,6→ km/h", "gleichungen": ["1 m/s = 3,6 km/h", "10 m/s = 36 km/h", "1 km/h = 1 000 m/h", "1 m/s = 60 m/min", "1 m/min = 0,06 km/h"], "herleitung": [{"text": "1 m/s heißt: 1 m in 1 s.", "gleichungen": []}, {"text": "Eine Stunde hat 3 600 s. In dieser Zeit sind es 3 600 m, das sind 3,6 km.", "gleichungen": ["1 h = 3 600 s", "3 600 m = 3,6 km"]}, {"text": "Also legt man mit 1 m/s in einer Stunde 3,6 km zurück: 1 m/s sind 3,6 km/h.", "gleichungen": ["1 m/s = 3,6 km/h"]}], "merksatz": "m/s in km/h: mal 3,6; km/h in m/s: durch 3,6.", "so_gehts": ["Von m/s nach km/h mal 3,6 rechnen; von km/h nach m/s durch 3,6.", "Bei anderen Einheiten (m/min) rechnest du Zähler und Nenner getrennt: m zu km durch 1 000, min zu h mal 60.", "Prüfe mit 10 m/s = 36 km/h."], "beispiele": [{"typ": ["kleinere"], "von": "15 m/s", "nach": "54 km/h", "rechnung": "15 · 3,6 = 54", "denn": "1 m/s = 3,6 km/h", "text": "15 m/s = 54 km/h, denn 1 m/s = 3,6 km/h."}, {"typ": ["groessere"], "von": "72 km/h", "nach": "20 m/s", "rechnung": "72 : 3,6 = 20", "denn": "1 m/s = 3,6 km/h", "text": "72 km/h = 20 m/s, denn 1 m/s = 3,6 km/h."}, {"typ": ["kleinere", "komma"], "von": "2,5 m/s", "nach": "9 km/h", "rechnung": "2,5 · 3,6 = 9", "denn": "1 m/s = 3,6 km/h", "text": "2,5 m/s = 9 km/h, denn 1 m/s = 3,6 km/h."}, {"typ": ["groessere", "zaehler_und_nenner"], "von": "300 m/min", "nach": "18 km/h", "rechnung": "300 : 1 000 · 60 = 18", "denn": "1 m/min = 0,06 km/h", "achtung": "Zähler: 300 m sind 0,3 km. Nenner: 1 min ist 1/60 h, also mal 60.", "text": "300 m/min = 18 km/h, denn 1 m/min = 0,06 km/h. Zähler: 300 m sind 0,3 km. Nenner: 1 min ist 1/60 h, also mal 60."}], "stolperstellen": [{"fehler": "Beim Wechsel von km/h nach m/s mit 3,6 malgenommen statt geteilt.", "richtig": "36 km/h sind 10 m/s, nicht 129,6 m/s.", "pruefung": [{"gleichung": "36 km/h = 10 m/s", "stimmt": true}, {"gleichung": "36 km/h = 129,6 m/s", "stimmt": false}], "fehlbild": "fb.groesse.falsche_richtung"}, {"fehler": "Den Faktor 3,6 durch 10 ersetzt.", "richtig": "10 m/s sind 36 km/h, nicht 100 km/h.", "pruefung": [{"gleichung": "10 m/s = 36 km/h", "stimmt": true}, {"gleichung": "10 m/s = 100 km/h", "stimmt": false}]}, {"fehler": "Nur den Zähler umgerechnet und den Nenner stehen lassen.", "richtig": "300 m/min sind 18 km/h, nicht 0,3 km/h.", "pruefung": [{"gleichung": "300 m/min = 18 km/h", "stimmt": true}, {"gleichung": "300 m/min = 0,3 km/h", "stimmt": false}]}], "ab_klasse": {"gymnasium_by": null, "realschule_by": null, "ib_myp": null, "beleg": []}, "ab_klasse_hinweis": "Die Umrechnung km/h und m/s hat im Bestand keine Lernkarte, nur eine Aufgabe im Thema Formeln (Gymnasium Klasse 8: m/s in km/h über 3 600 s). km/h kommt als Einheit ab Klasse 8 (Realschule 7) vor.", "vorkommen_im_bestand": [{"thema": "gleichungen.formeln", "was": "Aufgabe: 400 m in 50 s, Ergebnis in km/h (Gymnasium Klasse 8)"}, {"thema": "groessen.indirekt", "was": "km/h in Aufgaben (Gymnasium Klasse 8, Realschule Klasse 7)"}, {"thema": "funktionen.potenz", "was": "m/s in Aufgaben (Gymnasium Klasse 9, Realschule Klasse 10)"}], "etappen_im_bestand": [], "regeln": [{"kennung": "V1", "name": "Größe und Einheit", "passt": "Eine Größe ist Zahl mal Einheit."}, {"kennung": "I-geld-1", "lang": "id.verhaeltnisse.groesse", "name": "Größe", "passt": "Kleinere Einheit, größere Zahl."}], "hinweise": ["Geschwindigkeit = Strecke : Zeit; hier geht es nur um das Umrechnen der Einheit."]}, {"art": "Dichte", "zusammengesetzt": true, "treppe": [{"einheit": "g/cm³", "name": "Gramm pro Kubikzentimeter", "zur_naechsten": "1 000"}, {"einheit": "kg/m³", "name": "Kilogramm pro Kubikmeter", "zur_naechsten": null, "zusatz": true}], "darstellung": "g/cm³ –1 000→ kg/m³", "gleichungen": ["1 g/cm³ = 1 000 kg/m³", "1 kg/dm³ = 1 g/cm³", "1 t/m³ = 1 g/cm³"], "herleitung": [{"text": "1 g/cm³ heißt: 1 cm³ hat die Masse 1 g.", "gleichungen": []}, {"text": "1 m³ sind 1 000 000 cm³. Die haben zusammen 1 000 000 g, das sind 1 000 kg.", "gleichungen": ["1 m³ = 1 000 000 cm³", "1 000 000 g = 1 000 kg"]}, {"text": "Also hat 1 m³ die Masse 1 000 kg: 1 g/cm³ sind 1 000 kg/m³.", "gleichungen": ["1 g/cm³ = 1 000 kg/m³"]}], "merksatz": "Von g/cm³ in kg/m³ mal 1 000, zurück durch 1 000.", "so_gehts": ["Dichte ist Masse durch Volumen: Wie viel Masse hat 1 Volumeneinheit?", "Von g/cm³ nach kg/m³ mal 1 000, von kg/m³ nach g/cm³ durch 1 000.", "Rechnest du mit anderen Einheiten, rechne Masse und Volumen einzeln um."], "beispiele": [{"typ": ["kleinere", "komma"], "von": "0,7 g/cm³", "nach": "700 kg/m³", "rechnung": "0,7 · 1 000 = 700", "denn": "1 g/cm³ = 1 000 kg/m³", "text": "0,7 g/cm³ = 700 kg/m³, denn 1 g/cm³ = 1 000 kg/m³."}, {"typ": ["kleinere", "komma"], "von": "7,86 g/cm³", "nach": "7 860 kg/m³", "rechnung": "7,86 · 1 000 = 7 860", "denn": "1 g/cm³ = 1 000 kg/m³", "text": "7,86 g/cm³ = 7 860 kg/m³, denn 1 g/cm³ = 1 000 kg/m³."}, {"typ": ["groessere", "komma"], "von": "2 700 kg/m³", "nach": "2,7 g/cm³", "rechnung": "2 700 : 1 000 = 2,7", "denn": "1 g/cm³ = 1 000 kg/m³", "text": "2 700 kg/m³ = 2,7 g/cm³, denn 1 g/cm³ = 1 000 kg/m³."}], "stolperstellen": [{"fehler": "Mit 1 000 000 statt 1 000 gerechnet, weil m³ und cm³ sich um 1 000 000 unterscheiden; die Masse wechselt aber auch (g zu kg).", "richtig": "1 g/cm³ sind 1 000 kg/m³, nicht 1 000 000 kg/m³.", "pruefung": [{"gleichung": "1 g/cm³ = 1 000 kg/m³", "stimmt": true}, {"gleichung": "1 g/cm³ = 1 000 000 kg/m³", "stimmt": false}]}, {"fehler": "In die falsche Richtung gerechnet.", "richtig": "2 700 kg/m³ sind 2,7 g/cm³, nicht 2 700 000 g/cm³.", "pruefung": [{"gleichung": "2 700 kg/m³ = 2,7 g/cm³", "stimmt": true}, {"gleichung": "2 700 kg/m³ = 2 700 000 g/cm³", "stimmt": false}]}, {"fehler": "kg/dm³ umgerechnet, obwohl sich nichts ändert.", "richtig": "1 kg/dm³ sind 1 g/cm³: Masse und Volumen werden beide 1 000-mal kleiner.", "pruefung": [{"gleichung": "1 kg/dm³ = 1 g/cm³", "stimmt": true}, {"gleichung": "1 kg/dm³ = 1 000 g/cm³", "stimmt": false}]}], "ab_klasse": {"gymnasium_by": null, "realschule_by": null, "ib_myp": null, "beleg": []}, "ab_klasse_hinweis": "Dichte kommt im Bestand nur in Aufgaben vor (Formeln, Gymnasium Klasse 8; Körper, Gymnasium Klasse 10, Realschule Klasse 9); eine Lernkarte zur Umrechnung der Einheit gibt es nicht.", "vorkommen_im_bestand": [{"thema": "gleichungen.formeln", "was": "Aufgaben mit ρ = m : V und ρ in g/cm³ (Gymnasium Klasse 8)"}, {"thema": "raum.pyramide_kegel_kugel", "was": "Dichte in g/cm³ in Aufgaben (Realschule Klasse 9, Gymnasium Klasse 10)"}], "etappen_im_bestand": [], "regeln": [{"kennung": "V1", "name": "Größe und Einheit", "passt": "Eine Größe ist Zahl mal Einheit."}], "hinweise": ["Dichte = Masse : Volumen, also Masse = Volumen · Dichte (so im Bestand).", "kg/m³ steht nicht im Bestand und ist hier als Zusatz markiert."]}], "nicht_aufgenommen": [{"art": "Winkel", "grund": "Im Bestand nur Grad (°), ohne Umrechnung in Winkelminuten oder Bogenmaß; es gibt keine Treppe mit Faktoren."}, {"art": "Temperatur", "grund": "Im Bestand nur °C als Zahl mit Vorzeichen (negative Zahlen); Umrechnung in K oder °F hat keine Treppe mit Faktor, sondern eine Verschiebung (im Bestand nur als Formelaufgabe F = 1,8 · C + 32, Gymnasium Klasse 8, Thema gleichungen.formeln)."}]};
+const ID_ART = { 'Länge': 'laenge', 'Fläche': 'flaeche', 'Volumen und Hohlmaße': 'volumen', 'Masse': 'masse', 'Zeit': 'zeit', 'Geld': 'geld', 'Geschwindigkeit': 'tempo', 'Dichte': 'dichte' };
+const TREPPEN = EH.arten.map((x) => ({ id: ID_ART[x.art] || x.art, name: x.art, kl: x.ab_klasse ? x.ab_klasse.gymnasium_by : null, x,
+  stufen: x.treppe.map((t) => [t.einheit, t.name]), such: [x.art, ...x.treppe.map((t) => t.einheit + ' ' + t.name), ...(x.weitere_treppen || []).flatMap((w) => w.treppe.map((t) => t.einheit + ' ' + t.name)), 'umrechnen einheit'].join(' ') }));
+
+// Figuren und Körper: Zeichnung + Schlüssel in FORMELN
+const FIGUREN = [
+  { name: 'Rechteck', svg: 'rechteck', a: ['Rechteck – Fläche'], u: ['Rechteck – Umfang'] },
+  { name: 'Quadrat', svg: 'quadrat', a: ['Quadrat – Fläche'], u: [] },
+  { name: 'Parallelogramm', svg: 'parallelogramm', a: ['Parallelogramm – Fläche'], u: [] },
+  { name: 'Dreieck', svg: 'dreieck', a: ['Dreieck – Fläche'], u: [] },
+  { name: 'Trapez', svg: 'trapez', a: ['Trapez – Fläche'], u: [] },
+  { name: 'Drachenviereck und Raute', svg: 'drachen', a: ['Drachenviereck und Raute – Fläche'], u: [] },
+  { name: 'Kreis', svg: 'kreis', a: ['Kreis – Fläche'], u: ['Kreis – Umfang'] },
+  { name: 'Kreisausschnitt', svg: 'ausschnitt', a: ['Kreisausschnitt – Fläche'], u: ['Kreisausschnitt – Bogenlänge'], ulabel: 'Bogen' },
+];
+const KOERPER = [
+  { name: 'Quader', svg: 'quader', v: 'Quader – Volumen', o: 'Quader – Oberfläche' },
+  { name: 'Würfel', svg: 'wuerfel', v: 'Würfel – Volumen', o: 'Würfel – Oberfläche' },
+  { name: 'Prisma', svg: 'prisma', v: 'Prisma – Volumen', m: 'Prisma – Mantel', o: 'Prisma – Oberfläche' },
+  { name: 'Zylinder', svg: 'zylinder', v: 'Zylinder – Volumen', m: 'Zylinder – Mantel', o: 'Zylinder – Oberfläche' },
+  { name: 'Pyramide', svg: 'pyramide', v: 'Pyramide – Volumen', m: 'Pyramide – Mantel', o: null },
+  { name: 'Kegel', svg: 'kegel', v: 'Kegel – Volumen', m: 'Kegel – Mantel', o: 'Kegel – Oberfläche' },
+  { name: 'Kugel', svg: 'kugel', v: 'Kugel – Volumen', o: 'Kugel – Oberfläche' },
+];
+
+// ================= Zeichnungen (eine Strichstärke 2, Hilfslinien gestrichelt 1.5, Beschriftung Festbreite 13) =================
+const T = (x, y, t, a = 'middle') => `<text x="${x}" y="${y}" text-anchor="${a}" font-family="ui-monospace,Menlo,monospace" font-size="13" font-weight="700" fill="currentColor">${t}</text>`;
+const RW = (x, y, dx = 1, dy = -1) => `<path d="M${x + 8 * dx} ${y} V${y + 8 * dy} H${x}" fill="none" stroke="currentColor" stroke-width="1.3"/>`;
+const F = 'fill="var(--tint)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"';
+const D = 'fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 3"';
+const L = 'fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"';
+const SVG = {
+  rechteck: `<rect x="14" y="14" width="88" height="52" ${F}/>${T(58, 82, 'a')}${T(110, 44, 'b', 'start')}`,
+  quadrat: `<rect x="30" y="10" width="58" height="58" ${F}/>${T(59, 84, 'a')}${T(96, 43, 'a', 'start')}`,
+  parallelogramm: `<path d="M12 66 H86 L108 16 H34 Z" ${F}/><path d="M34 16 V66" ${D}/>${RW(34, 66)}${T(49, 82, 'g')}${T(39, 48, 'h', 'start')}`,
+  dreieck: `<path d="M10 66 H108 L72 12 Z" ${F}/><path d="M72 12 V66" ${D}/>${RW(72, 66)}${T(46, 82, 'g')}${T(80, 46, 'h', 'start')}`,
+  trapez: `<path d="M10 66 H110 L86 18 H34 Z" ${F}/><path d="M40 18 V66" ${D}/>${RW(40, 66)}${T(60, 82, 'a')}${T(60, 13, 'c')}${T(46, 46, 'h', 'start')}`,
+  drachen: `<path d="M60 6 L92 30 L60 80 L28 30 Z" ${F}/><path d="M60 6 V80 M28 30 H92" ${D}/>${T(64, 64, 'e', 'start')}${T(76, 45, 'f')}`,
+  kreis: `<circle cx="58" cy="44" r="36" ${F}/><path d="M58 44 H94" ${L}/><circle cx="58" cy="44" r="2.5" fill="currentColor"/>${T(76, 39, 'r')}`,
+  ausschnitt: `<path d="M22 72 L104 72 A82 82 0 0 0 74.7 9.2 Z" ${F}/><path d="M38 72 A16 16 0 0 0 32.3 59.7" fill="none" stroke="currentColor" stroke-width="1.3"/>${T(46, 64, 'α', 'start')}${T(64, 86, 'r')}${T(100, 36, 'b', 'start')}`,
+  quader: `<path d="M14 40 H84 V90 H14 Z" ${F}/><path d="M14 40 L42 18 H112 L84 40 M112 18 V68 L84 90" ${L}/><path d="M14 90 L42 68 H112 M42 68 V18" ${D}/>${T(49, 104, 'a')}${T(106, 86, 'b', 'start')}${T(6, 69, 'c', 'end')}`,
+  wuerfel: `<path d="M22 42 H74 V94 H22 Z" ${F}/><path d="M22 42 L44 24 H96 L74 42 M96 24 V76 L74 94" ${L}/><path d="M22 94 L44 76 H96 M44 76 V24" ${D}/>${T(48, 108, 'a')}`,
+  prisma: `<path d="M12 90 H62 L37 48 Z" ${F}/><path d="M62 90 L112 66 L87 24 L37 48 M87 24 H87" ${L}/><path d="M12 90 L62 66 H112 M62 66 L87 24" ${D}/>${T(34, 84, 'G')}${T(92, 88, 'h', 'start')}`,
+  zylinder: `<ellipse cx="62" cy="22" rx="38" ry="10" ${F}/><path d="M24 22 V84 M100 22 V84" ${L}/><path d="M24 84 A38 10 0 0 0 100 84" ${L}/><path d="M24 84 A38 10 0 0 1 100 84" ${D}/><path d="M62 22 H100" ${L}/>${T(82, 33, 'r')}${T(106, 56, 'h', 'start')}`,
+  pyramide: `<path d="M14 88 H84 L60 14 Z" fill="var(--tint)" stroke="none"/><path d="M14 88 H84 L106 70 M60 14 L14 88 M60 14 L84 88 M60 14 L106 70" ${L}/><path d="M14 88 L36 70 H106 M36 70 L60 14 M60 14 V79" ${D}/>${T(50, 104, 'G')}${T(63, 52, 'h', 'start')}`,
+  kegel: `<path d="M22 84 L62 14 L102 84 Z" fill="var(--tint)" stroke="none"/><path d="M22 84 L62 14 L102 84" ${L}/><path d="M22 84 A40 11 0 0 0 102 84" ${L}/><path d="M22 84 A40 11 0 0 1 102 84 M62 14 V84" ${D}/><path d="M62 84 H102" ${L}/>${T(82, 80, 'r')}${T(66, 54, 'h', 'start')}${T(90, 44, 's', 'start')}`,
+  kugel: `<circle cx="62" cy="54" r="40" ${F}/><path d="M22 54 A40 11 0 0 0 102 54" ${L}/><path d="M22 54 A40 11 0 0 1 102 54" ${D}/><path d="M62 54 H102" ${L}/><circle cx="62" cy="54" r="2.5" fill="currentColor"/>${T(84, 49, 'r')}`,
+};
+const zeichnung = (k, vb = '0 0 120 90') => `<svg viewBox="${vb}" role="img" aria-label="${k}">${SVG[k]}</svg>`;
+const ICON = {
+  einheiten: `<svg viewBox="0 0 64 52"><rect x="4" y="6" width="22" height="12" rx="4" fill="var(--geld-fl)" stroke="var(--geld)" stroke-width="2"/><rect x="20" y="22" width="22" height="12" rx="4" fill="var(--geld-fl)" stroke="var(--geld)" stroke-width="2"/><rect x="36" y="38" width="22" height="12" rx="4" fill="var(--geld-fl)" stroke="var(--geld)" stroke-width="2"/></svg>`,
+  flaechen: `<svg viewBox="0 0 64 52"><rect x="4" y="10" width="30" height="22" fill="var(--fur-fl)" stroke="currentColor" stroke-width="2"/><circle cx="46" cy="32" r="14" fill="var(--fur-fl)" stroke="currentColor" stroke-width="2"/></svg>`,
+  koerper: `<svg viewBox="0 0 64 52"><path d="M6 20 H34 V48 H6 Z" fill="var(--fur-fl)" stroke="currentColor" stroke-width="2"/><path d="M6 20 L16 10 H44 L34 20 M44 10 V38 L34 48" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="52" cy="34" r="10" fill="var(--fur-fl)" stroke="currentColor" stroke-width="2"/></svg>`,
+  leer: `<svg viewBox="0 0 64 52"><rect x="10" y="8" width="44" height="36" rx="8" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="5 4"/></svg>`,
+};
+
+// ================= Zustand und Zeichnen =================
+const S = { g: 'hell', bis: 'alle', q: '' };
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const sichtbar = (kl) => S.bis === 'alle' || kl === null || kl <= +S.bis;
+const warum = (id) => id ? `<a class="warum" href="#regel-${id.toLowerCase()}">Warum? ${esc(REGEL[id][0])} ›</a>` : '';
+const klasse = (kl) => `<span class="kl">${kl ? 'ab Kl. ' + kl : 'Kl. offen'}</span>`;
+const pfad = (t) => `<nav class="pfad"><a href="#universum">‹ Universum</a>${t ? ` › <a href="#tafeln">Tafeln</a>` : ''}</nav>`;
+const kopfTafel = () => `<div class="tafel-kopf"><div class="kf" role="group" aria-label="Zeigen bis Klasse"><span>bis Klasse</span>${['5', '6', '7', '8', '9', '10', 'alle'].map((k) => `<button data-bis="${k}" aria-pressed="${S.bis === k}">${k}</button>`).join('')}</div><button class="drucken" onclick="window.print()">Drucken</button></div>`;
+
+function universum() {
+  const planeten = [['Zahlen', '#FF8A66'], ['Algebra', '#A99BFF'], ['Geld und Verhältnisse', '#B4E86A'], ['Geometrie', '#3AD6C5'], ['Fläche und Raum', '#5AAEFF']];
+  return `<div class="schmal"><h1 class="titel" style="margin-top:14px">Regel-Universum</h1><p class="lead">Alle festen Regeln der Mathematik, Klasse 5 bis 10. Tippe auf einen Teil.</p>
+    <nav class="umschalter"><a href="#universum" aria-current="page">Aufbau</a><a href="#universum">Durch die Klassen</a></nav>
+    <a class="station" href="#tafeln">${ICON.einheiten.replace('viewBox="0 0 64 52"', 'viewBox="0 0 64 52" width="48" height="40"')}<span><b>Tafeln zum Nachschlagen</b><small>Alles auf einen Blick</small>
+      <span class="chips"><span>km · m · cm</span><span>A = a · b</span><span>V = a · b · c</span></span></span><span class="pfeil">›</span></a>
+    <div class="sonne"><span><small>Die Sonne · die Grundlage</small><b>14 Rechenregeln</b></span></div>
+    <p class="leise" style="text-align:center;margin-top:8px">Darum die sieben Gebiete:</p>
+    <ul class="bahnen">${planeten.map(([n, f]) => `<li><i style="background:${f}"></i>${n}</li>`).join('')}</ul></div>`;
+}
+function uebersicht() {
+  const k = (id, gf, titel, satz, ziel) => `<a class="kachel" href="#${ziel}" style="--gf:${gf}">${ICON[id]}<span><b>${titel}</b><small>${satz}</small></span><span class="pf">›</span></a>`;
+  const kommt = (titel, satz) => `<div class="kachel kommt" style="--gf:var(--linie)">${ICON.leer}<span><b>${titel}</b><small>${satz} · kommt</small></span><span></span></div>`;
+  return `<div class="schmal breit">${pfad(false)}<h1 class="titel">Tafeln zum Nachschlagen</h1><p class="lead">Eine Seite je Thema – zum schnellen Nachschauen und zum Ausdrucken.</p>
+    <div class="kacheln">${k('einheiten', 'var(--geld)', 'Maßeinheiten', 'Länge, Fläche, Volumen, Masse, Zeit, Geld, Tempo', 'einheiten')}${k('flaechen', 'var(--fur)', 'Flächen und Umfang', '8 Figuren mit Formeln', 'flaechen')}${k('koerper', 'var(--fur)', 'Körper', '7 Körper: Volumen, Oberfläche', 'koerper')}</div>
+    <p class="zw">Bald dazu:</p><div class="kacheln">${kommt('Bruch · Dezimal · Prozent', '½ = 0,5 = 50 %')}${kommt('Quadrat- und Primzahlen', 'bis 20² und bis 100')}${kommt('Teilbarkeitsregeln', 'durch 2, 3, 4, 5, 9, 10')}</div></div>`;
+}
+function treppeHtml(treppe, verbindung) {
+  const n = treppe.length;
+  return `<ul class="stufen">${treppe.map((t, i) => { const v = (verbindung || []).find((y) => y.rechts === '1 ' + t.einheit);
+    return `<li class="stufe${t.zusatz ? ' zusatz' : ''}" style="--i:${i}"><span class="einheit" title="${esc(t.name)}">${esc(t.einheit)}</span>${v ? `<span class="neben">= ${esc(v.links)}</span>` : ''}${i < n - 1 ? `<span class="faktor" title="1 ${esc(t.einheit)} = ${esc(t.zur_naechsten)} ${esc(treppe[i + 1].einheit)}"><span class="pf-ab">↘</span> · ${esc(t.zur_naechsten)}</span>` : ''}</li>`; }).join('')}</ul>`;
+}
+function artKarte(t) {
+  const x = t.x; const b0 = x.beispiele[0]; const fur = /Fläche|Volumen|Dichte/.test(x.art);
+  const regel = (x.regeln || []).find((r) => /^[A-Z]\d+$/.test(r.kennung)) || (x.regeln || [])[0];
+  return `<section class="treppe" id="t-${t.id}" style="--gf:${fur ? 'var(--fur)' : 'var(--geld)'};--gfl:${fur ? 'var(--fur-fl)' : 'var(--geld-fl)'}">
+    <div class="tr-kopf"><h3>${esc(x.art)}</h3>${klasse(t.kl)}</div>${treppeHtml(x.treppe, x.verbindung)}
+    ${(x.weitere_treppen || []).map((w) => `<p class="neben-treppe"><span>${esc(w.name)}:</span> ${w.treppe.map((u, i) => `<b class="${u.zusatz ? 'zus' : ''}" title="${esc(u.name)}">${esc(u.einheit)}</b>${u.zur_naechsten ? ` <i>· ${esc(u.zur_naechsten)}</i>` : ''}`).join(' ')}</p>`).join('')}
+    <p class="merk">${esc(x.merksatz)}</p>
+    <p class="bsp">${esc(b0.von)} = ${esc(b0.nach)}<small>denn ${esc(b0.denn)}</small></p>
+    <details class="mehr"${S.offen === t.id ? ' open' : ''}><summary>So geht’s · Beispiele · Stolperstellen</summary>
+      <h4>So geht’s</h4><ol>${x.so_gehts.map((z) => `<li>${esc(z)}</li>`).join('')}</ol>
+      <h4>Beispiele</h4><ul class="bsp-liste">${x.beispiele.map((y) => `<li>${esc(y.text)}</li>`).join('')}</ul>
+      <h4>Stolperstellen</h4><ul>${x.stolperstellen.map((y) => `<li><b>${esc(y.fehler)}</b> ${esc(y.richtig)}</li>`).join('')}</ul>
+      ${(x.hinweise || []).length ? `<h4>Gut zu wissen</h4><ul>${x.hinweise.map((h) => `<li>${esc(h)}</li>`).join('')}</ul>` : ''}
+      ${(x.herleitung || []).length ? `<h4>Warum?</h4><ul>${x.herleitung.map((h) => `<li>${esc(h.text)}</li>`).join('')}</ul>` : ''}
+      ${regel ? `<a class="warum" href="#regel-${esc(regel.kennung.toLowerCase())}">${esc(regel.name)} im Universum ›</a>` : ''}</details></section>`;
+}
+function einheiten() {
+  const haupt = TREPPEN.filter((t) => t.id !== 'dichte' && sichtbar(t.kl)); const dichte = TREPPEN.find((t) => t.id === 'dichte');
+  return `<div class="schmal breit">${pfad(true)}<h1 class="titel">Maßeinheiten</h1>${kopfTafel()}
+    <p class="leitsatz"><b>abwärts mal, aufwärts geteilt</b><span>${esc(EH.regel_der_richtung.merksatz)}</span></p>
+    <div class="treppen">${haupt.map(artKarte).join('')}</div>
+    ${dichte && (S.bis === 'alle' || +S.bis >= 8) ? `<details class="dichte"${S.offen === 'dichte' ? ' open' : ''}><summary>ab Klasse 8: Dichte</summary><div class="treppen">${artKarte(dichte)}</div></details>` : ''}</div>`;
+}
+function formelZeilen(liste) {
+  return liste.map(([lab, key, fehltText]) => { const f = key && formel(key);
+    return f ? `<dt>${lab}</dt><dd>${esc(f.formel)}</dd>` : `<dt>${lab}</dt><dd class="fehlt">${fehltText || 'Inhalt fehlt'}</dd>`; }).join('');
+}
+function flaechen() {
+  const html = FIGUREN.map((g) => { const fa = formel(g.a[0]); const kl = REGEL[fa.ziel][1]; if (!sichtbar(kl)) return '';
+    const bed = [...g.a, ...g.u].map((k) => formel(k)).filter((f) => f && f.bed !== '–').map((f) => f.bed)[0];
+    return `<section class="figur" id="f-${g.svg}" style="--tint:var(--fur-fl)">${zeichnung(g.svg)}<div class="kt"><h3>${g.name}</h3>${klasse(kl)}${bed ? `<p class="bed">${esc(bed)}</p>` : ''}</div>
+      <dl class="formeln">${formelZeilen([['Fläche', g.a[0]], [g.ulabel || 'Umfang', g.u[0], 'Inhalt fehlt']])}</dl><p class="fuss">${warum(fa.ziel)}</p></section>`; }).join('');
+  return `<div class="schmal breit">${pfad(true)}<h1 class="titel">Flächen und Umfang</h1>${kopfTafel()}<div class="figuren">${html}</div></div>`;
+}
+function koerper() {
+  const html = KOERPER.map((g) => { const fv = formel(g.v); const kl = REGEL[fv.ziel][1]; if (!sichtbar(kl)) return '';
+    const bed = [g.v, g.m, g.o].filter(Boolean).map((k) => formel(k)).filter((f) => f && f.bed !== '–').map((f) => f.bed)[0];
+    return `<section class="figur" id="k-${g.svg}" style="--tint:var(--fur-fl)">${zeichnung(g.svg, '0 0 124 112')}<div class="kt"><h3>${g.name}</h3>${klasse(kl)}${bed ? `<p class="bed">${esc(bed)}</p>` : ''}</div>
+      <dl class="formeln">${formelZeilen([['Volumen', g.v], ...(g.m ? [['Mantel', g.m]] : []), ['Oberfläche', g.o, 'Inhalt fehlt']])}</dl><p class="fuss">${warum(fv.ziel)}</p></section>`; }).join('');
+  return `<div class="schmal breit">${pfad(true)}<h1 class="titel">Körper</h1>${kopfTafel()}<div class="figuren">${html}</div></div>`;
+}
+function suche(q) {
+  const w = q.toLowerCase(); const t = [];
+  for (const x of TREPPEN) if ((x.name + ' ' + x.such + ' ' + x.stufen.map((s) => s[0]).join(' ')).toLowerCase().includes(w)) t.push(['Tafel Maßeinheiten', x.name, x.x.darstellung, 'einheiten', 't-' + x.id]);
+  for (const g of FIGUREN) if ((g.name + ' fläche umfang ' + g.a.concat(g.u).join(' ')).toLowerCase().includes(w)) t.push(['Tafel Flächen', g.name, g.a.concat(g.u).map((k) => formel(k).formel).join(' · '), 'flaechen', 'f-' + g.svg]);
+  for (const g of KOERPER) if ((g.name + ' volumen oberfläche mantel körper').toLowerCase().includes(w)) t.push(['Tafel Körper', g.name, formel(g.v).formel, 'koerper', 'k-' + g.svg]);
+  return `<div class="schmal">${pfad(false)}<h1 class="titel">Suche „${esc(q)}“</h1><ul class="treffer">${t.map(([art, n, s, z, a]) => `<li><a href="#${z}" data-anker="${a}"><span class="art">${art}</span><b>${esc(n)}</b><small>${esc(s)}</small></a></li>`).join('') || '<li class="leise">Nichts gefunden.</li>'}
+    <li><a href="#universum"><span class="art">Regeln</span><b>… weitere Treffer im Universum</b><small>wie bisher</small></a></li></ul></div>`;
+}
+function zeichne() {
+  document.body.dataset.g = S.g;
+  const h = location.hash.slice(1).split('&')[0] || 'universum';
+  const m = document.getElementById('main');
+  if (h.startsWith('suche=')) m.innerHTML = suche(decodeURIComponent(h.slice(6)));
+  else m.innerHTML = ({ universum, tafeln: uebersicht, einheiten, flaechen, koerper }[h] || universum)();
+}
+(function () { const q = new URLSearchParams(location.hash.split('&').slice(1).join('&')); if (q.get('g')) S.g = q.get('g'); if (q.get('bis')) S.bis = q.get('bis'); if (q.get('offen')) S.offen = q.get('offen'); if (q.get('ohne')) document.documentElement.classList.add('ohne'); })();
+addEventListener('hashchange', () => { zeichne(); scrollTo(0, 0); });
+document.addEventListener('click', (e) => { const b = e.target.closest('button, a'); if (!b) return;
+  if (b.id === 'g') { S.g = S.g === 'hell' ? 'nacht' : 'hell'; zeichne(); }
+  else if (b.dataset.bis) { S.bis = b.dataset.bis; zeichne(); }
+  else if (b.dataset.anker) { const a = b.dataset.anker; setTimeout(() => document.getElementById(a)?.scrollIntoView({ block: 'start' }), 30); }
+  else if (b.getAttribute('href')?.startsWith('#regel-')) { e.preventDefault(); alert('Öffnet im Universum die Einzelregel ' + b.getAttribute('href').slice(7).toUpperCase()); } });
+document.getElementById('suche').addEventListener('keydown', (e) => { if (e.key === 'Enter' && e.target.value.trim()) location.hash = 'suche=' + encodeURIComponent(e.target.value.trim()); });
+zeichne();
+</script>
+</body>
+</html>

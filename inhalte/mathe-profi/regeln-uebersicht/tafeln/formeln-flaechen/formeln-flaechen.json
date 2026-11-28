@@ -1,0 +1,1255 @@
+{
+ "hinweis": "Inhalte für die Nachschlage-Tafel „Formeln: Flächen und Umfänge“ (Entwurf, nichts in die App eingespielt). Geprüft mit ../pruefen.py. Enthält die 11 Flächen- und Umfangsformeln des Universums (Rechteck bis Kreisausschnitt) und die ergänzten Umfänge und den Kreisring. Schreibweise wie im Bestand: Dezimalkomma, Tausender mit Leerzeichen, Malpunkt „·“, Geteilt „:“, Einheit mit Leerzeichen. herkunft „universum“ = Formel, Bedingung und ziel unverändert aus daten/regeln-universum.json → formeln; „ergaenzt“ = neu aus der Lückenprüfung.",
+ "stand": "2026-11-27",
+ "tafel": "formeln-flaechen",
+ "titel": "Formeln: Flächen und Umfänge",
+ "eintraege": [
+  {
+   "kennung": "ff-01",
+   "titel": "Rechteck – Fläche",
+   "figur": "Rechteck",
+   "groesse": "Fläche",
+   "fuer": "Rechteck – Fläche",
+   "formel": "A = a · b",
+   "bedingung": "–",
+   "herkunft": "universum",
+   "ziel": "F2",
+   "ergebnis": {
+    "zeichen": "A",
+    "name": "Flächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "Länge",
+     "art": "Länge",
+     "beschriften": "untere Seite mit Maßpfeil"
+    },
+    {
+     "zeichen": "b",
+     "name": "Breite",
+     "art": "Länge",
+     "beschriften": "rechte Seite mit Maßpfeil"
+    }
+   ],
+   "zeichnung": "Rechteck liegend zeichnen; a an der unteren, b an der rechten Seite. Die Fläche schraffieren.",
+   "beispiel": {
+    "werte": {
+     "a": "6 cm",
+     "b": "4 cm"
+    },
+    "rechnung": "A = 6 cm · 4 cm = 24 cm²",
+    "ergebnis": "24 cm²"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "messen.flaechen",
+      "lernziel": "rechteck",
+      "wort": "A = a · b"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F2",
+     "name": "Rechteck",
+     "passt": "Fläche = Länge mal Breite."
+    }
+   ],
+   "stichwoerter": [
+    "Rechteck",
+    "Fläche Rechteck",
+    "Flächeninhalt Rechteck",
+    "Länge mal Breite",
+    "a mal b"
+   ]
+  },
+  {
+   "kennung": "ff-02",
+   "titel": "Rechteck – Umfang",
+   "figur": "Rechteck",
+   "groesse": "Umfang",
+   "fuer": "Rechteck – Umfang",
+   "formel": "u = 2 · (a + b)",
+   "bedingung": "–",
+   "herkunft": "universum",
+   "ziel": "F2",
+   "ergebnis": {
+    "zeichen": "u",
+    "name": "Umfang",
+    "art": "Länge",
+    "einheit": "cm"
+   },
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "Länge",
+     "art": "Länge",
+     "beschriften": "untere und obere Seite"
+    },
+    {
+     "zeichen": "b",
+     "name": "Breite",
+     "art": "Länge",
+     "beschriften": "linke und rechte Seite"
+    }
+   ],
+   "zeichnung": "Rechteck; Rand farbig nachziehen, a und b je an einer Seite beschriften.",
+   "beispiel": {
+    "werte": {
+     "a": "6 cm",
+     "b": "4 cm"
+    },
+    "rechnung": "u = 2 · (6 cm + 4 cm) = 2 · 10 cm = 20 cm",
+    "ergebnis": "20 cm"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "messen.flaechen",
+      "lernziel": "rechteck",
+      "wort": "Umfang"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F2",
+     "name": "Rechteck",
+     "passt": "Umfang heißt einmal außen herum."
+    }
+   ],
+   "stichwoerter": [
+    "Rechteck",
+    "Umfang Rechteck",
+    "Zaun Rechteck",
+    "einmal außen herum",
+    "u"
+   ]
+  },
+  {
+   "kennung": "ff-03",
+   "titel": "Quadrat – Fläche",
+   "figur": "Quadrat",
+   "groesse": "Fläche",
+   "fuer": "Quadrat – Fläche",
+   "formel": "A = a²",
+   "bedingung": "–",
+   "herkunft": "universum",
+   "ziel": "F2",
+   "ergebnis": {
+    "zeichen": "A",
+    "name": "Flächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "Seitenlänge",
+     "art": "Länge",
+     "beschriften": "eine Seite mit Maßpfeil; die anderen drei Seiten tragen ebenfalls a"
+    }
+   ],
+   "zeichnung": "Quadrat; alle vier Seiten mit a kennzeichnen (gleiche Striche).",
+   "beispiel": {
+    "werte": {
+     "a": "5 cm"
+    },
+    "rechnung": "A = 5 cm · 5 cm = 25 cm²",
+    "ergebnis": "25 cm²"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "messen.flaechen",
+      "lernziel": "rechteck",
+      "wort": "Quadrat"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F2",
+     "name": "Rechteck",
+     "passt": "Fläche = Länge mal Breite; beim Quadrat sind beide gleich."
+    }
+   ],
+   "stichwoerter": [
+    "Quadrat",
+    "Fläche Quadrat",
+    "Flächeninhalt Quadrat",
+    "a hoch 2",
+    "a zum Quadrat"
+   ]
+  },
+  {
+   "kennung": "ff-04",
+   "titel": "Parallelogramm – Fläche",
+   "figur": "Parallelogramm",
+   "groesse": "Fläche",
+   "fuer": "Parallelogramm – Fläche",
+   "formel": "A = g · h",
+   "bedingung": "h senkrecht auf g",
+   "herkunft": "universum",
+   "ziel": "F5",
+   "ergebnis": {
+    "zeichen": "A",
+    "name": "Flächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "g",
+     "name": "Grundseite (eine der Seiten a oder b)",
+     "art": "Länge",
+     "beschriften": "untere Seite mit Maßpfeil; sie ist eine der beiden Seiten a und b, zu ihr gehört die Höhe h"
+    },
+    {
+     "zeichen": "h",
+     "name": "Höhe",
+     "art": "Länge",
+     "beschriften": "gestrichelte Senkrechte auf g (rechter Winkel markieren), bis zur gegenüberliegenden Seite"
+    }
+   ],
+   "zeichnung": "Schiefes Parallelogramm; h als gestrichelte Linie senkrecht zu g, nicht an der schrägen Seite entlang. g ist eine der beiden Seiten a und b (hier die untere); die Seiten a und b stehen bei „Parallelogramm – Umfang“.",
+   "beispiel": {
+    "werte": {
+     "g": "8 cm",
+     "h": "3 cm"
+    },
+    "rechnung": "A = 8 cm · 3 cm = 24 cm²",
+    "ergebnis": "24 cm²"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": null,
+    "beleg": [
+     {
+      "thema": "messen.flaechen_vielecke",
+      "lernziel": "parallelogramm",
+      "wort": "Parallelogramm"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F5",
+     "name": "Parallelogramm",
+     "passt": "Fläche = Grundseite mal Höhe."
+    }
+   ],
+   "stichwoerter": [
+    "Parallelogramm",
+    "Fläche Parallelogramm",
+    "Grundseite mal Höhe",
+    "g mal h"
+   ]
+  },
+  {
+   "kennung": "ff-05",
+   "titel": "Dreieck – Fläche",
+   "figur": "Dreieck",
+   "groesse": "Fläche",
+   "fuer": "Dreieck – Fläche",
+   "formel": "A = g · h : 2",
+   "bedingung": "h senkrecht auf g",
+   "herkunft": "universum",
+   "ziel": "F6",
+   "ergebnis": {
+    "zeichen": "A",
+    "name": "Flächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "g",
+     "name": "Grundseite",
+     "art": "Länge",
+     "beschriften": "untere Seite mit Maßpfeil"
+    },
+    {
+     "zeichen": "h",
+     "name": "Höhe",
+     "art": "Länge",
+     "beschriften": "gestrichelte Senkrechte auf g von der Gegenecke aus (rechter Winkel markieren); bei stumpfem Winkel liegt sie außen"
+    }
+   ],
+   "zeichnung": "Spitzwinkliges Dreieck; h von der oberen Ecke senkrecht auf g.",
+   "beispiel": {
+    "werte": {
+     "g": "6 cm",
+     "h": "4 cm"
+    },
+    "rechnung": "A = 6 cm · 4 cm : 2 = 12 cm²",
+    "ergebnis": "12 cm²"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": null,
+    "beleg": [
+     {
+      "thema": "messen.flaechen_vielecke",
+      "lernziel": "dreieck",
+      "wort": "Dreieck"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F6",
+     "name": "Dreieck",
+     "passt": "Fläche = Grundseite mal Höhe, geteilt durch 2."
+    }
+   ],
+   "stichwoerter": [
+    "Dreieck",
+    "Fläche Dreieck",
+    "Flächeninhalt Dreieck",
+    "g mal h durch 2",
+    "halbes Rechteck"
+   ]
+  },
+  {
+   "kennung": "ff-06",
+   "titel": "Trapez – Fläche",
+   "figur": "Trapez",
+   "groesse": "Fläche",
+   "fuer": "Trapez – Fläche",
+   "formel": "A = (a + c) : 2 · h",
+   "bedingung": "a und c parallel, h ihr Abstand",
+   "herkunft": "universum",
+   "ziel": "F7",
+   "ergebnis": {
+    "zeichen": "A",
+    "name": "Flächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "untere parallele Seite",
+     "art": "Länge",
+     "beschriften": "untere Seite mit Maßpfeil"
+    },
+    {
+     "zeichen": "c",
+     "name": "obere parallele Seite",
+     "art": "Länge",
+     "beschriften": "obere Seite mit Maßpfeil"
+    },
+    {
+     "zeichen": "h",
+     "name": "Höhe",
+     "art": "Länge",
+     "beschriften": "gestrichelte Senkrechte zwischen a und c (rechter Winkel markieren)"
+    }
+   ],
+   "zeichnung": "Trapez mit waagrechten Parallelen a (unten) und c (oben); h senkrecht dazwischen.",
+   "beispiel": {
+    "werte": {
+     "a": "7 cm",
+     "c": "3 cm",
+     "h": "4 cm"
+    },
+    "rechnung": "A = (7 cm + 3 cm) : 2 · 4 cm = 20 cm²",
+    "ergebnis": "20 cm²"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": null,
+    "beleg": [
+     {
+      "thema": "messen.flaechen_vielecke",
+      "lernziel": "trapez",
+      "wort": "Trapez"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F7",
+     "name": "Trapez",
+     "passt": "Fläche = Mittelwert der Parallelen mal Höhe."
+    }
+   ],
+   "stichwoerter": [
+    "Trapez",
+    "Fläche Trapez",
+    "Flächeninhalt Trapez",
+    "a plus c durch 2 mal h"
+   ]
+  },
+  {
+   "kennung": "ff-07",
+   "titel": "Drachenviereck und Raute – Fläche",
+   "figur": "Drachenviereck und Raute",
+   "groesse": "Fläche",
+   "fuer": "Drachenviereck und Raute – Fläche",
+   "formel": "A = e · f : 2",
+   "bedingung": "Diagonalen e und f senkrecht zueinander",
+   "herkunft": "universum",
+   "ziel": "F8",
+   "ergebnis": {
+    "zeichen": "A",
+    "name": "Flächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "e",
+     "name": "erste Diagonale",
+     "art": "Länge",
+     "beschriften": "Diagonale von Ecke zu Ecke, gestrichelt"
+    },
+    {
+     "zeichen": "f",
+     "name": "zweite Diagonale",
+     "art": "Länge",
+     "beschriften": "zweite Diagonale, gestrichelt, senkrecht zu e (rechter Winkel im Schnittpunkt)"
+    }
+   ],
+   "zeichnung": "Beide Diagonalen einzeichnen und beschriften; Schnittpunkt mit rechtem Winkel markieren.",
+   "beispiel": {
+    "werte": {
+     "e": "10 cm",
+     "f": "6 cm"
+    },
+    "rechnung": "A = 10 cm · 6 cm : 2 = 30 cm²",
+    "ergebnis": "30 cm²"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": null,
+    "beleg": [
+     {
+      "thema": "messen.flaechen_vielecke",
+      "lernziel": "drachen_raute",
+      "wort": "Raute"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F8",
+     "name": "Drachenviereck und Raute",
+     "passt": "Fläche = e mal f durch 2."
+    }
+   ],
+   "stichwoerter": [
+    "Drachen",
+    "Drachenviereck",
+    "Raute",
+    "Fläche Raute",
+    "Fläche Drachen",
+    "Diagonalen mal Diagonalen durch 2"
+   ]
+  },
+  {
+   "kennung": "ff-08",
+   "titel": "Kreis – Umfang",
+   "figur": "Kreis",
+   "groesse": "Umfang",
+   "fuer": "Kreis – Umfang",
+   "formel": "u = 2 · π · r",
+   "bedingung": "–",
+   "herkunft": "universum",
+   "ziel": "F9",
+   "ergebnis": {
+    "zeichen": "u",
+    "name": "Umfang",
+    "art": "Länge",
+    "einheit": "cm"
+   },
+   "groessen": [
+    {
+     "zeichen": "r",
+     "name": "Radius",
+     "art": "Länge",
+     "beschriften": "von der Mitte M zum Rand, Mittelpunkt M markieren"
+    }
+   ],
+   "zeichnung": "Kreis mit Mittelpunkt M; Radius r als Strecke von M zum Rand. Optional d als Durchmesser (d = 2 · r).",
+   "beispiel": {
+    "werte": {
+     "r": "5 cm"
+    },
+    "rechnung": "u = 2 · π · 5 cm = 10π cm ≈ 31,4 cm",
+    "ergebnis": "10π cm ≈ 31,4 cm"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "messen.kreisberechnung",
+      "lernziel": "umfang",
+      "wort": "u = π · d"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F9",
+     "name": "Kreis",
+     "passt": "Umfang u = 2 · π · r."
+    }
+   ],
+   "stichwoerter": [
+    "Kreis",
+    "Kreisumfang",
+    "Umfang Kreis",
+    "u Kreis",
+    "zwei pi r",
+    "pi mal d"
+   ]
+  },
+  {
+   "kennung": "ff-09",
+   "titel": "Kreis – Fläche",
+   "figur": "Kreis",
+   "groesse": "Fläche",
+   "fuer": "Kreis – Fläche",
+   "formel": "A = π · r²",
+   "bedingung": "–",
+   "herkunft": "universum",
+   "ziel": "F9",
+   "ergebnis": {
+    "zeichen": "A",
+    "name": "Flächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "r",
+     "name": "Radius",
+     "art": "Länge",
+     "beschriften": "von der Mitte M zum Rand, Mittelpunkt M markieren"
+    }
+   ],
+   "zeichnung": "Kreis mit Mittelpunkt M und Radius r; Kreisfläche schraffieren.",
+   "beispiel": {
+    "werte": {
+     "r": "5 cm"
+    },
+    "rechnung": "A = π · 5² cm² = 25π cm² ≈ 78,5 cm²",
+    "ergebnis": "25π cm² ≈ 78,5 cm²"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "messen.kreisberechnung",
+      "lernziel": "flaeche",
+      "wort": "A = π · r²"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F9",
+     "name": "Kreis",
+     "passt": "Fläche A = π · r²."
+    }
+   ],
+   "stichwoerter": [
+    "Kreis",
+    "Kreisfläche",
+    "Fläche Kreis",
+    "Flächeninhalt Kreis",
+    "pi r Quadrat",
+    "pi mal r hoch 2"
+   ]
+  },
+  {
+   "kennung": "ff-10",
+   "titel": "Kreisausschnitt – Bogenlänge",
+   "figur": "Kreisausschnitt",
+   "groesse": "Bogenlänge",
+   "fuer": "Kreisausschnitt – Bogenlänge",
+   "formel": "b = α : 360° · 2 · π · r",
+   "bedingung": "α Mittelpunktswinkel",
+   "herkunft": "universum",
+   "ziel": "F10",
+   "ergebnis": {
+    "zeichen": "b",
+    "name": "Bogenlänge",
+    "art": "Länge",
+    "einheit": "cm"
+   },
+   "groessen": [
+    {
+     "zeichen": "α",
+     "name": "Mittelpunktswinkel",
+     "art": "Winkel",
+     "beschriften": "Winkelbogen an der Mitte M mit Gradzahl"
+    },
+    {
+     "zeichen": "r",
+     "name": "Radius",
+     "art": "Länge",
+     "beschriften": "beide Begrenzungsradien beschriften"
+    }
+   ],
+   "zeichnung": "Kreisausschnitt (Tortenstück): Mitte M, α als Bogen an M, r an einem Radius, b als gebogener Maßpfeil am Rand.",
+   "beispiel": {
+    "werte": {
+     "α": "90°",
+     "r": "4 cm"
+    },
+    "rechnung": "b = 90° : 360° · 2 · π · 4 cm = 2π cm ≈ 6,28 cm",
+    "ergebnis": "2π cm ≈ 6,28 cm"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "messen.kreisberechnung",
+      "lernziel": "sektor",
+      "wort": "Bogen"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F10",
+     "name": "Kreisausschnitt",
+     "passt": "Bogenlänge und Fläche sind der Anteil α : 360° vom Kreis."
+    }
+   ],
+   "stichwoerter": [
+    "Kreisausschnitt",
+    "Kreissektor",
+    "Bogenlänge",
+    "Tortenstück",
+    "Bogen b"
+   ]
+  },
+  {
+   "kennung": "ff-11",
+   "titel": "Kreisausschnitt – Fläche",
+   "figur": "Kreisausschnitt",
+   "groesse": "Fläche",
+   "fuer": "Kreisausschnitt – Fläche",
+   "formel": "A = α : 360° · π · r²",
+   "bedingung": "α Mittelpunktswinkel",
+   "herkunft": "universum",
+   "ziel": "F10",
+   "ergebnis": {
+    "zeichen": "A",
+    "name": "Flächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "α",
+     "name": "Mittelpunktswinkel",
+     "art": "Winkel",
+     "beschriften": "Winkelbogen an der Mitte M mit Gradzahl"
+    },
+    {
+     "zeichen": "r",
+     "name": "Radius",
+     "art": "Länge",
+     "beschriften": "beide Begrenzungsradien beschriften"
+    }
+   ],
+   "zeichnung": "Kreisausschnitt: Mitte M, α als Bogen, r an einem Radius, Ausschnittsfläche schraffieren.",
+   "beispiel": {
+    "werte": {
+     "α": "90°",
+     "r": "4 cm"
+    },
+    "rechnung": "A = 90° : 360° · π · 4² cm² = 4π cm² ≈ 12,57 cm²",
+    "ergebnis": "4π cm² ≈ 12,57 cm²"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "messen.kreisberechnung",
+      "lernziel": "sektor",
+      "wort": "Fläche"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F10",
+     "name": "Kreisausschnitt",
+     "passt": "Bogenlänge und Fläche sind der Anteil α : 360° vom Kreis."
+    }
+   ],
+   "stichwoerter": [
+    "Kreisausschnitt",
+    "Fläche Kreisausschnitt",
+    "Kreissektor Fläche",
+    "Tortenstück Fläche"
+   ]
+  },
+  {
+   "kennung": "ff-12",
+   "titel": "Quadrat – Umfang",
+   "figur": "Quadrat",
+   "groesse": "Umfang",
+   "fuer": "Quadrat – Umfang",
+   "formel": "u = 4 · a",
+   "bedingung": "–",
+   "herkunft": "ergaenzt",
+   "ergebnis": {
+    "zeichen": "u",
+    "name": "Umfang",
+    "art": "Länge",
+    "einheit": "cm"
+   },
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "Seitenlänge",
+     "art": "Länge",
+     "beschriften": "eine Seite mit Maßpfeil; die anderen Seiten tragen ebenfalls a"
+    }
+   ],
+   "zeichnung": "Quadrat; Rand farbig nachziehen, eine Seite mit a beschriften.",
+   "beispiel": {
+    "werte": {
+     "a": "5 cm"
+    },
+    "rechnung": "u = 4 · 5 cm = 20 cm",
+    "ergebnis": "20 cm"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "messen.flaechen",
+      "lernziel": "rechteck",
+      "wort": "Quadrat"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand steht der Umfang nur als u = 2 · a + 2 · b am Rechteck; beim Quadrat sind a und b gleich.",
+   "regeln": [
+    {
+     "kennung": "F2",
+     "name": "Rechteck",
+     "passt": "Umfang heißt einmal außen herum; beim Quadrat viermal a."
+    }
+   ],
+   "stichwoerter": [
+    "Quadrat",
+    "Umfang Quadrat",
+    "vier mal a",
+    "4a",
+    "Zaun Quadrat"
+   ]
+  },
+  {
+   "kennung": "ff-13",
+   "titel": "Dreieck – Umfang",
+   "figur": "Dreieck",
+   "groesse": "Umfang",
+   "fuer": "Dreieck – Umfang",
+   "formel": "u = a + b + c",
+   "bedingung": "a, b, c sind die drei Seiten des Dreiecks",
+   "herkunft": "ergaenzt",
+   "ergebnis": {
+    "zeichen": "u",
+    "name": "Umfang",
+    "art": "Länge",
+    "einheit": "cm"
+   },
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "erste Seite",
+     "art": "Länge",
+     "beschriften": "Seite mit Maßpfeil"
+    },
+    {
+     "zeichen": "b",
+     "name": "zweite Seite",
+     "art": "Länge",
+     "beschriften": "Seite mit Maßpfeil"
+    },
+    {
+     "zeichen": "c",
+     "name": "dritte Seite",
+     "art": "Länge",
+     "beschriften": "Seite mit Maßpfeil"
+    }
+   ],
+   "zeichnung": "Dreieck; jede der drei Seiten mit a, b oder c beschriften, Rand farbig nachziehen.",
+   "beispiel": {
+    "werte": {
+     "a": "3 cm",
+     "b": "4 cm",
+     "c": "5 cm"
+    },
+    "rechnung": "u = 3 cm + 4 cm + 5 cm = 12 cm",
+    "ergebnis": "12 cm"
+   },
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Die Figur kommt ab Klasse 6 vor (messen.flaechen_vielecke); ihr Umfang ist im Bestand kein eigenes Lernziel.",
+   "regeln": [],
+   "regeln_hinweis": "Keine Einzelregel nennt diesen Umfang; F2 erklärt „einmal außen herum“ nur am Rechteck.",
+   "stichwoerter": [
+    "Dreieck",
+    "Umfang Dreieck",
+    "Summe der Seiten",
+    "a plus b plus c"
+   ]
+  },
+  {
+   "kennung": "ff-14",
+   "titel": "Parallelogramm – Umfang",
+   "figur": "Parallelogramm",
+   "groesse": "Umfang",
+   "fuer": "Parallelogramm – Umfang",
+   "formel": "u = 2 · (a + b)",
+   "bedingung": "a und b sind zwei benachbarte Seiten; die Gegenseiten sind gleich lang",
+   "herkunft": "ergaenzt",
+   "ergebnis": {
+    "zeichen": "u",
+    "name": "Umfang",
+    "art": "Länge",
+    "einheit": "cm"
+   },
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "Seite a",
+     "art": "Länge",
+     "beschriften": "untere und obere Seite (gleich lang)"
+    },
+    {
+     "zeichen": "b",
+     "name": "Seite b (Nachbarseite von a)",
+     "art": "Länge",
+     "beschriften": "linke und rechte Seite (gleich lang)"
+    }
+   ],
+   "zeichnung": "Schiefes Parallelogramm; a an der unteren, b an der schrägen Seite; Gegenseiten mit gleichen Strichen markieren. Die Grundseite g der Flächenformel ist eine dieser beiden Seiten (a oder b).",
+   "beispiel": {
+    "werte": {
+     "a": "8 cm",
+     "b": "5 cm"
+    },
+    "rechnung": "u = 2 · (8 cm + 5 cm) = 2 · 13 cm = 26 cm",
+    "ergebnis": "26 cm"
+   },
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Die Figur kommt ab Klasse 6 vor (messen.flaechen_vielecke); ihr Umfang ist im Bestand kein eigenes Lernziel.",
+   "regeln": [],
+   "regeln_hinweis": "Keine Einzelregel nennt diesen Umfang; F2 erklärt „einmal außen herum“ nur am Rechteck.",
+   "stichwoerter": [
+    "Parallelogramm",
+    "Umfang Parallelogramm",
+    "zwei mal a plus b"
+   ]
+  },
+  {
+   "kennung": "ff-15",
+   "titel": "Trapez – Umfang",
+   "figur": "Trapez",
+   "groesse": "Umfang",
+   "fuer": "Trapez – Umfang",
+   "formel": "u = a + b + c + d",
+   "bedingung": "a und c sind die parallelen Seiten, b und d die Schenkel",
+   "herkunft": "ergaenzt",
+   "ergebnis": {
+    "zeichen": "u",
+    "name": "Umfang",
+    "art": "Länge",
+    "einheit": "cm"
+   },
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "untere parallele Seite",
+     "art": "Länge",
+     "beschriften": "untere Seite"
+    },
+    {
+     "zeichen": "b",
+     "name": "linker Schenkel",
+     "art": "Länge",
+     "beschriften": "linke Seite"
+    },
+    {
+     "zeichen": "c",
+     "name": "obere parallele Seite",
+     "art": "Länge",
+     "beschriften": "obere Seite"
+    },
+    {
+     "zeichen": "d",
+     "name": "rechter Schenkel",
+     "art": "Länge",
+     "beschriften": "rechte Seite"
+    }
+   ],
+   "zeichnung": "Trapez mit waagrechten Parallelen a (unten) und c (oben); b links, d rechts; alle vier Seiten beschriften.",
+   "beispiel": {
+    "werte": {
+     "a": "6 cm",
+     "b": "4 cm",
+     "c": "3 cm",
+     "d": "5 cm"
+    },
+    "rechnung": "u = 6 cm + 4 cm + 3 cm + 5 cm = 18 cm",
+    "ergebnis": "18 cm",
+    "hilfsrechnung": "5² = 4² + 3² = 25",
+    "hilfe": "Der linke Schenkel b = 4 cm steht senkrecht, ist also die Höhe. Der rechte Schenkel d überbrückt a − c = 3 cm: d² = 4² + 3²."
+   },
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Die Figur kommt ab Klasse 6 vor (messen.flaechen_vielecke); ihr Umfang ist im Bestand kein eigenes Lernziel.",
+   "regeln": [],
+   "regeln_hinweis": "Keine Einzelregel nennt diesen Umfang; F2 erklärt „einmal außen herum“ nur am Rechteck.",
+   "stichwoerter": [
+    "Trapez",
+    "Umfang Trapez",
+    "Summe der vier Seiten"
+   ]
+  },
+  {
+   "kennung": "ff-16",
+   "titel": "Drachenviereck – Umfang",
+   "figur": "Drachenviereck",
+   "groesse": "Umfang",
+   "fuer": "Drachenviereck – Umfang",
+   "formel": "u = 2 · (a + b)",
+   "bedingung": "Je zwei benachbarte Seiten sind gleich lang: zweimal a und zweimal b",
+   "herkunft": "ergaenzt",
+   "ergebnis": {
+    "zeichen": "u",
+    "name": "Umfang",
+    "art": "Länge",
+    "einheit": "cm"
+   },
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "erste Seitenlänge",
+     "art": "Länge",
+     "beschriften": "die zwei gleich langen Seiten an der einen Spitze"
+    },
+    {
+     "zeichen": "b",
+     "name": "zweite Seitenlänge",
+     "art": "Länge",
+     "beschriften": "die zwei gleich langen Seiten an der anderen Spitze"
+    }
+   ],
+   "zeichnung": "Drachenviereck mit senkrechter Symmetrieachse; zwei Seiten mit a, die anderen zwei mit b beschriften.",
+   "beispiel": {
+    "werte": {
+     "a": "5 cm",
+     "b": "3 cm"
+    },
+    "rechnung": "u = 2 · (5 cm + 3 cm) = 2 · 8 cm = 16 cm",
+    "ergebnis": "16 cm"
+   },
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Die Figur kommt ab Klasse 6 vor (messen.flaechen_vielecke); ihr Umfang ist im Bestand kein eigenes Lernziel.",
+   "regeln": [],
+   "regeln_hinweis": "Keine Einzelregel nennt diesen Umfang; F2 erklärt „einmal außen herum“ nur am Rechteck.",
+   "stichwoerter": [
+    "Drachen",
+    "Drachenviereck",
+    "Umfang Drachen",
+    "zwei mal a plus b"
+   ]
+  },
+  {
+   "kennung": "ff-17",
+   "titel": "Raute – Umfang",
+   "figur": "Raute",
+   "groesse": "Umfang",
+   "fuer": "Raute – Umfang",
+   "formel": "u = 4 · a",
+   "bedingung": "alle vier Seiten sind gleich lang",
+   "herkunft": "ergaenzt",
+   "ergebnis": {
+    "zeichen": "u",
+    "name": "Umfang",
+    "art": "Länge",
+    "einheit": "cm"
+   },
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "Seitenlänge",
+     "art": "Länge",
+     "beschriften": "eine Seite mit Maßpfeil; alle vier Seiten mit gleichen Strichen markieren"
+    }
+   ],
+   "zeichnung": "Raute; alle vier Seiten gleich markieren, eine mit a beschriften.",
+   "beispiel": {
+    "werte": {
+     "a": "5 cm"
+    },
+    "rechnung": "u = 4 · 5 cm = 20 cm",
+    "ergebnis": "20 cm",
+    "hilfsrechnung": "5² = (8 : 2)² + (6 : 2)² = 25",
+    "hilfe": "Raute mit den Diagonalen 8 cm und 6 cm: Eine Seite ist die Hypotenuse mit den Katheten 8 : 2 und 6 : 2, also a² = 4² + 3²."
+   },
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Die Figur kommt ab Klasse 6 vor (messen.flaechen_vielecke); ihr Umfang ist im Bestand kein eigenes Lernziel.",
+   "regeln": [],
+   "regeln_hinweis": "Keine Einzelregel nennt diesen Umfang; F2 erklärt „einmal außen herum“ nur am Rechteck.",
+   "stichwoerter": [
+    "Raute",
+    "Umfang Raute",
+    "vier mal a"
+   ]
+  },
+  {
+   "kennung": "ff-18",
+   "titel": "Kreisring – Fläche",
+   "figur": "Kreisring",
+   "groesse": "Fläche",
+   "fuer": "Kreisring – Fläche",
+   "formel": "A = π · (R² − r²)",
+   "bedingung": "R > r; beide Kreise haben denselben Mittelpunkt",
+   "herkunft": "ergaenzt",
+   "ergebnis": {
+    "zeichen": "A",
+    "name": "Flächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "R",
+     "name": "äußerer Radius",
+     "art": "Länge",
+     "beschriften": "von der gemeinsamen Mitte M zum äußeren Rand"
+    },
+    {
+     "zeichen": "r",
+     "name": "innerer Radius",
+     "art": "Länge",
+     "beschriften": "von der gemeinsamen Mitte M zum inneren Rand"
+    }
+   ],
+   "zeichnung": "Zwei Kreise mit derselben Mitte M; R zum äußeren, r zum inneren Rand; der Ring dazwischen schraffiert.",
+   "beispiel": {
+    "werte": {
+     "R": "5 cm",
+     "r": "2 cm"
+    },
+    "rechnung": "A = π · (5² cm² − 2² cm²) = π · 21 cm² = 21π cm² ≈ 65,97 cm²",
+    "ergebnis": "21π cm² ≈ 65,97 cm²"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "messen.kreisberechnung",
+      "lernziel": "zusammengesetzt",
+      "wort": "Kreisring"
+     }
+    ]
+   },
+   "regeln": [],
+   "regeln_hinweis": "Keine Einzelregel nennt den Kreisring; F9 (Kreis) liefert nur die beiden Kreisflächen.",
+   "stichwoerter": [
+    "Kreisring",
+    "Ring",
+    "Fläche Kreisring",
+    "großer Kreis minus kleiner Kreis",
+    "Unterlegscheibe"
+   ]
+  },
+  {
+   "kennung": "ff-19",
+   "titel": "Kreisausschnitt – Umfang",
+   "figur": "Kreisausschnitt",
+   "groesse": "Umfang",
+   "fuer": "Kreisausschnitt – Umfang",
+   "formel": "u = 2 · r + b",
+   "bedingung": "Der Rand besteht aus zwei Radien und dem Bogen b; b ist die Bogenlänge, b = α : 360° · 2 · π · r",
+   "herkunft": "ergaenzt",
+   "ergebnis": {
+    "zeichen": "u",
+    "name": "Umfang",
+    "art": "Länge",
+    "einheit": "cm"
+   },
+   "groessen": [
+    {
+     "zeichen": "r",
+     "name": "Radius",
+     "art": "Länge",
+     "beschriften": "beide Begrenzungsradien beschriften"
+    },
+    {
+     "zeichen": "b",
+     "name": "Bogenlänge",
+     "art": "Länge",
+     "beschriften": "b als gebogener Maßpfeil am Rand"
+    }
+   ],
+   "zeichnung": "Kreisausschnitt (Tortenstück): Mitte M, die beiden Radien r und der Bogen b; der ganze Rand ist hervorgehoben.",
+   "beispiel": {
+    "werte": {
+     "r": "4 cm",
+     "b": "2π cm"
+    },
+    "rechnung": "u = 2 · 4 cm + 2π cm = 8 cm + 2π cm ≈ 14,28 cm",
+    "ergebnis": "8 cm + 2π cm ≈ 14,28 cm",
+    "hilfe": "b aus dem Beispiel zur Bogenlänge: α = 90°, r = 4 cm, also b = 2π cm."
+   },
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "messen.kreisberechnung",
+      "lernziel": "sektor",
+      "wort": "Bogen"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F10",
+     "name": "Kreisausschnitt",
+     "passt": "Der Bogen b ist der Anteil α : 360° vom Kreisumfang; dazu kommen die beiden Radien."
+    }
+   ],
+   "stichwoerter": [
+    "Umfang Kreisausschnitt",
+    "Kreisausschnitt Umfang",
+    "Umfang Kreissektor",
+    "Rand Tortenstück"
+   ]
+  },
+  {
+   "kennung": "ff-20",
+   "titel": "Kreisring – Umfang (beide Ränder)",
+   "figur": "Kreisring",
+   "groesse": "Umfang",
+   "fuer": "Kreisring – Umfang (beide Ränder)",
+   "formel": "u = 2 · π · (R + r)",
+   "bedingung": "beide Ränder zusammen: äußerer Rand 2 · π · R, innerer Rand 2 · π · r; R > r, beide Kreise haben denselben Mittelpunkt",
+   "herkunft": "ergaenzt",
+   "ergebnis": {
+    "zeichen": "u",
+    "name": "Länge beider Ränder",
+    "art": "Länge",
+    "einheit": "cm"
+   },
+   "groessen": [
+    {
+     "zeichen": "R",
+     "name": "äußerer Radius",
+     "art": "Länge",
+     "beschriften": "von der gemeinsamen Mitte M zum äußeren Rand"
+    },
+    {
+     "zeichen": "r",
+     "name": "innerer Radius",
+     "art": "Länge",
+     "beschriften": "von der gemeinsamen Mitte M zum inneren Rand"
+    }
+   ],
+   "zeichnung": "Zwei Kreise mit derselben Mitte M; R zum äußeren, r zum inneren Rand; beide Ränder hervorgehoben.",
+   "beispiel": {
+    "werte": {
+     "R": "5 cm",
+     "r": "2 cm"
+    },
+    "rechnung": "u = 2 · π · (5 cm + 2 cm) = 2 · π · 7 cm = 14π cm ≈ 43,98 cm",
+    "ergebnis": "14π cm ≈ 43,98 cm"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "messen.kreisberechnung",
+      "lernziel": "zusammengesetzt",
+      "wort": "Kreisring"
+     }
+    ]
+   },
+   "regeln": [],
+   "regeln_hinweis": "Keine Einzelregel nennt den Kreisring; F9 (Kreis) liefert die beiden Kreisumfänge. Stimmt mit nachtrag nt-08 überein.",
+   "stichwoerter": [
+    "Umfang Kreisring",
+    "Kreisring Umfang",
+    "Rand Kreisring",
+    "äußerer Rand",
+    "innerer Rand"
+   ]
+  }
+ ],
+ "groessenarten": {
+  "Länge": "Strecke in cm",
+  "Fläche": "Flächeninhalt in cm²",
+  "Volumen": "Rauminhalt in cm³",
+  "Winkel": "Winkel in Grad"
+ }
+}

@@ -47,16 +47,22 @@ async function seite(t, { ms = 150 } = {}) {
   const errors = []; page.on('pageerror', (e) => errors.push(e.message)); t.after(() => assert.deepEqual(errors, []));
   await page.route('https://cdnjs.cloudflare.com/**', (r) => r.abort());
   await page.route('**/functions/v1/app-api/**', (r) => r.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: {} }) }));
-  const netz = []; let nr = 0;
+  const netz = []; let nr = 0; const srv = { stand: 0, msJe: {}, abgelaufen: null };
   await page.route('**/functions/v1/lernen-api/**', async (route) => {
     const b = JSON.parse(route.request().postData() || '{}'); netz.push(b.aktion + JSON.stringify(b.daten || {})); const n = ++nr;
-    await new Promise((r) => setTimeout(r, ms));
-    await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, nr: n, aktion: b.aktion } }) });
+    const tok = (route.request().headers().authorization || '').replace('Bearer ', '');
+    const liest = /^schule_(merkheft|konto|wiederholung|einheit_lesen|uebersicht|eltern|rueckmeldungen)$|_lesen$/.test(b.aktion);
+    if (!liest) srv.stand++; // schreibende Aktion: Stand am Server steigt sofort
+    const stand = srv.stand;
+    await new Promise((r) => setTimeout(r, srv.msJe[b.aktion] ?? ms));
+    if (srv.abgelaufen && tok === srv.abgelaufen) { await route.fulfill({ status: 401, contentType: 'application/json', body: JSON.stringify({ ok: false, fehler: 'abgelaufen' }) }); return; }
+    await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, nr: n, aktion: b.aktion, stand } }) });
   });
   await page.goto(origin + '/#/meldungen'); await page.waitForFunction(() => typeof lernCall === 'function');
   await page.waitForTimeout(300); netz.length = 0;
   const zahl = (a) => netz.filter((x) => x.startsWith(a + '{')).length;
-  return { page, netz, zahl };
+  const zahlKind = (a, k) => netz.filter((x) => x.startsWith(a + '{') && JSON.parse(x.slice(a.length)).lernender_id === k).length;
+  return { page, netz, zahl, zahlKind, srv };
 }
 
 test('TEMPO: gleichzeitige gleiche Lese-Abrufe teilen sich eine Antwort; verschiedene Daten bleiben getrennt; Aufrufer bekommen Kopien', async (t) => {
@@ -116,7 +122,56 @@ test('TEMPO: Vorab-Abruf (lernVorladen) wird genau einmal abgeholt – auch wenn
   assert.equal(zahl('schule_wiederholung'), 4);
 });
 
+test('1175/2: Lese-Antwort, die während einer Buchung lief, wird nicht ausgeliefert – der Aufrufer bekommt den Stand nach der Buchung', async (t) => {
+  const { page, srv } = await seite(t, { ms: 50 });
+  srv.msJe.schule_merkheft = 400; srv.msJe.schule_konto = 400; srv.msJe.schule_uebersicht = 400;
+  const r = await page.evaluate(async () => {
+    const lesen = [lernCall('schule_merkheft', { lernender_id: 1 }), lernCall('schule_konto', { lernender_id: 1 }), lernCall('schule_uebersicht')];
+    await new Promise((ok) => setTimeout(ok, 50));
+    await lernCall('schule_uebung_pruefen', { lernender_id: 1, aufgabe_id: 9, antwort: { wert: 1 } });
+    return (await Promise.all(lesen)).map((x) => x.stand); });
+  assert.deepEqual(r, [1, 1, 1], 'alle drei mit dem Stand nach der Buchung');
+});
+test('1175/3: Vorab an Kind gebunden (A → B → A frisch), laufendes Vorab teilen (kein Doppelabruf), Beförderung lauf → vorab behält die Antwort', async (t) => {
+  const { page, zahlKind, zahl, srv } = await seite(t, { ms: 200 });
+  // A → B → A
+  await page.evaluate(() => lernVorladen('schule_wiederholung', { lernender_id: 1 })); await page.waitForTimeout(300);
+  await page.evaluate(() => lernCall('schule_wiederholung', { lernender_id: 2 }));
+  await page.evaluate(() => lernCall('schule_wiederholung', { lernender_id: 1 }));
+  assert.equal(zahlKind('schule_wiederholung', 1), 2, 'nach B wird A frisch geholt (nicht die alte Vorab-Antwort)');
+  // laufendes Vorab: ein Verbraucher holt ab, ein zweiter kommt dazu – ein Abruf
+  const n0 = zahl('schule_einheit_lesen');
+  await page.evaluate(async () => { lernVorladen('schule_einheit_lesen', { lernender_id: 1, einheit_id: 5 });
+    const a = lernCall('schule_einheit_lesen', { lernender_id: 1, einheit_id: 5 }); const b = lernCall('schule_einheit_lesen', { lernender_id: 1, einheit_id: 5 }); await Promise.all([a, b]); });
+  assert.equal(zahl('schule_einheit_lesen') - n0, 1, 'ein Abruf für Vorab + zwei Verbraucher');
+  // Beförderung: läuft (normal), wird vorgeladen → Antwort bleibt für den nächsten Abruf liegen
+  const n1 = zahl('schule_einheit_lesen');
+  await page.evaluate(async () => { const a = lernCall('schule_einheit_lesen', { lernender_id: 1, einheit_id: 6 }); lernVorladen('schule_einheit_lesen', { lernender_id: 1, einheit_id: 6 }); await a; });
+  await page.waitForTimeout(50);
+  await page.evaluate(() => lernCall('schule_einheit_lesen', { lernender_id: 1, einheit_id: 6 }));
+  assert.equal(zahl('schule_einheit_lesen') - n1, 1, 'beförderte Antwort einmal abgeholt');
+});
+test('1175/4: verspätetes 401 des alten Zugangs meldet den neuen nicht ab; Antwort des alten Zugangs wird verworfen', async (t) => {
+  const { page, srv } = await seite(t, { ms: 300 });
+  srv.abgelaufen = 'synthetic-test-session';
+  const r = await page.evaluate(async () => {
+    const p = lernCall('schule_konto', { lernender_id: 1 }).then(() => 'ok', (e) => e.message);
+    await new Promise((ok) => setTimeout(ok, 50)); store.token = 'synthetic-neue-sitzung';
+    const fehler = await p; return { fehler, token: store.token, hash: location.hash }; });
+  assert.equal(r.token, 'synthetic-neue-sitzung'); assert.notEqual(r.hash, '#/login'); assert.match(r.fehler, /Zugang gewechselt/);
+});
+
 // ---------- sw.js ----------
+test('1175/5 Release-Regel: beide HTML-Einstiege, sw.js-Hülle und App-Version nennen dieselbe Version; jede Hüllen-Datei der Einstiege steht mit ihr in sw.js', async () => {
+  const lies = (f) => fs.readFileSync(path.join(root, f), 'utf8');
+  const versionen = (t) => [...t.matchAll(/\?v=([\w.-]+)/g)].map((m) => m[1]);
+  const sw = lies('sw.js'); const huelle = JSON.parse(sw.match(/const HUELLE = (\[[^\]]*\])/)[1].replace(/'/g, '"'));
+  const v = new Set([...versionen(lies('index.html')), ...versionen(lies('lernen/index.html')), ...versionen(huelle.join(' '))]);
+  assert.equal(v.size, 1, 'eine Version überall: ' + [...v].join(', '));
+  const [ver] = v;
+  for (const m of lies('index.html').matchAll(/(?:src|href)="([^"]+\?v=[^"]+)"/g)) assert.ok(huelle.includes('./' + m[1]), `${m[1]} fehlt in HUELLE`);
+  const app = lies('app.js').match(/APP_VERSION\s*=\s*'([^']+)'/); if (app) assert.equal(app[1], ver, 'APP_VERSION = ?v=');
+});
 function swLaden(cacheInhalt, netz) {
   const events = {}; const self = { registration: { scope: 'https://example.com/ki/' }, addEventListener: (n, cb) => { events[n] = cb; }, skipWaiting: () => {}, clients: { claim: () => {} } };
   const caches = { open: async () => ({ match: async (req) => cacheInhalt.get(typeof req === 'string' ? req : req.url) || undefined, put: async (req, r) => { cacheInhalt.set(req.url, r); } }) };

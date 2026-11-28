@@ -60,7 +60,7 @@ $('#btn-back').addEventListener('click', () => { if (history.length > 1) history
 $('#btn-abmelden').addEventListener('click', async () => {
   if (!window.confirm('Auf diesem Gerät abmelden?')) return;
   try { await fetch(mitRegion(lernApi() + '/abmelden'), { method: 'POST', headers: { Authorization: 'Bearer ' + store.token } }); } catch { /* egal */ }
-  store.token = null; lernIch = null; route('login');
+  store.token = null; lernIch = null; lernSitzungPruefen(); route('login'); // 1175: Speicher, Karten und letzte Ansichten des alten Zugangs leeren
 });
 
 function loading(text = 'Lade …') { main.replaceChildren(el('div', { class: 'spinner' }, text)); }

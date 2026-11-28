@@ -176,9 +176,9 @@ function parseHash() {
 window.addEventListener('hashchange', render);
 
 function setChrome(title, { back = false, showTabs = true, tab = null } = {}) {
-  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : ['lernen', 'lerneinheit', 'reise', 'weltkarte', 'reisepass', 'weg', 'merkheft', 'wiederholen', 'plan', 'rueckmeldungen', 'lernauftraege', 'zugaenge', 'lehrplan', 'inhalte', 'lernstand', 'wackelt', 'kind', 'schulstand', 'expedition', 'stationen', 'expeditionen', 'info', 'regeln'].includes(current.view) ? 'lernen' : ['suche', 'ergebnisse', 'viertel', 'anzeige', 'reisen', 'etappe', 'papierkorb', 'highlights'].includes(current.view) ? 'unterkunft' : 'council';
+  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : ['lernen', 'lerneinheit', 'reise', 'weltkarte', 'reisepass', 'weg', 'merkheft', 'wiederholen', 'plan', 'rueckmeldungen', 'lernauftraege', 'zugaenge', 'lehrplan', 'inhalte', 'lernstand', 'wackelt', 'kind', 'schulstand', 'expedition', 'stationen', 'expeditionen', 'info', 'regeln', 'route'].includes(current.view) ? 'lernen' : ['suche', 'ergebnisse', 'viertel', 'anzeige', 'reisen', 'etappe', 'papierkorb', 'highlights'].includes(current.view) ? 'unterkunft' : 'council';
   document.body.dataset.area = area;
-  document.body.toggleAttribute('data-kindmodus', ['reise', 'weltkarte', 'reisepass', 'lerneinheit', 'weg', 'merkheft', 'wiederholen', 'expedition', 'stationen'].includes(current.view)); // W150: Lernreise der Kinder ohne App-Bereichsleiste
+  document.body.toggleAttribute('data-kindmodus', ['reise', 'weltkarte', 'reisepass', 'lerneinheit', 'weg', 'merkheft', 'wiederholen', 'expedition', 'stationen', 'route'].includes(current.view)); // W150 (TEMPO/1175 e: route wie lernen/schule.js): Lernreise der Kinder ohne App-Bereichsleiste
   for (const meta of document.querySelectorAll('meta[name="theme-color"]')) meta.content = ['unterkunft', 'start', 'lernen'].includes(area) ? '#f6f4ec' : meta.media.includes('dark') ? '#101721' : '#f4f6f8';
   $('#areas').hidden = area === 'login';
   $('#notifications-link').hidden=area==='login';
@@ -839,7 +839,7 @@ async function viewEinstellungen() {
     el('div', { class: 'card' }, el('h2', {}, 'Meine Modelle'), mList),
     el('div', { class: 'card' }, el('h2', {}, 'Aktive Rollen'), renderAny(rollenListe.map((r) => r.name ? `${r.name}${r.typ ? ' (' + r.typ + ')' : ''}` : r))),
     el('div', { class: 'card' }, el('h2', {}, 'Zugang'), pwForm,
-      el('div', { class: 'actions' }, confirmButton('Auf diesem Gerät abmelden', async () => { await notificationSignOut(); try { await http('/logout', { method: 'POST' }); } catch { /* egal */ } store.token = null; route('login'); }, 'danger'))),
+      el('div', { class: 'actions' }, confirmButton('Auf diesem Gerät abmelden', async () => { await notificationSignOut(); try { await http('/logout', { method: 'POST' }); } catch { /* egal */ } store.token = null; if (typeof lernSitzungPruefen === 'function') lernSitzungPruefen(); route('login'); }, 'danger'))),
     el('p', { class: 'muted small' }, `App-Version ${APP_VERSION} · Schnittstelle: app-api`),
   );
 }

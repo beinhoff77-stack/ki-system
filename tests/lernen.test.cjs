@@ -200,6 +200,7 @@ async function setup(t, opt = {}) {
 
 test('Lernen: Eltern sehen Kinder, Belohnungen und offene Wünsche', async (t) => {
   const { page, calls } = await setup(t);
+  await page.addInitScript(() => { window.lernBelohnungenAn = true; }); // Belohnungen sind ausgeblendet (Schalter LERN_BELOHNUNGEN_AN) – mit Schalter an gilt der Test unverändert
   await page.goto(origin + '/#/lernen');
   // Was auf eine Antwort wartet, steht als blauer Eintrag in „Zu tun“ (I-2); das alte Lernblatt ist eingeklappt am Ende.
   await page.locator('.lern-zutun .zt-blau.zt-wunsch').waitFor({ state: 'attached' });
@@ -765,6 +766,18 @@ test('Reisewörter auf allen Eltern-/Lehrerseiten', async (t) => {
     const treffer = text.match(new RegExp(verboten.source, 'g'));
     assert.equal(treffer, null, `${pfad}: ${treffer && text.slice(Math.max(0, text.search(verboten) - 60), text.search(verboten) + 60)}`);
   }
+});
+// TEMPO/g: Der Test oben öffnet „wackelt/1“ ohne nachgestellten WW-S3-Server – dort steht nur die Rückfall-Ansicht. Die Seite „Was wackelt“ (WW-S3,
+// Spalten, Fazit, Themen) hier mit dem WW-Server prüfen; Fragetexte, Eingaben und Lösungen sind Inhalte aus der Datenbank und bleiben außen vor.
+test('Reisewörter auch auf „Was wackelt“ (WW-S3): kein „Aufgabe“, „Lernkarte“, „Lernziel“, „Gebiet“ in festen Texten', async (t) => {
+  const { page, ww } = await wwOeffnen(t, 1280);
+  await page.evaluate(() => document.querySelectorAll('#main details').forEach((d) => { d.open = true; }));
+  for (const b of await ww.locator('[aria-expanded="false"]').all()) await b.click().catch(() => {});
+  const text = await page.evaluate(() => { const c = document.querySelector('#main').cloneNode(true);
+    c.querySelectorAll('.ww-frage, .ww-ein, .ww-ok, .ww-weg, .ww-voll, .lern-wort-erkl, [data-inhalt]').forEach((x) => x.remove());
+    return c.innerText + ' ' + [...c.querySelectorAll('[placeholder],[aria-label],[title]')].map((x) => [x.getAttribute('placeholder'), x.getAttribute('aria-label'), x.getAttribute('title')].join(' ')).join(' '); });
+  const verboten = /Lernkarte|Aufgabe|Themenplan|Lernziel|\bGebiet/;
+  const i = text.search(verboten); assert.equal(i, -1, text.slice(Math.max(0, i - 80), i + 80));
 });
 
 // ---------- Bau-Auftrag Phase 2, Schritt A: Befunde N1–N8 der Nachprüfung vom 16.11. ----------
@@ -3033,6 +3046,7 @@ test('WD/Vorgabe 2–3 + WD-S 2: Check-in „3 von 9“, Koffer gold/rötlich, +
   await page.getByRole('button', { name: 'Nächste Bordkarte ›' }).click(); await page.getByText('CHECK-IN · 3 VON 3').waitFor();
   await wdhRichtig(page); await page.getByRole('button', { name: 'Fertig ›' }).click();
   await page.getByRole('heading', { name: 'Eingecheckt!' }).waitFor();
+  await page.locator('.lr-checkin-fertig .lr-extra-link').waitFor(); // TEMPO: Nebenweg erst, wenn „Weiter“ frei ist
   assert.match(await page.locator('.lr-checkin-fertig').innerText(), /1 von 2 richtig · \+10 ★[\s\S]*Eine Bordkarte kommt beim nächsten Mal wieder\.[\s\S]*Weiter nach Rom ›[\s\S]*Noch 3 Extra-Bordkarten\?/);
   assert.equal(srv.fertig, 1, 'runde_fertig nur zum Bestätigen'); assert.equal(srv.gemacht, true, 'der Server hat selbst gesetzt');
   assert.equal(await page.evaluate(() => localStorage.getItem('lern.wdhrunde.1')), null, 'kein Merker auf dem Gerät');
@@ -6476,7 +6490,7 @@ test('Teil 2: „Was wackelt“ leer, Ladefehler mit „Noch einmal versuchen“
     for (const [b, dunkel] of [[1280, false], [390, false], [390, true]]) { if (dunkel) await page.emulateMedia({ colorScheme: 'dark' }); await page.setViewportSize({ width: b, height: 844 });
       await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.ww-leer').waitFor();
       assert.match(await page.locator('.ww-leer').innerText(), /Nichts offen/); assert.equal(await page.locator('.ww-thema, .ww-tabelle').count(), 0);
-      assert.match(await page.locator('.ww-fazit').innerText(), /In den letzten 14 Tagen 40 Aufgaben, davon 33 richtig\./);
+      assert.match(await page.locator('.ww-fazit').innerText(), /In den letzten 14 Tagen 40 Bordkarten, davon 33 richtig\./);
       await wwBild(page, `${b}-${dunkel ? 'dunkel' : 'hell'}-leer`); await page.goto(origin + '/#/lernen'); } }
   // Fehler (Server erreichbar, Antwort Fehler) → Meldung, „Noch einmal versuchen“ lädt neu
   { const srv = wwServer(); const { page } = await setup(t, { anpassen: srv.anpassen }); let fehler = true;
@@ -7092,7 +7106,7 @@ test('Teil A: offene Flüge in der Routen-Spalte bzw. im Blatt antippbar (höchs
     assert.equal(await karteKnoepfe(page), vorher, 'Karte: dieselben Knöpfe wie vorher');
     assert.equal(await bl.locator('.rk-weiter-knopf').count(), 0, 'Flug des Startknopfs: kein zweiter „Weiter in …“');
     await bl.locator('.rk-auch-offen').getByRole('link', { name: /USA · Zinsen/ }).click(); // Tipp 2
-    await page.waitForURL(/#\/lerneinheit\/1-2$/); await page.getByRole('heading', { name: 'Einfache Zinsen', exact: true }).waitFor();
+    await page.waitForURL(/#\/lerneinheit\/1-2(-erklaeren)?$/); await page.getByRole('heading', { name: 'Einfache Zinsen', exact: true }).waitFor(); // TEMPO: Seite steht schneller – die Adresse kann schon „-erklaeren“ tragen (replaceState wie bisher)
   }
   // Offener Flug auf dem eigenen Kontinent (Einheit 2 → Schweiz, Platz 2): Routen-Zeile, „Weiter in …“ im Blatt, nächste Stadt in „Städte in …“
   { const { page } = await rkOeffnen(t, 1280, 800, { basis: rkThemen({ 1: 15, 2: 18 }) }); const spalte = page.locator('.rk-seite'); await spalte.locator('.rk-start').waitFor();
@@ -7407,4 +7421,82 @@ test('Fehler f: „Nur Eltern“ – eigene Meldung mit Weg zurück statt Netzfe
   await p2.route('**/functions/v1/lernen-api/**', lsFehlerServer('schule_uebersicht', 'Nur Eltern/Lehrer'));
   await p2.goto(origin + '/#/lernen');
   await p2.locator('.lern-rechtseite').getByRole('heading', { name: 'Diese Seite ist nur für Eltern und Lehrer.' }).waitFor();
+});
+
+test('Belohnungen ausgeblendet (Entscheidung 28.11.): Startseite „Was ist los?“ ohne Abschnitt Belohnungen; „Weitere Lernhilfen“ bleibt', async (t) => {
+  const { page, calls } = await setup(t);
+  await page.goto(origin + '/#/lernen'); await page.locator('.lern-was-ist-los').waitFor(); await page.locator('details.lern-weitere').waitFor();
+  assert.equal(await page.getByRole('heading', { name: 'Belohnungen' }).count(), 0);
+  assert.equal(await page.locator('#bl-titel').count(), 0); assert.equal(await page.getByRole('button', { name: 'Hinzufügen' }).count(), 0);
+  assert.ok(calls.some((c) => c.aktion === 'schule_eltern'), 'Daten unverändert geladen');
+});
+
+// ---------- 1175 (Gegenprüfung TEMPO) und Zusätze c–e: Client ----------
+test('1175/1: Merkheft dauerhaft 503 – höchstens eine gezielte Wiederholung, kein endloses Neuzeichnen, Hauptknopf wird frei', async (t) => {
+  const srv = rkServer(); const { page, calls } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen });
+  await page.route('**/functions/v1/lernen-api/**', async (route) => { const b = JSON.parse(route.request().postData() || '{}');
+    if (b.aktion === 'schule_merkheft') { calls.push({ aktion: 'schule_merkheft_503' }); return route.fulfill({ status: 503, contentType: 'application/json', body: JSON.stringify({ ok: false, fehler: 'Dienst nicht verfügbar' }) }); }
+    return route.fallback(); });
+  await page.setViewportSize({ width: 1280, height: 800 }); await page.goto(origin + '/#/reise/1');
+  await page.locator('.rk .rk-pin').first().waitFor();
+  await page.waitForFunction(() => document.querySelector('.rk-seite .rk-start') && !document.querySelector('.lr-ziel-offen'), null, { timeout: 8000 });
+  const n = calls.filter((c) => c.aktion === 'schule_merkheft_503').length; await page.waitForTimeout(4000);
+  const m = calls.filter((c) => c.aktion === 'schule_merkheft_503').length;
+  assert.ok(m <= 2 && m === n, `Merkheft-Abrufe ${n} → ${m} (höchstens 2, danach keine mehr)`);
+  assert.ok(await page.locator('.rk-seite .rk-start').getAttribute('href'), 'Hauptknopf frei mit Ziel');
+});
+test('1175/2: Startziel bei zwei Geräten – Reisekarte älter als 15 s wird vor der Freigabe frisch geholt (anderes Gerät war weiter)', async (t) => {
+  const srv = wk93Server(); const { page } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen });
+  await page.setViewportSize({ width: 1280, height: 800 }); await page.goto(origin + '/#/reise/1'); await rkEndstand(page);
+  const z1 = await page.evaluate(() => lernSchrittLaden(1).then((z) => z.ziel));
+  assert.match(z1, /-ueben-3-start$/);
+  // Gerät B: Stadt 3 gelandet. Auf Gerät A ist die gemerkte Karte jetzt 20 s alt.
+  srv.daten.kontinente.flatMap((k) => k.fluege).filter((f) => f.thema_id === 15).forEach((f) => f.staedte.forEach((c) => { if (c.nr === 3) c.stand = 'gelandet'; }));
+  await page.evaluate(() => lernReiseKarteZeit.set(1, Date.now() - 20000));
+  const z2 = await page.evaluate(() => lernSchrittLaden(1).then((z) => z.ziel));
+  assert.match(z2, /-ueben-4-start$/, 'frischer Stand vom Server');
+});
+test('1175/4: anderer Zugang – keine alte Reise-Ansicht im DOM vor der Sitzungsprüfung', async (t) => {
+  const srv = rkServer(); const { page } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen, verzoegerungJe: () => 400 });
+  await page.setViewportSize({ width: 1280, height: 800 }); await page.goto(origin + '/#/reise/1'); await rkEndstand(page);
+  await page.evaluate(() => { location.hash = '#/info'; }); await page.waitForTimeout(300);
+  await page.evaluate(() => { store.token = 'synthetic-andere-sitzung'; location.hash = '#/reise/1'; });
+  await page.waitForFunction(() => location.hash === '#/reise/1'); await page.waitForTimeout(50);
+  assert.equal(await page.locator('.lr-veraltet').count(), 0, 'alte Ansicht des früheren Zugangs nicht eingesetzt');
+});
+test('Zusatz c: wartender „Weiter“-Knopf zeigt „lädt …“; Nebenweg erst, wenn er frei ist; mit Karte frei ohne auf das Merkheft zu warten', async (t) => {
+  const srv = wk93Server(); const { page, calls } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen, verzoegerungJe: (a) => (a === 'schule_merkheft' ? 3000 : 150) });
+  await page.setViewportSize({ width: 1280, height: 800 }); await page.goto(origin + '/#/info'); await page.waitForTimeout(300);
+  const m = tempoLog(page);
+  await page.evaluate(() => { const k = lernSchrittKnopf(1, { gross: false }); k.id = 'tk'; const g = lernSchrittKnopf(1); g.id = 'tg';
+    const neben = lernNebenweg(k, el('a', { class: 'lr-extra-link', href: '#/wiederholen/1-extra' }, 'Noch 3 Extra-Bordkarten?')); neben.id = 'tn';
+    document.querySelector('#main').append(k, neben, g); });
+  assert.match(await page.locator('#tk').innerText(), /lädt …/); assert.match(await page.locator('#tg').innerText(), /lädt …/);
+  assert.equal(await page.locator('#tk').getAttribute('aria-busy'), 'true'); assert.equal(await page.locator('#tn').isVisible(), false, 'Nebenweg noch verborgen');
+  await page.waitForFunction(() => !document.querySelector('#tk').classList.contains('lr-schritt-wartet'), null, { timeout: 2500 });
+  const merk = m.log.find((x) => x.a === 'schule_merkheft');
+  assert.ok(!merk || merk.bis === null, 'frei, bevor das Merkheft da ist (Ziel aus der Karte)');
+  assert.doesNotMatch(await page.locator('#tk').innerText(), /lädt/); assert.equal(await page.locator('#tn').isVisible(), true, 'Nebenweg jetzt sichtbar');
+  assert.match(await page.locator('#tk').getAttribute('href'), /#\/(lerneinheit|wiederholen)\//);
+  // gleiches Ziel wie mit Merkheft
+  await page.waitForTimeout(3200); const mitMerk = await page.evaluate(() => lernSchrittLaden(1).then((z) => z.ziel));
+  assert.equal(await page.locator('#tk').getAttribute('href'), mitMerk);
+});
+test('Zusatz d: Prüfen zeigt „Prüfe …“ (aria-busy), ein zweites Absenden (Klick, Enter) geht nicht ab', async (t) => {
+  const srv = wk93Server(); const { page, calls } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen, verzoegerungJe: (a) => (a === 'schule_uebung_pruefen' ? 900 : 0) });
+  await page.setViewportSize({ width: 1280, height: 800 }); await page.goto(origin + '/#/lerneinheit/1-1-ueben-2');
+  await page.getByRole('button', { name: 'Markierung 4' }).click();
+  const p = page.getByRole('button', { name: 'Prüfen' }); const knopf = await p.elementHandle();
+  await p.click();
+  assert.equal(await knopf.evaluate((b) => [b.textContent, b.getAttribute('aria-busy'), b.disabled].join('|')), 'Prüfe …|true|true');
+  await knopf.evaluate((b) => { b.click(); b.dispatchEvent(new MouseEvent('click', { bubbles: true })); });
+  await page.keyboard.press('Enter');
+  await page.locator('.lr-rueck').first().waitFor(); await page.waitForTimeout(300);
+  assert.equal(calls.filter((c) => c.aktion === 'schule_uebung_pruefen').length, 1, 'genau eine Prüfung ' + JSON.stringify(calls.filter((c) => c.aktion === 'schule_uebung_pruefen').map((c) => c.daten)));
+});
+test('Zusatz e: „Meine Route“ läuft in der Haupt-App im Bereich Lernen und im Kindmodus', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'tag' });
+  await page.goto(origin + '/#/route/1'); await page.waitForFunction(() => !document.querySelector('#main .spinner'));
+  assert.equal(await page.evaluate(() => document.body.dataset.area), 'lernen');
+  assert.equal(await page.evaluate(() => document.body.hasAttribute('data-kindmodus')), true);
 });

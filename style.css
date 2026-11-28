@@ -5970,6 +5970,17 @@ body.rk-kopf-oben:has(#tabs[hidden]) { padding-bottom: 0; }
 /* ---------- WT (0.93.5) ---------- */
 /* Hauptknopf erst antippbar, wenn sein Ziel feststeht: bis dahin sichtbar, gesperrt, ohne Stadtname (lernSchrittKnopf; Ansicht mit alter Karte) */
 .lr-schritt-wartet { opacity: .6; pointer-events: none; cursor: progress; }
+/* TEMPO: wartender Knopf und Prüfen-Knopf zeigen sichtbar, dass etwas lädt bzw. geprüft wird (vorher nur blass – wirkte gesperrt) */
+.lr-laedt { display: inline-flex; align-items: center; gap: .35em; font-weight: 600; font-size: .85em; opacity: .9; }
+.lr-laedt::before { content: ''; width: .8em; height: .8em; border-radius: 50%; border: .15em solid currentColor; border-right-color: transparent; animation: lr-laedt-dreh .8s linear infinite; flex: none; }
+.lr-ab-gross small.lr-laedt { grid-column: 1; }
+.lr-knopf[aria-busy="true"] { cursor: progress; }
+.lr-knopf[aria-busy="true"]::before { content: ''; display: inline-block; width: .8em; height: .8em; margin-right: .45em; vertical-align: -.1em; border-radius: 50%; border: .15em solid currentColor; border-right-color: transparent; animation: lr-laedt-dreh .8s linear infinite; }
+@keyframes lr-laedt-dreh { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .lr-laedt::before, .lr-knopf[aria-busy="true"]::before { animation: none; border-right-color: currentColor; opacity: .5; } }
+/* TEMPO: Nebenweg (z. B. „Noch 3 Extra-Bordkarten?“) klar unter dem Hauptknopf, kleiner und ruhiger */
+.lr-nebenweg { margin: 1.1rem 0 0; padding-top: .8rem; border-top: 1px dashed color-mix(in srgb, currentColor 25%, transparent); text-align: center; font-size: .95em; }
+.lr-nebenweg .lr-extra-link { font-weight: 600; }
 .lr-ziel-offen :is(.rk-start, .rk-dran, .lr-flug-jetzt, .lr-einsteigen-knopf) { opacity: .55; pointer-events: none; cursor: progress; }
 .lr-ziel-offen :is(.rk-start b, .rk-start small, .rk-dran-text, .rk-dran-stand, .lr-flug-jetzt .lr-flug-ort, .lr-flug-jetzt .lr-flug-status small, .lr-einsteigen-knopf span, .lr-dock-ansage) { visibility: hidden; }
 /* Regel-Universum schwebt in der Reisekarte: kleine Sonne mit zwei Bahnen, fest am Kartenrahmen (Ecke per JS), dezent kreisend */

@@ -298,6 +298,8 @@ def schalter_und_zugriff(db):
     api(db, 'e', 'advent_oeffnen', {'lernender_id': 1, 'client_id': 'e1'}, fehler='nur fürs Testkind')
     api(db, 't', 'advent_oeffnen', {'lernender_id': 2, 'client_id': 'e1'}, fehler='nur fürs Testkind')
     api(db, 'e', 'advent_tauschen', {'lernender_id': 1, 'client_id': 'e1', 'tauschkarte_id': 1, 'mein_gutschein_id': 2, 'fremder_gutschein_id': 3}, fehler='nur fürs Testkind')
+    api(db, 'e', 'advent_einloesen', {'lernender_id': 1, 'gutschein_id': 1}, fehler='nur fürs Testkind')
+    api(db, 't', 'advent_einloesen', {'lernender_id': 2, 'gutschein_id': 1}, fehler='nur fürs Testkind')
     # Zeitzone fehlt: klarer Grund, kein Berliner Rückfall
     r = api(db, 'k4', 'advent_stand', {'lernender_id': 4})
     assert r['aktiv'] is False and r['grund'] == 'zeitzone_fehlt', r

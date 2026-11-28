@@ -4,7 +4,7 @@
 // v0.10.0 (vorbereitet, NICHT ausgeliefert; erst nach ADVENT-S = 20261209_advent_s.sql in der Datenbank): Adventskalender – Kind: schule_advent_stand,
 //         schule_advent_oeffnen, schule_advent_tuer_lesen, schule_advent_gutscheine, schule_advent_einloesen, schule_advent_tauschen; Eltern: schule_advent_eltern,
 //         schule_advent_belegung_lesen, schule_advent_belegung_setzen, schule_advent_gutschein_eltern, schule_advent_protokoll. Rechte prüft die Datenbank
-//         (Kind nur eigenes, Eltern-Aktionen nur Eltern, Öffnen/Tauschen durch Eltern nur fürs Testkind). Schnittstelle: inhalte/design/advent/server.md.
+//         (Kind nur eigenes, Eltern-Aktionen nur Eltern, Öffnen/Einlösen/Tauschen durch Eltern nur fürs Testkind). Schnittstelle: inhalte/design/advent/server.md.
 //         Enthält 0.9.6 (falls noch nicht ausgeliefert, kommt es mit).
 // v0.9.6 (vorbereitet, NICHT ausgeliefert; erst nach WW-S3 in der Datenbank): schule_fehler_abhaken in zwei Formen – Markieren {lernender_id, versuch_ids}
 //         oder Zurückholen {lernender_id, zurueck: true, markierung_ids} (holt genau diese Markierungen zurück; Zurückholen über versuch_ids gibt es nicht

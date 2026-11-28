@@ -741,7 +741,7 @@ begin
   return v_l;
 end $function$;
 
--- Kind-Rolle: ein Kind darf öffnen/tauschen; Eltern, Lehrer und der App-Zugang nur fürs Testkind (beim Nachsehen geht nichts aus Versehen auf)
+-- Kind-Rolle: ein Kind darf öffnen/einlösen/tauschen; Eltern, Lehrer und der App-Zugang nur fürs Testkind (beim Nachsehen geht nichts aus Versehen auf)
 create or replace function schule.advent_handelt_als_kind(p_schluessel text, p_l bigint)
  returns void language plpgsql security definer set search_path to ''
 as $function$
@@ -786,6 +786,7 @@ create or replace function api.schule_advent_einloesen(p_schluessel text, p_date
 as $function$
 declare v_l bigint := schule.advent_kind_pruefen(p_schluessel, p_daten);
 begin
+  perform schule.advent_handelt_als_kind(p_schluessel, v_l);         -- Eltern: schule_advent_gutschein_eltern
   return schule.advent_einloesen(v_l, nullif(p_daten->>'gutschein_id', '')::bigint, schule.advent_von(p_schluessel));
 end $function$;
 

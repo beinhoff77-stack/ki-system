@@ -265,6 +265,7 @@ War der Gutschein schon eingelöst (zwei Geräte), kommt `wiederholt: true` ohne
 - `Gutschein nicht gefunden`: fremd, unbekannt oder gerade weggetauscht.
 - `Krampus-Aufgaben haken nur Mama oder Papa ab`
 - `Die Tauschkarte wird beim Tauschen verbraucht`
+- `Das geht nur in der App des Kindes (Eltern: nur fürs Testkind)`: Eltern nehmen `schule_advent_gutschein_eltern`.
 
 ### 3.6 `schule_advent_tauschen` – Kind (Tauschkarte)
 
@@ -425,7 +426,7 @@ Je Tür:
 **Weitere Änderungen:**
 - Fehlende Zeitzone ergibt `zeitzone_fehlt` statt Berliner Zeit.
 - Antworten tragen `ok: true` mit `grund` statt Fehlertexten für „Heute schon 2“ / „Erst nach deiner nächsten Etappe“ (`limit` / `keine_etappe`).
-- Öffnen und Tauschen durch Eltern geht nur fürs Testkind.
+- Öffnen, Einlösen (Kind-Aktion) und Tauschen durch Eltern oder Lehrer geht nur fürs Testkind.
 
 ## 5. Felder, die die App je Zustand braucht
 

@@ -1,0 +1,1699 @@
+{
+ "stand": "2026-11-28",
+ "runde": "vtest-1b",
+ "kuerzel": "VT1B",
+ "titel": "messen.flaechen_vielecke",
+ "klasse": {
+  "gym_by": 6,
+  "rs_by": 6
+ },
+ "themen": [
+  "messen.flaechen_vielecke"
+ ],
+ "hinweis": "Verstehens-Aufgaben für Tests (Pools test, korrektur, sicherung), je Lernziel 1 + 2 + 3. Nicht eingespielt. Je Eintrag: thema, lernkarte, pool, typ (Aufgabentyp g), form, stufe, zaehlt, lehrplan, ersetzt_test (nur test), Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md (ohne Tipp h, ohne Toleranz).",
+ "aufgaben": [
+  {
+   "kennung": "VT1B-092",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "dreieck",
+   "pool": "test",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen setzen g und h in g · h : 2 ein; hier wird begründet, warum die Höhe und nicht die schräge Seite zählt, auch wenn sie außen liegt, und das Dreieck über Koordinaten und zwei Wege berechnet.",
+   "idee": "begruenden_ablenker",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "ABD ist größer, denn je länger eine Seite ist, desto größer ist die Fläche.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Länge der Seite AD mit der Höhe verwechselt"
+    },
+    {
+     "index": 2,
+     "antwort": "ABD ist kleiner, denn seine Höhe liegt außerhalb des Dreiecks und zählt nicht mit.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe außerhalb für ungültig gehalten; auch dort gilt: Grundseite mal Höhe durch 2"
+    },
+    {
+     "index": 3,
+     "antwort": "ABC ist größer, denn ein gleichschenkliges Dreieck hat die größere Fläche.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gedacht, dass Symmetrie die Fläche vergrößert"
+    }
+   ],
+   "ersetzt_test": true,
+   "aufgabe": {
+    "l": "dreieck",
+    "t": "dreieck",
+    "p": "test",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Punkte C und D liegen auf einer Parallelen zur Strecke AB. Der Abstand der Parallelen ist 4 cm, und AB ist 10 cm lang. Das Dreieck ABC ist gleichschenklig: C liegt senkrecht über der Mitte von AB. Das Dreieck ABD ist stumpfwinklig: D liegt 7 cm rechts von B auf der Parallelen. Ein Kind sagt: „ABD ist größer, denn seine Seite AD ist viel länger.“ Welche Aussage ist richtig?"
+    },
+    "a": [
+     "ABD ist größer, denn je länger eine Seite ist, desto größer ist die Fläche.",
+     "Beide Dreiecke haben 20 cm², denn die Grundseite AB (10 cm) und die Höhe (4 cm) sind gleich; die Höhe ist der Abstand der Parallelen, nicht die Länge einer Seite.",
+     "ABD ist kleiner, denn seine Höhe liegt außerhalb des Dreiecks und zählt nicht mit.",
+     "ABC ist größer, denn ein gleichschenkliges Dreieck hat die größere Fläche."
+    ],
+    "o": {
+     "index": 1
+    },
+    "w": "Als Grundseite nimmt man AB = 10 cm. Die zugehörige Höhe ist der Abstand von C und D zur Geraden AB, also 4 cm, für beide Dreiecke. Es gilt A = 10 · 4 : 2 = 20 cm² für ABC und für ABD. Die Höhe darf wie bei ABD außen liegen. Die Länge der schrägen Seite AD ändert nichts: Man kann C parallel zu AB verschieben, ohne dass sich der Flächeninhalt ändert."
+   }
+  },
+  {
+   "kennung": "VT1B-093",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "dreieck",
+   "pool": "korrektur",
+   "typ": "mehrschritt",
+   "form": "zwei_wege",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen setzen g und h in g · h : 2 ein; hier wird begründet, warum die Höhe und nicht die schräge Seite zählt, auch wenn sie außen liegt, und das Dreieck über Koordinaten und zwei Wege berechnet.",
+   "idee": "zwei_wege",
+   "antwortform": "zahl",
+   "loesung_rechnung": "8 * 5 / 2",
+   "fehlbilder": [
+    {
+     "antwort": 40,
+     "rechnung": "8 * 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Halbieren vergessen: Grundseite mal Höhe"
+    },
+    {
+     "antwort": 27.5,
+     "rechnung": "11 * 5 / 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Breite 11 des Rechtecks als Grundseite gerechnet"
+    },
+    {
+     "antwort": 7.5,
+     "rechnung": "3 * 5 / 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das kleinere überstehende Dreieck berechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreieck",
+    "t": "dreieck",
+    "p": "korrektur",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Das Dreieck ABC hat die Ecken A(1|1), B(9|1) und C(12|6) (eine Einheit ist 1 cm). Anna rechnet mit AB als Grundseite. Ben legt das kleinste Rechteck mit achsenparallelen Seiten um das Dreieck und zieht die beiden überstehenden Dreiecke ab. Wie viele cm² hat das Dreieck?"
+    },
+    "o": {
+     "wert": 20,
+     "einheit": "cm²"
+    },
+    "c": "8 * 5 / 2",
+    "w": "Anna: Die Grundseite AB ist 8 cm lang, die Höhe ist der Abstand von C zur Geraden y = 1, also 5 cm. A = 8 · 5 : 2 = 20 cm². Ben: Das Rechteck ist 11 cm breit und 5 cm hoch, also 55 cm². Die beiden überstehenden Dreiecke haben 11 · 5 : 2 = 27,5 cm² und 3 · 5 : 2 = 7,5 cm². Es bleiben 55 − 27,5 − 7,5 = 20 cm². Beide Wege liefern dasselbe."
+   }
+  },
+  {
+   "kennung": "VT1B-094",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "dreieck",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen setzen g und h in g · h : 2 ein; hier wird begründet, warum die Höhe und nicht die schräge Seite zählt, auch wenn sie außen liegt, und das Dreieck über Koordinaten und zwei Wege berechnet.",
+   "idee": "umkehr",
+   "antwortform": "zahl",
+   "loesung_rechnung": "6",
+   "fehlbilder": [
+    {
+     "antwort": 18,
+     "rechnung": "36 / 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "36 durch 2 geteilt und als Grundseite genommen"
+    },
+    {
+     "antwort": 9,
+     "rechnung": "36 / 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "36 durch 4 geteilt, weil von „doppelt“ und „halb“ die 2 zweimal gezählt wurde"
+    },
+    {
+     "antwort": 12,
+     "rechnung": "12",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe statt der Grundseite angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreieck",
+    "t": "dreieck",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Der Flächeninhalt eines Dreiecks ist 36 cm². Seine Höhe ist doppelt so lang wie die zugehörige Grundseite. Wie lang ist die Grundseite?"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "cm"
+    },
+    "c": "6",
+    "w": "Mit g für die Grundseite ist h = 2g. Dann gilt A = g · 2g : 2 = g · g = 36. Also ist g = 6 cm und h = 12 cm. Probe: 6 · 12 : 2 = 36."
+   }
+  },
+  {
+   "kennung": "VT1B-095",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "dreieck",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen setzen g und h in g · h : 2 ein; hier wird begründet, warum die Höhe und nicht die schräge Seite zählt, auch wenn sie außen liegt, und das Dreieck über Koordinaten und zwei Wege berechnet.",
+   "idee": "darstellung_wechseln",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "8 · 3 : 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die x-Koordinate von C als Höhe genommen"
+    },
+    {
+     "index": 1,
+     "antwort": "8 · 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Halbieren vergessen"
+    },
+    {
+     "index": 2,
+     "antwort": "5 · 3 : 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Koordinaten von C als Grundseite und Höhe genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreieck",
+    "t": "dreieck",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Das Dreieck ABC hat die Ecken A(0|0), B(8|0) und C(3|5) (eine Einheit ist 1 cm). Welche Rechnung gibt seinen Flächeninhalt in cm²?"
+    },
+    "a": [
+     "8 · 3 : 2",
+     "8 · 5",
+     "5 · 3 : 2",
+     "8 · 5 : 2"
+    ],
+    "o": {
+     "index": 3
+    },
+    "w": "Die Grundseite AB liegt auf der x-Achse und ist 8 cm lang. Die Höhe ist der Abstand von C zur x-Achse, also die y-Koordinate 5 cm. Es gilt A = 8 · 5 : 2 = 20 cm². Die x-Koordinate 3 von C sagt nur, wo die Spitze liegt, nicht wie hoch sie ist."
+   }
+  },
+  {
+   "kennung": "VT1B-096",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "dreieck",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen setzen g und h in g · h : 2 ein; hier wird begründet, warum die Höhe und nicht die schräge Seite zählt, auch wenn sie außen liegt, und das Dreieck über Koordinaten und zwei Wege berechnet.",
+   "idee": "modell_aufstellen",
+   "antwortform": "zahl",
+   "loesung_rechnung": "24 * 15 / 2 * 3.5",
+   "fehlbilder": [
+    {
+     "antwort": 1260,
+     "rechnung": "24 * 15 * 3.5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Halbieren des Dreiecks vergessen"
+    },
+    {
+     "antwort": 180,
+     "rechnung": "24 * 15 / 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Fläche in m² angegeben, nicht den Preis"
+    },
+    {
+     "antwort": 42.5,
+     "rechnung": "24 + 15 + 3.5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Zahlen der Aufgabe addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreieck",
+    "t": "dreieck",
+    "p": "sicherung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Grundstück hat die Form eines Dreiecks. Eine Seite von 24 m liegt an der Straße. Die gegenüberliegende Ecke ist 15 m von der Straßenlinie entfernt (senkrecht gemessen). Für Rasen zahlt man 3,50 € je m². Wie viel Euro kostet der Rasen für das ganze Grundstück?"
+    },
+    "o": {
+     "wert": 630,
+     "einheit": "€"
+    },
+    "c": "24 * 15 / 2 * 3.5",
+    "w": "Das Grundstück ist ein Dreieck mit g = 24 m und h = 15 m: A = 24 · 15 : 2 = 180 m². Der Rasen kostet 180 · 3,50 € = 630 €."
+   }
+  },
+  {
+   "kennung": "VT1B-097",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "dreieck",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen setzen g und h in g · h : 2 ein; hier wird begründet, warum die Höhe und nicht die schräge Seite zählt, auch wenn sie außen liegt, und das Dreieck über Koordinaten und zwei Wege berechnet.",
+   "idee": "fehler_finden_richtigstellen",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2",
+    "10 * 6 / 2"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Schlusszeile genannt, weil dort das falsche Ergebnis steht"
+    },
+    {
+     "luecke": 2,
+     "antwort": 35,
+     "rechnung": "10 * 7 / 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der schrägen Seite statt der Höhe gerechnet: 10 · 7 : 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 60,
+     "rechnung": "10 * 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Halbieren vergessen: 10 · 6"
+    },
+    {
+     "luecke": 2,
+     "antwort": 42,
+     "rechnung": "6 * 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Höhe mal schräge Seite gerechnet: 6 · 7"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreieck",
+    "t": "dreieck",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kind berechnet ein Dreieck mit der Grundseite 10 cm, der Höhe 6 cm und der schrägen Seite 7 cm so: Zeile 1: Die Höhe steht senkrecht auf der Grundseite und ist 6 cm lang. Zeile 2: A = g · s : 2 = 10 · 7 : 2 = 35. Zeile 3: Der Flächeninhalt ist 35 cm². In welcher Zeile steckt der erste Fehler? Wie groß ist der Flächeninhalt richtig?",
+     "schablone": "Fehler in Zeile □, richtig: A = □ cm²",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      2,
+      30
+     ]
+    },
+    "c": [
+     "2",
+     "10 * 6 / 2"
+    ],
+    "w": "Zeile 1 stimmt. In Zeile 2 wurde die schräge Seite statt der Höhe genommen. Die Höhe ist 6 cm, also gilt A = 10 · 6 : 2 = 30 cm². Zeile 3 übernimmt das falsche Ergebnis. Die schräge Seite ist länger als die Höhe und darf in der Formel nicht stehen."
+   }
+  },
+  {
+   "kennung": "VT1B-098",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "dreieck",
+   "pool": "sicherung",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen setzen g und h in g · h : 2 ein; hier wird begründet, warum die Höhe und nicht die schräge Seite zählt, auch wenn sie außen liegt, und das Dreieck über Koordinaten und zwei Wege berechnet.",
+   "idee": "was_waere_wenn",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "P(2|8)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe verdoppelt; die Fläche wird dadurch doppelt so groß"
+    },
+    {
+     "index": 2,
+     "antwort": "P(5|2)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe halbiert; die Fläche wird dadurch halb so groß"
+    },
+    {
+     "index": 3,
+     "antwort": "P(4|10)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grundseite 10 als Höhe genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreieck",
+    "t": "dreieck",
+    "p": "sicherung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Das Dreieck ABC hat die Ecken A(0|0), B(10|0) und C(2|4) (eine Einheit ist 1 cm). Für welchen Punkt P hat das Dreieck ABP denselben Flächeninhalt wie ABC?"
+    },
+    "a": [
+     "P(7|4)",
+     "P(2|8)",
+     "P(5|2)",
+     "P(4|10)"
+    ],
+    "o": {
+     "index": 0
+    },
+    "w": "ABC hat die Grundseite AB = 10 cm und die Höhe 4 cm: A = 10 · 4 : 2 = 20 cm². Jeder Punkt P mit y-Koordinate 4 hat dieselbe Höhe 4 cm über AB, also dieselbe Fläche. Das ist P(7|4). Verschiebt man C parallel zu AB, ändert sich die Fläche nicht."
+   }
+  },
+  {
+   "kennung": "VT1B-099",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "rueckwaerts",
+   "pool": "test",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen stellen die Flächenformel nach h oder g um; hier wird begründet, warum kein Winkel nötig ist, in Sachsituationen umgerechnet und ein Umstellfehler gefunden.",
+   "idee": "begruenden_ablenker",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "h = 7 cm, denn die Höhe ist immer so lang wie die Nachbarseite.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die schräge Nachbarseite mit der Höhe verwechselt; die Höhe steht senkrecht, die Seite ist schräg"
+    },
+    {
+     "index": 1,
+     "antwort": "h lässt sich nicht bestimmen, denn der Winkel zwischen a und b fehlt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "geglaubt, dass man den Winkel braucht; aus A = a · h folgt h = A : a ohne Winkel"
+    },
+    {
+     "index": 3,
+     "antwort": "h = 3 cm, denn man teilt 48 durch 8 und noch einmal durch 2.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Dreiecksformel benutzt und noch einmal durch 2 geteilt"
+    }
+   ],
+   "ersetzt_test": true,
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "test",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Parallelogramm hat den Flächeninhalt 48 cm². Seine Grundseite a ist 8 cm lang, die schräge Nachbarseite b ist 7 cm lang. Ein Kind sagt: „Die Höhe zu a ist 7 cm, denn das ist die andere Seite.“ Welche Aussage über die Höhe h zu a ist richtig?"
+    },
+    "a": [
+     "h = 7 cm, denn die Höhe ist immer so lang wie die Nachbarseite.",
+     "h lässt sich nicht bestimmen, denn der Winkel zwischen a und b fehlt.",
+     "h = 6 cm, denn aus A = a · h folgt h = A : a = 48 : 8; die Höhe steht senkrecht auf a und ist deshalb kürzer als die schräge Seite b.",
+     "h = 3 cm, denn man teilt 48 durch 8 und noch einmal durch 2."
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "Für das Parallelogramm gilt A = a · h. Daraus folgt h = A : a = 48 : 8 = 6 cm. Das passt dazu, dass die Höhe kürzer ist als die schräge Seite b = 7 cm: Eine senkrechte Strecke ist kürzer als eine schräge Strecke zwischen denselben Parallelen. Probe: 8 · 6 = 48."
+   }
+  },
+  {
+   "kennung": "VT1B-100",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "rueckwaerts",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen stellen die Flächenformel nach h oder g um; hier wird begründet, warum kein Winkel nötig ist, in Sachsituationen umgerechnet und ein Umstellfehler gefunden.",
+   "idee": "umkehr",
+   "antwortform": "zahl",
+   "loesung_rechnung": "14",
+   "fehlbilder": [
+    {
+     "antwort": 49,
+     "rechnung": "98 / 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "98 durch 2 geteilt und als Grundseite genommen"
+    },
+    {
+     "antwort": 7,
+     "rechnung": "98 / 14",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe 7 statt der Grundseite angegeben"
+    },
+    {
+     "antwort": 24.5,
+     "rechnung": "98 / 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 4 geteilt, weil die 2 aus „halb“ doppelt gezählt wurde"
+    }
+   ],
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Parallelogramm hat den Flächeninhalt 98 cm². Seine Höhe ist halb so lang wie die zugehörige Grundseite. Wie lang ist die Grundseite?"
+    },
+    "o": {
+     "wert": 14,
+     "einheit": "cm"
+    },
+    "c": "14",
+    "w": "Mit g für die Grundseite ist h = g : 2. Dann gilt A = g · g : 2 = 98, also g · g = 196 und g = 14 cm. Die Höhe ist 7 cm. Probe: 14 · 7 = 98."
+   }
+  },
+  {
+   "kennung": "VT1B-101",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "rueckwaerts",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen stellen die Flächenformel nach h oder g um; hier wird begründet, warum kein Winkel nötig ist, in Sachsituationen umgerechnet und ein Umstellfehler gefunden.",
+   "idee": "umkehr",
+   "antwortform": "zahl",
+   "loesung_rechnung": "2 * 9600 / (90 + 150)",
+   "fehlbilder": [
+    {
+     "antwort": 40,
+     "rechnung": "9600 / 240",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Verdoppeln der Fläche vergessen: 9 600 durch 240"
+    },
+    {
+     "antwort": 128,
+     "rechnung": "2 * 9600 / 150",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch die längere parallele Seite geteilt"
+    },
+    {
+     "antwort": 64,
+     "rechnung": "9600 / 150",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch die längere parallele Seite geteilt und das Verdoppeln vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein trapezförmiges Fenster hat die parallelen Seiten 90 cm und 150 cm und einen Flächeninhalt von 9 600 cm². Wie hoch ist das Fenster (Abstand der parallelen Seiten)?"
+    },
+    "o": {
+     "wert": 80,
+     "einheit": "cm"
+    },
+    "c": "2 * 9600 / (90 + 150)",
+    "w": "Für das Trapez gilt A = (a + c) · h : 2. Also ist h = 2 · A : (a + c) = 2 · 9 600 : 240 = 80 cm. Probe: (90 + 150) · 80 : 2 = 9 600."
+   }
+  },
+  {
+   "kennung": "VT1B-102",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "rueckwaerts",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen stellen die Flächenformel nach h oder g um; hier wird begründet, warum kein Winkel nötig ist, in Sachsituationen umgerechnet und ein Umstellfehler gefunden.",
+   "idee": "darstellung_wechseln",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "7 · h = 35",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Halbieren des Dreiecks vergessen"
+    },
+    {
+     "index": 1,
+     "antwort": "7 + h : 2 = 35",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grundseite zur halben Höhe addiert statt malgenommen"
+    },
+    {
+     "index": 2,
+     "antwort": "7 · h · 2 = 35",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Halbieren durch ein Verdoppeln ersetzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Dreieck hat den Flächeninhalt 35 cm² und die Grundseite 7 cm. Mit h für die zugehörige Höhe soll der Sachverhalt als Gleichung geschrieben werden. Welche Gleichung ist richtig?"
+    },
+    "a": [
+     "7 · h = 35",
+     "7 + h : 2 = 35",
+     "7 · h · 2 = 35",
+     "7 · h : 2 = 35"
+    ],
+    "o": {
+     "index": 3
+    },
+    "w": "Für das Dreieck gilt A = g · h : 2. Mit A = 35 und g = 7 heißt das 7 · h : 2 = 35. Daraus folgt 7 · h = 70 und h = 10 cm. Probe: 7 · 10 : 2 = 35."
+   }
+  },
+  {
+   "kennung": "VT1B-103",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "rueckwaerts",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen stellen die Flächenformel nach h oder g um; hier wird begründet, warum kein Winkel nötig ist, in Sachsituationen umgerechnet und ein Umstellfehler gefunden.",
+   "idee": "modell_aufstellen",
+   "antwortform": "zahl",
+   "loesung_rechnung": "45000 / 300",
+   "fehlbilder": [
+    {
+     "antwort": 1500,
+     "rechnung": "450000 / 300",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hektarzahl mit dem Zehnfachen von 10 000 m² umgerechnet"
+    },
+    {
+     "antwort": 75,
+     "rechnung": "45000 / 300 / 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zusätzlich durch 2 geteilt wie beim Dreieck"
+    },
+    {
+     "antwort": 300,
+     "rechnung": "45000 / 300 * 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 2 malgenommen statt durch 2 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "sicherung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Feld hat die Form eines Parallelogramms und ist 4,5 ha groß (1 ha = 10 000 m²). Eine der beiden parallelen Seiten ist 300 m lang. In welchem Abstand (in m) liegen die beiden parallelen Seiten?"
+    },
+    "o": {
+     "wert": 150,
+     "einheit": "m"
+    },
+    "c": "45000 / 300",
+    "w": "4,5 ha = 45 000 m². Für das Parallelogramm gilt A = g · h, also h = A : g = 45 000 : 300 = 150 m. Probe: 300 · 150 = 45 000."
+   }
+  },
+  {
+   "kennung": "VT1B-104",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "rueckwaerts",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen stellen die Flächenformel nach h oder g um; hier wird begründet, warum kein Winkel nötig ist, in Sachsituationen umgerechnet und ein Umstellfehler gefunden.",
+   "idee": "fehler_finden_richtigstellen",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2",
+    "54 / 9"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Schlusszeile genannt, weil dort der unsinnige Wert 486 steht"
+    },
+    {
+     "luecke": 2,
+     "antwort": 486,
+     "rechnung": "54 * 9",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal statt geteilt gerechnet: 54 · 9"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "rechnung": "54 / 9 / 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zusätzlich noch durch 2 geteilt: 54 : 9 : 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 63,
+     "rechnung": "54 + 9",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Fläche und Grundseite addiert: 54 + 9"
+    }
+   ],
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kind berechnet die Höhe eines Parallelogramms mit A = 54 cm² und der Grundseite 9 cm so: Zeile 1: Es gilt A = g · h. Zeile 2: Also ist h = A · g = 54 · 9 = 486. Zeile 3: Die Höhe ist 486 cm. In welcher Zeile steckt der erste Fehler? Wie lang ist die Höhe richtig?",
+     "schablone": "Fehler in Zeile □, richtig: h = □ cm",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      2,
+      6
+     ]
+    },
+    "c": [
+     "2",
+     "54 / 9"
+    ],
+    "w": "Zeile 1 stimmt. In Zeile 2 wurde falsch umgestellt: Aus A = g · h folgt h = A : g, nicht A · g. Richtig ist h = 54 : 9 = 6 cm. Zeile 3 übernimmt das unsinnige Ergebnis 486 cm. Probe: 9 · 6 = 54."
+   }
+  },
+  {
+   "kennung": "VT1B-105",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "rueckwaerts",
+   "pool": "sicherung",
+   "typ": "umkehr",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen stellen die Flächenformel nach h oder g um; hier wird begründet, warum kein Winkel nötig ist, in Sachsituationen umgerechnet und ein Umstellfehler gefunden.",
+   "idee": "was_waere_wenn",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2 * 40 / 10",
+    "2 * 80 / 8"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "rechnung": "40 / 10",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Verdoppeln vergessen: 40 : 10"
+    },
+    {
+     "luecke": 1,
+     "antwort": 400,
+     "rechnung": "40 * 10",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Fläche mal Grundseite gerechnet: 40 · 10"
+    },
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "rechnung": "2 * 40 / 8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche nicht verdoppelt: 2 · 40 : 8"
+    },
+    {
+     "luecke": 2,
+     "antwort": 5,
+     "rechnung": "40 / 8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 2 geteilt statt doppelt gerechnet: 40 : 8"
+    }
+   ],
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "sicherung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Dreieck hat den Flächeninhalt 40 cm² und die Grundseite 10 cm. Ergänze: Seine Höhe ist □ cm. Ein zweites Dreieck mit derselben Höhe und dem doppelten Flächeninhalt hat die Grundseite □ cm.",
+     "schablone": "Höhe □ cm, zweite Grundseite □ cm",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      8,
+      20
+     ]
+    },
+    "c": [
+     "2 * 40 / 10",
+     "2 * 80 / 8"
+    ],
+    "w": "Höhe des ersten Dreiecks: h = 2 · A : g = 2 · 40 : 10 = 8 cm. Das zweite Dreieck hat A = 80 cm² und h = 8 cm, also g = 2 · 80 : 8 = 20 cm. Bei gleicher Höhe und doppelter Fläche ist die Grundseite doppelt so lang."
+   }
+  },
+  {
+   "kennung": "VT1B-106",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "zusammengesetzt",
+   "pool": "test",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen zerlegen eine vorgegebene Figur; hier werden Zerlegen und Ergänzen verglichen, eine Teilfläche rückwärts gesucht und ein Fehler beim Dreieck-Teil gefunden.",
+   "idee": "begruenden_ablenker",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Ben erhält mehr als Anna, denn er rechnet mit der größeren Fläche 80 cm².",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zwischenwert 80 mit dem Ergebnis verwechselt; das fehlende Stück muss noch abgezogen werden"
+    },
+    {
+     "index": 2,
+     "antwort": "Beide kommen auf 92 cm²: Ben rechnet 80 + 12.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das fehlende Stück addiert statt abgezogen"
+    },
+    {
+     "index": 3,
+     "antwort": "Anna erhält 68 cm², Ben aber 12 cm², weil er nur das fehlende Stück berechnet.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das fehlende Stück als Ergebnis genommen"
+    }
+   ],
+   "ersetzt_test": true,
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "test",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine L-förmige Figur entsteht aus einem Rechteck (10 cm breit, 8 cm hoch), dem oben rechts ein Rechteck von 4 cm Breite und 3 cm Höhe fehlt. Anna zerlegt die Figur in zwei Rechtecke, Ben ergänzt sie zu einem großen Rechteck und zieht das fehlende Stück ab. Welche Aussage ist richtig?"
+    },
+    "a": [
+     "Ben erhält mehr als Anna, denn er rechnet mit der größeren Fläche 80 cm².",
+     "Beide kommen auf 68 cm²: Anna rechnet 10 · 5 + 6 · 3, Ben rechnet 10 · 8 − 4 · 3.",
+     "Beide kommen auf 92 cm²: Ben rechnet 80 + 12.",
+     "Anna erhält 68 cm², Ben aber 12 cm², weil er nur das fehlende Stück berechnet."
+    ],
+    "o": {
+     "index": 1
+    },
+    "w": "Anna: Der untere Streifen ist 10 cm breit und 5 cm hoch (8 − 3), der obere linke Teil ist 6 cm breit (10 − 4) und 3 cm hoch: 50 + 18 = 68 cm². Ben: Das große Rechteck hat 80 cm², das fehlende Stück 4 · 3 = 12 cm²: 80 − 12 = 68 cm². Zerlegen und Ergänzen liefern denselben Wert."
+   }
+  },
+  {
+   "kennung": "VT1B-107",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "zusammengesetzt",
+   "pool": "korrektur",
+   "typ": "mehrschritt",
+   "form": "zwei_wege",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen zerlegen eine vorgegebene Figur; hier werden Zerlegen und Ergänzen verglichen, eine Teilfläche rückwärts gesucht und ein Fehler beim Dreieck-Teil gefunden.",
+   "idee": "zwei_wege",
+   "antwortform": "zahl",
+   "loesung_rechnung": "8 * 5 + 8 * 3 / 2",
+   "fehlbilder": [
+    {
+     "antwort": 40,
+     "rechnung": "8 * 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Dreieck vergessen: nur das Rechteck"
+    },
+    {
+     "antwort": 58,
+     "rechnung": "8 * 8 - 4 * 3 / 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Dreieck abgezogen"
+    },
+    {
+     "antwort": 64,
+     "rechnung": "8 * 5 + 8 * 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Dreieck das Halbieren vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "korrektur",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Der Grundriss eines Pavillons hat die Ecken A(0|0), B(8|0), C(8|5), D(4|8) und E(0|5) (eine Einheit ist 1 m). Anna zerlegt ihn in ein Rechteck und ein Dreieck. Ben ergänzt ihn zum Rechteck mit den Ecken (0|0), (8|0), (8|8) und (0|8) und zieht zwei Dreiecke ab. Wie viele m² hat der Grundriss?"
+    },
+    "o": {
+     "wert": 52,
+     "einheit": "m²"
+    },
+    "c": "8 * 5 + 8 * 3 / 2",
+    "w": "Anna: Das Rechteck ABCE ist 8 m breit und 5 m hoch, also 40 m². Das Dreieck CDE hat die Grundseite 8 m und die Höhe 3 m, also 8 · 3 : 2 = 12 m². Zusammen 52 m². Ben: Das ergänzte Quadrat hat 64 m². Die zwei abgezogenen Dreiecke haben je 4 · 3 : 2 = 6 m². Es bleiben 64 − 12 = 52 m²."
+   }
+  },
+  {
+   "kennung": "VT1B-108",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "zusammengesetzt",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen zerlegen eine vorgegebene Figur; hier werden Zerlegen und Ergänzen verglichen, eine Teilfläche rückwärts gesucht und ein Fehler beim Dreieck-Teil gefunden.",
+   "idee": "umkehr",
+   "antwortform": "zahl",
+   "loesung_rechnung": "(14 * 9 - 102) / 4",
+   "fehlbilder": [
+    {
+     "antwort": 25.5,
+     "rechnung": "102 / 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Restfläche statt der weggenommenen Fläche durch 4 geteilt"
+    },
+    {
+     "antwort": 31.5,
+     "rechnung": "126 / 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche des ganzen Rechtecks durch 4 geteilt"
+    },
+    {
+     "antwort": 24,
+     "rechnung": "126 - 102",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die weggenommene Fläche 24 als Breite angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Aus einer Ecke eines Rechtecks (14 cm lang, 9 cm breit) wird ein kleines Rechteck herausgeschnitten, das 4 cm lang ist (entlang der langen Seite gemessen). Die Restfläche beträgt 102 cm². Wie breit ist das herausgeschnittene Stück (entlang der kurzen Seite gemessen)?"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "cm"
+    },
+    "c": "(14 * 9 - 102) / 4",
+    "w": "Das große Rechteck hat 14 · 9 = 126 cm². Weggenommen wurden 126 − 102 = 24 cm². Das Stück ist 4 cm lang, also ist es 24 : 4 = 6 cm breit. Probe: 126 − 4 · 6 = 102."
+   }
+  },
+  {
+   "kennung": "VT1B-109",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "zusammengesetzt",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen zerlegen eine vorgegebene Figur; hier werden Zerlegen und Ergänzen verglichen, eine Teilfläche rückwärts gesucht und ein Fehler beim Dreieck-Teil gefunden.",
+   "idee": "zerlegen_ergaenzen",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "9 · 7 − 3 · 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine richtige Rechnung gewählt: Ergänzen zum Rechteck und fehlendes Stück abziehen"
+    },
+    {
+     "index": 2,
+     "antwort": "9 · 5 + 6 · 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine richtige Rechnung gewählt: oberer Streifen 9 breit, 5 hoch und unten links 6 breit, 2 hoch"
+    },
+    {
+     "index": 3,
+     "antwort": "6 · 7 + 3 · 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine richtige Rechnung gewählt: linker Streifen 6 breit, 7 hoch und rechts daneben 3 breit, 5 hoch"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Figur ist 9 cm breit und 7 cm hoch. Unten rechts fehlt ein Rechteck von 3 cm Breite und 2 cm Höhe. Vier Kinder berechnen den Flächeninhalt. Welche der Rechnungen ist falsch?"
+    },
+    "a": [
+     "9 · 7 − 3 · 5",
+     "9 · 7 − 3 · 2",
+     "9 · 5 + 6 · 2",
+     "6 · 7 + 3 · 5"
+    ],
+    "o": {
+     "index": 0
+    },
+    "w": "Die Figur hat 9 · 7 − 3 · 2 = 57 cm². Zerlegt man sie in einen oberen Streifen (9 · 5 = 45) und ein Stück unten links (6 · 2 = 12), kommt man auf 57. Ebenso mit dem linken Streifen 6 · 7 = 42 und dem rechten Teil 3 · 5 = 15: 57. In 9 · 7 − 3 · 5 wird als Höhe des fehlenden Stücks 5 statt 2 genommen: 63 − 15 = 48. Das ist die falsche Rechnung."
+   }
+  },
+  {
+   "kennung": "VT1B-110",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "zusammengesetzt",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen zerlegen eine vorgegebene Figur; hier werden Zerlegen und Ergänzen verglichen, eine Teilfläche rückwärts gesucht und ein Fehler beim Dreieck-Teil gefunden.",
+   "idee": "modell_aufstellen",
+   "antwortform": "zahl",
+   "loesung_rechnung": "(6 * 5 - 1.5 * 1.5) * 40",
+   "fehlbilder": [
+    {
+     "antwort": 1200,
+     "rechnung": "6 * 5 * 40",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Kamin nicht abgezogen"
+    },
+    {
+     "antwort": 1140,
+     "rechnung": "(6 * 5 - 1.5) * 40",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 1,5 statt 1,5 mal 1,5 abgezogen"
+    },
+    {
+     "antwort": 90,
+     "rechnung": "1.5 * 1.5 * 40",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Kaminfläche berechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "sicherung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Der Boden eines Zimmers ist 6 m lang und 5 m breit. In einer Ecke steht ein quadratischer Kamin mit 1,5 m Seitenlänge, unter dem kein Boden verlegt wird. Parkett kostet 40 € je m². Wie viel Euro kostet das Parkett für die freie Bodenfläche?"
+    },
+    "o": {
+     "wert": 1110,
+     "einheit": "€"
+    },
+    "c": "(6 * 5 - 1.5 * 1.5) * 40",
+    "w": "Die freie Fläche ist 6 · 5 − 1,5 · 1,5 = 30 − 2,25 = 27,75 m². Das Parkett kostet 27,75 · 40 € = 1 110 €."
+   }
+  },
+  {
+   "kennung": "VT1B-111",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "zusammengesetzt",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen zerlegen eine vorgegebene Figur; hier werden Zerlegen und Ergänzen verglichen, eine Teilfläche rückwärts gesucht und ein Fehler beim Dreieck-Teil gefunden.",
+   "idee": "fehler_finden_richtigstellen",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2",
+    "12 * 5 + 12 * 4 / 2"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Schlusszeile genannt, weil dort das falsche Ergebnis steht"
+    },
+    {
+     "luecke": 2,
+     "antwort": 108,
+     "rechnung": "60 + 12 * 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Dreieck ohne Halbieren gerechnet: 60 + 48"
+    },
+    {
+     "luecke": 2,
+     "antwort": 72,
+     "rechnung": "60 + 12",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Dreieck mit 12 statt 24 gerechnet: 60 + 12"
+    },
+    {
+     "luecke": 2,
+     "antwort": 48,
+     "rechnung": "12 * 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Dreieck ohne Halbieren angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kind berechnet ein Fünfeck aus einem Rechteck (12 cm breit, 5 cm hoch) und einem Dreieck darauf mit der Grundseite 12 cm und der Höhe 4 cm. Zeile 1: Rechteck: 12 · 5 = 60 cm². Zeile 2: Dreieck: 12 · 4 = 48 cm². Zeile 3: Gesamt: 60 + 48 = 108 cm². In welcher Zeile steckt der erste Fehler? Wie groß ist die Figur richtig?",
+     "schablone": "Fehler in Zeile □, richtig: A = □ cm²",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      2,
+      84
+     ]
+    },
+    "c": [
+     "2",
+     "12 * 5 + 12 * 4 / 2"
+    ],
+    "w": "Zeile 1 stimmt. In Zeile 2 fehlt das Halbieren: Das Dreieck hat 12 · 4 : 2 = 24 cm². Gesamt: 60 + 24 = 84 cm². Zeile 3 rechnet mit dem falschen Dreieck richtig weiter."
+   }
+  },
+  {
+   "kennung": "VT1B-112",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "zusammengesetzt",
+   "pool": "sicherung",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen zerlegen eine vorgegebene Figur; hier werden Zerlegen und Ergänzen verglichen, eine Teilfläche rückwärts gesucht und ein Fehler beim Dreieck-Teil gefunden.",
+   "idee": "darstellung_wechseln",
+   "antwortform": "zahl",
+   "loesung_rechnung": "(2 + 4) * 6 / 2",
+   "fehlbilder": [
+    {
+     "antwort": 24,
+     "rechnung": "6 * 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Rechteck bis zur höchsten Ecke genommen"
+    },
+    {
+     "antwort": 12,
+     "rechnung": "6 * 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Rechteck bis zur niedrigeren Ecke genommen"
+    },
+    {
+     "antwort": 36,
+     "rechnung": "(2 + 4) * 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Halbieren vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "sicherung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Das Viereck ABCD hat die Ecken A(0|0), B(6|0), C(6|4) und D(0|2) (eine Einheit ist 1 cm). Wie viele cm² hat es?"
+    },
+    "o": {
+     "wert": 18,
+     "einheit": "cm²"
+    },
+    "c": "(2 + 4) * 6 / 2",
+    "w": "AD und BC sind parallel (beide senkrecht), 2 cm und 4 cm lang, ihr Abstand ist 6 cm. Als Trapez: A = (2 + 4) · 6 : 2 = 18 cm². Oder zerlegt: Rechteck 6 · 2 = 12 cm² und darüber ein Dreieck mit der Grundseite 6 cm und der Höhe 2 cm = 6 cm²: zusammen 18 cm²."
+   }
+  },
+  {
+   "kennung": "VT1B-113",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "verstehen",
+   "pool": "test",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen rechnen mit verdoppelten Maßen; hier wird erklärt, wie sich die Fläche bei Faktoren und Prozenten ändert, flächengleiche Figuren gefunden und ein Fehler beim Verdoppeln richtiggestellt.",
+   "idee": "begruenden_ablenker",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Er bleibt gleich, denn dreimal so lang und halb so hoch gleichen sich aus.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 3 und den Faktor ½ als sich aufhebend gedeutet"
+    },
+    {
+     "index": 1,
+     "antwort": "Er wird das 2,5-fache, denn 3 − ½ = 2,5.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Faktoren subtrahiert statt multipliziert"
+    },
+    {
+     "index": 3,
+     "antwort": "Er wird das 3,5-fache, denn 3 + ½ = 3,5.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Faktoren addiert statt multipliziert"
+    }
+   ],
+   "ersetzt_test": true,
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "test",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Bei einem Parallelogramm wird die Grundseite verdreifacht und die zugehörige Höhe halbiert. Welche Aussage über den neuen Flächeninhalt ist richtig?"
+    },
+    "a": [
+     "Er bleibt gleich, denn dreimal so lang und halb so hoch gleichen sich aus.",
+     "Er wird das 2,5-fache, denn 3 − ½ = 2,5.",
+     "Er wird das 1,5-fache, denn die Faktoren werden multipliziert: 3 · ½ = 1,5.",
+     "Er wird das 3,5-fache, denn 3 + ½ = 3,5."
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "Der Flächeninhalt ist A = g · h. Mit 3g und h/2 ist der neue Inhalt 3g · h/2 = 1,5 · g · h. Wenn zwei Maße gleichzeitig verändert werden, multiplizieren sich die Faktoren. Beispiel: g = 4, h = 6 gibt A = 24; neu 12 · 3 = 36 = 1,5 · 24."
+   }
+  },
+  {
+   "kennung": "VT1B-114",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "verstehen",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen rechnen mit verdoppelten Maßen; hier wird erklärt, wie sich die Fläche bei Faktoren und Prozenten ändert, flächengleiche Figuren gefunden und ein Fehler beim Verdoppeln richtiggestellt.",
+   "idee": "umkehr",
+   "antwortform": "zahl",
+   "loesung_rechnung": "60 / 24",
+   "fehlbilder": [
+    {
+     "antwort": 36,
+     "rechnung": "60 - 24",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied der Flächeninhalte als Faktor genommen"
+    },
+    {
+     "antwort": 0.4,
+     "rechnung": "24 / 60",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Quotienten verkehrt herum gebildet"
+    },
+    {
+     "antwort": 5,
+     "rechnung": "60 / 24 * 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 2 malgenommen, weil die Dreiecksformel doppelt angewendet wurde"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Die Grundseite eines Dreiecks wird verlängert, die Höhe bleibt gleich. Dabei wächst der Flächeninhalt von 24 cm² auf 60 cm². Das Wievielfache der alten Grundseite ist die neue Grundseite?"
+    },
+    "o": {
+     "wert": 2.5
+    },
+    "c": "60 / 24",
+    "w": "Bei gleicher Höhe ist der Flächeninhalt proportional zur Grundseite: A = g · h : 2. Der Faktor ist 60 : 24 = 2,5. Beispiel: g = 8, h = 6 gibt 24; mit g = 20 und h = 6 ist A = 60. Die neue Grundseite ist das 2,5-fache."
+   }
+  },
+  {
+   "kennung": "VT1B-115",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "verstehen",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen rechnen mit verdoppelten Maßen; hier wird erklärt, wie sich die Fläche bei Faktoren und Prozenten ändert, flächengleiche Figuren gefunden und ein Fehler beim Verdoppeln richtiggestellt.",
+   "idee": "groessenvergleich",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "ein Parallelogramm mit der Grundseite 6 cm und der schrägen Nachbarseite 4 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die schräge Seite als Höhe genommen; die Höhe ist kürzer als die schräge Seite"
+    },
+    {
+     "index": 1,
+     "antwort": "ein Dreieck mit der Grundseite 6 cm und der Höhe 4 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Halbieren vergessen: das Dreieck hat nur die halbe Fläche"
+    },
+    {
+     "index": 3,
+     "antwort": "ein Dreieck mit der Grundseite 8 cm und der Höhe 4 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grundseite 8 mit dem Trapez verwechselt; das Dreieck hat nur 16 cm²"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Rechteck ist 6 cm lang und 4 cm breit. Welche der folgenden Figuren hat denselben Flächeninhalt wie das Rechteck?"
+    },
+    "a": [
+     "ein Parallelogramm mit der Grundseite 6 cm und der schrägen Nachbarseite 4 cm",
+     "ein Dreieck mit der Grundseite 6 cm und der Höhe 4 cm",
+     "ein Trapez mit den parallelen Seiten 8 cm und 4 cm und dem Abstand 4 cm",
+     "ein Dreieck mit der Grundseite 8 cm und der Höhe 4 cm"
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "Das Rechteck hat 6 · 4 = 24 cm². Das Trapez hat (8 + 4) · 4 : 2 = 24 cm². Das schräge Parallelogramm hat die Höhe unter 4 cm, also weniger als 24 cm². Die Dreiecke haben 6 · 4 : 2 = 12 cm² und 8 · 4 : 2 = 16 cm²."
+   }
+  },
+  {
+   "kennung": "VT1B-116",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "verstehen",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen rechnen mit verdoppelten Maßen; hier wird erklärt, wie sich die Fläche bei Faktoren und Prozenten ändert, flächengleiche Figuren gefunden und ein Fehler beim Verdoppeln richtiggestellt.",
+   "idee": "was_waere_wenn",
+   "antwortform": "zahl",
+   "loesung_rechnung": "(60 - 48) / 60 * 100",
+   "fehlbilder": [
+    {
+     "antwort": 1,
+     "rechnung": "5 - 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Höhenunterschied 1 als Prozentzahl gelesen"
+    },
+    {
+     "antwort": 80,
+     "rechnung": "4 / 5 * 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die verbleibenden 80 % als Abnahme angegeben"
+    },
+    {
+     "antwort": 12,
+     "rechnung": "60 - 48",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied in cm² als Prozentzahl gelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Rechteck ist 12 cm lang und 5 cm breit. Es wird zu einem Parallelogramm verformt: Die Seiten bleiben gleich lang, aber die Höhe über der 12-cm-Seite ist nur noch 4 cm. Um wie viel Prozent ist der Flächeninhalt kleiner geworden?"
+    },
+    "o": {
+     "wert": 20,
+     "einheit": "%"
+    },
+    "c": "(60 - 48) / 60 * 100",
+    "w": "Das Rechteck hat 12 · 5 = 60 cm², das Parallelogramm 12 · 4 = 48 cm². Der Unterschied ist 12 cm², das sind 12 : 60 = 0,2 = 20 % von 60 cm². Man sieht es auch an der Höhe: 4 von 5 sind 80 %, also fehlen 20 %."
+   }
+  },
+  {
+   "kennung": "VT1B-117",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "verstehen",
+   "pool": "sicherung",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen rechnen mit verdoppelten Maßen; hier wird erklärt, wie sich die Fläche bei Faktoren und Prozenten ändert, flächengleiche Figuren gefunden und ein Fehler beim Verdoppeln richtiggestellt.",
+   "idee": "was_waere_wenn",
+   "antwortform": "zahl",
+   "loesung_rechnung": "1.2 * 1.2 * 100 - 100",
+   "fehlbilder": [
+    {
+     "antwort": 40,
+     "rechnung": "20 + 20",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentzahlen addiert"
+    },
+    {
+     "antwort": 400,
+     "rechnung": "20 * 20",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentzahlen multipliziert"
+    },
+    {
+     "antwort": 144,
+     "rechnung": "120 * 120 / 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den neuen Wert 144 % als Zunahme angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "sicherung",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Bei einem Dreieck wird die Grundseite um 20 % verlängert und die Höhe ebenfalls um 20 % verlängert. Um wie viel Prozent wächst der Flächeninhalt?"
+    },
+    "o": {
+     "wert": 44,
+     "einheit": "%"
+    },
+    "c": "1.2 * 1.2 * 100 - 100",
+    "w": "Die Grundseite wird das 1,2-fache, die Höhe auch. Der Flächeninhalt wird das 1,2 · 1,2 = 1,44-fache, also 144 % des alten Wertes. Er wächst um 44 %. Beispiel: g = 10, h = 10 gibt 50; mit 12 und 12 ist es 72, und 72 : 50 = 1,44."
+   }
+  },
+  {
+   "kennung": "VT1B-118",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "verstehen",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen rechnen mit verdoppelten Maßen; hier wird erklärt, wie sich die Fläche bei Faktoren und Prozenten ändert, flächengleiche Figuren gefunden und ein Fehler beim Verdoppeln richtiggestellt.",
+   "idee": "fehler_finden_richtigstellen",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "3",
+    "10 * 10"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 2 genannt, obwohl dort die Seite richtig verdoppelt wird"
+    },
+    {
+     "luecke": 2,
+     "antwort": 50,
+     "rechnung": "2 * 25",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche nur verdoppelt: 2 · 25"
+    },
+    {
+     "luecke": 2,
+     "antwort": 20,
+     "rechnung": "10 * 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Seite mal 2 als Fläche gerechnet: 10 · 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 40,
+     "rechnung": "10 * 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Seite mal 4 als Fläche gerechnet: 10 · 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kind überlegt: Zeile 1: Ein Quadrat hat die Seitenlänge 5 cm, also A = 25 cm². Zeile 2: Die Seite wird verdoppelt und ist dann 10 cm lang. Zeile 3: Also wird auch die Fläche verdoppelt, A = 50 cm². In welcher Zeile steckt der erste Fehler? Wie groß ist die Fläche des neuen Quadrats richtig?",
+     "schablone": "Fehler in Zeile □, richtig: A = □ cm²",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      100
+     ]
+    },
+    "c": [
+     "3",
+     "10 * 10"
+    ],
+    "w": "Zeile 1 und Zeile 2 stimmen. In Zeile 3 wird die Fläche nur verdoppelt. Beide Maße des Quadrats werden doppelt so lang, die Fläche wird deshalb 2 · 2 = 4-mal so groß: 10 · 10 = 100 cm², das sind 4 · 25."
+   }
+  },
+  {
+   "kennung": "VT1B-119",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "verstehen",
+   "pool": "sicherung",
+   "typ": "darstellung",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen rechnen mit verdoppelten Maßen; hier wird erklärt, wie sich die Fläche bei Faktoren und Prozenten ändert, flächengleiche Figuren gefunden und ein Fehler beim Verdoppeln richtiggestellt.",
+   "idee": "darstellung_wechseln",
+   "antwortform": "zahl",
+   "loesung_rechnung": "2 / 2",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "rechnung": "2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die doppelte Höhe beachtet, das Halbieren beim Dreieck vergessen"
+    },
+    {
+     "antwort": 0.5,
+     "rechnung": "1 / 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Halbieren beachtet und die doppelte Höhe vergessen"
+    },
+    {
+     "antwort": 4,
+     "rechnung": "2 * 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "doppelte Höhe und Halbieren als zwei Verdoppelungen gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "sicherung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Dreieck und ein Parallelogramm haben dieselbe Grundseite. Das Dreieck ist doppelt so hoch wie das Parallelogramm. Das Wievielfache des Flächeninhalts des Parallelogramms ist der Flächeninhalt des Dreiecks?"
+    },
+    "o": {
+     "wert": 1
+    },
+    "c": "2 / 2",
+    "w": "Mit g und h für das Parallelogramm gilt A = g · h. Das Dreieck hat die Grundseite g und die Höhe 2h: A = g · 2h : 2 = g · h. Beide Flächen sind gleich groß, das Dreieck ist das 1-fache. Anschaulich: Zwei gleiche Dreiecke ergeben ein Parallelogramm."
+   }
+  }
+ ]
+}

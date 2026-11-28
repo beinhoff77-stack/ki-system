@@ -48,3 +48,5 @@ IDEEN.update({
  108: 'Größter Rundungsfehler', 112: 'Zwei Rundungen gleichzeitig', 113: 'Rundungsfehler wird vervielfacht', 120: 'Fehlersuche ohne genannte Regel', 122: 'Längste römische Schreibweise',
  127: 'Ziffer anhängen: doppelt plus Ziffer', 128: 'Zahlen mit genau einer Eins',
 })
+
+IDEEN[124] = 'Subtraktionspaare zählen'

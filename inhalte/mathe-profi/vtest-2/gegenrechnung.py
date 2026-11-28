@@ -165,7 +165,7 @@ assert roem(1949) == 'MCMXLIX'
 waehle('VT2-121', lambda m: roem(roem_wert(m)) != m)
 pruefe('VT2-123', [roem_wert('M'), roem_wert('CM'), roem_wert('XL'), roem_wert('IV')])
 assert roem_wert('MCMXLIV') == 1944
-pruefe('VT2-124', max(n for n in range(1, 100) if set(roem(n)) <= {'X', 'I'}))
+pruefe('VT2-124', sum(1 for n in range(1, 51) if any(z in roem(n) for z in ('IV', 'IX', 'XL'))))
 waehle('VT2-125', lambda m: m.startswith('Nur Annas') and roem(1999) == 'MCMXCIX' and roem(1999) != 'MIM')
 pruefe('VT2-126', sum(1 for n in range(1, 31) if len(roem(n)) == 3))
 waehle('VT2-129', lambda m: m.startswith('10001 ist größer') and (int('1111', 2), int('10001', 2)) == (15, 17))

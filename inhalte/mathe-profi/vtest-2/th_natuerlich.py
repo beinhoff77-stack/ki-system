@@ -53,7 +53,7 @@ def bauen():
        3: 'Eine Null zählt keinen Einer; sie zeigt, dass es keine Einer gibt.'},
       '7 090 = 7 Tausender + 0 Hunderter + 9 Zehner + 0 Einer. Die Nullen sind Platzhalter: Ohne sie würden 7 und 9 nach rechts rücken (79).',
       'Die Rolle der Null als Platzhalter wird begründet; die Übungen lesen Ziffern ab.')
-    Z(lz, 'sicherung', 'transfer', 'anwenden', 3, LP,
+    Z(lz, 'sicherung', 'transfer', 'anwenden', 2, LP,
       'Aus den Ziffern 1, 2, 3 und 4 (jede genau einmal) werden vierstellige Zahlen gebildet. Um wie viel ist die größte dieser Zahlen größer als die kleinste?',
       3087, '4321 − 1234',
       [(3000, '4000 − 1000', 'nur die Tausenderstellen verglichen'),
@@ -377,14 +377,14 @@ def bauen():
        (2, 100, '100', 'nur das C gelesen und das M ignoriert')],
       'M = 1 000. CM: das kleinere C steht links vor dem größeren M, wird abgezogen: 1 000 − 100 = 900. XL: 50 − 10 = 40. IV: 5 − 1 = 4. Zusammen 1 944.',
       'Die Subtraktionsregel wird an den Bausteinen gezeigt; die Übungen schreiben ganze Zahlen.')
-    Z(lz, 'sicherung', 'rueckwaerts', None, 2, LP,
-      'Es gelten die üblichen Regeln: Ein Zeichen steht höchstens dreimal hintereinander, I steht nur vor V oder X, X nur vor L oder C. Welche ist die größte Zahl, die man nur mit den Zeichen X und I schreiben kann?',
-      39, '30 + 9',
-      [(43, '40 + 3', 'XXXXIII (viermal X hintereinander) geschrieben, was gegen die Dreierregel verstößt'),
-       (33, '30 + 3', 'nur XXXIII gesehen und das IX übersehen'),
-       (49, '40 + 9', 'XXXXIX geschrieben, was gegen die Dreierregel verstößt')],
-      'Höchstens drei X: XXX = 30. Dahinter nur I: III wäre 3, besser IX = 9 (I vor X erlaubt). Also XXXIX = 39. Ein viertes X (XXXXIII) ist nicht erlaubt, XL wäre 40, aber ohne L nicht schreibbar.',
-      'Größte Zahl unter Regeln und mit eingeschränktem Zeichenvorrat; die Übungen schreiben eine vorgegebene Zahl.')
+    Z(lz, 'sicherung', 'transfer', None, 3, LP,
+      'Von den Zahlen 1 bis 50 werden die römischen Zahlen nach den üblichen Regeln geschrieben (zum Beispiel IV für 4, IX für 9 und XL für 40). Bei wie vielen dieser Zahlen kommt in der römischen Schreibweise mindestens eines der Paare IV, IX oder XL vor?',
+      18, '10 + 8',
+      [(10, '10', 'nur die Paare IV und IX gezählt, die Zahlen 40 bis 49 mit XL vergessen'),
+       (20, '10 + 10', 'die zehn Zahlen von 40 bis 49 dazugezählt, obwohl 44 und 49 schon mitgezählt waren'),
+       (8, '8', 'nur die Zahlen mit XL gezählt, die mit IV oder IX vergessen')],
+      'IV und IX stehen bei allen Zahlen, die auf 4 oder 9 enden: 4, 9, 14, 19, 24, 29, 34, 39, 44, 49. Das sind 10 Zahlen. XL steht bei 40 bis 49; davon sind 44 und 49 schon gezählt, es kommen also 8 hinzu: 40, 41, 42, 43, 45, 46, 47, 48. Zusammen 10 + 8 = 18.',
+      'Subtraktionspaare werden über die Endziffern und den Zehnerbaustein gezählt (nichts doppelt); die Übungen schreiben einzelne Zahlen.')
     A(lz, 'sicherung', 'pruefung', 'zwei_wege', 3, LP,
       'Es gelten die Regeln: Ein Zeichen steht höchstens dreimal hintereinander; ein kleineres Zeichen links von einem größeren wird abgezogen, aber nur I vor V oder X, X vor L oder C und C vor D oder M. Anna schreibt 1 999 als MCMXCIX, Ben als MIM. Welche Aussage stimmt?',
       ['Beide stimmen, denn beide Schreibweisen bedeuten 1 999 und sind deshalb gleich gut.',

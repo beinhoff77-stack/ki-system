@@ -335,7 +335,7 @@
    "pool": "sicherung",
    "typ": "transfer",
    "form": "anwenden",
-   "stufe": 3,
+   "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "rr.stellenwert",
@@ -369,7 +369,7 @@
     "l": "stellenwert",
     "t": "stellenwert",
     "p": "sicherung",
-    "s": 3,
+    "s": 2,
     "g": "transfer",
     "y": "zahl",
     "f": {
@@ -2418,34 +2418,34 @@
    "thema": "zahlen.natuerlich",
    "lernkarte": "roemisch_schreiben",
    "pool": "sicherung",
-   "typ": "rueckwaerts",
+   "typ": "transfer",
    "form": null,
-   "stufe": 2,
+   "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.schreibweisen",
-   "abgrenzung": "Größte Zahl unter Regeln und mit eingeschränktem Zeichenvorrat; die Übungen schreiben eine vorgegebene Zahl.",
+   "abgrenzung": "Subtraktionspaare werden über die Endziffern und den Zehnerbaustein gezählt (nichts doppelt); die Übungen schreiben einzelne Zahlen.",
    "antwortform": "zahl",
-   "loesung_rechnung": "30 + 9",
+   "loesung_rechnung": "10 + 8",
    "fehlbilder": [
     {
-     "antwort": 43,
-     "rechnung": "40 + 3",
-     "beschreibung": "XXXXIII (viermal X hintereinander) geschrieben, was gegen die Dreierregel verstößt",
+     "antwort": 10,
+     "rechnung": "10",
+     "beschreibung": "nur die Paare IV und IX gezählt, die Zahlen 40 bis 49 mit XL vergessen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 33,
-     "rechnung": "30 + 3",
-     "beschreibung": "nur XXXIII gesehen und das IX übersehen",
+     "antwort": 20,
+     "rechnung": "10 + 10",
+     "beschreibung": "die zehn Zahlen von 40 bis 49 dazugezählt, obwohl 44 und 49 schon mitgezählt waren",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 49,
-     "rechnung": "40 + 9",
-     "beschreibung": "XXXXIX geschrieben, was gegen die Dreierregel verstößt",
+     "antwort": 8,
+     "rechnung": "8",
+     "beschreibung": "nur die Zahlen mit XL gezählt, die mit IV oder IX vergessen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -2454,18 +2454,18 @@
     "l": "roemisch_schreiben",
     "t": "roemisch_schreiben",
     "p": "sicherung",
-    "s": 2,
-    "g": "rueckwaerts",
+    "s": 3,
+    "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Es gelten die üblichen Regeln: Ein Zeichen steht höchstens dreimal hintereinander, I steht nur vor V oder X, X nur vor L oder C. Welche ist die größte Zahl, die man nur mit den Zeichen X und I schreiben kann?"
+     "text": "Von den Zahlen 1 bis 50 werden die römischen Zahlen nach den üblichen Regeln geschrieben (zum Beispiel IV für 4, IX für 9 und XL für 40). Bei wie vielen dieser Zahlen kommt in der römischen Schreibweise mindestens eines der Paare IV, IX oder XL vor?"
     },
     "o": {
-     "wert": 39
+     "wert": 18
     },
-    "w": "Höchstens drei X: XXX = 30. Dahinter nur I: III wäre 3, besser IX = 9 (I vor X erlaubt). Also XXXIX = 39. Ein viertes X (XXXXIII) ist nicht erlaubt, XL wäre 40, aber ohne L nicht schreibbar."
+    "w": "IV und IX stehen bei allen Zahlen, die auf 4 oder 9 enden: 4, 9, 14, 19, 24, 29, 34, 39, 44, 49. Das sind 10 Zahlen. XL steht bei 40 bis 49; davon sind 44 und 49 schon gezählt, es kommen also 8 hinzu: 40, 41, 42, 43, 45, 46, 47, 48. Zusammen 10 + 8 = 18."
    },
-   "idee": "Rückwärts: Zahl zur römischen Schreibweise"
+   "idee": "Subtraktionspaare zählen"
   },
   {
    "kennung": "VT2-125",

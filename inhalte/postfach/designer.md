@@ -2,6 +2,45 @@
 
 Neueste oben.
 
+## 2026-11-28 08:15 (Berlin) – FERTIG: Antwort des Projektleiters abgearbeitet – Nachtrag 2 zur Durchsicht
+Zweig `designer`. `inhalte/design/durchsicht-2811/bericht.md` hat den neuen **Nachtrag 2** am Ende (Teile A–F); der Bericht darüber ist unverändert geblieben, wie gewünscht. Grundlage: `helfer-bilder` 338e0713 mit 376 Bildern zu 94 Seiten – danke, die waren sehr gründlich.
+
+### Geliefert
+**A. Gedrückt-Zustand als Tabelle (dein Punkt 2).** Gemessen über alle 51 knopfartigen Klassen, die der Lern-Code an `button`/`a`/`summary` hängt:
+- mit `:active` → **2** (4 %) · mit `:focus-visible` → 6 (12 %) · mit `:hover` → 12 (24 %) · **ohne jede Rückmeldung → 36 (71 %)**.
+- **Die ganze `style.css` (6212 Zeilen) enthält genau vier `:active`-Regeln:** `.lr-knopf`, `.lr-taste`, `.lr-ab-gross` und `.rk-rahmen` (letztere nur der Mauszeiger auf der Karte). Ein globales `button:active` gibt es nicht.
+- Ohne Rückmeldung ist unter anderem `.lr-einsteigen-knopf` – der wichtigste Knopf des Kinderbereichs. Nur 6 von 51 Klassen zeigen, wo die Tastatur steht.
+- Ein Vorschlag für eine einzige Regel, die auf alle 51 wirkt, steht im Nachtrag.
+
+**B. Die [C]-Seiten am Bild nachbeurteilt:** Flug-Test (Start, Frage, Ergebnis), Landungen (Direktflug, sauber, Sturm, Flug, Ort-Stempel), Knobel-Bordkarte offen und gelöst, Mischkarte, Check-in, „Etappe abgelegt“, einzelne Expedition, Einstellen-Blatt, Zugänge.
+- **Die Landungen sind die stärksten Bilder der App** – Vollbild, eigener Moment, klare Belohnung. Aber: Der Hauptknopf ist einmal gelb, einmal dunkelrot, gleiche Rolle.
+- **Der Flug-Test macht die Rückmeldung bereits richtig** (RICHTIG/FALSCH mit Überschrift, Zeichen ✓/✗ und Begründung in einem Kasten). Das ist die Vorlage für meine Idee 6, keine Neuerfindung.
+- **Neuer Fehler:** Im Test-Ergebnis wird der Lösungsweg **ohne `lernMathe()`** ausgegeben (`lernen.js` Zeile 4998). An allen sieben anderen Stellen steht `lernMathe(…loesungsweg)`. Folge: **Brüche erscheinen dort als „3/4“ statt gestapelt** – im Widerspruch zur Umstellung vom 27.11.
+- **Neuer Befund:** Im Blatt „Kind einstellen“ sagen **zwei der vier Abschnitte nur, dass etwas nicht geht** („Die Stufe je Schulart lässt sich hier noch nicht einstellen“, „Reisetage lassen sich hier noch nicht eintragen“). Überschrift verspricht, Text nimmt zurück – das kostet die halbe Fläche. Kommt auf die Liste „Weg“.
+- **Mein Befund N3 ist jetzt am Bild belegt:** Knobel, Mischkarte, Expedition und Check-in haben **kein Tastenfeld**, sondern ein freies Feld und einen breiten „Prüfen“-Knopf – anders als die Lerneinheit. Vier Stellen.
+
+**C. Deine sechs Meldungen aus Punkt 6 – alle nachgeprüft, alle berechtigt:**
+1. **Ladeanzeige und Fehlerseite im Nachtmodus hell: bestätigt, gemessen.** Helligkeit oben: Ladeanzeige hell 243 / dunkel 243, Fehlerseite 237 / 237 – identisch. Sonst schaltet die App korrekt um (Reisekarte 225/51, Merkheft 237/29, Fehler *innerhalb* einer Aufgabe 231/31). Betroffen sind nur die beiden ganzseitigen Zustände aus `lernen/schule.js`, die gezeichnet werden, bevor die Kinderseite ihre Nacht-Klasse setzt.
+2. Knobel-Knopf im Nachtmodus unlesbar: **bestätigt**.
+3. Formel-Tafel im Dunkelmodus: **teilweise** – die Tafel ist korrekt dunkel, hell bleibt die klebende Werkzeugleiste (Suchen / Mein Merkheft / ≡), die als heller Balken mitten über der Tabelle steht. Das fällt mehr auf als die Zeile.
+4. Leerraum auf 1280 px: **bestätigt, gemessen** – Lehrplan 96 px, Meine Aufträge 96, So funktioniert's 96, Schulstand 96, Lehrer-Start 97, Kind-Ansicht 55. Kinderseiten: Reisekarte 8, Merkheft 24, Regel-Universum 24.
+5. „Meine Aufträge“ zweizeiliger Kopf auf 390 px: **bestätigt**.
+6. Spitzklammern: **bestätigt** (`lernen.js` 1807 `›${n.titel}‹`). In Space Grotesk sehen die Guillemets wie Größer-/Kleiner-Zeichen aus – es liest sich wie Programmcode. Vorschlag: „…“ wie überall sonst.
+
+**D. Jugendwort-Schild (dein Punkt 3):** gewollt, zur Kenntnis. Das Überdecken kann ich genauer fassen: Auf 390 px liegt das Schild über dem Wort **„EINSTEIGEN“** und verdeckt dessen obere Hälfte ganz – ausgerechnet den einzigen Knopf, der die Lernreise startet; das kleine „?“ sitzt halb auf der Knopfkante. *Falls erwünscht:* Das Schild über die **linke** Hälfte der Tafel legen (über „ROM“) – dort liegt kein Bedienelement, der Einfall bleibt.
+
+### Offen
+- **Punkt 4 und 5** („Bisheriges Design“ abkündbar, Vorschläge zur schwarzen Abflug-Karte) liegen beim Nutzer. Ich habe dazu **nichts** ausgearbeitet, wie angewiesen.
+- **Ordner-Überschneidung:** Der Helfer legt seine 376 Bilder in denselben Pfad `inhalte/design/durchsicht-2811/bilder/` wie meine 129. Die Dateinamen kollidieren nicht (seine mit Nummer, meine mit Seitennamen), aber beim Zusammenführen lägen 505 Bilder in einem Ordner. **Vorschlag: meine nach `bilder-designer/` verschieben, seine behalten den Platz.** Mache ich auf ein Wort – ich greife nicht ungefragt in seinen Zweig.
+
+### Nicht geprüft
+Echtes Gerät, Safari, Firefox, Kontrastwerte. Bediengefühl in Bewegung über die gemessenen `:active`-Regeln hinaus. Nicht aufgenommen (auch vom Helfer nicht): Flug-Test „Gleich verbessern“ und Nachtragstest, „Auch offen“ auf der Abflugtafel.
+
+### Annahmen
+- Die Messung der Gedrückt-Zustände prüft Regeln, die eine Klasse direkt nennen, **und** globale Selektoren; `@media`-Blöcke sind mitgezählt. Was ein Skript zur Laufzeit zusätzlich setzt, ist nicht erfasst.
+- Die Helligkeitswerte sind Mittelwerte über den oberen Seitenteil (bis 600 px) der Bilder des Helfers, nicht am Gerät gemessen.
+- „Weg.“ im FALSCH-Kasten des Test-Ergebnisses ist Nachbau-Text aus den Beispieldaten, kein App-Fehler – geprüft, bevor ich es gemeldet hätte.
+
 ## 2026-11-28 07:05 (Berlin) – NACHTRAG zur Durchsicht: an der laufenden App geprüft
 Der Projektleiter hat zugerufen, dass ich online prüfen kann. Ich habe die echte App geöffnet (Claude in Chrome, angemeldeter Lehrer-Zugang) und mit dem **Testkind** `#/reise/3` gearbeitet. **Nichts geschrieben, nichts gespeichert, keine Aufgabe beantwortet.** Keine Namen, keine Zugangscodes und kein Bild davon im Repo. `bericht.md` hat dafür den neuen Abschnitt **Nachtrag (N1–N6)**, Kennzeichnung **[L]** = an der laufenden App gemessen.
 

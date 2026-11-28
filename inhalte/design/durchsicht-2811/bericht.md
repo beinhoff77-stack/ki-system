@@ -402,3 +402,109 @@ Ebenso offen: **echtes Handy** (die Fensterbreite ließ sich in Chrome nicht auf
 3. **„Yurr, Digga!"** auf der Reisekarte – gewollte Tonlage oder Rest aus einem Versuch?
 4. **„Bisheriges Design"**: Darf ich davon ausgehen, dass es abgekündigt werden kann, oder benutzt es jemand?
 5. Die Weltkarte ist laut Auftrag gesetzt – gilt das auch für die **Abflugtafel** (die schwarze Karte auf der Reiseseite), oder darf ich dort Vorschläge machen?
+
+---
+
+# Nachtrag 2 vom 28.11.: die Bilder des Helfers ausgewertet
+
+Antwort des Projektleiters vom 28.11., 06:10 abgearbeitet. Grundlage: Zweig `helfer-bilder` 338e0713, **376 Bilder** zu 94 Seiten und Zuständen, Liste in dessen `seiten.md`. Der Bericht oben bleibt unverändert; hier steht nur, was dazugekommen ist oder sich geändert hat.
+
+**Hinweis zum Ordner:** Der Helfer legt seine Bilder in denselben Pfad `inhalte/design/durchsicht-2811/bilder/`, in dem meine 129 eigenen Bilder liegen. Die Dateinamen überschneiden sich nicht (seine beginnen mit einer Nummer, meine mit dem Seitennamen), aber beim Zusammenführen der Zweige liegen dann 505 Bilder in einem Ordner. **Vorschlag:** meine nach `bilder-designer/` verschieben, seine behalten den Platz. Mache ich auf ein Wort.
+
+## A. Gedrückt-Zustand – die Tabelle (Punkt 2 der Antwort) **[B]**
+
+Gemessen über alle Klassen, die `lernen.js` und `lernen/schule.js` an anklickbare Elemente (`button`, `a`, `summary`) hängen – **51 knopfartige Klassen**. Geprüft gegen `style.css`, einschließlich globaler Regeln.
+
+| | Zahl | Anteil |
+|---|---|---|
+| mit `:active` (Gedrückt-Zustand) | **2** | 4 % |
+| mit `:focus-visible` (Tastaturbedienung) | 6 | 12 % |
+| mit `:hover` | 12 | 24 % |
+| **ohne jede Rückmeldung** | **36** | **71 %** |
+
+**Die ganze `style.css` (6212 Zeilen) enthält genau vier `:active`-Regeln:**
+
+| Regel | Wirkung | Wo |
+|---|---|---|
+| `.lr-knopf:active` | 2 px nach unten, Schatten weg | Hauptknöpfe im Kinderbereich |
+| `.lr-taste:active` | 1 px nach unten, Fläche dunkler | Tasten des Zifferntastenfelds |
+| `.lr-ab-gross:active` | 4 px nach unten, Schatten bleibt | großer Knopf der Abflugtafel |
+| `.rk-rahmen:active` | `cursor: grabbing` | Weltkarte – kein Knopf, nur der Mauszeiger |
+
+Also haben **drei Knopfarten der ganzen App** einen Gedrückt-Zustand. Ein globales `button:active` gibt es nicht; globale Regeln existieren nur für `:hover` (drei Stück, Zeilen 160–162).
+
+Ohne Rückmeldung sind unter anderem: `.lr-einsteigen-knopf` (der wichtigste Knopf des Kinderbereichs), `.lr-knopf-start`, `.lr-knopf-zweit`, `.lr-knopf-klein`, `.lr-schritt-knopf`, `.lr-pfeilknopf`, `.lr-textlink`, `.lr-ortlink`, `.lr-route-link`, `.lr-ru-link`, `.rk-weiter-knopf`, `.rk-staedte-knopf`, `.rk-legende-knopf`, `.rk-grund-knopf`, `.lw-filter-knopf`, `.lw-leg-knopf`, `.ww-link`, `.ww-link-zeile`, `.mx-link`, `.rt-link`.
+
+**Besonders:** Nur 6 von 51 Klassen haben `:focus-visible`. Wer die App mit der Tastatur bedient, sieht auf den meisten Knöpfen nicht, wo er steht. **[M]**
+*Vorschlag:* Eine Regel für alle: `.lr-knopf, .lr-taste, [class*="-knopf"], [class*="-link"], [class*="-chip"] { transition: transform .06s; }` mit `:active { transform: translateY(1px); }` und ein gemeinsamer `:focus-visible`-Ring. Ein Eintrag, wirkt auf 51 Klassen. **[M]**
+
+## B. Die mit [C] gekennzeichneten Seiten – jetzt am Bild **[B]**
+
+### B1. Flug-Test (06o, 06p, 06q)
+*Passt:* Der Ablauf ist klar geführt. Der Start erklärt die Regeln in drei Zeilen („Eine Bordkarte je Etappe, ohne Tipps. Die Lösungen siehst du nach dem Abgeben."). Bei der Frage zeigen zwei Kreise oben, wo man steht; „Abgeben kannst du bei der letzten Bordkarte. Bis dahin kannst du Antworten ändern." nimmt die Angst. Das Ergebnis trennt sauber in einen grünen RICHTIG- und einen roten FALSCH-Kasten, beide mit Überschrift **und** Zeichen (✓/✗), nicht nur mit Farbe – das ist vorbildlich und sollte überall so sein.
+*Fällt auf:*
+- **Die Startseite ist fast leer**: eine Karte, drei Zeilen, ein Knopf, darunter zwei Drittel Leerraum und „≡ Menü". Für den Einstieg in eine Prüfung wirkt das unfertig. **[M]**
+- Im Ergebnis stehen zwei fast gleich wichtige Knöpfe untereinander: „Erst üben: Zahlenstrahl >" (gelb) und „Gleich verbessern >" (weiß). Welcher der empfohlene Weg ist, sagt die Gestaltung – aber der erklärende Satz dazu steht weit oben in der Karte. **[M]**
+- **Neuer Fehler gefunden:** Im Test-Ergebnis wird der Lösungsweg **ohne `lernMathe()`** ausgegeben (`lernen.js` Zeile 4998: `x.loesungsweg && !x.richtig ? el('p', …, x.loesungsweg)`). An allen anderen sieben Stellen der Datei steht `lernMathe(…loesungsweg)`. **Folge: Brüche im Lösungsweg erscheinen hier als „3/4" mit Schrägstrich statt gestapelt** – im Widerspruch zum Rest der App und zur Umstellung vom 27.11. **[C]**
+
+### B2. Landungen (06h, 06i, 06j, 06r, 06s, 06t, 06u)
+*Passt:* Das sind die stärksten Bilder der App. Vollbild, keine Kopfzeile, nur „Überspringen ›" oben rechts. „FLUG GESCHAFFT" in großen gelben Versalien auf Dunkelblau mit der Sternzahl; „ROM IST GESCHAFFT" als roter Stempel auf Goldbeige. Darunter jeweils eine weiße Karte mit dem, was das Kind jetzt kann, und wann es wiederkommt (3 · 7 · 14 · 30 Tage). Der Moment ist als Moment gestaltet, nicht als Seite – das ist richtig. **[B]**
+*Fällt auf:*
+- **Der Hauptknopf hat je nach Landung eine andere Farbe:** gelb („Weiter zum nächsten Thema") auf der Flug-Landung, dunkelrot („Weiter: neuer Ort") auf der Ort-Landung. Gleiche Rolle, zwei Farben. **[B]**
+- Diese Ansichten bringen eine **vierte Farbwelt** (Dunkelblau/Gold) in die App. Für einen Belohnungsmoment halte ich das für richtig – es ist kein Ort, an dem man sich zurechtfinden muss. **[M]**
+
+### B3. Knobel-Bordkarte (06k, 06k2) und Mischkarte (06l)
+*Passt:* Die Knobel-Karte sagt vorweg, dass sie nicht zählt („zählt nicht für ‚sitzt' und nicht für den Test. Richtig beim ersten Versuch: 30 Sterne."). Das ist fair und nimmt den Druck. Die Mischkarte kennzeichnet sich kursiv mit „Aus deiner Reise – erkennst du, was gefragt ist?".
+*Fällt auf:* **Beide bestätigen meinen Befund N3 am Bild.** Hier gibt es **kein Zifferntastenfeld**, sondern ein freies Eingabefeld und einen gelben „Prüfen"-Knopf über die volle Breite; der „Tipp"-Knopf steht klein darunter. In der Lerneinheit ist es genau umgekehrt: Tastenfeld im Daumenbereich, Prüfen als gelbe Taste darin. Dieselbe Tätigkeit, zwei Bedienungen – jetzt an vier Stellen belegt (Check-in, Knobel, Mischkarte, Expedition). **[B]**
+
+### B4. Einzelne Expedition (05e)
+*Passt:* Klare Gliederung: Marke „✻ EXPEDITION FREIGESCHALTET", Titel, Herkunftszeile („Neumayer-Station III · Antarktis · Station 9 von 21"), Einführungstext, dann „TEIL A VON 3" mit der Aufgabe. Dass man jederzeit aufhören kann und Erledigtes bleibt, steht ausdrücklich da. **[B]**
+*Fällt auf:* Die Marke „EXPEDITION FREIGESCHALTET" ist **türkis** – eine Akzentfarbe, die sonst nirgends vorkommt. Damit sind es im Kinderbereich Gelb, Türkis, Dunkelblau und Gold. **[B]**
+
+### B5. Einstellen je Kind (08k)
+*Passt:* Als Blatt über der Seite mit ✕ oben rechts, Schulart und Klasse als Pillen – schnell zu bedienen. **[B]**
+*Fällt auf – und das ist ein eigener Befund:* **Zwei der vier Abschnitte sagen nur, dass etwas nicht geht.**
+> „Stand messen gegen …" → „Die Stufe je Schulart lässt sich hier noch nicht einstellen; gemessen wird an der Klasse."
+> „Reisetage und Pausen" → „Reisetage lassen sich hier noch nicht eintragen."
+
+Eine Überschrift verspricht eine Einstellung, der Text nimmt sie zurück. Das kostet die Hälfte des Blattes und enttäuscht jeden, der danach sucht. **[M]**
+*Vorschlag:* Beide Abschnitte entfernen und stattdessen eine Zeile unten: „Reisetage und Stufen stellst du auf der Startseite unter ‚+ Reisetag eintragen' ein." **[M]**
+
+### B6. Check-in und „Etappe abgelegt" (05c, 06m, 06m2, 06n)
+*Passt:* „Etappe abgelegt!" ist gut gemacht – goldenes Siegel, „+30 ★ Sonder-Sterne fürs Ablegen", ein Fortschrittsbalken aus Segmenten und der Satz „4 von 7 Etappen abgelegt – noch 3, dann wird der Flug golden." Man weiß sofort, was man erreicht hat und was noch fehlt. **[B]**
+
+### B7. Zugänge (08j) und leere Zugänge (09d3)
+Die Bilder zeigen die Seite aus **Eltern**-Sicht, also die eigentliche Ansicht. Mein Live-Befund N4 bleibt davon unberührt: Mit einem **Lehrer**-Zugang erscheint statt einer Erklärung die allgemeine Fehlerseite. Der Helfer vermerkt das in seiner Liste ebenso („Lehrer hat keinen Zugang zu dieser Seite"). **[B]**
+
+### B8. Seiten, die in meinem Bericht ganz fehlten **[B]**
+Der Helfer hat Zustände aufgenommen, die ich nicht kannte: Abflugtafel in drei Fassungen (03c–03e), „Expedition freigeschaltet" auf der Reisekarte (03f), Arbeitsweisen (07d), **elf Tafeln** statt der einen, die ich sah (07f1–07f11), die Lehrer-Ansicht des Regel-Universums (07i, 07j), „Was wackelt" im Zustand „alles besprochen" (08c), Schulstand aller Kinder (08f2), Eltern-Startseite (08l) und fünf leere Zustände (09d–09d5). Sie bestätigen das Bild aus Teil 3, ohne es zu ändern; Einzelheiten nur, wo unten etwas dazu steht.
+
+## C. Die Meldungen des Bilder-Helfers – nachgeprüft (Punkt 6 der Antwort)
+
+| # | Meldung | Mein Befund |
+|---|---|---|
+| 1 | Ladeanzeige und Fehlerseite bleiben im Nachtmodus hell | **Bestätigt, gemessen.** Mittlere Helligkeit des oberen Seitenteils: Ladeanzeige hell 243 / dunkel 243, Fehlerseite hell 237 / dunkel 237 – identisch. Zum Vergleich funktioniert der Nachtmodus sonst: Reisekarte 225/51, Merkheft 237/29, Fehler **innerhalb** einer Aufgabe 231/31. Betroffen sind nur die beiden **ganzseitigen** Zustände aus `lernen/schule.js` (`loading()`, `showError()`), die gezeichnet werden, bevor die Kinderseite ihre Nacht-Klasse setzt. **[B]** Für ein Kind, das abends im Nachtmodus lernt, heißt das: bei jedem Seitenwechsel und jedem Fehler ein heller Blitz. **[M]** |
+| 2 | Knopf „Heute keine Knobel-Bordkarte" im Nachtmodus weiß mit fast unsichtbarem Text | **Bestätigt** (06k-390-dunkel): heller Rahmen, Text praktisch nicht lesbar. **[B]** |
+| 3 | Aufgeklappte Zeile „Kreis" in der Formel-Tafel im Dunkelmodus mit hellem Kasten | **Teilweise.** Die Tafel selbst ist korrekt dunkel; hell bleibt die **klebende Werkzeugleiste** („Suchen", „Mein Merkheft", ≡), die im Dunkelmodus als heller Balken mitten über der Tabelle steht (07f10-390-dunkel). Das ist auffälliger als die Zeile selbst. **[B]** |
+| 4 | Lehrer-Seiten auf 1280 px mit rund 100 px Leerraum über dem Kopf | **Bestätigt, gemessen.** Leerraum bis zum ersten Inhalt: Lehrplan 96 px, Meine Aufträge 96, So funktioniert's 96, Schulstand 96, Lehrer-Start 97, Kind-Ansicht 55. Kinderseiten zum Vergleich: Reisekarte 8 px, Merkheft 24, Regel-Universum 24. **[B]** |
+| 5 | „Meine Aufträge" auf 390 px mit zweizeiligem Kopf | **Bestätigt** (08h-390-hell): Der Titel bricht in „Meine / Aufträge", die Kopfzeile wird dadurch höher als auf allen anderen Seiten. **[B]** |
+| 6 | Spitzklammern statt Anführungszeichen in „Noch 1 Etappe bis ›…‹ gelandet" | **Bestätigt** (`lernen.js` Zeile 1807: `›${n.titel}‹`). Im Bild (03c-390-hell) liest es sich als „bis >Natürliche Zahlen< gelandet" – in Space Grotesk sehen die einfachen Guillemets wie Größer-/Kleiner-Zeichen aus. In einer Kinder-App wirkt das wie Programmcode. **[B] [M]** *Vorschlag:* „…" wie überall sonst. |
+
+## D. Jugendwort-Schild (Punkt 3 der Antwort) **[B]**
+
+Zur Kenntnis genommen, dass es gewollt ist (`daten/jugendwoerter.json`). Das Überdecken kann ich bestätigen und genauer fassen: Auf 390 px liegt das Schild **über dem Wort „EINSTEIGEN"** und verdeckt dessen obere Hälfte vollständig (03c-390-hell: „Digga, los geht's." über dem gelben Knopf). Verdeckt wird damit ausgerechnet der einzige Knopf, der die Lernreise startet. Das kleine „?" am rechten Rand des Schildes sitzt zur Hälfte auf der Kante des Knopfes. **[B]**
+*Vorschlag, falls erwünscht:* Das Schild über die **linke** Hälfte der Tafel legen (über „ROM"), wo kein Bedienelement liegt – dann bleibt der Einfall erhalten, ohne den Startknopf zu verdecken. **[M]**
+
+## E. Was sich am Bericht oben ändert
+
+Nichts muss gestrichen werden. Zwei Stellen werden durch die neuen Bilder **schärfer**:
+1. **Teil 2.1** (89 Knopf-Erscheinungen): Die Landungen fügen zwei weitere Hauptknopf-Farben hinzu (gelb und dunkelrot in gleicher Rolle). Die Zahl steigt, die Aussage bleibt.
+2. **Idee 6 „Rückmeldung an der Aufgabe"**: Der Flug-Test macht es bereits richtig (RICHTIG/FALSCH mit Überschrift, Zeichen und Begründung in einem Kasten). Das ist die Vorlage, nach der die Lerneinheit umgebaut werden sollte – nicht eine neue Erfindung. **[M]**
+
+Und eine **neue Zeile für die Liste „Weg"**: die zwei leeren Abschnitte im Blatt „Kind einstellen" (B5).
+
+## F. Weiter offen
+
+- **Punkt 4 und 5 der Antwort** („Bisheriges Design" abkündbar? Vorschläge zur schwarzen Abflug-Karte?) liegen beim Nutzer. Ich habe dazu nichts ausgearbeitet, wie angewiesen.
+- Weiter nicht geprüft: echtes Gerät, Safari, Firefox, Kontrastwerte, Bediengefühl in Bewegung über die gemessenen `:active`-Regeln hinaus.
+- Nicht aufgenommen, auch vom Helfer nicht: Flug-Test „Gleich verbessern" (Korrektur) und Nachtragstest; „Auch offen" auf der Abflugtafel.

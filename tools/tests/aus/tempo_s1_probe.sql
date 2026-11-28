@@ -324,7 +324,16 @@ do $r$ declare n int := (select count(*) from pg_proc p where p.pronamespace = p
 begin
   if n <> 0 or to_regclass('pg_temp.tempo_mig') is not null then raise exception 'TEMPO-S1 ABBRUCH: Rückstände in pg_temp (% Funktionen)', n; end if;
 end $r$;
-do $p$ begin
-  raise exception 'PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt): %',
-    ((select b from tempo_bericht) || jsonb_build_object('rueckstaende', pg_temp.tempo_hilfen() - 'tempo_hilfen'))::text;
+do $p$ declare b jsonb := (select b from tempo_bericht) || jsonb_build_object('rueckstaende', pg_temp.tempo_hilfen() - 'tempo_hilfen');
+begin
+  raise exception 'PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt): KURZ % VOLL %', jsonb_build_object(
+    'ms_unter_sperre', b->'ms_unter_sperre_bis_vor_aufraeumen',
+    'alt_neu', (b->'vergleich_alt_neu') - 'gegen' - 'kinder', 'alt_end', (b->'vergleich_alt_endzustand') - 'gegen' - 'kinder', 'kinder', b#>'{vergleich_alt_neu,kinder}',
+    'md5_vor', b#>>'{funktion_vorher,md5}', 'md5_nach', b#>>'{funktion_nachher,md5}',
+    'eig_gleich', b->'eigenschaften_gleich', 'besitz_gleich', b->'besitz_gleich', 'indizes_soll', b->'indizes_soll',
+    'neue_indizes', (select coalesce(jsonb_agg(x->>'name' order by x->>'name'), '[]') from jsonb_array_elements(b->'indizes_nachher') x
+                      where not exists (select 1 from jsonb_array_elements(b->'indizes_vorher') y where y->>'name' = x->>'name')),
+    'indizes_vorher_gleich', (select coalesce(jsonb_agg(y), '[]') from jsonb_array_elements(b->'indizes_vorher') y)
+                              <@ (select coalesce(jsonb_agg(x - 'indcheckxmin'), '[]') || coalesce(jsonb_agg(x), '[]') from jsonb_array_elements(b->'indizes_nachher') x),
+    'rueckstaende', b->'rueckstaende')::text, b::text;
 end $p$;

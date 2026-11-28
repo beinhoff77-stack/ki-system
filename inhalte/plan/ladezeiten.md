@@ -144,7 +144,7 @@ Maßgeblich ist die jüngste Fassung: nachgerechnet aus `20261114_w150_lernkarte
 
 ## 5. Gebaut (Server-Entwurf) – `supabase/migrations/20261207_tempo_s1.sql`
 
-Nachgebessert nach den Gegenprüfungen Werkstatt 1175, 1181/1183 und 1190. Die Migration hat 11 181 Bytes, md5 `3b97578bfacff84b4078c061704d9275`.
+Nachgebessert nach den Gegenprüfungen Werkstatt 1175, 1181/1183 und 1190/1192. Live-Probelauf mit dem Stand 8995b3fa bestanden (Projektleiter, nach NF-S): 315 Paare, 0/0 Abweichungen; Merkheft je Kind alt 9,0/9,6/4,6 s → Endzustand 0,89/0,89/0,86 s (in der Probe-Transaktion gemessen). Die Migration hat 15 175 Bytes  md5 `2906e3b81fcf0c2017db60c24b080f16`.
 
 **Teil 1 – Funktion** (`schule.etappen_stand` neu, create or replace, gleiches Ergebnis):
 - Was sich ändert:
@@ -248,9 +248,9 @@ Kein DELETE, keine Tabelle, keine andere Funktion. `api.schule_merkheft` bleibt,
 
 | Datei | Bytes | md5 | erwartet |
 |---|---|---|---|
-| `tools/tests/aus/tempo_s1_probe.sql` | 24 985 | `e39fc681a06c9e55ee5685696e21a8b7` | Fehler „PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt): {…}“ |
-| `tools/tests/aus/tempo_s1_einspielen.sql` | 25 199 | `2080303f10fd363a389de728cf3ef97d` | Hinweis „TEMPO-S1 eingespielt: {…}“ |
-| `tools/tests/aus/tempo_s1_messen.sql` | 9 971 | `33f7aefb7744962a914cc374aa319a12` | Fehler „MESSUNG (nichts geändert): {…}“ – nur nach positivem Nachweis (siehe unten) |
+| `tools/tests/aus/tempo_s1_probe.sql` | 35 340 | `3e55d7dcd67dc273e3a2bd672f02b590` | Fehler „PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt): {…}“ |
+| `tools/tests/aus/tempo_s1_einspielen.sql` | 35 538 | `2c39b44df185e14af778df34273ae8ec` | Hinweis „TEMPO-S1 eingespielt: {…}“ |
+| `tools/tests/aus/tempo_s1_messen.sql` | 16 207 | `d4a3b3a536e3141c0971cbd2b44c9c19` | Fehler „MESSUNG (nichts geändert): {…}“ – nur nach positivem Nachweis (siehe unten) |
 
 Alle anderen Dateien unter `tools/tests/aus/` sind byteidentisch (md5 vorher/nachher verglichen).
 
@@ -289,6 +289,9 @@ Jeder echte Schritt nur mit dem ausdrücklichen Satz des Nutzers. Vorher `werkst
    do $a$ begin execute <Inhalt von tempo_s1_probe.sql>; end $a$;   -- endet mit „PROBELAUF bestanden …“ (Transaktion abgebrochen)
    rollback;
    ```
+   Die Meldung beginnt mit einem **Kurzbericht** (`KURZ {…}`), danach folgt der volle Bericht (`VOLL {…}`). So bleibt das Wichtigste sichtbar, auch wenn ein Werkzeug die Meldung kürzt.
+   - Im Kurzbericht stehen: `ms_unter_sperre`, `alt_neu` und `alt_end` (Paare, „verglichen“, beide Abweichungen), `kinder`, `md5_vor`/`md5_nach`, `eig_gleich`, `besitz_gleich`, `indizes_soll`, `neue_indizes` (genau die zwei), `indizes_vorher_gleich`, `rueckstaende`.
+   - Die Indexdefinitionen stehen nur im vollen Bericht; geprüft sind sie über `indizes_soll: "ok"`.
    Anerkannt wird nur dieser Abschlussfehler mit vollständigem Bericht. Für „bestanden“ müssen **alle** folgenden Felder stimmen:
    - `funktion_vorher.md5` = `bf3152e9a378a1d4e41c98965acf738e`, `funktion_nachher.md5` = `3f49198f8dbf5c822a0be4650a5ebce5`;
    - `funktion_vorher` und `funktion_nachher`: `strict` = `false`, `ergebnis` = `jsonb`, `menge` = `false`, `kosten` = 100, `parallel` = `u`, `leakproof` = `false`;

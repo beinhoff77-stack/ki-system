@@ -49,7 +49,13 @@ def fehlerzeile(out, stichwort):
 
 
 def bericht(zeile):
-    return json.loads(zeile[zeile.index('{'):])
+    """Meldung „… KURZ {…} VOLL {…}“ (Probe/Einspielen) bzw. „… {…}“ (Messung): voller Bericht plus Kurzbericht unter 'kurz'."""
+    d = json.JSONDecoder()
+    if ' KURZ {' in zeile:
+        kurz, _ = d.raw_decode(zeile[zeile.index(' KURZ {') + 6:]); voll, _ = d.raw_decode(zeile[zeile.index(' VOLL {') + 6:])
+        assert zeile.index(' KURZ {') < zeile.index(' VOLL {') and len(json.dumps(kurz)) < 1200, 'Kurzbericht vorn und kompakt'
+        return {**voll, 'kurz': kurz}
+    return d.raw_decode(zeile[zeile.index('{'):])[0]
 
 
 def wert(pg, sql):
@@ -85,6 +91,11 @@ def pruefe_bericht(r, *, schon=False):
         x = [i for i in r['indizes_nachher'] if i['name'] == name]
         assert len(x) == 1 and x[0]['gueltig'] and f'ON schule.{spalten.split(" (")[0]} USING btree ({spalten.split(" (")[1]}' in x[0]['def'], (name, x)
     assert r['rueckstaende'] == [], r['rueckstaende']
+    k = r['kurz']
+    assert k['md5_vor'] == (NEU if schon else ALT) and k['md5_nach'] == NEU and k['eig_gleich'] and k['besitz_gleich'] and k['indizes_soll'] == 'ok', k
+    assert k['alt_neu'] == k['alt_end'] == {'merkheft': 'verglichen', 'paare': 380, 'abweichungen_etappen_stand': 0, 'abweichungen_merkheft': 0}, k
+    assert k['neue_indizes'] == ([] if schon else ['aufgabe_einheit_pool_lz_idx', 'versuch_kind_aufgabe_idx']) and k['indizes_vorher_gleich'] and k['rueckstaende'] == [], k
+    assert isinstance(k['ms_unter_sperre'], (int, float)), k
 
 
 ZUSATZ = """
@@ -251,7 +262,7 @@ def main():
         # 7. Messung: ändert nichts, keine Rückstände (Rollback)
         out = pg.sql("set local statement_timeout = '300s';\n" + f'do $rbpaket$ begin execute $rbpaketinhalt${messen}$rbpaketinhalt$; end $rbpaket$;', 'MESSUNG')
         mz = bericht(fehlerzeile(out, 'MESSUNG (nichts geändert)'))
-        assert mz['funktion']['md5'] == NEU and mz['merkheft'] == 'verglichen' and mz['kinder'] == [1, 2, 3, 4], mz
+        assert mz['md5'] == NEU and mz['merkheft'] == 'verglichen' and mz['kinder'] == [1, 2, 3, 4] and mz['je_kind_gemessen'] == 4 and mz['paare'] == 380 and mz['indizes_soll'] == 'ok', mz
         assert zustand(pg) == z2
         pg.sql(mh.replace('perform schule.zugriff(p_schluessel, v_l);', "perform schule.zugriff(p_schluessel, v_l);\n  if v_l = 2 then raise exception using errcode = 'TP999', message = 'tempo-zurueck'; end if;"))
         out = pg.sql("set local statement_timeout = '300s';\n" + f'do $rbpaket$ begin execute $rbpaketinhalt${messen}$rbpaketinhalt$; end $rbpaket$;', 'fremdes TP999')

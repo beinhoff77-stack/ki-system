@@ -329,5 +329,14 @@ begin
   drop table pg_temp.tempo_bericht;
   drop function pg_temp.tempo_hilfen();
   if (select count(*) from pg_proc p where p.pronamespace = pg_my_temp_schema() and p.proname like 'tempo\_%') <> 0 then raise exception 'TEMPO-S1 ABBRUCH: Rückstände in pg_temp'; end if;
-  raise notice 'TEMPO-S1 eingespielt: %', b::text;
+  raise notice 'TEMPO-S1 eingespielt: KURZ % VOLL %', jsonb_build_object(
+    'ms_unter_sperre', b->'ms_unter_sperre_bis_vor_aufraeumen',
+    'alt_neu', (b->'vergleich_alt_neu') - 'gegen' - 'kinder', 'alt_end', (b->'vergleich_alt_endzustand') - 'gegen' - 'kinder', 'kinder', b#>'{vergleich_alt_neu,kinder}',
+    'md5_vor', b#>>'{funktion_vorher,md5}', 'md5_nach', b#>>'{funktion_nachher,md5}',
+    'eig_gleich', b->'eigenschaften_gleich', 'besitz_gleich', b->'besitz_gleich', 'indizes_soll', b->'indizes_soll',
+    'neue_indizes', (select coalesce(jsonb_agg(x->>'name' order by x->>'name'), '[]') from jsonb_array_elements(b->'indizes_nachher') x
+                      where not exists (select 1 from jsonb_array_elements(b->'indizes_vorher') y where y->>'name' = x->>'name')),
+    'indizes_vorher_gleich', (select coalesce(jsonb_agg(y), '[]') from jsonb_array_elements(b->'indizes_vorher') y)
+                              <@ (select coalesce(jsonb_agg(x - 'indcheckxmin'), '[]') || coalesce(jsonb_agg(x), '[]') from jsonb_array_elements(b->'indizes_nachher') x),
+    'rueckstaende', b->'rueckstaende')::text, b::text;
 end $p$;

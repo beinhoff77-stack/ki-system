@@ -227,6 +227,19 @@ def index_pruefung(m=None):
             + blk.replace('  end loop;\n', "  end loop;\n  return 'ok';\n") + 'end $tempoidxf$;')
 
 
+# Kurzbericht vorn (Projektleiter: lange Meldungen werden abgeschnitten) – danach der volle Bericht
+KURZ = r"""jsonb_build_object(
+    'ms_unter_sperre', b->'ms_unter_sperre_bis_vor_aufraeumen',
+    'alt_neu', (b->'vergleich_alt_neu') - 'gegen' - 'kinder', 'alt_end', (b->'vergleich_alt_endzustand') - 'gegen' - 'kinder', 'kinder', b#>'{vergleich_alt_neu,kinder}',
+    'md5_vor', b#>>'{funktion_vorher,md5}', 'md5_nach', b#>>'{funktion_nachher,md5}',
+    'eig_gleich', b->'eigenschaften_gleich', 'besitz_gleich', b->'besitz_gleich', 'indizes_soll', b->'indizes_soll',
+    'neue_indizes', (select coalesce(jsonb_agg(x->>'name' order by x->>'name'), '[]') from jsonb_array_elements(b->'indizes_nachher') x
+                      where not exists (select 1 from jsonb_array_elements(b->'indizes_vorher') y where y->>'name' = x->>'name')),
+    'indizes_vorher_gleich', (select coalesce(jsonb_agg(y), '[]') from jsonb_array_elements(b->'indizes_vorher') y)
+                              <@ (select coalesce(jsonb_agg(x - 'indcheckxmin'), '[]') || coalesce(jsonb_agg(x), '[]') from jsonb_array_elements(b->'indizes_nachher') x),
+    'rueckstaende', b->'rueckstaende')"""
+
+
 def paket(probe, m=None):
     t1, t2, neu, art = migration(m)
     titel = 'Probelauf' if probe else 'Einspiel-Paket'
@@ -278,9 +291,9 @@ begin
 end $p$;
 """
     if probe:
-        ende = AUFRAEUMEN + r"""do $p$ begin
-  raise exception 'PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt): %',
-    ((select b from tempo_bericht) || jsonb_build_object('rueckstaende', pg_temp.tempo_hilfen() - 'tempo_hilfen'))::text;
+        ende = AUFRAEUMEN + r"""do $p$ declare b jsonb := (select b from tempo_bericht) || jsonb_build_object('rueckstaende', pg_temp.tempo_hilfen() - 'tempo_hilfen');
+begin
+  raise exception 'PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt): KURZ % VOLL %', """ + KURZ + r"""::text, b::text;
 end $p$;
 """
     else:
@@ -289,7 +302,7 @@ begin
   drop table pg_temp.tempo_bericht;
   drop function pg_temp.tempo_hilfen();
   if (select count(*) from pg_proc p where p.pronamespace = pg_my_temp_schema() and p.proname like 'tempo\_%') <> 0 then raise exception 'TEMPO-S1 ABBRUCH: Rückstände in pg_temp'; end if;
-  raise notice 'TEMPO-S1 eingespielt: %', b::text;
+  raise notice 'TEMPO-S1 eingespielt: KURZ % VOLL %', """ + KURZ + r"""::text, b::text;
 end $p$;
 """
     return kopf + HILFEN.replace('@@INDEXPRUEFUNG@@', index_pruefung(m)) + haupt + ende
@@ -315,9 +328,9 @@ begin
   if x->>'merkheft' is distinct from 'verglichen' or jsonb_array_length(x->'kinder') <> n_kinder or (x->>'paare')::int <> n_kinder * n_einheiten
      or (x->>'je_kind_gemessen')::int <> n_kinder or (select count(*) from jsonb_object_keys(x->'mh')) <> n_kinder then
     raise exception 'TEMPO-S1 MESSUNG ABBRUCH: Lauf unvollständig (%)', (x - 'h' - 'mh')::text; end if;
-  raise exception 'MESSUNG (nichts geändert): %', jsonb_build_object('funktion', f, 'paare', x->'paare', 'je_kind_gemessen', x->'je_kind_gemessen',
+  raise exception 'MESSUNG (nichts geändert): %', jsonb_build_object('md5', f->'md5', 'paare', x->'paare', 'je_kind_gemessen', x->'je_kind_gemessen',
     'merkheft', x->>'merkheft', 'kinder', x->'kinder', 'ms_etappen_stand_alle', x->'ms_etappen_stand_alle', 'ms_merkheft_summe', x->'ms_merkheft_summe',
-    'ms_merkheft_je_kind', x->'ms_merkheft_je_kind', 'indizes', pg_temp.tempo_indizes())::text;
+    'ms_merkheft_je_kind', x->'ms_merkheft_je_kind', 'indizes_soll', 'ok')::text;   -- Indizes geprüft (tempo_index_pruefen oben), Definitionen gleich Soll
 end $p$;
 """
 

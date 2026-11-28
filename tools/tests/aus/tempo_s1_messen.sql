@@ -153,7 +153,7 @@ begin
   if x->>'merkheft' is distinct from 'verglichen' or jsonb_array_length(x->'kinder') <> n_kinder or (x->>'paare')::int <> n_kinder * n_einheiten
      or (x->>'je_kind_gemessen')::int <> n_kinder or (select count(*) from jsonb_object_keys(x->'mh')) <> n_kinder then
     raise exception 'TEMPO-S1 MESSUNG ABBRUCH: Lauf unvollständig (%)', (x - 'h' - 'mh')::text; end if;
-  raise exception 'MESSUNG (nichts geändert): %', jsonb_build_object('funktion', f, 'paare', x->'paare', 'je_kind_gemessen', x->'je_kind_gemessen',
+  raise exception 'MESSUNG (nichts geändert): %', jsonb_build_object('md5', f->'md5', 'paare', x->'paare', 'je_kind_gemessen', x->'je_kind_gemessen',
     'merkheft', x->>'merkheft', 'kinder', x->'kinder', 'ms_etappen_stand_alle', x->'ms_etappen_stand_alle', 'ms_merkheft_summe', x->'ms_merkheft_summe',
-    'ms_merkheft_je_kind', x->'ms_merkheft_je_kind', 'indizes', pg_temp.tempo_indizes())::text;
+    'ms_merkheft_je_kind', x->'ms_merkheft_je_kind', 'indizes_soll', 'ok')::text;   -- Indizes geprüft (tempo_index_pruefen oben), Definitionen gleich Soll
 end $p$;

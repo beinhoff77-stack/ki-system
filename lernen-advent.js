@@ -527,7 +527,8 @@ function kachel(t, beiTipp) {
       : el('span', { class: 'fach', 'aria-hidden': 'true' }, ['jackpot', 'niete', 'sterne'].includes(s) ? el('span', { class: 'gross-z' }, `+${zahlS(t.sterne)}`, el('i', {}, '★')) : null);
     return el('button', { type: 'button', class: `td2 offen ${kl}`, 'data-nr': String(nr), 'aria-label': `Türchen ${nr}, offen: ${s === 'krampus' ? 'Krampus – ' + (t.titel || 'Aufgabe') : kachelTitel(t)}`, onclick: () => beiTipp(t) },
       fach, el('span', { class: 'fluegel', 'aria-hidden': 'true' }), el('span', { class: 'n', 'aria-hidden': 'true' }, String(nr)), el('span', { class: 's', 'aria-hidden': 'true' }, kachelTitel(t))); }
-  const lab = { nachholen: UHR_ICO + 'nachholen', heute: 'heute · nach Etappe', bereit: 'öffnen!', morgen: MOND_ICO + 'morgen', zu: '', verfallen: 'verpasst' }[z] || '';
+  // Feinschliff: Wörter, die in schmalen Türen (320–390 px) nicht in eine Zeile passen, brechen um statt angeschnitten zu werden („nach-holen“ über weiches Trennzeichen)
+  const lab = { nachholen: UHR_ICO + '<span class="w">nach&shy;holen</span>', heute: '<span class="w">heute · nach Etappe</span>', bereit: 'öffnen!', morgen: MOND_ICO + 'morgen', zu: '', verfallen: 'verpasst' }[z] || '';
   const s = grafik(lab, 's', 'span');
   return el('button', { type: 'button', class: `td2 ${z}`, 'data-nr': String(nr), 'aria-label': `Türchen ${nr}, ${ZUSTAND_TEXT[z] || 'noch zu'}`, onclick: () => beiTipp(t) },
     z === 'heute' || z === 'bereit' ? grafik(SCHLEIFE_KL(z === 'bereit'), 'k-schleife-w', 'span') : null, el('span', { class: 'n', 'aria-hidden': 'true' }, String(nr)), s);
@@ -1054,19 +1055,26 @@ function festObenZeichnen(fest, L, s, nacht) {
   const trifft = (pts) => pts.some(([px, py]) => namen.some(([x0, y0, x1, y1]) => px > x0 && px < x1 && py > y0 && py < y1) || (zoom && px > zoom[0] - 2 && px < zoom[0] + zoom[2] + 2 && py > zoom[1] - 2 && py < zoom[1] + zoom[3] + 2));
   const huelle = (x, y, r, rot, kk) => [[-14.6, -19.4], [-.6, -24.6], [7.4, -9.6], [-8, -8], [-18, -19.4], [-14.6, -23]].map(([a, b]) => { const c = Math.cos(rot * Math.PI / 180), sn = Math.sin(rot * Math.PI / 180); const q = (r / 10) * kk; return [x + (a * c - b * sn) * q, y + (a * sn + b * c) * q]; });
   const frei = (b) => !belegt.some((x) => !(b[2] < x[0] || b[0] > x[2] || b[3] < x[1] || b[1] > x[3])) && b[0] > 0 && b[1] > 0 && b[2] < L.W && b[3] < L.H - (L.unten || 0);
+  // Feinschliff: Mützen und Häubchen weichen der Quellenzeile, dem Jugendwort-Schild und der Karte „Gerade dran“ aus (Rechtecke, nicht nur Eckpunkte)
+  const sperr = [L.quelle, L.jw].filter(Boolean).map(([x, y, w, h]) => [x - 2, y - 2, x + w + 2, y + h + 2]).concat(L.unten > 0 ? [[-1e4, L.H - L.unten, 1e4, 1e4]] : []);
+  const stoesst = (b) => sperr.some((x) => !(b[2] < x[0] || b[0] > x[2] || b[3] < x[1] || b[1] > x[3]));
+  const kasten = (pts) => [Math.min(...pts.map((q) => q[0])), Math.min(...pts.map((q) => q[1])), Math.max(...pts.map((q) => q[0])), Math.max(...pts.map((q) => q[1]))];
+  const hbKasten = (p) => { const q = p.r / 10; return [p.x - 11.5 * q, p.y - 12.5 * q, p.x + 11.5 * q, p.y - 3 * q]; };
   const use = (id, x, y, rot, sk) => `<use href="#${id}" transform="translate(${f1(x)} ${f1(y)})${rot ? ` rotate(${f1(rot)})` : ''} scale(${f1(sk * 100) / 100})"/>`;
   let mz = 0, hb = 0; const dranPin = pins.find((p) => p.dran);
+  const haeubchen = (p) => { if (stoesst(hbKasten(p))) return; o.push(use('rkf-hb', p.x, p.y, 0, p.r / 10)); hb++; };
   for (const p of pins) {
-    if (p.r < 12) { o.push(use('rkf-hb', p.x, p.y, 0, p.r / 10)); hb++; continue; }
+    if (p.r < 12) { haeubchen(p); continue; }
     if (p === dranPin) continue; // Stern statt Mütze
     const bedraengt = pins.some((q) => q !== p && Math.abs(q.x - p.x) < p.r * 1.7 && p.y - q.y > 0 && p.y - q.y < p.r * 2.9);
-    if (bedraengt) { o.push(use('rkf-hb', p.x, p.y, 0, p.r / 10)); hb++; continue; }
+    if (bedraengt) { haeubchen(p); continue; }
     const seed = hashZahl(p.id || `${p.spitze?.[0]}`) / 997;
     let rot = p.abz ? -24 - zz(seed) * 8 : -6 - zz(seed + 3) * 18; let kk = 1.04, ok = false;
-    for (const k0 of [1.04, .92, .8]) { if (!trifft(huelle(p.x, p.y, p.r, rot, k0))) { kk = k0; ok = true; break; } if (!trifft(huelle(p.x, p.y, p.r, rot - 10, k0))) { kk = k0; rot -= 10; ok = true; break; } }
-    if (!ok) { o.push(use('rkf-hb', p.x, p.y, 0, p.r / 10)); hb++; continue; }
+    const geht = (r0, k0) => { const h = huelle(p.x, p.y, p.r, r0, k0); return !trifft(h) && !stoesst(kasten(h)); };
+    for (const k0 of [1.04, .92, .8]) { if (geht(rot, k0)) { kk = k0; ok = true; break; } if (geht(rot - 10, k0)) { kk = k0; rot -= 10; ok = true; break; } }
+    if (!ok) { haeubchen(p); continue; }
     o.push(use('rkf-mu', p.x, p.y, rot, (p.r / 10) * kk)); mz++;
-    const pts = huelle(p.x, p.y, p.r, rot, kk); belegt.push([Math.min(...pts.map((q) => q[0])), Math.min(...pts.map((q) => q[1])), Math.max(...pts.map((q) => q[0])), Math.max(...pts.map((q) => q[1]))]);
+    belegt.push(kasten(huelle(p.x, p.y, p.r, rot, kk)));
   }
   fest.zahl = { muetzen: mz, haeubchen: hb };
   // Tannen und Pakete an gelandeten Ländern, nur auf freien Plätzen (höchstens 6)
@@ -1117,8 +1125,13 @@ function festLaufStarten(fest, L, s, nacht) {
   const setze = (t) => { const pf = pfad(); const PL = pf?.getTotalLength?.() || 0; if (!PL) { g.style.display = 'none'; return; }
     const p = pf.getPointAtLength(PL * t), q = pf.getPointAtLength(Math.min(PL, PL * t + 2)); let r = Math.atan2(q.y - p.y, q.x - p.x) * 180 / Math.PI; const flip = q.x < p.x; if (flip) r += 180; if (r > 180) r -= 360; r = Math.max(-16, Math.min(16, r));
     const [sb, sh] = fest.schlittenMass || [110, 46]; g.style.display = ''; g.style.transform = `translate(${f1(p.x - sb)}px, ${f1(p.y - 8 - sh)}px) rotate(${f1(r)}deg)${flip ? ' scaleX(-1)' : ''}`; };
-  let einmal24 = false; if (fest.bahnTag24) { const schl = 'lern.fest.24'; const heute = lernAdventTag(L.tag); try { einmal24 = localStorage.getItem(schl) !== heute; localStorage.setItem(schl, heute); } catch { einmal24 = true; } }
-  const dauer = fest.bahnTag24 ? 7000 : 6000, pause = fest.bahnTag24 ? 1e9 : 8000; const t0 = performance.now() - (fest.bahnTag24 ? 0 : dauer + pause - 1500);
+  // 24.12.: einmal am Tag (localStorage). Wird die Ebene während des Flugs neu aufgebaut (Größe, Quellenzeile, Höhe „Gerade dran“ ändern sich, z. B. wenn das
+  // Jugendwort-Schild nachlädt), fliegt der Schlitten weiter – früher galt der Neuaufbau als „heute schon geflogen“ und der Schlitten verschwand mitten im Flug.
+  let einmal24 = false, start24 = null;
+  if (fest.bahnTag24) { const schl = 'lern.fest.24'; const heute = lernAdventTag(L.tag);
+    if (fest.flug24?.tag === heute) { einmal24 = true; start24 = fest.flug24.start; }
+    else { try { einmal24 = localStorage.getItem(schl) !== heute; localStorage.setItem(schl, heute); } catch { einmal24 = true; } if (einmal24) { start24 = performance.now(); fest.flug24 = { tag: heute, start: start24 }; } } }
+  const dauer = fest.bahnTag24 ? 7000 : 6000, pause = fest.bahnTag24 ? 1e9 : 8000; const t0 = start24 ?? (performance.now() - (fest.bahnTag24 ? 0 : dauer + pause - 1500));
   const lauf = (t) => {
     if (!document.body.contains(fest.rand)) { festLaufStop(fest); return; }
     if (t < (fest.ruheBis || 0)) { fest.lauf = requestAnimationFrame(lauf); return; } // Karte wird gezogen/gezoomt: Schnee und Schlitten warten (die Karte hat Vorrang)
@@ -1131,8 +1144,23 @@ function festLaufStarten(fest, L, s, nacht) {
   if (!document.hidden) fest.lauf = requestAnimationFrame(lauf); // Hintergrund-Tab: keine Zeichenarbeit
 }
 function festLaufStop(fest) { if (fest.lauf) cancelAnimationFrame(fest.lauf); fest.lauf = 0; if (fest.sicht) document.removeEventListener('visibilitychange', fest.sicht); fest.sicht = null; }
+// Mütze am Jugendwort-Schild der Karte „Gerade dran“: erst links (wie bisher), dann rechts, dann klein und tief – die erste Lage, die die Quellenzeile
+// nicht berührt; berührt jede, gibt es keine Mütze. Liefert die Lage des Schilds (für die Pin-Mützen), relativ zum Kartenrahmen.
+function festJwMuetze(fest, L) {
+  const ecke = L.wurzel?.querySelector('.rk-schwebe-karte .lr-jw-ecke'); if (!ecke) return null;
+  let m = ecke.querySelector(':scope > .lr-fest-jw-muetze'); const neu = !m;
+  if (neu) { m = document.createElement('span'); m.className = 'lr-fest-jw-muetze'; m.setAttribute('aria-hidden', 'true'); ecke.append(m); }
+  const q = L.wurzel.querySelector('.rk-quelle')?.getBoundingClientRect(); const rb = L.wurzel.querySelector('.rk-rahmen')?.getBoundingClientRect(); const e = ecke.getBoundingClientRect();
+  const schl = [q, e].map((b) => (b ? [b.left, b.top, b.width, b.height].map(Math.round).join(',') : '-')).join('|');
+  if (neu || fest.jwSchl !== schl) { fest.jwSchl = schl; // nur bei neuer Lage messen (beim Ziehen der Karte nichts neu setzen)
+    const stoesst = () => { if (!q || !q.width) return false; const b = m.getBoundingClientRect(); return !(b.right < q.left - 2 || b.left > q.right + 2 || b.bottom < q.top - 2 || b.top > q.bottom + 2); };
+    let seite = 'ohne'; for (const s0 of ['links', 'rechts', 'tief']) { m.dataset.seite = s0; if (!stoesst()) { seite = s0; break; } }
+    m.dataset.seite = seite; }
+  return rb && e.width ? [e.left - rb.left, e.top - rb.top, e.width, e.height] : null;
+}
 function lernFestZeichnen(fest, L) {
-  fest.ruheBis = performance.now() + 180; // jedes Neuzeichnen der Karte (Ziehen, Zoomen) hält Schnee/Schlitten kurz an
+  fest.ruheBis = performance.now() + 180;
+  L = { ...L, jw: festJwMuetze(fest, L) }; // jedes Neuzeichnen der Karte (Ziehen, Zoomen) hält Schnee/Schlitten kurz an
   const nacht = !!fest.nacht; const s = L.W >= 700 ? 1.2 : 1; const wenig = lernWenigBewegung();
   L.wurzel?.classList.toggle('lr-adv-bewegt', !wenig);
   if (!fest.css && L.wurzel) { fest.css = true; // Schneehaube auf „Gerade dran“, Mütze am Jugendwort-Schild (CSS, pointer-events none)

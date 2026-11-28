@@ -220,6 +220,10 @@ body.lr-adv-oben main.view .lr-menue-zeile:not(.unten) { display: none; }
 @media (prefers-reduced-motion: no-preference) { .lr-adv-bewegt .td2.bereit { animation: advPuls 1.8s ease-in-out infinite; } }
 @keyframes advPuls { 50% { box-shadow: inset 0 1px 0 #fff, inset 0 -3px 0 #9A6A0855, 0 0 0 2px #FFF1A8, 0 0 34px #FFD23F, 0 2px 0 #031009; } }
 .td2.nachholen .s, .td2.heute .s, .td2.morgen .s { font-size: 10.5px; letter-spacing: -.01em; }
+/* Feinschliff: „nachholen“ und „heute · nach Etappe“ dürfen umbrechen (bei 390 px war „nachholen“ rechts angeschnitten); Symbol bleibt vor der ersten Zeile */
+.td2.nachholen .s, .td2.heute .s { white-space: normal; align-items: flex-start; right: 3px; }
+.td2 .s .w { min-width: 0; hyphens: manual; }
+.td2.nachholen .s svg { margin-top: 1px; }
 .lr-abflug-nacht .td2:not(.offen):not(.heute):not(.bereit) { background: linear-gradient(160deg, #D9CFB7, #C2B696); box-shadow: inset 0 1px 0 #EFE6CF, inset 0 -3px 0 #0000002a, 0 2px 0 #000, 0 4px 8px #0008; }
 .lr-abflug-nacht .td2.nachholen { background: linear-gradient(160deg, #F2D9BF, #DDB993); }
 .lr-abflug-nacht .td2 .fluegel { background: linear-gradient(90deg, #A99E82, #D9CFB7 60%, #C2B696); }
@@ -390,5 +394,11 @@ a.karte2.gs-link { display: block; text-decoration: none; }
 @keyframes advKnall { 0% { opacity: 0; transform: scale(.2); } 20% { opacity: 1; } 70% { opacity: .9; transform: scale(1); } 100% { opacity: 0; transform: scale(1.08); } }
 /* Schneehaube auf „Gerade dran“, Mütze am Jugendwort-Schild – reine Grafik */
 .lr-fest .rk-schwebe-karte { position: relative; }
-.lr-fest .rk-schwebe-karte::before { content: ""; position: absolute; left: 2px; right: 4px; top: -7px; height: 22px; background: var(--rk-fest-haube) repeat-x 0 0 / 120px 22px; pointer-events: none; z-index: 2; border-radius: 16px 16px 0 0; }
-.lr-fest .rk-schwebe-karte .lr-jw-ecke::after { content: ""; position: absolute; left: -10px; top: -22px; width: 34px; height: 34px; background: var(--rk-fest-muetze) no-repeat center / contain; pointer-events: none; transform: rotate(-18deg); }
+/* Feinschliff: Haube nur 3 px über der Kante – die Quellenzeile endet 4 px über der Karte („Karte: Natural Earth …“ bleibt frei) */
+.lr-fest .rk-schwebe-karte::before { content: ""; position: absolute; left: 2px; right: 4px; top: -3px; height: 22px; background: var(--rk-fest-haube) repeat-x 0 0 / 120px 22px; pointer-events: none; z-index: 2; border-radius: 16px 16px 0 0; }
+/* Mütze am Jugendwort-Schild: eigenes Element (messbar); lernen-advent.js wählt die Seite, die die Quellenzeile frei lässt (links, rechts, tief), sonst keine Mütze */
+.lr-fest-jw-muetze { display: none; }
+.lr-fest .rk-schwebe-karte .lr-jw-ecke > .lr-fest-jw-muetze { display: block; position: absolute; left: -10px; top: -22px; width: 34px; height: 34px; background: var(--rk-fest-muetze) no-repeat center / contain; pointer-events: none; transform: rotate(-18deg); }
+.lr-fest .rk-schwebe-karte .lr-jw-ecke > .lr-fest-jw-muetze[data-seite="rechts"] { left: auto; right: -8px; transform: scaleX(-1) rotate(-18deg); }
+.lr-fest .rk-schwebe-karte .lr-jw-ecke > .lr-fest-jw-muetze[data-seite="tief"] { left: auto; right: -4px; top: -12px; width: 26px; height: 26px; transform: scaleX(-1) rotate(-10deg); }
+.lr-fest .rk-schwebe-karte .lr-jw-ecke > .lr-fest-jw-muetze[data-seite="ohne"] { display: none; }

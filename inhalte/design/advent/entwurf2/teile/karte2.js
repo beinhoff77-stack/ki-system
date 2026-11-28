@@ -13,7 +13,10 @@ KARTEN[1280].abzeichen = [[508, 356], [413, 492], [524, 513], [553, 463], [492, 
 // Einzelne Kartenknöpfe im Standbild (nur für das Freistellen in v5)
 KARTEN[390].knoepfe = [[325, 87, 43, 45], [325, 142, 43, 45], [325, 197, 43, 45], [325, 250, 43, 45], [325, 305, 43, 45]];
 KARTEN[1280].knoepfe = [[835, 103, 43, 46], [835, 158, 43, 46], [835, 211, 43, 46], [835, 265, 43, 46]];
-KARTEN[390].karte = [24, 699, 212, 126]; KARTEN[390].still = .6; KARTEN[1280].still = .6; KARTEN[1280].karteNacht = [916, 138, 150, 208];
+KARTEN[390].karte = [24, 699, 212, 126];
+// Sonderfälle: freie Stellen im Standbild (in der App aus der Belegungsliste `belegt` gewählt)
+KARTEN[390].stiefel = [170, 482]; KARTEN[1280].stiefel = [446, 600]; KARTEN[390].still24 = .37; KARTEN[1280].still24 = .3;
+KARTEN[390].feuer = [[158, 520, 18], [100, 534, 14], [62, 562, 11]]; KARTEN[1280].feuer = [[400, 640, 22], [330, 690, 17], [440, 700, 13]]; KARTEN[390].still = .44; KARTEN[1280].still = .6; KARTEN[1280].karteNacht = [916, 138, 150, 208];
 const FEST_LICHT = ['#FFC94A', '#FF5A5F', '#FFF3D1', '#3DDC84']; // Gold · Rot · Warmweiß · Grün – feste Folge, keine Würfelei
 const zz = (n) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }; // fester Zufall je Zahl
 const f1 = (v) => Math.round(v * 10) / 10;
@@ -104,8 +107,8 @@ function festLichterkette(u, anf, ende, y0, s, nacht) {
     for (const t of [.22, .41, .59, .78]) {
       const [x, y] = P(t), [x2, y2] = P(t + .01); const tang = Math.atan2(y2 - y, x2 - x) * 180 / Math.PI; const c = idx % 4; const g = idx % 3; idx++;
       const kipp = f1(tang * .55 + (zz(idx) - .5) * 14);
-      glanz[g].push(`<circle cx="${f1(x)}" cy="${f1(y + 7 * s)}" r="${f1((nacht ? 11 : 8) * s)}" fill="url(#${u}gl${c})"/>`);
-      birnen.push(`<g transform="translate(${f1(x)} ${f1(y)}) rotate(${kipp}) scale(${s})"><rect x="-1.7" y="-.6" width="3.4" height="3.6" rx=".7" fill="${nacht ? '#4B6B57' : '#24402F'}"/><path d="M-1.7 .6 H1.7 M-1.7 1.8 H1.7" stroke="${nacht ? '#6F927C' : '#3E6450'}" stroke-width=".5"/>
+      glanz[g].push(`<circle cx="${f1(x)}" cy="${f1(y + 8.5 * s)}" r="${f1((nacht ? 13 : 9) * s)}" fill="url(#${u}gl${c})"/>`);
+      birnen.push(`<g transform="translate(${f1(x)} ${f1(y)}) rotate(${kipp}) scale(${f1(s * 1.22 * 100) / 100})"><rect x="-1.7" y="-.6" width="3.4" height="3.6" rx=".7" fill="${nacht ? '#4B6B57' : '#24402F'}"/><path d="M-1.7 .6 H1.7 M-1.7 1.8 H1.7" stroke="${nacht ? '#6F927C' : '#3E6450'}" stroke-width=".5"/>
         <path d="M-2.3 3 C-3.4 5 -3.6 8.6 0 11.2 C3.6 8.6 3.4 5 2.3 3 Z" fill="url(#${u}bi${c})"/><ellipse cx="-1" cy="6" rx=".7" ry="1.6" fill="#fff" opacity=".8" transform="rotate(14 -1 6)"/></g>`);
     }
   }
@@ -143,7 +146,7 @@ function festStern(u, x, y, R, nacht) {
   const strahl = (a, l, b) => `<path d="M0 ${-b} L${l} 0 L0 ${b} Z" transform="rotate(${a})" fill="url(#${u}strahl2)"/>`;
   return `<g transform="translate(${f1(x)} ${f1(y)})"><circle class="halo" r="${f1(R * 2.3)}" fill="url(#${u}halo2)"/>
     ${[0, 90, 180, 270].map((a) => strahl(a, R * 2.6, R * .13)).join('')}${[45, 135, 225, 315].map((a) => strahl(a, R * 1.5, R * .09)).join('')}
-    <path d="M0 ${-R} C${R * .14} ${-R * .3} ${R * .3} ${-R * .14} ${R} 0 C${R * .3} ${R * .14} ${R * .14} ${R * .3} 0 ${R} C${-R * .14} ${R * .3} ${-R * .3} ${R * .14} ${-R} 0 C${-R * .3} ${-R * .14} ${-R * .14} ${-R * .3} 0 ${-R} Z" fill="#FFE27A"/>
+    <path d="M0 ${-R} C${R * .14} ${-R * .3} ${R * .3} ${-R * .14} ${R} 0 C${R * .3} ${R * .14} ${R * .14} ${R * .3} 0 ${R} C${-R * .14} ${R * .3} ${-R * .3} ${R * .14} ${-R} 0 C${-R * .3} ${-R * .14} ${-R * .14} ${-R * .3} 0 ${-R} Z" fill="#FFE27A" stroke="${nacht ? '#FFF6CC' : '#9A6A08'}" stroke-width="${nacht ? .6 : 1}" stroke-linejoin="round"/>
     <path d="M0 ${-R} C${R * .14} ${-R * .3} ${R * .3} ${-R * .14} ${R} 0 L0 0 Z M0 ${R} C${-R * .14} ${R * .3} ${-R * .3} ${R * .14} ${-R} 0 L0 0Z" fill="#F2B417"/>
     <circle r="${f1(R * .28)}" fill="#FFFDF0"/></g>`;
 }
@@ -229,11 +232,11 @@ function fest2Svg(K, v, nacht, src, teil) {
   }
   g.push(`<!-- Mützen ${mz}, Häubchen ${hb} -->`);
   // v5: Stern mit Strahlen über dem Ziel, weicher Lichtkegel bis zum Pin
-  if (v === 5) { const [x0, y0] = [akt[0] - fx, akt[1] - fy]; const R = 11 * s; const sy = y0 - K.kopfR - 24 * s;
+  if (v === 5) { const [x0, y0] = [akt[0] - fx, akt[1] - fy]; const R = 13 * s; const sy = y0 - K.kopfR - 26 * s;
     g.push(`<path d="M${f1(x0 - 5 * s)} ${f1(sy + 6 * s)} L${f1(x0 - K.kopfR * .7)} ${f1(y0 - K.kopfR * .4)} L${f1(x0 + K.kopfR * .7)} ${f1(y0 - K.kopfR * .4)} L${f1(x0 + 5 * s)} ${f1(sy + 6 * s)} Z" fill="url(#${u}kegelL)"/>`, festStern(u, x0, sy, R, nacht)); }
   // Tages-Sonderfälle
-  if (P.tag === 6) g.push(festStiefel(akt[0] - fx - K.kopfR - 20 * s, akt[1] - fy + 18 * s, s));
-  if (P.tag === 31) g.push(festFeuerwerk(akt[0] - fx, akt[1] - fy, s));
+  if (P.tag === 6) g.push(festStiefel(K.stiefel[0] - fx, K.stiefel[1] - fy, s * 1.25));
+  if (P.tag === 31) g.push(festFeuerwerk(K.feuer.map(([x, y, r]) => [x - fx, y - fy, r])));
   // Schlitten: Flugbahn entlang der Route bzw. am 24.12. groß quer über die Karte
   const [a, b, c] = K.route.map(([x, y]) => [x - fx, y - fy]);
   if (P.tag === 24) { const d = `M${f1(-70 * s)} ${f1(H * .64)} C${f1(W * .25)} ${f1(H * .2)} ${f1(W * .7)} ${f1(H * .12)} ${f1(W + 80 * s)} ${f1(H * .36)}`;
@@ -253,9 +256,9 @@ function festStiefel(x, y, s) {
     <rect x="-1.4" y="-17.2" width="16" height="4.6" rx="2.3" fill="#fff"/><path d="M0 -13.4 H13.4" stroke="#C7D3E3" stroke-width="1" stroke-linecap="round"/></g>`;
 }
 // 31.12.: drei Feuerwerks-Bouquets neben dem Ziel (verjüngte Strahlen, heller Kern, fallende Funken)
-function festFeuerwerk(x, y, s) {
-  const b = [[x - 50 * s, y - 14 * s, ['#FFC94A', '#FFF3D1'], 15], [x - 80 * s, y + 20 * s, ['#FF5A5F', '#FFD0D2'], 12], [x - 40 * s, y + 34 * s, ['#3DDC84', '#D7FBE7'], 11]];
-  return b.map(([bx, by, [f, h], r], i) => `<g class="feuerwerk f${i}" transform="translate(${f1(bx)} ${f1(by)}) scale(${s})"><circle r="${r * .5}" fill="${h}" opacity=".35"/>
+function festFeuerwerk(orte) {
+  const farben = [['#FFC94A', '#FFF3D1'], ['#FF5A5F', '#FFD0D2'], ['#3DDC84', '#D7FBE7']];
+  return orte.map(([bx, by, r], i) => [bx, by, farben[i % 3], r]).map(([bx, by, [f, h], r], i) => `<path d="M${f1(bx + 6)} ${f1(by + r * 2.6)} Q${f1(bx + 3)} ${f1(by + r * 1.4)} ${f1(bx)} ${f1(by + r * .3)}" stroke="${h}" stroke-width="1" fill="none" stroke-dasharray="1 2.4" opacity=".7"/><g class="feuerwerk f${i}" transform="translate(${f1(bx)} ${f1(by)})"><circle r="${r * .5}" fill="${h}" opacity=".35"/>
     ${Array.from({ length: 14 }, (_, j) => { const a = j / 14 * 360 + i * 9; const l = r * (j % 2 ? .78 : 1); return `<path d="M0 -.7 L${l} 0 L0 .7Z" transform="rotate(${a}) translate(${r * .22} 0)" fill="${f}"/><circle cx="${f1(Math.cos(a * Math.PI / 180) * (l + r * .38))}" cy="${f1(Math.sin(a * Math.PI / 180) * (l + r * .38))}" r=".9" fill="${h}"/>`; }).join('')}
     <circle r="2" fill="#fff"/>${[[-3, r + 4], [4, r + 7], [-6, r + 10]].map(([fx2, fy2], q) => `<circle cx="${fx2}" cy="${fy2}" r="${.8 - q * .15}" fill="${f}" opacity="${.8 - q * .2}"/>`).join('')}</g>`).join('');
 }
@@ -285,7 +288,7 @@ function festLauf(K, nacht, v) {
   const setze = (t) => { const p = pfad.getPointAtLength(PL * t), q = pfad.getPointAtLength(Math.min(PL, PL * t + 2)); let r = Math.atan2(q.y - p.y, q.x - p.x) * 180 / Math.PI; const flip = q.x < p.x; if (flip) r += 180; if (r > 180) r -= 360; r = Math.max(-16, Math.min(16, r)); g.setAttribute('transform', `translate(${f1(p.x)} ${f1(p.y - 8)}) rotate(${f1(r)})${flip ? ' scale(-1 1)' : ''}`); };
   const ruhig = wenigBewegung() && P.foto !== '1';
   if (ruhig) { if (g) g.style.display = 'none'; return; } // Bewegung reduzieren: alles still, kein Schnee, kein Schlitten
-  male(); if (g && pfad) setze(P.tag === 24 ? .5 : (K.still || .5));
+  male(); if (g && pfad) setze(P.tag === 24 ? K.still24 : (K.still || .5));
   if (P.foto === '1') return;
   const dauer = P.tag === 24 ? 7000 : 6000, pause = P.tag === 24 ? 1e9 : 8000; const t0 = performance.now() - (dauer + pause) + 600; let id;
   const lauf = (t) => { if (document.hidden) { id = requestAnimationFrame(lauf); return; }

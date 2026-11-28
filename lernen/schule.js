@@ -47,7 +47,7 @@ function parseHash() {
 }
 window.addEventListener('hashchange', render);
 
-const KIND_ANSICHTEN = ['reise', 'weltkarte', 'reisepass', 'lerneinheit', 'weg', 'merkheft', 'wiederholen', 'expedition', 'stationen', 'regeln', 'route']; // RU-App: regeln (Kinderansicht; viewRegeln setzt den Kindmodus selbst); LM-6: route („Meine Route“, nur das eigene Kind, nichts zum Ändern)
+const KIND_ANSICHTEN = ['reise', 'weltkarte', 'reisepass', 'lerneinheit', 'weg', 'merkheft', 'wiederholen', 'expedition', 'stationen', 'regeln', 'route', 'advent', 'gutscheine']; // Advent: Kalender und „Meine Gutscheine“ des Kindes (die Eltern-Seite adventeltern nicht) // RU-App: regeln (Kinderansicht; viewRegeln setzt den Kindmodus selbst); LM-6: route („Meine Route“, nur das eigene Kind, nichts zum Ändern)
 function setChrome(title, { back = false } = {}) {
   document.body.dataset.area = 'lernen';
   document.body.toggleAttribute('data-kindmodus', KIND_ANSICHTEN.includes(current.view));
@@ -111,7 +111,7 @@ async function render() {
   // Kinder kommen nur in ihre eigene Lernreise.
   if (lernIch?.rolle === 'kind' && !KIND_ANSICHTEN.includes(current.view)) { route('reise', lernIch.lernender_id); return; }
   const views = { login: viewLogin, lernen: viewLernen, lerneinheit: viewLernEinheit, reise: viewReise, weltkarte: viewWeltkarte, reisepass: viewReisepass, route: viewRoute,
-    weg: viewWeg, merkheft: viewMerkheft, wiederholen: viewWiederholen, plan: lernUmleiten('plan'), kind: viewKind, rueckmeldungen: viewRueckmeldungen, lernauftraege: viewRueckmeldungen, zugaenge: viewZugaenge, lehrplan: viewLehrplan, inhalte: viewInhalte, lernstand: viewLernstand, wackelt: lernUmleiten('wackelt'), schulstand: viewSchulstand, expedition: viewExpedition, stationen: viewStationen, expeditionen: viewExpeditionen, info: viewInfo, regeln: viewRegeln };
+    weg: viewWeg, merkheft: viewMerkheft, wiederholen: viewWiederholen, plan: lernUmleiten('plan'), kind: viewKind, rueckmeldungen: viewRueckmeldungen, lernauftraege: viewRueckmeldungen, zugaenge: viewZugaenge, lehrplan: viewLehrplan, inhalte: viewInhalte, lernstand: viewLernstand, wackelt: lernUmleiten('wackelt'), schulstand: viewSchulstand, expedition: viewExpedition, stationen: viewStationen, expeditionen: viewExpeditionen, info: viewInfo, regeln: viewRegeln, advent: viewAdvent, gutscheine: viewGutscheine, adventeltern: viewAdventEltern };
   const fn = views[current.view] || (() => route('lernen'));
   try { await fn(current.arg); } catch (e) { if (live()) showError(e); }
 }

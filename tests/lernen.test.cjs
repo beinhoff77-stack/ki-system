@@ -58,6 +58,8 @@ async function setup(t, opt = {}) {
   if (!opt.lernSeite) await context.addInitScript(() => { localStorage.setItem('ks_token', 'synthetic-test-session'); });
   // Die bisherigen Tests prüfen das bisherige Design; das neue („Abflug“) hat eigene Tests (opt.gestaltung).
   await context.addInitScript((g) => { localStorage.setItem('lern.gestaltung', g); }, opt.gestaltung || 'alt');
+  // Advent: bestehende Tests laufen unabhängig vom Datum ohne Advent-Ebene (opt.advent: 'an' | 'aus' | null = Datum entscheidet)
+  await context.addInitScript((a) => { if (a) localStorage.setItem('lern.advent', a); }, opt.advent === undefined ? 'aus' : opt.advent);
   const appCalls = [];
   const page = await context.newPage();
   // 0.91.2: Lauf unter Last – LERN_CPU=4 drosselt die CPU des Browsers (Chrome DevTools); Wartezeiten wachsen mit, die Tests warten auf Zustände
@@ -7577,3 +7579,94 @@ test('1199/5: wartender Weiter-Knopf per Tastatur erreichbar, Statusmeldung; alt
   await page.evaluate(() => { location.hash = '#/reise/1'; }); await page.locator('.lr-veraltet').waitFor();
   assert.equal(await page.locator('.lr-veraltet').evaluate((x) => x.inert), true);
 });
+
+// ---------- Advent (App-Teil): Tür nach der Etappe, Kalender, Meine Gutscheine, Eltern-Seite, Weihnachts-Ebene der Reisekarte ----------
+// Nachgestellter Server nach inhalte/design/advent/server.md (ADVENT-S): Stand, Öffnen (client_id, max. 2 am Tag, älteste zuerst, je Etappe eins), Tür lesen,
+// Gutscheine, Einlösen, Tauschen, Eltern-Übersicht, Belegung lesen/setzen, Gutschein-Eltern. Neutrale Beispieltexte, keine echten Daten.
+const ADV_BELEG = () => new Map([
+  [1, { art: 'bild', motiv: 'koala', text: 'Ein Satz von Mama und Papa.', sterne: 50 }], [2, { art: 'gutschein', variante: 'normal', titel: 'Gutschein 2', text: 'Einlösbar bei Mama oder Papa.', sterne: 0 }],
+  [3, { art: 'sterne', variante: 'jackpot', sterne: 1111 }], [4, { art: 'sterne', variante: 'niete', sterne: 1 }], [5, { art: 'krampus', titel: 'Aufgabe 5', text: 'Heute noch.' }],
+  [6, { art: 'karte', motiv: 'nikolaus', text: 'Ein Satz zum 6.' }], [7, { art: 'sterne', variante: 'normal', sterne: 500 }], [8, { art: 'leer' }], [9, { art: 'gutschein', variante: 'tausch', titel: 'Tauschkarte' }],
+  [24, { art: 'karte', motiv: 'heiligabend', text: 'Ein Satz zum 24.', sterne: 2000 }]]);
+function advServer({ aktiv = 1, heute = '2026-12-07', etappen = 0, offen = [], basis = null, tausch = 0, unbekannt = false, belegung = null } = {}) {
+  const tag = (iso) => Number(iso.slice(8, 10)) + (iso.slice(5, 7) === '01' ? 31 : 0);
+  const st = { aktiv, heute, tausch, etappen: { 1: etappen, 2: 0 }, verbraucht: { 1: 0, 2: 0 }, beleg: { 1: belegung ? belegung() : ADV_BELEG(), 2: ADV_BELEG() }, offen: { 1: new Map(), 2: new Map() },
+    cids: new Map(), gs: [], gsNr: 0, aufrufe: [], prot: [] };
+  const neuGs = (k, nr, b) => { const g = { id: ++st.gsNr, nr, lernender_id: k, art: b.art === 'krampus' ? 'krampus' : b.variante === 'tausch' ? 'tausch' : 'gutschein', titel: b.titel || null, text: b.text || null, zustand: 'offen', getauscht: false }; st.gs.push(g); return g; };
+  const tuer = (k, nr) => { const o = st.offen[k].get(nr); if (!o) return null; return { nr, tag: o.tag, geoeffnet_am: o.am, nachgeholt: o.nachgeholt, ...o.inhalt, sterne_gutgeschrieben: !!o.inhalt.sterne, gutschein: o.gs ? { id: o.gs.id, art: o.gs.art, zustand: o.gs.zustand } : null }; };
+  for (const nr of offen) { const b = st.beleg[1].get(nr) || { art: 'leer' }; st.offen[1].set(nr, { tag: '2026-12-0' + Math.min(nr, 6), am: '2026-12-01T08:00:00Z', nachgeholt: false, inhalt: { art: b.art, variante: b.variante || null, titel: b.titel || null, text: b.text || null, motiv: b.motiv || null, sterne: b.sterne || 0 }, gs: ['gutschein', 'krampus'].includes(b.art) ? neuGs(1, nr, b) : null }); }
+  const zaehler = (k) => { const g = st.gs.filter((x) => x.lernender_id === k); return { offen: g.filter((x) => x.art === 'gutschein' && x.zustand === 'offen').length, tauschkarten: g.filter((x) => x.art === 'tausch' && x.zustand === 'offen').length,
+    eingeloest: g.filter((x) => x.zustand === 'eingeloest').length, krampus_offen: g.filter((x) => x.art === 'krampus' && x.zustand === 'offen').length, krampus_erledigt: g.filter((x) => x.zustand === 'erledigt').length }; };
+  const lage = (k) => { const tn = tag(st.heute); const heuteOffen = [...st.offen[k].values()].filter((o) => o.tag === st.heute).length; const faellig = Array.from({ length: Math.min(24, tn) }, (_, i) => i + 1).filter((n) => !st.offen[k].has(n));
+    const moeglich = tn > 37 ? 0 : Math.max(0, Math.min(2 - heuteOffen, faellig.length)); const frei = Math.max(0, Math.min(moeglich, st.etappen[k] - st.verbraucht[k]));
+    return { tn, heuteOffen, faellig, moeglich, frei, naechste: faellig[0] || null, phase: tn <= 24 ? 'laeuft' : tn <= 37 ? 'nachholen' : 'nur_ansehen' }; };
+  const stand = (k) => { if (!st.aktiv) return { ok: true, aktiv: false, grund: 'nicht_aktiv' }; const l = lage(k);
+    const tueren = Array.from({ length: 24 }, (_, i) => { const nr = i + 1; const o = st.offen[k].get(nr);
+      if (o) return { nr, zustand: 'offen', art: o.inhalt.art, variante: o.inhalt.variante, titel: o.inhalt.titel, motiv: o.inhalt.motiv, sterne: o.inhalt.sterne, nachgeholt: o.nachgeholt, tag: o.tag };
+      return { nr, zustand: nr === l.naechste && l.frei > 0 ? 'bereit' : nr === l.tn ? 'heute' : nr < l.tn ? 'nachholen' : nr === l.tn + 1 && l.phase === 'laeuft' ? 'morgen' : 'zu' }; });
+    return { ok: true, aktiv: true, jahr: 2026, heute: st.heute, start: '2026-12-01', nachholen_bis: '2027-01-06', sichtbar_bis: '2027-01-06', phase: l.phase, tag_nr: l.tn, max_pro_tag: 2, offen_heute: l.heuteOffen,
+      etappen_heute: st.etappen[k], moeglich_heute: l.moeglich, frei_heute: l.frei, naechste_nr: l.naechste, bereit: l.frei > 0, braucht_etappe: l.moeglich > 0 && l.frei === 0, tausch: !!st.tausch, tueren,
+      gutscheine: zaehler(k), menue: { kalender: true, gutscheine: true } }; };
+  const fehler = (t) => { throw Object.assign(new Error(t), { advFehler: t }); };
+  const f = (aktion, e, d) => {
+    if (aktion === 'schule_uebung_pruefen' && e?.karte?.neu_sitzt) st.etappen[d.lernender_id || 1]++; // eine geschaffte Etappe (Landung oder „Sitzt wieder!“)
+    if (!aktion.startsWith('schule_advent_')) return basis ? basis(aktion, e, d) : e;
+    st.aufrufe.push({ aktion, d });
+    if (unbekannt) fehler('Unbekannte Aktion');
+    const k = Number(d.lernender_id || 0);
+    if (aktion === 'schule_advent_stand') return stand(k);
+    if (!st.aktiv && !/eltern|belegung|protokoll/.test(aktion)) return { ok: true, aktiv: false, grund: 'nicht_aktiv' };
+    if (aktion === 'schule_advent_oeffnen') { if (!d.client_id) fehler('client_id fehlt (1 bis 200 Zeichen)');
+      if (st.cids.has(k + '|' + d.client_id)) return { ...st.cids.get(k + '|' + d.client_id), wiederholt: true };
+      const l = lage(k); if (l.frei <= 0) return { ok: true, aktiv: true, geoeffnet: false, grund: l.moeglich === 0 && l.faellig.length ? 'limit' : !l.faellig.length ? 'alles_offen' : 'keine_etappe', letzte_nr: [...st.offen[k].entries()].filter(([, o]) => o.tag === st.heute).map(([n]) => n).pop() || null };
+      const nr = l.naechste; const b = st.beleg[k].get(nr) || { art: 'leer' }; st.verbraucht[k]++;
+      st.offen[k].set(nr, { tag: st.heute, am: '2026-12-07T06:30:00+00:00', nachgeholt: nr < l.tn, inhalt: { art: b.art, variante: b.variante || null, titel: b.titel || null, text: b.text || null, motiv: b.motiv || null, sterne: b.sterne || 0 }, gs: ['gutschein', 'krampus'].includes(b.art) ? neuGs(k, nr, b) : null });
+      const l2 = lage(k); const r = { ok: true, aktiv: true, geoeffnet: true, wiederholt: false, tuer: tuer(k, nr), frei_heute: l2.frei, moeglich_heute: l2.moeglich, naechste_nr: l2.naechste, gutscheine: zaehler(k) };
+      st.cids.set(k + '|' + d.client_id, r); st.prot.push({ id: st.prot.length + 1, am: '2026-12-07T06:30:00Z', lernender_id: k, aktion: 'oeffnen', nr }); return r; }
+    if (aktion === 'schule_advent_tuer_lesen') { const t0 = tuer(k, Number(d.nr)); if (!t0) fehler(`Türchen ${d.nr} ist noch zu`); return { ok: true, aktiv: true, tuer: t0 }; }
+    if (aktion === 'schule_advent_gutscheine') { const g = st.gs.filter((x) => x.lernender_id === k); const hatTausch = st.tausch && g.some((x) => x.art === 'tausch' && x.zustand === 'offen');
+      return { ok: true, aktiv: true, zaehler: zaehler(k), gutscheine: g.filter((x) => x.art !== 'krampus'), krampus: g.filter((x) => x.art === 'krampus'),
+        tausch: { aktiv: !!st.tausch, tauschkarten: zaehler(k).tauschkarten, geschwister: hatTausch ? [{ lernender_id: 2, name: 'Kind 2', gutscheine: st.gs.filter((x) => x.lernender_id === 2 && x.art === 'gutschein' && x.zustand === 'offen') }] : [] }, menue: { gutscheine: true } }; }
+    if (aktion === 'schule_advent_einloesen') { const g = st.gs.find((x) => x.id === d.gutschein_id && x.lernender_id === k); if (!g) fehler('Gutschein nicht gefunden');
+      if (g.art === 'krampus') fehler('Krampus-Aufgaben haken nur Mama oder Papa ab'); if (g.art === 'tausch') fehler('Die Tauschkarte wird beim Tauschen verbraucht');
+      if (g.zustand === 'eingeloest') return { ok: true, aktiv: true, wiederholt: true, gutschein: g, zaehler: zaehler(k) };
+      Object.assign(g, { zustand: 'eingeloest', eingeloest_am: '2026-12-07T18:30:00+01:00', eingeloest_von: 'kind' }); return { ok: true, aktiv: true, wiederholt: false, gutschein: g, zaehler: zaehler(k) }; }
+    if (aktion === 'schule_advent_tauschen') { if (!st.tausch) return { ok: true, aktiv: true, getauscht: false, grund: 'tausch_aus' };
+      const tk = st.gs.find((x) => x.id === d.tauschkarte_id), mein = st.gs.find((x) => x.id === d.mein_gutschein_id), fr = st.gs.find((x) => x.id === d.fremder_gutschein_id);
+      Object.assign(tk, { zustand: 'verbraucht' }); mein.lernender_id = 2; mein.getauscht = true; fr.lernender_id = k; fr.getauscht = true; return { ok: true, aktiv: true, getauscht: true, wiederholt: false }; }
+    if (aktion === 'schule_advent_eltern') return { ok: true, einstellung: { aktiv: st.aktiv, start: '2026-12-01', nachholen_bis: '2027-01-06', sichtbar_bis: '2027-01-06', max_pro_tag: 2, tausch: st.tausch, jahr: 2026 },
+      kinder: [1, 2].map((k0) => { const l = lage(k0); return { lernender_id: k0, name: 'Kind ' + k0, ist_test: false, familie: 'familie', offen: st.offen[k0].size, belegt: 24,
+        lage: { phase: l.phase, heute: st.heute, offen_heute: l.heuteOffen, etappen_heute: st.etappen[k0], frei_heute: l.frei, moeglich_heute: l.moeglich, naechste_nr: l.naechste, grund: null },
+        zaehler: zaehler(k0), gutscheine: st.gs.filter((x) => x.lernender_id === k0).map((x) => ({ ...x, eingeloest_von: x.eingeloest_von === 'kind' ? 'kind:Kind ' + k0 : x.eingeloest_von })) }; }),
+      ohne_teilnahme: [{ lernender_id: 3, name: 'Testkind', ist_test: true }], protokoll: st.prot.slice(-10) };
+    if (aktion === 'schule_advent_belegung_lesen') return { ok: true, jahr: 2026, kinder: [1, 2].map((k0) => ({ lernender_id: k0, name: 'Kind ' + k0, ist_test: false,
+      tueren: Array.from({ length: 24 }, (_, i) => { const nr = i + 1; const o = st.offen[k0].get(nr); const b = st.beleg[k0].get(nr) || null;
+        return { nr, belegung: b ? { art: b.art, variante: b.variante || null, titel: b.titel || null, text: b.text || null, sterne: b.sterne || 0, motiv: b.motiv || null } : null, offen: !!o, geoeffnet_am: o?.am || null, tag: o?.tag || null,
+          inhalt_beim_oeffnen: o ? o.inhalt : null, gutschein: o?.gs || null }; }) })) };
+    if (aktion === 'schule_advent_belegung_setzen') { const ks = d.lernender_ids || [d.lernender_id];
+      for (const k0 of ks) for (const t0 of d.tueren) if (st.offen[k0].has(t0.nr) && !d.nur_geschlossene) fehler(`Belegung: schon offene Türchen bleiben, wie sie sind (Kind ${k0}: ${t0.nr}) – nichts geändert; nur_geschlossene: true überspringt sie`);
+      const kinder = ks.map((k0) => { const ueber = []; let n = 0; for (const t0 of d.tueren) { if (st.offen[k0].has(t0.nr)) { ueber.push(t0.nr); continue; } const { nr, ...rest } = t0; st.beleg[k0].set(nr, rest); n++; } return { lernender_id: k0, gesetzt: n, unveraendert: 0, uebersprungen_offen: ueber }; });
+      return { ok: true, jahr: 2026, kinder }; }
+    if (aktion === 'schule_advent_gutschein_eltern') { const g = st.gs.find((x) => x.id === d.gutschein_id); if (!g) fehler('Gutschein nicht gefunden');
+      const vor = g.zustand;
+      if (d.aktion === 'zurueckholen') Object.assign(g, { zustand: 'offen', zurueckgeholt_am: '2026-12-07T19:00:00+01:00', zurueckgeholt_von: 'eltern:Mama' });
+      else if (d.aktion === 'erledigt') Object.assign(g, { zustand: 'erledigt', erledigt_am: '2026-12-07T19:00:00+01:00' });
+      else if (d.aktion === 'noch_nicht') Object.assign(g, { zustand: 'offen' });
+      else if (d.aktion === 'einloesen') Object.assign(g, { zustand: 'eingeloest', eingeloest_am: '2026-12-07T19:00:00+01:00', eingeloest_von: 'eltern:Mama' });
+      st.prot.push({ id: st.prot.length + 1, am: '2026-12-07T19:00:00Z', lernender_id: g.lernender_id, aktion: 'eltern_' + d.aktion.replace('einloesen', 'einloesen'), nr: g.nr, gutschein_id: g.id });
+      return { ok: true, unveraendert: vor === g.zustand, gutschein: g }; }
+    if (aktion === 'schule_advent_protokoll') return { ok: true, eintraege: st.prot };
+    return null;
+  };
+  f.neueAktionen = true; f.st = st; return f;
+}
+// lernen-api mit Fehler-Antworten (ok: false) für Advent – der Standard-Mock kennt nur ok: true
+async function advFehlerRoute(page, srv) {
+  await page.route('**/functions/v1/lernen-api/**', async (route) => {
+    const b = JSON.parse(route.request().postData() || '{}');
+    if (String(b.aktion || '').startsWith('schule_advent_')) { try { const e = srv(b.aktion, null, b.daten || {}); await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: e }) }); }
+      catch (err) { await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: false, fehler: err.advFehler || err.message }) }); } return; }
+    await route.fallback();
+  });
+}
+const advAktionen = (calls, a) => calls.filter((c) => c.aktion === a);

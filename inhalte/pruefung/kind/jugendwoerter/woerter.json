@@ -17,7 +17,10 @@
   "expedition_fehlerfrei": "Expedition fehlerfrei",
   "nachbessern": "„Nachbessern“ geschafft (wieder offene Stadt wieder abgelegt)",
   "fehler": "Fehler-Rückmeldung (falsche Antwort)",
-  "anrede": "Begrüßung auf der Abflugtafel (Anrede Digga)"
+  "anrede": "Begrüßung auf der Abflugtafel (Anrede Digga)",
+  "advent": "Adventskalender: Türchen geöffnet (Bild, Gutschein, Sterne, Jackpot, Karte, nur Licht)",
+  "advent_niete": "Adventskalender: Niete mit Trostpreis",
+  "advent_krampus": "Adventskalender: Krampus war da (augenzwinkernd)"
  },
  "regeln": {
   "erfolg": "jede Geschafft-Ansicht bekommt genau einen Sticker",
@@ -1969,6 +1972,87 @@
     "digga"
    ],
    "zeile": "{Ansage der Abflugtafel, unverändert}"
+  },
+  {
+   "id": "J60",
+   "anlass": "advent",
+   "staerke": 3,
+   "sticker": "Sheesh!",
+   "woerter": [
+    "sheesh"
+   ]
+  },
+  {
+   "id": "J61",
+   "anlass": "advent",
+   "staerke": 1,
+   "sticker": "W",
+   "woerter": [
+    "w"
+   ]
+  },
+  {
+   "id": "J62",
+   "anlass": "advent",
+   "staerke": 2,
+   "sticker": "Das crazy",
+   "woerter": [
+    "das_crazy"
+   ]
+  },
+  {
+   "id": "J63",
+   "anlass": "advent",
+   "staerke": 2,
+   "sticker": "Süper!",
+   "woerter": [
+    "sueper"
+   ]
+  },
+  {
+   "id": "J64",
+   "anlass": "advent",
+   "staerke": 3,
+   "sticker": "+1000 Aura",
+   "woerter": [
+    "aura"
+   ]
+  },
+  {
+   "id": "J65",
+   "anlass": "advent_niete",
+   "staerke": 1,
+   "sticker": "Schere",
+   "woerter": [
+    "schere"
+   ]
+  },
+  {
+   "id": "J66",
+   "anlass": "advent_niete",
+   "staerke": 1,
+   "sticker": "Nice – trotzdem.",
+   "woerter": [
+    "nice"
+   ]
+  },
+  {
+   "id": "J67",
+   "anlass": "advent_krampus",
+   "staerke": 3,
+   "sticker": "Çüş!",
+   "woerter": [
+    "cues"
+   ]
+  },
+  {
+   "id": "J68",
+   "anlass": "advent_krampus",
+   "staerke": 2,
+   "sticker": "Krass, Krampus.",
+   "woerter": [
+    "krass"
+   ]
   }
  ]
 }

@@ -36,7 +36,7 @@ const LERN_MERKEN = new Set(['schule_uebersicht', 'schule_lehrplan_matrix', 'sch
 const LERN_KURZ = new Set(['schule_merkheft', 'schule_konto', 'schule_eltern', 'schule_rueckmeldungen', 'schule_lehrplan_thema']);
 const LERN_KURZ_MS = 15000;
 // TEMPO: schule_rueckmeldungen liest nur (api.schule_rueckmeldungen ist „stable“); vorher galt sie als schreibend und vergaß bei jedem Öffnen der Startseite alles
-const LERN_NUR_LESEN = /^schule_(ich|konto|eltern|zugaenge|merkheft|wiederholung|reise_karte|lehrplan_thema|einheit_lesen|inhalt_lesen|schulstand|lehrplan_lesen|wackelt_analyse|rueckmeldungen)$|_lesen$/;
+const LERN_NUR_LESEN = /^schule_(ich|konto|eltern|zugaenge|merkheft|wiederholung|reise_karte|lehrplan_thema|einheit_lesen|inhalt_lesen|schulstand|lehrplan_lesen|wackelt_analyse|rueckmeldungen|advent_stand|advent_gutscheine|advent_eltern|advent_protokoll)$|_lesen$/; // Advent: Stand, Gutscheine, Eltern-Übersicht und Protokoll lesen nur
 const lernSpeicher = new Map(); // Schlüssel → { p, wert, t, kind, frisch, art }  (art: undefined = LERN_MERKEN, 'kurz', 'vorab', 'lauf')
 const lernSpeicherSchl = (a, d) => a + '|' + JSON.stringify(d || {});
 const lernKopie = (w) => (w && typeof w === 'object' ? structuredClone(w) : w);
@@ -306,6 +306,7 @@ function lernRahmen(kind, aktiv, ...inhalt) {
       // Menü verkürzt (Wunsch des Nutzers): Startseite · Regel-Universum (mit Merkheft) · Mein Weg (mit Reisepass) · Ansicht. Alte Routen bleiben gültig.
       ...[['reise', lernStartWort(kind.id)], ['regeln', 'Regel-Universum'], ['weg', 'Mein Weg']].map(([v, t]) => { const an = v === aktiv || (v === 'regeln' && aktiv === 'merkheft') || (v === 'weg' && aktiv === 'reisepass');
         return el('a', { href: `#/${v}/${kind.id}`, class: an ? 'on' : '', ...(an ? { 'aria-current': 'page' } : {}), onclick: zu }, t); }),
+      lernAdventMenuePlatz(kind, aktiv, zu), // Advent: „Adventskalender“ und „Meine Gutscheine“ – nur im Fenster und wenn der Server sie meldet
       // „Was kommt wann wieder?“ lag nur auf der (abgeschalteten) Abflugtafel: schlicht im Menü, unter „Mein Weg“ (Text wie bisher, Stand des neuen Servers mit Check-in)
       (() => { const w = lernWdhErklaert(true); w.classList.remove('lr-mehr'); return w; })(), // eigene Optik im Menü (nicht wie die Aufklapper der Seite)
       el('button', { type: 'button', onclick: () => { try { localStorage.setItem('lern.gestaltung.' + kind.id, g === 'nacht' ? 'tag' : 'nacht'); } catch { /* egal */ } zu(); render(); } }, g === 'nacht' ? 'Helle Ansicht' : 'Dunkle Ansicht'),
@@ -319,6 +320,16 @@ function lernRahmen(kind, aktiv, ...inhalt) {
     ...[['reise', 'Heute', LI.heute], ['weg', 'Mein Weg', LI.weg], ['merkheft', 'Merkheft', LI.heft], ['reisepass', 'Reisepass', LI.pass]].map(([v, t, i]) =>
       el('a', { href: `#/${v}/${kind.id}`, class: v === aktiv ? 'on' : '', ...(v === aktiv ? { 'aria-current': 'page' } : {}) }, lernIcon(i, 24), el('span', {}, t))));
   return el('div', { class: lernThema(kind) }, el('div', { class: 'lr-inhalt' }, ...inhalt), nav);
+}
+// Platz im Menüblatt für die Advent-Einträge: füllt sich, sobald Stand und Advent-Datei da sind (sonst bleibt er leer und unsichtbar)
+function lernAdventMenuePlatz(kind, aktiv, zu) {
+  if (!lernAdventFenster()) return null;
+  const platz = el('div', { class: 'lr-blatt-advent', hidden: true, style: 'display:contents' });
+  Promise.all([lernAdventStand(kind.id), lernAdventLaden()]).then(([st]) => {
+    if (!st || !window.lernAdventMenue) return; const teile = window.lernAdventMenue(st, kind, aktiv, zu);
+    if (teile.length) { lernErsetze(platz, ...teile); platz.hidden = false; }
+  }).catch(() => { /* still */ });
+  return platz;
 }
 function lernKopf(gruss, titel) {
   return el('header', { class: 'lr-kopf' }, el('p', { class: 'lr-gruss' }, gruss), el('h1', { class: 'lr-titel' }, titel));
@@ -665,7 +676,7 @@ function lernExVorKnopf(knopf, warten) {
     if (knopf.dataset.exWeiter) return;
     ev.preventDefault(); ev.stopImmediatePropagation();
     const d = await warten; const neu = d ? lernExNeuFrei(d) : [];
-    const weiter = () => { knopf.dataset.exWeiter = '1'; if (knopf.tagName === 'A') { location.hash = knopf.getAttribute('href'); } else knopf.click(); };
+    const weiter = () => { knopf.dataset.exWeiter = '1'; if (knopf._lernNachEx) { knopf._lernNachEx(); return; } if (knopf.tagName === 'A') { location.hash = knopf.getAttribute('href'); } else knopf.click(); }; // Advent: danach die Tür (lernAdventVorKnopf)
     if (!neu.length) { weiter(); return; }
     neu.forEach((x) => lernExGesehenSetzen(d.kind.id, x.id));
     lernExFreiZeigen(d, neu[0], { weitere: neu.length - 1, weiter });
@@ -1240,6 +1251,7 @@ async function viewLernen() {
     ['#/info', 'So funktioniert’s', 'Erste Schritte, Begriffe']]);
   const verwalten = [...testkinder.map((k) => [`#/reise/${k.id}`, k.name, 'zum Ausprobieren']),
     eltern ? ['#/zugaenge', 'Zugänge', 'Codes der Kinder'] : null,
+    eltern && lernAdventFenster() ? ['#/adventeltern', 'Adventskalender', 'Türchen, Gutscheine, Krampus'] : null, // Advent: nur im Fenster verlinkt (Seite selbst geht immer)
   ].filter(Boolean);
   const eigeneSeite = !seite ? el('a', { class: 'lst-kopf-link', href: 'lernen/', target: '_blank', rel: 'noopener' }, 'Eigene Lernen-Seite ↗') : null;
   lernErsetze(main, ...[
@@ -2368,6 +2380,79 @@ function lernRkGrundText(f, laender) {
 }
 
 let lernRkStadtLesen = null; // TEMPO: letzter Abruf „Bordkarten der Stadt“ (für das Neuzeichnen nach dem Merkheft)
+// ---------- Advent: Kalender mit Türchen und Weihnachts-Ebene der Reisekarte (inhalte/design/advent) ----------
+// EIN Schalter, EIN Datumsfenster: sichtbar vom 1.12. bis einschließlich 6.1. (Ortsdatum des Geräts, dieselben Grenzen wie der Kalender des Servers).
+// Außerhalb läuft kein Advent-Code und es gibt keinen zusätzlichen Abruf. Prüfen/Abschalten: localStorage „lern.advent“ = „an“ | „aus“.
+// Grafik, Motive, Ansichten und CSS liegen in lernen-advent.js / lernen-advent.css – nachgeladen nur im Fenster bzw. auf den Advent-Seiten.
+// Server (ADVENT-S, inhalte/design/advent/server.md): schule_advent_*; fehlt er („Unbekannte Aktion“) oder ist er aus („nicht_aktiv“), zeigt die App nichts.
+const LERN_ADVENT = { von: [12, 1], bis: [1, 6], tausch: true }; // tausch: Kind-Bedienung der Tauschkarte, nur wenn der Server sie meldet (tausch.aktiv)
+function lernAdventFenster(d = new Date()) {
+  let s = null; try { s = localStorage.getItem('lern.advent'); } catch { /* egal */ }
+  if (s === 'aus') return false; if (s === 'an') return true;
+  const m = d.getMonth() + 1, t = d.getDate(); const [vm, vt] = LERN_ADVENT.von, [bm, bt] = LERN_ADVENT.bis;
+  return vm > bm ? (m === vm && t >= vt) || m > vm || m < bm || (m === bm && t <= bt) : (m > vm || (m === vm && t >= vt)) && (m < bm || (m === bm && t <= bt));
+}
+const lernAdventTag = (d = new Date()) => `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+const LERN_ADVENT_QUELLE = (() => { try { const s = document.currentScript?.src || [...document.scripts].map((x) => x.src).find((x) => /lernen\.js/.test(x)); const u = new URL(s || location.href);
+  return { js: new URL('lernen-advent.js' + u.search, u).href, css: new URL('lernen-advent.css' + u.search, u).href }; } catch { return { js: 'lernen-advent.js', css: 'lernen-advent.css' }; } })();
+let lernAdventLadenP = null;
+function lernAdventLaden() {
+  if (window.LERN_ADVENT_DA) return Promise.resolve(true);
+  if (!lernAdventLadenP) lernAdventLadenP = new Promise((ok, nein) => {
+    const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = LERN_ADVENT_QUELLE.css;
+    const cssDa = new Promise((r) => { css.onload = r; css.onerror = r; }); document.head.append(css);
+    const s = document.createElement('script'); s.src = LERN_ADVENT_QUELLE.js;
+    s.onload = () => cssDa.then(() => ok(true)); s.onerror = () => { lernAdventLadenP = null; s.remove(); nein(new Error('Der Adventskalender lädt gerade nicht.')); };
+    document.head.append(s);
+  });
+  return lernAdventLadenP;
+}
+// Stand je Zugang und Kind: höchstens ein Abruf je Sitzung und Tag (neu nach einer schreibenden Advent-Aktion oder auf der Kalender-Seite).
+// „Unbekannte Aktion“ (Server nicht eingespielt), „nicht_aktiv“ oder ein Fehler → still, kein zweiter Versuch in dieser Sitzung (keine Schleife).
+const lernAdventSt = new Map();
+function lernAdventStand(kindId, { frisch = false, immer = false } = {}) {
+  if (!immer && !lernAdventFenster()) return Promise.resolve(null);
+  lernSitzungPruefen(); const k = Number(kindId); if (!k) return Promise.resolve(null);
+  const schl = `${lernSpeicherToken}|${k}`; let e = lernAdventSt.get(schl);
+  if (e?.aus) return Promise.resolve(null);
+  if (e && e.tag === lernAdventTag() && (!frisch || !e.fertig || !e.wert?.aktiv)) return e.p;
+  const neu = { tag: lernAdventTag() }; lernAdventSt.set(schl, neu);
+  neu.p = lernCall('schule_advent_stand', { lernender_id: k }).then((r) => {
+    neu.fertig = true;
+    if (!r || typeof r !== 'object' || (r.aktiv === false && r.grund === 'nicht_aktiv')) { neu.aus = true; return null; }
+    neu.wert = r; return r;
+  }, () => { neu.fertig = true; neu.aus = true; return null; });
+  return neu.p;
+}
+const lernAdventStandJetzt = (kindId) => lernAdventSt.get(`${lernSpeicherToken}|${Number(kindId)}`)?.wert || null;
+function lernAdventVergessen(kindId) { for (const [s, e] of lernAdventSt) if (!e.aus && s.endsWith('|' + Number(kindId))) lernAdventSt.delete(s); }
+// Nach einer geschafften Etappe (Landung, „Sitzt wieder!“): frischer Stand parallel zur Ansicht – nur im Fenster, neue Gestaltung, Server an
+function lernAdventNachEtappe(ctx) {
+  if (!lernAdventFenster() || !lernNeu(ctx.kindObj || { id: ctx.kind })) return null;
+  lernAdventLaden().catch(() => null);
+  return lernAdventStand(ctx.kind, { frisch: true });
+}
+// Großer Knopf der Abschluss-Ansicht: zuerst (falls da) die Expedition, dann die Tür, dann das ursprüngliche Ziel. „Pause …“ zeigt die Tür nicht.
+function lernAdventVorKnopf(knopf, warten, ctx) {
+  if (!knopf || !warten) return knopf;
+  const folgen = () => { knopf.dataset.adventWeiter = '1'; knopf.dataset.exWeiter = '1';
+    if (knopf.tagName === 'A') { const h = knopf.getAttribute('href'); if (h) { lernAbschlussZu(); location.hash = h; } } else knopf.click(); };
+  const vor = async () => {
+    const st = await warten.catch(() => null);
+    if (!st?.aktiv || !st.bereit || !st.naechste_nr) { folgen(); return; }
+    try { await lernAdventLaden(); } catch { folgen(); return; }
+    const text = knopf.querySelector('.lr-ab-gross-text')?.textContent || knopf.textContent || 'Weiter';
+    window.lernAdventTuerZeigen({ kindObj: ctx.kindObj || { id: ctx.kind }, kindId: ctx.kind, stand: st, quelle: 'etappe', weiter: folgen, weiterText: text.replace(/\s*›$/, '') });
+  };
+  knopf._lernNachEx = vor; // lernExVorKnopf ruft das nach „Expedition freigeschaltet“ auf
+  knopf.addEventListener('click', (ev) => { if (knopf.dataset.adventWeiter) return; ev.preventDefault(); ev.stopImmediatePropagation(); vor(); }, true);
+  return knopf;
+}
+// Ansichten (Routen in app.js und lernen/schule.js): Kalender, Meine Gutscheine, Eltern
+async function viewAdvent(arg) { setChrome('Adventskalender', { back: true, showTabs: false }); loading(); await lernAdventLaden(); return window.lernAdventKalenderSeite(arg); }
+async function viewGutscheine(arg) { setChrome('Meine Gutscheine', { back: true, showTabs: false }); loading(); await lernAdventLaden(); return window.lernAdventGutscheinSeite(arg); }
+async function viewAdventEltern() { setChrome('Adventskalender', { back: true, tab: 'lernen' }); loading(); await lernAdventLaden(); return window.lernAdventElternSeite(); }
+
 function lernReisekarte(d, karte, start) {
   const kind = d.kind;
   const KONT = (karte.kontinente || []).filter((k) => (k.fluege || []).length || k.laender);
@@ -2418,9 +2503,13 @@ function lernReisekarte(d, karte, start) {
   // Barrierefreiheit: Gruppe statt Bild – die Pins darin sind einzeln bedienbare Knöpfe (role=img würde sie verschlucken)
   const svg = s('svg', { class: 'rk-svg', role: 'group', 'aria-label': 'Reisekarte' });
   const ebenen = { meer: s('g'), land: s('g', { class: 'rk-laender' }), kette: s('g', { class: 'rk-kette' }), route: s('g', { class: 'rk-routen' }), oben: s('g', { class: 'rk-oben' }) };
+  // Advent: Weihnachts-Ebene „Winternacht“ (nur Grafik, fängt keine Tipps ab) – Tönung/Nordlicht UNTER Routen, Pins und Namen; Mützen, Stern, Stiefel, Feuerwerk
+  // darüber; Lichterkette, Schneehaube, Schnee und Schlitten als feste Ebene am Kartenrand. Gezeichnet in lernen-advent.js (lernFestZeichnen).
+  const fest = lernAdventFenster() && lernNeu(kind) ? { unter: s('g', { class: 'rk-fest-unter', 'pointer-events': 'none', 'aria-hidden': 'true' }), oben: s('g', { class: 'rk-fest', 'pointer-events': 'none', 'aria-hidden': 'true' }),
+    rand: el('div', { class: 'rk-fest-rand', 'aria-hidden': 'true' }), nacht: lernGestaltung(kind) === 'nacht' } : null;
   svg.append(s('defs', {}, s('pattern', { id: 'rk-schraffur', width: 6, height: 6, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)' }, s('rect', { width: 6, height: 6, class: 'rk-schr-g' }), s('line', { x1: 0, y1: 0, x2: 0, y2: 6, class: 'rk-schr-l' })),
-    s('clipPath', { id: 'rk-kreis', clipPathUnits: 'objectBoundingBox' }, s('circle', { cx: 0.5, cy: 0.5, r: 0.5 }))), ebenen.meer, ebenen.land, ebenen.kette, ebenen.route, ebenen.oben);
-  const rahmen = el('div', { class: 'rk-rahmen' }, svg);
+    s('clipPath', { id: 'rk-kreis', clipPathUnits: 'objectBoundingBox' }, s('circle', { cx: 0.5, cy: 0.5, r: 0.5 }))), ebenen.meer, ebenen.land, fest?.unter, ebenen.kette, ebenen.route, ebenen.oben, fest?.oben);
+  const rahmen = el('div', { class: 'rk-rahmen' }, svg, fest?.rand);
   const pfad = el('nav', { class: 'rk-pfad', 'aria-label': 'Ebene der Karte' });
   const blatt = el('section', { class: 'rk-blatt', 'aria-live': 'polite', hidden: true });
   const seite = el('aside', { class: 'rk-seite' });
@@ -2486,6 +2575,11 @@ function lernReisekarte(d, karte, start) {
   const sjZeile = () => { const k = lernSjKurz(d); if (!k) return null;
     return el('button', { type: 'button', class: 'rk-sj-zeile', 'aria-haspopup': 'dialog', 'aria-label': `Mein Schuljahr: ${k}`, onclick: (ev) => lernSjBlatt(d, ev.currentTarget, wurzel) },
       el('span', { class: 'rk-sj-ring', 'aria-hidden': 'true' }), el('span', {}, k), el('i', { 'aria-hidden': 'true' }, ' ›')); };
+  // Advent: Hinweiszeile in „Gerade dran“ (Türchen bereit / warten / morgen) – Stand einmal je Sitzung, gleichzeitig mit den übrigen Abrufen; ohne Server nichts
+  let adventSt = fest ? lernAdventStandJetzt(kind.id) : null;
+  if (fest) Promise.all([lernAdventStand(kind.id), lernAdventLaden()]).then(([st]) => { if (!st || !document.body.contains(wurzel)) return; adventSt = st;
+    lernErsetze(schwebe, ...(handy() ? geradeDran() : [])); zeichneSeite(); if (z.vb) { uniSchl = ''; zeichneOben(); } }).catch(() => { /* still */ });
+  const adventZeile = () => (adventSt && window.lernAdventZeile ? window.lernAdventZeile(kind.id, adventSt) : null);
   const geradeDran = () => {
     const kompakt = handy(); const nb = (d.nachbessern || []).length;
     const ex = nb ? lernExChip(d) : exZeile(); // KJ §0: Nachbessern zuerst, Expedition dann nur als Chip
@@ -2502,7 +2596,7 @@ function lernReisekarte(d, karte, start) {
     const text = st && !start.testDran && !start.wdh && !/Test/.test(start.text) ? `Weiter in ${st.name}` : start.text; // Name der Stadt aus der Karte (Reise-Aufbau)
     const knopf = !start.ziel ? el('p', { class: 'rk-start rk-start-zu' }, el('span', {}, el('b', {}, '🔒 ' + start.text), el('small', {}, 'Frag Mama oder Papa nach dem Plan'))) : el('a', { class: 'rk-start', href: start.ziel }, el('span', {}, el('b', {}, text + ' ›'), st && !start.testDran && !start.wdh ? el('small', {}, `Stadt ${st.nr} · ${st.titel || ''}`) : start.wdh ? el('small', {}, 'Zuerst ein paar Bordkarten von früher') : null));
     const anr = anredeHolen();
-    const karteEl = el('div', { class: 'rk-schwebe-karte' + (kompakt ? ' kompakt' : '') + (anr ? ' lr-jw-ecke-traeger' : '') }, zeile, start.ansage ? el('p', { class: 'lr-dock-ansage rk-ansage' }, start.ansage) : null, knopf,
+    const karteEl = el('div', { class: 'rk-schwebe-karte' + (kompakt ? ' kompakt' : '') + (anr ? ' lr-jw-ecke-traeger' : '') }, zeile, start.ansage ? el('p', { class: 'lr-dock-ansage rk-ansage' }, start.ansage) : null, adventZeile(), knopf,
       start.wdh ? null : lernExtraLink(start.ws, kind.id), kompakt ? el('div', { class: 'rk-sj-reihe' }, sjZeile(), el('a', { class: 'rk-ru-link', href: `#/regeln/${kind.id}` }, 'Regel-Universum ›')) : null, anr); // Bonus: „Noch 3 Extra-Bordkarten?“ wie auf der Tafel
     return [lernNachbuchungHinweis(d), nb ? lernNbKarte(d, { kompakt }) : null, ex, karteEl, // Geschenk für die Landungen: auch auf der Karte (Abflugtafel abgeschaltet)
       lernZpKarte(d, { kompakt })]; // KJ §0.4: Zusatz · eingeplant unter „Gerade dran“
@@ -2518,7 +2612,7 @@ function lernReisekarte(d, karte, start) {
   // ---------- Ansicht (viewBox) ----------
   const groesse = () => { const r = rahmen.getBoundingClientRect(); return [Math.max(200, r.width), Math.max(200, r.height)]; };
   const unten = () => (handy() ? (schwebe.getBoundingClientRect().height || 150) + 16 : 0);
-  function setzeVb(vb) { z.vb = vb; svg.setAttribute('viewBox', vb.map((v) => v.toFixed(1)).join(' ')); }
+  function setzeVb(vb) { z.vb = vb; svg.setAttribute('viewBox', vb.map((v) => v.toFixed(1)).join(' ')); fest?.vb?.(vb, groesse()[0]); } // Advent: Tönung bleibt am Kartenrand
   function passeAn(box, rand = 0.12) {
     const [W, H] = groesse(); const u = unten(); const hNutz = Math.max(120, H - u);
     let [x0, y0, x1, y1] = box; const bw = Math.max(20, x1 - x0) * (1 + 2 * rand), bh = Math.max(20, y1 - y0) * (1 + 2 * rand);
@@ -2640,7 +2734,7 @@ function lernReisekarte(d, karte, start) {
         pin.addEventListener('click', () => { if (!gezogen) route('stationen', String(kind.id)); }); ebenen.oben.append(pin); }
       // hier bist du
       if (dranStadt) ebenen.oben.append(gr(lernKarteProj(D.proj, dranStadt.laenge, dranStadt.breite), s('circle', { r: 10, class: 'rk-puls' }), s('circle', { r: 5, class: 'rk-hier' })));
-      uniPlatz(); return;
+      uniPlatz(); festZeichnen({ W, H, k, belegt, koepfe: [], pins: [], hier: dranStadt ? bild(lernKarteProj(D.proj, dranStadt.laenge, dranStadt.breite)) : null, route: [] }); return;
     }
     // Kontinent und Land: Flaggen-Pins (Kopf = Flagge, Spitze = Hauptstadt bzw. Hauptort des Landesteils)
     // S2 (Prüfung RK-App 2, Abschnitt 2): Vorrang beim Beschriften, vier Lagen je Schild, kein Platz → Schild weglassen (Pin bleibt),
@@ -2758,7 +2852,22 @@ function lernReisekarte(d, karte, start) {
         nx ? el('button', { type: 'button', class: 'rk-weiter-hinweis', onclick: () => { z.kont = nx.kontinent_id; geheLand(lernRkSchl(nx)); } }, `Teil ${nx.teil} geht weiter in ${nx.land} ›`) : null);
     } else lernErsetze(hinweis);
     uniPlatz();
+    if (fest) { // Advent: Pins (Kopfmitte am Bildschirm), Route der Länder bzw. Städte, Belegung der Beschriftungen – für Mützen, Stern, Schlitten, Stiefel, Feuerwerk
+      const fp = pins.filter((x) => !(z.ebene === 'land' && x.g.id === z.land)).map((x) => { const zst = x.f ? lernRkZustand(x.f, nst) : null;
+        return { id: x.g.id, x: x.q[0] + x.off[0], y: x.q[1] - x.h + x.off[1], r: x.r, spitze: x.q, f: !!x.f, zst, dran: !!x.f && x.f === dranFlug,
+          abz: !!x.f && (['gold', 'gesch', 'kann', 'zusatz', 'dran'].includes(zst) || (['plan', 'wartet'].includes(zst) && !!x.f.plan_platz)), gelandet: ['gesch', 'gold'].includes(zst) }; });
+      const gs = new Map(D.gebiete.map((g0) => [g0.id, g0]));
+      const route = z.ebene === 'kontinent' ? reihe(z.kont).map((f) => gs.get(lernRkSchl(f))).filter((g0) => g0?.hs).map((g0) => bild(g0.hs.p)).map((q) => [q[0], q[1] - 30]) // Kopfhöhe der Pins
+        : z.ebene === 'land' ? (flugVon(z.kont, z.land)?.staedte || []).slice().sort((a, b) => Number(a.nr) - Number(b.nr)).map((c) => bild(lernKarteProj(D.proj, c.laenge, c.breite))) : [];
+      festZeichnen({ W, H, k, belegt, koepfe, pins: fp, hier: null, route }); }
   }
+  // Advent: zeichnen, sobald lernen-advent.js da ist (Fehler: ohne Ebene); Schlüssel der festen Ebenen (Größe, Ecken von Sonne/Knöpfen/Quelle, Höhe „Gerade dran“)
+  function festZeichnen(lage) {
+    if (!fest || !window.lernFestZeichnen) return;
+    const kb = rahmen.getBoundingClientRect(); const rel = (e0) => { if (!e0) return null; const r = e0.getBoundingClientRect(); return r.width ? [r.left - kb.left, r.top - kb.top, r.width, r.height] : null; };
+    window.lernFestZeichnen(fest, { ...lage, ebene: z.ebene, vb: z.vb, uni: rel(universum), zoom: rel(zoomKnoepfe), quelle: rel(quelle), unten: Math.round(unten()), wurzel, tag: new Date() });
+  }
+  if (fest) { wurzel.classList.add('lr-fest'); lernAdventLaden().then(() => { if (document.body.contains(wurzel) && z.vb) zeichneOben(); }).catch(() => { fest.rand.remove(); }); }
   const hinweis = el('div', { class: 'rk-hinweis' }); kartenTeil.append(hinweis);
   // Ecke für das Regel-Universum: oben links, unten rechts, unten links, rechts unter den Zoom-Knöpfen – die mit der kleinsten Überdeckung
   // (Pins und Schilder der Route, Haltestellen, Kontinent-Namen, Zoom-Knöpfe, Quellenzeile, Legende, „Gerade dran“). Beim Verschieben bleibt sie stehen.
@@ -4592,7 +4701,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
         el('div', { class: 'lr-ab-blatt' },
           el('p', {}, `„${nbE.etappe || e.titel}“ in ${ctx.stadtVon?.(e) || nbE.stadt || ctx.ort.stadt || 'deiner Stadt'} ist wieder gelandet.`),
           el('p', { class: 'lr-ab-leise' }, 'In den nächsten Lerntagen fragen wir sie noch ein paar Mal ab.'),
-          knopf)), { label: 'Sitzt wieder' });
+          lernAdventVorKnopf(knopf, lernAdventNachEtappe(ctx), ctx))), { label: 'Sitzt wieder' }); // Advent: „Sitzt wieder!“ zählt als Etappe – dieselbe Tür
     };
     // Regel „gelandet“ (W176): Die Stufe steigt mit den eigenen Lösungen – erst leicht, dann mittel, dann schwer – und fällt erst nach 2 Fehlern in Folge um 1.
     let letzte = null;
@@ -4752,11 +4861,12 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
                 : lernSchrittKnopf(ctx.kind);
             const knobel = (e.bonus || []).find((k) => !k.versuche);
             const exFrei = lernExNachLandung(ctx); // EX-App: hat diese Landung eine Expedition freigeschaltet? (Ansicht 1 vor dem nächsten Schritt)
+            const advent = lernAdventNachEtappe(ctx); // Advent: Stand parallel holen – ist ein Türchen bereit, kommt die Tür nach der Landung (vor dem nächsten Schritt)
             const zeigeLandung = () => {
               // Zurück-Taste nach der Landung: nicht zurück in die Bordkarten dieser Etappe, sondern zur Übersicht des Flugs (umsetzung.md 5)
               try { history.replaceState(history.state, '', `${ctx.basis}-erklaeren`); } catch { /* egal */ }
               lernErsetze(flaeche, el('p', { class: 'lr-leise lr-ab-dahinter' }, `Etappe „${e.titel}“ ist gelandet.`));
-              lernAbschlussZeigen(ctx.kindObj, lernAbschlussEtappe({ e, nr: pos + 1, von: mitAufg.length, landung, daten: ctx.daten, sterne, knopf: lernExVorKnopf(knopf(), exFrei), kind: ctx.kind,
+              lernAbschlussZeigen(ctx.kindObj, lernAbschlussEtappe({ e, nr: pos + 1, von: mitAufg.length, landung, daten: ctx.daten, sterne, knopf: lernAdventVorKnopf(lernExVorKnopf(knopf(), exFrei), advent, ctx), kind: ctx.kind,
                 // Sturmflug: die Knobel-Bordkarte kommt nicht von selbst, nur als kleiner Textlink
                 knobel: art === 'sturm' && knobel ? () => { lernAbschlussZu(); zeigeKnobel(); } : null }), { label: 'Etappe gelandet' });
             };

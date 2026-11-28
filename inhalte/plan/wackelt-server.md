@@ -1,6 +1,6 @@
 # WW-S2 – „Was wackelt“, Teil Datenbank (zu Entwurf 4), schlanke Fassung
 
-Stand 27.11.2026, Zweig `helfer-ww2`. **Entwurf, nichts eingespielt.** Schrittfolge: `einspiel-reihenfolge-rb-ww.md`. Vorlage: `inhalte/design/wackelt/entwurf4/umsetzung4.md` (vom Nutzer freigegeben), dazu `entwurf3/umsetzung3.md` Abschnitte 2 (Regeln fürs Verschwinden) und 3 (Datenbedarf).
+Stand 28.11.2026. **WW-S2 ist seit 27.11. in der echten Datenbank eingespielt** (Edge-Funktion 0.9.5 und Client nicht ausgeliefert). **WW-S3** (Folgemigration, Zweig `helfer-ww3`, nicht eingespielt) steht im Abschnitt [WW-S3](#ww-s3--folgemigration-zu-ww-s2-nicht-eingespielt) unten; die Abschnitte bis dorthin beschreiben WW-S2. Schrittfolge: `einspiel-reihenfolge-rb-ww.md`. Vorlage: `inhalte/design/wackelt/entwurf4/umsetzung4.md` (vom Nutzer freigegeben), dazu `entwurf3/umsetzung3.md` Abschnitte 2 (Regeln fürs Verschwinden) und 3 (Datenbedarf).
 
 **Entscheidung des Nutzers (27.11.):** Kein „Nachüben schicken“. Es bleibt bei den Wiederholungs- und Mischkarten, wie sie eingestellt sind; Logik und Ablauf bleiben gleich. Deshalb ist WW-S zu **WW-S2** verschlankt: nur (a) Analyse für Eltern/Lehrer und (b) Abhaken / Abhaken zurücknehmen. Alles zum Nachüben (Tabellen `schule.nachueben`, `schule.nachueben_ausgabe`, Regel `nachueben_je_tag`, Funktionen `nachueben_schicken`, `nachueben_gueltig`, `nachueben_liste`, `nachueben_liegt`, Aktionen `schule_nachueben_schicken`, `schule_nachueben_lesen`, Tagesgrenze, Karten-Vergleich, Client-Stellen im Check-in) ist entfernt. Weil nichts eingespielt war, ist die Migration direkt geändert (kein DROP für nie Angelegtes).
 
@@ -68,6 +68,7 @@ Lokale Prüfung (bestanden, 27.11.): `wackelt_test.py` → „WW-S2 im Nachbau b
    "einmal": {"lernkarten": 3, "danach_richtig": 2, "themen_danach_richtig": [24, 33]}},
  "erledigt": [{"versuch_id": 8800, "…": "wie offen", "erledigt": {"art": "abgehakt", "am": "2026-11-25T20:05:00+01:00"}}]}
 ```
+- **Ab WW-S3 anders:** `danach_richtig` ist dann `true` oder fehlt (Zeitpunkte in `danach_richtig_am`), dazu `stand: 3`, `erledigt.id`, `erledigt.tag`, `themen[].besprochen` – siehe Abschnitt WW-S3.
 - Felder fehlen, wenn leer (`jsonb_strip_nulls`). `offen` höchstens 300, neueste zuerst; `erledigt` nur mit `erledigt: true`, höchstens 200, zuletzt abgehakt zuerst; `erledigt.art` ist immer `abgehakt`.
 - `fehlerart.quelle`: `fehlbild` (RB-S eingespielt und erkannt), `grund` (grober Grund aus `antwort_bewerten`: vorzeichen, komma, vertauscht, gerundet, falsche_einheit), sonst fehlt `fehlerart`. `schluessel` ist der Gruppierschlüssel für „wiederkehrend“: `fb:<Kennung>`, `a:<aufgabe>:<nr>` (Fehlbild ohne Kennung), `g:<grund>`.
 - `lerntage`: die letzten 7 Tage mit Antworten (ohne Zeitraum-Grenze), Tag in der Zeitzone des Kindes. `themen`: alle Themen mit Antworten im Zeitraum, nach offenen Fehlern sortiert (Client nimmt 6). Lösung über `schule.loesung_sicht` (bei `bedingung` nur Beispiel und Namen).
@@ -119,3 +120,122 @@ Edge-Funktion `supabase/functions/lernen-api/index.ts`, Liste `AKTIONEN` (Versio
 2. Dauer der Analyse „alles“: misst das Probe-Paket selbst (Testkind und das Kind mit den meisten Versuchen; `laufzeit_ms_*` im Bericht, Warnung über 500 ms). Ebenso die Dauer der Fingerabdrücke über alle `schule`-Tabellen (Zeitgrenze des Pakets 120 s).
 3. Rolle `council_mcp` vorhanden (die Migration vergibt das Recht nur dann); die Rolle braucht wie bisher das Recht, Hilfstabellen (`temp`) anzulegen – das nutzt die Analyse.
 4. Im Probelauf: Das Testkind braucht eine Lernkarte mit drei freigegebenen, zählenden Zahl-Aufgaben ohne Einheit im Ergebnis (gibt es nach den rollend-Runden reichlich).
+
+---
+
+## WW-S3 – Folgemigration zu WW-S2 (nicht eingespielt)
+
+Stand 28.11.2026, Zweig `helfer-ww3`. Anlass: Gegenprüfung der Client-Seite „Besprochen je Thema“ (Auflagen aus Werkstatt 1162) – zwei Fehler, die nur am Server lösbar sind, dazu Ergänzungen für den Client. Die WW-S2-Datei bleibt unverändert (eingespielt); WW-S3 ersetzt nur WW-Funktionen per `create or replace` und legt eine neue an.
+
+| Datei | Was |
+|---|---|
+| `supabase/migrations/20261206_ww_s3_wackelt.sql` | `schule.wackelt_analyse` (nullsicher, `erledigt.id/tag`, `besprochen` je Thema, feste Typen, `stand: 3`), `schule.fehler_abhaken` (Antwort mit `geaendert_ids`, `markierung_ids`), **neu** `schule.fehler_zurueckholen`, `api.schule_fehler_abhaken` (`markierung_ids`) |
+| `supabase/functions/lernen-api/index.ts` | Version 0.9.6: `schule_fehler_abhaken` zusätzlich `markierung_ids?` – **vorbereitet, nicht ausgeliefert** |
+| `tools/tests/wackelt_einspielen.py --ww3 [--probe]` | Pakete `tools/tests/aus/ww_s3_probe.sql` / `ww_s3_einspielen.sql` (die Ausgabe ohne `--ww3` ist unverändert) |
+| `tools/tests/wackelt_test.py`, `wackelt_gegenprobe.py` | lokal im Nachbau (keine Verbindung zur echten Datenbank) |
+
+### Was sich ändert
+
+1. **Einheiten ohne Thema** (Fehler 1): `auswertung.themen[].offen` verglich `o.thema_id = v.thema_id` – bei NULL nie wahr, also `offen: 0`; lagen diese Fehler jenseits der 300 neuesten in `offen[]`, fehlte das Thema in der Zählung des Clients (Beispiel der Gegenprüfung: 319 offene Fehler in sechs Themen, gezählt fünf). Jetzt überall nullsicher (`is not distinct from`): `themen[].offen`, `themen[].besprochen`, `neu_seit`, dazu „danach richtig“ an der Lernkarte (`lernziel` leer). Unverändert: `thema_id` fehlt im Eintrag (strip_nulls); in `wiederkehrend[].themen` und `einmal.themen_danach_richtig` steht `null`.
+2. **Zurückholen trifft genau die gemeinte Markierung** (Fehler 2): WW-S2 nahm beim Zurückholen über `versuch_ids` **jede** gültige Markierung des Versuchs zurück. Wurde ein Fehler inzwischen zurückgeholt und neu markiert (andere Sitzung, zweites Gerät), entfernte ein Klick auf den veralteten Eintrag die neue Markierung. Jetzt: Die Analyse liefert je besprochenem Eintrag `erledigt.id` (= `schule.fehler_erledigt.id`); `schule_fehler_abhaken {zurueck: true, markierung_ids}` nimmt in **einer** UPDATE-Anweisung genau diese noch gültigen Markierungen dieses Kindes zurück. Überholte, unbekannte und fremde IDs werden übersprungen und gemeldet. Gleichzeitige Aufrufe: die zweite Anweisung wartet auf die Zeilensperre und sieht die Zeile dann als zurückgeholt (`schon zurückgeholt`).
+3. **Antwort von `schule_fehler_abhaken`**: zusätzlich `stand: 3`, `geaendert_ids` (was dieser Aufruf wirklich geändert hat: `versuch_ids` beim Markieren bzw. Zurücknehmen über `versuch_ids`, `markierung_ids` beim Zurückholen über `markierung_ids`), beim Markieren `markierung_ids` der neu angelegten Zeilen. `geaendert` und `uebersprungen` bleiben.
+4. **Besprochen je Thema ohne 200er-Grenze**: `auswertung.themen[].besprochen = {zuletzt, tage, neu_seit}`, nur wenn das Thema eine **gültige** (nicht zurückgeholte) Markierung hat; zurückgeholte Markierungen zählen nicht. `zuletzt` = späteste Markierung; `tage` = Zahl verschiedener Kalendertage der Markierungen in der Zeitzone des Kindes (`schule.lernender.zeitzone`, sonst Europe/Berlin); `neu_seit` = endgültig falsche Antworten des Themas mit `am > zuletzt`, die nicht markiert sind – **unabhängig vom gewählten Zeitraum**. `themen[]` enthält weiter nur Themen mit Antworten im Zeitraum; vollständig ist die Übersicht also mit `tage: 0` (jedes besprochene Thema hat Antworten).
+5. **Feste Typen** (Vertrag, im Probe-Paket geprüft): siehe Tabelle unten.
+6. **Versionsfeld** `stand: 3` in der Analyse und in jeder Antwort von `schule_fehler_abhaken`. Fehlt es, läuft am Server noch WW-S2.
+
+### Antwortformen WW-S3 (Beispiele mit erfundenen Daten)
+
+`schule_wackelt_analyse {lernender_id: 2, tage: 0, erledigt: true}`:
+```json
+{"ok": true, "stand": 3, "lernender_id": 2, "tage": 0, "heute": "2026-11-28", "mit_fehlbild": true, "offen_zahl": 2,
+ "offen": [
+  {"versuch_id": 9007, "am": "2026-11-28T09:12:00+01:00", "tag": "2026-11-28", "einheit_id": 77, "lernziel": "runden",
+   "aufgabe": {"id": 6100, "antworttyp": "zahl", "frage": {"text": "Runde 4,56 auf Zehntel."}, "loesung": {"wert": 4.6}},
+   "antwort": {"wert": "4,5"}, "anlauf": 2, "erst_antwort": {"wert": "4,4"}, "mit_tipp": false,
+   "fehlerart": {"quelle": "grund", "schluessel": "g:gerundet", "grund": "gerundet"}},
+  {"versuch_id": 9002, "am": "2026-11-26T17:30:00+01:00", "tag": "2026-11-26", "thema_id": 29, "thema": "Terme umformen", "einheit_id": 31,
+   "lernziel": "minusklammer", "lernkarte": "Minus vor der Klammer", "aufgabe": {"…": "wie WW-S2"}, "antwort": {"wert": "15"}, "anlauf": 2, "mit_tipp": true,
+   "danach_richtig": true, "danach_richtig_am": {"lernkarte_am": "2026-11-27T16:10:00+01:00"}}],
+ "auswertung": {"antworten": 140, "richtig": 117,
+   "themen": [
+     {"offen": 1, "gesamt": 6},
+     {"thema_id": 29, "thema": "Terme umformen", "offen": 1, "gesamt": 22,
+      "besprochen": {"zuletzt": "2026-11-27T19:40:00+01:00", "tage": 2, "neu_seit": 1}},
+     {"thema_id": 24, "thema": "Brüche addieren", "offen": 0, "gesamt": 15,
+      "besprochen": {"zuletzt": "2026-11-20T18:00:00+01:00", "tage": 1, "neu_seit": 0}}],
+   "lerntage": [{"tag": "2026-11-28", "richtig": 5, "falsch": 1}],
+   "wiederkehrend": [], "einmal": {"lernkarten": 2, "danach_richtig": 1, "themen_danach_richtig": [29]}},
+ "erledigt": [
+  {"versuch_id": 9001, "am": "2026-11-26T17:25:00+01:00", "tag": "2026-11-26", "thema_id": 29, "thema": "Terme umformen", "…": "wie offen",
+   "mit_tipp": false, "erledigt": {"art": "abgehakt", "id": 412, "am": "2026-11-27T19:40:00+01:00", "tag": "2026-11-27"}}]}
+```
+(Der erste Eintrag in `themen` ist „Ohne Thema“: kein `thema_id`, kein `thema`.)
+
+`schule_fehler_abhaken {lernender_id: 2, versuch_ids: [9001, 9002, 9005]}` (Markieren):
+```json
+{"ok": true, "stand": 3, "geaendert": 1, "geaendert_ids": [9002], "markierung_ids": [413],
+ "uebersprungen": [{"versuch_id": 9005, "grund": "nicht endgültig falsch"}]}
+```
+(9001 war schon markiert: weder in `geaendert_ids` noch in `uebersprungen`. Die Reihenfolge von `geaendert_ids` und `markierung_ids` ist aufsteigend; eine Markierung gehört je Versuch zu höchstens einer gültigen Zeile – die Zuordnung Versuch → Markierung liest der Client aus der nächsten Analyse, `erledigt.id`.)
+
+`schule_fehler_abhaken {lernender_id: 2, zurueck: true, markierung_ids: [412, 398, 77, 5]}` (Zurückholen):
+```json
+{"ok": true, "stand": 3, "geaendert": 1, "geaendert_ids": [412],
+ "uebersprungen": [{"markierung_id": 5, "grund": "nicht gefunden"},
+                   {"markierung_id": 77, "versuch_id": 8800, "grund": "schon zurückgeholt"},
+                   {"markierung_id": 398, "versuch_id": 9001, "grund": "überholt"}]}
+```
+- `grund`: `überholt` = diese Markierung ist schon zurückgeholt **und** der Versuch hat inzwischen eine neue gültige Markierung (die bleibt); `schon zurückgeholt` = zurückgeholt, keine neue; `nicht gefunden` = unbekannt **oder** Markierung eines anderen Kindes (dann ohne `versuch_id` – es wird nichts über fremde Daten verraten).
+- `markierung_ids`: 1 bis 200 ganze Zahlen (doppelte zählen einmal), sonst Fehler „markierung_ids: …“; nur mit `zurueck: true` (sonst „markierung_ids nur mit zurueck: true“), nicht zusammen mit `versuch_ids` („entweder versuch_ids oder markierung_ids“).
+- **Alter Weg** `{zurueck: true, versuch_ids}` bleibt aus Verträglichkeit (Antwort wie oben, `geaendert_ids` = versuch_ids, ohne `markierung_ids`) – **wird vom Client nicht mehr benutzt.** Begründung, warum er nicht entfernt wird: Kein ausgelieferter Client kann ihn nutzen (ausgeliefert ist lernen-api 0.9.3 ohne `schule_fehler_abhaken`; die neue Seite war nie live) – entfernen wäre also live gefahrlos. Der Client im Repo (lernen.js, „Besprochen je Thema“, noch nicht ausgeliefert) ruft ihn aber noch auf; würde WW-S3 vor der Client-Anpassung eingespielt und die Seite in dieser Lücke ausgeliefert, ginge „zurückholen“ sonst gar nicht mehr. Der Weg kostet nichts und ist im Probe-Paket geprüft; entfernen kann ihn eine spätere Migration, sobald der angepasste Client live ist.
+
+### Typen (Vertrag, damit der Client streng prüfen kann)
+
+| Feld | Typ |
+|---|---|
+| `stand` (Analyse, Abhaken, Zurückholen) | Zahl `3` |
+| `offen[].mit_tipp`, `erledigt[].mit_tipp` | Boolean, **immer vorhanden** |
+| `offen[].danach_richtig`, `erledigt[].danach_richtig` | Boolean `true` **oder fehlt** (nie Objekt, nie Text) |
+| `…danach_richtig_am` | Objekt `{aufgabe_am?, lernkarte_am?}` (Zeitpunkte als Text) oder fehlt |
+| `erledigt[].erledigt` | `{art: "abgehakt", id: Zahl, am: Zeitpunkt, tag: "JJJJ-MM-TT"}` |
+| `auswertung.themen[].besprochen` | fehlt oder `{zuletzt: Zeitpunkt, tage: Zahl ≥ 1, neu_seit: Zahl ≥ 0}` |
+| `geaendert` | Zahl ≥ 0; `geaendert_ids`, `markierung_ids`: Listen ganzer Zahlen; `uebersprungen`: Liste von Objekten |
+
+Das Probe-Paket prüft für jede Analyse-Antwort (`pg_temp.ww3_typen`), dass `mit_tipp` und `danach_richtig` nie als Text oder Objekt kommen.
+
+### Berührt die Lernlogik nicht (WW-S3)
+
+- **Liest** dieselben Tabellen und Funktionen wie WW-S2 (siehe oben), nichts Neues.
+- **Schreibt** ausschließlich `schule.fehler_erledigt` (Markieren = insert, Zurücknehmen/Zurückholen = update von `zurueckgenommen_am/_von`) und Hilfstabellen der eigenen Sitzung (`pg_temp.ww3_v`, `pg_temp.ww3_f`, on commit drop; eigene Namen, damit eine WW-S2-Hilfstabelle derselben Transaktion nicht stört).
+- **Ändert nicht**: keine Tabelle, keine Spalte, kein Index, kein Trigger, kein Fremdschlüssel (auch nicht an `fehler_erledigt`); keine Funktion außerhalb von WW-S2/WW-S3 – auch die übrigen WW-S2-Funktionen `ww_fehlerart`, `ww_von`, `ww_versuche`, `api.schule_wackelt_analyse` bleiben bytegleich. Ersetzt werden nur `schule.wackelt_analyse`, `schule.fehler_abhaken`, `api.schule_fehler_abhaken`; neu ist `schule.fehler_zurueckholen`. Kein DELETE, kein DROP, keine Datenänderung an Bestandszeilen von `fehler_erledigt` durch die Migration.
+- `schule.fehler_erledigt` wird weiter von keiner Funktion der Lernlogik gelesen (Karte, Wiederholung, Check-in, Mischkarten, Sterne, Auswahl der nächsten Aufgabe).
+- **Maschinell belegt** im Probe-Paket `ww_s3_probe.sql` (an der echten Datenbank, alles zurückgerollt): Fingerabdruck aller Funktionen in `schule`/`api` außer den vier von WW-S3 (Definition und Rechte), aller Trigger (auch interne) und Indizes an Tabellen in `schule` und aller Spalten vor/nach beiden Läufen gleich (`schema_bestehend_gleich`); Aufbau und Zeilen von `fehler_erledigt` durch die Migration unverändert (`fehler_erledigt_gleich`); alle Daten in `schule` außer `fehler_erledigt` gleich während Markieren/Zurückholen/api-Aufrufen und nach dem Paket (`bestand_gleich_beim_markieren`, `bestand_gleich`); Karte: Markieren → Zurückholen → neu Markieren an einer sitzenden Lernkarte ändert die Kartenzeile nicht, ein weiterer Fehler wirkt mit und ohne Markierung gleich (`karte_markierung_ohne_wirkung`). Gegenprobe: zehn verdorbene Fassungen werden abgewiesen (unten).
+
+### Prüfung (lokal, Nachbau – keine Verbindung zur echten Datenbank), 28.11.
+
+- `wackelt_test.py` → „WW-S2 im Nachbau bestanden“, „WW-S3 im Nachbau bestanden“: WW-S3-Probe vor WW-S2 → Abbruch „Vorbedingung“; nach WW-S2 ohne RB-S und mit RB-S „PROBELAUF bestanden“ (`fehler: 0`); Einspielen zweimal; Probe noch einmal auf dem Stand „WW-S3 eingespielt“ (`stand_vorher: 3`); Antwortformen und Rechte über die api-Aktionen.
+- `wackelt_gegenprobe.py` → WW-S2 6 von 6, **WW-S3 10 von 10**: Zurückholen ohne ID-Bindung (Parallelfall), nicht nullsicherer Vergleich (ohne Thema), Zurückholen schreibt außerhalb `fehler_erledigt`, fremde Markierung zurückholbar, `mit_tipp` als Text, besprochen zählt zurückgeholte Markierungen, Zurückholen ohne `ist_leiter`, Migration ändert eine übrige WW-S2-Funktion, Migration ändert eine Funktion außerhalb von WW, falsche `markierung_ids`.
+- `rb_ww_pakete.py --pruefen` → OK (alle rb- und WW-S2-Pakete byteidentisch); `regelbezug_sql_test.py` → bestanden; `pglast` liest die 10 Anweisungen der Migration und die 22 der Pakete.
+- Probe-Fälle im Einzelnen: Typen; Markieren zweier Fehler (`geaendert_ids`, `markierung_ids` = die neuen Zeilen); zweites Markieren ändert nichts; `erledigt.id/tag`; besprochen mit zwei Gesprächstagen und einem neuen Fehler danach – gegen eine unabhängige Nachrechnung direkt aus den Tabellen (`pg_temp.ww3_bespr`), auch nach dem Zurückholen; Zurückholen über `markierung_ids`; **Parallelfall** (zurückgeholt und neu markiert → veralteter Eintrag `überholt`, neue Markierung bleibt, Fehler bleibt besprochen); doppelte IDs; `schon zurückgeholt`; fremde und unbekannte Markierung (`nicht gefunden`, ohne `versuch_id`, nichts geändert); Eingabeprüfung (leer, Komma, Text, kein Feld, 201); alter Weg; **ohne Thema** mit zwei offenen Fehlern und nach 300 neueren (beide jenseits der 300, Thema trotzdem mit `offen ≥ 2`, Summe `themen[].offen` = `offen_zahl`); Rechte (Kind, fremdes Kind, Eltern, Lehrer, unbekannte Sitzung; `von`/`zurueckgenommen_von`); Karte; Laufzeit.
+- Laufzeit im Nachbau: Analyse „alles“ mit über 300 offenen Fehlern ≈ 45 ms. An der echten Datenbank misst das Probe-Paket `laufzeit_ms_testkind`, `laufzeit_ms_groesstes_kind` und `ohne_thema.laufzeit_ms_300` (Warnung über 500 ms im Bericht: `warnung` bzw. `warnung_300`).
+- **Ohne Thema an der echten Datenbank:** Gibt es keine Einheit ohne Thema, stellt die Probe eine Einheit nur in ihrer zurückgerollten Untertransaktion ohne Thema (`ohne_thema.weg: "vorübergehend ohne Thema"`); lehnt die Datenbank das ab (z. B. weil `thema_id` dort Pflicht ist – dann kann der Fall live gar nicht entstehen), steht `weg: "übersprungen: …"` im Bericht, und der Fall ist nur im Nachbau belegt.
+
+### Client-Einbindung WW-S3 (was der Client ändern muss)
+
+| Stelle | Bisher (WW-S2) | Mit WW-S3 |
+|---|---|---|
+| Erkennen | – | `r.stand === 3` in der Analyse-Antwort. Fehlt `stand` (Server noch WW-S2) → Rückfall (unten). |
+| „Besprochen“-Übersicht je Thema (zuletzt, Zahl der Gesprächstage, „seitdem N neue Fehler“) | aus `erledigt[]` (höchstens 200) im Client gezählt, Tag in der Zeitzone des Geräts | aus `auswertung.themen[].besprochen` der Analyse mit `tage: 0` – ohne 200er-Grenze, Tag in der Zeitzone des Kindes; `neu_seit` statt eigener Zählung |
+| Zurückholen „je Thema und Tag“ im Abschnitt „Besprochen“ | `{zurueck: true, versuch_ids}` | `{zurueck: true, markierung_ids: [erledigt.id …]}` aus `erledigt[]` (Gruppe nach Thema und `erledigt.tag`); `uebersprungen[].grund` `überholt` als „inzwischen neu besprochen – bleibt“ zeigen |
+| Bestätigung eines Pakets | `geaendert`, `uebersprungen` | zusätzlich `geaendert_ids` (Liste, Länge = `geaendert`, jede ID aus dem gesendeten Paket) und beim Markieren `markierung_ids` (Länge = `geaendert`) |
+| „Rückgängig“ direkt nach dem Markieren (bisher wegen Auflage aus Werkstatt 1158 abgeschaltet) | nicht möglich (Server nannte die geänderten IDs nicht) | möglich und sicher: `{zurueck: true, markierung_ids: <markierung_ids der Antwort>}` nimmt genau die eben gesetzten Markierungen zurück, sonst nichts |
+| Formprüfung | `danach_richtig` nur als „wahr/falsch“ gelesen | streng: `mit_tipp` Boolean (Pflicht ab `stand: 3`), `danach_richtig` Boolean oder fehlt, `erledigt.id` ganze Zahl, `besprochen` wie in der Typen-Tabelle |
+| Ohne Thema | – | unverändert „Ohne Thema“ (kein `thema_id`); `themen[].offen` stimmt jetzt auch dort |
+
+**Rückfall, falls der Server noch WW-S2 hat** (`stand` fehlt): Analyse wie bisher (`danach_richtig` kann dort ein Objekt sein – nur als „wahr/falsch“ lesen; `erledigt.id` und `besprochen` fehlen); „Besprochen“-Übersicht wie bisher aus `erledigt[]`; Zurückholen wie bisher über `versuch_ids` (mit der bekannten Schwäche bei paralleler Bearbeitung); kein automatisches „Rückgängig“. Ein WW-S3-Server nimmt beides an – die Reihenfolge der Auslieferung ist daher frei.
+
+Edge-Funktion `lernen-api` 0.9.6: `schule_fehler_abhaken: ['lernender_id', 'versuch_ids', 'zurueck?', 'markierung_ids?']` (sonst unverändert; die Liste dient nur `GET /hilfe`, sie prüft keine Parameter – `versuch_ids` ist beim Zurückholen über `markierung_ids` tatsächlich nicht nötig).
+
+### Reihenfolge
+
+WW-S3-Probe → WW-S3 echt → lernen-api 0.9.6 → Client. Voraussetzung: WW-S2 eingespielt (erfüllt). Unabhängig von RB-S. Schritte in `einspiel-reihenfolge-rb-ww.md` (Schritte 8–9).

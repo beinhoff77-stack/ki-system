@@ -4,7 +4,7 @@ Prüfer: unabhängig, hat die Aufgaben nicht geschrieben. Grundlage: Zweig `helf
 
 ## Gesamturteil
 
-**Brauchbar mit Nachbesserung, kein A-Befund mehr.** Alle 77 Sollantworten stimmen (eigene Rechnung, auch für die 47 ersetzten/geänderten). Der A-Befund 040 ist geschlossen. Von den 29 B-Befunden der ersten Runde sind 26 geschlossen, 3 nur teilweise (004, 016, 044/047-Nähe zum Bestand, siehe Tabelle 2). Neu gefunden: **0 A, 7 B, 9 C**. Die B-Befunde sind Bau- und Prüfmängel (Bestand-Nähe, Muster in den Auswahl-Optionen, dünne Ideen-Vielfalt in zwei Lernzielen, eine Test-Aufgabe, die sich durch Ausrechnen lösen lässt), keine falschen Aufgaben. Nach Behebung der B-Befunde 1 bis 7 würde ich die Runde freigeben.
+**Brauchbar mit Nachbesserung, kein A-Befund mehr.** Alle 77 Sollantworten stimmen (eigene Rechnung, auch für die 47 ersetzten/geänderten). Der A-Befund 040 ist geschlossen. Von den 29 B-Befunden der ersten Runde sind 25 geschlossen, 4 nicht ganz (047 nein; 004, 016, 044 teilweise, siehe Abschnitt 2). Neu gefunden: **0 A, 7 B, 9 C**. Die B-Befunde sind Bau- und Prüfmängel (Bestand-Nähe, Muster in den Auswahl-Optionen, dünne Ideen-Vielfalt in zwei Lernzielen, eine Test-Aufgabe, die sich durch Ausrechnen lösen lässt), keine falschen Aufgaben. Nach Behebung der B-Befunde 1 bis 7 würde ich die Runde freigeben.
 
 Wichtigstes Urteil für die Test-Tauglichkeit: Das neue Verhältnis 50 Auswahl : 27 Zahl ist vertretbar, **aber** nur, wenn die Auswahl-Optionen nicht an Muster verraten werden. Das ist derzeit nicht der Fall (B7): „Kein Fehler“ ist in 9 von 9 Fällen falsch, „Nur …“ in 6 von 6, „Keiner“ in 2 von 2, „Beide“ in 5 von 9 richtig; die richtige Option ist in 26 von 50 Aufgaben die eindeutig längste. Die tatsächliche Ratechance liegt damit eher bei 35 bis 40 % als bei 25 %.
 
@@ -12,7 +12,7 @@ Wichtigstes Urteil für die Test-Tauglichkeit: Das neue Verhältnis 50 Auswahl :
 
 | Größe | Wert | Quelle |
 |---|---|---|
-| Aufgaben | 77 (7 Lernziele ×… je 7; 4 Lernziele Potenzen, 7 Rechengesetze) | [F] `vtest_pruefen.py`, `bauen.py` |
+| Aufgaben | 77 (11 Lernziele je 7: 4 in Potenzen, 7 in Rechengesetze) | [F] `vtest_pruefen.py`, `bauen.py` |
 | Sollantworten neu gerechnet | 77 von 77, 0 Abweichungen | [F] `gegenrechnung.py` (Projekt) und `vorpruefung_rechnen_2.py` (eigen) |
 | Pools | test 11, korrektur 33, sicherung 33; Stufe 2: 44, Stufe 3: 33 | [F] `bauen.py` |
 | Antwortform | 50 Auswahl, 27 Zahl; Test-Pool 7 Auswahl, 4 Zahl; Korrektur 21/12; Sicherung 22/11 | [F] eigenes Skript |
@@ -40,7 +40,7 @@ Wichtigstes Urteil für die Test-Tauglichkeit: Das neue Verhältnis 50 Auswahl :
 | 055 | Ausklammern 19 · (36 + 64 − 50) = 19 · 50 = 950; die anderen drei Wege sind falsch oder unklug | eindeutig |
 | 068 | 23 · 48 = 1 104 > 1 000; der Überschlag 20 · 50 rundet 23 zu weit ab | richtig |
 | 069 | 596 · 12 = 7 152; Überschlag 600 · 12 = 7 200; Option 0 jetzt richtig, Fehler ist der Schluss „passt nicht, also falsch“ | richtig, A/B-Befund aus Runde 1 behoben |
-| 008, 030, 040, 041, 042, 044, 048, 059, 066, 067, 070, 074, 075 | Zahl-Sollwerte (576 m², □ = 6 (eindeutig), 6 Stunden, □ = 1, 40 Stufen-Aufgabe, 71, 1 800, 8, 594 < 600, 8 000/8 300/8 299, 9 199, 24, 4 GB) selbst gerechnet | alle richtig |
+| 008, 030, 040, 041, 042, 044, 048, 059, 066, 067, 070, 074, 075 | Zahl-Sollwerte (576 m², □ = 6 (eindeutig), 6 Stunden, □ = 1, 44 → 40, 71, 1 800, 8, 594 < 600, 8 000/8 300/8 299, 9 199, 24, 4 GB) selbst gerechnet | alle richtig |
 
 Fehlbild-Texte, Lösungswege, Sprache: [F] bei 003 (Fehlbild 64: „Nummer der Generation als Basis“, 4³ = 64), 017 (Fehlbild 2: kg-in-g vergessen führt zur gespeicherten Zahl 2), 065, 073 führen die Erklärtexte nun zu den gespeicherten Zahlen. Kleinigkeit: C2. Klasse-5-Sprache und Stoff (M5 3, Potenzen mit ganzzahliger Basis, Terme, Distributivgesetz) passen; 5⁵ = 3 125 in 001 ist als Information in der Option gegeben und nicht gefordert. Tabellen/Bilder gibt es nicht mehr, alle Werte stehen im Text.
 
@@ -79,7 +79,7 @@ Fehlbild-Texte, Lösungswege, Sprache: [F] bei 003 (Fehlbild 64: „Nummer der G
 | B: Antwort ablesbar 046/048 | 046/048 | ja | andere Zahlen |
 | B: Ideen je Lernziel (Bauarten 5 → 4, `bauen.py`) | alle | ja | Werkzeug erzwingt ≥ 5 Ideen, höchstens 2 je Idee; erfüllt |
 
-Ergebnis: **A: 1 von 1 geschlossen. B: 26 von 29 geschlossen; offen bleiben 047 (nein), 044 und 016/004 teilweise.** 004 und 016 stufe ich auf C herunter (C3, C1); 044 und 047 führe ich als neuen B2.
+Ergebnis: **A: 1 von 1 geschlossen. B: 25 von 29 geschlossen; offen bleiben 047 (nein) sowie 004, 016, 044 (teilweise).** 004 und 016 stufe ich auf C herunter (C3, C1); 044 und 047 führe ich als neuen B2.
 
 ## 3. Wird echtes Verstehen geprüft? (7 Aufgaben je Lernziel nebeneinander)
 

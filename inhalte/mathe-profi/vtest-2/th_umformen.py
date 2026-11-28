@@ -13,14 +13,15 @@ def bauen():
        (2, '8 : 4', 'den Faktor 8 vor x durch 4 geteilt statt den konstanten Teil')],
       'Umfang des Rechtecks: 2 · ((3x + 2) + (x + 6)) = 2 · (4x + 8) = 8x + 16. Umfang des Quadrats: 4 · (2x + a) = 8x + 4a. Beide sind für jedes x gleich, wenn 4a = 16 gilt, also a = 4.',
       'Die Übungen fassen gegebene Terme zusammen; hier müssen zwei Umfänge als Terme aufgestellt, zusammengefasst und für jedes x gleichgesetzt werden.')
-    Z(lz, 'korrektur', 'parameter', None, 2, LP,
-      'Der Term 9x² + kx − 4x² − 8x soll nach dem Zusammenfassen nur noch aus einem Glied bestehen, nämlich aus 5x². Welche Zahl muss k sein?',
-      8, '8',
-      [(-8, '0 − 8', 'das Vorzeichen von −8x übernommen: k = −8'),
-       (0, '0', 'k = 0 gesetzt, weil „kein x-Glied“ bedeutet'),
-       (16, '8 + 8', 'die beiden x-Zahlen k und 8 addiert statt k − 8 = 0 zu verlangen')],
-      'Die x-Glieder sind kx und −8x, zusammen (k − 8)x. Damit das x-Glied verschwindet, muss k − 8 = 0 sein, also k = 8. Die x²-Glieder: 9x² − 4x² = 5x².',
-      'Rückwärts: Ein Parameter wird so bestimmt, dass ein Glied wegfällt; die Übungen haben nur feste Zahlen.')
+    L(lz, 'korrektur', 'darstellung', None, 2, LP,
+      'Der Term 3x² + 2x − x² + 4 + 5x − 3x² + 7 wird so weit wie möglich zusammengefasst. Wie viele Glieder hat das Ergebnis, und welche Zahl steht vor x²?',
+      'Zahl der Glieder: □; Zahl vor x²: □', [3, -1], ['3', '3 − 1 − 3'],
+      [(1, 7, '7', 'die Glieder des ursprünglichen Terms gezählt'),
+       (1, 4, '3 + 1', 'die Zahlen 4 und 7 nicht zusammengefasst'),
+       (2, 2, '3 − 1', 'das letzte x²-Glied −3x² vergessen'),
+       (2, 7, '3 + 1 + 3', 'alle Zahlen vor x² ohne Vorzeichen addiert')],
+      'x²-Glieder: 3x² − x² − 3x² = −x². x-Glieder: 2x + 5x = 7x. Zahlen: 4 + 7 = 11. Das Ergebnis −x² + 7x + 11 hat 3 Glieder, vor x² steht −1.',
+      'Die Übungen verlangen das ganze Ergebnis; hier zählt, wie viele Glieder übrig bleiben und wie das x²-Glied ausfällt (Vorzeichen).')
     Z(lz, 'korrektur', 'begruenden', None, 2, LP,
       'Lea fasst 3x + 4x² zu 7x³ zusammen. Für x = 0 und x = 1 stimmt das sogar, denn beide Seiten ergeben 0 und 7. Um wie viel unterscheiden sich 7x³ und 3x + 4x² für x = 2?',
       34, '7 · 2 · 2 · 2 − (3 · 2 + 4 · 2 · 2)',
@@ -49,15 +50,14 @@ def bauen():
        (1, 5, '5', 'die 5 des ersten Gliedes wiederholt')],
       'x²-Glieder: 5x² − □x² soll 3x² ergeben, also □ = 2. x-Glieder: −3x + □x soll −2x ergeben, also □ = 1. Probe: 5x² − 3x − 2x² + 1x = 3x² − 2x.',
       'Rückwärts werden fehlende Zahlen aus dem Ergebnis bestimmt; die Übungen fassen vorgegebene Terme zusammen.')
-    L(lz, 'sicherung', 'umkehr', None, 3, LP,
-      'Von 9x² − 4x + 1 wird ein Term U abgezogen, und es bleibt 5x² − 4x − 3 übrig. Wie heißt U?',
-      'U = □x² + □x + □', [4, 0, 4], ['9 − 5', '−4 − (−4)', '1 − (−3)'],
-      [(1, 14, '9 + 5', 'die x²-Zahlen addiert statt subtrahiert'),
-       (2, -8, '−4 − 4', 'von −4 noch einmal 4 abgezogen (−4 − 4) statt (−4) − (−4) zu rechnen'),
-       (3, -2, '1 − 3', 'die 3 ohne Vorzeichen gelesen: 1 − 3'),
-       (3, -4, '−3 − 1', 'Vorzeichen vertauscht: (−3) − 1')],
-      'Es gilt 9x² − 4x + 1 − U = 5x² − 4x − 3, also U = (9x² − 4x + 1) − (5x² − 4x − 3). x²: 9 − 5 = 4. x: −4 − (−4) = 0. Zahl: 1 − (−3) = 4. Also U = 4x² + 4. Probe: 9x² − 4x + 1 − (4x² + 4) = 5x² − 4x − 3.',
-      'Ein fehlender Term wird durch Umkehren der Subtraktion bestimmt, wobei ein Glied wegfällt (0x); die Übungen suchen einen Summanden.')
+    Z(lz, 'sicherung', 'transfer', 'anwenden', 2, LP,
+      'Der Term 5x − 7 + 3 − 4x − x + 10 wird zusammengefasst. Welchen Wert hat er für x = 1 000?',
+      6, '−7 + 3 + 10',
+      [(0, '5000 − 4000 − 1000', 'nur die x-Glieder berechnet, die Zahlen vergessen'),
+       (20, '7 + 3 + 10', 'alle Zahlen ohne Vorzeichen addiert'),
+       (1006, '1000 + 6', 'die x-Glieder zu x zusammengefasst und das −x vergessen')],
+      '5x − 4x − x = 0x: Die x-Glieder heben sich auf. Die Zahlen ergeben −7 + 3 + 10 = 6. Der Term hat für jede Zahl x den Wert 6, auch für x = 1 000.',
+      'Alle x-Glieder heben sich auf, der Wert hängt nicht von x ab; die Übungen haben immer ein x-Glied im Ergebnis.')
     Z(lz, 'sicherung', 'transfer', 'anwenden', 3, LP,
       'Anna kauft x Brötchen zu je 3 € und y Getränke zu je 2 €. Ben zahlt für seinen Einkauf 4x + 3y Euro. Wie viel Euro zahlt Ben mehr als Anna, wenn x = 5 und y = 2 ist? Stelle zuerst den Unterschied als Term auf.',
       7, '4 · 5 + 3 · 2 − (3 · 5 + 2 · 2)',
@@ -134,16 +134,15 @@ def bauen():
       'Die Minusklammer wird als Rechenvorteil genutzt, nicht als Schema auf Variablen; die Übungen lösen Klammern nur mit Variablen auf.')
     # ---------------- aequivalenz ----------------
     lz = 'aequivalenz'
-    L(lz, 'test', 'begruenden', None, 3, LP,
-      'Paul behauptet: „Die Terme 5x − 4 und 3x + 2 sind gleichwertig, denn für x = 3 kommt bei beiden 11 heraus.“ Paul setzt nun auch x = 0 ein. Welche Werte haben die beiden Terme für x = 0, und für wie viele Zahlen x haben sie überhaupt denselben Wert?',
-      'Erster Term: □; zweiter Term: □; Zahlen x mit gleichem Wert: □', [-4, 2, 1], ['5 · 0 − 4', '3 · 0 + 2', '1'],
-      [(1, 4, '4', 'das Vorzeichen der −4 übersehen'),
-       (1, 0, '5 · 0', 'die −4 ganz vergessen'),
-       (2, 3, '3', 'den Wert 3x für x = 0 falsch gebildet: 3 statt 0 + 2'),
-       (3, 0, '0', 'gemeint, nicht gleichwertige Terme stimmen nirgends überein'),
-       (3, 2, '2', 'die beiden geprüften Stellen x = 0 und x = 3 gezählt')],
-      '5 · 0 − 4 = −4 und 3 · 0 + 2 = 2: Die Werte sind für x = 0 verschieden, die Terme sind also nicht gleichwertig. Gleich sind sie nur, wenn 5x − 4 = 3x + 2 gilt, das ist 2x = 6, also nur für x = 3. Eine einzige Übereinstimmung beweist keine Gleichwertigkeit.',
-      'Die Übungen prüfen Terme nur durch Einsetzen oder Umformen; hier wird aus einer einzigen Übereinstimmung gefolgert, wo die Terme überhaupt gleich sind.')
+    Z(lz, 'test', 'darstellung', None, 3, LP,
+      'Anna schreibt sechs Terme auf: A = 2(x + 3), B = 2x + 6, C = 3(x + 2) − x, D = 5x − 2(x + 1), E = 3x − 2, F = 3x + 2. Zwei Terme bilden ein gleichwertiges Paar, wenn sie für jede Zahl x denselben Wert haben (zum Beispiel A und B). Wie viele solche Paare gibt es insgesamt? Jedes Paar wird nur einmal gezählt.',
+      4, '3 + 1',
+      [(3, '3', 'nur die Gruppe A, B, C gezählt, das Paar D und E vergessen'),
+       (15, '6 · 5 : 2', 'alle Paare aus sechs Termen gezählt'),
+       (2, '1 + 1', 'nur die Paare A–B und D–E gezählt, C übersehen'),
+       (5, '3 + 1 + 1', 'F mit E als Paar mitgezählt, weil 3x + 2 und 3x − 2 „fast gleich“ aussehen')],
+      'Zusammengefasst: A = 2x + 6, B = 2x + 6, C = 3x + 6 − x = 2x + 6, D = 5x − 2x − 2 = 3x − 2, E = 3x − 2, F = 3x + 2. A, B und C sind gleichwertig (3 Paare), D und E sind gleichwertig (1 Paar), F ist zu keinem gleichwertig. Zusammen 3 + 1 = 4 Paare.',
+      'Die Übungen prüfen zwei Terme gegeneinander; hier werden sechs Terme vereinfacht, in Gruppen gleichwertiger Terme eingeordnet und die Paare gezählt.')
     L(lz, 'korrektur', 'begruenden', None, 2, LP,
       'Die Terme 2(x + 3) und 2x + 3 sind nicht gleichwertig. Um wie viel ist der Wert des ersten Terms größer als der des zweiten, wenn man x = 5 einsetzt, und um wie viel, wenn man x = 100 einsetzt?',
       'bei x = 5: um □; bei x = 100: um □', [3, 3], ['2 · (5 + 3) − (2 · 5 + 3)', '2 · (100 + 3) − (2 · 100 + 3)'],

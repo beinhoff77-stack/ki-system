@@ -10,22 +10,22 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 - VT2-003 (korrektur): Nur Zinsen erhalten, nicht zahlen; Optionen mit Kredit sind durch den Klammerhinweis ausgeschlossen. 40 € passt nur zu 2 000 € bei 2 %.
 - VT2-004 (korrektur): Fehler in Zeile 3 (Vorzeichen/Rolle); Zeilen 1 und 2 stimmen, damit ist „erste Fehlerzeile“ eindeutig.
 - VT2-005 (sicherung): Rückzahlung 5 150 € enthält Kredit und 3 % Zinsen; 5 150 : 1,03 = 5 000 ist ganzzahlig, Zinsen 150 €. Zinssatz bezieht sich auf den geliehenen Betrag (steht im Text).
-- VT2-006 (sicherung): Zinsen werden durch Gegenrechnung gleichgesetzt; Ergebnis 6 000 € ist ganzzahlig, der Zinssatz des Sparbuchs (2 %) ist ausdrücklich genannt.
-- VT2-007 (sicherung): Bank sieht die Rollen umgekehrt; Sparzinsen auf alle 200 000 €, Kreditzinsen nur auf 150 000 €. Der Rest im Tresor bleibt unverzinst (steht im Text).
+- VT2-006 (sicherung): Kredit 3 000 € zu 8 % bringt 240 € Zinsen; 2 % von G sind 240 €, also G = 12 000 € (ganzzahlig). Der Sparzinssatz (2 %) steht im Text.
+- VT2-007 (sicherung): Sparzinsen auf alle 200 000 € (0,5 % → 1 000 €), Kreditzinsen nur auf 150 000 € (5 % → 7 500 €); der Rest im Tresor bleibt unverzinst (steht im Text).
 
 ## finanzen.zinsen / jahreszinsen_komma
 
-- VT2-008 (test): Fehler in Zeile 2 (25fache statt 2,5fache); Zeile 4 ist mit dem Fehlergebnis folgerichtig, zählt aber nicht als erster Fehler.
-- VT2-009 (korrektur): Drei Zinssätze 1 %, 0,5 %, 0,05 % von 6 000 €; Ergebnisse 60, 30, 3 ganzzahlig, keine Rundung.
+- VT2-008 (test): Fehler in Zeile 2 (25fache statt 2,5fache); Zeilen 3 und 4 folgen nur daraus. Richtiges Guthaben 3 690 € ganzzahlig; das Fehlergebnis 4 500 € ist ein eigenes Fehlbild.
+- VT2-009 (korrektur): Kapital ist nicht genannt (1 % bringen 80 €): 0,25 % → 20 €, 2,5 % → 200 €, 0,05 % → 4 €, alles ganzzahlig, keine Rundung.
 - VT2-010 (korrektur): Nur die letzte Zeile ordnet alle drei Zinssätze richtig zu; die Zeilen mit einem richtigen und zwei falschen Paaren sind bewusst gemischt.
 - VT2-011 (korrektur): Nur 6 € stimmt; 60 € und 600 € entstehen durch Kommafehler, 0,60 € durch falsche Division durch 1 000.
 - VT2-012 (sicherung): Nur 0,25 % liefert 15 € bei 6 000 €; die anderen Optionen unterscheiden sich um Zehnerpotenzen. Optionen aufsteigend geordnet.
-- VT2-013 (sicherung): Beide Sparbücher bringen gleich viel (36 €), das ist Absicht und im Lösungsweg erklärt; Lücken nehmen gleiche Werte an.
-- VT2-014 (sicherung): Genau eine Rechnung ist falsch (0,03 · 0,005); die anderen sind richtige Zerlegungen. „NICHT“ steht im Text groß.
+- VT2-013 (sicherung): Zwei Sparbücher mit 36 € und 39 €; die Werte sind verschieden, damit das erste Feld das zweite nicht verrät. Das kleinere Kapital bringt mehr, weil sein Zinssatz größer ist.
+- VT2-014 (sicherung): Genau eine Rechnung ist falsch (sie addiert 3 % und 5 % statt 3 % und 0,5 %); die anderen sind richtige Zerlegungen von 3,5 %. „NICHT“ steht im Text groß.
 
 ## finanzen.zinsen / kapital
 
-- VT2-015 (test): 600 € bei 4 % → 15 000 €, bei 2,5 % → 24 000 €; Soll 9 000 € ist weder altes noch neues Kapital (kein Zufallstreffer).
+- VT2-015 (test): Unterschied der Zinssätze 4 % − 2,5 % = 1,5 %; 45 € : 0,015 = 3 000 € (ganzzahlig, Probe 120 € − 75 €). Fehlbilder 1 125, 1 800, 300.
 - VT2-016 (korrektur): Proportionalität nur bei gleichem Zinssatz und gleicher Zeit; Option 1 (andere Zinssätze) ist bewusst falsch.
 - VT2-017 (korrektur): Platzhalter □ ist das Kapital; Gleichung □ · 0,04 = 52, nicht □ : 0,04.
 - VT2-018 (korrektur): Fehler in Zeile 2 (multipliziert statt dividiert); Ergebnis 1 500 € ist ganzzahlig, das Fehlergebnis 2,646 € ist sinnlos klein.
@@ -35,7 +35,7 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 
 ## finanzen.zinsen / zeitanteil
 
-- VT2-022 (test): 3 600 € bei 4 % bringen 144 € im Jahr; 60 € sind 5/12, also genau 5 Monate (ganze Zahl). Monate als Einheit im Text.
+- VT2-022 (test): Frau Berger bekommt 60 € (72 € im Jahr, 10/12 davon); Herr Koch hat 90 € im Jahr, also 7,50 € je Monat, und braucht 8 Monate (ganzzahlig). Zwei Anlagen werden aufeinander abgestimmt, nicht eine Laufzeit bis zu einer Zinssumme gesucht.
 - VT2-023 (korrektur): Beide Anlagen bringen 50 €; der höhere Zinssatz wird durch die kürzere Zeit ausgeglichen. Gleiche Lückenwerte sind erlaubt.
 - VT2-024 (korrektur): 8 Monate bringen 2 % des Kapitals → Jahreszinssatz 3 %; ganzzahlig. Einheit Prozent.
 - VT2-025 (korrektur): Drei Teiljahre (3, 8 und 9 Monate), alle innerhalb eines Jahres; die 18 Monate und damit das Zinseszins-Problem entfallen.
@@ -45,29 +45,29 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 
 ## terme.umformen / zusammenfassen
 
-- VT2-029 (test): Fehler in Zeile 3 (3 − 7 = −4, nicht 4); Zeile 2 stimmt, Ergebnis des Terms 3x² − 4x + 4.
-- VT2-030 (korrektur): k = 8, damit das x-Glied entfällt; Gleichung 9 − 4 = 5 bleibt unberührt. Kein zweites k möglich.
+- VT2-029 (test): Umfang des Rechtecks 8x + 16 gegen Umfang des Quadrats 8x + 4a für jedes x: a = 4 (ganzzahlig). Fehlbilder 16, 8 und 2 sind typische Zwischenwerte.
+- VT2-030 (korrektur): Zusammengefasst −x² + 7x + 11: drei Glieder, vor x² steht −1; Fehlbilder zählen den Ausgangsterm bzw. vergessen das letzte x²-Glied.
 - VT2-031 (korrektur): 3x + 4x² ≠ 7x³: bei x = 0 und 1 stimmt es zufällig, bei x = 2 nicht (22 gegen 56, Unterschied 34).
 - VT2-032 (korrektur): Fehler in Zeile 3 (−4y + 5y = y); Zeilen 1 und 2 sind korrekt.
 - VT2-033 (sicherung): Lücken 2 und 1; die Rechnung ist eindeutig (5 − □ = 3 und −3 + □ = −2).
-- VT2-034 (sicherung): Differenz zweier Terme; U = 4x² + 0x + 4, das mittlere Glied ist 0 (Lücke mit 0 zulässig, Hinweis „ganze Zahl“).
+- VT2-034 (sicherung): Alle x-Glieder heben sich auf (5x − 4x − x = 0), der Wert ist für x = 1 000 gleich 6; die Aufgabe prüft, ob man das erkennt.
 - VT2-035 (sicherung): Differenz Ben − Anna ergibt x + y; für x = 5, y = 2 sind das 7 €. Bens Term steht im Text, beide kaufen dieselben Mengen.
 
 ## terme.umformen / minusklammer
 
 - VT2-036 (test): Fehler in Zeile 2 (Vorzeichen vor x); Zeile 1 ist richtig.
 - VT2-037 (korrektur): Beim Auflösen von 9 − (x − 4) − (6 − x) fällt x weg, Wert 7 für jedes x.
-- VT2-038 (korrektur): k aus x = 1 bestimmt: 10 − k = 5, also k = 5; die Gleichung hat genau eine Lösung.
+- VT2-038 (korrektur): Einsetzen von x = 1 in 7x − (kx − 3) = 4 ergibt 10 − k = 4, also k = 6. Der Wert 4 im Text und k = 6 sind verschieden (kein Zufallstreffer); Fehlbilder 0, 3 und 14.
 - VT2-039 (korrektur): Nele hat Unrecht, Gegenbeispiel a = 2 gibt 5 gegen 11; Option 2 vertauscht die Werte, bewusst falsch.
-- VT2-040 (sicherung): Bens Wert 1, Annas Ergebnis 0 · x + 1; der Text erlaubt ausdrücklich die Eingabe 0.
+- VT2-040 (sicherung): Annas Ergebnis ist 0x + 1; der Hinweis auf die Null steht nicht mehr im Text, die Schablone sagt nur „ganze Zahl“ (null gehört dazu).
 - VT2-041 (sicherung): Fehler in Zeile 2 (+(a − 1) = +a − 1); richtig 7a − 4.
 - VT2-042 (sicherung): 2 500 − (2 500 − 43) = 43; die Aufgabe nennt keine Variable, Minusklammer wird als Rechenvorteil genutzt.
 
 ## terme.umformen / aequivalenz
 
-- VT2-043 (test): Gleicher Wert bei x = 3 beweist keine Gleichwertigkeit; Gegenbeispiel x = 0 liefert −4 und 2.
+- VT2-043 (test): Sechs Terme: A, B, C gleichwertig (3 Paare), D, E gleichwertig (1 Paar), F allein; Soll 4. Fehlbilder 3, 15, 2, 5.
 - VT2-044 (korrektur): Der Unterschied ist für x = 5 und x = 100 jeweils 3, also nie gleich; Terme sind nicht gleichwertig (Lösungsweg erklärt es).
-- VT2-045 (korrektur): Nur x = 0 und x = 1 stimmen in −5 bis 5; x² + 3x und 2x² + 2x sind nicht gleichwertig. Gezählt wird nur im angegebenen Bereich.
+- VT2-045 (korrektur): Von fünf Umformungsschritten sind T3, T4 und T5 gleichwertig (Wert 2x + 10); T1 und T2 haben den Wert 2x + 2, weil die −4 das Vorzeichen nicht umkehrt.
 - VT2-046 (korrektur): Genau eine der vier Optionen ist gleichwertig; die anderen unterscheiden sich im Vorzeichen oder im Koeffizienten.
 - VT2-047 (sicherung): Wertetabelle 4, 7, 10 gibt 3x + 4; Term nach Text der Form a · x + b, damit eindeutig (Wert 34 bei x = 10).
 - VT2-048 (sicherung): Drei Terme sind 2x + 6, nur D ist 2x − 6; Reihenfolge der Buchstaben ist fest (A bis D).
@@ -78,15 +78,15 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 - VT2-050 (test): Genau Nummer 1 ist falsch; Nummer 2 bis 4 sind richtig. Richtige Klammer 3y(3y − 2).
 - VT2-051 (korrektur): 6x² + kx = 3x · (2x + 5) = 6x² + 15x; k = 15, kein zweiter Wert.
 - VT2-052 (korrektur): Fehler in Zeile 2 (12x : 6x = 2); richtig 6x(3x − 2).
-- VT2-053 (korrektur): ggT von 12 und 18 ist 6; „größtmöglich“ im Text, damit sind 3 oder 2 als Faktor ausgeschlossen.
-- VT2-054 (sicherung): Kein gemeinsamer Faktor in 6x² + 4x + 5 (5 ist teilerfremd); Teilausklammern (Optionen 1 bis 3) zählt nicht.
+- VT2-053 (korrektur): Probe durch Ausmultiplizieren: (1), (2), (3) stimmen; (4) gibt 6x² + 90x und (5) gibt 6x² + 10x. Soll 3.
+- VT2-054 (sicherung): Nichts außer 1 lässt sich ausklammern (die 5 hat weder die 2 noch ein x). Alle vier Möglichkeiten sind gleich gebaut: „Man kann … ausklammern, denn …“.
 - VT2-055 (sicherung): k = 9 (nicht 18, denn dann wäre der Faktor 18x); „positive Zahl kleiner als 20“ macht k eindeutig.
 - VT2-056 (sicherung): Breite 4x aus 20x² + 12x = (5x + 3) · 4x; ganzzahlige Koeffizienten, Einheit Meter.
 
 ## terme.umformen_teil2 / binomisch
 
 - VT2-057 (test): Fehler in Zeile 2 (gemischtes Glied fehlt); richtig 4x² − 20x + 25.
-- VT2-058 (korrektur): (3x + 4)² = 9x² + 24x + 16; k positiv (steht im Text), sonst auch −24.
+- VT2-058 (korrektur): 25x² − kx + 4 = (5x − 2)² ergibt k = 20; Quadrat einer Differenz, nicht einer Summe.
 - VT2-059 (korrektur): Gegenbeispiel mit 3 und 4: 49 gegen 25, Differenz 24 = 2ab.
 - VT2-060 (korrektur): Zuwachs 10x + 25 durch (x + 5)² − x²; Einheit cm².
 - VT2-061 (sicherung): 50² − 49² = 99; die Aufgabe nennt (50 − 1)² als Hilfe, ohne das Ergebnis zu verraten.
@@ -95,11 +95,11 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 
 ## geometrie.kreis / umkehrung
 
-- VT2-064 (test): Rechter Winkel bei C (Umkehrung), MC gleich Radius 5 cm; Option „kleiner als 5“ meint stumpfen Winkel.
+- VT2-064 (test): Alle Punkte C mit rechtem Winkel liegen auf dem Kreis um M mit Radius 5 cm; MC bleibt 5 cm. Das Wort „Thales“ steht nirgends in der Frage.
 - VT2-065 (korrektur): Koordinatenaufgabe ohne Wurzel: C liegt über dem Mittelpunkt M(2 | 0) im Abstand 4; zweiter möglicher Punkt (2 | −4) ist durch „positive y-Koordinate“ ausgeschlossen.
 - VT2-066 (korrektur): Umkreisradius 6 cm → AB = 12 cm; Voraussetzung rechter Winkel bei C steht im Text.
 - VT2-067 (korrektur): Fehler in Zeile 3 (Radius = Hälfte von 10 cm = 5 cm); Zeilen 1 und 2 stimmen.
-- VT2-068 (sicherung): Alle Punkte mit rechtem Winkel bilden den Kreis um M mit Radius 3 cm ohne A und B; die Ausnahme steht in der Antwort und im Lösungsweg.
+- VT2-068 (sicherung): Thaleskreis ist ein Kreis um M mit Radius 3 cm ohne A und B; die falschen Kreisoptionen haben verschieden gebaute Endungen.
 - VT2-069 (sicherung): Umkehrung gilt in jedem rechtwinkligen Dreieck; zwei falsche Optionen haben „Richtig“ mit falscher Begründung.
 - VT2-070 (sicherung): Der Text nennt MA = MB = MC nicht mehr; der Weg über die Umkehrung ist nötig. Winkel 40°, 50°, 100°.
 
@@ -111,16 +111,16 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 - VT2-074 (korrektur): Tangente ⊥ Berührradius: Winkel bei B = 90°, bei M = 35°, bei A = 55°. Der Satz steht in der Merke der Einheit.
 - VT2-075 (sicherung): 12 cm Abstand − 9 cm Durchmesser = 3 cm Abstand zwischen h und Kreis, keine gemeinsamen Punkte.
 - VT2-076 (sicherung): Zwei Kreise, Gesamtzahl der Punkte: bei d = 3 berührt die Gerade den kleinen Kreis (1) und schneidet den großen zweimal (2), also 3.
-- VT2-077 (sicherung): Mehr als zwei Punkte gibt es nie; Mias Aussage ist mit „immer mehr“ eindeutig falsch gestellt.
+- VT2-077 (sicherung): Eine Gerade, die nicht durch M geht, hat höchstens zwei gemeinsame Punkte; Mias Behauptung „immer mehr, ohne Grenze“ ist eindeutig falsch.
 
 ## geometrie.kreis / umkreis_inkreis
 
-- VT2-078 (test): Außen liegt der Mittelpunkt bei stumpfem β oder stumpfem γ: 39 + 39 = 78; rechte Winkel ausgeschlossen.
+- VT2-078 (test): α = 70°: außerhalb bei β > 90° (19 Werte) oder γ > 90° (19 Werte); β = 90° und γ = 90° sind Randfälle und zählen nicht. Soll 38, kürzer zu zählen als vorher.
 - VT2-079 (korrektur): Mittelsenkrechte gegen Winkelhalbierende; Ecken gegen Seiten; nur eine Kombination richtig.
 - VT2-080 (korrektur): Drei Dreiecke, Winkelsumme 180° jeweils geprüft; B ist der rechtwinklige Sonderfall (Mittelpunkt auf der Seite).
-- VT2-081 (korrektur): Zeile 3 ist der erste Fehler (Höhen statt Mittelsenkrechten); Zeilen 1 und 2 stimmen.
-- VT2-082 (sicherung): Inkreismittelpunkt liegt in jedem Dreieck innen; die Verwechslung mit dem Umkreis ist als Ablenker gewollt.
-- VT2-083 (sicherung): Inkreismittelpunkt liegt auf den Winkelhalbierenden: 25°, 35°, 120°; Winkelsumme 180° geprüft.
+- VT2-081 (korrektur): Fehler in Zeile 2 (Inkreisgedanke „von allen Seiten gleich weit“ beim Umkreis); Zeile 3 folgt daraus. Die gesuchte Nummer (3 = Mittelsenkrechten) steht nicht im Text.
+- VT2-082 (sicherung): Zwei Möglichkeiten sagen „Richtig“ (eine mit falscher Begründung: Mittelsenkrechten statt Winkelhalbierende), zwei sagen „Falsch“; das Urteil allein verrät nichts.
+- VT2-083 (sicherung): I liegt auf den Winkelhalbierenden: α = 56°, β = 34°, γ = 90° (Probe 180°); das Dreieck ist rechtwinklig, was nicht im Text steht.
 - VT2-084 (sicherung): Im gleichseitigen Dreieck fallen Umkreis- und Inkreismittelpunkt zusammen; Begründung über gleiche Geraden.
 
 ## zahlen.natuerlich / stellenwert
@@ -135,7 +135,7 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 
 ## zahlen.natuerlich / ziffern_zu_zahlwort
 
-- VT2-092 (test): 40 300 070 hat acht Stellen, drei davon keine Nullen → 5 Nullen; Zahlwort ohne Milliarden.
+- VT2-092 (test): Die Zahl 204 007 005 hat neun Stellen; die Tausenderklasse 007 wird mit Nullen vorn gelesen, die Tausenderstelle ist die 7.
 - VT2-093 (korrektur): Neue Zahl 30 005 = dreißigtausendfünf; Option „dreißigtausendfünfzig“ meint 30 050.
 - VT2-094 (korrektur): Fehler in Zeile 3 (9 steht in der Einerklasse); Zeile 1 und 2 stimmen.
 - VT2-095 (korrektur): Klassen: 300 | 300; erste Klasse Tausender. Die falschen Optionen erklären das Lesen nicht über die Klassen.
@@ -145,28 +145,28 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 
 ## zahlen.natuerlich / strahl_eintragen
 
-- VT2-099 (test): Linearer Zusammenhang (6 cm für 1 200); 3 400 → 17 cm ohne Rundung.
+- VT2-099 (test): Skala ohne Nullpunkt: 4 cm entsprechen 800, also 200 je cm; 3 400 liegt 11 cm von 1 200 entfernt, und 9 cm rechts von 1 200 liegt die Zahl 3 000.
 - VT2-100 (korrektur): Skala mit Schritt 250: 800 gehört nicht dazu (750). Nur eine falsche Beschriftung.
 - VT2-101 (korrektur): 7 640 liegt näher an 8 000 (Abstand 360); Mitte 7 500 liegt links davon, kein Gleichstand.
 - VT2-102 (korrektur): Fehler in Zeile 3 (7,5 · 2 cm = 15 cm); Zeile 2 stimmt.
-- VT2-103 (sicherung): Mitte zwischen benachbarten Strichen 4 000 und 4 500 ist 4 250.
+- VT2-103 (sicherung): Vielfache von 200 und 150 unter 1 200: nur 600 (kgV 600); 1 200 ist das Ende und zählt nicht. Soll 1.
 - VT2-104 (sicherung): Fünf Striche heißen sechs Abschnitte, vierter Strich 400.
 - VT2-105 (sicherung): Gleicher Platz für ungleich große Unterschiede; die richtige Option nennt den Faktor 9.
 
 ## zahlen.natuerlich / runden_regel
 
-- VT2-106 (test): 4 750 bis 4 849: genau 100 Zahlen (4 849 rundet ab, 4 850 rundet auf 4 900); natürliche Zahlen, 4 750 und 4 849 mitgezählt.
-- VT2-107 (korrektur): 345 bis 354, bei Zehnern rundet 5 auf; Rand 345 mitgezählt.
+- VT2-106 (test): Zählen mit Randfällen: 1 bis 4 (beide Rundungen 0) und 95 bis 100 (beide 100); 5 bis 94 stimmen nicht überein; Soll 10.
+- VT2-107 (korrektur): Randfälle 4 499, 4 500 und 5 499 beim Runden auf Tausender; die Hunderterstelle entscheidet, nicht „fast 500“.
 - VT2-108 (korrektur): Größte Abweichung 50 (bei x950 → aufrunden); 49 und 100 sind Ablenker.
 - VT2-109 (korrektur): Fehler in Zeile 2 (4 < 5 heißt abrunden); Zeile 1 ist richtig.
-- VT2-110 (sicherung): Je nach Zahl größer, kleiner oder gleich; zu den „immer“-Optionen gibt es Gegenbeispiele.
-- VT2-111 (sicherung): Doppeltes Runden führt zu 3 700 statt 3 600; es zählt nur die erste weggelassene Stelle.
-- VT2-112 (sicherung): 345–354 → Zehner 350; nur 350–354 → Hunderter 400 (5 Zahlen).
+- VT2-110 (sicherung): Drei Aussagen mit „manchmal“ oder „nie“, genau eine nennt alle drei Fälle (größer, kleiner, gleich): 66 000 → 70 000, 64 000 → 60 000, 60 000 bleibt.
+- VT2-111 (sicherung): Die Rundungsbereiche liegen in der Reihenfolge der Zahlen: a < b gibt gerundet a ≤ b, Gleichheit ist möglich (4 760 und 4 770 → 4 800).
+- VT2-112 (sicherung): 1 249 → 1 200 und 1 250 → 1 300: gerundet 100 Unterschied, ursprünglich 1; zeigt den Sprung an der Rundungsgrenze.
 
 ## zahlen.natuerlich / runden_sinnvoll
 
-- VT2-113 (test): 1 234 · 6 = 7 404, 1 200 · 6 = 7 200, Abweichung 204; Einheit €.
-- VT2-114 (korrektur): 1 000 : 36 = 27,77… → 27 Trikots (abrunden); ganze Zahlen.
+- VT2-113 (test): Genau 48 · 29 = 1 392; Annas Schätzung 1 500 (108 zu viel), Bens 1 440 (48 zu viel).
+- VT2-114 (korrektur): Gleiche Rechnung 1 000 : 36 (≈ 27,8): bei A abrunden (27 Trikots), bei B aufrunden (28 Kisten).
 - VT2-115 (korrektur): Zwei Rundungen auf verschiedene Stellen; beide richtig, die erste genauer.
 - VT2-116 (korrektur): Erst runden 40 000, erst rechnen 39 480 → 39 000; zwei verschiedene Schätzungen.
 - VT2-117 (sicherung): Gerundete Beträge verschleiern 237 € < 249 €; Grobes Runden ist hier unbrauchbar.
@@ -175,20 +175,20 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 
 ## zahlen.natuerlich / roemisch_schreiben
 
-- VT2-120 (test): Zeile 2 (CCCC statt CD); 1 449 = MCDXLIX hat 7 Zeichen. Regel wird nicht genannt (sie gehört zum Wissen der Klasse 5).
+- VT2-120 (test): Vier C hintereinander verstoßen gegen die genannte Regel; Zeichenzahlen 9 (Nils) und 7 (richtig: MCDXLIX).
 - VT2-121 (korrektur): Regelwerk im Text; nur VC verstößt (V nicht vor C). Optionen CDXC, MCMXC, XLIV sind regelgerecht.
-- VT2-122 (korrektur): 3 888 = MMMDCCCLXXXVIII mit 15 Zeichen ist die längste Schreibweise unter 4 000.
+- VT2-122 (korrektur): Nur addiert: MDCCCCLXXXXVIIII (16 Zeichen); nach der Regel MCMXCIX (7 Zeichen).
 - VT2-123 (korrektur): Bausteine M, CM, XL, IV mit Werten 1 000, 900, 40, 4; Summe 1 944.
-- VT2-124 (sicherung): Paare IV, IX, XL stehen als Beispiele im Text; 44 und 49 enthalten zwei Paare und werden nur einmal gezählt (10 + 8 = 18).
+- VT2-124 (sicherung): IV/IX bei den Zahlen 4, 9, 14, …, 49 (10) und XL bei 40 bis 49 (8 zusätzlich ohne 44 und 49): 18; Fehlbild 8 beschreibt jetzt genau diese 8.
 - VT2-125 (sicherung): MIM verstößt gegen die I-Regel; 1 999 = MCMXCIX.
-- VT2-126 (sicherung): Neun Zahlen mit drei Zeichen (3, 7, 12, 14, 16, 19, 21, 25, 30); Aufzählung nachgerechnet.
+- VT2-126 (sicherung): 18 = XVIII und 23 = XXIII haben fünf Zeichen; 28 = XXVIII ist die kleinste mit sechs (geprüft durch Aufzählen 1 bis 99).
 
 ## zahlen.natuerlich / dualsystem
 
-- VT2-127 (test): Wert 13 → 27 durch Anhängen einer 1 (2 · 13 + 1).
-- VT2-128 (korrektur): 1, 2, 4, 8, 16, 32 sind die einzigen Zahlen bis 63 mit genau einer Eins → 6.
-- VT2-129 (korrektur): 10001 = 17, 1111 = 15; Stellenzahl entscheidet.
+- VT2-127 (test): Fünfstellige Zweierzahlen mit führender 1 haben die Werte 16 bis 31; über 20 liegen 21 bis 31, das sind 11 Zahlen.
+- VT2-128 (korrektur): Zweierpotenzen 32, 64, 128 haben nur eine 1; 24, 48, 96 haben zwei. Soll 3.
+- VT2-129 (korrektur): Eine führende Null ändert den Wert nicht: 0111 = 111 = 7; „Beide gleich groß“ ist hier die richtige Möglichkeit.
 - VT2-130 (korrektur): Fehler in Zeile 2 (Stellenwert 4 steht bei 0, die Einsen sind bei 1, 2 und 8); richtig 11.
-- VT2-131 (sicherung): 1 000 000 im Zweiersystem ist 64; Etikett „umkehren“ entfernt, Potenzschreibweise vermieden.
+- VT2-131 (sicherung): 1101 = 13, 0101 = 5, Unterschied 8 = Wert der vordersten Stelle.
 - VT2-132 (sicherung): 32 Zahlen von 0 bis 31, einschließlich 0 (Text).
 - VT2-133 (sicherung): 127 hat im Zweiersystem sieben Einsen; Lösungsweg und Fehlbilder ohne Potenzschreibweise.

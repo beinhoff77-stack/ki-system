@@ -178,14 +178,14 @@ def bauen():
        (1, 2, '2', 'Zeile 2 für falsch gehalten, obwohl 20 cm : 10 = 2 cm stimmt')],
       '1 000 entsprechen 20 cm : 10 = 2 cm. 7 500 sind 7,5 Tausender, also 7,5 · 2 cm = 15 cm. Ben hat die 500 vergessen; 14 cm gehören zu 7 000.',
       'Fehler-Detektiv bei einem Maßstab; die Übungen setzen die Zahl direkt auf die Skala.')
-    A(lz, 'sicherung', 'darstellung', None, 2, LP,
-      'Auf einem Zahlenstrahl liegen die Zahlen 4 000 und 4 500 als benachbarte Teilstriche. Welche Zahl liegt genau in der Mitte zwischen diesen beiden Teilstrichen?',
-      ['4 050', '4 200', '4 250', '4 400'], 2,
-      {0: 'Zu nahe an 4 000: 4 050 ist ein Zehntel des Abstands von 4 000.',
-       1: 'Zu nahe an 4 000: 4 200 liegt bei zwei Fünfteln des Abstands.',
-       3: 'Zu nahe an 4 500: 4 400 liegt bei vier Fünfteln des Abstands.'},
-      'Der Abstand ist 4 500 − 4 000 = 500. Die Hälfte ist 250. Die Mitte ist 4 000 + 250 = 4 250.',
-      'Die Mitte zweier Marken wird bestimmt; die Übungen suchen die Zahl an einem Teilstrich.', fest=True)
+    Z(lz, 'sicherung', 'transfer', None, 3, LP,
+      'Anna teilt den Zahlenstrahl von 0 bis 1 200 in 6 gleich große Abschnitte, Ben teilt ihn in 8 gleich große Abschnitte. Wie viele Zahlen zwischen 0 und 1 200 (ohne 0 und 1 200) liegen bei beiden auf einem Teilstrich?',
+      1, '1',
+      [(5, '6 − 1', 'nur die Teilstriche auf Annas Strahl gezählt'),
+       (7, '8 − 1', 'nur die Teilstriche auf Bens Strahl gezählt'),
+       (12, '5 + 7', 'die Teilstriche beider Strahlen addiert')],
+      'Annas Abschnitte sind 1 200 : 6 = 200 lang, Bens Abschnitte 1 200 : 8 = 150. Auf beiden Strahlen liegt eine Zahl auf einem Teilstrich, wenn sie ein Vielfaches von 200 und von 150 ist: 600 (und 1 200, das ist aber das Ende). Zwischen 0 und 1 200 ist es nur die 600.',
+      'Die Übungen tragen Zahlen auf einer Skala ein; hier werden zwei verschiedene Teilungen desselben Strahls verglichen.')
     Z(lz, 'sicherung', 'transfer', 'anwenden', 2, LP,
       'Zwischen den Marken 0 und 600 sind fünf Striche in gleichen Abständen eingezeichnet. Welche Zahl gehört zum vierten dieser fünf Striche (von 0 aus gezählt)?',
       400, '600 : 6 · 4',
@@ -208,14 +208,14 @@ def bauen():
 
     # ---------------- runden_regel ----------------
     lz = 'runden_regel'
-    Z(lz, 'test', 'umkehr', None, 3, LP,
-      'Zwei natürliche Zahlen a und b werden auf Hunderter gerundet. Für a ergibt sich 4 800, für b ergibt sich 5 000. Um wie viel kann b höchstens größer sein als a?',
-      299, '5049 − 4750',
-      [(200, '5000 − 4800', 'die gerundeten Zahlen voneinander abgezogen'),
-       (101, '4950 − 4849', 'den kleinstmöglichen Unterschied genannt'),
-       (300, '5050 − 4750', '5 050 als größtes b genommen, die schon auf 5 100 gerundet wird')],
-      'a kann 4 750 bis 4 849 sein, b kann 4 950 bis 5 049 sein. Der größte Unterschied entsteht mit dem größten b und dem kleinsten a: 5 049 − 4 750 = 299.',
-      'Die Übungen runden eine Zahl oder zählen die möglichen Zahlen; hier werden zwei Rundungsbereiche gegeneinander verschoben und ein Höchstabstand bestimmt.')
+    Z(lz, 'test', 'transfer', None, 3, LP,
+      'Für wie viele natürliche Zahlen von 1 bis 100 ergibt das Runden auf Zehner dieselbe Zahl wie das Runden auf Hunderter?',
+      10, '4 + 6',
+      [(6, '100 − 95 + 1', 'nur die Zahlen 95 bis 100 gezählt, die kleinen Zahlen 1 bis 4 vergessen (beide Rundungen ergeben dort 0)'),
+       (4, '4', 'nur die Zahlen 1 bis 4 gezählt, die Zahlen 95 bis 100 vergessen'),
+       (11, '4 + 6 + 1', 'die 5 mitgezählt, obwohl sie auf Zehner 10, auf Hunderter aber 0 ergibt')],
+      'Auf Hunderter gerundet ergeben die Zahlen 1 bis 49 den Wert 0 und die Zahlen 50 bis 100 den Wert 100. Auf Zehner gerundet ergeben 1 bis 4 den Wert 0, und 95 bis 100 den Wert 100 (95 wird zu 100). Nur dort stimmen beide Rundungen überein: 1, 2, 3, 4 und 95, 96, 97, 98, 99, 100, das sind 4 + 6 = 10 Zahlen.',
+      'Zwei Rundungen auf verschiedene Stellen werden für einen ganzen Zahlenbereich verglichen; die Übungen runden einzelne Zahlen oder zählen die Zahlen zu einem Rundungsergebnis.')
     L(lz, 'korrektur', 'begruenden', None, 2, LP,
       'Jonas rundet auf Tausender und sagt: „Ab 500 wird aufgerundet, und 499 ist ja fast 500.“ Trage ein, was beim Runden auf Tausender herauskommt: 4 499 wird zu □, 4 500 wird zu □ und 5 499 wird zu □.',
       '4 499 wird zu □; 4 500 wird zu □; 5 499 wird zu □', [4000, 5000, 5000], ['4000', '5000', '5000'],
@@ -253,17 +253,17 @@ def bauen():
        3: 'Liegt die Zahl schon auf einem Zehntausender (z. B. 60 000), bleibt sie beim Runden gleich.'},
       'Beispiele: 64 000 wird zu 60 000 (kleiner), 66 000 wird zu 70 000 (größer), 60 000 bleibt 60 000 (gleich). Es hängt von der Zehntausender-Folgestelle ab.',
       '„Immer, manchmal, nie“ mit Gegenbeispielen; die Übungen runden eine Zahl.')
-    A(lz, 'sicherung', 'pruefung', 'zwei_wege', 3, LP,
-      'Ben rundet 3 649 so: erst auf Zehner (3 650), dann auf Hunderter (3 700). Mia rundet 3 649 sofort auf Hunderter. Welche Aussage stimmt?',
-      ['Beide haben recht, denn 3 600 und 3 700 sind beide Näherungen von 3 649.',
-       'Ben hat recht, denn Runden in zwei Schritten ist genauer als in einem Schritt.',
-       'Mia hat recht, denn 3 649 liegt näher an 3 600; Ben rundet zweimal und kommt fälschlich auf 3 700.',
-       'Weder Ben noch Mia hat recht, denn richtig wäre 3 650, weil man auf Zehner genauer rundet.'], 2,
-      {0: 'Gerundet auf Hunderter gibt es nur ein richtiges Ergebnis: 3 600, denn 3 649 liegt näher an 3 600.',
-       1: 'Zweimal runden verfälscht: 3 649 liegt näher an 3 600 als an 3 700.',
-       3: '3 650 ist auf Hunderter gar nicht gerundet (es ist eine Zehnerzahl).'},
-      '3 649 liegt zwischen 3 600 und 3 700. Die Zehnerstelle ist 4, also wird abgerundet: 3 600. Ben macht erst 3 650 und dann 3 700. Der Abstand von 3 649 zu 3 600 ist 49, zu 3 700 aber 51.',
-      'Zwei Rundungswege werden verglichen (doppeltes Runden als Fehler); die Übungen runden in einem Schritt.')
+    A(lz, 'sicherung', 'begruenden', None, 3, LP,
+      'Zwei natürliche Zahlen a und b mit a < b werden beide auf Hunderter gerundet. Welche Aussage über die gerundeten Zahlen stimmt?',
+      ['Die gerundete Zahl von a ist nie größer als die von b, kann aber gleich sein, denn die Rundungsbereiche liegen in derselben Reihenfolge wie die Zahlen.',
+       'Die gerundete Zahl von a ist stets kleiner als die von b, denn aus a < b folgt auch gerundet a < b.',
+       'Die gerundete Zahl von a kann größer sein als die von b, denn beim Aufrunden springt a nach oben und b nicht.',
+       'Die gerundeten Zahlen sind nur dann gleich, wenn a = b ist, denn verschiedene Zahlen haben verschiedene Rundungen.'], 0,
+      {1: 'Nahe beieinander liegende Zahlen werden oft gleich gerundet: 4 760 und 4 770 ergeben beide 4 800.',
+       2: 'a kann b nicht überholen: Aus 4 849 → 4 800 und 4 850 → 4 900 sieht man, dass die kleinere Zahl höchstens denselben Wert bekommt.',
+       3: 'Verschiedene Zahlen können denselben Rundungswert haben: 4 760 und 4 770 ergeben beide 4 800.'},
+      'Beim Runden auf Hunderter gehört jede Zahl zu einem Bereich, zum Beispiel 4 750 bis 4 849 zu 4 800. Die Bereiche liegen in derselben Reihenfolge wie die Zahlen. Ist a < b, liegt a im selben oder in einem früheren Bereich als b, also ist gerundet a höchstens so groß wie gerundet b. Beispiel: 4 760 und 4 770 ergeben beide 4 800.',
+      'Eine Eigenschaft des Rundens (Reihenfolge bleibt erhalten, Gleichheit ist möglich) wird begründet; die Übungen runden einzelne Zahlen.')
     L(lz, 'sicherung', 'transfer', None, 3, LP,
       'Anna rundet 1 249 auf Hunderter, Ben rundet 1 250 auf Hunderter. Um wie viel unterscheiden sich die beiden gerundeten Zahlen, und um wie viel unterscheiden sich die ursprünglichen Zahlen?',
       'Gerundete Zahlen: □; ursprüngliche Zahlen: □', [100, 1], ['1300 − 1200', '1250 − 1249'],
@@ -275,14 +275,15 @@ def bauen():
       'Ein winziger Unterschied vor dem Runden wird nach dem Runden groß; die Übungen runden jede Zahl einzeln.')
     # ---------------- runden_sinnvoll ----------------
     lz = 'runden_sinnvoll'
-    Z(lz, 'test', 'transfer', None, 3, LP,
-      'Ein Schwimmbad hatte 1 234 Besucher. Eine Karte kostet 6 €. Die Leiterin rundet die Besucherzahl auf Hunderter und rechnet damit die Einnahmen aus. Um wie viel Euro weicht die Schätzung vom genauen Wert ab?',
-      204, '1234 · 6 − 1200 · 6',
-      [(34, '1234 − 1200', 'nur den Fehler der Besucherzahl angegeben, nicht den Fehler der Einnahmen'),
-       (7200, '1200 · 6', 'die geschätzten Einnahmen statt der Abweichung angegeben'),
-       (7404, '1234 · 6', 'die genauen Einnahmen statt der Abweichung angegeben')],
-      'Genaue Einnahmen: 1 234 · 6 € = 7 404 €. Geschätzt: 1 200 · 6 € = 7 200 €. Die Abweichung ist 204 €. Der Rundungsfehler 34 Besucher wird mit dem Kartenpreis 6 € vervielfacht.',
-      'Ein Rundungsfehler wird beim Weiterrechnen vervielfacht; die Übungen runden die Ausgangszahl nur und beurteilen sie.', '€')
+    L(lz, 'test', 'transfer', None, 3, LP,
+      'In einem Saal gibt es 48 Reihen mit je 29 Plätzen. Anna schätzt die Platzzahl mit 50 · 30, Ben mit 48 · 30. Um wie viel liegt jede der beiden Schätzungen über der genauen Platzzahl?',
+      'Annas Schätzung liegt □ darüber, Bens Schätzung liegt □ darüber', [108, 48], ['50 · 30 − 48 · 29', '48 · 30 − 48 · 29'],
+      [(1, 60, '50 · 30 − 48 · 30', 'nur den Unterschied zu Bens Schätzung angegeben'),
+       (1, 1500, '50 · 30', 'die Schätzung selbst statt der Abweichung angegeben'),
+       (2, 1, '30 − 29', 'nur den Fehler je Reihe (1 Platz) angegeben'),
+       (2, 1440, '48 · 30', 'die Schätzung selbst statt der Abweichung angegeben')],
+      'Genau: 48 · 29 = 1 392 Plätze. Anna: 50 · 30 = 1 500, das sind 108 zu viel. Ben: 48 · 30 = 1 440, das sind 48 zu viel (1 Platz zu viel je Reihe). Wer beide Faktoren aufrundet, verstärkt den Fehler.',
+      'Die Übungen runden eine Zahl oder eine Summe; hier wird beim Produkt gerundet, und der Fehler wächst, wenn beide Faktoren aufgerundet werden.')
     L(lz, 'korrektur', 'transfer', 'anwenden', 2, LP,
       'Beide Aufgaben beruhen auf derselben Rechnung 1 000 : 36 (etwa 27,8). Aufgabe A: Ein Verein hat 1 000 € und kauft Trikots zu je 36 €. Wie viele Trikots kann er höchstens kaufen? Aufgabe B: 1 000 Kinder bekommen je eine Flasche, die es nur in Kisten zu je 36 Stück gibt. Wie viele Kisten muss man mindestens kaufen?',
       'Aufgabe A: □ Trikots; Aufgabe B: □ Kisten', [27, 28], ['27', '28'],
@@ -365,14 +366,15 @@ def bauen():
        3: 'MCMXC = 1 000 + 900 + 90 = 1 990 ist regelgerecht (M, CM, XC).'},
       'V darf nicht vor C stehen, denn vor einem größeren Zeichen darf nur I, X oder C stehen, und V gehört nicht dazu. 95 schreibt man XCV. Die anderen drei Zahlen halten die Regeln ein.',
       'Regelgerechtheit statt Umwandlung; die Übungen schreiben eine Zahl um.')
-    Z(lz, 'korrektur', 'umkehr', None, 2, LP,
-      'Unter den Zahlen von 1 bis 3 999 hat die Zahl 3 888 die längste römische Schreibweise. Wie viele Zeichen hat sie (nach den üblichen Regeln geschrieben)?',
-      15, '3 + 1 + 3 + 1 + 3 + 4',
-      [(12, '3 + 3 + 3 + 3', 'jede Stelle mit drei Zeichen gerechnet'),
-       (14, '3 + 1 + 3 + 1 + 3 + 3', 'die vier Zeichen von VIII mit drei angesetzt'),
-       (4, '4', 'nur die Anzahl der Stellen genannt')],
-      '3 888 = 3 000 + 800 + 80 + 8 = MMM + DCCC + LXXX + VIII. Das sind 3 + 4 + 4 + 4 = 15 Zeichen, nämlich MMMDCCCLXXXVIII.',
-      'Die längste Schreibweise wird über die Bausteine begründet; die Übungen schreiben eine Zahl.')
+    L(lz, 'korrektur', 'darstellung', None, 2, LP,
+      'Die Zahl 1 999 wird römisch einmal ohne die Subtraktionsregel geschrieben (es wird nur addiert, mit den Zeichen M, D, C, L, X, V und I; ein Zeichen darf dann auch öfter als dreimal stehen) und einmal mit der Subtraktionsregel nach den üblichen Regeln. Aus wie vielen Zeichen besteht jede der beiden Schreibweisen?',
+      'Ohne Subtraktionsregel □ Zeichen; mit der Regel □ Zeichen', [16, 7], ['1 + 1 + 4 + 1 + 4 + 1 + 4', '1 + 2 + 2 + 2'],
+      [(1, 7, '1 + 2 + 2 + 2', 'die Länge der kürzeren Schreibweise auch für die längere angegeben'),
+       (1, 15, '16 − 1', 'ein Zeichen der langen Schreibweise vergessen'),
+       (2, 16, '1 + 1 + 4 + 1 + 4 + 1 + 4', 'die Länge der längeren Schreibweise auch für die Regel-Schreibweise angegeben'),
+       (2, 9, '16 − 7', 'den Unterschied der Längen statt der Länge angegeben')],
+      'Nur addiert: 1 999 = M + D + CCCC + L + XXXX + V + IIII = MDCCCCLXXXXVIIII, das sind 1 + 1 + 4 + 1 + 4 + 1 + 4 = 16 Zeichen. Mit der Subtraktionsregel: M + CM + XC + IX = MCMXCIX, das sind 1 + 2 + 2 + 2 = 7 Zeichen. Die Regel spart 9 Zeichen.',
+      'Wozu die Subtraktionsregel gut ist (Zeichen sparen); die Übungen schreiben Zahlen nur nach der Regel.')
     L(lz, 'korrektur', 'darstellung', None, 2, LP,
       'Die römische Zahl MCMXLIV besteht aus den Bausteinen M, CM, XL und IV. Welchen Wert hat jeder Baustein?',
       'M = □, CM = □, XL = □, IV = □', [1000, 900, 40, 4], ['1000', '1000 − 100', '50 − 10', '5 − 1'],
@@ -402,14 +404,13 @@ def bauen():
       'Anna: M = 1 000, CM = 900, XC = 90, IX = 9, zusammen 1 999. Ben: I vor M wäre „1 000 − 1 = 999“ und ist nach den Regeln nicht erlaubt (nur I vor V oder X).',
       'Zwei Schreibweisen derselben Zahl werden an den Regeln geprüft; die Übungen schreiben eine Zahl.')
     Z(lz, 'sicherung', 'parameter', None, 3, LP,
-      'Von den Zahlen 1 bis 30 werden die römischen Zahlen nach den üblichen Regeln geschrieben (zum Beispiel IV, XXIX). Wie viele dieser Zahlen bestehen aus genau drei Zeichen?',
-      9, '9',
-      [(8, '9 − 1', 'eine der Zahlen (z. B. XIV oder XXV) übersehen'),
-       (10, '9 + 1', 'eine Zahl mit vier Zeichen (z. B. VIII) mitgezählt'),
-       (7, '9 − 2', 'zwei der Zahlen übersehen')],
-      'Dreizeichen-Zahlen: III (3), VII (7), XII (12), XIV (14), XVI (16), XIX (19), XXI (21), XXV (25), XXX (30). Das sind 9. Die anderen Zahlen haben ein, zwei oder mehr als drei Zeichen (z. B. VIII hat vier).',
-      'Systematisches Durchzählen mit allen Regeln; die Übungen schreiben eine einzelne Zahl.')
-
+      'Wie heißt die kleinste natürliche Zahl, deren römische Schreibweise (nach den üblichen Regeln) aus genau sechs Zeichen besteht?',
+      28, '28',
+      [(18, '18', 'XVIII hat nur fünf Zeichen'),
+       (23, '23', 'XXIII hat nur fünf Zeichen'),
+       (38, '38', 'XXXVIII hat sieben Zeichen')],
+      'Bis 17 hat keine Zahl mehr als vier Zeichen (VIII, XIII, XVII). 18 = XVIII hat fünf, 23 = XXIII und 27 = XXVII haben fünf. 28 = XXVIII hat genau sechs Zeichen, und keine kleinere Zahl hat sechs.',
+      'Die Zeichenzahl wird rückwärts über viele Zahlen gesucht; die Übungen schreiben eine einzelne Zahl.')
     # ---------------- dualsystem ----------------
     lz = 'dualsystem'
     Z(lz, 'test', 'transfer', None, 3, LP,
@@ -421,13 +422,13 @@ def bauen():
       'Mit fünf Ziffern und führender 1 ist die kleinste Zahl 10000 = 16 und die größte 11111 = 16 + 8 + 4 + 2 + 1 = 31. Über 20 liegen die Werte 21 bis 31, das sind 11 Zahlen.',
       'Eine Länge im Zweiersystem wird in einen Wertebereich übersetzt und mit einer Schwelle abgeglichen; die Übungen wandeln einzelne Zahlen um.')
     Z(lz, 'korrektur', 'transfer', None, 2, LP,
-      'Im Zweiersystem schreibt man die Zahlen von 1 bis 63. Bei wie vielen davon kommt die Ziffer 1 nur ein einziges Mal vor?',
-      6, '6',
-      [(5, '5', 'die Zahl 32 nicht mitgezählt, weil sechs Stellen ungewohnt sind'),
-       (7, '7', 'die 0 oder die 64 mitgezählt'),
-       (63, '63', 'alle Zahlen gezählt')],
-      'Eine Zweierzahl mit genau einer Eins ist eine Eins mit lauter Nullen: 1, 10, 100, 1000, 10000 und 100000. Das sind die Zahlen 1, 2, 4, 8, 16 und 32. Also gibt es 6 solche Zahlen.',
-      'Die Stellenwerte 1, 2, 4, 8, 16 werden als die Zahlen mit genau einer Eins erkannt; die Übungen zerlegen eine einzelne Zahl.')
+      'Wie viele der Zahlen 24, 32, 48, 64, 96 und 128 werden im Zweiersystem mit nur einer einzigen Ziffer 1 geschrieben (alle anderen Ziffern sind Nullen)?',
+      3, '3',
+      [(6, '6', 'alle sechs Zahlen gezählt'),
+       (2, '3 − 1', 'eine der Zweierpotenzen (32, 64, 128) übersehen'),
+       (4, '3 + 1', '96 mitgezählt, obwohl 96 = 64 + 32 zwei Einsen hat')],
+      'Eine Zahl mit nur einer Ziffer 1 ist eine Zweierpotenz. Das sind 32 = 100000, 64 = 1000000 und 128 = 10000000. Dagegen ist 24 = 16 + 8 = 11000, 48 = 32 + 16 = 110000 und 96 = 64 + 32 = 1100000, jeweils mit zwei Einsen. Es sind 3 Zahlen.',
+      'Zweierpotenzen werden an ihrer Zweierschreibweise erkannt (genau eine 1); die Übungen wandeln einzelne Zahlen um.')
     A(lz, 'korrektur', 'begruenden', None, 2, LP,
       'Welche Aussage über die Zweierzahlen 0111 und 111 stimmt?',
       ['0111 ist größer, denn sie hat vier Stellen und 111 nur drei.',
@@ -448,14 +449,14 @@ def bauen():
        (1, 1, '1', 'Zeile 1 für falsch gehalten, obwohl die Stellenwerte stimmen')],
       'Von rechts: 1 (Stellenwert 1), 1 (Stellenwert 2), 0 (Stellenwert 4), 1 (Stellenwert 8). Die Einsen stehen bei 1, 2 und 8. 1011 = 8 + 2 + 1 = 11.',
       'Fehler-Detektiv bei der Zuordnung der Ziffern zu den Stellenwerten; die Übungen geben die Stellenwerte vor.')
-    Z(lz, 'sicherung', 'transfer', 'umkehren', 2, LP,
-      'Eine Zweierzahl besteht aus einer 1 und sechs Nullen (1 000 000). Welche Zahl ist das im Zehnersystem?',
-      64, '2 · 2 · 2 · 2 · 2 · 2',
-      [(12, '2 · 6', 'Stellenzahl mit 2 malgenommen statt sechsmal die 2 zu multiplizieren'),
-       (128, '2 · 2 · 2 · 2 · 2 · 2 · 2', 'siebenmal mit 2 multipliziert (einen Stellenwert zu viel)'),
-       (36, '6 · 6', 'die Anzahl der Nullen quadriert')],
-      'Die 1 steht an der siebten Stelle von rechts. Die Stellenwerte sind 1, 2, 4, 8, 16, 32, 64. Also ist 1 000 000 im Zweiersystem 64.',
-      'Eine große Stellenzahl ohne Umrechnung jeder Stelle: Potenzdenken; die Übungen haben kurze Zweierzahlen.')
+    Z(lz, 'sicherung', 'transfer', None, 2, LP,
+      'Die Zweierzahl 1101 hat im Zehnersystem den Wert 13. Eine zweite Zweierzahl entsteht, indem man bei 1101 die erste Ziffer 1 durch 0 ersetzt (0101). Um wie viel ist die erste Zahl größer als die zweite?',
+      8, '13 − 5',
+      [(1, '1', 'die ersetzte Ziffer wie eine Einerziffer gezählt'),
+       (5, '13 − 8', 'den Wert der zweiten Zahl statt des Unterschieds angegeben'),
+       (4, '4', 'den Wert der dritten Stelle statt der vordersten genommen')],
+      '1101 = 8 + 4 + 1 = 13. 0101 = 4 + 1 = 5. Der Unterschied ist 13 − 5 = 8: Die vorderste Ziffer 1 steht an der Achterstelle und ist 8 wert.',
+      'Der Stellenwert der vordersten Stelle wird über den Unterschied zweier Zweierzahlen erschlossen; die Übungen wandeln eine Zahl um.')
     Z(lz, 'sicherung', 'parameter', None, 3, LP,
       'Wie viele verschiedene natürliche Zahlen (einschließlich der 0) kann man mit höchstens 5 Ziffern im Zweiersystem schreiben?',
       32, '2 · 2 · 2 · 2 · 2',

@@ -60,3 +60,16 @@ IDEEN.update({
  107: 'Randfälle an der Rundungsgrenze', 112: 'Kleiner Unterschied, großer Sprung beim Runden', 114: 'Gleiche Rechnung, andere Rundungsrichtung',
  120: 'Regel anwenden und Längen vergleichen', 127: 'Länge im Zweiersystem als Wertebereich', 129: 'Führende Null ändert den Wert nicht',
 })
+
+IDEEN.update({
+ 53: 'Mehrere gleichwertige Produktformen prüfen', 58: 'Parameter für das Quadrat einer Differenz', 106: 'Zehner- und Hunderterrundung über einen Zahlenbereich vergleichen',
+ 111: 'Reihenfolge bleibt beim Runden erhalten',
+})
+
+IDEEN.update({
+ 15: 'Zinsunterschied zweier Zinssätze auf das Kapital zurückführen', 30: 'Glieder zählen und Vorzeichen des x²-Gliedes',
+ 34: 'Gegenläufige x-Glieder heben sich auf', 43: 'Sechs Terme in gleichwertige Gruppen sortieren',
+ 64: 'Der Abstand zum Mittelpunkt bleibt bei allen rechtwinkligen Dreiecken gleich', 83: 'Aus zwei Teilwinkeln am Inkreismittelpunkt alle Winkel',
+ 103: 'Zwei Teilungen desselben Zahlenstrahls', 113: 'Fehler beim Aufrunden zweier Faktoren', 122: 'Warum die Subtraktionsregel Zeichen spart',
+ 126: 'Kleinste Zahl mit sechs Zeichen', 128: 'Zweierpotenzen erkennen', 131: 'Wert der vordersten Zweierstelle über einen Unterschied',
+})

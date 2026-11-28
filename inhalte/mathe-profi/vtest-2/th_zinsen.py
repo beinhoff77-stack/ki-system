@@ -49,21 +49,21 @@ def bauen():
       'Die Rückzahlung besteht aus dem geliehenen Betrag (100 %) und den Zinsen (3 %), das sind 103 % des Kredits. 5 150 € : 1,03 = 5 000 €. Probe: 3 % von 5 000 € sind 150 €, und 5 000 € + 150 € = 5 150 €.',
       'Rückzahlung und Kredit müssen auseinandergehalten werden (Zinsen stecken in der Rückzahlung); die Übungen nennen den geliehenen Betrag.', '€')
     Z(lz, 'sicherung', 'rueckwaerts', None, 3, LP,
-      'Jonas hat einen Kredit über 2 000 € zu 6 % Jahreszinsen. Sein Sparbuch wird mit 2 % Jahreszinsen verzinst. Wie viel Euro müssten auf dem Sparbuch liegen, damit er im Jahr genauso viele Zinsen bekommt, wie er zahlt?',
-      6000, '2000 · 0,06 : 0,02',
-      [(2000, '2000', 'gleich viel Geld wie der Kredit genommen; die Zinssätze sind aber verschieden'),
-       (120, '2000 · 0,06', 'die gezahlten Kreditzinsen (120 €) statt des Guthabens angegeben'),
-       (40, '2000 · 0,02', 'die Sparzinsen auf 2 000 € (40 €) angegeben statt des nötigen Guthabens')],
-      'Kreditzinsen: 2 000 € · 0,06 = 120 €. Das Sparbuch muss ebenfalls 120 € bringen, also 2 % von G = 120 €. Dann ist G = 120 € : 0,02 = 6 000 €.',
+      'Jonas hat einen Kredit über 3 000 € zu 8 % Jahreszinsen. Sein Sparbuch wird mit 2 % Jahreszinsen verzinst. Wie viel Euro müssten auf dem Sparbuch liegen, damit er im Jahr genauso viele Zinsen bekommt, wie er zahlt?',
+      12000, '3000 · 0,08 : 0,02',
+      [(3000, '3000', 'gleich viel Geld wie der Kredit genommen; die Zinssätze sind aber verschieden'),
+       (240, '3000 · 0,08', 'die gezahlten Kreditzinsen (240 €) statt des Guthabens angegeben'),
+       (60, '3000 · 0,02', 'die Sparzinsen auf 3 000 € (60 €) angegeben statt des nötigen Guthabens')],
+      'Kreditzinsen: 3 000 € · 0,08 = 240 €. Das Sparbuch muss ebenfalls 240 € bringen, also 2 % von G = 240 €. Dann ist G = 240 € : 0,02 = 12 000 €.',
       'Rückwärts: gesucht ist das Guthaben, bei dem sich die beiden Rollen ausgleichen; die Übungen rechnen vorwärts.', '€')
     L(lz, 'sicherung', 'transfer', 'anwenden', 3, LP,
-      'Eine Bank nimmt 200 000 € Spareinlagen an und zahlt dafür 1 % Jahreszinsen. Davon verleiht sie 150 000 € zu 6 % Jahreszinsen; der Rest liegt ohne Zinsen im Tresor. Wie viel Euro Zinsen zahlt die Bank im Jahr an die Sparer, und wie viel Euro Zinsen bekommt sie von den Kreditnehmern?',
-      'Sie zahlt □ €, sie bekommt □ €', [2000, 9000], ['200000 · 0,01', '150000 · 0,06'],
-      [(1, 1500, '150000 · 0,01', 'die Sparzinsen nur auf den verliehenen Betrag gerechnet'),
-       (2, 12000, '200000 · 0,06', 'die Kreditzinsen auf alle Spareinlagen gerechnet'),
-       (1, 9000, '150000 · 0,06', 'Rollen vertauscht: die Kreditzinsen als gezahlt eingetragen'),
-       (2, 2000, '200000 · 0,01', 'Rollen vertauscht: die Sparzinsen als bekommen eingetragen')],
-      'Die Sparer bekommen Zinsen auf alle 200 000 €: 200 000 € · 0,01 = 2 000 €, die zahlt die Bank. Die Kreditnehmer zahlen Zinsen auf 150 000 €: 150 000 € · 0,06 = 9 000 €, die bekommt die Bank. Die Bank sieht also die Rollen umgekehrt wie ein Sparer.',
+      'Eine Bank nimmt 200 000 € Spareinlagen an und zahlt dafür 0,5 % Jahreszinsen. Davon verleiht sie 150 000 € zu 5 % Jahreszinsen; der Rest liegt ohne Zinsen im Tresor. Wie viel Euro Zinsen zahlt die Bank im Jahr an die Sparer, und wie viel Euro Zinsen bekommt sie von den Kreditnehmern?',
+      'Sie zahlt □ €, sie bekommt □ €', [1000, 7500], ['200000 · 0,005', '150000 · 0,05'],
+      [(1, 750, '150000 · 0,005', 'die Sparzinsen nur auf den verliehenen Betrag gerechnet'),
+       (2, 10000, '200000 · 0,05', 'die Kreditzinsen auf alle Spareinlagen gerechnet'),
+       (1, 7500, '150000 · 0,05', 'Rollen vertauscht: die Kreditzinsen als gezahlt eingetragen'),
+       (2, 1000, '200000 · 0,005', 'Rollen vertauscht: die Sparzinsen als bekommen eingetragen')],
+      'Die Sparer bekommen Zinsen auf alle 200 000 €: 200 000 € · 0,005 = 1 000 €, die zahlt die Bank. Die Kreditnehmer zahlen Zinsen auf 150 000 €: 150 000 € · 0,05 = 7 500 €, die bekommt die Bank. Die Bank sieht also die Rollen umgekehrt wie ein Sparer.',
       'Die Rollen werden aus Sicht der Bank gesehen (umgekehrt zum Sparer), und zwei verschiedene Beträge sind zu trennen.')
     # ---------------- jahreszinsen_komma ----------------
     lz = 'jahreszinsen_komma'
@@ -134,14 +134,14 @@ def bauen():
       'Es wird geprüft, welche Zerlegung des Zinssatzes erlaubt ist; die Übungen rechnen mit einem Faktor.')
     # ---------------- kapital ----------------
     lz = 'kapital'
-    Z(lz, 'test', 'parameter', None, 3, LP,
-      'Eine Familie möchte aus einer Geldanlage 600 € Zinsen im Jahr bekommen. Der Zinssatz sinkt von 4 % auf 2,5 %. Um wie viel Euro muss die Familie das angelegte Kapital erhöhen, damit sie weiter 600 € Zinsen im Jahr bekommt?',
-      9000, '600 : 0,025 − 600 : 0,04',
-      [(24000, '600 : 0,025', 'nur das neue Kapital (24 000 €) angegeben und nicht die Erhöhung'),
-       (15000, '600 : 0,04', 'nur das alte Kapital (15 000 €) berechnet, das Erhöhen vergessen'),
-       (1500, '600 : 0,4', 'das Kapital mit 0,4 statt 0,04 berechnet')],
-      'Altes Kapital: 600 € : 0,04 = 15 000 €. Neues Kapital: 600 € : 0,025 = 24 000 €. Die Erhöhung beträgt 24 000 € − 15 000 € = 9 000 €.',
-      'Umkehren und Vergleichen: Zwei Kapitalien aus denselben Zinsen und verschiedenen Zinssätzen; die Übungen berechnen ein einziges Kapital.', '€')
+    Z(lz, 'test', 'rueckwaerts', None, 3, LP,
+      'Ein Kapital bringt bei einem Zinssatz von 4 % im Jahr 45 € mehr Zinsen als bei einem Zinssatz von 2,5 %. Wie groß ist das Kapital?',
+      3000, '45 : 0,015',
+      [(1125, '45 : 0,04', 'die 45 € als Zinsen bei 4 % genommen'),
+       (1800, '45 : 0,025', 'die 45 € als Zinsen bei 2,5 % genommen'),
+       (300, '45 : 0,15', 'den Zinssatzunterschied 1,5 % als 15 % gerechnet')],
+      'Der Unterschied der Zinssätze ist 4 % − 2,5 % = 1,5 %. Dieser Unterschied bringt 45 € Zinsen. Also ist 1,5 % von K gleich 45 €, und K = 45 € : 0,015 = 3 000 €. Probe: 4 % von 3 000 € sind 120 €, 2,5 % sind 75 €, der Unterschied ist 45 €.',
+      'Gegeben ist nicht ein Zinsbetrag, sondern der Unterschied zweier Zinsbeträge; die Übungen nennen die Zinsen direkt.', '€')
     A(lz, 'korrektur', 'begruenden', None, 2, LP,
       'Zwei Sparer bekommen bei demselben Zinssatz und derselben Anlagedauer Zinsen. Sparer A bekommt doppelt so hohe Zinsen wie Sparer B. Welche Aussage über die Kapitalien stimmt?',
       ['Das Kapital von A ist doppelt so groß, denn Zinsen und Kapital sind dann proportional.',

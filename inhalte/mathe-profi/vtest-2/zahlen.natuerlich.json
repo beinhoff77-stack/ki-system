@@ -1165,33 +1165,34 @@
    "thema": "zahlen.natuerlich",
    "lernkarte": "strahl_eintragen",
    "pool": "sicherung",
-   "typ": "darstellung",
+   "typ": "transfer",
    "form": null,
-   "stufe": 2,
+   "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.zahlengerade",
-   "abgrenzung": "Die Mitte zweier Marken wird bestimmt; die Übungen suchen die Zahl an einem Teilstrich.",
-   "antwortform": "auswahl",
+   "abgrenzung": "Die Übungen tragen Zahlen auf einer Skala ein; hier werden zwei verschiedene Teilungen desselben Strahls verglichen.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "1",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "4 050",
-     "beschreibung": "Zu nahe an 4 000: 4 050 ist ein Zehntel des Abstands von 4 000.",
+     "antwort": 5,
+     "rechnung": "6 − 1",
+     "beschreibung": "nur die Teilstriche auf Annas Strahl gezählt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
-     "antwort": "4 200",
-     "beschreibung": "Zu nahe an 4 000: 4 200 liegt bei zwei Fünfteln des Abstands.",
+     "antwort": 7,
+     "rechnung": "8 − 1",
+     "beschreibung": "nur die Teilstriche auf Bens Strahl gezählt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
-     "antwort": "4 400",
-     "beschreibung": "Zu nahe an 4 500: 4 400 liegt bei vier Fünfteln des Abstands.",
+     "antwort": 12,
+     "rechnung": "5 + 7",
+     "beschreibung": "die Teilstriche beider Strahlen addiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1200,24 +1201,18 @@
     "l": "strahl_eintragen",
     "t": "strahl_eintragen",
     "p": "sicherung",
-    "s": 2,
-    "g": "darstellung",
-    "y": "auswahl",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
     "f": {
-     "text": "Auf einem Zahlenstrahl liegen die Zahlen 4 000 und 4 500 als benachbarte Teilstriche. Welche Zahl liegt genau in der Mitte zwischen diesen beiden Teilstrichen?"
+     "text": "Anna teilt den Zahlenstrahl von 0 bis 1 200 in 6 gleich große Abschnitte, Ben teilt ihn in 8 gleich große Abschnitte. Wie viele Zahlen zwischen 0 und 1 200 (ohne 0 und 1 200) liegen bei beiden auf einem Teilstrich?"
     },
-    "a": [
-     "4 050",
-     "4 200",
-     "4 250",
-     "4 400"
-    ],
     "o": {
-     "index": 2
+     "wert": 1
     },
-    "w": "Der Abstand ist 4 500 − 4 000 = 500. Die Hälfte ist 250. Die Mitte ist 4 000 + 250 = 4 250."
+    "w": "Annas Abschnitte sind 1 200 : 6 = 200 lang, Bens Abschnitte 1 200 : 8 = 150. Auf beiden Strahlen liegt eine Zahl auf einem Teilstrich, wenn sie ein Vielfaches von 200 und von 150 ist: 600 (und 1 200, das ist aber das Ende). Zwischen 0 und 1 200 ist es nur die 600."
    },
-   "idee": "Zahl zwischen zwei Teilstrichen"
+   "idee": "Zwei Teilungen desselben Zahlenstrahls"
   },
   {
    "kennung": "VT2-104",
@@ -1338,34 +1333,34 @@
    "lernkarte": "runden_regel",
    "pool": "test",
    "ersetzt_test": true,
-   "typ": "umkehr",
+   "typ": "transfer",
    "form": null,
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.buendeln",
-   "abgrenzung": "Die Übungen runden eine Zahl oder zählen die möglichen Zahlen; hier werden zwei Rundungsbereiche gegeneinander verschoben und ein Höchstabstand bestimmt.",
+   "abgrenzung": "Zwei Rundungen auf verschiedene Stellen werden für einen ganzen Zahlenbereich verglichen; die Übungen runden einzelne Zahlen oder zählen die Zahlen zu einem Rundungsergebnis.",
    "antwortform": "zahl",
-   "loesung_rechnung": "5049 − 4750",
+   "loesung_rechnung": "4 + 6",
    "fehlbilder": [
     {
-     "antwort": 200,
-     "rechnung": "5000 − 4800",
-     "beschreibung": "die gerundeten Zahlen voneinander abgezogen",
+     "antwort": 6,
+     "rechnung": "100 − 95 + 1",
+     "beschreibung": "nur die Zahlen 95 bis 100 gezählt, die kleinen Zahlen 1 bis 4 vergessen (beide Rundungen ergeben dort 0)",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 101,
-     "rechnung": "4950 − 4849",
-     "beschreibung": "den kleinstmöglichen Unterschied genannt",
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "nur die Zahlen 1 bis 4 gezählt, die Zahlen 95 bis 100 vergessen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 300,
-     "rechnung": "5050 − 4750",
-     "beschreibung": "5 050 als größtes b genommen, die schon auf 5 100 gerundet wird",
+     "antwort": 11,
+     "rechnung": "4 + 6 + 1",
+     "beschreibung": "die 5 mitgezählt, obwohl sie auf Zehner 10, auf Hunderter aber 0 ergibt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1375,17 +1370,17 @@
     "t": "runden_regel",
     "p": "test",
     "s": 3,
-    "g": "umkehr",
+    "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Zwei natürliche Zahlen a und b werden auf Hunderter gerundet. Für a ergibt sich 4 800, für b ergibt sich 5 000. Um wie viel kann b höchstens größer sein als a?"
+     "text": "Für wie viele natürliche Zahlen von 1 bis 100 ergibt das Runden auf Zehner dieselbe Zahl wie das Runden auf Hunderter?"
     },
     "o": {
-     "wert": 299
+     "wert": 10
     },
-    "w": "a kann 4 750 bis 4 849 sein, b kann 4 950 bis 5 049 sein. Der größte Unterschied entsteht mit dem größten b und dem kleinsten a: 5 049 − 4 750 = 299."
+    "w": "Auf Hunderter gerundet ergeben die Zahlen 1 bis 49 den Wert 0 und die Zahlen 50 bis 100 den Wert 100. Auf Zehner gerundet ergeben 1 bis 4 den Wert 0, und 95 bis 100 den Wert 100 (95 wird zu 100). Nur dort stimmen beide Rundungen überein: 1, 2, 3, 4 und 95, 96, 97, 98, 99, 100, das sind 4 + 6 = 10 Zahlen."
    },
-   "idee": "Höchstabstand zweier Rundungsbereiche"
+   "idee": "Zehner- und Hunderterrundung über einen Zahlenbereich vergleichen"
   },
   {
    "kennung": "VT2-107",
@@ -1653,33 +1648,33 @@
    "thema": "zahlen.natuerlich",
    "lernkarte": "runden_regel",
    "pool": "sicherung",
-   "typ": "pruefung",
-   "form": "zwei_wege",
+   "typ": "begruenden",
+   "form": null,
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.buendeln",
-   "abgrenzung": "Zwei Rundungswege werden verglichen (doppeltes Runden als Fehler); die Übungen runden in einem Schritt.",
+   "abgrenzung": "Eine Eigenschaft des Rundens (Reihenfolge bleibt erhalten, Gleichheit ist möglich) wird begründet; die Übungen runden einzelne Zahlen.",
    "antwortform": "auswahl",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Weder Ben noch Mia hat recht, denn richtig wäre 3 650, weil man auf Zehner genauer rundet.",
-     "beschreibung": "3 650 ist auf Hunderter gar nicht gerundet (es ist eine Zehnerzahl).",
+     "antwort": "Die gerundeten Zahlen sind nur dann gleich, wenn a = b ist, denn verschiedene Zahlen haben verschiedene Rundungen.",
+     "beschreibung": "Verschiedene Zahlen können denselben Rundungswert haben: 4 760 und 4 770 ergeben beide 4 800.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 1,
-     "antwort": "Ben hat recht, denn Runden in zwei Schritten ist genauer als in einem Schritt.",
-     "beschreibung": "Zweimal runden verfälscht: 3 649 liegt näher an 3 600 als an 3 700.",
+     "antwort": "Die gerundete Zahl von a kann größer sein als die von b, denn beim Aufrunden springt a nach oben und b nicht.",
+     "beschreibung": "a kann b nicht überholen: Aus 4 849 → 4 800 und 4 850 → 4 900 sieht man, dass die kleinere Zahl höchstens denselben Wert bekommt.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 2,
-     "antwort": "Beide haben recht, denn 3 600 und 3 700 sind beide Näherungen von 3 649.",
-     "beschreibung": "Gerundet auf Hunderter gibt es nur ein richtiges Ergebnis: 3 600, denn 3 649 liegt näher an 3 600.",
+     "antwort": "Die gerundete Zahl von a ist stets kleiner als die von b, denn aus a < b folgt auch gerundet a < b.",
+     "beschreibung": "Nahe beieinander liegende Zahlen werden oft gleich gerundet: 4 760 und 4 770 ergeben beide 4 800.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1689,23 +1684,23 @@
     "t": "runden_regel",
     "p": "sicherung",
     "s": 3,
-    "g": "pruefung",
+    "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Ben rundet 3 649 so: erst auf Zehner (3 650), dann auf Hunderter (3 700). Mia rundet 3 649 sofort auf Hunderter. Welche Aussage stimmt?"
+     "text": "Zwei natürliche Zahlen a und b mit a < b werden beide auf Hunderter gerundet. Welche Aussage über die gerundeten Zahlen stimmt?"
     },
     "a": [
-     "Weder Ben noch Mia hat recht, denn richtig wäre 3 650, weil man auf Zehner genauer rundet.",
-     "Ben hat recht, denn Runden in zwei Schritten ist genauer als in einem Schritt.",
-     "Beide haben recht, denn 3 600 und 3 700 sind beide Näherungen von 3 649.",
-     "Mia hat recht, denn 3 649 liegt näher an 3 600; Ben rundet zweimal und kommt fälschlich auf 3 700."
+     "Die gerundeten Zahlen sind nur dann gleich, wenn a = b ist, denn verschiedene Zahlen haben verschiedene Rundungen.",
+     "Die gerundete Zahl von a kann größer sein als die von b, denn beim Aufrunden springt a nach oben und b nicht.",
+     "Die gerundete Zahl von a ist stets kleiner als die von b, denn aus a < b folgt auch gerundet a < b.",
+     "Die gerundete Zahl von a ist nie größer als die von b, kann aber gleich sein, denn die Rundungsbereiche liegen in derselben Reihenfolge wie die Zahlen."
     ],
     "o": {
      "index": 3
     },
-    "w": "3 649 liegt zwischen 3 600 und 3 700. Die Zehnerstelle ist 4, also wird abgerundet: 3 600. Ben macht erst 3 650 und dann 3 700. Der Abstand von 3 649 zu 3 600 ist 49, zu 3 700 aber 51."
+    "w": "Beim Runden auf Hunderter gehört jede Zahl zu einem Bereich, zum Beispiel 4 750 bis 4 849 zu 4 800. Die Bereiche liegen in derselben Reihenfolge wie die Zahlen. Ist a < b, liegt a im selben oder in einem früheren Bereich als b, also ist gerundet a höchstens so groß wie gerundet b. Beispiel: 4 760 und 4 770 ergeben beide 4 800."
    },
-   "idee": "Zweimal runden gegen einmal runden"
+   "idee": "Reihenfolge bleibt beim Runden erhalten"
   },
   {
    "kennung": "VT2-112",
@@ -1792,28 +1787,42 @@
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.buendeln",
-   "abgrenzung": "Ein Rundungsfehler wird beim Weiterrechnen vervielfacht; die Übungen runden die Ausgangszahl nur und beurteilen sie.",
-   "antwortform": "zahl",
-   "loesung_rechnung": "1234 · 6 − 1200 · 6",
+   "abgrenzung": "Die Übungen runden eine Zahl oder eine Summe; hier wird beim Produkt gerundet, und der Fehler wächst, wenn beide Faktoren aufgerundet werden.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "50 · 30 − 48 · 29",
+    "48 · 30 − 48 · 29"
+   ],
    "fehlbilder": [
     {
-     "antwort": 34,
-     "rechnung": "1234 − 1200",
-     "beschreibung": "nur den Fehler der Besucherzahl angegeben, nicht den Fehler der Einnahmen",
+     "luecke": 1,
+     "antwort": 60,
+     "rechnung": "50 · 30 − 48 · 30",
+     "beschreibung": "nur den Unterschied zu Bens Schätzung angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 7200,
-     "rechnung": "1200 · 6",
-     "beschreibung": "die geschätzten Einnahmen statt der Abweichung angegeben",
+     "luecke": 1,
+     "antwort": 1500,
+     "rechnung": "50 · 30",
+     "beschreibung": "die Schätzung selbst statt der Abweichung angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 7404,
-     "rechnung": "1234 · 6",
-     "beschreibung": "die genauen Einnahmen statt der Abweichung angegeben",
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "30 − 29",
+     "beschreibung": "nur den Fehler je Reihe (1 Platz) angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 1440,
+     "rechnung": "48 · 30",
+     "beschreibung": "die Schätzung selbst statt der Abweichung angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1824,17 +1833,21 @@
     "p": "test",
     "s": 3,
     "g": "transfer",
-    "y": "zahl",
+    "y": "luecken",
     "f": {
-     "text": "Ein Schwimmbad hatte 1 234 Besucher. Eine Karte kostet 6 €. Die Leiterin rundet die Besucherzahl auf Hunderter und rechnet damit die Einnahmen aus. Um wie viel Euro weicht die Schätzung vom genauen Wert ab?"
+     "text": "In einem Saal gibt es 48 Reihen mit je 29 Plätzen. Anna schätzt die Platzzahl mit 50 · 30, Ben mit 48 · 30. Um wie viel liegt jede der beiden Schätzungen über der genauen Platzzahl?",
+     "schablone": "Annas Schätzung liegt □ darüber, Bens Schätzung liegt □ darüber",
+     "hinweis": "Je Feld eine ganze Zahl."
     },
     "o": {
-     "wert": 204,
-     "einheit": "€"
+     "werte": [
+      108,
+      48
+     ]
     },
-    "w": "Genaue Einnahmen: 1 234 · 6 € = 7 404 €. Geschätzt: 1 200 · 6 € = 7 200 €. Die Abweichung ist 204 €. Der Rundungsfehler 34 Besucher wird mit dem Kartenpreis 6 € vervielfacht."
+    "w": "Genau: 48 · 29 = 1 392 Plätze. Anna: 50 · 30 = 1 500, das sind 108 zu viel. Ben: 48 · 30 = 1 440, das sind 48 zu viel (1 Platz zu viel je Reihe). Wer beide Faktoren aufrundet, verstärkt den Fehler."
    },
-   "idee": "Rundungsfehler wird vervielfacht"
+   "idee": "Fehler beim Aufrunden zweier Faktoren"
   },
   {
    "kennung": "VT2-114",
@@ -2056,14 +2069,14 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Mia hat unrecht, weil man beide Beträge auf Tausender hätte runden müssen und nicht auf Hunderter.",
      "beschreibung": "Auf Tausender gerundet wären beide Beträge 0 €, was noch weniger hilft.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Mia hat recht, denn Runden liefert immer die richtige Entscheidung, wenn man auf Hunderter rundet.",
      "beschreibung": "Runden liefert nur eine ungefähre Größe; für „reicht es?“ sind genaue Beträge nötig.",
      "fehlbild": null,
@@ -2088,13 +2101,13 @@
      "text": "Mia hat 237 € gespart. Das Fahrrad kostet 249 €. Mia rundet beide Beträge auf Hunderter und sagt: „200 € und 200 €, es reicht!“ Welche Aussage stimmt?"
     },
     "a": [
-     "Mia hat unrecht, denn ob das Geld reicht, zeigen nur die genauen Beträge; 237 € sind weniger als 249 €.",
      "Mia hat unrecht, weil man beide Beträge auf Tausender hätte runden müssen und nicht auf Hunderter.",
      "Mia hat recht, denn Runden liefert immer die richtige Entscheidung, wenn man auf Hunderter rundet.",
+     "Mia hat unrecht, denn ob das Geld reicht, zeigen nur die genauen Beträge; 237 € sind weniger als 249 €.",
      "Mia hat recht, denn gerundet sind beide Beträge gleich, und gleich viel Geld reicht für einen gleich hohen Preis."
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "w": "237 € auf Hunderter gerundet ist 200 €, 249 € auch. Aber 237 € < 249 €: Das Geld reicht nicht. Runden ist nur sinnvoll, wenn kleine Unterschiede keine Rolle spielen."
    },
@@ -2376,34 +2389,48 @@
    "thema": "zahlen.natuerlich",
    "lernkarte": "roemisch_schreiben",
    "pool": "korrektur",
-   "typ": "umkehr",
+   "typ": "darstellung",
    "form": null,
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.schreibweisen",
-   "abgrenzung": "Die längste Schreibweise wird über die Bausteine begründet; die Übungen schreiben eine Zahl.",
-   "antwortform": "zahl",
-   "loesung_rechnung": "3 + 1 + 3 + 1 + 3 + 4",
+   "abgrenzung": "Wozu die Subtraktionsregel gut ist (Zeichen sparen); die Übungen schreiben Zahlen nur nach der Regel.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "1 + 1 + 4 + 1 + 4 + 1 + 4",
+    "1 + 2 + 2 + 2"
+   ],
    "fehlbilder": [
     {
-     "antwort": 12,
-     "rechnung": "3 + 3 + 3 + 3",
-     "beschreibung": "jede Stelle mit drei Zeichen gerechnet",
+     "luecke": 1,
+     "antwort": 7,
+     "rechnung": "1 + 2 + 2 + 2",
+     "beschreibung": "die Länge der kürzeren Schreibweise auch für die längere angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 14,
-     "rechnung": "3 + 1 + 3 + 1 + 3 + 3",
-     "beschreibung": "die vier Zeichen von VIII mit drei angesetzt",
+     "luecke": 1,
+     "antwort": 15,
+     "rechnung": "16 − 1",
+     "beschreibung": "ein Zeichen der langen Schreibweise vergessen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 4,
-     "rechnung": "4",
-     "beschreibung": "nur die Anzahl der Stellen genannt",
+     "luecke": 2,
+     "antwort": 16,
+     "rechnung": "1 + 1 + 4 + 1 + 4 + 1 + 4",
+     "beschreibung": "die Länge der längeren Schreibweise auch für die Regel-Schreibweise angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 9,
+     "rechnung": "16 − 7",
+     "beschreibung": "den Unterschied der Längen statt der Länge angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -2413,17 +2440,22 @@
     "t": "roemisch_schreiben",
     "p": "korrektur",
     "s": 2,
-    "g": "umkehr",
-    "y": "zahl",
+    "g": "darstellung",
+    "y": "luecken",
     "f": {
-     "text": "Unter den Zahlen von 1 bis 3 999 hat die Zahl 3 888 die längste römische Schreibweise. Wie viele Zeichen hat sie (nach den üblichen Regeln geschrieben)?"
+     "text": "Die Zahl 1 999 wird römisch einmal ohne die Subtraktionsregel geschrieben (es wird nur addiert, mit den Zeichen M, D, C, L, X, V und I; ein Zeichen darf dann auch öfter als dreimal stehen) und einmal mit der Subtraktionsregel nach den üblichen Regeln. Aus wie vielen Zeichen besteht jede der beiden Schreibweisen?",
+     "schablone": "Ohne Subtraktionsregel □ Zeichen; mit der Regel □ Zeichen",
+     "hinweis": "Je Feld eine ganze Zahl."
     },
     "o": {
-     "wert": 15
+     "werte": [
+      16,
+      7
+     ]
     },
-    "w": "3 888 = 3 000 + 800 + 80 + 8 = MMM + DCCC + LXXX + VIII. Das sind 3 + 4 + 4 + 4 = 15 Zeichen, nämlich MMMDCCCLXXXVIII."
+    "w": "Nur addiert: 1 999 = M + D + CCCC + L + XXXX + V + IIII = MDCCCCLXXXXVIIII, das sind 1 + 1 + 4 + 1 + 4 + 1 + 4 = 16 Zeichen. Mit der Subtraktionsregel: M + CM + XC + IX = MCMXCIX, das sind 1 + 2 + 2 + 2 = 7 Zeichen. Die Regel spart 9 Zeichen."
    },
-   "idee": "Längste römische Schreibweise"
+   "idee": "Warum die Subtraktionsregel Zeichen spart"
   },
   {
    "kennung": "VT2-123",
@@ -2626,28 +2658,28 @@
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.schreibweisen",
-   "abgrenzung": "Systematisches Durchzählen mit allen Regeln; die Übungen schreiben eine einzelne Zahl.",
+   "abgrenzung": "Die Zeichenzahl wird rückwärts über viele Zahlen gesucht; die Übungen schreiben eine einzelne Zahl.",
    "antwortform": "zahl",
-   "loesung_rechnung": "9",
+   "loesung_rechnung": "28",
    "fehlbilder": [
     {
-     "antwort": 8,
-     "rechnung": "9 − 1",
-     "beschreibung": "eine der Zahlen (z. B. XIV oder XXV) übersehen",
+     "antwort": 18,
+     "rechnung": "18",
+     "beschreibung": "XVIII hat nur fünf Zeichen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 10,
-     "rechnung": "9 + 1",
-     "beschreibung": "eine Zahl mit vier Zeichen (z. B. VIII) mitgezählt",
+     "antwort": 23,
+     "rechnung": "23",
+     "beschreibung": "XXIII hat nur fünf Zeichen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 7,
-     "rechnung": "9 − 2",
-     "beschreibung": "zwei der Zahlen übersehen",
+     "antwort": 38,
+     "rechnung": "38",
+     "beschreibung": "XXXVIII hat sieben Zeichen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -2660,14 +2692,14 @@
     "g": "parameter",
     "y": "zahl",
     "f": {
-     "text": "Von den Zahlen 1 bis 30 werden die römischen Zahlen nach den üblichen Regeln geschrieben (zum Beispiel IV, XXIX). Wie viele dieser Zahlen bestehen aus genau drei Zeichen?"
+     "text": "Wie heißt die kleinste natürliche Zahl, deren römische Schreibweise (nach den üblichen Regeln) aus genau sechs Zeichen besteht?"
     },
     "o": {
-     "wert": 9
+     "wert": 28
     },
-    "w": "Dreizeichen-Zahlen: III (3), VII (7), XII (12), XIV (14), XVI (16), XIX (19), XXI (21), XXV (25), XXX (30). Das sind 9. Die anderen Zahlen haben ein, zwei oder mehr als drei Zeichen (z. B. VIII hat vier)."
+    "w": "Bis 17 hat keine Zahl mehr als vier Zeichen (VIII, XIII, XVII). 18 = XVIII hat fünf, 23 = XXIII und 27 = XXVII haben fünf. 28 = XXVIII hat genau sechs Zeichen, und keine kleinere Zahl hat sechs."
    },
-   "idee": "Muster in einer Zahlenfolge"
+   "idee": "Kleinste Zahl mit sechs Zeichen"
   },
   {
    "kennung": "VT2-127",
@@ -2735,28 +2767,28 @@
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.buendeln",
-   "abgrenzung": "Die Stellenwerte 1, 2, 4, 8, 16 werden als die Zahlen mit genau einer Eins erkannt; die Übungen zerlegen eine einzelne Zahl.",
+   "abgrenzung": "Zweierpotenzen werden an ihrer Zweierschreibweise erkannt (genau eine 1); die Übungen wandeln einzelne Zahlen um.",
    "antwortform": "zahl",
-   "loesung_rechnung": "6",
+   "loesung_rechnung": "3",
    "fehlbilder": [
     {
-     "antwort": 5,
-     "rechnung": "5",
-     "beschreibung": "die Zahl 32 nicht mitgezählt, weil sechs Stellen ungewohnt sind",
+     "antwort": 6,
+     "rechnung": "6",
+     "beschreibung": "alle sechs Zahlen gezählt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 7,
-     "rechnung": "7",
-     "beschreibung": "die 0 oder die 64 mitgezählt",
+     "antwort": 2,
+     "rechnung": "3 − 1",
+     "beschreibung": "eine der Zweierpotenzen (32, 64, 128) übersehen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 63,
-     "rechnung": "63",
-     "beschreibung": "alle Zahlen gezählt",
+     "antwort": 4,
+     "rechnung": "3 + 1",
+     "beschreibung": "96 mitgezählt, obwohl 96 = 64 + 32 zwei Einsen hat",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -2769,14 +2801,14 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Im Zweiersystem schreibt man die Zahlen von 1 bis 63. Bei wie vielen davon kommt die Ziffer 1 nur ein einziges Mal vor?"
+     "text": "Wie viele der Zahlen 24, 32, 48, 64, 96 und 128 werden im Zweiersystem mit nur einer einzigen Ziffer 1 geschrieben (alle anderen Ziffern sind Nullen)?"
     },
     "o": {
-     "wert": 6
+     "wert": 3
     },
-    "w": "Eine Zweierzahl mit genau einer Eins ist eine Eins mit lauter Nullen: 1, 10, 100, 1000, 10000 und 100000. Das sind die Zahlen 1, 2, 4, 8, 16 und 32. Also gibt es 6 solche Zahlen."
+    "w": "Eine Zahl mit nur einer Ziffer 1 ist eine Zweierpotenz. Das sind 32 = 100000, 64 = 1000000 und 128 = 10000000. Dagegen ist 24 = 16 + 8 = 11000, 48 = 32 + 16 = 110000 und 96 = 64 + 32 = 1100000, jeweils mit zwei Einsen. Es sind 3 Zahlen."
    },
-   "idee": "Zahlen mit genau einer Eins"
+   "idee": "Zweierpotenzen erkennen"
   },
   {
    "kennung": "VT2-129",
@@ -2916,33 +2948,33 @@
    "lernkarte": "dualsystem",
    "pool": "sicherung",
    "typ": "transfer",
-   "form": "umkehren",
+   "form": null,
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.buendeln",
-   "abgrenzung": "Eine große Stellenzahl ohne Umrechnung jeder Stelle: Potenzdenken; die Übungen haben kurze Zweierzahlen.",
+   "abgrenzung": "Der Stellenwert der vordersten Stelle wird über den Unterschied zweier Zweierzahlen erschlossen; die Übungen wandeln eine Zahl um.",
    "antwortform": "zahl",
-   "loesung_rechnung": "2 · 2 · 2 · 2 · 2 · 2",
+   "loesung_rechnung": "13 − 5",
    "fehlbilder": [
     {
-     "antwort": 12,
-     "rechnung": "2 · 6",
-     "beschreibung": "Stellenzahl mit 2 malgenommen statt sechsmal die 2 zu multiplizieren",
+     "antwort": 1,
+     "rechnung": "1",
+     "beschreibung": "die ersetzte Ziffer wie eine Einerziffer gezählt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 128,
-     "rechnung": "2 · 2 · 2 · 2 · 2 · 2 · 2",
-     "beschreibung": "siebenmal mit 2 multipliziert (einen Stellenwert zu viel)",
+     "antwort": 5,
+     "rechnung": "13 − 8",
+     "beschreibung": "den Wert der zweiten Zahl statt des Unterschieds angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 36,
-     "rechnung": "6 · 6",
-     "beschreibung": "die Anzahl der Nullen quadriert",
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "den Wert der dritten Stelle statt der vordersten genommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -2955,14 +2987,14 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Eine Zweierzahl besteht aus einer 1 und sechs Nullen (1 000 000). Welche Zahl ist das im Zehnersystem?"
+     "text": "Die Zweierzahl 1101 hat im Zehnersystem den Wert 13. Eine zweite Zweierzahl entsteht, indem man bei 1101 die erste Ziffer 1 durch 0 ersetzt (0101). Um wie viel ist die erste Zahl größer als die zweite?"
     },
     "o": {
-     "wert": 64
+     "wert": 8
     },
-    "w": "Die 1 steht an der siebten Stelle von rechts. Die Stellenwerte sind 1, 2, 4, 8, 16, 32, 64. Also ist 1 000 000 im Zweiersystem 64."
+    "w": "1101 = 8 + 4 + 1 = 13. 0101 = 4 + 1 = 5. Der Unterschied ist 13 − 5 = 8: Die vorderste Ziffer 1 steht an der Achterstelle und ist 8 wert."
    },
-   "idee": "Eins und Nullen: Zweierpotenz"
+   "idee": "Wert der vordersten Zweierstelle über einen Unterschied"
   },
   {
    "kennung": "VT2-132",

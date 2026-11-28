@@ -17,6 +17,9 @@ laengste = [x['kennung'] for x in au if (lambda L, i: L[i] == max(L) and L.count
 if len(laengste) > 0.35 * len(au): fehler.append(f'richtige Möglichkeit ist in {len(laengste)} von {len(au)} Auswahlaufgaben die eindeutig längste (erlaubt höchstens 35 %)')
 platz = [sum(1 for x in au if x['aufgabe']['o']['index'] == p) for p in range(4)]
 if max(platz) > 0.34 * len(au) or min(platz) < 0.16 * len(au): fehler.append(f'Plätze der richtigen Möglichkeit ungleich verteilt: {platz}')
+import statistics as _st
+_v = _st.mean(len(x['aufgabe']['a'][x['aufgabe']['o']['index']]) for x in au) / _st.mean(len(m) for x in au for i, m in enumerate(x['aufgabe']['a']) if i != x['aufgabe']['o']['index'])
+if not 0.9 <= _v <= 1.15: fehler.append(f'mittlere Länge richtig/falsch {_v:.2f} (erlaubt 0,90 bis 1,15)')
 if len(au) > 0.5 * len(alle): fehler.append(f'zu viele Auswahlaufgaben: {len(au)} von {len(alle)}')
 tau = [x for x in au if x['pool'] == 'test']
 if len(tau) > 7: fehler.append(f'zu viele Auswahlaufgaben im Test-Pool: {len(tau)}')
@@ -49,6 +52,7 @@ sam = [s for s in sam if s[1]]
 if len(sam) >= 5 and sum(1 for s in sam if s[2]) < 0.25 * len(sam):
     fehler.append(f'Sammel-Möglichkeit („Beide …“, „Gleich …“) ist systematisch falsch: {sum(1 for s in sam if s[2])} richtig von {len(sam)}')
 print('Sammel-Möglichkeiten', len(sam), 'davon richtig', sum(1 for s in sam if s[2]), '| denn/weil falsch/richtig %.0f/%.0f %%' % (100*_anteil(fa, _BEG), 100*_anteil(ri, _BEG)), '| Absolutwörter falsch/richtig %.0f/%.0f %%' % (100*_anteil(fa, _ABS), 100*_anteil(ri, _ABS)))
+print('Länge richtig/falsch %.2f' % _v)
 print('Auswahl', len(au), '| Test-Auswahl', len(tau), '| Plätze A-D', platz, '| richtige am längsten', len(laengste))
 if fehler:
     print('FEHLER in den festen Prüfungen:'); [print('  ', f) for f in fehler]; raise SystemExit(1)

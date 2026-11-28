@@ -70,7 +70,7 @@ def L(lz, pool, typ, form, stufe, lp, text, schablone, werte, rechs, fb, w, abgr
     return _fertig(x, lz, pool, stufe, typ, 'luecken', f, {'werte': werte}, w)
 
 
-MUSTER = [0, 1, 3, 0, 1, 3, 2, 0, 3, 1, 0, 1, 3, 2]   # Zielplatz der richtigen Möglichkeit (verteilt die Lösung auf alle vier Plätze)
+MUSTER = [0, 1, 2, 0, 1, 3, 2, 0, 3, 1, 0, 1, 3, 2]   # Zielplatz der richtigen Möglichkeit (verteilt die Lösung auf alle vier Plätze)
 _AUSW = [0]
 
 

@@ -69,34 +69,48 @@
    "thema": "terme.umformen",
    "lernkarte": "zusammenfassen",
    "pool": "korrektur",
-   "typ": "parameter",
+   "typ": "darstellung",
    "form": null,
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.tauschen",
-   "abgrenzung": "Rückwärts: Ein Parameter wird so bestimmt, dass ein Glied wegfällt; die Übungen haben nur feste Zahlen.",
-   "antwortform": "zahl",
-   "loesung_rechnung": "8",
+   "abgrenzung": "Die Übungen verlangen das ganze Ergebnis; hier zählt, wie viele Glieder übrig bleiben und wie das x²-Glied ausfällt (Vorzeichen).",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "3",
+    "3 − 1 − 3"
+   ],
    "fehlbilder": [
     {
-     "antwort": -8,
-     "rechnung": "0 − 8",
-     "beschreibung": "das Vorzeichen von −8x übernommen: k = −8",
+     "luecke": 1,
+     "antwort": 7,
+     "rechnung": "7",
+     "beschreibung": "die Glieder des ursprünglichen Terms gezählt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 0,
-     "rechnung": "0",
-     "beschreibung": "k = 0 gesetzt, weil „kein x-Glied“ bedeutet",
+     "luecke": 1,
+     "antwort": 4,
+     "rechnung": "3 + 1",
+     "beschreibung": "die Zahlen 4 und 7 nicht zusammengefasst",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 16,
-     "rechnung": "8 + 8",
-     "beschreibung": "die beiden x-Zahlen k und 8 addiert statt k − 8 = 0 zu verlangen",
+     "luecke": 2,
+     "antwort": 2,
+     "rechnung": "3 − 1",
+     "beschreibung": "das letzte x²-Glied −3x² vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 7,
+     "rechnung": "3 + 1 + 3",
+     "beschreibung": "alle Zahlen vor x² ohne Vorzeichen addiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -106,17 +120,22 @@
     "t": "zusammenfassen",
     "p": "korrektur",
     "s": 2,
-    "g": "parameter",
-    "y": "zahl",
+    "g": "darstellung",
+    "y": "luecken",
     "f": {
-     "text": "Der Term 9x² + kx − 4x² − 8x soll nach dem Zusammenfassen nur noch aus einem Glied bestehen, nämlich aus 5x². Welche Zahl muss k sein?"
+     "text": "Der Term 3x² + 2x − x² + 4 + 5x − 3x² + 7 wird so weit wie möglich zusammengefasst. Wie viele Glieder hat das Ergebnis, und welche Zahl steht vor x²?",
+     "schablone": "Zahl der Glieder: □; Zahl vor x²: □",
+     "hinweis": "Je Feld eine ganze Zahl."
     },
     "o": {
-     "wert": 8
+     "werte": [
+      3,
+      -1
+     ]
     },
-    "w": "Die x-Glieder sind kx und −8x, zusammen (k − 8)x. Damit das x-Glied verschwindet, muss k − 8 = 0 sein, also k = 8. Die x²-Glieder: 9x² − 4x² = 5x²."
+    "w": "x²-Glieder: 3x² − x² − 3x² = −x². x-Glieder: 2x + 5x = 7x. Zahlen: 4 + 7 = 11. Das Ergebnis −x² + 7x + 11 hat 3 Glieder, vor x² steht −1."
    },
-   "idee": "Parameter so wählen, dass ein Glied entfällt"
+   "idee": "Glieder zählen und Vorzeichen des x²-Gliedes"
   },
   {
    "kennung": "VT2-031",
@@ -309,49 +328,34 @@
    "thema": "terme.umformen",
    "lernkarte": "zusammenfassen",
    "pool": "sicherung",
-   "typ": "umkehr",
-   "form": null,
-   "stufe": 3,
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.tauschen",
-   "abgrenzung": "Ein fehlender Term wird durch Umkehren der Subtraktion bestimmt, wobei ein Glied wegfällt (0x); die Übungen suchen einen Summanden.",
-   "antwortform": "luecken",
-   "loesung_rechnung": [
-    "9 − 5",
-    "−4 − (−4)",
-    "1 − (−3)"
-   ],
+   "abgrenzung": "Alle x-Glieder heben sich auf, der Wert hängt nicht von x ab; die Übungen haben immer ein x-Glied im Ergebnis.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "−7 + 3 + 10",
    "fehlbilder": [
     {
-     "luecke": 1,
-     "antwort": 14,
-     "rechnung": "9 + 5",
-     "beschreibung": "die x²-Zahlen addiert statt subtrahiert",
+     "antwort": 0,
+     "rechnung": "5000 − 4000 − 1000",
+     "beschreibung": "nur die x-Glieder berechnet, die Zahlen vergessen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 2,
-     "antwort": -8,
-     "rechnung": "−4 − 4",
-     "beschreibung": "von −4 noch einmal 4 abgezogen (−4 − 4) statt (−4) − (−4) zu rechnen",
+     "antwort": 20,
+     "rechnung": "7 + 3 + 10",
+     "beschreibung": "alle Zahlen ohne Vorzeichen addiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 3,
-     "antwort": -2,
-     "rechnung": "1 − 3",
-     "beschreibung": "die 3 ohne Vorzeichen gelesen: 1 − 3",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 3,
-     "antwort": -4,
-     "rechnung": "−3 − 1",
-     "beschreibung": "Vorzeichen vertauscht: (−3) − 1",
+     "antwort": 1006,
+     "rechnung": "1000 + 6",
+     "beschreibung": "die x-Glieder zu x zusammengefasst und das −x vergessen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -360,24 +364,18 @@
     "l": "zusammenfassen",
     "t": "zusammenfassen",
     "p": "sicherung",
-    "s": 3,
-    "g": "umkehr",
-    "y": "luecken",
+    "s": 2,
+    "g": "transfer",
+    "y": "zahl",
     "f": {
-     "text": "Von 9x² − 4x + 1 wird ein Term U abgezogen, und es bleibt 5x² − 4x − 3 übrig. Wie heißt U?",
-     "schablone": "U = □x² + □x + □",
-     "hinweis": "Je Feld eine ganze Zahl."
+     "text": "Der Term 5x − 7 + 3 − 4x − x + 10 wird zusammengefasst. Welchen Wert hat er für x = 1 000?"
     },
     "o": {
-     "werte": [
-      4,
-      0,
-      4
-     ]
+     "wert": 6
     },
-    "w": "Es gilt 9x² − 4x + 1 − U = 5x² − 4x − 3, also U = (9x² − 4x + 1) − (5x² − 4x − 3). x²: 9 − 5 = 4. x: −4 − (−4) = 0. Zahl: 1 − (−3) = 4. Also U = 4x² + 4. Probe: 9x² − 4x + 1 − (4x² + 4) = 5x² − 4x − 3."
+    "w": "5x − 4x − x = 0x: Die x-Glieder heben sich auf. Die Zahlen ergeben −7 + 3 + 10 = 6. Der Term hat für jede Zahl x den Wert 6, auch für x = 1 000."
    },
-   "idee": "Umkehroperation: Differenz zum Term"
+   "idee": "Gegenläufige x-Glieder heben sich auf"
   },
   {
    "kennung": "VT2-035",
@@ -870,57 +868,41 @@
    "lernkarte": "aequivalenz",
    "pool": "test",
    "ersetzt_test": true,
-   "typ": "begruenden",
+   "typ": "darstellung",
    "form": null,
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "id.algebra.term",
-   "abgrenzung": "Die Übungen prüfen Terme nur durch Einsetzen oder Umformen; hier wird aus einer einzigen Übereinstimmung gefolgert, wo die Terme überhaupt gleich sind.",
-   "antwortform": "luecken",
-   "loesung_rechnung": [
-    "5 · 0 − 4",
-    "3 · 0 + 2",
-    "1"
-   ],
+   "abgrenzung": "Die Übungen prüfen zwei Terme gegeneinander; hier werden sechs Terme vereinfacht, in Gruppen gleichwertiger Terme eingeordnet und die Paare gezählt.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "3 + 1",
    "fehlbilder": [
     {
-     "luecke": 1,
-     "antwort": 4,
-     "rechnung": "4",
-     "beschreibung": "das Vorzeichen der −4 übersehen",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 1,
-     "antwort": 0,
-     "rechnung": "5 · 0",
-     "beschreibung": "die −4 ganz vergessen",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 2,
      "antwort": 3,
      "rechnung": "3",
-     "beschreibung": "den Wert 3x für x = 0 falsch gebildet: 3 statt 0 + 2",
+     "beschreibung": "nur die Gruppe A, B, C gezählt, das Paar D und E vergessen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 3,
-     "antwort": 0,
-     "rechnung": "0",
-     "beschreibung": "gemeint, nicht gleichwertige Terme stimmen nirgends überein",
+     "antwort": 15,
+     "rechnung": "6 · 5 : 2",
+     "beschreibung": "alle Paare aus sechs Termen gezählt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 3,
      "antwort": 2,
-     "rechnung": "2",
-     "beschreibung": "die beiden geprüften Stellen x = 0 und x = 3 gezählt",
+     "rechnung": "1 + 1",
+     "beschreibung": "nur die Paare A–B und D–E gezählt, C übersehen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 5,
+     "rechnung": "3 + 1 + 1",
+     "beschreibung": "F mit E als Paar mitgezählt, weil 3x + 2 und 3x − 2 „fast gleich“ aussehen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -930,23 +912,17 @@
     "t": "aequivalenz",
     "p": "test",
     "s": 3,
-    "g": "begruenden",
-    "y": "luecken",
+    "g": "darstellung",
+    "y": "zahl",
     "f": {
-     "text": "Paul behauptet: „Die Terme 5x − 4 und 3x + 2 sind gleichwertig, denn für x = 3 kommt bei beiden 11 heraus.“ Paul setzt nun auch x = 0 ein. Welche Werte haben die beiden Terme für x = 0, und für wie viele Zahlen x haben sie überhaupt denselben Wert?",
-     "schablone": "Erster Term: □; zweiter Term: □; Zahlen x mit gleichem Wert: □",
-     "hinweis": "Je Feld eine ganze Zahl."
+     "text": "Anna schreibt sechs Terme auf: A = 2(x + 3), B = 2x + 6, C = 3(x + 2) − x, D = 5x − 2(x + 1), E = 3x − 2, F = 3x + 2. Zwei Terme bilden ein gleichwertiges Paar, wenn sie für jede Zahl x denselben Wert haben (zum Beispiel A und B). Wie viele solche Paare gibt es insgesamt? Jedes Paar wird nur einmal gezählt."
     },
     "o": {
-     "werte": [
-      -4,
-      2,
-      1
-     ]
+     "wert": 4
     },
-    "w": "5 · 0 − 4 = −4 und 3 · 0 + 2 = 2: Die Werte sind für x = 0 verschieden, die Terme sind also nicht gleichwertig. Gleich sind sie nur, wenn 5x − 4 = 3x + 2 gilt, das ist 2x = 6, also nur für x = 3. Eine einzige Übereinstimmung beweist keine Gleichwertigkeit."
+    "w": "Zusammengefasst: A = 2x + 6, B = 2x + 6, C = 3x + 6 − x = 2x + 6, D = 5x − 2x − 2 = 3x − 2, E = 3x − 2, F = 3x + 2. A, B und C sind gleichwertig (3 Paare), D und E sind gleichwertig (1 Paar), F ist zu keinem gleichwertig. Zusammen 3 + 1 = 4 Paare."
    },
-   "idee": "Eine Übereinstimmung beweist nichts"
+   "idee": "Sechs Terme in gleichwertige Gruppen sortieren"
   },
   {
    "kennung": "VT2-044",

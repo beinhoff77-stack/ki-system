@@ -3,6 +3,8 @@ const CACHE_PREFIX = 'ki-system:' + self.registration.scope + ':';
 const CACHE = CACHE_PREFIX + 'v189';
 const HUELLE = ['./', './index.html', './stay-compare.js?v=0.96.0', './stay-refresh.js?v=0.96.0', './stay-workplace.js?v=0.96.0', './stay-notifications.js?v=0.96.0', './stay-photos.js?v=0.96.0', './stay-trips.js?v=0.96.0', './stay-review.js?v=0.96.0', './stay-desk.js?v=0.96.0', './app.js?v=0.96.0', './highlights.js?v=0.96.0', './roadbook.js?v=0.96.0', './lernen-welt.js?v=0.96.0', './lernen.js?v=0.96.0', './lernen-regeln.js?v=0.96.0', './lernen-regeln.css?v=0.96.0', './stay-tools.js?v=0.96.0', './stay-research.js?v=0.96.0', './stay-form.js?v=0.96.0', './stay-details.js?v=0.96.0', './stay-districts.js?v=0.96.0', './vendor/leaflet-1.9.4/leaflet.js', './vendor/leaflet-1.9.4/leaflet.css', './style.css?v=0.96.0', './vendor/schriften/space-grotesk.woff2', './vendor/schriften/jetbrains-mono.woff2', './manifest.webmanifest', './icon.svg', './icon-180.png', './icon-512.png'];
 const HUELLE_URLS = new Set(HUELLE.map(path => new URL(path, self.registration.scope).href));
+// 1175: Version dieser Hülle (alle ?v= in HUELLE gleich, Test prüft das). Release-Regel: inhalte/plan/ladezeiten.md, Abschnitt „Release-Regel“.
+const HUELLE_VERSION = (HUELLE.find((p) => p.includes('?v=')) || '').split('?v=')[1] || null;
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(HUELLE.map(path => new Request(new URL(path, self.registration.scope), { cache: 'no-cache' })))).then(() => self.skipWaiting()));
@@ -22,7 +24,7 @@ self.addEventListener('fetch', (e) => {
   // TEMPO: Versionierte Hüllen-Dateien (…?v=<version>, nur aus der Liste HUELLE) ändern sich nie unter derselben Adresse – ein neues Release bringt neue
   // Adressen (index.html, Netz zuerst) und einen neuen Cache-Namen (diese Datei, install lädt alles frisch). Deshalb hier zuerst aus dem Cache dieser Version,
   // nur wenn sie dort fehlt aus dem Netz. index.html, ./, Bilder ohne Version, karte/ und daten/ bleiben „Netz zuerst“.
-  if (HUELLE_URLS.has(url.href) && url.searchParams.has('v')) {
+  if (HUELLE_VERSION && HUELLE_URLS.has(url.href) && url.searchParams.get('v') === HUELLE_VERSION) { // nur genau die Version dieser Hülle
     e.respondWith(caches.open(CACHE).then((c) => c.match(e.request)).then((treffer) => treffer || fetch(e.request, { cache: 'no-cache' }).then((r) => {
       if (r.ok) { const kopie = r.clone(); e.waitUntil(caches.open(CACHE).then((c) => c.put(e.request, kopie))); }
       return r;

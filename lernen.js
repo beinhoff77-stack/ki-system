@@ -28,6 +28,10 @@ const LERN_STILE = [['entdecker', 'Entdecker', 'verspielt, große Knöpfe'], ['s
 //     ihre Abrufe gleichzeitig starten, ohne dass eine Aktion doppelt läuft. Für Aktionen mit Zufall oder Ausgabe am Server (wiederholung, einheit_lesen).
 //  3. Alle übrigen Lese-Aktionen: gleichzeitige gleiche Anfragen teilen sich die laufende Antwort (kein Speicher danach).
 // Abmelden oder anderer Zugang (Token) und Wechsel des Kindes (bei LERN_KURZ) vergessen ebenfalls.
+// Entscheidung des Nutzers (28.11.): „Belohnungen aktuell ausblenden“ – Abschnitt „Belohnungen“ (Katalog, Formular) auf der Startseite „Was ist los?“
+// vorerst nicht zeigen. Nur ausgeblendet: Serververtrag, Daten und alle anderen Stellen bleiben. Wieder einschalten: Wert auf true setzen
+// (Tests schalten über window.lernBelohnungenAn = true ein).
+const LERN_BELOHNUNGEN_AN = (typeof window !== 'undefined' && window.lernBelohnungenAn === true) || false;
 const LERN_MERKEN = new Set(['schule_uebersicht', 'schule_lehrplan_matrix', 'schule_lehrplan_uebersicht', 'schule_lernstand', 'schule_plan_lesen', 'schule_wackelt_lesen']);
 const LERN_KURZ = new Set(['schule_merkheft', 'schule_konto', 'schule_eltern', 'schule_rueckmeldungen', 'schule_lehrplan_thema']);
 const LERN_KURZ_MS = 15000;
@@ -44,9 +48,10 @@ function lernVergessen(kindId) {
   for (const [s, e] of lernSpeicher) if (kindId === undefined || kindId === null || e.kind === null || e.kind === Number(kindId)) lernSpeicher.delete(s);
 }
 function lernMerkeAuf(s, aktion, daten, p, art) {
-  const e = { p, t: Date.now(), kind: daten?.lernender_id !== undefined ? Number(daten.lernender_id) : null, art, stand: lernStand };
+  const e = { p, t: Date.now(), kind: daten?.lernender_id !== undefined ? Number(daten.lernender_id) : null, art, stand: lernStand, token: lernSpeicherToken };
   lernSpeicher.set(s, e);
-  p.then((w) => { if (lernSpeicher.get(s) !== e) return; e.wert = w; e.fertig = Date.now(); if (art === 'lauf') lernSpeicher.delete(s); }, () => { if (lernSpeicher.get(s) === e) lernSpeicher.delete(s); });
+  // 1175: Art beim Eingang lesen (sie kann sich während des Laufs ändern: lauf → vorab, vorab → lauf)
+  p.then((w) => { if (lernSpeicher.get(s) !== e) return; e.wert = w; e.fertig = Date.now(); if (e.art === 'lauf') lernSpeicher.delete(s); }, () => { if (lernSpeicher.get(s) === e) lernSpeicher.delete(s); });
   return e;
 }
 function lernAuffrischen(s, aktion, daten, alt) {
@@ -64,46 +69,70 @@ function lernSitzungPruefen() {
   if (lernSpeicherToken === undefined) { lernSpeicherToken = tok; return; }
   if (tok !== lernSpeicherToken) { lernSpeicherToken = tok; lernKurzKind = null; lernVergessen(); lernReiseKarteAlt.clear(); lernReiseLetzte.clear(); }
 }
-async function lernCall(aktion, daten = {}, { vorab = false } = {}) {
+// 1175: Kindwechsel – kurz Gemerktes und Vorab-Antworten anderer Kinder vergessen (A → B → A holt für A frisch)
+function lernKindWechsel(daten) {
+  if (daten?.lernender_id === undefined || daten.lernender_id === null) return;
+  const k = Number(daten.lernender_id); if (k === lernKurzKind) return;
+  for (const [s2, e2] of lernSpeicher) if ((e2.art === 'kurz' || e2.art === 'vorab') && e2.kind !== null && e2.kind !== k) lernSpeicher.delete(s2);
+  lernKurzKind = k;
+}
+async function lernCall(aktion, daten = {}, { vorab = false, nochmal = 0 } = {}) {
   lernSitzungPruefen();
+  const s = lernSpeicherSchl(aktion, daten);
+  // 1175: Wurde geschrieben (oder der Zugang gewechselt), während diese Antwort lief, ist sie überholt: einmal frisch holen statt sie auszuliefern
+  const ueberholt = (e) => e.stand !== lernStand || e.token !== lernSpeicherToken;
   if (LERN_MERKEN.has(aktion)) {
-    const s = lernSpeicherSchl(aktion, daten); let e = lernSpeicher.get(s);
+    let e = lernSpeicher.get(s);
     if (e && e.wert !== undefined && Date.now() - e.t > 10000) lernAuffrischen(s, aktion, daten, e);
     if (!e) e = lernMerkeAuf(s, aktion, daten, lernCallNetz(aktion, daten));
-    return lernKopie(await e.p); // Kopie: Aufrufer dürfen die Antwort verändern
+    const w = await e.p;
+    if (ueberholt(e) && nochmal < 2) return lernCall(aktion, daten, { nochmal: nochmal + 1 });
+    return lernKopie(w); // Kopie: Aufrufer dürfen die Antwort verändern
   }
   const schreibt = !LERN_NUR_LESEN.test(aktion);
   if (!schreibt) {
-    const s = lernSpeicherSchl(aktion, daten); let e = lernSpeicher.get(s);
+    lernKindWechsel(daten);
+    let e = lernSpeicher.get(s);
     const kurz = LERN_KURZ.has(aktion);
-    if (kurz && daten?.lernender_id !== undefined && Number(daten.lernender_id) !== lernKurzKind) { // Kindwechsel: kurz Gemerktes anderer Kinder vergessen
-      for (const [s2, e2] of lernSpeicher) if (e2.art === 'kurz' && e2.kind !== null) lernSpeicher.delete(s2);
-      lernKurzKind = Number(daten.lernender_id); e = lernSpeicher.get(s);
-    }
-    if (e && e.fertig && (e.stand !== lernStand || Date.now() - e.fertig > LERN_KURZ_MS)) { lernSpeicher.delete(s); e = null; } // abgelaufen
-    if (e && e.art === 'vorab' && !vorab) lernSpeicher.delete(s); // Vorab-Antwort: genau einmal abholen
+    if (e && e.fertig && (ueberholt(e) || Date.now() - e.fertig > LERN_KURZ_MS)) { lernSpeicher.delete(s); e = null; } // abgelaufen
+    if (e && e.art === 'vorab' && !vorab) { if (e.fertig) lernSpeicher.delete(s); else e.art = 'lauf'; } // Vorab: einmal abholen; läuft sie noch, teilen sich weitere Aufrufer die Antwort
     if (!e) e = lernMerkeAuf(s, aktion, daten, lernCallNetz(aktion, daten), kurz ? 'kurz' : vorab ? 'vorab' : 'lauf');
     else if (vorab && e.art === 'lauf') e.art = 'vorab'; // läuft schon: Antwort für den nächsten Abruf liegen lassen
-    return lernKopie(await e.p);
+    const w = await e.p;
+    if (ueberholt(e) && nochmal < 2) { if (lernSpeicher.get(s) === e) lernSpeicher.delete(s); return lernCall(aktion, daten, { vorab, nochmal: nochmal + 1 }); }
+    return lernKopie(w);
   }
   if (schreibt) lernVergessen(daten?.lernender_id);
   try { return await lernCallNetz(aktion, daten); } finally { if (schreibt) lernVergessen(daten?.lernender_id); }
 }
 // TEMPO: fertige Antwort einer Ansicht für den nächsten gleichen Abruf hinterlegen (einmal) – z. B. beim Neuzeichnen derselben Seite
-function lernVorabSetzen(aktion, daten, p) {
+function lernVorabSetzen(aktion, daten, p, { stand = lernStand, token = lernSpeicherToken } = {}) {
   lernSitzungPruefen(); if (!p || LERN_MERKEN.has(aktion) || !LERN_NUR_LESEN.test(aktion)) return;
+  if (stand !== lernStand || token !== lernSpeicherToken) return; // 1175: aus einem überholten Stand oder einem anderen Zugang nichts hinterlegen
+  // kein Kindwechsel hier: die Startseite hinterlegt für mehrere Kinder; gewechselt wird erst, wenn eine Ansicht für ein Kind liest
   const s = lernSpeicherSchl(aktion, daten); if (!lernSpeicher.has(s)) lernMerkeAuf(s, aktion, daten, Promise.resolve(p), LERN_KURZ.has(aktion) ? 'kurz' : 'vorab');
 }
 // Hintergrund: Anfragen vorab starten (Ergebnis landet im Speicher); Fehler still
 const lernVorladen = (aktion, daten = {}) => { lernCall(aktion, daten, { vorab: true }).catch(() => { /* still */ }); };
 async function lernCallNetz(aktion, daten = {}) {
   const headers = { 'Content-Type': 'application/json' };
-  if (store.token) headers.Authorization = 'Bearer ' + store.token;
+  const tok = store.token || null; // 1175: Antwort gehört zu diesem Zugang
+  if (tok) headers.Authorization = 'Bearer ' + tok;
   const r = await fetch(mitRegion(lernApi() + '/aktion'), { method: 'POST', headers, body: JSON.stringify({ aktion, daten }) });
   let j; try { j = await r.json(); } catch { j = { ok: false, fehler: 'Keine Antwort (' + r.status + ')' }; }
-  if (r.status === 401) { store.token = null; route('login'); throw new Error('Nicht angemeldet'); }
+  if ((store.token || null) !== tok) throw new Error('Zugang gewechselt'); // Antwort eines alten Zugangs: verwerfen; ein verspätetes 401 meldet den neuen nicht ab
+  if (r.status === 401) { store.token = null; lernSitzungPruefen(); route('login'); throw new Error('Nicht angemeldet'); }
   if (!j.ok) throw new Error(j.fehler || 'Fehler bei ' + aktion);
   return j.ergebnis;
+}
+// TEMPO: Knopf während einer Server-Prüfung (Prüfen, Abgeben): sichtbar „Prüfe …“ mit Lauf-Hinweis, aria-busy, gesperrt gegen ein zweites Absenden
+function lernBeschaeftigt(btn, an, text = 'Prüfe …') {
+  if (!btn) return;
+  if (an && !btn._lernSperre) { btn._lernSperre = true; // auch künstliche Klicks (dispatchEvent) während der Prüfung abfangen
+    btn.addEventListener('click', (ev) => { if (btn.getAttribute('aria-busy') === 'true') { ev.preventDefault(); ev.stopImmediatePropagation(); } }, true); }
+  if (an) { if (btn.dataset.text === undefined) btn.dataset.text = btn.textContent; btn.disabled = true; btn.setAttribute('aria-busy', 'true'); btn.textContent = text; return; }
+  btn.disabled = false; btn.removeAttribute('aria-busy');
+  if (btn.dataset.text !== undefined) { btn.textContent = btn.dataset.text; delete btn.dataset.text; }
 }
 const lernCid = () => (crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(16).slice(2));
 // DOM-Helfer: null/undefined/false überspringen (sonst schreibt der Browser das Wort „null“ in die Seite).
@@ -356,10 +385,10 @@ function lernKnobel(ziel, a, ctx, { ortCode = '', zurueck, titel = 'KNOBEL-BORDK
   pruefen.addEventListener('click', async () => {
     const w = auf.antwort();
     if (!w) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, auf.fehlerText() || 'Bitte erst antworten.')); return; }
-    pruefen.disabled = true;
+    lernBeschaeftigt(pruefen, true);
     try {
       const r = await lernCall('schule_uebung_pruefen', { lernender_id: ctx.kind, aufgabe_id: a.id, antwort: w, client_id: cid });
-      if (!r.format_ok) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, r.hinweis || 'Bitte prüfe die Eingabe.')); pruefen.disabled = false; return; }
+      if (!r.format_ok) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, r.hinweis || 'Bitte prüfe die Eingabe.')); lernBeschaeftigt(pruefen, false); return; }
       a.versuche = (a.versuche || 0) + 1; if (r.richtig) a.geloest = true;
       auf.zeigeLoesung?.(r.loesung); pruefen.remove(); tipp?.remove(); nachPruefen?.(weiter);
       lernErsetze(meldung, r.richtig
@@ -368,7 +397,7 @@ function lernKnobel(ziel, a, ctx, { ortCode = '', zurueck, titel = 'KNOBEL-BORDK
           a.versuche === 1 ? lernJwPlatz(ctx.kind, 'knobel_richtig', 'box') : null) // JW: im ersten Versuch richtig → Staunen
         : el('div', { class: 'lr-rueck lr-knobel-falsch' }, el('b', {}, 'Diesmal nicht – das war eine harte Nuss.'), el('p', {}, 'Richtig ist: ', lernMathe(lernLoesungText({ ...a, loesung: r.loesung }))),
           r.loesungsweg ? el('p', {}, el('b', {}, 'So geht’s: '), lernMathe(r.loesungsweg)) : null, el('p', { class: 'lr-leise' }, 'Knobeln kostet nichts – dein Stand bleibt.')));
-    } catch (err) { if (lernGesperrt(err)) { if (zurueck) zurueck(); else render(); return; } lernErsetze(meldung, el('p', { class: 'err-text' }, err.message)); pruefen.disabled = false; }
+    } catch (err) { if (lernGesperrt(err)) { if (zurueck) zurueck(); else render(); return; } lernErsetze(meldung, el('p', { class: 'err-text' }, err.message)); lernBeschaeftigt(pruefen, false); }
   });
   lernErsetze(ziel, el('section', { class: 'lr-karte-box lr-aufgabe lr-bordkarte lr-knobel' },
       el('div', { class: 'lr-bord-kopf' }, el('span', {}, ortCode ? `${titel} · ${ortCode}` : titel), lernStufeZeichen({ ...a, bonus: true })),
@@ -733,11 +762,11 @@ async function viewExpedition(arg) {
     pruefen.addEventListener('click', async () => {
       const w = auf.antwort();
       if (!w) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, auf.fehlerText() || 'Bitte erst antworten.')); return; }
-      pruefen.disabled = true;
+      lernBeschaeftigt(pruefen, true);
       try {
         const r = await lernCall('schule_uebung_pruefen', { lernender_id: kind.id, aufgabe_id: t.id, antwort: w, client_id: cid + '-' + anlauf, hilfe, ...(zweiteChance ? { anlauf } : {}) });
-        if (!r.format_ok) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, r.hinweis || 'Bitte prüfe die Eingabe.')); pruefen.disabled = false; return; }
-        if (r.nochmal) { anlauf = 2; lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, 'Noch nicht – schau noch einmal hin. Du hast einen zweiten Versuch.')); pruefen.disabled = false; return; }
+        if (!r.format_ok) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, r.hinweis || 'Bitte prüfe die Eingabe.')); lernBeschaeftigt(pruefen, false); return; }
+        if (r.nochmal) { anlauf = 2; lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, 'Noch nicht – schau noch einmal hin. Du hast einen zweiten Versuch.')); lernBeschaeftigt(pruefen, false); return; }
         // Teil erledigt: Lösung zeigen; der nächste Teil nennt seine Werte selbst – ein Fehler hier blockiert nichts
         t.erledigt = true; t.loesung = r.loesung; t.loesungsweg = r.loesungsweg; t.richtig_erst = !!r.richtig && !hilfe && anlauf === 1;
         letzte = r;
@@ -749,7 +778,7 @@ async function viewExpedition(arg) {
           r.loesungsweg ? el('p', {}, lernMathe(r.loesungsweg)) : null,
           !r.richtig ? el('p', { class: 'lr-leise' }, 'Keine Abzüge – im nächsten Teil geht es mit den richtigen Zahlen weiter.') : null,
           el('button', { type: 'button', class: 'lr-knopf', onclick: () => { zeichne(); window.scrollTo?.(0, 0); if (!naechster) abschluss(); } }, naechster ? `Weiter mit Teil ${String(naechster.k || '').toUpperCase()} ›` : 'Zum Abschluss ›')));
-      } catch (err) { if (lernGesperrt(err)) { render(); return; } lernErsetze(meldung, el('p', { class: 'err-text' }, err.message)); pruefen.disabled = false; }
+      } catch (err) { if (lernGesperrt(err)) { render(); return; } lernErsetze(meldung, el('p', { class: 'err-text' }, err.message)); lernBeschaeftigt(pruefen, false); }
     });
     lernErsetze(flaeche, ...teile.slice(0, i).map(erledigtZeile),
       el('section', { class: 'lr-karte-box lr-aufgabe lr-bordkarte lr-exp-teil' },
@@ -847,29 +876,54 @@ function lernSchrittZiel(d, karte, merk, ws) {
   return { art: d.schritt?.art || 'alt', ziel: st.ziel, text: st.text, klein: st.ansage || null };
 }
 // Frisch vom Server (nach einem Abschluss): Übersicht, Konto, Karte, Merkheft, Wiederholungen – alles gleichzeitig
+// 1175: Das Ziel gilt nur, wenn seit dem Start nichts geschrieben und der Zugang nicht gewechselt wurde (sonst noch einmal); die Reisekarte dafür
+// höchstens LERN_KURZ_MS alt (ein anderes Gerät kann inzwischen weiter sein). Mit Karte bestimmt die Karte Ziel und Text (lernSchritt) – das Merkheft
+// ändert sie dann nicht; nur ohne Schritt aus der Karte wird auf das Merkheft gewartet (Rückfall „alt“).
 async function lernSchrittLaden(kindId) {
   const k = Number(kindId); if (!k) return null;
-  const [d, karte, merk, wdh] = await Promise.all([lernLadeKind(k, { still: true }).catch(() => null), lernReiseKarte(k).catch(() => null),
-    lernCall('schule_merkheft', { lernender_id: k }).then((r) => r?.einheiten || []).catch(() => []), lernWdhLaden(k).catch(() => null)]);
-  if (!d) return null;
-  d.merk = merk; lernNamenSetzen(d);
-  return lernSchrittZiel(d, karte, merk, lernWdhStand(wdh, k));
+  for (let versuch = 0; versuch < 3; versuch++) {
+    const stand0 = lernStand, tok0 = lernSpeicherToken;
+    const merkP = lernCall('schule_merkheft', { lernender_id: k }).then((r) => r?.einheiten || []).catch(() => []);
+    const [d, karte, wdh] = await Promise.all([lernLadeKind(k, { still: true }).catch(() => null), lernReiseKarte(k, { maxAlter: LERN_KURZ_MS }).catch(() => null),
+      lernWdhLaden(k).catch(() => null)]);
+    if (!d) return null;
+    const ws = lernWdhStand(wdh, k);
+    let z = null;
+    if (Array.isArray(karte?.kontinente) && karte.kontinente.some((x) => (x.fluege || []).length)) {
+      d.merk = []; lernNamenSetzen(d); z = lernSchrittZiel(d, karte, [], ws);
+      if (['alt', 'nichts'].includes(z.art)) z = null; // kein Schritt aus der Karte: wie bisher mit Merkheft
+    }
+    if (!z) { const merk = await merkP; const d2 = await lernLadeKind(k, { still: true }).catch(() => null); if (!d2) return null;
+      d2.merk = merk; lernNamenSetzen(d2); z = lernSchrittZiel(d2, karte, merk, ws); }
+    if (lernStand === stand0 && lernSpeicherToken === tok0) return z;
+  }
+  return null; // dauernd überholt: Rückfall (Ziel vom Server bzw. „Weiter“)
 }
 // Großer Knopf „nächster Schritt“: steht sofort da, aber gesperrt und ohne Stadtname (WT 0.93.5), bis Ziel und Text aus dem frischen Stand feststehen.
 // Vorher war er gleich mit dem Ziel des Servers (vorher) antippbar – ein Tippen in den ersten Millisekunden konnte am Schritt vorbeiführen.
 // Kommt kein brauchbarer Schritt (Fehler, ohne Stände der Karte, ausgeschlossen über ohne), gilt das Ziel vom Server bzw. „Weiter“ zur Reise.
+// TEMPO: Nebenweg unter einem Schritt-Knopf – erscheint erst, wenn der Knopf frei ist
+function lernNebenweg(knopf, inhalt) {
+  const p = el('p', { class: 'lr-nebenweg', hidden: true }, inhalt);
+  (knopf?.frei || Promise.resolve()).then(() => { p.hidden = false; });
+  return p;
+}
 function lernSchrittKnopf(kindId, { gross = true, klasse = '', ohne = null, vorher = null } = {}) {
   const v = vorher || { text: 'Weiter', klein: null, ziel: `#/reise/${kindId}` };
+  // TEMPO (Beobachtung des Nutzers): der wartende Knopf zeigt sichtbar, dass er lädt („lädt …“ mit kleinem Lauf-Hinweis), statt nur blass zu sein
+  const laedt = () => el('span', { class: 'lr-laedt' }, 'lädt …');
   const a = gross ? lernGrossKnopf('Weiter', null, { href: v.ziel, class: 'lr-schritt-knopf lr-schritt-wartet ' + klasse }) // als Link anlegen; href kommt erst mit dem Ziel
-    : el('a', { class: 'lr-knopf lr-schritt-knopf lr-schritt-wartet ' + klasse }, 'Weiter ›');
+    : el('a', { class: 'lr-knopf lr-schritt-knopf lr-schritt-wartet ' + klasse }, 'Weiter ', laedt(), ' ›');
+  if (gross) a.querySelector('.lr-ab-gross-text').after(el('small', { class: 'lr-laedt' }, 'lädt …'));
+  let frei; a.frei = new Promise((ok) => { frei = ok; }); // TEMPO: Nebenwege (z. B. Extra-Bordkarten) erst zeigen, wenn „Weiter“ frei ist
   a.setAttribute('aria-busy', 'true'); a.setAttribute('aria-disabled', 'true'); a.removeAttribute('href');
   const sperre = (ev) => { if (a.classList.contains('lr-schritt-wartet')) { ev.preventDefault(); ev.stopImmediatePropagation(); } };
   a.addEventListener('click', sperre, true);
   const setze = (z) => {
     a.setAttribute('href', z.ziel); if (z.art) a.dataset.schritt = z.art;
-    if (gross) { a.querySelector('.lr-ab-gross-text').textContent = z.text; const k0 = a.querySelector('small'); if (z.klein) { if (k0) k0.textContent = z.klein; else a.querySelector('.lr-ab-gross-text').after(el('small', {}, z.klein)); } else k0?.remove(); }
+    if (gross) { a.querySelector('.lr-ab-gross-text').textContent = z.text; a.querySelector('small.lr-laedt')?.remove(); const k0 = a.querySelector('small'); if (z.klein) { if (k0) k0.textContent = z.klein; else a.querySelector('.lr-ab-gross-text').after(el('small', {}, z.klein)); } else k0?.remove(); }
     else a.textContent = z.text + ' ›';
-    a.classList.remove('lr-schritt-wartet'); a.removeAttribute('aria-busy'); a.removeAttribute('aria-disabled');
+    a.classList.remove('lr-schritt-wartet'); a.removeAttribute('aria-busy'); a.removeAttribute('aria-disabled'); frei();
   };
   lernSchrittLaden(kindId).then((s) => {
     if (!s || (ohne && ohne(s))) return setze(v);
@@ -900,15 +954,19 @@ const lernEtappenStadt = (kindId, themaId, nr, alt = '') => { const f = lernRkFl
 // nach der neuen ankommen und Namen und Stände (lernRkFlugVon) auf den alten Stand zurücksetzen.
 const lernReiseKarteNr = new Map(); // Kind → { abruf, gemerkt, stand }
 const lernRkNr = (k) => { if (!lernReiseKarteNr.has(k)) lernReiseKarteNr.set(k, { abruf: 0, gemerkt: 0, stand: 0 }); return lernReiseKarteNr.get(k); };
-function lernReiseKarte(kindId) {
+const lernReiseKarteZeit = new Map(); // 1175: Kind → Zeitpunkt der gemerkten Antwort (Eingang)
+const lernReiseKarteAlter = (k) => (lernReiseKarteSpeicher.has(k) && lernReiseKarteZeit.has(k) ? Date.now() - lernReiseKarteZeit.get(k) : 0);
+function lernReiseKarte(kindId, { maxAlter = 0 } = {}) {
   lernSitzungPruefen(); // TEMPO: nach Abmelden/anderem Zugang keine Karte der alten Sitzung
+  if (maxAlter && lernReiseKarteAlter(kindId) > maxAlter) lernReiseKarteSpeicher.delete(kindId); // zu alt: frisch holen (die alte bleibt als lernReiseKarteAlt)
   if (!lernReiseKarteSpeicher.has(kindId)) {
     const t0 = performance.now(); const z = lernRkNr(kindId); const nr = ++z.abruf, stand = z.stand;
     const p = lernCallNetz('schule_reise_karte', { lernender_id: kindId }).then((r) => {
       if (r) { r._ladezeit = Math.round(performance.now() - t0); if (stand === z.stand && nr > z.gemerkt) { z.gemerkt = nr; lernReiseKarteAlt.set(kindId, r); } }
+      if (lernReiseKarteSpeicher.get(kindId) === p) lernReiseKarteZeit.set(kindId, Date.now());
       return r; })
       .catch((e) => { if (lernReiseKarteSpeicher.get(kindId) === p) lernReiseKarteSpeicher.delete(kindId); throw e; });
-    lernReiseKarteSpeicher.set(kindId, p);
+    lernReiseKarteSpeicher.set(kindId, p); lernReiseKarteZeit.delete(kindId); // Alter zählt erst ab Eingang
   }
   return lernReiseKarteSpeicher.get(kindId);
 }
@@ -1167,7 +1225,7 @@ async function viewLernen() {
       lernZuTun(echte, lagen, neueAntworten, wuensche, meldung),
       echte.length ? lernKinderKacheln(u, echte, lagen) : el('p', { class: 'card muted' }, 'Kein Kind freigeschaltet.'),
       el('div', { class: 'lst-unten' }, nachschlagen, verwalten.length || eigeneSeite ? lernLsLinks('Verwalten', 'lern-verwalten lst-verw', verwalten, eigeneSeite) : null)),
-    eltern ? lernElternBereich(eltern, { ohneWuensche: true }) : null,
+    eltern && LERN_BELOHNUNGEN_AN ? lernElternBereich(eltern, { ohneWuensche: true }) : null, // Belohnungen vorerst ausgeblendet (Schalter oben)
     weitere].filter(Boolean));
 }
 // LS: Karte mit Links und kurzer Erklärung (Nachschlagen in drei Spalten, Verwalten schmal). Der Link trägt nur den Namen; die Erklärung ist seine Beschreibung,
@@ -1784,23 +1842,29 @@ const lernReiseLetzte = new Map();
 async function viewReise(arg) {
   setChrome('Lernreise', { back: true, showTabs: false });
   const live = viewGuard();
+  lernSitzungPruefen(); // 1175: anderer Zugang → keine alte Ansicht einsetzen (vor dem ersten Zugriff auf lernReiseLetzte)
   const letzte = lernReiseLetzte.get(Number(arg));
   if (letzte) { letzte.classList.add('lr-veraltet'); letzte.setAttribute('aria-busy', 'true'); lernErsetze(main, letzte); } else loading();
   // RK: Karten-Antwort gleichzeitig laden (je Sitzung einmal; nach einer Änderung sofort die alte zeigen, die neue im Hintergrund)
-  const standStart = lernStand; // TEMPO: Stand des Vergessens beim Start dieser Ansicht
-  const kidNr = Number(arg); const karteFrisch = lernReiseKarteSpeicher.has(kidNr); const karteAlt = kidNr && !karteFrisch ? lernReiseKarteAlt.get(kidNr) || null : null;
+  const standStart = lernStand, tokStart = lernSpeicherToken; // TEMPO: Stand des Vergessens und Zugang beim Start dieser Ansicht
+  const kidNr = Number(arg);
+  if (kidNr && lernReiseKarteAlter(kidNr) > LERN_KURZ_MS) lernReiseKarteSpeicher.delete(kidNr); // 1175: Karte älter als LERN_KURZ_MS → wie eine alte Karte (Hauptknopf gesperrt, bis die frische da ist)
+  const karteFrisch = lernReiseKarteSpeicher.has(kidNr); const karteAlt = kidNr && !karteFrisch ? lernReiseKarteAlt.get(kidNr) || null : null;
   const kartePromise = kidNr ? lernReiseKarte(kidNr).catch(() => null) : null; // WK F3: auch die Abflugtafel nennt die Namen der Karte (je Sitzung einmal)
   // WK F5: Merkheft und Wiederholungen gleichzeitig mit Übersicht/Konto holen (vorher zwei Runden nacheinander)
   const merkP = kidNr ? lernCall('schule_merkheft', { lernender_id: kidNr }).then((r) => r?.einheiten || []).catch(() => null) : null;
   const wdhP = kidNr ? lernWdhLaden(kidNr).catch(() => null) : null;
   const d = await lernLadeKind(arg);
-  if (!d) { letzte?.classList.remove('lr-veraltet'); letzte?.removeAttribute('aria-busy'); }
+  if (!d) { lernReiseLetzte.delete(kidNr); if (letzte && main.contains(letzte)) letzte.remove(); } // 1175: kein Kind → alte Ansicht weg (nicht wieder hell schalten)
   if (!d || !live()) return;
   // TEMPO: Die Reisekarte wartet nicht auf das Merkheft (größte und langsamste Antwort). Ist die Karte vor dem Merkheft da, wird sie sofort
   // gezeichnet – Hauptknopf gesperrt und ohne Stadtname (wie bei der alten Karte, WT), bis das Merkheft da ist; dann einmal neu zeichnen
   // (Merkheft, Wiederholung und Bordkarten der Stadt aus diesem Abruf, kein zweiter Abruf). Alle anderen Ansichten warten wie bisher.
-  let merkDa = false;
-  const merkFertig = (merkP ? merkP.then((x) => x ?? lernMerkDaten(d).catch(() => [])) : lernMerkDaten(d).catch(() => [])).then((m) => { merkDa = true; return m; });
+  // 1175: Fehler im Merkheft → höchstens EINE gezielte Wiederholung nach 2 s; scheitert auch sie, bleibt es beim Rückfall (kein Neuzeichnen, keine weiteren Abrufe)
+  let merkDa = false, merkOk = true;
+  const merkHolen = () => lernMerkDaten(d).catch(() => null);
+  const merkFertig = (merkP || merkHolen()).then((x) => x ?? new Promise((ok) => setTimeout(ok, 2000)).then(() => (live() ? merkHolen() : null)))
+    .then((m) => { merkDa = true; if (!m) merkOk = false; return m || []; });
   const wdhFertig = wdhP || lernWdhLaden(d.kind.id).catch(() => null);
   const wdh = await wdhFertig;
   if (!live()) return;
@@ -1827,8 +1891,8 @@ async function viewReise(arg) {
   // (ohne Zwischen-Änderung; vorher lief beides ein zweites Mal, ebenso konto und merkheft – die kommen jetzt aus dem kurzen Speicher)
   const vorNeu = () => {
     if (lernStand !== standStart) return; // inzwischen geändert: alles frisch holen
-    lernVorabSetzen('schule_wiederholung', { lernender_id: kidNr }, wdhFertig);
-    const sl = lernRkStadtLesen; if (sl && sl.kind === kind.id) lernVorabSetzen('schule_einheit_lesen', sl.daten, sl.p);
+    lernVorabSetzen('schule_wiederholung', { lernender_id: kidNr }, wdhFertig, { stand: standStart, token: tokStart });
+    const sl = lernRkStadtLesen; if (sl && sl.kind === kind.id) lernVorabSetzen('schule_einheit_lesen', sl.daten, sl.p, { stand: sl.stand, token: sl.token });
   };
   const merkNachholen = async () => { // TEMPO: doch keine Reisekarte → wie bisher mit Merkheft zeichnen
     merk = await merkFertig; merkSpaet = false; d.merk = merk; lernNamenSetzen(d); n = d.naechste;
@@ -1852,7 +1916,8 @@ async function viewReise(arg) {
       lernErsetze(main, lernRahmen(kind, 'reise', lernReisekarte(d, karte, lernRkStart(d, { n, et, nWdh, ws, wdhFertig: wdhGemacht }))));
       lernReiseLetzte.set(kind.id, main.firstElementChild);
       if (merkSpaet) { // TEMPO: ohne Merkheft gezeichnet → Hauptknopf gesperrt; mit Merkheft (und ggf. frischer Karte) einmal neu zeichnen
-        lernZielBisFrisch(main.firstElementChild, Promise.all([merkFertig, karte === karteAlt ? kartePromise : null]).then(() => ({})), null, live, vorNeu);
+        // Neuzeichnen nur mit Merkheft (oder mit frischer Karte statt der alten); ohne beides: Knopf frei mit dem Rückfall
+        lernZielBisFrisch(main.firstElementChild, Promise.all([merkFertig, karte === karteAlt ? kartePromise : null]).then(([, k2]) => (merkOk || (k2 && k2 !== karteAlt) ? {} : null)), null, live, vorNeu);
         return; // Expedition/Zusatz-Hinweise erst nach dem Neuzeichnen (mit vollständigem Stand)
       }
       lernExFreiBeimStart(d); if (!document.querySelector('.lr-abschluss')) lernZpGeschafftZeigen(d);
@@ -2347,7 +2412,7 @@ function lernReisekarte(d, karte, start) {
   // ---------- Startknopf schwebend in der Karte (§1), Expedition darüber (EX §3) ----------
   // S3: rechts die Bordkarten der aktuellen Stadt (x/6 aus etappen_stand der Einheit), der Städte-Stand nur im Text „Stadt 5 von 13“
   let stadtStand = null;
-  if (dranStadt && start.einheit) (lernRkStadtLesen = { kind: kind.id, daten: { lernender_id: kind.id, einheit_id: start.einheit } }, lernRkStadtLesen.p = lernCall('schule_einheit_lesen', lernRkStadtLesen.daten)).then((x) => {
+  if (dranStadt && start.einheit) (lernRkStadtLesen = { kind: kind.id, daten: { lernender_id: kind.id, einheit_id: start.einheit }, stand: lernStand, token: lernSpeicherToken }, lernRkStadtLesen.p = lernCall('schule_einheit_lesen', lernRkStadtLesen.daten)).then((x) => {
     const es = x?.etappen_stand?.[dranStadt.lernziel]; if (!es) return;
     const y = Number(es.ziel) || 0; const v = Number(es.eigene_loesungen ?? es.serie ?? 0); if (!y) return;
     stadtStand = { x: Math.min(v, y), y }; if (document.body.contains(wurzel)) { lernErsetze(schwebe, ...(handy() ? geradeDran() : [])); zeichneSeite(); if (z.ebene === 'land') zeichneOben(); }
@@ -4521,13 +4586,13 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
       pruefen.addEventListener('click', async () => {
         const w = auf.antwort();
         if (!w) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, auf.fehlerText() || 'Bitte erst antworten.')); return; }
-        pruefen.disabled = true;
+        lernBeschaeftigt(pruefen, true);
         try {
           const r = await lernCall('schule_uebung_pruefen', { lernender_id: ctx.kind, aufgabe_id: a.id, antwort: w, client_id: cid, hilfe, ...(zweiteChance ? { anlauf } : {}), ...(a.misch ? { misch: true, aktuell_einheit: ctx.einheit, aktuell_lernziel: e.lernziel } : {}) }); // H10: Server prüft die Mischkarte
           if (!ctx.live()) return;
-          if (!r.format_ok) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, r.hinweis)); pruefen.disabled = false; return; }
+          if (!r.format_ok) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, r.hinweis)); lernBeschaeftigt(pruefen, false); return; }
           if (r.nochmal) { // 1. Fehler: keine Lösung, nur ein Hinweis – die Eingabe bleibt änderbar
-            anlauf = 2; cid = lernCid(); pruefen.disabled = false;
+            anlauf = 2; cid = lernCid(); lernBeschaeftigt(pruefen, false);
             lernErsetze(meldung, el('div', { class: 'lr-rueck lr-rueck-nochmal' }, el('b', {}, 'Noch nicht – du hast einen zweiten Versuch.'),
               r.verletzt ? [lernBedingungRueck(r), el('p', {}, 'Ändere deine Zahlen.')]
                 : el('p', {}, LERN_GRUND[r.grund] || (a.tipp ? ['Tipp: ', ...lernMathe(a.tipp)] : 'Lies die Bordkarte noch einmal genau und prüfe deine Rechnung.'))));
@@ -4664,7 +4729,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
             naechsteKarte ? el('button', { type: 'button', class: 'lr-knopf', onclick: () => { if (neuKarte(naechsteKarte)) { erstErklaeren(naechsteKarte); return; } aktKarte = naechsteKarte; stufe = 0; zeichneUeben(); window.scrollTo(0, 0); } }, `Nächste Etappe: ${naechsteKarte.titel}`)
               : el('button', { type: 'button', class: 'lr-knopf', onclick: () => zeige('erklaeren') }, 'Zur Übersicht der Etappen')));
           (jetztSitzt ? meldung : weiter).scrollIntoView?.({ block: 'center', behavior: 'smooth' });
-        } catch (err) { if (lernGesperrt(err)) { render(); return; } lernErsetze(meldung, el('p', { class: 'err-text' }, err.message)); pruefen.disabled = false; }
+        } catch (err) { if (lernGesperrt(err)) { render(); return; } lernErsetze(meldung, el('p', { class: 'err-text' }, err.message)); lernBeschaeftigt(pruefen, false); }
       });
       const fein = window.matchMedia?.('(pointer: fine)').matches;
       const aufwaermen = a.zaehlt === 'nein' ? el('small', { class: 'lr-zaehlt-nicht' }, 'Zum Aufwärmen – zählt nicht für die Landung') : null; // Form-Takt: Gerüst
@@ -5130,13 +5195,13 @@ function lernTestLauf(ctx, box, t) {
               el('button', { type: 'button', class: 'secondary', onclick: () => { abgeben.dataset.sicher = '1'; abgeben.click(); } }, 'Trotzdem abgeben'))));
           return;
         }
-        abgeben.disabled = true;
+        lernBeschaeftigt(abgeben, true, 'Wird abgegeben …');
         const r = await lernCall('schule_test_abschliessen', { lernender_id: ctx.kind, sitzung_id: t.sitzung_id });
         // Teil 4 Punkt 5h: Stand des Flugs neu vom Server holen, bevor Knöpfe gezeichnet werden (sonst alter Stand → wieder „Verbessern“)
         try { const neu = await lernCall('schule_einheit_lesen', { lernender_id: ctx.kind, einheit_id: ctx.einheit }); if (neu && neu.ok !== false) ctx.daten = neu; } catch { /* Ergebnis trotzdem zeigen */ }
         if (ctx.live()) { lernTestErgebnis(ctx, box, r);
           if (lernNeu(ctx.kindObj) && lernFlugAbschlussFaellig(ctx, r)) lernAbschlussFlugStart(ctx, r); } // AB-A, 0.83.1: nach flug_geschafft
-      } catch (e) { abgeben.disabled = false; lernErsetze(meldung, el('p', { class: 'err-text' }, e.message)); }
+      } catch (e) { lernBeschaeftigt(abgeben, false); lernErsetze(meldung, el('p', { class: 'err-text' }, e.message)); }
     } }, 'Abgeben');
     lernErsetze(box, el('div', { class: 'card' },
       el('p', { class: 'eyebrow' }, `${art} · Bordkarte ${i + 1} von ${aufg.length} · ${gesendet.size} beantwortet`),
@@ -7139,7 +7204,7 @@ async function lernWwSeite(kindId, ww, live) {
         el('b', {}, w.name), el('small', {}, `${w.neu} neu seit ${lernWwDatum({ tag: w.b.zTag })}`)))))) : null;
     // Fazit (wie im Entwurf): häufigste wiederkehrende Fehlerart, dann das Thema mit den meisten offenen Fehlern, dann Fehler, die danach richtig gelöst wurden
     let fazit;
-    if (!Number(A.offen_zahl ?? (A.offen || []).length)) fazit = [`${S.zeit ? `In den letzten ${S.zeit} Tagen` : 'Bisher'} ${aw.antworten || 0} Aufgaben, davon `, el('b', {}, `${aw.richtig || 0} richtig`), '.'];
+    if (!Number(A.offen_zahl ?? (A.offen || []).length)) fazit = [`${S.zeit ? `In den letzten ${S.zeit} Tagen` : 'Bisher'} ${aw.antworten || 0} Bordkarten, davon `, el('b', {}, `${aw.richtig || 0} richtig`), '.'];
     else { const top = wieder[0]; const topThemen = new Set((top?.themen || []).map(lernWwTk));
       const themaTop = (aw.themen || []).find((t) => Number(t.offen) >= 2 && !topThemen.has(lernWwTk(t.thema_id)));
       // Ein Thema steht höchstens in EINER Gruppe: Das als Schwerpunkt genannte Thema (themaTop) ist kein „Ausrutscher“, auch wenn der Server es in
@@ -7165,7 +7230,7 @@ async function lernWwSeite(kindId, ww, live) {
   const zuThemaVon = (x) => { const k = lernWwTk(x.thema_id); S.themaAuf.set(k, true); zeichne(); wurzel.querySelector(`[data-ww-thema="${CSS.escape(k)}"]`)?.scrollIntoView({ block: 'start', behavior: sanft() }); };
   function zeile(x, mitOrt, BJ) {
     const a = aufgabeVon(x); const id = String(x.versuch_id); const auf = S.aufRow.has(id);
-    const frage = kurz(a.frage.text) || 'Aufgabe'; const ein = lernAntwortText(a, x.antwort) || '–'; const ok = lernLoesungText(a) || '–';
+    const frage = kurz(a.frage.text) || 'Bordkarte'; /* Reisewörter (21.11.) */ const ein = lernAntwortText(a, x.antwort) || '–'; const ok = lernLoesungText(a) || '–';
     const art = lernWwArt(x); const danach = x.danach_richtig === true; // WW-S3: nur true oder fehlt (geprüft in lernWwFormOk)
     const zusatz = [Number(x.anlauf) === 2 ? '2. Anlauf' : '', x.mit_tipp ? 'mit Tipp' : '', danach ? 'danach richtig gelöst' : ''].filter(Boolean).join(' · ');
     const ort = `${lernWwThName(x)} › ${x.lernkarte || lernZielName(x.lernziel || '')}`;
@@ -7190,7 +7255,7 @@ async function lernWwSeite(kindId, ww, live) {
         el('button', { type: 'button', class: 'ww-link', onclick: () => zuThemaVon(x) }, '→ Thema')) : el('p', { class: 'muted small' }, ort)))];
   }
   const tabKopf = (mitOrt) => el('div', { class: 'ww-z ww-kopfz' + (mitOrt ? ' ww-mit-ort' : ''), role: 'row' }, el('span', { role: 'columnheader' }, 'Datum'),
-    mitOrt ? el('span', { role: 'columnheader' }, 'Thema › Lernkarte') : null, el('span', { role: 'columnheader' }, 'Aufgabe'), el('span', { role: 'columnheader' }, 'Eingegeben'),
+    mitOrt ? el('span', { role: 'columnheader' }, 'Thema › Etappe') : null, el('span', { role: 'columnheader' }, 'Bordkarte'), /* Reisewörter (21.11.): nicht „Lernkarte“/„Aufgabe“ */ el('span', { role: 'columnheader' }, 'Eingegeben'),
     el('span', { role: 'columnheader' }, 'Richtig'), el('span', { role: 'columnheader' }, 'Fehlerart'), el('span', { role: 'columnheader', class: 'ww-akt' }, el('span', { class: 'lw-vh' }, mitOrt ? 'Thema schon besprochen' : '')));
   // ---------- Besprochen (aufklappbar, je Thema und Tag erledigt.tag, „zurückholen“ holt genau die geladenen Markierungen des Themas an diesem Tag zurück) ----------
   // Liste höchstens 200 (zuletzt besprochen zuerst). Ob einem Thema ältere Einträge fehlen, sagt der Server: weniger Einträge in der Liste als besprochen.fehler.
@@ -7460,14 +7525,16 @@ async function viewWiederholen(arg) {
       if (ws.neu) {
         const nochExtra = checkin ? ws.extra : Number(r.faellig || 0) > liste.length && (ws.alle || []).length > liste.length;
         const keineFrische = checkin ? ws.keineFrische : Number(r.faellig || 0) > liste.length && (ws.alle || []).length <= liste.length;
+        const knopf = lernSchrittKnopf(kind.id, { gross: false, ohne: (s) => /^#\/wiederholen\//.test(s.ziel), vorher: n ? { text: `Weiter nach ${nach}`, ziel: lernUebenZiel(kind.id, n) } : { text: 'Weiter', ziel: `#/reise/${kind.id}` } });
         lernErsetze(flaeche, kopfZeile(checkin ? 'CHECK-IN' : 'EXTRA'),
           el('section', { class: 'lr-karte-box lr-geschafft lr-checkin-fertig' }, el('div', { class: 'lr-checkin-symbol', 'aria-hidden': 'true' }, '🧳'),
             el('h1', { class: 'lr-titel' }, checkin ? 'Eingecheckt!' : 'Geschafft!'), lernKoffer(zustand.length, zustand),
             el('p', { class: 'lr-checkin-ergebnis' }, el('b', {}, `${richtig} von ${liste.length} richtig`), sterne ? [' · ', el('b', { class: 'lr-gold-text' }, `+${lernZahl(sterne)} ★`)] : null),
             el('p', { class: 'lr-leise' }, falsch ? `${falsch === 1 ? 'Eine Bordkarte kommt' : `${falsch} Bordkarten kommen`} beim nächsten Mal wieder.` : checkin ? 'Alles richtig – super eingecheckt!' : 'Alles richtig!'),
             // WK 2 (A2): direkt in den nächsten Schritt (Schritt 1–5), nie zurück in den Check-in
-            lernSchrittKnopf(kind.id, { gross: false, ohne: (s) => /^#\/wiederholen\//.test(s.ziel), vorher: n ? { text: `Weiter nach ${nach}`, ziel: lernUebenZiel(kind.id, n) } : { text: 'Weiter', ziel: `#/reise/${kind.id}` } }),
-            nochExtra ? el('a', { class: 'lr-textlink lr-extra-link', href: `#/wiederholen/${kind.id}-extra`, onclick: () => setTimeout(render, 0) }, `Noch 3 Extra-Bordkarten?${ws.sterne ? ` Je richtig ★ ${ws.sterne}` : ''}`)
+            knopf,
+            // TEMPO: Extra-Bordkarten als Nebenweg UNTER „Weiter“ und erst, wenn „Weiter“ frei ist (vorher hielt das Kind den wartenden Knopf für gesperrt)
+            nochExtra ? lernNebenweg(knopf, el('a', { class: 'lr-textlink lr-extra-link', href: `#/wiederholen/${kind.id}-extra`, onclick: () => setTimeout(render, 0) }, `Noch 3 Extra-Bordkarten?${ws.sterne ? ` Je richtig ★ ${ws.sterne}` : ''}`))
               : keineFrische ? el('p', { class: 'lr-leise lr-keine-frische' }, LERN_KEINE_FRISCHE) : null),
           lernWdhErklaert(true));
         return;
@@ -7487,10 +7554,10 @@ async function viewWiederholen(arg) {
     pruefen.addEventListener('click', async () => {
       const w = auf.antwort();
       if (!w) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, auf.fehlerText() || 'Bitte erst antworten.')); return; }
-      pruefen.disabled = true;
+      lernBeschaeftigt(pruefen, true);
       try {
         const x = await lernCall('schule_uebung_pruefen', { lernender_id: kind.id, aufgabe_id: a.id, antwort: w, client_id: cid, hilfe: 0 });
-        if (!x.format_ok) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, x.hinweis)); pruefen.disabled = false; return; }
+        if (!x.format_ok) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, x.hinweis)); lernBeschaeftigt(pruefen, false); return; }
         auf.sperren(); a.loesung = x.loesung; if (x.richtig) richtig++; auf.zeigeLoesung(x.loesung);
         const plus = typeof x.wiederholung?.sterne === 'number' ? x.wiederholung.sterne : typeof x.sterne === 'number' ? x.sterne : 0; // Sterne nur aus der Antwort des Servers
         const ab = Number(x.abgelegt?.etappe?.sterne || 0) + Number(x.abgelegt?.flug?.sterne || 0);
@@ -7511,7 +7578,7 @@ async function viewWiederholen(arg) {
         const naechste = el('button', { type: 'button', class: 'lr-knopf', onclick: zeige }, ws.neu ? (i < liste.length ? 'Nächste Bordkarte ›' : 'Fertig ›') : i < liste.length ? 'Nächste' : 'Fertig');
         pruefen.replaceWith(naechste);
         if (x.abgelegt) lernAbgelegtZeigen(kind, x.abgelegt, { checkin, nachbarn: (d.mit || []).map((e) => e.titel) }).then(() => naechste.focus({ preventScroll: true })); // WD-6
-      } catch (err) { if (lernGesperrt(err)) { render(); return; } lernErsetze(meldung, el('p', { class: 'err-text' }, err.message)); pruefen.disabled = false; }
+      } catch (err) { if (lernGesperrt(err)) { render(); return; } lernErsetze(meldung, el('p', { class: 'err-text' }, err.message)); lernBeschaeftigt(pruefen, false); }
     });
     lernErsetze(flaeche, ws.neu ? kopf : null, ws.neu ? koffer : null,
       el('header', { class: 'lr-etappe-oben' }, ws.neu ? null : el('p', { class: 'lr-ueber' }, `WIEDERHOLEN ${i + 1} VON ${liste.length} · ${lernStadtName(kind.id, a).toUpperCase()}`),

@@ -1,0 +1,6 @@
+/* ===== Entwurf 2 · Weihnachts-Ebene: 3 Lampen-Gruppen statt einzelner Lampen (3 animierte Knoten) ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .bewegt .fk-glanz { animation: fkglanz 2.8s ease-in-out infinite; }
+  .bewegt .fk-glanz.fk1 { animation-delay: -.93s; } .bewegt .fk-glanz.fk2 { animation-delay: -1.87s; }
+}
+@keyframes fkglanz { 50% { opacity: .35; } }

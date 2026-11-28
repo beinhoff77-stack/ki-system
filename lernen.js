@@ -1122,9 +1122,10 @@ async function viewLernen() {
   const meldung = el('p', { class: 'small muted', role: 'status' });
   const entscheide = async (id, status) => { try { await lernCall('schule_einloesung_entscheiden', { id, status }); render(); } catch (err) { meldung.textContent = err.message; } };
   // I-2: auf der Leitungs-Startseite stehen die Wünsche als blaue Einträge in „Zu tun“; der Kasten bleibt nur für die Seite ohne Leitung
+  // LS: Knöpfe mit eindeutigem Namen (mehrere Wünsche stehen untereinander)
   const wuensche = offeneWuensche.map((x) => ({ text: `${x.kind} möchte „${x.titel}“ einlösen (${lernZahl(x.sterne)} Sterne)`,
-    knoepfe: [el('button', { type: 'button', class: 'primary', onclick: () => entscheide(x.id, 'bestaetigt') }, 'Bestätigen'),
-      el('button', { type: 'button', class: 'secondary', onclick: () => entscheide(x.id, 'abgelehnt') }, 'Ablehnen')] }));
+    knoepfe: [el('button', { type: 'button', class: 'primary', 'aria-label': `Bestätigen: ${x.kind} – ${x.titel}`, onclick: () => entscheide(x.id, 'bestaetigt') }, 'Bestätigen'),
+      el('button', { type: 'button', class: 'secondary', 'aria-label': `Ablehnen: ${x.kind} – ${x.titel}`, onclick: () => entscheide(x.id, 'abgelehnt') }, 'Ablehnen')] }));
   const wartet = offeneWuensche.length ? el('section', { class: 'card lern-wartet' }, el('p', { class: 'eyebrow' }, 'WARTET AUF DICH'),
     ...offeneWuensche.map((x) => el('div', { class: 'lern-wunsch' }, el('span', {}, el('b', {}, x.kind), ` möchte „${x.titel}“ einlösen (${lernZahl(x.sterne)} Sterne)`),
       el('div', { class: 'row' }, el('button', { type: 'button', class: 'primary', onclick: () => entscheide(x.id, 'bestaetigt') }, 'Bestätigen'),
@@ -1140,32 +1141,77 @@ async function viewLernen() {
       eltern ? lernElternBereich(eltern, { ohneWuensche: true }) : null, weitere].filter(Boolean));
     return;
   }
-  // LA-1/LA-2: Startseite „Was ist los?“ – Zu tun · Kinder-Tabelle · Nachschlagen
+  // LS (Entwurf lehrer-start/entwurf1): Startseite „Was ist los?“ – Zu tun · Die Kinder (eine Kachel je Kind) · Nachschlagen · Verwalten
+  // Abrufe je Kind (gleichzeitig): schule_lernstand (gemerkt, LERN_MERKEN) und schule_wackelt_analyse (Zahl offener Fehler nach „Was wackelt“, WW-S3).
+  // Die Analyse-Antwort wird für die Seite „Was wackelt“ desselben Kindes einmal hinterlegt (lernVorabSetzen) – ein Tipp auf „n Fehler offen ›“ lädt sie nicht noch einmal.
   const echte = (u.lernende || []).filter((k) => !k.ist_test);
-  const lsAlle = await Promise.all(echte.map((k) => lernCall('schule_lernstand', { lernender_id: k.id }).catch(() => null)));
+  const wwTage = lernWwZeit;
+  const [lsAlle, wwAlle] = await Promise.all([Promise.all(echte.map((k) => lernCall('schule_lernstand', { lernender_id: k.id }).catch(() => null))),
+    Promise.all(echte.map((k) => lernWwHolen(k.id, { tage: wwTage })))]);
   if (!live()) return;
-  const lagen = new Map(echte.map((k, i) => [k.id, lernKindLage(u, k, lsAlle[i])]));
-  const nachschlagen = el('nav', { class: 'lern-nachschlagen', 'aria-label': 'Nachschlagen' }, el('span', { class: 'eyebrow' }, 'NACHSCHLAGEN'),
-    el('a', { href: '#/lehrplan' }, 'Lehrplan'), el('a', { href: '#/regeln' }, 'Regeln'), el('a', { href: '#/expeditionen' }, 'Expeditionen'), // RU-App: Regeln (lernen-regeln.js)
-    el('a', { href: '#/lernauftraege' }, 'Meine Aufträge' + (offen ? ` (${offen} offen)` : '')), el('a', { href: '#/info' }, 'So funktioniert’s'));
-  const verwalten = [...testkinder.map((k) => el('a', { href: `#/reise/${k.id}` }, `${k.name} (zum Ausprobieren)`)),
-    eltern ? el('a', { href: '#/zugaenge' }, 'Zugänge') : null,
-    !seite ? el('a', { href: 'lernen/', target: '_blank', rel: 'noopener' }, 'Eigene Lernen-Seite ↗') : null].filter(Boolean);
+  echte.forEach((k, i) => { if (wwAlle[i].art === 'ok') lernVorabSetzen('schule_wackelt_analyse', { lernender_id: k.id, tage: wwTage }, wwAlle[i].r); });
+  const lagen = new Map(echte.map((k, i) => [k.id, { ...lernKindLage(u, k, lsAlle[i]), ww: lernLsFehler(wwAlle[i]) }]));
+  const neueAntworten = (rm?.rueckmeldungen || []).filter((r) => r.antwort && r.status !== 'offen' && (!r.am || lernTageSeit(r.beantwortet_am || r.am) <= 7));
+  const nachschlagen = lernLsLinks('Nachschlagen', 'lern-nachschlagen lst-nach', [['#/lehrplan', 'Lehrplan', 'Themen Klasse 5–10, Fahrplan'],
+    ['#/regeln', 'Regeln', 'Regel-Universum, Blätter für Eltern'], ['#/expeditionen', 'Expeditionen', 'in mehreren Schritten lösen'], // RU-App: Regeln (lernen-regeln.js)
+    ['#/lernauftraege', 'Meine Aufträge', [offen ? `${offen} offen` : 'keiner offen', neueAntworten.length ? `${neueAntworten.length} ${neueAntworten.length === 1 ? 'neue Antwort' : 'neue Antworten'}` : ''].filter(Boolean).join(', ')],
+    ['#/info', 'So funktioniert’s', 'Erste Schritte, Begriffe']]);
+  const verwalten = [...testkinder.map((k) => [`#/reise/${k.id}`, k.name, 'zum Ausprobieren']),
+    eltern ? ['#/zugaenge', 'Zugänge', 'Codes der Kinder'] : null,
+  ].filter(Boolean);
+  const eigeneSeite = !seite ? el('a', { class: 'lst-kopf-link', href: 'lernen/', target: '_blank', rel: 'noopener' }, 'Eigene Lernen-Seite ↗') : null;
   lernErsetze(main, ...[
-    // I-2: Kopf in einer Zeile (Überschrift links, „So funktioniert’s“ rechts) – damit die Kinder-Tabelle auch auf dem Rechner ohne Rollen sichtbar ist
-    el('section', { class: 'lern-neu lern-was-ist-los' }, el('h1', { class: 'lern-h-start' }, 'Was ist los?'), lernInfoLink()),
-    lernZuTun(echte, lagen, rm, wuensche, meldung),
-    echte.length ? lernKinderTabelle(u, echte, lagen) : el('p', { class: 'card muted' }, 'Kein Kind freigeschaltet.'),
-    nachschlagen,
-    verwalten.length ? el('nav', { class: 'lern-nachschlagen lern-verwalten', 'aria-label': 'Verwalten' }, el('span', { class: 'eyebrow' }, 'VERWALTEN'), ...verwalten) : null,
+    el('div', { class: 'lst' },
+      // I-2: Kopf in einer Zeile (Überschrift links, „So funktioniert’s“ rechts)
+      el('section', { class: 'lern-neu lern-was-ist-los' }, el('h1', { class: 'lern-h-start' }, 'Was ist los?'), lernInfoLink()),
+      lernZuTun(echte, lagen, neueAntworten, wuensche, meldung),
+      echte.length ? lernKinderKacheln(u, echte, lagen) : el('p', { class: 'card muted' }, 'Kein Kind freigeschaltet.'),
+      el('div', { class: 'lst-unten' }, nachschlagen, verwalten.length || eigeneSeite ? lernLsLinks('Verwalten', 'lern-verwalten lst-verw', verwalten, eigeneSeite) : null)),
     eltern ? lernElternBereich(eltern, { ohneWuensche: true }) : null,
     weitere].filter(Boolean));
+}
+// LS: Karte mit Links und kurzer Erklärung (Nachschlagen in drei Spalten, Verwalten schmal). Der Link trägt nur den Namen; die Erklärung ist seine Beschreibung,
+// die ganze Zeile ist Tippfläche (::after des Links).
+let lernLsNr = 0;
+function lernLsLinks(titel, klasse, eintraege, kopfLink = null) {
+  const id = 'lst-h-' + (++lernLsNr);
+  return el('nav', { class: 'card lst-karte ' + klasse, 'aria-labelledby': id }, el('div', { class: 'lst-karte-kopf' }, el('h2', { class: 'lst-karte-h', id }, titel), kopfLink),
+    el('ul', { class: 'lst-links' }, ...eintraege.map(([href, name, erkl, neu]) => { const eid = 'lst-e-' + (++lernLsNr);
+      return el('li', {}, el('a', { href, ...(neu ? { target: '_blank', rel: 'noopener' } : {}), ...(erkl ? { 'aria-describedby': eid } : {}) }, name),
+        erkl ? el('span', { class: 'lst-erkl', id: eid }, erkl) : null); })));
+}
+// LS: offene Fehler je Kind. Neue Zählung („Was wackelt“, schule_wackelt_analyse mit stand ≥ 3) – sonst null (dann die bisherige Quelle: wackelnde Etappen aus schule_lernstand).
+// „am meisten bei …“: das Thema mit den meisten offenen Fehlern aus derselben Antwort (auswertung.themen, nach offen sortiert) – kein Zusatzabruf.
+function lernLsFehler(ww) {
+  if (ww?.art !== 'ok') return null;
+  const r = ww.r; const n = Number(r.offen_zahl) || 0;
+  const top = n ? (r.auswertung?.themen || []).filter((t) => Number(t.offen) > 0).sort((a, b) => Number(b.offen) - Number(a.offen))[0] : null;
+  return { n, tage: r.tage, meist: top ? lernWwThName(top) : null };
 }
 
 // ---------- Bau-Auftrag LA (18.11.): Lehrer-Aufbau ----------
 // Rolle der Anmeldung: Lern-Seite kennt sie (schule_ich); die ganze App ist Eltern-Zugang des Nutzers.
 // „Lernen starten“ bleibt für Eltern (die Kinder kommen über den Eltern-Zugang auf ihre Abflugtafel), entfällt für Lehrer.
 const lernRolle = () => (typeof lernIch !== 'undefined' && lernIch?.rolle) || 'eltern';
+// Fehlerseite des Lernbereichs (app.js und lernen/schule.js): verständlicher Satz und „Nochmal versuchen“. Der technische Text (oft englisch, z. B.
+// „Cannot read properties of undefined …“) steht nur zugeklappt unter „Einzelheiten“ – und für die Rolle Kind gar nicht.
+// Rechte-Sperre (Server: „Nur Eltern“, „Nur Eltern/Lehrer“, „Kein Zugriff auf diesen Lernenden“) ist keine Netzstörung: eigene ruhige Meldung,
+// kein „Nochmal versuchen“ (es käme dieselbe Antwort), dafür ein Weg zurück. Gilt für jede Seite, deren Abruf so abgewiesen wird (zentrale Stelle).
+const LERN_RECHT = [[/^Nur Eltern$/, 'Diese Seite ist nur für Eltern.'], [/^Nur Eltern\/Lehrer$/, 'Diese Seite ist nur für Eltern und Lehrer.'],
+  [/^Kein Zugriff auf diese[nr]? /, 'Auf diese Seite hast du keinen Zugriff.']];
+const lernRechtText = (e) => { const m = String(e?.message || e || '').trim(); return (LERN_RECHT.find(([re]) => re.test(m)) || [])[1] || null; };
+function lernFehlerSeite(e, nochmal) {
+  const technik = String(e?.message || e || '').trim();
+  const recht = lernRechtText(e);
+  if (recht) { const kind = lernRolle() === 'kind' && typeof lernIch !== 'undefined' && lernIch?.lernender_id;
+    return el('div', { class: 'card lern-fehlerseite lern-rechtseite', role: 'status' }, el('h2', {}, recht),
+      el('p', {}, kind ? 'Hier geht es zurück zu deiner Lernreise.' : 'Die anderen Seiten von „Lernen Schule“ stehen dir offen.'),
+      el('a', { class: 'btn secondary', href: kind ? `#/reise/${lernIch.lernender_id}` : '#/lernen' }, kind ? 'Zur Lernreise' : 'Zur Startseite')); }
+  return el('div', { class: 'card lern-fehlerseite', role: 'alert' }, el('h2', {}, 'Das hat gerade nicht geklappt.'),
+    el('p', {}, 'Prüfe das Internet und versuch es nochmal.'),
+    el('button', { type: 'button', class: 'primary', onclick: nochmal }, 'Nochmal versuchen'),
+    technik && lernRolle() !== 'kind' ? el('details', { class: 'lern-fehler-einzelheiten' }, el('summary', {}, 'Einzelheiten'), el('p', { class: 'small muted' }, technik)) : null);
+}
 const lernTag = (t) => new Date(t).toLocaleDateString('de-DE', { day: 'numeric', month: 'numeric' });
 const lernTageSeit = (datum) => { if (!datum) return null; const h = new Date(); h.setHours(0, 0, 0, 0); const d = new Date(String(datum).slice(0, 10) + 'T00:00:00'); return Math.round((h - d) / 864e5); };
 // „wackelt“ (wie bisher auf „Was wackelt?“): mindestens 3 falsche, mehr falsche als richtige – oder wieder geöffnet (H1)
@@ -1206,58 +1252,113 @@ function lernStandZellen(u, k) {
     if (y.sa === 'ib_myp' && !kl) return { y, sa: y.sa, text: '– (ab Kl. 6)', lang: 'noch kein MYP-Jahr', pz: null }; // I-8: kurz in Tabelle und Karten
     return { y, sa: y.sa, text: y.sa === 'ib_myp' ? y.label(kl) : 'Kl. ' + kl, pz: c.n ? lernPz(c.f, c.n) : null, f: c.f, n: c.n, eigen: y.sa === (k.schulart || 'gym_by') }; });
 }
-// LA-2 „Zu tun“: rot (seit 3 Tagen kein Lerntag, Rückreise) → gelb (Etappe wackelt, noch nicht besprochen) → blau (neue Antwort auf einen Auftrag)
+// LA-2/LS „Zu tun“: rot (seit 3 Tagen kein Lerntag, Rückreise) → gelb (Fehler offen nach „Was wackelt“; ohne neue Zählung: Etappe wackelt, noch nicht besprochen)
+// → blau (Wunsch einlösen, neue Antwort auf einen Auftrag). Höchstens 4 Zeilen sichtbar, der Rest hinter „n weitere“. Rechts je Zeile das Ziel.
 // I-4: Reisewörter beim ersten Vorkommen klein erklären
 const LERN_WORT = { rueckreise: 'Wiederholung nach nicht bestandenem Nachtest', etappe: 'Lernschritt', flug: 'Thema', bordkarte: 'Aufgabe' };
 const lernErklaert = (wort, art) => el('span', { class: 'lern-wort' }, wort, el('small', { class: 'lern-wort-erkl' }, ` (${LERN_WORT[art]})`));
-function lernZuTun(kinder, lagen, rm, wuensche = [], meldung = null) {
-  const eintraege = [];
+const LERN_LS_ZEILEN = 4;
+function lernZuTun(kinder, lagen, neu = [], wuensche = [], meldung = null) {
+  const eintraege = []; // [Farbe, Text, Adresse, Ziel, Knöpfe]
   for (const k of kinder) { const l = lagen.get(k.id);
-    if (lernLerntAmpel(l) === 'rot') eintraege.push(['rot', `${k.name}: ${l.seit === null ? 'kein Lerntag in den letzten 4 Wochen' : `seit ${l.seit} Tagen kein Lerntag`}${l.seit !== null && lernSeitOhnePause(l) !== l.seit ? ` (ohne Pausentage: ${lernSeitOhnePause(l)})` : ''}`, `#/kind/${k.id}-ueberblick`]);
-    for (const o of l.rueck) eintraege.push(['rot', [`${k.name}: `, lernErklaert(`Rückreise ${o}`, 'rueckreise')], `#/kind/${k.id}-lehrplan`]); }
-  for (const k of kinder) for (const x of lagen.get(k.id).offen) eintraege.push(['gelb', `${k.name}: „${x.titel}“ wackelt (${x.falsch} falsch)`, `#/kind/${k.id}-wackelt-${x.einheit_id}.${x.lernziel}`]);
-  const neu = (rm?.rueckmeldungen || []).filter((r) => r.antwort && r.status !== 'offen' && (!r.am || lernTageSeit(r.beantwortet_am || r.am) <= 7));
-  for (const w of wuensche) eintraege.push(['blau', w.text, null, w.knoepfe]); // I-2: Belohnung einlösen
-  if (neu.length) eintraege.push(['blau', neu.length === 1 ? `Neue Antwort auf euren Auftrag: ${neu[0].flug || neu[0].ort || 'Allgemein'}` : `${neu.length} neue Antworten auf eure Aufträge`, '#/lernauftraege']);
+    if (lernLerntAmpel(l) === 'rot') eintraege.push(['rot', `${k.name}: ${l.seit === null ? 'kein Lerntag in den letzten 4 Wochen' : `seit ${l.seit} Tagen kein Lerntag`}${l.seit !== null && lernSeitOhnePause(l) !== l.seit ? ` (ohne Pausentage: ${lernSeitOhnePause(l)})` : ''}`, `#/kind/${k.id}-ueberblick`, 'Überblick']);
+    for (const o of l.rueck) eintraege.push(['rot', [`${k.name}: `, lernErklaert(`Rückreise ${o}`, 'rueckreise')], `#/kind/${k.id}-lehrplan`, 'Lehrplan']); }
+  for (const k of kinder) { const l = lagen.get(k.id);
+    if (l.ww) { if (l.ww.n) eintraege.push(['gelb', `${k.name}: ${l.ww.n} Fehler offen${l.ww.n >= 2 && l.ww.meist ? ` – am meisten bei ${l.ww.meist}` : ''}`, `#/kind/${k.id}-wackelt`, 'Was wackelt']); }
+    else for (const x of l.offen) eintraege.push(['gelb', `${k.name}: „${x.titel}“ wackelt (${x.falsch} falsch)`, `#/kind/${k.id}-wackelt-${x.einheit_id}.${x.lernziel}`, 'Was wackelt']); }
+  for (const w of wuensche) eintraege.push(['blau', w.text, null, null, w.knoepfe]); // I-2: Belohnung einlösen
+  if (neu.length) eintraege.push(['blau', neu.length === 1 ? `Neue Antwort auf euren Auftrag: ${neu[0].flug || neu[0].ort || 'Allgemein'}` : `${neu.length} neue Antworten auf eure Aufträge`, '#/lernauftraege', 'Aufträge']);
   const kannPause = kinder.some((k) => Array.isArray(lagen.get(k.id)?.ls?.pausen));
-  return el('section', { class: 'card lern-zutun', 'aria-label': 'Zu tun' },
-    el('div', { class: 'lern-zutun-kopf' }, el('h2', {}, 'Zu tun'),
-      kannPause ? el('button', { type: 'button', class: 'lern-einstellen lern-pause-knopf', onclick: () => lernPauseBlatt(kinder) }, '+ Reisetag eintragen') : null),
-    eintraege.length ? el('ul', { class: 'lern-zutun-liste' }, ...eintraege.map(([f, t, h, knoepfe]) => el('li', { class: 'zt-' + f + (knoepfe ? ' zt-wunsch' : '') },
-      knoepfe ? el('div', { class: 'zt-zeile' }, el('i', { class: 'zt-punkt', 'aria-hidden': 'true' }), el('span', {}, t), el('span', { class: 'zt-knoepfe' }, ...knoepfe))
-        : el('a', { href: h }, el('i', { class: 'zt-punkt', 'aria-hidden': 'true' }), el('span', {}, ...[t].flat()), el('span', { class: 'zt-pfeil', 'aria-hidden': 'true' }, '›')))))
-      : el('p', { class: 'lern-zutun-ruhig' }, 'Alles ruhig.'), meldung && wuensche.length ? meldung : null);
+  const mehr = eintraege.length - LERN_LS_ZEILEN;
+  const zeilen = eintraege.map(([f, t, h, ziel, knoepfe], i) => el('li', { class: 'zt-' + f + (knoepfe ? ' zt-wunsch' : ''), hidden: i >= LERN_LS_ZEILEN && mehr > 0 ? true : null },
+    knoepfe ? el('div', { class: 'lst-zt-z' }, el('i', { class: 'zt-punkt', 'aria-hidden': 'true' }), el('span', { class: 'lst-zt-text' }, ...[t].flat()), el('span', { class: 'zt-knoepfe' }, ...knoepfe))
+      : el('a', { class: 'lst-zt-z', href: h }, el('i', { class: 'zt-punkt', 'aria-hidden': 'true' }), el('span', { class: 'lst-zt-text' }, ...[t].flat()),
+        el('span', { class: 'lst-zt-ziel' }, ziel, el('span', { 'aria-hidden': 'true' }, ' ›')))));
+  const mehrKnopf = mehr > 0 ? el('button', { type: 'button', class: 'lst-zt-mehr', 'aria-expanded': 'false', 'aria-controls': 'lst-zt-liste', onclick: (ev) => { const auf = ev.currentTarget.getAttribute('aria-expanded') !== 'true';
+    zeilen.slice(LERN_LS_ZEILEN).forEach((z) => { z.hidden = !auf; }); ev.currentTarget.setAttribute('aria-expanded', String(auf)); ev.currentTarget.firstChild.textContent = auf ? 'weniger zeigen' : `${mehr} weitere`; } },
+    `${mehr} weitere`, el('span', { 'aria-hidden': 'true' }, ' ▾')) : null;
+  return el('section', { class: 'lern-zutun lst-teil', 'aria-labelledby': 'lst-h-zutun' },
+    el('div', { class: 'lst-teil-kopf lern-zutun-kopf' }, el('h2', { id: 'lst-h-zutun' }, 'Zu tun'), eintraege.length ? el('span', { class: 'lst-zahl' }, `${eintraege.length} ${eintraege.length === 1 ? 'Punkt' : 'Punkte'}`) : null,
+      mehrKnopf, // im Kopf statt einer eigenen Zeile unter der Karte (spart eine Zeile: 1440 × 900 ohne Rollen)
+      kannPause ? el('button', { type: 'button', class: 'lst-klein lern-pause-knopf', onclick: () => lernPauseBlatt(kinder) }, '+ Reisetag eintragen') : null),
+    el('div', { class: 'card lst-karte lst-zt-karte' },
+      eintraege.length ? el('ul', { class: 'lern-zutun-liste lst-zt', id: 'lst-zt-liste' }, ...zeilen) : el('p', { class: 'lern-zutun-ruhig' }, 'Alles ruhig – heute ist nichts zu tun.')),
+    meldung && wuensche.length ? meldung : null);
 }
-// LA-2 Kinder-Tabelle (ab 560 px) bzw. je Kind eine kompakte Karte (Handy) – dieselben Felder
-function lernKinderTabelle(u, kinder, lagen) {
+// LS „Die Kinder“: eine Kachel je Kind (zwei nebeneinander ab 900 px). Kopf: Name (→ Seite des Kindes), Schulart · Klasse, „Lernen starten“ (nur Eltern), „Einstellen“.
+// Fünf Zeilen: Diese Woche · Aufgaben · Gerade dran · Was wackelt · Schuljahr (Entwurf lehrer-start/entwurf1, umsetzung1.md Abschnitt 2 und 3).
+const LERN_WT = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+function lernLsWoche(l) {
+  const heute = new Date(); heute.setHours(12, 0, 0, 0);
+  const gelernt = new Set((l.ls?.lerntage || []).map((x) => String(x).slice(0, 10)));
+  const inPause = (tag) => (l.pausen || []).some((p) => String(p.von).slice(0, 10) <= tag && tag <= String(p.bis).slice(0, 10));
+  const tage = [6, 5, 4, 3, 2, 1, 0].map((n) => { const d = new Date(heute.getTime() - n * 864e5); const iso = lernIso(d);
+    return { n, iso, wt: LERN_WT[d.getDay()], datum: `${d.getDate()}.${d.getMonth() + 1}.`, art: gelernt.has(iso) ? 'voll' : inPause(iso) ? 'pause' : 'leer' }; });
+  const wort = { voll: 'Lerntag', pause: 'Reisetag oder Pause', leer: 'kein Lerntag' };
+  const alt = 'Letzte 7 Tage: ' + tage.map((t) => `${t.n === 0 ? 'heute, ' : ''}${t.wt} ${t.datum} ${t.n === 0 && t.art === 'leer' ? 'noch kein Lerntag' : wort[t.art]}`).join('; ');
+  const vorwoche = (l.ls?.lerntage || []).filter((x) => { const s = lernTageSeit(x); return s >= 7 && s < 14; }).length;
+  const zuletzt = l.seit === null ? null : l.seit === 0 ? 'heute' : l.seit === 1 ? 'gestern' : `vor ${l.seit} Tagen`;
+  return [el('span', { class: 'lst-punkte', role: 'img', 'aria-label': alt }, ...tage.map((t) => el('i', { class: 'lst-p-' + t.art + (t.n === 0 ? ' lst-p-heute' : '') }))),
+    el('span', { class: 'lst-wert' }, l.pause ? [lernLerntText(l), ' · '] : null,
+      l.seit === null ? 'kein Lerntag in 4 Wochen' : [el('b', {}, String(l.woche)), ` ${l.woche === 1 ? 'Lerntag' : 'Lerntage'} · zuletzt ${zuletzt}`], ` · Vorwoche ${vorwoche}`)];
+}
+function lernLsAufgaben(l) {
+  const w = l.w || {}; const a = Number(w.aufgaben) || 0;
+  if (!a) return el('span', { class: 'lst-leise' }, 'keine Bordkarten in den letzten 7 Tagen');
+  const pz = lernPz(Number(w.richtig) || 0, a); const tipp = Number(w.mit_tipp) || 0;
+  return [el('span', { class: 'lst-wert' }, el('b', {}, String(a)), ' gelöst · ', el('b', {}, `${pz} %`), ' richtig'),
+    el('span', { class: 'lst-balken lst-rf', 'aria-hidden': 'true' }, el('i', { class: 'r', style: `width:${pz}%` }), el('i', { class: 'f', style: `width:${100 - pz}%` })),
+    tipp ? el('span', { class: 'lst-leise' }, `${tipp}× mit Tipp`) : null];
+}
+// Gerade dran: Thema (nächster Flug der Lernreise) · Lernkarte (erste nicht gelandete aus schule_lernstand) · „Karte n/m“
+function lernLsDran(u, k, l) {
+  const n = lernReiseDaten(u, k.id)?.naechste;
+  if (!n) return el('span', { class: 'lst-leise' }, 'gerade nichts offen');
+  const ks = (l.ls?.einheiten || []).find((e) => e.einheit_id === n.id)?.karten || [];
+  const i = ks.findIndex((x) => !x.sitzt); const karte = i >= 0 ? ks[i] : null;
+  const text = karte ? `${n.titel} · ${karte.titel}` : n.titel;
+  const nr = karte ? `Karte ${i + 1}/${ks.length}` : n.n ? `Karte ${Math.min(n.fertig + 1, n.n)}/${n.n}` : '';
+  return [el('span', { class: 'lst-dran', title: text }, text), nr ? el('span', { class: 'lst-leise lst-nr' }, nr) : null];
+}
+function lernLsWackelt(k, l) {
+  const n = l.ww ? l.ww.n : l.offen.length;
+  const text = !n ? 'nichts offen ✓' : l.ww ? `${n} Fehler offen` : `${n} ${n === 1 ? 'Etappe wackelt' : 'Etappen wackeln'}`;
+  return [el('a', { class: 'lst-ww ' + (n ? 'lst-ww-offen' : 'lst-ww-ok'), href: `#/kind/${k.id}-wackelt`, 'aria-label': `Was wackelt bei ${k.name}: ${text.replace(' ✓', '')}`,
+    title: l.ww?.tage ? `in den letzten ${l.ww.tage} Tagen` : l.ww ? 'insgesamt' : null }, text, n ? el('span', { 'aria-hidden': 'true' }, '›') : null),
+    l.rueck.length ? el('span', { class: 'lst-rueck', title: LERN_WORT.rueckreise }, `· Rückreise ${l.rueck.join(', ')}`) : null]; // Erklärung steht schon in „Zu tun“
+}
+// Schuljahr: Prozent der eigenen Schulart (wie „Stand“ auf der Seite des Kindes: schuljahr_stand des Servers, sonst gelandete Flüge der Stufe), „andere Schularten“ aufklappbar
+function lernLsSchuljahr(u, k) {
+  if (!k.klasse) return el('span', { class: 'lst-leise' }, 'Klasse nicht gesetzt – „Einstellen“');
+  const sa = k.schulart || 'gym_by'; const y = LERN_SYS.find((s) => s.sa === sa) || LERN_SYS[0];
+  const zellen = lernStandZellen(u, k); const z = zellen.find((x) => x.sa === sa) || zellen[0];
+  const stufe = lernStufe(k, sa); const ring = stufe ? lernLwRingAusStand(k.schuljahr_stand, sa, sa === 'ib_myp' ? stufe + 5 : stufe) : null;
+  const pz = ring && ring.pz !== null && ring.pz !== undefined ? Math.round(Number(ring.pz)) : z.pz;
+  const wo = sa === 'ib_myp' ? (stufe ? y.label(stufe) : 'noch kein MYP-Jahr') : `Klasse ${stufe || k.klasse}`;
+  const andere = zellen.filter((x) => x.sa !== sa).map((x) => (x.lang ? 'IB MYP: ab Kl. 6' : `${x.y.sa === 'ib_myp' ? 'IB' : x.y.name} ${x.text}: ${x.pz === null ? '–' : x.pz + ' %'}`)).join(' · ');
+  return [el('span', { class: 'lst-wert' }, pz === null || pz === undefined ? `${wo}: noch keine Themen` : [el('b', {}, `${pz} %`), ` von ${wo} gelandet`]),
+    pz === null || pz === undefined ? null : el('span', { class: 'lst-balken lst-sj', 'aria-hidden': 'true' }, el('i', { style: `width:${pz}%` })),
+    el('details', { class: 'lst-schularten' }, el('summary', {}, 'andere Schularten'), el('p', {}, andere))];
+}
+function lernKinderKacheln(u, kinder, lagen) {
   const eltern = lernRolle() === 'eltern';
-  const jetzt = (k) => { const n = lernReiseDaten(u, k.id)?.naechste; return n ? `${lernFlugName(k.id, n, n.stadt || n.ort_titel)} · ${n.titel} (${n.fertig}/${n.n})` : 'gerade nichts offen'; };
-  const wack = (l) => [l.wackelt.length ? `${l.wackelt.length} ${l.wackelt.length === 1 ? 'Etappe' : 'Etappen'}` : null, l.rueck.length ? 'Rückreise' : null].filter(Boolean).join(' · ') || '–';
-  const wackAmpel = (l) => (l.rueck.length ? 'rot' : l.offen.length ? 'gelb' : 'gruen');
-  const klasse = (k) => k.klasse ? `${{ gym_by: 'Gym', rs_by: 'RS', ib_myp: 'IB' }[k.schulart || 'gym_by'] || 'Gym'} Kl. ${k.klasse}` : 'Klasse nicht gesetzt';
-  const zelle = (z) => el('span', { class: 'lern-st-zelle' + (z.eigen ? ' eigen' : '') }, el('b', {}, z.text),
-    z.lang ? null : z.pz === null ? el('small', {}, '–') : el('small', {}, `${z.pz} %`), z.pz === null ? null : el('i', { class: 'lern-st-balken', style: `--f:${z.y.farbe}` }, el('i', { style: `width:${z.pz}%` })));
-  const einstellen = (k) => el('button', { type: 'button', class: 'lern-einstellen', 'aria-label': `${k.name} einstellen`, onclick: (ev) => { ev.preventDefault(); ev.stopPropagation(); lernEinstellenBlatt(k.id); } }, '⚙ Einstellen');
-  const starten = (k) => eltern ? el('a', { class: 'btn lern-start', href: `#/reise/${k.id}`, 'aria-label': `Lernen starten: ${k.name}`, onclick: (ev) => ev.stopPropagation() }, 'Lernen starten ›') : null;
-  const oeffne = (k) => (ev) => { if (ev.target.closest('a,button')) return; route('kind', `${k.id}-ueberblick`); };
-  const tabelle = el('table', { class: 'lern-kinder-tabelle' },
-    el('thead', {}, el('tr', {}, el('th', {}, 'Kind'), el('th', {}, 'Lernt'), el('th', {}, 'Wackelt'), ...LERN_SYS.map((y) => el('th', {}, y.kurz)), el('th', {}, 'Jetzt'), el('th', { 'aria-label': 'Lernen starten und Einstellen' }))),
-    el('tbody', {}, ...kinder.map((k) => { const l = lagen.get(k.id);
-      return el('tr', { class: 'lern-kind-zeile', onclick: oeffne(k) },
-        el('th', { scope: 'row' }, el('a', { href: `#/kind/${k.id}-ueberblick` }, el('b', {}, k.name)), el('small', {}, klasse(k))),
-        el('td', { class: 'amp-' + lernLerntAmpel(l) }, lernLerntText(l)),
-        el('td', { class: 'amp-' + wackAmpel(l) }, wack(l)),
-        ...lernStandZellen(u, k).map((z) => el('td', {}, zelle(z))),
-        el('td', { class: 'small' }, jetzt(k)),
-        el('td', { class: 'lern-zeile-zelle' }, el('div', { class: 'lern-zeile-knoepfe' }, starten(k), einstellen(k)))); })));
-  const karten = el('div', { class: 'lern-kinder-karten' }, ...kinder.map((k) => { const l = lagen.get(k.id);
-    return el('section', { class: 'card lern-kind-karte', 'aria-label': k.name, onclick: oeffne(k) },
-      el('div', { class: 'lern-kind-karte-kopf' }, el('a', { href: `#/kind/${k.id}-ueberblick` }, el('b', {}, k.name)), el('small', {}, klasse(k)), einstellen(k)),
-      el('p', { class: 'amp-' + lernLerntAmpel(l) }, el('b', {}, 'Lernt: '), lernLerntText(l)),
-      el('p', { class: 'amp-' + wackAmpel(l) }, el('b', {}, 'Wackelt: '), wack(l)),
-      el('div', { class: 'lern-kind-karte-stand' }, ...lernStandZellen(u, k).map((z) => el('span', {}, el('small', {}, z.y.kurz), zelle(z)))),
-      el('p', { class: 'small' }, el('b', {}, 'Jetzt: '), jetzt(k)), starten(k)); }));
-  return el('section', { class: 'lern-kinder', 'aria-label': 'Die Kinder' }, el('h2', {}, 'Die Kinder'), el('div', { class: 'lern-tabelle-rollen lern-kinder-breit' }, tabelle), karten);
+  const zeile = (titel, art, ...wert) => el('div', { class: 'lst-z lst-z-' + art }, el('dt', {}, titel), el('dd', {}, ...wert.flat(2)));
+  return el('section', { class: 'lern-kinder lst-teil', 'aria-labelledby': 'lst-h-kinder' },
+    el('div', { class: 'lst-teil-kopf' }, el('h2', { id: 'lst-h-kinder' }, 'Die Kinder'), el('span', { class: 'lst-zahl' }, 'Punkte = Lerntage der letzten 7 Tage, rechts heute')),
+    el('div', { class: 'lst-kacheln' }, ...kinder.map((k) => { const l = lagen.get(k.id); const hid = 'lst-kind-' + k.id;
+      return el('article', { class: 'card lst-karte lst-kind', 'aria-labelledby': hid },
+        el('div', { class: 'lst-kind-kopf' },
+          el('h3', { id: hid }, el('a', { href: `#/kind/${k.id}-ueberblick` }, k.name)),
+          el('span', { class: 'lst-kind-info' }, k.klasse ? `${LERN_SCHULART[k.schulart || 'gym_by'] || 'Gymnasium'} · Klasse ${k.klasse}` : 'Klasse nicht gesetzt'),
+          el('span', { class: 'lst-kind-knoepfe' },
+            eltern ? el('a', { class: 'lst-klein lst-haupt lern-start', href: `#/reise/${k.id}`, 'aria-label': `Lernen starten: ${k.name}` }, 'Lernen starten') : null,
+            el('button', { type: 'button', class: 'lst-klein lern-einstellen', 'aria-label': `${k.name} einstellen`, onclick: () => lernEinstellenBlatt(k.id) }, 'Einstellen'))),
+        el('dl', { class: 'lst-zeilen' },
+          zeile('Diese Woche', 'woche', lernLsWoche(l)),
+          zeile('Bordkarten', 'aufgaben', lernLsAufgaben(l)), // Reisewort statt „Aufgaben“ (Entscheidung des Nutzers 21.11.: keine „Aufgabe“ auf Eltern-/Lehrerseiten)
+          zeile('Gerade dran', 'dran', lernLsDran(u, k, l)),
+          zeile('Was wackelt', 'wackelt', lernLsWackelt(k, l)),
+          zeile('Schuljahr', 'schuljahr', lernLsSchuljahr(u, k)))); })));
 }
 // LA-1 Kind-Seite #/kind/<id>-<reiter>[-…]: Kopf (Name, Schulart/Klasse, ⚙ Einstellen, Lernreise ansehen) und 4 Reiter
 // LW-1: drei Reiter – „Lehrplan“ ersetzt „Stand“ und „Plan“ (alte Adressen -stand/-plan führen dorthin)
@@ -1880,7 +1981,7 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, wdhFertig = false, ort =
   const jg = d.konto?.jahrgang;
   // M5: Ziel ist das nächste Zwischenziel – die Etappen des aktuellen Flugs bis „gelandet“. Der Stempel des Ortes (alle Flüge) steht klein darunter und im Reisepass.
   const bo = et.n ? et : { n: n.n || 0, f: Math.min(n.fertig || 0, n.n || 0) }; const rest = Math.max(0, bo.n - bo.f);
-  const bandText = rest ? `Noch ${rest} ${rest === 1 ? 'Etappe' : 'Etappen'} bis ›${n.titel}‹ gelandet` : `Alle Etappen sitzen – jetzt der Test für ›${n.titel}‹`;
+  const bandText = rest ? `Noch ${rest} ${rest === 1 ? 'Etappe' : 'Etappen'} bis „${n.titel}“ gelandet` : `Alle Etappen sitzen – jetzt der Test für „${n.titel}“`; // deutsche Anführungszeichen (›‹ sahen wie > < aus)
   const ortGel = ortFluegeGelandet(d, n.block_id);
   const stempelText = ort && ort.fluege > 1 ? `Stempel ${n.stadt}: ${ortGel} von ${ort.fluege} Flügen gelandet` : null;
   const band = !bo.n ? null : el('div', { class: 'lr-band-box' }, bo.n <= 14
@@ -5082,7 +5183,7 @@ function lernTestErgebnis(ctx, box, r) {
           : lernZahlenstrahl(a.antworttyp === 'markierung' ? { ...x.frage.grafik, _richtig: x.loesung?.index, _gewaehlt: x.antwort?.index } : x.frage.grafik, false)) : null,
         el('p', { class: 'small' }, 'Deine Antwort: ', el('b', {}, lernMathe(lernAntwortText(a, x.antwort)))),
         x.richtig ? null : el('p', { class: 'small' }, 'Richtig: ', el('b', {}, lernMathe(lernLoesungText(a)))),
-        x.loesungsweg && !x.richtig ? el('p', { class: 'small muted' }, x.loesungsweg) : null);
+        x.loesungsweg && !x.richtig ? el('p', { class: 'small muted lern-rk-weg' }, lernMathe(x.loesungsweg)) : null); // wie an allen anderen Stellen: Brüche gestapelt
     }),
     lernTestKnoepfe(ctx, r, geschafft));
 }
@@ -5476,7 +5577,7 @@ const LERN_INFO_FRAGEN = [
     ['Mischkarten:', ' Sind im Flug mindestens 3 Etappen gelandet, ist beim Üben jede 4. Bordkarte (bis Klasse 6 jede 6.) eine aus einer anderen Etappe, die schon gelandet ist – meist aus demselben Flug oder Kontinent, manchmal aus einem älteren Flug. Sie ist gekennzeichnet („Aus deiner Reise – erkennst du, was gefragt ist?“), nach der Lösung steht, aus welcher Etappe sie kam. Das Kind soll selbst erkennen, welches Verfahren passt. Sie zählt nicht für die gerade geübte Etappe; richtig ist ein Beleg für „sicher“, falsch macht die Herkunfts-Etappe am nächsten Lerntag zur Wiederholung fällig – ohne Abzüge. Ist die Herkunfts-Etappe gerade fällig und die Mischkarte im ersten Versuch ohne Tipp richtig, zählt sie als bestandene Wiederholung dieser Etappe – Mischkarten bauen so fällige Wiederholungen mit ab. Der Server prüft jede Mischkarte (Etappe gelandet, Stufe 2–3, nicht die gerade geübte); sonst zählt sie wie eine normale Bordkarte.'],
     ['Wiederholung:', ' Ist eine Etappe gelandet, kommt sie nach 1, 3, 7, 14 und 30 Lerntagen wieder, jeweils mit einer Bordkarte. Ein Lerntag ist ein Tag, an dem das Kind Mathe übt; Reisetage ohne Mathe zählen nicht. Am Anfang eines Lerntags kommt eine Runde: sind höchstens 6 Etappen fällig, alle; sonst ein Fünftel der fälligen (aufgerundet), mindestens 6 und höchstens 12 (bis Klasse 6 höchstens 10) – zuerst Etappen mit einem Wiederholungs-Fehler, dann die am längsten fälligen. Weitere werden nur angeboten. Auf der Kinderseite heißt die Runde „Check-in“: Das Kind sieht, wie weit es ist („3 von 9“), nie die Zahl aller fälligen Etappen. Es kann unterbrechen und am selben Lerntag fortsetzen, auch auf einem anderen Gerät; erledigt ist die Runde, wenn alle ihre Bordkarten beantwortet sind (falsch zählt als bearbeitet). Ein Fehler: Die Etappe kommt am nächsten Lerntag wieder. Zwei Fehler hintereinander: Das Kind übt sie noch einmal – eigene Lösungen bleiben, es braucht wieder 3 richtige in Folge.'],
     ['Endgültig abgelegt:', ' Besteht eine Etappe auch die letzte Wiederholung (nach 30 Lerntagen), ist sie abgelegt: Sie fällt aus der regelmäßigen Wiederholung und wird nur noch bei Bedarf aufgefrischt, das Kind bekommt 30 Sterne und eine kurze Einblendung. Sind alle Etappen eines Flugs abgelegt: 100 Sterne, eine große Einblendung, und der Flug steht im Reisepass golden. Sind alle Flüge eines Orts abgelegt, wird auch der Stempel des Orts golden. Fällt eine abgelegte Etappe später im Nachtest oder beim Üben auf, kommt sie am nächsten Lerntag wieder zur Wiederholung; Gold und Sterne bleiben, ein zweites Ablegen bringt nichts.'],
-    ['Flug-Test:', ' Ist die letzte Pflicht-Etappe gelandet, führt der Landebildschirm nur noch zum Test („Weiter: Flug-Test“): eine Bordkarte je Etappe, ohne Tipps. Im Ergebnis ist jede Antwort deutlich als RICHTIG oder FALSCH markiert. Bei Fehlern zwei Wege: „Erst üben: ‹Etappe›“ oder „Gleich verbessern“. Alles richtig verbessert → Flug geschafft.'],
+    ['Flug-Test:', ' Ist die letzte Pflicht-Etappe gelandet, führt der Landebildschirm nur noch zum Test („Weiter: Flug-Test“): eine Bordkarte je Etappe, ohne Tipps. Im Ergebnis ist jede Antwort deutlich als RICHTIG oder FALSCH markiert. Bei Fehlern zwei Wege: „Erst üben: (Name der Etappe)“ oder „Gleich verbessern“. Alles richtig verbessert → Flug geschafft.'],
     ['Nachtests:', ' später, nach Lerntagen gezählt (nach 10, 25 und 60 Lerntagen); alle Etappen des Flugs, ohne Tipps. Ab 80 %: bestanden. 60–79 %: wiederholen. Unter 60 %: automatische Rückreise im Flugplan.'],
     ['Sterne:', ' Jede Übungsaufgabe bringt einmal Sterne: 10 ★, wenn sie im ersten Versuch ohne Tipp gelöst ist, sonst 5 ★. Bei jeder Landung einer Etappe gibt es einmal einen Landungs-Bonus: +80 ★ ohne Fehler, +40 ★ mit 1–2 Fehlern, sonst +10 ★. Tipps zählen nicht als Fehler. Tests, Wiederholungen und Mischkarten zählen hier nicht mit. Wiederholungen bringen 10 ★, wenn sie selbst gelöst sind (mit Tipp oder im zweiten Versuch: keine Sterne, die Etappe kommt am nächsten Lerntag wieder). Für Etappen, die vor dem 22.11. gelandet sind, wurde der Bonus einmal nachgetragen. Gebuchte Sterne werden nie abgezogen.'],
     ['Belohnungen:', ' 20 Sterne für jede richtige Bordkarte im Test, 30 Sterne für eine endgültig abgelegte Etappe, 100 Sterne für einen abgelegten Flug, 30 Sterne für eine Knobel-Bordkarte beim ersten Versuch, 100 Sterne und ein Stempel für jeden geschafften Ort. Welche Belohnungen es gibt, legen die Eltern fest, und sie bestätigen jede Einlösung.'],
@@ -7041,7 +7142,10 @@ async function lernWwSeite(kindId, ww, live) {
     if (!Number(A.offen_zahl ?? (A.offen || []).length)) fazit = [`${S.zeit ? `In den letzten ${S.zeit} Tagen` : 'Bisher'} ${aw.antworten || 0} Aufgaben, davon `, el('b', {}, `${aw.richtig || 0} richtig`), '.'];
     else { const top = wieder[0]; const topThemen = new Set((top?.themen || []).map(lernWwTk));
       const themaTop = (aw.themen || []).find((t) => Number(t.offen) >= 2 && !topThemen.has(lernWwTk(t.thema_id)));
-      const ausr = [...new Set((einmal.themen_danach_richtig || []).map(themaName).filter(Boolean))];
+      // Ein Thema steht höchstens in EINER Gruppe: Das als Schwerpunkt genannte Thema (themaTop) ist kein „Ausrutscher“, auch wenn der Server es in
+      // einmal.themen_danach_richtig führt (dort stehen Themen mit EINEM einmaligen, danach richtig gelösten Fehler – das Thema kann daneben viele offene haben).
+      const topK = themaTop ? lernWwTk(themaTop.thema_id) : null; const topName = themaTop ? tn(themaTop) : null;
+      const ausr = [...new Set((einmal.themen_danach_richtig || []).filter((id) => lernWwTk(id) !== topK).map(themaName).filter((n) => n && n !== topName))];
       fazit = [top ? ['Am meisten hakt es bei ', el('b', {}, top.text || 'derselben Fehlerart'), ` (${top.anzahl}×)`] : null,
         themaTop ? [top ? ', dann bei ' : 'Am meisten hakt es bei ', el('b', {}, tn(themaTop)), ` (${themaTop.offen} falsch)`] : null,
         !top && !themaTop ? `${A.offen_zahl ?? (A.offen || []).length} offene Fehler, keiner kommt wieder` : null,

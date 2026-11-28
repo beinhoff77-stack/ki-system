@@ -33,11 +33,11 @@
     "a": [
      "W hat genau 28 Elemente, denn jedes der Kinder hat einen Funktionswert.",
      "W hat genau 12 Elemente, denn jede der Zahlen 1 bis 12 kommt als Monat vor.",
-     "W hat höchstens 12 Elemente, denn es gibt nur zwölf mögliche Monatszahlen.",
-     "W hat mindestens 12 Elemente, denn das Jahr hat zwölf Monate."
+     "W hat mindestens 12 Elemente, denn das Jahr hat zwölf Monate.",
+     "W hat höchstens 12 Elemente, denn es gibt nur zwölf mögliche Monatszahlen."
     ],
     "o": {
-     "index": 2
+     "index": 3
     }
    },
    "ersetzt_test": true,
@@ -58,7 +58,7 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "W hat mindestens 12 Elemente, denn das Jahr hat zwölf Monate.",
      "beschreibung": "mögliche Werte mit tatsächlich vorkommenden Werten verwechselt",
      "fehlbild": null,
@@ -89,26 +89,26 @@
     },
     "w": "Jede der 5 Zahlen aus D liefert genau einen Funktionswert. Es entstehen also höchstens 5 verschiedene Werte, bei gleichen Funktionswerten weniger. Bei f(x) = x gibt es 5 Werte, bei f(x) = 7 nur einen. Deshalb sind genau 5, mindestens 6 und höchstens 3 Elemente nicht sicher.",
     "a": [
-     "W hat höchstens 5 Elemente, denn jede Zahl aus D liefert genau einen Funktionswert.",
      "W hat genau 5 Elemente, denn jede Zahl aus D liefert einen eigenen Funktionswert.",
      "W hat mindestens 6 Elemente, denn zu jeder Zahl aus D kommt noch ein weiterer Funktionswert dazu.",
+     "W hat höchstens 5 Elemente, denn jede Zahl aus D liefert genau einen Funktionswert.",
      "W hat höchstens 3 Elemente, denn bei fünf Zahlen wiederholen sich die Funktionswerte immer."
     ],
     "o": {
-     "index": 0
+     "index": 2
     }
    },
    "regel": "id.funktionen.zuordnung",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "W hat genau 5 Elemente, denn jede Zahl aus D liefert einen eigenen Funktionswert.",
      "beschreibung": "geglaubt, verschiedene Stellen müssten verschiedene Funktionswerte haben: Bei f(x) = 7 für alle x hat W nur 1 Element",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "W hat mindestens 6 Elemente, denn zu jeder Zahl aus D kommt noch ein weiterer Funktionswert dazu.",
      "beschreibung": "angenommen, eine Stelle könne mehrere Funktionswerte liefern, doch jede Stelle liefert genau einen",
      "fehlbild": null,
@@ -146,19 +146,19 @@
     },
     "w": "Man prüft jede Stelle: f(−1) = 1 und f(2) = 4, also hat D = {−1; 2} die Wertemenge {1; 4}. Bei D = {1; 4} ist W = {1; 16}, bei D = {1; 2; 3} ist W = {1; 4; 9}, bei D = {2; 3} ist W = {4; 9}.",
     "a": [
-     "D = {1; 4}",
      "D = {−1; 2}",
+     "D = {1; 4}",
      "D = {1; 2; 3}",
      "D = {2; 3}"
     ],
     "o": {
-     "index": 1
+     "index": 0
     }
    },
    "regel": "id.funktionen.zuordnung",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "D = {1; 4}",
      "beschreibung": "Definitions- und Wertemenge gleichgesetzt: f(4) = 16, nicht 4",
      "fehlbild": null,
@@ -232,6 +232,14 @@
      "beschreibung": "nur einen der beiden doppelten Werte gestrichen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "die Behauptung in Zeile 4 für den Fehler gehalten; sie folgt aus dem falschen Zählen in Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
     }
    ],
    "idee": "fehler|Fehler-Detektiv: Wertemenge von x² − 4"
@@ -254,17 +262,17 @@
     "s": 2,
     "y": "auswahl",
     "f": {
-     "text": "Welche der folgenden Zuordnungen, die von den Kindern einer Klasse ausgehen, ist KEINE Funktion?"
+     "text": "In einer Gruppe sind Mia, Ben und Zoe. Mia und Ben sind Geschwister, Zoe hat keine Geschwister in der Gruppe. Welche der folgenden Zuordnungen ist KEINE Funktion mit der Definitionsmenge D = {Mia; Ben; Zoe}?"
     },
-    "w": "Bei einer Funktion gehört zu jedem Element von D genau ein Funktionswert. Kinder können mehrere oder keine Geschwister haben, dann ist die Zuordnung nicht eindeutig. Verschiedene Kinder dürfen aber denselben Wert haben (gleicher Geburtstag, gleiche Buchstabenzahl).",
+    "w": "Bei einer Funktion gehört zu jedem Element von D genau ein Funktionswert. Zoe hat in der Gruppe kein Geschwister, also bekäme sie keinen Wert. Verschiedene Kinder dürfen aber denselben Wert haben (gleicher Geburtstag, gleiche Buchstabenzahl).",
     "a": [
      "Jedem Kind wird sein Geburtstag (Tag und Monat) zugeordnet.",
+     "Jedem Kind wird eines seiner Geschwister aus der Gruppe zugeordnet.",
      "Jedem Kind wird die Nummer seines Sitzplatzes zugeordnet.",
-     "Jedem Kind wird die Zahl der Buchstaben seines Vornamens zugeordnet.",
-     "Jedem Kind wird eines seiner Geschwister zugeordnet."
+     "Jedem Kind wird die Zahl der Buchstaben seines Vornamens zugeordnet."
     ],
     "o": {
-     "index": 3
+     "index": 1
     }
    },
    "regel": "id.funktionen.zuordnung",
@@ -277,14 +285,14 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Jedem Kind wird die Nummer seines Sitzplatzes zugeordnet.",
      "beschreibung": "übersehen, dass jedes Kind genau einen Sitzplatz hat und die Zuordnung eindeutig ist",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Jedem Kind wird die Zahl der Buchstaben seines Vornamens zugeordnet.",
      "beschreibung": "geglaubt, dass gleiche Buchstabenzahlen bei verschiedenen Kindern gegen die Eindeutigkeit verstoßen",
      "fehlbild": null,
@@ -342,6 +350,14 @@
      "antwort": -3,
      "rechnung": "−6 : 2",
      "beschreibung": "das Vorzeichen vertauscht: 2x = −6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "6 : 2",
+     "beschreibung": "die beiden Zahlen in der falschen Reihenfolge eingetragen: Die größere Zahl 3 steht vorn, verlangt ist die kleinere zuerst",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -549,6 +565,14 @@
      "beschreibung": "die 6 nicht abgezogen und nur durch 3 geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "die Aussage in Zeile 4 für den Fehler gehalten; sie übernimmt nur das falsche Ergebnis aus Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
     }
    ],
    "idee": "fehler|Fehler-Detektiv: doppelter Funktionswert heißt nicht doppelte Stelle"
@@ -558,12 +582,12 @@
    "thema": "funktionen.grundbegriffe",
    "lernkarte": "stelle",
    "pool": "korrektur",
-   "typ": "umkehr",
-   "form": "verfahren_waehlen",
+   "typ": "begruenden",
+   "form": null,
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M8 1",
-   "abgrenzung": "Die Übungen lösen f(x) = c für lineare Terme oder Sachsituationen. Diese Aufgabe: Verfahren wählen.",
+   "abgrenzung": "Die Übungen lösen f(x) = c für lineare Terme oder Sachsituationen. Diese Aufgabe: Begründung wählen.",
    "aufgabe": {
     "l": "stelle",
     "t": "stelle",
@@ -571,44 +595,44 @@
     "s": 2,
     "y": "auswahl",
     "f": {
-     "text": "Ein Wasserbecken enthält anfangs 8 Liter und wird gleichmäßig gefüllt, 2 Liter in jeder Minute: V(t) = 8 + 2 · t (t in Minuten). Nach wie vielen Minuten sind 30 Liter darin? Welcher Ansatz führt zur Lösung?"
+     "text": "Die Funktion f ist fallend: Je größer die Stelle x, desto kleiner der Funktionswert f(x). Für zwei Stellen a und b gilt a < b. Welche Aussage über f(a) und f(b) stimmt?"
     },
-    "w": "Gesucht ist die Stelle t mit V(t) = 30, also 8 + 2t = 30. Dann 2t = 22 und t = 11 Minuten.",
+    "w": "Fallend heißt: Wächst die Stelle, so sinkt der Funktionswert. Wegen a < b ist f(b) deshalb kleiner als f(a), also f(a) > f(b). Beispiel f(x) = 10 − 2x mit a = 1 und b = 3: f(1) = 8 und f(3) = 4.",
     "a": [
-     "Man berechnet V(30) = 8 + 2 · 30 und liest das Ergebnis ab.",
-     "Man rechnet 30 : 2 und addiert dann noch die 8 dazu.",
-     "Man löst die Gleichung 8 + 2 · t = 30 nach t.",
-     "Man löst die Gleichung 8 + 2 + t = 30."
+     "Es gilt f(a) < f(b), denn a ist kleiner als b und der Funktionswert hat dieselbe Ordnung wie die Stelle.",
+     "Es gilt f(a) = f(b), denn eine Funktion ordnet zwei Stellen denselben Wert zu, wenn sie nahe beieinander liegen.",
+     "Das lässt sich nicht sagen, denn man müsste zuerst den Funktionsterm von f kennen.",
+     "Es gilt f(a) > f(b), denn bei einer fallenden Funktion gehört zur kleineren Stelle der größere Funktionswert."
     ],
     "o": {
-     "index": 2
+     "index": 3
     }
    },
    "regel": "id.funktionen.zuordnung",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Man berechnet V(30) = 8 + 2 · 30 und liest das Ergebnis ab.",
-     "beschreibung": "Funktionswert und gesuchte Stelle vertauscht: 30 ist hier der Funktionswert",
+     "antwort": "Es gilt f(a) < f(b), denn a ist kleiner als b und der Funktionswert hat dieselbe Ordnung wie die Stelle.",
+     "beschreibung": "die Richtung \"fallend\" übersehen und eine steigende Funktion angenommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 1,
-     "antwort": "Man rechnet 30 : 2 und addiert dann noch die 8 dazu.",
-     "beschreibung": "die Schritte nicht rückwärts geordnet: erst 8 abziehen, dann durch 2 teilen",
+     "antwort": "Es gilt f(a) = f(b), denn eine Funktion ordnet zwei Stellen denselben Wert zu, wenn sie nahe beieinander liegen.",
+     "beschreibung": "angenommen, dass nahe Stellen denselben Funktionswert haben; das gilt nur bei konstanten Funktionen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
-     "antwort": "Man löst die Gleichung 8 + 2 + t = 30.",
-     "beschreibung": "t nur addiert statt mit 2 malgenommen",
+     "index": 2,
+     "antwort": "Das lässt sich nicht sagen, denn man müsste zuerst den Funktionsterm von f kennen.",
+     "beschreibung": "übersehen, dass die Eigenschaft \"fallend\" schon die Reihenfolge der Funktionswerte festlegt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "rechnung_waehlen|Ansatz für das Füllen eines Beckens"
+   "idee": "immer_nie|fallende Funktion, a < b"
   },
   {
    "kennung": "VT3-075",
@@ -697,11 +721,11 @@
     "a": [
      "x = 2 ist die Lösung, denn 2² = 4 und 2 · 4 = 8.",
      "Es gibt zwei Lösungen, x = −2 und x = 2, denn −2 und 2 haben dasselbe Quadrat.",
-     "x = −4 ist die Lösung, denn 8 : (−2) = −4.",
-     "Es gibt keine Lösung, denn −2x² ist nie positiv."
+     "Es gibt keine Lösung, denn −2x² ist nie positiv.",
+     "x = −4 ist die Lösung, denn 8 : (−2) = −4."
     ],
     "o": {
-     "index": 3
+     "index": 2
     }
    },
    "regel": "id.funktionen.zuordnung",
@@ -721,7 +745,7 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "x = −4 ist die Lösung, denn 8 : (−2) = −4.",
      "beschreibung": "nur durch −2 geteilt: x² = −4 wäre das Ergebnis, nicht x = −4",
      "fehlbild": null,
@@ -748,33 +772,39 @@
     "s": 3,
     "y": "zahl",
     "f": {
-     "text": "Ein Parkplatz kostet 5 € Grundgebühr plus 1,20 € pro Stunde (die Zeit wird minutengenau abgerechnet), höchstens aber 17 € am Tag. Nach wie vielen Stunden wird der Höchstpreis zum ersten Mal erreicht?"
+     "text": "Für f(x) = 3x − 2 (D = ℚ) gilt f(4) = 10 und f(8) = 22. Welchen Funktionswert hat f an der Stelle 6, die genau in der Mitte zwischen 4 und 8 liegt? Du kannst den Term benutzen, es geht aber auch ohne ihn."
     },
-    "w": "Gesucht ist t mit 5 + 1,2t = 17. Dann 1,2t = 12 und t = 10 Stunden. Danach bleibt der Preis bei 17 €.",
+    "w": "Der Graph von f ist eine Gerade, die Funktionswerte wachsen gleichmäßig: von x = 4 bis x = 8 um 12, bis zur Mitte also um 6. Damit ist f(6) = 10 + 6 = 16, die Mitte von 10 und 22. Probe mit dem Term: f(6) = 3 · 6 − 2 = 16.",
     "o": {
-     "wert": 10,
-     "einheit": "h"
+     "wert": 16
     }
    },
    "regel": "id.funktionen.zuordnung",
-   "loesung_rechnung": "(17 − 5) : 1,2",
+   "loesung_rechnung": "(10 + 22) : 2",
    "fehlbilder": [
     {
-     "antwort": 12,
-     "rechnung": "17 − 5",
-     "beschreibung": "den Preisanteil für die Stunden als Stundenzahl angegeben",
+     "antwort": 32,
+     "rechnung": "10 + 22",
+     "beschreibung": "die beiden Funktionswerte addiert statt ihre Mitte zu bilden",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 3.4,
-     "rechnung": "17 : 5",
-     "beschreibung": "17 durch die Grundgebühr geteilt",
+     "antwort": 12,
+     "rechnung": "22 − 10",
+     "beschreibung": "den Unterschied der Funktionswerte als f(6) angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 6,
+     "rechnung": "(4 + 8) : 2",
+     "beschreibung": "die Mitte der Stellen selbst als Funktionswert angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "transfer|Parkplatz mit Höchstpreis"
+   "idee": "transfer|Funktionswert in der Mitte zweier Stellen"
   },
   {
    "kennung": "VT3-078",
@@ -799,12 +829,12 @@
     "w": "Zwei Punkte mit verschiedener x-Koordinate legen eine Gerade fest, ebenso ein Punkt und die Steigung. P(2 | 5) und Q(2 | 9) liegen senkrecht übereinander; die Gerade durch beide ist senkrecht und der Graph keiner Funktion, der Term wird nicht festgelegt.",
     "a": [
      "g geht auch durch den Ursprung, denn mit P und O(0 | 0) kennt man zwei Punkte der Geraden.",
-     "g geht auch durch Q(2 | 9), denn P und Q haben dieselbe x-Koordinate und liegen übereinander.",
      "g hat die Steigung −3, denn zu einem Punkt und der Steigung gibt es genau eine Gerade.",
-     "g schneidet die y-Achse bei 1, denn mit P und dem Achsenabschnitt kennt man zwei Punkte der Geraden."
+     "g schneidet die y-Achse bei 1, denn mit P und dem Achsenabschnitt kennt man zwei Punkte der Geraden.",
+     "g geht auch durch Q(2 | 9), denn P und Q haben dieselbe x-Koordinate und liegen übereinander."
     ],
     "o": {
-     "index": 1
+     "index": 3
     }
    },
    "ersetzt_test": true,
@@ -818,14 +848,14 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "g hat die Steigung −3, denn zu einem Punkt und der Steigung gibt es genau eine Gerade.",
      "beschreibung": "übersehen, dass Punkt und Steigung eine Gerade festlegen: f(x) = −3x + 11",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "g schneidet die y-Achse bei 1, denn mit P und dem Achsenabschnitt kennt man zwei Punkte der Geraden.",
      "beschreibung": "übersehen, dass zwei Punkte eine Gerade festlegen: f(x) = 2x + 1",
      "fehlbild": null,
@@ -937,6 +967,14 @@
      "beschreibung": "die Steigung als Achsenabschnitt eingetragen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "den Term in Zeile 4 für den Fehler gehalten; er enthält nur den falschen Achsenabschnitt aus Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
     }
    ],
    "idee": "fehler|Fehler-Detektiv: Achsenabschnitt"
@@ -963,19 +1001,19 @@
     },
     "w": "Gleiche Steigung heißt parallel. Weil die Achsenabschnitte 1 und −3 verschieden sind, liegen die Geraden nicht aufeinander. Bei jedem x ist f(x) um 4 größer als g(x).",
     "a": [
-     "Die Graphen sind parallel und verschieden, denn sie haben die Steigung 2, aber die Achsenabschnitte 1 und −3.",
      "Die Graphen schneiden sich in genau einem Punkt, denn beide Terme enthalten 2x.",
+     "Die Graphen sind parallel und verschieden, denn sie haben die Steigung 2, aber die Achsenabschnitte 1 und −3.",
      "Die Graphen fallen zusammen, denn beide haben die Steigung 2 und gehen durch dieselben Punkte.",
      "Die Graphen schneiden sich auf der y-Achse, denn beide Terme enthalten die Zahl 2."
     ],
     "o": {
-     "index": 0
+     "index": 1
     }
    },
    "regel": "id.funktionen.zuordnung",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Die Graphen schneiden sich in genau einem Punkt, denn beide Terme enthalten 2x.",
      "beschreibung": "gleiche Steigung mit Schnittpunkt verwechselt",
      "fehlbild": null,
@@ -1020,19 +1058,19 @@
     },
     "w": "Bei einer Geraden wächst y bei gleichen Schritten in x immer um gleich viel. Hier sind die Zuwächse 2, 6 und 18, also ist der Graph keine Gerade.",
     "a": [
-     "Der Graph ist eine Gerade, denn y wird mit wachsendem x immer größer.",
      "Der Graph ist keine Gerade, denn y wächst bei gleichen x-Schritten um 2, um 6, um 18.",
+     "Der Graph ist eine Gerade, denn y wird mit wachsendem x immer größer.",
      "Der Graph ist die Gerade y = 2x + 1, denn die Punkte (0 | 1) und (1 | 3) liegen darauf.",
      "Der Graph ist eine Gerade, denn alle y-Werte sind positiv."
     ],
     "o": {
-     "index": 1
+     "index": 0
     }
    },
    "regel": "id.funktionen.zuordnung",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Der Graph ist eine Gerade, denn y wird mit wachsendem x immer größer.",
      "beschreibung": "Wachsen mit konstanter Steigung verwechselt: Auch ein steigender Graph muss keine Gerade sein",
      "fehlbild": null,
@@ -1077,19 +1115,19 @@
     },
     "w": "Der Schnittpunkt mit der y-Achse hat x = 0: f(0) = −4. Der Schnittpunkt mit der x-Achse hat y = 0: 2x − 4 = 0, also x = 2. Die Steigung 2 ist weder ein Achsenschnitt noch ein Achsenabschnitt.",
     "a": [
-     "Der Graph schneidet die y-Achse bei −4 und die x-Achse bei 2, denn f(0) = −4 und 2x − 4 = 0 ergibt x = 2.",
      "Der Graph schneidet die y-Achse bei 2 und die x-Achse bei −4, denn die Zahlen des Terms gehören in dieser Reihenfolge zu den Achsen.",
+     "Der Graph schneidet die y-Achse bei −4 und die x-Achse bei 2, denn f(0) = −4 und 2x − 4 = 0 ergibt x = 2.",
      "Der Graph schneidet beide Achsen bei −4, denn der Achsenabschnitt gilt für die x-Achse genauso.",
      "Der Graph schneidet die y-Achse bei 4 und die x-Achse bei 2, denn beim Ablesen ändert man das Vorzeichen."
     ],
     "o": {
-     "index": 0
+     "index": 1
     }
    },
    "regel": "id.funktionen.zuordnung",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Der Graph schneidet die y-Achse bei 2 und die x-Achse bei −4, denn die Zahlen des Terms gehören in dieser Reihenfolge zu den Achsen.",
      "beschreibung": "die Zahlen 2 und −4 den Achsen vertauscht: die 2 ist die Steigung, nicht der y-Wert",
      "fehlbild": null,
@@ -1134,26 +1172,26 @@
     },
     "w": "Die Steigung −3 ist negativ: Wenn x um 1 wächst, sinkt y um 3. Der Graph fällt also, und weil 3 größer als 1 ist, steil. Die +1 ist der Achsenabschnitt.",
     "a": [
+     "Jonas hat nicht recht, denn die Steigung −3 ist negativ: Der Graph fällt von links nach rechts.",
      "Jonas hat recht, denn je größer die Zahl vor x ist, desto steiler steigt der Graph.",
      "Jonas hat recht, denn die +1 am Ende verschiebt den Graphen nach oben, also steigt er.",
-     "Jonas hat nicht recht, denn die Steigung −3 ist negativ: Der Graph fällt von links nach rechts.",
-     "Jonas hat nicht recht, denn der Graph fällt nur flach, weil −3 kleiner als 0 ist."
+     "Jonas hat recht, denn das Minus dreht nur die Rechenrichtung um, die Steigung 3 bleibt positiv."
     ],
     "o": {
-     "index": 2
+     "index": 0
     }
    },
    "regel": "id.funktionen.zuordnung",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Jonas hat recht, denn je größer die Zahl vor x ist, desto steiler steigt der Graph.",
      "beschreibung": "das Vorzeichen der Steigung übersehen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Jonas hat recht, denn die +1 am Ende verschiebt den Graphen nach oben, also steigt er.",
      "beschreibung": "den Achsenabschnitt +1 als Steigung gelesen",
      "fehlbild": null,
@@ -1161,7 +1199,7 @@
     },
     {
      "index": 3,
-     "antwort": "Jonas hat nicht recht, denn der Graph fällt nur flach, weil −3 kleiner als 0 ist.",
+     "antwort": "Jonas hat recht, denn das Minus dreht nur die Rechenrichtung um, die Steigung 3 bleibt positiv.",
      "beschreibung": "Betrag und Vorzeichen verwechselt: Das Minus bestimmt die Richtung, die 3 die Steilheit",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -1232,43 +1270,43 @@
     "s": 2,
     "y": "auswahl",
     "f": {
-     "text": "Liegt der Punkt P(4 | −5) auf dem Graphen von f(x) = 3 − 2x? Welche Antwort mit Begründung stimmt?"
+     "text": "Die Punkte A(1 | 3) und B(5 | 11) liegen auf dem Graphen einer linearen Funktion f. Der Punkt M(3 | 7) ist der Mittelpunkt der Strecke [AB]. Welche Aussage über M stimmt?"
     },
-    "w": "Man setzt die x-Koordinate ein: f(4) = 3 − 8 = −5. Das ist die y-Koordinate von P. Also liegt P auf dem Graphen.",
+    "w": "Der Graph einer linearen Funktion ist eine Gerade. Sie geht durch A und B, also liegt die ganze Strecke [AB] und damit auch ihr Mittelpunkt auf ihr. Probe: Die Steigung ist (11 − 3) : (5 − 1) = 2, der Term f(x) = 2x + 1, und f(3) = 7.",
     "a": [
-     "Nein, denn für x = −5 ergibt sich f(−5) = 3 + 10 = 13 und nicht 4.",
-     "Nein, denn 3 − 2 · 1 = 1 ergibt eine Zahl, die nicht −5 ist.",
-     "Ja, denn die Koordinaten 4 und −5 sind verschieden, das gilt immer.",
-     "Ja, denn setzt man 4 ein, ergibt sich 3 − 8 und damit −5, das passt zu P."
+     "M liegt nicht auf dem Graphen, denn M gehört nicht zu den beiden gegebenen Punkten.",
+     "Man kann nichts sagen, denn dafür muss man zuerst den Funktionsterm von f kennen.",
+     "M liegt auf dem Graphen, denn der Graph ist eine Gerade und die Strecke [AB] liegt ganz auf ihr.",
+     "M liegt nur auf dem Graphen, wenn dieser durch den Ursprung geht, denn nur dann liegt die Mitte darauf."
     ],
     "o": {
-     "index": 3
+     "index": 2
     }
    },
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Nein, denn für x = −5 ergibt sich f(−5) = 3 + 10 = 13 und nicht 4.",
-     "beschreibung": "x und y vertauscht: −5 als x-Wert eingesetzt",
+     "antwort": "M liegt nicht auf dem Graphen, denn M gehört nicht zu den beiden gegebenen Punkten.",
+     "beschreibung": "geglaubt, dass nur die gegebenen Punkte auf dem Graphen liegen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 1,
-     "antwort": "Nein, denn 3 − 2 · 1 = 1 ergibt eine Zahl, die nicht −5 ist.",
-     "beschreibung": "falsch eingesetzt: nicht 4 in den Term gesetzt",
+     "antwort": "Man kann nichts sagen, denn dafür muss man zuerst den Funktionsterm von f kennen.",
+     "beschreibung": "übersehen, dass die Gerade durch A und B schon festliegt und M auf der Strecke liegt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
-     "antwort": "Ja, denn die Koordinaten 4 und −5 sind verschieden, das gilt immer.",
-     "beschreibung": "keine Probe gemacht, sondern nur die Zahlen verglichen",
+     "index": 3,
+     "antwort": "M liegt nur auf dem Graphen, wenn dieser durch den Ursprung geht, denn nur dann liegt die Mitte darauf.",
+     "beschreibung": "den Ursprung ohne Grund ins Spiel gebracht; die Lage der Mitte hängt nicht davon ab",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "begruenden|Punktprobe mit Begründung"
+   "idee": "zusammenhang|Mittelpunkt zweier Graphpunkte liegt auf dem Graphen"
   },
   {
    "kennung": "VT3-087",
@@ -1320,6 +1358,14 @@
      "beschreibung": "die −1 vergessen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "den Schluss in Zeile 4 für den Fehler gehalten; er folgt aus dem falsch berechneten Funktionswert in Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
     }
    ],
    "idee": "fehler|Fehler-Detektiv: Punktprobe"
@@ -1347,12 +1393,12 @@
     "w": "Es gilt b = 2a + 1. Ist a ganz, so ist 2a + 1 ganz. Umgekehrt gilt das nicht (b = 2 gibt a = 0,5), und für a = −0,25 ist b = 0,5 positiv. Für a = 1 ist b = 3, also größer als a.",
     "a": [
      "Ist die Zahl b ganz, so ist auch die Zahl a ganz.",
-     "Ist die Zahl a ganz, so ist auch die Zahl b ganz.",
      "Ist die Zahl a negativ, so ist auch die Zahl b negativ.",
-     "Ist die Zahl a positiv, so ist die Zahl b kleiner als a."
+     "Ist die Zahl a positiv, so ist die Zahl b kleiner als a.",
+     "Ist die Zahl a ganz, so ist auch die Zahl b ganz."
     ],
     "o": {
-     "index": 1
+     "index": 3
     }
    },
    "fehlbilder": [
@@ -1364,14 +1410,14 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Ist die Zahl a negativ, so ist auch die Zahl b negativ.",
      "beschreibung": "übersehen, dass b = 2a + 1 für a = −0,25 positiv ist (b = 0,5)",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Ist die Zahl a positiv, so ist die Zahl b kleiner als a.",
      "beschreibung": "b = 2a + 1 ist für positive a größer als a, nicht kleiner",
      "fehlbild": null,
@@ -1454,12 +1500,12 @@
     "w": "Egal, welche Zahl a ist: a · 0 = 0. Also gilt f(0) = 0 und der Ursprung liegt auf jedem solchen Graphen.",
     "a": [
      "Nur für a = 0, denn sonst ist der Funktionswert an der Stelle 0 nicht gleich 0.",
-     "Nur für positive a, denn negative Zahlen verschieben den Graphen nach unten und er geht dann nicht durch P(0 | 0).",
      "Für jede Zahl a, denn a · 0 ist immer 0, also liegt der Punkt P(0 | 0) auf dem Graphen.",
+     "Nur für positive a, denn negative Zahlen verschieben den Graphen nach unten und er geht dann nicht durch P(0 | 0).",
      "Für keine Zahl a, denn die Zahl 0 gehört nicht zur Definitionsmenge."
     ],
     "o": {
-     "index": 2
+     "index": 1
     }
    },
    "fehlbilder": [
@@ -1471,7 +1517,7 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Nur für positive a, denn negative Zahlen verschieben den Graphen nach unten und er geht dann nicht durch P(0 | 0).",
      "beschreibung": "das Vorzeichen von a mit einer Verschiebung verwechselt",
      "fehlbild": null,
@@ -1510,12 +1556,12 @@
     "w": "Der Punkt P(7 | 47) liegt auf dem Graphen, wenn K(7) = 47 gilt: 12 + 5 · 7 = 47. Die erste Koordinate sind also die Tage, die zweite der Preis in Euro.",
     "a": [
      "Wer die Leiter 47 Tage ausleiht, zahlt 7 Euro, denn die Reihenfolge der Koordinaten ist beliebig.",
-     "Wer die Leiter 7 Tage ausleiht, zahlt 47 Euro, denn die erste Koordinate sind die Tage, die zweite der Preis.",
      "Die Leiter kostet 7 Euro Grundgebühr und 47 Euro je Tag, denn die Zahlen von P stehen im Term.",
+     "Wer die Leiter 7 Tage ausleiht, zahlt 47 Euro, denn die erste Koordinate sind die Tage, die zweite der Preis.",
      "Nach 7 Tagen sind 47 Euro Grundgebühr bezahlt, denn P zeigt den Preis ohne die Tagesgebühr."
     ],
     "o": {
-     "index": 1
+     "index": 2
     }
    },
    "fehlbilder": [
@@ -1527,7 +1573,7 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Die Leiter kostet 7 Euro Grundgebühr und 47 Euro je Tag, denn die Zahlen von P stehen im Term.",
      "beschreibung": "die Koordinaten von P mit den Zahlen des Terms (12 und 5) verwechselt",
      "fehlbild": null,
@@ -1620,12 +1666,12 @@
     "w": "K(4) = 3 + 8 = 11 €, K(8) = 3 + 16 = 19 €. Das ist weniger als 22 €, dem Doppelten. Die Grundgebühr von 3 € wird nur einmal bezahlt, deshalb sind Strecke und Preis nicht proportional.",
     "a": [
      "Die Fahrt über 8 km kostet doppelt so viel, denn 8 km sind doppelt so viele Kilometer wie 4 km.",
-     "Die Fahrt über 8 km kostet genau 4 € mehr, denn die zusätzlichen 4 km kosten je 1 €.",
      "Die Fahrt über 8 km kostet weniger als das Doppelte, denn die Grundgebühr zahlt man nur einmal.",
+     "Die Fahrt über 8 km kostet genau 4 € mehr, denn die zusätzlichen 4 km kosten je 1 €.",
      "Die Fahrt über 8 km kostet mehr als das Doppelte, denn die Grundgebühr fällt zweimal an."
     ],
     "o": {
-     "index": 2
+     "index": 1
     }
    },
    "regel": "id.funktionen.zuordnung",
@@ -1638,7 +1684,7 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Die Fahrt über 8 km kostet genau 4 € mehr, denn die zusätzlichen 4 km kosten je 1 €.",
      "beschreibung": "den Preis je Kilometer falsch gelesen: Er beträgt 2 €, nicht 1 €",
      "fehlbild": null,
@@ -1705,6 +1751,14 @@
      "beschreibung": "die Zahl der SMS ohne den Preis je SMS addiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "beschreibung": "die Rechnung in Zeile 3 für den Fehler gehalten; sie setzt nur den falschen Term aus Zeile 2 ein",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
     }
    ],
    "idee": "fehler|Fehler-Detektiv: Handytarif"
@@ -1732,12 +1786,12 @@
     "w": "Das erste Quadrat braucht 4 Hölzer, jedes weitere 3: für n Quadrate 4 + 3 · (n − 1) = 3n + 1. Probe: n = 2 gibt 7, n = 1 gibt 4.",
     "a": [
      "Mia hat recht, denn jedes Quadrat hat vier Hölzer, also braucht man 4n Hölzer.",
-     "Mia hat nicht recht, denn für 2 Quadrate braucht man 7 Hölzer und 4n ergäbe 8; richtig ist 3n + 1.",
      "Mia hat nicht recht, denn für 2 Quadrate braucht man 6 Hölzer; richtig wäre der Term 3n.",
+     "Mia hat nicht recht, denn für 2 Quadrate braucht man 7 Hölzer und 4n ergäbe 8; richtig ist 3n + 1.",
      "Mia hat nicht recht, denn der richtige Term lautet 4 + 3n, weil das erste Quadrat vier Hölzer hat."
     ],
     "o": {
-     "index": 1
+     "index": 2
     }
    },
    "regel": "id.funktionen.zuordnung",
@@ -1750,7 +1804,7 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Mia hat nicht recht, denn für 2 Quadrate braucht man 6 Hölzer; richtig wäre der Term 3n.",
      "beschreibung": "das erste Quadrat mit nur drei Hölzern gezählt",
      "fehlbild": null,
@@ -1789,12 +1843,12 @@
     "w": "In einer Minute fährt der Zug den 60. Teil der Strecke einer Stunde: 90 : 60 = 1,5 km. Also gilt s(t) = 1,5t, wenn t in Minuten gemessen wird. Nach 60 Minuten: 1,5 · 60 = 90 km.",
     "a": [
      "s(t) = 90t, denn die Geschwindigkeit ändert sich nicht, wenn man die Zeiteinheit wechselt.",
+     "s(t) = 1,5t, denn in einer Minute legt der Zug 90 : 60 ergibt 1,5 km zurück.",
      "s(t) = 5 400t, denn eine Stunde hat 60 Minuten und 90 · 60 = 5 400.",
-     "s(t) = 60t, denn eine Stunde hat 60 Minuten und die Zahl der Minuten gehört in den Term.",
-     "s(t) = 1,5t, denn in einer Minute legt der Zug 90 : 60 ergibt 1,5 km zurück."
+     "s(t) = 60t, denn eine Stunde hat 60 Minuten und die Zahl der Minuten gehört in den Term."
     ],
     "o": {
-     "index": 3
+     "index": 1
     }
    },
    "regel": "id.funktionen.zuordnung",
@@ -1807,14 +1861,14 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "s(t) = 5 400t, denn eine Stunde hat 60 Minuten und 90 · 60 = 5 400.",
      "beschreibung": "mit 60 malgenommen statt durch 60 geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "s(t) = 60t, denn eine Stunde hat 60 Minuten und die Zahl der Minuten gehört in den Term.",
      "beschreibung": "die Geschwindigkeit 90 durch die Zahl 60 ersetzt",
      "fehlbild": null,
@@ -1845,33 +1899,33 @@
     },
     "w": "Bei einer linearen Funktion ändert sich der Funktionswert bei gleichen Schritten in x immer um dasselbe. Das gilt für den Apfelpreis (je Kilogramm 2 Euro mehr). Die Quadratfläche wächst 3, 5, 7 …, der Ball steigt und fällt, und Kinder wachsen unterschiedlich schnell.",
     "a": [
-     "Der Preis von Äpfeln in Abhängigkeit von der Menge bei 2 Euro je Kilogramm, denn jedes weitere Kilogramm kostet gleich viel.",
      "Die Fläche eines Quadrats in Abhängigkeit von seiner Seitenlänge, denn mit der Seite wächst auch die Fläche.",
      "Die Höhe eines hochgeworfenen Balls in Abhängigkeit von der Zeit, denn die Zeit läuft gleichmäßig weiter.",
-     "Die Körpergröße eines Kindes in Abhängigkeit vom Alter, denn Kinder wachsen jedes Jahr."
+     "Die Körpergröße eines Kindes in Abhängigkeit vom Alter, denn Kinder wachsen jedes Jahr.",
+     "Der Preis von Äpfeln in Abhängigkeit von der Menge bei 2 Euro je Kilogramm, denn jedes weitere Kilogramm kostet gleich viel."
     ],
     "o": {
-     "index": 0
+     "index": 3
     }
    },
    "regel": "id.funktionen.zuordnung",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Die Fläche eines Quadrats in Abhängigkeit von seiner Seitenlänge, denn mit der Seite wächst auch die Fläche.",
      "beschreibung": "Wachsen mit gleichmäßigem Wachsen verwechselt: Bei Seite 1, 2, 3 ist die Fläche 1, 4, 9",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Die Höhe eines hochgeworfenen Balls in Abhängigkeit von der Zeit, denn die Zeit läuft gleichmäßig weiter.",
      "beschreibung": "die gleichmäßig laufende Zeit mit einer gleichmäßigen Änderung der Höhe verwechselt: Der Ball steigt und fällt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Die Körpergröße eines Kindes in Abhängigkeit vom Alter, denn Kinder wachsen jedes Jahr.",
      "beschreibung": "Wachsen mit gleichmäßigem Wachsen verwechselt: Kinder wachsen nicht jedes Jahr gleich viel",
      "fehlbild": null,
@@ -1902,26 +1956,26 @@
     },
     "w": "Anfangswert 120, Abnahme 15 pro Stunde: I(t) = 120 − 15t. Das Fass ist leer, wenn 120 − 15t = 0, also nach t = 8 Stunden. Danach gäbe es negative Inhalte, also nur 0 ≤ t ≤ 8.",
     "a": [
+     "I(t) = 120 − 15t, sinnvoll für 0 ≤ t ≤ 8",
      "I(t) = 120 − 15t, sinnvoll für 0 ≤ t ≤ 15",
      "I(t) = 15 − 120t, sinnvoll für 0 ≤ t ≤ 8",
-     "I(t) = 120 − 15t, sinnvoll für 0 ≤ t ≤ 8",
      "I(t) = 120 + 15t, sinnvoll für 0 ≤ t ≤ 8"
     ],
     "o": {
-     "index": 2
+     "index": 0
     }
    },
    "regel": "id.funktionen.zuordnung",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "I(t) = 120 − 15t, sinnvoll für 0 ≤ t ≤ 15",
      "beschreibung": "den Term richtig, aber die Grenze falsch: nach 15 Stunden wäre der Inhalt negativ",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "I(t) = 15 − 120t, sinnvoll für 0 ≤ t ≤ 8",
      "beschreibung": "Anfangswert und Änderung vertauscht",
      "fehlbild": null,

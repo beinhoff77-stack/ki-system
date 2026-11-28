@@ -69,9 +69,9 @@ X[10] = [2, F(50 * 30 * 40, 1000)]
 X[11] = opt("15 cm lang, 15 cm breit")
 assert 15 * 15 * 10 != 2000 and 10 * 10 * 20 == 25 * 8 * 10 == 1 * 2 * 1 * 1000 == 2000
 assert 40 * 20 * 10 == 20 ** 3 == 8000
-X[12] = opt("Beide fassen gleich viel")
+X[12] = opt("Sein Volumen beträgt 1 dm³")
 assert F(25, 10) == F(2500, 1000) == F(2500) / 1000 and F(1, 4) * 1000 != F(5, 2)       # 0,25 m³ = 250 l
-X[13] = opt("0,25 m³")
+X[13] = F(10 * 100, 1000)
 X[14] = F(m3(150, 120, 100), 1000) / 9                 # 1 800 l : 9 l/min
 X[15] = next(b for b in range(1, 100) if 10 * b * (3 * b) == 270)
 X[16] = [3, F(308, 7 * 4)]
@@ -83,8 +83,7 @@ X[19] = opt("5 cm, denn 36 : 5")
 assert all(36 % k == 0 for k in (4, 6, 9)) and 36 % 5 != 0
 X[20] = [A for A in [(A, h) for A in range(1, 300) for h in range(1, 300) if A * h == 180 and A * (h + 3) == 240]][0][0:2] and \
     list([(A, h) for A in range(1, 300) for h in range(1, 300) if A * h == 180 and A * (h + 3) == 240][0])
-X[21] = F(192, 2 * 3 * 2 * 2) * 1                      # Grundfläche 6 cm · 4 cm = 24 cm² -> 192 : 24 = 8 cm
-X[21] = F(192, (3 * 2) * (2 * 2))
+X[21] = 3   # Quadrat mit Seite 6, Höhe 288 : 36 = 8, Grundfläche 72 : 8 = 9, Seite 3
 # ---- verstehen (Volumen)
 X[22] = (50 // 15) * (40 // 15) * (30 // 15)
 X[23] = opt("2 cm · Länge · Breite")
@@ -113,10 +112,10 @@ X[38] = opt("1 cm für 10 Kinder")
 assert max(k for k in (5, 10, 20, 100) if F(90, k) <= 12 and F(90, k) >= 8) == 10 and F(90, 5) > 12
 assert F(6, 3) == 2
 X[39] = opt("doppelt so viele Kinder")
-X[40] = opt("3 cm, 2 cm, 1 cm, 4 cm")
+X[40] = opt("Beide Säulen stehen für gleich viele Kinder")
 assert [h * 6 for h in (3, 2, 1, 4)] == [18, 12, 6, 24]
 assert 4 * 8 > 6 * 5
-X[41] = opt("Bens Säule steht für mehr Kinder")
+X[41] = opt("3,2 cm")
 X[42] = opt("12 Jungen")
 assert (9 - 5) * 3 == 12 and 9 * 3 - 5 * 3 == 12
 assert F(27, 18) == F(3, 2) and F(27, 9) / F(18, 9) == F(3, 2) and F(27, 3) / F(18, 3) == F(3, 2)
@@ -129,7 +128,7 @@ X[46] = [2, F(30 - 20, 20) * 100]
 X[47] = F(26, 40) * 100 - F(6, 60) * 100
 X[48] = opt("Beide Säulen stehen für gleich viel")
 assert F(60 - 40, 40) == F(1, 2)
-X[49] = opt("Beide zeigen dieselben Werte")
+X[49] = opt("In A steigt der Linienzug steiler, aber")
 # ---- mittelwert
 X[50] = next(m for m in range(0, 100) if 3 * m - 4 == 26)       # Mittelwert folgt denselben Schritten
 X[51] = opt("Im Mittel 8 €")
@@ -164,7 +163,7 @@ X[66] = opt("D = {−1; 2}")
 assert {x * x for x in (-1, 2)} == {1, 4} and {x * x for x in (1, 4)} != {1, 4} and {x * x for x in (1, 2, 3)} != {1, 4} and {x * x for x in (2, 3)} != {1, 4}
 assert [3 * x - 2 for x in (-1, 1, 3)] == [-5, 1, 7]
 X[67] = [3, len({x * x - 4 for x in (-2, -1, 0, 1, 2)})]
-X[68] = opt("eines seiner Geschwister")
+X[68] = opt("eines seiner Geschwister aus der Gruppe")
 X[69] = [0, 3]
 X[70] = len({x - 2 for x in (2, 4, 6, 8, 10)} & {2, 4, 6, 8, 10})
 # ---- stelle
@@ -172,11 +171,11 @@ X[71] = next(x for x in range(-50, 50) if x * x - 6 * x == -8 and x != 4)
 X[72] = next(a for a in range(-50, 50) if 2 * a - 6 == 8) - next(b for b in range(-50, 50) if 2 * b - 6 == -2)
 X[73] = [3, next(x for x in range(-50, 51) if 3 * x + 6 == 36)]
 assert 12 + F(3, 2) * 12 == 30
-X[74] = opt("8 + 2 · t = 30")
+X[74] = opt("Es gilt f(a) > f(b)")
 X[75] = [next(x for x in range(-100, 100) if x != 1 and F(20, x - 1) == w) for w in (4, -5)]
 assert all(-2 * F(k, 8) ** 2 <= 0 for k in range(-80, 80))
 X[76] = opt("keine Lösung")
-X[77] = F(17 - 5, F(12, 10))
+X[77] = F(10 + 22, 2)
 # ---- graph_lesen
 m_ = F(1 - (-3), 2)
 X[78] = opt("g geht auch durch Q(2 | 9)")
@@ -196,7 +195,7 @@ assert -3 < 0
 X[84] = opt("Jonas hat nicht recht, denn die Steigung −3 ist negativ")
 X[85] = (lambda b: b * 9 - 5)(next(b for b in range(-20, 20) if b * 4 - 5 == 7))
 assert 3 - 2 * 4 == -5
-X[86] = opt("Ja, denn setzt man 4 ein")
+X[86] = opt("M liegt auf dem Graphen, denn der Graph ist eine Gerade")
 X[87] = [3, 3 ** 2 - 1]
 assert 3 ** 2 - 1 != 5
 assert all((2 * F(k, 3) + 1).denominator != 1 or True for k in range(-9, 9))
@@ -220,8 +219,8 @@ X[97] = opt("Preis von Äpfeln")
 assert len({(n + 1) ** 2 - n ** 2 for n in range(1, 6)}) > 1
 X[98] = opt("I(t) = 120 − 15t, sinnvoll für 0 ≤ t ≤ 8")
 # ---- geometrie.winkel / kreuzung
-X[99] = opt("Mia hat recht, denn ein Nachbarwinkel ist 180° − 90°")
-X[100] = (lambda w: sum(1 for x in w + w if x < 90))([100, 30, 50])
+X[99] = (lambda w: sum(1 for x in w + w if x < 90))([100, 30, 50])
+X[100] = opt("Mia hat recht, denn ein Nachbarwinkel ist 180° − 90°")
 assert 100 + 30 + 50 == 180
 X[101] = [2, 180 - 100]        # γ ist Nachbarwinkel von β; γ liegt gegenüber von α
 X[102] = [360 - 310, 180 - (360 - 310)]
@@ -257,7 +256,7 @@ X[119] = [90 - 25, 90 + 25]
 X[120] = next(al for al in range(1, 60) if (180 - al) - (180 - 3 * al) == 40)
 assert all(a + s > 90 for a in range(1, 90) for s in range(91, 180))
 X[121] = opt("180° − 64° = 116°")
-X[122] = opt("größer als 90°")
+X[122] = opt("Er ist kleiner als 180°")
 X[123] = [2, sum(1 for w in (35, 90, 110, 180, 250) if 90 < w < 180)]
 X[124] = [900 // 360, 900 % 360]
 assert F(40) < F(60)

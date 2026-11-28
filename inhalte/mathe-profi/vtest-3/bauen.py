@@ -64,6 +64,13 @@ for lz, kat in je_lz.items():
     folge = [a["aufgabe"]["o"]["index"] for a in alle if (a["thema"], a["lernkarte"]) == lz and a["aufgabe"]["y"] == "auswahl"]
     if any(x == y for x, y in zip(folge, folge[1:])): fehler.append(f"{lz}: richtige Position zweimal hintereinander {folge}")
 print(f"Auswahl: {len(aus)} Aufgaben, richtige Option längste in {laengste} ({100 * laengste / len(aus):.0f} %), Plätze {plaetze}")
+# 2b. Jede Lücke hat mindestens ein eigenes Fehlbild (Urteil 1222)
+for a in alle:
+    if a["aufgabe"]["y"] == "luecken":
+        n = len(a["aufgabe"]["o"]["werte"])
+        have = {f["luecke"] for f in a.get("fehlbilder", [])}
+        for i in range(1, n + 1):
+            if i not in have: fehler.append(f"{a['kennung']}: Lücke {i} hat kein Fehlbild")
 # 3. Auswahl-Bauweise (Vorprüfung 2): alle Optionen einer Aufgabe gleich gebaut, keine Sammel-/Absolut-/Gleichheitszeichen-Verzerrung, keine Zahlenfolge der Plätze
 import re  # noqa: E402
 def _dw(t): return bool(re.search(r"\b(denn|weil)\b", t))

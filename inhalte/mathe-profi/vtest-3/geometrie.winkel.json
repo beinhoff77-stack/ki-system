@@ -14,75 +14,17 @@
    "thema": "geometrie.winkel",
    "lernkarte": "kreuzung",
    "pool": "test",
-   "typ": "begruenden",
-   "form": null,
-   "stufe": 3,
-   "zaehlt": "ja",
-   "lehrplan": "M5 2",
-   "abgrenzung": "Die Übungen berechnen einen Winkel an einer Geradenkreuzung aus einem gegebenen Winkel. Diese Aufgabe: Begründung wählen.",
-   "aufgabe": {
-    "l": "kreuzung",
-    "t": "kreuzung",
-    "p": "test",
-    "s": 3,
-    "y": "auswahl",
-    "f": {
-     "text": "Zwei Geraden schneiden sich. Mia behauptet: „Wenn einer der vier Winkel 90° groß ist, sind alle vier Winkel 90° groß.“ Welche Begründung zeigt, dass Mia recht hat?"
-    },
-    "w": "Ein Nachbarwinkel des 90°-Winkels ist 180° − 90° = 90°. Die beiden übrigen Winkel liegen gegenüber und sind deshalb ebenfalls 90°. Bei anderen Winkeln sind Nachbarwinkel verschieden groß.",
-    "a": [
-     "Das lässt sich nicht folgern, denn gegenüberliegende Winkel sind gleich groß und es gibt höchstens zwei verschiedene Winkelgrößen.",
-     "Mia hat recht, denn bei jeder Geradenkreuzung ist jeder Winkel 360° : 4 = 90° groß.",
-     "Mia hat nicht recht, denn nur gegenüberliegende Winkel sind gleich groß, Nachbarwinkel sind immer verschieden groß.",
-     "Mia hat recht, denn ein Nachbarwinkel ist 180° − 90° = 90° und gegenüberliegende Winkel sind gleich groß."
-    ],
-    "o": {
-     "index": 3
-    }
-   },
-   "ersetzt_test": true,
-   "regel": "id.geometrie.winkel",
-   "fehlbilder": [
-    {
-     "index": 0,
-     "antwort": "Das lässt sich nicht folgern, denn gegenüberliegende Winkel sind gleich groß und es gibt höchstens zwei verschiedene Winkelgrößen.",
-     "beschreibung": "nur die Gleichheit gegenüberliegender Winkel benutzt, die Nachbarwinkel nicht",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "index": 1,
-     "antwort": "Mia hat recht, denn bei jeder Geradenkreuzung ist jeder Winkel 360° : 4 = 90° groß.",
-     "beschreibung": "behauptet, dass jede Geradenkreuzung vier gleiche Winkel hat",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "index": 2,
-     "antwort": "Mia hat nicht recht, denn nur gegenüberliegende Winkel sind gleich groß, Nachbarwinkel sind immer verschieden groß.",
-     "beschreibung": "übersehen, dass Nachbarwinkel bei 90° gleich groß sind",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    }
-   ],
-   "idee": "begruenden|ein Winkel ist 90°, alle vier Winkel"
-  },
-  {
-   "kennung": "VT3-100",
-   "thema": "geometrie.winkel",
-   "lernkarte": "kreuzung",
-   "pool": "korrektur",
    "typ": "transfer",
    "form": "anwenden",
-   "stufe": 2,
+   "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M5 2",
    "abgrenzung": "Die Übungen berechnen einen Winkel an einer Geradenkreuzung aus einem gegebenen Winkel. Diese Aufgabe: Transfer auf eine neue Situation.",
    "aufgabe": {
     "l": "kreuzung",
     "t": "kreuzung",
-    "p": "korrektur",
-    "s": 2,
+    "p": "test",
+    "s": 3,
     "y": "zahl",
     "f": {
      "text": "Drei verschiedene Geraden gehen durch denselben Punkt S. Dadurch entstehen sechs Winkel um S. Einer dieser Winkel ist 100° groß. Wie viele der sechs Winkel sind spitz?"
@@ -92,6 +34,7 @@
      "wert": 4
     }
    },
+   "ersetzt_test": true,
    "regel": "id.geometrie.winkel",
    "loesung_rechnung": "6 − 2",
    "fehlbilder": [
@@ -118,6 +61,63 @@
     }
    ],
    "idee": "zusammenhang|sechs Winkel an drei Geraden, wie viele sind spitz"
+  },
+  {
+   "kennung": "VT3-100",
+   "thema": "geometrie.winkel",
+   "lernkarte": "kreuzung",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M5 2",
+   "abgrenzung": "Die Übungen berechnen einen Winkel an einer Geradenkreuzung aus einem gegebenen Winkel. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "kreuzung",
+    "t": "kreuzung",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Geraden schneiden sich. Mia behauptet: „Wenn einer der vier Winkel 90° groß ist, sind alle vier Winkel 90° groß.“ Welche Begründung zeigt, dass Mia recht hat?"
+    },
+    "w": "Ein Nachbarwinkel des 90°-Winkels ist 180° − 90° = 90°. Die beiden übrigen Winkel liegen gegenüber und sind deshalb ebenfalls 90°. Bei anderen Winkeln sind Nachbarwinkel verschieden groß.",
+    "a": [
+     "Das lässt sich nicht folgern, denn gegenüberliegende Winkel sind gleich groß und es gibt höchstens zwei verschiedene Winkelgrößen.",
+     "Nur zwei der vier Winkel sind 90° groß, denn gegenüberliegende Winkel sind gleich groß und die beiden anderen können beliebig sein.",
+     "Mia hat recht, denn ein Nachbarwinkel ist 180° − 90° = 90° und gegenüberliegende Winkel sind gleich groß.",
+     "Mia hat nicht recht, denn nur gegenüberliegende Winkel sind gleich groß, Nachbarwinkel sind immer verschieden groß."
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "id.geometrie.winkel",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Das lässt sich nicht folgern, denn gegenüberliegende Winkel sind gleich groß und es gibt höchstens zwei verschiedene Winkelgrößen.",
+     "beschreibung": "nur die Gleichheit gegenüberliegender Winkel benutzt, die Nachbarwinkel nicht",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Nur zwei der vier Winkel sind 90° groß, denn gegenüberliegende Winkel sind gleich groß und die beiden anderen können beliebig sein.",
+     "beschreibung": "die Nachbarwinkel nicht betrachtet; sie sind 180° − 90° = 90° und damit auch rechte Winkel",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Mia hat nicht recht, denn nur gegenüberliegende Winkel sind gleich groß, Nachbarwinkel sind immer verschieden groß.",
+     "beschreibung": "übersehen, dass Nachbarwinkel bei 90° gleich groß sind",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "begruenden|ein Winkel ist 90°, alle vier Winkel"
   },
   {
    "kennung": "VT3-101",
@@ -168,6 +168,14 @@
      "antwort": 260,
      "rechnung": "360 − 100",
      "beschreibung": "γ als Rest zum Vollwinkel berechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "beschreibung": "die Rechnung in Zeile 3 für den Fehler gehalten; sie benutzt nur den falschen Wert für γ aus Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -261,11 +269,11 @@
     "a": [
      "Gegenüberliegende Winkel ergeben zusammen 180°, denn sie liegen auf zwei Geraden.",
      "Mindestens einer der Winkel ist spitz, denn die vier Winkel ergeben zusammen 360°.",
-     "Gegenüberliegende Winkel sind gleich groß, denn beide ergänzen den Nachbarwinkel zu 180°.",
-     "Je zwei benachbarte Winkel sind verschieden groß, denn sie liegen auf verschiedenen Seiten."
+     "Je zwei benachbarte Winkel sind verschieden groß, denn sie liegen auf verschiedenen Seiten.",
+     "Gegenüberliegende Winkel sind gleich groß, denn beide ergänzen den Nachbarwinkel zu 180°."
     ],
     "o": {
-     "index": 2
+     "index": 3
     }
    },
    "regel": "id.geometrie.winkel",
@@ -285,7 +293,7 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Je zwei benachbarte Winkel sind verschieden groß, denn sie liegen auf verschiedenen Seiten.",
      "beschreibung": "den Sonderfall 90° übersehen: Dann sind benachbarte Winkel gleich groß",
      "fehlbild": null,
@@ -369,26 +377,26 @@
     },
     "w": "Gegenüberliegende Winkel sind gleich (α = γ, β = δ), Nachbarwinkel ergeben 180°. Das trifft nur auf 72°, 108°, 72°, 108° zu.",
     "a": [
-     "α = 72°, β = 108°, γ = 72°, δ = 108°",
      "α = 72°, β = 108°, γ = 108°, δ = 72°",
      "α = 72°, β = 72°, γ = 108°, δ = 108°",
+     "α = 72°, β = 108°, γ = 72°, δ = 108°",
      "α = 72°, β = 108°, γ = 72°, δ = 98°"
     ],
     "o": {
-     "index": 0
+     "index": 2
     }
    },
    "regel": "id.geometrie.winkel",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "α = 72°, β = 108°, γ = 108°, δ = 72°",
      "beschreibung": "gegenüberliegende Winkel α und γ als verschieden angenommen (72° und 108°)",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "α = 72°, β = 72°, γ = 108°, δ = 108°",
      "beschreibung": "Nachbarwinkel α und β als gleich angenommen (72° und 72°)",
      "fehlbild": null,
@@ -422,9 +430,9 @@
     "s": 3,
     "y": "zahl",
     "f": {
-     "text": "Eine Uhr geht jede Stunde genau 10 Minuten vor. Um 12:00 Uhr wird sie richtig gestellt. Wie groß ist der kleinere Winkel zwischen ihren Zeigern, wenn die richtige Zeit 15:00 Uhr ist? (Die Uhr hat ein 12-Stunden-Zifferblatt, der Stundenzeiger wandert gleichmäßig weiter.)"
+     "text": "Eine Digitaluhr zeigt 15:30 Uhr. Wie groß ist der kleinere Winkel zwischen den Zeigern einer Analoguhr mit 12-Stunden-Zifferblatt, die dieselbe Zeit zeigt? (Der Stundenzeiger wandert gleichmäßig weiter.)"
     },
-    "w": "Nach 3 Stunden geht die Uhr 30 Minuten vor und zeigt 3:30 Uhr. Minutenzeiger: 30 · 6° = 180°. Stundenzeiger: 3 · 30° + 30 · 0,5° = 105°. Winkel: 180° − 105° = 75°.",
+    "w": "15:30 Uhr ist auf dem 12-Stunden-Zifferblatt 3:30 Uhr. Minutenzeiger: 30 · 6° = 180°. Stundenzeiger: 3 · 30° + 30 · 0,5° = 105°. Winkel: 180° − 105° = 75°.",
     "o": {
      "wert": 75,
      "einheit": "°"
@@ -442,21 +450,21 @@
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 30,
-     "rechnung": "3 · 10",
-     "beschreibung": "den Gangunterschied von 30 Minuten als Winkel angegeben",
+     "antwort": 270,
+     "rechnung": "15 · 30 − 180",
+     "beschreibung": "die 24-Stunden-Zahl 15 mit 30° malgenommen und den überstumpfen Winkel stehen lassen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 15,
-     "rechnung": "30 : 2",
-     "beschreibung": "nur die Wanderung des Stundenzeigers in 30 Minuten als Winkel angegeben",
+     "antwort": 105,
+     "rechnung": "3 · 30 + 15",
+     "beschreibung": "den Winkel des Stundenzeigers statt des Winkels zwischen den Zeigern angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "transfer|Uhr geht vor, Gangunterschied statt Uhrzeit (ganzzahliger Winkel)"
+   "idee": "transfer|Digitalanzeige 15:30 auf das 12-Stunden-Zifferblatt übertragen, Winkel zwischen den Zeigern"
   },
   {
    "kennung": "VT3-107",
@@ -562,6 +570,14 @@
      "beschreibung": "den Abstand des Stundenzeigers von der 6 statt von der 12 genommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "die Aussage in Zeile 4 für den Fehler gehalten; sie wiederholt nur das falsche Ergebnis aus Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
     }
    ],
    "idee": "fehler|Fehler-Detektiv: kleinerer Winkel um 8:00 Uhr, überstumpfen Winkel genommen"
@@ -645,26 +661,26 @@
     },
     "w": "Zu einer vollen Stunde steht der Minutenzeiger auf der 12, der Stundenzeiger auf einer Zahl: Der Winkel ist ein Vielfaches von 30°. Der kleinere Winkel ist nie größer als 180°. Gegenbeispiele: 3:00 Uhr (90°), 6:00 Uhr (180°, keine zweite Stunde).",
     "a": [
-     "Er ist ein Vielfaches von 30° und höchstens 180°, denn der Minutenzeiger steht auf der 12.",
      "Er ist bei jeder vollen Stunde stumpf, also größer als 90°, denn die Zeiger stehen weit auseinander.",
      "Zu jeder vollen Stunde gibt es genau eine andere volle Stunde mit demselben Winkel, denn die Zeiger spiegeln sich an der Linie 12–6.",
+     "Er ist ein Vielfaches von 30° und höchstens 180°, denn der Minutenzeiger steht auf der 12.",
      "Er ist bei jeder vollen Stunde kleiner als 180°, denn der größere Winkel wird nicht mitgezählt."
     ],
     "o": {
-     "index": 0
+     "index": 2
     }
    },
    "regel": "id.geometrie.winkel",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Er ist bei jeder vollen Stunde stumpf, also größer als 90°, denn die Zeiger stehen weit auseinander.",
      "beschreibung": "3:00 Uhr ist ein Gegenbeispiel: Dort beträgt der Winkel 90°",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Zu jeder vollen Stunde gibt es genau eine andere volle Stunde mit demselben Winkel, denn die Zeiger spiegeln sich an der Linie 12–6.",
      "beschreibung": "6:00 Uhr (180°) und 12:00 Uhr (0°) haben keine andere Stunde mit demselben Winkel",
      "fehlbild": null,
@@ -702,33 +718,33 @@
     },
     "w": "1:05 Uhr: Minutenzeiger bei 5 · 6° = 30°, Stundenzeiger bei 30° + 5 · 0,5° = 32,5°, Winkel 2,5°. Die anderen: 90°, 180°, 82,5°.",
     "a": [
+     "1:05 Uhr",
      "3:00 Uhr",
      "6:00 Uhr",
-     "12:15 Uhr",
-     "1:05 Uhr"
+     "12:15 Uhr"
     ],
     "o": {
-     "index": 3
+     "index": 0
     }
    },
    "regel": "id.geometrie.winkel",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "3:00 Uhr",
      "beschreibung": "um 3:00 Uhr sind es 90°, nicht weniger als bei 1:05 Uhr",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "6:00 Uhr",
      "beschreibung": "um 6:00 Uhr sind es 180°, der größte mögliche Winkel",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "12:15 Uhr",
      "beschreibung": "den Stundenzeiger um 12:15 Uhr nicht weitergewandert gerechnet: Er steht schon bei 7,5°, also beträgt der Winkel 82,5° und nicht 90°",
      "fehlbild": null,
@@ -801,11 +817,11 @@
     "s": 3,
     "y": "luecken",
     "f": {
-     "text": "Mia teilt einen rechten Winkel durch drei Strahlen in vier Teile. Die beiden äußeren Teile sind gleich groß, die beiden mittleren Teile sind ebenfalls gleich groß und je doppelt so groß wie ein äußerer Teil. Zeile 1: Ein äußerer Teil sei x, ein mittlerer Teil ist dann 2x. Zeile 2: Zusammen gilt x + 2x + 2x = 90°. Zeile 3: Also ist 5x = 90° und x = 18°. Zeile 4: Ein mittlerer Teil ist 2 · 18° = 36° groß. In welcher Zeile steckt der erste Fehler, und wie groß ist ein mittlerer Teil richtig?",
+     "text": "Mia teilt einen rechten Winkel durch drei Strahlen in vier Teile. Die beiden äußeren Teile sind gleich groß, die beiden mittleren Teile sind ebenfalls gleich groß und je doppelt so groß wie ein äußerer Teil. Zeile 1: Ein äußerer Teil ist ein Stück, ein mittlerer Teil sind zwei Stücke. Zeile 2: Zusammen sind es 1 + 2 + 2 = 5 Stücke. Zeile 3: Ein Stück ist 90° : 5 = 18° groß. Zeile 4: Ein mittlerer Teil besteht aus 2 Stücken und ist 2 · 18° = 36° groß. In welcher Zeile steckt der erste Fehler, und wie groß ist ein mittlerer Teil richtig?",
      "schablone": "Fehler in Zeile □, richtig: □°",
      "hinweis": "Je Feld eine ganze Zahl."
     },
-    "w": "Zeile 2 ist falsch: Es gibt vier Teile, also x + 2x + 2x + x = 6x = 90°. Daraus folgt x = 15° und ein mittlerer Teil ist 2 · 15° = 30° groß. Probe: 15° + 30° + 30° + 15° = 90°.",
+    "w": "Zeile 2 ist falsch: Es gibt vier Teile, also 1 + 2 + 2 + 1 = 6 gleich große Stücke. Ein Stück ist 90° : 6 = 15°, ein mittlerer Teil besteht aus 2 Stücken und ist 30° groß. Probe: 15° + 30° + 30° + 15° = 90°.",
     "o": {
      "werte": [
       2,
@@ -824,7 +840,7 @@
      "luecke": 2,
      "antwort": 36,
      "rechnung": "(2 · 90) : 5",
-     "beschreibung": "nur drei der vier Teile in die Gleichung geschrieben",
+     "beschreibung": "nur drei der vier Teile mitgezählt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
@@ -832,7 +848,7 @@
      "luecke": 2,
      "antwort": 15,
      "rechnung": "90 : 6",
-     "beschreibung": "den äußeren statt den mittleren Teil angegeben",
+     "beschreibung": "ein Stück statt des mittleren Teils angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
@@ -840,12 +856,20 @@
      "luecke": 2,
      "antwort": 18,
      "rechnung": "90 : 5",
-     "beschreibung": "den äußeren Teil nach dem falschen Ansatz angegeben",
+     "beschreibung": "ein Stück nach der falschen Stückzahl angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "beschreibung": "die Rechnung 90° : 5 für den Fehler gehalten; sie folgt richtig aus der falschen Stückzahl in Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "fehler|Fehler-Detektiv: vier Teilwinkel mit Verhältnis, ein Teil in der Gleichung vergessen"
+   "idee": "fehler|Fehler-Detektiv: vier Teilwinkel als gleich große Stücke gezählt, ein Teil vergessen"
   },
   {
    "kennung": "VT3-114",
@@ -1276,7 +1300,7 @@
     "a": [
      "Der Winkel ist 64° groß, denn Jonas hat den Wert am Geodreieck genau abgelesen.",
      "Jonas hat an der falschen Skala abgelesen, denn der Winkel ist stumpf: 180° − 64° = 116°.",
-     "Jonas hat an der falschen Skala abgelesen, denn 90° − 64° = 26° ergänzt auf den rechten Winkel.",
+     "Der Winkel ist 26° groß, denn 90° − 64° ergänzt auf den rechten Winkel.",
      "Der Winkel ist 244° groß, denn 180° + 64° = 244°, weil er stumpf aussieht."
     ],
     "o": {
@@ -1294,7 +1318,7 @@
     },
     {
      "index": 2,
-     "antwort": "Jonas hat an der falschen Skala abgelesen, denn 90° − 64° = 26° ergänzt auf den rechten Winkel.",
+     "antwort": "Der Winkel ist 26° groß, denn 90° − 64° ergänzt auf den rechten Winkel.",
      "beschreibung": "von 90° statt von 180° abgezogen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -1327,44 +1351,44 @@
     "s": 2,
     "y": "auswahl",
     "f": {
-     "text": "Ein spitzer und ein stumpfer Winkel liegen nebeneinander. Welche Aussage über den entstehenden Gesamtwinkel stimmt immer?"
+     "text": "Ein spitzer Winkel wird verdoppelt. Welche Aussage über den entstehenden Winkel stimmt immer?"
     },
-    "w": "Der stumpfe Winkel ist schon größer als 90°, und der spitze kommt noch dazu. Also ist der Gesamtwinkel immer größer als 90°. Je nach Größe kann er stumpf (100° + 20°), gestreckt (100° + 80°) oder überstumpf (170° + 80°) sein.",
+    "w": "Ein spitzer Winkel ist kleiner als 90°, sein Doppeltes also kleiner als 2 · 90° = 180°. Je nach Größe wird er spitz (2 · 30° = 60°), rechtwinklig (2 · 45° = 90°) oder stumpf (2 · 70° = 140°). Immer gilt nur: kleiner als 180°.",
     "a": [
-     "Er ist größer als 90°, denn schon der stumpfe Winkel allein ist größer als 90° und der spitze kommt noch dazu.",
-     "Er ist ein gestreckter Winkel, denn ein spitzer und ein stumpfer Winkel ergänzen sich.",
-     "Er ist ein stumpfer Winkel, denn der stumpfe Winkel bestimmt die Art des Gesamtwinkels.",
-     "Er ist kleiner als 180°, denn der spitze Winkel ist kleiner als der stumpfe Winkel."
+     "Er ist stumpf, denn doppelt so groß wie ein spitzer Winkel ist immer mehr als 90°.",
+     "Er ist spitz, denn aus einem spitzen Winkel wird beim Verdoppeln wieder ein spitzer Winkel.",
+     "Er ist genau 180° groß, denn zwei spitze Winkel ergeben zusammen einen gestreckten Winkel.",
+     "Er ist kleiner als 180°, denn der spitze Winkel ist kleiner als 90° und 2 · 90° sind 180°."
     ],
     "o": {
-     "index": 0
+     "index": 3
     }
    },
    "regel": "id.geometrie.winkel",
    "fehlbilder": [
     {
+     "index": 0,
+     "antwort": "Er ist stumpf, denn doppelt so groß wie ein spitzer Winkel ist immer mehr als 90°.",
+     "beschreibung": "nur große spitze Winkel bedacht; 2 · 30° = 60° ist noch spitz",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
      "index": 1,
-     "antwort": "Er ist ein gestreckter Winkel, denn ein spitzer und ein stumpfer Winkel ergänzen sich.",
-     "beschreibung": "Beispiel 100° + 80° = 180° verallgemeinert; 100° + 50° = 150° ist kein gestreckter Winkel",
+     "antwort": "Er ist spitz, denn aus einem spitzen Winkel wird beim Verdoppeln wieder ein spitzer Winkel.",
+     "beschreibung": "nur kleine spitze Winkel bedacht; 2 · 70° = 140° ist stumpf",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 2,
-     "antwort": "Er ist ein stumpfer Winkel, denn der stumpfe Winkel bestimmt die Art des Gesamtwinkels.",
-     "beschreibung": "übersehen, dass die Summe auch 180° oder mehr sein kann (z. B. 100° + 80° = 180°)",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "index": 3,
-     "antwort": "Er ist kleiner als 180°, denn der spitze Winkel ist kleiner als der stumpfe Winkel.",
-     "beschreibung": "übersehen, dass die Summe auch über 180° liegen kann (z. B. 170° + 80° = 250°)",
+     "antwort": "Er ist genau 180° groß, denn zwei spitze Winkel ergeben zusammen einen gestreckten Winkel.",
+     "beschreibung": "zwei gleiche spitze Winkel mit zwei Winkeln zu 90° verwechselt; nur 2 · 90° ergibt 180°",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "immer_nie|spitzer und stumpfer Winkel nebeneinander"
+   "idee": "immer_nie|spitzer Winkel verdoppelt, was gilt immer"
   },
   {
    "kennung": "VT3-123",
@@ -1415,6 +1439,14 @@
      "antwort": 3,
      "rechnung": "3",
      "beschreibung": "auch den rechten Winkel 90° mitgezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "beschreibung": "Zeile 3 für den Fehler gehalten; 250° ist tatsächlich überstumpf, der Fehler steckt in Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1514,26 +1546,26 @@
     },
     "w": "Die Größe eines Winkels hängt von der Öffnung zwischen den Schenkeln ab. Die Schenkel kann man beliebig verlängern, ohne den Winkel zu ändern. 60° ist größer als 40°.",
     "a": [
+     "β ist größer als α, denn die Größe eines Winkels hängt nur von der Öffnung ab.",
      "α ist größer als β, denn die Schenkel von α sind mit 5 cm länger als die von β mit 3 cm.",
      "α und β sind gleich groß, denn nur die Länge der Schenkel ist verschieden.",
-     "β ist größer als α, denn die Größe eines Winkels hängt nur von der Öffnung ab.",
      "Man kann α und β nicht vergleichen, weil die Schenkel verschieden lang sind."
     ],
     "o": {
-     "index": 2
+     "index": 0
     }
    },
    "regel": "id.geometrie.winkel",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "α ist größer als β, denn die Schenkel von α sind mit 5 cm länger als die von β mit 3 cm.",
      "beschreibung": "Schenkellänge mit Winkelgröße verwechselt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "α und β sind gleich groß, denn nur die Länge der Schenkel ist verschieden.",
      "beschreibung": "die Winkelgrößen 40° und 60° übersehen",
      "fehlbild": null,

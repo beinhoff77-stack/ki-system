@@ -77,26 +77,26 @@
     },
     "w": "Alle 20 Kinder zählen mit, auch die mit 0 €. Die Summe ist 16 · 10 = 160 €, geteilt durch 20 Kinder sind das 8 €.",
     "a": [
+     "Im Mittel 8 €, denn die gesamten 160 € werden auf alle 20 Kinder verteilt.",
      "Im Mittel 10 €, denn Kinder ohne Erspartes zählen beim Mittelwert nicht mit.",
      "Im Mittel 6 €, denn die 4 Kinder ohne Erspartes senken den Mittelwert um 4 €.",
-     "Im Mittel 8 €, denn die gesamten 160 € werden auf alle 20 Kinder verteilt.",
      "Im Mittel 5 €, denn weil ein Teil der Kinder nichts hat, halbiert sich der Wert von 10 €."
     ],
     "o": {
-     "index": 2
+     "index": 0
     }
    },
    "regel": "id.daten.kennzahl",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Im Mittel 10 €, denn Kinder ohne Erspartes zählen beim Mittelwert nicht mit.",
      "beschreibung": "die Kinder mit 0 € nicht mitgezählt, obwohl auch sie zur Klasse gehören",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Im Mittel 6 €, denn die 4 Kinder ohne Erspartes senken den Mittelwert um 4 €.",
      "beschreibung": "die Zahl der Kinder ohne Erspartes vom Mittelwert abgezogen, statt die Summe durch alle Kinder zu teilen",
      "fehlbild": null,
@@ -163,6 +163,14 @@
      "beschreibung": "die Summe als Mittelwert angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "die Schlussfolgerung in Zeile 4 für den Fehler gehalten; sie übernimmt nur das falsche Ergebnis aus Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
     }
    ],
    "idee": "fehler|Fehler-Detektiv: Notenmittel"
@@ -191,11 +199,11 @@
     "a": [
      "Er beträgt 9,5, denn der Mittelwert liegt in der Mitte zwischen 8 und 11.",
      "Er liegt über 11, denn die größere Gruppe zählt doppelt.",
-     "Er lässt sich nicht bestimmen, denn die Werte der einzelnen Personen sind nicht bekannt und es fehlen Angaben.",
-     "Er liegt näher bei 11, denn Gruppe B hat doppelt so viele Personen wie A."
+     "Er liegt näher bei 11, denn Gruppe B hat doppelt so viele Personen wie A.",
+     "Er lässt sich nicht bestimmen, denn die Werte der einzelnen Personen sind nicht bekannt und es fehlen Angaben."
     ],
     "o": {
-     "index": 3
+     "index": 2
     }
    },
    "regel": "id.daten.kennzahl",
@@ -215,7 +223,7 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Er lässt sich nicht bestimmen, denn die Werte der einzelnen Personen sind nicht bekannt und es fehlen Angaben.",
      "beschreibung": "übersehen, dass Mittelwert und Zahl der Personen schon die Summen der Gruppen festlegen",
      "fehlbild": null,
@@ -248,11 +256,11 @@
     "a": [
      "Man streicht die 3.",
      "Man ersetzt die 3 durch 4 und die 9 durch 7.",
-     "Man fügt eine weitere 6 hinzu.",
-     "Man fügt die Zahlen 5 und 8 hinzu."
+     "Man fügt die Zahlen 5 und 8 hinzu.",
+     "Man fügt eine weitere 6 hinzu."
     ],
     "o": {
-     "index": 2
+     "index": 3
     }
    },
    "regel": "id.daten.kennzahl",
@@ -274,7 +282,7 @@
      "rechnung": "(4 + 5 + 7 + 7) : 4"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Man fügt die Zahlen 5 und 8 hinzu.",
      "beschreibung": "die beiden neuen Zahlen liegen im Mittel bei 6,5, das hebt den Mittelwert an: 37 : 6 ≈ 6,17",
      "fehlbild": null,
@@ -360,11 +368,11 @@
     "a": [
      "Er bleibt bei 10 kg, denn es kommt nur ein einzelner Wert dazu.",
      "Er beträgt 35 kg, denn man bildet den Mittelwert aus 10 kg und 60 kg: (10 + 60) : 2.",
-     "Er sinkt unter 10 kg, denn nun sind mehr Werte vorhanden und der Durchschnitt wird dadurch kleiner.",
-     "Er beträgt etwa 18 kg, denn (50 + 60) : 6 ist etwa 18,3 und das liegt über fünf Hunden."
+     "Er beträgt etwa 18 kg, denn (50 + 60) : 6 ist etwa 18,3 und das liegt über fünf Hunden.",
+     "Er sinkt unter 10 kg, denn nun sind mehr Werte vorhanden und der Durchschnitt wird dadurch kleiner."
     ],
     "o": {
-     "index": 3
+     "index": 2
     }
    },
    "regel": "id.daten.kennzahl",
@@ -384,7 +392,7 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Er sinkt unter 10 kg, denn nun sind mehr Werte vorhanden und der Durchschnitt wird dadurch kleiner.",
      "beschreibung": "mehr Werte mit sinkendem Mittelwert verwechselt",
      "fehlbild": null,
@@ -542,6 +550,14 @@
      "beschreibung": "nur das Doppelte der Senkung von 50 abgezogen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "das Ergebnis in Zeile 4 für den Fehler gehalten; es folgt aus dem falschen Ansatz in Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
     }
    ],
    "idee": "fehler|Fehler-Detektiv: Zielmittelwert beim fünften Lauf"
@@ -570,11 +586,11 @@
     "a": [
      "Mindestens eine der Zahlen ist größer als 10, denn der Mittelwert liegt in der Mitte der Zahlen.",
      "Mindestens eine der Zahlen ist genau 10, denn der Mittelwert muss unter den Zahlen vorkommen.",
-     "Mindestens eine der Zahlen ist mindestens 10, denn sonst läge der Mittelwert unter 10.",
-     "Höchstens zwei der Zahlen sind kleiner als 10, denn die Hälfte muss darüber liegen."
+     "Höchstens zwei der Zahlen sind kleiner als 10, denn die Hälfte muss darüber liegen.",
+     "Mindestens eine der Zahlen ist mindestens 10, denn sonst läge der Mittelwert unter 10."
     ],
     "o": {
-     "index": 2
+     "index": 3
     }
    },
    "regel": "id.daten.kennzahl",
@@ -594,7 +610,7 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Höchstens zwei der Zahlen sind kleiner als 10, denn die Hälfte muss darüber liegen.",
      "beschreibung": "die Mitte mit dem Mittelwert verwechselt: 9, 9, 9, 13 hat den Mittelwert 10 mit drei Zahlen unter 10",
      "fehlbild": null,
@@ -742,11 +758,11 @@
     "a": [
      "Er liegt mindestens 1 unter 12, denn die größte Zahl fehlt jetzt und die übrigen Zahlen sind kleiner.",
      "Er bleibt 12, denn der Mittelwert hängt nicht davon ab, welche Zahl man streicht.",
-     "Er steigt über 12, denn bei weniger Zahlen zählt jede einzelne Zahl stärker.",
-     "Er ist höchstens 12, denn die größte Zahl ist mindestens so groß wie der Mittelwert."
+     "Er ist höchstens 12, denn die größte Zahl ist mindestens so groß wie der Mittelwert.",
+     "Er steigt über 12, denn bei weniger Zahlen zählt jede einzelne Zahl stärker."
     ],
     "o": {
-     "index": 3
+     "index": 2
     }
    },
    "regel": "id.daten.kennzahl",
@@ -766,7 +782,7 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Er steigt über 12, denn bei weniger Zahlen zählt jede einzelne Zahl stärker.",
      "beschreibung": "geglaubt, die kleinere Anzahl lasse den Mittelwert steigen",
      "fehlbild": null,

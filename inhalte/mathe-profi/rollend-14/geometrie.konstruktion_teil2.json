@@ -1,0 +1,315 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-14",
+ "kuerzel": "R14",
+ "flug": "r14-geometrie.konstruktion_teil2",
+ "titel": "geometrie.konstruktion_teil2",
+ "fuer": "Klasse 6 und 8",
+ "klasse": 8,
+ "themen": [
+  "geometrie.konstruktion_teil2"
+ ],
+ "themen_datei_im_bestand": "geometrie.konstruktion",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R14-V001",
+   "thema": "geometrie.konstruktion_teil2",
+   "lernkarte": "vierecke",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 240,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rest nicht auf B und D verteilt, also beide Winkel zusammen angegeben"
+    },
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Winkelsumme 180° statt 360° gerechnet"
+    },
+    {
+     "antwort": 145,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Winkel bei C vergessen und den Rest halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke",
+    "t": "vierecke",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Drachen aus Papier hat die Form eines Drachenvierecks ABCD. Die Symmetrieachse ist die Diagonale AC. Der Winkel bei A ist 70° und der Winkel bei C ist 50°. Wie groß ist der Winkel bei B?"
+    },
+    "o": {
+     "wert": 120,
+     "einheit": "°"
+    },
+    "c": "(360 - 70 - 50) / 2",
+    "h": "Welche beiden Winkel sind gleich groß? Alle vier Winkel zusammen ergeben 360°.",
+    "w": "Die Winkel bei B und D sind gleich, weil die Figur symmetrisch zu AC ist. Alle vier Winkel ergeben 360°. Also ist 360° − 70° − 50° = 240° der Rest. Er verteilt sich auf zwei gleiche Winkel: 240° : 2 = 120°."
+   }
+  },
+  {
+   "kennung": "R14-V002",
+   "thema": "geometrie.konstruktion_teil2",
+   "lernkarte": "vierecke",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den kleineren Winkel bei B angegeben"
+    },
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 3 statt durch 4 Teile geteilt"
+    },
+    {
+     "antwort": 540,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dreimal 180° gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke",
+    "t": "vierecke",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Fensterrahmen hat die Form eines Parallelogramms ABCD. Der Winkel bei A ist dreimal so groß wie der Winkel bei B. Wie groß ist der Winkel bei A?"
+    },
+    "o": {
+     "wert": 135,
+     "einheit": "°"
+    },
+    "c": "180 / 4 * 3",
+    "h": "Welche Summe haben zwei benachbarte Winkel im Parallelogramm? Aus wie vielen gleichen Teilen besteht diese Summe?",
+    "w": "Benachbarte Winkel im Parallelogramm ergeben zusammen 180°. Der Winkel bei A besteht aus 3 Teilen, der Winkel bei B aus 1 Teil, zusammen 4 Teile. Ein Teil ist 180° : 4 = 45°. Der Winkel bei A ist 3 · 45° = 135°. Probe: 135° + 45° = 180°."
+   }
+  },
+  {
+   "kennung": "R14-V003",
+   "thema": "geometrie.konstruktion_teil2",
+   "lernkarte": "vierecke",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 152,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Winkel von 28° nicht verdoppelt: 180° − 28°"
+    },
+    {
+     "antwort": 56,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Winkel bei A statt bei B angegeben"
+    },
+    {
+     "antwort": 62,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nachbarwinkel noch einmal halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke",
+    "t": "vierecke",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "In einer Raute ABCD bildet die Diagonale AC mit der Seite AB einen Winkel von 28°. Sam baut die Raute aus vier gleich langen Holzstäben nach. Wie groß ist der Winkel bei B?"
+    },
+    "o": {
+     "wert": 124,
+     "einheit": "°"
+    },
+    "c": "180 - 2 * 28",
+    "h": "Die Diagonale halbiert den Winkel bei A. Welcher Winkel ist ein Nachbar des Winkels bei A?",
+    "w": "Die Diagonale AC halbiert den Winkel bei A, also ist der Winkel bei A gleich 2 · 28° = 56°. Benachbarte Winkel in der Raute ergeben zusammen 180°. Der Winkel bei B ist 180° − 56° = 124°."
+   }
+  },
+  {
+   "kennung": "R14-V004",
+   "thema": "geometrie.konstruktion_teil2",
+   "lernkarte": "vierecke_konstruieren",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "für Raute und Rechteck je 3 Stücke gezählt"
+    },
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "für jede Figur 5 Stücke wie bei einem beliebigen Viereck gezählt"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Stück je Figur gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke_konstruieren",
+    "t": "vierecke_konstruieren",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Für ein Bastelprojekt sollst du ein Quadrat, eine Raute, ein Rechteck und ein Parallelogramm zeichnen. Du willst jede Figur mit so wenigen Angaben wie möglich festlegen. Wie viele Angaben brauchst du für alle vier Figuren zusammen?"
+    },
+    "o": {
+     "wert": 8
+    },
+    "c": "1 + 2 + 2 + 3",
+    "h": "Wie viele Bestimmungsstücke braucht jede der vier Figuren einzeln?",
+    "w": "Ein Quadrat braucht 1 Stück (die Seite). Eine Raute braucht 2 Stücke, ein Rechteck 2 Stücke, ein Parallelogramm 3 Stücke. Zusammen: 1 + 2 + 2 + 3 = 8 Angaben."
+   }
+  },
+  {
+   "kennung": "R14-V005",
+   "thema": "geometrie.konstruktion_teil2",
+   "lernkarte": "vierecke_konstruieren",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 190,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den gleich großen Winkel bei D vergessen"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Winkelsumme 180° wie im Dreieck gerechnet"
+    },
+    {
+     "antwort": 95,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Winkel bei D vergessen und den Rest dann nur halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke_konstruieren",
+    "t": "vierecke_konstruieren",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Gartenbeet hat die Form eines Drachenvierecks ABCD mit der Symmetrieachse AC. Beim Abstecken misst Noa den Winkel bei A mit 100° und den Winkel bei B mit 70°. Wie groß ist der Winkel bei C?"
+    },
+    "o": {
+     "wert": 120,
+     "einheit": "°"
+    },
+    "c": "360 - 100 - 2 * 70",
+    "h": "Welche zwei Winkel sind gleich groß? Bedenke die Winkelsumme im Viereck.",
+    "w": "Die Figur ist symmetrisch zu AC, also sind die Winkel bei B und D gleich: 70° und 70°. Alle vier Winkel ergeben 360°. Der Winkel bei C ist 360° − 100° − 70° − 70° = 120°."
+   }
+  },
+  {
+   "kennung": "R14-V006",
+   "thema": "geometrie.konstruktion_teil2",
+   "lernkarte": "vierecke_konstruieren",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 54,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den spitzen Winkel bei A statt den stumpfen bei B angegeben"
+    },
+    {
+     "antwort": 144,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 180° − 36° gerechnet"
+    },
+    {
+     "antwort": 216,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rest 4α = 216° als Winkel angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke_konstruieren",
+    "t": "vierecke_konstruieren",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Schild hat die Form eines Parallelogramms ABCD. Der stumpfe Winkel bei B ist um 36° kleiner als das Dreifache des spitzen Winkels bei A. Wie groß ist der stumpfe Winkel bei B?"
+    },
+    "o": {
+     "wert": 126,
+     "einheit": "°"
+    },
+    "c": "180 - (180 + 36) / 4",
+    "h": "Benachbarte Winkel ergeben zusammen 180°. Schreibe den Winkel bei B mit dem Winkel bei A auf.",
+    "w": "Es gilt α + β = 180° und β = 3α − 36°. Einsetzen: α + 3α − 36° = 180°, also 4α = 216° und α = 54°. Dann ist β = 180° − 54° = 126°. Probe: 3 · 54° − 36° = 126°."
+   }
+  }
+ ]
+}

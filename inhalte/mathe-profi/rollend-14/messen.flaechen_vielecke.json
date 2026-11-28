@@ -1,0 +1,1216 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-14",
+ "kuerzel": "R14",
+ "flug": "r14-messen.flaechen_vielecke",
+ "titel": "messen.flaechen_vielecke",
+ "fuer": "Klasse 6 und 8",
+ "klasse": 6,
+ "themen": [
+  "messen.flaechen_vielecke"
+ ],
+ "themen_datei_im_bestand": "messen.flaechen_vielecke",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R14-V190",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "parallelogramm",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 675,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Formel für das Dreieck benutzt"
+    },
+    {
+     "antwort": 75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Grundseite und Höhe addiert"
+    },
+    {
+     "antwort": 150,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zweimal die Summe aus Grundseite und Höhe gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "parallelogramm",
+    "t": "parallelogramm",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Fensterscheibe hat die Form eines Parallelogramms. Die Grundseite ist 45 cm lang, die Höhe beträgt 30 cm. Wie groß ist die Fläche der Scheibe?"
+    },
+    "o": {
+     "wert": 1350,
+     "einheit": "cm²"
+    },
+    "c": "45 * 30",
+    "h": "Beim Parallelogramm ist die Fläche Grundseite mal Höhe. Die Höhe steht senkrecht auf der Grundseite.",
+    "w": "A = g · h = 45 · 30 = 1 350 cm²."
+   }
+  },
+  {
+   "kennung": "R14-V191",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "parallelogramm",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3.6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Fläche angegeben"
+    },
+    {
+     "antwort": 19.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe vergessen"
+    },
+    {
+     "antwort": 14.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Formel für das Dreieck benutzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "parallelogramm",
+    "t": "parallelogramm",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Banner hat die Form eines Parallelogramms. Die Grundseite ist 2,4 m lang, die Höhe ist 1,5 m. Der Stoff kostet 8 € je Quadratmeter. Wie viel Euro kostet der Stoff für das Banner?"
+    },
+    "o": {
+     "wert": 28.8,
+     "einheit": "€"
+    },
+    "c": "2.4 * 1.5 * 8",
+    "h": "Berechne zuerst die Fläche in m². Dann rechnest du den Preis.",
+    "w": "Fläche: 2,4 · 1,5 = 3,6 m². Preis: 3,6 · 8 = 28,80 €."
+   }
+  },
+  {
+   "kennung": "R14-V192",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "parallelogramm",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 13.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der anderen Seite malgenommen und durch die Höhe geteilt"
+    },
+    {
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche statt der Höhe angegeben"
+    },
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Seiten addiert und die Höhe abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "parallelogramm",
+    "t": "parallelogramm",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Parallelogramm hat die Seiten 9 cm und 12 cm. Die Höhe zur 9-cm-Seite ist 8 cm. Wie groß ist die Höhe zur 12-cm-Seite?"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "cm"
+    },
+    "c": "9 * 8 / 12",
+    "h": "Berechne zuerst die Fläche mit der Grundseite 9 cm. Dieselbe Fläche gilt auch für die Grundseite 12 cm.",
+    "w": "Fläche: 9 · 8 = 72 cm². Mit der Grundseite 12 cm gilt: 72 : 12 = 6 cm."
+   }
+  },
+  {
+   "kennung": "R14-V193",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "dreieck",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
+    },
+    {
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Grundseite und Höhe addiert"
+    },
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 4 statt durch 2 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreieck",
+    "t": "dreieck",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Segel ist ein Dreieck mit der Grundseite 7 m und der Höhe 4 m. Wie groß ist die Fläche des Segels?"
+    },
+    "o": {
+     "wert": 14,
+     "einheit": "m²"
+    },
+    "c": "7 * 4 / 2",
+    "h": "Beim Dreieck rechnest du Grundseite mal Höhe und teilst dann durch 2.",
+    "w": "Das Rechteck mit denselben Maßen hat 7 · 4 = 28 m². Das Dreieck ist halb so groß: 28 : 2 = 14 m²."
+   }
+  },
+  {
+   "kennung": "R14-V194",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "dreieck",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
+    },
+    {
+     "antwort": 600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Wimpel berechnet"
+    },
+    {
+     "antwort": 280,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Grundseite und Höhe addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreieck",
+    "t": "dreieck",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Wimpelkette hat 8 gleiche Dreiecke aus Stoff. Jedes Dreieck hat die Grundseite 30 cm und die Höhe 40 cm. Wie viele Quadratzentimeter Stoff braucht man für alle Wimpel?"
+    },
+    "o": {
+     "wert": 4800,
+     "einheit": "cm²"
+    },
+    "c": "8 * 30 * 40 / 2",
+    "h": "Berechne zuerst die Fläche eines Wimpels. Dann rechnest du mal 8.",
+    "w": "Ein Wimpel: 30 · 40 : 2 = 600 cm². Alle 8 Wimpel: 8 · 600 = 4 800 cm²."
+   }
+  },
+  {
+   "kennung": "R14-V195",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "dreieck",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche nicht wieder verdoppelt"
+    },
+    {
+     "antwort": 70,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Produkt der ersten Maße als Höhe angegeben"
+    },
+    {
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche statt der Höhe angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreieck",
+    "t": "dreieck",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Dreieck hat die Grundseite 14 cm und die Höhe 5 cm. Ein zweites Dreieck hat denselben Flächeninhalt, aber die Grundseite 10 cm. Wie hoch ist das zweite Dreieck?"
+    },
+    "o": {
+     "wert": 7,
+     "einheit": "cm"
+    },
+    "c": "14 * 5 / 10",
+    "h": "Das erste Dreieck hat die Fläche 14 · 5 : 2. Für das zweite gilt dieselbe Fläche mit der Grundseite 10 cm.",
+    "w": "Fläche: 14 · 5 : 2 = 35 cm². Zweites Dreieck: 2 · 35 : 10 = 7 cm. Probe: 10 · 7 : 2 = 35."
+   }
+  },
+  {
+   "kennung": "R14-V196",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "trapez",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 90,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die parallelen Seiten malgenommen"
+    },
+    {
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "trapez",
+    "t": "trapez",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Giebelwand eines Schuppens ist ein Trapez. Die parallelen Seiten sind 10 m und 6 m lang, die Höhe ist 3 m. Wie groß ist die Wandfläche?"
+    },
+    "o": {
+     "wert": 24,
+     "einheit": "m²"
+    },
+    "c": "(10 + 6) * 3 / 2",
+    "h": "Beim Trapez addierst du die parallelen Seiten, multiplizierst mit der Höhe und teilst durch 2.",
+    "w": "(10 + 6) · 3 : 2 = 16 · 3 : 2 = 48 : 2 = 24 m²."
+   }
+  },
+  {
+   "kennung": "R14-V197",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "trapez",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Fläche angegeben"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
+    },
+    {
+     "antwort": 2.88,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die parallelen Seiten malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "trapez",
+    "t": "trapez",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Tischplatte hat die Form eines Trapezes. Die parallelen Seiten sind 1,2 m und 0,8 m lang, der Abstand zwischen ihnen ist 0,5 m. Lack kostet 12 € je Quadratmeter. Wie viel Euro kostet der Lack für die Platte?"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "€"
+    },
+    "c": "(1.2 + 0.8) * 0.5 / 2 * 12",
+    "h": "Berechne zuerst die Fläche der Platte. Dann rechnest du den Preis.",
+    "w": "Fläche: (1,2 + 0,8) · 0,5 : 2 = 0,5 m². Preis: 0,5 · 12 = 6 €."
+   }
+  },
+  {
+   "kennung": "R14-V198",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "trapez",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe der parallelen Seiten halbiert"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe der Seiten als andere Seite angegeben"
+    },
+    {
+     "antwort": 29,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die bekannte Seite addiert statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "trapez",
+    "t": "trapez",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Trapez hat die Fläche 54 cm² und die Höhe 6 cm. Eine der parallelen Seiten ist 11 cm lang. Wie lang ist die andere parallele Seite?"
+    },
+    "o": {
+     "wert": 7,
+     "einheit": "cm"
+    },
+    "c": "54 * 2 / 6 - 11",
+    "h": "Zweimal die Fläche geteilt durch die Höhe ist die Summe der parallelen Seiten.",
+    "w": "Summe der parallelen Seiten: 2 · 54 : 6 = 18 cm. Die andere Seite: 18 − 11 = 7 cm."
+   }
+  },
+  {
+   "kennung": "R14-V199",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "rueckwaerts",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1152,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Grundseite malgenommen"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zusätzlich durch 2 geteilt"
+    },
+    {
+     "antwort": 84,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grundseite abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Beet hat die Form eines Parallelogramms und ist 96 m² groß. Die Seite am Weg ist 12 m lang. Wie breit ist das Beet, gemessen als Abstand senkrecht zum Weg?"
+    },
+    "o": {
+     "wert": 8,
+     "einheit": "m"
+    },
+    "c": "96 / 12",
+    "h": "Die Fläche ist Grundseite mal Höhe. Teile die Fläche durch die Seite am Weg.",
+    "w": "Die Seite am Weg ist die Grundseite. h = A : g = 96 : 12 = 8 m. Probe: 12 · 8 = 96."
+   }
+  },
+  {
+   "kennung": "R14-V200",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "rueckwaerts",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zweimal die Fläche vergessen"
+    },
+    {
+     "antwort": 240,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche mit der Höhe malgenommen und durch 2 geteilt"
+    },
+    {
+     "antwort": 960,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alles malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Stoffwimpel hat die Form eines Dreiecks mit der Fläche 60 cm². Er ist 8 cm hoch. Wie lang ist die Seite, an der er an der Schnur befestigt ist?"
+    },
+    "o": {
+     "wert": 15,
+     "einheit": "cm"
+    },
+    "c": "2 * 60 / 8",
+    "h": "Beim Dreieck ist die Fläche g · h : 2. Rechne zuerst zweimal die Fläche.",
+    "w": "2 · 60 = 120. Grundseite: 120 : 8 = 15 cm. Probe: 15 · 8 : 2 = 60."
+   }
+  },
+  {
+   "kennung": "R14-V201",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "rueckwaerts",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zweimal die Fläche vergessen"
+    },
+    {
+     "antwort": 576,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche mit der Grundseite malgenommen und durch 2 geteilt"
+    },
+    {
+     "antwort": 56,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grundseite von der Fläche abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Rechteck ist 6 cm breit und 12 cm lang. Ein Dreieck hat denselben Flächeninhalt und die Grundseite 16 cm. Wie hoch ist das Dreieck?"
+    },
+    "o": {
+     "wert": 9,
+     "einheit": "cm"
+    },
+    "c": "2 * 6 * 12 / 16",
+    "h": "Berechne die Fläche des Rechtecks. Beim Dreieck rechnest du dann zweimal die Fläche geteilt durch die Grundseite.",
+    "w": "Rechteck: 6 · 12 = 72 cm². Dreieck: 2 · 72 : 16 = 9 cm. Probe: 16 · 9 : 2 = 72."
+   }
+  },
+  {
+   "kennung": "R14-V202",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "zusammengesetzt",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Erker vergessen"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Erker gerechnet"
+    },
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Erker abgezogen statt addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Zimmer ist ein Rechteck von 8 m mal 5 m. An einer Seite hat es einen Erker, der ein Quadrat mit 2 m Seitenlänge ist. Wie groß ist die Bodenfläche mit dem Erker?"
+    },
+    "o": {
+     "wert": 44,
+     "einheit": "m²"
+    },
+    "c": "8 * 5 + 2 * 2",
+    "h": "Zerlege den Grundriss in ein Rechteck und ein Quadrat. Berechne beide Flächen.",
+    "w": "Rechteck: 8 · 5 = 40 m². Erker: 2 · 2 = 4 m². Zusammen 40 + 4 = 44 m²."
+   }
+  },
+  {
+   "kennung": "R14-V203",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "zusammengesetzt",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 240,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Beet nicht abgezogen"
+    },
+    {
+     "antwort": 216,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Dreieck wie ein Rechteck abgezogen"
+    },
+    {
+     "antwort": 252,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Beet dazugezählt statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Spielfeld ist ein Rechteck von 20 m mal 12 m. In einer Ecke liegt ein Beet in Form eines rechtwinkligen Dreiecks mit den Katheten 6 m und 4 m. Dort darf man nicht spielen. Wie groß ist die Spielfläche?"
+    },
+    "o": {
+     "wert": 228,
+     "einheit": "m²"
+    },
+    "c": "20 * 12 - 6 * 4 / 2",
+    "h": "Berechne das ganze Rechteck. Ziehe dann die Fläche des Dreiecks ab. Das Dreieck ist halb so groß wie ein Rechteck mit denselben Maßen.",
+    "w": "Rechteck: 20 · 12 = 240 m². Dreieck: 6 · 4 : 2 = 12 m². Spielfläche: 240 − 12 = 228 m²."
+   }
+  },
+  {
+   "kennung": "R14-V204",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "zusammengesetzt",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 375,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rahmen nur auf einer Seite gerechnet"
+    },
+    {
+     "antwort": 700,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die vier Ecken vergessen"
+    },
+    {
+     "antwort": 600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche innerhalb des Rahmens gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Bild ist 40 cm breit und 30 cm hoch. Es hat einen Rahmen, der rundherum 5 cm breit ist. Wie groß ist die Fläche des Rahmens ohne das Bild?"
+    },
+    "o": {
+     "wert": 800,
+     "einheit": "cm²"
+    },
+    "c": "(40 + 2 * 5) * (30 + 2 * 5) - 40 * 30",
+    "h": "Der Rahmen macht das Rechteck auf jeder Seite größer. Berechne das Außenrechteck und ziehe das Bild ab.",
+    "w": "Außen: (40 + 10) · (30 + 10) = 50 · 40 = 2 000 cm². Bild: 40 · 30 = 1 200 cm². Rahmen: 2 000 − 1 200 = 800 cm²."
+   }
+  },
+  {
+   "kennung": "R14-V205",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "oberflaeche",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1800,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen statt der Oberfläche berechnet"
+    },
+    {
+     "antwort": 522,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die drei Flächensorten nur einmal gezählt"
+    },
+    {
+     "antwort": 900,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Flächenpaar vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "oberflaeche",
+    "t": "oberflaeche",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Geschenk ist ein Quader: 25 cm lang, 12 cm breit und 6 cm hoch. Es wird rundherum in Papier eingepackt, ohne dass sich das Papier überlappt. Wie viele Quadratzentimeter Papier braucht man mindestens?"
+    },
+    "o": {
+     "wert": 1044,
+     "einheit": "cm²"
+    },
+    "c": "2 * (25 * 12 + 25 * 6 + 12 * 6)",
+    "h": "Ein Quader hat drei Paare gleicher Flächen. Berechne jede Sorte einmal und verdopple die Summe.",
+    "w": "Boden und Deckel: 25 · 12 = 300. Vorder- und Rückseite: 25 · 6 = 150. Die beiden Seiten: 12 · 6 = 72. Summe: 522. Doppelt: 1 044 cm²."
+   }
+  },
+  {
+   "kennung": "R14-V206",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "oberflaeche",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9400,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Deckel mitgerechnet"
+    },
+    {
+     "antwort": 4700,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Flächen nur einmal gezählt"
+    },
+    {
+     "antwort": 5500,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden kurzen Wände vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "oberflaeche",
+    "t": "oberflaeche",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Aquarium aus Glas hat keinen Deckel. Es ist 50 cm lang, 30 cm breit und 40 cm hoch. Wie viele Quadratzentimeter Glas braucht man für Boden und vier Seitenwände?"
+    },
+    "o": {
+     "wert": 7900,
+     "einheit": "cm²"
+    },
+    "c": "50 * 30 + 2 * (50 * 40 + 30 * 40)",
+    "h": "Rechne den Boden und die vier Seitenwände getrennt. Es gibt zwei lange und zwei kurze Wände.",
+    "w": "Boden: 50 · 30 = 1 500 cm². Lange Wände: 2 · 50 · 40 = 4 000 cm². Kurze Wände: 2 · 30 · 40 = 2 400 cm². Zusammen 1 500 + 4 000 + 2 400 = 7 900 cm²."
+   }
+  },
+  {
+   "kennung": "R14-V207",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "oberflaeche",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 108,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klebeflächen nicht abgezogen"
+    },
+    {
+     "antwort": 99,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Klebefläche abgezogen"
+    },
+    {
+     "antwort": 54,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine ganze Würfeloberfläche abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "oberflaeche",
+    "t": "oberflaeche",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Würfel hat die Oberfläche 54 cm². Zwei solche Würfel werden mit je einer ganzen Fläche zu einem Quader zusammengeklebt. Wie groß ist die Oberfläche des Quaders?"
+    },
+    "o": {
+     "wert": 90,
+     "einheit": "cm²"
+    },
+    "c": "2 * 54 - 2 * (54 / 6)",
+    "h": "Wie groß ist eine Würfelfläche? Beim Zusammenkleben verschwinden zwei Würfelflächen.",
+    "w": "Eine Würfelfläche: 54 : 6 = 9 cm². Beide Würfel: 2 · 54 = 108 cm². Beim Kleben verschwinden 2 · 9 = 18 cm². Oberfläche: 108 − 18 = 90 cm²."
+   }
+  },
+  {
+   "kennung": "R14-V208",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche des ersten Beets angegeben"
+    },
+    {
+     "antwort": 140,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche vervierfacht"
+    },
+    {
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grundseite zur alten Fläche addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein dreieckiges Blumenbeet hat die Grundseite 10 m und die Höhe 7 m. Ein zweites Beet bekommt dieselbe Grundseite, aber die doppelte Höhe. Wie groß ist die Fläche des zweiten Beets?"
+    },
+    "o": {
+     "wert": 70,
+     "einheit": "m²"
+    },
+    "c": "10 * 14 / 2",
+    "h": "Wie ändert sich die Fläche, wenn die Höhe doppelt so groß wird? Du kannst auch neu rechnen.",
+    "w": "Die neue Höhe ist 14 m. Fläche: 10 · 14 : 2 = 70 m². Die Fläche hat sich verdoppelt (vorher 35 m²)."
+   }
+  },
+  {
+   "kennung": "R14-V209",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die schräge Seite als Höhe benutzt"
+    },
+    {
+     "antwort": 27,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 2 geteilt"
+    },
+    {
+     "antwort": 34,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "einen Umfang berechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Rechteck ist 9 cm lang und 6 cm hoch. Ein Parallelogramm hat dieselbe Grundseite 9 cm und dieselbe Höhe 6 cm. Seine schräge Seite ist 8 cm lang. Wie groß ist die Fläche des Parallelogramms?"
+    },
+    "o": {
+     "wert": 54,
+     "einheit": "cm²"
+    },
+    "c": "9 * 6",
+    "h": "Beim Parallelogramm zählt die Höhe, nicht die schräge Seite. Die Höhe steht senkrecht auf der Grundseite.",
+    "w": "Das Parallelogramm hat dieselbe Grundseite und Höhe wie das Rechteck. Gleiche Fläche: 9 · 6 = 54 cm². Die schräge Seite ist für die Fläche nicht wichtig."
+   }
+  },
+  {
+   "kennung": "R14-V210",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 80,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Kims falsche Fläche angegeben"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die richtige Fläche angegeben"
+    },
+    {
+     "antwort": 160,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "zahl",
+    "f": {
+     "text": "Kim berechnet ein Trapez mit den parallelen Seiten 8 cm und 4 cm und der Höhe 5 cm so: „8 · 4 · 5 : 2 = 80 cm².“ Um wie viele Quadratzentimeter ist Kims Ergebnis zu groß?"
+    },
+    "o": {
+     "wert": 50,
+     "einheit": "cm²"
+    },
+    "c": "8 * 4 * 5 / 2 - (8 + 4) * 5 / 2",
+    "h": "Welche Formel gilt beim Trapez? Berechne die richtige Fläche und vergleiche mit Kims 80.",
+    "w": "Richtig: (8 + 4) · 5 : 2 = 30 cm². Kim hat die Seiten malgenommen statt addiert und kommt auf 80 cm². Unterschied: 80 − 30 = 50 cm²."
+   }
+  },
+  {
+   "kennung": "R14-V211",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "drachen_raute",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2400,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
+    },
+    {
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Diagonalen addiert"
+    },
+    {
+     "antwort": 600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 4 statt durch 2 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "drachen_raute",
+    "t": "drachen_raute",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Papierdrache hat die Diagonalen 60 cm und 40 cm. Wie groß ist die Fläche des Drachens?"
+    },
+    "o": {
+     "wert": 1200,
+     "einheit": "cm²"
+    },
+    "c": "60 * 40 / 2",
+    "h": "Beim Drachen rechnest du: erste Diagonale mal zweite Diagonale, geteilt durch 2.",
+    "w": "A = e · f : 2 = 60 · 40 : 2 = 2 400 : 2 = 1 200 cm²."
+   }
+  },
+  {
+   "kennung": "R14-V212",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "drachen_raute",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 90,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Fliese berechnet"
+    },
+    {
+     "antwort": 360,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche nicht durch 2 geteilt"
+    },
+    {
+     "antwort": 56,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Diagonalen addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "drachen_raute",
+    "t": "drachen_raute",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Fliese hat die Form einer Raute mit den Diagonalen 18 cm und 10 cm. Zwei gleiche Fliesen liegen nebeneinander. Wie groß ist ihre gesamte Fläche?"
+    },
+    "o": {
+     "wert": 180,
+     "einheit": "cm²"
+    },
+    "c": "2 * (18 * 10 / 2)",
+    "h": "Berechne zuerst die Fläche einer Fliese. Dann verdoppelst du.",
+    "w": "Eine Fliese: 18 · 10 : 2 = 90 cm². Zwei Fliesen: 2 · 90 = 180 cm²."
+   }
+  },
+  {
+   "kennung": "R14-V213",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "drachen_raute",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zweimal die Fläche vergessen"
+    },
+    {
+     "antwort": 1440,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche mit der Diagonale malgenommen und durch 2 geteilt"
+    },
+    {
+     "antwort": 5760,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alles malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "drachen_raute",
+    "t": "drachen_raute",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Raute hat die Fläche 120 cm². Die eine Diagonale ist 24 cm lang. Wie lang ist die andere Diagonale?"
+    },
+    "o": {
+     "wert": 10,
+     "einheit": "cm"
+    },
+    "c": "2 * 120 / 24",
+    "h": "Die Fläche ist e · f : 2. Rechne zuerst zweimal die Fläche. Dann teilst du durch die bekannte Diagonale.",
+    "w": "2 · 120 = 240. Andere Diagonale: 240 : 24 = 10 cm. Probe: 24 · 10 : 2 = 120."
+   }
+  }
+ ]
+}

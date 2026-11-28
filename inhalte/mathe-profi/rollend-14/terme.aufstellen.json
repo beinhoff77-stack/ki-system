@@ -1,0 +1,909 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-14",
+ "kuerzel": "R14",
+ "flug": "r14-terme.aufstellen",
+ "titel": "terme.aufstellen",
+ "fuer": "Klasse 6 und 8",
+ "klasse": 6,
+ "themen": [
+  "terme.aufstellen"
+ ],
+ "themen_datei_im_bestand": "terme.aufstellen",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R14-V118",
+   "thema": "terme.aufstellen",
+   "lernkarte": "struktur",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur Sams Ergebnis angegeben"
+    },
+    {
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur Kims Ergebnis angegeben"
+    },
+    {
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei Kim Punkt vor Strich nicht beachtet, beide Terme gleich gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "struktur",
+    "t": "struktur",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Kim rechnet den Term 3 + x · 2, Sam rechnet den Term (3 + x) · 2. Beide setzen x = 4 ein. Um wie viel ist Sams Ergebnis größer als Kims Ergebnis?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "(3 + 4) * 2 - (3 + 4 * 2)",
+    "h": "Rechne beide Terme einzeln aus. Beachte: Klammern zuerst, dann Punkt vor Strich.",
+    "w": "Kim: 3 + 4 · 2 = 3 + 8 = 11 (Punkt vor Strich). Sam: (3 + 4) · 2 = 7 · 2 = 14 (Klammer zuerst). Unterschied: 14 − 11 = 3."
+   }
+  },
+  {
+   "kennung": "R14-V119",
+   "thema": "terme.aufstellen",
+   "lernkarte": "struktur",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von links nach rechts gerechnet, ohne Punkt vor Strich"
+    },
+    {
+     "antwort": 19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammer nicht beachtet"
+    },
+    {
+     "antwort": 1.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammer zu weit gesetzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "struktur",
+    "t": "struktur",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne den Wert des Terms 36 : (x − 3) + 2 · x für x = 9. Beachte, welche Rechnungen zuerst kommen."
+    },
+    "o": {
+     "wert": 24
+    },
+    "c": "36 / (9 - 3) + 2 * 9",
+    "h": "Die Klammer kommt zuerst. Danach: Punktrechnung vor Strichrechnung. Zuletzt addierst du.",
+    "w": "Klammer: 9 − 3 = 6. Dann 36 : 6 = 6 und 2 · 9 = 18. Zuletzt 6 + 18 = 24."
+   }
+  },
+  {
+   "kennung": "R14-V120",
+   "thema": "terme.aufstellen",
+   "lernkarte": "struktur",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied 5x − 3x = 2 als Lösung genommen"
+    },
+    {
+     "antwort": 0.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 durch 5 geteilt"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Zahlen addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "struktur",
+    "t": "struktur",
+    "p": "uebung",
+    "s": 3,
+    "g": "pruefung",
+    "y": "zahl",
+    "f": {
+     "text": "Kim berechnet für eine Zahl x den Term 2 + 3x, Sam berechnet den Term (2 + 3) · x. Für genau eine Zahl x kommen beide auf dasselbe Ergebnis. Welche Zahl ist x?"
+    },
+    "o": {
+     "wert": 1
+    },
+    "c": "2 / (5 - 3)",
+    "h": "Fasse Sams Term zusammen: (2 + 3) · x. Wie viele x hat jeder Term, und was bleibt übrig?",
+    "w": "Sams Term ist 5x. Kims Term ist 3x + 2. Beide sind gleich, wenn 3x + 2 = 5x ist. Das ist 2 = 2x, also x = 1. Probe: 2 + 3 · 1 = 5 und (2 + 3) · 1 = 5."
+   }
+  },
+  {
+   "kennung": "R14-V121",
+   "thema": "terme.aufstellen",
+   "lernkarte": "termwert",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 606,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grundgebühr mit der Zahl der Minuten malgenommen"
+    },
+    {
+     "antwort": 125.05,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Zahlen addiert"
+    },
+    {
+     "antwort": 600.05,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grundgebühr mit 120 malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "termwert",
+    "t": "termwert",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Handyvertrag kostet 5 € Grundgebühr im Monat und 0,05 € für jede Minute. Der Preis in Euro ist 5 + 0,05 · m, wobei m die Zahl der Minuten ist. Wie viel Euro kostet der Vertrag bei m = 120 Minuten?"
+    },
+    "o": {
+     "wert": 11,
+     "einheit": "€"
+    },
+    "c": "5 + 0.05 * 120",
+    "h": "Setze m = 120 ein. Rechne Punktrechnung vor Strichrechnung.",
+    "w": "5 + 0,05 · 120 = 5 + 6 = 11. Der Vertrag kostet 11 €."
+   }
+  },
+  {
+   "kennung": "R14-V122",
+   "thema": "terme.aufstellen",
+   "lernkarte": "termwert",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammer weggelassen"
+    },
+    {
+     "antwort": 230,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zuerst 4 vom Guthaben abgezogen und dann mit der Klammer malgenommen"
+    },
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammer als Minus 3 minus 2 gelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "termwert",
+    "t": "termwert",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Vor zwei Wochen hatte Alex 50 € auf dem Konto. Seitdem werden jede Woche 4 € abgebucht. Das Guthaben in Euro wird t Wochen ab heute durch den Term 50 − 4 · (t + 2) angegeben. Wie viel Euro sind es nach t = 3 Wochen?"
+    },
+    "o": {
+     "wert": 30,
+     "einheit": "€"
+    },
+    "c": "50 - 4 * (3 + 2)",
+    "h": "Die Klammer kommt zuerst. Dann die Multiplikation, zuletzt die Subtraktion.",
+    "w": "Klammer: 3 + 2 = 5. Dann 4 · 5 = 20. Dann 50 − 20 = 30. Alex hat 30 €."
+   }
+  },
+  {
+   "kennung": "R14-V123",
+   "thema": "terme.aufstellen",
+   "lernkarte": "termwert",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 2 nicht geteilt"
+    },
+    {
+     "antwort": 9.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 5 nicht abgezogen"
+    },
+    {
+     "antwort": 19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch 3 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "termwert",
+    "t": "termwert",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Aus einem Tank laufen Liter ab. Nach t Minuten sind noch 120 − 3 · (2t + 5) Liter im Tank. Nach wie vielen Minuten sind noch genau 63 Liter im Tank?"
+    },
+    "o": {
+     "wert": 7,
+     "einheit": "Minuten"
+    },
+    "c": "((120 - 63) / 3 - 5) / 2",
+    "h": "Setze den Term gleich 63. Arbeite von außen nach innen rückwärts: Was kommt zuletzt, was zuerst?",
+    "w": "120 − 3 · (2t + 5) = 63. Dann 3 · (2t + 5) = 57, also 2t + 5 = 19, 2t = 14 und t = 7. Probe: 2 · 7 + 5 = 19, 3 · 19 = 57, 120 − 57 = 63."
+   }
+  },
+  {
+   "kennung": "R14-V124",
+   "thema": "terme.aufstellen",
+   "lernkarte": "uebersetzen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur addiert, das Doppelte nicht gerechnet"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe verdoppelt statt nur die Zahl"
+    },
+    {
+     "antwort": 112,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen statt addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "uebersetzen",
+    "t": "uebersetzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Kim denkt sich die Zahl 8. Sie bildet die Summe aus dem Doppelten dieser Zahl und 7. Welches Ergebnis erhält Kim?"
+    },
+    "o": {
+     "wert": 23
+    },
+    "c": "2 * 8 + 7",
+    "h": "Übersetze Wort für Wort: das Doppelte der Zahl heißt 2 mal die Zahl. Dazu kommt 7.",
+    "w": "Das Doppelte von 8 ist 2 · 8 = 16. Die Summe aus 16 und 7 ist 23. Als Term: 2x + 7 mit x = 8."
+   }
+  },
+  {
+   "kennung": "R14-V125",
+   "thema": "terme.aufstellen",
+   "lernkarte": "uebersetzen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 46,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammer weggelassen"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Differenz in falscher Reihenfolge gebildet"
+    },
+    {
+     "antwort": 360,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Teile malgenommen statt addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "uebersetzen",
+    "t": "uebersetzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Kim übersetzt: „Das Doppelte der Differenz aus x und 4, dazu das Dreifache von x.“ Welchen Wert hat der Term für x = 10?"
+    },
+    "o": {
+     "wert": 42
+    },
+    "c": "2 * (10 - 4) + 3 * 10",
+    "h": "Die Differenz aus x und 4 heißt x − 4 (in dieser Reihenfolge). Davon das Doppelte braucht eine Klammer.",
+    "w": "Term: 2 · (x − 4) + 3x. Für x = 10: 2 · 6 + 30 = 12 + 30 = 42."
+   }
+  },
+  {
+   "kennung": "R14-V126",
+   "thema": "terme.aufstellen",
+   "lernkarte": "uebersetzen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6x = 60 nur durch 3 geteilt"
+    },
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Ergebnis 60 = 6x als Breite angegeben"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "vom halben Umfang nur 5 abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "uebersetzen",
+    "t": "uebersetzen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Rechteck ist x cm breit. Die Länge ist 5 cm länger als das Doppelte der Breite. Der Umfang beträgt 70 cm. Wie breit ist das Rechteck in Zentimetern?"
+    },
+    "o": {
+     "wert": 10,
+     "einheit": "cm"
+    },
+    "c": "(70 - 10) / 6",
+    "h": "Schreibe die Länge als Term mit x. Stelle den Umfang 2 · (Breite + Länge) auf.",
+    "w": "Länge: 2x + 5. Umfang: 2 · (x + 2x + 5) = 2 · (3x + 5) = 6x + 10. Aus 6x + 10 = 70 folgt 6x = 60 und x = 10. Probe: Länge 25 cm, Umfang 2 · (10 + 25) = 70."
+   }
+  },
+  {
+   "kennung": "R14-V127",
+   "thema": "terme.aufstellen",
+   "lernkarte": "sachsituation",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 31.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Liefergebühr dreimal bezahlt"
+    },
+    {
+     "antwort": 15.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Liefergebühr mit 3 malgenommen und nur eine Pizza gerechnet"
+    },
+    {
+     "antwort": 13.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Zahlen addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachsituation",
+    "t": "sachsituation",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Lieferdienst berechnet 2,50 € Liefergebühr und 8 € für jede Pizza. Wie viel Euro kosten 3 Pizzen mit Lieferung?"
+    },
+    "o": {
+     "wert": 26.5,
+     "einheit": "€"
+    },
+    "c": "2.5 + 8 * 3",
+    "h": "Die Liefergebühr zahlt man nur einmal. Die 8 € zahlt man für jede Pizza.",
+    "w": "Die Pizzen kosten 3 · 8 = 24 €. Dazu kommt die Liefergebühr 2,50 €. Zusammen 24 + 2,50 = 26,50 €. Als Term: 2,5 + 8 · x mit x = 3."
+   }
+  },
+  {
+   "kennung": "R14-V128",
+   "thema": "terme.aufstellen",
+   "lernkarte": "sachsituation",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 240,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Abhebung vergessen"
+    },
+    {
+     "antwort": 1050,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Startbetrag mit 8 malgenommen"
+    },
+    {
+     "antwort": 113,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen einfach addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachsituation",
+    "t": "sachsituation",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Auf Kims Sparbuch liegen 120 €. Jede Woche kommen 15 € dazu. Nach der 4. Woche werden einmal 30 € abgehoben. Wie viel Euro sind nach 8 Wochen auf dem Sparbuch?"
+    },
+    "o": {
+     "wert": 210,
+     "einheit": "€"
+    },
+    "c": "120 + 15 * 8 - 30",
+    "h": "Wie oft kommen 15 € dazu? Die 30 € werden nur einmal abgehoben.",
+    "w": "Einzahlungen: 8 · 15 = 120 €. Startbetrag 120 €. Eine Abhebung: −30 €. Gesamt: 120 + 120 − 30 = 210 €."
+   }
+  },
+  {
+   "kennung": "R14-V129",
+   "thema": "terme.aufstellen",
+   "lernkarte": "sachsituation",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Personenzahl genannt, bei der beide Angebote gleich teuer sind"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch 4 geteilt"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Person zu wenig genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachsituation",
+    "t": "sachsituation",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Kletterhalle hat zwei Angebote. Gruppenkarte: 36 € Grundpreis und 4 € je Person. Einzelkarten: 10 € je Person. Ab wie vielen Personen ist die Gruppenkarte günstiger als die Einzelkarten?"
+    },
+    "o": {
+     "wert": 7,
+     "einheit": "Personen"
+    },
+    "c": "36 / (10 - 4) + 1",
+    "h": "Stelle für beide Angebote einen Term auf. Wann sind beide gleich teuer? Ab wann ist die Gruppenkarte günstiger?",
+    "w": "Gruppe: 36 + 4n. Einzeln: 10n. Gleich teuer: 36 + 4n = 10n, also 36 = 6n und n = 6. Bei 6 Personen kosten beide gleich viel (60 €). Erst bei 7 Personen ist die Gruppenkarte günstiger (64 € gegen 70 €)."
+   }
+  },
+  {
+   "kennung": "R14-V130",
+   "thema": "terme.aufstellen",
+   "lernkarte": "muster",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 65,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 4 Plättchen 15-mal dazugerechnet, obwohl Figur 1 schon 5 hat"
+    },
+    {
+     "antwort": 75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "15 mal die Zahl der Plättchen von Figur 1"
+    },
+    {
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zu Figur 3 einfach 15 addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "muster",
+    "t": "muster",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Folge von Figuren aus Plättchen: Figur 1 hat 5 Plättchen, Figur 2 hat 9 Plättchen, Figur 3 hat 13 Plättchen. So geht es weiter. Wie viele Plättchen hat Figur 15?"
+    },
+    "o": {
+     "wert": 61,
+     "einheit": "Plättchen"
+    },
+    "c": "4 * 15 + 1",
+    "h": "Um wie viele Plättchen wird es von Figur zu Figur mehr? Prüfe deinen Term mit Figur 1.",
+    "w": "Es kommen immer 4 Plättchen dazu. Der Term ist 4n + 1. Probe: n = 1 gibt 5, n = 2 gibt 9, n = 3 gibt 13. Für n = 15: 4 · 15 + 1 = 61 Plättchen."
+   }
+  },
+  {
+   "kennung": "R14-V131",
+   "thema": "terme.aufstellen",
+   "lernkarte": "muster",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 2 Plätze am Anfang vergessen"
+    },
+    {
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Wert 28 als Zahl der Tische angegeben"
+    },
+    {
+     "antwort": 7.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch die 4 Plätze am ersten Tisch geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "muster",
+    "t": "muster",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Im Kursraum werden Tische in einer Reihe zusammengeschoben. An einem Tisch sitzen 4 Kinder, an zwei zusammengeschobenen Tischen 6 Kinder, an drei Tischen 8 Kinder. So geht es weiter. Für 30 Kinder wird eine Tischreihe gebraucht. Wie viele Tische müssen zusammengeschoben werden?"
+    },
+    "o": {
+     "wert": 14,
+     "einheit": "Tische"
+    },
+    "c": "(30 - 2) / 2",
+    "h": "Wie viele Plätze kommen mit jedem weiteren Tisch dazu? Stelle den Term für n Tische auf.",
+    "w": "Mit jedem Tisch kommen 2 Plätze dazu. Der Term ist 2n + 2. Probe: n = 1 gibt 4, n = 2 gibt 6. Aus 2n + 2 = 30 folgt 2n = 28 und n = 14 Tische."
+   }
+  },
+  {
+   "kennung": "R14-V132",
+   "thema": "terme.aufstellen",
+   "lernkarte": "muster",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Wert 6 = 2n nicht durch 2 geteilt"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied der Zahlen vor n als Lösung genommen"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen von Muster B addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "muster",
+    "t": "muster",
+    "p": "uebung",
+    "s": 3,
+    "g": "pruefung",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei Muster aus Plättchen: Muster A hat bei Figur n genau 4n + 2 Plättchen. Muster B hat bei Figur n genau 6n − 4 Plättchen. Bei welcher Figur haben beide Muster gleich viele Plättchen?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "(2 + 4) / (6 - 4)",
+    "h": "Setze die beiden Terme gleich. Bringe alle Glieder mit n auf eine Seite.",
+    "w": "4n + 2 = 6n − 4. Auf beiden Seiten 4n abziehen: 2 = 2n − 4. Dann 4 addieren: 6 = 2n, also n = 3. Probe: 4 · 3 + 2 = 14 und 6 · 3 − 4 = 14."
+   }
+  },
+  {
+   "kennung": "R14-V133",
+   "thema": "terme.aufstellen",
+   "lernkarte": "deuten",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Strecke am Anfang als Tempo genommen"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Dauer der ganzen Wanderung angegeben"
+    },
+    {
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen subtrahiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "deuten",
+    "t": "deuten",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Der Term 40 − 5t gibt an, wie viele Kilometer noch bis zum Ziel fehlen, wenn eine Wandergruppe t Stunden unterwegs ist. Wie viele Kilometer wandert die Gruppe in jeder Stunde?"
+    },
+    "o": {
+     "wert": 5,
+     "einheit": "km"
+    },
+    "c": "5",
+    "h": "Wie ändert sich der Term, wenn t um 1 größer wird? Was bedeutet die Zahl vor dem t?",
+    "w": "Wenn t um 1 wächst, wird 5t um 5 größer und der Term um 5 kleiner. Die Zahl vor dem t zählt pro Stunde: Die Gruppe wandert 5 km in jeder Stunde. Die 40 ist die Strecke am Anfang."
+   }
+  },
+  {
+   "kennung": "R14-V134",
+   "thema": "terme.aufstellen",
+   "lernkarte": "deuten",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Zahlen subtrahiert"
+    },
+    {
+     "antwort": 225,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Zahlen malgenommen"
+    },
+    {
+     "antwort": 54,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zur Lösung noch die Anfangsmenge addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "deuten",
+    "t": "deuten",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Die Wassermenge in einem Tank in Litern ist nach t Minuten 45 − 5t. Nach wie vielen Minuten ist der Tank ganz leer?"
+    },
+    "o": {
+     "wert": 9,
+     "einheit": "Minuten"
+    },
+    "c": "45 / 5",
+    "h": "Der Tank ist leer, wenn die Wassermenge 0 ist. Wann ist 45 − 5t gleich 0?",
+    "w": "45 − 5t = 0 heißt 5t = 45, also t = 9. Nach 9 Minuten ist die Wassermenge 0. Probe: 45 − 5 · 9 = 0."
+   }
+  },
+  {
+   "kennung": "R14-V135",
+   "thema": "terme.aufstellen",
+   "lernkarte": "deuten",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den richtigen Wert angegeben"
+    },
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur Kims Wert angegeben"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Verdopplung der 3 als Unterschied angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "deuten",
+    "t": "deuten",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "zahl",
+    "f": {
+     "text": "Kim übersetzt „das Doppelte der Summe aus x und 3“ in den Term 2x + 3. Der richtige Term ist 2 · (x + 3). Um wie viel unterscheiden sich die beiden Werte für x = 5?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "2 * (5 + 3) - (2 * 5 + 3)",
+    "h": "Berechne beide Terme einzeln für x = 5. Was wird bei Kims Term nur einmal und was zweimal gerechnet?",
+    "w": "Kims Term: 2 · 5 + 3 = 13. Richtiger Term: 2 · (5 + 3) = 16. Unterschied: 16 − 13 = 3. Der Fehler: Im richtigen Term wird auch die 3 verdoppelt, bei Kim nicht."
+   }
+  }
+ ]
+}

@@ -1,0 +1,465 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-14",
+ "kuerzel": "R14",
+ "flug": "r14-groessen.proportional_teil2",
+ "titel": "groessen.proportional_teil2",
+ "fuer": "Klasse 6 und 8",
+ "klasse": 6,
+ "themen": [
+  "groessen.proportional_teil2"
+ ],
+ "themen_datei_im_bestand": "groessen.proportional",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R14-V136",
+   "thema": "groessen.proportional_teil2",
+   "lernkarte": "erkennen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Sekunden dazugezählt: 6 Sekunden mehr, also 6 Meter mehr"
+    },
+    {
+     "antwort": 2.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Strecke in einer Sekunde angegeben"
+    },
+    {
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Strecke mit der Zeit malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "erkennen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Aufzug fährt gleichmäßig schnell. In 4 Sekunden fährt er 10 m. Die Zuordnung Zeit → Strecke ist proportional. Wie viele Meter fährt er in 10 Sekunden?"
+    },
+    "o": {
+     "wert": 25,
+     "einheit": "m"
+    },
+    "c": "10 / 4 * 10",
+    "h": "Proportional heißt: Zur doppelten Zeit gehört die doppelte Strecke. Wie weit fährt der Aufzug in 1 Sekunde?",
+    "w": "In 1 Sekunde fährt er 10 : 4 = 2,5 m. In 10 Sekunden fährt er 10 · 2,5 = 25 m. Probe: In 8 Sekunden wären es 20 m, dazu noch 2 Sekunden mit 5 m."
+   }
+  },
+  {
+   "kennung": "R14-V137",
+   "thema": "groessen.proportional_teil2",
+   "lernkarte": "erkennen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4.6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Preis der Bäckerei B berechnet, die nicht proportional ist"
+    },
+    {
+     "antwort": 8.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 Brötchen dazugezählt und 6 € addiert"
+    },
+    {
+     "antwort": 0.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Preis eines Brötchens angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "erkennen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Bäckerei A: 6 Brötchen kosten 2,40 €, jedes Brötchen kostet gleich viel. Bäckerei B: 1 € Tütengebühr und dazu 0,30 € für jedes Brötchen. Bei einer der beiden Bäckereien ist die Zuordnung Anzahl → Preis proportional. Wie viel Euro kosten dort 12 Brötchen?"
+    },
+    "o": {
+     "wert": 4.8,
+     "einheit": "€"
+    },
+    "c": "2.4 / 6 * 12",
+    "h": "Bei einer proportionalen Zuordnung gehört zu 0 Brötchen der Preis 0. Bei welcher Bäckerei ist das so?",
+    "w": "Bei Bäckerei B kostet schon die Tüte 1 €, auch bei 0 Brötchen: Das ist nicht proportional. Bei Bäckerei A kostet ein Brötchen 2,40 : 6 = 0,40 €. 12 Brötchen kosten 12 · 0,40 = 4,80 €. Das ist das Doppelte von 2,40 €."
+   }
+  },
+  {
+   "kennung": "R14-V138",
+   "thema": "groessen.proportional_teil2",
+   "lernkarte": "erkennen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 320,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die proportionale Größe als Unterschied angegeben"
+    },
+    {
+     "antwort": 52,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied zu 128 cm statt zur Vorhersage berechnet"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das tatsächliche Wachstum bis 12 Jahre angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "erkennen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 3,
+    "g": "pruefung",
+    "y": "zahl",
+    "f": {
+     "text": "Sam behauptet: „Die Zuordnung Alter → Körpergröße ist proportional.“ Mit 8 Jahren war Sam 128 cm groß, mit 12 Jahren ist Sam 152 cm groß. Sam rechnet vom Wert bei 8 Jahren proportional weiter und sagt voraus, wie groß er mit 20 Jahren wäre. Um wie viele Zentimeter ist diese Vorhersage größer als eine realistische Größe von 180 cm?"
+    },
+    "o": {
+     "wert": 140,
+     "einheit": "cm"
+    },
+    "c": "128 / 8 * 20 - 180",
+    "h": "Berechne zuerst, wie viele Zentimeter Sam bei 8 Jahren je Lebensjahr hat. Dann rechnest du auf 20 Jahre hoch und vergleichst.",
+    "w": "Bei Proportionalität: 128 : 8 = 16 cm je Jahr. Mit 20 Jahren wären es 16 · 20 = 320 cm. Das sind 320 − 180 = 140 cm mehr als realistisch. Die Annahme stimmt nicht: Schon bei 12 Jahren wären es 192 cm statt 152 cm."
+   }
+  },
+  {
+   "kennung": "R14-V139",
+   "thema": "groessen.proportional_teil2",
+   "lernkarte": "vervielfachen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 300 km gerechnet"
+    },
+    {
+     "antwort": 2100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Verbrauch mit 350 malgenommen"
+    },
+    {
+     "antwort": 256,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "250 km dazugezählt und 250 Liter addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "vervielfachen",
+    "t": "tabelle",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Auto verbraucht auf 100 km genau 6 Liter Benzin. Der Verbrauch ist auf jedem Kilometer gleich. Wie viele Liter Benzin verbraucht es auf 350 km?"
+    },
+    "o": {
+     "wert": 21,
+     "einheit": "l"
+    },
+    "c": "6 * 350 / 100",
+    "h": "Wie viele Liter sind es auf 50 km? Zerlege 350 km in 300 km und 50 km.",
+    "w": "300 km sind 3 · 100 km: 3 · 6 = 18 Liter. 50 km sind die Hälfte von 100 km: 3 Liter. Zusammen 18 + 3 = 21 Liter."
+   }
+  },
+  {
+   "kennung": "R14-V140",
+   "thema": "groessen.proportional_teil2",
+   "lernkarte": "vervielfachen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 63 : 18 als Minuten angegeben"
+    },
+    {
+     "antwort": 49,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Liter-Differenz zur Zeit addiert"
+    },
+    {
+     "antwort": 283.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 63 malgenommen statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vervielfachen",
+    "t": "tabelle",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Wasserhahn füllt gleichmäßig 18 Liter in 4 Minuten. Wie viele Minuten braucht er, um 63 Liter einzufüllen?"
+    },
+    "o": {
+     "wert": 14,
+     "einheit": "Minuten"
+    },
+    "c": "63 / 18 * 4",
+    "h": "Wie viele Liter fließen in 1 Minute? Wie oft passt das in 63 Liter? Oder: Wie viele Liter sind es in 2 Minuten?",
+    "w": "In 4 Minuten fließen 18 Liter, in 1 Minute 18 : 4 = 4,5 Liter. 63 : 4,5 = 14 Minuten. Probe: 14 · 4,5 = 63."
+   }
+  },
+  {
+   "kennung": "R14-V141",
+   "thema": "groessen.proportional_teil2",
+   "lernkarte": "vervielfachen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Mehl berücksichtigt"
+    },
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Personenzahlen addiert"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Zahl der Rezepte für die Milch angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "vervielfachen",
+    "t": "tabelle",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Rezept für 8 Personen braucht 600 g Mehl und 300 ml Milch. Zu Hause sind 1,5 kg Mehl und 600 ml Milch da. Für wie viele Personen reichen die Zutaten höchstens, wenn man nach dem Rezept kocht?"
+    },
+    "o": {
+     "wert": 16,
+     "einheit": "Personen"
+    },
+    "c": "600 / 300 * 8",
+    "h": "Berechne getrennt, für wie viele Personen das Mehl und für wie viele die Milch reicht. Was begrenzt?",
+    "w": "Mehl: 1 500 g : 600 g = 2,5 Rezepte, also 2,5 · 8 = 20 Personen. Milch: 600 ml : 300 ml = 2 Rezepte, also 2 · 8 = 16 Personen. Die Milch reicht nur für 16 Personen, sie begrenzt."
+   }
+  },
+  {
+   "kennung": "R14-V142",
+   "thema": "groessen.proportional_teil2",
+   "lernkarte": "pruefen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 20.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "8 € zum Preis von 5 kg addiert"
+    },
+    {
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 5 € mit 8 malgenommen"
+    },
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 € Grundpreis dazugezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "pruefen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Kim zahlt für 2 kg Birnen 5 €, für 3 kg Birnen 7,50 € und für 5 kg Birnen 12,50 €. Die Zuordnung Gewicht → Preis ist proportional. Wie viel Euro kosten 8 kg Birnen?"
+    },
+    "o": {
+     "wert": 20,
+     "einheit": "€"
+    },
+    "c": "5 / 2 * 8",
+    "h": "Prüfe mit Preis : Gewicht in jeder Spalte, ob immer dieselbe Zahl herauskommt. Dann rechnest du weiter.",
+    "w": "5 : 2 = 2,5; 7,5 : 3 = 2,5; 12,5 : 5 = 2,5. Immer 2,50 € je kg, die Tabelle ist proportional. 8 kg kosten 8 · 2,5 = 20 €. Probe: 3 kg + 5 kg: 7,50 + 12,50 = 20."
+   }
+  },
+  {
+   "kennung": "R14-V143",
+   "thema": "groessen.proportional_teil2",
+   "lernkarte": "pruefen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 37,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "10 zum Wert 27 addiert"
+    },
+    {
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 4 statt mit 4,5 malgenommen"
+    },
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "10 mit 6 malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "pruefen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Alle Paare einer Tabelle gehören zu einer proportionalen Zuordnung, nur ein Wert wurde falsch eingetragen: (4 | 18), (6 | 27), (10 | 46). Welche Zahl müsste statt 46 stehen?"
+    },
+    "o": {
+     "wert": 45
+    },
+    "c": "18 / 4 * 10",
+    "h": "Rechne in jeder Spalte zweite Zahl : erste Zahl. Welche Zahl kommt zweimal heraus?",
+    "w": "18 : 4 = 4,5 und 27 : 6 = 4,5. Der Faktor ist 4,5. Bei 10 müsste 4,5 · 10 = 45 stehen, nicht 46. Probe: 46 : 10 = 4,6, das passt nicht zu 4,5."
+   }
+  },
+  {
+   "kennung": "R14-V144",
+   "thema": "groessen.proportional_teil2",
+   "lernkarte": "pruefen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 11.25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 1,5 malgenommen statt mit der Strecke je Liter"
+    },
+    {
+     "antwort": 750,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Strecke für einen Liter als 100 km angenommen"
+    },
+    {
+     "antwort": 47.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "40 km zu den Litern addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "pruefen",
+    "t": "begriff",
+    "p": "uebung",
+    "s": 3,
+    "g": "pruefung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Tabelle zeigt, wie viel Benzin ein Motorroller auf verschiedenen Strecken verbraucht: 40 km → 1 l; 60 km → 1,5 l; 100 km → 2,5 l. Die Zuordnung ist proportional. Wie viele Kilometer kommt der Roller mit 7,5 Litern?"
+    },
+    "o": {
+     "wert": 300,
+     "einheit": "km"
+    },
+    "c": "7.5 / (1.5 / 60)",
+    "h": "Prüfe, ob in jeder Spalte Liter : Kilometer dieselbe Zahl ergibt. Wie viele Kilometer fährt der Roller mit einem Liter? Dann rechnest du mit 7,5 Litern.",
+    "w": "1 : 40 = 0,025; 1,5 : 60 = 0,025; 2,5 : 100 = 0,025. Es sind immer 0,025 l je km, die Zuordnung ist proportional. Mit 1 l kommt der Roller 40 km weit, mit 7,5 l also 7,5 · 40 = 300 km."
+   }
+  }
+ ]
+}

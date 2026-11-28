@@ -579,46 +579,46 @@
    "abgrenzung": "Die Übungen lösen eine Klammer für gegebene Zahlen auf; hier zeigt das Auflösen, dass der Wert nur vom Unterschied zweier Zahlen abhängt, und darüber wird gezählt.",
    "antwortform": "luecken",
    "loesung_rechnung": [
-    "4 + 4",
-    "20 − (1 − 5)"
+    "19 + 19",
+    "20 − (1 − 20)"
    ],
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 20,
-     "rechnung": "5 · 4",
+     "antwort": 380,
+     "rechnung": "20 · 19",
      "beschreibung": "alle Paare (a, b) gezählt, auch wenn verschiedene Paare denselben Wert ergeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 1,
-     "antwort": 9,
-     "rechnung": "4 + 4 + 1",
+     "antwort": 39,
+     "rechnung": "19 + 19 + 1",
      "beschreibung": "den Wert 20 mitgezählt, der nur bei a = b entstünde",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 1,
-     "antwort": 4,
-     "rechnung": "4",
+     "antwort": 19,
+     "rechnung": "19",
      "beschreibung": "nur die Paare mit a größer als b betrachtet",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 2,
-     "antwort": 16,
-     "rechnung": "20 − (5 − 1)",
+     "antwort": 1,
+     "rechnung": "20 − (20 − 1)",
      "beschreibung": "a möglichst groß und b möglichst klein gewählt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 2,
-     "antwort": 14,
-     "rechnung": "20 − 5 − 1",
+     "antwort": -1,
+     "rechnung": "20 − 20 − 1",
      "beschreibung": "die Klammer weggelassen, ohne das Vorzeichen von b zu ändern",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -632,17 +632,17 @@
     "g": "transfer",
     "y": "luecken",
     "f": {
-     "text": "Für a und b werden zwei verschiedene Zahlen aus 1, 2, 3, 4 und 5 gewählt. Wie viele verschiedene Werte kann der Term 20 − (a − b) annehmen, und welches ist der größte?",
+     "text": "Für a und b werden zwei verschiedene ganze Zahlen von 1 bis 20 gewählt. Wie viele verschiedene Werte kann der Term 20 − (a − b) annehmen, und welches ist der größte?",
      "schablone": "verschiedene Werte: □; größter Wert: □",
      "hinweis": "Je Feld eine ganze Zahl."
     },
     "o": {
      "werte": [
-      8,
-      24
+      38,
+      39
      ]
     },
-    "w": "20 − (a − b) = 20 − a + b = 20 + (b − a). Der Wert hängt also nur vom Unterschied b − a ab. Bei zwei verschiedenen Zahlen aus 1 bis 5 kann b − a die Werte −4, −3, −2, −1, 1, 2, 3, 4 haben, also 8 verschiedene Werte (16 bis 24 ohne 20). Am größten wird der Term für b = 5 und a = 1: 20 − (1 − 5) = 24."
+    "w": "20 − (a − b) = 20 − a + b = 20 + (b − a). Der Wert hängt also nur vom Unterschied b − a ab. Bei zwei verschiedenen Zahlen von 1 bis 20 kann b − a jede Zahl von −19 bis 19 außer 0 sein, also 38 verschiedene Werte (1 bis 39 ohne 20). Am größten wird der Term für b = 20 und a = 1: 20 − (1 − 20) = 39. Alle 380 Paare auszurechnen ist nicht nötig."
    },
    "idee": "Wert einer Minusklammer hängt nur vom Unterschied ab"
   },
@@ -750,7 +750,7 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "Figur n besteht aus n Quadraten aus Streichhölzern in einer Reihe; benachbarte Quadrate haben ein Streichholz gemeinsam (Figur 1: 4 Hölzer, Figur 2: 7 Hölzer). Mia hat die Hölzer von Figur n mit dem Term 4 + 3 · (n − 1) gezählt. Wie hat Mia gezählt?"
+     "text": "Figur n besteht aus n Quadraten aus Streichhölzern in einer Reihe; benachbarte Quadrate haben ein Streichholz gemeinsam (Figur 1: 4 Hölzer, Figur 2: 7 Hölzer). Mia hat die Hölzer von Figur n mit dem Term 4 + 3 · (n − 1) gezählt. Welche Zählweise passt zum Aufbau ihres Terms?"
     },
     "a": [
      "Sie hat die n Hölzer oben, die n Hölzer unten und die senkrechten Hölzer jeweils getrennt gezählt.",

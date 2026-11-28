@@ -104,15 +104,15 @@ def bauen():
       'T2 = x − (x − 1) = x − x + 1 = 1. T3 = x − T2 = x − 1, also wieder T1. T4 = x − T3 = 1, und so weiter: Jede gerade Nummer ergibt 1, jede ungerade x − 1. Also T10 = 1 und T11 = x − 1 = 49 für x = 50.',
       'Die Übungen lösen höchstens doppelt geschachtelte Klammern auf; hier wird ein Muster aus immer neuen Minusklammern erkannt und fortgesetzt.')
     L(lz, 'sicherung', 'transfer', None, 3, LP,
-      'Für a und b werden zwei verschiedene Zahlen aus 1, 2, 3, 4 und 5 gewählt. Wie viele verschiedene Werte kann der Term 20 − (a − b) annehmen, und welches ist der größte?',
-      'verschiedene Werte: □; größter Wert: □', [8, 24], ['4 + 4', '20 − (1 − 5)'],
-      [(1, 20, '5 · 4', 'alle Paare (a, b) gezählt, auch wenn verschiedene Paare denselben Wert ergeben'),
-       (1, 9, '4 + 4 + 1', 'den Wert 20 mitgezählt, der nur bei a = b entstünde'),
-       (1, 4, '4', 'nur die Paare mit a größer als b betrachtet'),
-       (2, 16, '20 − (5 − 1)', 'a möglichst groß und b möglichst klein gewählt'),
-       (2, 14, '20 − 5 − 1', 'die Klammer weggelassen, ohne das Vorzeichen von b zu ändern')],
-      '20 − (a − b) = 20 − a + b = 20 + (b − a). Der Wert hängt also nur vom Unterschied b − a ab. Bei zwei verschiedenen Zahlen aus 1 bis 5 kann b − a die Werte −4, −3, −2, −1, 1, 2, 3, 4 haben, also 8 verschiedene Werte (16 bis 24 ohne 20). '
-      'Am größten wird der Term für b = 5 und a = 1: 20 − (1 − 5) = 24.',
+      'Für a und b werden zwei verschiedene ganze Zahlen von 1 bis 20 gewählt. Wie viele verschiedene Werte kann der Term 20 − (a − b) annehmen, und welches ist der größte?',
+      'verschiedene Werte: □; größter Wert: □', [38, 39], ['19 + 19', '20 − (1 − 20)'],
+      [(1, 380, '20 · 19', 'alle Paare (a, b) gezählt, auch wenn verschiedene Paare denselben Wert ergeben'),
+       (1, 39, '19 + 19 + 1', 'den Wert 20 mitgezählt, der nur bei a = b entstünde'),
+       (1, 19, '19', 'nur die Paare mit a größer als b betrachtet'),
+       (2, 1, '20 − (20 − 1)', 'a möglichst groß und b möglichst klein gewählt'),
+       (2, -1, '20 − 20 − 1', 'die Klammer weggelassen, ohne das Vorzeichen von b zu ändern')],
+      '20 − (a − b) = 20 − a + b = 20 + (b − a). Der Wert hängt also nur vom Unterschied b − a ab. Bei zwei verschiedenen Zahlen von 1 bis 20 kann b − a jede Zahl von −19 bis 19 außer 0 sein, also 38 verschiedene Werte (1 bis 39 ohne 20). '
+      'Am größten wird der Term für b = 20 und a = 1: 20 − (1 − 20) = 39. Alle 380 Paare auszurechnen ist nicht nötig.',
       'Die Übungen lösen eine Klammer für gegebene Zahlen auf; hier zeigt das Auflösen, dass der Wert nur vom Unterschied zweier Zahlen abhängt, und darüber wird gezählt.')
     # ---------------- aequivalenz ----------------
     lz = 'aequivalenz'
@@ -129,7 +129,7 @@ def bauen():
       'Dann sind es dieselben Terme, also gleichwertig. Vorsicht: Das gilt nur, weil beide die Form a · x + b haben. x² und 3x − 2 haben zum Beispiel für x = 1 und x = 2 denselben Wert und sind trotzdem nicht gleichwertig.',
       'Die Übungen zeigen, dass ein einzelnes Beispiel keine Gleichwertigkeit beweist; hier wird begründet, warum bei Termen der Form a · x + b zwei Einsetzungen doch genügen.')
     A(lz, 'korrektur', 'darstellung', None, 2, LP,
-      'Figur n besteht aus n Quadraten aus Streichhölzern in einer Reihe; benachbarte Quadrate haben ein Streichholz gemeinsam (Figur 1: 4 Hölzer, Figur 2: 7 Hölzer). Mia hat die Hölzer von Figur n mit dem Term 4 + 3 · (n − 1) gezählt. Wie hat Mia gezählt?',
+      'Figur n besteht aus n Quadraten aus Streichhölzern in einer Reihe; benachbarte Quadrate haben ein Streichholz gemeinsam (Figur 1: 4 Hölzer, Figur 2: 7 Hölzer). Mia hat die Hölzer von Figur n mit dem Term 4 + 3 · (n − 1) gezählt. Welche Zählweise passt zum Aufbau ihres Terms?',
       ['Sie hat das erste Quadrat mit 4 Hölzern gezählt und für jedes weitere Quadrat 3 Hölzer dazugenommen.',
        'Sie hat für jedes Quadrat 3 Hölzer gezählt und am Ende noch ein einzelnes Holz für den Anfang dazugenommen.',
        'Sie hat jedes Quadrat mit 4 Hölzern gezählt und danach die gemeinsamen Hölzer wieder abgezogen.',

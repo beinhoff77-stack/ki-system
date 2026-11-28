@@ -655,11 +655,10 @@
    "kennung": "VT2-095",
    "thema": "zahlen.natuerlich",
    "lernkarte": "strahl_eintragen",
-   "pool": "test",
-   "ersetzt_test": true,
+   "pool": "sicherung",
    "typ": "umkehr",
    "form": null,
-   "stufe": 3,
+   "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.zahlengerade",
@@ -699,8 +698,8 @@
    "aufgabe": {
     "l": "strahl_eintragen",
     "t": "strahl_eintragen",
-    "p": "test",
-    "s": 3,
+    "p": "sicherung",
+    "s": 2,
     "g": "umkehr",
     "y": "zahl",
     "f": {
@@ -816,7 +815,7 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Ein Zahlenstrahl beginnt bei 0, seine Striche haben den Abstand 10. Lena trägt eine Zahl so ein: Sie teilt die Zahl durch 10 und zählt so viele Striche ab, wobei sie den Strich bei 0 als ersten Strich mitzählt. Welche Aussage über Lenas Marken stimmt?"
+     "text": "Ein Zahlenstrahl beginnt bei 0, seine Striche haben den Abstand 10. Lena trägt eine Zahl, die auf einem Strich liegt (nicht die 0), so ein: Sie teilt die Zahl durch 10 und zählt so viele Striche ab, wobei sie den Strich bei 0 als ersten Strich mitzählt. Welche Aussage über Lenas Marken stimmt?"
     },
     "a": [
      "Jede ihrer Marken liegt genau 10 zu weit rechts, denn der Strich bei 0 zählt bei ihr schon als Zehner.",
@@ -835,7 +834,8 @@
    "kennung": "VT2-098",
    "thema": "zahlen.natuerlich",
    "lernkarte": "strahl_eintragen",
-   "pool": "sicherung",
+   "pool": "test",
+   "ersetzt_test": true,
    "typ": "transfer",
    "form": null,
    "stufe": 3,
@@ -878,7 +878,7 @@
    "aufgabe": {
     "l": "strahl_eintragen",
     "t": "strahl_eintragen",
-    "p": "sicherung",
+    "p": "test",
     "s": 3,
     "g": "transfer",
     "y": "zahl",
@@ -1725,21 +1725,21 @@
     {
      "index": 1,
      "antwort": "Ben hat recht, denn für eine größere Zahl braucht man nie weniger Zeichen als für eine kleinere.",
-     "beschreibung": "Eine größere Zahl kann weniger Zeichen brauchen: XVIII (18) hat fünf, XIX (19) drei Zeichen.",
+     "beschreibung": "Eine größere Zahl kann weniger Zeichen brauchen: XIV (14) hat drei, XV (15) nur zwei Zeichen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 2,
      "antwort": "Die Schreibweise wird beim Addieren von 1 sogar immer länger, denn es kommt jedes Mal ein I dazu.",
-     "beschreibung": "Aus VIII (8) wird IX (9): Es kommt kein I dazu, sondern die Schreibweise wird kürzer.",
+     "beschreibung": "Aus XIV (14) wird XV (15): Es kommt kein I dazu, sondern eines fällt weg.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 3,
      "antwort": "Ben hat recht bei Zahlen unter 10, denn erst ab dem Zeichen X kann eine Schreibweise kürzer werden.",
-     "beschreibung": "Schon unter 10 wird es kürzer: VIII (8) hat vier Zeichen, IX (9) nur zwei; III (3) hat drei, IV (4) zwei.",
+     "beschreibung": "Schon unter 10 wird es kürzer: III (3) hat drei Zeichen, IV (4) nur zwei; IV hat zwei, V (5) nur eins.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1755,7 +1755,7 @@
      "text": "Ben behauptet: „Addiert man zu einer Zahl 1, so wird ihre römische Schreibweise (nach den üblichen Regeln) nie kürzer.“ Welche Aussage stimmt?"
     },
     "a": [
-     "Ben irrt sich, denn XVIII für 18 hat fünf Zeichen, XIX für 19 dagegen nur drei.",
+     "Ben irrt sich, denn wenn ein neues Zeichen gebraucht wird, kann eine Schreibweise auch kürzer werden.",
      "Ben hat recht, denn für eine größere Zahl braucht man nie weniger Zeichen als für eine kleinere.",
      "Die Schreibweise wird beim Addieren von 1 sogar immer länger, denn es kommt jedes Mal ein I dazu.",
      "Ben hat recht bei Zahlen unter 10, denn erst ab dem Zeichen X kann eine Schreibweise kürzer werden."
@@ -1763,7 +1763,7 @@
     "o": {
      "index": 0
     },
-    "w": "Beim Addieren von 1 wird die Schreibweise oft länger (XI → XII), aber nicht immer: Vor einer 4 oder 9 an der Einerstelle (und beim Sprung auf 5 oder 10) greift die Subtraktionsregel oder ein neues Zeichen, und die Schreibweise wird kürzer. Beispiel: XVIII (18) hat fünf Zeichen, XIX (19) nur drei. Ben irrt sich."
+    "w": "Beim Addieren von 1 wird die Schreibweise oft länger (XI → XII), aber nicht immer: Kommt ein neues Zeichen ins Spiel, kann sie kürzer werden. Beispiel: XIV (14) hat drei Zeichen, XV (15) nur zwei; ebenso III → IV und IV → V. Ben irrt sich."
    },
    "idee": "Plus 1 kann die Schreibweise verkürzen"
   },
@@ -2045,7 +2045,7 @@
     },
     {
      "index": 2,
-     "antwort": "A ist größer, denn jede Eins bringt einen Wert dazu, eine Null an derselben Stelle dagegen bringt gar nichts.",
+     "antwort": "A ist größer, denn jede Eins bringt einen Wert dazu, eine Null an derselben Stelle dagegen nicht.",
      "beschreibung": "Es kommt darauf an, wo die Einsen stehen: 111 = 7 hat drei Einsen, 1000 = 8 nur eine und ist trotzdem größer.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -2064,8 +2064,8 @@
     "a": [
      "A ist mindestens doppelt so groß wie B, denn jede weitere Eins verdoppelt den Wert der ganzen Zweierzahl noch einmal.",
      "B ist größer, denn wer mit weniger Einsen auskommt, braucht dafür mehr Stellen und ist deshalb größer.",
-     "A ist größer, denn jede Eins bringt einen Wert dazu, eine Null an derselben Stelle dagegen bringt gar nichts.",
-     "Nichts Sicheres, denn 111 hat mehr Einsen als 1000 und ist weniger wert, 11 mehr als 10 und ist größer."
+     "A ist größer, denn jede Eins bringt einen Wert dazu, eine Null an derselben Stelle dagegen nicht.",
+     "Nichts Sicheres, denn für den Wert zählt, an welchen Stellen die Einsen stehen, und nicht, wie viele es sind."
     ],
     "o": {
      "index": 3

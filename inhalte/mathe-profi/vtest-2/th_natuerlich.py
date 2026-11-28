@@ -125,7 +125,7 @@ def bauen():
 
     # ---------------- strahl_eintragen ----------------
     lz = 'strahl_eintragen'
-    Z(lz, 'test', 'umkehr', None, 3, LP,
+    Z(lz, 'sicherung', 'umkehr', None, 2, LP,
       'Dieselben zwei Zahlen sind auf zwei Zahlenstrahlen A und B mit gleichmäßiger Skala eingetragen. Auf A liegen ihre Marken 6 cm auseinander, auf B nur 4 cm. Auf A steht 1 cm für 50. Für welche Zahl steht 1 cm auf B?',
       75, '6 · 50 : 4',
       [(50, '50', 'gemeint, 1 cm stehe auf beiden Strahlen für dieselbe Zahl'),
@@ -148,7 +148,7 @@ def bauen():
       '600, 1 000, 1 400, 1 800, … Diese Zahlen liegen genau in der Mitte zwischen zwei Strichen. Tims Satz stimmt also für keine einzige Strichzahl.',
       'Die Übungen tragen einzelne Zahlen ein; hier wird für alle Strichzahlen entschieden, ob eine Eigenschaft gilt, wenn der Strahl nicht bei 0 beginnt.')
     A(lz, 'korrektur', 'begruenden', None, 2, LP,
-      'Ein Zahlenstrahl beginnt bei 0, seine Striche haben den Abstand 10. Lena trägt eine Zahl so ein: Sie teilt die Zahl durch 10 und zählt so viele Striche ab, wobei sie den Strich bei 0 als ersten Strich mitzählt. Welche Aussage über Lenas Marken stimmt?',
+      'Ein Zahlenstrahl beginnt bei 0, seine Striche haben den Abstand 10. Lena trägt eine Zahl, die auf einem Strich liegt (nicht die 0), so ein: Sie teilt die Zahl durch 10 und zählt so viele Striche ab, wobei sie den Strich bei 0 als ersten Strich mitzählt. Welche Aussage über Lenas Marken stimmt?',
       ['Jede ihrer Marken liegt genau 10 zu weit links, denn Lena zählt immer einen Abstand zu wenig.',
        'Ihre Marken liegen richtig, denn sie zählt genau so viele Striche, wie die Zahl Zehner hat.',
        'Je größer die Zahl ist, desto weiter liegt ihre Marke daneben, denn der Fehler wächst mit jedem Strich.',
@@ -159,7 +159,7 @@ def bauen():
       'Zur Zahl 30 gehören 3 Abstände von 0 aus, also der Strich bei 30. Lena zählt Striche und beginnt beim Strich 0: 0, 10, 20 – sie landet bei 20. '
       'Weil sie bei jeder Zahl den Strich bei 0 mitzählt, fehlt ihr immer genau ein Abstand: Jede Marke liegt 10 zu weit links.',
       'Die Übungen zählen Abschnitte bei einer einzelnen Zahl; hier wird die Folge einer falschen Zählregel für alle Zahlen beurteilt.')
-    Z(lz, 'sicherung', 'transfer', None, 3, LP,
+    Z(lz, 'test', 'transfer', None, 3, LP,
       'Anna teilt den Zahlenstrahl von 0 bis 12 000 in 60 gleich große Abschnitte, Ben teilt ihn in 80 gleich große Abschnitte. Wie viele Zahlen zwischen 0 und 12 000 (ohne 0 und 12 000) liegen bei beiden auf einem Teilstrich?',
       19, '12000 : 600 − 1',
       [(1, '1', 'nur die erste gemeinsame Zahl 600 gezählt'),
@@ -307,15 +307,15 @@ def bauen():
       'Regelgerechtheit statt Umwandlung; die Übungen schreiben eine Zahl um.')
     A(lz, 'korrektur', 'begruenden', None, 2, LP,
       'Ben behauptet: „Addiert man zu einer Zahl 1, so wird ihre römische Schreibweise (nach den üblichen Regeln) nie kürzer.“ Welche Aussage stimmt?',
-      ['Ben irrt sich, denn XVIII für 18 hat fünf Zeichen, XIX für 19 dagegen nur drei.',
+      ['Ben irrt sich, denn wenn ein neues Zeichen gebraucht wird, kann eine Schreibweise auch kürzer werden.',
        'Ben hat recht, denn für eine größere Zahl braucht man nie weniger Zeichen als für eine kleinere.',
        'Ben hat recht bei Zahlen unter 10, denn erst ab dem Zeichen X kann eine Schreibweise kürzer werden.',
        'Die Schreibweise wird beim Addieren von 1 sogar immer länger, denn es kommt jedes Mal ein I dazu.'], 0,
-      {1: 'Eine größere Zahl kann weniger Zeichen brauchen: XVIII (18) hat fünf, XIX (19) drei Zeichen.',
-       2: 'Schon unter 10 wird es kürzer: VIII (8) hat vier Zeichen, IX (9) nur zwei; III (3) hat drei, IV (4) zwei.',
-       3: 'Aus VIII (8) wird IX (9): Es kommt kein I dazu, sondern die Schreibweise wird kürzer.'},
-      'Beim Addieren von 1 wird die Schreibweise oft länger (XI → XII), aber nicht immer: Vor einer 4 oder 9 an der Einerstelle (und beim Sprung auf 5 oder 10) greift die Subtraktionsregel oder ein neues Zeichen, und die Schreibweise wird kürzer. '
-      'Beispiel: XVIII (18) hat fünf Zeichen, XIX (19) nur drei. Ben irrt sich.',
+      {1: 'Eine größere Zahl kann weniger Zeichen brauchen: XIV (14) hat drei, XV (15) nur zwei Zeichen.',
+       2: 'Schon unter 10 wird es kürzer: III (3) hat drei Zeichen, IV (4) nur zwei; IV hat zwei, V (5) nur eins.',
+       3: 'Aus XIV (14) wird XV (15): Es kommt kein I dazu, sondern eines fällt weg.'},
+      'Beim Addieren von 1 wird die Schreibweise oft länger (XI → XII), aber nicht immer: Kommt ein neues Zeichen ins Spiel, kann sie kürzer werden. '
+      'Beispiel: XIV (14) hat drei Zeichen, XV (15) nur zwei; ebenso III → IV und IV → V. Ben irrt sich.',
       'Die Übungen schreiben einzelne Zahlen; hier wird eine allgemeine Behauptung über das Schreiben nach den Regeln mit einem selbst gefundenen Gegenbeispiel geprüft.')
     Z(lz, 'sicherung', 'transfer', None, 2, LP,
       'Für römische Zahlen gelten die üblichen Regeln: Es gibt die Zeichen I, V, X, L, C, D und M (M = 1 000 ist das größte). Die Zeichen stehen der Größe nach; ein kleineres Zeichen vor einem größeren wird abgezogen, aber nur I vor V oder X, X vor L oder C und C vor D oder M. I, X, C und M stehen höchstens dreimal hintereinander, V, L und D höchstens einmal. Welches ist die größte Zahl, die man so schreiben kann?',
@@ -361,8 +361,8 @@ def bauen():
       'Führende Nullen bei Zweierzahlen; die Übungen wandeln Zahl für Zahl um.')
     A(lz, 'korrektur', 'begruenden', None, 2, LP,
       'Die Zweierzahl A enthält mehr Einsen als die Zweierzahl B (beide beginnen mit 1). Was folgt daraus für ihre Werte im Zehnersystem?',
-      ['Nichts Sicheres, denn 111 hat mehr Einsen als 1000 und ist weniger wert, 11 mehr als 10 und ist größer.',
-       'A ist größer, denn jede Eins bringt einen Wert dazu, eine Null an derselben Stelle dagegen bringt gar nichts.',
+      ['Nichts Sicheres, denn für den Wert zählt, an welchen Stellen die Einsen stehen, und nicht, wie viele es sind.',
+       'A ist größer, denn jede Eins bringt einen Wert dazu, eine Null an derselben Stelle dagegen nicht.',
        'A ist mindestens doppelt so groß wie B, denn jede weitere Eins verdoppelt den Wert der ganzen Zweierzahl noch einmal.',
        'B ist größer, denn wer mit weniger Einsen auskommt, braucht dafür mehr Stellen und ist deshalb größer.'], 0,
       {1: 'Es kommt darauf an, wo die Einsen stehen: 111 = 7 hat drei Einsen, 1000 = 8 nur eine und ist trotzdem größer.',

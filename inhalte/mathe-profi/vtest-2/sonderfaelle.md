@@ -57,7 +57,7 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 - VT2-035 (korrektur): Erster Fehler in Zeile 2, Zeile 3 enthält nur den Folgefehler; Fehlbild „Zeile 3“ als eigener Fall.
 - VT2-036 (korrektur): Das Pfand wird vom Preis abgezogen (steht im Text); für x < 3 bekäme Lisa Geld zurück, auch dann gilt 50 − (x − 3).
 - VT2-037 (sicherung): Bildungsregel der Terme ausdrücklich beschrieben; gerade Nummern ergeben 1, ungerade x − 1 (rekursiv nachgerechnet).
-- VT2-038 (sicherung): a und b verschieden aus 1 … 5 (steht im Text); alle 20 Paare ergeben 8 Werte von 16 bis 24 ohne 20.
+- VT2-038 (sicherung): a und b verschiedene ganze Zahlen von 1 bis 20 (steht im Text); alle 380 Paare nachgerechnet: 38 Werte (1 bis 39 ohne 20), größter 39. Auflisten aller Paare ist zu lang.
 
 ## terme.umformen / aequivalenz
 
@@ -135,10 +135,10 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 
 ## zahlen.natuerlich / strahl_eintragen
 
-- VT2-095 (test): „dieselben zwei Zahlen“ steht im Text; der Unterschied 300 ist auf beiden Strahlen gleich, 300 : 4 = 75 ganzzahlig.
+- VT2-095 (sicherung, nach Vorprüfung W1-3 aus dem Test hierher getauscht): „dieselben zwei Zahlen“ steht im Text; der Unterschied 300 ist auf beiden Strahlen gleich, 300 : 4 = 75 ganzzahlig.
 - VT2-096 (korrektur): Für 200 Strichzahlen geprüft, dass das Doppelte nie auf einem Strich liegt; die Beschriftung 300, 500, 700, … steht im Text.
 - VT2-097 (korrektur): Für alle Zehnerzahlen 10 … 1 000 nachgerechnet: Lenas Marke liegt immer genau 10 zu weit links.
-- VT2-098 (sicherung): Ränder 0 und 12 000 ausgeschlossen; gemeinsame Striche alle 600, also 19; Auflisten aller 59 bzw. 79 Striche ist absichtlich unbequem.
+- VT2-098 (test, nach Vorprüfung W1-3): Ränder 0 und 12 000 ausgeschlossen; gemeinsame Striche alle 600, also 19; Auflisten aller 59 bzw. 79 Striche ist absichtlich unbequem.
 - VT2-099 (sicherung): Die Abstände sind gleich groß (steht im Text), die Beschriftung 0, 10, 100, 1 000 wächst „regelmäßig“ um das Zehnfache – genau das ist die Fehlvorstellung.
 
 ## zahlen.natuerlich / runden_regel

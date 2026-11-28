@@ -204,7 +204,7 @@ pruefe('VT2-035', [2, _f35(1) - _f35(0), _f35(0)])
 waehle('VT2-036', lambda m: m.startswith('Mia hat recht') and all(50 - (x - 3) == 53 - x != 50 - x - 3 for x in range(0, 50)))
 def _T37(n, x): return x - 1 if n == 1 else x - _T37(n - 1, x)
 pruefe('VT2-037', [_T37(10, 50), _T37(11, 50)])
-_w38 = {20 - (a - b) for a in range(1, 6) for b in range(1, 6) if a != b}
+_w38 = {20 - (a - b) for a in range(1, 21) for b in range(1, 21) if a != b}
 pruefe('VT2-038', [len(_w38), max(_w38)])
 # aequivalenz
 _z39 = all((a == c and b == d) for a in range(-5, 6) for b in range(-5, 6) for c in range(-5, 6) for d in range(-5, 6) if b == d and a + b == c + d)
@@ -298,7 +298,7 @@ assert len(_best) == 1
 _sp110 = {n: _add(n) - len(roem(n)) for n in range(10, 100)}
 pruefe('VT2-110', [n for n in _sp110 if _sp110[n] == 5])
 waehle('VT2-111', lambda m: roem(roem_wert(m)) != m)
-waehle('VT2-112', lambda m: m.startswith('Ben irrt sich') and len(roem(19)) < len(roem(18)) == 5 and any(len(roem(n + 1)) < len(roem(n)) for n in range(1, 9)))
+waehle('VT2-112', lambda m: m.startswith('Ben irrt sich') and len(roem(15)) < len(roem(14)) == 3 and any(len(roem(n + 1)) < len(roem(n)) for n in range(1, 9)))
 pruefe('VT2-113', max(n for n in range(1, 6000) if 'MMMM' not in roem(n)))
 pruefe('VT2-114', min(n for n in range(1, 200) if len(roem(n)) == 6))
 # dualsystem

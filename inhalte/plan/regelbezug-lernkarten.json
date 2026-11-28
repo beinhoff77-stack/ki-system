@@ -1,0 +1,6045 @@
+{
+ "stand": "erzeugt von tools/regelbezug_lernkarten.py – nicht von Hand ändern",
+ "hinweis": "Je Thema und Lernkarte (Etappe, lernziel): Hauptregel (Kennung aus kennungen.json) und bis zu zwei weitere. quelle: aufgaben | thema | offen (offen = keine Regel, siehe redaktion). Geteilte Themen (<thema>_teilN) unter dem Grundthema nachschlagen.",
+ "regeln_fuer_die_zuordnung": "aufgaben: mindestens 2 neue Aufgaben der Lernkarte mit Regel und die häufigste hat mindestens 2/3; thema: das Thema steht in der Themenliste genau einer Kennung und keine Aufgabe der Lernkarte widerspricht; sonst offen.",
+ "teile": {
+  "abbildungen.kongruenz_teil2": "abbildungen.kongruenz",
+  "abbildungen.kongruenz_teil3": "abbildungen.kongruenz",
+  "geometrie.konstruktion_teil2": "geometrie.konstruktion",
+  "groessen.proportional_teil2": "groessen.proportional",
+  "messen.prisma_zylinder_teil2": "messen.prisma_zylinder",
+  "raum.schraegbilder_teil2": "raum.schraegbilder",
+  "stochastik.grundbegriffe_teil2": "stochastik.grundbegriffe",
+  "terme.umformen_teil2": "terme.umformen"
+ },
+ "themen": {
+  "abbildungen.aehnlichkeit": {
+   "thema_id": 47,
+   "klasse_gym_by": 9,
+   "lernkarten": {
+    "streckung": {
+     "regel": "id.geometrie.aehnlich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "bildgerade": {
+     "regel": "id.geometrie.aehnlich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "schwerpunkt": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "aehnlich": {
+     "regel": "id.geometrie.aehnlich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "strahlensatz1": {
+     "regel": "id.geometrie.aehnlich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "strahlensatz2": {
+     "regel": "id.geometrie.aehnlich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "flaeche_volumen": {
+     "regel": "id.geometrie.aehnlich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "anwendung": {
+     "regel": "id.geometrie.aehnlich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "streckung_vektor": {
+     "regel": "id.geometrie.aehnlich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "abbildungen.determinanten2": {
+   "thema_id": 74,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "det_berechnen": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "parallelogramm": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "dreieck": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "umlaufsinn": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "viereck": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "vieleck": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "abbildungen.kongruenz": {
+   "thema_id": 46,
+   "klasse_gym_by": 7,
+   "lernkarten": {
+    "achsenspiegelung": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [
+      "id.geometrie.abstand"
+     ],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "4/6"
+    },
+    "punktspiegelung": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "mittelsenkrechte": {
+     "regel": "id.geometrie.abstand",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "winkelhalbierende": {
+     "regel": "id.geometrie.abstand",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "verschiebung": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "gegenvektor": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "drehung": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 7,
+     "anteil": "7/7"
+    },
+    "symmetrie": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "vierecke_ordnen": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "eigenschaften": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "vektor_koordinaten": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "vektor_drehen": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    }
+   }
+  },
+  "abbildungen.matrizen": {
+   "thema_id": 49,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "bildpunkt": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "abbildungsmatrix": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "drehung": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "rechnen": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "inverse": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "skalarprodukt": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "abstand": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "abbildungen.vektoren": {
+   "thema_id": 48,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "vektor_bestimmen": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "bildpunkt": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "gegenvektor": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "addition": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "punkt_berechnen": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "eigenschaften": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "bruch.brueche": {
+   "thema_id": 21,
+   "klasse_gym_by": 6,
+   "lernkarten": {
+    "bruchteil_von": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "anteil_bestimmen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "ganzes_bestimmen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "erweitern": {
+     "regel": "rr.kuerzen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "ggt": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "kuerzen": {
+     "regel": "rr.kuerzen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "verhaeltnis_kuerzen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "gleichwertig": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "gemischte_zahlen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "kgv": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "vergleichen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "zahlenstrahl": {
+     "regel": "id.zahlen.zahlengerade",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "zahlbereiche": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "verstehen": {
+     "regel": "rr.kuerzen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 2,
+     "anteil": "2/2"
+    }
+   }
+  },
+  "bruch.dezimal": {
+   "thema_id": 22,
+   "klasse_gym_by": 6,
+   "lernkarten": {
+    "stellenwerte": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "vergleichen_ordnen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "runden": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "bruch_zu_dezimal": {
+     "regel": "id.zahlen.schreibweisen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "dezimal_zu_bruch": {
+     "regel": "id.zahlen.schreibweisen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "merkwerte": {
+     "regel": "id.zahlen.schreibweisen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "periodisch": {
+     "regel": "id.zahlen.schreibweisen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "verstehen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    }
+   }
+  },
+  "bruch.prozent": {
+   "thema_id": 24,
+   "klasse_gym_by": 6,
+   "lernkarten": {
+    "prozent_bedeutung": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "prozentwert": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "prozentsatz": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "grundwert": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "rabatt_aufschlag": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "verstehen": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "bruch.prozent_grundwert": {
+   "thema_id": 94,
+   "klasse_gym_by": 7,
+   "lernkarten": {
+    "faktor": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "vermehrt": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "vermindert": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "zurueck": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "prozentsatz": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "mehrfach": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "formel": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "argumente": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    }
+   }
+  },
+  "bruch.rechnen": {
+   "thema_id": 23,
+   "klasse_gym_by": 6,
+   "lernkarten": {
+    "brueche_plus_minus": {
+     "regel": "rr.bruchrechnen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "dezimal_plus_minus": {
+     "regel": "rr.plusminus",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "vorzeichen": {
+     "regel": "rr.plusminus",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "brueche_mal": {
+     "regel": "rr.bruchrechnen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "brueche_geteilt": {
+     "regel": "rr.bruchrechnen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "dezimal_mal": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "dezimal_geteilt": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "potenzen": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "rechenvorteile": {
+     "regel": "rr.tauschen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 2,
+     "anteil": "2/2"
+    },
+    "gemischt": {
+     "regel": "rr.reihenfolge",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 2,
+     "anteil": "2/2"
+    },
+    "fehler_finden": {
+     "regel": "rr.bruchrechnen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 2,
+     "anteil": "2/2"
+    },
+    "sach": {
+     "regel": "rr.bruchrechnen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 2,
+     "anteil": "2/2"
+    }
+   }
+  },
+  "daten.boxplot": {
+   "thema_id": 95,
+   "klasse_gym_by": 7,
+   "lernkarten": {
+    "median": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "kennwerte": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "mittel_median": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "quartile": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "boxplot": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "vergleichen": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "daten.darstellen": {
+   "thema_id": 57,
+   "klasse_gym_by": 6,
+   "lernkarten": {
+    "absolute_haeufigkeit": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "relative_haeufigkeit": {
+     "regel": "id.daten.anteil",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "tabelle_auswerten": {
+     "regel": "id.daten.anteil",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "saeulendiagramm": {
+     "regel": "rr.verhaeltnis",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "4/5"
+    },
+    "kreisdiagramm": {
+     "regel": "id.daten.anteil",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "irrefuehrend": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    }
+   }
+  },
+  "daten.kennwerte": {
+   "thema_id": 58,
+   "klasse_gym_by": 6,
+   "lernkarten": {
+    "mittelwert": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "mittel_tabelle": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "mittel_rueckwaerts": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "daten.normalverteilung": {
+   "thema_id": 80,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "eigenschaften": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "regel": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "anteile": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "zwert": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "vergleichen": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "daten.standardabweichung": {
+   "thema_id": 79,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "abweichung": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "varianz": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "sigma": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "eigenschaften": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "deuten": {
+     "regel": "id.daten.kennzahl",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "daten.stichproben": {
+   "thema_id": 81,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "begriffe": {
+     "regel": "id.daten.teil_ganzes",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "hochrechnen": {
+     "regel": "id.daten.teil_ganzes",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "repraesentativ": {
+     "regel": "id.daten.teil_ganzes",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "fehlerquellen": {
+     "regel": "id.daten.teil_ganzes",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "aussagen": {
+     "regel": "id.daten.teil_ganzes",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "daten.zweidimensional": {
+   "thema_id": 59,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "ablesen": {
+     "regel": "id.daten.teil_ganzes",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "zusammenhang": {
+     "regel": "id.daten.teil_ganzes",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "gerade": {
+     "regel": "id.daten.teil_ganzes",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "ausreisser": {
+     "regel": "id.daten.teil_ganzes",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "kausal": {
+     "regel": "id.daten.teil_ganzes",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "finanzen.zinsen": {
+   "thema_id": 71,
+   "klasse_gym_by": 6,
+   "lernkarten": {
+    "begriffe": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "rollen": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "jahreszinsen": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "jahreszinsen_komma": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "zinssatz": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "kapital": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "monatszinsen": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "zeitanteil": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "finanzen.zinseszins": {
+   "thema_id": 72,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "jahr": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "faktor": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "formel": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "rueck": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "vergleich": {
+     "regel": "id.verhaeltnisse.prozent",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "funktionen.betrag": {
+   "thema_id": 75,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "betrag": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "graph": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "stueckweise": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "gleichung": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "verstehen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    }
+   }
+  },
+  "funktionen.exponential_log": {
+   "thema_id": 37,
+   "klasse_gym_by": 10,
+   "lernkarten": {
+    "werte": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "faktor": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "linear_oder_exponentiell": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "modell": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "graph": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "punkte": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "logfunktion": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    }
+   }
+  },
+  "funktionen.folgen": {
+   "thema_id": 41,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "explizit": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "rekursiv": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "arithmetisch": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "geometrisch": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "erkennen": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "funktionen.ganzrational": {
+   "thema_id": 39,
+   "klasse_gym_by": 10,
+   "lernkarten": {
+    "grad": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "ausmultiplizieren": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "randverhalten": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "symmetrie": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "nullstellen": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "graph_term": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "term_bestimmen": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "funktionen.gebrochen": {
+   "thema_id": 34,
+   "klasse_gym_by": 8,
+   "lernkarten": {
+    "definitionsmenge": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "asymptoten": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "achsenpunkte": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "parameter": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "beurteilen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    }
+   }
+  },
+  "funktionen.grundbegriffe": {
+   "thema_id": 32,
+   "klasse_gym_by": 8,
+   "lernkarten": {
+    "eindeutig": {
+     "regel": "id.funktionen.zuordnung",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 7,
+     "anteil": "7/7"
+    },
+    "mengen": {
+     "regel": "id.funktionen.zuordnung",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 7,
+     "anteil": "6/7"
+    },
+    "funktionswert": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "stelle": {
+     "regel": "id.funktionen.zuordnung",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "5/6"
+    },
+    "wertetabelle": {
+     "regel": "id.funktionen.zuordnung",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "graph_lesen": {
+     "regel": "id.funktionen.zuordnung",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "nullstellen": {
+     "regel": "id.funktionen.zuordnung",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "punkt_graph": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "sachzusammenhang": {
+     "regel": "id.funktionen.zuordnung",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    }
+   }
+  },
+  "funktionen.linear": {
+   "thema_id": 33,
+   "klasse_gym_by": 8,
+   "lernkarten": {
+    "ablesen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "graph_ablesen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "zwei_punkte": {
+     "regel": "rr.verhaeltnis",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 7,
+     "anteil": "7/7"
+    },
+    "proportional": {
+     "regel": "rr.verhaeltnis",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "aufstellen": {
+     "regel": "rr.waage",
+     "weitere": [
+      "id.funktionen.wachstum"
+     ],
+     "quelle": "aufgaben",
+     "aufgaben": 7,
+     "anteil": "5/7"
+    },
+    "schnittpunkte": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "lage": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "einsetzen": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "wirkung": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "bueschel": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "deuten": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 7,
+     "anteil": "7/7"
+    }
+   }
+  },
+  "funktionen.potenz": {
+   "thema_id": 36,
+   "klasse_gym_by": 9,
+   "lernkarten": {
+    "werte": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "symmetrie": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "verlauf": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "parameter": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "negativ": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "umkehrbar": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "linear": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "wurzelfunktion": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "quadratisch": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "spiegeln": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    }
+   }
+  },
+  "funktionen.quadratisch": {
+   "thema_id": 35,
+   "klasse_gym_by": 9,
+   "lernkarten": {
+    "scheitel": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "parameter": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "spiegeln": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "umformen": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "nullstellen": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "punkte": {
+     "regel": "id.funktionen.zuordnung",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "bestimmen": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "schnittpunkte": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "extremwert": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "funktionen.reihen": {
+   "thema_id": 76,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "rekursiv": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "arithmetisch": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "geometrisch": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "summenzeichen": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "arith": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "geom": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "sach": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "verstehen": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "funktionen.scharen": {
+   "thema_id": 78,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "einsetzen": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "parallelenschar": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "bueschel": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "wirkung": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "loesung_parameter": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "sachaufgabe": {
+     "regel": "id.funktionen.wachstum",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "funktionen.transformation": {
+   "thema_id": 40,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "nach_oben": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "nach_rechts": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "strecken": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "spiegeln": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "kombiniert": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "punkte": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "funktionen.trig": {
+   "thema_id": 38,
+   "klasse_gym_by": 10,
+   "lernkarten": {
+    "bogenmass": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "werte": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "periode": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "parameter": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "verschiebung_x": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "zuordnen": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "eigenschaften": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "anwendung": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "funktionen.umkehr": {
+   "thema_id": 77,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "umkehrbar": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "werte": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "linear": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "quadratisch": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "exp_log": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "spiegeln": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    }
+   }
+  },
+  "geometrie.grundbegriffe": {
+   "thema_id": 42,
+   "klasse_gym_by": 5,
+   "lernkarten": {
+    "koordinaten": {
+     "regel": "id.geometrie.abstand",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "strecken": {
+     "regel": "rr.plusminus",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "lagebeziehungen": {
+     "regel": "id.geometrie.abstand",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 7,
+     "anteil": "7/7"
+    },
+    "kreis_lage": {
+     "regel": "id.geometrie.abstand",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "winkelarten": {
+     "regel": "id.geometrie.winkel",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "vierecke": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "verstehen": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "geometrie.konstruktion": {
+   "thema_id": 44,
+   "klasse_gym_by": 7,
+   "lernkarten": {
+    "gleichschenklig": {
+     "regel": "id.geometrie.winkel",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "kongruenzsatz": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "konstruierbar": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "planfigur": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "vierecke": {
+     "regel": "id.geometrie.winkel",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "satz_kehrsatz": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "vierecke_konstruieren": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    }
+   }
+  },
+  "geometrie.kreis": {
+   "thema_id": 45,
+   "klasse_gym_by": 7,
+   "lernkarten": {
+    "thales": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "umkehrung": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "beweis": {
+     "regel": "id.geometrie.deckungsgleich",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "lage": {
+     "regel": "id.geometrie.abstand",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "tangente": {
+     "regel": "id.geometrie.abstand",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "umkreis_inkreis": {
+     "regel": "id.geometrie.abstand",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "geometrie.ortslinien": {
+   "thema_id": 73,
+   "klasse_gym_by": 5,
+   "lernkarten": {
+    "kreislinie": {
+     "regel": "id.geometrie.abstand",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "parallelen": {
+     "regel": "id.geometrie.abstand",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "zwei_kreise": {
+     "regel": "id.geometrie.abstand",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "verknuepfen": {
+     "regel": "id.geometrie.abstand",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "sachsituationen": {
+     "regel": "id.geometrie.abstand",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "verstehen": {
+     "regel": "id.geometrie.abstand",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "geometrie.winkel": {
+   "thema_id": 43,
+   "klasse_gym_by": 5,
+   "lernkarten": {
+    "ergaenzen": {
+     "regel": "id.geometrie.winkel",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 7,
+     "anteil": "7/7"
+    },
+    "kreuzung": {
+     "regel": "id.geometrie.winkel",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 7,
+     "anteil": "7/7"
+    },
+    "um_punkt": {
+     "regel": "id.geometrie.winkel",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "uhr": {
+     "regel": "id.geometrie.winkel",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "drehungen": {
+     "regel": "id.geometrie.winkel",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "figuren": {
+     "regel": "id.geometrie.winkel",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "verstehen": {
+     "regel": "id.geometrie.winkel",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    }
+   }
+  },
+  "geometrie.winkelsaetze": {
+   "thema_id": 98,
+   "klasse_gym_by": 7,
+   "lernkarten": {
+    "scheitel_neben": {
+     "regel": "id.geometrie.winkel",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "stufen_wechsel": {
+     "regel": "id.geometrie.winkel",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "parallel_pruefen": {
+     "regel": "id.geometrie.winkel",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "innenwinkelsumme": {
+     "regel": "id.geometrie.winkel",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "aussenwinkel": {
+     "regel": "id.geometrie.winkel",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "vieleck": {
+     "regel": "id.geometrie.winkel",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "parkett": {
+     "regel": "id.geometrie.winkel",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "figuren": {
+     "regel": "id.geometrie.winkel",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "beweisen": {
+     "regel": "id.geometrie.winkel",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    }
+   }
+  },
+  "gleichungen.bruch": {
+   "thema_id": 5,
+   "klasse_gym_by": 8,
+   "lernkarten": {
+    "definitionsmenge": {
+     "regel": "id.algebra.erlaubte_zahlen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "ein_bruch": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "3/4"
+    },
+    "ueber_kreuz": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "hauptnenner": {
+     "regel": "rr.bruchrechnen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "4/5"
+    },
+    "scheinloesung": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "verhaeltnis": {
+     "regel": "rr.verhaeltnis",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "graphisch": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "2/3"
+    }
+   }
+  },
+  "gleichungen.einfach": {
+   "thema_id": 1,
+   "klasse_gym_by": 5,
+   "lernkarten": {
+    "waage": {
+     "regel": "rr.waage",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "zwei_schritte": {
+     "regel": "rr.gegenrechnung",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "probe": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "aufstellen": {
+     "regel": "id.algebra.term",
+     "weitere": [
+      "rr.gegenrechnung"
+     ],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "4/6"
+    },
+    "ohne_loesung": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    }
+   }
+  },
+  "gleichungen.exponential": {
+   "thema_id": 10,
+   "klasse_gym_by": 10,
+   "lernkarten": {
+    "logarithmus": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "gleiche_basis": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "mit_log_loesen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "potenzregel": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "wachstum": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "verstehen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    }
+   }
+  },
+  "gleichungen.formeln": {
+   "thema_id": 4,
+   "klasse_gym_by": 8,
+   "lernkarten": {
+    "ein_schritt": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "zwei_schritte": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "pruefen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "einsetzen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "geometrie": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    }
+   }
+  },
+  "gleichungen.lgs2": {
+   "thema_id": 6,
+   "klasse_gym_by": 8,
+   "lernkarten": {
+    "pruefen": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "grafisch": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "einsetzen": {
+     "regel": "rr.minusklammer",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "gleichsetzen": {
+     "regel": "rr.waage",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "addition": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "verfahren": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "3/4"
+    },
+    "loesbarkeit": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "loesung_parameter": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "sachaufgabe": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    }
+   }
+  },
+  "gleichungen.lgs3": {
+   "thema_id": 7,
+   "klasse_gym_by": 9,
+   "lernkarten": {
+    "pruefen": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "stufenform": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "eliminieren": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "loesen": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "parabel": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "sachaufgabe": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "gleichungen.linear": {
+   "thema_id": 2,
+   "klasse_gym_by": 7,
+   "lernkarten": {
+    "waage": {
+     "regel": "rr.waage",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "beide_seiten": {
+     "regel": "rr.waage",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "5/6"
+    },
+    "klammern": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "probe": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "5/6"
+    },
+    "sonderfaelle": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "sach": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "5/6"
+    }
+   }
+  },
+  "gleichungen.polynom": {
+   "thema_id": 11,
+   "klasse_gym_by": 10,
+   "lernkarten": {
+    "ausklammern": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "nullprodukt": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "substitution": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "vielfachheit": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "verstehen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    }
+   }
+  },
+  "gleichungen.potenz": {
+   "thema_id": 9,
+   "klasse_gym_by": 9,
+   "lernkarten": {
+    "gerade": {
+     "regel": "id.algebra.hoeherer_grad",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "ungerade": {
+     "regel": "id.algebra.hoeherer_grad",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "anzahl": {
+     "regel": "id.algebra.hoeherer_grad",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "umformen": {
+     "regel": "id.algebra.hoeherer_grad",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "naeherung": {
+     "regel": "id.algebra.hoeherer_grad",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "sachaufgabe": {
+     "regel": "id.algebra.hoeherer_grad",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "gleichungen.quadratisch": {
+   "thema_id": 8,
+   "klasse_gym_by": 9,
+   "lernkarten": {
+    "reinquadratisch": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "ausklammern": {
+     "regel": "id.algebra.hoeherer_grad",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "2/3"
+    },
+    "faktorisieren": {
+     "regel": "rr.nullprodukt",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "ergaenzung": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "loesungsformel": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "bruchgleichung": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "diskriminante": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "sachaufgabe": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "gleichungen.reinquadratisch": {
+   "thema_id": 12,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "schaetzen": {
+     "regel": "id.algebra.hoeherer_grad",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "grundform": {
+     "regel": "id.algebra.hoeherer_grad",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "umformen": {
+     "regel": "id.algebra.hoeherer_grad",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "gerundet": {
+     "regel": "id.algebra.hoeherer_grad",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "klammer": {
+     "regel": "id.algebra.hoeherer_grad",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "sachaufgabe": {
+     "regel": "id.algebra.hoeherer_grad",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "gleichungen.trig": {
+   "thema_id": 14,
+   "klasse_gym_by": 9,
+   "lernkarten": {
+    "sinus": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "kosinus": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "tangens": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "anzahl": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "umformen": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "anwendung": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "gleichungen.ungleichungen": {
+   "thema_id": 3,
+   "klasse_gym_by": 8,
+   "lernkarten": {
+    "umformen": {
+     "regel": "rr.waage",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "umdrehen": {
+     "regel": "rr.waage",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 7,
+     "anteil": "7/7"
+    },
+    "klammern": {
+     "regel": "rr.waage",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "4/5"
+    },
+    "intervall": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "pruefen": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 7,
+     "anteil": "7/7"
+    },
+    "grafisch": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "sachaufgabe": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    }
+   }
+  },
+  "gleichungen.wurzel": {
+   "thema_id": 13,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "definitionsmenge": {
+     "regel": "id.algebra.erlaubte_zahlen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "quadrieren": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "isolieren": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "probe": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "zwei_seiten": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "sachaufgabe": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "groessen.einheiten": {
+   "thema_id": 25,
+   "klasse_gym_by": 5,
+   "lernkarten": {
+    "schaetzen": {
+     "regel": "id.verhaeltnisse.groesse",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "laenge": {
+     "regel": "id.verhaeltnisse.groesse",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 7,
+     "anteil": "7/7"
+    },
+    "masse": {
+     "regel": "id.verhaeltnisse.groesse",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 7,
+     "anteil": "7/7"
+    },
+    "zeit": {
+     "regel": "id.verhaeltnisse.groesse",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "kommaschreibweise": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "rechnen": {
+     "regel": "id.verhaeltnisse.groesse",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "massstab": {
+     "regel": "rr.verhaeltnis",
+     "weitere": [
+      "id.verhaeltnisse.groesse"
+     ],
+     "quelle": "aufgaben",
+     "aufgaben": 7,
+     "anteil": "5/7"
+    },
+    "verstehen": {
+     "regel": "id.verhaeltnisse.groesse",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    }
+   }
+  },
+  "groessen.indirekt": {
+   "thema_id": 93,
+   "klasse_gym_by": 8,
+   "lernkarten": {
+    "erkennen": {
+     "regel": "id.funktionen.zuordnung",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "2/3"
+    },
+    "vervielfachen": {
+     "regel": "rr.verhaeltnis",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "produkt": {
+     "regel": "id.funktionen.zuordnung",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "dreisatz": {
+     "regel": "rr.verhaeltnis",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "graph": {
+     "regel": "id.funktionen.zuordnung",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "unterscheiden": {
+     "regel": "id.funktionen.zuordnung",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "sach": {
+     "regel": "rr.verhaeltnis",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "groessen.proportional": {
+   "thema_id": 26,
+   "klasse_gym_by": 5,
+   "lernkarten": {
+    "erkennen": {
+     "regel": "id.verhaeltnisse.wert_fuer_eins",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "vervielfachen": {
+     "regel": "rr.verhaeltnis",
+     "weitere": [
+      "id.verhaeltnisse.wert_fuer_eins"
+     ],
+     "quelle": "aufgaben",
+     "aufgaben": 7,
+     "anteil": "5/7"
+    },
+    "pruefen": {
+     "regel": "id.verhaeltnisse.wert_fuer_eins",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 7,
+     "anteil": "7/7"
+    },
+    "einheit": {
+     "regel": "id.verhaeltnisse.wert_fuer_eins",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 7,
+     "anteil": "7/7"
+    },
+    "dreisatz": {
+     "regel": "rr.verhaeltnis",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 7,
+     "anteil": "7/7"
+    },
+    "geschickt": {
+     "regel": "rr.verhaeltnis",
+     "weitere": [
+      "id.verhaeltnisse.wert_fuer_eins"
+     ],
+     "quelle": "aufgaben",
+     "aufgaben": 7,
+     "anteil": "5/7"
+    },
+    "sach": {
+     "regel": "id.verhaeltnisse.wert_fuer_eins",
+     "weitere": [
+      "rr.verhaeltnis"
+     ],
+     "quelle": "aufgaben",
+     "aufgaben": 8,
+     "anteil": "6/8"
+    },
+    "aenderung": {
+     "regel": "rr.verhaeltnis",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "4/6"
+    }
+   }
+  },
+  "groessen.verhaeltnisse": {
+   "thema_id": 27,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "kuerzen": {
+     "regel": "id.verhaeltnisse.wert_fuer_eins",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "gleichwertig": {
+     "regel": "id.verhaeltnisse.wert_fuer_eins",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "aufteilen": {
+     "regel": "id.verhaeltnisse.wert_fuer_eins",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "proportion": {
+     "regel": "id.verhaeltnisse.wert_fuer_eins",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "einheitsrate": {
+     "regel": "id.verhaeltnisse.wert_fuer_eins",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "aenderung": {
+     "regel": "id.verhaeltnisse.wert_fuer_eins",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "mengen.grundbegriffe": {
+   "thema_id": 83,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "elemente": {
+     "regel": "id.daten.anteil",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "schnitt": {
+     "regel": "id.daten.anteil",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "vereinigung": {
+     "regel": "id.daten.anteil",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "venn": {
+     "regel": "id.daten.anteil",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "verstehen": {
+     "regel": "id.daten.anteil",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "messen.flaechen": {
+   "thema_id": 50,
+   "klasse_gym_by": 5,
+   "lernkarten": {
+    "einheitsquadrate": {
+     "regel": "id.flaeche_raum.auslegen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "rechteck": {
+     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "weitere": [
+      "id.flaeche_raum.auslegen"
+     ],
+     "quelle": "aufgaben",
+     "aufgaben": 8,
+     "anteil": "6/8"
+    },
+    "einheiten": {
+     "regel": "id.verhaeltnisse.groesse",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "kommaschreibweise": {
+     "regel": "rr.stellenwert",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "zerlegen": {
+     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "sachaufgaben": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "verstehen": {
+     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    }
+   }
+  },
+  "messen.flaechen_vielecke": {
+   "thema_id": 99,
+   "klasse_gym_by": 6,
+   "lernkarten": {
+    "parallelogramm": {
+     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "dreieck": {
+     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "trapez": {
+     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "rueckwaerts": {
+     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "zusammengesetzt": {
+     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "oberflaeche": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "verstehen": {
+     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "drachen_raute": {
+     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "messen.koerper_berechnung": {
+   "thema_id": 53,
+   "klasse_gym_by": 5,
+   "lernkarten": {
+    "quader": {
+     "regel": "id.flaeche_raum.aus_dem_quader",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "oberflaeche": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "sachaufgaben": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "zusammengesetzt": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "verstehen": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "messen.koerper_darstellung": {
+   "thema_id": 52,
+   "klasse_gym_by": 8,
+   "lernkarten": {
+    "prisma": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "netz": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "zylinder": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "schraegbild": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "ansichten": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "beurteilen": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "messen.kreisberechnung": {
+   "thema_id": 51,
+   "klasse_gym_by": 8,
+   "lernkarten": {
+    "umfang": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "flaeche": {
+     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "exakt": {
+     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "verstehen": {
+     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "sektor": {
+     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "zusammengesetzt": {
+     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "messen.prisma_zylinder": {
+   "thema_id": 101,
+   "klasse_gym_by": 8,
+   "lernkarten": {
+    "prisma_volumen": {
+     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "3/4"
+    },
+    "prisma_oberflaeche": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "prisma_umstellen": {
+     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "zylinder_volumen": {
+     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "zylinder_oberflaeche": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "sach": {
+     "regel": "id.flaeche_raum.aus_dem_quader",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "2/3"
+    },
+    "verstehen": {
+     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "cavalieri": {
+     "regel": "id.flaeche_raum.aus_dem_quader",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "messen.volumen": {
+   "thema_id": 100,
+   "klasse_gym_by": 6,
+   "lernkarten": {
+    "einheitswuerfel": {
+     "regel": "id.flaeche_raum.auslegen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "quader": {
+     "regel": "id.flaeche_raum.aus_dem_quader",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "einheiten": {
+     "regel": "id.flaeche_raum.auslegen",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "liter": {
+     "regel": "id.flaeche_raum.auslegen",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "rueckwaerts": {
+     "regel": "id.flaeche_raum.aus_dem_quader",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "zusammengesetzt": {
+     "regel": "id.flaeche_raum.aus_dem_quader",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "verstehen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    }
+   }
+  },
+  "raum.pyramide_kegel_kugel": {
+   "thema_id": 92,
+   "klasse_gym_by": 10,
+   "lernkarten": {
+    "pyr_volumen": {
+     "regel": "id.flaeche_raum.aus_dem_quader",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "pyr_oberflaeche": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "kegel_volumen": {
+     "regel": "id.flaeche_raum.aus_dem_quader",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "kegel_mantel": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "kugel": {
+     "regel": "id.flaeche_raum.aus_dem_quader",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "sachkontext": {
+     "regel": "id.flaeche_raum.aus_dem_quader",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 2,
+     "anteil": "2/2"
+    },
+    "verstehen": {
+     "regel": "id.flaeche_raum.aus_dem_quader",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 2,
+     "anteil": "2/2"
+    }
+   }
+  },
+  "raum.schraegbilder": {
+   "thema_id": 91,
+   "klasse_gym_by": 10,
+   "lernkarten": {
+    "pyramide": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "lage": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "koordinaten": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "rotation": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "axialschnitt": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "wahre_groesse": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "koerper_symmetrie": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "raumwinkel": {
+     "regel": "id.flaeche_raum.haut",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "sonder.graphentheorie": {
+   "thema_id": 65,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "grundbegriffe": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "euler": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "kuerzester": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "spannbaum": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "verstehen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    }
+   }
+  },
+  "sonder.logik": {
+   "thema_id": 84,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "aussagen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "negation": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "verknuepfen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "tafel": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "folgerung": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    }
+   }
+  },
+  "sonder.optimierung": {
+   "thema_id": 66,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "bereich": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "aufstellen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "ecken": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "optimum": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "sach": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    }
+   }
+  },
+  "stochastik.bedingt": {
+   "thema_id": 82,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "tafel": {
+     "regel": "id.daten.stufen",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "formel": {
+     "regel": "id.daten.stufen",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "baum": {
+     "regel": "id.daten.stufen",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "unabhaengig": {
+     "regel": "id.daten.stufen",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "rueckschluss": {
+     "regel": "id.daten.stufen",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "verstehen": {
+     "regel": "id.daten.stufen",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "stochastik.grundbegriffe": {
+   "thema_id": 61,
+   "klasse_gym_by": 8,
+   "lernkarten": {
+    "begriffe": {
+     "regel": "id.daten.anteil",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "rel_haeufigkeit": {
+     "regel": "id.daten.anteil",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "laplace": {
+     "regel": "id.daten.anteil",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "laplace_pruefen": {
+     "regel": "id.daten.anteil",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "gegenereignis": {
+     "regel": "id.daten.anteil",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "2/3"
+    },
+    "grosse_zahlen": {
+     "regel": "id.daten.teil_ganzes",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 2,
+     "anteil": "2/2"
+    },
+    "darstellen": {
+     "regel": "id.daten.stufen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "stochastik.kombinatorik": {
+   "thema_id": 60,
+   "klasse_gym_by": 5,
+   "lernkarten": {
+    "systematisch": {
+     "regel": "id.daten.stufen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "zaehlprinzip": {
+     "regel": "id.daten.stufen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "reihenfolgen": {
+     "regel": "id.daten.stufen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "baumdiagramm": {
+     "regel": "id.daten.stufen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "bedingungen": {
+     "regel": "id.daten.stufen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "grenzen": {
+     "regel": "id.daten.stufen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "verstehen": {
+     "regel": "id.daten.stufen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "stochastik.mehrstufig": {
+   "thema_id": 62,
+   "klasse_gym_by": 10,
+   "lernkarten": {
+    "pfad_mult": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "pfad_add": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "ohne_zuruecklegen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "unabhaengig": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "gegenereignis": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "baum_ergaenzen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "simulation": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "pi_schaetzen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "verstehen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    }
+   }
+  },
+  "stochastik.simulation": {
+   "thema_id": 64,
+   "klasse_gym_by": 10,
+   "lernkarten": {
+    "zufallsgeraet": {
+     "regel": "id.daten.anteil",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "regel": {
+     "regel": "id.daten.anteil",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "zufallsziffern": {
+     "regel": "id.daten.teil_ganzes",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "auswerten": {
+     "regel": "id.daten.teil_ganzes",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "monte_carlo": {
+     "regel": "id.daten.teil_ganzes",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 2,
+     "anteil": "2/2"
+    },
+    "beurteilen": {
+     "regel": "id.daten.anteil",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "stochastik.verknuepft": {
+   "thema_id": 63,
+   "klasse_gym_by": 9,
+   "lernkarten": {
+    "elemente": {
+     "regel": "id.zahlen.bausteine",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 2,
+     "anteil": "2/2"
+    },
+    "schnitt": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "verknuepfen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "additionssatz": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "venn": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "mengen_verstehen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "vierfeld": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "tafel_wkeit": {
+     "regel": "id.daten.anteil",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 2,
+     "anteil": "2/2"
+    },
+    "bedingt": {
+     "regel": "id.daten.anteil",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "2/3"
+    },
+    "rueckschluss": {
+     "regel": "id.daten.stufen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "verstehen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    }
+   }
+  },
+  "terme.aufstellen": {
+   "thema_id": 28,
+   "klasse_gym_by": 7,
+   "lernkarten": {
+    "struktur": {
+     "regel": "id.algebra.term",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "termwert": {
+     "regel": "id.algebra.term",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "uebersetzen": {
+     "regel": "id.algebra.term",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "sachsituation": {
+     "regel": "id.algebra.term",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "muster": {
+     "regel": "id.algebra.term",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "deuten": {
+     "regel": "id.algebra.term",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "terme.bruchterme": {
+   "thema_id": 31,
+   "klasse_gym_by": 8,
+   "lernkarten": {
+    "definitionsmenge": {
+     "regel": "id.algebra.erlaubte_zahlen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "termwert": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "kuerzen": {
+     "regel": "rr.kuerzen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "erweitern": {
+     "regel": "rr.kuerzen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "addieren": {
+     "regel": "rr.bruchrechnen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "multiplizieren": {
+     "regel": "rr.bruchrechnen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "fehler_finden": {
+     "regel": "rr.kuerzen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    }
+   }
+  },
+  "terme.potenzgesetze": {
+   "thema_id": 30,
+   "klasse_gym_by": 6,
+   "lernkarten": {
+    "potenz_begriff": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "negativer_exponent": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "fehler_finden": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "terme.potenzgesetze_ganzzahlig": {
+   "thema_id": 103,
+   "klasse_gym_by": 8,
+   "lernkarten": {
+    "warum_gilt": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "gleiche_basis_ganz": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "exponent_und_potenz": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "terme_vereinfachen": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "fehler_ganz": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "terme.potenzgesetze_natuerlich": {
+   "thema_id": 102,
+   "klasse_gym_by": 7,
+   "lernkarten": {
+    "mal_gleiche_basis": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "gleicher_exponent": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "potenz_von_potenz": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "geteilt_gleiche_basis": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "anwenden": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "terme.quadratische_extreme": {
+   "thema_id": 97,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "ergaenzen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "scheitelform": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "extremwert": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "mit_faktor": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "optimierung": {
+     "regel": "id.funktionen.gleichung_form",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "terme.umformen": {
+   "thema_id": 29,
+   "klasse_gym_by": 7,
+   "lernkarten": {
+    "zusammenfassen": {
+     "regel": "rr.tauschen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "produkte": {
+     "regel": "rr.vorzeichen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "5/6"
+    },
+    "minusklammer": {
+     "regel": "rr.minusklammer",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "ausmultiplizieren": {
+     "regel": "rr.ausmultiplizieren",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "summe_mal_summe": {
+     "regel": "rr.ausmultiplizieren",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "ausklammern": {
+     "regel": "rr.ausmultiplizieren",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "aequivalenz": {
+     "regel": "id.algebra.term",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "binomisch": {
+     "regel": "rr.ausmultiplizieren",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "gleichungen_binomisch": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    }
+   }
+  },
+  "trigo.allgemein": {
+   "thema_id": 56,
+   "klasse_gym_by": 9,
+   "lernkarten": {
+    "einheitskreis": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "additionstheoreme": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "flaeche": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "sinussatz_seite": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "sinussatz_winkel": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "kosinussatz_seite": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "kosinussatz_winkel": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "satz_waehlen": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "anwendung": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "trigo.pythagoras": {
+   "thema_id": 54,
+   "klasse_gym_by": 9,
+   "lernkarten": {
+    "hypotenuse": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "kathete": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "umkehrung": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "koordinaten": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "raum": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "anwendung": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "trigo.rechtwinklig": {
+   "thema_id": 55,
+   "klasse_gym_by": 9,
+   "lernkarten": {
+    "seiten": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "verhaeltnisse": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "seite": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "winkel": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "beziehungen": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "anwendung": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "schnittwinkel": {
+     "regel": "id.geometrie.rechtwinklig",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "zahlen.ganz": {
+   "thema_id": 16,
+   "klasse_gym_by": 5,
+   "lernkarten": {
+    "deuten": {
+     "regel": "id.zahlen.zahlengerade",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "zahlengerade": {
+     "regel": "id.zahlen.zahlengerade",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "ordnen": {
+     "regel": "id.zahlen.zahlengerade",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "betrag": {
+     "regel": "id.zahlen.zahlengerade",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "schriftlich_plus_minus": {
+     "regel": "rr.stellenwert",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "addieren": {
+     "regel": "rr.plusminus",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "subtrahieren": {
+     "regel": "rr.plusminus",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "umkehraufgabe": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "ketten": {
+     "regel": "rr.plusminus",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "verstehen": {
+     "regel": "rr.plusminus",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "sach": {
+     "regel": "rr.plusminus",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    }
+   }
+  },
+  "zahlen.intervalle": {
+   "thema_id": 69,
+   "klasse_gym_by": 8,
+   "lernkarten": {
+    "lesen": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "schreiben": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "enthalten": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "beurteilen": {
+     "regel": "id.algebra.gleichung_loesen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    }
+   }
+  },
+  "zahlen.natuerlich": {
+   "thema_id": 15,
+   "klasse_gym_by": 5,
+   "lernkarten": {
+    "stellenwert": {
+     "regel": "rr.stellenwert",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "zahlwort_zu_ziffern": {
+     "regel": "id.zahlen.schreibweisen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "ziffern_zu_zahlwort": {
+     "regel": "id.zahlen.schreibweisen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "3/4"
+    },
+    "strahl_ablesen": {
+     "regel": "id.zahlen.zahlengerade",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "strahl_eintragen": {
+     "regel": "id.zahlen.zahlengerade",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "vergleichen": {
+     "regel": "id.zahlen.buendeln",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "runden_regel": {
+     "regel": "id.zahlen.buendeln",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "runden_uebertrag": {
+     "regel": "id.zahlen.buendeln",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "runden_sinnvoll": {
+     "regel": "id.zahlen.buendeln",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "unendlich": {
+     "regel": "id.zahlen.schreibweisen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "roemisch_schreiben": {
+     "regel": "id.zahlen.schreibweisen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "roemisch_system": {
+     "regel": "id.zahlen.schreibweisen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "dualsystem": {
+     "regel": "id.zahlen.buendeln",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "zahlen.potenzen_basis": {
+   "thema_id": 67,
+   "klasse_gym_by": 5,
+   "lernkarten": {
+    "schreibweise": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "berechnen": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "quadrat": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "vertauschen": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "zehner": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "negativ": {
+     "regel": "rr.vorzeichen",
+     "weitere": [
+      "rr.potenz"
+     ],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "4/6"
+    },
+    "sach": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    }
+   }
+  },
+  "zahlen.potenzen_zehner": {
+   "thema_id": 19,
+   "klasse_gym_by": 6,
+   "lernkarten": {
+    "zehnerpotenz": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "gross_wissenschaftlich": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "vorsilben_gross": {
+     "regel": "id.zahlen.buendeln",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "negativer_exponent": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "klein_wissenschaftlich": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "vorsilben_klein": {
+     "regel": "id.zahlen.buendeln",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "vergleichen_pruefen": {
+     "regel": "rr.potenz",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "zahlen.rationale_exponenten": {
+   "thema_id": 96,
+   "klasse_gym_by": 9,
+   "lernkarten": {
+    "nte_wurzel": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "potenz_wert": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "umwandeln": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "zusammenfassen": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "gleichung_exp": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "thema"
+    },
+    "verstehen": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "thema"
+    }
+   }
+  },
+  "zahlen.rechengesetze": {
+   "thema_id": 18,
+   "klasse_gym_by": 5,
+   "lernkarten": {
+    "punkt_strich": {
+     "regel": "rr.reihenfolge",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "klammern": {
+     "regel": "rr.reihenfolge",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "termaufbau": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "vorteil": {
+     "regel": "rr.tauschen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "5/6"
+    },
+    "differenz_summe": {
+     "regel": "rr.tauschen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "verteilen": {
+     "regel": "rr.ausmultiplizieren",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "kopfrechnen": {
+     "regel": "rr.ausmultiplizieren",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "4/5"
+    },
+    "mal_ganz": {
+     "regel": "rr.vorzeichen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "geteilt_ganz": {
+     "regel": "rr.vorzeichen",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "umkehraufgabe_mal": {
+     "regel": "rr.gegenrechnung",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "ueberschlag": {
+     "regel": "id.zahlen.buendeln",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "3/4"
+    },
+    "schriftlich": {
+     "regel": "rr.stellenwert",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "3/4"
+    },
+    "schriftlich_geteilt": {
+     "regel": "rr.stellenwert",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "sach": {
+     "regel": "rr.gegenrechnung",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "zahlen.reell": {
+   "thema_id": 20,
+   "klasse_gym_by": 9,
+   "lernkarten": {
+    "zahlarten": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "eingrenzen": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "heron": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "wurzel_mal": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "teilweise": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "zusammenfassen": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "nenner_rational": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "irrational_beweis": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  },
+  "zahlen.schranken": {
+   "thema_id": 70,
+   "klasse_gym_by": null,
+   "lernkarten": {
+    "grenzen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "messen": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "summe": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "produkt": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    },
+    "entscheiden": {
+     "regel": null,
+     "weitere": [],
+     "quelle": "offen"
+    }
+   }
+  },
+  "zahlen.teilbarkeit": {
+   "thema_id": 17,
+   "klasse_gym_by": 5,
+   "lernkarten": {
+    "teiler": {
+     "regel": "id.zahlen.bausteine",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "vielfache": {
+     "regel": "id.zahlen.bausteine",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    },
+    "endziffer": {
+     "regel": "id.zahlen.bausteine",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "quersumme": {
+     "regel": "id.zahlen.bausteine",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 5,
+     "anteil": "5/5"
+    },
+    "neunerregel": {
+     "regel": "id.zahlen.bausteine",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
+    },
+    "primzahl": {
+     "regel": "id.zahlen.bausteine",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 8,
+     "anteil": "8/8"
+    },
+    "primfaktoren": {
+     "regel": "id.zahlen.bausteine",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 6,
+     "anteil": "6/6"
+    }
+   }
+  },
+  "zahlen.wurzeln_basis": {
+   "thema_id": 68,
+   "klasse_gym_by": 9,
+   "lernkarten": {
+    "quadratwurzel": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "wurzel_dezimal": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "kubikwurzel": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "abschaetzen": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "wurzel_deuten": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    },
+    "wurzel_sache": {
+     "regel": "id.zahlen.hoch_zurueck",
+     "weitere": [],
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
+    }
+   }
+  }
+ },
+ "redaktion": [
+  {
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "schwerpunkt",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.geometrie.aehnlich",
+    "rr.kuerzen",
+    "rr.verhaeltnis"
+   ]
+  },
+  {
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "punktspiegelung",
+   "grund": "Aufgaben uneinig (id.geometrie.abstand 4, id.geometrie.deckungsgleich 3)",
+   "kandidaten": [
+    "id.geometrie.abstand",
+    "id.geometrie.deckungsgleich"
+   ]
+  },
+  {
+   "thema": "bruch.brueche",
+   "lernkarte": "bruchteil_von",
+   "grund": "Thema steht bei 5 Regeln",
+   "kandidaten": [
+    "id.verhaeltnisse.wert_fuer_eins",
+    "id.zahlen.bausteine",
+    "id.zahlen.schreibweisen",
+    "id.zahlen.zahlengerade",
+    "rr.kuerzen"
+   ]
+  },
+  {
+   "thema": "bruch.brueche",
+   "lernkarte": "anteil_bestimmen",
+   "grund": "Thema steht bei 5 Regeln",
+   "kandidaten": [
+    "id.verhaeltnisse.wert_fuer_eins",
+    "id.zahlen.bausteine",
+    "id.zahlen.schreibweisen",
+    "id.zahlen.zahlengerade",
+    "rr.kuerzen"
+   ]
+  },
+  {
+   "thema": "bruch.brueche",
+   "lernkarte": "ganzes_bestimmen",
+   "grund": "Thema steht bei 5 Regeln",
+   "kandidaten": [
+    "id.verhaeltnisse.wert_fuer_eins",
+    "id.zahlen.bausteine",
+    "id.zahlen.schreibweisen",
+    "id.zahlen.zahlengerade",
+    "rr.kuerzen"
+   ]
+  },
+  {
+   "thema": "bruch.brueche",
+   "lernkarte": "ggt",
+   "grund": "Thema steht bei 5 Regeln",
+   "kandidaten": [
+    "id.verhaeltnisse.wert_fuer_eins",
+    "id.zahlen.bausteine",
+    "id.zahlen.schreibweisen",
+    "id.zahlen.zahlengerade",
+    "rr.kuerzen"
+   ]
+  },
+  {
+   "thema": "bruch.brueche",
+   "lernkarte": "verhaeltnis_kuerzen",
+   "grund": "Thema steht bei 5 Regeln",
+   "kandidaten": [
+    "id.verhaeltnisse.wert_fuer_eins",
+    "id.zahlen.bausteine",
+    "id.zahlen.schreibweisen",
+    "id.zahlen.zahlengerade",
+    "rr.kuerzen"
+   ]
+  },
+  {
+   "thema": "bruch.brueche",
+   "lernkarte": "gleichwertig",
+   "grund": "Thema steht bei 5 Regeln",
+   "kandidaten": [
+    "id.verhaeltnisse.wert_fuer_eins",
+    "id.zahlen.bausteine",
+    "id.zahlen.schreibweisen",
+    "id.zahlen.zahlengerade",
+    "rr.kuerzen"
+   ]
+  },
+  {
+   "thema": "bruch.brueche",
+   "lernkarte": "gemischte_zahlen",
+   "grund": "Thema steht bei 5 Regeln",
+   "kandidaten": [
+    "id.verhaeltnisse.wert_fuer_eins",
+    "id.zahlen.bausteine",
+    "id.zahlen.schreibweisen",
+    "id.zahlen.zahlengerade",
+    "rr.kuerzen"
+   ]
+  },
+  {
+   "thema": "bruch.brueche",
+   "lernkarte": "kgv",
+   "grund": "Thema steht bei 5 Regeln",
+   "kandidaten": [
+    "id.verhaeltnisse.wert_fuer_eins",
+    "id.zahlen.bausteine",
+    "id.zahlen.schreibweisen",
+    "id.zahlen.zahlengerade",
+    "rr.kuerzen"
+   ]
+  },
+  {
+   "thema": "bruch.brueche",
+   "lernkarte": "vergleichen",
+   "grund": "Thema steht bei 5 Regeln",
+   "kandidaten": [
+    "id.verhaeltnisse.wert_fuer_eins",
+    "id.zahlen.bausteine",
+    "id.zahlen.schreibweisen",
+    "id.zahlen.zahlengerade",
+    "rr.kuerzen"
+   ]
+  },
+  {
+   "thema": "bruch.brueche",
+   "lernkarte": "zahlbereiche",
+   "grund": "Thema steht bei 5 Regeln; Aufgaben: id.zahlen.zahlengerade 1 (zu wenige)",
+   "kandidaten": [
+    "id.verhaeltnisse.wert_fuer_eins",
+    "id.zahlen.bausteine",
+    "id.zahlen.schreibweisen",
+    "id.zahlen.zahlengerade",
+    "rr.kuerzen"
+   ]
+  },
+  {
+   "thema": "bruch.dezimal",
+   "lernkarte": "stellenwerte",
+   "grund": "Aufgaben uneinig (id.zahlen.buendeln 1, rr.stellenwert 1)",
+   "kandidaten": [
+    "id.zahlen.buendeln",
+    "id.zahlen.schreibweisen",
+    "rr.stellenwert"
+   ]
+  },
+  {
+   "thema": "bruch.dezimal",
+   "lernkarte": "vergleichen_ordnen",
+   "grund": "Thema steht bei 3 Regeln; Aufgaben: rr.stellenwert 1 (zu wenige)",
+   "kandidaten": [
+    "id.zahlen.buendeln",
+    "id.zahlen.schreibweisen",
+    "rr.stellenwert"
+   ]
+  },
+  {
+   "thema": "bruch.dezimal",
+   "lernkarte": "runden",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.zahlen.buendeln",
+    "id.zahlen.schreibweisen",
+    "rr.stellenwert"
+   ]
+  },
+  {
+   "thema": "bruch.dezimal",
+   "lernkarte": "verstehen",
+   "grund": "Thema steht bei 3 Regeln; Aufgaben: rr.stellenwert 1 (zu wenige)",
+   "kandidaten": [
+    "id.zahlen.buendeln",
+    "id.zahlen.schreibweisen",
+    "rr.stellenwert"
+   ]
+  },
+  {
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "zurueck",
+   "grund": "Aufgaben uneinig (id.verhaeltnisse.prozent 3, rr.gegenrechnung 2)",
+   "kandidaten": [
+    "id.verhaeltnisse.prozent",
+    "rr.gegenrechnung",
+    "rr.verhaeltnis"
+   ]
+  },
+  {
+   "thema": "bruch.rechnen",
+   "lernkarte": "dezimal_mal",
+   "grund": "Thema steht bei 8 Regeln",
+   "kandidaten": [
+    "id.zahlen.buendeln",
+    "rr.ausmultiplizieren",
+    "rr.bruchrechnen",
+    "rr.gegenrechnung",
+    "rr.plusminus",
+    "rr.reihenfolge",
+    "rr.tauschen",
+    "rr.vorzeichen"
+   ]
+  },
+  {
+   "thema": "bruch.rechnen",
+   "lernkarte": "dezimal_geteilt",
+   "grund": "Thema steht bei 8 Regeln",
+   "kandidaten": [
+    "id.zahlen.buendeln",
+    "rr.ausmultiplizieren",
+    "rr.bruchrechnen",
+    "rr.gegenrechnung",
+    "rr.plusminus",
+    "rr.reihenfolge",
+    "rr.tauschen",
+    "rr.vorzeichen"
+   ]
+  },
+  {
+   "thema": "funktionen.betrag",
+   "lernkarte": "betrag",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.gleichung_form",
+    "id.zahlen.zahlengerade"
+   ]
+  },
+  {
+   "thema": "funktionen.betrag",
+   "lernkarte": "graph",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.gleichung_form",
+    "id.zahlen.zahlengerade"
+   ]
+  },
+  {
+   "thema": "funktionen.betrag",
+   "lernkarte": "stueckweise",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.gleichung_form",
+    "id.zahlen.zahlengerade"
+   ]
+  },
+  {
+   "thema": "funktionen.betrag",
+   "lernkarte": "gleichung",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.gleichung_form",
+    "id.zahlen.zahlengerade"
+   ]
+  },
+  {
+   "thema": "funktionen.betrag",
+   "lernkarte": "verstehen",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.gleichung_form",
+    "id.zahlen.zahlengerade"
+   ]
+  },
+  {
+   "thema": "funktionen.exponential_log",
+   "lernkarte": "werte",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.funktionen.wachstum",
+    "id.zahlen.hoch_zurueck",
+    "rr.potenz"
+   ]
+  },
+  {
+   "thema": "funktionen.exponential_log",
+   "lernkarte": "faktor",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.funktionen.wachstum",
+    "id.zahlen.hoch_zurueck",
+    "rr.potenz"
+   ]
+  },
+  {
+   "thema": "funktionen.exponential_log",
+   "lernkarte": "linear_oder_exponentiell",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.funktionen.wachstum",
+    "id.zahlen.hoch_zurueck",
+    "rr.potenz"
+   ]
+  },
+  {
+   "thema": "funktionen.exponential_log",
+   "lernkarte": "modell",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.funktionen.wachstum",
+    "id.zahlen.hoch_zurueck",
+    "rr.potenz"
+   ]
+  },
+  {
+   "thema": "funktionen.exponential_log",
+   "lernkarte": "graph",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.funktionen.wachstum",
+    "id.zahlen.hoch_zurueck",
+    "rr.potenz"
+   ]
+  },
+  {
+   "thema": "funktionen.exponential_log",
+   "lernkarte": "punkte",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.funktionen.wachstum",
+    "id.zahlen.hoch_zurueck",
+    "rr.potenz"
+   ]
+  },
+  {
+   "thema": "funktionen.exponential_log",
+   "lernkarte": "logfunktion",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.funktionen.wachstum",
+    "id.zahlen.hoch_zurueck",
+    "rr.potenz"
+   ]
+  },
+  {
+   "thema": "funktionen.gebrochen",
+   "lernkarte": "definitionsmenge",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.algebra.erlaubte_zahlen",
+    "id.funktionen.gleichung_form",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.gebrochen",
+   "lernkarte": "asymptoten",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.algebra.erlaubte_zahlen",
+    "id.funktionen.gleichung_form",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.gebrochen",
+   "lernkarte": "achsenpunkte",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.algebra.erlaubte_zahlen",
+    "id.funktionen.gleichung_form",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.gebrochen",
+   "lernkarte": "parameter",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.algebra.erlaubte_zahlen",
+    "id.funktionen.gleichung_form",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.gebrochen",
+   "lernkarte": "beurteilen",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.algebra.erlaubte_zahlen",
+    "id.funktionen.gleichung_form",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "funktionswert",
+   "grund": "Aufgaben uneinig (rr.reihenfolge 4, id.funktionen.zuordnung 3)",
+   "kandidaten": [
+    "id.funktionen.zuordnung",
+    "rr.reihenfolge"
+   ]
+  },
+  {
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "punkt_graph",
+   "grund": "Aufgaben uneinig (id.funktionen.zuordnung 3, rr.reihenfolge 3, rr.gegenrechnung 1)",
+   "kandidaten": [
+    "id.funktionen.zuordnung",
+    "rr.gegenrechnung",
+    "rr.reihenfolge"
+   ]
+  },
+  {
+   "thema": "funktionen.linear",
+   "lernkarte": "ablesen",
+   "grund": "Aufgaben uneinig (id.funktionen.gleichung_form 4, id.funktionen.wachstum 1, id.funktionen.zuordnung 1, rr.waage 1)",
+   "kandidaten": [
+    "id.funktionen.gleichung_form",
+    "id.funktionen.wachstum",
+    "id.funktionen.zuordnung",
+    "id.verhaeltnisse.wert_fuer_eins",
+    "rr.verhaeltnis",
+    "rr.waage"
+   ]
+  },
+  {
+   "thema": "funktionen.linear",
+   "lernkarte": "graph_ablesen",
+   "grund": "Aufgaben uneinig (id.funktionen.gleichung_form 3, id.funktionen.wachstum 1, id.funktionen.zuordnung 1)",
+   "kandidaten": [
+    "id.funktionen.gleichung_form",
+    "id.funktionen.wachstum",
+    "id.funktionen.zuordnung",
+    "id.verhaeltnisse.wert_fuer_eins",
+    "rr.verhaeltnis"
+   ]
+  },
+  {
+   "thema": "funktionen.linear",
+   "lernkarte": "schnittpunkte",
+   "grund": "Aufgaben uneinig (rr.waage 3, id.funktionen.zuordnung 2)",
+   "kandidaten": [
+    "id.funktionen.wachstum",
+    "id.funktionen.zuordnung",
+    "id.verhaeltnisse.wert_fuer_eins",
+    "rr.verhaeltnis",
+    "rr.waage"
+   ]
+  },
+  {
+   "thema": "funktionen.potenz",
+   "lernkarte": "werte",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.gleichung_form",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.potenz",
+   "lernkarte": "symmetrie",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.gleichung_form",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.potenz",
+   "lernkarte": "verlauf",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.gleichung_form",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.potenz",
+   "lernkarte": "parameter",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.gleichung_form",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.potenz",
+   "lernkarte": "negativ",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.gleichung_form",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.potenz",
+   "lernkarte": "umkehrbar",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.gleichung_form",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.potenz",
+   "lernkarte": "linear",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.gleichung_form",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.potenz",
+   "lernkarte": "wurzelfunktion",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.gleichung_form",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.potenz",
+   "lernkarte": "quadratisch",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.gleichung_form",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.potenz",
+   "lernkarte": "spiegeln",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.gleichung_form",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.umkehr",
+   "lernkarte": "umkehrbar",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.wachstum",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.umkehr",
+   "lernkarte": "werte",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.wachstum",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.umkehr",
+   "lernkarte": "linear",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.wachstum",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.umkehr",
+   "lernkarte": "quadratisch",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.wachstum",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.umkehr",
+   "lernkarte": "exp_log",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.wachstum",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "funktionen.umkehr",
+   "lernkarte": "spiegeln",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.funktionen.wachstum",
+    "id.funktionen.zuordnung"
+   ]
+  },
+  {
+   "thema": "gleichungen.bruch",
+   "lernkarte": "ueber_kreuz",
+   "grund": "Aufgaben uneinig (rr.waage 3, id.algebra.gleichung_loesen 2)",
+   "kandidaten": [
+    "id.algebra.erlaubte_zahlen",
+    "id.algebra.gleichung_loesen",
+    "rr.minusklammer",
+    "rr.waage"
+   ]
+  },
+  {
+   "thema": "gleichungen.bruch",
+   "lernkarte": "scheinloesung",
+   "grund": "Aufgaben uneinig (id.algebra.gleichung_loesen 3, id.algebra.erlaubte_zahlen 2)",
+   "kandidaten": [
+    "id.algebra.erlaubte_zahlen",
+    "id.algebra.gleichung_loesen",
+    "rr.minusklammer",
+    "rr.waage"
+   ]
+  },
+  {
+   "thema": "gleichungen.exponential",
+   "lernkarte": "logarithmus",
+   "grund": "Thema steht bei 5 Regeln",
+   "kandidaten": [
+    "id.algebra.hoeherer_grad",
+    "id.zahlen.hoch_zurueck",
+    "rr.gegenrechnung",
+    "rr.reihenfolge",
+    "rr.waage"
+   ]
+  },
+  {
+   "thema": "gleichungen.exponential",
+   "lernkarte": "gleiche_basis",
+   "grund": "Thema steht bei 5 Regeln",
+   "kandidaten": [
+    "id.algebra.hoeherer_grad",
+    "id.zahlen.hoch_zurueck",
+    "rr.gegenrechnung",
+    "rr.reihenfolge",
+    "rr.waage"
+   ]
+  },
+  {
+   "thema": "gleichungen.exponential",
+   "lernkarte": "mit_log_loesen",
+   "grund": "Thema steht bei 5 Regeln",
+   "kandidaten": [
+    "id.algebra.hoeherer_grad",
+    "id.zahlen.hoch_zurueck",
+    "rr.gegenrechnung",
+    "rr.reihenfolge",
+    "rr.waage"
+   ]
+  },
+  {
+   "thema": "gleichungen.exponential",
+   "lernkarte": "potenzregel",
+   "grund": "Thema steht bei 5 Regeln",
+   "kandidaten": [
+    "id.algebra.hoeherer_grad",
+    "id.zahlen.hoch_zurueck",
+    "rr.gegenrechnung",
+    "rr.reihenfolge",
+    "rr.waage"
+   ]
+  },
+  {
+   "thema": "gleichungen.exponential",
+   "lernkarte": "wachstum",
+   "grund": "Thema steht bei 5 Regeln",
+   "kandidaten": [
+    "id.algebra.hoeherer_grad",
+    "id.zahlen.hoch_zurueck",
+    "rr.gegenrechnung",
+    "rr.reihenfolge",
+    "rr.waage"
+   ]
+  },
+  {
+   "thema": "gleichungen.exponential",
+   "lernkarte": "verstehen",
+   "grund": "Thema steht bei 5 Regeln",
+   "kandidaten": [
+    "id.algebra.hoeherer_grad",
+    "id.zahlen.hoch_zurueck",
+    "rr.gegenrechnung",
+    "rr.reihenfolge",
+    "rr.waage"
+   ]
+  },
+  {
+   "thema": "gleichungen.formeln",
+   "lernkarte": "ein_schritt",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.algebra.gleichung_loesen",
+    "id.flaeche_raum.aus_dem_rechteck",
+    "rr.gegenrechnung"
+   ]
+  },
+  {
+   "thema": "gleichungen.formeln",
+   "lernkarte": "zwei_schritte",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.algebra.gleichung_loesen",
+    "id.flaeche_raum.aus_dem_rechteck",
+    "rr.gegenrechnung"
+   ]
+  },
+  {
+   "thema": "gleichungen.formeln",
+   "lernkarte": "pruefen",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.algebra.gleichung_loesen",
+    "id.flaeche_raum.aus_dem_rechteck",
+    "rr.gegenrechnung"
+   ]
+  },
+  {
+   "thema": "gleichungen.formeln",
+   "lernkarte": "einsetzen",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.algebra.gleichung_loesen",
+    "id.flaeche_raum.aus_dem_rechteck",
+    "rr.gegenrechnung"
+   ]
+  },
+  {
+   "thema": "gleichungen.formeln",
+   "lernkarte": "geometrie",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.algebra.gleichung_loesen",
+    "id.flaeche_raum.aus_dem_rechteck",
+    "rr.gegenrechnung"
+   ]
+  },
+  {
+   "thema": "gleichungen.linear",
+   "lernkarte": "klammern",
+   "grund": "Aufgaben uneinig (rr.ausmultiplizieren 2, rr.waage 2, rr.tauschen 1)",
+   "kandidaten": [
+    "id.algebra.gleichung_loesen",
+    "rr.ausmultiplizieren",
+    "rr.bruchrechnen",
+    "rr.tauschen",
+    "rr.waage"
+   ]
+  },
+  {
+   "thema": "gleichungen.polynom",
+   "lernkarte": "ausklammern",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.algebra.hoeherer_grad",
+    "rr.ausmultiplizieren",
+    "rr.nullprodukt"
+   ]
+  },
+  {
+   "thema": "gleichungen.polynom",
+   "lernkarte": "nullprodukt",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.algebra.hoeherer_grad",
+    "rr.ausmultiplizieren",
+    "rr.nullprodukt"
+   ]
+  },
+  {
+   "thema": "gleichungen.polynom",
+   "lernkarte": "substitution",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.algebra.hoeherer_grad",
+    "rr.ausmultiplizieren",
+    "rr.nullprodukt"
+   ]
+  },
+  {
+   "thema": "gleichungen.polynom",
+   "lernkarte": "vielfachheit",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.algebra.hoeherer_grad",
+    "rr.ausmultiplizieren",
+    "rr.nullprodukt"
+   ]
+  },
+  {
+   "thema": "gleichungen.polynom",
+   "lernkarte": "verstehen",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.algebra.hoeherer_grad",
+    "rr.ausmultiplizieren",
+    "rr.nullprodukt"
+   ]
+  },
+  {
+   "thema": "groessen.einheiten",
+   "lernkarte": "kommaschreibweise",
+   "grund": "Aufgaben uneinig (rr.stellenwert 3, id.verhaeltnisse.groesse 2)",
+   "kandidaten": [
+    "id.verhaeltnisse.groesse",
+    "rr.stellenwert"
+   ]
+  },
+  {
+   "thema": "messen.flaechen",
+   "lernkarte": "sachaufgaben",
+   "grund": "Aufgaben uneinig (id.flaeche_raum.aus_dem_rechteck 4, id.flaeche_raum.auslegen 3)",
+   "kandidaten": [
+    "id.flaeche_raum.aus_dem_rechteck",
+    "id.flaeche_raum.auslegen"
+   ]
+  },
+  {
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "schraegbild",
+   "grund": "Aufgaben uneinig (id.flaeche_raum.haut 3, id.flaeche_raum.aus_dem_quader 3)",
+   "kandidaten": [
+    "id.flaeche_raum.aus_dem_quader",
+    "id.flaeche_raum.haut"
+   ]
+  },
+  {
+   "thema": "messen.kreisberechnung",
+   "lernkarte": "umfang",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.flaeche_raum.aus_dem_rechteck",
+    "id.geometrie.aehnlich"
+   ]
+  },
+  {
+   "thema": "messen.volumen",
+   "lernkarte": "verstehen",
+   "grund": "Thema hat genau id.flaeche_raum.auslegen, eine Aufgabe trägt aber id.flaeche_raum.aus_dem_quader",
+   "kandidaten": [
+    "id.flaeche_raum.aus_dem_quader",
+    "id.flaeche_raum.auslegen"
+   ]
+  },
+  {
+   "thema": "sonder.graphentheorie",
+   "lernkarte": "grundbegriffe",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  },
+  {
+   "thema": "sonder.graphentheorie",
+   "lernkarte": "euler",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  },
+  {
+   "thema": "sonder.graphentheorie",
+   "lernkarte": "kuerzester",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  },
+  {
+   "thema": "sonder.graphentheorie",
+   "lernkarte": "spannbaum",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  },
+  {
+   "thema": "sonder.graphentheorie",
+   "lernkarte": "verstehen",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  },
+  {
+   "thema": "sonder.logik",
+   "lernkarte": "aussagen",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  },
+  {
+   "thema": "sonder.logik",
+   "lernkarte": "negation",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  },
+  {
+   "thema": "sonder.logik",
+   "lernkarte": "verknuepfen",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  },
+  {
+   "thema": "sonder.logik",
+   "lernkarte": "tafel",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  },
+  {
+   "thema": "sonder.logik",
+   "lernkarte": "folgerung",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  },
+  {
+   "thema": "sonder.optimierung",
+   "lernkarte": "bereich",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  },
+  {
+   "thema": "sonder.optimierung",
+   "lernkarte": "aufstellen",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  },
+  {
+   "thema": "sonder.optimierung",
+   "lernkarte": "ecken",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  },
+  {
+   "thema": "sonder.optimierung",
+   "lernkarte": "optimum",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  },
+  {
+   "thema": "sonder.optimierung",
+   "lernkarte": "sach",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  },
+  {
+   "thema": "stochastik.mehrstufig",
+   "lernkarte": "pfad_mult",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.daten.anteil",
+    "id.daten.stufen",
+    "rr.bruchrechnen"
+   ]
+  },
+  {
+   "thema": "stochastik.mehrstufig",
+   "lernkarte": "pfad_add",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.daten.anteil",
+    "id.daten.stufen",
+    "rr.bruchrechnen"
+   ]
+  },
+  {
+   "thema": "stochastik.mehrstufig",
+   "lernkarte": "ohne_zuruecklegen",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.daten.anteil",
+    "id.daten.stufen",
+    "rr.bruchrechnen"
+   ]
+  },
+  {
+   "thema": "stochastik.mehrstufig",
+   "lernkarte": "unabhaengig",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.daten.anteil",
+    "id.daten.stufen",
+    "rr.bruchrechnen"
+   ]
+  },
+  {
+   "thema": "stochastik.mehrstufig",
+   "lernkarte": "gegenereignis",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.daten.anteil",
+    "id.daten.stufen",
+    "rr.bruchrechnen"
+   ]
+  },
+  {
+   "thema": "stochastik.mehrstufig",
+   "lernkarte": "baum_ergaenzen",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.daten.anteil",
+    "id.daten.stufen",
+    "rr.bruchrechnen"
+   ]
+  },
+  {
+   "thema": "stochastik.mehrstufig",
+   "lernkarte": "simulation",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.daten.anteil",
+    "id.daten.stufen",
+    "rr.bruchrechnen"
+   ]
+  },
+  {
+   "thema": "stochastik.mehrstufig",
+   "lernkarte": "pi_schaetzen",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.daten.anteil",
+    "id.daten.stufen",
+    "rr.bruchrechnen"
+   ]
+  },
+  {
+   "thema": "stochastik.mehrstufig",
+   "lernkarte": "verstehen",
+   "grund": "Thema steht bei 3 Regeln",
+   "kandidaten": [
+    "id.daten.anteil",
+    "id.daten.stufen",
+    "rr.bruchrechnen"
+   ]
+  },
+  {
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "schnitt",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.daten.anteil",
+    "id.daten.stufen"
+   ]
+  },
+  {
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "verknuepfen",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.daten.anteil",
+    "id.daten.stufen"
+   ]
+  },
+  {
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "additionssatz",
+   "grund": "Thema steht bei 2 Regeln; Aufgaben: id.daten.anteil 1 (zu wenige)",
+   "kandidaten": [
+    "id.daten.anteil",
+    "id.daten.stufen"
+   ]
+  },
+  {
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "venn",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.daten.anteil",
+    "id.daten.stufen"
+   ]
+  },
+  {
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "mengen_verstehen",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.daten.anteil",
+    "id.daten.stufen"
+   ]
+  },
+  {
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "vierfeld",
+   "grund": "Thema steht bei 2 Regeln",
+   "kandidaten": [
+    "id.daten.anteil",
+    "id.daten.stufen"
+   ]
+  },
+  {
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "verstehen",
+   "grund": "Thema steht bei 2 Regeln; Aufgaben: id.daten.stufen 1 (zu wenige)",
+   "kandidaten": [
+    "id.daten.anteil",
+    "id.daten.stufen"
+   ]
+  },
+  {
+   "thema": "terme.bruchterme",
+   "lernkarte": "termwert",
+   "grund": "Aufgaben uneinig (rr.bruchrechnen 3, id.algebra.erlaubte_zahlen 2, rr.reihenfolge 1)",
+   "kandidaten": [
+    "id.algebra.erlaubte_zahlen",
+    "rr.ausmultiplizieren",
+    "rr.bruchrechnen",
+    "rr.kuerzen",
+    "rr.nullprodukt",
+    "rr.reihenfolge"
+   ]
+  },
+  {
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "ergaenzen",
+   "grund": "Aufgaben uneinig (rr.potenz 3, id.algebra.term 2)",
+   "kandidaten": [
+    "id.algebra.hoeherer_grad",
+    "id.algebra.term",
+    "id.flaeche_raum.auslegen",
+    "rr.potenz"
+   ]
+  },
+  {
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "scheitelform",
+   "grund": "Aufgaben uneinig (id.algebra.term 2, id.funktionen.gleichung_form 2, rr.potenz 1)",
+   "kandidaten": [
+    "id.algebra.hoeherer_grad",
+    "id.algebra.term",
+    "id.flaeche_raum.auslegen",
+    "id.funktionen.gleichung_form",
+    "rr.potenz"
+   ]
+  },
+  {
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "extremwert",
+   "grund": "Aufgaben uneinig (id.funktionen.gleichung_form 3, id.algebra.term 2)",
+   "kandidaten": [
+    "id.algebra.hoeherer_grad",
+    "id.algebra.term",
+    "id.flaeche_raum.auslegen",
+    "id.funktionen.gleichung_form"
+   ]
+  },
+  {
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "mit_faktor",
+   "grund": "Aufgaben uneinig (id.funktionen.gleichung_form 3, id.algebra.term 2)",
+   "kandidaten": [
+    "id.algebra.hoeherer_grad",
+    "id.algebra.term",
+    "id.flaeche_raum.auslegen",
+    "id.funktionen.gleichung_form"
+   ]
+  },
+  {
+   "thema": "terme.umformen",
+   "lernkarte": "gleichungen_binomisch",
+   "grund": "Aufgaben uneinig (rr.ausmultiplizieren 2, id.algebra.gleichung_loesen 2, rr.waage 1)",
+   "kandidaten": [
+    "id.algebra.gleichung_loesen",
+    "id.algebra.term",
+    "rr.ausmultiplizieren",
+    "rr.kuerzen",
+    "rr.minusklammer",
+    "rr.plusminus",
+    "rr.reihenfolge",
+    "rr.tauschen",
+    "rr.vorzeichen",
+    "rr.waage"
+   ]
+  },
+  {
+   "thema": "zahlen.ganz",
+   "lernkarte": "umkehraufgabe",
+   "grund": "Aufgaben uneinig (rr.gegenrechnung 3, rr.plusminus 2)",
+   "kandidaten": [
+    "id.zahlen.zahlengerade",
+    "rr.gegenrechnung",
+    "rr.plusminus",
+    "rr.tauschen"
+   ]
+  },
+  {
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "quadrat",
+   "grund": "Aufgaben uneinig (rr.potenz 3, id.zahlen.hoch_zurueck 2)",
+   "kandidaten": [
+    "id.zahlen.buendeln",
+    "id.zahlen.hoch_zurueck",
+    "rr.potenz"
+   ]
+  },
+  {
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "termaufbau",
+   "grund": "Aufgaben uneinig (id.algebra.term 3, rr.gegenrechnung 1, rr.reihenfolge 1)",
+   "kandidaten": [
+    "id.algebra.term",
+    "rr.ausmultiplizieren",
+    "rr.gegenrechnung",
+    "rr.minusklammer",
+    "rr.nullprodukt",
+    "rr.reihenfolge",
+    "rr.tauschen",
+    "rr.vorzeichen"
+   ]
+  },
+  {
+   "thema": "zahlen.schranken",
+   "lernkarte": "grenzen",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  },
+  {
+   "thema": "zahlen.schranken",
+   "lernkarte": "messen",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  },
+  {
+   "thema": "zahlen.schranken",
+   "lernkarte": "summe",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  },
+  {
+   "thema": "zahlen.schranken",
+   "lernkarte": "produkt",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  },
+  {
+   "thema": "zahlen.schranken",
+   "lernkarte": "entscheiden",
+   "grund": "Thema steht in keiner Themenliste",
+   "kandidaten": []
+  }
+ ]
+}

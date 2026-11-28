@@ -53,7 +53,7 @@ function bewerte(a, w) {
 }
 
 async function setup(t, opt = {}) {
-  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: 'block' });
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: 'block', ...(opt.touch ? { hasTouch: true, isMobile: true } : {}) });
   t.after(() => context.close());
   if (!opt.lernSeite) await context.addInitScript(() => { localStorage.setItem('ks_token', 'synthetic-test-session'); });
   // Die bisherigen Tests prüfen das bisherige Design; das neue („Abflug“) hat eigene Tests (opt.gestaltung).
@@ -189,6 +189,8 @@ async function setup(t, opt = {}) {
     }
     if (opt.anpassen && e) e = opt.anpassen(b.aktion, e, d) || e; // Schritt D: Antwort nach einer Migration nachbilden
     else if (opt.anpassen?.neueAktionen) e = opt.anpassen(b.aktion, null, d) || e; // Aktionen, die der Standard-Mock nicht kennt (LM-S)
+    // Abflugtafel abgeschaltet: die Tafel erscheint nur noch ohne Kartendaten – page._ohneKarte (true oder Funktion) lässt den Server keine Karte liefern
+    if (b.aktion === 'schule_reise_karte' && (page._ohneKarte === true || (typeof page._ohneKarte === 'function' && page._ohneKarte(d)))) e = null;
     if (opt.verzoegerung) await new Promise((r) => setTimeout(r, opt.verzoegerung)); // WK F5: Serverzeit nachstellen
     { const ms = opt.verzoegerungJe?.(b.aktion, d); if (ms) await new Promise((r) => setTimeout(r, ms)); } // WT: einzelne Antworten gezielt verzögern (Wettläufe nachstellen)
     await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: e }) });
@@ -263,11 +265,11 @@ test('Lernreise: Kind B (Studio, Nacht) – Rom geschafft als Stempel, Zinsen je
   await page.goto(origin + '/#/reise/2');
   await page.getByRole('heading', { name: 'Einfache Zinsen', exact: true }).waitFor();
   assert.equal(await page.locator('.lr.lr-nacht.lr-studio').count(), 1);
-  await page.screenshot({ path: path.join(root, 'test-results/lernreise-leo-390.png'), fullPage: true });
+  await page.screenshot({ path: path.join(root, 'test-results/lernreise-kind-390.png'), fullPage: true });
   await page.getByText('1 von 2 Etappen sitzen').waitFor();
   await page.getByRole('link', { name: 'Mein Weg' }).click();
   await page.locator('.lr-wegzeile', { hasText: 'Natürliche und ganze Zahlen' }).waitFor();
-  await page.screenshot({ path: path.join(root, 'test-results/lernreise-leo-weg-390.png'), fullPage: true });
+  await page.screenshot({ path: path.join(root, 'test-results/lernreise-kind-weg-390.png'), fullPage: true });
   await page.goto(origin + '/#/reisepass/2');
   await page.locator('.lr-stempel', { hasText: 'Rom' }).waitFor();
   await page.goto(origin + '/#/reise/3');
@@ -621,7 +623,7 @@ test('Gestaltung Abflug: Abflugtafel, Bordkarte mit Tastenfeld, Kurskorrektur, L
   // Menüblatt statt Leiste
   assert.equal(await page.locator('.lr-nav').count(), 0);
   await page.getByRole('button', { name: 'Menü', exact: true }).first().click();
-  assert.deepEqual(await page.locator('.lr-blatt-liste a').allInnerTexts(), ['Abflugtafel', 'Mein Weg', 'Merkheft', 'Reisepass', 'Regel-Universum']); // K2: 4 Einträge · RU-App: Regel-Universum als fünfter
+  assert.deepEqual(await page.locator('.lr-blatt-liste a').allInnerTexts(), ['Abflugtafel', 'Regel-Universum', 'Mein Weg']); // Menü verkürzt: Merkheft im Universum, Reisepass in „Mein Weg“ (+ Ansicht, Schließen)
   await page.screenshot({ path: path.join(root, 'test-results/abflug-menue-390.png') });
   await page.getByRole('button', { name: 'Schließen' }).click();
   await page.locator('.lr-flug-jetzt').click(); // KJ 2 S6: solange die Tafel zu sehen ist, startet man über ihre Zeile (die schwebende Leiste ist aus)
@@ -659,7 +661,7 @@ test('Gestaltung Abflug: Abflugtafel, Bordkarte mit Tastenfeld, Kurskorrektur, L
     await page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: 'Prüfen' }).click();
     if (i === 0) { await page.getByText(/An Bord/).waitFor(); await page.getByRole('button', { name: 'Neue Bordkarte ›' }).click(); }
   }
-  await page.getByText('GELANDET').waitFor();
+  await page.locator('.lr-ab-dahinter', { hasText: /gelandet/i }).waitFor(); // nicht getByText: der Zufalls-Sticker „Nice gelandet!“ passt sonst auch
   await page.getByRole('link', { name: 'Zur Abflugtafel' }).waitFor();
   await page.screenshot({ path: path.join(root, 'test-results/abflug-gelandet-390.png') });
   // Andere Aufgabenarten auf der Bordkarte: Zahlenstrahl (ohne Tastenfeld) und Lücken (mit Tastenfeld)
@@ -918,12 +920,12 @@ test('N5–N7: Detektiv nur ohne Fehlermuster; Test-Kopf „Ort · Flug“; Test
   await page.screenshot({ path: path.join(root, 'test-results/n7-testergebnis-390.png'), fullPage: true });
 });
 
-test('K2: Mein Weg – Reiter Stand · Kontinente · Karte; Antarktis von oben; alte Weltkarte führt in den Reiter Karte', async (t) => {
+test('K2: Mein Weg – Reiter Stand · Kontinente · Reisepass (Menü verkürzt; „Karte“ ist die Startseite); Antarktis von oben; alte Weltkarte führt zur Startseite', async (t) => {
   const { page } = await setup(t, { gestaltung: 'nacht' });
   await page.goto(origin + '/#/weg/1');
   const reiter = page.locator('.lr-weg-reiter a');
   await reiter.first().waitFor();
-  assert.deepEqual(await reiter.allInnerTexts(), ['Stand', 'Kontinente', 'Karte']);
+  assert.deepEqual(await reiter.allInnerTexts(), ['Stand', 'Kontinente', 'Reisepass']);
   assert.equal(await page.locator('.lr-weg-reiter a.on').innerText(), 'Stand');
   await page.locator('.lr-linienplan').waitFor(); // K3: Linienplan ersetzt die alte Box „Mein Stand · Gymnasium Klasse 5“
   assert.equal(await page.locator('.lr-mini3 .lr-mini').count(), 3);
@@ -934,10 +936,9 @@ test('K2: Mein Weg – Reiter Stand · Kontinente · Karte; Antarktis von oben; 
   assert.deepEqual(await page.locator('.lr-kontinent-kopf b').allInnerTexts(), ['Zahlen', 'Geld und Verhältnisse']);
   await page.screenshot({ path: path.join(root, 'test-results/k2-kontinente-390.png'), fullPage: true });
   await page.goto(origin + '/#/weltkarte/1');
-  await page.waitForURL(/#\/weg\/1-karte$/);
-  await page.locator('.lr-weg-reiter a.on', { hasText: 'Karte' }).waitFor();
+  await page.waitForURL(/#\/reise\/1$/); await page.locator('.lr-abflugtafel, .rk').first().waitFor(); // alte Weltkarte/„Karte“ → Startseite
   // Antarktis von oben (Testdaten): eigene Karte mit dem Südpol in der Mitte
-  await page.evaluate(() => { const box = document.querySelector('.lr-karte-box'); box.replaceChildren(lernPolarKarte([
+  await page.evaluate(() => { const box = document.createElement('div'); document.querySelector('.lr-inhalt').prepend(box); box.replaceChildren(lernPolarKarte([
     { stadt: 'Neumayer-Station III', lat: -70.67, lon: -8.27, zustand: 'jetzt' }, { stadt: 'McMurdo', lat: -77.85, lon: 166.67, zustand: 'offen' }])); });
   const polar = page.locator('svg.lr-karte-polar');
   await polar.waitFor();
@@ -1045,7 +1046,7 @@ const standAnpassen = ({ mitThemen = true, bisSitzt } = {}) => (aktion, e) => {
 
 test('K3: Mini-Linien GYM · RS · IB unter „Mein Weg · Stand“ (KJ 2 M2: nicht mehr auf der Abflugtafel); Stand in drei Ebenen (Linienplan → Klasse → Kontinent)', async (t) => {
   const { page } = await setup(t, { gestaltung: 'nacht', anpassen: standAnpassen() });
-  await page.addInitScript(() => localStorage.setItem('lern.rk.1', 'tafel'));
+  page._ohneKarte = true; // Tafel nur noch ohne Kartendaten
   await page.goto(origin + '/#/reise/1'); await page.locator('.lr-abflugtafel').waitFor();
   assert.equal(await page.locator('.lr-mini3').count(), 0, 'M2: keine Mini-Linien auf der Abflugtafel');
   await page.goto(origin + '/#/weg/1-stand');
@@ -1188,7 +1189,7 @@ test('M8: Menüknopf schwebt nicht über dem Inhalt (Handy und Tablet, beim Roll
 test('P2: Mein Weg · Karte wählt die Orte nach derselben Regel wie „Stand“ (Schulart des Kindes)', async (t) => {
   // RS-Kind Klasse 6: Athen (Teilbarkeit rs_by 6) gehört dazu, Rom (rs_by 5) nicht – obwohl block.ziel_klasse 5 ist
   const rs = (aktion, e) => { const u = standAnpassen()(aktion, e); if (!u || aktion !== 'schule_uebersicht') return u; Object.assign(u.lernende[0], { schulart: 'rs_by', klasse: 6, stufen: {} }); return u; };
-  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: rs });
+  const { page } = await setup(t, { anpassen: rs }); // altes Design: dort gibt es den Reiter „Karte“ noch (neues Design: Startseite)
   await page.goto(origin + '/#/weg/1-karte');
   await page.locator('.lr-ortliste li').first().waitFor();
   const orte = await page.locator('.lr-ortliste').innerText();
@@ -1276,17 +1277,13 @@ test('F: Knobel falsch kostet nichts und zeigt den Weg; ohne Bonus-Aufgaben kein
   assert.deepEqual(r.slice(1), [null, null]);
 });
 
-test('F: Knobeln des Tages auf der Abflugtafel (einmal je Tag), Knobel-Sterne im Reisepass, Eltern sehen Stufe, Typ und Knobel x von y', async (t) => {
+test('F: Knobeln des Tages abgeschaltet (Entscheidung des Nutzers), Knobel-Sterne im Reisepass, Eltern sehen Stufe, Typ und Knobel x von y', async (t) => {
   const tag = (aktion, e) => { const x = mitBonus(aktion, e); if (aktion !== 'schule_konto') return x;
     x.knobel_tag = { ...zeig(AUFG[501]), einheit_id: 1, stadt: 'Rom', etappe: 'Welchen Wert hat eine Ziffer?' }; return x; };
   const { page } = await setup(t, { gestaltung: 'nacht', anpassen: tag });
   await page.goto(origin + '/#/reise/1');
-  const box = page.locator('.lr-knobel-tag'); await box.waitFor();
-  assert.match(await box.innerText(), /KNOBELN DES TAGES[\s\S]*Welchen Wert hat eine Ziffer\?/);
-  await box.getByRole('button', { name: 'Knobeln für Profis' }).click();
-  await box.locator('.lr-knobel input').waitFor();
-  await page.reload(); await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
-  assert.equal(await page.locator('.lr-knobel-tag').count(), 0, 'heute nur einmal');
+  // „Knobeln des Tages“ abgeschaltet (Entscheidung des Nutzers 27.11.): trotz knobel_tag vom Server nirgends angeboten
+  await page.locator('.lr-abflugtafel, .rk .rk-pin').first().waitFor(); assert.equal(await page.locator('.lr-knobel-tag').count(), 0, 'kein Knobeln des Tages');
   await page.goto(origin + '/#/reisepass/1'); await page.getByText('★ Knobel-Sterne: 2').waitFor();
   // Eltern: Lernstand und Inhalte
   await page.goto(origin + '/#/wackelt/1'); await page.locator('.ls-alle summary').click(); await page.locator('.ls-knobel').first().waitFor();
@@ -2505,7 +2502,8 @@ test('AB-A 3: Ort geschafft → Reisepass-Stempel → Bordkarte VON → NACH; Ü
   await leer.page.screenshot({ path: path.join(root, 'test-results/ab-flug-tag-820.png') });
   await leer.page.locator('.lr-abschluss-flug .lr-ab-gross').click();
   const kl = leer.page.locator('.lr-abschluss-bordkarte'); await kl.getByText('Alles geschafft, was im Plan steht. Deine Eltern legen fest, wie es weitergeht.').waitFor();
-  assert.equal(await kl.locator('.lr-ab-gross').getAttribute('href'), '#/reise/1');
+  // Der Hauptknopf bekommt sein Ziel erst, wenn es feststeht (WT, lernSchrittKnopf) – auf das Ziel warten, dann genau prüfen (Wettlauf unter Last)
+  await kl.locator('.lr-ab-gross[href]').waitFor(); assert.equal(await kl.locator('.lr-ab-gross').getAttribute('href'), '#/reise/1');
 });
 
 // ---------- LB Teil 6 (Nachprüfung 4 des Gestalters) ----------
@@ -4202,7 +4200,7 @@ test('EX-App: offene Expedition ist die oberste, größte Karte der Abflugtafel 
   for (const [w, h] of [[400, 780], [820, 1180]]) {
     const ex = exServer();
     const { page } = await setup(t, { gestaltung: 'tag', anpassen: ex.anpassen });
-    await page.addInitScript(() => { localStorage.setItem('lern.exfrei.1.7', '1'); localStorage.setItem('lern.rk.1', 'tafel'); }); // Ansicht 1 schon gesehen; Abflugtafel (Reisekarte: eigener Test)
+    await page.addInitScript(() => { localStorage.setItem('lern.exfrei.1.7', '1'); }); page._ohneKarte = true; // Ansicht 1 schon gesehen; Abflugtafel = Rückfall ohne Karte (Reisekarte: eigener Test)
     await page.setViewportSize({ width: w, height: h });
     await page.goto(origin + '/#/reise/1');
     const karte = page.locator('.lr-ex-karte'); await karte.waitFor();
@@ -4231,7 +4229,7 @@ test('EX-App: Ansicht 1 „Expedition freigeschaltet“ beim Öffnen der Startse
   for (const [w, h] of [[400, 780], [820, 1180]]) {
     const ex = exServer();
     const { page, calls } = await setup(t, { gestaltung: 'tag', anpassen: ex.anpassen });
-    await page.addInitScript(() => localStorage.setItem('lern.rk.1', 'tafel')); // Abflugtafel (auf der Reisekarte ist die Expedition einzeilig, eigener Test)
+    page._ohneKarte = true; // Abflugtafel = Rückfall ohne Karte (auf der Reisekarte ist die Expedition einzeilig, eigener Test)
     await page.setViewportSize({ width: w, height: h });
     await page.goto(origin + '/#/reise/1');
     const a = page.locator('.lr-abschluss .lr-ex-frei'); await a.waitFor();
@@ -4274,7 +4272,7 @@ test('EX-Nachprüfung (0.92.2): 360 × 640 höchstens 2 Chips + „+n weitere“
     await page.screenshot({ path: path.join(root, 'test-results/ex-s1-360.png') }); }
   // K1 + K2: Expedition begonnen (Teil a erledigt), Abflugtafel
   const ex = exServer({ erledigt: [601] }); const { page } = await setup(t, { gestaltung: 'tag', anpassen: ex.anpassen });
-  await page.addInitScript(() => { localStorage.setItem('lern.exfrei.1.7', '1'); localStorage.setItem('lern.rk.1', 'tafel'); });
+  await page.addInitScript(() => { localStorage.setItem('lern.exfrei.1.7', '1'); }); page._ohneKarte = true;
   await page.setViewportSize({ width: 400, height: 860 }); await page.goto(origin + '/#/reise/1');
   const karte = page.locator('.lr-ex-karte'); await karte.waitFor();
   assert.equal((await karte.locator('.lr-ex-ueber').innerText()).replace(/\s+/g, ' ').trim(), '⛯ EXPEDITION · TEIL B VON 3');
@@ -4537,9 +4535,9 @@ function rkLage(daten, lage) {
     if (f.iso === 'IT') { const rom = f.staedte.find((c) => c.nr === 1); rom.abgelegt = true; rom.abgelegt_am = '2026-11-20'; } }
   return daten;
 }
-function rkServer({ karte = true, basis = null, lage = null, startGesperrt = false } = {}) {
+function rkServer({ karte = true, basis = null, lage = null, startGesperrt = false, stand = {} } = {}) {
   const daten = rkLage(rkKarte({ zustand: { ...RK_STAND, ...Object.fromEntries(RK_AUFBAU.kontinente[0].fluege.filter((f) => f.land === 'Griechenland').map((f) => [f.flug_id, { golden: true, stempel: true, alle: 'sicher' }])),
-    ...Object.fromEntries(RK_AUFBAU.kontinente[0].fluege.filter((f) => f.land === 'Deutschland').map((f) => [f.flug_id, { stufe: 'kommt', im_plan: true, plan_platz: 4 }])) } }), lage);
+    ...Object.fromEntries(RK_AUFBAU.kontinente[0].fluege.filter((f) => f.land === 'Deutschland').map((f) => [f.flug_id, { stufe: 'kommt', im_plan: true, plan_platz: 4 }])), ...stand } }), lage);
   const f = (aktion, e, d) => { if (aktion === 'schule_reise_karte') return karte ? structuredClone(daten) : null; const r = basis ? basis(aktion, e, d) : e;
     // Orte → Flüge: der Ort des fehlenden Visums gehört zum Flug der Schweiz (Thema 18)
     if (aktion === 'schule_uebersicht' && lage && r) return { ...r, einheiten: startGesperrt ? r.einheiten.map((e0) => (e0.id === 1 ? { ...e0, thema_id: 67 } : e0.id === 2 ? { ...e0, thema_id: 15 } : e0)) : r.einheiten, themen: [...(r.themen || []), { thema_id: 18, titel: 'Grundrechenarten', gebiet: 'Zahlen', ort: 'Bern', block_id: RK_VISUM.block_id, jahrgang: { gym_by: 5 }, einheit: null, stand: {}, geplant: [], rueckmeldungen: 0 }] };
@@ -4548,7 +4546,7 @@ function rkServer({ karte = true, basis = null, lage = null, startGesperrt = fal
     return r; };
   f.neueAktionen = true; return { anpassen: f, daten };
 }
-const rkOeffnen = async (t, b, h, opt = {}) => { const srv = rkServer(opt); const { page, calls } = await setup(t, { gestaltung: opt.gestaltung || 'tag', anpassen: srv.anpassen });
+const rkOeffnen = async (t, b, h, opt = {}) => { const srv = rkServer(opt); const { page, calls } = await setup(t, { gestaltung: opt.gestaltung || 'tag', anpassen: srv.anpassen, touch: opt.touch });
   const flaggen = []; page.on('request', (r) => { if (/\/karte\/flaggen\//.test(r.url())) flaggen.push(r.url()); });
   await page.setViewportSize({ width: b, height: h }); await page.goto(origin + '/#/reise/1'); await page.locator('.rk .rk-pin').first().waitFor(); await page.waitForTimeout(200); return { page, calls, flaggen, srv }; };
 
@@ -4638,11 +4636,12 @@ test('RK-App 2 (0.92.2): Kopf einzeilig, Karte füllt das Fenster (S1/S2); Pin-T
     const { page } = await rkOeffnen(t, b, h, { gestaltung: g });
     // S1/S2: eine Zeile in der oberen Leiste
     const kopf = page.locator('header.top .rk-kopf'); await kopf.waitFor();
-    const ys = await page.locator('header.top #btn-back, header.top .rk-pfad-teil.an, header.top .rk-stern, header.top .rk-menue, header.top .rk-tafel-knopf, header.top .rk-zumir').evaluateAll((xs) => xs.filter((e) => e.offsetParent).map((e) => { const r = e.getBoundingClientRect(); return r.top + r.height / 2; }));
-    assert.ok(ys.length >= (b <= 760 ? 5 : 6) && Math.max(...ys) - Math.min(...ys) < 6, `eine Zeile ${ys}`);
+    const ys = await page.locator('header.top #btn-back, header.top .rk-pfad-teil.an, header.top .rk-stern, header.top .rk-menue, header.top .rk-zumir').evaluateAll((xs) => xs.filter((e) => e.offsetParent).map((e) => { const r = e.getBoundingClientRect(); return r.top + r.height / 2; }));
+    assert.ok(ys.length >= (b <= 760 ? 4 : 5) && Math.max(...ys) - Math.min(...ys) < 6, `eine Zeile ${ys}`);
     assert.ok((await page.locator('header.top').boundingBox()).height <= 72, 'Kopf flach');
-    if (b < 760) { assert.equal(await page.locator('.rk-tafel-knopf .rk-wort').isVisible(), false, 'Handy: nur Symbole'); assert.equal(await page.locator('header.top .rk-zumir').isVisible(), false, 'M1: „Zu mir“ in den Kartenknöpfen'); }
-    for (const s2 of ['.rk-menue', '.rk-tafel-knopf', '#btn-back', ...(b > 760 ? ['.rk-zumir'] : [])]) { const r = await page.locator('header.top ' + s2).boundingBox(); assert.ok(r.height >= 40, `${s2} ${r.height}`); }
+    assert.equal(await page.locator('.rk-tafel-knopf').count(), 0, 'Abflugtafel abgeschaltet: kein Tafel-Knopf im Kartenkopf');
+    if (b < 760) { assert.equal(await page.locator('header.top .rk-zumir').isVisible(), false, 'M1: „Zu mir“ in den Kartenknöpfen'); }
+    for (const s2 of ['.rk-menue', '#btn-back', ...(b > 760 ? ['.rk-zumir'] : [])]) { const r = await page.locator('header.top ' + s2).boundingBox(); assert.ok(r.height >= 40, `${s2} ${r.height}`); }
     const kb = await page.locator('.rk-karte').boundingBox(); const fensterB = await page.evaluate(() => innerWidth);
     assert.ok(kb.y + kb.height >= h - 24, `Karte bis unten (${kb.y + kb.height} / ${h})`);
     assert.ok(await page.evaluate(() => document.documentElement.scrollHeight <= innerHeight + 1), 'S1: Seite rollt nicht – Kopf bleibt sichtbar');
@@ -4694,11 +4693,11 @@ test('RK-App 3 M1: Handy-Kopf bei 360 und 400 px ohne Überdeckung – rechts fe
   for (const b of [360, 400]) for (const g of ['tag', 'nacht']) {
     const { page } = await rkOeffnen(t, b, 800, { gestaltung: g });
     const kopfPruefen = async (ebene) => {
-      const k = await rkKasten(page.locator('header.top #btn-back, header.top .rk-pfad, header.top .rk-tafel-knopf, header.top .rk-stern, header.top .rk-menue'));
-      assert.equal(k.length, 5, `${b} ${ebene}: fünf Kopf-Elemente`); rkOhneUeberdeckung(k, `${b} ${ebene} Kopf`);
-      const [tafel, stern, menue] = k.slice(2); for (const x of [tafel, stern, menue]) assert.ok(x.b - x.t >= 43.5, `${x.n} hoch`);
-      assert.ok(tafel.r - tafel.l >= 43.5 && menue.r - menue.l >= 43.5, 'Knöpfe ≥ 44 px breit');
-      assert.ok(stern.l - tafel.r >= 3.5 && menue.l - stern.r >= 3.5, `4 px Abstand (${stern.l - tafel.r}, ${menue.l - stern.r})`); assert.ok(menue.r <= b, 'im Bild');
+      const k = await rkKasten(page.locator('header.top #btn-back, header.top .rk-pfad, header.top .rk-stern, header.top .rk-menue')); // Abflugtafel abgeschaltet: ohne ▤
+      assert.equal(k.length, 4, `${b} ${ebene}: vier Kopf-Elemente`); rkOhneUeberdeckung(k, `${b} ${ebene} Kopf`);
+      const [stern, menue] = k.slice(2); for (const x of [stern, menue]) assert.ok(x.b - x.t >= 43.5, `${x.n} hoch`);
+      assert.ok(menue.r - menue.l >= 43.5, 'Knopf ≥ 44 px breit');
+      assert.ok(menue.l - stern.r >= 3.5, `4 px Abstand (${menue.l - stern.r})`); assert.ok(menue.r <= b, 'im Bild');
       // die aktuelle Stufe steht ganz im Pfad (nicht abgeschnitten, nicht unter einem Knopf)
       const an = await page.locator('header.top .rk-pfad-teil.an').evaluate((e) => { const r = e.getBoundingClientRect(), p = e.closest('.rk-pfad').getBoundingClientRect(); const s0 = e.querySelector('.rk-pt-text');
         return { l: r.left, r: r.right, pl: p.left, pr: p.right, voll: s0.scrollWidth <= s0.clientWidth + 1, text: e.querySelector(':scope > span').textContent.trim() }; });
@@ -4724,7 +4723,7 @@ test('RK-App 3 Sperre (RK-D): ohne Plan nur gedämpft, kein Schloss (Kl.-5-Lage 
     await page.locator('.rk-pfad-teil', { hasText: 'Welt' }).click(); await page.locator('.rk-kname', { hasText: 'AFRIKA' }).dispatchEvent('click'); await page.locator('.rk-pfad-teil.an', { hasText: 'Afrika' }).waitFor(); await page.waitForTimeout(300);
     assert.equal(await page.locator('.rk-schloss').count(), 0, 'Afrika ohne Plan: 0 Schlösser');
     const n = await page.locator('.rk-pin-gesperrt').count(); assert.ok(n >= 10, `gedämpft ${n}`);
-    assert.equal(await page.locator('.rk-pin-gesperrt').first().evaluate((e) => getComputedStyle(e).opacity), '0.4');
+    assert.equal(await page.locator('.rk-pin-gesperrt').first().evaluate((e) => getComputedStyle(e).opacity), '0.6'); // Karte: gedämpft, Flagge in Farbe mit gestricheltem Ring
     assert.equal(await page.locator('.rk-pin-gesperrt .rk-phs').count(), 0, 'ohne Hauptstadt-Zeile');
     await page.screenshot({ path: path.join(root, 'test-results/rk3-kl5-afrika-400.png') });
     // Grund beim Antippen: Klasse
@@ -4883,11 +4882,12 @@ test('RK-App: Schalter „Abflugtafel“ (bis zur Freigabe) und zurück; Start, 
   // Antarktis: Stationen, die freigeschaltete pulsiert (grün)
   await page.locator('.rk-pfad-teil', { hasText: 'Welt' }).click(); await page.locator('.rk-station-frei').waitFor();
   assert.ok((await page.locator('.rk-kzahl').allTextContents()).includes('⛯ 1 Expedition freigeschaltet'));
-  // Schalter: Abflugtafel → gleiche Ziele
-  await page.getByRole('button', { name: 'Abflugtafel' }).click(); await page.locator('.lr-abflugtafel').waitFor();
-  assert.equal(await page.locator('.lr-einsteigen-knopf').getAttribute('href'), zielKarte, 'Startknopf führt wie die Tafel');
-  await page.reload(); await page.locator('.lr-abflugtafel').waitFor(); assert.equal(await page.locator('.rk').count(), 0, 'Wahl gemerkt');
-  await page.getByRole('button', { name: 'Zur Reisekarte ›' }).click(); await page.locator('.rk .rk-pin').first().waitFor();
+  // Abflugtafel abgeschaltet: kein Schalter; eine früher gemerkte Wahl „tafel“ führt trotzdem zur Karte und wird still entfernt; Menü heißt „Reisekarte“
+  assert.equal(await page.getByRole('button', { name: 'Abflugtafel' }).count(), 0, 'kein Tafel-Knopf');
+  await page.evaluate(() => localStorage.setItem('lern.rk.1', 'tafel')); await page.reload(); await page.locator('.rk .rk-pin').first().waitFor();
+  assert.equal(await page.locator('.lr-abflugtafel').count(), 0, 'gemerkte Wahl ignoriert'); assert.equal(await page.evaluate(() => localStorage.getItem('lern.rk.1')), null, 'alter Eintrag entfernt');
+  assert.equal(await page.locator('.rk-schwebe .rk-start').getAttribute('href'), zielKarte);
+  assert.deepEqual(await page.locator('.lr-blatt-liste a').allTextContents(), ['Reisekarte', 'Regel-Universum', 'Mein Weg'], 'Menü: Reisekarte');
   // einmal je Sitzung: Seite wechseln und zurück
   const vorher = calls.filter((c) => c.aktion === 'schule_reise_karte').length;
   await page.evaluate(() => { location.hash = '#/reisepass/1'; }); await page.locator('.lr-stats-box').waitFor();
@@ -4904,10 +4904,7 @@ test('RK-App: Startknopf zeigt Check-in und Flug-Test wie die Tafel; nach einer 
   const { page } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen }); await page.setViewportSize({ width: 820, height: 1180 });
   await page.goto(origin + '/#/reise/1'); const st = page.locator('.rk-schwebe .rk-start'); await st.waitFor();
   const txt = await st.innerText(); const href = await st.getAttribute('href');
-  await page.getByRole('button', { name: 'Abflugtafel' }).click(); await page.locator('.lr-abflugtafel').waitFor();
-  assert.equal(await page.locator('.lr-einsteigen-knopf').getAttribute('href'), href);
-  if (/test$/.test(href)) assert.match(txt, /Flug-Test/);
-  await page.getByRole('button', { name: 'Zur Reisekarte ›' }).click(); await page.locator('.rk-schwebe .rk-start').waitFor();
+  if (/test$/.test(href)) assert.match(txt, /Flug-Test/); // Abflugtafel abgeschaltet: kein Vergleich mit der Tafel über den Schalter mehr
   // Änderung (Antwort) → Karte gilt als alt → beim nächsten Öffnen sofort die alte, dann die neue
   const n0 = (await page.evaluate(() => lernReiseKarteSpeicher.size));
   await page.evaluate(() => lernVergessen(1)); assert.equal(await page.evaluate(() => lernReiseKarteSpeicher.has(1)), false); assert.ok(n0 >= 1);
@@ -5019,7 +5016,7 @@ test('KJ §0: Kinderseite – Nachbessern zuerst (Expedition als Chip), Gerade d
   for (const [b, h, g] of [[400, 860, 'tag'], [820, 1180, 'nacht']]) {
     const ex = exServer();
     const { page } = await setup(t, { gestaltung: g, anpassen: kjServer({ basis: ex.anpassen }) });
-    await page.addInitScript(() => { localStorage.setItem('lern.exfrei.1.7', '1'); localStorage.setItem('lern.rk.1', 'tafel'); });
+    await page.addInitScript(() => { localStorage.setItem('lern.exfrei.1.7', '1'); }); page._ohneKarte = true;
     await page.setViewportSize({ width: b, height: h }); await page.goto(origin + '/#/reise/1'); await page.locator('.lr-nb-karte').waitFor(); await page.waitForTimeout(400);
     const folge = await page.evaluate(() => [...document.querySelector('.lr-inhalt').querySelectorAll('.lr-nb-karte, .lr-ex-wartet, .lr-ex-karte, .lr-abflugtafel, .lr-zp-karte, .lr-sj-karte')].map((e) => e.className.split(' ')[0]));
     assert.deepEqual(folge, ['lr-nb-karte', 'lr-ex-wartet', 'lr-abflugtafel', 'lr-zp-karte', 'lr-karte-box'], 'Reihenfolge §0');
@@ -5045,7 +5042,7 @@ test('KJ §0: Kinderseite – Nachbessern zuerst (Expedition als Chip), Gerade d
     await page.screenshot({ path: path.join(root, `test-results/kj-start-${b}-${g}.png`), fullPage: true });
   }
   // Ziel-Feld bei 9 % = 1 Etappe (Kl. 8: 9 von 97)
-  const { page } = await setup(t, { gestaltung: 'tag', anpassen: kjServer({ sj: KJ_SJ(8), nb: [], zp: [] }) }); await page.addInitScript(() => localStorage.setItem('lern.rk.1', 'tafel'));
+  const { page } = await setup(t, { gestaltung: 'tag', anpassen: kjServer({ sj: KJ_SJ(8), nb: [], zp: [] }) }); page._ohneKarte = true;
   await page.setViewportSize({ width: 400, height: 860 }); await page.goto(origin + '/#/reise/1'); const sj = page.locator('.lr-sj-karte'); await sj.waitFor();
   assert.match(await sj.innerText(), /Klasse 7: noch 7 Flüge · 38 Etappen[\s\S]*38 %[\s\S]*9 %[\s\S]*Nächstes Ziel: 10 % – nur noch 1 Etappe![\s\S]*Danach Klasse 9: 14 Flüge · 87 Etappen/);
   assert.equal(await page.locator('.lr-nb-karte, .lr-zp-karte').count(), 0, 'ohne Daten keine Karten');
@@ -5143,11 +5140,10 @@ test('KJ 2 (0.93.1): M1 „Zur Reisekarte ›“ nachts lesbar (Kontrast ≥ 4,5
     const fg = rgb(getComputedStyle(e).color).slice(0, 3); const [a, b] = [lum(fg), lum(bg || [255, 255, 255])]; return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05); });
   for (const [b, h] of [[360, 740], [400, 860], [820, 1180]]) for (const g of ['tag', 'nacht']) {
     const ex = exServer(); const { page } = await setup(t, { gestaltung: g, anpassen: kjServer({ basis: ex.anpassen }) });
-    await page.addInitScript(() => { localStorage.setItem('lern.exfrei.1.7', '1'); localStorage.setItem('lern.rk.1', 'tafel'); });
+    await page.addInitScript(() => { localStorage.setItem('lern.exfrei.1.7', '1'); }); page._ohneKarte = true;
     await page.setViewportSize({ width: b, height: h }); await page.goto(origin + '/#/reise/1'); await page.locator('.lr-abflugtafel').waitFor(); await page.waitForTimeout(600);
-    // M1
-    const k = await kontrast(page); assert.ok(k >= 4.5, `${b} ${g}: Kontrast „Zur Reisekarte“ ${k.toFixed(2)}`);
-    assert.equal(await page.locator('.rk-zur-karte').evaluate((e) => getComputedStyle(e).textDecorationLine), 'underline');
+    // M1 entfällt: Abflugtafel abgeschaltet – die Tafel ist nur noch Rückfall ohne Karte, ohne „Zur Reisekarte ›“
+    void kontrast; assert.equal(await page.locator('.rk-zur-karte').count(), 0);
     // M2
     assert.equal(await page.locator('.lr-mini3').count(), 0);
     // S1: Titel einzeilig; Anrede unter 600 px auf der Ecke der ersten Karte (Nachbessern), ab 600 px im Kopf
@@ -5169,6 +5165,8 @@ test('KJ 2 (0.93.1): M1 „Zur Reisekarte ›“ nachts lesbar (Kontrast ≥ 4,5
     const tafelImBild = await page.locator('.lr-flug-jetzt').evaluate((e) => { const r = e.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; });
     if (tafelImBild) { const z0 = await zustand(); assert.ok(z0[0], `${b} ${g}: Leiste aus, solange die Tafel zu sehen ist`); }
     await page.screenshot({ path: path.join(root, `test-results/kj2-tafel-${b}-${g}.png`) });
+    // Abflugtafel abgeschaltet: ohne den Link „Zur Reisekarte ›“ ist die Rückfall-Tafel bei 820 px so kurz, dass sie nicht aus dem Bild rollt – dann braucht es die Leiste nicht
+    if (!(await page.evaluate(() => document.documentElement.scrollHeight - innerHeight >= document.querySelector('.lr-flug-jetzt').getBoundingClientRect().bottom + 10))) { assert.ok(tafelImBild && (await zustand())[0], `${b} ${g}: Tafel bleibt im Bild, Leiste aus`); continue; }
     await page.evaluate(() => { const r = document.querySelector('.lr-flug-jetzt').getBoundingClientRect(); window.scrollBy(0, r.bottom + 10); });
     await page.waitForFunction(() => !document.querySelector('.lr-dock-start').classList.contains('lr-dock-weg')).catch(async () => { throw new Error(`${b} ${g}: ` + JSON.stringify(await page.evaluate(() => [scrollY, document.documentElement.scrollHeight, innerHeight, document.querySelector('.lr-abflugtafel').getBoundingClientRect().toJSON()]))); });
     await page.waitForTimeout(300);
@@ -5289,7 +5287,7 @@ test('WK F5: Rückweg von der Aufgabe – letzte Ansicht sofort (gedimmt), frisc
 // ---------- RS (0.93.3): Anrede auf der Reisekarte, „Mein Schuljahr“ auf Handy/Tablet ----------
 const rsOeffnen = async (t, b, h, g, { tafel = false } = {}) => {
   const srv = rkServer({ basis: kjServer({ nb: [] }) }); const { page } = await setup(t, { gestaltung: g, anpassen: srv.anpassen });
-  if (tafel) await page.addInitScript(() => { if (!sessionStorage.getItem('rs.einmal')) { sessionStorage.setItem('rs.einmal', '1'); localStorage.setItem('lern.rk.1', 'tafel'); } });
+  if (tafel) { let einmal = true; page._ohneKarte = () => { const x = einmal; einmal = false; return x; }; } // Abflugtafel nur als Rückfall: erster Abruf ohne Karte
   await page.setViewportSize({ width: b, height: h }); await page.goto(origin + '/#/reise/1'); return page;
 };
 // Startkarte steht fest: Bordkarten der Stadt (x/6) und Wortliste geladen – danach wird sie nicht mehr neu gezeichnet
@@ -5317,9 +5315,9 @@ test('RS 1: Anrede auf der Ecke der Startkarte der Reisekarte – danach keine a
     assert.ok(sichtbar, `${b} ${g}: Sticker nicht abgeschnitten/verdeckt`);
     if (b === 400 || b === 1280) await page.screenshot({ path: path.join(root, `test-results/rs-anrede-reisekarte-${b}-${g}.png`) });
     await st.click(); await page.locator('.lr-jw-blatt').waitFor(); await page.locator('.lr-jw-blatt .lr-jw-zu').click();
-    // danach die Abflugtafel: keine zweite Anrede an diesem Lerntag
-    await page.locator('.rk-tafel-knopf').click(); await page.locator('.lr-abflugtafel').waitFor(); await page.waitForTimeout(300);
-    assert.equal(await page.locator('.lr-jw-anrede').count(), 0, `${b} ${g}: Tafel ohne zweite Anrede`);
+    // danach (Seite neu): keine zweite Anrede an diesem Lerntag (Abflugtafel abgeschaltet – vorher über den Tafel-Knopf geprüft)
+    await page.reload(); await page.locator('.rk-start').first().waitFor(); await page.waitForTimeout(400);
+    assert.equal(await page.locator('.lr-jw-anrede').count(), 0, `${b} ${g}: keine zweite Anrede`);
   }
 });
 
@@ -5327,7 +5325,8 @@ test('RS 1: Abflugtafel zuerst – Anrede dort, danach auf der Reisekarte keine 
   for (const [b, h] of rsGroessen) for (const g of ['tag', 'nacht']) {
     const page = await rsOeffnen(t, b, h, g, { tafel: true });
     await page.locator('.lr-abflugtafel').waitFor(); await page.locator('.lr-jw-anrede').first().waitFor();
-    await page.locator('.rk-zur-karte').click(); await page.locator('.rk-start').first().waitFor(); await page.waitForTimeout(300);
+    await page.evaluate(() => { lernReiseKarteVergessen(1); location.hash = '#/reisepass/1'; }); await page.locator('.lr-stats-box').waitFor(); await page.evaluate(() => { location.hash = '#/reise/1'; });
+    await page.locator('.rk-start').first().waitFor(); await page.waitForTimeout(300);
     assert.equal(await page.locator('.lr-jw-anrede').count(), 0, `${b} ${g}: Reisekarte ohne zweite Anrede`);
   }
 });
@@ -5384,10 +5383,7 @@ test('WK 2 A1: echter Fall – alle Städte gelandet, Test fehlt → „Flug-Tes
     assert.doesNotMatch(await page.locator('body').innerText(), /Stadt \d+ von \d+/, 'keine gelandete Stadt als „Gerade dran“');
     assert.equal(await page.locator('.rk-auch, .lr-auch-dran').count(), 0, 'kein „Auch dran“');
     await page.waitForTimeout(300); await page.screenshot({ path: path.join(root, `test-results/wk2-reisekarte-flugtest-${b}.png`) });
-    // Abflugtafel: derselbe Schritt
-    await page.locator('.rk-tafel-knopf').click(); const k = page.locator('.lr-einsteigen-knopf'); await k.waitFor({ state: 'attached' });
-    assert.equal(await k.getAttribute('href'), '#/lerneinheit/1-1-test'); assert.match(await k.textContent(), /Flug-Test Italien/);
-    assert.equal(await page.locator('.lr-flug-jetzt').getAttribute('href'), '#/lerneinheit/1-1-test');
+    // (Abflugtafel abgeschaltet: der Vergleich mit der Tafel über den Tafel-Knopf entfällt)
     await page.close();
   }
 });
@@ -5483,7 +5479,7 @@ test('WT: Hauptknopf erst antippbar, wenn sein Ziel feststeht – verzögerte Ka
   for (const ansicht of ['karte', 'tafel']) {
     const srv = wk2Server('test');
     const { page } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen, verzoegerungJe: (a, d) => (Number(d.lernender_id) === 1 && ['schule_reise_karte', 'schule_konto'].includes(a) ? 900 : 0) });
-    if (ansicht === 'tafel') await page.addInitScript(() => { localStorage.setItem('lern.rk.1', 'tafel'); localStorage.setItem('lern.rk.2', 'tafel'); });
+    if (ansicht === 'tafel') page._ohneKarte = true; // Tafel = Rückfall ohne Karte
     await page.setViewportSize({ width: 400, height: 860 }); await page.goto(origin + '/#/lernen'); await page.waitForTimeout(300);
     await page.evaluate(() => { location.hash = '#/reise/1'; }); await page.waitForTimeout(150); await wtBeobachten(page);
     await page.evaluate(() => { location.hash = '#/reise/2'; });
@@ -5665,7 +5661,7 @@ test('RU: Kind öffnet das Regel-Universum über das Menü – Sonne → Regel �
     assert.equal(daten.length, 0, 'Daten erst beim Öffnen laden');
     await page.locator('.lr-blatt-liste a', { hasText: 'Regel-Universum' }).click();
     await page.locator('.ru-universum').waitFor();
-    assert.match(page.url(), /#\/regeln\/1$/); assert.equal(daten.length, 1); assert.match(daten[0], /v=0\.95\.0/);
+    assert.match(page.url(), /#\/regeln\/1$/); assert.equal(daten.length, 1); assert.match(daten[0], /v=\d+\.\d+\.\d+/);
     assert.equal(await page.locator('.ru').getAttribute('data-ru-g'), g === 'tag' ? 'hell' : 'nacht');
     assert.equal(await page.evaluate(() => document.body.hasAttribute('data-kindmodus')), true);
     await ruBild(page, `ebene0-universum-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
@@ -5728,7 +5724,7 @@ test('RU: Kind öffnet das Regel-Universum über das Menü – Sonne → Regel �
     await page.locator('.ru-treffer .ru-karte').first().waitFor();
     assert.match(page.url(), /1-suche$/); assert.equal(await page.evaluate(() => document.activeElement?.closest('.ru-suche') !== null), true);
     assert.match(await page.locator('.ru-treffer .ru-karte').first().innerText(), /Kegel/);
-    await page.locator('.ru-treffer .ru-karte').first().click(); await page.locator('.ru-regelseite').waitFor();
+    await page.locator('.ru-treffer .ru-karte:not([href*="-tafel-"])').first().click(); await page.locator('.ru-regelseite').waitFor(); // erster Regel-Treffer (Tafeln stehen davor)
     await ruPruefen(page, `${b} Treffer`);
     // Zurück-Knopf der App
     await page.locator('#btn-back').click(); await page.waitForURL(/1-suche$/);
@@ -5745,32 +5741,84 @@ test('RU: Eltern/Lehrer öffnen „Regeln“ → Blatt Regel 6 (alle Abschnitte 
     await page.locator('.lern-nachschlagen').getByRole('link', { name: 'Regeln', exact: true }).click();
     await page.locator('.ru-lz').first().waitFor();
     assert.match(page.url(), /#\/regeln$/);
-    assert.equal(await page.locator('.ru-lz').count(), 14 + 28 + 8);
+    assert.equal(await page.locator('.ru-lz').count(), 14 + 28 + 8 + 9); // + Tafeln zum Nachschlagen (Gesamtübersicht Formeln und 8 Tafeln)
     assert.equal(await page.evaluate(() => document.body.hasAttribute('data-kindmodus')), false);
     await ruPruefen(page, `${b} Liste`);
     await page.locator('.ru-lz', { hasText: 'Ausmultiplizieren' }).click();
     await page.locator('.ru-l-kopf h2').first().waitFor(); assert.match(page.url(), /#\/regeln\/lehrer-r6$/); // Blatt steht (die Liste hat auch ru-l-abschnitt)
     assert.deepEqual(await page.locator('.ru-l-kopf h2').allInnerTexts(), ['1 Merksatz', '2 Was das Kind sieht', '3 Fachliche Erklärung', '4 Verweise und Zuordnung', '5 Stand je Kind']);
     assert.equal(await page.locator('.ru-lehrer details').count(), 0, 'alles offen');
-    assert.equal(await page.locator('.ru-rueck').count(), 4);
+    assert.equal(await page.locator('.ru-l-kopf .ru-ae').count(), 4);
     assert.equal(await page.locator('.ru-aufgaben li').count(), 3);
     assert.match(await page.locator('.ru-lehrer').innerText(), /Nicht geprüft:/);
     await ruPruefen(page, `${b} Blatt`);
     await ruBild(page, `lehrer-regel6-${b}-hell`);
-    await page.locator('.ru-rueck[data-abschnitt="Merksatz"]').click();
+    const merk = page.locator('.ru-l-kopf', { hasText: '1 Merksatz' }).locator('.ru-ae');
+    await merk.click(); assert.equal(await merk.getAttribute('aria-expanded'), 'true');
     const form = page.locator('.ru-rueck-form form');
+    assert.match(await form.locator('.lern-auftrag-bezug').innerText(), /Regel-Universum · Rechenregel R6 \(rr\.ausmultiplizieren\) · Ausmultiplizieren und Ausklammern · Feld Abschnitt Merksatz/);
     await form.getByRole('button', { name: 'Frage', exact: true }).click();
     await form.locator('textarea').fill('Ist „jeden“ für Klasse 5 klar genug?');
+    const y0 = await page.evaluate(() => scrollY);
     await form.getByRole('button', { name: 'Auftrag senden' }).click();
     await form.getByText('Danke – der Auftrag ist angekommen.', { exact: false }).waitFor();
     const rm = calls.find((c) => c.aktion === 'schule_rueckmeldung_geben');
-    assert.deepEqual(rm.daten, { bezug: 'allgemein', art: 'sonstiges', text: 'Regel 6 · Ausmultiplizieren und Ausklammern (rr.ausmultiplizieren) · Merksatz · Frage: Ist „jeden“ für Klasse 5 klar genug?' });
+    assert.deepEqual(rm.daten, { bezug: 'allgemein', art: 'sonstiges', text: 'Regel-Universum · Rechenregel R6 (rr.ausmultiplizieren) · Ausmultiplizieren und Ausklammern · Feld Abschnitt Merksatz · Frage: Ist „jeden“ für Klasse 5 klar genug?' });
+    // danach: Formular zu, kurze Bestätigung am Knopf, kein Seitensprung
+    await page.locator('.ru-rueck-form').waitFor({ state: 'detached' }); await merk.filter({ hasText: 'Gesendet' }).waitFor();
+    assert.equal(await merk.getAttribute('aria-expanded'), 'false'); assert.match(page.url(), /#\/regeln\/lehrer-r6$/); assert.ok(Math.abs((await page.evaluate(() => scrollY)) - y0) < 2, 'kein Seitensprung');
     await page.locator('.ru-lehrer-band a', { hasText: 'So sieht es das Kind' }).click();
-    await page.locator('.ru-regelseite .ru-merksatz').waitFor(); assert.match(page.url(), /#\/regeln\/kind-r6$/);
-    assert.equal(await page.locator('.ru-band-kind').count(), 1); assert.equal(await page.locator('.ru-rueck').count(), 0);
+    await page.locator('.ru-band-kind').waitFor(); await page.locator('.ru-regelseite .ru-merksatz').waitFor(); assert.match(page.url(), /#\/regeln\/kind-r6$/);   // erst auf das Band der Kinderansicht warten: der Merksatz steht auch schon auf dem Lehrer-Blatt
+    assert.equal(await page.locator('.ru-band-kind').count(), 1); assert.ok(await page.locator('.ru-ae').count() >= 10, 'Schüleransicht für Erwachsene: „Ändern lassen“ an den Feldern');
     await ruPruefen(page, `${b} Kinderansicht`);
     await page.locator('.ru-band-kind a').click(); await page.locator('.ru-l-kopf h2').first().waitFor();
   }
+});
+
+test('RU „Ändern lassen“: Erwachsene an jedem Feld (Idee, Einzelregel, Suche), Formular unter dem Feld, Bestätigung; das Kind sieht keinen Knopf', async (t) => {
+  for (const [b, h] of [[390, 844], [1280, 800]]) {
+    const { page, calls } = await setup(t);
+    await page.setViewportSize({ width: b, height: h });
+    // Idee in der Schüleransicht für Erwachsene: Feld „warum“
+    await page.goto(origin + '/#/regeln/kind-idee-fur-2'); await page.locator('.ru-regelseite').waitFor();
+    assert.ok(await page.locator('.ru-ae').filter({ visible: true }).count() >= 3, 'Knöpfe ohne Aufklappen: kurz, satz, Bild');
+    await page.locator('.ru-stufe[data-stufe="genau"] > summary').click();
+    const knopf = page.locator('.ru-ae[data-wo$="Idee I-fur-2 · Aus dem Rechteck · Feld warum"]');
+    await knopf.click();
+    const box = page.locator('.ru-ae-kopf:has(.ru-ae[aria-expanded="true"]) + .ru-rueck-form'); await box.waitFor(); // direkt unter dem Feldkopf
+    assert.equal(await page.locator('.ru-rueck-form').count(), 1);
+    await ruPruefen(page, `${b} Idee mit offenem Formular`);
+    await box.locator('textarea').fill('Bitte ein Bild zur Begründung.');
+    await box.getByRole('button', { name: 'Auftrag senden' }).click();
+    await page.locator('.ru-rueck-form').waitFor({ state: 'detached' }); await knopf.filter({ hasText: 'Gesendet' }).waitFor();
+    const rm = calls.filter((c) => c.aktion === 'schule_rueckmeldung_geben').pop();
+    assert.deepEqual(rm.daten, { bezug: 'allgemein', art: 'sonstiges', text: 'Regel-Universum · Idee I-fur-2 · Aus dem Rechteck · Feld warum · Vorschlag: Bitte ein Bild zur Begründung.' });
+    assert.match(page.url(), /#\/regeln\/kind-idee-fur-2$/);
+    // Zweimal tippen schließt wieder; Klassenbeispiel (Leiter) öffnet das Formular in der Zeile
+    await page.locator('.ru-stufe[data-stufe="klassen"] > summary').click();
+    const lk = page.locator('.ru-leiter .ru-ae').first(); await lk.click(); await page.locator('.ru-leiter .ru-rueck-form').waitFor();
+    await lk.click(); assert.equal(await page.locator('.ru-rueck-form').count(), 0);
+    // Suche nach „cm“: Treffer mit Knopf
+    await page.locator('.ru-suche input').fill('cm'); await page.locator('.ru-suche input').press('Enter');
+    await page.locator('.ru-treffer .ru-karte').first().waitFor();
+    assert.match(await page.locator('.ru-treffer .ru-karte').first().innerText(), /Tafel[\s\S]*Länge/); // Tafeln zuerst (Nachschlagen)
+    assert.ok(await page.locator('.ru-treffer .ru-karte', { hasText: 'Größe und Einheit' }).count() >= 1);
+    assert.equal(await page.locator('.ru-treffer li').count(), await page.locator('.ru-treffer .ru-ae').count());
+    await ruPruefen(page, `${b} Suche cm (Erwachsene)`);
+  }
+  // Erwachsener in der Eltern-App öffnet die Universum-Ansicht eines Kindes: Knopf da (Entscheidung des Nutzers 27.11., wie auf den Flugseiten); Kinder-Zugang: nie
+  { const { page } = await setup(t, { gestaltung: 'nacht' });
+    for (const a of ['1-r6', '1-idee-fur-2', '1-regel-f17', '1-sonne']) { await page.goto(origin + '/#/regeln/' + a); await page.locator('.ru-seite > *').first().waitFor();
+      for (const z of await page.locator('.ru-stufe > summary').all()) await z.click();
+      assert.ok(await page.locator('.ru-ae').count() > 0, a);
+      assert.equal(await page.locator('.ru-lehrer-band').count(), 0, a + ': kein Band „So sieht es das Kind“ in der Ansicht des Kindes'); } }
+  { const { page } = await setup(t, { lernSeite: true, rolle: 'kind' });
+    await page.goto(origin + '/lernen/'); await page.getByLabel('Lern-Code').fill('ABCD-EFGH-JKLM'); await page.getByRole('button', { name: 'Anmelden' }).click(); await page.waitForURL(/#\/reise\/1$/);
+    await page.goto(origin + '/lernen/#/regeln/1-r6'); await page.locator('.ru-regelseite').waitFor();
+    for (const z of await page.locator('.ru-stufe > summary').all()) await z.click();
+    assert.equal(await page.locator('.ru-ae, .ru-erw').count(), 0, 'Kinder-Zugang');
+    await page.goto(origin + '/lernen/#/regeln/kind-r6'); await page.waitForURL(/#\/regeln\/1$/); await page.locator('.ru-universum').waitFor();
+    assert.equal(await page.locator('.ru-ae').count(), 0, 'Kind auf der Adresse der Erwachsenen'); }
 });
 
 test('RU Nachbesserung: Kopf am Handy ohne Doppel – Ebene 0 zeigt bei 400 × 860 mindestens sechs Gebiete, Menü und Suche in einer Zeile', async (t) => {
@@ -5791,6 +5839,101 @@ test('RU Nachbesserung: Kopf am Handy ohne Doppel – Ebene 0 zeigt bei 400 × 8
     await ruBild(page, `ebene0-universum-400-${g === 'tag' ? 'hell' : 'dunkel'}`);
     await page.locator('.lr-menue').first().click(); await page.locator('.lr-blatt-liste a', { hasText: 'Regel-Universum' }).waitFor(); // Menü funktioniert weiter
   }
+});
+
+// ---------- Tafeln zum Nachschlagen (lernen-regeln.js, daten/regeln-universum.json → tafeln) ----------
+// Bildschirmfotos nur auf Wunsch: TAFEL_BILDER=<Ordner außerhalb des Repos> (ganze Seite, 390/1280 hell, 390 dunkel)
+const TAFEL_IDS = ['formeln', 'einheiten', 'formeln-flaechen', 'formeln-koerper', 'zahlen', 'stellenwert', 'bruch-dezimal-prozent', 'figuren', 'zeichen-woerter'];
+const tafelBild = async (page, name) => { if (!process.env.TAFEL_BILDER) return; await page.waitForFunction(() => !(document.querySelector('.ru-seite')?.getAnimations() || []).length);
+  fs.mkdirSync(process.env.TAFEL_BILDER, { recursive: true }); await page.screenshot({ path: path.join(process.env.TAFEL_BILDER, name + '.jpg'), quality: 80, fullPage: true }); };
+test('RU Tafeln: Einstieg im Universum, alle Tafeln erreichbar (Kind und Erwachsene), Matrix klappt auf, Suche springt an die Stelle, kein Querscrollen (390 und 1280 px)', async (t) => {
+  for (const [b, h, g] of [[390, 844, 'tag'], [1280, 800, 'tag'], [390, 844, 'nacht']]) {
+    const hd = g === 'tag' ? 'hell' : 'dunkel';
+    // als Kind angemeldet (Kinder-Zugang /lernen/): so sieht es das Kind, ohne „Ändern lassen“
+    const { page } = await setup(t, { gestaltung: g, lernSeite: true, rolle: 'kind' });
+    await page.setViewportSize({ width: b, height: h });
+    await page.goto(origin + '/lernen/'); await page.getByLabel('Lern-Code').fill('ABCD-EFGH-JKLM'); await page.getByRole('button', { name: 'Anmelden' }).click(); await page.waitForURL(/#\/reise\/1$/);
+    await page.goto(origin + '/lernen/#/regeln/1'); await page.locator('.ru-universum').waitFor();
+    // Teil 1b (28.11.): kein Reiter „Tafeln“ und keine große Karte mehr – die Tafeln stehen ganz oben in ihren Gebieten („Auf einen Blick“)
+    assert.equal(await page.locator('.ru-umsch-tafeln, .ru-tafel-station').count(), 0, 'kein Reiter, keine Karte');
+    assert.deepEqual((await page.locator('.ru-umschalter a').allInnerTexts()).map((x) => x.trim()), ['Aufbau', 'Durch die Klassen']);
+    // Hinweis je Gebiet auf der Startseite (klein, in der Zeile des Gebiets)
+    assert.match((await page.locator('.ru-planet0', { hasText: 'Zahlen' }).innerText()).replace(/\s+/g, ' '), /3 Übersichten/);
+    assert.match((await page.locator('.ru-planet0', { hasText: 'Fläche und Raum' }).innerText()).replace(/\s+/g, ' '), /2 Übersichten/);
+    assert.match((await page.locator('.ru-sonne0').innerText()).replace(/\s+/g, ' '), /1 Übersicht/);
+    await tafelBild(page, `universum-${b}-${hd}`);
+    // jede der neun Tafeln: vom Gebiet (bzw. der Sonne) aus mit einem Tipp; Brotkrumen Universum › Gebiet › Tafel
+    const erreicht = new Set();
+    for (const [von, name] of [['sonne', 'Sonne'], ['gebiet-zahlen', 'Zahlen'], ['gebiet-geld', 'Geld und Verhältnisse'], ['gebiet-geo', 'Geometrie'], ['gebiet-fur', 'Fläche und Raum'], ['gebiet-algebra', 'Algebra'], ['gebiet-funktionen', 'Funktionen'], ['gebiet-daten', 'Daten und Zufall']]) {
+      await page.goto(origin + '/lernen/#/regeln/1-' + von); const blick = page.locator('.ru-blick'); await blick.waitFor();
+      // ganz oben: vor den tragenden Ideen bzw. vor dem Schnitt der Sonne
+      assert.ok(await page.evaluate(() => { const b0 = document.querySelector('.ru-blick'), n = document.querySelector('.ru-ideen1, .ru-schnitt'); return !!(b0.compareDocumentPosition(n) & Node.DOCUMENT_POSITION_FOLLOWING); }), von + ': vor den Ideen');
+      assert.ok((await blick.boundingBox()).y < h * 0.6, von + ': im ersten Bildschirm');
+      if (von === 'gebiet-fur' || von === 'gebiet-zahlen') await tafelBild(page, `gebiet-${von.slice(7)}-${b}-${hd}`);
+      const ziele = await blick.locator('a').evaluateAll((xs) => xs.map((x) => x.getAttribute('href')));
+      for (const z of ziele) { const m = z.match(/1-tafel-([a-z-]+?)(?:\.[a-z0-9-]+)?$/); assert.ok(m, z); erreicht.add(m[1]); }
+      const erstes = blick.locator('a').first(); const ziel = await erstes.getAttribute('href'); await erstes.click();
+      await page.locator('.ru-tafel-seite').waitFor();
+      const krumen = (await page.locator('.ru-pfad').innerText()).replace(/\s+/g, ' ');
+      assert.ok(krumen.includes(name) && krumen.startsWith('‹ Universum'), `${von} → ${ziel}: ${krumen}`);
+    }
+    assert.deepEqual([...erreicht].sort(), [...TAFEL_IDS].sort(), 'alle neun Tafeln mit einem Tipp aus einem Gebiet');
+    // Maßeinheiten an zwei Gebieten: die Brotkrumen nennen das Gebiet, aus dem man kam; von der Suche aus das erste
+    await page.goto(origin + '/lernen/#/regeln/1-gebiet-fur'); await page.locator('.ru-blick a', { hasText: 'Maßeinheiten' }).click(); await page.locator('.ru-tafel-seite[data-tafel="einheiten"]').waitFor();
+    assert.match(await page.locator('.ru-pfad').innerText(), /Fläche und Raum[\s\S]*Maßeinheiten/);
+    // alte Route der Übersicht → Startseite (kein toter Link)
+    await page.goto(origin + '/lernen/#/regeln/1-tafeln'); await page.locator('.ru-universum').waitFor(); await page.waitForURL(/#\/regeln\/1-universum$/);
+    for (const id of TAFEL_IDS) {
+      await page.goto(origin + '/lernen/#/regeln/1-tafel-' + id); await page.locator(`.ru-tafel-seite[data-tafel="${id}"]`).waitFor();
+      assert.equal(await page.locator('.ru-ae').count(), 0, id + ': Kind sieht keinen Knopf „Ändern lassen“');
+      assert.ok(await page.locator('.ru-tafel-karte, .ru-tafel-figur').count() >= 1, id);
+      await ruPruefen(page, `${b} Tafel ${id}`);
+      await tafelBild(page, `tafel-${id}-${b}-${hd}`);
+      if (id === 'einheiten' || id === 'formeln') { // alles aufgeklappt: Kreuztabellen und Zeilen passen ohne Querscrollen der Seite
+        await page.evaluate(() => { document.querySelectorAll('.ru-tafel-seite details').forEach((d) => { d.open = true; }); document.querySelectorAll('.ru-tafel-auf[aria-expanded="false"]').forEach((k) => k.click()); });
+        assert.equal(await page.locator('.ru-ae, .ru-tafel-erw').count(), 0, id + ' aufgeklappt: nichts für Erwachsene');
+        await ruPruefen(page, `${b} Tafel ${id} aufgeklappt`); await tafelBild(page, `tafel-${id}-offen-${b}-${hd}`);
+      }
+    }
+    // Matrix: Zeile antippen klappt die Einzelheiten auf, die Seite rollt dabei nicht waagrecht
+    await page.goto(origin + '/lernen/#/regeln/1-tafel-formeln'); await page.locator('#ru-tf-kreis').waitFor();
+    await page.locator('#ru-tf-kreis .ru-tafel-auf').click();
+    assert.equal(await page.locator('#ru-tf-kreis .ru-tafel-detail').isVisible(), true);
+    assert.match(await page.locator('#ru-tf-kreis').innerText(), /A = π · r²/);
+    await ruPruefen(page, `${b} Formeln, Kreis offen`);
+    // Klassenfilter: bis Klasse 5 blendet Kreis (ab Kl. 8) aus
+    await page.locator('.ru-tafel-kf button[data-bis="5"]').click();
+    assert.equal(await page.locator('#ru-tf-kreis').isVisible(), false); assert.equal(await page.locator('#ru-tf-rechteck').isVisible(), true);
+    await page.locator('.ru-tafel-kf button[data-bis="alle"]').click();
+    // Suche: Tafel zuerst, Sprung an die Stelle
+    for (const [q, ziel, sel] of [['cm', /1-tafel-einheiten\.laenge$/, '#ru-tf-laenge'], ['Kreis', /1-tafel-formeln\.kreis$/, '#ru-tf-kreis .ru-tafel-detail'], ['Volumen', /1-tafel-formeln\.koerper$/, '#ru-tf-koerper']]) {
+      await page.locator('.ru-suche input').fill(q); await page.locator('.ru-suche input').press('Enter');
+      await page.locator('.ru-treffer .ru-karte').first().waitFor();
+      assert.match(await page.locator('.ru-treffer .ru-karte').first().innerText(), /Tafel/, q);
+      if (q !== 'Volumen') { await ruPruefen(page, `${b} Suche ${q}`); await tafelBild(page, `suche-${q.toLowerCase()}-${b}-${hd}`); }
+      await page.locator('.ru-treffer .ru-karte').first().click(); await page.waitForURL(ziel);
+      await page.locator(sel).waitFor();
+      assert.equal(await page.locator(sel).isVisible(), true, q + ': Stelle aufgeklappt');
+      await page.waitForFunction((s) => { const r = document.querySelector(s).getBoundingClientRect(); return r.top >= 0 && r.top < innerHeight - 40; }, sel.split(' ')[0]);
+    }
+    // Verweis von der Idee auf die Tafel
+    await page.goto(origin + '/lernen/#/regeln/1-idee-fur-1'); await page.locator('.ru-regelseite').waitFor();
+    assert.ok(await page.locator('.ru-tafel-v').count() >= 1, 'Idee „Fläche“ verweist auf eine Tafel');
+  }
+  // Erwachsener in der Eltern-App öffnet die Ansicht des Kindes (#/regeln/1-…): Knopf „Ändern lassen“ an jeder Tafel (Entscheidung des Nutzers 27.11.)
+  { const { page } = await setup(t);
+    for (const id of TAFEL_IDS) { await page.goto(origin + '/#/regeln/1-tafel-' + id); await page.locator(`.ru-tafel-seite[data-tafel="${id}"]`).waitFor();
+      assert.ok(await page.locator('.ru-ae').count() > 0, id); } }
+  // Erwachsene: „Ändern lassen“ an Tafel, Abschnitten und Zeilen; Liste nennt die Tafeln
+  const { page, calls } = await setup(t);
+  await page.goto(origin + '/#/regeln/kind-tafel-einheiten'); await page.locator('.ru-tafel-seite').waitFor();
+  assert.ok(await page.locator('.ru-ae').count() >= 8);
+  await page.locator('.ru-tafel-kopf .ru-ae').click(); const box = page.locator('.ru-rueck-form'); await box.waitFor();
+  await box.locator('textarea').fill('Bitte Kubikmillimeter ergänzen.'); await box.getByRole('button', { name: 'Auftrag senden' }).click();
+  await page.locator('.ru-rueck-form').waitFor({ state: 'detached' });
+  assert.match(calls.filter((c) => c.aktion === 'schule_rueckmeldung_geben').pop().daten.text, /^Regel-Universum · Tafel einheiten · Maßeinheiten · Feld ganze Tafel · Vorschlag: /);
+  await page.goto(origin + '/#/regeln'); await page.locator('.ru-lehrer').waitFor();
+  assert.equal(await page.locator('.ru-l-abschnitt', { hasText: 'Tafeln zum Nachschlagen' }).locator('.ru-lz').count(), 9);
 });
 
 test('RU Nachbesserung: Daten laden nicht – kindgerechte Meldung mit „Noch einmal versuchen“, danach das Universum', async (t) => {
@@ -5828,9 +5971,9 @@ function ruSwLaden() {
 test('RU Nachbesserung: Service Worker – Regel-Daten nicht in der Vorab-Liste; Matrix Pfadart × 200/503/404/410/Netzabbruch × mit/ohne Cache', async () => {
   const { quelle, huelle } = ruSwLaden();
   assert.ok(!huelle.some((x) => x.includes('regeln-universum')), 'nicht in der Vorab-Liste');
-  assert.ok(huelle.includes('./lernen-regeln.js?v=0.95.0') && huelle.includes('./lernen-regeln.css?v=0.95.0'));
-  assert.match(quelle, /'v188'/);
-  const PFADE = { daten: 'https://x.test/app/daten/regeln-universum.json?v=0.95.0', huelle: 'https://x.test/app/index.html', karte: 'https://x.test/app/karte/welt.json', api: 'https://y.test/functions/v1/lernen-api/aktion' };
+  assert.ok(huelle.includes('./lernen-regeln.js?v=0.96.0') && huelle.includes('./lernen-regeln.css?v=0.96.0'));
+  assert.match(quelle, /'v\d+'/);
+  const PFADE = { daten: 'https://x.test/app/daten/regeln-universum.json?v=0.96.0', huelle: 'https://x.test/app/index.html', karte: 'https://x.test/app/karte/welt.json', api: 'https://y.test/functions/v1/lernen-api/aktion' };
   // Erwartete Antwort und ob der Eintrag danach noch (bzw. neu) im Cache ist
   const soll = (art, antwort, mitCache) => {
     if (art === 'api') return ['nicht bearbeitet', mitCache]; // außerhalb: der Worker greift nicht ein
@@ -5880,4 +6023,1096 @@ test('RU Nachbesserung: echter Service Worker im Browser – Regel-Daten 200 ges
   ruDatenStatus = 200; await page.getByRole('button', { name: 'Noch einmal versuchen' }).click(); await page.locator('.ru-universum').waitFor();
   assert.equal(await imCache(), true, 'wiederhergestellt: wieder gespeichert');
   assert.deepEqual(fehler, []);
+});
+
+// ---------- Karte: Länder ohne Thema zeigen Flagge (in Farbe) und Hauptstadt; Doppelklick/Doppeltipp auf ein Land mit Thema führt in die Land-Ebene ----------
+test('Karte: Land ohne Thema – farbige Flagge, Hauptstadt, „noch kein Thema“ (Beschriftung und Infofeld), kleiner, ohne Abzeichen, überdeckt keine Pins mit Thema', async (t) => {
+  for (const [b, h] of [[1280, 800], [400, 860]]) {
+    const { page } = await rkOeffnen(t, b, h);
+    const pt = page.locator('.rk-pin[data-id="PT"]'); await pt.waitFor();
+    assert.equal(await pt.getAttribute('aria-label'), 'Portugal, Hauptstadt Lissabon, noch kein Thema');
+    assert.ok(await pt.evaluate((e) => e.classList.contains('rk-pin-ohne') && !e.classList.contains('rk-pin-flug')));
+    assert.equal(await pt.locator('.rk-marke').count(), 0, 'ohne Abzeichen');
+    assert.equal(await pt.locator('image').evaluate((e) => getComputedStyle(e).filter), 'none', 'Flagge in Farbe');
+    const [ro, rm] = [await pt.locator('.rk-kopfring').boundingBox(), await page.locator('.rk-pin[data-id="ES"] .rk-kopfring').boundingBox()]; assert.ok(ro.width < rm.width - 4, `kleiner (${ro.width} / ${rm.width})`);
+    if (b >= 1100) assert.equal(await pt.locator('.rk-phs').textContent(), 'Lissabon', 'Hauptstadt als Text, wo Platz ist');
+    assert.ok(await page.locator('.rk-pin-ohne .rk-phs').count() >= (b >= 1100 ? 10 : 3), 'viele Hauptstädte ohne Thema beschriftet');
+    // Pins mit Thema haben Vorrang: kein Kopf ohne Thema liegt auf einem Kopf mit Thema
+    const mit = await rkKasten(page.locator('.rk-pin-flug .rk-kopfring')); const ohne = await rkKasten(page.locator('.rk-pin-ohne .rk-kopfring'));
+    for (const o of ohne) for (const m of mit) assert.ok(!rkUeber(o, m, 1), `${b}: ${o.n} auf ${m.n}`);
+    // Algerien (Thema in Afrika) auf der Europa-Karte: nicht „noch kein Thema“, sondern Hinweis auf den Kontinent
+    assert.match(await page.locator('.rk-pin[data-id="DZ"]').getAttribute('aria-label'), /^Algerien, Hauptstadt Algier, Thema auf dem Kontinent Afrika$/);
+    await pt.dispatchEvent('click'); const bl = page.locator(b >= 1100 ? '.rk-seite-blatt' : '.rk-blatt:not([hidden])'); await bl.waitFor();
+    assert.match(await bl.innerText(), /LAND[\s\S]*Portugal[\s\S]*Hauptstadt: Lissabon[\s\S]*Hier gibt es noch kein Thema\./);
+    assert.equal(await bl.locator('.rk-plakette').count(), 1, 'Flagge im Infofeld'); assert.equal(await bl.getByRole('button', { name: /Städte in/ }).count(), 0);
+    await page.locator('.rk-pin[data-id="PT"]').dispatchEvent('click'); await page.locator('.rk-pin[data-id="PT"]').dispatchEvent('click'); await page.waitForTimeout(300);
+    assert.equal(await page.evaluate(() => document.querySelector('.rk')._z.ebene), 'kontinent', 'Doppelklick ohne Thema bleibt auf dem Kontinent');
+    await page.locator('.rk-pin[data-id="DZ"]').dispatchEvent('click'); await bl.getByRole('button', { name: 'Zu Algerien ›' }).click(); await page.locator('.rk-pfad-teil.an', { hasText: 'Afrika' }).waitFor();
+    // Land-Ebene: Nachbarn ohne Thema nur angedeutet (nicht antippbar, ohne Schild)
+    await page.locator('.rk-pfad-teil').first().click(); await page.locator('.rk-kname', { hasText: 'EUROPA' }).dispatchEvent('click'); await page.locator('.rk-pin[data-id="IT"]').waitFor();
+    await page.locator('.rk-pin[data-id="IT"]').dblclick(); await page.locator('.rk-st-hier').waitFor(); await page.waitForTimeout(600);
+    assert.equal(await page.locator('.rk-pin-angedeutet .rk-pland').count(), 0); assert.equal(await page.locator('.rk-pin-angedeutet[role="button"]').count(), 0);
+  }
+});
+
+test('Karte: Doppelklick auf ein Land mit Thema führt in die Land-Ebene, Einfachklick öffnet das Infofeld, gesperrt kein Durchgriff, Tastatur zweimal Enter', async (t) => {
+  const ebene = (page) => page.evaluate(() => document.querySelector('.rk')._z.ebene);
+  for (const [b, h] of [[1280, 800], [400, 860]]) {
+    const { page } = await rkOeffnen(t, b, h); const bl = page.locator(b >= 1100 ? '.rk-seite-blatt' : '.rk-blatt:not([hidden])');
+    // Einfachklick: Infofeld, bleibt auf dem Kontinent
+    await page.locator('.rk-pin[data-id="CH"]').click(); await bl.waitFor(); await page.waitForTimeout(600);
+    assert.equal(await ebene(page), 'kontinent'); assert.match(await bl.innerText(), /Schweiz/);
+    assert.equal(await page.locator('.rk-pin[data-id="CH"]').getAttribute('aria-description'), 'Zweimal antippen oder zweimal Enter: Städte ansehen');
+    // Doppelklick: Land-Ebene mit Route
+    await page.locator('.rk-pin[data-id="IT"]').dblclick(); await page.locator('.rk-st-hier').waitFor();
+    assert.equal(await ebene(page), 'land'); assert.equal(await page.evaluate(() => document.querySelector('.rk')._z.land), 'IT');
+    assert.equal(await page.locator('.rk-stadt').count(), 13);
+    // Doppelklick auf die Landfläche (Deutschland, zwei Klicks kurz nacheinander) ebenso
+    const zurueck = async () => { await page.locator(b <= 760 ? '.rk-pfad-kurz' : '.rk-pfad-teil:has-text("Europa")').click(); await page.locator('.rk-pin[data-id="IT"]').waitFor(); await page.waitForTimeout(500); };
+    await zurueck(); await page.locator('.rk-land[data-id="DE"]').dispatchEvent('click'); await page.locator('.rk-land[data-id="DE"]').dispatchEvent('click');
+    await page.locator('.rk-stadt').first().waitFor(); assert.equal(await page.evaluate(() => document.querySelector('.rk')._z.land), 'DE', 'Landfläche');
+    // Tastatur: Enter → Infofeld (Fokus bleibt am Pin), zweites Enter → hinein
+    await zurueck();
+    await page.locator('.rk-pin[data-id="CH"]').waitFor(); await page.waitForTimeout(500);
+    await page.locator('.rk-pin[data-id="CH"]').focus(); await page.keyboard.press('Enter'); await bl.waitFor(); await page.waitForTimeout(600);
+    assert.equal(await ebene(page), 'kontinent', 'erstes Enter: Infofeld');
+    assert.equal(await page.evaluate(() => document.activeElement?.getAttribute('data-id')), 'CH', 'Fokus bleibt am Pin');
+    await page.keyboard.press('Enter'); await page.locator('.rk-stadt').first().waitFor(); assert.equal(await ebene(page), 'land', 'zweites Enter: hinein');
+    assert.equal(await page.evaluate(() => document.querySelector('.rk')._z.land), 'CH');
+  }
+  // gesperrt (ohne Plan, Klasse): Doppelklick öffnet nur das Infofeld
+  const { page } = await rkOeffnen(t, 1280, 800, { lage: 'kl5' });
+  await page.locator('.rk-pfad-teil', { hasText: 'Welt' }).click(); await page.locator('.rk-kname', { hasText: 'AFRIKA' }).dispatchEvent('click'); await page.locator('.rk-pfad-teil.an', { hasText: 'Afrika' }).waitFor(); await page.waitForTimeout(300);
+  const kb = await page.locator('.rk-karte').boundingBox();
+  const id = await page.locator('.rk-pin-gesperrt').evaluateAll((ps, k0) => ps.map((p) => [p.getAttribute('data-id'), p.querySelector('.rk-kopfring').getBoundingClientRect()])
+    .find(([, r]) => r.left > k0.x + 80 && r.right < k0.x + k0.width - 80 && r.top > k0.y + 40 && r.bottom < k0.y + k0.height - 40)[0], kb);
+  assert.equal(await page.locator(`.rk-pin[data-id="${id}"]`).getAttribute('aria-description'), null);
+  const r0 = await page.locator(`.rk-pin[data-id="${id}"] .rk-kopfring`).boundingBox(); await page.mouse.dblclick(r0.x + r0.width / 2, r0.y + r0.height / 2); await page.locator('.rk-seite-blatt').waitFor(); await page.waitForTimeout(600);
+  assert.equal(await ebene(page), 'kontinent', 'gesperrt: kein Durchgriff'); assert.match(await page.locator('.rk-seite-blatt').innerText(), /🔒/);
+  await page.locator(`.rk-pin[data-id="${id}"]`).focus(); await page.keyboard.press('Enter'); await page.keyboard.press('Enter'); await page.waitForTimeout(500);
+  assert.equal(await ebene(page), 'kontinent', 'gesperrt: auch zweimal Enter nicht');
+});
+
+test('Karte: Doppeltipp (Touch) auf ein Land mit Thema führt in die Land-Ebene, einfacher Tipp öffnet das Infofeld, kein Seitenzoom', async (t) => {
+  const { page } = await rkOeffnen(t, 400, 860, { touch: true });
+  const ebene = () => page.evaluate(() => document.querySelector('.rk')._z.ebene);
+  assert.equal(await page.locator('.rk-rahmen').evaluate((e) => getComputedStyle(e).touchAction), 'none', 'Karte fängt Doppeltipp-Zoom ab');
+  const mitte = async (id) => { const r = await page.locator(`.rk-pin[data-id="${id}"] .rk-kopfring`).boundingBox(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; };
+  let p = await mitte('CH'); await page.touchscreen.tap(p.x, p.y); await page.locator('.rk-blatt:not([hidden])').waitFor(); await page.waitForTimeout(600);
+  assert.equal(await ebene(), 'kontinent', 'ein Tipp: Infofeld');
+  p = await mitte('IT'); await page.touchscreen.tap(p.x, p.y); await page.waitForTimeout(80); await page.touchscreen.tap(p.x, p.y);
+  await page.locator('.rk-st-hier').waitFor(); assert.equal(await ebene(), 'land'); assert.equal(await page.evaluate(() => document.querySelector('.rk')._z.land), 'IT');
+  assert.equal(await page.evaluate(() => (window.visualViewport ? visualViewport.scale : 1)), 1, 'Seite nicht gezoomt');
+});
+
+// ---------- Karte: themenlose Länder und Doppelklick – Bilder vorher/nachher (nur mit KARTE_BILDER=vorher|nachher) ----------
+test('Karte-Bilder: Kontinent und Land bei 400 px hell/dunkel und 1280 px hell', { skip: !process.env.KARTE_BILDER }, async (t) => {
+  const ziel = path.join(root, 'inhalte/pruefung/karte/bilder'); fs.mkdirSync(ziel, { recursive: true }); const art = process.env.KARTE_BILDER;
+  for (const [b, h, g] of [[400, 860, 'tag'], [400, 860, 'nacht'], [1280, 800, 'tag']]) {
+    const { page } = await rkOeffnen(t, b, h, { gestaltung: g }); await page.waitForTimeout(400);
+    await page.screenshot({ path: path.join(ziel, `${art}-kontinent-${b}-${g === 'tag' ? 'hell' : 'dunkel'}.jpg`), type: 'jpeg', quality: 80 });
+    await page.locator('.rk-pin[data-id="IT"]').click(); await page.locator(b >= 1100 ? '.rk-seite-blatt' : '.rk-blatt:not([hidden])').getByRole('button', { name: 'Städte in Italien ansehen ›' }).click();
+    await page.locator('.rk-st-hier').waitFor(); await page.waitForTimeout(700);
+    await page.screenshot({ path: path.join(ziel, `${art}-land-${b}-${g === 'tag' ? 'hell' : 'dunkel'}.jpg`), type: 'jpeg', quality: 80 });
+  }
+  // Regel-Universum in der Karte: Welt-Ebene je Ansicht
+  for (const [b, h, g] of [[400, 860, 'tag'], [400, 860, 'nacht'], [1280, 800, 'tag'], [1280, 800, 'nacht']]) {
+    const { page } = await rkOeffnen(t, b, h, { gestaltung: g }); await page.waitForTimeout(400);
+    await page.locator('.rk-pfad-teil', { hasText: 'Welt' }).click(); await page.locator('.rk-kname').first().waitFor(); await page.waitForTimeout(500);
+    await page.screenshot({ path: path.join(ziel, `${art}-welt-${b}-${g === 'tag' ? 'hell' : 'dunkel'}.jpg`), type: 'jpeg', quality: 80 });
+    if (b === 1280) { await page.locator('.rk-kname', { hasText: 'EUROPA' }).dispatchEvent('click'); await page.locator('.rk-pin[data-id="IT"]').waitFor(); await page.waitForTimeout(400);
+      await page.screenshot({ path: path.join(ziel, `${art}-kontinent-${b}-${g === 'tag' ? 'hell' : 'dunkel'}.jpg`), type: 'jpeg', quality: 80 }); }
+  }
+  // Vorschlag gesperrt/wartend mit Thema: Klasse-8-Lage (Europa, Deutschland wartet) und Klasse-5-Lage (Afrika, alles gesperrt)
+  for (const [lage, kont] of [['kl8', null], ['kl5', 'AFRIKA']]) for (const [b, h] of [[400, 860], [1280, 800]]) {
+    const { page } = await rkOeffnen(t, b, h, { lage }); await page.waitForTimeout(300);
+    if (kont) { await page.locator('.rk-pfad-teil').first().click(); await page.locator('.rk-kname', { hasText: kont }).dispatchEvent('click'); await page.locator('.rk-pfad-teil.an', { hasText: 'Afrika' }).waitFor(); await page.waitForTimeout(400); }
+    await page.screenshot({ path: path.join(ziel, `${art}-gesperrt-${lage}-${b}-hell.jpg`), type: 'jpeg', quality: 80 });
+  }
+});
+
+// ---------- Tabellen am Handy: keine Buchstaben-/Ziffern-Umbrüche, breite Tabellen rollen nur in sich (eigener Rollbereich) ----------
+const TAB_BREIT = { typ: 'tabelle', kopf: ['Ziffer', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'], zeilen: [['Treffer', 'ja', 'ja', 'ja', 'nein', 'nein', 'nein', 'nein', 'ja', 'nein', 'nein'], ['Anzahl', '12', '120', '1 200', '12 000', '3', '45', '678', '9', '10', '11']] };
+const TAB_SCHMAL = { typ: 'tabelle', kopf: ['x', 'y'], zeilen: [['1', '2'], ['3', '?']] };
+const tabSeite = async (t, grafik, gestaltung = 'tag') => {
+  const { page } = await setup(t, { gestaltung, rolle: 'kind', anpassen: (a, e) => (a === 'schule_einheit_lesen' && e ? { ...e, inhalt: { ...e.inhalt, etappen: [ETAPPEN[0]] },
+    uebungen: [{ id: 11, lernziel: 'stellenwert', antworttyp: 'zahl', frage: { text: 'Lies die Tabelle.', grafik }, tipp: 'Tipp.' }], stand: [{ lernziel: 'stellenwert', pflicht: true, status: 'offen' }] } : e) });
+  await page.setViewportSize({ width: 400, height: 860 }); await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.locator('.lr-bordkarte .lr-tafel').waitFor(); await page.waitForTimeout(250);
+  return page; };
+const tabZeilen = (page) => page.locator('.lr-bordkarte .lr-tafel').evaluate((tb) => [...tb.querySelectorAll('th,td')].map((c) => { const rg = document.createRange(); rg.selectNodeContents(c); const tops = new Set();
+  for (const q of rg.getClientRects()) if (q.width) tops.add(Math.round(q.top / 4)); return [c.textContent.trim(), tops.size]; }));
+
+test('Tabelle 400 px: breite Tabelle – Seite rollt nicht, eigener Rollbereich (Tastatur, aria), Zahlen einzeilig, letzte Spalte erreichbar; schmale Tabelle unverändert', async (t) => {
+  for (const g of ['tag', 'nacht']) {
+    const page = await tabSeite(t, TAB_BREIT, g);
+    assert.ok(await ohneQuerrollen(page), `${g}: Seite rollt nicht seitlich`);
+    const roll = page.locator('.lr-bordkarte .lr-tafel-roll');
+    assert.equal(await roll.getAttribute('role'), 'region'); assert.equal(await roll.getAttribute('tabindex'), '0'); assert.equal(await roll.getAttribute('aria-label'), 'Tabelle, seitlich rollbar');
+    assert.ok(await roll.evaluate((e) => e.scrollWidth > e.clientWidth + 1 && getComputedStyle(e).overflowX === 'auto'), 'Tabelle rollt in sich');
+    assert.ok(await page.locator('.lr-bild-tabelle.eng.rollt.schatten-r').count() === 1, 'erst enger, dann rollen; Schatten rechts');
+    assert.ok(await page.locator('.lr-tafel-hinweis:not([hidden])').isVisible(), 'Hinweis sichtbar');
+    for (const [txt, n] of await tabZeilen(page)) if (/\d/.test(txt) || txt.length <= 14) assert.equal(n, 1, `${g}: „${txt}“ in ${n} Zeilen`);
+    // Tastatur: fokussieren und rollen, bis die letzte Spalte im Bild ist
+    await roll.focus(); for (let i = 0; i < 12; i++) await page.keyboard.press('ArrowRight'); await page.waitForTimeout(200);
+    const [r, z] = [await roll.boundingBox(), await page.locator('.lr-bordkarte .lr-tafel tr').first().locator('th,td').last().boundingBox()];
+    assert.ok(z.x + z.width <= r.x + r.width + 1 && z.x >= r.x - 1, `${g}: letzte Spalte erreichbar (${z.x}+${z.width} / ${r.x}+${r.width})`);
+    assert.equal(await page.locator('.lr-bild-tabelle.schatten-l').count(), 1, 'Schatten links nach dem Rollen');
+    await page.evaluate(() => document.activeElement?.blur());
+    await page.screenshot({ path: path.join(root, `test-results/tabelle-breit-400-${g}.png`) });
+  }
+  const page = await tabSeite(t, TAB_SCHMAL);
+  const st = await page.locator('.lr-bordkarte .lr-tafel').evaluate((tb) => ({ fs: getComputedStyle(tb).fontSize, pad: getComputedStyle(tb.querySelector('td')).padding, kasten: tb.closest('.lr-bild-tabelle').className, tab: tb.parentElement.getAttribute('tabindex') }));
+  assert.deepEqual(st, { fs: '15.2px', pad: '6px 12px', kasten: 'lr-bild lr-bild-tabelle', tab: null }, 'schmale Tabelle wie bisher');
+  assert.ok(await page.locator('.lr-tafel-hinweis').isHidden());
+});
+
+// ---------- Abflugtafel abgeschaltet: was nur auf der Tafel stand und sichtbar bleiben muss (Geschenk), steht auf der Karte ----------
+test('Abflugtafel aus: Geschenk-Hinweis („Geschenk für deine Landungen“) auf der Reisekarte, „Super ›“ schließt ihn; ohne Karte Rückfall Tafel mit Menü „Abflugtafel“', async (t) => {
+  for (const [b, h] of [[400, 860], [1280, 800]]) {
+    const { page } = await rkOeffnen(t, b, h, { basis: (aktion, e) => (aktion === 'schule_konto' && e ? { ...structuredClone(e), landung_nachbuchung: { etappen: 25, sterne: 1620, am: '2026-11-22T12:00:00Z' } } : e) });
+    const k = page.locator(`${b >= 1100 ? '.rk-seite' : '.rk-schwebe'} .lr-fp-geschenk`); await k.waitFor();
+    assert.match(await k.innerText(), /★ Geschenk für deine Landungen[\s\S]*\+1.620 ★ Landungs-Bonus/);
+    assert.ok(await ohneQuerrollen(page));
+    await page.screenshot({ path: path.join(root, `test-results/tafel-aus-geschenk-${b}.png`) });
+    await k.getByRole('button', { name: 'Super ›' }).click(); await page.waitForTimeout(200); assert.equal(await page.locator('.lr-fp-geschenk').count(), 0);
+  }
+  const alt = rkServer({ karte: false }); const { page: p2 } = await setup(t, { gestaltung: 'tag', anpassen: alt.anpassen }); await p2.goto(origin + '/#/reise/1'); await p2.locator('.lr-abflugtafel').waitFor();
+  assert.equal(await p2.locator('.lr-blatt-liste a').first().textContent(), 'Abflugtafel', 'ohne Karte heißt die Startseite weiter Abflugtafel');
+});
+
+// ---------- Regel-Universum schwebt in der Reisekarte (Welt, Kontinent, Land), Textlink daneben; Tafel-Rückfall mit Link ----------
+test('Karte: Regel-Universum schwebt auf allen Ebenen, verdeckt keine Pins/Haltestellen der Route und keine Bedienelemente, führt zu #/regeln; reduzierte Bewegung ohne Kreisen', async (t) => {
+  for (const [b, h] of [[400, 860], [1280, 800]]) {
+    const { page } = await rkOeffnen(t, b, h); const u = page.locator('.rk-karte .rk-universum');
+    const pruefen = async (ebene, sel) => {
+      await page.waitForTimeout(500); await u.waitFor();
+      assert.equal(await u.getAttribute('href'), '#/regeln/1'); assert.equal(await u.getAttribute('aria-label'), 'Zum Regel-Universum');
+      const ub = await u.boundingBox(); assert.ok(ub.width >= 44 && ub.height >= 44, `${b} ${ebene}: Trefferfläche ${ub.width}×${ub.height}`);
+      const kb = await page.locator('.rk-karte').boundingBox(); assert.ok(ub.x >= kb.x && ub.y >= kb.y && ub.x + ub.width <= kb.x + kb.width && ub.y + ub.height <= kb.y + kb.height, `${b} ${ebene}: in der Karte`);
+      const [uk] = await rkKasten(u); const andere = await rkKasten(page.locator(`${sel}, .rk-zoom button, .rk-quelle, .rk-schwebe > *, .rk-legende:not([hidden])`));
+      for (const x of andere) { if (rkUeber(uk, x, 1)) await page.screenshot({ path: path.join(root, `test-results/uni-fehler-${b}-${ebene}.png`) }); assert.ok(!rkUeber(uk, x, 1), `${b} ${ebene}: Universum überdeckt ${x.n} ${JSON.stringify([uk, x])} Ecke ${await u.getAttribute('data-ecke')}`); }
+      return ub; };
+    const k0 = await pruefen('Kontinent', '.rk-pin-flug .rk-kopfring, .rk-pin-flug .rk-pland');
+    // fest am Rahmen: Verschieben der Karte bewegt das Universum nicht
+    const kb = await page.locator('.rk-rahmen').boundingBox(); await page.mouse.move(kb.x + kb.width / 2, kb.y + kb.height / 3); await page.mouse.down(); await page.mouse.move(kb.x + kb.width / 2 + 60, kb.y + kb.height / 3 + 40, { steps: 5 }); await page.mouse.up();
+    await page.waitForTimeout(300); const k1 = await u.boundingBox(); assert.ok(Math.abs(k1.x - k0.x) < 1 && Math.abs(k1.y - k0.y) < 1, 'nicht mitgeschoben');
+    await page.locator('.rk-pin[data-id="IT"]').dblclick(); await page.locator('.rk-st-hier').waitFor();
+    await pruefen('Land', '.rk-st-g .rk-stadt, .rk-st-name, .rk-pin-flug .rk-kopfring');
+    if (b <= 760) { await page.locator('.rk-pfad-kurz').click(); await page.locator('.rk-pfad-teil.an', { hasText: 'Europa' }).waitFor(); }
+    await page.locator('.rk-pfad-teil', { hasText: 'Welt' }).click(); await page.locator('.rk-kname').first().waitFor();
+    await pruefen('Welt', '.rk-kname, .rk-kzahl');
+    // Textlink: Rechner rechte Spalte, Handy in der Startkarte bei „Mein Schuljahr“
+    assert.equal(await page.locator(`${b >= 1100 ? '.rk-seite' : '.rk-schwebe'} .rk-ru-link`).getAttribute('href'), '#/regeln/1');
+    await u.click(); await page.waitForURL(/#\/regeln\/1$/);
+  }
+  // reduzierte Bewegung: kein Kreisen
+  const { page } = await rkOeffnen(t, 400, 860); await page.emulateMedia({ reducedMotion: 'reduce' });
+  assert.equal(await page.locator('.rk-uni-b1').evaluate((e) => getComputedStyle(e).animationName), 'none');
+  await page.emulateMedia({ reducedMotion: 'no-preference' }); assert.equal(await page.locator('.rk-uni-b1').evaluate((e) => getComputedStyle(e).animationName), 'rk-uni-dreh');
+  // Rückfall Tafel (ohne Karte): Link zum Regel-Universum
+  const alt = rkServer({ karte: false }); const { page: p2 } = await setup(t, { gestaltung: 'tag', anpassen: alt.anpassen }); await p2.goto(origin + '/#/reise/1'); await p2.locator('.lr-abflugtafel').waitFor();
+  assert.equal(await p2.locator('.lr-ru-link').getAttribute('href'), '#/regeln/1');
+});
+
+// ---------- Menü verkürzt: Reisekarte · Regel-Universum (mit Merkheft) · Mein Weg (mit Reisepass) · Ansicht ----------
+test('Menü verkürzt: vier Einträge; Merkheft als Reiter im Regel-Universum, Reisepass als Reiter in „Mein Weg“; alte Routen landen richtig; Reiter per Tastatur (400 hell)', async (t) => {
+  const bilder = path.join(root, 'inhalte/pruefung/menue/bilder'); fs.mkdirSync(bilder, { recursive: true });
+  const { page } = await rkOeffnen(t, 400, 860);
+  await page.getByRole('button', { name: 'Menü', exact: true }).first().click(); const liste = page.locator('dialog.lr-blatt[open] .lr-blatt-liste'); await liste.waitFor();
+  assert.deepEqual((await liste.locator('a, button:not(.lr-blatt-zu)').allInnerTexts()).map((x) => x.trim()), ['Reisekarte', 'Regel-Universum', 'Mein Weg', 'Dunkle Ansicht']);
+  await page.screenshot({ path: path.join(bilder, 'menue-400-hell.jpg'), type: 'jpeg', quality: 80 });
+  await liste.getByRole('button', { name: 'Schließen' }).click();
+  // Merkheft: alte Route gilt, Reiter „Mein Merkheft“ im Regel-Universum, Menü markiert „Regel-Universum“
+  await page.goto(origin + '/#/merkheft/1'); const ruR = page.locator('.lr-ru-reiter'); await ruR.waitFor(); await page.locator('.lr-merkliste').waitFor();
+  assert.deepEqual(await ruR.locator('a').allInnerTexts(), ['Regel-Universum', 'Mein Merkheft']); assert.equal(await ruR.locator('a.on').innerText(), 'Mein Merkheft');
+  assert.equal(await page.locator('.lr-blatt-liste a.on').textContent(), 'Regel-Universum');
+  await page.screenshot({ path: path.join(bilder, 'merkheft-im-universum-400-hell.jpg'), type: 'jpeg', quality: 80 });
+  await ruR.getByRole('link', { name: 'Regel-Universum' }).focus(); await page.keyboard.press('Enter'); await page.waitForURL(/#\/regeln\/1$/);
+  const ein = page.locator('.ru-kopf .ru-merkheft-link'); await ein.waitFor(); assert.equal(await ein.getAttribute('href'), '#/merkheft/1');
+  await page.waitForTimeout(300); await page.screenshot({ path: path.join(bilder, 'universum-mit-merkheft-einstieg-400-hell.jpg'), type: 'jpeg', quality: 80 });
+  await ein.focus(); await page.keyboard.press('Enter'); await page.waitForURL(/#\/merkheft\/1$/); await page.locator('.lr-merkliste').waitFor();
+  // Reisepass: alte Route gilt, als Reiter von „Mein Weg“; Menü markiert „Mein Weg“
+  await page.goto(origin + '/#/reisepass/1'); const wr = page.locator('.lr-weg-reiter'); await wr.waitFor(); await page.locator('.lr-stats-box').waitFor();
+  assert.deepEqual(await wr.locator('a').allInnerTexts(), ['Stand', 'Kontinente', 'Reisepass']); assert.equal(await wr.locator('a.on').innerText(), 'Reisepass');
+  assert.equal(await page.locator('.lr-blatt-liste a.on').textContent(), 'Mein Weg');
+  await page.screenshot({ path: path.join(bilder, 'reisepass-in-mein-weg-400-hell.jpg'), type: 'jpeg', quality: 80 });
+  await wr.getByRole('link', { name: 'Stand' }).focus(); await page.keyboard.press('Enter'); await page.waitForURL(/#\/weg\/1-stand$/);
+  await page.locator('.lr-weg-reiter a.on', { hasText: 'Stand' }).waitFor();
+  await page.locator('.lr-weg-reiter').getByRole('link', { name: 'Reisepass' }).focus(); await page.keyboard.press('Enter'); await page.waitForURL(/#\/reisepass\/1$/); await page.locator('.lr-stats-box').waitFor();
+  // ★-Chip der Karte führt weiter zum Reisepass; alter Reiter „Karte“ → Startseite
+  await page.goto(origin + '/#/weg/1-karte'); await page.waitForURL(/#\/reise\/1$/); await page.locator('.rk .rk-pin').first().waitFor();
+  assert.equal(await page.locator('.rk-stern').getAttribute('href'), '#/reisepass/1');
+});
+
+// Teil 1 (0.96.0): Die Karte bleibt, wie sie war (Entscheidung des Nutzers) – nur die Rolle des SVG ist berichtigt; „Was kommt wann wieder?“ im Menü; „Knobeln des Tages“ abgeschaltet
+test('Teil 1: Reisekarte ohne zusätzliche Leiste; Karte als Gruppe mit einzeln bedienbaren Pins; „Was kommt wann wieder?“ im Menü; kein „Knobeln des Tages“; alte Routen leiten weiter', async (t) => {
+  const knobelTag = (aktion, e) => { if (aktion !== 'schule_konto' || !e) return e; const x = structuredClone(e); x.knobel_tag = { ...zeig(AUFG[501]), einheit_id: 1, stadt: 'Rom', etappe: 'Welchen Wert hat eine Ziffer?' }; return x; };
+  for (const [b, h, g] of [[390, 844, 'tag'], [1280, 800, 'tag'], [390, 844, 'nacht']]) {
+    const { page } = await rkOeffnen(t, b, h, { basis: knobelTag, gestaltung: g });
+    assert.equal(await page.locator('.lr-abflugtafel, .rk-leiste, .rk-chip').count(), 0, 'keine Tafel, keine Leiste');
+    assert.equal(await page.getByText('Knobeln des Tages', { exact: false }).count(), 0, 'Knobeln des Tages abgeschaltet');
+    assert.equal(await page.locator('.rk-svg').getAttribute('role'), 'group'); assert.equal(await page.locator('.rk-svg').getAttribute('aria-label'), 'Reisekarte');
+    assert.match(await page.getByRole('group', { name: 'Reisekarte' }).ariaSnapshot(), /button "Italien, Hauptstadt Rom, gerade dran[^"]*"/);
+    const pin = page.locator('.rk-pin[data-id="IT"]'); await pin.focus(); assert.equal(await pin.evaluate((e) => e === document.activeElement), true, 'Pin per Tastatur erreichbar');
+    if (process.env.APP3_BILDER) await page.screenshot({ path: path.join(process.env.APP3_BILDER, `karte-${b}-${g === 'nacht' ? 'dunkel' : 'hell'}.png`), fullPage: true });
+    // Menü ≡ → „Was kommt wann wieder?“ (derselbe Text wie unter der Tafel)
+    await page.locator('header.top .rk-menue').click(); const blatt = page.locator('dialog.lr-blatt[open]'); await blatt.waitFor();
+    const wdh = blatt.locator('summary', { hasText: 'Was kommt wann wieder?' }); await wdh.focus(); await page.keyboard.press('Enter');
+    await blatt.getByText('nach 1, 3, 7, 14 und 30 Lerntagen', { exact: false }).waitFor();
+    if (process.env.APP3_BILDER) await page.waitForTimeout(300), await page.screenshot({ path: path.join(process.env.APP3_BILDER, `karte-${b}-${g === 'nacht' ? 'dunkel' : 'hell'}-menue.png`), fullPage: true });
+  }
+  const { page } = await rkOeffnen(t, 390, 844);
+  for (const alt of ['#/weltkarte/1', '#/weg/1-karte']) { await page.goto(origin + '/' + alt); await page.waitForURL(/#\/reise\/1$/); await page.locator('.rk .rk-pin').first().waitFor(); }
+  // Rückfall ohne Kartendaten: Tafel wie bisher, aber ohne Knobeln des Tages
+  const tag = (aktion, e) => { if (aktion !== 'schule_konto' || !e) return e; const x = structuredClone(e); x.knobel_tag = { ...zeig(AUFG[501]), einheit_id: 1, stadt: 'Rom', etappe: 'Welchen Wert hat eine Ziffer?' }; return x; };
+  const { page: p2 } = await setup(t, { gestaltung: 'nacht', anpassen: tag }); p2._ohneKarte = true;
+  await p2.goto(origin + '/#/reise/1'); await p2.locator('.lr-abflugtafel').waitFor();
+  assert.equal(await p2.locator('.lr-knobel-tag').count(), 0, 'auch auf der Rückfall-Tafel kein Knobeln des Tages');
+});
+
+// ---------- Teil 2 (0.96.0) / Teil 1 „Besprochen“: „Was wackelt“ für Eltern/Lehrer – nachgebildete Server-Antworten in der Form von inhalte/plan/wackelt-server.md ----------
+// Der Nachbau folgt dem Server WW-S3 (supabase/migrations/20261206_ww_s3_wackelt.sql): stand 3; offen höchstens 300 (neueste zuerst); Zeitraum nach dem Zeitpunkt
+// des Fehlers (am > jetzt − tage); „erledigt“ nur im Zeitraum und höchstens 200 (zuletzt besprochen zuerst) mit erledigt {art, id (Markierungs-ID), am, tag};
+// auswertung.themen[] nullsicher (Einheit ohne Thema: kein thema_id, offen richtig gezählt) mit besprochen {zuletzt, zuletzt_tag, tage, fehler, neu_seit} aus allen gültigen
+// Markierungen (ohne Zeitraum, ohne 200er-Grenze); mit_tipp immer Boolean; danach_richtig true oder fehlt (Zeitpunkte in danach_richtig_am).
+// schule_fehler_abhaken: Markieren {versuch_ids} → geaendert, geaendert_ids, markierung_ids, uebersprungen [{versuch_id, grund}]; Zurückholen {zurueck: true,
+// markierung_ids} → genau diese noch gültigen Markierungen, sonst übersprungen mit grund „überholt“ / „schon zurückgeholt“ / „nicht gefunden“;
+// {zurueck: true} ohne markierung_ids → Fehler „Zurückholen nur mit markierung_ids“ (alter Weg über versuch_ids entfernt).
+// Zeitzone des Kindes = Zeitzone des Testrechners (der Tag einer Markierung ist ihr Kalendertag dort).
+// vorher: schon besprochene Fehler (Testdaten): Thema 29 zweimal (vor 10 und vor 3 Tagen), Thema 30 einmal vor 9 Tagen (Fehler vor 10 Tagen – außerhalb von 7/14 Tagen).
+// vieleAm(i): Zeitpunkt des i-ten zusätzlichen Fehlers (sonst heute, je eine Minute älter); ohneThema: zwei offene Fehler einer Einheit ohne Thema (thema_id fehlt wie nach jsonb_strip_nulls).
+// st.verderben(r, d): Analyse-Antwort gezielt verderben; st.vorAbhaken/st.nachAbhaken(d): andere Erwachsene nachstellen (vor/nach dem Schreiben auf dem Server).
+// st.abgehakt: has/get/set/delete je Versuch auf den Markierungen (set legt eine neue gültige Markierung an, delete holt die gültige zurück); st.marks: alle Markierungen.
+function wwServer({ leer = false, viele = 0, vorher = true, vieleAm = null, ohneThema = false } = {}) {
+  const heute = new Date(); const zwei = (n) => String(n).padStart(2, '0');
+  const lokTag = (iso) => { const d = new Date(iso); return `${d.getFullYear()}-${zwei(d.getMonth() + 1)}-${zwei(d.getDate())}`; };
+  const zeit = (n, h = 12) => { const d = new Date(heute); d.setDate(d.getDate() - n); d.setHours(h, 0, 0, 0); return d.toISOString(); };
+  const A = (id, text, wert, extra = {}) => ({ id, antworttyp: 'zahl', frage: { text }, loesung: { wert }, loesungsweg: 'Schritt für Schritt gerechnet.', ...extra });
+  const fb = (kennung, text) => ({ quelle: 'fehlbild', schluessel: 'fb:' + kennung, kennung, text });
+  const basis = [
+    [9001, 0, 29, 'Terme umformen', 31, 'minusklammer', 'Minus vor der Klammer', A(5001, 'Löse: 20 − (x + 4) = 9', 7), { wert: '15' }, fb('fb.minusklammer.nur_erstes_zeichen', 'nur das erste Zeichen in der Klammer gedreht'), { anlauf: 2, erst_antwort: { wert: '13' }, danach_richtig_am: { lernkarte_am: zeit(0, 18) } }],
+    [9002, 1, 29, 'Terme umformen', 31, 'minusklammer', 'Minus vor der Klammer', A(5002, 'Vereinfache: 12 − (4 − a) + 2a', 8), { wert: '9' }, fb('fb.minusklammer.nur_erstes_zeichen', 'nur das erste Zeichen in der Klammer gedreht'), {}],
+    [9003, 1, 30, 'Lineare Gleichungen', 32, 'klammern', 'Gleichungen mit Klammern', A(5003, 'Löse: 3 − (2x − 5) = 0', 4), { wert: '−1' }, fb('fb.minusklammer.nur_erstes_zeichen', 'nur das erste Zeichen in der Klammer gedreht'), { mit_tipp: true }],
+    [9004, 2, 33, 'Satz des Pythagoras', 34, 'seite', 'Fehlende Seite berechnen', A(5004, 'Eine 5 m lange Leiter lehnt an einer Wand. Ihr Fuß steht 1,4 m von der Wand entfernt. Wie hoch reicht sie?', 4.8), { wert: '23,04' }, null, {}],
+    [9005, 3, 33, 'Satz des Pythagoras', 34, 'seite', 'Fehlende Seite berechnen', A(5005, 'Berechne die Länge der Seite b.', 12), { wert: '13,9' }, { quelle: 'grund', schluessel: 'g:komma', grund: 'komma' }, {}],
+    [9006, 4, 24, 'Prozentrechnung', 35, 'grundwert', 'Grundwert berechnen', A(5006, '20 % sind 30 €. Wie viel sind 100 %?', 150), { wert: '6' }, null, { danach_richtig_am: { lernkarte_am: zeit(1, 18) } }],
+    [9007, 5, 30, 'Lineare Gleichungen', 32, 'klammern', 'Gleichungen mit Klammern', A(5007, 'Welche Zeile ist falsch?', null, { antworttyp: 'auswahl', antworten: ['Zeile 1', 'Zeile 2', 'Zeile 3'], loesung: { index: 0 } }), { index: 2 }, null, {}],
+    // früher schon besprochen (vorher)
+    [9010, 4, 29, 'Terme umformen', 31, 'minusklammer', 'Minus vor der Klammer', A(5010, 'Löse: 9 − (x − 1) = 4', 6), { wert: '4' }, null, {}],
+    [9011, 10, 30, 'Lineare Gleichungen', 32, 'klammern', 'Gleichungen mit Klammern', A(5011, 'Löse: 2 − (x + 1) = 0', 1), { wert: '3' }, null, {}],
+    [9012, 12, 29, 'Terme umformen', 31, 'minusklammer', 'Minus vor der Klammer', A(5012, 'Vereinfache: 5 − (a − 2)', 7), { wert: '3' }, null, {}],
+  ].map(([versuch_id, vor, thema_id, thema, einheit_id, lernziel, lernkarte, aufgabe, antwort, fehlerart, extra]) => ({ versuch_id, am: zeit(vor, 17), thema_id, thema, einheit_id, lernziel, lernkarte, aufgabe, antwort, anlauf: 1, mit_tipp: false, ...(fehlerart ? { fehlerart } : {}), ...extra }));
+  // viele: so viele weitere offene Fehler im Thema „Bruchrechnen“ (heute, älteste zuerst nummeriert) – für die Grenzen 200/300
+  for (let i = 0; i < viele; i++) basis.push({ versuch_id: 20000 + i, am: vieleAm ? vieleAm(i) : new Date(heute.getTime() - (i + 1) * 60000).toISOString(), thema_id: 40, thema: 'Bruchrechnen', einheit_id: 41, lernziel: 'kuerzen', lernkarte: 'Kürzen',
+    aufgabe: A(30000 + i, `Kürze ${i + 2}/${2 * i + 4}`, 0.5), antwort: { wert: '1' }, anlauf: 1, mit_tipp: false });
+  if (ohneThema) for (const [versuch_id, vor] of [[9101, 2], [9102, 3]]) basis.push({ versuch_id, am: zeit(vor, 9), einheit_id: 50, lernziel: 'freie_uebung', lernkarte: 'Freie Übung',
+    aufgabe: A(5100 + versuch_id - 9100, `Rechne: ${versuch_id - 9090} + 5`, versuch_id - 9085), antwort: { wert: '0' }, anlauf: 1, mit_tipp: false });
+  for (const x of basis) { x.tag = lokTag(x.am); if (x.danach_richtig_am) x.danach_richtig = true; } // Tag in der Zeitzone des Kindes; danach_richtig nur true oder fehlt
+  // Markierungen (schule.fehler_erledigt): id, versuch_id, am, zurueck_am; höchstens eine gültige je Versuch
+  const st = { marks: [], naechste: 401, calls: [] };
+  const gueltig = (vid) => st.marks.find((m) => m.versuch_id === vid && !m.zurueck_am);
+  const markieren = (vid, am = new Date().toISOString()) => { const m = { id: st.naechste++, versuch_id: vid, am, zurueck_am: null }; st.marks.push(m); return m; };
+  st.abgehakt = { has: (vid) => !!gueltig(vid), get: (vid) => gueltig(vid)?.am,
+    set: (vid, am) => { const m = gueltig(vid); if (m) m.am = am; else markieren(vid, am); return st.abgehakt; },
+    delete: (vid) => { const m = gueltig(vid); if (!m) return false; m.zurueck_am = new Date().toISOString(); return true; } };
+  if (vorher && !leer) for (const [vid, n] of [[9012, 10], [9011, 9], [9010, 3]]) markieren(vid, zeit(n, 20));
+  const vonVersuch = (vid) => basis.find((x) => x.versuch_id === vid);
+  const gleich = (a, b) => (a ?? null) === (b ?? null); // is not distinct from
+  const analyse = (d) => {
+    const tage = d.tage ?? 14; const seit = tage ? heute.getTime() - tage * 864e5 : null;
+    const imZeitraum = (x) => seit === null || Date.parse(x.am) > seit;
+    const alle = leer ? [] : basis.filter(imZeitraum);
+    const eintrag = (x) => { const m = gueltig(x.versuch_id); return m ? { ...x, erledigt: { art: 'abgehakt', id: m.id, am: m.am, tag: lokTag(m.am) } } : { ...x }; };
+    const offenAlle = alle.filter((x) => !gueltig(x.versuch_id)).sort((a, b) => b.am.localeCompare(a.am) || b.versuch_id - a.versuch_id);
+    // besprochen je Thema: alle gültigen Markierungen (ohne Zeitraum, ohne 200er-Grenze); neu_seit: offene Fehler des Themas nach der letzten Markierung
+    const besprochen = (tid) => { const ms = st.marks.filter((m) => !m.zurueck_am && vonVersuch(m.versuch_id) && gleich(vonVersuch(m.versuch_id).thema_id, tid)); if (!ms.length) return undefined;
+      const zuletzt = ms.map((m) => m.am).sort().at(-1);
+      return { zuletzt, zuletzt_tag: lokTag(zuletzt), tage: new Set(ms.map((m) => lokTag(m.am))).size, fehler: ms.length, neu_seit: basis.filter((x) => gleich(x.thema_id, tid) && x.am > zuletzt && !gueltig(x.versuch_id)).length }; };
+    // Themen mit Antworten im Zeitraum (je Thema zwei richtige Antworten heute – darum stehen alle Themen da), offen nullsicher
+    const themen = [...new Set(basis.map((x) => x.thema_id ?? null))].map((id) => { const b = basis.filter((x) => gleich(x.thema_id, id));
+      const t = { ...(id === null ? {} : { thema_id: id, thema: b[0].thema }), offen: offenAlle.filter((x) => gleich(x.thema_id, id)).length, gesamt: alle.filter((x) => gleich(x.thema_id, id)).length + 2 };
+      const bs = besprochen(id); if (bs) t.besprochen = bs; return t; })
+      .sort((a, b) => b.offen - a.offen || b.gesamt - a.gesamt || (a.thema_id ?? Infinity) - (b.thema_id ?? Infinity));
+    const r = { ok: true, stand: 3, lernender_id: d.lernender_id, tage, heute: lokTag(heute.toISOString()), mit_fehlbild: true, offen_zahl: offenAlle.length, offen: offenAlle.slice(0, 300).map(eintrag),
+      auswertung: { antworten: 40, richtig: 33, themen, lerntage: [6, 5, 4, 3, 2, 1, 0].map((n) => ({ tag: lokTag(zeit(n)), richtig: 3 + n % 3, falsch: n % 2 + (n === 1 ? 2 : 0) })),
+        wiederkehrend: leer ? [] : [{ schluessel: 'fb:fb.minusklammer.nur_erstes_zeichen', kennung: 'fb.minusklammer.nur_erstes_zeichen', text: 'Minus vor der Klammer: nur das erste Zeichen gedreht', anzahl: 3, offen: 3, themen: ohneThema ? [29, 30, null] : [29, 30] }],
+        einmal: { lernkarten: leer ? 0 : 2, danach_richtig: leer ? 0 : 1, themen_danach_richtig: leer ? [] : ohneThema ? [24, null] : [24] } } };
+    if (tage) r.seit = new Date(seit).toISOString();
+    if (d.erledigt) r.erledigt = alle.filter((x) => gueltig(x.versuch_id)).map(eintrag)
+      .sort((a, b) => b.erledigt.am.localeCompare(a.erledigt.am) || b.versuch_id - a.versuch_id).slice(0, 200);
+    return st.verderben ? st.verderben(JSON.parse(JSON.stringify(r)), d) : r;
+  };
+  const liste = (l, name) => { if (!Array.isArray(l) || !l.length || l.length > 200) throw new Error(`${name}: Liste mit 1 bis 200 Einträgen`);
+    if (l.some((x) => !/^\d{1,18}$/.test(String(x)) || (typeof x !== 'number' && typeof x !== 'string'))) throw new Error(`${name}: nur Zahlen`);
+    return [...new Set(l.map(Number))].sort((a, b) => a - b); };
+  const anpassen = (aktion, e, d) => {
+    if (aktion === 'schule_wackelt_analyse') { st.calls.push({ aktion, ...d }); return analyse(d); }
+    if (aktion === 'schule_fehler_abhaken') { st.calls.push({ aktion, ...d });
+      if (d.markierung_ids !== undefined && d.markierung_ids !== null) { // Zurückholen über Markierungs-IDs (schule.fehler_zurueckholen)
+        if (!d.zurueck) throw new Error('markierung_ids nur mit zurueck: true');
+        if (d.versuch_ids !== undefined && d.versuch_ids !== null) throw new Error('entweder versuch_ids oder markierung_ids');
+        const ids = liste(d.markierung_ids, 'markierung_ids'); st.vorAbhaken?.(d);
+        const neu = []; const jetzt = new Date().toISOString();
+        for (const id of ids) { const m = st.marks.find((x) => x.id === id && !x.zurueck_am); if (m) { m.zurueck_am = jetzt; neu.push(id); } }
+        const ueber = ids.filter((id) => !neu.includes(id)).map((id) => { const m = st.marks.find((x) => x.id === id);
+          return !m ? { markierung_id: id, grund: 'nicht gefunden' } : { markierung_id: id, versuch_id: m.versuch_id, grund: gueltig(m.versuch_id) ? 'überholt' : 'schon zurückgeholt' }; });
+        st.nachAbhaken?.(d);
+        return { ok: true, stand: 3, geaendert: neu.length, geaendert_ids: neu, uebersprungen: ueber }; }
+      if (d.zurueck) throw new Error('Zurückholen nur mit markierung_ids'); // alter Weg {zurueck, versuch_ids} ist am Server entfernt
+      const ids = liste(d.versuch_ids, 'versuch_ids'); st.vorAbhaken?.(d);
+      const neu = [], mids = [], ueber = [];
+      for (const id of ids) { if (!vonVersuch(id)) { ueber.push({ versuch_id: id, grund: 'nicht gefunden' }); continue; }
+        if (st.abweisen?.has(id)) { ueber.push({ versuch_id: id, grund: 'nicht endgültig falsch' }); continue; }
+        if (!gueltig(id)) { const m = markieren(id); neu.push(id); mids.push(m.id); } }
+      st.nachAbhaken?.(d);
+      return { ok: true, stand: 3, geaendert: neu.length, geaendert_ids: neu, uebersprungen: ueber, markierung_ids: mids }; }
+    return e;
+  };
+  anpassen.neueAktionen = true; return { anpassen, st, basis };
+}
+const wwBild = async (page, name) => { if (!process.env.APP3_BILDER) return; await page.waitForTimeout(250); await page.screenshot({ path: path.join(process.env.APP3_BILDER, `wackelt-${name}.png`), fullPage: true }); };
+const wwRuhig = (page) => page.waitForFunction(() => document.querySelector('.ww')?.getAttribute('aria-busy') === 'false' && !document.querySelector('.ww-erledigt [role="status"]'));
+
+test('Teil 2: „Was wackelt“ (Entwurf 4, ohne Nachüben) – Auswertung, Letzte Fehler, Nach Themen, „Besprochen“ je Thema (ohne Rückgängig), Abschnitt „Besprochen“, Wiederkehrer, Zeitraum (390/1280, hell/dunkel)', async (t) => {
+  for (const [b, h, dunkel] of [[1280, 900, false], [390, 844, false], [390, 844, true]]) {
+    const srv = wwServer(); const { page } = await setup(t, { anpassen: srv.anpassen });
+    if (dunkel) await page.emulateMedia({ colorScheme: 'dark' });
+    await page.setViewportSize({ width: b, height: h }); const hd = `${b}-${dunkel ? 'dunkel' : 'hell'}`;
+    await page.goto(origin + '/#/kind/1-wackelt'); const ww = page.locator('.ww'); await ww.locator('.ww-kachel').first().waitFor(); await ww.locator('.ww-th-wieder').first().waitFor();
+    assert.match(await ww.locator('.ww-titel h2').innerText(), /Was wackelt bei Kind A/);
+    assert.deepEqual(await ww.locator('.ww-kachel h3').allInnerTexts(), ['Fehler je Thema', 'Letzte Lerntage', 'Kommt immer wieder', 'Nur einmal passiert'], 'keine fünfte Kachel');
+    assert.match(await ww.locator('.ww-fazit').innerText(), /Am meisten hakt es bei Minus vor der Klammer: nur das erste Zeichen gedreht \(3×\), dann bei Satz des Pythagoras \(2 falsch\); Prozentrechnung war ein Ausrutscher\./);
+    assert.equal(await ww.getByRole('table', { name: 'Letzte Fehler' }).locator('.ww-z:not(.ww-kopfz)').count(), 5, '5 neueste');
+    assert.equal(await page.getByText(/nachüb|liegt bereit|abhaken/i).count(), 0, 'nichts zu Nachüben, kein „Abhaken“ mehr');
+    assert.deepEqual(await ww.getByRole('group', { name: 'Zeitraum' }).locator('button').allInnerTexts(), ['7 Tage', '14 Tage', 'Alles']);
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), true, 'kein Querrollen');
+    // „Besprochen“ nur je Thema: keine Haken an den Fehlerzeilen, kein Knopf je Lernkarte
+    assert.equal(await ww.locator('.ww-sym').count(), 0, 'kein Haken je Fehlerzeile'); assert.equal(await ww.locator('.ww-lk button').count(), 0, 'kein Knopf je Lernkarte');
+    const themen = ww.locator('.ww-thema'); assert.equal(await themen.count(), 4);
+    assert.equal(await ww.locator('.ww-bespr').count(), 4, 'je Thema ein Knopf „Besprochen“');
+    assert.equal(await themen.first().locator('.ww-th-titel').getAttribute('aria-expanded'), 'true'); assert.equal(await themen.nth(1).locator('.ww-th-titel').getAttribute('aria-expanded'), 'false');
+    for (const k of await ww.locator('.ww-bespr, .ww-seg button').all()) { const r = await k.boundingBox(); assert.ok(r.height >= 40, 'Tippfläche'); }
+    // Wiederkehrer: Terme umformen (besprochen vor 10 und vor 3 Tagen, seitdem 2 neue), Lineare Gleichungen (vor 9 Tagen, Fehler damals außerhalb des Zeitraums)
+    const datum = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return `${d.getDate()}.${d.getMonth() + 1}.`; };
+    const terme = ww.locator('.ww-thema[aria-label="Terme umformen"]');
+    assert.equal(await terme.locator('.ww-th-wieder').innerText(), `↺ Schon besprochen am ${datum(3)} – seitdem 2 neue Fehler · insgesamt an 2 Tagen besprochen`);
+    assert.equal(await ww.locator('.ww-thema[aria-label="Lineare Gleichungen"] .ww-th-wieder').innerText(), `↺ Schon besprochen am ${datum(9)} – seitdem 2 neue Fehler`);
+    assert.equal(await ww.locator('.ww-thema[aria-label="Satz des Pythagoras"] .ww-th-wieder').count(), 0);
+    assert.match(await ww.locator('.ww-nach').innerText(), /Wieder da nach dem Besprechen[\s\S]*Terme umformen[\s\S]*2 neu seit/);
+    // Letzte Fehler: kleines Zeichen bei Themen, die schon besprochen wurden
+    const letzte = ww.getByRole('table', { name: 'Letzte Fehler' });
+    assert.equal(await letzte.locator('.ww-z[data-versuch="9001"] .ww-schon').getAttribute('aria-label'), `Thema schon besprochen am ${datum(3)}`);
+    assert.equal(await letzte.locator('.ww-z[data-versuch="9004"] .ww-schon').count(), 0);
+    await wwBild(page, `${hd}-gefuellt`);
+    // Zeile aufklappen: voller Text, Fehler, erster Anlauf, Lösungsweg, Thema › Lernkarte mit „→ Thema“ (auch auf dem Handy)
+    await letzte.locator('.ww-aufg').first().click();
+    const mehr = ww.locator('.ww-mehr').first(); await mehr.waitFor();
+    assert.match(await mehr.innerText(), /Löse: 20 − \(x \+ 4\) = 9[\s\S]*Erster Anlauf: 13[\s\S]*Fehler: nur das erste Zeichen in der Klammer gedreht · 2\. Anlauf · danach richtig gelöst[\s\S]*Lösungsweg[\s\S]*Terme umformen › Minus vor der Klammer/);
+    assert.ok(await mehr.locator('.ww-mehr-ort').isVisible(), 'Thema/Lernkarte im Detail sichtbar');
+    if (b === 1280) await wwBild(page, `${hd}-zeile-auf`);
+    // „Besprochen“ (Thema): alle offenen Fehler des Themas, Thema verschwindet, Meldung mit Verweis auf „Besprochen“ (kein Rückgängig, Werkstatt 1158)
+    const ids = (await terme.locator('.ww-z[data-versuch]').evaluateAll((xs) => xs.map((x) => Number(x.dataset.versuch)))).sort();
+    await terme.getByRole('button', { name: /^Besprochen: Terme umformen/ }).click();
+    await ww.locator('.ww-thema[aria-label="Terme umformen"]').waitFor({ state: 'detached' });
+    const toast = page.locator('.ww-toast'); await toast.getByRole('button', { name: 'zurückholen unter ‚Besprochen‘' }).waitFor();
+    assert.match(await toast.innerText(), /^Terme umformen als besprochen markiert ·/); assert.equal(await toast.getByRole('button', { name: 'Rückgängig' }).count(), 0);
+    assert.deepEqual(srv.st.calls.filter((c) => c.aktion === 'schule_fehler_abhaken').pop().versuch_ids.sort(), ids);
+    await wwRuhig(page); await wwBild(page, `${hd}-nach-besprochen`);
+    // Abschnitt „Besprochen“: je Thema mit Datum und Zahl, Thema mit mehreren Terminen je Termin
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+    const bs = await page.locator('.ww-erledigt li').allInnerTexts();
+    assert.match(bs[0], new RegExp(`^Terme umformen · an 3 Tagen besprochen · 4 Fehler`));
+    assert.match(bs[1], new RegExp(`besprochen am ${datum(0).replace(/\./g, '\\.')} · 2 Fehler`));
+    assert.ok(bs.some((x) => new RegExp(`Lineare Gleichungen · besprochen am ${datum(9).replace(/\./g, '\\.')} · 1 Fehler`).test(x)), 'Gespräch vor 9 Tagen (Fehler außerhalb des Zeitraums) steht da');
+    assert.ok(srv.st.calls.some((c) => c.aktion === 'schule_wackelt_analyse' && c.erledigt && c.tage === 0), 'Besprochenes über alle Zeiträume');
+    if (b === 1280) await wwBild(page, `${hd}-besprochen`);
+    // „zurückholen“ je Tag (alle an dem Tag besprochenen Fehler des Themas)
+    assert.match(await page.locator('.ww-erledigt .ww-bs-erkl').innerText(), /holt die Fehler des Themas zurück, die an diesem Tag als besprochen markiert wurden/);
+    assert.equal(await page.locator('.ww-erledigt li').nth(1).getByRole('button').innerText(), 'alle 2 zurückholen');
+    assert.equal(await page.locator('.ww-erledigt li').nth(1).getByRole('button').getAttribute('aria-label'), `Zurückholen: Terme umformen, alle 2 am ${datum(0)} besprochenen Fehler`);
+    await page.locator('.ww-erledigt li').nth(1).getByRole('button', { name: /^Zurückholen: Terme umformen/ }).click();
+    await ww.locator('.ww-thema[aria-label="Terme umformen"]').waitFor();
+    { const c = srv.st.calls.filter((c) => c.aktion === 'schule_fehler_abhaken').pop(); assert.equal(c.zurueck, true); assert.equal(c.versuch_ids, undefined, 'nicht über versuch_ids');
+      assert.equal(c.markierung_ids.length, 2, 'über die Markierungs-IDs der geladenen Einträge'); }
+    // Zeitraum: 7 Tage → Server mit tage: 7
+    await ww.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: '7 Tage' }).click();
+    await page.waitForFunction(() => document.querySelector('.ww-seg button[aria-pressed="true"]')?.textContent === '7 Tage' && document.querySelector('.ww').getAttribute('aria-busy') === 'false');
+    assert.equal(srv.st.calls.filter((c) => c.aktion === 'schule_wackelt_analyse' && !c.erledigt).pop().tage, 7);
+    assert.match(await page.locator('.ww-teil-kopf span').first().innerText(), /letzte 7 Tage/);
+    assert.match(await ww.locator('.ww-thema[aria-label="Lineare Gleichungen"] .ww-th-wieder').innerText(), /Schon besprochen am/, '7 Tage: älteres Gespräch bleibt sichtbar');
+  }
+});
+
+test('Teil 2: „Was wackelt“ leer, Ladefehler mit „Noch einmal versuchen“, Rückfall auf die bisherige Ansicht (Server ohne neue Aktion), Kind kommt nicht hin', async (t) => {
+  // leer
+  { const srv = wwServer({ leer: true }); const { page } = await setup(t, { anpassen: srv.anpassen });
+    for (const [b, dunkel] of [[1280, false], [390, false], [390, true]]) { if (dunkel) await page.emulateMedia({ colorScheme: 'dark' }); await page.setViewportSize({ width: b, height: 844 });
+      await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.ww-leer').waitFor();
+      assert.match(await page.locator('.ww-leer').innerText(), /Nichts offen/); assert.equal(await page.locator('.ww-thema, .ww-tabelle').count(), 0);
+      assert.match(await page.locator('.ww-fazit').innerText(), /In den letzten 14 Tagen 40 Aufgaben, davon 33 richtig\./);
+      await wwBild(page, `${b}-${dunkel ? 'dunkel' : 'hell'}-leer`); await page.goto(origin + '/#/lernen'); } }
+  // Fehler (Server erreichbar, Antwort Fehler) → Meldung, „Noch einmal versuchen“ lädt neu
+  { const srv = wwServer(); const { page } = await setup(t, { anpassen: srv.anpassen }); let fehler = true;
+    await page.route('**/functions/v1/lernen-api/**', async (route) => { const b = JSON.parse(route.request().postData() || '{}');
+      if (b.aktion === 'schule_wackelt_analyse' && fehler) { await route.fulfill({ status: 500, contentType: 'application/json', body: JSON.stringify({ ok: false, fehler: 'Zeitüberschreitung der Datenbank' }) }); return; }
+      await route.fallback(); });
+    await page.goto(origin + '/#/kind/1-wackelt'); const f = page.locator('.ww-fehler'); await f.waitFor();
+    assert.match(await f.innerText(), /„Was wackelt“ lädt gerade nicht\.[\s\S]*Zeitüberschreitung/);
+    fehler = false; await f.getByRole('button', { name: 'Noch einmal versuchen' }).click(); await page.locator('.ww-kachel').first().waitFor(); }
+  // Rückfall: Edge-Funktion kennt die Aktion nicht (vor 0.9.5) → bisherige Ansicht ohne Fehlermeldung
+  { const { page } = await setup(t);
+    await page.route('**/functions/v1/lernen-api/**', async (route) => { const b = JSON.parse(route.request().postData() || '{}');
+      if (b.aktion === 'schule_wackelt_analyse') { await route.fulfill({ status: 400, contentType: 'application/json', body: JSON.stringify({ ok: false, fehler: 'Unbekannte Aktion "schule_wackelt_analyse"' }) }); return; }
+      await route.fallback(); });
+    await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.ls-wackelt, .wk-karte').first().waitFor();
+    assert.equal(await page.locator('.ww, .ww-fehler, .err-text').count(), 0, 'bisherige Ansicht, kein Fehler'); }
+  // Rückfall: Antwort ohne die Form des Plans (z. B. leer) → bisherige Ansicht
+  { const { page } = await setup(t); await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.ls-wackelt, .wk-karte').first().waitFor(); assert.equal(await page.locator('.ww').count(), 0); }
+  // Kind: die Seite der Eltern/Lehrer ist nicht erreichbar (bestehende Rollenprüfung)
+  { const srv = wwServer(); const { page, calls } = await setup(t, { lernSeite: true, rolle: 'kind', anpassen: srv.anpassen });
+    await page.goto(origin + '/lernen/'); await page.getByLabel('Lern-Code').fill('ABCD-EFGH-JKLM'); await page.getByRole('button', { name: 'Anmelden' }).click(); await page.waitForURL(/#\/reise\/1$/);
+    await page.goto(origin + '/lernen/#/kind/1-wackelt'); await page.waitForURL(/#\/reise\/1$/);
+    assert.equal(await page.locator('.ww').count(), 0); assert.equal(calls.filter((c) => c.aktion === 'schule_wackelt_analyse').length, 0); }
+});
+
+// ---------- Auflagen aus Werkstatt 1155/1156 zu „Was wackelt“ (a–f): Grenzen 200/300, Teilerfolg, Rückgängig nur für Eigenes, Antwortform, Zeitraum, Handy ----------
+const ww2Bild = async (page, name) => { if (!process.env.APP4_BILDER) return; await page.waitForTimeout(300); await page.evaluate(() => scrollTo(0, 0)); await page.waitForTimeout(100); await page.screenshot({ path: path.join(process.env.APP4_BILDER, `ww3-${name}.png`), fullPage: true }); };
+// Antworten gezielt umbiegen (Fehler, falsche Form); f(b) → { status, body } oder null (dann normal)
+const wwRoute = (page, f) => page.route('**/functions/v1/lernen-api/**', async (route) => { const b = JSON.parse(route.request().postData() || '{}'); const r = f(b);
+  if (r) { await route.fulfill({ status: r.status || 200, contentType: 'application/json', body: JSON.stringify(r.body) }); return; } await route.fallback(); });
+const wwOeffnen = async (t, b, opt = {}) => { const srv = wwServer(opt.srv || {}); const { page } = await setup(t, { anpassen: srv.anpassen, verzoegerungJe: opt.verzoegerungJe });
+  await page.setViewportSize({ width: b, height: b > 1000 ? 900 : 844 }); if (opt.route) await wwRoute(page, opt.route);
+  await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.ww .ww-kachel').first().waitFor(); await wwRuhig(page); return { page, srv, ww: page.locator('.ww'), toast: page.locator('.ww-toast') }; };
+const abhakCalls = (srv) => srv.st.calls.filter((c) => c.aktion === 'schule_fehler_abhaken');
+
+test('Auflagen 1155/1156 a/b: „Besprochen“ in Paketen ≤ 200, Grenze 300 kenntlich, Teilerfolg mit „Noch einmal versuchen“, ehrliche Summen, Bestätigung nur mit geaendert und uebersprungen', async (t) => {
+  for (const b of [1280, 390]) {
+    // 300 offene werden gezeigt (327 offen): Hinweis; Zahl des Themas aus auswertung.themen; „Besprochen“ schickt Pakete ≤ 200
+    { const { page, srv, ww, toast } = await wwOeffnen(t, b, { srv: { viele: 320 } });
+      assert.match(await ww.locator('#ww-h-themen').locator('..').innerText(), /327 offene Fehler in 5 Themen\s*· gezeigt: die 300 neuesten aus \d Themen?/);
+      const bruch = ww.locator('.ww-thema[aria-label="Bruchrechnen"]'); assert.equal(await bruch.locator('.ww-th-titel .ww-zaehler').innerText(), '320', 'Zahl aus auswertung.themen');
+      assert.match(await bruch.locator('.ww-th-grenze').innerText(), /Gezeigt: die \d+ neuesten von 320/);
+      const n = Number((await bruch.locator('.ww-th-grenze').innerText()).match(/die (\d+) neuesten/)[1]);
+      await bruch.getByRole('button', { name: /^Besprochen: Bruchrechnen/ }).click(); await toast.getByText(/Bruchrechnen als besprochen markiert/).waitFor(); await wwRuhig(page);
+      assert.match(await toast.innerText(), new RegExp(`^Bruchrechnen als besprochen markiert \\(${n} neu markiert\\) ·`), 'mehrere Pakete: Summe aus der Bestätigung');
+      const pk = abhakCalls(srv).map((c) => c.versuch_ids.length); assert.deepEqual(pk, [200, n - 200], 'Pakete ≤ 200');
+      assert.equal(new Set(abhakCalls(srv).flatMap((c) => c.versuch_ids)).size, n, 'jede ID genau einmal');
+      assert.equal(await toast.getByRole('button', { name: 'Rückgängig' }).count(), 0, 'kein Rückgängig');
+      assert.match(await toast.innerText(), /zurückholen unter ‚Besprochen‘/);
+      assert.match(await ww.locator('.ww-thema[aria-label="Bruchrechnen"] .ww-th-titel .ww-zaehler').innerText(), new RegExp(`^${320 - n}$`), 'ältere des Themas erscheinen danach');
+      await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt .ww-grenze').waitFor();
+      assert.match(await page.locator('.ww-erledigt .ww-grenze').innerText(), /die 200 zuletzt besprochenen Fehler – ältere Gespräche können fehlen/); }
+    // Teilerfolg: 230 Fehler, das zweite Paket scheitert → getrennte Summen aus der Bestätigung, „Noch einmal versuchen“ sendet nur den Rest
+    { let kaputt = true; const { page, srv, ww, toast } = await wwOeffnen(t, b, { srv: { viele: 230 }, route: (q) => (q.aktion === 'schule_fehler_abhaken' && kaputt && q.daten.versuch_ids.length < 200 ? { status: 500, body: { ok: false, fehler: 'Zeitüberschreitung der Datenbank' } } : null) });
+      const bruch = ww.locator('.ww-thema[aria-label="Bruchrechnen"]'); await bruch.getByRole('button', { name: /^Besprochen: Bruchrechnen \(230/ }).click();
+      const hinweis = ww.locator('.ww-teilerfolg'); await hinweis.waitFor(); await wwRuhig(page);
+      assert.match(await hinweis.innerText(), /Bruchrechnen: 200 neu markiert · 30 noch nicht gesendet\/fehlgeschlagen \(Zeitüberschreitung der Datenbank\)[\s\S]*Noch einmal versuchen/);
+      assert.match(await toast.innerText(), /Bruchrechnen: 200 neu markiert · 30 noch nicht gesendet\/fehlgeschlagen[\s\S]*Noch einmal versuchen/); assert.equal(await toast.getByRole('button', { name: 'Rückgängig' }).count(), 0);
+      assert.equal(await ww.locator('.ww-thema[aria-label="Bruchrechnen"] .ww-th-titel .ww-zaehler').innerText(), '30', 'der Rest bleibt offen sichtbar');
+      await ww2Bild(page, `${b}-hell-teilerfolg`);
+      kaputt = false; await hinweis.getByRole('button', { name: 'Noch einmal versuchen' }).click(); await ww.locator('.ww-thema[aria-label="Bruchrechnen"]').waitFor({ state: 'detached' }); await wwRuhig(page);
+      assert.equal(abhakCalls(srv).length, 2, 'erfolgreich gespeichert: 1. Paket + Wiederholung'); assert.equal(abhakCalls(srv).at(-1).versuch_ids.length, 30, 'nur der Rest');
+      assert.equal(await ww.locator('.ww-teilerfolg').count(), 0, 'Hinweis weg'); }
+    // geaendert: 0 – das Thema war schon markiert (wer, sagt der Server nicht) → keine Erfolgsmeldung, Erklärung
+    { const { page, srv, ww, toast } = await wwOeffnen(t, b);
+      const frueher = new Date(Date.now() - 60000).toISOString(); srv.st.abgehakt.set(9004, frueher); srv.st.abgehakt.set(9005, frueher);
+      await ww.locator('.ww-thema[aria-label="Satz des Pythagoras"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/nichts neu markiert/).waitFor(); await wwRuhig(page);
+      assert.equal(await toast.innerText(), 'Satz des Pythagoras: nichts neu markiert – 2 waren schon markiert.');
+      assert.equal(await toast.getByRole('button').count(), 0, 'kein Knopf');
+      // einer von zwei schon markiert, der andere vom Server abgewiesen (nicht endgültig falsch): beides erklärt, nichts geändert
+      srv.st.abgehakt.set(9003, frueher); srv.st.abweisen = new Set([9007]);
+      await ww.locator('.ww-thema[aria-label="Lineare Gleichungen"]').getByRole('button', { name: /^Besprochen:/ }).click();
+      await page.waitForFunction(() => /Lineare Gleichungen: nichts neu markiert/.test(document.querySelector('.ww-toast')?.textContent || '')); await wwRuhig(page);
+      assert.equal(await toast.innerText(), 'Lineare Gleichungen: nichts neu markiert – 1 war schon markiert · 1 nicht angenommen (nicht endgültig falsch).'); }
+    // Teil geändert: Thema mit zwei Fehlern, einer davon war schon markiert → Summen getrennt, kein Rückgängig
+    { const { page, srv, ww, toast } = await wwOeffnen(t, b);
+      srv.st.abgehakt.set(9004, new Date(Date.now() - 60000).toISOString());
+      await ww.locator('.ww-thema[aria-label="Satz des Pythagoras"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
+      assert.match(await toast.innerText(), /^Satz des Pythagoras als besprochen markiert \(1 neu markiert · 1 war schon markiert\) ·\s*zurückholen unter ‚Besprochen‘$/);
+      assert.deepEqual(await toast.getByRole('button').allInnerTexts(), ['zurückholen unter ‚Besprochen‘']); }
+    // Bestätigung unvollständig (ohne geaendert; nur geaendert ohne uebersprungen; Antwort wie WW-S2 ohne stand/geaendert_ids; geaendert_ids passt nicht) → nicht „gespeichert“, Thema bleibt (neu geladen)
+    for (const halb of [{ ok: true }, { geaendert: 1 }, { geaendert: 1, uebersprungen: 'keine' }, { geaendert: 1, uebersprungen: [] },
+      { stand: 3, geaendert: 1, geaendert_ids: [], markierung_ids: [500], uebersprungen: [] }, { stand: 3, geaendert: 1, geaendert_ids: ['9006'], markierung_ids: [500], uebersprungen: [] },
+      { stand: 3, geaendert: 1, geaendert_ids: [12345], markierung_ids: [500], uebersprungen: [] }, { stand: 3, geaendert: 1, geaendert_ids: [9006], uebersprungen: [] }]) {
+      const { page, srv, ww, toast } = await wwOeffnen(t, b, { route: (q) => (q.aktion === 'schule_fehler_abhaken' ? { body: { ok: true, ergebnis: halb } } : null) });
+      const n0 = srv.st.calls.filter((c) => c.aktion === 'schule_wackelt_analyse' && !c.erledigt).length;
+      await ww.locator('.ww-thema[aria-label="Prozentrechnung"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/Nicht gespeichert/).waitFor(); await wwRuhig(page);
+      assert.match(await toast.innerText(), /^Nicht gespeichert: Der Server hat das Speichern nicht bestätigt\.\s*Noch einmal versuchen$/, JSON.stringify(halb));
+      assert.equal(await toast.getByText(/als besprochen markiert|neu markiert/).count(), 0, 'keine Erfolgsmeldung');
+      await ww.locator('.ww-thema[aria-label="Prozentrechnung"]').waitFor();
+      assert.equal(srv.st.calls.filter((c) => c.aktion === 'schule_wackelt_analyse' && !c.erledigt).length, n0 + 1, 'neu geladen'); }
+  }
+});
+
+test('Auflagen 1155/1156 c/d: nur vollständige Antworten, letzte Anfrage gewinnt, Fehler nach Zeitraumwechsel, „Besprochen“-Ladefehler ohne Verlust; Bilder (1280/390 hell)', async (t) => {
+  // c) falsche Formen beim ersten Laden → bisherige Ansicht; echte Fehler weiterhin angezeigt
+  for (const falsch of [{ offen_zahl: 0 }, { offen: {}, auswertung: {} }, { ok: true, offen: [], offen_zahl: 0, auswertung: { themen: [], lerntage: [] } }]) {
+    const { page } = await setup(t); await wwRoute(page, (q) => (q.aktion === 'schule_wackelt_analyse' ? { body: { ok: true, ergebnis: falsch } } : null));
+    await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.ls-wackelt, .wk-karte').first().waitFor();
+    assert.equal(await page.locator('.ww').count(), 0, JSON.stringify(falsch) + ': bisherige Ansicht'); }
+  { const { page } = await setup(t); await wwRoute(page, (q) => (q.aktion === 'schule_wackelt_analyse' ? { status: 403, body: { ok: false, fehler: 'Kein Zugriff auf diesen Lernenden' } } : null));
+    await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.ww-fehler').waitFor(); assert.match(await page.locator('.ww-fehler').innerText(), /Kein Zugriff auf diesen Lernenden/); }
+  for (const b of [1280, 390]) {
+    // Bilder: gefüllt mit Thema „schon besprochen am …“, nach „Besprochen“, Abschnitt „Besprochen“ offen
+    { const { page, ww } = await wwOeffnen(t, b); await ww2Bild(page, `${b}-hell-gefuellt`);
+      await ww.locator('.ww-thema[aria-label="Terme umformen"]').getByRole('button', { name: /^Besprochen:/ }).click(); await page.locator('.ww-toast').getByRole('button', { name: 'zurückholen unter ‚Besprochen‘' }).waitFor(); await wwRuhig(page);
+      await ww2Bild(page, `${b}-hell-nach-besprochen`);
+      await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor(); await page.locator('.ww-erledigt').scrollIntoViewIfNeeded(); await ww2Bild(page, `${b}-hell-besprochen-offen`); }
+    // d) überholende Antworten: „7 Tage“ antwortet spät, „Alles“ früh – es bleibt „Alles“
+    { const { page, srv, ww } = await wwOeffnen(t, b, { verzoegerungJe: (a, d) => (a === 'schule_wackelt_analyse' && d.tage === 7 && !d.erledigt ? 1200 : 0) });
+      const seg = ww.getByRole('group', { name: 'Zeitraum' }); await seg.getByRole('button', { name: '7 Tage' }).click(); await seg.getByRole('button', { name: 'Alles' }).click();
+      await page.waitForTimeout(1600); await wwRuhig(page);
+      assert.equal(await page.locator('.ww-seg button[aria-pressed="true"]').innerText(), 'Alles'); assert.match(await page.locator('.ww-teil-kopf span').first().innerText(), /^gesamt$/, 'Etikett passt zu den Daten');
+      assert.deepEqual(srv.st.calls.filter((c) => c.aktion === 'schule_wackelt_analyse' && !c.erledigt).map((c) => c.tage), [14, 7, 0]);
+      assert.equal(await ww.locator('.ww-thema').count(), 4); }
+    // d) Serverfehler nach Zeitraumwechsel: alte Daten mit altem Etikett, klarer Hinweis, „Noch einmal versuchen“
+    { let kaputt = true; const { page, ww } = await wwOeffnen(t, b, { route: (q) => (q.aktion === 'schule_wackelt_analyse' && q.daten.tage === 7 && !q.daten.erledigt && kaputt ? { status: 500, body: { ok: false, fehler: 'Zeitüberschreitung der Datenbank' } } : null) });
+      await ww.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: '7 Tage' }).click(); const h = ww.locator('.ww-ladefehler'); await h.waitFor();
+      assert.match(await h.innerText(), /„7 Tage“ lädt gerade nicht \(Zeitüberschreitung der Datenbank\) · angezeigt: 14 Tage[\s\S]*Noch einmal versuchen/);
+      assert.equal(await page.locator('.ww-seg button[aria-pressed="true"]').innerText(), '14 Tage', 'Umschalter zeigt den Zeitraum der Daten');
+      assert.match(await page.locator('.ww-teil-kopf span').first().innerText(), /letzte 14 Tage/); assert.equal(await ww.locator('.ww-thema').count(), 4, 'alte Daten bleiben');
+      await ww2Bild(page, `${b}-hell-fehler-zeitraum`);
+      kaputt = false; await h.getByRole('button', { name: 'Noch einmal versuchen' }).click(); await h.waitFor({ state: 'detached' }); await wwRuhig(page);
+      assert.equal(await page.locator('.ww-seg button[aria-pressed="true"]').innerText(), '7 Tage'); assert.match(await page.locator('.ww-teil-kopf span').first().innerText(), /letzte 7 Tage/); }
+    // c) unvollständige Antwort beim Neuladen: alte Daten bleiben, Hinweis
+    { let kaputt = false; const { page, ww } = await wwOeffnen(t, b, { route: (q) => (q.aktion === 'schule_wackelt_analyse' && !q.daten.erledigt && kaputt ? { body: { ok: true, ergebnis: { stand: 3, tage: 0, offen: {}, auswertung: {} } } } : null) });
+      kaputt = true; await ww.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: 'Alles' }).click(); await ww.locator('.ww-ladefehler').waitFor();
+      assert.match(await ww.locator('.ww-ladefehler').innerText(), /„Alles“ lädt gerade nicht \(Die Antwort des Servers war unvollständig\.\) · angezeigt: 14 Tage/); assert.equal(await ww.locator('.ww-thema').count(), 4); }
+    // d) „Besprochen“: Ladefehler lässt die Liste stehen, ausdrücklicher Wiederholen-Knopf, Aufklappen lädt nicht neu
+    { let kaputt = false; const { page, srv, ww } = await wwOeffnen(t, b, { route: (q) => (q.aktion === 'schule_wackelt_analyse' && q.daten.erledigt && kaputt ? { status: 500, body: { ok: false, fehler: 'Netz weg' } } : null) });
+      await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor(); const vorher = await page.locator('.ww-erledigt li').count();
+      const nErl = () => srv.st.calls.filter((c) => c.aktion === 'schule_wackelt_analyse' && c.erledigt).length; const n0 = nErl();
+      await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt summary').click(); await page.waitForTimeout(300); assert.equal(nErl(), n0, 'Auf- und Zuklappen lädt nicht');
+      kaputt = true; await ww.locator('.ww-thema[aria-label="Prozentrechnung"]').getByRole('button', { name: /^Besprochen:/ }).click(); await page.locator('.ww-erledigt .err-text').waitFor(); await wwRuhig(page);
+      assert.match(await page.locator('.ww-erledigt .err-text').innerText(), /Besprochenes lädt gerade nicht: Netz weg/);
+      assert.equal(await page.locator('.ww-erledigt li').count(), vorher, 'bisherige Liste bleibt stehen');
+      assert.match(await page.locator('.ww-toast').innerText(), /zurückholen unter ‚Besprochen‘/); assert.equal(await page.locator('.ww-toast').getByRole('button', { name: 'Rückgängig' }).count(), 0);
+      kaputt = false; await page.locator('.ww-erledigt .err-text').getByRole('button', { name: 'Noch einmal versuchen' }).click(); await page.locator('.ww-erledigt .err-text').waitFor({ state: 'detached' });
+      assert.equal(await page.locator('.ww-erledigt li').count(), vorher + 1, 'neu geladen: Prozentrechnung dazu'); }
+  }
+});
+
+test('Auflagen 1155/1156 e: Handy (390 px) – im aufgeklappten Eintrag von „Letzte Fehler“ stehen Thema › Lernkarte und „→ Thema“', async (t) => {
+  const { page, ww } = await wwOeffnen(t, 390);
+  assert.equal(await ww.locator('.ww-ort').first().isVisible(), false, 'Spalte Thema › Lernkarte ist auf dem Handy ausgeblendet');
+  const letzte = ww.getByRole('table', { name: 'Letzte Fehler' }); await letzte.locator('.ww-z[data-versuch="9004"] .ww-aufg').click();
+  const ort = ww.locator('.ww-mehr .ww-mehr-ort'); await ort.waitFor(); assert.ok(await ort.isVisible());
+  assert.match(await ort.innerText(), /^Satz des Pythagoras › Fehlende Seite berechnen → Thema$/);
+  await ort.getByRole('button', { name: '→ Thema' }).click(); await page.waitForTimeout(400);
+  assert.equal(await ww.locator('.ww-thema[aria-label="Satz des Pythagoras"] .ww-th-titel').getAttribute('aria-expanded'), 'true');
+  assert.ok(await page.evaluate(() => { const r = document.querySelector('.ww-thema[aria-label="Satz des Pythagoras"]').getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; }), 'Thema ist im Bild');
+  await letzte.locator('.ww-z[data-versuch="9001"] .ww-aufg').click(); assert.match(await ww.locator('.ww-mehr .ww-mehr-ort').first().innerText(), /Terme umformen › Minus vor der Klammer · Thema schon besprochen am/);
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), true, 'kein Querrollen');
+});
+
+// ---------- Auflagen aus Werkstatt 1158 zu „Was wackelt“: kein automatisches Rückgängig, ehrliche Summen, Themenzahl, Gesprächstage, Bezugsrahmen, Antwortform, Ohne Thema, Schreibfehler ----------
+const wwSeg = (page) => page.locator('.ww-seg button[aria-pressed="true"]');
+const wwAnalysen = (srv) => srv.st.calls.filter((c) => c.aktion === 'schule_wackelt_analyse' && !c.erledigt);
+// Antwort eines Aufrufs verzögern und dann scheitern lassen (Schreibaufruf läuft noch, während der Test klickt)
+const wwLangsamKaputt = (page, wann, ms, fehler = 'Zeitüberschreitung der Datenbank', vorher = null) => page.route('**/functions/v1/lernen-api/**', async (route) => {
+  const b = JSON.parse(route.request().postData() || '{}'); if (!wann(b)) { await route.fallback(); return; }
+  await new Promise((r) => setTimeout(r, ms)); vorher?.(); await route.fulfill({ status: 500, contentType: 'application/json', body: JSON.stringify({ ok: false, fehler }) }); });
+
+test('Auflagen 1158 (1): kein automatisches Rückgängig – Parallelfall (B markiert X, A markiert Y, Y wird vor dem Nachladen zurückgeholt): kein Weg, mit einem Klick fremde Markierungen zu entfernen', async (t) => {
+  for (const b of [1280, 390]) {
+    const { page, srv, ww, toast } = await wwOeffnen(t, b);
+    // Thema „Satz des Pythagoras“: X = 9004, Y = 9005. Erwachsener B markiert X, nachdem A geklickt hat; A markiert Y; B holt Y vor A's Nachladen zurück.
+    srv.st.vorAbhaken = (d) => { if (!d.zurueck) srv.st.abgehakt.set(9004, new Date().toISOString()); };
+    srv.st.nachAbhaken = (d) => { if (!d.zurueck) srv.st.abgehakt.delete(9005); srv.st.vorAbhaken = srv.st.nachAbhaken = null; };
+    await ww.locator('.ww-thema[aria-label="Satz des Pythagoras"]').getByRole('button', { name: /^Besprochen:/ }).click();
+    await toast.getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
+    assert.match(await toast.innerText(), /^Satz des Pythagoras als besprochen markiert \(1 neu markiert · 1 war schon markiert\) ·\s*zurückholen unter ‚Besprochen‘$/);
+    assert.deepEqual(await toast.getByRole('button').allInnerTexts(), ['zurückholen unter ‚Besprochen‘'], 'kein „Rückgängig“ – nur der Verweis');
+    assert.equal(await page.getByRole('button', { name: /Rückgängig/ }).count(), 0, 'nirgends ein Rückgängig');
+    const vorher = abhakCalls(srv).length;
+    // der Verweis schreibt nichts: er klappt nur den Abschnitt „Besprochen“ auf und springt hin
+    await toast.getByRole('button', { name: 'zurückholen unter ‚Besprochen‘' }).click();
+    await page.waitForFunction(() => document.querySelector('.ww-erledigt')?.open === true); await page.waitForTimeout(400);
+    assert.equal(abhakCalls(srv).length, vorher, 'der Verweis sendet nichts'); assert.ok(srv.st.abgehakt.has(9004), 'Markierung von B bleibt');
+    assert.ok(await page.evaluate(() => { const r = document.querySelector('.ww-erledigt').getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; }), 'Abschnitt „Besprochen“ ist im Bild');
+    assert.equal(await page.evaluate(() => document.activeElement?.tagName), 'SUMMARY', 'Fokus auf dem Abschnitt');
+    // Auch sonst sendet kein Knopf außerhalb des Abschnitts „Besprochen“ ein Zurückholen; dort steht ausdrücklich, dass alle des Tages zurückkommen (auch von anderen Erwachsenen)
+    const zurueckKnoepfe = await ww.locator('button').evaluateAll((xs) => xs.filter((x) => /zurück/i.test(x.textContent + (x.getAttribute('aria-label') || ''))).map((x) => [x.closest('.ww-erledigt, .ww-toast') ? (x.closest('.ww-toast') ? 'meldung' : 'besprochen') : 'sonst', x.getAttribute('aria-label') || x.textContent]));
+    assert.ok(zurueckKnoepfe.every(([wo, was]) => wo === 'besprochen' ? /^Zurückholen: .+, (alle \d+|der) am .+ besprochenen Fehler$/.test(was) : wo === 'meldung' && was === 'zurückholen unter ‚Besprochen‘'), JSON.stringify(zurueckKnoepfe));
+    assert.match(await page.locator('.ww-erledigt .ww-bs-erkl').innerText(), /auch von anderen Erwachsenen/);
+    if (b === 1280) await ww2Bild(page, `${b}-hell-parallel-besprochen`);
+  }
+});
+
+test('Auflagen 1158 (3): Teilerfolg ehrlich – 1. Paket 200 IDs mit geaendert 0, 2. Paket scheitert: nie „200 von 299 gespeichert“; Zurückholen mit getrennten Summen', async (t) => {
+  for (const b of [1280, 390]) {
+    // 299 Fehler „Bruchrechnen“ neuer als alle anderen → alle 299 geladen, „Besprochen“ schickt 200 + 99
+    const spaet = (i) => { const d = new Date(); d.setHours(23, 0, 0, 0); return new Date(d.getTime() - i * 1000).toISOString(); };
+    let kaputt = true; const { page, srv, ww, toast } = await wwOeffnen(t, b, { srv: { viele: 299, vieleAm: spaet }, route: (q) => (q.aktion === 'schule_fehler_abhaken' && kaputt && q.daten.versuch_ids.length < 200 ? { status: 500, body: { ok: false, fehler: 'Zeitüberschreitung der Datenbank' } } : null) });
+    srv.st.vorAbhaken = (d) => { for (const id of d.versuch_ids) srv.st.abgehakt.set(id, new Date().toISOString()); srv.st.vorAbhaken = null; }; // jemand anderes hat die 200 schon markiert
+    const bruch = ww.locator('.ww-thema[aria-label="Bruchrechnen"]'); await bruch.getByRole('button', { name: /^Besprochen: Bruchrechnen \(299/ }).click();
+    const hinweis = ww.locator('.ww-teilerfolg'); await hinweis.waitFor(); await wwRuhig(page);
+    assert.match(await hinweis.innerText(), /^Bruchrechnen: 0 neu markiert · 200 waren schon markiert · 99 noch nicht gesendet\/fehlgeschlagen \(Zeitüberschreitung der Datenbank\)\s*Noch einmal versuchen$/);
+    for (const x of [hinweis, toast]) { const s = await x.innerText(); assert.doesNotMatch(s, /gespeichert|\d+ von \d+/, s); }
+    assert.equal(await bruch.locator('.ww-th-titel .ww-zaehler').innerText(), '99', 'neu geladen: 99 offen');
+    kaputt = false; await hinweis.getByRole('button', { name: 'Noch einmal versuchen' }).click(); await toast.getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
+    assert.equal(abhakCalls(srv).at(-1).versuch_ids.length, 99, 'nur der Rest'); assert.match(await toast.innerText(), /^Bruchrechnen als besprochen markiert ·/);
+  }
+  // Zurückholen (über markierung_ids): ein Tag mit 2 Fehlern, einer ist schon wieder offen → „1 zurückgeholt · 1 war inzwischen geändert …“
+  { const { page, srv, toast } = await wwOeffnen(t, 1280);
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+    srv.st.abgehakt.delete(9012); // vor 10 Tagen besprochen – inzwischen von jemand anderem zurückgeholt; die Liste der Seite kennt das noch nicht
+    await page.locator('.ww-erledigt').getByRole('button', { name: /^Zurückholen: Terme umformen, der am/ }).last().click(); await toast.getByText(/0 zurückgeholt/).waitFor(); await wwRuhig(page);
+    assert.equal(await toast.innerText(), 'Terme umformen: 0 zurückgeholt · 1 war inzwischen geändert und bleibt, wie er ist');
+    // Tag mit zwei Fehlern („Lineare Gleichungen“ heute besprochen: 9003, 9007), einer davon inzwischen schon wieder offen → getrennte Summen
+    await page.locator('.ww-thema[aria-label="Lineare Gleichungen"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
+    srv.st.abgehakt.delete(9007);
+    const mids = srv.st.marks.filter((m) => [9003, 9007].includes(m.versuch_id)).map((m) => m.id).sort((a, b) => a - b);
+    await page.locator('.ww-erledigt').getByRole('button', { name: /^Zurückholen: Lineare Gleichungen, alle 2 am/ }).click(); await toast.getByText(/1 zurückgeholt/).waitFor(); await wwRuhig(page);
+    assert.equal(await toast.innerText(), 'Lineare Gleichungen: 1 zurückgeholt · 1 war inzwischen geändert und bleibt, wie er ist');
+    assert.deepEqual(abhakCalls(srv).at(-1).markierung_ids.sort((a, b) => a - b), mids); assert.equal(abhakCalls(srv).at(-1).zurueck, true); assert.equal(abhakCalls(srv).at(-1).versuch_ids, undefined); }
+});
+
+test('Auflagen 1158 (4): Kopf „Nach Themen“ – 337 offene Fehler in 5 Themen, geladen die 300 neuesten aus 2 Themen; nicht geladene Themen als Zeile ohne „Besprochen“', async (t) => {
+  for (const b of [1280, 390]) {
+    // 330 Fehler „Bruchrechnen“: 299 neuer als alles andere, 31 vor fünf Tagen → geladen: 299 Bruchrechnen + der neueste aus „Terme umformen“ (9001)
+    const am = (i) => { const d = new Date(); if (i < 299) { d.setHours(23, 0, 0, 0); return new Date(d.getTime() - i * 1000).toISOString(); } d.setDate(d.getDate() - 5); d.setHours(10, 0, 0, 0); return new Date(d.getTime() - i * 1000).toISOString(); };
+    const { page, ww } = await wwOeffnen(t, b, { srv: { viele: 330, vieleAm: am } });
+    const kopf = ww.locator('#ww-h-themen').locator('..');
+    assert.match(await kopf.innerText(), /^Nach Themen\s*337 offene Fehler in 5 Themen\s*· gezeigt: die 300 neuesten aus 2 Themen$/);
+    assert.equal(await ww.locator('.ww-thema').count(), 5, 'alle 5 Themen stehen da');
+    assert.equal(await ww.locator('.ww-thema:not(.ww-th-nicht)').count(), 2); assert.equal(await ww.locator('.ww-bespr').count(), 2, '„Besprochen“ nur an geladenen Themen');
+    const nicht = ww.locator('.ww-th-nicht');
+    assert.deepEqual(await nicht.evaluateAll((xs) => xs.map((x) => x.getAttribute('aria-label'))), ['Lineare Gleichungen', 'Satz des Pythagoras', 'Prozentrechnung']);
+    for (const x of await nicht.all()) { assert.equal(await x.locator('button').count(), 0, 'kein Knopf'); assert.match(await x.innerText(), /Nicht geladen/); }
+    if (b === 1280) assert.match(await nicht.first().locator('.ww-th-titel').innerText(), /Lineare Gleichungen\s*2\s*2 offene Fehler – nicht geladen/);
+    assert.match(await ww.locator('.ww-th-nicht[aria-label="Prozentrechnung"] .ww-zaehler').innerText(), /^1$/);
+    // Balken „Fehler je Thema“ springt auch zu einem nicht geladenen Thema
+    await ww.locator('.ww-balken button', { hasText: 'Satz des Pythagoras' }).click(); // weicher Bildlauf über die lange Liste: auf das Ziel warten
+    await page.waitForFunction(() => { const r = document.querySelector('.ww-thema[aria-label="Satz des Pythagoras"]').getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; }, null, { timeout: 5000 });
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), true, 'kein Querrollen');
+    await page.evaluate(() => document.querySelector('#ww-h-themen').scrollIntoView()); await ww2Bild(page, `${b}-hell-kopf-337`);
+  }
+});
+
+test('Auflagen 1158 (5/6), WW-S3: Gesprächstage und „seitdem N neue Fehler“ aus auswertung.themen[].besprochen – genau in jedem Zeitraum, auch mit 300er-Grenze', async (t) => {
+  const { page, srv, ww } = await wwOeffnen(t, 1280); const datum = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return `${d.getDate()}.${d.getMonth() + 1}.`; };
+  const terme = () => ww.locator('.ww-thema[aria-label="Terme umformen"] .ww-th-wieder');
+  const genau = `↺ Schon besprochen am ${datum(3)} – seitdem 2 neue Fehler · insgesamt an 2 Tagen besprochen`;
+  assert.equal(await terme().innerText(), genau, '14 Tage: genaue Zahl vom Server');
+  assert.match(await ww.locator('.ww-nach').innerText(), /Terme umformen\s*2 neu seit/); assert.equal(await page.getByText(/mindestens|mind\./).count(), 0, 'keine Untergrenze');
+  for (const z of ['Alles', '7 Tage']) {
+    await ww.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: z }).click(); await page.waitForFunction((z) => document.querySelector('.ww-seg button[aria-pressed="true"]')?.textContent === z && document.querySelector('.ww').getAttribute('aria-busy') === 'false', z); await wwRuhig(page);
+    assert.equal(await terme().innerText(), genau, z); }
+  assert.ok(srv.st.calls.filter((c) => c.aktion === 'schule_wackelt_analyse' && c.erledigt).every((c) => c.tage === 0), 'Besprochen-Angaben immer aus dem Aufruf mit tage 0');
+  await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+  assert.match((await page.locator('.ww-erledigt li').allInnerTexts())[0], /^Terme umformen · an 2 Tagen besprochen · 2 Fehler/);
+  assert.equal(await page.getByText(/-mal besprochen/).count(), 0);
+  // Die Zahlen kommen vom Server (nicht aus den geladenen Zeilen und nicht aus der 200er-Liste): meldet er 5 neue an 4 Tagen, steht genau das da
+  srv.st.verderben = (r, d) => { if (d.erledigt) { const t = r.auswertung.themen.find((x) => x.thema_id === 29); t.besprochen.neu_seit = 5; t.besprochen.tage = 4; } return r; };
+  await page.locator('.ww-thema[aria-label="Prozentrechnung"]').getByRole('button', { name: /^Besprochen:/ }).click(); await page.locator('.ww-toast').getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
+  assert.equal(await terme().innerText(), `↺ Schon besprochen am ${datum(3)} – seitdem 5 neue Fehler · insgesamt an 4 Tagen besprochen`);
+  assert.ok((await page.locator('.ww-erledigt li').allInnerTexts()).some((x) => /^Terme umformen · an 4 Tagen besprochen · 2 Fehler$/.test(x)), 'Liste nicht voll: genaue Zahl der gezeigten Fehler');
+  // „Alles“ mit 300er-Grenze: weiterhin genau (der Server zählt ohne Grenze)
+  { const { page: p2, ww: w2 } = await wwOeffnen(t, 1280, { srv: { viele: 320 } });
+    await w2.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: 'Alles' }).click(); await p2.waitForFunction(() => /^gesamt$/.test(document.querySelector('.ww-teil-kopf span')?.textContent || '')); await wwRuhig(p2);
+    assert.equal(await w2.locator('.ww-thema[aria-label="Terme umformen"] .ww-th-wieder').innerText(), genau);
+    assert.equal(await w2.locator('.ww-th-wieder').filter({ hasText: /mindestens/ }).count(), 0); }
+});
+
+test('Auflagen 1158 (7): Antwortform vollständig – falsche Typen beim ersten Laden → bisherige Ansicht, beim Nachladen alte Daten + Hinweis; Zeichnen bricht nie ab', async (t) => {
+  const verdorben = {
+    'tage fehlt': (r) => { delete r.tage; },
+    'tage passt nicht': (r) => { r.tage = r.tage === 7 ? 14 : 7; },
+    'wiederkehrend[].themen keine Liste': (r) => { r.auswertung.wiederkehrend[0].themen = 29; },
+    'einmal.themen_danach_richtig keine Liste': (r) => { r.auswertung.einmal.themen_danach_richtig = 24; },
+    'einmal fehlt': (r) => { delete r.auswertung.einmal; },
+    'aufgabe.antworten keine Liste': (r) => { r.offen.find((x) => x.versuch_id === 9007).aufgabe.antworten = 'Zeile 1'; },
+    'tag keine Zeichenkette': (r) => { r.offen[0].tag = 20261128; },
+    'antwort.werte keine Liste': (r) => { r.offen[0].antwort = { werte: '1;2' }; },
+    'fehlerart keine Tabelle': (r) => { r.offen[0].fehlerart = 'komma'; },
+    'lerntage[].tag fehlt': (r) => { delete r.auswertung.lerntage[0].tag; },
+    'themen[].offen als Text': (r) => { r.auswertung.themen[0].offen = '3'; },
+    'thema_id als Text': (r) => { r.offen[0].thema_id = '29'; },
+    'frage.grafik keine Tabelle': (r) => { r.offen[0].aufgabe.frage.grafik = 'bild'; },
+    // WW-S3: strenge Typen
+    'mit_tipp als Text': (r) => { r.offen.find((x) => x.versuch_id === 9002).mit_tipp = 'false'; },
+    'danach_richtig als Text': (r) => { r.offen.find((x) => x.versuch_id === 9002).danach_richtig = 'nein'; },
+    'danach_richtig als Objekt (wie WW-S2)': (r) => { r.offen[0].danach_richtig = { lernkarte_am: r.offen[0].am }; },
+    'mit_tipp fehlt': (r) => { delete r.offen[0].mit_tipp; },
+    'stand als Text': (r) => { r.stand = '3'; },
+    'besprochen.tage als Text': (r) => { r.auswertung.themen.find((x) => x.besprochen).besprochen.tage = '2'; },
+    'besprochen.neu_seit negativ': (r) => { r.auswertung.themen.find((x) => x.besprochen).besprochen.neu_seit = -1; },
+    'besprochen.zuletzt kein Zeitpunkt': (r) => { r.auswertung.themen.find((x) => x.besprochen).besprochen.zuletzt = 'gestern'; },
+    'besprochen.zuletzt_tag fehlt': (r) => { delete r.auswertung.themen.find((x) => x.besprochen).besprochen.zuletzt_tag; },
+    'besprochen.zuletzt_tag falsche Form': (r) => { r.auswertung.themen.find((x) => x.besprochen).besprochen.zuletzt_tag = '25.11.2026'; },
+    'besprochen.fehler fehlt': (r) => { delete r.auswertung.themen.find((x) => x.besprochen).besprochen.fehler; },
+    'besprochen.fehler 0': (r) => { r.auswertung.themen.find((x) => x.besprochen).besprochen.fehler = 0; },
+    'besprochen.fehler als Text': (r) => { r.auswertung.themen.find((x) => x.besprochen).besprochen.fehler = '2'; },
+    'besprochen.tage 0': (r) => { r.auswertung.themen.find((x) => x.besprochen).besprochen.tage = 0; },
+  };
+  for (const [wie, f] of Object.entries(verdorben)) {
+    const srv = wwServer(); srv.st.verderben = (r, d) => { if (!d.erledigt) f(r); return r; };
+    const { page } = await setup(t, { anpassen: srv.anpassen }); await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.ls-wackelt, .wk-karte').first().waitFor();
+    assert.equal(await page.locator('.ww').count(), 0, wie + ': bisherige Ansicht'); }
+  // Nachladen: alte Daten + Hinweis, „Besprochen“ mit verdorbener Liste → Hinweis im Abschnitt
+  for (const wie of ['wiederkehrend[].themen keine Liste', 'tage passt nicht', 'mit_tipp als Text', 'danach_richtig als Text']) {
+    const { page, srv, ww } = await wwOeffnen(t, 1280); srv.st.verderben = (r, d) => { if (!d.erledigt) verdorben[wie](r); return r; };
+    await ww.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: '7 Tage' }).click(); await ww.locator('.ww-ladefehler').waitFor(); await wwRuhig(page);
+    assert.match(await ww.locator('.ww-ladefehler').innerText(), /„7 Tage“ lädt gerade nicht \(Die Antwort des Servers war unvollständig\.\) · angezeigt: 14 Tage/, wie);
+    assert.equal(await ww.locator('.ww-thema').count(), 4, wie + ': alte Daten'); assert.equal(await wwSeg(page).innerText(), '14 Tage');
+    // 9002 bleibt wie geladen: ohne Tipp, nicht „danach richtig gelöst“ (verdorbene Werte werden nicht angezeigt)
+    await ww.locator('.ww-thema[aria-label="Terme umformen"] .ww-z[data-versuch="9002"] .ww-aufg').click();
+    assert.match(await ww.locator('.ww-thema[aria-label="Terme umformen"] .ww-mehr').innerText(), /Fehler: nur das erste Zeichen in der Klammer gedreht\n/, wie);
+    assert.equal(await ww.locator('.ww-thema[aria-label="Terme umformen"] .ww-z[data-versuch="9002"] .ww-gut').count(), 0, wie); }
+  for (const [wie, f] of [['erledigt.id fehlt', (x) => { delete x.erledigt.id; }], ['erledigt.id als Text', (x) => { x.erledigt.id = String(x.erledigt.id); }], ['erledigt.tag kein Tag', (x) => { x.erledigt.tag = '28.11.2026'; }]]) {
+    const { page, srv } = await wwOeffnen(t, 1280); srv.st.verderben = (r, d) => { if (d.erledigt) f(r.erledigt[0]); return r; }; await page.locator('.ww-erledigt summary').click();
+    await page.locator('.ww-thema[aria-label="Prozentrechnung"]').getByRole('button', { name: /^Besprochen:/ }).click(); await page.locator('.ww-erledigt .err-text').waitFor(); await wwRuhig(page);
+    assert.match(await page.locator('.ww-erledigt .err-text').innerText(), /unvollständig/, wie); }
+  { const { page, srv } = await wwOeffnen(t, 1280); srv.st.verderben = (r, d) => { if (d.erledigt) r.erledigt[0].erledigt = {}; return r; };
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor(); const n = await page.locator('.ww-erledigt li').count();
+    await page.locator('.ww-thema[aria-label="Prozentrechnung"]').getByRole('button', { name: /^Besprochen:/ }).click(); await page.locator('.ww-erledigt .err-text').waitFor(); await wwRuhig(page);
+    assert.match(await page.locator('.ww-erledigt .err-text').innerText(), /unvollständig/); assert.equal(await page.locator('.ww-erledigt li').count(), n, 'bisherige Liste bleibt'); }
+  // Zeichnen bricht nie ab: wirft eine Hilfsfunktion beim Zeichnen, erscheint ein sauberer Fehlerzustand mit „Neu laden“
+  { const { page, ww } = await wwOeffnen(t, 1280);
+    await page.evaluate(() => { window.__aat = window.lernAntwortText; window.lernAntwortText = () => { throw new Error('Testfehler beim Zeichnen'); }; });
+    await ww.locator('.ww-thema[aria-label="Prozentrechnung"] .ww-th-titel').click(); const f = ww.locator('.ww-zeichenfehler'); await f.waitFor();
+    assert.match(await f.innerText(), /„Was wackelt“ lässt sich gerade nicht anzeigen\.[\s\S]*Neu laden/);
+    await page.evaluate(() => { window.lernAntwortText = window.__aat; }); await f.getByRole('button', { name: 'Neu laden' }).click();
+    await ww.locator('.ww-kachel').first().waitFor(); await wwRuhig(page); assert.equal(await ww.locator('.ww-thema').count(), 4); }
+});
+
+test('Auflagen 1158 (8): thema_id fehlt (Einheit ohne Thema, jsonb_strip_nulls) – „Ohne Thema“ in Liste, Auswertung und beim Besprechen', async (t) => {
+  for (const b of [1280, 390]) {
+    const { page, srv, ww, toast } = await wwOeffnen(t, b, { srv: { ohneThema: true } });
+    const ohne = ww.locator('.ww-thema[aria-label="Ohne Thema"]'); await ohne.waitFor();
+    assert.equal(await ohne.getAttribute('data-ww-thema'), 'ohne'); assert.equal(await ohne.locator('.ww-th-titel .ww-zaehler').innerText(), '2', 'Zahl vom Server (WW-S3 zählt nullsicher)');
+    assert.match(await ww.locator('#ww-h-themen').locator('..').innerText(), /9 offene Fehler in 5 Themen/);
+    assert.match(await ww.locator('.ww-wieder').innerText(), /Terme umformen, Lineare Gleichungen, Ohne Thema/);
+    assert.match(await ww.locator('.ww-fazit').innerText(), /Prozentrechnung und Ohne Thema waren Ausrutscher\./);
+    if (b === 1280) assert.match(await ww.getByRole('table', { name: 'Letzte Fehler' }).locator('.ww-ort').allInnerTexts().then((x) => x.join('|')), /Ohne Thema › Freie Übung/);
+    await ohne.locator('.ww-th-titel').click(); await ohne.locator('.ww-z[data-versuch="9101"]').waitFor();
+    await ohne.getByRole('button', { name: /^Besprochen: Ohne Thema \(2/ }).click(); await toast.getByText(/^Ohne Thema als besprochen markiert/).waitFor(); await wwRuhig(page);
+    assert.deepEqual(abhakCalls(srv).at(-1).versuch_ids.sort(), [9101, 9102]); assert.equal(await ww.locator('.ww-thema[aria-label="Ohne Thema"]').count(), 0);
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+    assert.match((await page.locator('.ww-erledigt li').allInnerTexts())[0], /^Ohne Thema · besprochen am .+ · 2 Fehler/);
+    await page.locator('.ww-erledigt').getByRole('button', { name: /^Zurückholen: Ohne Thema/ }).click(); await ww.locator('.ww-thema[aria-label="Ohne Thema"]').waitFor();
+    assert.equal(abhakCalls(srv).at(-1).zurueck, true); assert.equal(abhakCalls(srv).at(-1).markierung_ids.length, 2);
+    // der Client verlässt sich auf die Zahl des Servers (kein eigener Ausgleich): meldet er 7, steht 7 da – mit Hinweis, dass nur die geladenen gezeigt sind
+    srv.st.verderben = (r) => { const t = r.auswertung.themen.find((x) => x.thema_id === undefined); if (t) t.offen = 7; return r; };
+    await ww.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: 'Alles' }).click(); await page.waitForFunction(() => /^gesamt$/.test(document.querySelector('.ww-teil-kopf span')?.textContent || '')); await wwRuhig(page);
+    assert.equal(await ww.locator('.ww-thema[aria-label="Ohne Thema"] .ww-th-titel .ww-zaehler').innerText(), '7');
+    assert.match(await ww.locator('.ww-thema[aria-label="Ohne Thema"] .ww-th-grenze').innerText(), /Gezeigt: die 2 neuesten von 7/);
+  }
+});
+
+test('Auflagen 1158 (9/10): Schreibfehler – gesperrter Zeitraum während des Schreibens, danach Neuladen des gezeigten Zeitraums statt Rücksetzen; Segment zeigt beim Laden die neue Wahl, nach Fehler den Zeitraum der Daten', async (t) => {
+  for (const b of [1280, 390]) {
+    const srv = wwServer(); const { page } = await setup(t, { anpassen: srv.anpassen }); await page.setViewportSize({ width: b, height: b > 1000 ? 900 : 844 });
+    // Testfall der Gegenprüfung: Start 14 Tage (vier Themen) → „Besprochen“ (Schreibaufruf langsam, scheitert) → Wechsel auf 7 Tage versucht → früherer Schreibaufruf scheitert
+    // Währenddessen markiert jemand anderes „Satz des Pythagoras“: nach dem Fehler zeigt die Seite den frischen Stand (drei Themen), nicht den Stand vor dem Klick.
+    let phase = 1; // 1: Schreibaufruf langsam und kaputt; 2: Zeitraum „7 Tage“ langsam und kaputt
+    await wwLangsamKaputt(page, (q) => (phase === 1 ? q.aktion === 'schule_fehler_abhaken' : q.aktion === 'schule_wackelt_analyse' && q.daten.tage === 7 && !q.daten.erledigt), 900, 'Zeitüberschreitung der Datenbank',
+      () => { if (phase === 1) { srv.st.abgehakt.set(9004, new Date().toISOString()); srv.st.abgehakt.set(9005, new Date().toISOString()); } });
+    await page.goto(origin + '/#/kind/1-wackelt'); const ww = page.locator('.ww'); await ww.locator('.ww-kachel').first().waitFor(); await wwRuhig(page);
+    assert.equal(await ww.locator('.ww-thema').count(), 4);
+    await ww.locator('.ww-thema[aria-label="Terme umformen"]').getByRole('button', { name: /^Besprochen:/ }).click();
+    await ww.locator('.ww-thema[aria-label="Terme umformen"] .ww-bespr', { hasText: 'Speichere …' }).waitFor();
+    const seg = ww.getByRole('group', { name: 'Zeitraum' });
+    assert.deepEqual(await seg.locator('button').evaluateAll((xs) => xs.map((x) => x.getAttribute('aria-disabled'))), ['true', 'true', 'true'], 'Zeitraum gesperrt');
+    assert.deepEqual([...new Set(await ww.locator('.ww-bespr').evaluateAll((xs) => xs.map((x) => x.getAttribute('aria-disabled'))))], ['true'], 'alle „Besprochen“ gesperrt');
+    assert.match(await page.locator('.ww-toast').innerText(), /Speichere …/);
+    // force: Playwright wartet sonst, bis aria-disabled weg ist – hier soll der Klick gerade während der Sperre kommen
+    const n0 = wwAnalysen(srv).length; await seg.getByRole('button', { name: '7 Tage' }).click({ force: true }); await ww.locator('.ww-thema .ww-bespr').nth(1).click({ force: true }); await page.waitForTimeout(150);
+    assert.equal(wwAnalysen(srv).length, n0, 'kein Zeitraumwechsel während des Schreibens'); assert.equal(srv.st.calls.filter((c) => c.aktion === 'schule_fehler_abhaken').length, 0); assert.equal(await wwSeg(page).innerText(), '14 Tage');
+    await page.locator('.ww-toast').getByText(/Nicht gespeichert/).waitFor(); await wwRuhig(page);
+    assert.match(await page.locator('.ww-toast').innerText(), /^Nicht gespeichert: Zeitüberschreitung der Datenbank\s*Noch einmal versuchen$/);
+    assert.deepEqual(wwAnalysen(srv).slice(n0).map((c) => c.tage), [14], 'gezeigter Zeitraum neu geladen');
+    assert.equal(await wwSeg(page).innerText(), '14 Tage'); assert.match(await page.locator('.ww-teil-kopf span').first().innerText(), /^letzte 14 Tage$/);
+    assert.deepEqual(await ww.locator('.ww-thema').evaluateAll((xs) => xs.map((x) => x.getAttribute('aria-label')).sort()), ['Lineare Gleichungen', 'Prozentrechnung', 'Terme umformen'], 'frischer Stand, nicht der Stand vor dem Klick');
+    assert.equal(await seg.locator('button[aria-disabled="true"]').count(), 0, 'wieder frei');
+    await ww2Bild(page, `${b}-hell-schreibfehler`);
+    // 10: Segment beim Laden – neue Wahl gedrückt mit Ladezeichen; nach Fehler wieder der Zeitraum der gezeigten Daten
+    phase = 2;
+    await seg.getByRole('button', { name: '7 Tage' }).click();
+    await page.waitForFunction(() => document.querySelector('.ww-seg button[aria-pressed="true"]')?.textContent === '7 Tage');
+    assert.equal(await seg.getByRole('button', { name: '7 Tage' }).locator('.ww-lz').count(), 1, 'Ladezeichen'); assert.equal(await seg.getByRole('button', { name: '7 Tage' }).getAttribute('aria-busy'), 'true');
+    assert.deepEqual([...new Set(await ww.locator('.ww-bespr').evaluateAll((xs) => xs.map((x) => x.getAttribute('aria-disabled'))))], ['true'], 'während des Ladens kein „Besprochen“ am abgelösten Stand');
+    await ww.locator('.ww-ladefehler').waitFor(); await wwRuhig(page);
+    assert.equal(await wwSeg(page).innerText(), '14 Tage'); assert.equal(await ww.locator('.ww-seg .ww-lz').count(), 0);
+  }
+});
+
+// ---------- WW-S3 (Folgemigration, inhalte/plan/wackelt-server.md Abschnitt WW-S3): ein Vertrag, Zurückholen über Markierungs-IDs, besprochen je Thema vom Server ----------
+const ww4Bild = async (page, name, { oben = true } = {}) => { if (!process.env.APP4_BILDER) return; await page.waitForTimeout(300); if (oben) await page.evaluate(() => scrollTo(0, 0)); await page.waitForTimeout(100);
+  await page.screenshot({ path: path.join(process.env.APP4_BILDER, `ww4-${name}.png`), fullPage: true }); };
+const ww5Bild = async (page, name, { oben = true } = {}) => { if (!process.env.APP4_BILDER) return; await page.waitForTimeout(300); if (oben) await page.evaluate(() => scrollTo(0, 0)); await page.waitForTimeout(100);
+  await page.screenshot({ path: path.join(process.env.APP4_BILDER, `ww5-${name}.png`), fullPage: true }); };
+const wwDatum = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return `${d.getDate()}.${d.getMonth() + 1}.`; };
+const wwTagIso = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+const wwRe = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+test('WW-S3 (1): nur ein Vertrag – Server ohne stand (WW-S2) oder mit stand < 3 → bisherige Ansicht ohne Fehlermeldung, auch beim Nachladen; Bilder (1280/390 hell)', async (t) => {
+  for (const [wie, f] of [['ohne stand', (r) => { delete r.stand; }], ['stand 2', (r) => { r.stand = 2; }], ['stand 2.5', (r) => { r.stand = 2.5; }]]) {
+    const srv = wwServer(); srv.st.verderben = (r) => { f(r); return r; };
+    const { page } = await setup(t, { anpassen: srv.anpassen }); await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.ls-wackelt, .wk-karte').first().waitFor();
+    assert.equal(await page.locator('.ww, .ww-fehler, .err-text').count(), 0, wie + ': bisherige Ansicht, kein Fehler');
+    assert.equal(srv.st.calls.filter((c) => c.aktion === 'schule_fehler_abhaken').length, 0); }
+  // Nachladen: der Server antwortet plötzlich ohne stand (WW-S2) → bisherige Ansicht, keine Mischung der Verträge
+  { const { page, srv, ww } = await wwOeffnen(t, 1280); srv.st.verderben = (r) => { delete r.stand; return r; };
+    await ww.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: '7 Tage' }).click(); await page.locator('.ls-wackelt, .wk-karte').first().waitFor();
+    assert.equal(await page.locator('.ww, .err-text').count(), 0); }
+  for (const b of [1280, 390]) {
+    const srv = wwServer(); srv.st.verderben = (r) => { r.stand = 2; return r; };
+    const { page } = await setup(t, { anpassen: srv.anpassen }); await page.setViewportSize({ width: b, height: b > 1000 ? 900 : 844 });
+    await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.ls-wackelt, .wk-karte').first().waitFor(); await ww4Bild(page, `${b}-hell-rueckfall-stand2`); }
+});
+
+test('WW-S3 (2): Zurückholen nur über markierung_ids – Gegenprüfung: Tagesknopf von vor 10 Tagen geladen, Versuch inzwischen zurückgeholt und heute neu markiert → die heutige Markierung bleibt; Bilder', async (t) => {
+  for (const b of [1280, 390]) {
+    const { page, srv, ww, toast } = await wwOeffnen(t, b);
+    assert.equal(await ww.locator('.ww-thema[aria-label="Terme umformen"] .ww-th-wieder').innerText(), `↺ Schon besprochen am ${wwDatum(3)} – seitdem 2 neue Fehler · insgesamt an 2 Tagen besprochen`);
+    await ww4Bild(page, `${b}-hell-gefuellt`);
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+    await page.locator('.ww-erledigt').scrollIntoViewIfNeeded(); await ww4Bild(page, `${b}-hell-besprochen-offen`, { oben: false });
+    const alt = srv.st.marks.find((m) => m.versuch_id === 9012 && !m.zurueck_am).id;
+    // anderes Gerät: der Fehler 9012 (Tagesknopf vor 10 Tagen) wurde zurückgeholt und heute neu markiert – die Seite kennt das noch nicht
+    srv.st.abgehakt.delete(9012); srv.st.abgehakt.set(9012, new Date().toISOString());
+    const neu = srv.st.marks.find((m) => m.versuch_id === 9012 && !m.zurueck_am).id; assert.notEqual(neu, alt);
+    await page.locator('.ww-erledigt').getByRole('button', { name: new RegExp(`^Zurückholen: Terme umformen, der am ${wwRe(wwDatum(10))} besprochenen Fehler$`) }).click();
+    await toast.getByText(/zurückgeholt/).waitFor(); await wwRuhig(page);
+    assert.equal(await toast.innerText(), 'Terme umformen: 0 zurückgeholt · 1 war inzwischen geändert und bleibt, wie er ist');
+    const c = abhakCalls(srv).at(-1); assert.deepEqual(c.markierung_ids, [alt], 'genau die geladene Markierung'); assert.equal(c.zurueck, true); assert.equal(c.versuch_ids, undefined);
+    assert.equal(srv.st.marks.find((m) => m.versuch_id === 9012 && !m.zurueck_am)?.id, neu, 'die heutige Markierung bleibt');
+    // neu geladen: 9012 steht jetzt unter dem heutigen Tag; der Tag vor 10 Tagen ist weg
+    const zeilen = await page.locator('.ww-erledigt li').allInnerTexts();
+    assert.ok(zeilen.some((x) => new RegExp(`besprochen am ${wwRe(wwDatum(0))} · 1 Fehler`).test(x)), zeilen.join(' | ')); assert.ok(!zeilen.some((x) => x.includes(`am ${wwDatum(10)}`)), zeilen.join(' | '));
+    await page.locator('.ww-erledigt').scrollIntoViewIfNeeded(); await ww4Bild(page, `${b}-hell-zurueckholen-ueberholt`, { oben: false });
+    // zwei Markierungen an einem Tag, eine davon inzwischen zurückgeholt und neu markiert → getrennt gemeldet
+    await ww.locator('.ww-thema[aria-label="Lineare Gleichungen"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
+    srv.st.abgehakt.delete(9007); srv.st.abgehakt.set(9007, new Date().toISOString());
+    await page.locator('.ww-erledigt').getByRole('button', { name: /^Zurückholen: Lineare Gleichungen, alle 2 am/ }).click(); await toast.getByText(/1 zurückgeholt/).waitFor(); await wwRuhig(page);
+    assert.equal(await toast.innerText(), 'Lineare Gleichungen: 1 zurückgeholt · 1 war inzwischen geändert und bleibt, wie er ist');
+    assert.ok(srv.st.abgehakt.has(9007) && !srv.st.abgehakt.has(9003));
+    assert.ok(abhakCalls(srv).filter((x) => x.zurueck).every((x) => Array.isArray(x.markierung_ids) && x.versuch_ids === undefined), 'nie über versuch_ids');
+  }
+});
+
+test('WW-S3 (3): Rest nach Teilerfolg überlebt keinen Zeitraumwechsel – Rest aus 14 Tagen, Wechsel auf 7 Tage: Rest verworfen, nichts mehr aus dem alten Umfang markiert', async (t) => {
+  for (const b of [1280, 390]) {
+    let kaputt = true; const { page, srv, ww, toast } = await wwOeffnen(t, b, { srv: { viele: 230 }, route: (q) => (q.aktion === 'schule_fehler_abhaken' && kaputt && (q.daten.versuch_ids || []).length < 200 ? { status: 500, body: { ok: false, fehler: 'Zeitüberschreitung der Datenbank' } } : null) });
+    await ww.locator('.ww-thema[aria-label="Bruchrechnen"]').getByRole('button', { name: /^Besprochen: Bruchrechnen \(230/ }).click();
+    const hinweis = ww.locator('.ww-teilerfolg'); await hinweis.waitFor(); await wwRuhig(page);
+    assert.match(await hinweis.innerText(), /30 noch nicht gesendet\/fehlgeschlagen/); assert.equal(await toast.getByRole('button', { name: 'Noch einmal versuchen' }).count(), 1);
+    kaputt = false; const n0 = abhakCalls(srv).length;
+    await ww.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: '7 Tage' }).click();
+    await page.waitForFunction(() => document.querySelector('.ww-seg button[aria-pressed="true"]')?.textContent === '7 Tage' && document.querySelector('.ww').getAttribute('aria-busy') === 'false'); await wwRuhig(page);
+    assert.equal(await ww.locator('.ww-teilerfolg').count(), 0, 'Hinweis weg');
+    assert.equal(await toast.innerText(), 'Nicht gesendeter Rest verworfen – bitte im neuen Zeitraum erneut markieren.');
+    assert.equal(await page.getByRole('button', { name: 'Noch einmal versuchen' }).count(), 0, 'kein Wiederholen mehr – weder im Hinweis noch in der Meldung');
+    await page.waitForTimeout(300); assert.equal(abhakCalls(srv).length, n0, 'nichts aus dem alten Umfang gesendet');
+    assert.equal(await ww.locator('.ww-thema[aria-label="Bruchrechnen"] .ww-th-titel .ww-zaehler').innerText(), '30', 'der Rest bleibt offen und kann im neuen Zeitraum markiert werden');
+  }
+  // ganz gescheitert („Nicht gespeichert … Noch einmal versuchen“ in der Meldung): auch dieser Rest wird beim Wechsel verworfen
+  { let kaputt = true; const { page, srv, ww, toast } = await wwOeffnen(t, 1280, { route: (q) => (q.aktion === 'schule_fehler_abhaken' && kaputt ? { status: 500, body: { ok: false, fehler: 'Netz weg' } } : null) });
+    await ww.locator('.ww-thema[aria-label="Prozentrechnung"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/Nicht gespeichert/).waitFor(); await wwRuhig(page);
+    kaputt = false; const n0 = abhakCalls(srv).length;
+    await ww.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: 'Alles' }).click(); await page.waitForFunction(() => /^gesamt$/.test(document.querySelector('.ww-teil-kopf span')?.textContent || '')); await wwRuhig(page);
+    assert.equal(await toast.innerText(), 'Nicht gesendeter Rest verworfen – bitte im neuen Zeitraum erneut markieren.'); assert.equal(await page.getByRole('button', { name: 'Noch einmal versuchen' }).count(), 0);
+    await page.waitForTimeout(200); assert.equal(abhakCalls(srv).length, n0); }
+});
+
+test('WW-S3 (4): Abschnitt „Besprochen“ – Tage aus erledigt.tag (Zeitzone des Kindes), volle Liste: „alle hier gezeigten n zurückholen“, Untergrenzen nur, wo etwas fehlen kann', async (t) => {
+  // Tage nur vom Server (Zeitzone des Kindes), nie vom Gerät: Liste nach erledigt.tag (9010 hier auf den Tag davor gelegt), Themenzeile aus zuletzt_tag
+  { const srv = wwServer(); srv.st.verderben = (r) => { for (const x of r.erledigt || []) if (x.versuch_id === 9010) x.erledigt.tag = wwTagIso(4); return r; };
+    const { page } = await setup(t, { anpassen: srv.anpassen }); await page.setViewportSize({ width: 1280, height: 900 }); await page.goto(origin + '/#/kind/1-wackelt');
+    const ww = page.locator('.ww'); await ww.locator('.ww-th-wieder').first().waitFor(); await wwRuhig(page);
+    assert.match(await ww.locator('.ww-thema[aria-label="Terme umformen"] .ww-th-wieder').innerText(), new RegExp(`^↺ Schon besprochen am ${wwRe(wwDatum(3))} – `), 'Themenzeile aus zuletzt_tag (nicht aus der Liste)');
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+    const z = await page.locator('.ww-erledigt li').allInnerTexts();
+    assert.ok(z.some((x) => new RegExp(`besprochen am ${wwRe(wwDatum(4))} · 1 Fehler`).test(x)) && !z.some((x) => x.includes(`am ${wwDatum(3)}`)), z.join(' | ')); }
+  for (const b of [1280, 390]) {
+    const { page, srv, ww, toast } = await wwOeffnen(t, b, { srv: { viele: 320 } });
+    await ww.locator('.ww-thema[aria-label="Bruchrechnen"]').getByRole('button', { name: /^Besprochen: Bruchrechnen/ }).click(); await toast.getByText(/Bruchrechnen als besprochen markiert/).waitFor(); await wwRuhig(page);
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+    assert.equal(await page.locator('.ww-erledigt summary .ww-zaehler').innerText(), '3', 'Themen laut Server (auch die nicht in der Liste)');
+    const knoepfe = await page.locator('.ww-erledigt li button').allInnerTexts();
+    assert.ok(knoepfe.length && knoepfe.every((x) => /^(alle hier gezeigten \d+|den hier gezeigten) zurückholen$/.test(x)), knoepfe.join(' | ')); // nur Bruchrechnen hat Einträge in der Liste
+    assert.match(await page.locator('.ww-erledigt .ww-bs-erkl').innerText(), /holt die hier gezeigten Fehler des Themas zurück[\s\S]*Ältere Markierungen, die nicht in der Liste stehen, bleiben/);
+    assert.match(await page.locator('.ww-erledigt .ww-grenze').innerText(), /die 200 zuletzt besprochenen Fehler – ältere Gespräche können fehlen/);
+    const z = await page.locator('.ww-erledigt li').allInnerTexts();
+    const nBr = srv.st.marks.filter((m) => m.versuch_id >= 20000 && !m.zurueck_am).length; assert.ok(nBr > 200);
+    assert.match(z[0], new RegExp(`^Bruchrechnen · besprochen am ${wwRe(wwDatum(0))} · 200 von ${nBr} besprochenen Fehlern gezeigt`), 'weniger in der Liste als besprochen.fehler');
+    assert.ok(z.some((x) => new RegExp(`^Terme umformen · zuletzt besprochen am ${wwRe(wwDatum(3))} · an 2 Tagen besprochen · 2 Fehler · älter als die hier gezeigten – nicht in der Liste$`).test(x)), z.join(' | '));
+    assert.equal(await page.locator('.ww-erledigt li', { hasText: 'Terme umformen' }).locator('button').count(), 0, 'nicht geladen: kein Zurückholen');
+    if (b === 1280) { await ww4Bild(page, '1280-hell-besprochen-voll', { oben: false }); await ww5Bild(page, '1280-hell-besprochen-voll', { oben: false }); }
+    await page.locator('.ww-erledigt').getByRole('button', { name: /^Zurückholen: Bruchrechnen, die hier gezeigten 200 am/ }).click(); await toast.getByText(/200 zurückgeholt/).waitFor(); await wwRuhig(page);
+    assert.equal(await toast.innerText(), 'Bruchrechnen: 200 zurückgeholt'); assert.equal(abhakCalls(srv).at(-1).markierung_ids.length, 200);
+  }
+});
+
+test('WW-S3 (6): zuletzt_tag und fehler je Thema – Kind in anderer Zeitzone (Markierung kurz nach Mitternacht beim Kind): „Schon besprochen am …“ ist der Tag des Kindes, auch ohne Eintrag in der Liste; volle Liste genau nur, wo nichts fehlt', async (t) => {
+  // Markierung um 00:05 beim Kind (UTC+13) – auf dem Gerät ist es dann noch der Vortag (sofern das Gerät nicht selbst so weit östlich liegt)
+  const zuletzt = `${wwTagIso(2)}T00:05:00+13:00`; const geraetTag = (() => { const d = new Date(zuletzt); return `${d.getDate()}.${d.getMonth() + 1}.`; })();
+  if (geraetTag === wwDatum(2)) { t.skip('Zeitzone des Testrechners liegt beim Kind'); return; }
+  for (const b of [1280, 390]) {
+    const srv = wwServer(); srv.st.verderben = (r, d) => { const th = r.auswertung.themen.find((x) => x.thema_id === 29); th.besprochen.zuletzt = zuletzt; th.besprochen.zuletzt_tag = wwTagIso(2);
+      if (d.erledigt) r.erledigt = r.erledigt.filter((x) => x.thema_id !== 29); return r; }; // passender Eintrag fehlt in der Liste
+    const { page } = await setup(t, { anpassen: srv.anpassen }); await page.setViewportSize({ width: b, height: b > 1000 ? 900 : 844 }); await page.goto(origin + '/#/kind/1-wackelt');
+    const ww = page.locator('.ww'); await ww.locator('.ww-th-wieder').first().waitFor(); await wwRuhig(page);
+    assert.match(await ww.locator('.ww-thema[aria-label="Terme umformen"] .ww-th-wieder').innerText(), new RegExp(`^↺ Schon besprochen am ${wwRe(wwDatum(2))} – seitdem `), 'Tag des Kindes');
+    assert.equal(await ww.getByRole('table', { name: 'Letzte Fehler' }).locator('.ww-z[data-versuch="9001"] .ww-schon').getAttribute('aria-label'), `Thema schon besprochen am ${wwDatum(2)}`);
+    assert.equal(await page.getByText(`besprochen am ${geraetTag}`).count(), 0, 'nirgends der Tag des Geräts');
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+    const z = await page.locator('.ww-erledigt li').allInnerTexts();
+    assert.ok(z.some((x) => new RegExp(`^Terme umformen · zuletzt besprochen am ${wwRe(wwDatum(2))} · an 2 Tagen besprochen · 2 Fehler · älter als die hier gezeigten – nicht in der Liste$`).test(x)), z.join(' | '));
+    // Liste nicht voll, alle Einträge da: genaue Formulierung
+    assert.ok(z.some((x) => new RegExp(`^Lineare Gleichungen · besprochen am ${wwRe(wwDatum(9))} · 1 Fehler`).test(x)), z.join(' | '));
+    assert.equal(await page.locator('.ww-erledigt li button', { hasText: /hier gezeigten/ }).count(), 0);
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt summary').click();
+    if (b === 390) await ww5Bild(page, '390-hell-gefuellt');
+  }
+  // volle Liste, aber ein Thema vollständig darin: dort genau („alle n zurückholen“), nur beim Thema mit fehlenden Einträgen „hier gezeigten“
+  { const { page, srv, ww, toast } = await wwOeffnen(t, 1280, { srv: { viele: 320 } });
+    await ww.locator('.ww-thema[aria-label="Bruchrechnen"]').getByRole('button', { name: /^Besprochen: Bruchrechnen/ }).click(); await toast.getByText(/Bruchrechnen als besprochen markiert/).waitFor(); await wwRuhig(page);
+    await ww.locator('.ww-thema[aria-label="Satz des Pythagoras"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/Satz des Pythagoras als besprochen markiert/).waitFor(); await wwRuhig(page);
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+    assert.match(await page.locator('.ww-erledigt .ww-grenze').innerText(), /ältere Gespräche können fehlen/);
+    const z = await page.locator('.ww-erledigt li').allInnerTexts();
+    assert.match(z[0], new RegExp(`^Satz des Pythagoras · besprochen am ${wwRe(wwDatum(0))} · 2 Fehler`), 'vollständig in der Liste: genau');
+    assert.equal(await page.locator('.ww-erledigt li', { hasText: 'Satz des Pythagoras' }).getByRole('button').innerText(), 'alle 2 zurückholen');
+    assert.match(z[1], /^Bruchrechnen · besprochen am .+ · 198 von \d+ besprochenen Fehlern gezeigt/);
+    assert.equal(await page.locator('.ww-erledigt li', { hasText: 'Bruchrechnen' }).getByRole('button').innerText(), 'alle hier gezeigten 198 zurückholen'); }
+});
+
+test('WW-S3 (7), Werkstatt 1165: Bestätigung vollständig – beim Zurückholen jede Markierungs-ID genau einmal (geändert oder übersprungen), beim Markieren keine doppelten oder fremden IDs; eindeutige IDs beim Senden', async (t) => {
+  // Zurückholen: Tag „Lineare Gleichungen“ mit zwei Markierungen (9003, 9007 heute besprochen); Schadformen der Gegenprüfung → nicht bestätigt, keine Abschlussmeldung, neu geladen
+  const schad = (mids) => ({
+    'nichts gemeldet': { stand: 3, geaendert: 0, geaendert_ids: [], uebersprungen: [] },
+    'zweimal dieselbe übersprungen, die andere fehlt': { stand: 3, geaendert: 0, geaendert_ids: [], uebersprungen: [{ markierung_id: mids[0], grund: 'überholt' }, { markierung_id: mids[0], grund: 'schon zurückgeholt' }] },
+    'fremde ID': { stand: 3, geaendert: 1, geaendert_ids: [mids[0]], uebersprungen: [{ markierung_id: 99999, grund: 'nicht gefunden' }] },
+    'geändert und übersprungen zugleich': { stand: 3, geaendert: 2, geaendert_ids: mids, uebersprungen: [{ markierung_id: mids[0], grund: 'überholt' }] },
+  });
+  for (const wie of Object.keys(schad([1, 2]))) {
+    let kaputt = false; let mids = [];
+    const { page, srv, ww, toast } = await wwOeffnen(t, 1280, { route: (q) => (q.aktion === 'schule_fehler_abhaken' && q.daten.zurueck && kaputt ? { body: { ok: true, ergebnis: schad(mids)[wie] } } : null) });
+    await ww.locator('.ww-thema[aria-label="Lineare Gleichungen"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
+    mids = srv.st.marks.filter((m) => [9003, 9007].includes(m.versuch_id) && !m.zurueck_am).map((m) => m.id).sort((a, b) => a - b); kaputt = true;
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+    const n0 = wwAnalysen(srv).length;
+    await page.locator('.ww-erledigt').getByRole('button', { name: /^Zurückholen: Lineare Gleichungen, alle 2 am/ }).click(); await toast.getByText(/Nicht gespeichert/).waitFor(); await wwRuhig(page);
+    assert.match(await toast.innerText(), /^Nicht gespeichert: Der Server hat das Speichern nicht bestätigt\.\s*Noch einmal versuchen$/, wie);
+    assert.equal(await toast.getByText(/zurückgeholt/).count(), 0, wie + ': keine Abschlussmeldung'); assert.ok(wwAnalysen(srv).length > n0, wie + ': neu geladen'); }
+  // Markieren: doppelte Einträge in uebersprungen und IDs außerhalb des Pakets → nicht bestätigt; die Differenz allein bleibt „schon markiert“
+  for (const [wie, f] of [['doppelt übersprungen', (p) => ({ stand: 3, geaendert: 0, geaendert_ids: [], markierung_ids: [], uebersprungen: [{ versuch_id: p[0], grund: 'nicht endgültig falsch' }, { versuch_id: p[0], grund: 'nicht endgültig falsch' }] })],
+    ['übersprungen außerhalb des Pakets', (p) => ({ stand: 3, geaendert: 1, geaendert_ids: [p[0]], markierung_ids: [700], uebersprungen: [{ versuch_id: 12345, grund: 'nicht gefunden' }] })],
+    ['übersprungen ohne grund', (p) => ({ stand: 3, geaendert: 1, geaendert_ids: [p[0]], markierung_ids: [700], uebersprungen: [{ versuch_id: p[1] }] })]]) {
+    const { page, ww, toast } = await wwOeffnen(t, 1280, { route: (q) => (q.aktion === 'schule_fehler_abhaken' ? { body: { ok: true, ergebnis: f([...q.daten.versuch_ids].sort((a, b) => a - b)) } } : null) });
+    await ww.locator('.ww-thema[aria-label="Satz des Pythagoras"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/Nicht gespeichert/).waitFor(); await wwRuhig(page);
+    assert.match(await toast.innerText(), /^Nicht gespeichert: Der Server hat das Speichern nicht bestätigt\./, wie); }
+  { const { page, srv, ww, toast } = await wwOeffnen(t, 1280); srv.st.abgehakt.set(9004, new Date(Date.now() - 60000).toISOString());
+    await ww.locator('.ww-thema[aria-label="Satz des Pythagoras"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
+    assert.match(await toast.innerText(), /\(1 neu markiert · 1 war schon markiert\)/, 'Differenz = schon markiert'); }
+  // eindeutig senden: zeigt die Liste dieselbe Markierung doppelt, geht sie nur einmal hinaus
+  { const { page, srv, toast } = await wwOeffnen(t, 1280);
+    srv.st.verderben = (r, d) => { if (d.erledigt) { const x = r.erledigt.find((e) => e.versuch_id === 9011); if (x) r.erledigt.push(JSON.parse(JSON.stringify(x))); } return r; };
+    await page.locator('.ww-thema[aria-label="Prozentrechnung"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+    await page.locator('.ww-erledigt').getByRole('button', { name: /^Zurückholen: Lineare Gleichungen, alle 2 am/ }).click(); await toast.getByText(/zurückgeholt/).waitFor(); await wwRuhig(page);
+    const c = abhakCalls(srv).at(-1); assert.equal(c.markierung_ids.length, 1, 'doppelte ID nur einmal gesendet'); assert.equal(new Set(c.markierung_ids).size, c.markierung_ids.length);
+    assert.equal(await toast.innerText(), 'Lineare Gleichungen: 1 zurückgeholt'); }
+  // alter Weg: der Client sendet nie {zurueck, versuch_ids}; der Nachbau weist ihn ab wie der Server
+  { const srv = wwServer(); assert.throws(() => srv.anpassen('schule_fehler_abhaken', null, { lernender_id: 1, zurueck: true, versuch_ids: [9001] }), /Zurückholen nur mit markierung_ids/); }
+});
+
+test('WW-S3 (5): „Noch einmal versuchen“ im Abschnitt „Besprochen“ (Lesefehler) ist während eines Schreibaufrufs gesperrt', async (t) => {
+  let kaputt = false, langsam = false;
+  const { page, srv, ww } = await wwOeffnen(t, 1280, { route: (q) => (q.aktion === 'schule_wackelt_analyse' && q.daten.erledigt && kaputt ? { status: 500, body: { ok: false, fehler: 'Netz weg' } } : null),
+    verzoegerungJe: (a) => (a === 'schule_fehler_abhaken' && langsam ? 1500 : 0) });
+  const nErl = () => srv.st.calls.filter((c) => c.aktion === 'schule_wackelt_analyse' && c.erledigt).length;
+  await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+  kaputt = true; await ww.locator('.ww-thema[aria-label="Prozentrechnung"]').getByRole('button', { name: /^Besprochen:/ }).click(); await page.locator('.ww-erledigt .err-text').waitFor(); await wwRuhig(page);
+  langsam = true; await ww.locator('.ww-thema[aria-label="Satz des Pythagoras"]').getByRole('button', { name: /^Besprochen:/ }).click();
+  await ww.locator('.ww-thema[aria-label="Satz des Pythagoras"] .ww-bespr', { hasText: 'Speichere …' }).waitFor();
+  const knopf = page.locator('.ww-erledigt .err-text').getByRole('button', { name: 'Noch einmal versuchen' });
+  assert.equal(await knopf.getAttribute('aria-disabled'), 'true', 'gesperrt wie die übrigen Schaltflächen');
+  const n0 = nErl(); await knopf.click({ force: true }); await page.waitForTimeout(150); assert.equal(nErl(), n0, 'kein Laden während des Schreibens');
+  await page.locator('.ww-toast').getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
+  kaputt = false; langsam = false; assert.equal(await knopf.getAttribute('aria-disabled'), null, 'danach wieder frei');
+  await knopf.click(); await page.locator('.ww-erledigt .err-text').waitFor({ state: 'detached' });
+});
+
+// ---------- Teil A (0.96.x): offene Flüge von der Kartenseite aus startbar – die Karte selbst bleibt unverändert ----------
+// Testfall: neben dem aktuellen Schritt in Italien (Einheit 1, Thema 15) ein zweiter offener Flug: „Einfache Zinsen“ (Einheit 2) in den USA (anderer Kontinent).
+const rkThemen = (zuord) => (aktion, e) => (aktion === 'schule_uebersicht' && e ? { ...e, einheiten: (e.einheiten || []).map((x) => (zuord[x.id] ? { ...x, thema_id: zuord[x.id] } : x)) } : e);
+test('Teil A: offene Flüge in der Routen-Spalte bzw. im Blatt antippbar (höchstens 2 Tipps), gesperrte nicht, Karte ohne neue Knöpfe (1280 / 390 hell / 390 dunkel)', async (t) => {
+  const bild = async (page, name) => { if (process.env.APP4_BILDER) { await page.waitForTimeout(300); await page.screenshot({ path: path.join(process.env.APP4_BILDER, `route-${name}-${process.env.APP4_PHASE || 'nachher'}.png`) }); } };
+  const karteKnoepfe = (page) => page.locator('.rk-karte').evaluate((k) => [...k.querySelectorAll('a, button')].filter((x) => !x.closest('.rk-blatt') && !x.closest('svg')).map((x) => x.className.baseVal ?? x.className).sort().join('|'));
+  // Rechner 1280: Spalte „Meine Route · Länder“ + „Auch offen“
+  { const { page } = await rkOeffnen(t, 1280, 800, { basis: rkThemen({ 1: 15, 2: 71 }) }); await page.locator('.rk-seite .rk-start').waitFor();
+    await bild(page, '1280-hell');
+    assert.equal(await page.locator('.lr-abflugtafel, .rk-leiste, .rk-chip').count(), 0, 'keine Tafel, keine Leiste');
+    assert.equal(await page.locator('.rk-karte .rk-auch-offen, .rk-karte .rk-lzeile-los, .rk-karte .rk-weiter-knopf').count(), 0, 'nichts Neues auf der Karte');
+    const spalte = page.locator('.rk-seite');
+    assert.equal(await spalte.locator('a.rk-lzeile-los', { hasText: 'Italien' }).getAttribute('href'), '#/lerneinheit/1-1', 'Zeile mit offenem Flug führt hinein');
+    assert.equal(await spalte.locator('button.rk-lzeile', { hasText: 'Schweiz' }).count(), 1, 'Zeile ohne Einheit bleibt, wie sie war');
+    const auch = spalte.locator('.rk-auch-offen'); assert.match(await auch.innerText(), /AUCH OFFEN[\s\S]*USA · Zinsen[\s\S]*0\/\d+ ›/);
+    await auch.scrollIntoViewIfNeeded(); await bild(page, '1280-hell-auch-offen');
+    await auch.getByRole('link', { name: /USA/ }).click(); // 1 Tipp
+    await page.waitForURL(/#\/lerneinheit\/1-2$/); await page.getByRole('heading', { name: 'Einfache Zinsen', exact: true }).waitFor(); }
+  // Handy 390 (hell und dunkel): die Spalte gibt es dort nicht – die offenen Flüge stehen im bestehenden Blatt (Land antippen), keine neuen Knöpfe auf der Karte
+  for (const g of ['tag', 'nacht']) {
+    const { page } = await rkOeffnen(t, 390, 844, { basis: rkThemen({ 1: 15, 2: 71 }), gestaltung: g });
+    const vorher = await karteKnoepfe(page);
+    assert.equal(await page.locator('.rk-seite').evaluate((x) => getComputedStyle(x).display), 'none', 'Handy: keine Spalte');
+    await page.locator('.rk-pin[data-id="IT"]').click(); const bl = page.locator('.rk-blatt:not([hidden])'); await bl.waitFor(); // Tipp 1
+    await bild(page, `390-${g === 'nacht' ? 'dunkel' : 'hell'}`);
+    assert.equal(await karteKnoepfe(page), vorher, 'Karte: dieselben Knöpfe wie vorher');
+    assert.equal(await bl.locator('.rk-weiter-knopf').count(), 0, 'Flug des Startknopfs: kein zweiter „Weiter in …“');
+    await bl.locator('.rk-auch-offen').getByRole('link', { name: /USA · Zinsen/ }).click(); // Tipp 2
+    await page.waitForURL(/#\/lerneinheit\/1-2$/); await page.getByRole('heading', { name: 'Einfache Zinsen', exact: true }).waitFor();
+  }
+  // Offener Flug auf dem eigenen Kontinent (Einheit 2 → Schweiz, Platz 2): Routen-Zeile, „Weiter in …“ im Blatt, nächste Stadt in „Städte in …“
+  { const { page } = await rkOeffnen(t, 1280, 800, { basis: rkThemen({ 1: 15, 2: 18 }) }); const spalte = page.locator('.rk-seite'); await spalte.locator('.rk-start').waitFor();
+    assert.equal(await spalte.locator('a.rk-lzeile-los', { hasText: 'Schweiz' }).getAttribute('href'), '#/lerneinheit/1-2');
+    assert.equal(await spalte.locator('.rk-auch-offen').count(), 0, 'nichts außerhalb der Route offen');
+    await page.locator('.rk-pin[data-id="CH"]').click(); const bl = page.locator('.rk-seite-blatt'); await bl.waitFor();
+    await bild(page, '1280-hell-weiter-knopf'); const w = bl.locator('a.rk-weiter-knopf'); assert.match(await w.innerText(), /^Weiter in .+ ›$/); assert.equal(await w.getAttribute('href'), '#/lerneinheit/1-2');
+    await bl.getByRole('button', { name: 'Städte in Schweiz ansehen ›' }).click(); await page.locator('.rk-seite h4', { hasText: 'STÄDTE IN SCHWEIZ' }).waitFor();
+    assert.equal(await spalte.locator('a.rk-lzeile-los').count(), 1, 'genau die nächste Stadt'); assert.equal(await spalte.locator('a.rk-lzeile-los').getAttribute('href'), '#/lerneinheit/1-2');
+    await page.locator('.rk-seite a.rk-lzeile-los').click(); await page.waitForURL(/#\/lerneinheit\/1-2$/); }
+  // Gesperrt bleibt gesperrt: Einheit 2 → Slowenien (wartet auf das Visum) – keine Verknüpfung, weder in der Spalte noch im Blatt
+  for (const b of [1280, 390]) {
+    const { page } = await rkOeffnen(t, b, b > 1000 ? 800 : 844, { basis: rkThemen({ 1: 15, 2: 67 }), lage: 'eu3' });
+    assert.equal(await page.locator('a[href="#/lerneinheit/1-2"]').count(), 0, `${b}: gesperrter Flug nirgends startbar`);
+    if (b > 1000) assert.equal(await page.locator('.rk-seite button.rk-lzeile', { hasText: 'Slowenien' }).count(), 1);
+    await page.locator('.rk-pin[data-id="SI"] .rk-treffer').click(); await page.locator(b > 1000 ? '.rk-seite-blatt' : '.rk-blatt:not([hidden])').waitFor();
+    assert.equal(await page.locator('a[href="#/lerneinheit/1-2"], .rk-weiter-knopf').count(), 0, `${b}: auch im Blatt nicht`);
+  }
+});
+
+// ---------- Auflagen aus Werkstatt 1156 b: bereits gelandete / zur Wiederholung gesetzte Flüge bekommen keinen Startlink ----------
+test('Teil 3: Flug „Kann er – aber wiederholen“ (stufe wiederholung, gesetzt wiederholen, im Plan, ohne Stempel) nirgends startbar – wie in „Mein Weg › Kontinente“ (1280 / 390)', async (t) => {
+  const WDH = { 18: { stufe: 'wiederholung', gesetzt: 'wiederholen', im_plan: true, plan_platz: 2 } };
+  // Mein Weg führt denselben Flug als gelandet: Ort des Flugs hat kann_wdh_themen mit dem Thema
+  const mitWdh = (aktion, e) => { const r = rkThemen({ 1: 15, 2: 18 })(aktion, e); if (aktion !== 'schule_uebersicht' || !r) return r;
+    const b = (r.einheiten || []).find((x) => x.id === 2)?.block_id;
+    return { ...r, lernende: r.lernende.map((k) => (k.id !== 1 ? k : { ...k, route: [...(k.route || []).filter((q) => q.block_id !== b), { block_id: b, position: 150, art: 'normal', status: 'offen', kann_schon: false, kann_wdh_themen: [18] }] })) }; };
+  for (const [b, h] of [[1280, 800], [390, 844]]) {
+    // a) nur der Stand des Flugs (Karte) sagt „wiederholen“
+    { const { page } = await rkOeffnen(t, b, h, { basis: rkThemen({ 1: 15, 2: 18 }), stand: WDH });
+      if (b > 1000) { const spalte = page.locator('.rk-seite'); await spalte.locator('.rk-start').waitFor();
+        assert.equal(await spalte.locator('a.rk-lzeile-los', { hasText: 'Schweiz' }).count(), 0, '1280: Routen-Zeile ohne Startlink');
+        assert.equal(await spalte.locator('.rk-auch-offen a[href="#/lerneinheit/1-2"]').count(), 0, '1280: nicht unter „Auch offen“');
+        assert.equal(await spalte.locator('a.rk-lzeile-los', { hasText: 'Italien' }).getAttribute('href'), '#/lerneinheit/1-1', 'der Flug, der dran ist, bleibt startbar'); }
+      await page.locator('.rk-pin[data-id="CH"]').click(); await page.locator(b > 1000 ? '.rk-seite-blatt' : '.rk-blatt:not([hidden])').waitFor();
+      assert.equal(await page.locator('a[href="#/lerneinheit/1-2"], .rk-weiter-knopf').count(), 0, `${b}: Länder-Blatt ohne Link`);
+      const stadt = page.getByRole('button', { name: 'Städte in Schweiz ansehen ›' });
+      if (await stadt.count()) { await stadt.click(); await page.waitForTimeout(300); assert.equal(await page.locator('a[href="#/lerneinheit/1-2"]').count(), 0, `${b}: Stadtzeile ohne Link`); }
+      // Maßstab: Mein Weg › Kontinente führt den Flug (ohne kann_wdh_themen) als offen – die Karte ist hier strenger (Stand des Flugs)
+      await page.goto(origin + '/#/weg/1-kontinente'); await page.locator('.lr-kontinente').waitFor(); }
+    // b) Mein Weg führt ihn als gelandet (kann_wdh_themen), die Karte nennt nur „im Plan“: ebenfalls kein Link
+    { const { page } = await rkOeffnen(t, b, h, { basis: mitWdh });
+      await page.goto(origin + '/#/weg/1-kontinente'); const z = page.locator('a.lr-wegzeile[href="#/lerneinheit/1-2"]'); await z.first().waitFor({ state: 'attached' });
+      assert.match(await z.first().locator('.lr-zeile-zustand').textContent(), /gelandet/, 'Mein Weg: gelandet');
+      await page.goto(origin + '/#/reise/1'); await page.locator('.rk .rk-pin').first().waitFor(); await page.waitForTimeout(200);
+      assert.equal(await page.locator('a[href="#/lerneinheit/1-2"]').count(), 0, `${b}: kein Startlink für einen in Mein Weg gelandeten Flug`);
+      await page.locator('.rk-pin[data-id="CH"]').click(); await page.locator(b > 1000 ? '.rk-seite-blatt' : '.rk-blatt:not([hidden])').waitFor();
+      assert.equal(await page.locator('a[href="#/lerneinheit/1-2"], .rk-weiter-knopf').count(), 0, `${b}: auch im Blatt nicht`); }
+  }
 });

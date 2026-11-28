@@ -847,7 +847,7 @@ def durchsicht():
                   ['Richtig.', 'Falsch: Das ergibt 1/4.', 'Falsch: Das ergibt 2.'],
                   'Der Baum hat vier Pfade mit je 1/4. „Zweimal gleich“ sind nur zwei davon: 1/2. Erst alle vier zusammen ergeben 1.',
                   'Zeichne alle Pfade des Baums. Welche fehlen?'))
-    D.fuer_sebastian('stochastik.mehrstufig/simulation (Übungen Stufe 3, π aus Zufallspunkten im Kreis) überschneidet sich mit der neuen Karte pi_schaetzen (Runde 18) '
+    D.fuer_nutzer('stochastik.mehrstufig/simulation (Übungen Stufe 3, π aus Zufallspunkten im Kreis) überschneidet sich mit der neuen Karte pi_schaetzen (Runde 18) '
                      'und mit stochastik.simulation/monte_carlo – alle drei im Block Darwin. Die beiden π-Übungen in simulation könnten dort entfallen (Sperren ist Sache des Haupt-Chats).')
     D.anwenden()
 

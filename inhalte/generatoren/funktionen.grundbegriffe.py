@@ -820,7 +820,7 @@ BF.ersetze('stelle', 'Für welches x gilt f(x) = −4, wenn f(x) = −1(x + 4)?'
            BF.Z('Für welches x gilt f(x) = −4, wenn f(x) = −(x + 4)?', 0, '-4 / (-1) + (-4)', '−(x + 4) = −4 | : (−1) → x + 4 = 4 → x = 0.', _H))
 BF.nicht_umgesetzt('punkt_graph S2 „Lies am Graphen ab: f(4) = ?“ (gehört eher zu graph_lesen)',
                    'Bei erneuter Prüfung passend: Den Punkt (4 | f(4)) am Graphen ablesen gehört zu „Liegt der Punkt auf dem Graphen?“. Lösung richtig, kein Mangel.')
-BF.fuer_sebastian('funktionen.grundbegriffe: Der Eintrag in „offen“ („Kreis kann die App nicht zeichnen“) ist veraltet – die App zeichnet Kreise (koordinaten.kreise). Nur der Haupt-Chat ändert „offen“.')
+BF.fuer_nutzer('funktionen.grundbegriffe: Der Eintrag in „offen“ („Kreis kann die App nicht zeichnen“) ist veraltet – die App zeichnet Kreise (koordinaten.kreise). Nur der Haupt-Chat ändert „offen“.')
 
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----

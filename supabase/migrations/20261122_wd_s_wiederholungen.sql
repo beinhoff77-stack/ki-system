@@ -62,7 +62,7 @@ insert into schule.regel (schluessel, wert, hinweis) values
   ('wdh_runde_max_bis_kl6', '10', 'WD-1: Wiederholungs-Runde höchstens bis Klasse 6'),
   ('wdh_runde_teiler', '5', 'WD-1: Runde = fällige / Teiler, aufgerundet'),
   ('wdh_gesetzt_je_lerntag', '6', 'WD-4: gesetzte Etappen, die je Lerntag neu in den Takt kommen'),
-  ('sterne_wdh_richtig', '10', 'WD-5: je bestandener Wiederholung. Schnittstelle nennt 5; heute gibt eine richtige Wiederholung 10 (sterne_uebung_richtig) – Sebastian entscheidet 5 oder 10'),
+  ('sterne_wdh_richtig', '10', 'WD-5: je bestandener Wiederholung. Schnittstelle nennt 5; heute gibt eine richtige Wiederholung 10 (sterne_uebung_richtig) – der Nutzer entscheidet 5 oder 10'),
   ('sterne_etappe_abgelegt', '30', 'WD-6: Etappe abgelegt'),
   ('sterne_flug_abgelegt', '100', 'WD-6: alle Etappen eines Flugs abgelegt')
 on conflict (schluessel) do nothing;

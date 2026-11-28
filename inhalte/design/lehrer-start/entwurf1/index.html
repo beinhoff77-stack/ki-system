@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Was ist los? – Entwurf 1 Lehrer-Start (Designer)</title>
+<style>
+/* Lehrer-Startseite in der Sprache von „Was wackelt“ Entwurf 4 (freigegeben): gleiche Farben (style.css, data-area="lernen"),
+   Karten 19 px, Kacheln, Tabellenzeilen 44 px, Abschnittsköpfe. Erfundene Daten, heute = Fr 27.11.2026. */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; font-size: 15px; line-height: 1.5; background: var(--bg); color: var(--text); -webkit-text-size-adjust: 100%; }
+body[data-g="hell"] { color-scheme: light; --bg: #f6f4ec; --surface: #fffefa; --surface-muted: #eeeae0; --text: #22372e; --muted: #5c6a61; --accent: #254d3e; --accent-soft: #e5ede4;
+  --border: #e4e4d9; --ok: #25663a; --ok-bg: #e7f4eb; --ok-bar: #b9dfc6; --err: #a72e37; --err-bg: #fbe9eb; --err-bar: #d9737b; --info: #275d98; --info-bg: #e8f1fc;
+  --warn: #855e41; --warn-bg: #faf0e3; --warn-dot: #d9a400; --shadow: 0 12px 40px rgb(30 57 43 / 4.5%); }
+body[data-g="nacht"] { color-scheme: dark; --bg: #101721; --surface: #192330; --surface-muted: #223040; --text: #f1f5f9; --muted: #b3bfcd; --accent: #62d8c4; --accent-soft: #203e3c;
+  --border: #354255; --ok: #8ed4a4; --ok-bg: #233b30; --ok-bar: #2f6046; --err: #ffa4ac; --err-bg: #452b32; --err-bar: #c25a63; --info: #9fc8fa; --info-bg: #26384f;
+  --warn: #f3cb75; --warn-bg: #3d3220; --warn-dot: #f3cb75; --shadow: none; }
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+h1, h2, h3, h4, p { margin: 0; }
+.muted { color: var(--muted); }
+.num { font-variant-numeric: tabular-nums; }
+
+.app-kopf { border-bottom: 1px solid var(--border); }
+.app-kopf div { max-width: 1240px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; }
+.marke { font-size: 22px; font-weight: 700; color: var(--accent); letter-spacing: -.01em; }
+.leise-knopf { border: 1px solid var(--border); background: var(--surface); border-radius: 11px; padding: 6px 12px; font-size: 13px; }
+main { max-width: 1240px; margin: 0 auto; padding: 18px 24px 32px; }
+.seiten-titel { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 12px; }
+.seiten-titel h1 { font-size: 24px; color: var(--accent); }
+.link-leise { font-size: 14px; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+
+.teil { margin-top: 20px; }
+.teil-kopf { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin-bottom: 10px; }
+.teil-kopf h2 { font-size: 18px; color: var(--accent); }
+.teil-kopf span { color: var(--muted); font-size: 14px; }
+.teil-kopf .rechts { margin-left: auto; }
+.karte { background: var(--surface); border: 1px solid var(--border); border-radius: 19px; box-shadow: var(--shadow); }
+.knopf-klein { border: 1px solid var(--border); background: var(--surface); border-radius: 9px; min-height: 30px; padding: 0 10px; font-size: 13px; font-weight: 600; color: var(--muted); white-space: nowrap; text-decoration: none; display: inline-flex; align-items: center; }
+.knopf-klein:hover { color: var(--text); border-color: var(--muted); }
+.knopf-klein.stark { color: var(--accent); border-color: var(--accent); }
+
+/* 1 Zu tun: Tabellenzeilen wie in „Was wackelt“ */
+.liste { padding: 2px 0; overflow: hidden; }
+.zt { display: grid; grid-template-columns: 12px minmax(0, 1fr) auto; column-gap: 14px; align-items: center; min-height: 44px; padding: 0 16px; border-top: 1px solid var(--border); text-decoration: none; }
+.zt:first-child { border-top: 0; }
+a.zt:hover { background: color-mix(in srgb, var(--surface-muted) 45%, transparent); }
+.zt i { width: 10px; height: 10px; border-radius: 50%; display: block; }
+.zt.rot i { background: var(--err); } .zt.gelb i { background: var(--warn-dot); } .zt.blau i { background: var(--info); }
+.zt .ziel { color: var(--muted); font-size: 13.5px; white-space: nowrap; }
+.zt .knoepfe { display: flex; gap: 6px; }
+.zt-ruhig { padding: 12px 16px; color: var(--ok); font-weight: 600; }
+
+/* 2 Die Kinder: eine Kachel je Kind, innen eine ruhige Zeilen-Tabelle */
+.kinder { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.kind { padding: 14px 18px 10px; min-width: 0; }
+.kind-kopf { display: flex; align-items: center; gap: 10px; padding-bottom: 10px; }
+.kind-kopf h3 { font-size: 17px; color: var(--accent); }
+.kind-kopf h3 a { text-decoration: none; }
+.kind-kopf h3 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.kind-kopf small { color: var(--muted); font-size: 13.5px; }
+.kind-kopf .aktionen { margin-left: auto; display: flex; gap: 6px; }
+.kz { display: grid; grid-template-columns: 104px minmax(0, 1fr); column-gap: 14px; align-items: center; min-height: 40px; border-top: 1px solid var(--border); }
+.kz > span:first-child { color: var(--muted); font-size: 13.5px; }
+.kz .wert { display: flex; align-items: center; gap: 10px; min-width: 0; flex-wrap: wrap; }
+.kz .wert b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.kz .klein { font-size: 13.5px; color: var(--muted); }
+.kz .wert.nowrap { flex-wrap: nowrap; } .kz .ell { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .kz .wert.nowrap .klein { white-space: nowrap; }
+.punkte { display: inline-flex; gap: 4px; }
+.punkte i { width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid var(--border); display: block; }
+.punkte i.ja { background: var(--ok); border-color: var(--ok); }
+.punkte i.pause { border-style: dashed; border-color: var(--muted); }
+.punkte i.heute { outline: 1.5px solid var(--muted); outline-offset: 1.5px; }
+.spur { width: 100px; height: 8px; border-radius: 4px; background: var(--surface-muted); overflow: hidden; display: inline-flex; flex: none; }
+.spur i { display: block; height: 100%; }
+.spur .r { background: var(--ok-bar); } .spur .f { background: var(--err-bar); } .spur .g { background: var(--accent); opacity: .55; }
+.wack { color: var(--err); font-weight: 600; text-decoration: none; font-variant-numeric: tabular-nums; }
+.wack:hover { text-decoration: underline; text-underline-offset: 3px; }
+.wack.null { color: var(--ok); }
+details.sa summary { cursor: pointer; list-style: none; font-size: 13px; color: var(--muted); }
+details.sa summary::-webkit-details-marker { display: none; }
+details.sa summary::after { content: " ▸"; } details.sa[open] summary::after { content: " ▾"; }
+details.sa p { font-size: 13.5px; color: var(--muted); }
+
+/* 3 Nachschlagen und Verwalten */
+.unten { display: grid; grid-template-columns: 3fr 1fr; gap: 14px; }
+.wege { padding: 12px 18px 8px; }
+.wege h3 { font-size: 14px; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
+.wege ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 18px; }
+.unten .verwalten ul { grid-template-columns: 1fr; }
+.wege li a { display: flex; align-items: baseline; gap: 8px; min-height: 36px; padding: 6px 0; border-top: 1px solid var(--border); text-decoration: none; }
+.wege li a:hover b { text-decoration: underline; text-underline-offset: 3px; }
+.wege li b { font-weight: 600; font-size: 14.5px; white-space: nowrap; }
+.wege li span { color: var(--muted); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+@media (max-width: 900px) {
+  .kinder, .unten { grid-template-columns: minmax(0, 1fr); }
+  .wege ul { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  .app-kopf div, main { padding-left: 14px; padding-right: 14px; }
+  .zt { grid-template-columns: 12px minmax(0, 1fr); row-gap: 2px; padding: 9px 12px; }
+  .zt .ziel, .zt .knoepfe { grid-column: 2; }
+  .kind { padding: 12px 14px 8px; }
+  .kind-kopf { flex-wrap: wrap; } .kind-kopf .aktionen { margin-left: 0; flex-basis: 100%; }
+  .kz { grid-template-columns: 92px minmax(0, 1fr); padding: 6px 0; }
+  .spur { width: 90px; }
+}
+</style>
+</head>
+<body data-g="hell">
+<header class="app-kopf"><div><span class="marke">Lernen Schule</span><button class="leise-knopf" type="button">Abmelden</button></div></header>
+<main id="main"></main>
+<script>
+'use strict';
+// ---------- erfundene Daten (Felder wie schule_uebersicht / schule_lernstand / schule_wackelt_lesen / schule_eltern / schule_rueckmeldungen) ----------
+const HEUTE = '2026-11-27';
+const KINDER = [
+  { id: 1, name: 'Kind 1', schule: 'Gymnasium', klasse: 5, lerntage: ['2026-11-21', '2026-11-22', '2026-11-23', '2026-11-24'], pausen: [], woche: { aufgaben: 24, richtig: 19, mit_tipp: 3 }, vorwoche: 4,
+    jetzt: { thema: 'Größen und Einheiten', lernkarte: 'Längen umrechnen', fertig: 3, n: 5 }, wackelt: 2, stand: { gym_by: ['Kl. 5', 13], rs_by: ['Kl. 5', 15], ib_myp: ['ab Kl. 6', null] } },
+  { id: 2, name: 'Kind 2', schule: 'Gymnasium', klasse: 8, lerntage: ['2026-11-21', '2026-11-22', '2026-11-23', '2026-11-24', '2026-11-25', '2026-11-26'], pausen: [], woche: { aufgaben: 31, richtig: 21, mit_tipp: 4 }, vorwoche: 5,
+    jetzt: { thema: 'Lineare Gleichungen', lernkarte: 'Gleichungen mit Klammern', fertig: 2, n: 5 }, wackelt: 10, stand: { gym_by: ['Kl. 8', 13], rs_by: ['Kl. 8', 20], ib_myp: ['MYP-Jahr 3', 15] } },
+];
+const ZU_TUN = [
+  ['gelb', 'Kind 2: 10 Fehler offen – am meisten bei Klammern mit Minus', 'Was wackelt', 'k2-wackelt'],
+  ['rot', 'Kind 1: seit 3 Tagen kein Lerntag', 'Überblick', 'k1-ueberblick'],
+  ['blau', 'Neue Antwort auf euren Auftrag: Lineare Gleichungen', 'Aufträge', 'auftraege'],
+  ['blau', 'Kind 1 möchte „Kinoabend“ einlösen (40 Sterne)', null, null, true],
+];
+const S = { g: 'hell', leer: false };
+(function () { const q = new URLSearchParams(location.hash.slice(1)); if (q.get('g')) S.g = q.get('g'); if (q.get('leer')) S.leer = true; })();
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const tageZurueck = (n) => { const d = new Date(HEUTE + 'T12:00:00'); d.setDate(d.getDate() - n); return d.toISOString().slice(0, 10); };
+const WT = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+
+function punkte(k) {
+  return `<span class="punkte" aria-label="Lerntage der letzten 7 Tage">${[6, 5, 4, 3, 2, 1, 0].map((n) => { const d = tageZurueck(n); const ja = k.lerntage.includes(d);
+    return `<i class="${ja ? 'ja' : ''}${n === 0 ? ' heute' : ''}" title="${WT[new Date(d + 'T12:00:00').getDay()]} ${+d.slice(8)}.${+d.slice(5, 7)}.: ${ja ? 'Lerntag' : 'kein Lerntag'}"></i>`; }).join('')}</span>`;
+}
+function zuletzt(k) { const l = [...k.lerntage].sort().pop(); const t = Math.round((new Date(HEUTE) - new Date(l)) / 864e5); return t === 0 ? 'heute' : t === 1 ? 'gestern' : `vor ${t} Tagen`; }
+function kindKachel(k) {
+  const w = k.woche; const pz = w.aufgaben ? Math.round((w.richtig / w.aufgaben) * 100) : 0; const j = k.jetzt; const eig = k.stand.gym_by;
+  return `<section class="karte kind" aria-label="${k.name}">
+    <div class="kind-kopf"><h3><a href="#kind-${k.id}">${k.name}</a></h3><small>${k.schule} · Klasse ${k.klasse}</small>
+      <span class="aktionen"><a class="knopf-klein stark" href="#reise-${k.id}">Lernen starten</a><button class="knopf-klein" type="button">Einstellen</button></span></div>
+    <div class="kz"><span>Diese Woche</span><span class="wert">${punkte(k)}<span class="klein"><b>${k.lerntage.filter((d) => d > tageZurueck(7)).length}</b> Lerntage · zuletzt ${zuletzt(k)} · Vorwoche ${k.vorwoche}</span></span></div>
+    <div class="kz"><span>Aufgaben</span><span class="wert"><b>${w.aufgaben}</b> gelöst · <b>${pz} %</b> richtig<span class="spur" aria-hidden="true"><i class="r" style="width:${pz}%"></i><i class="f" style="width:${100 - pz}%"></i></span>${w.mit_tipp ? `<span class="klein">${w.mit_tipp}× mit Tipp</span>` : ''}</span></div>
+    <div class="kz"><span>Gerade dran</span><span class="wert nowrap"><span class="ell">${esc(j.thema)} · ${esc(j.lernkarte)}</span><span class="klein num" title="Lernkarte ${j.fertig} von ${j.n} in diesem Thema">Karte ${j.fertig}/${j.n}</span></span></div>
+    <div class="kz"><span>Was wackelt</span><span class="wert"><a class="wack${k.wackelt ? '' : ' null'}" href="#kind-${k.id}-wackelt">${k.wackelt ? `${k.wackelt} ${k.wackelt === 1 ? 'Fehler' : 'Fehler'} offen ›` : 'nichts offen ✓'}</a></span></div>
+    <div class="kz"><span>Schuljahr</span><span class="wert"><span><b>${eig[1]} %</b> von Klasse ${k.klasse} gelandet</span><span class="spur" aria-hidden="true"><i class="g" style="width:${eig[1]}%"></i></span>
+      <details class="sa"><summary>andere Schularten</summary><p>Realschule ${k.stand.rs_by[0]}: ${k.stand.rs_by[1]} % · IB ${k.stand.ib_myp[0]}${k.stand.ib_myp[1] !== null ? ': ' + k.stand.ib_myp[1] + ' %' : ''}</p></details></span></div>
+  </section>`;
+}
+function zeichne() {
+  document.body.dataset.g = S.g;
+  const zt = S.leer ? [] : ZU_TUN;
+  const zuTun = `<section class="teil" aria-label="Zu tun"><div class="teil-kopf"><h2>Zu tun</h2><span>${zt.length ? zt.length + ' Punkte' : ''}</span><span class="rechts"><button class="knopf-klein" type="button">+ Reisetag eintragen</button></span></div>
+    <div class="karte liste">${zt.length ? zt.map(([f, t, ziel, h, wunsch]) => wunsch
+      ? `<div class="zt ${f}"><i aria-hidden="true"></i><span>${esc(t)}</span><span class="knoepfe"><button class="knopf-klein stark" type="button">Bestätigen</button><button class="knopf-klein" type="button">Ablehnen</button></span></div>`
+      : `<a class="zt ${f}" href="#${h}"><i aria-hidden="true"></i><span>${esc(t)}</span><span class="ziel">${esc(ziel)} ›</span></a>`).join('') : '<p class="zt-ruhig">Alles ruhig – heute ist nichts zu tun.</p>'}</div></section>`;
+  const kinder = `<section class="teil" aria-label="Die Kinder"><div class="teil-kopf"><h2>Die Kinder</h2><span>Punkte = Lerntage der letzten 7 Tage, rechts heute</span></div><div class="kinder">${KINDER.map(kindKachel).join('')}</div></section>`;
+  const weg = (b, s, h) => `<li><a href="#${h}"><b>${b}</b><span>${s}</span></a></li>`;
+  const unten = `<section class="teil unten" aria-label="Nachschlagen und Verwalten">
+    <nav class="karte wege" aria-label="Nachschlagen"><h3>Nachschlagen</h3><ul>
+      ${weg('Lehrplan', 'Themen Klasse 5–10, Fahrplan', 'lehrplan')}${weg('Regeln', 'Regel-Universum, Blätter für Eltern', 'regeln')}${weg('Expeditionen', 'Aufgaben mit mehreren Schritten', 'expeditionen')}
+      ${weg('Meine Aufträge', '1 offen, 1 neue Antwort', 'lernauftraege')}${weg('So funktioniert’s', 'Erste Schritte, Begriffe', 'info')}</ul></nav>
+    <nav class="karte wege verwalten" aria-label="Verwalten"><h3>Verwalten</h3><ul>${weg('Testkind', 'zum Ausprobieren', 'reise-test')}${weg('Zugänge', 'Codes der Kinder', 'zugaenge')}</ul></nav></section>`;
+  document.getElementById('main').innerHTML = `<div class="seiten-titel"><h1>Was ist los?</h1><a class="link-leise" href="#info">So funktioniert’s</a></div>` + zuTun + kinder + unten;
+}
+document.addEventListener('click', (e) => { const a = e.target.closest('a'); if (a) e.preventDefault(); });
+zeichne();
+</script>
+</body>
+</html>

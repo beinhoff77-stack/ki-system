@@ -1,0 +1,466 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-14",
+ "kuerzel": "R14",
+ "flug": "r14-stochastik.grundbegriffe",
+ "titel": "stochastik.grundbegriffe",
+ "fuer": "Klasse 6 und 8",
+ "klasse": 8,
+ "themen": [
+  "stochastik.grundbegriffe"
+ ],
+ "themen_datei_im_bestand": "stochastik.grundbegriffe",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R14-V076",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "begriffe",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit Zurücklegen gerechnet"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Reihenfolge nicht beachtet"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Möglichkeiten addiert statt multipliziert"
+    }
+   ],
+   "aufgabe": {
+    "l": "begriffe",
+    "t": "begriffe",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Aus einem Beutel mit fünf verschiedenfarbigen Kugeln (rot, blau, gelb, grün, weiß) werden nacheinander zwei Kugeln ohne Zurücklegen gezogen. Die Reihenfolge der Farben zählt. Wie viele Ergebnisse hat der Ergebnisraum?"
+    },
+    "o": {
+     "wert": 20,
+     "einheit": "Ergebnisse"
+    },
+    "c": "5 * 4",
+    "h": "Wie viele Möglichkeiten gibt es für die erste Kugel? Wie viele bleiben dann für die zweite?",
+    "w": "Für die erste Kugel gibt es 5 Möglichkeiten, für die zweite danach noch 4. Das sind 5 · 4 = 20 Ergebnisse, zum Beispiel (rot | blau) und (blau | rot)."
+   }
+  },
+  {
+   "kennung": "R14-V077",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "begriffe",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ergebnisse, die zu beiden Teilen gehören, doppelt gezählt"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Ergebnisse gezählt, die beide Bedingungen erfüllen („und“ statt „oder“)"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Bedingung mit der Würfelzahl berücksichtigt"
+    }
+   ],
+   "aufgabe": {
+    "l": "begriffe",
+    "t": "begriffe",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Würfel mit den Augenzahlen 1 bis 6 und eine Münze (Seiten „Wappen“ und „Zahl“) werden einmal geworfen. Ein Ergebnis ist ein Paar aus Augenzahl und Münzseite, zum Beispiel (5 | Wappen). Wie viele Ergebnisse gehören zum Ereignis „Die Augenzahl ist größer als 4 oder die Münze zeigt Wappen“?"
+    },
+    "o": {
+     "wert": 8,
+     "einheit": "Ergebnisse"
+    },
+    "c": "2 * 2 + 6 - 2",
+    "h": "Zähle zuerst die Ergebnisse mit Würfelzahl 5 oder 6. Zähle dann die Ergebnisse mit Wappen. Was wurde doppelt gezählt?",
+    "w": "Augenzahl größer als 4: Das sind 5 und 6, jeweils mit Wappen oder Zahl, also 4 Ergebnisse. Wappen: 6 Ergebnisse (jede Augenzahl mit Wappen). Doppelt gezählt: (5 | Wappen) und (6 | Wappen), also 2. Zusammen 4 + 6 − 2 = 8. Probe: Nicht dazu gehören nur die Augenzahlen 1 bis 4 mit der Münzseite Zahl, das sind 4 von 12 Ergebnissen."
+   }
+  },
+  {
+   "kennung": "R14-V078",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "begriffe",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ergebnisse von „A oder B“ (auch beide) angegeben"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ergebnisse in beiden Gruppen doppelt gezählt"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Nummern in beiden Gruppen angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "begriffe",
+    "t": "begriffe",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Glücksrad hat 30 gleich große Felder mit den Nummern 1 bis 30. Ereignis A: „Die Nummer ist ein Vielfaches von 3“. Ereignis B: „Die Nummer ist ein Vielfaches von 5“. Wie viele Ergebnisse gehören zu genau einem der beiden Ereignisse (zu A oder zu B, aber nicht zu beiden)?"
+    },
+    "o": {
+     "wert": 12,
+     "einheit": "Ergebnisse"
+    },
+    "c": "(10 - 2) + (6 - 2)",
+    "h": "Zähle die Vielfachen von 3 und die von 5. Welche Nummern stehen in beiden Gruppen?",
+    "w": "A: 3, 6, …, 30, das sind 10. B: 5, 10, …, 30, das sind 6. In beiden stehen 15 und 30, also 2. Nur A: 10 − 2 = 8. Nur B: 6 − 2 = 4. Genau eines der beiden: 8 + 4 = 12 Ergebnisse."
+   }
+  },
+  {
+   "kennung": "R14-V079",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "rel_haeufigkeit",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "als Dezimalzahl angegeben und nicht in Prozent umgerechnet"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fehlwürfe statt der Treffer verwendet"
+    },
+    {
+     "antwort": 11.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 100 geteilt und mit 40 malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "rel_haeufigkeit",
+    "t": "rel_haeufigkeit",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Sam wirft beim Training 40-mal einen Basketball auf den Korb und trifft 28-mal. Wie groß ist die relative Häufigkeit der Treffer in Prozent?"
+    },
+    "o": {
+     "wert": 70,
+     "einheit": "%"
+    },
+    "c": "28 / 40 * 100",
+    "h": "Relative Häufigkeit = Zahl der Treffer geteilt durch Zahl der Versuche. Dann in Prozent umrechnen.",
+    "w": "28 : 40 = 0,7. Als Prozent: 0,7 · 100 = 70 %. Sam trifft in 70 % der Fälle."
+   }
+  },
+  {
+   "kennung": "R14-V080",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "rel_haeufigkeit",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Mittelwert der beiden Prozentsätze genommen: die Serien sind verschieden lang"
+    },
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die zweite Serie berücksichtigt"
+    },
+    {
+     "antwort": 0.195,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "als Dezimalzahl angegeben und nicht in Prozent umgerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "rel_haeufigkeit",
+    "t": "rel_haeufigkeit",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Kim würfelt in zwei Serien. In der ersten Serie sind es 50 Würfe, dabei fällt 18-mal die Sechs. In der zweiten Serie sind es 150 Würfe, dabei fällt 21-mal die Sechs. Wie groß ist die relative Häufigkeit der Sechs über beide Serien zusammen in Prozent?"
+    },
+    "o": {
+     "wert": 19.5,
+     "einheit": "%"
+    },
+    "c": "(18 + 21) / (50 + 150) * 100",
+    "h": "Zähle die Sechsen aller Würfe zusammen und teile durch die Zahl aller Würfe.",
+    "w": "Sechsen: 18 + 21 = 39. Würfe: 50 + 150 = 200. Relative Häufigkeit: 39 : 200 = 0,195 = 19,5 %."
+   }
+  },
+  {
+   "kennung": "R14-V081",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "rel_haeufigkeit",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.125,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied als Dezimalzahl statt in Prozentpunkten angegeben"
+    },
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die absoluten Zahlen der Treffer verglichen"
+    },
+    {
+     "antwort": 137.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Prozentsätze addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "rel_haeufigkeit",
+    "t": "rel_haeufigkeit",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Spielerin A trifft bei 24 Würfen 18-mal. Spieler B trifft bei 40 Würfen 25-mal. Um wie viele Prozentpunkte ist die relative Häufigkeit der Treffer bei A größer als bei B?"
+    },
+    "o": {
+     "wert": 12.5,
+     "einheit": "Prozentpunkte"
+    },
+    "c": "18 / 24 * 100 - 25 / 40 * 100",
+    "h": "Die Zahlen der Würfe sind verschieden. Vergleiche deshalb die relativen Häufigkeiten in Prozent.",
+    "w": "A: 18 : 24 = 0,75 = 75 %. B: 25 : 40 = 0,625 = 62,5 %. Unterschied: 75 − 62,5 = 12,5 Prozentpunkte. A hat die höhere Trefferquote, obwohl B mehr Treffer hat."
+   }
+  },
+  {
+   "kennung": "R14-V082",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "darstellen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von den Jungen die Mädchen mit Brille abgezogen"
+    },
+    {
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Jungen angegeben"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von den Jungen alle Brillenträger abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "darstellen",
+    "t": "darstellen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "In einer Klasse mit 25 Kindern sind 14 Mädchen. 9 Kinder tragen eine Brille, darunter 5 Mädchen. Eine Vierfeldertafel zeigt: Mädchen mit Brille, Mädchen ohne Brille, Jungen mit Brille, Jungen ohne Brille. Wie viele Jungen tragen keine Brille?"
+    },
+    "o": {
+     "wert": 7,
+     "einheit": "Jungen"
+    },
+    "c": "(25 - 14) - (9 - 5)",
+    "h": "Trage die bekannten Zahlen in eine Vierfeldertafel ein. Rechne zuerst die Zahl der Jungen und die der Jungen mit Brille aus.",
+    "w": "Jungen: 25 − 14 = 11. Jungen mit Brille: 9 − 5 = 4. Jungen ohne Brille: 11 − 4 = 7. Probe: Mädchen mit Brille 5 + Mädchen ohne Brille 9 + Jungen mit Brille 4 + Jungen ohne Brille 7 = 25."
+   }
+  },
+  {
+   "kennung": "R14-V083",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "darstellen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei ungeraden Zahlen den zweiten Wurf vergessen"
+    },
+    {
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Zahlen mit 2 und mit 4 malgenommen"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen der Äste addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "darstellen",
+    "t": "darstellen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Bei einem Spiel wird zuerst ein Würfel mit den Zahlen 1 bis 6 geworfen. Bei einer geraden Zahl wird danach eine Münze geworfen. Bei einer ungeraden Zahl wird danach ein Würfel mit den Zahlen 1 bis 4 geworfen. Das Spiel wird als Baumdiagramm gezeichnet. Wie viele Wege hat es?"
+    },
+    "o": {
+     "wert": 18,
+     "einheit": "Wege"
+    },
+    "c": "3 * 2 + 3 * 4",
+    "h": "Wie viele Äste gehen von der ersten Verzweigung aus? Zähle für jede Gruppe die Wege getrennt.",
+    "w": "Gerade Zahlen: 2, 4, 6 – das sind 3, dann 2 Münzseiten: 3 · 2 = 6 Wege. Ungerade Zahlen: 1, 3, 5 – das sind 3, dann 4 Zahlen: 3 · 4 = 12 Wege. Zusammen 6 + 12 = 18 Wege."
+   }
+  },
+  {
+   "kennung": "R14-V084",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "darstellen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anteil der Männer mit Rad statt ohne Rad angegeben"
+    },
+    {
+     "antwort": 70,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Personen ohne Rad auf alle Personen bezogen"
+    },
+    {
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 Männer mit Rad gerechnet (die Frauenzahl der Radfahrer)"
+    }
+   ],
+   "aufgabe": {
+    "l": "darstellen",
+    "t": "darstellen",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "In einer Gruppe von 100 Personen sind 60 Frauen. 30 Personen kommen mit dem Rad. Unter den Radfahrern sind doppelt so viele Frauen wie Männer. Wie viel Prozent der Männer kommen nicht mit dem Rad?"
+    },
+    "o": {
+     "wert": 75,
+     "einheit": "%"
+    },
+    "c": "(40 - 30 / 3) / 40 * 100",
+    "h": "Zeichne eine Vierfeldertafel mit „Frau / Mann“ und „Rad / nicht Rad“. Wie viele Männer fahren Rad? Rechne mit den 30 Radfahrern in zwei Teilen.",
+    "w": "Männer insgesamt: 100 − 60 = 40. Die Radfahrer sind in drei gleiche Teile geteilt: 2 Teile Frauen, 1 Teil Männer. Männer mit Rad: 30 : 3 = 10. Männer ohne Rad: 40 − 10 = 30. Anteil: 30 : 40 = 0,75 = 75 %."
+   }
+  }
+ ]
+}

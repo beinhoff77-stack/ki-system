@@ -1,0 +1,1441 @@
+{
+ "hinweis": "Inhalte für die Nachschlage-Tafel „Formeln: Körper“ (Entwurf, nichts in die App eingespielt). Geprüft mit ../pruefen.py. Enthält die 17 Körperformeln des Universums (Quader bis Kugel) und die ergänzten Formeln (Pyramide-Oberfläche, Kantenlänge, Raumdiagonale). Schreibweise wie im Bestand: Dezimalkomma, Tausender mit Leerzeichen, Malpunkt „·“, Geteilt „:“, Einheit mit Leerzeichen. herkunft „universum“ = Formel, Bedingung und ziel unverändert aus daten/regeln-universum.json → formeln; „ergaenzt“ = neu aus der Lückenprüfung.",
+ "stand": "2026-11-27",
+ "tafel": "formeln-koerper",
+ "titel": "Formeln: Körper",
+ "eintraege": [
+  {
+   "kennung": "fk-01",
+   "titel": "Quader – Volumen",
+   "figur": "Quader",
+   "groesse": "Volumen",
+   "fuer": "Quader – Volumen",
+   "formel": "V = a · b · c",
+   "bedingung": "–",
+   "herkunft": "universum",
+   "ziel": "F12",
+   "ergebnis": {
+    "zeichen": "V",
+    "name": "Volumen",
+    "art": "Volumen",
+    "einheit": "cm³"
+   },
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "Länge",
+     "art": "Länge",
+     "beschriften": "vordere untere Kante"
+    },
+    {
+     "zeichen": "b",
+     "name": "Breite",
+     "art": "Länge",
+     "beschriften": "seitliche untere Kante"
+    },
+    {
+     "zeichen": "c",
+     "name": "Höhe",
+     "art": "Länge",
+     "beschriften": "senkrechte Kante"
+    }
+   ],
+   "zeichnung": "Quader im Schrägbild; drei Kanten, die sich in einer Ecke treffen, mit a, b, c beschriften.",
+   "beispiel": {
+    "werte": {
+     "a": "4 cm",
+     "b": "3 cm",
+     "c": "2 cm"
+    },
+    "rechnung": "V = 4 cm · 3 cm · 2 cm = 24 cm³",
+    "ergebnis": "24 cm³"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": null,
+    "beleg": [
+     {
+      "thema": "messen.volumen",
+      "lernziel": "quader",
+      "wort": "Quader"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F12",
+     "name": "Quader",
+     "passt": "Volumen = Länge mal Breite mal Höhe."
+    }
+   ],
+   "stichwoerter": [
+    "Quader",
+    "Volumen Quader",
+    "Rauminhalt Quader",
+    "a mal b mal c"
+   ]
+  },
+  {
+   "kennung": "fk-02",
+   "titel": "Würfel – Volumen",
+   "figur": "Würfel",
+   "groesse": "Volumen",
+   "fuer": "Würfel – Volumen",
+   "formel": "V = a³",
+   "bedingung": "–",
+   "herkunft": "universum",
+   "ziel": "F12",
+   "ergebnis": {
+    "zeichen": "V",
+    "name": "Volumen",
+    "art": "Volumen",
+    "einheit": "cm³"
+   },
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "Kantenlänge",
+     "art": "Länge",
+     "beschriften": "eine Kante; alle zwölf Kanten sind gleich lang"
+    }
+   ],
+   "zeichnung": "Würfel im Schrägbild; eine Kante mit a beschriften.",
+   "beispiel": {
+    "werte": {
+     "a": "5 cm"
+    },
+    "rechnung": "V = 5 cm · 5 cm · 5 cm = 125 cm³",
+    "ergebnis": "125 cm³"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": null,
+    "beleg": [
+     {
+      "thema": "messen.volumen",
+      "lernziel": "quader",
+      "wort": "Würfel"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F12",
+     "name": "Quader",
+     "passt": "Volumen = Länge mal Breite mal Höhe; beim Würfel dreimal a."
+    }
+   ],
+   "stichwoerter": [
+    "Würfel",
+    "Volumen Würfel",
+    "a hoch 3",
+    "a hoch drei",
+    "Kubikzahl"
+   ]
+  },
+  {
+   "kennung": "fk-03",
+   "titel": "Quader – Oberfläche",
+   "figur": "Quader",
+   "groesse": "Oberfläche",
+   "fuer": "Quader – Oberfläche",
+   "formel": "O = 2 · (a · b + a · c + b · c)",
+   "bedingung": "–",
+   "herkunft": "universum",
+   "ziel": "F13",
+   "ergebnis": {
+    "zeichen": "O",
+    "name": "Oberflächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "Länge",
+     "art": "Länge",
+     "beschriften": "vordere untere Kante"
+    },
+    {
+     "zeichen": "b",
+     "name": "Breite",
+     "art": "Länge",
+     "beschriften": "seitliche untere Kante"
+    },
+    {
+     "zeichen": "c",
+     "name": "Höhe",
+     "art": "Länge",
+     "beschriften": "senkrechte Kante"
+    }
+   ],
+   "zeichnung": "Quader im Schrägbild oder als Netz; die drei verschiedenen Rechtecke (a·b, a·c, b·c) farbig, jedes kommt zweimal vor.",
+   "beispiel": {
+    "werte": {
+     "a": "4 cm",
+     "b": "3 cm",
+     "c": "2 cm"
+    },
+    "rechnung": "O = 2 · (4 cm · 3 cm + 4 cm · 2 cm + 3 cm · 2 cm) = 2 · 26 cm² = 52 cm²",
+    "ergebnis": "52 cm²"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 6,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "messen.koerper_berechnung",
+      "lernziel": "oberflaeche",
+      "wort": "Oberfläche"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F13",
+     "name": "Oberfläche",
+     "passt": "Die sechs Rechtecksflächen addieren."
+    }
+   ],
+   "stichwoerter": [
+    "Quader",
+    "Oberfläche Quader",
+    "Oberflächeninhalt Quader",
+    "Netz Quader"
+   ]
+  },
+  {
+   "kennung": "fk-04",
+   "titel": "Würfel – Oberfläche",
+   "figur": "Würfel",
+   "groesse": "Oberfläche",
+   "fuer": "Würfel – Oberfläche",
+   "formel": "O = 6 · a²",
+   "bedingung": "–",
+   "herkunft": "universum",
+   "ziel": "F13",
+   "ergebnis": {
+    "zeichen": "O",
+    "name": "Oberflächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "Kantenlänge",
+     "art": "Länge",
+     "beschriften": "eine Kante; alle sechs Quadrate sind gleich"
+    }
+   ],
+   "zeichnung": "Würfel als Netz mit sechs gleichen Quadraten; Seite eines Quadrats mit a.",
+   "beispiel": {
+    "werte": {
+     "a": "5 cm"
+    },
+    "rechnung": "O = 6 · 5² cm² = 6 · 25 cm² = 150 cm²",
+    "ergebnis": "150 cm²"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 6,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "messen.koerper_berechnung",
+      "lernziel": "oberflaeche",
+      "wort": "Oberfläche"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F13",
+     "name": "Oberfläche",
+     "passt": "Die sechs Flächen addieren; beim Würfel sind alle gleich."
+    }
+   ],
+   "stichwoerter": [
+    "Würfel",
+    "Oberfläche Würfel",
+    "sechs mal a Quadrat",
+    "Netz Würfel"
+   ]
+  },
+  {
+   "kennung": "fk-05",
+   "titel": "Prisma – Volumen",
+   "figur": "Prisma",
+   "groesse": "Volumen",
+   "fuer": "Prisma – Volumen",
+   "formel": "V = G · h",
+   "bedingung": "h senkrecht auf G",
+   "herkunft": "universum",
+   "ziel": "F15",
+   "ergebnis": {
+    "zeichen": "V",
+    "name": "Volumen",
+    "art": "Volumen",
+    "einheit": "cm³"
+   },
+   "groessen": [
+    {
+     "zeichen": "G",
+     "name": "Grundfläche",
+     "art": "Fläche",
+     "beschriften": "die Grundfläche schraffieren und mit G beschriften"
+    },
+    {
+     "zeichen": "h",
+     "name": "Höhe",
+     "art": "Länge",
+     "beschriften": "gestrichelte Senkrechte zwischen Grund- und Deckfläche (rechter Winkel markieren)"
+    }
+   ],
+   "zeichnung": "Gerades Prisma (z. B. mit Dreieck als Grundfläche); G schraffiert, h senkrecht dazu.",
+   "beispiel": {
+    "werte": {
+     "G": "12 cm²",
+     "h": "5 cm"
+    },
+    "rechnung": "V = 12 cm² · 5 cm = 60 cm³",
+    "ergebnis": "60 cm³"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 9,
+    "ib_myp": null,
+    "beleg": [
+     {
+      "thema": "messen.prisma_zylinder",
+      "lernziel": "prisma_volumen",
+      "wort": "Prisma"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F15",
+     "name": "Prisma und Zylinder",
+     "passt": "Volumen = Grundfläche mal Höhe."
+    }
+   ],
+   "stichwoerter": [
+    "Prisma",
+    "Volumen Prisma",
+    "Grundfläche mal Höhe",
+    "G mal h"
+   ]
+  },
+  {
+   "kennung": "fk-06",
+   "titel": "Prisma – Mantel",
+   "figur": "Prisma",
+   "groesse": "Oberfläche",
+   "fuer": "Prisma – Mantel",
+   "formel": "M = u · h",
+   "bedingung": "gerades Prisma; u Umfang der Grundfläche",
+   "herkunft": "universum",
+   "ziel": "F15",
+   "ergebnis": {
+    "zeichen": "M",
+    "name": "Mantelflächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "u",
+     "name": "Umfang der Grundfläche",
+     "art": "Länge",
+     "beschriften": "Rand der Grundfläche farbig nachziehen"
+    },
+    {
+     "zeichen": "h",
+     "name": "Höhe",
+     "art": "Länge",
+     "beschriften": "senkrechte Kante"
+    }
+   ],
+   "zeichnung": "Prisma mit aufgeklapptem Mantel als Rechteck: eine Seite u, die andere h.",
+   "beispiel": {
+    "werte": {
+     "u": "14 cm",
+     "h": "5 cm"
+    },
+    "rechnung": "M = 14 cm · 5 cm = 70 cm²",
+    "ergebnis": "70 cm²"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 9,
+    "ib_myp": null,
+    "beleg": [
+     {
+      "thema": "messen.prisma_zylinder",
+      "lernziel": "prisma_oberflaeche",
+      "wort": "Umfang"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F15",
+     "name": "Prisma und Zylinder",
+     "passt": "Mantel = Umfang mal Höhe."
+    }
+   ],
+   "stichwoerter": [
+    "Prisma",
+    "Mantel Prisma",
+    "Mantelfläche Prisma",
+    "Umfang mal Höhe"
+   ]
+  },
+  {
+   "kennung": "fk-07",
+   "titel": "Prisma – Oberfläche",
+   "figur": "Prisma",
+   "groesse": "Oberfläche",
+   "fuer": "Prisma – Oberfläche",
+   "formel": "O = 2 · G + M",
+   "bedingung": "gerades Prisma",
+   "herkunft": "universum",
+   "ziel": "F15",
+   "ergebnis": {
+    "zeichen": "O",
+    "name": "Oberflächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "G",
+     "name": "Grundfläche",
+     "art": "Fläche",
+     "beschriften": "Grund- und Deckfläche (beide gleich) schraffieren"
+    },
+    {
+     "zeichen": "M",
+     "name": "Mantelfläche",
+     "art": "Fläche",
+     "beschriften": "Mantel in anderer Farbe"
+    }
+   ],
+   "zeichnung": "Prismennetz: zwei gleiche Grundflächen G, dazwischen der Mantel M.",
+   "beispiel": {
+    "werte": {
+     "G": "12 cm²",
+     "M": "70 cm²"
+    },
+    "rechnung": "O = 2 · 12 cm² + 70 cm² = 94 cm²",
+    "ergebnis": "94 cm²"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 9,
+    "ib_myp": null,
+    "beleg": [
+     {
+      "thema": "messen.prisma_zylinder",
+      "lernziel": "prisma_oberflaeche",
+      "wort": "Oberfläche"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F15",
+     "name": "Prisma und Zylinder",
+     "passt": "Oberfläche = zwei Grundflächen plus Mantel."
+    },
+    {
+     "kennung": "I-fur-4",
+     "name": "Haut des Körpers",
+     "passt": "Aufklappen zeigt die ganze Haut des Körpers."
+    }
+   ],
+   "stichwoerter": [
+    "Prisma",
+    "Oberfläche Prisma",
+    "zwei G plus M"
+   ]
+  },
+  {
+   "kennung": "fk-08",
+   "titel": "Zylinder – Volumen",
+   "figur": "Zylinder",
+   "groesse": "Volumen",
+   "fuer": "Zylinder – Volumen",
+   "formel": "V = π · r² · h",
+   "bedingung": "h senkrecht auf G",
+   "herkunft": "universum",
+   "ziel": "F15",
+   "ergebnis": {
+    "zeichen": "V",
+    "name": "Volumen",
+    "art": "Volumen",
+    "einheit": "cm³"
+   },
+   "groessen": [
+    {
+     "zeichen": "r",
+     "name": "Radius der Grundfläche",
+     "art": "Länge",
+     "beschriften": "von der Mitte der Grundfläche zum Rand"
+    },
+    {
+     "zeichen": "h",
+     "name": "Höhe",
+     "art": "Länge",
+     "beschriften": "Senkrechte zwischen Grund- und Deckfläche"
+    }
+   ],
+   "zeichnung": "Gerader Zylinder; r in der Grundfläche, h an der Seite.",
+   "beispiel": {
+    "werte": {
+     "r": "3 cm",
+     "h": "5 cm"
+    },
+    "rechnung": "V = π · 3² cm² · 5 cm = 45π cm³ ≈ 141,37 cm³",
+    "ergebnis": "45π cm³ ≈ 141,37 cm³"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 9,
+    "ib_myp": null,
+    "beleg": [
+     {
+      "thema": "messen.prisma_zylinder",
+      "lernziel": "zylinder_volumen",
+      "wort": "Zylinder"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F15",
+     "name": "Prisma und Zylinder",
+     "passt": "Volumen = Grundfläche (Kreis) mal Höhe."
+    }
+   ],
+   "stichwoerter": [
+    "Zylinder",
+    "Volumen Zylinder",
+    "Rauminhalt Zylinder",
+    "pi r Quadrat h"
+   ]
+  },
+  {
+   "kennung": "fk-09",
+   "titel": "Zylinder – Mantel",
+   "figur": "Zylinder",
+   "groesse": "Oberfläche",
+   "fuer": "Zylinder – Mantel",
+   "formel": "M = 2 · π · r · h",
+   "bedingung": "gerader Zylinder",
+   "herkunft": "universum",
+   "ziel": "F15",
+   "ergebnis": {
+    "zeichen": "M",
+    "name": "Mantelflächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "r",
+     "name": "Radius der Grundfläche",
+     "art": "Länge",
+     "beschriften": "von der Mitte der Grundfläche zum Rand"
+    },
+    {
+     "zeichen": "h",
+     "name": "Höhe",
+     "art": "Länge",
+     "beschriften": "Senkrechte zwischen Grund- und Deckfläche"
+    }
+   ],
+   "zeichnung": "Zylinder mit aufgerolltem Mantel als Rechteck: Länge 2 · π · r, Breite h.",
+   "beispiel": {
+    "werte": {
+     "r": "3 cm",
+     "h": "5 cm"
+    },
+    "rechnung": "M = 2 · π · 3 cm · 5 cm = 30π cm² ≈ 94,25 cm²",
+    "ergebnis": "30π cm² ≈ 94,25 cm²"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 9,
+    "ib_myp": null,
+    "beleg": [
+     {
+      "thema": "messen.prisma_zylinder",
+      "lernziel": "zylinder_oberflaeche",
+      "wort": "Mantel"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F15",
+     "name": "Prisma und Zylinder",
+     "passt": "Mantel = Umfang der Grundfläche mal Höhe."
+    }
+   ],
+   "stichwoerter": [
+    "Zylinder",
+    "Mantel Zylinder",
+    "Mantelfläche Zylinder",
+    "zwei pi r h"
+   ]
+  },
+  {
+   "kennung": "fk-10",
+   "titel": "Zylinder – Oberfläche",
+   "figur": "Zylinder",
+   "groesse": "Oberfläche",
+   "fuer": "Zylinder – Oberfläche",
+   "formel": "O = 2 · π · r² + 2 · π · r · h",
+   "bedingung": "gerader Zylinder",
+   "herkunft": "universum",
+   "ziel": "F15",
+   "ergebnis": {
+    "zeichen": "O",
+    "name": "Oberflächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "r",
+     "name": "Radius der Grundfläche",
+     "art": "Länge",
+     "beschriften": "von der Mitte der Grundfläche zum Rand"
+    },
+    {
+     "zeichen": "h",
+     "name": "Höhe",
+     "art": "Länge",
+     "beschriften": "Senkrechte zwischen Grund- und Deckfläche"
+    }
+   ],
+   "zeichnung": "Zylindernetz: zwei Kreise mit r und ein Rechteck (Mantel) mit Seiten 2 · π · r und h.",
+   "beispiel": {
+    "werte": {
+     "r": "3 cm",
+     "h": "5 cm"
+    },
+    "rechnung": "O = 2 · π · 3² cm² + 2 · π · 3 cm · 5 cm = 18π cm² + 30π cm² = 48π cm² ≈ 150,8 cm²",
+    "ergebnis": "48π cm² ≈ 150,8 cm²"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 9,
+    "ib_myp": null,
+    "beleg": [
+     {
+      "thema": "messen.prisma_zylinder",
+      "lernziel": "zylinder_oberflaeche",
+      "wort": "Oberfläche"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F15",
+     "name": "Prisma und Zylinder",
+     "passt": "Oberfläche = zwei Kreise plus Mantel."
+    }
+   ],
+   "stichwoerter": [
+    "Zylinder",
+    "Oberfläche Zylinder",
+    "Oberflächeninhalt Zylinder",
+    "Netz Zylinder"
+   ]
+  },
+  {
+   "kennung": "fk-11",
+   "titel": "Pyramide – Volumen",
+   "figur": "Pyramide",
+   "groesse": "Volumen",
+   "fuer": "Pyramide – Volumen",
+   "formel": "V = G · h : 3",
+   "bedingung": "h senkrecht auf G",
+   "herkunft": "universum",
+   "ziel": "F17",
+   "ergebnis": {
+    "zeichen": "V",
+    "name": "Volumen",
+    "art": "Volumen",
+    "einheit": "cm³"
+   },
+   "groessen": [
+    {
+     "zeichen": "G",
+     "name": "Grundfläche",
+     "art": "Fläche",
+     "beschriften": "Grundfläche schraffieren"
+    },
+    {
+     "zeichen": "h",
+     "name": "Höhe",
+     "art": "Länge",
+     "beschriften": "gestrichelte Senkrechte von der Spitze auf die Grundfläche (rechter Winkel markieren)"
+    }
+   ],
+   "zeichnung": "Pyramide mit quadratischer Grundfläche; Höhe h von der Spitze senkrecht zur Grundfläche.",
+   "beispiel": {
+    "werte": {
+     "G": "36 cm²",
+     "h": "4 cm"
+    },
+    "rechnung": "V = 36 cm² · 4 cm : 3 = 48 cm³",
+    "ergebnis": "48 cm³"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 10,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "raum.pyramide_kegel_kugel",
+      "lernziel": "pyr_volumen",
+      "wort": "Pyramide"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F17",
+     "name": "Pyramide und Kegel",
+     "passt": "Volumen = ein Drittel von Grundfläche mal Höhe."
+    }
+   ],
+   "stichwoerter": [
+    "Pyramide",
+    "Volumen Pyramide",
+    "Rauminhalt Pyramide",
+    "ein Drittel G mal h"
+   ]
+  },
+  {
+   "kennung": "fk-12",
+   "titel": "Pyramide – Mantel (Pyramidenmantel)",
+   "figur": "Pyramide",
+   "groesse": "Oberfläche",
+   "fuer": "Pyramide – Mantel (Pyramidenmantel)",
+   "formel": "M = Summe der Seitendreiecke",
+   "bedingung": "–",
+   "herkunft": "universum",
+   "ziel": "F17",
+   "ergebnis": {
+    "zeichen": "M",
+    "name": "Mantelflächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "Grundkante",
+     "art": "Länge",
+     "beschriften": "eine Kante der quadratischen Grundfläche"
+    },
+    {
+     "zeichen": "hₛ",
+     "name": "Seitenhöhe",
+     "art": "Länge",
+     "beschriften": "Höhe eines Seitendreiecks, senkrecht auf der Grundkante a"
+    }
+   ],
+   "zeichnung": "Pyramide (Beispiel mit quadratischer Grundfläche) mit einem hervorgehobenen Seitendreieck; hₛ im Seitendreieck, a an der Grundkante.",
+   "beispiel": {
+    "werte": {
+     "a": "6 cm",
+     "hₛ": "5 cm"
+    },
+    "rechnung": "M = 4 · (6 cm · 5 cm : 2) = 4 · 15 cm² = 60 cm²",
+    "ergebnis": "60 cm²",
+    "hilfsrechnung": "5² = 4² + (6 : 2)² = 25",
+    "hilfe": "Pyramide mit Höhe h = 4 cm: hₛ ist die Hypotenuse mit den Katheten h und a : 2, also hₛ² = 4² + 3²."
+   },
+   "ab_klasse": {
+    "gymnasium_by": 10,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "raum.pyramide_kegel_kugel",
+      "lernziel": "pyr_oberflaeche",
+      "wort": "Seitenhöhe"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F17",
+     "name": "Pyramide und Kegel",
+     "passt": "Mantel der Pyramide: Summe der Seitendreiecke."
+    }
+   ],
+   "stichwoerter": [
+    "Pyramide",
+    "Mantel Pyramide",
+    "Pyramidenmantel",
+    "Seitendreiecke"
+   ]
+  },
+  {
+   "kennung": "fk-13",
+   "titel": "Kegel – Volumen",
+   "figur": "Kegel",
+   "groesse": "Volumen",
+   "fuer": "Kegel – Volumen",
+   "formel": "V = π · r² · h : 3",
+   "bedingung": "h senkrecht auf G",
+   "herkunft": "universum",
+   "ziel": "F17",
+   "ergebnis": {
+    "zeichen": "V",
+    "name": "Volumen",
+    "art": "Volumen",
+    "einheit": "cm³"
+   },
+   "groessen": [
+    {
+     "zeichen": "r",
+     "name": "Radius der Grundfläche",
+     "art": "Länge",
+     "beschriften": "von der Mitte der Grundfläche zum Rand"
+    },
+    {
+     "zeichen": "h",
+     "name": "Höhe",
+     "art": "Länge",
+     "beschriften": "gestrichelte Senkrechte von der Spitze auf die Grundfläche"
+    }
+   ],
+   "zeichnung": "Gerader Kegel; r in der Grundfläche, h von der Spitze senkrecht nach unten.",
+   "beispiel": {
+    "werte": {
+     "r": "3 cm",
+     "h": "4 cm"
+    },
+    "rechnung": "V = π · 3² cm² · 4 cm : 3 = 12π cm³ ≈ 37,7 cm³",
+    "ergebnis": "12π cm³ ≈ 37,7 cm³"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 10,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "raum.pyramide_kegel_kugel",
+      "lernziel": "kegel_volumen",
+      "wort": "Kegel"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F17",
+     "name": "Pyramide und Kegel",
+     "passt": "Volumen = ein Drittel von Grundfläche mal Höhe."
+    }
+   ],
+   "stichwoerter": [
+    "Kegel",
+    "Volumen Kegel",
+    "Rauminhalt Kegel",
+    "ein Drittel pi r Quadrat h"
+   ]
+  },
+  {
+   "kennung": "fk-14",
+   "titel": "Kegel – Mantel (Kegelmantel)",
+   "figur": "Kegel",
+   "groesse": "Oberfläche",
+   "fuer": "Kegel – Mantel (Kegelmantel)",
+   "formel": "M = π · r · s",
+   "bedingung": "gerader Kreiskegel; s Mantellinie, s² = r² + h²",
+   "herkunft": "universum",
+   "ziel": "F17",
+   "ergebnis": {
+    "zeichen": "M",
+    "name": "Mantelflächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "r",
+     "name": "Radius der Grundfläche",
+     "art": "Länge",
+     "beschriften": "von der Mitte der Grundfläche zum Rand"
+    },
+    {
+     "zeichen": "s",
+     "name": "Mantellinie",
+     "art": "Länge",
+     "beschriften": "Strecke von der Spitze zum Rand der Grundfläche"
+    }
+   ],
+   "zeichnung": "Gerader Kegel; s an der schrägen Seite, r am Boden; Hilfsdreieck r, h, s eintragen (s² = r² + h²).",
+   "beispiel": {
+    "werte": {
+     "r": "3 cm",
+     "s": "5 cm"
+    },
+    "rechnung": "M = π · 3 cm · 5 cm = 15π cm² ≈ 47,12 cm²",
+    "ergebnis": "15π cm² ≈ 47,12 cm²",
+    "hilfsrechnung": "5² = 3² + 4² = 25",
+    "hilfe": "Die Mantellinie s ist die Hypotenuse mit den Katheten r = 3 cm und h = 4 cm: s² = r² + h²."
+   },
+   "ab_klasse": {
+    "gymnasium_by": 10,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "raum.pyramide_kegel_kugel",
+      "lernziel": "kegel_mantel",
+      "wort": "Mantellinie"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F17",
+     "name": "Pyramide und Kegel",
+     "passt": "Mantel des geraden Kreiskegels: π · r · s."
+    }
+   ],
+   "stichwoerter": [
+    "Kegel",
+    "Mantel Kegel",
+    "Kegelmantel",
+    "Mantellinie"
+   ]
+  },
+  {
+   "kennung": "fk-15",
+   "titel": "Kegel – Oberfläche",
+   "figur": "Kegel",
+   "groesse": "Oberfläche",
+   "fuer": "Kegel – Oberfläche",
+   "formel": "O = π · r² + π · r · s",
+   "bedingung": "gerader Kreiskegel",
+   "herkunft": "universum",
+   "ziel": "F17",
+   "ergebnis": {
+    "zeichen": "O",
+    "name": "Oberflächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "r",
+     "name": "Radius der Grundfläche",
+     "art": "Länge",
+     "beschriften": "von der Mitte der Grundfläche zum Rand"
+    },
+    {
+     "zeichen": "s",
+     "name": "Mantellinie",
+     "art": "Länge",
+     "beschriften": "Strecke von der Spitze zum Rand der Grundfläche"
+    }
+   ],
+   "zeichnung": "Kegelnetz: Kreis mit r und Kreisausschnitt mit Radius s.",
+   "beispiel": {
+    "werte": {
+     "r": "3 cm",
+     "s": "5 cm"
+    },
+    "rechnung": "O = π · 3² cm² + π · 3 cm · 5 cm = 9π cm² + 15π cm² = 24π cm² ≈ 75,4 cm²",
+    "ergebnis": "24π cm² ≈ 75,4 cm²"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 10,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "raum.pyramide_kegel_kugel",
+      "lernziel": "kegel_mantel",
+      "wort": "Oberfläche"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F17",
+     "name": "Pyramide und Kegel",
+     "passt": "Mantel des geraden Kreiskegels: π · r · s."
+    },
+    {
+     "kennung": "I-fur-4",
+     "name": "Haut des Körpers",
+     "passt": "Aufklappen zeigt die ganze Haut des Körpers."
+    }
+   ],
+   "stichwoerter": [
+    "Kegel",
+    "Oberfläche Kegel",
+    "Oberflächeninhalt Kegel",
+    "Netz Kegel"
+   ]
+  },
+  {
+   "kennung": "fk-16",
+   "titel": "Kugel – Volumen",
+   "figur": "Kugel",
+   "groesse": "Volumen",
+   "fuer": "Kugel – Volumen",
+   "formel": "V = 4/3 · π · r³",
+   "bedingung": "–",
+   "herkunft": "universum",
+   "ziel": "F18",
+   "ergebnis": {
+    "zeichen": "V",
+    "name": "Volumen",
+    "art": "Volumen",
+    "einheit": "cm³"
+   },
+   "groessen": [
+    {
+     "zeichen": "r",
+     "name": "Radius",
+     "art": "Länge",
+     "beschriften": "von der Mitte M zur Oberfläche, Mittelpunkt M markieren"
+    }
+   ],
+   "zeichnung": "Kugel mit Mittelpunkt M; r als Strecke von M zum Rand.",
+   "beispiel": {
+    "werte": {
+     "r": "6 cm"
+    },
+    "rechnung": "V = 4/3 · π · 6³ cm³ = 288π cm³ ≈ 904,78 cm³",
+    "ergebnis": "288π cm³ ≈ 904,78 cm³"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 10,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "raum.pyramide_kegel_kugel",
+      "lernziel": "kugel",
+      "wort": "Kugel"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F18",
+     "name": "Kugel",
+     "passt": "Kugel: Volumen und Oberfläche mit dem Radius."
+    }
+   ],
+   "stichwoerter": [
+    "Kugel",
+    "Volumen Kugel",
+    "Rauminhalt Kugel",
+    "vier Drittel pi r hoch 3"
+   ]
+  },
+  {
+   "kennung": "fk-17",
+   "titel": "Kugel – Oberfläche",
+   "figur": "Kugel",
+   "groesse": "Oberfläche",
+   "fuer": "Kugel – Oberfläche",
+   "formel": "O = 4 · π · r²",
+   "bedingung": "–",
+   "herkunft": "universum",
+   "ziel": "F18",
+   "ergebnis": {
+    "zeichen": "O",
+    "name": "Oberflächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "r",
+     "name": "Radius",
+     "art": "Länge",
+     "beschriften": "von der Mitte M zur Oberfläche, Mittelpunkt M markieren"
+    }
+   ],
+   "zeichnung": "Kugel mit Mittelpunkt M; r als Strecke von M zum Rand.",
+   "beispiel": {
+    "werte": {
+     "r": "6 cm"
+    },
+    "rechnung": "O = 4 · π · 6² cm² = 144π cm² ≈ 452,39 cm²",
+    "ergebnis": "144π cm² ≈ 452,39 cm²"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 10,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "raum.pyramide_kegel_kugel",
+      "lernziel": "kugel",
+      "wort": "Kugel"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F18",
+     "name": "Kugel",
+     "passt": "Kugel: Volumen und Oberfläche mit dem Radius."
+    }
+   ],
+   "stichwoerter": [
+    "Kugel",
+    "Oberfläche Kugel",
+    "Oberflächeninhalt Kugel",
+    "vier pi r Quadrat"
+   ]
+  },
+  {
+   "kennung": "fk-18",
+   "titel": "Pyramide – Oberfläche",
+   "figur": "Pyramide",
+   "groesse": "Oberfläche",
+   "fuer": "Pyramide – Oberfläche",
+   "formel": "O = G + M",
+   "bedingung": "M ist die Summe aller Seitendreiecke",
+   "herkunft": "ergaenzt",
+   "ergebnis": {
+    "zeichen": "O",
+    "name": "Oberflächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "G",
+     "name": "Grundfläche",
+     "art": "Fläche",
+     "beschriften": "Grundfläche schraffieren"
+    },
+    {
+     "zeichen": "M",
+     "name": "Mantelfläche",
+     "art": "Fläche",
+     "beschriften": "alle Seitendreiecke in anderer Farbe"
+    }
+   ],
+   "zeichnung": "Pyramidennetz: Grundfläche G in der Mitte, die Seitendreiecke (zusammen M) ringsum.",
+   "beispiel": {
+    "werte": {
+     "G": "36 cm²",
+     "M": "60 cm²"
+    },
+    "rechnung": "O = 36 cm² + 60 cm² = 96 cm²",
+    "ergebnis": "96 cm²"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 10,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "raum.pyramide_kegel_kugel",
+      "lernziel": "pyr_oberflaeche",
+      "wort": "Boden plus Mantel"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "I-fur-4",
+     "name": "Haut des Körpers",
+     "passt": "Aufklappen zeigt bei der Pyramide die ganze Haut: Boden plus Seitendreiecke."
+    }
+   ],
+   "stichwoerter": [
+    "Pyramide",
+    "Oberfläche Pyramide",
+    "Oberflächeninhalt Pyramide",
+    "Netz Pyramide",
+    "Grundfläche plus Mantel"
+   ]
+  },
+  {
+   "kennung": "fk-19",
+   "titel": "Pyramide mit quadratischer Grundfläche – Oberfläche",
+   "figur": "Pyramide",
+   "groesse": "Oberfläche",
+   "fuer": "Pyramide mit quadratischer Grundfläche – Oberfläche",
+   "formel": "O = a² + 2 · a · hₛ",
+   "bedingung": "gerade Pyramide mit quadratischer Grundfläche (Seite a); hₛ ist die Höhe eines Seitendreiecks",
+   "sonderfall": "gerade quadratische Pyramide",
+   "herkunft": "ergaenzt",
+   "ergebnis": {
+    "zeichen": "O",
+    "name": "Oberflächeninhalt",
+    "art": "Fläche",
+    "einheit": "cm²"
+   },
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "Grundkante",
+     "art": "Länge",
+     "beschriften": "eine Kante der quadratischen Grundfläche"
+    },
+    {
+     "zeichen": "hₛ",
+     "name": "Seitenhöhe",
+     "art": "Länge",
+     "beschriften": "Höhe eines Seitendreiecks, senkrecht auf der Grundkante a"
+    }
+   ],
+   "zeichnung": "Pyramidennetz: Quadrat mit Seite a, daran vier gleiche Dreiecke; in einem Dreieck hₛ senkrecht auf a.",
+   "beispiel": {
+    "werte": {
+     "a": "6 cm",
+     "hₛ": "5 cm"
+    },
+    "rechnung": "O = 6² cm² + 2 · 6 cm · 5 cm = 36 cm² + 60 cm² = 96 cm²",
+    "ergebnis": "96 cm²",
+    "hilfsrechnung": "5² = 4² + (6 : 2)² = 25",
+    "hilfe": "Pyramide mit Höhe h = 4 cm: hₛ ist die Hypotenuse mit den Katheten h und a : 2, also hₛ² = 4² + 3²."
+   },
+   "ab_klasse": {
+    "gymnasium_by": 10,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "raum.pyramide_kegel_kugel",
+      "lernziel": "pyr_oberflaeche",
+      "wort": "Seitenhöhe"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "I-fur-4",
+     "name": "Haut des Körpers",
+     "passt": "Aufklappen zeigt bei der Pyramide die ganze Haut: Boden plus Seitendreiecke."
+    }
+   ],
+   "stichwoerter": [
+    "Pyramide",
+    "Oberfläche Pyramide",
+    "quadratische Pyramide",
+    "a Quadrat plus zwei a h"
+   ]
+  },
+  {
+   "kennung": "fk-20",
+   "titel": "Quader – Kantenlänge insgesamt",
+   "figur": "Quader",
+   "groesse": "Kanten",
+   "fuer": "Quader – Kantenlänge insgesamt",
+   "formel": "K = 4 · (a + b + c)",
+   "bedingung": "Quader; jede der drei Kantenlängen kommt viermal vor",
+   "herkunft": "ergaenzt",
+   "ergebnis": {
+    "zeichen": "K",
+    "name": "Summe aller Kantenlängen",
+    "art": "Länge",
+    "einheit": "cm"
+   },
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "Länge",
+     "art": "Länge",
+     "beschriften": "eine der vier gleich langen Kanten"
+    },
+    {
+     "zeichen": "b",
+     "name": "Breite",
+     "art": "Länge",
+     "beschriften": "eine der vier gleich langen Kanten"
+    },
+    {
+     "zeichen": "c",
+     "name": "Höhe",
+     "art": "Länge",
+     "beschriften": "eine der vier gleich langen Kanten"
+    }
+   ],
+   "zeichnung": "Quader im Schrägbild; die 12 Kanten in drei Farben (je vier gleich lange) und a, b, c beschriften.",
+   "beispiel": {
+    "werte": {
+     "a": "4 cm",
+     "b": "3 cm",
+     "c": "2 cm"
+    },
+    "rechnung": "K = 4 · (4 cm + 3 cm + 2 cm) = 4 · 9 cm = 36 cm",
+    "ergebnis": "36 cm"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 6,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "messen.koerper_berechnung",
+      "lernziel": "quader",
+      "wort": "Kantenlänge"
+     }
+    ]
+   },
+   "regeln": [],
+   "regeln_hinweis": "Keine Einzelregel nennt die Kantenlänge; F12 behandelt nur das Volumen des Quaders.",
+   "stichwoerter": [
+    "Quader",
+    "Kantenlänge Quader",
+    "alle Kanten",
+    "Drahtmodell",
+    "zwölf Kanten"
+   ]
+  },
+  {
+   "kennung": "fk-21",
+   "titel": "Würfel – Kantenlänge insgesamt",
+   "figur": "Würfel",
+   "groesse": "Kanten",
+   "fuer": "Würfel – Kantenlänge insgesamt",
+   "formel": "K = 12 · a",
+   "bedingung": "Würfel mit 12 gleich langen Kanten",
+   "herkunft": "ergaenzt",
+   "ergebnis": {
+    "zeichen": "K",
+    "name": "Summe aller Kantenlängen",
+    "art": "Länge",
+    "einheit": "cm"
+   },
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "Kantenlänge",
+     "art": "Länge",
+     "beschriften": "eine Kante; alle zwölf sind gleich lang"
+    }
+   ],
+   "zeichnung": "Würfel im Schrägbild; alle 12 Kanten gleich markieren, eine mit a beschriften.",
+   "beispiel": {
+    "werte": {
+     "a": "5 cm"
+    },
+    "rechnung": "K = 12 · 5 cm = 60 cm",
+    "ergebnis": "60 cm"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 6,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "messen.koerper_berechnung",
+      "lernziel": "quader",
+      "wort": "Kantenlänge"
+     }
+    ]
+   },
+   "regeln": [],
+   "regeln_hinweis": "Keine Einzelregel nennt die Kantenlänge; F12 behandelt nur das Volumen des Quaders.",
+   "stichwoerter": [
+    "Würfel",
+    "Kantenlänge Würfel",
+    "alle Kanten Würfel",
+    "zwölf mal a"
+   ]
+  },
+  {
+   "kennung": "fk-22",
+   "titel": "Quader – Raumdiagonale",
+   "figur": "Quader",
+   "groesse": "Länge im Körper",
+   "fuer": "Quader – Raumdiagonale",
+   "formel": "d = √(a² + b² + c²)",
+   "bedingung": "Quader; d verbindet zwei gegenüberliegende Ecken durch das Innere",
+   "herkunft": "ergaenzt",
+   "ergebnis": {
+    "zeichen": "d",
+    "name": "Raumdiagonale",
+    "art": "Länge",
+    "einheit": "cm"
+   },
+   "groessen": [
+    {
+     "zeichen": "a",
+     "name": "Länge",
+     "art": "Länge",
+     "beschriften": "untere Kante vorn"
+    },
+    {
+     "zeichen": "b",
+     "name": "Breite",
+     "art": "Länge",
+     "beschriften": "untere Kante seitlich"
+    },
+    {
+     "zeichen": "c",
+     "name": "Höhe",
+     "art": "Länge",
+     "beschriften": "senkrechte Kante"
+    }
+   ],
+   "zeichnung": "Quader im Schrägbild; d als gestrichelte Strecke von einer unteren Ecke zur gegenüberliegenden oberen Ecke durch das Innere; a, b, c an den Kanten.",
+   "beispiel": {
+    "werte": {
+     "a": "2 cm",
+     "b": "3 cm",
+     "c": "6 cm"
+    },
+    "rechnung": "d = √(2² + 3² + 6²) cm = √49 cm = 7 cm",
+    "ergebnis": "7 cm"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 9,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "trigo.pythagoras",
+      "lernziel": "raum",
+      "wort": "Raumdiagonale"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G24",
+     "name": "Satz des Pythagoras",
+     "passt": "Pythagoras zweimal anwenden: erst die Bodendiagonale, dann die Raumdiagonale."
+    }
+   ],
+   "stichwoerter": [
+    "Raumdiagonale",
+    "Quader Diagonale",
+    "Körperdiagonale",
+    "Wurzel aus a Quadrat plus b Quadrat plus c Quadrat"
+   ]
+  }
+ ],
+ "groessenarten": {
+  "Länge": "Strecke in cm",
+  "Fläche": "Flächeninhalt in cm²",
+  "Volumen": "Rauminhalt in cm³",
+  "Winkel": "Winkel in Grad"
+ }
+}

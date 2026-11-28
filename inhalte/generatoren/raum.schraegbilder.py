@@ -535,7 +535,7 @@ BF.neu('lage', 1, BF.A(_q + 'Wie liegen die Geraden AB und DC zueinander?', 'par
                        'Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?', grafik=_quader))
 BF.nicht_umgesetzt('koordinaten S2 „Gib die z-Koordinate von C an“ (3× gleicher Typ)', 'Laut Befund in Ordnung; Lösungen richtig.')
 BF.nicht_umgesetzt('Karte „laengen“ ≈ messen.koerper_darstellung/„schraegbild“', 'Doppelung im Plan (Haupt-Chat), keine einzelne fehlerhafte Aufgabe.')
-BF.fuer_sebastian('raum.schraegbilder: lehrplan_gym leer; Raumkoordinaten und windschiefe Geraden stehen im LehrplanPLUS Gymnasium nicht in Jgst. 8 – Thema im Plan als Vertiefung markieren? Karten-Texte nicht geändert.')
+BF.fuer_nutzer('raum.schraegbilder: lehrplan_gym leer; Raumkoordinaten und windschiefe Geraden stehen im LehrplanPLUS Gymnasium nicht in Jgst. 8 – Thema im Plan als Vertiefung markieren? Karten-Texte nicht geändert.')
 
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----
@@ -582,7 +582,7 @@ def durchsicht():
     D.stufe([155, 157, 158], 1, 'Ein Zylinder hat')
     D.stufe([161, 162, 164], 2, 'Ein Zylinder hat')
     D.stufe(163, 2, 'Der Axialschnitt eines Zylinders')
-    D.fuer_sebastian('raum.schraegbilder (seit D2 Klasse 10): Ecken/Kanten zählen, Schrägbild-Längen und Axialschnitte sind Klasse-5-bis-8-Niveau; '
+    D.fuer_nutzer('raum.schraegbilder (seit D2 Klasse 10): Ecken/Kanten zählen, Schrägbild-Längen und Axialschnitte sind Klasse-5-bis-8-Niveau; '
                      'M10 5 verlangt Schrägbilder und Netze von Pyramide und Kegel (Kegel kann die App nicht zeichnen). In der Themendatei steht weiter klasse gym_by 8. '
                      'Überschneidung: Schrägbild der Pyramide auch in raum.pyramide_kegel_kugel/pyr_volumen.')
     D.anwenden()

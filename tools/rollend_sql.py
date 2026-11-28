@@ -22,6 +22,10 @@ FT-S (Form-Takt, inhalte/plan/form-takt.md Regel 1): Feld „typ“ der Dateien 
 beides geht ins JSON für schule.aufgaben_einfuegen (setzt die Migration 20261203_ft_s_form_takt.sql voraus – das SQL prüft das).
 zaehlt = folge gibt es nicht mehr: in der Übersicht als OFFEN gemeldet, mit --sql Abbruch mit Meldung, bis ja oder nein gesetzt ist.
 Die Aufgaben kommen als freigegeben hinein (Vorgabe der Tabelle); deshalb: erst Gegenprüfung der Inhalte, dann einspielen.
+RB-S (Regelbezug, inhalte/plan/regelbezug.md): --sql hängt an das Paket einen zweiten Block an, der Regel und Fehlbilder der eben eingefügten
+Aufgaben in schule.aufgabe_regel / schule.aufgabe_fehlbild schreibt und prüft (tools/regelbezug_sql.block; setzt die Migration
+20261204_rb_s_regelbezug.sql voraus – sonst bricht das ganze Paket ab). --ohne-regelbezug lässt den Block weg (nur bis RB-S eingespielt ist).
+Für schon eingespielte Aufgaben: tools/regelbezug_sql.py (Nachtrag).
 Nicht ohne den ausdrücklichen Satz des Nutzers ausführen.
 """
 import glob
@@ -242,6 +246,11 @@ begin
   if array_length(fehler, 1) > 0 then raise exception 'Vorrats-Aufgaben ABBRUCH, alles zurückgerollt: %', array_to_string(fehler, ' | '); end if;
 end $einspielen$;
 select einheit_id, count(*) filter (where pool = 'uebung') as uebungen, count(*) filter (where form is not null) as mit_form from schule.aufgabe where einheit_id in ({', '.join(str(plan['einheiten'][t]['id']) for t in ids)}) group by 1 order by 1;""")
+    if '--ohne-regelbezug' not in argv:
+        sys.path.insert(0, str(WURZEL / 'tools'))
+        import regelbezug_sql   # RB-S: Regel und Fehlbilder gleich mit (Abgleich gegen die Datei selbst)
+        zeilen = regelbezug_sql.zeilen_neu(plan, je)
+        if zeilen: print(regelbezug_sql.block(zeilen, f'neue Aufgaben rollend-{",".join(map(str, runden))}'), end='')
 
 
 if __name__ == '__main__':

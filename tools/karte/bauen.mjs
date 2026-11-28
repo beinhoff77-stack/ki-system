@@ -63,6 +63,19 @@ const HAUPTSTADT = new Map();
 for (const f of ORTE.features) { const p = f.properties; if (!/^Admin-0 capital/.test(p.featurecla)) continue; const a2 = p.iso_a2 === '-99' ? null : p.iso_a2; if (!a2) continue;
   if (HAUPTSTADT.has(a2) && p.featurecla !== 'Admin-0 capital') continue; // „alt“-Hauptstädte nur, wenn nichts anderes da ist
   HAUPTSTADT.set(a2, { name: HS_DE[p.name] || p.name, breite: p.latitude, laenge: p.longitude }); }
+// Natural Earth führt für manche Länder mehrere „Admin-0 capital“ (die letzte gewann): hier die verfassungsmäßige Hauptstadt fest (CI, BJ).
+// Ohne Hauptstadt (umstritten, neutral bleiben): EH (Westsahara), IL (Jerusalem international umstritten) – diese Gebiete bekommen keinen Pin.
+for (const [a2, ne] of Object.entries({ CI: 'Yamoussoukro', BJ: 'Porto-Novo' })) { const f = ORTE.features.find((x) => x.properties.iso_a2 === a2 && x.properties.name === ne);
+  if (f) HAUPTSTADT.set(a2, { name: ne, breite: f.properties.latitude, laenge: f.properties.longitude }); else console.warn('Hauptstadt fehlt in der Quelle:', a2, ne); }
+for (const a2 of ['EH', 'IL']) HAUPTSTADT.delete(a2);
+// Hauptorte abhängiger Gebiete (Natural Earth „Admin-0 region capital“ bzw. „Admin-1 capital“), damit auch diese Gebiete Flagge und Hauptort zeigen.
+// Bewusst nur eine geprüfte Liste (ISO → Name in Natural Earth → Anzeige). Nicht aufgenommen: PS (Ramallah/Gaza – Hauptstadt umstritten), HK/MO (Sonderverwaltungs-
+// zonen, keine Hauptstadt), XK (Natural Earth ohne ISO-Code, Anerkennung umstritten), MP (Sitz Saipan/Capitol Hill uneinheitlich), JE/GG/SH (nicht in der Quelle).
+const HS_GEBIET = { AX: ['Mariehamn'], KY: ['George Town'], TC: ['Grand Turk', 'Cockburn Town'], IM: ['Douglas'], CW: ['Willemstad'], AW: ['Oranjestad'], GI: ['Gibraltar'],
+  NC: ['Nouméa'], BM: ['Hamilton'], GL: ['Nuuk'], FK: ['Stanley'], FO: ['Tórshavn'], PR: ['San Juan'], CK: ['Avarua'], NU: ['Alofi'] };
+for (const [a2, [ne, anzeige]] of Object.entries(HS_GEBIET)) { if (HAUPTSTADT.has(a2)) continue;
+  const f = ORTE.features.find((x) => x.properties.name === ne && /capital/.test(x.properties.featurecla) && (x.properties.iso_a2 === a2 || x.properties.adm0name === { NU: 'Niue', CK: 'Cook Islands' }[a2]));
+  if (f) HAUPTSTADT.set(a2, { name: anzeige || ne, breite: f.properties.latitude, laenge: f.properties.longitude }); else console.warn('Hauptort fehlt in der Quelle:', a2, ne); }
 
 // ---------- Landesteile (AU nach Bundesstaaten, NZ Nord/Süd, BR Großregionen, US Hawaii) – nur die, die im Reise-Aufbau vorkommen ----------
 const BR_REGION = { Norte: 'BR_NORD', Nordeste: 'BR_NORDOST', 'Centro-Oeste': 'BR_MITTELWEST', Sudeste: 'BR_SUEDOST', Sul: 'BR_SUED' };

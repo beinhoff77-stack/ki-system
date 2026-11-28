@@ -1,0 +1,1070 @@
+{
+ "hinweis": "Inhalte für die Nachschlage-Tafel „Stellenwert, römische Zahlen, Vorsilben“ (Entwurf, nichts in die App eingespielt). Geprüft mit ../pruefen.py. Schreibweise wie im Bestand: Dezimalkomma, Tausender mit Leerzeichen, Malpunkt „·“.",
+ "stand": "2026-11-27",
+ "tafel": "stellenwert",
+ "titel": "Stellenwert, römische Zahlen, Vorsilben",
+ "eintraege": [
+  {
+   "kennung": "sw-01",
+   "titel": "Stellenwerttafel: Einer bis Billion",
+   "art": "stellenwerttafel",
+   "merksatz": "Jede Stelle ist zehnmal so viel wert wie die Stelle rechts daneben. Je drei Stellen bilden eine Dreiergruppe.",
+   "stellen": [
+    {
+     "exponent": 0,
+     "kurz": "E",
+     "name": "Einer",
+     "wert": "1",
+     "potenz": "10⁰",
+     "gruppe": "Einer"
+    },
+    {
+     "exponent": 1,
+     "kurz": "Z",
+     "name": "Zehner",
+     "wert": "10",
+     "potenz": "10¹",
+     "gruppe": "Einer"
+    },
+    {
+     "exponent": 2,
+     "kurz": "H",
+     "name": "Hunderter",
+     "wert": "100",
+     "potenz": "10²",
+     "gruppe": "Einer"
+    },
+    {
+     "exponent": 3,
+     "kurz": "T",
+     "name": "Tausender",
+     "wert": "1 000",
+     "potenz": "10³",
+     "gruppe": "Tausender"
+    },
+    {
+     "exponent": 4,
+     "kurz": "ZT",
+     "name": "Zehntausender",
+     "wert": "10 000",
+     "potenz": "10⁴",
+     "gruppe": "Tausender"
+    },
+    {
+     "exponent": 5,
+     "kurz": "HT",
+     "name": "Hunderttausender",
+     "wert": "100 000",
+     "potenz": "10⁵",
+     "gruppe": "Tausender"
+    },
+    {
+     "exponent": 6,
+     "kurz": "M",
+     "name": "Millionen",
+     "wert": "1 000 000",
+     "potenz": "10⁶",
+     "gruppe": "Millionen"
+    },
+    {
+     "exponent": 7,
+     "kurz": "ZM",
+     "name": "Zehnmillionen",
+     "wert": "10 000 000",
+     "potenz": "10⁷",
+     "gruppe": "Millionen"
+    },
+    {
+     "exponent": 8,
+     "kurz": "HM",
+     "name": "Hundertmillionen",
+     "wert": "100 000 000",
+     "potenz": "10⁸",
+     "gruppe": "Millionen"
+    },
+    {
+     "exponent": 9,
+     "kurz": "Md",
+     "name": "Milliarden",
+     "wert": "1 000 000 000",
+     "potenz": "10⁹",
+     "gruppe": "Milliarden"
+    },
+    {
+     "exponent": 10,
+     "kurz": "ZMd",
+     "name": "Zehnmilliarden",
+     "wert": "10 000 000 000",
+     "potenz": "10¹⁰",
+     "gruppe": "Milliarden"
+    },
+    {
+     "exponent": 11,
+     "kurz": "HMd",
+     "name": "Hundertmilliarden",
+     "wert": "100 000 000 000",
+     "potenz": "10¹¹",
+     "gruppe": "Milliarden"
+    },
+    {
+     "exponent": 12,
+     "kurz": "B",
+     "name": "Billionen",
+     "wert": "1 000 000 000 000",
+     "potenz": "10¹²",
+     "gruppe": "Billionen"
+    }
+   ],
+   "beispiel": {
+    "zahl": "3 405 072",
+    "wort": "drei Millionen vierhundertfünftausendzweiundsiebzig",
+    "zerlegung": [
+     {
+      "ziffer": 3,
+      "exponent": 6
+     },
+     {
+      "ziffer": 4,
+      "exponent": 5
+     },
+     {
+      "ziffer": 0,
+      "exponent": 4
+     },
+     {
+      "ziffer": 5,
+      "exponent": 3
+     },
+     {
+      "ziffer": 0,
+      "exponent": 2
+     },
+     {
+      "ziffer": 7,
+      "exponent": 1
+     },
+     {
+      "ziffer": 2,
+      "exponent": 0
+     }
+    ],
+    "text": "3 405 072 = 3 · 1 000 000 + 4 · 100 000 + 5 · 1 000 + 7 · 10 + 2 · 1",
+    "rechnung": "3 · 1 000 000 + 4 · 100 000 + 5 · 1 000 + 7 · 10 + 2 · 1 = 3 405 072"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.natuerlich",
+      "lernziel": "stellenwert",
+      "wort": "Stellenwerttafel"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Die Namen ab Zehnmillionen und das Wort „Billion“ kommen im Bestand nicht vor; Milliarden stehen in zahlen.natuerlich (Dreiergruppen).",
+   "regeln": [
+    {
+     "kennung": "Z1",
+     "name": "Stellenwertsystem",
+     "passt": "Jede Stelle ist zehnmal so viel wert wie die Stelle rechts daneben."
+    },
+    {
+     "kennung": "R1",
+     "name": "Stellenwert",
+     "passt": "Mal zehn: Jede Ziffer rückt eine Stelle nach links."
+    }
+   ],
+   "stichwoerter": [
+    "Stellenwerttafel",
+    "Stellenwert",
+    "Stelle",
+    "Einer Zehner Hunderter",
+    "Tausender",
+    "Million",
+    "Milliarde",
+    "Billion",
+    "wie viele Nullen hat eine Million"
+   ]
+  },
+  {
+   "kennung": "sw-02",
+   "titel": "Dezimalstellen: Zehntel bis Millionstel",
+   "art": "dezimalstellen",
+   "merksatz": "Hinter dem Komma wird jede Stelle zehnmal kleiner: Zehntel, Hundertstel, Tausendstel …",
+   "stellen": [
+    {
+     "exponent": -1,
+     "kurz": "z",
+     "name": "Zehntel",
+     "bruch": "1/10",
+     "wert": "0,1",
+     "potenz": "10⁻¹"
+    },
+    {
+     "exponent": -2,
+     "kurz": "h",
+     "name": "Hundertstel",
+     "bruch": "1/100",
+     "wert": "0,01",
+     "potenz": "10⁻²"
+    },
+    {
+     "exponent": -3,
+     "kurz": "t",
+     "name": "Tausendstel",
+     "bruch": "1/1000",
+     "wert": "0,001",
+     "potenz": "10⁻³"
+    },
+    {
+     "exponent": -4,
+     "kurz": "zt",
+     "name": "Zehntausendstel",
+     "bruch": "1/10 000",
+     "wert": "0,0001",
+     "potenz": "10⁻⁴"
+    },
+    {
+     "exponent": -5,
+     "kurz": "ht",
+     "name": "Hunderttausendstel",
+     "bruch": "1/100 000",
+     "wert": "0,00001",
+     "potenz": "10⁻⁵"
+    },
+    {
+     "exponent": -6,
+     "kurz": "m",
+     "name": "Millionstel",
+     "bruch": "1/1 000 000",
+     "wert": "0,000001",
+     "potenz": "10⁻⁶"
+    }
+   ],
+   "beispiel": {
+    "zahl": "3,472",
+    "zerlegung": [
+     {
+      "ziffer": 3,
+      "exponent": 0
+     },
+     {
+      "ziffer": 4,
+      "exponent": -1
+     },
+     {
+      "ziffer": 7,
+      "exponent": -2
+     },
+     {
+      "ziffer": 2,
+      "exponent": -3
+     }
+    ],
+    "text": "3,472 = 3 · 1 + 4 · 0,1 + 7 · 0,01 + 2 · 0,001",
+    "rechnung": "3 · 1 + 4 · 0,1 + 7 · 0,01 + 2 · 0,001 = 3,472",
+    "lesen": "drei Komma vier sieben zwei"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "bruch.dezimal",
+      "lernziel": "stellenwerte",
+      "wort": "Tausendstel"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand stehen nur Zehntel, Hundertstel und Tausendstel (bruch.dezimal, Klasse 6); Zehntausendstel bis Millionstel nur als Namen der Vorsilbe Mikro (zahlen.potenzen_zehner).",
+   "regeln": [
+    {
+     "kennung": "Z1",
+     "name": "Stellenwertsystem",
+     "passt": "Jede Stelle ist zehnmal so viel wert wie die Stelle rechts daneben – auch hinter dem Komma."
+    },
+    {
+     "kennung": "Z14",
+     "name": "Rechnen mit Komma",
+     "passt": "Rechnen mit Komma."
+    }
+   ],
+   "stichwoerter": [
+    "Dezimalstellen",
+    "Nachkommastellen",
+    "Zehntel",
+    "Hundertstel",
+    "Tausendstel",
+    "Millionstel",
+    "Stellen hinter dem Komma",
+    "Stellenwerttafel Komma"
+   ]
+  },
+  {
+   "kennung": "sw-03",
+   "titel": "Große Zahlen in Dreiergruppen lesen und schreiben",
+   "art": "dreiergruppen",
+   "so_gehts": [
+    "Teile die Ziffern von rechts in Dreiergruppen und setze ein Leerzeichen dazwischen: 3405072 wird 3 405 072.",
+    "Lies von links. Hinter jede Gruppe gehört ihr Gruppenwort: Billionen, Milliarden, Millionen, tausend.",
+    "Eine Gruppe 000 liest man nicht: 1 000 007 heißt eine Million sieben."
+   ],
+   "beispiele": [
+    {
+     "zahl": "4 052",
+     "ohne_luecken": "4052",
+     "wort": "viertausendzweiundfünfzig"
+    },
+    {
+     "zahl": "38 700",
+     "ohne_luecken": "38700",
+     "wort": "achtunddreißigtausendsiebenhundert"
+    },
+    {
+     "zahl": "2 040 300",
+     "ohne_luecken": "2040300",
+     "wort": "zwei Millionen vierzigtausenddreihundert"
+    },
+    {
+     "zahl": "12 008 000",
+     "ohne_luecken": "12008000",
+     "wort": "zwölf Millionen achttausend"
+    },
+    {
+     "zahl": "7 300 000 000",
+     "ohne_luecken": "7300000000",
+     "wort": "sieben Milliarden dreihundert Millionen"
+    },
+    {
+     "zahl": "1 000 000 000 000",
+     "ohne_luecken": "1000000000000",
+     "wort": "eine Billion"
+    },
+    {
+     "zahl": "3 000 000 000 000",
+     "ohne_luecken": "3000000000000",
+     "wort": "drei Billionen"
+    }
+   ],
+   "hinweis": "Hinter dem Komma liest man jede Ziffer einzeln: 3,472 heißt drei Komma vier sieben zwei.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.natuerlich",
+      "lernziel": "ziffern_zu_zahlwort",
+      "wort": "Dreiergruppen"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z1",
+     "name": "Stellenwertsystem",
+     "passt": "Jede Stelle ist zehnmal so viel wert wie die Stelle rechts daneben."
+    }
+   ],
+   "stichwoerter": [
+    "Dreiergruppen",
+    "große Zahlen lesen",
+    "große Zahlen schreiben",
+    "Zahlwort",
+    "Zahl in Worten",
+    "Leerzeichen in Zahlen",
+    "Tausenderpunkt"
+   ]
+  },
+  {
+   "kennung": "sw-04",
+   "titel": "Runden: ganze Zahlen",
+   "art": "runden",
+   "merksatz": "Schau auf die Ziffer rechts neben der Rundungsstelle: 0 bis 4 abrunden, 5 bis 9 aufrunden. Alle Stellen dahinter werden 0.",
+   "schritte": [
+    "Unterstreiche die Rundungsstelle.",
+    "Sieh die Ziffer direkt rechts daneben an.",
+    "0 bis 4: Die Rundungsstelle bleibt. 5 bis 9: Sie wird um 1 größer.",
+    "Schreibe hinter die Rundungsstelle lauter Nullen."
+   ],
+   "beispiele": [
+    {
+     "zahl": "3 472",
+     "stelle": "Hunderter",
+     "exponent": 2,
+     "ergebnis": "3 500",
+     "grund": "Rechts neben der Rundungsstelle steht die 7. Ab 5 wird aufgerundet."
+    },
+    {
+     "zahl": "3 449",
+     "stelle": "Hunderter",
+     "exponent": 2,
+     "ergebnis": "3 400",
+     "grund": "Rechts neben der Rundungsstelle steht die 4. Bis 4 wird abgerundet."
+    },
+    {
+     "zahl": "3 962",
+     "stelle": "Hunderter",
+     "exponent": 2,
+     "ergebnis": "4 000",
+     "grund": "Rechts neben der Rundungsstelle steht die 6: aufrunden. Aus 9 Hundertern plus 1 wird 10 Hunderter, also 4 Tausender."
+    },
+    {
+     "zahl": "2 500",
+     "stelle": "Tausender",
+     "exponent": 3,
+     "ergebnis": "3 000",
+     "grund": "Rechts neben der Rundungsstelle steht genau die 5: aufrunden."
+    }
+   ],
+   "zeichen": "Das Zeichen für „ungefähr gleich“ ist ≈: 3 472 ≈ 3 500.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.natuerlich",
+      "lernziel": "runden_regel",
+      "wort": "Rundungsstelle"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z2",
+     "name": "Runden",
+     "passt": "Runden: auf die Ziffer rechts neben der Rundungsstelle schauen."
+    }
+   ],
+   "stichwoerter": [
+    "Runden",
+    "runden",
+    "Rundungsregel",
+    "auf Hunderter runden",
+    "auf Zehner runden",
+    "auf Tausender runden",
+    "aufrunden",
+    "abrunden",
+    "ungefähr gleich"
+   ]
+  },
+  {
+   "kennung": "sw-05",
+   "titel": "Runden: Dezimalzahlen",
+   "art": "runden",
+   "merksatz": "Schau auf die Ziffer direkt rechts neben der Rundungsstelle: 0 bis 4 abrunden, 5 bis 9 aufrunden. Die Stellen dahinter fallen weg.",
+   "beispiele": [
+    {
+     "zahl": "4,583",
+     "stelle": "Zehntel",
+     "exponent": -1,
+     "ergebnis": "4,6",
+     "grund": "Rechts neben den Zehnteln steht die 8: aufrunden."
+    },
+    {
+     "zahl": "2,349",
+     "stelle": "Hundertstel",
+     "exponent": -2,
+     "ergebnis": "2,35",
+     "grund": "Rechts neben den Hundertsteln steht die 9: aufrunden."
+    },
+    {
+     "zahl": "7,25",
+     "stelle": "Zehntel",
+     "exponent": -1,
+     "ergebnis": "7,3",
+     "grund": "Rechts neben den Zehnteln steht genau die 5: aufrunden."
+    },
+    {
+     "zahl": "0,996",
+     "stelle": "Hundertstel",
+     "exponent": -2,
+     "ergebnis": "1,00",
+     "grund": "Rechts neben den Hundertsteln steht die 6: aufrunden. Aus 99 Hundertsteln plus 1 werden 100 Hundertstel, also 1."
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "bruch.dezimal",
+      "lernziel": "runden",
+      "wort": "Rundungsstelle"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z2",
+     "name": "Runden",
+     "passt": "Runden: auf die Ziffer rechts neben der Rundungsstelle schauen."
+    }
+   ],
+   "stichwoerter": [
+    "Dezimalzahlen runden",
+    "auf Zehntel runden",
+    "auf Hundertstel runden",
+    "auf eine Stelle runden",
+    "Nachkommastellen runden"
+   ]
+  },
+  {
+   "kennung": "sw-06",
+   "titel": "Römische Zahlzeichen",
+   "art": "roemisch",
+   "zeichen": [
+    {
+     "zeichen": "I",
+     "wert": "1"
+    },
+    {
+     "zeichen": "V",
+     "wert": "5"
+    },
+    {
+     "zeichen": "X",
+     "wert": "10"
+    },
+    {
+     "zeichen": "L",
+     "wert": "50"
+    },
+    {
+     "zeichen": "C",
+     "wert": "100"
+    },
+    {
+     "zeichen": "D",
+     "wert": "500"
+    },
+    {
+     "zeichen": "M",
+     "wert": "1 000"
+    }
+   ],
+   "addieren": "Schreibe die Zeichen von groß nach klein hintereinander und zähle die Werte zusammen. Die Zeichen I, X, C und M stehen höchstens dreimal hintereinander; V, L und D stehen nie doppelt.",
+   "abziehen": "Steht ein kleineres Zeichen links vor einem größeren, wird es abgezogen. Erlaubt sind nur sechs Paare.",
+   "abzuege": [
+    {
+     "paar": "IV",
+     "wert": 4
+    },
+    {
+     "paar": "IX",
+     "wert": 9
+    },
+    {
+     "paar": "XL",
+     "wert": 40
+    },
+    {
+     "paar": "XC",
+     "wert": 90
+    },
+    {
+     "paar": "CD",
+     "wert": 400
+    },
+    {
+     "paar": "CM",
+     "wert": 900
+    }
+   ],
+   "abzug_merkregel": "Abgezogen werden nur I, X und C – nie V, L oder D. I steht nur vor V und X, X nur vor L und C, C nur vor D und M.",
+   "beispiele": [
+    {
+     "roemisch": "VIII",
+     "zahl": "8",
+     "rechnung": "VIII = 5 + 1 + 1 + 1 = 8"
+    },
+    {
+     "roemisch": "XXVII",
+     "zahl": "27",
+     "rechnung": "XXVII = 10 + 10 + 5 + 1 + 1 = 27"
+    },
+    {
+     "roemisch": "XIV",
+     "zahl": "14",
+     "rechnung": "XIV = X + IV = 10 + 4 = 14"
+    },
+    {
+     "roemisch": "XCIX",
+     "zahl": "99",
+     "rechnung": "XCIX = XC + IX = 90 + 9 = 99"
+    },
+    {
+     "roemisch": "CDXLIV",
+     "zahl": "444",
+     "rechnung": "CDXLIV = CD + XL + IV = 400 + 40 + 4 = 444"
+    },
+    {
+     "roemisch": "MCMXC",
+     "zahl": "1 990",
+     "rechnung": "MCMXC = M + CM + XC = 1 000 + 900 + 90 = 1 990"
+    },
+    {
+     "roemisch": "MMXXVI",
+     "zahl": "2 026",
+     "rechnung": "MMXXVI = M + M + X + X + V + I = 1 000 + 1 000 + 10 + 10 + 5 + 1 = 2 026"
+    }
+   ],
+   "falsch": [
+    {
+     "falsch": "IC",
+     "richtig": "XCIX",
+     "zahl": 99
+    },
+    {
+     "falsch": "IL",
+     "richtig": "XLIX",
+     "zahl": 49
+    },
+    {
+     "falsch": "VL",
+     "richtig": "XLV",
+     "zahl": 45
+    },
+    {
+     "falsch": "XM",
+     "richtig": "CMXC",
+     "zahl": 990
+    },
+    {
+     "falsch": "IIII",
+     "richtig": "IV",
+     "zahl": 4
+    },
+    {
+     "falsch": "VV",
+     "richtig": "X",
+     "zahl": 10
+    }
+   ],
+   "hinweis": "Ein römisches Zeichen hat immer denselben Wert; es gibt kein Zeichen für 0. Mit diesen Regeln ist MMMCMXCIX = 3 999 die größte Zahl.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.natuerlich",
+      "lernziel": "roemisch_schreiben",
+      "wort": "römischen Zeichen"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z3",
+     "name": "Andere Zahlschriften",
+     "passt": "Römische Zahlen reihen Zeichen aneinander."
+    }
+   ],
+   "stichwoerter": [
+    "römische Zahlen",
+    "römische Zahlzeichen",
+    "römisch",
+    "I V X L C D M",
+    "XIV",
+    "Jahreszahl römisch",
+    "Abziehen römische Zahlen"
+   ]
+  },
+  {
+   "kennung": "sw-07",
+   "titel": "Vorsilbe Kilo (k)",
+   "art": "vorsilbe",
+   "vorsilbe": "Kilo",
+   "kurz": "k",
+   "exponent": 3,
+   "potenz": "10³",
+   "faktor": "1 000",
+   "bedeutet": "Tausend",
+   "beispiel": {
+    "einheit": "km",
+    "basis": "m",
+    "text": "1 km = 1 000 m"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 7,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "zahlen.potenzen_zehner",
+      "lernziel": "vorsilben_gross",
+      "wort": "Kilo"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z18",
+     "name": "Zehnerpotenzen",
+     "passt": "Kilo, Mega, Milli, Mikro sind Zehnerpotenzen."
+    }
+   ],
+   "stichwoerter": [
+    "Kilo",
+    "kilo",
+    "Vorsilbe Kilo",
+    "Vorsilben",
+    "k",
+    "km",
+    "Einheit mit Kilo"
+   ]
+  },
+  {
+   "kennung": "sw-08",
+   "titel": "Vorsilbe Hekto (h)",
+   "art": "vorsilbe",
+   "vorsilbe": "Hekto",
+   "kurz": "h",
+   "exponent": 2,
+   "potenz": "10²",
+   "faktor": "100",
+   "bedeutet": "Hundert",
+   "beispiel": {
+    "einheit": "hl",
+    "basis": "l",
+    "text": "1 hl = 100 l"
+   },
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Im Bestand kommt „Hekto“ nicht vor (Hektoliter und Hektar stehen nur in der Einheitentafel).",
+   "regeln": [],
+   "regeln_hinweis": "Z18 nennt nur Kilo, Mega, Milli und Mikro.",
+   "stichwoerter": [
+    "Hekto",
+    "hekto",
+    "Vorsilbe Hekto",
+    "Vorsilben",
+    "h",
+    "hl",
+    "Einheit mit Hekto"
+   ]
+  },
+  {
+   "kennung": "sw-09",
+   "titel": "Vorsilbe Deka (da)",
+   "art": "vorsilbe",
+   "vorsilbe": "Deka",
+   "kurz": "da",
+   "exponent": 1,
+   "potenz": "10¹",
+   "faktor": "10",
+   "bedeutet": "Zehn",
+   "beispiel": {
+    "einheit": "dag",
+    "basis": "g",
+    "text": "1 dag = 10 g"
+   },
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Im Bestand kommt „Deka“ nicht vor.",
+   "regeln": [],
+   "regeln_hinweis": "Z18 nennt nur Kilo, Mega, Milli und Mikro.",
+   "stichwoerter": [
+    "Deka",
+    "deka",
+    "Vorsilbe Deka",
+    "Vorsilben",
+    "da",
+    "dag",
+    "Einheit mit Deka"
+   ]
+  },
+  {
+   "kennung": "sw-10",
+   "titel": "Vorsilbe Dezi (d)",
+   "art": "vorsilbe",
+   "vorsilbe": "Dezi",
+   "kurz": "d",
+   "exponent": -1,
+   "potenz": "10⁻¹",
+   "faktor": "0,1",
+   "bedeutet": "Zehntel",
+   "beispiel": {
+    "einheit": "dm",
+    "basis": "m",
+    "text": "1 dm = 0,1 m"
+   },
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Im Bestand kommt „Dezi“ nur in der Einheit dm vor, nicht als erklärte Vorsilbe.",
+   "regeln": [],
+   "regeln_hinweis": "Z18 nennt nur Kilo, Mega, Milli und Mikro.",
+   "stichwoerter": [
+    "Dezi",
+    "dezi",
+    "Vorsilbe Dezi",
+    "Vorsilben",
+    "d",
+    "dm",
+    "Einheit mit Dezi"
+   ]
+  },
+  {
+   "kennung": "sw-11",
+   "titel": "Vorsilbe Zenti (c)",
+   "art": "vorsilbe",
+   "vorsilbe": "Zenti",
+   "kurz": "c",
+   "exponent": -2,
+   "potenz": "10⁻²",
+   "faktor": "0,01",
+   "bedeutet": "Hundertstel",
+   "beispiel": {
+    "einheit": "cm",
+    "basis": "m",
+    "text": "1 cm = 0,01 m"
+   },
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Im Bestand kommt „Zenti“ nur in der Einheit cm vor, nicht als erklärte Vorsilbe.",
+   "regeln": [],
+   "regeln_hinweis": "Z18 nennt nur Kilo, Mega, Milli und Mikro.",
+   "stichwoerter": [
+    "Zenti",
+    "zenti",
+    "Vorsilbe Zenti",
+    "Vorsilben",
+    "c",
+    "cm",
+    "Einheit mit Zenti"
+   ]
+  },
+  {
+   "kennung": "sw-12",
+   "titel": "Vorsilbe Milli (m)",
+   "art": "vorsilbe",
+   "vorsilbe": "Milli",
+   "kurz": "m",
+   "exponent": -3,
+   "potenz": "10⁻³",
+   "faktor": "0,001",
+   "bedeutet": "Tausendstel",
+   "beispiel": {
+    "einheit": "mm",
+    "basis": "m",
+    "text": "1 mm = 0,001 m"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 7,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "zahlen.potenzen_zehner",
+      "lernziel": "vorsilben_klein",
+      "wort": "Milli"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z18",
+     "name": "Zehnerpotenzen",
+     "passt": "Kilo, Mega, Milli, Mikro sind Zehnerpotenzen."
+    }
+   ],
+   "stichwoerter": [
+    "Milli",
+    "milli",
+    "Vorsilbe Milli",
+    "Vorsilben",
+    "m",
+    "mm",
+    "Einheit mit Milli"
+   ]
+  },
+  {
+   "kennung": "sw-13",
+   "titel": "Vorsilbe Mega (M)",
+   "art": "vorsilbe",
+   "vorsilbe": "Mega",
+   "kurz": "M",
+   "exponent": 6,
+   "potenz": "10⁶",
+   "faktor": "1 000 000",
+   "bedeutet": "Million",
+   "beispiel": {
+    "einheit": "MW",
+    "basis": "W",
+    "text": "1 MW = 1 000 000 W"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 7,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "zahlen.potenzen_zehner",
+      "lernziel": "vorsilben_gross",
+      "wort": "Mega"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z18",
+     "name": "Zehnerpotenzen",
+     "passt": "Kilo, Mega, Milli, Mikro sind Zehnerpotenzen."
+    }
+   ],
+   "stichwoerter": [
+    "Mega",
+    "mega",
+    "Vorsilbe Mega",
+    "Vorsilben",
+    "M",
+    "MW",
+    "Einheit mit Mega"
+   ]
+  },
+  {
+   "kennung": "sw-14",
+   "titel": "Vorsilbe Giga (G)",
+   "art": "vorsilbe",
+   "vorsilbe": "Giga",
+   "kurz": "G",
+   "exponent": 9,
+   "potenz": "10⁹",
+   "faktor": "1 000 000 000",
+   "bedeutet": "Milliarde",
+   "beispiel": {
+    "einheit": "GW",
+    "basis": "W",
+    "text": "1 GW = 1 000 000 000 W"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 7,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "zahlen.potenzen_zehner",
+      "lernziel": "vorsilben_gross",
+      "wort": "Giga"
+     }
+    ]
+   },
+   "regeln": [],
+   "regeln_hinweis": "Z18 nennt nur Kilo, Mega, Milli und Mikro.",
+   "stichwoerter": [
+    "Giga",
+    "giga",
+    "Vorsilbe Giga",
+    "Vorsilben",
+    "G",
+    "GW",
+    "Einheit mit Giga"
+   ]
+  },
+  {
+   "kennung": "sw-15",
+   "titel": "Vorsilbe Mikro (µ)",
+   "art": "vorsilbe",
+   "vorsilbe": "Mikro",
+   "kurz": "µ",
+   "exponent": -6,
+   "potenz": "10⁻⁶",
+   "faktor": "0,000001",
+   "bedeutet": "Millionstel",
+   "beispiel": {
+    "einheit": "µm",
+    "basis": "m",
+    "text": "1 µm = 0,000001 m"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 7,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "zahlen.potenzen_zehner",
+      "lernziel": "vorsilben_klein",
+      "wort": "Mikro"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z18",
+     "name": "Zehnerpotenzen",
+     "passt": "Kilo, Mega, Milli, Mikro sind Zehnerpotenzen."
+    }
+   ],
+   "stichwoerter": [
+    "Mikro",
+    "mikro",
+    "Vorsilbe Mikro",
+    "Vorsilben",
+    "µ",
+    "µm",
+    "Einheit mit Mikro"
+   ]
+  },
+  {
+   "kennung": "sw-16",
+   "titel": "Vorsilbe Nano (n)",
+   "art": "vorsilbe",
+   "vorsilbe": "Nano",
+   "kurz": "n",
+   "exponent": -9,
+   "potenz": "10⁻⁹",
+   "faktor": "0,000000001",
+   "bedeutet": "Milliardstel",
+   "beispiel": {
+    "einheit": "nm",
+    "basis": "m",
+    "text": "1 nm = 0,000000001 m"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 7,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "zahlen.potenzen_zehner",
+      "lernziel": "vorsilben_klein",
+      "wort": "Nano"
+     }
+    ]
+   },
+   "regeln": [],
+   "regeln_hinweis": "Z18 nennt nur Kilo, Mega, Milli und Mikro.",
+   "stichwoerter": [
+    "Nano",
+    "nano",
+    "Vorsilbe Nano",
+    "Vorsilben",
+    "n",
+    "nm",
+    "Einheit mit Nano"
+   ]
+  }
+ ]
+}

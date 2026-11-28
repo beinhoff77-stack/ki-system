@@ -1,0 +1,242 @@
+{
+ "hinweis": "Klassen-Nachtrag zu Tafel-Einträgen, die im Bestand keine Klasse haben. Die Tafel-Dateien bleiben unverändert (tafeln/pruefen.py lässt als Beleg nur Etappen zu). status belegt_bestand = Wort steht in Aufgabentexten einer Klasse und in keiner früheren; offen = Klasse nicht belegbar. berichtigungen = Widersprüche zwischen Dateien, mit Beleg.",
+ "stand": "2026-11-28",
+ "eintraege": [
+  {
+   "tafel": "figuren",
+   "kennung": "fg-08",
+   "titel": "Allgemeines (ungleichseitiges) Dreieck",
+   "status": "offen",
+   "gymnasium_by": null,
+   "realschule_by": null,
+   "ib_myp": null,
+   "belege": [],
+   "begruendung": "Der Name steht in keiner Etappe der Themen. Das IB-Kapitel „Dreiecksarten“ (O1:4.4) ist nur eine Schulbuch-Orientierung und kein bayerischer Lehrplan (inhalte/pruefung/lehrplan/lk_pruefung_2211.md). Klasse offen.",
+   "vermerk_vorkommen": "Vorkommen: Das Dreieck als Figur steht ab Klasse 6 (belegt). Erste ausdrückliche Behandlung der Dreiecksart „allgemeines Dreieck“: in keiner Etappe belegt, offen.",
+   "fruehestes_vorkommen": "Das Dreieck als Figur: Klasse 6 (messen.flaechen_vielecke, Etappe dreieck, Gymnasium und Realschule). Annahme, nicht belegt: Dreiecksarten werden spätestens dort benannt."
+  },
+  {
+   "tafel": "figuren",
+   "kennung": "fg-11",
+   "titel": "Spitzwinkliges Dreieck",
+   "status": "offen",
+   "gymnasium_by": null,
+   "realschule_by": null,
+   "ib_myp": null,
+   "belege": [],
+   "begruendung": "Das Wort steht in keiner Etappe. Die Etappe zum Dreiecksflächeninhalt (Klasse 6) erklärt nur „stumpfwinklig“ (fg-13). Klasse offen.",
+   "vermerk_vorkommen": "Vorkommen: Das Wort steht nur in Aufgabentexten der Klasse 7 (belegt, nur obere Grenze). Erste ausdrückliche Behandlung des spitzwinkligen Dreiecks: in keiner Etappe belegt, offen.",
+   "fruehestes_vorkommen": "Nur in Aufgabentexten: geometrie.konstruktion, geometrie.winkelsaetze und geometrie.kreis, jeweils Gymnasium 7 und Realschule 7. Das ist nur die obere Grenze; wahrscheinlich wird es früher gelernt (nicht belegt)."
+  },
+  {
+   "tafel": "zahlen",
+   "kennung": "zz-09",
+   "titel": "Teilbar durch 4",
+   "status": "offen",
+   "gymnasium_by": null,
+   "realschule_by": null,
+   "ib_myp": null,
+   "belege": [],
+   "begruendung": "Das Thema Teilbarkeit steht in Klasse 5 (Gymnasium Lernbereich 3.1, Realschule 1.3; inhalte/pruefung/lehrplan/lk_daten_2211.json), aber nur mit den Regeln für 2, 3, 5, 9 und 10 (Etappen endziffer, quersumme, neunerregel). Die Regel für 4 steht in keiner Etappe. Klasse offen.",
+   "vermerk_vorkommen": "Vorkommen: Das Thema Teilbarkeit steht in Klasse 5 (belegt, Regeln für 2, 3, 5, 9, 10). Erste ausdrückliche Behandlung der Regel für 4: in keiner Etappe belegt, offen."
+  },
+  {
+   "tafel": "zahlen",
+   "kennung": "zz-11",
+   "titel": "Teilbar durch 6",
+   "status": "offen",
+   "gymnasium_by": null,
+   "realschule_by": null,
+   "ib_myp": null,
+   "belege": [],
+   "begruendung": "Das Thema Teilbarkeit steht in Klasse 5 (Gymnasium Lernbereich 3.1, Realschule 1.3; inhalte/pruefung/lehrplan/lk_daten_2211.json), aber nur mit den Regeln für 2, 3, 5, 9 und 10 (Etappen endziffer, quersumme, neunerregel). Die Regel für 6 steht in keiner Etappe. Klasse offen. Die Regel setzt sich aus 2 und 3 zusammen (beide Klasse 5).",
+   "vermerk_vorkommen": "Vorkommen: Das Thema Teilbarkeit steht in Klasse 5 (belegt, Regeln für 2, 3, 5, 9, 10). Erste ausdrückliche Behandlung der Regel für 6: in keiner Etappe belegt, offen."
+  },
+  {
+   "tafel": "zahlen",
+   "kennung": "zz-12",
+   "titel": "Teilbar durch 8",
+   "status": "offen",
+   "gymnasium_by": null,
+   "realschule_by": null,
+   "ib_myp": null,
+   "belege": [],
+   "begruendung": "Das Thema Teilbarkeit steht in Klasse 5 (Gymnasium Lernbereich 3.1, Realschule 1.3; inhalte/pruefung/lehrplan/lk_daten_2211.json), aber nur mit den Regeln für 2, 3, 5, 9 und 10 (Etappen endziffer, quersumme, neunerregel). Die Regel für 8 steht in keiner Etappe. Klasse offen.",
+   "vermerk_vorkommen": "Vorkommen: Das Thema Teilbarkeit steht in Klasse 5 (belegt, Regeln für 2, 3, 5, 9, 10). Erste ausdrückliche Behandlung der Regel für 8: in keiner Etappe belegt, offen."
+  },
+  {
+   "tafel": "zahlen",
+   "kennung": "zz-15",
+   "titel": "Teilbar durch 25",
+   "status": "offen",
+   "gymnasium_by": null,
+   "realschule_by": null,
+   "ib_myp": null,
+   "belege": [],
+   "begruendung": "Das Thema Teilbarkeit steht in Klasse 5 (Gymnasium Lernbereich 3.1, Realschule 1.3; inhalte/pruefung/lehrplan/lk_daten_2211.json), aber nur mit den Regeln für 2, 3, 5, 9 und 10 (Etappen endziffer, quersumme, neunerregel). Die Regel für 25 steht in keiner Etappe. Klasse offen.",
+   "vermerk_vorkommen": "Vorkommen: Das Thema Teilbarkeit steht in Klasse 5 (belegt, Regeln für 2, 3, 5, 9, 10). Erste ausdrückliche Behandlung der Regel für 25: in keiner Etappe belegt, offen."
+  },
+  {
+   "tafel": "stellenwert",
+   "kennung": "sw-08",
+   "titel": "Vorsilbe Hekto (h)",
+   "status": "offen",
+   "gymnasium_by": null,
+   "realschule_by": null,
+   "ib_myp": null,
+   "belege": [],
+   "begruendung": "Die Vorsilbe steht in keiner Etappe. Erklärt werden Kilo, Mega, Milli und Mikro als Zehnerpotenzen erst in zahlen.potenzen_zehner (Etappen vorsilben_gross, vorsilben_klein; Gymnasium 6, Realschule 7). Klasse offen.",
+   "vermerk_vorkommen": "Vorkommen: Einheit mit dieser Vorsilbe in der Einheitentafel: hl (Volumen, Klasse 6). Erste ausdrückliche Behandlung der Vorsilbe als Begriff: in keiner Etappe belegt, offen; erklärt sind nur Kilo, Mega, Milli, Mikro (Gymnasium 6, Realschule 7).",
+   "fruehestes_vorkommen": "Die Einheit mit dieser Vorsilbe: hl: Volumen, Klasse 6 (einheiten.json). Die Vorsilbe als erklärter Begriff erst ab Klasse 6/7 (Gymnasium/Realschule) belegt, ohne dass sie dort genannt wird."
+  },
+  {
+   "tafel": "stellenwert",
+   "kennung": "sw-09",
+   "titel": "Vorsilbe Deka (da)",
+   "status": "offen",
+   "gymnasium_by": null,
+   "realschule_by": null,
+   "ib_myp": null,
+   "belege": [],
+   "begruendung": "Die Vorsilbe steht in keiner Etappe. Erklärt werden Kilo, Mega, Milli und Mikro als Zehnerpotenzen erst in zahlen.potenzen_zehner (Etappen vorsilben_gross, vorsilben_klein; Gymnasium 6, Realschule 7). Klasse offen.",
+   "vermerk_vorkommen": "Vorkommen: Einheit mit dieser Vorsilbe in der Einheitentafel: keine Einheit der Tafel. Erste ausdrückliche Behandlung der Vorsilbe als Begriff: in keiner Etappe belegt, offen; erklärt sind nur Kilo, Mega, Milli, Mikro (Gymnasium 6, Realschule 7).",
+   "fruehestes_vorkommen": "Die Einheit mit dieser Vorsilbe: kommt in keiner Einheit der Tafel vor (einheiten.json). Die Vorsilbe als erklärter Begriff erst ab Klasse 6/7 (Gymnasium/Realschule) belegt, ohne dass sie dort genannt wird."
+  },
+  {
+   "tafel": "stellenwert",
+   "kennung": "sw-10",
+   "titel": "Vorsilbe Dezi (d)",
+   "status": "offen",
+   "gymnasium_by": null,
+   "realschule_by": null,
+   "ib_myp": null,
+   "belege": [],
+   "begruendung": "Die Vorsilbe steht in keiner Etappe. Erklärt werden Kilo, Mega, Milli und Mikro als Zehnerpotenzen erst in zahlen.potenzen_zehner (Etappen vorsilben_gross, vorsilben_klein; Gymnasium 6, Realschule 7). Klasse offen.",
+   "vermerk_vorkommen": "Vorkommen: Einheit mit dieser Vorsilbe in der Einheitentafel: dm (Länge, Klasse 5). Erste ausdrückliche Behandlung der Vorsilbe als Begriff: in keiner Etappe belegt, offen; erklärt sind nur Kilo, Mega, Milli, Mikro (Gymnasium 6, Realschule 7).",
+   "fruehestes_vorkommen": "Die Einheit mit dieser Vorsilbe: dm: Länge, Klasse 5 (einheiten.json). Die Vorsilbe als erklärter Begriff erst ab Klasse 6/7 (Gymnasium/Realschule) belegt, ohne dass sie dort genannt wird."
+  },
+  {
+   "tafel": "stellenwert",
+   "kennung": "sw-11",
+   "titel": "Vorsilbe Zenti (c)",
+   "status": "offen",
+   "gymnasium_by": null,
+   "realschule_by": null,
+   "ib_myp": null,
+   "belege": [],
+   "begruendung": "Die Vorsilbe steht in keiner Etappe. Erklärt werden Kilo, Mega, Milli und Mikro als Zehnerpotenzen erst in zahlen.potenzen_zehner (Etappen vorsilben_gross, vorsilben_klein; Gymnasium 6, Realschule 7). Klasse offen.",
+   "vermerk_vorkommen": "Vorkommen: Einheit mit dieser Vorsilbe in der Einheitentafel: cm (Länge, Klasse 5). Erste ausdrückliche Behandlung der Vorsilbe als Begriff: in keiner Etappe belegt, offen; erklärt sind nur Kilo, Mega, Milli, Mikro (Gymnasium 6, Realschule 7).",
+   "fruehestes_vorkommen": "Die Einheit mit dieser Vorsilbe: cm: Länge, Klasse 5 (einheiten.json). Die Vorsilbe als erklärter Begriff erst ab Klasse 6/7 (Gymnasium/Realschule) belegt, ohne dass sie dort genannt wird."
+  },
+  {
+   "tafel": "formeln-flaechen",
+   "kennung": "ff-13",
+   "titel": "Dreieck – Umfang",
+   "status": "offen",
+   "gymnasium_by": null,
+   "realschule_by": null,
+   "ib_myp": null,
+   "belege": [],
+   "begruendung": "Die Figur kommt ab Klasse 6 vor (messen.flaechen_vielecke, Gymnasium und Realschule); der Umfang des Rechtecks ab Klasse 5 (ff-02). Der Umfang dieser Figur ist in keiner Etappe ein Lernziel. Klasse offen.",
+   "vermerk_vorkommen": "Vorkommen: Die Figur steht ab Klasse 6 (belegt), der Umfang des Rechtecks ab Klasse 5. Erste ausdrückliche Behandlung des Umfangs dieser Figur: in keiner Etappe als Lernziel belegt, offen.",
+   "fruehestes_vorkommen": "Annahme, nicht belegt: ab Klasse 6, sobald die Figur eingeführt ist. Der Umfang ist nur die Summe der Seiten."
+  },
+  {
+   "tafel": "formeln-flaechen",
+   "kennung": "ff-14",
+   "titel": "Parallelogramm – Umfang",
+   "status": "offen",
+   "gymnasium_by": null,
+   "realschule_by": null,
+   "ib_myp": null,
+   "belege": [],
+   "begruendung": "Die Figur kommt ab Klasse 6 vor (messen.flaechen_vielecke, Gymnasium und Realschule); der Umfang des Rechtecks ab Klasse 5 (ff-02). Der Umfang dieser Figur ist in keiner Etappe ein Lernziel. Klasse offen.",
+   "vermerk_vorkommen": "Vorkommen: Die Figur steht ab Klasse 6 (belegt), der Umfang des Rechtecks ab Klasse 5. Erste ausdrückliche Behandlung des Umfangs dieser Figur: in keiner Etappe als Lernziel belegt, offen.",
+   "fruehestes_vorkommen": "Annahme, nicht belegt: ab Klasse 6, sobald die Figur eingeführt ist. Der Umfang ist nur die Summe der Seiten."
+  },
+  {
+   "tafel": "formeln-flaechen",
+   "kennung": "ff-15",
+   "titel": "Trapez – Umfang",
+   "status": "offen",
+   "gymnasium_by": null,
+   "realschule_by": null,
+   "ib_myp": null,
+   "belege": [],
+   "begruendung": "Die Figur kommt ab Klasse 6 vor (messen.flaechen_vielecke, Gymnasium und Realschule); der Umfang des Rechtecks ab Klasse 5 (ff-02). Der Umfang dieser Figur ist in keiner Etappe ein Lernziel. Klasse offen.",
+   "vermerk_vorkommen": "Vorkommen: Die Figur steht ab Klasse 6 (belegt), der Umfang des Rechtecks ab Klasse 5. Erste ausdrückliche Behandlung des Umfangs dieser Figur: in keiner Etappe als Lernziel belegt, offen.",
+   "fruehestes_vorkommen": "Annahme, nicht belegt: ab Klasse 6, sobald die Figur eingeführt ist. Der Umfang ist nur die Summe der Seiten."
+  },
+  {
+   "tafel": "formeln-flaechen",
+   "kennung": "ff-16",
+   "titel": "Drachenviereck – Umfang",
+   "status": "offen",
+   "gymnasium_by": null,
+   "realschule_by": null,
+   "ib_myp": null,
+   "belege": [],
+   "begruendung": "Die Figur kommt ab Klasse 6 vor (messen.flaechen_vielecke, Gymnasium und Realschule); der Umfang des Rechtecks ab Klasse 5 (ff-02). Der Umfang dieser Figur ist in keiner Etappe ein Lernziel. Klasse offen.",
+   "vermerk_vorkommen": "Vorkommen: Die Figur steht ab Klasse 6 (belegt), der Umfang des Rechtecks ab Klasse 5. Erste ausdrückliche Behandlung des Umfangs dieser Figur: in keiner Etappe als Lernziel belegt, offen.",
+   "fruehestes_vorkommen": "Annahme, nicht belegt: ab Klasse 6, sobald die Figur eingeführt ist. Der Umfang ist nur die Summe der Seiten."
+  },
+  {
+   "tafel": "formeln-flaechen",
+   "kennung": "ff-17",
+   "titel": "Raute – Umfang",
+   "status": "offen",
+   "gymnasium_by": null,
+   "realschule_by": null,
+   "ib_myp": null,
+   "belege": [],
+   "begruendung": "Die Figur kommt ab Klasse 6 vor (messen.flaechen_vielecke, Gymnasium und Realschule); der Umfang des Rechtecks ab Klasse 5 (ff-02). Der Umfang dieser Figur ist in keiner Etappe ein Lernziel. Klasse offen.",
+   "vermerk_vorkommen": "Vorkommen: Die Figur steht ab Klasse 6 (belegt), der Umfang des Rechtecks ab Klasse 5. Erste ausdrückliche Behandlung des Umfangs dieser Figur: in keiner Etappe als Lernziel belegt, offen.",
+   "fruehestes_vorkommen": "Annahme, nicht belegt: ab Klasse 6, sobald die Figur eingeführt ist. Der Umfang ist nur die Summe der Seiten."
+  },
+  {
+   "tafel": "zeichen-woerter",
+   "kennung": "zw-w01",
+   "titel": "Summand",
+   "status": "belegt_bestand",
+   "gymnasium_by": 5,
+   "realschule_by": 5,
+   "ib_myp": 1,
+   "belege": [
+    {
+     "thema": "zahlen.rechengesetze",
+     "art": "aufgabe",
+     "wort": "Summand"
+    },
+    {
+     "thema": "zahlen.ganz",
+     "art": "aufgabe",
+     "wort": "Summand"
+    },
+    {
+     "thema": "zahlen.potenzen_basis",
+     "art": "aufgabe",
+     "wort": "Summand"
+    },
+    {
+     "thema": "zahlen.teilbarkeit",
+     "art": "aufgabe",
+     "wort": "Summand"
+    }
+   ],
+   "begruendung": "Das Wort steht schon in Aufgabentexten der Klasse-5-Themen (Gymnasium 5, Realschule 5, IB 1 bei zahlen.rechengesetze). Frühere Klassen gibt es in der App nicht, also ist Klasse 5 das früheste Vorkommen. Der Wortlaut des Lehrplans liegt nicht im Repo; belegt ist nur der Gebrauch in den Aufgaben, keine Etappe nennt das Wort."
+  }
+ ],
+ "berichtigungen": [
+  {
+   "ziel": "daten/regeln-universum.json, Gesetz V1 „Größe und Einheit“, Feld fehler",
+   "alt": "Bei Flächen (Klasse 6) ist der Faktor zwischen benachbarten Einheiten 100.",
+   "neu": "Bei Flächen (Klasse 5) ist der Faktor zwischen benachbarten Einheiten 100.",
+   "beleg": [
+    "inhalte/pruefung/lehrplan/lk_daten_2211.json: Gymnasium Klasse 5, Lernbereich 4.2 „Flächeninhalt“, Thema „Umfang und Flächeninhalt“, Rolle neu, Etappen einheiten und kommaschreibweise.",
+    "inhalte/pruefung/lehrplan/lk_daten_2211.json: Realschule Klasse 5, Lernbereich 5 „Umfang und Flächeninhalt ebener Figuren“, Rolle neu, Etappe einheiten.",
+    "inhalte/themen/messen.flaechen.json: klasse gym_by 5, rs_by 5, ib_myp 1; Etappe einheiten „Flächeneinheiten umrechnen“."
+   ],
+   "status": "Erledigt: daten/regeln-universum.json, Gesetz V1, steht inzwischen auf „Bei Flächen (Klasse 5)“, passend zur Tafel einheiten/einheiten.json. Dieser Eintrag bleibt als Beleg."
+  }
+ ]
+}

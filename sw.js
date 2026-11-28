@@ -1,7 +1,7 @@
 // Service Worker: hält nur die App-Hülle vor (Dateien dieser Seite). Daten kommen immer live von app-api.
 const CACHE_PREFIX = 'ki-system:' + self.registration.scope + ':';
-const CACHE = CACHE_PREFIX + 'v188';
-const HUELLE = ['./', './index.html', './stay-compare.js?v=0.95.0', './stay-refresh.js?v=0.95.0', './stay-workplace.js?v=0.95.0', './stay-notifications.js?v=0.95.0', './stay-photos.js?v=0.95.0', './stay-trips.js?v=0.95.0', './stay-review.js?v=0.95.0', './stay-desk.js?v=0.95.0', './app.js?v=0.95.0', './highlights.js?v=0.95.0', './roadbook.js?v=0.95.0', './lernen-welt.js?v=0.95.0', './lernen.js?v=0.95.0', './lernen-regeln.js?v=0.95.0', './lernen-regeln.css?v=0.95.0', './stay-tools.js?v=0.95.0', './stay-research.js?v=0.95.0', './stay-form.js?v=0.95.0', './stay-details.js?v=0.95.0', './stay-districts.js?v=0.95.0', './vendor/leaflet-1.9.4/leaflet.js', './vendor/leaflet-1.9.4/leaflet.css', './style.css?v=0.95.0', './vendor/schriften/space-grotesk.woff2', './vendor/schriften/jetbrains-mono.woff2', './manifest.webmanifest', './icon.svg', './icon-180.png', './icon-512.png'];
+const CACHE = CACHE_PREFIX + 'v189';
+const HUELLE = ['./', './index.html', './stay-compare.js?v=0.96.0', './stay-refresh.js?v=0.96.0', './stay-workplace.js?v=0.96.0', './stay-notifications.js?v=0.96.0', './stay-photos.js?v=0.96.0', './stay-trips.js?v=0.96.0', './stay-review.js?v=0.96.0', './stay-desk.js?v=0.96.0', './app.js?v=0.96.0', './highlights.js?v=0.96.0', './roadbook.js?v=0.96.0', './lernen-welt.js?v=0.96.0', './lernen.js?v=0.96.0', './lernen-regeln.js?v=0.96.0', './lernen-regeln.css?v=0.96.0', './stay-tools.js?v=0.96.0', './stay-research.js?v=0.96.0', './stay-form.js?v=0.96.0', './stay-details.js?v=0.96.0', './stay-districts.js?v=0.96.0', './vendor/leaflet-1.9.4/leaflet.js', './vendor/leaflet-1.9.4/leaflet.css', './style.css?v=0.96.0', './vendor/schriften/space-grotesk.woff2', './vendor/schriften/jetbrains-mono.woff2', './manifest.webmanifest', './icon.svg', './icon-180.png', './icon-512.png'];
 const HUELLE_URLS = new Set(HUELLE.map(path => new URL(path, self.registration.scope).href));
 
 self.addEventListener('install', (e) => {
@@ -24,7 +24,7 @@ self.addEventListener('fetch', (e) => {
     fetch(e.request, { cache: 'no-cache' }).then(async (r) => {
       if (r.ok) { const kopie = r.clone(); e.waitUntil(caches.open(CACHE).then((c) => c.put(e.request, kopie))); return r; }
       // RU-App (Werkstatt 1093): nur daten/ – vorübergehender Serverfehler (5xx) → gespeicherte Fassung, falls da; Datei entfernt (404/410) → Eintrag löschen.
-      // Alle anderen Antworten (übrige 4xx, Hülle, karte/) gehen unverändert durch wie vor 0.95.0.
+      // Alle anderen Antworten (übrige 4xx, Hülle, karte/) gehen unverändert durch wie vor 0.96.0.
       if (daten && r.status >= 500) return (await (await caches.open(CACHE)).match(e.request)) || r;
       if (daten && (r.status === 404 || r.status === 410)) await (await caches.open(CACHE)).delete(e.request);
       return r;

@@ -760,7 +760,7 @@ for _w, _s, _w2 in [('17', '0,2924', '197'), ('85', '0,9962', '265'), ('40', '0,
 BF.nicht_umgesetzt('kosinussatz_seite S3 viermal „Schiff fährt … dreht um … nach links“; Lernkarte erklärt „180° − Drehwinkel“ nicht',
                    'Aufgaben richtig; der Tipp nennt den Schritt („Der Innenwinkel am Wendepunkt ist 180° minus Drehwinkel“), der Lösungsweg rechnet ihn vor. Seit Runde 10 gibt es auf Stufe 3 weitere Typen. Lernkarte siehe „für den Nutzer“.')
 BF.nicht_umgesetzt('sinussatz_seite S3 viermal „Zwei Beobachter … Baum auf der anderen Seite eines Sees“', 'Kein Fehler; seit Runde 10 gibt es auf Stufe 3 vier andere Typen.')
-BF.fuer_sebastian('trigo.allgemein/kosinussatz_seite: Lernkarte erklärt nicht, dass der Dreieckswinkel 180° minus Drehwinkel ist (Schiff-Aufgaben). Ergänzen? Karten-Text nicht geändert.')
+BF.fuer_nutzer('trigo.allgemein/kosinussatz_seite: Lernkarte erklärt nicht, dass der Dreieckswinkel 180° minus Drehwinkel ist (Schiff-Aufgaben). Ergänzen? Karten-Text nicht geändert.')
 
 # ---- BEFUNDE ENDE ----
 

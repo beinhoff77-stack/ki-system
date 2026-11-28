@@ -873,7 +873,7 @@ def durchsicht():
                       {'text': 'Der Exponent t darf vor das lg: t · lg 1,05 = lg 1,5.'},
                       {'text': 'Durch lg 1,05 teilen: t = lg 1,5 : lg 1,05 ≈ ⟦8,3⟧ Jahre.',
                        'bild': {'senkrecht': [8.3], 'punkte': [{'x': 8.3, 'y': 300, 'name': '≈ 8,3 Jahre'}]}}])
-    D.fuer_sebastian('funktionen.exponential_log/zeitpunkt und gleichungen.exponential (wachstum, mit_log_loesen) überschneiden sich: Beide lösen a · b^t = c mit dem Logarithmus. '
+    D.fuer_nutzer('funktionen.exponential_log/zeitpunkt und gleichungen.exponential (wachstum, mit_log_loesen) überschneiden sich: Beide lösen a · b^t = c mit dem Logarithmus. '
                      'exponential_log steht in der Reihenfolge vor gleichungen.exponential, nutzt die Potenzregel also, bevor sie dort erklärt wird (jetzt als Schritt auf der Karte).')
     D.anwenden()
 

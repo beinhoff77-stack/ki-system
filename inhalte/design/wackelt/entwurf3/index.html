@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Was wackelt – Entwurf 3 (Designer)</title>
+<style>
+/* Entwurf 3 im Stil des Lehrerbereichs der App: Farben aus style.css, body[data-area="lernen"] (Zeile 315 ff. und 3583),
+   Ampelflächen aus .lern-ampel. Systemschrift wie --font-ui. Dunkel: Werte aus :root (prefers-color-scheme: dark), Akzent grün. */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; font-size: 15px; line-height: 1.5; background: var(--bg); color: var(--text); -webkit-text-size-adjust: 100%; }
+body[data-g="hell"] { color-scheme: light; --bg: #f6f4ec; --surface: #fffefa; --surface-muted: #eeeae0; --text: #22372e; --muted: #5c6a61; --accent: #254d3e; --accent-soft: #e5ede4;
+  --border: #e4e4d9; --ok: #25663a; --ok-bg: #e7f4eb; --ok-bar: #b9dfc6; --err: #a72e37; --err-bg: #fbe9eb; --err-bar: #d9737b; --info: #275d98; --info-bg: #e8f1fc;
+  --warn: #855e41; --warn-bg: #faf0e3; --shadow: 0 12px 40px rgb(30 57 43 / 4.5%); --papier: #fffefa; }
+body[data-g="nacht"] { color-scheme: dark; --bg: #101721; --surface: #192330; --surface-muted: #223040; --text: #f1f5f9; --muted: #b3bfcd; --accent: #62d8c4; --accent-soft: #203e3c;
+  --border: #354255; --ok: #8ed4a4; --ok-bg: #233b30; --ok-bar: #2f6046; --err: #ffa4ac; --err-bg: #452b32; --err-bar: #c25a63; --info: #9fc8fa; --info-bg: #26384f;
+  --warn: #f3cb75; --warn-bg: #3d3220; --shadow: none; --papier: #192330; }
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+h1, h2, h3, h4, p { margin: 0; }
+.muted { color: var(--muted); }
+.num { font-variant-numeric: tabular-nums; }
+
+/* App-Kopf wie im Lehrerbereich */
+.app-kopf { border-bottom: 1px solid var(--border); }
+.app-kopf div { max-width: 1240px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; }
+.marke { font-size: 22px; font-weight: 700; color: var(--accent); letter-spacing: -.01em; }
+.leise-knopf { border: 1px solid var(--border); background: var(--surface); border-radius: 11px; padding: 6px 12px; font-size: 13px; color: var(--text); }
+main { max-width: 1240px; margin: 0 auto; padding: 18px 24px 80px; }
+
+/* Kind-Seite: Umschalter, Reiter, Zeitraum */
+.kind-kopf { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.seg { display: inline-flex; background: var(--surface-muted); border-radius: 11px; padding: 3px; gap: 2px; }
+.seg button { border: 0; background: none; border-radius: 9px; min-height: 34px; padding: 0 14px; color: var(--muted); font-weight: 600; font-size: 14px; white-space: nowrap; }
+.seg button small { font-weight: 500; margin-left: 4px; }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--text); box-shadow: 0 1px 3px rgb(30 57 43 / 12%); }
+.reiter { display: flex; gap: 22px; flex: 1; }
+.reiter a { text-decoration: none; color: var(--muted); font-weight: 600; padding: 8px 0; border-bottom: 2px solid transparent; }
+.reiter a[aria-current] { color: var(--accent); border-bottom-color: var(--accent); }
+.seiten-titel { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; margin: 26px 0 0; }
+.seiten-titel h1 { font-size: 24px; color: var(--accent); }
+.link-leise { font-size: 14px; color: var(--muted); background: none; border: 0; text-decoration: underline; text-underline-offset: 3px; padding: 4px 0; }
+
+/* Drei Teile */
+.teil { margin-top: 34px; }
+.teil + .teil { padding-top: 30px; border-top: 1px solid var(--border); }
+.teil-kopf { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; }
+.teil-kopf h2 { font-size: 18px; color: var(--accent); }
+.teil-kopf span { color: var(--muted); font-size: 14px; }
+.karte { background: var(--surface); border: 1px solid var(--border); border-radius: 19px; box-shadow: var(--shadow); }
+
+/* 1 Auswertung: Kacheln */
+.kacheln { display: grid; grid-template-columns: 1.45fr 1fr 1.15fr .7fr; gap: 14px; }
+.kachel { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.kachel h3 { font-size: 14px; font-weight: 600; color: var(--muted); }
+.balken { display: grid; gap: 7px; }
+.balken button { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; align-items: center; border: 0; background: none; padding: 3px 4px; margin: 0 -4px; border-radius: 8px; text-align: left; }
+.balken button:hover { background: var(--surface-muted); }
+.balken .name { font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.balken .wert { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.balken .spur { grid-column: 1 / -1; height: 8px; border-radius: 4px; background: var(--ok-bar); overflow: hidden; display: flex; }
+.balken .spur i { display: block; height: 100%; background: var(--err-bar); }
+.legende { display: flex; gap: 14px; font-size: 12.5px; color: var(--muted); margin-top: auto; }
+.legende i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+.tage { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 6px; align-items: end; height: 150px; }
+.tag { display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; justify-content: flex-end; }
+.saeule { width: 100%; max-width: 22px; display: flex; flex-direction: column-reverse; border-radius: 5px; overflow: hidden; }
+.saeule i { display: block; } .saeule .r { background: var(--ok-bar); } .saeule .f { background: var(--err-bar); }
+.tag small { font-size: 11.5px; color: var(--muted); text-align: center; line-height: 1.25; }
+.wieder { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.wieder button { width: 100%; border: 0; background: var(--warn-bg); border-radius: 11px; padding: 8px 10px; text-align: left; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0 10px; }
+.wieder button:hover { filter: brightness(.97); }
+.wieder b { font-weight: 600; font-size: 14px; }
+.wieder .anz { font-weight: 700; color: var(--warn); font-variant-numeric: tabular-nums; }
+.wieder small { grid-column: 1 / -1; font-size: 12.5px; color: var(--muted); }
+.gross-zahl { font-size: 34px; font-weight: 700; line-height: 1; color: var(--text); font-variant-numeric: tabular-nums; }
+.fazit { margin-top: 14px; font-size: 15px; }
+.fazit b { font-weight: 600; }
+
+/* Aufgaben-Baustein (Teil 2 und 3) */
+.bausteine { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.aufg { padding: 16px 18px 14px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.a-ort { font-size: 13px; color: var(--muted); display: flex; justify-content: space-between; gap: 10px; }
+.a-ort span:last-child { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.a-text { font-size: 15.5px; }
+.a-zeilen { margin: 0; padding: 8px 12px 8px 30px; background: var(--surface-muted); border-radius: 11px; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 13.5px; }
+.a-zeilen li.gewaehlt { color: var(--err); } .a-zeilen li.richtig { color: var(--ok); font-weight: 600; }
+.vgl { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.vgl div { border-radius: 11px; padding: 6px 12px 7px; }
+.vgl .ein { background: var(--err-bg); } .vgl .ok { background: var(--ok-bg); }
+.vgl small { display: block; font-size: 12.5px; color: var(--muted); }
+.vgl b { font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.vgl .ein b { color: var(--err); } .vgl .ok b { color: var(--ok); }
+.a-art { font-size: 14px; color: var(--muted); }
+.a-art b { color: var(--text); font-weight: 600; }
+.a-art .gut { color: var(--ok); }
+details.weg summary { cursor: pointer; font-size: 14px; color: var(--muted); list-style: none; }
+details.weg summary::-webkit-details-marker { display: none; }
+details.weg summary::before { content: "▸ "; } details.weg[open] summary::before { content: "▾ "; }
+details.weg p { margin-top: 6px; font-size: 14.5px; }
+.aktionen { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 2px; }
+.knopf { min-height: 36px; border: 1px solid var(--border); background: var(--surface); border-radius: 11px; padding: 0 14px; font-weight: 600; font-size: 14px; color: var(--text); white-space: nowrap; }
+.knopf:hover { border-color: var(--muted); }
+.knopf.haken::before { content: "✓ "; color: var(--ok); }
+.knopf.nach { color: var(--accent); }
+.hinweis { font-size: 13.5px; color: var(--info); background: var(--info-bg); border-radius: 11px; padding: 6px 10px; }
+.zeichnung { display: block; width: 210px; height: auto; color: var(--text); }
+table.tab { border-collapse: collapse; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+table.tab th, table.tab td { border-bottom: 1px solid var(--border); padding: 3px 16px 3px 0; text-align: left; }
+table.tab th { color: var(--muted); font-weight: 600; }
+table.tab td.z { text-align: right; }
+
+/* 3 Nach Themen */
+.themen { display: grid; gap: 22px; }
+.thema { padding: 0; }
+.thema + .thema { padding-top: 22px; border-top: 1px solid var(--border); }
+.thema > h3 { font-size: 17px; display: flex; gap: 10px; align-items: baseline; }
+.thema > h3 span { font-size: 14px; color: var(--muted); font-weight: 500; }
+.lk { margin-top: 16px; }
+.lk-kopf { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); margin-bottom: 12px; }
+.lk-kopf h4 { font-size: 15px; font-weight: 600; flex: 1; min-width: 180px; }
+.lk-kopf h4 span { color: var(--muted); font-weight: 500; }
+
+.leer-satz { font-size: 16px; padding: 18px 20px; }
+.leer-satz b { color: var(--ok); }
+.erledigt { margin-top: 14px; padding: 12px 18px; }
+.erledigt li { display: flex; justify-content: space-between; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+.erledigt ul { list-style: none; margin: 0; padding: 0; }
+.toast { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); background: var(--accent); color: var(--surface); border-radius: 12px; padding: 8px 8px 8px 16px; display: flex; gap: 12px; align-items: center; font-size: 14px; z-index: 30; box-shadow: 0 8px 24px rgb(0 0 0 / 18%); }
+.toast button { background: none; border: 0; color: inherit; font-weight: 700; text-decoration: underline; padding: 4px 8px; }
+
+@media (max-width: 1100px) { .kacheln { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 760px) {
+  .app-kopf div, main { padding-left: 14px; padding-right: 14px; }
+  .kacheln, .bausteine { grid-template-columns: minmax(0, 1fr); }
+  .reiter { order: 3; flex-basis: 100%; }
+  .kind-kopf .zeit { order: 4; }
+  .aufg { padding: 14px; }
+  .seiten-titel h1 { font-size: 21px; }
+}
+</style>
+</head>
+<body data-g="hell">
+<header class="app-kopf"><div><span class="marke">Lernen Schule</span><button class="leise-knopf" type="button">Abmelden</button></div></header>
+<main id="main"></main>
+<script>
+'use strict';
+const HEUTE = new Date('2026-11-27T19:00:00');
+const FB = { // Fehlbilder aus kennungen.json / regeln-universum.json (Beschreibung wörtlich bzw. gekürzt), dazu Gesprächseinstieg (neu, Vorschlag)
+  'fb.minusklammer.nur_erstes_zeichen': { titel: 'Minus vor der Klammer: nur das erste Zeichen gedreht', kurz: 'Nur das erste Vorzeichen in der Klammer wechselt.',
+    regel: { nr: 7, name: 'Minus vor der Klammer', satz: 'Beim Auflösen einer Minusklammer wechselt jeder Summand sein Vorzeichen.', href: '#/regeln/lehrer-r7' },
+    einstieg: 'Lies mir 7x − (3x − 5) laut vor. Was macht das Minus vor der Klammer mit der 5?',
+    nach: [['Vereinfache: 10 − (6 − y)', '4 + y'], ['Vereinfache: 3a − (a + 7)', '2a − 7'], ['Löse: 15 − (x − 3) = 10', 'x = 8']] },
+  'fb.waage.zeichen_nicht_gedreht': { titel: 'Ungleichung: Zeichen beim Teilen durch Minus nicht gedreht', kurz: 'Bei einer Ungleichung wird durch eine negative Zahl geteilt, ohne das Zeichen umzudrehen.',
+    regel: { nr: 13, name: 'Gleichung als Waage', satz: 'Eine Gleichung ist eine Waage: Was du links tust, musst du auch rechts tun.', href: '#/regeln/lehrer-r13' },
+    einstieg: 'Stimmt 2 < 5? Nimm beide Seiten mal (−1). Stimmt es dann noch?',
+    nach: [['Löse: −4x > 20', 'x < −5'], ['Löse: 6 − 2x ≤ 0', 'x ≥ 3'], ['Stimmt das? Aus −x < 3 folgt x > −3.', 'ja']] },
+  'fb.stellenwert.eine_stelle_daneben': { titel: 'Umrechnen: eine Stelle daneben', kurz: 'Die Ziffern stimmen, das Ergebnis ist aber zehnmal zu groß oder zu klein.',
+    regel: { nr: 1, name: 'Stellenwert', satz: 'Mal zehn: Jede Ziffer rückt eins nach links.', href: '#/regeln/lehrer-r1' },
+    einstieg: 'Ist 3,5 kg mehr oder weniger als 1 kg? Und wie viel Gramm hat 1 kg?',
+    nach: [['Wie viel Gramm sind 2,4 kg?', '2 400 g'], ['Wie viele Meter sind 350 cm?', '3,5 m'], ['Wie viele Cent sind 1,05 €?', '105 ct']] },
+  'fb.bruchrechnen.falscher_kehrwert': { titel: 'Bruch geteilt durch Bruch: falscher Kehrwert', kurz: 'Beim Teilen wird der erste statt des zweiten Bruchs umgedreht.', regel: { nr: 10, name: 'Rechnen mit Brüchen' } },
+  'fb.potenz.basis_mal_hochzahl': { titel: 'Potenz: Basis mal Hochzahl', kurz: '2³ wird als 2 · 3 gerechnet.', regel: { nr: 8, name: 'Potenzen' } },
+  'fb.winkel.neben_statt_scheitel': { titel: 'Scheitelwinkel statt Nebenwinkel', kurz: 'Den gegebenen Winkel genommen statt seinen Nebenwinkel.' },
+  'fb.rechtwinklig.ohne_quadrate': { titel: 'Pythagoras ohne Quadrate', kurz: 'Die Seiten werden ohne Quadrate addiert.' },
+};
+const LK = { // Lernkarten (Etappen): Thema, Name, Gesprächseinstieg und Nachüben bei einer Lücke, Bezug ins Regel-Universum
+  minusklammer: { thema: 'Terme umformen', name: 'Minusklammer auflösen' },
+  klammer_gleichung: { thema: 'Lineare Gleichungen', name: 'Gleichungen mit Klammern' },
+  seite_berechnen: { thema: 'Satz des Pythagoras', name: 'Fehlende Seite berechnen',
+    einstieg: 'Zeig mir auf der Zeichnung die längste Seite. Woran erkennst du sie, ohne zu messen?',
+    regel: { nr: null, name: 'Idee: Rechtwinkliges Dreieck (Geometrie 5)', satz: 'Rechter Winkel im Dreieck: a² plus b² ist c² – c liegt dem rechten Winkel gegenüber.', href: '#/regeln/kind-idee-geo-5', idee: true },
+    nach: [['Katheten 9 cm und 12 cm. Wie lang ist die Hypotenuse?', '15 cm'], ['Hypotenuse 10 cm, eine Kathete 6 cm. Wie lang ist die andere?', '8 cm']] },
+  ungleichung_negativ: { thema: 'Lineare Ungleichungen', name: 'Mal oder geteilt durch eine negative Zahl' },
+  steigung_tabelle: { thema: 'Lineare Funktionen', name: 'Steigung aus einer Tabelle' },
+  prozentwert: { thema: 'Prozentrechnung', name: 'Prozentwert berechnen' },
+  bruch_geteilt: { thema: 'Rechnen mit Brüchen', name: 'Bruch durch Bruch' },
+  potenz_basis: { thema: 'Potenzen', name: 'Potenzen ausrechnen' },
+  gewicht: { thema: 'Größen und Einheiten', name: 'Gewichte umrechnen' },
+  laenge: { thema: 'Größen und Einheiten', name: 'Längen umrechnen' },
+  geld: { thema: 'Größen und Einheiten', name: 'Geld umrechnen' },
+  tabelle_auswerten: { thema: 'Daten darstellen', name: 'Tabelle auswerten',
+    einstieg: 'Lies mir die Frage vor und zeig mit dem Finger auf die Zeilen der Tabelle, die dazugehören.',
+    regel: { nr: null, name: 'Arbeitsweise 7: Ablesen und Darstellen', satz: 'Erst Achsen und Einheiten lesen, dann die Werte.', href: '#/regeln/kind-weise-7', idee: true },
+    nach: [['Umfrage: Hund 9, Katze 7, Pferd 4, Fisch 2. Wie viele Kinder wählten kein Haustier mit Fell?', '2'], ['Dieselbe Tabelle: Wie viele mehr wählten Hund als Pferd?', '5']] },
+  absolute_haeufigkeit: { thema: 'Daten darstellen', name: 'Absolute Häufigkeit' },
+  kreuzung: { thema: 'Winkel', name: 'Winkel an einer Kreuzung' },
+  subtraktion: { thema: 'Natürliche Zahlen', name: 'Schriftlich subtrahieren' },
+};
+const TAB_SPORT = { typ: 'tabelle', kopf: ['Sportart', 'Anzahl Kinder'], zeilen: [['Fußball', '11'], ['Schwimmen', '6'], ['Tennis', '4'], ['Tanzen', '7']] };
+const TAB_BUECHEREI = { typ: 'tabelle', kopf: ['Tag', 'Besucher'], zeilen: [['Montag', '34'], ['Dienstag', '27'], ['Mittwoch', '41'], ['Donnerstag', '19'], ['Freitag', '25']] };
+const TAB_STEIGUNG = { typ: 'tabelle', quer: true, kopf: ['x', '0', '1', '2', '3'], zeilen: [['y', '5', '3', '1', '−1']] };
+const A = { // Aufgaben (wie aufgabe.f.text, o, w; fb je falscher Antwort wie aufgabe.fehlbilder)
+  mk1: { lk: 'minusklammer', text: 'Vereinfache: 7x − (3x − 5)', o: '4x + 5', w: 'Das Minus vor der Klammer dreht jedes Zeichen in der Klammer um: 7x − 3x + 5 = 4x + 5.' },
+  mk2: { lk: 'minusklammer', text: 'Vereinfache: 12 − (4 − a) + 2a', o: '8 + 3a', w: '12 − 4 + a + 2a = 8 + 3a. Aus „− (− a)“ wird „+ a“.' },
+  mk5: { lk: 'minusklammer', text: 'Vereinfache: 9 − (2 + b)', o: '7 − b', w: '9 − 2 − b = 7 − b.' },
+  mk3: { lk: 'klammer_gleichung', form: 'fehler_detektiv', text: 'Ben löst 5x − (2x − 6) = 21. In welcher Zeile passiert der erste Fehler?',
+    zeilen: ['5x − 2x − 6 = 21', '3x − 6 = 21', '3x = 27', 'x = 9'], optionen: ['In Zeile 1', 'In Zeile 2', 'In Zeile 3', 'In Zeile 4'], richtig: 0,
+    w: 'Zeile 1 ist schon falsch: aus − (−6) wird + 6. Richtig: 5x − 2x + 6 = 21, also 3x = 15, x = 5.' },
+  mk4: { lk: 'klammer_gleichung', text: 'Löse: 20 − (x + 4) = 9', o: 'x = 7', w: '20 − x − 4 = 9, also 16 − x = 9, x = 7. Probe: 20 − 11 = 9 ✓' },
+  py1: { lk: 'seite_berechnen', text: 'Berechne die Länge der Seite c.', grafik: { typ: 'dreieck', a: '6 cm', b: '8 cm', c: 'c = ?' }, o: '10 cm', w: 'c² = 6² + 8² = 36 + 64 = 100, also c = 10 cm.' },
+  py2: { lk: 'seite_berechnen', text: 'Berechne die Länge der Seite b.', grafik: { typ: 'dreieck', a: '5 cm', b: 'b = ?', c: '13 cm' }, o: '12 cm', w: 'b ist eine Kathete: b² = 13² − 5² = 169 − 25 = 144, also b = 12 cm.' },
+  py3: { lk: 'seite_berechnen', text: 'Eine 5 m lange Leiter lehnt an einer Wand. Ihr Fuß steht 1,4 m von der Wand entfernt. In welcher Höhe berührt sie die Wand?', o: '4,8 m', w: 'h² = 5² − 1,4² = 25 − 1,96 = 23,04, also h = √23,04 = 4,8 m.' },
+  py4: { lk: 'seite_berechnen', text: 'Katheten 3 cm und 4 cm. Wie lang ist die Hypotenuse?', o: '5 cm', w: '3² + 4² = 25, √25 = 5.' },
+  un1: { lk: 'ungleichung_negativ', text: 'Löse: −3x < 12', o: 'x > −4', w: 'Durch −3 teilen und dabei das Zeichen umdrehen: x > −4.' },
+  un2: { lk: 'ungleichung_negativ', text: 'Löse: −2x ≥ 8', o: 'x ≤ −4', w: 'Durch −2 teilen, Zeichen umdrehen: x ≤ −4.' },
+  lf1: { lk: 'steigung_tabelle', text: 'Wie groß ist die Steigung m der Geraden?', grafik: TAB_STEIGUNG, o: '−2', w: 'Wenn x um 1 wächst, nimmt y um 2 ab: m = −2.' },
+  lf2: { lk: 'steigung_tabelle', text: 'x: 0, 1, 2 · y: 1, 4, 7. Steigung?', o: '3', w: '' },
+  pz1: { lk: 'prozentwert', text: 'Wie viel sind 18 % von 250 €?', o: '45 €', w: '250 € : 100 · 18 = 2,50 € · 18 = 45 €.' },
+  pz2: { lk: 'prozentwert', text: 'Wie viel sind 12 % von 400 €?', o: '48 €', w: '' },
+  br1: { lk: 'bruch_geteilt', text: '3/4 : 1/2', o: '3/2', w: '' }, po1: { lk: 'potenz_basis', text: '2³', o: '8', w: '' },
+  st1: { lk: 'gewicht', text: 'Wie viel Gramm sind 3,5 kg?', o: '3 500 g', w: '1 kg = 1 000 g, also 3,5 kg = 3,5 · 1 000 g = 3 500 g. Jede Ziffer rückt drei Stellen nach links.' },
+  st2: { lk: 'laenge', text: 'Wie viele Zentimeter sind 4,2 m?', o: '420 cm', w: '1 m = 100 cm, also 4,2 m = 420 cm.' },
+  st3: { lk: 'geld', text: 'Wie viele Cent sind 0,60 €?', o: '60 ct', w: '1 € = 100 ct, also 0,60 € = 60 ct.' },
+  st4: { lk: 'gewicht', text: 'Wie viel Gramm sind 2 kg?', o: '2 000 g', w: '' },
+  tb1: { lk: 'tabelle_auswerten', text: 'Die Tabelle zeigt eine Umfrage zum Lieblingssport. Wie viele Kinder haben nicht „Fußball“ gewählt?', grafik: TAB_SPORT, o: '17', w: 'Schwimmen 6 + Tennis 4 + Tanzen 7 = 17. Oder: insgesamt 28 Kinder, 28 − 11 = 17.' },
+  tb2: { lk: 'tabelle_auswerten', text: 'Wie viele Besucher kamen am Mittwoch mehr als am Donnerstag?', grafik: TAB_BUECHEREI, o: '22', w: '„Wie viele mehr“ heißt Unterschied: 41 − 19 = 22.' },
+  ah1: { lk: 'absolute_haeufigkeit', text: 'Bei einer Umfrage unter 30 Kindern nannten 12 Kinder Fußball und 8 Kinder Schwimmen. Alle übrigen nannten Tanzen. Wie oft wurde Tanzen genannt?', o: '10', w: '12 + 8 = 20; 30 − 20 = 10.' },
+  wk1: { lk: 'kreuzung', text: 'Zwei gerade Straßen kreuzen sich. Einer der vier Winkel beträgt 38°. Wie groß ist der größte der vier Winkel?', grafik: { typ: 'kreuzung' }, o: '142°', w: 'Der Nachbarwinkel von 38° ist 180° − 38° = 142°. Gegenüberliegende Winkel sind gleich groß, der größte ist 142°.' },
+  wk2: { lk: 'kreuzung', text: 'Ein Winkel an einer Kreuzung ist 65°. Wie groß ist sein Nachbarwinkel?', o: '115°', w: '' },
+  sb1: { lk: 'subtraktion', text: '702 − 358', o: '344', w: '' },
+};
+// Versuche: [aufgabe, am, richtig, antwort, {anlauf, erst (1. Anlauf), tipp, fb, grund, fbText}]
+const V = {
+  1: [ ['sb1', '2026-11-12T16:00', false, '454', { fbText: 'Übertrag vergessen' }], ['sb1', '2026-11-14T16:00', false, '456', { fbText: 'Übertrag vergessen' }],
+       ['sb1', '2026-11-21T10:00', true], ['sb1', '2026-11-22T10:00', true], ['sb1', '2026-11-23T10:00', true],
+       ['st4', '2026-11-21T09:30', true],
+       ['st1', '2026-11-22T09:40', false, '350 g', { fb: 'fb.stellenwert.eine_stelle_daneben' }],
+       ['wk1', '2026-11-23T11:05', false, '38°', { fb: 'fb.winkel.neben_statt_scheitel', fbText: 'den gegebenen Winkel als größten genannt (Scheitelwinkel statt Nebenwinkel genommen)' }],
+       ['wk2', '2026-11-24T10:20', true], ['wk1', '2026-11-26T10:10', true],
+       ['tb1', '2026-11-24T10:40', false, '28', { fbText: 'alle befragten Kinder genannt – Fußball nicht abgezogen' }],
+       ['st2', '2026-11-25T09:15', false, '4 200 cm', { anlauf: 2, erst: '4 200', fb: 'fb.stellenwert.eine_stelle_daneben' }],
+       ['ah1', '2026-11-25T09:50', false, '20', { fbText: 'nur Fußball und Schwimmen zusammengezählt' }],
+       ['st3', '2026-11-26T09:20', false, '6 ct', { fb: 'fb.stellenwert.eine_stelle_daneben', tipp: true }],
+       ['tb2', '2026-11-26T09:45', false, '60', { fbText: 'beide Zahlen addiert statt den Unterschied gebildet' }] ],
+  2: [ ['po1', '2026-10-27T17:00', false, '6', { fb: 'fb.potenz.basis_mal_hochzahl' }], ['po1', '2026-10-28T17:00', false, '6', { fb: 'fb.potenz.basis_mal_hochzahl' }],
+       ['po1', '2026-11-01T17:00', true], ['po1', '2026-11-02T17:00', true], ['po1', '2026-11-03T17:00', true],
+       ['br1', '2026-11-03T18:00', false, '2/3', { fb: 'fb.bruchrechnen.falscher_kehrwert' }], ['br1', '2026-11-04T18:00', false, '3/8', { fb: 'fb.bruchrechnen.falscher_kehrwert' }],
+       ['br1', '2026-11-07T18:00', true], ['br1', '2026-11-08T18:00', true], ['br1', '2026-11-09T18:00', true],
+       ['un2', '2026-11-14T17:30', false, 'x ≥ −4', { fb: 'fb.waage.zeichen_nicht_gedreht' }], ['un2', '2026-11-16T17:30', false, 'x ≥ −4', { fb: 'fb.waage.zeichen_nicht_gedreht' }],
+       ['mk5', '2026-11-19T17:10', true], ['mk1', '2026-11-17T17:00', true],
+       ['pz1', '2026-11-20T18:20', false, '4,50 €', { grund: 'komma' }], ['pz2', '2026-11-25T18:00', true],
+       ['lf1', '2026-11-21T17:40', false, '2', { grund: 'vorzeichen' }], ['lf2', '2026-11-23T17:00', true], ['lf2', '2026-11-24T17:00', true], ['lf1', '2026-11-26T17:20', true],
+       ['un1', '2026-11-22T18:05', false, 'x < −4', { fb: 'fb.waage.zeichen_nicht_gedreht' }],
+       ['mk1', '2026-11-23T17:15', false, '4x − 5', { fb: 'fb.minusklammer.nur_erstes_zeichen' }],
+       ['py4', '2026-11-22T17:50', true],
+       ['py1', '2026-11-24T18:10', false, '14 cm', { fb: 'fb.rechtwinklig.ohne_quadrate', fbText: '6 + 8 gerechnet – die Seiten ohne Quadrate addiert' }],
+       ['mk2', '2026-11-25T17:30', false, '8 + a', { anlauf: 2, erst: '8 − a', fb: 'fb.minusklammer.nur_erstes_zeichen' }],
+       ['py2', '2026-11-25T17:55', false, '13,9 cm', { fbText: 'beide Quadrate addiert, obwohl die gesuchte Seite eine Kathete ist (√(169 + 25))' }],
+       ['mk3', '2026-11-26T17:05', false, 2, { fb: 'fb.minusklammer.nur_erstes_zeichen', fbText: 'hält Zeile 1 für richtig – dort wurde das Minus nur auf 2x angewendet' }],
+       ['mk4', '2026-11-26T17:25', false, 'x = 15', { fb: 'fb.minusklammer.nur_erstes_zeichen', fbText: 'gerechnet mit 20 − x + 4: nur das erste Zeichen in der Klammer gedreht' }],
+       ['py3', '2026-11-26T18:00', false, '23,04 m', { tipp: true, fbText: 'Wurzel am Ende vergessen: 25 − 1,96 = 23,04' }] ],
+};
+const KINDER = { 1: { name: 'Kind 1', kl: 5, schule: 'Gymnasium' }, 2: { name: 'Kind 2', kl: 8, schule: 'Gymnasium' } };
+// gespeicherte Zustände je Kind und Punkt (Schlüssel: fb:<kennung> oder lk:<lernkarte>) – entspricht schule.wackelt_status (+ notiz, neu)
+const STATUS0 = {
+  1: { 'lk:subtraktion': { st: 'besprochen', am: '2026-11-20T19:00', notiz: 'Beim Übertrag die kleine 1 vergessen. Wir schreiben sie jetzt immer rot.', art: 'lu' } },
+  2: { 'fb:fb.potenz.basis_mal_hochzahl': { st: 'besprochen', am: '2026-10-30T19:00', notiz: 'Hat 2³ = 2 · 3 gerechnet. Mit Würfelbild erklärt.', art: 'fv' },
+       'fb:fb.bruchrechnen.falscher_kehrwert': { st: 'besprochen', am: '2026-11-05T19:00', notiz: '', art: 'fv' },
+       'fb:fb.waage.zeichen_nicht_gedreht': { st: 'besprochen', am: '2026-11-18T19:00', notiz: 'Meinte, das Zeichen dreht sich nur, wenn rechts eine negative Zahl steht.', art: 'fv' } },
+};
+const NAME_ZEITRAUM = { g: 'Seit Gespräch', w: '7 Tage', a: 'Alles' };
+
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const tag = (iso) => { const d = new Date(iso); return ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'][d.getDay()] + ' ' + d.getDate() + '.' + (d.getMonth() + 1) + '.'; };
+const kurzTag = (iso) => { const d = new Date(iso); return d.getDate() + '.' + (d.getMonth() + 1) + '.'; };
+const tageHer = (iso) => { const a = new Date(iso); a.setHours(0, 0, 0, 0); const h = new Date(HEUTE); h.setHours(0, 0, 0, 0); return Math.round((h - a) / 864e5); };
+const wann = (iso) => { const t = tageHer(iso); return t <= 0 ? 'heute' : t === 1 ? 'gestern' : t < 7 ? `vor ${t} Tagen` : 'am ' + kurzTag(iso); };
+const mal = (n) => (n === 1 ? 'einmal' : n === 2 ? 'zweimal' : n === 3 ? 'dreimal' : n + '-mal');
+function fehlerText(x) {
+  if (x.fbText) return x.fbText;
+  if (x.fb && FB[x.fb]) return FB[x.fb].kurz;
+  return { vorzeichen: 'Vorzeichen falsch – der Betrag stimmt.', komma: 'Komma verrutscht – die Ziffern stimmen.', gerundet: 'falsch gerundet', vertauscht: 'Zahlen vertauscht', falsche_einheit: 'falsche Einheit' }[x.grund] || null;
+}
+
+
+function grafik(g) {
+  if (!g) return '';
+  if (g.typ === 'tabelle' && g.quer) return `<table class="tab"><tr>${g.kopf.map((c, i) => (i ? `<td class="z">${esc(c)}</td>` : `<th>${esc(c)}</th>`)).join('')}</tr>${g.zeilen.map((z) => `<tr>${z.map((c, i) => (i ? `<td class="z">${esc(c)}</td>` : `<th>${esc(c)}</th>`)).join('')}</tr>`).join('')}</table>`;
+  if (g.typ === 'tabelle') return `<table class="tab"><tr>${g.kopf.map((c) => `<th>${esc(c)}</th>`).join('')}</tr>${g.zeilen.map((z) => `<tr><td>${esc(z[0])}</td><td class="z">${esc(z[1])}</td></tr>`).join('')}</table>`;
+  if (g.typ === 'dreieck') return `<svg class="zeichnung" viewBox="0 0 300 180" role="img" aria-label="Rechtwinkliges Dreieck, a ${esc(g.a)}, b ${esc(g.b)}, c ${esc(g.c)}">
+    <path d="M75 150 L75 30 L270 150 Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M75 132 L93 132 L93 150" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <text x="66" y="95" text-anchor="end" font-size="15" font-family="monospace" fill="currentColor" font-weight="700">${esc(g.a)}</text>
+    <text x="172" y="172" text-anchor="middle" font-size="15" font-family="monospace" fill="currentColor" font-weight="700">${esc(g.b)}</text>
+    <text x="180" y="80" text-anchor="start" font-size="15" font-family="monospace" fill="currentColor" font-weight="700">${esc(g.c)}</text></svg>`;
+  if (g.typ === 'kreuzung') return `<svg class="zeichnung" viewBox="0 0 300 170" role="img" aria-label="Zwei Geraden kreuzen sich, ein Winkel 38 Grad">
+    <line x1="20" y1="130" x2="280" y2="40" stroke="currentColor" stroke-width="2.5"/><line x1="20" y1="70" x2="280" y2="100" stroke="currentColor" stroke-width="2.5"/>
+    <path d="M190 71 A 40 40 0 0 1 192 89" fill="none" stroke="currentColor" stroke-width="2"/>
+    <text x="200" y="85" font-size="15" font-family="monospace" fill="currentColor" font-weight="700">38°</text>
+    <text x="118" y="70" font-size="15" font-family="monospace" fill="currentColor" font-weight="700" text-anchor="middle">?</text></svg>`;
+  return '';
+}
+
+// kurze Namen für Fehlerarten und Fazit
+const FB_NAME = { 'fb.minusklammer.nur_erstes_zeichen': ['Minus vor der Klammer: nur das erste Zeichen gedreht', 'Klammern mit Minus'],
+  'fb.waage.zeichen_nicht_gedreht': ['Ungleichung: Zeichen nicht umgedreht', 'Ungleichungen mit Minus'],
+  'fb.stellenwert.eine_stelle_daneben': ['Umrechnen: eine Stelle daneben', 'beim Umrechnen von Einheiten'],
+  'fb.winkel.neben_statt_scheitel': ['Scheitel- statt Nebenwinkel', 'Winkeln'], 'fb.rechtwinklig.ohne_quadrate': ['Pythagoras ohne Quadrate', 'Pythagoras'],
+  'fb.bruchrechnen.falscher_kehrwert': ['Falscher Kehrwert', 'Brüchen'], 'fb.potenz.basis_mal_hochzahl': ['Basis mal Hochzahl', 'Potenzen'],
+  'g:komma': ['Komma verrutscht', 'dem Komma'], 'g:vorzeichen': ['Vorzeichen falsch', 'Vorzeichen'] };
+// Zustand: abgehakt (je Versuch), Nachüben geschickt (je Versuch, mit Zeitpunkt). Vor dem letzten Gespräch Erledigtes gilt als abgehakt.
+const ABGEHAKT = new Set(); const NACH = new Map(); const SIM = { 1: [], 2: [] };
+for (const k of [1, 2]) V[k].forEach(([a, am, r], i) => { if (!r && am < (k === 2 ? '2026-11-19' : '2026-11-21')) ABGEHAKT.add(k + '-' + i); });
+NACH.set('2-20', '2026-11-25T19:00'); // Kind 2: Ungleichung −3x < 12 – Nachüben geschickt
+const S = { kind: 2, zeit: 'z14', g: 'hell', leer: false, erledigtAuf: false, toast: null };
+(function () { const q = new URLSearchParams(location.hash.slice(1)); if (q.get('k')) S.kind = +q.get('k'); if (q.get('z')) S.zeit = q.get('z'); if (q.get('g')) S.g = q.get('g'); if (q.get('leer')) S.leer = true; if (q.get('erl')) S.erledigtAuf = true; })();
+const ZEIT = { z7: ['7 Tage', 7], z14: ['14 Tage', 14], alles: ['Alles', 9999] };
+const seit = () => new Date(HEUTE - ZEIT[S.zeit][1] * 864e5).toISOString().slice(0, 16);
+
+function versuche(k) { return V[k].map(([a, am, r, ant, x], i) => ({ id: k + '-' + i, a, am, r, ant, ...(x || {}), lk: A[a].lk })).concat(SIM[k]).sort((x, y) => x.am.localeCompare(y.am)); }
+const artKey = (x) => x.fb || (x.grund ? 'g:' + x.grund : null);
+// offen = endgültig falsch, im Zeitraum, nicht abgehakt, nicht durch Nachüben erledigt
+function nachueberErledigt(x, alle) { const t = NACH.get(x.id); return t && alle.some((y) => y.lk === x.lk && y.r && y.am > t); }
+function lage(k) {
+  const alle = versuche(k); const ab = seit();
+  const imZ = alle.filter((x) => x.am > ab);
+  let offen = imZ.filter((x) => !x.r && !ABGEHAKT.has(x.id) && !nachueberErledigt(x, alle));
+  if (S.leer) offen = [];
+  return { alle, imZ, offen: offen.slice().reverse() };
+}
+
+// ---------- Teil 1: Auswertung ----------
+function auswertung(L) {
+  // Fehler je Thema: offene falsche von allen Antworten im Zeitraum
+  const th = {}; for (const x of L.imZ) { const t = LK[x.lk].thema; th[t] = th[t] || { n: 0, f: 0 }; th[t].n++; }
+  for (const x of L.offen) th[LK[x.lk].thema].f++;
+  const themen = Object.entries(th).sort((a, b) => b[1].f - a[1].f || b[1].n - a[1].n).slice(0, 6);
+  // letzte Lerntage
+  const tage = {}; for (const x of L.alle) { const d = x.am.slice(0, 10); tage[d] = tage[d] || { r: 0, f: 0 }; x.r ? tage[d].r++ : tage[d].f++; }
+  const tl = Object.entries(tage).sort().slice(-7); const max = Math.max(1, ...tl.map(([, v]) => v.r + v.f));
+  // kommt immer wieder: dieselbe Fehlerart ≥ 2-mal im Zeitraum, mindestens einmal noch offen; höchstens 3
+  const ar = {}; for (const x of L.imZ.filter((y) => !y.r)) { const k = artKey(x); if (!k) continue; ar[k] = ar[k] || { n: 0, offen: 0, th: new Set() }; ar[k].n++; ar[k].th.add(LK[x.lk].thema); }
+  for (const x of L.offen) { const k = artKey(x); if (k && ar[k]) ar[k].offen++; }
+  const wieder = Object.entries(ar).filter(([, v]) => v.n >= 2 && v.offen > 0).sort((a, b) => b[1].n - a[1].n).slice(0, 3);
+  // nur einmal passiert: Lernkarten mit genau einem offenen Fehler und ohne wiederkehrende Fehlerart
+  const jeLk = {}; for (const x of L.offen) (jeLk[x.lk] = jeLk[x.lk] || []).push(x);
+  const wiederKeys = new Set(wieder.map(([k]) => k));
+  const einmal = Object.entries(jeLk).filter(([, l]) => l.length === 1 && !wiederKeys.has(artKey(l[0])));
+  const danachRichtig = einmal.filter(([lk, l]) => L.alle.some((y) => y.lk === lk && y.r && y.am > l[0].am));
+  // Fazit
+  const top = wieder[0]; const themaTop = themen.find(([t, v]) => v.f >= 2 && !(top && ar[top[0]].th.has(t)));
+  const ausr = danachRichtig.map(([lk]) => LK[lk].thema);
+  let fazit = '';
+  if (!L.offen.length) { const r = L.imZ.filter((x) => x.r).length; fazit = `${ZEIT[S.zeit][0] === 'Alles' ? 'Bisher' : 'In den letzten ' + ZEIT[S.zeit][0]} ${L.imZ.length} Aufgaben, davon <b>${r} richtig</b>.`; }
+  else { const teile = []; if (top) teile.push(`Am meisten hakt es bei <b>${esc((FB_NAME[top[0]] || [top[0], top[0]])[1])}</b> (${top[1].n}×)`);
+    if (themaTop) teile.push(`${top ? 'dann bei' : 'Am meisten hakt es bei'} <b>${esc(themaTop[0])}</b> (${themaTop[1].f} falsch)`);
+    fazit = teile.join(', ') + (ausr.length ? `; ${esc([...new Set(ausr)].join(' und '))} ${ausr.length === 1 ? 'war ein Ausrutscher' : 'waren Ausrutscher'}.` : '.'); }
+  const id = (t) => 'thema-' + t.replace(/\W+/g, '-');
+  return `<section class="teil" id="auswertung" aria-label="Auswertung"><div class="teil-kopf"><h2>Auswertung</h2><span>${ZEIT[S.zeit][0] === 'Alles' ? 'gesamt' : 'letzte ' + ZEIT[S.zeit][0]}</span></div>
+    <div class="kacheln">
+      <div class="karte kachel"><h3>Fehler je Thema</h3><div class="balken">${themen.map(([t, v]) => `<button data-ziel="${id(t)}"${v.f ? '' : ' disabled'}><span class="name">${esc(t)}</span><span class="wert">${v.f} von ${v.n}</span><span class="spur"><i style="width:${(v.f / v.n) * 100}%"></i></span></button>`).join('')}</div>
+        <div class="legende"><span><i style="background:var(--err-bar)"></i>offen falsch</span><span><i style="background:var(--ok-bar)"></i>richtig oder erledigt</span></div></div>
+      <div class="karte kachel"><h3>Letzte Lerntage</h3><div class="tage">${tl.map(([d, v]) => `<div class="tag" title="${tag(d)}: ${v.r} richtig, ${v.f} falsch"><div class="saeule" style="height:${((v.r + v.f) / max) * 110}px"><i class="r" style="flex:${v.r}"></i><i class="f" style="flex:${v.f}"></i></div><small>${tag(d).slice(0, 2)}<br>${kurzTag(d)}</small></div>`).join('')}</div>
+        <div class="legende"><span><i style="background:var(--ok-bar)"></i>richtig</span><span><i style="background:var(--err-bar)"></i>falsch</span></div></div>
+      <div class="karte kachel"><h3>Kommt immer wieder</h3>${wieder.length ? `<ul class="wieder">${wieder.map(([k, v]) => `<li><button data-ziel="${id([...v.th][0])}"><b>${esc((FB_NAME[k] || [k])[0])}</b><span class="anz">${v.n}×</span><small>${esc([...v.th].join(', '))}</small></button></li>`).join('')}</ul>` : '<p class="muted">Kein Fehler kommt wieder.</p>'}</div>
+      <div class="karte kachel"><h3>Nur einmal passiert</h3><p class="gross-zahl">${einmal.length}</p><p class="muted" style="font-size:13.5px">${danachRichtig.length ? `davon ${danachRichtig.length} danach richtig gelöst` : 'Fehler, die nur einmal vorkamen'}</p></div>
+    </div><p class="fazit">${fazit}</p></section>`;
+}
+
+// ---------- Baustein: eine falsche Aufgabe ----------
+function baustein(x, L) {
+  const a = A[x.a]; const fd = a.form === 'fehler_detektiv';
+  const ein = fd ? a.optionen[x.ant] : x.ant; const ok = fd ? a.optionen[a.richtig] : a.o;
+  const ft = fehlerText(x); const spaeter = L.alle.some((y) => y.lk === x.lk && y.r && y.am > x.am);
+  const nach = NACH.get(x.id);
+  return `<article class="karte aufg" data-id="${x.id}">
+    <p class="a-ort"><span>${esc(LK[x.lk].thema)} · ${esc(LK[x.lk].name)}</span><span>${tag(x.am)}</span></p>
+    <p class="a-text">${esc(a.text)}</p>
+    ${a.zeilen ? `<ol class="a-zeilen">${a.zeilen.map((z, i) => `<li class="${i === x.ant ? 'gewaehlt' : ''}${i === a.richtig ? ' richtig' : ''}">${esc(z)}</li>`).join('')}</ol>` : ''}
+    ${grafik(a.grafik)}
+    <div class="vgl"><div class="ein"><small>eingegeben</small><b>${esc(ein)}</b></div><div class="ok"><small>richtig</small><b>${esc(ok)}</b></div></div>
+    <p class="a-art">${ft ? `<b>Fehler:</b> ${esc(ft)}` : 'Fehlerart nicht erkannt'}${x.anlauf === 2 ? ' · im 2. Anlauf' : ''}${x.tipp ? ' · mit Tipp' : ''}${spaeter ? ' · <span class="gut">danach richtig gelöst</span>' : ''}</p>
+    ${a.w ? `<details class="weg"><summary>Lösungsweg</summary><p>${esc(a.w)}</p></details>` : ''}
+    ${nach ? `<p class="hinweis">Nachüben liegt in der nächsten Übung von ${KINDER[S.kind].name} (seit ${kurzTag(nach)}).</p>` : ''}
+    <div class="aktionen"><button class="knopf haken" data-haken="${x.id}">Abhaken</button>${nach ? '' : `<button class="knopf nach" data-nach="${x.id}">Nachüben schicken</button>`}</div>
+  </article>`;
+}
+
+// ---------- Seite ----------
+function zeichne() {
+  document.body.dataset.g = S.g;
+  const k = S.kind; const L = lage(k);
+  const seg = (name, werte, akt) => `<span class="seg" role="group">${werte.map(([v, t, s]) => `<button data-${name}="${v}" aria-pressed="${akt === v}">${t}${s ? `<small>${s}</small>` : ''}</button>`).join('')}</span>`;
+  const kopf = `<div class="kind-kopf">${seg('kind', [['1', 'Kind 1', 'Kl. 5'], ['2', 'Kind 2', 'Kl. 8']], String(k))}
+    <nav class="reiter"><a href="#">Überblick</a><a href="#" aria-current="page">Was wackelt</a><a href="#">Lehrplan</a></nav>
+    <span class="zeit">${seg('zeit', Object.entries(ZEIT).map(([v, [t]]) => [v, t]), S.zeit)}</span></div>
+    <div class="seiten-titel"><h1>Was wackelt bei ${KINDER[k].name}</h1><button class="link-leise" data-erl>${S.erledigtAuf ? 'Erledigtes ausblenden' : 'Erledigtes ansehen'}</button></div>`;
+  const erl = S.erledigtAuf ? (() => { const l = L.alle.filter((x) => !x.r && (ABGEHAKT.has(x.id) || nachueberErledigt(x, L.alle))).reverse();
+    return `<div class="karte erledigt"><ul>${l.map((x) => `<li><span>${esc(A[x.a].text)} <span class="muted">· ${esc(LK[x.lk].thema)} · ${kurzTag(x.am)}</span></span>${ABGEHAKT.has(x.id) ? `<button class="link-leise" data-zurueck="${x.id}">zurückholen</button>` : '<span class="muted">nachgeübt</span>'}</li>`).join('') || '<li class="muted">Noch nichts erledigt.</li>'}</ul></div>`; })() : '';
+  const letzte = L.offen.slice(0, 4);
+  const teil2 = L.offen.length ? `<section class="teil" id="letzte" aria-label="Letzte Fehler"><div class="teil-kopf"><h2>Letzte Fehler</h2><span>die ${letzte.length} neuesten von ${L.offen.length} offenen</span></div>
+      <div class="bausteine">${letzte.map((x) => baustein(x, L)).join('')}</div></section>` : '';
+  // Teil 3: Thema → Lernkarte → Aufgaben (neueste zuerst); Themen nach Zahl offener Fehler
+  const th = {}; for (const x of L.offen) { const t = LK[x.lk].thema; (th[t] = th[t] || {}); (th[t][x.lk] = th[t][x.lk] || []).push(x); }
+  const thSort = Object.entries(th).sort((a, b) => Object.values(b[1]).flat().length - Object.values(a[1]).flat().length);
+  const teil3 = L.offen.length ? `<section class="teil" id="themen" aria-label="Nach Themen"><div class="teil-kopf"><h2>Nach Themen</h2><span>${L.offen.length} offene Fehler in ${thSort.length} Themen</span></div>
+    <div class="themen">${thSort.map(([t, lks]) => { const n = Object.values(lks).flat().length;
+      return `<section class="thema" id="thema-${t.replace(/\W+/g, '-')}"><h3>${esc(t)} <span>${n} offen</span></h3>${Object.entries(lks).map(([lk, l]) => `<div class="lk"><div class="lk-kopf"><h4>${esc(LK[lk].name)} <span>· ${l.length}</span></h4>
+        <button class="knopf haken" data-haken-lk="${lk}">Alle abhaken</button>${l.every((x) => NACH.has(x.id)) ? '' : `<button class="knopf nach" data-nach-lk="${lk}">Nachüben schicken</button>`}</div>
+        <div class="bausteine">${l.map((x) => baustein(x, L)).join('')}</div></div>`).join('')}</section>`; }).join('')}</div></section>` : '';
+  const leer = !L.offen.length ? `<section class="teil"><p class="karte leer-satz"><b>✓</b> Alles abgearbeitet – ${KINDER[k].name} hat gerade keine offenen Fehler. Weiter so.</p></section>` : '';
+  document.getElementById('main').innerHTML = kopf + erl + (L.offen.length ? '' : leer) + auswertung(L) + teil2 + teil3;
+  let t = document.querySelector('.toast');
+  if (S.toast) { if (!t) { t = document.createElement('div'); t.className = 'toast'; t.setAttribute('role', 'status'); document.body.append(t); } t.innerHTML = `<span>${esc(S.toast.text)}</span>${S.toast.undo ? '<button data-undo>Rückgängig</button>' : ''}`; } else t?.remove();
+}
+let uhr = null;
+function melde(text, undo) { S.toast = { text, undo }; clearTimeout(uhr); uhr = setTimeout(() => { S.toast = null; zeichne(); }, 5000); }
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('button, a'); if (!b) return; const d = b.dataset; const k = S.kind;
+  if (b.tagName === 'A') { e.preventDefault(); return; }
+  if (d.kind) S.kind = +d.kind;
+  else if (d.zeit) S.zeit = d.zeit;
+  else if ('erl' in d) S.erledigtAuf = !S.erledigtAuf;
+  else if (d.ziel) { document.getElementById(d.ziel)?.scrollIntoView({ block: 'start' }); return; }
+  else if (d.haken) { ABGEHAKT.add(d.haken); melde('Abgehakt', () => ABGEHAKT.delete(d.haken)); }
+  else if (d.hakenLk) { const ids = lage(k).offen.filter((x) => x.lk === d.hakenLk).map((x) => x.id); ids.forEach((i) => ABGEHAKT.add(i)); melde(`${ids.length} abgehakt`, () => ids.forEach((i) => ABGEHAKT.delete(i))); }
+  else if (d.nach) { NACH.set(d.nach, HEUTE.toISOString().slice(0, 16)); melde('Nachüben geschickt', () => NACH.delete(d.nach)); }
+  else if (d.nachLk) { const ids = lage(k).offen.filter((x) => x.lk === d.nachLk && !NACH.has(x.id)).map((x) => x.id); ids.forEach((i) => NACH.set(i, HEUTE.toISOString().slice(0, 16))); melde('Nachüben geschickt', () => ids.forEach((i) => NACH.delete(i))); }
+  else if (d.zurueck) ABGEHAKT.delete(d.zurueck);
+  else if ('undo' in d) { S.toast.undo?.(); S.toast = null; }
+  else return;
+  zeichne();
+});
+zeichne();
+</script>
+</body>
+</html>

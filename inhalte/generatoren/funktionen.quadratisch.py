@@ -966,7 +966,7 @@ DS.neu('umformen', 3, DS.Z('Die Parabel y = x² + bx + 5 hat ihren Scheitel bei 
 DS.stufe('nullstellen', 'Bestimme die Nullstellen von f(x) = 2x² − 8x − 10.', 2)
 DS.stufe('nullstellen', 'Wie viele Nullstellen hat die Funktion f mit f(x) = −x² − 8x − 16?', 2)
 DS.stufe('nullstellen', 'Wie viele Nullstellen hat die Funktion f mit f(x) = −4x² − 16x − 16?', 2)
-DS.fuer_sebastian('funktionen.quadratisch/nullstellen: die Stufe-3-Aufgabe „Parabel und Gerade schneiden sich zweimal“ überschneidet sich mit der neuen Karte „schnittpunkte“ (bleibt, kein Fehler).')
+DS.fuer_nutzer('funktionen.quadratisch/nullstellen: die Stufe-3-Aufgabe „Parabel und Gerade schneiden sich zweimal“ überschneidet sich mit der neuen Karte „schnittpunkte“ (bleibt, kein Fehler).')
 # punkte: Funktionswert berechnen ist Stufe 1 (auch als Q(−3 | v)); Kugelstoßen = Einsetzen mit Einkleidung → Stufe 2
 DS.stufe('punkte', 'Berechne f(−2) für f(x) = −x² + 3x + 1.', 1)
 DS.stufe('punkte', 'Q(−3 | v) liegt auf dem Graphen von y = −x² − 2x. Bestimme v.', 1)

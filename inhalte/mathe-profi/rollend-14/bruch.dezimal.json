@@ -1,0 +1,1208 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-14",
+ "kuerzel": "R14",
+ "flug": "r14-bruch.dezimal",
+ "titel": "bruch.dezimal",
+ "fuer": "Klasse 6 und 8",
+ "klasse": 6,
+ "themen": [
+  "bruch.dezimal"
+ ],
+ "themen_datei_im_bestand": "bruch.dezimal",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R14-V166",
+   "thema": "bruch.dezimal",
+   "lernkarte": "stellenwerte",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 475,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Einer nur als 100 Tausendstel gezählt"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ziffern einfach addiert"
+    },
+    {
+     "antwort": 4705,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hundertstel als 100 Tausendstel gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "stellenwerte",
+    "t": "stellenwerte",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Dezimalzahl hat 4 Einer, 0 Zehntel, 7 Hundertstel und 5 Tausendstel. Wie viele Tausendstel sind das insgesamt?"
+    },
+    "o": {
+     "wert": 4075
+    },
+    "c": "4 * 1000 + 7 * 10 + 5",
+    "h": "Wie viele Tausendstel sind 1 Einer? Wie viele Tausendstel sind 1 Hundertstel?",
+    "w": "1 Einer sind 1 000 Tausendstel, also 4 Einer sind 4 000 Tausendstel. 1 Hundertstel sind 10 Tausendstel, also 7 Hundertstel sind 70. Dazu 5 Tausendstel: 4 000 + 70 + 5 = 4 075."
+   }
+  },
+  {
+   "kennung": "R14-V167",
+   "thema": "bruch.dezimal",
+   "lernkarte": "stellenwerte",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.08,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied in Metern als Zentimeter angegeben"
+    },
+    {
+     "antwort": 80,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in Millimeter statt in Zentimeter umgerechnet"
+    },
+    {
+     "antwort": 0.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10 statt mit 100 umgerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "stellenwerte",
+    "t": "stellenwerte",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Beim Weitsprung springt Sam 4,58 m. Kim springt 4,5 m. Um wie viele Zentimeter ist Sams Sprung weiter?"
+    },
+    "o": {
+     "wert": 8,
+     "einheit": "cm"
+    },
+    "c": "4.58 * 100 - 4.5 * 100",
+    "h": "Rechne beide Weiten in Zentimeter um. 1 m sind 100 cm.",
+    "w": "4,58 m = 458 cm und 4,5 m = 450 cm. Der Unterschied ist 458 − 450 = 8 cm."
+   }
+  },
+  {
+   "kennung": "R14-V168",
+   "thema": "bruch.dezimal",
+   "lernkarte": "stellenwerte",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5.94,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied nicht in Hundertstel umgerechnet"
+    },
+    {
+     "antwort": 567,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2,85 als kleinste Zahl genommen"
+    },
+    {
+     "antwort": 5940,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "als Tausendstel statt als Hundertstel angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "stellenwerte",
+    "t": "stellenwerte",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Aus den Ziffern 2, 5 und 8 wird eine Dezimalzahl gebildet. Jede Ziffer wird genau einmal benutzt, das Komma steht nach der ersten Ziffer. Um wie viele Hundertstel ist die größte solche Zahl größer als die kleinste?"
+    },
+    "o": {
+     "wert": 594,
+     "einheit": "Hundertstel"
+    },
+    "c": "(8.52 - 2.58) * 100",
+    "h": "Welche Ziffer muss vorne stehen, damit die Zahl möglichst groß oder möglichst klein ist? Dann ordnest du die restlichen Ziffern.",
+    "w": "Größte Zahl: 8,52. Kleinste Zahl: 2,58. Unterschied: 8,52 − 2,58 = 5,94. Das sind 594 Hundertstel."
+   }
+  },
+  {
+   "kennung": "R14-V169",
+   "thema": "bruch.dezimal",
+   "lernkarte": "vergleichen_ordnen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 294,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die zweitschnellste statt der schnellsten Schnecke genommen"
+    },
+    {
+     "antwort": 32.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 100 statt mit 1 000 umgerechnet"
+    },
+    {
+     "antwort": 270,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die zweitlangsamste statt der langsamsten Schnecke genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vergleichen_ordnen",
+    "t": "vergleichen_ordnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Vier Schnecken kriechen in einer Stunde 0,36 m, 0,6 m, 0,306 m und 0,63 m weit. Um wie viele Millimeter ist die schnellste Schnecke weiter gekommen als die langsamste?"
+    },
+    "o": {
+     "wert": 324,
+     "einheit": "mm"
+    },
+    "c": "(0.63 - 0.306) * 1000",
+    "h": "Welche Schnecke ist am weitesten gekommen, welche am wenigsten weit? Fülle mit Endnullen auf: 0,630 und 0,306.",
+    "w": "Am weitesten: 0,63 m = 630 mm. Am wenigsten: 0,306 m = 306 mm. Unterschied: 630 − 306 = 324 mm."
+   }
+  },
+  {
+   "kennung": "R14-V170",
+   "thema": "bruch.dezimal",
+   "lernkarte": "vergleichen_ordnen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Grenzen 2 und 8 mitgezählt"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ziffer 2 der Grenze 3,42 mitgezählt"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle zehn Ziffern gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vergleichen_ordnen",
+    "t": "vergleichen_ordnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Für wie viele Ziffern □ liegt die Zahl 3,4□ zwischen 3,42 und 3,48? Die Zahlen 3,42 und 3,48 selbst zählen nicht mit."
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "8 - 2 - 1",
+    "h": "Welche Ziffern □ machen 3,4□ größer als 3,42? Welche machen es kleiner als 3,48?",
+    "w": "Größer als 3,42 ist 3,4□ ab □ = 3. Kleiner als 3,48 ist es bis □ = 7. Möglich sind 3, 4, 5, 6 und 7: das sind 5 Ziffern."
+   }
+  },
+  {
+   "kennung": "R14-V171",
+   "thema": "bruch.dezimal",
+   "lernkarte": "vergleichen_ordnen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3.87,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ziffern 7 und 8 vertauscht"
+    },
+    {
+     "antwort": 3.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "um ein Zehntel weitergezählt"
+    },
+    {
+     "antwort": 4.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 8 als Zehntel zu 3,7 addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "vergleichen_ordnen",
+    "t": "vergleichen_ordnen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Zahl hat genau zwei Nachkommastellen und liegt zwischen 3,7 und 3,8. Die Quersumme aller ihrer Ziffern ist 18. Welche Zahl ist es?"
+    },
+    "o": {
+     "wert": 3.78
+    },
+    "c": "3.7 + (18 - 3 - 7) / 100",
+    "h": "Die Zahl sieht so aus: 3,7 und eine letzte Ziffer. Welche Ziffer fehlt, damit die Quersumme 18 ist?",
+    "w": "Die Zahl hat die Form 3,7x. Die Quersumme ist 3 + 7 + x = 18, also x = 8. Die Zahl ist 3,78. Sie liegt zwischen 3,70 und 3,80."
+   }
+  },
+  {
+   "kennung": "R14-V172",
+   "thema": "bruch.dezimal",
+   "lernkarte": "runden",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auf Zehntel gerundet"
+    },
+    {
+     "antwort": 0.385,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auf Tausendstel gerundet"
+    },
+    {
+     "antwort": 3.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Komma beim Runden falsch gesetzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "runden",
+    "t": "runden",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Wasserzähler zeigt 0,3846 m³. Runde auf Hundertstel. Wie viele Kubikmeter sind das gerundet?"
+    },
+    "o": {
+     "wert": 0.38,
+     "einheit": "m³"
+    },
+    "c": "round(0.3846 * 100) / 100",
+    "h": "Die Rundungsstelle ist die zweite Stelle nach dem Komma. Schau auf die Ziffer direkt rechts davon.",
+    "w": "Hundertstel: 0,38. Die Ziffer rechts davon ist 4, also wird abgerundet. Ergebnis: 0,38 m³."
+   }
+  },
+  {
+   "kennung": "R14-V173",
+   "thema": "bruch.dezimal",
+   "lernkarte": "runden",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 80.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auf Zehntel gerundet"
+    },
+    {
+     "antwort": 80.18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aufgerundet statt gerundet"
+    },
+    {
+     "antwort": 79.9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Kurs zuerst auf 0,94 gerundet"
+    }
+   ],
+   "aufgabe": {
+    "l": "runden",
+    "t": "runden",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Alex tauscht 85 € in Schweizer Franken. Für 1 € bekommt man 0,9432 Franken. Wie viele Franken sind das, auf Rappen genau (zwei Nachkommastellen) gerundet?"
+    },
+    "o": {
+     "wert": 80.17,
+     "einheit": "Franken"
+    },
+    "c": "round(85 * 0.9432 * 100) / 100",
+    "h": "Rechne zuerst den genauen Betrag aus. Dann rundest du auf Hundertstel.",
+    "w": "85 · 0,9432 = 80,172. Auf Hundertstel gerundet: Die Ziffer rechts ist 2, also abrunden. Ergebnis: 80,17 Franken."
+   }
+  },
+  {
+   "kennung": "R14-V174",
+   "thema": "bruch.dezimal",
+   "lernkarte": "runden",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 99,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 5,50 nicht mitgezählt"
+    },
+    {
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Zahlen von 5,50 bis 5,99 gezählt"
+    },
+    {
+     "antwort": 101,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auch 6,50 mitgezählt, die schon auf 7 aufgerundet wird"
+    }
+   ],
+   "aufgabe": {
+    "l": "runden",
+    "t": "runden",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Auf einem Display steht eine Zahl mit genau zwei Nachkommastellen, zum Beispiel 6,00. Sie wird auf eine ganze Zahl gerundet: Hat die Zehntelziffer den Wert 5 oder mehr, wird aufgerundet. Das Ergebnis ist 6. Wie viele verschiedene Anzeigen kann es gewesen sein?"
+    },
+    "o": {
+     "wert": 100
+    },
+    "c": "649 - 550 + 1",
+    "h": "Welche ist die kleinste, welche die größte Zahl, die auf 6 gerundet wird? Zähle die Hundertstel von der kleinsten bis zur größten.",
+    "w": "Ab 5,50 (Zehntelziffer 5) wird auf 6 aufgerundet, bis 6,49 (Zehntelziffer 4) wird auf 6 abgerundet. Die Zahlen sind 5,50 bis 6,49, also 550 bis 649 Hundertstel. Das sind 649 − 550 + 1 = 100 Zahlen."
+   }
+  },
+  {
+   "kennung": "R14-V175",
+   "thema": "bruch.dezimal",
+   "lernkarte": "bruch_zu_dezimal",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler durch 10 geteilt"
+    },
+    {
+     "antwort": 3.6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Komma falsch gesetzt"
+    },
+    {
+     "antwort": 0.225,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Nenner 40 statt 25 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "bruch_zu_dezimal",
+    "t": "bruch_zu_dezimal",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Kim hat 9/25 des Schulwegs mit dem Rad geschafft. Schreibe den Anteil als Dezimalzahl."
+    },
+    "o": {
+     "wert": 0.36
+    },
+    "c": "9 / 25",
+    "h": "Erweitere 9/25 auf den Nenner 100. Mit welcher Zahl musst du 25 malnehmen?",
+    "w": "Erweitern mit 4: 9/25 = 36/100 = 0,36. Probe: 9 : 25 = 0,36."
+   }
+  },
+  {
+   "kennung": "R14-V176",
+   "thema": "bruch.dezimal",
+   "lernkarte": "bruch_zu_dezimal",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Bruch in Metern als Zentimeter angegeben"
+    },
+    {
+     "antwort": 3.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10 statt mit 100 umgerechnet"
+    },
+    {
+     "antwort": 140,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zähler und Nenner malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "bruch_zu_dezimal",
+    "t": "bruch_zu_dezimal",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Stab ist 7/20 m lang. Wie viele Zentimeter sind das?"
+    },
+    "o": {
+     "wert": 35,
+     "einheit": "cm"
+    },
+    "c": "7 / 20 * 100",
+    "h": "Erweitere 7/20 auf den Nenner 100. Dann siehst du die Hundertstel.",
+    "w": "7/20 = 35/100 = 0,35 m. Das sind 0,35 · 100 = 35 cm."
+   }
+  },
+  {
+   "kennung": "R14-V177",
+   "thema": "bruch.dezimal",
+   "lernkarte": "bruch_zu_dezimal",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1.075,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "drei Sechzehntel als 0,3 geschrieben"
+    },
+    {
+     "antwort": 1.6375,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Achtel als 0,8 geschrieben"
+    },
+    {
+     "antwort": 0.775,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den dritten Bruch vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "bruch_zu_dezimal",
+    "t": "bruch_zu_dezimal",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Dezimalzahl d hat denselben Wert wie 13/20. Wie groß ist d + 1/8 + 3/16? Gib das Ergebnis als Dezimalzahl an."
+    },
+    "o": {
+     "wert": 0.9625
+    },
+    "c": "13 / 20 + 1 / 8 + 3 / 16",
+    "h": "Schreibe jeden Bruch als Dezimalzahl. Erweitere 1/8 auf Tausendstel und 3/16 auf Zehntausendstel.",
+    "w": "13/20 = 65/100 = 0,65. 1/8 = 125/1000 = 0,125. 3/16 = 1875/10000 = 0,1875. Summe: 0,65 + 0,125 + 0,1875 = 0,9625."
+   }
+  },
+  {
+   "kennung": "R14-V178",
+   "thema": "bruch.dezimal",
+   "lernkarte": "dezimal_zu_bruch",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler des ungekürzten Bruchs angegeben"
+    },
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner statt den Zähler angegeben"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Zähler 35 durch 7 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "dezimal_zu_bruch",
+    "t": "dezimal_zu_bruch",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Schnur ist 0,35 m lang. Schreibe 0,35 als vollständig gekürzten Bruch. Welche Zahl steht im Zähler?"
+    },
+    "o": {
+     "wert": 7
+    },
+    "c": "35 / 5",
+    "h": "0,35 sind 35/100. Kürze mit der größten Zahl, die in 35 und in 100 steckt.",
+    "w": "0,35 = 35/100. Der größte gemeinsame Teiler ist 5. Gekürzt: 7/20. Im Zähler steht 7."
+   }
+  },
+  {
+   "kennung": "R14-V179",
+   "thema": "bruch.dezimal",
+   "lernkarte": "dezimal_zu_bruch",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 78.125,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "625 durch 8 geteilt"
+    },
+    {
+     "antwort": 6.25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10 malgenommen"
+    },
+    {
+     "antwort": 625,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 1 000 malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "dezimal_zu_bruch",
+    "t": "dezimal_zu_bruch",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Rezept braucht 0,625 kg Mehl. Wie viele Achtel Kilogramm sind das?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "0.625 * 8",
+    "h": "0,625 sind 625/1 000. Kürze mit 125. Welchen Nenner erhältst du?",
+    "w": "0,625 = 625/1000 = 5/8. Das sind 5 Achtel Kilogramm. Probe: 5 · 0,125 = 0,625."
+   }
+  },
+  {
+   "kennung": "R14-V180",
+   "thema": "bruch.dezimal",
+   "lernkarte": "dezimal_zu_bruch",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner 4 aus Kims Ergebnis angegeben"
+    },
+    {
+     "antwort": 1000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner des ungekürzten Bruchs angegeben"
+    },
+    {
+     "antwort": 200,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit 5 gekürzt"
+    },
+    {
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner 100 aus Kims erstem Schritt angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "dezimal_zu_bruch",
+    "t": "dezimal_zu_bruch",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "zahl",
+    "f": {
+     "text": "Kim schreibt: „0,075 = 75/100 = 3/4.“ Kims Kürzung ist richtig, trotzdem stimmt das Ergebnis nicht. Welchen Nenner hat der richtige, vollständig gekürzte Bruch?"
+    },
+    "o": {
+     "wert": 40
+    },
+    "c": "1000 / 25",
+    "h": "Wie viele Nachkommastellen hat 0,075? Danach richtet sich der Nenner, bevor du kürzt.",
+    "w": "Kims Kürzung 75/100 = 3/4 ist richtig. Falsch ist der Nenner 100: 0,075 hat 3 Nachkommastellen, also 75/1000. Kürzen mit 25 ergibt 3/40. Der Nenner ist 40."
+   }
+  },
+  {
+   "kennung": "R14-V181",
+   "thema": "bruch.dezimal",
+   "lernkarte": "merkwerte",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.125,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Bruch als Milliliter angegeben"
+    },
+    {
+     "antwort": 12.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 100 statt mit 1 000 umgerechnet"
+    },
+    {
+     "antwort": 8000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Nenner malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "merkwerte",
+    "t": "merkwerte",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Messbecher ist mit 1/8 Liter gefüllt. Wie viele Milliliter sind das?"
+    },
+    "o": {
+     "wert": 125,
+     "einheit": "ml"
+    },
+    "c": "1 / 8 * 1000",
+    "h": "Du weißt: 1/8 = 0,125. Ein Liter hat 1 000 ml.",
+    "w": "1/8 l = 0,125 l. Das sind 0,125 · 1 000 = 125 ml."
+   }
+  },
+  {
+   "kennung": "R14-V182",
+   "thema": "bruch.dezimal",
+   "lernkarte": "merkwerte",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 150,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die gelesenen statt die fehlenden Seiten angegeben"
+    },
+    {
+     "antwort": 175,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "drei Fünftel als 0,3 geschrieben"
+    },
+    {
+     "antwort": 200,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Fünftel abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "merkwerte",
+    "t": "merkwerte",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Sam hat 3/5 eines Buches mit 250 Seiten gelesen. Wie viele Seiten fehlen noch?"
+    },
+    "o": {
+     "wert": 100
+    },
+    "c": "250 - 3 / 5 * 250",
+    "h": "Du weißt: 1/5 = 0,2. Wie viele Seiten hat Sam gelesen? Dann ziehst du ab.",
+    "w": "3/5 = 0,6. Gelesen: 0,6 · 250 = 150 Seiten. Es fehlen 250 − 150 = 100 Seiten."
+   }
+  },
+  {
+   "kennung": "R14-V183",
+   "thema": "bruch.dezimal",
+   "lernkarte": "merkwerte",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.975,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht in Prozent umgerechnet"
+    },
+    {
+     "antwort": 67.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "drei Fünftel als 0,3 geschrieben"
+    },
+    {
+     "antwort": 9.75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10 statt mit 100 umgerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "merkwerte",
+    "t": "merkwerte",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viel Prozent sind 1/4 + 0,125 + 3/5 zusammen?"
+    },
+    "o": {
+     "wert": 97.5,
+     "einheit": "%"
+    },
+    "c": "(1 / 4 + 0.125 + 3 / 5) * 100",
+    "h": "Schreibe jeden Summanden als Dezimalzahl: 1/4 = 0,25 und 3/5 = 0,6. Addiere. Dann rechnest du in Prozent um.",
+    "w": "0,25 + 0,125 + 0,6 = 0,975. In Prozent: 0,975 · 100 = 97,5 %."
+   }
+  },
+  {
+   "kennung": "R14-V184",
+   "thema": "bruch.dezimal",
+   "lernkarte": "periodisch",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 333,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Länge in Zentimetern statt in Metern angegeben"
+    },
+    {
+     "antwort": 3.3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auf Zehntel gerundet"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auf ganze Meter gerundet"
+    }
+   ],
+   "aufgabe": {
+    "l": "periodisch",
+    "t": "periodisch",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Sam teilt ein 10 m langes Band in 3 gleich lange Stücke. Wie lang ist ein Stück, gerundet auf Zentimeter? Gib die Länge in Metern an."
+    },
+    "o": {
+     "wert": 3.33,
+     "einheit": "m"
+    },
+    "c": "round(10 / 3 * 100) / 100",
+    "h": "Rechne 10 : 3. Die Ziffer 3 wiederholt sich immer wieder. Runde auf Hundertstel.",
+    "w": "10 : 3 = 3,3333… Die Ziffer 3 wiederholt sich. Auf Hundertstel gerundet: 3,33 m."
+   }
+  },
+  {
+   "kennung": "R14-V185",
+   "thema": "bruch.dezimal",
+   "lernkarte": "periodisch",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 162,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 37. Stelle vergessen"
+    },
+    {
+     "antwort": 168,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 37. Stelle als 6 statt als 3 gezählt"
+    },
+    {
+     "antwort": 333,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "jede der 37 Stellen mit der Ziffernsumme 9 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "periodisch",
+    "t": "periodisch",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Es gilt 4/11 = 0,363636… Die Ziffernfolge 36 wiederholt sich immer weiter. Wie groß ist die Summe aller Ziffern von der 1. bis zur 37. Stelle nach dem Komma?"
+    },
+    "o": {
+     "wert": 165
+    },
+    "c": "18 * (3 + 6) + 3",
+    "h": "Wie groß ist die Ziffernsumme einer Wiederholung? Wie viele ganze Wiederholungen passen in 37 Stellen, und welche Ziffer bleibt übrig?",
+    "w": "Eine Wiederholung „36“ hat 2 Ziffern und die Ziffernsumme 3 + 6 = 9. In 37 Stellen passen 18 ganze Wiederholungen (36 Stellen): 18 · 9 = 162. Die 37. Stelle ist die erste Ziffer einer neuen Wiederholung, also 3. Summe: 162 + 3 = 165."
+   }
+  },
+  {
+   "kennung": "R14-V186",
+   "thema": "bruch.dezimal",
+   "lernkarte": "periodisch",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ziffer 2 gezählt, die an 13 Stellen steht"
+    },
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle 25 Stellen gezählt"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei jeder der 12 Wiederholungen beide Ziffern gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "periodisch",
+    "t": "periodisch",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Es gilt 3/11 = 0,272727… Die Ziffernfolge 27 wiederholt sich immer weiter. Wie oft steht die Ziffer 7 unter den ersten 25 Nachkommastellen?"
+    },
+    "o": {
+     "wert": 12
+    },
+    "c": "25 // 2",
+    "h": "An welchen Stellen steht die 7? Wie viele gerade Zahlen gibt es bis 25?",
+    "w": "Die Ziffern wechseln: 2, 7, 2, 7, … Die 7 steht an jeder zweiten Stelle, nämlich an den Stellen 2, 4, 6, …, 24. Das sind 12 Stellen. Die 25. Stelle ist eine 2."
+   }
+  },
+  {
+   "kennung": "R14-V187",
+   "thema": "bruch.dezimal",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 10.0596,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das genaue Ergebnis statt des Unterschieds angegeben"
+    },
+    {
+     "antwort": 0.00596,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Komma um eine Stelle falsch gesetzt"
+    },
+    {
+     "antwort": 0.06,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied auf Hundertstel gerundet"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Sam schätzt 4,98 · 2,02, indem er beide Zahlen auf ganze Zahlen rundet. Er behauptet: „Der Überschlag ist größer als das genaue Ergebnis.“ Prüfe das nach: Um wie viel unterscheiden sich der Überschlag und das genaue Ergebnis? Gib den Unterschied als Dezimalzahl an."
+    },
+    "o": {
+     "wert": 0.0596
+    },
+    "c": "(498 * 202 - 100000) / 10000",
+    "h": "Berechne den Überschlag 5 · 2. Rechne das genaue Ergebnis ohne Komma als 498 · 202 und setze das Komma wieder ein: vier Nachkommastellen.",
+    "w": "Überschlag: 5 · 2 = 10. Genau: 4,98 · 2,02 = 10,0596. Der Überschlag ist kleiner als das genaue Ergebnis, Sams Behauptung stimmt also nicht. Unterschied: 10,0596 − 10 = 0,0596."
+   }
+  },
+  {
+   "kennung": "R14-V188",
+   "thema": "bruch.dezimal",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Zahlen zwischen A und B gezählt"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl B mitgezählt"
+    },
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "M und B mitgezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Auf einem Zahlenstrahl liegt der Punkt A bei 4,35 und der Punkt B bei 4,47. M ist der Mittelpunkt der Strecke AB. Wie viele Zahlen mit genau zwei Nachkommastellen liegen zwischen M und B? M und B zählen nicht mit."
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "447 - 441 - 1",
+    "h": "Wie weit liegen A und B auseinander? Wo liegt M? Zähle die Hundertstel zwischen M und B.",
+    "w": "A = 4,35 sind 435 Hundertstel, B = 4,47 sind 447 Hundertstel. Der Abstand ist 12 Hundertstel, die Hälfte 6: M liegt bei 441 Hundertsteln, also bei 4,41. Zwischen M und B liegen 4,42; 4,43; 4,44; 4,45; 4,46. Das sind 5 Zahlen."
+   }
+  },
+  {
+   "kennung": "R14-V189",
+   "thema": "bruch.dezimal",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1.1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "als Hundertstel statt als Tausendstel angegeben"
+    },
+    {
+     "antwort": 619,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "0,07 statt 0,7 verglichen"
+    },
+    {
+     "antwort": 700,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Wert von 0,7 in Tausendsteln angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "zahl",
+    "f": {
+     "text": "Kim behauptet: „Je mehr Ziffern nach dem Komma, desto größer ist die Zahl.“ Kim vergleicht 0,7 und 0,689. Um wie viele Tausendstel ist die Zahl mit weniger Ziffern größer?"
+    },
+    "o": {
+     "wert": 11,
+     "einheit": "Tausendstel"
+    },
+    "c": "(0.7 - 0.689) * 1000",
+    "h": "Schreibe 0,7 als 0,700 und vergleiche mit 0,689 Stelle für Stelle.",
+    "w": "0,7 = 0,700 = 700 Tausendstel. 0,689 sind 689 Tausendstel. Unterschied: 700 − 689 = 11 Tausendstel. Kims Aussage ist falsch."
+   }
+  }
+ ]
+}

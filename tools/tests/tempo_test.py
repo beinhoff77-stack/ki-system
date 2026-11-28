@@ -27,6 +27,7 @@ import tempo_einspielen as E  # noqa: E402
 WURZEL = T.WURZEL
 AUS = WURZEL / 'tools/tests/aus'
 ALT, NEU = 'bf3152e9a378a1d4e41c98965acf738e', '3f49198f8dbf5c822a0be4650a5ebce5'
+EIGENSCHAFTEN = 'p_lernender bigint, p_einheit bigint|jsonb|sql|s|f|f|f|{"search_path=\\"\\""}'
 
 
 def py(*args):
@@ -74,7 +75,8 @@ def pruefe_bericht(r, *, schon=False):
     for n in ('alt', 'neu', 'endzustand'):
         assert r['laeufe'][n]['merkheft'] == 'verglichen' and r['laeufe'][n]['kinder'] == [1, 2, 3, 4] and r['laeufe'][n]['paare'] == 380, r['laeufe'][n]
     assert r['funktion_vorher']['md5'] == (NEU if schon else ALT) and r['funktion_nachher']['md5'] == NEU and r['eigenschaften_gleich'], r
-    assert r['funktion_nachher']['eigenschaften'] == 'p_lernender bigint, p_einheit bigint|jsonb|sql|s|f|{"search_path=\\"\\""}', r['funktion_nachher']
+    assert r['funktion_nachher']['eigenschaften'] == EIGENSCHAFTEN, r['funktion_nachher']
+    for f in ('funktion_vorher', 'funktion_nachher'): assert r[f]['strict'] is False and r[f]['ergebnis'] == 'jsonb' and r[f]['menge'] is False, r[f]
     soll = {'aufgabe_einheit_pool_lz_idx': 'aufgabe (einheit_id, pool, variante_gruppe)', 'versuch_kind_aufgabe_idx': 'versuch (lernender_id, aufgabe_id)'}
     for name, spalten in soll.items():
         x = [i for i in r['indizes_nachher'] if i['name'] == name]
@@ -117,7 +119,8 @@ def verdorbene_migrationen(m):
 def main():
     rc, out, err = py('tools/tests/tempo_einspielen.py', '--pruefen')
     assert rc == 0, 'Pakete nicht auf dem Stand: python3 -I tools/tests/tempo_einspielen.py\n' + err
-    t1, t2, neu = E.migration()
+    t1, t2, neu, art = E.migration()
+    assert art == EIGENSCHAFTEN, art
     assert neu == NEU and hashlib.md5(E.alter_text().encode('utf-8')).hexdigest() == ALT
     alt_sql = E.alter_sql()
     b = T.pg_bin()
@@ -150,8 +153,17 @@ def main():
             ('Merkheft scheitert für ein Kind', mh.replace('perform schule.zugriff(p_schluessel, v_l);',
              "perform schule.zugriff(p_schluessel, v_l);\n  if v_l = 4 then raise exception 'kaputt für Kind 4'; end if;"), mh, 'Lauf „alt“ fehlgeschlagen'),
             ('Kommentar-Trick', alt_sql.replace("as $$\n  select", "as $$\n  -- TEMPO-S1\n  select"), alt_sql, 'weicht vom Repo-Stand ab'),
-            ('volatile', alt_sql.replace('language sql stable', 'language sql volatile'), alt_sql, 'Eigenschaften von etappen_stand anders'),
-            ('security definer', alt_sql.replace("language sql stable set search_path", "language sql stable security definer set search_path"), alt_sql + 'alter function schule.etappen_stand(bigint, bigint) security invoker;', 'Eigenschaften von etappen_stand anders'),
+            ('volatile', alt_sql.replace('language sql stable', 'language sql volatile'), alt_sql, 'Eigenschaften von etappen_stand'),
+            ('etappen_stand STRICT (gleicher prosrc)', 'alter function schule.etappen_stand(bigint, bigint) strict;', 'alter function schule.etappen_stand(bigint, bigint) called on null input;',
+             'Eigenschaften von etappen_stand'),
+            ('Merkheft STRICT', 'alter function api.schule_merkheft(text, jsonb) strict;', 'alter function api.schule_merkheft(text, jsonb) called on null input;', 'ist STRICT'),
+            ('Merkheft SQL-NULL bei einem Kind', mh.replace('perform schule.zugriff(p_schluessel, v_l);', "perform schule.zugriff(p_schluessel, v_l);\n  if v_l = 3 then return null; end if;"), mh,
+             'Merkheft-Antwort für Kind 3 nicht im Vertrag'),
+            ('Merkheft ok=false bei einem Kind', mh.replace('perform schule.zugriff(p_schluessel, v_l);', "perform schule.zugriff(p_schluessel, v_l);\n  if v_l = 2 then return jsonb_build_object('ok', false, 'fehler', 'x'); end if;"), mh,
+             'Merkheft-Antwort für Kind 2 nicht im Vertrag'),
+            ('Merkheft ohne einheiten', mh.replace("return jsonb_build_object('ok', true, 'einheiten',", "return jsonb_build_object('ok', true, 'einheiten_weg',"), mh, 'Merkheft-Antwort für Kind 1 nicht im Vertrag'),
+            ('Merkheft JSON-null', mh.replace("return jsonb_build_object('ok', true, 'einheiten',", "return 'null'::jsonb; return jsonb_build_object('ok', true, 'einheiten',"), mh, 'Merkheft-Antwort für Kind 1 nicht im Vertrag'),
+            ('security definer', alt_sql.replace("language sql stable set search_path", "language sql stable security definer set search_path"), alt_sql + 'alter function schule.etappen_stand(bigint, bigint) security invoker;', 'Eigenschaften von etappen_stand'),
             ('Index falsche Spalte', 'create index aufgabe_einheit_pool_lz_idx on schule.aufgabe (id);', 'drop index schule.aufgabe_einheit_pool_lz_idx;', 'Index schule.aufgabe_einheit_pool_lz_idx ist nicht'),
             ('Index falsche Reihenfolge', 'create index versuch_kind_aufgabe_idx on schule.versuch (aufgabe_id, lernender_id);', 'drop index schule.versuch_kind_aufgabe_idx;', 'Index schule.versuch_kind_aufgabe_idx ist nicht'),
             ('Index ungültig', "create index versuch_kind_aufgabe_idx on schule.versuch (lernender_id, aufgabe_id); update pg_index set indisvalid = false where indexrelid = 'schule.versuch_kind_aufgabe_idx'::regclass;",

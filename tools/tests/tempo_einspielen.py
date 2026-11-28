@@ -89,7 +89,7 @@ def migration(m=None):
     for marke in ('$tempomig$', '$tempoteil$', '$rbpaket$', '$rbpaketinhalt$'): assert marke not in m, marke
     kopf, rest = m.split(TEIL1)
     t1, t2 = rest.split(TEIL2)
-    return kopf + TEIL1 + t1, TEIL2 + t2, neu
+    return kopf + TEIL1 + t1, TEIL2 + t2, neu, re.search(r"v_art_soll constant text := '([^']*)'", m).group(1)
 
 
 HILFEN = r"""
@@ -101,6 +101,9 @@ declare d text; kopf constant text := 'CREATE OR REPLACE FUNCTION api.schule_mer
   ziel constant text := 'CREATE OR REPLACE FUNCTION pg_temp.tempo_merkheft('; v_oid oid;
 begin
   if to_regprocedure('api.schule_merkheft(text, jsonb)') is null then raise exception 'TEMPO-S1 ABBRUCH: api.schule_merkheft(text, jsonb) fehlt – Merkheft nicht vergleichbar'; end if;
+  -- 1181: mit NULL-Schlüssel aufgerufen – eine STRICT-Funktion liefe gar nicht (Ergebnis NULL ohne Körper)
+  if (select p.proisstrict or p.proretset from pg_proc p where p.oid = 'api.schule_merkheft(text, jsonb)'::regprocedure) then
+    raise exception 'TEMPO-S1 ABBRUCH: api.schule_merkheft ist STRICT bzw. liefert eine Menge – mit NULL-Schlüssel nicht vergleichbar'; end if;
   d := pg_get_functiondef('api.schule_merkheft(text, jsonb)'::regprocedure);
   if (length(d) - length(replace(d, kopf, ''))) / length(kopf) <> 1 or position(kopf in d) <> 1 then
     raise exception 'TEMPO-S1 ABBRUCH: Kopf von api.schule_merkheft nicht wie erwartet – Merkheft nicht vergleichbar'; end if;
@@ -111,14 +114,14 @@ begin
     raise exception 'TEMPO-S1 ABBRUCH: Merkheft-Kopie zielt nicht ins temporäre Schema'; end if;
   execute d;
   v_oid := to_regprocedure('pg_temp.tempo_merkheft(text, jsonb)');
-  if v_oid is null or (select p.pronamespace <> pg_my_temp_schema() or p.prosecdef from pg_proc p where p.oid = v_oid) then
-    raise exception 'TEMPO-S1 ABBRUCH: Merkheft-Kopie nicht im temporären Schema bzw. nicht als Invoker'; end if;
+  if v_oid is null or (select p.pronamespace <> pg_my_temp_schema() or p.prosecdef or p.proisstrict or p.proretset from pg_proc p where p.oid = v_oid) then
+    raise exception 'TEMPO-S1 ABBRUCH: Merkheft-Kopie nicht im temporären Schema, nicht als Invoker oder STRICT'; end if;
   return 'ok';
 end $f$;
 -- Ein Lauf: alle Kinder × alle Einheiten (etappen_stand) und je Kind die Merkheft-Kopie, md5 und Laufzeit. Was dabei geschrieben würde, rollt der
 -- Unterblock zurück; die Ergebnisse bleiben in den Variablen. Jeder Fehler (auch bei einem einzelnen Kind) → Abbruch des ganzen Pakets.
 create or replace function pg_temp.tempo_lauf(p_name text) returns jsonb language plpgsql as $f$
-declare h jsonb; mh jsonb := '{}'; t0 timestamptz; t1 timestamptz; ms_es numeric; ms_mh numeric := 0; je jsonb := '{}'; r record; ms numeric; kinder jsonb; status text;
+declare h jsonb; mh jsonb := '{}'; x jsonb; t0 timestamptz; t1 timestamptz; ms_es numeric; ms_mh numeric := 0; je jsonb := '{}'; r record; ms numeric; kinder jsonb; status text;
 begin
   begin
     perform setseed(0.5);
@@ -130,7 +133,10 @@ begin
     for r in select l.id from schule.lernender l order by l.id loop
       perform setseed(0.5);
       t1 := clock_timestamp();
-      mh := mh || jsonb_build_object(r.id::text, md5(coalesce(pg_temp.tempo_merkheft(null, jsonb_build_object('lernender_id', r.id))::text, 'NULL')));
+      x := pg_temp.tempo_merkheft(null, jsonb_build_object('lernender_id', r.id));   -- je Kind EINMAL erfassen, dann Vertrag prüfen (1181)
+      if x is null or jsonb_typeof(x) is distinct from 'object' or x->'ok' is distinct from 'true'::jsonb or jsonb_typeof(x->'einheiten') is distinct from 'array' then
+        raise exception 'Merkheft-Antwort für Kind % nicht im Vertrag (Objekt, ok = true, einheiten als Array): %', r.id, coalesce(left(x::text, 200), 'SQL-NULL'); end if;
+      mh := mh || jsonb_build_object(r.id::text, md5(x::text));
       ms := round(extract(epoch from clock_timestamp() - t1) * 1000, 1); ms_mh := ms_mh + ms;
       je := je || jsonb_build_object(r.id::text, ms);
     end loop;
@@ -171,8 +177,9 @@ create or replace function pg_temp.tempo_indizes() returns jsonb language sql as
    where n.nspname = 'schule' and t.relname in ('aufgabe', 'versuch');
 $f$;
 create or replace function pg_temp.tempo_funktion() returns jsonb language sql as $f$
-  select jsonb_build_object('md5', md5(p.prosrc), 'eigenschaften', concat_ws('|', pg_get_function_arguments(p.oid), p.prorettype::regtype::text, l.lanname, p.provolatile,
-           p.prosecdef, coalesce(p.proconfig::text, '')))
+  select jsonb_build_object('md5', md5(p.prosrc), 'strict', p.proisstrict, 'ergebnis', pg_get_function_result(p.oid), 'menge', p.proretset,
+           'eigenschaften', concat_ws('|', pg_get_function_arguments(p.oid), pg_get_function_result(p.oid), l.lanname, p.provolatile,
+           p.prosecdef, p.proisstrict, p.proretset, coalesce(p.proconfig::text, '')))
     from pg_proc p join pg_language l on l.oid = p.prolang where p.oid = 'schule.etappen_stand(bigint, bigint)'::regprocedure;
 $f$;
 -- Hilfen dieser Sitzung im temporären Schema? (vor dem ersten Aufruf geprüft; am Ende: keine mehr)
@@ -204,9 +211,9 @@ end $r$;
 
 
 def paket(probe, m=None):
-    t1, t2, neu = migration(m)
-    art = 'Probelauf' if probe else 'Einspiel-Paket'
-    kopf = f"""-- TEMPO-S1 {art} (erzeugt von tools/tests/tempo_einspielen.py). Ein Aufruf, EINE Transaktion; Fehler = alles zurück.
+    t1, t2, neu, art = migration(m)
+    titel = 'Probelauf' if probe else 'Einspiel-Paket'
+    kopf = f"""-- TEMPO-S1 {titel} (erzeugt von tools/tests/tempo_einspielen.py). Ein Aufruf, EINE Transaktion; Fehler = alles zurück.
 -- Ausführung: inhalte/plan/ladezeiten.md, Abschnitt „Einspielen TEMPO-S1“ (statement_timeout und lock_timeout als eigene Anweisungen VOR dem äußeren do).
 -- Ablauf: Hilfen → Lauf „alt“ → Funktion ersetzen (Teil 1) → Lauf „neu“ (ohne Sperre an Tabellen) → Indizes (Teil 2, ab hier SHARE auf aufgabe/versuch)
 --         → Lauf „endzustand“ (nur Gleichheitsbeweis) → {'Bericht, Aufräumen, Abschlussfehler (Rollback)' if probe else 'Aufräumen, Bericht'}.
@@ -222,9 +229,12 @@ create temp table tempo_mig on commit drop as select $tempoteil${t1}$tempoteil$:
     haupt = r"""
 create temp table tempo_bericht (b jsonb) on commit drop;
 do $p$
-declare f_vor jsonb; f_nach jsonb; idx_vor jsonb; idx_nach jsonb; l_alt jsonb; l_neu jsonb; l_end jsonb; g1 jsonb; g2 jsonb; t_sperre timestamptz; v_neu constant text := '""" + neu + r"""';
+declare f_vor jsonb; f_nach jsonb; idx_vor jsonb; idx_nach jsonb; l_alt jsonb; l_neu jsonb; l_end jsonb; g1 jsonb; g2 jsonb; t_sperre timestamptz; v_art constant text := '""" + art + r"""'; v_neu constant text := '""" + neu + r"""';
 begin
   f_vor := pg_temp.tempo_funktion(); idx_vor := pg_temp.tempo_indizes();
+  -- 1181: Sollzustand vor dem ersten Lauf (skalares jsonb, nicht STRICT, keine Menge, STABLE, Invoker, leerer search_path)
+  if f_vor->>'eigenschaften' is distinct from v_art then
+    raise exception 'TEMPO-S1 ABBRUCH, Vorbedingung: Eigenschaften von etappen_stand % statt % – nichts geändert', f_vor->>'eigenschaften', v_art; end if;
   perform pg_temp.tempo_merkheft_anlegen();
   l_alt := pg_temp.tempo_lauf('alt');
   execute (select teil1 from tempo_mig);

@@ -19,7 +19,8 @@
 --     - alle übrigen Hilfsfunktionen unverändert dieselben (Regeln bleiben an einer Stelle).
 --     Zulässig sind genau zwei Zustände des Funktionstexts: exakt alt (md5 bf3152e9…, nachgerechnet aus den Migrationen 20261114 … 20261203) → ersetzen;
 --     exakt neu (md5 3f49198f…) → nichts tun. Alles andere (auch eine alte Fassung mit dem Wort TEMPO-S1) → Abbruch. Danach muss der neue md5 stehen;
---     Signatur, Rückgabetyp, Sprache, STABLE, SECURITY INVOKER und search_path werden vor und nach dem Ersetzen geprüft.
+--     Signatur, Rückgabe (skalar jsonb, keine Menge), Sprache, STABLE, SECURITY INVOKER, nicht STRICT (NULL-Verhalten) und search_path werden vor und nach
+--     dem Ersetzen geprüft (1181: create or replace setzt STRICT zurück – eine STRICT-Altfassung wird deshalb abgelehnt, nicht still umgestellt).
 --  4. Nach dem Anlegen der Indizes: unter beiden Namen ein gültiger, bereiter, nicht eindeutiger B-Baum ohne Bedingung auf der richtigen Tabelle mit
 --     genau diesen Spalten in dieser Reihenfolge – sonst Abbruch (create index if not exists nimmt einen gleichnamigen anderen Index sonst hin).
 -- WAS NICHT: keine Tabelle, keine Spalte, kein Trigger, keine andere Funktion; kein DROP, kein DELETE, kein UPDATE; api.schule_merkheft bleibt, wie sie ist
@@ -37,11 +38,12 @@ do $tempo$
 declare v_f constant regprocedure := to_regprocedure('schule.etappen_stand(bigint, bigint)');
   v_alt constant text := 'bf3152e9a378a1d4e41c98965acf738e';   -- md5 des Funktionstexts nach 20261203_ft_s_form_takt.sql (tools/tests/tempo_einspielen.py)
   v_neu constant text := '3f49198f8dbf5c822a0be4650a5ebce5';   -- md5 des Funktionstexts unten (TEMPO-S1)
-  v_art_soll constant text := 'p_lernender bigint, p_einheit bigint|jsonb|sql|s|f|{"search_path=\"\""}';
+  -- Argumente | Rückgabe (pg_get_function_result) | Sprache | Volatilität | SECURITY DEFINER | STRICT | Menge | Einstellungen (1181: STRICT und Menge mitgeprüft)
+  v_art_soll constant text := 'p_lernender bigint, p_einheit bigint|jsonb|sql|s|f|f|f|{"search_path=\"\""}';
   d text; v_art_vor text; v_art_nach text;
 begin
   if v_f is null then raise exception 'TEMPO-S1 ABBRUCH: schule.etappen_stand(bigint, bigint) fehlt – nichts geändert'; end if;
-  select p.prosrc, concat_ws('|', pg_get_function_arguments(p.oid), p.prorettype::regtype::text, l.lanname, p.provolatile, p.prosecdef, coalesce(p.proconfig::text, ''))
+  select p.prosrc, concat_ws('|', pg_get_function_arguments(p.oid), pg_get_function_result(p.oid), l.lanname, p.provolatile, p.prosecdef, p.proisstrict, p.proretset, coalesce(p.proconfig::text, ''))
     into d, v_art_vor from pg_proc p join pg_language l on l.oid = p.prolang where p.oid = v_f;
   if v_art_vor is distinct from v_art_soll then
     raise exception 'TEMPO-S1 ABBRUCH, Vorbedingung: Eigenschaften von etappen_stand anders als erwartet (%, erwartet %) – nichts geändert', v_art_vor, v_art_soll;
@@ -77,7 +79,7 @@ as $function$
   left join schule.karte_stand k on k.lernender_id = p_lernender and k.einheit_id = p_einheit and k.lernziel = z.lz;
 $function$
 $neu$;
-  select p.prosrc, concat_ws('|', pg_get_function_arguments(p.oid), p.prorettype::regtype::text, l.lanname, p.provolatile, p.prosecdef, coalesce(p.proconfig::text, ''))
+  select p.prosrc, concat_ws('|', pg_get_function_arguments(p.oid), pg_get_function_result(p.oid), l.lanname, p.provolatile, p.prosecdef, p.proisstrict, p.proretset, coalesce(p.proconfig::text, ''))
     into d, v_art_nach from pg_proc p join pg_language l on l.oid = p.prolang where p.oid = v_f;
   if md5(d) is distinct from v_neu then raise exception 'TEMPO-S1 ABBRUCH: neuer Funktionstext hat md5 %, erwartet %', md5(d), v_neu; end if;
   if v_art_nach is distinct from v_art_vor then raise exception 'TEMPO-S1 ABBRUCH: Eigenschaften von etappen_stand geändert (% → %)', v_art_vor, v_art_nach; end if;

@@ -30,7 +30,8 @@ create temp table tempo_mig on commit drop as select $tempoteil$-- TEMPO-S1 (Bau
 --     - alle übrigen Hilfsfunktionen unverändert dieselben (Regeln bleiben an einer Stelle).
 --     Zulässig sind genau zwei Zustände des Funktionstexts: exakt alt (md5 bf3152e9…, nachgerechnet aus den Migrationen 20261114 … 20261203) → ersetzen;
 --     exakt neu (md5 3f49198f…) → nichts tun. Alles andere (auch eine alte Fassung mit dem Wort TEMPO-S1) → Abbruch. Danach muss der neue md5 stehen;
---     Signatur, Rückgabetyp, Sprache, STABLE, SECURITY INVOKER und search_path werden vor und nach dem Ersetzen geprüft.
+--     Signatur, Rückgabe (skalar jsonb, keine Menge), Sprache, STABLE, SECURITY INVOKER, nicht STRICT (NULL-Verhalten) und search_path werden vor und nach
+--     dem Ersetzen geprüft (1181: create or replace setzt STRICT zurück – eine STRICT-Altfassung wird deshalb abgelehnt, nicht still umgestellt).
 --  4. Nach dem Anlegen der Indizes: unter beiden Namen ein gültiger, bereiter, nicht eindeutiger B-Baum ohne Bedingung auf der richtigen Tabelle mit
 --     genau diesen Spalten in dieser Reihenfolge – sonst Abbruch (create index if not exists nimmt einen gleichnamigen anderen Index sonst hin).
 -- WAS NICHT: keine Tabelle, keine Spalte, kein Trigger, keine andere Funktion; kein DROP, kein DELETE, kein UPDATE; api.schule_merkheft bleibt, wie sie ist
@@ -48,11 +49,12 @@ do $tempo$
 declare v_f constant regprocedure := to_regprocedure('schule.etappen_stand(bigint, bigint)');
   v_alt constant text := 'bf3152e9a378a1d4e41c98965acf738e';   -- md5 des Funktionstexts nach 20261203_ft_s_form_takt.sql (tools/tests/tempo_einspielen.py)
   v_neu constant text := '3f49198f8dbf5c822a0be4650a5ebce5';   -- md5 des Funktionstexts unten (TEMPO-S1)
-  v_art_soll constant text := 'p_lernender bigint, p_einheit bigint|jsonb|sql|s|f|{"search_path=\"\""}';
+  -- Argumente | Rückgabe (pg_get_function_result) | Sprache | Volatilität | SECURITY DEFINER | STRICT | Menge | Einstellungen (1181: STRICT und Menge mitgeprüft)
+  v_art_soll constant text := 'p_lernender bigint, p_einheit bigint|jsonb|sql|s|f|f|f|{"search_path=\"\""}';
   d text; v_art_vor text; v_art_nach text;
 begin
   if v_f is null then raise exception 'TEMPO-S1 ABBRUCH: schule.etappen_stand(bigint, bigint) fehlt – nichts geändert'; end if;
-  select p.prosrc, concat_ws('|', pg_get_function_arguments(p.oid), p.prorettype::regtype::text, l.lanname, p.provolatile, p.prosecdef, coalesce(p.proconfig::text, ''))
+  select p.prosrc, concat_ws('|', pg_get_function_arguments(p.oid), pg_get_function_result(p.oid), l.lanname, p.provolatile, p.prosecdef, p.proisstrict, p.proretset, coalesce(p.proconfig::text, ''))
     into d, v_art_vor from pg_proc p join pg_language l on l.oid = p.prolang where p.oid = v_f;
   if v_art_vor is distinct from v_art_soll then
     raise exception 'TEMPO-S1 ABBRUCH, Vorbedingung: Eigenschaften von etappen_stand anders als erwartet (%, erwartet %) – nichts geändert', v_art_vor, v_art_soll;
@@ -88,7 +90,7 @@ as $function$
   left join schule.karte_stand k on k.lernender_id = p_lernender and k.einheit_id = p_einheit and k.lernziel = z.lz;
 $function$
 $neu$;
-  select p.prosrc, concat_ws('|', pg_get_function_arguments(p.oid), p.prorettype::regtype::text, l.lanname, p.provolatile, p.prosecdef, coalesce(p.proconfig::text, ''))
+  select p.prosrc, concat_ws('|', pg_get_function_arguments(p.oid), pg_get_function_result(p.oid), l.lanname, p.provolatile, p.prosecdef, p.proisstrict, p.proretset, coalesce(p.proconfig::text, ''))
     into d, v_art_nach from pg_proc p join pg_language l on l.oid = p.prolang where p.oid = v_f;
   if md5(d) is distinct from v_neu then raise exception 'TEMPO-S1 ABBRUCH: neuer Funktionstext hat md5 %, erwartet %', md5(d), v_neu; end if;
   if v_art_nach is distinct from v_art_vor then raise exception 'TEMPO-S1 ABBRUCH: Eigenschaften von etappen_stand geändert (% → %)', v_art_vor, v_art_nach; end if;
@@ -126,6 +128,9 @@ declare d text; kopf constant text := 'CREATE OR REPLACE FUNCTION api.schule_mer
   ziel constant text := 'CREATE OR REPLACE FUNCTION pg_temp.tempo_merkheft('; v_oid oid;
 begin
   if to_regprocedure('api.schule_merkheft(text, jsonb)') is null then raise exception 'TEMPO-S1 ABBRUCH: api.schule_merkheft(text, jsonb) fehlt – Merkheft nicht vergleichbar'; end if;
+  -- 1181: mit NULL-Schlüssel aufgerufen – eine STRICT-Funktion liefe gar nicht (Ergebnis NULL ohne Körper)
+  if (select p.proisstrict or p.proretset from pg_proc p where p.oid = 'api.schule_merkheft(text, jsonb)'::regprocedure) then
+    raise exception 'TEMPO-S1 ABBRUCH: api.schule_merkheft ist STRICT bzw. liefert eine Menge – mit NULL-Schlüssel nicht vergleichbar'; end if;
   d := pg_get_functiondef('api.schule_merkheft(text, jsonb)'::regprocedure);
   if (length(d) - length(replace(d, kopf, ''))) / length(kopf) <> 1 or position(kopf in d) <> 1 then
     raise exception 'TEMPO-S1 ABBRUCH: Kopf von api.schule_merkheft nicht wie erwartet – Merkheft nicht vergleichbar'; end if;
@@ -136,14 +141,14 @@ begin
     raise exception 'TEMPO-S1 ABBRUCH: Merkheft-Kopie zielt nicht ins temporäre Schema'; end if;
   execute d;
   v_oid := to_regprocedure('pg_temp.tempo_merkheft(text, jsonb)');
-  if v_oid is null or (select p.pronamespace <> pg_my_temp_schema() or p.prosecdef from pg_proc p where p.oid = v_oid) then
-    raise exception 'TEMPO-S1 ABBRUCH: Merkheft-Kopie nicht im temporären Schema bzw. nicht als Invoker'; end if;
+  if v_oid is null or (select p.pronamespace <> pg_my_temp_schema() or p.prosecdef or p.proisstrict or p.proretset from pg_proc p where p.oid = v_oid) then
+    raise exception 'TEMPO-S1 ABBRUCH: Merkheft-Kopie nicht im temporären Schema, nicht als Invoker oder STRICT'; end if;
   return 'ok';
 end $f$;
 -- Ein Lauf: alle Kinder × alle Einheiten (etappen_stand) und je Kind die Merkheft-Kopie, md5 und Laufzeit. Was dabei geschrieben würde, rollt der
 -- Unterblock zurück; die Ergebnisse bleiben in den Variablen. Jeder Fehler (auch bei einem einzelnen Kind) → Abbruch des ganzen Pakets.
 create or replace function pg_temp.tempo_lauf(p_name text) returns jsonb language plpgsql as $f$
-declare h jsonb; mh jsonb := '{}'; t0 timestamptz; t1 timestamptz; ms_es numeric; ms_mh numeric := 0; je jsonb := '{}'; r record; ms numeric; kinder jsonb; status text;
+declare h jsonb; mh jsonb := '{}'; x jsonb; t0 timestamptz; t1 timestamptz; ms_es numeric; ms_mh numeric := 0; je jsonb := '{}'; r record; ms numeric; kinder jsonb; status text;
 begin
   begin
     perform setseed(0.5);
@@ -155,7 +160,10 @@ begin
     for r in select l.id from schule.lernender l order by l.id loop
       perform setseed(0.5);
       t1 := clock_timestamp();
-      mh := mh || jsonb_build_object(r.id::text, md5(coalesce(pg_temp.tempo_merkheft(null, jsonb_build_object('lernender_id', r.id))::text, 'NULL')));
+      x := pg_temp.tempo_merkheft(null, jsonb_build_object('lernender_id', r.id));   -- je Kind EINMAL erfassen, dann Vertrag prüfen (1181)
+      if x is null or jsonb_typeof(x) is distinct from 'object' or x->'ok' is distinct from 'true'::jsonb or jsonb_typeof(x->'einheiten') is distinct from 'array' then
+        raise exception 'Merkheft-Antwort für Kind % nicht im Vertrag (Objekt, ok = true, einheiten als Array): %', r.id, coalesce(left(x::text, 200), 'SQL-NULL'); end if;
+      mh := mh || jsonb_build_object(r.id::text, md5(x::text));
       ms := round(extract(epoch from clock_timestamp() - t1) * 1000, 1); ms_mh := ms_mh + ms;
       je := je || jsonb_build_object(r.id::text, ms);
     end loop;
@@ -196,8 +204,9 @@ create or replace function pg_temp.tempo_indizes() returns jsonb language sql as
    where n.nspname = 'schule' and t.relname in ('aufgabe', 'versuch');
 $f$;
 create or replace function pg_temp.tempo_funktion() returns jsonb language sql as $f$
-  select jsonb_build_object('md5', md5(p.prosrc), 'eigenschaften', concat_ws('|', pg_get_function_arguments(p.oid), p.prorettype::regtype::text, l.lanname, p.provolatile,
-           p.prosecdef, coalesce(p.proconfig::text, '')))
+  select jsonb_build_object('md5', md5(p.prosrc), 'strict', p.proisstrict, 'ergebnis', pg_get_function_result(p.oid), 'menge', p.proretset,
+           'eigenschaften', concat_ws('|', pg_get_function_arguments(p.oid), pg_get_function_result(p.oid), l.lanname, p.provolatile,
+           p.prosecdef, p.proisstrict, p.proretset, coalesce(p.proconfig::text, '')))
     from pg_proc p join pg_language l on l.oid = p.prolang where p.oid = 'schule.etappen_stand(bigint, bigint)'::regprocedure;
 $f$;
 -- Hilfen dieser Sitzung im temporären Schema? (vor dem ersten Aufruf geprüft; am Ende: keine mehr)
@@ -212,9 +221,12 @@ end $h$;
 
 create temp table tempo_bericht (b jsonb) on commit drop;
 do $p$
-declare f_vor jsonb; f_nach jsonb; idx_vor jsonb; idx_nach jsonb; l_alt jsonb; l_neu jsonb; l_end jsonb; g1 jsonb; g2 jsonb; t_sperre timestamptz; v_neu constant text := '3f49198f8dbf5c822a0be4650a5ebce5';
+declare f_vor jsonb; f_nach jsonb; idx_vor jsonb; idx_nach jsonb; l_alt jsonb; l_neu jsonb; l_end jsonb; g1 jsonb; g2 jsonb; t_sperre timestamptz; v_art constant text := 'p_lernender bigint, p_einheit bigint|jsonb|sql|s|f|f|f|{"search_path=\"\""}'; v_neu constant text := '3f49198f8dbf5c822a0be4650a5ebce5';
 begin
   f_vor := pg_temp.tempo_funktion(); idx_vor := pg_temp.tempo_indizes();
+  -- 1181: Sollzustand vor dem ersten Lauf (skalares jsonb, nicht STRICT, keine Menge, STABLE, Invoker, leerer search_path)
+  if f_vor->>'eigenschaften' is distinct from v_art then
+    raise exception 'TEMPO-S1 ABBRUCH, Vorbedingung: Eigenschaften von etappen_stand % statt % – nichts geändert', f_vor->>'eigenschaften', v_art; end if;
   perform pg_temp.tempo_merkheft_anlegen();
   l_alt := pg_temp.tempo_lauf('alt');
   execute (select teil1 from tempo_mig);

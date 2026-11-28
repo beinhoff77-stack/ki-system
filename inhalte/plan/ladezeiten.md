@@ -144,7 +144,7 @@ Maßgeblich ist die jüngste Fassung: nachgerechnet aus `20261114_w150_lernkarte
 
 ## 5. Gebaut (Server-Entwurf) – `supabase/migrations/20261207_tempo_s1.sql`
 
-Nachgebessert nach der Gegenprüfung Werkstatt 1175. Die Migration hat 10 767 Bytes, md5 `dfee960cc6134b39f6a2f20e923b62e0`.
+Nachgebessert nach den Gegenprüfungen Werkstatt 1175 und 1181/1183. Die Migration hat 11 181 Bytes  md5 `3b97578bfacff84b4078c061704d9275`.
 
 **Teil 1 – Funktion** (`schule.etappen_stand` neu, create or replace, gleiches Ergebnis):
 - Was sich ändert:
@@ -157,11 +157,13 @@ Nachgebessert nach der Gegenprüfung Werkstatt 1175. Die Migration hat 10 767 By
   - exakt neu (md5 `3f49198f8dbf5c822a0be4650a5ebce5`, nachgerechnet und bestätigt) → nichts tun;
   - alles andere → Abbruch. Ein Kommentar „TEMPO-S1“ in einer alten Fassung reicht nicht mehr zum Überspringen.
 - Nach dem Ersetzen muss der neue md5 stehen.
-- Die Eigenschaften werden vorher gegen den Sollwert und nachher gegen vorher geprüft:
+- Die Eigenschaften werden vor dem ersten Lauf gegen den Sollwert, in der Migration noch einmal und im Endzustand gegen vorher geprüft:
   - Signatur `p_lernender bigint, p_einheit bigint`;
-  - Rückgabetyp `jsonb`, Sprache `sql`;
+  - Rückgabe skalar `jsonb` (`pg_get_function_result` = `jsonb`, `proretset = false`), Sprache `sql`;
   - `STABLE`, `SECURITY INVOKER`;
+  - **nicht STRICT** (`proisstrict = false`; 1181: `create or replace` würde STRICT sonst still entfernen und `etappen_stand(NULL, …)` von NULL auf `{}` ändern);
   - `search_path=""`.
+  - Als Zeichenkette (Bericht `funktion_*.eigenschaften`): `p_lernender bigint, p_einheit bigint|jsonb|sql|s|f|f|f|{"search_path=\"\""}`. Dazu stehen im Bericht einzeln `strict`, `ergebnis` und `menge`.
 
 **Teil 2 – Indizes** (`create index if not exists`):
 - `aufgabe_einheit_pool_lz_idx` auf `schule.aufgabe (einheit_id, pool, variante_gruppe)`
@@ -182,8 +184,11 @@ Kein DELETE, keine Tabelle, keine andere Funktion. `api.schule_merkheft` bleibt,
    - der Kopf nicht genau einmal passt;
    - `schule.zugriff(` fehlt;
    - der umgeschriebene Text nicht ins temporäre Schema zielt;
+   - `api.schule_merkheft` oder die Kopie STRICT ist oder eine Menge liefert (1181: mit NULL-Schlüssel liefe eine STRICT-Funktion gar nicht);
    - die angelegte Kopie nicht in `pg_my_temp_schema()` liegt oder nicht Invoker ist.
-3. Lauf „alt“: `etappen_stand` für alle Kinder × Einheiten und das Merkheft je Kind (md5). Jeder Fehler, auch bei einem einzigen Kind, bricht ab.
+3. Lauf „alt“: `etappen_stand` für alle Kinder × Einheiten (md5) und das Merkheft je Kind.
+   - Die Merkheft-Antwort wird je Kind **einmal** erfasst und gegen den Vertrag geprüft: JSON-Objekt, `ok = true`, `einheiten` als Array (leer zulässig). Erst danach wird sie gehasht.
+   - SQL-NULL, JSON-null, `ok = false` oder ein fehlendes `einheiten` brechen ab, auch bei nur einem Kind. Ebenso jeder andere Fehler.
 4. Teil 1 (Funktion), dann Lauf „neu“. Noch keine Sperre an `aufgabe` oder `versuch`.
 5. Vergleich alt/neu. Beide Läufe müssen „verglichen“ sein, mit derselben vollständigen Kindermenge, Merkheft für jedes Kind, allen Paaren (Kinder × Einheiten) und 0 Abweichungen. Sonst Abbruch.
 6. Teil 2 (Indizes). **Ab hier SHARE auf `schule.aufgabe` und `schule.versuch`**: Lesen geht, Schreiben wartet.
@@ -192,6 +197,9 @@ Kein DELETE, keine Tabelle, keine andere Funktion. `api.schule_merkheft` bleibt,
 9. Probe: Abschlussfehler „PROBELAUF bestanden …“ (Rollback). Einspielen: Hinweis „TEMPO-S1 eingespielt: …“.
 
 **Sperrzeit:** Schritte 6–8, lokal im Nachbau 2,6–3,9 s (`ms_unter_sperre_bis_vor_aufraeumen`; erfunden: 15 488 Aufgaben, rund 9 000 Versuche, 4 Kinder).
+- Das Feld beginnt vor dem Indexschritt und endet vor dem Aufräumen. Bis zum Ende der Transaktion kommen noch Aufräumen und COMMIT dazu.
+- Es ist **keine Obergrenze** für wartende Schreiber und kann selbst Wartezeit enthalten. `lock_timeout` begrenzt nur den eigenen Sperrerwerb, nicht die Haltedauer.
+- Der Endlauf misst Zeiten nur nebenbei. Für die Leistung zählt allein das Mess-Paket.
 - **Annahme:** Live ist es eher kürzer (1175: 32 417 Aufgaben, aber nur 958 Versuche, 3 Kinder), also etwa 1–4 s.
 - Schreibende Antworten der Kinder warten so lange; deshalb in der Nutzungspause einspielen.
 - Ist `indcheckxmin` bei einem neuen Index gesetzt, nutzt der Lauf „endzustand“ ihn noch nicht. Die Sperre dauert dann so lange wie Lauf „neu“ (lokal ≈ 23 s; live **Annahme** einige Sekunden). Die Probe zeigt das vorher an (`indizes_nachher[].indcheckxmin`).
@@ -200,9 +208,9 @@ Kein DELETE, keine Tabelle, keine andere Funktion. `api.schule_merkheft` bleibt,
 
 | Datei | Bytes | md5 | erwartet |
 |---|---|---|---|
-| `tools/tests/aus/tempo_s1_probe.sql` | 23 170 | `01dfb8bceaef69d2692dca01e3ebff88` | Fehler „PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt): {…}“ |
-| `tools/tests/aus/tempo_s1_einspielen.sql` | 23 384 | `4d02fbb6a272a641a17e158836f22722` | Hinweis „TEMPO-S1 eingespielt: {…}“ |
-| `tools/tests/aus/tempo_s1_messen.sql` | 9 011 | `b49e4e46bfddf56ea5cdf853974d223c` | Fehler „MESSUNG (nichts geändert): {…}“ |
+| `tools/tests/aus/tempo_s1_probe.sql` | 24 985 | `e39fc681a06c9e55ee5685696e21a8b7` | Fehler „PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt): {…}“ |
+| `tools/tests/aus/tempo_s1_einspielen.sql` | 25 199 | `2080303f10fd363a389de728cf3ef97d` | Hinweis „TEMPO-S1 eingespielt: {…}“ |
+| `tools/tests/aus/tempo_s1_messen.sql` | 9 971 | `33f7aefb7744962a914cc374aa319a12` | Fehler „MESSUNG (nichts geändert): {…}“ |
 
 Alle anderen Dateien unter `tools/tests/aus/` sind byteidentisch (md5 vorher/nachher verglichen).
 
@@ -214,6 +222,15 @@ Jeder echte Schritt nur mit dem ausdrücklichen Satz des Nutzers. Vorher `werkst
    - Wie Schritt 0 in `einspiel-reihenfolge-rb-ww.md`: kein Kind übt, kein Import läuft.
    - Eine frische Admin-Verbindung nutzen, nichts parallel.
    - Nicht in Einzelstücken und nicht mit Autocommit ausführen.
+   - **Direkt vor dem Lauf den Live-Stand bestätigen** (nur lesend):
+     ```sql
+     select md5(p.prosrc), pg_get_function_result(p.oid), p.proretset, p.proisstrict, p.provolatile, p.prosecdef, p.proconfig
+       from pg_proc p where p.oid = 'schule.etappen_stand(bigint, bigint)'::regprocedure;
+       -- bf3152e9a378a1d4e41c98965acf738e | jsonb | f | f | s | f | {"search_path=\"\""}
+     select md5(p.prosrc), p.proisstrict, p.proretset from pg_proc p where p.oid = 'api.schule_merkheft(text, jsonb)'::regprocedure;
+       -- 5cb2502d146b3af514a826a03eb96490 | f | f
+     ```
+     Weicht etwas ab: nicht ausführen, an den Helfer melden.
 2. **Probe:** eine Transaktion, Zeitgrenzen als eigene Anweisungen **vor** dem äußeren `do`.
    ```sql
    begin;
@@ -222,14 +239,16 @@ Jeder echte Schritt nur mit dem ausdrücklichen Satz des Nutzers. Vorher `werkst
    do $a$ begin execute <Inhalt von tempo_s1_probe.sql>; end $a$;   -- endet mit „PROBELAUF bestanden …“ (Transaktion abgebrochen)
    rollback;
    ```
-   Anerkannt wird nur dieser Abschlussfehler. Im Bericht prüfen:
+   Anerkannt wird nur dieser Abschlussfehler mit vollständigem Bericht. Für „bestanden“ müssen **alle** folgenden Felder stimmen:
    - `funktion_vorher.md5` = `bf3152e9a378a1d4e41c98965acf738e`, `funktion_nachher.md5` = `3f49198f8dbf5c822a0be4650a5ebce5`;
-   - `eigenschaften_gleich: true`, `funktion_nachher.eigenschaften` = `p_lernender bigint, p_einheit bigint|jsonb|sql|s|f|{"search_path=\"\""}`;
+   - `funktion_vorher.strict` und `funktion_nachher.strict` = `false`, `ergebnis` = `jsonb`, `menge` = `false`;
+   - `eigenschaften_gleich: true`, `funktion_nachher.eigenschaften` = `p_lernender bigint, p_einheit bigint|jsonb|sql|s|f|f|f|{"search_path=\"\""}`;
    - `vergleich_alt_neu` und `vergleich_alt_endzustand`: `merkheft: "verglichen"`, `kinder` = alle Lernenden, `paare` = Kinder × Einheiten, `abweichungen_etappen_stand: 0`, `abweichungen_merkheft: 0`;
    - `laeufe.alt|neu|endzustand.merkheft` jeweils „verglichen“ mit denselben `kinder`;
    - `indizes_nachher` enthält beide Soll-Indizes mit `gueltig: true` (`indcheckxmin` beachten), `indizes_vorher` keinen der beiden Namen;
    - `rueckstaende: []`;
-   - `ms_unter_sperre_bis_vor_aufraeumen` (über 10 s → vor dem Einspielen melden).
+   - `schon_umgestellt_vorher: false`;
+   - `ms_unter_sperre_bis_vor_aufraeumen`: Wert über 10 s → **vor dem Einspielen melden**. Das Feld ist keine Obergrenze für wartende Schreiber (siehe „Sperrzeit“).
 3. **Nachkontrolle nach der Probe** (muss unverändert sein):
    ```sql
    select md5(prosrc) from pg_proc where oid = 'schule.etappen_stand(bigint, bigint)'::regprocedure;   -- bf3152e9…
@@ -248,6 +267,8 @@ Jeder echte Schritt nur mit dem ausdrücklichen Satz des Nutzers. Vorher `werkst
 
 **Lokal belegt** (`python3 -I tools/tests/tempo_test.py`, Nachbau mit erfundenen Daten): Probe besteht, und der Zustand ist danach unverändert. Abbruch ohne Änderung, jeweils bei Probe **und** Einspielen, in folgenden Fällen:
 - ohne `api.schule_merkheft`;
+- Merkheft STRICT; Merkheft liefert SQL-NULL bzw. `ok = false` für nur ein Kind; Merkheft ohne `einheiten`; Merkheft JSON-null (1181);
+- `etappen_stand` mit identischem prosrc, aber STRICT (1181);
 - Merkheft ohne Zugriffsstelle;
 - Merkheft scheitert für ein Kind;
 - Kommentar-Trick;

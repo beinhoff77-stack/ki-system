@@ -3,6 +3,9 @@ LP = "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufs
 ABG[(T, "prozentsatz")] = "Die Übungen berechnen einen Prozentsatz vorwärts; hier muss entschieden werden, worauf sich die Prozente beziehen (Grundwert) oder der Ansatz umgekehrt gelesen werden."
 ABG[(T, "rabatt_aufschlag")] = "Die Übungen rechnen Rabatt oder Aufschlag in einem Schritt; hier geht es um den Bezugswert, hintereinander ausgeführte Änderungen und das Rückwärtsrechnen auf den alten Preis."
 ABG[(T, "verstehen")] = "Die Übungen rechnen mit Prozenten; hier wird begründet, warum Prozentzahlen nur Anteile vergleichen und Auf- und Abstieg nicht dieselbe Prozentzahl haben."
+IDEEN[(T, "prozentsatz")] = ['begruenden_ablenker', 'umkehr', 'groessenvergleich', 'darstellung_wechseln', 'fehler_finden_richtigstellen', 'modell_aufstellen', 'darstellung_wechseln']
+IDEEN[(T, "rabatt_aufschlag")] = ['fehler_finden_richtigstellen', 'umkehr', 'modell_aufstellen', 'darstellung_wechseln', 'zwei_wege', 'bezugswert_erkennen', 'hintereinander_ausfuehren']
+IDEEN[(T, "verstehen")] = ['begruenden_ablenker', 'prozent_vs_faktor', 'darstellung_wechseln', 'anteil_von_anteil', 'gegenbeispiel', 'modell_aufstellen', 'umkehr']
 # ───────── prozentsatz ─────────
 neu(T, "prozentsatz", "test", "begruenden", W(
     "Ein Verein hatte letztes Jahr 40 Mitglieder, dieses Jahr sind es 50. Welche Aussage über die Prozentzahlen ist richtig?",

@@ -117,7 +117,7 @@ for a in A:
         if grund:
             dp_treffer.append((kenn, grund, dquelle, db_["t"][:110]))
     eintrag = dict(kennung=kenn, thema=schl, lernkarte=lk, pool=a["pool"], typ=a["g"], form=a["form"], stufe=a["s"], zaehlt="ja", lehrplan=a["lp"],
-                   abgrenzung=kern.ABG.get((schl, lk), ""), antwortform=q["y"], loesung_rechnung=q.get("c"), fehlbilder=[])
+                   abgrenzung=kern.ABG.get((schl, lk), ""), idee=a["idee"], antwortform=q["y"], loesung_rechnung=q.get("c"), fehlbilder=[])
     if a["pool"] == "test":
         eintrag["ersetzt_test"] = True
 
@@ -197,6 +197,10 @@ for schl in geladen:
     for lk in AUSWAHL[schl]:
         xs = [e for e in aus[schl] if e["lernkarte"] == lk]
         c = Counter(e["pool"] for e in xs)
+        ide = Counter(("umkehr" if e["idee"] == "rueckwaerts" else e["idee"]) for e in xs)
+        assert max(ide.values()) <= 2, (schl, lk, "höchstens zwei Aufgaben je Idee", dict(ide))
+        if not TEIL:
+            assert len(ide) >= 5, (schl, lk, "mindestens 5 verschiedene Ideen unter den 7", dict(ide))
         if TEIL:
             assert all(c[p] <= SOLL_ANZAHL[p] for p in SOLL_ANZAHL), (schl, lk, dict(c))
             continue

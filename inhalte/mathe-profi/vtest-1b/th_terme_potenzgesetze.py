@@ -2,6 +2,8 @@ T = "terme.potenzgesetze"
 LP = "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)"
 ABG[(T, "negativer_exponent")] = "Die Übungen berechnen negative Exponenten nach Regel; hier wird das Muster (jedes Mal halbieren) als Grund genutzt, Werte umgekehrt gesucht und der Wert eines Exponenten verglichen."
 ABG[(T, "fehler_finden")] = "Die Übungen nennen den Fehler in einer Zeile oder das richtige Ergebnis; hier muss die erste fehlerhafte Zeile in einer Rechenkette gefunden und mit Begründung berichtigt werden."
+IDEEN[(T, "negativer_exponent")] = ['begruenden_ablenker', 'umkehr', 'darstellung_wechseln', 'umkehr', 'modell_aufstellen', 'groessenvergleich', 'was_waere_wenn']
+IDEEN[(T, "fehler_finden")] = ['fehler_finden_richtigstellen', 'groessenvergleich', 'gegenbeispiel', 'darstellung_wechseln', 'fehler_finden_richtigstellen', 'begruenden_ablenker', 'umkehr']
 # ───────── negativer_exponent ─────────
 neu(T, "negativer_exponent", "test", "begruenden", W(
     "Ein Kind setzt die Reihe 2³ = 8, 2² = 4, 2¹ = 2, 2⁰ = 1 nach rechts fort. Welche Aussage über die nächsten Werte 2⁻¹ und 2⁻² ist richtig?",
@@ -60,19 +62,21 @@ neu(T, "fehler_finden", "test", "fehler", L(
     "Zeile 1 ist falsch: 3⁻² heißt nicht „Basis mal Exponent“. Es gilt 3⁻² = 1/3² = 1/9. Zeile 2 rechnet mit dem falschen Ansatz richtig weiter, Zeile 3 folgt daraus. Probe: 1/9 ist positiv und kleiner als 1, wie es bei einem negativen Exponenten sein muss.",
     {0: [(3, "die letzte Zeile genannt, weil das Ergebnis falsch aussieht", "3")], 1: [(6, "Basis mal Exponent als Nenner genommen: 3 · 2", "3 * 2"), (-9, "dem Nenner das Minus aus dem Exponenten gegeben: −3²", "0 - 3 ** 2"), (3, "nur die Basis 3 als Nenner genommen", "3")]}), form="fehler_detektiv", lp=LP)
 neu(T, "fehler_finden", "korrektur", "darstellung", W(
-    "Ein Kind rechnet: Zeile 1: (−3)² = (−3) · (−3). Zeile 2: (−3) · (−3) = −9. Zeile 3: −3² = −9. Zeile 4: Also sind (−3)² und −3² gleich. In welcher Zeile steckt der erste Fehler?",
-    "In Zeile 2, weil minus mal minus plus ergibt: (−3) · (−3) = 9.",
-    [("In Zeile 1, weil man bei (−3)² nur 3 mal 2 rechnen darf, denn die Klammer ändert nichts.", "Potenz als Mal gedeutet (3 · 2) und den Aufbau mit zwei gleichen Faktoren nicht erkannt"),
-     ("In Zeile 3, weil −3² gleich 9 sein muss, denn die Klammer ist unwichtig.", "die Klammer für unwichtig gehalten; −3² = −(3 · 3) = −9 ist richtig, nur (−3)² = 9"),
-     ("In Zeile 4, weil 9 und −9 verschieden sind; die Zeilen 1 bis 3 stimmen.", "den ersten Fehler beim Schluss gesucht; Zeile 2 ist schon falsch, danach ist alles Folgefehler")],
-    "Zeile 1 ist richtig: Das Quadrat von (−3) sind zwei Faktoren (−3). Zeile 2 ist falsch: Minus mal minus ist plus, also (−3) · (−3) = 9. Zeile 3 ist richtig: −3² = −(3 · 3) = −9, die Klammer fehlt. "
-    "Deshalb sind (−3)² = 9 und −3² = −9 verschieden; Zeile 4 ist nur eine Folge des Fehlers in Zeile 2.",
-    lambda: (-3) * (-3) == 9 and -3 ** 2 == -9 and (-3) ** 2 != -3 ** 2, pos=1), form="fehler_detektiv", lp=LP)
-neu(T, "fehler_finden", "korrektur", "mehrschritt", L(
-    "Ein Kind rechnet: Zeile 1: 5⁰ = 0. Zeile 2: Also ist 5⁰ + 5⁰ = 0. Zeile 3: Und 5⁰ · 7 = 0. In welcher Zeile steckt der erste Fehler? Wie viel ist 5⁰ · 7 richtig?",
-    "Fehler in Zeile □, richtig: 5⁰ · 7 = □", [1, 7], ["1", "7"], ["2 - 1", "1 * 7"],
-    "Hoch 0 ergibt 1, nicht 0: 5⁰ = 1 (im Muster 25, 5, 1 wird jedes Mal durch 5 geteilt). Zeile 1 ist der Fehler; Zeile 2 und 3 folgen daraus. Richtig: 5⁰ · 7 = 1 · 7 = 7.",
-    {0: [(3, "die letzte Zeile genannt, weil dort das Ergebnis 0 für 5⁰ · 7 steht", "3")], 1: [(0, "das falsche Ergebnis 5⁰ = 0 übernommen: 0 · 7", "0 * 7"), (35, "die Basis 5 statt 5⁰ = 1 genommen: 5 · 7", "5 * 7"), (12, "Basis plus 7 gerechnet: 5 + 7", "5 + 7")]}), form="fehler_detektiv", lp=LP)
+    "Ein Kind behauptet: „(−3)² und −3² sind dasselbe, weil ja beide Male die 3 zweimal vorkommt.“ Welche Aussage über die beiden Werte ist richtig?",
+    "(−3)² = 9 und −3² = −9; sie sind verschieden, denn im ersten Fall wird die Klammer mit −3 zweimal malgenommen, im zweiten nur die 3 und dann das Minus davorgesetzt.",
+    [("(−3)² = −9 und −3² = −9; sie sind gleich, denn minus mal minus bleibt minus.", "minus mal minus als minus gerechnet und (−3) · (−3) = −9 behauptet"),
+     ("(−3)² = 9 und −3² = 9; sie sind gleich, denn das Quadrat macht jede Zahl positiv.", "das Quadrat auch auf das Minus vor der 3 bezogen, obwohl ohne Klammer nur die 3 zum Quadrat genommen wird"),
+     ("(−3)² = −6 und −3² = −6; sie sind gleich, denn 3 mal 2 ist 6 und das Minus bleibt.", "Potenz als Mal gedeutet: 3 · 2 = 6")],
+    "(−3)² = (−3) · (−3) = 9, denn minus mal minus ist plus. Bei −3² gehört der Exponent nur zur 3: −3² = −(3 · 3) = −9. Ohne Klammer wird zuerst potenziert, dann das Minus angewendet. Darum sind 9 und −9 verschieden.",
+    lambda: (-3) * (-3) == 9 and -3 ** 2 == -9 and (-3) ** 2 != -3 ** 2), lp=LP)
+neu(T, "fehler_finden", "korrektur", "umkehr", W(
+    "Ein Kind behauptet: „Wenn der Exponent negativ ist, ist die Potenz immer negativ.“ Welches Beispiel zeigt, dass die Behauptung nicht stimmt?",
+    "2⁻¹ = 1/2 ist positiv, obwohl der Exponent −1 negativ ist.",
+    [("2³ = 8 ist positiv, obwohl die Behauptung etwas anderes sagt.", "ein Beispiel mit positivem Exponenten genommen; die Behauptung handelt nur von negativen Exponenten"),
+     ("(−2)⁻¹ = −1/2 ist negativ, obwohl der Exponent negativ ist.", "ein Beispiel genommen, das die Behauptung bestätigt, nicht widerlegt"),
+     ("2⁰ = 1 ist positiv, obwohl der Exponent nicht positiv ist.", "den Exponenten 0 für negativ gehalten; 0 ist weder positiv noch negativ")],
+    "Ein Gegenbeispiel muss einen negativen Exponenten haben und trotzdem eine positive Potenz liefern. 2⁻¹ = 1/2 erfüllt das. Die negative Zahl (−2)⁻¹ = −1/2 bestätigt die Behauptung nur für eine negative Basis; 2³ und 2⁰ haben keinen negativen Exponenten.",
+    lambda: F(2) ** -1 > 0 and F(-2) ** -1 < 0 and 2 ** 3 > 0 and 2 ** 0 > 0), lp=LP)
 neu(T, "fehler_finden", "korrektur", "einkleidung", Z(
     "In einem Datenblatt steht: Dicke der Folie 10⁻³ m. Ein Kind sagt: „Das sind −1000 m.“ Wie viele Nanometer ist die Folie dick? (1 Nanometer = 10⁻⁹ m)",
     1000000, "10 ** 9 / 10 ** 3", "1000000000 / 1000",

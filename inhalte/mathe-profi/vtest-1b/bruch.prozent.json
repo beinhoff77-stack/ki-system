@@ -24,6 +24,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen berechnen einen Prozentsatz vorwärts; hier muss entschieden werden, worauf sich die Prozente beziehen (Grundwert) oder der Ansatz umgekehrt gelesen werden.",
+   "idee": "begruenden_ablenker",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -83,6 +84,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen berechnen einen Prozentsatz vorwärts; hier muss entschieden werden, worauf sich die Prozente beziehen (Grundwert) oder der Ansatz umgekehrt gelesen werden.",
+   "idee": "umkehr",
    "antwortform": "zahl",
    "loesung_rechnung": "0.85 * 40",
    "fehlbilder": [
@@ -137,6 +139,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen berechnen einen Prozentsatz vorwärts; hier muss entschieden werden, worauf sich die Prozente beziehen (Grundwert) oder der Ansatz umgekehrt gelesen werden.",
+   "idee": "groessenvergleich",
    "antwortform": "zahl",
    "loesung_rechnung": "27 / 30 * 100 - 18 / 24 * 100",
    "fehlbilder": [
@@ -191,6 +194,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen berechnen einen Prozentsatz vorwärts; hier muss entschieden werden, worauf sich die Prozente beziehen (Grundwert) oder der Ansatz umgekehrt gelesen werden.",
+   "idee": "darstellung_wechseln",
    "antwortform": "zahl",
    "loesung_rechnung": "126 / 360 * 100",
    "fehlbilder": [
@@ -245,6 +249,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen berechnen einen Prozentsatz vorwärts; hier muss entschieden werden, worauf sich die Prozente beziehen (Grundwert) oder der Ansatz umgekehrt gelesen werden.",
+   "idee": "darstellung_wechseln",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -303,6 +308,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen berechnen einen Prozentsatz vorwärts; hier muss entschieden werden, worauf sich die Prozente beziehen (Grundwert) oder der Ansatz umgekehrt gelesen werden.",
+   "idee": "fehler_finden_richtigstellen",
    "antwortform": "luecken",
    "loesung_rechnung": [
     "2",
@@ -370,6 +376,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen berechnen einen Prozentsatz vorwärts; hier muss entschieden werden, worauf sich die Prozente beziehen (Grundwert) oder der Ansatz umgekehrt gelesen werden.",
+   "idee": "modell_aufstellen",
    "antwortform": "zahl",
    "loesung_rechnung": "18 / 30 * (30 + 10) - 18",
    "fehlbilder": [
@@ -424,6 +431,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen rechnen Rabatt oder Aufschlag in einem Schritt; hier geht es um den Bezugswert, hintereinander ausgeführte Änderungen und das Rückwärtsrechnen auf den alten Preis.",
+   "idee": "fehler_finden_richtigstellen",
    "antwortform": "luecken",
    "loesung_rechnung": [
     "2",
@@ -492,6 +500,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen rechnen Rabatt oder Aufschlag in einem Schritt; hier geht es um den Bezugswert, hintereinander ausgeführte Änderungen und das Rückwärtsrechnen auf den alten Preis.",
+   "idee": "umkehr",
    "antwortform": "zahl",
    "loesung_rechnung": "117 / 0.65",
    "fehlbilder": [
@@ -546,6 +555,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen rechnen Rabatt oder Aufschlag in einem Schritt; hier geht es um den Bezugswert, hintereinander ausgeführte Änderungen und das Rückwärtsrechnen auf den alten Preis.",
+   "idee": "modell_aufstellen",
    "antwortform": "zahl",
    "loesung_rechnung": "840 * 1.12 / 6",
    "fehlbilder": [
@@ -600,6 +610,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen rechnen Rabatt oder Aufschlag in einem Schritt; hier geht es um den Bezugswert, hintereinander ausgeführte Änderungen und das Rückwärtsrechnen auf den alten Preis.",
+   "idee": "hintereinander_ausfuehren",
    "antwortform": "zahl",
    "loesung_rechnung": "1.4 * 0.75 * 100",
    "fehlbilder": [
@@ -654,6 +665,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen rechnen Rabatt oder Aufschlag in einem Schritt; hier geht es um den Bezugswert, hintereinander ausgeführte Änderungen und das Rückwärtsrechnen auf den alten Preis.",
+   "idee": "darstellung_wechseln",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -712,6 +724,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen rechnen Rabatt oder Aufschlag in einem Schritt; hier geht es um den Bezugswert, hintereinander ausgeführte Änderungen und das Rückwärtsrechnen auf den alten Preis.",
+   "idee": "zwei_wege",
    "antwortform": "zahl",
    "loesung_rechnung": "600 * 0.8 - 620 * 3 / 4",
    "fehlbilder": [
@@ -766,6 +779,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen rechnen Rabatt oder Aufschlag in einem Schritt; hier geht es um den Bezugswert, hintereinander ausgeführte Änderungen und das Rückwärtsrechnen auf den alten Preis.",
+   "idee": "bezugswert_erkennen",
    "antwortform": "zahl",
    "loesung_rechnung": "(120 - 96) / 96 * 100",
    "fehlbilder": [
@@ -820,6 +834,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum Prozentzahlen nur Anteile vergleichen und Auf- und Abstieg nicht dieselbe Prozentzahl haben.",
+   "idee": "begruenden_ablenker",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -879,6 +894,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum Prozentzahlen nur Anteile vergleichen und Auf- und Abstieg nicht dieselbe Prozentzahl haben.",
+   "idee": "prozent_vs_faktor",
    "antwortform": "zahl",
    "loesung_rechnung": "30 + 30 * 200 / 100",
    "fehlbilder": [
@@ -933,6 +949,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum Prozentzahlen nur Anteile vergleichen und Auf- und Abstieg nicht dieselbe Prozentzahl haben.",
+   "idee": "darstellung_wechseln",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -991,6 +1008,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum Prozentzahlen nur Anteile vergleichen und Auf- und Abstieg nicht dieselbe Prozentzahl haben.",
+   "idee": "umkehr",
    "antwortform": "zahl",
    "loesung_rechnung": "40 / 0.5",
    "fehlbilder": [
@@ -1045,6 +1063,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum Prozentzahlen nur Anteile vergleichen und Auf- und Abstieg nicht dieselbe Prozentzahl haben.",
+   "idee": "anteil_von_anteil",
    "antwortform": "zahl",
    "loesung_rechnung": "0.3 * 0.4 * 100",
    "fehlbilder": [
@@ -1099,6 +1118,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum Prozentzahlen nur Anteile vergleichen und Auf- und Abstieg nicht dieselbe Prozentzahl haben.",
+   "idee": "gegenbeispiel",
    "antwortform": "luecken",
    "loesung_rechnung": [
     "3",
@@ -1166,6 +1186,7 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
    "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum Prozentzahlen nur Anteile vergleichen und Auf- und Abstieg nicht dieselbe Prozentzahl haben.",
+   "idee": "modell_aufstellen",
    "antwortform": "zahl",
    "loesung_rechnung": "0.1 * 200 / 0.2",
    "fehlbilder": [

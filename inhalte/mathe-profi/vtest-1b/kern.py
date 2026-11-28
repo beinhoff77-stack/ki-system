@@ -17,6 +17,7 @@ G3 = ("rueckwaerts", "verknuepfen", "begruenden", "fehler", "transfer", "paramet
 FORMEN = ("anwenden", "umkehren", "verfahren_waehlen", "fehler_detektiv", "bruecke", "zwei_wege", "viele_antworten")
 POOLS = ("test", "korrektur", "sicherung")
 A = []
+IDEEN = {}   # (Einheit, Lernziel) -> Liste der Ideen in der Reihenfolge der neu()-Aufrufe
 ABG = {}      # (Einheit, Lernziel) -> Satz „was ist anders als in den Übungen“
 POSITION4 = itertools.cycle([2, 0, 3, 1, 1, 3, 0, 2, 3, 1, 0, 2])
 
@@ -48,12 +49,15 @@ def W(text, richtig, falsch, w, probe, pos=None):
     return {"y": "auswahl", "f": {"text": text}, "a": antworten, "o": {"index": p}, "w": w}, probe, fb
 
 
-def neu(thema, lk, pool, g, bau, form=None, lp=None):
+def neu(thema, lk, pool, g, bau, form=None, lp=None, idee=None):
     """pool: test | korrektur | sicherung. g: Aufgabentyp (Stufe folgt daraus). form: optional (anwenden, umkehren, verfahren_waehlen, fehler_detektiv, bruecke, zwei_wege, viele_antworten)."""
     assert pool in POOLS and (g in G2 or g in G3) and (form is None or form in FORMEN), (thema, lk, pool, g, form)
     assert lp, (thema, lk, "Lehrplan-Bezug fehlt")
     aufgabe, zweit, fb = bau
-    A.append(dict(thema=thema, lk=lk, pool=pool, g=g, form=form, s=ip.STUFE_VON[g], lp=lp, aufgabe=aufgabe, zweit=zweit, fb=fb, nr=len(A)))
+    if idee is None:
+        assert IDEEN.get((thema, lk)), (thema, lk, 'Idee fehlt')
+        idee = IDEEN[(thema, lk)].pop(0)
+    A.append(dict(thema=thema, lk=lk, pool=pool, g=g, form=form, s=ip.STUFE_VON[g], lp=lp, idee=idee, aufgabe=aufgabe, zweit=zweit, fb=fb, nr=len(A)))
 
 
 def B(ausdruck, beschr):

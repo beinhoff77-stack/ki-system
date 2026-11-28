@@ -24,6 +24,10 @@ ABG[(T, "definitionsmenge")] = "Die Übungen bestimmen D bei einem Nenner; hier 
 ABG[(T, "ueber_kreuz")] = "Die Übungen lösen mit dem Über-Kreuz-Verfahren; hier wird das Verfahren verglichen, begründet und umgekehrt (Parameter gesucht)."
 ABG[(T, "scheinloesung")] = "Die Übungen prüfen eine Lösung gegen D; hier wird begründet, warum eine Scheinlösung keine Lösung ist, und die Bedingung für eine Scheinlösung gesucht."
 ABG[(T, "verhaeltnis")] = "Die Übungen lösen eine Verhältnisgleichung; hier wird das Modell aus einem Sachverhalt selbst aufgestellt und ein Fehler im Ansatz gefunden."
+IDEEN[(T, "definitionsmenge")] = ['begruenden_ablenker', 'definitionsmenge_erkennen', 'umkehr', 'modell_aufstellen', 'fehler_finden_richtigstellen', 'modell_aufstellen', 'definitionsmenge_erkennen']
+IDEEN[(T, "ueber_kreuz")] = ['rechnung_waehlen', 'modell_aufstellen', 'darstellung_wechseln', 'zwei_wege', 'fehler_finden_richtigstellen', 'was_waere_wenn', 'umkehr']
+IDEEN[(T, "scheinloesung")] = ['begruenden_ablenker', 'scheinloesung_erkennen', 'scheinloesung_erkennen', 'umkehr', 'fehler_finden_richtigstellen', 'was_waere_wenn', 'umkehr']
+IDEEN[(T, "verhaeltnis")] = ['modell_aufstellen', 'modell_aufstellen', 'darstellung_wechseln', 'aufteilen_im_verhaeltnis', 'fehler_finden_richtigstellen', 'was_waere_wenn', 'umkehr']
 # ───────── definitionsmenge ─────────
 neu(T, "definitionsmenge", "test", "begruenden", W(
     "Beim Lösen von 3/(x − 2) = 1/(x − 2) + 2/(x − 2) multipliziert Jan beide Seiten mit (x − 2) und erhält 3 = 1 + 2. Er sagt: „Jetzt stehen keine Nenner mehr da, also gibt es keine Einschränkung: Alle Zahlen sind Lösung.“ Welche Aussage ist richtig?",

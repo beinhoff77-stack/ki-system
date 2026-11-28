@@ -24,6 +24,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen bestimmen D bei einem Nenner; hier kommen mehrere Nenner, Fehlersuche und Anwendungen dazu.",
+   "idee": "begruenden_ablenker",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -83,6 +84,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen bestimmen D bei einem Nenner; hier kommen mehrere Nenner, Fehlersuche und Anwendungen dazu.",
+   "idee": "definitionsmenge_erkennen",
    "antwortform": "zahl",
    "loesung_rechnung": "1 + 1",
    "fehlbilder": [
@@ -137,6 +139,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen bestimmen D bei einem Nenner; hier kommen mehrere Nenner, Fehlersuche und Anwendungen dazu.",
+   "idee": "umkehr",
    "antwortform": "zahl",
    "loesung_rechnung": "2 * 7",
    "fehlbilder": [
@@ -190,6 +193,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen bestimmen D bei einem Nenner; hier kommen mehrere Nenner, Fehlersuche und Anwendungen dazu.",
+   "idee": "definitionsmenge_erkennen",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -248,6 +252,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen bestimmen D bei einem Nenner; hier kommen mehrere Nenner, Fehlersuche und Anwendungen dazu.",
+   "idee": "modell_aufstellen",
    "antwortform": "zahl",
    "loesung_rechnung": "0 + 5",
    "fehlbilder": [
@@ -301,6 +306,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen bestimmen D bei einem Nenner; hier kommen mehrere Nenner, Fehlersuche und Anwendungen dazu.",
+   "idee": "fehler_finden_richtigstellen",
    "antwortform": "luecken",
    "loesung_rechnung": [
     "1",
@@ -360,6 +366,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen bestimmen D bei einem Nenner; hier kommen mehrere Nenner, Fehlersuche und Anwendungen dazu.",
+   "idee": "modell_aufstellen",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -418,6 +425,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen lösen mit dem Über-Kreuz-Verfahren; hier wird das Verfahren verglichen, begründet und umgekehrt (Parameter gesucht).",
+   "idee": "rechnung_waehlen",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -477,6 +485,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen lösen mit dem Über-Kreuz-Verfahren; hier wird das Verfahren verglichen, begründet und umgekehrt (Parameter gesucht).",
+   "idee": "modell_aufstellen",
    "antwortform": "zahl",
    "loesung_rechnung": "9 * 2 / (3 - 2)",
    "fehlbilder": [
@@ -531,6 +540,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen lösen mit dem Über-Kreuz-Verfahren; hier wird das Verfahren verglichen, begründet und umgekehrt (Parameter gesucht).",
+   "idee": "darstellung_wechseln",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -589,6 +599,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen lösen mit dem Über-Kreuz-Verfahren; hier wird das Verfahren verglichen, begründet und umgekehrt (Parameter gesucht).",
+   "idee": "umkehr",
    "antwortform": "zahl",
    "loesung_rechnung": "(8 * 3 - 2 * 3) / 2",
    "fehlbilder": [
@@ -642,6 +653,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen lösen mit dem Über-Kreuz-Verfahren; hier wird das Verfahren verglichen, begründet und umgekehrt (Parameter gesucht).",
+   "idee": "zwei_wege",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -700,6 +712,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen lösen mit dem Über-Kreuz-Verfahren; hier wird das Verfahren verglichen, begründet und umgekehrt (Parameter gesucht).",
+   "idee": "fehler_finden_richtigstellen",
    "antwortform": "luecken",
    "loesung_rechnung": [
     "2",
@@ -767,6 +780,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen lösen mit dem Über-Kreuz-Verfahren; hier wird das Verfahren verglichen, begründet und umgekehrt (Parameter gesucht).",
+   "idee": "was_waere_wenn",
    "antwortform": "zahl",
    "loesung_rechnung": "1 + 1",
    "fehlbilder": [
@@ -821,6 +835,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen prüfen eine Lösung gegen D; hier wird begründet, warum eine Scheinlösung keine Lösung ist, und die Bedingung für eine Scheinlösung gesucht.",
+   "idee": "begruenden_ablenker",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -880,6 +895,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen prüfen eine Lösung gegen D; hier wird begründet, warum eine Scheinlösung keine Lösung ist, und die Bedingung für eine Scheinlösung gesucht.",
+   "idee": "scheinloesung_erkennen",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -938,6 +954,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen prüfen eine Lösung gegen D; hier wird begründet, warum eine Scheinlösung keine Lösung ist, und die Bedingung für eine Scheinlösung gesucht.",
+   "idee": "scheinloesung_erkennen",
    "antwortform": "zahl",
    "loesung_rechnung": "3 - 2",
    "fehlbilder": [
@@ -992,6 +1009,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen prüfen eine Lösung gegen D; hier wird begründet, warum eine Scheinlösung keine Lösung ist, und die Bedingung für eine Scheinlösung gesucht.",
+   "idee": "umkehr",
    "antwortform": "zahl",
    "loesung_rechnung": "17 - 2 * 4",
    "fehlbilder": [
@@ -1045,6 +1063,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen prüfen eine Lösung gegen D; hier wird begründet, warum eine Scheinlösung keine Lösung ist, und die Bedingung für eine Scheinlösung gesucht.",
+   "idee": "umkehr",
    "antwortform": "zahl",
    "loesung_rechnung": "3 * 6 + 6",
    "fehlbilder": [
@@ -1098,6 +1117,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen prüfen eine Lösung gegen D; hier wird begründet, warum eine Scheinlösung keine Lösung ist, und die Bedingung für eine Scheinlösung gesucht.",
+   "idee": "fehler_finden_richtigstellen",
    "antwortform": "luecken",
    "loesung_rechnung": [
     "1",
@@ -1157,6 +1177,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen prüfen eine Lösung gegen D; hier wird begründet, warum eine Scheinlösung keine Lösung ist, und die Bedingung für eine Scheinlösung gesucht.",
+   "idee": "was_waere_wenn",
    "antwortform": "zahl",
    "loesung_rechnung": "8 - 1",
    "fehlbilder": [
@@ -1211,6 +1232,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen lösen eine Verhältnisgleichung; hier wird das Modell aus einem Sachverhalt selbst aufgestellt und ein Fehler im Ansatz gefunden.",
+   "idee": "modell_aufstellen",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -1270,6 +1292,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen lösen eine Verhältnisgleichung; hier wird das Modell aus einem Sachverhalt selbst aufgestellt und ein Fehler im Ansatz gefunden.",
+   "idee": "modell_aufstellen",
    "antwortform": "zahl",
    "loesung_rechnung": "18 * 30 / 12",
    "fehlbilder": [
@@ -1317,6 +1340,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen lösen eine Verhältnisgleichung; hier wird das Modell aus einem Sachverhalt selbst aufgestellt und ein Fehler im Ansatz gefunden.",
+   "idee": "darstellung_wechseln",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -1375,6 +1399,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen lösen eine Verhältnisgleichung; hier wird das Modell aus einem Sachverhalt selbst aufgestellt und ein Fehler im Ansatz gefunden.",
+   "idee": "umkehr",
    "antwortform": "zahl",
    "loesung_rechnung": "77 * 4 / 7",
    "fehlbilder": [
@@ -1428,6 +1453,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen lösen eine Verhältnisgleichung; hier wird das Modell aus einem Sachverhalt selbst aufgestellt und ein Fehler im Ansatz gefunden.",
+   "idee": "aufteilen_im_verhaeltnis",
    "antwortform": "zahl",
    "loesung_rechnung": "540 / (2 + 3 + 4) * 4",
    "fehlbilder": [
@@ -1482,6 +1508,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen lösen eine Verhältnisgleichung; hier wird das Modell aus einem Sachverhalt selbst aufgestellt und ein Fehler im Ansatz gefunden.",
+   "idee": "fehler_finden_richtigstellen",
    "antwortform": "luecken",
    "loesung_rechnung": [
     "2",
@@ -1549,6 +1576,7 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen lösen eine Verhältnisgleichung; hier wird das Modell aus einem Sachverhalt selbst aufgestellt und ein Fehler im Ansatz gefunden.",
+   "idee": "was_waere_wenn",
    "antwortform": "zahl",
    "loesung_rechnung": "5 * 6",
    "fehlbilder": [

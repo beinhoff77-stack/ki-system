@@ -1,24 +1,32 @@
 """Test für TEMPO-S1 (supabase/migrations/20261207_tempo_s1.sql, Pakete aus tools/tests/tempo_einspielen.py) im lokalen NACHBAU
-(tools/tests/tempo_nachbau.sql, erfundene Daten – NICHT die echte Datenbank).
+(tools/tests/tempo_nachbau.sql, erfundene Daten – NICHT die echte Datenbank). Gegenprüfung: Werkstatt 1175.
 
-Teil 1 (immer): md5 in der Migration = nachgerechneter Repo-Stand; Paket-Dateien unter tools/tests/aus auf dem Stand.
-Teil 2 (nur mit lokalem Postgres): leere Instanz, Nachbau mit ALTER etappen_stand (Text aus den Migrationen; md5 im Katalog = erwartet);
-  Probelauf meldet „PROBELAUF bestanden“ ohne Abweichung (alle Kinder × Einheiten, Merkheft-Kopie verglichen) und ändert nichts;
-  eine veränderte alte Fassung lässt Probe und Einspielen mit „Vorbedingung“ abbrechen; Einspielen läuft, zweimal (wiederholbar);
-  danach: neue Fassung gegen gespeicherte alte Antworten für JEDES Kind × JEDE Einheit byte-gleich (jsonb::text), auch mit Zusatzfällen
-  (gesetzter Flug, kann wiederholen, Zusatz eingeplant, Regel anwenden_pflicht aus/an); Messung läuft und ändert nichts; Laufzeiten vorher/nachher.
+Teil 1 (immer): md5 alt/neu in der Migration = nachgerechnete Funktionstexte; Paket-Dateien unter tools/tests/aus auf dem Stand.
+Teil 2 (nur mit lokalem Postgres), jeder Lauf wie beim Projektleiter: eine Transaktion, `set local statement_timeout/lock_timeout` vor dem äußeren do:
+  - Probe besteht: alle Kind×Einheit-Paare, Merkheft in allen Läufen „verglichen“ für dieselben vollständigen Kinder, 0 Abweichungen, Hash alt → neu,
+    Eigenschaften gleich, beide Soll-Indizes gültig; danach Funktionshash und Indexbestand unverändert.
+  - Negativfälle (Probe UND Einspielen brechen ab, nichts geändert): ohne api.schule_merkheft; Merkheft ohne Zugriffsstelle; Merkheft scheitert für ein Kind;
+    Kommentar-Trick (alte Fassung mit „TEMPO-S1“); Eigenschaft anders (volatile, security definer); gleichnamiger Index auf falscher Spalte / falscher
+    Reihenfolge / ungültig.
+  - Einspielen zweimal (wiederholbar); in derselben Verbindung danach keine Hilfsfunktion, keine Merkheft-Kopie, keine Hilfstabelle mehr.
+  - neue Fassung gegen gespeicherte alte Antworten byte-gleich (auch Zusatzfälle); Messung ändert nichts.
+  - Gegenprobe: verdorbene neue Fassungen (mit passend nachgerechnetem md5) und eine verdorbene Indexanlage brechen ab.
 Aufruf: python3 -I tools/tests/tempo_test.py   (endet mit OK; ohne Postgres: Teil 2 übersprungen)
 """
+import hashlib
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import regelbezug_sql_test as T  # noqa: E402
+import tempo_einspielen as E  # noqa: E402
 
 WURZEL = T.WURZEL
 AUS = WURZEL / 'tools/tests/aus'
+ALT, NEU = 'bf3152e9a378a1d4e41c98965acf738e', '3f49198f8dbf5c822a0be4650a5ebce5'
 
 
 def py(*args):
@@ -26,9 +34,16 @@ def py(*args):
     return p.returncode, p.stdout, p.stderr
 
 
+def lauf(pg, text, erwartet_fehler=None, danach=''):
+    """Wie der Projektleiter: eine Transaktion, Zeitgrenzen als eigene Anweisungen, dann der Paketinhalt in EINEM execute (danach optional weitere SQL)."""
+    assert '$rbpaketinhalt$' not in text
+    return pg.sql("set local statement_timeout = '300s';\nset local lock_timeout = '3s';\n"
+                  f'do $rbpaket$ begin execute $rbpaketinhalt${text}$rbpaketinhalt$; end $rbpaket$;\n{danach}', erwartet_fehler)
+
+
 def fehlerzeile(out, stichwort):
     z = [x for x in out.splitlines() if 'ERROR:' in x]
-    assert len(z) == 1 and stichwort in z[0], out[-2000:]
+    assert len(z) == 1 and stichwort in z[0], (stichwort, out[-2500:])
     return z[0]
 
 
@@ -36,10 +51,35 @@ def bericht(zeile):
     return json.loads(zeile[zeile.index('{'):])
 
 
+def wert(pg, sql):
+    return pg.sql('\\pset tuples_only on\n\\pset format unaligned\n' + sql).strip()
+
+
+def zustand(pg):
+    """Funktionshash und Indexbestand (Nachkontrolle)."""
+    return (wert(pg, "select md5(prosrc) from pg_proc where oid = 'schule.etappen_stand(bigint, bigint)'::regprocedure;"),
+            wert(pg, "select string_agg(indexname || ':' || indexdef, ' | ' order by indexname) from pg_indexes where schemaname = 'schule' and tablename in ('aufgabe', 'versuch');"))
+
+
 def antworten(pg):
-    out = pg.sql("\\pset tuples_only on\n\\pset format unaligned\n"
-                 "select l.id || '/' || e.id || '\t' || coalesce(schule.etappen_stand(l.id, e.id)::text, 'NULL') from schule.lernender l cross join schule.einheit e order by 1;")
-    return dict(z.split('\t', 1) for z in out.strip().splitlines())
+    out = wert(pg, "select l.id || '/' || e.id || chr(9) || coalesce(schule.etappen_stand(l.id, e.id)::text, 'NULL') from schule.lernender l cross join schule.einheit e order by 1;")
+    return dict(z.split('\t', 1) for z in out.splitlines())
+
+
+def pruefe_bericht(r, *, schon=False):
+    for g in ('vergleich_alt_neu', 'vergleich_alt_endzustand'):
+        v = r[g]
+        assert v['merkheft'] == 'verglichen' and v['kinder'] == [1, 2, 3, 4] and v['paare'] == 380, (g, v)
+        assert v['abweichungen_etappen_stand'] == 0 and v['abweichungen_merkheft'] == 0, (g, v)
+    for n in ('alt', 'neu', 'endzustand'):
+        assert r['laeufe'][n]['merkheft'] == 'verglichen' and r['laeufe'][n]['kinder'] == [1, 2, 3, 4] and r['laeufe'][n]['paare'] == 380, r['laeufe'][n]
+    assert r['funktion_vorher']['md5'] == (NEU if schon else ALT) and r['funktion_nachher']['md5'] == NEU and r['eigenschaften_gleich'], r
+    assert r['funktion_nachher']['eigenschaften'] == 'p_lernender bigint, p_einheit bigint|jsonb|sql|s|f|{"search_path=\\"\\""}', r['funktion_nachher']
+    soll = {'aufgabe_einheit_pool_lz_idx': 'aufgabe (einheit_id, pool, variante_gruppe)', 'versuch_kind_aufgabe_idx': 'versuch (lernender_id, aufgabe_id)'}
+    for name, spalten in soll.items():
+        x = [i for i in r['indizes_nachher'] if i['name'] == name]
+        assert len(x) == 1 and x[0]['gueltig'] and f'ON schule.{spalten.split(" (")[0]} USING btree ({spalten.split(" (")[1]}' in x[0]['def'], (name, x)
+    assert r['rueckstaende'] == [], r['rueckstaende']
 
 
 ZUSATZ = """
@@ -50,45 +90,93 @@ update schule.karte_stand set gesetzt_am = now() - interval '5 days', wdh_stufe 
  where lernender_id = 1 and einheit_id between 30 and 40;
 update schule.regel set wert = '0' where schluessel = 'anwenden_pflicht';
 """
+MERKHEFT_ECHT = None
+
+
+def merkheft_def(pg):
+    return wert(pg, "select pg_get_functiondef('api.schule_merkheft(text, jsonb)'::regprocedure);") + ';'
+
+
+def verdorbene_migrationen(m):
+    """Neue Fassung absichtlich falsch (nur im Speicher), v_neu passend nachgerechnet – nur der Vergleich darf sie aufhalten."""
+    def mit(alt, neu):
+        assert m.count(alt) == 1, alt[:60]
+        x = m.replace(alt, neu)
+        h = hashlib.md5(E.neuer_text(x).encode('utf-8')).hexdigest()
+        return re.sub(r"v_neu constant text := '[0-9a-f]{32}'", f"v_neu constant text := '{h}'", x)
+    return {
+        'gesamt ohne Freigabe-Filter': mit("where a.einheit_id = p_einheit and a.pool = 'uebung' and a.freigegeben group by a.variante_gruppe) g",
+                                           "where a.einheit_id = p_einheit and a.pool = 'uebung' group by a.variante_gruppe) g"),
+        'geloest ohne distinct': mit('count(distinct v.aufgabe_id) geloest', 'count(v.aufgabe_id) geloest'),
+        'folge_ziel anders': mit("'folge_ziel', least(3, z.ziel)", "'folge_ziel', least(4, z.ziel)"),
+        'flug_nachtest fest': mit('cross join (select schule.flug_nachtest(p_lernender, p_einheit) v offset 0) fn', 'cross join (select false v offset 0) fn'),
+        'Feld fehlt': mit("'bearbeitungen', schule.karte_bearbeitungen(p_lernender, p_einheit, z.lz), ", ''),
+    }
 
 
 def main():
     rc, out, err = py('tools/tests/tempo_einspielen.py', '--pruefen')
     assert rc == 0, 'Pakete nicht auf dem Stand: python3 -I tools/tests/tempo_einspielen.py\n' + err
-    rc, alt_sql, err = py('tools/tests/tempo_einspielen.py', '--alt-sql')
-    assert rc == 0, err
+    t1, t2, neu = E.migration()
+    assert neu == NEU and hashlib.md5(E.alter_text().encode('utf-8')).hexdigest() == ALT
+    alt_sql = E.alter_sql()
     b = T.pg_bin()
     if not b:
         print('Teil 2 übersprungen (kein Postgres)'); print('OK'); return
     pg = T.PG(b)
     lies = lambda n: (AUS / n).read_text(encoding='utf-8')
+    probe, einspielen, messen = lies('tempo_s1_probe.sql'), lies('tempo_s1_einspielen.sql'), lies('tempo_s1_messen.sql')
     try:
         pg.sql((WURZEL / 'tools/tests/tempo_nachbau.sql').read_text(encoding='utf-8'))
         pg.sql(alt_sql)
-        md5 = pg.sql("\\pset tuples_only on\nselect md5(prosrc) from pg_proc where proname = 'etappen_stand';").strip()
-        assert md5 == 'bf3152e9a378a1d4e41c98965acf738e', md5
+        z0 = zustand(pg)
+        assert z0[0] == ALT, z0
         vorher = antworten(pg)
-        n_inhalt = sum(1 for v in vorher.values() if v not in ('{}', 'NULL'))
-        assert len(vorher) == 4 * 95 and n_inhalt > 250, (len(vorher), n_inhalt)
+        assert len(vorher) == 4 * 95 and sum(1 for v in vorher.values() if v not in ('{}', 'NULL')) > 250
 
-        # Probe: besteht, ändert nichts
-        z = fehlerzeile(pg.paket(lies('tempo_s1_probe.sql'), erwartet_fehler='PROBELAUF bestanden'), 'PROBELAUF bestanden')
-        r = bericht(z)
-        assert r['abweichungen_etappen_stand'] == 0 and r['paare_kind_einheit'] == 380 and r['merkheft'] == 'verglichen' and r['merkheft_kinder'] == 4, r
-        assert r['abweichungen_merkheft'] == [] and r['umgestellt_nachher'] and not r['schon_umgestellt_vorher'], r
-        namen = {i['name'] for i in r['indizes_nachher']}
-        assert {'aufgabe_einheit_pool_lz_idx', 'versuch_kind_aufgabe_idx'} <= namen and not ({'aufgabe_einheit_pool_lz_idx', 'versuch_kind_aufgabe_idx'} & {i['name'] for i in r['indizes_vorher']}), r
-        print('Probe:', json.dumps({k: r[k] for k in ('ms_vorher', 'ms_nachher')}, ensure_ascii=False))
-        nach_probe = pg.sql("\\pset tuples_only on\nselect md5(prosrc) from pg_proc where proname = 'etappen_stand';").strip()
-        assert nach_probe == md5 and 'versuch_kind_aufgabe_idx' not in pg.sql("select indexname from pg_indexes where schemaname = 'schule';"), 'Probe hat etwas geändert'
+        # 1. Probe besteht, ändert nichts
+        r = bericht(fehlerzeile(lauf(pg, probe, erwartet_fehler='PROBELAUF bestanden'), 'PROBELAUF bestanden'))
+        pruefe_bericht(r)
+        assert not {'aufgabe_einheit_pool_lz_idx', 'versuch_kind_aufgabe_idx'} & {i['name'] for i in r['indizes_vorher']}
+        print('Probe: Sperre', r['ms_unter_sperre_bis_vor_aufraeumen'], 'ms;', json.dumps({k: {x: r['laeufe'][k][x] for x in ('ms_etappen_stand_alle', 'ms_merkheft_summe')} for k in r['laeufe']}))
+        assert zustand(pg) == z0, 'Probe hat etwas geändert'
 
-        # Vorbedingung: eine andere alte Fassung → Abbruch, nichts geändert
-        pg.sql(alt_sql.replace("'gesamt', z.gesamt,", "'gesamt', z.gesamt, 'extra', 1,"))
-        for n in ('tempo_s1_probe.sql', 'tempo_s1_einspielen.sql'):
-            fehlerzeile(pg.paket(lies(n), erwartet_fehler='Vorbedingung'), 'etappen_stand weicht vom Repo-Stand ab')
-        pg.sql(alt_sql)
+        # 2. Negativfälle: Probe und Einspielen brechen ab, nichts geändert
+        mh = merkheft_def(pg)
+        faelle = [
+            ('ohne api.schule_merkheft', 'alter function api.schule_merkheft(text, jsonb) rename to schule_merkheft_weg;',
+             'alter function api.schule_merkheft_weg(text, jsonb) rename to schule_merkheft;', 'api.schule_merkheft(text, jsonb) fehlt'),
+            ('Merkheft ohne Zugriffsstelle', mh.replace('perform schule.zugriff(p_schluessel, v_l);', 'perform 1;'), mh, 'keine Stelle schule.zugriff('),
+            ('Merkheft scheitert für ein Kind', mh.replace('perform schule.zugriff(p_schluessel, v_l);',
+             "perform schule.zugriff(p_schluessel, v_l);\n  if v_l = 4 then raise exception 'kaputt für Kind 4'; end if;"), mh, 'Lauf „alt“ fehlgeschlagen'),
+            ('Kommentar-Trick', alt_sql.replace("as $$\n  select", "as $$\n  -- TEMPO-S1\n  select"), alt_sql, 'weicht vom Repo-Stand ab'),
+            ('volatile', alt_sql.replace('language sql stable', 'language sql volatile'), alt_sql, 'Eigenschaften von etappen_stand anders'),
+            ('security definer', alt_sql.replace("language sql stable set search_path", "language sql stable security definer set search_path"), alt_sql + 'alter function schule.etappen_stand(bigint, bigint) security invoker;', 'Eigenschaften von etappen_stand anders'),
+            ('Index falsche Spalte', 'create index aufgabe_einheit_pool_lz_idx on schule.aufgabe (id);', 'drop index schule.aufgabe_einheit_pool_lz_idx;', 'Index schule.aufgabe_einheit_pool_lz_idx ist nicht'),
+            ('Index falsche Reihenfolge', 'create index versuch_kind_aufgabe_idx on schule.versuch (aufgabe_id, lernender_id);', 'drop index schule.versuch_kind_aufgabe_idx;', 'Index schule.versuch_kind_aufgabe_idx ist nicht'),
+            ('Index ungültig', "create index versuch_kind_aufgabe_idx on schule.versuch (lernender_id, aufgabe_id); update pg_index set indisvalid = false where indexrelid = 'schule.versuch_kind_aufgabe_idx'::regclass;",
+             'drop index schule.versuch_kind_aufgabe_idx;', 'Index schule.versuch_kind_aufgabe_idx ist nicht'),
+        ]
+        for name, kaputt, heil, stichwort in faelle:
+            pg.sql(kaputt); z1 = zustand(pg)
+            for paket in (probe, einspielen):
+                fehlerzeile(lauf(pg, paket, erwartet_fehler=stichwort), stichwort)
+                assert zustand(pg) == z1, (name, 'Abbruch hat etwas geändert')
+            pg.sql(heil)
+            assert zustand(pg) == z0, (name, 'Rückbau unvollständig')
+            print('Abbruch ok:', name)
 
-        # Zusatzfälle vorher speichern
+        # 3. Gegenprobe: verdorbene neue Fassungen und verdorbene Indexanlage
+        m = E.MIGRATION.read_text(encoding='utf-8')
+        for name, x in verdorbene_migrationen(m).items():
+            fehlerzeile(lauf(pg, E.paket(True, x), erwartet_fehler='Ergebnis weicht ab'), 'Ergebnis weicht ab')
+            assert zustand(pg) == z0; print('Gegenprobe ok:', name)
+        x = m.replace('on schule.aufgabe (einheit_id, pool, variante_gruppe);', 'on schule.aufgabe (pool, einheit_id, variante_gruppe);')
+        assert x != m
+        fehlerzeile(lauf(pg, E.paket(True, x), erwartet_fehler='ist nicht der erwartete'), 'Index schule.aufgabe_einheit_pool_lz_idx ist nicht')
+        assert zustand(pg) == z0; print('Gegenprobe ok: Index in falscher Reihenfolge angelegt')
+
+        # 4. Zusatzfälle vorher speichern
         pg.sql(ZUSATZ)
         vorher2 = antworten(pg)
         assert vorher2 != vorher, 'Zusatzfälle ohne Wirkung'
@@ -96,32 +184,34 @@ def main():
         vorher3 = antworten(pg)
         pg.sql("update schule.regel set wert = '0' where schluessel = 'anwenden_pflicht';")
 
-        # Einspielen zweimal
-        for lauf in (1, 2):
-            out = pg.paket(lies('tempo_s1_einspielen.sql'))
-            h = [x for x in out.splitlines() if 'NOTICE:' in x and 'TEMPO-S1 eingespielt' in x]
-            assert len(h) == 1, out[-2000:]
+        # 5. Einspielen zweimal; in derselben Verbindung danach keine Rückstände
+        rest_sql = ("select 'REST=' || count(*) from pg_proc p where p.pronamespace = pg_my_temp_schema();\n"
+                    "select 'TABELLEN=' || count(*) from pg_class c where c.relnamespace = pg_my_temp_schema();\n")
+        for nr in (1, 2):
+            out = lauf(pg, einspielen, danach=rest_sql)
+            h = [z for z in out.splitlines() if 'NOTICE:' in z and 'TEMPO-S1 eingespielt' in z]
+            assert len(h) == 1, out[-2500:]
             r = bericht(h[0])
-            assert r['abweichungen_etappen_stand'] == 0 and r['merkheft'] == 'verglichen' and r['abweichungen_merkheft'] == [], r
-            assert r['schon_umgestellt_vorher'] is (lauf == 2), r
-            if lauf == 2: assert any('schon umgestellt' in x for x in out.splitlines()), out[-800:]
-            print(f'Einspielen {lauf}:', json.dumps({k: r[k] for k in ('ms_vorher', 'ms_nachher')}, ensure_ascii=False))
-        assert 'TEMPO-S1' in pg.sql("\\pset tuples_only on\nselect prosrc from pg_proc where proname = 'etappen_stand';")
+            pruefe_bericht(r, schon=(nr == 2))
+            assert 'REST=0' in out and 'TABELLEN=0' in out, out[-600:]
+            print(f'Einspielen {nr}: Sperre', r['ms_unter_sperre_bis_vor_aufraeumen'], 'ms')
+        z2 = zustand(pg)
+        assert z2[0] == NEU and 'aufgabe_einheit_pool_lz_idx' in z2[1] and 'versuch_kind_aufgabe_idx' in z2[1], z2
 
-        # neue Fassung gegen die gespeicherten alten Antworten (jsonb als Text, also auch Zahlentypen und Schlüssel)
+        # 6. neue Fassung gegen gespeicherte alte Antworten (jsonb als Text)
         nachher2 = antworten(pg)
         anders = [k for k in vorher2 if vorher2[k] != nachher2.get(k)]
         assert not anders and len(nachher2) == len(vorher2), anders[:5]
         pg.sql("update schule.regel set wert = '1' where schluessel = 'anwenden_pflicht';")
-        nachher3 = antworten(pg)
-        anders = [k for k in vorher3 if vorher3[k] != nachher3.get(k)]
+        anders = [k for k, v in antworten(pg).items() if vorher3[k] != v]
         assert not anders, anders[:5]
 
-        # Messung nach dem Einspielen (eigene Transaktion): ändert nichts
-        z = fehlerzeile(pg.sql(lies('tempo_s1_messen.sql'), erwartet_fehler='MESSUNG'), 'MESSUNG (nichts geändert)')
-        m = bericht(z)
-        assert m['umgestellt'] and m['merkheft'] == 'verglichen', m
-        print('Messung danach:', json.dumps({k: m[k] for k in ('ms_etappen_stand_alle', 'ms_merkheft_summe', 'ms_merkheft_je_kind')}, ensure_ascii=False))
+        # 7. Messung: ändert nichts, keine Rückstände (Rollback)
+        out = pg.sql("set local statement_timeout = '300s';\n" + f'do $rbpaket$ begin execute $rbpaketinhalt${messen}$rbpaketinhalt$; end $rbpaket$;', 'MESSUNG')
+        mz = bericht(fehlerzeile(out, 'MESSUNG (nichts geändert)'))
+        assert mz['funktion']['md5'] == NEU and mz['merkheft'] == 'verglichen' and mz['kinder'] == [1, 2, 3, 4], mz
+        assert zustand(pg) == z2
+        print('Messung danach:', json.dumps({k: mz[k] for k in ('ms_etappen_stand_alle', 'ms_merkheft_summe', 'ms_merkheft_je_kind')}))
     finally:
         pg.ende()
     print('OK')

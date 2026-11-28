@@ -1,12 +1,14 @@
 """TEMPO-S1: Pakete für supabase/migrations/20261207_tempo_s1.sql (schule.etappen_stand schneller, Ergebnis byte-gleich; zwei Indizes).
+Gegenprüfung: Werkstatt 1175. Ausführung: inhalte/plan/ladezeiten.md, Abschnitt „Einspielen TEMPO-S1“.
 
 Schreibt nach tools/tests/aus/ (je Schritt EINE Datei, in einem `execute` lauffähig: kein psql-Meta, kein eigenes BEGIN/COMMIT):
-  tempo_s1_probe.sql      Probelauf: misst vorher, spielt ein, misst nachher, vergleicht je Kind × Einheit (etappen_stand) und je Kind (Merkheft-Kopie)
-                          per md5; endet IMMER mit „PROBELAUF bestanden, ALLES zurückgerollt …“ (oder „TEMPO-S1 ABBRUCH …“ bei einer Abweichung).
-  tempo_s1_einspielen.sql dasselbe, bleibt bei Gleichheit eingespielt (Hinweis „TEMPO-S1 eingespielt: …“); bei einer Abweichung Abbruch, nichts geändert.
-  tempo_s1_messen.sql     nach dem Einspielen (neue Transaktion): nur Laufzeiten, ändert nichts (endet mit „MESSUNG … nichts geändert“).
-Die Merkheft-Kopie: api.schule_merkheft liegt nicht im Repo; das Paket legt aus ihrem eingespielten Text eine Kopie in pg_temp an, deren Zugriffsprüfung
-(schule.zugriff) durch eine Funktion ohne Prüfung ersetzt ist – nur für den Vergleich und die Messung in dieser Sitzung (on commit weg).
+  tempo_s1_probe.sql      Probelauf: Lauf „alt“ → Funktion ersetzen → Lauf „neu“ → Indizes → Lauf „endzustand“; jeder Lauf: etappen_stand für alle
+                          Kinder × Einheiten und je Kind die Merkheft-Kopie (md5). Endet IMMER mit „PROBELAUF bestanden, ALLES zurückgerollt …“
+                          oder „TEMPO-S1 ABBRUCH …“ (jede Abweichung, jeder nicht verglichene Lauf/jedes Kind, fehlende Merkheft-API, falscher Index).
+  tempo_s1_einspielen.sql dasselbe, bleibt bei Gleichheit eingespielt (Hinweis „TEMPO-S1 eingespielt: …“); entfernt am Ende alle Hilfen in pg_temp.
+  tempo_s1_messen.sql     nach dem Einspielen (neue Transaktion): nur Laufzeiten, rollt immer zurück („MESSUNG (nichts geändert): …“).
+Die Merkheft-Kopie: api.schule_merkheft liegt nicht im Repo; das Paket legt aus ihrem eingespielten Text eine Kopie im temporären Schema an, deren
+Zugriffsprüfung (schule.zugriff) durch eine Funktion ohne Prüfung ersetzt ist (Invoker) – nur zum Vergleichen und Messen in dieser Sitzung.
 
 Aufruf:  python3 -I tools/tests/tempo_einspielen.py             -> schreibt die Dateien, druckt Größe und md5
          python3 -I tools/tests/tempo_einspielen.py --pruefen   -> schreibt nichts; Rückgabe 1, wenn eine Datei nicht dem Stand entspricht
@@ -65,136 +67,224 @@ def alter_sql():
             "language sql stable set search_path to '' as $$" + alter_text() + "$$;\n")
 
 
-def migration():
-    m = MIGRATION.read_text(encoding='utf-8')
-    soll = re.search(r"v_soll constant text := '([0-9a-f]{32})'", m).group(1)
-    ist = hashlib.md5(alter_text().encode('utf-8')).hexdigest()
-    assert soll == ist, f'md5 in der Migration ({soll}) passt nicht zum nachgerechneten Repo-Stand ({ist})'
-    assert '$tempomig$' not in m and '$rbpaket$' not in m
-    return m
+TEIL1 = '-- ==== TEMPO-S1 Teil 1: Funktion ===='
+TEIL2 = '-- ==== TEMPO-S1 Teil 2: Indizes ===='
+
+
+def neuer_text(m=None):
+    """Funktionstext (prosrc) der neuen etappen_stand aus der Migration."""
+    m = m if m is not None else MIGRATION.read_text(encoding='utf-8')
+    i = m.index('as $function$', m.index('execute $neu$')) + len('as $function$')
+    return m[i:m.index('$function$', i)]
+
+
+def migration(m=None):
+    """Migration in zwei Teilen (Funktion | Indizes); prüft die beiden md5 im Text gegen die nachgerechneten Funktionstexte."""
+    m = m if m is not None else MIGRATION.read_text(encoding='utf-8')
+    alt = re.search(r"v_alt constant text := '([0-9a-f]{32})'", m).group(1)
+    neu = re.search(r"v_neu constant text := '([0-9a-f]{32})'", m).group(1)
+    assert alt == hashlib.md5(alter_text().encode('utf-8')).hexdigest(), f'md5 alt in der Migration ({alt}) passt nicht zum Repo-Stand'
+    assert neu == hashlib.md5(neuer_text(m).encode('utf-8')).hexdigest(), f'md5 neu in der Migration ({neu}) passt nicht zum Funktionstext'
+    assert m.count(TEIL1) == 1 and m.count(TEIL2) == 1 and m.index(TEIL1) < m.index(TEIL2)
+    for marke in ('$tempomig$', '$tempoteil$', '$rbpaket$', '$rbpaketinhalt$'): assert marke not in m, marke
+    kopf, rest = m.split(TEIL1)
+    t1, t2 = rest.split(TEIL2)
+    return kopf + TEIL1 + t1, TEIL2 + t2, neu
 
 
 HILFEN = r"""
--- Hilfen dieser Sitzung (pg_temp, verschwinden mit dem Ende der Transaktion)
+-- Hilfen dieser Sitzung (pg_temp). Das Einspiel-Paket entfernt sie am Ende ausdrücklich (auch bei Erfolg); Probe und Messung rollen zurück.
 create or replace function pg_temp.tempo_zugriff(p_schluessel text, p_lernender bigint) returns bigint language sql as $$ select null::bigint $$;
--- Merkheft-Kopie ohne Zugriffsprüfung (nur zum Vergleichen und Messen); fehlt die Stelle, bleibt der Merkheft-Vergleich aus (wird gemeldet)
+-- Merkheft-Kopie ohne Zugriffsprüfung (nur zum Vergleichen und Messen in dieser Sitzung). Jeder Fehler → Abbruch.
 create or replace function pg_temp.tempo_merkheft_anlegen() returns text language plpgsql as $f$
-declare d text;
+declare d text; kopf constant text := 'CREATE OR REPLACE FUNCTION api.schule_merkheft(';
+  ziel constant text := 'CREATE OR REPLACE FUNCTION pg_temp.tempo_merkheft('; v_oid oid;
 begin
-  if to_regprocedure('api.schule_merkheft(text, jsonb)') is null then return 'api.schule_merkheft fehlt'; end if;
+  if to_regprocedure('api.schule_merkheft(text, jsonb)') is null then raise exception 'TEMPO-S1 ABBRUCH: api.schule_merkheft(text, jsonb) fehlt – Merkheft nicht vergleichbar'; end if;
   d := pg_get_functiondef('api.schule_merkheft(text, jsonb)'::regprocedure);
-  if position('schule.zugriff(' in d) = 0 then return 'keine Stelle schule.zugriff( in api.schule_merkheft'; end if;
-  d := replace(d, 'CREATE OR REPLACE FUNCTION api.schule_merkheft(', 'CREATE OR REPLACE FUNCTION pg_temp.tempo_merkheft(');
-  d := replace(d, 'schule.zugriff(', 'pg_temp.tempo_zugriff(');
-  d := replace(d, ' SECURITY DEFINER', '');
+  if (length(d) - length(replace(d, kopf, ''))) / length(kopf) <> 1 or position(kopf in d) <> 1 then
+    raise exception 'TEMPO-S1 ABBRUCH: Kopf von api.schule_merkheft nicht wie erwartet – Merkheft nicht vergleichbar'; end if;
+  if position('schule.zugriff(' in d) = 0 then raise exception 'TEMPO-S1 ABBRUCH: keine Stelle schule.zugriff( in api.schule_merkheft – Merkheft nicht vergleichbar'; end if;
+  d := replace(replace(replace(d, kopf, ziel), 'schule.zugriff(', 'pg_temp.tempo_zugriff('), ' SECURITY DEFINER', '');
+  -- vor dem Ausführen: der Text legt genau eine Funktion an, und zwar im temporären Schema
+  if position(ziel in d) <> 1 or position('FUNCTION api.' in d) > 0 or position('SECURITY DEFINER' in upper(d)) > 0 then
+    raise exception 'TEMPO-S1 ABBRUCH: Merkheft-Kopie zielt nicht ins temporäre Schema'; end if;
   execute d;
+  v_oid := to_regprocedure('pg_temp.tempo_merkheft(text, jsonb)');
+  if v_oid is null or (select p.pronamespace <> pg_my_temp_schema() or p.prosecdef from pg_proc p where p.oid = v_oid) then
+    raise exception 'TEMPO-S1 ABBRUCH: Merkheft-Kopie nicht im temporären Schema bzw. nicht als Invoker'; end if;
   return 'ok';
-exception when others then return 'Kopie nicht angelegt: ' || sqlerrm;
 end $f$;
--- Ein Lauf: alle Kinder × alle Einheiten (etappen_stand) und je Kind die Merkheft-Kopie; md5 und Laufzeit. Was die Funktionen dabei schreiben
--- (keine bekannt), wird am Ende des Laufs zurückgerollt; die Ergebnisse bleiben in den Variablen.
-create or replace function pg_temp.tempo_lauf(p_merk text) returns jsonb language plpgsql as $f$
-declare h jsonb; mh jsonb := '{}'; t0 timestamptz; t1 timestamptz; ms_es numeric; ms_mh numeric; je jsonb := '{}'; status text := p_merk; r record; ms numeric;
+-- Ein Lauf: alle Kinder × alle Einheiten (etappen_stand) und je Kind die Merkheft-Kopie, md5 und Laufzeit. Was dabei geschrieben würde, rollt der
+-- Unterblock zurück; die Ergebnisse bleiben in den Variablen. Jeder Fehler (auch bei einem einzelnen Kind) → Abbruch des ganzen Pakets.
+create or replace function pg_temp.tempo_lauf(p_name text) returns jsonb language plpgsql as $f$
+declare h jsonb; mh jsonb := '{}'; t0 timestamptz; t1 timestamptz; ms_es numeric; ms_mh numeric := 0; je jsonb := '{}'; r record; ms numeric; kinder jsonb; status text;
 begin
   begin
     perform setseed(0.5);
+    select coalesce(jsonb_agg(l.id order by l.id), '[]') into kinder from schule.lernender l;
     t0 := clock_timestamp();
     select coalesce(jsonb_object_agg(l.id::text || '/' || e.id::text, md5(coalesce(schule.etappen_stand(l.id, e.id)::text, 'NULL'))), '{}') into h
       from schule.lernender l cross join schule.einheit e;
     ms_es := round(extract(epoch from clock_timestamp() - t0) * 1000, 1);
-    ms_mh := 0;
-    if p_merk = 'ok' then
-      begin
-        for r in select l.id from schule.lernender l order by l.id loop
-          perform setseed(0.5);
-          t1 := clock_timestamp();
-          mh := mh || jsonb_build_object(r.id::text, md5(coalesce(pg_temp.tempo_merkheft(null, jsonb_build_object('lernender_id', r.id))::text, 'NULL')));
-          ms := round(extract(epoch from clock_timestamp() - t1) * 1000, 1); ms_mh := ms_mh + ms;
-          je := je || jsonb_build_object(r.id::text, ms);
-        end loop;
-        status := 'verglichen';
-      exception when others then status := 'nicht verglichen: ' || sqlerrm; mh := null; je := null;
-      end;
-    end if;
+    for r in select l.id from schule.lernender l order by l.id loop
+      perform setseed(0.5);
+      t1 := clock_timestamp();
+      mh := mh || jsonb_build_object(r.id::text, md5(coalesce(pg_temp.tempo_merkheft(null, jsonb_build_object('lernender_id', r.id))::text, 'NULL')));
+      ms := round(extract(epoch from clock_timestamp() - t1) * 1000, 1); ms_mh := ms_mh + ms;
+      je := je || jsonb_build_object(r.id::text, ms);
+    end loop;
+    status := 'verglichen';
     raise exception using errcode = 'TP999', message = 'zurueck';
   exception when sqlstate 'TP999' then null;
+    when others then raise exception 'TEMPO-S1 ABBRUCH, alles zurückgerollt: Lauf „%“ fehlgeschlagen (Merkheft/etappen_stand nicht für alle verglichen): %', p_name, sqlerrm;
   end;
-  return jsonb_build_object('h', h, 'mh', mh, 'ms_etappen_stand_alle', ms_es, 'ms_merkheft_summe', ms_mh, 'ms_merkheft_je_kind', je, 'merkheft', status);
+  return jsonb_build_object('lauf', p_name, 'merkheft', status, 'kinder', kinder, 'paare', (select count(*) from jsonb_object_keys(h)), 'h', h, 'mh', mh,
+    'ms_etappen_stand_alle', ms_es, 'ms_merkheft_summe', ms_mh, 'ms_merkheft_je_kind', je);
+end $f$;
+-- Vergleich zweier Läufe: beide „verglichen“, gleiche vollständige Kinder- und Paarmengen, keine Abweichung – sonst Abbruch
+create or replace function pg_temp.tempo_gleich(a jsonb, b jsonb) returns jsonb language plpgsql as $f$
+declare abw jsonb; abw_mh jsonb; n_kinder int := jsonb_array_length(a->'kinder');
+begin
+  if a->>'merkheft' is distinct from 'verglichen' or b->>'merkheft' is distinct from 'verglichen' then
+    raise exception 'TEMPO-S1 ABBRUCH: Merkheft nicht verglichen (%: %, %: %)', a->>'lauf', a->>'merkheft', b->>'lauf', b->>'merkheft'; end if;
+  if n_kinder = 0 or a->'kinder' is distinct from b->'kinder' then raise exception 'TEMPO-S1 ABBRUCH: Kindermengen leer oder verschieden (% / %)', a->'kinder', b->'kinder'; end if;
+  if (select count(*) from jsonb_object_keys(a->'mh')) <> n_kinder or (select count(*) from jsonb_object_keys(b->'mh')) <> n_kinder
+     or exists (select 1 from jsonb_array_elements_text(a->'kinder') k where not (a->'mh') ? k or not (b->'mh') ? k) then
+    raise exception 'TEMPO-S1 ABBRUCH: Merkheft nicht für jedes Kind verglichen (% / %)', a->'lauf', b->'lauf'; end if;
+  if (a->>'paare')::int <> n_kinder * (select count(*) from schule.einheit) or a->'paare' is distinct from b->'paare' then
+    raise exception 'TEMPO-S1 ABBRUCH: nicht alle Kind×Einheit-Paare verglichen (% / %)', a->'paare', b->'paare'; end if;
+  select coalesce(jsonb_agg(coalesce(x.key, y.key) order by coalesce(x.key, y.key)), '[]') into abw
+    from jsonb_each_text(a->'h') x full join jsonb_each_text(b->'h') y on y.key = x.key where x.value is distinct from y.value;
+  select coalesce(jsonb_agg(coalesce(x.key, y.key) order by coalesce(x.key, y.key)), '[]') into abw_mh
+    from jsonb_each_text(a->'mh') x full join jsonb_each_text(b->'mh') y on y.key = x.key where x.value is distinct from y.value;
+  if jsonb_array_length(abw) > 0 or jsonb_array_length(abw_mh) > 0 then
+    raise exception 'TEMPO-S1 ABBRUCH, alles zurückgerollt: Ergebnis weicht ab (% gegen %): etappen_stand % Paare (erste: %), Merkheft Kinder %',
+      a->>'lauf', b->>'lauf', jsonb_array_length(abw), abw->0, abw_mh; end if;
+  return jsonb_build_object('gegen', (a->>'lauf') || ' / ' || (b->>'lauf'), 'merkheft', 'verglichen', 'kinder', a->'kinder', 'paare', (a->>'paare')::int,
+    'abweichungen_etappen_stand', 0, 'abweichungen_merkheft', 0);
 end $f$;
 create or replace function pg_temp.tempo_indizes() returns jsonb language sql as $f$
-  select coalesce(jsonb_agg(jsonb_build_object('name', c.relname, 'tabelle', t.relname, 'def', pg_get_indexdef(c.oid), 'indcheckxmin', i.indcheckxmin) order by t.relname, c.relname), '[]')
+  select coalesce(jsonb_agg(jsonb_build_object('name', c.relname, 'tabelle', t.relname, 'def', pg_get_indexdef(c.oid), 'gueltig', i.indisvalid and i.indisready,
+           'indcheckxmin', i.indcheckxmin) order by t.relname, c.relname), '[]')
     from pg_index i join pg_class c on c.oid = i.indexrelid join pg_class t on t.oid = i.indrelid join pg_namespace n on n.oid = t.relnamespace
    where n.nspname = 'schule' and t.relname in ('aufgabe', 'versuch');
 $f$;
+create or replace function pg_temp.tempo_funktion() returns jsonb language sql as $f$
+  select jsonb_build_object('md5', md5(p.prosrc), 'eigenschaften', concat_ws('|', pg_get_function_arguments(p.oid), p.prorettype::regtype::text, l.lanname, p.provolatile,
+           p.prosecdef, coalesce(p.proconfig::text, '')))
+    from pg_proc p join pg_language l on l.oid = p.prolang where p.oid = 'schule.etappen_stand(bigint, bigint)'::regprocedure;
+$f$;
+-- Hilfen dieser Sitzung im temporären Schema? (vor dem ersten Aufruf geprüft; am Ende: keine mehr)
+create or replace function pg_temp.tempo_hilfen() returns jsonb language sql as $f$
+  select coalesce(jsonb_agg(p.proname::text order by p.proname), '[]') from pg_proc p where p.pronamespace = pg_my_temp_schema() and p.proname like 'tempo\_%';
+$f$;
+do $h$ begin
+  if (select count(*) from pg_proc p where p.pronamespace = pg_my_temp_schema() and p.proname in
+      ('tempo_zugriff', 'tempo_merkheft_anlegen', 'tempo_lauf', 'tempo_gleich', 'tempo_indizes', 'tempo_funktion', 'tempo_hilfen')) <> 7
+  then raise exception 'TEMPO-S1 ABBRUCH: Hilfen nicht im temporären Schema'; end if;
+end $h$;
+"""
+
+AUFRAEUMEN = r"""
+-- Rückstände entfernen (auch bei Erfolg): Merkheft-Kopie, alle Hilfen, Hilfstabelle
+drop function if exists pg_temp.tempo_merkheft(text, jsonb);
+drop function if exists pg_temp.tempo_zugriff(text, bigint);
+drop function if exists pg_temp.tempo_merkheft_anlegen();
+drop function if exists pg_temp.tempo_lauf(text);
+drop function if exists pg_temp.tempo_gleich(jsonb, jsonb);
+drop function if exists pg_temp.tempo_indizes();
+drop function if exists pg_temp.tempo_funktion();
+drop table if exists pg_temp.tempo_mig;
+do $r$ declare n int := (select count(*) from pg_proc p where p.pronamespace = pg_my_temp_schema() and p.proname like 'tempo\_%' and p.proname <> 'tempo_hilfen');
+begin
+  if n <> 0 or to_regclass('pg_temp.tempo_mig') is not null then raise exception 'TEMPO-S1 ABBRUCH: Rückstände in pg_temp (% Funktionen)', n; end if;
+end $r$;
 """
 
 
-def paket(probe):
-    m = migration()
-    kopf = f"""-- TEMPO-S1 {'Probelauf' if probe else 'Einspiel-Paket'} (erzeugt von tools/tests/tempo_einspielen.py{' – Probe' if probe else ''}). Ein Aufruf, eine Transaktion. Fehler = alles zurück.
--- Laufzeit: zweimal alle Kinder × Einheiten und je Kind das Merkheft (live vorher ≈ 4 s je Kind) – mit einigen zehn Sekunden rechnen.
+def paket(probe, m=None):
+    t1, t2, neu = migration(m)
+    art = 'Probelauf' if probe else 'Einspiel-Paket'
+    kopf = f"""-- TEMPO-S1 {art} (erzeugt von tools/tests/tempo_einspielen.py). Ein Aufruf, EINE Transaktion; Fehler = alles zurück.
+-- Ausführung: inhalte/plan/ladezeiten.md, Abschnitt „Einspielen TEMPO-S1“ (statement_timeout und lock_timeout als eigene Anweisungen VOR dem äußeren do).
+-- Ablauf: Hilfen → Lauf „alt“ → Funktion ersetzen (Teil 1) → Lauf „neu“ (ohne Sperre an Tabellen) → Indizes (Teil 2, ab hier SHARE auf aufgabe/versuch)
+--         → Lauf „endzustand“ (nur Gleichheitsbeweis) → {'Bericht, Aufräumen, Abschlussfehler (Rollback)' if probe else 'Aufräumen, Bericht'}.
 select set_config('lock_timeout', '3s', true), set_config('statement_timeout', '300s', true);
 do $p$ begin
-  if to_regprocedure('schule.etappen_stand(bigint, bigint)') is null or to_regclass('schule.aufgabe') is null or to_regclass('schule.versuch') is null then
-    raise exception 'TEMPO-S1 ABBRUCH, Vorbedingung: schule.etappen_stand / schule.aufgabe / schule.versuch fehlt – nichts geändert';
+  if to_regprocedure('schule.etappen_stand(bigint, bigint)') is null or to_regclass('schule.aufgabe') is null or to_regclass('schule.versuch') is null
+     or to_regclass('schule.lernender') is null or to_regclass('schule.einheit') is null then
+    raise exception 'TEMPO-S1 ABBRUCH, Vorbedingung: schule.etappen_stand / aufgabe / versuch / lernender / einheit fehlt – nichts geändert';
   end if;
 end $p$;
-create temp table tempo_mig on commit drop as select $tempomig${m}$tempomig$::text as sql;
+create temp table tempo_mig on commit drop as select $tempoteil${t1}$tempoteil$::text as teil1, $tempoteil${t2}$tempoteil$::text as teil2;
 """
-    ende = ("  raise exception 'PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt): %', bericht::text;" if probe
-            else "  raise notice 'TEMPO-S1 eingespielt: %', bericht::text;")
-    rumpf = r"""
+    haupt = r"""
+create temp table tempo_bericht (b jsonb) on commit drop;
 do $p$
-declare vorher jsonb; nachher jsonb; merk text; idx_vorher jsonb; idx_nachher jsonb; def_vorher text; def_nachher text; abw jsonb; abw_mh jsonb; bericht jsonb; schon boolean;
+declare f_vor jsonb; f_nach jsonb; idx_vor jsonb; idx_nach jsonb; l_alt jsonb; l_neu jsonb; l_end jsonb; g1 jsonb; g2 jsonb; t_sperre timestamptz; v_neu constant text := '""" + neu + r"""';
 begin
-  def_vorher := (select p.prosrc from pg_proc p where p.oid = 'schule.etappen_stand(bigint, bigint)'::regprocedure);
-  schon := position('TEMPO-S1' in def_vorher) > 0;
-  idx_vorher := pg_temp.tempo_indizes();
-  merk := pg_temp.tempo_merkheft_anlegen();
-  vorher := pg_temp.tempo_lauf(merk);
-  execute (select sql from tempo_mig);
-  def_nachher := (select p.prosrc from pg_proc p where p.oid = 'schule.etappen_stand(bigint, bigint)'::regprocedure);
-  idx_nachher := pg_temp.tempo_indizes();
-  nachher := pg_temp.tempo_lauf(merk);
-  select coalesce(jsonb_agg(a.key order by a.key), '[]') into abw
-    from jsonb_each_text(vorher->'h') a full join jsonb_each_text(nachher->'h') b on b.key = a.key where a.value is distinct from b.value;
-  if vorher->'mh' is not null and jsonb_typeof(vorher->'mh') = 'object' and nachher->'mh' is not null and jsonb_typeof(nachher->'mh') = 'object' then
-    select coalesce(jsonb_agg(coalesce(a.key, b.key)), '[]') into abw_mh
-      from jsonb_each_text(vorher->'mh') a full join jsonb_each_text(nachher->'mh') b on b.key = a.key where a.value is distinct from b.value;
-  end if;
-  bericht := jsonb_build_object(
-    'schon_umgestellt_vorher', schon, 'umgestellt_nachher', position('TEMPO-S1' in def_nachher) > 0, 'md5_funktionstext_vorher', md5(def_vorher),
-    'paare_kind_einheit', (select count(*) from jsonb_object_keys(vorher->'h')), 'abweichungen_etappen_stand', jsonb_array_length(abw), 'erste_abweichungen', abw -> 0,
-    'merkheft', nachher->>'merkheft', 'merkheft_kinder', (select count(*) from jsonb_object_keys(coalesce(nachher->'mh', '{}'))), 'abweichungen_merkheft', abw_mh,
-    'ms_vorher', jsonb_build_object('etappen_stand_alle', vorher->'ms_etappen_stand_alle', 'merkheft_summe', vorher->'ms_merkheft_summe', 'merkheft_je_kind', vorher->'ms_merkheft_je_kind'),
-    'ms_nachher', jsonb_build_object('etappen_stand_alle', nachher->'ms_etappen_stand_alle', 'merkheft_summe', nachher->'ms_merkheft_summe', 'merkheft_je_kind', nachher->'ms_merkheft_je_kind'),
-    'indizes_vorher', idx_vorher, 'indizes_nachher', idx_nachher,
-    'hinweis', 'Laufzeit nachher kann zu hoch sein, wenn ein neuer Index indcheckxmin = true hat (in dieser Transaktion noch nicht nutzbar) – dann tempo_s1_messen.sql danach');
-  if jsonb_array_length(abw) > 0 or coalesce(jsonb_array_length(abw_mh), 0) > 0 then
-    raise exception 'TEMPO-S1 ABBRUCH, alles zurückgerollt: Ergebnis weicht ab (% Paare, Merkheft %): %', jsonb_array_length(abw), abw_mh, bericht::text;
-  end if;
-""" + ende + "\nend $p$;\n"
-    return kopf + HILFEN + rumpf
+  f_vor := pg_temp.tempo_funktion(); idx_vor := pg_temp.tempo_indizes();
+  perform pg_temp.tempo_merkheft_anlegen();
+  l_alt := pg_temp.tempo_lauf('alt');
+  execute (select teil1 from tempo_mig);
+  l_neu := pg_temp.tempo_lauf('neu');
+  g1 := pg_temp.tempo_gleich(l_alt, l_neu);
+  t_sperre := clock_timestamp();
+  execute (select teil2 from tempo_mig);
+  l_end := pg_temp.tempo_lauf('endzustand');
+  g2 := pg_temp.tempo_gleich(l_alt, l_end);
+  f_nach := pg_temp.tempo_funktion(); idx_nach := pg_temp.tempo_indizes();
+  if f_nach->>'md5' is distinct from v_neu then raise exception 'TEMPO-S1 ABBRUCH: Funktionstext am Ende % statt %', f_nach->>'md5', v_neu; end if;
+  if f_nach->'eigenschaften' is distinct from f_vor->'eigenschaften' then raise exception 'TEMPO-S1 ABBRUCH: Eigenschaften geändert % → %', f_vor->'eigenschaften', f_nach->'eigenschaften'; end if;
+  insert into tempo_bericht select jsonb_build_object(
+    'funktion_vorher', f_vor, 'funktion_nachher', f_nach, 'eigenschaften_gleich', f_vor->'eigenschaften' = f_nach->'eigenschaften',
+    'schon_umgestellt_vorher', f_vor->>'md5' = v_neu,
+    'vergleich_alt_neu', g1, 'vergleich_alt_endzustand', g2,
+    'laeufe', jsonb_build_object('alt', l_alt - 'h' - 'mh', 'neu', l_neu - 'h' - 'mh', 'endzustand', l_end - 'h' - 'mh'),
+    'indizes_vorher', idx_vor, 'indizes_nachher', idx_nach,
+    'ms_unter_sperre_bis_vor_aufraeumen', round(extract(epoch from clock_timestamp() - t_sperre) * 1000, 1),
+    'hinweis', 'Laufzeiten hier nur zur Orientierung (endzustand evtl. ohne nutzbaren Index, indcheckxmin); maßgeblich tempo_s1_messen.sql in neuer Transaktion');
+end $p$;
+"""
+    if probe:
+        ende = AUFRAEUMEN + r"""do $p$ begin
+  raise exception 'PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt): %',
+    ((select b from tempo_bericht) || jsonb_build_object('rueckstaende', pg_temp.tempo_hilfen() - 'tempo_hilfen'))::text;
+end $p$;
+"""
+    else:
+        ende = AUFRAEUMEN + r"""do $p$ declare b jsonb := (select b from tempo_bericht) || jsonb_build_object('rueckstaende', pg_temp.tempo_hilfen() - 'tempo_hilfen');
+begin
+  drop table pg_temp.tempo_bericht;
+  drop function pg_temp.tempo_hilfen();
+  if (select count(*) from pg_proc p where p.pronamespace = pg_my_temp_schema() and p.proname like 'tempo\_%') <> 0 then raise exception 'TEMPO-S1 ABBRUCH: Rückstände in pg_temp'; end if;
+  raise notice 'TEMPO-S1 eingespielt: %', b::text;
+end $p$;
+"""
+    return kopf + HILFEN + haupt + ende
 
 
 def messen():
     return """-- TEMPO-S1 Messung (erzeugt von tools/tests/tempo_einspielen.py). Nach dem Einspielen in einer NEUEN Transaktion ausführen. Ändert nichts:
--- legt nur Hilfen in pg_temp an und endet immer mit „MESSUNG (nichts geändert): …“ (Fehler = alles zurück).
+-- legt nur Hilfen in pg_temp an und endet immer mit „MESSUNG (nichts geändert): …“ (Fehler = alles zurück, auch die Hilfen).
 select set_config('statement_timeout', '300s', true);
 """ + HILFEN + r"""
 do $p$
-declare m text := pg_temp.tempo_merkheft_anlegen(); x jsonb;
+declare x jsonb;
 begin
-  x := pg_temp.tempo_lauf(m);
-  raise exception 'MESSUNG (nichts geändert): %', jsonb_build_object('umgestellt', position('TEMPO-S1' in (select p.prosrc from pg_proc p where p.oid = 'schule.etappen_stand(bigint, bigint)'::regprocedure)) > 0,
-    'merkheft', x->>'merkheft', 'ms_etappen_stand_alle', x->'ms_etappen_stand_alle', 'ms_merkheft_summe', x->'ms_merkheft_summe', 'ms_merkheft_je_kind', x->'ms_merkheft_je_kind',
-    'indizes', pg_temp.tempo_indizes())::text;
+  perform pg_temp.tempo_merkheft_anlegen();
+  x := pg_temp.tempo_lauf('messung');
+  raise exception 'MESSUNG (nichts geändert): %', jsonb_build_object('funktion', pg_temp.tempo_funktion(),
+    'merkheft', x->>'merkheft', 'kinder', x->'kinder', 'ms_etappen_stand_alle', x->'ms_etappen_stand_alle', 'ms_merkheft_summe', x->'ms_merkheft_summe',
+    'ms_merkheft_je_kind', x->'ms_merkheft_je_kind', 'indizes', pg_temp.tempo_indizes())::text;
 end $p$;
 """
 
 
 def pakete():
     out = [('tempo_s1_probe.sql', paket(True)), ('tempo_s1_einspielen.sql', paket(False)), ('tempo_s1_messen.sql', messen())]
+    for marke in ('$tempoteil$',): assert all(t.count(marke) in (0, 4) for _, t in out)
     for name, text in out:
         assert len(text.encode('utf-8')) < 1_500_000, name
         assert not re.search(r'^\s*\\', text, re.M), f'{name}: psql-Meta'

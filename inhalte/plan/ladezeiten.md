@@ -144,33 +144,125 @@ Maßgeblich ist die jüngste Fassung: nachgerechnet aus `20261114_w150_lernkarte
 
 ## 5. Gebaut (Server-Entwurf) – `supabase/migrations/20261207_tempo_s1.sql`
 
-- `create index if not exists`:
-  - `aufgabe_einheit_pool_lz_idx` auf `schule.aufgabe (einheit_id, pool, variante_gruppe)`
-  - `versuch_kind_aufgabe_idx` auf `schule.versuch (lernender_id, aufgabe_id)`
-- `schule.etappen_stand` neu (create or replace, nur bei passendem md5), gleiches Ergebnis:
+Nachgebessert nach der Gegenprüfung Werkstatt 1175. Die Migration hat 10 767 Bytes, md5 `dfee960cc6134b39f6a2f20e923b62e0`.
+
+**Teil 1 – Funktion** (`schule.etappen_stand` neu, create or replace, gleiches Ergebnis):
+- Was sich ändert:
   - `flug_nachtest` einmal je Aufruf (Unterabfrage mit `offset 0`);
   - `karte_ziel` einmal je Etappe;
   - gesamt und geloest gruppiert je Einheit;
   - alle anderen Hilfsfunktionen unverändert.
-- Kein DROP, kein DELETE, keine Tabelle, keine andere Funktion. `api.schule_merkheft` bleibt, wie sie ist.
+- Zulässig sind genau zwei Zustände des Funktionstexts (`prosrc`):
+  - exakt alt (md5 `bf3152e9a378a1d4e41c98965acf738e`) → ersetzen;
+  - exakt neu (md5 `3f49198f8dbf5c822a0be4650a5ebce5`, nachgerechnet und bestätigt) → nichts tun;
+  - alles andere → Abbruch. Ein Kommentar „TEMPO-S1“ in einer alten Fassung reicht nicht mehr zum Überspringen.
+- Nach dem Ersetzen muss der neue md5 stehen.
+- Die Eigenschaften werden vorher gegen den Sollwert und nachher gegen vorher geprüft:
+  - Signatur `p_lernender bigint, p_einheit bigint`;
+  - Rückgabetyp `jsonb`, Sprache `sql`;
+  - `STABLE`, `SECURITY INVOKER`;
+  - `search_path=""`.
+
+**Teil 2 – Indizes** (`create index if not exists`):
+- `aufgabe_einheit_pool_lz_idx` auf `schule.aufgabe (einheit_id, pool, variante_gruppe)`
+- `versuch_kind_aufgabe_idx` auf `schule.versuch (lernender_id, aufgabe_id)`
+- Danach wird geprüft, was unter beiden Namen wirklich liegt:
+  - ein gültiger und bereiter B-Baum (`indisvalid`, `indisready`);
+  - nicht eindeutig, ohne Bedingung, ohne Ausdruck;
+  - auf der richtigen Tabelle in `schule`;
+  - mit genau diesen Schlüsselspalten in dieser Reihenfolge.
+  - Sonst Abbruch: Ein gleichnamiger anderer Index wird nicht mehr hingenommen.
+
+Kein DELETE, keine Tabelle, keine andere Funktion. `api.schule_merkheft` bleibt, wie sie ist.
+
+**Ablauf der Pakete Probe und Einspielen** (eine Transaktion):
+1. Hilfen in `pg_temp` anlegen; geprüft wird, dass sie im temporären Schema liegen.
+2. Merkheft-Kopie anlegen. Abbruch, wenn:
+   - `api.schule_merkheft` fehlt;
+   - der Kopf nicht genau einmal passt;
+   - `schule.zugriff(` fehlt;
+   - der umgeschriebene Text nicht ins temporäre Schema zielt;
+   - die angelegte Kopie nicht in `pg_my_temp_schema()` liegt oder nicht Invoker ist.
+3. Lauf „alt“: `etappen_stand` für alle Kinder × Einheiten und das Merkheft je Kind (md5). Jeder Fehler, auch bei einem einzigen Kind, bricht ab.
+4. Teil 1 (Funktion), dann Lauf „neu“. Noch keine Sperre an `aufgabe` oder `versuch`.
+5. Vergleich alt/neu. Beide Läufe müssen „verglichen“ sein, mit derselben vollständigen Kindermenge, Merkheft für jedes Kind, allen Paaren (Kinder × Einheiten) und 0 Abweichungen. Sonst Abbruch.
+6. Teil 2 (Indizes). **Ab hier SHARE auf `schule.aufgabe` und `schule.versuch`**: Lesen geht, Schreiben wartet.
+7. Lauf „endzustand“ (nur Gleichheitsbeweis), Vergleich alt/endzustand wie in Schritt 5. Danach muss der Hash neu stehen und die Eigenschaften gleich sein.
+8. Aufräumen, auch bei Erfolg: Merkheft-Kopie, alle Hilfsfunktionen und Hilfstabellen werden ausdrücklich gelöscht und das Ergebnis geprüft (`rueckstaende: []`).
+9. Probe: Abschlussfehler „PROBELAUF bestanden …“ (Rollback). Einspielen: Hinweis „TEMPO-S1 eingespielt: …“.
+
+**Sperrzeit:** Schritte 6–8, lokal im Nachbau 2,6–3,9 s (`ms_unter_sperre_bis_vor_aufraeumen`; erfunden: 15 488 Aufgaben, rund 9 000 Versuche, 4 Kinder).
+- **Annahme:** Live ist es eher kürzer (1175: 32 417 Aufgaben, aber nur 958 Versuche, 3 Kinder), also etwa 1–4 s.
+- Schreibende Antworten der Kinder warten so lange; deshalb in der Nutzungspause einspielen.
+- Ist `indcheckxmin` bei einem neuen Index gesetzt, nutzt der Lauf „endzustand“ ihn noch nicht. Die Sperre dauert dann so lange wie Lauf „neu“ (lokal ≈ 23 s; live **Annahme** einige Sekunden). Die Probe zeigt das vorher an (`indizes_nachher[].indcheckxmin`).
 
 **Pakete** (`python3 -I tools/tests/tempo_einspielen.py`, Prüfung mit `--pruefen`):
 
-| Datei | Zweck | erwartet |
-|---|---|---|
-| `tools/tests/aus/tempo_s1_probe.sql` | Probelauf, rollt alles zurück | Meldung „PROBELAUF bestanden, ALLES zurückgerollt …“ mit `abweichungen_etappen_stand: 0`, `merkheft: verglichen`, `abweichungen_merkheft: []` |
-| `tools/tests/aus/tempo_s1_einspielen.sql` | Einspielen (prüft sich selbst, Abweichung = Abbruch) | Hinweis „TEMPO-S1 eingespielt: …“ |
-| `tools/tests/aus/tempo_s1_messen.sql` | danach, neue Transaktion, ändert nichts | „MESSUNG (nichts geändert): …“ mit den Laufzeiten |
+| Datei | Bytes | md5 | erwartet |
+|---|---|---|---|
+| `tools/tests/aus/tempo_s1_probe.sql` | 23 170 | `01dfb8bceaef69d2692dca01e3ebff88` | Fehler „PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt): {…}“ |
+| `tools/tests/aus/tempo_s1_einspielen.sql` | 23 384 | `4d02fbb6a272a641a17e158836f22722` | Hinweis „TEMPO-S1 eingespielt: {…}“ |
+| `tools/tests/aus/tempo_s1_messen.sql` | 9 011 | `b49e4e46bfddf56ea5cdf853974d223c` | Fehler „MESSUNG (nichts geändert): {…}“ |
 
-**Vergleich in Probe und Einspielen:**
-- md5 von `etappen_stand` für **alle Lernenden × alle Einheiten**, vorher und nachher. Dazu je Kind die ganze Merkheft-Antwort über eine Kopie von `api.schule_merkheft` in `pg_temp`, deren Zugriffsprüfung (`schule.zugriff`) ersetzt ist.
-- Jeder Lauf läuft in einem Unterblock, der zurückgerollt wird. Was Funktionen dabei schreiben, bleibt also nicht.
-- `setseed` steht vor jedem Lauf. `now()` ist in beiden Läufen gleich (eine Transaktion).
-- Berichtet werden: Laufzeiten vorher/nachher, Indizes vorher/nachher (mit `indcheckxmin`) und der md5 des Funktionstexts.
+Alle anderen Dateien unter `tools/tests/aus/` sind byteidentisch (md5 vorher/nachher verglichen).
 
-**Hinweis:** Ist `indcheckxmin` beim neuen Index gesetzt, nutzt die anlegende Transaktion den Index noch nicht. Die Zeit „nachher“ in Probe und Einspielen ist dann zu hoch. Maßgeblich ist dann `tempo_s1_messen.sql`.
+### Einspielen TEMPO-S1 – Ausführungsvorschrift (Projektleiter)
 
-**Laufzeit des Pakets:** zweimal alle Paare plus je Kind das Merkheft, live vorher ≈ 4 s je Kind. Mit 30–90 s rechnen (**Annahme**). `statement_timeout` ist auf 300 s gesetzt.
+Jeder echte Schritt nur mit dem ausdrücklichen Satz des Nutzers. Vorher `werkstatt_sperre`.
+
+1. **Nutzungspause und Verbindung:**
+   - Wie Schritt 0 in `einspiel-reihenfolge-rb-ww.md`: kein Kind übt, kein Import läuft.
+   - Eine frische Admin-Verbindung nutzen, nichts parallel.
+   - Nicht in Einzelstücken und nicht mit Autocommit ausführen.
+2. **Probe:** eine Transaktion, Zeitgrenzen als eigene Anweisungen **vor** dem äußeren `do`.
+   ```sql
+   begin;
+   set local statement_timeout = '300s';
+   set local lock_timeout = '3s';
+   do $a$ begin execute <Inhalt von tempo_s1_probe.sql>; end $a$;   -- endet mit „PROBELAUF bestanden …“ (Transaktion abgebrochen)
+   rollback;
+   ```
+   Anerkannt wird nur dieser Abschlussfehler. Im Bericht prüfen:
+   - `funktion_vorher.md5` = `bf3152e9a378a1d4e41c98965acf738e`, `funktion_nachher.md5` = `3f49198f8dbf5c822a0be4650a5ebce5`;
+   - `eigenschaften_gleich: true`, `funktion_nachher.eigenschaften` = `p_lernender bigint, p_einheit bigint|jsonb|sql|s|f|{"search_path=\"\""}`;
+   - `vergleich_alt_neu` und `vergleich_alt_endzustand`: `merkheft: "verglichen"`, `kinder` = alle Lernenden, `paare` = Kinder × Einheiten, `abweichungen_etappen_stand: 0`, `abweichungen_merkheft: 0`;
+   - `laeufe.alt|neu|endzustand.merkheft` jeweils „verglichen“ mit denselben `kinder`;
+   - `indizes_nachher` enthält beide Soll-Indizes mit `gueltig: true` (`indcheckxmin` beachten), `indizes_vorher` keinen der beiden Namen;
+   - `rueckstaende: []`;
+   - `ms_unter_sperre_bis_vor_aufraeumen` (über 10 s → vor dem Einspielen melden).
+3. **Nachkontrolle nach der Probe** (muss unverändert sein):
+   ```sql
+   select md5(prosrc) from pg_proc where oid = 'schule.etappen_stand(bigint, bigint)'::regprocedure;   -- bf3152e9…
+   select indexname, indexdef from pg_indexes where schemaname = 'schule' and tablename in ('aufgabe', 'versuch') order by 1;   -- wie vorher, ohne die zwei neuen
+   ```
+4. **Einspielen:** gleicher Block mit `tempo_s1_einspielen.sql`, am Ende `commit`.
+   - Erwartet ist der Hinweis „TEMPO-S1 eingespielt: {…}“; die Felder werden wie in Schritt 2 geprüft.
+   - Jede Ausnahme heißt: nichts geändert.
+   - Danach die Verbindung schließen (die Hilfen sind ohnehin entfernt).
+5. **Nachkontrolle nach dem Einspielen:**
+   - Funktionshash = `3f49198f8dbf5c822a0be4650a5ebce5`;
+   - `pg_indexes` zeigt `aufgabe_einheit_pool_lz_idx … USING btree (einheit_id, pool, variante_gruppe)` und `versuch_kind_aufgabe_idx … USING btree (lernender_id, aufgabe_id)`.
+6. **Messen:** in einer **neuen** Transaktion `tempo_s1_messen.sql` (`set local statement_timeout = '300s'` vorher).
+   - Erwartet ist „MESSUNG (nichts geändert): {…}“ mit `ms_merkheft_je_kind`. Es rollt immer zurück.
+   - Danach `schule_merkheft` in der App bzw. im Netzwerk-Tab neu messen. Die Antwort ist unverändert groß (1,2 MB).
+
+**Lokal belegt** (`python3 -I tools/tests/tempo_test.py`, Nachbau mit erfundenen Daten): Probe besteht, und der Zustand ist danach unverändert. Abbruch ohne Änderung, jeweils bei Probe **und** Einspielen, in folgenden Fällen:
+- ohne `api.schule_merkheft`;
+- Merkheft ohne Zugriffsstelle;
+- Merkheft scheitert für ein Kind;
+- Kommentar-Trick;
+- `volatile`;
+- `security definer`;
+- gleichnamiger Index auf falscher Spalte, in falscher Reihenfolge, ungültig.
+
+Gegenprobe mit verdorbenen neuen Fassungen (md5 passend nachgerechnet) – alle brechen mit „Ergebnis weicht ab“ ab:
+- gesamt ohne Freigabe-Filter;
+- geloest ohne `distinct`;
+- `folge_ziel` anders;
+- `flug_nachtest` fest;
+- ein Feld fehlt.
+
+Eine verdorbene Indexanlage (Spalten vertauscht) bricht ab. Einspielen läuft zweimal (beim zweiten Mal `funktion_vorher.md5` = neu), danach in derselben Verbindung ohne Rückstände. Die Antworten sind byte-gleich, auch in den Zusatzfällen. Die Messung ändert nichts.
 
 ## 6. Vorschläge (nicht gebaut)
 
@@ -212,3 +304,41 @@ Maßgeblich ist die jüngste Fassung: nachgerechnet aus `20261114_w150_lernkarte
   - Regel `anwenden_pflicht` an und aus.
 - **Etappe ohne `lernziel`:** Alte und neue Fassung brechen dort gleich ab (`jsonb_object_agg` mit leerem Schlüssel).
 - **Merkheft-Kopie ohne Zugriffsprüfung:** Gibt sie für einen Schlüssel `null` anders aus als echt (z. B. Entwürfe nur für Leiter), vergleicht die Probe trotzdem alt gegen neu mit derselben Kopie. Das ist gültig für die Gleichheit, aber nicht unbedingt die echte Antwortgröße.
+
+## 9. Offen aus 1175 – Client (Lösungsplan, noch nicht gebaut)
+
+1. **Merkheft dauerhaft fehlerhaft (503) → endloses Neuzeichnen.**
+   - Heute macht `merkFertig` aus einem Fehler `[]` und gilt als Erfolg. `lernZielBisFrisch` zeichnet neu, der neue Abruf scheitert wieder, und so fort.
+   - Plan:
+     - `merkFertig` liefert `{ ok: false }` statt `[]`.
+     - Nach einem Fehler höchstens **eine** gezielte Wiederholung nach ≈ 2 s, nur `merkheft`.
+     - Scheitert auch sie, wird **nicht** neu gezeichnet. Der Hauptknopf wird frei mit dem bisherigen Rückfall (Ziel aus Karte und Übersicht), wie 0.96.0 ohne Merkheft.
+     - Neu gezeichnet wird nur nach einem erfolgreichen Merkheft und höchstens einmal je Ansicht.
+   - Test: Merkheft antwortet immer 503 → höchstens 2 Abrufe, Knopf frei, kein weiteres `render`.
+2. **Veraltete Lese-Antwort nach einer Buchung; Startziel bei zwei Geräten.**
+   - Plan:
+     - Jeder Abruf merkt sich `lernStand` und den Zugang beim Start.
+     - Ist beim Eingang inzwischen geschrieben worden (Stand anders), liefert `lernCall` die Antwort nicht aus, sondern holt einmal frisch (gilt für alle Lesestufen).
+     - Für das **Startziel** (`lernSchrittLaden`, Hauptknopf der Reisekarte) kommen konto, merkheft und Karte nur aus Antworten, die nach der letzten eigenen Änderung **und** höchstens N s vor der Freigabe geholt wurden.
+     - Die Reisekarte der Sitzung gilt für das Startziel nur, wenn sie jünger als 15 s ist. Sonst wird sie frisch geholt, der Knopf bleibt bis dahin gesperrt.
+     - Überholte Antworten (ältere Abrufnummer) werden verworfen.
+   - Test: Lese-Promise läuft, Buchung schreibt, das Promise liefert den neuen Stand. Gerät B schließt ab, Gerät A bietet nach dem Ablauf das richtige Ziel an.
+3. **Vorab-Antwort A → B → A; Beförderung laufend → vorab; Doppelabruf.**
+   - Plan:
+     - In `lernMerkeAuf` beim Eingang `e.art` lesen statt der eingefangenen Variable.
+     - Wird ein laufender Vorab-Eintrag abgeholt, wird er zu „lauf“ (geteilt bis zum Eingang), statt sofort entfernt zu werden. Weitere gleichzeitige Verbraucher teilen ihn, es gibt keinen zweiten Abruf.
+     - Vorab- und Kurz-Einträge sind an Kind **und** Zugang gebunden. Wechselt das Kind, werden alle Vorab- und Kurz-Einträge anderer Kinder gelöscht (auch `wiederholung` und `einheit_lesen`).
+   - Test: A vorladen → B öffnen → A: frischer Abruf. Laufendes Vorab abholen und zweiten Verbraucher starten: ein Abruf. Beförderung während des Laufs: Antwort bleibt einmal abholbar.
+4. **Anderer Zugang.**
+   - Plan:
+     - `viewReise` (und jede Kind-Ansicht) ruft `lernSitzungPruefen()` auf, **bevor** `lernReiseLetzte` eingesetzt wird.
+     - Abmelden (App und Lernseite) leert ausdrücklich: Speicher, Karten, letzte Ansichten.
+     - Fehlt das Kind, wird die gedimmte letzte Ansicht entfernt (Ladeanzeige bzw. Fehlerseite), nicht wieder hell geschaltet.
+     - `lernCallNetz` merkt sich das Token des Abrufs. Antworten eines alten Tokens werden verworfen. Ein verspätetes 401 meldet nur ab, wenn das Token noch das aktuelle ist.
+     - Stadt-Ausgaben (`lernRkStadtLesen`) tragen Zugang und Stand.
+   - Test: Zugang wechseln → keine alte Reiseansicht im DOM. Altes 401 nach neuer Anmeldung → angemeldet bleiben.
+5. **`sw.js` (Abschnitt 5 des Befunds).**
+   - Cache zuerst nur, wenn `?v=` genau der Version dieses Service Workers entspricht (aus `HUELLE` gelesen). Sonst gilt „Netz zuerst“.
+   - **Release-Regel** in diesem Dokument: beide HTML-Einstiege (`index.html`, `lernen/index.html`), alle `?v=` und der Cache-Name in `sw.js` werden gemeinsam umgestellt.
+   - Versionstreue Assets werden **vor** dem neuen HTML veröffentlicht. Eine Asset-URL wird nie mit neuem Inhalt wiederverwendet.
+   - Eine Prüfung im Test bricht ab, wenn sich die Versionen der Einstiege und von `sw.js` unterscheiden.

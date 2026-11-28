@@ -17,26 +17,38 @@
 --     - karte_ziel einmal je Etappe (für ziel und folge_ziel),
 --     - gesamt und geloest je Einheit in EINER gruppierten Abfrage statt je Etappe,
 --     - alle übrigen Hilfsfunktionen unverändert dieselben (Regeln bleiben an einer Stelle).
---     Nur wenn die eingespielte Fassung genau die aus dem Repo ist (md5 des Funktionstexts, nachgerechnet aus den Migrationen 20261114 … 20261203);
---     sonst Abbruch ohne Änderung. Schon umgestellt (Marke TEMPO-S1) → nichts tun.
+--     Zulässig sind genau zwei Zustände des Funktionstexts: exakt alt (md5 bf3152e9…, nachgerechnet aus den Migrationen 20261114 … 20261203) → ersetzen;
+--     exakt neu (md5 3f49198f…) → nichts tun. Alles andere (auch eine alte Fassung mit dem Wort TEMPO-S1) → Abbruch. Danach muss der neue md5 stehen;
+--     Signatur, Rückgabetyp, Sprache, STABLE, SECURITY INVOKER und search_path werden vor und nach dem Ersetzen geprüft.
+--  4. Nach dem Anlegen der Indizes: unter beiden Namen ein gültiger, bereiter, nicht eindeutiger B-Baum ohne Bedingung auf der richtigen Tabelle mit
+--     genau diesen Spalten in dieser Reihenfolge – sonst Abbruch (create index if not exists nimmt einen gleichnamigen anderen Index sonst hin).
 -- WAS NICHT: keine Tabelle, keine Spalte, kein Trigger, keine andere Funktion; kein DROP, kein DELETE, kein UPDATE; api.schule_merkheft bleibt, wie sie ist
 --   (Antwort unverändert; Vorschlag für eine schlankere Antwort nur in der Analyse). Wiederholbar: ein zweiter Lauf ändert nichts.
--- Hinweis Index im selben Lauf: Postgres nutzt einen neuen Index in der anlegenden Transaktion u. U. noch nicht (indcheckxmin); die Laufzeit „nachher“
---   in Probe/Einspiel-Paket ist dann zu hoch. Maßgeblich ist die Messung danach (tools/tests/aus/tempo_s1_messen.sql, nur lesend).
+-- Sperren: create index hält SHARE auf schule.aufgabe und schule.versuch bis zum Ende der Transaktion (Lesen geht, Schreiben wartet). Das Paket legt die
+--   Indizes deshalb erst NACH dem Vergleich mit der neuen Funktion an und vergleicht danach nur noch einmal (Beweis im Endzustand); gemessen wird getrennt
+--   (tools/tests/aus/tempo_s1_messen.sql, neue Transaktion, rollt zurück). Ausführungsvorschrift: inhalte/plan/ladezeiten.md, Abschnitt „Einspielen“.
 
 select set_config('lock_timeout', '3s', true);
 
-create index if not exists aufgabe_einheit_pool_lz_idx on schule.aufgabe (einheit_id, pool, variante_gruppe);
-create index if not exists versuch_kind_aufgabe_idx on schule.versuch (lernender_id, aufgabe_id);
-
+-- ==== TEMPO-S1 Teil 1: Funktion ====
+-- 1. etappen_stand: genau zwei zulässige Zustände des Funktionstexts (prosrc): alt → ersetzen, neu → nichts tun; alles andere → Abbruch.
+--    Signatur, Rückgabetyp, Sprache, STABLE, SECURITY INVOKER und search_path müssen vorher und nachher gleich (und wie erwartet) sein.
 do $tempo$
-declare d text := (select p.prosrc from pg_proc p where p.oid = to_regprocedure('schule.etappen_stand(bigint, bigint)'));
-  v_soll constant text := 'bf3152e9a378a1d4e41c98965acf738e';   -- md5 des Funktionstexts nach 20261203_ft_s_form_takt.sql (tools/tests/tempo_einspielen.py)
+declare v_f constant regprocedure := to_regprocedure('schule.etappen_stand(bigint, bigint)');
+  v_alt constant text := 'bf3152e9a378a1d4e41c98965acf738e';   -- md5 des Funktionstexts nach 20261203_ft_s_form_takt.sql (tools/tests/tempo_einspielen.py)
+  v_neu constant text := '3f49198f8dbf5c822a0be4650a5ebce5';   -- md5 des Funktionstexts unten (TEMPO-S1)
+  v_art_soll constant text := 'p_lernender bigint, p_einheit bigint|jsonb|sql|s|f|{"search_path=\"\""}';
+  d text; v_art_vor text; v_art_nach text;
 begin
-  if d is null then raise exception 'TEMPO-S1: schule.etappen_stand(bigint, bigint) fehlt'; end if;
-  if position('TEMPO-S1' in d) > 0 then raise notice 'TEMPO-S1: etappen_stand schon umgestellt'; return; end if;
-  if md5(d) <> v_soll then
-    raise exception 'TEMPO-S1 ABBRUCH, Vorbedingung: etappen_stand weicht vom Repo-Stand ab (md5 %, erwartet %) – nichts geändert', md5(d), v_soll;
+  if v_f is null then raise exception 'TEMPO-S1 ABBRUCH: schule.etappen_stand(bigint, bigint) fehlt – nichts geändert'; end if;
+  select p.prosrc, concat_ws('|', pg_get_function_arguments(p.oid), p.prorettype::regtype::text, l.lanname, p.provolatile, p.prosecdef, coalesce(p.proconfig::text, ''))
+    into d, v_art_vor from pg_proc p join pg_language l on l.oid = p.prolang where p.oid = v_f;
+  if v_art_vor is distinct from v_art_soll then
+    raise exception 'TEMPO-S1 ABBRUCH, Vorbedingung: Eigenschaften von etappen_stand anders als erwartet (%, erwartet %) – nichts geändert', v_art_vor, v_art_soll;
+  end if;
+  if md5(d) = v_neu then raise notice 'TEMPO-S1: etappen_stand schon umgestellt (md5 %)', v_neu; return; end if;
+  if md5(d) <> v_alt then
+    raise exception 'TEMPO-S1 ABBRUCH, Vorbedingung: etappen_stand weicht vom Repo-Stand ab (md5 %, erwartet % oder %) – nichts geändert', md5(d), v_alt, v_neu;
   end if;
   execute $neu$
 create or replace function schule.etappen_stand(p_lernender bigint, p_einheit bigint)
@@ -65,4 +77,31 @@ as $function$
   left join schule.karte_stand k on k.lernender_id = p_lernender and k.einheit_id = p_einheit and k.lernziel = z.lz;
 $function$
 $neu$;
+  select p.prosrc, concat_ws('|', pg_get_function_arguments(p.oid), p.prorettype::regtype::text, l.lanname, p.provolatile, p.prosecdef, coalesce(p.proconfig::text, ''))
+    into d, v_art_nach from pg_proc p join pg_language l on l.oid = p.prolang where p.oid = v_f;
+  if md5(d) is distinct from v_neu then raise exception 'TEMPO-S1 ABBRUCH: neuer Funktionstext hat md5 %, erwartet %', md5(d), v_neu; end if;
+  if v_art_nach is distinct from v_art_vor then raise exception 'TEMPO-S1 ABBRUCH: Eigenschaften von etappen_stand geändert (% → %)', v_art_vor, v_art_nach; end if;
 end $tempo$;
+
+-- ==== TEMPO-S1 Teil 2: Indizes ====
+-- 2. Indizes; danach prüfen, dass unter den Zielnamen genau diese gültigen, bereiten B-Bäume liegen (ein gleichnamiger anderer Index → Abbruch)
+create index if not exists aufgabe_einheit_pool_lz_idx on schule.aufgabe (einheit_id, pool, variante_gruppe);
+create index if not exists versuch_kind_aufgabe_idx on schule.versuch (lernender_id, aufgabe_id);
+do $tempoidx$
+declare r record; v_ist text;
+begin
+  for r in select * from (values ('aufgabe_einheit_pool_lz_idx', 'aufgabe', 'einheit_id,pool,variante_gruppe'),
+                                 ('versuch_kind_aufgabe_idx', 'versuch', 'lernender_id,aufgabe_id')) x(name, tabelle, spalten) loop
+    select string_agg(a.attname, ',' order by k.nr) into v_ist
+      from pg_class c join pg_namespace n on n.oid = c.relnamespace and n.nspname = 'schule'
+      join pg_index i on i.indexrelid = c.oid join pg_class t on t.oid = i.indrelid and t.relname = r.tabelle and t.relnamespace = n.oid
+      join pg_am am on am.oid = c.relam and am.amname = 'btree'
+      cross join lateral unnest(i.indkey::int2[]) with ordinality k(att, nr) join pg_attribute a on a.attrelid = t.oid and a.attnum = k.att
+     where c.relname = r.name and c.relkind = 'i' and i.indisvalid and i.indisready and i.indpred is null and i.indexprs is null
+       and i.indnkeyatts = i.indnatts and not i.indisunique;
+    if v_ist is distinct from r.spalten then
+      raise exception 'TEMPO-S1 ABBRUCH: Index schule.% ist nicht der erwartete gültige B-Baum auf schule.% (%), gefunden: % – nichts geändert',
+        r.name, r.tabelle, r.spalten, coalesce(v_ist, 'anderer/ungültiger Index');
+    end if;
+  end loop;
+end $tempoidx$;

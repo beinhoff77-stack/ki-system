@@ -1,7 +1,7 @@
 -- TEMPO-S1: kleiner NACHBAU für den lokalen Test (tools/tests/tempo_test.py, leere lokale Postgres-Instanz). NICHT die echte Datenbank.
 -- Nur die Teile, die schule.etappen_stand liest; Hilfsfunktionen mit den Texten aus den Migrationen im Repo (Stand nach FT-S/RB-S), vereinfacht nur
 -- dort, wo etappen_stand sie nicht berührt (kind_gruppe, ist_plan). Die Daten sind erfunden (Testkinder 1–4), Größen ähnlich wie live
--- (95 Einheiten mit je 5–10 Etappen, rund 20 Übungen je Etappe, einige Tausend Versuche je Kind).
+-- (95 Einheiten mit je 5–10 Etappen, rund 20 Übungen je Etappe, einige Tausend Versuche; live laut 1175: 32 417 Aufgaben, 958 Versuche).
 -- etappen_stand selbst legt der Test an: alte Fassung = nachgerechneter Text aus den Migrationen (tempo_einspielen.py).
 create role anon nologin;
 create role authenticated nologin;
@@ -167,7 +167,7 @@ insert into schule.versuch (lernender_id, aufgabe_id, client_id, richtig, hilfe,
 select k.l, a.id, 'c' || k.l || '-' || a.id || '-' || r, random() > 0.35, (random() * 2)::int, 1 + (random() > 0.8)::int,
        case when a.pool = 'test' then (select t.id from schule.testsitzung t where t.lernender_id = k.l and t.einheit_id = a.einheit_id limit 1) end,
        random() > 0.9, now() - (random() * interval '30 days')
-  from (values (1, 0.55), (2, 0.25), (3, 0.05)) k(l, anteil), schule.aufgabe a, generate_series(1, 2) r
+  from (values (1, 0.2), (2, 0.1), (3, 0.03)) k(l, anteil), schule.aufgabe a, generate_series(1, 2) r
  where random() + 0 * a.id + 0 * r < k.anteil   -- je Zeile neu würfeln (sonst rechnet Postgres random() einmal je Kind)
    and (a.pool <> 'test' or (r = 1 and exists (select 1 from schule.testsitzung t where t.lernender_id = k.l and t.einheit_id = a.einheit_id)));
 -- Lernstand je Etappe (verschiedene Status), Karten in allen Lagen

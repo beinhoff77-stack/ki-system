@@ -6760,15 +6760,18 @@ function lernWwFormOk(r, { tage, erledigt }) {
   if (erledigt && (!Array.isArray(r.erledigt) || !r.erledigt.every((x) => lernWwEintrag(x) && lernWwErlOk(x.erledigt)))) return false;
   return true;
 }
-// Bestätigung eines Pakets von schule_fehler_abhaken (WW-S3): stand, geaendert (ganzzahlig ≥ 0), geaendert_ids (ganze Zahlen aus dem Paket, Länge = geaendert),
-// uebersprungen (Liste von Objekten mit ID aus dem Paket und grund); beim Markieren zusätzlich markierung_ids (Länge = geaendert). Fehlt etwas: nicht bestätigt.
+// Bestätigung eines Pakets von schule_fehler_abhaken (WW-S3): stand, geaendert (ganzzahlig ≥ 0), geaendert_ids (ganze Zahlen aus dem Paket, ohne Doppelte, Länge = geaendert),
+// uebersprungen (Liste von Objekten mit ID aus dem Paket, ohne Doppelte, nicht zugleich geändert, und grund); beim Markieren zusätzlich markierung_ids (Länge = geaendert).
+// Zurückholen (Gegenprüfung Werkstatt 1165): jede angefragte Markierungs-ID steht GENAU EINMAL in geaendert_ids oder uebersprungen – sonst nicht bestätigt.
+// Markieren: angefragt − geändert − übersprungen = schon markiert (Vertrag). Fehlt etwas oder passt etwas nicht: nicht bestätigt.
 function lernWwAbhakOk(r, p, zurueck = false) {
   const s = new Set(p); const idFeld = zurueck ? 'markierung_id' : 'versuch_id';
-  return lernWwObj(r) && r.ok !== false && typeof r.stand === 'number' && r.stand >= LERN_WW_STAND && lernWwGanz(r.geaendert)
-    && lernWwGanzListe(r.geaendert_ids) && r.geaendert_ids.length === r.geaendert && new Set(r.geaendert_ids).size === r.geaendert && r.geaendert_ids.every((i) => s.has(i))
-    && (zurueck || (lernWwGanzListe(r.markierung_ids) && r.markierung_ids.length === r.geaendert))
-    && Array.isArray(r.uebersprungen) && r.uebersprungen.every((u) => lernWwObj(u) && s.has(u[idFeld]) && lernWwText(u.grund) && !r.geaendert_ids.includes(u[idFeld]))
-    && r.geaendert + r.uebersprungen.length <= s.size;
+  if (!(lernWwObj(r) && r.ok !== false && typeof r.stand === 'number' && r.stand >= LERN_WW_STAND && lernWwGanz(r.geaendert))) return false;
+  if (!(lernWwGanzListe(r.geaendert_ids) && r.geaendert_ids.length === r.geaendert && new Set(r.geaendert_ids).size === r.geaendert && r.geaendert_ids.every((i) => s.has(i)))) return false;
+  if (!zurueck && !(lernWwGanzListe(r.markierung_ids) && r.markierung_ids.length === r.geaendert)) return false;
+  if (!(Array.isArray(r.uebersprungen) && r.uebersprungen.every((u) => lernWwObj(u) && Number.isInteger(u[idFeld]) && s.has(u[idFeld]) && lernWwText(u.grund) && !r.geaendert_ids.includes(u[idFeld])))) return false;
+  const ueber = r.uebersprungen.map((u) => u[idFeld]); if (new Set(ueber).size !== ueber.length) return false; // keine doppelten Einträge
+  return zurueck ? r.geaendert + ueber.length === s.size : r.geaendert + ueber.length <= s.size;
 }
 async function lernWwHolen(kindId, { tage = 14, erledigt = false } = {}) {
   try {
@@ -6864,7 +6867,8 @@ async function lernWwSeite(kindId, ww, live) {
   // Auflagen (a): höchstens 200 IDs je Aufruf → Pakete; ein Paket zählt nur mit gültiger Bestätigung (lernWwAbhakOk). Bricht ein Paket ab, bleiben
   // seine und alle folgenden IDs als Rest für „Noch einmal versuchen“. Gezählt wird nur, was der Server bestätigt hat – nie die angefragten IDs.
   // Markieren: versuch_ids; Zurückholen: markierung_ids (erledigt.id). Übersprungenes mit grund vom Server.
-  const senden = async (ids, zurueck) => { const e = { gesamt: ids.length, bestaetigt: 0, geaendert: 0, schon: 0, ab: new Map(), ueberholt: 0, fehler: null, rest: [] };
+  const senden = async (idsRoh, zurueck) => { const ids = [...new Set(idsRoh)]; // eindeutig vor dem Senden (auf die Behandlung von Doppelten am Server nicht verlassen)
+    const e = { gesamt: ids.length, bestaetigt: 0, geaendert: 0, schon: 0, ab: new Map(), ueberholt: 0, fehler: null, rest: [] };
     for (let i = 0; i < ids.length; i += LERN_WW_PAKET) { const p = ids.slice(i, i + LERN_WW_PAKET);
       try { const r = await lernCall('schule_fehler_abhaken', zurueck ? { lernender_id: kindId, zurueck: true, markierung_ids: p } : { lernender_id: kindId, versuch_ids: p });
         if (!lernWwAbhakOk(r, p, zurueck)) throw new Error('Der Server hat das Speichern nicht bestätigt.');

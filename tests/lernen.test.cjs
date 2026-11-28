@@ -6276,7 +6276,8 @@ test('Teil 1: Reisekarte ohne zusätzliche Leiste; Karte als Gruppe mit einzeln 
 // auswertung.themen[] nullsicher (Einheit ohne Thema: kein thema_id, offen richtig gezählt) mit besprochen {zuletzt, zuletzt_tag, tage, fehler, neu_seit} aus allen gültigen
 // Markierungen (ohne Zeitraum, ohne 200er-Grenze); mit_tipp immer Boolean; danach_richtig true oder fehlt (Zeitpunkte in danach_richtig_am).
 // schule_fehler_abhaken: Markieren {versuch_ids} → geaendert, geaendert_ids, markierung_ids, uebersprungen [{versuch_id, grund}]; Zurückholen {zurueck: true,
-// markierung_ids} → genau diese noch gültigen Markierungen, sonst übersprungen mit grund „überholt“ / „schon zurückgeholt“ / „nicht gefunden“.
+// markierung_ids} → genau diese noch gültigen Markierungen, sonst übersprungen mit grund „überholt“ / „schon zurückgeholt“ / „nicht gefunden“;
+// {zurueck: true} ohne markierung_ids → Fehler „Zurückholen nur mit markierung_ids“ (alter Weg über versuch_ids entfernt).
 // Zeitzone des Kindes = Zeitzone des Testrechners (der Tag einer Markierung ist ihr Kalendertag dort).
 // vorher: schon besprochene Fehler (Testdaten): Thema 29 zweimal (vor 10 und vor 3 Tagen), Thema 30 einmal vor 9 Tagen (Fehler vor 10 Tagen – außerhalb von 7/14 Tagen).
 // vieleAm(i): Zeitpunkt des i-ten zusätzlichen Fehlers (sonst heute, je eine Minute älter); ohneThema: zwei offene Fehler einer Einheit ohne Thema (thema_id fehlt wie nach jsonb_strip_nulls).
@@ -6357,14 +6358,14 @@ function wwServer({ leer = false, viele = 0, vorher = true, vieleAm = null, ohne
           return !m ? { markierung_id: id, grund: 'nicht gefunden' } : { markierung_id: id, versuch_id: m.versuch_id, grund: gueltig(m.versuch_id) ? 'überholt' : 'schon zurückgeholt' }; });
         st.nachAbhaken?.(d);
         return { ok: true, stand: 3, geaendert: neu.length, geaendert_ids: neu, uebersprungen: ueber }; }
+      if (d.zurueck) throw new Error('Zurückholen nur mit markierung_ids'); // alter Weg {zurueck, versuch_ids} ist am Server entfernt
       const ids = liste(d.versuch_ids, 'versuch_ids'); st.vorAbhaken?.(d);
       const neu = [], mids = [], ueber = [];
       for (const id of ids) { if (!vonVersuch(id)) { ueber.push({ versuch_id: id, grund: 'nicht gefunden' }); continue; }
         if (st.abweisen?.has(id)) { ueber.push({ versuch_id: id, grund: 'nicht endgültig falsch' }); continue; }
-        if (d.zurueck) { const m = gueltig(id); if (m) { m.zurueck_am = new Date().toISOString(); neu.push(id); mids.push(m.id); } } // alter Weg (nur Verträglichkeit)
-        else if (!gueltig(id)) { const m = markieren(id); neu.push(id); mids.push(m.id); } }
+        if (!gueltig(id)) { const m = markieren(id); neu.push(id); mids.push(m.id); } }
       st.nachAbhaken?.(d);
-      return { ok: true, stand: 3, geaendert: neu.length, geaendert_ids: neu, uebersprungen: ueber, ...(d.zurueck ? {} : { markierung_ids: mids }) }; }
+      return { ok: true, stand: 3, geaendert: neu.length, geaendert_ids: neu, uebersprungen: ueber, markierung_ids: mids }; }
     return e;
   };
   anpassen.neueAktionen = true; return { anpassen, st, basis };
@@ -6977,6 +6978,46 @@ test('WW-S3 (6): zuletzt_tag und fehler je Thema – Kind in anderer Zeitzone (M
     assert.equal(await page.locator('.ww-erledigt li', { hasText: 'Satz des Pythagoras' }).getByRole('button').innerText(), 'alle 2 zurückholen');
     assert.match(z[1], /^Bruchrechnen · besprochen am .+ · 198 von \d+ besprochenen Fehlern gezeigt/);
     assert.equal(await page.locator('.ww-erledigt li', { hasText: 'Bruchrechnen' }).getByRole('button').innerText(), 'alle hier gezeigten 198 zurückholen'); }
+});
+
+test('WW-S3 (7), Werkstatt 1165: Bestätigung vollständig – beim Zurückholen jede Markierungs-ID genau einmal (geändert oder übersprungen), beim Markieren keine doppelten oder fremden IDs; eindeutige IDs beim Senden', async (t) => {
+  // Zurückholen: Tag „Lineare Gleichungen“ mit zwei Markierungen (9003, 9007 heute besprochen); Schadformen der Gegenprüfung → nicht bestätigt, keine Abschlussmeldung, neu geladen
+  const schad = (mids) => ({
+    'nichts gemeldet': { stand: 3, geaendert: 0, geaendert_ids: [], uebersprungen: [] },
+    'zweimal dieselbe übersprungen, die andere fehlt': { stand: 3, geaendert: 0, geaendert_ids: [], uebersprungen: [{ markierung_id: mids[0], grund: 'überholt' }, { markierung_id: mids[0], grund: 'schon zurückgeholt' }] },
+    'fremde ID': { stand: 3, geaendert: 1, geaendert_ids: [mids[0]], uebersprungen: [{ markierung_id: 99999, grund: 'nicht gefunden' }] },
+    'geändert und übersprungen zugleich': { stand: 3, geaendert: 2, geaendert_ids: mids, uebersprungen: [{ markierung_id: mids[0], grund: 'überholt' }] },
+  });
+  for (const wie of Object.keys(schad([1, 2]))) {
+    let kaputt = false; let mids = [];
+    const { page, srv, ww, toast } = await wwOeffnen(t, 1280, { route: (q) => (q.aktion === 'schule_fehler_abhaken' && q.daten.zurueck && kaputt ? { body: { ok: true, ergebnis: schad(mids)[wie] } } : null) });
+    await ww.locator('.ww-thema[aria-label="Lineare Gleichungen"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
+    mids = srv.st.marks.filter((m) => [9003, 9007].includes(m.versuch_id) && !m.zurueck_am).map((m) => m.id).sort((a, b) => a - b); kaputt = true;
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+    const n0 = wwAnalysen(srv).length;
+    await page.locator('.ww-erledigt').getByRole('button', { name: /^Zurückholen: Lineare Gleichungen, alle 2 am/ }).click(); await toast.getByText(/Nicht gespeichert/).waitFor(); await wwRuhig(page);
+    assert.match(await toast.innerText(), /^Nicht gespeichert: Der Server hat das Speichern nicht bestätigt\.\s*Noch einmal versuchen$/, wie);
+    assert.equal(await toast.getByText(/zurückgeholt/).count(), 0, wie + ': keine Abschlussmeldung'); assert.ok(wwAnalysen(srv).length > n0, wie + ': neu geladen'); }
+  // Markieren: doppelte Einträge in uebersprungen und IDs außerhalb des Pakets → nicht bestätigt; die Differenz allein bleibt „schon markiert“
+  for (const [wie, f] of [['doppelt übersprungen', (p) => ({ stand: 3, geaendert: 0, geaendert_ids: [], markierung_ids: [], uebersprungen: [{ versuch_id: p[0], grund: 'nicht endgültig falsch' }, { versuch_id: p[0], grund: 'nicht endgültig falsch' }] })],
+    ['übersprungen außerhalb des Pakets', (p) => ({ stand: 3, geaendert: 1, geaendert_ids: [p[0]], markierung_ids: [700], uebersprungen: [{ versuch_id: 12345, grund: 'nicht gefunden' }] })],
+    ['übersprungen ohne grund', (p) => ({ stand: 3, geaendert: 1, geaendert_ids: [p[0]], markierung_ids: [700], uebersprungen: [{ versuch_id: p[1] }] })]]) {
+    const { page, ww, toast } = await wwOeffnen(t, 1280, { route: (q) => (q.aktion === 'schule_fehler_abhaken' ? { body: { ok: true, ergebnis: f([...q.daten.versuch_ids].sort((a, b) => a - b)) } } : null) });
+    await ww.locator('.ww-thema[aria-label="Satz des Pythagoras"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/Nicht gespeichert/).waitFor(); await wwRuhig(page);
+    assert.match(await toast.innerText(), /^Nicht gespeichert: Der Server hat das Speichern nicht bestätigt\./, wie); }
+  { const { page, srv, ww, toast } = await wwOeffnen(t, 1280); srv.st.abgehakt.set(9004, new Date(Date.now() - 60000).toISOString());
+    await ww.locator('.ww-thema[aria-label="Satz des Pythagoras"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
+    assert.match(await toast.innerText(), /\(1 neu markiert · 1 war schon markiert\)/, 'Differenz = schon markiert'); }
+  // eindeutig senden: zeigt die Liste dieselbe Markierung doppelt, geht sie nur einmal hinaus
+  { const { page, srv, toast } = await wwOeffnen(t, 1280);
+    srv.st.verderben = (r, d) => { if (d.erledigt) { const x = r.erledigt.find((e) => e.versuch_id === 9011); if (x) r.erledigt.push(JSON.parse(JSON.stringify(x))); } return r; };
+    await page.locator('.ww-thema[aria-label="Prozentrechnung"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+    await page.locator('.ww-erledigt').getByRole('button', { name: /^Zurückholen: Lineare Gleichungen, alle 2 am/ }).click(); await toast.getByText(/zurückgeholt/).waitFor(); await wwRuhig(page);
+    const c = abhakCalls(srv).at(-1); assert.equal(c.markierung_ids.length, 1, 'doppelte ID nur einmal gesendet'); assert.equal(new Set(c.markierung_ids).size, c.markierung_ids.length);
+    assert.equal(await toast.innerText(), 'Lineare Gleichungen: 1 zurückgeholt'); }
+  // alter Weg: der Client sendet nie {zurueck, versuch_ids}; der Nachbau weist ihn ab wie der Server
+  { const srv = wwServer(); assert.throws(() => srv.anpassen('schule_fehler_abhaken', null, { lernender_id: 1, zurueck: true, versuch_ids: [9001] }), /Zurückholen nur mit markierung_ids/); }
 });
 
 test('WW-S3 (5): „Noch einmal versuchen“ im Abschnitt „Besprochen“ (Lesefehler) ist während eines Schreibaufrufs gesperrt', async (t) => {

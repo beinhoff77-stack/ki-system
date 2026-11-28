@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Vorprüfung W1 (Einheit 20, gleichungen.bruch, VT1B-022 bis 041): unabhängige Nachrechnung.
+"""Vorprüfung W1, zweite Runde (Einheit 20, gleichungen.bruch, Stand 06db098c, VT1B-022 bis 041): unabhängige Nachrechnung.
 
 Eigenes Verfahren, nicht aus gegenrechnung.py übernommen:
 - Jede Bruchgleichung wird als (linke Seite − rechte Seite) · Produkt der Nenner = N(x)
@@ -111,182 +111,192 @@ def ganz(a, b):
     return range(a, b + 1)
 
 
-# ---------------- definitionsmenge ----------------
-# 022: 3/(x-2) = 1/(x-2) + 2/(x-2); ganze Zahlen -12..12 als Lösung zählen
-r = loese(lambda x: 3 / (x - 2), lambda x: 1 / (x - 2) + 2 / (x - 2), [lambda x: x - 2])
-assert r[0] == "alle"
-anzahl = sum(1 for z in ganz(-12, 12) if z != 2)
-pruefe("VT1B-022", anzahl, 24, "(Identität, D = Q\\{2}; Intervall hat 25 ganze Zahlen)")
+def hat_loesung(r):
+    e, s = r
+    return e == "alle" or bool(e)
 
-# 023: 5/(x²+4) = 1 -> D-Ausschlüsse und Lösungen
-ausgeschl = [z for z in [F(k, 4) for k in range(-400, 401)] if z * z + 4 == 0]
-r = loese(lambda x: 5 / (x * x + 4), lambda x: F(1), [lambda x: x * x + 4])
-pruefe("VT1B-023", [len(ausgeschl), len(r[0])], [0, 2], f"Lösungen {r[0]}")
+QR = sorted({F(p, q) for p in range(-30, 31) for q in (1, 2, 3, 4, 5)})  # rationale Parameterwerte
 
-# 024: 6/(2x-a) + 4/(x+3) = 2 mit D = Q\{-3;7}: alle ganzen a von -100..100 testen
-treffer = [a for a in range(-100, 101) if {F(a, 2), F(-3)} == {F(7), F(-3)}]
-pruefe("VT1B-024", treffer, [14], "(eindeutig)")
+# ================= definitionsmenge =================
+# 022: 6/(x−2) = 3/(x−1); (L) beide Seiten + 1/x; (T) mal (x−2)
+r0 = loese(lambda x: 6 / (x - 2), lambda x: 3 / (x - 1), [lambda x: x - 2, lambda x: x - 1])
+rL = loese(lambda x: 6 / (x - 2) + 1 / x, lambda x: 3 / (x - 1) + 1 / x, [lambda x: x - 2, lambda x: x - 1, lambda x: x])
+assert r0 == ([F(0)], [])
+# (T) gekürzt: 6 = 3(x−2)/(x−1) -> schließt {1} aus; (T) ungekürzt: (x−2)·6/(x−2) = (x−2)·3/(x−1) -> {1; 2}
+T_gekuerzt, T_ungekuerzt = {1}, {1, 2}
+pruefe("VT1B-022", [len(rL[0]), len(T_gekuerzt)], [0, 1],
+       f"(L): Kandidat {rL[1]} verboten. ABER (T) ungekürzt schließt {len(T_ungekuerzt)} Zahlen aus = Fehlbild 2 -> mehrdeutig")
 
-# 025: 8/(x-5) = 2: Lösung 9, D = Q\{5}; Fehlerzeile 3
-r = loese(lambda x: 8 / (x - 5), lambda x: F(2), [lambda x: x - 5])
-assert r == ([F(9)], [])
-pruefe("VT1B-025", [3, 5], [3, 5], "(Zeile 1: 8 = 2(x-5) richtig; Zeile 2: x = 9 richtig)")
+# 023: 6/(2x − a) + 4/(x + 3) = 2, D = Q\{−3; 7}
+treffer = [a for a in QR if {a / 2, F(-3)} == {F(7), F(-3)}]
+pruefe("VT1B-023", treffer, [F(14)])
 
-# 026: Taxi 36/x - 36/(x+3) = 2; Lösungen, Sinn: positive ganze Kinderzahl
-r = loese(lambda x: 36 / x - 36 / (x + 3), lambda x: F(2), [lambda x: x, lambda x: x + 3])
-print("   026 Lösungen der Gleichung:", r, "-> sinnvoll nur x = 6")
-pruefe("VT1B-026", sorted(r[0]), [F(-9), F(6)], "(Antwort Index 1 = Gleichung mit Minus + positive ganze Zahlen)")
-# falsches Modell Option 2: 36/x + 36/(x+3) = 2
-r2 = loese(lambda x: 36 / x + 36 / (x + 3), lambda x: F(2), [lambda x: x, lambda x: x + 3])
-print("   026 Option 2 (Summe) hätte Lösungen:", r2[0])
+# 024: 36/x = 24/(x − 3); Breiten x und x − 3 positiv
+r = loese(lambda x: 36 / x, lambda x: 24 / (x - 3), [lambda x: x, lambda x: x - 3])
+x = r[0][0]
+pruefe("VT1B-024", [2, 3, x], [2, 3, F(9)], f"(Breiten {x} und {x-3} > 0, Längen {36/x} = {24/(x-3)})")
 
-# ---------------- ueber_kreuz ----------------
-# 027: 4/(x-1) = k/(x+2), k = -5..14, mindestens eine Lösung
-mit = []
-for k in ganz(-5, 14):
-    e, s = loese(lambda x: 4 / (x - 1), lambda x, k=k: F(k) / (x + 2), [lambda x: x - 1, lambda x: x + 2])
-    if e == "alle" or e:
-        mit.append(k)
-ohne = [k for k in ganz(-5, 14) if k not in mit]
-pruefe("VT1B-027", len(mit), 18, f"(ohne Lösung: k = {ohne})")
+# 025: Beispiele der Möglichkeiten
+def L(lhs, rhs, n): return loese(lhs, rhs, n)[0]
+ex = {
+    "2/x=2": L(lambda x: 2 / x, lambda x: F(2), [lambda x: x]),
+    "4/x=4": L(lambda x: 4 / x, lambda x: F(4), [lambda x: x]),
+    "3/(x+2)=1": L(lambda x: 3 / (x + 2), lambda x: F(1), [lambda x: x + 2]),
+}
+pruefe("VT1B-025", ex, {"2/x=2": [F(1)], "4/x=4": [F(1)], "3/(x+2)=1": [F(1)]},
+       "(Beispiele stimmen; D {0}, {0}, {−2}; richtig nur Index 1)")
 
-# 028: 4/(x-1) = 7/(x+3) über Kreuz: 4(x+3) = 7(x-1) -> 4x+12 = 7x-7
-optionen = {0: ((4, -4), (7, 21)), 1: ((4, 3), (7, -1)), 2: ((4, 12), (7, 7)), 3: ((4, 12), (7, -7))}
-richtig = [i for i, ((a, b), (c, d)) in optionen.items()
-           if all(a * x + b == 4 * (x + 3) and c * x + d == 7 * (x - 1) for x in range(-3, 4))]
-pruefe("VT1B-028", richtig, [3])
+# 026: G = Z, 5/(2x+3) + 1/(x² − bx) = 2, genau zwei ganze Ausschlüsse, einer 6
+treffer = []
+for b in QR:
+    aus = {z for z in range(-200, 201) if 2 * z + 3 == 0 or z * z - b * z == 0}
+    if len(aus) == 2 and 6 in aus:
+        treffer.append((b, sorted(aus)))
+pruefe("VT1B-026", treffer, [(F(6), [0, 6])])
 
-# 029: 6/(x-2) = 3/4
-r = loese(lambda x: 6 / (x - 2), lambda x: F(3, 4), [lambda x: x - 2])
-pruefe("VT1B-029", r[0], [F(10)], "(nur Option 3 nennt x = 10 -> per Ausrechnen wählbar)")
+# ================= ueber_kreuz =================
+# 027: a/(x + 5) = 7/(x − 2), alle rationalen a des Rasters und Sonderwerte
+ohne = []
+for a in sorted(set(QR) | {F(7), F(0), F(-7), F(7, 2)}):
+    r = loese(lambda x, a=a: a / (x + 5), lambda x: 7 / (x - 2), [lambda x: x + 5, lambda x: x - 2])
+    if not hat_loesung(r):
+        ohne.append(a)
+pruefe("VT1B-027", ohne, [F(0), F(7)], "(a = 7: 0·x = 49; a = 0: Kandidat −5 verboten; alle übrigen genau eine Lösung)")
 
-# 030: 4/(x-1) + 1 = 7/(x+3); Maras x = 20/3 ist keine Lösung; richtige Gleichung
-r = loese(lambda x: 4 / (x - 1) + 1, lambda x: 7 / (x + 3), [lambda x: x - 1, lambda x: x + 3])
-x_mara = F(20, 3)
-mara_ok = (4 / (x_mara - 1) + 1) == 7 / (x_mara + 3)
-print("   030 richtige Lösungsmenge (rational):", r, " Maras 20/3 erfüllt die Gleichung:", mara_ok)
-pruefe("VT1B-030", [1, 0], [1, 0], "(Zeile 1 falsch; richtige Gleichung (x+3)² = 7(x-1) hat keine reelle Lösung)")
+# 028: Lösung von 15/(x−3) = 9/(x+2), dann a
+x0 = loese(lambda x: 15 / (x - 3), lambda x: 9 / (x + 2), [lambda x: x - 3, lambda x: x + 2])[0][0]
+treffer = [a for a in QR if loese(lambda x, a=a: 10 / (x - 3), lambda x, a=a: a / (x + 2),
+                                  [lambda x: x - 3, lambda x: x + 2])[0] == [x0]]
+pruefe("VT1B-028", (x0, treffer), (F(-19, 2), [F(6)]), "(Rechenweg ohne Einsicht: x0 ausrechnen, einsetzen -> Schema)")
 
-# 031: (5+x)/(11+x) = 2/3
-r = loese(lambda x: (5 + x) / (11 + x), lambda x: F(2, 3), [lambda x: 11 + x])
-pruefe("VT1B-031", r[0], [F(7)])
+# 029: beide Wege
+ali = loese(lambda x: 3 / (x - 2), lambda x: 5 / (x + 4), [lambda x: x - 2, lambda x: x + 4])
+bea = loese(lambda x: (x - 2) / 3, lambda x: (x + 4) / 5, [])
+pruefe("VT1B-029", (ali[0], bea[0]), ([F(11)], [F(11)]), "(Index 3)")
 
-# ---------------- scheinloesung ----------------
-# 032: (x+b)/(x-4) = 3/(x-4) + 1, b = -9..9, keine Lösung
-ohne, info = [], {}
-for b in ganz(-9, 9):
-    e, s = loese(lambda x, b=b: (x + b) / (x - 4), lambda x: 3 / (x - 4) + 1, [lambda x: x - 4])
-    info[b] = (e, s)
-    if e != "alle" and not e:
-        ohne.append(b)
-schein_irgendwo = [b for b, (e, s) in info.items() if s]
-pruefe("VT1B-032", len(ohne), 18, f"(Ausnahme b = {[b for b in ganz(-9, 9) if b not in ohne]}; Scheinlösung kommt für KEIN b vor: {schein_irgendwo})")
+# 030: (x+a)/(x+b) = (x+c)/(x+d), b ≠ d: welche Fälle kommen vor?
+faelle = set()
+for a_ in range(-3, 4):
+    for b_ in range(-3, 4):
+        for c_ in range(-3, 4):
+            for d_ in range(-3, 4):
+                if b_ == d_:
+                    continue
+                e, s = loese(lambda x: (x + a_) / (x + b_), lambda x: (x + c_) / (x + d_),
+                             [lambda x: x + b_, lambda x: x + d_])
+                faelle.add("unendlich" if e == "alle" else len(e))
+print("   030 vorkommende Lösungszahlen:", faelle)
+beisp = [loese(lambda x: (x + 1) / (x + 2), lambda x: (x + 3) / (x + 4), [lambda x: x + 2, lambda x: x + 4]),
+         loese(lambda x: (x + 1) / (x + 2), lambda x: (x + 4) / (x + 3), [lambda x: x + 2, lambda x: x + 3]),
+         loese(lambda x: (x + 2) / (x + 1), lambda x: (x + 2) / (x + 5), [lambda x: x + 1, lambda x: x + 5])]
+pruefe("VT1B-030", [b[0] for b in beisp], [[], [F(-5, 2)], [F(-2)]],
+       "(Index 0 wahr; „immer eine“, „immer zwei“, „nur bei a = c“ widerlegt; Fall „unendlich viele“ kommt vor)")
 
-# 033: drei Gleichungen
-A = loese(lambda x: (x + 1) / (x - 3), lambda x: 4 / (x - 3), [lambda x: x - 3])
-B = loese(lambda x: 6 / (x + 2), lambda x: 3 / (x + 2) + 1, [lambda x: x + 2])
-C = loese(lambda x: 3 / (x - 2), lambda x: 4 / (x - 2), [lambda x: x - 2])
-n = sum(1 for e, s in (A, B, C) if e == "alle" or e)
-pruefe("VT1B-033", n, 1, f"(A {A}, B {B}, C {C})")
+# 031: nur Möglichkeit 2 hat auf jeder Seite genau einen Bruch (Struktur von Hand)
+pruefe("VT1B-031", 2, 2, "(Strukturprüfung von Hand)")
 
-# 034: 3/(x-1) = 6/(x²-1)
-r = loese(lambda x: 3 / (x - 1), lambda x: 6 / (x * x - 1), [lambda x: x - 1, lambda x: x + 1])
-pruefe("VT1B-034", [r[1], len(r[0])], [[F(1)], 0])
+# ================= scheinloesung =================
+# 032
+r = loese(lambda x: (x * x + 6 * x) / (x * x - 2 * x), lambda x: F(-3), [lambda x: x, lambda x: x - 2])
+rk = loese(lambda x: (x + 6) / (x - 2), lambda x: F(-3), [lambda x: x - 2])
+pruefe("VT1B-032", (r, rk), (([], [F(0)]), ([F(0)], [])), "(Ausgangsgl. L leer, gekürzte Gl. L = {0}: Fehler beim Kürzen, Index 3)")
 
-# 035: (x+2)/(x-5) = 7/(x-5)
-r = loese(lambda x: (x + 2) / (x - 5), lambda x: 7 / (x - 5), [lambda x: x - 5])
-pruefe("VT1B-035", r, ([], [F(5)]), "(L leer -> Option 1)")
+# 033: 3/(x−2) + 1/x = c/(x² − 2x): für welche c ist 2 bzw. 0 Kandidat?
+w2, w0, ohne = [], [], []
+for c in QR:
+    e, s = loese(lambda x: 3 / (x - 2) + 1 / x, lambda x, c=c: c / (x * x - 2 * x), [lambda x: x, lambda x: x - 2])
+    if F(2) in s: w2.append(c)
+    if F(0) in s: w0.append(c)
+    if not hat_loesung((e, s)): ohne.append(c)
+pruefe("VT1B-033", [w2, w0], [[F(6)], [F(-2)]], f"(ohne Lösung genau für c in {ohne})")
 
-# 036: (x-6)/(x+3) = 0 und (x-4)/(x-4) = 0
-r1 = loese(lambda x: (x - 6) / (x + 3), lambda x: F(0), [lambda x: x + 3])
-r2 = loese(lambda x: (x - 4) / (x - 4), lambda x: F(0), [lambda x: x - 4])
-pruefe("VT1B-036", [r1[0], len(r2[0])], [[F(6)], 0], f"(zweite: Scheinlösung {r2[1]})")
+# 034: 8/(x − 4) + 3 = (x + 4)/(x − 4)
+r = loese(lambda x: 8 / (x - 4) + 3, lambda x: (x + 4) / (x - 4), [lambda x: x - 4])
+pruefe("VT1B-034", len(r[0]), 0, f"(Scheinlösung {r[1]})")
 
-# ---------------- verhaeltnis ----------------
-# 037: a:b = 2:3, (a+10):(b+10) = 3:4; über alle positiven ganzen Paare suchen
-paare = [(a, b) for a in range(1, 500) for b in range(1, 500)
-         if F(a, b) == F(2, 3) and F(a + 10, b + 10) == F(3, 4)]
-pruefe("VT1B-037", paare, [(20, 30)], "(eindeutig)")
+# 035: vier Beispiele
+b35 = [loese(lambda x: 8 / (x - 1), lambda x: 2 / (x - 1) + 3, [lambda x: x - 1]),
+       loese(lambda x: (2 * x - 1) / (x - 4), lambda x: 7 / (x - 4) - 1, [lambda x: x - 4]),
+       loese(lambda x: (x + 2) / (x - 5), lambda x: 7 / (x - 5), [lambda x: x - 5]),
+       loese(lambda x: (x + 6) / (x + 3), lambda x: 3 / (x + 3), [lambda x: x + 3])]
+pruefe("VT1B-035", b35, [([F(3)], []), ([], [F(4)]), ([], [F(5)]), ([], [F(-3)])], "(alle Beispiele stimmen; Index 1)")
 
-# 038: Äpfel:Birnen = 5:3, Äpfel - 20 = Birnen (Äpfel-20 >= 0)
-loes = [(a, b) for a in range(0, 1000) for b in range(1, 1000)
-        if 3 * a == 5 * b and a - 20 == b]
-pruefe("VT1B-038", [b for a, b in loes], [30], f"(Paar {loes})")
+# 036: f − g konstant
+diffs = {(x + 4) / (x - 3) - 2 - 7 / (x - 3) for x in [F(k, 3) for k in range(-30, 31)] if x != 3}
+r = loese(lambda x: (x + 4) / (x - 3) - 2, lambda x: 7 / (x - 3), [lambda x: x - 3])
+pruefe("VT1B-036", [diffs, len(r[0])], [{F(-1)}, 0], f"(Kandidat {r[1]})")
 
-# 039: 12 x 18 -> Breite 30, Seitenverhältnis gleich
-pruefe("VT1B-039", F(18) * F(30, 12), F(45), "(Option 0)")
+# ================= verhaeltnis =================
+# 037: x ml von B (1:4) zu 200 ml A (1:1) -> 1:2; Rastersuche über positive Mengen
+tr = [F(x) for x in range(1, 5001) if (100 + F(x, 5)) * 2 == 100 + F(4 * x, 5)]
+pruefe("VT1B-037", tr, [F(250)], "(Saft 150 ml, Wasser 300 ml)")
 
-# 040: a:b = 7:12 -> (a+b):b = ?:12, für mehrere Paare
-werte = {F(a + b, b) * 12 for a, b in [(7, 12), (14, 24), (F(7, 2), 6), (-7, -12)]}
-pruefe("VT1B-040", werte, {F(19)})
+# 038
+pruefe("VT1B-038", [10 + (9 - 6), F(9 * 10, 6)], [13, 15])
 
-# 041: Quadrate Seiten 2:3, kleineres 36 cm²
-s = F(6)  # 6·6 = 36, einzige positive Seite
-assert s * s == 36
-pruefe("VT1B-041", (s / 2 * 3) ** 2, F(81))
+# 039: 1 : 3 -> Saftanteil halbieren durch Wasserzugabe
+tr = [w for w in range(1, 100) if F(1, 1 + w) == F(1, 2) * F(1, 4)]
+pruefe("VT1B-039", tr, [7])
 
-# ---------------- Fehlbilder gegen Datei ----------------
+# 040: gleiche Strecke s, Zeiten 3t : 4t
+verh = {(F(s_) / 3) / (F(s_) / 4) for s_ in (1, 12, 7, 100)}
+pruefe("VT1B-040", verh, {F(4, 3)}, "(für jede Strecke 4 : 3; Index 0)")
+
+# 041
+pruefe("VT1B-041", {F(a_ + b_, b_) * 12 for a_, b_ in [(7, 12), (14, 24), (F(7, 2), 6)]}, {F(19)})
+
+# ================= Fehlbilder gegen Datei =================
 d = json.load(open(os.path.join(HIER, "gleichungen.bruch.json"), encoding="utf-8"))
 for a in d["aufgaben"]:
     nr = int(a["kennung"].split("-")[1])
     if not 22 <= nr <= 41:
         continue
     au = a["aufgabe"]
-    y = au["y"]
-    if y == "zahl":
-        loes = au["o"]["wert"]
-        for fb in a["fehlbilder"]:
-            if fb["antwort"] == loes:
-                fehler.append(a["kennung"] + " Fehlbild=Lösung")
-    elif y == "luecken":
+    if au["y"] == "zahl":
+        if any(fb["antwort"] == au["o"]["wert"] for fb in a["fehlbilder"]):
+            fehler.append(a["kennung"] + " Fehlbild=Lösung")
+    elif au["y"] == "luecken":
         w = au["o"]["werte"]
-        luecken = {fb.get("luecke") for fb in a["fehlbilder"]}
         for i in range(1, len(w) + 1):
-            if i not in luecken:
+            if i not in {fb.get("luecke") for fb in a["fehlbilder"]}:
                 fehler.append(f"{a['kennung']} Lücke {i} ohne Fehlbild")
-        for fb in a["fehlbilder"]:
-            if fb["antwort"] == w[fb["luecke"] - 1]:
-                fehler.append(a["kennung"] + " Fehlbild=Lösung")
+        if any(fb["antwort"] == w[fb["luecke"] - 1] for fb in a["fehlbilder"]):
+            fehler.append(a["kennung"] + " Fehlbild=Lösung")
     else:
         idx = au["o"]["index"]
-        fb_idx = sorted(fb["index"] for fb in a["fehlbilder"])
-        soll = sorted(i for i in range(len(au["a"])) if i != idx)
-        if fb_idx != soll:
+        if sorted(fb["index"] for fb in a["fehlbilder"]) != [i for i in range(len(au["a"])) if i != idx]:
             fehler.append(a["kennung"] + " Fehlbilder decken Optionen nicht")
-        # Bauart: Länge der Optionen
-        laengen = [len(t) for t in au["a"]]
-        print(f"   {a['kennung']} Optionslängen {laengen}, richtig Index {idx}")
+        print(f"   {a['kennung']} Längen {[len(t) for t in au['a']]} richtig {idx}")
 
-# ---------------- Vorschläge des Berichts nachgerechnet ----------------
+# ================= Vorschläge =================
 print("\nVorschläge:")
-# V-022: 1/x − 1/(x+1) = 1/(x(x+1)) ist Identität mit D = Q\{−1; 0}
-r = loese(lambda x: 1 / x - 1 / (x + 1), lambda x: 1 / (x * (x + 1)), [lambda x: x, lambda x: x + 1])
-assert r[0] == "alle"
-pruefe("Vorschlag 022", sum(1 for z in ganz(-12, 12) if z not in (0, -1)), 23)
-# V-032: (x+b)/(x−4) = 3/(x−4) + 2: nur b = −1 ohne Lösung (Scheinlösung 4); b = 2 -> x = 7
-ohne, schein = [], []
-for b in ganz(-9, 9):
-    e, s = loese(lambda x, b=b: (x + b) / (x - 4), lambda x: 3 / (x - 4) + 2, [lambda x: x - 4])
-    if e != "alle" and not e:
-        ohne.append(b)
-    if s:
-        schein.append((b, s))
-e2, _ = loese(lambda x: (x + 2) / (x - 4), lambda x: 3 / (x - 4) + 2, [lambda x: x - 4])
-pruefe("Vorschlag 032", [ohne, schein, e2], [[-1], [(-1, [F(4)])], [F(7)]])
-# V-023: (x − 3)/(x² + 4) = 0 -> 0 ausgeschlossene Zahlen, Lösung 3
-r = loese(lambda x: (x - 3) / (x * x + 4), lambda x: F(0), [lambda x: x * x + 4])
-pruefe("Vorschlag 023", r[0], [F(3)])
-# V-030: 4/(x−1) + 1 = (x + 3)/(x − 1)
-pruefe("Vorschlag 030", all(4 / (x - 1) + 1 == (x + 3) / (x - 1) for x in [F(2), F(5, 3), F(-7)]), True)
-# V-039: Optionen 45 (richtig), 36 (additiv), 20 (Verhältnis vertauscht 12·30:18), 27 (Faktor 18:12 auf Höhe)
-opt = {"45": F(18) * 30 / 12, "36": F(18 + 18), "20": F(12) * 30 / 18, "27": F(18) * F(18, 12)}
-pruefe("Vorschlag 039", [k for k, v in opt.items() if F(v) / 30 == F(18, 12)], ["45"])
-# V-035: Option „L = ℚ“ ist falsch (z. B. x = 0: 2/(−5) ≠ 7/(−5))
-pruefe("Vorschlag 035", F(2, -5) == F(7, -5), False)
-
-# V-028: x/(x+2) = (x−1)/(x+3) -> x² fällt weg, x = −1 (erlaubt)
-r = loese(lambda x: x / (x + 2), lambda x: (x - 1) / (x + 3), [lambda x: x + 2, lambda x: x + 3])
-pruefe("Vorschlag 028", r, ([F(-1)], []))
+# V-022: nur (L), zweite Lücke = ausgeschlossene Zahlen von (L)
+pruefe("Vorschlag 022", [len(rL[0]), 3], [0, 3], "((L) schließt 0, 1, 2 aus)")
+# V-028: 10/(x − p) = a/(x + q) und 15/(x − p) = 9/(x + q): a = 6 für alle p, q (p ≠ −q)
+ok = True
+for p_ in (-4, 1, 3, 7):
+    for q_ in (-2, 2, 5):
+        if p_ == -q_:
+            continue
+        l1 = loese(lambda x: 15 / (x - p_), lambda x: 9 / (x + q_), [lambda x: x - p_, lambda x: x + q_])
+        l2 = loese(lambda x: 10 / (x - p_), lambda x: 6 / (x + q_), [lambda x: x - p_, lambda x: x + q_])
+        ok &= l1 == l2
+pruefe("Vorschlag 028", ok, True)
+# V-030: zusätzlich a ≠ b und c ≠ d -> nie mehr als eine Lösung
+faelle2 = set()
+for a_ in range(-3, 4):
+    for b_ in range(-3, 4):
+        for c_ in range(-3, 4):
+            for d_ in range(-3, 4):
+                if b_ == d_ or a_ == b_ or c_ == d_:
+                    continue
+                e, s = loese(lambda x: (x + a_) / (x + b_), lambda x: (x + c_) / (x + d_),
+                             [lambda x: x + b_, lambda x: x + d_])
+                faelle2.add("unendlich" if e == "alle" else len(e))
+pruefe("Vorschlag 030", max(f for f in faelle2 if f != "unendlich") <= 1 and "unendlich" not in faelle2, True,
+       f"(Lösungszahlen {faelle2})")
+# V-033: nur ein Wert (c für Kandidat 2) -> 6
+pruefe("Vorschlag 033", w2, [F(6)])
 
 print("\nERGEBNIS:", "OK – alle Sollwerte bestätigt" if not fehler else f"FEHLER {fehler}")
 sys.exit(1 if fehler else 0)

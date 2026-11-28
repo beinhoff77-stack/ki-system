@@ -35,11 +35,11 @@ def L(text, schablone, werte, c, zweit, w, fb=None, hinweis="Je Lücke eine ganz
     return {"y": "luecken", "f": {"text": text, "schablone": schablone, "hinweis": hinweis}, "o": {"werte": werte}, "c": c, "w": w}, zweit, fb or {}
 
 
-def W(text, richtig, falsch, w, probe):
+def W(text, richtig, falsch, w, probe, pos=None):
     """Auswahl mit genau 4 Antworten (1 richtig, 3 falsch). falsch: [(Antwort, Beschreibung des Fehlers)]. probe: Funktion, die True liefert, wenn die richtige
     Antwort wirklich stimmt und jede falsche wirklich falsch ist (im Bauskript gerechnet)."""
     assert len(falsch) == 3, text
-    p = next(POSITION4)
+    p = next(POSITION4) if pos is None else pos
     antworten = [f[0] for f in falsch]
     antworten.insert(p, richtig)
     fb = {}

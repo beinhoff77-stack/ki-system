@@ -28,9 +28,9 @@ KUERZEL = "VT1B"
 AUSWAHL = {
     "bruch.prozent": ["prozentsatz", "rabatt_aufschlag", "verstehen"],
     "gleichungen.bruch": ["definitionsmenge", "ueber_kreuz", "scheinloesung", "verhaeltnis"],
-    "terme.potenzgesetze": ["negativer_exponent"],
+    "terme.potenzgesetze": ["negativer_exponent", "fehler_finden"],
     "zahlen.potenzen_zehner": ["gross_wissenschaftlich", "negativer_exponent", "vorsilben_klein", "vergleichen_pruefen"],
-    "messen.flaechen_vielecke": ["parallelogramm", "trapez", "zusammengesetzt", "verstehen"],
+    "messen.flaechen_vielecke": ["dreieck", "rueckwaerts", "zusammengesetzt", "verstehen"],
 }
 POOLFOLGE = {"test": 0, "korrektur": 1, "sicherung": 2}
 SOLL_ANZAHL = {"test": 1, "korrektur": 3, "sicherung": 3}
@@ -52,10 +52,10 @@ for _p in sorted(glob.glob(os.path.join(WURZEL, "inhalte", "themen", "*.json")))
 KARTE = {}
 for schl in AUSWAHL:
     d = ALLE_THEMEN[schl]
-    pflicht = d["inhalt"]["bewertung"]["lernziele_pflicht"]
+    alle_lz = json.load(open(os.path.join(WURZEL, "inhalte", "plan", "rollend-einheiten.json"), encoding="utf-8"))["einheiten"][schl]["lz"]
     for lz in AUSWAHL[schl]:
-        assert lz in pflicht, (schl, lz, "gewähltes Lernziel ist keine Pflicht")
-    assert len(AUSWAHL[schl]) == (len(pflicht) + 1) // 2, (schl, "Hälfte der Pflicht-Lernziele, aufgerundet")
+        assert lz in alle_lz, (schl, lz, "gewähltes Lernziel gibt es in der Einheit nicht")
+    assert len(AUSWAHL[schl]) == (len(alle_lz) + 1) // 2, (schl, "⌈n/2⌉ Lernziele, n = alle Lernziele der Einheit")
     for a in d["aufgaben"]:
         KARTE.setdefault((schl, a["l"]), a["t"])
 GESAMT_TEXT = {a["f"].get("text", "") for d in ALLE_THEMEN.values() for a in d["aufgaben"]}
@@ -177,7 +177,10 @@ for a in A:
             fb_eintrag({"index": i}, q["a"][i], beschr)
             n_fb_ohne += 1
     if a["form"] == "fehler_detektiv" or a["g"] == "fehler":
-        assert q["y"] == "luecken" and "Zeile" in q["f"]["schablone"] and len(re.findall(r"Zeile \d+:", text)) >= 3 and q["o"]["werte"][0] in range(1, 10), (kenn, "Fehler-Detektiv: luecken Zeile □, richtig □ mit mindestens 3 Zeilen")
+        if q["y"] == "luecken":
+            assert "Zeile" in q["f"]["schablone"] and len(re.findall(r"Zeile \d+:", text)) >= 3 and q["o"]["werte"][0] in range(1, 10), (kenn, "Fehler-Detektiv: luecken Zeile □, richtig □ mit mindestens 3 Zeilen")
+        else:
+            assert q["y"] == "auswahl" and len(re.findall(r"Zeile \d+:", text)) >= 4 and all(re.search(r"Zeile \d", o_) and re.search(r"\b(weil|denn|da)\b", o_) for o_ in q["a"]), (kenn, "Fehler-Detektiv: auswahl mit mindestens 4 Zeilen, jede Möglichkeit nennt Zeile und Begründung")
     sk = (schl, lk, str(q["o"]["wert"]) if q["y"] == "zahl" else (q["a"][q["o"]["index"]] if q["y"] == "auswahl" else str(q["o"]["werte"])))
     assert sk not in sollwerte or q["y"] == "auswahl", (kenn, "gleicher Sollwert in derselben Etappe wie", sollwerte.get(sk))
     sollwerte[sk] = kenn

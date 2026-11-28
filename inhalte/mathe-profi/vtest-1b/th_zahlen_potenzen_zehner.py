@@ -31,13 +31,13 @@ neu(T, "gross_wissenschaftlich", "korrektur", "umkehr", Z(
      B("12 + 1", "eine Ziffer zu viel gezählt: Exponent um eins zu groß"),
      B("12 - 2", "zwei Ziffern abgezogen statt einer")]), form="umkehren", lp=LP, idee="ziffernzahl")
 neu(T, "gross_wissenschaftlich", "korrektur", "mehrschritt", W(
-    "Mia und Tom schreiben 24 000 000 in wissenschaftlicher Schreibweise. Mia schreibt 2,4 · 10⁷, Tom schreibt 24 · 10⁶. Wer hat die wissenschaftliche Schreibweise richtig angegeben?",
-    "Nur Mia, denn der Vorfaktor muss kleiner als 10 sein.",
+    "Mia, Tom und Lena schreiben 24 000 000 in wissenschaftlicher Schreibweise. Mia schreibt 2,4 · 10⁷, Tom schreibt 24 · 10⁶, Lena schreibt 0,24 · 10⁸. Wer hat die wissenschaftliche Schreibweise richtig angegeben?",
+    "Nur Mia, denn der Vorfaktor muss zwischen 1 und 10 liegen.",
     [("Nur Tom, denn der Exponent muss die Anzahl der Nullen sein, also 6.", "den Exponenten als Anzahl der Nullen gedeutet; die Bedingung für den Vorfaktor wurde nicht geprüft"),
-     ("Beide, denn beide Schreibweisen haben denselben Wert.", "nur den Wert verglichen; wissenschaftlich heißt auch, dass der Vorfaktor zwischen 1 und 10 liegt"),
-     ("Keiner von beiden, denn der Exponent muss die Anzahl der Ziffern sein, also 8.", "den Exponenten als Anzahl der Ziffern gedeutet; er ist um eins kleiner")],
-    "24 000 000 hat 8 Ziffern. Mias Schreibweise 2,4 · 10⁷ hat den Vorfaktor 2,4 (zwischen 1 und 10) und den Wert 24 000 000. Toms 24 · 10⁶ hat denselben Wert, aber der Vorfaktor 24 ist nicht kleiner als 10. Also ist nur Mias Schreibweise wissenschaftlich.",
-    lambda: 2.4e7 == 24e6 == 24000000 and 1 <= 2.4 < 10 and not 1 <= 24 < 10), form="zwei_wege", lp=LP, idee="zwei_wege_pruefen")
+     ("Mia und Tom, denn beide Schreibweisen haben denselben Wert wie 24 000 000.", "nur den Wert verglichen; wissenschaftlich heißt auch, dass der Vorfaktor zwischen 1 und 10 liegt"),
+     ("Nur Lena, denn der Exponent muss die Anzahl der Ziffern sein, also 8.", "den Exponenten als Anzahl der Ziffern gedeutet; er ist um eins kleiner")],
+    "24 000 000 hat 8 Ziffern. Mias Schreibweise 2,4 · 10⁷ hat den Vorfaktor 2,4 (zwischen 1 und 10) und den Wert 24 000 000. Toms 24 · 10⁶ und Lenas 0,24 · 10⁸ haben denselben Wert, aber die Vorfaktoren 24 und 0,24 liegen nicht zwischen 1 und 10. Also ist nur Mias Schreibweise wissenschaftlich.",
+    lambda: 2.4e7 == 24e6 == 0.24e8 == 24000000 and 1 <= 2.4 < 10 and not 1 <= 24 < 10 and not 1 <= 0.24 < 10), form="zwei_wege", lp=LP, idee="zwei_wege_pruefen")
 neu(T, "gross_wissenschaftlich", "sicherung", "umkehr", Z(
     "Welche ganze Zahl muss man für n einsetzen, damit 5,3 · 10ⁿ = 530 000 gilt?",
     5, "6 - 1", "5",
@@ -207,6 +207,6 @@ neu(T, "vergleichen_pruefen", "sicherung", "begruenden", W(
     "3 · 10⁻⁵ ist größer, denn 7 · 10⁻⁶ = 0,7 · 10⁻⁵ und 0,7 ist kleiner als 3.",
     [("7 · 10⁻⁶ ist größer, denn 7 ist größer als 3.", "nur die Vorfaktoren verglichen und die Exponenten nicht beachtet"),
      ("7 · 10⁻⁶ ist größer, denn bei negativen Exponenten ist die Zahl mit der größeren Hochzahl auch die größere Zahl.", "den Betrag des negativen Exponenten für die Größe gehalten; 10⁻⁶ ist kleiner als 10⁻⁵"),
-     ("Beide sind gleich groß, denn beide haben hinter dem Komma nur eine von null verschiedene Ziffer.", "nur die Anzahl der von null verschiedenen Ziffern verglichen")],
+     ("Man kann sie nicht vergleichen, denn die beiden Hochzahlen −6 und −5 sind verschieden.", "geglaubt, nur Zahlen mit gleicher Hochzahl ließen sich vergleichen")],
     "Man bringt beide auf denselben Exponenten: 7 · 10⁻⁶ = 0,7 · 10⁻⁵. Jetzt vergleicht man die Vorfaktoren: 0,7 ist kleiner als 3. Also ist 3 · 10⁻⁵ größer. Ausgeschrieben: 0,000 03 gegen 0,000 007.",
     lambda: F(3) * F(10) ** -5 > 7 * F(10) ** -6 and 7 * F(10) ** -6 == F("0.7") * F(10) ** -5), lp=LP, idee="begruenden_vergleich")

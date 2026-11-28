@@ -19,6 +19,10 @@ sys.dont_write_bytecode = True
 HIER = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HIER)
 import kern                      # noqa: E402
+SAMMEL = re.compile(r"\b(Beide[sn]?|Keine?r?|Kein|Weder|Alle)\b")
+ABSOLUT = re.compile(r"\b(immer|nie|niemals|stets|jede[rsnm]?|alle[rsnm]?|gar nicht|keine?r?|kein|einzige[rn]?)\b", re.I)
+SAMMEL_STAT = Counter()
+ABS_STAT = Counter()
 import pruefhilfen as P          # noqa: E402
 from kern import A, ip, WURZEL, G2, G3, FORMEN   # noqa: E402
 
@@ -173,6 +177,19 @@ for a in A:
         assert len(q["a"]) == 4 and len(set(q["a"])) == 4, (kenn, "genau 4 verschiedene Antworten")
         assert a["zweit"]() is True, (kenn, "Probe der Auswahl")
         assert set(a["fb"]) == set(range(4)) - {q["o"]["index"]}, kenn
+        # Auswahl-Regeln (Vorprüfung Runde 2): (1) Begründungen einheitlich, (2) Sammeloptionen, (3) Absolutwörter, (4) richtige Option unauffällig
+        _R = q["o"]["index"]
+        _verb = [re.findall(r"\b(denn|weil)\b", o_) for o_ in q["a"]]
+        assert all(_verb) or not any(_verb), (kenn, "Auswahl: alle Optionen mit oder alle ohne „denn/weil“")
+        assert len({v[0] for v in _verb if v}) <= 1, (kenn, "Auswahl: einheitliches Bindewort (nur „denn“ oder nur „weil“)")
+        for _i, o_ in enumerate(q["a"]):
+            if SAMMEL.search(o_):
+                SAMMEL_STAT[_i == _R] += 1
+            if ABSOLUT.search(o_):
+                ABS_STAT[_i == _R] += 1
+        _lens = [len(o_) for o_ in q["a"]]
+        _rest = [_lens[_i] for _i in range(4) if _i != _R]
+        assert sum(_rest) / 3 < 30 or _lens[_R] <= 1.3 * sum(_rest) / 3, (kenn, "Auswahl: richtige Option ist auffällig länger als die falschen", _lens[_R], _rest)
         n_rechnung += 1
         for i, (_, beschr) in sorted(a["fb"].items()):
             P.fb_zahlen_pruefen(kenn, q["a"][i], beschr, None, q)
@@ -188,6 +205,11 @@ for a in A:
     sollwerte[sk] = kenn
     eintrag["aufgabe"] = q
     aus[schl].append(eintrag)
+
+print("Auswahl: Sammeloptionen richtig/falsch", SAMMEL_STAT[True], SAMMEL_STAT[False], "· Absolutwörter richtig/falsch", ABS_STAT[True], ABS_STAT[False])
+assert abs(SAMMEL_STAT[True] - SAMMEL_STAT[False]) <= max(1, (SAMMEL_STAT[True] + SAMMEL_STAT[False]) // 2), "Sammeloptionen (Beide/Keine/Alle) sind überwiegend falsch oder überwiegend richtig"
+_n_r = sum(1 for e_ in sum(aus.values(), []) if e_["aufgabe"]["y"] == "auswahl")
+assert abs(ABS_STAT[True] / max(_n_r, 1) - ABS_STAT[False] / max(3 * _n_r, 1)) <= 0.15, "Absolutwörter ungleich auf richtige und falsche Optionen verteilt"
 
 for _f in P.FB_ZAHL_FEHLER:
     print("FEHLBILD-ZAHL:", *_f)

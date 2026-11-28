@@ -1450,21 +1450,21 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Ben hat recht, denn Breite und Höhe müssen um gleich viele Zentimeter wachsen.",
+     "antwort": "Die Höhe wird 36 cm, denn die Höhe wächst genauso um 18 cm wie die Breite.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Verhältnisse additiv statt multiplikativ behandelt; gleiches Wachstum in cm ändert das Verhältnis"
+     "beschreibung": "additiv statt multiplikativ gerechnet: 18 + 18; gleiches Wachstum in cm ändert das Verhältnis"
     },
     {
      "index": 1,
-     "antwort": "Beide haben recht, denn beide Rechnungen vergrößern auch die Höhe.",
+     "antwort": "Die Höhe wird 7,2 cm, denn man teilt die Höhe 18 cm durch den Faktor 2,5.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur darauf geachtet, dass die Höhe größer wird, nicht auf das Verhältnis"
+     "beschreibung": "durch den Faktor geteilt statt malgenommen: 18 : 2,5"
     },
     {
      "index": 3,
-     "antwort": "Keiner hat recht, denn die Höhe darf sich beim Vergrößern gar nicht ändern.",
+     "antwort": "Die Höhe bleibt 18 cm, denn nur die Breite soll größer werden.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Vergrößern mit „nur die Breite ändern“ verwechselt"
@@ -1479,13 +1479,13 @@
     "g": "mehrschritt",
     "y": "auswahl",
     "f": {
-     "text": "Ein Foto ist 12 cm breit und 18 cm hoch. Es wird so vergrößert, dass es 30 cm breit ist. Ben rechnet: Die Breite wächst um 18 cm, also wächst die Höhe auch um 18 cm. Ida rechnet: Die Breite wird mit 2,5 malgenommen, also auch die Höhe. Welche Aussage stimmt, wenn das Seitenverhältnis gleich bleiben soll?"
+     "text": "Ein Foto ist 12 cm breit und 18 cm hoch. Es wird so vergrößert, dass es 30 cm breit ist. Ben rechnet: Die Breite wächst um 18 cm, also wächst die Höhe auch um 18 cm. Ida rechnet: Die Breite wird mit 2,5 malgenommen, also auch die Höhe. Welche Aussage über die neue Höhe stimmt, wenn das Seitenverhältnis gleich bleiben soll?"
     },
     "a": [
-     "Ben hat recht, denn Breite und Höhe müssen um gleich viele Zentimeter wachsen.",
-     "Beide haben recht, denn beide Rechnungen vergrößern auch die Höhe.",
-     "Ida hat recht, denn nur beim Malnehmen mit demselben Faktor bleibt das Verhältnis von Breite zu Höhe gleich.",
-     "Keiner hat recht, denn die Höhe darf sich beim Vergrößern gar nicht ändern."
+     "Die Höhe wird 36 cm, denn die Höhe wächst genauso um 18 cm wie die Breite.",
+     "Die Höhe wird 7,2 cm, denn man teilt die Höhe 18 cm durch den Faktor 2,5.",
+     "Die Höhe wird 45 cm, denn beide Seiten werden mit demselben Faktor 2,5 malgenommen.",
+     "Die Höhe bleibt 18 cm, denn nur die Breite soll größer werden."
     ],
     "o": {
      "index": 2

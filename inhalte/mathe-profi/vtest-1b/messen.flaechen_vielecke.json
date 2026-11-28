@@ -356,7 +356,7 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Das Kind hat recht, denn bei einer Höhe außerhalb gilt nur die Rechnung mit der schrägen Seite AD.",
+     "antwort": "Das Kind hat recht, denn bei einer Höhe außerhalb gilt nur die Rechnung mit der schrägen Seite.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Höhe außerhalb für ungültig gehalten; auch dort ist es der senkrechte Abstand zur Grundseite"
@@ -388,10 +388,10 @@
      "text": "Das Dreieck ABD hat die Ecken A(0|0), B(9|0) und D(15|6) (eine Einheit ist 1 cm). Ein Kind sagt: „Die Höhe liegt hier außerhalb des Dreiecks, deshalb darf man nicht Grundseite mal Höhe durch 2 rechnen.“ Welche Aussage stimmt?"
     },
     "a": [
-     "Das Kind hat recht, denn bei einer Höhe außerhalb gilt nur die Rechnung mit der schrägen Seite AD.",
+     "Das Kind hat recht, denn bei einer Höhe außerhalb gilt nur die Rechnung mit der schrägen Seite.",
      "Das Kind irrt: Die Fläche ist 9 · 6 = 54 cm², denn bei einer Höhe außerhalb wird nicht halbiert.",
      "Das Kind hat recht, denn die Fläche lässt sich dann nur über Koordinaten bestimmen.",
-     "Das Kind irrt: Die Fläche ist 9 · 6 : 2 = 27 cm², denn man kann D parallel zu AB verschieben, ohne dass sich Grundseite und Höhe ändern."
+     "Das Kind irrt: Die Fläche ist 9 · 6 : 2 = 27 cm², denn die Höhe ist auch außerhalb der Abstand zu AB."
     ],
     "o": {
      "index": 3
@@ -880,7 +880,7 @@
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "Es ist ein schiefes Parallelogramm, denn die schräge Seite ist immer länger als die Höhe.",
+     "antwort": "Es ist ein schiefes Parallelogramm, denn die schräge Seite ist länger als die Höhe.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "geglaubt, die schräge Seite sei immer länger; nur bei einem Rechteck sind beide gleich lang"
@@ -913,7 +913,7 @@
     },
     "a": [
      "Es ist ein Rechteck, denn die Höhe 48 : 8 = 6 cm ist genauso lang wie die schräge Seite.",
-     "Es ist ein schiefes Parallelogramm, denn die schräge Seite ist immer länger als die Höhe.",
+     "Es ist ein schiefes Parallelogramm, denn die schräge Seite ist länger als die Höhe.",
      "Ein solches Parallelogramm gibt es nicht, denn die Höhe darf nicht so lang wie die schräge Seite sein.",
      "Es ist ein Rechteck, denn die Fläche 48 ist durch die Grundseite 8 teilbar."
     ],
@@ -1732,14 +1732,14 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Beides bleibt gleich, denn die Seitenlängen bleiben gleich.",
+     "antwort": "Umfang und Fläche bleiben gleich, denn die Seitenlängen bleiben gleich.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Fläche und Umfang verwechselt; der Umfang hängt nur von den Seitenlängen ab, die Fläche auch von der Höhe"
     },
     {
      "index": 2,
-     "antwort": "Beides wird kleiner, denn eine schiefe Figur ist kleiner.",
+     "antwort": "Umfang und Fläche werden kleiner, denn eine schiefe Figur ist kleiner.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "gedacht, der Umfang schrumpfe mit; er bleibt gleich, solange die Seiten gleich lang sind"
@@ -1764,9 +1764,9 @@
      "text": "Ein Rechteck mit den Seiten 6 cm und 4 cm wird zu einem Parallelogramm schief gedrückt, dessen Seiten ebenfalls 6 cm und 4 cm lang sind. Welche Aussage über Umfang und Fläche stimmt?"
     },
     "a": [
-     "Beides bleibt gleich, denn die Seitenlängen bleiben gleich.",
+     "Umfang und Fläche bleiben gleich, denn die Seitenlängen bleiben gleich.",
      "Der Umfang bleibt 20 cm, aber die Fläche wird kleiner, denn die Höhe wird kleiner als 4 cm.",
-     "Beides wird kleiner, denn eine schiefe Figur ist kleiner.",
+     "Umfang und Fläche werden kleiner, denn eine schiefe Figur ist kleiner.",
      "Der Umfang wird größer, die Fläche bleibt gleich, denn die schrägen Seiten sind länger als die Höhe."
     ],
     "o": {

@@ -230,11 +230,11 @@ neu(T, "verhaeltnis", "korrektur", "umkehr", Z(
      B("33 / 4 * 7", "die 33 durch 4 statt durch den Unterschied 3 der Verhältniszahlen geteilt"),
      B("33 / (7 + 4) * 7", "die 33 durch die Summe der Verhältniszahlen geteilt statt durch ihren Unterschied")]), lp=LP, idee="unterschied_als_teile")
 neu(T, "verhaeltnis", "korrektur", "mehrschritt", W(
-    "Ein Foto ist 12 cm breit und 18 cm hoch. Es wird so vergrößert, dass es 30 cm breit ist. Ben rechnet: Die Breite wächst um 18 cm, also wächst die Höhe auch um 18 cm. Ida rechnet: Die Breite wird mit 2,5 malgenommen, also auch die Höhe. Welche Aussage stimmt, wenn das Seitenverhältnis gleich bleiben soll?",
-    "Ida hat recht, denn nur beim Malnehmen mit demselben Faktor bleibt das Verhältnis von Breite zu Höhe gleich.",
-    [("Ben hat recht, denn Breite und Höhe müssen um gleich viele Zentimeter wachsen.", "Verhältnisse additiv statt multiplikativ behandelt; gleiches Wachstum in cm ändert das Verhältnis"),
-     ("Beide haben recht, denn beide Rechnungen vergrößern auch die Höhe.", "nur darauf geachtet, dass die Höhe größer wird, nicht auf das Verhältnis"),
-     ("Keiner hat recht, denn die Höhe darf sich beim Vergrößern gar nicht ändern.", "Vergrößern mit „nur die Breite ändern“ verwechselt")],
+    "Ein Foto ist 12 cm breit und 18 cm hoch. Es wird so vergrößert, dass es 30 cm breit ist. Ben rechnet: Die Breite wächst um 18 cm, also wächst die Höhe auch um 18 cm. Ida rechnet: Die Breite wird mit 2,5 malgenommen, also auch die Höhe. Welche Aussage über die neue Höhe stimmt, wenn das Seitenverhältnis gleich bleiben soll?",
+    "Die Höhe wird 45 cm, denn beide Seiten werden mit demselben Faktor 2,5 malgenommen.",
+    [("Die Höhe wird 36 cm, denn die Höhe wächst genauso um 18 cm wie die Breite.", "additiv statt multiplikativ gerechnet: 18 + 18; gleiches Wachstum in cm ändert das Verhältnis"),
+     ("Die Höhe wird 7,2 cm, denn man teilt die Höhe 18 cm durch den Faktor 2,5.", "durch den Faktor geteilt statt malgenommen: 18 : 2,5"),
+     ("Die Höhe bleibt 18 cm, denn nur die Breite soll größer werden.", "Vergrößern mit „nur die Breite ändern“ verwechselt")],
     "Soll das Seitenverhältnis gleich bleiben, müssen beide Seiten mit demselben Faktor malgenommen werden: 30 : 12 = 2,5, also 18 · 2,5 = 45 cm Höhe. Bens Rechnung ergäbe 36 cm; dann wäre 36 : 30 = 1,2, aber das alte Verhältnis 18 : 12 = 1,5. Idas Weg stimmt.",
     lambda: F(30, 12) == F("2.5") and 18 * F("2.5") == 45 and F(36, 30) != F(18, 12) and F(45, 30) == F(18, 12)), form="zwei_wege", lp=LP, idee="additiv_oder_multiplikativ")
 neu(T, "verhaeltnis", "sicherung", "fehler", L(

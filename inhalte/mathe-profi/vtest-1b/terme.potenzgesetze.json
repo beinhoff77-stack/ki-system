@@ -747,21 +747,21 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "5⁰ = 1, denn 5 mal 0 ist 0, und 0 plus 1 ergibt 1.",
+     "antwort": "5⁰ = 1, denn 5 mal 0 ergibt 0, und dazu zählt man die 1 am Anfang.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "eine Rechnung mit Basis mal Exponent erfunden, die zufällig auf 1 kommt; sie erklärt nichts"
     },
     {
      "index": 1,
-     "antwort": "5⁰ = 5, denn mit dem Exponenten 0 bleibt die Basis unverändert stehen.",
+     "antwort": "5⁰ = 5, denn beim Exponenten 0 bleibt die Basis 5 unverändert stehen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Exponent 0 als „nichts tun“ gelesen und die Basis 5 behalten"
     },
     {
      "index": 2,
-     "antwort": "5⁰ = 0, denn der Exponent 0 zeigt an, dass keine 5 mehr da ist.",
+     "antwort": "5⁰ = 0, denn der Exponent 0 zeigt an, dass keine 5 mehr vorhanden ist.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Exponenten 0 als „kein Wert“ gelesen und die Potenz gleich 0 gesetzt"
@@ -779,10 +779,10 @@
      "text": "Ein Kind soll begründen, warum 5⁰ den Wert 1 und nicht 0 hat. Welche Begründung ist richtig?"
     },
     "a": [
-     "5⁰ = 1, denn 5 mal 0 ist 0, und 0 plus 1 ergibt 1.",
-     "5⁰ = 5, denn mit dem Exponenten 0 bleibt die Basis unverändert stehen.",
-     "5⁰ = 0, denn der Exponent 0 zeigt an, dass keine 5 mehr da ist.",
-     "Im Muster 125, 25, 5 wird bei jedem Schritt nach rechts durch 5 geteilt; 5 : 5 = 1, also ist 5⁰ = 1."
+     "5⁰ = 1, denn 5 mal 0 ergibt 0, und dazu zählt man die 1 am Anfang.",
+     "5⁰ = 5, denn beim Exponenten 0 bleibt die Basis 5 unverändert stehen.",
+     "5⁰ = 0, denn der Exponent 0 zeigt an, dass keine 5 mehr vorhanden ist.",
+     "5⁰ = 1, denn im Muster 125, 25, 5 teilt man jedes Mal durch 5, und 5 : 5 = 1."
     ],
     "o": {
      "index": 3

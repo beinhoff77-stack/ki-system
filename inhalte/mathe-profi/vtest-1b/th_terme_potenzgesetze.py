@@ -92,10 +92,10 @@ neu(T, "fehler_finden", "sicherung", "fehler", W(
     lambda: F(2, 3) ** -2 == F(9, 4) and F(3, 2) ** 2 == F(9, 4) and F(3, 2) ** 2 != F(9, 2) and F(9, 2) == F("4.5") and F(9, 2) != 4, pos=1), form="fehler_detektiv", lp=LP, idee="kehrwert_bruch")
 neu(T, "fehler_finden", "sicherung", "begruenden", W(
     "Ein Kind soll begründen, warum 5⁰ den Wert 1 und nicht 0 hat. Welche Begründung ist richtig?",
-    "Im Muster 125, 25, 5 wird bei jedem Schritt nach rechts durch 5 geteilt; 5 : 5 = 1, also ist 5⁰ = 1.",
-    [("5⁰ = 1, denn 5 mal 0 ist 0, und 0 plus 1 ergibt 1.", "eine Rechnung mit Basis mal Exponent erfunden, die zufällig auf 1 kommt; sie erklärt nichts"),
-     ("5⁰ = 5, denn mit dem Exponenten 0 bleibt die Basis unverändert stehen.", "Exponent 0 als „nichts tun“ gelesen und die Basis 5 behalten"),
-     ("5⁰ = 0, denn der Exponent 0 zeigt an, dass keine 5 mehr da ist.", "den Exponenten 0 als „kein Wert“ gelesen und die Potenz gleich 0 gesetzt")],
+    "5⁰ = 1, denn im Muster 125, 25, 5 teilt man jedes Mal durch 5, und 5 : 5 = 1.",
+    [("5⁰ = 1, denn 5 mal 0 ergibt 0, und dazu zählt man die 1 am Anfang.", "eine Rechnung mit Basis mal Exponent erfunden, die zufällig auf 1 kommt; sie erklärt nichts"),
+     ("5⁰ = 5, denn beim Exponenten 0 bleibt die Basis 5 unverändert stehen.", "Exponent 0 als „nichts tun“ gelesen und die Basis 5 behalten"),
+     ("5⁰ = 0, denn der Exponent 0 zeigt an, dass keine 5 mehr vorhanden ist.", "den Exponenten 0 als „kein Wert“ gelesen und die Potenz gleich 0 gesetzt")],
     "Das Muster 125, 25, 5 teilt bei jedem Schritt nach rechts durch 5. Der nächste Wert ist 5 : 5 = 1, und der Exponent ist dann 0. Das passt zur Regel, dass jede Basis ungleich 0 mit Exponent 0 den Wert 1 hat. Die Rechnung 5 · 0 + 1 liefert nur zufällig 1.",
     lambda: 5 ** 3 // 5 == 25 and 25 // 5 == 5 and 5 // 5 == 1 and 5 ** 0 == 1 and 5 ** 0 != 0 and 5 ** 0 != 5), lp=LP, idee="hoch_null_begruenden")
 neu(T, "fehler_finden", "sicherung", "umkehr", Z(

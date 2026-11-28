@@ -230,14 +230,14 @@
     },
     {
      "index": 1,
-     "antwort": "Beide, denn beide Schreibweisen haben denselben Wert.",
+     "antwort": "Mia und Tom, denn beide Schreibweisen haben denselben Wert wie 24 000 000.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur den Wert verglichen; wissenschaftlich heißt auch, dass der Vorfaktor zwischen 1 und 10 liegt"
     },
     {
      "index": 3,
-     "antwort": "Keiner von beiden, denn der Exponent muss die Anzahl der Ziffern sein, also 8.",
+     "antwort": "Nur Lena, denn der Exponent muss die Anzahl der Ziffern sein, also 8.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Exponenten als Anzahl der Ziffern gedeutet; er ist um eins kleiner"
@@ -252,18 +252,18 @@
     "g": "mehrschritt",
     "y": "auswahl",
     "f": {
-     "text": "Mia und Tom schreiben 24 000 000 in wissenschaftlicher Schreibweise. Mia schreibt 2,4 · 10⁷, Tom schreibt 24 · 10⁶. Wer hat die wissenschaftliche Schreibweise richtig angegeben?"
+     "text": "Mia, Tom und Lena schreiben 24 000 000 in wissenschaftlicher Schreibweise. Mia schreibt 2,4 · 10⁷, Tom schreibt 24 · 10⁶, Lena schreibt 0,24 · 10⁸. Wer hat die wissenschaftliche Schreibweise richtig angegeben?"
     },
     "a": [
      "Nur Tom, denn der Exponent muss die Anzahl der Nullen sein, also 6.",
-     "Beide, denn beide Schreibweisen haben denselben Wert.",
-     "Nur Mia, denn der Vorfaktor muss kleiner als 10 sein.",
-     "Keiner von beiden, denn der Exponent muss die Anzahl der Ziffern sein, also 8."
+     "Mia und Tom, denn beide Schreibweisen haben denselben Wert wie 24 000 000.",
+     "Nur Mia, denn der Vorfaktor muss zwischen 1 und 10 liegen.",
+     "Nur Lena, denn der Exponent muss die Anzahl der Ziffern sein, also 8."
     ],
     "o": {
      "index": 2
     },
-    "w": "24 000 000 hat 8 Ziffern. Mias Schreibweise 2,4 · 10⁷ hat den Vorfaktor 2,4 (zwischen 1 und 10) und den Wert 24 000 000. Toms 24 · 10⁶ hat denselben Wert, aber der Vorfaktor 24 ist nicht kleiner als 10. Also ist nur Mias Schreibweise wissenschaftlich."
+    "w": "24 000 000 hat 8 Ziffern. Mias Schreibweise 2,4 · 10⁷ hat den Vorfaktor 2,4 (zwischen 1 und 10) und den Wert 24 000 000. Toms 24 · 10⁶ und Lenas 0,24 · 10⁸ haben denselben Wert, aber die Vorfaktoren 24 und 0,24 liegen nicht zwischen 1 und 10. Also ist nur Mias Schreibweise wissenschaftlich."
    }
   },
   {
@@ -1686,10 +1686,10 @@
     },
     {
      "index": 3,
-     "antwort": "Beide sind gleich groß, denn beide haben hinter dem Komma nur eine von null verschiedene Ziffer.",
+     "antwort": "Man kann sie nicht vergleichen, denn die beiden Hochzahlen −6 und −5 sind verschieden.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Anzahl der von null verschiedenen Ziffern verglichen"
+     "beschreibung": "geglaubt, nur Zahlen mit gleicher Hochzahl ließen sich vergleichen"
     }
    ],
    "regel": "id.zahlen.schreibweisen",
@@ -1707,7 +1707,7 @@
      "7 · 10⁻⁶ ist größer, denn 7 ist größer als 3.",
      "3 · 10⁻⁵ ist größer, denn 7 · 10⁻⁶ = 0,7 · 10⁻⁵ und 0,7 ist kleiner als 3.",
      "7 · 10⁻⁶ ist größer, denn bei negativen Exponenten ist die Zahl mit der größeren Hochzahl auch die größere Zahl.",
-     "Beide sind gleich groß, denn beide haben hinter dem Komma nur eine von null verschiedene Ziffer."
+     "Man kann sie nicht vergleichen, denn die beiden Hochzahlen −6 und −5 sind verschieden."
     ],
     "o": {
      "index": 1

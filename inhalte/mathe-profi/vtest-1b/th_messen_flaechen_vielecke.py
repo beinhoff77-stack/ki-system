@@ -43,8 +43,8 @@ neu(T, "dreieck", "sicherung", "fehler", L(
     {0: [(3, "die Schlusszeile genannt, weil dort das falsche Ergebnis steht", "3")], 1: [(35, "mit der schrägen Seite statt der Höhe gerechnet: 10 · 7 : 2", "10 * 7 / 2"), (60, "das Halbieren vergessen: 10 · 6", "10 * 6"), (42, "Höhe mal schräge Seite gerechnet: 6 · 7", "6 * 7")]}), form="fehler_detektiv", lp=LP, idee="schraege_seite_fehler")
 neu(T, "dreieck", "sicherung", "begruenden", W(
     "Das Dreieck ABD hat die Ecken A(0|0), B(9|0) und D(15|6) (eine Einheit ist 1 cm). Ein Kind sagt: „Die Höhe liegt hier außerhalb des Dreiecks, deshalb darf man nicht Grundseite mal Höhe durch 2 rechnen.“ Welche Aussage stimmt?",
-    "Das Kind irrt: Die Fläche ist 9 · 6 : 2 = 27 cm², denn man kann D parallel zu AB verschieben, ohne dass sich Grundseite und Höhe ändern.",
-    [("Das Kind hat recht, denn bei einer Höhe außerhalb gilt nur die Rechnung mit der schrägen Seite AD.", "die Höhe außerhalb für ungültig gehalten; auch dort ist es der senkrechte Abstand zur Grundseite"),
+    "Das Kind irrt: Die Fläche ist 9 · 6 : 2 = 27 cm², denn die Höhe ist auch außerhalb der Abstand zu AB.",
+    [("Das Kind hat recht, denn bei einer Höhe außerhalb gilt nur die Rechnung mit der schrägen Seite.", "die Höhe außerhalb für ungültig gehalten; auch dort ist es der senkrechte Abstand zur Grundseite"),
      ("Das Kind irrt: Die Fläche ist 9 · 6 = 54 cm², denn bei einer Höhe außerhalb wird nicht halbiert.", "gedacht, das Halbieren entfällt, wenn die Höhe außen liegt; es gilt dieselbe Formel"),
      ("Das Kind hat recht, denn die Fläche lässt sich dann nur über Koordinaten bestimmen.", "geglaubt, die Formel gelte nur für Dreiecke mit Höhe innen")],
     "Die Grundseite AB liegt auf der x-Achse, AB = 9 cm. Die Höhe von D ist der Abstand zur x-Achse, 6 cm, auch wenn der Fußpunkt (15|0) außerhalb von AB liegt. A = 9 · 6 : 2 = 27 cm². Verschiebt man D parallel zu AB (zum Beispiel nach (4|6)), ändern sich Grundseite und Höhe nicht, also auch nicht die Fläche.",
@@ -98,7 +98,7 @@ neu(T, "rueckwaerts", "sicherung", "umkehr", L(
 neu(T, "rueckwaerts", "sicherung", "begruenden", W(
     "Ein Parallelogramm hat die Grundseite 8 cm, die schräge Nachbarseite 6 cm und den Flächeninhalt 48 cm². Welche Aussage über das Parallelogramm stimmt?",
     "Es ist ein Rechteck, denn die Höhe 48 : 8 = 6 cm ist genauso lang wie die schräge Seite.",
-    [("Es ist ein schiefes Parallelogramm, denn die schräge Seite ist immer länger als die Höhe.", "geglaubt, die schräge Seite sei immer länger; nur bei einem Rechteck sind beide gleich lang"),
+    [("Es ist ein schiefes Parallelogramm, denn die schräge Seite ist länger als die Höhe.", "geglaubt, die schräge Seite sei immer länger; nur bei einem Rechteck sind beide gleich lang"),
      ("Ein solches Parallelogramm gibt es nicht, denn die Höhe darf nicht so lang wie die schräge Seite sein.", "gedacht, die Höhe müsse kürzer als die schräge Seite sein; gleich lang ist beim Rechteck möglich"),
      ("Es ist ein Rechteck, denn die Fläche 48 ist durch die Grundseite 8 teilbar.", "die Teilbarkeit als Begründung genommen; entscheidend ist der Vergleich von Höhe und schräger Seite")],
     "Aus A = g · h folgt h = 48 : 8 = 6 cm. Die Höhe steht senkrecht auf der Grundseite und ist nie länger als die schräge Seite. Sie ist genau dann gleich lang, wenn die schräge Seite selbst senkrecht steht, das Parallelogramm also ein Rechteck ist. Hier sind beide 6 cm lang.",
@@ -191,8 +191,8 @@ neu(T, "verstehen", "sicherung", "fehler", L(
 neu(T, "verstehen", "sicherung", "begruenden", W(
     "Ein Rechteck mit den Seiten 6 cm und 4 cm wird zu einem Parallelogramm schief gedrückt, dessen Seiten ebenfalls 6 cm und 4 cm lang sind. Welche Aussage über Umfang und Fläche stimmt?",
     "Der Umfang bleibt 20 cm, aber die Fläche wird kleiner, denn die Höhe wird kleiner als 4 cm.",
-    [("Beides bleibt gleich, denn die Seitenlängen bleiben gleich.", "Fläche und Umfang verwechselt; der Umfang hängt nur von den Seitenlängen ab, die Fläche auch von der Höhe"),
-     ("Beides wird kleiner, denn eine schiefe Figur ist kleiner.", "gedacht, der Umfang schrumpfe mit; er bleibt gleich, solange die Seiten gleich lang sind"),
+    [("Umfang und Fläche bleiben gleich, denn die Seitenlängen bleiben gleich.", "Fläche und Umfang verwechselt; der Umfang hängt nur von den Seitenlängen ab, die Fläche auch von der Höhe"),
+     ("Umfang und Fläche werden kleiner, denn eine schiefe Figur ist kleiner.", "gedacht, der Umfang schrumpfe mit; er bleibt gleich, solange die Seiten gleich lang sind"),
      ("Der Umfang wird größer, die Fläche bleibt gleich, denn die schrägen Seiten sind länger als die Höhe.", "die schrägen Seiten länger als die Höhe genannt, aber ihre Länge ändert sich nicht")],
     "Der Umfang ist 2 · 6 + 2 · 4 = 20 cm und hängt nur von den Seitenlängen ab; er bleibt gleich. Die Fläche ist Grundseite mal Höhe. Die Grundseite bleibt 6 cm, aber die Höhe ist jetzt kleiner als die schräge Seite 4 cm, zum Beispiel 3 cm. Dann ist die Fläche kleiner als 24 cm², zum Beispiel 18 cm².",
     lambda: 2 * 6 + 2 * 4 == 20 and 6 * 3 < 6 * 4 and 6 * 3.9 < 24), lp=LP, idee="umfang_oder_flaeche")

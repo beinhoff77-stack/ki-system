@@ -2,7 +2,7 @@
 """Vorprüfung Welle 1, Runde 2 (Urteil 1222): unabhängige Nachrechnung.
 
 Einheiten: zahlen.natuerlich und terme.umformen.
-Zweite Fassung (Stand 9a986063): VT2-085..119 und VT2-029..043, 5 je Lernziel.
+Zweite Fassung (Stand 9a986063) und dritte Fassung (Stand 7cc61b65): VT2-085..119 und VT2-029..043, 5 je Lernziel.
 Jede Lösung wird hier aus der Aufgabenstellung neu gerechnet (exakt, Fraction,
 wo möglich durch vollständiges Durchprobieren). Nicht aus gegenrechnung.py
 übernommen. Danach: Vergleich mit der Sollantwort in der JSON, Prüfung der
@@ -256,6 +256,68 @@ Ts = {"A": lambda x: 2 * (x + 3), "B": lambda x: 2 * x + 6, "C": lambda x: 3 * (
       "D": lambda x: 5 * x - 2 * (x + 1), "E": lambda x: 3 * x - 2, "F": lambda x: 3 * x + 2}
 ks = list(Ts)
 L["VT2-043"] = sum(1 for i in range(6) for j in range(i + 1, 6) if gleichwertig(Ts[ks[i]], Ts[ks[j]]))
+
+
+# ---------------------------------------------------------------- Dritte Fassung (Stand 7cc61b65)
+# Neue bzw. geänderte Aufgaben; überschreibt die Werte der zweiten Fassung.
+# 095: gleicher Unterschied auf beiden Strahlen, umgekehrter Maßstab
+unterschied = 6 * 50
+L["VT2-095"] = int(F(unterschied, 4))
+# 097: Lena zählt Striche ab dem Strich bei 0 → landet bei (n:10 − 1)·10
+assert all(n - (n // 10 - 1) * 10 == 10 for n in range(10, 10000, 10))
+L["VT2-097"] = 2
+L["VT2-098"] = len(set(range(200, 12000, 200)) & set(range(150, 12000, 150)))
+# 108: nur Faktoren, die keine Zehnerzahl sind
+nz = [n for n in range(11, 200) if n % 10]
+auf = lambda n: (n // 10 + 1) * 10
+ab = lambda n: (n // 10) * 10
+assert all(auf(a) * auf(b) > a * b for a in nz for b in nz)                      # Lea immer zu groß
+tom = {(auf(a) * ab(b) > a * b, auf(a) * ab(b) < a * b) for a in nz for b in nz}
+assert (True, False) in tom and (False, True) in tom                              # Tom beide Richtungen
+assert auf(18) * ab(11) > 18 * 11 and ab(12) * auf(19) < 12 * 19                   # Beispiele im Text
+L["VT2-108"] = 0
+assert sum(rund(x, 1000) for x in [3460, 3420, 3440, 3470]) == 12000
+L["VT2-109"] = 3
+spar = {n: len(roem(n, ADD_C)) - len(roem(n)) for n in range(10, 100)}
+L["VT2-110"] = sorted(n for n, e in spar.items() if e == 5)
+N["VT2-110"] = "Ersparnis genau 5 nur bei %s; 99 spart %d" % (L["VT2-110"], spar[99])
+assert len(roem(18)) == 5 and len(roem(19)) == 3 and len(roem(8)) > len(roem(9))
+kuerzer = [n for n in range(2, 100) if len(roem(n)) < len(roem(n - 1))]
+N["VT2-112"] = "kürzer als der Vorgänger bei %s" % kuerzer[:12]
+L["VT2-112"] = 0
+L["VT2-113"] = max(n for n in range(1, 6000) if roem_regelgerecht(roem(n)))
+# 115: Zahl und „Gegenzahl“ (alle Ziffern getauscht), 5 Stellen, Unterschied 7
+paare = {tuple(sorted((n, 31 - n), reverse=True)) for n in range(32) if abs(n - (31 - n)) == 7}
+L["VT2-115"] = list(paare.pop()) if len(paare) == 1 else paare
+L["VT2-116"] = 1
+# 117: mehr Einsen → nichts Sicheres (Gegenbeispiele beider Richtungen)
+assert int("111", 2) < int("1000", 2) and int("11", 2) > int("10", 2)
+L["VT2-117"] = 3
+L["VT2-118"] = sum(1 for n in range(32) if not n & 4)
+# terme
+glieder = set()
+for art in ("x2", "x", "z"):
+    for a in range(-10, 11):
+        if a == 0:
+            continue
+        k = {"x2": 3, "x": 5, "z": -2}
+        k[art] += a
+        glieder.add(sum(1 for v in k.values() if v != 0))
+L["VT2-031"] = [min(glieder), max(glieder)]
+werte38 = {20 - (a - b) for a in range(1, 6) for b in range(1, 6) if a != b}
+L["VT2-038"] = [len(werte38), max(werte38)]
+N["VT2-038"] = "nur 20 Paare: vollständiges Ausrechnen in 2–3 Minuten möglich"
+L["VT2-039"] = 1
+L["VT2-040"] = 2
+def faelle42(a, b):
+    g = [x for x in range(-200, 201) if a * x + 9 == 2 * x + b]
+    return "jede" if len(g) == 401 else ("keine" if not g else ("eine" if len(g) == 1 else "?"))
+assert {faelle42(2, b) for b in range(-20, 21) if b != 9} == {"keine"}
+assert faelle42(2, 9) == "jede" and {faelle42(a, 9) for a in range(-9, 10) if a != 2} == {"eine"}
+assert "eine" in {faelle42(3, 4)}
+L["VT2-042"] = 0
+L["VT2-036"] = 0
+L["VT2-111"] = ["MCMXC", "VC", "CDXC", "XLIV"].index([s for s in ["MCMXC", "VC", "CDXC", "XLIV"] if not roem_regelgerecht(s)][0])
 
 
 # ---------------------------------------------------------------- Vergleich mit JSON

@@ -1,0 +1,227 @@
+{
+ "stand": "2026-11-28",
+ "hinweis": "Stufe 1 „Verstehen in Tests“ (inhalte/mathe-profi/vtest-1/plan.md): je Einheit die Lernziele, deren Test-Aufgabe durch eine Verstehens-Aufgabe ERSETZT wird (Entscheidungen 1, 2, 5 vom 28.11.). Reihenfolge der Lernziele = „lz“ in inhalte/plan/rollend-einheiten.json. Geprüft mit python3 -I tools/vtest_pruefen.py --nur-auswahl. Nur Einheiten und Lernziele, keine Lerndaten.",
+ "vorgabe_runde": 1,
+ "mengen": {
+  "test": 1,
+  "korrektur": 3,
+  "sicherung": 3
+ },
+ "runden": {
+  "1": {
+   "kuerzel": "VT1",
+   "ordner": "inhalte/mathe-profi/vtest-1"
+  },
+  "2": {
+   "kuerzel": "VT2",
+   "ordner": "inhalte/mathe-profi/vtest-2"
+  },
+  "3": {
+   "kuerzel": "VT3",
+   "ordner": "inhalte/mathe-profi/vtest-3"
+  }
+ },
+ "einheiten": [
+  {
+   "runde": 1,
+   "schluessel": "zahlen.potenzen_basis",
+   "id": 41,
+   "verstehen": [
+    "berechnen",
+    "vertauschen",
+    "negativ",
+    "sach"
+   ],
+   "begruendung": "vertauschen und negativ sind Verstehenskern der Einheit (Basis/Exponent, Vorzeichenregel begründen); berechnen als Fehler-Detektiv (2³ = 6) oder Umkehren; sach als Umkehren (Kante aus Würfelzahl). schreibweise/quadrat/zehner bleiben Rechnen (Notation, Quadratzahlen)."
+  },
+  {
+   "runde": 1,
+   "schluessel": "zahlen.rechengesetze",
+   "id": 44,
+   "verstehen": [
+    "klammern",
+    "vorteil",
+    "verteilen",
+    "mal_ganz",
+    "umkehraufgabe_mal",
+    "schriftlich",
+    "sach"
+   ],
+   "begruendung": "Jedes zweite Lernziel (gerade Plätze): klammern (Klammern so setzen, dass ein Wert entsteht), vorteil/verteilen (welches Gesetz, Zwei Wege), mal_ganz (Vorzeichen begründen), umkehraufgabe_mal (Umkehren), schriftlich (Fehler-Detektiv an einer schriftlichen Rechnung), sach (rückwärts). termaufbau und differenz_summe haben schon heute Auswahl-Tests."
+  },
+  {
+   "runde": 1,
+   "schluessel": "bruch.prozent",
+   "id": 11,
+   "verstehen": [
+    "prozentwert",
+    "grundwert",
+    "verstehen"
+   ],
+   "begruendung": "prozentwert als Brücke/Zwei Wege (Bruch ↔ Prozent), grundwert als Umkehren bzw. Fehler-Detektiv („80 % von 272“ statt Grundwert), verstehen ist schon Aussagen prüfen; rabatt_aufschlag läge daneben (drei V nebeneinander verboten)."
+  },
+  {
+   "runde": 1,
+   "schluessel": "gleichungen.bruch",
+   "id": 20,
+   "verstehen": [
+    "definitionsmenge",
+    "ueber_kreuz",
+    "scheinloesung",
+    "graphisch"
+   ],
+   "begruendung": "Ungerade Plätze, passt inhaltlich genau: Definitionsmenge begründen/Parameter, Fehler-Detektiv beim Über-Kreuz-Rechnen, Scheinlösung erkennen, Graph ↔ Gleichung (Brücke)."
+  },
+  {
+   "runde": 1,
+   "schluessel": "terme.potenzgesetze",
+   "id": 35,
+   "verstehen": [
+    "negativer_exponent",
+    "fehler_finden"
+   ],
+   "begruendung": "3 Lernziele -> 2 V. negativer_exponent (Brücke 2⁻³ = 1/8, Muster fortsetzen) und fehler_finden (Fehler-Detektiv); potenz_begriff bleibt Rechnen."
+  },
+  {
+   "runde": 1,
+   "schluessel": "zahlen.potenzen_zehner",
+   "id": 42,
+   "verstehen": [
+    "gross_wissenschaftlich",
+    "negativer_exponent",
+    "vorsilben_klein",
+    "vergleichen_pruefen"
+   ],
+   "begruendung": "gross_wissenschaftlich als Fehler-Detektiv (23,1 · 10⁴ ist keine wissenschaftliche Schreibweise), negativer_exponent als Brücke (10⁻³ = 1/1000 = 0,001), vorsilben_klein als Umkehren, vergleichen_pruefen ist Verstehen. zehnerpotenz/vorsilben_gross/klein_wissenschaftlich bleiben Rechnen."
+  },
+  {
+   "runde": 1,
+   "schluessel": "messen.flaechen_vielecke",
+   "id": 93,
+   "verstehen": [
+    "dreieck",
+    "rueckwaerts",
+    "zusammengesetzt",
+    "verstehen"
+   ],
+   "begruendung": "dreieck (Höhe außerhalb, Zwei Wege über das Parallelogramm), rueckwaerts (Umkehren), zusammengesetzt (Zerlegen gegen Ergänzen), verstehen (Verdoppeln, Vergleichen). Muster R V R V V R V R: keine zwei Rechen-Lernziele nebeneinander."
+  },
+  {
+   "runde": 2,
+   "schluessel": "finanzen.zinsen",
+   "id": 2,
+   "verstehen": [
+    "rollen",
+    "jahreszinsen_komma",
+    "kapital",
+    "zeitanteil"
+   ],
+   "begruendung": "Gerade Plätze: rollen (wer zahlt, begründen), jahreszinsen_komma (Fehler-Detektiv Kommaverschiebung/Überschlag), kapital (Umkehren), zeitanteil (Brücke Monate ↔ Jahresbruch)."
+  },
+  {
+   "runde": 2,
+   "schluessel": "terme.umformen",
+   "id": 3,
+   "verstehen": [
+    "zusammenfassen",
+    "minusklammer",
+    "aequivalenz"
+   ],
+   "begruendung": "Ungerade Plätze: zusammenfassen und minusklammer als Fehler-Detektiv (typische Vorzeichenfehler), aequivalenz durch Einsetzen prüfen (Begründen)."
+  },
+  {
+   "runde": 2,
+   "schluessel": "terme.umformen_teil2",
+   "id": 305,
+   "verstehen": [
+    "ausklammern",
+    "binomisch"
+   ],
+   "begruendung": "ausklammern ist die Umkehrung des Ausmultiplizierens (Umkehren), binomisch als Fehler-Detektiv ((a − b)² = a² − b²). Muster R V V R."
+  },
+  {
+   "runde": 2,
+   "schluessel": "geometrie.kreis",
+   "id": 58,
+   "verstehen": [
+    "umkehrung",
+    "lage",
+    "umkreis_inkreis"
+   ],
+   "begruendung": "Gerade Plätze: Umkehrung des Thalessatzes, Lage (Abstand ↔ Zahl der Schnittpunkte, Parameter), Umkreis/Inkreis (Lage des Mittelpunkts begründen)."
+  },
+  {
+   "runde": 2,
+   "schluessel": "zahlen.natuerlich",
+   "id": 1,
+   "verstehen": [
+    "stellenwert",
+    "ziffern_zu_zahlwort",
+    "strahl_eintragen",
+    "runden_regel",
+    "runden_sinnvoll",
+    "roemisch_schreiben",
+    "dualsystem"
+   ],
+   "begruendung": "Ungerade Plätze (13 -> 7): stellenwert (Wert einer Ziffer bei Änderung), runden_regel als Umkehren (welche Zahlen runden auf …), runden_sinnvoll, dualsystem (Stellenwertidee) sind besonders ergiebig; ziffern_zu_zahlwort/strahl_eintragen/roemisch_schreiben als Fehler-Detektiv bzw. Brücke."
+  },
+  {
+   "runde": 3,
+   "schluessel": "messen.volumen",
+   "id": 95,
+   "verstehen": [
+    "quader",
+    "liter",
+    "rueckwaerts",
+    "verstehen"
+   ],
+   "begruendung": "quader (Kante verdoppeln -> Volumen ·8 begründen), liter (Brücke dm³ ↔ l), rueckwaerts (Umkehren), verstehen. Muster R V R V V R V."
+  },
+  {
+   "runde": 3,
+   "schluessel": "daten.darstellen",
+   "id": 13,
+   "verstehen": [
+    "relative_haeufigkeit",
+    "saeulendiagramm",
+    "irrefuehrend"
+   ],
+   "begruendung": "Gerade Plätze: relative Häufigkeit (Brücke Bruch ↔ Prozent ↔ Anteil), Säulendiagramm (Maßstab/Achse lesen), irreführende Diagramme."
+  },
+  {
+   "runde": 3,
+   "schluessel": "daten.kennwerte",
+   "id": 14,
+   "verstehen": [
+    "mittelwert",
+    "mittel_rueckwaerts"
+   ],
+   "begruendung": "3 Lernziele -> 2 V: mittelwert (Wirkung eines geänderten Werts begründen), mittel_rueckwaerts (Umkehren). Muster V R V."
+  },
+  {
+   "runde": 3,
+   "schluessel": "funktionen.grundbegriffe",
+   "id": 16,
+   "verstehen": [
+    "mengen",
+    "stelle",
+    "graph_lesen",
+    "punkt_graph",
+    "sachzusammenhang"
+   ],
+   "begruendung": "mengen (Wertemenge begründen), stelle (Umkehren), graph_lesen (Brücke Graph ↔ Term), punkt_graph (Prüfen durch Einsetzen), sachzusammenhang (Modell aufstellen, transfer). eindeutig hat schon einen Auswahl-Test."
+  },
+  {
+   "runde": 3,
+   "schluessel": "geometrie.winkel",
+   "id": 49,
+   "verstehen": [
+    "kreuzung",
+    "uhr",
+    "figuren",
+    "verstehen"
+   ],
+   "begruendung": "kreuzung (Scheitel-/Nebenwinkel begründen), uhr (Umkehren: welche Uhrzeit), figuren (Fehler-Detektiv), verstehen (Aussagen prüfen). Muster R V R V R V V."
+  }
+ ]
+}

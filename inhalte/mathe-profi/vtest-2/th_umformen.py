@@ -60,13 +60,13 @@ def bauen():
       'Es gilt 9x² − 4x + 1 − U = 5x² − 4x − 3, also U = (9x² − 4x + 1) − (5x² − 4x − 3). x²: 9 − 5 = 4. x: −4 − (−4) = 0. Zahl: 1 − (−3) = 4. Also U = 4x² + 4. Probe: 9x² − 4x + 1 − (4x² + 4) = 5x² − 4x − 3.',
       'Ein fehlender Term wird durch Umkehren der Subtraktion bestimmt, wobei ein Glied wegfällt (0x); die Übungen suchen einen Summanden.')
     L(lz, 'sicherung', 'transfer', 'anwenden', 3, LP,
-      'Anna kauft x Brezeln zu je 2 € und y Getränke zu je 3 €. Ben zahlt für seinen Einkauf 5x + y Euro. An der Kasse bekommen beide zusammen 4 € Rabatt auf den gemeinsamen Betrag. Wie viel Euro zahlen beide zusammen? Gib den Term an.',
-      'Zusammen □x + □y + □ Euro', [7, 4, -4], ['2 + 5', '3 + 1', '−4'],
-      [(1, 10, '2 · 5', 'die Zahlen vor x multipliziert statt addiert'),
-       (2, 3, '3 · 1', 'die Zahlen vor y multipliziert statt addiert'),
-       (3, 4, '4', 'den Rabatt addiert statt abgezogen'),
-       (1, 3, '5 − 2', 'die Preise abgezogen statt addiert')],
-      'Anna zahlt 2x + 3y Euro, Ben 5x + y Euro, beide zusammen (2x + 3y) + (5x + y) = 7x + 4y. Der Rabatt von 4 € wird abgezogen: 7x + 4y − 4.',
+      'Anna kauft x Brötchen zu je 3 € und y Getränke zu je 2 €. Ben zahlt für seinen Einkauf 4x + 3y Euro. An der Kasse bekommen beide zusammen 6 € Rabatt auf den gemeinsamen Betrag. Wie viel Euro zahlen beide zusammen? Gib den zusammengefassten Term an.',
+      'Zusammen □x + □y + □ Euro', [7, 5, -6], ['3 + 4', '2 + 3', '−6'],
+      [(1, 12, '3 · 4', 'die Zahlen vor x multipliziert statt addiert'),
+       (2, 6, '2 · 3', 'die Zahlen vor y multipliziert statt addiert'),
+       (3, 6, '6', 'den Rabatt addiert statt abgezogen'),
+       (1, 1, '4 − 3', 'die Zahlen vor x subtrahiert statt addiert')],
+      'Anna zahlt 3x + 2y Euro, Ben 4x + 3y Euro, beide zusammen (3x + 2y) + (4x + 3y) = 7x + 5y. Der Rabatt von 6 € wird abgezogen: 7x + 5y − 6.',
       'Einkauf als Term aufstellen und mit Rabatt verknüpfen; die Übungen geben den Term schon vor.')
 
     # ---------------- minusklammer ----------------

@@ -411,40 +411,40 @@
    "abgrenzung": "Einkauf als Term aufstellen und mit Rabatt verknüpfen; die Übungen geben den Term schon vor.",
    "antwortform": "luecken",
    "loesung_rechnung": [
-    "2 + 5",
-    "3 + 1",
-    "−4"
+    "3 + 4",
+    "2 + 3",
+    "−6"
    ],
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 10,
-     "rechnung": "2 · 5",
+     "antwort": 12,
+     "rechnung": "3 · 4",
      "beschreibung": "die Zahlen vor x multipliziert statt addiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 2,
-     "antwort": 3,
-     "rechnung": "3 · 1",
+     "antwort": 6,
+     "rechnung": "2 · 3",
      "beschreibung": "die Zahlen vor y multipliziert statt addiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 3,
-     "antwort": 4,
-     "rechnung": "4",
+     "antwort": 6,
+     "rechnung": "6",
      "beschreibung": "den Rabatt addiert statt abgezogen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 1,
-     "antwort": 3,
-     "rechnung": "5 − 2",
-     "beschreibung": "die Preise abgezogen statt addiert",
+     "antwort": 1,
+     "rechnung": "4 − 3",
+     "beschreibung": "die Zahlen vor x subtrahiert statt addiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -457,18 +457,18 @@
     "g": "transfer",
     "y": "luecken",
     "f": {
-     "text": "Anna kauft x Brezeln zu je 2 € und y Getränke zu je 3 €. Ben zahlt für seinen Einkauf 5x + y Euro. An der Kasse bekommen beide zusammen 4 € Rabatt auf den gemeinsamen Betrag. Wie viel Euro zahlen beide zusammen? Gib den Term an.",
+     "text": "Anna kauft x Brötchen zu je 3 € und y Getränke zu je 2 €. Ben zahlt für seinen Einkauf 4x + 3y Euro. An der Kasse bekommen beide zusammen 6 € Rabatt auf den gemeinsamen Betrag. Wie viel Euro zahlen beide zusammen? Gib den zusammengefassten Term an.",
      "schablone": "Zusammen □x + □y + □ Euro",
      "hinweis": "Je Feld eine ganze Zahl."
     },
     "o": {
      "werte": [
       7,
-      4,
-      -4
+      5,
+      -6
      ]
     },
-    "w": "Anna zahlt 2x + 3y Euro, Ben 5x + y Euro, beide zusammen (2x + 3y) + (5x + y) = 7x + 4y. Der Rabatt von 4 € wird abgezogen: 7x + 4y − 4."
+    "w": "Anna zahlt 3x + 2y Euro, Ben 4x + 3y Euro, beide zusammen (3x + 2y) + (4x + 3y) = 7x + 5y. Der Rabatt von 6 € wird abgezogen: 7x + 5y − 6."
    }
   },
   {

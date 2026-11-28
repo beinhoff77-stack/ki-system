@@ -1,0 +1,1145 @@
+{
+ "stand": "2026-11-28",
+ "runde": "vtest-1a",
+ "kuerzel": "VT1A",
+ "flug": "vt1a-zahlen.potenzen_basis",
+ "titel": "zahlen.potenzen_basis",
+ "fuer": "Klasse 5",
+ "klasse": 5,
+ "themen": [
+  "zahlen.potenzen_basis"
+ ],
+ "themen_datei_im_bestand": "zahlen.potenzen_basis",
+ "hinweis": "VORRAT für eine Folgerunde: in Vorprüfung W1 gestrichene, aber brauchbare Aufgaben (Stand edb6b678/68cffcf9). Nicht Teil der Runde, nicht einspielen. Kennung VT1A-ALT-nnn = frühere VT1A-nnn; Grund je Eintrag in „vorrat_grund“. Pool-Angaben sind die alten; ersetzt_test entfernt.",
+ "aufgaben": [
+  {
+   "kennung": "VT1A-ALT-001",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "schreibweise",
+   "pool": "test",
+   "stufe": 3,
+   "typ": "begruenden",
+   "form": null,
+   "antwortform": "auswahl",
+   "zaehlt": "ja",
+   "lehrplan": "M5 3",
+   "idee": "begruenden_fehlvorstellung",
+   "abgrenzung": "Die Übungen lassen Potenzen schreiben und lesen; hier muss das Kind aus Basis, Wert oder Hochzahl rückwärts schließen oder die Schreibweise begründen und an Fehlvorstellungen prüfen.",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "12: Es ist 3² = 3 · 2 = 6 und 2³ = 2 · 3 = 6, zusammen 12.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Basis mal Hochzahl gerechnet statt die Basis so oft als Faktor zu nehmen"
+    },
+    {
+     "index": 1,
+     "antwort": "3 125: Man addiert die Basen (3 + 2 = 5) und die Hochzahlen (2 + 3 = 5), also gilt 5⁵.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Basen und Hochzahlen einzeln addiert (Lenas Fehler)"
+    },
+    {
+     "index": 3,
+     "antwort": "13: Es ist 3² = 3 · 3 = 9 und 2³ = 2 · 2 = 4, zusammen 13.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Bei 2³ nur zwei Faktoren genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "schreibweise",
+    "t": "begriff",
+    "p": "test",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Lena behauptet: „3² + 2³ = 5⁵.“ Welchen Wert hat 3² + 2³ in Wirklichkeit, und wie kommt man darauf?"
+    },
+    "a": [
+     "12: Es ist 3² = 3 · 2 = 6 und 2³ = 2 · 3 = 6, zusammen 12.",
+     "3 125: Man addiert die Basen (3 + 2 = 5) und die Hochzahlen (2 + 3 = 5), also gilt 5⁵.",
+     "17: Es ist 3² = 3 · 3 = 9 und 2³ = 2 · 2 · 2 = 8, zusammen 17.",
+     "13: Es ist 3² = 3 · 3 = 9 und 2³ = 2 · 2 = 4, zusammen 13."
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "3² = 3 · 3 = 9 und 2³ = 2 · 2 · 2 = 8, zusammen 17. Lena hat Basen und Hochzahlen einzeln addiert und 5⁵ geschrieben; 5⁵ wäre aber 3 125. Eine Potenz sagt, wie oft die Basis als Faktor dasteht; man kann nicht erst die Basen und dann die Hochzahlen zusammenzählen."
+   },
+   "alt_kennung": "VT1A-001",
+   "vorrat_grund": "A1: Test war bloßes Ausrechnen (3² + 2³); als Übung brauchbar."
+  },
+  {
+   "kennung": "VT1A-ALT-002",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "schreibweise",
+   "pool": "korrektur",
+   "stufe": 2,
+   "typ": "darstellung",
+   "form": null,
+   "antwortform": "zahl",
+   "zaehlt": "ja",
+   "lehrplan": "M5 3",
+   "idee": "was_waere_wenn",
+   "abgrenzung": "Die Übungen lassen Potenzen schreiben und lesen; hier muss das Kind aus Basis, Wert oder Hochzahl rückwärts schließen oder die Schreibweise begründen und an Fehlvorstellungen prüfen.",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "antwort": 1,
+     "rechnung": "5 - 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Nur die Hochzahlen verglichen: 5 − 4"
+    },
+    {
+     "antwort": 81,
+     "rechnung": "3 ** 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Nur den alten Wert 3⁴ genannt"
+    },
+    {
+     "antwort": 243,
+     "rechnung": "3 ** 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Nur den Wert von 3⁵ genannt"
+    }
+   ],
+   "loesung_rechnung": "3 ** 5 - 3 ** 4",
+   "aufgabe": {
+    "l": "schreibweise",
+    "t": "begriff",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Aus der Potenz 3⁴ wird die Potenz 3⁵: Die Hochzahl wird um 1 größer, die Basis bleibt. Um wie viel ist 3⁵ größer als 3⁴?"
+    },
+    "o": {
+     "wert": 162
+    },
+    "c": "3 ** 5 - 3 ** 4",
+    "w": "3⁴ = 3 · 3 · 3 · 3 = 81. Bei 3⁵ steht die 3 einmal öfter als Faktor da: 3⁵ = 81 · 3 = 243. Der Unterschied ist 243 − 81 = 162. Ein weiterer Faktor 3 verdreifacht den Wert, es kommt also zweimal der alte Wert dazu."
+   },
+   "alt_kennung": "VT1A-002",
+   "vorrat_grund": "A3: Schema (3⁵ − 3⁴ ausrechnen)."
+  },
+  {
+   "kennung": "VT1A-ALT-003",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "schreibweise",
+   "pool": "korrektur",
+   "stufe": 2,
+   "typ": "darstellung",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "zaehlt": "ja",
+   "lehrplan": "M5 3",
+   "idee": "situation_potenz",
+   "abgrenzung": "Die Übungen lassen Potenzen schreiben und lesen; hier muss das Kind aus Basis, Wert oder Hochzahl rückwärts schließen oder die Schreibweise begründen und an Fehlvorstellungen prüfen.",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "antwort": 64,
+     "rechnung": "4 ** 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Nummer der Generation (4) als Basis und die 3 als Hochzahl genommen"
+    },
+    {
+     "antwort": 8,
+     "rechnung": "2 ** 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Zahl der Generation davor übernommen, nicht weiter verdoppelt"
+    },
+    {
+     "antwort": 32,
+     "rechnung": "2 ** 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Eine Generation zu weit gerechnet (5. Generation)"
+    }
+   ],
+   "loesung_rechnung": "2 ** 4",
+   "aufgabe": {
+    "l": "schreibweise",
+    "t": "begriff",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Du hast 2 Eltern. Jede Person hat wieder 2 Eltern, und alle diese Vorfahren sind verschiedene Personen. In der 1. Generation vor dir sind es 2 Personen (Eltern), in der 2. Generation 4 (Großeltern), in der 3. Generation 8 (Urgroßeltern). Wie viele verschiedene Personen sind es in der 4. Generation (Ururgroßeltern)?"
+    },
+    "o": {
+     "wert": 16,
+     "einheit": "Personen"
+    },
+    "c": "2 ** 4",
+    "w": "In jeder Generation verdoppelt sich die Zahl der Personen, weil jede Person 2 Eltern hat. In der 4. Generation steht der Faktor 2 genau 4-mal da: 2 · 2 · 2 · 2 = 2⁴ = 16."
+   },
+   "alt_kennung": "VT1A-003",
+   "vorrat_grund": "A3: Schema (Verdopplung fortsetzen); Streichvorschlag K."
+  },
+  {
+   "kennung": "VT1A-ALT-004",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "schreibweise",
+   "pool": "korrektur",
+   "stufe": 2,
+   "typ": "umkehr",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "zaehlt": "ja",
+   "lehrplan": "M5 3",
+   "idee": "potenz_umschreiben",
+   "abgrenzung": "Die Übungen lassen Potenzen schreiben und lesen; hier muss das Kind aus Basis, Wert oder Hochzahl rückwärts schließen oder die Schreibweise begründen und an Fehlvorstellungen prüfen.",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "rechnung": "2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Basis 2 einfach übernommen"
+    },
+    {
+     "antwort": 8,
+     "rechnung": "8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Hochzahl 8 als Basis genommen"
+    },
+    {
+     "antwort": 16,
+     "rechnung": "2 * 8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Basis und Hochzahl malgenommen: 2 · 8"
+    }
+   ],
+   "loesung_rechnung": "4",
+   "aufgabe": {
+    "l": "schreibweise",
+    "t": "begriff",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche Zahl □ gilt: □⁴ = 2⁸?"
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "4",
+    "w": "2⁸ = 256. Je zwei Zweier ergeben eine 4: 2⁸ = (2 · 2) · (2 · 2) · (2 · 2) · (2 · 2) = 4 · 4 · 4 · 4 = 4⁴. Probe: 4 · 4 · 4 · 4 = 256."
+   },
+   "alt_kennung": "VT1A-004",
+   "vorrat_grund": "A3/B17: Probieren, gleiche Tatsache wie Bestand-Test (4⁴ = 256); vor Wiederverwendung Zahlen ändern."
+  },
+  {
+   "kennung": "VT1A-ALT-007",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "schreibweise",
+   "pool": "sicherung",
+   "stufe": 3,
+   "typ": "begruenden",
+   "form": null,
+   "antwortform": "auswahl",
+   "zaehlt": "ja",
+   "lehrplan": "M5 3",
+   "idee": "fehler_richtigstellen",
+   "abgrenzung": "Die Übungen lassen Potenzen schreiben und lesen; hier muss das Kind aus Basis, Wert oder Hochzahl rückwärts schließen oder die Schreibweise begründen und an Fehlvorstellungen prüfen.",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Fehler: Er hätte die Hochzahl mit 2 malnehmen müssen. Richtig wäre 2 · 3 · 2 = 12.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Hochzahl als Malnehmer gedeutet (3 · 2)"
+    },
+    {
+     "index": 1,
+     "antwort": "Kein Fehler: Zuerst werden 2 und 3 zu 6 zusammengefasst, dann wird 6 quadriert.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Falsche Reihenfolge bestätigt: das ergibt 36 statt 18"
+    },
+    {
+     "index": 3,
+     "antwort": "Fehler: Er hätte addieren müssen. Richtig wäre 2 + 3² = 11.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Mal mit Plus verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "schreibweise",
+    "t": "begriff",
+    "p": "sicherung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Tom rechnet: 2 · 3² = 6² = 36. Welche Aussage über Toms Rechnung stimmt?"
+    },
+    "a": [
+     "Fehler: Er hätte die Hochzahl mit 2 malnehmen müssen. Richtig wäre 2 · 3 · 2 = 12.",
+     "Kein Fehler: Zuerst werden 2 und 3 zu 6 zusammengefasst, dann wird 6 quadriert.",
+     "Fehler: Die Hochzahl 2 gehört nur zur 3, nicht zur 2. Richtig wäre 2 · 3 · 3 = 18.",
+     "Fehler: Er hätte addieren müssen. Richtig wäre 2 + 3² = 11."
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "Die Hochzahl 2 gehört nur zur Basis 3: 3² = 3 · 3 = 9. Dann kommt das Malnehmen mit 2: 2 · 9 = 18. Tom hat 2 und 3 zuerst zu 6 zusammengefasst und dann 6 quadriert; das ist eine andere Rechnung."
+   },
+   "alt_kennung": "VT1A-007",
+   "vorrat_grund": "Fehler-Detektiv durch Ausrechnen lösbar (Schema, Maßstab W1)."
+  },
+  {
+   "kennung": "VT1A-ALT-008",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "quadrat",
+   "pool": "test",
+   "stufe": 3,
+   "typ": "rueckwaerts",
+   "form": null,
+   "antwortform": "zahl",
+   "zaehlt": "ja",
+   "lehrplan": "M5 3",
+   "idee": "umfang_flaeche",
+   "abgrenzung": "Die Übungen rechnen Quadratzahlen aus; hier werden Quadrate gedeutet (Fläche, Quadratzahlen vergleichen, Gegenstück zu Verdoppeln) und Fehlvorstellungen wie „mal 2“ begründet entschieden.",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "antwort": 288,
+     "rechnung": "144 * 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Fläche verdoppelt statt die Seitenlänge"
+    },
+    {
+     "antwort": 24,
+     "rechnung": "12 * 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Nur die Seitenlänge des zweiten Feldes genannt"
+    },
+    {
+     "antwort": 96,
+     "rechnung": "12 * 4 * 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Den doppelten Umfang statt der Fläche genannt"
+    }
+   ],
+   "loesung_rechnung": "(12 * 4 * 2 // 4) ** 2",
+   "aufgabe": {
+    "l": "quadrat",
+    "t": "berechnen",
+    "p": "test",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein quadratisches Feld hat 144 m² Fläche. Ein zweites quadratisches Feld hat einen doppelt so langen Umfang. Wie viele m² Fläche hat das zweite Feld?"
+    },
+    "o": {
+     "wert": 576,
+     "einheit": "m²"
+    },
+    "c": "(12 * 4 * 2 // 4) ** 2",
+    "w": "Das erste Feld hat die Seitenlänge 12 m, denn 12 · 12 = 144. Sein Umfang ist 4 · 12 = 48 m. Der doppelte Umfang ist 96 m, also hat das zweite Feld die Seitenlänge 96 : 4 = 24 m. Seine Fläche ist 24 · 24 = 576 m²."
+   },
+   "alt_kennung": "VT1A-008",
+   "vorrat_grund": "B16: Grenzfall, als Test durch VT1A-006 (Rand) ersetzt."
+  },
+  {
+   "kennung": "VT1A-ALT-010",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "quadrat",
+   "pool": "korrektur",
+   "stufe": 2,
+   "typ": "mehrschritt",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "zaehlt": "ja",
+   "lehrplan": "M5 3",
+   "idee": "differenz_quadrate",
+   "abgrenzung": "Die Übungen rechnen Quadratzahlen aus; hier werden Quadrate gedeutet (Fläche, Quadratzahlen vergleichen, Gegenstück zu Verdoppeln) und Fehlvorstellungen wie „mal 2“ begründet entschieden.",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "antwort": 16,
+     "rechnung": "4 * 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Wie Ben nur den Unterschied der Seiten quadriert (4 · 4)"
+    },
+    {
+     "antwort": 4,
+     "rechnung": "11 - 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Nur den Unterschied der Seiten genannt: 11 − 7"
+    },
+    {
+     "antwort": 28,
+     "rechnung": "4 * 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Nur einen Streifen gerechnet: 4 · 7"
+    }
+   ],
+   "loesung_rechnung": "11 ** 2 - 7 ** 2",
+   "aufgabe": {
+    "l": "quadrat",
+    "t": "berechnen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Bild A hat 7 Reihen mit je 7 Bildpunkten. Bild B hat 11 Reihen mit je 11 Bildpunkten. Ben meint: „Der Unterschied ist 4 · 4, weil 11 − 7 = 4 ist.“ Mia rechnet beide Anzahlen aus und zieht ab. Wie viele Bildpunkte hat Bild B wirklich mehr als Bild A?"
+    },
+    "o": {
+     "wert": 72,
+     "einheit": "Bildpunkte"
+    },
+    "c": "11 ** 2 - 7 ** 2",
+    "w": "Bild A hat 7 · 7 = 49 Bildpunkte, Bild B hat 11 · 11 = 121 Bildpunkte. Der Unterschied ist 121 − 49 = 72. Ben irrt sich: Der Unterschied der Flächen ist nicht das Quadrat des Unterschieds der Seiten (4 · 4 = 16)."
+   },
+   "alt_kennung": "VT1A-010",
+   "vorrat_grund": "A4: Schema, Text nennt das Verfahren."
+  },
+  {
+   "kennung": "VT1A-ALT-011",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "quadrat",
+   "pool": "korrektur",
+   "stufe": 2,
+   "typ": "darstellung",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "zaehlt": "ja",
+   "lehrplan": "M5 3",
+   "idee": "flaeche_aus_termen",
+   "abgrenzung": "Die Übungen rechnen Quadratzahlen aus; hier werden Quadrate gedeutet (Fläche, Quadratzahlen vergleichen, Gegenstück zu Verdoppeln) und Fehlvorstellungen wie „mal 2“ begründet entschieden.",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "antwort": 41,
+     "rechnung": "5 * 5 + 4 * 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zwei kleine Quadrate (Seiten 5 und 4) addiert statt eines großen Quadrats"
+    },
+    {
+     "antwort": 18,
+     "rechnung": "5 + 4 + 5 + 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Den Umfang eines Rechtecks mit den Seiten 5 und 4 gerechnet"
+    },
+    {
+     "antwort": 20,
+     "rechnung": "5 * 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Nur ein Rechteck aus den beiden Längen berechnet"
+    }
+   ],
+   "loesung_rechnung": "(5 + 4) * (5 + 4)",
+   "aufgabe": {
+    "l": "quadrat",
+    "t": "berechnen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quadrat hat die Seitenlänge 5 cm + 4 cm. Wie viele cm² Flächeninhalt hat es?"
+    },
+    "o": {
+     "wert": 81,
+     "einheit": "cm²"
+    },
+    "c": "(5 + 4) * (5 + 4)",
+    "w": "Die Seitenlänge ist 5 cm + 4 cm = 9 cm. Die Fläche ist Seite mal Seite: 9 · 9 = 81 cm². Zwei kleine Quadrate mit den Seiten 5 cm und 4 cm haben zusammen nur 25 + 16 = 41 cm²; das ist weniger."
+   },
+   "alt_kennung": "VT1A-011",
+   "vorrat_grund": "A4: Schema ((5 + 4)² ausrechnen)."
+  },
+  {
+   "kennung": "VT1A-ALT-012",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "quadrat",
+   "pool": "sicherung",
+   "stufe": 2,
+   "typ": "umkehr",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "zaehlt": "ja",
+   "lehrplan": "M5 3",
+   "idee": "reihe_spalte",
+   "abgrenzung": "Die Übungen rechnen Quadratzahlen aus; hier werden Quadrate gedeutet (Fläche, Quadratzahlen vergleichen, Gegenstück zu Verdoppeln) und Fehlvorstellungen wie „mal 2“ begründet entschieden.",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "antwort": 13,
+     "rechnung": "27 // 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "27 durch 2 geteilt (ganzzahlig)"
+    },
+    {
+     "antwort": 28,
+     "rechnung": "27 + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1 zu 27 addiert"
+    },
+    {
+     "antwort": 54,
+     "rechnung": "27 * 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "27 mit 2 malgenommen"
+    }
+   ],
+   "loesung_rechnung": "(27 + 1) // 2",
+   "aufgabe": {
+    "l": "quadrat",
+    "t": "berechnen",
+    "p": "sicherung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein quadratischer Obstgarten wird um eine Reihe und eine Spalte erweitert und bleibt dabei quadratisch. Dadurch kommen genau 27 Bäume dazu. Wie viele Reihen hat der Garten nach der Erweiterung?"
+    },
+    "o": {
+     "wert": 14,
+     "einheit": "Reihen"
+    },
+    "c": "(27 + 1) // 2",
+    "w": "Probiere: 13 · 13 = 169 und 14 · 14 = 196. Der Unterschied ist 196 − 169 = 27. Der Garten hat nachher 14 Reihen. (Die neue Reihe hat 14 Bäume, die neue Spalte 13 weitere.)"
+   },
+   "alt_kennung": "VT1A-012",
+   "vorrat_grund": "B4: nahe Bestand (Nachbarquadrate); Vorschlag +2 Reihen/Spalten nicht umgesetzt, Denkfigur jetzt im Test VT1A-006."
+  },
+  {
+   "kennung": "VT1A-ALT-013",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "quadrat",
+   "pool": "sicherung",
+   "stufe": 3,
+   "typ": "begruenden",
+   "form": null,
+   "antwortform": "auswahl",
+   "zaehlt": "ja",
+   "lehrplan": "M5 3",
+   "idee": "aussage_pruefen",
+   "abgrenzung": "Die Übungen rechnen Quadratzahlen aus; hier werden Quadrate gedeutet (Fläche, Quadratzahlen vergleichen, Gegenstück zu Verdoppeln) und Fehlvorstellungen wie „mal 2“ begründet entschieden.",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Fehler: Die Hochzahl darf man nie verteilen. Richtig wäre (3 · 4)² = 12 + 2 = 14, die 2 wird addiert.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Hochzahl als Summand gedeutet"
+    },
+    {
+     "index": 2,
+     "antwort": "Fehler: Sie hätte 3² + 4² rechnen müssen: Ein Produkt wird zur Summe. Richtig wäre 9 + 16 = 25.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Mal mit Plus verwechselt"
+    },
+    {
+     "index": 3,
+     "antwort": "Fehler: Sie müsste 12 · 2 rechnen, denn die Hochzahl 2 heißt „mal 2“. Richtig wäre 24.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Hochzahl als Malnehmer gedeutet"
+    }
+   ],
+   "aufgabe": {
+    "l": "quadrat",
+    "t": "berechnen",
+    "p": "sicherung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Lisa rechnet: (3 · 4)² = 3² · 4² = 9 · 16 = 144. Welche Aussage über Lisas Rechnung stimmt?"
+    },
+    "a": [
+     "Kein Fehler: Bei einem Produkt darf man die Hochzahl verteilen, denn 12 · 12 = 144 und 9 · 16 = 144.",
+     "Fehler: Die Hochzahl darf man nie verteilen. Richtig wäre (3 · 4)² = 12 + 2 = 14, die 2 wird addiert.",
+     "Fehler: Sie hätte 3² + 4² rechnen müssen: Ein Produkt wird zur Summe. Richtig wäre 9 + 16 = 25.",
+     "Fehler: Sie müsste 12 · 2 rechnen, denn die Hochzahl 2 heißt „mal 2“. Richtig wäre 24."
+    ],
+    "o": {
+     "index": 0
+    },
+    "w": "Die Klammer zuerst: 3 · 4 = 12 und 12² = 12 · 12 = 144. Lisa rechnet 3² · 4² = 9 · 16 = 144. Das ist dasselbe: Bei einem Produkt darf man das Quadrat auf beide Faktoren verteilen. Bei einer Summe, zum Beispiel (3 + 4)², geht das nicht."
+   },
+   "alt_kennung": "VT1A-013",
+   "vorrat_grund": "Fehler-Detektiv durch Ausrechnen lösbar (Schema)."
+  },
+  {
+   "kennung": "VT1A-ALT-014",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "quadrat",
+   "pool": "sicherung",
+   "stufe": 3,
+   "typ": "begruenden",
+   "form": null,
+   "antwortform": "auswahl",
+   "zaehlt": "ja",
+   "lehrplan": "M5 3",
+   "idee": "was_waere_wenn",
+   "abgrenzung": "Die Übungen rechnen Quadratzahlen aus; hier werden Quadrate gedeutet (Fläche, Quadratzahlen vergleichen, Gegenstück zu Verdoppeln) und Fehlvorstellungen wie „mal 2“ begründet entschieden.",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Die große Platte hat doppelt so viel Fläche: Die Seite ist doppelt so lang wie bei der kleinen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Von der Seitenlänge direkt auf die Fläche geschlossen"
+    },
+    {
+     "index": 2,
+     "antwort": "Der Unterschied der Flächen ist 5 cm²: Die Seite wird um 5 cm länger als bei der kleinen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zuwachs der Seite als Zuwachs der Fläche gelesen"
+    },
+    {
+     "index": 3,
+     "antwort": "Die große Platte hat 100 cm² mehr Fläche, weil die große Platte selbst 10 · 10 = 100 cm² groß ist.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Fläche der großen Platte als Unterschied genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "quadrat",
+    "t": "berechnen",
+    "p": "sicherung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine quadratische Platte hat die Seitenlänge 5 cm. Eine zweite hat die doppelte Seitenlänge, also 10 cm. Wie verhalten sich die Flächen? Wähle die richtige Antwort."
+    },
+    "a": [
+     "Die große Platte hat doppelt so viel Fläche: Die Seite ist doppelt so lang wie bei der kleinen.",
+     "Die große Platte hat 4-mal so viel Fläche: 10 · 10 = 100 cm² ist größer als 5 · 5 = 25 cm², denn 100 : 25 = 4.",
+     "Der Unterschied der Flächen ist 5 cm²: Die Seite wird um 5 cm länger als bei der kleinen.",
+     "Die große Platte hat 100 cm² mehr Fläche, weil die große Platte selbst 10 · 10 = 100 cm² groß ist."
+    ],
+    "o": {
+     "index": 1
+    },
+    "w": "Die kleine Platte hat 5 · 5 = 25 cm², die große 10 · 10 = 100 cm². 100 : 25 = 4, also hat die große Platte 4-mal so viel Fläche. Wird die Seite doppelt so lang, passen in jeder Richtung doppelt so viele Plättchen, also 2 · 2 = 4-mal so viele. Der Unterschied der Flächen ist 75 cm², nicht 5 cm² und nicht 100 cm²."
+   },
+   "alt_kennung": "VT1A-014",
+   "vorrat_grund": "A4/B16: Schema, gleiche Einzelfrage wie 008."
+  },
+  {
+   "kennung": "VT1A-ALT-015",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "zehner",
+   "pool": "test",
+   "stufe": 3,
+   "typ": "parameter",
+   "form": null,
+   "antwortform": "zahl",
+   "zaehlt": "ja",
+   "lehrplan": "M5 3",
+   "idee": "groessenvergleich",
+   "abgrenzung": "Die Übungen lesen Zehnerpotenzen ab; hier geht es um die Bedeutung der Hochzahl als Zahl der Nullen und den Weg von großen Zahlen zurück zur Potenz.",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "rechnung": "10",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Nur den ersten Term umgeformt und den abgezogenen Teil vergessen"
+    },
+    {
+     "antwort": 9,
+     "rechnung": "9",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die 9 aus der Aufgabe als Lösung genommen"
+    },
+    {
+     "antwort": 5,
+     "rechnung": "5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Hochzahl genannt"
+    }
+   ],
+   "loesung_rechnung": "10 ** 6 // 10 ** 5 - 9",
+   "aufgabe": {
+    "l": "zehner",
+    "t": "zehner",
+    "p": "test",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche Zahl □ gilt: 10⁶ − 9 · 10⁵ = □ · 10⁵?"
+    },
+    "o": {
+     "wert": 1
+    },
+    "c": "10 ** 6 // 10 ** 5 - 9",
+    "w": "10⁶ = 10 · 10⁵, denn eine Zehnerpotenz mit 1 mehr in der Hochzahl ist das Zehnfache. Dann ist 10⁶ − 9 · 10⁵ = 10 · 10⁵ − 9 · 10⁵ = 1 · 10⁵. Probe: 1 000 000 − 900 000 = 100 000."
+   },
+   "alt_kennung": "VT1A-015",
+   "vorrat_grund": "B7: durch Ausrechnen lösbar; idee passte nicht."
+  },
+  {
+   "kennung": "VT1A-ALT-017",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "zehner",
+   "pool": "korrektur",
+   "stufe": 2,
+   "typ": "umkehr",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "zaehlt": "ja",
+   "lehrplan": "M5 3",
+   "idee": "umrechnen_potenz",
+   "abgrenzung": "Die Übungen lesen Zehnerpotenzen ab; hier geht es um die Bedeutung der Hochzahl als Zahl der Nullen und den Weg von großen Zahlen zurück zur Potenz.",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "rechnung": "5 + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Ziffern der Zahl (6) statt der Nullen gezählt (5 + 1)"
+    },
+    {
+     "antwort": 4,
+     "rechnung": "5 - 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Beim Teilen durch 5 eine Null verloren (5 − 1)"
+    },
+    {
+     "antwort": 2,
+     "rechnung": "2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Umrechnung von kg in g (mal 1 000) vergessen; dann hat die Zahl der Münzen nur zwei Nullen, also 10²"
+    }
+   ],
+   "loesung_rechnung": "5",
+   "aufgabe": {
+    "l": "zehner",
+    "t": "zehner",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Sammlung von Münzen wiegt zusammen 500 kg. Jede Münze wiegt 5 g (1 kg = 1 000 g). Die Zahl der Münzen lässt sich als 10ⁿ schreiben. Wie groß ist n?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "5",
+    "w": "500 kg sind 500 · 1 000 g = 500 000 g. Dann gibt es 500 000 : 5 = 100 000 Münzen. 100 000 = 10⁵, denn 100 000 ist eine 1 mit 5 Nullen. Also ist n = 5."
+   },
+   "alt_kennung": "VT1A-017",
+   "vorrat_grund": "Schema-Risiko (Umrechnen und Teilen)."
+  },
+  {
+   "kennung": "VT1A-ALT-018",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "zehner",
+   "pool": "korrektur",
+   "stufe": 2,
+   "typ": "darstellung",
+   "form": null,
+   "antwortform": "auswahl",
+   "zaehlt": "ja",
+   "lehrplan": "M5 3",
+   "idee": "darstellung_wechseln",
+   "abgrenzung": "Die Übungen lesen Zehnerpotenzen ab; hier geht es um die Bedeutung der Hochzahl als Zahl der Nullen und den Weg von großen Zahlen zurück zur Potenz.",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Beide: 45 · 10⁵ = 450 · 10⁵, die Hochzahl 5 bleibt und die Zahl davor hat nur eine Null zusätzlich.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Eine Null mehr beim Faktor für egal gehalten (450 · 10⁵ = 45 000 000)"
+    },
+    {
+     "index": 1,
+     "antwort": "Nur Ben: 450 · 10⁵ = 4 500 000, weil 4 500 000 mit 45 beginnt und danach zwei Nullen kommen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Nullen falsch gezählt (450 · 10⁵ = 45 000 000)"
+    },
+    {
+     "index": 3,
+     "antwort": "Beide: Die Zahl vor der Zehnerpotenz darf man beliebig wählen, die Hochzahl bleibt gleich.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Faktor und Hochzahl für unabhängig gehalten"
+    }
+   ],
+   "aufgabe": {
+    "l": "zehner",
+    "t": "zehner",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Anna schreibt die Zahl 4 500 000 als 45 · 10⁵. Ben schreibt sie als 450 · 10⁵. Wer hat recht?"
+    },
+    "a": [
+     "Beide: 45 · 10⁵ = 450 · 10⁵, die Hochzahl 5 bleibt und die Zahl davor hat nur eine Null zusätzlich.",
+     "Nur Ben: 450 · 10⁵ = 4 500 000, weil 4 500 000 mit 45 beginnt und danach zwei Nullen kommen.",
+     "Nur Anna: 45 · 100 000 = 4 500 000. Bei Ben ist der Faktor zehnmal so groß.",
+     "Beide: Die Zahl vor der Zehnerpotenz darf man beliebig wählen, die Hochzahl bleibt gleich."
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "45 · 10⁵ = 45 · 100 000 = 4 500 000. Dagegen ist 450 · 10⁵ = 450 · 100 000 = 45 000 000, das ist zehnmal so viel. Damit Ben recht hätte, müsste er 450 · 10⁴ schreiben: Eine Null mehr beim Faktor heißt eine Hochzahl weniger."
+   },
+   "alt_kennung": "VT1A-018",
+   "vorrat_grund": "B2: zwei Optionen „Beide“; vor Wiederverwendung Urteile entdoppeln."
+  },
+  {
+   "kennung": "VT1A-ALT-020",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "zehner",
+   "pool": "sicherung",
+   "stufe": 3,
+   "typ": "begruenden",
+   "form": null,
+   "antwortform": "auswahl",
+   "zaehlt": "ja",
+   "lehrplan": "M5 3",
+   "idee": "fehler_richtigstellen",
+   "abgrenzung": "Die Übungen lesen Zehnerpotenzen ab; hier geht es um die Bedeutung der Hochzahl als Zahl der Nullen und den Weg von großen Zahlen zurück zur Potenz.",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Kein Fehler: Beim Addieren von Zehnerpotenzen mit gleicher Basis addiert man die Hochzahlen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Falsche Regel bestätigt (1 000 + 1 000 ist nicht 1 000 000)"
+    },
+    {
+     "index": 2,
+     "antwort": "Fehler: Er hätte 10⁴ rechnen müssen. Richtig wäre 10³ + 10³ = 10⁴ = 10 000.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Verdoppeln als eine Null mehr gedeutet"
+    },
+    {
+     "index": 3,
+     "antwort": "Fehler: Er hätte die Basen addieren müssen. Richtig wäre 20³ = 8 000, nicht 10⁶.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Basen addiert und die Hochzahl behalten"
+    }
+   ],
+   "aufgabe": {
+    "l": "zehner",
+    "t": "zehner",
+    "p": "sicherung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Tim rechnet: 10³ + 10³ = 10⁶. Welche Aussage über Tims Rechnung stimmt?"
+    },
+    "a": [
+     "Fehler: Er hat die Hochzahlen addiert (3 + 3 = 6). Richtig wäre 2 · 10³ = 2 000.",
+     "Kein Fehler: Beim Addieren von Zehnerpotenzen mit gleicher Basis addiert man die Hochzahlen.",
+     "Fehler: Er hätte 10⁴ rechnen müssen. Richtig wäre 10³ + 10³ = 10⁴ = 10 000.",
+     "Fehler: Er hätte die Basen addieren müssen. Richtig wäre 20³ = 8 000, nicht 10⁶."
+    ],
+    "o": {
+     "index": 0
+    },
+    "w": "10³ = 1 000. Also ist 10³ + 10³ = 1 000 + 1 000 = 2 000 = 2 · 10³. Beim Addieren bleibt die Hochzahl, es wird nur die Zahl davor größer. Die Hochzahlen werden nur beim Malnehmen von Potenzen mit gleicher Basis addiert: 10³ · 10³ = 10⁶."
+   },
+   "alt_kennung": "VT1A-020",
+   "vorrat_grund": "Fehler-Detektiv durch Ausrechnen lösbar (Schema)."
+  },
+  {
+   "kennung": "VT1A-ALT-021",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "zehner",
+   "pool": "sicherung",
+   "stufe": 3,
+   "typ": "parameter",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "zaehlt": "ja",
+   "lehrplan": "M5 3",
+   "idee": "parameter_groesste_hochzahl",
+   "abgrenzung": "Die Übungen lesen Zehnerpotenzen ab; hier geht es um die Bedeutung der Hochzahl als Zahl der Nullen und den Weg von großen Zahlen zurück zur Potenz.",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "rechnung": "6 + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Ziffern von 5 000 000 gezählt (sieben Stück) statt der Nullen"
+    },
+    {
+     "antwort": 5,
+     "rechnung": "6 - 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Eine Hochzahl zu klein (6 − 1)"
+    }
+   ],
+   "loesung_rechnung": "6",
+   "aufgabe": {
+    "l": "zehner",
+    "t": "zehner",
+    "p": "sicherung",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche größte natürliche Zahl n ist 10ⁿ kleiner als 5 000 000?"
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "6",
+    "w": "10⁶ = 1 000 000 ist kleiner als 5 000 000. 10⁷ = 10 000 000 ist größer. Also ist n = 6 die größte passende Zahl."
+   },
+   "alt_kennung": "VT1A-021",
+   "vorrat_grund": "leicht, Schema-Risiko."
+  },
+  {
+   "kennung": "VT1A-ALT-023",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "sach",
+   "pool": "korrektur",
+   "stufe": 2,
+   "typ": "umkehr",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "zaehlt": "ja",
+   "lehrplan": "M5 3",
+   "idee": "exponent_suchen",
+   "abgrenzung": "Die Übungen setzen eine Potenz in einer Sachaufgabe direkt ein; hier muss das Kind die Situation selbst als Potenz erkennen, rückwärts rechnen oder Rechenwege vergleichen.",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "antwort": 32,
+     "rechnung": "64 // 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "64 durch 2 geteilt"
+    },
+    {
+     "antwort": 62,
+     "rechnung": "64 - 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 von 64 abgezogen"
+    },
+    {
+     "antwort": 16,
+     "rechnung": "64 // 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "64 durch 4 geteilt"
+    }
+   ],
+   "loesung_rechnung": "6",
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Papierstreifen wird mehrmals hintereinander in der Mitte gefaltet. Bei jeder Faltung liegen doppelt so viele Lagen übereinander wie vorher. Am Ende liegen 64 Lagen übereinander. Wie oft wurde gefaltet?"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "Faltungen"
+    },
+    "c": "6",
+    "w": "Am Anfang ist 1 Lage da. Nach jeder Faltung doppelt so viele: 2, 4, 8, 16, 32, 64. Das sind 6 Faltungen, denn 2⁶ = 64."
+   },
+   "alt_kennung": "VT1A-023",
+   "vorrat_grund": "Streichvorschlag K, Schema."
+  },
+  {
+   "kennung": "VT1A-ALT-024",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "sach",
+   "pool": "korrektur",
+   "stufe": 2,
+   "typ": "umkehr",
+   "form": null,
+   "antwortform": "zahl",
+   "zaehlt": "ja",
+   "lehrplan": "M5 3",
+   "idee": "moeglichkeiten_zaehlen",
+   "abgrenzung": "Die Übungen setzen eine Potenz in einer Sachaufgabe direkt ein; hier muss das Kind die Situation selbst als Potenz erkennen, rückwärts rechnen oder Rechenwege vergleichen.",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "rechnung": "5 * 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Möglichkeiten je Wurf mal Zahl der Würfe: 5 · 2"
+    },
+    {
+     "antwort": 25,
+     "rechnung": "5 ** 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Würfe mal Würfe gerechnet: 5 · 5"
+    },
+    {
+     "antwort": 16,
+     "rechnung": "2 ** 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Einen Wurf zu wenig gezählt: 2⁴"
+    }
+   ],
+   "loesung_rechnung": "2 ** 5",
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Münze wird 5-mal hintereinander geworfen. Bei jedem Wurf zeigt sie Kopf oder Zahl. Wie viele verschiedene Folgen von Ergebnissen kann es geben?"
+    },
+    "o": {
+     "wert": 32
+    },
+    "c": "2 ** 5",
+    "w": "Beim ersten Wurf gibt es 2 Möglichkeiten, bei jedem weiteren Wurf verdoppelt sich die Zahl der Folgen. Nach 5 Würfen sind das 2 · 2 · 2 · 2 · 2 = 2⁵ = 32 verschiedene Folgen."
+   },
+   "alt_kennung": "VT1A-024",
+   "vorrat_grund": "Schema (5 Münzwürfe)."
+  },
+  {
+   "kennung": "VT1A-ALT-028",
+   "thema": "zahlen.potenzen_basis",
+   "lernkarte": "sach",
+   "pool": "sicherung",
+   "stufe": 3,
+   "typ": "begruenden",
+   "form": null,
+   "antwortform": "auswahl",
+   "zaehlt": "ja",
+   "lehrplan": "M5 3",
+   "idee": "fehler_richtigstellen",
+   "abgrenzung": "Die Übungen setzen eine Potenz in einer Sachaufgabe direkt ein; hier muss das Kind die Situation selbst als Potenz erkennen, rückwärts rechnen oder Rechenwege vergleichen.",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Fehler: Sie hat 2 und 3 zu 6 zusammengefasst. Richtig wäre 2 · 3 · 4 = 24 m².",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Hochzahl als Malnehmer gedeutet (2 · 3 · 4 = 24)"
+    },
+    {
+     "index": 1,
+     "antwort": "Fehler: Die Anfangsfläche zählt nicht mit. Richtig wäre 3⁴ = 81 m², ohne den Faktor 2.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Anfangsfläche weggelassen (3⁴ = 81)"
+    },
+    {
+     "index": 2,
+     "antwort": "Kein Fehler: 6⁴ = 1 296 m² ist richtig, denn 2 · 3 = 6.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Das Zusammenfassen von 2 und 3 für erlaubt gehalten (6⁴ = 1 296)"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "sicherung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Algenart verdreifacht jeden Tag ihre Fläche. Am Anfang bedeckt sie 2 m². Nina rechnet die Fläche nach 4 Tagen so: 2 · 3 = 6, dann 6⁴ = 1 296 m². Welche Aussage über Ninas Rechnung stimmt?"
+    },
+    "a": [
+     "Fehler: Sie hat 2 und 3 zu 6 zusammengefasst. Richtig wäre 2 · 3 · 4 = 24 m².",
+     "Fehler: Die Anfangsfläche zählt nicht mit. Richtig wäre 3⁴ = 81 m², ohne den Faktor 2.",
+     "Kein Fehler: 6⁴ = 1 296 m² ist richtig, denn 2 · 3 = 6.",
+     "Fehler: Sie hat 2 · 3 = 6 als Basis genommen: 6⁴. Richtig wäre 2 · 3⁴ = 162 m²."
+    ],
+    "o": {
+     "index": 3
+    },
+    "w": "Nach 4 Tagen wurde 4-mal mit 3 malgenommen: 2 · 3 · 3 · 3 · 3 = 2 · 81 = 162 m². Die 2 gehört nicht unter die Hochzahl: Nur die 3 wird 4-mal malgenommen. 6⁴ würde bedeuten, dass sich die Fläche 4-mal um den Faktor 6 vergrößert."
+   },
+   "alt_kennung": "VT1A-028",
+   "vorrat_grund": "B2: gleiche Diagnose wie Ablenker 0; durch Ausrechnen lösbar."
+  }
+ ]
+}

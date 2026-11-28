@@ -238,7 +238,8 @@ for zaehler, a in enumerate(A, 1):
             if any(o.startswith(("Fehler:", "Kein Fehler:")) for o in opts):
                 # vollständige Aussagen „Fehler ist … Richtig wäre …“ (oder: kein Fehler), keine Zeilenwahl
                 assert all(o.startswith(("Fehler:", "Kein Fehler:")) for o in opts), (kenn, "Fehler-Aufgabe: vollständige Aussagen")
-                assert opts[q["o"]["index"]].startswith("Fehler:") and "Richtig wäre" in opts[q["o"]["index"]], kenn
+                ro = opts[q["o"]["index"]]
+                assert ro.startswith("Kein Fehler:") or "Richtig wäre" in ro, (kenn, "richtige Option: Kein Fehler oder Fehler mit Richtig wäre")
         q["_kennung"] = kenn
         eintrag["aufgabe"] = q
         del q["_kennung"]
@@ -262,13 +263,41 @@ for s in EINHEITEN:
         if max(sa.values()) > 1:
             print("Hinweis: gleiche Sollantwort im Lernziel", s, lz, {k: v for k, v in sa.items() if v > 1})
 
-# ═════════ Lage der richtigen Antwort ═════════
+MUSTER = {p: [0, 0] for p in ("Kein Fehler", "Nur ", "Keiner", "Beide")}
+# ═════════ Lage der richtigen Antwort, Länge, Anfangswörter, Statistik ═════════
+AUSW = [e for l in aus.values() for e in l if e["antwortform"] == "auswahl"]
 lagen = defaultdict(list)
-for l in aus.values():
-    for e in l:
-        if e["antwortform"] == "auswahl":
-            lagen[len(e["aufgabe"]["a"])].append(e["aufgabe"]["o"]["index"])
-assert all(max(Counter(v).values()) <= len(v) // 2 + 1 for v in lagen.values() if len(v) >= 6), ("Lage einseitig", {k: Counter(v) for k, v in lagen.items()})
+for e in AUSW:
+    lagen[len(e["aufgabe"]["a"])].append(e["aufgabe"]["o"]["index"])
+for k, v in lagen.items():
+    c = Counter(v)
+    assert max(c.values()) - min(c.get(i, 0) for i in range(k)) <= 2, ("Lage der richtigen Antwort nicht gleichmäßig", k, dict(c))
+laenger = [e["kennung"] for e in AUSW if len(e["aufgabe"]["a"][e["aufgabe"]["o"]["index"]]) > max(len(o) for i, o in enumerate(e["aufgabe"]["a"]) if i != e["aufgabe"]["o"]["index"])]
+if os.environ.get("VT_TAB"):
+    for e in AUSW:
+        a_ = e["aufgabe"]["a"]; r_ = e["aufgabe"]["o"]["index"]
+        print(e["kennung"], e["pool"][:4], "r=%d" % r_, [len(o) for o in a_], "LANGEST" if e["kennung"] in laenger else "")
+        if os.environ.get("VT_TAB") == "2" and e["kennung"] in laenger:
+            for i_, o_ in enumerate(a_): print("   ", "*" if i_ == r_ else " ", o_)
+assert len(laenger) <= .35 * len(AUSW), ("richtige Option zu oft die längste", len(laenger), len(AUSW))
+kurz = [e["kennung"] for e in AUSW if len(e["aufgabe"]["a"][e["aufgabe"]["o"]["index"]]) < min(len(o) for i, o in enumerate(e["aufgabe"]["a"]) if i != e["aufgabe"]["o"]["index"])]
+assert len(kurz) <= .35 * len(AUSW), ("richtige Option zu oft die kürzeste", len(kurz), len(AUSW))
+def _w(o):
+    return o.split(":")[0] if o.split(" ")[0] in ("Kein", "Nur", "Beide", "Keiner", "Fehler:") or o.startswith("Fehler:") else "-"
+for e in AUSW:
+    a_ = e["aufgabe"]["a"]; ri = e["aufgabe"]["o"]["index"]
+    for pre in ("Kein Fehler", "Nur ", "Keiner", "Beide"):
+        n_alle = sum(1 for o in a_ if o.startswith(pre)); n_ri = int(a_[ri].startswith(pre))
+        if n_alle:
+            MUSTER[pre][0] += n_alle; MUSTER[pre][1] += n_ri
+for pre, (n_alle, n_ri) in MUSTER.items():
+    assert n_alle == 0 or n_ri / n_alle >= .2, ("Option mit Anfangswort „%s“ fast nie richtig (Ausschlussmuster)" % pre, n_ri, n_alle)
+nz = [e for l in aus.values() for e in l if e["antwortform"] == "zahl"]
+tp = [e for l in aus.values() for e in l if e["pool"] == "test"]
+print("Statistik: Auswahl %d, Zahl %d, Lücken %d (gesamt %d); Test-Pool: Auswahl %d von %d" % (len(AUSW), len(nz), sum(1 for l in aus.values() for e in l if e["antwortform"] == "luecken"), len(AUSW) + len(nz), sum(1 for e in tp if e["antwortform"] == "auswahl"), len(tp)))
+print("Länge: richtige Option die längste in %d von %d (%.0f %%), die kürzeste in %d" % (len(laenger), len(AUSW), 100 * len(laenger) / len(AUSW), len(kurz)))
+print("Lage der richtigen Antwort:", {k: dict(sorted(Counter(v).items())) for k, v in lagen.items()})
+print("Anfangswörter (alle, davon richtig):", {k: tuple(v) for k, v in MUSTER.items()})
 
 # ═════════ Schreiben ═════════
 KURZ = {"zahlen.potenzen_basis": "Klasse 5, Potenzen als Schreibweise", "zahlen.rechengesetze": "Klasse 5, Grundrechenarten und Rechengesetze"}

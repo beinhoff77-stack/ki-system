@@ -37,14 +37,14 @@
     },
     {
      "index": 1,
-     "antwort": "Falsch. 3² = 3 · 2 = 6 und 2³ = 2 · 3 = 6, zusammen 12.",
+     "antwort": "Falsch. 3² = 3 · 2 = 6 und 2³ = 2 · 3 = 6, zusammen 12. Man rechnet Basis mal Hochzahl.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Potenz als Basis mal Hochzahl gerechnet (3 · 2 und 2 · 3)"
     },
     {
      "index": 3,
-     "antwort": "Falsch. 3² = 3 + 3 = 6 und 2³ = 2 + 2 + 2 = 6, zusammen 12.",
+     "antwort": "Falsch. 3² = 3 + 3 = 6 und 2³ = 2 + 2 + 2 = 6, zusammen 12. Man addiert die Basis so oft.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Die Basis so oft addiert, wie die Hochzahl sagt, statt zu multiplizieren"
@@ -63,9 +63,9 @@
     },
     "a": [
      "Richtig. Man addiert die Basen (3 + 2 = 5) und die Hochzahlen (2 + 3 = 5) einzeln.",
-     "Falsch. 3² = 3 · 2 = 6 und 2³ = 2 · 3 = 6, zusammen 12.",
-     "Falsch. 3² = 9 und 2³ = 8, zusammen 17. Basen und Hochzahlen darf man nicht einzeln addieren; 5⁵ wäre 3 125.",
-     "Falsch. 3² = 3 + 3 = 6 und 2³ = 2 + 2 + 2 = 6, zusammen 12."
+     "Falsch. 3² = 3 · 2 = 6 und 2³ = 2 · 3 = 6, zusammen 12. Man rechnet Basis mal Hochzahl.",
+     "Falsch. 3² = 9 und 2³ = 8, zusammen 17. Basen und Hochzahlen darf man nicht einzeln addieren.",
+     "Falsch. 3² = 3 + 3 = 6 und 2³ = 2 + 2 + 2 = 6, zusammen 12. Man addiert die Basis so oft."
     ],
     "o": {
      "index": 2
@@ -81,7 +81,7 @@
    "stufe": 2,
    "typ": "darstellung",
    "form": null,
-   "antwortform": "auswahl",
+   "antwortform": "zahl",
    "zaehlt": "ja",
    "lehrplan": "M5 3",
    "idee": "was_waere_wenn",
@@ -90,47 +90,43 @@
    "regel_name": "Potenzen",
    "fehlbilder": [
     {
-     "index": 1,
-     "antwort": "Der Wert wird um 1 größer (aus 64 wird 65), weil die Hochzahl um 1 wächst.",
+     "antwort": 1,
+     "rechnung": "5 - 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Hochzahl plus 1 als Wert plus 1 gedeutet"
+     "beschreibung": "Nur die Hochzahlen verglichen: 5 − 4"
     },
     {
-     "index": 2,
-     "antwort": "Der Wert wird um 2 größer (aus 64 wird 66), weil die Basis 2 dazukommt.",
+     "antwort": 81,
+     "rechnung": "3 ** 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die Basis addiert statt malgenommen"
+     "beschreibung": "Nur den alten Wert 3⁴ genannt"
     },
     {
-     "index": 3,
-     "antwort": "Der Wert wird 7-mal so groß, weil die neue Hochzahl 7 ist.",
+     "antwort": 243,
+     "rechnung": "3 ** 5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die Hochzahl als Malnehmer gedeutet"
+     "beschreibung": "Nur den Wert von 3⁵ genannt"
     }
    ],
+   "loesung_rechnung": "3 ** 5 - 3 ** 4",
    "aufgabe": {
     "l": "schreibweise",
     "t": "begriff",
     "p": "korrektur",
     "s": 2,
     "g": "darstellung",
-    "y": "auswahl",
+    "y": "zahl",
     "f": {
-     "text": "Aus der Potenz 2⁶ wird die Potenz 2⁷: Die Hochzahl wird um 1 größer, die Basis bleibt. Was passiert mit dem Wert der Potenz?"
+     "text": "Aus der Potenz 3⁴ wird die Potenz 3⁵: Die Hochzahl wird um 1 größer, die Basis bleibt. Um wie viel ist 3⁵ größer als 3⁴?"
     },
-    "a": [
-     "Der Wert verdoppelt sich (aus 64 wird 128), weil ein weiterer Faktor 2 dazukommt.",
-     "Der Wert wird um 1 größer (aus 64 wird 65), weil die Hochzahl um 1 wächst.",
-     "Der Wert wird um 2 größer (aus 64 wird 66), weil die Basis 2 dazukommt.",
-     "Der Wert wird 7-mal so groß, weil die neue Hochzahl 7 ist."
-    ],
     "o": {
-     "index": 0
+     "wert": 162
     },
-    "w": "2⁶ = 2 · 2 · 2 · 2 · 2 · 2 = 64. Bei 2⁷ steht die 2 einmal öfter als Faktor da: 2⁷ = 2⁶ · 2 = 64 · 2 = 128. Der Wert verdoppelt sich also. Eine Hochzahl, die um 1 wächst, bedeutet einen Faktor mehr, nicht eine Zahl mehr."
+    "c": "3 ** 5 - 3 ** 4",
+    "w": "3⁴ = 3 · 3 · 3 · 3 = 81. Bei 3⁵ steht die 3 einmal öfter als Faktor da: 3⁵ = 81 · 3 = 243. Der Unterschied ist 243 − 81 = 162. Ein weiterer Faktor 3 verdreifacht den Wert, es kommt also zweimal der alte Wert dazu."
    }
   },
   {
@@ -263,22 +259,22 @@
    "regel_name": "Potenzen",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "Die 6 steht 4-mal als Faktor da: 6 · 6 · 6 · 6.",
+     "index": 1,
+     "antwort": "Die 6 steht 4-mal als Faktor da: 6 · 6 · 6 · 6, nur andersherum.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Basis und Hochzahl vertauscht (6⁴ = 1 296 statt 4⁶ = 4 096)"
     },
     {
-     "index": 1,
-     "antwort": "4⁶ ist das Sechsfache von 4, also 4 · 6 = 24.",
+     "index": 2,
+     "antwort": "4⁶ ist das Sechsfache von 4, also 4 · 6 = 24, weil die 6 oben steht.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Hochzahl als Malnehmer gedeutet (4 · 6 = 24)"
     },
     {
-     "index": 2,
-     "antwort": "4⁶ ist 4 + 4 + 4 + 4 + 4 + 4 = 24.",
+     "index": 3,
+     "antwort": "4⁶ ist 4 + 4 + 4 + 4 + 4 + 4 = 24, weil die 6 oben steht.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Plus statt Mal (4 + 4 + 4 + 4 + 4 + 4 = 24)"
@@ -295,13 +291,13 @@
      "text": "Welche Aussage über die Potenz 4⁶ stimmt?"
     },
     "a": [
-     "Die 6 steht 4-mal als Faktor da: 6 · 6 · 6 · 6.",
-     "4⁶ ist das Sechsfache von 4, also 4 · 6 = 24.",
-     "4⁶ ist 4 + 4 + 4 + 4 + 4 + 4 = 24.",
-     "Die 4 steht 6-mal als Faktor da: 4 · 4 · 4 · 4 · 4 · 4."
+     "Die 4 steht 6-mal als Faktor da: 4 · 4 · 4 · 4 · 4 · 4 = 4 096.",
+     "Die 6 steht 4-mal als Faktor da: 6 · 6 · 6 · 6, nur andersherum.",
+     "4⁶ ist das Sechsfache von 4, also 4 · 6 = 24, weil die 6 oben steht.",
+     "4⁶ ist 4 + 4 + 4 + 4 + 4 + 4 = 24, weil die 6 oben steht."
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
     "w": "In 4⁶ ist 4 die Basis (der Faktor) und 6 der Exponent (die Zahl der Faktoren). 4⁶ = 4 · 4 · 4 · 4 · 4 · 4 = 4 096. Mit 6⁴ = 1 296 oder mit 4 · 6 = 24 kommt etwas ganz anderes heraus."
    }
@@ -324,21 +320,21 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Man darf vertauschen, wenn die Basis eine gerade Zahl ist.",
+     "antwort": "Man darf vertauschen, wenn die Basis eine gerade Zahl ist, denn gerade Zahlen lassen sich teilen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Eine Regel erfunden (bei 2³ und 3² klappt es mit der geraden Basis 2 nicht)"
     },
     {
-     "index": 2,
-     "antwort": "Weil 2 + 4 = 4 + 2 ist, darf man auch bei Potenzen vertauschen.",
+     "index": 1,
+     "antwort": "Weil 2 + 4 = 4 + 2 ist, darf man auch bei Potenzen vertauschen, denn Plus kann man tauschen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Das Tauschen beim Plus auf Potenzen übertragen"
     },
     {
-     "index": 3,
-     "antwort": "Weil 2 · 4 = 4 · 2 ist, darf man auch bei Potenzen vertauschen.",
+     "index": 2,
+     "antwort": "Weil 2 · 4 = 4 · 2 ist, darf man auch bei Potenzen vertauschen, denn Mal kann man tauschen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Das Tauschen beim Mal auf Potenzen übertragen"
@@ -355,13 +351,13 @@
      "text": "Man darf Basis und Hochzahl nicht vertauschen: 2³ = 8, aber 3² = 9. Trotzdem gilt 2⁴ = 4². Welche Begründung erklärt das richtig?"
     },
     "a": [
-     "Man darf vertauschen, wenn die Basis eine gerade Zahl ist.",
-     "Das ist bei diesen Zahlen so: 2 · 2 · 2 · 2 = 16 und 4 · 4 = 16. Eine Regel zum Vertauschen steckt nicht dahinter.",
-     "Weil 2 + 4 = 4 + 2 ist, darf man auch bei Potenzen vertauschen.",
-     "Weil 2 · 4 = 4 · 2 ist, darf man auch bei Potenzen vertauschen."
+     "Man darf vertauschen, wenn die Basis eine gerade Zahl ist, denn gerade Zahlen lassen sich teilen.",
+     "Weil 2 + 4 = 4 + 2 ist, darf man auch bei Potenzen vertauschen, denn Plus kann man tauschen.",
+     "Weil 2 · 4 = 4 · 2 ist, darf man auch bei Potenzen vertauschen, denn Mal kann man tauschen.",
+     "Zufall bei diesen Zahlen: 2 · 2 · 2 · 2 = 16 und 4 · 4 = 16. Eine allgemeine Regel gibt es nicht."
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "w": "2⁴ = 2 · 2 · 2 · 2 = 16 und 4² = 4 · 4 = 16. Das ist ein Zufall dieser beiden Zahlen. Bei 2³ = 8 und 3² = 9 klappt das Vertauschen nicht. Vertauschen darf man bei Potenzen nicht."
    }
@@ -492,7 +488,7 @@
    "stufe": 2,
    "typ": "umkehr",
    "form": null,
-   "antwortform": "auswahl",
+   "antwortform": "zahl",
    "zaehlt": "ja",
    "lehrplan": "M5 3",
    "idee": "nachbar_quadratzahlen",
@@ -501,47 +497,43 @@
    "regel_name": "Potenzen",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "Zwischen 121 = 11 · 11 und 144 = 12 · 12, weil 150 nahe bei 12 · 12 liegt.",
+     "antwort": 144,
+     "rechnung": "12 * 12",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Zu kleine Nachbarn gewählt: 150 ist größer als 144"
+     "beschreibung": "Die größte Quadratzahl unter 150 genannt"
     },
     {
-     "index": 1,
-     "antwort": "Zwischen 144 = 12 · 12 und 196 = 14 · 14, weil 150 nahe bei 144 liegt.",
+     "antwort": 151,
+     "rechnung": "150 + 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Eine Quadratzahl dazwischen (13 · 13) übersehen"
+     "beschreibung": "Die nächste Zahl nach 150 genommen"
     },
     {
-     "index": 2,
-     "antwort": "Zwischen 100 = 10 · 10 und 225 = 15 · 15, weil Quadratzahlen immer gleich weit auseinanderliegen.",
+     "antwort": 13,
+     "rechnung": "13",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Abstand der Quadratzahlen als gleichbleibend gedacht"
+     "beschreibung": "Nur die Seitenlänge des Quadrats genannt"
     }
    ],
+   "loesung_rechnung": "13 * 13",
    "aufgabe": {
     "l": "quadrat",
     "t": "berechnen",
     "p": "korrektur",
     "s": 2,
     "g": "umkehr",
-    "y": "auswahl",
+    "y": "zahl",
     "f": {
-     "text": "Zwischen welchen beiden benachbarten Quadratzahlen liegt die Zahl 150?"
+     "text": "Welche ist die kleinste Quadratzahl, die größer als 150 ist?"
     },
-    "a": [
-     "Zwischen 121 = 11 · 11 und 144 = 12 · 12, weil 150 nahe bei 12 · 12 liegt.",
-     "Zwischen 144 = 12 · 12 und 196 = 14 · 14, weil 150 nahe bei 144 liegt.",
-     "Zwischen 100 = 10 · 10 und 225 = 15 · 15, weil Quadratzahlen immer gleich weit auseinanderliegen.",
-     "Zwischen 144 = 12 · 12 und 169 = 13 · 13. Dazwischen gibt es keine weitere Quadratzahl."
-    ],
     "o": {
-     "index": 3
+     "wert": 169
     },
-    "w": "Probiere: 12 · 12 = 144 und 13 · 13 = 169. Die Zahl 150 liegt dazwischen. Eine Zahl, die man mit sich selbst malnimmt, müsste zwischen 12 und 13 liegen; das gibt es bei natürlichen Zahlen nicht. Die Quadratzahlen liegen nicht gleich weit auseinander: 100, 121, 144, 169 wachsen immer stärker."
+    "c": "13 * 13",
+    "w": "Probiere: 12 · 12 = 144 ist noch kleiner als 150. 13 · 13 = 169 ist größer als 150. Dazwischen gibt es keine Quadratzahl, weil keine natürliche Zahl zwischen 12 und 13 liegt."
    }
   },
   {
@@ -608,8 +600,8 @@
    "pool": "korrektur",
    "stufe": 2,
    "typ": "darstellung",
-   "form": null,
-   "antwortform": "auswahl",
+   "form": "bruecke",
+   "antwortform": "zahl",
    "zaehlt": "ja",
    "lehrplan": "M5 3",
    "idee": "flaeche_aus_termen",
@@ -618,47 +610,44 @@
    "regel_name": "Potenzen",
    "fehlbilder": [
     {
-     "index": 1,
-     "antwort": "3 · 3 + 4 · 4 = 25",
+     "antwort": 41,
+     "rechnung": "5 * 5 + 4 * 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Zwei kleine Quadrate (Seiten 3 und 4) addiert statt eines großen Quadrats"
+     "beschreibung": "Zwei kleine Quadrate (Seiten 5 und 4) addiert statt eines großen Quadrats"
     },
     {
-     "index": 2,
-     "antwort": "3 + 4 + 3 + 4 = 14",
+     "antwort": 18,
+     "rechnung": "5 + 4 + 5 + 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Den Umfang eines Rechtecks aus den beiden Längen gerechnet"
+     "beschreibung": "Den Umfang eines Rechtecks mit den Seiten 5 und 4 gerechnet"
     },
     {
-     "index": 3,
-     "antwort": "3 · 4 = 12",
+     "antwort": 20,
+     "rechnung": "5 * 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Nur ein Rechteck aus den beiden Längen berechnet"
     }
    ],
+   "loesung_rechnung": "(5 + 4) * (5 + 4)",
    "aufgabe": {
     "l": "quadrat",
     "t": "berechnen",
     "p": "korrektur",
     "s": 2,
     "g": "darstellung",
-    "y": "auswahl",
+    "y": "zahl",
     "f": {
-     "text": "Ein Quadrat hat die Seitenlänge 3 cm + 4 cm. Welche Rechnung gibt seinen Flächeninhalt an?"
+     "text": "Ein Quadrat hat die Seitenlänge 5 cm + 4 cm. Wie viele cm² Flächeninhalt hat es?"
     },
-    "a": [
-     "(3 + 4) · (3 + 4) = 49",
-     "3 · 3 + 4 · 4 = 25",
-     "3 + 4 + 3 + 4 = 14",
-     "3 · 4 = 12"
-    ],
     "o": {
-     "index": 0
+     "wert": 81,
+     "einheit": "cm²"
     },
-    "w": "Die Seitenlänge des Quadrats ist 3 cm + 4 cm = 7 cm. Die Fläche ist Seite mal Seite: (3 + 4) · (3 + 4) = 7 · 7 = 49 cm². Zwei kleine Quadrate mit den Seiten 3 cm und 4 cm haben zusammen nur 9 + 16 = 25 cm², das ist weniger."
+    "c": "(5 + 4) * (5 + 4)",
+    "w": "Die Seitenlänge ist 5 cm + 4 cm = 9 cm. Die Fläche ist Seite mal Seite: 9 · 9 = 81 cm². Zwei kleine Quadrate mit den Seiten 5 cm und 4 cm haben zusammen nur 25 + 16 = 41 cm²; das ist weniger."
    }
   },
   {
@@ -729,31 +718,31 @@
    "antwortform": "auswahl",
    "zaehlt": "ja",
    "lehrplan": "M5 3",
-   "idee": "fehler_richtigstellen",
+   "idee": "aussage_pruefen",
    "abgrenzung": "Die Übungen rechnen Quadratzahlen aus; hier werden Quadrate gedeutet (Fläche, Quadratzahlen vergleichen, Gegenstück zu Verdoppeln) und Fehlvorstellungen wie „mal 2“ begründet entschieden.",
    "regel": "rr.potenz",
    "regel_name": "Potenzen",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Kein Fehler: Eine Hochzahl darf man auf jeden Summanden einzeln verteilen.",
+     "antwort": "Fehler: Die Hochzahl darf man nie verteilen. Richtig wäre (3 · 4)² = 12 + 2 = 14, denn die 2 wird addiert.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Falsche Regel bestätigt (25 statt 49)"
+     "beschreibung": "Die Hochzahl als Summand gedeutet"
     },
     {
-     "index": 1,
-     "antwort": "Fehler: Sie hätte die Hochzahl mit 2 malnehmen müssen. Richtig wäre (3 + 4) · 2 = 14.",
+     "index": 2,
+     "antwort": "Fehler: Sie hätte 3² + 4² rechnen müssen, denn ein Produkt wird zur Summe. Richtig wäre 9 + 16 = 25.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die Hochzahl als Malnehmer gedeutet"
+     "beschreibung": "Mal mit Plus verwechselt"
     },
     {
      "index": 3,
-     "antwort": "Fehler: Sie hätte 3² · 4² rechnen müssen. Richtig wäre 9 · 16 = 144.",
+     "antwort": "Fehler: Sie müsste 12 · 2 rechnen, denn die Hochzahl 2 heißt „mal 2“. Richtig wäre 24.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Plus mit Mal verwechselt"
+     "beschreibung": "Die Hochzahl als Malnehmer gedeutet"
     }
    ],
    "aufgabe": {
@@ -764,18 +753,18 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Lisa rechnet: (3 + 4)² = 3² + 4² = 9 + 16 = 25. Welche Aussage über Lisas Rechnung stimmt?"
+     "text": "Lisa rechnet: (3 · 4)² = 3² · 4² = 9 · 16 = 144. Welche Aussage über Lisas Rechnung stimmt?"
     },
     "a": [
-     "Kein Fehler: Eine Hochzahl darf man auf jeden Summanden einzeln verteilen.",
-     "Fehler: Sie hätte die Hochzahl mit 2 malnehmen müssen. Richtig wäre (3 + 4) · 2 = 14.",
-     "Fehler: (3 + 4)² ist 7², also 7 · 7. Das sind 49, nicht die Summe der beiden Quadrate. Richtig wäre 7 · 7 = 49.",
-     "Fehler: Sie hätte 3² · 4² rechnen müssen. Richtig wäre 9 · 16 = 144."
+     "Fehler: Die Hochzahl darf man nie verteilen. Richtig wäre (3 · 4)² = 12 + 2 = 14, denn die 2 wird addiert.",
+     "Kein Fehler: Bei einem Produkt darf man die Hochzahl verteilen. 12 · 12 = 144 und 9 · 16 = 144.",
+     "Fehler: Sie hätte 3² + 4² rechnen müssen, denn ein Produkt wird zur Summe. Richtig wäre 9 + 16 = 25.",
+     "Fehler: Sie müsste 12 · 2 rechnen, denn die Hochzahl 2 heißt „mal 2“. Richtig wäre 24."
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
-    "w": "Die Klammer wird zuerst gerechnet: 3 + 4 = 7. Dann wird quadriert: 7² = 7 · 7 = 49. Lisa hat das Quadrat auf beide Zahlen einzeln angewendet und zusammengezählt (9 + 16 = 25); das ist ein anderer Wert."
+    "w": "Die Klammer zuerst: 3 · 4 = 12 und 12² = 12 · 12 = 144. Lisa rechnet 3² · 4² = 9 · 16 = 144. Das ist dasselbe: Bei einem Produkt darf man das Quadrat auf beide Faktoren verteilen. Bei einer Summe, zum Beispiel (3 + 4)², geht das nicht."
    }
   },
   {
@@ -796,21 +785,21 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Die große Platte hat doppelt so viel Fläche, denn die Seite ist doppelt so lang.",
+     "antwort": "Die große Platte hat doppelt so viel Fläche, denn die Seite ist doppelt so lang wie bei der kleinen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Doppelte Seite für doppelte Fläche gehalten"
     },
     {
      "index": 1,
-     "antwort": "Die große Platte hat 5 cm² mehr Fläche, denn die Seite wird um 5 cm länger.",
+     "antwort": "Die große Platte hat 5 cm² mehr Fläche, denn die Seite wird um 5 cm länger als bei der kleinen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Zuwachs der Seite als Zuwachs der Fläche gedeutet"
     },
     {
-     "index": 3,
-     "antwort": "Die große Platte hat 4-mal so viel Fläche, weil auch der Umfang 4-mal so groß ist.",
+     "index": 2,
+     "antwort": "Die große Platte hat 4-mal so viel Fläche, weil auch der Umfang 4-mal so groß ist wie vorher.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Richtiges Ergebnis, falsche Begründung (der Umfang wird nur doppelt so groß: 20 cm und 40 cm)"
@@ -827,13 +816,13 @@
      "text": "Eine quadratische Platte hat die Seitenlänge 5 cm. Eine zweite hat die doppelte Seitenlänge, also 10 cm. Wie verhalten sich die Flächen? Wähle die richtige Begründung."
     },
     "a": [
-     "Die große Platte hat doppelt so viel Fläche, denn die Seite ist doppelt so lang.",
-     "Die große Platte hat 5 cm² mehr Fläche, denn die Seite wird um 5 cm länger.",
-     "Die große Platte hat 4-mal so viel Fläche: 10 · 10 = 100 cm² und 5 · 5 = 25 cm², und 100 ist 4-mal 25.",
-     "Die große Platte hat 4-mal so viel Fläche, weil auch der Umfang 4-mal so groß ist."
+     "Die große Platte hat doppelt so viel Fläche, denn die Seite ist doppelt so lang wie bei der kleinen.",
+     "Die große Platte hat 5 cm² mehr Fläche, denn die Seite wird um 5 cm länger als bei der kleinen.",
+     "Die große Platte hat 4-mal so viel Fläche, weil auch der Umfang 4-mal so groß ist wie vorher.",
+     "Die große Platte hat 4-mal so viel Fläche: 10 · 10 = 100 cm² und 5 · 5 = 25 cm², also 100 : 25 = 4."
     ],
     "o": {
-     "index": 2
+     "index": 3
     },
     "w": "Fläche der kleinen Platte: 5 · 5 = 25 cm². Fläche der großen Platte: 10 · 10 = 100 cm². 100 : 25 = 4. Der Umfang wächst nur von 20 cm auf 40 cm, also auf das Doppelte. Die Fläche wächst auf das Vierfache."
    }
@@ -844,9 +833,9 @@
    "lernkarte": "zehner",
    "pool": "test",
    "stufe": 3,
-   "typ": "begruenden",
+   "typ": "parameter",
    "form": null,
-   "antwortform": "auswahl",
+   "antwortform": "zahl",
    "zaehlt": "ja",
    "lehrplan": "M5 3",
    "idee": "groessenvergleich",
@@ -855,48 +844,44 @@
    "regel_name": "Potenzen",
    "fehlbilder": [
     {
-     "index": 1,
-     "antwort": "9 · 10⁵ ist größer, denn 9 ist größer als 1.",
+     "antwort": 10,
+     "rechnung": "10",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Nur 9 und 1 verglichen, die Hochzahlen vergessen"
+     "beschreibung": "Nur den ersten Term umgeformt und den abgezogenen Teil vergessen"
     },
     {
-     "index": 2,
-     "antwort": "9 · 10⁵ ist größer, denn 9 · 5 = 45 ist größer als 6.",
+     "antwort": 9,
+     "rechnung": "9",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Basis und Hochzahl vermischt (9 · 5 = 45 gegen 6)"
+     "beschreibung": "Die 9 aus der Aufgabe als Lösung genommen"
     },
     {
-     "index": 3,
-     "antwort": "Beide sind gleich groß, denn 9 · 10⁵ ist fast 10 · 10⁵, und das ist 10⁶.",
+     "antwort": 5,
+     "rechnung": "5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "„Fast“ für „gleich“ gehalten"
+     "beschreibung": "Die Hochzahl genannt"
     }
    ],
    "ersetzt_test": true,
+   "loesung_rechnung": "10 ** 6 // 10 ** 5 - 9",
    "aufgabe": {
     "l": "zehner",
     "t": "zehner",
     "p": "test",
     "s": 3,
-    "g": "begruenden",
-    "y": "auswahl",
+    "g": "parameter",
+    "y": "zahl",
     "f": {
-     "text": "Welche Zahl ist größer: 9 · 10⁵ oder 10⁶? Wähle die richtige Begründung."
+     "text": "Für welche Zahl □ gilt: 10⁶ − 9 · 10⁵ = □ · 10⁵?"
     },
-    "a": [
-     "10⁶ ist größer: 10⁶ = 1 000 000, aber 9 · 10⁵ = 900 000.",
-     "9 · 10⁵ ist größer, denn 9 ist größer als 1.",
-     "9 · 10⁵ ist größer, denn 9 · 5 = 45 ist größer als 6.",
-     "Beide sind gleich groß, denn 9 · 10⁵ ist fast 10 · 10⁵, und das ist 10⁶."
-    ],
     "o": {
-     "index": 0
+     "wert": 1
     },
-    "w": "9 · 10⁵ = 9 · 100 000 = 900 000. 10⁶ = 1 000 000. Weil 1 000 000 größer als 900 000 ist, ist 10⁶ größer. Auf die Hochzahl kommt es an: Sie sagt, wie viele Nullen hinter der Ziffer stehen."
+    "c": "10 ** 6 // 10 ** 5 - 9",
+    "w": "10⁶ = 10 · 10⁵, denn eine Zehnerpotenz mit 1 mehr in der Hochzahl ist das Zehnfache. Dann ist 10⁶ − 9 · 10⁵ = 10 · 10⁵ − 9 · 10⁵ = 1 · 10⁵. Probe: 1 000 000 − 900 000 = 100 000."
    }
   },
   {
@@ -916,21 +901,21 @@
    "regel_name": "Potenzen",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "56 · 10⁶",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Stimmt: 56 mal eine Million ist 56 000 000"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "560 · 10⁵",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Stimmt: 560 mal hunderttausend ist 56 000 000"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "5 600 · 10⁴",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -948,13 +933,13 @@
      "text": "Welche Schreibweise gehört NICHT zur Zahl 56 000 000?"
     },
     "a": [
+     "56 · 10⁵",
      "56 · 10⁶",
      "560 · 10⁵",
-     "5 600 · 10⁴",
-     "56 · 10⁵"
+     "5 600 · 10⁴"
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
     "w": "56 · 10⁶ = 56 · 1 000 000 = 56 000 000. Auch 560 · 10⁵ und 5 600 · 10⁴ ergeben 56 000 000: Bekommt die Zahl vorn eine Null mehr, wird die Hochzahl um 1 kleiner. Dagegen ist 56 · 10⁵ = 5 600 000, das ist zehnmal zu klein."
    }
@@ -1033,24 +1018,24 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Nur Anna, weil 45 die kürzere Zahl ist und die Hochzahl dann größer sein muss.",
+     "antwort": "Beide: Die Hochzahl 5 bleibt, nur die Zahl davor hat eine Null mehr, das ist egal.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Nur eine Schreibweise gelten lassen (Ben stimmt aber auch)"
+     "beschreibung": "Eine Null mehr beim Faktor für egal gehalten (450 · 10⁵ = 45 000 000)"
     },
     {
-     "index": 2,
-     "antwort": "Nur Ben, weil eine kleinere Hochzahl immer eine kleinere Zahl bedeutet.",
+     "index": 1,
+     "antwort": "Nur Ben: 450 · 10⁵ passt, weil 4 500 000 mit 45 beginnt und danach zwei Nullen kommen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Kleinere Hochzahl als kleinere Zahl gedeutet (der Faktor 450 ist größer)"
+     "beschreibung": "Die Nullen falsch gezählt (450 · 10⁵ = 45 000 000)"
     },
     {
      "index": 3,
-     "antwort": "Keiner: Die Hochzahl muss 6 sein, weil 4 500 000 sieben Stellen hat.",
+     "antwort": "Beide: Die Zahl vor der Zehnerpotenz darf man beliebig wählen, die Hochzahl bleibt gleich.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die Hochzahl mit der Stellenzahl verwechselt"
+     "beschreibung": "Faktor und Hochzahl für unabhängig gehalten"
     }
    ],
    "aufgabe": {
@@ -1061,18 +1046,18 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "Anna schreibt die Zahl 4 500 000 als 45 · 10⁵. Ben schreibt sie als 450 · 10⁴. Wer hat recht?"
+     "text": "Anna schreibt die Zahl 4 500 000 als 45 · 10⁵. Ben schreibt sie als 450 · 10⁵. Wer hat recht?"
     },
     "a": [
-     "Nur Anna, weil 45 die kürzere Zahl ist und die Hochzahl dann größer sein muss.",
-     "Beide: 45 · 100 000 und 450 · 10 000 ergeben 4 500 000. Bekommt der Faktor eine Null mehr, wird die Hochzahl um 1 kleiner.",
-     "Nur Ben, weil eine kleinere Hochzahl immer eine kleinere Zahl bedeutet.",
-     "Keiner: Die Hochzahl muss 6 sein, weil 4 500 000 sieben Stellen hat."
+     "Beide: Die Hochzahl 5 bleibt, nur die Zahl davor hat eine Null mehr, das ist egal.",
+     "Nur Ben: 450 · 10⁵ passt, weil 4 500 000 mit 45 beginnt und danach zwei Nullen kommen.",
+     "Nur Anna: 45 · 100 000 = 4 500 000. Bei Ben ist der Faktor zehnmal so groß.",
+     "Beide: Die Zahl vor der Zehnerpotenz darf man beliebig wählen, die Hochzahl bleibt gleich."
     ],
     "o": {
-     "index": 1
+     "index": 2
     },
-    "w": "45 · 10⁵ = 45 · 100 000 = 4 500 000 und 450 · 10⁴ = 450 · 10 000 = 4 500 000. Beide Schreibweisen stimmen. Hat der Faktor eine Null mehr, braucht man eine Null weniger in der Zehnerpotenz, also eine um 1 kleinere Hochzahl."
+    "w": "45 · 10⁵ = 45 · 100 000 = 4 500 000. Dagegen ist 450 · 10⁵ = 450 · 100 000 = 45 000 000, das ist zehnmal so viel. Damit Ben recht hätte, müsste er 450 · 10⁴ schreiben: Eine Null mehr beim Faktor heißt eine Hochzahl weniger."
    }
   },
   {
@@ -1156,7 +1141,7 @@
      "beschreibung": "Falsche Regel bestätigt (1 000 + 1 000 ist nicht 1 000 000)"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Fehler: Er hätte 10⁴ rechnen müssen. Richtig wäre 10³ + 10³ = 10⁴ = 10 000.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1164,7 +1149,7 @@
     },
     {
      "index": 3,
-     "antwort": "Fehler: Er hätte die Basen addieren müssen. Richtig wäre 20³ = 8 000.",
+     "antwort": "Fehler: Er hätte die Basen addieren müssen. Richtig wäre 20³ = 8 000, nicht 10⁶.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Die Basen addiert und die Hochzahl behalten"
@@ -1182,12 +1167,12 @@
     },
     "a": [
      "Kein Fehler: Beim Addieren von Zehnerpotenzen mit gleicher Basis addiert man die Hochzahlen.",
-     "Fehler: Er hat die Hochzahlen addiert (3 + 3 = 6). Zwei Tausender sind aber 2 000. Richtig wäre 2 · 10³ = 2 000.",
      "Fehler: Er hätte 10⁴ rechnen müssen. Richtig wäre 10³ + 10³ = 10⁴ = 10 000.",
-     "Fehler: Er hätte die Basen addieren müssen. Richtig wäre 20³ = 8 000."
+     "Fehler: Er hat die Hochzahlen addiert (3 + 3 = 6). Richtig wäre 2 · 10³ = 2 000.",
+     "Fehler: Er hätte die Basen addieren müssen. Richtig wäre 20³ = 8 000, nicht 10⁶."
     ],
     "o": {
-     "index": 1
+     "index": 2
     },
     "w": "10³ = 1 000. Also ist 10³ + 10³ = 1 000 + 1 000 = 2 000 = 2 · 10³. Beim Addieren bleibt die Hochzahl, es wird nur die Zahl davor größer. Die Hochzahlen werden nur beim Malnehmen von Potenzen mit gleicher Basis addiert: 10³ · 10³ = 10⁶."
    }
@@ -1363,38 +1348,38 @@
    "pool": "korrektur",
    "stufe": 2,
    "typ": "umkehr",
-   "form": "umkehren",
+   "form": null,
    "antwortform": "zahl",
    "zaehlt": "ja",
    "lehrplan": "M5 3",
-   "idee": "exponent_suchen",
+   "idee": "moeglichkeiten_zaehlen",
    "abgrenzung": "Die Übungen setzen eine Potenz in einer Sachaufgabe direkt ein; hier muss das Kind die Situation selbst als Potenz erkennen, rückwärts rechnen oder Rechenwege vergleichen.",
    "regel": "rr.potenz",
    "regel_name": "Potenzen",
    "fehlbilder": [
     {
-     "antwort": 5,
-     "rechnung": "4 + 1",
+     "antwort": 10,
+     "rechnung": "5 * 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die Ziffern von 10 000 gezählt (4 Nullen + 1)"
+     "beschreibung": "Die Möglichkeiten je Wurf mal Zahl der Würfe: 5 · 2"
     },
     {
-     "antwort": 1000,
-     "rechnung": "10000 // 10",
+     "antwort": 25,
+     "rechnung": "5 ** 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "10 000 durch 10 geteilt"
+     "beschreibung": "Würfe mal Würfe gerechnet: 5 · 5"
     },
     {
-     "antwort": 100,
-     "rechnung": "10000 // 100",
+     "antwort": 16,
+     "rechnung": "2 ** 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "10 000 durch 100 geteilt"
+     "beschreibung": "Einen Wurf zu wenig gezählt: 2⁴"
     }
    ],
-   "loesung_rechnung": "4",
+   "loesung_rechnung": "2 ** 5",
    "aufgabe": {
     "l": "sach",
     "t": "anwenden",
@@ -1403,14 +1388,13 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Ein Passwort besteht nur aus Ziffern von 0 bis 9. Es gibt insgesamt 10 000 mögliche Passwörter dieser Länge. Wie viele Stellen hat das Passwort?"
+     "text": "Eine Münze wird 5-mal hintereinander geworfen. Bei jedem Wurf zeigt sie Kopf oder Zahl. Wie viele verschiedene Folgen von Ergebnissen kann es geben?"
     },
     "o": {
-     "wert": 4,
-     "einheit": "Stellen"
+     "wert": 32
     },
-    "c": "4",
-    "w": "Mit 1 Stelle gibt es 10 Passwörter, mit 2 Stellen 10 · 10 = 100, mit 3 Stellen 1 000, mit 4 Stellen 10 · 10 · 10 · 10 = 10⁴ = 10 000. Das Passwort hat 4 Stellen."
+    "c": "2 ** 5",
+    "w": "Beim ersten Wurf gibt es 2 Möglichkeiten, bei jedem weiteren Wurf verdoppelt sich die Zahl der Folgen. Nach 5 Würfen sind das 2 · 2 · 2 · 2 · 2 = 2⁵ = 32 verschiedene Folgen."
    }
   },
   {
@@ -1444,7 +1428,7 @@
      "beschreibung": "Basis und Faktor vertauscht (3⁵ · 2 = 486)"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "3 · 2 · 5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1464,11 +1448,11 @@
     "a": [
      "(3 · 2)⁵",
      "3⁵ · 2",
-     "3 · 2⁵",
-     "3 · 2 · 5"
+     "3 · 2 · 5",
+     "3 · 2⁵"
     ],
     "o": {
-     "index": 2
+     "index": 3
     },
     "w": "Jede Verdopplung heißt: mal 2. Fünfmal verdoppeln heißt 5-mal mit 2 malnehmen: 3 · 2 · 2 · 2 · 2 · 2 = 3 · 2⁵ = 3 · 32 = 96. Die 3 steht nur einmal da, sie gehört nicht unter die Hochzahl."
    }
@@ -1479,58 +1463,54 @@
    "lernkarte": "sach",
    "pool": "sicherung",
    "stufe": 2,
-   "typ": "darstellung",
-   "form": "bruecke",
-   "antwortform": "auswahl",
+   "typ": "mehrschritt",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
    "zaehlt": "ja",
    "lehrplan": "M5 3",
-   "idee": "situation_term",
+   "idee": "was_waere_wenn",
    "abgrenzung": "Die Übungen setzen eine Potenz in einer Sachaufgabe direkt ein; hier muss das Kind die Situation selbst als Potenz erkennen, rückwärts rechnen oder Rechenwege vergleichen.",
    "regel": "rr.potenz",
    "regel_name": "Potenzen",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "5⁴",
+     "antwort": 16,
+     "rechnung": "2 ** 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Basis und Hochzahl vertauscht (5⁴ = 625)"
+     "beschreibung": "Die Hochzahl 4 zu 2⁴ gemacht"
     },
     {
-     "index": 1,
-     "antwort": "4 · 5",
+     "antwort": 4,
+     "rechnung": "4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Hochzahl als Malnehmer gedeutet (4 · 5 = 20)"
+     "beschreibung": "Die Zahl der Tage als Verhältnis genommen"
     },
     {
-     "index": 2,
-     "antwort": "4⁴",
+     "antwort": 81,
+     "rechnung": "3 ** 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Einen Tag zu wenig gezählt (4⁴ = 256)"
+     "beschreibung": "Nur den Wachstumsfaktor 3⁴ genannt"
     }
    ],
+   "loesung_rechnung": "(10 * 3 ** 4) // (5 * 3 ** 4)",
    "aufgabe": {
     "l": "sach",
     "t": "anwenden",
     "p": "sicherung",
     "s": 2,
-    "g": "darstellung",
-    "y": "auswahl",
+    "g": "mehrschritt",
+    "y": "zahl",
     "f": {
-     "text": "Ein Netzwerk hat am 1. Tag 4 Mitglieder, am 2. Tag 16 und am 3. Tag 64. So geht es weiter: Jeden Tag ist die Mitgliederzahl 4-mal so groß wie am Tag davor. Welche Rechnung gibt die Zahl der Mitglieder am 5. Tag an?"
+     "text": "Ein Netzwerk verdreifacht jeden Tag seine Mitgliederzahl. Es startet mit 5 Mitgliedern. Ein zweites Netzwerk verdreifacht sich ebenfalls jeden Tag, startet aber mit 10 Mitgliedern. Nach 4 Tagen hat das zweite Netzwerk wievielmal so viele Mitglieder wie das erste?"
     },
-    "a": [
-     "5⁴",
-     "4 · 5",
-     "4⁴",
-     "4⁵"
-    ],
     "o": {
-     "index": 3
+     "wert": 2
     },
-    "w": "Tag 1: 4 = 4¹. Tag 2: 16 = 4 · 4 = 4². Tag 3: 64 = 4 · 4 · 4 = 4³. Am Tag n steht die 4 genau n-mal als Faktor da. Am 5. Tag sind es 4⁵ = 1 024 Mitglieder."
+    "c": "(10 * 3 ** 4) // (5 * 3 ** 4)",
+    "w": "Nach 4 Tagen hat das erste Netzwerk 5 · 3⁴ = 405 Mitglieder, das zweite 10 · 3⁴ = 810. Beide werden mit demselben Faktor 3⁴ malgenommen, deshalb bleibt das Verhältnis wie am Anfang: 10 : 5 = 2."
    }
   },
   {
@@ -1608,14 +1588,14 @@
     },
     {
      "index": 2,
-     "antwort": "Fehler: Die Anfangsfläche zählt nicht mit. Richtig wäre 3⁴ = 81 m².",
+     "antwort": "Fehler: Die Anfangsfläche zählt nicht mit. Richtig wäre 3⁴ = 81 m², ohne den Faktor 2.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Anfangsfläche weggelassen (3⁴ = 81)"
     },
     {
      "index": 3,
-     "antwort": "Kein Fehler: 6⁴ = 1 296 m² ist richtig.",
+     "antwort": "Kein Fehler: 6⁴ = 1 296 m² ist richtig, denn 2 · 3 = 6.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Das Zusammenfassen von 2 und 3 für erlaubt gehalten (6⁴ = 1 296)"
@@ -1632,10 +1612,10 @@
      "text": "Eine Algenart verdreifacht jeden Tag ihre Fläche. Am Anfang bedeckt sie 2 m². Nina rechnet die Fläche nach 4 Tagen so: 2 · 3 = 6, dann 6⁴ = 1 296 m². Welche Aussage über Ninas Rechnung stimmt?"
     },
     "a": [
-     "Fehler: Sie hat 2 und 3 zu 6 zusammengefasst und dann 6⁴ gerechnet. Richtig wäre 2 · 3⁴ = 162 m².",
+     "Fehler: Sie hat 2 · 3 = 6 als Basis genommen: 6⁴. Richtig wäre 2 · 3⁴ = 162 m².",
      "Fehler: Sie hat 2 und 3 zu 6 zusammengefasst. Richtig wäre 2 · 3 · 4 = 24 m².",
-     "Fehler: Die Anfangsfläche zählt nicht mit. Richtig wäre 3⁴ = 81 m².",
-     "Kein Fehler: 6⁴ = 1 296 m² ist richtig."
+     "Fehler: Die Anfangsfläche zählt nicht mit. Richtig wäre 3⁴ = 81 m², ohne den Faktor 2.",
+     "Kein Fehler: 6⁴ = 1 296 m² ist richtig, denn 2 · 3 = 6."
     ],
     "o": {
      "index": 0

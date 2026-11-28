@@ -204,7 +204,7 @@ def _e20_pq():
 
 
 NEU.update({
-    "Die Gleichung 6/(x − 2) = 3/(x − 1) hat in der Grundmenge": _e20_def_test,
+    "Gegeben ist die Gleichung 6/(x − 2) = 3/(x − 1) mit der Grundmenge": _e20_def_test,
     "Die Gleichung 6/(2x − a) + 4/(x + 3) = 2 hat die Definitionsmenge": lambda: next(a for a in range(-50, 51) if {F(a, 2), F(-3)} == {F(7), F(-3)}),
     "Zwei Rechtecke sind gleich lang": lambda: [len({F(0), F(3)}), 3, next(x for x in range(4, 100) if F(36, x) == F(24, x - 3))],
     "Ein Term wird so beschrieben: 5 geteilt durch": lambda: (lambda nst: [sum(1 for z in nst if z.denominator == 1), len(nst)])({F(-3, 2), F(0), F(6)}),
@@ -214,7 +214,7 @@ NEU.update({
     "Tim löst die Gleichung (x² + 4x)/(x² − 4x) = −1": lambda: [sum(1 for x in _e20_q() if x != 4 and (x + 4) / (x - 4) == -1),
                                                            sum(1 for x in _e20_q() if x not in (0, 4) and (x * x + 4 * x) / (x * x - 4 * x) == -1), len({F(0), F(4)})],
     "Ali denkt sich eine Zahl": lambda: sum(1 for x in _e20_q() if x not in (2, -3) and F(2) / (x - 2) + F(3) / (x + 3) == F(10) / ((x - 2) * (x + 3))),
-    "Lena löst 5/(x − 4) + 2/x": lambda: [3, sum(1 for x in _e20_q() if x not in (0, 4) and F(5) / (x - 4) + F(2) / x == (x + 16) / (x * x - 4 * x))],
+    "Lena löst 5/(x + 3) + 2/x": lambda: [3, sum(1 for x in _e20_q() if x not in (0, -3) and F(5) / (x + 3) + F(2) / x == (x - 12) / (x * x + 3 * x))],
     "Mischung A enthält Saft und Wasser im Verhältnis 1 : 1": lambda: next(x for x in range(0, 4001) if 2 * (100 + F(x, 4)) == 100 + F(3 * x, 4)),
     "Mia ist 6 Jahre alt": lambda: [10 + (9 - 6), F(9, 6) * 10],
     "Eine Schorle enthält Saft und Wasser im Verhältnis 1 : 3": lambda: [next(w for w in range(1, 100) if 2 * (1 + w) == 2 * 2 * (1 + 3))],

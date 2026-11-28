@@ -73,12 +73,13 @@ def _aequivalent_fuer_alle_c():
         x = F(c - 2, 5)
         return [] if x in verboten else [x]
     ok_r = ok_f = True
-    falsch = {(): False, (0,): False, (2, 0): False}
+    falsch = {(): False, (0,): False, "dazu": False}
     for c in range(-12, 13):
         L = loesungen_q("F(4)/(x+2) + F(1)/x", f"F({c})/(x*x+2*x)")
         ok_r = ok_r and aussage(c, (-2, 0)) == L
         for v in falsch:
-            if aussage(c, v) != L:
+            erg = sorted(set(aussage(c, ())) | {F(-2), F(0)}) if v == "dazu" else aussage(c, v)
+            if erg != L:
                 falsch[v] = True
     return ok_r and all(falsch.values())
 
@@ -88,13 +89,13 @@ REGEL[(T, "ueber_kreuz")] = "rr.waage"
 REGEL[(T, "verhaeltnis")] = "rr.verhaeltnis"
 ABG[(T, "definitionsmenge")] = "Die Übungen bestimmen D an einer gegebenen Gleichung; hier wird untersucht, wie Umformungen D verändern, wie D von der Lösungsmenge und von der Grundmenge abhängt und wie sich D von den sachlich sinnvollen Werten unterscheidet."
 ABG[(T, "ueber_kreuz")] = "Die Übungen lösen mit dem Über-Kreuz-Verfahren; hier wird entschieden, wann das Verfahren direkt erlaubt ist, was über Kreuz aus Zählern und Nennern folgt und wann eine solche Gleichung keine Lösung hat."
-ABG[(T, "scheinloesung")] = "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht, eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft."
+ABG[(T, "scheinloesung")] = "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht (nahe Bestand: T 180, T 198, T 224, K8-V081 – dort wird nur gelöst bzw. ein Parameter bestimmt), eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft."
 ABG[(T, "verhaeltnis")] = "Die Übungen lösen eine Verhältnisgleichung; hier wird zwischen additivem und multiplikativem Modell gewählt, zwischen Verhältnis und Anteil gewechselt und mit Mischungen und umgekehrten Verhältnissen argumentiert."
 # ───────── definitionsmenge ─────────
 # Test: Umformungen verändern D (Lösung geht beim Addieren eines Bruchs verloren, beim Malnehmen fällt eine Einschränkung weg)
 _L_LEA = ("F(6)/(x-2) + F(1)/x", "F(3)/(x-1) + F(1)/x")
 neu(T, "definitionsmenge", "test", "transfer", L(
-    "Die Gleichung 6/(x − 2) = 3/(x − 1) hat in der Grundmenge ℚ die Lösung x = 0. Lea addiert auf beiden Seiten den Bruch 1/x und erhält die Gleichung "
+    "Gegeben ist die Gleichung 6/(x − 2) = 3/(x − 1) mit der Grundmenge ℚ. Lea addiert auf beiden Seiten den Bruch 1/x und erhält die Gleichung "
     "6/(x − 2) + 1/x = 3/(x − 1) + 1/x. Wie viele Lösungen hat Leas Gleichung, und wie viele Zahlen schließt ihre Definitionsmenge aus?",
     "Leas Gleichung: □ Lösungen; ausgeschlossen: □ Zahlen", [0, 3], ["1 - 1", "2 + 1"],
     [len(loesungen_q(*_L_LEA)), len(nullstellen_q("x-2", "x", "x-1"))],
@@ -183,7 +184,7 @@ def _ohne_loesung_a():
 
 
 _A_OHNE = _ohne_loesung_a()
-neu(T, "ueber_kreuz", "test", "parameter", L(
+neu(T, "ueber_kreuz", "korrektur", "umkehr", L(
     "In der Gleichung a/(x + 5) = 7/(x − 2) steht a für eine Zahl ungleich 0 (Grundmenge ℚ). Für welche dieser Zahlen a hat die Gleichung keine Lösung? "
     "Und welche Lösung hat die Gleichung für a = 14?",
     "keine Lösung für a = □; für a = 14 ist x = □", [7, 9], ["7", "63 / 7"], [_A_OHNE[0] if len(_A_OHNE) == 1 else None, loesungen_q("F(14)/(x+5)", "F(7)/(x-2)")[0]],
@@ -196,7 +197,7 @@ neu(T, "ueber_kreuz", "test", "parameter", L(
          (1, "die Zahlen 35 und 28 voneinander abgezogen statt addiert, also 7x = 7", "7 / 7")]}),
     lp=LP, idee="parameter_keine_loesung")
 # Korrektur 1: rückwärts – nur das Verhältnis der Zähler zählt
-neu(T, "ueber_kreuz", "korrektur", "umkehr", Z(
+neu(T, "ueber_kreuz", "test", "parameter", Z(
     "p und q sind beliebige Zahlen mit p ≠ −q. Für welche Zahl a haben die Gleichungen 10/(x − p) = a/(x + q) und 15/(x − p) = 9/(x + q) für jede Wahl von p und q dieselbe Lösung?",
     6, "10 * 9 / 15", _a_fuer_alle_pq(),
     "Über Kreuz wird aus 15/(x − p) = 9/(x + q) die Gleichung 15(x + q) = 9(x − p), geteilt durch 3: 5(x + q) = 3(x − p). Es kommt nur auf das Verhältnis 15 : 9 = 5 : 3 der Zähler an, nicht auf p und q. "
@@ -223,7 +224,7 @@ neu(T, "ueber_kreuz", "korrektur", "mehrschritt", W(
 # Sicherung 1 (Stufe 3): immer – manchmal – nie bei (x + a)/(x + b) = (x + c)/(x + d)
 neu(T, "ueber_kreuz", "sicherung", "begruenden", W(
     "Gleichungen der Form (x + a)/(x + b) = (x + c)/(x + d) mit Zahlen a, b, c, d, bei denen a ≠ b, c ≠ d und b ≠ d ist, löst man über Kreuz (Grundmenge ℚ). Welche Aussage über solche Gleichungen stimmt?",
-    "Sie haben nie mehr als eine Lösung, denn über Kreuz fällt x² auf beiden Seiten weg und es bleibt eine Gleichung ohne x².",
+    "Sie haben nie mehr als eine Lösung, denn über Kreuz fällt x² weg, und die Bedingungen schließen aus, dass 0 = 0 übrig bleibt.",
     [("Sie haben immer genau eine Lösung, denn bei (x + 1)/(x + 2) = (x + 4)/(x + 3) fällt x² weg, und es bleibt x = −2,5.",
       "aus einem Beispiel mit genau einer Lösung auf „immer“ geschlossen; bei (x + 1)/(x + 2) = (x + 3)/(x + 4) bleibt 4 = 6, also keine Lösung"),
      ("Sie haben nie eine Lösung, denn bei (x + 1)/(x + 2) = (x + 3)/(x + 4) bleibt über Kreuz nur 4 = 6 übrig.",
@@ -288,15 +289,15 @@ neu(T, "scheinloesung", "korrektur", "einkleidung", Z(
      B("2", "die Zahl 2 aus der Rechnung statt der Anzahl angegeben")], einheit="Zahlen"), form="bruecke", lp=LP, idee="raetsel_scheinloesung")
 # Sicherung 1 (Stufe 3): welche Regel über Scheinlösungen ist durch die Beispiele gedeckt?
 neu(T, "scheinloesung", "sicherung", "fehler", L(
-    "Lena löst 5/(x − 4) + 2/x = (x + 16)/(x² − 4x) so: Zeile 1: Mal x(x − 4): 5x + 2(x − 4) = x + 16. Zeile 2: Also 7x − 8 = x + 16, 6x = 24 und x = 4. "
-    "Zeile 3: Probe in Zeile 1: 5 · 4 + 2 · 0 = 20 und 4 + 16 = 20, das stimmt. Zeile 4: Also L = {4}. In welcher Zeile steckt der erste Fehler, und wie viele Lösungen hat die Gleichung?",
-    "Fehler in Zeile □; Zahl der Lösungen: □", [3, 0], ["3", "1 - 1"], [3, len(loesungen_q("F(5)/(x-4) + F(2)/x", "(x+16)/(x*x-4*x)"))],
-    "Zeile 1 und Zeile 2 sind richtig gerechnet. Der Fehler steckt in Zeile 3: Die Probe gehört in die Ausgangsgleichung, nicht in die Gleichung nach dem Malnehmen. "
-    "Dort ist x = 4 verboten, denn die Nenner x − 4 und x² − 4x sind für x = 4 null. In der umgeformten Gleichung gibt es keine Nenner mehr, deshalb „stimmt“ dort auch die Scheinlösung. "
+    "Lena löst 5/(x + 3) + 2/x = (x − 12)/(x² + 3x) so: Zeile 1: Mal x(x + 3): 5x + 2(x + 3) = x − 12. Zeile 2: Also 7x + 6 = x − 12, 6x = −18 und x = −3. "
+    "Zeile 3: Probe in Zeile 1: 5 · (−3) + 2 · 0 = −15 und −3 − 12 = −15, also ist −3 eine Lösung der Gleichung. Zeile 4: Also L = {−3}. In welcher Zeile steckt der erste Fehler, und wie viele Lösungen hat die Gleichung?",
+    "Fehler in Zeile □; Zahl der Lösungen: □", [3, 0], ["3", "1 - 1"], [3, len(loesungen_q("F(5)/(x+3) + F(2)/x", "(x-12)/(x*x+3*x)"))],
+    "Zeile 1 und Zeile 2 sind richtig gerechnet, auch die Rechnung in Zeile 3 stimmt. Falsch ist der Schluss in Zeile 3: Eine Probe in der Gleichung nach dem Malnehmen zeigt nicht, dass −3 eine Lösung ist; die Probe gehört in die Ausgangsgleichung. "
+    "Dort ist x = −3 verboten, denn die Nenner x + 3 und x² + 3x sind für x = −3 null. In der umgeformten Gleichung gibt es keine Nenner mehr, deshalb „stimmt“ dort auch die Scheinlösung. "
     "Die Gleichung hat keine Lösung; Zeile 4 ist nur die Folge.",
-    {0: [(4, "erst die Schlusszeile für falsch gehalten, weil dort L = {4} steht", "4"),
+    {0: [(4, "erst die Schlusszeile für falsch gehalten, weil dort L = {−3} steht", "4"),
          (1, "das Malnehmen in Zeile 1 für den Fehler gehalten, obwohl es richtig gerechnet ist", "1")],
-     1: [(1, "der Probe in der umgeformten Gleichung geglaubt", "1")]}),
+     1: [(1, "der Probe in der umgeformten Gleichung geglaubt und −3 als Lösung gezählt", "1")]}),
     form="fehler_detektiv", lp=LP, idee="probe_am_falschen_ort")
 # Sicherung 2 (Stufe 2): Darstellungswechsel – die beiden Seiten als Graphen; Differenz konstant, kein Schnittpunkt
 neu(T, "scheinloesung", "sicherung", "darstellung", W(
@@ -306,8 +307,8 @@ neu(T, "scheinloesung", "sicherung", "darstellung", W(
       "die Bedingungen weggelassen; für c = 2 hätte 5x + 2 = c die Lösung 0, die Bruchgleichung aber keine"),
      ("5x + 2 = c, wobei nur x ≠ 0 gelten muss",
       "nur den Nenner x beachtet; für c = −8 hätte die Aussage die Lösung −2, die Bruchgleichung aber keine"),
-     ("5x + 2 = c, wobei x ≠ 2 und x ≠ 0 gelten muss",
-      "bei x + 2 = 0 das Vorzeichen falsch genommen; für c = −8 wäre −2 erlaubt, ist aber verboten")],
+     ("5x + 2 = c, wobei auch x = −2 und x = 0 als Lösungen gelten",
+      "die verbotenen Zahlen für zusätzliche Lösungen gehalten; sie sind gerade die Zahlen, die nie Lösung sein können")],
     "Der Hauptnenner ist x² + 2x = x(x + 2); verboten sind −2 und 0. Malnehmen gibt 4x + (x + 2) = c, also 5x + 2 = c. Diese Gleichung allein ist nicht gleichwertig: "
     "Für c = 2 liefert sie x = 0, für c = −8 liefert sie x = −2, beides verbotene Zahlen. Gleichwertig für jedes c ist nur „5x + 2 = c, wobei x ≠ −2 und x ≠ 0“: Die Bedingungen aus D gehören zur umgeformten Gleichung dazu.",
     lambda: _aequivalent_fuer_alle_c(), pos=1),

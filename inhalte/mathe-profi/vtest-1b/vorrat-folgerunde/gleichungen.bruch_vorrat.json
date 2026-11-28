@@ -259,7 +259,7 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
-   "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht, eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
+   "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht (nahe Bestand: T 180, T 198, T 224, K8-V081 – dort wird nur gelöst bzw. ein Parameter bestimmt), eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
    "idee": "kandidaten_gegen_D",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
@@ -319,7 +319,7 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
-   "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht, eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
+   "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht (nahe Bestand: T 180, T 198, T 224, K8-V081 – dort wird nur gelöst bzw. ein Parameter bestimmt), eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
    "idee": "fehler_nicht_alle_glieder",
    "antwortform": "luecken",
    "loesung_rechnung": [

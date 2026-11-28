@@ -75,3 +75,9 @@ Vorher gelesen: wie oben, dazu erneut `terme.bruchterme` (Definitionsmenge, Kür
 | 036 | T 179, T 180 (Lösungsmenge angeben) | für jede Zahl c gleichwertige Aussage ohne Brüche: Bedingungen aus D gehören dazu; nicht durch Ausrechnen eines Einzelfalls lösbar |
 | 037 | T 279, V 73 | Zahlen vereinfacht (200 ml A, B 1 : 3, Ergebnis 400 ml) |
 | 041 | V 72 (Teil als Prozent des Ganzen), `bruch.prozent` | Verhältnis zweier Größen in einen relativen Unterschied übersetzen, Bezugswert entscheidet (25 % gegen 20 %) |
+
+### Nachtrag nach Vorprüfung W1-3
+
+- 034 (Zahlenrätsel, Schema-Aufgabe): nächste Bestandskerne sind auch T 180 (2/(x − 3) − 1/x = 6/(x(x − 3)), L = { }) und T 198 (1/(x − 1) + 1/(x + 1) = 2/(x² − 1), L = { }). Rechnung und Frage sind dort gleich, neu ist nur die Einkleidung als Rätsel. Das steht auch in der `abgrenzung` von scheinloesung.
+- 035: Nenner jetzt x² + 3x mit Scheinlösung −3. Damit hat 035 einen anderen Nenner und eine andere Scheinlösung als 032 und 033.
+- Kennungen in ueber_kreuz getauscht: Test ist jetzt 027 (allgemein mit p, q), Korrektur ist 028 (a = 7, a = 14).

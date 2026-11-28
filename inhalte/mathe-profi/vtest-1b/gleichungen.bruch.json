@@ -66,7 +66,7 @@
     "g": "transfer",
     "y": "luecken",
     "f": {
-     "text": "Die Gleichung 6/(x − 2) = 3/(x − 1) hat in der Grundmenge ℚ die Lösung x = 0. Lea addiert auf beiden Seiten den Bruch 1/x und erhält die Gleichung 6/(x − 2) + 1/x = 3/(x − 1) + 1/x. Wie viele Lösungen hat Leas Gleichung, und wie viele Zahlen schließt ihre Definitionsmenge aus?",
+     "text": "Gegeben ist die Gleichung 6/(x − 2) = 3/(x − 1) mit der Grundmenge ℚ. Lea addiert auf beiden Seiten den Bruch 1/x und erhält die Gleichung 6/(x − 2) + 1/x = 3/(x − 1) + 1/x. Wie viele Lösungen hat Leas Gleichung, und wie viele Zahlen schließt ihre Definitionsmenge aus?",
      "schablone": "Leas Gleichung: □ Lösungen; ausgeschlossen: □ Zahlen",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -353,8 +353,64 @@
    "lernkarte": "ueber_kreuz",
    "pool": "test",
    "typ": "parameter",
-   "form": null,
+   "form": "umkehren",
    "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "Die Übungen lösen mit dem Über-Kreuz-Verfahren; hier wird entschieden, wann das Verfahren direkt erlaubt ist, was über Kreuz aus Zählern und Nennern folgt und wann eine solche Gleichung keine Lösung hat.",
+   "idee": "zaehlerverhaeltnis_rueckwaerts",
+   "antwortform": "zahl",
+   "loesung_rechnung": "10 * 9 / 15",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "rechnung": "9 - 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "additiv gedacht: von 15 auf 10 sind es 5 weniger, also auch 9 − 5"
+    },
+    {
+     "antwort": 9,
+     "rechnung": "9",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 9 einfach übernommen"
+    },
+    {
+     "antwort": 13.5,
+     "rechnung": "9 * 15 / 10",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Verhältnis falsch herum angesetzt: 9 · 15 : 10"
+    }
+   ],
+   "regel": "rr.waage",
+   "ersetzt_test": true,
+   "aufgabe": {
+    "l": "ueber_kreuz",
+    "t": "ueber_kreuz",
+    "p": "test",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "p und q sind beliebige Zahlen mit p ≠ −q. Für welche Zahl a haben die Gleichungen 10/(x − p) = a/(x + q) und 15/(x − p) = 9/(x + q) für jede Wahl von p und q dieselbe Lösung?"
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "10 * 9 / 15",
+    "w": "Über Kreuz wird aus 15/(x − p) = 9/(x + q) die Gleichung 15(x + q) = 9(x − p), geteilt durch 3: 5(x + q) = 3(x − p). Es kommt nur auf das Verhältnis 15 : 9 = 5 : 3 der Zähler an, nicht auf p und q. Dieselbe Gleichung entsteht aus 10/(x − p) = a/(x + q) genau dann, wenn 10 : a = 5 : 3 ist, also a = 6. Ausrechnen geht hier nicht, weil p und q nicht bekannt sind. Probe mit p = 3, q = 2: Beide Gleichungen haben die Lösung x = −9,5."
+   }
+  },
+  {
+   "kennung": "VT1B-028",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "ueber_kreuz",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": null,
+   "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen lösen mit dem Über-Kreuz-Verfahren; hier wird entschieden, wann das Verfahren direkt erlaubt ist, was über Kreuz aus Zählern und Nennern folgt und wann eine solche Gleichung keine Lösung hat.",
@@ -399,13 +455,12 @@
     }
    ],
    "regel": "rr.waage",
-   "ersetzt_test": true,
    "aufgabe": {
     "l": "ueber_kreuz",
     "t": "ueber_kreuz",
-    "p": "test",
-    "s": 3,
-    "g": "parameter",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
     "y": "luecken",
     "f": {
      "text": "In der Gleichung a/(x + 5) = 7/(x − 2) steht a für eine Zahl ungleich 0 (Grundmenge ℚ). Für welche dieser Zahlen a hat die Gleichung keine Lösung? Und welche Lösung hat die Gleichung für a = 14?",
@@ -423,61 +478,6 @@
      "63 / 7"
     ],
     "w": "Über Kreuz: a(x − 2) = 7(x + 5), also ax − 2a = 7x + 35 und (a − 7)x = 2a + 35. Für a = 7 steht 0 · x = 49 da: keine Lösung, denn zwei Brüche mit gleichem Zähler und verschiedenen Nennern sind nie gleich. Für jedes andere a ≠ 0 ist x = (2a + 35)/(a − 7) die Lösung; sie ist nie 2 (sonst wäre 2a + 35 = 2a − 14) und für a ≠ 0 auch nie −5. Für a = 14: 14(x − 2) = 7(x + 5), also 14x − 28 = 7x + 35, 7x = 63 und x = 9. Probe: 14/14 = 1 = 7/7. (Für a = 0 gäbe es übrigens auch keine Lösung: links stünde immer 0, rechts nie.)"
-   }
-  },
-  {
-   "kennung": "VT1B-028",
-   "thema": "gleichungen.bruch",
-   "lernkarte": "ueber_kreuz",
-   "pool": "korrektur",
-   "typ": "umkehr",
-   "form": "umkehren",
-   "stufe": 2,
-   "zaehlt": "ja",
-   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
-   "abgrenzung": "Die Übungen lösen mit dem Über-Kreuz-Verfahren; hier wird entschieden, wann das Verfahren direkt erlaubt ist, was über Kreuz aus Zählern und Nennern folgt und wann eine solche Gleichung keine Lösung hat.",
-   "idee": "zaehlerverhaeltnis_rueckwaerts",
-   "antwortform": "zahl",
-   "loesung_rechnung": "10 * 9 / 15",
-   "fehlbilder": [
-    {
-     "antwort": 4,
-     "rechnung": "9 - 5",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "additiv gedacht: von 15 auf 10 sind es 5 weniger, also auch 9 − 5"
-    },
-    {
-     "antwort": 9,
-     "rechnung": "9",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl 9 einfach übernommen"
-    },
-    {
-     "antwort": 13.5,
-     "rechnung": "9 * 15 / 10",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "das Verhältnis falsch herum angesetzt: 9 · 15 : 10"
-    }
-   ],
-   "regel": "rr.waage",
-   "aufgabe": {
-    "l": "ueber_kreuz",
-    "t": "ueber_kreuz",
-    "p": "korrektur",
-    "s": 2,
-    "g": "umkehr",
-    "y": "zahl",
-    "f": {
-     "text": "p und q sind beliebige Zahlen mit p ≠ −q. Für welche Zahl a haben die Gleichungen 10/(x − p) = a/(x + q) und 15/(x − p) = 9/(x + q) für jede Wahl von p und q dieselbe Lösung?"
-    },
-    "o": {
-     "wert": 6
-    },
-    "c": "10 * 9 / 15",
-    "w": "Über Kreuz wird aus 15/(x − p) = 9/(x + q) die Gleichung 15(x + q) = 9(x − p), geteilt durch 3: 5(x + q) = 3(x − p). Es kommt nur auf das Verhältnis 15 : 9 = 5 : 3 der Zähler an, nicht auf p und q. Dieselbe Gleichung entsteht aus 10/(x − p) = a/(x + q) genau dann, wenn 10 : a = 5 : 3 ist, also a = 6. Ausrechnen geht hier nicht, weil p und q nicht bekannt sind. Probe mit p = 3, q = 2: Beide Gleichungen haben die Lösung x = −9,5."
    }
   },
   {
@@ -589,7 +589,7 @@
      "text": "Gleichungen der Form (x + a)/(x + b) = (x + c)/(x + d) mit Zahlen a, b, c, d, bei denen a ≠ b, c ≠ d und b ≠ d ist, löst man über Kreuz (Grundmenge ℚ). Welche Aussage über solche Gleichungen stimmt?"
     },
     "a": [
-     "Sie haben nie mehr als eine Lösung, denn über Kreuz fällt x² auf beiden Seiten weg und es bleibt eine Gleichung ohne x².",
+     "Sie haben nie mehr als eine Lösung, denn über Kreuz fällt x² weg, und die Bedingungen schließen aus, dass 0 = 0 übrig bleibt.",
      "Sie haben immer genau eine Lösung, denn bei (x + 1)/(x + 2) = (x + 4)/(x + 3) fällt x² weg, und es bleibt x = −2,5.",
      "Sie haben nie eine Lösung, denn bei (x + 1)/(x + 2) = (x + 3)/(x + 4) bleibt über Kreuz nur 4 = 6 übrig.",
      "Sie können zwei Lösungen haben, denn vor dem Zusammenfassen steht auf beiden Seiten ein x²."
@@ -670,7 +670,7 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
-   "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht, eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
+   "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht (nahe Bestand: T 180, T 198, T 224, K8-V081 – dort wird nur gelöst bzw. ein Parameter bestimmt), eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
    "idee": "kuerzen_scheinloesung",
    "antwortform": "luecken",
    "loesung_rechnung": [
@@ -743,7 +743,7 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
-   "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht, eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
+   "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht (nahe Bestand: T 180, T 198, T 224, K8-V081 – dort wird nur gelöst bzw. ein Parameter bestimmt), eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
    "idee": "scheinloesung_konstruieren",
    "antwortform": "zahl",
    "loesung_rechnung": "9 * 4 - 8",
@@ -791,7 +791,7 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
-   "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht, eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
+   "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht (nahe Bestand: T 180, T 198, T 224, K8-V081 – dort wird nur gelöst bzw. ein Parameter bestimmt), eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
    "idee": "raetsel_scheinloesung",
    "antwortform": "zahl",
    "loesung_rechnung": "1 - 1",
@@ -840,7 +840,7 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
-   "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht, eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
+   "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht (nahe Bestand: T 180, T 198, T 224, K8-V081 – dort wird nur gelöst bzw. ein Parameter bestimmt), eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
    "idee": "probe_am_falschen_ort",
    "antwortform": "luecken",
    "loesung_rechnung": [
@@ -854,7 +854,7 @@
      "rechnung": "4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "erst die Schlusszeile für falsch gehalten, weil dort L = {4} steht"
+     "beschreibung": "erst die Schlusszeile für falsch gehalten, weil dort L = {−3} steht"
     },
     {
      "luecke": 1,
@@ -870,7 +870,7 @@
      "rechnung": "1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "der Probe in der umgeformten Gleichung geglaubt"
+     "beschreibung": "der Probe in der umgeformten Gleichung geglaubt und −3 als Lösung gezählt"
     }
    ],
    "regel": "id.algebra.erlaubte_zahlen",
@@ -882,7 +882,7 @@
     "g": "fehler",
     "y": "luecken",
     "f": {
-     "text": "Lena löst 5/(x − 4) + 2/x = (x + 16)/(x² − 4x) so: Zeile 1: Mal x(x − 4): 5x + 2(x − 4) = x + 16. Zeile 2: Also 7x − 8 = x + 16, 6x = 24 und x = 4. Zeile 3: Probe in Zeile 1: 5 · 4 + 2 · 0 = 20 und 4 + 16 = 20, das stimmt. Zeile 4: Also L = {4}. In welcher Zeile steckt der erste Fehler, und wie viele Lösungen hat die Gleichung?",
+     "text": "Lena löst 5/(x + 3) + 2/x = (x − 12)/(x² + 3x) so: Zeile 1: Mal x(x + 3): 5x + 2(x + 3) = x − 12. Zeile 2: Also 7x + 6 = x − 12, 6x = −18 und x = −3. Zeile 3: Probe in Zeile 1: 5 · (−3) + 2 · 0 = −15 und −3 − 12 = −15, also ist −3 eine Lösung der Gleichung. Zeile 4: Also L = {−3}. In welcher Zeile steckt der erste Fehler, und wie viele Lösungen hat die Gleichung?",
      "schablone": "Fehler in Zeile □; Zahl der Lösungen: □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -896,7 +896,7 @@
      "3",
      "1 - 1"
     ],
-    "w": "Zeile 1 und Zeile 2 sind richtig gerechnet. Der Fehler steckt in Zeile 3: Die Probe gehört in die Ausgangsgleichung, nicht in die Gleichung nach dem Malnehmen. Dort ist x = 4 verboten, denn die Nenner x − 4 und x² − 4x sind für x = 4 null. In der umgeformten Gleichung gibt es keine Nenner mehr, deshalb „stimmt“ dort auch die Scheinlösung. Die Gleichung hat keine Lösung; Zeile 4 ist nur die Folge."
+    "w": "Zeile 1 und Zeile 2 sind richtig gerechnet, auch die Rechnung in Zeile 3 stimmt. Falsch ist der Schluss in Zeile 3: Eine Probe in der Gleichung nach dem Malnehmen zeigt nicht, dass −3 eine Lösung ist; die Probe gehört in die Ausgangsgleichung. Dort ist x = −3 verboten, denn die Nenner x + 3 und x² + 3x sind für x = −3 null. In der umgeformten Gleichung gibt es keine Nenner mehr, deshalb „stimmt“ dort auch die Scheinlösung. Die Gleichung hat keine Lösung; Zeile 4 ist nur die Folge."
    }
   },
   {
@@ -909,7 +909,7 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
-   "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht, eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
+   "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht (nahe Bestand: T 180, T 198, T 224, K8-V081 – dort wird nur gelöst bzw. ein Parameter bestimmt), eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
    "idee": "aequivalent_mit_bedingung",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
@@ -930,10 +930,10 @@
     },
     {
      "index": 3,
-     "antwort": "5x + 2 = c, wobei x ≠ 2 und x ≠ 0 gelten muss",
+     "antwort": "5x + 2 = c, wobei auch x = −2 und x = 0 als Lösungen gelten",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "bei x + 2 = 0 das Vorzeichen falsch genommen; für c = −8 wäre −2 erlaubt, ist aber verboten"
+     "beschreibung": "die verbotenen Zahlen für zusätzliche Lösungen gehalten; sie sind gerade die Zahlen, die nie Lösung sein können"
     }
    ],
    "regel": "id.algebra.erlaubte_zahlen",
@@ -951,7 +951,7 @@
      "5x + 2 = c, wobei keine weitere Bedingung gelten muss",
      "5x + 2 = c, wobei x ≠ −2 und x ≠ 0 gelten muss",
      "5x + 2 = c, wobei nur x ≠ 0 gelten muss",
-     "5x + 2 = c, wobei x ≠ 2 und x ≠ 0 gelten muss"
+     "5x + 2 = c, wobei auch x = −2 und x = 0 als Lösungen gelten"
     ],
     "o": {
      "index": 1

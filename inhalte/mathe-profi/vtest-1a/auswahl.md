@@ -9,7 +9,7 @@ Stand: 28.11.2026. Die Auswahl steht vor dem Schreiben der Aufgaben. Quelle der 
 | `zahlen.potenzen_basis` | 7 | 7 | keine |
 | `zahlen.rechengesetze` | 14 | 14 | keine |
 
-Hälfte (aufgerundet): 4 bzw. 7. Je gewähltem Lernziel 6 Aufgaben (1 test, 2 korrektur, 3 sicherung): 11 Lernziele, 66 Aufgaben.
+Hälfte (aufgerundet): 4 bzw. 7. Je gewähltem Lernziel 7 Aufgaben (1 test, 3 korrektur, 3 sicherung, Änderung des Auftraggebers): 11 Lernziele, 77 Aufgaben.
 
 ## Grundsatz: nichts aus späteren Klassen
 
@@ -50,6 +50,15 @@ Gewählt: 1, 3, 5, 7 (jede zweite Etappe, `negativ` ausgelassen).
 
 Gewählt: 2, 3, 4, 6, 10, 11, 14. Nicht strikt „jede zweite“ (das hätte `mal_ganz`/`geteilt_ganz` getroffen und Verfahrens-Etappen bevorzugt); die Auswahl verteilt sich aber über alle fünf Abschnitte der Einheit (Reihenfolge, Gesetze, Umkehren, Überschlag, Sachaufgaben).
 
+## Abweichung vom Vorschlag des Auftraggebers (`inhalte/mathe-profi/vtest-1/auswahl.json`)
+
+Vorschlag: potenzen_basis `berechnen`, `vertauschen`, `negativ`, `sach`; rechengesetze `klammern`, `vorteil`, `verteilen`, `mal_ganz`, `umkehraufgabe_mal`, `schriftlich`, `sach`. Die Zahl (4 bzw. 7) stimmt; zwei Gründe für andere Lernziele:
+
+1. **Keine negativen Zahlen in Klasse 5.** `negativ`, `mal_ganz` stehen im Vorschlag, gehören aber zu ganzen Zahlen (M5 2, kommt im Lehrplan danach). Ersatz: `quadrat` (statt `negativ`) und `termaufbau` (statt `mal_ganz`).
+2. **Verstehensgehalt.** `berechnen` und `vertauschen` (Potenzen) und `schriftlich` (Rechengesetze) sind Ausrechen- und Verfahrens-Etappen; ihr Verstehen wird in `schreibweise`/`quadrat` bzw. `ueberschlag` mitgeprüft. Dafür kommen `schreibweise` (häufigste Fehlvorstellung 2⁵ = 10), `quadrat` (Fläche, rückwärts), `termaufbau` und `ueberschlag` (Kontrolle begründen) mit viel Denkaufgaben-Potenzial hinein.
+
+Folge für die Hinweise von `tools/vtest_pruefen.py` (nur HINWEISE, keine Fehler): Bei `zahlen.potenzen_basis` gibt es keinen Rhythmus-Hinweis, nur die Abweichung vom Vorschlag. Bei `zahlen.rechengesetze` kommen „RVVVRVRRRVVRRV nicht abwechselnd“ und die Abweichung vom Vorschlag hinzu. Der Rhythmus-Hinweis ließe sich nur vermeiden, wenn `mal_ganz` oder `geteilt_ganz` (nicht Klasse 5) gewählt würden; das wurde bewusst nicht getan.
+
 ## Lehrplan-Bezug
 
-Der Wortlaut des LehrplanPLUS war hier nicht einsehbar. Verwendet wird die Zuordnung, die das Repo führt (`inhalte/pruefung/klassen/vorschlag-rsib.md`): `zahlen.rechengesetze` und `zahlen.potenzen_basis` = **M5 1.3** (Grundrechenarten und Rechengesetze; Potenzen, Quadratzahlen bis 400, große Zahlen als Zehnerpotenz). Diese Zuordnung ist Stand des Repos, nicht amtlich nachgeprüft; Zweifel stehen in der README.
+Das Werkzeug verlangt, dass `lehrplan` mit dem Lernbereich der Einheit beginnt (`themenliste.json`, `gym_by`): beide Einheiten = **M5 3** (Natürliche und ganze Zahlen – Multiplikation und Division). Daher lautet das Feld überall „M5 3“. Die ältere Zuordnung `inhalte/pruefung/klassen/vorschlag-rsib.md` (M5 1.3) widerspricht dem; Zweifel steht in der README. Der amtliche Wortlaut des LehrplanPLUS war hier nicht einsehbar.

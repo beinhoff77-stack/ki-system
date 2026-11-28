@@ -1,6 +1,6 @@
 # Runde VT1A: Regel-Kennung je Aufgabe
 
-Maßstab: die Regel, die das Kind zum Lösen am stärksten braucht (tragender Lösungsschritt). Kennungen aus `inhalte/mathe-profi/regeln-uebersicht/kennungen.json`; `bauen.py` prüft, dass die Kennung im Katalog steht und die Einheit in der Themenliste der Regel vorkommt. Die Fehlbild-Kennungen des Katalogs (`fb.*`) sind nicht vergeben (die Fehlbilder stehen als Beschreibung mit Rechnung in den JSON-Dateien).
+Maßstab: die Regel, die das Kind zum Lösen am stärksten braucht (tragender Lösungsschritt). Kennungen aus `inhalte/mathe-profi/regeln-uebersicht/kennungen.json`; `bauen.py` prüft, dass die Kennung im Katalog steht; `tools/vtest_pruefen.py` vergleicht mit der Regel der Lernkarte (`inhalte/plan/regelbezug-lernkarten.json`). Alle Aufgaben tragen die Regel ihrer Lernkarte (auch dort, wo die Aufgabe daneben noch andere Regeln braucht). Die Fehlbild-Kennungen des Katalogs (`fb.*`) sind nicht vergeben (die Fehlbilder stehen als Beschreibung mit Rechnung in den JSON-Dateien).
 
 **77 Aufgaben mit Regel, 0 ohne.**
 
@@ -14,6 +14,10 @@ Maßstab: die Regel, die das Kind zum Lösen am stärksten braucht (tragender L�
 | `id.zahlen.buendeln` | Bündeln in Zehnern | 7 |
 | `rr.ausmultiplizieren` | Ausmultiplizieren und Ausklammern | 7 |
 | `rr.tauschen` | Tauschen, Klammern, Zusammenfassen | 7 |
+
+## Hinweis zur Themenliste des Katalogs
+
+Diese Regeln der Lernkarten stehen im Katalog nicht mit der Einheit in der Themenliste: `rr.gegenrechnung` (zahlen.rechengesetze.sach); `id.zahlen.buendeln` (zahlen.rechengesetze.ueberschlag); `rr.gegenrechnung` (zahlen.rechengesetze.umkehraufgabe_mal). Sie wurden trotzdem vergeben, weil die Lernkarte sie so führt (Vorgabe der Prüfung); die Themenliste des Katalogs könnte um `zahlen.rechengesetze` ergänzt werden.
 
 ## Aufgaben ohne Regel (mit Begründung)
 

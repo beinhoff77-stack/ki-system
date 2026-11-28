@@ -282,10 +282,11 @@ for s in EINHEITEN:
     for e, a in zip(aus[s], [x for x in A if x["thema"] == s]):
         ZEILEN.append((e["kennung"], e["thema"], e["lernkarte"], e["regel"], a["zweifel"] or "", a["ohne"] or ""))
 with open(os.path.join(HIER, "regeln-zuordnung.md"), "w", encoding="utf-8") as f:
-    f.write("# Runde VT1A: Regel-Kennung je Aufgabe\n\nMaßstab: die Regel, die das Kind zum Lösen am stärksten braucht (tragender Lösungsschritt). Kennungen aus `inhalte/mathe-profi/regeln-uebersicht/kennungen.json`; `bauen.py` prüft, dass die Kennung im Katalog steht und die Einheit in der Themenliste der Regel vorkommt. Die Fehlbild-Kennungen des Katalogs (`fb.*`) sind nicht vergeben (die Fehlbilder stehen als Beschreibung mit Rechnung in den JSON-Dateien).\n\n")
+    f.write("# Runde VT1A: Regel-Kennung je Aufgabe\n\nMaßstab: die Regel, die das Kind zum Lösen am stärksten braucht (tragender Lösungsschritt). Kennungen aus `inhalte/mathe-profi/regeln-uebersicht/kennungen.json`; `bauen.py` prüft, dass die Kennung im Katalog steht; `tools/vtest_pruefen.py` vergleicht mit der Regel der Lernkarte (`inhalte/plan/regelbezug-lernkarten.json`). Alle Aufgaben tragen die Regel ihrer Lernkarte (auch dort, wo die Aufgabe daneben noch andere Regeln braucht). Die Fehlbild-Kennungen des Katalogs (`fb.*`) sind nicht vergeben (die Fehlbilder stehen als Beschreibung mit Rechnung in den JSON-Dateien).\n\n")
     f.write(f"**{sum(1 for z in ZEILEN if z[3])} Aufgaben mit Regel, {sum(1 for z in ZEILEN if not z[3])} ohne.**\n\n## Verteilung\n\n| Regel | Name | Aufgaben |\n|---|---|---|\n")
     for r_, n_ in sorted(Counter(z[3] for z in ZEILEN).items(), key=lambda x: (x[0] is None, -x[1], str(x[0]))):
         f.write(f"| {'`' + r_ + '`' if r_ else '– (ohne Regel)'} | {REGELN[r_]['name'] if r_ else ''} | {n_} |\n")
+    f.write("\n## Hinweis zur Themenliste des Katalogs\n\nDiese Regeln der Lernkarten stehen im Katalog nicht mit der Einheit in der Themenliste: " + "; ".join(f"`{r_}` ({t_}.{l_})" for t_, l_, r_ in sorted(REGEL_AUSSER_LISTE)) + ". Sie wurden trotzdem vergeben, weil die Lernkarte sie so führt (Vorgabe der Prüfung); die Themenliste des Katalogs könnte um `zahlen.rechengesetze` ergänzt werden.\n")
     f.write("\n## Aufgaben ohne Regel (mit Begründung)\n\n| Aufgabe | Einheit.Lernziel | Begründung |\n|---|---|---|\n")
     for z in ZEILEN:
         if not z[3]:

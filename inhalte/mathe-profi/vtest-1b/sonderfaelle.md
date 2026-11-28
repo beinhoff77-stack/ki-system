@@ -23,20 +23,22 @@ Kurzvermerk je Aufgabe mit Antwortform auswahl: Platz der richtigen Möglichkeit
 | VT1B-059 | terme.potenzgesetze / fehler_finden | korrektur | 2 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
 | VT1B-061 | terme.potenzgesetze / fehler_finden | sicherung | 2 | Fehler-Detektiv: Möglichkeiten nach Zeilennummer geordnet (Platz = Fehlerzeile), jede nennt Zeile und Begründung. |
 | VT1B-062 | terme.potenzgesetze / fehler_finden | sicherung | 4 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-066 | zahlen.potenzen_zehner / gross_wissenschaftlich | korrektur | 1 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-069 | zahlen.potenzen_zehner / gross_wissenschaftlich | sicherung | 3 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-071 | zahlen.potenzen_zehner / negativer_exponent | test | 4 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-077 | zahlen.potenzen_zehner / negativer_exponent | sicherung | 2 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-078 | zahlen.potenzen_zehner / vorsilben_klein | test | 1 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-084 | zahlen.potenzen_zehner / vorsilben_klein | sicherung | 3 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-085 | zahlen.potenzen_zehner / vergleichen_pruefen | test | 3 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-091 | zahlen.potenzen_zehner / vergleichen_pruefen | sicherung | 1 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-092 | messen.flaechen_vielecke / dreieck | test | 4 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-095 | messen.flaechen_vielecke / dreieck | korrektur | 2 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-098 | messen.flaechen_vielecke / dreieck | sicherung | 2 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-099 | messen.flaechen_vielecke / rueckwaerts | test | 4 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-102 | messen.flaechen_vielecke / rueckwaerts | korrektur | 1 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-106 | messen.flaechen_vielecke / zusammengesetzt | test | 3 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-109 | messen.flaechen_vielecke / zusammengesetzt | korrektur | 4 | Verneinte Frage (falsche Rechnung gesucht): drei Rechnungen sind richtig (zwei Zerlegungen, ein Ergänzen), eine ist falsch; im Text steht „falsch“. |
-| VT1B-113 | messen.flaechen_vielecke / verstehen | test | 2 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-115 | messen.flaechen_vielecke / verstehen | korrektur | 1 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-065 | zahlen.potenzen_zehner / gross_wissenschaftlich | korrektur | 1 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-067 | zahlen.potenzen_zehner / gross_wissenschaftlich | korrektur | 3 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-069 | zahlen.potenzen_zehner / gross_wissenschaftlich | sicherung | 4 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-076 | zahlen.potenzen_zehner / negativer_exponent | sicherung | 2 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-077 | zahlen.potenzen_zehner / negativer_exponent | sicherung | 1 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-079 | zahlen.potenzen_zehner / vorsilben_klein | korrektur | 3 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-083 | zahlen.potenzen_zehner / vorsilben_klein | sicherung | 3 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-084 | zahlen.potenzen_zehner / vorsilben_klein | sicherung | 1 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-087 | zahlen.potenzen_zehner / vergleichen_pruefen | korrektur | 4 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-091 | zahlen.potenzen_zehner / vergleichen_pruefen | sicherung | 2 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-092 | messen.flaechen_vielecke / dreieck | test | 2 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-095 | messen.flaechen_vielecke / dreieck | korrektur | 4 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-098 | messen.flaechen_vielecke / dreieck | sicherung | 1 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-099 | messen.flaechen_vielecke / rueckwaerts | test | 3 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-102 | messen.flaechen_vielecke / rueckwaerts | korrektur | 4 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-106 | messen.flaechen_vielecke / zusammengesetzt | test | 2 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-109 | messen.flaechen_vielecke / zusammengesetzt | korrektur | 1 | Verneinte Frage (falsche Rechnung gesucht): drei Rechnungen sind richtig (zwei Zerlegungen, ein Ergänzen), eine ist falsch; im Text steht „falsch“. |
+| VT1B-113 | messen.flaechen_vielecke / verstehen | test | 3 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-115 | messen.flaechen_vielecke / verstehen | korrektur | 3 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |

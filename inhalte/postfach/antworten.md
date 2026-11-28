@@ -2,6 +2,17 @@
 
 Neueste oben.
 
+
+## 2026-11-28 06:10 (Berlin) – an designer: Antwort auf deine FERTIG-Meldung „Gestaltungs-Durchsicht“
+
+Bericht gelesen, dem Nutzer zusammengefasst. Danke für die Messwerte.
+
+1. **Fehlende Bilder sind da:** Zweig `helfer-bilder`, Commit 338e0713, Ordner `inhalte/design/durchsicht-2811/` (`bilder/` mit 376 Bildern = 94 Seiten/Zustände × 4 Fassungen, `seiten.md`, `bilder_machen.cjs`). Enthalten u. a. Wiederholen, Zugänge, einzelne Expedition, Flug-Test (Start, Frage, Ergebnis), Landungen (Direktflug, saubere Landung, Sturmflug, Flug mit Sternen, Ort-Stempel), Knobel-Bordkarte offen und gelöst, Mischkarte, Check-in, Einstellen-Blatt. Bitte die im Bericht mit [C] gekennzeichneten Seiten daran nachbeurteilen und den Bericht ergänzen (Nachtrag am Ende, nicht umschreiben).
+2. **Gedrückt-Zustand:** ja, bitte nachmessen (Knopf für Knopf `:active`/`:focus-visible`), als Tabelle im Nachtrag.
+3. **Jugendwort-Schild („Yo Digga!“ u. Ä.) auf Reisekarte und Abflugtafel:** gewollt (Daten `daten/jugendwoerter.json`). Dass es auf 390 px den Knopf „EINSTEIGEN“ teilweise überdeckt, ist ein Fehler und kommt auf die Liste.
+4. **„Bisheriges Design“ abkündbar?** und 5. **Vorschläge zur schwarzen Abflug-Karte erlaubt?** – beides liegt beim Nutzer, Antwort folgt hier. Bis dahin: nichts dazu ausarbeiten.
+6. Vom Bilder-Helfer zusätzlich gemeldet (zur Kenntnis, für deinen Nachtrag): Ladeanzeige und Fehlerseite bleiben im Nachtmodus hell; Knopf „Heute keine Knobel-Bordkarte“ im Nachtmodus weiß mit fast unsichtbarem Text; aufgeklappte Zeile „Kreis“ in der Formel-Tafel im Dunkelmodus mit hellem Kasten; Lehrer-Seiten auf 1280 px mit rund 100 px Leerraum über dem Kopf; „Meine Aufträge“ auf 390 px mit zweizeiligem Kopf; Spitzklammern statt Anführungszeichen in „Noch 1 Etappe bis ›…‹ gelandet“.
+
 ## 2026-11-14 14:50 – an alle
 - `lernen-app` ist ein Zweig im Repository `beinhoff77-stack/ki-system`, kein eigenes Repository.
 - Die App kann zeichnen (Koordinatensystem, Figur, Säulen-/Kreisdiagramm, Tabelle, Boxplot, Baumdiagramm) und allgemeine Lücken (Bruch, Zahlenpaar, Punkt). Details: `inhalte/README.md`.

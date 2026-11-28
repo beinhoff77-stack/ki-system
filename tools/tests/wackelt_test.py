@@ -42,7 +42,9 @@ def ww3_probe(pg, probe, mit_fehlbild, stand_vorher):
     assert ot['weg'] == 'vorübergehend ohne Thema' and ot['neue_fehler'] == 300 and ot['jenseits_300'] is True, ot
     assert ot['offen_ohne_thema'] >= 2 and ot['offen_ohne_thema_danach'] >= 2 and ot['offen_zahl_danach'] >= ot['offen_zahl'] + 300, ot
     bs = b['besprochen_beispiel']
-    assert bs['tage'] == 2 and bs['neu_seit'] >= 1 and isinstance(bs['zuletzt'], str), bs
+    assert bs['tage'] == 2 and bs['neu_seit'] >= 1 and bs['fehler'] == 2 and isinstance(bs['zuletzt'], str) and len(bs['zuletzt_tag']) == 10, bs
+    zz = b['zeitzone']   # Kind in Pacific/Auckland, markiert 00:05 Ortszeit: zuletzt_tag = Ortstag (ein Tag nach dem UTC-Tag)
+    assert zz['zuletzt_tag'] != zz['utc_tag'] and zz['zuletzt_tag'] > zz['utc_tag'] and 'hinweis_zeitzone' not in b, zz
     for lauf in ('mit_markierung', 'ohne_markierung'):
         assert b['karte_markierung_ohne_wirkung'][lauf] == {'nach_1_fehler': {'sitzt': True, 'wdh_fehler': 1}, 'nach_2_fehler': {'sitzt': False, 'geoeffnet': True, 'wdh_fehler': 0}}, b
     assert 'laufzeit_ms_testkind' in b and 'laufzeit_ms_300' in ot, b
@@ -113,7 +115,8 @@ insert into schule.lern_sitzung (token_hash, login_id, laeuft_ab) select 't' || 
         a = json.loads(tq(f"select api.schule_wackelt_analyse({kid(3)}, '{{\"lernender_id\": 1, \"tage\": 0, \"erledigt\": true}}');"))
         e = next(x for x in a['erledigt'] if x['versuch_id'] == int(v))
         assert a['stand'] == 3 and e['erledigt']['id'] == mid and isinstance(e['mit_tipp'], bool) and 'tag' in e['erledigt'], e
-        assert any('besprochen' in t for t in a['auswertung']['themen']), a['auswertung']['themen']
+        bt = [t['besprochen'] for t in a['auswertung']['themen'] if 'besprochen' in t]
+        assert len(bt) == 1 and bt[0]['fehler'] == 1 and bt[0]['tage'] == 1 and bt[0]['zuletzt_tag'] == e['erledigt']['tag'], bt
         pg.sql(f"select api.schule_fehler_abhaken({kid(1)}, '{{\"lernender_id\": 1, \"markierung_ids\": [{mid}], \"zurueck\": true}}');", erwartet_fehler='Nur Eltern/Lehrer')
         pg.sql(f"select api.schule_fehler_abhaken({kid(3)}, '{{\"lernender_id\": 1, \"markierung_ids\": [{mid}]}}');", erwartet_fehler='markierung_ids nur mit zurueck')
         r = json.loads(tq(f"select api.schule_fehler_abhaken({kid(4)}, '{{\"lernender_id\": 1, \"markierung_ids\": [{mid}], \"zurueck\": true}}');"))

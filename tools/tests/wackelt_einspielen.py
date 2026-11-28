@@ -376,7 +376,8 @@ create function pg_temp.ww3_thema(r jsonb, p_th bigint) returns jsonb language s
   select t from jsonb_array_elements(r->'auswertung'->'themen') t where (t->>'thema_id')::bigint is not distinct from p_th limit 1 $f$;
 create function pg_temp.ww3_summe_ok(r jsonb) returns boolean language sql immutable as $f$
   select coalesce(sum((t->>'offen')::bigint), 0) = (r->>'offen_zahl')::bigint from jsonb_array_elements(r->'auswertung'->'themen') t $f$;
--- feste Typen: stand Zahl 3; je Eintrag mit_tipp Boolean, danach_richtig Boolean oder fehlt, erledigt.id Zahl; besprochen mit Zahlen und Zeitpunkt
+-- feste Typen: stand Zahl 3; je Eintrag mit_tipp Boolean, danach_richtig Boolean oder fehlt, erledigt.id Zahl;
+-- besprochen: zuletzt Text, zuletzt_tag JJJJ-MM-TT (Pflicht), tage >= 1, fehler >= 1, neu_seit >= 0 (Zahlen)
 create function pg_temp.ww3_typen(r jsonb) returns text language sql immutable as $f$
   select coalesce(
     case when jsonb_typeof(r->'stand') is distinct from 'number' or r->>'stand' <> '3' then 'stand: ' || coalesce(r->>'stand', 'fehlt') end,
@@ -387,11 +388,15 @@ create function pg_temp.ww3_typen(r jsonb) returns text language sql immutable a
          or (e ? 'erledigt' and jsonb_typeof(e->'erledigt'->'id') is distinct from 'number') limit 1),
     (select 'thema ' || coalesce(t->>'thema_id', 'ohne') || ': besprochen ' || (t->'besprochen')::text from jsonb_array_elements(r->'auswertung'->'themen') t
       where t ? 'besprochen' and (jsonb_typeof(t->'besprochen'->'tage') is distinct from 'number' or jsonb_typeof(t->'besprochen'->'neu_seit') is distinct from 'number'
-                                  or jsonb_typeof(t->'besprochen'->'zuletzt') is distinct from 'string') limit 1)) $f$;
+                                  or jsonb_typeof(t->'besprochen'->'fehler') is distinct from 'number' or jsonb_typeof(t->'besprochen'->'zuletzt') is distinct from 'string'
+                                  or coalesce(t->'besprochen'->>'zuletzt_tag', '') !~ '^\d{4}-\d{2}-\d{2}$'
+                                  or (t->'besprochen'->>'tage')::numeric < 1 or (t->'besprochen'->>'fehler')::numeric < 1 or (t->'besprochen'->>'neu_seit')::numeric < 0) limit 1)) $f$;
 -- unabhängige Nachrechnung von themen[].besprochen (direkt aus den Tabellen, nicht aus der Analyse)
 create function pg_temp.ww3_bespr(p_k bigint, p_th bigint) returns jsonb language sql stable as $f$
   select case when count(*) > 0 then jsonb_build_object('zuletzt', max(fe.am),
+           'zuletzt_tag', (max(fe.am) at time zone coalesce((select l.zeitzone from schule.lernender l where l.id = p_k), 'Europe/Berlin'))::date,
            'tage', count(distinct (fe.am at time zone coalesce((select l.zeitzone from schule.lernender l where l.id = p_k), 'Europe/Berlin'))::date),
+           'fehler', count(*),
            'neu_seit', (select count(*) from schule.versuch x join schule.aufgabe a2 on a2.id = x.aufgabe_id join schule.einheit e2 on e2.id = a2.einheit_id
                          where x.lernender_id = p_k and e2.thema_id is not distinct from p_th and not x.richtig and schule.fehler_endgueltig_am(x) is not null
                            and x.am > max(fe.am)
@@ -481,7 +486,7 @@ begin
     update schule.fehler_erledigt set am = now() - interval '1 hour' where id = m2;
     r := schule.wackelt_analyse(k, 0, false);
     q := pg_temp.ww3_thema(r, v_th);
-    if q->'besprochen' is null or (q->'besprochen'->>'tage')::int < 2 or (q->'besprochen'->>'neu_seit')::int < 1 then {{F:'besprochen fehlt oder falsch: ' || coalesce(q::text, '-'):F}} end if;
+    if q->'besprochen' is null or (q->'besprochen'->>'tage')::int < 2 or (q->'besprochen'->>'neu_seit')::int < 1 or (q->'besprochen'->>'fehler')::int < 2 then {{F:'besprochen fehlt oder falsch: ' || coalesce(q::text, '-'):F}} end if;
     x := pg_temp.ww3_bespr_ok(k, r); if x is not null then {{F:'besprochen weicht von der Nachrechnung ab: ' || x:F}} end if;
     bericht := bericht || jsonb_build_object('besprochen_beispiel', q->'besprochen');
     -- Zurückholen über markierung_ids
@@ -529,6 +534,34 @@ begin
     raise exception using errcode = 'WW999', message = 'zurueck';
   exception when sqlstate 'WW999' then null;
     when others then {{F:'Hauptfall: ' || sqlerrm:F}}
+  end;
+
+  -- 2b. Zeitzone: Kind in Pacific/Auckland (nur in dieser Untertransaktion), Markierung um 00:05 Ortszeit (in UTC noch der Vortag) ->
+  --     besprochen.zuletzt_tag und erledigt.tag sind der Ortstag, nicht der UTC-Tag
+  begin
+    update schule.lernender set zeitzone = 'Pacific/Auckland' where id = k;
+    perform pg_temp.ww3_ant(k, a1.id, '987654', 'ww3-tz');
+    select id into v1 from schule.versuch where lernender_id = k and client_id = 'ww3-tz';
+    r := schule.fehler_abhaken(k, jsonb_build_array(v1), false, 'probe');
+    mid := (pg_temp.ww3_arr(r->'markierung_ids'))[1];
+    t0 := (date_trunc('day', now() at time zone 'Pacific/Auckland') + interval '5 minutes') at time zone 'Pacific/Auckland';   -- heute 00:05 Ortszeit
+    update schule.fehler_erledigt set am = t0 where id = mid;
+    if (t0 at time zone 'UTC')::date = (t0 at time zone 'Pacific/Auckland')::date then {{F:'Zeitzone: Prüffall trennt Ortstag und UTC-Tag nicht':F}} end if;
+    r := schule.wackelt_analyse(k, 0, true);
+    q := pg_temp.ww3_thema(r, v_th);
+    if (q->'besprochen'->>'zuletzt')::timestamptz = t0 and q->'besprochen'->>'zuletzt_tag' is distinct from ((t0 at time zone 'Pacific/Auckland')::date)::text then
+      {{F:'Zeitzone: zuletzt_tag ' || coalesce(q->'besprochen'->>'zuletzt_tag', 'fehlt') || ' statt Ortstag ' || (t0 at time zone 'Pacific/Auckland')::date:F}} end if;
+    if (q->'besprochen'->>'zuletzt')::timestamptz is distinct from t0 then
+      bericht := bericht || jsonb_build_object('hinweis_zeitzone', 'eine spätere Markierung im Thema – zuletzt_tag nur gegen die Nachrechnung geprüft'); end if;
+    if pg_temp.ww3_eintrag(r, 'erledigt', v1)->'erledigt'->>'tag' is distinct from ((t0 at time zone 'Pacific/Auckland')::date)::text then
+      {{F:'Zeitzone: erledigt.tag ist nicht der Ortstag':F}} end if;
+    x := pg_temp.ww3_bespr_ok(k, r); if x is not null then {{F:'Zeitzone: besprochen weicht von der Nachrechnung ab: ' || x:F}} end if;
+    x := pg_temp.ww3_typen(r); if x is not null then {{F:'Zeitzone, Typen: ' || x:F}} end if;
+    bericht := bericht || jsonb_build_object('zeitzone', jsonb_build_object('zone', 'Pacific/Auckland', 'markiert_utc', (t0 at time zone 'UTC')::text,
+                 'zuletzt_tag', q->'besprochen'->'zuletzt_tag', 'utc_tag', (t0 at time zone 'UTC')::date));
+    raise exception using errcode = 'WW999', message = 'zurueck';
+  exception when sqlstate 'WW999' then null;
+    when others then {{F:'Zeitzone: ' || sqlerrm:F}}
   end;
 
   -- 3. Ohne Thema: zwei offene Fehler, dann 300 neuere – das Thema „ohne“ wird immer gezählt

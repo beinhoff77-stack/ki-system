@@ -64,7 +64,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "immer_nie|ein Winkel ist 90°"
   },
   {
    "kennung": "VT3-100",
@@ -84,39 +85,40 @@
     "s": 2,
     "y": "zahl",
     "f": {
-     "text": "Zwei Geraden schneiden sich. Der Unterschied zwischen einem Winkel und seinem Nachbarwinkel beträgt 70°. Wie groß ist der kleinere der beiden Winkel?"
+     "text": "Zwei Geraden schneiden sich. Ein Winkel ist halb so groß wie sein Nachbarwinkel. Wie groß ist der Winkel, der dem größeren dieser beiden Winkel gegenüberliegt?"
     },
-    "w": "Nachbarwinkel sind zusammen 180°. Der größere ist 70° größer als der kleinere: 2 · kleiner + 70° = 180°, also kleiner = 110° : 2 = 55° (größer 125°).",
+    "w": "Winkel und Nachbarwinkel sind zusammen 180°. Der kleine Winkel ist ein Teil, der große sind zwei Teile: 180° : 3 = 60° und 2 · 60° = 120°. Der gegenüberliegende Scheitelwinkel ist genauso groß wie der größere Winkel, also 120°.",
     "o": {
-     "wert": 55,
+     "wert": 120,
      "einheit": "°"
     }
    },
    "regel": "id.geometrie.winkel",
-   "loesung_rechnung": "(180 − 70) : 2",
+   "loesung_rechnung": "180 : 3 · 2",
    "fehlbilder": [
     {
-     "antwort": 110,
-     "rechnung": "180 − 70",
-     "beschreibung": "den Unterschied vom gestreckten Winkel abgezogen: das ist der doppelte kleinere Winkel",
+     "antwort": 60,
+     "rechnung": "180 : 3",
+     "beschreibung": "den kleineren der beiden Winkel angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 125,
-     "rechnung": "(180 + 70) : 2",
-     "beschreibung": "den größeren Winkel angegeben",
+     "antwort": 90,
+     "rechnung": "180 : 2",
+     "beschreibung": "Winkel und Nachbarwinkel als gleich groß angenommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 35,
-     "rechnung": "70 : 2",
-     "beschreibung": "nur den Unterschied halbiert",
+     "antwort": 240,
+     "rechnung": "120 · 2",
+     "beschreibung": "den Scheitelwinkel noch einmal verdoppelt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "umkehr|Nachbarwinkel im Verhältnis 1 : 2"
   },
   {
    "kennung": "VT3-101",
@@ -170,7 +172,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "fehler|Fehler-Detektiv: Scheitelwinkel"
   },
   {
    "kennung": "VT3-102",
@@ -232,7 +235,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "umkehr|vier Winkel aus Teilsumme"
   },
   {
    "kennung": "VT3-103",
@@ -288,7 +292,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "immer_nie|welche Aussage über Kreuzungswinkel gilt immer"
   },
   {
    "kennung": "VT3-104",
@@ -340,7 +345,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "transfer|drei Geraden durch einen Punkt"
   },
   {
    "kennung": "VT3-105",
@@ -396,7 +402,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "darstellung|Winkelfolgen um den Schnittpunkt"
   },
   {
    "kennung": "VT3-106",
@@ -442,19 +449,20 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "umkehr|andere Uhrzeit mit gleichem Winkel"
   },
   {
    "kennung": "VT3-107",
    "thema": "geometrie.winkel",
    "lernkarte": "uhr",
    "pool": "korrektur",
-   "typ": "umkehr",
-   "form": "umkehren",
+   "typ": "transfer",
+   "form": "anwenden",
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M5 2",
-   "abgrenzung": "Die Übungen berechnen den Winkel zu einer gegebenen Uhrzeit oder die Drehung eines Zeigers. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "abgrenzung": "Die Übungen berechnen den Winkel zu einer gegebenen Uhrzeit oder die Drehung eines Zeigers. Diese Aufgabe: Transfer auf eine neue Situation.",
    "aufgabe": {
     "l": "uhr",
     "t": "uhr",
@@ -462,32 +470,40 @@
     "s": 2,
     "y": "zahl",
     "f": {
-     "text": "Der Stundenzeiger hat sich seit 6:00 Uhr um 12,5° gedreht. Wie viele Minuten nach 6:00 Uhr ist es?"
+     "text": "Der Minutenzeiger einer Uhr dreht sich um 180°. Um wie viel Grad dreht sich in derselben Zeit der Stundenzeiger?"
     },
-    "w": "Der Stundenzeiger dreht sich in 60 Minuten um 30°, also 0,5° je Minute. 12,5° : 0,5° = 25 Minuten. Es ist 6:25 Uhr.",
+    "w": "Während der Minutenzeiger einmal ganz herumläuft (360°), rückt der Stundenzeiger nur um ein Zwölftel, also 30°. Er dreht sich immer zwölfmal langsamer. Für 180° beim Minutenzeiger sind es 180° : 12 = 15° (30 Minuten mit je 0,5°).",
     "o": {
-     "wert": 25,
-     "einheit": "min"
+     "wert": 15,
+     "einheit": "°"
     }
    },
    "regel": "id.geometrie.winkel",
-   "loesung_rechnung": "12,5 : 0,5",
+   "loesung_rechnung": "180 : 12",
    "fehlbilder": [
     {
-     "antwort": 75,
-     "rechnung": "12,5 · 6",
-     "beschreibung": "mit 6° pro Minute (Minutenzeiger) malgenommen",
+     "antwort": 90,
+     "rechnung": "180 : 2",
+     "beschreibung": "den Stundenzeiger nur halb so schnell wie den Minutenzeiger gerechnet",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 6.25,
-     "rechnung": "12,5 : 2",
-     "beschreibung": "durch 2 statt durch 0,5° pro Minute geteilt",
+     "antwort": 30,
+     "rechnung": "180 : 6",
+     "beschreibung": "die Minutenzahl 30 statt der Drehung des Stundenzeigers angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 2160,
+     "rechnung": "180 · 12",
+     "beschreibung": "den Stundenzeiger zwölfmal so schnell gerechnet",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "zusammenhang|Drehung von Minuten- und Stundenzeiger"
   },
   {
    "kennung": "VT3-108",
@@ -541,7 +557,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "fehler|Fehler-Detektiv: Winkel um 4:30 Uhr"
   },
   {
    "kennung": "VT3-109",
@@ -597,7 +614,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "begruenden|gleicher Winkel um 9:00, 3:00 und 9:15 Uhr"
   },
   {
    "kennung": "VT3-110",
@@ -648,7 +666,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "transfer|wie oft stehen die Zeiger senkrecht"
   },
   {
    "kennung": "VT3-111",
@@ -704,7 +723,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "groessenvergleich|kleinster Zeigerwinkel"
   },
   {
    "kennung": "VT3-112",
@@ -749,7 +769,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "transfer|Uhr geht vor"
   },
   {
    "kennung": "VT3-113",
@@ -804,7 +825,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "fehler|Fehler-Detektiv: Teilwinkel im Rechteck"
   },
   {
    "kennung": "VT3-114",
@@ -860,59 +882,79 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "fehler|Fehler-Detektiv: Teile im Verhältnis 1 : 3"
   },
   {
    "kennung": "VT3-115",
    "thema": "geometrie.winkel",
    "lernkarte": "figuren",
    "pool": "korrektur",
-   "typ": "parameter",
-   "form": null,
+   "typ": "transfer",
+   "form": "anwenden",
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M5 2",
-   "abgrenzung": "Die Übungen berechnen einen Teilwinkel im Rechteck oder Quadrat. Diese Aufgabe: Was-wäre-wenn.",
+   "abgrenzung": "Die Übungen berechnen einen Teilwinkel im Rechteck oder Quadrat. Diese Aufgabe: Transfer auf eine neue Situation.",
    "aufgabe": {
     "l": "figuren",
     "t": "figuren",
     "p": "korrektur",
     "s": 2,
-    "y": "zahl",
+    "y": "luecken",
     "f": {
-     "text": "Ein Fächer lässt sich bis zu einem Winkel von 150° öffnen und hat 10 gleich breite Blätter nebeneinander. Wie groß ist der Winkel, den 4 nebeneinanderliegende Blätter zusammen einnehmen?"
+     "text": "Eine runde Torte wird mit 5 geraden Schnitten, die alle durch den Mittelpunkt gehen, in 10 gleich große Stücke geteilt. Wie groß ist der Winkel eines Stücks, und wie groß ist der Winkel, den drei nebeneinanderliegende Stücke zusammen einnehmen?",
+     "schablone": "ein Stück □°, drei Stücke □°",
+     "hinweis": "Je Feld eine ganze Zahl."
     },
-    "w": "Ein Blatt hat 150° : 10 = 15°. Vier Blätter: 4 · 15° = 60°.",
+    "w": "5 Schnitte durch den Mittelpunkt geben 10 Stücke. Der volle Kreis hat 360°, also hat jedes Stück 360° : 10 = 36°. Drei Stücke nehmen 3 · 36° = 108° ein.",
     "o": {
-     "wert": 60,
-     "einheit": "°"
+     "werte": [
+      36,
+      108
+     ]
     }
    },
    "regel": "id.geometrie.winkel",
-   "loesung_rechnung": "150 : 10 · 4",
+   "loesung_rechnung": [
+    "360 : 10",
+    "360 : 10 · 3"
+   ],
    "fehlbilder": [
     {
-     "antwort": 600,
-     "rechnung": "150 · 4",
-     "beschreibung": "150° mit 4 malgenommen",
+     "luecke": 1,
+     "antwort": 72,
+     "rechnung": "360 : 5",
+     "beschreibung": "durch die Zahl der Schnitte (5) statt durch die Zahl der Stücke (10) geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 37.5,
-     "rechnung": "150 : 4",
-     "beschreibung": "durch 4 geteilt statt durch 10 und mit 4 malgenommen",
+     "luecke": 1,
+     "antwort": 18,
+     "rechnung": "180 : 10",
+     "beschreibung": "nur 180° statt des vollen Kreises von 360° verteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 15,
-     "rechnung": "150 : 10",
-     "beschreibung": "nur den Winkel eines Blattes angegeben",
+     "luecke": 2,
+     "antwort": 216,
+     "rechnung": "72 · 3",
+     "beschreibung": "mit dem falschen Stückwinkel 72° weitergerechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 36,
+     "rechnung": "360 : 10",
+     "beschreibung": "nur den Winkel eines Stücks angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "transfer|Torte, Schnitte und Winkel"
   },
   {
    "kennung": "VT3-116",
@@ -968,7 +1010,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "begruenden|Diagonale im Rechteck"
   },
   {
    "kennung": "VT3-117",
@@ -1012,63 +1055,65 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "umkehr|Teilwinkel, die jeweils größer werden"
   },
   {
    "kennung": "VT3-118",
    "thema": "geometrie.winkel",
    "lernkarte": "figuren",
    "pool": "sicherung",
-   "typ": "fehler",
-   "form": "fehler_detektiv",
-   "stufe": 2,
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M5 2",
-   "abgrenzung": "Die Übungen berechnen einen Teilwinkel im Rechteck oder Quadrat. Diese Aufgabe: Fehler-Detektiv (Zeile finden und richtigstellen).",
+   "abgrenzung": "Die Übungen berechnen einen Teilwinkel im Rechteck oder Quadrat. Diese Aufgabe: Begründung wählen.",
    "aufgabe": {
     "l": "figuren",
     "t": "figuren",
     "p": "sicherung",
-    "s": 2,
+    "s": 3,
     "y": "auswahl",
     "f": {
-     "text": "Im Quadrat ABCD wird die Diagonale [AC] gezeichnet. Sophie rechnet. Zeile 1: Ein Quadrat hat vier rechte Winkel. Zeile 2: Die Diagonale [AC] teilt den Winkel bei A in zwei gleich große Teile. Zeile 3: Jeder Teil ist 90° : 2 = 45°. Zeile 4: Bei C ist der Teil zwischen [CA] und [CD] gleich 90° − 45° = 135°. Wo steckt der erste Fehler?"
+     "text": "Ein rechter Winkel wird lückenlos in drei Teilwinkel zerlegt. Welche Aussage gilt für jede solche Zerlegung?"
     },
-    "w": "Zeilen 1 bis 3 stimmen. In Zeile 4 ist die Rechnung 90° − 45° = 45°; das Ergebnis 135° ist falsch (ein Teil im Eckwinkel kann nicht größer als 90° sein).",
+    "w": "Wären alle drei Teilwinkel größer als 30°, so wäre ihre Summe größer als 90°. Das geht nicht bei einem rechten Winkel. Also ist mindestens ein Teilwinkel höchstens 30° groß. Die anderen Aussagen scheitern an Gegenbeispielen.",
     "a": [
-     "In Zeile 1, weil ein Quadrat nur zwei rechte Winkel hat.",
-     "In Zeile 2, weil die Diagonale den Winkel nicht halbiert.",
-     "In Zeile 3, weil die Hälfte von 90° gleich 60° ist.",
-     "In Zeile 4, weil 90° − 45° gleich 45° ist, nicht 135°."
+     "Jeder Teilwinkel ist mindestens 20° groß.",
+     "Mindestens ein Teilwinkel ist größer als 30°.",
+     "Mindestens ein Teilwinkel ist höchstens 30° groß.",
+     "Die drei Teilwinkel sind paarweise verschieden groß."
     ],
     "o": {
-     "index": 3
+     "index": 2
     }
    },
    "regel": "id.geometrie.winkel",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "In Zeile 1, weil ein Quadrat nur zwei rechte Winkel hat.",
-     "beschreibung": "die Zahl der rechten Winkel im Quadrat falsch angegeben",
+     "antwort": "Jeder Teilwinkel ist mindestens 20° groß.",
+     "beschreibung": "an gleichmäßige Teile gedacht; 10°, 10° und 70° ist ein Gegenbeispiel",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 1,
-     "antwort": "In Zeile 2, weil die Diagonale den Winkel nicht halbiert.",
-     "beschreibung": "geleugnet, dass die Diagonale im Quadrat halbiert",
+     "antwort": "Mindestens ein Teilwinkel ist größer als 30°.",
+     "beschreibung": "30°, 30° und 30° ist ein Gegenbeispiel: Kein Teilwinkel ist größer als 30°",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
-     "antwort": "In Zeile 3, weil die Hälfte von 90° gleich 60° ist.",
-     "beschreibung": "die Hälfte von 90° falsch bestimmt",
+     "index": 3,
+     "antwort": "Die drei Teilwinkel sind paarweise verschieden groß.",
+     "beschreibung": "30°, 30° und 30° ist ein Gegenbeispiel: alle drei sind gleich groß",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "immer_nie|Zerlegung eines rechten Winkels"
   },
   {
    "kennung": "VT3-119",
@@ -1138,7 +1183,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "umkehr|Teile eines rechten Winkels"
   },
   {
    "kennung": "VT3-120",
@@ -1195,7 +1241,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "immer_nie|spitzer und stumpfer Winkel nebeneinander"
   },
   {
    "kennung": "VT3-121",
@@ -1251,19 +1298,20 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "begruenden|Geodreieck und Augenmaß"
   },
   {
    "kennung": "VT3-122",
    "thema": "geometrie.winkel",
    "lernkarte": "verstehen",
    "pool": "korrektur",
-   "typ": "umkehr",
-   "form": "umkehren",
+   "typ": "parameter",
+   "form": null,
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M5 2",
-   "abgrenzung": "Die Übungen prüfen Aussagen über Winkelarten und Winkelsummen mit festen Zahlen. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "abgrenzung": "Die Übungen prüfen Aussagen über Winkelarten und Winkelsummen mit festen Zahlen. Diese Aufgabe: Was-wäre-wenn.",
    "aufgabe": {
     "l": "verstehen",
     "t": "verstehen",
@@ -1271,39 +1319,40 @@
     "s": 2,
     "y": "zahl",
     "f": {
-     "text": "Verdoppelt man einen Winkel und addiert dann 40°, erhält man einen rechten Winkel. Wie groß ist der Winkel?"
+     "text": "Ein Winkel α wird verdoppelt. Dadurch wird sein Nebenwinkel um 30° kleiner. Wie groß war α vor dem Verdoppeln?"
     },
-    "w": "Rückwärts: Der rechte Winkel hat 90°. Davor wurden 40° addiert: 90° − 40° = 50°. Davor wurde verdoppelt: 50° : 2 = 25°. Probe: 2 · 25° + 40° = 90°.",
+    "w": "Ist α der alte Winkel, so ist der alte Nebenwinkel 180° − α und der neue 180° − 2α. Der Nebenwinkel wird also um α kleiner. Das ist 30°, also war α = 30°. Probe: Nebenwinkel vorher 150°, nachher 120°.",
     "o": {
-     "wert": 25,
+     "wert": 30,
      "einheit": "°"
     }
    },
    "regel": "id.geometrie.winkel",
-   "loesung_rechnung": "(90 − 40) : 2",
+   "loesung_rechnung": "(180 − 30) − (180 − 2 · 30)",
    "fehlbilder": [
     {
-     "antwort": 50,
-     "rechnung": "90 − 40",
-     "beschreibung": "nur die 40° abgezogen, nicht halbiert",
+     "antwort": 15,
+     "rechnung": "30 : 2",
+     "beschreibung": "die Verkleinerung des Nebenwinkels halbiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 65,
-     "rechnung": "(90 + 40) : 2",
-     "beschreibung": "die 40° addiert statt abgezogen",
+     "antwort": 60,
+     "rechnung": "30 · 2",
+     "beschreibung": "den verdoppelten Winkel statt des ursprünglichen angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 130,
-     "rechnung": "90 + 40",
-     "beschreibung": "die 40° addiert und nicht halbiert",
+     "antwort": 150,
+     "rechnung": "180 − 30",
+     "beschreibung": "den Nebenwinkel von α angegeben statt α",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "was_waere_wenn|Winkel verdoppelt, Nebenwinkel schrumpft"
   },
   {
    "kennung": "VT3-123",
@@ -1357,7 +1406,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "fehler|Fehler-Detektiv: drei gleiche Winkel um einen Punkt"
   },
   {
    "kennung": "VT3-124",
@@ -1413,7 +1463,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "immer_nie|Nebenwinkel eines spitzen Winkels"
   },
   {
    "kennung": "VT3-125",
@@ -1469,7 +1520,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "begruenden|Schenkellänge und Winkelgröße"
   },
   {
    "kennung": "VT3-126",
@@ -1539,7 +1591,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "umkehr|zwei Winkel, Summe und Unterschied"
   }
  ]
 }

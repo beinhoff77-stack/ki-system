@@ -74,12 +74,12 @@ B.luecken("saeulendiagramm", "korrektur", 2, "fehler", "fehler_detektiv",
            (2, 1, "7 − 6", "Höhe und Maßstab subtrahiert")],
           "Zeile 3 ist falsch: Jeder der 7 cm steht für 6 Stimmen, also 7 · 6 = 42 Stimmen.")
 B.zahl("saeulendiagramm", "korrektur", 2, "umkehr", "umkehren",
-       "In einem Säulendiagramm (Hochachse beginnt bei 0) ist die höchste Säule 9 cm hoch und steht für 36 Kinder. Eine andere Säule ist 2,5 cm hoch. Für wie viele Kinder steht sie?",
-       10, "36 : 9 · 2,5",
-       [(22.5, "9 · 2,5", "die beiden Höhen multipliziert"),
-        (90, "36 · 2,5", "36 mit 2,5 malgenommen"),
-        (14.4, "36 : 2,5", "36 durch 2,5 geteilt")],
-       "9 cm stehen für 36 Kinder, also steht 1 cm für 36 : 9 = 4 Kinder. 2,5 cm stehen für 2,5 · 4 = 10 Kinder.")
+       "In einem Säulendiagramm (Hochachse beginnt bei 0) ist die Säule für „Rad“ 5 cm hoch und die Säule für „Bus“ 2 cm hoch. Es fahren 18 Kinder mehr mit dem Rad als mit dem Bus. Wie viele Kinder fahren mit dem Bus?",
+       12, "18 : (5 − 2) · 2",
+       [(18, "18", "den Unterschied der Kinderzahlen selbst als Zahl der Bus-Kinder genommen"),
+        (6, "18 : 3", "nur den Wert für 1 cm bestimmt: 18 : 3 = 6"),
+        (30, "18 : 3 · 5", "die Höhe des Rad-Balkens statt des Bus-Balkens genommen: 6 · 5 = 30")],
+       "Der Höhenunterschied ist 5 − 2 = 3 cm. Diese 3 cm stehen für 18 Kinder, also steht 1 cm für 6 Kinder. Die Bus-Säule ist 2 cm hoch: 2 · 6 = 12 Kinder.")
 B.auswahl("saeulendiagramm", "korrektur", 2, "begruenden", None,
           "In einem Säulendiagramm, dessen Hochachse bei 0 beginnt, ist die Säule „Rad“ 6 cm und die Säule „Bus“ 3 cm hoch. Welche Aussage stimmt?",
           ["Es fahren 3 Kinder mehr mit dem Rad als mit dem Bus, denn 6 − 3 = 3.",

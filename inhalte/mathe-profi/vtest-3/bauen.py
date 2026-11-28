@@ -8,6 +8,7 @@ sys.dont_write_bytecode = True
 HIER = Path(__file__).resolve().parent
 sys.path.insert(0, str(HIER))
 import kern  # noqa: E402
+import ideen  # noqa: E402
 
 DATEIEN = ["e_volumen", "e_darstellen", "e_kennwerte", "e_grundbegriffe", "e_winkel"]
 KOPF = {"stand": kern.STAND, "runde": "vtest-3", "kuerzel": "VT3", "klasse": None,
@@ -26,6 +27,8 @@ for d in DATEIEN:
 out = kern.zusammen(baus)
 n = 0
 for thema, liste in out.items():
+    for a in liste:
+        a["idee"] = ideen.IDEE[a["kennung"]]
     kopf = dict(KOPF, titel=thema, klasse=KLASSE[thema], themen=[thema])
     (HIER / f"{thema}.json").write_text(json.dumps({**kopf, "aufgaben": liste}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     n += len(liste)

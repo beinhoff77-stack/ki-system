@@ -53,7 +53,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "was_waere_wenn|ein weiterer Wert ändert den Mittelwert"
   },
   {
    "kennung": "VT3-051",
@@ -109,7 +110,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "immer_nie|ein Wert wächst, Wirkung auf den Mittelwert"
   },
   {
    "kennung": "VT3-052",
@@ -163,7 +165,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "fehler|Fehler-Detektiv: Notenmittel"
   },
   {
    "kennung": "VT3-053",
@@ -207,7 +210,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "was_waere_wenn|alle Werte malgenommen"
   },
   {
    "kennung": "VT3-054",
@@ -265,19 +269,20 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "begruenden|welche Änderung lässt den Mittelwert gleich"
   },
   {
    "kennung": "VT3-055",
    "thema": "daten.kennwerte",
    "lernkarte": "mittelwert",
    "pool": "sicherung",
-   "typ": "parameter",
-   "form": null,
+   "typ": "transfer",
+   "form": "anwenden",
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3",
-   "abgrenzung": "Die Übungen berechnen den Mittelwert aus einer gegebenen Liste. Diese Aufgabe: Was-wäre-wenn.",
+   "abgrenzung": "Die Übungen berechnen den Mittelwert aus einer gegebenen Liste. Diese Aufgabe: Transfer auf eine neue Situation.",
    "aufgabe": {
     "l": "mittelwert",
     "t": "mittelwert",
@@ -285,32 +290,39 @@
     "s": 3,
     "y": "zahl",
     "f": {
-     "text": "In einer Gruppe von 9 Kindern ist die mittlere Körpergröße 150 cm. Ein zehntes Kind mit 160 cm kommt dazu. Um wie viele Zentimeter steigt der Mittelwert?"
+     "text": "In einer Klassenarbeit hatten die 20 Kinder der Klasse 6a den Notenmittelwert 3,0 und die 30 Kinder der Klasse 6b den Notenmittelwert 2,0. Wie groß ist der Notenmittelwert aller 50 Kinder?"
     },
-    "w": "Neue Summe: 9 · 150 + 160 = 1 510 cm. Neuer Mittelwert: 1 510 : 10 = 151 cm. Er steigt um 1 cm (der Unterschied 10 cm verteilt sich auf 10 Kinder).",
+    "w": "Klasse 6a hat zusammen 20 · 3,0 = 60 Notenpunkte, Klasse 6b hat 30 · 2,0 = 60. Zusammen sind es 120 bei 50 Kindern: 120 : 50 = 2,4. Der Mittelwert der beiden Mittelwerte (2,5) wäre nur richtig, wenn beide Klassen gleich groß wären.",
     "o": {
-     "wert": 1,
-     "einheit": "cm"
+     "wert": 2.4
     }
    },
    "regel": "id.daten.kennzahl",
-   "loesung_rechnung": "(9 · 150 + 160) : 10 − 150",
+   "loesung_rechnung": "(20 · 3 + 30 · 2) : 50",
    "fehlbilder": [
     {
-     "antwort": 10,
-     "rechnung": "160 − 150",
-     "beschreibung": "den Unterschied des neuen Kindes zum alten Mittelwert genommen",
+     "antwort": 2.5,
+     "rechnung": "(3 + 2) : 2",
+     "beschreibung": "die beiden Mittelwerte einfach gemittelt, ohne die Klassengrößen zu beachten",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 2.6,
+     "rechnung": "(30 · 3 + 20 · 2) : 50",
+     "beschreibung": "die Klassengrößen vertauscht: 90 + 40 = 130, 130 : 50 = 2,6",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "antwort": 5,
-     "rechnung": "(160 − 150) : 2",
-     "beschreibung": "den Unterschied durch 2 statt durch 10 geteilt",
+     "rechnung": "3 + 2",
+     "beschreibung": "die beiden Mittelwerte addiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "transfer|gewichteter Mittelwert zweier Klassen"
   },
   {
    "kennung": "VT3-056",
@@ -366,7 +378,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "groessenvergleich|Ausreißer und Mittelwert ohne genaues Rechnen"
   },
   {
    "kennung": "VT3-057",
@@ -412,19 +425,20 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "umkehr|fehlender Wert für Zielmittelwert"
   },
   {
    "kennung": "VT3-058",
    "thema": "daten.kennwerte",
    "lernkarte": "mittel_rueckwaerts",
    "pool": "korrektur",
-   "typ": "umkehr",
-   "form": "umkehren",
+   "typ": "parameter",
+   "form": null,
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3",
-   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Was-wäre-wenn.",
    "aufgabe": {
     "l": "mittel_rueckwaerts",
     "t": "mittel_rueckwaerts",
@@ -432,31 +446,39 @@
     "s": 2,
     "y": "zahl",
     "f": {
-     "text": "Der Mittelwert von sechs Zahlen ist 14. Fünf davon sind 10, 12, 15, 18 und 13. Wie heißt die sechste Zahl?"
+     "text": "Fünf Zahlen haben den Mittelwert 12. Ersetzt man eine der Zahlen durch 20, so haben die fünf Zahlen den Mittelwert 14. Welche Zahl wurde ersetzt?"
     },
-    "w": "Die Summe aller sechs Zahlen ist 6 · 14 = 84. Die fünf bekannten haben die Summe 68. Die sechste Zahl ist 84 − 68 = 16.",
+    "w": "Steigt der Mittelwert von 12 auf 14, so wächst die Summe der fünf Zahlen um 5 · 2 = 10. Die neue Zahl 20 ist also um 10 größer als die ersetzte. Ersetzt wurde die Zahl 20 − 10 = 10. Probe: Vorher Summe 60, nachher 60 − 10 + 20 = 70 und 70 : 5 = 14.",
     "o": {
-     "wert": 16
+     "wert": 10
     }
    },
    "regel": "id.daten.kennzahl",
-   "loesung_rechnung": "14 · 6 − (10 + 12 + 15 + 18 + 13)",
+   "loesung_rechnung": "20 − 5 · (14 − 12)",
    "fehlbilder": [
     {
-     "antwort": 84,
-     "rechnung": "14 · 6",
-     "beschreibung": "nur die Gesamtsumme berechnet",
+     "antwort": 8,
+     "rechnung": "20 − 12",
+     "beschreibung": "den alten Mittelwert statt der ersetzten Zahl abgezogen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 6,
+     "rechnung": "20 − 14",
+     "beschreibung": "den neuen Mittelwert abgezogen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "antwort": 2,
-     "rechnung": "14 · 5 − (10 + 12 + 15 + 18 + 13)",
-     "beschreibung": "mit fünf statt sechs Zahlen gerechnet",
+     "rechnung": "14 − 12",
+     "beschreibung": "nur den Unterschied der beiden Mittelwerte angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "was_waere_wenn|eine Zahl ersetzt, Mittelwert ändert sich"
   },
   {
    "kennung": "VT3-059",
@@ -510,7 +532,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "fehler|Fehler-Detektiv: vierte Zahl"
   },
   {
    "kennung": "VT3-060",
@@ -566,7 +589,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "begruenden|dritte Zahl aus Mittelwert"
   },
   {
    "kennung": "VT3-061",
@@ -611,7 +635,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "umkehr|fehlender Wert aus Mittelwert"
   },
   {
    "kennung": "VT3-062",
@@ -655,7 +680,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "zwei_wege|Summe oder Abweichungen vom Mittelwert"
   },
   {
    "kennung": "VT3-063",
@@ -725,7 +751,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "transfer|Rundenzeiten, Mittelwert und Spannweite"
   }
  ]
 }

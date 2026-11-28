@@ -64,7 +64,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "begruenden|Geburtsmonat als Funktion"
   },
   {
    "kennung": "VT3-065",
@@ -120,7 +121,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "immer_nie|Aussagen über f(x) = 5 − x² auf ℚ"
   },
   {
    "kennung": "VT3-066",
@@ -176,7 +178,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "umkehr|Definitionsmenge aus Wertemenge"
   },
   {
    "kennung": "VT3-067",
@@ -230,7 +233,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "fehler|Fehler-Detektiv: Wertemenge und Elementezahl"
   },
   {
    "kennung": "VT3-068",
@@ -274,7 +278,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "transfer|Quersumme als Funktion"
   },
   {
    "kennung": "VT3-069",
@@ -328,7 +333,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "transfer|Definitionslücken eines Terms"
   },
   {
    "kennung": "VT3-070",
@@ -372,7 +378,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "mengen_deuten|Schnitt von D und W"
   },
   {
    "kennung": "VT3-071",
@@ -435,19 +442,20 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "umkehr|zwei Stellen für einen Funktionswert"
   },
   {
    "kennung": "VT3-072",
    "thema": "funktionen.grundbegriffe",
    "lernkarte": "stelle",
    "pool": "korrektur",
-   "typ": "umkehr",
-   "form": "umkehren",
+   "typ": "begruenden",
+   "form": null,
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M8 1",
-   "abgrenzung": "Die Übungen lösen f(x) = c für lineare Terme oder Sachsituationen. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "abgrenzung": "Die Übungen lösen f(x) = c für lineare Terme oder Sachsituationen. Diese Aufgabe: Begründung wählen.",
    "aufgabe": {
     "l": "stelle",
     "t": "stelle",
@@ -455,31 +463,39 @@
     "s": 2,
     "y": "zahl",
     "f": {
-     "text": "Zur Funktion f(x) = 4 − x/2 gehört der Punkt P(a | 7). Berechne a."
+     "text": "Für f(x) = 2x − 6 (D = ℚ) gilt f(a) = 10 und f(b) = −4. Um wie viel ist a größer als b? Du kannst a und b dafür einzeln bestimmen, es geht aber auch kürzer."
     },
-    "w": "4 − a/2 = 7, also −a/2 = 3, also a = −6. Probe: 4 − (−6)/2 = 4 + 3 = 7.",
+    "w": "Wird x um 1 größer, so wird f(x) um 2 größer. Zwischen den Funktionswerten −4 und 10 liegen 14. Dafür braucht man 14 : 2 = 7 Schritte in x. Kontrolle: a = 8, b = 1.",
     "o": {
-     "wert": -6
+     "wert": 7
     }
    },
    "regel": "id.funktionen.zuordnung",
-   "loesung_rechnung": "(7 − 4) · (−2)",
+   "loesung_rechnung": "(10 + 4) : 2",
    "fehlbilder": [
     {
-     "antwort": 6,
-     "rechnung": "(7 − 4) · 2",
-     "beschreibung": "das Vorzeichen übersehen: 4 − a/2 = 7 heißt a/2 = −3",
+     "antwort": 14,
+     "rechnung": "10 + 4",
+     "beschreibung": "den Unterschied der Funktionswerte als Unterschied der Stellen genommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 22,
-     "rechnung": "(7 + 4) · 2",
-     "beschreibung": "4 statt abgezogen addiert",
+     "antwort": 28,
+     "rechnung": "(10 + 4) · 2",
+     "beschreibung": "mit der Steigung multipliziert statt durch sie geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 6,
+     "rechnung": "10 − 4",
+     "beschreibung": "das Vorzeichen von −4 nicht beachtet: 10 − 4 = 6",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "groessenvergleich|Unterschied zweier Stellen über die Steigung"
   },
   {
    "kennung": "VT3-073",
@@ -533,7 +549,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "fehler|Fehler-Detektiv: Stelle zu f(x) = 15"
   },
   {
    "kennung": "VT3-074",
@@ -589,7 +606,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "rechnung_waehlen|Ansatz für Pflanzenwachstum"
   },
   {
    "kennung": "VT3-075",
@@ -607,33 +625,52 @@
     "t": "stelle",
     "p": "sicherung",
     "s": 3,
-    "y": "zahl",
+    "y": "luecken",
     "f": {
-     "text": "Für f(x) = a · x + 2 gilt f(4) = 14. Für welche Stelle x ist f(x) = −4?"
+     "text": "Für f(x) = 20 : (x − 1) mit D = ℚ \\ {1} gilt f(a) = 4 und f(b) = −5. Bestimme a und b.",
+     "schablone": "a = □, b = □",
+     "hinweis": "Je Feld eine ganze Zahl."
     },
-    "w": "Aus 4a + 2 = 14 folgt a = 3. Dann 3x + 2 = −4, also 3x = −6 und x = −2.",
+    "w": "Aus 20 : (a − 1) = 4 folgt a − 1 = 20 : 4 = 5, also a = 6. Aus 20 : (b − 1) = −5 folgt b − 1 = −4, also b = −3. Probe: 20 : (−3 − 1) = −5.",
     "o": {
-     "wert": -2
+     "werte": [
+      6,
+      -3
+     ]
     }
    },
    "regel": "id.funktionen.zuordnung",
-   "loesung_rechnung": "(−4 − 2) : ((14 − 2) : 4)",
+   "loesung_rechnung": [
+    "20 : 4 + 1",
+    "20 : (−5) + 1"
+   ],
    "fehlbilder": [
     {
-     "antwort": 2,
-     "rechnung": "6 : 3",
-     "beschreibung": "das Vorzeichen verloren: a = 3, aber −4 − 2 = −6 durch 3 ergibt −2",
+     "luecke": 1,
+     "antwort": 5,
+     "rechnung": "20 : 4",
+     "beschreibung": "den Nenner x − 1 gleich a gesetzt und die 1 vergessen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": -6,
-     "rechnung": "−4 − 2",
-     "beschreibung": "nicht durch a = 3 geteilt",
+     "luecke": 1,
+     "antwort": 80,
+     "rechnung": "20 · 4",
+     "beschreibung": "20 mit 4 malgenommen statt durch 4 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -4,
+     "rechnung": "20 : (−5)",
+     "beschreibung": "den Nenner b − 1 gleich b gesetzt und die 1 vergessen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "umkehr|Stellen zu gegebenen Werten bei f(x) = 20 : (x − 1)"
   },
   {
    "kennung": "VT3-076",
@@ -689,7 +726,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "begruenden|Gleichung ohne Lösung"
   },
   {
    "kennung": "VT3-077",
@@ -709,7 +747,7 @@
     "s": 3,
     "y": "zahl",
     "f": {
-     "text": "Ein Parkplatz kostet 5 € Grundgebühr plus 1,20 € pro Stunde, höchstens aber 17 € am Tag. Nach wie vielen Stunden wird der Höchstpreis zum ersten Mal erreicht?"
+     "text": "Ein Parkplatz kostet 5 € Grundgebühr plus 1,20 € pro Stunde (die Zeit wird minutengenau abgerechnet), höchstens aber 17 € am Tag. Nach wie vielen Stunden wird der Höchstpreis zum ersten Mal erreicht?"
     },
     "w": "Gesucht ist t mit 5 + 1,2t = 17. Dann 1,2t = 12 und t = 10 Stunden. Danach bleibt der Preis bei 17 €.",
     "o": {
@@ -734,7 +772,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "transfer|Parkplatz mit Höchstpreis"
   },
   {
    "kennung": "VT3-078",
@@ -791,7 +830,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "darstellung|Gerade durch zwei Punkte, Term gesucht"
   },
   {
    "kennung": "VT3-079",
@@ -847,7 +887,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "darstellung|Wertetabelle in Term übersetzen"
   },
   {
    "kennung": "VT3-080",
@@ -901,7 +942,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "fehler|Fehler-Detektiv: Achsenabschnitt"
   },
   {
    "kennung": "VT3-081",
@@ -957,19 +999,20 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "begruenden|parallele Geraden"
   },
   {
    "kennung": "VT3-082",
    "thema": "funktionen.grundbegriffe",
    "lernkarte": "graph_lesen",
    "pool": "sicherung",
-   "typ": "darstellung",
+   "typ": "begruenden",
    "form": null,
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M8 1",
-   "abgrenzung": "Die Übungen lesen Werte an einem gezeichneten Graphen ab. Diese Aufgabe: Darstellung wechseln.",
+   "abgrenzung": "Die Übungen lesen Werte an einem gezeichneten Graphen ab. Diese Aufgabe: Begründung wählen.",
    "aufgabe": {
     "l": "graph_lesen",
     "t": "graph_lesen",
@@ -977,43 +1020,44 @@
     "s": 3,
     "y": "auswahl",
     "f": {
-     "text": "Der Graph einer Funktion geht durch die Punkte (−1 | 1), (0 | 0), (1 | 1), (2 | 4) und (3 | 9). Welcher Funktionsterm passt zu allen fünf Punkten?"
+     "text": "Eine Funktion hat die Wertetabelle x = 0, 1, 2, 3 und y = 1, 3, 9, 27. Welche Aussage stimmt?"
     },
-    "w": "Man setzt die x-Werte ein: x² ergibt 1, 0, 1, 4, 9. Das passt zu allen Punkten. x³ scheitert bei x = −1, 3x − 2 bei x = 0 und 2x bei x = 1.",
+    "w": "Bei einer Geraden wächst y bei gleichen Schritten in x immer um gleich viel. Hier sind die Zuwächse 2, 6 und 18, also ist der Graph keine Gerade.",
     "a": [
-     "f(x) = x³",
-     "f(x) = 3x − 2",
-     "f(x) = x²",
-     "f(x) = 2x"
+     "Der Graph ist eine Gerade, denn y wird mit wachsendem x immer größer.",
+     "Der Graph ist keine Gerade, denn y wächst bei gleichen Schritten in x unterschiedlich stark (um 2, um 6, um 18).",
+     "Der Graph ist die Gerade y = 2x + 1, denn die Punkte (0 | 1) und (1 | 3) liegen darauf.",
+     "Der Graph ist keine Gerade, denn alle y-Werte sind positiv."
     ],
     "o": {
-     "index": 2
+     "index": 1
     }
    },
    "regel": "id.funktionen.zuordnung",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "f(x) = x³",
-     "beschreibung": "die Probe bei x = −1 nicht gemacht: (−1)³ = −1, nicht 1",
+     "antwort": "Der Graph ist eine Gerade, denn y wird mit wachsendem x immer größer.",
+     "beschreibung": "Wachsen mit konstanter Steigung verwechselt: Auch ein steigender Graph muss keine Gerade sein",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
-     "antwort": "f(x) = 3x − 2",
-     "beschreibung": "nur zu den Punkten (1 | 1) und (2 | 4) passend gewählt",
+     "index": 2,
+     "antwort": "Der Graph ist die Gerade y = 2x + 1, denn die Punkte (0 | 1) und (1 | 3) liegen darauf.",
+     "beschreibung": "nur zwei Punkte geprüft: Für x = 2 gibt y = 2x + 1 den Wert 5, in der Tabelle steht 9",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 3,
-     "antwort": "f(x) = 2x",
-     "beschreibung": "nur zu (0 | 0) und (2 | 4) passend gewählt",
+     "antwort": "Der Graph ist keine Gerade, denn alle y-Werte sind positiv.",
+     "beschreibung": "das Vorzeichen der y-Werte hat nichts mit einer Geraden zu tun; die Gerade y = x + 1 hat nur positive Werte für x ≥ 0",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "gegenbeispiel|Wertetabelle: ist der Graph eine Gerade"
   },
   {
    "kennung": "VT3-083",
@@ -1057,7 +1101,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "transfer|Steigung beschrieben, Wert gesucht"
   },
   {
    "kennung": "VT3-084",
@@ -1113,7 +1158,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "begruenden|Vorzeichen der Steigung"
   },
   {
    "kennung": "VT3-085",
@@ -1157,7 +1203,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "was_waere_wenn|Parameter b bestimmen, Wert an anderer Stelle"
   },
   {
    "kennung": "VT3-086",
@@ -1212,7 +1259,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "begruenden|Punktprobe mit Begründung"
   },
   {
    "kennung": "VT3-087",
@@ -1265,7 +1313,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "fehler|Fehler-Detektiv: Punktprobe"
   },
   {
    "kennung": "VT3-088",
@@ -1320,7 +1369,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "pruefen|drei Punkte auf dem Graphen"
   },
   {
    "kennung": "VT3-089",
@@ -1363,7 +1413,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "transfer|Gerade durch drei Punkte"
   },
   {
    "kennung": "VT3-090",
@@ -1418,7 +1469,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "immer_nie|Ursprung auf dem Graphen"
   },
   {
    "kennung": "VT3-091",
@@ -1487,7 +1539,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "transfer|Leihpreis und Tage"
   },
   {
    "kennung": "VT3-092",
@@ -1544,7 +1597,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "darstellung|Fass: Term und sinnvoller Bereich"
   },
   {
    "kennung": "VT3-093",
@@ -1600,7 +1654,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "darstellung|Tabelle in Term"
   },
   {
    "kennung": "VT3-094",
@@ -1654,7 +1709,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "fehler|Fehler-Detektiv: Handytarif"
   },
   {
    "kennung": "VT3-095",
@@ -1698,7 +1754,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "transfer|Streichholzmuster"
   },
   {
    "kennung": "VT3-096",
@@ -1768,7 +1825,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "transfer|Zug, Entfernung und Zeit"
   },
   {
    "kennung": "VT3-097",
@@ -1824,7 +1882,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "umkehr|vom Term zur Beschreibung der Situation"
   },
   {
    "kennung": "VT3-098",
@@ -1876,7 +1935,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "groessenvergleich|zwei Tarife vergleichen"
   }
  ]
 }

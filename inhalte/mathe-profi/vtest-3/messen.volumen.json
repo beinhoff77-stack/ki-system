@@ -59,7 +59,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "was_waere_wenn|Kantenfaktoren 2, 3, 1/2 zusammen"
   },
   {
    "kennung": "VT3-002",
@@ -115,7 +116,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "immer_nie|Würfel, alle Kanten halbiert"
   },
   {
    "kennung": "VT3-003",
@@ -135,39 +137,40 @@
     "s": 2,
     "y": "zahl",
     "f": {
-     "text": "Ein Quader hat eine quadratische Grundfläche, ist 12 cm hoch und hat das Volumen 300 cm³. Wie lang ist eine Kante der Grundfläche?"
+     "text": "Ein Quader mit quadratischer Grundfläche wird verändert: Die Grundkante wird verdoppelt, die Höhe wird halbiert. Der neue Quader hat das Volumen 360 cm³. Welches Volumen hatte der ursprüngliche Quader?"
     },
-    "w": "V = Grundfläche · Höhe, also Grundfläche = 300 : 12 = 25 cm². Die Grundfläche ist Kante · Kante = 25, also ist die Kante 5 cm.",
+    "w": "Die Grundfläche (Kante · Kante) wird 2 · 2 = 4-fach, die Höhe wird halbiert. Das Volumen wird also 4 · ½ = 2-fach. Das ursprüngliche Volumen ist 360 : 2 = 180 cm³.",
     "o": {
-     "wert": 5,
-     "einheit": "cm"
+     "wert": 180,
+     "einheit": "cm³"
     }
    },
    "regel": "id.flaeche_raum.aus_dem_quader",
-   "loesung_rechnung": "300 : 12 : 5",
+   "loesung_rechnung": "360 : 2",
    "fehlbilder": [
     {
-     "antwort": 25,
-     "rechnung": "300 : 12",
-     "beschreibung": "nur durch die Höhe geteilt: 300 : 12 = 25 ist die Grundfläche, nicht die Kante",
+     "antwort": 720,
+     "rechnung": "360 · 2",
+     "beschreibung": "den Faktor in die falsche Richtung angewendet: 360 · 2 = 720",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 12.5,
-     "rechnung": "300 : 12 : 2",
-     "beschreibung": "die Grundfläche 25 durch 2 geteilt statt die Zahl gesucht, die mit sich selbst 25 ergibt",
+     "antwort": 90,
+     "rechnung": "360 : 4",
+     "beschreibung": "nur die Grundkante bedacht: Die Grundfläche wird vierfach, also 360 : 4 = 90",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 150,
-     "rechnung": "300 : 2",
-     "beschreibung": "300 durch 2 geteilt",
+     "antwort": 360,
+     "rechnung": "360",
+     "beschreibung": "angenommen, das Volumen bleibt gleich",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "umkehr|Volumen nach Veränderung zurückrechnen"
   },
   {
    "kennung": "VT3-004",
@@ -221,7 +224,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "fehler|Fehler-Detektiv: Summe statt Produkt"
   },
   {
    "kennung": "VT3-005",
@@ -277,7 +281,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "was_waere_wenn|welche Kantenänderung verdoppelt das Volumen"
   },
   {
    "kennung": "VT3-006",
@@ -339,7 +344,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "umkehr|Kantenverhältnisse und Volumen, Breite und Höhe gesucht"
   },
   {
    "kennung": "VT3-007",
@@ -395,7 +401,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "groessenvergleich|Würfel gegen Quader bei gleicher Kantensumme"
   },
   {
    "kennung": "VT3-008",
@@ -447,7 +454,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "bruecke|Volumen in cm³ in Liter und Zeit verbinden"
   },
   {
    "kennung": "VT3-009",
@@ -503,7 +511,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "begruenden|Würfel mit 1 m Kante fasst 100 l?"
   },
   {
    "kennung": "VT3-010",
@@ -557,7 +566,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "fehler|Fehler-Detektiv: cm³ in l falsch umgerechnet"
   },
   {
    "kennung": "VT3-011",
@@ -602,7 +612,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "umkehr|Fassungsvermögen in Liter, Kante gesucht"
   },
   {
    "kennung": "VT3-012",
@@ -674,7 +685,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "zwei_wege|Umrechnung vor oder nach dem Multiplizieren"
   },
   {
    "kennung": "VT3-013",
@@ -730,7 +742,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "darstellung|welche Angabe ist nicht dasselbe Volumen"
   },
   {
    "kennung": "VT3-014",
@@ -782,7 +795,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "transfer|Dusche, Wanne, Zeit"
   },
   {
    "kennung": "VT3-015",
@@ -828,7 +842,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "umkehr|Breite aus Volumen und Verhältnis von Höhe zu Breite"
   },
   {
    "kennung": "VT3-016",
@@ -882,7 +897,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "fehler|Fehler-Detektiv: Höhe aus Volumen"
   },
   {
    "kennung": "VT3-017",
@@ -938,7 +954,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "rechnung_waehlen|welche Rechnung liefert die Höhe"
   },
   {
    "kennung": "VT3-018",
@@ -994,7 +1011,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "groessenvergleich|gleiches Volumen, Grundflächen vergleichen ohne Rechnen"
   },
   {
    "kennung": "VT3-019",
@@ -1039,69 +1057,63 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "umkehr|Zufluss aus Wasserstandsänderung"
   },
   {
    "kennung": "VT3-020",
    "thema": "messen.volumen",
    "lernkarte": "rueckwaerts",
    "pool": "sicherung",
-   "typ": "umkehr",
-   "form": "umkehren",
-   "stufe": 2,
+   "typ": "parameter",
+   "form": null,
+   "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 2",
-   "abgrenzung": "Die Übungen suchen eine fehlende Kante oder Höhe mit Standardzahlen. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "abgrenzung": "Die Übungen suchen eine fehlende Kante oder Höhe mit Standardzahlen. Diese Aufgabe: Was-wäre-wenn.",
    "aufgabe": {
     "l": "rueckwaerts",
     "t": "rueckwaerts",
     "p": "sicherung",
-    "s": 2,
+    "s": 3,
     "y": "luecken",
     "f": {
-     "text": "Ein Quader mit quadratischer Grundfläche ist 5 cm hoch und hat das Volumen 245 cm³. Wie groß ist seine Grundfläche, und wie lang ist eine Grundkante?",
-     "schablone": "Grundfläche □ cm², Grundkante □ cm",
+     "text": "Ein Quader hat das Volumen 180 cm³. Bei gleicher Grundfläche und einer um 3 cm größeren Höhe hätte er das Volumen 240 cm³. Wie groß ist die Grundfläche, und wie hoch ist der Quader?",
+     "schablone": "Grundfläche □ cm², Höhe □ cm",
      "hinweis": "Je Feld eine ganze Zahl."
     },
-    "w": "Grundfläche = Volumen : Höhe = 245 : 5 = 49 cm². Wegen 7 · 7 = 49 ist die Grundkante 7 cm.",
+    "w": "Die zusätzlichen 3 cm Höhe machen 240 − 180 = 60 cm³ aus. Also ist die Grundfläche 60 : 3 = 20 cm². Die Höhe des ersten Quaders ist 180 : 20 = 9 cm. Probe: 20 · 12 = 240.",
     "o": {
      "werte": [
-      49,
-      7
+      20,
+      9
      ]
     }
    },
    "regel": "id.flaeche_raum.aus_dem_quader",
    "loesung_rechnung": [
-    "245 : 5",
-    "245 : 5 : 7"
+    "(240 − 180) : 3",
+    "180 : 20"
    ],
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 1225,
-     "rechnung": "245 · 5",
-     "beschreibung": "Volumen mit der Höhe malgenommen",
+     "antwort": 60,
+     "rechnung": "240 − 180",
+     "beschreibung": "den Unterschied der Volumina als Grundfläche genommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 1,
-     "antwort": 240,
-     "rechnung": "245 − 5",
-     "beschreibung": "die Höhe vom Volumen abgezogen",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 2,
-     "antwort": 49,
-     "rechnung": "245 : 5",
-     "beschreibung": "die Grundfläche als Kante angegeben",
+     "antwort": 80,
+     "rechnung": "240 : 3",
+     "beschreibung": "das größere Volumen durch den Höhenzuwachs geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "was_waere_wenn|Höhenzuwachs und Volumenzuwachs"
   },
   {
    "kennung": "VT3-021",
@@ -1146,7 +1158,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "transfer|Becken leeren, Zeit gesucht"
   },
   {
    "kennung": "VT3-022",
@@ -1199,7 +1212,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "was_waere_wenn|Raumhöhe und Luftmenge"
   },
   {
    "kennung": "VT3-023",
@@ -1255,7 +1269,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "immer_nie|Höhe um 2 cm größer, Volumenzuwachs"
   },
   {
    "kennung": "VT3-024",
@@ -1309,7 +1324,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "fehler|Fehler-Detektiv: Luft im Zimmer"
   },
   {
    "kennung": "VT3-025",
@@ -1361,7 +1377,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "transfer|Quader aus Würfeln"
   },
   {
    "kennung": "VT3-026",
@@ -1417,7 +1434,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "groessenvergleich|zwei Quader ohne Ausrechnen vergleichen"
   },
   {
    "kennung": "VT3-027",
@@ -1468,7 +1486,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "transfer|Päckchen im Karton"
   },
   {
    "kennung": "VT3-028",
@@ -1524,7 +1543,8 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
-   ]
+   ],
+   "idee": "was_waere_wenn|Länge und Breite um 50 % vergrößert"
   }
  ]
 }

@@ -19,6 +19,16 @@ self.addEventListener('fetch', (e) => {
   const karte = e.request.method === 'GET' && url.origin === new URL(self.registration.scope).origin && ['karte/', 'daten/'].some((d) => url.pathname.startsWith(new URL(d, self.registration.scope).pathname));
   const daten = karte && url.pathname.startsWith(new URL('daten/', self.registration.scope).pathname); // RU-App: nur statische Datendateien (daten/)
   if (e.request.method !== 'GET' || (!HUELLE_URLS.has(url.href) && !karte)) return; // Nur die App-Hülle und die Kartendateien speichern.
+  // TEMPO: Versionierte Hüllen-Dateien (…?v=<version>, nur aus der Liste HUELLE) ändern sich nie unter derselben Adresse – ein neues Release bringt neue
+  // Adressen (index.html, Netz zuerst) und einen neuen Cache-Namen (diese Datei, install lädt alles frisch). Deshalb hier zuerst aus dem Cache dieser Version,
+  // nur wenn sie dort fehlt aus dem Netz. index.html, ./, Bilder ohne Version, karte/ und daten/ bleiben „Netz zuerst“.
+  if (HUELLE_URLS.has(url.href) && url.searchParams.has('v')) {
+    e.respondWith(caches.open(CACHE).then((c) => c.match(e.request)).then((treffer) => treffer || fetch(e.request, { cache: 'no-cache' }).then((r) => {
+      if (r.ok) { const kopie = r.clone(); e.waitUntil(caches.open(CACHE).then((c) => c.put(e.request, kopie))); }
+      return r;
+    })));
+    return;
+  }
   // Netz zuerst, bei Ausfall aus dem Cache (so kommen neue Versionen sofort an).
   e.respondWith(
     fetch(e.request, { cache: 'no-cache' }).then(async (r) => {

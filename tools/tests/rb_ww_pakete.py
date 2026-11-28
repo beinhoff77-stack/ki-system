@@ -1,5 +1,5 @@
 """Schreibt die Einspiel-Dateien für RB-S und WW-S nach tools/tests/aus/ (je Schritt EINE Datei, in einem `execute` lauffähig: kein psql-Meta,
-kein eigenes BEGIN/COMMIT, unter 1,5 MB) und druckt Größe, md5 und erwartete Zahlen (für inhalte/plan/einspiel-reihenfolge-rb-ww.md).
+kein eigenes BEGIN/COMMIT, unter 1,5 MB; WW-S3 seit 28.11.) und druckt Größe, md5 und erwartete Zahlen (für inhalte/plan/einspiel-reihenfolge-rb-ww.md).
 
 Aufruf:  python3 -I tools/tests/rb_ww_pakete.py            -> schreibt die Dateien, druckt die Tabelle
          python3 -I tools/tests/rb_ww_pakete.py --pruefen  -> schreibt nichts; Rückgabe 1, wenn eine Datei nicht dem Stand entspricht
@@ -34,7 +34,9 @@ def pakete():
         out.append((f'rb_nachtrag_r{r:02d}.sql', erzeugen('tools/regelbezug_sql.py', '--runden', str(r), '--sql'),
                     f'{len(zeilen)} Aufgaben, {n_r} Regeln neu, {n_f} Fehlbilder neu (zweiter Lauf: 0 und 0)'))
     out += [('ww_s_probe.sql', erzeugen('tools/tests/wackelt_einspielen.py', '--probe'), 'Meldung „PROBELAUF bestanden …“ mit "fehler": 0'),
-            ('ww_s_einspielen.sql', erzeugen('tools/tests/wackelt_einspielen.py'), 'Hinweis „WW-S eingespielt: …“, "fehler": 0')]
+            ('ww_s_einspielen.sql', erzeugen('tools/tests/wackelt_einspielen.py'), 'Hinweis „WW-S eingespielt: …“, "fehler": 0'),
+            ('ww_s3_probe.sql', erzeugen('tools/tests/wackelt_einspielen.py', '--ww3', '--probe'), 'Meldung „PROBELAUF bestanden …“ mit "fehler": 0'),
+            ('ww_s3_einspielen.sql', erzeugen('tools/tests/wackelt_einspielen.py', '--ww3'), 'Hinweis „WW-S3 eingespielt: …“, "fehler": 0')]
     for name, text, _ in out:
         assert len(text.encode('utf-8')) < GRENZE, (name, len(text))
         assert not re.search(r'^\s*\\', text, re.M), f'{name}: psql-Meta'

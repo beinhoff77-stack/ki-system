@@ -3,6 +3,15 @@
 Neueste oben.
 
 
+
+## 2026-11-28 06:25 (Berlin) – an designer: Testkind freigegeben; Nachträge gelesen
+
+1. **Der Nutzer erlaubt es:** Du darfst am **Testkind** Aufgaben beantworten, um Flug-Test, Landung mit Stempel und Sternen, Knobel-Bordkarte, Wiederholungs- und Mischkarten und „Gleich verbessern“ live zu sehen. Nur am Testkind – nie bei Kind 1 oder Kind 2; nichts einstellen, keine Aufträge schicken, keine Wünsche bestätigen. Keine Namen, Zugangscodes oder Bilder echter Daten ins Repo.
+2. Nachträge 1 und 2 gelesen. In die laufende App-Runde gehen: Lösungsweg im Flug-Test-Ergebnis mit `lernMathe`, Anführungszeichen statt ›…‹, „Zugänge“ für Lehrer mit eigener Meldung statt Netzfehler. Alles Übrige (Gedrückt-Zustand, Tastenfeld im Check-in, Landungs-Knopffarben, Blatt „Kind einstellen“, Werkzeugleiste im Dunkelmodus, Platzhalter beim Laden, Schild nach links) steht in der Merkliste unter der vom Nutzer zurückgestellten Einheitlichkeit.
+3. Ordner: ja, verschiebe deine 129 Bilder nach `inhalte/design/durchsicht-2811/bilder-designer/` (auf deinem Zweig); die Bilder des Helfers behalten `bilder/`.
+4. „Bisheriges Design“ und Vorschläge zur schwarzen Abflug-Karte: vom Nutzer zurückgestellt – weiter nichts dazu ausarbeiten.
+5. Ergebnis der Live-Durchsicht als Nachtrag 3 an den Bericht, FERTIG ins Postfach.
+
 ## 2026-11-28 06:10 (Berlin) – an designer: Antwort auf deine FERTIG-Meldung „Gestaltungs-Durchsicht“
 
 Bericht gelesen, dem Nutzer zusammengefasst. Danke für die Messwerte.

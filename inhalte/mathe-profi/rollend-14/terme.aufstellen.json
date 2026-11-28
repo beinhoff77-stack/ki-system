@@ -620,22 +620,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 100,
+     "antwort": 42,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "ein Quadrat aus 10 mal 10 Plättchen gerechnet"
+     "beschreibung": "die 2 cm 15-mal dazugerechnet, obwohl der erste Becher schon 12 cm hat"
     },
     {
-     "antwort": 110,
+     "antwort": 30,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Summe nicht halbiert"
+     "beschreibung": "nur die Zunahme mit 15 malgenommen, die Grundhöhe vergessen"
     },
     {
-     "antwort": 45,
+     "antwort": 27,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die letzte Reihe mit 10 Plättchen vergessen"
+     "beschreibung": "die Zahl der Becher und die Höhe des ersten Bechers addiert"
     }
    ],
    "aufgabe": {
@@ -646,15 +646,15 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Plättchen werden zu Dreiecken gelegt: Figur 1 hat 1 Plättchen, Figur 2 hat 3 Plättchen, Figur 3 hat 6 Plättchen, Figur 4 hat 10 Plättchen. Von Figur zu Figur kommt unten eine neue Reihe mit einem Plättchen mehr dazu. Wie viele Plättchen hat Figur 10?"
+     "text": "Becher werden ineinander gestapelt. Ein einzelner Becher ist 12 cm hoch. Ein Stapel aus 2 Bechern ist 14 cm hoch, ein Stapel aus 3 Bechern ist 16 cm hoch. So geht es weiter. Wie hoch ist ein Stapel aus 15 Bechern in Zentimetern?"
     },
     "o": {
-     "wert": 55,
-     "einheit": "Plättchen"
+     "wert": 40,
+     "einheit": "cm"
     },
-    "c": "10 * 11 / 2",
-    "h": "Wie viele Plättchen kommen von Figur zu Figur dazu? Figur 10 besteht aus Reihen mit 1, 2, 3, … Plättchen.",
-    "w": "Figur n besteht aus Reihen mit 1, 2, 3, …, n Plättchen. Probe: Figur 4 hat 1 + 2 + 3 + 4 = 10. Figur 10 hat 1 + 2 + … + 10 = 55 Plättchen (zehn Reihen, paarweise 1 + 10, 2 + 9, … ergeben je 11, fünfmal)."
+    "c": "2 * 15 + 10",
+    "h": "Um wie viele Zentimeter wächst der Stapel mit jedem weiteren Becher? Prüfe deinen Term mit 3 Bechern.",
+    "w": "Mit jedem weiteren Becher wächst der Stapel um 2 cm. Der Term ist 2n + 10. Probe: n = 1 gibt 12, n = 2 gibt 14, n = 3 gibt 16. Für n = 15: 2 · 15 + 10 = 40 cm."
    }
   },
   {

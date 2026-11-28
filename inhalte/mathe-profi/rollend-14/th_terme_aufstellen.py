@@ -65,10 +65,10 @@ a3(T, "sachsituation", Z(
     [B("36 / (10 - 4)", "die Personenzahl genannt, bei der beide Angebote gleich teuer sind"), B("36 / 4", "nur durch 4 geteilt"), B("36 / (10 - 4) - 1", "eine Person weniger als beim Gleichstand genommen")], "Personen"), g="verknuepfen")
 # ───────── muster ─────────
 a1(T, "muster", Z(
-    "Plättchen werden zu Dreiecken gelegt: Figur 1 hat 1 Plättchen, Figur 2 hat 3 Plättchen, Figur 3 hat 6 Plättchen, Figur 4 hat 10 Plättchen. Von Figur zu Figur kommt unten eine neue Reihe mit einem Plättchen mehr dazu. Wie viele Plättchen hat Figur 10?",
-    55, "10 * 11 / 2", "1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10", "Wie viele Plättchen kommen von Figur zu Figur dazu? Figur 10 besteht aus Reihen mit 1, 2, 3, … Plättchen.",
-    "Figur n besteht aus Reihen mit 1, 2, 3, …, n Plättchen. Probe: Figur 4 hat 1 + 2 + 3 + 4 = 10. Figur 10 hat 1 + 2 + … + 10 = 55 Plättchen (zehn Reihen, paarweise 1 + 10, 2 + 9, … ergeben je 11, fünfmal).",
-    [B("10 * 10", "ein Quadrat aus 10 mal 10 Plättchen gerechnet"), B("10 * 11", "die Summe nicht halbiert"), B("1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9", "die letzte Reihe mit 10 Plättchen vergessen")], "Plättchen"))
+    "Becher werden ineinander gestapelt. Ein einzelner Becher ist 12 cm hoch. Ein Stapel aus 2 Bechern ist 14 cm hoch, ein Stapel aus 3 Bechern ist 16 cm hoch. So geht es weiter. Wie hoch ist ein Stapel aus 15 Bechern in Zentimetern?",
+    40, "2 * 15 + 10", "12 + 2 * 14", "Um wie viele Zentimeter wächst der Stapel mit jedem weiteren Becher? Prüfe deinen Term mit 3 Bechern.",
+    "Mit jedem weiteren Becher wächst der Stapel um 2 cm. Der Term ist 2n + 10. Probe: n = 1 gibt 12, n = 2 gibt 14, n = 3 gibt 16. Für n = 15: 2 · 15 + 10 = 40 cm.",
+    [B("12 + 2 * 15", "die 2 cm 15-mal dazugerechnet, obwohl der erste Becher schon 12 cm hat"), B("2 * 15", "nur die Zunahme mit 15 malgenommen, die Grundhöhe vergessen"), B("15 + 12", "die Zahl der Becher und die Höhe des ersten Bechers addiert")], "cm"))
 a2(T, "muster", Z(
     "Perlenketten wachsen nach einem Muster: Figur 1 hat 7 Perlen, Figur 2 hat 13 Perlen, Figur 3 hat 19 Perlen. So geht es weiter. Ab welcher Figur hat die Kette mehr als 100 Perlen?",
     17, "(100 - 1) // 6 + 1", "17", "Um wie viele Perlen wird die Kette von Figur zu Figur länger? Stelle den Term auf und probiere, wann 100 überschritten wird.",

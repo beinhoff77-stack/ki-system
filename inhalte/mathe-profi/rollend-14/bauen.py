@@ -500,6 +500,10 @@ def prisma_ecken(n, h):
     return [(math.cos(2 * math.pi * k / n), math.sin(2 * math.pi * k / n), z) for k in range(n) for z in (0, h)]
 
 
+def pyramide_ecken(n, h):
+    return [(math.cos(2 * math.pi * k / n), math.sin(2 * math.pi * k / n), 0) for k in range(n)] + [(0, 0, h)]
+
+
 def nachkommastellen(zaehler, nenner, anzahl):
     """Nachkommaziffern des Bruchs durch schriftliche Division"""
     ziffern, rest = [], zaehler % nenner
@@ -535,10 +539,10 @@ GEZAEHLT["R14-V096"] = wuerfel_flaechen(quader - {(x, y, k) for x in range(2) fo
 GEZAEHLT["R14-V146"] = len({(0, 0, 0)} | {(s * d[0] * j, s * d[1] * j, s * d[2] * j) for j in (1, 2, 3) for s in (1, -1) for d in ((1, 0, 0), (0, 1, 0), (0, 0, 1))})
 GEZAEHLT["R14-V147"] = sum(1 for (x, y, k) in quader if 0 < x < 4 and 0 < y < 3 and 0 < k < 2)
 # Symmetrieebenen
-GEZAEHLT["R14-V040"] = symmetrieebenen([(1, 1, 1), (1, -1, -1), (-1, 1, -1), (-1, -1, 1)])
+GEZAEHLT["R14-V040"] = symmetrieebenen(prisma_ecken(9, 1.7)) - symmetrieebenen(pyramide_ecken(7, 1.3))
 GEZAEHLT["R14-V042"] = next(n for n in range(3, 13) if symmetrieebenen(prisma_ecken(n, 1.7)) == 7) * 3
 # Plättchenmuster und Folgen
-GEZAEHLT["R14-V130"] = sum(range(1, 11))
+GEZAEHLT["R14-V130"] = (lambda h: [h := h + 2 for _ in range(14)][-1])(12)
 GEZAEHLT["R14-V131"] = next(n for n in itertools.count(1) if 6 * n + 1 > 100)
 # Ergebnisräume und Ereignisse
 GEZAEHLT["R14-V076"] = len(list(itertools.permutations(range(5), 2)))
@@ -569,7 +573,7 @@ for _k, _w in GEZAEHLT.items():
 print(len(GEZAEHLT), "Aufgaben mit unabhängiger Zählung bestätigt:", " ".join(k[4:] for k in sorted(GEZAEHLT)))
 # Negativproben: die Zählung findet den alten Fehler (88 statt 96)
 assert GEZAEHLT["R14-V095"] != 88 and wuerfel_flaechen(turm) == 24 and wuerfel_flaechen([(0, 0, 0)]) == 6 and wuerfel_flaechen([(0, 0, 0), (1, 0, 0)]) == 10
-assert symmetrieebenen(prisma_ecken(4, math.sqrt(2))) == 9 and symmetrieebenen(prisma_ecken(4, 1.5)) == 5
+assert symmetrieebenen(pyramide_ecken(7, 1.3)) == 7 and symmetrieebenen(prisma_ecken(9, 1.7)) == 10 and symmetrieebenen([(1, 1, 1), (1, -1, -1), (-1, 1, -1), (-1, -1, 1)]) == 6 and symmetrieebenen(prisma_ecken(4, math.sqrt(2))) == 9 and symmetrieebenen(prisma_ecken(4, 1.5)) == 5
 ZAEHL_PROBEN = 3
 
 for _t in dp_treffer:

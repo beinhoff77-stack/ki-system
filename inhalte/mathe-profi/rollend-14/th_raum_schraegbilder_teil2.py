@@ -49,10 +49,10 @@ a3(T, "axialschnitt", Z(
     [B("3.14 * 5 * 20", "mit dem Radius 5 cm statt mit dem Durchmesser als Umfang der Grundfläche gerechnet"), B("3.14 * 5 ** 2 * 20", "das Volumen π · r² · h statt der Mantelfläche berechnet"), B("3.14 * 15 * 15", "den Axialschnitt als Quadrat behandelt und die Seite aus dem Umfang durch 4 bestimmt")], "cm²"), g="transfer")
 # ───────── koerper_symmetrie ─────────
 a1(T, "koerper_symmetrie", Z(
-    "Ein Bastelmodell hat die Form eines regelmäßigen Tetraeders: Es besteht aus vier gleich großen gleichseitigen Dreiecken. Wie viele Symmetrieebenen hat das Modell?",
-    6, "6", "3 + 3", "Jede Symmetrieebene enthält eine Kante und halbiert die gegenüberliegende Kante. Wie viele Kanten hat das Tetraeder?",
-    "Das Tetraeder hat 6 Kanten. Durch jede Kante geht genau eine Symmetrieebene, die die gegenüberliegende Kante in der Mitte schneidet. Also gibt es 6 Symmetrieebenen.",
-    [B("4", "so viele Ebenen wie Flächen gezählt"), B("3", "nur die Ebenen durch die Kanten einer Fläche gezählt"), B("12", "jede Ebene doppelt gezählt")]))
+    "Ein Bauteil aus Holz ist ein gerades Prisma, dessen Grundfläche ein regelmäßiges Neuneck ist. Ein zweites Bauteil ist eine gerade Pyramide über einem regelmäßigen Siebeneck. Um wie viele Symmetrieebenen hat das Prisma mehr als die Pyramide?",
+    3, "(9 + 1) - 7", "10 - 7", "Wie viele Symmetrieebenen hat ein gerades Prisma über einem regelmäßigen n-Eck, wie viele eine gerade Pyramide über einem regelmäßigen n-Eck? Bilde dann den Unterschied.",
+    "Das gerade Prisma über dem Neuneck hat 9 Ebenen durch die Höhe und die Ebene in halber Höhe: 9 + 1 = 10 Symmetrieebenen. Die gerade Pyramide über dem Siebeneck hat nur die 7 Ebenen durch die Spitze, denn eine Ebene in halber Höhe gibt es bei einer Pyramide nicht. Unterschied: 10 − 7 = 3. (Sonderfälle wie ein Würfel kommen hier nicht vor.)",
+    [B("9 - 7", "beim Prisma die Ebene in halber Höhe vergessen"), B("10 + 7", "die beiden Anzahlen addiert statt den Unterschied gebildet"), B("10", "nur die Symmetrieebenen des Prismas angegeben")]))
 a2(T, "koerper_symmetrie", Z(
     "Ein Spielzeughändler hat drei Körper: einen Würfel, eine gerade Pyramide mit quadratischer Grundfläche und ein gerades Prisma, dessen Grundfläche ein gleichseitiges Dreieck ist. Wie viele Symmetrieebenen haben die drei Körper zusammen?",
     17, "9 + 4 + (3 + 1)", "9 + 4 + 4", "Der Würfel hat 9 Ebenen. Für Pyramide und Prisma zählst du erst die Symmetrieachsen der Grundfläche. Beim Prisma kommt noch eine Ebene dazu.",

@@ -92,7 +92,7 @@ wahl("010", "Die Anzahl ist immer gerade", all(x % 2 == 0 for x in anzahlen) and
 # zehner
 zahl("011", erste(lambda x: x * 10 ** 8 > 7 * 10 ** 11, 10 ** 6, 1))
 acht = [z for z in (10 ** 7, 10 ** 7 + 1, 54321098, 10 ** 8 - 1, 10 ** 8) if len(str(z)) == 8]
-wahl("012", "Sie ist mindestens 10⁷ und kleiner als 10⁸", all(10 ** 7 <= z < 10 ** 8 for z in acht) and 10 ** 7 in acht and 10 ** 8 not in acht)
+wahl("012", "Sie ist mindestens 10⁷ und kleiner als 10⁸", all(10 ** 7 <= z < 10 ** 8 for z in acht) and 10 ** 7 in acht and 10 ** 8 not in acht and len(str(95000000)) == 8)
 vorher = 7 * 10 ** 9 + 5 * 10 ** 6 + 3 * 10 ** 2
 nachher = 7 * 10 ** 10 + 5 * 10 ** 7 + 3 * 10 ** 3
 wahl("013", "Sie wird 10-mal so groß", nachher == 10 * vorher)
@@ -202,7 +202,7 @@ wahl("044", "Sie wird zu einem Drittel", all(loes[a] == 3 * loes[3 * a] for a in
 mal_immer = all(b % a == 0 for a in range(1, 20) for b in range(1, 20))
 geteilt_immer = all((a * b) % a == 0 and (a * b) // a == b for a in range(1, 20) for b in range(1, 20))
 ausnahmen = {a for a in range(1, 40) for b in range(1, 300) if b % a == 0 and not b // a < b}
-wahl("045", "Fast immer: Bei a gleich 1", ausnahmen == {1})
+wahl("045", "Bei a = 1 ist x so groß wie b, bei jedem größeren a ist x kleiner", ausnahmen == {1})
 # ueberschlag
 fragen = {"Reichen 500 € für 26 Karten zu je 19 €?": (26, 19, 500), "Reichen 100 € für 4 Spiele zu je 19 €?": (4, 19, 100),
           "Passen 6 Kisten zu je 38 kg auf einen Wagen für 300 kg?": (6, 38, 300), "Reichen 400 Plätze für 9 Klassen mit je 27 Kindern?": (9, 27, 400)}
@@ -224,9 +224,8 @@ while rest > 0:
     busse += 1
     rest -= 52
 wahl("052", "Wie viele Busse werden gebraucht", busse == 4 and 189 // 52 == 3 and 189 % 52 == 33)
-unt = {(8 * h + 8 * 3) - 8 * (h + 3 - 2) for h in range(1, 100)}
-assert len(unt) == 1
-zahl("053", unt.pop())
+unt = {(8 * h + 8 * 3) - (8 * (h + 1) + 8 * 1) for h in range(1, 500)}
+wahl("053", "Mia zahlt 8 € mehr", unt == {8})
 wahl("054", "Mias Ergebnis ist immer um 6 größer", {(x + 6) * 2 - (2 * x + 6) for x in range(1, 2000)} == {6})
 wahl("055", "4 · x + 12 − 4 = 108", erste(lambda x: 4 * x + 12 - 4 == 108, 1000, 1) == 25)
 

@@ -1164,7 +1164,7 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Ein Kind wendet das Verteilungsgesetz auch an, wenn in der Klammer ein Produkt steht: Es rechnet 2 · (3 · 5) = 2 · 3 · 2 · 5 und 3 · (2 · 4) = 3 · 2 · 3 · 4. Mit dieser Regel rechnet es □ · (2 · 7) für eine beliebige natürliche Zahl □. Wievielmal so groß ist sein Ergebnis wie das richtige?"
+     "text": "Ein Kind wendet das Verteilungsgesetz auch an, wenn in der Klammer ein Produkt steht: Es rechnet 2 · (3 · 5) = 2 · 3 · 2 · 5 und 3 · (2 · 4) = 3 · 2 · 3 · 4. Mit dieser Regel rechnet es □ · (2 · 7) für eine beliebige natürliche Zahl □ (mindestens 1). Wievielmal so groß ist sein Ergebnis wie das richtige?"
     },
     "a": [
      "Es ist □-mal so groß.",
@@ -1511,21 +1511,21 @@
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "Immer: Teilen macht eine Zahl stets kleiner.",
+     "antwort": "Bei jedem a ist x kleiner als b, auch bei a = 1.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Den Fall a = 1 übersehen: 1 · x = 5 hat die Lösung 5"
     },
     {
      "index": 2,
-     "antwort": "Nie: Beim Malnehmen wird x größer als b.",
+     "antwort": "Für a = 1 ist x kleiner als b, für größere a ist x größer.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Gleichung und Lösung verwechselt: x ist ein Faktor von b, nicht das Produkt"
+     "beschreibung": "Gleichung und Lösung verwechselt: x ist ein Faktor von b, nicht das Produkt; bei 3 · x = 12 ist x = 4"
     },
     {
      "index": 3,
-     "antwort": "Bei geraden a ja, bei ungeraden a ist x größer als b.",
+     "antwort": "Ist a gerade, ist x kleiner als b; ist a ungerade, ist x größer.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Gerade und ungerade für wichtig gehalten; bei 3 · x = 12 ist x = 4 kleiner als 12"
@@ -1539,18 +1539,18 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Die Gleichung a · x = b hat eine Lösung x in den natürlichen Zahlen; a und b sind natürliche Zahlen, mindestens 1. Ein Kind behauptet: „Die Lösung x ist immer kleiner als b.“ Welche Antwort stimmt?"
+     "text": "Die Gleichung a · x = b hat eine Lösung x in den natürlichen Zahlen; a und b sind natürliche Zahlen, mindestens 1. Ein Kind behauptet: „Die Lösung x ist immer kleiner als b.“ Wie verhält sich x wirklich zu b?"
     },
     "a": [
-     "Fast immer: Bei a gleich 1 ist x so groß wie b, sonst kleiner.",
-     "Immer: Teilen macht eine Zahl stets kleiner.",
-     "Nie: Beim Malnehmen wird x größer als b.",
-     "Bei geraden a ja, bei ungeraden a ist x größer als b."
+     "Bei a = 1 ist x so groß wie b, bei jedem größeren a ist x kleiner.",
+     "Bei jedem a ist x kleiner als b, auch bei a = 1.",
+     "Für a = 1 ist x kleiner als b, für größere a ist x größer.",
+     "Ist a gerade, ist x kleiner als b; ist a ungerade, ist x größer."
     ],
     "o": {
      "index": 0
     },
-    "w": "Aus a · x = b folgt x = b : a. Ist a mindestens 2, dann ist b mindestens doppelt so groß wie x, also ist x kleiner als b. Nur bei a = 1 ist x = b. Die Aussage des Kindes stimmt also fast immer; das einzige Gegenbeispiel ist a = 1."
+    "w": "Aus a · x = b folgt x = b : a. Ist a mindestens 2, dann ist b mindestens doppelt so groß wie x, also ist x kleiner als b. Nur bei a = 1 ist x = b. Die Behauptung des Kindes ist also falsch: Bei a = 1 (zum Beispiel 1 · x = 7, x = 7) ist x so groß wie b."
    }
   },
   {
@@ -1608,7 +1608,7 @@
     "a": [
      "Es sind 7 Stellen: Der Überschlag 3 000 · 3 000 hat 7 Stellen, also auch das genaue Ergebnis.",
      "Es sind 6 Stellen: Ein Überschlag ist immer größer als das genaue Ergebnis.",
-     "Es sind 8 Stellen: Lena hat 3 412 und 3 438 stark abgerundet, und schon 3 400 · 3 400 hat 8 Stellen.",
+     "Es sind 8 Stellen: Schon 3 400 · 3 400 hat 8 Stellen, und 3 500 · 3 500 hat auch 8.",
      "Das lässt sich ohne genaue Rechnung nicht sagen: Ein Überschlag gibt nie die Stellenzahl an."
     ],
     "o": {
@@ -1998,56 +1998,59 @@
    "stufe": 2,
    "typ": "mehrschritt",
    "form": "zwei_wege",
-   "antwortform": "zahl",
+   "antwortform": "auswahl",
    "zaehlt": "ja",
    "lehrplan": "M5 3",
    "idee": "ausklammern_im_sachkontext",
    "bauplan": "e",
    "schema": "nein",
    "alt_kennung": null,
-   "abgrenzung": "Dort wird ein Betrag ausgerechnet; hier ist der Heftpreis unbekannt, und der Unterschied zweier Einkaufswege folgt nur über das Ausklammern. Warum kein Schema: □ ist beliebig, es gibt keine Fälle zum Durchprobieren; das Rechengesetz (8 · □ + 8 · 3 = 8 · (□ + 3)) trägt die Lösung. Ersetzt 053 (A5).",
+   "abgrenzung": "Dort wird ein Betrag ausgerechnet; hier ist der Heftpreis □ unbekannt, und der Vergleich gelingt nur, wenn man 8 · (□ + 1) verteilt und 8 · □ auf beiden Seiten erkennt. Warum kein Schema: □ ist beliebig, nichts ist durchzuprobieren, kein Wert im Text verrät die Ersparnis; das Verteilungsgesetz trägt die Lösung (Vorschlag der Vorprüfung W1-4, A1).",
    "regel": "rr.ausmultiplizieren",
    "regel_name": "Ausmultiplizieren und Ausklammern",
    "fehlbilder": [
     {
-     "antwort": 2,
-     "rechnung": "2",
+     "index": 1,
+     "antwort": "Tom zahlt 8 € mehr.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Nur die Ersparnis für ein Päckchen genannt"
+     "beschreibung": "Den Unterschied richtig bestimmt, aber die Richtung vertauscht: Toms Hefte sind teurer, seine Stifte aber viel billiger"
     },
     {
-     "antwort": 24,
-     "rechnung": "8 * 3",
+     "index": 2,
+     "antwort": "Mia zahlt 16 € mehr.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Gedacht, Tom spare die Stifte: 8 · 3"
+     "beschreibung": "Nur die Stifte verglichen (8 · 3 − 8 · 1) und die teureren Hefte von Tom vergessen"
     },
     {
-     "antwort": 10,
-     "rechnung": "8 + 2",
+     "index": 3,
+     "antwort": "Das hängt vom Heftpreis □ ab.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "8 und 2 addiert statt malgenommen"
+     "beschreibung": "Nicht gesehen, dass 8 · □ bei beiden vorkommt und sich beim Vergleich aufhebt"
     }
    ],
-   "loesung_rechnung": "8 * 2",
    "aufgabe": {
     "l": "sach",
     "t": "anwenden",
     "p": "korrektur",
     "s": 2,
     "g": "mehrschritt",
-    "y": "zahl",
+    "y": "auswahl",
     "f": {
-     "text": "Ein Heft kostet □ €, ein Stift 3 €. Mia kauft 8 Hefte und 8 Stifte einzeln. Tom kauft 8 Päckchen mit je einem Heft und einem Stift; ein Päckchen kostet 2 € weniger als Heft und Stift einzeln zusammen. Um wie viel Euro zahlt Tom weniger als Mia, egal welchen Preis □ das Heft hat?"
+     "text": "Ein Heft kostet bei Mia □ €. Mia kauft 8 Hefte zu je □ € und 8 Stifte zu je 3 €. Tom kauft 8 Hefte zu je (□ + 1) € und 8 Stifte zu je 1 €. Für □ steht eine beliebige natürliche Zahl. Welche Aussage stimmt?"
     },
+    "a": [
+     "Mia zahlt 8 € mehr.",
+     "Tom zahlt 8 € mehr.",
+     "Mia zahlt 16 € mehr.",
+     "Das hängt vom Heftpreis □ ab."
+    ],
     "o": {
-     "wert": 16,
-     "einheit": "€"
+     "index": 0
     },
-    "c": "8 * 2",
-    "w": "Mia zahlt 8 · □ + 8 · 3 = 8 · (□ + 3), denn man darf die 8 ausklammern. Tom zahlt für jedes Päckchen 2 € weniger, also 8 · (□ + 3 − 2). Der Unterschied ist 8 · 2 = 16 €, egal wie teuer ein Heft ist. Beispiel mit □ = 5: Mia zahlt 64 €, Tom 48 €."
+    "w": "Mia zahlt 8 · □ + 8 · 3 = 8 · □ + 24 Euro. Tom zahlt 8 · (□ + 1) + 8 · 1 = 8 · □ + 8 + 8 = 8 · □ + 16 Euro, denn beim Verteilen wird auch die 1 mit 8 malgenommen. Beide zahlen 8 · □ für den Grundpreis der Hefte; Mia zahlt darüber hinaus 24 €, Tom nur 16 €. Also zahlt Mia 8 € mehr, egal welche Zahl □ ist."
    }
   },
   {

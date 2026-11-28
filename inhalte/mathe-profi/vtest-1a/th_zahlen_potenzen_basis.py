@@ -128,7 +128,7 @@ neu(T, "zehner", "test", "parameter", Z(
 neu(T, "zehner", "korrektur", "darstellung", W(
     "Eine natürliche Zahl hat genau 8 Stellen. Welche Aussage über sie stimmt für jede solche Zahl?",
     "Sie ist mindestens 10⁷ und kleiner als 10⁸.",
-    [("Sie ist größer als 10⁷ und höchstens 10⁸.", "Die Grenzen vertauscht: 10⁷ = 10 000 000 hat selbst 8 Stellen, 10⁸ hat schon 9", len(str(10 ** 7)) == 8 and len(str(10 ** 8)) == 9),
+    [("Sie ist kleiner als 9 · 10⁷ und mindestens 10⁷.", "Die obere Grenze zu klein gewählt, als beginne jede achtstellige Zahl mit höchstens 8; aber 95 000 000 hat auch 8 Stellen", len(str(95000000)) == 8 and 95000000 > 9 * 10 ** 7),
      ("Sie ist mindestens 10⁸ und kleiner als 10⁹.", "Stellenzahl und Hochzahl gleichgesetzt; 10⁸ hat aber 9 Stellen", len(str(10 ** 8)) == 9),
      ("Sie ist mindestens 10⁶ und kleiner als 10⁷.", "Die Hochzahl um zwei zu klein genommen; 10⁷ hat schon 8 Stellen", len(str(10 ** 7)) == 8)],
     "10ⁿ ist eine 1 mit n Nullen und hat n + 1 Stellen. Die kleinste Zahl mit 8 Stellen ist 10 000 000 = 10⁷, die kleinste mit 9 Stellen ist 10⁸. "

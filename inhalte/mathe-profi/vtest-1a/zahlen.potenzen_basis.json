@@ -719,10 +719,10 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Sie ist größer als 10⁷ und höchstens 10⁸.",
+     "antwort": "Sie ist kleiner als 9 · 10⁷ und mindestens 10⁷.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die Grenzen vertauscht: 10⁷ = 10 000 000 hat selbst 8 Stellen, 10⁸ hat schon 9"
+     "beschreibung": "Die obere Grenze zu klein gewählt, als beginne jede achtstellige Zahl mit höchstens 8; aber 95 000 000 hat auch 8 Stellen"
     },
     {
      "index": 1,
@@ -750,7 +750,7 @@
      "text": "Eine natürliche Zahl hat genau 8 Stellen. Welche Aussage über sie stimmt für jede solche Zahl?"
     },
     "a": [
-     "Sie ist größer als 10⁷ und höchstens 10⁸.",
+     "Sie ist kleiner als 9 · 10⁷ und mindestens 10⁷.",
      "Sie ist mindestens 10⁸ und kleiner als 10⁹.",
      "Sie ist mindestens 10⁶ und kleiner als 10⁷.",
      "Sie ist mindestens 10⁷ und kleiner als 10⁸."

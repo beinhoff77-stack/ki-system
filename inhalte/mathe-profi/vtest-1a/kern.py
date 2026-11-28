@@ -45,12 +45,12 @@ def Z(text, wert, c, zweit, w, fb, einheit=None, grafik=None):
     return d, [zweit], fb
 
 
-def W(text, richtig, falsch, w, probe, grafik=None):
+def W(text, richtig, falsch, w, probe, grafik=None, lage=None):
     """Auswahl mit mindestens 4 Optionen. falsch: [(Antwort, Beschreibung, Prüfung)]; Prüfung = bool (im Quelltext gerechnet), der zeigt, dass die Antwort falsch ist
     und aus dem beschriebenen Fehler entsteht (oder None: nur von Hand gelesen). probe: bool, dass die richtige Antwort stimmt."""
     n = len(falsch) + 1
     assert n in (4, 5), text
-    p = next(POSITION[n])
+    p = next(POSITION[n]) if lage is None else lage   # lage: feste Lage, ohne die Folge der übrigen Aufgaben zu verschieben
     antworten = [f[0] for f in falsch]
     antworten.insert(p, richtig)
     fb = {}

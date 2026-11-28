@@ -1,5 +1,6 @@
 T = "zahlen.rechengesetze"
 RR, RT, RA, RG = "rr.reihenfolge", "rr.tauschen", "rr.ausmultiplizieren", "rr.gegenrechnung"
+LAGE_053 = 0   # feste Lage der richtigen Option, damit die Lagen der übrigen Aufgaben unverändert bleiben (W1-4)
 OU = "Kein Eintrag im Regelkatalog trägt das Überschlagen und Runden (id.zahlen.buendeln betrifft den Stellenwert, nicht den Überschlag)."
 # Runde VT1A nach Vorprüfung W1: je Lernziel 5 Aufgaben (1 Test, 2 Korrektur, 2 Sicherung). Felder wie in th_zahlen_potenzen_basis.py.
 # ═════════ klammern ═════════
@@ -197,7 +198,7 @@ neu(T, "verteilen", "korrektur", "darstellung", W(
     bestand="themen verteilen „Ein Kino verkauft am Samstag 37 und am Sonntag 63 Karten zu je 9 €. Wie viel Geld …?“; rollend-5 „Zwei Teile eines Rechtecks: Welcher Term gibt die ganze Fläche?“",
     unterschied="Dort wird zur Situation ein Term gesucht oder ausgerechnet; hier werden zwei gleichwertige Terme nach ihrer Bedeutung (Bezahlweg) unterschieden. Format Term ↔ Text, nach C4 als Schema gezählt; einzige im Lernziel.")
 neu(T, "verteilen", "sicherung", "begruenden", W(
-    "Ein Kind wendet das Verteilungsgesetz auch an, wenn in der Klammer ein Produkt steht: Es rechnet 2 · (3 · 5) = 2 · 3 · 2 · 5 und 3 · (2 · 4) = 3 · 2 · 3 · 4. Mit dieser Regel rechnet es □ · (2 · 7) für eine beliebige natürliche Zahl □. Wievielmal so groß ist sein Ergebnis wie das richtige?",
+    "Ein Kind wendet das Verteilungsgesetz auch an, wenn in der Klammer ein Produkt steht: Es rechnet 2 · (3 · 5) = 2 · 3 · 2 · 5 und 3 · (2 · 4) = 3 · 2 · 3 · 4. Mit dieser Regel rechnet es □ · (2 · 7) für eine beliebige natürliche Zahl □ (mindestens 1). Wievielmal so groß ist sein Ergebnis wie das richtige?",
     "Es ist □-mal so groß.",
     [("Es ist doppelt so groß.", "Gedacht, weil in der Klammer zwei Faktoren stehen, werde das Ergebnis verdoppelt", 3 * 2 * 3 * 7 != 2 * 3 * (2 * 7)),
      ("Es ist 14-mal so groß.", "Das Produkt in der Klammer als Faktor des Fehlers genommen", 3 * 2 * 3 * 7 != 14 * 3 * (2 * 7)),
@@ -262,20 +263,20 @@ neu(T, "umkehraufgabe_mal", "sicherung", "umkehr", W(
     bestand="themen umkehraufgabe_mal „Für welche Zahl a hat die Gleichung a · x = −48 die Lösung x = −6?“",
     unterschied="Dort wird ein Parameter aus einer gegebenen Lösung bestimmt; hier wird ohne konkrete Zahlen beurteilt, wie sich die Lösung ändert, wenn sich der Parameter ändert.")
 neu(T, "umkehraufgabe_mal", "sicherung", "begruenden", W(
-    "Die Gleichung a · x = b hat eine Lösung x in den natürlichen Zahlen; a und b sind natürliche Zahlen, mindestens 1. Ein Kind behauptet: „Die Lösung x ist immer kleiner als b.“ Welche Antwort stimmt?",
-    "Fast immer: Bei a gleich 1 ist x so groß wie b, sonst kleiner.",
-    [("Immer: Teilen macht eine Zahl stets kleiner.", "Den Fall a = 1 übersehen: 1 · x = 5 hat die Lösung 5", 1 * 5 == 5),
-     ("Nie: Beim Malnehmen wird x größer als b.", "Gleichung und Lösung verwechselt: x ist ein Faktor von b, nicht das Produkt", 3 * 4 == 12 and 4 < 12),
-     ("Bei geraden a ja, bei ungeraden a ist x größer als b.", "Gerade und ungerade für wichtig gehalten; bei 3 · x = 12 ist x = 4 kleiner als 12", 12 // 3 < 12)],
+    "Die Gleichung a · x = b hat eine Lösung x in den natürlichen Zahlen; a und b sind natürliche Zahlen, mindestens 1. Ein Kind behauptet: „Die Lösung x ist immer kleiner als b.“ Wie verhält sich x wirklich zu b?",
+    "Bei a = 1 ist x so groß wie b, bei jedem größeren a ist x kleiner.",
+    [("Bei jedem a ist x kleiner als b, auch bei a = 1.", "Den Fall a = 1 übersehen: 1 · x = 5 hat die Lösung 5", 1 * 5 == 5),
+     ("Für a = 1 ist x kleiner als b, für größere a ist x größer.", "Gleichung und Lösung verwechselt: x ist ein Faktor von b, nicht das Produkt; bei 3 · x = 12 ist x = 4", 3 * 4 == 12 and 4 < 12),
+     ("Ist a gerade, ist x kleiner als b; ist a ungerade, ist x größer.", "Gerade und ungerade für wichtig gehalten; bei 3 · x = 12 ist x = 4 kleiner als 12", 12 // 3 < 12)],
     "Aus a · x = b folgt x = b : a. Ist a mindestens 2, dann ist b mindestens doppelt so groß wie x, also ist x kleiner als b. Nur bei a = 1 ist x = b. "
-    "Die Aussage des Kindes stimmt also fast immer; das einzige Gegenbeispiel ist a = 1.",
+    "Die Behauptung des Kindes ist also falsch: Bei a = 1 (zum Beispiel 1 · x = 7, x = 7) ist x so groß wie b.",
     all((b // a < b) == (a > 1) for a in range(1, 30) for b in range(1, 200) if b % a == 0)), regel=RG, idee="loesung_gegen_b", bauplan="f", schema=False, alt=None,
     bestand="themen umkehraufgabe_mal „Stimmt die Aussage? Bei x : 8 = 5 rechnet man x = 5 : 8.“; „Löse 72 : x = 9“",
     unterschied="Dort wird eine Gleichung gelöst oder eine Rechenregel geprüft; hier wird eine allgemeine Aussage über die Größe der Lösung geprüft und das einzige Gegenbeispiel gesucht. Warum kein Schema: a und b sind beliebig, die Lösbarkeit (Test 041) spielt keine Rolle; entscheidend ist die Suche nach dem Gegenbeispiel a = 1 in einem offenen Suchraum. Ersetzt 045 (B1).")
 # ═════════ ueberschlag ═════════
 neu(T, "ueberschlag", "test", "begruenden", W(
     "Lena soll ohne genaues Rechnen herausfinden, wie viele Stellen das Ergebnis von 3 412 · 3 438 hat. Sie überschlägt 3 000 · 3 000 = 9 000 000 und sagt: „7 Stellen.“ Welche Aussage stimmt?",
-    "Es sind 8 Stellen: Lena hat 3 412 und 3 438 stark abgerundet, und schon 3 400 · 3 400 hat 8 Stellen.",
+    "Es sind 8 Stellen: Schon 3 400 · 3 400 hat 8 Stellen, und 3 500 · 3 500 hat auch 8.",
     [("Es sind 7 Stellen: Der Überschlag 3 000 · 3 000 hat 7 Stellen, also auch das genaue Ergebnis.", "Dem groben Überschlag vertraut, obwohl beide Zahlen stark abgerundet sind und 9 000 000 nahe an 10 000 000 liegt", len(str(3412 * 3438)) == 8),
      ("Es sind 6 Stellen: Ein Überschlag ist immer größer als das genaue Ergebnis.", "Gedacht, ein Überschlag sei immer zu groß; hier wurde abgerundet, er ist zu klein", 3000 * 3000 < 3412 * 3438),
      ("Das lässt sich ohne genaue Rechnung nicht sagen: Ein Überschlag gibt nie die Stellenzahl an.", "Nicht gesehen, dass ein Überschlag, der sicher kleiner ist, schon 8 Stellen hat", len(str(3400 * 3400)) == 8 == len(str(3500 * 3500)))],
@@ -349,16 +350,17 @@ neu(T, "sach", "korrektur", "darstellung", W(
     -(-189 // 52) == 4), form="bruecke", regel=RG, idee="rest_deuten", bauplan="d", schema=False, alt=None,
     bestand="themen sach „Eine Klasse fährt mit dem Bus ins Museum. Der Bus kostet 420 €, jedes Kind zahlt 15 €. Welche Angabe fehlt …?“",
     unterschied="Dort wird nach einer fehlenden Angabe gefragt; hier ist die Rechnung gegeben, und der Rest einer Division muss je nach Frage verschieden gedeutet werden (aufrunden, abrunden, Rest, Ergänzung).")
-neu(T, "sach", "korrektur", "mehrschritt", Z(
-    "Ein Heft kostet □ €, ein Stift 3 €. Mia kauft 8 Hefte und 8 Stifte einzeln. Tom kauft 8 Päckchen mit je einem Heft und einem Stift; ein Päckchen kostet 2 € weniger als Heft und Stift einzeln zusammen. Um wie viel Euro zahlt Tom weniger als Mia, egal welchen Preis □ das Heft hat?",
-    16, "8 * 2", lambda: (8 * 5 + 8 * 3) - 8 * (5 + 3 - 2),
-    "Mia zahlt 8 · □ + 8 · 3 = 8 · (□ + 3), denn man darf die 8 ausklammern. Tom zahlt für jedes Päckchen 2 € weniger, also 8 · (□ + 3 − 2). "
-    "Der Unterschied ist 8 · 2 = 16 €, egal wie teuer ein Heft ist. Beispiel mit □ = 5: Mia zahlt 64 €, Tom 48 €.",
-    [(2, "Nur die Ersparnis für ein Päckchen genannt", "2"),
-     (24, "Gedacht, Tom spare die Stifte: 8 · 3", "8 * 3"),
-     (10, "8 und 2 addiert statt malgenommen", "8 + 2")], einheit="€"), form="zwei_wege", regel=RA, idee="ausklammern_im_sachkontext", bauplan="e", schema=False, alt=None,
+neu(T, "sach", "korrektur", "mehrschritt", W(
+    "Ein Heft kostet bei Mia □ €. Mia kauft 8 Hefte zu je □ € und 8 Stifte zu je 3 €. Tom kauft 8 Hefte zu je (□ + 1) € und 8 Stifte zu je 1 €. Für □ steht eine beliebige natürliche Zahl. Welche Aussage stimmt?",
+    "Mia zahlt 8 € mehr.",
+    [("Tom zahlt 8 € mehr.", "Den Unterschied richtig bestimmt, aber die Richtung vertauscht: Toms Hefte sind teurer, seine Stifte aber viel billiger", 8 * 3 > 8 * 1 + 8 * 1),
+     ("Mia zahlt 16 € mehr.", "Nur die Stifte verglichen (8 · 3 − 8 · 1) und die teureren Hefte von Tom vergessen", 8 * 3 - 8 * 1 == 16),
+     ("Das hängt vom Heftpreis □ ab.", "Nicht gesehen, dass 8 · □ bei beiden vorkommt und sich beim Vergleich aufhebt", all((8 * h + 8 * 3) - (8 * (h + 1) + 8 * 1) == 8 for h in range(1, 100)))],
+    "Mia zahlt 8 · □ + 8 · 3 = 8 · □ + 24 Euro. Tom zahlt 8 · (□ + 1) + 8 · 1 = 8 · □ + 8 + 8 = 8 · □ + 16 Euro, denn beim Verteilen wird auch die 1 mit 8 malgenommen. "
+    "Beide zahlen 8 · □ für den Grundpreis der Hefte; Mia zahlt darüber hinaus 24 €, Tom nur 16 €. Also zahlt Mia 8 € mehr, egal welche Zahl □ ist.",
+    all((8 * h + 8 * 3) - (8 * (h + 1) + 8 * 1) == 8 for h in range(1, 200)), lage=LAGE_053), form="zwei_wege", regel=RA, idee="ausklammern_im_sachkontext", bauplan="e", schema=False, alt=None,
     bestand="themen verteilen „Ein Kino verkauft am Samstag 37 und am Sonntag 63 Karten zu je 9 €“ (andere Etappe); themen sach „Ein Schulkino verkauft 249 Karten zu je 8 €. Die Filmmiete kostet 200 €.“",
-    unterschied="Dort wird ein Betrag ausgerechnet; hier ist der Heftpreis unbekannt, und der Unterschied zweier Einkaufswege folgt nur über das Ausklammern. Warum kein Schema: □ ist beliebig, es gibt keine Fälle zum Durchprobieren; das Rechengesetz (8 · □ + 8 · 3 = 8 · (□ + 3)) trägt die Lösung. Ersetzt 053 (A5).")
+    unterschied="Dort wird ein Betrag ausgerechnet; hier ist der Heftpreis □ unbekannt, und der Vergleich gelingt nur, wenn man 8 · (□ + 1) verteilt und 8 · □ auf beiden Seiten erkennt. Warum kein Schema: □ ist beliebig, nichts ist durchzuprobieren, kein Wert im Text verrät die Ersparnis; das Verteilungsgesetz trägt die Lösung (Vorschlag der Vorprüfung W1-4, A1).")
 neu(T, "sach", "sicherung", "begruenden", W(
     "Mia und Tom starten mit derselben natürlichen Zahl. Mia addiert zuerst 6 und verdoppelt dann. Tom verdoppelt zuerst und addiert dann 6. Welche Aussage über die beiden Ergebnisse stimmt?",
     "Mias Ergebnis ist immer um 6 größer als Toms.",

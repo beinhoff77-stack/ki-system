@@ -107,21 +107,21 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "3,85 Millionen",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Million mit 10⁶ gleichgesetzt, aber 10⁷ ist das Zehnfache davon: der Exponent wurde nicht beachtet"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "385 Millionen",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Komma beim Vorfaktor nach rechts verschoben, aber den Exponenten dabei nicht verkleinert"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "3,85 Milliarden",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -140,13 +140,13 @@
      "text": "Welche Angabe beschreibt die Zahl 3,85 · 10⁷?"
     },
     "a": [
-     "38,5 Millionen",
      "3,85 Millionen",
      "385 Millionen",
-     "3,85 Milliarden"
+     "3,85 Milliarden",
+     "38,5 Millionen"
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "w": "10⁷ sind zehn Millionen. 3,85 · 10⁷ = 3,85 · 10 Millionen = 38,5 Millionen = 38 500 000. Eine Million ist 10⁶, eine Milliarde 10⁹."
    }
@@ -229,7 +229,7 @@
      "beschreibung": "den Exponenten als Anzahl der Nullen gedeutet; die Bedingung für den Vorfaktor wurde nicht geprüft"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Mia und Tom, denn beide Schreibweisen haben denselben Wert wie 24 000 000.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -256,12 +256,12 @@
     },
     "a": [
      "Nur Tom, denn der Exponent muss die Anzahl der Nullen sein, also 6.",
-     "Mia und Tom, denn beide Schreibweisen haben denselben Wert wie 24 000 000.",
      "Nur Mia, denn der Vorfaktor muss zwischen 1 und 10 liegen.",
+     "Mia und Tom, denn beide Schreibweisen haben denselben Wert wie 24 000 000.",
      "Nur Lena, denn der Exponent muss die Anzahl der Ziffern sein, also 8."
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
     "w": "24 000 000 hat 8 Ziffern. Mias Schreibweise 2,4 · 10⁷ hat den Vorfaktor 2,4 (zwischen 1 und 10) und den Wert 24 000 000. Toms 24 · 10⁶ und Lenas 0,24 · 10⁸ haben denselben Wert, aber die Vorfaktoren 24 und 0,24 liegen nicht zwischen 1 und 10. Also ist nur Mias Schreibweise wissenschaftlich."
    }
@@ -337,21 +337,21 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Der Exponent 8 ist zu groß; man darf höchstens 10⁷ verwenden.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "eine Höchstgrenze für den Exponenten erfunden; Exponenten dürfen beliebig groß sein"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "0,5 · 10⁸ ist eine andere Zahl als 50 000 000; richtig wäre 0,05 · 10⁸.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Wert falsch gerechnet: 0,5 · 10⁸ ist bereits 50 000 000, nur der Vorfaktor passt nicht"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Der Vorfaktor muss eine ganze Zahl sein; 0,5 ist keine ganze Zahl.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -370,13 +370,13 @@
      "text": "Warum ist 0,5 · 10⁸ keine wissenschaftliche Schreibweise der Zahl 50 000 000?"
     },
     "a": [
+     "Der Vorfaktor 0,5 ist kleiner als 1, wissenschaftlich wäre 5 · 10⁷.",
      "Der Exponent 8 ist zu groß; man darf höchstens 10⁷ verwenden.",
      "0,5 · 10⁸ ist eine andere Zahl als 50 000 000; richtig wäre 0,05 · 10⁸.",
-     "Der Vorfaktor muss eine ganze Zahl sein; 0,5 ist keine ganze Zahl.",
-     "Der Vorfaktor 0,5 ist kleiner als 1, wissenschaftlich wäre 5 · 10⁷."
+     "Der Vorfaktor muss eine ganze Zahl sein; 0,5 ist keine ganze Zahl."
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
     "w": "0,5 · 10⁸ = 50 000 000 ist richtig als Wert. Es fehlt nur die Bedingung 1 ≤ a < 10: 0,5 ist kleiner als 1. Man verschiebt das Komma um eine Stelle nach rechts und verkleinert den Exponenten: 5 · 10⁷ = 50 000 000."
    }
@@ -759,7 +759,7 @@
      "beschreibung": "den Exponenten um eins zu klein gezählt: die Stelle der 4 hinter dem Komma falsch bestimmt"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "0,0004 = 4 · 10⁻⁵",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -786,12 +786,12 @@
     },
     "a": [
      "0,0004 = 4 · 10⁻³",
-     "0,0004 = 4 · 10⁻⁴",
      "0,0004 = 4 · 10⁻⁵",
+     "0,0004 = 4 · 10⁻⁴",
      "0,0004 = 0,4 · 10⁻⁴"
     ],
     "o": {
-     "index": 1
+     "index": 2
     },
     "w": "Die 4 steht an der 4. Stelle hinter dem Komma: 0,0004 = 4 · 10⁻⁴. Mit dem Vorfaktor 0,4 müsste der Exponent −3 sein (0,4 · 10⁻³ = 0,0004); 0,4 · 10⁻⁴ ist nur 0,00004."
    }
@@ -812,14 +812,14 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Ein Zehntausendstel, geschrieben als 0,0001.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "eine Stelle zu viel gezählt: der Exponent 3 bedeutet drei Stellen, die 1 steht an der dritten Stelle"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Minus Tausend, geschrieben als −1000.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -845,13 +845,13 @@
      "text": "Ein Datenblatt nennt den Wert 10⁻³. Welche Deutung dieser Zehnerpotenz stimmt?"
     },
     "a": [
-     "Ein Tausendstel, geschrieben als 0,001.",
      "Ein Zehntausendstel, geschrieben als 0,0001.",
      "Minus Tausend, geschrieben als −1000.",
+     "Ein Tausendstel, geschrieben als 0,001.",
      "Dreimal ein Zehntel, geschrieben als 0,3."
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "w": "10⁻³ = 1/10³ = 1/1000 = 0,001. Das ist ein Tausendstel: Die 1 steht an der dritten Stelle hinter dem Komma. Das Minus im Exponenten macht die Zahl nicht negativ, sondern klein."
    }
@@ -929,14 +929,14 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "1 µm = 10⁻³ m",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Mikro und Milli verwechselt: 10⁻³ m ist ein Millimeter"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "1 nm = 10⁻⁶ m",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -962,13 +962,13 @@
      "text": "Welche Gleichung ist richtig?"
     },
     "a": [
+     "1 µm = 10⁻⁶ m",
      "1 µm = 10⁻³ m",
      "1 nm = 10⁻⁶ m",
-     "1 µm = 10⁻⁶ m",
      "1 mm = 10⁻⁶ m"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "w": "Milli (m) bedeutet 10⁻³, Mikro (µ) bedeutet 10⁻⁶, Nano (n) bedeutet 10⁻⁹. Also gilt 1 mm = 10⁻³ m, 1 µm = 10⁻⁶ m und 1 nm = 10⁻⁹ m. Nur die erste Gleichung stimmt."
    }
@@ -1213,7 +1213,7 @@
      "beschreibung": "nach der Reihenfolge der Einheiten geordnet (nm vor µm vor mm), ohne die Maßzahlen umzurechnen"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "5 µm, 0,002 mm, 0,001 mm, 800 nm",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1234,11 +1234,11 @@
     "a": [
      "0,001 mm, 0,002 mm, 5 µm, 800 nm",
      "800 nm, 5 µm, 0,001 mm, 0,002 mm",
-     "800 nm, 0,001 mm, 0,002 mm, 5 µm",
-     "5 µm, 0,002 mm, 0,001 mm, 800 nm"
+     "5 µm, 0,002 mm, 0,001 mm, 800 nm",
+     "800 nm, 0,001 mm, 0,002 mm, 5 µm"
     ],
     "o": {
-     "index": 2
+     "index": 3
     },
     "w": "Alle Längen in µm: 800 nm = 0,8 µm; 0,001 mm = 1 µm; 0,002 mm = 2 µm; 5 µm. Von kurz nach lang: 0,8 µm, 1 µm, 2 µm, 5 µm, also 800 nm, 0,001 mm, 0,002 mm, 5 µm."
    }
@@ -1259,7 +1259,7 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Das stimmt: Die Maßzahl in Mikrometern ist tausendmal kleiner, denn kleinere Einheiten haben kleinere Maßzahlen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1292,13 +1292,13 @@
      "text": "Ein Kind sagt: „Ein Mikrometer ist tausendmal kleiner als ein Millimeter, also muss die Maßzahl in Mikrometern tausendmal kleiner sein als in Millimetern.“ Welche Aussage stimmt?"
     },
     "a": [
-     "Das stimmt nicht: Die Maßzahl in Mikrometern ist tausendmal größer, denn man braucht tausendmal so viele der kleineren Einheiten.",
      "Das stimmt: Die Maßzahl in Mikrometern ist tausendmal kleiner, denn kleinere Einheiten haben kleinere Maßzahlen.",
+     "Das stimmt nicht: Die Maßzahl in Mikrometern ist tausendmal größer, denn man braucht tausendmal so viele der kleineren Einheiten.",
      "Das stimmt nicht: Die Maßzahl bleibt gleich, denn die Länge ändert sich beim Umrechnen nicht.",
      "Das stimmt nicht: Die Maßzahl in Mikrometern ist hundertmal größer, denn ein Mikrometer ist hundertmal kleiner als ein Millimeter."
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
     "w": "1 mm = 1000 µm. Dieselbe Länge wird in der kleineren Einheit durch eine größere Maßzahl angegeben: 2 mm sind 2000 µm. Die Maßzahl wird tausendmal größer, nicht kleiner. Die Länge selbst bleibt gleich."
    }
@@ -1439,14 +1439,14 @@
      "beschreibung": "den Vorfaktor 3,5 zwischen 3 und 4 gesehen, aber der Exponent −4 macht die Zahl zehnmal kleiner als 10⁻³"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "3,5 · 10⁻²",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Vorfaktor 3,5 zwischen 3 und 4 gesehen, aber der Exponent −2 macht die Zahl zehnmal größer als 10⁻³"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "0,35 · 10⁻³",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1466,12 +1466,12 @@
     },
     "a": [
      "3,5 · 10⁻⁴",
+     "35 · 10⁻⁴",
      "3,5 · 10⁻²",
-     "0,35 · 10⁻³",
-     "35 · 10⁻⁴"
+     "0,35 · 10⁻³"
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "w": "3 · 10⁻³ = 0,003 und 4 · 10⁻³ = 0,004. 35 · 10⁻⁴ = 0,0035 liegt dazwischen. 3,5 · 10⁻⁴ = 0,00035 ist zu klein, 3,5 · 10⁻² = 0,035 ist zu groß, 0,35 · 10⁻³ = 0,00035 ist zu klein."
    }
@@ -1678,14 +1678,14 @@
      "beschreibung": "nur die Vorfaktoren verglichen und die Exponenten nicht beachtet"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "7 · 10⁻⁶ ist größer, denn bei negativen Exponenten ist die Zahl mit der größeren Hochzahl auch die größere Zahl.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Betrag des negativen Exponenten für die Größe gehalten; 10⁻⁶ ist kleiner als 10⁻⁵"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Man kann sie nicht vergleichen, denn die beiden Hochzahlen −6 und −5 sind verschieden.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1705,12 +1705,12 @@
     },
     "a": [
      "7 · 10⁻⁶ ist größer, denn 7 ist größer als 3.",
-     "3 · 10⁻⁵ ist größer, denn 7 · 10⁻⁶ = 0,7 · 10⁻⁵ und 0,7 ist kleiner als 3.",
      "7 · 10⁻⁶ ist größer, denn bei negativen Exponenten ist die Zahl mit der größeren Hochzahl auch die größere Zahl.",
-     "Man kann sie nicht vergleichen, denn die beiden Hochzahlen −6 und −5 sind verschieden."
+     "Man kann sie nicht vergleichen, denn die beiden Hochzahlen −6 und −5 sind verschieden.",
+     "3 · 10⁻⁵ ist größer, denn 7 · 10⁻⁶ = 0,7 · 10⁻⁵ und 0,7 ist kleiner als 3."
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "w": "Man bringt beide auf denselben Exponenten: 7 · 10⁻⁶ = 0,7 · 10⁻⁵. Jetzt vergleicht man die Vorfaktoren: 0,7 ist kleiner als 3. Also ist 3 · 10⁻⁵ größer. Ausgeschrieben: 0,000 03 gegen 0,000 007."
    }

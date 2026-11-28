@@ -5,21 +5,20 @@ ABG[(T, "prozentwert")] = "Die Übungen berechnen einen Prozentwert mit einem Sa
 ABG[(T, "grundwert")] = "Die Übungen berechnen den Grundwert aus Prozentwert und Prozentsatz; hier wird der Grundwert für weitere Aussagen über dasselbe Ganze gebraucht, in Darstellungen gelesen oder mit anderen Grundwerten verglichen."
 ABG[(T, "verstehen")] = "Die Übungen rechnen mit Prozenten; hier wird begründet, warum sich Prozentzahlen immer auf ein bestimmtes Ganzes beziehen und was sich ändert, wenn das Ganze wechselt."
 # ───────── prozentwert ─────────
-neu(T, "prozentwert", "test", "transfer", Z(
-    "Eine Schule hat 400 Kinder, davon sind 45 % Mädchen. In der Schach-AG sind 20 % der Mädchen und 30 % der Jungen. Wie viele Kinder sind in der Schach-AG?",
-    102, "0.2 * 0.45 * 400 + 0.3 * 0.55 * 400", "0.2 * 180 + 0.3 * 220",
-    "Mädchen: 45 % von 400 sind 180, also gibt es 400 − 180 = 220 Jungen. In der AG sind 20 % von 180 = 36 Mädchen und 30 % von 220 = 66 Jungen. Zusammen sind das 36 + 66 = 102 Kinder. Die 20 % und die 30 % beziehen sich auf verschiedene Gruppen, deshalb darf man sie nicht zu 50 % von 400 zusammenfassen.",
-    [B("0.5 * 400", "die Prozentsätze 20 % und 30 % addiert und 50 % von allen 400 Kindern genommen, obwohl sie sich auf verschiedene Gruppen beziehen"),
-     B("0.2 * 0.45 * 400", "nur die Mädchen in der AG gezählt und die Jungen vergessen"),
-     B("0.25 * 400", "aus den beiden Prozentsätzen 20 % und 30 % den Mittelwert gebildet und auf alle Kinder bezogen")], einheit="Kinder"),
+neu(T, "prozentwert", "test", "transfer", L(
+    "In einer Schule sind 40 % der Kinder Jungen. 50 % der Jungen und 25 % der Mädchen fahren mit dem Rad, das sind zusammen 490 Kinder. Wie viele Kinder hat die Schule, und wie viele davon sind Mädchen?",
+    "□ Kinder an der Schule, davon □ Mädchen", [1400, 840], ["490 / (0.4 * 0.5 + 0.6 * 0.25)", "490 / (0.4 * 0.5 + 0.6 * 0.25) * 0.6"], ["1400", "840"],
+    "Man schätzt den Anteil der Radfahrer an allen Kindern: 50 % von 40 % sind 20 %, 25 % von 60 % sind 15 %, zusammen 35 % aller Kinder. 490 Kinder sind 35 %, also 1 % = 14 Kinder und 100 % = 1 400 Kinder. Mädchen sind 60 % von 1 400, das sind 840. Probe: 560 Jungen, davon 280 mit Rad, 840 Mädchen, davon 210 mit Rad, zusammen 490.",
+    {0: [(980, "nur den Satz der Jungen (50 %) genommen: 490 : 0,5", "490 / 0.5"), (1960, "nur den Satz der Mädchen (25 %) genommen: 490 : 0,25", "490 / 0.25"), (700, "die beiden Sätze 50 % und 25 % nicht gewichtet, sondern den Gesamtanteil grob mit 0,7 geschätzt", "490 / 0.7")],
+     1: [(560, "die Zahl der Jungen statt der Mädchen angegeben", "1400 * 0.4"), (350, "25 % von allen 1 400 Kindern als Mädchen genommen", "1400 * 0.25"), (980, "1 400 mit 0,7 malgenommen und den Anteil der Mädchen falsch bestimmt", "1400 * 0.7")]}),
     lp=LP, idee="mehrere_ganze")
 neu(T, "prozentwert", "korrektur", "einkleidung", Z(
-    "Ein Fahrrad kostet ohne Steuer 350 €. Dazu kommen 19 % Mehrwertsteuer. Kim rechnet im Kopf: 20 % von 350 € sind 70 €, 1 % sind 3,50 €, also ist die Steuer 70 € − 3,50 €. Ben rechnet 0,19 · 350 €. Wie viel Euro Mehrwertsteuer ergeben beide Wege?",
-    66.5, "350 * 19 / 100", "350 * 0.2 - 350 * 0.01",
-    "Die Steuer ist der Prozentwert: 19 % von 350 €. Kim: 19 % = 20 % − 1 %, also 70 € − 3,50 € = 66,50 €. Ben: 0,19 · 350 € = 66,50 €. Beide Wege führen zum selben Ergebnis, weil 0,19 = 0,2 − 0,01 ist. Der Gesamtpreis wäre 416,50 €, gefragt ist nur die Steuer.",
-    [B("350 + 350 * 19 / 100", "den Preis mit Steuer (416,50 €) angegeben statt nur die Steuer"),
-     B("350 * 19", "mit der Prozentzahl malgenommen, ohne sie in einen Anteil umzuwandeln"),
-     B("350 - 19", "die Prozentzahl vom Preis abgezogen")], einheit="€"), form="zwei_wege", lp=LP, idee="kopfrechnen_zwei_wege")
+    "Für 12 % von 75 € gibt es zwei Rechenwege. Kim rechnet 0,12 · 75 €. Ben rechnet stattdessen 75 % von 12 € und sagt: „Das geht im Kopf schneller.“ Wie viele Euro sind 12 % von 75 €?",
+    9, "12 * 75 / 100", "3 * 12 / 4",
+    "12 % von 75 € sind 0,12 · 75 € = 9 €. Ben rechnet 75 % von 12 €, also drei Viertel von 12 €: 3 · 3 € = 9 €. Beide Wege geben dasselbe, weil 12/100 · 75 und 75/100 · 12 dieselbe Zahl 900/100 ergeben: Man darf Prozentsatz und Grundwert vertauschen.",
+    [B("12 * 75", "mit der Prozentzahl 12 malgenommen, ohne durch 100 zu teilen"),
+     B("0.12 * 75 * 12", "zuerst 12 % berechnet und dann noch einmal mit 12 malgenommen"),
+     B("75 - 12", "die Prozentzahl vom Betrag abgezogen")], einheit="€"), form="zwei_wege", lp=LP, idee="kopfrechnen_zwei_wege")
 neu(T, "prozentwert", "korrektur", "darstellung", Z(
     "Von 600 Kindern kommen 35 % mit dem Fahrrad zur Schule. Im Kreisdiagramm wird diese Gruppe als Sektor gezeichnet. Welchen Mittelpunktswinkel hat dieser Sektor (in Grad)?",
     126, "0.35 * 360", "35 * 360 / 100",
@@ -39,14 +38,14 @@ neu(T, "prozentwert", "sicherung", "transfer", W(
     "etwa 2 000",
     [("etwa 200", "das Komma um eine Stelle falsch gesetzt: etwa ein Zehntel des richtigen Werts"),
      ("etwa 20", "um zwei Stellen verrutscht: aus 51 % wurde 0,51 % gemacht"),
-     ("etwa 20 000", "um eine Stelle zu groß: 51 % als ganze Zahl statt als Anteil gelesen")],
+     ("etwa 20 000", "Komma um eine Stelle falsch: zehnmal so groß wie der richtige Wert")],
     "51 % sind etwas mehr als die Hälfte, und 3 980 ist ungefähr 4 000. Die Hälfte von 4 000 ist 2 000. Genau: 0,51 · 3 980 = 2 029,8. Die anderen Zahlen sind um Zehnerpotenzen daneben.",
     lambda: 1500 < F(51, 100) * 3980 < 2500 and all(not (1500 < x < 2500) for x in (200, 20, 20000))), lp=LP, idee="groessenordnung")
 neu(T, "prozentwert", "sicherung", "fehler", L(
     "Max soll 8 % von 450 € berechnen und schreibt: Zeile 1: 8 % = 8/100 = 0,8. Zeile 2: 0,8 · 450 = 360. Zeile 3: Also sind 8 % von 450 € genau 360 €. In welcher Zeile steckt der erste Fehler, und wie viele Euro sind 8 % von 450 € richtig?",
     "Fehler in Zeile □, richtig: □ €", [1, 36], ["1", "0.08 * 450"], ["2 - 1", "450 * 8 / 100"],
     "Zeile 1 ist falsch: 8/100 ist 0,08 und nicht 0,8 (0,8 wären 80 %). Zeile 2 ist als Rechnung richtig (0,8 · 450 = 360), übernimmt aber den Fehler. Richtig: 0,08 · 450 € = 36 €. Probe: 10 % von 450 € sind 45 €, 8 % müssen etwas weniger sein.",
-    {1: [(360, "mit 0,8 statt 0,08 gerechnet, wie in Zeile 1", "0.8 * 450"), (3600, "mit der Prozentzahl 8 malgenommen", "8 * 450"), (442, "die Prozentzahl 8 vom Preis abgezogen", "450 - 8")]}),
+    {0: [(2, "die Rechnung in Zeile 2 für falsch gehalten, obwohl dort nur der Fehler aus Zeile 1 fortgeführt wird", "2 * 1")], 1: [(360, "mit 0,8 statt 0,08 gerechnet, wie in Zeile 1", "0.8 * 450"), (3600, "mit der Prozentzahl 8 malgenommen", "8 * 450"), (442, "die Prozentzahl 8 vom Preis abgezogen", "450 - 8")]}),
     form="fehler_detektiv", lp=LP, idee="fehler_komma")
 neu(T, "prozentwert", "sicherung", "darstellung", L(
     "3/5 der 240 Kinder einer Schule lesen gern. Als Prozentsatz geschrieben sind das □ %, und die Zahl der Kinder, die gern lesen, ist □.",
@@ -64,13 +63,14 @@ neu(T, "grundwert", "test", "transfer", Z(
      B("18 / 0.45 - 18", "die Jahrgangsstufe minus die Busfahrer gerechnet, also alle Kinder, die nicht mit dem Bus fahren"),
      B("0.25 * 18", "25 % von den 18 Kindern im Bus genommen, obwohl sich die Prozente auf alle Kinder beziehen")], einheit="Kinder"),
     lp=LP, idee="gemeinsames_ganzes")
-neu(T, "grundwert", "korrektur", "umkehr", Z(
-    "Bei einer Umfrage sagen 36 Kinder, dass sie gern Gemüse essen. Das sind 15 % aller befragten Kinder. Wie viele Kinder wurden befragt?",
-    240, "36 / 0.15", "36 * 100 / 15",
-    "36 Kinder sind 15 % der Befragten. Aus 15 % = 36 folgt 1 % = 36 : 15 = 2,4 und 100 % = 240. Probe: 15 % von 240 sind 36.",
-    [B("36 * 0.15", "15 % von 36 berechnet, obwohl 36 schon der Prozentwert ist"),
-     B("36 * 15", "die 36 mit der Prozentzahl 15 malgenommen"),
-     B("36 + 15", "die beiden Zahlen im Text addiert")], einheit="Kinder"), form="umkehren", lp=LP, idee="grundwert_direkt")
+neu(T, "grundwert", "korrektur", "umkehr", W(
+    "12 Kinder sind 8 % aller Kinder einer Schule. Ungefähr wie viele Kinder hat die Schule?",
+    "etwa 150 Kinder",
+    [("etwa 1 Kind", "den Prozentsatz durch den Prozentwert geteilt: 8 : 12 ist weniger als 1"),
+     ("etwa 1 500 Kinder", "um eine Stelle zu groß: den Prozentsatz um eine Stelle falsch behandelt"),
+     ("etwa 100 Kinder", "den Prozentwert mit dem Prozentsatz gleichgesetzt und die Prozentzahl falsch gerundet")],
+    "8 % sind etwa ein Zwölftel. Die 12 Kinder sind also ein Zwölftel der Schule, die Schule hat etwa 12 · 12 = 144 Kinder. Genau: 12 : 0,08 = 150 Kinder. Probe: 8 % von 150 sind 12.",
+    lambda: F(12) / F(8, 100) == 150 and all(x != 150 for x in (1, 1500, 100))), form="umkehren", lp=LP, idee="grundwert_direkt")
 neu(T, "grundwert", "korrektur", "darstellung", Z(
     "In einem Kreisdiagramm gehört zum Sektor „Fußweg“ der Mittelpunktswinkel 54°. Diesem Sektor entsprechen 63 Kinder. Wie viele Kinder wurden insgesamt befragt?",
     420, "63 / (54 / 360)", "63 * 360 / 54",
@@ -97,7 +97,7 @@ neu(T, "grundwert", "sicherung", "fehler", L(
     "Lena bestimmt, wie viele Mitglieder ein Verein hat, wenn 20 Mitglieder 25 % aller Mitglieder sind. Zeile 1: 20 Mitglieder sind 25 % aller Mitglieder. Zeile 2: Alle Mitglieder = 20 · 25 % = 20 · 0,25 = 5. Zeile 3: Der Verein hat also 5 Mitglieder. In welcher Zeile steckt der erste Fehler, und wie viele Mitglieder hat der Verein richtig?",
     "Fehler in Zeile □, richtig: □ Mitglieder", [2, 80], ["2", "20 / 0.25"], ["3 - 1", "20 * 4"],
     "Der Grundwert ist Prozentwert durch Prozentsatz, nicht mal: 20 : 0,25 = 80. Zeile 1 ist richtig. Zeile 2 multipliziert statt zu teilen. Zeile 3 übernimmt den Fehler; das Ergebnis 5 ist ein Warnzeichen, denn 20 Mitglieder können nicht Teil von nur 5 sein.",
-    {1: [(5, "den Prozentwert mit dem Prozentsatz malgenommen, wie in Zeile 2", "20 * 0.25"), (500, "mit der Prozentzahl 25 malgenommen", "20 * 25"), (45, "die beiden Zahlen im Text addiert", "20 + 25")]}),
+    {0: [(3, "die Schlusszeile genannt, weil dort das unsinnige Ergebnis 5 steht", "3")], 1: [(5, "den Prozentwert mit dem Prozentsatz malgenommen, wie in Zeile 2", "20 * 0.25"), (500, "mit der Prozentzahl 25 malgenommen", "20 * 25"), (45, "die beiden Zahlen im Text addiert", "20 + 25")]}),
     form="fehler_detektiv", lp=LP, idee="fehler_multiplizieren")
 neu(T, "grundwert", "sicherung", "darstellung", L(
     "7 % der Murmeln in einem Beutel sind 42 Murmeln. Dann sind 1 % genau □ Murmeln, und alle Murmeln im Beutel (100 %) sind □ Murmeln.",
@@ -108,11 +108,11 @@ neu(T, "grundwert", "sicherung", "darstellung", L(
     form=None, lp=LP, idee="eins_prozent")
 # ───────── verstehen ─────────
 neu(T, "verstehen", "test", "transfer", L(
-    "In einer Stadt sind 40 % der Einwohner Kinder. Von den Kindern sind 30 % im Sportverein. Wie viel Prozent aller Einwohner sind Kinder im Sportverein, und wie viele Einwohner sind das bei 5 000 Einwohnern?",
-    "□ % aller Einwohner, das sind □ Einwohner", [12, 600], ["0.4 * 0.3 * 100", "0.4 * 0.3 * 5000"], ["30 * 40 / 100", "5000 * 12 / 100"],
-    "Die 30 % beziehen sich nur auf die Kinder, nicht auf alle Einwohner. Bei 5 000 Einwohnern gibt es 40 % = 2 000 Kinder, davon sind 30 % = 600 im Sportverein. 600 von 5 000 sind 12 %. Kürzer: 30 % von 40 % sind 0,3 · 0,4 = 0,12.",
-    {0: [(70, "die Prozentzahlen addiert, obwohl sie sich auf verschiedene Ganze beziehen", "40 + 30"), (10, "die Prozentzahlen subtrahiert", "40 - 30"), (1200, "die Prozentzahlen malgenommen, ohne einen Anteil zu bilden", "40 * 30")],
-     1: [(1500, "30 % von allen 5 000 Einwohnern genommen", "0.3 * 5000"), (2000, "nur die Kinder (40 % von 5 000) gezählt", "0.4 * 5000"), (3500, "den Anteil der Einwohner ohne Sportverein-Kinder genommen", "0.7 * 5000")]}),
+    "In einem Dorf sind 40 % der Einwohner Kinder. Von den Kindern sind 30 % im Sportverein. Im Sportverein sind 60 Kinder. Wie viele Einwohner hat das Dorf, und wie viele Kinder wohnen dort?",
+    "□ Einwohner im Dorf, davon □ Kinder", [500, 200], ["60 / (0.4 * 0.3)", "60 / 0.3"], ["500", "200"],
+    "Die 30 % beziehen sich nur auf die Kinder. 60 Kinder im Verein sind 30 % aller Kinder, also gibt es 60 : 0,3 = 200 Kinder. Diese 200 Kinder sind 40 % aller Einwohner, also hat das Dorf 200 : 0,4 = 500 Einwohner. Kürzer: 30 % von 40 % sind 12 %, und 60 : 0,12 = 500.",
+    {0: [(150, "die 60 Kinder als 40 % gedeutet: 60 : 0,4", "60 / 0.4"), (200, "nur die Kinderzahl bestimmt und als Einwohnerzahl angegeben", "60 / 0.3"), (1500, "die 60 Kinder als einen viel zu kleinen Prozentsatz der Einwohner gedeutet, das Komma verrutscht", "60 / 0.04")],
+     1: [(60, "die Zahl der Kinder im Verein als Zahl aller Kinder angegeben", "60"), (150, "40 % von 375 genommen, den Grundwert falsch bestimmt", "0.4 * 375"), (300, "60 : 0,2 gerechnet, die beiden Prozentzahlen 40 und 30 verwechselt", "60 / 0.2")]}),
     lp=LP, idee="anteil_von_anteil")
 neu(T, "verstehen", "korrektur", "einkleidung", Z(
     "Der Eintritt für ein Schwimmbad kostete 30 €. Nach dem Umbau steigt der Preis um 200 %. Wie viel Euro kostet der Eintritt danach?",
@@ -130,17 +130,17 @@ neu(T, "verstehen", "korrektur", "darstellung", W(
     "Alle Angaben als Prozent: 3/8 = 0,375 = 37,5 %; 0,36 = 36 %; 37 %; 7/20 = 35 %. Der größte Anteil ist 37,5 %, also 3/8. Schon 3/8 und 37 % liegen nur 0,5 Prozentpunkte auseinander.",
     lambda: F(3, 8) > F(37, 100) > F("0.36") > F(7, 20)), lp=LP, idee="darstellungen_vergleichen")
 neu(T, "verstehen", "korrektur", "umkehr", Z(
-    "Ein Chor hat 60 Kinder, das sind 20 % aller Kinder einer Schule. Später sind dieselben 60 Chorkinder nur noch 12 % aller Kinder der Schule. Wie viele Kinder sind in der Zwischenzeit neu an die Schule gekommen?",
-    200, "60 / 0.12 - 60 / 0.2", "500 - 300",
-    "Früher waren 60 Kinder 20 % der Schule, die Schule hatte also 60 : 0,2 = 300 Kinder. Später sind 60 Kinder 12 %, die Schule hat dann 60 : 0,12 = 500 Kinder. Es sind 500 − 300 = 200 Kinder neu dazugekommen. Die Prozentzahl sinkt, obwohl im Chor niemand fehlt: Das Ganze ist größer geworden.",
-    [B("60 / 0.12", "die heutige Schülerzahl (500) als Zahl der neuen Kinder angegeben"),
-     B("60 / 0.2", "die frühere Schülerzahl (300) als Zahl der neuen Kinder angegeben"),
-     B("60 / 0.12 - 60", "von der heutigen Schülerzahl nur die Chorkinder abgezogen statt der früheren Schülerzahl")], einheit="Kinder"), form="umkehren", lp=LP, idee="ganzes_aendert_sich")
+    "Eine Sonnenblume ist heute 150 % so hoch wie vor einem Monat und misst 54 cm. Wie hoch war sie vor einem Monat?",
+    36, "54 / 1.5", "54 * 100 / 150",
+    "Vor einem Monat war die Sonnenblume das Ganze, also 100 %. Heute sind es 150 %, das ist das Eineinhalbfache. 150 % sind 54 cm, also 50 % sind 18 cm und 100 % sind 36 cm. Probe: 150 % von 36 cm sind 54 cm.",
+    [B("54 / 1.5 / 2", "nach dem Teilen noch durch 2 geteilt, weil 150 % als anderthalbfach und zugleich als Hälfte gelesen wurde"),
+     B("54 - 54 * 0.5", "50 % von der heutigen Höhe abgezogen statt vom alten Wert"),
+     B("54 * 1.5", "die heutige Höhe mit 1,5 malgenommen, statt durch 1,5 zu teilen")], einheit="cm"), form="umkehren", lp=LP, idee="ganzes_aendert_sich")
 neu(T, "verstehen", "sicherung", "fehler", L(
     "Zwei Klassen vergleichen die Hausaufgaben. Zeile 1: Klasse A hat 8 Kinder, Klasse B hat 30 Kinder. In A haben 75 % der Kinder die Hausaufgabe gemacht, in B nur 40 %. Zeile 2: 75 % sind mehr als 40 %, also ist der Anteil in A größer. Zeile 3: Also haben in A mehr Kinder die Hausaufgabe gemacht als in B. In welcher Zeile steckt der erste Fehler, und wie viele Kinder haben in B mehr die Hausaufgabe gemacht als in A?",
     "Fehler in Zeile □, Unterschied: □ Kinder", [3, 6], ["3", "0.4 * 30 - 0.75 * 8"], ["4 - 1", "12 - 6"],
     "Prozentzahlen vergleichen Anteile, nicht Anzahlen. Zeile 1 und 2 sind richtig. Zeile 3 ist falsch: In A haben 75 % von 8 = 6 Kinder die Hausaufgabe gemacht, in B 40 % von 30 = 12 Kinder. In B sind es also 12 − 6 = 6 Kinder mehr, obwohl der Anteil dort kleiner ist.",
-    {1: [(-6, "die Differenz andersherum gebildet: A minus B", "0.75 * 8 - 0.4 * 30"), (12, "nur die Kinder aus Klasse B gezählt", "0.4 * 30"), (35, "den Unterschied der Prozentzahlen als Kinderzahl gelesen", "75 - 40")]}),
+    {0: [(2, "den Vergleich der Prozentzahlen in Zeile 2 für falsch gehalten", "1 + 1")], 1: [(-6, "die Differenz andersherum gebildet: A minus B", "0.75 * 8 - 0.4 * 30"), (12, "nur die Kinder aus Klasse B gezählt", "0.4 * 30"), (35, "den Unterschied der Prozentzahlen als Kinderzahl gelesen", "75 - 40")]}),
     form="fehler_detektiv", lp=LP, idee="anzahl_oder_anteil")
 neu(T, "verstehen", "sicherung", "begruenden", W(
     "Bei Verein A sind 20 % der Mitglieder mehr Personen als 30 % der Mitglieder von Verein B. Welche Aussage über die Mitgliederzahlen folgt sicher?",

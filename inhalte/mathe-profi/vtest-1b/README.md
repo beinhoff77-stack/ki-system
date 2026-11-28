@@ -20,15 +20,15 @@ Je gewähltem Lernziel 7 Aufgaben: 1 **test** (`ersetzt_test: true`, die anspruc
 |---|---|---|---|---|---|---|---|---|
 | Einheit | Lernziel | test | korrektur | sicherung | Stufe 2 / 3 | Antwortformen (Zahl / Auswahl / Lücken) | Typen | Formen |
 |---|---|---|---|---|---|---|---|---|
-| `bruch.prozent` | `prozentwert` | 1 | 3 | 3 | 4 / 3 | 4 / 1 / 2 | darstellung 2, einkleidung 1, fehler 1, transfer 2, umkehr 1 | ohne 4, bruecke 1, fehler_detektiv 1, zwei_wege 1 |
-| `bruch.prozent` | `grundwert` | 1 | 3 | 3 | 4 / 3 | 4 / 1 / 2 | begruenden 1, darstellung 2, fehler 1, transfer 1, umkehr 2 | ohne 5, fehler_detektiv 1, umkehren 1 |
+| `bruch.prozent` | `prozentwert` | 1 | 3 | 3 | 4 / 3 | 3 / 1 / 3 | darstellung 2, einkleidung 1, fehler 1, transfer 2, umkehr 1 | ohne 4, bruecke 1, fehler_detektiv 1, zwei_wege 1 |
+| `bruch.prozent` | `grundwert` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | begruenden 1, darstellung 2, fehler 1, transfer 1, umkehr 2 | ohne 5, fehler_detektiv 1, umkehren 1 |
 | `bruch.prozent` | `verstehen` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | begruenden 1, darstellung 1, einkleidung 1, fehler 1, transfer 1, umkehr 2 | ohne 4, bruecke 1, fehler_detektiv 1, umkehren 1 |
-| `gleichungen.bruch` | `definitionsmenge` | 1 | 3 | 3 | 4 / 3 | 4 / 2 / 1 | begruenden 1, darstellung 2, einkleidung 1, fehler 1, transfer 1, umkehr 1 | ohne 3, bruecke 2, fehler_detektiv 1, umkehren 1 |
-| `gleichungen.bruch` | `ueber_kreuz` | 1 | 3 | 3 | 4 / 3 | 3 / 3 / 1 | darstellung 1, einkleidung 1, fehler 1, mehrschritt 1, parameter 1, pruefung 1, umkehr 1 | ohne 3, bruecke 1, fehler_detektiv 1, verfahren_waehlen 1, zwei_wege 1 |
-| `gleichungen.bruch` | `scheinloesung` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | begruenden 1, darstellung 3, fehler 1, transfer 1, umkehr 1 | ohne 5, bruecke 1, fehler_detektiv 1 |
-| `gleichungen.bruch` | `verhaeltnis` | 1 | 3 | 3 | 4 / 3 | 4 / 2 / 1 | darstellung 1, fehler 1, mehrschritt 1, parameter 1, transfer 1, umkehr 2 | ohne 2, bruecke 1, fehler_detektiv 1, umkehren 2, zwei_wege 1 |
+| `gleichungen.bruch` | `definitionsmenge` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | begruenden 1, darstellung 1, einkleidung 1, fehler 1, transfer 1, umkehr 2 | ohne 3, bruecke 2, fehler_detektiv 1, umkehren 1 |
+| `gleichungen.bruch` | `ueber_kreuz` | 1 | 3 | 3 | 4 / 3 | 2 / 4 / 1 | begruenden 1, darstellung 1, einkleidung 1, fehler 1, mehrschritt 1, pruefung 1, umkehr 1 | ohne 5, fehler_detektiv 1, zwei_wege 1 |
+| `gleichungen.bruch` | `scheinloesung` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | begruenden 1, darstellung 3, fehler 1, transfer 1, umkehr 1 | ohne 5, fehler_detektiv 1, umkehren 1 |
+| `gleichungen.bruch` | `verhaeltnis` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | darstellung 1, fehler 1, mehrschritt 1, transfer 2, umkehr 2 | ohne 3, bruecke 1, fehler_detektiv 1, umkehren 1, zwei_wege 1 |
 | `terme.potenzgesetze` | `negativer_exponent` | 1 | 3 | 3 | 4 / 3 | 4 / 2 / 1 | begruenden 1, darstellung 2, parameter 1, transfer 1, umkehr 2 | ohne 6, bruecke 1 |
-| `terme.potenzgesetze` | `fehler_finden` | 1 | 3 | 3 | 4 / 3 | 2 / 4 / 1 | begruenden 1, darstellung 1, fehler 2, mehrschritt 1, umkehr 2 | ohne 4, fehler_detektiv 2, zwei_wege 1 |
+| `terme.potenzgesetze` | `fehler_finden` | 1 | 3 | 3 | 4 / 3 | 1 / 4 / 2 | begruenden 1, darstellung 1, fehler 2, mehrschritt 1, umkehr 2 | ohne 3, fehler_detektiv 3, zwei_wege 1 |
 | `zahlen.potenzen_zehner` | `gross_wissenschaftlich` | 1 | 3 | 3 | 4 / 3 | 3 / 3 / 1 | begruenden 1, darstellung 1, fehler 1, mehrschritt 1, transfer 1, umkehr 2 | ohne 3, bruecke 1, fehler_detektiv 1, umkehren 1, zwei_wege 1 |
 | `zahlen.potenzen_zehner` | `negativer_exponent` | 1 | 3 | 3 | 4 / 3 | 4 / 2 / 1 | begruenden 1, darstellung 3, parameter 1, transfer 1, umkehr 1 | ohne 5, bruecke 1, umkehren 1 |
 | `zahlen.potenzen_zehner` | `vorsilben_klein` | 1 | 3 | 3 | 4 / 3 | 2 / 3 / 2 | begruenden 1, darstellung 3, einkleidung 1, fehler 1, transfer 1 | ohne 3, bruecke 3, fehler_detektiv 1 |
@@ -37,20 +37,20 @@ Je gewähltem Lernziel 7 Aufgaben: 1 **test** (`ersetzt_test: true`, die anspruc
 | `messen.flaechen_vielecke` | `rueckwaerts` | 1 | 3 | 3 | 4 / 3 | 3 / 1 / 3 | begruenden 1, darstellung 2, fehler 1, rueckwaerts 1, umkehr 2 | ohne 4, bruecke 1, fehler_detektiv 1, umkehren 1 |
 | `messen.flaechen_vielecke` | `zusammengesetzt` | 1 | 3 | 3 | 4 / 3 | 3 / 1 / 3 | darstellung 2, fehler 1, mehrschritt 1, transfer 2, umkehr 1 | ohne 2, bruecke 2, fehler_detektiv 1, umkehren 1, zwei_wege 1 |
 | `messen.flaechen_vielecke` | `verstehen` | 1 | 3 | 3 | 4 / 3 | 3 / 3 / 1 | begruenden 1, darstellung 3, fehler 1, rueckwaerts 1, umkehr 1 | ohne 4, bruecke 2, fehler_detektiv 1 |
-| Summe | 17 Lernziele | 17 | 51 | 51 | 68 / 51 | 57 / 35 / 27 | | |
+| Summe | 17 Lernziele | 17 | 51 | 51 | 68 / 51 | 51 / 37 / 31 | | |
 
 Typen insgesamt:
 
 | Typ | Aufgaben | Anteil |
 |---|---|---|
-| darstellung | 33 | 28 % |
-| umkehr | 24 | 20 % |
+| darstellung | 32 | 27 % |
+| umkehr | 25 | 21 % |
+| transfer | 16 | 13 % |
 | fehler | 16 | 13 % |
-| transfer | 15 | 13 % |
-| begruenden | 12 | 10 % |
+| begruenden | 13 | 11 % |
 | mehrschritt | 6 | 5 % |
 | einkleidung | 5 | 4 % |
-| parameter | 5 | 4 % |
+| parameter | 3 | 3 % |
 | rueckwaerts | 2 | 2 % |
 | pruefung | 1 | 1 % |
 
@@ -58,12 +58,11 @@ Formen insgesamt:
 
 | Form | Aufgaben | Anteil |
 |---|---|---|
-| (ohne Form) | 65 | 55 % |
-| bruecke | 19 | 16 % |
-| fehler_detektiv | 16 | 13 % |
+| (ohne Form) | 67 | 56 % |
+| fehler_detektiv | 17 | 14 % |
+| bruecke | 17 | 14 % |
 | umkehren | 11 | 9 % |
 | zwei_wege | 7 | 6 % |
-| verfahren_waehlen | 1 | 1 % |
 
 ## Kennungen
 
@@ -75,7 +74,7 @@ Formen insgesamt:
 | `zahlen.potenzen_zehner` | VT1B-064 bis VT1B-091 | 28 |
 | `messen.flaechen_vielecke` | VT1B-092 bis VT1B-119 | 28 |
 
-Fehlbilder: 378 insgesamt; bei Zahl- und Lückenaufgaben trägt jedes Fehlbild eine ausführbare Rechnung (`rechnung`), bei Auswahl steht die falsche Möglichkeit mit der Beschreibung des Denkfehlers.
+Fehlbilder: 401 insgesamt; bei Zahl- und Lückenaufgaben trägt jedes Fehlbild eine ausführbare Rechnung (`rechnung`), bei Auswahl steht die falsche Möglichkeit mit der Beschreibung des Denkfehlers.
 
 ## Denkfiguren je Lernziel (von Hand gruppiert)
 

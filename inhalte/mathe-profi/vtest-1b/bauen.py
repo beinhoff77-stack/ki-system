@@ -162,7 +162,7 @@ for a in A:
         zw = [ip.rechne(z) if isinstance(z, str) else F(z) for z in a["zweit"]]
         assert soll == [F(w) for w in q["o"]["werte"]] == zw, (kenn, soll, a["zweit"])
         n_rechnung += len(soll)
-        assert a["fb"], (kenn, "mindestens ein Fehlbild")
+        assert a["fb"] and set(a["fb"]) == set(range(len(q["o"]["werte"]))), (kenn, "jede Lücke braucht mindestens ein Fehlbild", sorted(a["fb"]))
         for i, liste in sorted(a["fb"].items()):
             werte = set()
             for (w, beschr, rech) in liste:

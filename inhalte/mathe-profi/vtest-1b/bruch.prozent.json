@@ -25,29 +25,59 @@
    "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
    "abgrenzung": "Die Übungen berechnen einen Prozentwert mit einem Satz; hier müssen mehrere Prozentsätze auf verschiedene Ganze bezogen, Größenordnungen abgeschätzt oder eine Prozentangabe in eine andere Darstellung gebracht werden.",
    "idee": "mehrere_ganze",
-   "antwortform": "zahl",
-   "loesung_rechnung": "0.2 * 0.45 * 400 + 0.3 * 0.55 * 400",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "490 / (0.4 * 0.5 + 0.6 * 0.25)",
+    "490 / (0.4 * 0.5 + 0.6 * 0.25) * 0.6"
+   ],
    "fehlbilder": [
     {
-     "antwort": 200,
-     "rechnung": "0.5 * 400",
+     "luecke": 1,
+     "antwort": 980,
+     "rechnung": "490 / 0.5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Prozentsätze 20 % und 30 % addiert und 50 % von allen 400 Kindern genommen, obwohl sie sich auf verschiedene Gruppen beziehen"
+     "beschreibung": "nur den Satz der Jungen (50 %) genommen: 490 : 0,5"
     },
     {
-     "antwort": 36,
-     "rechnung": "0.2 * 0.45 * 400",
+     "luecke": 1,
+     "antwort": 1960,
+     "rechnung": "490 / 0.25",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Mädchen in der AG gezählt und die Jungen vergessen"
+     "beschreibung": "nur den Satz der Mädchen (25 %) genommen: 490 : 0,25"
     },
     {
-     "antwort": 100,
-     "rechnung": "0.25 * 400",
+     "luecke": 1,
+     "antwort": 700,
+     "rechnung": "490 / 0.7",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "aus den beiden Prozentsätzen 20 % und 30 % den Mittelwert gebildet und auf alle Kinder bezogen"
+     "beschreibung": "die beiden Sätze 50 % und 25 % nicht gewichtet, sondern den Gesamtanteil grob mit 0,7 geschätzt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 560,
+     "rechnung": "1400 * 0.4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Jungen statt der Mädchen angegeben"
+    },
+    {
+     "luecke": 2,
+     "antwort": 350,
+     "rechnung": "1400 * 0.25",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "25 % von allen 1 400 Kindern als Mädchen genommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 980,
+     "rechnung": "1400 * 0.7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1 400 mit 0,7 malgenommen und den Anteil der Mädchen falsch bestimmt"
     }
    ],
    "regel": "id.verhaeltnisse.prozent",
@@ -58,16 +88,23 @@
     "p": "test",
     "s": 3,
     "g": "transfer",
-    "y": "zahl",
+    "y": "luecken",
     "f": {
-     "text": "Eine Schule hat 400 Kinder, davon sind 45 % Mädchen. In der Schach-AG sind 20 % der Mädchen und 30 % der Jungen. Wie viele Kinder sind in der Schach-AG?"
+     "text": "In einer Schule sind 40 % der Kinder Jungen. 50 % der Jungen und 25 % der Mädchen fahren mit dem Rad, das sind zusammen 490 Kinder. Wie viele Kinder hat die Schule, und wie viele davon sind Mädchen?",
+     "schablone": "□ Kinder an der Schule, davon □ Mädchen",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
-     "wert": 102,
-     "einheit": "Kinder"
+     "werte": [
+      1400,
+      840
+     ]
     },
-    "c": "0.2 * 0.45 * 400 + 0.3 * 0.55 * 400",
-    "w": "Mädchen: 45 % von 400 sind 180, also gibt es 400 − 180 = 220 Jungen. In der AG sind 20 % von 180 = 36 Mädchen und 30 % von 220 = 66 Jungen. Zusammen sind das 36 + 66 = 102 Kinder. Die 20 % und die 30 % beziehen sich auf verschiedene Gruppen, deshalb darf man sie nicht zu 50 % von 400 zusammenfassen."
+    "c": [
+     "490 / (0.4 * 0.5 + 0.6 * 0.25)",
+     "490 / (0.4 * 0.5 + 0.6 * 0.25) * 0.6"
+    ],
+    "w": "Man schätzt den Anteil der Radfahrer an allen Kindern: 50 % von 40 % sind 20 %, 25 % von 60 % sind 15 %, zusammen 35 % aller Kinder. 490 Kinder sind 35 %, also 1 % = 14 Kinder und 100 % = 1 400 Kinder. Mädchen sind 60 % von 1 400, das sind 840. Probe: 560 Jungen, davon 280 mit Rad, 840 Mädchen, davon 210 mit Rad, zusammen 490."
    }
   },
   {
@@ -83,28 +120,28 @@
    "abgrenzung": "Die Übungen berechnen einen Prozentwert mit einem Satz; hier müssen mehrere Prozentsätze auf verschiedene Ganze bezogen, Größenordnungen abgeschätzt oder eine Prozentangabe in eine andere Darstellung gebracht werden.",
    "idee": "kopfrechnen_zwei_wege",
    "antwortform": "zahl",
-   "loesung_rechnung": "350 * 19 / 100",
+   "loesung_rechnung": "12 * 75 / 100",
    "fehlbilder": [
     {
-     "antwort": 416.5,
-     "rechnung": "350 + 350 * 19 / 100",
+     "antwort": 900,
+     "rechnung": "12 * 75",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Preis mit Steuer (416,50 €) angegeben statt nur die Steuer"
+     "beschreibung": "mit der Prozentzahl 12 malgenommen, ohne durch 100 zu teilen"
     },
     {
-     "antwort": 6650,
-     "rechnung": "350 * 19",
+     "antwort": 108,
+     "rechnung": "0.12 * 75 * 12",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit der Prozentzahl malgenommen, ohne sie in einen Anteil umzuwandeln"
+     "beschreibung": "zuerst 12 % berechnet und dann noch einmal mit 12 malgenommen"
     },
     {
-     "antwort": 331,
-     "rechnung": "350 - 19",
+     "antwort": 63,
+     "rechnung": "75 - 12",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Prozentzahl vom Preis abgezogen"
+     "beschreibung": "die Prozentzahl vom Betrag abgezogen"
     }
    ],
    "regel": "id.verhaeltnisse.prozent",
@@ -116,14 +153,14 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Fahrrad kostet ohne Steuer 350 €. Dazu kommen 19 % Mehrwertsteuer. Kim rechnet im Kopf: 20 % von 350 € sind 70 €, 1 % sind 3,50 €, also ist die Steuer 70 € − 3,50 €. Ben rechnet 0,19 · 350 €. Wie viel Euro Mehrwertsteuer ergeben beide Wege?"
+     "text": "Für 12 % von 75 € gibt es zwei Rechenwege. Kim rechnet 0,12 · 75 €. Ben rechnet stattdessen 75 % von 12 € und sagt: „Das geht im Kopf schneller.“ Wie viele Euro sind 12 % von 75 €?"
     },
     "o": {
-     "wert": 66.5,
+     "wert": 9,
      "einheit": "€"
     },
-    "c": "350 * 19 / 100",
-    "w": "Die Steuer ist der Prozentwert: 19 % von 350 €. Kim: 19 % = 20 % − 1 %, also 70 € − 3,50 € = 66,50 €. Ben: 0,19 · 350 € = 66,50 €. Beide Wege führen zum selben Ergebnis, weil 0,19 = 0,2 − 0,01 ist. Der Gesamtpreis wäre 416,50 €, gefragt ist nur die Steuer."
+    "c": "12 * 75 / 100",
+    "w": "12 % von 75 € sind 0,12 · 75 € = 9 €. Ben rechnet 75 % von 12 €, also drei Viertel von 12 €: 3 · 3 € = 9 €. Beide Wege geben dasselbe, weil 12/100 · 75 und 75/100 · 12 dieselbe Zahl 900/100 ergeben: Man darf Prozentsatz und Grundwert vertauschen."
    }
   },
   {
@@ -272,7 +309,7 @@
      "antwort": "etwa 20 000",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "um eine Stelle zu groß: 51 % als ganze Zahl statt als Anteil gelesen"
+     "beschreibung": "Komma um eine Stelle falsch: zehnmal so groß wie der richtige Wert"
     }
    ],
    "regel": "id.verhaeltnisse.prozent",
@@ -316,6 +353,14 @@
     "0.08 * 450"
    ],
    "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "2 * 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Rechnung in Zeile 2 für falsch gehalten, obwohl dort nur der Fehler aus Zeile 1 fortgeführt wird"
+    },
     {
      "luecke": 2,
      "antwort": 360,
@@ -513,29 +558,29 @@
    "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
    "abgrenzung": "Die Übungen berechnen den Grundwert aus Prozentwert und Prozentsatz; hier wird der Grundwert für weitere Aussagen über dasselbe Ganze gebraucht, in Darstellungen gelesen oder mit anderen Grundwerten verglichen.",
    "idee": "grundwert_direkt",
-   "antwortform": "zahl",
-   "loesung_rechnung": "36 / 0.15",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "antwort": 5.4,
-     "rechnung": "36 * 0.15",
+     "index": 1,
+     "antwort": "etwa 1 Kind",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "15 % von 36 berechnet, obwohl 36 schon der Prozentwert ist"
+     "beschreibung": "den Prozentsatz durch den Prozentwert geteilt: 8 : 12 ist weniger als 1"
     },
     {
-     "antwort": 540,
-     "rechnung": "36 * 15",
+     "index": 2,
+     "antwort": "etwa 1 500 Kinder",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 36 mit der Prozentzahl 15 malgenommen"
+     "beschreibung": "um eine Stelle zu groß: den Prozentsatz um eine Stelle falsch behandelt"
     },
     {
-     "antwort": 51,
-     "rechnung": "36 + 15",
+     "index": 3,
+     "antwort": "etwa 100 Kinder",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die beiden Zahlen im Text addiert"
+     "beschreibung": "den Prozentwert mit dem Prozentsatz gleichgesetzt und die Prozentzahl falsch gerundet"
     }
    ],
    "regel": "id.verhaeltnisse.prozent",
@@ -545,16 +590,20 @@
     "p": "korrektur",
     "s": 2,
     "g": "umkehr",
-    "y": "zahl",
+    "y": "auswahl",
     "f": {
-     "text": "Bei einer Umfrage sagen 36 Kinder, dass sie gern Gemüse essen. Das sind 15 % aller befragten Kinder. Wie viele Kinder wurden befragt?"
+     "text": "12 Kinder sind 8 % aller Kinder einer Schule. Ungefähr wie viele Kinder hat die Schule?"
     },
+    "a": [
+     "etwa 150 Kinder",
+     "etwa 1 Kind",
+     "etwa 1 500 Kinder",
+     "etwa 100 Kinder"
+    ],
     "o": {
-     "wert": 240,
-     "einheit": "Kinder"
+     "index": 0
     },
-    "c": "36 / 0.15",
-    "w": "36 Kinder sind 15 % der Befragten. Aus 15 % = 36 folgt 1 % = 36 : 15 = 2,4 und 100 % = 240. Probe: 15 % von 240 sind 36."
+    "w": "8 % sind etwa ein Zwölftel. Die 12 Kinder sind also ein Zwölftel der Schule, die Schule hat etwa 12 · 12 = 144 Kinder. Genau: 12 : 0,08 = 150 Kinder. Probe: 8 % von 150 sind 12."
    }
   },
   {
@@ -685,21 +734,21 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Anna, denn ihr Sparziel ist 600 € und Bens Sparziel ist 160 €.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "20 % als Faktor 20 gelesen und mit den gesparten 30 € malgenommen"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Ben, denn sein Sparziel ist 10 € und Annas Sparziel ist 6 €.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Prozentwert mit dem Prozentsatz malgenommen, statt durch ihn zu teilen"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Anna, denn 20 % sind weniger als 25 %, und weniger Prozent bedeuten ein größeres Sparziel.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -718,13 +767,13 @@
      "text": "Anna hat 30 € gespart, das sind 20 % ihres Sparziels. Ben hat 40 € gespart, das sind 25 % seines Sparziels. Welche Aussage über die Sparziele stimmt?"
     },
     "a": [
-     "Ben, denn sein Sparziel ist 160 € und Annas Sparziel ist 150 €.",
      "Anna, denn ihr Sparziel ist 600 € und Bens Sparziel ist 160 €.",
      "Ben, denn sein Sparziel ist 10 € und Annas Sparziel ist 6 €.",
-     "Anna, denn 20 % sind weniger als 25 %, und weniger Prozent bedeuten ein größeres Sparziel."
+     "Anna, denn 20 % sind weniger als 25 %, und weniger Prozent bedeuten ein größeres Sparziel.",
+     "Ben, denn sein Sparziel ist 160 € und Annas Sparziel ist 150 €."
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "w": "Annas Sparziel ist der Grundwert: 30 € sind 20 %, also 1 % = 1,50 € und 100 % = 150 €. Bens Sparziel: 40 € sind 25 %, also ist das Ziel 40 € : 0,25 = 160 €. Bens Ziel ist höher. Aus den Prozentsätzen allein lässt sich nichts schließen, weil auch die Beträge verschieden sind."
    }
@@ -747,6 +796,14 @@
     "20 / 0.25"
    ],
    "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Schlusszeile genannt, weil dort das unsinnige Ergebnis 5 steht"
+    },
     {
      "luecke": 2,
      "antwort": 5,
@@ -889,57 +946,57 @@
    "idee": "anteil_von_anteil",
    "antwortform": "luecken",
    "loesung_rechnung": [
-    "0.4 * 0.3 * 100",
-    "0.4 * 0.3 * 5000"
+    "60 / (0.4 * 0.3)",
+    "60 / 0.3"
    ],
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 70,
-     "rechnung": "40 + 30",
+     "antwort": 150,
+     "rechnung": "60 / 0.4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Prozentzahlen addiert, obwohl sie sich auf verschiedene Ganze beziehen"
+     "beschreibung": "die 60 Kinder als 40 % gedeutet: 60 : 0,4"
     },
     {
      "luecke": 1,
-     "antwort": 10,
-     "rechnung": "40 - 30",
+     "antwort": 200,
+     "rechnung": "60 / 0.3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Prozentzahlen subtrahiert"
+     "beschreibung": "nur die Kinderzahl bestimmt und als Einwohnerzahl angegeben"
     },
     {
      "luecke": 1,
-     "antwort": 1200,
-     "rechnung": "40 * 30",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Prozentzahlen malgenommen, ohne einen Anteil zu bilden"
-    },
-    {
-     "luecke": 2,
      "antwort": 1500,
-     "rechnung": "0.3 * 5000",
+     "rechnung": "60 / 0.04",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "30 % von allen 5 000 Einwohnern genommen"
+     "beschreibung": "die 60 Kinder als einen viel zu kleinen Prozentsatz der Einwohner gedeutet, das Komma verrutscht"
     },
     {
      "luecke": 2,
-     "antwort": 2000,
-     "rechnung": "0.4 * 5000",
+     "antwort": 60,
+     "rechnung": "60",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Kinder (40 % von 5 000) gezählt"
+     "beschreibung": "die Zahl der Kinder im Verein als Zahl aller Kinder angegeben"
     },
     {
      "luecke": 2,
-     "antwort": 3500,
-     "rechnung": "0.7 * 5000",
+     "antwort": 150,
+     "rechnung": "0.4 * 375",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Anteil der Einwohner ohne Sportverein-Kinder genommen"
+     "beschreibung": "40 % von 375 genommen, den Grundwert falsch bestimmt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 300,
+     "rechnung": "60 / 0.2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "60 : 0,2 gerechnet, die beiden Prozentzahlen 40 und 30 verwechselt"
     }
    ],
    "regel": "id.verhaeltnisse.prozent",
@@ -952,21 +1009,21 @@
     "g": "transfer",
     "y": "luecken",
     "f": {
-     "text": "In einer Stadt sind 40 % der Einwohner Kinder. Von den Kindern sind 30 % im Sportverein. Wie viel Prozent aller Einwohner sind Kinder im Sportverein, und wie viele Einwohner sind das bei 5 000 Einwohnern?",
-     "schablone": "□ % aller Einwohner, das sind □ Einwohner",
+     "text": "In einem Dorf sind 40 % der Einwohner Kinder. Von den Kindern sind 30 % im Sportverein. Im Sportverein sind 60 Kinder. Wie viele Einwohner hat das Dorf, und wie viele Kinder wohnen dort?",
+     "schablone": "□ Einwohner im Dorf, davon □ Kinder",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      12,
-      600
+      500,
+      200
      ]
     },
     "c": [
-     "0.4 * 0.3 * 100",
-     "0.4 * 0.3 * 5000"
+     "60 / (0.4 * 0.3)",
+     "60 / 0.3"
     ],
-    "w": "Die 30 % beziehen sich nur auf die Kinder, nicht auf alle Einwohner. Bei 5 000 Einwohnern gibt es 40 % = 2 000 Kinder, davon sind 30 % = 600 im Sportverein. 600 von 5 000 sind 12 %. Kürzer: 30 % von 40 % sind 0,3 · 0,4 = 0,12."
+    "w": "Die 30 % beziehen sich nur auf die Kinder. 60 Kinder im Verein sind 30 % aller Kinder, also gibt es 60 : 0,3 = 200 Kinder. Diese 200 Kinder sind 40 % aller Einwohner, also hat das Dorf 200 : 0,4 = 500 Einwohner. Kürzer: 30 % von 40 % sind 12 %, und 60 : 0,12 = 500."
    }
   },
   {
@@ -1048,14 +1105,14 @@
      "beschreibung": "als Prozentzahl 36 % gelesen und für größer gehalten als 37,5 %: Der Bruch 3/8 wurde nicht umgewandelt"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "37 % der Kinder",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Prozentzahl 37 für die größte gehalten, ohne 3/8 als 37,5 % zu erkennen"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "7/20 der Kinder",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1075,12 +1132,12 @@
     },
     "a": [
      "0,36 der Kinder",
+     "3/8 der Kinder",
      "37 % der Kinder",
-     "7/20 der Kinder",
-     "3/8 der Kinder"
+     "7/20 der Kinder"
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "w": "Alle Angaben als Prozent: 3/8 = 0,375 = 37,5 %; 0,36 = 36 %; 37 %; 7/20 = 35 %. Der größte Anteil ist 37,5 %, also 3/8. Schon 3/8 und 37 % liegen nur 0,5 Prozentpunkte auseinander."
    }
@@ -1098,28 +1155,28 @@
    "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum sich Prozentzahlen immer auf ein bestimmtes Ganzes beziehen und was sich ändert, wenn das Ganze wechselt.",
    "idee": "ganzes_aendert_sich",
    "antwortform": "zahl",
-   "loesung_rechnung": "60 / 0.12 - 60 / 0.2",
+   "loesung_rechnung": "54 / 1.5",
    "fehlbilder": [
     {
-     "antwort": 500,
-     "rechnung": "60 / 0.12",
+     "antwort": 18,
+     "rechnung": "54 / 1.5 / 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die heutige Schülerzahl (500) als Zahl der neuen Kinder angegeben"
+     "beschreibung": "nach dem Teilen noch durch 2 geteilt, weil 150 % als anderthalbfach und zugleich als Hälfte gelesen wurde"
     },
     {
-     "antwort": 300,
-     "rechnung": "60 / 0.2",
+     "antwort": 27,
+     "rechnung": "54 - 54 * 0.5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die frühere Schülerzahl (300) als Zahl der neuen Kinder angegeben"
+     "beschreibung": "50 % von der heutigen Höhe abgezogen statt vom alten Wert"
     },
     {
-     "antwort": 440,
-     "rechnung": "60 / 0.12 - 60",
+     "antwort": 81,
+     "rechnung": "54 * 1.5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "von der heutigen Schülerzahl nur die Chorkinder abgezogen statt der früheren Schülerzahl"
+     "beschreibung": "die heutige Höhe mit 1,5 malgenommen, statt durch 1,5 zu teilen"
     }
    ],
    "regel": "id.verhaeltnisse.prozent",
@@ -1131,14 +1188,14 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Ein Chor hat 60 Kinder, das sind 20 % aller Kinder einer Schule. Später sind dieselben 60 Chorkinder nur noch 12 % aller Kinder der Schule. Wie viele Kinder sind in der Zwischenzeit neu an die Schule gekommen?"
+     "text": "Eine Sonnenblume ist heute 150 % so hoch wie vor einem Monat und misst 54 cm. Wie hoch war sie vor einem Monat?"
     },
     "o": {
-     "wert": 200,
-     "einheit": "Kinder"
+     "wert": 36,
+     "einheit": "cm"
     },
-    "c": "60 / 0.12 - 60 / 0.2",
-    "w": "Früher waren 60 Kinder 20 % der Schule, die Schule hatte also 60 : 0,2 = 300 Kinder. Später sind 60 Kinder 12 %, die Schule hat dann 60 : 0,12 = 500 Kinder. Es sind 500 − 300 = 200 Kinder neu dazugekommen. Die Prozentzahl sinkt, obwohl im Chor niemand fehlt: Das Ganze ist größer geworden."
+    "c": "54 / 1.5",
+    "w": "Vor einem Monat war die Sonnenblume das Ganze, also 100 %. Heute sind es 150 %, das ist das Eineinhalbfache. 150 % sind 54 cm, also 50 % sind 18 cm und 100 % sind 36 cm. Probe: 150 % von 36 cm sind 54 cm."
    }
   },
   {
@@ -1159,6 +1216,14 @@
     "0.4 * 30 - 0.75 * 8"
    ],
    "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "1 + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Vergleich der Prozentzahlen in Zeile 2 für falsch gehalten"
+    },
     {
      "luecke": 2,
      "antwort": -6,

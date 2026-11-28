@@ -24,84 +24,86 @@ neu(T, "negativer_exponent", "korrektur", "darstellung", Z(
      B("5 * 4", "Basis mal Exponent gerechnet"),
      B("10000 / 125", "den Nenner 125 statt 625 genommen: 10 000 durch 125")], einheit="Zehntausendstel"), form="bruecke", lp=LP, idee="umrechnen_bruch")
 neu(T, "negativer_exponent", "korrektur", "umkehr", Z(
-    "Der Wert der Potenz (2/3)ⁿ ist 9/4. Welche ganze Zahl muss n sein?",
-    -2, "0 - 2", "2 - 4",
-    "(2/3)ⁿ = 9/4 verlangt einen Wert größer als 1, also ein negatives n. Ein negativer Exponent kehrt die Basis um: (2/3)⁻² = (3/2)² = 9/4. Also ist n = −2. Probe: (2/3)² = 4/9, und der Kehrwert davon ist 9/4.",
-    [B("2", "das Minus im Exponenten vergessen und ohne Kehrwert gerechnet"),
-     B("4", "den Nenner 4 als Exponenten genommen"),
-     B("0 - 4", "den Nenner 4 mit Minus als Exponenten genommen")]), lp=LP, idee="kehrwert_basis")
+    "Wie viele der Zahlen 3⁻⁴, 4⁻³, 10⁻² und 1⁻⁶ sind kleiner als 1/50?",
+    3, "3", sum(1 for v in (F(1, 81), F(1, 64), F(1, 100), F(1)) if v < F(1, 50)),
+    "3⁻⁴ = 1/81, 4⁻³ = 1/64 und 10⁻² = 1/100 sind kleiner als 1/50, denn bei gleichem Zähler ist der Bruch mit dem größeren Nenner kleiner. 1⁻⁶ = 1/1⁶ = 1 ist größer. Es sind also 3 Zahlen.",
+    [B("3 + 1", "auch die Zahl 1⁻⁶ mitgezählt, weil negative Hochzahlen immer kleine Zahlen ergeben"),
+     B("3 - 1", "die mittlere der drei kleinen Zahlen für größer als die Grenze gehalten"),
+     B("3 - 2", "nur 10⁻² gezählt, weil nur dort eine Zehnerpotenz vorkommt")], einheit="Zahlen"), lp=LP, idee="kleiner_als_grenze")
 neu(T, "negativer_exponent", "sicherung", "begruenden", W(
-    "Ein Kind setzt die Reihe 3³ = 27, 3² = 9, 3¹ = 3, 3⁰ = 1 nach rechts fort. Welche Aussage über die nächsten Werte 3⁻¹ und 3⁻² ist richtig?",
-    "3⁻¹ = 1/3 und 3⁻² = 1/9, denn es wird jedes Mal durch 3 geteilt.",
-    [("3⁻¹ = −3 und 3⁻² = −9, denn ein negativer Exponent macht die Zahl negativ.", "das Minus im Exponenten auf den Wert übertragen; es führt nur im Muster weiter nach rechts, der Wert bleibt positiv"),
-     ("3⁻¹ = 0 und 3⁻² = −1, denn bei jedem Schritt wird 1 abgezogen.", "das Muster mit Minus 1 statt durch 3 fortgesetzt: 1 − 1 = 0"),
-     ("3⁻¹ = 1/3 und 3⁻² = 1/6, denn die Nenner werden bei jedem Schritt um 3 größer.", "den Nenner additiv fortgesetzt (3, 6) statt zu verdreifachen (3, 9)")],
-    "Von 3³ bis 3⁰ wird der Wert bei jedem Schritt nach rechts durch 3 geteilt: 27, 9, 3, 1. Dieses Muster gilt weiter: 1 : 3 = 1/3 = 3⁻¹ und 1/3 : 3 = 1/9 = 3⁻². Das Minus im Exponenten macht die Zahl nicht negativ, sondern klein.",
-    lambda: F(3) ** -1 == F(1, 3) and F(3) ** -2 == F(1, 9) and F(3) ** -2 != F(1, 6) and F(3) ** -1 != -3), lp=LP, idee="muster_fortsetzen")
+    "Ein Kind sagt: „2⁻⁴ ist größer als 2⁻³, denn 4 ist größer als 3.“ Welche Aussage über das Kind stimmt?",
+    "Das Kind irrt, denn 2⁻⁴ = 1/16 ist kleiner als 2⁻³ = 1/8.",
+    [("Das Kind hat recht, denn die größere Hochzahl ergibt die größere Zahl.", "Hochzahl und Wert gleichgesetzt, obwohl das Minus das Verhältnis umdreht"),
+     ("Das Kind irrt, denn 2⁻⁴ ist gleich −8 und 2⁻³ ist gleich −6.", "die negative Hochzahl als Vorzeichen des Ergebnisses gedeutet und mit der Hochzahl multipliziert"),
+     ("Das Kind hat recht, denn 2⁻⁴ = 1/16 ist größer als 2⁻³ = 1/8.", "die beiden Brüche falsch verglichen, weil 16 größer ist als 8")],
+    "2⁻³ = 1/2³ = 1/8 und 2⁻⁴ = 1/2⁴ = 1/16. Je größer der Betrag der negativen Hochzahl, desto kleiner ist der Wert: Bei jedem Schritt nach rechts im Muster wird durch 2 geteilt. 1/16 ist die Hälfte von 1/8.",
+    lambda: F(1, 16) < F(1, 8) and F(2) ** -4 < F(2) ** -3 and F(2) ** -4 == F(1, 16)), lp=LP, idee="vergleich_begruenden")
 neu(T, "negativer_exponent", "sicherung", "darstellung", W(
-    "Welche Reihenfolge ordnet die Werte 2⁻³, 3⁻², 10⁻¹ und 4⁻¹ von klein nach groß?",
-    "10⁻¹ < 3⁻² < 2⁻³ < 4⁻¹",
-    [("4⁻¹ < 2⁻³ < 3⁻² < 10⁻¹", "die Reihenfolge umgekehrt: erst die größte Potenz, dann die kleinere"),
-     ("2⁻³ < 3⁻² < 4⁻¹ < 10⁻¹", "nach dem Betrag des Exponenten geordnet: je kleiner der Exponent, desto größer der Wert"),
-     ("3⁻² < 2⁻³ < 10⁻¹ < 4⁻¹", "die ersten beiden Werte falsch verglichen und 10⁻¹ in die Mitte gesetzt")],
-    "2⁻³ = 1/8 = 0,125; 3⁻² = 1/9 ≈ 0,111; 10⁻¹ = 1/10 = 0,1; 4⁻¹ = 1/4 = 0,25. Von klein nach groß: 0,1 < 0,111 < 0,125 < 0,25, also 10⁻¹ < 3⁻² < 2⁻³ < 4⁻¹. Bei Stammbrüchen ist der Wert umso kleiner, je größer der Nenner ist.",
-    lambda: F(1, 10) < F(1, 9) < F(1, 8) < F(1, 4) and F(3) ** -2 == F(1, 9) and F(10) ** -1 == F(1, 10)), lp=LP, idee="ordnen_zwei_basen")
+    "Welche der folgenden Potenzen hat den Wert 0,125?",
+    "2⁻³",
+    [("2⁻⁸", "die Hochzahl 8 aus dem Nenner 8 abgelesen, statt die Potenz 2³ = 8 zu erkennen"),
+     ("8⁻²", "Basis und Hochzahl aus 0,125 = 1/8 falsch zugeordnet: 8⁻² = 1/64"),
+     ("3⁻²", "eine Potenz mit dem Wert 1/9 verwechselt")],
+    "0,125 = 125/1000 = 1/8, und 8 = 2³. Also ist 0,125 = 1/2³ = 2⁻³. Die anderen: 2⁻⁸ = 1/256, 8⁻² = 1/64, 3⁻² = 1/9.",
+    lambda: F("0.125") == F(2) ** -3 and F(2) ** -8 != F("0.125") and F(8) ** -2 != F("0.125") and F(3) ** -2 != F("0.125")), lp=LP, idee="dezimal_zu_potenz")
 neu(T, "negativer_exponent", "sicherung", "transfer", Z(
-    "Eine Pflanze verdoppelt jeden Tag ihre Fläche. Am Tag n hat sie 10 000 · 2ⁿ cm² Fläche, heute ist n = 0. An welchem Tag n hatte die Pflanze nur 1 250 cm²?",
-    -3, "0 - 3", "0 - (10000 // 1250 - 5)",
-    "10 000 · 2ⁿ = 1 250 gibt 2ⁿ = 1 250 : 10 000 = 1/8. Es gilt 1/8 = 2⁻³, also ist n = −3. Die Pflanze hatte die kleine Fläche vor 3 Tagen. Probe: 10 000 · 2⁻³ = 10 000 : 8 = 1 250.",
-    [B("3", "das Minus im Exponenten vergessen: n = 3 hieße in 3 Tagen"),
-     B("8", "den Faktor 8 statt des Exponenten genommen"),
-     B("0 - 8", "den Faktor 8 mit Minus als Exponenten genommen")]), lp=LP, idee="exponent_gesucht")
+    "Wie viele Stücke der Größe 10⁻⁴ ergeben zusammen die Größe 10⁻¹?",
+    1000, "10000 / 10", "1000",
+    "10⁻¹ = 1/10 und 10⁻⁴ = 1/10 000. Man fragt, wie oft 1/10 000 in 1/10 passt: 1/10 sind 1 000/10 000, also passen 1 000 Stücke. Probe: 1 000 · 1/10 000 = 1/10.",
+    [B("4 - 1", "die Hochzahlen voneinander abgezogen und die Differenz als Zahl der Stücke genommen"),
+     B("10000 / 10 / 10", "einmal zu oft durch 10 geteilt"),
+     B("10000", "den Nenner 10 000 als Zahl der Stücke genommen")], einheit="Stücke"), lp=LP, idee="stuecke_passen")
 # ───────── fehler_finden ─────────
 neu(T, "fehler_finden", "test", "fehler", L(
-    "Ein Kind rechnet: Zeile 1: 2⁻³ = 1/2³. Zeile 2: 1/2³ = 1/8. Zeile 3: 1/8 + 1/8 = 2/16. Zeile 4: 2/16 = 1/8, also ist 2⁻³ + 2⁻³ = 1/8. In welcher Zeile steckt der erste Fehler? Wie heißt 2⁻³ + 2⁻³ richtig als Bruch?",
-    "Fehler in Zeile □, richtig: 2⁻³ + 2⁻³ = 1/□", [3, 4], ["3", "8 / 2"], ["4 - 1", "4"],
-    "Die Zeilen 1 und 2 stimmen: 2⁻³ = 1/2³ = 1/8. In Zeile 3 werden bei der Addition gleichnamiger Brüche die Nenner addiert; richtig bleibt der Nenner stehen und die Zähler werden addiert: 1/8 + 1/8 = 2/8. Das ist 1/4. Zeile 4 rechnet mit dem falschen Wert richtig weiter (2/16 = 1/8). Probe: 2 · 2⁻³ = 2 · 1/8 = 1/4.",
-    {1: [(8, "den Nenner 8 stehen gelassen, wie das Ergebnis in Zeile 4", "8"), (16, "wie in Zeile 3 die Nenner addiert: 8 + 8", "8 + 8"), (2, "die Anzahl der Summanden als Nenner genommen", "2")]}), form="fehler_detektiv", lp=LP, idee="brueche_addieren")
+    "Ein Kind rechnet: Zeile 1: 2⁻² + 2⁻² = 2⁻⁴. Zeile 2: 2⁻⁴ = 1/2⁴. Zeile 3: 1/2⁴ = 1/16. Zeile 4: Also ist 2⁻² + 2⁻² = 1/16. In welcher Zeile steckt der erste Fehler? Wie heißt die Summe richtig als Bruch mit dem Zähler 1?",
+    "Fehler in Zeile □, richtig: 2⁻² + 2⁻² = 1/□", [1, 2], ["1", "2"], ["4 - 3", "1 + 1"],
+    "Zeile 1 ist falsch: Beim Addieren werden die Hochzahlen nicht addiert. 2⁻² = 1/4, also ist 2⁻² + 2⁻² = 1/4 + 1/4 = 2/4 = 1/2. Die Zeilen 2 bis 4 rechnen mit 2⁻⁴ richtig weiter. Probe: 1/16 ist viel zu klein, die Summe zweier Viertel ist ein Halb.",
+    {0: [(2, "den Schritt in Zeile 2 für den Fehler gehalten", "1 + 1"), (4, "die Schlusszeile genannt, weil dort der falsche Wert steht", "2 + 2")],
+     1: [(4, "nur eine der beiden Potenzen berechnet und die Summe vergessen", "4"), (16, "wie in Zeile 3 Hochzahlen addiert und 2⁴ berechnet", "2 * 2 * 2 * 2"), (8, "2⁻² + 2⁻² als 2⁻³ gelesen und den Nenner 2³ genommen", "2 * 2 * 2")]}),
+    form="fehler_detektiv", lp=LP, idee="exponenten_addiert")
 neu(T, "fehler_finden", "korrektur", "darstellung", W(
-    "Ein Kind behauptet: „(−3)² und −3² sind dasselbe, weil ja beide Male die 3 zweimal vorkommt.“ Welche Aussage über die beiden Werte ist richtig?",
-    "(−3)² = 9 und −3² = −9; sie sind verschieden, denn bei (−3)² gehört das Minus mit zur Potenz.",
-    [("(−3)² = −9 und −3² = −9; sie sind gleich, denn minus mal minus bleibt minus, das Vorzeichen ändert sich nie.", "minus mal minus als minus gerechnet und (−3) · (−3) = −9 behauptet"),
-     ("(−3)² = 9 und −3² = 9; sie sind gleich, denn das Quadrat macht jede Zahl positiv, auch mit dem Minus davor.", "das Quadrat auch auf das Minus vor der 3 bezogen, obwohl ohne Klammer nur die 3 zum Quadrat genommen wird"),
-     ("(−3)² = −9 und −3² = 9; sie sind verschieden, denn die Klammer dreht das Vorzeichen des Ergebnisses um.", "die Rollen vertauscht: Mit Klammer ist das Ergebnis positiv, ohne Klammer negativ")],
-    "(−3)² = (−3) · (−3) = 9, denn minus mal minus ist plus. Bei −3² gehört der Exponent nur zur 3: −3² = −(3 · 3) = −9. Ohne Klammer wird zuerst potenziert, dann das Minus angewendet. Darum sind 9 und −9 verschieden.",
-    lambda: (-3) * (-3) == 9 and -3 ** 2 == -9 and (-3) ** 2 != -3 ** 2), lp=LP, idee="vorzeichen_klammer")
+    "Ein Kind behauptet: „10⁻² = 0,2, denn man setzt die Hochzahl 2 hinter das Komma.“ Welche Aussage über die Zahl 10⁻² ist richtig?",
+    "10⁻² = 0,01, denn 10⁻² = 1/10² = 1/100.",
+    [("10⁻² = 0,2, denn die Hochzahl 2 kommt an die erste Stelle hinter dem Komma.", "die Hochzahl als Ziffer hinter dem Komma gelesen"),
+     ("10⁻² = −100, denn ein negativer Exponent macht die Zahl negativ.", "negativen Exponenten als negative Zahl gedeutet"),
+     ("10⁻² = 0,001, denn man schreibt zwei Nullen hinter das Komma und dann die 1.", "die Nullen nach dem Komma gezählt statt den Stellenwert 1/100 zu nutzen")],
+    "10⁻² = 1/10² = 1/100 = 0,01: Die 1 steht an der zweiten Stelle hinter dem Komma, vor ihr steht eine Null. Das Kind hat die Hochzahl als Ziffer gelesen.",
+    lambda: F(10) ** -2 == F("0.01") and F("0.01") != F("0.2") and F("0.01") != F("0.001")), lp=LP, idee="dezimal_stellen")
 neu(T, "fehler_finden", "korrektur", "umkehr", W(
     "Ein Kind behauptet: „Wenn der Exponent negativ ist, ist die Potenz immer negativ.“ Welches Beispiel zeigt, dass die Behauptung nicht stimmt?",
     "2⁻¹ = 1/2 ist positiv, obwohl der Exponent −1 negativ ist.",
-    [("2³ = 8 ist positiv, obwohl die Behauptung etwas anderes sagt.", "ein Beispiel mit positivem Exponenten genommen; die Behauptung handelt nur von negativen Exponenten"),
-     ("(−2)⁻¹ = −1/2 ist negativ, obwohl der Exponent negativ ist.", "ein Beispiel genommen, das die Behauptung bestätigt, nicht widerlegt"),
-     ("2⁰ = 1 ist positiv, obwohl der Exponent nicht positiv ist.", "den Exponenten 0 für negativ gehalten; 0 ist weder positiv noch negativ")],
-    "Ein Gegenbeispiel muss einen negativen Exponenten haben und trotzdem eine positive Potenz liefern. 2⁻¹ = 1/2 erfüllt das. Die negative Zahl (−2)⁻¹ = −1/2 bestätigt die Behauptung nur für eine negative Basis; 2³ und 2⁰ haben keinen negativen Exponenten.",
-    lambda: F(2) ** -1 > 0 and F(-2) ** -1 < 0 and 2 ** 3 > 0 and 2 ** 0 > 0), lp=LP, idee="gegenbeispiel")
+    [("2³ = 8 ist positiv, obwohl die Behauptung etwas anderes sagt.", "ein Beispiel mit positivem Exponenten gewählt, das die Behauptung nicht berührt"),
+     ("2⁰ = 1 ist positiv, obwohl der Exponent nicht positiv ist.", "den Exponenten 0 als negativ angesehen; er ist weder positiv noch negativ"),
+     ("2⁻¹ = −2 ist negativ, das passt zur Behauptung und widerlegt sie nicht.", "den negativen Exponenten als Vorzeichen des Werts gerechnet")],
+    "Ein Gegenbeispiel muss einen negativen Exponenten haben und einen positiven Wert. 2⁻¹ = 1/2 ist positiv und hat den Exponenten −1. 2³ hat keinen negativen Exponenten, 2⁰ auch nicht, und 2⁻¹ = −2 ist falsch gerechnet.",
+    lambda: F(2) ** -1 == F(1, 2) and F(2) ** -1 > 0 and F(2) ** -1 != -2), lp=LP, idee="gegenbeispiel")
 neu(T, "fehler_finden", "korrektur", "mehrschritt", Z(
-    "Anna rechnet (2 + 3)² = 2² + 3² = 4 + 9 = 13. Ben rechnet (2 + 3)² = 5 · 5 = 25. Um wie viel unterscheiden sich die beiden Ergebnisse?",
-    12, "5 * 5 - (2 ** 2 + 3 ** 2)", "25 - 13",
-    "Das Quadrat einer Summe ist nicht die Summe der Quadrate: (2 + 3)² heißt 5² = 25. Bens Weg ist richtig. Anna hat den Exponenten auf jeden Summanden verteilt. Der Unterschied ist 25 − 13 = 12 (das ist 2 · 2 · 3, der „fehlende“ Mischteil).",
-    [B("2 ** 2 + 3 ** 2", "Annas Ergebnis 13 als Unterschied angegeben"),
-     B("5 * 5", "Bens Ergebnis 25 als Unterschied angegeben"),
-     B("5 * 5 + 2 ** 2 + 3 ** 2", "beide Ergebnisse addiert statt voneinander abgezogen")]), form="zwei_wege", lp=LP, idee="potenz_von_summe")
+    "Anna rechnet (3 + 4)² = 3² + 4². Ben rechnet (3 + 4)² = 7 · 7. Um wie viel ist das Ergebnis von Anna falsch?",
+    24, "49 - 25", "(3 + 4) ** 2 - (3 ** 2 + 4 ** 2)",
+    "Bens Weg ist richtig: (3 + 4)² = 7² = 49. Annas Weg quadriert die beiden Summanden einzeln und addiert: 3² + 4² = 9 + 16 = 25. Das Quadrat einer Summe ist nicht die Summe der Quadrate. Der Unterschied ist 49 − 25 = 24.",
+    [B("49 + 25", "beide Ergebnisse addiert statt voneinander abgezogen"),
+     B("25", "das falsche Ergebnis von Anna als Unterschied angegeben"),
+     B("3 * 4", "den fehlenden Anteil 3 · 4 nur einmal statt zweimal berechnet")], einheit=""), form="zwei_wege", lp=LP, idee="potenz_von_summe")
 neu(T, "fehler_finden", "sicherung", "fehler", W(
-    "Ein Kind rechnet: Zeile 1: (2/3)⁻² = (3/2)². Zeile 2: (3/2)² = 3²/2 = 9/2. Zeile 3: 9/2 = 4,5. Zeile 4: Also ist (2/3)⁻² = 4,5. In welcher Zeile steckt der erste Fehler?",
-    "In Zeile 2, weil das Quadrat auch für den Nenner gilt: (3/2)² = 9/4.",
-    [("In Zeile 1, weil ein negativer Exponent nicht den Kehrwert bildet.", "geglaubt, der negative Exponent bilde nicht den Kehrwert; (2/3)⁻² = (3/2)² stimmt"),
-     ("In Zeile 3, weil 9/2 gleich 4 ist.", "9/2 falsch in eine Dezimalzahl verwandelt; 9 : 2 = 4,5 stimmt"),
-     ("In Zeile 4, weil das Ergebnis eines negativen Exponenten kleiner als 1 sein muss.", "gedacht, ein negativer Exponent mache jeden Wert kleiner als 1; bei einem Bruch kleiner als 1 als Basis wird der Wert größer")],
-    "Zeile 1 ist richtig: Ein negativer Exponent bildet den Kehrwert, (2/3)⁻² = (3/2)². In Zeile 2 wird nur der Zähler quadriert: richtig ist (3/2)² = 3²/2² = 9/4. Zeile 3 rechnet 9/2 = 4,5 richtig, Zeile 4 übernimmt den Fehler. Richtig: (2/3)⁻² = 9/4 = 2,25.",
-    lambda: F(2, 3) ** -2 == F(9, 4) and F(3, 2) ** 2 == F(9, 4) and F(3, 2) ** 2 != F(9, 2) and F(9, 2) == F("4.5") and F(9, 2) != 4, pos=1), form="fehler_detektiv", lp=LP, idee="kehrwert_bruch")
+    "Ein Kind rechnet: Zeile 1: 4⁻² = 1/4². Zeile 2: 1/4² = 1/(4 · 2) = 1/8. Zeile 3: 1/8 = 0,125. Zeile 4: Also ist 4⁻² = 0,125. In welcher Zeile steckt der erste Fehler?",
+    "In Zeile 2, weil 4² = 4 · 4 = 16 ist und nicht 4 · 2.",
+    [("In Zeile 1, weil ein negativer Exponent nicht den Kehrwert bildet.", "geglaubt, der negative Exponent bilde nicht den Kehrwert; 4⁻² = 1/4² stimmt"),
+     ("In Zeile 3, weil 1/8 gleich 0,12 ist.", "1/8 falsch in eine Dezimalzahl verwandelt; 1/8 = 0,125 stimmt"),
+     ("In Zeile 4, weil ein negativer Exponent immer eine negative Zahl ergibt.", "negative Hochzahl als negative Zahl gedeutet")],
+    "Zeile 1 ist richtig: 4⁻² = 1/4². In Zeile 2 wird 4² als 4 · 2 gerechnet, richtig ist 4² = 4 · 4 = 16. Zeile 3 rechnet 1/8 = 0,125 richtig, Zeile 4 übernimmt den Fehler. Richtig: 4⁻² = 1/16 = 0,0625.",
+    lambda: F(4) ** -2 == F(1, 16) and 4 ** 2 == 16 and 4 * 2 == 8 and F(1, 8) == F("0.125") and F(1, 8) != F("0.12"), pos=1), form="fehler_detektiv", lp=LP, idee="basis_mal_hochzahl")
 neu(T, "fehler_finden", "sicherung", "begruenden", W(
-    "Ein Kind soll begründen, welchen Wert 5⁰ hat. Welche Begründung ist richtig?",
-    "5⁰ = 1, denn im Muster 125, 25, 5 teilt man jedes Mal durch 5, und 5 : 5 = 1.",
-    [("5⁰ = 1, denn 5 mal 0 ergibt 0, und dazu zählt man die 1 am Anfang.", "eine Rechnung mit Basis mal Exponent erfunden, die zufällig auf 1 kommt; sie erklärt nichts"),
-     ("5⁰ = 5, denn beim Exponenten 0 bleibt die Basis 5 unverändert stehen.", "Exponent 0 als „nichts tun“ gelesen und die Basis 5 behalten"),
-     ("5⁰ = 0, denn der Exponent 0 zeigt an, dass keine 5 mehr vorhanden ist.", "den Exponenten 0 als „kein Wert“ gelesen und die Potenz gleich 0 gesetzt")],
-    "Das Muster 125, 25, 5 teilt bei jedem Schritt nach rechts durch 5. Der nächste Wert ist 5 : 5 = 1, und der Exponent ist dann 0. Das passt zur Regel, dass jede Basis ungleich 0 mit Exponent 0 den Wert 1 hat. Die Rechnung 5 · 0 + 1 liefert nur zufällig 1.",
+    "Ein Kind behauptet: „5⁰ = 0, denn bei 5⁰ ist keine Fünf mehr da.“ Welche Aussage über die Behauptung ist richtig?",
+    "Das Kind irrt, denn im Muster 125, 25, 5 teilt man jedes Mal durch 5, und dann folgt 5 : 5 = 1.",
+    [("Das Kind hat recht, denn jede Zahl mit der Hochzahl 0 ist gleich 0.", "die Hochzahl 0 mit dem Wert 0 gleichgesetzt"),
+     ("Das Kind irrt, denn 5⁰ = 5, weil bei der Hochzahl 0 die Basis stehen bleibt.", "den Exponenten 0 als „nichts ändern“ gelesen und die Basis behalten"),
+     ("Das Kind irrt, denn 5⁰ = 1, weil 5 mal 0 gleich 0 ist und dazu die 1 gezählt wird.", "den richtigen Wert mit einer unsinnigen Rechnung begründet")],
+    "Das Muster 125, 25, 5 teilt bei jedem Schritt nach rechts durch 5. Der nächste Wert ist 5 : 5 = 1, und die Hochzahl ist dann 0. Also ist 5⁰ = 1 und nicht 0. Die Rechnung 5 · 0 + 1 liefert nur zufällig 1 und erklärt nichts.",
     lambda: 5 ** 3 // 5 == 25 and 25 // 5 == 5 and 5 // 5 == 1 and 5 ** 0 == 1 and 5 ** 0 != 0 and 5 ** 0 != 5), lp=LP, idee="hoch_null_begruenden")
-neu(T, "fehler_finden", "sicherung", "umkehr", Z(
-    "Eine Potenz mit der Basis 5 hat den Wert 0,04. Wie lautet ihr ganzzahliger Exponent a in 5^a = 0,04?",
-    -2, "0 - 2", "2 - 4",
-    "0,04 = 4/100 = 1/25 = 1/5² = 5⁻². Also ist a = −2. Probe: 5⁻² = 1/5² = 1/25 = 0,04.",
-    [B("2", "das Minus im Exponenten vergessen: 5² = 25"),
-     B("4", "die Nachkommastelle 4 selbst als Exponenten genommen"),
-     B("0 - 25", "den Nenner 25 mit Minus als Exponenten genommen")]), lp=LP, idee="exponent_aus_dezimal")
+neu(T, "fehler_finden", "sicherung", "umkehr", L(
+    "Ein Kind bestimmt a in 5^a = 0,04 so: Zeile 1: 0,04 = 4/100. Zeile 2: 4/100 = 1/25. Zeile 3: Also 5^a = 1/25 = 5² und damit a = 2. In welcher Zeile steckt der erste Fehler, und welchen Wert hat a richtig?",
+    "Fehler in Zeile □, richtig: a = □", [3, -2], ["3", "-2"], ["4 - 1", "0 - 2"],
+    "Zeile 1 und 2 stimmen: 0,04 = 4/100 = 1/25. In Zeile 3 steht 1/25 = 5², aber 5² = 25. Richtig ist 1/25 = 1/5² = 5⁻², also a = −2. Probe: 5⁻² = 1/25 = 0,04.",
+    {0: [(2, "Zeile 2 für falsch gehalten, obwohl das Kürzen stimmt", "1 + 1"), (1, "Zeile 1 für falsch gehalten, obwohl die Umwandlung in einen Bruch stimmt", "1")],
+     1: [(2, "das Minus vergessen, wie in Zeile 3", "2"), (25, "den Nenner 25 als Hochzahl genommen", "25"), (4, "die Ziffer 4 aus 0,04 als Hochzahl genommen", "4")]}),
+    form="fehler_detektiv", lp=LP, idee="vorzeichen_vergessen")

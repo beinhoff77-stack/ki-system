@@ -1567,9 +1567,9 @@
    "thema": "gleichungen.bruch",
    "lernkarte": "verhaeltnis",
    "pool": "sicherung",
-   "typ": "rueckwaerts",
-   "form": null,
-   "stufe": 3,
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen lösen eine Verhältnisgleichung; hier wird begründet, warum Verhältnisse nicht additiv wachsen, aus Teilen auf das Ganze geschlossen und ein Fehler im Ansatz gefunden.",
@@ -1604,8 +1604,8 @@
     "l": "verhaeltnis",
     "t": "verhaeltnis",
     "p": "sicherung",
-    "s": 3,
-    "g": "rueckwaerts",
+    "s": 2,
+    "g": "umkehr",
     "y": "zahl",
     "f": {
      "text": "Ein Preisgeld wird im Verhältnis 3 : 5 : 7 an drei Teams verteilt. Das Team mit dem kleinsten Anteil bekommt 90 €. Wie viel Euro beträgt das ganze Preisgeld?"
@@ -1623,36 +1623,36 @@
    "thema": "gleichungen.bruch",
    "lernkarte": "verhaeltnis",
    "pool": "sicherung",
-   "typ": "einkleidung",
-   "form": "bruecke",
-   "stufe": 2,
+   "typ": "transfer",
+   "form": null,
+   "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen lösen eine Verhältnisgleichung; hier wird begründet, warum Verhältnisse nicht additiv wachsen, aus Teilen auf das Ganze geschlossen und ein Fehler im Ansatz gefunden.",
-   "idee": "modell_aufstellen",
+   "idee": "gemeinsames_glied",
    "antwortform": "zahl",
-   "loesung_rechnung": "126 / 2 / (4 + 5) * 5",
+   "loesung_rechnung": "24 / 8 * 15",
    "fehlbilder": [
     {
-     "antwort": 28,
-     "rechnung": "126 / 2 / (4 + 5) * 4",
+     "antwort": 60,
+     "rechnung": "24 * 5 / 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die kürzere Seite (28 cm) angegeben statt der längeren"
+     "beschreibung": "die beiden Verhältnisse nicht abgestimmt: die Zahlen 2 und 5 direkt verglichen"
     },
     {
-     "antwort": 70,
-     "rechnung": "126 / (4 + 5) * 5",
+     "antwort": 36,
+     "rechnung": "24 * 3 / 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Umfang 126 als Summe der beiden Seiten gelesen, obwohl der Umfang 2 · (a + b) ist"
+     "beschreibung": "nur b ausgerechnet und dort aufgehört"
     },
     {
-     "antwort": 14,
-     "rechnung": "126 / (4 + 5)",
+     "antwort": 30,
+     "rechnung": "24 * 5 / 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Länge eines Teils bei der falschen Aufteilung angegeben"
+     "beschreibung": "a mit dem zweiten Verhältnis verglichen, also die Zahlen 4 und 5 genommen"
     }
    ],
    "regel": "rr.verhaeltnis",
@@ -1660,18 +1660,17 @@
     "l": "verhaeltnis",
     "t": "verhaeltnis",
     "p": "sicherung",
-    "s": 2,
-    "g": "einkleidung",
+    "s": 3,
+    "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Die Seiten eines Rechtecks verhalten sich wie 4 : 5. Der Umfang des Rechtecks beträgt 126 cm. Wie lang ist die längere Seite in cm?"
+     "text": "Für drei Größen a, b und c gilt a : b = 2 : 3 und b : c = 4 : 5. Es ist a = 24. Wie groß ist c?"
     },
     "o": {
-     "wert": 35,
-     "einheit": "cm"
+     "wert": 45
     },
-    "c": "126 / 2 / (4 + 5) * 5",
-    "w": "Die halbe Umfangssumme a + b ist 126 : 2 = 63 cm. Das sind 4 + 5 = 9 Teile, ein Teil ist 63 : 9 = 7 cm. Die längere Seite hat 5 Teile: 5 · 7 = 35 cm. Probe: Die Seiten 24 cm und 30 cm geben 2 · (24 + 30) = 126 cm, und 24 : 30 = 4 : 5."
+    "c": "24 / 8 * 15",
+    "w": "Die beiden Verhältnisse haben verschiedene Zahlen für b (3 und 4). Man erweitert auf ein gemeinsames b, nämlich 12: a : b = 8 : 12 und b : c = 12 : 15. Also gilt a : b : c = 8 : 12 : 15. Mit a = 24 ist ein Teil 24 : 8 = 3, und c hat 15 Teile: 15 · 3 = 45. Probe: b = 36, dann 24 : 36 = 2 : 3 und 36 : 45 = 4 : 5."
    }
   }
  ]

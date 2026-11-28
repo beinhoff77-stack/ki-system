@@ -34,9 +34,8 @@ Kurzvermerk je Aufgabe mit Antwortform auswahl: Platz der richtigen Möglichkeit
 | VT1B-087 | zahlen.potenzen_zehner / vergleichen_pruefen | korrektur | 4 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
 | VT1B-091 | zahlen.potenzen_zehner / vergleichen_pruefen | sicherung | 2 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
 | VT1B-095 | messen.flaechen_vielecke / dreieck | korrektur | 2 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-097 | messen.flaechen_vielecke / dreieck | sicherung | 4 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-105 | messen.flaechen_vielecke / rueckwaerts | sicherung | 1 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-111 | messen.flaechen_vielecke / zusammengesetzt | sicherung | 3 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-114 | messen.flaechen_vielecke / verstehen | korrektur | 4 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-118 | messen.flaechen_vielecke / verstehen | sicherung | 2 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-119 | messen.flaechen_vielecke / verstehen | sicherung | 1 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-105 | messen.flaechen_vielecke / rueckwaerts | sicherung | 4 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-111 | messen.flaechen_vielecke / zusammengesetzt | sicherung | 1 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-114 | messen.flaechen_vielecke / verstehen | korrektur | 3 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-118 | messen.flaechen_vielecke / verstehen | sicherung | 4 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-119 | messen.flaechen_vielecke / verstehen | sicherung | 2 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |

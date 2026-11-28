@@ -242,17 +242,17 @@ neu(T, "verhaeltnis", "sicherung", "fehler", L(
     "Fehler in Zeile □, richtig: x = □", [2, 12], ["2", "4 * 18 / 6"], ["1 + 1", "72 / 6"],
     "Außenglieder mal Außenglieder = Innenglieder mal Innenglieder. Zeile 1 stimmt: Außenglieder 4 und 18, Innenglieder x und 6. Also gilt 4 · 18 = x · 6, das heißt 72 = 6x und x = 12 (Zeile 2 ist der Fehler: Lena kreuzt x mit 4). Probe: 4 : 12 = 1 : 3 = 6 : 18.",
     {1: [(27, "wie Lena x mit 4 gekreuzt: 6 · 18 : 4", "6 * 18 / 4"), (20, "additiv gerechnet: 6 + 18 − 4", "6 + 18 - 4"), (108, "nur 6 · 18 gerechnet und nicht geteilt", "6 * 18")]}), form="fehler_detektiv", lp=LP, idee="fehler_aussen_innen")
-neu(T, "verhaeltnis", "sicherung", "rueckwaerts", Z(
+neu(T, "verhaeltnis", "sicherung", "umkehr", Z(
     "Ein Preisgeld wird im Verhältnis 3 : 5 : 7 an drei Teams verteilt. Das Team mit dem kleinsten Anteil bekommt 90 €. Wie viel Euro beträgt das ganze Preisgeld?",
     450, "90 / 3 * (3 + 5 + 7)", "90 * 5",
     "Das kleinste Team bekommt 3 Teile, das sind 90 €. Ein Teil ist 90 € : 3 = 30 €. Alle Teile zusammen sind 3 + 5 + 7 = 15 Teile, also 15 · 30 € = 450 €. Probe: 150 € + 210 € + 90 € = 450 €.",
     [B("90 * (3 + 5 + 7)", "die 90 € als den Wert eines Teils genommen"),
      B("90 / 3 * 7", "nur den größten Anteil berechnet statt des ganzen Preisgelds"),
-     B("90 / 3 * 5", "nur den mittleren Anteil berechnet statt des ganzen Preisgelds")], einheit="€"), lp=LP, idee="rueckwaerts_aufteilen")
-neu(T, "verhaeltnis", "sicherung", "einkleidung", Z(
-    "Die Seiten eines Rechtecks verhalten sich wie 4 : 5. Der Umfang des Rechtecks beträgt 126 cm. Wie lang ist die längere Seite in cm?",
-    35, "126 / 2 / (4 + 5) * 5", "126 / 18 * 5",
-    "Die halbe Umfangssumme a + b ist 126 : 2 = 63 cm. Das sind 4 + 5 = 9 Teile, ein Teil ist 63 : 9 = 7 cm. Die längere Seite hat 5 Teile: 5 · 7 = 35 cm. Probe: Die Seiten 24 cm und 30 cm geben 2 · (24 + 30) = 126 cm, und 24 : 30 = 4 : 5.",
-    [B("126 / 2 / (4 + 5) * 4", "die kürzere Seite (28 cm) angegeben statt der längeren"),
-     B("126 / (4 + 5) * 5", "den Umfang 126 als Summe der beiden Seiten gelesen, obwohl der Umfang 2 · (a + b) ist"),
-     B("126 / (4 + 5)", "nur die Länge eines Teils bei der falschen Aufteilung angegeben")], einheit="cm"), form="bruecke", lp=LP, idee="modell_aufstellen")
+     B("90 / 3 * 5", "nur den mittleren Anteil berechnet statt des ganzen Preisgelds")], einheit="€"), form="umkehren", lp=LP, idee="rueckwaerts_aufteilen")
+neu(T, "verhaeltnis", "sicherung", "transfer", Z(
+    "Für drei Größen a, b und c gilt a : b = 2 : 3 und b : c = 4 : 5. Es ist a = 24. Wie groß ist c?",
+    45, "24 / 8 * 15", "24 * 3 / 2 * 5 / 4",
+    "Die beiden Verhältnisse haben verschiedene Zahlen für b (3 und 4). Man erweitert auf ein gemeinsames b, nämlich 12: a : b = 8 : 12 und b : c = 12 : 15. Also gilt a : b : c = 8 : 12 : 15. Mit a = 24 ist ein Teil 24 : 8 = 3, und c hat 15 Teile: 15 · 3 = 45. Probe: b = 36, dann 24 : 36 = 2 : 3 und 36 : 45 = 4 : 5.",
+    [B("24 * 5 / 2", "die beiden Verhältnisse nicht abgestimmt: die Zahlen 2 und 5 direkt verglichen"),
+     B("24 * 3 / 2", "nur b ausgerechnet und dort aufgehört"),
+     B("24 * 5 / 4", "a mit dem zweiten Verhältnis verglichen, also die Zahlen 4 und 5 genommen")]), lp=LP, idee="gemeinsames_glied")

@@ -344,36 +344,36 @@
    "thema": "messen.flaechen_vielecke",
    "lernkarte": "dreieck",
    "pool": "sicherung",
-   "typ": "begruenden",
+   "typ": "transfer",
    "form": null,
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
    "abgrenzung": "Die Übungen setzen g und h in g · h : 2 ein; hier wird erklärt, warum zwei gleiche Dreiecke ein Parallelogramm ergeben, warum die Höhe und nicht die schräge Seite zählt, auch wenn sie außen liegt, und das Dreieck über Koordinaten berechnet.",
-   "idee": "scherung_begruenden",
-   "antwortform": "auswahl",
-   "loesung_rechnung": null,
+   "idee": "grundseite_wechseln",
+   "antwortform": "zahl",
+   "loesung_rechnung": "2 * 9 * 12 / 2 / 15",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "Das Kind hat recht, denn bei einer Höhe außerhalb gilt nur die Rechnung mit der schrägen Seite.",
+     "antwort": 3.6,
+     "rechnung": "9 * 12 / 2 / 15",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Höhe außerhalb für ungültig gehalten; auch dort ist es der senkrechte Abstand zur Grundseite"
+     "beschreibung": "nur durch die Grundseite geteilt, ohne zu verdoppeln"
     },
     {
-     "index": 1,
-     "antwort": "Das Kind irrt: Die Fläche ist 9 · 6 = 54 cm², denn bei einer Höhe außerhalb wird nicht halbiert.",
+     "antwort": 6,
+     "rechnung": "9 + 12 - 15",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "gedacht, das Halbieren entfällt, wenn die Höhe außen liegt; es gilt dieselbe Formel"
+     "beschreibung": "die drei Seiten verrechnet: 9 + 12 − 15"
     },
     {
-     "index": 2,
-     "antwort": "Das Kind hat recht, denn die Fläche lässt sich dann nur über Koordinaten bestimmen.",
+     "antwort": 7.5,
+     "rechnung": "15 / 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "geglaubt, die Formel gelte nur für Dreiecke mit Höhe innen"
+     "beschreibung": "die halbe Seite 15 cm als Höhe genommen"
     }
    ],
    "regel": "id.flaeche_raum.aus_dem_rechteck",
@@ -382,21 +382,17 @@
     "t": "dreieck",
     "p": "sicherung",
     "s": 3,
-    "g": "begruenden",
-    "y": "auswahl",
+    "g": "transfer",
+    "y": "zahl",
     "f": {
-     "text": "Das Dreieck ABD hat die Ecken A(0|0), B(9|0) und D(15|6) (eine Einheit ist 1 cm). Ein Kind sagt: „Die Höhe liegt hier außerhalb des Dreiecks, deshalb darf man nicht Grundseite mal Höhe durch 2 rechnen.“ Welche Aussage stimmt?"
+     "text": "Ein Dreieck hat die Seiten 9 cm, 12 cm und 15 cm. Die Seiten 9 cm und 12 cm stehen senkrecht aufeinander. Wie lang ist die Höhe, die auf der Seite von 15 cm steht, in cm?"
     },
-    "a": [
-     "Das Kind hat recht, denn bei einer Höhe außerhalb gilt nur die Rechnung mit der schrägen Seite.",
-     "Das Kind irrt: Die Fläche ist 9 · 6 = 54 cm², denn bei einer Höhe außerhalb wird nicht halbiert.",
-     "Das Kind hat recht, denn die Fläche lässt sich dann nur über Koordinaten bestimmen.",
-     "Das Kind irrt: Die Fläche ist 9 · 6 : 2 = 27 cm², denn die Höhe ist auch außerhalb der Abstand zu AB."
-    ],
     "o": {
-     "index": 3
+     "wert": 7.2,
+     "einheit": "cm"
     },
-    "w": "Die Grundseite AB liegt auf der x-Achse, AB = 9 cm. Die Höhe von D ist der Abstand zur x-Achse, 6 cm, auch wenn der Fußpunkt (15|0) außerhalb von AB liegt. A = 9 · 6 : 2 = 27 cm². Verschiebt man D parallel zu AB (zum Beispiel nach (4|6)), ändern sich Grundseite und Höhe nicht, also auch nicht die Fläche."
+    "c": "2 * 9 * 12 / 2 / 15",
+    "w": "Die beiden kürzeren Seiten stehen senkrecht aufeinander: Mit der einen als Grundseite ist die andere die Höhe, also A = 9 · 12 : 2 = 54 cm². Jede Seite darf Grundseite sein. Für die Grundseite 15 cm gilt A = 15 · h : 2 = 54, also h = 108 : 15 = 7,2 cm. Probe: 15 · 7,2 : 2 = 54."
    }
   },
   {
@@ -525,28 +521,28 @@
    "abgrenzung": "Die Übungen stellen die Flächenformel nach h oder g um; hier wird begründet, warum ein Parallelogramm einem Rechteck gleicher Fläche entspricht und zwei Trapeze ein Parallelogramm ergeben, und in Sachsituationen umgerechnet.",
    "idee": "gleichung_g_mal_g",
    "antwortform": "zahl",
-   "loesung_rechnung": "14",
+   "loesung_rechnung": "10",
    "fehlbilder": [
     {
-     "antwort": 7,
-     "rechnung": "98 / 14",
+     "antwort": 5,
+     "rechnung": "50 / 10",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Höhe 7 statt der Grundseite angegeben"
+     "beschreibung": "die Höhe 5 statt der Grundseite angegeben"
     },
     {
-     "antwort": 49,
-     "rechnung": "98 / 2",
+     "antwort": 25,
+     "rechnung": "50 / 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "98 durch 2 geteilt und als Grundseite genommen"
+     "beschreibung": "50 durch 2 geteilt und als Grundseite genommen"
     },
     {
-     "antwort": 24.5,
-     "rechnung": "98 / 4",
+     "antwort": 12.5,
+     "rechnung": "50 / 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "98 durch 4 geteilt, weil von „halb“ die 2 zweimal gezählt wurde"
+     "beschreibung": "50 durch 4 geteilt, weil von „halb“ die 2 zweimal gezählt wurde"
     }
    ],
    "regel": "id.flaeche_raum.aus_dem_rechteck",
@@ -558,14 +554,14 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Ein Parallelogramm hat den Flächeninhalt 98 cm². Seine Höhe ist halb so lang wie die zugehörige Grundseite. Wie lang ist die Grundseite?"
+     "text": "Ein Parallelogramm hat den Flächeninhalt 50 cm². Seine Höhe ist halb so lang wie die zugehörige Grundseite. Wie lang ist die Grundseite?"
     },
     "o": {
-     "wert": 14,
+     "wert": 10,
      "einheit": "cm"
     },
-    "c": "14",
-    "w": "Mit g für die Grundseite ist h = g : 2. Dann gilt A = g · g : 2 = 98, also g · g = 196 und g = 14 cm. Die Höhe ist 7 cm. Probe: 14 · 7 = 98."
+    "c": "10",
+    "w": "Mit g für die Grundseite ist h = g : 2. Dann gilt A = g · g : 2 = 50, also g · g = 100 und g = 10 cm. Die Höhe ist 5 cm. Probe: 10 · 5 = 50."
    }
   },
   {
@@ -879,21 +875,21 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Es ist ein schiefes Parallelogramm, denn die schräge Seite ist länger als die Höhe.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "geglaubt, die schräge Seite sei immer länger; nur bei einem Rechteck sind beide gleich lang"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Ein solches Parallelogramm gibt es nicht, denn die Höhe darf nicht so lang wie die schräge Seite sein.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "gedacht, die Höhe müsse kürzer als die schräge Seite sein; gleich lang ist beim Rechteck möglich"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Es ist ein Rechteck, denn die Fläche 48 ist durch die Grundseite 8 teilbar.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -912,13 +908,13 @@
      "text": "Ein Parallelogramm hat die Grundseite 8 cm, die schräge Nachbarseite 6 cm und den Flächeninhalt 48 cm². Welche Aussage über das Parallelogramm stimmt?"
     },
     "a": [
-     "Es ist ein Rechteck, denn die Höhe 48 : 8 = 6 cm ist genauso lang wie die schräge Seite.",
      "Es ist ein schiefes Parallelogramm, denn die schräge Seite ist länger als die Höhe.",
      "Ein solches Parallelogramm gibt es nicht, denn die Höhe darf nicht so lang wie die schräge Seite sein.",
-     "Es ist ein Rechteck, denn die Fläche 48 ist durch die Grundseite 8 teilbar."
+     "Es ist ein Rechteck, denn die Fläche 48 ist durch die Grundseite 8 teilbar.",
+     "Es ist ein Rechteck, denn die Höhe 48 : 8 = 6 cm ist genauso lang wie die schräge Seite."
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "w": "Aus A = g · h folgt h = 48 : 8 = 6 cm. Die Höhe steht senkrecht auf der Grundseite und ist nie länger als die schräge Seite. Sie ist genau dann gleich lang, wenn die schräge Seite selbst senkrecht steht, das Parallelogramm also ein Rechteck ist. Hier sind beide 6 cm lang."
    }
@@ -1310,14 +1306,14 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "9 · 7 − 3 · 5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das fehlende Stück falsch bemessen: Es ist 2 cm hoch, nicht 5 cm"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "6 · 7 + 3 · 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1343,13 +1339,13 @@
      "text": "Eine Figur ist 9 cm breit und 7 cm hoch. Unten rechts fehlt ein Rechteck von 3 cm Breite und 2 cm Höhe. Welche Rechnung gibt den Flächeninhalt der Figur in cm² richtig an?"
     },
     "a": [
+     "6 · 7 + 3 · 5",
      "9 · 7 − 3 · 5",
      "6 · 7 + 3 · 2",
-     "6 · 7 + 3 · 5",
      "9 · 5 + 3 · 2"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "w": "Die Figur lässt sich in zwei Rechtecke zerlegen: links 6 cm breit und 7 cm hoch, rechts 3 cm breit und 7 − 2 = 5 cm hoch. Das ergibt 6 · 7 + 3 · 5 = 42 + 15 = 57 cm². Gleichwertig ist die Ergänzung: 9 · 7 − 3 · 2 = 63 − 6 = 57 cm²."
    }
@@ -1497,7 +1493,7 @@
      "beschreibung": "gedacht, eine schiefe Figur habe weniger Fläche; entscheidend ist die Höhe"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Die Fläche wird 60 cm², denn die Figur ist jetzt 15 cm breit und 4 cm hoch.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1518,11 +1514,11 @@
     "a": [
      "Die Fläche wird größer, denn die schrägen Seiten sind länger als 4 cm.",
      "Die Fläche wird kleiner, denn die Figur ist jetzt schief.",
-     "Die Fläche wird 60 cm², denn die Figur ist jetzt 15 cm breit und 4 cm hoch.",
-     "Die Fläche bleibt 36 cm², denn Grundseite und Höhe bleiben gleich."
+     "Die Fläche bleibt 36 cm², denn Grundseite und Höhe bleiben gleich.",
+     "Die Fläche wird 60 cm², denn die Figur ist jetzt 15 cm breit und 4 cm hoch."
     ],
     "o": {
-     "index": 3
+     "index": 2
     },
     "w": "Die Grundseite bleibt 9 cm, die Höhe bleibt 4 cm. Ein Parallelogramm hat A = g · h = 9 · 4 = 36 cm², genau wie das Rechteck vorher. Anschaulich: Das Dreieck, das links wegfällt, kommt rechts wieder dazu."
    }
@@ -1738,14 +1734,14 @@
      "beschreibung": "Fläche und Umfang verwechselt; der Umfang hängt nur von den Seitenlängen ab, die Fläche auch von der Höhe"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Umfang und Fläche werden kleiner, denn eine schiefe Figur ist kleiner.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "gedacht, der Umfang schrumpfe mit; er bleibt gleich, solange die Seiten gleich lang sind"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Der Umfang wird größer, die Fläche bleibt gleich, denn die schrägen Seiten sind länger als die Höhe.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1765,12 +1761,12 @@
     },
     "a": [
      "Umfang und Fläche bleiben gleich, denn die Seitenlängen bleiben gleich.",
-     "Der Umfang bleibt 20 cm, aber die Fläche wird kleiner, denn die Höhe wird kleiner als 4 cm.",
      "Umfang und Fläche werden kleiner, denn eine schiefe Figur ist kleiner.",
-     "Der Umfang wird größer, die Fläche bleibt gleich, denn die schrägen Seiten sind länger als die Höhe."
+     "Der Umfang wird größer, die Fläche bleibt gleich, denn die schrägen Seiten sind länger als die Höhe.",
+     "Der Umfang bleibt 20 cm, aber die Fläche wird kleiner, denn die Höhe wird kleiner als 4 cm."
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "w": "Der Umfang ist 2 · 6 + 2 · 4 = 20 cm und hängt nur von den Seitenlängen ab; er bleibt gleich. Die Fläche ist Grundseite mal Höhe. Die Grundseite bleibt 6 cm, aber die Höhe ist jetzt kleiner als die schräge Seite 4 cm, zum Beispiel 3 cm. Dann ist die Fläche kleiner als 24 cm², zum Beispiel 18 cm²."
    }
@@ -1791,7 +1787,7 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "ein Parallelogramm mit der Grundseite 6 cm und der schrägen Nachbarseite 4 cm",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1824,13 +1820,13 @@
      "text": "Ein Rechteck ist 6 cm lang und 4 cm breit. Welche der folgenden Figuren hat denselben Flächeninhalt wie das Rechteck?"
     },
     "a": [
-     "ein Trapez mit den parallelen Seiten 8 cm und 4 cm und dem Abstand 4 cm",
      "ein Parallelogramm mit der Grundseite 6 cm und der schrägen Nachbarseite 4 cm",
+     "ein Trapez mit den parallelen Seiten 8 cm und 4 cm und dem Abstand 4 cm",
      "ein Dreieck mit der Grundseite 6 cm und der Höhe 4 cm",
      "ein Dreieck mit der Grundseite 8 cm und der Höhe 4 cm"
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
     "w": "Das Rechteck hat 6 · 4 = 24 cm². Das Trapez hat (8 + 4) · 4 : 2 = 24 cm². Das schräge Parallelogramm hat die Höhe unter 4 cm, also weniger als 24 cm². Die Dreiecke haben 6 · 4 : 2 = 12 cm² und 8 · 4 : 2 = 16 cm²."
    }

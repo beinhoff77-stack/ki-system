@@ -41,14 +41,13 @@ neu(T, "dreieck", "sicherung", "fehler", L(
     "Fehler in Zeile □, richtig: A = □ cm²", [2, 30], ["2", "10 * 6 / 2"], ["3 - 1", "30"],
     "Zeile 1 stimmt. In Zeile 2 wurde die schräge Seite statt der Höhe genommen. Die Höhe ist 6 cm, also gilt A = 10 · 6 : 2 = 30 cm². Zeile 3 übernimmt das falsche Ergebnis. Die schräge Seite ist länger als die Höhe und darf in der Formel nicht stehen.",
     {0: [(3, "die Schlusszeile genannt, weil dort das falsche Ergebnis steht", "3")], 1: [(35, "mit der schrägen Seite statt der Höhe gerechnet: 10 · 7 : 2", "10 * 7 / 2"), (60, "das Halbieren vergessen: 10 · 6", "10 * 6"), (42, "Höhe mal schräge Seite gerechnet: 6 · 7", "6 * 7")]}), form="fehler_detektiv", lp=LP, idee="schraege_seite_fehler")
-neu(T, "dreieck", "sicherung", "begruenden", W(
-    "Das Dreieck ABD hat die Ecken A(0|0), B(9|0) und D(15|6) (eine Einheit ist 1 cm). Ein Kind sagt: „Die Höhe liegt hier außerhalb des Dreiecks, deshalb darf man nicht Grundseite mal Höhe durch 2 rechnen.“ Welche Aussage stimmt?",
-    "Das Kind irrt: Die Fläche ist 9 · 6 : 2 = 27 cm², denn die Höhe ist auch außerhalb der Abstand zu AB.",
-    [("Das Kind hat recht, denn bei einer Höhe außerhalb gilt nur die Rechnung mit der schrägen Seite.", "die Höhe außerhalb für ungültig gehalten; auch dort ist es der senkrechte Abstand zur Grundseite"),
-     ("Das Kind irrt: Die Fläche ist 9 · 6 = 54 cm², denn bei einer Höhe außerhalb wird nicht halbiert.", "gedacht, das Halbieren entfällt, wenn die Höhe außen liegt; es gilt dieselbe Formel"),
-     ("Das Kind hat recht, denn die Fläche lässt sich dann nur über Koordinaten bestimmen.", "geglaubt, die Formel gelte nur für Dreiecke mit Höhe innen")],
-    "Die Grundseite AB liegt auf der x-Achse, AB = 9 cm. Die Höhe von D ist der Abstand zur x-Achse, 6 cm, auch wenn der Fußpunkt (15|0) außerhalb von AB liegt. A = 9 · 6 : 2 = 27 cm². Verschiebt man D parallel zu AB (zum Beispiel nach (4|6)), ändern sich Grundseite und Höhe nicht, also auch nicht die Fläche.",
-    lambda: 9 * 6 / 2 == 27 and abs(0 * (0 - 6) + 9 * (6 - 0) + 15 * (0 - 0)) / 2 == 27 and 9 * 6 != 27), lp=LP, idee="scherung_begruenden")
+neu(T, "dreieck", "sicherung", "transfer", Z(
+    "Ein Dreieck hat die Seiten 9 cm, 12 cm und 15 cm. Die Seiten 9 cm und 12 cm stehen senkrecht aufeinander. Wie lang ist die Höhe, die auf der Seite von 15 cm steht, in cm?",
+    7.2, "2 * 9 * 12 / 2 / 15", "108 / 15",
+    "Die beiden kürzeren Seiten stehen senkrecht aufeinander: Mit der einen als Grundseite ist die andere die Höhe, also A = 9 · 12 : 2 = 54 cm². Jede Seite darf Grundseite sein. Für die Grundseite 15 cm gilt A = 15 · h : 2 = 54, also h = 108 : 15 = 7,2 cm. Probe: 15 · 7,2 : 2 = 54.",
+    [B("9 * 12 / 2 / 15", "nur durch die Grundseite geteilt, ohne zu verdoppeln"),
+     B("9 + 12 - 15", "die drei Seiten verrechnet: 9 + 12 − 15"),
+     B("15 / 2", "die halbe Seite 15 cm als Höhe genommen")], einheit="cm"), lp=LP, idee="grundseite_wechseln")
 neu(T, "dreieck", "sicherung", "umkehr", Z(
     "Der Flächeninhalt eines Dreiecks ist 36 cm². Seine Höhe ist doppelt so lang wie die zugehörige Grundseite. Wie lang ist die Grundseite?",
     6, "6", "36 / 6",
@@ -65,12 +64,12 @@ neu(T, "rueckwaerts", "test", "rueckwaerts", Z(
      B("4500 / 300", "die Hektar mit dem falschen Faktor in m² umgerechnet (um eine Null zu wenig)"),
      B("4.5 / 300 * 100", "die Hektar nicht in m² umgerechnet")], einheit="m"), lp=LP, idee="hoehe_aus_flaeche")
 neu(T, "rueckwaerts", "korrektur", "umkehr", Z(
-    "Ein Parallelogramm hat den Flächeninhalt 98 cm². Seine Höhe ist halb so lang wie die zugehörige Grundseite. Wie lang ist die Grundseite?",
-    14, "14", "196 / 14",
-    "Mit g für die Grundseite ist h = g : 2. Dann gilt A = g · g : 2 = 98, also g · g = 196 und g = 14 cm. Die Höhe ist 7 cm. Probe: 14 · 7 = 98.",
-    [B("98 / 14", "die Höhe 7 statt der Grundseite angegeben"),
-     B("98 / 2", "98 durch 2 geteilt und als Grundseite genommen"),
-     B("98 / 4", "98 durch 4 geteilt, weil von „halb“ die 2 zweimal gezählt wurde")], einheit="cm"), form="umkehren", lp=LP, idee="gleichung_g_mal_g")
+    "Ein Parallelogramm hat den Flächeninhalt 50 cm². Seine Höhe ist halb so lang wie die zugehörige Grundseite. Wie lang ist die Grundseite?",
+    10, "10", "100 / 10",
+    "Mit g für die Grundseite ist h = g : 2. Dann gilt A = g · g : 2 = 50, also g · g = 100 und g = 10 cm. Die Höhe ist 5 cm. Probe: 10 · 5 = 50.",
+    [B("50 / 10", "die Höhe 5 statt der Grundseite angegeben"),
+     B("50 / 2", "50 durch 2 geteilt und als Grundseite genommen"),
+     B("50 / 4", "50 durch 4 geteilt, weil von „halb“ die 2 zweimal gezählt wurde")], einheit="cm"), form="umkehren", lp=LP, idee="gleichung_g_mal_g")
 neu(T, "rueckwaerts", "korrektur", "darstellung", Z(
     "Ein Parallelogramm hat die Grundseite 12 cm, die schräge Nachbarseite 9 cm und den Flächeninhalt 96 cm². Es wird zu einem Rechteck mit derselben Grundseite und demselben Flächeninhalt umgebaut: Ein Dreieck wird auf der einen Seite abgeschnitten und auf der anderen Seite wieder angesetzt. Wie hoch ist das Rechteck?",
     8, "96 / 12", "8",

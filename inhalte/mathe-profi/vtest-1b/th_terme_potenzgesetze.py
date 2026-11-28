@@ -91,7 +91,7 @@ neu(T, "fehler_finden", "sicherung", "fehler", W(
     "Zeile 1 ist richtig: Ein negativer Exponent bildet den Kehrwert, (2/3)⁻² = (3/2)². In Zeile 2 wird nur der Zähler quadriert: richtig ist (3/2)² = 3²/2² = 9/4. Zeile 3 rechnet 9/2 = 4,5 richtig, Zeile 4 übernimmt den Fehler. Richtig: (2/3)⁻² = 9/4 = 2,25.",
     lambda: F(2, 3) ** -2 == F(9, 4) and F(3, 2) ** 2 == F(9, 4) and F(3, 2) ** 2 != F(9, 2) and F(9, 2) == F("4.5") and F(9, 2) != 4, pos=1), form="fehler_detektiv", lp=LP, idee="kehrwert_bruch")
 neu(T, "fehler_finden", "sicherung", "begruenden", W(
-    "Ein Kind soll begründen, warum 5⁰ den Wert 1 und nicht 0 hat. Welche Begründung ist richtig?",
+    "Ein Kind soll begründen, welchen Wert 5⁰ hat. Welche Begründung ist richtig?",
     "5⁰ = 1, denn im Muster 125, 25, 5 teilt man jedes Mal durch 5, und 5 : 5 = 1.",
     [("5⁰ = 1, denn 5 mal 0 ergibt 0, und dazu zählt man die 1 am Anfang.", "eine Rechnung mit Basis mal Exponent erfunden, die zufällig auf 1 kommt; sie erklärt nichts"),
      ("5⁰ = 5, denn beim Exponenten 0 bleibt die Basis 5 unverändert stehen.", "Exponent 0 als „nichts tun“ gelesen und die Basis 5 behalten"),

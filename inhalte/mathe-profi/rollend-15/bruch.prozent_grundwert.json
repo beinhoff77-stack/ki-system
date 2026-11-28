@@ -731,7 +731,7 @@
      "einheit": "Jahre"
     },
     "c": "5",
-    "h": "Probiere die Jahre nacheinander aus: 2 000 · 1,05, dann · 1,05², und so weiter. Wann liegt das Ergebnis erstmals über 2 500?",
+    "h": "Multipliziere den Kontostand jedes Jahr wieder mit 1,05 (Stand nach 1 Jahr: 2 000 · 1,05, danach diesen Stand wieder mal 1,05, und so weiter) oder rechne für jedes Jahr n getrennt 2 000 · 1,05ⁿ. Wann liegt das Ergebnis erstmals über 2 500?",
     "w": "Nach 4 Jahren: 2 000 · 1,05⁴ ≈ 2 431,01 €, das reicht noch nicht. Nach 5 Jahren: 2 000 · 1,05⁵ ≈ 2 552,56 €. Das ist höher als 2 500 €. Es sind 5 Jahre."
    }
   },

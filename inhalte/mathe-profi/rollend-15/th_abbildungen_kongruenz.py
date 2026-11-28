@@ -41,14 +41,14 @@ neu(T, "winkelhalbierende", "anwenden", Z(
     zweifel="Winkelsumme im Dreieck trägt die Rechnung (id.geometrie.winkel, Ausnahme der Themenliste); die Lernkarte nennt id.geometrie.abstand")
 neu(T, "winkelhalbierende", "verfahren_waehlen", W(
     "Ein Café soll von zwei sich kreuzenden Straßen gleich weit entfernt sein und außerdem von den Bushaltestellen H1 und H2 gleich weit entfernt. Wie findest du alle möglichen Orte?",
-    "Schnitt aus den beiden Winkelhalbierenden der Straßen und der Mittelsenkrechten von [H1H2]",
+    "Schneide die Mittelsenkrechte von [H1H2] mit jeder der beiden Winkelhalbierenden der Straßen und sammle alle Treffer",
     [("Schnitt aus der Mittelsenkrechten der beiden Straßen und der Winkelhalbierenden von [H1H2]", "die beiden Linien vertauscht"), ("Schnitt zweier Winkelhalbierender", "Haltestellen sind Punkte, bei ihnen hilft keine Winkelhalbierende"), ("Schnitt zweier Mittelsenkrechter", "Straßen sind Geraden, bei ihnen hilft keine Mittelsenkrechte")],
     "Gleich weit von zwei Geraden entfernt und gleich weit von zwei Punkten entfernt sind zwei verschiedene Bedingungen. Welche Linie gehört zu welcher?",
-    "Gleicher Abstand zu zwei sich kreuzenden Geraden: eine der beiden Winkelhalbierenden der Geraden (es gibt zwei, senkrecht zueinander). Gleicher Abstand zu zwei Punkten: Mittelsenkrechte der Strecke zwischen den Punkten. Der gesuchte Ort liegt auf der Mittelsenkrechten und auf einer der beiden Winkelhalbierenden, also in deren Schnittpunkten (höchstens zwei Orte).",
+    "Gleicher Abstand zu zwei sich kreuzenden Geraden: eine der beiden Winkelhalbierenden der Geraden (es gibt zwei, senkrecht zueinander). Gleicher Abstand zu zwei Punkten: Mittelsenkrechte der Strecke zwischen den Punkten. Der gesuchte Ort liegt auf der Mittelsenkrechten und auf einer der beiden Winkelhalbierenden, also in den Treffern beider Schnitte. Sonderfälle: Ist die Mittelsenkrechte parallel zu einer Winkelhalbierenden, gibt es dort keinen Treffer; fällt sie mit einer zusammen (zum Beispiel Straßen x- und y-Achse, Haltestellen (1|0) und (0|1)), erfüllen alle Punkte dieser Geraden die Bedingung.",
     lambda: True), g="verknuepfen", regel=AB)
 # ───────── symmetrie ─────────
 neu(T, "symmetrie", "lueckenweg", L(
-    "Ein regelmäßiges Sechseck hat ① Symmetrieachsen. Ein regelmäßiges Zwölfeck hat ② Symmetrieachsen. Beide Figuren zusammen haben ③ Symmetrieachsen.",
+    "Ein regelmäßiges Sechseck hat ① Symmetrieachsen. Ein regelmäßiges Zwölfeck hat ② Symmetrieachsen. ③ ist die Summe der beiden Achsenzahlen der einzelnen Figuren (nicht die Achsen einer zusammengesetzten Figur).",
     "① = □; ② = □; ③ = □", [6, 12, 18], ["6", "12", "{1} + {2}"], ["6", "12", "6 + 12"],
     "Ein regelmäßiges n-Eck hat n Symmetrieachsen. Bei geradem n gehen sie durch gegenüberliegende Ecken oder durch gegenüberliegende Seitenmitten. Addiere für die letzte Lücke die Anzahlen der beiden einzelnen Figuren.",
     "Ein regelmäßiges n-Eck hat n Symmetrieachsen. Sechseck: 6, Zwölfeck: 12, zusammen 6 + 12 = 18.",

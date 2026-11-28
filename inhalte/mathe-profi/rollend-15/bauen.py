@@ -513,6 +513,7 @@ for _f in FB_ZAHL_FEHLER:
     print("FEHLBILD-ZAHL:", *_f)
 assert not FB_ZAHL_FEHLER, "Fehlbild-Beschreibung nennt Zahlen, die weder in der Aufgabe noch in der Rechnung vorkommen"
 # ═════════ Mischung je Einheit und Etappe ═════════
+VORGRIFF = {("stochastik.verknuepft", "bedingt"), ("stochastik.verknuepft", "rueckschluss")}
 FORMEN_OK = ("umkehren", "zwei_wege", "bruecke", "anwenden", "fehler_detektiv", "verfahren_waehlen", "lueckenweg")
 mix = []
 for schl in geladen:
@@ -522,6 +523,9 @@ for schl in geladen:
     for lk in THEMEN[schl][1]:
         xs = [e for e in xs_u if e["lernkarte"] == lk]
         formen = Counter(e["form"] for e in xs)
+        if (schl, lk) in VORGRIFF:      # Vertiefung (nicht Pflicht), enthält M11-Stoff: in dieser Runde bewusst leer (Gegenprüfung 1207)
+            assert not xs, (schl, lk, "Vorgriffs-Etappe bleibt in dieser Runde leer")
+            continue
         assert len(xs) >= 1, (schl, lk, "jede Etappe braucht mindestens eine Aufgabe")
         assert all(e["form"] in FORMEN_OK for e in xs), (schl, lk)
         assert any(e["zaehlt"] == "ja" and e["stufe"] >= 2 for e in xs), (schl, lk, "mindestens eine zählende Aufgabe auf Stufe 2 oder 3 je Etappe")

@@ -43,8 +43,8 @@ neu(T, "venn", "anwenden", Z(
     [B("14 + 11", "die Schnittelemente doppelt gezählt"), B("14 + 11 - 6", "den Schnitt nur einmal abgezogen, also die Vereinigung statt genau eine Menge"), B("14 - 6", "nur die Elemente genommen, die nur in A liegen")]), g="mehrschritt", ohne=OHNE_M)
 # ───────── mengen_verstehen ─────────
 neu(T, "mengen_verstehen", "verfahren_waehlen", W(
-    "Es gilt A ⊂ B: Jedes Element von A liegt auch in B. Welche Aussage über die Schnittmenge und die Vereinigung stimmt?",
-    "A ∩ B = A und A ∪ B = B", [("A ∩ B = B und A ∪ B = A", "Schnitt und Vereinigung vertauscht"), ("A ∩ B = ∅ und A ∪ B = B", "die Mengen haben gemeinsame Elemente, der Schnitt ist nicht leer"), ("A ∩ B = A und A ∪ B = A", "die Vereinigung enthält auch die Elemente von B")],
+    "Es gilt A ⊂ B: Jedes Element von A liegt auch in B. Welche Aussage über die Schnittmenge und die Vereinigung gilt immer?",
+    "A ∩ B = A und A ∪ B = B", [("A ∩ B = B und A ∪ B = A", "Schnitt und Vereinigung vertauscht (das gilt nur im Sonderfall A = B)"), ("A ∩ B = ∅ und A ∪ B = B", "der Schnitt ist A und ist nur dann leer, wenn A leer ist"), ("A ∩ B = A und A ∪ B = A", "die Vereinigung ist B; sie ist nur dann gleich A, wenn A = B")],
     "Wähle selbst ein Beispiel: A = {2, 4} und B = {1, 2, 3, 4}. Bestimme beide Mengen.",
     "Im Beispiel A = {2, 4} und B = {1, 2, 3, 4} gilt A ∩ B = {2, 4} = A und A ∪ B = {1, 2, 3, 4} = B. Das gilt allgemein: Was in A liegt, liegt auch in B.",
     lambda: ({2, 4} & {1, 2, 3, 4} == {2, 4}) and ({2, 4} | {1, 2, 3, 4} == {1, 2, 3, 4})), g="begruenden", ohne=OHNE_M)
@@ -68,18 +68,18 @@ neu(T, "tafel_wkeit", "anwenden", Z(
     [B("0.6 + 0.45 - 0.27", "die Wahrscheinlichkeit für Frau oder Ski statt ihres Gegenteils genommen"), B("0.4 - 0.27", "von den Männern den Wert für Frau und Ski abgezogen"), B("0.45 - 0.27", "nur Männer mit Ski berechnet")]), g="mehrschritt", regel=AN,
     zweifel="Vierfeldertafel mit Wahrscheinlichkeiten: id.daten.anteil trägt die Deutung als Anteil, das Ausfüllen der Tafel hat keine eigene Regel")
 # ───────── bedingt ─────────
-neu(T, "bedingt", "anwenden", Z(
+neu(T, "verknuepfen", "anwenden", Z(
     "Von den Besuchern einer Therme sind 55 % Frauen, 44 % nutzen die Sauna, und 33 % sind Frauen, die die Sauna nutzen. Wie viel Prozent aller Besucher sind weder Frau noch nutzen die Sauna?",
     34, "100 - (55 + 44 - 33)", 34, "Die Besucher, die Frau sind oder die Sauna nutzen, bilden die Vereinigung. Wer beides ist, darf nur einmal zählen. Wie viel bleibt vom Ganzen übrig?",
     "Frau oder Sauna: 55 + 44 − 33 = 66 (die 33 stehen in beiden Zahlen). Weder noch ist das Gegenteil: 100 − 66 = 34. Es sind 34 % aller Besucher.",
     [B("55 + 44 - 33", "den Anteil für Frau oder Sauna statt für keines von beiden angegeben"), B("100 - 55 - 44", "die Besucher mit beidem doppelt abgezogen"), B("100 - 55", "nur die Besucher genommen, die keine Frau sind")], einheit="%"), g="mehrschritt", regel=None, ohne=OHNE_ADD)
-neu(T, "bedingt", "anwenden", Z(
+neu(T, "venn", "anwenden", Z(
     "Auf einem Campingplatz leihen 52 % der Gäste ein Fahrrad, 31 % ein Kajak und 18 % beides. Wie viel Prozent aller Gäste leihen genau eines der beiden Geräte?",
     47, "52 + 31 - 2 * 18", 47, "Wer beides leiht, soll nicht zählen. Trenne: nur Fahrrad, nur Kajak. Wie viel vom Fahrrad-Anteil gehört auch zum Kajak-Anteil?",
     "Nur Fahrrad: 52 − 18 = 34. Nur Kajak: 31 − 18 = 13. Genau eines: 34 + 13 = 47. Es sind 47 % aller Gäste.",
     [B("52 + 31 - 18", "die Vereinigung (Fahrrad oder Kajak) statt genau eines der beiden Geräte angegeben"), B("52 + 31", "beide Anteile addiert, die Gäste mit beidem doppelt gezählt"), B("52 - 18", "nur die Gäste genommen, die nur ein Fahrrad leihen")], einheit="%"), g="mehrschritt", regel=None, ohne=OHNE_ADD)
 # ───────── rueckschluss ─────────
-neu(T, "rueckschluss", "umkehren", Z(
+neu(T, "additionssatz", "umkehren", Z(
     "Bei einer Verlosung gewinnt man mit Wahrscheinlichkeit 0,42 einen Hotelgutschein (A) und mit 0,35 einen Flugrabatt (B). Mit Wahrscheinlichkeit 0,61 gewinnt man mindestens einen der beiden Preise. Wie groß ist die Wahrscheinlichkeit, beide Preise zu gewinnen?",
     0.16, "0.42 + 0.35 - 0.61", 0.16, "Der Additionssatz gilt auch rückwärts: P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Stelle nach P(A ∩ B) um.",
     "Aus P(A ∪ B) = P(A) + P(B) − P(A ∩ B) folgt P(A ∩ B) = P(A) + P(B) − P(A ∪ B) = 0,42 + 0,35 − 0,61 = 0,16.",
@@ -87,9 +87,9 @@ neu(T, "rueckschluss", "umkehren", Z(
 # ───────── verstehen ─────────
 neu(T, "verstehen", "verfahren_waehlen", W(
     "Für zwei Ereignisse A und B gilt P(A ∪ B) = P(A) + P(B). Was folgt daraus?",
-    "Der Schnitt hat die Wahrscheinlichkeit 0: A und B können nicht gleichzeitig eintreten.", [("A liegt ganz in B (A ⊂ B).", "bei A ⊂ B ist die Vereinigung gleich B, es gilt P(A ∪ B) = P(B)"), ("A und B sind gleich wahrscheinlich.", "über die Einzelwahrscheinlichkeiten sagt die Gleichung nichts aus")],
+    "Der Schnitt hat die Wahrscheinlichkeit 0: P(A ∩ B) = 0.", [("A liegt ganz in B (A ⊂ B).", "bei A ⊂ B ist die Vereinigung gleich B, es gilt P(A ∪ B) = P(B)"), ("A und B sind gleich wahrscheinlich.", "über die Einzelwahrscheinlichkeiten sagt die Gleichung nichts aus")],
     "Vergleiche mit dem Additionssatz P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Was muss P(A ∩ B) sein, damit beide Gleichungen stimmen?",
-    "Der Additionssatz lautet P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Soll P(A ∪ B) = P(A) + P(B) gelten, muss P(A ∩ B) = 0 sein. Dann haben A und B keine gemeinsamen Ergebnisse und treten nie zugleich ein.",
+    "Der Additionssatz lautet P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Soll P(A ∪ B) = P(A) + P(B) gelten, muss P(A ∩ B) = 0 sein. Mehr folgt aus der Gleichung allein nicht.",
     lambda: (F(1, 6) + F(1, 6) == F(2, 6)) and (F(1, 6) + F(2, 6) != F(2, 6)) and (F(2, 6) + F(3, 6) != F(3, 6))), g="begruenden", regel=None, ohne=OHNE_ADD)
 neu(T, "verstehen", "fehler_detektiv", FD(
     "Alex untersucht die Gäste eines Skiorts: 40 % fahren Ski (A), 30 % sind Kinder (B), und 12 % sind Kinder, die Ski fahren. Er schreibt:",

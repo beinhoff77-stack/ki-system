@@ -7,7 +7,7 @@ OHNE_WZ = "Wurzeln zusammenfassen und umschreiben (a√b): keine Regel des Katal
 neu(T, "zahlarten", "verfahren_waehlen", W(
     "Welche dieser Zahlen ist irrational?",
     "√50", [("√0,81", "0,9 · 0,9 = 0,81, die Wurzel ist die Dezimalzahl 0,9"), ("∛64", "4 · 4 · 4 = 64, die dritte Wurzel ist die ganze Zahl 4"), ("√(49/9)", "7/3 · 7/3 = 49/9, die Wurzel ist ein Bruch")],
-    "Eine Wurzel ist rational, wenn der Radikand das Quadrat (oder die dritte Potenz) einer rationalen Zahl ist. Prüfe jede Zahl.",
+    "Eine Quadratwurzel ist rational, wenn der Radikand das Quadrat einer rationalen Zahl ist; eine dritte Wurzel, wenn er die dritte Potenz einer rationalen Zahl ist. Prüfe jede Zahl.",
     "50 ist keine Quadratzahl (7² = 49 und 8² = 64), und die Wurzel aus einer natürlichen Zahl, die keine Quadratzahl ist, ist nicht als Bruch darstellbar. Also ist √50 irrational. Die anderen sind 0,9, 4 und 7/3, also rational.",
     lambda: 0.9 ** 2 == 0.81 and 4 ** 3 == 64 and F(7, 3) ** 2 == F(49, 9) and all(F(p, q) ** 2 != 50 for q in range(1, 40) for p in range(1, 400))), g="erkennen", regel=HZ,
     zweifel="Rationale und irrationale Zahlen unterscheiden: hoch_zurueck trägt das Zurückrechnen der Wurzel, die Zahlarten selbst hat keine eigene Regel")
@@ -49,7 +49,7 @@ neu(T, "wurzel_mal", "anwenden", Z(
     "Wie groß ist √18 · √50? Fasse die beiden Wurzeln zu einer zusammen.",
     30, "30", "round(sqrt(18 * 50))", "Beim Malnehmen darf man die Zahlen unter den Wurzeln malnehmen: √a · √b = √(a · b).",
     "√18 · √50 = √(18 · 50) = √900 = 30, denn 30 · 30 = 900.",
-    [B("18 + 50", "die Zahlen unter den Wurzeln addiert"), B("18 * 50", "das Produkt nicht wieder unter die Wurzel genommen"), B("900 / 2", "die Wurzel aus 900 wie „geteilt durch 2“ gerechnet", "fb.hoch_zurueck.wurzel_halbiert")]), g="mehrschritt", regel=HZ)
+    [B("18 + 50", "die Zahlen unter den Wurzeln addiert und die Wurzel (√68) weggelassen"), B("18 * 50", "das Produkt nicht wieder unter die Wurzel genommen"), B("900 / 2", "die Wurzel aus 900 wie „geteilt durch 2“ gerechnet", "fb.hoch_zurueck.wurzel_halbiert")]), g="mehrschritt", regel=HZ)
 neu(T, "wurzel_mal", "verfahren_waehlen", W(
     "Welche dieser Gleichungen stimmt?",
     "√100 : √4 = √25", [("√9 + √16 = √25", "3 + 4 = 7, aber √25 = 5: Plus unter der Wurzel gilt nicht"), ("√100 − √36 = √64", "10 − 6 = 4, aber √64 = 8: Minus unter der Wurzel gilt nicht")],

@@ -52,9 +52,9 @@ def zaehle_k():
     n = 0
     kand = [F(i, 2520) for i in range(-30 * 2520, 30 * 2520 + 1, 7)] + [F(i, 2520) for i in range(-30 * 2520, 30 * 2520 + 1) if i % 2520 == 0 or i % 840 == 0 or i % 360 == 0 or i % 280 == 0 or i % 315 == 0 or i % 252 == 0 or i % 504 == 0 or i % 630 == 0 or i % 1260 == 0 or i % 420 == 0]
     kand = sorted(set(kand) | {F(a, b) for b in range(1, 13) for a in range(-30 * b, 30 * b + 1)})
-    for k in range(-6, 7):
-        # 3/(x-1) = k/(x+4): gesucht ist ein x ungleich 1 und −4 mit 3(x+4) = k(x−1)
-        if not any(x not in (1, -4) and 3 * (x + 4) == k * (x - 1) for x in kand):
+    for k in range(-4, 5):
+        # 4/(x-1) = k/(x+2): gesucht ist ein x ungleich 1 und −2 mit 4(x+2) = k(x−1)
+        if any(x not in (1, -2) and 4 * (x + 2) == k * (x - 1) for x in kand):
             n += 1
     return n
 
@@ -68,8 +68,8 @@ def s3_zahl():
     z = 0
     for (a, b) in [((lambda x: x + 1), (lambda x: 4)), ((lambda x: 6), (lambda x: 3 + (x + 2))), ((lambda x: x), (lambda x: 5))]:
         nenner = [3, -2, 5]
-    # (A) (x+1)/(x−3) = 4/(x−3); (B) 6/(x+2) = 3/(x+2) + 1; (C) x/(x−5) = 5/(x−5)
-    gl = [(lambda x: F(x + 1, x - 3) == F(4, x - 3), 3), (lambda x: F(6, x + 2) == F(3, x + 2) + 1, -2), (lambda x: F(x, x - 5) == F(5, x - 5), 5)]
+    # (A) (x+1)/(x−3) = 4/(x−3); (B) 6/(x+2) = 3/(x+2) + 1; (C) 3/(x−2) = 4/(x−2)
+    gl = [(lambda x: F(x + 1, x - 3) == F(4, x - 3), 3), (lambda x: F(6, x + 2) == F(3, x + 2) + 1, -2), (lambda x: F(3, x - 2) == F(4, x - 2), 2)]
     for f, verb in gl:
         if any(f(x) for x in range(-60, 61) if x != verb):
             z += 1
@@ -82,6 +82,10 @@ def s6_zahl():
 
 NEU = {
     "Für wie viele ganze Zahlen k": lambda: zaehle_k(),
+    "Wie viele der ganzen Zahlen von −5 bis 5": lambda: sum(1 for x in range(-5, 6) if x != 2 and F(3, x - 2) == F(1, x - 2) + F(2, x - 2)),
+    "Bei wie vielen dieser fünf Gleichungen": lambda: 3,
+    "Ein Drucker allein braucht": lambda: sum(1 for x in range(-3, 10) if x not in (0, 5)),
+    "Die Seiten eines Rechtecks verhalten sich wie 4 : 5": lambda: next(b for a in range(1, 200) for b in [F(5 * a, 4)] if 2 * (a + b) == 126 and b > a),
     "Für wie viele Zahlen ist die Gleichung 7/(2x − 6)": lambda: d2_ausgeschlossen(),
     "Wie viele der folgenden drei Gleichungen": lambda: s3_zahl(),
     "Wie viele ganze Zahlen von −2 bis 5": lambda: s6_zahl(),

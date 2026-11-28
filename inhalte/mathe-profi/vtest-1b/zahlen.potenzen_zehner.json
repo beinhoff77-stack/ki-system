@@ -182,14 +182,14 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "38,5 · 10⁶",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Vorfaktor nicht kleiner als 10 gemacht: 38,5 ist zu groß"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "385 · 10⁵",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -214,13 +214,13 @@
      "text": "Welche der folgenden Schreibweisen ist die wissenschaftliche Schreibweise der Zahl 38 500 000?"
     },
     "a": [
+     "3,85 · 10⁷",
      "38,5 · 10⁶",
      "385 · 10⁵",
-     "3,85 · 10⁷",
      "0,385 · 10⁸"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "w": "Der Vorfaktor muss mindestens 1 und kleiner als 10 sein. 38 500 000 = 3,85 · 10 000 000 = 3,85 · 10⁷. Die anderen Schreibweisen haben denselben Wert, aber der Vorfaktor 38,5 (zu groß), 385 (zu groß) oder 0,385 (zu klein) passt nicht."
    }
@@ -365,7 +365,7 @@
      "beschreibung": "den Wert falsch gerechnet: 0,5 · 10⁸ ist bereits 50 000 000, nur der Vorfaktor passt nicht"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Der Vorfaktor muss eine ganze Zahl sein; 0,5 ist keine ganze Zahl.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -385,11 +385,11 @@
     "a": [
      "Der Exponent 8 ist zu groß; man darf höchstens 10⁷ verwenden.",
      "0,5 · 10⁸ ist eine andere Zahl als 50 000 000; richtig wäre 0,05 · 10⁸.",
-     "Der Vorfaktor muss eine ganze Zahl sein; 0,5 ist keine ganze Zahl.",
-     "Der Vorfaktor 0,5 ist kleiner als 1, wissenschaftlich wäre 5 · 10⁷."
+     "Der Vorfaktor 0,5 ist kleiner als 1, wissenschaftlich wäre 5 · 10⁷.",
+     "Der Vorfaktor muss eine ganze Zahl sein; 0,5 ist keine ganze Zahl."
     ],
     "o": {
-     "index": 3
+     "index": 2
     },
     "w": "0,5 · 10⁸ = 50 000 000 ist richtig als Wert. Es fehlt nur die Bedingung 1 ≤ a < 10: 0,5 ist kleiner als 1. Man verschiebt das Komma um eine Stelle nach rechts und verkleinert den Exponenten: 5 · 10⁷ = 50 000 000."
    }
@@ -471,14 +471,14 @@
      "beschreibung": "das Minus im Exponenten auf den Wert übertragen"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "10⁻³ = 0,0001, denn hinter dem Komma stehen drei Nullen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Nullen statt der Stelle der 1 gezählt; es sind zwei Nullen vor der 1"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "10⁻³ = 0,03, denn man teilt 10 durch die Hochzahl 3 mal 10.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -498,12 +498,12 @@
     },
     "a": [
      "10⁻³ = −1000, denn das Minus im Exponenten macht die Zahl negativ.",
-     "10⁻³ = 0,001: Die 1 steht an der dritten Stelle nach dem Komma.",
      "10⁻³ = 0,0001, denn hinter dem Komma stehen drei Nullen.",
-     "10⁻³ = 0,03, denn man teilt 10 durch die Hochzahl 3 mal 10."
+     "10⁻³ = 0,03, denn man teilt 10 durch die Hochzahl 3 mal 10.",
+     "10⁻³ = 0,001: Die 1 steht an der dritten Stelle nach dem Komma."
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "w": "10⁻³ = 1/10³ = 1/1000 = 0,001. Die 1 steht an der dritten Stelle nach dem Komma, vor ihr stehen zwei Nullen. Das Minus im Exponenten macht die Zahl nicht negativ, sondern klein."
    }
@@ -818,7 +818,7 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "4 · 10⁻³",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -850,13 +850,13 @@
      "text": "Welche der folgenden Zahlen ist gleich 0,0004?"
     },
     "a": [
-     "4 · 10⁻⁴",
      "4 · 10⁻³",
+     "4 · 10⁻⁴",
      "4 · 10⁻⁵",
      "4 · 10⁴"
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
     "w": "4 · 10⁻⁴ = 4 · 0,0001 = 0,0004. Die 4 steht an der vierten Stelle nach dem Komma, deshalb ist der Exponent −4."
    }
@@ -877,14 +877,14 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "1 µm = 1000 mm, denn Mikro ist die größere Vorsilbe von beiden.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Mikro für größer gehalten; Mikro (10⁻⁶) ist kleiner als Milli (10⁻³)"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "1 mm = 100 µm, denn zwischen beiden liegen zwei Stellen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -910,13 +910,13 @@
      "text": "Wie verhalten sich ein Millimeter (mm) und ein Mikrometer (µm) zueinander?"
     },
     "a": [
+     "1 mm = 1000 µm, denn 10⁻³ ist 1000-mal so groß wie 10⁻⁶.",
      "1 µm = 1000 mm, denn Mikro ist die größere Vorsilbe von beiden.",
      "1 mm = 100 µm, denn zwischen beiden liegen zwei Stellen.",
-     "1 mm = 1000 µm, denn 10⁻³ ist 1000-mal so groß wie 10⁻⁶.",
      "1 mm = 10⁶ µm, denn Mikro steht für Millionen von Millimetern."
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "w": "Milli bedeutet 10⁻³ (ein Tausendstel), Mikro bedeutet 10⁻⁶ (ein Millionstel). Es gilt 10⁻³ : 10⁻⁶ = 10³ = 1000. Also sind 1 mm = 1000 µm."
    }
@@ -1312,14 +1312,14 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "8 · 10⁻⁴ ist größer, denn 8 ist größer als 2.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur die Vorfaktoren verglichen und die Exponenten nicht beachtet"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "8 · 10⁻⁴ ist größer, denn −4 ist kleiner als −3 und kleiner heißt kleiner Nenner.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1345,13 +1345,13 @@
      "text": "Welche der Zahlen 8 · 10⁻⁴ und 2 · 10⁻³ ist größer, und warum?"
     },
     "a": [
-     "2 · 10⁻³ ist größer, denn 2 · 10⁻³ = 20 · 10⁻⁴ und 20 ist größer als 8.",
      "8 · 10⁻⁴ ist größer, denn 8 ist größer als 2.",
      "8 · 10⁻⁴ ist größer, denn −4 ist kleiner als −3 und kleiner heißt kleiner Nenner.",
+     "2 · 10⁻³ ist größer, denn 2 · 10⁻³ = 20 · 10⁻⁴ und 20 ist größer als 8.",
      "Beide sind gleich groß, denn 8 · 4 = 2 · 3."
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "w": "Man bringt beide Zahlen auf denselben Exponenten: 2 · 10⁻³ = 2 · 10 · 10⁻⁴ = 20 · 10⁻⁴. Dann vergleicht man 20 · 10⁻⁴ mit 8 · 10⁻⁴: 20 > 8. Dezimal: 0,002 ist größer als 0,0008."
    }
@@ -1665,21 +1665,21 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "3,5 · 10⁻⁴",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur auf den Vorfaktor 3,5 geachtet; mit dem Exponenten −4 ist die Zahl zu klein"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "3,5 · 10⁻²",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Exponenten um 1 zu groß gewählt: die Zahl ist zehnmal so groß"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "3,5 · 10³",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1697,13 +1697,13 @@
      "text": "Welche der folgenden Zahlen liegt zwischen 3 · 10⁻³ und 4 · 10⁻³?"
     },
     "a": [
+     "3,5 · 10⁻³",
      "3,5 · 10⁻⁴",
      "3,5 · 10⁻²",
-     "3,5 · 10³",
-     "3,5 · 10⁻³"
+     "3,5 · 10³"
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
     "w": "Zwischen 3 · 10⁻³ und 4 · 10⁻³ liegt jede Zahl mit demselben Exponenten −3 und einem Vorfaktor zwischen 3 und 4, zum Beispiel 3,5 · 10⁻³ = 0,0035. Die anderen haben einen anderen Exponenten."
    }

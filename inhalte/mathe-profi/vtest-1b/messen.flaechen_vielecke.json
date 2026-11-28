@@ -35,14 +35,14 @@
      "beschreibung": "die Länge der Seite AD mit der Höhe verwechselt"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "ABD ist kleiner, denn seine Höhe liegt außerhalb des Dreiecks und zählt nicht mit.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Höhe außerhalb für ungültig gehalten; auch dort gilt: Grundseite mal Höhe durch 2"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "ABC ist größer, denn ein gleichschenkliges Dreieck hat die größere Fläche.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -62,12 +62,12 @@
     },
     "a": [
      "ABD ist größer, denn je länger eine Seite ist, desto größer ist die Fläche.",
-     "Beide haben 20 cm², denn Grundseite und Höhe sind bei beiden gleich.",
      "ABD ist kleiner, denn seine Höhe liegt außerhalb des Dreiecks und zählt nicht mit.",
-     "ABC ist größer, denn ein gleichschenkliges Dreieck hat die größere Fläche."
+     "ABC ist größer, denn ein gleichschenkliges Dreieck hat die größere Fläche.",
+     "Beide haben 20 cm², denn Grundseite und Höhe sind bei beiden gleich."
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "w": "Als Grundseite nimmt man AB = 10 cm. Die zugehörige Höhe ist der Abstand von C und D zur Geraden AB, also 4 cm, für beide Dreiecke. Es gilt A = 10 · 4 : 2 = 20 cm² für ABC und für ABD. Die Höhe darf wie bei ABD außen liegen. Die Länge der schrägen Seite AD ändert nichts: Man kann C parallel zu AB verschieben, ohne dass sich der Flächeninhalt ändert."
    }
@@ -395,14 +395,14 @@
      "beschreibung": "die Höhe verdoppelt; die Fläche wird dadurch doppelt so groß"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "P(5|2)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Höhe halbiert; die Fläche wird dadurch halb so groß"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "P(4|10)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -421,12 +421,12 @@
     },
     "a": [
      "P(2|8)",
+     "P(7|4)",
      "P(5|2)",
-     "P(4|10)",
-     "P(7|4)"
+     "P(4|10)"
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "w": "ABC hat die Grundseite AB = 10 cm und die Höhe 4 cm: A = 10 · 4 : 2 = 20 cm². Jeder Punkt P mit y-Koordinate 4 hat dieselbe Höhe 4 cm über AB, also dieselbe Fläche. Das ist P(7|4). Verschiebt man C parallel zu AB, ändert sich die Fläche nicht."
    }
@@ -447,21 +447,21 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "h = 7 cm, denn die Höhe ist immer so lang wie die Nachbarseite b des Parallelogramms.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die schräge Nachbarseite mit der Höhe verwechselt; die Höhe steht senkrecht, die Seite ist schräg"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "h lässt sich nicht bestimmen, denn der Winkel zwischen a und b fehlt in der Aufgabe.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "geglaubt, dass man den Winkel braucht; aus A = a · h folgt h = A : a ohne Winkel"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "h = 3 cm, denn man teilt 48 durch 8 und noch einmal durch 2, wie beim Dreieck.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -480,13 +480,13 @@
      "text": "Ein Parallelogramm hat den Flächeninhalt 48 cm². Seine Grundseite a ist 8 cm lang, die schräge Nachbarseite b ist 7 cm lang. Ein Kind sagt: „Die Höhe zu a ist 7 cm, denn das ist die andere Seite.“ Welche Aussage über die Höhe h zu a ist richtig?"
     },
     "a": [
-     "h = 6 cm, denn h = A : a = 48 : 8; die Höhe ist kürzer als die schräge Seite.",
      "h = 7 cm, denn die Höhe ist immer so lang wie die Nachbarseite b des Parallelogramms.",
      "h lässt sich nicht bestimmen, denn der Winkel zwischen a und b fehlt in der Aufgabe.",
-     "h = 3 cm, denn man teilt 48 durch 8 und noch einmal durch 2, wie beim Dreieck."
+     "h = 3 cm, denn man teilt 48 durch 8 und noch einmal durch 2, wie beim Dreieck.",
+     "h = 6 cm, denn h = A : a = 48 : 8; die Höhe ist kürzer als die schräge Seite."
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "w": "Für das Parallelogramm gilt A = a · h. Daraus folgt h = A : a = 48 : 8 = 6 cm. Das passt dazu, dass die Höhe kürzer ist als die schräge Seite b = 7 cm: Eine senkrechte Strecke ist kürzer als eine schräge Strecke zwischen denselben Parallelen. Probe: 8 · 6 = 48."
    }
@@ -617,14 +617,14 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "7 · h = 35",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Halbieren des Dreiecks vergessen"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "7 + h : 2 = 35",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -649,13 +649,13 @@
      "text": "Ein Dreieck hat den Flächeninhalt 35 cm² und die Grundseite 7 cm. Mit h für die zugehörige Höhe soll der Sachverhalt als Gleichung geschrieben werden. Welche Gleichung ist richtig?"
     },
     "a": [
+     "7 · h : 2 = 35",
      "7 · h = 35",
      "7 + h : 2 = 35",
-     "7 · h : 2 = 35",
      "7 · h · 2 = 35"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "w": "Für das Dreieck gilt A = g · h : 2. Mit A = 35 und g = 7 heißt das 7 · h : 2 = 35. Daraus folgt 7 · h = 70 und h = 10 cm. Probe: 7 · 10 : 2 = 35."
    }
@@ -897,7 +897,7 @@
      "beschreibung": "das fehlende Stück addiert statt abgezogen"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Anna erhält 68 cm², Ben aber 12 cm², weil er nur das fehlende Stück berechnet.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -918,11 +918,11 @@
     "a": [
      "Ben erhält mehr als Anna, denn er rechnet mit der größeren Fläche 80 cm².",
      "Beide kommen auf 92 cm²: Ben rechnet 80 + 12.",
-     "Anna erhält 68 cm², Ben aber 12 cm², weil er nur das fehlende Stück berechnet.",
-     "Beide kommen auf 68 cm²: Anna 10 · 5 + 6 · 3, Ben 10 · 8 − 4 · 3."
+     "Beide kommen auf 68 cm²: Anna 10 · 5 + 6 · 3, Ben 10 · 8 − 4 · 3.",
+     "Anna erhält 68 cm², Ben aber 12 cm², weil er nur das fehlende Stück berechnet."
     ],
     "o": {
-     "index": 3
+     "index": 2
     },
     "w": "Anna: Der untere Streifen ist 10 cm breit und 5 cm hoch (8 − 3), der obere linke Teil ist 6 cm breit (10 − 4) und 3 cm hoch: 50 + 18 = 68 cm². Ben: Das große Rechteck hat 80 cm², das fehlende Stück 4 · 3 = 12 cm²: 80 − 12 = 68 cm². Zerlegen und Ergänzen liefern denselben Wert."
    }
@@ -1060,14 +1060,14 @@
      "beschreibung": "eine richtige Rechnung gewählt: Ergänzen zum Rechteck und fehlendes Stück abziehen"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "9 · 5 + 6 · 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "eine richtige Rechnung gewählt: oberer Streifen 9 breit, 5 hoch und unten links 6 breit, 2 hoch"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "6 · 7 + 3 · 5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1086,12 +1086,12 @@
     },
     "a": [
      "9 · 7 − 3 · 2",
-     "9 · 7 − 3 · 5",
      "9 · 5 + 6 · 2",
-     "6 · 7 + 3 · 5"
+     "6 · 7 + 3 · 5",
+     "9 · 7 − 3 · 5"
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "w": "Die Figur hat 9 · 7 − 3 · 2 = 57 cm². Zerlegt man sie in einen oberen Streifen (9 · 5 = 45) und ein Stück unten links (6 · 2 = 12), kommt man auf 57. Ebenso mit dem linken Streifen 6 · 7 = 42 und dem rechten Teil 3 · 5 = 15: 57. In 9 · 7 − 3 · 5 wird als Höhe des fehlenden Stücks 5 statt 2 genommen: 63 − 15 = 48. Das ist die falsche Rechnung."
    }
@@ -1298,7 +1298,7 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Er bleibt gleich, denn dreimal so lang und halb so hoch gleichen sich aus.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1331,13 +1331,13 @@
      "text": "Bei einem Parallelogramm wird die Grundseite verdreifacht und die zugehörige Höhe halbiert. Welche Aussage über den neuen Flächeninhalt ist richtig?"
     },
     "a": [
-     "Er wird das 1,5-fache, denn die Faktoren multiplizieren sich: 3 · ½.",
      "Er bleibt gleich, denn dreimal so lang und halb so hoch gleichen sich aus.",
+     "Er wird das 1,5-fache, denn die Faktoren multiplizieren sich: 3 · ½.",
      "Er wird das 2,5-fache, denn 3 − ½ = 2,5.",
      "Er wird das 3,5-fache, denn 3 + ½ = 3,5."
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
     "w": "Der Flächeninhalt ist A = g · h. Mit 3g und h/2 ist der neue Inhalt 3g · h/2 = 1,5 · g · h. Wenn zwei Maße gleichzeitig verändert werden, multiplizieren sich die Faktoren. Beispiel: g = 4, h = 6 gibt A = 24; neu 12 · 3 = 36 = 1,5 · 24."
    }
@@ -1412,14 +1412,14 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "ein Parallelogramm mit der Grundseite 6 cm und der schrägen Nachbarseite 4 cm",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die schräge Seite als Höhe genommen; die Höhe ist kürzer als die schräge Seite"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "ein Dreieck mit der Grundseite 6 cm und der Höhe 4 cm",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1444,13 +1444,13 @@
      "text": "Ein Rechteck ist 6 cm lang und 4 cm breit. Welche der folgenden Figuren hat denselben Flächeninhalt wie das Rechteck?"
     },
     "a": [
+     "ein Trapez mit den parallelen Seiten 8 cm und 4 cm und dem Abstand 4 cm",
      "ein Parallelogramm mit der Grundseite 6 cm und der schrägen Nachbarseite 4 cm",
      "ein Dreieck mit der Grundseite 6 cm und der Höhe 4 cm",
-     "ein Trapez mit den parallelen Seiten 8 cm und 4 cm und dem Abstand 4 cm",
      "ein Dreieck mit der Grundseite 8 cm und der Höhe 4 cm"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "w": "Das Rechteck hat 6 · 4 = 24 cm². Das Trapez hat (8 + 4) · 4 : 2 = 24 cm². Das schräge Parallelogramm hat die Höhe unter 4 cm, also weniger als 24 cm². Die Dreiecke haben 6 · 4 : 2 = 12 cm² und 8 · 4 : 2 = 16 cm²."
    }

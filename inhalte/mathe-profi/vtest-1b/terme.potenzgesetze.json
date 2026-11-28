@@ -29,21 +29,21 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "2⁻¹ = −2 und 2⁻² = −4, denn ein negativer Exponent macht die Zahl negativ.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Minus im Exponenten auf den Wert übertragen; es führt nur im Muster weiter nach rechts, der Wert bleibt positiv"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "2⁻¹ = 0 und 2⁻² = −1, denn bei jedem Schritt wird 1 abgezogen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Muster mit Minus 1 statt durch 2 fortgesetzt: 1 − 1 = 0"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "2⁻¹ = 1/2 und 2⁻² = 1/3, denn die Nenner werden bei jedem Schritt um 1 größer.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -62,13 +62,13 @@
      "text": "Ein Kind setzt die Reihe 2³ = 8, 2² = 4, 2¹ = 2, 2⁰ = 1 nach rechts fort. Welche Aussage über die nächsten Werte 2⁻¹ und 2⁻² ist richtig?"
     },
     "a": [
+     "2⁻¹ = 1/2 und 2⁻² = 1/4, denn es wird jedes Mal halbiert.",
      "2⁻¹ = −2 und 2⁻² = −4, denn ein negativer Exponent macht die Zahl negativ.",
      "2⁻¹ = 0 und 2⁻² = −1, denn bei jedem Schritt wird 1 abgezogen.",
-     "2⁻¹ = 1/2 und 2⁻² = 1/3, denn die Nenner werden bei jedem Schritt um 1 größer.",
-     "2⁻¹ = 1/2 und 2⁻² = 1/4, denn es wird jedes Mal halbiert."
+     "2⁻¹ = 1/2 und 2⁻² = 1/3, denn die Nenner werden bei jedem Schritt um 1 größer."
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
     "w": "Von 2³ bis 2⁰ wird der Wert bei jedem Schritt nach rechts halbiert: 8, 4, 2, 1. Dieses Muster gilt weiter: 1 : 2 = 1/2 = 2⁻¹ und 1/2 : 2 = 1/4 = 2⁻². Das Minus im Exponenten macht die Zahl nicht negativ, sondern klein: 2⁻² = 1/2² = 1/4."
    }
@@ -328,14 +328,14 @@
      "beschreibung": "wie bei positiven Exponenten gedacht: größerer Betrag des Exponenten gibt größeren Wert"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "2⁰ < 2⁻³ < 2⁻² < 2⁻¹",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "2⁰ als 0 gelesen und deshalb als kleinsten Wert eingeordnet"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "2⁻¹ < 2⁻² < 2⁻³ < 2⁰",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -354,12 +354,12 @@
     },
     "a": [
      "2⁰ < 2⁻¹ < 2⁻² < 2⁻³",
-     "2⁻³ < 2⁻² < 2⁻¹ < 2⁰",
      "2⁰ < 2⁻³ < 2⁻² < 2⁻¹",
-     "2⁻¹ < 2⁻² < 2⁻³ < 2⁰"
+     "2⁻¹ < 2⁻² < 2⁻³ < 2⁰",
+     "2⁻³ < 2⁻² < 2⁻¹ < 2⁰"
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "w": "2⁻³ = 1/8, 2⁻² = 1/4, 2⁻¹ = 1/2 und 2⁰ = 1. Von klein nach groß: 1/8 < 1/4 < 1/2 < 1. Bei Nennern wächst der Bruch, wenn der Nenner kleiner wird."
    }
@@ -577,14 +577,14 @@
      "beschreibung": "ein Beispiel mit positivem Exponenten genommen; die Behauptung handelt nur von negativen Exponenten"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "(−2)⁻¹ = −1/2 ist negativ, obwohl der Exponent negativ ist.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "ein Beispiel genommen, das die Behauptung bestätigt, nicht widerlegt"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "2⁰ = 1 ist positiv, obwohl der Exponent nicht positiv ist.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -603,12 +603,12 @@
     },
     "a": [
      "2³ = 8 ist positiv, obwohl die Behauptung etwas anderes sagt.",
+     "2⁻¹ = 1/2 ist positiv, obwohl der Exponent −1 negativ ist.",
      "(−2)⁻¹ = −1/2 ist negativ, obwohl der Exponent negativ ist.",
-     "2⁰ = 1 ist positiv, obwohl der Exponent nicht positiv ist.",
-     "2⁻¹ = 1/2 ist positiv, obwohl der Exponent −1 negativ ist."
+     "2⁰ = 1 ist positiv, obwohl der Exponent nicht positiv ist."
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "w": "Ein Gegenbeispiel muss einen negativen Exponenten haben und trotzdem eine positive Potenz liefern. 2⁻¹ = 1/2 erfüllt das. Die negative Zahl (−2)⁻¹ = −1/2 bestätigt die Behauptung nur für eine negative Basis; 2³ und 2⁰ haben keinen negativen Exponenten."
    }
@@ -743,21 +743,21 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "5⁰ = 0, denn 0 mal die Basis 5 ist 0, es wird also nichts malgenommen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Exponenten 0 als Faktor gelesen: 0 · 5 = 0, obwohl der Exponent die Anzahl der Faktoren angibt"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "5⁰ = 5, denn mit dem Exponenten 0 bleibt die Basis unverändert stehen, ohne Faktor.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Exponent 0 als „nichts tun“ gelesen und die Basis 5 behalten"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "5⁰ = −1, denn der Exponent 0 dreht das Vorzeichen der Basis um, wie ein Minus.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -775,13 +775,13 @@
      "text": "Ein Kind soll begründen, warum 5⁰ = 1 gilt. Welche Begründung ist richtig?"
     },
     "a": [
-     "Im Muster 125, 25, 5 wird durch 5 geteilt; 5 : 5 = 1, also ist 5⁰ = 1.",
      "5⁰ = 0, denn 0 mal die Basis 5 ist 0, es wird also nichts malgenommen.",
      "5⁰ = 5, denn mit dem Exponenten 0 bleibt die Basis unverändert stehen, ohne Faktor.",
-     "5⁰ = −1, denn der Exponent 0 dreht das Vorzeichen der Basis um, wie ein Minus."
+     "5⁰ = −1, denn der Exponent 0 dreht das Vorzeichen der Basis um, wie ein Minus.",
+     "Im Muster 125, 25, 5 wird durch 5 geteilt; 5 : 5 = 1, also ist 5⁰ = 1."
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "w": "Das Muster 125, 25, 5 teilt bei jedem Schritt nach rechts durch 5. Der nächste Wert ist 5 : 5 = 1, und der Exponent ist dann 0. Das passt zur Regel, dass jede Basis ungleich 0 mit Exponent 0 den Wert 1 hat."
    }

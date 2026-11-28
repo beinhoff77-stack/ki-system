@@ -101,7 +101,9 @@ class PG:
         self.root = os.geteuid() == 0
         if self.root: shutil.chown(self.dir, 'nobody')
         self.port = '55433'
-        self.als(f'{bindir}/initdb -D {self.dir}/d -U postgres -E UTF8 --locale=C.UTF-8 -A trust > {self.dir}/init.log 2>&1')
+        icu = os.environ.get('RB_PG_ICU')      # z. B. RB_PG_ICU=de-DE: Datenbank mit ICU-Kollation (nicht C) -> Tests kollationsunabhängig prüfen
+        loc = f'--locale=C.UTF-8 --locale-provider=icu --icu-locale={icu}' if icu else '--locale=C.UTF-8'
+        self.als(f'{bindir}/initdb -D {self.dir}/d -U postgres -E UTF8 {loc} -A trust > {self.dir}/init.log 2>&1')
         self.als(f"{bindir}/pg_ctl -D {self.dir}/d -o '-k {self.dir} -p {self.port} -c listen_addresses=' -l {self.dir}/log -w start > /dev/null")
 
     def als(self, cmd):

@@ -194,7 +194,7 @@ begin
 {(',' + chr(10)).join(werte)}
   ) x(bb, k, e, pool, l, y, af, aa, ao, ar, nrow, nr, nf, na, regel, fb);
   -- 1. Erkennen und Zustand je Paar
-  for z in select * from bb1_p order by bb loop
+  for z in select * from bb1_p order by bb collate "C" loop
     select count(*), min(x.id) into n_alt, cnt from schule.aufgabe x
      where x.einheit_id = z.e and x.pool is not distinct from z.pool and x.variante_gruppe is not distinct from z.l and x.antworttyp is not distinct from z.y
        and x.frage is not distinct from z.af and x.antworten is not distinct from z.aa and x.loesung is not distinct from z.ao and (z.ar is null or x.reihenfolge is not distinct from z.ar);
@@ -236,7 +236,7 @@ begin
   -- 1b. Einheitszeilen der zu ändernden Paare sperren (FOR NO KEY UPDATE: Fremdschlüssel-Einfügungen der Kinder werden nicht blockiert); erst DANACH die Verweisprüfung
   perform 1 from schule.einheit where id in (select e from bb1_p where zustand = 'neu') order by id for no key update;
   -- 2. Verweisprüfung 1 -> Paar zurückstellen
-  for z in select * from bb1_p where zustand = 'neu' order by bb loop
+  for z in select * from bb1_p where zustand = 'neu' order by bb collate "C" loop
 {VERWEIS('z')}
     if array_length(gef, 1) > 0 then
       update bb1_p set zustand = 'zurueckgestellt', grund_zurueck = array_to_string(gef, ', ') where bb = z.bb;
@@ -266,9 +266,10 @@ begin
       fehler := fehler || format('Trigger %s.%s (Funktion %s) schreibt oder meldet vielleicht – von Hand prüfen (select prosrc from pg_proc where proname = ''%s'')', tr.relname, tr.tgname, tr.proname, tr.proname); end if;
   end loop;
   -- FESTE Soll-Liste der Schutz-Trigger (Tabelle:Name): genau diese fünf, keine weiteren, keine fehlenden
-  if (select array_agg(cl.relname || ':' || g.tgname order by cl.relname || ':' || g.tgname) from pg_trigger g join pg_class cl on cl.oid = g.tgrelid
-       where not g.tgisinternal and cl.relnamespace = 'schule'::regnamespace and cl.relname in ('einheit', 'aufgabe', 'aufgabe_regel', 'aufgabe_fehlbild'))
-     is distinct from (select array_agg(x order by x) from unnest(array['einheit:einheit_schutz', 'aufgabe:aufgabe_schutz', 'aufgabe:aufgabe_bedingung_schutz', 'aufgabe_regel:aufgabe_regel_schutz', 'aufgabe_fehlbild:aufgabe_fehlbild_schutz']) x) then
+  if exists (select 1 from (select cl.relname || ':' || g.tgname as n from pg_trigger g join pg_class cl on cl.oid = g.tgrelid
+                             where not g.tgisinternal and cl.relnamespace = 'schule'::regnamespace and cl.relname in ('einheit', 'aufgabe', 'aufgabe_regel', 'aufgabe_fehlbild')) ist
+              full join (select unnest(array['einheit:einheit_schutz', 'aufgabe:aufgabe_schutz', 'aufgabe:aufgabe_bedingung_schutz', 'aufgabe_regel:aufgabe_regel_schutz', 'aufgabe_fehlbild:aufgabe_fehlbild_schutz']) as n) soll
+                     on ist.n = soll.n where ist.n is null or soll.n is null) then   -- Mengenvergleich in beide Richtungen: unabhängig von der Kollation der Datenbank
     fehler := fehler || format('Trigger auf einheit/aufgabe/aufgabe_regel/aufgabe_fehlbild weichen von der festen Soll-Liste ab (erwartet einheit_schutz, aufgabe_schutz, aufgabe_bedingung_schutz, aufgabe_regel_schutz, aufgabe_fehlbild_schutz); gefunden: %s',
       coalesce((select string_agg(cl.relname || ':' || g.tgname, ', ' order by cl.relname, g.tgname) from pg_trigger g join pg_class cl on cl.oid = g.tgrelid
        where not g.tgisinternal and cl.relnamespace = 'schule'::regnamespace and cl.relname in ('einheit', 'aufgabe', 'aufgabe_regel', 'aufgabe_fehlbild')), '(keine)')); end if;
@@ -281,7 +282,7 @@ begin
                   (select md5(coalesce(string_agg(x::text, '|' order by x.aufgabe_id), '')) from schule.aufgabe_regel x),
                   (select md5(coalesce(string_agg(x::text, '|' order by x.aufgabe_id, x.nr), '')) from schule.aufgabe_fehlbild x)];
   -- 4. Neue Aufgaben einfügen, Regel und Fehlbilder schreiben
-  for z in select * from bb1_p where zustand = 'neu' order by bb loop
+  for z in select * from bb1_p where zustand = 'neu' order by bb collate "C" loop
     select * into alt from schule.aufgabe where id = z.alt_id;
     n_neu := schule.aufgaben_einfuegen(z.e, jsonb_build_array(z.nrow));
     if n_neu <> 1 then fehler := fehler || format('%s: %s statt 1 Aufgabe eingefügt', z.bb, n_neu); continue; end if;
@@ -308,7 +309,7 @@ begin
   end loop;
   if array_length(fehler, 1) > 0 then raise exception 'BB1 ABBRUCH, alles zurückgerollt (% Befunde): %', array_length(fehler, 1), array_to_string(fehler[1:40], ' | '); end if;
   -- 4b. Antwortprobe über die Bewertungsfunktion (neue UND schon vorhandene neue): Soll-Antwort richtig, jede Fehlantwort gültig und falsch und als genau dieses Fehlbild erkannt
-  for z in select * from bb1_p where zustand in ('neu', 'fertig') order by bb loop
+  for z in select * from bb1_p where zustand in ('neu', 'fertig') order by bb collate "C" loop
     select * into neu from schule.aufgabe where id = z.neu_id;
     v := case z.y when 'zahl' then jsonb_build_object('wert', replace(z.nrow->'o'->>'wert', '.', ',')) when 'luecken' then jsonb_build_object('werte', z.nrow->'o'->'werte')
                   when 'auswahl' then jsonb_build_object('index', z.nrow->'o'->'index') end;
@@ -331,7 +332,7 @@ begin
   -- 5. Alte Aufgaben sperren (je Einheit: Verweisprüfung 2, dann kurz 'geprueft', freigegeben = false, zurück 'freigegeben'; Einheitszeile danach unverändert)
   for tr in select id from bb1_e order by id loop
     perform 1 from schule.einheit where id = tr.id for no key update;
-    for z2 in select * from bb1_p where zustand = 'neu' and e = tr.id order by bb loop
+    for z2 in select * from bb1_p where zustand = 'neu' and e = tr.id order by bb collate "C" loop
 {VERWEIS('z2')}
       if array_length(gef, 1) > 0 then
         raise exception 'BB1 ABBRUCH, alles zurückgerollt: % hat nach der ersten Prüfung einen offenen Verweis bekommen (Aufgabe %: %) – Lernpause einhalten und nochmals ausführen', z2.bb, z2.alt_id, array_to_string(gef, ', ');

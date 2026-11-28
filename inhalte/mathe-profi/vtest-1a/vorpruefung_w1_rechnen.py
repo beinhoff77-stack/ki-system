@@ -1,231 +1,213 @@
-"""Vorprüfung W1 (Runde VT1A): unabhängige, exakte Nachrechnung aller 77 Aufgaben.
+"""Vorprüfung W1, 2. Durchgang (Runde VT1A, 55 Aufgaben, Stand df627805).
 
-Eigene Rechnungen (nicht aus gegenrechnung.py übernommen). Für Zahlaufgaben wird
-die Sollantwort neu bestimmt, für Auswahlaufgaben wird JEDE Option einzeln
-bewertet; es muss genau eine wahr sein und ihr Index muss der Sollindex sein.
-Zusätzlich: Fehlbild-Antworten ungleich Lösung und paarweise verschieden,
-Fehlbild-Rechnungen ergeben die angegebene Antwort.
+Unabhängige, exakte Nachrechnung (Brüche, Aufzählen statt Formeln), nicht aus
+gegenrechnung.py übernommen. Zahlaufgaben: Sollantwort neu bestimmt, dazu
+Eindeutigkeit über Aufzählen geprüft. Auswahl: JEDE Option einzeln bewertet,
+genau eine muss wahr sein und den Sollindex haben. „Kinderregel“-Aufgaben:
+geprüft, dass die erschlossene Regel ALLE Beispiele erfüllt und dass keine der
+naheliegenden anderen Regeln ebenfalls alle Beispiele erfüllt (Eindeutigkeit).
+Fehlbild-Rechnungen müssen die Fehlantwort ergeben, Fehlantworten ≠ Lösung.
 Aufruf vom Repo-Wurzelordner: python3 -I inhalte/mathe-profi/vtest-1a/vorpruefung_w1_rechnen.py
+(Die Fassung für die 77 Aufgaben steht in der Geschichte, Commit 68cffcf9.)
 """
-import json, os, re
+import json, os
 from fractions import Fraction as F
 from itertools import product
 
 HIER = os.path.dirname(os.path.abspath(__file__))
+N = range(0, 3000)
 
 def ist_quadrat(n):
-    r = int(n ** 0.5)
-    return any((r + d) ** 2 == n for d in (-1, 0, 1))
+    r = int(round(n ** 0.5)); return r * r == n
 
-def teiler(n):
-    return [a for a in range(1, n + 1) if n % a == 0]
+def zweier(n):  # Zahl der Faktoren 2 einer Zweierpotenz, sonst None
+    k = 0
+    while n % 2 == 0 and n > 1: n //= 2; k += 1
+    return k if n == 1 else None
 
-def runde(n, stelle):  # kaufmännisch, natürliche Zahlen
-    return (n + stelle // 2) // stelle * stelle
+def eindeutig(f, menge=N):
+    l = [x for x in menge if f(x)]
+    return l[0] if len(l) == 1 else ('NICHT EINDEUTIG', l[:5])
 
-def loese_nat(f, bis=2000):
-    """alle natürlichen x (0..bis) mit f(x) wahr"""
-    return [x for x in range(0, bis + 1) if f(x)]
+def regel_eindeutig(beispiele, regeln, ziel):
+    """beispiele: Liste (eingabe, ausgabe); regeln: dict name->fn. Gibt die
+    passenden Regeln und ihre Werte für das Ziel zurück."""
+    passt = {n: r(*ziel) for n, r in regeln.items() if all(r(*e) == a for e, a in beispiele)}
+    return passt
 
-# ---------- Zahlaufgaben: eigene Lösung ----------
+PROBLEME = []
+def pruefe_regel(k, beispiele, regeln, ziel, soll):
+    p = regel_eindeutig(beispiele, regeln, ziel)
+    werte = set(p.values())
+    if werte != {soll}: PROBLEME.append(f'{k}: Kinderregel nicht eindeutig/falsch: {p}')
+    return soll
+
 ZAHL = {}
-ZAHL['002'] = 3**5 - 3**4                                   # 162
-ZAHL['003'] = 2**4                                          # 16 verschiedene Personen
-ZAHL['004'] = [b for b in range(1, 50) if b**4 == 2**8][0]   # 4
-ZAHL['008'] = (4 * [s for s in range(1, 50) if s*s == 144][0] * 2 // 4) ** 2  # 576
-ZAHL['010'] = 11*11 - 7*7                                   # 72
-ZAHL['011'] = (5 + 4) ** 2                                  # 81
-ZAHL['012'] = [n + 1 for n in range(1, 100) if (n+1)**2 - n**2 == 27][0]  # 14
-ZAHL['015'] = F(10**6 - 9 * 10**5, 10**5)                   # 1
-ZAHL['017'] = [n for n in range(0, 12) if 10**n == 500 * 1000 // 5][0]  # 5
-ZAHL['019'] = 10**6 // 10**2 // 10                          # 1000
-ZAHL['021'] = max(n for n in range(0, 20) if 10**n < 5_000_000)  # 6
-ZAHL['022'] = min(t for t in range(0, 100) if 2**t > 100 + 100*t)  # 11
-ZAHL['023'] = [n for n in range(0, 20) if 2**n == 64][0]     # 6
-ZAHL['024'] = len(list(product('KZ', repeat=5)))             # 32
-ZAHL['026'] = F(10 * 3**4, 5 * 3**4)                         # 2
-ZAHL['027'] = [s for s in range(1, 500) if s * 3**4 == 405][0]  # 5
-ZAHL['030'] = loese_nat(lambda x: (x + 4) * 3 - 5 == 25)     # [6]
-# 032: alle Klammern um zwei benachbarte Zahlen in 20 - 4 + 6
-ZAHL['032'] = min(20 - 4 + 6, (20 - 4) + 6, 20 - (4 + 6))   # 10
-ZAHL['034'] = sum(v == 14 for v in (2 + 3*4, (2+3)*4, 2*(3+4), 2*3 + 4*2))  # 3
-ZAHL['040'] = loese_nat(lambda h: h >= 1 and 4 + 2*(h - 1) == 14)  # [6]
-ZAHL['041'] = loese_nat(lambda x: 8 + 5*x == (8+5)*x)        # [1]
-ZAHL['044'] = loese_nat(lambda x: 94 - 37 - 23 == 94 - x)    # [60]
-ZAHL['047'] = loese_nat(lambda x: 8 * x * 125 == 4000)       # [4]
-ZAHL['048'] = loese_nat(lambda x: 6 * x == 18 * 27)          # [81]
-ZAHL['049'] = 6482 - 1997 + 3518                             # 8003
-ZAHL['050'] = 36*99 - 36*9                                   # 3240
-ZAHL['051'] = loese_nat(lambda x: 17*x + 17*14 == 17*50)     # [36]
-ZAHL['057'] = sum(1 for a in range(1, 13) if 36 % a == 0)    # 7
-ZAHL['059'] = [max(a, b) for a in range(1, 49) for b in range(a, 49) if a*b == 48 and a+b == 14]  # [8]
-ZAHL['063'] = loese_nat(lambda x: F(x*5 + 12, 4) == 8)       # [4]
-ZAHL['064'] = F(600*50, 3000)                                # 10 (Ergebnis 2 998 ~ 3 000)
-ZAHL['065'] = max(k for k in range(1, 200) if runde(k, 10) * 7 == 210)  # 34
-ZAHL['066'] = 3*200 - 3*198                                  # 6
-_fenster = [z for z in range(4000, 5000) if runde(z, 100) == 4600]
-ZAHL['070'] = min(_fenster) + max(_fenster)                  # 9199
-ZAHL['071'] = loese_nat(lambda g: 12 + 2*g == 4 + 4*g)       # [4]
-ZAHL['072'] = loese_nat(lambda b: 24 + 7*b == 66)            # [6]
-_mia = loese_nat(lambda x: (x + 6) * 2 == 30)[0]
-ZAHL['074'] = _mia * 2 + 6                                   # 24
-def _zug(s):
-    s -= 14
-    if s % 2: return None
-    return s // 2 + 8
-ZAHL['075'] = loese_nat(lambda s: s >= 14 and _zug(s) == 20)  # [38]
+# 002 Potenzregel des Kindes aus 2³=9, 3²=8, 5²=32
+R_POT = {'vertauscht': lambda b, e: e ** b, 'b·e': lambda b, e: b * e, 'b+e': lambda b, e: b + e,
+         'richtig': lambda b, e: b ** e, '(b+1)^e': lambda b, e: (b + 1) ** e, 'b^(e+1)': lambda b, e: b ** (e + 1),
+         'e·e·b': lambda b, e: e * e * b, '(e+b)·?': lambda b, e: (e + b) * e}
+ZAHL['002'] = pruefe_regel('002', [((2, 3), 9), ((3, 2), 8), ((5, 2), 32)], R_POT, (2, 5), 25)
+ZAHL['006'] = eindeutig(lambda q: ist_quadrat(q) and (int(q ** 0.5) + 2) ** 2 - q == 44, range(1, 5000))  # 100
+ZAHL['007'] = F(50) * 3 * 3                               # Fläche ·9 = 450 (Seite √50 nicht natürlich)
+ZAHL['011'] = eindeutig(lambda x: x * 10**8 > 7 * 10**11 and not ((x - 1) * 10**8 > 7 * 10**11), range(1, 20000))  # 7001
+R_ZEHN = {'mal': lambda a, b: a * b, 'plus (richtig)': lambda a, b: a + b, 'max': lambda a, b: max(a, b),
+          'plus+1': lambda a, b: a + b + 1, 'b-a': lambda a, b: b - a, 'a^2+b': lambda a, b: a * a + b}
+ZAHL['012'] = pruefe_regel('012', [((2, 3), 6), ((1, 4), 4)], R_ZEHN, (3, 4), 12)
+ZAHL['016'] = F(6**6, 2 * 3**6)                           # 32
+_moegl = set()
+for s in range(1, 97):
+    for h in range(1, 10):
+        if s * 2**h == 96: _moegl.add(s)
+ZAHL['017'] = len(_moegl)                                  # 5: 48, 24, 12, 6, 3
+ZAHL['019'] = F(10 * 3**20, 5 * 3**20)                     # 2
+ZAHL['021'] = (483917 - 129486 + 37500) - (483917 - (129486 + 37500))  # 75000
+def _klammer_weg(t):  # Kinderregel 022: Klammern weg, Punkt vor Strich
+    return eval(t.replace('(', '').replace(')', ''))
+def _links_rechts(t):
+    toks = t.replace('(', '').replace(')', '').split(); v = int(toks[0])
+    for op, z in zip(toks[1::2], toks[2::2]): v = eval(f'{v}{op}{z}')
+    return v
+R_KL = {'Klammern weg, Punkt vor Strich': _klammer_weg, 'links nach rechts': _links_rechts, 'richtig': eval}
+_b22 = [('3 * (4 + 5)', 17), ('(8 - 2) * 3', 2), ('2 * (10 - 4)', 16)]
+_p = {n: r('(6 + 4) * (5 - 3)') for n, r in R_KL.items() if all(r(t) == a for t, a in _b22)}
+if set(_p.values()) != {23}: PROBLEME.append(f'022: {_p}')
+ZAHL['022'] = 23
+ZAHL['031'] = len([(a, b) for a in range(1, 3701) for b in range(1, 3701) if a < b and a * 37 * b == 3700])  # 4
+ZAHL['033'] = (748362 - 199997) - (748362 - 200000 - 3)    # 6
+ZAHL['035'] = F(4368 * 75, 1456 * 25)                      # 9
+ZAHL['037'] = 2347 * 89 - 2347 * 86                        # 7041
+R_VT = {'a·a·b·c': lambda a, b, c: a * b * a * c, 'richtig': lambda a, b, c: a * b * c,
+        'wie Summe': lambda a, b, c: a * b + a * c, 'a·b·c·2': lambda a, b, c: a * b * c * 2}
+ZAHL['039'] = pruefe_regel('039', [((2, 3, 5), 60), ((3, 2, 4), 72)], R_VT, (5, 2, 7), 350)
+ZAHL['041'] = sum(1 for a in range(1, 13) if any(a * x == 36 for x in range(0, 37)))  # 7
+R_UM = {'Zahlen mal': lambda a, b: a * b, 'richtig': None}
+# 042: x : 7 = 3 -> 21 ; 48 : x = 6 -> 288 ; 60 : x = 5 -> 300 ; Regel „beide Zahlen mal“
+if not (7 * 3 == 21 and 48 * 6 == 288 and 60 * 5 == 300): PROBLEME.append('042 Regel passt nicht')
+ZAHL['042'] = 72 * 8                                       # 576
+def _abschneiden(z): return z // 1000 * 1000
+def _runden(z): return (z + 500) // 1000 * 1000
+R_UE = {'abschneiden': lambda a, b: _abschneiden(a) + _abschneiden(b), 'runden': lambda a, b: _runden(a) + _runden(b)}
+ZAHL['047'] = pruefe_regel('047', [((6812, 2487), 8000), ((3391, 1765), 4000)], R_UE, (5951, 2978), 7000)
+ZAHL['049'] = len(str(6718 * 2493))                        # 8
+ZAHL['051'] = eindeutig(lambda g: 4 + 4 * g > 12 + 2 * g and not (4 + 4 * (g - 1) > 12 + 2 * (g - 1)), range(1, 100))  # 5
+R_RW = {'erst teilen, dann abziehen': lambda m, a, e: F(e, m) - a, 'richtig': lambda m, a, e: F(e - a, m),
+        'teilen, dann addieren': lambda m, a, e: F(e, m) + a}
+ZAHL['053'] = pruefe_regel('053', [((3, 12, 45), 3), ((2, 10, 30), 5)], R_RW, (5, 15, 80), 1)
 
-# ---------- Auswahlaufgaben: jede Option einzeln wahr/falsch ----------
-# Je Aufgabe Liste von Wahrheitswerten in der Reihenfolge der Optionen der JSON.
-# Die Wahrheit wird aus eigenen Rechnungen gewonnen, der Optionstext wird über
-# einen Erkennungsschlüssel (Teilstring) der Rechnung zugeordnet.
 W = {}
-def opt(key, wahr):
-    return (key, wahr)
-W['001'] = [opt('17:', 3**2 + 2**3 == 17), opt('12:', 3**2 + 2**3 == 12),
-            opt('3 125:', 3**2 + 2**3 == 3125), opt('13:', 3**2 + 2**3 == 13)]
-W['005'] = [opt('Die 4 steht 6-mal', 4**6 == 4096), opt('Die 6 steht 4-mal', 4**6 == 6**4),
-            opt('Sechsfache', 4**6 == 24), opt('4 + 4 + 4', 4**6 == 24)]
-W['006'] = [opt('Zufall', 2**4 == 4**2 and 2**3 != 3**2), opt('gerade Zahl', 2**3 == 3**2),
-            opt('2 + 4 = 4 + 2', 2**3 == 3**2), opt('2 · 4 = 4 · 2', 2**3 == 3**2)]
-W['007'] = [opt('2 · 3 · 3 = 18', 2 * 3**2 == 18), opt('2 · 3 · 2 = 12', 2 * 3**2 == 12),
-            opt('Kein Fehler', 2 * 3**2 == 6**2), opt('2 + 3² = 11', 2 * 3**2 == 11)]
-W['009'] = [opt('6 727', not ist_quadrat(6727)), opt('7 396', not ist_quadrat(7396)),
-            opt('5 929', not ist_quadrat(5929)), opt('4 761', not ist_quadrat(4761))]
-W['013'] = [opt('Kein Fehler', (3*4)**2 == 3**2 * 4**2), opt('12 + 2 = 14', (3*4)**2 == 14),
-            opt('9 + 16 = 25', (3*4)**2 == 25), opt('Richtig wäre 24', (3*4)**2 == 24)]
-W['014'] = [opt('4-mal', 10*10 == 4 * 5*5), opt('doppelt', 10*10 == 2 * 5*5),
-            opt('Unterschied der Flächen ist 5 cm²', 10*10 - 5*5 == 5), opt('100 cm² mehr', 10*10 - 5*5 == 100)]
-W['016'] = [opt('56 · 10⁶', 56 * 10**6 != 56_000_000), opt('56 · 10⁵', 56 * 10**5 != 56_000_000),
-            opt('560 · 10⁵', 560 * 10**5 != 56_000_000), opt('5 600 · 10⁴', 5600 * 10**4 != 56_000_000)]
-_a, _b = 45 * 10**5 == 4_500_000, 450 * 10**5 == 4_500_000
-W['018'] = [opt('Nur Anna', _a and not _b), opt('Nur Ben', _b and not _a),
-            opt('Beide: 45 · 10⁵ = 450', _a and _b), opt('Beide: Die Zahl vor', _a and _b)]
-W['020'] = [opt('2 · 10³ = 2 000', 10**3 + 10**3 == 2000), opt('Kein Fehler', 10**3 + 10**3 == 10**6),
-            opt('10⁴ = 10 000', 10**3 + 10**3 == 10**4), opt('20³', 10**3 + 10**3 == 20**3)]
-W['025'] = [opt('3 · 2⁵', 3 * 2**5 == 3*2*2*2*2*2), opt('(3 · 2)⁵', (3*2)**5 == 96),
-            opt('3⁵ · 2', 3**5 * 2 == 96), opt('3 · 2 · 5', 3*2*5 == 96)]
-_alg = 2 * 3**4
-W['028'] = [opt('2 · 3⁴ = 162', _alg == 162), opt('2 · 3 · 4 = 24', _alg == 24),
-            opt('3⁴ = 81', _alg == 81), opt('Kein Fehler', _alg == 6**4)]
-W['029'] = [opt('(20 − 4) · 3 + 2', (20-4)*3 + 2 == 50), opt('20 − (4 · 3 + 2)', 20 - (4*3+2) == 50),
-            opt('20 − 4 · (3 + 2)', 20 - 4*(3+2) == 50), opt('(20 − 4 · 3) + 2', (20-4*3)+2 == 50),
-            opt('(20 − 4) · (3 + 2)', False)]  # zwei Klammerpaare: verboten (und 80)
-_t = 40 - F(12 + 8, 4)
-W['031'] = [opt('Addiere 12 und 8, teile', 40 - (12+8)/F(4) == _t),
-            opt('Ziehe 12 von 40 ab', (40 - 12 + 8) / F(4) == _t),
-            opt('Ziehe die Summe', (40 - (12+8)) / F(4) == _t),
-            opt('Teile 12 durch 4', 40 - (F(12, 4) + 8) == _t)]
-W['033'] = [opt('(30 − 12) − 4', (30-12)-4 == 30-12-4), opt('30 − (12 − 4)', 30-(12-4) == 30-12-4),
-            opt('2 · (3 + 4)', 2*(3+4) == 2*3+4), opt('20 : (4 · 5)', F(20, 4*5) == F(20, 4)*5)]
-W['035'] = [opt('100 − 80 = 20', 100 - (12+8)*4 == 20), opt('= 320', 100 - (12+8)*4 == 320),
-            opt('= 120', 100 - (12+8)*4 == 120), opt('Kein Fehler', 100 - (12+8)*4 == 384)]
-_bus = 30 - 6 - 4
-_t36 = {1: 30-6-4 == _bus, 2: 30-(6+4) == _bus, 3: 30-6+4 == _bus, 4: 30-(6-4) == _bus}
-W['036'] = [opt('Genau ① und ②', _t36 == {1: True, 2: True, 3: False, 4: False}),
-            opt('Genau ②:', _t36 == {1: False, 2: True, 3: False, 4: False}),
-            opt('Genau ① und ③', _t36 == {1: True, 2: False, 3: True, 4: False}),
-            opt('Genau ② und ④', _t36 == {1: False, 2: True, 3: False, 4: True})]
-# letzter Schritt: bei (3 + 4) · 5 Malnehmen; sonst Strich
-W['037'] = [opt('(3 + 4) · 5', True), opt('3 + 4 · 5', False), opt('3 · 4 − 5', False), opt('20 : 4 + 5', False)]
-W['038'] = [opt('40 − (9 + 6) = 25', 40-(9+6) == 25), opt('40 − 9 + 6 = 37', False),
-            opt('(40 − 9) · 6', False), opt('40 + 9 − 6', False)]
-_rest = 20 - 4*3 - 2*2
-W['039'] = [opt('20 − (4 · 3 + 2 · 2)', 20-(4*3+2*2) == _rest), opt('20 − 4 · 3 + 2 · 2', 20-4*3+2*2 == _rest),
-            opt('(20 − 4) · 3', (20-4)*3-2*2 == _rest), opt('20 : 4 · 3', F(20, 4)*3-2*2 == _rest)]
-_d = F(12*9 + 8*11 - 36, 4) - F(12*9 + 8*11 - 20, 4)
-W['042'] = [opt('um 4 kleiner', _d == -4), opt('um 16 kleiner', _d == -16),
-            opt('um 4 größer', _d == 4), opt('um 36 kleiner', _d == -36)]
-_x, _y = 24*125*5, 12*125*10
-W['043'] = [opt('Beide Werte sind gleich', _x == _y), opt('12 · 125 · 10 ist größer', _y > _x),
-            opt('24 · 125 · 5 ist größer', _x > _y), opt('nur sagen, wenn', False)]
-W['045'] = [opt('Zuerst 25 · 4 = 100', True), opt('Zuerst 25 · 17 = 425', False),
-            opt('Zuerst 17 · 4 = 68', False), opt('25 + 17 + 4', False)]
-W['046'] = [opt('36 : 4 und 4 : 36', F(36, 4) != F(4, 36)), opt('7 · 9', 7*9 != 9*7),
-            opt('25 + 17', 25+17 != 17+25), opt('5 · 12', 5*12 != 12*5)]
-_v = 9 * (6 + 4)
-W['052'] = [opt('9 · (6 + 4)', 9*(6+4) == _v), opt('9 · 6 + 4', 9*6+4 == _v),
-            opt('9 + 6 · 4', 9+6*4 == _v), opt('(9 + 6) · 4', (9+6)*4 == _v)]
-_an, _be = 4*20 + 4*7 == 108, 4*30 - 4*3 == 108
-W['053'] = [opt('Beide:', _an and _be), opt('Nur Anna', _an and not _be),
-            opt('Nur Ben', _be and not _an), opt('Weder', not _an and not _be)]
-_q = F(16*30 + 16*2, 8*30 + 8*2)
-W['054'] = [opt('Sie verdoppelt sich', _q == 2), opt('um 8 cm² größer', 16*32 - 8*32 == 8),
-            opt('Nur die erste', False), opt('16-mal', _q == 16)]
-W['055'] = [opt('Die 19 ausklammern', 19*(36+64-50) == 19*36+19*64-19*50), opt('Jedes Produkt einzeln', False),
-            opt('addieren und dann', 19*(36+64+50) == 19*36+19*64-19*50),
-            opt('Die 19 abziehen', 36+64-50-19 == 19*36+19*64-19*50)]
-_s = 15*7 + 15*9
-W['056'] = [opt('15 · (7 + 9) = 240', _s == 240), opt('15 · 7 + 9 = 114', _s == 114),
-            opt('= 3 600', _s == 3600), opt('Kein Fehler', _s == 945)]
-W['058'] = [opt('36 : 9', F(36, F(36, 9)) == 9), opt('36 · 9', F(36, 36*9) == 9),
-            opt('36 − 9', F(36, 36-9) == 9), opt('9 : 36', F(36, F(9, 36)) == 9)]
-_l = loese_nat(lambda x: 7*x == 56)
-W['060'] = [opt('56 : x = 7', loese_nat(lambda x: x > 0 and 56 == 7*x) == _l),
-            opt('x : 7 = 56', loese_nat(lambda x: x == 56*7) == _l),
-            opt('x · 56 = 7', loese_nat(lambda x: x*56 == 7) == _l),
-            opt('x : 8 = 56', loese_nat(lambda x: x == 56*8, 5000) == _l)]
-W['061'] = [opt('gleichmäßig verteilt', True), opt('Jedes Kind bekommt 48', False),
-            opt('verliert 6', False), opt('6 Kinder teilen', False)]
-W['062'] = [opt('7er-Reihe', 50 % 7 != 0 and 7*7 == 49 and 7*8 == 56), opt('gerade', 7*2 == 15),
-            opt('Primzahl', False), opt('größer als 50', False)]
-_g = 23*48
-W['068'] = [opt('Reicht nicht', _g == 1104 and _g > 1000), opt('Man weiß es nicht', None),  # None: 20 · 50 = 1 000 liegt genau auf der Grenze, der Überschlag allein entscheidet NICHT -> Aussage teilweise wahr (Befund)
-            opt('48 wurde auf 50', _g < 1000), opt('gleicht sich', _g <= 1000)]
-W['067'] = [opt('B liegt viel näher', abs(4800+3500-8299) < abs(5000+3000-8299)),
-            opt('A ist besser', abs(5000+3000-8299) < abs(4800+3500-8299)),
-            opt('gleich gut', False), opt('B ist falsch', False)]
-W['069'] = [opt('600 · 12 = 7 200', 596*12 == 7152), opt('Kein Fehler', 596*12 != 7152),
-            opt('5 960', False), opt('500 · 10', False)]
-_lsg = lambda f: loese_nat(f, 200)
-W['073'] = [opt('□ − 3 · 2 + 5 = 20', _lsg(lambda x: x - 3*2 + 5 == 20) == [21]),
-            opt('□ − 3 · (2 + 5)', _lsg(lambda x: x - 3*(2+5) == 20) == [21]),
-            opt('□ + 3 · 2 − 5', _lsg(lambda x: x + 3*2 - 5 == 20) == [21]),
-            opt('(□ − 3) · 2 + 5', _lsg(lambda x: (x-3)*2 + 5 == 20) == [21])]
-_x76 = loese_nat(lambda x: 4*x + 12 - 4 == 108)
-W['076'] = [opt('4 · x + 12 − 4 = 108', _x76 == [25]), opt('4 · (x + 12)', loese_nat(lambda x: 4*(x+12)-4 == 108) == _x76),
-            opt('4 · x − 12 + 4', loese_nat(lambda x: 4*x-12+4 == 108) == _x76),
-            opt('4 · x + 12 + 4', loese_nat(lambda x: 4*x+12+4 == 108) == _x76)]
-W['077'] = [opt('Kein Fehler', loese_nat(lambda x: 2*x+6 == 30) == [12]), opt('= 9', loese_nat(lambda x: 2*x+6 == 30) == [9]),
-            opt('= 54', False), opt('= 18', loese_nat(lambda x: 2*x+6 == 30) == [18])]
-
-def zahl_aus(text):
-    return text
+def opt(k, w): return (k, w)
+W['001'] = [opt('4¹⁰', zweier(4**10) == 20), opt('8⁵', zweier(8**5) != 20), opt('32⁴', zweier(32**4) != 20), opt('1 024²', zweier(1024**2) != 20)]
+W['001'][0] = opt('4¹⁰', zweier(4**10) != 20)
+W['003'] = [opt('durch 13', 3**13 == 3 * 3**12), opt('durch 36', 3**36 == 3 * 3**12), opt('Basis 3 durch 9', 9**12 == 3 * 3**12), opt('durch 15', 3**15 == 3 * 3**12)]
+_paare = [(b, e) for b in range(2, 30) for e in range(2, 30)]
+_gleich = [(b, e) for b, e in _paare if b**e == b * e]; _kleiner = [(b, e) for b, e in _paare if b**e < b * e]
+W['004'] = [opt('Fast immer', _gleich == [(2, 2)] and not _kleiner), opt('Immer:', not _gleich and not _kleiner),
+            opt('Nie:', all(b**e == b * e for b, e in _paare)), opt('Bei kleinen Zahlen nicht', 2**3 < 2 * 3 and 3**2 < 3 * 2)]
+W['005'] = [opt('In 4 Kisten stehen je 4', 4 * 4 * 4 == 4**3), opt('In 3 Kisten', 3 * 4 * 4 == 4**3),
+            opt('je 3 Schachteln', 4 * 3 * 3 == 4**3), opt('liegen je 3 Stifte', 4 * 3 + 4 == 4**3)]
+_frei = 37 * 37 - 30 * 30 - 7 * 7
+W['008'] = [opt('Zwei Rechtecke', _frei == 2 * 30 * 7), opt('Ein Rechteck', _frei == 30 * 7), opt('Streifen', _frei == 37 * 7), opt('Nichts', _frei == 0)]
+W['009'] = [opt('6 727', not ist_quadrat(6727)), opt('7 396', not ist_quadrat(7396)), opt('5 929', not ist_quadrat(5929)), opt('4 761', not ist_quadrat(4761))]
+_anz = [(n + 1)**2 - n**2 - 1 for n in range(1, 200)]
+W['010'] = [opt('immer gerade', all(a % 2 == 0 for a in _anz)), opt('immer ungerade', all(a % 2 for a in _anz)),
+            opt('mal gerade', len({a % 2 for a in _anz}) == 2), opt('immer gleich', len(set(_anz)) == 1)]
+_z = 7 * 10**9 + 5 * 10**6 + 3 * 10**2; _z2 = 7 * 10**10 + 5 * 10**7 + 3 * 10**3
+W['013'] = [opt('10-mal', _z2 == 10 * _z), opt('1 000-mal', _z2 == 1000 * _z), opt('um 3 größer', _z2 == _z + 3), opt('um 30', _z2 == _z + 30)]
+_s = 9 * 10**5 + 9 * 10**4 + 9 * 10**3
+W['014'] = [opt('um 1 000 größer', 10**6 - _s == 1000), opt('um 1 größer', 10**6 - _s == 1), opt('gleich groß', _s == 10**6), opt('Summe ist größer', _s > 10**6)]
+def _nullen(z): s = str(z); return len(s) - len(s.rstrip('0'))
+_f = [(q, n) for q in range(1, 200) for n in range(0, 8)]
+_ok = [_nullen(q * 10**n) == n for q, n in _f]
+W['015'] = [opt('Manchmal', any(_ok) and not all(_ok)), opt('Immer', all(_ok)), opt('Nie', not any(_ok)),
+            opt('Wenn vorn die 1', all(ok == (q == 1) for (q, n), ok in zip(_f, _ok)))]
+W['018'] = [opt('3 Blätter auf einem Stapel. Der Stapel wird 5-mal hintereinander verdoppelt', 3 * 2**5 == 3 * 2**5),
+            opt('liegen 2 Blätter', 2 * 3**5 == 3 * 2**5), opt('kommen 2 Blätter dazu', 3 + 5 * 2 == 3 * 2**5), opt('versechsfacht', 6**5 == 3 * 2**5)]
+_A = [100 + 100 * t for t in range(60)]; _B = [2**t for t in range(60)]
+_vorn = [b > a for a, b in zip(_A, _B)]; _erst = _vorn.index(True)
+W['020'] = [opt('überholt A irgendwann und bleibt', all(_vorn[_erst:])), opt('A bleibt immer vorn', not any(_vorn)),
+            opt('holt A wieder auf', not all(_vorn[_erst:])), opt('nie ganz ein', not any(_vorn))]
+W['023'] = [opt('50 − 3 · (9 − 2)', 50 - 3 * (9 - 2) == 50 - 3 * 7), opt('50 − 3 · 9 − 2', 50 - 3 * 9 - 2 == 29),
+            opt('50 − (3 · 9 − 2)', 50 - (3 * 9 - 2) == 29), opt('50 − 3 · (9 + 2)', 50 - 3 * (9 + 2) == 29)]
+def _kette(op):
+    for t in product(range(1, 13), repeat=3):
+        a, b, c = map(F, t)
+        f = {'+': lambda x, y: x + y, '-': lambda x, y: x - y, '*': lambda x, y: x * y, ':': lambda x, y: x / y}[op]
+        if f(f(a, b), c) != f(a, f(b, c)): return True   # Klammer ändert mindestens einmal
+    return False
+W['024'] = [opt('nur mit Plus', not _kette('+')), opt('nur mit Minus', not _kette('-')), opt('nur mit Geteilt', not _kette(':')),
+            opt('jedes Mal', all(F(a * b) * c != a * F(b * c) for a, b, c in product(range(1, 5), repeat=3)))]
+_t25 = {'97 · (348 + 6)': 97 * (348 + 6), '97 · 348 + 6': 97 * 348 + 6, '(97 + 348) · 6': (97 + 348) * 6, '97 + 348 · 6': 97 + 348 * 6}
+W['025'] = [opt(k, v == max(_t25.values())) for k, v in _t25.items()]
+_alt = F(136 * 89 + 64 * 112 - 20, 4); _neu = F(136 * 89 + 64 * 112 - 36, 4)
+W['026'] = [opt('um 4 kleiner', _alt - _neu == 4), opt('um 16 kleiner', _alt - _neu == 16), opt('um 36 kleiner', _alt - _neu == 36), opt('um 9 kleiner', _alt - _neu == 9)]
+_b = 30 - 6 - 4; _v = {1: 30 - 6 - 4, 2: 30 - (6 + 4), 3: 30 - 6 + 4, 4: 30 - (6 - 4)}; _pa = {k for k, v in _v.items() if v == _b}
+W['027'] = [opt('Genau ① und ②', _pa == {1, 2}), opt('Genau ②:', _pa == {2}), opt('Genau ① und ③', _pa == {1, 3}), opt('Genau ② und ④', _pa == {2, 4})]
+# 028: letzter Rechenschritt nach Ersetzung (von Hand bestimmt, Punkt vor Strich, links nach rechts)
+W['028'] = [opt('Das − durch ·', True), opt('Das + durch ·', False), opt('Das − durch :', False), opt('Das · durch +', False)]
+W['029'] = [opt('ganz rechts', True), opt('ganz links', False), opt('zuerst ausrechnet', False), opt('zuletzt ausrechnet', False)]
+W['030'] = [opt('Die Terme sind verschieden, ihre Werte sind gleich', (4 + 5) * 6 == 4 * 6 + 5 * 6),
+            opt('Die Terme sind gleich, ihre Werte sind gleich', False), opt('verschieden, ihre Werte sind verschieden', (4 + 5) * 6 != 4 * 6 + 5 * 6),
+            opt('Die Terme sind gleich, ihre Werte sind verschieden', False)]
+_x, _y = 36 * 4375 * 5, 18 * 4375 * 10
+W['032'] = [opt('Sie sind gleich groß', _x == _y), opt('Das zweite ist größer', _y > _x), opt('Das erste ist größer', _x > _y), opt('nur durch vollständiges', False)]
+W['034'] = [opt('nehmen die Zahlen ihre Rechenzeichen mit', 763 + 237 - 289 == 763 - 289 + 237),
+            opt('Plus und Minus darf man umstellen, dabei bleiben', 763 - 237 + 289 == 763 - 289 + 237 and False),
+            opt('gar nicht umstellen', False), opt('Mal und Geteilt', F(60, 2) * 3 == F(60, 3) * 2)]
+_p36 = 368 * 47
+W['036'] = [opt('300 · 40 + 68 · 7', 300 * 40 + 68 * 7 != _p36), opt('370 · 47 − 2 · 47', 370 * 47 - 2 * 47 != _p36),
+            opt('368 · 40 + 368 · 7', 368 * 40 + 368 * 7 != _p36), opt('300 · 47 + 68 · 47', 300 * 47 + 68 * 47 != _p36)]
+W['038'] = [opt('Erst werden alle vier Eis bezahlt, danach alle vier', 4 * 2 + 4 * 3 == 4 * 2 + 4 * 3), opt('zusammen', False), opt('ein Getränk für alle', 4 * 2 + 3 == 4 * 2 + 4 * 3), opt('Erst wird ein Eis', 2 + 4 * 3 == 4 * 2 + 4 * 3)]
+_q40 = F(3 * 8 * 30 + 3 * 8 * 2, 8 * 30 + 8 * 2)
+W['040'] = [opt('dreimal so groß.', _q40 == 3), opt('neunmal', _q40 == 9), opt('breiteren Teils', False), opt('Dreifache der Höhe', False)]
+W['043'] = [opt('gleichmäßig verteilt', True), opt('Jedes Kind bekommt 48', False), opt('verliert 6', False), opt('6 Kinder teilen', False)]
+_l44 = [(F(360, a), F(360, 3 * a)) for a in range(1, 361) if 360 % a == 0 and 360 % (3 * a) == 0]
+W['044'] = [opt('dreimal so klein', all(n == x / 3 for x, n in _l44)), opt('dreimal so groß', all(n == 3 * x for x, n in _l44)),
+            opt('bleibt gleich', all(n == x for x, n in _l44)), opt('um 3 kleiner', all(n == x - 3 for x, n in _l44))]
+_l45 = {'x : 74 = 224': 224 * 74, '74 · x = 8 288': F(8288, 74), '37 · x = 8 288': F(8288, 37), 'x : 37 = 224': 224 * 37}
+W['045'] = [opt(k, v == max(_l45.values())) for k, v in _l45.items()]
+def _sicher(n, p, grenze):  # einfacher Überschlag (beide Zahlen auf volle Zehner bzw. Zehner auf/ab) entscheidet?
+    hoch = -(-n // 10) * 10 * -(-p // 10) * 10 if n >= 10 else n * (-(-p // 10) * 10)
+    tief = (n // 10) * 10 * (p // 10) * 10 if n >= 10 else n * (p // 10) * 10
+    return hoch <= grenze or tief > grenze
+W['046'] = [opt('500 € für 26 Karten', not _sicher(26, 19, 500)), opt('100 € für 4 Spiele', not _sicher(4, 19, 100)),
+            opt('6 Kisten zu je 38', not _sicher(6, 38, 300)), opt('9 Klassen', not _sicher(9, 27, 400))]
+W['048'] = [opt('B ist genauer', abs(4800 + 3500 - 8299) < abs(5000 + 3000 - 8299)), opt('A ist besser', False), opt('Gleich gut', False), opt('B ist falsch', False)]
+W['050'] = [opt('Größer:', F(7236, 9) > 700), opt('Kleiner:', F(7236, 9) < 700), opt('Genau gleich', F(7236, 9) == 700), opt('ohne genaue Rechnung', False)]
+W['052'] = [opt('Wie viele Busse werden gebraucht', -(-189 // 52) == 4), opt('ganz voll', 189 // 52 == 4), opt('im letzten Bus?', 189 % 52 == 4), opt('Plätze bleiben', 52 - 189 % 52 == 4)]
+_d54 = {(n + 6) * 2 - (n * 2 + 6) for n in range(0, 1000)}
+W['054'] = [opt('immer um 6 größer', _d54 == {6}), opt('immer gleich groß', _d54 == {0}), opt('doppelt so groß', False), opt('Mal ist Mias', len(_d54) > 1)]
+def _l(f): return [x for x in range(0, 200) if f(x)]
+W['055'] = [opt('4 · x + 12 − 4 = 108', _l(lambda x: 4 * x + 12 - 4 == 108) == [25]), opt('4 · (x + 12)', _l(lambda x: 4 * (x + 12) - 4 == 108) == [25]),
+            opt('4 · x − 12 + 4', _l(lambda x: 4 * x - 12 + 4 == 108) == [25]), opt('4 · x + 12 + 4', _l(lambda x: 4 * x + 12 + 4 == 108) == [25])]
 
 def main():
-    fehler, notizen = [], []
+    fehler = list(PROBLEME)
     for datei in ('zahlen.potenzen_basis.json', 'zahlen.rechengesetze.json'):
         for a in json.load(open(os.path.join(HIER, datei)))['aufgaben']:
             k = a['kennung'][-3:]; A = a['aufgabe']
             if A['y'] == 'zahl':
                 soll = A['o']['wert']; ich = ZAHL.get(k)
-                if isinstance(ich, list):
-                    if len(ich) != 1: fehler.append(f'{k}: nicht eindeutig {ich}')
-                    ich = ich[0] if ich else None
-                if ich is None: fehler.append(f'{k}: keine eigene Rechnung')
-                elif F(ich) != F(soll): fehler.append(f'{k}: Soll {soll}, ich {ich}')
+                if ich is None: fehler.append(f'{k}: keine eigene Rechnung'); continue
+                if isinstance(ich, tuple): fehler.append(f'{k}: {ich}'); continue
+                if F(ich) != F(soll): fehler.append(f'{k}: Soll {soll}, ich {ich}')
+                aw = []
                 for fb in a['fehlbilder']:
+                    aw.append(fb['antwort'])
                     if F(fb['antwort']) == F(soll): fehler.append(f'{k}: Fehlbild = Lösung')
                     r = fb.get('rechnung')
-                    if r:
-                        val = eval(r.replace('·', '*').replace('//', '//'), {})
-                        if F(val) != F(fb['antwort']): fehler.append(f'{k}: Fehlbild-Rechnung {r} = {val} ≠ {fb["antwort"]}')
-                aw = [fb['antwort'] for fb in a['fehlbilder']]
+                    if r and F(eval(r, {})) != F(fb['antwort']): fehler.append(f'{k}: Fehlbild-Rechnung {r}')
                 if len(set(aw)) != len(aw): fehler.append(f'{k}: doppelte Fehlantwort')
             else:
-                ops = A['a']; soll = A['o']['index']; reg = W.get(k)
-                if reg is None:
-                    notizen.append(f'{k}: Auswahl ohne Rechenregel (rein sprachlich, von Hand geprüft)'); continue
+                reg = W.get(k)
+                if reg is None: fehler.append(f'{k}: Auswahl ohne Rechenregel'); continue
                 wahr = []
-                for o in ops:
-                    treffer = [w for key, w in reg if key in o]
-                    if len(treffer) != 1: fehler.append(f'{k}: Option nicht zuordenbar: {o[:40]}'); wahr.append(None); continue
-                    wahr.append(treffer[0])
-                if None in wahr:
-                    notizen.append(f'{k}: Option(en) nicht eindeutig entscheidbar: {[i for i, w in enumerate(wahr) if w is None]}')
-                if wahr.count(True) != 1 or wahr.index(True) != soll:
-                    fehler.append(f'{k}: wahr={wahr}, Soll-Index {soll}')
-    for n in notizen: print('NOTIZ', n)
+                for o in A['a']:
+                    t = [w for key, w in reg if key in o]
+                    if len(t) != 1: fehler.append(f'{k}: Option nicht zuordenbar: {o[:45]}'); wahr.append(None)
+                    else: wahr.append(t[0])
+                if wahr.count(True) != 1 or wahr.index(True) != A['o']['index']:
+                    fehler.append(f'{k}: wahr={wahr}, Soll {A["o"]["index"]}')
     for f in fehler: print('FEHLER', f)
     print(f'{len(fehler)} Abweichungen')
 

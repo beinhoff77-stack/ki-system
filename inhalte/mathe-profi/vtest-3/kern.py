@@ -29,6 +29,9 @@ TYPNAME = {
 }
 
 
+_ZAEHL = 0
+
+
 class Bau:
     """Sammelt die Aufgaben einer Einheit."""
 
@@ -95,6 +98,17 @@ class Bau:
     def auswahl(self, lz, pool, stufe, typ, form, text, opts, idx, fb, w, abgr=None):
         """fb: {index: Beschreibung} oder {index: (Beschreibung, Rechnung)} für alle falschen Möglichkeiten."""
         e = self._basis(lz, pool, stufe, typ, form, "auswahl", text, w, abgr)
+        # Platz der richtigen Option gleichmäßig verteilen (die App mischt nach Stand der Vorprüfung nicht):
+        # fortlaufender Zähler über alle Auswahl-Aufgaben, Platz = (3 · Zähler + 1) mod 4; aufeinanderfolgende Aufgaben haben nie denselben Platz
+        global _ZAEHL
+        ziel = (3 * _ZAEHL + 1) % 4
+        _ZAEHL += 1
+        rest = [i for i in range(len(opts)) if i != idx]
+        reihe = rest[:ziel] + [idx] + rest[ziel:]
+        neu = {alt: pos for pos, alt in enumerate(reihe)}
+        opts = [opts[i] for i in reihe]
+        fb = {neu[i]: v for i, v in fb.items()}
+        idx = ziel
         e["aufgabe"]["a"] = list(opts)
         e["aufgabe"]["o"] = {"index": idx}
         e["fehlbilder"] = []

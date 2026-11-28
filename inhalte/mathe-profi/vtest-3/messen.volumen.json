@@ -84,52 +84,52 @@
     },
     "w": "Jede der drei Kanten wird mit ½ multipliziert: ½ · ½ · ½ = ⅛. Das Volumen ist ein Achtel.",
     "a": [
-     "Das Volumen wird halb so groß, denn die Kanten sind halb so lang.",
-     "Das Volumen wird ein Viertel so groß, denn zwei Kanten bestimmen die Grundfläche und ½ · ½ = ¼.",
-     "Das Volumen wird ein Achtel so groß, denn jede der drei Kanten wird halbiert und ½ · ½ · ½ = ⅛.",
-     "Das Volumen wird ein Sechstel so groß, denn drei Kanten werden durch 2 geteilt und 2 · 3 = 6."
+     "Das Volumen wird halb so groß, denn alle Kanten sind nur halb so lang.",
+     "Das Volumen wird ein Achtel so groß, denn jede der drei Kanten wird halbiert: ½ · ½ · ½ = ⅛.",
+     "Das Volumen wird ein Viertel so groß, denn ½ · ½ = ¼ und zwei Kanten bilden die Grundfläche.",
+     "Das Volumen wird ein Sechstel so groß, denn alle Kanten werden durch 2 geteilt und 2 · 3 = 6."
     ],
     "o": {
-     "index": 2
+     "index": 1
     }
    },
    "regel": "id.flaeche_raum.aus_dem_quader",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Das Volumen wird halb so groß, denn die Kanten sind halb so lang.",
+     "antwort": "Das Volumen wird halb so groß, denn alle Kanten sind nur halb so lang.",
      "beschreibung": "den Faktor der Kante auf das Volumen übertragen (nur eine Kante gezählt)",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
-     "antwort": "Das Volumen wird ein Viertel so groß, denn zwei Kanten bestimmen die Grundfläche und ½ · ½ = ¼.",
+     "index": 2,
+     "antwort": "Das Volumen wird ein Viertel so groß, denn ½ · ½ = ¼ und zwei Kanten bilden die Grundfläche.",
      "beschreibung": "nur zwei Kanten berücksichtigt (Fläche statt Volumen)",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 3,
-     "antwort": "Das Volumen wird ein Sechstel so groß, denn drei Kanten werden durch 2 geteilt und 2 · 3 = 6.",
+     "antwort": "Das Volumen wird ein Sechstel so groß, denn alle Kanten werden durch 2 geteilt und 2 · 3 = 6.",
      "beschreibung": "den Teiler 2 mit der Zahl der Kanten 3 malgenommen statt dreimal mit ½",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "immer_nie|Würfel, alle Kanten halbiert"
+   "idee": "immer_nie|alle Kanten eines Würfels geändert, Aussage über das Volumen"
   },
   {
    "kennung": "VT3-003",
    "thema": "messen.volumen",
    "lernkarte": "quader",
    "pool": "korrektur",
-   "typ": "umkehr",
-   "form": "umkehren",
+   "typ": "transfer",
+   "form": "anwenden",
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 2",
-   "abgrenzung": "Die Übungen berechnen das Volumen aus gegebenen Kanten. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "abgrenzung": "Die Übungen berechnen das Volumen aus gegebenen Kanten. Diese Aufgabe: Transfer auf eine neue Situation.",
    "aufgabe": {
     "l": "quader",
     "t": "quader",
@@ -137,40 +137,39 @@
     "s": 2,
     "y": "zahl",
     "f": {
-     "text": "Ein Quader mit quadratischer Grundfläche wird verändert: Die Grundkante wird verdoppelt, die Höhe wird halbiert. Der neue Quader hat das Volumen 360 cm³. Welches Volumen hatte der ursprüngliche Quader?"
+     "text": "Ein Würfel mit 6 cm Kantenlänge wird vollständig in kleine Würfel mit 2 cm Kantenlänge zerlegt. Wie viele kleine Würfel entstehen?"
     },
-    "w": "Die Grundfläche (Kante · Kante) wird 2 · 2 = 4-fach, die Höhe wird halbiert. Das Volumen wird also 4 · ½ = 2-fach. Das ursprüngliche Volumen ist 360 : 2 = 180 cm³.",
+    "w": "Entlang jeder Kante passen 6 : 2 = 3 kleine Würfel. Es sind 3 · 3 · 3 = 27 kleine Würfel. Kontrolle über die Volumen: 216 cm³ : 8 cm³ = 27.",
     "o": {
-     "wert": 180,
-     "einheit": "cm³"
+     "wert": 27
     }
    },
    "regel": "id.flaeche_raum.aus_dem_quader",
-   "loesung_rechnung": "360 : 2",
+   "loesung_rechnung": "6 · 6 · 6 : (2 · 2 · 2)",
    "fehlbilder": [
     {
-     "antwort": 720,
-     "rechnung": "360 · 2",
-     "beschreibung": "den Faktor in die falsche Richtung angewendet: 360 · 2 = 720",
+     "antwort": 3,
+     "rechnung": "6 : 2",
+     "beschreibung": "nur gezählt, wie oft 2 cm in 6 cm passt: eine Reihe",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 90,
-     "rechnung": "360 : 4",
-     "beschreibung": "nur die Grundkante bedacht: Die Grundfläche wird vierfach, also 360 : 4 = 90",
+     "antwort": 9,
+     "rechnung": "6 : 2 · 3",
+     "beschreibung": "eine Schicht gezählt: 3 · 3 würde 9 geben, die dritte Richtung fehlt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 360,
-     "rechnung": "360",
-     "beschreibung": "angenommen, das Volumen bleibt gleich",
+     "antwort": 108,
+     "rechnung": "6 · 6 · 6 : 2",
+     "beschreibung": "das große Volumen 216 cm³ nur durch 2 geteilt statt durch das Volumen 8 cm³ eines kleinen Würfels",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "umkehr|Volumen nach Veränderung zurückrechnen"
+   "idee": "transfer|Würfel in kleine Würfel zerlegen, Anzahl über Volumen"
   },
   {
    "kennung": "VT3-004",
@@ -190,37 +189,37 @@
     "s": 2,
     "y": "luecken",
     "f": {
-     "text": "Tom berechnet das Volumen eines Quaders, der 5 cm lang, 3 cm breit und 4 cm hoch ist. Zeile 1: Die Grundfläche ist 5 · 3 = 15 cm². Zeile 2: Die Höhe ist 4 cm. Zeile 3: Das Volumen ist 15 + 4 = 19 cm³. Zeile 4: Es passen also 19 Würfel mit 1 cm Kante hinein. In welcher Zeile steckt der erste Fehler, und wie groß ist das Volumen richtig?",
+     "text": "Tom berechnet das Volumen eines Quaders, der 6 cm lang, 4 cm breit und 3 cm hoch ist. Zeile 1: Die Grundfläche ist 6 · 4 = 24 cm². Zeile 2: Die Höhe ist 3 cm. Zeile 3: Das Volumen ist 24 + 3 = 27 cm³. Zeile 4: Es passen also 27 Würfel mit 1 cm Kante hinein. In welcher Zeile steckt der erste Fehler, und wie groß ist das Volumen richtig?",
      "schablone": "Fehler in Zeile □, Volumen richtig: □ cm³",
      "hinweis": "Je Feld eine ganze Zahl."
     },
-    "w": "Zeile 3 ist falsch: Grundfläche und Höhe werden multipliziert, nicht addiert. V = 15 · 4 = 60 cm³.",
+    "w": "Zeile 3 ist falsch: Grundfläche und Höhe werden multipliziert, nicht addiert. V = 24 · 3 = 72 cm³.",
     "o": {
      "werte": [
       3,
-      60
+      72
      ]
     }
    },
    "regel": "id.flaeche_raum.aus_dem_quader",
    "loesung_rechnung": [
     "3",
-    "5 · 3 · 4"
+    "6 · 4 · 3"
    ],
    "fehlbilder": [
     {
      "luecke": 2,
-     "antwort": 19,
-     "rechnung": "15 + 4",
-     "beschreibung": "Grundfläche und Höhe addiert: 15 + 4 = 19",
+     "antwort": 27,
+     "rechnung": "24 + 3",
+     "beschreibung": "Grundfläche und Höhe addiert: 24 + 3 = 27",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 2,
-     "antwort": 12,
-     "rechnung": "5 + 3 + 4",
-     "beschreibung": "alle drei Kanten addiert: 5 + 3 + 4 = 12",
+     "antwort": 13,
+     "rechnung": "6 + 4 + 3",
+     "beschreibung": "alle drei Kanten addiert: 6 + 4 + 3 = 13",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -232,57 +231,57 @@
    "thema": "messen.volumen",
    "lernkarte": "quader",
    "pool": "sicherung",
-   "typ": "parameter",
+   "typ": "darstellung",
    "form": null,
-   "stufe": 3,
+   "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 2",
-   "abgrenzung": "Die Übungen berechnen das Volumen aus gegebenen Kanten. Diese Aufgabe: Was-wäre-wenn.",
+   "abgrenzung": "Die Übungen berechnen das Volumen aus gegebenen Kanten. Diese Aufgabe: Darstellung wechseln.",
    "aufgabe": {
     "l": "quader",
     "t": "quader",
     "p": "sicherung",
-    "s": 3,
+    "s": 2,
     "y": "auswahl",
     "f": {
-     "text": "Das Volumen eines Quaders soll genau verdoppelt werden. Welche Änderung der Kanten leistet das?"
+     "text": "Ein Quader ist 2 m lang, 30 cm breit und 5 dm hoch. Welche Rechnung liefert sein Volumen in dm³?"
     },
-    "w": "Die Faktoren der Kanten werden multipliziert. 4 · ½ · 1 = 2. Bei den anderen Möglichkeiten ergibt sich 4, 1,5 und etwa 1,95.",
+    "w": "Alle Kanten müssen in derselben Einheit stehen: 2 m = 20 dm, 30 cm = 3 dm, 5 dm. Das Volumen ist 20 · 3 · 5 = 300 dm³.",
     "a": [
-     "Länge und Breite werden verdoppelt, die Höhe bleibt gleich.",
-     "Die Länge wird verdreifacht, die Breite halbiert, die Höhe bleibt gleich.",
-     "Jede der drei Kanten wird um 25 % länger.",
-     "Die Länge wird vervierfacht, die Breite halbiert, die Höhe bleibt gleich."
+     "20 · 3 · 5 mit allen drei Kanten in dm, denn dann ist das Ergebnis in dm³",
+     "2 · 30 · 5 und das Ergebnis als dm³ lesen, denn alle Kanten sind Zahlen",
+     "200 · 30 · 5 mit Meter in cm umgerechnet, das Ergebnis dann als dm³ gelesen",
+     "2 · 3 · 5 mit allen drei Kanten als Zahlen in m, das Ergebnis als dm³ gelesen"
     ],
     "o": {
-     "index": 3
+     "index": 0
     }
    },
    "regel": "id.flaeche_raum.aus_dem_quader",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "Länge und Breite werden verdoppelt, die Höhe bleibt gleich.",
-     "beschreibung": "nur an zwei Kanten gedacht: 2 · 2 = 4, das Volumen wird vervierfacht",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
      "index": 1,
-     "antwort": "Die Länge wird verdreifacht, die Breite halbiert, die Höhe bleibt gleich.",
-     "beschreibung": "3 · ½ = 1,5 statt 2",
+     "antwort": "2 · 30 · 5 und das Ergebnis als dm³ lesen, denn alle Kanten sind Zahlen",
+     "beschreibung": "die Einheiten nicht angeglichen: m, cm und dm in einer Rechnung gemischt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 2,
-     "antwort": "Jede der drei Kanten wird um 25 % länger.",
-     "beschreibung": "25 % mehr je Kante als Verdopplung gedeutet: 1,25 · 1,25 · 1,25 ≈ 1,95",
+     "antwort": "200 · 30 · 5 mit Meter in cm umgerechnet, das Ergebnis dann als dm³ gelesen",
+     "beschreibung": "nur die Länge umgerechnet und in cm statt in dm gerechnet; das Ergebnis wäre in cm³",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "2 · 3 · 5 mit allen drei Kanten als Zahlen in m, das Ergebnis als dm³ gelesen",
+     "beschreibung": "mit Meter gerechnet, das Ergebnis wäre dann in m³ und nicht in dm³",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "was_waere_wenn|welche Kantenänderung verdoppelt das Volumen"
+   "idee": "rechnung_waehlen|gemischte Einheiten, Rechnung in dm³ auswählen"
   },
   {
    "kennung": "VT3-006",
@@ -345,7 +344,7 @@
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "umkehr|Kantenverhältnisse und Volumen, Breite und Höhe gesucht"
+   "idee": "umkehr|Kantenverhältnisse und Volumen, Kanten gesucht"
   },
   {
    "kennung": "VT3-007",
@@ -369,40 +368,40 @@
     },
     "w": "Man rechnet beide Volumen aus: Würfel 4 · 4 · 4 = 64 cm³, Quader 3 · 4 · 5 = 60 cm³. Gleiche Kantensumme heißt nicht gleiches Volumen.",
     "a": [
-     "Beide haben dasselbe Volumen, denn die Kantensumme ist gleich.",
-     "Der Quader hat das größere Volumen, denn seine längste Kante (5 cm) ist länger als die Würfelkante.",
-     "Der Würfel hat das größere Volumen: 4 · 4 · 4 = 64 cm³ und 3 · 4 · 5 = 60 cm³.",
-     "Das lässt sich nicht sagen, weil die Körper verschiedene Formen haben."
+     "Beide Körper haben dasselbe Volumen, denn die Summe aller Kantenlängen ist bei beiden 48 cm.",
+     "Der Quader hat das größere Volumen, denn seine längste Kante mit 5 cm ist länger als die des Würfels.",
+     "Das lässt sich nicht entscheiden, denn ein Würfel und ein Quader haben verschiedene Formen.",
+     "Der Würfel hat das größere Volumen, denn 4 · 4 · 4 = 64 cm³ ist mehr als 3 · 4 · 5 = 60 cm³."
     ],
     "o": {
-     "index": 2
+     "index": 3
     }
    },
    "regel": "id.flaeche_raum.aus_dem_quader",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Beide haben dasselbe Volumen, denn die Kantensumme ist gleich.",
+     "antwort": "Beide Körper haben dasselbe Volumen, denn die Summe aller Kantenlängen ist bei beiden 48 cm.",
      "beschreibung": "gleiche Kantensumme mit gleichem Volumen verwechselt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 1,
-     "antwort": "Der Quader hat das größere Volumen, denn seine längste Kante (5 cm) ist länger als die Würfelkante.",
+     "antwort": "Der Quader hat das größere Volumen, denn seine längste Kante mit 5 cm ist länger als die des Würfels.",
      "beschreibung": "nur auf die längste Kante geschaut",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
-     "antwort": "Das lässt sich nicht sagen, weil die Körper verschiedene Formen haben.",
+     "index": 2,
+     "antwort": "Das lässt sich nicht entscheiden, denn ein Würfel und ein Quader haben verschiedene Formen.",
      "beschreibung": "nicht gerechnet, weil die Formen verschieden sind",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "groessenvergleich|Würfel gegen Quader bei gleicher Kantensumme"
+   "idee": "groessenvergleich|Würfel und Quader, gleiche Kantensumme oder Volumen"
   },
   {
    "kennung": "VT3-008",
@@ -422,40 +421,40 @@
     "s": 3,
     "y": "zahl",
     "f": {
-     "text": "Ein quaderförmiges Gefäß ist 25 cm lang, 20 cm breit und 16 cm hoch und randvoll mit Wasser. Wie viele Gläser mit je 200 ml lassen sich daraus vollständig füllen?"
+     "text": "Ein würfelförmiger Behälter fasst genau einen Liter und ist 10 cm hoch. Wie viele solche Behälter braucht man, um einen würfelförmigen Behälter mit 1,5 m Kantenlänge vollständig zu füllen?"
     },
-    "w": "V = 25 · 20 · 16 = 8 000 cm³. Wegen 1 cm³ = 1 ml sind das 8 000 ml. 8 000 : 200 = 40 Gläser.",
+    "w": "Der Behälter mit 1,5 m = 150 cm Kante ist 150 : 10 = 15-mal so lang wie ein Ein-Liter-Würfel. In jeder der drei Richtungen passen 15, insgesamt 15 · 15 · 15 = 3 375 Würfel. Kontrolle: 1,5 · 1,5 · 1,5 = 3,375 m³ = 3 375 Liter.",
     "o": {
-     "wert": 40
+     "wert": 3375
     }
    },
    "ersetzt_test": true,
    "regel": "id.verhaeltnisse.groesse",
-   "loesung_rechnung": "25 · 20 · 16 : 200",
+   "loesung_rechnung": "(150 : 10) · (150 : 10) · (150 : 10)",
    "fehlbilder": [
     {
-     "antwort": 8000,
-     "rechnung": "25 · 20 · 16",
-     "beschreibung": "das Volumen 8 000 cm³ nicht durch 200 geteilt",
+     "antwort": 15,
+     "rechnung": "150 : 10",
+     "beschreibung": "nur eine Kante verglichen: 15 Behälter in einer Reihe",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 8,
-     "rechnung": "25 · 20 · 16 : 1000",
-     "beschreibung": "nur in Liter umgerechnet (8 l), nicht in Gläser",
+     "antwort": 225,
+     "rechnung": "(150 : 10) · (150 : 10)",
+     "beschreibung": "nur eine Schicht gezählt, die Höhe vergessen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 4,
-     "rechnung": "25 · 20 · 16 : 1000 : 2",
-     "beschreibung": "8 l durch 2 geteilt, als wären die Gläser 2 l groß",
+     "antwort": 1500,
+     "rechnung": "1,5 · 1000",
+     "beschreibung": "1 m³ als 1 000 Liter gerechnet und mit der Kante 1,5 malgenommen statt mit 1,5³",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "bruecke|Volumen in cm³ in Liter und Zeit verbinden"
+   "idee": "bruecke|Würfelbehälter, Liter und Anzahl über Kantenverhältnis"
   },
   {
    "kennung": "VT3-009",
@@ -479,40 +478,40 @@
     },
     "w": "1 m = 10 dm. Das Volumen ist 10 dm · 10 dm · 10 dm = 1 000 dm³ = 1 000 l. Die Umrechnung der Länge (mal 100) gilt für das Volumen nicht.",
     "a": [
-     "Es sind 100 cm · 100 cm = 10 000 cm², das sind 10 000 Liter.",
-     "Es sind 100 cm · 100 cm · 100 cm = 1 000 000 cm³, das sind 1 000 Liter; Mia hat die Kante umgerechnet, aber nicht das Volumen.",
-     "Mia hat recht, denn 1 m = 100 cm und 1 l = 100 cm³.",
-     "Es gilt 1 · 1 · 1 = 1, also ist 1 m³ genau 1 Liter."
+     "Es sind 100 cm · 100 cm = 10 000 cm², das sind 10 000 Liter, also viel mehr als Mia sagt.",
+     "Mia hat recht, denn 1 m ist 100 cm und 1 Liter sind 100 cm³, also passen 100 Liter hinein.",
+     "Mia hat die Kante umgerechnet, aber nicht das Volumen: 100 · 100 · 100 = 1 000 000 cm³ = 1 000 Liter.",
+     "Es gilt 1 · 1 · 1 = 1, also ist 1 m³ genau 1 Liter, und Mia hat sich um den Faktor 100 geirrt."
     ],
     "o": {
-     "index": 1
+     "index": 2
     }
    },
    "regel": "id.verhaeltnisse.groesse",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Es sind 100 cm · 100 cm = 10 000 cm², das sind 10 000 Liter.",
+     "antwort": "Es sind 100 cm · 100 cm = 10 000 cm², das sind 10 000 Liter, also viel mehr als Mia sagt.",
      "beschreibung": "eine Fläche (cm²) mit einem Volumen verwechselt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
-     "antwort": "Mia hat recht, denn 1 m = 100 cm und 1 l = 100 cm³.",
+     "index": 1,
+     "antwort": "Mia hat recht, denn 1 m ist 100 cm und 1 Liter sind 100 cm³, also passen 100 Liter hinein.",
      "beschreibung": "glaubt, 1 l seien 100 cm³ (richtig sind 1 000 cm³)",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 3,
-     "antwort": "Es gilt 1 · 1 · 1 = 1, also ist 1 m³ genau 1 Liter.",
+     "antwort": "Es gilt 1 · 1 · 1 = 1, also ist 1 m³ genau 1 Liter, und Mia hat sich um den Faktor 100 geirrt.",
      "beschreibung": "die Zahl 1 mit der Einheit verwechselt: 1 m³ ist nicht 1 l",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "begruenden|Würfel mit 1 m Kante fasst 100 l?"
+   "idee": "begruenden|Würfel mit 1 m Kante, Liter"
   },
   {
    "kennung": "VT3-010",
@@ -631,62 +630,46 @@
     "t": "liter",
     "p": "sicherung",
     "s": 3,
-    "y": "luecken",
+    "y": "auswahl",
     "f": {
-     "text": "Ein Quader ist 40 cm lang, 25 cm breit und 30 cm hoch. Mia rechnet in Zentimetern, Jonas in Dezimetern (4 · 2,5 · 3). Beide wollen den Inhalt in Litern angeben.",
-     "schablone": "Mia: □ cm³, Jonas: □ dm³, Inhalt: □ l",
-     "hinweis": "Je Feld eine ganze Zahl."
+     "text": "Behälter A ist quaderförmig (40 cm lang, 20 cm breit, 10 cm hoch), Behälter B ist ein Würfel mit 20 cm Kantenlänge. Welche Aussage über ihr Fassungsvermögen stimmt?"
     },
-    "w": "Mia: 40 · 25 · 30 = 30 000 cm³. Jonas: 4 · 2,5 · 3 = 30 dm³. Weil 1 dm³ = 1 l = 1 000 cm³ gilt, kommen beide auf 30 l.",
+    "w": "A: 40 · 20 · 10 = 8 000 cm³. B: 20 · 20 · 20 = 8 000 cm³. Beide fassen 8 000 cm³ = 8 Liter, obwohl die Formen verschieden sind.",
+    "a": [
+     "A fasst mehr, denn A hat mit 40 cm die längste Kante und ist deshalb der größere Behälter.",
+     "Beide fassen gleich viel: 40 · 20 · 10 = 8 000 cm³ und 20 · 20 · 20 = 8 000 cm³, das sind 8 Liter.",
+     "B fasst mehr, denn bei B sind alle drei Kanten mit 20 cm gleich lang und der Körper ist regelmäßig.",
+     "Das lässt sich nicht entscheiden, denn der Quader und der Würfel haben nicht dieselbe Form."
+    ],
     "o": {
-     "werte": [
-      30000,
-      30,
-      30
-     ]
+     "index": 1
     }
    },
    "regel": "id.verhaeltnisse.groesse",
-   "loesung_rechnung": [
-    "40 · 25 · 30",
-    "4 · 2,5 · 3",
-    "40 · 25 · 30 : 1000"
-   ],
    "fehlbilder": [
     {
-     "luecke": 1,
-     "antwort": 3000,
-     "rechnung": "40 · 25 · 3",
-     "beschreibung": "die Höhe als 3 statt 30 genommen",
+     "index": 0,
+     "antwort": "A fasst mehr, denn A hat mit 40 cm die längste Kante und ist deshalb der größere Behälter.",
+     "beschreibung": "nur auf die längste Kante geschaut",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 2,
-     "antwort": 300,
-     "rechnung": "4 · 25 · 3",
-     "beschreibung": "2,5 dm als 25 dm gelesen",
+     "index": 2,
+     "antwort": "B fasst mehr, denn bei B sind alle drei Kanten mit 20 cm gleich lang und der Körper ist regelmäßig.",
+     "beschreibung": "gleich lange Kanten mit größerem Volumen verwechselt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 2,
-     "antwort": 12,
-     "rechnung": "4 · 3",
-     "beschreibung": "die Breite vergessen",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 3,
-     "antwort": 3,
-     "rechnung": "30 : 10",
-     "beschreibung": "30 durch 10 geteilt",
+     "index": 3,
+     "antwort": "Das lässt sich nicht entscheiden, denn der Quader und der Würfel haben nicht dieselbe Form.",
+     "beschreibung": "nicht gerechnet, weil die Formen verschieden sind",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "zwei_wege|Umrechnung vor oder nach dem Multiplizieren"
+   "idee": "groessenvergleich|zwei Behälter, Fassungsvermögen vergleichen"
   },
   {
    "kennung": "VT3-013",
@@ -710,26 +693,26 @@
     },
     "w": "1 l = 1 dm³ = 1 000 cm³ = 1 000 ml. Deshalb sind 2,5 l = 2,5 dm³ = 2 500 cm³ = 2 500 ml. 0,25 m³ = 250 dm³ = 250 l ist etwas anderes.",
     "a": [
+     "0,25 m³",
      "2 500 cm³",
      "2,5 dm³",
-     "0,25 m³",
      "2 500 ml"
     ],
     "o": {
-     "index": 2
+     "index": 0
     }
    },
    "regel": "id.verhaeltnisse.groesse",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "2 500 cm³",
      "beschreibung": "hält die richtige Umrechnung 1 l = 1 000 cm³ für falsch",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "2,5 dm³",
      "beschreibung": "hält 1 l = 1 dm³ für falsch",
      "fehlbild": null,
@@ -796,7 +779,7 @@
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "transfer|Dusche, Wanne, Zeit"
+   "idee": "transfer|Wanne, Zufluss und Zeit"
   },
   {
    "kennung": "VT3-015",
@@ -843,7 +826,7 @@
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "umkehr|Breite aus Volumen und Verhältnis von Höhe zu Breite"
+   "idee": "umkehr|Höhe aus Volumen und Verhältnis zur Länge"
   },
   {
    "kennung": "VT3-016",
@@ -923,12 +906,12 @@
     "w": "V = Länge · Breite · Höhe, also Höhe = V : (Länge · Breite) = 1 200 : 100 = 12 cm. Die Klammer ist nötig.",
     "a": [
      "1 200 : 20 · 5",
-     "1 200 : (20 · 5)",
      "1 200 − 20 · 5",
-     "1 200 : (20 + 5)"
+     "1 200 : (20 + 5)",
+     "1 200 : (20 · 5)"
     ],
     "o": {
-     "index": 1
+     "index": 3
     }
    },
    "regel": "id.flaeche_raum.aus_dem_quader",
@@ -941,14 +924,14 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "1 200 − 20 · 5",
      "beschreibung": "die Grundfläche vom Volumen abgezogen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "1 200 : (20 + 5)",
      "beschreibung": "Länge und Breite addiert statt multipliziert",
      "fehlbild": null,
@@ -979,10 +962,10 @@
     },
     "w": "Höhe = Volumen : Grundfläche. A: 120 : 24 = 5 cm, B: 120 : 40 = 3 cm. A ist höher.",
     "a": [
-     "Quader B ist höher, denn seine Grundfläche ist größer.",
-     "Beide sind gleich hoch, denn sie haben dasselbe Volumen.",
-     "Quader A ist höher: 120 : 24 = 5 cm gegenüber 120 : 40 = 3 cm bei Quader B.",
-     "Das lässt sich nicht sagen, weil Länge und Breite nicht bekannt sind."
+     "Quader B ist höher als Quader A, denn seine Grundfläche ist größer.",
+     "Beide Quader sind gleich hoch, denn sie haben dasselbe Volumen von 120 cm³.",
+     "Quader A ist höher als B, denn 120 : 24 = 5 cm ist mehr als 120 : 40 = 3 cm.",
+     "Das lässt sich nicht sagen, solange Länge und Breite der Quader nicht bekannt sind."
     ],
     "o": {
      "index": 2
@@ -992,21 +975,21 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Quader B ist höher, denn seine Grundfläche ist größer.",
+     "antwort": "Quader B ist höher als Quader A, denn seine Grundfläche ist größer.",
      "beschreibung": "größere Grundfläche mit größerer Höhe verwechselt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 1,
-     "antwort": "Beide sind gleich hoch, denn sie haben dasselbe Volumen.",
+     "antwort": "Beide Quader sind gleich hoch, denn sie haben dasselbe Volumen von 120 cm³.",
      "beschreibung": "gleiches Volumen mit gleicher Höhe verwechselt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 3,
-     "antwort": "Das lässt sich nicht sagen, weil Länge und Breite nicht bekannt sind.",
+     "antwort": "Das lässt sich nicht sagen, solange Länge und Breite der Quader nicht bekannt sind.",
      "beschreibung": "übersehen, dass die Grundfläche genügt, um die Höhe zu bestimmen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -1113,7 +1096,7 @@
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "was_waere_wenn|Höhenzuwachs und Volumenzuwachs"
+   "idee": "was_waere_wenn|größere Höhe bei gleicher Grundfläche"
   },
   {
    "kennung": "VT3-021",
@@ -1133,33 +1116,40 @@
     "s": 3,
     "y": "zahl",
     "f": {
-     "text": "Aus einem rechteckigen Becken (Boden 6 m mal 4 m) wird mit einer Pumpe Wasser abgepumpt, 3 Liter pro Sekunde. Um wie viele Zentimeter sinkt der Wasserspiegel in 2 Stunden?"
+     "text": "Ein Quader ist aus Würfeln mit je 2 cm Kantenlänge gebaut. In der Länge liegen 3 Würfel, in der Breite 2 Würfel. Der Quader hat das Volumen 192 cm³. Wie hoch ist der Quader in cm?"
     },
-    "w": "2 h = 7 200 s, also 3 · 7 200 = 21 600 l = 21,6 m³. Der Boden hat 24 m². Höhe = 21,6 : 24 = 0,9 m = 90 cm.",
+    "w": "Ein Würfel hat 2 · 2 · 2 = 8 cm³. Es sind 192 : 8 = 24 Würfel. In einer Schicht liegen 3 · 2 = 6 Würfel, also gibt es 24 : 6 = 4 Schichten. Jede Schicht ist 2 cm hoch: 4 · 2 = 8 cm. Kontrolle: Der Quader ist 6 cm lang, 4 cm breit, 8 cm hoch: 6 · 4 · 8 = 192.",
     "o": {
-     "wert": 90,
+     "wert": 8,
      "einheit": "cm"
     }
    },
    "regel": "id.flaeche_raum.aus_dem_quader",
-   "loesung_rechnung": "3 · 7200 : 1000 : (6 · 4) · 100",
+   "loesung_rechnung": "192 : 8 : (3 · 2) · 2",
    "fehlbilder": [
     {
-     "antwort": 0.9,
-     "rechnung": "3 · 7200 : 1000 : (6 · 4)",
-     "beschreibung": "die Höhe in Metern angegeben (0,9 m)",
+     "antwort": 4,
+     "rechnung": "192 : 8 : (3 · 2)",
+     "beschreibung": "nur die Zahl der Würfelschichten bestimmt, nicht mit 2 cm malgenommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 900,
-     "rechnung": "3 · 7200 : (6 · 4)",
-     "beschreibung": "21 600 l durch 24 m² geteilt: das sind 900 mm, nicht cm",
+     "antwort": 32,
+     "rechnung": "192 : (3 · 2)",
+     "beschreibung": "so gerechnet, als wären 3 und 2 die Kanten in cm: 192 : (3 · 2) = 32",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 16,
+     "rechnung": "192 : (3 · 2 · 2)",
+     "beschreibung": "durch 3, 2 und noch einmal 2 geteilt, ohne die Würfelkante richtig zu verwenden",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "transfer|Becken leeren, Zeit gesucht"
+   "idee": "transfer|Quader aus Würfeln, Kantenlänge gesucht"
   },
   {
    "kennung": "VT3-022",
@@ -1237,40 +1227,40 @@
     },
     "w": "Die neue Schicht hat die Grundfläche Länge · Breite und die Dicke 2 cm. Ihr Volumen ist 2 cm · Länge · Breite.",
     "a": [
-     "Es wächst um 2 cm³, denn die Höhe wächst um 2 cm.",
-     "Es verdoppelt sich, denn die Höhe wird um 2 cm größer.",
-     "Es wächst um 2 cm · Länge · Breite, denn über der Grundfläche kommt eine 2 cm dicke Schicht dazu.",
-     "Es wächst um 2 cm, denn Volumen und Höhe ändern sich gleich stark."
+     "Es wächst um 2 cm³, denn die Höhe wächst um 2 cm und Länge und Breite bleiben gleich.",
+     "Es wächst um 2 cm · Länge · Breite, denn über der Grundfläche liegt eine 2 cm dicke Schicht.",
+     "Es verdoppelt sich, denn die Höhe wird um 2 cm größer und das Volumen folgt der Höhe.",
+     "Es wächst um 2 cm, denn Volumen und Höhe ändern sich bei gleicher Grundfläche gleich stark."
     ],
     "o": {
-     "index": 2
+     "index": 1
     }
    },
    "regel": "id.flaeche_raum.aus_dem_quader",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Es wächst um 2 cm³, denn die Höhe wächst um 2 cm.",
+     "antwort": "Es wächst um 2 cm³, denn die Höhe wächst um 2 cm und Länge und Breite bleiben gleich.",
      "beschreibung": "Länge und Breite vergessen; eine Höhe in cm mit einem Volumen verwechselt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
-     "antwort": "Es verdoppelt sich, denn die Höhe wird um 2 cm größer.",
+     "index": 2,
+     "antwort": "Es verdoppelt sich, denn die Höhe wird um 2 cm größer und das Volumen folgt der Höhe.",
      "beschreibung": "Zuwachs von 2 cm mit Verdopplung verwechselt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 3,
-     "antwort": "Es wächst um 2 cm, denn Volumen und Höhe ändern sich gleich stark.",
+     "antwort": "Es wächst um 2 cm, denn Volumen und Höhe ändern sich bei gleicher Grundfläche gleich stark.",
      "beschreibung": "Volumen und Höhe gleich gesetzt und die Einheit cm³ übersehen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "immer_nie|Höhe um 2 cm größer, Volumenzuwachs"
+   "idee": "begruenden|Höhe plus 2 cm, Volumenzuwachs unabhängig von der Höhe"
   },
   {
    "kennung": "VT3-024",
@@ -1345,40 +1335,40 @@
     "s": 2,
     "y": "zahl",
     "f": {
-     "text": "Ein Quader ist aus Würfeln mit je 2 cm Kantenlänge gebaut: 3 Würfel in der Länge, 2 in der Breite und 4 in der Höhe. Wie groß ist sein Volumen in cm³?"
+     "text": "Von einem Würfel mit 10 cm Kantenlänge wird eine 4 cm dicke Scheibe parallel zu einer Fläche abgeschnitten. Wie viel Prozent des Volumens des Würfels bleiben übrig?"
     },
-    "w": "Ein Würfel hat 2 · 2 · 2 = 8 cm³. Es sind 3 · 2 · 4 = 24 Würfel. 24 · 8 = 192 cm³. (Kontrolle: Der Quader ist 6 cm · 4 cm · 8 cm groß.)",
+    "w": "Die Scheibe ist 4 cm von 10 cm dick, der Rest ist 6 cm dick bei gleicher Grundfläche. Das Volumen ist proportional zur Höhe: 6 : 10 = 0,6, also 60 %. (Kontrolle: 600 cm³ von 1 000 cm³.)",
     "o": {
-     "wert": 192,
-     "einheit": "cm³"
+     "wert": 60,
+     "einheit": "%"
     }
    },
    "regel": "id.flaeche_raum.aus_dem_quader",
-   "loesung_rechnung": "3 · 2 · 4 · 2 · 2 · 2",
+   "loesung_rechnung": "(10 − 4) : 10 · 100",
    "fehlbilder": [
     {
-     "antwort": 24,
-     "rechnung": "3 · 2 · 4",
-     "beschreibung": "nur die Würfel gezählt, nicht deren Volumen",
+     "antwort": 40,
+     "rechnung": "4 : 10 · 100",
+     "beschreibung": "den abgeschnittenen Teil statt des Rests angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 48,
-     "rechnung": "3 · 2 · 4 · 2",
-     "beschreibung": "die Würfelzahl mit der Kantenlänge 2 malgenommen",
+     "antwort": 6,
+     "rechnung": "10 − 4",
+     "beschreibung": "nur die verbleibende Höhe in cm genannt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 96,
-     "rechnung": "3 · 2 · 4 · 4",
-     "beschreibung": "mit 2 · 2 statt 2 · 2 · 2 malgenommen",
+     "antwort": 36,
+     "rechnung": "6 · 6",
+     "beschreibung": "mit der Höhe 6 cm als Kantenlänge einer Fläche weitergerechnet",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "transfer|Quader aus Würfeln"
+   "idee": "transfer|Scheibe vom Würfel abschneiden, Volumen der Restfigur"
   },
   {
    "kennung": "VT3-026",
@@ -1398,39 +1388,39 @@
     "s": 2,
     "y": "auswahl",
     "f": {
-     "text": "Quader A hat eine Grundfläche von 20 cm² und ist 9 cm hoch. Quader B hat eine Grundfläche von 30 cm² und ist 5 cm hoch. Welche Aussage stimmt?"
+     "text": "Quader A ist 10 cm lang, 4 cm breit und 6 cm hoch. Quader B ist 10 cm lang, 6 cm breit und 4 cm hoch. Welche Aussage über ihre Volumen stimmt?"
     },
-    "w": "V = Grundfläche · Höhe. A: 20 · 9 = 180 cm³, B: 30 · 5 = 150 cm³.",
+    "w": "Bei beiden stehen die Zahlen 10, 4 und 6, nur in anderer Reihenfolge. Das Volumen ist das Produkt, und das ändert sich bei vertauschten Faktoren nicht: 240 cm³ für beide.",
     "a": [
-     "Quader B hat das größere Volumen, denn seine Grundfläche ist größer.",
-     "Beide haben ungefähr gleich viel Volumen, denn 20 + 9 und 30 + 5 liegen nah beieinander.",
-     "Das lässt sich nicht sagen, weil Länge und Breite unbekannt sind.",
-     "Quader A hat das größere Volumen: 20 · 9 = 180 cm³ gegenüber 30 · 5 = 150 cm³."
+     "Beide haben dasselbe Volumen, denn es werden dieselben drei Zahlen miteinander malgenommen.",
+     "A hat das größere Volumen, denn A ist höher als B und die Höhe zählt besonders stark.",
+     "B hat das größere Volumen, denn B ist breiter als A und hat damit die größere Grundfläche.",
+     "Das lässt sich nicht sagen, ohne dass man beide Volumen vorher ausgerechnet hat."
     ],
     "o": {
-     "index": 3
+     "index": 0
     }
    },
    "regel": "id.flaeche_raum.aus_dem_quader",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "Quader B hat das größere Volumen, denn seine Grundfläche ist größer.",
-     "beschreibung": "nur auf die Grundfläche geschaut",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
      "index": 1,
-     "antwort": "Beide haben ungefähr gleich viel Volumen, denn 20 + 9 und 30 + 5 liegen nah beieinander.",
-     "beschreibung": "Grundfläche und Höhe addiert statt multipliziert",
+     "antwort": "A hat das größere Volumen, denn A ist höher als B und die Höhe zählt besonders stark.",
+     "beschreibung": "die Höhe stärker gewichtet als Länge und Breite",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 2,
-     "antwort": "Das lässt sich nicht sagen, weil Länge und Breite unbekannt sind.",
-     "beschreibung": "übersehen, dass Grundfläche mal Höhe genügt",
+     "antwort": "B hat das größere Volumen, denn B ist breiter als A und hat damit die größere Grundfläche.",
+     "beschreibung": "nur die Grundfläche verglichen und die Höhe vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Das lässt sich nicht sagen, ohne dass man beide Volumen vorher ausgerechnet hat.",
+     "beschreibung": "übersehen, dass die Reihenfolge der Faktoren keine Rolle spielt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1513,11 +1503,11 @@
     "a": [
      "um 50 %",
      "um 100 %",
-     "um 125 %",
-     "um 225 %"
+     "um 225 %",
+     "um 125 %"
     ],
     "o": {
-     "index": 2
+     "index": 3
     }
    },
    "regel": "id.flaeche_raum.aus_dem_quader",
@@ -1537,7 +1527,7 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "um 225 %",
      "beschreibung": "den neuen Wert 225 % des alten mit dem Zuwachs verwechselt",
      "fehlbild": null,

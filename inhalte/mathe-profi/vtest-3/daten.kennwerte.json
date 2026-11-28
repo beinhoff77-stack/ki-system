@@ -1,0 +1,779 @@
+{
+ "stand": "2026-11-28",
+ "runde": "vtest-3",
+ "kuerzel": "VT3",
+ "klasse": 6,
+ "hinweis": "Verstehen in Tests, Stufe 1, Runde 3. Nicht eingespielt.",
+ "titel": "daten.kennwerte",
+ "themen": [
+  "daten.kennwerte"
+ ],
+ "aufgaben": [
+  {
+   "kennung": "VT3-050",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittelwert",
+   "pool": "test",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen berechnen den Mittelwert aus einer gegebenen Liste. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "aufgabe": {
+    "l": "mittelwert",
+    "t": "mittelwert",
+    "p": "test",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Fünf Zahlen werden jeweils verdreifacht und danach um 4 verkleinert. Die fünf neuen Zahlen haben den Mittelwert 26. Wie groß war der Mittelwert der fünf ursprünglichen Zahlen?"
+    },
+    "w": "Der Mittelwert folgt denselben Rechenschritten wie jede einzelne Zahl. Rückwärts: Zuerst die Verkleinerung um 4 rückgängig machen, 26 + 4 = 30, dann das Verdreifachen: 30 : 3 = 10. Probe mit fünf Zahlen 10: neue Zahlen 3 · 10 − 4 = 26.",
+    "o": {
+     "wert": 10
+    }
+   },
+   "ersetzt_test": true,
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": "(26 + 4) : 3",
+   "fehlbilder": [
+    {
+     "antwort": 22,
+     "rechnung": "26 − 4",
+     "beschreibung": "die Verkleinerung um 4 falsch herum rückgängig gemacht und das Verdreifachen vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 30,
+     "rechnung": "26 + 4",
+     "beschreibung": "die Verkleinerung rückgängig gemacht, aber nicht durch 3 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "umkehr|Werte verdreifacht und verkleinert, alter Mittelwert gesucht"
+  },
+  {
+   "kennung": "VT3-051",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittelwert",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen berechnen den Mittelwert aus einer gegebenen Liste. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "mittelwert",
+    "t": "mittelwert",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "In einer Klasse mit 20 Kindern haben 16 Kinder im Mittel 10 € gespart. Die übrigen 4 Kinder haben nichts gespart. Wie viel Euro hat ein Kind der Klasse im Mittel gespart?"
+    },
+    "w": "Alle 20 Kinder zählen mit, auch die mit 0 €. Die Summe ist 16 · 10 = 160 €, geteilt durch 20 Kinder sind das 8 €.",
+    "a": [
+     "Im Mittel 10 €, denn Kinder ohne Erspartes zählen beim Mittelwert nicht mit.",
+     "Im Mittel 6 €, denn die 4 Kinder ohne Erspartes senken den Mittelwert um 4 €.",
+     "Im Mittel 8 €, denn die gesamten 160 € werden auf alle 20 Kinder verteilt.",
+     "Im Mittel 5 €, denn weil ein Teil der Kinder nichts hat, halbiert sich der Wert von 10 €."
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Im Mittel 10 €, denn Kinder ohne Erspartes zählen beim Mittelwert nicht mit.",
+     "beschreibung": "die Kinder mit 0 € nicht mitgezählt, obwohl auch sie zur Klasse gehören",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Im Mittel 6 €, denn die 4 Kinder ohne Erspartes senken den Mittelwert um 4 €.",
+     "beschreibung": "die Zahl der Kinder ohne Erspartes vom Mittelwert abgezogen, statt die Summe durch alle Kinder zu teilen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Im Mittel 5 €, denn weil ein Teil der Kinder nichts hat, halbiert sich der Wert von 10 €.",
+     "beschreibung": "den Mittelwert ohne Rechnung halbiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "mengen_deuten|Kinder ohne Erspartes zählen beim Mittelwert mit"
+  },
+  {
+   "kennung": "VT3-052",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittelwert",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen berechnen den Mittelwert aus einer gegebenen Liste. Diese Aufgabe: Fehler-Detektiv (Zeile finden und richtigstellen).",
+   "aufgabe": {
+    "l": "mittelwert",
+    "t": "mittelwert",
+    "p": "korrektur",
+    "s": 2,
+    "y": "luecken",
+    "f": {
+     "text": "Mia hat die Noten 2, 3, 2 und 5. Zeile 1: Die Summe der Noten ist 2 + 3 + 2 + 5 = 12. Zeile 2: Es sind vier Noten. Zeile 3: Der Mittelwert ist 12 : 3 = 4. Zeile 4: Mias Durchschnitt ist also 4. In welcher Zeile steckt der erste Fehler, und wie groß ist der Mittelwert richtig?",
+     "schablone": "Fehler in Zeile □, Mittelwert richtig: □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Zeile 3 ist falsch: Man teilt durch die Anzahl der Noten, also durch 4. 12 : 4 = 3.",
+    "o": {
+     "werte": [
+      3,
+      3
+     ]
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": [
+    "3",
+    "12 : 4"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "rechnung": "12 : 3",
+     "beschreibung": "durch 3 statt durch die Zahl der Noten 4 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "rechnung": "2 + 3 + 2 + 5",
+     "beschreibung": "die Summe als Mittelwert angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "fehler|Fehler-Detektiv: Notenmittel"
+  },
+  {
+   "kennung": "VT3-053",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittelwert",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen berechnen den Mittelwert aus einer gegebenen Liste. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "mittelwert",
+    "t": "mittelwert",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Gruppe A hat 10 Personen mit dem Mittelwert 8, Gruppe B hat 20 Personen mit dem Mittelwert 11. Welche Aussage über den Mittelwert aller 30 Personen stimmt?"
+    },
+    "w": "Gruppe A hat die Summe 10 · 8 = 80, Gruppe B die Summe 20 · 11 = 220. Zusammen 300 für 30 Personen: Mittelwert 10. Das liegt näher bei 11 als bei 8, weil Gruppe B größer ist.",
+    "a": [
+     "Er beträgt 9,5, denn der Mittelwert liegt in der Mitte zwischen 8 und 11.",
+     "Er liegt über 11, denn die größere Gruppe zählt doppelt.",
+     "Er lässt sich nicht bestimmen, denn die Werte der einzelnen Personen sind nicht bekannt und es fehlen Angaben.",
+     "Er liegt näher bei 11, denn Gruppe B hat doppelt so viele Personen wie A."
+    ],
+    "o": {
+     "index": 3
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Er beträgt 9,5, denn der Mittelwert liegt in der Mitte zwischen 8 und 11.",
+     "beschreibung": "die beiden Mittelwerte einfach gemittelt, ohne die Gruppengrößen zu beachten",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Er liegt über 11, denn die größere Gruppe zählt doppelt.",
+     "beschreibung": "übersehen, dass der Gesamtmittelwert immer zwischen den beiden Mittelwerten liegt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Er lässt sich nicht bestimmen, denn die Werte der einzelnen Personen sind nicht bekannt und es fehlen Angaben.",
+     "beschreibung": "übersehen, dass Mittelwert und Zahl der Personen schon die Summen der Gruppen festlegen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "zusammenhang|Gesamtmittelwert liegt näher bei der größeren Gruppe"
+  },
+  {
+   "kennung": "VT3-054",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittelwert",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen berechnen den Mittelwert aus einer gegebenen Liste. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "mittelwert",
+    "t": "mittelwert",
+    "p": "sicherung",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Der Mittelwert der Zahlen 3, 5, 7 und 9 ist 6. Welche Veränderung lässt den Mittelwert unverändert bei 6?"
+    },
+    "w": "Eine Zahl, die genau dem Mittelwert gleicht, ändert den Mittelwert nicht: (24 + 6) : 5 = 6. Bei den anderen Möglichkeiten ergibt sich 7, 5,75 und etwa 6,17.",
+    "a": [
+     "Man streicht die 3.",
+     "Man ersetzt die 3 durch 4 und die 9 durch 7.",
+     "Man fügt eine weitere 6 hinzu.",
+     "Man fügt die Zahlen 5 und 8 hinzu."
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Man streicht die 3.",
+     "beschreibung": "die kleinste Zahl gestrichen: (5 + 7 + 9) : 3 = 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "rechnung": "(5 + 7 + 9) : 3"
+    },
+    {
+     "index": 1,
+     "antwort": "Man ersetzt die 3 durch 4 und die 9 durch 7.",
+     "beschreibung": "die Summe sinkt um 1: (4 + 5 + 7 + 7) : 4 = 5,75",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "rechnung": "(4 + 5 + 7 + 7) : 4"
+    },
+    {
+     "index": 3,
+     "antwort": "Man fügt die Zahlen 5 und 8 hinzu.",
+     "beschreibung": "die beiden neuen Zahlen liegen im Mittel bei 6,5, das hebt den Mittelwert an: 37 : 6 ≈ 6,17",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "begruenden|welche Änderung lässt den Mittelwert gleich"
+  },
+  {
+   "kennung": "VT3-055",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittelwert",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen berechnen den Mittelwert aus einer gegebenen Liste. Diese Aufgabe: Transfer auf eine neue Situation.",
+   "aufgabe": {
+    "l": "mittelwert",
+    "t": "mittelwert",
+    "p": "sicherung",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Ein Kind legt jede Woche gleich viel mehr in die Spardose als in der Woche davor. In Woche 1 sind es 4 €, in Woche 9 sind es 20 €. Wie viel Euro legt es im Mittel pro Woche in die Spardose (Woche 1 bis Woche 9)?"
+    },
+    "w": "Bei gleichmäßigem Wachstum liegt der Mittelwert in der Mitte zwischen dem ersten und dem letzten Wert: (4 + 20) : 2 = 12. Probe: Die Beträge sind 4, 6, 8, 10, 12, 14, 16, 18, 20, ihre Summe ist 108 und 108 : 9 = 12.",
+    "o": {
+     "wert": 12,
+     "einheit": "€"
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": "(4 + 20) : 2",
+   "fehlbilder": [
+    {
+     "antwort": 24,
+     "rechnung": "4 + 20",
+     "beschreibung": "Anfangs- und Endbetrag addiert und nicht durch 2 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 16,
+     "rechnung": "20 − 4",
+     "beschreibung": "den Unterschied von Anfang und Ende als Mittelwert genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 2,
+     "rechnung": "(20 − 4) : 8",
+     "beschreibung": "den Zuwachs pro Woche als Mittelwert angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "zusammenhang|gleichmäßiger Zuwachs, Mittelwert ist die Mitte von Anfang und Ende"
+  },
+  {
+   "kennung": "VT3-056",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittelwert",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen berechnen den Mittelwert aus einer gegebenen Liste. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "mittelwert",
+    "t": "mittelwert",
+    "p": "sicherung",
+    "s": 3,
+    "y": "auswahl",
+    "f": {
+     "text": "Fünf Hunde wiegen 8 kg, 9 kg, 10 kg, 11 kg und 12 kg, im Mittel also 10 kg. Ein sechster Hund mit 60 kg kommt dazu. Welche Aussage über den neuen Mittelwert stimmt?"
+    },
+    "w": "Neue Summe: 50 + 60 = 110 kg. 110 : 6 ≈ 18,3 kg. Das ist mehr als jeder der fünf ersten Hunde wiegt. Ein einzelner sehr großer Wert zieht den Mittelwert stark nach oben.",
+    "a": [
+     "Er bleibt bei 10 kg, denn es kommt nur ein einzelner Wert dazu.",
+     "Er beträgt 35 kg, denn man bildet den Mittelwert aus 10 kg und 60 kg: (10 + 60) : 2.",
+     "Er sinkt unter 10 kg, denn nun sind mehr Werte vorhanden und der Durchschnitt wird dadurch kleiner.",
+     "Er beträgt etwa 18 kg, denn (50 + 60) : 6 ist etwa 18,3 und das liegt über fünf Hunden."
+    ],
+    "o": {
+     "index": 3
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Er bleibt bei 10 kg, denn es kommt nur ein einzelner Wert dazu.",
+     "beschreibung": "nicht beachtet, dass die Summe stark wächst",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Er beträgt 35 kg, denn man bildet den Mittelwert aus 10 kg und 60 kg: (10 + 60) : 2.",
+     "beschreibung": "den alten Mittelwert wie einen einzelnen Wert behandelt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Er sinkt unter 10 kg, denn nun sind mehr Werte vorhanden und der Durchschnitt wird dadurch kleiner.",
+     "beschreibung": "mehr Werte mit sinkendem Mittelwert verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "groessenvergleich|Ausreißer und Mittelwert ohne genaues Rechnen"
+  },
+  {
+   "kennung": "VT3-057",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_rueckwaerts",
+   "pool": "test",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "aufgabe": {
+    "l": "mittel_rueckwaerts",
+    "t": "mittel_rueckwaerts",
+    "p": "test",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "In einer Klasse mit 24 Kindern haben die Mädchen im Mittel 14 Punkte erreicht, die Jungen im Mittel 8 Punkte. Die ganze Klasse hat im Mittel 10 Punkte. Wie viele Mädchen sind in der Klasse?"
+    },
+    "w": "Alle 24 Kinder zusammen haben 24 · 10 = 240 Punkte. Wären alle Kinder Jungen, wären es 24 · 8 = 192 Punkte. Jedes Mädchen bringt 14 − 8 = 6 Punkte mehr. Die fehlenden 240 − 192 = 48 Punkte ergeben 48 : 6 = 8 Mädchen. Probe: 8 · 14 + 16 · 8 = 112 + 128 = 240.",
+    "o": {
+     "wert": 8
+    }
+   },
+   "ersetzt_test": true,
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": "(24 · 10 − 24 · 8) : (14 − 8)",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "rechnung": "24 : 2",
+     "beschreibung": "angenommen, Mädchen und Jungen seien gleich viele",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 16,
+     "rechnung": "24 − 8",
+     "beschreibung": "die Zahl der Jungen statt der Mädchen angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 6,
+     "rechnung": "14 − 8",
+     "beschreibung": "den Unterschied der beiden Mittelwerte als Anzahl genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "umkehr|Zahl der Mädchen aus den Mittelwerten von Gruppe und Klasse"
+  },
+  {
+   "kennung": "VT3-058",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_rueckwaerts",
+   "pool": "korrektur",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Was-wäre-wenn.",
+   "aufgabe": {
+    "l": "mittel_rueckwaerts",
+    "t": "mittel_rueckwaerts",
+    "p": "korrektur",
+    "s": 2,
+    "y": "zahl",
+    "f": {
+     "text": "Fünf Zahlen haben den Mittelwert 12. Vier dieser Zahlen liegen 5 unter, 2 über, 6 über und 1 unter dem Mittelwert. Wie groß ist die fünfte Zahl?"
+    },
+    "w": "Die Abstände unter dem Mittelwert und über dem Mittelwert gleichen sich bei allen Zahlen zusammen aus. Über dem Mittelwert liegen 2 + 6 = 8, darunter 5 + 1 = 6. Die fünfte Zahl muss also 2 unter dem Mittelwert liegen: 12 − 2 = 10. Probe: Die Zahlen sind 7, 14, 18, 11 und 10, die Summe ist 60 und 60 : 5 = 12.",
+    "o": {
+     "wert": 10
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": "12 − ((2 + 6) − (5 + 1))",
+   "fehlbilder": [
+    {
+     "antwort": 14,
+     "rechnung": "12 + ((2 + 6) − (5 + 1))",
+     "beschreibung": "die fünfte Zahl über statt unter dem Mittelwert angesetzt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 2,
+     "rechnung": "(2 + 6) − (5 + 1)",
+     "beschreibung": "nur den Abstand der fünften Zahl zum Mittelwert angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "zusammenhang|Abstände über und unter dem Mittelwert gleichen sich aus"
+  },
+  {
+   "kennung": "VT3-059",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_rueckwaerts",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Fehler-Detektiv (Zeile finden und richtigstellen).",
+   "aufgabe": {
+    "l": "mittel_rueckwaerts",
+    "t": "mittel_rueckwaerts",
+    "p": "korrektur",
+    "s": 2,
+    "y": "luecken",
+    "f": {
+     "text": "Eine Läuferin hat in vier Läufen im Mittel 50 Sekunden gebraucht. Im fünften Lauf will sie den Mittelwert aller fünf Läufe auf 48 Sekunden senken. Zeile 1: Der Mittelwert soll um 2 Sekunden sinken. Zeile 2: Also muss der fünfte Lauf 2 Sekunden schneller sein als der Mittelwert, 50 − 2 = 48 Sekunden. Zeile 3: Probe: Das passt zum Ziel 48. Zeile 4: Sie braucht im fünften Lauf 48 Sekunden. In welcher Zeile steckt der erste Fehler, und wie lange darf der fünfte Lauf höchstens dauern?",
+     "schablone": "Fehler in Zeile □, richtig: □ Sekunden",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Zeile 2 ist falsch: Fünf Läufe müssen zusammen 5 · 48 = 240 Sekunden haben. Vier Läufe hatten 4 · 50 = 200 Sekunden. Der fünfte Lauf darf also 240 − 200 = 40 Sekunden dauern.",
+    "o": {
+     "werte": [
+      2,
+      40
+     ]
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": [
+    "2",
+    "48 · 5 − 50 · 4"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 48,
+     "rechnung": "50 − 2",
+     "beschreibung": "den Zielwert 48 selbst als Zeit des fünften Laufs genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 46,
+     "rechnung": "50 − 2 · 2",
+     "beschreibung": "nur das Doppelte der Senkung von 50 abgezogen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "fehler|Fehler-Detektiv: Zielmittelwert beim fünften Lauf"
+  },
+  {
+   "kennung": "VT3-060",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_rueckwaerts",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "mittel_rueckwaerts",
+    "t": "mittel_rueckwaerts",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Der Mittelwert von vier Zahlen ist 10. Welche Aussage über diese vier Zahlen stimmt auf jeden Fall?"
+    },
+    "w": "Wären alle vier Zahlen kleiner als 10, so wäre ihre Summe kleiner als 40 und der Mittelwert kleiner als 10. Also ist mindestens eine Zahl mindestens 10. Gegenbeispiele widerlegen die anderen Aussagen: 10, 10, 10, 10 / 5, 15, 5, 15 / 9, 9, 9, 13.",
+    "a": [
+     "Mindestens eine der Zahlen ist größer als 10, denn der Mittelwert liegt in der Mitte der Zahlen.",
+     "Mindestens eine der Zahlen ist genau 10, denn der Mittelwert muss unter den Zahlen vorkommen.",
+     "Mindestens eine der Zahlen ist mindestens 10, denn sonst läge der Mittelwert unter 10.",
+     "Höchstens zwei der Zahlen sind kleiner als 10, denn die Hälfte muss darüber liegen."
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Mindestens eine der Zahlen ist größer als 10, denn der Mittelwert liegt in der Mitte der Zahlen.",
+     "beschreibung": "die vier Zahlen 10, 10, 10, 10 übersehen: Dann ist keine Zahl größer als 10",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Mindestens eine der Zahlen ist genau 10, denn der Mittelwert muss unter den Zahlen vorkommen.",
+     "beschreibung": "angenommen, der Mittelwert müsse eine der Zahlen sein: 5, 15, 5, 15 hat den Mittelwert 10 ohne die Zahl 10",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Höchstens zwei der Zahlen sind kleiner als 10, denn die Hälfte muss darüber liegen.",
+     "beschreibung": "die Mitte mit dem Mittelwert verwechselt: 9, 9, 9, 13 hat den Mittelwert 10 mit drei Zahlen unter 10",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "begruenden|Aussage über vier Zahlen mit Mittelwert 10"
+  },
+  {
+   "kennung": "VT3-061",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_rueckwaerts",
+   "pool": "sicherung",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Darstellung wechseln.",
+   "aufgabe": {
+    "l": "mittel_rueckwaerts",
+    "t": "mittel_rueckwaerts",
+    "p": "sicherung",
+    "s": 2,
+    "y": "luecken",
+    "f": {
+     "text": "Mia berechnet den Mittelwert der Zahlen 98, 101, 103, 99 und 104 über die Abweichungen von 100. Wie groß ist die Summe der fünf Abweichungen (mit Vorzeichen), und wie groß ist der Mittelwert der fünf Zahlen?",
+     "schablone": "Summe der Abweichungen: □, Mittelwert: □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Die Abweichungen von 100 sind −2, +1, +3, −1 und +4. Ihre Summe ist 5, die mittlere Abweichung 5 : 5 = 1. Der Mittelwert ist 100 + 1 = 101.",
+    "o": {
+     "werte": [
+      5,
+      101
+     ]
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": [
+    "−2 + 1 + 3 − 1 + 4",
+    "100 + 5 : 5"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 505,
+     "rechnung": "98 + 101 + 103 + 99 + 104",
+     "beschreibung": "die Zahlen selbst addiert statt ihrer Abweichungen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 11,
+     "rechnung": "2 + 1 + 3 + 1 + 4",
+     "beschreibung": "die Abweichungen ohne Vorzeichen addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "5 : 5",
+     "beschreibung": "die mittlere Abweichung als Mittelwert angegeben, ohne 100 dazuzuzählen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "darstellung|Mittelwert über Abweichungen von 100"
+  },
+  {
+   "kennung": "VT3-062",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_rueckwaerts",
+   "pool": "sicherung",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Was-wäre-wenn.",
+   "aufgabe": {
+    "l": "mittel_rueckwaerts",
+    "t": "mittel_rueckwaerts",
+    "p": "sicherung",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Der Mittelwert von sechs Zahlen ist 20. Eine dieser Zahlen wird um 18 vergrößert, eine andere um 6 verkleinert, die übrigen vier bleiben gleich. Wie groß ist der neue Mittelwert?"
+    },
+    "w": "Die Summe der sechs Zahlen steigt um 18 − 6 = 12. Der Mittelwert steigt deshalb um 12 : 6 = 2 und ist 22.",
+    "o": {
+     "wert": 22
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": "20 + (18 − 6) : 6",
+   "fehlbilder": [
+    {
+     "antwort": 32,
+     "rechnung": "20 + 18 − 6",
+     "beschreibung": "die Änderung der Summe zum Mittelwert addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 23,
+     "rechnung": "20 + 18 : 6",
+     "beschreibung": "nur die Vergrößerung beachtet und die Verkleinerung vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 24,
+     "rechnung": "20 + (18 + 6) : 6",
+     "beschreibung": "die Verkleinerung wie eine Vergrößerung gerechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "was_waere_wenn|Summe ändert sich um Plus und Minus, wie ändert sich der Mittelwert"
+  },
+  {
+   "kennung": "VT3-063",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_rueckwaerts",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "mittel_rueckwaerts",
+    "t": "mittel_rueckwaerts",
+    "p": "sicherung",
+    "s": 3,
+    "y": "auswahl",
+    "f": {
+     "text": "Fünf Zahlen haben den Mittelwert 12. Man streicht die größte dieser Zahlen. Welche Aussage über den Mittelwert der übrigen vier Zahlen stimmt auf jeden Fall?"
+    },
+    "w": "Die größte Zahl ist mindestens so groß wie der Mittelwert 12. Streicht man sie, ist der Rest im Mittel höchstens 12. Sind alle Zahlen gleich 12, bleibt der Mittelwert 12; bei 10, 11, 12, 13, 14 sinkt er auf 11,5.",
+    "a": [
+     "Er liegt mindestens 1 unter 12, denn die größte Zahl fehlt jetzt und die übrigen Zahlen sind kleiner.",
+     "Er bleibt 12, denn der Mittelwert hängt nicht davon ab, welche Zahl man streicht.",
+     "Er steigt über 12, denn bei weniger Zahlen zählt jede einzelne Zahl stärker.",
+     "Er ist höchstens 12, denn die größte Zahl ist mindestens so groß wie der Mittelwert."
+    ],
+    "o": {
+     "index": 3
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Er liegt mindestens 1 unter 12, denn die größte Zahl fehlt jetzt und die übrigen Zahlen sind kleiner.",
+     "beschreibung": "den Sonderfall übersehen, dass alle fünf Zahlen 12 sein können, dann bleibt der Mittelwert gleich",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Er bleibt 12, denn der Mittelwert hängt nicht davon ab, welche Zahl man streicht.",
+     "beschreibung": "geglaubt, Streichen ändere den Mittelwert nie: Bei 10, 11, 12, 13, 14 sinkt er auf 11,5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Er steigt über 12, denn bei weniger Zahlen zählt jede einzelne Zahl stärker.",
+     "beschreibung": "geglaubt, die kleinere Anzahl lasse den Mittelwert steigen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "gegenbeispiel|größte Zahl streichen, Sonderfall alle Zahlen gleich"
+  }
+ ]
+}

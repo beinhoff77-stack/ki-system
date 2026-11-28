@@ -1,0 +1,1169 @@
+{
+ "stand": "2026-11-28",
+ "runde": "vtest-3",
+ "kuerzel": "VT3",
+ "klasse": 6,
+ "hinweis": "Verstehen in Tests, Stufe 1, Runde 3. Nicht eingespielt.",
+ "titel": "daten.darstellen",
+ "themen": [
+  "daten.darstellen"
+ ],
+ "aufgaben": [
+  {
+   "kennung": "VT3-029",
+   "thema": "daten.darstellen",
+   "lernkarte": "relative_haeufigkeit",
+   "pool": "test",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen rechnen aus Anzahl und Gesamtzahl einen Anteil aus. Diese Aufgabe: Was-wäre-wenn.",
+   "aufgabe": {
+    "l": "relative_haeufigkeit",
+    "t": "relative_haeufigkeit",
+    "p": "test",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Bei 50 Würfen eines Würfels fiel die Sechs 10-mal. Es wird 50-mal weitergewürfelt. Wie oft muss in diesen weiteren 50 Würfen eine Sechs fallen, damit die relative Häufigkeit der Sechs bei allen 100 Würfen genau 25 % beträgt?"
+    },
+    "w": "Bei 100 Würfen sind 25 % genau 25 Sechsen. Davon sind schon 10 gefallen, also müssen in den weiteren 50 Würfen noch 25 − 10 = 15 Sechsen fallen. Die relative Häufigkeit bezieht sich immer auf alle Würfe zusammen.",
+    "o": {
+     "wert": 15
+    }
+   },
+   "ersetzt_test": true,
+   "regel": "id.daten.anteil",
+   "loesung_rechnung": "0,25 · (50 + 50) − 10",
+   "fehlbilder": [
+    {
+     "antwort": 12.5,
+     "rechnung": "0,25 · 50",
+     "beschreibung": "25 % nur von den weiteren 50 Würfen berechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 25,
+     "rechnung": "0,25 · (50 + 50)",
+     "beschreibung": "die Sechsen insgesamt angegeben, die schon gefallenen 10 nicht abgezogen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 5,
+     "rechnung": "25 − 20",
+     "beschreibung": "die Prozentpunkte (25 − 20) als Zahl der Würfe angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "umkehr|nötige weitere Treffer für Zielhäufigkeit"
+  },
+  {
+   "kennung": "VT3-030",
+   "thema": "daten.darstellen",
+   "lernkarte": "relative_haeufigkeit",
+   "pool": "korrektur",
+   "typ": "verknuepfen",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen rechnen aus Anzahl und Gesamtzahl einen Anteil aus. Diese Aufgabe: Brücke zwischen zwei Darstellungen.",
+   "aufgabe": {
+    "l": "relative_haeufigkeit",
+    "t": "relative_haeufigkeit",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "18 von 24 Kindern einer Klasse antworten bei einer Umfrage mit „ja“. Welche Angabe beschreibt diesen Anteil?"
+    },
+    "w": "Der Anteil ist 18 : 24 = 3/4 = 0,75 = 75 %.",
+    "a": [
+     "0,18",
+     "0,75",
+     "4/3",
+     "0,24"
+    ],
+    "o": {
+     "index": 1
+    }
+   },
+   "regel": "id.daten.anteil",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "0,18",
+     "beschreibung": "den Zähler 18 als Hundertstel gelesen: 18 : 100 = 0,18",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "rechnung": "18 : 100"
+    },
+    {
+     "index": 2,
+     "antwort": "4/3",
+     "beschreibung": "Zähler und Nenner vertauscht: 24 : 18 = 4/3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "0,24",
+     "beschreibung": "die Gesamtzahl 24 als Hundertstel gelesen: 24 : 100 = 0,24",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "rechnung": "24 : 100"
+    }
+   ],
+   "idee": "darstellung|Anteil als Bruch, Dezimalzahl, Prozent"
+  },
+  {
+   "kennung": "VT3-031",
+   "thema": "daten.darstellen",
+   "lernkarte": "relative_haeufigkeit",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen rechnen aus Anzahl und Gesamtzahl einen Anteil aus. Diese Aufgabe: Fehler-Detektiv (Zeile finden und richtigstellen).",
+   "aufgabe": {
+    "l": "relative_haeufigkeit",
+    "t": "relative_haeufigkeit",
+    "p": "korrektur",
+    "s": 2,
+    "y": "luecken",
+    "f": {
+     "text": "Bei 250 Würfen eines Würfels fiel die Sechs 40-mal. Zeile 1: Die Sechs fiel 40-mal bei 250 Würfen. Zeile 2: Die relative Häufigkeit ist 250 : 40 = 6,25. Zeile 3: Das sind 625 %. Zeile 4: Die Sechs fiel also in 625 % der Würfe. In welcher Zeile steckt der erste Fehler, und wie viel Prozent ist die relative Häufigkeit richtig?",
+     "schablone": "Fehler in Zeile □, richtig: □ %",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Zeile 2 ist falsch: Die relative Häufigkeit ist Anzahl : Gesamtzahl = 40 : 250 = 0,16 = 16 %. Ein Anteil an allen Würfen kann nie über 100 % liegen.",
+    "o": {
+     "werte": [
+      2,
+      16
+     ]
+    }
+   },
+   "regel": "id.daten.anteil",
+   "loesung_rechnung": [
+    "2",
+    "40 : 250 · 100"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 625,
+     "rechnung": "250 : 40 · 100",
+     "beschreibung": "Gesamtzahl durch Anzahl geteilt: 250 : 40 = 6,25, also 625 %",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 160,
+     "rechnung": "40 : 250 · 1000",
+     "beschreibung": "mit 1 000 statt mit 100 malgenommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "fehler|Fehler-Detektiv: relative Häufigkeit beim Würfeln"
+  },
+  {
+   "kennung": "VT3-032",
+   "thema": "daten.darstellen",
+   "lernkarte": "relative_haeufigkeit",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen rechnen aus Anzahl und Gesamtzahl einen Anteil aus. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "relative_haeufigkeit",
+    "t": "relative_haeufigkeit",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Würfel wird 8-mal geworfen. Kann die relative Häufigkeit der Sechs dabei genau 30 % betragen?"
+    },
+    "w": "Bei 8 Würfen gibt es 0, 1, …, 8 Sechsen, die relative Häufigkeit ist also ein Vielfaches von 12,5 %. 30 % von 8 sind 2,4 Sechsen, das geht nicht. Mögliche Werte sind zum Beispiel 25 % (2 Sechsen) und 37,5 % (3 Sechsen).",
+    "a": [
+     "Nein, denn 30 % von 8 sind 2,4 und die Zahl der Sechsen muss eine ganze Zahl sein.",
+     "Ja, denn 30 % von 8 sind 2,4 Würfe und man rundet auf 2 Sechsen.",
+     "Ja, denn die relative Häufigkeit kann bei jeder Versuchsreihe jeden Wert zwischen 0 % und 100 % haben.",
+     "Nein, denn bei 8 Würfen ist die relative Häufigkeit der Sechs höchstens 25 %."
+    ],
+    "o": {
+     "index": 0
+    }
+   },
+   "regel": "id.daten.anteil",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Ja, denn 30 % von 8 sind 2,4 Würfe und man rundet auf 2 Sechsen.",
+     "beschreibung": "auf 2 Sechsen gerundet, dann wären es aber 25 % und nicht 30 %",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Ja, denn die relative Häufigkeit kann bei jeder Versuchsreihe jeden Wert zwischen 0 % und 100 % haben.",
+     "beschreibung": "übersehen, dass bei 8 Würfen nur Vielfache von 12,5 % möglich sind",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Nein, denn bei 8 Würfen ist die relative Häufigkeit der Sechs höchstens 25 %.",
+     "beschreibung": "übersehen, dass bei 8 Würfen auch mehr als 2 Sechsen fallen können",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "pruefen|ist 30 % bei 8 Würfen überhaupt möglich"
+  },
+  {
+   "kennung": "VT3-033",
+   "thema": "daten.darstellen",
+   "lernkarte": "relative_haeufigkeit",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen rechnen aus Anzahl und Gesamtzahl einen Anteil aus. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "relative_haeufigkeit",
+    "t": "relative_haeufigkeit",
+    "p": "sicherung",
+    "s": 3,
+    "y": "auswahl",
+    "f": {
+     "text": "In der Klasse 6a wählen 8 von 25 Kindern Fußball als Lieblingssport, in der Klasse 6b 9 von 30 Kindern. Jonas sagt: „In der 6b ist Fußball beliebter, denn dort wählen mehr Kinder Fußball.“ Welche Antwort stimmt?"
+    },
+    "w": "Wegen der verschiedenen Klassengrößen vergleicht man Anteile: 8 : 25 = 0,32 = 32 % und 9 : 30 = 0,30 = 30 %. In der 6a ist Fußball beliebter.",
+    "a": [
+     "Jonas hat recht, denn in der 6b wählen mit 9 mehr Kinder Fußball als mit 8 in der 6a.",
+     "Die Klassen lassen sich nicht vergleichen, denn sie haben verschieden viele Kinder und die Anzahlen sind nicht gleich.",
+     "Jonas hat nicht recht, denn 8 : 25 ergibt 32 % und 9 : 30 ergibt 30 %.",
+     "Jonas hat nicht recht, denn 8 von 25 und 9 von 30 sind derselbe Anteil, nämlich 30 %."
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "id.daten.anteil",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Jonas hat recht, denn in der 6b wählen mit 9 mehr Kinder Fußball als mit 8 in der 6a.",
+     "beschreibung": "nur die Anzahlen verglichen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Die Klassen lassen sich nicht vergleichen, denn sie haben verschieden viele Kinder und die Anzahlen sind nicht gleich.",
+     "beschreibung": "übersehen, dass man Anteile vergleichen kann",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Jonas hat nicht recht, denn 8 von 25 und 9 von 30 sind derselbe Anteil, nämlich 30 %.",
+     "beschreibung": "8 von 25 und 9 von 30 für denselben Anteil gehalten",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "groessenvergleich|8 von 25 gegen 9 von 30"
+  },
+  {
+   "kennung": "VT3-034",
+   "thema": "daten.darstellen",
+   "lernkarte": "relative_haeufigkeit",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen rechnen aus Anzahl und Gesamtzahl einen Anteil aus. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "relative_haeufigkeit",
+    "t": "relative_haeufigkeit",
+    "p": "sicherung",
+    "s": 3,
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Würfel wird 120-mal geworfen. Welche Aussage über die relative Häufigkeit der Sechs stimmt auf jeden Fall?"
+    },
+    "w": "Bei 120 Würfen ist die Zahl der Sechsen eine ganze Zahl k von 0 bis 120, die relative Häufigkeit ist k/120. Das gilt immer. Dass es genau 20 Sechsen sind, ist nur der Erwartungswert, nicht sicher; auch 0 Sechsen sind möglich.",
+    "a": [
+     "Sie beträgt genau 1/6, denn die Sechs hat die Wahrscheinlichkeit 1/6.",
+     "Sie ist ein Vielfaches von 1/120, denn jede Sechs erhöht die Trefferzahl um genau 1.",
+     "Sie ist größer als 0, denn die Sechs steht auf dem Würfel.",
+     "Sie ist kleiner als die relative Häufigkeit der Eins, denn die Sechs ist die größte Zahl."
+    ],
+    "o": {
+     "index": 1
+    }
+   },
+   "regel": "id.daten.anteil",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Sie beträgt genau 1/6, denn die Sechs hat die Wahrscheinlichkeit 1/6.",
+     "beschreibung": "relative Häufigkeit und Wahrscheinlichkeit gleichgesetzt: Bei 120 Würfen sind 20 Sechsen möglich, aber nicht sicher",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Sie ist größer als 0, denn die Sechs steht auf dem Würfel.",
+     "beschreibung": "übersehen, dass bei 120 Würfen auch keine Sechs fallen kann",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Sie ist kleiner als die relative Häufigkeit der Eins, denn die Sechs ist die größte Zahl.",
+     "beschreibung": "die Augenzahl mit der Häufigkeit verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "immer_nie|Aussage über jede Versuchsreihe (Vielfaches von 1/120)"
+  },
+  {
+   "kennung": "VT3-035",
+   "thema": "daten.darstellen",
+   "lernkarte": "relative_haeufigkeit",
+   "pool": "sicherung",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen rechnen aus Anzahl und Gesamtzahl einen Anteil aus. Diese Aufgabe: Was-wäre-wenn.",
+   "aufgabe": {
+    "l": "relative_haeufigkeit",
+    "t": "relative_haeufigkeit",
+    "p": "sicherung",
+    "s": 2,
+    "y": "zahl",
+    "f": {
+     "text": "Mia würfelt 20-mal und erhält 5 Sechsen. Jonas würfelt 80-mal und erhält 10 Sechsen. Wie groß ist die relative Häufigkeit der Sechs bei allen 100 Würfen zusammen (in Prozent)?"
+    },
+    "w": "Bei allen 100 Würfen gab es 5 + 10 = 15 Sechsen. 15 : 100 = 0,15 = 15 %. Die beiden Prozentsätze 25 % und 12,5 % darf man nicht einfach mitteln, denn Jonas hat viermal so oft gewürfelt wie Mia.",
+    "o": {
+     "wert": 15,
+     "einheit": "%"
+    }
+   },
+   "regel": "id.daten.anteil",
+   "loesung_rechnung": "(5 + 10) : (20 + 80) · 100",
+   "fehlbilder": [
+    {
+     "antwort": 18.75,
+     "rechnung": "(5 : 20 + 10 : 80) : 2 · 100",
+     "beschreibung": "die beiden relativen Häufigkeiten 25 % und 12,5 % gemittelt, ohne die verschiedene Zahl der Würfe zu beachten",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 37.5,
+     "rechnung": "25 + 12,5",
+     "beschreibung": "die beiden Prozentsätze addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 7.5,
+     "rechnung": "(5 + 10) : 2",
+     "beschreibung": "die Zahl der Sechsen durch die Zahl der Reihen statt durch die Zahl der Würfe geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "zusammenhang|zwei Versuchsreihen zusammen, Prozentsätze nicht mitteln"
+  },
+  {
+   "kennung": "VT3-036",
+   "thema": "daten.darstellen",
+   "lernkarte": "saeulendiagramm",
+   "pool": "test",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen lesen Werte aus einer Zeichnung ab oder rechnen einen Maßstab um. Diese Aufgabe: Was-wäre-wenn.",
+   "aufgabe": {
+    "l": "saeulendiagramm",
+    "t": "saeulendiagramm",
+    "p": "test",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "In einem Säulendiagramm (Hochachse beginnt bei 0) unterscheiden sich zwei Säulen um 2 cm in der Höhe. Das Diagramm wird mit einem anderen Maßstab neu gezeichnet. Dort unterscheiden sich dieselben Säulen um 5 cm, und die kleinere der beiden Säulen ist 10 cm hoch. Wie hoch war die kleinere Säule im alten Diagramm (in cm)?"
+    },
+    "w": "Beim Neuzeichnen werden alle Höhen mit demselben Faktor gestreckt. Der Unterschied wächst von 2 cm auf 5 cm, der Faktor ist also 5 : 2 = 2,5. Die kleinere Säule war vorher 10 : 2,5 = 4 cm hoch.",
+    "o": {
+     "wert": 4,
+     "einheit": "cm"
+    }
+   },
+   "ersetzt_test": true,
+   "regel": "rr.verhaeltnis",
+   "loesung_rechnung": "10 : 5 · 2",
+   "fehlbilder": [
+    {
+     "antwort": 25,
+     "rechnung": "10 · 5 : 2",
+     "beschreibung": "den Faktor in die falsche Richtung angewendet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 7,
+     "rechnung": "10 − (5 − 2)",
+     "beschreibung": "den Unterschied der Höhen abgezogen statt den Maßstab als Faktor zu nehmen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 5,
+     "rechnung": "10 : 2",
+     "beschreibung": "nur durch den alten Höhenunterschied geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "was_waere_wenn|anderer Maßstab: alte Höhe aus den Höhenunterschieden"
+  },
+  {
+   "kennung": "VT3-037",
+   "thema": "daten.darstellen",
+   "lernkarte": "saeulendiagramm",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen lesen Werte aus einer Zeichnung ab oder rechnen einen Maßstab um. Diese Aufgabe: Fehler-Detektiv (Zeile finden und richtigstellen).",
+   "aufgabe": {
+    "l": "saeulendiagramm",
+    "t": "saeulendiagramm",
+    "p": "korrektur",
+    "s": 2,
+    "y": "luecken",
+    "f": {
+     "text": "Zeile 1: In einem Säulendiagramm (Hochachse beginnt bei 0) steht 1 cm für 6 Kinder. Zeile 2: Die Säule für „Rad“ ist 5,5 cm hoch, die Säule für „Bus“ ist 2 cm hoch. Zeile 3: Mit dem Rad fahren also 5,5 − 2 = 3,5 Kinder mehr als mit dem Bus. Zeile 4: Das sind nicht viele Kinder mehr. In welcher Zeile steckt der erste Fehler, und wie viele Kinder fahren richtig mehr mit dem Rad?",
+     "schablone": "Fehler in Zeile □, richtig: □ Kinder",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Zeile 3 ist falsch: Der Höhenunterschied 3,5 cm muss noch in Kinder umgerechnet werden. 3,5 · 6 = 21 Kinder.",
+    "o": {
+     "werte": [
+      3,
+      21
+     ]
+    }
+   },
+   "regel": "rr.verhaeltnis",
+   "loesung_rechnung": [
+    "3",
+    "(5,5 − 2) · 6"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 45,
+     "rechnung": "(5,5 + 2) · 6",
+     "beschreibung": "die Höhen addiert statt den Unterschied gebildet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 33,
+     "rechnung": "5,5 · 6",
+     "beschreibung": "nur die Rad-Säule in Kinder umgerechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "fehler|Fehler-Detektiv: Säulenhöhe in Kindern"
+  },
+  {
+   "kennung": "VT3-038",
+   "thema": "daten.darstellen",
+   "lernkarte": "saeulendiagramm",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen lesen Werte aus einer Zeichnung ab oder rechnen einen Maßstab um. Diese Aufgabe: Darstellung wechseln.",
+   "aufgabe": {
+    "l": "saeulendiagramm",
+    "t": "saeulendiagramm",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Säulendiagramm (Hochachse beginnt bei 0) soll höchstens 12 cm hoch werden, die höchste Säule soll aber möglichst hoch sein. Der größte Wert ist 90 Kinder. Welcher Maßstab ist von diesen Möglichkeiten am besten geeignet?"
+    },
+    "w": "Die höchste Säule ist 90 Kinder hoch. Bei 1 cm für 10 Kinder ist sie 9 cm hoch, bei 1 cm für 5 Kinder 18 cm (zu hoch), bei 20 Kindern nur 4,5 cm und bei 100 Kindern 0,9 cm. 9 cm ist die größte Höhe unter 12 cm.",
+    "a": [
+     "1 cm für 5 Kinder, denn dann ist die höchste Säule 18 cm hoch und gut zu lesen",
+     "1 cm für 20 Kinder, denn dann ist die höchste Säule 4,5 cm hoch und passt auf die Achse",
+     "1 cm für 10 Kinder, denn dann ist die höchste Säule 9 cm hoch und passt auf die Achse",
+     "1 cm für 100 Kinder, denn dann ist die höchste Säule 0,9 cm hoch und passt auf die Achse"
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "rr.verhaeltnis",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "1 cm für 5 Kinder, denn dann ist die höchste Säule 18 cm hoch und gut zu lesen",
+     "beschreibung": "die Höhe von 18 cm nicht mit der Grenze von 12 cm verglichen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "1 cm für 20 Kinder, denn dann ist die höchste Säule 4,5 cm hoch und passt auf die Achse",
+     "beschreibung": "nur auf das Passen geachtet, nicht darauf, dass die höchste Säule möglichst hoch sein soll",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "1 cm für 100 Kinder, denn dann ist die höchste Säule 0,9 cm hoch und passt auf die Achse",
+     "beschreibung": "nur auf das Passen geachtet: Eine Säule von 0,9 cm Höhe ist kaum zu lesen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "rechnung_waehlen|Maßstab für höchstens 12 cm Höhe wählen"
+  },
+  {
+   "kennung": "VT3-039",
+   "thema": "daten.darstellen",
+   "lernkarte": "saeulendiagramm",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen lesen Werte aus einer Zeichnung ab oder rechnen einen Maßstab um. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "saeulendiagramm",
+    "t": "saeulendiagramm",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "In einem Säulendiagramm, dessen Hochachse bei 0 beginnt, ist die Säule „Rad“ 6 cm und die Säule „Bus“ 3 cm hoch. Welche Aussage stimmt?"
+    },
+    "w": "Bei Achsenbeginn 0 gilt: doppelt so hohe Säule, doppelt so viele Kinder. 6 : 3 = 2. Der Maßstab ändert daran nichts.",
+    "a": [
+     "Es fahren 3 Kinder mehr mit dem Rad als mit dem Bus, denn der Höhenunterschied der Säulen beträgt 3 cm.",
+     "Mit dem Rad fahren doppelt so viele Kinder wie mit dem Bus, denn 6 cm sind doppelt so viel wie 3 cm.",
+     "Über das Verhältnis lässt sich nichts sagen, denn der Maßstab des Diagramms ist nicht bekannt.",
+     "Mit dem Rad fahren dreimal so viele Kinder wie mit dem Bus, denn der Höhenunterschied beträgt 3 cm."
+    ],
+    "o": {
+     "index": 1
+    }
+   },
+   "regel": "rr.verhaeltnis",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Es fahren 3 Kinder mehr mit dem Rad als mit dem Bus, denn der Höhenunterschied der Säulen beträgt 3 cm.",
+     "beschreibung": "Höhenunterschied in cm mit einem Unterschied in Kindern gleichgesetzt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Über das Verhältnis lässt sich nichts sagen, denn der Maßstab des Diagramms ist nicht bekannt.",
+     "beschreibung": "übersehen, dass das Verhältnis vom Maßstab nicht abhängt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Mit dem Rad fahren dreimal so viele Kinder wie mit dem Bus, denn der Höhenunterschied beträgt 3 cm.",
+     "beschreibung": "den Höhenunterschied als Faktor gelesen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "begruenden|Säulenverhältnis und Werteverhältnis"
+  },
+  {
+   "kennung": "VT3-040",
+   "thema": "daten.darstellen",
+   "lernkarte": "saeulendiagramm",
+   "pool": "sicherung",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen lesen Werte aus einer Zeichnung ab oder rechnen einen Maßstab um. Diese Aufgabe: Darstellung wechseln.",
+   "aufgabe": {
+    "l": "saeulendiagramm",
+    "t": "saeulendiagramm",
+    "p": "sicherung",
+    "s": 3,
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Umfrage ergibt: Rad 18 Kinder, Bus 12, zu Fuß 6, Auto 24. Das Säulendiagramm (Hochachse beginnt bei 0) soll so gezeichnet werden, dass 1 cm für 6 Kinder steht. Welche Säulenhöhen in der Reihenfolge Rad, Bus, zu Fuß, Auto sind richtig?"
+    },
+    "w": "Höhe = Anzahl : 6. Rad 18 : 6 = 3 cm, Bus 12 : 6 = 2 cm, zu Fuß 6 : 6 = 1 cm, Auto 24 : 6 = 4 cm.",
+    "a": [
+     "6 cm, 4 cm, 2 cm, 8 cm",
+     "4 cm, 2 cm, 1 cm, 3 cm",
+     "18 cm, 12 cm, 6 cm, 24 cm",
+     "3 cm, 2 cm, 1 cm, 4 cm"
+    ],
+    "o": {
+     "index": 3
+    }
+   },
+   "regel": "rr.verhaeltnis",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "6 cm, 4 cm, 2 cm, 8 cm",
+     "beschreibung": "1 cm für 3 Kinder gerechnet (18 : 3 = 6 usw.)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "4 cm, 2 cm, 1 cm, 3 cm",
+     "beschreibung": "die Höhen in der falschen Reihenfolge (Auto und Rad vertauscht)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "18 cm, 12 cm, 6 cm, 24 cm",
+     "beschreibung": "die Anzahlen unverändert als Höhen in cm genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "darstellung|Werte in Säulenhöhen übersetzen"
+  },
+  {
+   "kennung": "VT3-041",
+   "thema": "daten.darstellen",
+   "lernkarte": "saeulendiagramm",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen lesen Werte aus einer Zeichnung ab oder rechnen einen Maßstab um. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "saeulendiagramm",
+    "t": "saeulendiagramm",
+    "p": "sicherung",
+    "s": 3,
+    "y": "auswahl",
+    "f": {
+     "text": "Anna und Ben zeichnen Säulendiagramme (Hochachsen beginnen bei 0). In Annas Diagramm ist eine Säule 6 cm hoch, und 1 cm steht für 5 Kinder. In Bens Diagramm ist eine Säule 4 cm hoch, und 1 cm steht für 8 Kinder. Welche der beiden Säulen steht für mehr Kinder?"
+    },
+    "w": "Annas Säule: 6 · 5 = 30 Kinder. Bens Säule: 4 · 8 = 32 Kinder. Bens niedrigere Säule steht für mehr Kinder, weil sein Maßstab größer ist.",
+    "a": [
+     "Annas Säule steht für mehr Kinder, denn sie ist mit 6 cm höher gezeichnet als Bens Säule.",
+     "Beide Säulen stehen für gleich viele Kinder, denn beide Diagramme zeigen eine Umfrage.",
+     "Bens Säule steht für mehr Kinder, denn 4 · 8 ergibt 32 Kinder und 6 · 5 ergibt 30 Kinder.",
+     "Das lässt sich nicht vergleichen, denn die Säulen stehen in verschiedenen Diagrammen und sind verschieden hoch."
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "rr.verhaeltnis",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Annas Säule steht für mehr Kinder, denn sie ist mit 6 cm höher gezeichnet als Bens Säule.",
+     "beschreibung": "nur die Höhen in cm verglichen, die Maßstäbe nicht beachtet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Beide Säulen stehen für gleich viele Kinder, denn beide Diagramme zeigen eine Umfrage.",
+     "beschreibung": "angenommen, dass gleiche Umfragen gleiche Säulen ergeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Das lässt sich nicht vergleichen, denn die Säulen stehen in verschiedenen Diagrammen und sind verschieden hoch.",
+     "beschreibung": "übersehen, dass man mit den Maßstäben umrechnen kann",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "groessenvergleich|zwei Diagramme mit verschiedenem Maßstab"
+  },
+  {
+   "kennung": "VT3-042",
+   "thema": "daten.darstellen",
+   "lernkarte": "saeulendiagramm",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen lesen Werte aus einer Zeichnung ab oder rechnen einen Maßstab um. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "saeulendiagramm",
+    "t": "saeulendiagramm",
+    "p": "sicherung",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Säulendiagramm (Hochachse beginnt bei 0) zeigt die Klasse 6a als eine gestapelte Säule: unten die Mädchen, darüber die Jungen. Die ganze Säule ist 9 cm hoch, der untere Teil mit den Mädchen ist 5 cm hoch. 1 cm steht für 3 Kinder. Wie viele Jungen gehören zur Klasse?"
+    },
+    "w": "Der obere Teil der Säule steht für die Jungen. Er ist 9 − 5 = 4 cm hoch. Mit 1 cm für 3 Kinder sind das 4 · 3 = 12 Jungen. Die ganze Klasse hat 27 Kinder, davon 15 Mädchen.",
+    "a": [
+     "12 Jungen, denn der obere Teil der Säule ist 4 cm hoch und 1 cm steht für 3 Kinder.",
+     "27 Jungen, denn die ganze Säule ist 9 cm hoch und 1 cm steht für 3 Kinder.",
+     "15 Jungen, denn der untere Teil der Säule ist 5 cm hoch und 1 cm steht für 3 Kinder.",
+     "4 Jungen, denn der obere Teil der Säule ist 4 cm hoch."
+    ],
+    "o": {
+     "index": 0
+    }
+   },
+   "regel": "rr.verhaeltnis",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "27 Jungen, denn die ganze Säule ist 9 cm hoch und 1 cm steht für 3 Kinder.",
+     "beschreibung": "die ganze Säule gelesen: Das sind alle Kinder der Klasse, nicht nur die Jungen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "15 Jungen, denn der untere Teil der Säule ist 5 cm hoch und 1 cm steht für 3 Kinder.",
+     "beschreibung": "den unteren Teil gelesen: Das sind die Mädchen, nicht die Jungen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "4 Jungen, denn der obere Teil der Säule ist 4 cm hoch.",
+     "beschreibung": "die Höhe in cm als Zahl der Kinder genommen, ohne den Maßstab zu beachten",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "mengen_deuten|Teilstück einer gestapelten Säule in Kinder umrechnen"
+  },
+  {
+   "kennung": "VT3-043",
+   "thema": "daten.darstellen",
+   "lernkarte": "irrefuehrend",
+   "pool": "test",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen nennen den Achsenbeginn und fragen nach dem Eindruck. Diese Aufgabe: Darstellung wechseln.",
+   "aufgabe": {
+    "l": "irrefuehrend",
+    "t": "irrefuehrend",
+    "p": "test",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Ein Säulendiagramm zeigt die Besucherzahlen eines Museums. Die Hochachse beginnt bei 4 700, und 1 cm steht für 100 Besucher. Die Säule für Mai ist 1 cm hoch, die Säule für Juni ist 3,4 cm hoch. Um wie viel Prozent ist die Besucherzahl im Juni wirklich höher als im Mai?"
+    },
+    "w": "Die Säulen zeigen nur den Teil über 4 700. Im Mai kamen 4 700 + 1 · 100 = 4 800 Besucher, im Juni 4 700 + 3,4 · 100 = 5 040. Der Unterschied ist 240 Besucher, das sind 240 : 4 800 = 5 % mehr. Die Säulen täuschen eine Steigerung um 240 % vor.",
+    "o": {
+     "wert": 5,
+     "einheit": "%"
+    }
+   },
+   "ersetzt_test": true,
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": "(3,4 · 100 − 1 · 100) : (4700 + 1 · 100) · 100",
+   "fehlbilder": [
+    {
+     "antwort": 240,
+     "rechnung": "(3,4 : 1 − 1) · 100",
+     "beschreibung": "die Säulenhöhen verglichen und den Achsenbeginn ignoriert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 4.8,
+     "rechnung": "(3,4 · 100 − 1 · 100) : 5000 · 100",
+     "beschreibung": "durch 5 000 statt durch die Besucherzahl im Mai (4 800) geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "darstellung|abgeschnittene Achse, Höhen in Besucher übersetzen, wahre Änderung"
+  },
+  {
+   "kennung": "VT3-044",
+   "thema": "daten.darstellen",
+   "lernkarte": "irrefuehrend",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen nennen den Achsenbeginn und fragen nach dem Eindruck. Diese Aufgabe: Darstellung wechseln.",
+   "aufgabe": {
+    "l": "irrefuehrend",
+    "t": "irrefuehrend",
+    "p": "korrektur",
+    "s": 2,
+    "y": "zahl",
+    "f": {
+     "text": "Auf der Hochachse eines Diagramms stehen die Marken 0, 10, 20, 40, 80 und 160, alle im gleichen Abstand voneinander. Die erste Säule reicht bis zur vierten Marke über der 0, die zweite Säule bis zur zweiten Marke über der 0. Wie viel Mal so groß ist der Wert der ersten Säule wie der Wert der zweiten?"
+    },
+    "w": "Die vierte Marke über der 0 trägt den Wert 80, die zweite den Wert 20. Der Wert der ersten Säule ist 80 : 20 = 4-mal so groß. Die Säulen sind gleich hoch gezeichnet wie 4 und 2 Abstände, sie täuschen also nur das Doppelte vor.",
+    "o": {
+     "wert": 4
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": "80 : 20",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "rechnung": "4 : 2",
+     "beschreibung": "die Nummern der Marken (vierte und zweite) statt ihrer Werte verglichen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 8,
+     "rechnung": "80 : 10",
+     "beschreibung": "die erste Marke über der 0 (Wert 10) als Wert der zweiten Säule genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "pruefen|Nummer der Marke gegen Wert der Marke"
+  },
+  {
+   "kennung": "VT3-045",
+   "thema": "daten.darstellen",
+   "lernkarte": "irrefuehrend",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen nennen den Achsenbeginn und fragen nach dem Eindruck. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "irrefuehrend",
+    "t": "irrefuehrend",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Vereine werben mit ihrem Zuwachs. Verein A: „Wir haben 50 % mehr Mitglieder!“ (von 4 auf 6 Mitglieder). Verein B: „Wir haben 10 % mehr Mitglieder.“ (von 200 auf 220 Mitglieder). Welche Aussage stimmt?"
+    },
+    "w": "A: 6 − 4 = 2 neue Mitglieder, B: 220 − 200 = 20 neue Mitglieder. Ein großer Prozentsatz von einem kleinen Ausgangswert kann eine kleine Anzahl sein; die Prozentzahlen gehören zu verschieden großen Ausgangswerten.",
+    "a": [
+     "Verein A hat mehr neue Mitglieder gewonnen, denn 50 % sind mehr als 10 %.",
+     "Verein B hat mehr neue Mitglieder gewonnen, denn 20 neue sind mehr als 2.",
+     "Beide haben gleich viele neue Mitglieder gewonnen, denn Prozentzahlen sind immer miteinander vergleichbar.",
+     "Verein A war fünfmal so erfolgreich wie Verein B, denn 50 : 10 ergibt 5."
+    ],
+    "o": {
+     "index": 1
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Verein A hat mehr neue Mitglieder gewonnen, denn 50 % sind mehr als 10 %.",
+     "beschreibung": "Prozentzahlen mit Anzahlen verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Beide haben gleich viele neue Mitglieder gewonnen, denn Prozentzahlen sind immer miteinander vergleichbar.",
+     "beschreibung": "nicht beachtet, dass die Prozente sich auf verschiedene Ausgangswerte beziehen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Verein A war fünfmal so erfolgreich wie Verein B, denn 50 : 10 ergibt 5.",
+     "beschreibung": "die Prozentzahlen geteilt und als Erfolg gedeutet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "begruenden|Prozente mit verschiedener Basis"
+  },
+  {
+   "kennung": "VT3-046",
+   "thema": "daten.darstellen",
+   "lernkarte": "irrefuehrend",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen nennen den Achsenbeginn und fragen nach dem Eindruck. Diese Aufgabe: Fehler-Detektiv (Zeile finden und richtigstellen).",
+   "aufgabe": {
+    "l": "irrefuehrend",
+    "t": "irrefuehrend",
+    "p": "korrektur",
+    "s": 2,
+    "y": "luecken",
+    "f": {
+     "text": "Der Anteil der Kinder, die im Verein Fußball spielen, stieg von 20 % auf 30 %. Zeile 1: Das sind 10 Prozentpunkte mehr. Zeile 2: Der Anteil ist also um 10 % gestiegen. Zeile 3: Der Verein darf werben: „Nur 10 % mehr Fußballer.“ Zeile 4: Eine Zunahme von 10 Prozentpunkten ist immer eine Zunahme um 10 %. In welcher Zeile steckt der erste Fehler, und um wie viel Prozent ist der Anteil wirklich gestiegen?",
+     "schablone": "Fehler in Zeile □, wirklich um □ %",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Zeile 2 ist falsch: 10 Prozentpunkte sind eine Zunahme von 10 : 20 = 0,5, also um 50 %. Der Anteil ist von 20 % auf 30 % gestiegen, das ist die Hälfte mehr.",
+    "o": {
+     "werte": [
+      2,
+      50
+     ]
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": [
+    "2",
+    "(30 − 20) : 20 · 100"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "rechnung": "30 − 20",
+     "beschreibung": "Prozentpunkte mit Prozent verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 150,
+     "rechnung": "30 : 20 · 100",
+     "beschreibung": "den neuen Anteil als Anteil des alten (150 %) statt als Zuwachs angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "fehler|Fehler-Detektiv: Prozentpunkte und Prozent"
+  },
+  {
+   "kennung": "VT3-047",
+   "thema": "daten.darstellen",
+   "lernkarte": "irrefuehrend",
+   "pool": "sicherung",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen nennen den Achsenbeginn und fragen nach dem Eindruck. Diese Aufgabe: Darstellung wechseln.",
+   "aufgabe": {
+    "l": "irrefuehrend",
+    "t": "irrefuehrend",
+    "p": "sicherung",
+    "s": 2,
+    "y": "zahl",
+    "f": {
+     "text": "Eine Zeitung zeigt nur die letzten drei Monate des Jahres: Die Verkäufe steigen dort von 60 auf 66 Stück. Im ganzen Jahr sind sie aber von 40 auf 66 Stück gestiegen. Um wie viele Prozentpunkte ist der Anstieg im ganzen Jahr größer als der Anstieg im gezeigten Ausschnitt?"
+    },
+    "w": "Im Ausschnitt: 6 : 60 = 10 % Anstieg. Im ganzen Jahr: 26 : 40 = 65 % Anstieg. Der Unterschied beträgt 65 − 10 = 55 Prozentpunkte. Der Ausschnitt lässt den Anstieg viel kleiner wirken, als er im ganzen Jahr war.",
+    "o": {
+     "wert": 55,
+     "einheit": "Prozentpunkte"
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": "26 : 40 · 100 − 6 : 60 · 100",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "rechnung": "6 : 60 · 100",
+     "beschreibung": "nur den Anstieg im gezeigten Ausschnitt angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 65,
+     "rechnung": "26 : 40 · 100",
+     "beschreibung": "nur den Anstieg im ganzen Jahr angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 75,
+     "rechnung": "26 : 40 · 100 + 6 : 60 · 100",
+     "beschreibung": "die beiden Prozentsätze addiert statt ihren Unterschied genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "groessenvergleich|Ausschnitt des Jahres täuscht: Anstieg im Ausschnitt gegen ganzes Jahr"
+  },
+  {
+   "kennung": "VT3-048",
+   "thema": "daten.darstellen",
+   "lernkarte": "irrefuehrend",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen nennen den Achsenbeginn und fragen nach dem Eindruck. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "irrefuehrend",
+    "t": "irrefuehrend",
+    "p": "sicherung",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Säulen in einem Säulendiagramm sind gleich hoch, die rechte ist aber doppelt so breit gezeichnet wie die linke. Die Hochachse beginnt bei 0. Was bedeutet das?"
+    },
+    "w": "Bei einem Säulendiagramm zählt nur die Höhe. Gleiche Höhe heißt gleicher Wert. Eine breitere Säule wirkt nur größer, ohne mehr zu bedeuten.",
+    "a": [
+     "Die rechte Säule steht für doppelt so viel, weil sie doppelt so viel Platz einnimmt.",
+     "Die linke Säule steht für mehr, weil sie schmaler ist und deshalb steiler wirkt.",
+     "Man kann nichts sagen, weil sich die Breiten der beiden Säulen deutlich unterscheiden und die Höhen nichts aussagen.",
+     "Beide Säulen stehen für gleich viel, weil nur die Höhe zählt und die breitere nur größer wirkt."
+    ],
+    "o": {
+     "index": 3
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Die rechte Säule steht für doppelt so viel, weil sie doppelt so viel Platz einnimmt.",
+     "beschreibung": "die Fläche der Säule statt der Höhe gelesen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Die linke Säule steht für mehr, weil sie schmaler ist und deshalb steiler wirkt.",
+     "beschreibung": "Breite mit Höhe verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Man kann nichts sagen, weil sich die Breiten der beiden Säulen deutlich unterscheiden und die Höhen nichts aussagen.",
+     "beschreibung": "nicht erkannt, dass nur die Höhe zählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "darstellung|Säulenbreite und Aussage"
+  },
+  {
+   "kennung": "VT3-049",
+   "thema": "daten.darstellen",
+   "lernkarte": "irrefuehrend",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen nennen den Achsenbeginn und fragen nach dem Eindruck. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "irrefuehrend",
+    "t": "irrefuehrend",
+    "p": "sicherung",
+    "s": 3,
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Diagramme zeigen denselben Verkauf von 40 auf 60 Stück. Im Diagramm A reicht die Hochachse von 0 bis 100 über 10 cm, im Diagramm B von 0 bis 100 über 2 cm. Welche Aussage ist richtig?"
+    },
+    "w": "Der Verkauf steigt von 40 auf 60, das sind 20 mehr, also 20 : 40 = 50 %. In A sind die Säulen 4 cm und 6 cm hoch, in B 0,8 cm und 1,2 cm. Der Maßstab ändert den Eindruck, nicht die Daten.",
+    "a": [
+     "Beide zeigen dieselben Werte, denn in A wirkt der Anstieg nur steiler.",
+     "In B ist der Anstieg stärker, denn die Säulen sind dort deutlich kleiner gezeichnet und eng beisammen.",
+     "In A ist der Verkauf stärker gestiegen, denn der Anstieg beträgt 2 cm gegenüber 0,4 cm in B.",
+     "Mindestens eines der beiden Diagramme ist falsch, denn sie widersprechen sich."
+    ],
+    "o": {
+     "index": 0
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In B ist der Anstieg stärker, denn die Säulen sind dort deutlich kleiner gezeichnet und eng beisammen.",
+     "beschreibung": "kleine Zeichnung mit großem Anstieg verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "In A ist der Verkauf stärker gestiegen, denn der Anstieg beträgt 2 cm gegenüber 0,4 cm in B.",
+     "beschreibung": "den Unterschied der Zeichnungen als Unterschied der Verkäufe gelesen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Mindestens eines der beiden Diagramme ist falsch, denn sie widersprechen sich.",
+     "beschreibung": "nicht erkannt, dass nur der Maßstab verschieden ist",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "idee": "zwei_wege|dieselben Daten, zwei Diagramme"
+  }
+ ]
+}

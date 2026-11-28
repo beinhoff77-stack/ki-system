@@ -46,9 +46,10 @@ def W(text, richtig, falsch, w, probe, grafik=None):
     return d, probe, fb
 
 
-def neu(thema, lz, pool, typ, bau, form=None, regel=None, ohne=None, zweifel=None, lehrplan="M5 3"):
+def neu(thema, lz, pool, typ, bau, form=None, regel=None, ohne=None, zweifel=None, lehrplan="M5 3", idee=None):
+    assert idee, (thema, lz, pool, "idee fehlt")
     assert pool in POOLS and typ in TYPEN_ERLAUBT and (form is None or form in FORMEN), (thema, lz, pool, typ, form)
     assert (regel is None) == bool(ohne), (thema, lz, "Regel oder Begründung ohne Regel angeben, nicht beides")
     aufgabe, zweit, fb = bau
-    A.append(dict(thema=thema, lz=lz, pool=pool, typ=typ, form=form, regel=regel, ohne=ohne, zweifel=zweifel, lehrplan=lehrplan,
+    A.append(dict(thema=thema, lz=lz, pool=pool, typ=typ, form=form, regel=regel, ohne=ohne, zweifel=zweifel, lehrplan=lehrplan, idee=idee,
                   s=ip.STUFE_VON[typ], aufgabe=aufgabe, zweit=zweit, fb=fb, nr=len(A)))

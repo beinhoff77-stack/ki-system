@@ -108,7 +108,8 @@ for s in EINHEITEN:
         assert {a["s"] for a in xs if a["pool"] == "korrektur"} == {2}, (s, lz, "Korrektur: Stufe 2")
         assert {a["s"] for a in xs if a["pool"] == "test"} <= {2, 3}, (s, lz)
         assert {a["s"] for a in xs if a["pool"] == "sicherung"} == {2, 3}, (s, lz, "Sicherung gemischt 2 und 3")
-        assert len({a["typ"] for a in xs}) >= 4, (s, lz, "verschiedene Bauarten", Counter(a["typ"] for a in xs))
+        ideen = Counter(a["idee"] for a in xs)
+        assert len(ideen) >= 5 and max(ideen.values()) <= 2, (s, lz, "mindestens 5 verschiedene Ideen, keine öfter als 2-mal", dict(ideen))
 assert len(A) == 77, len(A)
 assert all(a["thema"] in EINHEITEN and a["lz"] in GEWAEHLT[a["thema"]] for a in A)
 
@@ -183,7 +184,7 @@ for zaehler, a in enumerate(A, 1):
             gf = q["f"]["grafik"]
             assert gf["typ"] == "tabelle" and all(len(z) == len(gf["kopf"]) and all(isinstance(x, str) for x in z) for z in gf["zeilen"]), kenn
         eintrag = dict(kennung=kenn, thema=a["thema"], lernkarte=a["lz"], pool=a["pool"], stufe=a["s"], typ=a["typ"], form=a["form"], antwortform=q["y"], zaehlt="ja",
-                       lehrplan=a["lehrplan"], abgrenzung=ABGRENZUNG[a["thema"]][a["lz"]], regel=a["regel"], regel_name=REGELN[a["regel"]]["name"] if a["regel"] else None, fehlbilder=[])
+                       lehrplan=a["lehrplan"], idee=a["idee"], abgrenzung=ABGRENZUNG[a["thema"]][a["lz"]], regel=a["regel"], regel_name=REGELN[a["regel"]]["name"] if a["regel"] else None, fehlbilder=[])
         if a["pool"] == "test":
             eintrag["ersetzt_test"] = True
 

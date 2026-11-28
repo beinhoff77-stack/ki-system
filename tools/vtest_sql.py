@@ -36,6 +36,7 @@ sys.path.insert(0, str(WURZEL / 'tools/tests'))
 import vtest_pruefen as P  # noqa: E402
 import regelbezug_sql as R  # noqa: E402
 import nf_einspielen as NF  # noqa: E402
+VTEST_S_TSI = '059fb2fe81bd1e5725fddcb6f2f1df8b'   # test_starten_intern nach VTEST-S (20261212_vtest_s.sql; enthält den NF-S-Freigabefilter unverändert) – geprüft in tools/tests/vtest_s_test.py
 
 AUS = WURZEL / 'tools/tests/aus'
 BLOCK_TEST = 80000
@@ -177,7 +178,7 @@ begin
   end loop;
   if to_regprocedure('schule.nachtest_auswahl(bigint, bigint, text, integer)') is null or to_regprocedure('schule.nachtest_stand(bigint, bigint)') is null
      or to_regprocedure('schule.test_starten_intern(bigint, jsonb)') is null
-     or md5((select prosrc from pg_proc where oid = to_regprocedure('schule.test_starten_intern(bigint, jsonb)'))) is distinct from '{NF.md5(NF.tsi_neu())}'
+     or md5((select prosrc from pg_proc where oid = to_regprocedure('schule.test_starten_intern(bigint, jsonb)'))) not in ('{NF.md5(NF.tsi_neu())}', '{VTEST_S_TSI}')
      or md5((select prosrc from pg_proc where oid = to_regprocedure('schule.nachtest_auswahl(bigint, bigint, text, integer)'))) is distinct from '{NF.md5(NF.auswahl_neu())}'
      or md5((select prosrc from pg_proc where oid = to_regprocedure('schule.nachtest_stand(bigint, bigint)'))) is distinct from '{NF.md5(NF.stand_neu())}' then
     raise exception '{kz} ABBRUCH: erst NF-S einspielen (nachtest_auswahl, nachtest_stand und test_starten_intern müssen exakt die neue Fassung mit Freigabefilter haben)'; end if;

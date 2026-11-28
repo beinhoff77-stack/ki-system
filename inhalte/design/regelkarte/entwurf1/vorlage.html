@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entwurf 1 · Regelkarte unter dem Fehler</title>
+<style>
+/* Entwurf, kein App-Code. Farben, Schriften und Knopfarten aus style.css (.lr-abflug-tag / .lr-abflug-nacht, .lr-knopf, .lr-knopf-zweit, .lr-textlink)
+   und lernen-regeln.css (.ru-merk, Zeichnungsfarben --z-…). Neue Klassen beginnen mit rk-. */
+@font-face { font-family: "Space Grotesk"; src: url("/*SCHRIFT_SG*/") format("woff2"); font-weight: 300 700; }
+@font-face { font-family: "JetBrains Mono"; src: url("/*SCHRIFT_JB*/") format("woff2"); font-weight: 100 800; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+.lr { --lr-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace; font-family: "Space Grotesk", system-ui, sans-serif; font-size: 18px; font-weight: 500;
+  background: var(--lr-bg); color: var(--lr-text); min-height: 100vh; line-height: 1.4; }
+.lr-abflug-tag { color-scheme: light; --lr-bg: #F3F1EA; --lr-flaeche: #FFFFFF; --lr-text: #11161D; --lr-leise: #4A5563; --lr-akzent: #FFD23F; --lr-akzent-tief: #C79E1C; --lr-auf-akzent: #11161D;
+  --lr-gut: #0B7A4B; --lr-gut-bg: #DDF3E8; --lr-kurs: #A8410F; --lr-kurs-bg: #FFE9DC; --lr-linie: #C9C4B6; --lr-tafel: #11161D; --lr-tafel-weiss: #E9EDF2; --lr-taste: #FFFFFF;
+  --z-papier: #FFFEFA; --z-karo: #C7D8E8; --z-tinte: #11161D; --z-leise: #5B6675; --z-gelb: #FFD23F; --z-gelb-fl: #FFE88A; --z-blau: #1F5FBF; --z-blau-fl: #D9E8FB; --z-rot: #B3261E;
+  --rk-merk: color-mix(in srgb, #FFD23F 22%, #fff); --rk-merk-rand: color-mix(in srgb, #FFD23F 70%, #C9C4B6); --rk-falsch: #B3261E; --rk-falsch-bg: #FBE9EB; }
+.lr-abflug-nacht { color-scheme: dark; --lr-bg: #0B0F14; --lr-flaeche: #151B24; --lr-text: #F2F4F7; --lr-leise: #A9B3C1; --lr-akzent: #FFD23F; --lr-akzent-tief: #C79E1C; --lr-auf-akzent: #11161D;
+  --lr-gut: #45E0A0; --lr-gut-bg: #12281F; --lr-kurs: #FFAD7A; --lr-kurs-bg: #33201A; --lr-linie: #2E3947; --lr-tafel: #05080C; --lr-tafel-weiss: #E9EDF2; --lr-taste: #1D2530;
+  --z-papier: #10161E; --z-karo: #243140; --z-tinte: #F2F4F7; --z-leise: #9AA6B5; --z-gelb: #FFD23F; --z-gelb-fl: #6B5714; --z-blau: #7CB7FF; --z-blau-fl: #1B3A5F; --z-rot: #FF8A8A;
+  --rk-merk: color-mix(in srgb, #FFD23F 16%, #151B24); --rk-merk-rand: color-mix(in srgb, #FFD23F 55%, #2E3947); --rk-falsch: #FF8A8A; --rk-falsch-bg: #2A1A1C; }
+
+/* Entwurfs-Streifen (nicht Teil der App) */
+.ew { font: 13px/1.35 "JetBrains Mono", monospace; background: #2B2F36; color: #E9EDF2; padding: 6px 10px; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; }
+.ew b { color: #FFD23F; font-weight: 700; } .ew a { color: #E9EDF2; } .ew a[aria-current] { color: #FFD23F; font-weight: 800; text-decoration: none; }
+.ew .ew-gr { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+.ew-notiz { font: 13px/1.4 "JetBrains Mono", monospace; color: var(--lr-leise); border: 1.5px dashed var(--lr-linie); border-radius: 12px; padding: 8px 10px; margin: 14px 0 0; }
+.ew-notiz b { color: var(--lr-text); }
+
+/* App-Rahmen (vereinfacht nach Bild 06f/06g) */
+.lr-top { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-bottom: 1px solid var(--lr-linie); }
+.lr-top .lr-zurueck { width: 48px; height: 48px; border-radius: 12px; border: 1px solid var(--lr-linie); background: var(--lr-flaeche); display: grid; place-items: center; font-weight: 800; font-size: 22px; }
+.lr-top b { font-size: 19px; font-weight: 600; }
+.lr-seite { max-width: 1040px; margin: 0 auto; padding: 14px 16px 40px; }
+.lr-spalte { max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.lr-titelzeile { display: flex; gap: 12px; align-items: center; }
+.lr-x { width: 48px; height: 48px; border-radius: 12px; border: 1px solid var(--lr-linie); background: var(--lr-flaeche); display: grid; place-items: center; font-size: 20px; flex: none; }
+.lr-ueber { margin: 0; font-family: var(--lr-mono); font-size: 13px; font-weight: 700; letter-spacing: .08em; color: var(--lr-leise); text-transform: uppercase; }
+.lr-tabs { display: grid; grid-template-columns: 1fr 1fr 1fr; border: 1px solid var(--lr-linie); border-radius: 999px; background: var(--lr-flaeche); padding: 4px; font-family: var(--lr-mono); font-size: 14px; font-weight: 800; letter-spacing: .06em; text-align: center; }
+.lr-tabs span { padding: 10px 4px; border-radius: 999px; } .lr-tabs .an { background: var(--lr-akzent); color: var(--lr-auf-akzent); }
+.lr-erkl { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; text-decoration: underline; min-height: 44px; color: var(--lr-text); }
+.lr-erkl i { width: 26px; height: 26px; border-radius: 50%; background: var(--lr-akzent); color: #11161D; font-style: normal; display: grid; place-items: center; font-weight: 800; }
+.lr-bordkarte { background: var(--lr-flaeche); border: 1px solid var(--lr-linie); border-radius: 18px; overflow: hidden; }
+.lr-bord-kopf { display: flex; justify-content: space-between; padding: 12px 16px; font-family: var(--lr-mono); font-size: 13px; letter-spacing: .08em; color: var(--lr-leise); border-bottom: 1px solid var(--lr-linie); }
+.lr-frage { padding: 16px 16px 6px; font-size: 22px; font-weight: 600; line-height: 1.3; margin: 0; }
+.lr-eingabe { padding: 6px 16px 16px; display: flex; justify-content: center; align-items: center; gap: 6px; flex-wrap: wrap; font-family: var(--lr-mono); font-size: 22px; font-weight: 700; }
+.lr-feld { min-width: 52px; height: 52px; padding: 0 10px; border-radius: 8px; background: var(--lr-tafel); color: var(--lr-akzent); display: inline-grid; place-items: center; font-size: 24px; }
+.lr-feld.gesperrt { background: #7A7F87; color: #F6E7A8; }
+.lr-abflug-nacht .lr-feld.gesperrt { background: #2A313B; color: #C9B66A; }
+.lr-perfo { border-top: 2px dashed var(--lr-linie); margin: 0 0 0; }
+.lr-bord-fuss { padding: 12px 16px 0; }
+.lr-knopf-zweit { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 16px; border-radius: 14px; border: 2px solid var(--lr-linie); background: transparent; color: var(--lr-text); font: inherit; font-weight: 800; text-decoration: none; cursor: pointer; }
+.lr-bord-fuss .lr-knopf-zweit { min-height: 44px; font-size: 16px; }
+.lr-knopf { display: flex; align-items: center; justify-content: center; min-height: 60px; border-radius: 14px; background: var(--lr-akzent); color: var(--lr-auf-akzent); font: inherit; font-weight: 700; font-size: 20px; text-decoration: none; border: 0; width: 100%; }
+.lr-textlink { color: var(--lr-text); font-size: 15px; font-weight: 700; text-decoration: underline; min-height: 44px; display: inline-flex; align-items: center; background: none; border: 0; padding: 0; font-family: inherit; cursor: pointer; }
+.lr-aendern { border: 1.5px dashed var(--lr-leise); border-radius: 14px; padding: 18px 16px; color: var(--lr-gut); font-weight: 700; }
+.lr-tasten { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.lr-tasten span { background: var(--lr-taste); border: 1px solid var(--lr-linie); border-radius: 12px; min-height: 60px; display: grid; place-items: center; font-family: var(--lr-mono); font-size: 22px; font-weight: 700; }
+.lr-tasten .pr { grid-column: span 2; background: var(--lr-akzent); color: #11161D; font-family: "Space Grotesk", sans-serif; font-size: 20px; border: 0; }
+.lr-tasten .null { grid-column: span 2; }
+.lr-menue { align-self: center; border: 1px solid var(--lr-linie); background: var(--lr-flaeche); border-radius: 12px; padding: 10px 16px; font-weight: 700; margin-top: 8px; }
+
+/* Rückmeldung (vorhanden) */
+.lr-rueck { border-radius: 14px; padding: 12px 14px; font-size: 16px; line-height: 1.4; }
+.lr-rueck p { margin: 6px 0 0; }
+.lr-rueck-falsch { background: var(--lr-kurs-bg); }
+.lr-rueck-nochmal { border: 2px solid var(--lr-akzent); background: var(--lr-bg); }
+.lr-rueck-ok { background: var(--lr-gut-bg); }
+.lr-kursbox .lr-ueber { color: var(--lr-kurs); }
+.lr-leise { color: var(--lr-leise); }
+.lr-kurs { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; margin: 6px 0 4px; }
+.lr-kurs-zeile { display: flex; align-items: center; gap: 4px; }
+.lr-kurs-name { font-family: var(--lr-mono); font-size: 13px; letter-spacing: .08em; color: var(--lr-leise); width: 46px; }
+.lr-kurs-k { width: 30px; height: 40px; border-radius: 6px; background: var(--lr-tafel); color: var(--lr-tafel-weiss); font-family: var(--lr-mono); font-weight: 800; font-size: 21px; display: inline-grid; place-items: center; }
+.lr-kurs-k.ab { background: #FFD23F; color: #11161D; } .lr-kurs-k.leer { background: transparent; } .lr-kurs-k.leer.ab { outline: 2px dashed #FFD23F; outline-offset: -3px; background: transparent; }
+.lr-kurs-kopf .lr-kurs-k { height: 18px; background: transparent; color: var(--lr-leise); font-size: 13px; }
+.lr-detektiv { margin-top: 8px; border-radius: 12px; background: color-mix(in srgb, var(--lr-akzent) 12%, var(--lr-flaeche)); padding: 10px 12px; }
+
+/* ===== Neu: Regelkarte ===== */
+.rk-status { display: flex; align-items: flex-start; gap: 10px; font-weight: 700; font-size: 17px; line-height: 1.3; }
+.rk-zeichen { flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 16px; font-weight: 800; }
+.rk-zeichen.nochmal { border: 2px solid var(--lr-text); }
+.rk-zeichen.falsch { background: var(--rk-falsch); color: var(--lr-flaeche); }
+.rk-zeichen.ok { background: var(--lr-gut); color: var(--lr-flaeche); }
+.rk-karte { background: var(--lr-flaeche); border: 1.5px solid var(--lr-linie); border-radius: 16px; padding: 12px 14px 6px; margin-top: 10px; }
+.rk-passiert { margin: 0 0 10px; padding: 0 0 10px; border-bottom: 1.5px dashed var(--lr-linie); font-size: 17px; font-weight: 600; line-height: 1.35; }
+.rk-passiert .lr-ueber { margin-bottom: 4px; color: var(--lr-kurs); }
+.rk-kopf { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px; }
+.rk-name { margin: 2px 0 0; font-size: 18px; font-weight: 700; line-height: 1.25; }
+.rk-merk { margin: 8px 0 0; padding: 10px 12px; border-radius: 12px; background: var(--rk-merk); border: 1.5px solid var(--rk-merk-rand); font-size: 19px; font-weight: 700; line-height: 1.3; }
+.rk-bild { margin: 10px 0 0; border: 1px solid var(--lr-linie); border-radius: 12px; background: var(--z-papier); padding: 8px 8px 6px; }
+.rk-bild svg { display: block; width: 100%; height: auto; max-width: 360px; margin: 0 auto; }
+.rk-bild figcaption { font-size: 14px; color: var(--lr-leise); margin-top: 4px; line-height: 1.35; }
+.rk-gl { font-family: var(--lr-mono); font-size: 15px; font-weight: 600; margin: 6px 0 0; color: var(--lr-text); }
+.rk b.ru-w, .rk-gl b.ru-w { background: #FFD23F; color: #11161D; border-radius: 5px; padding: 1px 4px; font-weight: 700; }
+.rk b.ru-bl, .rk-gl b.ru-bl { background: var(--z-blau-fl); border-radius: 5px; padding: 1px 4px; box-shadow: inset 0 0 0 1.5px var(--z-blau); }
+.rk-gewand { display: flex; align-items: center; gap: 6px; margin: 8px 0 0; font-size: 14px; color: var(--lr-leise); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-height: 24px; }
+.rk-gewand b { color: var(--lr-text); font-weight: 700; }
+.rk-gewand .rk-ring { flex: none; width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--lr-leise); box-shadow: inset 0 0 0 3px var(--lr-flaeche), inset 0 0 0 8px var(--lr-leise); }
+.rk-gewand span.t { display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.rk-gewand code { font-family: var(--lr-mono); font-size: 14px; color: var(--lr-text); }
+.rk-zeile { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; margin: 8px 0 4px; }
+.rk-zeile .lr-knopf-zweit { min-height: 48px; }
+.rk-auch { margin: 6px 0 0; font-size: 15px; color: var(--lr-leise); }
+.rk-auch a { color: var(--lr-text); font-weight: 700; }
+.rk-weg { margin-top: 10px; font-size: 16px; }
+.rk-weg code { font-family: var(--lr-mono); font-size: 15px; }
+mark.rk-m { background: #FFD23F; color: #11161D; border-radius: 4px; padding: 0 2px; }
+/* kompakt */
+.rk-kompakt { margin-top: 10px; border-left: 4px solid var(--lr-akzent); background: var(--lr-flaeche); border-radius: 0 12px 12px 0; padding: 8px 12px 2px; }
+.rk-kompakt .rk-merk { font-size: 16px; padding: 0; background: none; border: 0; margin-top: 2px; }
+.rk-kompakt .rk-passiert { font-size: 15px; padding-bottom: 6px; margin-bottom: 6px; }
+.rk-kompakt .rk-zeile { margin: 2px 0 0; }
+/* Breite: Fehler-Teil und Regel nebeneinander */
+@media (min-width: 760px) {
+  .rk-karte.mit-bild .rk-innen { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 14px; align-items: start; }
+  .rk-karte.mit-bild .rk-bild { margin-top: 0; }
+}
+/* Vergleich „Heute“ daneben (nur Entwurf, ab 1100 px) */
+.ew-vergleich { display: block; }
+.ew-heute { display: none; }
+@media (min-width: 1100px) {
+  .ew-vergleich { display: grid; grid-template-columns: minmax(0, 640px) 360px; gap: 28px; justify-content: center; }
+  .ew-vergleich .lr-spalte { margin: 0; }
+  .ew-heute { display: flex; flex-direction: column; gap: 12px; opacity: .92; }
+  .ew-heute .lr-frage { font-size: 18px; }
+}
+.ew-heute-kopf { font: 700 13px/1.3 "JetBrains Mono", monospace; letter-spacing: .06em; color: var(--lr-leise); border-bottom: 2px solid var(--lr-linie); padding-bottom: 6px; }
+
+/* Check-in / Mischkarte / Knobel (vereinfacht nach 06m/06l/06k) */
+.lr-koffer { display: flex; gap: 4px; } .lr-koffer i { width: 22px; height: 24px; border: 2px solid var(--lr-linie); border-radius: 5px; background: var(--lr-flaeche); }
+.lr-koffer i.ok { background: var(--lr-akzent); border-color: var(--lr-akzent-tief); } .lr-koffer i.nein { background: var(--lr-kurs-bg); border-color: var(--lr-kurs); }
+.lr-sterne { border: 1px solid var(--lr-linie); border-radius: 999px; padding: 2px 10px; font-weight: 700; font-size: 15px; }
+.lr-misch-kopf { border-radius: 12px; background: color-mix(in srgb, var(--lr-akzent) 18%, var(--lr-flaeche)); padding: 8px 12px; font-size: 15px; font-weight: 700; }
+
+/* Test-Ergebnis */
+.ts-summe { background: var(--lr-flaeche); border: 1px solid var(--lr-linie); border-radius: 18px; padding: 14px 16px; }
+.ts-summe .gross { font-size: 34px; font-weight: 700; } .ts-summe .gross small { font-size: 18px; font-weight: 600; }
+.ts-balken { display: flex; gap: 3px; margin: 10px 0 6px; } .ts-balken i { flex: 1; height: 14px; border-radius: 3px; background: var(--lr-gut); }
+.ts-balken i.f { background: transparent; border: 2px solid var(--rk-falsch); }
+.ts-legende { font-size: 14px; color: var(--lr-leise); }
+.ts-gruppe { background: var(--lr-flaeche); border: 1px solid var(--lr-linie); border-left: 6px solid var(--rk-falsch); border-radius: 16px; padding: 12px 14px 8px; }
+.ts-gruppe.ohne { border-left-color: var(--lr-linie); }
+.ts-gruppe.richtig { border-left-color: var(--lr-gut); }
+.ts-gruppe .rk-karte { border: 0; padding: 0; margin: 0; }
+.ts-zahl { display: inline-flex; align-items: center; gap: 6px; font-family: var(--lr-mono); font-size: 13px; font-weight: 800; letter-spacing: .07em; color: var(--rk-falsch); }
+.ts-gruppe.richtig .ts-zahl { color: var(--lr-gut); }
+details.ts-auf { margin-top: 6px; border-top: 1px solid var(--lr-linie); }
+details.ts-auf > summary { list-style: none; min-height: 48px; display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 16px; cursor: pointer; }
+details.ts-auf > summary::-webkit-details-marker { display: none; }
+details.ts-auf > summary::before { content: "▸"; font-size: 14px; } details.ts-auf[open] > summary::before { content: "▾"; }
+.ts-einzel { border-top: 1px dashed var(--lr-linie); padding: 10px 0; font-size: 15px; }
+.ts-einzel p { margin: 4px 0 0; } .ts-einzel .q { font-weight: 600; font-size: 16px; margin: 0; }
+.ts-einzel .w { display: inline-flex; gap: 6px; align-items: baseline; font-family: var(--lr-mono); font-size: 13px; font-weight: 800; letter-spacing: .06em; }
+.ts-einzel .w.f { color: var(--rk-falsch); } .ts-einzel .w.ok { color: var(--lr-gut); }
+.lr-test-knoepfe { display: flex; flex-direction: column; gap: 10px; }
+.lr-test-knoepfe .lr-knopf-zweit { min-height: 56px; }
+.ts-zusatz { font: 700 13px/1.3 "JetBrains Mono", monospace; letter-spacing: .06em; color: #11161D; background: #FFD23F; border-radius: 6px; padding: 3px 8px; align-self: flex-start; }
+
+/* Regel-Universum: Kopf mit Rückweg (nach lernen-regeln.css) */
+.ru-band { position: sticky; top: 0; z-index: 2; background: color-mix(in srgb, var(--lr-akzent) 22%, var(--lr-bg)); border-bottom: 1.5px solid var(--rk-merk-rand); padding: 10px 16px; }
+.ru-band-in { max-width: 680px; margin: 0 auto; display: flex; flex-direction: column-reverse; align-items: stretch; gap: 6px; }
+.ru-band .lr-knopf-zweit { background: var(--lr-flaeche); border-color: var(--lr-text); flex: none; }
+.ru-band small { font-size: 14px; color: var(--lr-text); line-height: 1.3; }
+.ru-kopfzeile { display: flex; gap: 10px; align-items: center; padding: 12px 16px; }
+.ru-suche { flex: 1; min-height: 48px; border: 1px solid var(--lr-linie); border-radius: 14px; background: var(--lr-flaeche); display: flex; align-items: center; padding: 0 12px; color: var(--lr-leise); }
+.ru-pfad { font-size: 15px; font-weight: 700; color: var(--lr-leise); display: flex; gap: 6px; flex-wrap: wrap; } .ru-pfad a { color: var(--lr-text); }
+.ru-titel { font-size: 26px; font-weight: 700; margin: 2px 0 0; line-height: 1.2; }
+.ru-klassen { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.ru-klassen li { background: var(--lr-flaeche); border: 1px solid var(--lr-linie); border-radius: 12px; padding: 8px 12px; }
+.ru-klassen li.hier { border: 2px solid var(--lr-text); }
+.ru-klassen .kl { font-family: var(--lr-mono); font-size: 13px; font-weight: 800; letter-spacing: .06em; color: var(--lr-leise); display: flex; justify-content: space-between; gap: 8px; }
+.ru-klassen .hier .kl span:last-child { color: var(--lr-text); }
+.ru-klassen code { display: block; font-family: var(--lr-mono); font-size: 16px; font-weight: 600; margin-top: 3px; }
+.ru-klassen li.leer { background: none; border-style: dashed; color: var(--lr-leise); font-size: 14px; }
+.ru-ab { font-size: 20px; font-weight: 700; margin: 14px 0 0; }
+.ru-acc { border: 1px solid var(--lr-linie); border-radius: 14px; background: var(--lr-flaeche); min-height: 56px; display: flex; justify-content: space-between; align-items: center; padding: 0 16px; font-weight: 700; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+'use strict';
+const D = /*DATEN*/null;
+const P = Object.fromEntries(location.hash.slice(1).split('&').filter(Boolean).map((x) => x.split('=')));
+const Z = P.z || 'erst', G = P.g === 'nacht' ? 'nacht' : 'tag', KW = P.k === 'beispiel' ? 'beispiel' : 'orte', FOTO = 'foto' in P;
+const h = (tag, a, ...kinder) => { const e = document.createElement(tag); for (const [k, v] of Object.entries(a || {})) { if (v === null || v === undefined || v === false) continue; if (k === 'html') e.innerHTML = v; else if (k.startsWith('on')) e.addEventListener(k.slice(2), v); else e.setAttribute(k, v === true ? '' : v); }
+  for (const k of kinder.flat(9)) if (k !== null && k !== undefined && k !== false) e.append(k.nodeType ? k : String(k)); return e; };
+
+// ---------- Beispiele (Aufgaben erfunden; Regeln, Merksätze, Zeichnungen, Klassenleiter echt aus daten/regeln-universum.json) ----------
+const B = {
+  minus: { titel: 'Minusklammer, Klasse 7 – Regel mit Zeichnung', klasse: 7, thema: 'terme.umformen', etappe: 'Etappe 2/4 · Minusklammern auflösen', bord: 3,
+    frage: 'Löse die Klammer auf und fasse zusammen: 5x − (2x − 4)', typ: 'luecken', schablone: ['', 'x + ', ''], du: ['3', '−4'], ziel: ['3', '4'],
+    weg: '5x − (2x − 4) = 5x − 2x + 4 = 3x + 4', lernkarteFehler: 'Hast du nur das erste Zeichen in der Klammer umgedreht?',
+    rb1: { regel: 'rr.minusklammer' }, rb2: { regel: 'rr.minusklammer', fehlbild: 'fb.minusklammer.nur_erstes_zeichen', fehlbild_nr: 1, fehlbild_regel: 'rr.minusklammer', text: 'nur das Vorzeichen von 2x gewechselt, die 4 aber nicht' } },
+  stellenwert: { titel: 'Stellenwert, Klasse 5 – Zahl-Aufgabe mit Kurskorrektur', klasse: 5, thema: 'zahlen.natuerlich', etappe: 'Etappe 3/5 · Mal 10, mal 100', bord: 2,
+    frage: 'Rechne: 46 · 100', typ: 'zahl', du: '460', ziel: '4600', weg: '46 · 100: Jede Ziffer rückt zwei Stellen nach links. 46 · 100 = 4 600', lernkarteFehler: 'Bei mal 100 rücken die Ziffern zwei Stellen, nicht eine.',
+    rb1: { regel: 'rr.stellenwert' }, rb2: { regel: 'rr.stellenwert', fehlbild: 'fb.stellenwert.eine_stelle_daneben', fehlbild_nr: 2, text: 'die Ziffern nur um eine Stelle gerückt – bei mal 100 sind es zwei' } },
+  waage: { titel: 'Ungleichung, Klasse 8 – fehlbild_regel weicht von regel ab', klasse: 8, thema: 'gleichungen.ungleichungen', etappe: 'Etappe 1/3 · Ungleichungen lösen', bord: 5,
+    frage: 'Löse: 3x − (x − 4) < 10', typ: 'luecken', schablone: ['x < ', ''], du: ['7'], ziel: ['3'],
+    weg: '3x − (x − 4) < 10 → 3x − x + 4 < 10 → 2x + 4 < 10 | − 4 → 2x < 6 | : 2 → x < 3', lernkarteFehler: 'Hast du auf beiden Seiten dasselbe gerechnet?',
+    rb1: { regel: 'rr.waage' }, rb2: { regel: 'rr.waage', fehlbild: 'fb.minusklammer.nur_erstes_zeichen', fehlbild_nr: 3, fehlbild_regel: 'rr.minusklammer', text: 'beim Auflösen der Klammer nur das Vorzeichen von x gewechselt, die 4 aber nicht' } },
+  prozent: { titel: 'Zinseszins, Klasse 7 – Fall „ohne Zeichnung“ (vorgeführt)', klasse: 7, thema: 'bruch.prozent_grundwert', etappe: 'Etappe 4/4 · Zinsen über mehrere Jahre', bord: 4,
+    frage: 'Auf einem Sparkonto liegen 1\u00a0000\u00a0€. Zwei Jahre lang gibt es je 10 % Zinsen, die Zinsen bleiben auf dem Konto. Wie viel Euro sind es dann?', typ: 'zahl', du: '1200', ziel: '1210', einheit: '€',
+    weg: 'Plus 10 % heißt mal 1,1. Nach einem Jahr: 1 000 € · 1,1 = 1 100 €. Nach zwei Jahren: 1 100 € · 1,1 = 1 210 €.', ohneBild: true, lernkarteFehler: null,
+    rb1: { regel: 'id.verhaeltnisse.prozent' }, rb2: { regel: 'id.verhaeltnisse.prozent', fehlbild_nr: 2, text: 'beide Jahre 10\u00a0% von 1\u00a0000\u00a0€ genommen – im zweiten Jahr zählen die Zinsen vom ersten Jahr mit' } },
+};
+const RK = P.r && B[P.r] ? P.r : (Z === 'test' ? 'minus' : 'minus');
+const A = B[RK];
+const regel = (kennung) => D.regeln[D.kennung[kennung]];
+const ortVon = (t) => D.themen[t]?.ort || t;
+const titelVon = (t) => D.themen[t]?.titel || t;
+const zahl = (s) => String(s).replace(/^(\d+)(\d{3})$/, '$1 $2').replace('-', '−');
+
+// ---------- Bausteine ----------
+function markiert(text, pos) { // Stellen aus der Klassenleiter (pos: [von, bis)) hervorheben
+  const out = []; let i = 0; for (const [a, b] of pos || []) { if (a > i) out.push(text.slice(i, a)); out.push(h('mark', { class: 'rk-m' }, text.slice(a, b))); i = b; } out.push(text.slice(i)); return out;
+}
+// „Dieselbe Regel, anderes Gewand“: höchstens eine Zeile aus der Klassenleiter der Regel
+function gewand(r, klasse, thema) {
+  const st = r.leiter.stufen.filter((s) => s.text && s.thema !== thema);
+  const frueher = st.filter((s) => s.klasse <= klasse).sort((a, b) => b.klasse - a.klasse);
+  const spaeter = st.filter((s) => s.klasse > klasse).sort((a, b) => a.klasse - b.klasse);
+  if (!frueher.length && !spaeter.length) return null;
+  const liste = frueher.length ? frueher : spaeter, wort = frueher.length ? 'Kennst du aus:' : 'Kommt wieder in:';
+  if (KW === 'beispiel') { const s = liste[0];
+    return h('p', { class: 'rk-gewand', title: `${ortVon(s.thema)}, Klasse ${s.klasse}` }, h('i', { class: 'rk-ring', 'aria-hidden': 'true' }), h('span', { class: 't' }, `${frueher.length ? 'Schon in' : 'Später in'} ${ortVon(s.thema)}, Kl. ${s.klasse}: `, h('code', {}, markiert(s.text, s.pos)))); }
+  return h('p', { class: 'rk-gewand', 'data-n': String(Math.min(2, liste.length)) }, h('i', { class: 'rk-ring', 'aria-hidden': 'true' }), h('span', { class: 't' }, wort + ' ', liste.slice(0, 2).map((s, n) => [n ? ' · ' : '', h('b', {}, ortVon(s.thema)), `, Kl. ${s.klasse}`])));
+}
+function bild(r, offen) {
+  const z = r.zeichnungen[0]; if (!z || A.ohneBild) return null;
+  const fig = h('figure', { class: 'rk-bild', html: z.svg }); fig.append(h('figcaption', {}, z.satz || ''), z.gl ? h('p', { class: 'rk-gl', html: z.gl }) : null);
+  if (offen) return fig;
+  const d = h('details', { class: 'rk-bild-auf' }, h('summary', { class: 'lr-textlink', style: 'list-style:none' }, '▸ Bild zur Regel zeigen'), fig);
+  d.addEventListener('toggle', () => { d.firstChild.textContent = d.open ? '▾ Bild ausblenden' : '▸ Bild zur Regel zeigen'; });
+  if (P.bild === 'auf') d.open = true;
+  return d;
+}
+const artWort = (r) => (r.art === 'Rechenregel' ? `Rechenregel ${r.nr}` : `Idee · ${r.ort}`);
+const regelLink = (r, klasse) => `#z=regel&r=${RK}&von=${Z}${G === 'nacht' ? '&g=nacht' : ''}`; // App: #/regeln/<kind>-<adresse> und Rückweg merken
+
+// Regelkarte. modus: erst | end | kompakt | test
+function regelkarte(rb, modus, klasse, thema) {
+  const haupt = regel(rb.fehlbild_regel || rb.regel); const bord = regel(rb.regel);
+  if (!haupt) return null;
+  const abweichend = rb.fehlbild_regel && rb.fehlbild_regel !== rb.regel && bord;
+  const passiert = (modus === 'end' || modus === 'kompakt') && rb.text ? h('p', { class: 'rk-passiert' }, satzPassiert(rb.text)) : null;
+  const ueber = abweichend ? 'Hier hat es gehakt' : modus === 'test' ? null : 'Die Regel dazu';
+  const kopf = [ueber ? h('div', { class: 'rk-kopf' }, h('p', { class: 'lr-ueber' }, ueber), modus === 'kompakt' ? null : h('span', { class: 'lr-ueber' }, artWort(haupt))) : null,
+    h('p', { class: 'rk-name' }, haupt.name), h('p', { class: 'rk-merk' }, haupt.satz)];
+  const ansehen = modus === 'kompakt' ? h('a', { class: 'lr-textlink', href: regelLink(haupt) }, 'Regel ansehen ›') : h('a', { class: 'lr-knopf-zweit', href: regelLink(haupt) }, 'Regel ansehen ›');
+  const auch = abweichend && modus !== 'kompakt' ? h('p', { class: 'rk-auch' }, 'Die Bordkarte selbst übt: ', h('a', { href: regelLink(bord) }, bord.name + ' ›')) : null;
+  if (modus === 'kompakt') return h('div', { class: 'rk-kompakt' }, passiert, kopf, gewand(haupt, klasse, thema), h('div', { class: 'rk-zeile' }, ansehen));
+  const b = modus === 'test' ? null : bild(haupt, modus === 'end');
+  const mitBild = modus === 'end' && b;
+  return h('div', { class: 'rk-karte' + (mitBild ? ' mit-bild' : '') }, passiert,
+    h('div', { class: 'rk-innen' }, h('div', {}, kopf, mitBild ? null : gewand(haupt, klasse, thema), h('div', { class: 'rk-zeile' }, ansehen), auch), mitBild ? b : null),
+    mitBild ? gewand(haupt, klasse, thema) : null, !mitBild && b ? b : null);
+}
+// Fehlbild-Text der Datei: meist ein Satzteil („das Minus vergessen“) → „Du hast vermutlich … .“; ganze Sätze (Großbuchstabe, „;“) bleiben, wie sie sind
+function satzPassiert(t) {
+  if (/^[A-ZÄÖÜ]/.test(t) || /[;.]\s/.test(t)) return t.replace(/^./, (c) => c.toUpperCase());
+  return `Du hast vermutlich ${t}.`;
+}
+
+// ---------- Rahmen der Lerneinheit ----------
+function kopfApp(ort) { return h('div', { class: 'lr-top' }, h('span', { class: 'lr-zurueck', 'aria-hidden': 'true' }, '‹'), h('b', {}, ort)); }
+function einheitKopf() {
+  return [h('div', { class: 'lr-titelzeile' }, h('span', { class: 'lr-x' }, '✕'), h('div', {}, h('p', { class: 'lr-ueber' }, ortVon(A.thema)), h('b', { style: 'font-size:19px;font-weight:600' }, titelVon(A.thema)))),
+    h('div', { class: 'lr-tabs' }, h('span', {}, 'ERKLÄREN'), h('span', { class: 'an' }, 'ÜBEN 5'), h('span', {}, 'FEHLER 1')),
+    h('a', { class: 'lr-erkl', href: '#' }, h('i', {}, '?'), 'Erklärung ansehen')];
+}
+function eingabe(gesperrt) {
+  const f = (v) => h('span', { class: 'lr-feld' + (gesperrt ? ' gesperrt' : '') }, v);
+  if (A.typ === 'zahl') return h('div', { class: 'lr-eingabe' }, f(zahl(A.du)), A.einheit ? h('span', {}, A.einheit) : null);
+  return h('div', { class: 'lr-eingabe' }, A.schablone.map((t, i) => [t ? h('span', {}, t) : null, i < A.du.length ? f(A.du[i]) : null]));
+}
+function bordkarte(gesperrt) {
+  return h('section', { class: 'lr-bordkarte' }, h('div', { class: 'lr-bord-kopf' }, h('span', {}, `BORDKARTE ${A.bord} · ${ortVon(A.thema).toUpperCase()}`), h('span', { 'aria-hidden': 'true' }, '●●○')),
+    h('p', { class: 'lr-frage' }, A.frage), eingabe(gesperrt), h('div', { class: 'lr-perfo' }), h('div', { class: 'lr-bord-fuss' }, h('span', { class: 'lr-knopf-zweit' }, 'Tipp')));
+}
+function kurs() {
+  if (A.typ !== 'zahl') return h('div', { style: 'font-family:var(--lr-mono);font-size:16px;margin:6px 0 2px' },
+    h('div', {}, h('span', { class: 'lr-kurs-name', style: 'display:inline-block' }, 'DU'), vz(A.schablone.map((t, i) => t + (A.du[i] ?? '')).join(''))),
+    h('div', {}, h('span', { class: 'lr-kurs-name', style: 'display:inline-block' }, 'ZIEL'), h('b', {}, A.schablone.map((t, i) => t + (A.ziel[i] ?? '')).join(''))));
+  const lg = Math.max(A.du.length, A.ziel.length), du = A.du.padStart(lg, ' '), zi = A.ziel.padStart(lg, ' ');
+  const koepfe = ['M', 'HT', 'ZT', 'T', 'H', 'Z', 'E'].slice(7 - lg);
+  const zeile = (n, s, o) => h('div', { class: 'lr-kurs-zeile' }, h('span', { class: 'lr-kurs-name' }, n), [...s].map((c, i) => h('span', { class: 'lr-kurs-k' + (c === ' ' ? ' leer' : '') + (c !== o[i] ? ' ab' : '') }, c.trim())));
+  return h('div', { class: 'lr-kurs', role: 'img', 'aria-label': `Deine Zahl ${A.du}, Ziel ${A.ziel}` }, h('div', { class: 'lr-kurs-zeile lr-kurs-kopf' }, h('span', { class: 'lr-kurs-name' }), koepfe.map((c) => h('span', { class: 'lr-kurs-k' }, c))), zeile('DU', du, zi), zeile('ZIEL', zi, du));
+}
+const vz = (s) => s.replace(/\+ ?[−-]\s?(?=\d)/g, '− ').replace(/[−-] ?[−-]\s?(?=\d)/g, '+ ');
+const weg = () => A.weg.replace(/ ([+−<=→|]) /g, '\u00a0$1 ');
+const loesungText = () => (A.typ === 'zahl' ? zahl(A.ziel) + (A.einheit ? ' ' + A.einheit : '') : A.schablone.map((t, i) => t + (A.ziel[i] ?? '')).join(''));
+const tasten = () => h('div', { class: 'lr-tasten', 'aria-hidden': 'true' }, ['7', '8', '9', '⌫', '4', '5', '6', '−', '1', '2', '3', ','].map((t) => h('span', {}, t)), h('span', { class: 'null' }, '0'), h('span', { class: 'pr' }, 'Prüfen'));
+
+// Rückmeldungen: neu
+function rueckErstNeu() {
+  return h('div', { class: 'lr-rueck lr-rueck-nochmal', role: 'status' }, h('div', { class: 'rk-status' }, h('span', { class: 'rk-zeichen nochmal', 'aria-hidden': 'true' }, '↻'), h('span', {}, 'Noch nicht – du hast einen zweiten Versuch.')),
+    regelkarte(A.rb1, 'erst', A.klasse, A.thema));
+}
+function rueckEndNeu() {
+  return h('div', { class: 'lr-rueck lr-rueck-falsch lr-kursbox', role: 'status' },
+    h('div', { class: 'rk-status' }, h('span', { class: 'rk-zeichen falsch', 'aria-hidden': 'true' }, '✕'), h('span', {}, h('span', { class: 'lr-ueber', style: 'display:block' }, A.typ === 'zahl' ? 'Fast – Kurskorrektur' : 'Noch nicht'), 'Richtig ist: ', h('b', {}, loesungText()))),
+    kurs(), regelkarte(A.rb2, 'end', A.klasse, A.thema),
+    h('p', { class: 'rk-weg' }, h('b', {}, 'So geht’s: '), weg()), h('p', { class: 'lr-leise' }, 'Die nächste zählt wieder voll.'));
+}
+// Rückmeldungen: heute (ohne regelbezug), wie lernen.js 4529 ff. / 4589 ff.
+function rueckErstHeute() { return h('div', { class: 'lr-rueck', style: 'padding-left:0' }, h('b', {}, 'Noch nicht – du hast einen zweiten Versuch.'), h('p', {}, 'Lies die Bordkarte noch einmal genau und prüfe deine Rechnung.')); }
+function rueckEndHeute() {
+  return h('div', { class: 'lr-rueck lr-rueck-falsch lr-kursbox' }, h('p', { class: 'lr-ueber' }, A.typ === 'zahl' ? 'FAST – KURSKORREKTUR' : 'NOCH NICHT'), A.typ === 'zahl' ? kurs() : null,
+    h('b', {}, 'Richtig ist: ' + loesungText()), h('p', {}, weg()),
+    A.lernkarteFehler ? h('div', { class: 'lr-detektiv' }, h('p', { class: 'lr-ueber', style: 'color:var(--lr-kurs)' }, 'IST DIR DAS PASSIERT?'), h('p', {}, A.lernkarteFehler)) : null,
+    h('p', { class: 'lr-leise' }, 'Die nächste zählt wieder voll.'));
+}
+function lerneinheit(zustand) {
+  const end = zustand !== 'erst';
+  const spalte = (rueck, heute) => h('div', { class: 'lr-spalte' }, heute ? null : einheitKopf(), bordkarte(end), rueck,
+    h('div', { class: 'lr-aendern' }, '▸ ✎ Ändern lassen'), end ? h('a', { class: 'lr-knopf', href: '#' }, 'Neue Bordkarte ›') : tasten(), heute ? null : h('span', { class: 'lr-menue' }, '≡ Menü'),
+    heute || FOTO ? null : notiz(zustand));
+  const neu = zustand === 'ohne' ? spalte(rueckEndHeute()) : spalte(zustand === 'erst' ? rueckErstNeu() : rueckEndNeu());
+  const heute = h('div', { class: 'ew-heute' }, h('p', { class: 'ew-heute-kopf' }, zustand === 'ohne' ? 'ZUM VERGLEICH: ERSTER FEHLVERSUCH HEUTE' : 'ZUM VERGLEICH: HEUTE / OHNE DATEN (UNVERÄNDERT)'),
+    spalte(zustand === 'erst' || zustand === 'ohne' ? rueckErstHeute() : rueckEndHeute(), true));
+  if (zustand === 'ohne') heute.querySelector('.lr-spalte').replaceChildren(bordkarte(false), rueckErstHeute(), tasten());
+  return [kopfApp(ortVon(A.thema)), h('div', { class: 'lr-seite' }, h('div', { class: 'ew-vergleich' }, neu, heute))];
+}
+function notiz(zustand) {
+  const t = { erst: ['Erster Fehlversuch:', ' nur die Regel (Server schickt nur regel). Hauptknopf bleibt „Prüfen“ im Tastenfeld; „Regel ansehen“ ist ein Nebenknopf. Die Rückmeldung steht direkt unter der Bordkarte, vor „Ändern lassen“.'],
+    end: ['Endgültig falsch:', ' Richtig ist → Du hast vermutlich … → Regel (Merksatz, Bild) → So geht’s. Der Fehler-Detektiv der Lernkarte entfällt, wenn regelbezug.text da ist.'],
+    ohne: ['Ohne regelbezug:', ' alles bleibt wie heute (hier: endgültig falsch; rechts ab 1100 px der erste Fehlversuch).'] }[zustand];
+  return h('p', { class: 'ew-notiz' }, h('b', {}, t[0]), t[1]);
+}
+
+// ---------- Kompakt: Check-in, Mischkarte, Knobel ----------
+function kompakt(art) {
+  const kopf = art === 'checkin' ? [h('div', { style: 'display:flex;justify-content:space-between;align-items:center' }, h('p', { class: 'lr-ueber' }, 'Check-in · 2 von 3'), h('span', { class: 'lr-sterne' }, '★ 350')),
+      h('div', { class: 'lr-koffer', 'aria-label': 'Koffer: 1 richtig, 1 falsch, 1 offen' }, h('i', { class: 'ok' }), h('i', { class: 'nein' }), h('i', {}))]
+    : art === 'misch' ? [einheitKopf(), h('p', { class: 'lr-misch-kopf' }, '↻ Aus deiner Reise – eine Bordkarte von früher')]
+    : [einheitKopf()];
+  const karte = h('section', { class: 'lr-bordkarte' }, h('div', { class: 'lr-bord-kopf' }, h('span', {}, art === 'knobel' ? 'KNOBEL-BORDKARTE' : art === 'checkin' ? `${A.etappe.split('· ')[1]} · aus ${ortVon(A.thema)}` : `BORDKARTE · ${ortVon(A.thema).toUpperCase()}`)),
+    art === 'knobel' ? h('p', { class: 'lr-leise', style: 'margin:10px 16px 0;font-size:15px' }, 'Für Profis: zählt nicht für „sitzt“ und nicht für den Test.') : null, h('p', { class: 'lr-frage' }, A.frage), eingabe(true));
+  const titel = art === 'knobel' ? 'Diesmal nicht – das war eine harte Nuss.' : 'Noch nicht. Richtig ist: ';
+  const rueck = h('div', { class: 'lr-rueck lr-rueck-falsch', role: 'status' }, h('div', { class: 'rk-status' }, h('span', { class: 'rk-zeichen falsch', 'aria-hidden': 'true' }, '✕'),
+      h('span', {}, art === 'knobel' ? [titel, h('br'), h('span', { style: 'font-weight:500' }, 'Richtig ist: '), h('b', {}, loesungText())] : [titel, h('b', {}, loesungText())])),
+    regelkarte(A.rb2, 'kompakt', A.klasse, A.thema),
+    h('p', { class: 'rk-weg' }, h('b', {}, 'So geht’s: '), weg()),
+    art === 'checkin' ? h('p', { class: 'lr-leise' }, 'Kein Problem – diese Bordkarte kommt beim nächsten Mal wieder.') : art === 'knobel' ? h('p', { class: 'lr-leise' }, 'Knobeln kostet nichts – dein Stand bleibt.') : h('p', { class: 'lr-leise' }, 'Das war: ' + A.etappe.split('· ')[1] + ' – ' + ortVon(A.thema)));
+  const weiter = art === 'checkin' ? [h('a', { class: 'lr-knopf', href: '#' }, 'Nächste Bordkarte ›'), h('a', { class: 'lr-textlink', style: 'align-self:center', href: '#' }, 'Pause – später weiter einchecken')]
+    : art === 'knobel' ? [h('a', { class: 'lr-knopf-zweit', href: '#' }, 'Zurück zur Landung')] : [h('a', { class: 'lr-knopf', href: '#' }, 'Neue Bordkarte ›')];
+  const n = { checkin: ['Check-in / Wiederholen:', ' ohne zweiten Versuch, deshalb gleich endgültig (Fehlbild-Text, wenn erkannt). Kompakt: keine Zeichnung, „Regel ansehen“ als Textlink.'],
+    misch: ['Mischkarte:', ' dieselbe kompakte Karte; der Rest der Rückmeldung bleibt.'], knobel: ['Knobel:', ' dieselbe kompakte Karte; Knobel hat keinen zweiten Versuch.'] }[art];
+  return [kopfApp(art === 'checkin' ? 'Wiederholen' : ortVon(A.thema)), h('div', { class: 'lr-seite' }, h('div', { class: 'lr-spalte' }, kopf, karte, rueck, weiter, h('span', { class: 'lr-menue' }, '≡ Menü'),
+    FOTO ? null : h('p', { class: 'ew-notiz' }, h('b', {}, n[0]), n[1])))];
+}
+
+// ---------- Flug-Test-Ergebnis (Zusatzvorschlag) ----------
+function test() {
+  const thema = 'terme.umformen', klasse = 7;
+  const E = [
+    { ok: true, f: 'Fasse zusammen: 4a + 3b + 2a', du: '6a + 3b' },
+    { ok: false, r: 'rr.minusklammer', f: 'Löse auf: 9 − (5 − x)', du: '4 − x', ziel: '4 + x', weg: '9 − (5 − x) = 9 − 5 + x = 4 + x' },
+    { ok: true, f: 'Multipliziere aus: 3 · (x + 2)', du: '3x + 6' },
+    { ok: false, r: 'rr.minusklammer', f: 'Löse auf: 7y − (2y + 3)', du: '5y + 3', ziel: '5y − 3', weg: '7y − (2y + 3) = 7y − 2y − 3 = 5y − 3' },
+    { ok: false, r: 'rr.ausmultiplizieren', f: 'Multipliziere aus: 4 · (2x − 5)', du: '8x − 5', ziel: '8x − 20', weg: '4 · 2x − 4 · 5 = 8x − 20' },
+    { ok: true, f: 'Setze x = 3 ein: 2x + 1', du: '7' },
+    { ok: false, r: 'rr.minusklammer', f: 'Löse auf: a − (−b + 6)', du: 'a − b + 6', ziel: 'a + b − 6', weg: 'a − (−b + 6) = a + b − 6' },
+    { ok: false, r: null, f: 'Stelle einen Term auf: Umfang eines Rechtecks mit den Seiten a und 3', du: 'a + 3', ziel: '2a + 6', weg: 'u = 2 · a + 2 · 3 = 2a + 6' },
+    { ok: true, f: 'Fasse zusammen: x · x · x', du: 'x³' },
+  ];
+  const falsch = E.filter((e) => !e.ok), gruppen = new Map();
+  falsch.forEach((e) => { const k = e.r || ''; if (!gruppen.has(k)) gruppen.set(k, []); gruppen.get(k).push(e); });
+  const reihen = [...gruppen.entries()].sort((a, b) => (!a[0]) - (!b[0]) || b[1].length - a[1].length);
+  const nr = (e) => E.indexOf(e) + 1;
+  const einzel = (e) => h('div', { class: 'ts-einzel' }, h('p', { class: 'w ' + (e.ok ? 'ok' : 'f') }, e.ok ? '✓ RICHTIG' : '✕ FALSCH', h('span', { style: 'color:var(--lr-leise)' }, `· Bordkarte ${nr(e)}`)),
+    h('p', { class: 'q' }, e.f), h('p', {}, 'Deine Antwort: ', h('b', {}, e.du)), e.ok ? null : h('p', {}, 'Richtig: ', h('b', {}, e.ziel)), e.ok ? null : h('p', { class: 'lr-leise' }, e.weg));
+  const zeigen = (liste, wort) => { const d = h('details', { class: 'ts-auf' }, h('summary', {}, `${wort} zeigen (${liste.length})`), liste.map(einzel));
+    d.addEventListener('toggle', () => { d.firstChild.textContent = `${wort} ${d.open ? 'verbergen' : 'zeigen'} (${liste.length})`; }); if (P.auf === '1' && liste[0] && !liste[0].ok && liste[0].r === 'rr.minusklammer') d.open = true; return d; };
+  const zahlRegeln = reihen.filter(([k]) => k).length;
+  return [kopfApp(ortVon(thema)), h('div', { class: 'lr-seite' }, h('div', { class: 'lr-spalte' },
+    FOTO ? null : h('span', { class: 'ts-zusatz' }, 'ZUSATZVORSCHLAG – ENTSCHEIDET DER NUTZER GETRENNT'),
+    h('div', {}, h('p', { class: 'lr-ueber' }, 'Test'), h('p', { style: 'margin:0;font-size:26px;font-weight:700;line-height:1.2' }, `${ortVon(thema)} · ${titelVon(thema)}`)),
+    h('a', { class: 'lr-textlink', href: '#', style: 'align-self:flex-start' }, '‹ Zu den Etappen'),
+    h('section', { class: 'ts-summe' }, h('p', { class: 'gross', style: 'margin:0' }, `${E.length - falsch.length} von ${E.length} `, h('small', {}, 'richtig')),
+      h('div', { class: 'ts-balken', role: 'img', 'aria-label': `${E.length - falsch.length} richtig, ${falsch.length} falsch` }, E.map((e) => h('i', { class: e.ok ? '' : 'f' }))),
+      h('p', { class: 'ts-legende', style: 'margin:0' }, 'gefüllt = richtig · leer = falsch'),
+      h('p', { style: 'margin:10px 0 0;font-size:17px' }, h('b', {}, `Deine ${falsch.length} Fehler hängen an ${zahlRegeln} Regeln.`), ' Schau dir zuerst die Regel an, dann deine Bordkarten.')),
+    reihen.map(([k, liste]) => k
+      ? h('section', { class: 'ts-gruppe' }, h('p', { class: 'ts-zahl', style: 'margin:0 0 2px' }, '✕ ', liste.length === 1 ? '1 FEHLER' : `${liste.length} FEHLER · DIESELBE REGEL`),
+          regelkarte({ regel: k }, 'test', klasse, thema), zeigen(liste, 'Bordkarten'))
+      : h('section', { class: 'ts-gruppe ohne' }, h('p', { class: 'ts-zahl', style: 'margin:0 0 2px;color:var(--lr-leise)' }, '✕ ', `${liste.length} FEHLER OHNE REGELKARTE`), zeigen(liste, 'Bordkarte'))),
+    h('section', { class: 'ts-gruppe richtig' }, h('p', { class: 'ts-zahl', style: 'margin:0' }, `✓ ${E.length - falsch.length} RICHTIG`), zeigen(E.filter((e) => e.ok), 'Bordkarten')),
+    h('div', { class: 'lr-test-knoepfe' }, h('a', { class: 'lr-knopf', href: '#' }, 'Erst üben: Minusklammern ›'), h('a', { class: 'lr-knopf-zweit', href: '#' }, 'Gleich verbessern ›'),
+      h('a', { class: 'lr-textlink', href: '#' }, 'Zum Flug'), h('a', { class: 'lr-textlink', href: '#' }, 'Zur Abflugtafel')),
+    FOTO ? null : h('p', { class: 'ew-notiz' }, h('b', {}, 'Daten:'), ' der Test schickt kein regelbezug – die Regel kommt aus regelbezug-lernkarten.json (Lernkarte → regel). Ohne Regel („offen“) eine eigene Gruppe. Ein Fehlbild-Text fehlt im Test.')))];
+}
+
+// ---------- Regel-Seite mit Rückweg ----------
+function regelSeite() {
+  const rb = (P.von === 'erst' ? A.rb1 : A.rb2); const r = regel(rb.fehlbild_regel || rb.regel);
+  const wartet = P.von === 'erst' ? 'dein zweiter Versuch wartet' : P.von === 'test' ? 'zurück zum Test-Ergebnis' : 'deine Antwort und der Lösungsweg bleiben stehen';
+  const zurueck = `#z=${P.von || 'erst'}&r=${RK}${G === 'nacht' ? '&g=nacht' : ''}`;
+  const st = r.leiter.stufen;
+  return [h('div', { class: 'ru-band' }, h('div', { class: 'ru-band-in' }, h('a', { class: 'lr-knopf-zweit', href: zurueck }, '‹ Zurück zur Bordkarte'), h('small', {}, `Bordkarte ${A.bord} · ${ortVon(A.thema)} – ${wartet}.`))),
+    h('div', { class: 'ru-kopfzeile' }, h('span', { class: 'ru-suche' }, '⌕  Suchen'), h('span', { class: 'lr-knopf-zweit', style: 'min-height:48px' }, '≡')),
+    h('div', { class: 'lr-seite', style: 'padding-top:0' }, h('div', { class: 'lr-spalte rk' },
+      h('nav', { class: 'ru-pfad' }, h('a', { href: '#' }, '‹ Universum'), '›', h('span', {}, r.art === 'Rechenregel' ? 'Sonne' : r.ort)),
+      h('div', {}, h('p', { class: 'lr-ueber' }, `${artWort(r)} · Klasse ${r.leiter.klassen[0]} bis ${r.leiter.klassen.at(-1)}`), h('h1', { class: 'ru-titel' }, r.name)),
+      h('p', { class: 'rk-merk', style: 'font-size:24px;margin:0' }, h('span', { class: 'lr-ueber', style: 'display:block;margin-bottom:4px' }, 'Merksatz'), r.satz),
+      A.ohneBild ? null : bild(r, true),
+      h('p', { class: 'ru-ab' }, 'Dieselbe Regel in jeder Klasse'),
+      h('p', { class: 'lr-leise', style: 'margin:0;font-size:16px' }, 'Sie sieht jedes Jahr etwas anders aus – die Regel bleibt gleich. Markiert: ', r.leiter.markiert.replace(/^Das |^Die |^Der /, (x) => x.toLowerCase())),
+      h('ol', { class: 'ru-klassen' }, st.map((s) => s.text
+        ? h('li', { class: s.klasse === A.klasse ? 'hier' : '' }, h('div', { class: 'kl' }, h('span', {}, `KLASSE ${s.klasse} · ${ortVon(s.thema).toUpperCase()}`), h('span', {}, s.klasse === A.klasse ? '● HIER BIST DU' : s.klasse < A.klasse ? '✓ SCHON GESEHEN' : 'KOMMT NOCH')), h('code', {}, markiert(s.text, s.pos)))
+        : h('li', { class: 'leer' }, `Klasse ${s.klasse}: ${s.grund}`))),
+      h('div', { class: 'ru-acc' }, 'Genau erklärt', h('span', {}, '▾')), h('div', { class: 'ru-acc' }, 'Typische Fehler', h('span', {}, '▾')),
+      h('a', { class: 'lr-knopf-zweit', href: zurueck, style: 'margin-top:8px' }, '‹ Zurück zur Bordkarte'),
+      FOTO ? null : h('p', { class: 'ew-notiz' }, h('b', {}, 'Rückweg:'), ' Die App merkt sich beim Tippen auf „Regel ansehen“ Adresse, Bordkarte, Versuch und Eingabe (sessionStorage) und hängt ?zurueck an. Das Band oben bleibt beim Rollen stehen; unten steht derselbe Knopf noch einmal. Die Zurück-Taste des Browsers führt ebenso zurück.')))];
+}
+
+// ---------- Entwurfs-Streifen ----------
+function streifen() {
+  const l = (txt, p) => { const ziel = { z: Z, r: RK, g: G, ...p }; const href = '#' + Object.entries(ziel).filter(([k, v]) => v && !(k === 'g' && v === 'tag')).map(([k, v]) => `${k}=${v}`).join('&');
+    const an = Object.entries(p).every(([k, v]) => ({ z: Z, r: RK, g: G }[k] === v)); return h('a', { href, 'aria-current': an ? 'true' : null }, txt); };
+  return h('div', { class: 'ew' }, h('b', {}, 'ENTWURF 1 · Regelkarte'),
+    h('span', { class: 'ew-gr' }, 'Zustand:', l('erst', { z: 'erst' }), l('end', { z: 'end' }), l('ohne', { z: 'ohne' }), l('checkin', { z: 'checkin' }), l('misch', { z: 'misch' }), l('knobel', { z: 'knobel' }), l('test', { z: 'test' }), l('regel', { z: 'regel' })),
+    h('span', { class: 'ew-gr' }, 'Regel:', Object.keys(B).map((k) => l(k, { r: k }))),
+    h('span', { class: 'ew-gr' }, l('hell', { g: 'tag' }), l('nacht', { g: 'nacht' })),
+    h('span', {}, '· ' + A.titel));
+}
+const root = document.getElementById('app');
+root.className = 'lr lr-abflug ' + (G === 'nacht' ? 'lr-abflug-nacht' : 'lr-abflug-tag');
+const inhalt = Z === 'test' ? test() : Z === 'regel' ? regelSeite() : ['checkin', 'misch', 'knobel'].includes(Z) ? kompakt(Z) : lerneinheit(Z);
+root.replaceChildren(...(FOTO ? [] : [streifen()]), ...inhalt);
+// Gewand-Zeile: passt sie nicht in eine Zeile, bleibt nur der nächste Ort stehen (nie abgeschnitten)
+const kuerzen = () => { for (const g of root.querySelectorAll('.rk-gewand[data-n="2"]')) { const t = g.querySelector('.t'); if (t.scrollWidth <= t.clientWidth + 1) continue; while (t.lastChild && !(t.lastChild.nodeType === 3 && t.lastChild.textContent === ' · ')) t.lastChild.remove(); t.lastChild?.remove(); } };
+kuerzen(); document.fonts.ready.then(kuerzen);
+addEventListener('hashchange', () => location.reload());
+</script>
+</body>
+</html>

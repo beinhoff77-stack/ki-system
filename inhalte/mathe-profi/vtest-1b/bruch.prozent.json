@@ -23,7 +23,9 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
+   "abgrenzung": "",
    "antwortform": "auswahl",
+   "loesung_rechnung": null,
    "fehlbilder": [
     {
      "index": 0,
@@ -80,22 +82,27 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
+   "abgrenzung": "",
    "antwortform": "zahl",
+   "loesung_rechnung": "0.85 * 40",
    "fehlbilder": [
     {
      "antwort": 6,
+     "rechnung": "15 / 100 * 40",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "15 % von 40 gerechnet, also die erlaubten Fehler statt der richtigen Antworten"
     },
     {
      "antwort": 35,
+     "rechnung": "0.85 * 40 + 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "34 + 1 gerechnet, weil »mindestens« mit »mehr als« verwechselt wurde"
     },
     {
      "antwort": 2.125,
+     "rechnung": "85 / 40",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "85 durch 40 geteilt, statt 85 % von 40 zu bilden"
@@ -129,22 +136,27 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
+   "abgrenzung": "",
    "antwortform": "zahl",
+   "loesung_rechnung": "27 / 30 * 100 - 18 / 24 * 100",
    "fehlbilder": [
     {
      "antwort": 9,
+     "rechnung": "27 - 18",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Anzahlen richtiger Aufgaben statt der Anteile verglichen: 27 − 18"
     },
     {
      "antwort": 165,
+     "rechnung": "18 / 24 * 100 + 27 / 30 * 100",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die beiden Prozentzahlen addiert, statt ihren Unterschied zu bilden"
     },
     {
      "antwort": 0.15,
+     "rechnung": "27 / 30 - 18 / 24",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Anteile als Dezimalzahlen abgezogen und nicht in Prozent umgewandelt: 0,9 − 0,75"
@@ -178,7 +190,9 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
+   "abgrenzung": "",
    "antwortform": "auswahl",
+   "loesung_rechnung": null,
    "fehlbilder": [
     {
      "index": 1,
@@ -234,28 +248,36 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "antwortform": "auswahl",
+   "abgrenzung": "",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2",
+    "20 / 25 * 100"
+   ],
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "Fehler: Gefragt sind die Kinder ohne Haustier; richtig wäre 5 : 25 = 0,2, also 20 %.",
+     "luecke": 2,
+     "antwort": 125,
+     "rechnung": "25 / 20 * 100",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 5 Kinder ohne Haustier statt der 20 mit Haustier genommen"
+     "beschreibung": "wie Anna Ganzes durch Teil gerechnet: 25 : 20 · 100"
     },
     {
-     "index": 1,
-     "antwort": "Fehler: Das Komma ist falsch gesetzt; richtig wäre 25 : 20 = 12,5, also 12,5 %.",
+     "luecke": 2,
+     "antwort": 20,
+     "rechnung": "5 / 25 * 100",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "ein Kommafehler behauptet, obwohl die Division selbst richtig ist; der Fehler ist die Reihenfolge"
+     "beschreibung": "die 5 Kinder ohne Haustier genommen: 5 : 25 · 100"
     },
     {
-     "index": 2,
-     "antwort": "Fehler: Es muss der Unterschied gebildet werden; richtig wäre 25 − 20 = 5, also 5 %.",
+     "luecke": 2,
+     "antwort": 5,
+     "rechnung": "25 - 20",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Unterschied 25 − 20 als Prozentzahl gelesen; ein Anteil ist ein Teil durch ein Ganzes, kein Unterschied"
+     "beschreibung": "den Unterschied 25 − 20 als Prozentzahl gelesen"
     }
    ],
    "aufgabe": {
@@ -264,20 +286,23 @@
     "p": "sicherung",
     "s": 3,
     "g": "fehler",
-    "y": "auswahl",
+    "y": "luecken",
     "f": {
-     "text": "Anna soll berechnen, wie viel Prozent der 25 Kinder einer Klasse ein Haustier haben; 20 Kinder haben eines. Sie rechnet: „25 : 20 = 1,25, also haben 125 % der Kinder ein Haustier.“ Welche Aussage über Annas Rechnung ist richtig?"
+     "text": "Anna soll berechnen, wie viel Prozent der 25 Kinder einer Klasse ein Haustier haben; 20 Kinder haben eines. Sie schreibt: Zeile 1: Das Ganze sind 25 Kinder, der Teil sind 20 Kinder. Zeile 2: Prozentsatz = Ganzes : Teil = 25 : 20 = 1,25. Zeile 3: Also haben 125 % der Kinder ein Haustier. In welcher Zeile steckt der erste Fehler, und wie viel Prozent der Kinder haben richtig ein Haustier?",
+     "schablone": "Fehler in Zeile □, richtig: □ %",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
-    "a": [
-     "Fehler: Gefragt sind die Kinder ohne Haustier; richtig wäre 5 : 25 = 0,2, also 20 %.",
-     "Fehler: Das Komma ist falsch gesetzt; richtig wäre 25 : 20 = 12,5, also 12,5 %.",
-     "Fehler: Es muss der Unterschied gebildet werden; richtig wäre 25 − 20 = 5, also 5 %.",
-     "Fehler: Das Ganze (25) und der Teil (20) sind vertauscht; richtig wäre 20 : 25 = 0,8, also 80 %."
-    ],
     "o": {
-     "index": 3
+     "werte": [
+      2,
+      80
+     ]
     },
-    "w": "Der Prozentsatz ist Teil durch Ganzes: Der Teil sind die 20 Kinder mit Haustier, das Ganze (der Grundwert) sind alle 25 Kinder. Also 20 : 25 = 0,8 = 80 %. Annas Ergebnis 125 % ist ein Warnzeichen: Ein Anteil an der Klasse kann nicht über 100 % liegen."
+    "c": [
+     "2",
+     "20 / 25 * 100"
+    ],
+    "w": "Der Prozentsatz ist Teil durch Ganzes, nicht Ganzes durch Teil. Zeile 1 ist richtig (Ganzes 25, Teil 20). In Zeile 2 sind Ganzes und Teil vertauscht: richtig ist 20 : 25 = 0,8 = 80 %. Das Ergebnis 125 % ist ein Warnzeichen, denn ein Anteil an der Klasse kann nicht über 100 % liegen."
    }
   },
   {
@@ -290,22 +315,27 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
+   "abgrenzung": "",
    "antwortform": "zahl",
+   "loesung_rechnung": "18 / 30 * (30 + 10) - 18",
    "fehlbilder": [
     {
      "antwort": 24,
+     "rechnung": "18 / 30 * (30 + 10)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "60 % von 40 gerechnet, aber die 18 Mädchen nicht abgezogen"
     },
     {
      "antwort": 4,
+     "rechnung": "(1 - 18 / 30) * 10",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "40 % von 10 gerechnet, also den Anteil der Jungen statt der Mädchen"
     },
     {
      "antwort": 12,
+     "rechnung": "18 / 30 * 10 + 18 / 30 * 10",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Anteil 60 % von 10 zweimal gezählt"
@@ -339,28 +369,36 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "antwortform": "auswahl",
+   "abgrenzung": "",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2",
+    "150 / 0.75"
+   ],
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "Fehler: Ein Rabatt wird abgezogen, nicht aufgeschlagen; richtig wäre 150 · 0,75 = 112,50 €.",
+     "luecke": 2,
+     "antwort": 187.5,
+     "rechnung": "150 * 1.25",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Rabatt noch einmal auf den neuen Preis angewendet; gesucht ist aber der alte Preis"
+     "beschreibung": "wie Ben 25 % auf den neuen Preis aufgeschlagen: 150 · 1,25"
     },
     {
-     "index": 2,
-     "antwort": "Fehler: Prozent darf man nicht mit dem Preis malnehmen; richtig wäre 150 + 25 = 175 €.",
+     "luecke": 2,
+     "antwort": 112.5,
+     "rechnung": "150 * 0.75",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 25 Prozent als 25 Euro gelesen"
+     "beschreibung": "den Rabatt noch einmal vom neuen Preis abgezogen: 150 · 0,75"
     },
     {
-     "index": 3,
-     "antwort": "Fehler: Es muss durch 1,25 geteilt werden; richtig wäre 150 : 1,25 = 120 €.",
+     "luecke": 2,
+     "antwort": 175,
+     "rechnung": "150 + 25",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "so zurückgerechnet, als wäre der Preis um 25 % gestiegen; er ist aber gesunken"
+     "beschreibung": "die 25 % als 25 € gelesen und addiert: 150 + 25"
     }
    ],
    "ersetzt_test": true,
@@ -370,20 +408,23 @@
     "p": "test",
     "s": 3,
     "g": "fehler",
-    "y": "auswahl",
+    "y": "luecken",
     "f": {
-     "text": "Auf einem Schild steht: „Jetzt 25 % billiger – nur noch 150 €!“ Ben will den alten Preis ausrechnen und rechnet: 150 · 1,25 = 187,50 €. Welche Aussage über Bens Rechnung ist richtig?"
+     "text": "Auf einem Schild steht: „Jetzt 25 % billiger – nur noch 150 €!“ Ben will den alten Preis ausrechnen und schreibt: Zeile 1: Der alte Preis wurde um 25 % gesenkt. Zeile 2: Also ist der alte Preis der neue Preis plus 25 % davon, also 150 · 1,25. Zeile 3: 150 · 1,25 = 187,5, der alte Preis war 187,50 €. In welcher Zeile steckt der erste Fehler, und wie viel Euro kostete der Artikel vorher richtig?",
+     "schablone": "Fehler in Zeile □, richtig: □ €",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
-    "a": [
-     "Fehler: Ein Rabatt wird abgezogen, nicht aufgeschlagen; richtig wäre 150 · 0,75 = 112,50 €.",
-     "Fehler: Die 25 % beziehen sich auf den alten Preis, nicht auf 150 €. Die 150 € sind 75 % des alten Preises; richtig wäre 150 : 0,75 = 200 €.",
-     "Fehler: Prozent darf man nicht mit dem Preis malnehmen; richtig wäre 150 + 25 = 175 €.",
-     "Fehler: Es muss durch 1,25 geteilt werden; richtig wäre 150 : 1,25 = 120 €."
-    ],
     "o": {
-     "index": 1
+     "werte": [
+      2,
+      200
+     ]
     },
-    "w": "Der alte Preis ist der Grundwert (100 %). Nach 25 % Rabatt zahlt man noch 75 %, also sind 150 € = 75 % des alten Preises. 75 % entsprechen 150 €, 1 % entspricht 2 €, 100 % entsprechen 200 €. Probe: 25 % von 200 € sind 50 €, und 200 € − 50 € = 150 €. Bens Rechnung nimmt 25 % vom neuen Preis, also vom falschen Grundwert."
+    "c": [
+     "2",
+     "150 / 0.75"
+    ],
+    "w": "Der alte Preis ist der Grundwert (100 %). Nach 25 % Rabatt zahlt man noch 75 %, also sind 150 € = 75 % des alten Preises: 1 % sind 2 €, 100 % sind 200 €. Zeile 1 ist richtig. Zeile 2 ist der Fehler: Die 25 % gelten vom alten Preis, nicht vom neuen Preis 150 €. Zeile 3 rechnet mit dem falschen Ansatz richtig weiter. Probe: 25 % von 200 € sind 50 €, und 200 € − 50 € = 150 €."
    }
   },
   {
@@ -396,22 +437,27 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
+   "abgrenzung": "",
    "antwortform": "zahl",
+   "loesung_rechnung": "117 / 0.65",
    "fehlbilder": [
     {
      "antwort": 157.95,
+     "rechnung": "117 * 1.35",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "35 % auf den neuen Preis aufgeschlagen, obwohl die 35 % vom alten Preis gelten"
     },
     {
      "antwort": 152,
+     "rechnung": "117 + 35",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die 35 % als 35 € gelesen und zum neuen Preis addiert"
     },
     {
      "antwort": 76.05,
+     "rechnung": "117 * 0.65",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "noch einmal 35 % abgezogen, statt den alten Preis zu suchen"
@@ -445,22 +491,27 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
+   "abgrenzung": "",
    "antwortform": "zahl",
+   "loesung_rechnung": "840 * 1.12 / 6",
    "fehlbilder": [
     {
      "antwort": 940.8,
+     "rechnung": "840 * 1.12",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Gesamtpreis 940,80 € angegeben und nicht auf 6 Raten verteilt"
     },
     {
      "antwort": 140,
+     "rechnung": "840 / 6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "ohne den Aufschlag gerechnet: 840 : 6"
     },
     {
      "antwort": 16.8,
+     "rechnung": "840 * 12 / 100 / 6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur den Aufschlag (100,80 €) auf die 6 Raten verteilt"
@@ -494,7 +545,9 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
+   "abgrenzung": "",
    "antwortform": "auswahl",
+   "loesung_rechnung": null,
    "fehlbilder": [
     {
      "index": 0,
@@ -504,14 +557,14 @@
      "beschreibung": "den Faktor als Rabatt gelesen: 0,92 sind 92 % des Preises, die man noch zahlt, nicht der Rabatt"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Alle Waren werden um 8 % teurer.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Faktor kleiner als 1 mit Aufschlag verwechselt; ein Faktor unter 1 verkleinert den Preis"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Von jedem Preis werden 0,92 € abgezogen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -530,12 +583,12 @@
     },
     "a": [
      "Alle Waren werden um 92 % billiger.",
-     "Alle Waren werden um 8 % billiger (92 % des alten Preises).",
      "Alle Waren werden um 8 % teurer.",
-     "Von jedem Preis werden 0,92 € abgezogen."
+     "Von jedem Preis werden 0,92 € abgezogen.",
+     "Alle Waren werden um 8 % billiger (92 % des alten Preises)."
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "w": "Der Faktor 0,92 sind 92 %. Man zahlt also noch 92 % des alten Preises, das heißt, der Preis sinkt um 100 % − 92 % = 8 %. Beispiel: 100 € · 0,92 = 92 €, also 8 € billiger. Ein Faktor unter 1 bedeutet Rabatt, ein Faktor über 1 Aufschlag."
    }
@@ -550,22 +603,27 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
+   "abgrenzung": "",
    "antwortform": "zahl",
+   "loesung_rechnung": "600 * 0.8 - 620 * 3 / 4",
    "fehlbilder": [
     {
      "antwort": 20,
+     "rechnung": "620 - 600",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur die Listenpreise verglichen: 620 − 600"
     },
     {
      "antwort": 120,
+     "rechnung": "600 * 0.2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur den Rabatt von Laden A (20 % von 600 €) genommen"
     },
     {
      "antwort": 155,
+     "rechnung": "620 * 0.25",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur den Rabatt von Laden B (25 % von 620 €) genommen"
@@ -599,22 +657,27 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
+   "abgrenzung": "",
    "antwortform": "zahl",
+   "loesung_rechnung": "(120 - 96) / 96 * 100",
    "fehlbilder": [
     {
      "antwort": 20,
+     "rechnung": "(120 - 96) / 120 * 100",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Aufschlag auf den Verkaufspreis 120 € bezogen statt auf den Einkaufspreis"
     },
     {
      "antwort": 24,
+     "rechnung": "120 - 96",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Aufschlag in Euro (24) als Prozentzahl hingeschrieben"
     },
     {
      "antwort": 125,
+     "rechnung": "120 / 96 * 100",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Verkaufspreis als Prozentsatz vom Einkaufspreis genommen (125 %), ohne die 100 % abzuziehen"
@@ -648,7 +711,9 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
+   "abgrenzung": "",
    "antwortform": "auswahl",
+   "loesung_rechnung": null,
    "fehlbilder": [
     {
      "index": 0,
@@ -658,14 +723,14 @@
      "beschreibung": "den Grundwert nicht gewechselt: Bei der Aussage über B ist der Preis von A der Grundwert, und der Unterschied ist so groß wie A selbst"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Die Preise bei Händler B sind 150 % höher als bei A.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "100 % + 50 % gerechnet; der Unterschied zwischen B und A ist so groß wie der Preis von A, also 100 % von A"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Die Preise bei Händler B sind 200 % höher als bei A.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -685,12 +750,12 @@
     },
     "a": [
      "Die Preise bei Händler B sind 50 % höher als bei A.",
+     "Die Preise bei Händler B sind 100 % höher als bei A (B verlangt das Doppelte).",
      "Die Preise bei Händler B sind 150 % höher als bei A.",
-     "Die Preise bei Händler B sind 200 % höher als bei A.",
-     "Die Preise bei Händler B sind 100 % höher als bei A (B verlangt das Doppelte)."
+     "Die Preise bei Händler B sind 200 % höher als bei A."
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "w": "Beispiel: Kostet ein Artikel bei B 100 €, dann bei A 50 % weniger, also 50 €. Gegenüber A kostet er bei B 50 € mehr. Der Grundwert ist jetzt der Preis bei A (50 €): 50 € von 50 € sind 100 %. Also ist B um 100 % teurer als A: B verlangt das Doppelte, das sind 200 % von A, aber nur 100 % mehr."
    }
@@ -705,22 +770,27 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
+   "abgrenzung": "",
    "antwortform": "zahl",
+   "loesung_rechnung": "30 + 30 * 200 / 100",
    "fehlbilder": [
     {
      "antwort": 60,
+     "rechnung": "2 * 30",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "„um 200 % steigen“ als „auf 200 % steigen“ gelesen: nur 2 · 30"
     },
     {
      "antwort": 230,
+     "rechnung": "30 + 200",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die 200 % als 200 € gelesen und zum alten Preis addiert"
     },
     {
      "antwort": 6000,
+     "rechnung": "30 * 200",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "mit der Prozentzahl 200 malgenommen, ohne sie in einen Anteil umzuwandeln"
@@ -754,10 +824,12 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
+   "abgrenzung": "",
    "antwortform": "auswahl",
+   "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Die Zahl der Radfahrer ist um 200 % gestiegen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -789,13 +861,13 @@
      "text": "In einer Stadt hat sich die Zahl der Radfahrer im Vergleich zum Vorjahr verdoppelt. Welche Angabe beschreibt dasselbe?"
     },
     "a": [
-     "Die Zahl der Radfahrer ist um 100 % gestiegen.",
      "Die Zahl der Radfahrer ist um 200 % gestiegen.",
+     "Die Zahl der Radfahrer ist um 100 % gestiegen.",
      "Die Zahl der Radfahrer ist um 50 % gestiegen.",
      "Die Zahl der Radfahrer hat sich auf 100 % des Vorjahres erhöht."
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
     "w": "Verdoppelt heißt: neue Zahl = 2 · alte Zahl. Die Zunahme ist dann so groß wie die alte Zahl selbst, also 100 % der alten Zahl. Man sagt: um 100 % gestiegen, auf 200 % des Vorjahres gestiegen. „Um 200 %“ wäre das Dreifache, „auf 100 %“ wäre unverändert."
    }
@@ -810,22 +882,27 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
+   "abgrenzung": "",
    "antwortform": "zahl",
+   "loesung_rechnung": "0.3 * 0.4 * 100",
    "fehlbilder": [
     {
      "antwort": 70,
+     "rechnung": "30 + 40",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die beiden Prozentsätze addiert, obwohl sie sich auf verschiedene Grundwerte beziehen"
     },
     {
      "antwort": 10,
+     "rechnung": "40 - 30",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die beiden Prozentsätze abgezogen"
     },
     {
      "antwort": 1200,
+     "rechnung": "30 * 40",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die beiden Prozentzahlen einfach malgenommen, ohne sie in Anteile umzuwandeln"
@@ -859,28 +936,36 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "antwortform": "auswahl",
+   "abgrenzung": "",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "3",
+    "0.6 * 30 - 0.8 * 5"
+   ],
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "Kein Fehler: 80 % sind mehr als 60 %, also haben in A mehr Kinder die Hausaufgabe gemacht; richtig wäre es, bei dieser Aussage zu bleiben.",
+     "luecke": 2,
+     "antwort": -14,
+     "rechnung": "0.8 * 5 - 0.6 * 30",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Anteile mit Anzahlen gleichgesetzt; ein größerer Anteil heißt nicht mehr Kinder"
+     "beschreibung": "die Differenz andersherum gebildet: 4 − 18 (A minus B)"
     },
     {
-     "index": 1,
-     "antwort": "Fehler: Die Prozentzahl ist die Anzahl; richtig wäre, dass in A 80 Kinder und in B 60 Kinder die Hausaufgabe gemacht haben.",
+     "luecke": 2,
+     "antwort": 18,
+     "rechnung": "0.6 * 30",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Prozentzahlen 80 und 60 als Anzahlen von Kindern gelesen"
+     "beschreibung": "nur die Kinder aus Klasse B gezählt: 60 % von 30"
     },
     {
-     "index": 3,
-     "antwort": "Fehler: Man muss den Unterschied 80 % − 60 % = 20 % bilden; richtig wäre, dass in A genau 20 % aller Kinder mehr die Hausaufgabe gemacht haben.",
+     "luecke": 2,
+     "antwort": 20,
+     "rechnung": "80 - 60",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Unterschied der Anteile als Anteil an allen Kindern gelesen; er ist nur ein Unterschied in Prozentpunkten"
+     "beschreibung": "den Unterschied der Prozentzahlen 80 − 60 als Zahl der Kinder gelesen"
     }
    ],
    "aufgabe": {
@@ -889,20 +974,23 @@
     "p": "sicherung",
     "s": 3,
     "g": "fehler",
-    "y": "auswahl",
+    "y": "luecken",
     "f": {
-     "text": "Zwei Klassen stellen fest: „In Klasse A haben 80 % der Kinder die Hausaufgabe gemacht, in Klasse B nur 60 %. Also haben in Klasse A mehr Kinder die Hausaufgabe gemacht.“ Welche Aussage über diesen Schluss ist richtig?"
+     "text": "Zwei Klassen stellen fest: Zeile 1: In Klasse A haben 80 % der Kinder die Hausaufgabe gemacht, in Klasse B nur 60 %. Zeile 2: 80 % sind mehr als 60 %, also ist der Anteil in A größer. Zeile 3: Also haben in A mehr Kinder die Hausaufgabe gemacht. In welcher Zeile steckt der erste Fehler? Probe an einem Beispiel: Klasse A hat 5 Kinder, Klasse B hat 30 Kinder. Wie viele Kinder mehr haben in B die Hausaufgabe gemacht als in A?",
+     "schablone": "Fehler in Zeile □, Unterschied in B: □ Kinder",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
-    "a": [
-     "Kein Fehler: 80 % sind mehr als 60 %, also haben in A mehr Kinder die Hausaufgabe gemacht; richtig wäre es, bei dieser Aussage zu bleiben.",
-     "Fehler: Die Prozentzahl ist die Anzahl; richtig wäre, dass in A 80 Kinder und in B 60 Kinder die Hausaufgabe gemacht haben.",
-     "Fehler: Die Klassengrößen sind nicht bekannt; richtig wäre nur die Aussage, dass in A der Anteil größer ist. Bei 5 Kindern in A und 30 in B wären es 4 gegen 18 Kinder.",
-     "Fehler: Man muss den Unterschied 80 % − 60 % = 20 % bilden; richtig wäre, dass in A genau 20 % aller Kinder mehr die Hausaufgabe gemacht haben."
-    ],
     "o": {
-     "index": 2
+     "werte": [
+      3,
+      14
+     ]
     },
-    "w": "Prozentzahlen vergleichen Anteile, nicht Anzahlen. Ohne die Klassengrößen weiß man nicht, wie viele Kinder das sind. Beispiel: Klasse A mit 5 Kindern: 80 % von 5 = 4 Kinder. Klasse B mit 30 Kindern: 60 % von 30 = 18 Kinder. Dann haben in B mehr Kinder die Hausaufgabe gemacht, obwohl der Anteil dort kleiner ist."
+    "c": [
+     "3",
+     "0.6 * 30 - 0.8 * 5"
+    ],
+    "w": "Prozentzahlen vergleichen Anteile, nicht Anzahlen. Zeile 1 und 2 sind richtig. Zeile 3 schließt falsch auf die Anzahl der Kinder. Beispiel: In A haben 80 % von 5 = 4 Kinder die Hausaufgabe gemacht, in B 60 % von 30 = 18 Kinder. In B sind es 18 − 4 = 14 Kinder mehr, obwohl der Anteil dort kleiner ist."
    }
   },
   {
@@ -915,22 +1003,27 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
+   "abgrenzung": "",
    "antwortform": "zahl",
+   "loesung_rechnung": "0.1 * 200 / 0.2",
    "fehlbilder": [
     {
      "antwort": 160,
+     "rechnung": "200 - 0.2 * 200",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "20 % des alten Gewichts abgezogen: 200 − 40"
     },
     {
      "antwort": 40,
+     "rechnung": "0.2 * 200",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "20 % von 200 kg als neues Gewicht genommen"
     },
     {
      "antwort": 180,
+     "rechnung": "200 - 0.1 * 200",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "10 Prozentpunkte weniger Wasser als 10 % des alten Gewichts abgezogen: 200 − 20"

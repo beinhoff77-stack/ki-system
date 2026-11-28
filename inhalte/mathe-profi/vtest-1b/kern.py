@@ -17,6 +17,7 @@ G3 = ("rueckwaerts", "verknuepfen", "begruenden", "fehler", "transfer", "paramet
 FORMEN = ("anwenden", "umkehren", "verfahren_waehlen", "fehler_detektiv", "bruecke", "zwei_wege", "viele_antworten")
 POOLS = ("test", "korrektur", "sicherung")
 A = []
+ABG = {}      # (Einheit, Lernziel) -> Satz „was ist anders als in den Übungen“
 POSITION4 = itertools.cycle([2, 0, 3, 1, 1, 3, 0, 2, 3, 1, 0, 2])
 
 

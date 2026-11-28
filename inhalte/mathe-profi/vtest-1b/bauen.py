@@ -33,7 +33,7 @@ AUSWAHL = {
     "messen.flaechen_vielecke": ["parallelogramm", "trapez", "zusammengesetzt", "verstehen"],
 }
 POOLFOLGE = {"test": 0, "korrektur": 1, "sicherung": 2}
-SOLL_ANZAHL = {"test": 1, "korrektur": 2, "sicherung": 3}
+SOLL_ANZAHL = {"test": 1, "korrektur": 3, "sicherung": 3}
 FORMNAME = {"anwenden": "Anwenden", "umkehren": "Umkehren", "verfahren_waehlen": "Verfahren wählen", "fehler_detektiv": "Fehler-Detektiv", "bruecke": "Brücke",
             "zwei_wege": "Zwei Wege vergleichen", "viele_antworten": "Viele richtige Antworten (bedingung)", None: "Anwenden"}
 geladen = []
@@ -116,15 +116,19 @@ for a in A:
         grund = P.dp_vergleich(dm, db_)
         if grund:
             dp_treffer.append((kenn, grund, dquelle, db_["t"][:110]))
-    eintrag = dict(kennung=kenn, thema=schl, lernkarte=lk, pool=a["pool"], typ=a["g"], form=a["form"], stufe=a["s"], zaehlt="ja", lehrplan=a["lp"], antwortform=q["y"], fehlbilder=[])
+    eintrag = dict(kennung=kenn, thema=schl, lernkarte=lk, pool=a["pool"], typ=a["g"], form=a["form"], stufe=a["s"], zaehlt="ja", lehrplan=a["lp"],
+                   abgrenzung=kern.ABG.get((schl, lk), ""), antwortform=q["y"], loesung_rechnung=q.get("c"), fehlbilder=[])
     if a["pool"] == "test":
         eintrag["ersetzt_test"] = True
 
-    def fb_eintrag(ort, antwort, beschr):
+    def fb_eintrag(ort, antwort, beschr, rech=None):
         global n_fb
         assert beschr and len(beschr) > 12, (kenn, "Beschreibung des Fehlbilds")
         n_fb += 1
-        eintrag["fehlbilder"].append(dict(**ort, antwort=antwort, fehlbild=None, regel_des_fehlbilds=None, beschreibung=beschr))
+        d_ = dict(**ort, antwort=antwort)
+        if rech is not None:
+            d_["rechnung"] = rech
+        eintrag["fehlbilder"].append(dict(**d_, fehlbild=None, regel_des_fehlbilds=None, beschreibung=beschr))
 
     if q["y"] == "zahl":
         soll = ip.rechne(q["c"])
@@ -144,7 +148,7 @@ for a in A:
             assert isinstance(rech, str), (kenn, w, "Fehlbild braucht eine Rechnung (Text)")
             P.fb_pruefen(kenn, "Zahl", w, rech)
             n_fb_rechnung += 1
-            fb_eintrag({}, w, beschr)
+            fb_eintrag({}, w, beschr, rech)
     elif q["y"] == "luecken":
         assert not P.KOMMA_LUECKE.search(text + " " + q["f"]["schablone"]), (kenn, "Lücke hinter dem Komma")
         assert q["f"]["schablone"].count("□") == len(q["o"]["werte"]) and all(isinstance(w, int) for w in q["o"]["werte"]), kenn
@@ -161,20 +165,19 @@ for a in A:
                 P.fb_zahlen_pruefen(kenn, w, beschr, rech, q)
                 P.fb_pruefen(kenn, f"Lücke {i + 1}", w, rech)
                 n_fb_rechnung += 1
-                fb_eintrag({"luecke": i + 1}, w, beschr)
+                fb_eintrag({"luecke": i + 1}, w, beschr, rech)
     else:
         assert q["y"] == "auswahl", kenn
         assert len(q["a"]) == 4 and len(set(q["a"])) == 4, (kenn, "genau 4 verschiedene Antworten")
         assert a["zweit"]() is True, (kenn, "Probe der Auswahl")
         assert set(a["fb"]) == set(range(4)) - {q["o"]["index"]}, kenn
-        assert not any(o.startswith("In Zeile") or o.startswith("Zeile ") for o in q["a"]), (kenn, "Fehler-Detektiv mit Zeilenauswahl (Ratechance) verboten")
         n_rechnung += 1
         for i, (_, beschr) in sorted(a["fb"].items()):
             P.fb_zahlen_pruefen(kenn, q["a"][i], beschr, None, q)
             fb_eintrag({"index": i}, q["a"][i], beschr)
             n_fb_ohne += 1
-    if a["form"] == "fehler_detektiv":
-        assert q["y"] in ("luecken", "zahl") or all("richtig wäre" in o for o in q["a"]), (kenn, "Fehler-Detektiv: Zeile nennen UND Ergebnis angeben oder 4 vollständige Aussagen")
+    if a["form"] == "fehler_detektiv" or a["g"] == "fehler":
+        assert q["y"] == "luecken" and "Zeile" in q["f"]["schablone"] and len(re.findall(r"Zeile \d+:", text)) >= 3 and q["o"]["werte"][0] in range(1, 10), (kenn, "Fehler-Detektiv: luecken Zeile □, richtig □ mit mindestens 3 Zeilen")
     sk = (schl, lk, str(q["o"]["wert"]) if q["y"] == "zahl" else (q["a"][q["o"]["index"]] if q["y"] == "auswahl" else str(q["o"]["werte"])))
     assert sk not in sollwerte or q["y"] == "auswahl", (kenn, "gleicher Sollwert in derselben Etappe wie", sollwerte.get(sk))
     sollwerte[sk] = kenn
@@ -194,18 +197,18 @@ for schl in geladen:
         if TEIL:
             assert all(c[p] <= SOLL_ANZAHL[p] for p in SOLL_ANZAHL), (schl, lk, dict(c))
             continue
-        assert all(c[p] == SOLL_ANZAHL[p] for p in SOLL_ANZAHL) and len(xs) == 6, (schl, lk, "1 test + 2 korrektur + 3 sicherung", dict(c))
+        assert all(c[p] == SOLL_ANZAHL[p] for p in SOLL_ANZAHL) and len(xs) == 7, (schl, lk, "1 test + 3 korrektur + 3 sicherung", dict(c))
         t = [e for e in xs if e["pool"] == "test"][0]
         assert t["stufe"] in (2, 3), (schl, lk)
         assert all(e["stufe"] == 2 for e in xs if e["pool"] == "korrektur"), (schl, lk, "Korrektur Stufe 2")
         assert {e["stufe"] for e in xs if e["pool"] == "sicherung"} == {2, 3}, (schl, lk, "Sicherung gemischt 2 und 3")
-        assert len({e["typ"] for e in xs}) >= 5, (schl, lk, "mindestens 5 verschiedene Typen unter den 6", Counter(e["typ"] for e in xs))
-        assert len({(e["typ"], e["form"], e["antwortform"]) for e in xs}) == 6, (schl, lk, "6 verschiedene Bauarten (Typ, Form, Antwortform)")
+        assert len({e["typ"] for e in xs}) >= 5, (schl, lk, "mindestens 5 verschiedene Typen unter den 7", Counter(e["typ"] for e in xs))
+        assert len({(e["typ"], e["form"], e["antwortform"]) for e in xs}) == 7, (schl, lk, "7 verschiedene Bauarten (Typ, Form, Antwortform)")
         assert len({e["form"] for e in xs if e["form"]}) >= 3, (schl, lk, "mindestens 3 verschiedene Formen", Counter(e["form"] for e in xs))
         zs = Counter(e["antwortform"] for e in xs)
-        assert zs["auswahl"] <= 4, (schl, lk, "nicht fast nur Auswahl", dict(zs))
+        assert zs["auswahl"] <= 5, (schl, lk, "nicht fast nur Auswahl", dict(zs))
 if not TEIL:
-    assert len(A) == 96, len(A)
+    assert len(A) == 119, len(A)
 lagen = defaultdict(list)
 for a in A:
     if a["aufgabe"]["y"] == "auswahl":

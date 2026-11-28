@@ -35,14 +35,11 @@ neu(T, "prozentsatz", "sicherung", "darstellung", W(
      ("35 %", "35 % ist 14 : 40 = 0,35 in Prozent und beschreibt denselben Anteil; gesucht ist aber die Ausnahme")],
     "Der Anteil ist 14 von 40, also 14 : 40 = 0,35 = 35 %. Als Bruch 14/40 = 7/20. Damit beschreiben 7/20, 0,35 und 35 % den Anteil. Die Angabe 14 % ist 14/100 und damit nur ein kleinerer Anteil: Die Zahl 14 der Kinder darf nicht ohne Bezug auf die 40 Kinder zur Prozentzahl gemacht werden.",
     lambda: F(14, 40) == F(7, 20) == F(35, 100) == F("0.35") != F(14, 100)), form="bruecke", lp=LP)
-neu(T, "prozentsatz", "sicherung", "fehler", W(
-    "Anna soll berechnen, wie viel Prozent der 25 Kinder einer Klasse ein Haustier haben; 20 Kinder haben eines. Sie rechnet: „25 : 20 = 1,25, also haben 125 % der Kinder ein Haustier.“ Welche Aussage über Annas Rechnung ist richtig?",
-    "Fehler: Das Ganze (25) und der Teil (20) sind vertauscht; richtig wäre 20 : 25 = 0,8, also 80 %.",
-    [("Fehler: Gefragt sind die Kinder ohne Haustier; richtig wäre 5 : 25 = 0,2, also 20 %.", "die 5 Kinder ohne Haustier statt der 20 mit Haustier genommen"),
-     ("Fehler: Das Komma ist falsch gesetzt; richtig wäre 25 : 20 = 12,5, also 12,5 %.", "ein Kommafehler behauptet, obwohl die Division selbst richtig ist; der Fehler ist die Reihenfolge"),
-     ("Fehler: Es muss der Unterschied gebildet werden; richtig wäre 25 − 20 = 5, also 5 %.", "den Unterschied 25 − 20 als Prozentzahl gelesen; ein Anteil ist ein Teil durch ein Ganzes, kein Unterschied")],
-    "Der Prozentsatz ist Teil durch Ganzes: Der Teil sind die 20 Kinder mit Haustier, das Ganze (der Grundwert) sind alle 25 Kinder. Also 20 : 25 = 0,8 = 80 %. Annas Ergebnis 125 % ist ein Warnzeichen: Ein Anteil an der Klasse kann nicht über 100 % liegen.",
-    lambda: F(20, 25) == F(4, 5) and F(25, 20) == F("1.25") and F(5, 25) != F(4, 5) and F(25, 20) * 10 == F("12.5")), form="fehler_detektiv", lp=LP)
+neu(T, "prozentsatz", "sicherung", "fehler", L(
+    "Anna soll berechnen, wie viel Prozent der 25 Kinder einer Klasse ein Haustier haben; 20 Kinder haben eines. Sie schreibt: Zeile 1: Das Ganze sind 25 Kinder, der Teil sind 20 Kinder. Zeile 2: Prozentsatz = Ganzes : Teil = 25 : 20 = 1,25. Zeile 3: Also haben 125 % der Kinder ein Haustier. In welcher Zeile steckt der erste Fehler, und wie viel Prozent der Kinder haben richtig ein Haustier?",
+    "Fehler in Zeile □, richtig: □ %", [2, 80], ["2", "20 / 25 * 100"], ["3 - 1", "4 * 20"],
+    "Der Prozentsatz ist Teil durch Ganzes, nicht Ganzes durch Teil. Zeile 1 ist richtig (Ganzes 25, Teil 20). In Zeile 2 sind Ganzes und Teil vertauscht: richtig ist 20 : 25 = 0,8 = 80 %. Das Ergebnis 125 % ist ein Warnzeichen, denn ein Anteil an der Klasse kann nicht über 100 % liegen.",
+    {1: [(125, "wie Anna Ganzes durch Teil gerechnet: 25 : 20 · 100", "25 / 20 * 100"), (20, "die 5 Kinder ohne Haustier genommen: 5 : 25 · 100", "5 / 25 * 100"), (5, "den Unterschied 25 − 20 als Prozentzahl gelesen", "25 - 20")]}), form="fehler_detektiv", lp=LP)
 neu(T, "prozentsatz", "sicherung", "transfer", Z(
     "In einer Gruppe sind 18 von 30 Kindern Mädchen. Es kommen noch 10 Kinder dazu. Wie viele dieser 10 Kinder müssen Mädchen sein, damit der Anteil der Mädchen in der Gruppe genau gleich bleibt?",
     6, "18 / 30 * (30 + 10) - 18", "10 * 18 / 30",
@@ -51,15 +48,12 @@ neu(T, "prozentsatz", "sicherung", "transfer", Z(
      B("(1 - 18 / 30) * 10", "40 % von 10 gerechnet, also den Anteil der Jungen statt der Mädchen"),
      B("18 / 30 * 10 + 18 / 30 * 10", "den Anteil 60 % von 10 zweimal gezählt")], einheit="Mädchen"), lp=LP)
 # ───────── rabatt_aufschlag ─────────
-neu(T, "rabatt_aufschlag", "test", "fehler", W(
-    "Auf einem Schild steht: „Jetzt 25 % billiger – nur noch 150 €!“ Ben will den alten Preis ausrechnen und rechnet: 150 · 1,25 = 187,50 €. Welche Aussage über Bens Rechnung ist richtig?",
-    "Fehler: Die 25 % beziehen sich auf den alten Preis, nicht auf 150 €. Die 150 € sind 75 % des alten Preises; richtig wäre 150 : 0,75 = 200 €.",
-    [("Fehler: Ein Rabatt wird abgezogen, nicht aufgeschlagen; richtig wäre 150 · 0,75 = 112,50 €.", "den Rabatt noch einmal auf den neuen Preis angewendet; gesucht ist aber der alte Preis"),
-     ("Fehler: Prozent darf man nicht mit dem Preis malnehmen; richtig wäre 150 + 25 = 175 €.", "die 25 Prozent als 25 Euro gelesen"),
-     ("Fehler: Es muss durch 1,25 geteilt werden; richtig wäre 150 : 1,25 = 120 €.", "so zurückgerechnet, als wäre der Preis um 25 % gestiegen; er ist aber gesunken")],
-    "Der alte Preis ist der Grundwert (100 %). Nach 25 % Rabatt zahlt man noch 75 %, also sind 150 € = 75 % des alten Preises. 75 % entsprechen 150 €, 1 % entspricht 2 €, 100 % entsprechen 200 €. "
-    "Probe: 25 % von 200 € sind 50 €, und 200 € − 50 € = 150 €. Bens Rechnung nimmt 25 % vom neuen Preis, also vom falschen Grundwert.",
-    lambda: F(150) / F(75, 100) == 200 and 200 - 200 * F(25, 100) == 150 and 150 * F(125, 100) != 200 and 150 / F(125, 100) == 120 != 200), form="fehler_detektiv", lp=LP)
+neu(T, "rabatt_aufschlag", "test", "fehler", L(
+    "Auf einem Schild steht: „Jetzt 25 % billiger – nur noch 150 €!“ Ben will den alten Preis ausrechnen und schreibt: Zeile 1: Der alte Preis wurde um 25 % gesenkt. Zeile 2: Also ist der alte Preis der neue Preis plus 25 % davon, also 150 · 1,25. Zeile 3: 150 · 1,25 = 187,5, der alte Preis war 187,50 €. In welcher Zeile steckt der erste Fehler, und wie viel Euro kostete der Artikel vorher richtig?",
+    "Fehler in Zeile □, richtig: □ €", [2, 200], ["2", "150 / 0.75"], ["3 - 1", "150 * 4 / 3"],
+    "Der alte Preis ist der Grundwert (100 %). Nach 25 % Rabatt zahlt man noch 75 %, also sind 150 € = 75 % des alten Preises: 1 % sind 2 €, 100 % sind 200 €. Zeile 1 ist richtig. Zeile 2 ist der Fehler: Die 25 % gelten vom alten Preis, nicht vom neuen Preis 150 €. "
+    "Zeile 3 rechnet mit dem falschen Ansatz richtig weiter. Probe: 25 % von 200 € sind 50 €, und 200 € − 50 € = 150 €.",
+    {1: [(187.5, "wie Ben 25 % auf den neuen Preis aufgeschlagen: 150 · 1,25", "150 * 1.25"), (112.5, "den Rabatt noch einmal vom neuen Preis abgezogen: 150 · 0,75", "150 * 0.75"), (175, "die 25 % als 25 € gelesen und addiert: 150 + 25", "150 + 25")]}), form="fehler_detektiv", lp=LP)
 neu(T, "rabatt_aufschlag", "korrektur", "umkehr", Z(
     "Zum Saisonende wird ein Zelt um 35 % billiger. Es kostet jetzt 117 €. Wie viel Euro kostete es vorher?",
     180, "117 / 0.65", "117 / 65 * 100",
@@ -128,15 +122,11 @@ neu(T, "verstehen", "sicherung", "mehrschritt", Z(
     [B("30 + 40", "die beiden Prozentsätze addiert, obwohl sie sich auf verschiedene Grundwerte beziehen"),
      B("40 - 30", "die beiden Prozentsätze abgezogen"),
      B("30 * 40", "die beiden Prozentzahlen einfach malgenommen, ohne sie in Anteile umzuwandeln")], einheit="%"), lp=LP)
-neu(T, "verstehen", "sicherung", "fehler", W(
-    "Zwei Klassen stellen fest: „In Klasse A haben 80 % der Kinder die Hausaufgabe gemacht, in Klasse B nur 60 %. Also haben in Klasse A mehr Kinder die Hausaufgabe gemacht.“ Welche Aussage über diesen Schluss ist richtig?",
-    "Fehler: Die Klassengrößen sind nicht bekannt; richtig wäre nur die Aussage, dass in A der Anteil größer ist. Bei 5 Kindern in A und 30 in B wären es 4 gegen 18 Kinder.",
-    [("Kein Fehler: 80 % sind mehr als 60 %, also haben in A mehr Kinder die Hausaufgabe gemacht; richtig wäre es, bei dieser Aussage zu bleiben.", "Anteile mit Anzahlen gleichgesetzt; ein größerer Anteil heißt nicht mehr Kinder"),
-     ("Fehler: Die Prozentzahl ist die Anzahl; richtig wäre, dass in A 80 Kinder und in B 60 Kinder die Hausaufgabe gemacht haben.", "die Prozentzahlen 80 und 60 als Anzahlen von Kindern gelesen"),
-     ("Fehler: Man muss den Unterschied 80 % − 60 % = 20 % bilden; richtig wäre, dass in A genau 20 % aller Kinder mehr die Hausaufgabe gemacht haben.", "den Unterschied der Anteile als Anteil an allen Kindern gelesen; er ist nur ein Unterschied in Prozentpunkten")],
-    "Prozentzahlen vergleichen Anteile, nicht Anzahlen. Ohne die Klassengrößen weiß man nicht, wie viele Kinder das sind. Beispiel: Klasse A mit 5 Kindern: 80 % von 5 = 4 Kinder. Klasse B mit 30 Kindern: 60 % von 30 = 18 Kinder. "
-    "Dann haben in B mehr Kinder die Hausaufgabe gemacht, obwohl der Anteil dort kleiner ist.",
-    lambda: F(80, 100) * 5 == 4 and F(60, 100) * 30 == 18 and 18 > 4 and 80 > 60), form="fehler_detektiv", lp=LP)
+neu(T, "verstehen", "sicherung", "fehler", L(
+    "Zwei Klassen stellen fest: Zeile 1: In Klasse A haben 80 % der Kinder die Hausaufgabe gemacht, in Klasse B nur 60 %. Zeile 2: 80 % sind mehr als 60 %, also ist der Anteil in A größer. Zeile 3: Also haben in A mehr Kinder die Hausaufgabe gemacht. In welcher Zeile steckt der erste Fehler? Probe an einem Beispiel: Klasse A hat 5 Kinder, Klasse B hat 30 Kinder. Wie viele Kinder mehr haben in B die Hausaufgabe gemacht als in A?",
+    "Fehler in Zeile □, Unterschied in B: □ Kinder", [3, 14], ["3", "0.6 * 30 - 0.8 * 5"], ["6 / 2", "18 - 4"],
+    "Prozentzahlen vergleichen Anteile, nicht Anzahlen. Zeile 1 und 2 sind richtig. Zeile 3 schließt falsch auf die Anzahl der Kinder. Beispiel: In A haben 80 % von 5 = 4 Kinder die Hausaufgabe gemacht, in B 60 % von 30 = 18 Kinder. In B sind es 18 − 4 = 14 Kinder mehr, obwohl der Anteil dort kleiner ist.",
+    {1: [(-14, "die Differenz andersherum gebildet: 4 − 18 (A minus B)", "0.8 * 5 - 0.6 * 30"), (18, "nur die Kinder aus Klasse B gezählt: 60 % von 30", "0.6 * 30"), (20, "den Unterschied der Prozentzahlen 80 − 60 als Zahl der Kinder gelesen", "80 - 60")]}), form="fehler_detektiv", lp=LP)
 neu(T, "verstehen", "sicherung", "transfer", Z(
     "200 kg frische Trauben bestehen zu 90 % aus Wasser. Sie werden zu Rosinen getrocknet, die nur noch zu 80 % aus Wasser bestehen. Wie viel Kilogramm wiegen die Rosinen? (Beim Trocknen geht nur Wasser verloren.)",
     100, "0.1 * 200 / 0.2", "200 * 10 / 100 * 100 / 20",

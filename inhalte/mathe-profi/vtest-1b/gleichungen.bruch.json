@@ -1,0 +1,1378 @@
+{
+ "stand": "2026-11-28",
+ "runde": "vtest-1b",
+ "kuerzel": "VT1B",
+ "titel": "gleichungen.bruch",
+ "klasse": {
+  "gym_by": 8,
+  "rs_by": 8,
+  "ib_myp": 4
+ },
+ "themen": [
+  "gleichungen.bruch"
+ ],
+ "hinweis": "Verstehens-Aufgaben für Tests (Pools test, korrektur, sicherung), je Lernziel 1 + 2 + 3. Nicht eingespielt. Je Eintrag: thema, lernkarte, pool, typ (Aufgabentyp g), form, stufe, zaehlt, lehrplan, ersetzt_test (nur test), Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md (ohne Tipp h, ohne Toleranz).",
+ "aufgaben": [
+  {
+   "kennung": "VT1B-019",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "definitionsmenge",
+   "pool": "test",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Alle Zahlen sind Lösung, also L = ℚ, denn 3 = 1 + 2 ist eine wahre Aussage.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Einschränkung aus der Ausgangsgleichung vergessen, weil nach dem Malnehmen keine Nenner mehr stehen; für x = 2 ist die Ausgangsgleichung nicht definiert"
+    },
+    {
+     "index": 1,
+     "antwort": "Es gibt keine Lösung, also L = { }, denn in 3 = 1 + 2 kommt kein x mehr vor.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die wahre Aussage 3 = 1 + 2 als „keine Lösung“ gedeutet; eine immer wahre Aussage heißt: jede Zahl aus D ist Lösung"
+    },
+    {
+     "index": 2,
+     "antwort": "Nur x = 2 ist Lösung, denn nur dort haben alle drei Brüche denselben Nenner.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die verbotene Zahl 2 zur Lösung gemacht; bei x = 2 ist der Nenner 0 und die Gleichung nicht definiert"
+    }
+   ],
+   "ersetzt_test": true,
+   "aufgabe": {
+    "l": "definitionsmenge",
+    "t": "definitionsmenge",
+    "p": "test",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Beim Lösen von 3/(x − 2) = 1/(x − 2) + 2/(x − 2) multipliziert Jan beide Seiten mit (x − 2) und erhält 3 = 1 + 2. Er sagt: „Jetzt stehen keine Nenner mehr da, also gibt es keine Einschränkung: Alle Zahlen sind Lösung.“ Welche Aussage ist richtig?"
+    },
+    "a": [
+     "Alle Zahlen sind Lösung, also L = ℚ, denn 3 = 1 + 2 ist eine wahre Aussage.",
+     "Es gibt keine Lösung, also L = { }, denn in 3 = 1 + 2 kommt kein x mehr vor.",
+     "Nur x = 2 ist Lösung, denn nur dort haben alle drei Brüche denselben Nenner.",
+     "Die Definitionsmenge gilt für die Ausgangsgleichung: x = 2 ist ausgeschlossen. Für alle anderen Zahlen ist die Gleichung wahr, also L = ℚ \\ {2}."
+    ],
+    "o": {
+     "index": 3
+    },
+    "w": "Die Definitionsmenge bestimmt man an der Ausgangsgleichung: Der Nenner x − 2 darf nicht 0 werden, also D = ℚ \\ {2}. Nach dem Malnehmen mit (x − 2) steht 3 = 1 + 2, eine für jedes x wahre Aussage. Also ist jede Zahl aus D eine Lösung, die Zahl 2 aber nicht, weil die Brüche für x = 2 nicht definiert sind: L = ℚ \\ {2}."
+   }
+  },
+  {
+   "kennung": "VT1B-020",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "definitionsmenge",
+   "pool": "korrektur",
+   "typ": "mehrschritt",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "zahl",
+   "loesung_rechnung": "1 + 1",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "rechnung": "1 + 1 + 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Lösungen jeder Nennergleichung einzeln gezählt (1 + 1 + 2), ohne doppelte Zahlen zu streichen"
+    },
+    {
+     "antwort": 3,
+     "rechnung": "1 + 1 + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "für jeden der drei Nenner nur eine Zahl gezählt, obwohl x² − 9 zwei Nullstellen hat"
+    },
+    {
+     "antwort": 1,
+     "rechnung": "1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Zahl 3 betrachtet, weil sie in zwei Nennern vorkommt"
+    }
+   ],
+   "aufgabe": {
+    "l": "definitionsmenge",
+    "t": "definitionsmenge",
+    "p": "korrektur",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Für wie viele Zahlen ist die Gleichung 7/(2x − 6) + 1/(x + 3) = 4/(x² − 9) nicht definiert? (Gemeint sind alle rationalen Zahlen x.)"
+    },
+    "o": {
+     "wert": 2,
+     "einheit": "Zahlen"
+    },
+    "c": "1 + 1",
+    "w": "Ein Bruch ist nicht definiert, wenn sein Nenner 0 wird. Erster Nenner: 2x − 6 = 0 für x = 3. Zweiter Nenner: x + 3 = 0 für x = −3. Dritter Nenner: x² − 9 = (x − 3)(x + 3) = 0 für x = 3 oder x = −3. Der dritte Nenner liefert keine neue Zahl. Ausgeschlossen sind also nur die zwei Zahlen 3 und −3."
+   }
+  },
+  {
+   "kennung": "VT1B-021",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "definitionsmenge",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "zahl",
+   "loesung_rechnung": "2 * 7",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "rechnung": "7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "a gleich der ausgeschlossenen Zahl 7 gesetzt; der Faktor 2 vor dem x wurde übersehen"
+    },
+    {
+     "antwort": -14,
+     "rechnung": "-2 * 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Wert a mit falschem Vorzeichen übernommen: −(2 · 7)"
+    },
+    {
+     "antwort": 3.5,
+     "rechnung": "7 / 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 2 geteilt statt mit 2 malgenommen: 7 : 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "definitionsmenge",
+    "t": "definitionsmenge",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Die Gleichung 6/(2x − a) + 4/(x + 3) = 2 hat die Definitionsmenge ℚ \\ {−3; 7}. Welche Zahl ist a?"
+    },
+    "o": {
+     "wert": 14
+    },
+    "c": "2 * 7",
+    "w": "Die Zahl −3 kommt vom Nenner x + 3. Die Zahl 7 muss vom Nenner 2x − a kommen: 2 · 7 − a = 0, also a = 14. Probe: 2x − 14 = 0 gibt x = 7. Mit a = 7 wäre 2x − 7 = 0 bei x = 3,5, nicht bei 7."
+   }
+  },
+  {
+   "kennung": "VT1B-022",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "definitionsmenge",
+   "pool": "sicherung",
+   "typ": "einkleidung",
+   "form": "anwenden",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "zahl",
+   "loesung_rechnung": "0 + 5",
+   "fehlbilder": [
+    {
+     "antwort": 0,
+     "rechnung": "0",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den ersten Nenner x beachtet: ausgeschlossen wäre dann nur 0"
+    },
+    {
+     "antwort": -5,
+     "rechnung": "0 + (-5)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl aus x − 5 = 0 mit falschem Vorzeichen als −5 gezählt"
+    },
+    {
+     "antwort": 10,
+     "rechnung": "5 + 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 5 doppelt gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "definitionsmenge",
+    "t": "definitionsmenge",
+    "p": "sicherung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Drucker allein braucht x Minuten für einen Auftrag, ein zweiter braucht 5 Minuten weniger. Zusammen schaffen sie den Auftrag in 3 Minuten, das gibt die Gleichung 1/x + 1/(x − 5) = 1/3. Welche Zahlen sind für x ausgeschlossen? Gib die Summe dieser Zahlen an."
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "0 + 5",
+    "w": "Der Nenner x darf nicht 0 sein, der Nenner x − 5 darf nicht 0 sein, also ist x = 5 verboten. Ausgeschlossen sind 0 und 5, die Summe ist 0 + 5 = 5."
+   }
+  },
+  {
+   "kennung": "VT1B-023",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "definitionsmenge",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "1",
+    "0 - 3"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "rechnung": "3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die zweite Lösung von x² = 9 mit dem Vorzeichen +: 3"
+    },
+    {
+     "luecke": 2,
+     "antwort": -9,
+     "rechnung": "0 - 9",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x² − 9 = 0 als x = −9 gelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "definitionsmenge",
+    "t": "definitionsmenge",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Mara bestimmt die Definitionsmenge von 3/(x² − 9) = 2/(x − 3) so: Zeile 1: Aus x² − 9 = 0 folgt x = 3. Zeile 2: Aus x − 3 = 0 folgt auch x = 3. Zeile 3: Also ist D = ℚ \\ {3}. In welcher Zeile steckt der erste Fehler, und welche negative Zahl muss zusätzlich aus D ausgeschlossen werden?",
+     "schablone": "Fehler in Zeile □, zusätzlich ausgeschlossen: □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      1,
+      -3
+     ]
+    },
+    "c": [
+     "1",
+     "0 - 3"
+    ],
+    "w": "x² − 9 = (x − 3)(x + 3) ist 0 für x = 3 und für x = −3. Maras Zeile 1 nennt nur die Lösung 3 von x² = 9 und vergisst −3. Zeile 2 ist richtig (x − 3 = 0 gilt nur für 3), Zeile 3 folgt aus den beiden Zeilen. Richtig ist D = ℚ \\ {−3; 3}."
+   }
+  },
+  {
+   "kennung": "VT1B-024",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "definitionsmenge",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "bruecke",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "36/x − 36/(x + 3) = 2 mit D = ℚ \\ {0}",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den zweiten Nenner x + 3 nicht beachtet; für x = −3 ist 36/(x + 3) nicht definiert"
+    },
+    {
+     "index": 2,
+     "antwort": "36/x + 36/(x + 3) = 2 mit D = ℚ \\ {−3; 0}",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Kosten addiert; das Kind zahlt mit den Zusatzkindern weniger, der Unterschied ist 2 €"
+    },
+    {
+     "index": 3,
+     "antwort": "36/(x − 3) − 36/x = 2 mit D = ℚ \\ {0; 3}",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 3 weiteren Kinder abgezogen statt dazugezählt; mit 3 Kindern mehr sind es x + 3 Kinder"
+    }
+   ],
+   "aufgabe": {
+    "l": "definitionsmenge",
+    "t": "definitionsmenge",
+    "p": "sicherung",
+    "s": 3,
+    "g": "transfer",
+    "y": "auswahl",
+    "f": {
+     "text": "Kinder teilen sich die Kosten von 36 € für ein Taxi gleichmäßig; es sind x Kinder. Kommen 3 weitere Kinder mit, zahlt jedes Kind 2 € weniger. Welche Gleichung beschreibt das, und welche Zahlen sind für x ausgeschlossen?"
+    },
+    "a": [
+     "36/x − 36/(x + 3) = 2 mit D = ℚ \\ {−3; 0}",
+     "36/x − 36/(x + 3) = 2 mit D = ℚ \\ {0}",
+     "36/x + 36/(x + 3) = 2 mit D = ℚ \\ {−3; 0}",
+     "36/(x − 3) − 36/x = 2 mit D = ℚ \\ {0; 3}"
+    ],
+    "o": {
+     "index": 0
+    },
+    "w": "Mit x Kindern zahlt jedes 36/x €. Mit 3 weiteren Kindern sind es x + 3 Kinder, und jedes zahlt 36/(x + 3) €, das sind 2 € weniger: 36/x − 36/(x + 3) = 2. Die Nenner x und x + 3 dürfen nicht 0 sein, also D = ℚ \\ {−3; 0}. Probe mit x = 6: 36/6 − 36/9 = 6 − 4 = 2."
+   }
+  },
+  {
+   "kennung": "VT1B-025",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "ueber_kreuz",
+   "pool": "test",
+   "typ": "pruefung",
+   "form": "verfahren_waehlen",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "(x + 2)/4 = 3/(x − 1) + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "rechts steht ein Bruch plus eine Zahl, also eine Summe; über Kreuz geht nur, wenn auf jeder Seite genau ein Bruch steht"
+    },
+    {
+     "index": 1,
+     "antwort": "1/x + 1/2 = 3/(x − 1)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "links steht eine Summe zweier Brüche; sie müsste erst zu einem Bruch zusammengefasst werden"
+    },
+    {
+     "index": 3,
+     "antwort": "2 − 5/(x + 3) = 4/x",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "links steht eine Differenz aus einer Zahl und einem Bruch; es sind nicht auf beiden Seiten einzelne Brüche"
+    }
+   ],
+   "ersetzt_test": true,
+   "aufgabe": {
+    "l": "ueber_kreuz",
+    "t": "ueber_kreuz",
+    "p": "test",
+    "s": 3,
+    "g": "pruefung",
+    "y": "auswahl",
+    "f": {
+     "text": "Bei welcher der folgenden Gleichungen darf man sofort über Kreuz multiplizieren, also a/b = c/d in a · d = c · b umwandeln?"
+    },
+    "a": [
+     "(x + 2)/4 = 3/(x − 1) + 1",
+     "1/x + 1/2 = 3/(x − 1)",
+     "(x + 2)/4 = 3/(x − 1)",
+     "2 − 5/(x + 3) = 4/x"
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "Über Kreuz multiplizieren geht nur bei der Form a/b = c/d: auf jeder Seite steht genau ein Bruch. Das ist bei (x + 2)/4 = 3/(x − 1) der Fall: (x + 2)(x − 1) = 3 · 4. Bei den anderen Gleichungen steht auf einer Seite eine Summe oder Differenz; dort muss man erst zusammenfassen oder mit dem Hauptnenner malnehmen."
+   }
+  },
+  {
+   "kennung": "VT1B-026",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "ueber_kreuz",
+   "pool": "korrektur",
+   "typ": "einkleidung",
+   "form": "anwenden",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "zahl",
+   "loesung_rechnung": "9 * 2 / (3 - 2)",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "rechnung": "9 * 2 / 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Mädchen im Nenner vergessen: x gleich 9 mal 2 geteilt durch 3 gesetzt"
+    },
+    {
+     "antwort": 9,
+     "rechnung": "9 / (3 - 2)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammer nicht ausmultipliziert: 3x = 2x + 9 gibt x = 9"
+    },
+    {
+     "antwort": -27,
+     "rechnung": "27 / (2 - 3)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "über Kreuz falsch gekreuzt: 2x = 3(x + 9) gibt x = −27"
+    }
+   ],
+   "aufgabe": {
+    "l": "ueber_kreuz",
+    "t": "ueber_kreuz",
+    "p": "korrektur",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "In einer Gruppe sind 9 Jungen. Es kommen x Mädchen dazu; der Anteil der Mädchen in der Gruppe ist dann x/(x + 9). Er soll genau 2/3 betragen. Wie viele Mädchen müssen dazukommen?"
+    },
+    "o": {
+     "wert": 18,
+     "einheit": "Mädchen"
+    },
+    "c": "9 * 2 / (3 - 2)",
+    "w": "Aus x/(x + 9) = 2/3 folgt über Kreuz 3x = 2(x + 9), also 3x = 2x + 18, damit x = 18. Probe: 18/(18 + 9) = 18/27 = 2/3. Die Mädchen gehören auch in den Nenner des Anteils."
+   }
+  },
+  {
+   "kennung": "VT1B-027",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "ueber_kreuz",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "4(x − 1) = 7(x + 3)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "jeden Zähler mit dem eigenen Nenner malgenommen; über Kreuz heißt Zähler links mal Nenner rechts"
+    },
+    {
+     "index": 1,
+     "antwort": "4 · 7 = (x − 1)(x + 3)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zähler mit Zähler und Nenner mit Nenner malgenommen; das ist kein Über-Kreuz-Multiplizieren"
+    },
+    {
+     "index": 2,
+     "antwort": "4(x + 3) = 7x − 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammer rechts nicht gesetzt; der ganze Nenner x − 1 wird mit 7 malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "ueber_kreuz",
+    "t": "ueber_kreuz",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim will die Gleichung 4/(x − 1) = 7/(x + 3) ohne Brüche schreiben und rechnet dazu über Kreuz. Welche Gleichung steht danach da?"
+    },
+    "a": [
+     "4(x − 1) = 7(x + 3)",
+     "4 · 7 = (x − 1)(x + 3)",
+     "4(x + 3) = 7x − 1",
+     "4(x + 3) = 7(x − 1)"
+    ],
+    "o": {
+     "index": 3
+    },
+    "w": "Über Kreuz: Der Zähler links (4) wird mit dem Nenner rechts (x + 3) malgenommen, der Zähler rechts (7) mit dem Nenner links (x − 1). Das gibt 4(x + 3) = 7(x − 1). Der ganze Nenner steht dabei in der Klammer."
+   }
+  },
+  {
+   "kennung": "VT1B-028",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "ueber_kreuz",
+   "pool": "sicherung",
+   "typ": "mehrschritt",
+   "form": "zwei_wege",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Die Wege liefern verschiedene Gleichungen; Jo erhält 2(x − 1) = 3(x + 4) und damit x = −14.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Jos Weg falsch gedeutet: Beim Malnehmen mit (x − 1)(x + 4) kürzt sich links x − 1 weg, es bleibt 2(x + 4), nicht 2(x − 1)"
+    },
+    {
+     "index": 2,
+     "antwort": "Jos Weg ist nicht erlaubt, weil man nie mit zwei Nennern zugleich malnehmen darf; nur Kim erhält x = 11.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "geglaubt, das Malnehmen mit dem Produkt der Nenner sei verboten; es ist eine Äquivalenzumformung, solange der Faktor nicht 0 ist"
+    },
+    {
+     "index": 3,
+     "antwort": "Beide erhalten dieselbe Gleichung 2(x + 4) = 3(x − 1) und damit x = −11.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Gleichung richtig aufgestellt, aber falsch gelöst: 2x + 8 = 3x − 3 gibt x = 11, nicht −11"
+    }
+   ],
+   "aufgabe": {
+    "l": "ueber_kreuz",
+    "t": "ueber_kreuz",
+    "p": "sicherung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Kinder lösen 2/(x − 1) = 3/(x + 4). Kim multipliziert über Kreuz. Jo multipliziert beide Seiten mit dem Produkt der Nenner, also mit (x − 1)(x + 4), und kürzt. Welche Aussage stimmt?"
+    },
+    "a": [
+     "Die Wege liefern verschiedene Gleichungen; Jo erhält 2(x − 1) = 3(x + 4) und damit x = −14.",
+     "Beide erhalten dieselbe Gleichung 2(x + 4) = 3(x − 1) und damit x = 11; über Kreuz ist eine Abkürzung für das Malnehmen mit beiden Nennern.",
+     "Jos Weg ist nicht erlaubt, weil man nie mit zwei Nennern zugleich malnehmen darf; nur Kim erhält x = 11.",
+     "Beide erhalten dieselbe Gleichung 2(x + 4) = 3(x − 1) und damit x = −11."
+    ],
+    "o": {
+     "index": 1
+    },
+    "w": "Jo: 2/(x − 1) · (x − 1)(x + 4) = 2(x + 4) und 3/(x + 4) · (x − 1)(x + 4) = 3(x − 1). Das ist genau die Gleichung, die Kim über Kreuz erhält. Lösen: 2x + 8 = 3x − 3, also x = 11. Probe: 2/10 = 0,2 und 3/15 = 0,2. Die Zahl 11 liegt in D = ℚ \\ {−4; 1}."
+   }
+  },
+  {
+   "kennung": "VT1B-029",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "ueber_kreuz",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2",
+    "8 / (6 - 4)"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "2 / (6 - 4)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Bens Ergebnis x = 1 aus 6x = 4x + 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": -6,
+     "rechnung": "12 / (4 - 6)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsch gekreuzt: 6(x + 2) = 4x gibt x = −6"
+    },
+    {
+     "luecke": 2,
+     "antwort": 8,
+     "rechnung": "8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aus 2x = 8 gleich x = 8 gelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "ueber_kreuz",
+    "t": "ueber_kreuz",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Ben löst 6/(x + 2) = 4/x so: Zeile 1: Über Kreuz: 6 · x = 4 · (x + 2). Zeile 2: Ausmultiplizieren: 6x = 4x + 2. Zeile 3: Also 2x = 2 und x = 1. In welcher Zeile steckt der erste Fehler, und welche Lösung hat die Gleichung richtig?",
+     "schablone": "Fehler in Zeile □, richtig: x = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      2,
+      4
+     ]
+    },
+    "c": [
+     "2",
+     "8 / (6 - 4)"
+    ],
+    "w": "Zeile 1 ist richtig. In Zeile 2 ist 4 · (x + 2) = 4x + 8, nicht 4x + 2: Die 4 muss mit beiden Gliedern der Klammer malgenommen werden. Richtig: 6x = 4x + 8, 2x = 8, x = 4. Probe: 6/(4 + 2) = 1 und 4/4 = 1. Mit Bens Ergebnis x = 1 wäre 6/3 = 2, aber 4/1 = 4."
+   }
+  },
+  {
+   "kennung": "VT1B-030",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "ueber_kreuz",
+   "pool": "sicherung",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "zahl",
+   "loesung_rechnung": "1 + 1",
+   "fehlbilder": [
+    {
+     "antwort": 1,
+     "rechnung": "1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur k = 3 gefunden und die Scheinlösung bei k = 0 übersehen"
+    },
+    {
+     "antwort": 0,
+     "rechnung": "0",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "geglaubt, dass sich für jedes k eine Lösung findet"
+    },
+    {
+     "antwort": 3,
+     "rechnung": "1 + 1 + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dazu den Randwert k = 6 mitgezählt (das ist aber eine echte Lösung mit x = 6)"
+    }
+   ],
+   "aufgabe": {
+    "l": "ueber_kreuz",
+    "t": "ueber_kreuz",
+    "p": "sicherung",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Für wie viele ganze Zahlen k von −6 bis 6 (einschließlich) hat die Gleichung 3/(x − 1) = k/(x + 4) keine Lösung?"
+    },
+    "o": {
+     "wert": 2,
+     "einheit": "Zahlen"
+    },
+    "c": "1 + 1",
+    "w": "Über Kreuz: 3(x + 4) = k(x − 1), also (3 − k)x = −k − 12. Für k = 3 steht 0 · x = −15: keine Lösung. Für k = 0 folgt 3x = −12, also x = −4. Das ist aber ausgeschlossen (Nenner x + 4), eine Scheinlösung: keine Lösung. Für alle anderen k aus dem Bereich gibt es x = (−k − 12)/(3 − k), und dieses x ist weder 1 noch −4. Also gibt es genau 2 solche k: 0 und 3."
+   }
+  },
+  {
+   "kennung": "VT1B-031",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "scheinloesung",
+   "pool": "test",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "L = {5}, denn auf beiden Seiten steht bei x = 5 dasselbe.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gleiches Aussehen mit „stimmt“ verwechselt; durch 0 darf man nicht teilen, die Aussage 7/0 = 7/0 hat keinen Wert"
+    },
+    {
+     "index": 2,
+     "antwort": "L = ℚ \\ {5}, denn ohne die 5 sind beide Seiten für jede Zahl gleich.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gedacht, die Gleichung gelte für alle zugelassenen Zahlen; für x ≠ 5 ist x + 2 = 7 falsch, also sind die Seiten verschieden"
+    },
+    {
+     "index": 3,
+     "antwort": "L = {5}, denn 7 : 0 ist 0, und 0 = 0 stimmt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "7 : 0 mit 0 gleichgesetzt; die Division durch 0 ist nicht erklärt"
+    }
+   ],
+   "ersetzt_test": true,
+   "aufgabe": {
+    "l": "scheinloesung",
+    "t": "scheinloesung",
+    "p": "test",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim löst (x + 2)/(x − 5) = 7/(x − 5). Sie multipliziert mit (x − 5), erhält x + 2 = 7 und damit x = 5. Zur Probe setzt sie x = 5 ein: „7/0 = 7/0, das stimmt also: L = {5}.“ Welche Aussage ist richtig?"
+    },
+    "a": [
+     "L = { }: Bei x = 5 ist der Nenner 0, beide Seiten sind gar nicht definiert. „7/0 = 7/0“ ist deshalb keine wahre Aussage, und 5 ist eine Scheinlösung.",
+     "L = {5}, denn auf beiden Seiten steht bei x = 5 dasselbe.",
+     "L = ℚ \\ {5}, denn ohne die 5 sind beide Seiten für jede Zahl gleich.",
+     "L = {5}, denn 7 : 0 ist 0, und 0 = 0 stimmt."
+    ],
+    "o": {
+     "index": 0
+    },
+    "w": "Die Definitionsmenge ist D = ℚ \\ {5}, weil der Nenner x − 5 nicht 0 werden darf. Die Umformung liefert x = 5, aber 5 gehört nicht zu D. Für x = 5 sind beide Seiten nicht definiert, es gibt keine wahre Aussage. Für jedes x ≠ 5 ist die Gleichung gleichwertig zu x + 2 = 7, also falsch. Damit ist L = { }, und x = 5 ist eine Scheinlösung."
+   }
+  },
+  {
+   "kennung": "VT1B-032",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "scheinloesung",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "L = {3}, denn 5x = 15 ergibt x = 3.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Rechnung als Ergebnis genommen, ohne mit D zu vergleichen; 3 ist ausgeschlossen"
+    },
+    {
+     "index": 1,
+     "antwort": "L = {−2; 3}, denn das sind die besonderen Zahlen der Gleichung.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die ausgeschlossenen Zahlen als Lösungen angegeben; sie sind gerade keine Lösungen"
+    },
+    {
+     "index": 3,
+     "antwort": "L = {5}, denn 15 : 3 = 5.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5x = 15 als 15 : 3 gelesen; durch 5 teilen gibt x = 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheinloesung",
+    "t": "scheinloesung",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Bruchgleichung hat die Definitionsmenge ℚ \\ {−2; 3}. Nach dem Multiplizieren mit den Nennern und Umformen steht da 5x = 15. Welche Aussage über die Lösungsmenge L ist richtig?"
+    },
+    "a": [
+     "L = {3}, denn 5x = 15 ergibt x = 3.",
+     "L = {−2; 3}, denn das sind die besonderen Zahlen der Gleichung.",
+     "L = { }, denn x = 3 gehört nicht zur Definitionsmenge (Scheinlösung).",
+     "L = {5}, denn 15 : 3 = 5."
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "Aus 5x = 15 folgt x = 3. Die Zahl 3 ist aber nicht in D = ℚ \\ {−2; 3}: Für x = 3 wäre ein Nenner 0. Deshalb ist 3 eine Scheinlösung, und es bleibt keine Lösung übrig: L = { }."
+   }
+  },
+  {
+   "kennung": "VT1B-033",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "scheinloesung",
+   "pool": "korrektur",
+   "typ": "mehrschritt",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "zahl",
+   "loesung_rechnung": "3 - 2",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "rechnung": "3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "für jede Gleichung den Kandidaten ausgerechnet und ohne Prüfung gegen D alle drei gezählt"
+    },
+    {
+     "antwort": 2,
+     "rechnung": "3 - 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Scheinlösung erkannt (A) und die in (C) übersehen"
+    },
+    {
+     "antwort": 0,
+     "rechnung": "0",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Kandidaten für Scheinlösungen gehalten, auch x = 1 aus (B)"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheinloesung",
+    "t": "scheinloesung",
+    "p": "korrektur",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele der folgenden drei Gleichungen haben mindestens eine Lösung? (A) (x + 1)/(x − 3) = 4/(x − 3); (B) 6/(x + 2) = 3/(x + 2) + 1; (C) x/(x − 5) = 5/(x − 5)."
+    },
+    "o": {
+     "wert": 1,
+     "einheit": "Gleichungen"
+    },
+    "c": "3 - 2",
+    "w": "(A): Mal (x − 3) gibt x + 1 = 4, also x = 3. Die 3 ist verboten: keine Lösung. (B): Mal (x + 2) gibt 6 = 3 + (x + 2), also x = 1. Die 1 ist erlaubt (D = ℚ \\ {−2}): Lösung. (C): Mal (x − 5) gibt x = 5. Die 5 ist verboten: keine Lösung. Nur (B) hat eine Lösung, also genau 1 Gleichung."
+   }
+  },
+  {
+   "kennung": "VT1B-034",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "scheinloesung",
+   "pool": "sicherung",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "zahl",
+   "loesung_rechnung": "3 * 6 + 6",
+   "fehlbilder": [
+    {
+     "antwort": 18,
+     "rechnung": "3 * 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "a = 3x gerechnet: das −6 aus der Klammer vergessen"
+    },
+    {
+     "antwort": 12,
+     "rechnung": "6 + 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "a = x + 6 gerechnet: die 3 vor dem x übersehen"
+    },
+    {
+     "antwort": 30,
+     "rechnung": "4 * 6 + 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "a = 4x + 6 gerechnet: x auf der linken Seite nicht abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheinloesung",
+    "t": "scheinloesung",
+    "p": "sicherung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Die Gleichung 4x/(x − 6) = a/(x − 6) + 1 liefert beim Rechnen als einzigen Kandidaten x = 6, der nicht zu D gehört (also L = { }). Welche Zahl ist a?"
+    },
+    "o": {
+     "wert": 24
+    },
+    "c": "3 * 6 + 6",
+    "w": "Mal (x − 6): 4x = a + (x − 6), also 3x = a − 6 und a = 3x + 6. Der Kandidat soll x = 6 sein: a = 3 · 6 + 6 = 24. Probe: 4x = 24 + x − 6 gibt 3x = 18, also x = 6, und die 6 ist verboten."
+   }
+  },
+  {
+   "kennung": "VT1B-035",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "scheinloesung",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "1",
+    "2"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die verbotene Zahl 1 als Lösung genommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "rechnung": "7 - 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aus 2x + 3 = 7 nur 7 − 3 gerechnet und nicht durch 2 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheinloesung",
+    "t": "scheinloesung",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Ina löst 5/(x − 1) + 2 = 7/(x − 1) so: Zeile 1: Mal (x − 1) gibt 5 + 2 = 7. Zeile 2: Das stimmt für jede Zahl. Zeile 3: Also sind alle Zahlen Lösung. In welcher Zeile steckt der erste Fehler, und welche Zahl ist die einzige Lösung der Gleichung?",
+     "schablone": "Fehler in Zeile □, einzige Lösung: x = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      1,
+      2
+     ]
+    },
+    "c": [
+     "1",
+     "2"
+    ],
+    "w": "Beim Malnehmen mit (x − 1) muss jedes Glied malgenommen werden, auch die 2: 5 + 2(x − 1) = 7. Das gibt 2x + 3 = 7, also x = 2. Die 2 liegt in D = ℚ \\ {1}. Probe: 5/1 + 2 = 7 und 7/1 = 7. Zeile 1 ist der Fehler; Zeile 2 und 3 folgen daraus."
+   }
+  },
+  {
+   "kennung": "VT1B-036",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "scheinloesung",
+   "pool": "sicherung",
+   "typ": "verknuepfen",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "zahl",
+   "loesung_rechnung": "8 - 1",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "rechnung": "8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die ausgeschlossene Zahl 3 mitgezählt"
+    },
+    {
+     "antwort": 0,
+     "rechnung": "0",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "geglaubt, dass es wegen des verbotenen Wertes 3 keine Lösung gibt"
+    },
+    {
+     "antwort": 1,
+     "rechnung": "1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "geglaubt, dass nur die Zahl 3 als Lösung zählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheinloesung",
+    "t": "scheinloesung",
+    "p": "sicherung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele ganze Zahlen von −2 bis 5 (einschließlich) liegen in der Lösungsmenge von (x² − 6x + 9)/(x − 3) = x − 3?"
+    },
+    "o": {
+     "wert": 7,
+     "einheit": "Zahlen"
+    },
+    "c": "8 - 1",
+    "w": "Der Zähler ist eine binomische Formel: x² − 6x + 9 = (x − 3)². Für x ≠ 3 gilt (x − 3)²/(x − 3) = x − 3, die Gleichung ist also für jede Zahl aus D wahr: L = ℚ \\ {3}. Von den 8 ganzen Zahlen −2, −1, 0, 1, 2, 3, 4, 5 gehört die 3 nicht dazu. Es bleiben 7 Zahlen."
+   }
+  },
+  {
+   "kennung": "VT1B-037",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "verhaeltnis",
+   "pool": "test",
+   "typ": "transfer",
+   "form": "bruecke",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "h : 12 = 2 : 1,5, also h = 16 m.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Verhältnis Schatten zu Höhe auf der einen Seite und Höhe zu Schatten auf der anderen Seite gemischt"
+    },
+    {
+     "index": 1,
+     "antwort": "h : 1,5 = 2 : 12, also h = 0,25 m.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Höhe und Schatten vertauscht: Stab und Baum stehen nicht auf der richtigen Seite"
+    },
+    {
+     "index": 3,
+     "antwort": "h − 1,5 = 12 − 2, also h = 11,5 m.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "additiv statt proportional gerechnet; ein längerer Schatten bedeutet nicht denselben Zuwachs bei der Höhe"
+    }
+   ],
+   "ersetzt_test": true,
+   "aufgabe": {
+    "l": "verhaeltnis",
+    "t": "verhaeltnis",
+    "p": "test",
+    "s": 3,
+    "g": "transfer",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein 1,5 m langer Stab wirft zur selben Zeit einen 2 m langen Schatten. Ein Baum wirft einen 12 m langen Schatten. Welche Aussage über die Höhe h des Baumes ist richtig? (Sonne und Boden sind gleich.)"
+    },
+    "a": [
+     "h : 12 = 2 : 1,5, also h = 16 m.",
+     "h : 1,5 = 2 : 12, also h = 0,25 m.",
+     "h : 12 = 1,5 : 2, also h = 9 m.",
+     "h − 1,5 = 12 − 2, also h = 11,5 m."
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "Zur selben Zeit ist das Verhältnis Höhe : Schatten bei Stab und Baum gleich: 1,5 : 2 = h : 12. Außenglieder mal Außenglieder: 2h = 1,5 · 12 = 18 (Innenglieder: 1,5 · 12; Außenglieder: 2 · h). Also h = 9 m. Probe: 9 : 12 = 3 : 4 und 1,5 : 2 = 3 : 4."
+   }
+  },
+  {
+   "kennung": "VT1B-038",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "verhaeltnis",
+   "pool": "korrektur",
+   "typ": "einkleidung",
+   "form": "anwenden",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "zahl",
+   "loesung_rechnung": "18 * 30 / 12",
+   "fehlbilder": [
+    {
+     "antwort": 36,
+     "rechnung": "18 + (30 - 12)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "additiv gerechnet: Die Breite wuchs um 18 cm, also wuchs auch die Höhe um 18 cm"
+    },
+    {
+     "antwort": 7.2,
+     "rechnung": "18 * 12 / 30",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Verhältnis falsch herum angesetzt: 18 · 12 : 30"
+    }
+   ],
+   "aufgabe": {
+    "l": "verhaeltnis",
+    "t": "verhaeltnis",
+    "p": "korrektur",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Foto ist 12 cm breit und 18 cm hoch. Es wird so vergrößert, dass es 30 cm breit ist, ohne dass sich das Seitenverhältnis ändert. Wie hoch ist das vergrößerte Foto in cm?"
+    },
+    "o": {
+     "wert": 45,
+     "einheit": "cm"
+    },
+    "c": "18 * 30 / 12",
+    "w": "Das Verhältnis Höhe : Breite bleibt gleich: h : 30 = 18 : 12. Außenglieder: h und 12, Innenglieder: 30 und 18. Also 12h = 30 · 18 = 540 und h = 45 cm. Der Vergrößerungsfaktor 30 : 12 = 2,5 gilt für beide Seiten: 18 · 2,5 = 45."
+   }
+  },
+  {
+   "kennung": "VT1B-039",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "verhaeltnis",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "3/5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Verhältnis Rot : Blau als Anteil an der Mischung gelesen; die 5 Teile Blau gehören nicht zum Rot"
+    },
+    {
+     "index": 2,
+     "antwort": "5/8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anteil des Blau genommen statt des Rot"
+    },
+    {
+     "index": 3,
+     "antwort": "3/2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Rot durch die Differenz 5 − 3 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "verhaeltnis",
+    "t": "verhaeltnis",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "In einer Farbmischung verhalten sich die roten zu den blauen Teilen wie 3 : 5. Welchen Anteil der ganzen Mischung macht das Rot aus?"
+    },
+    "a": [
+     "3/8",
+     "3/5",
+     "5/8",
+     "3/2"
+    ],
+    "o": {
+     "index": 0
+    },
+    "w": "Das Verhältnis 3 : 5 vergleicht die Teile Rot und Blau. Die ganze Mischung hat 3 + 5 = 8 Teile, davon sind 3 Teile rot. Der Anteil Rot ist also 3/8 (37,5 %). Das Blau macht 5/8 aus."
+   }
+  },
+  {
+   "kennung": "VT1B-040",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "verhaeltnis",
+   "pool": "sicherung",
+   "typ": "mehrschritt",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "zahl",
+   "loesung_rechnung": "540 / (2 + 3 + 4) * 4",
+   "fehlbilder": [
+    {
+     "antwort": 180,
+     "rechnung": "540 / 9 * 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 3 Teilen statt mit 4 Teilen gerechnet (der mittlere Anteil)"
+    },
+    {
+     "antwort": 135,
+     "rechnung": "540 / 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 4 statt durch die Summe 9 aller Teile geteilt"
+    },
+    {
+     "antwort": 60,
+     "rechnung": "540 / 9",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Wert eines Teils angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "verhaeltnis",
+    "t": "verhaeltnis",
+    "p": "sicherung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Drei Geschwister teilen 540 € im Verhältnis 2 : 3 : 4. Wie viel Euro bekommt das Geschwister mit dem größten Anteil?"
+    },
+    "o": {
+     "wert": 240,
+     "einheit": "€"
+    },
+    "c": "540 / (2 + 3 + 4) * 4",
+    "w": "Insgesamt gibt es 2 + 3 + 4 = 9 Teile. Ein Teil ist 540 € : 9 = 60 €. Der größte Anteil sind 4 Teile: 4 · 60 € = 240 €. Probe: 2 · 60 + 3 · 60 + 4 · 60 = 120 + 180 + 240 = 540."
+   }
+  },
+  {
+   "kennung": "VT1B-041",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "verhaeltnis",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2",
+    "4 * 18 / 6"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 27,
+     "rechnung": "6 * 18 / 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie Lena x mit 4 gekreuzt: 6 · 18 : 4"
+    },
+    {
+     "luecke": 2,
+     "antwort": 20,
+     "rechnung": "6 + 18 - 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "additiv gerechnet: 6 + 18 − 4"
+    },
+    {
+     "luecke": 2,
+     "antwort": 13.5,
+     "rechnung": "6 * 18 / 4 / 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Lenas 27 noch halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "verhaeltnis",
+    "t": "verhaeltnis",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Lena löst die Verhältnisgleichung 4 : x = 6 : 18 so: Zeile 1: Außenglieder sind 4 und 18, Innenglieder sind x und 6. Zeile 2: Also 4 · x = 6 · 18. Zeile 3: Also x = 108 : 4 = 27. In welcher Zeile steckt der erste Fehler, und welchen Wert hat x richtig?",
+     "schablone": "Fehler in Zeile □, richtig: x = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      2,
+      12
+     ]
+    },
+    "c": [
+     "2",
+     "4 * 18 / 6"
+    ],
+    "w": "Außenglieder mal Außenglieder = Innenglieder mal Innenglieder. Zeile 1 stimmt: Außenglieder 4 und 18, Innenglieder x und 6. Also gilt 4 · 18 = x · 6, das heißt 72 = 6x und x = 12 (Zeile 2 ist der Fehler: Lena kreuzt x mit 4). Probe: 4 : 12 = 1 : 3 = 6 : 18."
+   }
+  },
+  {
+   "kennung": "VT1B-042",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "verhaeltnis",
+   "pool": "sicherung",
+   "typ": "parameter",
+   "form": "umkehren",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "",
+   "antwortform": "zahl",
+   "loesung_rechnung": "5 * 6",
+   "fehlbilder": [
+    {
+     "antwort": 42,
+     "rechnung": "7 * 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die größere der beiden Zahlen (42) angegeben"
+    },
+    {
+     "antwort": 36,
+     "rechnung": "5 * 6 + 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die kleinere neue Zahl 36 statt der ursprünglichen angegeben"
+    },
+    {
+     "antwort": 6,
+     "rechnung": "6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Faktor k = 6 angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "verhaeltnis",
+    "t": "verhaeltnis",
+    "p": "sicherung",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei Zahlen verhalten sich wie 5 : 7. Addiert man zu jeder der beiden Zahlen 6, verhalten sich die neuen Zahlen wie 3 : 4. Welche der beiden ursprünglichen Zahlen ist die kleinere?"
+    },
+    "o": {
+     "wert": 30
+    },
+    "c": "5 * 6",
+    "w": "Die Zahlen sind 5k und 7k. Nach dem Addieren gilt (5k + 6) : (7k + 6) = 3 : 4. Außenglieder mal Innenglieder: 4(5k + 6) = 3(7k + 6), also 20k + 24 = 21k + 18 und k = 6. Die Zahlen sind 30 und 42. Probe: 36 : 48 = 3 : 4. Die kleinere Zahl ist 30."
+   }
+  }
+ ]
+}

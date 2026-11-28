@@ -10,14 +10,16 @@
 -- 3. Neue Funktion schule.fehler_zurueckholen(kind, markierung_ids, von): nimmt in EINER Anweisung genau die genannten, noch gültigen Markierungen dieses
 --    Kindes zurück; überholte (schon zurückgeholt, ggf. inzwischen neu markiert), unbekannte und fremde (anderes Kind) werden übersprungen und gemeldet.
 --    Vorher nahm das Zurückholen über versuch_ids JEDE gültige Markierung des Versuchs zurück – auch eine, die nach dem Laden neu gesetzt wurde.
--- 4. schule.fehler_abhaken: Antwort zusätzlich mit stand, geaendert_ids (versuch_ids, die dieser Aufruf wirklich geändert hat) und beim Markieren
---    markierung_ids (IDs der neu angelegten Zeilen). Der alte Weg „zurueck über versuch_ids“ bleibt (Verträglichkeit), der Client benutzt ihn nicht mehr.
+-- 4. schule.fehler_abhaken: nur noch Markieren; Antwort zusätzlich mit stand, geaendert_ids (versuch_ids, die dieser Aufruf wirklich markiert hat)
+--    und markierung_ids (IDs der neu angelegten Zeilen). Der alte Rückholweg über versuch_ids ist ENTFERNT (Auflagen aus Werkstatt 1165: er konnte
+--    nach „überholt“ die neue Markierung zurücknehmen); mit p_zurueck = true bricht die Funktion ab. Zurückholen gibt es nur über markierung_ids.
 -- 5. schule.wackelt_analyse: auswertung.themen[].besprochen {zuletzt, zuletzt_tag, tage, fehler, neu_seit} – ohne 200er-Grenze, nur gültige
 --    Markierungen, nur wenn das Thema je besprochen wurde; nullsicher für „ohne Thema“. zuletzt_tag und tage in der Zeitzone des Kindes
 --    (wie erledigt.tag); fehler = Zahl der gültig markierten Fehler des Themas insgesamt.
 -- 6. Feste Typen: mit_tipp immer Boolean; danach_richtig nur noch true oder fehlt (die Zeitpunkte stehen in danach_richtig_am); Analyse und
 --    Abhaken melden stand: 3 (fehlt das Feld, läuft am Server noch WW-S2).
--- 7. api.schule_fehler_abhaken: zusätzlich markierung_ids (nur mit zurueck: true, nicht zusammen mit versuch_ids). Rechteprüfung unverändert:
+-- 7. api.schule_fehler_abhaken: Markieren {versuch_ids} oder Zurückholen {zurueck: true, markierung_ids}; jede Rücknahme ohne markierung_ids wird
+--    abgewiesen („Zurückholen nur mit markierung_ids“), ebenso markierung_ids ohne zurueck und beide Listen zusammen. Rechteprüfung unverändert:
 --    wer_tn -> ist_leiter -> zugriff -> Kind aktiv.
 --
 -- WAS NICHT: keine Änderung an bestehenden Tabellen, Funktionen oder Triggern außerhalb von WW-S2/WW-S3 (auch nicht an ww_fehlerart, ww_von,
@@ -123,26 +125,21 @@ begin
 end $function$;
 comment on function schule.wackelt_analyse(bigint, integer, boolean) is 'WW-S3: offene falsche Antworten eines Kindes im Zeitraum mit Aufgabe, Fehlerart, Folge danach; Auswertung mit „besprochen“ je Thema; stand 3 (inhalte/plan/wackelt-server.md). Nur lesend.';
 
--- 4. Markieren / Zurücknehmen über versuch_ids (Zurücknehmen so nur noch aus Verträglichkeit; der Client nimmt markierung_ids)
+-- 4. Markieren über versuch_ids (Signatur von WW-S2 bleibt; ein Rücknahmezweig existiert nicht mehr)
 create or replace function schule.fehler_abhaken(p_l bigint, p_ids jsonb, p_zurueck boolean, p_von text)
  returns jsonb language plpgsql set search_path to ''
 as $function$
 declare n int := 0; z record; v_nicht jsonb := '[]'; v_ids bigint[] := '{}'; v_mids bigint[] := '{}'; v_m bigint;
 begin
-  for z in select * from schule.ww_versuche(p_l, p_ids) order by 1 loop
+  if coalesce(p_zurueck, false) then raise exception 'Zurückholen nur mit markierung_ids' using errcode = 'P0001'; end if;
+  for z in select * from schule.ww_versuche(p_l, p_ids) order by 1 loop   -- ww_versuche: jede versuch_id genau einmal (distinct)
     if not z.ok then v_nicht := v_nicht || jsonb_build_object('versuch_id', z.versuch_id, 'grund', z.grund); continue; end if;
     v_m := null;
-    if coalesce(p_zurueck, false) then   -- höchstens eine gültige Zeile je Versuch (eindeutiger Teilindex fehler_erledigt_gueltig)
-      update schule.fehler_erledigt set zurueckgenommen_am = now(), zurueckgenommen_von = p_von
-       where versuch_id = z.versuch_id and lernender_id = p_l and zurueckgenommen_am is null returning id into v_m;
-    else
-      insert into schule.fehler_erledigt (lernender_id, versuch_id, von) values (p_l, z.versuch_id, p_von)
-        on conflict (versuch_id) where zurueckgenommen_am is null do nothing returning id into v_m;
-    end if;
+    insert into schule.fehler_erledigt (lernender_id, versuch_id, von) values (p_l, z.versuch_id, p_von)
+      on conflict (versuch_id) where zurueckgenommen_am is null do nothing returning id into v_m;
     if v_m is not null then n := n + 1; v_ids := v_ids || z.versuch_id; v_mids := v_mids || v_m; end if;
   end loop;
-  return jsonb_build_object('ok', true, 'stand', 3, 'geaendert', n, 'geaendert_ids', to_jsonb(v_ids), 'uebersprungen', v_nicht)
-         || case when coalesce(p_zurueck, false) then '{}'::jsonb else jsonb_build_object('markierung_ids', to_jsonb(v_mids)) end;
+  return jsonb_build_object('ok', true, 'stand', 3, 'geaendert', n, 'geaendert_ids', to_jsonb(v_ids), 'markierung_ids', to_jsonb(v_mids), 'uebersprungen', v_nicht);
 end $function$;
 
 -- 3. Zurückholen über die Markierungs-IDs: atomar (eine UPDATE-Anweisung), nur gültige Markierungen dieses Kindes
@@ -155,7 +152,8 @@ begin
     raise exception 'markierung_ids: Liste mit 1 bis 200 Einträgen' using errcode = 'P0001'; end if;
   if exists (select 1 from jsonb_array_elements(p_ids) x where jsonb_typeof(x) not in ('number', 'string') or (x #>> '{}') !~ '^\d{1,18}$') then
     raise exception 'markierung_ids: nur Zahlen' using errcode = 'P0001'; end if;
-  v_ids := array(select distinct (x #>> '{}')::bigint from jsonb_array_elements(p_ids) x order by 1);
+  v_ids := array(select distinct (x #>> '{}')::bigint from jsonb_array_elements(p_ids) x order by 1);   -- doppelte zusammengefasst
+  -- Vertrag: jede angefragte ID steht danach GENAU EINMAL in geaendert_ids oder in uebersprungen (v_neu ⊆ v_ids, uebersprungen = v_ids ohne v_neu)
   with u as (update schule.fehler_erledigt fe set zurueckgenommen_am = now(), zurueckgenommen_von = p_von
               where fe.id = any(v_ids) and fe.lernender_id = p_l and fe.zurueckgenommen_am is null returning fe.id)
   select coalesce(array_agg(u.id order by u.id), '{}') into v_neu from u;
@@ -189,7 +187,8 @@ begin
     if nullif(p_daten->'versuch_ids', 'null'::jsonb) is not null then raise exception 'entweder versuch_ids oder markierung_ids' using errcode = 'P0001'; end if;
     return schule.fehler_zurueckholen(v_l, v_mids, schule.ww_von(p_schluessel));
   end if;
-  return schule.fehler_abhaken(v_l, p_daten->'versuch_ids', v_z, schule.ww_von(p_schluessel));
+  if v_z then raise exception 'Zurückholen nur mit markierung_ids' using errcode = 'P0001'; end if;   -- kein Rückholweg über versuch_ids
+  return schule.fehler_abhaken(v_l, p_daten->'versuch_ids', false, schule.ww_von(p_schluessel));
 end $function$;
 
 do $$ begin

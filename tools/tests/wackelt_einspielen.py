@@ -281,7 +281,8 @@ end $p$;""")
 #   1. Migration zweimal; danach: Definitionen gleich, Fingerabdruck des Bestehenden gleich, fehler_erledigt (Aufbau und Zeilen) gleich.
 #   2. Hauptfall (zurückgerollt): stand 3, feste Typen (mit_tipp/danach_richtig Boolean), Markieren mit geaendert_ids/markierung_ids, erledigt.id/tag,
 #      besprochen je Thema (zuletzt, tage, neu_seit – gegen eine unabhängige Nachrechnung), Zurückholen über markierung_ids, PARALLELFALL (zurückgeholt
-#      und neu markiert -> veralteter Eintrag übersprungen, neue Markierung bleibt), Doppelte/Überholte/Unbekannte/Fremde, Eingabeprüfung, alter Weg.
+#      und neu markiert -> veralteter Eintrag übersprungen, neue Markierung bleibt), Doppelte/Überholte/Unbekannte/Fremde, Eingabeprüfung, Negativprobe Altweg
+#      (Rücknahme über versuch_ids abgewiesen, auch intern); Vertrag „genau einmal“ bei jedem Zurückholen/Markieren (pg_temp.ww3_zh/ww3_mk).
 #   3. Ohne Thema (zurückgerollt): zwei offene Fehler an einer Lernkarte ohne Thema -> eigenes Thema mit offen >= 2; dann 300 neuere Fehler -> die beiden
 #      liegen jenseits der 300, das Thema wird trotzdem gezählt; Summe themen[].offen = offen_zahl. Gibt es keine Einheit ohne Thema, wird eine nur in
 #      dieser Untertransaktion ohne Thema gestellt (geht das nicht, steht der Grund im Bericht).
@@ -406,6 +407,37 @@ create function pg_temp.ww3_bespr(p_k bigint, p_th bigint) returns jsonb languag
 create function pg_temp.ww3_bespr_ok(p_k bigint, r jsonb) returns text language sql stable as $f$
   select 'thema ' || coalesce(t->>'thema_id', 'ohne') || ': ' || coalesce((t->'besprochen')::text, 'fehlt') || ' statt ' || coalesce(pg_temp.ww3_bespr(p_k, (t->>'thema_id')::bigint)::text, 'fehlt')
     from jsonb_array_elements(r->'auswertung'->'themen') t where (t->'besprochen') is distinct from pg_temp.ww3_bespr(p_k, (t->>'thema_id')::bigint) limit 1 $f$;
+-- Vertrag (Auflagen aus Werkstatt 1165): Zurückholen – jede angefragte markierung_id GENAU EINMAL in geaendert_ids oder uebersprungen[];
+-- Markieren – jede angefragte versuch_id höchstens einmal in geaendert_ids bzw. uebersprungen[], nie in beiden, nur angefragte IDs
+create function pg_temp.ww3_zh(p_k bigint, p_ids jsonb, p_von text) returns jsonb language plpgsql as $f$
+declare r jsonb := schule.fehler_zurueckholen(p_k, p_ids, p_von);
+begin
+  if exists (with a as (select distinct (x #>> '{}')::bigint id from jsonb_array_elements(p_ids) x),
+                  b as (select (e #>> '{}')::bigint id from jsonb_array_elements(r->'geaendert_ids') e
+                        union all select (u->>'markierung_id')::bigint from jsonb_array_elements(r->'uebersprungen') u)
+             select 1 where (select count(*) from b) <> (select count(*) from a) or exists (select id from a except select id from b)
+                         or exists (select id from b group by id having count(*) > 1)) then
+    raise exception 'Vertrag Zurückholen verletzt (nicht genau einmal): % -> %', p_ids, r; end if;
+  if (r->>'geaendert')::int <> jsonb_array_length(r->'geaendert_ids') then raise exception 'Vertrag Zurückholen: geaendert <> Länge geaendert_ids: %', r; end if;
+  return r;
+end $f$;
+create function pg_temp.ww3_mk(p_k bigint, p_ids jsonb, p_von text) returns jsonb language plpgsql as $f$
+declare r jsonb := schule.fehler_abhaken(p_k, p_ids, false, p_von);
+begin
+  if exists (with a as (select (x #>> '{}')::bigint id from jsonb_array_elements(p_ids) x),
+                  g as (select (e #>> '{}')::bigint id from jsonb_array_elements(r->'geaendert_ids') e),
+                  u as (select (e->>'versuch_id')::bigint id from jsonb_array_elements(r->'uebersprungen') e)
+             select 1 where exists (select id from u group by id having count(*) > 1) or exists (select id from g group by id having count(*) > 1)
+                         or exists (select id from g intersect select id from u) or exists (select id from g union select id from u except select id from a)) then
+    raise exception 'Vertrag Markieren verletzt: % -> %', p_ids, r; end if;
+  if (r->>'geaendert')::int <> jsonb_array_length(r->'geaendert_ids') or jsonb_array_length(r->'markierung_ids') <> jsonb_array_length(r->'geaendert_ids') then
+    raise exception 'Vertrag Markieren: Längen passen nicht: %', r; end if;
+  if exists (select 1 from jsonb_array_elements(r->'geaendert_ids') with ordinality g(v, o) join jsonb_array_elements(r->'markierung_ids') with ordinality m(id, o2) on o2 = o
+              where not exists (select 1 from schule.fehler_erledigt fe where fe.id = (m.id #>> '{}')::bigint and fe.versuch_id = (g.v #>> '{}')::bigint
+                                  and fe.lernender_id = p_k and fe.zurueckgenommen_am is null)) then
+    raise exception 'Vertrag Markieren: markierung_ids[i] gehört nicht zu geaendert_ids[i]: %', r; end if;
+  return r;
+end $f$;
 do $p$
 declare
   fehler text[] := '{}'; k bigint := (select id from schule.lernender where ist_test order by id limit 1); v_e bigint; v_lz text; v_th bigint;
@@ -468,13 +500,13 @@ begin
       bericht := bericht || jsonb_build_object('hinweis_danach_richtig', 'richtige Antwort nicht erkannt – danach_richtig nicht beobachtet: ' || left(coalesce(q::text, '-'), 200)); end if;
     if not pg_temp.ww3_summe_ok(r) then {{F:'Summe themen[].offen ist nicht offen_zahl':F}} end if;
     -- Markieren (zwei auf einmal)
-    r := schule.fehler_abhaken(k, jsonb_build_array(v2, v1), false, 'probe');
+    r := pg_temp.ww3_mk(k, jsonb_build_array(v2, v1), 'probe');
     if (r->>'geaendert')::int <> 2 or pg_temp.ww3_arr(r->'geaendert_ids') <> array[least(v1, v2), greatest(v1, v2)] or (r->>'stand') is distinct from '3' then
       {{F:'Markieren: ' || r::text:F}} end if;
     select id into m1 from schule.fehler_erledigt where versuch_id = v1 and zurueckgenommen_am is null;
     select id into m2 from schule.fehler_erledigt where versuch_id = v2 and zurueckgenommen_am is null;
     if pg_temp.ww3_arr(r->'markierung_ids') is distinct from (select array_agg(z order by z) from unnest(array[m1, m2]) z) then {{F:'Markieren: markierung_ids passen nicht ' || r::text:F}} end if;
-    r := schule.fehler_abhaken(k, jsonb_build_array(v1), false, 'probe');
+    r := pg_temp.ww3_mk(k, jsonb_build_array(v1), 'probe');
     if (r->>'geaendert')::int <> 0 or r->'geaendert_ids' <> '[]'::jsonb or r->'markierung_ids' <> '[]'::jsonb then {{F:'zweites Markieren ändert etwas: ' || r::text:F}} end if;
     r := schule.wackelt_analyse(k, 14, true);
     q := pg_temp.ww3_eintrag(r, 'erledigt', v1);
@@ -490,31 +522,35 @@ begin
     x := pg_temp.ww3_bespr_ok(k, r); if x is not null then {{F:'besprochen weicht von der Nachrechnung ab: ' || x:F}} end if;
     bericht := bericht || jsonb_build_object('besprochen_beispiel', q->'besprochen');
     -- Zurückholen über markierung_ids
-    r := schule.fehler_zurueckholen(k, jsonb_build_array(m1), 'probe');
+    r := pg_temp.ww3_zh(k, jsonb_build_array(m1), 'probe');
     if (r->>'geaendert')::int <> 1 or pg_temp.ww3_arr(r->'geaendert_ids') <> array[m1] or r->'uebersprungen' <> '[]'::jsonb then {{F:'Zurückholen: ' || r::text:F}} end if;
     r := schule.wackelt_analyse(k, 0, false);
     if not v1 = any(pg_temp.ww3_ids(r, 'offen')) then {{F:'nach Zurückholen nicht wieder offen':F}} end if;
     x := pg_temp.ww3_bespr_ok(k, r); if x is not null then {{F:'besprochen nach Zurückholen: ' || x:F}} end if;
     if (pg_temp.ww3_thema(r, v_th)->'besprochen'->>'tage')::int is distinct from (pg_temp.ww3_bespr(k, v_th)->>'tage')::int then {{F:'besprochen zählt zurückgeholte Markierungen':F}} end if;
     -- PARALLELFALL: v1 ist zurückgeholt und wird neu markiert; ein Klick auf den veralteten Eintrag (m1) darf die neue Markierung nicht entfernen
-    r := schule.fehler_abhaken(k, jsonb_build_array(v1), false, 'probe');
+    r := pg_temp.ww3_mk(k, jsonb_build_array(v1), 'probe');
     m1b := (pg_temp.ww3_arr(r->'markierung_ids'))[1];
     if m1b is null or m1b = m1 or pg_temp.ww3_arr(r->'geaendert_ids') <> array[v1] then {{F:'neu markieren: ' || r::text:F}} end if;
-    r := schule.fehler_zurueckholen(k, jsonb_build_array(m1), 'probe');
+    r := pg_temp.ww3_zh(k, jsonb_build_array(m1), 'probe');
     if (r->>'geaendert')::int <> 0 or r->'geaendert_ids' <> '[]'::jsonb
        or r->'uebersprungen' <> jsonb_build_array(jsonb_build_object('markierung_id', m1, 'versuch_id', v1, 'grund', 'überholt')) then {{F:'Parallelfall: ' || r::text:F}} end if;
     if not exists (select 1 from schule.fehler_erledigt where id = m1b and zurueckgenommen_am is null) then {{F:'Parallelfall: neue Markierung entfernt':F}} end if;
     if v1 = any(pg_temp.ww3_ids(schule.wackelt_analyse(k, 0, false), 'offen')) then {{F:'Parallelfall: neu markierte Antwort wieder offen':F}} end if;
+    -- Negativprobe Altweg (Auflagen aus Werkstatt 1165): nach „überholt“ darf zurueck + versuch_ids die NEUE Markierung nicht zurücknehmen – auch intern nicht
+    begin perform schule.fehler_abhaken(k, jsonb_build_array(v1), true, 'probe'); {{F:'Altweg: Rücknahme über versuch_ids angenommen':F}}
+    exception when others then if position('Zurückholen nur mit markierung_ids' in sqlerrm) = 0 then {{F:'Altweg: falscher Fehler ' || sqlerrm:F}} end if; end;
+    if not exists (select 1 from schule.fehler_erledigt where id = m1b and zurueckgenommen_am is null) then {{F:'Altweg: neue Markierung zurückgenommen':F}} end if;
     bericht := bericht || jsonb_build_object('parallelfall', jsonb_build_object('veraltet', m1, 'neu', m1b, 'antwort', r));
     -- doppelt genannt, dann schon zurückgeholt
-    r := schule.fehler_zurueckholen(k, jsonb_build_array(m1b, m1b, m2), 'probe');
+    r := pg_temp.ww3_zh(k, jsonb_build_array(m1b, m1b, m2), 'probe');
     if (r->>'geaendert')::int <> 2 or pg_temp.ww3_arr(r->'geaendert_ids') <> (select array_agg(z order by z) from unnest(array[m1b, m2]) z) then {{F:'Zurückholen doppelt: ' || r::text:F}} end if;
-    r := schule.fehler_zurueckholen(k, jsonb_build_array(m2), 'probe');
+    r := pg_temp.ww3_zh(k, jsonb_build_array(m2), 'probe');
     if (r->>'geaendert')::int <> 0 or r->'uebersprungen'->0->>'grund' is distinct from 'schon zurückgeholt' then {{F:'schon zurückgeholt: ' || r::text:F}} end if;
     x := pg_temp.ww3_bespr_ok(k, schule.wackelt_analyse(k, 0, false)); if x is not null then {{F:'besprochen nach allem Zurückholen: ' || x:F}} end if;
     -- fremde und unbekannte Markierungen: übersprungen, nichts verraten, nichts geändert
     insert into schule.fehler_erledigt (lernender_id, versuch_id, von) values (coalesce(v_f, -1), -987654, 'probe') returning id into mf;
-    r := schule.fehler_zurueckholen(k, jsonb_build_array(mf, 0), 'probe');
+    r := pg_temp.ww3_zh(k, jsonb_build_array(mf, 0), 'probe');
     if (r->>'geaendert')::int <> 0 or jsonb_array_length(r->'uebersprungen') <> 2
        or exists (select 1 from jsonb_array_elements(r->'uebersprungen') u where u->>'grund' <> 'nicht gefunden' or u ? 'versuch_id') then {{F:'fremde/unbekannte Markierung: ' || r::text:F}} end if;
     if not exists (select 1 from schule.fehler_erledigt where id = mf and zurueckgenommen_am is null) then {{F:'fremde Markierung zurückgeholt':F}} end if;
@@ -523,11 +559,13 @@ begin
       begin perform schule.fehler_zurueckholen(k, q, 'probe'); {{F:'markierung_ids angenommen: ' || left(q::text, 40):F}}
       exception when others then if position('markierung_ids' in sqlerrm) = 0 then {{F:'markierung_ids: falscher Fehler ' || sqlerrm:F}} end if; end;
     end loop;
-    -- alter Weg (Verträglichkeit): Zurücknehmen über versuch_ids
-    r := schule.fehler_abhaken(k, jsonb_build_array(v2), false, 'probe');
-    r := schule.fehler_abhaken(k, jsonb_build_array(v2), true, 'probe');
-    if (r->>'geaendert')::int <> 1 or pg_temp.ww3_arr(r->'geaendert_ids') <> array[v2] or r ? 'markierung_ids' then {{F:'alter Weg zurück: ' || r::text:F}} end if;
-    r := schule.fehler_abhaken(k, jsonb_build_array(0, coalesce((select min(id) from schule.versuch where lernender_id <> k), 0)), false, 'probe');
+    -- doppelt genannte versuch_id beim Markieren: zusammengefasst; Rücknahme über versuch_ids gibt es nicht mehr (Auflagen aus Werkstatt 1165)
+    r := pg_temp.ww3_mk(k, jsonb_build_array(v2, v2), 'probe');
+    if (r->>'geaendert')::int <> 1 or pg_temp.ww3_arr(r->'geaendert_ids') <> array[v2] then {{F:'Markieren doppelt: ' || r::text:F}} end if;
+    begin perform schule.fehler_abhaken(k, jsonb_build_array(v2), true, 'probe'); {{F:'Rücknahme über versuch_ids angenommen':F}}
+    exception when others then if position('Zurückholen nur mit markierung_ids' in sqlerrm) = 0 then {{F:'Rücknahme über versuch_ids: falscher Fehler ' || sqlerrm:F}} end if; end;
+    if not exists (select 1 from schule.fehler_erledigt where versuch_id = v2 and zurueckgenommen_am is null) then {{F:'Rücknahme über versuch_ids hat zurückgenommen':F}} end if;
+    r := pg_temp.ww3_mk(k, jsonb_build_array(0, coalesce((select min(id) from schule.versuch where lernender_id <> k), 0)), 'probe');
     if (r->>'geaendert')::int <> 0 or jsonb_array_length(r->'uebersprungen') = 0 or r->'markierung_ids' <> '[]'::jsonb then {{F:'fremde Versuche markiert: ' || r::text:F}} end if;
     if pg_temp.ww3_bestand() is distinct from h0 then {{F:'Markieren/Zurückholen verändert Daten außerhalb von fehler_erledigt':F}} end if;
     bericht := bericht || jsonb_build_object('bestand_gleich_beim_markieren', pg_temp.ww3_bestand() = h0, 'typen_ok', true);
@@ -542,7 +580,7 @@ begin
     update schule.lernender set zeitzone = 'Pacific/Auckland' where id = k;
     perform pg_temp.ww3_ant(k, a1.id, '987654', 'ww3-tz');
     select id into v1 from schule.versuch where lernender_id = k and client_id = 'ww3-tz';
-    r := schule.fehler_abhaken(k, jsonb_build_array(v1), false, 'probe');
+    r := pg_temp.ww3_mk(k, jsonb_build_array(v1), 'probe');
     mid := (pg_temp.ww3_arr(r->'markierung_ids'))[1];
     t0 := (date_trunc('day', now() at time zone 'Pacific/Auckland') + interval '5 minutes') at time zone 'Pacific/Auckland';   -- heute 00:05 Ortszeit
     update schule.fehler_erledigt set am = t0 where id = mid;
@@ -663,6 +701,16 @@ begin
     if (select zurueckgenommen_von from schule.fehler_erledigt where id = mid) is distinct from 'lehrer:WW3-Probe Lehrer' then {{F:'zurueckgenommen_von falsch':F}} end if;
     r := api.schule_fehler_abhaken(s_lehrer, jsonb_build_object('lernender_id', k, 'markierung_ids', jsonb_build_array(mid), 'zurueck', true));
     if (r->>'geaendert')::int <> 0 or r->'uebersprungen'->0->>'grund' is distinct from 'schon zurückgeholt' then {{F:'Lehrer zweimal zurück: ' || r::text:F}} end if;
+    -- Negativprobe Altweg über die api: neu markieren, alte ID -> „überholt“, dann zurueck + versuch_ids -> abgewiesen, neue Markierung bleibt
+    r := api.schule_fehler_abhaken(s_eltern, jsonb_build_object('lernender_id', k, 'versuch_ids', jsonb_build_array(v0)));
+    v_id := (pg_temp.ww3_arr(r->'markierung_ids'))[1];
+    r := api.schule_fehler_abhaken(s_lehrer, jsonb_build_object('lernender_id', k, 'markierung_ids', jsonb_build_array(mid), 'zurueck', true));
+    if r->'uebersprungen'->0->>'grund' is distinct from 'überholt' or (r->>'geaendert')::int <> 0 then {{F:'api: alte Markierung nicht überholt: ' || r::text:F}} end if;
+    foreach q in array array[jsonb_build_object('lernender_id', k, 'versuch_ids', jsonb_build_array(v0), 'zurueck', true), jsonb_build_object('lernender_id', k, 'zurueck', true)] loop
+      begin r := api.schule_fehler_abhaken(s_lehrer, q); {{F:'api: Rücknahme ohne markierung_ids angenommen: ' || q::text:F}}
+      exception when others then if position('Zurückholen nur mit markierung_ids' in sqlerrm) = 0 then {{F:'api: Rücknahme ohne markierung_ids, falscher Fehler ' || sqlerrm:F}} end if; end;
+    end loop;
+    if not exists (select 1 from schule.fehler_erledigt where id = v_id and zurueckgenommen_am is null) then {{F:'api: neue Markierung über den Altweg zurückgenommen':F}} end if;
     begin r := api.schule_wackelt_analyse(s_eltern, jsonb_build_object('lernender_id', k, 'tage', 3)); {{F:'tage 3 angenommen':F}}
     exception when others then if position('tage' in sqlerrm) = 0 then {{F:'tage: falscher Fehler ' || sqlerrm:F}} end if; end;
     begin r := api.schule_wackelt_analyse('lern:ww3-gibt-es-nicht', jsonb_build_object('lernender_id', k)); {{F:'unbekannte Sitzung liest die Analyse':F}}
@@ -688,11 +736,11 @@ begin
         execute 'select to_jsonb(x) from schule.karte_stand x where x.lernender_id = $1 and x.einheit_id = $2 and x.lernziel = $3' into ko using k, v_e, v_lz;
         if i = 1 then
           h0 := pg_temp.ww3_bestand();
-          r := schule.fehler_abhaken(k, jsonb_build_array((select id from schule.versuch where lernender_id = k and client_id = 'ww3-k0')), false, 'probe');
+          r := pg_temp.ww3_mk(k, jsonb_build_array((select id from schule.versuch where lernender_id = k and client_id = 'ww3-k0')), 'probe');
           mid := (pg_temp.ww3_arr(r->'markierung_ids'))[1];
-          r := schule.fehler_zurueckholen(k, jsonb_build_array(mid), 'probe');
+          r := pg_temp.ww3_zh(k, jsonb_build_array(mid), 'probe');
           if (r->>'geaendert')::int <> 1 then {{F:'Karte: Zurückholen ' || r::text:F}} end if;
-          r := schule.fehler_abhaken(k, jsonb_build_array((select id from schule.versuch where lernender_id = k and client_id = 'ww3-k0')), false, 'probe');
+          r := pg_temp.ww3_mk(k, jsonb_build_array((select id from schule.versuch where lernender_id = k and client_id = 'ww3-k0')), 'probe');
           if (r->>'geaendert')::int <> 1 then {{F:'Karte: neu Markieren ' || r::text:F}} end if;
           execute 'select to_jsonb(x) from schule.karte_stand x where x.lernender_id = $1 and x.einheit_id = $2 and x.lernziel = $3' into kz using k, v_e, v_lz;
           if kz is distinct from ko then {{F:'Karte: Markieren/Zurückholen ändert die Kartenzeile':F}} end if;

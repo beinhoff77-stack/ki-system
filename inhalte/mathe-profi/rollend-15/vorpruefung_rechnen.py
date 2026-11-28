@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# HISTORISCHER PRÜFSTAND: Stand der Vorprüfung (vor den Korrekturen nach Vorprüfung, Gegenprüfung 1197 und 1207).
+# Die Erwartungswerte gehören zu den damaligen Aufgaben; Abweichungen sind erwartet (Aufgaben wurden ersetzt, Kennungen
+# der Einheit stochastik.verknuepft haben sich verschoben). Aktuelle Prüfung: gegenrechnung.py.
 """Unabhängige Vorprüfung Runde 15 (eigene Rechnung, übernimmt keine Rechnung des Autors).
 
 Aufruf: python3 -I inhalte/mathe-profi/rollend-15/vorpruefung_rechnen.py
@@ -214,6 +217,8 @@ fehler = []
 
 
 def gleich(a, b):
+    if isinstance(a, list) != isinstance(b, list):      # Kennung hat heute einen anderen Aufgabentyp (Kennungen verschoben)
+        return False
     if isinstance(a, list):
         return isinstance(b, list) and len(a) == len(b) and all(gleich(x, y) for x, y in zip(a, b))
     return abs(float(a) - float(b)) < 1e-9
@@ -223,13 +228,13 @@ def gleich(a, b):
 for k, v in E.items():
     a = A[k]
     o = a["aufgabe"]["o"]
-    soll = o.get("werte") if "werte" in o else o["wert"]
+    soll = o.get("werte") if "werte" in o else o.get("wert", o.get("index"))
     if not gleich(v, soll):
         fehler.append(f"A  R15-{k}: eigene Rechnung {v!r} <> Soll {soll!r}")
 for k, i in IDX.items():
     a = A[k]
-    if a["aufgabe"]["o"]["index"] != i:
-        fehler.append(f"A  R15-{k}: eigener Index {i} <> Soll {a['aufgabe']['o']['index']}")
+    if a["aufgabe"]["o"].get("index") != i:
+        fehler.append(f"A  R15-{k}: eigener Index {i} <> Soll {a['aufgabe']['o'].get('index')}")
 nicht_abgedeckt = [k for k in A if k not in E and k not in IDX]
 print("Abgedeckt: Zahl/Lücken", len(E), "| Auswahl", len(IDX), "| nicht abgedeckt:", nicht_abgedeckt)
 
@@ -323,4 +328,7 @@ if fehler:
         print(" ", m)
 else:
     print("keine Meldungen")
-sys.exit(0)
+print()
+print("HINWEIS: historischer Prüfstand (Stand vor den Korrekturen). Meldungen oben sind erwartet und kein Fehler der Runde;")
+print("         maßgeblich ist gegenrechnung.py (alle 207 Sollwerte neu berechnet) und bauen.py.")
+sys.exit(0 if not fehler else 2)

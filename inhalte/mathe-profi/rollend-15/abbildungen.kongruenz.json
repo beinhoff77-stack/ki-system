@@ -366,7 +366,7 @@
      "text": "Ein Café soll von zwei sich kreuzenden Straßen gleich weit entfernt sein und außerdem von den Bushaltestellen H1 und H2 gleich weit entfernt. Wie findest du alle möglichen Orte?"
     },
     "a": [
-     "Schnitt aus den beiden Winkelhalbierenden der Straßen und der Mittelsenkrechten von [H1H2]",
+     "Schneide die Mittelsenkrechte von [H1H2] mit jeder der beiden Winkelhalbierenden der Straßen und sammle alle Treffer",
      "Schnitt aus der Mittelsenkrechten der beiden Straßen und der Winkelhalbierenden von [H1H2]",
      "Schnitt zweier Winkelhalbierender",
      "Schnitt zweier Mittelsenkrechter"
@@ -375,7 +375,7 @@
      "index": 0
     },
     "h": "Gleich weit von zwei Geraden entfernt und gleich weit von zwei Punkten entfernt sind zwei verschiedene Bedingungen. Welche Linie gehört zu welcher?",
-    "w": "Gleicher Abstand zu zwei sich kreuzenden Geraden: eine der beiden Winkelhalbierenden der Geraden (es gibt zwei, senkrecht zueinander). Gleicher Abstand zu zwei Punkten: Mittelsenkrechte der Strecke zwischen den Punkten. Der gesuchte Ort liegt auf der Mittelsenkrechten und auf einer der beiden Winkelhalbierenden, also in deren Schnittpunkten (höchstens zwei Orte)."
+    "w": "Gleicher Abstand zu zwei sich kreuzenden Geraden: eine der beiden Winkelhalbierenden der Geraden (es gibt zwei, senkrecht zueinander). Gleicher Abstand zu zwei Punkten: Mittelsenkrechte der Strecke zwischen den Punkten. Der gesuchte Ort liegt auf der Mittelsenkrechten und auf einer der beiden Winkelhalbierenden, also in den Treffern beider Schnitte. Sonderfälle: Ist die Mittelsenkrechte parallel zu einer Winkelhalbierenden, gibt es dort keinen Treffer; fällt sie mit einer zusammen (zum Beispiel Straßen x- und y-Achse, Haltestellen (1|0) und (0|1)), erfüllen alle Punkte dieser Geraden die Bedingung."
    }
   },
   {
@@ -420,7 +420,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein regelmäßiges Sechseck hat ① Symmetrieachsen. Ein regelmäßiges Zwölfeck hat ② Symmetrieachsen. Beide Figuren zusammen haben ③ Symmetrieachsen.",
+     "text": "Ein regelmäßiges Sechseck hat ① Symmetrieachsen. Ein regelmäßiges Zwölfeck hat ② Symmetrieachsen. ③ ist die Summe der beiden Achsenzahlen der einzelnen Figuren (nicht die Achsen einer zusammengesetzten Figur).",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },

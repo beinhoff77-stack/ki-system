@@ -56,7 +56,7 @@ neu(T, "beziehungen", "anwenden", Z(
     "(cos α)² = 1 − 0,28² = 1 − 0,0784 = 0,9216. Die Wurzel ist 0,96. Probe: 0,96² = 0,9216.",
     [B("1 - 0.28", "von 1 abgezogen, ohne zu quadrieren und die Wurzel zu ziehen"), B("1 - 0.28 ** 2", "die Wurzel nicht gezogen"), B("0.28", "den Sinus als Kosinus angegeben")]), g="mehrschritt", ohne=OHNE_B)
 neu(T, "beziehungen", "verfahren_waehlen", W(
-    "Es gilt sin 70° ≈ 0,9397. Für welchen Winkel hat der Kosinus denselben Wert?",
+    "Es gilt sin 70° ≈ 0,9397. Für welchen spitzen Winkel hat der Kosinus denselben Wert?",
     "für 20°", [("für 70°", "derselbe Winkel hat Sinus und Kosinus nicht gleich, nur bei 45°"), ("für 45°", "bei 45° sind Sinus und Kosinus gleich, aber sin 70° ist größer als cos 45°"), ("für 50°", "70° und 50° ergänzen sich nicht zu 90°")],
     "In einem rechtwinkligen Dreieck ist die Gegenkathete des einen spitzen Winkels die Ankathete des anderen. Die beiden spitzen Winkel ergeben zusammen 90°.",
     "Die beiden spitzen Winkel eines rechtwinkligen Dreiecks ergänzen sich zu 90°. Es gilt sin α = cos(90° − α). Mit α = 70° folgt sin 70° = cos 20°.",
@@ -82,7 +82,7 @@ neu(T, "schnittwinkel", "anwenden", Z(
     "Eine Straße in Norwegen hat 12 % Steigung, das heißt 12 m Höhenunterschied auf 100 m waagerechte Strecke. Unter welchem Winkel steigt sie gegenüber der Waagerechten an? Runde erst das Endergebnis auf eine Dezimalstelle (in Grad).",
     w5, c5, "round(atan(12 / 100), 1)", "Die Steigung ist das Verhältnis von Höhe zu waagerechter Strecke, also der Tangens des Winkels.",
     "tan α = 12 : 100 = 0,12. Mit der Umkehrfunktion: α ≈ 6,8°. Bei 12 % Steigung ist der Winkel also viel kleiner als 12°.",
-    [B("12", "die Prozentzahl als Winkel in Grad genommen"), BR("atan(12)", "12 statt 0,12 in den Tangens eingesetzt", None, 1), BR("atan(100 / 12)", "Höhe und Strecke vertauscht", None, 1)], einheit="°"), g="einkleidung", ohne=OHNE_S)
+    [B("12", "die Prozentzahl als Winkel in Grad genommen"), BR("atan(12)", "12 statt 0,12 in den Arkustangens eingesetzt (arctan 12 ≈ 85,2°)", None, 1), BR("atan(100 / 12)", "Höhe und Strecke vertauscht", None, 1)], einheit="°"), g="einkleidung", ohne=OHNE_S)
 w6, c6 = rd("atan(3) - atan(1)", 1)
 neu(T, "schnittwinkel", "anwenden", Z(
     "Die Geraden y = x und y = 3x schneiden sich im Ursprung. Unter welchem Winkel schneiden sie sich? Runde erst das Endergebnis auf eine Dezimalstelle (in Grad).",

@@ -14,14 +14,14 @@ neu(T, "gross_wissenschaftlich", "test", "fehler", L(
     "Fehler in Zeile □, richtig: 23,1 · 10⁴ = 2,31 · 10^□", [3, 5], ["3", "4 + 1"], ["2 + 1", "5"],
     "Zeile 1 sagt nur, was getan wird. Zeile 2 stimmt (2,31 · 10 = 23,1). In Zeile 3 wird die Zehn aus Zeile 2 vergessen: 23,1 · 10⁴ = 2,31 · 10 · 10⁴ = 2,31 · 10⁵. Wird das Komma um eine Stelle nach links geschoben, muss der Exponent um 1 größer werden, sonst ändert sich der Wert der Zahl.",
     {0: [(2, "Zeile 2 genannt, weil dort das Komma verschoben wird, obwohl diese Zeile stimmt", "2"), (1, "Zeile 1 genannt, obwohl dort nur das Vorgehen steht", "1")], 1: [(4, "den Exponenten unverändert übernommen", "4"), (3, "den Exponenten beim Verschieben des Kommas verkleinert", "4 - 1"), (14, "die Zehn zum Exponenten addiert", "4 + 10")]}), form="fehler_detektiv", lp=LP, idee="komma_ausgleich")
-neu(T, "gross_wissenschaftlich", "korrektur", "darstellung", L(
+neu(T, "gross_wissenschaftlich", "test", "transfer", L(
     "Eine Zahl a · 10ⁿ ist in wissenschaftlicher Schreibweise geschrieben (a zwischen 1 und 10, n eine ganze Zahl). Sie ist größer als 5 000 und kleiner als 80 000. Dann ist der kleinste mögliche Exponent n = □ und der größte mögliche Exponent n = □.",
     "kleinstes n = □, größtes n = □", [3, 4], ["4 - 1", "5 - 1"], ["2 + 1", "8 / 2"],
     "Für n = 3 steht a · 1 000 da, und für a zwischen 5 und 10 liegt das zwischen 5 000 und 10 000: möglich. Für n = 2 wäre die Zahl kleiner als 1 000, also zu klein. Für n = 4 steht a · 10 000 da; mit a unter 8 liegt das unter 80 000: möglich. Für n = 5 wäre die Zahl mindestens 100 000 und damit zu groß. Also gilt n = 3 oder n = 4.",
     {0: [(4, "den Exponenten der oberen Grenze als kleinsten genommen", "4"), (2, "den Exponenten um eins zu klein bestimmt", "3 - 1")],
      1: [(5, "die Zahl der Ziffern von 80 000 als Exponenten genommen", "5"), (3, "den größten Exponenten gleich dem kleinsten gesetzt", "3")]}),
     form="bruecke", lp=LP, idee="bereich_exponent")
-neu(T, "gross_wissenschaftlich", "korrektur", "umkehr", Z(
+neu(T, "gross_wissenschaftlich", "sicherung", "umkehr", Z(
     "Eine Zahl a · 10ⁿ ist in wissenschaftlicher Schreibweise geschrieben. Verdoppelt man sie, erhält man 1,6 · 10¹⁰. Wie groß ist n bei der ursprünglichen Zahl?",
     9, "10 - 1", "9",
     "Die ursprüngliche Zahl ist die Hälfte von 1,6 · 10¹⁰, also 0,8 · 10¹⁰. Der Vorfaktor 0,8 ist kleiner als 1: 0,8 · 10¹⁰ = 8 · 10⁹. Die ursprüngliche Zahl ist also 8 · 10⁹ und n = 9. Probe: 2 · 8 · 10⁹ = 16 · 10⁹ = 1,6 · 10¹⁰.",
@@ -51,16 +51,16 @@ neu(T, "gross_wissenschaftlich", "sicherung", "begruenden", W(
      ("Der Vorfaktor muss eine ganze Zahl sein; 0,5 ist keine ganze Zahl.", "verlangt, dass der Vorfaktor ganzzahlig ist; auch Dezimalzahlen zwischen 1 und 10 sind erlaubt")],
     "0,5 · 10⁸ = 50 000 000 ist richtig als Wert. Es fehlt nur die Bedingung 1 ≤ a < 10: 0,5 ist kleiner als 1. Man verschiebt das Komma um eine Stelle nach rechts und verkleinert den Exponenten: 5 · 10⁷ = 50 000 000.",
     lambda: 0.5 * 10 ** 8 == 5 * 10 ** 7 == 50000000 and not 1 <= 0.5 < 10 and 1 <= 5 < 10 and 1 <= 2.5 < 10), lp=LP, idee="bedingung_begruenden")
-neu(T, "gross_wissenschaftlich", "sicherung", "transfer", W(
+neu(T, "gross_wissenschaftlich", "korrektur", "darstellung", W(
     "Welche der beiden Zahlen 9,9 · 10⁶ und 1,0 · 10⁷ ist größer? Welche Aussage stimmt?",
-    "1,0 · 10⁷ ist größer, denn 10⁷ ist zehnmal 10⁶, und 9,9 ist kleiner als zehn.",
+    "1,0 · 10⁷ ist größer, denn 10⁷ ist zehnmal 10⁶, und 9,9 liegt unter zehn.",
     [("9,9 · 10⁶ ist größer, denn die Zahl 9,9 ist größer als die Zahl 1,0.", "nur die Vorfaktoren verglichen"),
      ("Beide sind gleich groß, denn 9,9 ist fast zehn und zehnmal 10⁶ ist 10⁷.", "„fast gleich“ mit „gleich“ verwechselt"),
      ("Man kann sie nicht vergleichen, denn die beiden Zahlen haben verschiedene Exponenten.", "geglaubt, Zahlen mit verschiedenen Exponenten ließen sich nicht ordnen")],
     "Mit demselben Exponenten geschrieben ist 1,0 · 10⁷ = 10 · 10⁶. Dann steht 10 gegen 9,9: 1,0 · 10⁷ ist ein wenig größer. In wissenschaftlicher Schreibweise ist der Vorfaktor immer kleiner als 10; deshalb entscheidet zuerst der Exponent, und erst bei gleichem Exponenten der Vorfaktor.",
-    lambda: F("9.9") * 10 ** 6 < F("1.0") * 10 ** 7 and F("9.9") * 10 ** 6 != F("1.0") * 10 ** 7), lp=LP, idee="groesser_ueber_exponent")
+    lambda: F("9.9") * 10 ** 6 < F("1.0") * 10 ** 7 and F("9.9") * 10 ** 6 != F("1.0") * 10 ** 7), form="bruecke", lp=LP, idee="groesser_ueber_exponent")
 # ───────── negativer_exponent ─────────
-neu(T, "negativer_exponent", "test", "transfer", L(
+neu(T, "negativer_exponent", "sicherung", "transfer", L(
     "Die Zahl 0,000 04 wird auf zwei Arten mit einer Zehnerpotenz geschrieben. Ergänze die Exponenten: 0,000 04 = 4 · 10^□ und 0,000 04 = 40 · 10^□.",
     "4 · 10^□ und 40 · 10^□", [-5, -6], ["0 - 5", "0 - 6"], ["-5", "0 - 5 - 1"],
     "Die 4 steht an der 5. Stelle hinter dem Komma, also ist 0,000 04 = 4 · 10⁻⁵. Wird der Vorfaktor zehnmal so groß (40 statt 4), muss die Zehnerpotenz zehnmal so klein werden, der Exponent also um 1 kleiner: 40 · 10⁻⁶. Probe: 40 · 0,000 001 = 0,000 04.",
@@ -88,7 +88,7 @@ neu(T, "negativer_exponent", "korrektur", "darstellung", Z(
     [B("8", "das Minus im Exponenten vergessen"),
      B("0 - 2", "den Exponenten von 1 000 addiert statt abgezogen"),
      B("0 - 15", "die Hochzahlen malgenommen statt abgezogen")]), form="bruecke", lp=LP, idee="skalierung_rueckwaerts")
-neu(T, "negativer_exponent", "sicherung", "parameter", Z(
+neu(T, "negativer_exponent", "test", "parameter", Z(
     "Man nimmt ein Hundertstel von einem Millionstel und davon noch ein Tausendstel. Wie viele Nullen stehen zwischen dem Komma und der 1, wenn man das Ergebnis als Dezimalzahl schreibt?",
     10, "2 + 6 + 3 - 1", "11 - 1",
     "Ein Hundertstel ist 10⁻², ein Millionstel ist 10⁻⁶, ein Tausendstel ist 10⁻³. Hintereinander ausgeführt: 10⁻² · 10⁻⁶ · 10⁻³ = 10⁻¹¹ = 0,000 000 000 01. Die 1 steht an der elften Stelle, davor stehen 10 Nullen.",
@@ -116,7 +116,7 @@ neu(T, "vorsilben_klein", "test", "transfer", L(
      1: [(200, "die Länge des Teilchens genommen, das genau auf der Grenze liegt", "200"), (90, "das Teilchen mit der größten Maßzahl in Nanometern genommen, ohne umzurechnen", "90")]}),
     lp=LP, idee="filter_entscheiden")
 neu(T, "vorsilben_klein", "korrektur", "darstellung", W(
-    "Tom sagt: „800 nm sind länger als 2 µm, denn 800 ist größer als 2.“ Welche Aussage stimmt?",
+    "Tom sagt: „800 nm sind länger als 2 µm, denn 800 ist größer als 2.“ (1 nm = 10⁻⁹ m, 1 µm = 10⁻⁶ m.) Welche Aussage stimmt?",
     "Tom irrt, denn 800 nm sind 0,8 µm, und das ist nicht länger, sondern kürzer als 2 µm.",
     [("Tom hat recht, denn die Einheit spielt beim Vergleich von Längen keine Rolle.", "Maßzahl und Länge gleichgesetzt; die Einheit entscheidet mit"),
      ("Tom hat recht, denn ein Nanometer ist eine größere Einheit als ein Mikrometer.", "Nano und Mikro in der Größe vertauscht"),
@@ -144,7 +144,7 @@ neu(T, "vorsilben_klein", "sicherung", "fehler", L(
     "Zeile 1 und Zeile 2 sind richtig. In Zeile 3 ist die Rechnung falsch: 10⁻⁶ : 10⁻⁹ = 10⁻⁶ · 10⁹ = 10³, nicht 10⁻³. Also sind 1 µm gleich 10³ nm = 1000 nm. Zeile 4 folgt aus dem Fehler in Zeile 3.",
     {0: [(4, "die Schlusszeile genannt, weil dort der falsche Wert 10⁻³ steht", "4"), (1, "Zeile 1 genannt, obwohl dort die Vorsilbe richtig steht", "1")], 1: [(-3, "das falsche Ergebnis 10⁻³ als Zahl −3 genommen", "0 - 3"), (1, "die Vorsilben als Faktor 1 gelesen", "1"), (1000000, "mit 10⁶ gerechnet statt 10³", "10 ** 6")]}), form="fehler_detektiv", lp=LP, idee="fehler_kette")
 neu(T, "vorsilben_klein", "sicherung", "rueckwaerts", W(
-    "Ein Staubkorn ist 0,03 mm lang. Dieselbe Länge soll als 30 □m geschrieben werden. Welche Vorsilbe gehört in die Lücke?",
+    "Ein Staubkorn ist 0,03 mm lang. Dieselbe Länge soll als 30 □m geschrieben werden (Milli = 10⁻³, Mikro = 10⁻⁶, Nano = 10⁻⁹; die Maßzahl soll zwischen 1 und 1 000 liegen). Welche Vorsilbe gehört in die Lücke?",
     "Mikro (µm), denn 0,03 mm sind 30 µm, und die Einheit µm ist tausendmal kleiner als mm.",
     [("Nano (nm), denn die Einheit muss kleiner werden, und Nano ist die kleinste Vorsilbe.", "nur auf „kleiner“ geachtet und den Faktor zwischen den Einheiten nicht geprüft"),
      ("Milli (mm), denn aus 0,03 wird 30, wenn man das Komma verschiebt, und die Einheit bleibt dabei dieselbe.", "die Maßzahl umgeschrieben und die Einheit nicht gewechselt"),
@@ -182,13 +182,13 @@ neu(T, "vergleichen_pruefen", "korrektur", "umkehr", W(
      ("etwa 0,4-mal, denn der Quotient der Vorfaktoren ist ungefähr 0,4 und die Zehnerpotenzen fallen weg.", "die Exponenten beim Teilen nicht beachtet")],
     "Es geht um 2,1 · 10⁻⁴ : (4,8 · 10⁻⁷). Die Vorfaktoren: 2,1 : 4,8 ist etwa 0,4. Die Zehnerpotenzen: 10⁻⁴ : 10⁻⁷ = 10³. Zusammen etwa 0,4 · 10³ = 400. Genau sind es etwa 437,5.",
     lambda: 300 < F("2.1") * F(10) ** -4 / (F("4.8") * F(10) ** -7) < 500), lp=LP, idee="groessenordnung_quotient")
-neu(T, "vergleichen_pruefen", "korrektur", "umkehr", Z(
+neu(T, "vergleichen_pruefen", "test", "transfer", Z(
     "Wie viele Zehnerpotenzen 10ⁿ (n eine ganze Zahl, auch negativ oder null) liegen zwischen 0,000 000 3 und 40 000? Die beiden Grenzen selbst zählen nicht mit.",
     11, "4 + 6 + 1", "5 + 6",
     "0,000 000 3 = 3 · 10⁻⁷ und 40 000 = 4 · 10⁴. Die Zehnerpotenz 10⁻⁷ ist kleiner als 3 · 10⁻⁷ und gehört nicht dazu, 10⁻⁶ ist größer und gehört dazu. Oben ist 10⁴ = 10 000 kleiner als 40 000 und gehört dazu, 10⁵ ist größer. Die Exponenten −6 bis 4 sind 4 + 6 + 1 = 11 Zahlen (die 0 gehört dazu).",
     [B("4 + 6", "die Zehnerpotenz 10⁰ nicht mitgezählt"),
      B("4 + 7 + 1", "auch die Zehnerpotenz mitgezählt, die knapp unter der unteren Grenze liegt"),
-     B("4 * 6", "die beiden Exponenten malgenommen")], einheit="Zehnerpotenzen"), form="umkehren", lp=LP, idee="raster_grenzen")
+     B("4 * 6", "die beiden Exponenten malgenommen")], einheit="Zehnerpotenzen"), form=None, lp=LP, idee="raster_grenzen")
 neu(T, "vergleichen_pruefen", "sicherung", "fehler", L(
     "Ein Kind vergleicht 6 · 10⁻⁷ und 4 · 10⁻⁶ und rechnet: Zeile 1: Ich schreibe beide Zahlen mit dem Exponenten −7. Zeile 2: Dann ist 4 · 10⁻⁶ = 0,4 · 10⁻⁷, denn das Komma geht eine Stelle nach links. Zeile 3: Also ist 6 · 10⁻⁷ größer als 4 · 10⁻⁶. In welcher Zeile steckt der erste Fehler? Welcher Vorfaktor gehört richtig vor 10⁻⁷?",
     "Fehler in Zeile □, richtig: 4 · 10⁻⁶ = □ · 10⁻⁷", [2, 40], ["2", "4 * 10"], ["1 + 1", "400 / 10"],
@@ -203,9 +203,14 @@ neu(T, "vergleichen_pruefen", "sicherung", "umkehr", Z(
      B("6 * 100", "die Ziffer 6 mit 100 malgenommen")]), lp=LP, idee="faktor_rueckwaerts")
 neu(T, "vergleichen_pruefen", "sicherung", "begruenden", W(
     "Warum ist 9 · 10⁻⁶ größer als 4 · 10⁻⁷? Welche Begründung stimmt?",
-    "Man kann beide mit 10⁻⁶ vergleichen, denn 4 · 10⁻⁷ = 0,4 · 10⁻⁶ ist kleiner und 9 · 10⁻⁶ ist größer.",
+    "Man bringt beide auf den Exponenten −6, denn 4 · 10⁻⁷ = 0,4 · 10⁻⁶; dann stehen 9 und 0,4 gegeneinander.",
     [("Die Zahl mit dem größeren Betrag im Exponenten ist immer die größere, denn −7 liegt weiter von null entfernt als −6.", "den Betrag des negativen Exponenten für die Größe gehalten; 10⁻⁷ ist kleiner als 10⁻⁶"),
      ("Die Vorfaktoren entscheiden immer allein, denn der Exponent ist nur eine Schreibhilfe.", "den Exponenten für unwichtig gehalten"),
      ("Die beiden Zahlen lassen sich gar nicht vergleichen, denn die Vorfaktoren 9 und 4 sind verschieden.", "geglaubt, nur Zahlen mit gleichem Vorfaktor ließen sich vergleichen")],
     "4 · 10⁻⁷ ist ein Zehntel von 4 · 10⁻⁶, also ist 4 · 10⁻⁷ = 0,4 · 10⁻⁶. Beide Zahlen haben nun den Exponenten −6, und die Vorfaktoren 0,4 und 9 zeigen: 9 · 10⁻⁶ ist größer. Ausgeschrieben: 0,000 009 gegen 0,000 000 4.",
     lambda: F(9) * F(10) ** -6 > 4 * F(10) ** -7 and 4 * F(10) ** -7 == F("0.4") * F(10) ** -6), lp=LP, idee="referenz_vergleich")
+
+# Regel je Aufgabe nach Lernziel und Denkleistung differenziert (Urteil 1222)
+for _a in A:
+    if _a["thema"] == T and _a["lk"] == "vergleichen_pruefen":
+        _a["regel"] = "rr.potenz" if _a["idee"] in ("faktor_rueckwaerts", "raster_grenzen", "groessenordnung_quotient") else "id.zahlen.schreibweisen"

@@ -1,0 +1,308 @@
+{
+ "stand": "2026-11-29",
+ "runde": "vtest-1b",
+ "kuerzel": "VT1B",
+ "titel": "bruch.prozent",
+ "klasse": {
+  "gym_by": 6,
+  "rs_by": 6,
+  "ib_myp": 1
+ },
+ "themen": [
+  "bruch.prozent"
+ ],
+ "hinweis": "Vorrat für eine Folgerunde: geprüfte Aufgaben, die nach der Entscheidung „je Lernziel 5 Aufgaben“ aus der Runde genommen wurden (Schema, doppelte Denkfigur oder Bestandsnähe). Nicht Teil der Runden-JSON, vom Prüfwerkzeug nicht gezählt. Vor Aufnahme neu prüfen.",
+ "aufgaben": [
+  {
+   "kennung": "VT1B-VR01",
+   "thema": "bruch.prozent",
+   "lernkarte": "prozentwert",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen berechnen einen Prozentwert mit einem Satz; hier müssen mehrere Prozentsätze auf verschiedene Ganze bezogen, Größenordnungen abgeschätzt oder eine Prozentangabe in eine andere Darstellung gebracht werden.",
+   "idee": "fehler_komma",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "1",
+    "0.08 * 450"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "2 * 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Rechnung in Zeile 2 für falsch gehalten, obwohl dort nur der Fehler aus Zeile 1 fortgeführt wird"
+    },
+    {
+     "luecke": 2,
+     "antwort": 360,
+     "rechnung": "0.8 * 450",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 0,8 statt 0,08 gerechnet, wie in Zeile 1"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3600,
+     "rechnung": "8 * 450",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Prozentzahl 8 malgenommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 442,
+     "rechnung": "450 - 8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentzahl 8 vom Preis abgezogen"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "prozentwert",
+    "t": "prozentwert",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Max soll 8 % von 450 € berechnen und schreibt: Zeile 1: 8 % = 8/100 = 0,8. Zeile 2: 0,8 · 450 = 360. Zeile 3: Also sind 8 % von 450 € genau 360 €. In welcher Zeile steckt der erste Fehler, und wie viele Euro sind 8 % von 450 € richtig?",
+     "schablone": "Fehler in Zeile □, richtig: □ €",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      1,
+      36
+     ]
+    },
+    "c": [
+     "1",
+     "0.08 * 450"
+    ],
+    "w": "Zeile 1 ist falsch: 8/100 ist 0,08 und nicht 0,8 (0,8 wären 80 %). Zeile 2 ist als Rechnung richtig (0,8 · 450 = 360), übernimmt aber den Fehler. Richtig: 0,08 · 450 € = 36 €. Probe: 10 % von 450 € sind 45 €, 8 % müssen etwas weniger sein."
+   }
+  },
+  {
+   "kennung": "VT1B-VR02",
+   "thema": "bruch.prozent",
+   "lernkarte": "grundwert",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen berechnen den Grundwert aus Prozentwert und Prozentsatz; hier wird der Grundwert für weitere Aussagen über dasselbe Ganze gebraucht, in Darstellungen gelesen oder mit anderen Grundwerten verglichen.",
+   "idee": "grundwerte_vergleichen",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Anna, denn ihr Sparziel ist 600 € und Bens Sparziel ist 160 €.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 % als Faktor 20 gelesen und mit den gesparten 30 € malgenommen"
+    },
+    {
+     "index": 1,
+     "antwort": "Die Sparziele sind gleich groß, denn beide haben ungefähr gleich viel Prozent gespart.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Prozentsätze für fast gleich gehalten und die verschiedenen gesparten Beträge nicht beachtet"
+    },
+    {
+     "index": 2,
+     "antwort": "Anna, denn 20 % sind weniger als 25 %, und weniger Prozent bedeuten ein größeres Sparziel.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentsätze verglichen, aber nicht bedacht, dass die gesparten Beträge verschieden sind"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "grundwert",
+    "t": "grundwert",
+    "p": "sicherung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Anna hat 30 € gespart, das sind 20 % ihres Sparziels. Ben hat 40 € gespart, das sind 25 % seines Sparziels. Welche Aussage über die Sparziele stimmt?"
+    },
+    "a": [
+     "Anna, denn ihr Sparziel ist 600 € und Bens Sparziel ist 160 €.",
+     "Die Sparziele sind gleich groß, denn beide haben ungefähr gleich viel Prozent gespart.",
+     "Anna, denn 20 % sind weniger als 25 %, und weniger Prozent bedeuten ein größeres Sparziel.",
+     "Ben, denn sein Sparziel ist 160 € und Annas Sparziel ist 150 €."
+    ],
+    "o": {
+     "index": 3
+    },
+    "w": "Annas Sparziel ist der Grundwert: 30 € sind 20 %, also 1 % = 1,50 € und 100 % = 150 €. Bens Sparziel: 40 € sind 25 %, also ist das Ziel 40 € : 0,25 = 160 €. Bens Ziel ist höher. Aus den Prozentsätzen allein lässt sich nichts schließen, weil auch die Beträge verschieden sind."
+   }
+  },
+  {
+   "kennung": "VT1B-VR03",
+   "thema": "bruch.prozent",
+   "lernkarte": "grundwert",
+   "pool": "sicherung",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen berechnen den Grundwert aus Prozentwert und Prozentsatz; hier wird der Grundwert für weitere Aussagen über dasselbe Ganze gebraucht, in Darstellungen gelesen oder mit anderen Grundwerten verglichen.",
+   "idee": "eins_prozent",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "42 / 7",
+    "42 / 7 * 100"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 294,
+     "rechnung": "7 * 42",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 7 malgenommen statt durch 7 geteilt"
+    },
+    {
+     "luecke": 1,
+     "antwort": 35,
+     "rechnung": "42 - 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "7 von 42 abgezogen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4200,
+     "rechnung": "42 * 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "42 mit 100 malgenommen, ohne vorher durch 7 zu teilen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 49,
+     "rechnung": "42 + 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Zahlen im Text addiert"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "grundwert",
+    "t": "grundwert",
+    "p": "sicherung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "luecken",
+    "f": {
+     "text": "7 % der Murmeln in einem Beutel sind 42 Murmeln. Dann sind 1 % genau □ Murmeln, und alle Murmeln im Beutel (100 %) sind □ Murmeln.",
+     "schablone": "1 % sind □ Murmeln, 100 % sind □ Murmeln",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      6,
+      600
+     ]
+    },
+    "c": [
+     "42 / 7",
+     "42 / 7 * 100"
+    ],
+    "w": "Aus 7 % = 42 Murmeln folgt durch Teilen durch 7: 1 % = 6 Murmeln. Mit 100 malgenommen: 100 % = 600 Murmeln. Probe: 7 % von 600 sind 42."
+   }
+  },
+  {
+   "kennung": "VT1B-VR04",
+   "thema": "bruch.prozent",
+   "lernkarte": "grundwert",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen berechnen den Grundwert aus Prozentwert und Prozentsatz; hier wird der Grundwert für weitere Aussagen über dasselbe Ganze gebraucht, in Darstellungen gelesen oder mit anderen Grundwerten verglichen.",
+   "idee": "fehler_multiplizieren",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2",
+    "20 / 0.25"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Schlusszeile genannt, weil dort das unsinnige Ergebnis 5 steht"
+    },
+    {
+     "luecke": 2,
+     "antwort": 5,
+     "rechnung": "20 * 0.25",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Prozentwert mit dem Prozentsatz malgenommen, wie in Zeile 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 500,
+     "rechnung": "20 * 25",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Prozentzahl 25 malgenommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 45,
+     "rechnung": "20 + 25",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Zahlen im Text addiert"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "grundwert",
+    "t": "grundwert",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Lena bestimmt, wie viele Mitglieder ein Verein hat, wenn 20 Mitglieder 25 % aller Mitglieder sind. Zeile 1: 20 Mitglieder sind 25 % aller Mitglieder. Zeile 2: Alle Mitglieder = 20 · 25 % = 20 · 0,25 = 5. Zeile 3: Der Verein hat also 5 Mitglieder. In welcher Zeile steckt der erste Fehler, und wie viele Mitglieder hat der Verein richtig?",
+     "schablone": "Fehler in Zeile □, richtig: □ Mitglieder",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      2,
+      80
+     ]
+    },
+    "c": [
+     "2",
+     "20 / 0.25"
+    ],
+    "w": "Der Grundwert ist Prozentwert durch Prozentsatz, nicht mal: 20 : 0,25 = 80. Zeile 1 ist richtig. Zeile 2 multipliziert statt zu teilen. Zeile 3 übernimmt den Fehler; das Ergebnis 5 ist ein Warnzeichen, denn 20 Mitglieder können nicht Teil von nur 5 sein."
+   }
+  }
+ ]
+}

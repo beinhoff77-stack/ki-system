@@ -14,7 +14,7 @@
  "hinweis": "Verstehens-Aufgaben für Tests (Pools test, korrektur, sicherung), je Lernziel 1 Test + 2 Korrektur + 2 Sicherung (Einheiten, die noch nicht gekürzt sind: 1 + 3 + 3). Nicht eingespielt. Je Eintrag: thema, lernkarte, pool, typ (Aufgabentyp g), form, stufe, zaehlt, lehrplan, ersetzt_test (nur test), Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md (ohne Tipp h, ohne Toleranz).",
  "aufgaben": [
   {
-   "kennung": "VT1B-022",
+   "kennung": "VT1B-016",
    "thema": "gleichungen.bruch",
    "lernkarte": "definitionsmenge",
    "pool": "test",
@@ -71,7 +71,7 @@
    }
   },
   {
-   "kennung": "VT1B-023",
+   "kennung": "VT1B-017",
    "thema": "gleichungen.bruch",
    "lernkarte": "definitionsmenge",
    "pool": "korrektur",
@@ -156,7 +156,7 @@
    }
   },
   {
-   "kennung": "VT1B-024",
+   "kennung": "VT1B-018",
    "thema": "gleichungen.bruch",
    "lernkarte": "definitionsmenge",
    "pool": "korrektur",
@@ -211,7 +211,7 @@
    }
   },
   {
-   "kennung": "VT1B-025",
+   "kennung": "VT1B-019",
    "thema": "gleichungen.bruch",
    "lernkarte": "definitionsmenge",
    "pool": "sicherung",
@@ -296,7 +296,7 @@
    }
   },
   {
-   "kennung": "VT1B-026",
+   "kennung": "VT1B-020",
    "thema": "gleichungen.bruch",
    "lernkarte": "definitionsmenge",
    "pool": "sicherung",
@@ -356,7 +356,7 @@
    }
   },
   {
-   "kennung": "VT1B-027",
+   "kennung": "VT1B-021",
    "thema": "gleichungen.bruch",
    "lernkarte": "ueber_kreuz",
    "pool": "test",
@@ -413,7 +413,7 @@
    }
   },
   {
-   "kennung": "VT1B-028",
+   "kennung": "VT1B-022",
    "thema": "gleichungen.bruch",
    "lernkarte": "ueber_kreuz",
    "pool": "korrektur",
@@ -473,7 +473,7 @@
    }
   },
   {
-   "kennung": "VT1B-029",
+   "kennung": "VT1B-023",
    "thema": "gleichungen.bruch",
    "lernkarte": "ueber_kreuz",
    "pool": "korrektur",
@@ -495,14 +495,14 @@
      "beschreibung": "Jos Überlegung für ungültig gehalten, obwohl sie dieselbe Gleichheit der Verhältnisse nutzt"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Jo erhält x = 6, denn x − 2 muss doppelt so groß sein wie 3 und nicht wie 4.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Nenner 3 statt 4 verdoppelt und die Brüche verwechselt"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Kim erhält x = 6, denn aus 6 · 4 = 3 · (x − 2) folgt x − 2 = 4 und damit x = 6.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -522,18 +522,18 @@
     },
     "a": [
      "Nur Kim darf so rechnen, denn Jos Überlegung ist keine erlaubte Rechenregel.",
+     "Beide erhalten x = 10, denn ein doppelter Zähler verlangt auch einen doppelten Nenner.",
      "Jo erhält x = 6, denn x − 2 muss doppelt so groß sein wie 3 und nicht wie 4.",
-     "Kim erhält x = 6, denn aus 6 · 4 = 3 · (x − 2) folgt x − 2 = 4 und damit x = 6.",
-     "Beide erhalten x = 10, denn ein doppelter Zähler verlangt auch einen doppelten Nenner."
+     "Kim erhält x = 6, denn aus 6 · 4 = 3 · (x − 2) folgt x − 2 = 4 und damit x = 6."
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "w": "Kim: 6 · 4 = 3 · (x − 2), also 24 = 3x − 6 und x = 10. Jo: 6/3 = 2, also muss (x − 2)/4 = 2 sein, x − 2 = 8 und x = 10. Beide Wege führen zu x = 10, und beide sind erlaubt: Aus a/b = c/d folgt a : c = b : d. Probe: 6/8 = 3/4."
    }
   },
   {
-   "kennung": "VT1B-030",
+   "kennung": "VT1B-024",
    "thema": "gleichungen.bruch",
    "lernkarte": "ueber_kreuz",
    "pool": "sicherung",
@@ -602,7 +602,7 @@
    }
   },
   {
-   "kennung": "VT1B-031",
+   "kennung": "VT1B-025",
    "thema": "gleichungen.bruch",
    "lernkarte": "ueber_kreuz",
    "pool": "sicherung",
@@ -657,7 +657,7 @@
    }
   },
   {
-   "kennung": "VT1B-032",
+   "kennung": "VT1B-026",
    "thema": "gleichungen.bruch",
    "lernkarte": "scheinloesung",
    "pool": "test",
@@ -714,7 +714,7 @@
    }
   },
   {
-   "kennung": "VT1B-033",
+   "kennung": "VT1B-027",
    "thema": "gleichungen.bruch",
    "lernkarte": "scheinloesung",
    "pool": "korrektur",
@@ -770,7 +770,7 @@
    }
   },
   {
-   "kennung": "VT1B-034",
+   "kennung": "VT1B-028",
    "thema": "gleichungen.bruch",
    "lernkarte": "scheinloesung",
    "pool": "korrektur",
@@ -847,7 +847,7 @@
    }
   },
   {
-   "kennung": "VT1B-035",
+   "kennung": "VT1B-029",
    "thema": "gleichungen.bruch",
    "lernkarte": "scheinloesung",
    "pool": "sicherung",
@@ -869,14 +869,14 @@
      "beschreibung": "gleiches Aussehen mit „stimmt“ verwechselt; durch 0 darf man nicht teilen, die Aussage 7/0 = 7/0 hat keinen Wert"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "L = ℚ \\ {5}, denn ohne die 5 sind beide Seiten für jede andere Zahl gleich.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "gedacht, die Gleichung gelte für alle zugelassenen Zahlen; für x ≠ 5 ist x + 2 = 7 falsch, also sind die Seiten verschieden"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "L = {5}, denn 7 : 0 ist 0, und 0 = 0 stimmt, die Probe geht also auf.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -896,18 +896,18 @@
     },
     "a": [
      "L = {5}, denn auf beiden Seiten steht bei x = 5 dasselbe, nämlich 7/0.",
-     "L = { }, denn die einzige Zahl, die beim Umformen herauskommt, macht den Nenner 0.",
      "L = ℚ \\ {5}, denn ohne die 5 sind beide Seiten für jede andere Zahl gleich.",
-     "L = {5}, denn 7 : 0 ist 0, und 0 = 0 stimmt, die Probe geht also auf."
+     "L = {5}, denn 7 : 0 ist 0, und 0 = 0 stimmt, die Probe geht also auf.",
+     "L = { }, denn die einzige Zahl, die beim Umformen herauskommt, macht den Nenner 0."
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "w": "Die Definitionsmenge ist D = ℚ \\ {5}, weil der Nenner x − 5 nicht 0 werden darf. Die Umformung liefert x = 5, aber 5 gehört nicht zu D. Für x = 5 sind beide Seiten nicht definiert, es gibt keine wahre Aussage. Für jedes x ≠ 5 ist die Gleichung gleichwertig zu x + 2 = 7, also falsch. Damit ist L = { }, und x = 5 ist eine Scheinlösung."
    }
   },
   {
-   "kennung": "VT1B-036",
+   "kennung": "VT1B-030",
    "thema": "gleichungen.bruch",
    "lernkarte": "scheinloesung",
    "pool": "sicherung",
@@ -984,7 +984,7 @@
    }
   },
   {
-   "kennung": "VT1B-037",
+   "kennung": "VT1B-031",
    "thema": "gleichungen.bruch",
    "lernkarte": "verhaeltnis",
    "pool": "test",
@@ -1062,7 +1062,7 @@
    }
   },
   {
-   "kennung": "VT1B-038",
+   "kennung": "VT1B-032",
    "thema": "gleichungen.bruch",
    "lernkarte": "verhaeltnis",
    "pool": "korrektur",
@@ -1118,7 +1118,7 @@
    }
   },
   {
-   "kennung": "VT1B-039",
+   "kennung": "VT1B-033",
    "thema": "gleichungen.bruch",
    "lernkarte": "verhaeltnis",
    "pool": "korrektur",
@@ -1133,14 +1133,14 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Die Höhe wird 36 cm, denn die Höhe wächst genauso um 18 cm wie die Breite.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "additiv statt multiplikativ gerechnet: 18 + 18; gleiches Wachstum in cm ändert das Verhältnis"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Die Höhe wird 7,2 cm, denn man teilt die Höhe 18 cm durch den Faktor 2,5.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1166,19 +1166,19 @@
      "text": "Ein Foto ist 12 cm breit und 18 cm hoch. Es wird so vergrößert, dass es 30 cm breit ist. Ben rechnet: Die Breite wächst um 18 cm, also wächst die Höhe auch um 18 cm. Ida rechnet: Die Breite wird mit 2,5 malgenommen, also auch die Höhe. Welche Aussage über die neue Höhe stimmt, wenn das Seitenverhältnis gleich bleiben soll?"
     },
     "a": [
-     "Die Höhe wird 45 cm, denn beide Seiten werden mit demselben Faktor 2,5 malgenommen.",
      "Die Höhe wird 36 cm, denn die Höhe wächst genauso um 18 cm wie die Breite.",
      "Die Höhe wird 7,2 cm, denn man teilt die Höhe 18 cm durch den Faktor 2,5.",
+     "Die Höhe wird 45 cm, denn beide Seiten werden mit demselben Faktor 2,5 malgenommen.",
      "Die Höhe bleibt 18 cm, denn nur die Breite soll größer werden."
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "w": "Soll das Seitenverhältnis gleich bleiben, müssen beide Seiten mit demselben Faktor malgenommen werden: 30 : 12 = 2,5, also 18 · 2,5 = 45 cm Höhe. Bens Rechnung ergäbe 36 cm; dann wäre 36 : 30 = 1,2, aber das alte Verhältnis 18 : 12 = 1,5. Idas Weg stimmt."
    }
   },
   {
-   "kennung": "VT1B-040",
+   "kennung": "VT1B-034",
    "thema": "gleichungen.bruch",
    "lernkarte": "verhaeltnis",
    "pool": "sicherung",
@@ -1233,7 +1233,7 @@
    }
   },
   {
-   "kennung": "VT1B-041",
+   "kennung": "VT1B-035",
    "thema": "gleichungen.bruch",
    "lernkarte": "verhaeltnis",
    "pool": "sicherung",

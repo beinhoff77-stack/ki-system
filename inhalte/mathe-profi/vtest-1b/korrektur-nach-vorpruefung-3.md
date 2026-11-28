@@ -21,6 +21,23 @@ Geschlossen (Befund, dann wie):
 - Auswahl-Aufgaben der Einheit durchgesehen: keine Möglichkeit mit richtiger Folgerung und nur falscher Begründung.
 - Gestrichen in den Vorrat (je Lernziel die schwächste Korrektur- und Sicherungs-Aufgabe): menge_zuordnen, text_zu_D, gleichung_zur_loesung, warum_ueber_kreuz, kandidaten_gegen_D, fehler_nicht_alle_glieder, anteil_aus_verhaeltnis, fehler_aussen_innen.
 
+## Welle 2a: bruch.prozent, fertig
+
+Vorläufige Kennungen 001 bis 015 (drei Lernziele je 5 Aufgaben). Alle 301 Bestandsaufgaben der Einheit (Themenliste und rollend-6, rollend-14) wurden vor dem Ersatz gelesen.
+
+| Lernziel | Aufgaben | Schema (streng) | Denkfiguren |
+|---|---|---|---|
+| prozentwert | 001 Test, 002, 003, 004, 005 | 005 | 5: Prozentwert bleibt, Ganzes wächst (001), Ganzzahligkeit über den gekürzten Bruch (002), gleichbleibender Anteil am Anfangswert statt am Rest (003), Verteilungsgesetz begründen (004), Komma bei Bruchteilen von Prozent (005) |
+| grundwert | 006 Test, 007, 008, 009, 010 | 010 | 5: gleichbleibender Teil bei wechselndem Ganzen (006), Unterschied zweier Anteile als Prozentwert (007), Winkel im Kreisdiagramm zurück zum Ganzen (008), gleicher Betrag bei doppeltem Prozentsatz (009), ein Ganzes mit mehreren Anteilen (010) |
+| verstehen | 011 Test, 012, 013, 014, 015 | 015 | 5: Prozente auf verschiedene Ganze (011), Anteil steigt beim kleiner werdenden Ganzen (012), Ganzes wechselt in der Frage (013), Parameter mit zwei Bedingungen (014), „um“ gegen „auf“ (015) |
+
+Geschlossen (Befund, dann wie):
+- Bestandskerne ersetzt: „p % von b gegen b % von p“ (Bestand 149, 154, 158, 159, 162, 167, 190, 194), „Überschlag einer Prozentzahl“ (Bestand 44, 185), „Bruch gegen Prozent vergleichen“ (Bestand 13, 171, 173, 179, 234), „Rest nach Prozenten, Grundwert zurück“ (Bestand 213, 217, 220, 222), „Anteil vom Rest“ (Bestand 222), „Klassen mit Zahlen statt Anteilen vergleichen“ (Bestand 241), „Prozentwert größer als Grundwert“ (Bestand 152), „Anteil von Anteil, Grundwert gesucht“ (Bestand 186, 192, 248). Die Ersatzaufgaben haben einen anderen Kern; die Nähe von 008 (Winkel im Kreisdiagramm, Bestand rollend-6 Nr. 16 prüft eine Winkelangabe) und von 010 (Bestand 213) ist als offener Zweifel vermerkt.
+- Test je Lernziel neu und anspruchsvoller: 001 (Verdünnen, Salz bleibt gleich), 006 (Trocknen, Trockenmasse bleibt gleich), 011 (Begründung, dass sich Prozentsätze auf verschiedene Ganze beziehen und nur eine Ungleichung folgt).
+- Wegen der Verteilung nach Antwortform und Typ sind 002, 003, 005, 012, 013 ausdrücklich mit Verstehens-Form oder Verstehens-Typ gekennzeichnet; 005 und 015 sind die jeweils einzige Schema-nahe Aufgabe des Lernziels (005: Umrechnen eines Bruchteils von Prozent, 015: „um 200 %“ gegen „auf 200 %“, 010: ein Ganzes, zwei Anteile).
+- Auswahl-Aufgaben (004, 009, 011): jede falsche Möglichkeit hat eine falsche Folgerung; „Ja/Nein“-Lücken gibt es keine; die richtige Möglichkeit ist nirgends die längste.
+- Gestrichen in den Vorrat (nicht in der Runde): fehler_komma, grundwerte_vergleichen, eins_prozent, fehler_multiplizieren. Als Bestandskerne ganz gestrichen: kopfrechnen_zwei_wege, rest_ueber_prozente, groessenordnung, bruch_prozent_wert, winkel_im_kreisdiagramm, grundwert_direkt, fehlbetrag, anteil_von_anteil, ganzes_aendert_sich, anteil_vom_rest, anzahl_oder_anteil, darstellungen_vergleichen.
+
 ## Offen (weitere Wellen)
 
-bruch.prozent, terme.potenzgesetze, zahlen.potenzen_zehner, messen.flaechen_vielecke: Kürzung auf 5 je Lernziel und die weiteren Punkte aus Urteil 1222; README-Tabellen (Schema, Denkfiguren, Bestandshinweise) werden erst nach der letzten Welle mit den endgültigen Kennungen neu gezählt.
+terme.potenzgesetze, zahlen.potenzen_zehner, messen.flaechen_vielecke: Durchsicht nach dem strengen Maßstab (Bestand, Schema, Test, Typ); README-Tabellen (Schema, Denkfiguren, Bestandshinweise) nach der letzten Welle mit nachgezählten Werten.

@@ -81,6 +81,14 @@ def s6_zahl():
 
 
 NEU = {
+    "In einer Schüssel sind 800 g Salzlösung": lambda: next(w for w in range(0, 5000) if 40 * 100 == 2 * (800 + w)),
+    "Frische Gurken bestehen zu 99 %": lambda: next(m for m in range(1, 200) if m * 2 == 100 * 1),
+    "Aus einer Gruppe soll genau 35 %": lambda: sum(1 for n in range(1, 101) if (35 * n) % 100 == 0),
+    "Ein Behälter mit 500 l Wasser verliert": lambda: next(t for t in range(1, 100) if 8 * t >= 100),
+    "In einer Klasse mit 24 Kindern sind 6 Linkshänder": lambda: next(k for k in range(0, 19) if 6 * 100 >= 40 * (24 - k)),
+    "In einem Jahrgang spielen 40 Kinder Fußball": lambda: (30 * 40 // 100) * 100 // 48,
+    "Eine Gruppe hat 20 Kinder, davon 12 Mädchen": lambda: sum(1 for m in range(0, 11) if 12 + m <= 15 and 12 + m > 12),
+    "Bei einer Qualitätskontrolle sind 0,15 %": lambda: [40000 * 15 // 10000, 40000 - 40000 * 15 // 10000],
     "Für wie viele ganze Zahlen k liegt": lambda: sum(1 for k in range(-1000, 1000) if 3 * F(10) ** -4 < k * F(10) ** -5 < 5 * F(10) ** -4),
     "Wie viele der Zahlen 3⁻⁴": lambda: sum(1 for v in (F(3) ** -4, F(4) ** -3, F(10) ** -2, F(1) ** -6) if v < F(1, 50)),
     "Eine Zahl a · 10ⁿ ist in wissenschaftlicher Schreibweise geschrieben (a": lambda: (lambda ns: [min(ns), max(ns)])([n for n in range(-5, 12) if any(5000 < F(a, 10) * F(10) ** n < 80000 for a in range(10, 100))]),

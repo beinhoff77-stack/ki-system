@@ -1,0 +1,343 @@
+{
+ "stand": "2026-11-29",
+ "runde": "vtest-1b",
+ "kuerzel": "VT1B",
+ "titel": "terme.potenzgesetze",
+ "klasse": {
+  "gym_by": 6,
+  "rs_by": 7,
+  "ib_myp": 3
+ },
+ "themen": [
+  "terme.potenzgesetze"
+ ],
+ "hinweis": "Vorrat für eine Folgerunde: geprüfte Aufgaben, die nach der Entscheidung „je Lernziel 5 Aufgaben“ aus der Runde genommen wurden (Schema, doppelte Denkfigur oder Bestandsnähe). Nicht Teil der Runden-JSON, vom Prüfwerkzeug nicht gezählt. Vor Aufnahme neu prüfen.",
+ "aufgaben": [
+  {
+   "kennung": "VT1B-VR13",
+   "thema": "terme.potenzgesetze",
+   "lernkarte": "negativer_exponent",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
+   "abgrenzung": "Die Übungen berechnen negative Exponenten nach Regel; hier werden Werte in einem Bereich gezählt, Exponenten gesucht und Potenzen mit verschiedenen Basen verglichen.",
+   "idee": "einsetzen_luecken",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "7 ** 2",
+    "0 - 5"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 14,
+     "rechnung": "7 * 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Basis mal Exponent gerechnet: 7 · 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 5,
+     "rechnung": "5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus im Exponenten vergessen"
+    },
+    {
+     "luecke": 2,
+     "antwort": -32,
+     "rechnung": "0 - 32",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner 32 mit Minus als Exponenten genommen"
+    }
+   ],
+   "regel": "rr.potenz",
+   "aufgabe": {
+    "l": "negativer_exponent",
+    "t": "negativer_exponent",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "luecken",
+    "f": {
+     "text": "Ergänze zwei wahre Gleichungen: 7⁻² = 1/□ und 2^□ = 1/32.",
+     "schablone": "7⁻² = 1/□ und 2^□ = 1/32",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      49,
+      -5
+     ]
+    },
+    "c": [
+     "7 ** 2",
+     "0 - 5"
+    ],
+    "w": "7⁻² = 1/7² = 1/49, der Nenner ist 49. Für 1/32 = 1/2⁵ = 2⁻⁵ ist der Exponent −5. Probe: 2⁻⁵ = 1/2⁵ = 1/32."
+   }
+  },
+  {
+   "kennung": "VT1B-VR14",
+   "thema": "terme.potenzgesetze",
+   "lernkarte": "negativer_exponent",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
+   "abgrenzung": "Die Übungen berechnen negative Exponenten nach Regel; hier werden Werte in einem Bereich gezählt, Exponenten gesucht und Potenzen mit verschiedenen Basen verglichen.",
+   "idee": "umrechnen_bruch",
+   "antwortform": "zahl",
+   "loesung_rechnung": "10000 / 625",
+   "fehlbilder": [
+    {
+     "antwort": 625,
+     "rechnung": "5 ** 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5⁴ = 625 ausgerechnet und das Minus im Exponenten übersehen"
+    },
+    {
+     "antwort": 20,
+     "rechnung": "5 * 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Basis mal Exponent gerechnet"
+    },
+    {
+     "antwort": 80,
+     "rechnung": "10000 / 125",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner 125 statt 625 genommen: 10 000 durch 125"
+    }
+   ],
+   "regel": "rr.potenz",
+   "aufgabe": {
+    "l": "negativer_exponent",
+    "t": "negativer_exponent",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele Zehntausendstel sind 5⁻⁴?"
+    },
+    "o": {
+     "wert": 16,
+     "einheit": "Zehntausendstel"
+    },
+    "c": "10000 / 625",
+    "w": "5⁻⁴ = 1/5⁴ = 1/625. Ein Zehntausendstel ist 1/10 000. Es gilt 1/625 = 16/10 000 (beide Seiten mit 16 erweitert: 625 · 16 = 10 000), also sind es 16 Zehntausendstel. Probe: 16 : 10 000 = 0,0016 und 1 : 625 = 0,0016."
+   }
+  },
+  {
+   "kennung": "VT1B-VR15",
+   "thema": "terme.potenzgesetze",
+   "lernkarte": "negativer_exponent",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
+   "abgrenzung": "Die Übungen berechnen negative Exponenten nach Regel; hier werden Werte in einem Bereich gezählt, Exponenten gesucht und Potenzen mit verschiedenen Basen verglichen.",
+   "idee": "kleiner_als_grenze",
+   "antwortform": "zahl",
+   "loesung_rechnung": "3",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "rechnung": "3 + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auch die Zahl 1⁻⁶ mitgezählt, weil negative Hochzahlen immer kleine Zahlen ergeben"
+    },
+    {
+     "antwort": 2,
+     "rechnung": "3 - 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die mittlere der drei kleinen Zahlen für größer als die Grenze gehalten"
+    },
+    {
+     "antwort": 1,
+     "rechnung": "3 - 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 10⁻² gezählt, weil nur dort eine Zehnerpotenz vorkommt"
+    }
+   ],
+   "regel": "rr.potenz",
+   "aufgabe": {
+    "l": "negativer_exponent",
+    "t": "negativer_exponent",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele der Zahlen 3⁻⁴, 4⁻³, 10⁻² und 1⁻⁶ sind kleiner als 1/50?"
+    },
+    "o": {
+     "wert": 3,
+     "einheit": "Zahlen"
+    },
+    "c": "3",
+    "w": "3⁻⁴ = 1/81, 4⁻³ = 1/64 und 10⁻² = 1/100 sind kleiner als 1/50, denn bei gleichem Zähler ist der Bruch mit dem größeren Nenner kleiner. 1⁻⁶ = 1/1⁶ = 1 ist größer. Es sind also 3 Zahlen."
+   }
+  },
+  {
+   "kennung": "VT1B-VR16",
+   "thema": "terme.potenzgesetze",
+   "lernkarte": "fehler_finden",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
+   "abgrenzung": "Die Übungen nennen den Fehler in einer Zeile oder das richtige Ergebnis; hier muss die erste fehlerhafte Zeile in einer Rechenkette gefunden werden, und Aussagen über Potenzen werden begründet oder widerlegt.",
+   "idee": "basis_mal_hochzahl",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1, weil ein negativer Exponent nicht den Kehrwert bildet.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "geglaubt, der negative Exponent bilde nicht den Kehrwert; 4⁻² = 1/4² stimmt"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3, weil 1/8 gleich 0,12 ist.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1/8 falsch in eine Dezimalzahl verwandelt; 1/8 = 0,125 stimmt"
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4, weil ein negativer Exponent immer eine negative Zahl ergibt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "negative Hochzahl als negative Zahl gedeutet"
+    }
+   ],
+   "regel": "rr.potenz",
+   "aufgabe": {
+    "l": "fehler_finden",
+    "t": "fehler_finden",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kind rechnet: Zeile 1: 4⁻² = 1/4². Zeile 2: 1/4² = 1/(4 · 2) = 1/8. Zeile 3: 1/8 = 0,125. Zeile 4: Also ist 4⁻² = 0,125. In welcher Zeile steckt der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1, weil ein negativer Exponent nicht den Kehrwert bildet.",
+     "In Zeile 2, weil 4² = 4 · 4 = 16 ist und nicht 4 · 2.",
+     "In Zeile 3, weil 1/8 gleich 0,12 ist.",
+     "In Zeile 4, weil ein negativer Exponent immer eine negative Zahl ergibt."
+    ],
+    "o": {
+     "index": 1
+    },
+    "w": "Zeile 1 ist richtig: 4⁻² = 1/4². In Zeile 2 wird 4² als 4 · 2 gerechnet, richtig ist 4² = 4 · 4 = 16. Zeile 3 rechnet 1/8 = 0,125 richtig, Zeile 4 übernimmt den Fehler. Richtig: 4⁻² = 1/16 = 0,0625."
+   }
+  },
+  {
+   "kennung": "VT1B-VR17",
+   "thema": "terme.potenzgesetze",
+   "lernkarte": "fehler_finden",
+   "pool": "sicherung",
+   "typ": "umkehr",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
+   "abgrenzung": "Die Übungen nennen den Fehler in einer Zeile oder das richtige Ergebnis; hier muss die erste fehlerhafte Zeile in einer Rechenkette gefunden werden, und Aussagen über Potenzen werden begründet oder widerlegt.",
+   "idee": "vorzeichen_vergessen",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "3",
+    "-2"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "1 + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 2 für falsch gehalten, obwohl das Kürzen stimmt"
+    },
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "rechnung": "1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 1 für falsch gehalten, obwohl die Umwandlung in einen Bruch stimmt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "rechnung": "2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus vergessen, wie in Zeile 3"
+    },
+    {
+     "luecke": 2,
+     "antwort": 25,
+     "rechnung": "25",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner 25 als Hochzahl genommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "rechnung": "4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ziffer 4 aus 0,04 als Hochzahl genommen"
+    }
+   ],
+   "regel": "rr.potenz",
+   "aufgabe": {
+    "l": "fehler_finden",
+    "t": "fehler_finden",
+    "p": "sicherung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kind bestimmt a in 5^a = 0,04 so: Zeile 1: 0,04 = 4/100. Zeile 2: 4/100 = 1/25. Zeile 3: Also 5^a = 1/25 = 5² und damit a = 2. In welcher Zeile steckt der erste Fehler, und welchen Wert hat a richtig?",
+     "schablone": "Fehler in Zeile □, richtig: a = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      -2
+     ]
+    },
+    "c": [
+     "3",
+     "-2"
+    ],
+    "w": "Zeile 1 und 2 stimmen: 0,04 = 4/100 = 1/25. In Zeile 3 steht 1/25 = 5², aber 5² = 25. Richtig ist 1/25 = 1/5² = 5⁻², also a = −2. Probe: 5⁻² = 1/25 = 0,04."
+   }
+  }
+ ]
+}

@@ -20,60 +20,60 @@ Je gewähltem Lernziel 7 Aufgaben: 1 **test** (`ersetzt_test: true`, die anspruc
 |---|---|---|---|---|---|---|---|---|
 | Einheit | Lernziel | test | korrektur | sicherung | Stufe 2 / 3 | Antwortformen (Zahl / Auswahl / Lücken) | Typen | Formen |
 |---|---|---|---|---|---|---|---|---|
-| `bruch.prozent` | `prozentwert` | 1 | 3 | 3 | 4 / 3 | 2 / 3 / 2 | darstellung 1, einkleidung 1, fehler 1, mehrschritt 1, transfer 2, umkehr 1 | ohne 4, bruecke 1, fehler_detektiv 1, zwei_wege 1 |
-| `bruch.prozent` | `grundwert` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | begruenden 1, darstellung 2, fehler 1, transfer 1, umkehr 2 | ohne 6, fehler_detektiv 1 |
-| `bruch.prozent` | `verstehen` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | begruenden 1, darstellung 1, einkleidung 1, fehler 1, transfer 1, umkehr 2 | ohne 4, bruecke 1, fehler_detektiv 1, umkehren 1 |
+| `bruch.prozent` | `prozentwert` | 1 | 2 | 2 | 3 / 2 | 3 / 1 / 1 | begruenden 1, einkleidung 2, transfer 1, umkehr 1 | ohne 2, bruecke 2, umkehren 1 |
+| `bruch.prozent` | `grundwert` | 1 | 2 | 2 | 3 / 2 | 4 / 1 / 0 | begruenden 1, darstellung 1, mehrschritt 1, transfer 1, umkehr 1 | ohne 4, bruecke 1 |
+| `bruch.prozent` | `verstehen` | 1 | 2 | 2 | 3 / 2 | 4 / 1 / 0 | begruenden 1, darstellung 1, einkleidung 1, parameter 1, umkehr 1 | ohne 3, bruecke 2 |
 | `gleichungen.bruch` | `definitionsmenge` | 1 | 2 | 2 | 3 / 2 | 2 / 1 / 2 | begruenden 1, einkleidung 1, fehler 1, umkehr 2 | ohne 2, bruecke 1, fehler_detektiv 1, umkehren 1 |
 | `gleichungen.bruch` | `ueber_kreuz` | 1 | 2 | 2 | 3 / 2 | 2 / 2 / 1 | darstellung 2, fehler 1, mehrschritt 1, parameter 1 | ohne 3, fehler_detektiv 1, zwei_wege 1 |
 | `gleichungen.bruch` | `scheinloesung` | 1 | 2 | 2 | 3 / 2 | 2 / 1 / 2 | begruenden 1, darstellung 2, transfer 1, umkehr 1 | ohne 5 |
 | `gleichungen.bruch` | `verhaeltnis` | 1 | 2 | 2 | 3 / 2 | 3 / 1 / 1 | darstellung 1, mehrschritt 1, transfer 2, umkehr 1 | ohne 2, bruecke 1, umkehren 1, zwei_wege 1 |
-| `terme.potenzgesetze` | `negativer_exponent` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | begruenden 1, darstellung 2, parameter 1, transfer 1, umkehr 2 | ohne 6, bruecke 1 |
-| `terme.potenzgesetze` | `fehler_finden` | 1 | 3 | 3 | 4 / 3 | 1 / 4 / 2 | begruenden 1, darstellung 1, fehler 2, mehrschritt 1, umkehr 2 | ohne 3, fehler_detektiv 3, zwei_wege 1 |
-| `zahlen.potenzen_zehner` | `gross_wissenschaftlich` | 1 | 3 | 3 | 4 / 3 | 2 / 3 / 2 | begruenden 1, darstellung 2, fehler 1, transfer 1, umkehr 2 | ohne 4, bruecke 1, fehler_detektiv 1, umkehren 1 |
-| `zahlen.potenzen_zehner` | `negativer_exponent` | 1 | 3 | 3 | 4 / 3 | 4 / 1 / 2 | darstellung 2, fehler 1, parameter 1, transfer 1, umkehr 2 | ohne 4, bruecke 1, fehler_detektiv 1, umkehren 1 |
-| `zahlen.potenzen_zehner` | `vorsilben_klein` | 1 | 3 | 3 | 4 / 3 | 1 / 4 / 2 | darstellung 2, fehler 1, rueckwaerts 1, transfer 1, umkehr 2 | ohne 4, bruecke 1, fehler_detektiv 1, umkehren 1 |
-| `zahlen.potenzen_zehner` | `vergleichen_pruefen` | 1 | 3 | 3 | 4 / 3 | 2 / 3 / 2 | begruenden 1, darstellung 1, fehler 1, transfer 1, umkehr 3 | ohne 4, bruecke 1, fehler_detektiv 1, umkehren 1 |
-| `messen.flaechen_vielecke` | `dreieck` | 1 | 3 | 3 | 4 / 3 | 4 / 1 / 2 | begruenden 1, darstellung 3, fehler 1, mehrschritt 1, transfer 1 | ohne 3, bruecke 2, fehler_detektiv 1, zwei_wege 1 |
-| `messen.flaechen_vielecke` | `rueckwaerts` | 1 | 3 | 3 | 4 / 3 | 4 / 1 / 2 | begruenden 1, darstellung 2, fehler 1, mehrschritt 1, rueckwaerts 1, umkehr 1 | ohne 3, bruecke 2, fehler_detektiv 1, umkehren 1 |
-| `messen.flaechen_vielecke` | `zusammengesetzt` | 1 | 3 | 3 | 4 / 3 | 2 / 2 / 3 | darstellung 3, fehler 1, rueckwaerts 1, transfer 1, umkehr 1 | ohne 4, bruecke 1, fehler_detektiv 1, umkehren 1 |
-| `messen.flaechen_vielecke` | `verstehen` | 1 | 3 | 3 | 4 / 3 | 4 / 1 / 2 | begruenden 1, darstellung 2, fehler 1, transfer 1, umkehr 2 | ohne 4, bruecke 1, fehler_detektiv 1, umkehren 1 |
-| Summe | 17 Lernziele | 17 | 47 | 47 | 64 / 47 | 44 / 34 / 33 | | |
+| `terme.potenzgesetze` | `negativer_exponent` | 1 | 2 | 2 | 3 / 2 | 2 / 2 / 1 | begruenden 1, darstellung 1, einkleidung 1, parameter 1, umkehr 1 | ohne 4, bruecke 1 |
+| `terme.potenzgesetze` | `fehler_finden` | 1 | 2 | 2 | 3 / 2 | 1 / 3 / 1 | begruenden 1, darstellung 1, fehler 1, mehrschritt 1, umkehr 1 | ohne 3, fehler_detektiv 1, zwei_wege 1 |
+| `zahlen.potenzen_zehner` | `gross_wissenschaftlich` | 1 | 2 | 2 | 3 / 2 | 1 / 3 / 1 | begruenden 1, darstellung 2, transfer 1, umkehr 1 | ohne 2, bruecke 2, umkehren 1 |
+| `zahlen.potenzen_zehner` | `negativer_exponent` | 1 | 2 | 2 | 3 / 2 | 3 / 1 / 1 | darstellung 1, parameter 1, transfer 1, umkehr 2 | ohne 4, umkehren 1 |
+| `zahlen.potenzen_zehner` | `vorsilben_klein` | 1 | 2 | 2 | 3 / 2 | 0 / 4 / 1 | darstellung 2, rueckwaerts 1, transfer 1, umkehr 1 | ohne 4, bruecke 1 |
+| `zahlen.potenzen_zehner` | `vergleichen_pruefen` | 1 | 2 | 2 | 3 / 2 | 2 / 3 / 0 | begruenden 1, darstellung 1, transfer 1, umkehr 2 | ohne 4, bruecke 1 |
+| `messen.flaechen_vielecke` | `dreieck` | 1 | 2 | 2 | 3 / 2 | 3 / 0 / 2 | darstellung 1, fehler 1, mehrschritt 2, transfer 1 | ohne 1, bruecke 2, fehler_detektiv 1, zwei_wege 1 |
+| `messen.flaechen_vielecke` | `rueckwaerts` | 1 | 2 | 2 | 3 / 2 | 3 / 1 / 1 | begruenden 1, darstellung 2, transfer 1, umkehr 1 | ohne 2, bruecke 2, umkehren 1 |
+| `messen.flaechen_vielecke` | `zusammengesetzt` | 1 | 2 | 2 | 3 / 2 | 2 / 1 / 2 | darstellung 2, rueckwaerts 1, transfer 1, umkehr 1 | ohne 3, bruecke 1, umkehren 1 |
+| `messen.flaechen_vielecke` | `verstehen` | 1 | 2 | 2 | 3 / 2 | 3 / 0 / 2 | darstellung 1, fehler 1, transfer 1, umkehr 2 | ohne 2, bruecke 1, fehler_detektiv 1, umkehren 1 |
+| Summe | 17 Lernziele | 17 | 34 | 34 | 51 / 34 | 40 / 26 / 19 | | |
 
 Typen insgesamt:
 
 | Typ | Aufgaben | Anteil |
 |---|---|---|
-| darstellung | 29 | 26 % |
-| umkehr | 26 | 23 % |
-| transfer | 15 | 14 % |
-| fehler | 15 | 14 % |
-| begruenden | 11 | 10 % |
-| mehrschritt | 6 | 5 % |
-| einkleidung | 3 | 3 % |
-| parameter | 3 | 3 % |
-| rueckwaerts | 3 | 3 % |
+| darstellung | 21 | 25 % |
+| umkehr | 19 | 22 % |
+| transfer | 13 | 15 % |
+| begruenden | 10 | 12 % |
+| mehrschritt | 6 | 7 % |
+| einkleidung | 5 | 6 % |
+| fehler | 5 | 6 % |
+| parameter | 4 | 5 % |
+| rueckwaerts | 2 | 2 % |
 
 Formen insgesamt:
 
 | Form | Aufgaben | Anteil |
 |---|---|---|
-| (ohne Form) | 65 | 59 % |
-| fehler_detektiv | 16 | 14 % |
-| bruecke | 15 | 14 % |
-| umkehren | 10 | 9 % |
-| zwei_wege | 5 | 5 % |
+| (ohne Form) | 50 | 59 % |
+| bruecke | 18 | 21 % |
+| umkehren | 8 | 9 % |
+| fehler_detektiv | 5 | 6 % |
+| zwei_wege | 4 | 5 % |
 
 ## Kennungen
 
 | Einheit | Kennungen | Aufgaben |
 |---|---|---|
-| `bruch.prozent` | VT1B-001 bis VT1B-021 | 21 |
-| `gleichungen.bruch` | VT1B-022 bis VT1B-041 | 20 |
-| `terme.potenzgesetze` | VT1B-042 bis VT1B-055 | 14 |
-| `zahlen.potenzen_zehner` | VT1B-056 bis VT1B-083 | 28 |
-| `messen.flaechen_vielecke` | VT1B-084 bis VT1B-111 | 28 |
+| `bruch.prozent` | VT1B-001 bis VT1B-015 | 15 |
+| `gleichungen.bruch` | VT1B-016 bis VT1B-035 | 20 |
+| `terme.potenzgesetze` | VT1B-036 bis VT1B-045 | 10 |
+| `zahlen.potenzen_zehner` | VT1B-046 bis VT1B-065 | 20 |
+| `messen.flaechen_vielecke` | VT1B-066 bis VT1B-085 | 20 |
 
-Fehlbilder: 408 insgesamt; bei Zahl- und Lückenaufgaben trägt jedes Fehlbild eine ausführbare Rechnung (`rechnung`), bei Auswahl steht die falsche Möglichkeit mit der Beschreibung des Denkfehlers.
+Fehlbilder: 401 insgesamt; bei Zahl- und Lückenaufgaben trägt jedes Fehlbild eine ausführbare Rechnung (`rechnung`), bei Auswahl steht die falsche Möglichkeit mit der Beschreibung des Denkfehlers.
 
 ## Denkfiguren je Lernziel (von Hand gruppiert)
 

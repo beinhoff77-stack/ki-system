@@ -42,14 +42,14 @@ neu(T, "dreieck", "sicherung", "fehler", L(
     "Zeile 1 stimmt. In Zeile 2 steckt der Fehler: Die Höhe halbiert das Dreieck nur, wenn sie genau in der Mitte der Grundseite steht. Hier ist AH = 3 cm und HB = 7 cm. Beide Teile haben die Höhe 8 cm, ihre Flächen verhalten sich wie die Grundseiten 3 : 7. Das Dreieck AHC hat 3 · 8 : 2 = 12 cm², das Dreieck HBC hat 7 · 8 : 2 = 28 cm², zusammen 40 cm².",
     {0: [(3, "die Schlusszeile genannt, weil dort das falsche Ergebnis steht", "3"), (1, "Zeile 1 genannt, obwohl dort die Fläche richtig berechnet wird", "1")],
      1: [(20, "die Behauptung aus Zeile 2 übernommen und die Hälfte der Fläche genommen", "40 / 2"), (28, "die Fläche des größeren Teils statt des Dreiecks AHC angegeben", "7 * 8 / 2"), (40, "die Fläche des ganzen Dreiecks angegeben", "10 * 8 / 2")]}), form="fehler_detektiv", lp=LP, idee="hoehe_teilt_nicht_gleich")
-neu(T, "dreieck", "sicherung", "begruenden", Z(
+neu(T, "dreieck", "sicherung", "mehrschritt", Z(
     "Ein Dreieck ABC hat den Flächeninhalt 66 cm². Auf der Seite AB liegt ein Punkt P so, dass die Strecke AP nur ein Sechstel von AB lang ist. Wie groß ist das Dreieck APC?",
     11, "66 / 6", "66 * 1 / 6",
     "Die Dreiecke APC und ABC haben dieselbe Höhe, nämlich den Abstand von C zur Geraden AB. Ihre Grundseiten AP und AB verhalten sich wie 1 : 6. Also verhalten sich auch die Flächen wie 1 : 6: 66 : 6 = 11 cm². Probe: Das Dreieck PBC hat dann 55 cm², und 11 + 55 = 66.",
     [B("66 / 3", "AP für ein Drittel von AB gehalten"),
      B("66 / 2", "AP für die Hälfte von AB gehalten"),
-     B("66 - 11", "die Fläche des restlichen Dreiecks PBC angegeben")], einheit="cm²"), lp=LP, idee="teilverhaeltnis_hoehe")
-neu(T, "dreieck", "sicherung", "darstellung", Z(
+     B("66 - 11", "die Fläche des restlichen Dreiecks PBC angegeben")], einheit="cm²"), form="bruecke", lp=LP, idee="teilverhaeltnis_hoehe")
+neu(T, "dreieck", "korrektur", "darstellung", Z(
     "Ein Dreieck hat die Grundseite 8 cm und die Höhe 6 cm. Die Grundseite wird um die Hälfte länger, die Höhe wird um die Hälfte kürzer. Wie groß ist die neue Fläche?",
     18, "12 * 3 / 2", "8 * 6 / 2 * 3 / 4",
     "Alt: 8 · 6 : 2 = 24 cm². Neu: Die Grundseite ist 8 + 4 = 12 cm lang, die Höhe ist 6 − 3 = 3 cm. Die neue Fläche ist 12 · 3 : 2 = 18 cm². Sie ist kleiner als vorher: Mehr und weniger um dieselbe Hälfte gleichen sich nicht aus, denn die Hälfte bezieht sich auf verschiedene Ausgangswerte (1,5 · 0,5 = 0,75).",
@@ -64,7 +64,7 @@ neu(T, "rueckwaerts", "test", "rueckwaerts", Z(
     [B("45000 / 300 / 2", "wie bei einem Dreieck durch 2 geteilt"),
      B("4500 / 300", "die Hektar mit dem falschen Faktor in m² umgerechnet (um eine Null zu wenig)"),
      B("4.5 / 300 * 100", "die Hektar nicht in m² umgerechnet")], einheit="m"), lp=LP, idee="hoehe_aus_flaeche")
-neu(T, "rueckwaerts", "korrektur", "umkehr", Z(
+neu(T, "rueckwaerts", "sicherung", "umkehr", Z(
     "Ein Parallelogramm hat den Flächeninhalt 50 cm². Seine Höhe ist halb so lang wie die zugehörige Grundseite. Wie lang ist die Grundseite?",
     10, "10", "100 / 10",
     "Mit g für die Grundseite ist h = g : 2. Dann gilt A = g · g : 2 = 50, also g · g = 100 und g = 10 cm. Die Höhe ist 5 cm. Probe: 10 · 5 = 50.",
@@ -90,7 +90,7 @@ neu(T, "rueckwaerts", "sicherung", "fehler", L(
     "Fehler in Zeile □, richtig: h = □ cm", [2, 6], ["2", "54 / 9"], ["3 - 1", "6"],
     "Zeile 1 stimmt. In Zeile 2 wurde falsch umgestellt: Aus A = g · h folgt h = A : g, nicht A · g. Richtig ist h = 54 : 9 = 6 cm. Zeile 3 übernimmt das unsinnige Ergebnis 486 cm. Probe: 9 · 6 = 54.",
     {0: [(3, "die Schlusszeile genannt, weil dort der unsinnige Wert 486 steht", "3")], 1: [(486, "mal statt geteilt gerechnet: 54 · 9", "54 * 9"), (3, "zusätzlich noch durch 2 geteilt: 54 : 9 : 2", "54 / 9 / 2"), (63, "Fläche und Grundseite addiert: 54 + 9", "54 + 9")]}), form="fehler_detektiv", lp=LP, idee="umstellfehler")
-neu(T, "rueckwaerts", "sicherung", "mehrschritt", Z(
+neu(T, "rueckwaerts", "test", "transfer", Z(
     "Für wie viele ganze Zahlen c von −5 bis 15 (einschließlich) hat das Dreieck mit den Ecken A(0|0), B(10|0) und C(c|7) den Flächeninhalt 35 cm²? (Eine Einheit ist 1 cm.)",
     21, "15 - (0 - 5) + 1", "21",
     "Die Grundseite AB ist 10 cm lang und liegt auf der x-Achse. Die Höhe ist der Abstand von C zur x-Achse, also 7 cm, ganz gleich, welche x-Koordinate c hat. Die Fläche ist immer 10 · 7 : 2 = 35 cm². Also passt jede der 15 − (−5) + 1 = 21 ganzen Zahlen von −5 bis 15.",
@@ -126,7 +126,7 @@ neu(T, "zusammengesetzt", "korrektur", "darstellung", L(
     {0: [(2, "die Breite eines Streifens als doppelt gezählte Fläche genommen", "2"), (8, "das Quadrat in der Mitte zweimal gerechnet", "2 * 2 * 2")],
      1: [(40, "die beiden Streifen einfach addiert", "12 * 2 + 8 * 2"), (32, "das Quadrat in der Mitte zweimal abgezogen", "12 * 2 + 8 * 2 - 2 * 2 * 2"), (24, "nur den langen Streifen berechnet", "12 * 2")]}),
     lp=LP, idee="flaggenkreuz")
-neu(T, "zusammengesetzt", "korrektur", "darstellung", W(
+neu(T, "zusammengesetzt", "sicherung", "darstellung", W(
     "Ein Rechteck (10 cm lang, 6 cm breit) wird mit einem geraden Schnitt in zwei Rechtecke zerlegt, die 2 cm und 4 cm breit sind. Welche Aussage stimmt?",
     "Die Flächen der beiden Teile ergeben zusammen 60 cm², ihre Umfänge zusammen sind aber größer als der Umfang des Rechtecks, denn an der Schnittlinie kommen zwei Randstücke dazu.",
     [("Flächen und Umfänge der beiden Teile ergeben zusammen genau die Werte des ganzen Rechtecks, denn beim Zerschneiden geht nichts verloren und es kommt nichts dazu.", "Fläche und Umfang gleich behandelt; die Schnittkanten zählen bei beiden Teilen zum Rand"),

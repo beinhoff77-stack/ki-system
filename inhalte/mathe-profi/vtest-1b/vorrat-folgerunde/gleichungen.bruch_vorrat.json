@@ -14,7 +14,7 @@
  "hinweis": "Vorrat für eine Folgerunde: geprüfte Aufgaben, die nach der Entscheidung „je Lernziel 5 Aufgaben“ aus der Runde genommen wurden (Schema, doppelte Denkfigur oder Bestandsnähe). Nicht Teil der Runden-JSON, vom Prüfwerkzeug nicht gezählt. Vor Aufnahme neu prüfen.",
  "aufgaben": [
   {
-   "kennung": "VT1B-VR01",
+   "kennung": "VT1B-VR05",
    "thema": "gleichungen.bruch",
    "lernkarte": "definitionsmenge",
    "pool": "korrektur",
@@ -29,14 +29,14 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "D = ℚ \\ {−16; 0; 16}",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "x² − 16 = 0 so gelesen, als sei x = 16 und x = −16 gemeint; gesucht sind aber die Zahlen, deren Quadrat 16 ist"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "D = ℚ \\ {−4; 4}",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -62,19 +62,19 @@
      "text": "Welche Menge ist die Definitionsmenge der Gleichung 4/(x² − 16) + 1/x = 2?"
     },
     "a": [
-     "D = ℚ \\ {−4; 0; 4}",
      "D = ℚ \\ {−16; 0; 16}",
      "D = ℚ \\ {−4; 4}",
+     "D = ℚ \\ {−4; 0; 4}",
      "D = ℚ \\ {0; 4}"
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "w": "x² − 16 = (x − 4)(x + 4) ist 0 für x = 4 und x = −4; der Nenner x ist 0 für x = 0. Alle drei Zahlen müssen ausgeschlossen werden."
    }
   },
   {
-   "kennung": "VT1B-VR02",
+   "kennung": "VT1B-VR06",
    "thema": "gleichungen.bruch",
    "lernkarte": "definitionsmenge",
    "pool": "sicherung",
@@ -130,7 +130,7 @@
    }
   },
   {
-   "kennung": "VT1B-VR03",
+   "kennung": "VT1B-VR07",
    "thema": "gleichungen.bruch",
    "lernkarte": "ueber_kreuz",
    "pool": "korrektur",
@@ -190,7 +190,7 @@
    }
   },
   {
-   "kennung": "VT1B-VR04",
+   "kennung": "VT1B-VR08",
    "thema": "gleichungen.bruch",
    "lernkarte": "ueber_kreuz",
    "pool": "sicherung",
@@ -212,14 +212,14 @@
      "beschreibung": "die Faktoren beim Über-Kreuz-Multiplizieren falsch zugeordnet, obwohl Kims Schritt stimmt"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Kim irrt, denn über Kreuz gilt nur, wenn beide Nenner gleich sind.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "geglaubt, über Kreuz sei nur bei gleichen Nennern erlaubt"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Kim irrt, denn man muss zuerst alle Brüche addieren und dann malnehmen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -239,18 +239,18 @@
     },
     "a": [
      "Kim irrt, denn über Kreuz hätte 3 · x = 5 · (x + 2) dastehen müssen.",
-     "Kim hat recht, denn mit x · (x + 2) malgenommen kürzt sich auf jeder Seite ein Nenner.",
      "Kim irrt, denn über Kreuz gilt nur, wenn beide Nenner gleich sind.",
-     "Kim irrt, denn man muss zuerst alle Brüche addieren und dann malnehmen."
+     "Kim irrt, denn man muss zuerst alle Brüche addieren und dann malnehmen.",
+     "Kim hat recht, denn mit x · (x + 2) malgenommen kürzt sich auf jeder Seite ein Nenner."
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "w": "Multipliziert man beide Seiten mit x · (x + 2), erhält man links 3/x · x · (x + 2) = 3 · (x + 2) und rechts 5/(x + 2) · x · (x + 2) = 5 · x. Das ist genau das Kreuzprodukt. Voraussetzung ist, dass x und x + 2 nicht 0 sind. Probe mit x = 3: 3/3 = 1 und 5/5 = 1."
    }
   },
   {
-   "kennung": "VT1B-VR05",
+   "kennung": "VT1B-VR09",
    "thema": "gleichungen.bruch",
    "lernkarte": "scheinloesung",
    "pool": "korrektur",
@@ -265,14 +265,14 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "L = {−3; 3}, denn beide Zahlen erfüllen die Gleichung x² = 9.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Gleichung nach dem Umformen gelöst, aber die Zahlen nicht mit D verglichen"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "L = {3}, denn x² = 9 ergibt x = 3.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -298,19 +298,19 @@
      "text": "Eine Bruchgleichung hat die Definitionsmenge ℚ \\ {−2; 3}. Nach dem Multiplizieren mit den Nennern und Umformen steht da x² = 9. Welche Aussage über die Lösungsmenge L stimmt?"
     },
     "a": [
+     "L = {−3}, denn von den beiden Zahlen mit dem Quadrat 9 gehört nur −3 zu D.",
      "L = {−3; 3}, denn beide Zahlen erfüllen die Gleichung x² = 9.",
      "L = {3}, denn x² = 9 ergibt x = 3.",
-     "L = {−3}, denn von den beiden Zahlen mit dem Quadrat 9 gehört nur −3 zu D.",
      "L = { }, denn die Zahl 3 ist ausgeschlossen und deshalb gibt es keine Lösung."
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "w": "Aus x² = 9 folgen die Kandidaten x = 3 und x = −3. Die Zahl 3 gehört nicht zu D = ℚ \\ {−2; 3}: Für x = 3 wäre ein Nenner 0 (Scheinlösung). Die Zahl −3 gehört zu D und bleibt Lösung: L = {−3}."
    }
   },
   {
-   "kennung": "VT1B-VR06",
+   "kennung": "VT1B-VR10",
    "thema": "gleichungen.bruch",
    "lernkarte": "scheinloesung",
    "pool": "sicherung",
@@ -387,7 +387,7 @@
    }
   },
   {
-   "kennung": "VT1B-VR07",
+   "kennung": "VT1B-VR11",
    "thema": "gleichungen.bruch",
    "lernkarte": "verhaeltnis",
    "pool": "korrektur",
@@ -409,14 +409,14 @@
      "beschreibung": "das Verhältnis Rot : Blau als Anteil an der Mischung gelesen; die 5 Teile Blau gehören nicht zum Rot"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "5/8",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Anteil des Blau genommen statt des Rot"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "3/2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -436,18 +436,18 @@
     },
     "a": [
      "3/5",
+     "3/8",
      "5/8",
-     "3/2",
-     "3/8"
+     "3/2"
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "w": "Das Verhältnis 3 : 5 vergleicht die Teile Rot und Blau. Die ganze Mischung hat 3 + 5 = 8 Teile, davon sind 3 Teile rot. Der Anteil Rot ist also 3/8 (37,5 %). Das Blau macht 5/8 aus."
    }
   },
   {
-   "kennung": "VT1B-VR08",
+   "kennung": "VT1B-VR12",
    "thema": "gleichungen.bruch",
    "lernkarte": "verhaeltnis",
    "pool": "sicherung",

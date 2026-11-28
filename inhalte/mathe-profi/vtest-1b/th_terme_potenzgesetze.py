@@ -45,7 +45,14 @@ neu(T, "negativer_exponent", "sicherung", "darstellung", W(
      ("3⁻²", "eine Potenz mit dem Wert 1/9 verwechselt")],
     "0,125 = 125/1000 = 1/8, und 8 = 2³. Also ist 0,125 = 1/2³ = 2⁻³. Die anderen: 2⁻⁸ = 1/256, 8⁻² = 1/64, 3⁻² = 1/9.",
     lambda: F("0.125") == F(2) ** -3 and F(2) ** -8 != F("0.125") and F(8) ** -2 != F("0.125") and F(3) ** -2 != F("0.125")), lp=LP, idee="dezimal_zu_potenz")
-neu(T, "negativer_exponent", "sicherung", "transfer", Z(
+neu(T, "negativer_exponent", "korrektur", "einkleidung", Z(
+    "Eine Strecke von 1 m Länge wird immer wieder halbiert. Nach der n-ten Halbierung ist sie 2⁻ⁿ m lang. Nach wie vielen Halbierungen ist die Strecke zum ersten Mal kürzer als 1 cm?",
+    7, "6 + 1", "8 - 1",
+    "1 cm ist 1/100 m. Nach n Halbierungen ist die Länge 1/2ⁿ m. Gesucht ist das kleinste n mit 2ⁿ > 100. Es ist 2⁶ = 64 (noch zu wenig) und 2⁷ = 128 (größer als 100). Also ist die Strecke nach 7 Halbierungen zum ersten Mal kürzer als 1 cm: 1/128 m.",
+    [B("6", "schon gestoppt, als die Länge noch größer als ein Hundertstel war"),
+     B("2", "die Zahl der Nullen im Zahlenwert der Grenze als Zahl der Halbierungen genommen"),
+     B("100 / 2", "die Zahl 100 halbiert und als Zahl der Halbierungen genommen")], einheit="Halbierungen"), form="bruecke", lp=LP, idee="halbierungen_zaehlen")
+neu(T, "negativer_exponent", "korrektur", "umkehr", Z(
     "Wie viele Stücke der Größe 10⁻⁴ ergeben zusammen die Größe 10⁻¹?",
     1000, "10000 / 10", "1000",
     "10⁻¹ = 1/10 und 10⁻⁴ = 1/10 000. Man fragt, wie oft 1/10 000 in 1/10 passt: 1/10 sind 1 000/10 000, also passen 1 000 Stücke. Probe: 1 000 · 1/10 000 = 1/10.",
@@ -76,7 +83,7 @@ neu(T, "fehler_finden", "korrektur", "umkehr", W(
      ("2⁻¹ = −2 ist negativ, das passt zur Behauptung und widerlegt sie nicht.", "den negativen Exponenten als Vorzeichen des Werts gerechnet")],
     "Ein Gegenbeispiel muss einen negativen Exponenten haben und einen positiven Wert. 2⁻¹ = 1/2 ist positiv und hat den Exponenten −1. 2³ hat keinen negativen Exponenten, 2⁰ auch nicht, und 2⁻¹ = −2 ist falsch gerechnet.",
     lambda: F(2) ** -1 == F(1, 2) and F(2) ** -1 > 0 and F(2) ** -1 != -2), lp=LP, idee="gegenbeispiel")
-neu(T, "fehler_finden", "korrektur", "mehrschritt", Z(
+neu(T, "fehler_finden", "sicherung", "mehrschritt", Z(
     "Anna rechnet (3 + 4)² = 3² + 4². Ben rechnet (3 + 4)² = 7 · 7. Um wie viel ist das Ergebnis von Anna falsch?",
     24, "49 - 25", "(3 + 4) ** 2 - (3 ** 2 + 4 ** 2)",
     "Bens Weg ist richtig: (3 + 4)² = 7² = 49. Annas Weg quadriert die beiden Summanden einzeln und addiert: 3² + 4² = 9 + 16 = 25. Das Quadrat einer Summe ist nicht die Summe der Quadrate. Der Unterschied ist 49 − 25 = 24.",

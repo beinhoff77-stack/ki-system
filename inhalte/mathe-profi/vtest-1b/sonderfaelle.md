@@ -17,11 +17,11 @@ Kurzvermerk je Aufgabe mit Antwortform auswahl: Platz der richtigen Möglichkeit
 | VT1B-041 | gleichungen.bruch / scheinloesung | sicherung | 1 | Möglichkeiten sind Mengen; sie unterscheiden sich in mindestens einer Zahl. |
 | VT1B-044 | gleichungen.bruch / verhaeltnis | korrektur | 3 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
 | VT1B-046 | gleichungen.bruch / verhaeltnis | korrektur | 3 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-050 | terme.potenzgesetze / negativer_exponent | test | 1 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-054 | terme.potenzgesetze / negativer_exponent | sicherung | 1 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
 | VT1B-055 | terme.potenzgesetze / negativer_exponent | sicherung | 4 | Möglichkeiten sind Ordnungen; genau eine ist richtig geordnet. |
 | VT1B-058 | terme.potenzgesetze / fehler_finden | korrektur | 2 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
 | VT1B-059 | terme.potenzgesetze / fehler_finden | korrektur | 2 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-061 | terme.potenzgesetze / fehler_finden | sicherung | 1 | Fehler-Detektiv: Möglichkeiten nach Zeilennummer geordnet (Platz = Fehlerzeile), jede nennt Zeile und Begründung. |
+| VT1B-061 | terme.potenzgesetze / fehler_finden | sicherung | 2 | Fehler-Detektiv: Möglichkeiten nach Zeilennummer geordnet (Platz = Fehlerzeile), jede nennt Zeile und Begründung. |
 | VT1B-062 | terme.potenzgesetze / fehler_finden | sicherung | 4 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
 | VT1B-066 | zahlen.potenzen_zehner / gross_wissenschaftlich | korrektur | 1 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
 | VT1B-069 | zahlen.potenzen_zehner / gross_wissenschaftlich | sicherung | 3 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |

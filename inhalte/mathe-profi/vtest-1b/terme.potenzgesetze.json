@@ -18,59 +18,56 @@
    "thema": "terme.potenzgesetze",
    "lernkarte": "negativer_exponent",
    "pool": "test",
-   "typ": "begruenden",
+   "typ": "parameter",
    "form": null,
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
-   "abgrenzung": "Die Übungen berechnen negative Exponenten nach Regel; hier wird das Muster (jedes Mal halbieren) als Grund genutzt, Werte umgekehrt gesucht und der Wert eines Exponenten verglichen.",
-   "idee": "begruenden_ablenker",
-   "antwortform": "auswahl",
-   "loesung_rechnung": null,
+   "abgrenzung": "Die Übungen berechnen negative Exponenten nach Regel; hier werden Werte in einem Bereich gezählt, Exponenten gesucht und Potenzen mit verschiedenen Basen verglichen.",
+   "idee": "zaehlen_im_bereich",
+   "antwortform": "zahl",
+   "loesung_rechnung": "5",
    "fehlbilder": [
     {
-     "index": 1,
-     "antwort": "2⁻¹ = −2 und 2⁻² = −4, denn ein negativer Exponent macht die Zahl negativ.",
+     "antwort": 2,
+     "rechnung": "2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Minus im Exponenten auf den Wert übertragen; es führt nur im Muster weiter nach rechts, der Wert bleibt positiv"
+     "beschreibung": "nur die Exponenten 0 und 1 beachtet; negative Exponenten wurden als negative Werte abgetan"
     },
     {
-     "index": 2,
-     "antwort": "2⁻¹ = 0 und 2⁻² = −1, denn bei jedem Schritt wird 1 abgezogen.",
+     "antwort": 4,
+     "rechnung": "4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Muster mit Minus 1 statt durch 2 fortgesetzt: 1 − 1 = 0"
+     "beschreibung": "den Wert vergessen, der knapp über der unteren Grenze liegt"
     },
     {
-     "index": 3,
-     "antwort": "2⁻¹ = 1/2 und 2⁻² = 1/3, denn die Nenner werden bei jedem Schritt um 1 größer.",
+     "antwort": 6,
+     "rechnung": "6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Nenner additiv fortgesetzt (2, 3) statt zu verdoppeln (2, 4)"
+     "beschreibung": "auch den Wert mitgezählt, der noch unter der unteren Grenze liegt"
     }
    ],
+   "regel": "rr.potenz",
    "ersetzt_test": true,
    "aufgabe": {
     "l": "negativer_exponent",
     "t": "negativer_exponent",
     "p": "test",
     "s": 3,
-    "g": "begruenden",
-    "y": "auswahl",
+    "g": "parameter",
+    "y": "zahl",
     "f": {
-     "text": "Ein Kind setzt die Reihe 2³ = 8, 2² = 4, 2¹ = 2, 2⁰ = 1 nach rechts fort. Welche Aussage über die nächsten Werte 2⁻¹ und 2⁻² ist richtig?"
+     "text": "Für wie viele ganze Zahlen n von −4 bis 4 (einschließlich) liegt der Wert von 2ⁿ zwischen 1/10 und 3? (Die Grenzen 1/10 und 3 gehören nicht dazu.)"
     },
-    "a": [
-     "2⁻¹ = 1/2 und 2⁻² = 1/4, denn es wird jedes Mal halbiert.",
-     "2⁻¹ = −2 und 2⁻² = −4, denn ein negativer Exponent macht die Zahl negativ.",
-     "2⁻¹ = 0 und 2⁻² = −1, denn bei jedem Schritt wird 1 abgezogen.",
-     "2⁻¹ = 1/2 und 2⁻² = 1/3, denn die Nenner werden bei jedem Schritt um 1 größer."
-    ],
     "o": {
-     "index": 0
+     "wert": 5,
+     "einheit": "Zahlen"
     },
-    "w": "Von 2³ bis 2⁰ wird der Wert bei jedem Schritt nach rechts halbiert: 8, 4, 2, 1. Dieses Muster gilt weiter: 1 : 2 = 1/2 = 2⁻¹ und 1/2 : 2 = 1/4 = 2⁻². Das Minus im Exponenten macht die Zahl nicht negativ, sondern klein: 2⁻² = 1/2² = 1/4."
+    "c": "5",
+    "w": "Die Werte von 2ⁿ sind für n = −4 bis 4: 1/16, 1/8, 1/4, 1/2, 1, 2, 4, 8, 16. Zwischen 1/10 = 0,1 und 3 liegen 1/8, 1/4, 1/2, 1 und 2, das sind 5 Werte. 1/16 = 0,0625 ist kleiner als 0,1, und 4 ist größer als 3."
    }
   },
   {
@@ -79,121 +76,12 @@
    "lernkarte": "negativer_exponent",
    "pool": "korrektur",
    "typ": "umkehr",
-   "form": "umkehren",
-   "stufe": 2,
-   "zaehlt": "ja",
-   "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
-   "abgrenzung": "Die Übungen berechnen negative Exponenten nach Regel; hier wird das Muster (jedes Mal halbieren) als Grund genutzt, Werte umgekehrt gesucht und der Wert eines Exponenten verglichen.",
-   "idee": "umkehr",
-   "antwortform": "zahl",
-   "loesung_rechnung": "6",
-   "fehlbilder": [
-    {
-     "antwort": 18,
-     "rechnung": "36 / 2",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "den Nenner 36 durch den Exponenten 2 geteilt, statt die Zahl zu suchen, deren Quadrat 36 ist"
-    },
-    {
-     "antwort": 36,
-     "rechnung": "36",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "den Nenner 36 selbst als x gelesen"
-    },
-    {
-     "antwort": 12,
-     "rechnung": "6 * 2",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl 6 mit dem Exponenten 2 malgenommen"
-    }
-   ],
-   "aufgabe": {
-    "l": "negativer_exponent",
-    "t": "negativer_exponent",
-    "p": "korrektur",
-    "s": 2,
-    "g": "umkehr",
-    "y": "zahl",
-    "f": {
-     "text": "Eine positive Zahl x erfüllt x⁻² = 1/36. Wie heißt x?"
-    },
-    "o": {
-     "wert": 6
-    },
-    "c": "6",
-    "w": "x⁻² = 1/x² = 1/36, also x² = 36. Die positive Zahl mit dem Quadrat 36 ist x = 6. Probe: 6⁻² = 1/6² = 1/36."
-   }
-  },
-  {
-   "kennung": "VT1B-052",
-   "thema": "terme.potenzgesetze",
-   "lernkarte": "negativer_exponent",
-   "pool": "korrektur",
-   "typ": "darstellung",
-   "form": "bruecke",
-   "stufe": 2,
-   "zaehlt": "ja",
-   "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
-   "abgrenzung": "Die Übungen berechnen negative Exponenten nach Regel; hier wird das Muster (jedes Mal halbieren) als Grund genutzt, Werte umgekehrt gesucht und der Wert eines Exponenten verglichen.",
-   "idee": "darstellung_wechseln",
-   "antwortform": "zahl",
-   "loesung_rechnung": "10000 / 625",
-   "fehlbilder": [
-    {
-     "antwort": 625,
-     "rechnung": "5 ** 4",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "5⁴ = 625 ausgerechnet und das Minus im Exponenten übersehen"
-    },
-    {
-     "antwort": 20,
-     "rechnung": "5 * 4",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "Basis mal Exponent gerechnet"
-    },
-    {
-     "antwort": 80,
-     "rechnung": "10000 / 125",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "den Nenner 125 statt 625 genommen: 10 000 durch 125"
-    }
-   ],
-   "aufgabe": {
-    "l": "negativer_exponent",
-    "t": "negativer_exponent",
-    "p": "korrektur",
-    "s": 2,
-    "g": "darstellung",
-    "y": "zahl",
-    "f": {
-     "text": "Wie viele Zehntausendstel sind 5⁻⁴?"
-    },
-    "o": {
-     "wert": 16,
-     "einheit": "Zehntausendstel"
-    },
-    "c": "10000 / 625",
-    "w": "5⁻⁴ = 1/5⁴ = 1/625. Ein Zehntausendstel ist 1/10 000. Es gilt 1/625 = 16/10 000 (beide Seiten mit 16 erweitert: 625 · 16 = 10 000), also sind es 16 Zehntausendstel. Probe: 16 : 10 000 = 0,0016 und 1 : 625 = 0,0016."
-   }
-  },
-  {
-   "kennung": "VT1B-053",
-   "thema": "terme.potenzgesetze",
-   "lernkarte": "negativer_exponent",
-   "pool": "korrektur",
-   "typ": "umkehr",
    "form": null,
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
-   "abgrenzung": "Die Übungen berechnen negative Exponenten nach Regel; hier wird das Muster (jedes Mal halbieren) als Grund genutzt, Werte umgekehrt gesucht und der Wert eines Exponenten verglichen.",
-   "idee": "umkehr",
+   "abgrenzung": "Die Übungen berechnen negative Exponenten nach Regel; hier werden Werte in einem Bereich gezählt, Exponenten gesucht und Potenzen mit verschiedenen Basen verglichen.",
+   "idee": "einsetzen_luecken",
    "antwortform": "luecken",
    "loesung_rechnung": [
     "7 ** 2",
@@ -225,6 +113,7 @@
      "beschreibung": "den Nenner 32 mit Minus als Exponenten genommen"
     }
    ],
+   "regel": "rr.potenz",
    "aufgabe": {
     "l": "negativer_exponent",
     "t": "negativer_exponent",
@@ -251,58 +140,174 @@
    }
   },
   {
+   "kennung": "VT1B-052",
+   "thema": "terme.potenzgesetze",
+   "lernkarte": "negativer_exponent",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
+   "abgrenzung": "Die Übungen berechnen negative Exponenten nach Regel; hier werden Werte in einem Bereich gezählt, Exponenten gesucht und Potenzen mit verschiedenen Basen verglichen.",
+   "idee": "umrechnen_bruch",
+   "antwortform": "zahl",
+   "loesung_rechnung": "10000 / 625",
+   "fehlbilder": [
+    {
+     "antwort": 625,
+     "rechnung": "5 ** 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5⁴ = 625 ausgerechnet und das Minus im Exponenten übersehen"
+    },
+    {
+     "antwort": 20,
+     "rechnung": "5 * 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Basis mal Exponent gerechnet"
+    },
+    {
+     "antwort": 80,
+     "rechnung": "10000 / 125",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner 125 statt 625 genommen: 10 000 durch 125"
+    }
+   ],
+   "regel": "rr.potenz",
+   "aufgabe": {
+    "l": "negativer_exponent",
+    "t": "negativer_exponent",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele Zehntausendstel sind 5⁻⁴?"
+    },
+    "o": {
+     "wert": 16,
+     "einheit": "Zehntausendstel"
+    },
+    "c": "10000 / 625",
+    "w": "5⁻⁴ = 1/5⁴ = 1/625. Ein Zehntausendstel ist 1/10 000. Es gilt 1/625 = 16/10 000 (beide Seiten mit 16 erweitert: 625 · 16 = 10 000), also sind es 16 Zehntausendstel. Probe: 16 : 10 000 = 0,0016 und 1 : 625 = 0,0016."
+   }
+  },
+  {
+   "kennung": "VT1B-053",
+   "thema": "terme.potenzgesetze",
+   "lernkarte": "negativer_exponent",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
+   "abgrenzung": "Die Übungen berechnen negative Exponenten nach Regel; hier werden Werte in einem Bereich gezählt, Exponenten gesucht und Potenzen mit verschiedenen Basen verglichen.",
+   "idee": "kehrwert_basis",
+   "antwortform": "zahl",
+   "loesung_rechnung": "0 - 2",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "rechnung": "2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus im Exponenten vergessen und ohne Kehrwert gerechnet"
+    },
+    {
+     "antwort": 4,
+     "rechnung": "4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner 4 als Exponenten genommen"
+    },
+    {
+     "antwort": -4,
+     "rechnung": "0 - 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner 4 mit Minus als Exponenten genommen"
+    }
+   ],
+   "regel": "rr.potenz",
+   "aufgabe": {
+    "l": "negativer_exponent",
+    "t": "negativer_exponent",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Der Wert der Potenz (2/3)ⁿ ist 9/4. Welche ganze Zahl muss n sein?"
+    },
+    "o": {
+     "wert": -2
+    },
+    "c": "0 - 2",
+    "w": "(2/3)ⁿ = 9/4 verlangt einen Wert größer als 1, also ein negatives n. Ein negativer Exponent kehrt die Basis um: (2/3)⁻² = (3/2)² = 9/4. Also ist n = −2. Probe: (2/3)² = 4/9, und der Kehrwert davon ist 9/4."
+   }
+  },
+  {
    "kennung": "VT1B-054",
    "thema": "terme.potenzgesetze",
    "lernkarte": "negativer_exponent",
    "pool": "sicherung",
-   "typ": "transfer",
-   "form": "anwenden",
+   "typ": "begruenden",
+   "form": null,
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
-   "abgrenzung": "Die Übungen berechnen negative Exponenten nach Regel; hier wird das Muster (jedes Mal halbieren) als Grund genutzt, Werte umgekehrt gesucht und der Wert eines Exponenten verglichen.",
-   "idee": "modell_aufstellen",
-   "antwortform": "zahl",
-   "loesung_rechnung": "10000 / 2 ** 3",
+   "abgrenzung": "Die Übungen berechnen negative Exponenten nach Regel; hier werden Werte in einem Bereich gezählt, Exponenten gesucht und Potenzen mit verschiedenen Basen verglichen.",
+   "idee": "muster_fortsetzen",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "antwort": 80000,
-     "rechnung": "10000 * 2 ** 3",
+     "index": 1,
+     "antwort": "3⁻¹ = −3 und 3⁻² = −9, denn ein negativer Exponent macht die Zahl negativ.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "dreimal verdoppelt statt halbiert: 10 000 mal 8"
+     "beschreibung": "das Minus im Exponenten auf den Wert übertragen; es führt nur im Muster weiter nach rechts, der Wert bleibt positiv"
     },
     {
-     "antwort": 2500,
-     "rechnung": "10000 / 2 ** 2",
+     "index": 2,
+     "antwort": "3⁻¹ = 0 und 3⁻² = −1, denn bei jedem Schritt wird 1 abgezogen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur 2 Halbierungen statt 3 gerechnet"
+     "beschreibung": "das Muster mit Minus 1 statt durch 3 fortgesetzt: 1 − 1 = 0"
     },
     {
-     "antwort": 625,
-     "rechnung": "10000 / 2 ** 4",
+     "index": 3,
+     "antwort": "3⁻¹ = 1/3 und 3⁻² = 1/6, denn die Nenner werden bei jedem Schritt um 3 größer.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "4 Halbierungen statt 3 gerechnet"
+     "beschreibung": "den Nenner additiv fortgesetzt (3, 6) statt zu verdreifachen (3, 9)"
     }
    ],
+   "regel": "rr.potenz",
    "aufgabe": {
     "l": "negativer_exponent",
     "t": "negativer_exponent",
     "p": "sicherung",
     "s": 3,
-    "g": "transfer",
-    "y": "zahl",
+    "g": "begruenden",
+    "y": "auswahl",
     "f": {
-     "text": "Eine Pflanze verdoppelt jeden Tag ihre Fläche. Heute (Tag 0) hat sie 1 m² = 10 000 cm². Wie viele cm² Fläche hatte sie vor 3 Tagen?"
+     "text": "Ein Kind setzt die Reihe 3³ = 27, 3² = 9, 3¹ = 3, 3⁰ = 1 nach rechts fort. Welche Aussage über die nächsten Werte 3⁻¹ und 3⁻² ist richtig?"
     },
+    "a": [
+     "3⁻¹ = 1/3 und 3⁻² = 1/9, denn es wird jedes Mal durch 3 geteilt.",
+     "3⁻¹ = −3 und 3⁻² = −9, denn ein negativer Exponent macht die Zahl negativ.",
+     "3⁻¹ = 0 und 3⁻² = −1, denn bei jedem Schritt wird 1 abgezogen.",
+     "3⁻¹ = 1/3 und 3⁻² = 1/6, denn die Nenner werden bei jedem Schritt um 3 größer."
+    ],
     "o": {
-     "wert": 1250,
-     "einheit": "cm²"
+     "index": 0
     },
-    "c": "10000 / 2 ** 3",
-    "w": "Vor einem Tag war die Fläche halb so groß, das entspricht dem Exponenten −1 beim Verdoppeln. Vor 3 Tagen ist die Fläche 10 000 · 2⁻³ = 10 000 · 1/8 = 1 250 cm². Probe: 1 250 · 2 · 2 · 2 = 10 000."
+    "w": "Von 3³ bis 3⁰ wird der Wert bei jedem Schritt nach rechts durch 3 geteilt: 27, 9, 3, 1. Dieses Muster gilt weiter: 1 : 3 = 1/3 = 3⁻¹ und 1/3 : 3 = 1/9 = 3⁻². Das Minus im Exponenten macht die Zahl nicht negativ, sondern klein."
    }
   },
   {
@@ -311,37 +316,38 @@
    "lernkarte": "negativer_exponent",
    "pool": "sicherung",
    "typ": "darstellung",
-   "form": "bruecke",
+   "form": null,
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
-   "abgrenzung": "Die Übungen berechnen negative Exponenten nach Regel; hier wird das Muster (jedes Mal halbieren) als Grund genutzt, Werte umgekehrt gesucht und der Wert eines Exponenten verglichen.",
-   "idee": "groessenvergleich",
+   "abgrenzung": "Die Übungen berechnen negative Exponenten nach Regel; hier werden Werte in einem Bereich gezählt, Exponenten gesucht und Potenzen mit verschiedenen Basen verglichen.",
+   "idee": "ordnen_zwei_basen",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "2⁰ < 2⁻¹ < 2⁻² < 2⁻³",
+     "antwort": "4⁻¹ < 2⁻³ < 3⁻² < 10⁻¹",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "wie bei positiven Exponenten gedacht: größerer Betrag des Exponenten gibt größeren Wert"
+     "beschreibung": "die Reihenfolge umgekehrt: erst die größte Potenz, dann die kleinere"
     },
     {
      "index": 1,
-     "antwort": "2⁰ < 2⁻³ < 2⁻² < 2⁻¹",
+     "antwort": "2⁻³ < 3⁻² < 4⁻¹ < 10⁻¹",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "2⁰ als 0 gelesen und deshalb als kleinsten Wert eingeordnet"
+     "beschreibung": "nach dem Betrag des Exponenten geordnet: je kleiner der Exponent, desto größer der Wert"
     },
     {
      "index": 2,
-     "antwort": "2⁻¹ < 2⁻² < 2⁻³ < 2⁰",
+     "antwort": "3⁻² < 2⁻³ < 10⁻¹ < 4⁻¹",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Werte 1/2, 1/4, 1/8 in falscher Richtung geordnet und 2⁰ = 1 richtig als größten genommen"
+     "beschreibung": "die ersten beiden Werte falsch verglichen und 10⁻¹ in die Mitte gesetzt"
     }
    ],
+   "regel": "rr.potenz",
    "aufgabe": {
     "l": "negativer_exponent",
     "t": "negativer_exponent",
@@ -350,18 +356,18 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "Welche Reihenfolge ordnet die Werte 2⁻³, 2⁰, 2⁻¹ und 2⁻² von klein nach groß?"
+     "text": "Welche Reihenfolge ordnet die Werte 2⁻³, 3⁻², 10⁻¹ und 4⁻¹ von klein nach groß?"
     },
     "a": [
-     "2⁰ < 2⁻¹ < 2⁻² < 2⁻³",
-     "2⁰ < 2⁻³ < 2⁻² < 2⁻¹",
-     "2⁻¹ < 2⁻² < 2⁻³ < 2⁰",
-     "2⁻³ < 2⁻² < 2⁻¹ < 2⁰"
+     "4⁻¹ < 2⁻³ < 3⁻² < 10⁻¹",
+     "2⁻³ < 3⁻² < 4⁻¹ < 10⁻¹",
+     "3⁻² < 2⁻³ < 10⁻¹ < 4⁻¹",
+     "10⁻¹ < 3⁻² < 2⁻³ < 4⁻¹"
     ],
     "o": {
      "index": 3
     },
-    "w": "2⁻³ = 1/8, 2⁻² = 1/4, 2⁻¹ = 1/2 und 2⁰ = 1. Von klein nach groß: 1/8 < 1/4 < 1/2 < 1. Bei Nennern wächst der Bruch, wenn der Nenner kleiner wird."
+    "w": "2⁻³ = 1/8 = 0,125; 3⁻² = 1/9 ≈ 0,111; 10⁻¹ = 1/10 = 0,1; 4⁻¹ = 1/4 = 0,25. Von klein nach groß: 0,1 < 0,111 < 0,125 < 0,25, also 10⁻¹ < 3⁻² < 2⁻³ < 4⁻¹. Bei Stammbrüchen ist der Wert umso kleiner, je größer der Nenner ist."
    }
   },
   {
@@ -369,53 +375,54 @@
    "thema": "terme.potenzgesetze",
    "lernkarte": "negativer_exponent",
    "pool": "sicherung",
-   "typ": "parameter",
+   "typ": "transfer",
    "form": null,
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
-   "abgrenzung": "Die Übungen berechnen negative Exponenten nach Regel; hier wird das Muster (jedes Mal halbieren) als Grund genutzt, Werte umgekehrt gesucht und der Wert eines Exponenten verglichen.",
-   "idee": "was_waere_wenn",
+   "abgrenzung": "Die Übungen berechnen negative Exponenten nach Regel; hier werden Werte in einem Bereich gezählt, Exponenten gesucht und Potenzen mit verschiedenen Basen verglichen.",
+   "idee": "exponent_gesucht",
    "antwortform": "zahl",
-   "loesung_rechnung": "6 ** 2",
+   "loesung_rechnung": "0 - 3",
    "fehlbilder": [
     {
-     "antwort": 12,
-     "rechnung": "6 * 2",
+     "antwort": 3,
+     "rechnung": "3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Basis mal Änderung des Exponenten gerechnet"
-    },
-    {
-     "antwort": 216,
-     "rechnung": "6 ** 3",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "den ganzen neuen Exponenten 3 als Anzahl der Schritte genommen"
+     "beschreibung": "das Minus im Exponenten vergessen: n = 3 hieße in 3 Tagen"
     },
     {
      "antwort": 8,
-     "rechnung": "6 + 2",
+     "rechnung": "8",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Basis plus Änderung gerechnet"
+     "beschreibung": "den Faktor 8 statt des Exponenten genommen"
+    },
+    {
+     "antwort": -8,
+     "rechnung": "0 - 8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 8 mit Minus als Exponenten genommen"
     }
    ],
+   "regel": "rr.potenz",
    "aufgabe": {
     "l": "negativer_exponent",
     "t": "negativer_exponent",
     "p": "sicherung",
     "s": 3,
-    "g": "parameter",
+    "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "In 6⁻¹ wird der Exponent um 2 kleiner: Es entsteht 6⁻³. Durch welche Zahl muss man den Wert von 6⁻¹ teilen, um den Wert von 6⁻³ zu erhalten?"
+     "text": "Eine Pflanze verdoppelt jeden Tag ihre Fläche. Am Tag n hat sie 10 000 · 2ⁿ cm² Fläche, heute ist n = 0. An welchem Tag n hatte die Pflanze nur 1 250 cm²?"
     },
     "o": {
-     "wert": 36
+     "wert": -3
     },
-    "c": "6 ** 2",
-    "w": "6⁻¹ = 1/6 und 6⁻³ = 1/216. Es gilt 1/6 : 36 = 1/216, denn jeder Schritt im Exponenten um 1 nach links teilt durch 6, und zwei Schritte teilen durch 6 · 6 = 36."
+    "c": "0 - 3",
+    "w": "10 000 · 2ⁿ = 1 250 gibt 2ⁿ = 1 250 : 10 000 = 1/8. Es gilt 1/8 = 2⁻³, also ist n = −3. Die Pflanze hatte die kleine Fläche vor 3 Tagen. Probe: 10 000 · 2⁻³ = 10 000 : 8 = 1 250."
    }
   },
   {
@@ -428,47 +435,40 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
-   "abgrenzung": "Die Übungen nennen den Fehler in einer Zeile oder das richtige Ergebnis; hier muss die erste fehlerhafte Zeile in einer Rechenkette gefunden und mit Begründung berichtigt werden.",
-   "idee": "fehler_finden_richtigstellen",
+   "abgrenzung": "Die Übungen nennen den Fehler in einer Zeile oder das richtige Ergebnis; hier muss die erste fehlerhafte Zeile in einer Rechenkette gefunden werden, und Aussagen über Potenzen werden begründet oder widerlegt.",
+   "idee": "brueche_addieren",
    "antwortform": "luecken",
    "loesung_rechnung": [
-    "1",
-    "3 ** 2"
+    "3",
+    "8 / 2"
    ],
    "fehlbilder": [
     {
-     "luecke": 1,
-     "antwort": 3,
-     "rechnung": "3",
+     "luecke": 2,
+     "antwort": 8,
+     "rechnung": "8",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die letzte Zeile genannt, weil das Ergebnis falsch aussieht"
+     "beschreibung": "den Nenner 8 stehen gelassen, wie das Ergebnis in Zeile 4"
     },
     {
      "luecke": 2,
-     "antwort": 6,
-     "rechnung": "3 * 2",
+     "antwort": 16,
+     "rechnung": "8 + 8",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Basis mal Exponent als Nenner genommen: 3 · 2"
+     "beschreibung": "wie in Zeile 3 die Nenner addiert: 8 + 8"
     },
     {
      "luecke": 2,
-     "antwort": -9,
-     "rechnung": "0 - 3 ** 2",
+     "antwort": 2,
+     "rechnung": "2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "dem Nenner das Minus aus dem Exponenten gegeben: −3²"
-    },
-    {
-     "luecke": 2,
-     "antwort": 3,
-     "rechnung": "3",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Basis 3 als Nenner genommen"
+     "beschreibung": "die Anzahl der Summanden als Nenner genommen"
     }
    ],
+   "regel": "rr.potenz",
    "ersetzt_test": true,
    "aufgabe": {
     "l": "fehler_finden",
@@ -478,21 +478,21 @@
     "g": "fehler",
     "y": "luecken",
     "f": {
-     "text": "Ein Kind rechnet: Zeile 1: 3⁻² = 3 · (−2). Zeile 2: 3 · (−2) = −6. Zeile 3: Also ist 3⁻² = −6. In welcher Zeile steckt der erste Fehler? Wie heißt 3⁻² richtig als Bruch?",
-     "schablone": "Fehler in Zeile □, richtig: 3⁻² = 1/□",
+     "text": "Ein Kind rechnet: Zeile 1: 2⁻³ = 1/2³. Zeile 2: 1/2³ = 1/8. Zeile 3: 1/8 + 1/8 = 2/16. Zeile 4: 2/16 = 1/8, also ist 2⁻³ + 2⁻³ = 1/8. In welcher Zeile steckt der erste Fehler? Wie heißt 2⁻³ + 2⁻³ richtig als Bruch?",
+     "schablone": "Fehler in Zeile □, richtig: 2⁻³ + 2⁻³ = 1/□",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      1,
-      9
+      3,
+      4
      ]
     },
     "c": [
-     "1",
-     "3 ** 2"
+     "3",
+     "8 / 2"
     ],
-    "w": "Zeile 1 ist falsch: 3⁻² heißt nicht „Basis mal Exponent“. Es gilt 3⁻² = 1/3² = 1/9. Zeile 2 rechnet mit dem falschen Ansatz richtig weiter, Zeile 3 folgt daraus. Probe: 1/9 ist positiv und kleiner als 1, wie es bei einem negativen Exponenten sein muss."
+    "w": "Die Zeilen 1 und 2 stimmen: 2⁻³ = 1/2³ = 1/8. In Zeile 3 werden bei der Addition gleichnamiger Brüche die Nenner addiert; richtig bleibt der Nenner stehen und die Zähler werden addiert: 1/8 + 1/8 = 2/8. Das ist 1/4. Zeile 4 rechnet mit dem falschen Wert richtig weiter (2/16 = 1/8). Probe: 2 · 2⁻³ = 2 · 1/8 = 1/4."
    }
   },
   {
@@ -505,8 +505,8 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
-   "abgrenzung": "Die Übungen nennen den Fehler in einer Zeile oder das richtige Ergebnis; hier muss die erste fehlerhafte Zeile in einer Rechenkette gefunden und mit Begründung berichtigt werden.",
-   "idee": "groessenvergleich",
+   "abgrenzung": "Die Übungen nennen den Fehler in einer Zeile oder das richtige Ergebnis; hier muss die erste fehlerhafte Zeile in einer Rechenkette gefunden werden, und Aussagen über Potenzen werden begründet oder widerlegt.",
+   "idee": "vorzeichen_klammer",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -526,12 +526,13 @@
     },
     {
      "index": 3,
-     "antwort": "(−3)² = −6 und −3² = −6; sie sind gleich, denn 3 mal 2 ist 6 und das Minus bleibt als Vorzeichen stehen.",
+     "antwort": "(−3)² = −9 und −3² = 9; sie sind verschieden, denn die Klammer dreht das Vorzeichen des Ergebnisses um.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Potenz als Mal gedeutet: 3 · 2 = 6"
+     "beschreibung": "die Rollen vertauscht: Mit Klammer ist das Ergebnis positiv, ohne Klammer negativ"
     }
    ],
+   "regel": "rr.potenz",
    "aufgabe": {
     "l": "fehler_finden",
     "t": "fehler_finden",
@@ -546,7 +547,7 @@
      "(−3)² = −9 und −3² = −9; sie sind gleich, denn minus mal minus bleibt minus, das Vorzeichen ändert sich nie.",
      "(−3)² = 9 und −3² = −9; sie sind verschieden, denn bei (−3)² gehört das Minus mit zur Potenz.",
      "(−3)² = 9 und −3² = 9; sie sind gleich, denn das Quadrat macht jede Zahl positiv, auch mit dem Minus davor.",
-     "(−3)² = −6 und −3² = −6; sie sind gleich, denn 3 mal 2 ist 6 und das Minus bleibt als Vorzeichen stehen."
+     "(−3)² = −9 und −3² = 9; sie sind verschieden, denn die Klammer dreht das Vorzeichen des Ergebnisses um."
     ],
     "o": {
      "index": 1
@@ -564,7 +565,7 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
-   "abgrenzung": "Die Übungen nennen den Fehler in einer Zeile oder das richtige Ergebnis; hier muss die erste fehlerhafte Zeile in einer Rechenkette gefunden und mit Begründung berichtigt werden.",
+   "abgrenzung": "Die Übungen nennen den Fehler in einer Zeile oder das richtige Ergebnis; hier muss die erste fehlerhafte Zeile in einer Rechenkette gefunden werden, und Aussagen über Potenzen werden begründet oder widerlegt.",
    "idee": "gegenbeispiel",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
@@ -591,6 +592,7 @@
      "beschreibung": "den Exponenten 0 für negativ gehalten; 0 ist weder positiv noch negativ"
     }
    ],
+   "regel": "rr.potenz",
    "aufgabe": {
     "l": "fehler_finden",
     "t": "fehler_finden",
@@ -618,54 +620,54 @@
    "thema": "terme.potenzgesetze",
    "lernkarte": "fehler_finden",
    "pool": "korrektur",
-   "typ": "einkleidung",
-   "form": "bruecke",
+   "typ": "mehrschritt",
+   "form": "zwei_wege",
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
-   "abgrenzung": "Die Übungen nennen den Fehler in einer Zeile oder das richtige Ergebnis; hier muss die erste fehlerhafte Zeile in einer Rechenkette gefunden und mit Begründung berichtigt werden.",
-   "idee": "darstellung_wechseln",
+   "abgrenzung": "Die Übungen nennen den Fehler in einer Zeile oder das richtige Ergebnis; hier muss die erste fehlerhafte Zeile in einer Rechenkette gefunden werden, und Aussagen über Potenzen werden begründet oder widerlegt.",
+   "idee": "potenz_von_summe",
    "antwortform": "zahl",
-   "loesung_rechnung": "1000000000 / 1000",
+   "loesung_rechnung": "5 * 5 - (2 ** 2 + 3 ** 2)",
    "fehlbilder": [
     {
-     "antwort": 1000,
-     "rechnung": "10 ** 3",
+     "antwort": 13,
+     "rechnung": "2 ** 2 + 3 ** 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "10³ statt 10⁻³ gerechnet und das Minus übersehen"
+     "beschreibung": "Annas Ergebnis 13 als Unterschied angegeben"
     },
     {
-     "antwort": 6,
-     "rechnung": "9 - 3",
+     "antwort": 25,
+     "rechnung": "5 * 5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Exponenten 9 und 3 abgezogen und das Ergebnis 6 als Zahl genommen"
+     "beschreibung": "Bens Ergebnis 25 als Unterschied angegeben"
     },
     {
-     "antwort": 1000000000,
-     "rechnung": "1000000000",
+     "antwort": 38,
+     "rechnung": "5 * 5 + 2 ** 2 + 3 ** 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Umrechnungsfaktor 10⁹ als Ergebnis genommen"
+     "beschreibung": "beide Ergebnisse addiert statt voneinander abgezogen"
     }
    ],
+   "regel": "rr.potenz",
    "aufgabe": {
     "l": "fehler_finden",
     "t": "fehler_finden",
     "p": "korrektur",
     "s": 2,
-    "g": "einkleidung",
+    "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "In einem Datenblatt steht: Dicke der Folie 10⁻³ m. Ein Kind sagt: „Das sind −1000 m.“ Wie viele Nanometer ist die Folie dick? (1 Nanometer = 10⁻⁹ m)"
+     "text": "Anna rechnet (2 + 3)² = 2² + 3² = 4 + 9 = 13. Ben rechnet (2 + 3)² = 5 · 5 = 25. Um wie viel unterscheiden sich die beiden Ergebnisse?"
     },
     "o": {
-     "wert": 1000000,
-     "einheit": "Nanometer"
+     "wert": 12
     },
-    "c": "1000000000 / 1000",
-    "w": "10⁻³ m = 1/1000 m ist positiv und klein, nicht −1000 m. Ein Nanometer ist 1/1 000 000 000 m. Die Folie ist (1/1000) : (1/1 000 000 000) = 1 000 000 000 : 1000 = 1 000 000 Nanometer dick."
+    "c": "5 * 5 - (2 ** 2 + 3 ** 2)",
+    "w": "Das Quadrat einer Summe ist nicht die Summe der Quadrate: (2 + 3)² heißt 5² = 25. Bens Weg ist richtig. Anna hat den Exponenten auf jeden Summanden verteilt. Der Unterschied ist 25 − 13 = 12 (das ist 2 · 2 · 3, der „fehlende“ Mischteil)."
    }
   },
   {
@@ -678,33 +680,34 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
-   "abgrenzung": "Die Übungen nennen den Fehler in einer Zeile oder das richtige Ergebnis; hier muss die erste fehlerhafte Zeile in einer Rechenkette gefunden und mit Begründung berichtigt werden.",
-   "idee": "fehler_finden_richtigstellen",
+   "abgrenzung": "Die Übungen nennen den Fehler in einer Zeile oder das richtige Ergebnis; hier muss die erste fehlerhafte Zeile in einer Rechenkette gefunden werden, und Aussagen über Potenzen werden begründet oder widerlegt.",
+   "idee": "kehrwert_bruch",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
-     "antwort": "In Zeile 2, weil 4 · 2 = 6 ist und nicht 8.",
+     "index": 0,
+     "antwort": "In Zeile 1, weil ein negativer Exponent nicht den Kehrwert bildet.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "4 · 2 falsch gerechnet; 4 · 2 = 8 stimmt"
+     "beschreibung": "geglaubt, der negative Exponent bilde nicht den Kehrwert; (2/3)⁻² = (3/2)² stimmt"
     },
     {
      "index": 2,
-     "antwort": "In Zeile 3, weil man zwei gleiche Brüche nicht addieren darf.",
+     "antwort": "In Zeile 3, weil 9/2 gleich 4 ist.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "gedacht, gleiche Brüche lassen sich nicht addieren; 1/8 + 1/8 = 2/8 ist richtig gerechnet"
+     "beschreibung": "9/2 falsch in eine Dezimalzahl verwandelt; 9 : 2 = 4,5 stimmt"
     },
     {
      "index": 3,
-     "antwort": "In Zeile 4, weil 2/8 = 1/8 gilt.",
+     "antwort": "In Zeile 4, weil das Ergebnis eines negativen Exponenten kleiner als 1 sein muss.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "2/8 falsch gekürzt; 2/8 = 1/4 stimmt"
+     "beschreibung": "gedacht, ein negativer Exponent mache jeden Wert kleiner als 1; bei einem Bruch kleiner als 1 als Basis wird der Wert größer"
     }
    ],
+   "regel": "rr.potenz",
    "aufgabe": {
     "l": "fehler_finden",
     "t": "fehler_finden",
@@ -713,18 +716,18 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Kind rechnet: Zeile 1: 4⁻² = 1/(4 · 2). Zeile 2: 1/(4 · 2) = 1/8. Zeile 3: Also 4⁻² + 4⁻² = 2/8. Zeile 4: 2/8 = 1/4. In welcher Zeile steckt der erste Fehler?"
+     "text": "Ein Kind rechnet: Zeile 1: (2/3)⁻² = (3/2)². Zeile 2: (3/2)² = 3²/2 = 9/2. Zeile 3: 9/2 = 4,5. Zeile 4: Also ist (2/3)⁻² = 4,5. In welcher Zeile steckt der erste Fehler?"
     },
     "a": [
-     "In Zeile 1, weil 4⁻² = 1/4² = 1/16 ist, nicht 1/(4 · 2).",
-     "In Zeile 2, weil 4 · 2 = 6 ist und nicht 8.",
-     "In Zeile 3, weil man zwei gleiche Brüche nicht addieren darf.",
-     "In Zeile 4, weil 2/8 = 1/8 gilt."
+     "In Zeile 1, weil ein negativer Exponent nicht den Kehrwert bildet.",
+     "In Zeile 2, weil das Quadrat auch für den Nenner gilt: (3/2)² = 9/4.",
+     "In Zeile 3, weil 9/2 gleich 4 ist.",
+     "In Zeile 4, weil das Ergebnis eines negativen Exponenten kleiner als 1 sein muss."
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
-    "w": "Zeile 1 ist falsch: 4⁻² = 1/4² = 1/16, im Nenner steht 4 mal 4, nicht 4 mal 2. Zeile 2 bis 4 sind mit dem falschen Ansatz richtig weitergerechnet: 1/(4 · 2) = 1/8, 1/8 + 1/8 = 2/8 = 1/4. Richtig wäre 4⁻² + 4⁻² = 1/16 + 1/16 = 1/8."
+    "w": "Zeile 1 ist richtig: Ein negativer Exponent bildet den Kehrwert, (2/3)⁻² = (3/2)². In Zeile 2 wird nur der Zähler quadriert: richtig ist (3/2)² = 3²/2² = 9/4. Zeile 3 rechnet 9/2 = 4,5 richtig, Zeile 4 übernimmt den Fehler. Richtig: (2/3)⁻² = 9/4 = 2,25."
    }
   },
   {
@@ -737,33 +740,34 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
-   "abgrenzung": "Die Übungen nennen den Fehler in einer Zeile oder das richtige Ergebnis; hier muss die erste fehlerhafte Zeile in einer Rechenkette gefunden und mit Begründung berichtigt werden.",
-   "idee": "begruenden_ablenker",
+   "abgrenzung": "Die Übungen nennen den Fehler in einer Zeile oder das richtige Ergebnis; hier muss die erste fehlerhafte Zeile in einer Rechenkette gefunden werden, und Aussagen über Potenzen werden begründet oder widerlegt.",
+   "idee": "hoch_null_begruenden",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "5⁰ = 0, denn 0 mal die Basis 5 ist 0, es wird also nichts malgenommen.",
+     "antwort": "5⁰ = 1, denn 5 mal 0 ist 0, und 0 plus 1 ergibt 1.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Exponenten 0 als Faktor gelesen: 0 · 5 = 0, obwohl der Exponent die Anzahl der Faktoren angibt"
+     "beschreibung": "eine Rechnung mit Basis mal Exponent erfunden, die zufällig auf 1 kommt; sie erklärt nichts"
     },
     {
      "index": 1,
-     "antwort": "5⁰ = 5, denn mit dem Exponenten 0 bleibt die Basis unverändert stehen, ohne Faktor.",
+     "antwort": "5⁰ = 5, denn mit dem Exponenten 0 bleibt die Basis unverändert stehen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Exponent 0 als „nichts tun“ gelesen und die Basis 5 behalten"
     },
     {
      "index": 2,
-     "antwort": "5⁰ = −1, denn der Exponent 0 dreht das Vorzeichen der Basis um, wie ein Minus.",
+     "antwort": "5⁰ = 0, denn der Exponent 0 zeigt an, dass keine 5 mehr da ist.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "ein Vorzeichenwechsel aus dem Exponenten erfunden; −1 kommt im Muster nicht vor"
+     "beschreibung": "den Exponenten 0 als „kein Wert“ gelesen und die Potenz gleich 0 gesetzt"
     }
    ],
+   "regel": "rr.potenz",
    "aufgabe": {
     "l": "fehler_finden",
     "t": "fehler_finden",
@@ -772,18 +776,18 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Ein Kind soll begründen, warum 5⁰ = 1 gilt. Welche Begründung ist richtig?"
+     "text": "Ein Kind soll begründen, warum 5⁰ den Wert 1 und nicht 0 hat. Welche Begründung ist richtig?"
     },
     "a": [
-     "5⁰ = 0, denn 0 mal die Basis 5 ist 0, es wird also nichts malgenommen.",
-     "5⁰ = 5, denn mit dem Exponenten 0 bleibt die Basis unverändert stehen, ohne Faktor.",
-     "5⁰ = −1, denn der Exponent 0 dreht das Vorzeichen der Basis um, wie ein Minus.",
-     "Im Muster 125, 25, 5 wird durch 5 geteilt; 5 : 5 = 1, also ist 5⁰ = 1."
+     "5⁰ = 1, denn 5 mal 0 ist 0, und 0 plus 1 ergibt 1.",
+     "5⁰ = 5, denn mit dem Exponenten 0 bleibt die Basis unverändert stehen.",
+     "5⁰ = 0, denn der Exponent 0 zeigt an, dass keine 5 mehr da ist.",
+     "Im Muster 125, 25, 5 wird bei jedem Schritt nach rechts durch 5 geteilt; 5 : 5 = 1, also ist 5⁰ = 1."
     ],
     "o": {
      "index": 3
     },
-    "w": "Das Muster 125, 25, 5 teilt bei jedem Schritt nach rechts durch 5. Der nächste Wert ist 5 : 5 = 1, und der Exponent ist dann 0. Das passt zur Regel, dass jede Basis ungleich 0 mit Exponent 0 den Wert 1 hat."
+    "w": "Das Muster 125, 25, 5 teilt bei jedem Schritt nach rechts durch 5. Der nächste Wert ist 5 : 5 = 1, und der Exponent ist dann 0. Das passt zur Regel, dass jede Basis ungleich 0 mit Exponent 0 den Wert 1 hat. Die Rechnung 5 · 0 + 1 liefert nur zufällig 1."
    }
   },
   {
@@ -796,8 +800,8 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
-   "abgrenzung": "Die Übungen nennen den Fehler in einer Zeile oder das richtige Ergebnis; hier muss die erste fehlerhafte Zeile in einer Rechenkette gefunden und mit Begründung berichtigt werden.",
-   "idee": "umkehr",
+   "abgrenzung": "Die Übungen nennen den Fehler in einer Zeile oder das richtige Ergebnis; hier muss die erste fehlerhafte Zeile in einer Rechenkette gefunden werden, und Aussagen über Potenzen werden begründet oder widerlegt.",
+   "idee": "exponent_aus_dezimal",
    "antwortform": "zahl",
    "loesung_rechnung": "0 - 2",
    "fehlbilder": [
@@ -806,14 +810,14 @@
      "rechnung": "2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Minus im Exponenten vergessen"
+     "beschreibung": "das Minus im Exponenten vergessen: 5² = 25"
     },
     {
-     "antwort": 25,
-     "rechnung": "25",
+     "antwort": 4,
+     "rechnung": "4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Nenner 25 selbst als Exponenten genommen"
+     "beschreibung": "die Nachkommastelle 4 selbst als Exponenten genommen"
     },
     {
      "antwort": -25,
@@ -823,6 +827,7 @@
      "beschreibung": "den Nenner 25 mit Minus als Exponenten genommen"
     }
    ],
+   "regel": "rr.potenz",
    "aufgabe": {
     "l": "fehler_finden",
     "t": "fehler_finden",
@@ -831,13 +836,13 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Ein Kind soll a in 5ᵃ = 1/25 bestimmen und schreibt a = 2. Welche Zahl ist richtig?"
+     "text": "Eine Potenz mit der Basis 5 hat den Wert 0,04. Wie lautet ihr ganzzahliger Exponent a in 5^a = 0,04?"
     },
     "o": {
      "wert": -2
     },
     "c": "0 - 2",
-    "w": "1/25 = 1/5² = 5⁻². Also ist a = −2. Das Kind hat das Minus vergessen: 5² ist 25, nicht 1/25. Probe: 5⁻² = 1/5² = 1/25."
+    "w": "0,04 = 4/100 = 1/25 = 1/5² = 5⁻². Also ist a = −2. Probe: 5⁻² = 1/5² = 1/25 = 0,04."
    }
   }
  ]

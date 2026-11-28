@@ -2,7 +2,7 @@
 
 Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt), nicht das Thema. Jede Kennung wurde gegen `inhalte/mathe-profi/regeln-uebersicht/kennungen.json` gelesen; `bauen.py` prüft, dass sie im Katalog steht und das Thema in der Themenliste der Regel steht (Ausnahmen unten). Quelle der Daten: die Angaben `regel` / `ohne` / `zweifel` in `th_*.py`; `regeln.py` und diese Tabelle werden von `bauen.py` erzeugt.
 
-**140 Aufgaben mit Regel, 13 ohne.**
+**152 Aufgaben mit Regel, 15 ohne.**
 
 ## Verteilung
 
@@ -14,17 +14,19 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | `rr.potenz` | Potenzen | 15 |
 | `id.geometrie.deckungsgleich` | Deckungsgleich | 14 |
 | `id.verhaeltnisse.prozent` | Prozent als Faktor | 14 |
+| `id.funktionen.gleichung_form` | Gleichung und Form | 9 |
 | `rr.tauschen` | Tauschen, Klammern, Zusammenfassen | 5 |
 | `rr.ausmultiplizieren` | Ausmultiplizieren und Ausklammern | 4 |
 | `rr.gegenrechnung` | Gegenrechnung | 4 |
 | `rr.reihenfolge` | Reihenfolge beim Rechnen | 4 |
+| `id.funktionen.zuordnung` | Zuordnung | 3 |
 | `id.geometrie.abstand` | Gleicher Abstand | 3 |
 | `rr.minusklammer` | Minus vor der Klammer | 3 |
 | `rr.nullprodukt` | Nullprodukt | 3 |
 | `id.algebra.hoeherer_grad` | Höherer Grad | 2 |
 | `id.algebra.term` | Term | 2 |
 | `rr.vorzeichen` | Vorzeichen bei Mal und Geteilt | 1 |
-| – (ohne Regel) |  | 13 |
+| – (ohne Regel) |  | 15 |
 
 ## Ausnahmen von der Themenliste des Katalogs (von Hand gelesen)
 
@@ -48,6 +50,8 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V139 | zahlen.reell.irrational_beweis | Beweis durch Widerspruch (gerade/ungerade, gekürzter Bruch): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V146 | gleichungen.quadratisch.ergaenzung | Quadratische Ergänzung (binomische Formel rückwärts): keine Regel des Katalogs trägt genau diesen Schritt |
 | R15-V150 | gleichungen.quadratisch.diskriminante | Diskriminante null (genau eine Lösung): keine Regel des Katalogs trägt genau diesen Schritt |
+| R15-V164 | funktionen.quadratisch.bestimmen | Gleichungssystem bzw. Gleichsetzen zweier Funktionsterme: keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V165 | funktionen.quadratisch.schnittpunkte | Gleichungssystem bzw. Gleichsetzen zweier Funktionsterme: keine Regel des Katalogs trägt den Lösungsweg |
 
 ## Zweifelsfälle
 
@@ -74,6 +78,9 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V151 | gleichungen.quadratisch.diskriminante | `rr.reihenfolge` | Diskriminante bestimmen und deuten: tragend ist die Rechenreihenfolge; die Deutung (Vorzeichen) hat keine eigene Regel |
 | R15-V152 | gleichungen.quadratisch.sachaufgabe | `rr.nullprodukt` | Sachaufgabe: Nullprodukt nach dem Umformen; Prüfen der Lösung gegen die Sachlage |
 | R15-V153 | gleichungen.quadratisch.sachaufgabe | `rr.reihenfolge` | Sachaufgabe: Lösungsformel (Diskriminante nach Rechenreihenfolge), Prüfen gegen die Sachlage |
+| R15-V161 | funktionen.quadratisch.nullstellen | `id.funktionen.zuordnung` | Nullstellen: y = 0 setzen (Zuordnung y zu x), das Lösen selbst gehört zu Nullprodukt, das für diese Einheit nicht im Katalog steht |
+| R15-V162 | funktionen.quadratisch.nullstellen | `id.funktionen.zuordnung` | Nullstellen: y = 0 setzen; das Wurzelziehen mit zwei Lösungen hat im Katalog keine eigene Regel für diese Einheit |
+| R15-V167 | funktionen.quadratisch.extremwert | `id.funktionen.gleichung_form` | Extremwert: Scheitel der Parabel gesucht; gleichung_form trägt das Lesen der Form, das Aufstellen der Zielfunktion hat keine Regel |
 
 ## Alle Aufgaben
 
@@ -232,3 +239,17 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V151 | gleichungen.quadratisch.diskriminante | `rr.reihenfolge` |
 | R15-V152 | gleichungen.quadratisch.sachaufgabe | `rr.nullprodukt` |
 | R15-V153 | gleichungen.quadratisch.sachaufgabe | `rr.reihenfolge` |
+| R15-V154 | funktionen.quadratisch.scheitel | `id.funktionen.gleichung_form` |
+| R15-V155 | funktionen.quadratisch.scheitel | `id.funktionen.gleichung_form` |
+| R15-V156 | funktionen.quadratisch.parameter | `id.funktionen.gleichung_form` |
+| R15-V157 | funktionen.quadratisch.spiegeln | `id.funktionen.gleichung_form` |
+| R15-V158 | funktionen.quadratisch.spiegeln | `id.funktionen.gleichung_form` |
+| R15-V159 | funktionen.quadratisch.umformen | `id.funktionen.gleichung_form` |
+| R15-V160 | funktionen.quadratisch.umformen | `id.funktionen.gleichung_form` |
+| R15-V161 | funktionen.quadratisch.nullstellen | `id.funktionen.zuordnung` |
+| R15-V162 | funktionen.quadratisch.nullstellen | `id.funktionen.zuordnung` |
+| R15-V163 | funktionen.quadratisch.punkte | `id.funktionen.zuordnung` |
+| R15-V164 | funktionen.quadratisch.bestimmen | – |
+| R15-V165 | funktionen.quadratisch.schnittpunkte | – |
+| R15-V166 | funktionen.quadratisch.extremwert | `id.funktionen.gleichung_form` |
+| R15-V167 | funktionen.quadratisch.extremwert | `id.funktionen.gleichung_form` |

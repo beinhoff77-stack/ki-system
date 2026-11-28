@@ -73,3 +73,15 @@ IDEEN.update({
  103: 'Zwei Teilungen desselben Zahlenstrahls', 113: 'Fehler beim Aufrunden zweier Faktoren', 122: 'Warum die Subtraktionsregel Zeichen spart',
  126: 'Kleinste Zahl mit sechs Zeichen', 128: 'Zweierpotenzen erkennen', 131: 'Wert der vordersten Zweierstelle über einen Unterschied',
 })
+
+IDEEN.update({
+ 1: 'Nettozinsen rückwärts auf den Kredit', 5: 'Zinssatz von der Sparer- auf die Kreditnehmerrolle übertragen',
+ 8: 'Zinsen doppelt gezählt (Fehler mitten in der Rechnung)', 15: 'Mehr Zinssatz heißt weniger Kapital, aber nicht im gleichen Maß',
+ 18: 'Prozentzahl statt Faktor in der Gleichung', 25: 'Zinssatzwechsel im Lauf des Jahres',
+ 42: 'Minus wirkt auf jedes Glied einer langen Klammer', 44: 'Zwei Zählweisen eines Streichholzmusters',
+ 46: 'Zahlenrätsel mit einem Term erklären', 48: 'Übereinstimmung an zwei Stellen ist kein Beweis',
+ 51: 'Vorzeichen des ausgeklammerten Faktors', 52: 'Nicht der größte gemeinsame Faktor (Fehler in Zeile 1)',
+ 55: 'Faktor muss genau 6x und nicht größer sein', 79: 'Dreiecke nach Lage des Umkreismittelpunkts zählen',
+ 80: 'Dritter Winkel entscheidet die Lage', 81: 'Bedingung für den Umkreis schon in Zeile 1 falsch',
+ 116: 'Rundungsbereich in eine Preisrechnung übernehmen', 118: 'Rundungsbereich durch eine Zahl geteilt',
+})

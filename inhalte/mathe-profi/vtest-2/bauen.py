@@ -45,12 +45,36 @@ for name, rx, grenze in (('denn/weil', _BEG, 0.12), ('Absolutwörter', _ABS, 0.1
         mit = [bool(rx.search(m)) for m in o]
         if mit.count(mit[r]) == 1 and len(o) >= 4:      # die richtige ist die einzige mit / einzige ohne
             fehler.append(f'{x["kennung"]}: die richtige Möglichkeit ist als einzige {"mit" if mit[r] else "ohne"} {name}')
-        if name == 'denn/weil' and mit.count(False) == 1 and not mit[r] and len(o) >= 4:
-            pass
 sam = [(x['kennung'], bool(_SAM.search(m)), i == x['aufgabe']['o']['index']) for x in au for i, m in enumerate(x['aufgabe']['a'])]
 sam = [s for s in sam if s[1]]
 if len(sam) >= 5 and sum(1 for s in sam if s[2]) < 0.25 * len(sam):
     fehler.append(f'Sammel-Möglichkeit („Beide …“, „Gleich …“) ist systematisch falsch: {sum(1 for s in sam if s[2])} richtig von {len(sam)}')
+
+# ---- Prüfungen der dritten Vorprüfung: Lücken-Fehlbilder, Fehlerzeile, deutlich längere richtige Möglichkeit, Nebensatz-Marker --------
+for x in alle:
+    if x['aufgabe']['y'] == 'luecken':
+        n = len(x['aufgabe']['o']['werte'])
+        fb_l = {f['luecke'] for f in x['fehlbilder']}
+        fehlt = [i for i in range(1, n + 1) if i not in fb_l]
+        if fehlt: fehler.append(f'{x["kennung"]}: Lücke {fehlt} hat kein Fehlbild (jede Lücke braucht eins)')
+fd = {x['kennung']: (x['aufgabe']['o']['werte'][0] if x['aufgabe']['y'] == 'luecken' else None) for x in alle if x.get('form') == 'fehler_detektiv'}
+FD_AUSWAHL = {'VT2-032': 3, 'VT2-036': 2, 'VT2-062': 2, 'VT2-094': 3}      # bei Auswahl-Detektiven steht die Fehlerzeile im Text der richtigen Möglichkeit
+fd.update({k: v for k, v in FD_AUSWAHL.items() if k in fd})
+zeilen = list(fd.values())
+if None in zeilen: fehler.append('Fehler-Detektiv als Auswahl ohne eingetragene Fehlerzeile (FD_AUSWAHL in bauen.py)')
+else:
+    zaehl = {z: zeilen.count(z) for z in sorted(set(zeilen))}
+    if zeilen.count(1) < 2 or max(zaehl.values()) > 0.45 * len(zeilen): fehler.append(f'Fehlerzeilen der Fehler-Detektive ungünstig verteilt: {zaehl} (mindestens 2-mal Zeile 1, keine Zeile über 45 %)')
+    tz = [fd[x['kennung']] for x in alle if x['kennung'] in fd and x['pool'] == 'test']
+    if len(set(tz)) < 3 and len(tz) >= 3: fehler.append(f'Fehlerzeilen in den Tests zu einheitlich: {tz}')
+    print('Fehlerzeilen der Fehler-Detektive', zaehl, '| Tests', tz)
+txt = [x for x in au if x['aufgabe']['y'] == 'auswahl']
+zu_lang = [x['kennung'] for x in txt if len(x['aufgabe']['a'][x['aufgabe']['o']['index']]) >= 1.25 * max(len(m) for i, m in enumerate(x['aufgabe']['a']) if i != x['aufgabe']['o']['index']) and len(x['aufgabe']['a'][x['aufgabe']['o']['index']]) > 12]
+if len(zu_lang) > 0.15 * len(txt): fehler.append(f'richtige Möglichkeit mindestens 25 % länger als die längste falsche in {len(zu_lang)} von {len(txt)} Aufgaben: {zu_lang}')
+_NS = _re.compile(r'(;|\baber\b|, nicht\b|, auch\b)')
+d = _anteil(fa, _NS) - _anteil(ri, _NS)
+if abs(d) > 0.12: fehler.append(f'Nebensatz-Marker (; aber , nicht): falsche {100*_anteil(fa, _NS):.0f} %, richtige {100*_anteil(ri, _NS):.0f} % (Unterschied höchstens 12 Punkte)')
+print('zu lang (>=1,25 mal längste falsche):', len(zu_lang), zu_lang, '| Nebensatz-Marker falsch/richtig %.0f/%.0f %%' % (100*_anteil(fa, _NS), 100*_anteil(ri, _NS)))
 print('Sammel-Möglichkeiten', len(sam), 'davon richtig', sum(1 for s in sam if s[2]), '| denn/weil falsch/richtig %.0f/%.0f %%' % (100*_anteil(fa, _BEG), 100*_anteil(ri, _BEG)), '| Absolutwörter falsch/richtig %.0f/%.0f %%' % (100*_anteil(fa, _ABS), 100*_anteil(ri, _ABS)))
 print('Länge richtig/falsch %.2f' % _v)
 print('Auswahl', len(au), '| Test-Auswahl', len(tau), '| Plätze A-D', platz, '| richtige am längsten', len(laengste))

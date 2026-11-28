@@ -5,17 +5,17 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 
 ## finanzen.zinsen / rollen
 
-- VT2-001 (test): Gleicher Betrag bei Kredit und Sparbuch: nur der Unterschied der Zinssätze (4 %) zählt; Gegenprobe über beide Einzelzinsen. Ganzzahlig.
+- VT2-001 (test): Sparzinsen 30 €, Nettozahlung 45 €, also Kreditzinsen 75 € und Kredit 2 500 € (ganzzahlig); Fehlbilder 45 und 15 (Vorzeichen der Sparzinsen), 1 500, 500, 7 500.
 - VT2-002 (korrektur): Kredit hat den höchsten Zinssatz, die Familie bekommt trotzdem netto Zinsen (Guthaben sind größer). Die Eingabe 1 oder 2 ist im Text erklärt.
 - VT2-003 (korrektur): Nur Zinsen erhalten, nicht zahlen; Optionen mit Kredit sind durch den Klammerhinweis ausgeschlossen. 40 € passt nur zu 2 000 € bei 2 %.
 - VT2-004 (korrektur): Fehler in Zeile 3 (Vorzeichen/Rolle); Zeilen 1 und 2 stimmen, damit ist „erste Fehlerzeile“ eindeutig.
-- VT2-005 (sicherung): Rückzahlung 5 150 € enthält Kredit und 3 % Zinsen; 5 150 : 1,03 = 5 000 ist ganzzahlig, Zinsen 150 €. Zinssatz bezieht sich auf den geliehenen Betrag (steht im Text).
+- VT2-005 (sicherung): Zinssatz 50 : 2 000 = 2,5 %; Kredit 90 : 0,025 = 3 600 €. Die Rolle wechselt, der Zinssatz bleibt; Fehlbild 1 800 liest 50 als 5 %.
 - VT2-006 (sicherung): Kredit 3 000 € zu 8 % bringt 240 € Zinsen; 2 % von G sind 240 €, also G = 12 000 € (ganzzahlig). Der Sparzinssatz (2 %) steht im Text.
 - VT2-007 (sicherung): Sparzinsen auf alle 200 000 € (0,5 % → 1 000 €), Kreditzinsen nur auf 150 000 € (5 % → 7 500 €); der Rest im Tresor bleibt unverzinst (steht im Text).
 
 ## finanzen.zinsen / jahreszinsen_komma
 
-- VT2-008 (test): Fehler in Zeile 2 (25fache statt 2,5fache); Zeilen 3 und 4 folgen nur daraus. Richtiges Guthaben 3 690 € ganzzahlig; das Fehlergebnis 4 500 € ist ein eigenes Fehlbild.
+- VT2-008 (test): Fehler in Zeile 3 (36 € zusätzlich zu den 90 €); die Zeilen 1 und 2 stimmen, Zeile 4 folgt nur aus Zeile 3. Richtig 3 690 €. Fehlerzeile 3, nicht 2.
 - VT2-009 (korrektur): Kapital ist nicht genannt (1 % bringen 80 €): 0,25 % → 20 €, 2,5 % → 200 €, 0,05 % → 4 €, alles ganzzahlig, keine Rundung.
 - VT2-010 (korrektur): Nur die letzte Zeile ordnet alle drei Zinssätze richtig zu; die Zeilen mit einem richtigen und zwei falschen Paaren sind bewusst gemischt.
 - VT2-011 (korrektur): Nur 6 € stimmt; 60 € und 600 € entstehen durch Kommafehler, 0,60 € durch falsche Division durch 1 000.
@@ -25,10 +25,10 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 
 ## finanzen.zinsen / kapital
 
-- VT2-015 (test): Unterschied der Zinssätze 4 % − 2,5 % = 1,5 %; 45 € : 0,015 = 3 000 € (ganzzahlig, Probe 120 € − 75 €). Fehlbilder 1 125, 1 800, 300.
+- VT2-015 (test): Kapital 6 000 € bei 2 %, 4 000 € bei 3 %, Unterschied 2 000 €; alle ganzzahlig. Kern: Zinsen gleich, Zinssatz größer, Kapital kleiner im Verhältnis 2 : 3, nicht um 1 %.
 - VT2-016 (korrektur): Proportionalität nur bei gleichem Zinssatz und gleicher Zeit; Option 1 (andere Zinssätze) ist bewusst falsch.
 - VT2-017 (korrektur): Platzhalter □ ist das Kapital; Gleichung □ · 0,04 = 52, nicht □ : 0,04.
-- VT2-018 (korrektur): Fehler in Zeile 2 (multipliziert statt dividiert); Ergebnis 1 500 € ist ganzzahlig, das Fehlergebnis 2,646 € ist sinnlos klein.
+- VT2-018 (korrektur): Fehler schon in Zeile 1 (Faktor 4,2 statt 0,042); Zeile 2 und 3 folgen nur daraus. Kapital 1 500 €.
 - VT2-019 (sicherung): Vergleich ohne Rechnen: kleinerer Zinssatz heißt mehr Kapital bei gleichen Zinsen; kein Rundungsproblem.
 - VT2-020 (sicherung): Zwei Schritte (60 % Teil, dann Ganzes); 54 € bei 3 % ergibt 1 800 €, das sind 60 % von 3 000 €. „Rest unverzinst“ steht im Text.
 - VT2-021 (sicherung): Gegenläufigkeit von Kapital und Zinssatz; „größer als 0 %“ schließt Sonderfall 0 aus.
@@ -38,7 +38,7 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 - VT2-022 (test): Frau Berger bekommt 60 € (72 € im Jahr, 10/12 davon); Herr Koch hat 90 € im Jahr, also 7,50 € je Monat, und braucht 8 Monate (ganzzahlig). Zwei Anlagen werden aufeinander abgestimmt, nicht eine Laufzeit bis zu einer Zinssumme gesucht.
 - VT2-023 (korrektur): Beide Anlagen bringen 50 €; der höhere Zinssatz wird durch die kürzere Zeit ausgeglichen. Gleiche Lückenwerte sind erlaubt.
 - VT2-024 (korrektur): 8 Monate bringen 2 % des Kapitals → Jahreszinssatz 3 %; ganzzahlig. Einheit Prozent.
-- VT2-025 (korrektur): Drei Teiljahre (3, 8 und 9 Monate), alle innerhalb eines Jahres; die 18 Monate und damit das Zinseszins-Problem entfallen.
+- VT2-025 (korrektur): Zinssatzwechsel: 3 000 € · 2 % · 4/12 = 20 €, 3 000 € · 3 % · 8/12 = 60 €, zusammen 80 €; der Mittelwert 2,5 % (75 €) wäre falsch.
 - VT2-026 (sicherung): Nur die Formel mit : 12 und · 5 stimmt; die anderen drehen Zähler und Nenner.
 - VT2-027 (sicherung): Zinsen proportional zur Zeit: 75 € : 10 · 4 = 30 €; Kapital und Zinssatz nicht nötig. Einfache Verzinsung innerhalb eines Jahres.
 - VT2-028 (sicherung): Proportionalität der Zeit: 9 : 3 = 3; keine Zinsen auf Zinsen.
@@ -61,31 +61,31 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 - VT2-039 (korrektur): Nele hat Unrecht, Gegenbeispiel a = 2 gibt 5 gegen 11; Option 2 vertauscht die Werte, bewusst falsch.
 - VT2-040 (sicherung): Annas Ergebnis ist 0x + 1; der Hinweis auf die Null steht nicht mehr im Text, die Schablone sagt nur „ganze Zahl“ (null gehört dazu).
 - VT2-041 (sicherung): Fehler in Zeile 2 (+(a − 1) = +a − 1); richtig 7a − 4.
-- VT2-042 (sicherung): 2 500 − (2 500 − 43) = 43; die Aufgabe nennt keine Variable, Minusklammer wird als Rechenvorteil genutzt.
+- VT2-042 (sicherung): Klammer mit fünf Gliedern 5x − 3 + 2x − 8 + x: alle wechseln das Vorzeichen; 20x − 5x − 2x − x = 12x und +3 + 8 = 11.
 
 ## terme.umformen / aequivalenz
 
 - VT2-043 (test): Sechs Terme: A, B, C gleichwertig (3 Paare), D, E gleichwertig (1 Paar), F allein; Soll 4. Fehlbilder 3, 15, 2, 5.
-- VT2-044 (korrektur): Der Unterschied ist für x = 5 und x = 100 jeweils 3, also nie gleich; Terme sind nicht gleichwertig (Lösungsweg erklärt es).
+- VT2-044 (korrektur): Figur n hat 3n + 1 Streichhölzer (n Quadrate, n − 1 gemeinsame Hölzer); Lenas Term ergibt 3n − 1 und stimmt schon für n = 1 nicht (2 statt 4). Zwei Terme sind richtig, Figur 10 hat 31.
 - VT2-045 (korrektur): Von fünf Umformungsschritten sind T3, T4 und T5 gleichwertig (Wert 2x + 10); T1 und T2 haben den Wert 2x + 2, weil die −4 das Vorzeichen nicht umkehrt.
-- VT2-046 (korrektur): Genau eine der vier Optionen ist gleichwertig; die anderen unterscheiden sich im Vorzeichen oder im Koeffizienten.
+- VT2-046 (korrektur): Zahlenrätsel (2x + 6) : 2 − x = 3 für jede Zahl; Fehlbilder halbieren nur die 6 oder gar nichts.
 - VT2-047 (sicherung): Wertetabelle 4, 7, 10 gibt 3x + 4; Term nach Text der Form a · x + b, damit eindeutig (Wert 34 bei x = 10).
-- VT2-048 (sicherung): Drei Terme sind 2x + 6, nur D ist 2x − 6; Reihenfolge der Buchstaben ist fest (A bis D).
+- VT2-048 (sicherung): x² + 6 = 5x genau für x = 2 und x = 3 (Werte 10 und 15); sonst verschieden. Zwei Übereinstimmungen beweisen keine Gleichwertigkeit.
 - VT2-049 (sicherung): a = 4: 3x + ax muss 7x ergeben; konstante Glieder (−6) sind gleich.
 
 ## terme.umformen_teil2 / ausklammern
 
 - VT2-050 (test): Genau Nummer 1 ist falsch; Nummer 2 bis 4 sind richtig. Richtige Klammer 3y(3y − 2).
-- VT2-051 (korrektur): 6x² + kx = 3x · (2x + 5) = 6x² + 15x; k = 15, kein zweiter Wert.
-- VT2-052 (korrektur): Fehler in Zeile 2 (12x : 6x = 2); richtig 6x(3x − 2).
+- VT2-051 (korrektur): Beim Ausklammern von −3x aus −6x² − 9x steht in der Klammer 2x + 3, bei 3x steht −2x − 3. Vier Lücken, jedes Fehlbild an der eigenen Lücke.
+- VT2-052 (korrektur): Fehler in Zeile 1 (ggT 3 statt 6); Zeile 2 und 3 rechnen mit 3x richtig weiter, aber die Klammer enthält noch den Faktor 2. Richtig 6x(3x − 2).
 - VT2-053 (korrektur): Probe durch Ausmultiplizieren: (1), (2), (3) stimmen; (4) gibt 6x² + 90x und (5) gibt 6x² + 10x. Soll 3.
 - VT2-054 (sicherung): Nichts außer 1 lässt sich ausklammern (die 5 hat weder die 2 noch ein x). Alle vier Möglichkeiten sind gleich gebaut: „Man kann … ausklammern, denn …“.
-- VT2-055 (sicherung): k = 9 (nicht 18, denn dann wäre der Faktor 18x); „positive Zahl kleiner als 20“ macht k eindeutig.
+- VT2-055 (sicherung): k zwischen 7 und 20, ggT(18, k) = 6: nur k = 12 (k = 18 gäbe 18x); die Zahl 12 steht nicht im Text, die 6 aus 6x ist ausdrücklich falsch (Fehlbild).
 - VT2-056 (sicherung): Breite 4x aus 20x² + 12x = (5x + 3) · 4x; ganzzahlige Koeffizienten, Einheit Meter.
 
 ## terme.umformen_teil2 / binomisch
 
-- VT2-057 (test): Fehler in Zeile 2 (gemischtes Glied fehlt); richtig 4x² − 20x + 25.
+- VT2-057 (test): Fehler in Zeile 2 (kein Mittelglied); jede der vier Lücken hat jetzt ein Fehlbild (Zeile 1 und 3, (2x)² als 2x², Mittelglied, 25).
 - VT2-058 (korrektur): 25x² − kx + 4 = (5x − 2)² ergibt k = 20; Quadrat einer Differenz, nicht einer Summe.
 - VT2-059 (korrektur): Gegenbeispiel mit 3 und 4: 49 gegen 25, Differenz 24 = 2ab.
 - VT2-060 (korrektur): Zuwachs 10x + 25 durch (x + 5)² − x²; Einheit cm².
@@ -101,7 +101,7 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 - VT2-067 (korrektur): Fehler in Zeile 3 (Radius = Hälfte von 10 cm = 5 cm); Zeilen 1 und 2 stimmen.
 - VT2-068 (sicherung): Thaleskreis ist ein Kreis um M mit Radius 3 cm ohne A und B; die falschen Kreisoptionen haben verschieden gebaute Endungen.
 - VT2-069 (sicherung): Umkehrung gilt in jedem rechtwinkligen Dreieck; zwei falsche Optionen haben „Richtig“ mit falscher Begründung.
-- VT2-070 (sicherung): Der Text nennt MA = MB = MC nicht mehr; der Weg über die Umkehrung ist nötig. Winkel 40°, 50°, 100°.
+- VT2-070 (sicherung): Lücke 1 (ACM = 40°) hat jetzt ein Fehlbild (50°, der Nachbarwinkel MCB).
 
 ## geometrie.kreis / lage
 
@@ -116,10 +116,10 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 ## geometrie.kreis / umkreis_inkreis
 
 - VT2-078 (test): α = 70°: außerhalb bei β > 90° (19 Werte) oder γ > 90° (19 Werte); β = 90° und γ = 90° sind Randfälle und zählen nicht. Soll 38, kürzer zu zählen als vorher.
-- VT2-079 (korrektur): Mittelsenkrechte gegen Winkelhalbierende; Ecken gegen Seiten; nur eine Kombination richtig.
-- VT2-080 (korrektur): Drei Dreiecke, Winkelsumme 180° jeweils geprüft; B ist der rechtwinklige Sonderfall (Mittelpunkt auf der Seite).
-- VT2-081 (korrektur): Fehler in Zeile 2 (Inkreisgedanke „von allen Seiten gleich weit“ beim Umkreis); Zeile 3 folgt daraus. Die gesuchte Nummer (3 = Mittelsenkrechten) steht nicht im Text.
-- VT2-082 (sicherung): Zwei Möglichkeiten sagen „Richtig“ (eine mit falscher Begründung: Mittelsenkrechten statt Winkelhalbierende), zwei sagen „Falsch“; das Urteil allein verrät nichts.
+- VT2-079 (korrektur): Fünf Dreiecke: innerhalb A (1), auf einer Seite B und D (2), außerhalb C und E (2); Lösung 1, 2, 2 folgt keiner Reihenfolge im Text.
+- VT2-080 (korrektur): γ = 90° (rechter Winkel), der Umkreismittelpunkt liegt auf der Seite AB (Satz des Thales); der dritte Winkel entscheidet.
+- VT2-081 (sicherung): Fehler in Zeile 1 (gleich weit von den Seiten statt von den Ecken); Zeile 2 und 3 folgen daraus. Die Nummer 3 (Mittelsenkrechten) steht nur in der Liste der Möglichkeiten und liegt im Pool sicherung.
+- VT2-082 (korrektur): Das Urteil „Richtig“ mit Begründung über die Winkelhalbierenden; die falsche Begründung nennt jetzt die Höhen, nicht mehr die Mittelsenkrechten (anders als 081).
 - VT2-083 (sicherung): I liegt auf den Winkelhalbierenden: α = 56°, β = 34°, γ = 90° (Probe 180°); das Dreieck ist rechtwinklig, was nicht im Text steht.
 - VT2-084 (sicherung): Im gleichseitigen Dreieck fallen Umkreis- und Inkreismittelpunkt zusammen; Begründung über gleiche Geraden.
 
@@ -168,17 +168,17 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 - VT2-113 (test): Genau 48 · 29 = 1 392; Annas Schätzung 1 500 (108 zu viel), Bens 1 440 (48 zu viel).
 - VT2-114 (korrektur): Gleiche Rechnung 1 000 : 36 (≈ 27,8): bei A abrunden (27 Trikots), bei B aufrunden (28 Kisten).
 - VT2-115 (korrektur): Zwei Rundungen auf verschiedene Stellen; beide richtig, die erste genauer.
-- VT2-116 (korrektur): Erst runden 40 000, erst rechnen 39 480 → 39 000; zwei verschiedene Schätzungen.
+- VT2-116 (korrektur): Auf Hunderter gerundet 4 300 heißt 4 250 bis 4 349; Einnahmen 63 750 € bis 65 235 €; die Grenzen 4 249 und 4 350 sind Fehlbilder.
 - VT2-117 (sicherung): Gerundete Beträge verschleiern 237 € < 249 €; Grobes Runden ist hier unbrauchbar.
-- VT2-118 (sicherung): Schätzung 12 000, genau 11 997; Unterschied 3. Tool-Hinweis „runden fehlt“ ist falscher Alarm (Zahl ist ganz).
+- VT2-118 (sicherung): Auf Zehner gerundet 30 m heißt 25 bis 34 m; 8 bis 11 Stücke (nicht 10); die Grenzen 27 und 36 sind Fehlbilder.
 - VT2-119 (sicherung): Gleich gerichtete Fehler addieren sich (440 bis 480 je Zahl); Summe der Fehler 1 830.
 
 ## zahlen.natuerlich / roemisch_schreiben
 
-- VT2-120 (test): Vier C hintereinander verstoßen gegen die genannte Regel; Zeichenzahlen 9 (Nils) und 7 (richtig: MCDXLIX).
+- VT2-120 (test): Fehler in Zeile 4 (VIIII statt IX), die Zeilen 1 bis 3 stimmen; Zeichenzahlen 10 (MCDXLVIIII) und 7 (MCDXLIX).
 - VT2-121 (korrektur): Regelwerk im Text; nur VC verstößt (V nicht vor C). Optionen CDXC, MCMXC, XLIV sind regelgerecht.
 - VT2-122 (korrektur): Nur addiert: MDCCCCLXXXXVIIII (16 Zeichen); nach der Regel MCMXCIX (7 Zeichen).
-- VT2-123 (korrektur): Bausteine M, CM, XL, IV mit Werten 1 000, 900, 40, 4; Summe 1 944.
+- VT2-123 (korrektur): Lücke 1 (M = 1 000) hat jetzt Fehlbilder (500, 100).
 - VT2-124 (sicherung): IV/IX bei den Zahlen 4, 9, 14, …, 49 (10) und XL bei 40 bis 49 (8 zusätzlich ohne 44 und 49): 18; Fehlbild 8 beschreibt jetzt genau diese 8.
 - VT2-125 (sicherung): MIM verstößt gegen die I-Regel; 1 999 = MCMXCIX.
 - VT2-126 (sicherung): 18 = XVIII und 23 = XXIII haben fünf Zeichen; 28 = XXVIII ist die kleinste mit sechs (geprüft durch Aufzählen 1 bis 99).

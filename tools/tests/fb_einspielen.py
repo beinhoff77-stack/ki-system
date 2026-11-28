@@ -142,18 +142,17 @@ HILFEN = [
                                               order by t.datum desc limit greatest(schule.fehlerkarte_regel('fehlerkarten_pause_lerntage', 2), 0)) q), schule.heute_tag(p_l));
 """, 'FB-S: Wartezeit wie wdh_sperre_ab – Fehler-Bordkarte erst, wenn die letzte Bearbeitung vor diesem Lerntag liegt (fehlerkarten_pause_lerntage Lerntage Pause dazwischen)'),
     ('schule.fehlerkarte_serie(bigint, bigint)', 'schule.fehlerkarte_serie(p_l bigint, p_a bigint)', "\n returns integer language sql stable set search_path to ''\n", """
-  select count(*)::int from schule.versuch v
-   where v.lernender_id = p_l and v.aufgabe_id = p_a and v.testsitzung_id is null and coalesce(v.anlauf, 1) <> 2
-     and not exists (select 1 from schule.versuch s
-                      where s.lernender_id = p_l and s.aufgabe_id = p_a and s.testsitzung_id is null and coalesce(s.anlauf, 1) <> 2
-                        and coalesce(s.richtig, false) and coalesce(s.hilfe, 0) = 0 and (s.am, s.id) >= (v.am, v.id));
+  with x as (select v.id, v.am, coalesce(v.richtig, false) and coalesce(v.hilfe, 0) = 0 selbst from schule.versuch v
+              where v.lernender_id = p_l and v.aufgabe_id = p_a and v.testsitzung_id is null and coalesce(v.anlauf, 1) <> 2),
+  s as (select x.am, x.id from x where x.selbst order by x.am desc, x.id desc limit 1)
+  select count(*)::int from x where not x.selbst and (not exists (select 1 from s) or (x.am, x.id) > (select s.am, s.id from s));
 """, 'FB-S: Bearbeitungen (Versuch ohne Test, 2. Anlauf zählt zur Bearbeitung davor) dieser Aufgabe seit der letzten eigenen Lösung (richtig, 1. Anlauf, ohne Tipp); 0 = zuletzt selbst gelöst oder nie bearbeitet'),
     ('schule.fehlerkarte_faellig(bigint, bigint, timestamp with time zone)', 'schule.fehlerkarte_faellig(p_l bigint, p_a bigint, p_zuletzt timestamp with time zone)',
      "\n returns boolean language sql stable set search_path to ''\n", """
-  select coalesce(case when p_zuletzt is null or not schule.fehlerkarte_an(p_l) then false
-                       else schule.lern_datum(p_l, p_zuletzt) < schule.fehlerkarte_ab(p_l)
-                            and not exists (select 1 from schule.aufgabe a where a.id = p_a and a.form = 'lueckenweg')
-                            and schule.fehlerkarte_serie(p_l, p_a) between 1 and schule.fehlerkarte_regel('fehlerkarten_max', 3) end, false);
+  select coalesce(case when p_zuletzt is null or not schule.fehlerkarte_an(p_l) then false               -- Schalter aus: sofort false (kein weiterer Zugriff)
+                       when schule.lern_datum(p_l, p_zuletzt) >= schule.fehlerkarte_ab(p_l) then false    -- Wartezeit noch nicht vorbei
+                       when exists (select 1 from schule.aufgabe a where a.id = p_a and a.form = 'lueckenweg') then false
+                       else schule.fehlerkarte_serie(p_l, p_a) between 1 and schule.fehlerkarte_regel('fehlerkarten_max', 3) end, false);
 """, 'FB-S: fällige Fehler-Bordkarte (Schalter an, Wartezeit vorbei, kein Lückenweg, 1 bis fehlerkarten_max Bearbeitungen ohne eigene Lösung in Folge)'),
 ]
 
@@ -414,9 +413,10 @@ $fbx$;
   update schule.regel set wert = v_an_vorher where schluessel = 'fehlerkarten_an';   -- Schalter zurück (beim ersten Lauf: 0)
   if (select x.wert from schule.regel x where x.schluessel = 'fehlerkarten_an') is distinct from v_an_vorher then raise exception 'FB-S ABBRUCH: Schalter nicht zurückgesetzt'; end if;
 
-  v_kurz := format('Kinder %s, Etappen %s, Vergleiche %s, Abweichungen AUS %s | AN heute: Etappen mit fälliger Fehler-Bordkarte je Kind %s (davon heute fällig %s), Mischkarten-Etappen %s, Fehler-Aufgaben offen %s (heute fällig %s) | Laufzeit %s ms aus / %s ms an | %s',
+  v_kurz := format('Kinder %s, Etappen %s, Vergleiche %s, Abweichungen AUS %s | AN heute: Etappen mit fälliger Fehler-Bordkarte je Kind %s (davon heute fällig %s), Mischkarten-Etappen %s, Fehler-Aufgaben offen %s (heute fällig %s) | Laufzeit %s ms aus / %s ms an (Index versuch_kind_aufgabe_idx: %s) | %s',
     n_kinder, n_e, n_v, n_abw, zz->'etappen_mit_faelliger_fehlerkarte_je_kind', zz->'davon_heute_in_der_wiederholung_faellig_je_kind', zz->'mischkarten_etappen_mit_fehlerkarte',
     zz->'fehler_aufgaben_offen', zz->'fehler_aufgaben_heute_faellig', ms_aus, ms_an,
+    case when to_regclass('schule.versuch_kind_aufgabe_idx') is null then 'nein' else 'ja' end,
     case when n_alt > 0 then 'alt -> neu' else 'neu -> neu (schon eingespielt, nichts geändert)' end);
   v_bericht := zz || jsonb_build_object('zustand_vorher', st, 'md5_wdh_aufgabe_waehlen_neu', m_w_neu, 'md5_mischkarten_neu', m_m_neu,
     'kinder', n_kinder, 'etappen', n_e, 'vergleiche', n_v, 'abweichungen_aus', n_abw, 'da_ungleich_auswahl_info', n_da,

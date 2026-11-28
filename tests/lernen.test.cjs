@@ -7712,10 +7712,11 @@ const ADV_BELEG = () => new Map([
   [3, { art: 'sterne', variante: 'jackpot', sterne: 1111 }], [4, { art: 'sterne', variante: 'niete', sterne: 1 }], [5, { art: 'krampus', titel: 'Aufgabe 5', text: 'Heute noch.' }],
   [6, { art: 'karte', motiv: 'nikolaus', text: 'Ein Satz zum 6.' }], [7, { art: 'sterne', variante: 'normal', sterne: 500 }], [8, { art: 'leer' }], [9, { art: 'gutschein', variante: 'tausch', titel: 'Tauschkarte' }],
   [24, { art: 'karte', motiv: 'heiligabend', text: 'Ein Satz zum 24.', sterne: 2000 }]]);
-function advServer({ aktiv = 1, heute = '2026-12-07', etappen = 0, offen = [], basis = null, tausch = 0, unbekannt = false, belegung = null } = {}) {
+// aus: 'vor_start' | 'vorbei' – Kalender nicht da (server.md 3.1: aktiv false mit grund, gutscheine, menue); netzfehler: Anzahl Stand-Abrufe, die mit 503 scheitern
+function advServer({ aktiv = 1, heute = '2026-12-07', etappen = 0, offen = [], basis = null, tausch = 0, unbekannt = false, belegung = null, aus = null, netzfehler = 0 } = {}) {
   const tag = (iso) => Number(iso.slice(8, 10)) + (iso.slice(5, 7) === '01' ? 31 : 0);
   const st = { aktiv, heute, tausch, etappen: { 1: etappen, 2: 0 }, verbraucht: { 1: 0, 2: 0 }, beleg: { 1: belegung ? belegung() : ADV_BELEG(), 2: ADV_BELEG() }, offen: { 1: new Map(), 2: new Map() },
-    cids: new Map(), gs: [], gsNr: 0, aufrufe: [], prot: [] };
+    cids: new Map(), gs: [], gsNr: 0, aufrufe: [], prot: [], aus, netzfehler };
   const neuGs = (k, nr, b) => { const g = { id: ++st.gsNr, nr, lernender_id: k, art: b.art === 'krampus' ? 'krampus' : b.variante === 'tausch' ? 'tausch' : 'gutschein', titel: b.titel || null, text: b.text || null, zustand: 'offen', getauscht: false }; st.gs.push(g); return g; };
   const tuer = (k, nr) => { const o = st.offen[k].get(nr); if (!o) return null; return { nr, tag: o.tag, geoeffnet_am: o.am, nachgeholt: o.nachgeholt, ...o.inhalt, sterne_gutgeschrieben: !!o.inhalt.sterne, gutschein: o.gs ? { id: o.gs.id, art: o.gs.art, zustand: o.gs.zustand } : null }; };
   for (const nr of offen) { const b = st.beleg[1].get(nr) || { art: 'leer' }; st.offen[1].set(nr, { tag: '2026-12-0' + Math.min(nr, 6), am: '2026-12-01T08:00:00Z', nachgeholt: false, inhalt: { art: b.art, variante: b.variante || null, titel: b.titel || null, text: b.text || null, motiv: b.motiv || null, sterne: b.sterne || 0 }, gs: ['gutschein', 'krampus'].includes(b.art) ? neuGs(1, nr, b) : null }); }
@@ -7724,7 +7725,9 @@ function advServer({ aktiv = 1, heute = '2026-12-07', etappen = 0, offen = [], b
   const lage = (k) => { const tn = tag(st.heute); const heuteOffen = [...st.offen[k].values()].filter((o) => o.tag === st.heute).length; const faellig = Array.from({ length: Math.min(24, tn) }, (_, i) => i + 1).filter((n) => !st.offen[k].has(n));
     const moeglich = tn > 37 ? 0 : Math.max(0, Math.min(2 - heuteOffen, faellig.length)); const frei = Math.max(0, Math.min(moeglich, st.etappen[k] - st.verbraucht[k]));
     return { tn, heuteOffen, faellig, moeglich, frei, naechste: faellig[0] || null, phase: tn <= 24 ? 'laeuft' : tn <= 37 ? 'nachholen' : 'nur_ansehen' }; };
-  const stand = (k) => { if (!st.aktiv) return { ok: true, aktiv: false, grund: 'nicht_aktiv' }; const l = lage(k);
+  const stand = (k) => { if (!st.aktiv) return { ok: true, aktiv: false, grund: 'nicht_aktiv' };
+    if (st.aus) { const z = zaehler(k); return { ok: true, aktiv: false, grund: st.aus, heute: st.heute, start: '2026-12-01', sichtbar_bis: '2027-01-06', gutscheine: z, menue: { kalender: false, gutscheine: z.offen + z.tauschkarten + z.krampus_offen > 0 } }; }
+    const l = lage(k);
     const tueren = Array.from({ length: 24 }, (_, i) => { const nr = i + 1; const o = st.offen[k].get(nr);
       if (o) return { nr, zustand: 'offen', art: o.inhalt.art, variante: o.inhalt.variante, titel: o.inhalt.titel, motiv: o.inhalt.motiv, sterne: o.inhalt.sterne, nachgeholt: o.nachgeholt, tag: o.tag };
       return { nr, zustand: nr === l.naechste && l.frei > 0 ? 'bereit' : nr === l.tn ? 'heute' : nr < l.tn ? 'nachholen' : nr === l.tn + 1 && l.phase === 'laeuft' ? 'morgen' : 'zu' }; });
@@ -7738,14 +7741,19 @@ function advServer({ aktiv = 1, heute = '2026-12-07', etappen = 0, offen = [], b
     st.aufrufe.push({ aktion, d });
     if (unbekannt) fehler('Unbekannte Aktion');
     const k = Number(d.lernender_id || 0);
-    if (aktion === 'schule_advent_stand') return stand(k);
+    if (aktion === 'schule_advent_stand') { if (st.netzfehler > 0) { st.netzfehler--; throw Object.assign(new Error('503'), { advFehler: 'Server gerade nicht erreichbar (503)' }); } return stand(k); }
     if (!st.aktiv && !/eltern|belegung|protokoll/.test(aktion)) return { ok: true, aktiv: false, grund: 'nicht_aktiv' };
     if (aktion === 'schule_advent_oeffnen') { if (!d.client_id) fehler('client_id fehlt (1 bis 200 Zeichen)');
       if (st.cids.has(k + '|' + d.client_id)) return { ...st.cids.get(k + '|' + d.client_id), wiederholt: true };
-      const l = lage(k); if (l.frei <= 0) return { ok: true, aktiv: true, geoeffnet: false, grund: l.moeglich === 0 && l.faellig.length ? 'limit' : !l.faellig.length ? 'alles_offen' : 'keine_etappe', letzte_nr: [...st.offen[k].entries()].filter(([, o]) => o.tag === st.heute).map(([n]) => n).pop() || null };
+      const l = lage(k);
+      // erwartet_nr (Urteil 1219/3, mit server.md advent-s2 abzugleichen): passt die Tür nicht mehr (zweites Gerät war schneller), öffnet der Server nichts
+      // Reihenfolge wie server.md (helfer-advent-s2) Abschnitt 0: erwartete Tür schon offen → schon_offen; andere Tür dran → andere_tuer (jeweils mit stand)
+      if (d.erwartet_nr !== undefined && d.erwartet_nr !== null && st.offen[k].has(Number(d.erwartet_nr))) return { ok: true, aktiv: true, geoeffnet: true, wiederholt: true, schon_offen: true, tuer: tuer(k, Number(d.erwartet_nr)), stand: stand(k) };
+      if (d.erwartet_nr !== undefined && d.erwartet_nr !== null && l.frei > 0 && Number(d.erwartet_nr) !== l.naechste) return { ok: true, aktiv: true, geoeffnet: false, grund: 'andere_tuer', erwartet_nr: Number(d.erwartet_nr), naechste_nr: l.naechste, frei_heute: l.frei, moeglich_heute: l.moeglich, stand: stand(k) };
+      if (l.frei <= 0) return { ok: true, aktiv: true, geoeffnet: false, grund: l.moeglich === 0 && l.faellig.length ? 'limit' : !l.faellig.length ? 'alles_offen' : 'keine_etappe', letzte_nr: [...st.offen[k].entries()].filter(([, o]) => o.tag === st.heute).map(([n]) => n).pop() || null };
       const nr = l.naechste; const b = st.beleg[k].get(nr) || { art: 'leer' }; st.verbraucht[k]++;
       st.offen[k].set(nr, { tag: st.heute, am: '2026-12-07T06:30:00+00:00', nachgeholt: nr < l.tn, inhalt: { art: b.art, variante: b.variante || null, titel: b.titel || null, text: b.text || null, motiv: b.motiv || null, sterne: b.sterne || 0 }, gs: ['gutschein', 'krampus'].includes(b.art) ? neuGs(k, nr, b) : null });
-      const l2 = lage(k); const r = { ok: true, aktiv: true, geoeffnet: true, wiederholt: false, tuer: tuer(k, nr), frei_heute: l2.frei, moeglich_heute: l2.moeglich, naechste_nr: l2.naechste, gutscheine: zaehler(k) };
+      const l2 = lage(k); const r = { ok: true, aktiv: true, geoeffnet: true, wiederholt: false, schon_offen: false, tuer: tuer(k, nr), frei_heute: l2.frei, moeglich_heute: l2.moeglich, naechste_nr: l2.naechste, gutscheine: zaehler(k) };
       st.cids.set(k + '|' + d.client_id, r); st.prot.push({ id: st.prot.length + 1, am: '2026-12-07T06:30:00Z', lernender_id: k, aktion: 'oeffnen', nr }); return r; }
     if (aktion === 'schule_advent_tuer_lesen') { const t0 = tuer(k, Number(d.nr)); if (!t0) fehler(`Türchen ${d.nr} ist noch zu`); return { ok: true, aktiv: true, tuer: t0 }; }
     if (aktion === 'schule_advent_gutscheine') { const g = st.gs.filter((x) => x.lernender_id === k); const hatTausch = st.tausch && g.some((x) => x.art === 'tausch' && x.zustand === 'offen');
@@ -7804,16 +7812,26 @@ async function advSeite(t, { srv = {}, gestaltung = 'nacht', breite = 390, hoehe
 }
 const advReise = async (page) => { await page.goto(origin + '/#/reise/1'); await page.locator('.rk .rk-pin').first().waitFor(); await page.waitForTimeout(400); };
 
-test('ADV 1: außerhalb 1.12.–6.1. keine Ebene, kein Menü, kein Advent-Abruf und keine Advent-Datei; 1.12. und 6.1. an', async (t) => {
-  for (const [datum, an] of [['2026-11-30T23:30:00', false], ['2026-12-01T00:10:00', true], ['2027-01-06T22:00:00', true], ['2027-01-07T00:05:00', false]]) {
-    const { page, aufrufe, dateien } = await advSeite(t, { karte: true, advent: null, datum, gestaltung: 'tag' });
+test('ADV 1: Sichtbarkeit nach dem Server-Stand (Urteil 1219/6) – Gerätedatum steuert nur die Ebene der Karte und wann gefragt wird; 30.11. mit Server 1.12.: Türchen; nach dem 6.1. „Meine Gutscheine“', async (t) => {
+  // [Gerätedatum, Server, Merker „Gutscheine offen“, erwartet]
+  const faelle = [
+    ['2026-11-20T12:00:00', {}, false, { ebene: 0, abrufe: 0, dateien: 0, kal: 0, gs: 0, zeile: 0 }], // weit vor dem Fenster: kein Abruf, keine Datei
+    ['2026-11-30T23:30:00', { aus: 'vor_start' }, false, { ebene: 0, abrufe: 1, dateien: 0, kal: 0, gs: 0, zeile: 0 }], // Puffertag: fragt; Server noch vor dem Start → nichts, keine Datei
+    ['2026-11-30T23:30:00', {}, false, { ebene: 0, abrufe: 1, dateien: 2, kal: 1, gs: 1, zeile: 1 }], // Gerät noch 30.11., Server schon im Advent → Türchen/Menü/Hinweiszeile, aber keine Dekoration
+    ['2026-12-01T00:10:00', {}, false, { ebene: 1, abrufe: 1, dateien: 2, kal: 1, gs: 1, zeile: 1 }],
+    ['2027-01-06T22:00:00', {}, false, { ebene: 1, abrufe: 1, dateien: 2, kal: 1, gs: 1, zeile: 1 }],
+    ['2027-01-07T00:05:00', { aus: 'vorbei', offen: [2] }, false, { ebene: 0, abrufe: 1, dateien: 2, kal: 0, gs: 1, zeile: 0 }], // vorbei, Gutschein offen → nur „Meine Gutscheine“
+    ['2027-02-10T10:00:00', { aus: 'vorbei', offen: [2] }, true, { ebene: 0, abrufe: 1, dateien: 2, kal: 0, gs: 1, zeile: 0 }], // Wochen später: weiter, solange der Server offene meldet
+    ['2027-02-10T10:00:00', { aus: 'vorbei', offen: [2] }, false, { ebene: 0, abrufe: 0, dateien: 0, kal: 0, gs: 0, zeile: 0 }], // ohne Merker (nie offene gemeldet): kein Abruf
+  ];
+  for (const [datum, srv, merker, erw] of faelle) {
+    const { page, aufrufe, dateien } = await advSeite(t, { karte: true, advent: null, datum, gestaltung: 'tag', srv });
+    if (merker) await page.addInitScript(() => localStorage.setItem('lern.advent.gs.1', '1'));
     await advReise(page); await page.waitForTimeout(600);
-    await page.locator('.rk-menue').first().click(); await page.locator('dialog.lr-blatt[open]').waitFor();
-    assert.equal(await page.locator('.rk-fest-rand').count(), an ? 1 : 0, datum);
-    assert.equal(await page.evaluate(() => lernAdventFenster()), an, datum);
-    assert.equal(await page.locator('dialog.lr-blatt[open] a[href^="#/advent/"]').count(), an ? 1 : 0, `${datum}: Menü`);
-    assert.equal(aufrufe().length, an ? 1 : 0, `${datum}: Abrufe ${JSON.stringify(aufrufe())}`); assert.equal(dateien.length, an ? 2 : 0, `${datum}: Dateien`);
-    if (!an) assert.equal(await page.locator('.rk-adv-zeile, .lr-fest').count(), 0);
+    await page.locator('.rk-menue').first().click(); await page.locator('dialog.lr-blatt[open]').waitFor(); await page.waitForTimeout(200);
+    const ist = { ebene: await page.locator('.rk-fest-rand').count(), abrufe: aufrufe().length, dateien: dateien.length,
+      kal: await page.locator('dialog.lr-blatt[open] a[href^="#/advent/"]').count(), gs: await page.locator('dialog.lr-blatt[open] a[href^="#/gutscheine/"]').count(), zeile: await page.locator('.rk-adv-zeile').count() };
+    assert.deepEqual(ist, erw, `${datum} ${JSON.stringify(srv)} Merker ${merker}`);
     await page.close();
   }
 });
@@ -8078,7 +8096,7 @@ test('ADV 12: Karte – Sonderfälle 6.12. Stiefel, 24.12. Schlitten quer über 
       const fliegt = () => page.locator('.rkf-schlitten').evaluate((e) => getComputedStyle(e).display !== 'none' && /translate/.test(e.style.transform));
       await page.waitForFunction(() => { const e = document.querySelector('.rkf-schlitten'); return e && getComputedStyle(e).display !== 'none' && /translate/.test(e.style.transform); }, null, { timeout: 6000 });
       const lage1 = await page.locator('.rkf-schlitten').evaluate((e) => e.style.transform);
-      await page.setViewportSize({ width: 391, height: 844 }); await page.waitForTimeout(400); // Rand-Ebene wird neu aufgebaut
+      await page.setViewportSize({ width: 440, height: 844 }); await page.waitForTimeout(400); // Rand-Ebene wird neu aufgebaut (Urteil 1219/7: 390 → 440 px)
       assert.ok(await fliegt(), 'Schlitten fliegt nach Neuaufbau weiter');
       assert.notEqual(await page.locator('.rkf-schlitten').evaluate((e) => e.style.transform), lage1, 'und bewegt sich');
       // einmal am Tag: neu laden (gleiches Gerät, gleicher Tag) – kein zweiter Flug
@@ -8152,6 +8170,9 @@ test('ADV 15: Feinschliff – Tür „nachholen“ bei 390 und 320 px nicht ange
     const jw = await page.evaluate(() => { const m = document.querySelector('.rk-schwebe-karte .lr-jw-ecke > .lr-fest-jw-muetze'); const q = document.querySelector('.rk-quelle').getBoundingClientRect();
       const b = m.getBoundingClientRect(); return { seite: m.dataset.seite, frei: b.width === 0 || b.right < q.left || b.left > q.right || b.bottom < q.top || b.top > q.bottom, hidden: m.getAttribute('aria-hidden') }; });
     assert.ok(jw.frei && jw.hidden === 'true', `${breite} px: Mütze am Schild ${JSON.stringify(jw)}`);
+    const quelleFrei = await page.evaluate(() => { const q = document.querySelector('.rk-quelle').getBoundingClientRect(); const j = document.querySelector('.rk-schwebe-karte .lr-jw-ecke').getBoundingClientRect();
+      return j.right < q.left || j.left > q.right || j.bottom < q.top || j.top > q.bottom; });
+    assert.ok(quelleFrei, `${breite} px: Jugendwort-Schild verdeckt die Quellenzeile nicht`);
     const haube = await page.evaluate(() => { const k = document.querySelector('.rk-schwebe-karte').getBoundingClientRect(); const q = document.querySelector('.rk-quelle').getBoundingClientRect(); return k.top - 3 >= q.bottom - .5; });
     assert.ok(haube, `${breite} px: Schneehaube unter der Quellenzeile`);
     await page.close();
@@ -8171,4 +8192,149 @@ test('ADV Bilder: Kalender „nachholen“ 390/320 px und Karte unten (Mützen u
     await page.screenshot({ path: path.join(ziel, `${art}-b-karte-unten-${breite}-${gestaltung}.png`), clip: { x: rb.x, y: Math.max(rb.y, rb.y + rb.height - 300), width: rb.width, height: Math.min(300, rb.height) } });
     await page.close();
   }
+});
+
+// ---------- Urteil 1219: Advent-App – Regressionstests ----------
+// Advent-Abrufe gezielt verzögern (über advFehlerRoute gelegt; zuletzt registrierte Route gewinnt)
+async function advVerzoegern(page, aktionen, ms) {
+  await page.route('**/functions/v1/lernen-api/**', async (route) => { const b = JSON.parse(route.request().postData() || '{}'); if (aktionen.includes(b.aktion)) await new Promise((r) => setTimeout(r, ms)); await route.fallback(); });
+}
+test('ADV 16: verspätetes Modul + Routenwechsel (Eltern, Kalender, Gutscheine) – die Modulseite startet nicht über der neuen Ansicht; Tür nach der Etappe: Mehrfachtipp = eine Fortsetzung, verlassene Ansicht = keine Tür', async (t) => {
+  for (const [ziel, wohin, rolle] of [['#/adventeltern', '#/info', 'eltern'], ['#/advent/1', '#/lernen', undefined], ['#/gutscheine/1', '#/lernen', undefined]]) {
+    const { page, aufrufe } = await advSeite(t, { srv: { offen: [2] }, rolle });
+    await page.route('**/lernen-advent.js*', async (r) => { await new Promise((ok) => setTimeout(ok, 1200)); await r.continue(); });
+    await page.goto(origin + '/' + wohin); await page.waitForTimeout(300);
+    await page.evaluate((h) => { location.hash = h; }, ziel); await page.waitForTimeout(150);
+    await page.evaluate((h) => { location.hash = h; }, wohin); await page.waitForTimeout(2000);
+    assert.equal(await page.evaluate(() => location.hash), wohin);
+    assert.equal(await page.locator('.lr-adv-el, .tafel, .gs-seite').count(), 0, `${ziel} → ${wohin}: nichts über der neuen Ansicht`);
+    assert.equal(aufrufe('schule_advent_eltern').length + aufrufe('schule_advent_gutscheine').length, 0, `${ziel}: keine Abrufe der verlassenen Seite`);
+    await page.close();
+  }
+  // Tür nach der Etappe: Stand kommt spät; dreimal tippen → genau eine Tür, „Später öffnen“ → genau ein Weiter
+  { const { page, aufrufe } = await advSeite(t, { srv: { offen: [1, 2, 3, 4, 5, 6] } });
+    await advLanden(page); await advVerzoegern(page, ['schule_advent_stand'], 900);
+    await page.evaluate(() => { window.__tueren = 0; new MutationObserver((ms) => ms.forEach((m) => m.addedNodes.forEach((n) => { if (n.querySelector?.('.lr-advent')) window.__tueren++; }))).observe(document.body, { childList: true }); });
+    const gross = page.locator('.lr-abschluss-etappe .lr-ab-gross'); for (let i = 0; i < 3; i++) await gross.click({ timeout: 2000 }).catch(() => null);
+    await page.locator('.lr-advent').waitFor(); await page.waitForTimeout(600);
+    assert.equal(await page.evaluate(() => window.__tueren), 1, 'eine Tür');
+    await page.locator('.adv-spaeter').click(); await page.waitForTimeout(500);
+    assert.match(await page.evaluate(() => location.hash), /erklaeren-2$/, 'weiter zum ursprünglichen Ziel'); assert.equal(await page.locator('.lr-abschluss').count(), 0);
+    assert.equal(await page.evaluate(() => window.__tueren), 1, 'auch danach keine zweite Tür'); assert.equal(aufrufe('schule_advent_oeffnen').length, 0);
+    await page.close(); }
+  // Ansicht verlassen, bevor der Stand da ist → keine Tür auf der neuen Seite
+  { const { page } = await advSeite(t, { srv: { offen: [1, 2, 3, 4, 5, 6] } });
+    await advLanden(page); await advVerzoegern(page, ['schule_advent_stand'], 1200);
+    await page.locator('.lr-abschluss-etappe .lr-ab-gross').click(); await page.evaluate(() => { lernAbschlussZu(); location.hash = '#/merkheft/1'; });
+    await page.waitForTimeout(1800); assert.equal(await page.locator('.lr-advent').count(), 0, 'keine Tür nach Ansichtswechsel'); assert.equal(await page.evaluate(() => location.hash), '#/merkheft/1');
+    await page.close(); }
+});
+
+test('ADV 17: Gutschein einlösen – Schalter 1→0 zwischen Rückfrage und Bestätigung: kein „eingelöst“; Erfolg nur aus bestätigtem Gutschein; Fokus danach auf der Karte', async (t) => {
+  const { page, adv, aufrufe } = await advSeite(t, { srv: { offen: [2] }, gestaltung: 'tag' });
+  await page.goto(origin + '/#/gutscheine/1'); await page.locator('.gs-liste').first().waitFor();
+  await page.getByRole('button', { name: 'Eingelöst: Gutschein 2' }).click();
+  adv.st.aktiv = 0; // Eltern schalten den Kalender aus, während die Rückfrage offen ist
+  await page.getByRole('button', { name: 'Ja, eingelöst' }).click(); await page.getByText('Der Adventskalender ist gerade aus.').waitFor();
+  assert.equal(await page.locator('.gs-stempel').count(), 0, 'kein Stempel EINGELÖST'); assert.equal(adv.st.gs.find((x) => x.nr === 2).zustand, 'offen');
+  assert.equal(aufrufe('schule_advent_einloesen').length, 1);
+  adv.st.aktiv = 1; await page.reload(); await page.locator('.gs-liste').first().waitFor();
+  await page.getByRole('button', { name: 'Eingelöst: Gutschein 2' }).click(); await page.getByRole('button', { name: 'Ja, eingelöst' }).click();
+  await page.locator('.gs2.eingeloest .gs-stempel').waitFor(); assert.equal(adv.st.gs.find((x) => x.nr === 2).zustand, 'eingeloest');
+  await page.waitForTimeout(300);
+  assert.equal(await page.evaluate(() => document.activeElement?.closest('[data-id]')?.querySelector('h3')?.textContent), 'Gutschein 2', 'Fokus auf der eingelösten Karte (kein offener mehr)');
+  // Antwort ohne bestätigten Gutschein (z. B. andere ID) → nichts behaupten, Liste neu
+  adv.st.gs.push({ id: 60, nr: 12, lernender_id: 1, art: 'gutschein', titel: 'Gutschein 12', zustand: 'offen', getauscht: false });
+  await page.reload(); await page.locator('.gs-liste').first().waitFor();
+  await page.route('**/functions/v1/lernen-api/**', async (route) => { const b = JSON.parse(route.request().postData() || '{}');
+    if (b.aktion === 'schule_advent_einloesen') { await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, aktiv: true, gutschein: { id: 999, zustand: 'eingeloest' } } }) }); return; } await route.fallback(); });
+  await page.getByRole('button', { name: 'Eingelöst: Gutschein 12' }).click(); await page.getByRole('button', { name: 'Ja, eingelöst' }).click();
+  await page.getByText('Das ließ sich nicht bestätigen.').waitFor({ state: 'attached' });
+  assert.equal(await page.locator('.gs2[data-id="60"] .gs-stempel').count(), 0, 'nicht als eingelöst gezeigt');
+});
+
+test('ADV 18: zwei Geräte, zwei bereite Türen (server.md advent-s2) – Öffnen sendet erwartet_nr; „schon_offen“: Tür zeigen ohne Buchung; „andere_tuer“: nichts öffnen, mit stand die jetzt richtige Tür', async (t) => {
+  const { page, adv, aufrufe } = await advSeite(t, { srv: { offen: [1, 2], etappen: 2 }, gestaltung: 'tag' });
+  await page.goto(origin + '/#/advent/1-oeffnen'); const tuer = page.locator('.lr-advent'); await tuer.waitFor();
+  assert.match(await tuer.locator('.lr-ab-titel').innerText(), /Türchen 3/i);
+  adv('schule_advent_oeffnen', null, { lernender_id: 1, client_id: 'anderes-geraet', erwartet_nr: 3 }); // das zweite Gerät öffnet Tür 3
+  await page.locator('.adv-tuer-knopf').click(); await tuer.locator('.lr-ab-blatt').getByText('Türchen 3 ist offen').waitFor();
+  assert.match(await tuer.locator('.adv-zeile').innerText(), /Schon offen – auf einem anderen Gerät/);
+  assert.deepEqual([...adv.st.offen[1].keys()].sort((a, b) => a - b), [1, 2, 3], 'nichts doppelt gebucht');
+  // veraltete Anzeige: Tür 4 steht da, aber Tür 1 ist wieder fällig (z. B. von den Eltern zurückgesetzt) → andere_tuer, mit stand Tür 1
+  await page.evaluate(() => lernAbschlussZu()); await page.goto(origin + '/#/advent/1-oeffnen'); await tuer.waitFor();
+  assert.match(await tuer.locator('.lr-ab-titel').innerText(), /Türchen 4/i);
+  adv.st.offen[1].delete(1);
+  await page.locator('.adv-tuer-knopf').click();
+  await page.waitForFunction(() => /Türchen 1/i.test(document.querySelector('.lr-advent .lr-ab-titel')?.textContent || ''), null, { timeout: 4000 });
+  assert.equal(adv.st.offen[1].has(4), false, 'Tür 4 nicht geöffnet');
+  await page.locator('.adv-tuer-knopf').click(); await tuer.locator('.lr-ab-blatt').getByText('Türchen 1 ist offen').waitFor();
+  assert.deepEqual(aufrufe('schule_advent_oeffnen').filter((x) => x.d.client_id !== 'anderes-geraet').map((x) => x.d.erwartet_nr), [3, 4, 1]);
+});
+
+test('ADV 19: Netzfehler beim Stand wird nicht als „aus“ gemerkt (nächster Aufbau fragt wieder); Zugangswechsel leert den Advent-Stand', async (t) => {
+  const { page, aufrufe } = await advSeite(t, { karte: true, srv: { netzfehler: 1 }, gestaltung: 'tag' });
+  await advReise(page); await page.waitForTimeout(600);
+  assert.equal(await page.locator('.rk-adv-zeile').count(), 0, 'erster Abruf scheitert: keine Zeile');
+  await page.goto(origin + '/#/weg/1'); await page.waitForTimeout(400); await advReise(page);
+  await page.locator('.rk-adv-zeile').waitFor(); assert.equal(aufrufe('schule_advent_stand').length, 2, 'genau ein neuer Versuch beim nächsten Aufbau');
+  await page.goto(origin + '/#/weg/1'); await page.waitForTimeout(400); await advReise(page); await page.waitForTimeout(400);
+  assert.equal(aufrufe('schule_advent_stand').length, 2, 'danach gemerkt (ein Abruf je Sitzung und Tag)');
+  const n = await page.evaluate(() => { const vor = lernAdventSt.size; store.token = 'anderer-zugang'; lernSitzungPruefen(); return [vor, lernAdventSt.size]; });
+  assert.ok(n[0] >= 1 && n[1] === 0, `Zugangswechsel: ${n}`);
+});
+
+test('ADV 20: vollständiger Weg mit den Antwortformen aus server.md – Gerät 30.11., Server 7.12.: Landung → Tür → Öffnen (Sterne in tuer.sterne_gutgeschrieben → Konto neu) → Weiter → Kalender → Gutschein einlösen', async (t) => {
+  const beleg = () => { const m = ADV_BELEG(); m.set(1, { art: 'gutschein', variante: 'normal', titel: 'Kinoabend', text: 'Du suchst den Film aus.', sterne: 20 }); return m; };
+  const { page, adv, aufrufe, calls } = await advSeite(t, { advent: null, datum: '2026-11-30T18:00:00', srv: { belegung: beleg } });
+  await advLanden(page); await page.locator('.lr-abschluss-etappe .lr-ab-gross').click();
+  const tuer = page.locator('.lr-advent'); await tuer.waitFor(); assert.match(await tuer.locator('.lr-ab-titel').innerText(), /Türchen 1/i);
+  const konto0 = calls.filter((c) => c.aktion === 'schule_konto').length;
+  await page.locator('.adv-tuer-knopf').click(); await tuer.locator('.lr-ab-blatt').getByText('Türchen 1 ist offen').waitFor();
+  const r = adv.st.cids.values().next().value; assert.equal(r.tuer.sterne_gutgeschrieben, true); assert.equal('sterne_gutgeschrieben' in r, false, 'Form wie server.md: nur in tuer');
+  await tuer.locator('.lr-ab-blatt .lr-ab-gross').click(); await page.waitForTimeout(500); assert.match(await page.evaluate(() => location.hash), /erklaeren-2/);
+  await page.goto(origin + '/#/reise/1'); await page.waitForTimeout(800);
+  assert.ok(calls.filter((c) => c.aktion === 'schule_konto').length > konto0, 'Konto nach gutgeschriebenen Sternen neu geholt');
+  await page.goto(origin + '/#/advent/1'); await page.locator('.tafel').waitFor(); assert.equal(await page.locator('.td2[data-nr="1"]').getAttribute('class'), 'td2 offen geschenk');
+  await page.goto(origin + '/#/gutscheine/1'); await page.getByRole('button', { name: 'Eingelöst: Kinoabend' }).click(); await page.getByRole('button', { name: 'Ja, eingelöst' }).click();
+  await page.locator('.gs2.eingeloest').waitFor(); assert.equal(adv.st.gs[0].zustand, 'eingeloest'); assert.equal(aufrufe('schule_advent_einloesen').length, 1);
+});
+
+test('ADV 21: Ziehen der Karte – die Schnee-Schleife plant kein rAF je Bild, sondern pausiert und wacht nach der Ruhezeit wieder auf', async (t) => {
+  const { page } = await advSeite(t, { karte: true, gestaltung: 'tag', bewegung: 'no-preference' });
+  await page.addInitScript(() => { const r0 = window.requestAnimationFrame.bind(window); window.__lauf = 0; window.requestAnimationFrame = (cb) => { if (cb.name === 'lauf') window.__lauf++; return r0(cb); }; });
+  await advReise(page); await page.waitForTimeout(800);
+  const n = await page.evaluate(() => new Promise((ok) => { const ra = document.querySelector('.rk-rahmen'); const b = ra.getBoundingClientRect(); const x0 = b.left + b.width / 2, y0 = b.top + 250;
+    const ev = (typ, x, y) => ra.dispatchEvent(new PointerEvent(typ, { pointerId: 7, clientX: x, clientY: y, bubbles: true, isPrimary: true, pointerType: 'touch' }));
+    ev('pointerdown', x0, y0); const t0 = performance.now(); const vor = window.__lauf; let i = 0;
+    const l = (tt) => { i++; ev('pointermove', x0 + Math.sin(i / 8) * 90, y0 + Math.cos(i / 11) * 60); if (tt - t0 < 1500) requestAnimationFrame(l); else { ev('pointerup', x0, y0); ok({ lauf: window.__lauf - vor, bilder: i }); } };
+    requestAnimationFrame(l); }));
+  // vorher: ein rAF der Schleife je Bild (lauf ≈ bilder); jetzt höchstens ein Aufwachen je Ruhezeit (180 ms) – in 1,5 s also ≤ 10
+  assert.ok(n.bilder >= 10, JSON.stringify(n)); assert.ok(n.lauf <= 10 && n.lauf < n.bilder * 0.6, `beim Ziehen pausiert: ${JSON.stringify(n)}`);
+  const nach = await page.evaluate(() => new Promise((ok) => { const v = window.__lauf; setTimeout(() => ok(window.__lauf - v), 700); }));
+  assert.ok(nach > 10, `nach dem Ziehen läuft der Schnee wieder (${nach})`);
+});
+
+// ---------- Urteil 1220 B1/B2: unbekannter Pflichtstand gibt keinen Übungsstart frei ----------
+test('Urteil 1220 B1: Rückfall ohne Kartendaten (Abflugtafel) – Wiederholung UND Reisekarte 503: beide Einstiege führen zum Check-in, keiner zur Übung', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'tag' });
+  await page.route('**/functions/v1/lernen-api/**', async (route) => { const b = JSON.parse(route.request().postData() || '{}');
+    if (['schule_wiederholung', 'schule_reise_karte'].includes(b.aktion)) return route.fulfill({ status: 503, contentType: 'application/json', body: JSON.stringify({ ok: false, fehler: 'Dienst nicht verfügbar' }) });
+    return route.fallback(); });
+  await page.goto(origin + '/#/reise/1'); await page.locator('.lr-abflugtafel').waitFor({ timeout: 8000 });
+  const links = await page.evaluate(() => [...document.querySelectorAll('.lr-flug-jetzt, .lr-einsteigen-knopf')].map((a) => [a.className, a.getAttribute('href'), a.textContent.trim()]));
+  assert.equal(links.length, 2, JSON.stringify(links));
+  for (const [k, h, txt] of links) { assert.equal(h, '#/wiederholen/1', `${k}: ${txt}`); assert.doesNotMatch(txt, /EINSTEIGEN|Einsteigen/, k); }
+  assert.equal(await page.locator('a[href*="-ueben-"][href$="-start"]').count(), 0, 'kein Übungsstart auf der Seite');
+});
+test('Urteil 1220 B2: Schritt-Knopf – Kind nicht ladbar (Frische unbekannt) → neutral zur Reisekarte, nie das Ziel „vorher“', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'tag' });
+  await page.goto(origin + '/#/info'); await page.waitForTimeout(300);
+  await page.route('**/functions/v1/lernen-api/**', async (route) => { const b = JSON.parse(route.request().postData() || '{}');
+    if (['schule_uebersicht', 'schule_konto'].includes(b.aktion)) return route.fulfill({ status: 503, contentType: 'application/json', body: JSON.stringify({ ok: false, fehler: 'weg' }) });
+    return route.fallback(); });
+  const r = await page.evaluate(async () => { lernVergessen(); const z = await lernSchrittLaden(1);
+    const a = lernSchrittKnopf(1, { vorher: { text: 'Weiter in Rom', klein: null, ziel: '#/lerneinheit/1-1-ueben-1-start' } }); document.body.append(a); await a.frei;
+    return { z, href: a.getAttribute('href'), art: a.dataset.schritt, text: a.textContent }; });
+  assert.equal(r.z, null); assert.equal(r.href, '#/reise/1'); assert.equal(r.art, 'neutral'); assert.match(r.text, /Zur Reisekarte/);
 });

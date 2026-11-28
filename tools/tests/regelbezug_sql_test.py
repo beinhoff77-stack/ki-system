@@ -57,8 +57,8 @@ def teil1():
         assert rc == 0 and out.count('$rbf$') % 2 == 0 and 'do $rbnach$' in out, (r, err[-400:])
     # Runde 14: seit 28.11. mit 640 Fehlbildern und ohne Regel eingespielt; die Regel kommt nur über rb_nachtrag_r14.sql. Das alte Paket bleibt byteidentisch.
     z14, abw14, fehlt14, c14, weg14, _ = R.sammeln((14,))
-    assert c14['aufgaben'] == 213 and not fehlt14 and not abw14 and c14['mit_regel'] == 180 and c14['fb_uebernommen'] == 640 and not weg14, (c14, abw14, weg14)
-    assert len(z14) == 213 and sum(len(x['fb']) for x in z14) == 640 and sum(1 for x in z14 if x['regel']) == 180
+    assert c14['aufgaben'] == 213 and not fehlt14 and not abw14 and c14['mit_regel'] == 195 and c14['fb_uebernommen'] == 640 and not weg14, (c14, abw14, weg14)
+    assert len(z14) == 213 and sum(len(x['fb']) for x in z14) == 640 and sum(1 for x in z14 if x['regel']) == 195
     alt14 = (WURZEL / 'tools/tests/aus/rollend14_einspielen.sql').read_bytes()
     assert hashlib.md5(alt14).hexdigest() == 'b2d081b8da216e6d45691f55d0e73569', 'rollend14_einspielen.sql ist nicht mehr das eingespielte Paket'
     rc, out, err = py('tools/rollend_sql.py', '--runden', '14', '--sql')
@@ -223,14 +223,52 @@ def teil2(zeilen):
         out = pg.paket(pk14[pk14.index('-- RB-S Regelbezug: neue Aufgaben rollend-14'):])
         assert 'RB-S Regelbezug: 213 Aufgaben, 0 Regeln neu, 640 Fehlbilder neu' in out, out[-400:]
         nach14 = (aus / 'rb_nachtrag_r14.sql').read_text(encoding='utf-8')
+        assert 'insert into schule.aufgabe_fehlbild' not in nach14, 'rb_nachtrag_r14.sql darf nichts in aufgabe_fehlbild schreiben'
+        # Negativtests: der Nachtrag r14 bricht ab, wenn die Fehlbilder nicht genau dem Soll entsprechen; danach steht keine Regel von R14 in der Tabelle
+        x0 = R.sammeln((14,))[0][0]
+        f0 = x0['fb'][0]
+        aid = f"(select id from schule.aufgabe where einheit_id = {x0['e']} and pool = 'uebung' and reihenfolge = {x0['r']})"
+        offen = f"update schule.einheit set status = 'geprueft' where id = {x0['e']};\n"
+        zu = f"\nupdate schule.einheit set status = 'freigegeben' where id = {x0['e']};"
+        regeln_vor = pg.sql("\\pset tuples_only on\nselect count(*) from schule.aufgabe_regel;").split()[0]
+        fb_vor = pg.sql("\\pset tuples_only on\nselect count(*) from schule.aufgabe_fehlbild;").split()[0]
+        def nichts_geblieben(was):
+            assert pg.sql("\\pset tuples_only on\nselect count(*) from schule.aufgabe_regel;").split()[0] == regeln_vor, f'{was}: Regeln von R14 sind zurückgeblieben'
+        # 1. ein Fehlbild fehlt
+        pg.sql("create table public.fb_sicher as select * from schule.aufgabe_fehlbild where false;\n" + offen
+               + f"insert into public.fb_sicher select * from schule.aufgabe_fehlbild where aufgabe_id = {aid} and nr = {f0['nr']};\n"
+               + f"delete from schule.aufgabe_fehlbild where aufgabe_id = {aid} and nr = {f0['nr']};" + zu)
+        out = pg.paket(nach14, erwartet_fehler='RB-S Regelbezug ABBRUCH')
+        assert x0['k'] in out and 'fehlt oder weicht' in out, out[-600:]
+        nichts_geblieben('Fehlbild fehlt')
+        pg.sql(offen + "insert into schule.aufgabe_fehlbild select * from public.fb_sicher;\ndrop table public.fb_sicher;" + zu)
+        # 2. ein zusätzliches Fehlbild
+        assert x0['y'] == 'zahl'      # alle Aufgaben der Runde 14 haben eine Zahlantwort
+        pg.sql(offen + f"insert into schule.aufgabe_fehlbild (aufgabe_id, nr, art, luecke, wert, beschreibung) values ({aid}, 99, 'zahl', null, '987654', 'zusätzlich');" + zu)
+        pg.paket(nach14, erwartet_fehler='RB-S Regelbezug ABBRUCH')
+        nichts_geblieben('zusätzliches Fehlbild')
+        pg.sql(offen + f"delete from schule.aufgabe_fehlbild where aufgabe_id = {aid} and nr = 99;" + zu)
+        # 3. ein abweichendes Fehlbild
+        pg.sql(offen + f"update schule.aufgabe_fehlbild set beschreibung = beschreibung || ' (geändert)' where aufgabe_id = {aid} and nr = {f0['nr']};" + zu)
+        out = pg.paket(nach14, erwartet_fehler='RB-S Regelbezug ABBRUCH')
+        assert 'fehlt oder weicht' in out, out[-600:]
+        nichts_geblieben('abweichendes Fehlbild')
+        pg.sql(offen + f"update schule.aufgabe_fehlbild set beschreibung = replace(beschreibung, ' (geändert)', '') where aufgabe_id = {aid} and nr = {f0['nr']};" + zu)
+        assert pg.sql("\\pset tuples_only on\nselect count(*) from schule.aufgabe_fehlbild;").split()[0] == fb_vor, 'Fehlbilder nicht wiederhergestellt'
+        # 4. Teilvorbestand an Regeln (eine Regel von R14 steht schon) -> Abbruch
+        pg.sql(f"insert into schule.aufgabe_regel (aufgabe_id, regel) values ({aid}, '{x0['regel']}');")
+        out = pg.paket(nach14, erwartet_fehler='Teilvorbestand')
+        pg.sql(offen + f"delete from schule.aufgabe_regel where aufgabe_id = {aid};" + zu)
+        nichts_geblieben('Teilvorbestand')
+        print('Negativtests Nachtrag r14 (Fehlbild fehlt / zusätzlich / abweichend / Teilvorbestand): Abbruch, 0 Regeln von R14 zurückgeblieben')
         out1 = pg.paket(nach14)
         out2 = pg.paket(nach14)
-        assert 'RB-S Regelbezug: 213 Aufgaben, 180 Regeln neu, 0 Fehlbilder neu' in out1, out1[-400:]
+        assert 'RB-S Regelbezug: 213 Aufgaben, 195 Regeln neu, 0 Fehlbilder neu' in out1, out1[-400:]
         assert 'RB-S Regelbezug: 213 Aufgaben, 0 Regeln neu, 0 Fehlbilder neu' in out2, out2[-400:]
         print('Runde 14, Nachtrag, 1. Lauf:', [l for l in out1.splitlines() if 'RB-S Regelbezug' in l][-1].strip())
         print('Runde 14, Nachtrag, 2. Lauf:', [l for l in out2.splitlines() if 'RB-S Regelbezug' in l][-1].strip())
         zahl = pg.sql("\\pset tuples_only on\nselect count(*) || ' ' || (select count(*) from schule.aufgabe_fehlbild) from schule.aufgabe_regel;").split()
-        assert int(zahl[0]) == sum(1 for x in zeilen if x['regel']) + 180 and int(zahl[1]) == sum(len(x['fb']) for x in zeilen) + 640, zahl
+        assert int(zahl[0]) == sum(1 for x in zeilen if x['regel']) + 195 and int(zahl[1]) == sum(len(x['fb']) for x in zeilen) + 640, zahl
         # eine echte Fehlantwort aus einer Datei (Zahl mit Kennung) über die Bewertung
         x = next(x for x in zeilen if x['y'] == 'zahl' and any(f['fehlbild'] for f in x['fb']))
         f = next(f for f in x['fb'] if f['fehlbild'])

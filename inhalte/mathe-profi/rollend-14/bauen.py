@@ -50,12 +50,20 @@ THEMEN = {
 }
 KUERZEL = "R14"
 KLASSE = {s: (6 if s.split(".")[0] in ("bruch", "groessen") or s in ("messen.koerper_berechnung", "messen.volumen", "messen.flaechen_vielecke", "terme.aufstellen") else 8) for s in THEMEN}
-REGEL_AUSNAHME = {("geometrie.konstruktion", "id.geometrie.winkel"),            # Winkelsumme und Nachbarwinkel im Viereck (wie Runde 13)
-                  ("messen.prisma_zylinder", "id.flaeche_raum.aus_dem_rechteck"),   # Grundfläche aus Rechteck, Dreieck, Kreis (wie Runde 7)
-                  ("messen.prisma_zylinder", "id.flaeche_raum.haut"),               # Oberfläche von Prisma und Zylinder (wie Runde 7)
-                  ("messen.koerper_berechnung", "id.flaeche_raum.aus_dem_quader"),  # Kantenmodell des Quaders (wie Runde 6)
-                  ("messen.volumen", "id.flaeche_raum.aus_dem_quader"),             # Volumen des Quaders (wie Runde 6)
-                  ("stochastik.grundbegriffe", "id.daten.stufen")}                  # (Thema-Datei, Idee): Themenliste nennt das Thema nicht, Text passt trotzdem (von Hand gelesen)
+REGEL_AUSNAHME = {("geometrie.konstruktion", "id.geometrie.winkel"),            # V001-V003, V005, V006: Winkelsumme und Nachbarwinkel im Viereck (wie Runde 13)
+                  ("messen.prisma_zylinder", "id.flaeche_raum.aus_dem_rechteck"),   # nur V055, V056: Grundfläche aus Rechteck und Dreieck zerlegt (tragende Flächenzerlegung)
+                  ("messen.prisma_zylinder", "id.flaeche_raum.haut"),               # V058-V060, V067-V069: Oberfläche von Prisma und Zylinder (wie Runde 7)
+                  ("messen.koerper_berechnung", "id.flaeche_raum.aus_dem_quader"),  # nur V087: das Volumen liefert die fehlende Kante
+                  ("messen.volumen", "id.flaeche_raum.aus_dem_quader"),             # V148-V150, V157-V165: Volumen des Quaders (wie Runde 6)
+                  ("messen.volumen", "id.verhaeltnisse.groesse"),                   # V151-V156: Einheiten- und Literumrechnung, Katalog nennt den falschen Faktor bei Raumeinheiten
+                  ("stochastik.grundbegriffe", "id.daten.stufen"),                  # V076, V083: Möglichkeiten und Wege im Baum, entlang des Pfades malnehmen
+                  ("stochastik.grundbegriffe", "id.verhaeltnisse.prozent"),         # V079-V081, V084: Häufigkeit bzw. Anteil in Prozent (Prozent heißt Hundertstel)
+                  ("bruch.dezimal", "id.verhaeltnisse.groesse"),                    # V167, V169: Meter in Zentimeter bzw. Millimeter, Einheit wechselt, Zahl wechselt
+                  ("bruch.dezimal", "id.zahlen.zahlengerade"),                      # V170, V188: offene Grenzen und Mittelpunkt auf dem Zahlenstrahl
+                  ("raum.schraegbilder", "id.flaeche_raum.aus_dem_quader"),         # V033-V036: Quader- bzw. Zylindervolumen (Grundfläche mal Höhe)
+                  ("raum.schraegbilder", "id.flaeche_raum.aus_dem_rechteck")}       # V037: Dreiecksfläche des Axialschnitts (halbes Rechteck)
+AUSNAHME_NUR = {("messen.prisma_zylinder", "id.flaeche_raum.aus_dem_rechteck"): {"R14-V055", "R14-V056"},   # tragende Flächenzerlegung
+                ("messen.koerper_berechnung", "id.flaeche_raum.aus_dem_quader"): {"R14-V087"}}              # Volumen wirklich benötigt (nicht V085, V086)
 # Regel-Kennung je Aufgabe, nachträglich (die 213 Aufgaben sind eingespielt; nur dieses Feld kam dazu): regeln.py, Tabelle regeln-zuordnung.md
 _rg = _iu.spec_from_file_location("regeln_r14", os.path.join(HIER, "regeln.py"))
 _rm = _iu.module_from_spec(_rg)
@@ -311,6 +319,8 @@ for a in A:
     zu = ZUORD.pop(kenn)           # (Kennung, Thema, Lernkarte, Regel, Quelle, Zweifel, Bemerkung)
     assert zu[1] == a["thema"] and zu[2] == a["lk"], (kenn, "regeln.py gehört zu einer anderen Aufgabe", zu[1:3])
     a["regel"] = zu[3]
+    if (THEMEN[a["thema"]][0], a["regel"]) in AUSNAHME_NUR:
+        assert kenn in AUSNAHME_NUR[(THEMEN[a["thema"]][0], a["regel"])], (kenn, "Ausnahme der Themenliste gilt nur für", AUSNAHME_NUR[(THEMEN[a["thema"]][0], a["regel"])])
     assert a["regel"] is None or a["regel"] in REGELN, (kenn, a["regel"])
     # Katalog (kennungen.json): die tragende Idee muss zum Thema passen (Ausnahmen von Hand gelesen); Kennung leer, wenn der Katalog nichts Passendes hat
     assert a["regel"] is None or datei in REGELN[a["regel"]]["themen"] or (datei, a["regel"]) in REGEL_AUSNAHME, (kenn, a["regel"], "Thema steht nicht in der Themenliste der Idee")

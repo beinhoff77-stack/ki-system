@@ -2,9 +2,9 @@
 """W1 – Einspiel-Paket „Verstehen in Tests“, Stufe 1 (inhalte/mathe-profi/vtest-1/plan.md), nach dem Muster tools/bestand_berichtigung1_sql.py.
 
 Aufruf:  python3 -I tools/vtest_sql.py --runde 1a                -> Übersicht (prüft alles wie tools/vtest_pruefen.py, schreibt nichts)
-         python3 -I tools/vtest_sql.py --runde 1a--sql           -> Einspiel-Paket (ein Aufruf, eine Transaktion) nach stdout
-         python3 -I tools/vtest_sql.py --runde 1a--sql --probe   -> Probelauf: dieselben Prüfungen, am Ende absichtlich Fehler = ALLES zurückgerollt
-         python3 -I tools/vtest_sql.py --runde 1a--pakete        -> schreibt tools/tests/aus/vtest<Runde>_{probe,einspielen}.sql, druckt Größe/md5
+         python3 -I tools/vtest_sql.py --runde 1a --sql           -> Einspiel-Paket (ein Aufruf, eine Transaktion) nach stdout
+         python3 -I tools/vtest_sql.py --runde 1a --sql --probe   -> Probelauf: dieselben Prüfungen, am Ende absichtlich Fehler = ALLES zurückgerollt
+         python3 -I tools/vtest_sql.py --runde 1a --pakete        -> schreibt tools/tests/aus/vtest<Runde>_{probe,einspielen}.sql, druckt Größe/md5
          (--pakete --pruefen: schreibt nichts, Rückgabe 1, wenn die Dateien nicht dem Stand entsprechen)
          Testumgebung: --auswahl/--ordner/--plan/--themen/--themenliste wie bei tools/vtest_pruefen.py
 NICHT AUSFÜHREN ohne den ausdrücklichen Satz des Nutzers. Ändert nichts an App-Code, Lernständen oder Quelldateien.

@@ -15,16 +15,17 @@ neu(T, "schreibweise", "test", "begruenden", W(
     8 ** 5 == 2 ** 15 != 2 ** 20), regel=P, idee="faktoren_umgruppieren", bauplan="d", schema=False, alt=None,
     bestand="themen schreibweise „Schreibe 6 · 6 · 6 · 2 · 2 · 2 als eine einzige Potenz“; rollend-5 berechnen „4³ als 2⁶ (Weg B)“",
     unterschied="Dort wird eine Darstellung gebildet oder ausgerechnet; hier werden vier Darstellungen über die Zahl der Faktoren verglichen, Ausrechnen (über eine Million) ist keine Hilfe.")
-neu(T, "schreibweise", "korrektur", "umkehr", Z(
-    "Vier gleiche Potenzen werden addiert: 2³⁰ + 2³⁰ + 2³⁰ + 2³⁰. Das Ergebnis lässt sich als eine einzige Potenz mit der Basis 2 schreiben. Welche Hochzahl hat diese Potenz?",
-    32, "30 + 2", lambda: next(n for n in range(1, 200) if 2 ** n == 4 * 2 ** 30),
-    "Viermal dieselbe Zahl addieren heißt, sie mit 4 malzunehmen: 4 · 2³⁰. Weil 4 = 2 · 2 ist, kommen zu den 30 Faktoren 2 noch zwei Faktoren 2 dazu. "
-    "Das sind 32 Faktoren, also 2³². Beim Addieren werden die Hochzahlen nicht zusammengezählt.",
-    [(120, "Die vier Hochzahlen addiert: 30 + 30 + 30 + 30", "30 + 30 + 30 + 30"),
-     (34, "Für jeden der vier Summanden einen Faktor 2 dazugezählt: 30 + 4", "30 + 4"),
-     (31, "Nur einmal verdoppelt: 30 + 1", "30 + 1")]), form="umkehren", regel=P, idee="summe_gleicher_potenzen", bauplan="d", schema=False, alt=None,
-    bestand="themen berechnen „Für welche natürliche Zahl n gilt 2ⁿ = 4 · 16?“; themen schreibweise „2 hoch wie viel ergibt 256?“",
-    unterschied="Dort wird ein Produkt kleiner Zahlen als Potenz geschrieben oder eine Hochzahl durch Ausrechnen gesucht; hier wird eine Summe gleicher Potenzen umgedeutet (viermal = mal 4 = zwei Faktoren 2 mehr), Ausrechnen (über eine Milliarde) ist unmöglich. Ersetzt die Kinderregel-Aufgabe (B1).")
+neu(T, "schreibweise", "korrektur", "darstellung", W(
+    "Eine Potenz hat eine ungerade Basis, zum Beispiel 3, 5 oder 7, und eine beliebige Hochzahl. Welche Aussage über den Wert der Potenz stimmt?",
+    "Sie ist immer ungerade.",
+    [("Sie ist gerade, wenn die Hochzahl gerade ist.", "Die Hochzahl für entscheidend gehalten; aber 3² = 3 · 3 = 9 ist ungerade", 3 ** 2 % 2 == 1),
+     ("Sie ist mal gerade, mal ungerade.", "Nicht gesehen, dass nur ungerade Faktoren malgenommen werden", all(b ** n % 2 == 1 for b in (3, 5, 7, 9) for n in range(1, 9))),
+     ("Sie ist immer gerade, sobald die Hochzahl größer als 1 ist.", "Gedacht, mehrere Faktoren machen eine Zahl gerade; aber 5³ = 125 ist ungerade", 5 ** 3 % 2 == 1)],
+    "Eine Potenz ist ein Produkt aus lauter gleichen Faktoren. Bei einer ungeraden Basis sind alle Faktoren ungerade. Ungerade mal ungerade ergibt wieder eine ungerade Zahl (3 · 3 = 9, 9 · 3 = 27, …). "
+    "Also bleibt der Wert immer ungerade, egal wie groß die Hochzahl ist.",
+    all(b ** n % 2 == 1 for b in range(1, 30, 2) for n in range(1, 12))), form="bruecke", regel=P, idee="potenz_gerade_ungerade", bauplan="f", schema=False, alt=None,
+    bestand="themen quadrat (Bonus) „Wie viele der Quadratzahlen 1², 2², …, 20² sind gerade?“ (andere Etappe); themen schreibweise „Was bedeutet 3²?“",
+    unterschied="Dort wird gezählt oder eine Bedeutung gelesen; hier wird eine allgemeine Aussage über alle Potenzen mit ungerader Basis begründet (Produkt ungerader Faktoren). Warum kein Schema: Basis und Hochzahl sind beliebig, Beispiele widerlegen nur die Ablenker; die richtige Aussage braucht die Begründung über die Faktoren. Ersetzt 002 (B2).")
 neu(T, "schreibweise", "korrektur", "umkehr", W(
     "Der Wert der Potenz 3¹² soll genau verdreifacht werden. Welche Änderung an der Potenz bewirkt das?",
     "Die Hochzahl 12 durch 13 ersetzen",
@@ -124,16 +125,17 @@ neu(T, "zehner", "test", "parameter", Z(
      (701, "Den Unterschied der Hochzahlen um eins zu klein genommen: zwei statt drei Nullen", "7 * 10 ** 2 + 1")]), form="umkehren", regel=P, idee="faktor_hochzahl_verrechnen", bauplan="g", schema=False, alt=None,
     bestand="themen zehner „Für welchen Exponenten n gilt 25 · 10ⁿ = 2 500 000?“; „4 300 000 = 43 · 10 hoch … Welcher Exponent passt?“",
     unterschied="Dort ist eine ausgeschriebene Zahl gegeben und der Exponent gesucht; hier werden zwei Zehnerpotenz-Schreibweisen ohne Ausschreiben (12 Stellen) verglichen und eine Grenze (größer, nicht gleich) bestimmt.")
-neu(T, "zehner", "korrektur", "darstellung", Z(
-    "Wie viele Zehnerpotenzen (10¹, 10², 10³, …) sind größer als 5 · 10³ und kleiner als 5 · 10⁷?",
-    4, "7 - 4 + 1", lambda: sum(1 for n in range(1, 30) if 5 * 10 ** 3 < 10 ** n < 5 * 10 ** 7),
-    "5 · 10³ = 5 000 liegt zwischen 10³ = 1 000 und 10⁴ = 10 000. 5 · 10⁷ = 50 000 000 liegt zwischen 10⁷ und 10⁸. "
-    "Dazwischen liegen also 10⁴, 10⁵, 10⁶ und 10⁷, das sind 4 Zehnerpotenzen. 10³ ist zu klein, 10⁸ ist zu groß.",
-    [(5, "Von 10³ bis 10⁷ gezählt, obwohl 10³ kleiner als 5 · 10³ ist: 7 − 3 + 1", "7 - 3 + 1"),
-     (3, "Nur die Zehnerpotenzen echt zwischen 10³ und 10⁷ gezählt: 7 − 3 − 1", "7 - 3 - 1"),
-     (6, "Bis 10⁸ gezählt, weil 5 · 10⁷ größer als 10⁷ ist: 8 − 3 + 1", "8 - 3 + 1")]), form="bruecke", regel=P, idee="zehnerpotenzen_einordnen", bauplan="g", schema=False, alt=None,
+neu(T, "zehner", "korrektur", "darstellung", W(
+    "Eine natürliche Zahl hat genau 8 Stellen. Welche Aussage über sie stimmt für jede solche Zahl?",
+    "Sie ist mindestens 10⁷ und kleiner als 10⁸.",
+    [("Sie ist größer als 10⁷ und höchstens 10⁸.", "Die Grenzen vertauscht: 10⁷ = 10 000 000 hat selbst 8 Stellen, 10⁸ hat schon 9", len(str(10 ** 7)) == 8 and len(str(10 ** 8)) == 9),
+     ("Sie ist mindestens 10⁸ und kleiner als 10⁹.", "Stellenzahl und Hochzahl gleichgesetzt; 10⁸ hat aber 9 Stellen", len(str(10 ** 8)) == 9),
+     ("Sie ist mindestens 10⁶ und kleiner als 10⁷.", "Die Hochzahl um zwei zu klein genommen; 10⁷ hat schon 8 Stellen", len(str(10 ** 7)) == 8)],
+    "10ⁿ ist eine 1 mit n Nullen und hat n + 1 Stellen. Die kleinste Zahl mit 8 Stellen ist 10 000 000 = 10⁷, die kleinste mit 9 Stellen ist 10⁸. "
+    "Also ist jede Zahl mit 8 Stellen mindestens 10⁷ und kleiner als 10⁸.",
+    all(10 ** 7 <= z < 10 ** 8 for z in (10 ** 7, 12345678, 99999999))), form="bruecke", regel=P, idee="stellenzahl_zu_zehnerpotenz", bauplan="c", schema=False, alt=None,
     bestand="themen zehner „Wie viele Nullen hat die Zahl 10⁸?“; „Ein Lichtjahr ist etwa 9 · 10¹² km. Wie viele Nullen …?“",
-    unterschied="Dort wird eine Schreibweise gelesen; hier werden Zahlen der Form □ · 10ⁿ zwischen Zehnerpotenzen eingeordnet, beide Grenzen müssen beachtet werden. Ersetzt die Kinderregel-Aufgabe (B1).")
+    unterschied="Dort wird eine Schreibweise gelesen; hier wird von der Stellenzahl auf die Lage zwischen Zehnerpotenzen geschlossen, einschließlich der Grenzen. Warum kein Schema: Die Zahl ist beliebig; ein Beispiel entscheidet nicht, ob 10⁷ und 10⁸ selbst dazugehören, dafür braucht man „10ⁿ hat n + 1 Stellen“. Ersetzt 012 (A1).")
 neu(T, "zehner", "korrektur", "darstellung", W(
     "Die Zahl 7 · 10⁹ + 5 · 10⁶ + 3 · 10² wird verändert: In jedem der drei Teile wird die Hochzahl um 1 größer. Was geschieht mit der Zahl?",
     "Sie wird 10-mal so groß.",
@@ -168,7 +170,7 @@ neu(T, "zehner", "sicherung", "begruenden", W(
     unterschied="Dieselbe Einsicht (die Nullen der Zahl vorn zählen mit), aber eine andere Leistung: Dort wird gezählt, hier wird eine allgemeine Aussage geprüft und mit einem Gegenbeispiel entschieden (immer – manchmal – nie).")
 # ═════════ sach ═════════
 neu(T, "sach", "test", "begruenden", Z(
-    "Eine Pflanze hat am Anfang 2 Blätter und verdreifacht jeden Tag ihre Blätterzahl. Ein Kind will die Blätterzahl nach 6 Tagen ausrechnen und schreibt 6⁶, weil 2 · 3 = 6 ist. Wie viele Faktoren 2 stehen in der Rechnung des Kindes mehr als in einer richtigen Rechnung?",
+    "Eine Pflanze hat am Anfang 2 Blätter und verdreifacht jeden Tag ihre Blätterzahl. Ein Kind will die Blätterzahl nach 6 Tagen ausrechnen und schreibt 6⁶, weil 2 · 3 = 6 ist. Wie viele Faktoren 2 stehen in der Rechnung des Kindes mehr als in der richtigen Rechnung 2 · 3 · 3 · 3 · 3 · 3 · 3?",
     5, "6 - 1", lambda: 6 - 1,
     "Richtig ist 2 · 3 · 3 · 3 · 3 · 3 · 3 = 2 · 3⁶: einmal die 2 (die Startzahl) und sechsmal die 3. Das Kind rechnet 6⁶ = (2 · 3) · (2 · 3) · (2 · 3) · (2 · 3) · (2 · 3) · (2 · 3): sechsmal die 2 und sechsmal die 3. "
     "Es hat also 6 − 1 = 5 Faktoren 2 zu viel; sein Ergebnis ist 2 · 2 · 2 · 2 · 2 = 32-mal zu groß.",

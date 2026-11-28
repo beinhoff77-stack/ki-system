@@ -71,7 +71,7 @@ def erste(f, bis=100000, ab=0):
 # ═════════ zahlen.potenzen_basis ═════════
 # schreibweise
 wahl_genau("001", lambda o: term(o) != 2 ** 20)
-zahl("002", next(n for n in range(1, 200) if 2 ** n == sum(2 ** 30 for _ in range(4))))
+wahl("002", "Sie ist immer ungerade", all(b ** n % 2 == 1 for b in range(1, 50, 2) for n in range(1, 15)) and 3 ** 2 % 2 == 1)
 def wert_003(o):
     z = [int(x) for x in re.findall(r"\d+", o)]
     return z[1] ** 12 if o.startswith("Die Basis") else 3 ** z[1]
@@ -91,7 +91,8 @@ anzahlen = [(n + 1) ** 2 - n ** 2 - 1 for n in range(1, 500)]
 wahl("010", "Die Anzahl ist immer gerade", all(x % 2 == 0 for x in anzahlen) and len(set(anzahlen)) > 1)
 # zehner
 zahl("011", erste(lambda x: x * 10 ** 8 > 7 * 10 ** 11, 10 ** 6, 1))
-zahl("012", len([n for n in range(0, 40) if 5 * 10 ** 3 < 10 ** n < 5 * 10 ** 7]))
+acht = [z for z in (10 ** 7, 10 ** 7 + 1, 54321098, 10 ** 8 - 1, 10 ** 8) if len(str(z)) == 8]
+wahl("012", "Sie ist mindestens 10⁷ und kleiner als 10⁸", all(10 ** 7 <= z < 10 ** 8 for z in acht) and 10 ** 7 in acht and 10 ** 8 not in acht)
 vorher = 7 * 10 ** 9 + 5 * 10 ** 6 + 3 * 10 ** 2
 nachher = 7 * 10 ** 10 + 5 * 10 ** 7 + 3 * 10 ** 3
 wahl("013", "Sie wird 10-mal so groß", nachher == 10 * vorher)
@@ -162,7 +163,8 @@ links = lambda t: namen[[z for z in t if z in namen][0]]
 zuletzt = lambda t: namen[letzter_schritt(t)]
 wahl("029", "Es benennt den Term nach dem Rechenzeichen, das ganz rechts",
      all(rechts(t) == n for t, n in beispiele.items()) and not all(links(t) == n for t, n in beispiele.items()) and not all(zuletzt(t) == n for t, n in beispiele.items()))
-wahl("030", "Mit Klammer ist es eine Differenz, ohne Klammer eine Summe", namen[letzter_schritt("20 − (5 + 3)")] == "Differenz" and namen[letzter_schritt("20 − 5 + 3")] == "Summe")
+wahl("030", "Setzt man den ganzen Term in eine Klammer", all(namen[letzter_schritt("(" + t + ") · 2")] == "Produkt" for t in ("20 − 5 + 3", "7 + 3 · 5", "8 : 2", "4 · 6 − 1"))
+     and namen[letzter_schritt("2 · 3 + 4")] == "Summe" and namen[letzter_schritt("7 + 3 · 5")] == "Summe")
 # vorteil
 paare = [(a, 200 // a) for a in range(6, 201) if 200 % a == 0 and a < 200 // a and 200 // a > 5 and a % 10 and (200 // a) % 10]
 assert len(paare) == 1 and 4600 // 23 == 200
@@ -182,9 +184,7 @@ zahl("037", 2347 * 89 - 2347 * 86)
 wahl("038", "Erst werden alle vier Eis bezahlt, danach alle vier Getränke", 4 * 2 + 4 * 3 == 4 * (2 + 3))
 verteilt_produkt = lambda a, b, c: a * b * a * c                     # Regel des Kindes: a · (b · c) = a · b · a · c
 assert (verteilt_produkt(2, 3, 5), verteilt_produkt(3, 2, 4)) == (60, 72)
-stimmt = [a for a in range(1, 100) if verteilt_produkt(a, 2, 7) == a * 2 * 7]
-assert len(stimmt) == 1
-zahl("039", stimmt[0])
+wahl("039", "Es ist □-mal so groß", all(F(verteilt_produkt(a, 2, 7), a * 2 * 7) == a for a in range(1, 100)))
 wahl("040", "Er wird dreimal so groß", all(3 * h * b1 + 3 * h * b2 == 3 * (h * b1 + h * b2) for h in range(1, 9) for b1 in range(1, 9) for b2 in range(1, 9)))
 # umkehraufgabe_mal
 zahl("041", sum(1 for a in range(1, 13) if any(a * x == 36 for x in range(1, 37))))
@@ -201,7 +201,8 @@ wahl("044", "Sie wird zu einem Drittel", all(loes[a] == 3 * loes[3 * a] for a in
 
 mal_immer = all(b % a == 0 for a in range(1, 20) for b in range(1, 20))
 geteilt_immer = all((a * b) % a == 0 and (a * b) // a == b for a in range(1, 20) for b in range(1, 20))
-wahl("045", "Nur die Mal-Gleichung kann ohne Lösung sein", not mal_immer and geteilt_immer)
+ausnahmen = {a for a in range(1, 40) for b in range(1, 300) if b % a == 0 and not b // a < b}
+wahl("045", "Fast immer: Bei a gleich 1", ausnahmen == {1})
 # ueberschlag
 fragen = {"Reichen 500 € für 26 Karten zu je 19 €?": (26, 19, 500), "Reichen 100 € für 4 Spiele zu je 19 €?": (4, 19, 100),
           "Passen 6 Kisten zu je 38 kg auf einen Wagen für 300 kg?": (6, 38, 300), "Reichen 400 Plätze für 9 Klassen mit je 27 Kindern?": (9, 27, 400)}
@@ -213,8 +214,7 @@ runden = lambda z: (z + 500) // 1000 * 1000
 assert (abschneiden(6812) + abschneiden(3487),) == (9000,)
 zahl("047", max(runden(a) + runden(b) - abschneiden(a) - abschneiden(b) for a in range(1000, 10000) for b in (1000, 1499, 1500, 9999)))
 wahl("048", "B ist genauer als A", abs(4800 + 3500 - 8299) < abs(5000 + 3000 - 8299) and 4812 + 3487 == 8299)
-assert len(str(3000 * 3000)) == 7 and len(str(3400 * 3400)) == len(str(3500 * 3500)) == 8
-zahl("046", len(str(3412 * 3438)))
+wahl("046", "Es sind 8 Stellen", len(str(3000 * 3000)) == 7 and len(str(3400 * 3400)) == len(str(3412 * 3438)) == len(str(3500 * 3500)) == 8)
 wahl("050", "Größer", F(7236, 9) > 700 and F(7000, 10) < F(7236, 10) < F(7236, 9))
 # sach
 zahl("051", erste(lambda g: 4 + 4 * g > 12 + 2 * g, 100))
@@ -224,7 +224,9 @@ while rest > 0:
     busse += 1
     rest -= 52
 wahl("052", "Wie viele Busse werden gebraucht", busse == 4 and 189 // 52 == 3 and 189 % 52 == 33)
-zahl("053", sum(1 for h in range(1, 21) for t in range(1, 21) if 3 * h + 2 * t == 20))
+unt = {(8 * h + 8 * 3) - 8 * (h + 3 - 2) for h in range(1, 100)}
+assert len(unt) == 1
+zahl("053", unt.pop())
 wahl("054", "Mias Ergebnis ist immer um 6 größer", {(x + 6) * 2 - (2 * x + 6) for x in range(1, 2000)} == {6})
 wahl("055", "4 · x + 12 − 4 = 108", erste(lambda x: 4 * x + 12 - 4 == 108, 1000, 1) == 25)
 

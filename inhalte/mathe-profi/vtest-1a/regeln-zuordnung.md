@@ -9,9 +9,9 @@ Maßstab: die Regel, die das Kind zum Lösen am stärksten braucht (tragender L�
 | Regel | Name | Aufgaben |
 |---|---|---|
 | `rr.potenz` | Potenzen | 20 |
-| `rr.gegenrechnung` | Gegenrechnung | 10 |
 | `rr.reihenfolge` | Reihenfolge beim Rechnen | 10 |
-| `rr.ausmultiplizieren` | Ausmultiplizieren und Ausklammern | 5 |
+| `rr.gegenrechnung` | Gegenrechnung | 9 |
+| `rr.ausmultiplizieren` | Ausmultiplizieren und Ausklammern | 6 |
 | `rr.tauschen` | Tauschen, Klammern, Zusammenfassen | 5 |
 | – (ohne Regel) |  | 5 |
 
@@ -90,6 +90,6 @@ Diese Regeln der Lernkarten stehen im Katalog nicht mit der Einheit in der Theme
 | VT1A-050 | zahlen.rechengesetze.ueberschlag | – |
 | VT1A-051 | zahlen.rechengesetze.sach | `rr.gegenrechnung` |
 | VT1A-052 | zahlen.rechengesetze.sach | `rr.gegenrechnung` |
-| VT1A-053 | zahlen.rechengesetze.sach | `rr.gegenrechnung` |
+| VT1A-053 | zahlen.rechengesetze.sach | `rr.ausmultiplizieren` |
 | VT1A-054 | zahlen.rechengesetze.sach | `rr.gegenrechnung` |
 | VT1A-055 | zahlen.rechengesetze.sach | `rr.gegenrechnung` |

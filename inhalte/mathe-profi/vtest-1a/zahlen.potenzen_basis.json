@@ -82,57 +82,61 @@
    "lernkarte": "schreibweise",
    "pool": "korrektur",
    "stufe": 2,
-   "typ": "umkehr",
-   "form": "umkehren",
-   "antwortform": "zahl",
+   "typ": "darstellung",
+   "form": "bruecke",
+   "antwortform": "auswahl",
    "zaehlt": "ja",
    "lehrplan": "M5 3",
-   "idee": "summe_gleicher_potenzen",
-   "bauplan": "d",
+   "idee": "potenz_gerade_ungerade",
+   "bauplan": "f",
    "schema": "nein",
    "alt_kennung": null,
-   "abgrenzung": "Dort wird ein Produkt kleiner Zahlen als Potenz geschrieben oder eine Hochzahl durch Ausrechnen gesucht; hier wird eine Summe gleicher Potenzen umgedeutet (viermal = mal 4 = zwei Faktoren 2 mehr), Ausrechnen (über eine Milliarde) ist unmöglich. Ersetzt die Kinderregel-Aufgabe (B1).",
+   "abgrenzung": "Dort wird gezählt oder eine Bedeutung gelesen; hier wird eine allgemeine Aussage über alle Potenzen mit ungerader Basis begründet (Produkt ungerader Faktoren). Warum kein Schema: Basis und Hochzahl sind beliebig, Beispiele widerlegen nur die Ablenker; die richtige Aussage braucht die Begründung über die Faktoren. Ersetzt 002 (B2).",
    "regel": "rr.potenz",
    "regel_name": "Potenzen",
    "fehlbilder": [
     {
-     "antwort": 120,
-     "rechnung": "30 + 30 + 30 + 30",
+     "index": 1,
+     "antwort": "Sie ist gerade, wenn die Hochzahl gerade ist.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die vier Hochzahlen addiert: 30 + 30 + 30 + 30"
+     "beschreibung": "Die Hochzahl für entscheidend gehalten; aber 3² = 3 · 3 = 9 ist ungerade"
     },
     {
-     "antwort": 34,
-     "rechnung": "30 + 4",
+     "index": 2,
+     "antwort": "Sie ist mal gerade, mal ungerade.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Für jeden der vier Summanden einen Faktor 2 dazugezählt: 30 + 4"
+     "beschreibung": "Nicht gesehen, dass nur ungerade Faktoren malgenommen werden"
     },
     {
-     "antwort": 31,
-     "rechnung": "30 + 1",
+     "index": 3,
+     "antwort": "Sie ist immer gerade, sobald die Hochzahl größer als 1 ist.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Nur einmal verdoppelt: 30 + 1"
+     "beschreibung": "Gedacht, mehrere Faktoren machen eine Zahl gerade; aber 5³ = 125 ist ungerade"
     }
    ],
-   "loesung_rechnung": "30 + 2",
    "aufgabe": {
     "l": "schreibweise",
     "t": "begriff",
     "p": "korrektur",
     "s": 2,
-    "g": "umkehr",
-    "y": "zahl",
+    "g": "darstellung",
+    "y": "auswahl",
     "f": {
-     "text": "Vier gleiche Potenzen werden addiert: 2³⁰ + 2³⁰ + 2³⁰ + 2³⁰. Das Ergebnis lässt sich als eine einzige Potenz mit der Basis 2 schreiben. Welche Hochzahl hat diese Potenz?"
+     "text": "Eine Potenz hat eine ungerade Basis, zum Beispiel 3, 5 oder 7, und eine beliebige Hochzahl. Welche Aussage über den Wert der Potenz stimmt?"
     },
+    "a": [
+     "Sie ist immer ungerade.",
+     "Sie ist gerade, wenn die Hochzahl gerade ist.",
+     "Sie ist mal gerade, mal ungerade.",
+     "Sie ist immer gerade, sobald die Hochzahl größer als 1 ist."
+    ],
     "o": {
-     "wert": 32
+     "index": 0
     },
-    "c": "30 + 2",
-    "w": "Viermal dieselbe Zahl addieren heißt, sie mit 4 malzunehmen: 4 · 2³⁰. Weil 4 = 2 · 2 ist, kommen zu den 30 Faktoren 2 noch zwei Faktoren 2 dazu. Das sind 32 Faktoren, also 2³². Beim Addieren werden die Hochzahlen nicht zusammengezählt."
+    "w": "Eine Potenz ist ein Produkt aus lauter gleichen Faktoren. Bei einer ungeraden Basis sind alle Faktoren ungerade. Ungerade mal ungerade ergibt wieder eine ungerade Zahl (3 · 3 = 9, 9 · 3 = 27, …). Also bleibt der Wert immer ungerade, egal wie groß die Hochzahl ist."
    }
   },
   {
@@ -155,7 +159,7 @@
    "regel_name": "Potenzen",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Die Hochzahl 12 durch 36 ersetzen",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -187,13 +191,13 @@
      "text": "Der Wert der Potenz 3¹² soll genau verdreifacht werden. Welche Änderung an der Potenz bewirkt das?"
     },
     "a": [
-     "Die Hochzahl 12 durch 13 ersetzen",
      "Die Hochzahl 12 durch 36 ersetzen",
+     "Die Hochzahl 12 durch 13 ersetzen",
      "Die Basis 3 durch 9 ersetzen",
      "Die Hochzahl 12 durch 15 ersetzen"
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
     "w": "3¹² ist das Produkt aus zwölf Faktoren 3. Ein Faktor 3 mehr verdreifacht den Wert: 3¹³ = 3¹² · 3. Mit der Hochzahl 15 kämen drei Faktoren 3 dazu, das ist 27-mal so viel. Mit der Hochzahl 36 oder mit der Basis 9 (9¹² = 3²⁴) kämen sogar 24 Faktoren 3 dazu."
    }
@@ -225,14 +229,14 @@
      "beschreibung": "Nicht geprüft, ob es eine Ausnahme gibt; bei 2² = 4 = 2 · 2 sind beide gleich"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Nie: Die Potenz und das Produkt aus Basis und Hochzahl sind gleich groß.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Potenz mit Basis mal Hochzahl gleichgesetzt; aber 2³ = 8 und 2 · 3 = 6"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Bei kleinen Zahlen nicht: Bei 2³ und 3² ist das Produkt größer.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -251,12 +255,12 @@
     },
     "a": [
      "Immer: Bei einer Potenz wird mehr malgenommen als bei Basis mal Hochzahl.",
-     "Fast immer: Bei 2² ist das Produkt gleich groß, sonst ist die Potenz größer.",
      "Nie: Die Potenz und das Produkt aus Basis und Hochzahl sind gleich groß.",
-     "Bei kleinen Zahlen nicht: Bei 2³ und 3² ist das Produkt größer."
+     "Bei kleinen Zahlen nicht: Bei 2³ und 3² ist das Produkt größer.",
+     "Fast immer: Bei 2² ist das Produkt gleich groß, sonst ist die Potenz größer."
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "w": "Probiere kleine Zahlen: 2² = 4 und 2 · 2 = 4, hier sind beide gleich. 2³ = 8 und 2 · 3 = 6, 3² = 9 und 3 · 2 = 6: Hier ist die Potenz größer. Wird Basis oder Hochzahl noch größer, wächst die Potenz viel schneller als das Produkt: Jeder weitere Faktor (mindestens 2) verdoppelt die Potenz mindestens, während das Produkt nur um die Basis wächst. Also stimmt Leas Satz fast immer, nur 2² ist eine Ausnahme."
    }
@@ -465,21 +469,21 @@
    "regel_name": "Potenzen",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Ein Rechteck mit 30 cm Länge und 7 cm Breite",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Nur eine der beiden freien Flächen gesehen"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Ein Streifen mit 37 cm Länge und 7 cm Breite",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Einen durchgehenden Streifen angenommen; die freien Flächen sind aber zwei Rechtecke 30 cm mal 7 cm"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Nichts, die beiden Quadrate füllen es ganz aus",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -497,13 +501,13 @@
      "text": "Ein Kind sagt: „Ein Quadrat mit der Seitenlänge 30 cm + 7 cm ist so groß wie ein Quadrat mit 30 cm Seitenlänge und eines mit 7 cm Seitenlänge zusammen.“ Zeichne das große Quadrat und lege die beiden kleinen Quadrate in zwei gegenüberliegende Ecken. Was bleibt im großen Quadrat noch frei?"
     },
     "a": [
+     "Zwei Rechtecke mit 30 cm Länge und 7 cm Breite",
      "Ein Rechteck mit 30 cm Länge und 7 cm Breite",
      "Ein Streifen mit 37 cm Länge und 7 cm Breite",
-     "Nichts, die beiden Quadrate füllen es ganz aus",
-     "Zwei Rechtecke mit 30 cm Länge und 7 cm Breite"
+     "Nichts, die beiden Quadrate füllen es ganz aus"
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
     "w": "Das große Quadrat hat die Seite 37 cm. Das Quadrat mit 30 cm liegt in einer Ecke, das mit 7 cm in der gegenüberliegenden Ecke. Frei bleiben zwei Rechtecke, jedes 30 cm lang und 7 cm breit. Das Kind irrt sich also um 2 · 30 · 7 = 420 cm²: 37 · 37 = 1 369, aber 30 · 30 + 7 · 7 = 949."
    }
@@ -528,21 +532,21 @@
    "regel_name": "Potenzen",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "7 396",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Gedacht, Quadratzahlen enden nicht auf 6; aber 6 · 6 = 36 endet auf 6 (7 396 = 86 · 86)"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "5 929",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Gedacht, ungerade Zahlen seien keine Quadratzahlen; aber 7 · 7 = 49 ist ungerade (5 929 = 77 · 77)"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "4 761",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -560,13 +564,13 @@
      "text": "Genau eine der vier Zahlen ist keine Quadratzahl. Welche?"
     },
     "a": [
-     "6 727",
      "7 396",
      "5 929",
-     "4 761"
+     "4 761",
+     "6 727"
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "w": "Die Endziffer einer Quadratzahl hängt nur von der Endziffer der Zahl ab, die quadriert wird: 0·0, 1·1, …, 9·9 enden auf 0, 1, 4, 9, 6, 5, 6, 9, 4, 1. Eine Quadratzahl endet also nie auf 2, 3, 7 oder 8. 6 727 endet auf 7 und ist keine Quadratzahl. Die anderen sind 86 · 86 = 7 396, 77 · 77 = 5 929 und 69 · 69 = 4 761."
    }
@@ -605,7 +609,7 @@
      "beschreibung": "Nicht genug Beispiele geprüft: 2, 4, 6, 8, … sind alle gerade"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Die Anzahl ist immer gleich.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -625,11 +629,11 @@
     "a": [
      "Die Anzahl ist immer ungerade.",
      "Die Anzahl ist mal gerade, mal ungerade.",
-     "Die Anzahl ist immer gleich.",
-     "Die Anzahl ist immer gerade."
+     "Die Anzahl ist immer gerade.",
+     "Die Anzahl ist immer gleich."
     ],
     "o": {
-     "index": 3
+     "index": 2
     },
     "w": "Zwischen 1 und 4 liegen 2 Zahlen, zwischen 4 und 9 liegen 4, zwischen 9 und 16 liegen 6, zwischen 16 und 25 liegen 8. Allgemein: Von n · n bis (n + 1) · (n + 1) kommt eine Reihe mit n und eine Spalte mit n + 1 Plättchen dazu, das sind n + n + 1 Zahlen mehr. Ohne die obere Quadratzahl liegen dazwischen n + n Zahlen, also immer eine gerade Anzahl."
    }
@@ -702,55 +706,59 @@
    "stufe": 2,
    "typ": "darstellung",
    "form": "bruecke",
-   "antwortform": "zahl",
+   "antwortform": "auswahl",
    "zaehlt": "ja",
    "lehrplan": "M5 3",
-   "idee": "zehnerpotenzen_einordnen",
-   "bauplan": "g",
+   "idee": "stellenzahl_zu_zehnerpotenz",
+   "bauplan": "c",
    "schema": "nein",
    "alt_kennung": null,
-   "abgrenzung": "Dort wird eine Schreibweise gelesen; hier werden Zahlen der Form □ · 10ⁿ zwischen Zehnerpotenzen eingeordnet, beide Grenzen müssen beachtet werden. Ersetzt die Kinderregel-Aufgabe (B1).",
+   "abgrenzung": "Dort wird eine Schreibweise gelesen; hier wird von der Stellenzahl auf die Lage zwischen Zehnerpotenzen geschlossen, einschließlich der Grenzen. Warum kein Schema: Die Zahl ist beliebig; ein Beispiel entscheidet nicht, ob 10⁷ und 10⁸ selbst dazugehören, dafür braucht man „10ⁿ hat n + 1 Stellen“. Ersetzt 012 (A1).",
    "regel": "rr.potenz",
    "regel_name": "Potenzen",
    "fehlbilder": [
     {
-     "antwort": 5,
-     "rechnung": "7 - 3 + 1",
+     "index": 0,
+     "antwort": "Sie ist größer als 10⁷ und höchstens 10⁸.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Von 10³ bis 10⁷ gezählt, obwohl 10³ kleiner als 5 · 10³ ist: 7 − 3 + 1"
+     "beschreibung": "Die Grenzen vertauscht: 10⁷ = 10 000 000 hat selbst 8 Stellen, 10⁸ hat schon 9"
     },
     {
-     "antwort": 3,
-     "rechnung": "7 - 3 - 1",
+     "index": 1,
+     "antwort": "Sie ist mindestens 10⁸ und kleiner als 10⁹.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Nur die Zehnerpotenzen echt zwischen 10³ und 10⁷ gezählt: 7 − 3 − 1"
+     "beschreibung": "Stellenzahl und Hochzahl gleichgesetzt; 10⁸ hat aber 9 Stellen"
     },
     {
-     "antwort": 6,
-     "rechnung": "8 - 3 + 1",
+     "index": 2,
+     "antwort": "Sie ist mindestens 10⁶ und kleiner als 10⁷.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Bis 10⁸ gezählt, weil 5 · 10⁷ größer als 10⁷ ist: 8 − 3 + 1"
+     "beschreibung": "Die Hochzahl um zwei zu klein genommen; 10⁷ hat schon 8 Stellen"
     }
    ],
-   "loesung_rechnung": "7 - 4 + 1",
    "aufgabe": {
     "l": "zehner",
     "t": "zehner",
     "p": "korrektur",
     "s": 2,
     "g": "darstellung",
-    "y": "zahl",
+    "y": "auswahl",
     "f": {
-     "text": "Wie viele Zehnerpotenzen (10¹, 10², 10³, …) sind größer als 5 · 10³ und kleiner als 5 · 10⁷?"
+     "text": "Eine natürliche Zahl hat genau 8 Stellen. Welche Aussage über sie stimmt für jede solche Zahl?"
     },
+    "a": [
+     "Sie ist größer als 10⁷ und höchstens 10⁸.",
+     "Sie ist mindestens 10⁸ und kleiner als 10⁹.",
+     "Sie ist mindestens 10⁶ und kleiner als 10⁷.",
+     "Sie ist mindestens 10⁷ und kleiner als 10⁸."
+    ],
     "o": {
-     "wert": 4
+     "index": 3
     },
-    "c": "7 - 4 + 1",
-    "w": "5 · 10³ = 5 000 liegt zwischen 10³ = 1 000 und 10⁴ = 10 000. 5 · 10⁷ = 50 000 000 liegt zwischen 10⁷ und 10⁸. Dazwischen liegen also 10⁴, 10⁵, 10⁶ und 10⁷, das sind 4 Zehnerpotenzen. 10³ ist zu klein, 10⁸ ist zu groß."
+    "w": "10ⁿ ist eine 1 mit n Nullen und hat n + 1 Stellen. Die kleinste Zahl mit 8 Stellen ist 10 000 000 = 10⁷, die kleinste mit 9 Stellen ist 10⁸. Also ist jede Zahl mit 8 Stellen mindestens 10⁷ und kleiner als 10⁸."
    }
   },
   {
@@ -780,7 +788,7 @@
      "beschreibung": "Für jeden der drei Teile einen Faktor 10 gerechnet: 10 · 10 · 10"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Sie wird um 3 größer.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -806,12 +814,12 @@
     },
     "a": [
      "Sie wird 1 000-mal so groß.",
-     "Sie wird um 3 größer.",
      "Sie wird 10-mal so groß.",
+     "Sie wird um 3 größer.",
      "Sie wird um 30 größer."
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
     "w": "Eine Hochzahl mehr heißt ein Faktor 10 mehr: 7 · 10¹⁰ ist das Zehnfache von 7 · 10⁹, ebenso bei den anderen Teilen. Wird jeder Teil einer Summe zehnmal so groß, wird die ganze Summe zehnmal so groß. Jede Ziffer rückt eine Stelle nach links: aus 7 005 000 300 wird 70 050 003 000."
    }
@@ -993,7 +1001,7 @@
     "g": "begruenden",
     "y": "zahl",
     "f": {
-     "text": "Eine Pflanze hat am Anfang 2 Blätter und verdreifacht jeden Tag ihre Blätterzahl. Ein Kind will die Blätterzahl nach 6 Tagen ausrechnen und schreibt 6⁶, weil 2 · 3 = 6 ist. Wie viele Faktoren 2 stehen in der Rechnung des Kindes mehr als in einer richtigen Rechnung?"
+     "text": "Eine Pflanze hat am Anfang 2 Blätter und verdreifacht jeden Tag ihre Blätterzahl. Ein Kind will die Blätterzahl nach 6 Tagen ausrechnen und schreibt 6⁶, weil 2 · 3 = 6 ist. Wie viele Faktoren 2 stehen in der Rechnung des Kindes mehr als in der richtigen Rechnung 2 · 3 · 3 · 3 · 3 · 3 · 3?"
     },
     "o": {
      "wert": 5
@@ -1088,14 +1096,14 @@
      "beschreibung": "Startzahl und Faktor vertauscht: 2 · 3⁵"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Ein Stapel hat am Anfang 3 Blätter. Er bekommt 5-mal hintereinander 2 Blätter dazu.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Verdoppeln als Dazulegen gedeutet: 3 + 5 · 2"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Ein Stapel hat am Anfang 5 Blätter. Er wird 3-mal hintereinander verdoppelt.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1114,12 +1122,12 @@
     },
     "a": [
      "Ein Stapel hat am Anfang 2 Blätter. Er wird 5-mal hintereinander verdreifacht.",
+     "Ein Stapel hat am Anfang 3 Blätter. Er wird 5-mal hintereinander verdoppelt.",
      "Ein Stapel hat am Anfang 3 Blätter. Er bekommt 5-mal hintereinander 2 Blätter dazu.",
-     "Ein Stapel hat am Anfang 5 Blätter. Er wird 3-mal hintereinander verdoppelt.",
-     "Ein Stapel hat am Anfang 3 Blätter. Er wird 5-mal hintereinander verdoppelt."
+     "Ein Stapel hat am Anfang 5 Blätter. Er wird 3-mal hintereinander verdoppelt."
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "w": "In 3 · 2⁵ ist 3 die Startzahl und 2⁵ heißt: 5-mal hintereinander mal 2, also 5-mal verdoppeln. Das ergibt 3 · 32 = 96 Blätter. Die anderen Geschichten gehören zu 2 · 3⁵ = 486, zu 3 + 5 · 2 = 13 und zu 5 · 2³ = 40."
    }
@@ -1210,7 +1218,7 @@
      "beschreibung": "Nur auf den Anfang geschaut; nach 11 Stunden hat B 2 048, A nur 1 200"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "B überholt A, aber danach holt A wieder auf.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1236,12 +1244,12 @@
     },
     "a": [
      "A bleibt immer vorn, weil A mit viel mehr Bakterien anfängt.",
-     "B überholt A irgendwann und bleibt danach immer vorn.",
      "B überholt A, aber danach holt A wieder auf.",
+     "B überholt A irgendwann und bleibt danach immer vorn.",
      "B holt A nie ganz ein, kommt aber immer näher heran."
     ],
     "o": {
-     "index": 1
+     "index": 2
     },
     "w": "Am Anfang ist A weit vorn. B wächst aber jede Stunde um so viel, wie es gerade hat. Sobald B mehr als 100 Bakterien hat (nach 7 Stunden sind es 128), wächst B in jeder Stunde mehr als A. Nach 10 Stunden hat A 1 100 und B 1 024, nach 11 Stunden hat A 1 200 und B 2 048: B ist vorn. Danach wächst B jede Stunde um mehr als 2 000, A nur um 100, also kann A nicht wieder aufholen."
    }

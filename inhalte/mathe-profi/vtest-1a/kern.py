@@ -26,7 +26,8 @@ def _lagenfolge(n_runden=9, k=4, saat=0):
 
 
 LAGEN_SAAT = 3
-POSITION = {4: iter(_lagenfolge(saat=LAGEN_SAAT)), 5: itertools.cycle([3, 1, 4, 0, 2, 0, 4, 2, 1, 3])}
+POSITION = {4: itertools.chain(_lagenfolge(saat=LAGEN_SAAT), _lagenfolge(n_runden=3, saat=LAGEN_SAAT + 1)),   # Verlängerung für mehr Auswahl-Aufgaben (W1-3), ältere Lagen unverändert
+            5: itertools.cycle([3, 1, 4, 0, 2, 0, 4, 2, 1, 3])}
 POOLS = ("test", "korrektur", "sicherung")
 TYPEN_ERLAUBT = ("mehrschritt", "einkleidung", "umkehr", "darstellung", "rueckwaerts", "verknuepfen", "begruenden", "fehler", "transfer", "parameter", "pruefung")
 FORMEN = ("anwenden", "umkehren", "verfahren_waehlen", "fehler_detektiv", "bruecke", "zwei_wege", "viele_antworten")

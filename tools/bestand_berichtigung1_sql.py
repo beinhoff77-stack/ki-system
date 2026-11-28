@@ -175,7 +175,7 @@ begin
      or to_regprocedure('schule.fehlbild_finden(schule.aufgabe, jsonb)') is null or to_regprocedure('schule.fehlbild_probeantwort(schule.aufgabe, text, integer, text)') is null
      or to_regprocedure('schule.aufgaben_einfuegen(bigint, jsonb)') is null or to_regprocedure('schule.antwort_bewerten(schule.aufgabe, jsonb)') is null then
     raise exception 'BB1: erst RB-S (20261204_rb_s_regelbezug.sql) und FT-S einspielen'; end if;
-  if (select count(*) from pg_attribute where attrelid = 'schule.aufgabe'::regclass and attname in ('form', 'zaehlt', 'freigegeben', 'typ') and not attisdropped) <> 4
+  if (select count(*) from pg_attribute where attrelid = 'schule.aufgabe'::regclass and attname in ('form', 'zaehlt', 'freigegeben', 'typ', 'expedition_id', 'teil') and not attisdropped) <> 6
      or position('x->>''form''' in pg_get_functiondef('schule.aufgaben_einfuegen(bigint, jsonb)'::regprocedure)) = 0 then
     raise exception 'BB1: erst FT-S einspielen (Spalten form/zaehlt, aufgaben_einfuegen)'; end if;
   if to_regclass('schule.misch_ausgabe') is null or to_regclass('schule.testsitzung') is null or to_regclass('schule.versuch') is null then
@@ -196,29 +196,30 @@ begin
   -- 1. Erkennen und Zustand je Paar
   for z in select * from bb1_p order by bb loop
     select count(*), min(x.id) into n_alt, cnt from schule.aufgabe x
-     where x.einheit_id = z.e and x.pool = z.pool and x.variante_gruppe = z.l and x.antworttyp = z.y and x.frage = z.af
-       and x.antworten is not distinct from z.aa and x.loesung = z.ao and (z.ar is null or x.reihenfolge = z.ar);
+     where x.einheit_id = z.e and x.pool is not distinct from z.pool and x.variante_gruppe is not distinct from z.l and x.antworttyp is not distinct from z.y
+       and x.frage is not distinct from z.af and x.antworten is not distinct from z.aa and x.loesung is not distinct from z.ao and (z.ar is null or x.reihenfolge is not distinct from z.ar);
     update bb1_p set alt_id = cnt where bb = z.bb;
-    select count(*), min(x.id) into n_neu, cnt from schule.aufgabe x where x.einheit_id = z.e and x.frage = z.nf and x.antworten is not distinct from z.na;
+    select count(*), min(x.id) into n_neu, cnt from schule.aufgabe x where x.einheit_id = z.e and x.frage is not distinct from z.nf and x.antworten is not distinct from z.na;
     update bb1_p set neu_id = cnt where bb = z.bb;
     if n_alt > 1 or n_neu > 1 then fehler := fehler || format('%s: %s alte / %s neue Aufgaben gefunden (erwartet höchstens je eine)', z.bb, n_alt, n_neu); continue; end if;
     select * into alt from schule.aufgabe where id = (select alt_id from bb1_p where bb = z.bb);
     select * into neu from schule.aufgabe where id = (select neu_id from bb1_p where bb = z.bb);
+    -- gemeinsame Voraussetzung für „neu“ UND „fertig“: die Einheit ist freigegeben (ein Paar ohne Fund wird unten ohnehin gemeldet)
+    if (n_alt + n_neu) > 0 and (select status from schule.einheit where id = z.e) is distinct from 'freigegeben' then
+      fehler := fehler || format('%s: Einheit %s ist nicht freigegeben', z.bb, z.e); continue; end if;
     if n_alt = 1 and n_neu = 0 then
       if not alt.freigegeben then fehler := fehler || format('%s: alte Aufgabe %s ist schon gesperrt, die neue fehlt', z.bb, alt.id); continue; end if;
-      if (select status from schule.einheit where id = z.e) is distinct from 'freigegeben' then fehler := fehler || format('%s: Einheit %s ist nicht freigegeben', z.bb, z.e); continue; end if;
       if exists (select 1 from schule.aufgabe x where x.einheit_id = z.e and x.reihenfolge = z.nr) then fehler := fehler || format('%s: Platz %s in Einheit %s schon belegt', z.bb, z.nr, z.e); continue; end if;
       update bb1_p set zustand = 'neu' where bb = z.bb;
     elsif n_alt = 1 and n_neu = 1 then
       if alt.freigegeben then fehler := fehler || format('%s: alte (%s) und neue (%s) Aufgabe sind beide gültig – Zwischenstand, nicht von diesem Paket', z.bb, alt.id, neu.id); continue; end if;
       -- fertig: neue Aufgabe VOLLSTÄNDIG gleich dem Soll (alle Felder), Regel und Fehlbilder gleich dem Soll
-      if neu.einheit_id <> z.e or not neu.freigegeben or neu.pool <> z.pool or neu.variante_gruppe <> z.l or neu.antworttyp <> z.y or neu.loesung <> (z.nrow->'o') or neu.reihenfolge <> z.nr
-         or neu.frage <> z.nf or neu.antworten is distinct from z.na
-         or (neu.stufe, neu.typ, neu.form, neu.teilfaehigkeit, neu.tipp, neu.loesungsweg)
-            is distinct from ((z.nrow->>'s')::smallint, z.nrow->>'g', z.nrow->>'form', z.nrow->>'t', z.nrow->>'h', z.nrow->>'w')
-         or coalesce(neu.zaehlt, 'ja') <> coalesce(z.nrow->>'zaehlt', 'ja')
-         or (neu.thema_id, neu.art, neu.punkte_max) is distinct from (alt.thema_id, alt.art, alt.punkte_max) then
-        fehler := fehler || format('%s: neue Aufgabe %s steht schon da, weicht aber vom Soll ab (Feld, Stufe, Typ, Form, zählt, Teilfähigkeit, Tipp, Lösungsweg, Lösung, Fragetext oder Platz)', z.bb, neu.id); continue; end if;
+      if (neu.einheit_id, neu.freigegeben, neu.pool, neu.variante_gruppe, neu.antworttyp, neu.loesung, neu.reihenfolge, neu.frage, neu.antworten, neu.stufe, neu.typ, neu.form, neu.zaehlt,
+          neu.teilfaehigkeit, neu.tipp, neu.loesungsweg, neu.expedition_id, neu.teil)
+         is distinct from (z.e, true, z.pool, z.l, z.y, z.nrow->'o', z.nr, z.nf, z.na, (z.nrow->>'s')::smallint, z.nrow->>'g', z.nrow->>'form', z.nrow->>'zaehlt',
+          z.nrow->>'t', z.nrow->>'h', z.nrow->>'w', null::bigint, null::text)
+         or (neu.thema_id, neu.art, neu.punkte_max, neu.expedition_id, neu.teil) is distinct from (alt.thema_id, alt.art, alt.punkte_max, alt.expedition_id, alt.teil) then
+        fehler := fehler || format('%s: neue Aufgabe %s steht schon da, weicht aber vom Soll ab (Einheit, Vorrat, Lernkarte, Antworttyp, Frage, Antworten, Lösung, Platz, Stufe, Typ, Form, zählt, Teilfähigkeit, Tipp, Lösungsweg, Expedition, Teil)', z.bb, neu.id); continue; end if;
       if (select r.regel from schule.aufgabe_regel r where r.aufgabe_id = neu.id) is distinct from z.regel
          or (select count(*) from schule.aufgabe_fehlbild x where x.aufgabe_id = neu.id) <> jsonb_array_length(z.fb)
          or exists (select 1 from jsonb_array_elements(z.fb) y where not exists (select 1 from schule.aufgabe_fehlbild x where x.aufgabe_id = neu.id and x.nr = (y->>'nr')::smallint
@@ -264,6 +265,13 @@ begin
     if tr.prosrc ~* '(insert\\s+into|delete\\s+from|update\\s+[a-z_.]+\\s+set|pg_notify|net\\.http|http_|dblink|truncate)' then
       fehler := fehler || format('Trigger %s.%s (Funktion %s) schreibt oder meldet vielleicht – von Hand prüfen (select prosrc from pg_proc where proname = ''%s'')', tr.relname, tr.tgname, tr.proname, tr.proname); end if;
   end loop;
+  -- FESTE Soll-Liste der Schutz-Trigger (Tabelle:Name): genau diese fünf, keine weiteren, keine fehlenden
+  if (select array_agg(cl.relname || ':' || g.tgname order by cl.relname || ':' || g.tgname) from pg_trigger g join pg_class cl on cl.oid = g.tgrelid
+       where not g.tgisinternal and cl.relnamespace = 'schule'::regnamespace and cl.relname in ('einheit', 'aufgabe', 'aufgabe_regel', 'aufgabe_fehlbild'))
+     is distinct from (select array_agg(x order by x) from unnest(array['einheit:einheit_schutz', 'aufgabe:aufgabe_schutz', 'aufgabe:aufgabe_bedingung_schutz', 'aufgabe_regel:aufgabe_regel_schutz', 'aufgabe_fehlbild:aufgabe_fehlbild_schutz']) x) then
+    fehler := fehler || format('Trigger auf einheit/aufgabe/aufgabe_regel/aufgabe_fehlbild weichen von der festen Soll-Liste ab (erwartet einheit_schutz, aufgabe_schutz, aufgabe_bedingung_schutz, aufgabe_regel_schutz, aufgabe_fehlbild_schutz); gefunden: %s',
+      coalesce((select string_agg(cl.relname || ':' || g.tgname, ', ' order by cl.relname, g.tgname) from pg_trigger g join pg_class cl on cl.oid = g.tgrelid
+       where not g.tgisinternal and cl.relnamespace = 'schule'::regnamespace and cl.relname in ('einheit', 'aufgabe', 'aufgabe_regel', 'aufgabe_fehlbild')), '(keine)')); end if;
   if array_length(fehler, 1) > 0 then raise exception 'BB1 ABBRUCH, alles zurückgerollt (% Befunde): %', array_length(fehler, 1), array_to_string(fehler[1:40], ' | '); end if;
   create temp table bb1_e on commit drop as select x.id from (select distinct e id from bb1_p where zustand = 'neu') x;
   create temp table bb1_a on commit drop as select x.id, to_jsonb(x) - 'freigegeben' vor, null::jsonb nach from schule.aufgabe x where x.id in (select alt_id from bb1_p where zustand = 'neu');
@@ -277,14 +285,16 @@ begin
     select * into alt from schule.aufgabe where id = z.alt_id;
     n_neu := schule.aufgaben_einfuegen(z.e, jsonb_build_array(z.nrow));
     if n_neu <> 1 then fehler := fehler || format('%s: %s statt 1 Aufgabe eingefügt', z.bb, n_neu); continue; end if;
-    select * into neu from schule.aufgabe x where x.einheit_id = z.e and x.frage = z.nf and x.antworten is not distinct from z.na;
+    select * into neu from schule.aufgabe x where x.einheit_id = z.e and x.frage is not distinct from z.nf and x.antworten is not distinct from z.na;
     update bb1_p set neu_id = neu.id where bb = z.bb;
-    if neu.id is null or neu.reihenfolge <> z.nr or not neu.freigegeben or neu.loesung <> (z.nrow->'o') or neu.tipp is distinct from (z.nrow->>'h') or neu.loesungsweg is distinct from (z.nrow->>'w')
-       or (neu.teilfaehigkeit, neu.typ, neu.form) is distinct from (z.nrow->>'t', z.nrow->>'g', z.nrow->>'form')
-       or coalesce(neu.zaehlt, 'ja') <> coalesce(z.nrow->>'zaehlt', 'ja') then
+    if neu.id is null or (neu.einheit_id, neu.freigegeben, neu.pool, neu.variante_gruppe, neu.antworttyp, neu.loesung, neu.reihenfolge, neu.frage, neu.antworten, neu.stufe, neu.typ, neu.form, neu.zaehlt,
+          neu.teilfaehigkeit, neu.tipp, neu.loesungsweg, neu.expedition_id, neu.teil)
+         is distinct from (z.e, true, z.pool, z.l, z.y, z.nrow->'o', z.nr, z.nf, z.na, (z.nrow->>'s')::smallint, z.nrow->>'g', z.nrow->>'form', z.nrow->>'zaehlt',
+          z.nrow->>'t', z.nrow->>'h', z.nrow->>'w', null::bigint, null::text) then
       fehler := fehler || format('%s: eingefügte Aufgabe %s hat nicht die Werte des Pakets', z.bb, neu.id); continue; end if;
-    if (alt.thema_id, alt.art, alt.stufe, alt.variante_gruppe, alt.antworttyp, alt.pool, alt.punkte_max, coalesce(alt.zaehlt, 'ja'))
-       is distinct from (neu.thema_id, neu.art, neu.stufe, neu.variante_gruppe, neu.antworttyp, neu.pool, neu.punkte_max, coalesce(neu.zaehlt, 'ja')) then
+    -- Alt/Neu-Gleichheit: zählt NULL und 'ja' gelten als gleich (fachlich: schule.aufgabe_zaehlt = „zaehlt is distinct from 'nein'“, FT-S Regel 5); alles andere exakt
+    if (alt.thema_id, alt.art, alt.stufe, alt.variante_gruppe, alt.antworttyp, alt.pool, alt.punkte_max, coalesce(alt.zaehlt, 'ja'), alt.expedition_id, alt.teil)
+       is distinct from (neu.thema_id, neu.art, neu.stufe, neu.variante_gruppe, neu.antworttyp, neu.pool, neu.punkte_max, coalesce(neu.zaehlt, 'ja'), neu.expedition_id, neu.teil) then
       fehler := fehler || format('%s: neue Aufgabe %s unterscheidet sich von der alten %s in Thema/Art/Stufe/Lernkarte/Typ/Vorrat/Punkte/zählt', z.bb, neu.id, alt.id); continue; end if;
     if z.regel is not null then
       insert into schule.aufgabe_regel (aufgabe_id, regel) values (neu.id, z.regel) on conflict do nothing;

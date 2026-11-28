@@ -23,6 +23,8 @@ from pathlib import Path
 WURZEL = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(WURZEL / 'tools'))
 import regelbezug_sql as R  # noqa: E402
+sys.path.insert(0, str(WURZEL / 'tools/tests'))
+import nf_einspielen as NF  # noqa: E402
 
 BB = WURZEL / 'inhalte/mathe-profi/bestand-berichtigung-1'
 AUS = WURZEL / 'tools/tests/aus'
@@ -121,6 +123,16 @@ def abbildung(paare):
                           'platz_neu': p['nr'], 'vorgaenger_kennung': p['alt_kennung'], 'vorgaenger_platz': p['ar'], 'vorgaenger_datei': p['datei'],
                           'regel': p['regel'], 'fehlbilder': len(p['fb'])} for p in paare]}
 
+VERWEIS_TEXT = """    gef := '{{}}';
+    if exists (select 1 from schule.misch_ausgabe m where m.aufgabe_id = @.alt_id and m.eingeloest_am is null and m.verfallen_am is null and m.ausgegeben_am > now() - interval '24 hours') then gef := gef || 'offene Mischkarte'::text; end if;
+    if exists (select 1 from schule.testsitzung s where @.alt_id = any(s.aufgaben) and s.status <> 'abgeschlossen' and s.abgeschlossen_am is null) then gef := gef || 'laufende Testsitzung'::text; end if;
+    if exists (select 1 from schule.versuch v where v.aufgabe_id = @.alt_id and v.anlauf = 1 and not v.richtig and v.testsitzung_id is null and v.am > now() - interval '2 hours'
+         and not exists (select 1 from schule.versuch w where w.lernender_id = v.lernender_id and w.aufgabe_id = v.aufgabe_id and w.am > v.am)) then gef := gef || 'falscher 1. Anlauf ohne zweiten Versuch'::text; end if;"""
+
+
+def VERWEIS(var):
+    return VERWEIS_TEXT.replace('@', var).replace("'{{}}'", "'{}'")
+
 
 def paket(paare, probe=False):
     werte = []
@@ -136,23 +148,29 @@ def paket(paare, probe=False):
     ende = ("  raise exception 'PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt): %', v_bericht::text;\n" if probe
             else "  raise notice 'BB1 eingespielt: %', v_bericht::text;\n")
     return f"""-- Bestands-Berichtigung 1 ({modus}): {n} Paare (alte Aufgabe -> berichtigte neue), {n_regel} Regeln, {n_fb} Fehlbilder, {len(einheiten)} Einheiten.
--- Ein Aufruf, eine Transaktion, kein BEGIN/COMMIT. Jede Abweichung = Abbruch, ALLES zurück. Wiederholbar: ein zweiter Lauf erkennt „schon berichtigt“ und schreibt nichts.
--- Je Paar: Zustand neu (alte freigegeben, neue fehlt) | fertig (alte gesperrt, neue da und gleich dem Soll) | zurueckgestellt (offener Verweis, siehe unten: dann bleibt
--- das Paar UNBERÜHRT – weder neue Aufgabe noch Sperre, damit die Lernkarte nie eine Aufgabe mehr zählt) | sonst Abbruch (nicht erkannt, Zwischenstand, Einheit nicht freigegeben).
+-- VORAUSSETZUNG: NF-S (nachtest_auswahl/nachtest_stand nur mit freigegebenen Aufgaben, tools/tests/aus/nf_s_einspielen.sql) ist eingespielt – sonst Abbruch.
+-- LERNPAUSE: von VOR der Verweisprüfung bis zum Ende dieses Aufrufs (Mischkarten-Fenster, siehe inhalte/mathe-profi/bestand-berichtigung-1/einspielen.md).
+-- Ein Aufruf, eine Transaktion, kein BEGIN/COMMIT. Jede Abweichung = Abbruch, ALLES zurück. Wiederholbar: ein zweiter Lauf erkennt „schon berichtigt“ (voller Sollvergleich) und schreibt nichts.
+-- Je Paar: Zustand neu (alte freigegeben, neue fehlt) | fertig (alte gesperrt, neue da und gleich dem Soll in ALLEN Feldern, Regel und Fehlbildern) | zurueckgestellt (offener Verweis:
+-- das Paar bleibt UNBERÜHRT – weder neue Aufgabe noch Sperre, damit die Lernkarte nie eine Aufgabe mehr zählt) | sonst Abbruch (nicht erkannt, Zwischenstand, Einheit nicht freigegeben).
+-- Reihenfolge: Einheitszeilen sperren (FOR NO KEY UPDATE) -> Verweisprüfung 1 -> einfügen -> Antwortprobe (alle Soll-Antworten richtig, alle Fehlantworten gültig und falsch, Fehlbild erkannt)
+-- -> je Einheit: Verweisprüfung 2 unmittelbar vor dem Sperren (neuer Verweis = Abbruch) -> Einheit 'geprueft', freigegeben = false, Einheit 'freigegeben' -> Nachprüfungen.
 -- Offener Verweis auf die alte Aufgabe: ausgegebene, nicht eingelöste Mischkarte (<24 h), laufende Testsitzung mit der Aufgabe, falscher 1. Anlauf ohne Folgeversuch (<2 h).
--- Sperre der alten Aufgabe: Einheit kurz 'geprueft' (aufgabe_schutz), freigegeben = false, Einheit zurück 'freigegeben'; die Einheitszeile muss danach Spalte für Spalte
--- gleich sein (to_jsonb), sonst Abbruch. Nebenwirkungsprüfung: (1) Trigger auf einheit/aufgabe (Namen im Bericht) dürfen weder schreiben noch melden (Textsuche in der Triggerfunktion),
--- (2) Trigger-Satz vorher = nachher, (3) in KEINER Tabelle des Schemas schule steht eine von dieser Transaktion geschriebene Zeile außer: aufgabe (neu + gesperrt), aufgabe_regel,
--- aufgabe_fehlbild, einheit (Anzahl der Einheiten) – damit sind Versuche, Karten-Stände, Wiederholungen, Tests, Sterne, Lernstände nachweislich unberührt,
--- (4) karte_ziel / karte_typen_noetig / karte_schwer_noetig / karte_anwenden_noetig je betroffener Lernkarte vorher = nachher, (5) Zahl freigegebener Aufgaben je Einheit/Vorrat/Lernkarte gleich.
+-- Nebenwirkungsprüfung: (1) Trigger auf einheit/aufgabe/aufgabe_regel/aufgabe_fehlbild: Textsuche in der Funktion (kein Schreiben/Melden); (2) Trigger-Satz samt Funktionstext vorher = nachher;
+-- (3) in KEINER Tabelle des Schemas schule steht eine von dieser Transaktion geschriebene Zeile (xmin) außer aufgabe (neu + gesperrt), aufgabe_regel, aufgabe_fehlbild, einheit;
+-- (4) Fingerabdruck (md5 über die Zeilen) der UNBERÜHRTEN Zeilen von aufgabe, einheit, aufgabe_regel, aufgabe_fehlbild vorher = nachher; (5) karte_ziel / karte_typen_noetig /
+-- karte_schwer_noetig / karte_anwenden_noetig (alle vier Pflicht) je betroffener Lernkarte vorher = nachher; (6) Zahl freigegebener Aufgaben je Einheit/Vorrat/Lernkarte gleich;
+-- (7) Einheitszeile nach dem Statuswechsel Spalte für Spalte gleich. GRENZEN (ehrlich): xmin sieht keine Löschungen, Sequenzänderungen, externe Effekte, fremde Schemas und nicht
+-- zuverlässig Untertransaktionen; die Trigger-Textsuche sieht delegierte/dynamische Schreibvorgänge nicht (dafür (3)); versuch/karte_stand/… haben wegen laufender Kinder-Aktivität
+-- keinen Fingerabdruck, nur (3); eine nach Verweisprüfung 2 gezogene Mischkarte schließt nur die Lernpause aus.
 select set_config('lock_timeout', '3s', true), set_config('statement_timeout', '120s', true);
 do $bb1$
-declare z record; alt schule.aufgabe; neu schule.aufgabe; fehler text[] := '{{}}'; zurueck text[] := '{{}}';
-  n_alt int; n_neu int; cnt bigint; f jsonb; v jsonb; b jsonb; v_vor jsonb; v_nach jsonb; xid_ xid := pg_current_xact_id()::xid;
+declare z record; z2 record; alt schule.aufgabe; neu schule.aufgabe; fehler text[] := '{{}}'; zurueck text[] := '{{}}';
+  n_alt int; n_neu int; cnt bigint; f jsonb; v jsonb; b jsonb; v_vor jsonb; v_nach jsonb; xid_ xid := pg_current_xact_id()::xid; d text;
   n_neu_ges int := 0; n_gesperrt int := 0; n_fertig int := 0; n_regel_neu int := 0; n_fb_neu int := 0; tr record; trg text; trg_vor text; trg_nach text; gef text[] := '{{}}';
-  v_bericht jsonb; audit jsonb := '{{}}'; erw jsonb; tab text; kk record; wert text; fn text;
+  v_bericht jsonb; audit jsonb := '{{}}'; erw jsonb; tab text; kk record; wert text; fn text; fp_vor text[]; fp_nach text[]; n_soll_ok int := 0; n_fb_ok int := 0;
 begin
-  -- Voraussetzungen (RB-S, FT-S, Wiederholungs-/Mischkarten-Tabellen)
+  -- Voraussetzungen (RB-S, FT-S, NF-S, Karten-Funktionen, Tabellen)
   if to_regclass('schule.aufgabe_fehlbild') is null or to_regclass('schule.aufgabe_regel') is null
      or to_regprocedure('schule.fehlbild_finden(schule.aufgabe, jsonb)') is null or to_regprocedure('schule.fehlbild_probeantwort(schule.aufgabe, text, integer, text)') is null
      or to_regprocedure('schule.aufgaben_einfuegen(bigint, jsonb)') is null or to_regprocedure('schule.antwort_bewerten(schule.aufgabe, jsonb)') is null then
@@ -160,6 +178,15 @@ begin
   if (select count(*) from pg_attribute where attrelid = 'schule.aufgabe'::regclass and attname in ('form', 'zaehlt', 'freigegeben', 'typ') and not attisdropped) <> 4
      or position('x->>''form''' in pg_get_functiondef('schule.aufgaben_einfuegen(bigint, jsonb)'::regprocedure)) = 0 then
     raise exception 'BB1: erst FT-S einspielen (Spalten form/zaehlt, aufgaben_einfuegen)'; end if;
+  if to_regclass('schule.misch_ausgabe') is null or to_regclass('schule.testsitzung') is null or to_regclass('schule.versuch') is null then
+    raise exception 'BB1 ABBRUCH: Tabellen misch_ausgabe/testsitzung/versuch fehlen (Verweisprüfung nicht möglich)'; end if;
+  foreach fn in array array['karte_ziel', 'karte_typen_noetig', 'karte_schwer_noetig', 'karte_anwenden_noetig'] loop
+    if to_regprocedure('schule.' || fn || '(bigint, text)') is null then raise exception 'BB1 ABBRUCH: schule.%(bigint, text) fehlt (Pflichtprüfung der Lernkarten-Regeln)', fn; end if;
+  end loop;
+  if to_regprocedure('schule.nachtest_auswahl(bigint, bigint, text, integer)') is null or to_regprocedure('schule.nachtest_stand(bigint, bigint)') is null
+     or md5((select prosrc from pg_proc where oid = to_regprocedure('schule.nachtest_auswahl(bigint, bigint, text, integer)'))) <> '{NF.md5(NF.auswahl_neu())}'
+     or md5((select prosrc from pg_proc where oid = to_regprocedure('schule.nachtest_stand(bigint, bigint)'))) <> '{NF.md5(NF.stand_neu())}' then
+    raise exception 'BB1 ABBRUCH: erst NF-S einspielen (nachtest_auswahl und nachtest_stand müssen exakt die neue Fassung mit Freigabefilter haben)'; end if;
   create temp table bb1_p on commit drop as
     select x.*, null::bigint alt_id, null::bigint neu_id, null::text zustand, null::text grund_zurueck from (values
 {(',' + chr(10)).join(werte)}
@@ -182,10 +209,14 @@ begin
       update bb1_p set zustand = 'neu' where bb = z.bb;
     elsif n_alt = 1 and n_neu = 1 then
       if alt.freigegeben then fehler := fehler || format('%s: alte (%s) und neue (%s) Aufgabe sind beide gültig – Zwischenstand, nicht von diesem Paket', z.bb, alt.id, neu.id); continue; end if;
-      -- fertig: neue Aufgabe, Regel und Fehlbilder müssen dem Soll entsprechen
-      if not neu.freigegeben or neu.pool <> z.pool or neu.variante_gruppe <> z.l or neu.antworttyp <> z.y or neu.loesung <> (z.nrow->'o') or neu.reihenfolge <> z.nr
-         or (neu.stufe, neu.typ) is distinct from ((z.nrow->>'s')::smallint, z.nrow->>'g') then
-        fehler := fehler || format('%s: neue Aufgabe %s steht schon da, weicht aber vom Soll ab', z.bb, neu.id); continue; end if;
+      -- fertig: neue Aufgabe VOLLSTÄNDIG gleich dem Soll (alle Felder), Regel und Fehlbilder gleich dem Soll
+      if neu.einheit_id <> z.e or not neu.freigegeben or neu.pool <> z.pool or neu.variante_gruppe <> z.l or neu.antworttyp <> z.y or neu.loesung <> (z.nrow->'o') or neu.reihenfolge <> z.nr
+         or neu.frage <> z.nf or neu.antworten is distinct from z.na
+         or (neu.stufe, neu.typ, neu.form, neu.teilfaehigkeit, neu.tipp, neu.loesungsweg)
+            is distinct from ((z.nrow->>'s')::smallint, z.nrow->>'g', z.nrow->>'form', z.nrow->>'t', z.nrow->>'h', z.nrow->>'w')
+         or coalesce(neu.zaehlt, 'ja') <> coalesce(z.nrow->>'zaehlt', 'ja')
+         or (neu.thema_id, neu.art, neu.punkte_max) is distinct from (alt.thema_id, alt.art, alt.punkte_max) then
+        fehler := fehler || format('%s: neue Aufgabe %s steht schon da, weicht aber vom Soll ab (Feld, Stufe, Typ, Form, zählt, Teilfähigkeit, Tipp, Lösungsweg, Lösung, Fragetext oder Platz)', z.bb, neu.id); continue; end if;
       if (select r.regel from schule.aufgabe_regel r where r.aufgabe_id = neu.id) is distinct from z.regel
          or (select count(*) from schule.aufgabe_fehlbild x where x.aufgabe_id = neu.id) <> jsonb_array_length(z.fb)
          or exists (select 1 from jsonb_array_elements(z.fb) y where not exists (select 1 from schule.aufgabe_fehlbild x where x.aufgabe_id = neu.id and x.nr = (y->>'nr')::smallint
@@ -199,15 +230,11 @@ begin
     end if;
   end loop;
   if array_length(fehler, 1) > 0 then raise exception 'BB1 ABBRUCH, alles zurückgerollt (% Befunde): %', array_length(fehler, 1), array_to_string(fehler[1:40], ' | '); end if;
-  -- 2. Offene Verweise auf die alte Aufgabe -> Paar zurückstellen
+  -- 1b. Einheitszeilen der zu ändernden Paare sperren (FOR NO KEY UPDATE: Fremdschlüssel-Einfügungen der Kinder werden nicht blockiert); erst DANACH die Verweisprüfung
+  perform 1 from schule.einheit where id in (select e from bb1_p where zustand = 'neu') order by id for no key update;
+  -- 2. Verweisprüfung 1 -> Paar zurückstellen
   for z in select * from bb1_p where zustand = 'neu' order by bb loop
-    gef := '{{}}';
-    if to_regclass('schule.misch_ausgabe') is not null and exists (select 1 from schule.misch_ausgabe m where m.aufgabe_id = z.alt_id and m.eingeloest_am is null
-         and m.verfallen_am is null and m.ausgegeben_am > now() - interval '24 hours') then gef := gef || 'offene Mischkarte'::text; end if;
-    if to_regclass('schule.testsitzung') is not null and exists (select 1 from schule.testsitzung s where z.alt_id = any(s.aufgaben) and s.status <> 'abgeschlossen' and s.abgeschlossen_am is null)
-      then gef := gef || 'laufende Testsitzung'::text; end if;
-    if exists (select 1 from schule.versuch v where v.aufgabe_id = z.alt_id and v.anlauf = 1 and not v.richtig and v.testsitzung_id is null and v.am > now() - interval '2 hours'
-         and not exists (select 1 from schule.versuch w where w.lernender_id = v.lernender_id and w.aufgabe_id = v.aufgabe_id and w.am > v.am)) then gef := gef || 'falscher 1. Anlauf ohne zweiten Versuch'::text; end if;
+{VERWEIS('z')}
     if array_length(gef, 1) > 0 then
       update bb1_p set zustand = 'zurueckgestellt', grund_zurueck = array_to_string(gef, ', ') where bb = z.bb;
       zurueck := zurueck || (z.bb || ' (Aufgabe ' || z.alt_id || '): ' || array_to_string(gef, ', '));
@@ -222,14 +249,13 @@ begin
   for kk in select * from bb1_v loop
     wert := '';
     foreach fn in array array['karte_ziel', 'karte_typen_noetig', 'karte_schwer_noetig', 'karte_anwenden_noetig'] loop
-      if to_regprocedure('schule.' || fn || '(bigint, text)') is not null then
-        execute format('select coalesce(schule.%I($1, $2)::text, ''-'')', fn) into trg using kk.e, kk.l; wert := wert || fn || '=' || trg || ';';
-      end if;
+      execute format('select coalesce(schule.%I($1, $2)::text, ''-'')', fn) into trg using kk.e, kk.l; wert := wert || fn || '=' || trg || ';';
     end loop;
     update bb1_v set karte_vor = wert where e = kk.e and l = kk.l and pool = kk.pool;
   end loop;
-  select coalesce(string_agg(cl.relname || ':' || g.tgname || ':' || md5(pg_get_triggerdef(g.oid)), ',' order by cl.relname, g.tgname), '') into trg_vor
-    from pg_trigger g join pg_class cl on cl.oid = g.tgrelid where not g.tgisinternal and cl.relnamespace = 'schule'::regnamespace and cl.relname in ('einheit', 'aufgabe', 'aufgabe_regel', 'aufgabe_fehlbild');
+  select coalesce(string_agg(cl.relname || ':' || g.tgname || ':' || md5(pg_get_triggerdef(g.oid)) || ':' || md5(p.prosrc), ',' order by cl.relname, g.tgname), '') into trg_vor
+    from pg_trigger g join pg_class cl on cl.oid = g.tgrelid join pg_proc p on p.oid = g.tgfoid
+   where not g.tgisinternal and cl.relnamespace = 'schule'::regnamespace and cl.relname in ('einheit', 'aufgabe', 'aufgabe_regel', 'aufgabe_fehlbild');
   -- Trigger auf einheit/aufgabe/aufgabe_regel/aufgabe_fehlbild dürfen weder schreiben noch melden (Textsuche in der Funktion); die bekannten Schutz-Trigger sind harmlos
   for tr in select cl.relname, tg.tgname, p.proname, p.prosrc from pg_trigger tg join pg_class cl on cl.oid = tg.tgrelid join pg_proc p on p.oid = tg.tgfoid
             where not tg.tgisinternal and cl.relnamespace = 'schule'::regnamespace and cl.relname in ('einheit', 'aufgabe', 'aufgabe_regel', 'aufgabe_fehlbild') loop
@@ -237,9 +263,14 @@ begin
       fehler := fehler || format('Trigger %s.%s (Funktion %s) schreibt oder meldet vielleicht – von Hand prüfen (select prosrc from pg_proc where proname = ''%s'')', tr.relname, tr.tgname, tr.proname, tr.proname); end if;
   end loop;
   if array_length(fehler, 1) > 0 then raise exception 'BB1 ABBRUCH, alles zurückgerollt (% Befunde): %', array_length(fehler, 1), array_to_string(fehler[1:40], ' | '); end if;
-  create temp table bb1_e on commit drop as select x.id, null::jsonb vor, null::jsonb nach from (select distinct e id from bb1_p where zustand = 'neu') x;
+  create temp table bb1_e on commit drop as select x.id from (select distinct e id from bb1_p where zustand = 'neu') x;
   create temp table bb1_a on commit drop as select x.id, to_jsonb(x) - 'freigegeben' vor, null::jsonb nach from schule.aufgabe x where x.id in (select alt_id from bb1_p where zustand = 'neu');
-  -- 4. Neue Aufgaben einfügen, Regel und Fehlbilder schreiben, prüfen
+  -- Fingerabdruck der unberührten Zeilen (vorher)
+  fp_vor := array[(select md5(coalesce(string_agg(x::text, '|' order by x.id), '')) from schule.aufgabe x where x.id not in (select alt_id from bb1_p where zustand = 'neu')),
+                  (select md5(coalesce(string_agg(x::text, '|' order by x.id), '')) from schule.einheit x where x.id not in (select id from bb1_e)),
+                  (select md5(coalesce(string_agg(x::text, '|' order by x.aufgabe_id), '')) from schule.aufgabe_regel x),
+                  (select md5(coalesce(string_agg(x::text, '|' order by x.aufgabe_id, x.nr), '')) from schule.aufgabe_fehlbild x)];
+  -- 4. Neue Aufgaben einfügen, Regel und Fehlbilder schreiben
   for z in select * from bb1_p where zustand = 'neu' order by bb loop
     select * into alt from schule.aufgabe where id = z.alt_id;
     n_neu := schule.aufgaben_einfuegen(z.e, jsonb_build_array(z.nrow));
@@ -261,21 +292,39 @@ begin
       insert into schule.aufgabe_fehlbild (aufgabe_id, nr, art, luecke, wert, beschreibung, fehlbild, regel)
       values (neu.id, (f->>'nr')::smallint, f->>'art', (f->>'luecke')::smallint, f->>'wert', f->>'text', f->>'fehlbild', f->>'regel') on conflict do nothing;
       get diagnostics cnt = row_count; n_fb_neu := n_fb_neu + cnt;
+    end loop;
+  end loop;
+  if array_length(fehler, 1) > 0 then raise exception 'BB1 ABBRUCH, alles zurückgerollt (% Befunde): %', array_length(fehler, 1), array_to_string(fehler[1:40], ' | '); end if;
+  -- 4b. Antwortprobe über die Bewertungsfunktion (neue UND schon vorhandene neue): Soll-Antwort richtig, jede Fehlantwort gültig und falsch und als genau dieses Fehlbild erkannt
+  for z in select * from bb1_p where zustand in ('neu', 'fertig') order by bb loop
+    select * into neu from schule.aufgabe where id = z.neu_id;
+    v := case z.y when 'zahl' then jsonb_build_object('wert', replace(z.nrow->'o'->>'wert', '.', ',')) when 'luecken' then jsonb_build_object('werte', z.nrow->'o'->'werte')
+                  when 'auswahl' then jsonb_build_object('index', z.nrow->'o'->'index') end;
+    b := schule.antwort_bewerten(neu, v);
+    if coalesce((b->>'format_ok')::boolean, false) and coalesce((b->>'richtig')::boolean, false) then n_soll_ok := n_soll_ok + 1;
+    else fehler := fehler || format('%s: die Soll-Antwort %s wird nicht als richtig bewertet (%s)', z.bb, v, b); end if;
+    for f in select * from jsonb_array_elements(z.fb) loop
       v := schule.fehlbild_probeantwort(neu, f->>'art', (f->>'luecke')::int, f->>'wert');
       b := schule.antwort_bewerten(neu, v);
       if not coalesce((b->>'format_ok')::boolean, false) or coalesce((b->>'richtig')::boolean, true) then
         fehler := fehler || format('%s: Fehlbild %s – Antwort %s wird nicht als gültig und falsch bewertet (%s)', z.bb, f->>'nr', v, b); continue; end if;
-      if schule.fehlbild_finden(neu, v) is distinct from (f->>'nr')::smallint then fehler := fehler || format('%s: Fehlbild %s wird an der Antwort %s nicht wiedererkannt', z.bb, f->>'nr', v); end if;
+      if schule.fehlbild_finden(neu, v) is distinct from (f->>'nr')::smallint then fehler := fehler || format('%s: Fehlbild %s wird an der Antwort %s nicht wiedererkannt', z.bb, f->>'nr', v); continue; end if;
+      n_fb_ok := n_fb_ok + 1;
     end loop;
-    -- die richtige Antwort wird als richtig bewertet (Probeantwort aus der Lösung)
     if (select count(*) from schule.aufgabe_fehlbild x where x.aufgabe_id = neu.id) <> jsonb_array_length(z.fb)
        or (select r.regel from schule.aufgabe_regel r where r.aufgabe_id = neu.id) is distinct from z.regel then
       fehler := fehler || format('%s: Aufgabe %s hat andere Regel/Fehlbilder in der Datenbank als im Paket', z.bb, neu.id); end if;
   end loop;
   if array_length(fehler, 1) > 0 then raise exception 'BB1 ABBRUCH, alles zurückgerollt (% Befunde): %', array_length(fehler, 1), array_to_string(fehler[1:40], ' | '); end if;
-  -- 5. Alte Aufgaben sperren (je Einheit: kurz 'geprueft', freigegeben = false, zurück 'freigegeben'; Einheitszeile danach unverändert)
+  -- 5. Alte Aufgaben sperren (je Einheit: Verweisprüfung 2, dann kurz 'geprueft', freigegeben = false, zurück 'freigegeben'; Einheitszeile danach unverändert)
   for tr in select id from bb1_e order by id loop
     perform 1 from schule.einheit where id = tr.id for no key update;
+    for z2 in select * from bb1_p where zustand = 'neu' and e = tr.id order by bb loop
+{VERWEIS('z2')}
+      if array_length(gef, 1) > 0 then
+        raise exception 'BB1 ABBRUCH, alles zurückgerollt: % hat nach der ersten Prüfung einen offenen Verweis bekommen (Aufgabe %: %) – Lernpause einhalten und nochmals ausführen', z2.bb, z2.alt_id, array_to_string(gef, ', ');
+      end if;
+    end loop;
     select to_jsonb(x) into v_vor from schule.einheit x where x.id = tr.id;
     if v_vor->>'status' <> 'freigegeben' then fehler := fehler || format('Einheit %s ist nicht freigegeben', tr.id); continue; end if;
     update schule.einheit set status = 'geprueft' where id = tr.id;
@@ -291,13 +340,11 @@ begin
   if exists (select 1 from bb1_a x where x.nach is distinct from x.vor) or exists (select 1 from schule.aufgabe x where x.id in (select id from bb1_a) and x.freigegeben) then
     fehler := fehler || 'eine alte Aufgabe ist nicht gesperrt oder hat sich in einer anderen Spalte als freigegeben verändert'::text; end if;
   if array_length(fehler, 1) > 0 then raise exception 'BB1 ABBRUCH, alles zurückgerollt (% Befunde): %', array_length(fehler, 1), array_to_string(fehler[1:40], ' | '); end if;
-  -- 6. Nachher: Lernkarten-Regeln, Zählungen, Trigger, Schreib-Prüfung über das ganze Schema
+  -- 6. Nachher: Lernkarten-Regeln, Zählungen, Trigger, Fingerabdruck, Schreib-Prüfung über das ganze Schema
   for kk in select * from bb1_v loop
     wert := '';
     foreach fn in array array['karte_ziel', 'karte_typen_noetig', 'karte_schwer_noetig', 'karte_anwenden_noetig'] loop
-      if to_regprocedure('schule.' || fn || '(bigint, text)') is not null then
-        execute format('select coalesce(schule.%I($1, $2)::text, ''-'')', fn) into trg using kk.e, kk.l; wert := wert || fn || '=' || trg || ';';
-      end if;
+      execute format('select coalesce(schule.%I($1, $2)::text, ''-'')', fn) into trg using kk.e, kk.l; wert := wert || fn || '=' || trg || ';';
     end loop;
     select count(*) into cnt from schule.aufgabe x where x.einheit_id = kk.e and x.pool = kk.pool and x.variante_gruppe = kk.l and x.freigegeben;
     update bb1_v set karte_nach = wert, frei_nach = cnt where e = kk.e and l = kk.l and pool = kk.pool;
@@ -305,9 +352,16 @@ begin
   if exists (select 1 from bb1_v where karte_vor is distinct from karte_nach or frei_vor <> frei_nach) then
     fehler := fehler || ('Lernkarten-Regeln ändern sich: ' || (select string_agg(format('Einheit %s/%s/%s: %s -> %s (freigegeben %s -> %s)', e, l, pool, karte_vor, karte_nach, frei_vor, frei_nach), ' | ')
                                                                 from bb1_v where karte_vor is distinct from karte_nach or frei_vor <> frei_nach)); end if;
-  select coalesce(string_agg(cl.relname || ':' || g.tgname || ':' || md5(pg_get_triggerdef(g.oid)), ',' order by cl.relname, g.tgname), '') into trg_nach
-    from pg_trigger g join pg_class cl on cl.oid = g.tgrelid where not g.tgisinternal and cl.relnamespace = 'schule'::regnamespace and cl.relname in ('einheit', 'aufgabe', 'aufgabe_regel', 'aufgabe_fehlbild');
+  select coalesce(string_agg(cl.relname || ':' || g.tgname || ':' || md5(pg_get_triggerdef(g.oid)) || ':' || md5(p.prosrc), ',' order by cl.relname, g.tgname), '') into trg_nach
+    from pg_trigger g join pg_class cl on cl.oid = g.tgrelid join pg_proc p on p.oid = g.tgfoid
+   where not g.tgisinternal and cl.relnamespace = 'schule'::regnamespace and cl.relname in ('einheit', 'aufgabe', 'aufgabe_regel', 'aufgabe_fehlbild');
   if trg_vor <> trg_nach then fehler := fehler || 'der Trigger-Satz hat sich während des Pakets verändert'::text; end if;
+  fp_nach := array[(select md5(coalesce(string_agg(x::text, '|' order by x.id), '')) from schule.aufgabe x where x.id not in (select alt_id from bb1_p where zustand = 'neu')
+                      and x.id not in (select neu_id from bb1_p where zustand = 'neu')),
+                   (select md5(coalesce(string_agg(x::text, '|' order by x.id), '')) from schule.einheit x where x.id not in (select id from bb1_e)),
+                   (select md5(coalesce(string_agg(x::text, '|' order by x.aufgabe_id), '')) from schule.aufgabe_regel x where x.aufgabe_id not in (select neu_id from bb1_p where zustand = 'neu')),
+                   (select md5(coalesce(string_agg(x::text, '|' order by x.aufgabe_id, x.nr), '')) from schule.aufgabe_fehlbild x where x.aufgabe_id not in (select neu_id from bb1_p where zustand = 'neu'))];
+  if fp_vor is distinct from fp_nach then fehler := fehler || 'Fingerabdruck der unberührten Zeilen (aufgabe, einheit, aufgabe_regel, aufgabe_fehlbild) hat sich geändert (fremde Änderung oder Nebenwirkung)'::text; end if;
   erw := jsonb_build_object('aufgabe', n_neu_ges * 2, 'aufgabe_regel', n_regel_neu, 'aufgabe_fehlbild', n_fb_neu, 'einheit', (select count(*) from bb1_e));
   for tab in select cl.relname from pg_class cl where cl.relnamespace = 'schule'::regnamespace and cl.relkind = 'r' order by 1 loop
     execute format('select count(*) from schule.%I where xmin = $1', tab) into cnt using xid_;
@@ -317,8 +371,10 @@ begin
   if n_neu_ges > 0 and (select count(*) from schule.aufgabe x join bb1_p p on p.neu_id = x.id where p.zustand = 'neu' and x.freigegeben) <> n_neu_ges then fehler := fehler || 'Zahl der neuen gültigen Aufgaben stimmt nicht'::text; end if;
   if array_length(fehler, 1) > 0 then raise exception 'BB1 ABBRUCH, alles zurückgerollt (% Befunde): %', array_length(fehler, 1), array_to_string(fehler[1:40], ' | '); end if;
   v_bericht := jsonb_build_object('paare', (select count(*) from bb1_p), 'neu_eingefuegt', n_neu_ges, 'alte_gesperrt', n_gesperrt, 'schon_berichtigt', n_fertig, 'zurueckgestellt', to_jsonb(zurueck),
-    'regeln_neu', n_regel_neu, 'fehlbilder_neu', n_fb_neu, 'einheiten_geaendert', (select count(*) from bb1_e), 'trigger', trg_nach, 'schreibzeilen_je_tabelle', audit,
-    'lernkarten_regeln_gleich', true, 'fehler', 0);
+    'regeln_neu', n_regel_neu, 'fehlbilder_neu', n_fb_neu, 'einheiten_geaendert', (select count(*) from bb1_e), 'sollantworten_richtig', n_soll_ok, 'fehlantworten_gueltig_und_falsch', n_fb_ok,
+    'trigger', trg_nach, 'schreibzeilen_je_tabelle', audit, 'lernkarten_regeln_gleich', true, 'fingerabdruck_unberuehrter_zeilen_gleich', true, 'nf_s_vorhanden', true,
+    'grenzen', 'xmin sieht keine Löschungen, Sequenzänderungen, externe Effekte, fremde Schemas, nicht zuverlässig Untertransaktionen; Trigger-Textsuche sieht delegierte/dynamische Schreibvorgänge nicht; kein Fingerabdruck für versuch/karte_stand (laufende Kinder-Aktivität); Mischkarte nach Verweisprüfung 2 nur durch Lernpause ausgeschlossen',
+    'fehler', 0);
 {ende}end $bb1$;
 select count(*) filter (where freigegeben) as neu_gueltig, count(*) as neu_gesamt from schule.aufgabe where (einheit_id, reihenfolge) in ({', '.join(f"({p['e']}, {p['nr']})" for p in paare)});
 """

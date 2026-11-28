@@ -205,9 +205,12 @@ V.append(hülle(e, 'BB1-C4', 'c', 'Die langen Winkelangaben „(x + 30)°“ und
 
 e = KENN['K6-V121']
 a = copy.deepcopy(e['a'])
-a['f']['schablone'] = '① = □ ② = □ ③ = □ ④ = □'
-V.append(hülle(e, 'BB1-C5', 'c', 'Vierfach-Lücke: der Zeilenumbruch fällt zwischen Eingabefeld und „;“, die zweite Zeile beginnt mit einem einzelnen „;“. '
-               'Ersatz ohne Strichpunkte: Umbrüche fallen dann nur noch vor eine Nummer. (Dieselbe Bauart: 282 Bestandsaufgaben mit vier und mehr Lücken, siehe Zusatzfunde.)',
+a['f']['schablone'] = '□ □ □ □'
+a['f']['hinweis'] = 'Vier Felder, der Reihe nach für ①, ②, ③, ④. Je Feld eine ganze Zahl.'
+V.append(hülle(e, 'BB1-C5', 'c', 'Vierfach-Lücke: Beschriftung („③ =“) und Feld sind in der App getrennte Zeilenelemente (.lern-lueckenzeile = flex-wrap, Text und Eingabefeld je ein Element); '
+               'über die Aufgabe lässt sich beides nicht zusammenhalten (geschütztes Leerzeichen hilft nicht; gemessen bei 320–430 px: je nach Breite steht „③ =“ am Zeilenende und sein Feld in der nächsten Zeile). '
+               'Ersatz ohne Beschriftung im Feld: vier gleiche Felder, die Zuordnung ①–④ steht im Hinweis (Reihenfolge Zeile für Zeile); kein Strichpunkt, kein getrennter Umbruch mehr. '
+               'Dieselbe Bauart (Beschriftung vor Feld) bei Bestandsaufgaben mit mehreren Lücken: Sache der App (Zusatzfunde).',
                a, e['roll']['fehlbilder']))
 
 
@@ -233,6 +236,9 @@ TABELLEN = [  # Kennung, neue Kopfzellen (None = aus der Drehung), Änderungen a
     ('S3-V008', ['Schritt', 'Rechnung'], {}),
     ('R8-V125', ['Ecke', 'Koordinaten'], {}),
 ]
+# Fehlbildtexte, die nach der Drehung nicht mehr stimmen (Gegenprüfung 1182): „eine Spalte zu weit links/rechts“ gibt es in der gedrehten Tabelle nicht mehr
+FEHLBILD_TEXT = {'K9A-V011': {0: 'die Grenzen falsch gewählt: 196 (= 14²) ist schon kleiner als 200, also liegt √200 nicht zwischen 13 und 14',
+                              2: 'die Grenzen falsch gewählt: 225 (= 15²) ist noch größer als 200, also liegt √200 nicht zwischen 15 und 16'}}
 for nr, (k, kopf, aend) in enumerate(TABELLEN, 1):
     e = KENN[k]
     a = copy.deepcopy(e['a'])
@@ -243,11 +249,14 @@ for nr, (k, kopf, aend) in enumerate(TABELLEN, 1):
     n['kopf'] = kopf
     a['f']['grafik'] = n
     a.update(aend)
+    fbs = copy.deepcopy(e['roll']['fehlbilder'])
+    for f_ in fbs:
+        if k in FEHLBILD_TEXT: f_['beschreibung'] = FEHLBILD_TEXT[k][f_['index']]
     schwer = k in ('K9A-V161', 'K9A-V128', 'S3-V038', 'K9A-V011', 'S3-V018', 'R8-V059')
     V.append(hülle(e, f'BB1-T{nr:02d}', 'c',
                    f'Tabelle mit {spalten} Spalten ist am Handy (Tabellenfeld 334 px) zu breit: Zellen brechen buchstabenweise oder mitten in der Zahl um'
                    f'{" (Sichtprüfung 27.11.: kaputt/gemessen)" if schwer else " (Sichtprüfung 27.11.: leichter, nur gemessen)"}. '
-                   f'Ersatz: Tabelle gedreht, {len(n["kopf"])} Spalten und {len(n["zeilen"])} Zeilen; Inhalt und Lösung unverändert.', a, e['roll']['fehlbilder']))
+                   f'Ersatz: Tabelle gedreht, {len(n["kopf"])} Spalten und {len(n["zeilen"])} Zeilen; Inhalt und Lösung unverändert.', a, fbs))
 
 
 # ---------- Prüfungen ----------
@@ -290,7 +299,7 @@ def pruefen():
 def quellen_unveraendert():
     """Alle Aufgaben-Dateien (themen, rollend-*, tools/tests/aus) gleich git HEAD (keine Änderung im Arbeitsbaum)."""
     p = subprocess.run(['git', 'status', '--porcelain', '--', 'inhalte/themen', 'inhalte/mathe-profi', 'tools/tests/aus'], cwd=WURZEL, capture_output=True, text=True)
-    zeilen = [z for z in p.stdout.splitlines() if 'bestand-berichtigung-1' not in z]
+    zeilen = [z for z in p.stdout.splitlines() if 'bestand-berichtigung-1' not in z and 'tools/tests/aus/bestand_berichtigung1_' not in z and 'tools/tests/aus/nf_s_' not in z]
     return zeilen
 
 

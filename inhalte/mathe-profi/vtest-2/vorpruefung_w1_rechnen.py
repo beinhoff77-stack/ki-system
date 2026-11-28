@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Vorprüfung Welle 1, Runde 2 (Urteil 1222): unabhängige Nachrechnung.
 
-Einheiten: zahlen.natuerlich (VT2-085..133) und terme.umformen (VT2-029..049).
+Einheiten: zahlen.natuerlich und terme.umformen.
+Zweite Fassung (Stand 9a986063): VT2-085..119 und VT2-029..043, 5 je Lernziel.
 Jede Lösung wird hier aus der Aufgabenstellung neu gerechnet (exakt, Fraction,
 wo möglich durch vollständiges Durchprobieren). Nicht aus gegenrechnung.py
 übernommen. Danach: Vergleich mit der Sollantwort in der JSON, Prüfung der
@@ -77,162 +78,184 @@ def gleichwertig(f, g, punkte=range(-4, 8)):
 
 
 # ---------------------------------------------------------------- Eigene Lösungen
+# Stand 9a986063: 50 Aufgaben (VT2-085 … 119, VT2-029 … 043), 5 je Lernziel.
 L = {}   # kennung -> Sollwert (zahl), Liste (luecken) oder Index (auswahl)
 N = {}   # kennung -> Notiz (Sonderfälle)
 
+
+def ziffern(n):
+    return [int(c) for c in str(n)]
+
+
+def tausch(n, i, j):
+    """Ziffern an Stellenwert 10^i und 10^j tauschen"""
+    s = list(str(n).rjust(max(i, j) + 1, "0"))[::-1]
+    s[i], s[j] = s[j], s[i]
+    return int("".join(s[::-1]))
+
+
 # --- stellenwert
-# 085: Ziffer d (1..9) und 0 an ZT/T tauschen; Zuwachs 27 000
-kand = []
-for d in range(1, 10):
-    for vorne in (0, d):                  # Ziffer an ZT vorher
-        hinten = d if vorne == 0 else 0
-        zuwachs = (hinten - vorne) * 10000 + (vorne - hinten) * 1000
-        if zuwachs == 27000:
-            kand.append(d)
-L["VT2-085"] = kand[0]
-N["VT2-085"] = "eindeutig d=%s; vorher 0 an ZT -> nur möglich, wenn vor ZT noch eine Ziffer steht (sonst führende 0); Probe der Lösung schreibt '03 000'" % kand
-L["VT2-086"] = 1                          # 5000:5 = 1000 -> Option 1
-assert 5000 // 5 == 1000
-L["VT2-087"] = 7777 - 7007
-z = "360482"
-L["VT2-088"] = [2, int(z[1]) * 10 ** (len(z) - 2)]
-L["VT2-089"] = 3
-L["VT2-090"] = len({p for p in permutations("046") if p[0] != "0"})
-L["VT2-091"] = [n for n in range(1, 10000) if 10 * n - n == 4050][0]
+best = None
+for n in range(100000, 1000000):
+    s = str(n)
+    if s.count("4") != 2:
+        continue
+    p = [k for k, c in enumerate(s) if c == "4"]
+    if 10 ** (p[1] - p[0]) != 1000:
+        continue
+    rest = [c for c in s if c != "4"]
+    if len(set(rest)) == 4:
+        best = n
+L["VT2-085"] = best
+# 086: alle Zahlen (5- und 6-stellig), bei denen der Tausch ZT<->T genau +36 000 bringt
+diffs, paare = set(), set()
+for n in range(10000, 1000000):
+    if tausch(n, 4, 3) - n == 36000:
+        d = ziffern(n)[::-1]
+        diffs.add(d[3] - d[4]); paare.add((d[4], d[3]))
+assert diffs == {4} and len(paare) == 6         # 0/4 … 5/9: Option 3 („nur 0 und 4“) falsch
+L["VT2-086"] = 1
+L["VT2-087"] = [2, 60000]
+assert 7090 != 79 and 7090 != 790 and 7090 != 709
+L["VT2-088"] = 3
+werte = [t * 1000 + h * 100 + z * 10 + e for t in range(10) for h in range(10) for z in range(10)
+         for e in range(10) if t + h + z + e == 12]
+L["VT2-089"] = [min(werte), max(werte)]
 
 # --- ziffern_zu_zahlwort
-z = str(204 * 10 ** 6 + 7 * 10 ** 3 + 5)
-L["VT2-092"] = [len(z), int(z[-4])]
-L["VT2-093"] = str(30 * 10 ** 6 + 3020).count("0")
-L["VT2-094"] = 2                          # Zeile 3 falsch
-L["VT2-095"] = 0
-L["VT2-096"] = 1 if 2000300 > 200300 else None
-L["VT2-097"] = [3, (10010100 // 1000) % 1000]
-L["VT2-098"] = ["60 000 600", "6 600", "6 600 000", "6 000 600"].index(
-    "{:,}".format(6 * 10 ** 6 + 600).replace(",", " "))
+L["VT2-090"] = sum(1 for n in range(10 ** 6 + 1, 2 * 10 ** 6) if (n // 1000) % 1000 == 0)
+assert {len(str(n)) for n in range(10 ** 7, 11 * 10 ** 6)} == {8}
+L["VT2-091"] = 2
+L["VT2-092"] = 0
+
+
+def tim_liest(n):
+    s = str(n)
+    g = [int(s[i:i + 3]) for i in range(0, len(s), 3)]       # Gruppen von links
+    return sum(x * 1000 ** (len(g) - 1 - k) for k, x in enumerate(g))
+
+
+L["VT2-093"] = sum(1 for n in range(1000, 1000000) if tim_liest(n) == n)
+
+
+def hundert_anzahl(n):
+    k = 0
+    while n:
+        if (n % 1000) // 100:
+            k += 1
+        n //= 1000
+    return k
+
+
+assert max(hundert_anzahl(n) for n in range(10 ** 8, 10 ** 8 + 200000)) == 3
+kleinste = next(n for n in range(10 ** 8, 10 ** 9) if hundert_anzahl(n) == 3)
+assert all(hundert_anzahl(n) <= 2 for n in range(1, 10 ** 6, 7))       # Stichprobe < 10^8
+L["VT2-094"] = [3, kleinste]
 
 # --- strahl_eintragen
 je_cm = F(2000 - 1200, 4)
-L["VT2-099"] = [int((3400 - 1200) / je_cm), int(1200 + 9 * je_cm)]
-marken = [0, 250, 500, 800, 1000]
-schritt = F(marken[-1] - marken[0], len(marken) - 1)
-falsch = [i for i, m in enumerate(marken) if m != marken[0] + i * schritt]
-L["VT2-100"] = falsch[0] - 1              # Optionen ohne die 0
-L["VT2-101"] = 700 + (12 - 5) * 50
-L["VT2-102"] = [3, int(F(7500, 1000) * 2)]
-a = set(range(200, 1200, 200)); b = set(range(150, 1200, 150))
-L["VT2-103"] = len(a & b)
-je_cm = F(120, 6)
-L["VT2-104"] = sum(1 for n in range(0, 121) if abs(n - 60) / je_cm < 1)
-L["VT2-105"] = 0
+L["VT2-095"] = [int((3400 - 1200) / je_cm), int(1200 + 9 * je_cm)]
+striche = {300 + 200 * k for k in range(2000)}
+L["VT2-096"] = 1 if not any(2 * s in striche for s in list(striche)[:1000]) else None
+L["VT2-097"] = 2 if F(600, 50) / F(600, 200) == 4 else None
+L["VT2-098"] = len(set(range(200, 1200, 200)) & set(range(150, 1200, 150)))
+L["VT2-099"] = 0 if len({10 - 0, 100 - 10, 1000 - 100}) > 1 else None
 
 # --- runden_regel
-L["VT2-106"] = sum(1 for n in range(1, 101) if rund(n, 10) == rund(n, 100))
-L["VT2-107"] = [sum(1 for n in range(0, 10000) if rund(n, 100) == 3700),
-                sum(1 for n in range(0, 10000) if rund(n, 1000) == 4000)]
-L["VT2-108"] = max(abs(rund(n, 100) - n) for n in range(0, 100000))
-L["VT2-109"] = [2, rund(4949, 100)]
-faelle = {(rund(n, 10000) > n, rund(n, 10000) < n, rund(n, 10000) == n) for n in range(1, 200000)}
-L["VT2-110"] = 1 if len(faelle) == 3 else None
-mono = all(rund(a, 100) <= rund(a + 1, 100) for a in range(0, 100000))
-gleich_moeglich = rund(4760, 100) == rund(4770, 100)
-L["VT2-111"] = 3 if (mono and gleich_moeglich) else None
-zahlen = [n for n in range(0, 10000) if rund(n, 100) == 2000]
-L["VT2-112"] = 2 if (min(zahlen), max(zahlen)) == (1950, 2049) else None
+L["VT2-100"] = sum(1 for n in range(1, 101) if rund(n, 10) == rund(n, 100))
+L["VT2-101"] = max(abs(rund(n, 100) - n) for n in range(0, 100000))
+L["VT2-102"] = [2, rund(4949, 100)]
+faelle = {(rund(n, 10000) > n, rund(n, 10000) < n) for n in range(1, 200000)}
+L["VT2-103"] = 1 if len(faelle) == 3 else None
+L["VT2-104"] = 3 if all(rund(a, 100) <= rund(a + 1, 100) for a in range(100000)) else None
 
 # --- runden_sinnvoll
-L["VT2-113"] = [50 * 30 - 48 * 29, 48 * 30 - 48 * 29]
-L["VT2-114"] = [1000 // 36, -(-1000 // 36)]
-N["VT2-114"] = "Text nennt 27,8 (Dezimalzahl) – in M5 noch nicht eingeführt (Dezimalbrüche M6)"
-L["VT2-115"] = 2 if (rund(22817, 1000) == 23000 and rund(22817, 10000) == 20000) else None
-L["VT2-116"] = [min(n for n in range(0, 10000) if rund(n, 100) == 4300) * 15,
-                max(n for n in range(0, 10000) if rund(n, 100) == 4300) * 15]
-L["VT2-117"] = 3 if 237 < 249 else None
 laengen = [m for m in range(1, 100) if rund(m, 10) == 30]
-L["VT2-118"] = [min(m // 3 for m in laengen), max(m // 3 for m in laengen)]
-w = [1480, 1460, 1440, 1450]
-assert sum(w) == 5830 and sum(rund(x, 1000) for x in w) == 4000
-L["VT2-119"] = 1
+L["VT2-105"] = [min(m // 3 for m in laengen), max(m // 3 for m in laengen)]
+assert divmod(1000, 36) == (27, 28)
+L["VT2-106"] = [1000 // 36, -(-1000 // 36)]
+L["VT2-107"] = 2 if (rund(22817, 1000), rund(22817, 10000)) == (23000, 20000) else None
+L["VT2-108"] = [50 * 30 - 48 * 29, 48 * 30 - 48 * 29]
+w = [3460, 3420, 3440, 3470]
+assert sum(w) == 13790 and sum(rund(x, 1000) for x in w) == 12000 and rund(sum(w), 1000) != sum(w)
+L["VT2-109"] = 0
 
 # --- roemisch_schreiben
-nils = "M" + "CD" + "XL" + "VIIII"
-assert roem(1449) == "MCDXLIX"
-L["VT2-120"] = [4, len(nils), len(roem(1449))]
-opts = ["VC", "CDXC", "MCMXC", "XLIV"]
-ungueltig = [i for i, s in enumerate(opts) if not roem_regelgerecht(s)]
-L["VT2-121"] = ungueltig[0] if len(ungueltig) == 1 else ungueltig
-L["VT2-122"] = [len(roem(1999, ADD)), len(roem(1999))]
-# Eindeutigkeit 122: rein additive Schreibweisen von 1999 sind nicht eindeutig
-alt = "M" + "C" * 9 + "L" + "X" * 4 + "V" + "I" * 4    # ebenfalls nur addiert, = 1999
-assert sum(WERT[c] for c in alt) == 1999
-N["VT2-122"] = "rein additiv auch z. B. %s (%d Zeichen) möglich – 'mit möglichst wenigen Zeichen' fehlt" % (alt, len(alt))
-L["VT2-123"] = [1000, 900, 40, 4]
-L["VT2-124"] = sum(1 for n in range(1, 51) if any(p in roem(n) for p in ("IV", "IX", "XL")))
-L["VT2-125"] = 1 if (roem_regelgerecht("MCMXCIX") and not roem_regelgerecht("MIM")) else None
-L["VT2-126"] = min(n for n in range(1, 4000) if len(roem(n)) == 6)
+ADD_C = [(100, "C"), (50, "L"), (10, "X"), (5, "V"), (1, "I")]
+ersparnis = {n: len(roem(n, ADD_C)) - len(roem(n)) for n in range(1, 91)}
+mx = max(ersparnis.values())
+top = [n for n, e in ersparnis.items() if e == mx]
+N["VT2-110"] = "größte Ersparnis %d nur bei %s" % (mx, top)
+L["VT2-110"] = [top[0], mx] if len(top) == 1 else top
+opts = ["MCMXC", "CDXC", "XLIV", "VC"]
+L["VT2-111"] = [i for i, s in enumerate(opts) if not roem_regelgerecht(s)][0]
+assert len("XII") > len("X") and 12 > 10 and len("VIII") > len("L") and 8 < 50
+L["VT2-112"] = 1
+L["VT2-113"] = max(n for n in range(1, 6000) if not re.search(r"(.)\1\1\1", roem(n)))
+L["VT2-114"] = min(n for n in range(1, 4000) if len(roem(n)) == 6)
 
 # --- dualsystem
-L["VT2-127"] = sum(1 for n in range(16, 32) if n > 20)
-L["VT2-128"] = sum(1 for n in (24, 32, 48, 64, 96, 128) if bin(n).count("1") == 1)
-L["VT2-129"] = 3 if int("0111", 2) == int("111", 2) else None
-L["VT2-130"] = [2, int("1011", 2)]
-L["VT2-131"] = int("1101", 2) - int("0101", 2)
-L["VT2-132"] = len({format(n, "b") for n in range(0, 32)})
-L["VT2-133"] = len(format(127, "b")) if set(format(127, "b")) == {"1"} else None
+mia = lambda n: sum(int(c) * 2 ** k for k, c in enumerate(format(n, "b")))   # Stellenwerte von links
+L["VT2-115"] = sum(1 for n in range(1, 32) if mia(n) == n)
+L["VT2-116"] = 0 if int("0111", 2) == int("111", 2) else None
+d117 = {int(format(n, "b"), 2) - int("0" + format(n, "b")[1:-1] + "1", 2)
+        for n in range(64, 128) if format(n, "b").endswith("0")}
+L["VT2-117"] = d117.pop() if len(d117) == 1 else d117
+endet00 = [n for n in range(4, 4096) if format(n, "b").endswith("00")]
+assert all(n % 4 == 0 for n in endet00)
+assert any(bin(n).count("1") > 1 for n in endet00) and any(n % 100 != 0 for n in endet00)
+L["VT2-118"] = 1
+L["VT2-119"] = [min(len(str(n)) for n in range(512, 1024)), max(len(str(n)) for n in range(512, 1024))]
 
 # --- terme.umformen: zusammenfassen
 U_R = lambda x: 2 * ((3 * x + 2) + (x + 6))
-a_kand = [a for a in range(-50, 51) if gleichwertig(U_R, lambda x, a=a: 4 * (2 * x + a))]
+a_kand = [a for a in range(-50, 51) if gleichwertig(U_R, lambda x, a=a: 4 * (2 * x + a), range(1, 12))]
+assert all(s > 0 for x in (F(1, 1000), 1, 5) for s in (3 * x + 2, x + 6, 2 * x + a_kand[0]))
 L["VT2-029"] = a_kand[0]
-N["VT2-029"] = "für x = -1 ist die Seite 3x + 2 = -1 cm (negativ) – 'für jede Zahl x' im Sachkontext; x > 0 o. ä. vorgeben"
-glieder = [("x", 1), ("x", 2), ("x", 1), ("", 0), ("x", 2), ("", 0)]   # 2x,3x²,-x,4,5x²,7
-L["VT2-030"] = sum(1 for i in range(6) for j in range(i + 1, 6) if glieder[i] == glieder[j])
-L["VT2-031"] = 7 * 2 ** 3 - (3 * 2 + 4 * 2 ** 2)
-assert 7 * 0 ** 3 == 3 * 0 + 4 * 0 and 7 * 1 == 3 + 4
-L["VT2-032"] = 2
-assert gleichwertig(lambda x: 6 * x - 4 * 7 + 2 * x + 5 * 7, lambda x: 8 * x + 7)  # y = 7 Probe
-lsg = [(p, q) for p in range(-10, 11) for q in range(-10, 11)
-       if gleichwertig(lambda x: 5 * x * x - 3 * x - p * x * x + q * x, lambda x: 3 * x * x - 2 * x)]
-L["VT2-033"] = list(lsg[0])
-L["VT2-034"] = (lambda x: 5 * x - 7 + 3 - 4 * x - x + 10)(1000)
-T = lambda x, y: 6 * x + 4 * y - 2 * x - 3 * y
-L["VT2-035"] = T(11, 5) - T(10, 5)
+L["VT2-030"] = 2
+gleich = [x for x in range(-100, 101) if 3 * x + 2 == 5 * x]
+L["VT2-031"] = 0 if gleich == [1] else None
+L["VT2-032"] = (lambda x: 5 * x - 7 + 3 - 4 * x - x + 10)(987654)
+T33 = lambda a, b: 7 * a - 2 * b + 3 - 4 * a + 5 * b - a
+d33 = {T33(a, b) - T33(a + 1, b - 1) for a in range(-5, 6) for b in range(-5, 6)}
+L["VT2-033"] = d33.pop() if len(d33) == 1 else d33
 
 # --- minusklammer
-lsg = [(a, b) for a in range(-20, 21) for b in range(-20, 21)
-       if gleichwertig(lambda x: (a * x + 5) - (3 * x - b), lambda x: 2 * x + 9)]
-L["VT2-036"] = list(lsg[0])
-werte = {(lambda x: 9 - (x - 4) - (6 - x))(F(x)) for x in range(-5, 6)}
-L["VT2-037"] = int(werte.pop()) if len(werte) == 1 else None
-L["VT2-038"] = [k for k in range(-20, 21) if 7 * 1 - (k * 1 - 3) == 4][0]
-assert 10 - (2 + 3) != 10 - 2 + 3
-L["VT2-039"] = 0
-A = lambda x: 12 - (x - 5)
-L["VT2-040"] = sum(1 for g in (lambda x: 12 - x - 5, lambda x: 12 - x + 5, lambda x: 17 - x, lambda x: -x + 17)
-                   if gleichwertig(A, g))
+kand = [a for a in range(1, 100)
+        if all((40 - (3 * x - a)) - (40 - 3 * x - a) == 18 for x in range(-5, 6))]
+L["VT2-034"] = kand[0] if len(kand) == 1 else kand
 assert gleichwertig(lambda a: 4 * a - (3 - 2 * a) + (a - 1), lambda a: 7 * a - 4)
-L["VT2-041"] = [2, 7, -4]
-L["VT2-042"] = [x for x in range(-50, 51) if 20 * x - (5 * x - 3 + 2 * x - 8 + x) == 35][0]
+L["VT2-035"] = [2, 7, -4]
+rest = lambda x: 50 - (x - 3)              # Lisa zahlt x - 3
+assert all(rest(x) == 50 - (x - 3) and rest(x) != 50 - x - 3 for x in range(3, 50))
+L["VT2-036"] = 1
+
+
+def T37(n, x):
+    t = x - 1
+    for _ in range(n - 1):
+        t = x - t
+    return t
+
+
+L["VT2-037"] = [T37(10, 50), T37(11, 50)]
+assert gleichwertig(lambda x: -(x - 7), lambda x: 7 - x)
+L["VT2-038"] = 2
 
 # --- aequivalenz
+ok39 = all((a1 == a2 and b1 == b2) for a1 in range(-6, 7) for b1 in range(-6, 7)
+           for a2 in range(-6, 7) for b2 in range(-6, 7) if b1 == b2 and a1 + b1 == a2 + b2)
+assert 1 == 1 * 1 and 3 * 1 - 2 == 1 and 4 == 3 * 2 - 2          # Beispiel im Lösungsweg
+L["VT2-039"] = 0 if ok39 else None
+echt = lambda n: 4 * n - (n - 1)
+terme = [lambda n: 4 + 3 * (n - 1), lambda n: 3 * n + 1, lambda n: 4 * n - n - 1]
+L["VT2-040"] = [sum(1 for t in terme if all(t(n) == echt(n) for n in range(1, 30))), echt(10)]
+L["VT2-041"] = [k for k in range(-50, 51) if all(F(2 * x + k, 2) - x == 10 for x in range(-5, 6))][0]
+L["VT2-042"] = sum(1 for x in range(-100, 101) if 3 * (x + 4) - x == 2 * x + 9)
 Ts = {"A": lambda x: 2 * (x + 3), "B": lambda x: 2 * x + 6, "C": lambda x: 3 * (x + 2) - x,
       "D": lambda x: 5 * x - 2 * (x + 1), "E": lambda x: 3 * x - 2, "F": lambda x: 3 * x + 2}
 ks = list(Ts)
 L["VT2-043"] = sum(1 for i in range(6) for j in range(i + 1, 6) if gleichwertig(Ts[ks[i]], Ts[ks[j]]))
-echt = lambda n: 4 * n - (n - 1)          # n Quadrate, n-1 gemeinsame Hölzer
-terme = [lambda n: 4 + 3 * (n - 1), lambda n: 3 * n + 1, lambda n: 4 * n - n - 1]
-L["VT2-044"] = [sum(1 for t in terme if all(t(n) == echt(n) for n in range(1, 30))), echt(10)]
-G = lambda x: 3 * (x + 2) - (x - 4)
-kette = [lambda x: 3 * x + 6 - x - 4, lambda x: 2 * x + 2, lambda x: 3 * x + 6 - x + 4,
-         lambda x: 2 * x + 10, lambda x: 3 * x + 6 - (x - 4)]
-L["VT2-045"] = sum(1 for t in kette if gleichwertig(G, t))
-R = lambda x: F(2 * x + 6, 2) - x
-L["VT2-046"] = [int(R(5)), int(R(100))]
-ab = [(a, b) for a in range(-20, 21) for b in range(-20, 21) if [a * x + b for x in (0, 1, 2)] == [4, 7, 10]]
-L["VT2-047"] = ab[0][0] * 10 + ab[0][1]
-treffer = [x for x in range(1, 11) if x * x + 6 == 5 * x]
-L["VT2-048"] = [len(treffer), 5 * max(treffer)]
-L["VT2-049"] = [a for a in range(-20, 21) if gleichwertig(lambda x: 3 * (x - 2) + a * x, lambda x: 7 * x - 6)][0]
 
 
 # ---------------------------------------------------------------- Vergleich mit JSON
@@ -255,6 +278,8 @@ MARKER = {
     "Verneinung (nicht)": r"\bnicht\b",
     "Sammeloption (beide/weder/alle drei)": r"\b(beide|weder|alle drei)\b",
     "Zahl im Text": r"\d",
+    "nicht entscheidbar": r"(nicht entscheiden|nicht sagen|nichts sagen|weiß man nicht|weiß man erst|nichts Sicheres|hängt vom Rest ab|kann man nicht)",
+    "Sammel (jeder/beide/keiner/weder)": r"\b(beide|weder|keiner|jeder der|alle drei)\b",
     "Doppelpunkt/Semikolon": r"[:;]",
 }
 

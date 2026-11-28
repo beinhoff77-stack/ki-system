@@ -244,7 +244,7 @@
     "w": "Wegen der verschiedenen Klassengrößen vergleicht man Anteile: 8 : 25 = 0,32 = 32 % und 9 : 30 = 0,30 = 30 %. In der 6a ist Fußball beliebter.",
     "a": [
      "Jonas hat recht, denn in der 6b wählen mit 9 mehr Kinder Fußball als mit 8 in der 6a.",
-     "Jonas hat nicht recht, denn 8 : 25 = 32 % ist mehr als 9 : 30 = 30 %.",
+     "Jonas hat nicht recht, denn in der 6a sind es 8 : 25 = 32 %, in der 6b nur 9 : 30 = 30 %.",
      "Die Klassen lassen sich nicht vergleichen, denn sie haben verschieden viele Kinder.",
      "Jonas hat nicht recht, denn 8 von 25 und 9 von 30 sind derselbe Anteil, nämlich 30 %."
     ],
@@ -508,34 +508,34 @@
     "s": 2,
     "y": "zahl",
     "f": {
-     "text": "In einem Säulendiagramm (Hochachse beginnt bei 0) ist die Säule für „Rad“ 5 cm hoch und die Säule für „Bus“ 2 cm hoch. Es fahren 18 Kinder mehr mit dem Rad als mit dem Bus. Wie viele Kinder fahren mit dem Bus?"
+     "text": "In einem Säulendiagramm (Hochachse beginnt bei 0) ist die Säule für „Rad“ 7 cm hoch und die Säule für „Bus“ 3 cm hoch. Es fahren 20 Kinder mehr mit dem Rad als mit dem Bus. Wie viele Kinder fahren mit dem Bus?"
     },
-    "w": "Der Höhenunterschied ist 5 − 2 = 3 cm. Diese 3 cm stehen für 18 Kinder, also steht 1 cm für 6 Kinder. Die Bus-Säule ist 2 cm hoch: 2 · 6 = 12 Kinder.",
+    "w": "Der Höhenunterschied ist 7 − 3 = 4 cm. Diese 4 cm stehen für 20 Kinder, also steht 1 cm für 5 Kinder. Die Bus-Säule ist 3 cm hoch: 3 · 5 = 15 Kinder.",
     "o": {
-     "wert": 12
+     "wert": 15
     }
    },
    "regel": "rr.verhaeltnis",
-   "loesung_rechnung": "18 : (5 − 2) · 2",
+   "loesung_rechnung": "20 : (7 − 3) · 3",
    "fehlbilder": [
     {
-     "antwort": 18,
-     "rechnung": "18",
+     "antwort": 20,
+     "rechnung": "20",
      "beschreibung": "den Unterschied der Kinderzahlen selbst als Zahl der Bus-Kinder genommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 6,
-     "rechnung": "18 : 3",
-     "beschreibung": "nur den Wert für 1 cm bestimmt: 18 : 3 = 6",
+     "antwort": 5,
+     "rechnung": "20 : 4",
+     "beschreibung": "nur den Wert für 1 cm bestimmt: 20 : 4 = 5",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 30,
-     "rechnung": "18 : 3 · 5",
-     "beschreibung": "die Höhe des Rad-Balkens statt des Bus-Balkens genommen: 6 · 5 = 30",
+     "antwort": 35,
+     "rechnung": "20 : 4 · 7",
+     "beschreibung": "die Höhe des Rad-Balkens statt des Bus-Balkens genommen: 5 · 7 = 35",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -679,7 +679,7 @@
     "w": "Annas Säule: 6 · 5 = 30 Kinder. Bens Säule: 4 · 8 = 32 Kinder. Bens niedrigere Säule steht für mehr Kinder, weil sein Maßstab größer ist.",
     "a": [
      "Annas Säule steht für mehr Kinder, denn sie ist mit 6 cm höher gezeichnet als Bens Säule.",
-     "Bens Säule steht für mehr Kinder, denn 4 · 8 = 32 ist mehr als 6 · 5 = 30.",
+     "Bens Säule steht für mehr Kinder, denn sie bedeutet 4 · 8 = 32 Kinder, Annas Säule nur 6 · 5 = 30 Kinder.",
      "Beide Säulen stehen für gleich viele Kinder, denn beide Diagramme zeigen eine Umfrage.",
      "Das lässt sich nicht vergleichen, denn die Säulen stehen in verschiedenen Diagrammen."
     ],
@@ -905,7 +905,7 @@
     },
     "w": "A: 6 − 4 = 2 neue Mitglieder, B: 220 − 200 = 20 neue Mitglieder. Ein großer Prozentsatz von einem kleinen Ausgangswert kann eine kleine Anzahl sein; die Prozentzahlen gehören zu verschieden großen Ausgangswerten.",
     "a": [
-     "Verein B hat mehr neue Mitglieder gewonnen: 20 neue Mitglieder gegenüber 2 neuen bei Verein A.",
+     "Verein B hat mehr neue Mitglieder gewonnen: 20 gegenüber 2 bei Verein A.",
      "Verein A hat mehr neue Mitglieder gewonnen, denn 50 % sind mehr als 10 %.",
      "Beide haben gleich viele neue Mitglieder gewonnen, denn Prozentzahlen sind vergleichbar.",
      "Verein A war fünfmal so erfolgreich wie Verein B, denn 50 : 10 ergibt 5."
@@ -1072,7 +1072,7 @@
      "Die rechte Säule steht für doppelt so viel, weil sie doppelt so viel Platz einnimmt.",
      "Die linke Säule steht für mehr, weil sie schmaler ist und deshalb steiler wirkt.",
      "Man kann nichts sagen, weil sich die Breiten der beiden Säulen unterscheiden.",
-     "Beide Säulen stehen für gleich viel; die breitere wirkt nur größer, ist es aber nicht."
+     "Beide Säulen stehen für gleich viel; die breitere wirkt nur größer."
     ],
     "o": {
      "index": 3

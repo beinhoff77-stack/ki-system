@@ -27,40 +27,41 @@
     "s": 3,
     "y": "zahl",
     "f": {
-     "text": "Bei einem Quader wird die Länge verdoppelt, die Breite verdreifacht und die Höhe halbiert. Das Wievielfache des ursprünglichen Volumens hat der neue Quader?"
+     "text": "Bei einem Quader wird die Länge um 50 % vergrößert, die Breite um 20 % verkleinert und die Höhe verdoppelt. Um wie viel Prozent ändert sich das Volumen?"
     },
-    "w": "Das Volumen ist Länge · Breite · Höhe. Die drei Faktoren wirken zusammen: 2 · 3 · ½ = 3. Das neue Volumen ist das Dreifache des alten.",
+    "w": "Die Faktoren wirken zusammen: 1,5 · 0,8 · 2 = 2,4. Das neue Volumen ist 240 % des alten, also um 140 % größer. Die Prozentzahlen der drei Änderungen darf man nicht addieren (50 − 20 + 100 = 130).",
     "o": {
-     "wert": 3
+     "wert": 140,
+     "einheit": "%"
     }
    },
    "ersetzt_test": true,
    "regel": "id.flaeche_raum.aus_dem_quader",
-   "loesung_rechnung": "2 · 3 : 2",
+   "loesung_rechnung": "1,5 · 0,8 · 2 · 100 − 100",
    "fehlbilder": [
     {
-     "antwort": 5.5,
-     "rechnung": "2 + 3 + 0,5",
-     "beschreibung": "die Faktoren addiert statt multipliziert: 2 + 3 + 0,5 = 5,5",
+     "antwort": 130,
+     "rechnung": "50 − 20 + 100",
+     "beschreibung": "die Prozentzahlen der drei Änderungen addiert statt die Faktoren zu multiplizieren",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 6,
-     "rechnung": "2 · 3",
-     "beschreibung": "die Höhe vergessen: 2 · 3 = 6",
+     "antwort": 240,
+     "rechnung": "1,5 · 0,8 · 2 · 100",
+     "beschreibung": "den neuen Wert in Prozent des alten angegeben, nicht die Änderung",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 12,
-     "rechnung": "2 · 3 · 2",
-     "beschreibung": "die Höhe verdoppelt statt halbiert: 2 · 3 · 2 = 12",
+     "antwort": 100,
+     "rechnung": "100",
+     "beschreibung": "nur die Verdopplung der Höhe als Änderung des Volumens gerechnet",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "was_waere_wenn|Kantenfaktoren 2, 3, 1/2 zusammen"
+   "idee": "was_waere_wenn|Kantenänderungen in Prozent, Faktoren statt Prozentzahlen"
   },
   {
    "kennung": "VT3-002",
@@ -480,7 +481,7 @@
     "a": [
      "Es sind 100 cm · 100 cm = 10 000 cm², das sind 10 000 Liter, also viel mehr als Mia sagt.",
      "Mia hat recht, denn 1 m ist 100 cm und 1 Liter sind 100 cm³, also passen 100 Liter hinein.",
-     "Mia hat die Kante umgerechnet, aber nicht das Volumen: 100 · 100 · 100 = 1 000 000 cm³ = 1 000 Liter.",
+     "Mia hat nur die Kante umgerechnet, nicht das Volumen: 100 · 100 · 100 = 1 000 000 cm³ = 1 000 Liter.",
      "Es gilt 1 · 1 · 1 = 1, also ist 1 m³ genau 1 Liter, und Mia hat sich um den Faktor 100 geirrt."
     ],
     "o": {
@@ -846,37 +847,37 @@
     "s": 2,
     "y": "luecken",
     "f": {
-     "text": "Ein Quader hat das Volumen 252 cm³, ist 7 cm lang und 4 cm breit. Lena will die Höhe berechnen. Zeile 1: Gesucht ist h mit 7 · 4 · h = 252. Zeile 2: Das heißt 28 · h = 252. Zeile 3: h = 252 · 28 = 7 056. Zeile 4: Die Höhe beträgt 7 056 cm. In welcher Zeile steckt der erste Fehler, und wie hoch ist der Quader richtig (in cm)?",
+     "text": "Ein Quader hat das Volumen 308 cm³, ist 7 cm lang und 4 cm breit. Lena will die Höhe berechnen. Zeile 1: Gesucht ist h mit 7 · 4 · h = 308. Zeile 2: Das heißt 28 · h = 308. Zeile 3: h = 308 · 28 = 8 624. Zeile 4: Die Höhe beträgt 8 624 cm. In welcher Zeile steckt der erste Fehler, und wie hoch ist der Quader richtig (in cm)?",
      "schablone": "Fehler in Zeile □, Höhe richtig: □ cm",
      "hinweis": "Je Feld eine ganze Zahl."
     },
-    "w": "Zeile 3 ist falsch: Aus 28 · h = 252 folgt h = 252 : 28 = 9. Die Höhe ist 9 cm.",
+    "w": "Zeile 3 ist falsch: Aus 28 · h = 308 folgt h = 308 : 28 = 11. Die Höhe ist 11 cm.",
     "o": {
      "werte": [
       3,
-      9
+      11
      ]
     }
    },
    "regel": "id.flaeche_raum.aus_dem_quader",
    "loesung_rechnung": [
     "3",
-    "252 : 28"
+    "308 : 28"
    ],
    "fehlbilder": [
     {
      "luecke": 2,
-     "antwort": 7056,
-     "rechnung": "252 · 28",
+     "antwort": 8624,
+     "rechnung": "308 · 28",
      "beschreibung": "mit 28 malgenommen statt durch 28 geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 2,
-     "antwort": 224,
-     "rechnung": "252 − 28",
-     "beschreibung": "28 von 252 abgezogen",
+     "antwort": 280,
+     "rechnung": "308 − 28",
+     "beschreibung": "28 von 308 abgezogen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1228,7 +1229,7 @@
     "w": "Die neue Schicht hat die Grundfläche Länge · Breite und die Dicke 2 cm. Ihr Volumen ist 2 cm · Länge · Breite.",
     "a": [
      "Es wächst um 2 cm³, denn die Höhe wächst um 2 cm und Länge und Breite bleiben gleich.",
-     "Es wächst um 2 cm · Länge · Breite, denn über der Grundfläche liegt eine 2 cm dicke Schicht.",
+     "Es wächst um 2 cm · Länge · Breite, denn darüber liegt eine 2 cm dicke Schicht.",
      "Es verdoppelt sich, denn die Höhe wird um 2 cm größer und das Volumen folgt der Höhe.",
      "Es wächst um 2 cm, denn Volumen und Höhe ändern sich bei gleicher Grundfläche gleich stark."
     ],
@@ -1392,7 +1393,7 @@
     },
     "w": "Bei beiden stehen die Zahlen 10, 4 und 6, nur in anderer Reihenfolge. Das Volumen ist das Produkt, und das ändert sich bei vertauschten Faktoren nicht: 240 cm³ für beide.",
     "a": [
-     "Beide haben dasselbe Volumen, denn es werden dieselben drei Zahlen miteinander malgenommen.",
+     "Beide haben dasselbe Volumen, denn es werden dieselben drei Zahlen malgenommen.",
      "A hat das größere Volumen, denn A ist höher als B und die Höhe zählt besonders stark.",
      "B hat das größere Volumen, denn B ist breiter als A und hat damit die größere Grundfläche.",
      "Das lässt sich nicht sagen, ohne dass man beide Volumen vorher ausgerechnet hat."

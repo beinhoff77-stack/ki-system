@@ -34,3 +34,37 @@ for thema, liste in out.items():
     n += len(liste)
     print(thema, len(liste))
 print("zusammen", n)
+
+# ---------- feste Prüfungen des Bauskripts (Vorprüfungs-Lehren) ----------
+fehler = []
+alle = []
+for thema in out:
+    alle += out[thema]
+# 1. Denkfiguren je Lernziel: mindestens 5 verschiedene Kategorien, keine mehr als zweimal
+je_lz = {}
+for a in alle:
+    je_lz.setdefault((a["thema"], a["lernkarte"]), []).append(a["idee"].split("|")[0])
+for lz, kat in je_lz.items():
+    z = {k: kat.count(k) for k in set(kat)}
+    if len(z) < 5: fehler.append(f"{lz}: nur {len(z)} Denkfiguren")
+    if max(z.values()) > 2: fehler.append(f"{lz}: Denkfigur mehr als zweimal: {z}")
+# 2. Auswahl: vier Optionen, richtige Option nicht (zu oft) die längste, Position gleichmäßig, nie zweimal hintereinander gleich
+aus = [a for a in alle if a["aufgabe"]["y"] == "auswahl"]
+laengste = 0
+plaetze = [0, 0, 0, 0]
+for a in aus:
+    opts = a["aufgabe"]["a"]
+    i = a["aufgabe"]["o"]["index"]
+    if len(opts) != 4: fehler.append(f"{a['kennung']}: nicht vier Optionen")
+    if len(opts[i]) == max(len(t) for t in opts): laengste += 1
+    plaetze[i] += 1
+if laengste > 0.35 * len(aus): fehler.append(f"richtige Option ist in {laengste} von {len(aus)} Fällen die längste (mehr als 35 %)")
+if max(plaetze) - min(plaetze) > 2 and max(plaetze) > 0.32 * len(aus): fehler.append(f"Positionen ungleich verteilt: {plaetze}")
+for lz, kat in je_lz.items():
+    folge = [a["aufgabe"]["o"]["index"] for a in alle if (a["thema"], a["lernkarte"]) == lz and a["aufgabe"]["y"] == "auswahl"]
+    if any(x == y for x, y in zip(folge, folge[1:])): fehler.append(f"{lz}: richtige Position zweimal hintereinander {folge}")
+print(f"Auswahl: {len(aus)} Aufgaben, richtige Option längste in {laengste} ({100 * laengste / len(aus):.0f} %), Plätze {plaetze}")
+if fehler:
+    print("FESTE PRÜFUNG FEHLGESCHLAGEN:")
+    for f in fehler: print("  ", f)
+    sys.exit(1)

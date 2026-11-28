@@ -262,7 +262,7 @@
     "a": [
      "Gegenüberliegende Winkel ergeben zusammen 180°, denn sie liegen auf zwei Geraden.",
      "Mindestens einer der Winkel ist spitz, denn die vier Winkel ergeben zusammen 360°.",
-     "Gegenüberliegende Winkel sind gleich groß, denn sie ergänzen denselben Nachbarwinkel zu 180°.",
+     "Gegenüberliegende Winkel sind gleich groß, denn beide ergänzen den Nachbarwinkel zu 180°.",
      "Je zwei benachbarte Winkel sind verschieden groß, denn sie liegen auf verschiedenen Seiten."
     ],
     "o": {
@@ -582,7 +582,7 @@
     },
     "w": "Um 9:00 Uhr und 3:00 Uhr sind es je 90° (kleinerer Winkel). Um 9:15 Uhr steht der Minutenzeiger bei 90°, der Stundenzeiger bei 270° + 7,5° = 277,5°. Der Unterschied ist 187,5°, der kleinere Winkel beträgt 172,5°.",
     "a": [
-     "Nur Mia hat recht, denn um 9:15 Uhr ist der Stundenzeiger schon weitergewandert, der Winkel ist größer als 90°.",
+     "Nur Mia hat recht, denn um 9:15 Uhr ist der Stundenzeiger weitergewandert (Winkel über 90°).",
      "Beide haben recht, denn um 9:15 Uhr zeigt der Minutenzeiger auf die 3 und der Stundenzeiger auf die 9.",
      "Nur Jonas hat recht, denn um 3:00 Uhr beträgt der Winkel zwischen den Zeigern nicht 90°, sondern 270°.",
      "Beide haben nicht recht, denn um 9:00 Uhr beträgt der Winkel zwischen den Zeigern 270° und nicht 90°."
@@ -749,7 +749,7 @@
     "s": 3,
     "y": "zahl",
     "f": {
-     "text": "Eine Uhr geht jede Stunde genau 5 Minuten vor. Um 12:00 Uhr wird sie richtig gestellt. Wie groß ist der kleinere Winkel zwischen ihren Zeigern, wenn die richtige Zeit 15:00 Uhr ist? (Die Uhr hat ein 12-Stunden-Zifferblatt, der Stundenzeiger wandert gleichmäßig weiter.)"
+     "text": "Eine Uhr geht jede Stunde genau 5 Minuten vor. Um 12:00 Uhr wird sie richtig gestellt. Wie groß ist der kleinere Winkel zwischen ihren Zeigern, wenn die richtige Zeit 15:00 Uhr ist? (Die Uhr hat ein 12-Stunden-Zifferblatt, der Stundenzeiger wandert gleichmäßig weiter. Gib das Ergebnis als Dezimalzahl an.)"
     },
     "w": "Nach 3 Stunden geht die Uhr 15 Minuten vor und zeigt 3:15 Uhr. Minutenzeiger: 15 · 6° = 90°. Stundenzeiger: 3 · 30° + 15 · 0,5° = 97,5°. Winkel: 7,5°.",
     "o": {
@@ -856,7 +856,7 @@
     "w": "Der kleine Teil ist 1 Stück, der große 3 Stücke: zusammen 4 Stücke (Zeile 2). Ein Stück ist 22,5°, der kleine Teil 22,5° und der große 67,5°. Zeile 4 zeigt zwar den Widerspruch, entsteht aber erst durch den Fehler in Zeile 2.",
     "a": [
      "In Zeile 1, denn der große Teil besteht nur aus zwei Stücken und nicht aus dreien.",
-     "In Zeile 2, denn es sind 1 + 3 = 4 Stücke zusammen; ein Stück ist dann 90° : 4 = 22,5°.",
+     "In Zeile 2, denn es sind 1 + 3 = 4 Stücke zusammen, ein Stück ist 90° : 4 = 22,5°.",
      "In Zeile 3, denn man muss 90° durch die 3 Stücke und dann noch einmal durch 3 teilen.",
      "In Zeile 4, denn der große Teil kann nicht so groß wie der ganze rechte Winkel sein."
     ],
@@ -1203,7 +1203,7 @@
     "a": [
      "Er ist ein gestreckter Winkel, denn ein spitzer und ein stumpfer Winkel ergänzen sich.",
      "Er ist ein stumpfer Winkel, denn der stumpfe Winkel bestimmt die Art des Gesamtwinkels.",
-     "Er ist größer als 90°, denn schon der stumpfe Winkel allein ist größer als 90°.",
+     "Er ist größer als 90°, denn schon der stumpfe Winkel allein ist größer als 90° und der spitze kommt noch dazu.",
      "Er ist kleiner als 180°, denn der spitze Winkel ist kleiner als der stumpfe Winkel."
     ],
     "o": {
@@ -1261,7 +1261,7 @@
     "a": [
      "Der Winkel ist 62° groß, denn Jonas hat den Wert am Geodreieck genau abgelesen.",
      "Jonas hat an der falschen Skala abgelesen; der Winkel ist 180° − 62° = 118° groß.",
-     "Jonas hat an der falschen Skala abgelesen; der Winkel ist 90° − 62° = 28° groß.",
+     "Jonas hat an der falschen Skala abgelesen; der Winkel ist 90° − 62° = 28° groß, ein Rest zum rechten Winkel.",
      "Der Winkel ist 242° groß, denn 180° + 62° = 242°, weil er stumpf aussieht."
     ],
     "o": {
@@ -1279,7 +1279,7 @@
     },
     {
      "index": 2,
-     "antwort": "Jonas hat an der falschen Skala abgelesen; der Winkel ist 90° − 62° = 28° groß.",
+     "antwort": "Jonas hat an der falschen Skala abgelesen; der Winkel ist 90° − 62° = 28° groß, ein Rest zum rechten Winkel.",
      "beschreibung": "von 90° statt von 180° abgezogen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -1496,7 +1496,7 @@
     "w": "Die Größe eines Winkels hängt von der Öffnung zwischen den Schenkeln ab. Die Schenkel kann man beliebig verlängern, ohne den Winkel zu ändern. 60° ist größer als 40°.",
     "a": [
      "β ist größer als α, denn die Größe eines Winkels hängt nur von der Öffnung ab.",
-     "α ist größer als β, denn die Schenkel von α sind länger als die von β.",
+     "α ist größer als β, denn die Schenkel von α sind mit 5 cm länger als die von β mit 3 cm.",
      "α und β sind gleich groß, denn nur die Länge der Schenkel ist verschieden.",
      "Man kann α und β nicht vergleichen, weil die Schenkel verschieden lang sind."
     ],
@@ -1508,7 +1508,7 @@
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "α ist größer als β, denn die Schenkel von α sind länger als die von β.",
+     "antwort": "α ist größer als β, denn die Schenkel von α sind mit 5 cm länger als die von β mit 3 cm.",
      "beschreibung": "Schenkellänge mit Winkelgröße verwechselt",
      "fehlbild": null,
      "regel_des_fehlbilds": null

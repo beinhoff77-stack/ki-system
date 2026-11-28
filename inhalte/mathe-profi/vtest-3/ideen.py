@@ -1,7 +1,7 @@
 """Denkfigur (idee) je Aufgabe: Kategorie|Kurzbeschreibung. Wird von bauen.py als Feld idee in die JSON-Dateien geschrieben.
 Die Kategorie beschreibt, was beim Lösen wirklich gedacht werden muss (nicht das Aufgabenformat)."""
 I = """
-001 was_waere_wenn|Kantenfaktoren 2, 3, 1/2 zusammen
+001 was_waere_wenn|Kantenänderungen in Prozent, Faktoren statt Prozentzahlen
 002 immer_nie|alle Kanten eines Würfels geändert, Aussage über das Volumen
 003 transfer|Würfel in kleine Würfel zerlegen, Anzahl über Volumen
 004 fehler|Fehler-Detektiv: Summe statt Produkt
@@ -55,7 +55,7 @@ I = """
 052 fehler|Fehler-Detektiv: Notenmittel
 053 zusammenhang|gleiche Mittelwerte, Gesamtmittelwert ohne Rechnung
 054 begruenden|welche Änderung lässt den Mittelwert gleich
-055 transfer|Mischung, Preis je Kilogramm
+055 zusammenhang|Mittelwert gleichmäßig verteilter Zahlen ist die Mitte
 056 groessenvergleich|Ausreißer und Mittelwert ohne genaues Rechnen
 057 umkehr|Mittelwert der gestrichenen Zahlen
 058 was_waere_wenn|eine Zahl ersetzt, Mittelwert ändert sich

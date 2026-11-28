@@ -89,7 +89,7 @@
     },
     "w": "x² ist nie negativ, also ist x² − 9 mindestens −9, und der Wert −9 wird bei x = 0 angenommen. Kleinere Werte wie −10 kommen nicht vor. Die Zahl 0 kommt vor: f(3) = 0.",
     "a": [
-     "Die Zahl −9 gehört zu W, denn f(0) = −9.",
+     "Die Zahl −9 gehört zu W, denn für x = 0 ergibt sich f(0) = 0² − 9 = −9.",
      "Die Zahl −10 gehört zu W, denn man kann ja x = −1 einsetzen.",
      "Die Zahl −9 gehört nicht zu W, denn Quadrate sind nie negativ.",
      "Die Zahl 0 gehört nicht zu W, denn dafür müsste x² = 0 sein."
@@ -366,26 +366,26 @@
     "s": 2,
     "y": "zahl",
     "f": {
-     "text": "Für f(x) = x − 2 sei die Definitionsmenge D = {2; 4; 6; 8}. Wie viele Zahlen gehören sowohl zur Definitionsmenge D als auch zur Wertemenge W?"
+     "text": "Für f(x) = x − 2 sei die Definitionsmenge D = {2; 4; 6; 8; 10}. Wie viele Zahlen gehören sowohl zur Definitionsmenge D als auch zur Wertemenge W?"
     },
-    "w": "W = {0; 2; 4; 6}. Gemeinsam mit D = {2; 4; 6; 8} sind 2, 4 und 6: drei Zahlen. (0 liegt nur in W, 8 nur in D.)",
+    "w": "W = {0; 2; 4; 6; 8}. Gemeinsam mit D = {2; 4; 6; 8; 10} sind 2, 4, 6 und 8: vier Zahlen. (0 liegt nur in W, 10 nur in D.)",
     "o": {
-     "wert": 3
+     "wert": 4
     }
    },
    "regel": "id.funktionen.zuordnung",
-   "loesung_rechnung": "4 − 1",
+   "loesung_rechnung": "5 − 1",
    "fehlbilder": [
     {
-     "antwort": 4,
-     "rechnung": "4",
+     "antwort": 5,
+     "rechnung": "5",
      "beschreibung": "die Zahl der Elemente von D genannt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "antwort": 1,
-     "rechnung": "4 − 3",
+     "rechnung": "5 − 4",
      "beschreibung": "die Zahlen gezählt, die in W, aber nicht in D liegen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -575,9 +575,9 @@
     },
     "w": "Gesucht ist die Stelle t mit V(t) = 30, also 12 + 1,5t = 30. Dann 1,5t = 18 und t = 12 Minuten.",
     "a": [
-     "Man berechnet V(30) = 12 + 1,5 · 30.",
+     "Man berechnet V(30) = 12 + 1,5 · 30 und liest das Ergebnis ab.",
      "Man löst die Gleichung 12 + 1,5 · t = 30 nach t.",
-     "Man rechnet 30 : 1,5 und addiert 12.",
+     "Man rechnet 30 : 1,5 und addiert dann noch die 12 dazu.",
      "Man löst die Gleichung 12 + 1,5 + t = 30."
     ],
     "o": {
@@ -588,14 +588,14 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Man berechnet V(30) = 12 + 1,5 · 30.",
+     "antwort": "Man berechnet V(30) = 12 + 1,5 · 30 und liest das Ergebnis ab.",
      "beschreibung": "Funktionswert und gesuchte Stelle vertauscht: 30 ist hier der Funktionswert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 2,
-     "antwort": "Man rechnet 30 : 1,5 und addiert 12.",
+     "antwort": "Man rechnet 30 : 1,5 und addiert dann noch die 12 dazu.",
      "beschreibung": "die Schritte nicht rückwärts geordnet: erst 12 abziehen, dann durch 1,5 teilen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -697,7 +697,7 @@
     "a": [
      "Es gibt keine Lösung, denn −2x² ist nie positiv.",
      "x = 2 ist die Lösung, denn 2² = 4 und 2 · 4 = 8.",
-     "Es gibt zwei Lösungen, x = −2 und x = 2.",
+     "Es gibt zwei Lösungen, x = −2 und x = 2, denn −2 und 2 haben dasselbe Quadrat.",
      "x = −4 ist die Lösung, denn 8 : (−2) = −4."
     ],
     "o": {
@@ -715,7 +715,7 @@
     },
     {
      "index": 2,
-     "antwort": "Es gibt zwei Lösungen, x = −2 und x = 2.",
+     "antwort": "Es gibt zwei Lösungen, x = −2 und x = 2, denn −2 und 2 haben dasselbe Quadrat.",
      "beschreibung": "wie bei x² = 4 zwei Lösungen angenommen, das Vorzeichen aber nicht beachtet",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -964,8 +964,8 @@
     "w": "Gleiche Steigung heißt parallel. Weil die Achsenabschnitte 1 und −3 verschieden sind, liegen die Geraden nicht aufeinander. Bei jedem x ist f(x) um 4 größer als g(x).",
     "a": [
      "Die Graphen schneiden sich in genau einem Punkt, denn beide Terme enthalten 2x.",
-     "Die Graphen fallen zusammen, denn beide haben die Steigung 2.",
-     "Die Graphen sind parallel und verschieden: Sie haben dieselbe Steigung 2, aber die Achsenabschnitte 1 und −3.",
+     "Die Graphen fallen zusammen, denn beide haben die Steigung 2 und gehen durch dieselben Punkte.",
+     "Die Graphen sind parallel und verschieden: gleiche Steigung 2, aber Achsenabschnitte 1 und −3.",
      "Die Graphen schneiden sich auf der y-Achse, denn beide Terme enthalten die Zahl 2."
     ],
     "o": {
@@ -983,7 +983,7 @@
     },
     {
      "index": 1,
-     "antwort": "Die Graphen fallen zusammen, denn beide haben die Steigung 2.",
+     "antwort": "Die Graphen fallen zusammen, denn beide haben die Steigung 2 und gehen durch dieselben Punkte.",
      "beschreibung": "gleiche Steigung mit gleicher Gerade verwechselt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -1021,7 +1021,7 @@
     "w": "Bei einer Geraden wächst y bei gleichen Schritten in x immer um gleich viel. Hier sind die Zuwächse 2, 6 und 18, also ist der Graph keine Gerade.",
     "a": [
      "Der Graph ist eine Gerade, denn y wird mit wachsendem x immer größer.",
-     "Der Graph ist keine Gerade, denn y wächst bei gleichen Schritten in x unterschiedlich stark (um 2, um 6, um 18).",
+     "Der Graph ist keine Gerade, denn y wächst bei gleichen x-Schritten um 2, um 6, um 18.",
      "Der Graph ist die Gerade y = 2x + 1, denn die Punkte (0 | 1) und (1 | 3) liegen darauf.",
      "Der Graph ist eine Gerade, denn alle y-Werte sind positiv."
     ],
@@ -1122,9 +1122,9 @@
     },
     "w": "Die Steigung −3 ist negativ: Wenn x um 1 wächst, sinkt y um 3. Der Graph fällt also, und weil 3 größer als 1 ist, steil. Die +1 ist der Achsenabschnitt.",
     "a": [
-     "Jonas hat nicht recht, denn die Steigung −3 ist negativ: Der Graph fällt steil nach rechts.",
+     "Jonas hat nicht recht, denn die Steigung −3 ist negativ: Der Graph fällt von links nach rechts.",
      "Jonas hat recht, denn je größer die Zahl vor x ist, desto steiler steigt der Graph.",
-     "Jonas hat nicht recht, der Graph verläuft waagrecht, weil am Ende +1 steht.",
+     "Jonas hat recht, denn die +1 am Ende verschiebt den Graphen nach oben, also steigt er.",
      "Jonas hat nicht recht, denn der Graph fällt nur flach, weil −3 kleiner als 0 ist."
     ],
     "o": {
@@ -1142,8 +1142,8 @@
     },
     {
      "index": 2,
-     "antwort": "Jonas hat nicht recht, der Graph verläuft waagrecht, weil am Ende +1 steht.",
-     "beschreibung": "Achsenabschnitt und Steigung verwechselt",
+     "antwort": "Jonas hat recht, denn die +1 am Ende verschiebt den Graphen nach oben, also steigt er.",
+     "beschreibung": "den Achsenabschnitt +1 als Steigung gelesen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
@@ -1175,27 +1175,27 @@
     "s": 3,
     "y": "zahl",
     "f": {
-     "text": "Der Graph von f(x) = b · x² − 5 geht durch den Punkt P(3 | 13). Welchen Funktionswert hat f an der Stelle −2?"
+     "text": "Der Graph von f(x) = b · x² − 5 geht durch den Punkt P(2 | 7). Welchen Funktionswert hat f an der Stelle −3?"
     },
-    "w": "Weil P auf dem Graphen liegt, gilt f(3) = 13: b · 9 − 5 = 13, also b = 2. Dann ist f(−2) = 2 · (−2)² − 5 = 2 · 4 − 5 = 3.",
+    "w": "Weil P auf dem Graphen liegt, gilt f(2) = 7: b · 4 − 5 = 7, also b = 3. Dann ist f(−3) = 3 · (−3)² − 5 = 3 · 9 − 5 = 22.",
     "o": {
-     "wert": 3
+     "wert": 22
     }
    },
    "ersetzt_test": true,
-   "loesung_rechnung": "(13 + 5) : 9 · 4 − 5",
+   "loesung_rechnung": "(7 + 5) : 4 · 9 − 5",
    "fehlbilder": [
     {
-     "antwort": 19,
-     "rechnung": "(13 + 5) : 3 · 4 − 5",
-     "beschreibung": "b nur durch 3 statt durch 3² = 9 bestimmt (b = 6)",
+     "antwort": 49,
+     "rechnung": "(7 + 5) : 2 · 9 − 5",
+     "beschreibung": "b nur durch 2 statt durch 2² = 4 bestimmt (b = 6)",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 67,
-     "rechnung": "(13 + 5) · 4 − 5",
-     "beschreibung": "b = 13 + 5 = 18 gesetzt, nicht durch 9 geteilt",
+     "antwort": 103,
+     "rechnung": "(7 + 5) · 9 − 5",
+     "beschreibung": "b = 7 + 5 = 12 gesetzt, nicht durch 4 geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1442,7 +1442,7 @@
     "w": "Egal, welche Zahl a ist: a · 0 = 0. Also gilt f(0) = 0 und der Ursprung liegt auf jedem solchen Graphen.",
     "a": [
      "Nur für a = 0, denn sonst ist der Funktionswert an der Stelle 0 nicht gleich 0.",
-     "Für jede Zahl a, denn a · 0 ist immer 0, also gilt f(0) = 0.",
+     "Für jede Zahl a, denn a · 0 ist immer 0, also liegt der Punkt P(0 | 0) auf dem Graphen.",
      "Nur für positive a, denn negative Zahlen verschieben den Graphen nach unten.",
      "Für keine Zahl a, denn die Zahl 0 gehört nicht zur Definitionsmenge."
     ],
@@ -1625,10 +1625,10 @@
     },
     "w": "K(4) = 3 + 8 = 11 €, K(8) = 3 + 16 = 19 €. Das ist weniger als 22 €, dem Doppelten. Die Grundgebühr von 3 € wird nur einmal bezahlt, deshalb sind Strecke und Preis nicht proportional.",
     "a": [
-     "Die Fahrt über 8 km kostet doppelt so viel, denn 8 km sind doppelt so viele Kilometer.",
+     "Die Fahrt über 8 km kostet doppelt so viel, denn 8 km sind doppelt so viele Kilometer wie 4 km.",
      "Die Fahrt über 8 km kostet genau 4 € mehr, denn die zusätzlichen 4 km kosten je 1 €.",
      "Die Fahrt über 8 km kostet mehr als das Doppelte, denn die Grundgebühr fällt zweimal an.",
-     "Die Fahrt über 8 km kostet weniger als das Doppelte, denn die Grundgebühr wird nur einmal bezahlt."
+     "Die Fahrt über 8 km kostet weniger als das Doppelte, denn die Grundgebühr zahlt man nur einmal."
     ],
     "o": {
      "index": 3
@@ -1638,7 +1638,7 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Die Fahrt über 8 km kostet doppelt so viel, denn 8 km sind doppelt so viele Kilometer.",
+     "antwort": "Die Fahrt über 8 km kostet doppelt so viel, denn 8 km sind doppelt so viele Kilometer wie 4 km.",
      "beschreibung": "Strecke und Preis proportional gesetzt, die Grundgebühr vergessen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -1739,7 +1739,7 @@
     "a": [
      "Mia hat recht, denn jedes Quadrat hat vier Hölzer, also braucht man 4n Hölzer.",
      "Mia hat nicht recht, denn für 2 Quadrate braucht man 6 Hölzer; richtig wäre der Term 3n.",
-     "Mia hat nicht recht, denn für 2 Quadrate braucht man 7 Hölzer, 4n ergäbe aber 8; richtig ist 3n + 1.",
+     "Mia hat nicht recht: Für 2 Quadrate braucht man 7 Hölzer, 4n ergäbe 8; richtig ist 3n + 1.",
      "Mia hat nicht recht, denn der richtige Term lautet 4 + 3n, weil das erste Quadrat vier Hölzer hat."
     ],
     "o": {
@@ -1794,8 +1794,8 @@
     },
     "w": "Der Anfangswert 6 m³ bleibt, nur der Zufluss je Stunde wird doppelt so groß: 2 · 3 = 6 m³ je Stunde. Also V(t) = 6 + 6t.",
     "a": [
-     "V(t) = 12 + 6t, denn der Anfangswert und der Zufluss verdoppeln sich.",
-     "V(t) = 6 + 6t, denn der Anfangswert bleibt, nur der Zufluss je Stunde wird doppelt so groß.",
+     "V(t) = 12 + 6t, denn der Anfangswert und der Zufluss je Stunde verdoppeln sich beide.",
+     "V(t) = 6 + 6t, denn der Anfangswert bleibt gleich, nur der Zufluss je Stunde wird doppelt so groß.",
      "V(t) = 12 + 3t, denn der Anfangswert wird doppelt so groß, der Zufluss bleibt gleich.",
      "V(t) = 6 + 3t + 3, denn zum bisherigen Term kommen drei weitere Kubikmeter hinzu."
     ],
@@ -1807,7 +1807,7 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "V(t) = 12 + 6t, denn der Anfangswert und der Zufluss verdoppeln sich.",
+     "antwort": "V(t) = 12 + 6t, denn der Anfangswert und der Zufluss je Stunde verdoppeln sich beide.",
      "beschreibung": "auch den Anfangswert verdoppelt, der sich nicht ändert",
      "fehlbild": null,
      "regel_des_fehlbilds": null

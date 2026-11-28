@@ -36,322 +36,267 @@ def winkel_uhr(h, m):
     return min(d, 360 - d)
 
 
-# ---------- erwartete Lösungen, in Reihenfolge test, korrektur 1-3, sicherung 1-3 ----------
-E = {}
+# ---------- erwartete Lösungen je Kennung, unabhängig vom Bauskript gerechnet ----------
+# Zahl/Lücken: Zahl oder Liste. Auswahl: ("opt", Teilstring der richtigen Option); dazu Rechenprüfungen (assert).
+X = {}
 
-# volumen / quader
-opts_k1 = [F(1, 2), F(1, 4), F(1, 8), F(1, 6)]
-g = 25  # Grundfläche 300 : 12
-E["quader"] = [
-    F(2) * 3 * F(1, 2),
-    opts_k1.index(F(1, 2) ** 3),
-    next(k for k in range(1, 100) if k * k == 300 // 12),
-    [3, 5 * 3 * 4],
-    [i for i, f in enumerate([F(2) * 2, F(3) * F(1, 2), F(5, 4) ** 3, F(4) * F(1, 2)]) if f == 2][0],
-    [b for b in range(1, 50) if 2 * b * b * F(b, 2) == 216] and [[b for b in range(1, 50) if 2 * b * b * F(b, 2) == 216][0], F([b for b in range(1, 50) if 2 * b * b * F(b, 2) == 216][0], 2)],
-    [i for i, ok in enumerate([False, False, 4 ** 3 > 3 * 4 * 5, False]) if ok][0],
-]
-E["quader"][5] = [int(E["quader"][5][0]), int(E["quader"][5][1])]
-# Kantensumme beider Körper 48
-assert 12 * 4 == 4 * (3 + 4 + 5) == 48
 
-# liter
-E["liter"] = [
-    F(25 * 20 * 16, 1000) * 1000 / 200,
-    [i for i, l in enumerate([10000, 1000, 100, 1]) if l == F(100 ** 3, 1000)][0],
-    [2, F(50 * 30 * 40, 1000)],
-    next(k for k in range(1, 100) if k ** 3 == 64) * 10,
-    [40 * 25 * 30, F(4) * F(5, 2) * 3, 30],
-    [i for i, l in enumerate([F(2500, 1000), F(5, 2), F(1, 4) * 1000, F(2500, 1000)]) if l != F(5, 2)][0],
-    F(15, 10) * F(12, 10) * 1 * 1000 / 9,
-]
-# rueckwaerts
-bb = [b for b in range(1, 40) if 10 * b * (3 * b) == 270][0]
-E["rueckwaerts"] = [
-    bb,
-    [3, 252 // 28],
-    [i for i, v in enumerate([F(1200, 20) * 5, F(1200, 20 * 5), 1200 - 20 * 5, F(1200, 20 + 5)]) if v == 12][0],
-    [i for i, ok in enumerate([False, False, F(120, 24) > F(120, 40), False]) if ok][0],
-    F(800 * 500) * F(1, 2) / 1000,
-    [245 // 5, next(k for k in range(1, 50) if k * k == 49)],
-    F(3 * 7200, 1000) / 24 * 100,
-]
-# verstehen (volumen)
-import itertools
-def zuwachs_ok(kand):
-    ok = True
-    for l, b, h in itertools.product([2, 3, 5], [2, 4, 7], [1, 3, 6]):
-        dv = (h + 2) * l * b - h * l * b
-        ok = ok and kand(l, b, h, dv)
-    return ok
-E["v_volumen"] = [
-    (F(3) - F(24, 10)) / F(24, 10) * 100,
-    [i for i, k in enumerate([lambda l, b, h, dv: dv == 2, lambda l, b, h, dv: dv == l * b * h, lambda l, b, h, dv: dv == 2 * l * b, lambda l, b, h, dv: dv == 2]) if zuwachs_ok(k)][0],
-    [2, F(4) * 3 * F(5, 2)],
-    3 * 2 * 4 * 2 ** 3,
-    [i for i, ok in enumerate([False, False, False, 20 * 9 > 30 * 5]) if ok][0],
-    (50 // 15) * (40 // 15) * (30 // 15),
-    [i for i, p in enumerate([50, 100, 125, 225]) if F(3, 2) * F(3, 2) - 1 == F(p, 100)][0],
-]
-# daten.darstellen
-E["relative_haeufigkeit"] = [
-    F(9, 24) * 100 - F(12, 40) * 100,
-    [i for i, v in enumerate([F(18, 100), F(3, 4), F(4, 3), F(24, 100)]) if v == F(18, 24)][0],
-    [2, F(40, 250) * 100],
-    F(36) / F(15, 100),
-    [i for i, ok in enumerate([False, False, False, F(8, 25) > F(9, 30)]) if ok][0],
-    60 * (1 - F(3, 10) - F(1, 4) - F(2, 10)),
-    F(6, 24 + 6) * 100,
-]
-E["saeulendiagramm"] = [
-    F(24, 3) - F(24, 6),
-    [3, 7 * 6],
-    F(36, 9) * F(5, 2),
-    [i for i, ok in enumerate([False, False, F(6, 3) == 2, False]) if ok][0],
-    [i for i, h in enumerate([[6, 4, 2, 8], [4, 2, 1, 3], [3, 2, 1, 4], [18, 12, 6, 24]]) if h == [F(a, 6) for a in (18, 12, 6, 24)]][0],
-    F(6 * 5, 4),
-    [(3 + F(9, 2) + F(5, 2)) * 20, F(9, 2) / (3 + F(9, 2) + F(5, 2)) * 100],
-]
-E["irrefuehrend"] = [
-    F(5040 - 4800, 4800) * 100,
-    F(160, 80),
-    [i for i, ok in enumerate([False, 6 - 4 < 220 - 200, False, False]) if ok][0],
-    [3, F(10000 - 8000, 8000) * 100],
-    F(90 - 60) / (F(75 - 60) / 3),
-    3,
-    [i for i, ok in enumerate([False, False, False, True]) if ok][0],
-]
+def opt(t):
+    return ("opt", t)
+
+
+def m3(*kanten):
+    p = F(1)
+    for k in kanten: p *= F(k)
+    return p
+
+
+# ---- messen.volumen / quader
+X[1] = (F(3, 2) * F(4, 5) * 2 - 1) * 100
+assert m3(F(1, 2), F(1, 2), F(1, 2)) == F(1, 8)
+X[2] = opt("ein Achtel")
+X[3] = F(6, 2) ** 3
+X[4] = [3, 6 * 4 * 3]
+assert 20 * 3 * 5 == 300 and 2 * 10 * 3 * 5 == 300         # 2 m = 20 dm, 30 cm = 3 dm, 5 dm  -> 300 dm³
+X[5] = opt("20 · 3 · 5")
+X[6] = [next(b for b in range(1, 60) if 2 * b * b * F(b, 2) == 216)] * 2
+X[6][1] = F(X[6][0], 2)
+assert 4 ** 3 > 3 * 4 * 5 and 4 * (4 + 4 + 4) == 4 * (3 + 4 + 5) == 48
+X[7] = opt("Der Würfel hat das größere Volumen")
+# ---- liter
+X[8] = F(150, 10) ** 3                                 # Kante 150 cm : 10 cm = 15, 15³ Behälter
+X[9] = opt("1 000 Liter")
+X[10] = [2, F(50 * 30 * 40, 1000)]
+X[11] = next(k for k in range(1, 200) if k ** 3 == 64 * 1000)
+assert 40 * 20 * 10 == 20 ** 3 == 8000
+X[12] = opt("Beide fassen gleich viel")
+assert F(25, 10) == F(2500, 1000) == F(2500) / 1000 and F(1, 4) * 1000 != F(5, 2)       # 0,25 m³ = 250 l
+X[13] = opt("0,25 m³")
+X[14] = F(m3(150, 120, 100), 1000) / 9                 # 1 800 l : 9 l/min
+X[15] = next(b for b in range(1, 100) if 10 * b * (3 * b) == 270)
+X[16] = [3, F(308, 7 * 4)]
+assert 1200 / (20 * 5) == 12
+X[17] = opt("1 200 : (20 · 5)")
+assert F(120, 24) > F(120, 40)
+X[18] = opt("Quader A ist höher")
+X[19] = F(8 * 5 * F(1, 200)) * 1000                    # 0,5 cm = 0,005 m; 40 m² · 0,005 m = 0,2 m³ = 200 l
+X[20] = [A for A in [(A, h) for A in range(1, 300) for h in range(1, 300) if A * h == 180 and A * (h + 3) == 240]][0][0:2] and \
+    list([(A, h) for A in range(1, 300) for h in range(1, 300) if A * h == 180 and A * (h + 3) == 240][0])
+X[21] = F(192, 2 * 3 * 2 * 2) * 1                      # Grundfläche 6 cm · 4 cm = 24 cm² -> 192 : 24 = 8 cm
+X[21] = F(192, (3 * 2) * (2 * 2))
+# ---- verstehen (Volumen)
+X[22] = (F(30, 24) - 1) * 100
+X[23] = opt("2 cm · Länge · Breite")
+X[24] = [2, F(4 * 3 * 250, 100)]
+X[25] = F(10 * 10 * (10 - 4), 10 ** 3) * 100
+assert 10 * 4 * 6 == 10 * 6 * 4
+X[26] = opt("Beide haben dasselbe Volumen")
+X[27] = (50 // 15) * (40 // 15) * (30 // 15)
+X[28] = ((F(3, 2) * F(3, 2)) - 1) * 100
+X[28] = opt("um 125 %")
+# ---- daten.darstellen / relative Häufigkeit
+X[29] = F(25 * 100, 100) - 10
+assert F(18, 24) == F(3, 4)
+X[30] = opt("0,75")
+X[31] = [2, F(40, 250) * 100]
+X[32] = F(36 * 100, 15)
+assert F(8, 25) > F(9, 30)
+X[33] = opt("Jonas hat nicht recht, denn in der 6a sind es 8 : 25")
+X[34] = opt("mindestens bei 0 % und höchstens bei 100 %")
+X[35] = F(6, 24 + 6) * 100
+# ---- saeulendiagramm
+X[36] = (6 - 4) * 2
+X[37] = [3, F(45, 10) * 8 - 3 * 8]
+X[38] = 3 * F(20, 7 - 3)
+assert F(6, 3) == 2
+X[39] = opt("doppelt so viele Kinder")
+X[40] = opt("3 cm, 2 cm, 1 cm, 4 cm")
+assert [h * 6 for h in (3, 2, 1, 4)] == [18, 12, 6, 24]
+assert 4 * 8 > 6 * 5
+X[41] = opt("Bens Säule steht für mehr Kinder")
+X[42] = [(F(3) + F(9, 2) + F(5, 2)) * 20, F(9, 2) / (F(3) + F(9, 2) + F(5, 2)) * 100]
+# ---- irrefuehrend
+X[43] = F(5040 - 4800, 4800) * 100
+X[44] = F(80, 20)
+assert 22 - 20 == 2 and 220 - 200 == 20 and F(6 - 4, 4) == F(1, 2)
+X[45] = opt("Verein B hat mehr neue Mitglieder gewonnen")
+X[46] = [2, F(30 - 20, 20) * 100]
+X[47] = 3 ** 2
+X[48] = opt("Beide Säulen stehen für gleich viel")
 assert F(60 - 40, 40) == F(1, 2)
-# kennwerte
-def mw(l): return F(sum(l), len(l))
-E["mittelwert"] = [
-    mw([18] * 7 + [42]),
-    [i for i, d in enumerate([8, F(8, 4), 0, 4]) if mw([10, 10, 10, 18]) - 10 == d][0],
-    [3, mw([2, 3, 2, 5])],
-    F(15, 2) * 3,
-    [i for i, l in enumerate([[5, 7, 9], [4, 5, 7, 7], [3, 5, 7, 9, 6], [3, 5, 7, 9, 5, 8]]) if mw(l) == 6][0],
-    mw([150] * 9 + [160]) - 150,
-    3,  # Index 3: etwa 18 kg, größer als fünf der sechs Gewichte
-]
-hund = mw([8, 9, 10, 11, 12, 60])
-assert 18 < hund < 19 and hund > 12
-E["mittelwert"][6] = 3
-m_ = [m for m in range(0, 40) if (m + 6) + m + (m - 3) == 45][0]
-E["mittel_rueckwaerts"] = [
-    9 * 5 - F(17, 2) * 4,
-    14 * 6 - sum([10, 12, 15, 18, 13]),
-    [3, 9 * 4 - (7 + 11 + 8)],
-    [i for i, v in enumerate([20, -13, 3 * 20 - 33, F(33, 2)]) if v == 20 * 3 - 15 - 18][0],
-    m_,
-    13 * 5 - sum([12, 15, 9, 14]),
-    [F(70 * 5 - 65 - 78, 3), 70 * 5],
-]
-# funktionen
-f_k1 = lambda x: 5 - x * x
-xs = [F(i, 2) for i in range(-12, 13)]
-E["mengen"] = [
-    2,  # höchstens 12 Elemente (nicht 28, nicht genau 12, nicht D)
-    [i for i, ok in enumerate([max(map(f_k1, xs)) == 6, max(map(f_k1, xs)) <= 5, all(f_k1(x) > 0 for x in xs), min(map(f_k1, xs)) == 5]) if ok][0],
-    [i for i, D in enumerate([[-5, 1, 7], [-17, 1, 19], [-1, 1, 3], [-9, 9, 27]]) if sorted(3 * x - 2 for x in D) == [-5, 1, 7]][0],
-    [2, len({x * x - 4 for x in [-2, -1, 0, 1, 2]})],
-    len({sum(map(int, str(n))) for n in range(1, 21)}),
-    [0, 3],
-    len(set(x - 2 for x in [2, 4, 6, 8]) & {2, 4, 6, 8}),
-]
-assert len(set(range(1, 13))) == 12 and 28 > 12
-assert [x for x in [F(3)] if 2 * x - 6 == 0] and 0 == 0
-E["stelle"] = [
-    [sorted([x for x in range(-20, 20) if (x - 3) ** 2 == 16])[0], sorted([x for x in range(-20, 20) if (x - 3) ** 2 == 16])[1]],
-    [a for a in range(-50, 50) if 4 - F(a, 2) == 7][0],
-    [2, [x for x in range(-20, 20) if 3 * x + 6 == 15][0]],
-    1,  # Gleichung aufstellen und nach t lösen (Bauart)
-    [x for x in [F(i, 3) for i in range(-60, 60)] if (lambda a: a * x + 2)([a for a in range(-9, 10) if a * 4 + 2 == 14][0]) == -4][0],
-    2 if not any(-2 * x * x == 8 for x in [F(i, 4) for i in range(-80, 81)]) else -1,
-    next(t for t in [F(i, 10) for i in range(0, 300)] if 5 + F(12, 10) * t == 17),
-]
-E["stelle"][3] = 1
-# Lineare Terme als (m, t)
-def passt(m, t, pts): return all(m * x + t == y for x, y in pts)
-E["graph_lesen"] = [
-    [i for i, (m, t) in enumerate([(-3, 2), (F(1, 2), -3), (2, -3), (2, 1)]) if passt(m, t, [(0, -3), (2, 1)])][0],
-    [i for i, (m, t) in enumerate([(2, 3), (-2, 3), (-1, 3), (-2, -1)]) if passt(m, t, [(-2, 7), (0, 3), (2, -1), (4, -5)])][0],
-    [3, 4],
-    2 if (2 == 2 and 1 != -3) else -1,
-    [i for i, fn in enumerate([lambda x: x ** 3, lambda x: 3 * x - 2, lambda x: x * x, lambda x: 2 * x]) if all(fn(x) == y for x, y in [(-1, 1), (0, 0), (1, 1), (2, 4), (3, 9)])][0],
-    5 + F(-1, 2) * 6,
-    2 if -3 < 0 else -1,
-]
-bf = [2 * 2 + 0, 0]
-b_ = [b for b in range(-20, 20) if b * 9 - 5 == 13][0]
-E["punkt_graph"] = [
-    b_ * 4 - 5,
-    [i for i, ok in enumerate([3 + 10 == 4, 3 - 2 == -5, 3 - 2 * 4 == -5, False]) if ok][0],
-    [3, 3 ** 2 - 1],
-    [i for i, pts in enumerate([[(0, 4), (2, 2), (5, -1)], [(0, 4), (2, 2), (5, 1)], [(1, 4), (2, 2), (5, -1)], [(0, 4), (2, 6), (5, -1)]]) if all(-x + 4 == y for x, y in pts)][0],
-    7 + (7 - 3) // (3 - 1) * (5 - 3),
-    2 if all(a * 0 == 0 for a in range(-10, 11)) else -1,
-    [(47 - 12) // 5, 12 + 5 * 3],
-]
-fass = [t for t in range(0, 20) if 120 - 15 * t == 0][0]
-E["sachzusammenhang"] = [
-    [i for i, (term, grenze) in enumerate([(lambda t: 120 - 15 * t, 15), (lambda t: 15 - 120 * t, 8), (lambda t: 120 - 15 * t, 8), (lambda t: 120 + 15 * t, 8)]) if term(0) == 120 and term(1) == 105 and grenze == fass][0],
-    [i for i, (a, b) in enumerate([(0, 14), (5, 9) if False else (9, 5), (5, 9), (1, 13)]) if all(a * x + b == y for x, y in [(1, 14), (2, 19), (3, 24), (4, 29)])][0],
-    [2, F(8) + F(1, 10) * 50],
-    4 + 3 * (10 - 1),
-    [(370 - 190) // (5 - 2), 190 - 2 * ((370 - 190) // (5 - 2))],
-    1 if (40 - 8 * 0 == 40 and 40 - 8 * 1 == 32) else -1,
-    next(n for n in range(0, 200) if 60 + F(3, 2) * n < 4 * n),
-]
-# winkel
-E["kreuzung"] = [
-    1,  # Begründung über Nachbar- und Scheitelwinkel
-    [(180 - 70) // 2],
-    [2, 48],
-    [360 - 295, 180 - (360 - 295)],
-    [i for i, ok in enumerate([all(F(a) != 180 - a for a in range(10, 171)) and False, False, False, all(True for a in range(10, 171))]) if ok] and 3,
-    90 - 25,
-    [i for i, (a, b, c, d) in enumerate([(65, 115, 115, 65), (65, 115, 65, 115), (65, 65, 115, 115), (65, 115, 65, 105)]) if a == c and b == d and a + b == 180 and a + b + c + d == 360][0],
-]
-E["kreuzung"][1] = 55
-# S1 kreuzung: Nachbarwinkel immer 180°, Sonderfall 90°
-assert all(a + (180 - a) == 180 for a in range(1, 180)) and not all(a != 180 - a for a in range(1, 180))
-E["kreuzung"][4] = 3
-E["uhr"] = [
-    [h for h in range(1, 13) if winkel_uhr(h, 0) == 150 and h != 7][0],
-    F(125, 10) / F(1, 2),
-    [2, winkel_uhr(4, 30)],
-    [i for i, ok in enumerate([False, winkel_uhr(9, 0) == winkel_uhr(3, 0) and winkel_uhr(9, 15) != 90, False, False]) if ok][0],
-    sum(1 for k in range(0, 40) for w in (90, 270) if 0 <= F(w + 360 * k) / F(11, 2) < 720),
-    [i for i, (h, m) in enumerate([(3, 0), (6, 0), (1, 5), (12, 15)]) if winkel_uhr(h, m) == min(winkel_uhr(*x) for x in [(3, 0), (6, 0), (1, 5), (12, 15)])][0],
-    winkel_uhr(3, 15),
-]
-# Anzahl der Zeitpunkte mit Zeigerwinkel 90 im Intervall [0, 720) Minuten, unabhängig durch feine Abtastung geprüft
-cnt = 0
-prev = None
-for t in range(0, 720 * 60 + 1):
-    m = F(t, 60)
-    d = (F(11, 2) * m) % 360
-    v = d - 90 if d <= 180 else d - 270
-    if prev is not None and prev <= 0 < v or v == 0 and prev is not None and prev < 0:
-        cnt += 1
-    prev = v if v != 0 else prev
-assert E["uhr"][4] == 22, E["uhr"][4]
-vs = [[x for x in range(1, 100) if 6 * x * (x + 1) // 2 == 90 or False]]
-n5 = [n for n in range(1, 30) if sum(6 * i for i in range(1, n + 1)) == 90][0]
-E["figuren"] = [
-    [3, 90 - 27 - 41],
-    1 if (90 / 4 == 22.5) else -1,
-    F(150, 10) * 4,
-    2 if all(a + (90 - a) == 90 for a in range(1, 90)) and not all(a == 90 - a for a in range(1, 90)) else -1,
-    n5,
-    3 if 90 - 45 == 45 else -1,
-    [F(90 - 18, 2), F(90 - 18, 2) + 18],
-]
-E["v_winkel"] = [
-    2 if all(a + o > 90 for a in range(1, 90) for o in range(91, 180)) and any(a + o == 180 for a in range(1, 90) for o in range(91, 180)) and any(a + o > 180 for a in range(1, 90) for o in range(91, 180)) else -1,
-    1 if 180 - 62 == 118 else -1,
-    F(90 - 40, 2),
-    [2, 360 // 3],
-    1 if all(90 < 180 - a < 180 for a in range(1, 90)) else -1,
-    2,  # Winkelgröße hängt nur von der Öffnung ab (40° < 60°)
-    [F(210 - 30, 2), F(210 - 30, 2) + 30],
-]
-assert 40 < 60
-
-# ---------- Nachträglich überarbeitete Aufgaben (Vorprüfungs-Lehren): unabhängige Neuberechnung ----------
-# quader K1: Kante a, Höhe h; neu = (2a)² · h/2 = 360  ->  alt = a² · h
-E["quader"][2] = F(360) / (F(2) ** 2 * F(1, 2))
-# rueckwaerts S2: Grundfläche A, Höhe h mit A·h = 180 und A·(h+3) = 240
-E["rueckwaerts"][5] = [[A, h] for A in range(1, 200) for h in range(1, 200) if A * h == 180 and A * (h + 3) == 240][0]
-# saeulendiagramm K2: x cm = 1 Einheit, 5x - 2x = 18, Bus = 2x
-x_ = F(18, 5 - 2)
-E["saeulendiagramm"][2] = 2 * x_
-# mittelwert S2: gewichteter Mittelwert
-E["mittelwert"][5] = F(20 * 3 + 30 * 2, 50)
-# mittel_rueckwaerts K1: Summe vorher 60, nachher 70, ersetzt = 20 - (70 - 60)
-E["mittel_rueckwaerts"][1] = 20 - (5 * 14 - 5 * 12)
-# stelle K1: f(x) = 2x - 6: a mit f(a) = 10, b mit f(b) = -4
-a_ = [x for x in range(-100, 100) if 2 * x - 6 == 10][0]
-b_s = [x for x in range(-100, 100) if 2 * x - 6 == -4][0]
-E["stelle"][1] = a_ - b_s
-# stelle S1: f(x) = 20 : (x - 1)
-E["stelle"][4] = [[x for x in range(-100, 100) if x != 1 and F(20, x - 1) == w][0] for w in (4, -5)]
-# graph_lesen S1: Zuwächse 2, 6, 18 nicht konstant -> keine Gerade; Option 2 (nur zwei Punkte) scheitert bei x = 2
+X[49] = opt("Beide zeigen dieselben Werte")
+# ---- mittelwert
+X[50] = 8 * 2 - 3                                       # Mittelwert folgt der Rechnung der Werte
+X[51] = opt("steigt um 2")
+assert F(8, 4) == 2
+X[52] = [3, F(2 + 3 + 2 + 5, 4)]
+X[53] = 8
+X[54] = opt("weitere 6")
+X[55] = 20 + 2 * 2                                    # fünf gerade Zahlen um die Mitte 20: 16, 18, 20, 22, 24
+assert sum(range(16, 25, 2)) / 5 == 20
+assert F(50 + 60, 6) > 18 and F(50 + 60, 6) < 19 and F(50 + 60, 6) > 12
+X[56] = opt("etwa 18 kg")
+# ---- mittel_rueckwaerts
+X[57] = F(6 * 12 - 4 * 10, 2)
+X[58] = 20 - (5 * 14 - 5 * 12)
+X[59] = [2, 5 * 48 - 4 * 50]
+assert all(any(x >= 10 for x in z) for z in [(1, 1, 1, 37), (10, 10, 10, 10), (9, 9, 11, 11)])
+X[60] = opt("mindestens 10, denn sonst")
+X[61] = 100 + F(-2 + 1 + 3 - 1 + 4, 5)
+X[62] = F(30 * 40 - 10 * 10, 20)
+X[63] = F(5 * 70 - 65 - 78, 3)
+# ---- funktionen.grundbegriffe / mengen
+X[64] = opt("höchstens 12 Elemente")
+f65 = lambda x: x * x - 9
+assert f65(0) == -9 and all(f65(F(k, 4)) >= -9 for k in range(-40, 40)) and f65(3) == 0
+X[65] = opt("Die Zahl −9 gehört zu W")
+X[66] = opt("D = {−1; 1; 3}")
+assert [3 * x - 2 for x in (-1, 1, 3)] == [-5, 1, 7]
+X[67] = [3, len({x * x - 4 for x in (-2, -1, 0, 1, 2)})]
+X[68] = opt("eines seiner Geschwister")
+X[69] = [0, 3]
+X[70] = len({x - 2 for x in (2, 4, 6, 8, 10)} & {2, 4, 6, 8, 10})
+# ---- stelle
+X[71] = next(x for x in range(-50, 50) if x * x - 6 * x == -8 and x != 4)
+X[72] = next(a for a in range(-50, 50) if 2 * a - 6 == 8) - next(b for b in range(-50, 50) if 2 * b - 6 == -2)
+X[73] = [2, F(15 - 6, 3)]
+assert 12 + F(3, 2) * 12 == 30
+X[74] = opt("12 + 1,5 · t = 30")
+X[75] = [next(x for x in range(-100, 100) if x != 1 and F(20, x - 1) == w) for w in (4, -5)]
+assert all(-2 * F(k, 8) ** 2 <= 0 for k in range(-80, 80))
+X[76] = opt("keine Lösung")
+X[77] = F(17 - 5, F(12, 10))
+# ---- graph_lesen
+m_ = F(1 - (-3), 2)
+X[78] = opt("f(x) = 2x − 3")
+assert m_ == 2 and 2 * 0 - 3 == -3 and 2 * 2 - 3 == 1
+mm = F(-3 - 5, 7 - 1) if False else F(-7 - 5, 7 - 1)
+X[79] = 5 - mm * 1                                      # y = 5 + m·(x − 1) bei x = 0
+assert mm == -2 and 5 - 2 * (3 - 1) == 1
+X[80] = [3, 4]
+X[81] = opt("parallel und verschieden")
 ys = [1, 3, 9, 27]
-dz = [ys[i + 1] - ys[i] for i in range(3)]
-assert len(set(dz)) == 3 and 2 * 2 + 1 != 9
-E["graph_lesen"][4] = 1
-# kreuzung K1: Winkel w, Nachbar 2w, w + 2w = 180; gegenüber dem größeren
-w_ = F(180, 3)
-E["kreuzung"][1] = 2 * w_
-# uhr K1: Minutenzeiger 6°/min, Stundenzeiger 0,5°/min; 180° = 30 min
-E["uhr"][1] = F(180, 6) * F(1, 2)
-# figuren K2: 5 Schnitte durch den Mittelpunkt -> 10 Stücke
-st = F(360, 2 * 5)
-E["figuren"][2] = [st, 3 * st]
-# figuren S1: alle ganzzahligen Zerlegungen von 90 in drei positive Teile
+assert len({ys[i + 1] - ys[i] for i in range(3)}) == 3
+X[82] = opt("keine Gerade")
+X[83] = 5 + F(-1, 2) * 6
+assert -3 < 0
+X[84] = opt("Jonas hat nicht recht, denn die Steigung −3 ist negativ")
+X[85] = (lambda b: b * 9 - 5)(next(b for b in range(-20, 20) if b * 4 - 5 == 7))
+assert 3 - 2 * 4 == -5
+X[86] = opt("Ja, denn für x = 4")
+X[87] = [3, 3 ** 2 - 1]
+assert all((2 * F(k, 3) + 1).denominator != 1 or True for k in range(-9, 9))
+assert (2 * F(1, 2) + 1) == 2 and 2 * 3 + 1 == 7
+X[88] = opt("Ist die Zahl a ganz, so ist auch die Zahl b ganz")
+X[89] = (lambda c: c - 2 * 4)(3 * 4 - 2)
+X[90] = opt("Für jede Zahl a")
+X[91] = [F(47 - 12, 5), 12 + 5 * 3]
+# ---- sachzusammenhang
+X[92] = opt("I(t) = 120 − 15t, sinnvoll für 0 ≤ t ≤ 8")
+assert 120 / 15 == 8
+assert (3 + 2 * 8) < 2 * (3 + 2 * 4)
+X[93] = opt("weniger als das Doppelte")
+X[94] = [2, 8 + F(10, 100) * 50]
+assert [4 + 3 * (n - 1) for n in (1, 2, 3)] == [4, 7, 10] and [3 * n + 1 for n in (1, 2, 3)] == [4, 7, 10]
+X[95] = opt("richtig ist 3n + 1")
+X[96] = opt("V(t) = 6 + 6t")
+X[97] = opt("verliert täglich 8 Liter")
+X[98] = next(n for n in range(1, 500) if 60 + F(3, 2) * n < 4 * n)
+# ---- geometrie.winkel / kreuzung
+X[99] = opt("Ein Nachbarwinkel ist 180° − 90° = 90°")
+X[100] = 180 - 50 - 70
+X[101] = [2, 48]
+X[102] = [360 - 310, 180 - (360 - 310)]
+X[103] = opt("Gegenüberliegende Winkel sind gleich groß")
+X[104] = 90 - 35
+X[105] = opt("α = 72°, β = 108°, γ = 72°, δ = 108°")
+# ---- uhr
+X[106] = next(h for h in range(1, 13) if h != 7 and winkel_uhr(h, 0) == 150)
+X[107] = F(180, 6) * F(1, 2)
+X[108] = [2, winkel_uhr(4, 30)]
+assert winkel_uhr(9, 0) == winkel_uhr(3, 0) == 90 and winkel_uhr(9, 15) == F(345, 2)
+X[109] = opt("Nur Mia hat recht")
+assert all(winkel_uhr(h, 0) % 30 == 0 and winkel_uhr(h, 0) <= 180 for h in range(1, 13))
+X[110] = opt("Vielfaches von 30°")
+zeiten = [(3, 0), (6, 0), (1, 5), (12, 15)]
+X[111] = opt("1:05 Uhr")
+assert min(zeiten, key=lambda t: winkel_uhr(*t)) == (1, 5)
+X[112] = winkel_uhr(3, 15)
+# ---- figuren
+X[113] = [3, F(90 - 30, 3)]
+X[114] = opt("In Zeile 2")
+X[115] = F(360, 20) // 2
+X[116] = opt("β ist größer als α")
+assert F(180, 4) > F(90, 3)
+X[117] = F(90, 18) - 1
 zer = [(a, b, 90 - a - b) for a in range(1, 89) for b in range(1, 90 - a)]
-assert all(min(z) <= 30 for z in zer)                      # Option 2 gilt immer
-assert any(min(z) < 20 for z in zer)                       # Option 0 hat Gegenbeispiel
-assert any(max(z) <= 30 for z in zer)                      # Option 1 hat Gegenbeispiel (30, 30, 30)
-assert any(len(set(z)) < 3 for z in zer)                   # Option 3 hat Gegenbeispiel
-E["figuren"][5] = 2
-# v_winkel K1: Nebenwinkel schrumpft um alpha
-E["v_winkel"][2] = [al for al in range(1, 90) if (180 - al) - (180 - 2 * al) == 30][0]
-
-
-REIHE = [("messen.volumen", ["quader", "liter", "rueckwaerts", "verstehen"], ["quader", "liter", "rueckwaerts", "v_volumen"]),
-         ("daten.darstellen", ["relative_haeufigkeit", "saeulendiagramm", "irrefuehrend"], ["relative_haeufigkeit", "saeulendiagramm", "irrefuehrend"]),
-         ("daten.kennwerte", ["mittelwert", "mittel_rueckwaerts"], ["mittelwert", "mittel_rueckwaerts"]),
-         ("funktionen.grundbegriffe", ["mengen", "stelle", "graph_lesen", "punkt_graph", "sachzusammenhang"], ["mengen", "stelle", "graph_lesen", "punkt_graph", "sachzusammenhang"]),
-         ("geometrie.winkel", ["kreuzung", "uhr", "figuren", "verstehen"], ["kreuzung", "uhr", "figuren", "v_winkel"])]
+assert all(min(z) <= 30 for z in zer) and any(max(z) <= 30 for z in zer) and any(min(z) < 20 for z in zer) and any(len(set(z)) < 3 for z in zer)
+X[118] = opt("höchstens 30° groß")
+X[119] = [F(90 - 20, 2), F(90 - 20, 2) + 20]
+# ---- verstehen (Winkel)
+X[120] = opt("größer als 90°")
+assert all(a + s > 90 for a in range(1, 90) for s in range(91, 180))
+X[121] = opt("180° − 62° = 118°")
+X[122] = next(al for al in range(1, 90) if (180 - al) - (180 - 2 * al) == 30)
+X[123] = [1, 180 - 65]
+X[124] = [900 // 360, 900 % 360]
+assert F(40) < F(60)
+X[125] = opt("β ist größer als α")
+x_klein = next(k for k in range(1, 210) if k + (k + 30) == 210)
+X[126] = [x_klein, x_klein + 30]
 
 
 def gleich(a, b):
-    if isinstance(b, list): return len(a) == len(b) and all(gleich(x, y) for x, y in zip(a, b))
+    if isinstance(b, list): return isinstance(a, list) and len(a) == len(b) and all(gleich(x, y) for x, y in zip(a, b))
     return F(str(a)) == F(b)
 
 
 abw = 0
 n = 0
-for thema, lzs, schl in REIHE:
+lang = 0
+pos = {0: 0, 1: 0, 2: 0, 3: 0}
+fr = {}
+for thema in ["messen.volumen", "daten.darstellen", "daten.kennwerte", "funktionen.grundbegriffe", "geometrie.winkel"]:
     d = json.loads((HIER / f"{thema}.json").read_text(encoding="utf-8"))
-    for lz, key in zip(lzs, schl):
-        xs = [x for x in d["aufgaben"] if x["lernkarte"] == lz]
-        assert len(xs) == 7 and [x["pool"] for x in xs] == ["test"] + ["korrektur"] * 3 + ["sicherung"] * 3, (lz, [x["pool"] for x in xs])
-        for x, soll in zip(xs, E[key]):
-            n += 1
-            a = x["aufgabe"]
-            o = a["o"]
-            ist = o.get("wert", o.get("werte", o.get("index")))
-            if "index" in o: ist = o["index"]
+    for x in d["aufgaben"]:
+        k = int(x["kennung"][-3:])
+        n += 1
+        a = x["aufgabe"]
+        o = a["o"]
+        soll = X[k]
+        if a["y"] == "auswahl":
+            teil = soll[1]
+            treffer = [i for i, t in enumerate(a["a"]) if teil in t]
+            if treffer != [o["index"]]:
+                abw += 1
+                print(f'ABWEICHUNG {x["kennung"]}: erwartete Option „{teil}“ steht an {treffer}, gespeichert {o["index"]}')
+            if len(set(a["a"])) != len(a["a"]) or len(a["a"]) < 4: abw += 1; print("Optionen", x["kennung"])
+        else:
+            ist = o.get("wert", o.get("werte"))
             if not gleich(ist, soll):
                 abw += 1
-                print(f'ABWEICHUNG {x["kennung"]} ({lz}): gespeichert {ist}, neu gerechnet {soll}')
-            # Fehlbilder: eigene Auswertung
-            for fb in x["fehlbilder"]:
-                if "rechnung" in fb:
-                    v = ev(fb["rechnung"])
-                    r = fb.get("runden")
-                    if r is not None: v = F(round(float(v), r)) if False else F(str(round(float(v) + 1e-12, r)))
-                    ant = fb["antwort"]
-                    if isinstance(ant, str): ant = ant.replace(",", ".").replace("−", "-")
-                    try: antF = F(str(ant))
-                    except ValueError: antF = None   # Textoption: Rechnung nur zur Erläuterung
-                    if antF is not None and v != antF:
-                        abw += 1
-                        print(f'ABWEICHUNG Fehlbild {x["kennung"]}: {fb["rechnung"]} = {v}, gespeichert {fb["antwort"]}')
-                    if "index" not in o and "werte" not in o and antF == F(str(o["wert"])):
-                        abw += 1; print("Fehlbild gleich Lösung", x["kennung"])
-            # Lösungsrechnung
-            lr = x.get("loesung_rechnung")
-            if lr is not None:
-                if isinstance(lr, list):
-                    for ex, w in zip(lr, o["werte"]):
-                        if ev(ex) != F(str(w)): abw += 1; print(f'ABWEICHUNG Lösungsrechnung {x["kennung"]}: {ex}')
-                elif ev(lr) != F(str(o["wert"])):
-                    abw += 1; print(f'ABWEICHUNG Lösungsrechnung {x["kennung"]}: {lr}')
-            if a["y"] == "auswahl":
-                if len(set(a["a"])) != len(a["a"]) or len(a["a"]) < 4: abw += 1; print("Optionen", x["kennung"])
+                print(f'ABWEICHUNG {x["kennung"]}: gespeichert {ist}, neu gerechnet {soll}')
+        # Fehlbilder: eigene Auswertung
+        for fb in x["fehlbilder"]:
+            if "rechnung" in fb:
+                v = ev(fb["rechnung"])
+                r = fb.get("runden")
+                if r is not None: v = F(str(round(float(v) + 1e-12, r)))
+                ant = fb["antwort"]
+                if isinstance(ant, str): ant = ant.replace(",", ".").replace("−", "-")
+                try: antF = F(str(ant))
+                except ValueError: antF = None
+                if antF is not None and v != antF:
+                    abw += 1
+                    print(f'ABWEICHUNG Fehlbild {x["kennung"]}: {fb["rechnung"]} = {v}, gespeichert {fb["antwort"]}')
+                if "index" not in o and "werte" not in o and antF == F(str(o["wert"])):
+                    abw += 1; print("Fehlbild gleich Lösung", x["kennung"])
+        lr = x.get("loesung_rechnung")
+        if lr is not None:
+            if isinstance(lr, list):
+                for ex, w in zip(lr, o["werte"]):
+                    if ev(ex) != F(str(w)): abw += 1; print(f'ABWEICHUNG Lösungsrechnung {x["kennung"]}: {ex}')
+            elif ev(lr) != F(str(o["wert"])):
+                abw += 1; print(f'ABWEICHUNG Lösungsrechnung {x["kennung"]}: {lr}')
 print(f"{n} Aufgaben geprüft, {abw} Abweichungen")
 sys.exit(1 if abw else 0)

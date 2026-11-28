@@ -85,7 +85,7 @@
     "w": "Die Summe wächst um 8. Der Mittelwert ist die Summe geteilt durch 4, also wächst er um 8 : 4 = 2.",
     "a": [
      "Er steigt um 8, denn eine Zahl wächst um 8.",
-     "Er steigt um 2, denn die Summe wächst um 8 und wird durch 4 geteilt.",
+     "Er steigt um 2, denn die Summe wächst um 8, geteilt durch 4.",
      "Er bleibt gleich, denn die Anzahl der Zahlen ändert sich nicht.",
      "Er steigt um 4, denn man teilt 8 durch 2."
     ],
@@ -303,40 +303,39 @@
     "s": 3,
     "y": "zahl",
     "f": {
-     "text": "Ein Händler mischt 3 kg Nüsse zu 8 € je Kilogramm mit 1 kg Nüssen zu 12 € je Kilogramm. Wie viel Euro kostet ein Kilogramm der Mischung?"
+     "text": "Fünf aufeinanderfolgende gerade Zahlen haben den Mittelwert 20. Wie groß ist die größte dieser Zahlen?"
     },
-    "w": "Die 3 kg kosten 3 · 8 = 24 €, das eine Kilogramm 12 €. Zusammen 36 € für 4 kg: 36 : 4 = 9 € je Kilogramm. Der Mittelwert der Preise (10 €) wäre nur richtig, wenn von beiden Sorten gleich viel gemischt würde.",
+    "w": "Bei gleichmäßig verteilten Zahlen ist der Mittelwert die mittlere Zahl. Die fünf Zahlen sind 16, 18, 20, 22, 24. Probe: Die Summe ist 100 und 100 : 5 = 20. Die größte Zahl ist 24.",
     "o": {
-     "wert": 9,
-     "einheit": "€"
+     "wert": 24
     }
    },
    "regel": "id.daten.kennzahl",
-   "loesung_rechnung": "(3 · 8 + 1 · 12) : 4",
+   "loesung_rechnung": "20 + 2 · 2",
    "fehlbilder": [
     {
-     "antwort": 10,
-     "rechnung": "(8 + 12) : 2",
-     "beschreibung": "die beiden Preise einfach gemittelt, ohne die Mengen zu beachten",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
      "antwort": 20,
-     "rechnung": "8 + 12",
-     "beschreibung": "die beiden Preise addiert",
+     "rechnung": "20",
+     "beschreibung": "den Mittelwert selbst als größte Zahl genommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 36,
-     "rechnung": "3 · 8 + 12",
-     "beschreibung": "die Summe der Preise nicht durch die Zahl der Kilogramm geteilt",
+     "antwort": 22,
+     "rechnung": "20 + 2",
+     "beschreibung": "nur einen Schritt von der mittleren Zahl aus weitergezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 30,
+     "rechnung": "20 + 5 · 2",
+     "beschreibung": "die Zahl der Zahlen mit dem Abstand malgenommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "transfer|Mischung, Preis je Kilogramm"
+   "idee": "zusammenhang|Mittelwert gleichmäßig verteilter Zahlen ist die Mitte"
   },
   {
    "kennung": "VT3-056",
@@ -361,9 +360,9 @@
     "w": "Neue Summe: 50 + 60 = 110 kg. 110 : 6 ≈ 18,3 kg. Das ist mehr als jeder der fünf ersten Hunde wiegt. Ein einzelner sehr großer Wert zieht den Mittelwert stark nach oben.",
     "a": [
      "Er bleibt bei 10 kg, weil nur ein einzelner Wert dazukommt.",
-     "Er beträgt 35 kg, weil man den Mittelwert aus 10 kg und 60 kg bildet.",
+     "Er beträgt 35 kg, weil man den Mittelwert aus 10 kg und 60 kg bildet, also (10 + 60) : 2.",
      "Er sinkt unter 10 kg, weil nun mehr Werte vorhanden sind.",
-     "Er beträgt etwa 18 kg und liegt damit über dem Gewicht von fünf der sechs Hunde."
+     "Er beträgt etwa 18 kg und liegt über dem Gewicht von fünf der sechs Hunde."
     ],
     "o": {
      "index": 3
@@ -380,7 +379,7 @@
     },
     {
      "index": 1,
-     "antwort": "Er beträgt 35 kg, weil man den Mittelwert aus 10 kg und 60 kg bildet.",
+     "antwort": "Er beträgt 35 kg, weil man den Mittelwert aus 10 kg und 60 kg bildet, also (10 + 60) : 2.",
      "beschreibung": "den alten Mittelwert wie einen einzelnen Wert behandelt",
      "fehlbild": null,
      "regel_des_fehlbilds": null

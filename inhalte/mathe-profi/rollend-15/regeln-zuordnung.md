@@ -2,7 +2,7 @@
 
 Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt), nicht das Thema. Jede Kennung wurde gegen `inhalte/mathe-profi/regeln-uebersicht/kennungen.json` gelesen; `bauen.py` prüft, dass sie im Katalog steht und das Thema in der Themenliste der Regel steht (Ausnahmen unten). Quelle der Daten: die Angaben `regel` / `ohne` / `zweifel` in `th_*.py`; `regeln.py` und diese Tabelle werden von `bauen.py` erzeugt.
 
-**152 Aufgaben mit Regel, 15 ohne.**
+**164 Aufgaben mit Regel, 15 ohne.**
 
 ## Verteilung
 
@@ -14,6 +14,7 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | `rr.potenz` | Potenzen | 15 |
 | `id.geometrie.deckungsgleich` | Deckungsgleich | 14 |
 | `id.verhaeltnisse.prozent` | Prozent als Faktor | 14 |
+| `id.geometrie.rechtwinklig` | Rechtwinkliges Dreieck | 12 |
 | `id.funktionen.gleichung_form` | Gleichung und Form | 9 |
 | `rr.tauschen` | Tauschen, Klammern, Zusammenfassen | 5 |
 | `rr.ausmultiplizieren` | Ausmultiplizieren und Ausklammern | 4 |
@@ -253,3 +254,15 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V165 | funktionen.quadratisch.schnittpunkte | – |
 | R15-V166 | funktionen.quadratisch.extremwert | `id.funktionen.gleichung_form` |
 | R15-V167 | funktionen.quadratisch.extremwert | `id.funktionen.gleichung_form` |
+| R15-V168 | trigo.pythagoras.hypotenuse | `id.geometrie.rechtwinklig` |
+| R15-V169 | trigo.pythagoras.hypotenuse | `id.geometrie.rechtwinklig` |
+| R15-V170 | trigo.pythagoras.kathete | `id.geometrie.rechtwinklig` |
+| R15-V171 | trigo.pythagoras.kathete | `id.geometrie.rechtwinklig` |
+| R15-V172 | trigo.pythagoras.umkehrung | `id.geometrie.rechtwinklig` |
+| R15-V173 | trigo.pythagoras.umkehrung | `id.geometrie.rechtwinklig` |
+| R15-V174 | trigo.pythagoras.koordinaten | `id.geometrie.rechtwinklig` |
+| R15-V175 | trigo.pythagoras.koordinaten | `id.geometrie.rechtwinklig` |
+| R15-V176 | trigo.pythagoras.raum | `id.geometrie.rechtwinklig` |
+| R15-V177 | trigo.pythagoras.raum | `id.geometrie.rechtwinklig` |
+| R15-V178 | trigo.pythagoras.anwendung | `id.geometrie.rechtwinklig` |
+| R15-V179 | trigo.pythagoras.anwendung | `id.geometrie.rechtwinklig` |

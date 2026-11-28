@@ -1,4 +1,4 @@
-"""Vorprüfung W1, 2. und 3. Durchgang (Runde VT1A, 55 Aufgaben; 3. Durchgang Stand 48c90f32).
+"""Vorprüfung W1, 2. bis 4. Durchgang (Runde VT1A, 55 Aufgaben; 3. Durchgang Stand 48c90f32).
 
 Unabhängige, exakte Nachrechnung (Brüche, Aufzählen statt Formeln), nicht aus
 gegenrechnung.py übernommen. Zahlaufgaben: Sollantwort neu bestimmt, dazu
@@ -229,6 +229,36 @@ W['045'] = [opt('Nur die Mal-Gleichung', _mal_ohne and not _get_ohne), opt('Nur 
 W['049'] = W.pop('046')
 W['055'] = [opt('4 · x + 12 − 4 = 108', _l(lambda x: 4 * x + 12 - 4 == 108) == [25]), opt('4 · x − 12 − 4', _l(lambda x: 4 * x - 12 - 4 == 108) == [25]),
             opt('4 · x − 12 + 4', _l(lambda x: 4 * x - 12 + 4 == 108) == [25]), opt('4 · x + 12 + 4', _l(lambda x: 4 * x + 12 + 4 == 108) == [25])]
+
+# ---- 4. Durchgang (Stand f21e6bd7): 002, 012, 016, 030, 039, 045, 046, 053 ----
+_ung = [b**e for b in range(1, 40, 2) for e in range(0, 12)]
+W['002'] = [opt('immer ungerade', all(v % 2 for v in _ung)), opt('gerade, wenn die Hochzahl gerade', any(v % 2 == 0 for v in _ung)),
+            opt('mal gerade, mal ungerade', len({v % 2 for v in _ung}) == 2), opt('sobald die Hochzahl größer als 1', any(v % 2 == 0 for v in _ung))]
+_acht = range(10**7, 10**8)   # alle Zahlen mit genau 8 Stellen (Grenzen geprüft)
+assert len(str(10**7)) == 8 and len(str(10**8 - 1)) == 8 and len(str(10**8)) == 9 and len(str(10**7 - 1)) == 7
+W['012'] = [opt('mindestens 10⁷ und kleiner als 10⁸', 10**7 <= min(_acht) and max(_acht) < 10**8),
+            opt('größer als 10⁷ und höchstens 10⁸', 10**7 < min(_acht)),       # scheitert genau an 10⁷
+            opt('mindestens 10⁸', min(_acht) >= 10**8), opt('mindestens 10⁶ und kleiner als 10⁷', max(_acht) < 10**7)]
+# 030: Termart = letzter Rechenschritt; Gegenbeispiele aufzählen
+_gegen0 = ('2 * 3 + 4', '+')    # „2 ·“ davor ohne Klammer: Summe
+_gegen1 = ('20 - 5 + 3', '20 - (5 + 3)')  # Klammer ändert die Art (Summe -> Differenz)
+_gegen2 = ('7 + 3 * 5', '+')    # Malzeichen, aber Summe
+W['030'] = [opt('ganzen Term in eine Klammer und schreibt „· 2“', True),  # (T) · 2: letzter Schritt immer · 2
+            opt('„2 ·“ ohne Klammer', not bool(_gegen0)), opt('ändert sich seine Art nie', not bool(_gegen1)), opt('Malzeichen vor', not bool(_gegen2))]
+ZAHL['016'] = 6 - 1
+W['039'] = [opt('□-mal', all(F(q * 2 * q * 7, q * 2 * 7) == q for q in range(1, 500))),
+            opt('doppelt', all(F(q * 2 * q * 7, q * 2 * 7) == 2 for q in range(1, 500))),
+            opt('14-mal', all(F(q * 2 * q * 7, q * 2 * 7) == 14 for q in range(1, 500))),
+            opt('um □ größer', all(q * 2 * q * 7 - q * 2 * 7 == q for q in range(1, 500)))]
+_fa = [(a, b) for a in range(1, 60) for b in range(1, 400) if b % a == 0]
+W['045'] = [opt('Fast immer: Bei a gleich 1', all((b // a < b) == (a != 1) for a, b in _fa) and all(b // a == b for a, b in _fa if a == 1)),
+            opt('Immer: Teilen', all(b // a < b for a, b in _fa)), opt('Nie:', all(b // a > b for a, b in _fa)),
+            opt('Bei geraden a ja', all((b // a < b) if a % 2 == 0 else (b // a > b) for a, b in _fa))]
+_e46 = 3412 * 3438
+W['046'] = [opt('Es sind 8 Stellen', len(str(_e46)) == 8 and len(str(3400 * 3400)) == 8 and 3400 * 3400 < _e46),
+            opt('Es sind 7 Stellen', len(str(_e46)) == 7), opt('Es sind 6 Stellen', len(str(_e46)) == 6), opt('ohne genaue Rechnung nicht sagen', False)]
+_d53 = {(8 * q + 8 * 3) - 8 * (q + 3 - 2) for q in range(3, 200)}   # Päckchen muss positiv kosten: q + 1 > 0
+ZAHL['053'] = _d53.pop() if len(_d53) == 1 else ('NICHT EINDEUTIG', _d53)  # 16
 
 def main():
     fehler = list(PROBLEME)

@@ -5,6 +5,7 @@
 //         schule_advent_oeffnen, schule_advent_tuer_lesen, schule_advent_gutscheine, schule_advent_einloesen, schule_advent_tauschen; Eltern: schule_advent_eltern,
 //         schule_advent_belegung_lesen, schule_advent_belegung_setzen, schule_advent_gutschein_eltern, schule_advent_protokoll. Rechte prüft die Datenbank
 //         (Kind nur eigenes, Eltern-Aktionen nur Eltern, Öffnen/Einlösen/Tauschen durch Eltern nur fürs Testkind). Schnittstelle: inhalte/design/advent/server.md.
+//         schule_advent_oeffnen nimmt erwartet_nr (angezeigte Tür; Urteil 1215) – ohne sie wie bisher die älteste fällige Tür.
 //         Enthält 0.9.6 (falls noch nicht ausgeliefert, kommt es mit).
 // v0.9.6 (vorbereitet, NICHT ausgeliefert; erst nach WW-S3 in der Datenbank): schule_fehler_abhaken in zwei Formen – Markieren {lernender_id, versuch_ids}
 //         oder Zurückholen {lernender_id, zurueck: true, markierung_ids} (holt genau diese Markierungen zurück; Zurückholen über versuch_ids gibt es nicht
@@ -69,7 +70,7 @@ const AKTIONEN: Record<string, string[]> = {
   schule_fehler_abhaken: ['lernender_id', 'versuch_ids?', 'zurueck?', 'markierung_ids?'],
   // ADVENT-S (0.10.0): Adventskalender
   schule_advent_stand: ['lernender_id'],
-  schule_advent_oeffnen: ['lernender_id', 'client_id'],
+  schule_advent_oeffnen: ['lernender_id', 'client_id', 'erwartet_nr?'],
   schule_advent_tuer_lesen: ['lernender_id', 'nr'],
   schule_advent_gutscheine: ['lernender_id'],
   schule_advent_einloesen: ['lernender_id', 'gutschein_id'],
@@ -86,6 +87,7 @@ const HINWEISE: Record<string, string> = {
   schule_fehler_abhaken: 'Markieren: lernender_id, versuch_ids. Zurückholen: lernender_id, zurueck = true, markierung_ids (ohne versuch_ids).',
   schule_advent_belegung_setzen: 'Ein Kind: lernender_id. Beide zugleich: lernender_ids [..]. tueren: [{nr, art, variante?, titel?, text?, sterne?, motiv?}]. nur_geschlossene = true überspringt offene Türchen.',
   schule_advent_gutschein_eltern: 'aktion: einloesen | zurueckholen (Gutschein, Tauschkarte) oder erledigt | noch_nicht (Krampus).',
+  schule_advent_oeffnen: 'erwartet_nr = die angezeigte Tür (1–24), bitte immer mitschicken: ist sie schon offen -> schon_offen: true mit ihrem Inhalt; ist eine andere dran -> geoeffnet: false, grund andere_tuer, stand. Ohne erwartet_nr: älteste fällige Tür.',
 }
 
 const CORS = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Content-Type, Authorization', 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS' }

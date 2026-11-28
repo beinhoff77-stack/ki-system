@@ -10,31 +10,25 @@
 --     schule.advent_gutschein  Gutscheine, Tauschkarten, Krampus-Aufgaben aus geöffneten Türchen; Zustand mit wer/wann
 --     schule.advent_tausch     Tausch-Protokoll
 --     schule.advent_protokoll  alles, was Kinder und Eltern tun (für die Eltern)
---   Regeln in schule.regel (nur angelegt, wenn sie fehlen; ein vorhandener Wert bleibt):
+--   Regeln in schule.regel (neu angelegt; eine schon vorhandene advent_*-Regel bricht in der Vorprüfung ab):
 --     advent_aktiv 0 (0 aus | 1 an | 2 nur Testkind), advent_start "2026-12-01", advent_nachholen_bis "2027-01-06", advent_sichtbar_bis "2027-01-06",
 --     advent_max_pro_tag 2, advent_tausch 0 (0 aus | 1 an)
 --   Funktionen schule.advent_* (intern) und 11 Aktionen api.schule_advent_* (security definer, search_path '', execute nur für council_mcp).
---   Prüfregel schule.sterne.sterne_grund_check um 'advent' erweitert (genau die bisherige Definition oder schon mit 'advent', sonst Abbruch).
+--   Prüfregel schule.sterne.sterne_grund_check um 'advent' erweitert (genau die bisherige Definition, sonst Abbruch).
 --   Sterne beim Öffnen: insert into schule.sterne (…, 'advent', 'advent:<jahr>:<nr>') on conflict do nothing – genau einmal je Kind und Tür.
 -- WAS NICHT: keine Änderung an bestehenden Funktionen, Triggern oder Daten; die Etappe wird nur GELESEN (schule.karte_stand: sitzt, sitzt_am,
 --   landung_art, landung.am – eine eigene Landung oder „Sitzt wieder!“ nach dem Nachbessern, siehe schule.advent_landungen).
--- Wiederholbar: ein zweiter Lauf ändert nichts. Unerwarteter Vorzustand (fehlende Voraussetzung, andere Spalten, andere Prüfregel, ungültige Regel) -> Abbruch.
+-- NUR AUF LEEREM AUSGANGSZUSTAND (Urteil 1215, Auflage 3): Gibt es schon irgendein Advent-Objekt (Tabelle/Index/Folge schule.advent_*, Funktion
+--   schule.advent_* oder api.schule_advent_*, Regel advent_*, 'advent' in sterne_grund_check), bricht der Lauf mit Liste ab, nichts geändert – kein
+--   Weiterlaufen auf einem Mischstand. Ein zweiter Lauf bricht deshalb ebenso ab. Fehlende Voraussetzung oder andere Prüfregel -> Abbruch.
 -- Ein Aufruf, eine Transaktion, kein BEGIN/COMMIT. Keine Lernpause nötig (nur neue Objekte; die Prüfregel wird zuletzt ersetzt, Sperre auf schule.sterne
--- nur bis zum Ende dieser kurzen Transaktion; wartet sie länger als lock_timeout, bricht alles ab und kann wiederholt werden).
+-- nur bis zum Ende dieser kurzen Transaktion; wartet sie länger als lock_timeout, bricht alles ab, nichts geändert, und kann wiederholt werden).
 select set_config('lock_timeout', '3s', true), set_config('statement_timeout', '120s', true);
 
 -- ---------- 0. Vorzustand ----------
 do $advent_vor$
-declare f text[] := '{}'; d text; x record;
-  v_spalten constant jsonb := jsonb_build_object(
-    'advent_teilnahme', 'jahr smallint|lernender_id bigint|familie text|angelegt_am timestamp with time zone',
-    'advent_belegung', 'jahr smallint|lernender_id bigint|nr smallint|art text|variante text|titel text|text text|sterne integer|motiv text|geaendert_am timestamp with time zone|geaendert_von text',
-    'advent_tuer', 'id bigint|jahr smallint|lernender_id bigint|nr smallint|tag date|geoeffnet_am timestamp with time zone|client_id text|von text|inhalt jsonb|sterne integer|sterne_gebucht boolean|nachgeholt boolean|ausl_einheit bigint|ausl_lernziel text|ausl_sitzt_am timestamp with time zone|ausl_art text',
-    'advent_gutschein', 'id bigint|tuer_id bigint|jahr smallint|nr smallint|herkunft_lernender_id bigint|lernender_id bigint|art text|titel text|text text|motiv text|zustand text|eingeloest_am timestamp with time zone|eingeloest_von text|zurueckgeholt_am timestamp with time zone|zurueckgeholt_von text|erledigt_am timestamp with time zone|erledigt_von text|verbraucht_am timestamp with time zone|tausch_id bigint|getauscht_am timestamp with time zone|geaendert_am timestamp with time zone',
-    'advent_tausch', 'id bigint|am timestamp with time zone|jahr smallint|von_lernender_id bigint|mit_lernender_id bigint|tauschkarte_id bigint|gegeben_id bigint|bekommen_id bigint|client_id text|von text',
-    'advent_protokoll', 'id bigint|am timestamp with time zone|lernender_id bigint|aktion text|nr smallint|gutschein_id bigint|von text|daten jsonb');
+declare f text[] := '{}'; d text; x record; v_da text[];
   v_alt constant text := $a$CHECK ((grund = ANY (ARRAY['uebung'::text, 'test'::text, 'ort'::text, 'einloesung'::text, 'korrektur_hand'::text, 'bonus'::text, 'expedition'::text, 'wdh'::text, 'etappe_abgelegt'::text, 'flug_abgelegt'::text, 'landung'::text])))$a$;
-  v_neu constant text := $a$CHECK ((grund = ANY (ARRAY['uebung'::text, 'test'::text, 'ort'::text, 'einloesung'::text, 'korrektur_hand'::text, 'bonus'::text, 'expedition'::text, 'wdh'::text, 'etappe_abgelegt'::text, 'flug_abgelegt'::text, 'landung'::text, 'advent'::text])))$a$;
 begin
   foreach d in array array['schule.zugriff(text, bigint)', 'schule.ist_eltern(text)', 'schule.ist_lern(text)', 'schule.lern_ich(text)', 'schule.wer_tn(text)'] loop
     if to_regprocedure(d) is null then f := f || ('Funktion fehlt: ' || d); end if;
@@ -43,6 +37,20 @@ begin
     if to_regclass(d) is null then f := f || ('Tabelle fehlt: ' || d); end if;
   end loop;
   if array_length(f, 1) > 0 then raise exception 'ADVENT-S ABBRUCH (Voraussetzung), nichts geändert: %', array_to_string(f, ' | '); end if;
+  -- Schon ein Advent-Objekt da? -> Abbruch. Eingespielt wird nur auf leerem Ausgangszustand (kein Wiederanlauf auf einem Mischstand).
+  select coalesce(array_agg(q.o order by q.o collate "C"), '{}') into v_da from (
+    select format('schule.%s (relkind %s)', c.relname, c.relkind) o from pg_class c join pg_namespace n on n.oid = c.relnamespace
+     where n.nspname = 'schule' and c.relname like 'advent\_%'
+    union all select format('schule.%s (Typ)', t.typname) from pg_type t join pg_namespace n on n.oid = t.typnamespace
+     where n.nspname = 'schule' and t.typname like 'advent\_%' and t.typrelid = 0 and t.typelem = 0
+    union all select p.oid::regprocedure::text from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+     where (n.nspname = 'schule' and p.proname like 'advent\_%') or (n.nspname = 'api' and p.proname like 'schule\_advent\_%')
+    union all select format('schule.regel %s', r.schluessel) from schule.regel r where r.schluessel like 'advent\_%'
+    union all select 'schule.sterne.sterne_grund_check enthält advent' from pg_constraint c
+     where c.conrelid = 'schule.sterne'::regclass and c.conname = 'sterne_grund_check' and position('''advent''' in pg_get_constraintdef(c.oid)) > 0) q;
+  if cardinality(v_da) > 0 then
+    raise exception 'ADVENT-S ABBRUCH (schon da: % Advent-Objekte) – nur auf leerem Ausgangszustand einspielen, nichts geändert: %',
+      cardinality(v_da), array_to_string(v_da, ' | '); end if;
   for x in select * from (values ('lernender', 'id'), ('lernender', 'zeitzone'), ('lernender', 'ist_test'), ('lernender', 'aktiv'), ('lernender', 'anzeigename'),
                                  ('regel', 'schluessel'), ('regel', 'wert'), ('regel', 'hinweis'),
                                  ('sterne', 'lernender_id'), ('sterne', 'menge'), ('sterne', 'grund'), ('sterne', 'bezug'),
@@ -57,30 +65,19 @@ begin
                         = array['bezug', 'grund', 'lernender_id']) then
     f := f || 'schule.sterne: eindeutiger Schlüssel (lernender_id, grund, bezug) fehlt'::text; end if;
   d := (select pg_get_constraintdef(c.oid) from pg_constraint c where c.conrelid = 'schule.sterne'::regclass and c.conname = 'sterne_grund_check');
-  if d is distinct from v_alt and d is distinct from v_neu then f := f || format('sterne_grund_check unerwartet: %s', coalesce(d, 'fehlt')); end if;
-  for x in select k as t, v #>> '{}' as soll from jsonb_each(v_spalten) e(k, v) loop
-    if to_regclass('schule.' || x.t) is not null then
-      d := (select string_agg(a.attname || ' ' || format_type(a.atttypid, a.atttypmod), '|' order by a.attnum) from pg_attribute a
-             where a.attrelid = ('schule.' || x.t)::regclass and a.attnum > 0 and not a.attisdropped);
-      if d is distinct from x.soll then f := f || format('schule.%s besteht mit anderen Spalten: %s', x.t, d); end if;
-    end if;
-  end loop;
-  for x in select p.oid::regprocedure::text sig, format_type(p.prorettype, null) rt from pg_proc p join pg_namespace n on n.oid = p.pronamespace
-            where n.nspname = 'api' and p.proname like 'schule\_advent\_%' loop
-    if x.sig not like '%(text,jsonb)' or x.rt <> 'jsonb' then f := f || format('%s besteht mit anderer Form (%s)', x.sig, x.rt); end if;
-  end loop;
+  if d is distinct from v_alt then f := f || format('sterne_grund_check unerwartet: %s', coalesce(d, 'fehlt')); end if;
   if array_length(f, 1) > 0 then raise exception 'ADVENT-S ABBRUCH (Vorzustand, % Befunde), nichts geändert: %', array_length(f, 1), array_to_string(f, ' | '); end if;
 end $advent_vor$;
 
 -- ---------- 1. Tabellen ----------
-create table if not exists schule.advent_teilnahme (
+create table schule.advent_teilnahme (
   jahr smallint not null,
   lernender_id bigint not null,          -- bewusst OHNE Fremdschlüssel (wie schule.fehler_erledigt): kein interner Trigger an schule.lernender
   familie text not null check (familie in ('familie', 'test')),
   angelegt_am timestamptz not null default now(),
   primary key (jahr, lernender_id)
 );
-create table if not exists schule.advent_belegung (
+create table schule.advent_belegung (
   jahr smallint not null,
   lernender_id bigint not null,
   nr smallint not null check (nr between 1 and 24),
@@ -97,7 +94,7 @@ create table if not exists schule.advent_belegung (
                                             or (art not in ('sterne', 'gutschein') and variante is null)),
   constraint advent_belegung_pflicht check ((art <> 'bild' or motiv is not null) and (art not in ('gutschein', 'krampus') or titel is not null))
 );
-create table if not exists schule.advent_tuer (
+create table schule.advent_tuer (
   id bigint generated always as identity primary key,
   jahr smallint not null,
   lernender_id bigint not null,
@@ -119,7 +116,7 @@ create table if not exists schule.advent_tuer (
   unique (lernender_id, ausl_einheit, ausl_lernziel, ausl_sitzt_am),   -- eine Landung öffnet höchstens ein Türchen
   unique (lernender_id, tag, ausl_einheit, ausl_lernziel)              -- dieselbe Etappe am selben Tag höchstens einmal
 );
-create table if not exists schule.advent_gutschein (
+create table schule.advent_gutschein (
   id bigint generated always as identity primary key,
   tuer_id bigint not null unique references schule.advent_tuer(id),
   jahr smallint not null,
@@ -141,7 +138,7 @@ create table if not exists schule.advent_gutschein (
   constraint advent_gutschein_zustand check ((art = 'gutschein' and zustand in ('offen', 'eingeloest')) or (art = 'tausch' and zustand in ('offen', 'eingeloest', 'verbraucht'))
                                             or (art = 'krampus' and zustand in ('offen', 'erledigt')))
 );
-create table if not exists schule.advent_tausch (
+create table schule.advent_tausch (
   id bigint generated always as identity primary key,
   am timestamptz not null default now(),
   jahr smallint not null,
@@ -154,7 +151,7 @@ create table if not exists schule.advent_tausch (
   von text not null,
   unique (von_lernender_id, client_id)
 );
-create table if not exists schule.advent_protokoll (
+create table schule.advent_protokoll (
   id bigint generated always as identity primary key,
   am timestamptz not null default now(),
   lernender_id bigint not null,
@@ -164,8 +161,8 @@ create table if not exists schule.advent_protokoll (
   von text not null,
   daten jsonb
 );
-create index if not exists advent_gutschein_kind on schule.advent_gutschein (lernender_id);
-create index if not exists advent_protokoll_kind on schule.advent_protokoll (lernender_id, id);
+create index advent_gutschein_kind on schule.advent_gutschein (lernender_id);
+create index advent_protokoll_kind on schule.advent_protokoll (lernender_id, id);
 alter table schule.advent_teilnahme enable row level security;
 alter table schule.advent_belegung enable row level security;
 alter table schule.advent_tuer enable row level security;
@@ -181,7 +178,7 @@ comment on table schule.advent_gutschein is 'ADVENT-S: Gutscheine (Kind löst se
 comment on table schule.advent_tausch is 'ADVENT-S: Tausch mit Tauschkarte (zwei offene Gutscheine zwischen Geschwistern, Tauschkarte verbraucht)';
 comment on table schule.advent_protokoll is 'ADVENT-S: Protokoll für die Eltern (öffnen, einlösen, zurückholen, erledigt, Tausch, Belegung)';
 
--- ---------- 2. Regeln (nur wenn sie fehlen) ----------
+-- ---------- 2. Regeln (Vorprüfung: es gibt noch keine advent_*-Regel) ----------
 insert into schule.regel (schluessel, wert, hinweis)
 select x.s, x.w::jsonb, x.h from (values
   ('advent_aktiv', '0', 'ADVENT-S: Adventskalender für die Kinder 0 = aus („nicht aktiv“, bucht nichts), 1 = an, 2 = nur Testkind'),
@@ -376,21 +373,35 @@ begin
     'tueren', v_t, 'gutscheine', z, 'tausch', v->'tausch', 'menue', jsonb_build_object('kalender', true, 'gutscheine', v_menue_g));
 end $function$;
 
-create or replace function schule.advent_oeffnen(p_l bigint, p_cid text, p_von text)
+-- p_erwartet (Urteil 1215, Auflage 1): die Tür, die das Gerät angezeigt hat („Tür n öffnen“). Nach der Kind-Sperre: ist sie schon offen (anderes Gerät),
+-- kommt ihr Inhalt als schon_offen ohne Buchung; ist eine andere Tür als nächste dran, geht nichts auf (grund andere_tuer + stand). null = wie bisher.
+create or replace function schule.advent_oeffnen(p_l bigint, p_cid text, p_von text, p_erwartet int default null)
  returns jsonb language plpgsql volatile set search_path to ''
 as $function$
 declare v jsonb; t schule.advent_tuer; b schule.advent_belegung; k record; v_nr int; v_heute date; v_inhalt jsonb; v_menge int; v_gid bigint; v_art text;
 begin
+  if p_erwartet is not null and p_erwartet not between 1 and 24 then raise exception 'erwartet_nr: 1 bis 24' using errcode = 'P0001'; end if;
   perform schule.advent_lock(p_l);                                   -- zwei Geräte / doppelter Klick: nacheinander
   v := schule.advent_lage(p_l);
   if not (v->>'schalter')::boolean then return schule.advent_nicht_aktiv(v); end if;
   select * into t from schule.advent_tuer x where x.lernender_id = p_l and x.client_id = p_cid;
   if t.id is not null then                                           -- Wiederholung desselben Tipps: dieselbe Antwort, nichts gebucht
-    return jsonb_build_object('ok', true, 'aktiv', true, 'geoeffnet', true, 'wiederholt', true, 'tuer', schule.advent_tuer_json(t),
+    return jsonb_build_object('ok', true, 'aktiv', true, 'geoeffnet', true, 'wiederholt', true, 'schon_offen', false, 'tuer', schule.advent_tuer_json(t),
       'frei_heute', v->'frei_heute', 'moeglich_heute', v->'moeglich_heute', 'naechste_nr', v->'naechste_nr');
   end if;
   if not (v->>'aktiv')::boolean then return schule.advent_nicht_aktiv(v); end if;
   v_heute := (v->>'heute')::date;
+  if p_erwartet is not null then                                     -- Öffnen an die angezeigte Tür binden
+    select * into t from schule.advent_tuer x where x.lernender_id = p_l and x.jahr = (v->>'jahr')::int and x.nr = p_erwartet;
+    if t.id is not null then                                         -- schon offen (anderes Gerät / anderer Tipp): Inhalt zeigen, nichts gebucht
+      return jsonb_build_object('ok', true, 'aktiv', true, 'geoeffnet', true, 'wiederholt', true, 'schon_offen', true, 'tuer', schule.advent_tuer_json(t),
+        'frei_heute', v->'frei_heute', 'moeglich_heute', v->'moeglich_heute', 'naechste_nr', v->'naechste_nr', 'stand', schule.advent_stand(p_l));
+    end if;
+    if (v->>'kann_oeffnen')::boolean and (v->>'naechste_nr') is not null and (v->>'naechste_nr')::int <> p_erwartet then
+      return jsonb_build_object('ok', true, 'aktiv', true, 'geoeffnet', false, 'grund', 'andere_tuer', 'erwartet_nr', p_erwartet,
+        'naechste_nr', v->'naechste_nr', 'frei_heute', v->'frei_heute', 'moeglich_heute', v->'moeglich_heute', 'stand', schule.advent_stand(p_l));
+    end if;
+  end if;
   if not (v->>'kann_oeffnen')::boolean then
     return jsonb_build_object('ok', true, 'aktiv', true, 'geoeffnet', false, 'grund', 'nachholen_vorbei');
   end if;
@@ -430,7 +441,7 @@ begin
   values (p_l, 'oeffnen', t.nr, v_gid, p_von, jsonb_build_object('tag', t.tag, 'art', t.inhalt->>'art', 'sterne', t.sterne, 'nachgeholt', t.nachgeholt,
           'etappe', jsonb_build_object('einheit_id', t.ausl_einheit, 'lernziel', t.ausl_lernziel, 'sitzt_am', t.ausl_sitzt_am, 'landung_art', t.ausl_art)));
   v := schule.advent_lage(p_l);
-  return jsonb_build_object('ok', true, 'aktiv', true, 'geoeffnet', true, 'wiederholt', false, 'tuer', schule.advent_tuer_json(t),
+  return jsonb_build_object('ok', true, 'aktiv', true, 'geoeffnet', true, 'wiederholt', false, 'schon_offen', false, 'tuer', schule.advent_tuer_json(t),
     'frei_heute', v->'frei_heute', 'moeglich_heute', v->'moeglich_heute', 'naechste_nr', v->'naechste_nr', 'gutscheine', schule.advent_zaehler(p_l));
 end $function$;
 
@@ -460,7 +471,7 @@ begin
   if (v->>'tausch')::boolean and (z->>'tauschkarten')::int > 0 then
     select coalesce(jsonb_agg(jsonb_build_object('lernender_id', l.id, 'name', l.anzeigename,
              'gutscheine', (select coalesce(jsonb_agg(jsonb_build_object('id', g.id, 'nr', g.nr, 'titel', g.titel, 'text', g.text, 'motiv', g.motiv) order by g.nr, g.id), '[]'::jsonb)
-                              from schule.advent_gutschein g where g.lernender_id = l.id and g.art = 'gutschein' and g.zustand = 'offen')) order by l.id), '[]'::jsonb)
+                              from schule.advent_gutschein g where g.lernender_id = l.id and g.jahr = a.jahr and g.art = 'gutschein' and g.zustand = 'offen')) order by l.id), '[]'::jsonb)
       into v_gesch
       from schule.advent_teilnahme a join schule.advent_teilnahme b on b.jahr = a.jahr and b.familie = a.familie and b.lernender_id <> a.lernender_id
       join schule.lernender l on l.id = b.lernender_id and l.aktiv
@@ -527,6 +538,8 @@ begin
   select a.familie into v_fb from schule.advent_teilnahme a join schule.lernender l on l.id = a.lernender_id and l.aktiv
    where a.jahr = (v->>'jahr')::int and a.lernender_id = v_b;
   if v_fa is null or v_fb is null or v_fa <> v_fb then raise exception 'Tauschen: nur mit dem Geschwister' using errcode = 'P0001'; end if;
+  if tk.jahr <> (v->>'jahr')::int or gm.jahr <> (v->>'jahr')::int or gf.jahr <> (v->>'jahr')::int then   -- nur Gutscheine des laufenden Advents
+    raise exception 'Tauschen: nur Gutscheine aus diesem Advent' using errcode = 'P0001'; end if;
   insert into schule.advent_tausch (am, jahr, von_lernender_id, mit_lernender_id, tauschkarte_id, gegeben_id, bekommen_id, client_id, von)
   values (v_jetzt, (v->>'jahr')::int, p_l, v_b, p_karte, p_mein, p_fremd, p_cid, p_von) returning * into x;
   update schule.advent_gutschein set zustand = 'verbraucht', verbraucht_am = v_jetzt, tausch_id = x.id, geaendert_am = now() where id = p_karte;
@@ -711,7 +724,7 @@ $function$;
 revoke all on function schule.advent_jetzt(), schule.advent_einstellung(), schule.advent_tz(bigint), schule.advent_von(text), schule.advent_lock(bigint),
   schule.advent_landungen(bigint, text, date), schule.advent_lage(bigint), schule.advent_gutschein_json(schule.advent_gutschein, boolean),
   schule.advent_tuer_json(schule.advent_tuer), schule.advent_zaehler(bigint), schule.advent_nicht_aktiv(jsonb), schule.advent_stand(bigint),
-  schule.advent_oeffnen(bigint, text, text), schule.advent_tuer_lesen(bigint, integer), schule.advent_gutscheine(bigint), schule.advent_einloesen(bigint, bigint, text),
+  schule.advent_oeffnen(bigint, text, text, integer), schule.advent_tuer_lesen(bigint, integer), schule.advent_gutscheine(bigint), schule.advent_einloesen(bigint, bigint, text),
   schule.advent_tauschen(bigint, bigint, bigint, bigint, text, text), schule.advent_eintrag(jsonb), schule.advent_belegen(bigint[], jsonb, boolean, text),
   schule.advent_gutschein_eltern(bigint, text, text), schule.advent_eltern(integer), schule.advent_belegung_lesen(bigint), schule.advent_protokoll_lesen(bigint, integer)
   from public, anon, authenticated;
@@ -748,6 +761,19 @@ begin
   return c;
 end $function$;
 
+-- erwartet_nr: fehlt oder null -> null (heutiger App-Stand, Verhalten wie bisher); sonst ganze Zahl 1–24 (Zahl oder Ziffern-Text)
+create or replace function schule.advent_erwartet(p_daten jsonb)
+ returns int language plpgsql immutable set search_path to ''
+as $function$
+declare j jsonb := p_daten->'erwartet_nr'; v text;
+begin
+  if j is null or jsonb_typeof(j) = 'null' then return null; end if;
+  v := btrim(j #>> '{}');
+  if jsonb_typeof(j) not in ('number', 'string') or v !~ '^[0-9]{1,2}$' or v::int not between 1 and 24 then
+    raise exception 'erwartet_nr: 1 bis 24' using errcode = 'P0001'; end if;
+  return v::int;
+end $function$;
+
 create or replace function api.schule_advent_stand(p_schluessel text, p_daten jsonb)
  returns jsonb language plpgsql security definer set search_path to ''
 as $function$ begin return schule.advent_stand(schule.advent_kind_pruefen(p_schluessel, p_daten)); end $function$;
@@ -758,7 +784,7 @@ as $function$
 declare v_l bigint := schule.advent_kind_pruefen(p_schluessel, p_daten);
 begin
   perform schule.advent_handelt_als_kind(p_schluessel, v_l);
-  return schule.advent_oeffnen(v_l, schule.advent_cid(p_daten), schule.advent_von(p_schluessel));
+  return schule.advent_oeffnen(v_l, schule.advent_cid(p_daten), schule.advent_von(p_schluessel), schule.advent_erwartet(p_daten));
 end $function$;
 
 create or replace function api.schule_advent_tuer_lesen(p_schluessel text, p_daten jsonb)
@@ -843,7 +869,8 @@ begin
   return schule.advent_protokoll_lesen(v_l, nullif(p_daten->>'anzahl', '')::int);
 end $function$;
 
-revoke all on function schule.advent_kind_pruefen(text, jsonb), schule.advent_handelt_als_kind(text, bigint), schule.advent_cid(jsonb) from public, anon, authenticated;
+revoke all on function schule.advent_kind_pruefen(text, jsonb), schule.advent_handelt_als_kind(text, bigint), schule.advent_cid(jsonb), schule.advent_erwartet(jsonb)
+  from public, anon, authenticated;
 revoke all on function api.schule_advent_stand(text, jsonb), api.schule_advent_oeffnen(text, jsonb), api.schule_advent_tuer_lesen(text, jsonb),
   api.schule_advent_gutscheine(text, jsonb), api.schule_advent_einloesen(text, jsonb), api.schule_advent_tauschen(text, jsonb), api.schule_advent_eltern(text, jsonb),
   api.schule_advent_belegung_lesen(text, jsonb), api.schule_advent_belegung_setzen(text, jsonb), api.schule_advent_gutschein_eltern(text, jsonb),
@@ -862,7 +889,7 @@ do $advent_ende$
 declare d text := (select pg_get_constraintdef(c.oid) from pg_constraint c where c.conrelid = 'schule.sterne'::regclass and c.conname = 'sterne_grund_check');
 begin
   perform schule.advent_einstellung();                                -- ungültige Regel -> Abbruch, nichts geändert
-  if position('''advent''' in d) > 0 then return; end if;              -- schon erweitert (Vorzustand oben genau geprüft)
+  if position('''advent''' in d) > 0 then raise exception 'ADVENT-S ABBRUCH: sterne_grund_check enthält schon advent – nichts geändert'; end if;   -- Vorprüfung schließt das aus
   alter table schule.sterne drop constraint sterne_grund_check;
   alter table schule.sterne add constraint sterne_grund_check check (grund = any (array['uebung', 'test', 'ort', 'einloesung', 'korrektur_hand', 'bonus', 'expedition',
                                                                                        'wdh', 'etappe_abgelegt', 'flug_abgelegt', 'landung', 'advent']));

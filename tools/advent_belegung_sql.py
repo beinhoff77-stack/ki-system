@@ -11,6 +11,7 @@ Das Paket (ein Aufruf, eine Transaktion, erste Anweisung = Zeitgrenzen) setzt je
 (dieselben Prüfungen wie die Eltern-Aktion), überschreibt NUR noch geschlossene Türchen (geöffnete werden übersprungen und gemeldet) und ist
 wiederholbar (zweiter Lauf: 0 gesetzt). Abbruch ohne Änderung, wenn ADVENT-S fehlt oder eine andere Fassung von schule.advent_belegen eingespielt ist,
 das Jahr nicht zur Einstellung passt oder ein Kind fehlt/inaktiv ist. Die Probe endet absichtlich mit einem Fehler (alles zurückgerollt).
+Vorher bricht schon das Werkzeug ab, wenn Tür 6 oder Tür 24 nicht Art „karte“ ist (Tür 24 auch mit Sternen, Tür 6 ohne) – nur hier geprüft, nicht im Server.
 NICHT AUSFÜHREN ohne den ausdrücklichen Satz des Nutzers.
 """
 import hashlib
@@ -119,7 +120,27 @@ def pruefen(d):
             if nr in je[z]:
                 raise Fehler(f'{wo}: für lernender {z} doppelt belegt')
             je[z][nr] = eintrag
+    feste_tueren(kinder, je)
     return jahr, kinder, {k: [v[n] for n in sorted(v)] for k, v in je.items()}
+
+
+def feste_tueren(kinder, je):
+    """Konzept Abschnitt 13, Mischregel 1 (Urteil 1215, Auflage 6 – NUR im Werkzeug, der Server erzwingt es nicht): Tür 6 und Tür 24 sind fest Art „karte“.
+    Tür 24 darf zusätzlich Sterne tragen („Jackpot“ = karte + sterne > 0; variante gibt es bei karte nicht), Tür 6 nicht (sterne 0).
+    Bricht ab, bevor ein Paket entsteht. Fehlt Tür 6/24 für ein Kind in der Datei, bleibt sie in der Datenbank, wie sie ist (Hinweis auf stderr)."""
+    name = {i: b for b, i in kinder.items()}
+    f = []
+    for l, tueren in je.items():
+        for nr in (6, 24):
+            t = tueren.get(nr)
+            if t is None:
+                print(f'HINWEIS: Tür {nr} für {name[l]} nicht in der Datei – bleibt in der Datenbank, wie sie ist (fest vorgesehen: Karte)', file=sys.stderr)
+            elif t['art'] != 'karte':
+                f.append(f'Tür {nr} für {name[l]}: art „{t["art"]}“ – Tür 6 und Tür 24 sind fest eine Karte (art „karte“)')
+            elif nr == 6 and t.get('sterne', 0) != 0:
+                f.append(f'Tür 6 für {name[l]}: Karte ohne Sterne (sterne 0); Sterne/Jackpot nur auf Tür 24')
+    if f:
+        raise Fehler(' | '.join(f))
 
 
 def paket(jahr, kinder, je, probe):

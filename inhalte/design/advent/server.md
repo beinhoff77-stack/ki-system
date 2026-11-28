@@ -1,6 +1,8 @@
 # Adventskalender – Server (ADVENT-S): Schnittstelle für den App-Helfer
 
-Stand 28.11.2026 · Zweig `helfer-advent-server` · **nichts eingespielt, nichts live.**
+Stand 28.11.2026 · Zweig `helfer-advent-server`, nachgebessert nach Urteil 1215 (Prüfbitte 1210) auf `helfer-advent-s2` · **nichts eingespielt, nichts live.**
+
+> **Für den App-Helfer zuerst:** Abschnitt 0 – die App muss beim Öffnen `erwartet_nr` mitschicken und zwei neue Antwortformen verstehen.
 
 Dateien:
 - Migration: `supabase/migrations/20261209_advent_s.sql`
@@ -12,6 +14,47 @@ Dateien:
 Der App-Teil (`lernen*.js`, CSS, `sw.js`, …) ist **nicht** angefasst.
 
 ---
+
+## 0. Was die App ändern muss (Nachbesserung nach Urteil 1215)
+
+**Warum:** Zwei Geräte zeigen beide „Tür 1 öffnen“. Ohne Bindung an die angezeigte Tür öffnet der zweite Tipp bei zwei freien Etappen **Tür 2**, obwohl „Tür 1“ dastand. Der Server kann das nur verhindern, wenn die App sagt, welche Tür sie angezeigt hat.
+
+**1. Feld beim Öffnen (Pflicht für die App, Server abwärtsverträglich):**
+
+```json
+{"aktion": "schule_advent_oeffnen", "daten": {"lernender_id": 1, "client_id": "<je Tipp neu>", "erwartet_nr": 1}}
+```
+
+- `erwartet_nr` = die Türnummer, die auf dem Knopf/der Hülle stand. Das ist `naechste_nr` aus dem zuletzt geladenen `schule_advent_stand` bzw. die Tür, die im Kalender als `bereit` gezeigt wurde.
+- Ganze Zahl 1–24 (Zahl oder Ziffern-Text wie `"1"`). Andere Werte → Fehler `erwartet_nr: 1 bis 24`.
+- Fehlt das Feld (oder ist es `null`), arbeitet der Server **wie bisher** (älteste fällige Tür). Das ist nur für den heutigen App-Stand gedacht – **die App muss `erwartet_nr` immer senden.**
+- Bei einer Netz-Wiederholung dieselbe `client_id` **und** dieselbe `erwartet_nr` noch einmal schicken.
+
+**2. Antworten auf `schule_advent_oeffnen` (alle `ok: true`):**
+
+| Fall | Erkennen an | App tut |
+|---|---|---|
+| geöffnet | `geoeffnet: true, wiederholt: false, schon_offen: false` | Tür-Animation, `tuer.*` zeigen; bei `tuer.sterne_gutgeschrieben` Konto neu laden |
+| Wiederholung desselben Tipps (gleiche `client_id`) | `geoeffnet: true, wiederholt: true, schon_offen: false` | dieselbe Tür zeigen, nichts neu buchen |
+| **neu: schon offen** – die erwartete Tür hat inzwischen ein anderes Gerät (oder ein früherer Tipp mit anderer `client_id`) geöffnet | `geoeffnet: true, wiederholt: true, schon_offen: true`, dazu `tuer` (Inhalt der erwarteten Tür) und `stand` | `tuer` ohne Sterne-Jubel zeigen (es wurde nichts gebucht), danach Kalender/Hinweiszeile aus `stand` neu zeichnen |
+| **neu: andere Tür** – als Nächstes ist eine andere Tür dran (veraltete Anzeige) | `geoeffnet: false, grund: "andere_tuer"`, dazu `erwartet_nr`, `naechste_nr`, `frei_heute`, `moeglich_heute`, `stand` | **nichts** öffnen, still Kalender/Hinweiszeile aus `stand` neu zeichnen (jetzt steht dort die richtige Tür) |
+| nicht geöffnet (wie bisher) | `geoeffnet: false, grund` = `keine_etappe` · `limit` · `alles_offen` · `nachholen_vorbei` | still weiter (Abschnitt 3.2) |
+
+- `stand` hat genau die Form von `schule_advent_stand` (Abschnitt 3.1) und enthält keinen Inhalt geschlossener Türen.
+- Reihenfolge im Server (nach der Sperre je Kind): gleiche `client_id` → Wiederholung; Schalter/Zeitraum → `aktiv: false`; erwartete Tür schon offen → `schon_offen`; andere Tür dran → `andere_tuer`; danach `nachholen_vorbei`, `alles_offen`, `limit`, `keine_etappe` wie bisher.
+
+**3. Wo `sterne_gutgeschrieben` steht:** **nur unter `tuer`** (`antwort.tuer.sterne_gutgeschrieben`), **nicht** auf der obersten Ebene der Öffnungsantwort. Das gilt für alle Fälle mit `tuer` (geöffnet, Wiederholung, schon offen) und für `schule_advent_tuer_lesen`. Bei `wiederholt`/`schon_offen` sagt es, ob die Sterne dieser Tür (irgendwann) gebucht wurden – jubeln nur bei `wiederholt: false`.
+
+**Kopierfertig für die App (Pseudocode):**
+
+```js
+const r = await lernAktion('schule_advent_oeffnen', { lernender_id: kind, client_id: cid, erwartet_nr: angezeigteNr });
+if (!r.aktiv) { /* still weiter */ }
+else if (r.geoeffnet && !r.wiederholt) { zeigeTuer(r.tuer, { jubel: true }); if (r.tuer.sterne_gutgeschrieben) lernVergessen(kind); }
+else if (r.geoeffnet) { zeigeTuer(r.tuer, { jubel: false }); if (r.stand) zeichneKalender(r.stand); }   // Wiederholung oder schon_offen
+else if (r.grund === 'andere_tuer') { zeichneKalender(r.stand); }                                       // nichts öffnen
+else { /* keine_etappe | limit | alles_offen | nachholen_vorbei: still weiter */ }
+```
 
 ## 1. Was gilt (verbindlich, ersetzt Abweichendes in `entwurf1/konzept.md` und `umsetzung1.md`)
 
@@ -168,15 +211,15 @@ Den vollen Text liefert `tuer_lesen`.
 
 ### 3.2 `schule_advent_oeffnen` – Kind (Tür nach der Etappe, „bereit“ im Kalender)
 
-**Eingabe:** `{lernender_id, client_id}`
+**Eingabe:** `{lernender_id, client_id, erwartet_nr}` (siehe Abschnitt 0)
 - `client_id`: 1–200 Zeichen, je Tipp neu, z. B. `lernCid()`.
 - Bei einer Netz-Wiederholung dieselbe `client_id` noch einmal schicken.
-- Das Gerät wählt **keine** Tür; der Server nimmt die älteste.
+- `erwartet_nr`: die angezeigte Tür. Das Gerät **wählt** damit keine Tür, es **bestätigt** nur die angezeigte: aufgehen kann immer nur die älteste fällige. Passt sie nicht, geht nichts auf (`andere_tuer`); ist sie schon offen, kommt sie als `schon_offen`.
 
 **Antwort beim Öffnen:**
 
 ```json
-{"ok": true, "aktiv": true, "geoeffnet": true, "wiederholt": false,
+{"ok": true, "aktiv": true, "geoeffnet": true, "wiederholt": false, "schon_offen": false,
  "tuer": {"nr": 2, "tag": "2026-12-04", "geoeffnet_am": "2026-12-04T06:30:00+00:00", "nachgeholt": true,
           "art": "gutschein", "variante": "normal", "titel": "Kinoabend", "text": "Du suchst den Film aus.", "motiv": null,
           "sterne": 0, "sterne_gutgeschrieben": false, "gutschein": {"id": 1, "art": "gutschein", "zustand": "offen"}},
@@ -185,14 +228,16 @@ Den vollen Text liefert `tuer_lesen`.
 ```
 
 - Dieselbe `client_id` noch einmal: dieselbe `tuer` mit `"wiederholt": true`. Es wird nichts gebucht.
-- `sterne_gutgeschrieben`: true, wenn die Sterne gebucht sind. Danach `lernVergessen(kind)`, damit Konto und Sterne-Chip neu laden.
+- Erwartete Tür schon offen (anderes Gerät): `"wiederholt": true, "schon_offen": true`, `tuer` = diese Tür, dazu `stand`. Es wird nichts gebucht.
+- `tuer.sterne_gutgeschrieben` (**unter `tuer`, nicht oben**): true, wenn die Sterne gebucht sind. Danach `lernVergessen(kind)`, damit Konto und Sterne-Chip neu laden.
 - `gutschein` steht nur bei Gutschein, Tauschkarte und Krampus.
 
 **Nicht geöffnet** (`ok: true, geoeffnet: false, grund`):
 
 | `grund` | Bedeutung | App |
 |---|---|---|
-| `keine_etappe` | Heute ist keine unverbrauchte Etappe da. Auch das zweite Gerät nach dem ersten bekommt das. | still weiter; `letzte_nr` = heute zuletzt geöffnete Tür, die die App mit `tuer_lesen` zeigen kann |
+| `andere_tuer` | Die angezeigte Tür (`erwartet_nr`) ist nicht die, die als Nächstes dran ist; `naechste_nr` und `stand` kommen mit | nichts öffnen, mit `stand` neu zeichnen |
+| `keine_etappe` | Heute ist keine unverbrauchte Etappe da. Auch das zweite Gerät nach dem ersten bekommt das (ohne `erwartet_nr`). | still weiter; `letzte_nr` = heute zuletzt geöffnete Tür, die die App mit `tuer_lesen` zeigen kann |
 | `limit` | heute schon `max_pro_tag` | still weiter; `letzte_nr` wie oben |
 | `alles_offen` | alle fälligen sind offen | still weiter |
 | `nachholen_vorbei` | Phase `nur_ansehen` | still weiter |
@@ -201,6 +246,7 @@ Die Gründe `nicht_aktiv`, `vor_start`, `vorbei` und `zeitzone_fehlt` kommen als
 
 **Fehler:**
 - `client_id fehlt (1 bis 200 Zeichen)`
+- `erwartet_nr: 1 bis 24`
 - `Das geht nur in der App des Kindes (Eltern: nur fürs Testkind)`
 
 ### 3.3 `schule_advent_tuer_lesen` – Kind (offene Tür ansehen)
@@ -245,7 +291,7 @@ Diese Aktion geht auch vor und nach dem Kalenderzeitraum, solange der Schalter a
 - `zurueckgeholt_am`, `erledigt_am`, `verbraucht_am`
 - `getauscht` / `getauscht_am`: durch Tausch erhalten oder abgegeben
 
-`tausch.geschwister` ist nur gefüllt, wenn der Tausch an ist **und** das Kind eine offene Tauschkarte hat. Es enthält die offenen normalen Gutscheine der anderen Kinder derselben Familie; das Testkind ist eine eigene Familie.
+`tausch.geschwister` ist nur gefüllt, wenn der Tausch an ist **und** das Kind eine offene Tauschkarte hat. Es enthält die offenen normalen Gutscheine **aus dem laufenden Advent** (Gutscheinjahr = Jahr von `advent_start`) der anderen Kinder derselben Familie; das Testkind ist eine eigene Familie.
 
 ### 3.5 `schule_advent_einloesen` – Kind (selbst „Eingelöst“)
 
@@ -292,6 +338,7 @@ War der Gutschein schon eingelöst (zwei Geräte), kommt `wiederholt: true` ohne
 - `… nur offene Gutscheine (nicht eingelöst)`
 - `… nur mit dem Geschwister`
 - `… hat gerade den Besitzer gewechselt – bitte neu laden`
+- `… nur Gutscheine aus diesem Advent` (Tauschkarte oder Gutschein aus einem früheren Jahr)
 - Eltern nur fürs Testkind
 
 Danach beide Listen neu laden.
@@ -362,7 +409,7 @@ Je Tür:
 - Längen: `titel` höchstens 80, `text` höchstens 300
 - `motiv` als Schlüssel `[a-z0-9_]`
 
-**Nicht** auf dem Server geprüft: die Mischregeln aus Konzept 13 (Tür 6/24 Karte, Krampus nicht auf 1/24 …). Die hält die Eltern-Seite ein.
+**Nicht** auf dem Server geprüft: die Mischregeln aus Konzept 13 (Tür 6/24 Karte, Krampus nicht auf 1/24 …). Die hält die Eltern-Seite ein. Das Belegungs-Werkzeug (Abschnitt 7) prüft Tür 6/24.
 
 **Motiv-Schlüssel** (Entwurf 2, `teile/v_motive2.js`):
 - allgemein: `koala`, `surf`, `neonbaum`, `pinguin`, `polarlicht`, `flieger`, `kaenguru`, `sandmann`, `erdkugel`, `rentier`, `bordkarte`, `controller`, `strandfeuer`, `kompass`, `schneeflocke`, `stern`
@@ -471,6 +518,7 @@ Die echte Belegung mit persönlichen Texten liegt **außerhalb des Repos**. Das 
 - Jede Kombination aus Kind und Tür höchstens einmal.
 - Felder wie bei `belegung_setzen`; `motiv` muss einer der Schlüssel aus Abschnitt 3.9 sein.
 - Fehlende Türen bleiben, wie sie sind. Sind sie nie belegt, erscheinen sie im Bericht unter `ohne Inhalt` und öffnen sich als „nur Licht“.
+- **Tür 6 und Tür 24 sind fest eine Karte** (Konzept 13, Regel 1; Urteil 1215, Auflage 6). Steht eine der beiden in der Datei mit einer anderen Art, bricht das Werkzeug ab, **bevor** ein Paket entsteht. Tür 24 darf Sterne tragen („Jackpot“ = `art: "karte"` mit `sterne` > 0; eine `variante` gibt es bei `karte` nicht). Tür 6 ist eine Karte ohne Sterne (`sterne` 0). Fehlt Tür 6 oder 24 für ein Kind in der Datei, kommt nur ein HINWEIS (die Tür bleibt in der Datenbank, wie sie ist). Der Server selbst prüft das **nicht**.
 
 **Aufruf:**
 
@@ -496,13 +544,13 @@ Das schreibt `advent_belegung_probe.sql` und `advent_belegung_einspielen.sql`.
    ```sql
    select id, ist_test, zeitzone, now() at time zone zeitzone from schule.lernender where aktiv order by id;
    ```
-   Beide Kinder und das Testkind brauchen ihre aktuelle australische Zeitzone, z. B. `Australia/Melbourne` oder `Australia/Adelaide`. Der Probe-Bericht nennt fehlende Zeitzonen vorn unter BEFUNDE.
+   Beide Kinder und das Testkind brauchen ihre aktuelle australische Zeitzone, z. B. `Australia/Melbourne` oder `Australia/Adelaide`. Der Probe-Bericht nennt fehlende Zeitzonen in `KURZ.zeitzone_fehlt` und unter HINWEISE (kein Befund: der Server antwortet sauber `zeitzone_fehlt`; vor dem Einschalten beheben).
 2. **Prüfregel:**
    ```sql
    select pg_get_constraintdef(oid) from pg_constraint where conname = 'sterne_grund_check';
    ```
    Erwartet ist genau `… 'flug_abgelegt'::text, 'landung'::text])))` (Stand nach FP-S), sonst bricht das Paket ab.
-3. **Bestandsfunktionen:** Der Probe-Bericht vergleicht `md5(prosrc)` mit dem Repo-Stand und meldet Abweichungen unter BEFUNDE (nur als Hinweis).
+3. **Bestandsfunktionen:** Der Probe-Bericht vergleicht `md5(prosrc)` mit dem Repo-Stand. Eine Abweichung ist ein **Befund** (Probe „NICHT bestanden“), weil die Zugriffsprüfung dann so nicht getestet ist.
    - `schule.zugriff` `f99e88b5fd488d8d51d2d3e3bc562d24`
    - `schule.sieht` `1482384a60fdc66c83589429ae34a84c`
    - `schule.ist_eltern` `f98748d5c603e5b80a46417d2278f91e`
@@ -513,15 +561,20 @@ Das schreibt `advent_belegung_probe.sql` und `advent_belegung_einspielen.sql`.
    Die genauen Werte stehen in `tools/tests/advent_pakete.py → bestand_md5()` und im Probe-Paket.
 4. **Landungen:** Der Probe-Bericht zeigt „Landungen erkannt X von Y“. Y sind gelandete Etappen mit `landung_art`, X die mit `landung.am = sitzt_am`.
    - X darf kleiner sein: Setzungen nach einer eigenen Landung zählen nicht.
-   - **X = 0 bei Y > 0 heißt STOPP**, denn dann gilt die Annahme aus Abschnitt 2 live nicht.
+   - **X = 0 bei Y > 0 heißt STOPP**, denn dann gilt die Annahme aus Abschnitt 2 live nicht. Die Probe meldet das als Befund („NICHT bestanden“).
 
 ### Ablauf
 
-1. `tools/tests/aus/advent_s_probe.sql` in **einem** Aufruf ausführen.
-   - Erwartet ist der Fehler „ADVENT-S PROBELAUF bestanden, ALLES zurückgerollt …“.
-   - Vorn steht KURZ, danach BEFUNDE, dann DETAILS.
-2. `tools/tests/aus/advent_s_einspielen.sql` in **einem** Aufruf ausführen. Erwartet: kein Fehler. Ein zweiter Lauf ändert nichts.
-   - Bricht es mit „lock timeout“ ab (laufende Lern-Transaktion auf `schule.sterne`), ist nichts geändert; einfach wiederholen.
+1. `tools/tests/aus/advent_s_probe.sql` in **einem** Aufruf ausführen. Die Probe endet **immer** mit einem Fehler und rollt alles zurück.
+   - **Erste Zeile** (kompakt, damit sie nicht abgeschnitten wird):
+     `ADVENT-S PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt). KURZ {"befunde": 0, "hinweise": …, "tabellen": 6, "funktionen": 38, "funktionen_soll": 38, "aktiv": 0, "tausch": 0, "sterne_unveraendert": true, "karte_unveraendert": true, "zeitzone_fehlt": […], "landungen": "X/Y"}`
+   - Darunter: BEFUNDE, HINWEISE, VORHER/NACHHER, DETAILS.
+   - „bestanden“ kommt **nur** bei 0 Befunden, 6 Tabellen, 38 Funktionen, Schaltern 0/0 und unverändertem `schule.sterne` (Zeilenzahl, Summe, Inhalt) und `schule.karte_stand`.
+   - Sonst: `ADVENT-S PROBELAUF NICHT bestanden (n Befunde), ALLES zurückgerollt. KURZ {…}` und darunter `BEFUNDE: …` → **STOPP**, nicht einspielen.
+   - Kommt stattdessen `ADVENT-S ABBRUCH (schon da: …)` oder `ADVENT-S ABBRUCH (Vorzustand …)`: siehe Punkt 2.
+2. `tools/tests/aus/advent_s_einspielen.sql` in **einem** Aufruf ausführen. Erwartet: kein Fehler.
+   - **Nur auf leerem Ausgangszustand** (Urteil 1215, Auflage 3): Ist schon irgendein Advent-Objekt da (Tabelle, Index, Funktion `schule.advent_*`/`api.schule_advent_*`, Regel `advent_*`, `'advent'` in `sterne_grund_check`), bricht es mit `ADVENT-S ABBRUCH (schon da: n Advent-Objekte) – nur auf leerem Ausgangszustand einspielen, nichts geändert: <Liste>` ab. Ein zweiter Lauf bricht deshalb ebenso ab – das ist richtig so. Einen Mischstand nicht „drüberspielen“, sondern melden.
+   - Bricht es mit „lock timeout“ ab (laufende Lern-Transaktion auf `schule.sterne`), ist nichts geändert (eine Transaktion); einfach wiederholen.
 3. Belegung: Werkzeug außerhalb des Repos, dann Probe, dann Einspielen.
 4. Edge Function `lernen-api` 0.10.0 ausliefern (Deployment durch den Projektleiter).
 5. `update schule.regel set wert = '2' where schluessel = 'advent_aktiv';` (nur Testkind), dann die Nachkontrolle.
@@ -550,6 +603,7 @@ Das schreibt `advent_belegung_probe.sql` und `advent_belegung_einspielen.sql`.
    - Die Tür erscheint nach der Landung; Tippen öffnet Tür 1 (älteste).
    - Sterne-Chip +50, im Konto genau einmal.
    - Ein zweiter Tipp oder ein zweites Gerät öffnet nichts Neues.
+   - Mit **zwei** gelandeten Etappen: zweites Gerät, das noch „Tür 1“ zeigt, tippt → Tür 1 als `schon_offen`, Tür 2 bleibt zu (Netzwerk-Mitschnitt: `erwartet_nr: 1` in der Anfrage).
 4. Sofort noch einmal öffnen (ohne Etappe): still weiter.
    - Zweite Etappe → Tür 2.
    - Dritte Etappe → `limit` (Hinweiszeile „2 Türchen heute offen …“).
@@ -568,8 +622,9 @@ Das schreibt `advent_belegung_probe.sql` und `advent_belegung_einspielen.sql`.
 ## 11. Edge Function
 
 `supabase/functions/lernen-api/index.ts` ist **vorbereitet, nicht ausgeliefert**.
-- `VERSION` 0.10.0
-- 11 Einträge in `AKTIONEN`, Hinweise für `belegung_setzen` und `gutschein_eltern` in `HINWEISE`
+- `VERSION` 0.10.0 (nicht ausgeliefert, deshalb nicht hochgezählt)
+- 11 Einträge in `AKTIONEN` (`schule_advent_oeffnen: ['lernender_id', 'client_id', 'erwartet_nr?']`), Hinweise für `oeffnen`, `belegung_setzen` und `gutschein_eltern` in `HINWEISE`
+- Die Edge Function reicht `daten` unverändert durch; `erwartet_nr` kommt also ohne weitere Änderung an.
 
 Sonst ändert sich nichts, denn die Aktionen laufen wie alle als `council_mcp` über `api.schule_advent_*`. Ohne diese Einträge antwortet die Funktion „Unbekannte Aktion“. Ausliefern erst nach dem Einspielen von ADVENT-S; 0.9.6 kommt dabei mit.
 
@@ -580,3 +635,27 @@ Sonst ändert sich nichts, denn die Aktionen laufen wie alle als `council_mcp` �
 - Die Uhr `schule.advent_jetzt()` ist im Nachbau ersetzt; live ist sie `now()`.
 - Council-Zugänge (App-Schlüssel) gibt es im Nachbau nicht; geprüft sind die Lern-Sitzungen von Eltern, Kind und Lehrer.
 - Lokales PostgreSQL 16 (live 17), geprüft ohne ICU sowie mit ICU en-US und de-DE.
+
+## 13. Offene Frage an den Nutzer (Urteil 1215, Auflage 4 – nichts geändert)
+
+**Frage:** Zählt dieselbe Etappe zweimal am selben Tag als zwei Türchen?
+
+Beispiel: Dein Kind schafft morgens eine Etappe, Tür 3 geht auf. Mittags wackelt dieselbe Etappe, es bessert nach („Sitzt wieder!“). Darf das am **selben Tag** noch ein Türchen öffnen?
+
+- **Heute ist es so:** Nein. Dieselbe Etappe öffnet am selben Tag höchstens ein Türchen, auch nach dem Nachbessern (`schule.advent_landungen` und der eindeutige Schlüssel `(lernender_id, tag, ausl_einheit, ausl_lernziel)` in `schule.advent_tuer`). Am nächsten Tag zählt das Nachbessern wieder.
+- **Empfehlung: so lassen.** Sonst könnte ein Kind eine leichte Etappe mehrmals am Tag „reparieren“ und so beide Türchen des Tages mit derselben Aufgabe holen. Der Gedanke „je Türchen eine eigene Etappe“ bleibt so klar.
+- Willst du es anders („ja, jedes Nachbessern zählt“), ist das eine kleine Server-Änderung (Bedingung und eindeutiger Schlüssel), danach neue Prüfung.
+
+## 14. Nachbesserung nach Urteil 1215 (Prüfbitte 1210) – Überblick
+
+| Auflage | umgesetzt in |
+|---|---|
+| 1 Öffnen an die angezeigte Tür binden | `schule.advent_oeffnen(p_l, p_cid, p_von, p_erwartet)`, `schule.advent_erwartet(jsonb)`, `api.schule_advent_oeffnen`, Edge-Eintrag; Abschnitt 0 |
+| 2 Probe ehrlich | `tools/tests/advent_pakete.py` → `bericht()`: NICHT bestanden bei Befund, Sterne Zeilen/Summe/Inhalt echt, erste Zeile `KURZ {…}`, Funktionszahl aus der Migration (38) |
+| 3 Nur auf leerem Ausgangszustand | Migration, Block `$advent_vor$` (Liste aller schon vorhandenen Advent-Objekte → Abbruch); `create table` ohne `if not exists` |
+| 4 Dieselbe Etappe am selben Tag | unverändert, Abschnitt 13 |
+| 5 Geschwisterliste nur laufender Advent | `schule.advent_gutscheine` (`g.jahr = a.jahr`), zusätzlich `schule.advent_tauschen` (alle drei Gutscheine aus diesem Jahr); `advent_tausch` bleibt 0 |
+| 6 Tür 6/24 Karte | `tools/advent_belegung_sql.py` → `feste_tueren()`; nur im Werkzeug |
+| 7 Versionstest | `tools/tests/wackelt_test.py` liest `VERSION` aus `index.ts` (mindestens 0.9.6) |
+| 8 Lage von `sterne_gutgeschrieben` | Abschnitt 0 Punkt 3, Abschnitt 3.2 (Verhalten unverändert) |
+

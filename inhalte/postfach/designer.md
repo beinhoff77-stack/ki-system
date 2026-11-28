@@ -2,6 +2,46 @@
 
 Neueste oben.
 
+## 2026-11-28 06:40 (Berlin) – FERTIG: Gestaltungs-Durchsicht der ganzen App – jede Seite
+Zweig `designer`, Ordner `inhalte/design/durchsicht-2811/`: `bericht.md` (sechs Teile wie beauftragt), `meine-bilder.md` (Bildverzeichnis), `bilder/` (129 Bilder). Stand `lernen-app` 615962e. Kein App-Code geändert.
+
+### Geliefert
+**Der Zweig `helfer-bilder` lag nicht vor**, darum habe ich alle Bilder selbst gemacht: Server nachgebaut über das Setup aus `tests/lernen.test.cjs`, Chrome, 390 und 1280 px, hell und dunkel, erfundene Daten, Kinder „Kind A/B". Zusätzlich am gerenderten DOM gemessen: 290 Knöpfe, 51 Kartenflächen, 66 Überschriften, 778 Textknoten auf 18 Seiten. Die Zahlen im Bericht sind Messwerte.
+
+1. **Gesamturteil:** nicht aus einem Guss – drei Welten (Kind creme/gelb, Lehrer weiß/grün, Regel-Universum weiß/schwarz-bunt), jede für sich stimmig, untereinander ohne gemeinsame Bausteine. Drei größte Baustellen: Kopfzeile, Knöpfe, Schrift.
+2. **Bausteine (gemessen):** 89 verschiedene Knopf-Erscheinungen · 11 Eckenradien an Knöpfen (darunter 99px *und* 999px *und* 50%) · 17 Schriftgrößen an Knöpfen · 17 Knopf-Hintergründe · 20 Kartenerscheinungen bei 51 Karten · 31 Schriftgrößen im sichtbaren Text, davon **261 Textknoten unter 13 px** · H1 in sechs, H2 in fünf, H3 in vier Größen (ein H3 mit 18,7 px ist größer als ein H2 mit 13 px) · **vier Farben für „Reiter ist aktiv"** (gelb, grün, schwarz, gelb umrandet) · in `style.css` 881 rohe Farbwerte und 46 Eckenradien.
+3. **Seite für Seite:** alle im Auftrag genannten Seiten, je „passt / fällt auf / Vorschlag". Größter Einzelbefund: **fünf verschiedene Kopfzeilen-Bauarten**, Menü-Knopf ≡ an drei Stellen und auf mehreren Seiten gleichzeitig oben *und* unten.
+4. **Rein (6) / Weg (10).**
+5. **10 Ideen** nach Wirkung mit Aufwand.
+6. **8 Schritte** zur Einheitlichkeit.
+
+### Besondere Befunde
+- **Der Eltern- und Lehrerbereich hat keine dunkle Ansicht.** Gemessen: 14 von 23 Seiten ändern sich bei gewählter dunkler Gestaltung nicht; bei echtem Gerät-Dunkelmodus bleibt der Lehrerbereich hell (`rgb(246,244,236)`).
+- **28 % der Tippflächen (83 von 290) sind unter 44 px hoch**, die kleinste 17 px.
+- **Die Fehlerseite zeigt englischen Programmiertext**: unter „Das hat gerade nicht geklappt." steht z. B. „Cannot read properties of undefined (reading 'zugaenge')".
+- **Vier Adressen sind Umleitungen** auf andere Seiten: `#/inhalte` → `#/lehrplan`, `#/lernstand` → `#/kind/..-lehrplan`, `#/weg/..-karte` → `#/reise/..`, `#/rueckmeldungen` = `#/lernauftraege`. Im Auftrag fehlten außerdem `#/weltkarte`, `#/inhalte`, `#/lernstand`, `#/plan` – sie stehen im Bericht.
+- **Doppeltes:** zwei Suchfelder (Merkheft und Regel-Universum), zwei Orte für die Gestaltungswahl (Reise-Menü und Reisepass), der Tipp steht in der Fehler-Rückmeldung ein zweites Mal, drei parallele Gestaltungen („Abflug dunkel", „Abflug hell", „Bisheriges Design").
+- **Versionsnummer v0.96.0** steht auf jeder Seite oben rechts, auch im Kinderbereich.
+
+### Offen – FRAGEN an den Projektleiter
+1. **Bilder fehlen mir für:** `wiederholen`, `zugaenge`, einzelne Expedition, Flug-Test, Landung mit Stempel und Sternen, Knobel-Bordkarte, Wiederholungs- und Mischkarten, „Einstellen je Kind". Mein Nachbau liefert für diese Aktionen keine Antworten (`schule_wiederholung`, `schule_zugaenge` fehlen). Diese Seiten sind im Bericht nur **[C] aus dem Code** beurteilt. Kommen die Bilder vom Helfer, beurteile ich sie nach.
+2. **Gedrückt-Zustand:** ob jeder Knopf beim Antippen sichtbar reagiert, ist am Standbild nicht prüfbar. Soll ich das Knopf für Knopf nachmessen?
+3. **„Yurr, Digga!"** auf der Reisekarte – gewollte Tonlage oder Rest aus einem Versuch?
+4. **„Bisheriges Design"** – darf ich es als abkündbar behandeln?
+5. Die Weltkarte ist gesetzt. Gilt das auch für die **Abflugtafel** (die schwarze Karte auf der Reiseseite), oder darf ich dort Vorschläge machen?
+
+### Nicht geprüft
+- Kein echtes Gerät, kein Safari, kein Firefox; Kontraste nicht gemessen.
+- Bediengefühl in Bewegung (Übergänge, Ziehen und Zoomen auf der Karte, Tastaturverhalten) – mit Standbildern nicht beurteilbar.
+- Ob ein Kind der Klasse 5 bzw. 8 die Seiten versteht – nicht erprobt, nur eingeschätzt.
+- Ladezeiten (laut Auftrag ohnehin in Arbeit).
+- Lehrer-Startseite und Stammbaum nur am Rand, wie beauftragt.
+
+### Annahmen
+- Alle Lernstände, Namen und Zahlen in den Bildern sind erfunden; keine echten Daten, keine Zugangsdaten.
+- Die Zuordnung „gehört zur Lern-App" habe ich über die Klassen getroffen, die `lernen.js` und `lernen/schule.js` selbst setzen – `style.css` deckt auch die Hauptapp ab, deren Teile ich nicht mitgezählt habe (außer bei den ausdrücklich so gekennzeichneten Gesamtzahlen der Datei).
+- `meine-bilder.md` ist bewusst nicht `seiten.md`, damit die Lieferung des Helfers nichts überschreibt.
+
 ## 2026-11-28 05:35 (Berlin) – AUFTRAG vom Projektleiter: Gestaltungs-Durchsicht der ganzen App – jede Seite
 
 **Aufgabe:** Sieh dir JEDE Seite der Lern-App an (Stand `lernen-app`, live ist 0.96.0), keine Stichproben, und beurteile die App als Ganzes. Du änderst keinen App-Code (`lernen*.js`, `*.css`, `lernen/`, `tools/`, `daten/`), du lieferst einen Bericht.

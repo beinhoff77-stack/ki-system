@@ -1,0 +1,731 @@
+{
+ "stand": "2026-11-28",
+ "runde": "vtest-3",
+ "kuerzel": "VT3",
+ "klasse": 6,
+ "hinweis": "Verstehen in Tests, Stufe 1, Runde 3. Nicht eingespielt.",
+ "titel": "daten.kennwerte",
+ "themen": [
+  "daten.kennwerte"
+ ],
+ "aufgaben": [
+  {
+   "kennung": "VT3-050",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittelwert",
+   "pool": "test",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen berechnen den Mittelwert aus einer gegebenen Liste. Diese Aufgabe: Was-wäre-wenn.",
+   "aufgabe": {
+    "l": "mittelwert",
+    "t": "mittelwert",
+    "p": "test",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Sieben Kinder sparen im Mittel 18 € pro Monat. Ein achtes Kind kommt dazu und spart 42 € pro Monat. Wie groß ist jetzt der Mittelwert aller acht Kinder?"
+    },
+    "w": "Die Summe der sieben Kinder ist 7 · 18 = 126 €. Mit dem achten Kind: 126 + 42 = 168 €. Mittelwert: 168 : 8 = 21 €.",
+    "o": {
+     "wert": 21,
+     "einheit": "€"
+    }
+   },
+   "ersetzt_test": true,
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": "(7 · 18 + 42) : 8",
+   "fehlbilder": [
+    {
+     "antwort": 30,
+     "rechnung": "(18 + 42) : 2",
+     "beschreibung": "den Mittelwert der beiden Zahlen 18 und 42 gebildet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 24,
+     "rechnung": "18 + 42 : 7",
+     "beschreibung": "nur 42 durch 7 geteilt und zu 18 addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-051",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittelwert",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen berechnen den Mittelwert aus einer gegebenen Liste. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "mittelwert",
+    "t": "mittelwert",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Der Mittelwert von vier Zahlen ist 10. Eine der Zahlen wird um 8 vergrößert, die anderen bleiben gleich. Was passiert mit dem Mittelwert?"
+    },
+    "w": "Die Summe wächst um 8. Der Mittelwert ist die Summe geteilt durch 4, also wächst er um 8 : 4 = 2.",
+    "a": [
+     "Er steigt um 8, denn eine Zahl wächst um 8.",
+     "Er steigt um 2, denn die Summe wächst um 8 und wird durch 4 geteilt.",
+     "Er bleibt gleich, denn die Anzahl der Zahlen ändert sich nicht.",
+     "Er steigt um 4, denn man teilt 8 durch 2."
+    ],
+    "o": {
+     "index": 1
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Er steigt um 8, denn eine Zahl wächst um 8.",
+     "beschreibung": "den Zuwachs einer Zahl auf den Mittelwert übertragen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Er bleibt gleich, denn die Anzahl der Zahlen ändert sich nicht.",
+     "beschreibung": "nur auf die Anzahl geschaut, die Summe vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Er steigt um 4, denn man teilt 8 durch 2.",
+     "beschreibung": "den Zuwachs durch 2 statt durch die Anzahl 4 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-052",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittelwert",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen berechnen den Mittelwert aus einer gegebenen Liste. Diese Aufgabe: Fehler-Detektiv (Zeile finden und richtigstellen).",
+   "aufgabe": {
+    "l": "mittelwert",
+    "t": "mittelwert",
+    "p": "korrektur",
+    "s": 2,
+    "y": "luecken",
+    "f": {
+     "text": "Mia hat die Noten 2, 3, 2 und 5. Zeile 1: Die Summe der Noten ist 2 + 3 + 2 + 5 = 12. Zeile 2: Es sind vier Noten. Zeile 3: Der Mittelwert ist 12 : 3 = 4. Zeile 4: Mias Durchschnitt ist also 4. In welcher Zeile steckt der erste Fehler, und wie groß ist der Mittelwert richtig?",
+     "schablone": "Fehler in Zeile □, Mittelwert richtig: □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Zeile 3 ist falsch: Man teilt durch die Anzahl der Noten, also durch 4. 12 : 4 = 3.",
+    "o": {
+     "werte": [
+      3,
+      3
+     ]
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": [
+    "3",
+    "12 : 4"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "rechnung": "12 : 3",
+     "beschreibung": "durch 3 statt durch die Zahl der Noten 4 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "rechnung": "2 + 3 + 2 + 5",
+     "beschreibung": "die Summe als Mittelwert angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-053",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittelwert",
+   "pool": "korrektur",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen berechnen den Mittelwert aus einer gegebenen Liste. Diese Aufgabe: Was-wäre-wenn.",
+   "aufgabe": {
+    "l": "mittelwert",
+    "t": "mittelwert",
+    "p": "korrektur",
+    "s": 2,
+    "y": "zahl",
+    "f": {
+     "text": "Der Mittelwert einer Messreihe ist 7,5. Alle Messwerte werden mit 3 malgenommen. Wie groß ist dann der Mittelwert der neuen Reihe?"
+    },
+    "w": "Wird jeder Wert mit 3 malgenommen, so auch die Summe und damit der Mittelwert: 7,5 · 3 = 22,5.",
+    "o": {
+     "wert": 22.5
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": "7,5 · 3",
+   "fehlbilder": [
+    {
+     "antwort": 10.5,
+     "rechnung": "7,5 + 3",
+     "beschreibung": "3 zum Mittelwert addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 2.5,
+     "rechnung": "7,5 : 3",
+     "beschreibung": "durch 3 geteilt statt mit 3 malgenommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-054",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittelwert",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen berechnen den Mittelwert aus einer gegebenen Liste. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "mittelwert",
+    "t": "mittelwert",
+    "p": "sicherung",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Der Mittelwert der Zahlen 3, 5, 7 und 9 ist 6. Welche Veränderung lässt den Mittelwert unverändert bei 6?"
+    },
+    "w": "Eine Zahl, die genau dem Mittelwert gleicht, ändert den Mittelwert nicht: (24 + 6) : 5 = 6. Bei den anderen Möglichkeiten ergibt sich 7, 5,75 und etwa 6,17.",
+    "a": [
+     "Man streicht die 3.",
+     "Man ersetzt die 3 durch 4 und die 9 durch 7.",
+     "Man fügt eine weitere 6 hinzu.",
+     "Man fügt die Zahlen 5 und 8 hinzu."
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Man streicht die 3.",
+     "beschreibung": "die kleinste Zahl gestrichen: (5 + 7 + 9) : 3 = 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "rechnung": "(5 + 7 + 9) : 3"
+    },
+    {
+     "index": 1,
+     "antwort": "Man ersetzt die 3 durch 4 und die 9 durch 7.",
+     "beschreibung": "die Summe sinkt um 1: (4 + 5 + 7 + 7) : 4 = 5,75",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "rechnung": "(4 + 5 + 7 + 7) : 4"
+    },
+    {
+     "index": 3,
+     "antwort": "Man fügt die Zahlen 5 und 8 hinzu.",
+     "beschreibung": "die beiden neuen Zahlen liegen im Mittel bei 6,5, das hebt den Mittelwert an: 37 : 6 ≈ 6,17",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-055",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittelwert",
+   "pool": "sicherung",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen berechnen den Mittelwert aus einer gegebenen Liste. Diese Aufgabe: Was-wäre-wenn.",
+   "aufgabe": {
+    "l": "mittelwert",
+    "t": "mittelwert",
+    "p": "sicherung",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "In einer Gruppe von 9 Kindern ist die mittlere Körpergröße 150 cm. Ein zehntes Kind mit 160 cm kommt dazu. Um wie viele Zentimeter steigt der Mittelwert?"
+    },
+    "w": "Neue Summe: 9 · 150 + 160 = 1 510 cm. Neuer Mittelwert: 1 510 : 10 = 151 cm. Er steigt um 1 cm (der Unterschied 10 cm verteilt sich auf 10 Kinder).",
+    "o": {
+     "wert": 1,
+     "einheit": "cm"
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": "(9 · 150 + 160) : 10 − 150",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "rechnung": "160 − 150",
+     "beschreibung": "den Unterschied des neuen Kindes zum alten Mittelwert genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 5,
+     "rechnung": "(160 − 150) : 2",
+     "beschreibung": "den Unterschied durch 2 statt durch 10 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-056",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittelwert",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen berechnen den Mittelwert aus einer gegebenen Liste. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "mittelwert",
+    "t": "mittelwert",
+    "p": "sicherung",
+    "s": 3,
+    "y": "auswahl",
+    "f": {
+     "text": "Fünf Hunde wiegen 8 kg, 9 kg, 10 kg, 11 kg und 12 kg, im Mittel also 10 kg. Ein sechster Hund mit 60 kg kommt dazu. Welche Aussage über den neuen Mittelwert stimmt?"
+    },
+    "w": "Neue Summe: 50 + 60 = 110 kg. 110 : 6 ≈ 18,3 kg. Das ist mehr als jeder der fünf ersten Hunde wiegt. Ein einzelner sehr großer Wert zieht den Mittelwert stark nach oben.",
+    "a": [
+     "Er bleibt 10 kg, denn nur ein Wert kommt dazu.",
+     "Er beträgt 35 kg, denn man bildet den Mittelwert aus 10 kg und 60 kg.",
+     "Er sinkt unter 10 kg, weil jetzt mehr Werte vorhanden sind.",
+     "Er beträgt etwa 18 kg und ist damit größer als das Gewicht von fünf der sechs Hunde."
+    ],
+    "o": {
+     "index": 3
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Er bleibt 10 kg, denn nur ein Wert kommt dazu.",
+     "beschreibung": "nicht beachtet, dass die Summe stark wächst",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Er beträgt 35 kg, denn man bildet den Mittelwert aus 10 kg und 60 kg.",
+     "beschreibung": "den alten Mittelwert wie einen einzelnen Wert behandelt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Er sinkt unter 10 kg, weil jetzt mehr Werte vorhanden sind.",
+     "beschreibung": "mehr Werte mit sinkendem Mittelwert verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-057",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_rueckwaerts",
+   "pool": "test",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "aufgabe": {
+    "l": "mittel_rueckwaerts",
+    "t": "mittel_rueckwaerts",
+    "p": "test",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Nach vier Wertungen hat eine Turnerin im Mittel 8,5 Punkte. Mit der fünften Wertung soll ihr Mittelwert genau 9 Punkte betragen. Wie viele Punkte braucht sie in der fünften Wertung?"
+    },
+    "w": "Gesamtsumme nach fünf Wertungen: 9 · 5 = 45. Bisher: 8,5 · 4 = 34. Fehlend: 45 − 34 = 11 Punkte.",
+    "o": {
+     "wert": 11,
+     "einheit": "Punkte"
+    }
+   },
+   "ersetzt_test": true,
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": "9 · 5 − 8,5 · 4",
+   "fehlbilder": [
+    {
+     "antwort": 17.5,
+     "rechnung": "9 + 8,5",
+     "beschreibung": "die beiden Mittelwerte addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 9.5,
+     "rechnung": "9 + 0,5",
+     "beschreibung": "den Zuwachs 0,5 des Mittelwerts zum Zielwert 9 addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-058",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_rueckwaerts",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "aufgabe": {
+    "l": "mittel_rueckwaerts",
+    "t": "mittel_rueckwaerts",
+    "p": "korrektur",
+    "s": 2,
+    "y": "zahl",
+    "f": {
+     "text": "Der Mittelwert von sechs Zahlen ist 14. Fünf davon sind 10, 12, 15, 18 und 13. Wie heißt die sechste Zahl?"
+    },
+    "w": "Die Summe aller sechs Zahlen ist 6 · 14 = 84. Die fünf bekannten haben die Summe 68. Die sechste Zahl ist 84 − 68 = 16.",
+    "o": {
+     "wert": 16
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": "14 · 6 − (10 + 12 + 15 + 18 + 13)",
+   "fehlbilder": [
+    {
+     "antwort": 84,
+     "rechnung": "14 · 6",
+     "beschreibung": "nur die Gesamtsumme berechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 2,
+     "rechnung": "14 · 5 − (10 + 12 + 15 + 18 + 13)",
+     "beschreibung": "mit fünf statt sechs Zahlen gerechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-059",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_rueckwaerts",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Fehler-Detektiv (Zeile finden und richtigstellen).",
+   "aufgabe": {
+    "l": "mittel_rueckwaerts",
+    "t": "mittel_rueckwaerts",
+    "p": "korrektur",
+    "s": 2,
+    "y": "luecken",
+    "f": {
+     "text": "Der Mittelwert von vier Zahlen ist 9. Drei der Zahlen sind 7, 11 und 8. Zeile 1: Die Summe aller vier Zahlen ist 9 · 4 = 36. Zeile 2: Die drei bekannten Zahlen haben die Summe 7 + 11 + 8 = 26. Zeile 3: Die vierte Zahl ist 36 + 26 = 62. Zeile 4: Die vierte Zahl ist also 62. In welcher Zeile steckt der erste Fehler, und wie heißt die vierte Zahl richtig?",
+     "schablone": "Fehler in Zeile □, richtig: □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Zeile 3 ist falsch: Die fehlende Zahl ist die Gesamtsumme minus die bekannte Summe, also 36 − 26 = 10.",
+    "o": {
+     "werte": [
+      3,
+      10
+     ]
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": [
+    "3",
+    "36 − 26"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 62,
+     "rechnung": "36 + 26",
+     "beschreibung": "die beiden Summen addiert statt subtrahiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -10,
+     "rechnung": "26 − 36",
+     "beschreibung": "in der falschen Reihenfolge subtrahiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-060",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_rueckwaerts",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "mittel_rueckwaerts",
+    "t": "mittel_rueckwaerts",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Der Mittelwert von drei Zahlen ist 20. Zwei der Zahlen sind 15 und 18. Mia sagt: „Die dritte Zahl ist 20, denn der Mittelwert ist 20.“ Welche Aussage stimmt?"
+    },
+    "w": "Die Summe der drei Zahlen ist 3 · 20 = 60. 15 + 18 = 33. Die dritte Zahl ist 60 − 33 = 27 (Kontrolle: (15 + 18 + 27) : 3 = 20).",
+    "a": [
+     "Mia hat recht, denn der Mittelwert ist die Zahl in der Mitte.",
+     "Mia hat nicht recht: Die dritte Zahl ist 20 − 33 = −13.",
+     "Mia hat nicht recht: Die Summe ist 3 · 20 = 60, die dritte Zahl ist also 60 − 33 = 27.",
+     "Mia hat nicht recht: Die dritte Zahl ist 33 : 2 = 16,5."
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Mia hat recht, denn der Mittelwert ist die Zahl in der Mitte.",
+     "beschreibung": "den Mittelwert mit der Zahl in der Mitte verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Mia hat nicht recht: Die dritte Zahl ist 20 − 33 = −13.",
+     "beschreibung": "den Mittelwert statt der Gesamtsumme abgezogen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Mia hat nicht recht: Die dritte Zahl ist 33 : 2 = 16,5.",
+     "beschreibung": "die beiden bekannten Zahlen gemittelt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-061",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_rueckwaerts",
+   "pool": "sicherung",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "aufgabe": {
+    "l": "mittel_rueckwaerts",
+    "t": "mittel_rueckwaerts",
+    "p": "sicherung",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Drei Geschwister haben im Mittel 15 € Taschengeld. Das älteste bekommt 6 € mehr als das mittlere, das jüngste 3 € weniger als das mittlere. Wie viel Taschengeld bekommt das mittlere Kind?"
+    },
+    "w": "Gesamt: 3 · 15 = 45 €. Mit m für das mittlere Kind: (m + 6) + m + (m − 3) = 45, also 3m + 3 = 45, 3m = 42, m = 14 €. Kontrolle: 20 + 14 + 11 = 45.",
+    "o": {
+     "wert": 14,
+     "einheit": "€"
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": "(45 − 6 + 3) : 3",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "rechnung": "(45 − 6 − 3) : 3",
+     "beschreibung": "beide Unterschiede abgezogen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 15,
+     "rechnung": "45 : 3",
+     "beschreibung": "den Mittelwert als Wert des mittleren Kindes angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-062",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_rueckwaerts",
+   "pool": "sicherung",
+   "typ": "umkehr",
+   "form": "zwei_wege",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: zwei Wege vergleichen.",
+   "aufgabe": {
+    "l": "mittel_rueckwaerts",
+    "t": "mittel_rueckwaerts",
+    "p": "sicherung",
+    "s": 2,
+    "y": "zahl",
+    "f": {
+     "text": "Der Mittelwert der Zahlen 12, 15, 9, x und 14 ist 13. Mia löst es über die Summe, Jonas über die Abweichungen der Zahlen vom Mittelwert 13. Wie groß ist x?"
+    },
+    "w": "Mia: 5 · 13 = 65, 65 − (12 + 15 + 9 + 14) = 65 − 50 = 15. Jonas: Abweichungen −1, +2, −4, +1 ergeben −2, also muss x um +2 über 13 liegen: x = 15.",
+    "o": {
+     "wert": 15
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": "13 · 5 − (12 + 15 + 9 + 14)",
+   "fehlbilder": [
+    {
+     "antwort": 65,
+     "rechnung": "13 · 5",
+     "beschreibung": "nur die Gesamtsumme angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 2,
+     "rechnung": "13 · 4 − (12 + 15 + 9 + 14)",
+     "beschreibung": "mit vier statt fünf Zahlen gerechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-063",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_rueckwaerts",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3",
+   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Transfer auf eine neue Situation.",
+   "aufgabe": {
+    "l": "mittel_rueckwaerts",
+    "t": "mittel_rueckwaerts",
+    "p": "sicherung",
+    "s": 3,
+    "y": "luecken",
+    "f": {
+     "text": "Eine Läuferin hat bei 5 Runden im Mittel 70 Sekunden gebraucht. Die schnellste Runde dauerte 65 s, die langsamste 78 s, die drei übrigen Runden waren gleich lang. Wie lang war jede der drei übrigen Runden, und wie viele Sekunden brauchte sie insgesamt?",
+     "schablone": "Jede der drei Runden: □ s, insgesamt: □ s",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Gesamtzeit: 5 · 70 = 350 s. Schnellste und langsamste Runde: 65 + 78 = 143 s. Die drei übrigen Runden: 350 − 143 = 207 s, jede 207 : 3 = 69 s.",
+    "o": {
+     "werte": [
+      69,
+      350
+     ]
+    }
+   },
+   "regel": "id.daten.kennzahl",
+   "loesung_rechnung": [
+    "(70 · 5 − 65 − 78) : 3",
+    "70 · 5"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 207,
+     "rechnung": "70 · 5 − 65 − 78",
+     "beschreibung": "die Summe der drei Runden als Länge einer Runde angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 70,
+     "rechnung": "70",
+     "beschreibung": "den Mittelwert als Länge der drei Runden angenommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 280,
+     "rechnung": "70 · 4",
+     "beschreibung": "mit 4 statt 5 Runden gerechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 75,
+     "rechnung": "70 + 5",
+     "beschreibung": "5 zum Mittelwert addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  }
+ ]
+}

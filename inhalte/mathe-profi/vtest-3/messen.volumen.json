@@ -1,0 +1,1530 @@
+{
+ "stand": "2026-11-28",
+ "runde": "vtest-3",
+ "kuerzel": "VT3",
+ "klasse": 6,
+ "hinweis": "Verstehen in Tests, Stufe 1, Runde 3. Nicht eingespielt.",
+ "titel": "messen.volumen",
+ "themen": [
+  "messen.volumen"
+ ],
+ "aufgaben": [
+  {
+   "kennung": "VT3-001",
+   "thema": "messen.volumen",
+   "lernkarte": "quader",
+   "pool": "test",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen berechnen das Volumen aus gegebenen Kanten. Diese Aufgabe: Was-wäre-wenn.",
+   "aufgabe": {
+    "l": "quader",
+    "t": "quader",
+    "p": "test",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Bei einem Quader wird die Länge verdoppelt, die Breite verdreifacht und die Höhe halbiert. Das Wievielfache des ursprünglichen Volumens hat der neue Quader?"
+    },
+    "w": "Das Volumen ist Länge · Breite · Höhe. Die drei Faktoren wirken zusammen: 2 · 3 · ½ = 3. Das neue Volumen ist das Dreifache des alten.",
+    "o": {
+     "wert": 3
+    }
+   },
+   "ersetzt_test": true,
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "loesung_rechnung": "2 · 3 : 2",
+   "fehlbilder": [
+    {
+     "antwort": 5.5,
+     "rechnung": "2 + 3 + 0,5",
+     "beschreibung": "die Faktoren addiert statt multipliziert: 2 + 3 + 0,5 = 5,5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 6,
+     "rechnung": "2 · 3",
+     "beschreibung": "die Höhe vergessen: 2 · 3 = 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 12,
+     "rechnung": "2 · 3 · 2",
+     "beschreibung": "die Höhe verdoppelt statt halbiert: 2 · 3 · 2 = 12",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-002",
+   "thema": "messen.volumen",
+   "lernkarte": "quader",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen berechnen das Volumen aus gegebenen Kanten. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "quader",
+    "t": "quader",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Bei einem Würfel werden alle Kanten halbiert. Welche Aussage über das Volumen stimmt?"
+    },
+    "w": "Jede der drei Kanten wird mit ½ multipliziert: ½ · ½ · ½ = ⅛. Das Volumen ist ein Achtel.",
+    "a": [
+     "Das Volumen wird halb so groß, denn die Kanten sind halb so lang.",
+     "Das Volumen wird ein Viertel so groß, denn zwei Kanten bestimmen die Grundfläche und ½ · ½ = ¼.",
+     "Das Volumen wird ein Achtel so groß, denn jede der drei Kanten wird halbiert und ½ · ½ · ½ = ⅛.",
+     "Das Volumen wird ein Sechstel so groß, denn drei Kanten werden durch 2 geteilt und 2 · 3 = 6."
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Das Volumen wird halb so groß, denn die Kanten sind halb so lang.",
+     "beschreibung": "den Faktor der Kante auf das Volumen übertragen (nur eine Kante gezählt)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Das Volumen wird ein Viertel so groß, denn zwei Kanten bestimmen die Grundfläche und ½ · ½ = ¼.",
+     "beschreibung": "nur zwei Kanten berücksichtigt (Fläche statt Volumen)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Das Volumen wird ein Sechstel so groß, denn drei Kanten werden durch 2 geteilt und 2 · 3 = 6.",
+     "beschreibung": "den Teiler 2 mit der Zahl der Kanten 3 malgenommen statt dreimal mit ½",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-003",
+   "thema": "messen.volumen",
+   "lernkarte": "quader",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen berechnen das Volumen aus gegebenen Kanten. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "aufgabe": {
+    "l": "quader",
+    "t": "quader",
+    "p": "korrektur",
+    "s": 2,
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quader hat eine quadratische Grundfläche, ist 12 cm hoch und hat das Volumen 300 cm³. Wie lang ist eine Kante der Grundfläche?"
+    },
+    "w": "V = Grundfläche · Höhe, also Grundfläche = 300 : 12 = 25 cm². Die Grundfläche ist Kante · Kante = 25, also ist die Kante 5 cm.",
+    "o": {
+     "wert": 5,
+     "einheit": "cm"
+    }
+   },
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "loesung_rechnung": "300 : 12 : 5",
+   "fehlbilder": [
+    {
+     "antwort": 25,
+     "rechnung": "300 : 12",
+     "beschreibung": "nur durch die Höhe geteilt: 300 : 12 = 25 ist die Grundfläche, nicht die Kante",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 12.5,
+     "rechnung": "300 : 12 : 2",
+     "beschreibung": "die Grundfläche 25 durch 2 geteilt statt die Zahl gesucht, die mit sich selbst 25 ergibt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 150,
+     "rechnung": "300 : 2",
+     "beschreibung": "300 durch 2 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-004",
+   "thema": "messen.volumen",
+   "lernkarte": "quader",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen berechnen das Volumen aus gegebenen Kanten. Diese Aufgabe: Fehler-Detektiv (Zeile finden und richtigstellen).",
+   "aufgabe": {
+    "l": "quader",
+    "t": "quader",
+    "p": "korrektur",
+    "s": 2,
+    "y": "luecken",
+    "f": {
+     "text": "Tom berechnet das Volumen eines Quaders, der 5 cm lang, 3 cm breit und 4 cm hoch ist. Zeile 1: Die Grundfläche ist 5 · 3 = 15 cm². Zeile 2: Die Höhe ist 4 cm. Zeile 3: Das Volumen ist 15 + 4 = 19 cm³. Zeile 4: Es passen also 19 Würfel mit 1 cm Kante hinein. In welcher Zeile steckt der erste Fehler, und wie groß ist das Volumen richtig?",
+     "schablone": "Fehler in Zeile □, Volumen richtig: □ cm³",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Zeile 3 ist falsch: Grundfläche und Höhe werden multipliziert, nicht addiert. V = 15 · 4 = 60 cm³.",
+    "o": {
+     "werte": [
+      3,
+      60
+     ]
+    }
+   },
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "loesung_rechnung": [
+    "3",
+    "5 · 3 · 4"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 19,
+     "rechnung": "15 + 4",
+     "beschreibung": "Grundfläche und Höhe addiert: 15 + 4 = 19",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "rechnung": "5 + 3 + 4",
+     "beschreibung": "alle drei Kanten addiert: 5 + 3 + 4 = 12",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-005",
+   "thema": "messen.volumen",
+   "lernkarte": "quader",
+   "pool": "sicherung",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen berechnen das Volumen aus gegebenen Kanten. Diese Aufgabe: Was-wäre-wenn.",
+   "aufgabe": {
+    "l": "quader",
+    "t": "quader",
+    "p": "sicherung",
+    "s": 3,
+    "y": "auswahl",
+    "f": {
+     "text": "Das Volumen eines Quaders soll genau verdoppelt werden. Welche Änderung der Kanten leistet das?"
+    },
+    "w": "Die Faktoren der Kanten werden multipliziert. 4 · ½ · 1 = 2. Bei den anderen Möglichkeiten ergibt sich 4, 1,5 und etwa 1,95.",
+    "a": [
+     "Länge und Breite werden verdoppelt, die Höhe bleibt gleich.",
+     "Die Länge wird verdreifacht, die Breite halbiert, die Höhe bleibt gleich.",
+     "Jede der drei Kanten wird um 25 % länger.",
+     "Die Länge wird vervierfacht, die Breite halbiert, die Höhe bleibt gleich."
+    ],
+    "o": {
+     "index": 3
+    }
+   },
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Länge und Breite werden verdoppelt, die Höhe bleibt gleich.",
+     "beschreibung": "nur an zwei Kanten gedacht: 2 · 2 = 4, das Volumen wird vervierfacht",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Die Länge wird verdreifacht, die Breite halbiert, die Höhe bleibt gleich.",
+     "beschreibung": "3 · ½ = 1,5 statt 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Jede der drei Kanten wird um 25 % länger.",
+     "beschreibung": "25 % mehr je Kante als Verdopplung gedeutet: 1,25 · 1,25 · 1,25 ≈ 1,95",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-006",
+   "thema": "messen.volumen",
+   "lernkarte": "quader",
+   "pool": "sicherung",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen berechnen das Volumen aus gegebenen Kanten. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "aufgabe": {
+    "l": "quader",
+    "t": "quader",
+    "p": "sicherung",
+    "s": 2,
+    "y": "luecken",
+    "f": {
+     "text": "Ein Quader ist doppelt so lang wie breit und halb so hoch wie breit. Sein Volumen beträgt 216 cm³. Wie breit und wie hoch ist er?",
+     "schablone": "Breite □ cm, Höhe □ cm",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Ist die Breite b, so ist die Länge 2b und die Höhe b/2. Das Volumen ist 2b · b · b/2 = b · b · b = 216. Wegen 6 · 6 · 6 = 216 ist b = 6 cm und die Höhe 3 cm.",
+    "o": {
+     "werte": [
+      6,
+      3
+     ]
+    }
+   },
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "loesung_rechnung": [
+    "216 : 36",
+    "216 : 36 : 2"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 72,
+     "rechnung": "216 : 3",
+     "beschreibung": "216 durch 3 geteilt, weil es drei Kanten gibt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 108,
+     "rechnung": "216 : 2",
+     "beschreibung": "216 durch 2 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "rechnung": "216 : 36 · 2",
+     "beschreibung": "die Länge (2 · 6 = 12) statt der Höhe angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-007",
+   "thema": "messen.volumen",
+   "lernkarte": "quader",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen berechnen das Volumen aus gegebenen Kanten. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "quader",
+    "t": "quader",
+    "p": "sicherung",
+    "s": 3,
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Würfel mit 4 cm Kantenlänge und ein Quader mit den Kanten 3 cm, 4 cm und 5 cm haben beide die Summe aller zwölf Kantenlängen gleich 48 cm. Welche Aussage über ihre Volumen stimmt?"
+    },
+    "w": "Man rechnet beide Volumen aus: Würfel 4 · 4 · 4 = 64 cm³, Quader 3 · 4 · 5 = 60 cm³. Gleiche Kantensumme heißt nicht gleiches Volumen.",
+    "a": [
+     "Beide haben dasselbe Volumen, denn die Kantensumme ist gleich.",
+     "Der Quader hat das größere Volumen, denn seine längste Kante (5 cm) ist länger als die Würfelkante.",
+     "Der Würfel hat das größere Volumen: 4 · 4 · 4 = 64 cm³ und 3 · 4 · 5 = 60 cm³.",
+     "Das lässt sich nicht sagen, weil die Körper verschiedene Formen haben."
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Beide haben dasselbe Volumen, denn die Kantensumme ist gleich.",
+     "beschreibung": "gleiche Kantensumme mit gleichem Volumen verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Der Quader hat das größere Volumen, denn seine längste Kante (5 cm) ist länger als die Würfelkante.",
+     "beschreibung": "nur auf die längste Kante geschaut",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Das lässt sich nicht sagen, weil die Körper verschiedene Formen haben.",
+     "beschreibung": "nicht gerechnet, weil die Formen verschieden sind",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-008",
+   "thema": "messen.volumen",
+   "lernkarte": "liter",
+   "pool": "test",
+   "typ": "verknuepfen",
+   "form": "bruecke",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen rechnen Einheiten um oder füllen Gefäße. Diese Aufgabe: Brücke zwischen zwei Darstellungen.",
+   "aufgabe": {
+    "l": "liter",
+    "t": "liter",
+    "p": "test",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Ein quaderförmiges Gefäß ist 25 cm lang, 20 cm breit und 16 cm hoch und randvoll mit Wasser. Wie viele Gläser mit je 200 ml lassen sich daraus vollständig füllen?"
+    },
+    "w": "V = 25 · 20 · 16 = 8 000 cm³. Wegen 1 cm³ = 1 ml sind das 8 000 ml. 8 000 : 200 = 40 Gläser.",
+    "o": {
+     "wert": 40
+    }
+   },
+   "ersetzt_test": true,
+   "regel": "id.verhaeltnisse.groesse",
+   "loesung_rechnung": "25 · 20 · 16 : 200",
+   "fehlbilder": [
+    {
+     "antwort": 8000,
+     "rechnung": "25 · 20 · 16",
+     "beschreibung": "das Volumen 8 000 cm³ nicht durch 200 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 8,
+     "rechnung": "25 · 20 · 16 : 1000",
+     "beschreibung": "nur in Liter umgerechnet (8 l), nicht in Gläser",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 4,
+     "rechnung": "25 · 20 · 16 : 1000 : 2",
+     "beschreibung": "8 l durch 2 geteilt, als wären die Gläser 2 l groß",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-009",
+   "thema": "messen.volumen",
+   "lernkarte": "liter",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen rechnen Einheiten um oder füllen Gefäße. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "liter",
+    "t": "liter",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Mia behauptet: „Ein Würfel mit 1 m Kantenlänge fasst 100 Liter, denn 1 m sind 100 cm.“ Welche Antwort zeigt den Fehler richtig auf?"
+    },
+    "w": "1 m = 10 dm. Das Volumen ist 10 dm · 10 dm · 10 dm = 1 000 dm³ = 1 000 l. Die Umrechnung der Länge (mal 100) gilt für das Volumen nicht.",
+    "a": [
+     "Es sind 100 cm · 100 cm = 10 000 cm², das sind 10 000 Liter.",
+     "Es sind 100 cm · 100 cm · 100 cm = 1 000 000 cm³, das sind 1 000 Liter; Mia hat die Kante umgerechnet, aber nicht das Volumen.",
+     "Mia hat recht, denn 1 m = 100 cm und 1 l = 100 cm³.",
+     "Es gilt 1 · 1 · 1 = 1, also ist 1 m³ genau 1 Liter."
+    ],
+    "o": {
+     "index": 1
+    }
+   },
+   "regel": "id.verhaeltnisse.groesse",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Es sind 100 cm · 100 cm = 10 000 cm², das sind 10 000 Liter.",
+     "beschreibung": "eine Fläche (cm²) mit einem Volumen verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Mia hat recht, denn 1 m = 100 cm und 1 l = 100 cm³.",
+     "beschreibung": "glaubt, 1 l seien 100 cm³ (richtig sind 1 000 cm³)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Es gilt 1 · 1 · 1 = 1, also ist 1 m³ genau 1 Liter.",
+     "beschreibung": "die Zahl 1 mit der Einheit verwechselt: 1 m³ ist nicht 1 l",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-010",
+   "thema": "messen.volumen",
+   "lernkarte": "liter",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen rechnen Einheiten um oder füllen Gefäße. Diese Aufgabe: Fehler-Detektiv (Zeile finden und richtigstellen).",
+   "aufgabe": {
+    "l": "liter",
+    "t": "liter",
+    "p": "korrektur",
+    "s": 2,
+    "y": "luecken",
+    "f": {
+     "text": "Ein Aquarium ist 50 cm lang, 30 cm breit und 40 cm hoch. Jana will wissen, wie viele Liter hineinpassen. Zeile 1: Das Volumen ist 50 · 30 · 40 = 60 000 cm³. Zeile 2: Ein Liter sind 100 cm³. Zeile 3: Es passen 60 000 : 100 = 600 Liter hinein. Zeile 4: Das Aquarium fasst also 600 l. In welcher Zeile steckt der erste Fehler, und wie viele Liter passen wirklich hinein?",
+     "schablone": "Fehler in Zeile □, richtig: □ l",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Zeile 2 ist falsch: 1 Liter = 1 dm³ = 1 000 cm³. Also 60 000 : 1 000 = 60 Liter.",
+    "o": {
+     "werte": [
+      2,
+      60
+     ]
+    }
+   },
+   "regel": "id.verhaeltnisse.groesse",
+   "loesung_rechnung": [
+    "2",
+    "50 · 30 · 40 : 1000"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 600,
+     "rechnung": "50 · 30 · 40 : 100",
+     "beschreibung": "durch 100 statt durch 1 000 geteilt: 60 000 : 100 = 600",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 6000,
+     "rechnung": "50 · 30 · 40 : 10",
+     "beschreibung": "durch 10 geteilt: 60 000 : 10 = 6 000",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-011",
+   "thema": "messen.volumen",
+   "lernkarte": "liter",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen rechnen Einheiten um oder füllen Gefäße. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "aufgabe": {
+    "l": "liter",
+    "t": "liter",
+    "p": "korrektur",
+    "s": 2,
+    "y": "zahl",
+    "f": {
+     "text": "Ein würfelförmiger Behälter fasst genau 64 Liter. Wie lang ist eine Kante in Zentimetern?"
+    },
+    "w": "64 l = 64 dm³. Wegen 4 · 4 · 4 = 64 ist die Kante 4 dm = 40 cm.",
+    "o": {
+     "wert": 40,
+     "einheit": "cm"
+    }
+   },
+   "regel": "id.verhaeltnisse.groesse",
+   "loesung_rechnung": "4 · 10",
+   "fehlbilder": [
+    {
+     "antwort": 16,
+     "rechnung": "64 : 4",
+     "beschreibung": "64 durch 4 geteilt statt die Zahl gesucht, die dreimal mit sich malgenommen 64 ergibt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 640,
+     "rechnung": "64 · 10",
+     "beschreibung": "64 mit 10 malgenommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-012",
+   "thema": "messen.volumen",
+   "lernkarte": "liter",
+   "pool": "sicherung",
+   "typ": "verknuepfen",
+   "form": "zwei_wege",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen rechnen Einheiten um oder füllen Gefäße. Diese Aufgabe: zwei Wege vergleichen.",
+   "aufgabe": {
+    "l": "liter",
+    "t": "liter",
+    "p": "sicherung",
+    "s": 3,
+    "y": "luecken",
+    "f": {
+     "text": "Ein Quader ist 40 cm lang, 25 cm breit und 30 cm hoch. Mia rechnet in Zentimetern, Jonas in Dezimetern (4 · 2,5 · 3). Beide wollen den Inhalt in Litern angeben.",
+     "schablone": "Mia: □ cm³, Jonas: □ dm³, Inhalt: □ l",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Mia: 40 · 25 · 30 = 30 000 cm³. Jonas: 4 · 2,5 · 3 = 30 dm³. Weil 1 dm³ = 1 l = 1 000 cm³ gilt, kommen beide auf 30 l.",
+    "o": {
+     "werte": [
+      30000,
+      30,
+      30
+     ]
+    }
+   },
+   "regel": "id.verhaeltnisse.groesse",
+   "loesung_rechnung": [
+    "40 · 25 · 30",
+    "4 · 2,5 · 3",
+    "40 · 25 · 30 : 1000"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3000,
+     "rechnung": "40 · 25 · 3",
+     "beschreibung": "die Höhe als 3 statt 30 genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 300,
+     "rechnung": "4 · 25 · 3",
+     "beschreibung": "2,5 dm als 25 dm gelesen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "rechnung": "4 · 3",
+     "beschreibung": "die Breite vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 3,
+     "rechnung": "30 : 10",
+     "beschreibung": "30 durch 10 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-013",
+   "thema": "messen.volumen",
+   "lernkarte": "liter",
+   "pool": "sicherung",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen rechnen Einheiten um oder füllen Gefäße. Diese Aufgabe: Darstellung wechseln.",
+   "aufgabe": {
+    "l": "liter",
+    "t": "liter",
+    "p": "sicherung",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Welche der folgenden Angaben beschreibt NICHT dasselbe Volumen wie 2,5 Liter?"
+    },
+    "w": "1 l = 1 dm³ = 1 000 cm³ = 1 000 ml. Deshalb sind 2,5 l = 2,5 dm³ = 2 500 cm³ = 2 500 ml. 0,25 m³ = 250 dm³ = 250 l ist etwas anderes.",
+    "a": [
+     "2 500 cm³",
+     "2,5 dm³",
+     "0,25 m³",
+     "2 500 ml"
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "id.verhaeltnisse.groesse",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "2 500 cm³",
+     "beschreibung": "hält die richtige Umrechnung 1 l = 1 000 cm³ für falsch",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "2,5 dm³",
+     "beschreibung": "hält 1 l = 1 dm³ für falsch",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "2 500 ml",
+     "beschreibung": "hält 1 l = 1 000 ml für falsch",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-014",
+   "thema": "messen.volumen",
+   "lernkarte": "liter",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen rechnen Einheiten um oder füllen Gefäße. Diese Aufgabe: Transfer auf eine neue Situation.",
+   "aufgabe": {
+    "l": "liter",
+    "t": "liter",
+    "p": "sicherung",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Eine Dusche verbraucht 9 Liter Wasser pro Minute. Ein quaderförmiger Wassertank (1,5 m lang, 1,2 m breit, 1 m hoch) ist randvoll. Wie viele Minuten lang könnte man mit diesem Wasser duschen?"
+    },
+    "w": "V = 1,5 · 1,2 · 1 = 1,8 m³ = 1 800 l. 1 800 : 9 = 200 Minuten.",
+    "o": {
+     "wert": 200,
+     "einheit": "min"
+    }
+   },
+   "regel": "id.verhaeltnisse.groesse",
+   "loesung_rechnung": "1,5 · 1,2 · 1 · 1000 : 9",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "rechnung": "1,5 · 1,2 · 1 · 100 : 9",
+     "beschreibung": "1 m³ als 100 l gerechnet: 180 : 9 = 20",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 16200,
+     "rechnung": "1,5 · 1,2 · 1 · 1000 · 9",
+     "beschreibung": "mit 9 malgenommen statt durch 9 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 0.2,
+     "rechnung": "1,5 · 1,2 · 1 : 9",
+     "beschreibung": "in m³ geteilt, ohne in Liter umzurechnen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-015",
+   "thema": "messen.volumen",
+   "lernkarte": "rueckwaerts",
+   "pool": "test",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen suchen eine fehlende Kante oder Höhe mit Standardzahlen. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "test",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quader ist 10 cm lang und hat das Volumen 270 cm³. Seine Höhe ist dreimal so groß wie seine Breite. Wie breit ist der Quader?"
+    },
+    "w": "Grundfläche · Länge: Breite · Höhe = 270 : 10 = 27 cm². Die Höhe ist 3 · Breite, also 3 · Breite · Breite = 27, Breite · Breite = 9. Die Breite ist 3 cm.",
+    "o": {
+     "wert": 3,
+     "einheit": "cm"
+    }
+   },
+   "ersetzt_test": true,
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "loesung_rechnung": "270 : 10 : 9",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "rechnung": "270 : 10 : 3",
+     "beschreibung": "Breite · Breite = 9 gefunden, aber die Wurzel vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 27,
+     "rechnung": "270 : 10",
+     "beschreibung": "nur durch die Länge geteilt: 27 ist Breite mal Höhe",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-016",
+   "thema": "messen.volumen",
+   "lernkarte": "rueckwaerts",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen suchen eine fehlende Kante oder Höhe mit Standardzahlen. Diese Aufgabe: Fehler-Detektiv (Zeile finden und richtigstellen).",
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "korrektur",
+    "s": 2,
+    "y": "luecken",
+    "f": {
+     "text": "Ein Quader hat das Volumen 252 cm³, ist 7 cm lang und 4 cm breit. Lena will die Höhe berechnen. Zeile 1: Gesucht ist h mit 7 · 4 · h = 252. Zeile 2: Das heißt 28 · h = 252. Zeile 3: h = 252 · 28 = 7 056. Zeile 4: Die Höhe beträgt 7 056 cm. In welcher Zeile steckt der erste Fehler, und wie hoch ist der Quader richtig (in cm)?",
+     "schablone": "Fehler in Zeile □, Höhe richtig: □ cm",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Zeile 3 ist falsch: Aus 28 · h = 252 folgt h = 252 : 28 = 9. Die Höhe ist 9 cm.",
+    "o": {
+     "werte": [
+      3,
+      9
+     ]
+    }
+   },
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "loesung_rechnung": [
+    "3",
+    "252 : 28"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 7056,
+     "rechnung": "252 · 28",
+     "beschreibung": "mit 28 malgenommen statt durch 28 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 224,
+     "rechnung": "252 − 28",
+     "beschreibung": "28 von 252 abgezogen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-017",
+   "thema": "messen.volumen",
+   "lernkarte": "rueckwaerts",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "verfahren_waehlen",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen suchen eine fehlende Kante oder Höhe mit Standardzahlen. Diese Aufgabe: Verfahren wählen.",
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Quader hat das Volumen 1 200 cm³, ist 20 cm lang und 5 cm breit. Welche Rechnung liefert seine Höhe in cm?"
+    },
+    "w": "V = Länge · Breite · Höhe, also Höhe = V : (Länge · Breite) = 1 200 : 100 = 12 cm. Die Klammer ist nötig.",
+    "a": [
+     "1 200 : 20 · 5",
+     "1 200 : (20 · 5)",
+     "1 200 − 20 · 5",
+     "1 200 : (20 + 5)"
+    ],
+    "o": {
+     "index": 1
+    }
+   },
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "1 200 : 20 · 5",
+     "beschreibung": "von links nach rechts gerechnet: (1 200 : 20) · 5 = 300, dabei wird die Breite multipliziert statt geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "1 200 − 20 · 5",
+     "beschreibung": "die Grundfläche vom Volumen abgezogen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "1 200 : (20 + 5)",
+     "beschreibung": "Länge und Breite addiert statt multipliziert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-018",
+   "thema": "messen.volumen",
+   "lernkarte": "rueckwaerts",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen suchen eine fehlende Kante oder Höhe mit Standardzahlen. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Quader haben dasselbe Volumen von 120 cm³. Quader A hat eine Grundfläche von 24 cm², Quader B eine Grundfläche von 40 cm². Welche Aussage stimmt?"
+    },
+    "w": "Höhe = Volumen : Grundfläche. A: 120 : 24 = 5 cm, B: 120 : 40 = 3 cm. A ist höher.",
+    "a": [
+     "Quader B ist höher, denn seine Grundfläche ist größer.",
+     "Beide sind gleich hoch, denn sie haben dasselbe Volumen.",
+     "Quader A ist höher: 120 : 24 = 5 cm gegenüber 120 : 40 = 3 cm bei Quader B.",
+     "Das lässt sich nicht sagen, weil Länge und Breite nicht bekannt sind."
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Quader B ist höher, denn seine Grundfläche ist größer.",
+     "beschreibung": "größere Grundfläche mit größerer Höhe verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Beide sind gleich hoch, denn sie haben dasselbe Volumen.",
+     "beschreibung": "gleiches Volumen mit gleicher Höhe verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Das lässt sich nicht sagen, weil Länge und Breite nicht bekannt sind.",
+     "beschreibung": "übersehen, dass die Grundfläche genügt, um die Höhe zu bestimmen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-019",
+   "thema": "messen.volumen",
+   "lernkarte": "rueckwaerts",
+   "pool": "sicherung",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen suchen eine fehlende Kante oder Höhe mit Standardzahlen. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "sicherung",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Der Wasserspiegel in einem rechteckigen Becken (Boden 8 m mal 5 m) steigt durch einen Zufluss in jeder Minute um 0,5 cm. Wie viele Liter fließen pro Minute zu?"
+    },
+    "w": "Die neue Schicht hat den Boden 800 cm · 500 cm und ist 0,5 cm hoch: 800 · 500 · 0,5 = 200 000 cm³ = 200 l.",
+    "o": {
+     "wert": 200,
+     "einheit": "l"
+    }
+   },
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "loesung_rechnung": "800 · 500 · 0,5 : 1000",
+   "fehlbilder": [
+    {
+     "antwort": 200000,
+     "rechnung": "800 · 500 · 0,5",
+     "beschreibung": "das Ergebnis in cm³ nicht in Liter umgerechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 20,
+     "rechnung": "800 · 500 · 0,5 : 10000",
+     "beschreibung": "durch 10 000 statt durch 1 000 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-020",
+   "thema": "messen.volumen",
+   "lernkarte": "rueckwaerts",
+   "pool": "sicherung",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen suchen eine fehlende Kante oder Höhe mit Standardzahlen. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "sicherung",
+    "s": 2,
+    "y": "luecken",
+    "f": {
+     "text": "Ein Quader mit quadratischer Grundfläche ist 5 cm hoch und hat das Volumen 245 cm³. Wie groß ist seine Grundfläche, und wie lang ist eine Grundkante?",
+     "schablone": "Grundfläche □ cm², Grundkante □ cm",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Grundfläche = Volumen : Höhe = 245 : 5 = 49 cm². Wegen 7 · 7 = 49 ist die Grundkante 7 cm.",
+    "o": {
+     "werte": [
+      49,
+      7
+     ]
+    }
+   },
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "loesung_rechnung": [
+    "245 : 5",
+    "245 : 5 : 7"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1225,
+     "rechnung": "245 · 5",
+     "beschreibung": "Volumen mit der Höhe malgenommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 240,
+     "rechnung": "245 − 5",
+     "beschreibung": "die Höhe vom Volumen abgezogen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 49,
+     "rechnung": "245 : 5",
+     "beschreibung": "die Grundfläche als Kante angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-021",
+   "thema": "messen.volumen",
+   "lernkarte": "rueckwaerts",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen suchen eine fehlende Kante oder Höhe mit Standardzahlen. Diese Aufgabe: Transfer auf eine neue Situation.",
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "sicherung",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Aus einem rechteckigen Becken (Boden 6 m mal 4 m) wird mit einer Pumpe Wasser abgepumpt, 3 Liter pro Sekunde. Um wie viele Zentimeter sinkt der Wasserspiegel in 2 Stunden?"
+    },
+    "w": "2 h = 7 200 s, also 3 · 7 200 = 21 600 l = 21,6 m³. Der Boden hat 24 m². Höhe = 21,6 : 24 = 0,9 m = 90 cm.",
+    "o": {
+     "wert": 90,
+     "einheit": "cm"
+    }
+   },
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "loesung_rechnung": "3 · 7200 : 1000 : (6 · 4) · 100",
+   "fehlbilder": [
+    {
+     "antwort": 0.9,
+     "rechnung": "3 · 7200 : 1000 : (6 · 4)",
+     "beschreibung": "die Höhe in Metern angegeben (0,9 m)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 900,
+     "rechnung": "3 · 7200 : (6 · 4)",
+     "beschreibung": "21 600 l durch 24 m² geteilt: das sind 900 mm, nicht cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-022",
+   "thema": "messen.volumen",
+   "lernkarte": "verstehen",
+   "pool": "test",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen prüfen Einheiten, Schätzwerte und einfache Verdopplungen. Diese Aufgabe: Was-wäre-wenn.",
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "test",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Zwei Räume haben denselben rechteckigen Boden. Raum A ist 2,4 m hoch, Raum B ist 3 m hoch. Um wie viel Prozent mehr Luft enthält Raum B als Raum A?"
+    },
+    "w": "Bei gleichem Boden ist das Volumen proportional zur Höhe. B hat 0,6 m mehr Höhe als A: 0,6 : 2,4 = 0,25, also 25 % mehr Luft.",
+    "o": {
+     "wert": 25,
+     "einheit": "%"
+    }
+   },
+   "ersetzt_test": true,
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "loesung_rechnung": "(3 − 2,4) : 2,4 · 100",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "rechnung": "(3 − 2,4) : 3 · 100",
+     "beschreibung": "den Unterschied auf Raum B statt auf Raum A bezogen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 125,
+     "rechnung": "3 : 2,4 · 100",
+     "beschreibung": "B als Prozentsatz von A angegeben (125 %) statt des Mehrs",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 0.6,
+     "rechnung": "3 − 2,4",
+     "beschreibung": "nur den Höhenunterschied in Metern genannt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-023",
+   "thema": "messen.volumen",
+   "lernkarte": "verstehen",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen prüfen Einheiten, Schätzwerte und einfache Verdopplungen. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Bei einem Quader wird die Höhe um 2 cm größer, Länge und Breite bleiben gleich. Wie ändert sich das Volumen?"
+    },
+    "w": "Die neue Schicht hat die Grundfläche Länge · Breite und die Dicke 2 cm. Ihr Volumen ist 2 cm · Länge · Breite.",
+    "a": [
+     "Es wächst um 2 cm³, denn die Höhe wächst um 2 cm.",
+     "Es verdoppelt sich, denn die Höhe wird um 2 cm größer.",
+     "Es wächst um 2 cm · Länge · Breite, denn über der Grundfläche kommt eine 2 cm dicke Schicht dazu.",
+     "Es wächst um 2 cm, denn Volumen und Höhe ändern sich gleich stark."
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Es wächst um 2 cm³, denn die Höhe wächst um 2 cm.",
+     "beschreibung": "Länge und Breite vergessen; eine Höhe in cm mit einem Volumen verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Es verdoppelt sich, denn die Höhe wird um 2 cm größer.",
+     "beschreibung": "Zuwachs von 2 cm mit Verdopplung verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Es wächst um 2 cm, denn Volumen und Höhe ändern sich gleich stark.",
+     "beschreibung": "Volumen und Höhe gleich gesetzt und die Einheit cm³ übersehen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-024",
+   "thema": "messen.volumen",
+   "lernkarte": "verstehen",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen prüfen Einheiten, Schätzwerte und einfache Verdopplungen. Diese Aufgabe: Fehler-Detektiv (Zeile finden und richtigstellen).",
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "korrektur",
+    "s": 2,
+    "y": "luecken",
+    "f": {
+     "text": "Lena berechnet die Luft in einem Zimmer. Zeile 1: Das Zimmer ist 4 m lang, 3 m breit und 250 cm hoch. Zeile 2: Das Volumen ist 4 · 3 · 250 = 3 000 m³. Zeile 3: Das sind 3 000 000 Liter Luft. Zeile 4: Das ist sehr viel für ein Zimmer. In welcher Zeile steckt der erste Fehler, und wie viele m³ hat das Zimmer richtig?",
+     "schablone": "Fehler in Zeile □, richtig: □ m³",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Zeile 2 ist falsch: Die Höhe 250 cm muss in Meter umgerechnet werden (2,5 m). V = 4 · 3 · 2,5 = 30 m³.",
+    "o": {
+     "werte": [
+      2,
+      30
+     ]
+    }
+   },
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "loesung_rechnung": [
+    "2",
+    "4 · 3 · 2,5"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 3000,
+     "rechnung": "4 · 3 · 250",
+     "beschreibung": "Meter und Zentimeter in einer Rechnung gemischt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "rechnung": "4 · 3",
+     "beschreibung": "die Höhe vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-025",
+   "thema": "messen.volumen",
+   "lernkarte": "verstehen",
+   "pool": "korrektur",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen prüfen Einheiten, Schätzwerte und einfache Verdopplungen. Diese Aufgabe: Transfer auf eine neue Situation.",
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "korrektur",
+    "s": 2,
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quader ist aus Würfeln mit je 2 cm Kantenlänge gebaut: 3 Würfel in der Länge, 2 in der Breite und 4 in der Höhe. Wie groß ist sein Volumen in cm³?"
+    },
+    "w": "Ein Würfel hat 2 · 2 · 2 = 8 cm³. Es sind 3 · 2 · 4 = 24 Würfel. 24 · 8 = 192 cm³. (Kontrolle: Der Quader ist 6 cm · 4 cm · 8 cm groß.)",
+    "o": {
+     "wert": 192,
+     "einheit": "cm³"
+    }
+   },
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "loesung_rechnung": "3 · 2 · 4 · 2 · 2 · 2",
+   "fehlbilder": [
+    {
+     "antwort": 24,
+     "rechnung": "3 · 2 · 4",
+     "beschreibung": "nur die Würfel gezählt, nicht deren Volumen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 48,
+     "rechnung": "3 · 2 · 4 · 2",
+     "beschreibung": "die Würfelzahl mit der Kantenlänge 2 malgenommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 96,
+     "rechnung": "3 · 2 · 4 · 4",
+     "beschreibung": "mit 2 · 2 statt 2 · 2 · 2 malgenommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-026",
+   "thema": "messen.volumen",
+   "lernkarte": "verstehen",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen prüfen Einheiten, Schätzwerte und einfache Verdopplungen. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "sicherung",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Quader A hat eine Grundfläche von 20 cm² und ist 9 cm hoch. Quader B hat eine Grundfläche von 30 cm² und ist 5 cm hoch. Welche Aussage stimmt?"
+    },
+    "w": "V = Grundfläche · Höhe. A: 20 · 9 = 180 cm³, B: 30 · 5 = 150 cm³.",
+    "a": [
+     "Quader B hat das größere Volumen, denn seine Grundfläche ist größer.",
+     "Beide haben ungefähr gleich viel Volumen, denn 20 + 9 und 30 + 5 liegen nah beieinander.",
+     "Das lässt sich nicht sagen, weil Länge und Breite unbekannt sind.",
+     "Quader A hat das größere Volumen: 20 · 9 = 180 cm³ gegenüber 30 · 5 = 150 cm³."
+    ],
+    "o": {
+     "index": 3
+    }
+   },
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Quader B hat das größere Volumen, denn seine Grundfläche ist größer.",
+     "beschreibung": "nur auf die Grundfläche geschaut",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Beide haben ungefähr gleich viel Volumen, denn 20 + 9 und 30 + 5 liegen nah beieinander.",
+     "beschreibung": "Grundfläche und Höhe addiert statt multipliziert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Das lässt sich nicht sagen, weil Länge und Breite unbekannt sind.",
+     "beschreibung": "übersehen, dass Grundfläche mal Höhe genügt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-027",
+   "thema": "messen.volumen",
+   "lernkarte": "verstehen",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen prüfen Einheiten, Schätzwerte und einfache Verdopplungen. Diese Aufgabe: Transfer auf eine neue Situation.",
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "sicherung",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "In einen Karton, der innen 50 cm lang, 40 cm breit und 30 cm hoch ist, werden würfelförmige Päckchen mit 15 cm Kantenlänge gestapelt. Die Päckchen stehen gerade (Kanten parallel zu den Kartonkanten). Wie viele Päckchen passen höchstens hinein?"
+    },
+    "w": "Es zählt, wie viele Päckchen in jeder Richtung passen: 50 : 15 = 3 Rest 5, 40 : 15 = 2 Rest 10, 30 : 15 = 2. Das sind 3 · 2 · 2 = 12 Päckchen. Aus dem Volumenverhältnis (etwa 17,8) darf man nicht schließen, weil an den Rändern Platz verloren geht.",
+    "o": {
+     "wert": 12
+    }
+   },
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "loesung_rechnung": "3 · 2 · 2",
+   "fehlbilder": [
+    {
+     "antwort": 17,
+     "rechnung": "57375 : 3375",
+     "beschreibung": "Rauminhalte geteilt: 60 000 : 3 375 ≈ 17,8, abgerundet 17 (17 · 3 375 = 57 375)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 24,
+     "rechnung": "4 · 3 · 2",
+     "beschreibung": "50 : 15, 40 : 15 und 30 : 15 jeweils aufgerundet (4, 3, 2)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 18,
+     "rechnung": "3 · 3 · 2",
+     "beschreibung": "40 : 15 ≈ 2,7 aufgerundet auf 3 (und 50 : 15 abgerundet auf 3)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-028",
+   "thema": "messen.volumen",
+   "lernkarte": "verstehen",
+   "pool": "sicherung",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2",
+   "abgrenzung": "Die Übungen prüfen Einheiten, Schätzwerte und einfache Verdopplungen. Diese Aufgabe: Was-wäre-wenn.",
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "sicherung",
+    "s": 3,
+    "y": "auswahl",
+    "f": {
+     "text": "Bei einem Quader werden Länge und Breite um je 50 % vergrößert, die Höhe bleibt gleich. Um wie viel Prozent wächst das Volumen?"
+    },
+    "w": "Die Faktoren sind 1,5 · 1,5 · 1 = 2,25. Das Volumen ist 225 % des alten, also um 125 % größer.",
+    "a": [
+     "um 50 %",
+     "um 100 %",
+     "um 125 %",
+     "um 225 %"
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "um 50 %",
+     "beschreibung": "nur eine Kante berücksichtigt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "um 100 %",
+     "beschreibung": "50 % und 50 % addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "um 225 %",
+     "beschreibung": "den neuen Wert 225 % des alten mit dem Zuwachs verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  }
+ ]
+}

@@ -36,14 +36,14 @@
      "beschreibung": "die Einschränkung aus der Ausgangsgleichung vergessen, weil nach dem Malnehmen keine Nenner mehr stehen; für x = 2 ist die Ausgangsgleichung nicht definiert"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Es gibt keine Lösung, also L = { }, denn in 3 = 1 + 2 kommt kein x mehr vor und nichts lässt sich einsetzen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die wahre Aussage 3 = 1 + 2 als „keine Lösung“ gedeutet; eine immer wahre Aussage heißt: jede Zahl aus D ist Lösung"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Nur x = 2 ist Lösung, denn nur dort sind die drei Nenner gleich und die Brüche damit vergleichbar.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -63,12 +63,12 @@
     },
     "a": [
      "Alle Zahlen sind Lösung, also L = ℚ, denn 3 = 1 + 2 ist eine wahre Aussage für jedes x.",
+     "x = 2 ist ausgeschlossen, für alle anderen Zahlen ist die Gleichung wahr: L = ℚ \\ {2}.",
      "Es gibt keine Lösung, also L = { }, denn in 3 = 1 + 2 kommt kein x mehr vor und nichts lässt sich einsetzen.",
-     "Nur x = 2 ist Lösung, denn nur dort sind die drei Nenner gleich und die Brüche damit vergleichbar.",
-     "x = 2 ist ausgeschlossen, für alle anderen Zahlen ist die Gleichung wahr: L = ℚ \\ {2}."
+     "Nur x = 2 ist Lösung, denn nur dort sind die drei Nenner gleich und die Brüche damit vergleichbar."
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "w": "Die Definitionsmenge bestimmt man an der Ausgangsgleichung: Der Nenner x − 2 darf nicht 0 werden, also D = ℚ \\ {2}. Nach dem Malnehmen mit (x − 2) steht 3 = 1 + 2, eine für jedes x wahre Aussage. Also ist jede Zahl aus D eine Lösung, die Zahl 2 aber nicht, weil die Brüche für x = 2 nicht definiert sind: L = ℚ \\ {2}."
    }
@@ -198,21 +198,21 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "D = ℚ \\ {4; 16}",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "x² − 16 = 0 als x = 16 gelesen und den Nenner x vergessen"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "D = ℚ \\ {−4; 4}",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den zweiten Nenner x nicht beachtet; für x = 0 ist 1/x nicht definiert"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "D = ℚ \\ {4}",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -230,13 +230,13 @@
      "text": "Welche Menge ist die Definitionsmenge der Gleichung 4/(x² − 16) + 1/x = 2?"
     },
     "a": [
+     "D = ℚ \\ {−4; 0; 4}",
      "D = ℚ \\ {4; 16}",
      "D = ℚ \\ {−4; 4}",
-     "D = ℚ \\ {4}",
-     "D = ℚ \\ {−4; 0; 4}"
+     "D = ℚ \\ {4}"
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
     "w": "x² − 16 = (x − 4)(x + 4) ist 0 für x = 4 und x = −4; der Nenner x ist 0 für x = 0. Alle drei Zahlen müssen ausgeschlossen werden."
    }
@@ -371,21 +371,21 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "36/x − 36/(x + 3) = 2 mit D = ℚ \\ {0}",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den zweiten Nenner x + 3 nicht beachtet; für x = −3 ist 36/(x + 3) nicht definiert"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "36/x + 36/(x + 3) = 2 mit D = ℚ \\ {−3; 0}",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die beiden Kosten addiert; das Kind zahlt mit den Zusatzkindern weniger, der Unterschied ist 2 €"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "36/(x − 3) − 36/x = 2 mit D = ℚ \\ {0; 3}",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -403,13 +403,13 @@
      "text": "Kinder teilen sich die Kosten von 36 € für ein Taxi gleichmäßig; es sind x Kinder. Kommen 3 weitere Kinder mit, zahlt jedes Kind 2 € weniger. Welche Gleichung beschreibt das, und welche Zahlen sind für x ausgeschlossen?"
     },
     "a": [
-     "36/x − 36/(x + 3) = 2 mit D = ℚ \\ {−3; 0}",
      "36/x − 36/(x + 3) = 2 mit D = ℚ \\ {0}",
      "36/x + 36/(x + 3) = 2 mit D = ℚ \\ {−3; 0}",
-     "36/(x − 3) − 36/x = 2 mit D = ℚ \\ {0; 3}"
+     "36/(x − 3) − 36/x = 2 mit D = ℚ \\ {0; 3}",
+     "36/x − 36/(x + 3) = 2 mit D = ℚ \\ {−3; 0}"
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "w": "Mit x Kindern zahlt jedes 36/x €. Mit 3 weiteren Kindern sind es x + 3 Kinder, und jedes zahlt 36/(x + 3) €, das sind 2 € weniger: 36/x − 36/(x + 3) = 2. Die Nenner x und x + 3 dürfen nicht 0 sein, also D = ℚ \\ {−3; 0}. Probe mit x = 6: 36/6 − 36/9 = 6 − 4 = 2."
    }
@@ -430,14 +430,14 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "(x + 2)/4 = 3/(x − 1) + 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "rechts steht ein Bruch plus eine Zahl, also eine Summe; über Kreuz geht nur, wenn auf jeder Seite genau ein Bruch steht"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "1/x + 1/2 = 3/(x − 1)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -463,13 +463,13 @@
      "text": "Bei welcher der folgenden Gleichungen darf man sofort über Kreuz multiplizieren, also a/b = c/d in a · d = c · b umwandeln?"
     },
     "a": [
+     "(x + 2)/4 = 3/(x − 1)",
      "(x + 2)/4 = 3/(x − 1) + 1",
      "1/x + 1/2 = 3/(x − 1)",
-     "(x + 2)/4 = 3/(x − 1)",
      "2 − 5/(x + 3) = 4/x"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "w": "Über Kreuz multiplizieren geht nur bei der Form a/b = c/d: auf jeder Seite steht genau ein Bruch. Das ist bei (x + 2)/4 = 3/(x − 1) der Fall: (x + 2)(x − 1) = 3 · 4. Bei den anderen Gleichungen steht auf einer Seite eine Summe oder Differenz; dort muss man erst zusammenfassen oder mit dem Hauptnenner malnehmen."
    }
@@ -559,7 +559,7 @@
      "beschreibung": "Zähler mit Zähler und Nenner mit Nenner malgenommen; das ist kein Über-Kreuz-Multiplizieren"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "4(x + 3) = 7x − 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -579,11 +579,11 @@
     "a": [
      "4(x − 1) = 7(x + 3)",
      "4 · 7 = (x − 1)(x + 3)",
-     "4(x + 3) = 7x − 1",
-     "4(x + 3) = 7(x − 1)"
+     "4(x + 3) = 7(x − 1)",
+     "4(x + 3) = 7x − 1"
     ],
     "o": {
-     "index": 3
+     "index": 2
     },
     "w": "Über Kreuz: Der Zähler links (4) wird mit dem Nenner rechts (x + 3) malgenommen, der Zähler rechts (7) mit dem Nenner links (x − 1). Das gibt 4(x + 3) = 7(x − 1). Der ganze Nenner steht dabei in der Klammer."
    }
@@ -665,14 +665,14 @@
      "beschreibung": "Jos Weg falsch gedeutet: Beim Malnehmen mit (x − 1)(x + 4) kürzt sich links x − 1 weg, es bleibt 2(x + 4), nicht 2(x − 1)"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Jos Weg ist nicht erlaubt, weil man nie mit zwei Nennern zugleich malnehmen darf; nur Kim erhält x = 11.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "geglaubt, das Malnehmen mit dem Produkt der Nenner sei verboten; es ist eine Äquivalenzumformung, solange der Faktor nicht 0 ist"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Beide erhalten dieselbe Gleichung 2(x + 4) = 3(x − 1) und damit x = −11.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -691,12 +691,12 @@
     },
     "a": [
      "Die Wege liefern verschiedene Gleichungen; Jo erhält 2(x − 1) = 3(x + 4) und damit x = −14.",
-     "Beide erhalten 2(x + 4) = 3(x − 1) und damit x = 11; über Kreuz ist eine Abkürzung dafür.",
      "Jos Weg ist nicht erlaubt, weil man nie mit zwei Nennern zugleich malnehmen darf; nur Kim erhält x = 11.",
-     "Beide erhalten dieselbe Gleichung 2(x + 4) = 3(x − 1) und damit x = −11."
+     "Beide erhalten dieselbe Gleichung 2(x + 4) = 3(x − 1) und damit x = −11.",
+     "Beide erhalten 2(x + 4) = 3(x − 1) und damit x = 11; über Kreuz ist eine Abkürzung dafür."
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "w": "Jo: 2/(x − 1) · (x − 1)(x + 4) = 2(x + 4) und 3/(x + 4) · (x − 1)(x + 4) = 3(x − 1). Das ist genau die Gleichung, die Kim über Kreuz erhält. Lösen: 2x + 8 = 3x − 3, also x = 11. Probe: 2/10 = 0,2 und 3/15 = 0,2. Die Zahl 11 liegt in D = ℚ \\ {−4; 1}."
    }
@@ -840,7 +840,7 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "L = {5}, denn auf beiden Seiten steht bei x = 5 dasselbe, nämlich 7/0.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -873,13 +873,13 @@
      "text": "Kim löst (x + 2)/(x − 5) = 7/(x − 5). Sie multipliziert mit (x − 5), erhält x + 2 = 7 und damit x = 5. Zur Probe setzt sie x = 5 ein: „7/0 = 7/0, das stimmt also: L = {5}.“ Welche Aussage ist richtig?"
     },
     "a": [
-     "L = { }: Bei x = 5 ist der Nenner 0, also ist 5 eine Scheinlösung.",
      "L = {5}, denn auf beiden Seiten steht bei x = 5 dasselbe, nämlich 7/0.",
+     "L = { }: Bei x = 5 ist der Nenner 0, also ist 5 eine Scheinlösung.",
      "L = ℚ \\ {5}, denn ohne die 5 sind beide Seiten für jede andere Zahl gleich.",
      "L = {5}, denn 7 : 0 ist 0, und 0 = 0 stimmt, die Probe geht also auf."
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
     "w": "Die Definitionsmenge ist D = ℚ \\ {5}, weil der Nenner x − 5 nicht 0 werden darf. Die Umformung liefert x = 5, aber 5 gehört nicht zu D. Für x = 5 sind beide Seiten nicht definiert, es gibt keine wahre Aussage. Für jedes x ≠ 5 ist die Gleichung gleichwertig zu x + 2 = 7, also falsch. Damit ist L = { }, und x = 5 ist eine Scheinlösung."
    }
@@ -900,14 +900,14 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "L = {3}, denn 5x = 15 ergibt x = 3.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Rechnung als Ergebnis genommen, ohne mit D zu vergleichen; 3 ist ausgeschlossen"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "L = {−2; 3}, denn das sind die besonderen Zahlen der Gleichung.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -932,13 +932,13 @@
      "text": "Eine Bruchgleichung hat die Definitionsmenge ℚ \\ {−2; 3}. Nach dem Multiplizieren mit den Nennern und Umformen steht da 5x = 15. Welche Aussage über die Lösungsmenge L ist richtig?"
     },
     "a": [
+     "L = { }, denn x = 3 gehört nicht zur Definitionsmenge.",
      "L = {3}, denn 5x = 15 ergibt x = 3.",
      "L = {−2; 3}, denn das sind die besonderen Zahlen der Gleichung.",
-     "L = { }, denn x = 3 gehört nicht zur Definitionsmenge.",
      "L = {5}, denn 15 : 3 = 5."
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "w": "Aus 5x = 15 folgt x = 3. Die Zahl 3 ist aber nicht in D = ℚ \\ {−2; 3}: Für x = 3 wäre ein Nenner 0. Deshalb ist 3 eine Scheinlösung, und es bleibt keine Lösung übrig: L = { }."
    }
@@ -1345,14 +1345,14 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "3/5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Verhältnis Rot : Blau als Anteil an der Mischung gelesen; die 5 Teile Blau gehören nicht zum Rot"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "5/8",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1377,13 +1377,13 @@
      "text": "In einer Farbmischung verhalten sich die roten zu den blauen Teilen wie 3 : 5. Welchen Anteil der ganzen Mischung macht das Rot aus?"
     },
     "a": [
-     "3/8",
      "3/5",
      "5/8",
+     "3/8",
      "3/2"
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "w": "Das Verhältnis 3 : 5 vergleicht die Teile Rot und Blau. Die ganze Mischung hat 3 + 5 = 8 Teile, davon sind 3 Teile rot. Der Anteil Rot ist also 3/8 (37,5 %). Das Blau macht 5/8 aus."
    }

@@ -26,7 +26,7 @@ TEIL = bool(os.environ.get("VT_TEIL"))
 KUERZEL = "VT1B"
 # Einheit -> gewählte Lernziele (Reihenfolge der Etappen) – siehe auswahl.md
 AUSWAHL = {
-    "bruch.prozent": ["prozentsatz", "rabatt_aufschlag", "verstehen"],
+    "bruch.prozent": ["prozentwert", "grundwert", "verstehen"],
     "gleichungen.bruch": ["definitionsmenge", "ueber_kreuz", "scheinloesung", "verhaeltnis"],
     "terme.potenzgesetze": ["negativer_exponent", "fehler_finden"],
     "zahlen.potenzen_zehner": ["gross_wissenschaftlich", "negativer_exponent", "vorsilben_klein", "vergleichen_pruefen"],
@@ -118,6 +118,8 @@ for a in A:
             dp_treffer.append((kenn, grund, dquelle, db_["t"][:110]))
     eintrag = dict(kennung=kenn, thema=schl, lernkarte=lk, pool=a["pool"], typ=a["g"], form=a["form"], stufe=a["s"], zaehlt="ja", lehrplan=a["lp"],
                    abgrenzung=kern.ABG.get((schl, lk), ""), idee=a["idee"], antwortform=q["y"], loesung_rechnung=q.get("c"), fehlbilder=[])
+    if a.get("regel"):
+        eintrag["regel"] = a["regel"]
     if a["pool"] == "test":
         eintrag["ersetzt_test"] = True
 

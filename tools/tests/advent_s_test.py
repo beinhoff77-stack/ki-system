@@ -744,7 +744,7 @@ def main():
             grenzen(db)
             belegung(db)
             geheim(db)
-            belegung_werkzeug(db)
+            belegung_werkzeug(db, einsp)
         finally:
             db.ende()
         db = DB(icu)
@@ -755,8 +755,72 @@ def main():
     print('OK')
 
 
-def belegung_werkzeug(db):
-    pass
+def werkzeug(*args):
+    return subprocess.run([sys.executable, '-I', 'tools/advent_belegung_sql.py', *args], capture_output=True, text=True, cwd=str(WURZEL))
+
+
+def belegung_werkzeug(db, einsp):
+    bsp = json.loads((WURZEL / 'inhalte/design/advent/belegung-beispiel.json').read_text(encoding='utf-8'))
+    with tempfile.TemporaryDirectory() as td:
+        def bauen(d, name='b.json'):
+            f = Path(td) / name
+            f.write_text(json.dumps(d, ensure_ascii=False), encoding='utf-8')
+            return werkzeug(str(f), '--aus', td)
+        p = bauen(bsp)
+        assert p.returncode == 0, p.stderr
+        probe = (Path(td) / 'advent_belegung_probe.sql').read_text(encoding='utf-8')
+        einsp_b = (Path(td) / 'advent_belegung_einspielen.sql').read_text(encoding='utf-8')
+        assert [z for z in einsp_b.splitlines() if not z.startswith('--')][0].startswith("select set_config('lock_timeout'")
+        vor = db.sql("select md5(string_agg(b::text, '|' order by lernender_id, nr)) from schule.advent_belegung b;")
+        offen1 = db.sql("select string_agg(nr::text, ', ' order by nr) from schule.advent_tuer where lernender_id = 1;")
+        tv = db.sql("select md5(string_agg(t::text, '|' order by id)) from schule.advent_tuer t;")
+        err = db.pg.paket(probe, erwartet_fehler='ADVENT-BELEGUNG PROBELAUF bestanden')
+        assert db.sql("select md5(string_agg(b::text, '|' order by lernender_id, nr)) from schule.advent_belegung b;") == vor
+        out = db.pg.paket(einsp_b)
+        i = out.index('ADVENT-BELEGUNG eingespielt. KURZ: ')
+        assert f'übersprungen (schon offen) [{offen1}]' in out[i:], out[i:i + 600]
+        assert db.sql("select md5(string_agg(t::text, '|' order by id)) from schule.advent_tuer t;") == tv, 'geöffnete Türchen unverändert'
+        assert db.sql("select titel from schule.advent_belegung where lernender_id = 2 and nr = 3;") == 'Kinoabend' or '3' in db.sql("select string_agg(nr::text, ',') from schule.advent_tuer where lernender_id = 2;")
+        out = db.pg.paket(einsp_b)
+        assert re.search(r'Kind 1: 0 gesetzt, \d+ unverändert', out) and re.search(r'Kind 2: 0 gesetzt', out), out[-600:]
+        # Paket bricht ab: falsches Jahr, fehlendes Kind, andere Fassung von advent_belegen
+        for aend, msg in (({'jahr': 2027}, 'passt nicht zur Einstellung'), ({'kinder': {'Kind 1': 1, 'Kind 2': 99}}, 'fehlt oder ist nicht aktiv'),
+                          ({'kinder': {'Kind 1': 1, 'Kind 2': 5}}, 'fehlt oder ist nicht aktiv')):
+            p = bauen({**bsp, **aend})
+            assert p.returncode == 0, p.stderr
+            db.pg.paket((Path(td) / 'advent_belegung_einspielen.sql').read_text(encoding='utf-8'), erwartet_fehler=msg)
+        d = db.sql("select pg_get_functiondef('schule.advent_belegen(bigint[], jsonb, boolean, text)'::regprocedure);")
+        db.sql(d.replace("declare e jsonb", "declare -- geändert\n  e jsonb", 1))
+        db.pg.paket(einsp_b, erwartet_fehler='andere Fassung')
+        db.pg.paket(einsp)                                              # Migration stellt die Fassung wieder her
+        db.sql(UHR)
+        db.pg.paket(einsp_b)
+        # Werkzeug weist ab
+        n = 0
+        for aend, msg in ((lambda d: d['tueren'].append({'nr': 1, 'fuer': 'Kind 1', 'art': 'leer'}), 'doppelt belegt'),
+                          (lambda d: d['tueren'][0].update(motiv='einhorn'), 'motiv „einhorn“ unbekannt'),
+                          (lambda d: d['tueren'][0].update(fuer='Kind 3'), 'fuer ='),
+                          (lambda d: d['tueren'][0].update(sterne=6000), 'sterne ganze Zahl'),
+                          (lambda d: d['tueren'][0].update(art='foto'), 'art bild'),
+                          (lambda d: d['tueren'][1].update(titel=''), 'braucht einen titel'),
+                          (lambda d: d['tueren'][0].update(farbe='rot'), 'nur die Felder'),
+                          (lambda d: d.update(jahr='2026'), 'jahr: ganze Zahl'),
+                          (lambda d: d['kinder'].update({'Kind 3': 1}), 'lernender_id doppelt'),
+                          (lambda d: d['tueren'][1].update(text='x $advbeljson$ y'), '$advbel')):
+            d = json.loads(json.dumps(bsp)); aend(d)
+            p = bauen(d)
+            assert p.returncode == 1 and msg in p.stderr, (msg, p.stderr); n += 1
+        p = werkzeug('inhalte/design/advent/belegung-beispiel.json', '--aus', str(WURZEL / 'tools'))
+        assert p.returncode == 1 and 'liegt im Repo' in p.stderr
+        kopie = WURZEL / 'inhalte/design/advent/_test_belegung.json'
+        kopie.write_text(json.dumps(bsp), encoding='utf-8')
+        try:
+            p = werkzeug(str(kopie))
+            assert p.returncode == 1 and 'liegt im Repo' in p.stderr
+        finally:
+            kopie.unlink()
+    print(f'Belegungs-Werkzeug: Probe rollt zurück, Einspielen überspringt geöffnete Türchen, Zweitlauf 0 gesetzt; Paket bricht ab (Jahr, Kind fehlt/inaktiv, andere Fassung); '
+          f'{n + 2} ungültige Eingaben/Orte abgewiesen')
 
 
 if __name__ == '__main__':

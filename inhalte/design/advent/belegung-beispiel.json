@@ -1,0 +1,205 @@
+{
+ "hinweis": "Neutrale Beispiel-Datei. Die echte Belegung liegt AUSSERHALB des Repos; lernender_id vorher in der Datenbank nachsehen (hier nur Platzhalter).",
+ "jahr": 2026,
+ "kinder": {
+  "Kind 1": 1,
+  "Kind 2": 2
+ },
+ "tueren": [
+  {
+   "nr": 1,
+   "fuer": "beide",
+   "art": "bild",
+   "motiv": "koala",
+   "text": "Ein Satz von Mama und Papa.",
+   "sterne": 50
+  },
+  {
+   "nr": 2,
+   "fuer": "beide",
+   "art": "gutschein",
+   "titel": "Gutschein 2",
+   "text": "Einlösbar bei Mama oder Papa.",
+   "sterne": 0
+  },
+  {
+   "nr": 3,
+   "fuer": "Kind 1",
+   "art": "sterne",
+   "variante": "jackpot",
+   "sterne": 1111
+  },
+  {
+   "nr": 4,
+   "fuer": "beide",
+   "art": "bild",
+   "motiv": "surf",
+   "text": "Ein Satz von Mama und Papa.",
+   "sterne": 50
+  },
+  {
+   "nr": 5,
+   "fuer": "beide",
+   "art": "krampus",
+   "motiv": "krampus",
+   "titel": "Zimmer aufräumen",
+   "text": "Heute noch – der Krampus schaut nach."
+  },
+  {
+   "nr": 6,
+   "fuer": "beide",
+   "art": "karte",
+   "motiv": "nikolaus",
+   "text": "Schau mal in deine Schuhe."
+  },
+  {
+   "nr": 7,
+   "fuer": "beide",
+   "art": "bild",
+   "motiv": "pinguin",
+   "text": "Ein Satz von Mama und Papa.",
+   "sterne": 50
+  },
+  {
+   "nr": 8,
+   "fuer": "beide",
+   "art": "gutschein",
+   "titel": "Gutschein 8",
+   "text": "Einlösbar bei Mama oder Papa.",
+   "sterne": 0
+  },
+  {
+   "nr": 9,
+   "fuer": "beide",
+   "art": "sterne",
+   "variante": "niete",
+   "sterne": 1,
+   "text": "Aber nicht ganz."
+  },
+  {
+   "nr": 10,
+   "fuer": "beide",
+   "art": "bild",
+   "motiv": "flieger",
+   "text": "Ein Satz von Mama und Papa.",
+   "sterne": 50
+  },
+  {
+   "nr": 11,
+   "fuer": "beide",
+   "art": "gutschein",
+   "titel": "Gutschein 11",
+   "text": "Einlösbar bei Mama oder Papa.",
+   "sterne": 0
+  },
+  {
+   "nr": 12,
+   "fuer": "beide",
+   "art": "gutschein",
+   "variante": "tausch",
+   "titel": "Tauschkarte",
+   "text": "Tausche einen Gutschein mit deinem Geschwister."
+  },
+  {
+   "nr": 13,
+   "fuer": "beide",
+   "art": "bild",
+   "motiv": "kaenguru",
+   "text": "Ein Satz von Mama und Papa.",
+   "sterne": 50
+  },
+  {
+   "nr": 14,
+   "fuer": "beide",
+   "art": "gutschein",
+   "titel": "Gutschein 14",
+   "text": "Einlösbar bei Mama oder Papa.",
+   "sterne": 0
+  },
+  {
+   "nr": 15,
+   "fuer": "beide",
+   "art": "leer",
+   "text": "Heute nur Licht."
+  },
+  {
+   "nr": 16,
+   "fuer": "beide",
+   "art": "bild",
+   "motiv": "rentier",
+   "text": "Ein Satz von Mama und Papa.",
+   "sterne": 50
+  },
+  {
+   "nr": 17,
+   "fuer": "beide",
+   "art": "gutschein",
+   "titel": "Gutschein 17",
+   "text": "Einlösbar bei Mama oder Papa.",
+   "sterne": 0
+  },
+  {
+   "nr": 18,
+   "fuer": "beide",
+   "art": "gutschein",
+   "titel": "Gutschein 18",
+   "text": "Einlösbar bei Mama oder Papa.",
+   "sterne": 0
+  },
+  {
+   "nr": 19,
+   "fuer": "beide",
+   "art": "bild",
+   "motiv": "kompass",
+   "text": "Ein Satz von Mama und Papa.",
+   "sterne": 50
+  },
+  {
+   "nr": 20,
+   "fuer": "beide",
+   "art": "gutschein",
+   "titel": "Gutschein 20",
+   "text": "Einlösbar bei Mama oder Papa.",
+   "sterne": 0
+  },
+  {
+   "nr": 21,
+   "fuer": "beide",
+   "art": "gutschein",
+   "titel": "Gutschein 21",
+   "text": "Einlösbar bei Mama oder Papa.",
+   "sterne": 0
+  },
+  {
+   "nr": 22,
+   "fuer": "beide",
+   "art": "bild",
+   "motiv": "stern",
+   "text": "Ein Satz von Mama und Papa.",
+   "sterne": 50
+  },
+  {
+   "nr": 23,
+   "fuer": "beide",
+   "art": "gutschein",
+   "titel": "Gutschein 23",
+   "text": "Einlösbar bei Mama oder Papa.",
+   "sterne": 0
+  },
+  {
+   "nr": 24,
+   "fuer": "beide",
+   "art": "karte",
+   "motiv": "heiligabend",
+   "text": "Frohe Weihnachten am Strand!",
+   "sterne": 1000
+  },
+  {
+   "nr": 3,
+   "fuer": "Kind 2",
+   "art": "gutschein",
+   "titel": "Kinoabend",
+   "text": "Du suchst den Film aus."
+  }
+ ]
+}

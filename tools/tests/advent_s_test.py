@@ -56,6 +56,15 @@ def teil1():
             assert hashlib.md5(b).hexdigest() == hashlib.md5((WURZEL / name).read_bytes()).hexdigest(), f'{name} verändert'
             n += 1
         print(f'Teil 1: {n} bestehende Pakete unter tools/tests/aus/ byteidentisch zu origin/lernen-app')
+    doku = (WURZEL / 'inhalte/design/advent/server.md').read_text(encoding='utf-8')
+    for f, m in AP.bestand_md5().items():
+        assert f'`schule.{f}` `{m}`' in doku, f'server.md: md5 von {f} nicht auf dem Stand'
+    # öffentliches Repo: keine Schlüssel in den neuen Dateien
+    neu = ['supabase/migrations/20261209_advent_s.sql', 'tools/tests/aus/advent_s_probe.sql', 'tools/tests/advent_pakete.py',
+           'tools/advent_belegung_sql.py', 'inhalte/design/advent/server.md', 'inhalte/design/advent/belegung-beispiel.json']
+    for n in neu:
+        t = (WURZEL / n).read_text(encoding='utf-8')
+        assert not re.search(r'(?i)(sk_live|service_role|eyJhbGci|BEGIN PRIVATE)', t), n
     print('Teil 1 bestanden: Pakete auf dem Stand, Einspiel-Paket = Migration, Zeitgrenzen zuerst, kein BEGIN/COMMIT')
     return probe, einsp
 

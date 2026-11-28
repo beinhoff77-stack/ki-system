@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.join(WURZEL, "tools"))
 import inhalt_pruefen as ip      # noqa: E402
 
 A = []
-def _lagenfolge(n_runden=10, k=4, saat=0):
+def _lagenfolge(n_runden=9, k=4, saat=0):
     """Gleichmäßig verteilte, unregelmäßige Lage der richtigen Antwort (festes Saatkorn, damit die Runde reproduzierbar bleibt)."""
     import random
     r = random.Random(saat)
@@ -61,10 +61,19 @@ def W(text, richtig, falsch, w, probe, grafik=None):
     return d, probe, fb
 
 
-def neu(thema, lz, pool, typ, bau, form=None, regel=None, ohne=None, zweifel=None, lehrplan="M5 3", idee=None):
+BAUPLAENE = {"a": "Begründung wählen/geben", "b": "Fehlvorstellung aufdecken", "c": "Rückwärts mit Wahl", "d": "Darstellungswechsel",
+             "e": "Was-wäre-wenn/Invarianz", "f": "Gegenbeispiel/immer–manchmal–nie", "g": "Vergleichen ohne Ausrechnen", "h": "Modellwahl"}
+
+
+def neu(thema, lz, pool, typ, bau, form=None, regel=None, ohne=None, zweifel=None, lehrplan="M5 3", idee=None,
+        bauplan=None, schema=None, alt=None, bestand=None, unterschied=None):
+    """bauplan: a–h laut Auftrag; schema: True/False (im Zweifel True); alt: frühere Kennung oder None;
+    bestand/unterschied: nächstliegender Bestandskern und was die Aufgabe anders macht (für bestandsvergleich.md)."""
     assert idee, (thema, lz, pool, "idee fehlt")
+    assert bauplan in BAUPLAENE and isinstance(schema, bool) and bestand and unterschied, (thema, lz, pool, "bauplan, schema, bestand, unterschied")
     assert pool in POOLS and typ in TYPEN_ERLAUBT and (form is None or form in FORMEN), (thema, lz, pool, typ, form)
     assert (regel is None) == bool(ohne), (thema, lz, "Regel oder Begründung ohne Regel angeben, nicht beides")
     aufgabe, zweit, fb = bau
     A.append(dict(thema=thema, lz=lz, pool=pool, typ=typ, form=form, regel=regel, ohne=ohne, zweifel=zweifel, lehrplan=lehrplan, idee=idee,
+                  bauplan=bauplan, schema=schema, alt=alt, bestand=bestand, unterschied=unterschied,
                   s=ip.STUFE_VON[typ], aufgabe=aufgabe, zweit=zweit, fb=fb, nr=len(A)))

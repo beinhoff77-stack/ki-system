@@ -1,181 +1,221 @@
 T = "zahlen.potenzen_basis"
 P = "rr.potenz"
+# Runde VT1A nach Vorprüfung W1: je Lernziel 5 Aufgaben (1 Test, 2 Korrektur, 2 Sicherung).
+# Felder je Aufgabe: bauplan (a–h laut Auftrag), schema (ja/nein, im Zweifel ja), idee (Denkfigur), alt (frühere Kennung oder None),
+# bestand (nächstliegender Bestandskern), unterschied (was die Aufgabe anders macht). bauen.py schreibt daraus bestandsvergleich.md.
 # ═════════ schreibweise ═════════
 neu(T, "schreibweise", "test", "begruenden", W(
-    "Lena behauptet: „3² + 2³ = 5⁵.“ Welchen Wert hat 3² + 2³ in Wirklichkeit, und wie kommt man darauf?",
-    "17: Es ist 3² = 3 · 3 = 9 und 2³ = 2 · 2 · 2 = 8, zusammen 17.",
-    [("12: Es ist 3² = 3 · 2 = 6 und 2³ = 2 · 3 = 6, zusammen 12.", "Basis mal Hochzahl gerechnet statt die Basis so oft als Faktor zu nehmen", 3 * 2 + 2 * 3 == 12 and 12 != 17),
-     ("3 125: Man addiert die Basen (3 + 2 = 5) und die Hochzahlen (2 + 3 = 5), also gilt 5⁵.", "Basen und Hochzahlen einzeln addiert (Lenas Fehler)", 5 ** 5 == 3125 and 3125 != 17),
-     ("13: Es ist 3² = 3 · 3 = 9 und 2³ = 2 · 2 = 4, zusammen 13.", "Bei 2³ nur zwei Faktoren genommen", 9 + 4 == 13 and 13 != 17)],
-    "3² = 3 · 3 = 9 und 2³ = 2 · 2 · 2 = 8, zusammen 17. Lena hat Basen und Hochzahlen einzeln addiert und 5⁵ geschrieben; 5⁵ wäre aber 3 125. Eine Potenz sagt, wie oft die Basis als Faktor dasteht; man kann nicht erst die Basen und dann die Hochzahlen zusammenzählen.",
-    3 ** 2 + 2 ** 3 == 17), regel=P, idee="begruenden_fehlvorstellung")
-neu(T, "schreibweise", "korrektur", "darstellung", Z(
-    "Aus der Potenz 3⁴ wird die Potenz 3⁵: Die Hochzahl wird um 1 größer, die Basis bleibt. Um wie viel ist 3⁵ größer als 3⁴?",
-    162, "3 ** 5 - 3 ** 4", lambda: 3 * 3 * 3 * 3 * 3 - 3 * 3 * 3 * 3,
-    "3⁴ = 3 · 3 · 3 · 3 = 81. Bei 3⁵ steht die 3 einmal öfter als Faktor da: 3⁵ = 81 · 3 = 243. Der Unterschied ist 243 − 81 = 162. Ein weiterer Faktor 3 verdreifacht den Wert, es kommt also zweimal der alte Wert dazu.",
-    [(1, "Nur die Hochzahlen verglichen: 5 − 4", "5 - 4"), (81, "Nur den alten Wert 3⁴ genannt", "3 ** 4"), (243, "Nur den Wert von 3⁵ genannt", "3 ** 5")]), regel=P, idee="was_waere_wenn")
-neu(T, "schreibweise", "korrektur", "darstellung", Z(
-    "Du hast 2 Eltern. Jede Person hat wieder 2 Eltern, und alle diese Vorfahren sind verschiedene Personen. In der 1. Generation vor dir sind es 2 Personen (Eltern), in der 2. Generation 4 (Großeltern), in der 3. Generation 8 (Urgroßeltern). Wie viele verschiedene Personen sind es in der 4. Generation (Ururgroßeltern)?",
-    16, "2 ** 4", lambda: 8 * 2,
-    "In jeder Generation verdoppelt sich die Zahl der Personen, weil jede Person 2 Eltern hat. In der 4. Generation steht der Faktor 2 genau 4-mal da: 2 · 2 · 2 · 2 = 2⁴ = 16.",
-    [(64, "Die Nummer der Generation (4) als Basis und die 3 als Hochzahl genommen", "4 ** 3"), (8, "Die Zahl der Generation davor übernommen, nicht weiter verdoppelt", "2 ** 3"), (32, "Eine Generation zu weit gerechnet (5. Generation)", "2 ** 5")], einheit="Personen"), form="bruecke", regel=P, idee="situation_potenz")
+    "Drei der vier Potenzen haben denselben Wert wie 2²⁰. Welche Potenz hat einen anderen Wert?",
+    "8⁵",
+    [("4¹⁰", "Für anders gehalten, weil die Hochzahl nur halb so groß ist; aber 4 = 2 · 2, also stehen in 4¹⁰ wieder zwanzig Zweier", 4 ** 10 == 2 ** 20),
+     ("32⁴", "Für anders gehalten, weil die Hochzahl viel kleiner ist; aber 32 = 2 · 2 · 2 · 2 · 2, also stehen in 32⁴ viermal fünf, also zwanzig Zweier", 32 ** 4 == 2 ** 20),
+     ("1 024²", "Für anders gehalten, weil nur zwei Faktoren dastehen; aber 1 024 = 2¹⁰, also stehen in 1 024² zweimal zehn, also zwanzig Zweier", 1024 ** 2 == 2 ** 20)],
+    "Zähle die Zweier. 4 = 2 · 2, also hat 4¹⁰ zehnmal zwei Zweier, das sind 20 Zweier. 32 = 2 · 2 · 2 · 2 · 2, also hat 32⁴ viermal fünf Zweier, das sind 20. "
+    "1 024 = 2¹⁰, also hat 1 024² zweimal zehn Zweier, das sind 20. 8 = 2 · 2 · 2, also hat 8⁵ nur fünfmal drei Zweier, das sind 15. 8⁵ = 2¹⁵ ist kleiner als 2²⁰.",
+    8 ** 5 == 2 ** 15 != 2 ** 20), regel=P, idee="faktoren_umgruppieren", bauplan="d", schema=False, alt=None,
+    bestand="themen schreibweise „Schreibe 6 · 6 · 6 · 2 · 2 · 2 als eine einzige Potenz“; rollend-5 berechnen „4³ als 2⁶ (Weg B)“",
+    unterschied="Dort wird eine Darstellung gebildet oder ausgerechnet; hier werden vier Darstellungen über die Zahl der Faktoren verglichen, Ausrechnen (über eine Million) ist keine Hilfe.")
 neu(T, "schreibweise", "korrektur", "umkehr", Z(
-    "Für welche Zahl □ gilt: □⁴ = 2⁸?",
-    4, "4", lambda: next(x for x in range(1, 100) if x * x * x * x == 2 ** 8),
-    "2⁸ = 256. Je zwei Zweier ergeben eine 4: 2⁸ = (2 · 2) · (2 · 2) · (2 · 2) · (2 · 2) = 4 · 4 · 4 · 4 = 4⁴. Probe: 4 · 4 · 4 · 4 = 256.",
-    [(2, "Die Basis 2 einfach übernommen", "2"), (8, "Die Hochzahl 8 als Basis genommen", "8"), (16, "Basis und Hochzahl malgenommen: 2 · 8", "2 * 8")]), form="umkehren", regel=P, idee="potenz_umschreiben")
+    "Ein Kind rechnet Potenzen immer nach derselben falschen Regel aus. Es schreibt: 2³ = 9, 3² = 8 und 5² = 32. Welchen Wert schreibt es mit seiner Regel für 2⁵ auf?",
+    25, "5 * 5", lambda: 5 ** 2,
+    "Das Kind vertauscht Basis und Hochzahl. Für 2³ rechnet es 3 · 3 = 9, für 3² rechnet es 2 · 2 · 2 = 8, für 5² rechnet es 2 · 2 · 2 · 2 · 2 = 32. "
+    "Für 2⁵ rechnet es also 5 · 5 = 25. Richtig wäre 2⁵ = 32.",
+    [(32, "Richtig gerechnet (2 · 2 · 2 · 2 · 2 = 32) statt mit der Regel des Kindes", "2 ** 5"),
+     (10, "Eine andere falsche Regel angenommen: Basis mal Hochzahl, 2 · 5 = 10", "2 * 5"),
+     (7, "Basis und Hochzahl addiert: 2 + 5 = 7", "2 + 5")]), form="umkehren", regel=P, idee="fehlregel_erschliessen", bauplan="b", schema=False, alt=None,
+    bestand="themen berechnen „Jemand rechnet 7² = 14. Was ist falsch?“; rollend-5 schreibweise „5⁴ = 5 · 4 = 20, erster Fehler in Zeile …“",
+    unterschied="Dort wird ein genannter Fehler bestätigt oder eine Zeile gesucht; hier muss aus drei Ergebnissen eine unbekannte falsche Regel (Vertauschen) erschlossen und angewendet werden.")
+neu(T, "schreibweise", "korrektur", "umkehr", W(
+    "Der Wert der Potenz 3¹² soll genau verdreifacht werden. Welche Änderung an der Potenz bewirkt das?",
+    "Die Hochzahl 12 durch 13 ersetzen",
+    [("Die Hochzahl 12 durch 36 ersetzen", "Gedacht: eine dreimal so große Hochzahl gibt einen dreimal so großen Wert; es kämen aber 24 Faktoren 3 dazu", 3 ** 36 != 3 * 3 ** 12),
+     ("Die Basis 3 durch 9 ersetzen", "Gedacht: eine dreimal so große Basis gibt einen dreimal so großen Wert; 9¹² hat aber 24 Faktoren 3", 9 ** 12 != 3 * 3 ** 12),
+     ("Die Hochzahl 12 durch 15 ersetzen", "Gedacht: verdreifachen heißt 3 zur Hochzahl addieren; das sind drei Faktoren 3 mehr, also 27-mal so viel", 3 ** 15 == 27 * 3 ** 12)],
+    "3¹² ist das Produkt aus zwölf Faktoren 3. Ein Faktor 3 mehr verdreifacht den Wert: 3¹³ = 3¹² · 3. Mit der Hochzahl 15 kämen drei Faktoren 3 dazu, das ist 27-mal so viel. "
+    "Mit der Hochzahl 36 oder mit der Basis 9 (9¹² = 3²⁴) kämen sogar 24 Faktoren 3 dazu.",
+    3 ** 13 == 3 * 3 ** 12), form="umkehren", regel=P, idee="wirkung_hochzahl", bauplan="e", schema=False, alt=None,
+    bestand="themen schreibweise „Die Zahlenfolge 3, 9, 27, 81, … Welche Zahl steht an der 6. Stelle?“",
+    unterschied="Dort wird eine Folge fortgesetzt (ausrechnen); hier wird die Wirkung von Änderungen an Basis und Hochzahl verglichen, ohne die Potenz (über 500 000) auszurechnen.")
+neu(T, "schreibweise", "sicherung", "begruenden", W(
+    "Lea behauptet: „Eine Potenz ist immer größer als das Produkt aus ihrer Basis und ihrer Hochzahl.“ Basis und Hochzahl sind natürliche Zahlen, beide mindestens 2. Welche Antwort auf Leas Behauptung stimmt?",
+    "Fast immer: Bei 2² ist das Produkt gleich groß, sonst ist die Potenz größer.",
+    [("Immer: Bei einer Potenz wird mehr malgenommen als bei Basis mal Hochzahl.", "Nicht geprüft, ob es eine Ausnahme gibt; bei 2² = 4 = 2 · 2 sind beide gleich", 2 ** 2 == 2 * 2),
+     ("Nie: Die Potenz und das Produkt aus Basis und Hochzahl sind gleich groß.", "Potenz mit Basis mal Hochzahl gleichgesetzt; aber 2³ = 8 und 2 · 3 = 6", 2 ** 3 != 2 * 3),
+     ("Bei kleinen Zahlen nicht: Bei 2³ und 3² ist das Produkt größer.", "Falsch gerechnet: 2³ = 8 ist größer als 2 · 3 = 6, 3² = 9 ist größer als 3 · 2 = 6", 2 ** 3 > 2 * 3 and 3 ** 2 > 3 * 2)],
+    "Probiere kleine Zahlen: 2² = 4 und 2 · 2 = 4, hier sind beide gleich. 2³ = 8 und 2 · 3 = 6, 3² = 9 und 3 · 2 = 6: Hier ist die Potenz größer. "
+    "Wird Basis oder Hochzahl noch größer, wächst die Potenz viel schneller als das Produkt. Also stimmt Leas Satz fast immer, nur 2² ist eine Ausnahme.",
+    2 ** 2 == 2 * 2 and all(a ** b > a * b for a in range(2, 12) for b in range(2, 12) if (a, b) != (2, 2))), regel=P, idee="potenz_gegen_produkt", bauplan="f", schema=False, alt=None,
+    bestand="themen berechnen „Jemand rechnet 7² = 14. Was ist falsch?“ (und 9² = 18, 5³ = 15)",
+    unterschied="Dort wird ein einzelner Fehler (Basis mal Hochzahl) benannt; hier wird eine allgemeine Aussage über Potenz und Produkt geprüft und die einzige Ausnahme gefunden.")
 neu(T, "schreibweise", "sicherung", "darstellung", W(
-    "Welche Aussage über die Potenz 4⁶ stimmt?",
-    "Die 4 steht 6-mal als Faktor da: 4 · 4 · 4 · 4 · 4 · 4 = 4 096.",
-    [("Die 6 steht 4-mal als Faktor da: 6 · 6 · 6 · 6, nur andersherum.", "Basis und Hochzahl vertauscht (6⁴ = 1 296 statt 4⁶ = 4 096)", 6 ** 4 != 4 ** 6),
-     ("4⁶ ist das Sechsfache von 4, also 4 · 6 = 24, weil die 6 oben steht.", "Hochzahl als Malnehmer gedeutet (4 · 6 = 24)", 4 * 6 != 4 ** 6),
-     ("4⁶ ist 4 + 4 + 4 + 4 + 4 + 4 = 24, weil die 6 oben steht.", "Plus statt Mal (4 + 4 + 4 + 4 + 4 + 4 = 24)", 4 + 4 + 4 + 4 + 4 + 4 == 24 and 4 ** 6 != 24)],
-    "In 4⁶ ist 4 die Basis (der Faktor) und 6 der Exponent (die Zahl der Faktoren). 4⁶ = 4 · 4 · 4 · 4 · 4 · 4 = 4 096. Mit 6⁴ = 1 296 oder mit 4 · 6 = 24 kommt etwas ganz anderes heraus.",
-    4 ** 6 == 4 * 4 * 4 * 4 * 4 * 4 == 4096), form="bruecke", regel=P, idee="bedeutung_lesen")
-neu(T, "schreibweise", "sicherung", "begruenden", W(
-    "Man darf Basis und Hochzahl nicht vertauschen: 2³ = 8, aber 3² = 9. Trotzdem gilt 2⁴ = 4². Welche Begründung erklärt das richtig?",
-    "Zufall bei diesen Zahlen, denn 2 · 2 · 2 · 2 = 16 und 4 · 4 = 16. Eine allgemeine Regel gibt es nicht.",
-    [("Man darf vertauschen, wenn die Basis eine gerade Zahl ist; gerade Zahlen lassen sich teilen.", "Eine Regel erfunden (bei 2³ und 3² klappt es mit der geraden Basis 2 nicht)", 2 ** 3 != 3 ** 2),
-     ("Weil 2 + 4 = 4 + 2 ist, darf man auch bei Potenzen vertauschen, denn Plus kann man tauschen.", "Das Tauschen beim Plus auf Potenzen übertragen", 2 ** 3 != 3 ** 2),
-     ("Weil 2 · 4 = 4 · 2 ist, darf man auch bei Potenzen vertauschen, denn Mal kann man tauschen.", "Das Tauschen beim Mal auf Potenzen übertragen", 2 ** 3 != 3 ** 2)],
-    "2⁴ = 2 · 2 · 2 · 2 = 16 und 4² = 4 · 4 = 16. Das ist ein Zufall dieser beiden Zahlen. Bei 2³ = 8 und 3² = 9 klappt das Vertauschen nicht. Vertauschen darf man bei Potenzen nicht.",
-    2 ** 4 == 4 ** 2 and 2 ** 3 != 3 ** 2), regel=P, idee="gleiche_werte_begruenden")
-neu(T, "schreibweise", "sicherung", "begruenden", W(
-    "Tom rechnet: 2 · 3² = 6² = 36. Welche Aussage über Toms Rechnung stimmt?",
-    "Fehler: Die Hochzahl 2 gehört nur zur 3, nicht zur 2. Richtig wäre 2 · 3 · 3 = 18.",
-    [("Fehler: Er hätte die Hochzahl mit 2 malnehmen müssen. Richtig wäre 2 · 3 · 2 = 12.", "Die Hochzahl als Malnehmer gedeutet (3 · 2)", 2 * 3 * 2 == 12 and 12 != 18),
-     ("Kein Fehler: Zuerst werden 2 und 3 zu 6 zusammengefasst, dann wird 6 quadriert.", "Falsche Reihenfolge bestätigt: das ergibt 36 statt 18", 6 ** 2 != 2 * 3 ** 2),
-     ("Fehler: Er hätte addieren müssen. Richtig wäre 2 + 3² = 11.", "Mal mit Plus verwechselt", 2 + 3 ** 2 == 11 and 11 != 18)],
-    "Die Hochzahl 2 gehört nur zur Basis 3: 3² = 3 · 3 = 9. Dann kommt das Malnehmen mit 2: 2 · 9 = 18. Tom hat 2 und 3 zuerst zu 6 zusammengefasst und dann 6 quadriert; das ist eine andere Rechnung.",
-    2 * 3 ** 2 == 18 and 6 ** 2 == 36), regel=P, idee="fehler_richtigstellen")
+    "Zu welcher Geschichte passt die Rechnung 4³?",
+    "In 4 Kisten stehen je 4 Schachteln, in jeder Schachtel liegen 4 Stifte. Wie viele Stifte sind es?",
+    [("In 3 Kisten stehen je 4 Schachteln, in jeder Schachtel liegen 4 Stifte. Wie viele Stifte sind es?", "Die Hochzahl 3 als Anzahl der Kisten gelesen: 3 · 4 · 4", 3 * 4 * 4 != 4 ** 3),
+     ("In 4 Kisten stehen je 3 Schachteln, in jeder Schachtel liegen 3 Stifte. Wie viele Stifte sind es?", "Basis und Hochzahl vermischt: 4 · 3 · 3", 4 * 3 * 3 != 4 ** 3),
+     ("In 4 Kisten liegen je 3 Stifte, und in einer Schachtel liegen noch 4 Stifte. Wie viele Stifte sind es?", "Die Potenz als Mal und Plus gedeutet: 4 · 3 + 4", 4 * 3 + 4 != 4 ** 3)],
+    "4³ = 4 · 4 · 4: Die 4 steht dreimal als Faktor da. Das passt zu 4 Kisten mit je 4 Schachteln mit je 4 Stiften, also 4 · 4 · 4 = 64 Stifte. "
+    "Die anderen Geschichten gehören zu 3 · 4 · 4 = 48, 4 · 3 · 3 = 36 und 4 · 3 + 4 = 16.",
+    4 * 4 * 4 == 4 ** 3 == 64), form="bruecke", regel=P, idee="situation_potenz", bauplan="d", schema=True, alt=None,
+    bestand="themen sach „Ein Karton enthält 10 Packungen. In jeder Packung sind 10 Beutel mit je 10 Bonbons. Wie viele Bonbons?“",
+    unterschied="Dort wird eine Geschichte ausgerechnet; hier wird zu einer Potenz die passende Geschichte unter Geschichten mit vertauschten Rollen von Basis und Hochzahl gewählt. Im Kern das Format „Term ↔ Text“, darum als Schema gezählt.")
+# ═════════ quadrat ═════════
 neu(T, "quadrat", "test", "rueckwaerts", Z(
-    "Ein quadratisches Feld hat 144 m² Fläche. Ein zweites quadratisches Feld hat einen doppelt so langen Umfang. Wie viele m² Fläche hat das zweite Feld?",
-    576, "(12 * 4 * 2 // 4) ** 2", lambda: (lambda a: next(s for s in range(1, 500) if 4 * s == 8 * a) ** 2)(next(t for t in range(1, 200) if t * t == 144)),
-    "Das erste Feld hat die Seitenlänge 12 m, denn 12 · 12 = 144. Sein Umfang ist 4 · 12 = 48 m. Der doppelte Umfang ist 96 m, also hat das zweite Feld die Seitenlänge 96 : 4 = 24 m. Seine Fläche ist 24 · 24 = 576 m².",
-    [(288, "Die Fläche verdoppelt statt die Seitenlänge", "144 * 2"), (24, "Nur die Seitenlänge des zweiten Feldes genannt", "12 * 2"), (96, "Den doppelten Umfang statt der Fläche genannt", "12 * 4 * 2")], einheit="m²"), regel=P, idee="umfang_flaeche")
-neu(T, "quadrat", "korrektur", "darstellung", W(
-    "Welche der vier Zahlen ist keine Quadratzahl?",
-    "6 727",
-    [("7 396", "Ist eine Quadratzahl, kann also nicht die gesuchte sein", 86 * 86 == 7396),
-     ("5 929", "Ist eine Quadratzahl, kann also nicht die gesuchte sein", 77 * 77 == 5929),
-     ("4 761", "Ist eine Quadratzahl, kann also nicht die gesuchte sein", 69 * 69 == 4761)],
-    "Quadratzahlen enden nur auf 0, 1, 4, 5, 6 oder 9. 6 727 endet auf 7, ist also keine. Zur Probe: 82 · 82 = 6 724 und 83 · 83 = 6 889, dazwischen liegt 6 727. Die anderen drei sind Quadratzahlen: 86 · 86 = 7 396, 77 · 77 = 5 929 und 69 · 69 = 4 761.",
-    all(n * n != 6727 for n in range(1, 200))), regel=P, idee="endziffer_quadratzahl")
-neu(T, "quadrat", "korrektur", "mehrschritt", Z(
-    "Bild A hat 7 Reihen mit je 7 Bildpunkten. Bild B hat 11 Reihen mit je 11 Bildpunkten. Ben meint: „Der Unterschied ist 4 · 4, weil 11 − 7 = 4 ist.“ Mia rechnet beide Anzahlen aus und zieht ab. Wie viele Bildpunkte hat Bild B wirklich mehr als Bild A?",
-    72, "11 ** 2 - 7 ** 2", lambda: sum(1 for _ in range(11) for _ in range(11)) - sum(1 for _ in range(7) for _ in range(7)),
-    "Bild A hat 7 · 7 = 49 Bildpunkte, Bild B hat 11 · 11 = 121 Bildpunkte. Der Unterschied ist 121 − 49 = 72. Ben irrt sich: Der Unterschied der Flächen ist nicht das Quadrat des Unterschieds der Seiten (4 · 4 = 16).",
-    [(16, "Wie Ben nur den Unterschied der Seiten quadriert (4 · 4)", "4 * 4"), (4, "Nur den Unterschied der Seiten genannt: 11 − 7", "11 - 7"), (28, "Nur einen Streifen gerechnet: 4 · 7", "4 * 7")], einheit="Bildpunkte"), form="zwei_wege", regel=P, idee="differenz_quadrate")
+    "Ein Quadrat ist aus gleich großen quadratischen Plättchen gelegt. Rundherum wird ein Rand gelegt, ein Plättchen breit, sodass wieder ein Quadrat entsteht. Für den Rand braucht man genau 44 Plättchen. Aus wie vielen Plättchen bestand das Quadrat vorher?",
+    100, "((44 - 4) // 4) ** 2", lambda: next(n * n for n in range(1, 100) if (n + 2) ** 2 - n ** 2 == 44),
+    "Hat das alte Quadrat n Plättchen je Seite, so liegen am neuen Rand an jeder der vier Seiten n Plättchen und dazu 4 Eckplättchen. Also 4 · n + 4 = 44, "
+    "das heißt 4 · n = 40 und n = 10. Das alte Quadrat hatte 10 · 10 = 100 Plättchen. Probe: Das neue Quadrat hat 12 · 12 = 144 Plättchen, 144 − 100 = 44.",
+    [(121, "Die Ecken vergessen: 44 : 4 = 11 Plättchen je Seite, also 11 · 11", "(44 // 4) ** 2"),
+     (144, "Die Zahl der Plättchen nach dem Anlegen des Randes genannt: 12 · 12", "((44 - 4) // 4 + 2) ** 2"),
+     (81, "Die Ecken doppelt abgezogen: (44 − 8) : 4 = 9, also 9 · 9", "((44 - 8) // 4) ** 2")], einheit="Plättchen"), form="umkehren", regel=P, idee="zuwachs_rueckwaerts", bauplan="c", schema=False, alt=None,
+    bestand="themen quadrat „Ein Quadrat ist aus Fliesen gelegt, 15 Fliesen je Seite. Wie viele Fliesen liegen am Rand?“; rollend-12 „Plättchen im Inneren (9 · 9)“",
+    unterschied="Dort wird der Rand eines bekannten Quadrats gezählt (vorwärts); hier ist nur der Zuwachs bekannt, und das alte Quadrat muss über ein selbst gebildetes Modell (4 · n + 4) erschlossen werden.")
 neu(T, "quadrat", "korrektur", "darstellung", Z(
-    "Ein Quadrat hat die Seitenlänge 5 cm + 4 cm. Wie viele cm² Flächeninhalt hat es?",
-    81, "(5 + 4) * (5 + 4)", lambda: sum(9 for _ in range(9)),
-    "Die Seitenlänge ist 5 cm + 4 cm = 9 cm. Die Fläche ist Seite mal Seite: 9 · 9 = 81 cm². Zwei kleine Quadrate mit den Seiten 5 cm und 4 cm haben zusammen nur 25 + 16 = 41 cm²; das ist weniger.",
-    [(41, "Zwei kleine Quadrate (Seiten 5 und 4) addiert statt eines großen Quadrats", "5 * 5 + 4 * 4"), (18, "Den Umfang eines Rechtecks mit den Seiten 5 und 4 gerechnet", "5 + 4 + 5 + 4"), (20, "Nur ein Rechteck aus den beiden Längen berechnet", "5 * 4")], einheit="cm²"), form="bruecke", regel=P, idee="flaeche_aus_termen")
-neu(T, "quadrat", "sicherung", "umkehr", Z(
-    "Ein quadratischer Obstgarten wird um eine Reihe und eine Spalte erweitert und bleibt dabei quadratisch. Dadurch kommen genau 27 Bäume dazu. Wie viele Reihen hat der Garten nach der Erweiterung?",
-    14, "(27 + 1) // 2", lambda: next(n for n in range(1, 100) if n * n - (n - 1) * (n - 1) == 27),
-    "Probiere: 13 · 13 = 169 und 14 · 14 = 196. Der Unterschied ist 196 − 169 = 27. Der Garten hat nachher 14 Reihen. (Die neue Reihe hat 14 Bäume, die neue Spalte 13 weitere.)",
-    [(13, "27 durch 2 geteilt (ganzzahlig)", "27 // 2"), (28, "1 zu 27 addiert", "27 + 1"), (54, "27 mit 2 malgenommen", "27 * 2")], einheit="Reihen"), form="umkehren", regel=P, idee="reihe_spalte")
+    "Ein Quadrat hat den Flächeninhalt 50 cm². Seine Seitenlänge wird verdreifacht. Wie viele cm² Flächeninhalt hat das neue Quadrat?",
+    450, "50 * 3 * 3", lambda: 50 * 9,
+    "Wird die Seite dreimal so lang, passen in jede Richtung dreimal so viele alte Quadrate hinein, also 3 · 3 = 9 alte Quadrate. Der neue Flächeninhalt ist 9 · 50 cm² = 450 cm². "
+    "Die Seitenlänge selbst muss man dafür nicht kennen (sie ist keine natürliche Zahl).",
+    [(150, "Die Fläche nur verdreifacht wie die Seite: 50 · 3", "50 * 3"),
+     (300, "Die Fläche versechsfacht: 50 · 3 · 2", "50 * 3 * 2"),
+     (1350, "Mit 27 malgenommen (wie beim Würfel): 50 · 3 · 3 · 3", "50 * (3 * 3 * 3)")], einheit="cm²"), form="bruecke", regel=P, idee="flaeche_skalieren", bauplan="e", schema=False, alt=None,
+    bestand="themen quadrat „Ein quadratisches Muster hat 15 Felder je Seite. Wie viele Felder hat es insgesamt?“; rollend-5 „Ein Quadrat hat die Fläche 196 cm². Wie lang ist eine Seite?“",
+    unterschied="Dort wird aus der Seite die Fläche (oder umgekehrt) ausgerechnet; hier ist die Seite keine natürliche Zahl, die Wirkung der Verdreifachung muss am Bild der neun Teilquadrate erkannt werden.")
+neu(T, "quadrat", "korrektur", "darstellung", W(
+    "Ein Kind sagt: „Ein Quadrat mit der Seitenlänge 30 cm + 7 cm ist so groß wie ein Quadrat mit 30 cm Seitenlänge und eines mit 7 cm Seitenlänge zusammen.“ "
+    "Zeichne das große Quadrat und lege die beiden kleinen Quadrate in zwei gegenüberliegende Ecken. Was bleibt im großen Quadrat noch frei?",
+    "Zwei Rechtecke mit 30 cm Länge und 7 cm Breite",
+    [("Ein Rechteck mit 30 cm Länge und 7 cm Breite", "Nur eine der beiden freien Flächen gesehen", 2 * 30 * 7 != 30 * 7),
+     ("Ein Streifen mit 37 cm Länge und 7 cm Breite", "Einen durchgehenden Streifen angenommen; die freien Flächen sind aber zwei Rechtecke 30 cm mal 7 cm", 37 * 7 != 2 * 30 * 7),
+     ("Nichts, die beiden Quadrate füllen es ganz aus", "Wie das Kind gedacht, das Quadrat einer Summe sei die Summe der Quadrate", 37 * 37 != 30 * 30 + 7 * 7)],
+    "Das große Quadrat hat die Seite 37 cm. Das Quadrat mit 30 cm liegt in einer Ecke, das mit 7 cm in der gegenüberliegenden Ecke. Frei bleiben zwei Rechtecke, jedes 30 cm lang und 7 cm breit. "
+    "Das Kind irrt sich also um 2 · 30 · 7 = 420 cm²: 37 · 37 = 1 369, aber 30 · 30 + 7 · 7 = 949.",
+    37 * 37 - 30 * 30 - 7 * 7 == 2 * 30 * 7), form="bruecke", regel=P, idee="quadrat_einer_summe_zerlegen", bauplan="d", schema=False, alt=None,
+    bestand="themen quadrat „Berechne 20² − 2²“; themen berechnen „Berechne (2 + 3)² − (2² + 3²)“",
+    unterschied="Dort wird der Unterschied ausgerechnet; hier wird am Flächenbild gedeutet, welche Teile beim Quadrat einer Summe fehlen, ohne zu rechnen.")
+neu(T, "quadrat", "sicherung", "darstellung", W(
+    "Genau eine der vier Zahlen ist keine Quadratzahl. Welche?",
+    "6 727",
+    [("7 396", "Gedacht, Quadratzahlen enden nicht auf 6; aber 6 · 6 = 36 endet auf 6 (7 396 = 86 · 86)", 86 * 86 == 7396),
+     ("5 929", "Gedacht, ungerade Zahlen seien keine Quadratzahlen; aber 7 · 7 = 49 ist ungerade (5 929 = 77 · 77)", 77 * 77 == 5929),
+     ("4 761", "Gedacht, eine Quadratzahl müsse gerade Ziffern haben oder durch 4 teilbar sein; aber 4 761 = 69 · 69", 69 * 69 == 4761)],
+    "Die Endziffer einer Quadratzahl hängt nur von der Endziffer der Zahl ab, die quadriert wird: 0·0, 1·1, …, 9·9 enden auf 0, 1, 4, 9, 6, 5, 6, 9, 4, 1. Eine Quadratzahl endet also nie auf 2, 3, 7 oder 8. "
+    "6 727 endet auf 7 und ist keine Quadratzahl. Die anderen sind 86 · 86 = 7 396, 77 · 77 = 5 929 und 69 · 69 = 4 761.",
+    all(n * n != 6727 for n in range(1, 200))), regel=P, idee="endziffer_quadratzahl", bauplan="g", schema=True, alt="VT1A-009",
+    bestand="themen quadrat „Stimmt die Aussage? Jede Quadratzahl endet auf 0, 1, 4, 5, 6 oder 9.“",
+    unterschied="Dieselbe Einsicht, aber eine andere Leistung: Dort wird die Regel bestätigt, hier wird sie auf vierstellige Zahlen angewendet, deren Wurzeln man nicht kennt. Weil eine bekannte Regel angewendet wird, zähle ich die Aufgabe als Schema.")
 neu(T, "quadrat", "sicherung", "begruenden", W(
-    "Lisa rechnet: (3 · 4)² = 3² · 4² = 9 · 16 = 144. Welche Aussage über Lisas Rechnung stimmt?",
-    "Kein Fehler: Bei einem Produkt darf man die Hochzahl verteilen, denn 12 · 12 = 144 und 9 · 16 = 144.",
-    [("Fehler: Die Hochzahl darf man nie verteilen. Richtig wäre (3 · 4)² = 12 + 2 = 14, die 2 wird addiert.", "Die Hochzahl als Summand gedeutet", 12 + 2 == 14 and 14 != 144),
-     ("Fehler: Sie hätte 3² + 4² rechnen müssen: Ein Produkt wird zur Summe. Richtig wäre 9 + 16 = 25.", "Mal mit Plus verwechselt", 9 + 16 == 25 and 25 != 144),
-     ("Fehler: Sie müsste 12 · 2 rechnen, denn die Hochzahl 2 heißt „mal 2“. Richtig wäre 24.", "Die Hochzahl als Malnehmer gedeutet", 12 * 2 == 24 and 24 != 144)],
-    "Die Klammer zuerst: 3 · 4 = 12 und 12² = 12 · 12 = 144. Lisa rechnet 3² · 4² = 9 · 16 = 144. Das ist dasselbe: Bei einem Produkt darf man das Quadrat auf beide Faktoren verteilen. Bei einer Summe, zum Beispiel (3 + 4)², geht das nicht.",
-    (3 * 4) ** 2 == 144 == 3 ** 2 * 4 ** 2), regel=P, idee="aussage_pruefen")
-neu(T, "quadrat", "sicherung", "begruenden", W(
-    "Eine quadratische Platte hat die Seitenlänge 5 cm. Eine zweite hat die doppelte Seitenlänge, also 10 cm. Wie verhalten sich die Flächen? Wähle die richtige Antwort.",
-    "Die große Platte hat 4-mal so viel Fläche: 10 · 10 = 100 cm² ist größer als 5 · 5 = 25 cm², denn 100 : 25 = 4.",
-    [("Die große Platte hat doppelt so viel Fläche: Die Seite ist doppelt so lang wie bei der kleinen.", "Von der Seitenlänge direkt auf die Fläche geschlossen", 10 * 10 != 2 * 5 * 5),
-     ("Der Unterschied der Flächen ist 5 cm²: Die Seite wird um 5 cm länger als bei der kleinen.", "Zuwachs der Seite als Zuwachs der Fläche gelesen", 10 * 10 - 5 * 5 != 5),
-     ("Die große Platte hat 100 cm² mehr Fläche, weil die große Platte selbst 10 · 10 = 100 cm² groß ist.", "Die Fläche der großen Platte als Unterschied genommen", 10 * 10 - 5 * 5 != 100)],
-    "Die kleine Platte hat 5 · 5 = 25 cm², die große 10 · 10 = 100 cm². 100 : 25 = 4, also hat die große Platte 4-mal so viel Fläche. Wird die Seite doppelt so lang, passen in jeder Richtung doppelt so viele Plättchen, also 2 · 2 = 4-mal so viele. Der Unterschied der Flächen ist 75 cm², nicht 5 cm² und nicht 100 cm².",
-    (10 * 10) // (5 * 5) == 4 and 10 * 10 % (5 * 5) == 0), regel=P, idee="was_waere_wenn")
+    "Zwischen zwei benachbarten Quadratzahlen liegen Zahlen, zum Beispiel zwischen 9 und 16 die Zahlen 10 bis 15. Welche Aussage über die Anzahl der Zahlen dazwischen (ohne die beiden Quadratzahlen) stimmt?",
+    "Die Anzahl ist immer gerade.",
+    [("Die Anzahl ist immer ungerade.", "Mit dem Unterschied der beiden Quadratzahlen verwechselt (16 − 9 = 7 ist ungerade, dazwischen liegen aber 6 Zahlen)", 16 - 9 - 1 == 6),
+     ("Die Anzahl ist mal gerade, mal ungerade.", "Nicht genug Beispiele geprüft: 2, 4, 6, 8, … sind alle gerade", all(((n + 1) ** 2 - n * n - 1) % 2 == 0 for n in range(1, 100))),
+     ("Die Anzahl ist immer gleich groß.", "Nur ein Beispiel angesehen; zwischen 1 und 4 liegen 2 Zahlen, zwischen 4 und 9 liegen 4", 4 - 1 - 1 != 9 - 4 - 1)],
+    "Zwischen 1 und 4 liegen 2 Zahlen, zwischen 4 und 9 liegen 4, zwischen 9 und 16 liegen 6, zwischen 16 und 25 liegen 8. Allgemein: Von n · n bis (n + 1) · (n + 1) kommt eine Reihe mit n und eine Spalte mit n + 1 Plättchen dazu, "
+    "das sind n + n + 1 Zahlen mehr. Ohne die obere Quadratzahl liegen dazwischen n + n Zahlen, also immer eine gerade Anzahl.",
+    all(((n + 1) ** 2 - n * n - 1) == 2 * n for n in range(1, 100))), regel=P, idee="muster_nachbarquadrate", bauplan="f", schema=False, alt=None,
+    bestand="themen quadrat „Berechne 15² − 14²“; „Zwei Quadratzahlen, die direkt aufeinander folgen, unterscheiden sich um 31“",
+    unterschied="Dort wird ein Unterschied ausgerechnet oder rückwärts gesucht; hier wird eine allgemeine Aussage über alle Nachbarquadrate geprüft (immer – manchmal – nie).")
 # ═════════ zehner ═════════
 neu(T, "zehner", "test", "parameter", Z(
-    "Für welche Zahl □ gilt: 10⁶ − 9 · 10⁵ = □ · 10⁵?",
-    1, "10 ** 6 // 10 ** 5 - 9", lambda: next(x for x in range(0, 100) if 1000000 - 9 * 100000 == x * 100000),
-    "10⁶ = 10 · 10⁵, denn eine Zehnerpotenz mit 1 mehr in der Hochzahl ist das Zehnfache. Dann ist 10⁶ − 9 · 10⁵ = 10 · 10⁵ − 9 · 10⁵ = 1 · 10⁵. Probe: 1 000 000 − 900 000 = 100 000.",
-    [(10, "Nur den ersten Term umgeformt und den abgezogenen Teil vergessen", "10"), (9, "Die 9 aus der Aufgabe als Lösung genommen", "9"), (5, "Die Hochzahl genannt", "5")]), regel=P, idee="groessenvergleich")
-neu(T, "zehner", "korrektur", "darstellung", W(
-    "Eine der vier Schreibweisen hat einen anderen Wert als 56 000 000. Welche?",
-    "56 · 10⁵",
-    [("56 · 10⁶", "Stimmt: 56 mal eine Million ist 56 000 000", 56 * 10 ** 6 == 56000000),
-     ("560 · 10⁵", "Stimmt: 560 mal hunderttausend ist 56 000 000", 560 * 10 ** 5 == 56000000),
-     ("5 600 · 10⁴", "Stimmt: 5 600 mal zehntausend ist 56 000 000", 5600 * 10 ** 4 == 56000000)],
-    "56 · 10⁶ = 56 · 1 000 000 = 56 000 000. Auch 560 · 10⁵ und 5 600 · 10⁴ ergeben 56 000 000: Bekommt die Zahl vorn eine Null mehr, wird die Hochzahl um 1 kleiner. Dagegen ist 56 · 10⁵ = 5 600 000, das ist zehnmal zu klein.",
-    56 * 10 ** 5 == 5600000 != 56000000), form="bruecke", regel=P, idee="schreibweise_erkennen")
+    "Welche kleinste natürliche Zahl □ macht die Zahl □ · 10⁸ größer als 7 · 10¹¹?",
+    7001, "7 * 10 ** 3 + 1", lambda: next(x for x in range(1, 10 ** 5) if x * 10 ** 8 > 7 * 10 ** 11),
+    "7 · 10¹¹ = 7 · 10³ · 10⁸ = 7 000 · 10⁸, denn drei Nullen der Zehnerpotenz kann man an die 7 hängen. □ · 10⁸ ist größer als 7 000 · 10⁸, wenn □ größer als 7 000 ist. "
+    "Die kleinste solche Zahl ist 7 001. Mit □ = 7 000 sind beide Zahlen gleich groß.",
+    [(8, "Nur die Ziffern verglichen: 8 ist größer als 7", "7 + 1"),
+     (7000, "Gleich groß statt größer gewählt: Mit 7 000 vorn sind beide Zahlen gleich", "7 * 10 ** 3"),
+     (701, "Den Unterschied der Hochzahlen um eins zu klein genommen: zwei statt drei Nullen", "7 * 10 ** 2 + 1")]), form="umkehren", regel=P, idee="faktor_hochzahl_verrechnen", bauplan="g", schema=False, alt=None,
+    bestand="themen zehner „Für welchen Exponenten n gilt 25 · 10ⁿ = 2 500 000?“; „4 300 000 = 43 · 10 hoch … Welcher Exponent passt?“",
+    unterschied="Dort ist eine ausgeschriebene Zahl gegeben und der Exponent gesucht; hier werden zwei Zehnerpotenz-Schreibweisen ohne Ausschreiben (12 Stellen) verglichen und eine Grenze (größer, nicht gleich) bestimmt.")
 neu(T, "zehner", "korrektur", "umkehr", Z(
-    "Eine Sammlung von Münzen wiegt zusammen 500 kg. Jede Münze wiegt 5 g (1 kg = 1 000 g). Die Zahl der Münzen lässt sich als 10ⁿ schreiben. Wie groß ist n?",
-    5, "5", lambda: next(n for n in range(0, 20) if 10 ** n * 5 == 500 * 1000),
-    "500 kg sind 500 · 1 000 g = 500 000 g. Dann gibt es 500 000 : 5 = 100 000 Münzen. 100 000 = 10⁵, denn 100 000 ist eine 1 mit 5 Nullen. Also ist n = 5.",
-    [(6, "Die Ziffern der Zahl (6) statt der Nullen gezählt (5 + 1)", "5 + 1"), (4, "Beim Teilen durch 5 eine Null verloren (5 − 1)", "5 - 1"), (2, "Die Umrechnung von kg in g (mal 1 000) vergessen; dann hat die Zahl der Münzen nur zwei Nullen, also 10²", "2")]), form="umkehren", regel=P, idee="umrechnen_potenz")
+    "Ein Kind nimmt Zehnerpotenzen nach einer falschen Regel mal. Es schreibt: 10² · 10³ = 10⁶ und 10¹ · 10⁴ = 10⁴. Welche Hochzahl schreibt es mit seiner Regel bei 10³ · 10⁴?",
+    12, "3 * 4", lambda: 3 * 4,
+    "Das Kind nimmt die Hochzahlen mal: 2 · 3 = 6 und 1 · 4 = 4. Bei 10³ · 10⁴ schreibt es also 3 · 4 = 12. Richtig ist 1 000 · 10 000 = 10 000 000 = 10⁷: "
+    "Beim Malnehmen werden die Nullen zusammengezählt, die Hochzahlen also addiert.",
+    [(7, "Richtig gerechnet (Nullen zusammengezählt: 3 + 4 = 7) statt mit der Regel des Kindes", "3 + 4"),
+     (34, "Die beiden Hochzahlen nebeneinander geschrieben", "34"),
+     (1, "Die Hochzahlen voneinander abgezogen: 4 − 3", "4 - 3")]), form="umkehren", regel=P, idee="fehlregel_erschliessen", bauplan="b", schema=False, alt=None,
+    bestand="themen zehner „Wie oft passt 10³ in 10⁷?“; „Wie viele Nullen hat die Zahl 10⁸?“",
+    unterschied="Dort wird mit Zehnerpotenzen gerechnet; hier muss aus zwei Ergebnissen eine falsche Regel (Hochzahlen malnehmen) erschlossen und angewendet werden.")
 neu(T, "zehner", "korrektur", "darstellung", W(
-    "Anna schreibt die Zahl 4 500 000 als 45 · 10⁵. Ben schreibt sie als 450 · 10⁵. Wer hat recht?",
-    "Nur Anna: 45 · 100 000 = 4 500 000. Bei Ben ist der Faktor zehnmal so groß.",
-    [("Beide: 45 · 10⁵ = 450 · 10⁵, die Hochzahl 5 bleibt und die Zahl davor hat nur eine Null zusätzlich.", "Eine Null mehr beim Faktor für egal gehalten (450 · 10⁵ = 45 000 000)", 450 * 10 ** 5 != 4500000),
-     ("Nur Ben: 450 · 10⁵ = 4 500 000, weil 4 500 000 mit 45 beginnt und danach zwei Nullen kommen.", "Die Nullen falsch gezählt (450 · 10⁵ = 45 000 000)", 450 * 10 ** 5 == 45000000),
-     ("Beide: Die Zahl vor der Zehnerpotenz darf man beliebig wählen, die Hochzahl bleibt gleich.", "Faktor und Hochzahl für unabhängig gehalten", 45 * 10 ** 5 != 450 * 10 ** 5)],
-    "45 · 10⁵ = 45 · 100 000 = 4 500 000. Dagegen ist 450 · 10⁵ = 450 · 100 000 = 45 000 000, das ist zehnmal so viel. Damit Ben recht hätte, müsste er 450 · 10⁴ schreiben: Eine Null mehr beim Faktor heißt eine Hochzahl weniger.",
-    45 * 10 ** 5 == 4500000 and 450 * 10 ** 5 == 45000000), regel=P, idee="darstellung_wechseln")
-neu(T, "zehner", "sicherung", "umkehr", Z(
-    "Ein Land hat 10⁶ Einwohner. Das sind 10²-mal so viele wie in der Stadt. Die Stadt hat 10-mal so viele Einwohner wie das Dorf. Wie viele Einwohner hat das Dorf?",
-    1000, "10 ** 6 // 10 ** 2 // 10", lambda: 1000000 // 100 // 10,
-    "Land: 10⁶ = 1 000 000. Stadt: 1 000 000 : 10² = 10 000. Dorf: 10 000 : 10 = 1 000. Mit Potenzen: Rückwärts werden die Hochzahlen abgezogen: 6 − 2 − 1 = 3, also 10³.",
-    [(10000, "Nur durch 10² geteilt: das Dorf mit der Stadt verwechselt", "10 ** 6 // 10 ** 2"), (100000, "Nur durch 10 geteilt", "10 ** 6 // 10"), (100, "Durch 10³ statt 10² und dann durch 10 geteilt", "10 ** 6 // 10 ** 3 // 10")], einheit="Einwohner"), form="umkehren", regel=P, idee="kette_rueckwaerts")
+    "Die Zahl 7 · 10⁹ + 5 · 10⁶ + 3 · 10² wird verändert: In jedem der drei Teile wird die Hochzahl um 1 größer. Was geschieht mit der Zahl?",
+    "Sie wird 10-mal so groß.",
+    [("Sie wird 1 000-mal so groß.", "Für jeden der drei Teile einen Faktor 10 gerechnet: 10 · 10 · 10", 10 * (7 * 10 ** 9 + 5 * 10 ** 6 + 3 * 10 ** 2) != 1000 * (7 * 10 ** 9 + 5 * 10 ** 6 + 3 * 10 ** 2)),
+     ("Sie wird um 3 größer.", "Die drei zusätzlichen Einsen der Hochzahlen zur Zahl addiert", 10 * (7 * 10 ** 9 + 5 * 10 ** 6 + 3 * 10 ** 2) != 7 * 10 ** 9 + 5 * 10 ** 6 + 3 * 10 ** 2 + 3),
+     ("Sie wird um 30 größer.", "Für jeden Teil 10 dazugezählt: 10 + 10 + 10", 10 * (7 * 10 ** 9 + 5 * 10 ** 6 + 3 * 10 ** 2) != 7 * 10 ** 9 + 5 * 10 ** 6 + 3 * 10 ** 2 + 30)],
+    "Eine Hochzahl mehr heißt ein Faktor 10 mehr: 7 · 10¹⁰ ist das Zehnfache von 7 · 10⁹, ebenso bei den anderen Teilen. Wird jeder Teil einer Summe zehnmal so groß, wird die ganze Summe zehnmal so groß. "
+    "Jede Ziffer rückt eine Stelle nach links: aus 7 005 000 300 wird 70 050 003 000.",
+    10 ** 10 * 7 + 5 * 10 ** 7 + 3 * 10 ** 3 == 10 * (7 * 10 ** 9 + 5 * 10 ** 6 + 3 * 10 ** 2)), form="bruecke", regel=P, idee="hochzahl_in_summe", bauplan="e", schema=False, alt=None,
+    bestand="themen zehner „Schreibe 3 · 10⁵ + 4 · 10³ als Zahl“; „Schreibe als Zahl: 2 · 10⁶ + 7 · 10⁴ + 5 · 10“",
+    unterschied="Dort wird eine solche Summe ausgeschrieben; hier wird die Wirkung einer Änderung aller Hochzahlen auf die ganze Zahl beurteilt.")
+neu(T, "zehner", "sicherung", "darstellung", W(
+    "Vergleiche die Zahl 9 · 10⁵ + 9 · 10⁴ + 9 · 10³ mit 10⁶. Welche Aussage stimmt?",
+    "10⁶ ist um 1 000 größer.",
+    [("10⁶ ist um 1 größer.", "Gedacht, die Neuner füllen alle Stellen bis zur Einerstelle: 999 999", 10 ** 6 - (9 * 10 ** 5 + 9 * 10 ** 4 + 9 * 10 ** 3) != 1),
+     ("Sie sind gleich groß.", "Gedacht, drei Neuner ergeben wie beim Bündeln schon die nächste Stufe", 10 ** 6 != 9 * 10 ** 5 + 9 * 10 ** 4 + 9 * 10 ** 3),
+     ("Die Summe ist größer als 10⁶.", "Gedacht, eine Summe aus drei großen Teilen sei größer als eine einzelne Zehnerpotenz", 9 * 10 ** 5 + 9 * 10 ** 4 + 9 * 10 ** 3 < 10 ** 6)],
+    "9 · 10⁵ + 9 · 10⁴ + 9 · 10³ = 900 000 + 90 000 + 9 000 = 999 000. Bis 10⁶ = 1 000 000 fehlen noch 1 000. Erst mit 9 · 10² + 9 · 10 + 9 · 1 dazu käme man auf 999 999, und mit 1 mehr auf 10⁶.",
+    10 ** 6 - (9 * 10 ** 5 + 9 * 10 ** 4 + 9 * 10 ** 3) == 1000), form="bruecke", regel=P, idee="stellenwert_buendeln", bauplan="g", schema=True, alt=None,
+    bestand="themen zehner „Schreibe 6 · 10⁵ + 3 · 10² + 8 als Zahl und runde sie auf Tausender“",
+    unterschied="Ähnliche Rechnung (Summe von Stufenzahlen ausschreiben), aber andere Frage: Vergleich mit der nächsten Zehnerpotenz und Fehlvorstellung „lauter Neuner = nächste Stufe“. Weil Ausrechnen genügt, zähle ich die Aufgabe als Schema.")
 neu(T, "zehner", "sicherung", "begruenden", W(
-    "Tim rechnet: 10³ + 10³ = 10⁶. Welche Aussage über Tims Rechnung stimmt?",
-    "Fehler: Er hat die Hochzahlen addiert (3 + 3 = 6). Richtig wäre 2 · 10³ = 2 000.",
-    [("Kein Fehler: Beim Addieren von Zehnerpotenzen mit gleicher Basis addiert man die Hochzahlen.", "Falsche Regel bestätigt (1 000 + 1 000 ist nicht 1 000 000)", 10 ** 3 + 10 ** 3 != 10 ** 6),
-     ("Fehler: Er hätte 10⁴ rechnen müssen. Richtig wäre 10³ + 10³ = 10⁴ = 10 000.", "Verdoppeln als eine Null mehr gedeutet", 10 ** 3 + 10 ** 3 != 10 ** 4),
-     ("Fehler: Er hätte die Basen addieren müssen. Richtig wäre 20³ = 8 000, nicht 10⁶.", "Die Basen addiert und die Hochzahl behalten", 20 ** 3 != 10 ** 3 + 10 ** 3)],
-    "10³ = 1 000. Also ist 10³ + 10³ = 1 000 + 1 000 = 2 000 = 2 · 10³. Beim Addieren bleibt die Hochzahl, es wird nur die Zahl davor größer. Die Hochzahlen werden nur beim Malnehmen von Potenzen mit gleicher Basis addiert: 10³ · 10³ = 10⁶.",
-    10 ** 3 + 10 ** 3 == 2000 and 10 ** 3 * 10 ** 3 == 10 ** 6), regel=P, idee="fehler_richtigstellen")
-neu(T, "zehner", "sicherung", "parameter", Z(
-    "Für welche größte natürliche Zahl n ist 10ⁿ kleiner als 5 000 000?",
-    6, "6", lambda: max(n for n in range(0, 30) if 10 ** n < 5000000),
-    "10⁶ = 1 000 000 ist kleiner als 5 000 000. 10⁷ = 10 000 000 ist größer. Also ist n = 6 die größte passende Zahl.",
-    [(7, "Die Ziffern von 5 000 000 gezählt (sieben Stück) statt der Nullen", "6 + 1"), (5, "Eine Hochzahl zu klein (6 − 1)", "6 - 1")]), form="umkehren", regel=P, idee="parameter_groesste_hochzahl")
-neu(T, "sach", "test", "verknuepfen", Z(
-    "Kultur A hat am Anfang (Stunde 0) 100 Zellen und bekommt jede Stunde 100 Zellen dazu. Kultur B hat am Anfang 1 Zelle und verdoppelt sich jede Stunde. Nach wie vielen Stunden hat B zum ersten Mal mehr Zellen als A?",
-    11, "11", lambda: next(n for n in range(0, 60) if 2 ** n > 100 + 100 * n),
-    "Nach n Stunden hat A genau 100 + 100 · n Zellen, B hat 2ⁿ. Stunde 10: A hat 1 100, B hat 1 024: B ist noch kleiner. Stunde 11: A hat 1 200, B hat 2 048: B ist größer. Also nach 11 Stunden.",
-    [(7, "B nur mit der Startzahl 100 von A verglichen: 2⁷ ist die erste Zweierpotenz über 100", "7"),
-     (10, "B mit zehn Hundertern verglichen: 2¹⁰ ist die erste Zweierpotenz darüber (Startzahl von A vergessen)", "10")], einheit="Stunden"), form="zwei_wege", regel=P, idee="vergleich_wachstum")
+    "Lena sagt: „Schreibt man eine Zahl der Form □ · 10ⁿ aus, hat sie genau n Nullen.“ Für □ steht eine natürliche Zahl. Welche Antwort auf Lenas Aussage stimmt?",
+    "Manchmal: 50 · 10³ ist 50 000 und hat 4 Nullen.",
+    [("Immer: 3 · 10² ist 300 und hat 2 Nullen.", "Aus einem Beispiel verallgemeinert, bei dem die Zahl vorn keine Null hat", 3 * 10 ** 2 == 300),
+     ("Nie: 3 · 10² ist 3 000 und hat 3 Nullen.", "Falsch ausgeschrieben (eine Null zu viel) und daraus „nie“ geschlossen", 3 * 10 ** 2 != 3000),
+     ("Wenn vorn die 1 steht, sonst nie: 1 · 10³ ist 1 000 und hat 3 Nullen.", "Übersehen, dass es auch mit anderen Zahlen ohne Null klappt, z. B. 3 · 10² = 300", 3 * 10 ** 2 == 300)],
+    "10ⁿ hat n Nullen. Hat die Zahl vorn selbst Nullen am Ende, kommen diese dazu: 50 · 10³ = 50 000 hat 1 + 3 = 4 Nullen. Ohne Null am Ende der Zahl vorn stimmt Lenas Satz, z. B. 3 · 10² = 300. "
+    "Also gilt er manchmal, aber nicht immer.",
+    str(50 * 10 ** 3).count("0") == 4 and str(3 * 10 ** 2).count("0") == 2), regel=P, idee="aussage_nullen_pruefen", bauplan="f", schema=False, alt=None,
+    bestand="themen zehner „Wie viele Nullen hat die Zahl 50 · 10⁴, wenn man sie ausschreibt?“",
+    unterschied="Dieselbe Einsicht (die Nullen der Zahl vorn zählen mit), aber eine andere Leistung: Dort wird gezählt, hier wird eine allgemeine Aussage geprüft und mit einem Gegenbeispiel entschieden (immer – manchmal – nie).")
+# ═════════ sach ═════════
+neu(T, "sach", "test", "begruenden", Z(
+    "Eine Pflanze hat am Anfang 2 Blätter und verdreifacht jeden Tag ihre Blätterzahl. Ein Kind will die Blätterzahl nach 6 Tagen ausrechnen und schreibt 6⁶, weil 2 · 3 = 6 ist. Wievielmal so groß ist das Ergebnis des Kindes wie die richtige Blätterzahl?",
+    32, "2 ** 5", lambda: (6 ** 6) // (2 * 3 ** 6),
+    "Richtig ist 2 · 3 · 3 · 3 · 3 · 3 · 3 = 2 · 3⁶: einmal die 2 und sechsmal die 3. Das Kind rechnet 6⁶ = (2 · 3) · (2 · 3) · (2 · 3) · (2 · 3) · (2 · 3) · (2 · 3): sechsmal die 2 und sechsmal die 3. "
+    "Es hat also fünf Faktoren 2 zu viel: 2 · 2 · 2 · 2 · 2 = 32. Probe: 6⁶ = 46 656 und 2 · 3⁶ = 1 458, 46 656 : 1 458 = 32.",
+    [(64, "Die Startzahl 2 im richtigen Ergebnis vergessen: sechs Faktoren 2 zu viel", "2 ** 6"),
+     (3, "Nur 6 und 2 verglichen: 6 : 2", "6 // 2"),
+     (6, "Die Zahl der Tage als Faktor genommen", "6")]), regel=P, idee="falsche_basis_folgen", bauplan="b", schema=False, alt=None,
+    bestand="themen berechnen „Jemand rechnet 2 · 5² = 10² = 100. Was ist falsch?“; rollend-5 sach „Bakterien verdoppeln sich, 5 am Anfang, nach 4 Stunden?“",
+    unterschied="Dort wird der Fehler benannt oder vorwärts gerechnet; hier muss die Folge der falschen Basis (Startzahl unter der Hochzahl) als Verhältnis über die Zahl der Faktoren bestimmt werden.")
 neu(T, "sach", "korrektur", "umkehr", Z(
-    "Ein Papierstreifen wird mehrmals hintereinander in der Mitte gefaltet. Bei jeder Faltung liegen doppelt so viele Lagen übereinander wie vorher. Am Ende liegen 64 Lagen übereinander. Wie oft wurde gefaltet?",
-    6, "6", lambda: next(n for n in range(0, 20) if 2 ** n == 64),
-    "Am Anfang ist 1 Lage da. Nach jeder Faltung doppelt so viele: 2, 4, 8, 16, 32, 64. Das sind 6 Faltungen, denn 2⁶ = 64.",
-    [(32, "64 durch 2 geteilt", "64 // 2"), (62, "2 von 64 abgezogen", "64 - 2"), (16, "64 durch 4 geteilt", "64 // 4")], einheit="Faltungen"), form="umkehren", regel=P, idee="exponent_suchen")
-neu(T, "sach", "korrektur", "umkehr", Z(
-    "Eine Münze wird 5-mal hintereinander geworfen. Bei jedem Wurf zeigt sie Kopf oder Zahl. Wie viele verschiedene Folgen von Ergebnissen kann es geben?",
-    32, "2 ** 5", lambda: len([0 for a in range(2) for b in range(2) for c in range(2) for d in range(2) for e in range(2)]),
-    "Beim ersten Wurf gibt es 2 Möglichkeiten, bei jedem weiteren Wurf verdoppelt sich die Zahl der Folgen. Nach 5 Würfen sind das 2 · 2 · 2 · 2 · 2 = 2⁵ = 32 verschiedene Folgen.",
-    [(10, "Die Möglichkeiten je Wurf mal Zahl der Würfe: 5 · 2", "5 * 2"), (25, "Würfe mal Würfe gerechnet: 5 · 5", "5 ** 2"), (16, "Einen Wurf zu wenig gezählt: 2⁴", "2 ** 4")]), regel=P, idee="moeglichkeiten_zaehlen")
-neu(T, "sach", "sicherung", "mehrschritt", Z(
-    "Ein Netzwerk verdreifacht jeden Tag seine Mitgliederzahl. Es startet mit 5 Mitgliedern. Ein zweites Netzwerk verdreifacht sich ebenfalls jeden Tag, startet aber mit 10 Mitgliedern. Nach 4 Tagen hat das zweite Netzwerk wievielmal so viele Mitglieder wie das erste?",
-    2, "(10 * 3 ** 4) // (5 * 3 ** 4)", lambda: (lambda a, b: b // a)(5 * 3 * 3 * 3 * 3, 10 * 3 * 3 * 3 * 3),
-    "Nach 4 Tagen hat das erste Netzwerk 5 · 3⁴ = 405 Mitglieder, das zweite 10 · 3⁴ = 810. Beide werden mit demselben Faktor 3⁴ malgenommen, deshalb bleibt das Verhältnis wie am Anfang: 10 : 5 = 2.",
-    [(16, "Die Hochzahl 4 zu 2⁴ gemacht", "2 ** 4"), (4, "Die Zahl der Tage als Verhältnis genommen", "4"), (81, "Nur den Wachstumsfaktor 3⁴ genannt", "3 ** 4")]), form="zwei_wege", regel=P, idee="was_waere_wenn")
-neu(T, "sach", "sicherung", "rueckwaerts", Z(
-    "Eine Wasserpflanze verdreifacht jeden Tag ihre Blattzahl. Nach 4 Tagen hat sie 405 Blätter. Wie viele Blätter hatte sie am Anfang?",
-    5, "405 // 3 ** 4", lambda: next(a for a in range(1, 405) if a * 3 * 3 * 3 * 3 == 405),
-    "In 4 Tagen wurde 4-mal mit 3 malgenommen, also mit 3⁴ = 81. Rückwärts: 405 : 81 = 5. Probe: 5 → 15 → 45 → 135 → 405.",
-    [(135, "Nur einmal durch 3 geteilt", "405 // 3"), (1215, "Weiter verdreifacht statt zurückgerechnet: 405 · 3", "405 * 3"), (401, "Die 4 Tage abgezogen: 405 − 4", "405 - 4")], einheit="Blätter"), form="umkehren", regel=P, idee="wachstum_rueckwaerts")
-neu(T, "sach", "sicherung", "begruenden", W(
-    "Eine Algenart verdreifacht jeden Tag ihre Fläche. Am Anfang bedeckt sie 2 m². Nina rechnet die Fläche nach 4 Tagen so: 2 · 3 = 6, dann 6⁴ = 1 296 m². Welche Aussage über Ninas Rechnung stimmt?",
-    "Fehler: Sie hat 2 · 3 = 6 als Basis genommen: 6⁴. Richtig wäre 2 · 3⁴ = 162 m².",
-    [("Fehler: Sie hat 2 und 3 zu 6 zusammengefasst. Richtig wäre 2 · 3 · 4 = 24 m².", "Hochzahl als Malnehmer gedeutet (2 · 3 · 4 = 24)", 2 * 3 * 4 != 2 * 3 ** 4),
-     ("Fehler: Die Anfangsfläche zählt nicht mit. Richtig wäre 3⁴ = 81 m², ohne den Faktor 2.", "Anfangsfläche weggelassen (3⁴ = 81)", 3 ** 4 != 2 * 3 ** 4),
-     ("Kein Fehler: 6⁴ = 1 296 m² ist richtig, denn 2 · 3 = 6.", "Das Zusammenfassen von 2 und 3 für erlaubt gehalten (6⁴ = 1 296)", 6 ** 4 == 1296 and 6 ** 4 != 2 * 3 ** 4)],
-    "Nach 4 Tagen wurde 4-mal mit 3 malgenommen: 2 · 3 · 3 · 3 · 3 = 2 · 81 = 162 m². Die 2 gehört nicht unter die Hochzahl: Nur die 3 wird 4-mal malgenommen. 6⁴ würde bedeuten, dass sich die Fläche 4-mal um den Faktor 6 vergrößert.",
-    2 * 3 ** 4 == 162), regel=P, idee="fehler_richtigstellen")
+    "Die Zahl der Bakterien in einer Schale verdoppelt sich jede Stunde. Lea zählt 96 Bakterien. Sie weiß nicht, wie viele Stunden die Schale schon steht, aber es ist mindestens eine volle Stunde. Wie viele verschiedene Anfangszahlen sind möglich?",
+    5, "5", lambda: sum(1 for a in range(1, 96) for n in range(1, 10) if a * 2 ** n == 96),
+    "Rückwärts wird jede Stunde halbiert: 96 → 48 → 24 → 12 → 6 → 3. Die 3 lässt sich nicht mehr halbieren. Nach mindestens einer Stunde kommen als Anfangszahl 48, 24, 12, 6 und 3 in Frage, "
+    "das sind 5 Anfangszahlen. Die 96 selbst zählt nicht, weil schon mindestens eine Stunde vergangen ist.",
+    [(6, "Die 96 selbst mitgezählt, obwohl mindestens eine Stunde vergangen ist", "5 + 1"),
+     (1, "Nur eine Anfangszahl gesucht, als wäre die Zahl der Stunden bekannt", "1"),
+     (4, "Die kleinste, ungerade Anfangszahl vergessen", "5 - 1")]), form="umkehren", regel=P, idee="rueckwaerts_mit_wahl", bauplan="c", schema=False, alt=None,
+    bestand="rollend-12 sach „Eine Bakterienkultur verdoppelt ihre Zahl jede Stunde. Nach 8 Stunden sind es 1 280. Wie viele waren es am Anfang?“; themen sach „dreimal verdoppelt, Ergebnis 200, Anfang?“",
+    unterschied="Dort ist die Zahl der Verdopplungen bekannt und es gibt genau eine Anfangszahl; hier ist sie unbekannt, und alle möglichen Anfangszahlen müssen über die Teilbarkeit durch 2 bestimmt werden.")
 neu(T, "sach", "korrektur", "darstellung", W(
-    "Eine Zahl verdoppelt sich 5-mal hintereinander. Sie startet bei 3. Welche Rechnung gibt das Ergebnis an?",
-    "3 · 2⁵",
-    [("(3 · 2)⁵", "Die Startzahl mit in die Hochzahl-Klammer genommen (6⁵ = 7 776)", (3 * 2) ** 5 != 3 * 2 ** 5),
-     ("3⁵ · 2", "Basis und Faktor vertauscht (3⁵ · 2 = 486)", 3 ** 5 * 2 != 3 * 2 ** 5),
-     ("3 · 2 · 5", "Hochzahl als Malnehmer gedeutet (3 · 2 · 5 = 30)", 3 * 2 * 5 != 3 * 2 ** 5)],
-    "Jede Verdopplung heißt: mal 2. Fünfmal verdoppeln heißt 5-mal mit 2 malnehmen: 3 · 2 · 2 · 2 · 2 · 2 = 3 · 2⁵ = 3 · 32 = 96. Die 3 steht nur einmal da, sie gehört nicht unter die Hochzahl.",
-    3 * 2 * 2 * 2 * 2 * 2 == 3 * 2 ** 5 == 96), form="bruecke", regel=P, idee="situation_term")
+    "Zu welcher Geschichte passt die Rechnung 3 · 2⁵?",
+    "Am Anfang liegen 3 Blätter auf einem Stapel. Der Stapel wird 5-mal hintereinander verdoppelt.",
+    [("Am Anfang liegen 2 Blätter auf einem Stapel. Der Stapel wird 5-mal hintereinander verdreifacht.", "Startzahl und Faktor vertauscht: 2 · 3⁵", 2 * 3 ** 5 != 3 * 2 ** 5),
+     ("Am Anfang liegen 3 Blätter auf einem Stapel. 5-mal hintereinander kommen 2 Blätter dazu.", "Verdoppeln als Dazulegen gedeutet: 3 + 5 · 2", 3 + 5 * 2 != 3 * 2 ** 5),
+     ("Am Anfang liegt 1 Blatt auf einem Stapel. Der Stapel wird 5-mal hintereinander versechsfacht.", "Startzahl und Faktor zu 6 zusammengefasst: 6⁵", 6 ** 5 != 3 * 2 ** 5)],
+    "In 3 · 2⁵ ist 3 die Startzahl und 2⁵ heißt: 5-mal hintereinander mal 2, also 5-mal verdoppeln. Das ergibt 3 · 32 = 96 Blätter. "
+    "Die anderen Geschichten gehören zu 2 · 3⁵ = 486, zu 3 + 5 · 2 = 13 und zu 6⁵ = 7 776.",
+    3 * 2 ** 5 == 96), form="bruecke", regel=P, idee="term_zu_geschichte", bauplan="d", schema=True, alt="VT1A-025",
+    bestand="themen sach „Eine Zahl wird, beginnend bei 1, fünfmal verdoppelt. Welche Potenz beschreibt das Ergebnis?“",
+    unterschied="Umgekehrte Richtung (Vorschlag B5): Zur Rechnung wird die Geschichte gewählt; die Ablenker vertauschen Startzahl und Faktor, deuten Verdoppeln als Dazulegen oder fassen Startzahl und Faktor zusammen. Im Kern das Format „Term ↔ Text“, darum als Schema gezählt.")
+neu(T, "sach", "sicherung", "mehrschritt", Z(
+    "Netzwerk A hat am Anfang 5 Mitglieder, Netzwerk B hat 10. Beide verdreifachen jeden Tag ihre Mitgliederzahl. Nach 20 Tagen hat Netzwerk B wievielmal so viele Mitglieder wie Netzwerk A?",
+    2, "10 // 5", lambda: (10 * 3 ** 20) // (5 * 3 ** 20),
+    "Nach 20 Tagen hat A genau 5 · 3²⁰ Mitglieder und B genau 10 · 3²⁰. Beide werden mit demselben Faktor 3²⁰ malgenommen. Deshalb bleibt das Verhältnis wie am Anfang: 10 : 5 = 2. "
+    "Man muss 3²⁰ (fast 3,5 Milliarden) dafür nicht ausrechnen.",
+    [(5, "Den Unterschied am Anfang genommen: 10 − 5", "10 - 5"),
+     (20, "Die Zahl der Tage genommen", "20"),
+     (3, "Den Faktor pro Tag genommen", "3")]), form="zwei_wege", regel=P, idee="verhaeltnis_bleibt", bauplan="e", schema=False, alt="VT1A-026",
+    bestand="themen sach „In einer Schale sind 5 Bakterien. Alle 20 Minuten verdoppelt sich die Anzahl. Wie viele sind es nach 3 Stunden?“",
+    unterschied="Dort wird ein Endwert ausgerechnet; hier ist Ausrechnen (3²⁰) nicht machbar, entscheidend ist, dass gleiches Wachstum das Verhältnis nicht ändert. Gegenüber der früheren Fassung (4 Tage, ausrechenbar) auf 20 Tage gesetzt.")
+neu(T, "sach", "sicherung", "begruenden", W(
+    "In Schale A sind am Anfang 100 Bakterien, und jede Stunde kommen 100 dazu. In Schale B ist am Anfang 1 Bakterium, und ihre Zahl verdoppelt sich jede Stunde. Welche Aussage über die beiden Schalen stimmt?",
+    "B überholt A irgendwann und bleibt danach immer vorn.",
+    [("A bleibt immer vorn, weil A mit viel mehr Bakterien anfängt.", "Nur auf den Anfang geschaut; nach 11 Stunden hat B 2 048, A nur 1 200", 2 ** 11 > 100 + 100 * 11),
+     ("B überholt A, aber danach holt A wieder auf.", "Nicht gesehen, dass B danach jede Stunde um viel mehr als 100 wächst", all(2 ** n > 100 + 100 * n for n in range(11, 60))),
+     ("B holt A nie ganz ein, kommt aber immer näher heran.", "Verdoppeln wie gleichmäßiges Wachsen gedacht; B überholt A nach 11 Stunden", 2 ** 11 > 100 + 100 * 11)],
+    "Am Anfang ist A weit vorn. B wächst aber jede Stunde um so viel, wie es gerade hat. Sobald B mehr als 100 Bakterien hat (nach 7 Stunden sind es 128), wächst B in jeder Stunde mehr als A. "
+    "Nach 10 Stunden hat A 1 100 und B 1 024, nach 11 Stunden hat A 1 200 und B 2 048: B ist vorn. Danach wächst B jede Stunde um mehr als 2 000, A nur um 100, also kann A nicht wieder aufholen.",
+    next(n for n in range(60) if 2 ** n > 100 + 100 * n) == 11 and all(2 ** n > 100 + 100 * n for n in range(11, 60))), regel=P, idee="linear_gegen_verdoppeln", bauplan="f", schema=False, alt="VT1A-022",
+    bestand="themen sach „Eine Seerose bedeckt 1 m². Jede Woche verdoppelt sich die Fläche. Wie viele m² nach 6 Wochen?“",
+    unterschied="Dort wird ein einzelnes Wachstum vorwärts gerechnet; hier werden zwei Wachstumsarten (gleichmäßiges Dazukommen, Verdoppeln) langfristig verglichen und begründet, warum B nach dem Überholen vorn bleibt. Frühere Fassung (VT1A-022, Zahlantwort 11) war durch eine Tabelle lösbar, darum umgebaut; „Kultur“ nach C3 durch „Schale“ ersetzt.")

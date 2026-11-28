@@ -1,15 +1,16 @@
-"""Gegenrechnung Runde VT1A (Verstehen in Tests, Klasse 5).
+"""Gegenrechnung Runde VT1A (Verstehen in Tests, Klasse 5), Stand nach Vorprüfung W1 (55 Aufgaben).
 
-Rechnet alle 77 Sollantworten NEU und UNABHÄNGIG von `bauen.py`, `kern.py` und den Quelltexten `th_*.py`:
-- Zahlaufgaben: Sollwert aus den Angaben des Fragetextes mit Zählschleifen und Probierverfahren (nicht mit der Formel des Quelltextes) neu bestimmt;
-  der gespeicherte Wert muss GENAU gleich sein (keine Toleranz in keiner Aufgabe).
-- Auswahlaufgaben: erwartete richtige Antwort (Anfang des Antworttextes) und eine eigene Rechen- oder Zählprobe; ausgewählte falsche
-  Möglichkeiten werden zusätzlich auf ihre Fehlerbeschreibung hin nachgerechnet, wo sie eine Rechnung enthalten.
+Rechnet alle 55 Sollantworten NEU und UNABHÄNGIG von `bauen.py`, `kern.py` und den Quelltexten `th_*.py`:
+- Zahlaufgaben: Sollwert aus den Angaben des Fragetextes mit Zählschleifen, Probieren oder Nachbauen der beschriebenen (auch falschen) Regel;
+  der gespeicherte Wert muss GENAU gleich sein (keine Toleranz).
+- Auswahlaufgaben: Wo die Optionen Terme, Zahlen oder Gleichungen sind, wird JEDE Option aus ihrem Text ausgewertet und geprüft, dass genau
+  die gespeicherte richtige Option die Bedingung der Frage erfüllt. Sonst: erwarteter Anfang der richtigen Option und eine eigene Probe.
 Aufruf: python3 -I inhalte/mathe-profi/vtest-1a/gegenrechnung.py   (Ausgabe endet mit „0 Abweichungen“)
 """
 import glob
 import json
 import os
+import re
 from fractions import Fraction as F
 
 HIER = os.path.dirname(os.path.abspath(__file__))
@@ -17,9 +18,19 @@ Q = {}
 for _p in sorted(glob.glob(os.path.join(HIER, "*.json"))):
     for _q in json.load(open(_p, encoding="utf-8"))["aufgaben"]:
         Q[_q["kennung"][5:]] = _q["aufgabe"]
-assert len(Q) == 77, len(Q)
+assert len(Q) == 55, len(Q)
 abw = []
 gesehen = set()
+HOCH = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹", "0123456789")
+
+
+def term(t):
+    """Wert eines Terms aus dem Optionstext (·, :, −, Hochzahlen, Tausenderleerzeichen), exakt als Bruch."""
+    t = t.replace("·", "*").replace(":", "/").replace("−", "-").replace(" ", "").strip()
+    t = re.sub(r"(?<=\d) (?=\d{3}(?!\d))", "", t)
+    t = re.sub(r"[⁰¹²³⁴⁵⁶⁷⁸⁹]+", lambda m: "**" + m.group(0).translate(HOCH), t)
+    t = re.sub(r"(\d+)", r"F(\1)", t)
+    return eval(t, {"__builtins__": {}, "F": F})
 
 
 def zahl(k, soll):
@@ -44,109 +55,175 @@ def wahl(k, anfang, probe=True):
         abw.append((k, "Möglichkeiten"))
 
 
+def wahl_genau(k, bedingung):
+    """Genau eine Option erfüllt die Bedingung, und es ist die gespeicherte."""
+    a = Q[k]
+    gesehen.add(k)
+    treffer = [i for i, o in enumerate(a["a"]) if bedingung(o)]
+    if treffer != [a["o"]["index"]]:
+        abw.append((k, "Optionen", treffer, a["o"]["index"]))
+
+
 def erste(f, bis=100000, ab=0):
     return next(n for n in range(ab, bis) if f(n))
 
 
 # ═════════ zahlen.potenzen_basis ═════════
 # schreibweise
-wahl("001", "17: Es ist 3² = 3 · 3", 3 ** 2 + 2 ** 3 == 17 and 5 ** 5 == 3125 and 3 * 2 + 2 * 3 == 12)
-zahl("002", sum(3 ** 5 for _ in [0]) - sum(3 ** 4 for _ in [0]))
-g = 1                                                               # Verdopplung je Generation: 2, 4, 8, 16 Personen
-for _ in range(4):
-    g *= 2
-zahl("003", g)
-zahl("004", erste(lambda x: x * x * x * x == 2 ** 8, 100, 1))
-wahl("005", "Die 4 steht 6-mal", 4 ** 6 == 4096 and 4 * 6 == 24 and 6 ** 4 == 1296)
-wahl("006", "Zufall bei diesen Zahlen", 2 ** 4 == 16 == 4 ** 2 and 2 ** 3 == 8 and 3 ** 2 == 9)
-wahl("007", "Fehler: Die Hochzahl 2 gehört nur zur 3", 2 * 3 * 3 == 18 and 6 * 6 == 36)
-# quadrat
-zahl("008", (lambda a: (next(s for s in range(1, 500) if 4 * s == 2 * 4 * a)) ** 2)(next(t for t in range(1, 200) if t * t == 144)))
-wahl("009", "6 727", [n for n in range(1, 200) if n * n in (6727, 7396, 5929, 4761)] == [69, 77, 86])
-zahl("010", 11 * 11 - 7 * 7)
-zahl("011", sum(9 for _ in range(9)))
-zahl("012", erste(lambda n: n * n - (n - 1) * (n - 1) == 27, 100))
-wahl("013", "Kein Fehler: Bei einem Produkt", 12 * 12 == 144 == 9 * 16 and 3 + 4 != 12)
-wahl("014", "Die große Platte hat 4-mal so viel Fläche", 10 * 10 == 4 * 5 * 5)
-# zehner
-zahl("015", erste(lambda x: 10 ** 6 - 9 * 10 ** 5 == x * 10 ** 5, 100))
-wahl("016", "56 · 10⁵", [x for x in (56 * 10 ** 6, 560 * 10 ** 5, 5600 * 10 ** 4, 56 * 10 ** 5) if x != 56000000] == [5600000])
-zahl("017", len(str(500 * 1000 // 5)) - 1)                         # 100 000 Münzen = 10⁵
-wahl("018", "Nur Anna: 45 · 100 000", 45 * 100000 == 4500000 and 450 * 100000 == 45000000)
-zahl("019", erste(lambda d: d * 10 * 100 == 10 ** 6, 10 ** 6))
-wahl("020", "Fehler: Er hat die Hochzahlen addiert", 1000 + 1000 == 2000 and 1000 * 1000 == 10 ** 6)
-zahl("021", max(n for n in range(0, 20) if 10 ** n < 5000000))
-# sach
-b, t = 1, 0
-while not (b > 100 + 100 * t):
-    t += 1
-    b = 2 ** t
-zahl("022", t)
-zahl("027", erste(lambda a: a * 3 * 3 * 3 * 3 == 405, 405))
-zahl("023", erste(lambda n: 2 ** n == 64, 30))
-zahl("024", len({(a, b, c, d, e) for a in "KZ" for b in "KZ" for c in "KZ" for d in "KZ" for e in "KZ"}))
-wahl("025", "3 · 2⁵", 3 * 2 * 2 * 2 * 2 * 2 == 96)
-zahl("026", (10 * 81) // (5 * 81) if 10 * 81 % (5 * 81) == 0 else None)
+wahl_genau("001", lambda o: term(o) != 2 ** 20)
+regel_kind = lambda b, h: h ** b                                     # Kind vertauscht Basis und Hochzahl
+assert (regel_kind(2, 3), regel_kind(3, 2), regel_kind(5, 2)) == (9, 8, 32)
+zahl("002", regel_kind(2, 5))
+def wert_003(o):
+    z = [int(x) for x in re.findall(r"\d+", o)]
+    return z[1] ** 12 if o.startswith("Die Basis") else 3 ** z[1]
 
-wahl("028", "Fehler: Sie hat 2 · 3 = 6 als Basis", 2 * 3 ** 4 == 162 and 6 ** 4 == 1296)
+
+wahl_genau("003", lambda o: wert_003(o) == 3 * 3 ** 12)
+gleich_oder_kleiner = [(a, b) for a in range(2, 30) for b in range(2, 30) if a ** b <= a * b]
+wahl("004", "Fast immer: Bei 2²", gleich_oder_kleiner == [(2, 2)])
+wahl("005", "In 4 Kisten stehen je 4 Schachteln, in jeder Schachtel liegen 4", 4 * 4 * 4 == 4 ** 3)
+# quadrat
+zahl("006", next(n * n for n in range(1, 200) if (n + 2) * (n + 2) - n * n == 44))
+zahl("007", 50 * sum(1 for _ in range(3) for _ in range(3)))
+wahl("008", "Zwei Rechtecke mit 30 cm", 37 * 37 - 30 * 30 - 7 * 7 == 2 * 30 * 7)
+quadrate = {n * n for n in range(1, 200)}
+wahl_genau("009", lambda o: term(o) not in quadrate)
+anzahlen = [(n + 1) ** 2 - n ** 2 - 1 for n in range(1, 500)]
+wahl("010", "Die Anzahl ist immer gerade", all(x % 2 == 0 for x in anzahlen) and len(set(anzahlen)) > 1)
+# zehner
+zahl("011", erste(lambda x: x * 10 ** 8 > 7 * 10 ** 11, 10 ** 6, 1))
+regel_kind2 = lambda m, n: m * n                                       # Kind nimmt die Hochzahlen mal
+assert (regel_kind2(2, 3), regel_kind2(1, 4)) == (6, 4)
+zahl("012", regel_kind2(3, 4))
+vorher = 7 * 10 ** 9 + 5 * 10 ** 6 + 3 * 10 ** 2
+nachher = 7 * 10 ** 10 + 5 * 10 ** 7 + 3 * 10 ** 3
+wahl("013", "Sie wird 10-mal so groß", nachher == 10 * vorher)
+wahl("014", "10⁶ ist um 1 000 größer", 10 ** 6 - (9 * 10 ** 5 + 9 * 10 ** 4 + 9 * 10 ** 3) == 1000)
+nullen = lambda z: len(str(z)) - len(str(z).rstrip("0"))
+wahl("015", "Manchmal", nullen(50 * 10 ** 3) == 4 != 3 and nullen(3 * 10 ** 2) == 2)
+# sach
+zahl("016", F(6 ** 6, 2 * 3 ** 6))
+zahl("017", len({96 // 2 ** n for n in range(1, 10) if 96 % 2 ** n == 0}))
+wahl("018", "Am Anfang liegen 3 Blätter auf einem Stapel. Der Stapel wird 5-mal hintereinander verdoppelt", 3 * 2 ** 5 == 96)
+a_, b_ = 5, 10
+for _ in range(20):
+    a_, b_ = 3 * a_, 3 * b_
+zahl("019", F(b_, a_))
+A_, B_, vorn = 100, 1, []
+for _ in range(80):
+    A_, B_ = A_ + 100, B_ * 2
+    vorn.append(B_ > A_)
+erst = vorn.index(True)
+wahl("020", "B überholt A irgendwann und bleibt danach immer vorn", all(vorn[erst:]) and not any(vorn[:erst]))
 
 # ═════════ zahlen.rechengesetze ═════════
 # klammern
-wahl("029", "(20 − 4) · 3 + 2", (20 - 4) * 3 + 2 == 50 and 20 - (4 * 3 + 2) != 50 and 20 - 4 * (3 + 2) != 50 and (20 - 4) * (3 + 2) != 50)
-zahl("030", erste(lambda x: (x + 4) * 3 - 5 == 25, 100))
-wahl("031", "Addiere 12 und 8, teile die Summe durch 4", 40 - (12 + 8) // 4 == 35)
-zahl("032", min(20 - 4 + 6, (20 - 4) + 6, 20 - (4 + 6)))
-wahl("033", "(30 − 12) − 4", (30 - 12) - 4 == 30 - 12 - 4)
-zahl("034", sum(1 for t in ("2+3*4", "(2+3)*4", "2*(3+4)", "2*3+4*2") if eval(t) == 14))
-wahl("035", "Fehler: Er hat die Klammer nicht zuerst", 100 - 20 * 4 == 20)
+zahl("021", (483917 - 129486 + 37500) - (483917 - (129486 + 37500)))
+ohne_klammern = lambda t: term(t.replace("(", "").replace(")", ""))   # Regel des Kindes: Klammern weglassen
+assert [ohne_klammern(t) for t in ("3 · (4 + 5)", "(8 − 2) · 3", "2 · (10 − 4)")] == [17, 2, 16]
+zahl("022", ohne_klammern("(6 + 4) · (5 − 3)"))
+wahl_genau("023", lambda o: term(o) == 50 - 3 * (9 - 2))
+ketten_gleich = {"Plus": all((a + b) + c == a + (b + c) for a in range(1, 20) for b in range(1, 20) for c in range(1, 20)),
+                 "Minus": all((a - b) - c == a - (b - c) for a in range(1, 20) for b in range(1, 20) for c in range(1, 20)),
+                 "Mal": all((a * b) * c == a * (b * c) for a in range(1, 9) for b in range(1, 9) for c in range(1, 9)),
+                 "Geteilt": all(F(F(a, b), c) == F(a, F(b, c)) for a in range(1, 9) for b in range(1, 9) for c in range(1, 9))}
+wahl("024", "Bei einer Kette nur mit Plus ändert", ketten_gleich == {"Plus": True, "Minus": False, "Mal": True, "Geteilt": False})
+werte_025 = [term(o) for o in Q["025"]["a"]]
+wahl_genau("025", lambda o: term(o) == max(werte_025))
 # termaufbau
-wahl("036", "Genau ① und ②", 30 - 6 - 4 == 20 and 30 - (6 + 4) == 20 and 30 - 6 + 4 == 28 and 30 - (6 - 4) == 28)
-wahl("037", "(3 + 4) · 5", (3 + 4) * 5 == 35 and 3 + 4 * 5 == 23)
-wahl("038", "40 − (9 + 6) = 25", 40 - 15 == 25)
-wahl("039", "20 − (4 · 3 + 2 · 2)", 20 - (12 + 4) == 4)
-zahl("040", erste(lambda n: 4 + 2 * (n - 1) == 14, 100, 1))
-zahl("041", erste(lambda x: 8 + 5 * x == (8 + 5) * x, 100))
-wahl("042", "Er wird um 4 kleiner", (12 * 9 + 8 * 11 - 20) // 4 - (12 * 9 + 8 * 11 - 36) // 4 == 4)
+alt_, neu_ = F(136 * 89 + 64 * 112 - 20, 4), F(136 * 89 + 64 * 112 - 36, 4)
+wahl("026", "Er wird um 4 kleiner", alt_ - neu_ == 4 and neu_.denominator == 1)
+passend = [n for n, w in (("①", 30 - 6 - 4), ("②", 30 - (6 + 4)), ("③", 30 - 6 + 4), ("④", 30 - (6 - 4))) if w == 30 - 6 - 4]
+wahl("027", "Genau ① und ②", passend == ["①", "②"])
+
+
+def letzter_schritt(t):
+    """Rechenart des letzten Schritts eines Terms ohne Klammern um das Ganze: das am weitesten rechts stehende Zeichen
+    mit niedrigster Bindung außerhalb von Klammern (Strich vor Punkt beim Suchen, gleichrangig von rechts)."""
+    tiefe, kand = 0, []
+    for i, z in enumerate(t):
+        tiefe += z == "("
+        tiefe -= z == ")"
+        if tiefe == 0 and z in "+−·:":
+            kand.append((0 if z in "+−" else 1, i, z))
+    return max(kand, key=lambda k: (-k[0], k[1]))[2]
+
+
+ersetzt = {}
+for o in Q["028"]["a"]:
+    alt_z, neu_z = re.findall(r"Das (.) durch (.)", o)[0]
+    ersetzt[o] = letzter_schritt("(6 + 4) · 5 − 2".replace(alt_z, neu_z, 1))
+wahl_genau("028", lambda o: ersetzt[o] == "·")
+namen = {"+": "Summe", "−": "Differenz", "·": "Produkt", ":": "Quotient"}
+beispiele = {"4 + 6 · 2": "Produkt", "12 : 3 − 1": "Differenz", "20 − (5 + 3)": "Summe"}
+rechts = lambda t: namen[[z for z in t if z in namen][-1]]
+links = lambda t: namen[[z for z in t if z in namen][0]]
+zuletzt = lambda t: namen[letzter_schritt(t)]
+wahl("029", "Es benennt den Term nach dem Rechenzeichen, das ganz rechts",
+     all(rechts(t) == n for t, n in beispiele.items()) and not all(links(t) == n for t, n in beispiele.items()) and not all(zuletzt(t) == n for t, n in beispiele.items()))
+wahl("030", "Die Terme sind verschieden, ihre Werte sind gleich", letzter_schritt("(4 + 5) · 6") != letzter_schritt("4 · 6 + 5 · 6") and (4 + 5) * 6 == 4 * 6 + 5 * 6)
 # vorteil
-wahl("043", "Beide Werte sind gleich, denn 24 · 5 ergibt 120", 24 * 125 * 5 == 15000 == 12 * 125 * 10)
-zahl("044", erste(lambda x: 94 - 37 - 23 == 94 - x, 200))
-wahl("045", "Zuerst 25 · 4 = 100", 25 * 4 * 17 == 1700)
-wahl("046", "36 : 4 und 4 : 36", 36 % 4 == 0 and 4 % 36 != 0 and 7 * 9 == 9 * 7 and 25 + 17 == 17 + 25 and 5 * 12 == 12 * 5)
-zahl("047", erste(lambda x: 8 * x * 125 == 4000, 1000))
-zahl("048", erste(lambda x: 6 * x == 18 * 27, 1000, 1))
-zahl("049", 6482 - 1997 + 3518)
+zahl("031", sum(1 for a in range(1, 3701) if 3700 % (37 * a) == 0 and a < 3700 // (37 * a)))
+wahl("032", "Sie sind gleich groß", 36 * 4375 * 5 == 18 * 4375 * 10)
+zahl("033", (748362 - 199997) - (748362 - 200000 - 3))
+wahl("034", "Bei nur Plus und Minus darf man umstellen, dabei nehmen", 763 - 289 + 237 == 763 + 237 - 289 != 763 - 237 + 289)
+zahl("035", F(4368 * 75, 1456 * 25))
 # verteilen
-zahl("050", sum(36 for _ in range(99)) - sum(36 for _ in range(9)))
-zahl("051", erste(lambda x: 17 * x + 17 * 14 == 17 * 50, 1000))
-wahl("052", "9 · (6 + 4)", 9 * 10 == 90)
-wahl("053", "Beide: Annas Rechnung", 4 * 20 + 4 * 7 == 108 == 4 * 30 - 4 * 3 and 4 * 30 - 3 == 117 and 4 * 20 + 7 == 87)
-wahl("054", "Sie verdoppelt sich", 16 * 30 + 16 * 2 == 2 * (8 * 30 + 8 * 2))
-wahl("055", "Die 19 ausklammern", 19 * (36 + 64 - 50) == 950 == 19 * 36 + 19 * 64 - 19 * 50)
-wahl("056", "Fehler: In der Klammer muss ein Plus", 15 * 7 + 15 * 9 == 240)
+wahl_genau("036", lambda o: term(o) != 368 * 47)
+zahl("037", 2347 * 89 - 2347 * 86)
+wahl("038", "Erst werden alle vier Eis bezahlt, danach alle vier Getränke", 4 * 2 + 4 * 3 == 4 * (2 + 3))
+verteilt_produkt = lambda a, b, c: a * b * a * c                     # Regel des Kindes: a · (b · c) = a · b · a · c
+assert (verteilt_produkt(2, 3, 5), verteilt_produkt(3, 2, 4)) == (60, 72)
+zahl("039", verteilt_produkt(5, 2, 7))
+wahl("040", "Er wird dreimal so groß", all(3 * h * b1 + 3 * h * b2 == 3 * (h * b1 + h * b2) for h in range(1, 9) for b1 in range(1, 9) for b2 in range(1, 9)))
 # umkehraufgabe_mal
-zahl("057", sum(1 for a in range(1, 13) if any(a * x == 36 for x in range(1, 40))))
-wahl("058", "36 : 9", 36 // 9 == 4 and 36 // 4 == 9)
-zahl("059", max(a for a in range(1, 50) for b in range(1, 50) if a * b == 48 and a + b == 14))
-wahl("060", "56 : x = 7", 7 * 8 == 56 and 56 // 8 == 7)
-wahl("061", "48 Murmeln werden gleichmäßig", 48 // 8 == 6)
-wahl("062", "Weil 50 nicht in der 7er-Reihe", 50 not in [7 * n for n in range(1, 30)] and 49 in [7 * n for n in range(1, 30)])
-zahl("063", erste(lambda x: (x * 5 + 12) / 4 == 8, 1000))
+zahl("041", sum(1 for a in range(1, 13) if any(a * x == 36 for x in range(1, 37))))
+kind_mal = lambda p, q: p * q                                          # Kind nimmt die beiden Zahlen immer mal
+assert (kind_mal(7, 3), kind_mal(48, 6), kind_mal(60, 5)) == (21, 288, 300)
+zahl("042", kind_mal(72, 8))
+wahl("043", "48 Murmeln werden gleichmäßig verteilt", 48 // 8 == 6 and 48 % 8 == 0)
+loes = {a: 360 // a for a in range(1, 361) if 360 % a == 0}
+wahl("044", "Sie wird dreimal so klein", all(loes[a] == 3 * loes[3 * a] for a in loes if 3 * a in loes))
+
+
+def loese(gl):
+    """Lösung von „a · x = b“ oder „x : a = b“ aus dem Optionstext."""
+    gl = gl.replace(" ", "")
+    m = re.fullmatch(r"(\d+)·x=(\d+)", gl)
+    if m:
+        return F(int(m.group(2)), int(m.group(1)))
+    m = re.fullmatch(r"x:(\d+)=(\d+)", gl)
+    return F(int(m.group(1)) * int(m.group(2)))
+
+
+groesste = max(loese(o) for o in Q["045"]["a"])
+wahl_genau("045", lambda o: loese(o) == groesste)
 # ueberschlag
-zahl("064", round(600 * 50 / (612 * 49) * 10) if False else round(30000 / 2998))
-zahl("065", max(n for n in range(1, 100) if (n // 10) * 10 + (10 if n % 10 >= 5 else 0) == 30))
-zahl("066", 3 * 200 - 3 * 198)
-wahl("067", "Beide Überschläge sind brauchbar", abs(4800 + 3500 - (4812 + 3487)) < abs(5000 + 3000 - (4812 + 3487)))
-wahl("068", "Reicht nicht: 23 · 48", 23 * 48 == 1104 > 1000)
-wahl("069", "Fehler: Der Überschlag ist zu grob", 596 * 12 == 7152 and abs(600 * 12 - 7152) == 48)
-zahl("070", min(n for n in range(0, 10000) if 100 * ((n + 50) // 100) == 4600) + max(n for n in range(0, 10000) if 100 * ((n + 50) // 100) == 4600))
+fragen = {"Reichen 500 € für 26 Karten zu je 19 €?": (26, 19, 500), "Reichen 100 € für 4 Spiele zu je 19 €?": (4, 19, 100),
+          "Passen 6 Kisten zu je 38 kg auf einen Wagen für 300 kg?": (6, 38, 300), "Reichen 400 Plätze für 9 Klassen mit je 27 Kindern?": (9, 27, 400)}
+auf = lambda z: z if z < 10 else -(-z // 10) * 10                       # zweistellige Zahlen auf Zehner aufrunden, einstellige genau lassen
+sicher = {f: auf(a) * auf(b) <= g for f, (a, b, g) in fragen.items()}     # aufgerundeter Überschlag unter der Grenze = sicher
+wahl_genau("046", lambda o: not sicher[o])
+abschneiden = lambda z: z // 1000 * 1000
+assert (abschneiden(6812) + abschneiden(2487), abschneiden(3391) + abschneiden(1765)) == (8000, 4000)
+zahl("047", abschneiden(5951) + abschneiden(2978))
+wahl("048", "B ist genauer als A", abs(4800 + 3500 - 8299) < abs(5000 + 3000 - 8299) and 4812 + 3487 == 8299)
+zahl("049", len(str(6718 * 2493)))
+wahl("050", "Größer", F(7236, 9) > 700 and F(7000, 10) < F(7236, 10) < F(7236, 9))
 # sach
-zahl("071", erste(lambda g: 12 + 2 * g == 4 + 4 * g, 100))
-zahl("072", erste(lambda x: 24 + 7 * x == 66, 100, 1))
-wahl("073", "□ − 3 · 2 + 5 = 20", 21 - 3 * 2 + 5 == 20)
-zahl("074", (lambda x: 2 * x + 6)(erste(lambda x: (x + 6) * 2 == 30, 100)))
-zahl("075", erste(lambda n: (n - 14) % 2 == 0 and (n - 14) // 2 + 8 == 20, 1000))
-wahl("076", "4 · x + 12 − 4 = 108", erste(lambda x: 4 * x + 12 - 4 == 108, 1000, 1) == 25)
-wahl("077", "Kein Fehler: Man kehrt", erste(lambda x: x * 2 + 6 == 30, 100) == 12)
+zahl("051", erste(lambda g: 4 + 4 * g > 12 + 2 * g, 100))
+busse = 0
+rest = 189
+while rest > 0:
+    busse += 1
+    rest -= 52
+wahl("052", "Wie viele Busse werden gebraucht", busse == 4 and 189 // 52 == 3 and 189 % 52 == 33)
+falsch_rueck = lambda m, p, e: F(e, m) - p                             # Regel des Kindes: erst teilen, dann abziehen
+assert (falsch_rueck(3, 12, 45), falsch_rueck(2, 10, 30)) == (3, 5)
+zahl("053", falsch_rueck(5, 15, 80))
+wahl("054", "Mias Ergebnis ist immer um 6 größer", {(x + 6) * 2 - (2 * x + 6) for x in range(1, 2000)} == {6})
+wahl("055", "4 · x + 12 − 4 = 108", erste(lambda x: 4 * x + 12 - 4 == 108, 1000, 1) == 25)
 
 fehlt = sorted(set(Q) - gesehen)
 if fehlt:

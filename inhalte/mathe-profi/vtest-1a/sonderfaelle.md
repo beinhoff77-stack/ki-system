@@ -1,5 +1,7 @@
 # Sonderfall-Durchsicht der Auswahl-Aufgaben (Runde VT1A)
 
+> Historisch: Stand vor Vorprüfung W1 (77 Aufgaben, alte Kennungen). Für den Stand mit 55 Aufgaben gelten `korrektur-nach-vorpruefung-w1.md` und `bestandsvergleich.md`.
+
 Jede der 39 Auswahl-Aufgaben wurde auf Sonderfälle gesehen: mehrere richtige Möglichkeiten, Verneinung, Lesbarkeit ohne Bild, richtige Aussage mit falscher Begründung. Die Prüfung der Ablenker steht im Quelltext (`th_*.py`) als Bedingung, die `bauen.py` auswertet; die richtigen Antworten rechnet `gegenrechnung.py` neu. Wo ich nichts Besonderes fand, steht der Standardvermerk.
 
 Keine Aufgabe der Runde nutzt eine Tabelle oder ein Bild (`grafik`); alle Angaben stehen im Fragetext. Keine Aufgabe hat ein „keine der Aussagen“ als richtige Möglichkeit.

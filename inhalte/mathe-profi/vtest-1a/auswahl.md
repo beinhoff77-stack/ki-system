@@ -9,7 +9,7 @@ Stand: 28.11.2026. Die Auswahl steht vor dem Schreiben der Aufgaben. Quelle der 
 | `zahlen.potenzen_basis` | 7 | 7 | keine |
 | `zahlen.rechengesetze` | 14 | 14 | keine |
 
-Hälfte (aufgerundet): 4 bzw. 7. Je gewähltem Lernziel 7 Aufgaben (1 test, 3 korrektur, 3 sicherung, Änderung des Auftraggebers): 11 Lernziele, 77 Aufgaben.
+Hälfte (aufgerundet): 4 bzw. 7. Je gewähltem Lernziel 5 Aufgaben (1 test, 2 korrektur, 2 sicherung; Entscheidung des Nutzers nach Vorprüfung W1, vorher 7): 11 Lernziele, 55 Aufgaben. `tools/vtest_pruefen.py` meldet dafür je Lernziel „2 sicherung-Aufgaben, Soll 3“; das ist erwartet.
 
 ## Zur Wahl von `negativ`, `mal_ganz`, `geteilt_ganz`
 

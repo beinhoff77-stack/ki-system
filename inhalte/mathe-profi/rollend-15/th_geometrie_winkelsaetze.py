@@ -45,7 +45,7 @@ neu(T, "innenwinkelsumme", "anwenden", Z(
     "Drei Wanderwege bilden ein Dreieck. Die Winkel verhalten sich wie 5 : 6 : 7. Wie groß ist der größte Winkel in Grad?",
     70, "180 * 7 / (5 + 6 + 7)", "7 * 180 // 18", "Die Winkelsumme im Dreieck ist 180°. Wie viele gleich große Teile entstehen insgesamt?",
     "Es sind 5 + 6 + 7 = 18 Teile. Ein Teil ist 180° : 18 = 10°. Der größte Winkel hat 7 Teile: 7 · 10° = 70°.",
-    [B("180 / 7", "den Winkelsatz vergessen und 180° durch die größte Zahl geteilt"), B("180 / 18", "nur einen Teil ausgerechnet"), B("360 * 7 / 18", "mit 360° statt 180° gerechnet")], einheit="°"), g="mehrschritt", regel=R)
+    [BR("180 / 7", "den Winkelsatz vergessen und 180° durch die größte Zahl geteilt (auf zwei Stellen gerundet)", stellen=2), B("180 / 18", "nur einen Teil ausgerechnet"), B("360 * 7 / 18", "mit 360° statt 180° gerechnet")], einheit="°"), g="mehrschritt", regel=R)
 neu(T, "innenwinkelsumme", "verfahren_waehlen", W(
     "Welche Begründung zeigt für jedes Dreieck, dass die Winkelsumme 180° beträgt?",
     "Man zeichnet durch eine Ecke die Parallele zur gegenüberliegenden Seite. Wechselwinkel zeigen, dass die drei Winkel zusammen einen gestreckten Winkel bilden.",

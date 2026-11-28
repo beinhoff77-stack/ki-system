@@ -4999,7 +4999,7 @@
   {
    "thema": "bruch.prozent_grundwert",
    "lernkarte": "zurueck",
-   "grund": "Aufgaben uneinig (id.verhaeltnisse.prozent 3, rr.gegenrechnung 2)",
+   "grund": "Aufgaben uneinig (rr.gegenrechnung 4, id.verhaeltnisse.prozent 3)",
    "kandidaten": [
     "id.verhaeltnisse.prozent",
     "rr.gegenrechnung",
@@ -5548,7 +5548,7 @@
   {
    "thema": "gleichungen.linear",
    "lernkarte": "klammern",
-   "grund": "Aufgaben uneinig (rr.ausmultiplizieren 2, rr.waage 2, rr.tauschen 1)",
+   "grund": "Aufgaben uneinig (rr.waage 5, rr.ausmultiplizieren 2, rr.tauschen 1)",
    "kandidaten": [
     "id.algebra.gleichung_loesen",
     "rr.ausmultiplizieren",

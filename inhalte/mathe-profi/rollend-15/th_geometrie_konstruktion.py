@@ -42,7 +42,7 @@ neu(T, "kongruenzsatz", "fehler_detektiv", FD(
      ("Alle drei Winkel stimmen überein, also sind die Dreiecke deckungsgleich.", False, True),
      ("Deckungsgleiche Dreiecke haben denselben Umfang, also haben beide Dreiecke denselben Umfang.", True, True)],
     "Ein großes und ein kleines Dreieck können dieselben Winkel haben. Welche Angabe fehlt, damit die Größe festgelegt ist?",
-    "Gleiche Winkel legen nur die Form fest, nicht die Größe: Ein kleines und ein großes Dreieck können dieselben Winkel haben. Für Deckungsgleichheit braucht man mindestens eine passende Seite (etwa WSW). Der Fehler steckt in Zeile 2. Zeile 3 ist aus Zeile 2 richtig gefolgert.",
+    "Gleiche Winkel legen nur die Form fest, nicht die Größe: Ein kleines und ein großes Dreieck können dieselben Winkel haben. Aus gleichen Winkeln folgt die Kongruenz nicht: Die Dreiecke könnten zufällig deckungsgleich sein, sicher ist das aber nicht. Für Deckungsgleichheit braucht man mindestens eine passende Seite (etwa WSW). Der Fehler steckt in Zeile 2. Zeile 3 ist aus Zeile 2 richtig gefolgert.",
     rueck={2: "Diese Zeile ist für sich richtig: Deckungsgleiche Dreiecke haben denselben Umfang. Falsch war schon Zeile 2, deshalb darf man diese Regel hier nicht anwenden."}), g="fehler", regel=D)
 # ───────── konstruierbar ─────────
 neu(T, "konstruierbar", "anwenden", Z(
@@ -72,11 +72,11 @@ neu(T, "planfigur", "anwenden", Z(
     [B("5 + 6", "die Seite [AB] vergessen"), B("7 + 5", "die Seite [BC] vergessen"), B("7 * 5 * 6", "die drei Längen malgenommen statt addiert")], einheit="cm"), g="einkleidung", regel=D)
 neu(T, "planfigur", "verfahren_waehlen", W(
     "Du sollst ein Dreieck ABC mit c = 6 cm, α = 35° (bei A) und β = 70° (bei B) konstruieren. Welche Reihenfolge der Schritte ist richtig?",
-    "Strecke [AB] mit 6 cm zeichnen. Bei A den Winkel 35° antragen und bei B den Winkel 70° antragen. Der Schnittpunkt der beiden freien Schenkel ist C.",
-    [("Strecke [AB] mit 6 cm zeichnen. Um A einen Kreis mit 35 cm und um B einen Kreis mit 70 cm Radius zeichnen.", "Winkelangaben als Radien benutzt"), ("Bei A den Winkel 35° zeichnen, bei B den Winkel 70° zeichnen. Danach die Strecke [AB] von 6 cm in das entstandene Dreieck einpassen.", "ohne die Seite zu beginnen geht es nicht, die Größe wäre offen"),
-     ("Strecke [AB] mit 6 cm zeichnen. Bei A den Winkel 70° und bei B den Winkel 35° antragen.", "die Winkel an den falschen Ecken angetragen: 70° gehört zu β bei B, 35° zu α bei A")],
+    "Strecke [AB] mit 6 cm zeichnen. Bei A den Winkel 35° und bei B den Winkel 70° auf derselben Seite von [AB] antragen. Der Schnittpunkt der beiden freien Schenkel ist C.",
+    [("Strecke [AB] mit 6 cm zeichnen. Um A einen Kreis mit 35 cm und um B einen Kreis mit 70 cm Radius zeichnen.", "Winkelangaben als Radien benutzt"), ("Bei A den Winkel 35° zeichnen, bei B den Winkel 70° zeichnen. Danach die Strecke [AB] von 6 cm in das entstandene Dreieck einpassen.", "In dieser Schrittfolge fehlt die festgelegte Strecke: Ohne die Seite [AB] mit 6 cm bleibt die Größe des Dreiecks offen"),
+     ("Strecke [AB] mit 6 cm zeichnen. Bei A den Winkel 70° und bei B den Winkel 35° auf derselben Seite von [AB] antragen.", "die Winkel an den falschen Ecken angetragen: 70° gehört zu β bei B, 35° zu α bei A")],
     "Beginne mit der Seite, die du kennst. Welcher Winkel gehört an welche Ecke?",
-    "Mit der gegebenen Seite beginnen: [AB] = 6 cm. Dann α = 35° bei A und β = 70° bei B antragen. Die Schenkel schneiden sich in C. Das ist die Konstruktion nach WSW.",
+    "Mit der gegebenen Seite beginnen: [AB] = 6 cm. Dann α = 35° bei A und β = 70° bei B auf derselben Seite von [AB] antragen. Die Schenkel schneiden sich in C. Das ist die Konstruktion nach WSW.",
     lambda: True), g="mehrschritt", regel=D)
 neu(T, "planfigur", "umkehren", Z(
     "Ein Dreieck soll aus der Seite c = 10 cm und den Winkeln α = 50° und γ = 70° konstruiert werden. Zum Antragen an der Seite c braucht man die Winkel an ihren beiden Enden. Wie groß ist der Winkel β bei B?",

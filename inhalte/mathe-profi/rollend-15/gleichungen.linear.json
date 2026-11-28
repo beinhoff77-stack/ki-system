@@ -299,10 +299,10 @@
      "beschreibung": "ein Minus beim Umformen verloren und 3x addiert statt subtrahiert"
     },
     {
-     "antwort": 6.857142857142857,
+     "antwort": 6.86,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "3x gar nicht beachtet"
+     "beschreibung": "3x gar nicht beachtet (auf zwei Stellen gerundet)"
     },
     {
      "antwort": 8,

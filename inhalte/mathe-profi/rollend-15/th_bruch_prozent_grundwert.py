@@ -57,7 +57,7 @@ neu(T, "prozentsatz", "anwenden", Z(
     "Im Mai bekam man für 100 € auf einer Reise 4 300 Baht. Im Juli waren es nur noch 4 085 Baht. Um wie viel Prozent ist der Baht-Betrag für 100 € gesunken?",
     5, "(4300 - 4085) / 4300 * 100", "100 - 4085 / 4300 * 100", "Vergleiche die Änderung mit dem Wert vom Mai, nicht mit dem vom Juli.",
     "Die Änderung ist 4 300 − 4 085 = 215 Baht. Bezogen auf den alten Wert: 215 : 4 300 = 0,05 = 5 %. Der Betrag ist um 5 % gesunken.",
-    [B("(4300 - 4085) / 4085 * 100", "die Änderung auf den neuen statt auf den alten Wert bezogen", "fb.prozent.falscher_grundwert"), B("4300 - 4085", "den Unterschied in Baht als Prozent angegeben"), B("4085 / 4300 * 100", "den neuen Wert in Prozent des alten angegeben (95 %)")], einheit="%"), g="einkleidung", regel=P)
+    [BR("(4300 - 4085) / 4085 * 100", "die Änderung auf den neuen statt auf den alten Wert bezogen (auf zwei Stellen gerundet)", "fb.prozent.falscher_grundwert", stellen=2), B("4300 - 4085", "den Unterschied in Baht als Prozent angegeben"), B("4085 / 4300 * 100", "den neuen Wert in Prozent des alten angegeben (95 %)")], einheit="%"), g="einkleidung", regel=P)
 neu(T, "prozentsatz", "bruecke", W(
     "In der Tabelle stehen alter und neuer Preis von drei Angeboten auf einer Reise. Bei welchem Angebot ist die Preiserhöhung in Prozent am größten?",
     "beim Bus", [("beim Hotel, weil dort die Erhöhung in Euro am größten ist", "den Unterschied in Euro statt in Prozent verglichen"), ("beim Museum, weil es mit 3 € mehr steigt als der Bus (0,60 €) und im Verhältnis zum Preis mehr als das Hotel", "Bus und Museum nur in Euro verglichen und das Verhältnis zum alten Preis beim Bus nicht berechnet")],

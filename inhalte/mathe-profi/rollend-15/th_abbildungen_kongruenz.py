@@ -68,7 +68,7 @@ neu(T, "symmetrie", "fehler_detektiv", FD(
 # ───────── vierecke_ordnen ─────────
 neu(T, "vierecke_ordnen", "bruecke", W(
     "Ein Viereck hat vier gleich lange Seiten. Seine Diagonalen stehen senkrecht aufeinander und halbieren sich. Die Diagonalen sind aber verschieden lang. Welches Viereck ist es?",
-    "eine Raute, die kein Quadrat ist", [("ein Rechteck", "ein Rechteck hat gleich lange Diagonalen"), ("ein Drachen, der keine Raute ist", "ein Drachen hat zwei verschieden lange Seitenpaare und die Diagonalen halbieren sich nicht beide"), ("ein Quadrat", "ein Quadrat hat gleich lange Diagonalen")],
+    "eine Raute, die kein Quadrat ist", [("ein Rechteck", "ein Rechteck hat gleich lange Diagonalen"), ("ein Drachen, der keine Raute ist", "ein Drachen, der keine Raute ist, hat zwei verschieden lange Seitenpaare und die Diagonalen halbieren sich nicht beide"), ("ein Quadrat", "ein Quadrat hat gleich lange Diagonalen")],
     "Gehe im Haus der Vierecke nach den Eigenschaften vor: Vier gleich lange Seiten, senkrechte Diagonalen, verschieden lange Diagonalen.",
     "Vier gleich lange Seiten und sich halbierende, senkrechte Diagonalen passen zur Raute. Gleich lange Diagonalen hätte nur das Quadrat. Da sie verschieden lang sind, ist es eine Raute, die kein Quadrat ist.",
     lambda: True), g="darstellung", regel=D)

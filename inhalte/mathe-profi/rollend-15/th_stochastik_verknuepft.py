@@ -43,7 +43,7 @@ neu(T, "venn", "anwenden", Z(
     [B("14 + 11", "die Schnittelemente doppelt gezählt"), B("14 + 11 - 6", "den Schnitt nur einmal abgezogen, also die Vereinigung statt genau eine Menge"), B("14 - 6", "nur die Elemente genommen, die nur in A liegen")]), g="mehrschritt", ohne=OHNE_M)
 # ───────── mengen_verstehen ─────────
 neu(T, "mengen_verstehen", "verfahren_waehlen", W(
-    "Es gilt A ⊂ B: Jedes Element von A liegt auch in B. Welche Aussage über die Schnittmenge und die Vereinigung gilt immer?",
+    "Es gilt A ⊆ B: Jedes Element von A liegt auch in B. Welche Aussage über die Schnittmenge und die Vereinigung gilt immer?",
     "A ∩ B = A und A ∪ B = B", [("A ∩ B = B und A ∪ B = A", "Schnitt und Vereinigung vertauscht (das gilt nur im Sonderfall A = B)"), ("A ∩ B = ∅ und A ∪ B = B", "der Schnitt ist A und ist nur dann leer, wenn A leer ist"), ("A ∩ B = A und A ∪ B = A", "die Vereinigung ist B; sie ist nur dann gleich A, wenn A = B")],
     "Wähle selbst ein Beispiel: A = {2, 4} und B = {1, 2, 3, 4}. Bestimme beide Mengen.",
     "Im Beispiel A = {2, 4} und B = {1, 2, 3, 4} gilt A ∩ B = {2, 4} = A und A ∪ B = {1, 2, 3, 4} = B. Das gilt allgemein: Was in A liegt, liegt auch in B.",
@@ -87,7 +87,7 @@ neu(T, "additionssatz", "umkehren", Z(
 # ───────── verstehen ─────────
 neu(T, "verstehen", "verfahren_waehlen", W(
     "Für zwei Ereignisse A und B gilt P(A ∪ B) = P(A) + P(B). Was folgt daraus?",
-    "Der Schnitt hat die Wahrscheinlichkeit 0: P(A ∩ B) = 0.", [("A liegt ganz in B (A ⊂ B).", "bei A ⊂ B ist die Vereinigung gleich B, es gilt P(A ∪ B) = P(B)"), ("A und B sind gleich wahrscheinlich.", "über die Einzelwahrscheinlichkeiten sagt die Gleichung nichts aus")],
+    "Der Schnitt hat die Wahrscheinlichkeit 0: P(A ∩ B) = 0.", [("A liegt ganz in B (A ⊆ B).", "bei A ⊆ B ist die Vereinigung gleich B, es gilt P(A ∪ B) = P(B)"), ("A und B sind gleich wahrscheinlich.", "über die Einzelwahrscheinlichkeiten sagt die Gleichung nichts aus")],
     "Vergleiche mit dem Additionssatz P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Was muss P(A ∩ B) sein, damit beide Gleichungen stimmen?",
     "Der Additionssatz lautet P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Soll P(A ∪ B) = P(A) + P(B) gelten, muss P(A ∩ B) = 0 sein. Mehr folgt aus der Gleichung allein nicht.",
     lambda: (F(1, 6) + F(1, 6) == F(2, 6)) and (F(1, 6) + F(2, 6) != F(2, 6)) and (F(2, 6) + F(3, 6) != F(3, 6))), g="begruenden", regel=None, ohne=OHNE_ADD)

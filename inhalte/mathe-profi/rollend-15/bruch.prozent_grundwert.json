@@ -430,10 +430,10 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 5.2631578947368425,
+     "antwort": 5.26,
      "fehlbild": "fb.prozent.falscher_grundwert",
      "regel_des_fehlbilds": "id.verhaeltnisse.prozent",
-     "beschreibung": "die Änderung auf den neuen statt auf den alten Wert bezogen"
+     "beschreibung": "die Änderung auf den neuen statt auf den alten Wert bezogen (auf zwei Stellen gerundet)"
     },
     {
      "antwort": 215,

@@ -563,7 +563,7 @@
      "antwort": "ein Drachen, der keine Raute ist",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "ein Drachen hat zwei verschieden lange Seitenpaare und die Diagonalen halbieren sich nicht beide"
+     "beschreibung": "ein Drachen, der keine Raute ist, hat zwei verschieden lange Seitenpaare und die Diagonalen halbieren sich nicht beide"
     },
     {
      "index": 3,

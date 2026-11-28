@@ -64,6 +64,22 @@ def teil1():
     rc, out, err = py('tools/rollend_sql.py', '--runden', '14', '--sql')
     assert rc == 0 and out.encode('utf-8') == alt14, 'rollend_sql.py erzeugt für Runde 14 nicht mehr das eingespielte Paket (Regel darf dort nicht stehen)'
     assert 'neue Aufgaben rollend-14: 213 Aufgaben, 0 Regeln, 640 Fehlbilder.' in out
+    # Auflage Werkstatt 1177: eine Nur-Lesen-Runde (14) zusammen mit anderen Runden bricht mit klarer Meldung ab (kein gemeinsamer schreibender Block)
+    assert R.FEHLBILD_NUR_LESEN_RUNDEN == (14,)
+    assert R.gemischte_runden((14,)) is None and R.gemischte_runden((13,)) is None and R.gemischte_runden((12, 13)) is None
+    assert R.gemischte_runden((13, 14)) and R.gemischte_runden((1, 5, 14)) and R.gemischte_runden((14, 13))
+    for rl in ('13,14', '14,13', '1,2,3,4,14', 'alle'):
+        rc, out, err = py('tools/regelbezug_sql.py', '--runden', rl, '--sql')
+        assert rc == 1 and out == '' and err.startswith('ABBRUCH: Runde 14 darf nur lesend verglichen werden') and 'getrennt erzeugen' in err, (rl, rc, err[:300])
+        rc, out, err = py('tools/regelbezug_sql.py', '--runden', rl, '--sql', '--probe')
+        assert rc == 1 and out == '' and 'ABBRUCH' in err, (rl, 'probe')
+    rc, out, err = py('tools/regelbezug_sql.py', '--runden', '14', '--sql')
+    assert rc == 0 and 'insert into schule.aufgabe_fehlbild' not in out and 'do $rbnach$' in out, err[-300:]
+    rc, out, err = py('tools/regelbezug_sql.py', '--runden', '13', '--sql')
+    assert rc == 0 and 'insert into schule.aufgabe_fehlbild' in out, err[-300:]
+    rc, out, err = py('tools/regelbezug_sql.py', '--runden', '13,14')   # Übersicht (schreibt nichts) bleibt erlaubt
+    assert rc == 0 and out.startswith('Runden 13,14:'), err[-300:]
+    print('Runde 14 gemischt mit anderen Runden: Abbruch mit Meldung (13,14 / 14,13 / 1,2,3,4,14 / alle), 14 allein und 13 allein unverändert')
     # neue Runden bringen den Block mit, --ohne-regelbezug lässt ihn weg
     rc, out, _ = py('tools/rollend_sql.py', '--runden', '8', '--sql')
     assert rc == 0 and 'do $rbnach$' in out
@@ -286,7 +302,8 @@ update schule.einheit set status = 'freigegeben' where id = {zeilen[0]['e']};"""
         pg.sql(f"""update schule.einheit set status = 'geprueft' where id = {z1['e']};
 update schule.aufgabe set loesung = loesung || '{{"toleranz": 0.5}}' where einheit_id = {z1['e']} and reihenfolge = {z1['r']};
 update schule.einheit set status = 'freigegeben' where id = {z1['e']};""")
-        rc, pk, _ = py('tools/regelbezug_sql.py', '--runden', 'alle', '--sql')
+        rc, pk, _ = py('tools/regelbezug_sql.py', '--runden', ','.join(map(str, ALLE)), '--sql')   # Runden 1-13 (14 nur einzeln, s. gemischte_runden)
+        assert rc == 0, rc
         out = pg.sql(pk, erwartet_fehler='ist nicht die erwartete')
         assert f"{z1['k']}: Aufgabe" in out and 'wie eingespielt' in out, out[-1500:]
         print('Teil 2 (lokaler Nachbau) bestanden')

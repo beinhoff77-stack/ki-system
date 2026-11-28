@@ -1,0 +1,38 @@
+
+declare v_abst jsonb := coalesce((select wert from schule.regel where schluessel = 'nachtest_abstaende_lerntage'), '[10,25,60]');
+  v_wdh int := coalesce((select (wert #>> '{}')::int from schule.regel where schluessel = 'nachtest_wiederholung_lerntage'), 3);
+  v_best int; v_letzt schule.testsitzung; v_anker timestamptz; v_soll int; v_seit int; v_offen int; v_fehler int; v_alle int; v_ges int; v_art text; v_vorrat int; v_je int; /* NT-S */
+begin
+  if schule.flug_ohne_test(p_lernender, p_einheit) then return jsonb_build_object('faellig', false, 'grund',
+    case when schule.zusatz_eingeplant(p_lernender, (select e.thema_id from schule.einheit e where e.id = p_einheit)) then 'zusatz' else 'gesetzt' end); end if; -- LB-3, ZP-S
+  select count(*) filter (where s.status = 'offen'), count(*) filter (where s.status = 'fehler'), count(*), count(*) filter (where s.status = 'gesichert')
+    into v_offen, v_fehler, v_alle, v_ges from schule.lernziel_stand s where s.lernender_id = p_lernender and s.einheit_id = p_einheit and s.pflicht;
+  if v_alle = 0 or v_offen > 0 then return jsonb_build_object('faellig', false, 'grund', 'einheit_offen'); end if;
+  if v_fehler > 0 then return jsonb_build_object('faellig', false, 'grund', 'erst_korrektur'); end if;
+  if v_ges = v_alle then return jsonb_build_object('faellig', false, 'grund', 'gesichert'); end if;
+  select count(*) into v_best from schule.testsitzung t where t.lernender_id = p_lernender and t.einheit_id = p_einheit and t.art = 'nachtest' and t.ergebnis = 'bestanden';
+  select * into v_letzt from schule.testsitzung t where t.lernender_id = p_lernender and t.einheit_id = p_einheit and t.art = 'nachtest' and t.status = 'abgeschlossen'
+    order by t.abgeschlossen_am desc, t.id desc limit 1;
+  if v_letzt.id is not null and v_letzt.ergebnis in ('wiederholen','rueckreise') then
+    select max(t.abgeschlossen_am) into v_anker from schule.testsitzung t where t.lernender_id = p_lernender and t.einheit_id = p_einheit
+      and t.art = 'korrektur' and t.status = 'abgeschlossen' and t.abgeschlossen_am >= v_letzt.abgeschlossen_am;
+    v_anker := coalesce(v_anker, v_letzt.abgeschlossen_am); v_soll := v_wdh; v_art := 'wiederholung';
+  elsif v_letzt.id is not null then
+    v_anker := v_letzt.abgeschlossen_am; v_soll := (v_abst->>least(v_best, jsonb_array_length(v_abst) - 1))::int; v_art := 'runde';
+  else
+    select max(t.abgeschlossen_am) into v_anker from schule.testsitzung t where t.lernender_id = p_lernender and t.einheit_id = p_einheit
+      and t.art in ('blocktest','korrektur') and t.status = 'abgeschlossen';
+    v_soll := (v_abst->>0)::int; v_art := 'runde';
+  end if;
+  v_seit := schule.lerntage_seit(p_lernender, coalesce(v_anker, now()));
+  v_je := schule.nachtest_je_etappe(v_alle); -- NT-S
+  select coalesce(min(n), 0) into v_vorrat from (
+    select s.lernziel, count(a.id) / greatest(v_je, 1) n from schule.lernziel_stand s
+    left join schule.aufgabe a on a.einheit_id = p_einheit and a.variante_gruppe = s.lernziel and a.pool = 'sicherung'
+      and not exists (select 1 from schule.versuch v where v.lernender_id = p_lernender and v.aufgabe_id = a.id)
+      and not exists (select 1 from schule.testsitzung x where x.lernender_id = p_lernender and a.id = any(x.aufgaben))
+    where s.lernender_id = p_lernender and s.einheit_id = p_einheit and s.pflicht group by s.lernziel) q;
+  return jsonb_build_object('faellig', v_seit >= v_soll, 'grund', case when v_seit >= v_soll then 'faellig' else 'noch_nicht_faellig' end,
+    'art', v_art, 'runde', least(v_best + 1, 3), 'folgerunde', v_best >= 3, 'bestandene_runden', v_best, 'lerntage_seit', v_seit, 'lerntage_noetig', v_soll, 'anker', v_anker,
+    'aufgaben_je_etappe', v_je, 'vorrat_runden', v_vorrat, 'nachschub_noetig', v_vorrat <= 1);
+end 

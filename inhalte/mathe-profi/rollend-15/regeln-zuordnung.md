@@ -2,7 +2,7 @@
 
 Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt), nicht das Thema. Jede Kennung wurde gegen `inhalte/mathe-profi/regeln-uebersicht/kennungen.json` gelesen; `bauen.py` prüft, dass sie im Katalog steht und das Thema in der Themenliste der Regel steht (Ausnahmen unten). Quelle der Daten: die Angaben `regel` / `ohne` / `zweifel` in `th_*.py`; `regeln.py` und diese Tabelle werden von `bauen.py` erzeugt.
 
-**173 Aufgaben mit Regel, 19 ohne.**
+**178 Aufgaben mit Regel, 29 ohne.**
 
 ## Verteilung
 
@@ -17,6 +17,7 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | `id.verhaeltnisse.prozent` | Prozent als Faktor | 14 |
 | `id.funktionen.gleichung_form` | Gleichung und Form | 9 |
 | `rr.tauschen` | Tauschen, Klammern, Zusammenfassen | 5 |
+| `id.daten.anteil` | Anteil | 4 |
 | `rr.ausmultiplizieren` | Ausmultiplizieren und Ausklammern | 4 |
 | `rr.gegenrechnung` | Gegenrechnung | 4 |
 | `rr.reihenfolge` | Reihenfolge beim Rechnen | 4 |
@@ -26,8 +27,9 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | `rr.nullprodukt` | Nullprodukt | 3 |
 | `id.algebra.hoeherer_grad` | Höherer Grad | 2 |
 | `id.algebra.term` | Term | 2 |
+| `id.daten.stufen` | Stufen | 1 |
 | `rr.vorzeichen` | Vorzeichen bei Mal und Geteilt | 1 |
-| – (ohne Regel) |  | 19 |
+| – (ohne Regel) |  | 29 |
 
 ## Ausnahmen von der Themenliste des Katalogs (von Hand gelesen)
 
@@ -57,6 +59,16 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V188 | trigo.rechtwinklig.beziehungen | Beziehungen zwischen Sinus, Kosinus und Tangens: keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V191 | trigo.rechtwinklig.schnittwinkel | Steigung und Winkel einer Geraden (Tangens als Steigung): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V192 | trigo.rechtwinklig.schnittwinkel | Steigung und Winkel einer Geraden (Tangens als Steigung): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V193 | stochastik.verknuepft.elemente | Mengen und Mengenoperationen zählen (Elemente, Schnitt, Vereinigung): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V194 | stochastik.verknuepft.schnitt | Mengen und Mengenoperationen zählen (Elemente, Schnitt, Vereinigung): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V195 | stochastik.verknuepft.verknuepfen | Mengen und Mengenoperationen zählen (Elemente, Schnitt, Vereinigung): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V196 | stochastik.verknuepft.additionssatz | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V197 | stochastik.verknuepft.additionssatz | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V198 | stochastik.verknuepft.venn | Mengen und Mengenoperationen zählen (Elemente, Schnitt, Vereinigung): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V199 | stochastik.verknuepft.mengen_verstehen | Mengen und Mengenoperationen zählen (Elemente, Schnitt, Vereinigung): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V200 | stochastik.verknuepft.vierfeld | Vierfeldertafel ausfüllen (Zeilen- und Spaltensummen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V201 | stochastik.verknuepft.vierfeld | Vierfeldertafel ausfüllen (Zeilen- und Spaltensummen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V207 | stochastik.verknuepft.verstehen | Unabhängigkeit und Unvereinbarkeit unterscheiden: keine Regel des Katalogs trägt den Lösungsweg |
 
 ## Zweifelsfälle
 
@@ -93,6 +105,9 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V186 | trigo.rechtwinklig.winkel | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
 | R15-V189 | trigo.rechtwinklig.anwendung | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
 | R15-V190 | trigo.rechtwinklig.anwendung | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
+| R15-V202 | stochastik.verknuepft.tafel_wkeit | `id.daten.anteil` | Vierfeldertafel mit Wahrscheinlichkeiten: id.daten.anteil trägt die Deutung als Anteil, das Ausfüllen der Tafel hat keine eigene Regel |
+| R15-V203 | stochastik.verknuepft.bedingt | `id.daten.anteil` | Bedingte Wahrscheinlichkeit als Anteil: id.daten.anteil trägt Günstige durch Mögliche |
+| R15-V206 | stochastik.verknuepft.verstehen | `id.daten.anteil` | Deutung der bedingten Wahrscheinlichkeit: id.daten.anteil (Anteil von was?) |
 
 ## Alle Aufgaben
 
@@ -290,3 +305,18 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V190 | trigo.rechtwinklig.anwendung | `id.geometrie.rechtwinklig` |
 | R15-V191 | trigo.rechtwinklig.schnittwinkel | – |
 | R15-V192 | trigo.rechtwinklig.schnittwinkel | – |
+| R15-V193 | stochastik.verknuepft.elemente | – |
+| R15-V194 | stochastik.verknuepft.schnitt | – |
+| R15-V195 | stochastik.verknuepft.verknuepfen | – |
+| R15-V196 | stochastik.verknuepft.additionssatz | – |
+| R15-V197 | stochastik.verknuepft.additionssatz | – |
+| R15-V198 | stochastik.verknuepft.venn | – |
+| R15-V199 | stochastik.verknuepft.mengen_verstehen | – |
+| R15-V200 | stochastik.verknuepft.vierfeld | – |
+| R15-V201 | stochastik.verknuepft.vierfeld | – |
+| R15-V202 | stochastik.verknuepft.tafel_wkeit | `id.daten.anteil` |
+| R15-V203 | stochastik.verknuepft.bedingt | `id.daten.anteil` |
+| R15-V204 | stochastik.verknuepft.bedingt | `id.daten.stufen` |
+| R15-V205 | stochastik.verknuepft.rueckschluss | `id.daten.anteil` |
+| R15-V206 | stochastik.verknuepft.verstehen | `id.daten.anteil` |
+| R15-V207 | stochastik.verknuepft.verstehen | – |

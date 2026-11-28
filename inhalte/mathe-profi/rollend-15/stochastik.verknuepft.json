@@ -1,0 +1,787 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-15",
+ "kuerzel": "R15",
+ "flug": "r15-stochastik.verknuepft",
+ "titel": "stochastik.verknuepft",
+ "fuer": "Klasse 9",
+ "klasse": 9,
+ "themen": [
+  "stochastik.verknuepft"
+ ],
+ "themen_datei_im_bestand": "stochastik.verknuepft",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R15-V193",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "elemente",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 90 vergessen"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 09 mitgezählt"
+    },
+    {
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen 9 und 99 mitgezählt, obwohl ihre Ziffernsumme 9 und 18 ist"
+    }
+   ],
+   "aufgabe": {
+    "l": "elemente",
+    "t": "elemente",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele zweistellige Zahlen haben die Ziffernsumme 9?"
+    },
+    "o": {
+     "wert": 9
+    },
+    "c": "9",
+    "h": "Schreibe die Zahlen geordnet auf: Die Zehnerziffer läuft von 1 bis 9, die Einerziffer ergänzt zur Ziffernsumme.",
+    "w": "Es sind 18, 27, 36, 45, 54, 63, 72, 81 und 90. Das sind 9 Zahlen. 09 zählt nicht, weil es keine zweistellige Zahl ist."
+   }
+  },
+  {
+   "kennung": "R15-V194",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "schnitt",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Zahlen 1, 2 und 3 gefunden"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den größten gemeinsamen Teiler als Anzahl genommen"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahl der Teiler von 36 genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "schnitt",
+    "t": "schnitt",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "A ist die Menge aller Teiler von 36, B die Menge aller Teiler von 48. Wie viele Elemente hat der Schnitt A ∩ B?"
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "6",
+    "h": "Schreibe beide Teilermengen auf und streiche, was nur in einer von beiden vorkommt. Oder: Welche Zahl teilt beide, und welche Teiler hat sie?",
+    "w": "Die Teiler von 36 sind 1, 2, 3, 4, 6, 9, 12, 18, 36. Die Teiler von 48 sind 1, 2, 3, 4, 6, 8, 12, 16, 24, 48. In beiden stehen 1, 2, 3, 4, 6 und 12. Das sind 6 Elemente."
+   }
+  },
+  {
+   "kennung": "R15-V195",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "verknuepfen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Elemente beider Mengen addiert, die gemeinsamen doppelt gezählt"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Schnitt genommen"
+    },
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die größere Menge genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "verknuepfen",
+    "t": "verknuepfen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "A ist die Menge der Vielfachen von 6 bis 60, B die Menge der Vielfachen von 4 bis 60. Wie viele Elemente hat die Vereinigung A ∪ B?"
+    },
+    "o": {
+     "wert": 20
+    },
+    "c": "10 + 15 - 5",
+    "h": "Zähle erst A und B, dann die Zahlen, die in beiden stehen. Welche Zahlen sind das?",
+    "w": "A hat 10 Elemente (6, 12, …, 60), B hat 15 Elemente (4, 8, …, 60). In beiden stehen die Vielfachen von 12: 12, 24, 36, 48, 60, das sind 5. Vereinigung: 10 + 15 − 5 = 20."
+   }
+  },
+  {
+   "kennung": "R15-V196",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "additionssatz",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 42,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 10 mit beidem doppelt gezählt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von der Gruppe nur die Sonnencreme-Träger abgezogen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahl als Prozentzahl genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "additionssatz",
+    "t": "additionssatz",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "In einer Reisegruppe von 40 Personen haben 24 Sonnencreme dabei, 18 einen Hut und 10 beides. Mindestens eines von beiden haben ① Personen. Keines von beiden haben ② Personen. Das sind ③ Prozent der Gruppe.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      32,
+      8,
+      20
+     ]
+    },
+    "c": [
+     "24 + 18 - 10",
+     "40 - (24 + 18 - 10)",
+     "(40 - (24 + 18 - 10)) * 100 / 40"
+    ],
+    "h": "Wer beides hat, steht in beiden Zahlen 24 und 18. Wie oft darf man ihn zählen?",
+    "w": "Mindestens eines: 24 + 18 − 10 = 32. Keines: 40 − 32 = 8. Anteil: 8 : 40 = 0,2 = 20 %."
+   }
+  },
+  {
+   "kennung": "R15-V197",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "additionssatz",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.63,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wahrscheinlichkeit für beides doppelt gezählt"
+    },
+    {
+     "antwort": 0.72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Schnitt addiert statt abgezogen"
+    },
+    {
+     "antwort": 0.07,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wahrscheinlichkeiten voneinander abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "additionssatz",
+    "t": "additionssatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "In einem Reisebüro gewinnt man mit Wahrscheinlichkeit 0,35 einen Hotelgutschein (A) und mit 0,28 einen Flugrabatt (B). Mit Wahrscheinlichkeit 0,09 gewinnt man beides. Wie groß ist die Wahrscheinlichkeit, mindestens einen der beiden Preise zu gewinnen?"
+    },
+    "o": {
+     "wert": 0.54
+    },
+    "c": "0.35 + 0.28 - 0.09",
+    "h": "Wer beides gewinnt, ist in beiden Wahrscheinlichkeiten enthalten. Wie oft soll er zählen?",
+    "w": "P(A ∪ B) = P(A) + P(B) − P(A ∩ B) = 0,35 + 0,28 − 0,09 = 0,54."
+   }
+  },
+  {
+   "kennung": "R15-V198",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "venn",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Schnittelemente doppelt gezählt"
+    },
+    {
+     "antwort": 19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Schnitt nur einmal abgezogen, also die Vereinigung statt genau eine Menge"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Elemente genommen, die nur in A liegen"
+    }
+   ],
+   "aufgabe": {
+    "l": "venn",
+    "t": "venn",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Im Venn-Diagramm liegen von 25 Elementen 14 in A, 11 in B und 6 in beiden. Wie viele Elemente liegen in genau einer der beiden Mengen?"
+    },
+    "o": {
+     "wert": 13
+    },
+    "c": "(14 - 6) + (11 - 6)",
+    "h": "Trenne jede Menge in den Teil, der nur ihr gehört, und den Teil im Schnitt.",
+    "w": "Nur in A: 14 − 6 = 8. Nur in B: 11 − 6 = 5. Genau eine Menge: 8 + 5 = 13."
+   }
+  },
+  {
+   "kennung": "R15-V199",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "mengen_verstehen",
+   "stufe": 3,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "A ∩ B = B und A ∪ B = A",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Schnitt und Vereinigung vertauscht"
+    },
+    {
+     "index": 1,
+     "antwort": "A ∩ B = ∅ und A ∪ B = B",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Mengen haben gemeinsame Elemente, der Schnitt ist nicht leer"
+    },
+    {
+     "index": 3,
+     "antwort": "A ∩ B = A und A ∪ B = A",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Vereinigung enthält auch die Elemente von B"
+    }
+   ],
+   "aufgabe": {
+    "l": "mengen_verstehen",
+    "t": "mengen_verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Es gilt A ⊂ B: Jedes Element von A liegt auch in B. Welche Aussage über die Schnittmenge und die Vereinigung stimmt?"
+    },
+    "a": [
+     "A ∩ B = B und A ∪ B = A",
+     "A ∩ B = ∅ und A ∪ B = B",
+     "A ∩ B = A und A ∪ B = B",
+     "A ∩ B = A und A ∪ B = A"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Wähle selbst ein Beispiel: A = {2, 4} und B = {1, 2, 3, 4}. Bestimme beide Mengen.",
+    "w": "Im Beispiel A = {2, 4} und B = {1, 2, 3, 4} gilt A ∩ B = {2, 4} = A und A ∪ B = {1, 2, 3, 4} = B. Das gilt allgemein: Was in A liegt, liegt auch in B."
+   }
+  },
+  {
+   "kennung": "R15-V200",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "vierfeld",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 91,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen addiert statt subtrahiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 68,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen addiert statt subtrahiert"
+    },
+    {
+     "luecke": 3,
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Männer mit Ski nicht abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierfeld",
+    "t": "vierfeld",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "In einem Skiort sind 100 Gäste. Davon sind 64 Frauen, 41 fahren Ski, und 27 Frauen fahren Ski. Frauen ohne Ski gibt es ①. Männer mit Ski gibt es ②. Männer ohne Ski gibt es ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      37,
+      14,
+      22
+     ]
+    },
+    "c": [
+     "64 - 27",
+     "41 - 27",
+     "100 - 64 - (41 - 27)"
+    ],
+    "h": "Trage die Zahlen in eine Vierfeldertafel ein. Jede Zeile und jede Spalte ergibt die angegebene Summe.",
+    "w": "Frauen ohne Ski: 64 − 27 = 37. Männer mit Ski: 41 − 27 = 14. Männer insgesamt: 100 − 64 = 36, davon 14 mit Ski, also 36 − 14 = 22 ohne Ski."
+   }
+  },
+  {
+   "kennung": "R15-V201",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "vierfeld",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 53,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Männer mit Rad von den Frauen abgezogen"
+    },
+    {
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Frauen mit Rad berechnet"
+    },
+    {
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahl der Männer genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierfeld",
+    "t": "vierfeld",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Von 120 Reisenden sind 72 Frauen. 47 Reisende fahren Rad, davon sind 19 Männer. Wie viele Frauen fahren nicht Rad?"
+    },
+    "o": {
+     "wert": 44
+    },
+    "c": "72 - (47 - 19)",
+    "h": "Zeichne eine Vierfeldertafel mit Frau/Mann und Rad/nicht Rad. Beginne mit den Radfahrern.",
+    "w": "Frauen mit Rad: 47 − 19 = 28. Frauen insgesamt 72, also Frauen ohne Rad: 72 − 28 = 44."
+   }
+  },
+  {
+   "kennung": "R15-V202",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "tafel_wkeit",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.78,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wahrscheinlichkeit für Frau oder Ski statt ihres Gegenteils genommen"
+    },
+    {
+     "antwort": 0.13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von den Männern den Wert für Frau und Ski abgezogen"
+    },
+    {
+     "antwort": 0.18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur Männer mit Ski berechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "tafel_wkeit",
+    "t": "tafel_wkeit",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Bei Gästen eines Hotels gilt: Mit Wahrscheinlichkeit 0,6 ist ein Gast eine Frau, mit 0,45 fährt er Ski, und mit 0,27 ist er eine Frau, die Ski fährt. Wie groß ist die Wahrscheinlichkeit, dass ein Gast ein Mann ist, der nicht Ski fährt?"
+    },
+    "o": {
+     "wert": 0.22
+    },
+    "c": "1 - (0.6 + 0.45 - 0.27)",
+    "h": "Fülle eine Vierfeldertafel mit Wahrscheinlichkeiten. Männer ohne Ski ist das letzte Feld.",
+    "w": "Mann: 1 − 0,6 = 0,4. Mann und Ski: 0,45 − 0,27 = 0,18. Mann ohne Ski: 0,4 − 0,18 = 0,22."
+   }
+  },
+  {
+   "kennung": "R15-V203",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "bedingt",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.53,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch die Wahrscheinlichkeit für Ski geteilt, also die umgekehrte bedingte Wahrscheinlichkeit"
+    },
+    {
+     "antwort": 0.144,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wahrscheinlichkeiten malgenommen"
+    },
+    {
+     "antwort": 0.36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Wert für Frauen ohne Ski berechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "bedingt",
+    "t": "bedingt",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Mit Wahrscheinlichkeit 0,6 ist ein Gast eine Frau, mit 0,45 fährt er Ski, und mit 0,24 ist er eine Frau, die Ski fährt. Ein Gast ist eine Frau. Wie groß ist die Wahrscheinlichkeit, dass sie Ski fährt?"
+    },
+    "o": {
+     "wert": 0.4
+    },
+    "c": "0.24 / 0.6",
+    "h": "Es geht nur um die Frauen. Welcher Anteil der Frauen fährt Ski?",
+    "w": "P(Ski | Frau) = P(Frau ∩ Ski) : P(Frau) = 0,24 : 0,6 = 0,4."
+   }
+  },
+  {
+   "kennung": "R15-V204",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "bedingt",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.36,
+     "fehlbild": "fb.stufen.ohne_zuruecklegen_uebersehen",
+     "regel_des_fehlbilds": "id.daten.stufen",
+     "beschreibung": "wie beim Ziehen mit Zurücklegen gerechnet"
+    },
+    {
+     "antwort": 0.267,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "im zweiten Zug die gelben statt der roten gezählt"
+    },
+    {
+     "antwort": 1.1555555555555554,
+     "fehlbild": "fb.stufen.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "id.daten.stufen",
+     "beschreibung": "entlang des Pfads addiert statt malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "bedingt",
+    "t": "bedingt",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Aus einer Tüte mit 6 roten und 4 gelben Gummibärchen zieht Kim zwei ohne Zurücklegen. Wie groß ist die Wahrscheinlichkeit, dass beide rot sind? Runde auf drei Dezimalstellen."
+    },
+    "o": {
+     "wert": 0.333,
+     "toleranz": 0.001
+    },
+    "c": "round(0.3333333333333333, 3)",
+    "h": "Nach dem ersten Zug hat sich die Tüte verändert. Wie viele rote und wie viele Bärchen insgesamt sind noch darin?",
+    "w": "Erster Zug rot: 6 von 10. Dann sind noch 5 rote unter 9 Bärchen. Entlang des Pfads wird malgenommen: 6/10 · 5/9 = 30/90 = 1/3 ≈ 0,333."
+   }
+  },
+  {
+   "kennung": "R15-V205",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "rueckschluss",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.44,
+     "fehlbild": "fb.anteil.guenstig_durch_unguenstig",
+     "regel_des_fehlbilds": "id.daten.anteil",
+     "beschreibung": "durch die Schäden ohne Versicherung statt durch alle Schäden geteilt"
+    },
+    {
+     "antwort": 0.1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die gegebene Wahrscheinlichkeit für Schaden bei Versicherten genommen"
+    },
+    {
+     "antwort": 0.04,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch alle Reisenden statt durch alle mit Schaden geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "rueckschluss",
+    "t": "rueckschluss",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Von 200 Reisenden haben 80 eine Reiseversicherung. Von den Versicherten melden 10 % einen Schaden, von den Nichtversicherten 15 %. Ein Reisender hat einen Schaden gemeldet. Wie groß ist die Wahrscheinlichkeit, dass er versichert ist? Runde auf zwei Dezimalstellen."
+    },
+    "o": {
+     "wert": 0.31,
+     "toleranz": 0.01
+    },
+    "c": "round(0.3076923076923077, 2)",
+    "h": "Berechne zuerst, wie viele Reisende insgesamt einen Schaden melden, und davon, wie viele versichert sind.",
+    "w": "Versichert mit Schaden: 10 % von 80 = 8. Nicht versichert (120 Personen) mit Schaden: 15 % von 120 = 18. Insgesamt 26 Schäden. Anteil versichert: 8 : 26 ≈ 0,31."
+   }
+  },
+  {
+   "kennung": "R15-V206",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Von allen Regentagen haben 80 % Wolken am Morgen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Bedingung vertauscht: das wäre P(Wolken | Regen)"
+    },
+    {
+     "index": 2,
+     "antwort": "An 80 % aller Tage regnet es.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Bedingung „Wolken am Morgen“ nicht beachtet"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "An einem Urlaubsort gilt: Wahrscheinlichkeit für Regen unter der Bedingung „Wolken am Morgen“ ist 0,8. Welche Aussage passt dazu?"
+    },
+    "a": [
+     "Von allen Regentagen haben 80 % Wolken am Morgen.",
+     "Von allen Tagen mit Wolken am Morgen regnet es an 80 %.",
+     "An 80 % aller Tage regnet es."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Die Bedingung steht hinter dem senkrechten Strich: Auf welche Tage bezieht sich der Anteil 0,8?",
+    "w": "P(Regen | Wolken) betrachtet nur die Tage mit Wolken am Morgen. Von diesen regnet es an 80 %. Das ist etwas anderes als der Anteil der Wolkentage unter den Regentagen."
+   }
+  },
+  {
+   "kennung": "R15-V207",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Alex untersucht Reisende: 30 % fliegen (F), 40 % buchen ein Hotel (H), 12 % tun beides. Er schreibt: Zeile 1: Es gilt P(F ∩ H) = 0,12. Zeile 2: Außerdem ist P(F) · P(H) = 0,3 · 0,4 = 0,12, also sind F und H unabhängig. Zeile 3: Unabhängige Ereignisse schließen sich aus, also ist F ∩ H leer. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Wenn F ∩ H leer wäre, was wäre P(F ∩ H)? Passt das zu Zeile 1?",
+    "w": "Unabhängig und unvereinbar sind verschiedene Begriffe. Unabhängig heißt P(F ∩ H) = P(F) · P(H). Unvereinbar heißt, dass F ∩ H leer ist, also P(F ∩ H) = 0. Hier ist P(F ∩ H) = 0,12, also nicht leer. Der Fehler steckt in Zeile 3."
+   }
+  }
+ ]
+}

@@ -124,10 +124,22 @@ insert into schule.lern_sitzung (token_hash, login_id, laeuft_ab) select 't' || 
         r = json.loads(tq(f"select api.schule_fehler_abhaken({kid(4)}, '{{\"lernender_id\": 1, \"markierung_ids\": [{mid}], \"zurueck\": true}}');"))
         assert r['geaendert'] == 0 and r['uebersprungen'] == [{'markierung_id': mid, 'versuch_id': int(v), 'grund': 'schon zurückgeholt'}], r
         print('WW-S3 Antwortformen:', json.dumps(r, ensure_ascii=False))
+        # Negativprobe Altweg (Auflagen aus Werkstatt 1165): neu markieren, alte ID -> „überholt“, zurueck + versuch_ids -> abgewiesen, neue Markierung bleibt
+        r = json.loads(tq(f"select api.schule_fehler_abhaken({kid(3)}, '{{\"lernender_id\": 1, \"versuch_ids\": [{v}, {v}]}}');"))
+        assert r['geaendert'] == 1 and r['geaendert_ids'] == [int(v)] and r['uebersprungen'] == [], r   # doppelt genannt: einmal
+        mid2 = r['markierung_ids'][0]
+        r = json.loads(tq(f"select api.schule_fehler_abhaken({kid(4)}, '{{\"lernender_id\": 1, \"markierung_ids\": [{mid}, {mid}], \"zurueck\": true}}');"))
+        assert r['geaendert'] == 0 and r['uebersprungen'] == [{'markierung_id': mid, 'versuch_id': int(v), 'grund': 'überholt'}], r   # genau einmal
+        for q in (f'{{\"lernender_id\": 1, \"versuch_ids\": [{v}], \"zurueck\": true}}', '{\"lernender_id\": 1, \"zurueck\": true}'):
+            pg.sql(f"select api.schule_fehler_abhaken({kid(4)}, '{q}');", erwartet_fehler='Zurückholen nur mit markierung_ids')
+        pg.sql(f"select schule.fehler_abhaken(1, '[{v}]', true, 'test');", erwartet_fehler='Zurückholen nur mit markierung_ids')   # auch intern
+        assert tq(f"select count(*) from schule.fehler_erledigt where id = {mid2} and zurueckgenommen_am is null;") == '1'
         # Edge-Funktion: genau die zwei Aktionen, keine Nachüben-Aktion, Version 0.9.6 mit markierung_ids?
         ts = (T.WURZEL / 'supabase/functions/lernen-api/index.ts').read_text(encoding='utf-8')
         assert "const VERSION = '0.9.6'" in ts and "schule_wackelt_analyse: ['lernender_id', 'tage?', 'erledigt?']," in ts
-        assert "schule_fehler_abhaken: ['lernender_id', 'versuch_ids', 'zurueck?', 'markierung_ids?']," in ts and 'schule_nachueben' not in ts.split('const AKTIONEN')[1]
+        assert "schule_fehler_abhaken: ['lernender_id', 'versuch_ids?', 'zurueck?', 'markierung_ids?']," in ts and 'schule_nachueben' not in ts.split('const AKTIONEN')[1]
+        assert "schule_fehler_abhaken: 'Markieren: lernender_id, versuch_ids. Zurückholen: lernender_id, zurueck = true, markierung_ids (ohne versuch_ids).'," in ts
+        assert '...(HINWEISE[aktion] ? { hinweis: HINWEISE[aktion] } : {})' in ts
         print('WW-S2 im Nachbau bestanden')
         print('WW-S3 im Nachbau bestanden')
     finally:

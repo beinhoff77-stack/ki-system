@@ -65,7 +65,19 @@ def verdorben3(mig):
         'Migration ändert eine bestehende Funktion außerhalb von WW': mig + "\ncreate or replace function schule.ist_lern(p_schluessel text) returns boolean language sql immutable as $$ select coalesce(left(p_schluessel, 5) = 'lern:', false) and true $$;\n",
         'zuletzt_tag in UTC': ersetzt(mig, "'zuletzt_tag', (b.zuletzt at time zone v_tz)::date", "'zuletzt_tag', (b.zuletzt at time zone 'UTC')::date"),
         'besprochen ohne fehler': ersetzt(mig, "'tage', b.tage, 'fehler', b.fehler,", "'tage', b.tage,"),
-        'Markieren liefert falsche markierung_ids': ersetzt(mig, "jsonb_build_object('markierung_ids', to_jsonb(v_mids))", "jsonb_build_object('markierung_ids', to_jsonb(v_ids))"),
+        'Altweg wieder offen': ersetzt(ersetzt(ersetzt(mig,
+            "  if coalesce(p_zurueck, false) then raise exception 'Zurückholen nur mit markierung_ids' using errcode = 'P0001'; end if;\n", ''),
+            "    insert into schule.fehler_erledigt (lernender_id, versuch_id, von) values (p_l, z.versuch_id, p_von)\n"
+            "      on conflict (versuch_id) where zurueckgenommen_am is null do nothing returning id into v_m;",
+            "    if coalesce(p_zurueck, false) then\n      update schule.fehler_erledigt set zurueckgenommen_am = now(), zurueckgenommen_von = p_von\n"
+            "       where versuch_id = z.versuch_id and lernender_id = p_l and zurueckgenommen_am is null returning id into v_m;\n    else\n"
+            "    insert into schule.fehler_erledigt (lernender_id, versuch_id, von) values (p_l, z.versuch_id, p_von)\n"
+            "      on conflict (versuch_id) where zurueckgenommen_am is null do nothing returning id into v_m;\n    end if;"),
+            "  if v_z then raise exception 'Zurückholen nur mit markierung_ids' using errcode = 'P0001'; end if;   -- kein Rückholweg über versuch_ids\n"
+            "  return schule.fehler_abhaken(v_l, p_daten->'versuch_ids', false,",
+            "  return schule.fehler_abhaken(v_l, p_daten->'versuch_ids', v_z,"),
+        'Zurückholen meldet doppelte IDs zweimal': ersetzt(mig, "   where not (i.id = any(v_neu));", "   cross join (values (1), (2)) d(n) where not (i.id = any(v_neu)) and (d.n = 1 or i.id < 0 or true);"),
+        'Markieren liefert falsche markierung_ids': ersetzt(mig, "'markierung_ids', to_jsonb(v_mids)", "'markierung_ids', to_jsonb(v_ids)"),
     }
 
 

@@ -1,0 +1,757 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-15",
+ "kuerzel": "R15",
+ "flug": "r15-abbildungen.kongruenz",
+ "titel": "abbildungen.kongruenz",
+ "fuer": "Klasse 7",
+ "klasse": 7,
+ "themen": [
+  "abbildungen.kongruenz"
+ ],
+ "themen_datei_im_bestand": "abbildungen.kongruenz",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R15-V047",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "achsenspiegelung",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die x-Koordinate von P zur Lage der Achse addiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "fehlbild": "fb.deckungsgleich.an_koordinatenachse_gespiegelt",
+     "regel_des_fehlbilds": "id.geometrie.deckungsgleich",
+     "beschreibung": "den Bildpunkt wieder auf die Seite von P gelegt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Abstand von P zur Achse als Länge genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "achsenspiegelung",
+    "t": "achsenspiegelung",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Der Punkt P(2 | 5) wird an der senkrechten Geraden x = 6 gespiegelt. P hat von dieser Geraden den Abstand ①. Der Bildpunkt P' liegt auf der anderen Seite im selben Abstand. Seine x-Koordinate ist ②. Die Strecke PP' ist ③ Einheiten lang.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      4,
+      10,
+      8
+     ]
+    },
+    "c": [
+     "6 - 2",
+     "6 + (6 - 2)",
+     "2 * (6 - 2)"
+    ],
+    "h": "Spiegeln heißt: gleich weit auf die andere Seite der Achse. Die y-Koordinate bleibt bei einer senkrechten Achse gleich.",
+    "w": "Abstand von P zur Achse: 6 − 2 = 4. P' liegt 4 Einheiten rechts der Achse: x = 6 + 4 = 10, also P'(10 | 5). Die Strecke PP' ist 10 − 2 = 8 Einheiten lang, doppelt so lang wie der Abstand zur Achse."
+   }
+  },
+  {
+   "kennung": "R15-V048",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "achsenspiegelung",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -5,
+     "fehlbild": "fb.deckungsgleich.an_koordinatenachse_gespiegelt",
+     "regel_des_fehlbilds": "id.geometrie.deckungsgleich",
+     "beschreibung": "an der y-Achse gespiegelt statt am Kanal"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die x-Koordinate von A zum Wert der Achse addiert"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abstand falsch herum abgetragen und das Vorzeichen vertauscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "achsenspiegelung",
+    "t": "achsenspiegelung",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Auf einem Stadtplan verläuft ein gerader Kanal senkrecht entlang der Geraden x = 1. Ein Café liegt im Punkt A(5 | −2). Ein Zwillingscafé B soll genau gegenüber auf der anderen Kanalseite liegen, als Spiegelbild von A am Kanal. Welche x-Koordinate hat B?"
+    },
+    "o": {
+     "wert": -3
+    },
+    "c": "2 * 1 - 5",
+    "h": "Wie weit ist A vom Kanal entfernt? B liegt im gleichen Abstand auf der anderen Seite.",
+    "w": "A hat vom Kanal den Abstand 5 − 1 = 4. B liegt 4 Einheiten links vom Kanal: x = 1 − 4 = −3. Die y-Koordinate bleibt −2. B(−3 | −2)."
+   }
+  },
+  {
+   "kennung": "R15-V049",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "achsenspiegelung",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "achsenspiegelung",
+    "t": "achsenspiegelung",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Punkt P(4 | −3) wird an der x-Achse gespiegelt. Kim schreibt auf: Zeile 1: Bei einer Spiegelung an der x-Achse wechselt die x-Koordinate das Vorzeichen. Zeile 2: Also wird P(4 | −3) zu P'(−4 | −3). Zeile 3: Der Abstand von P' zur x-Achse ist 3. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Die x-Achse liegt waagerecht. Zeichne P und seine Spiegelung: Ändert sich die Höhe oder die Lage links und rechts?",
+    "w": "Die x-Achse ist waagerecht. Beim Spiegeln an ihr wechselt die y-Koordinate das Vorzeichen, die x-Koordinate bleibt: P'(4 | 3). Der Fehler steckt in Zeile 1. Zeile 2 und 3 folgen richtig aus Zeile 1."
+   }
+  },
+  {
+   "kennung": "R15-V050",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "mittelsenkrechte",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": "fb.abstand.halbe_laenge_statt_mitte",
+     "regel_des_fehlbilds": "id.geometrie.abstand",
+     "beschreibung": "die halbe Länge der Strecke statt die Lage der Mitte genommen"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die ganze Länge der Strecke genommen"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden x-Koordinaten nicht halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "mittelsenkrechte",
+    "t": "mittelsenkrechte",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei Bergstationen liegen im Koordinatensystem bei A(−6 | 2) und B(12 | 2). Ein Wanderweg soll überall gleich weit von A und B entfernt sein und verläuft senkrecht (parallel zur y-Achse). Er liegt auf der Geraden x = k. Wie groß ist k?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "(-6 + 12) / 2",
+    "h": "Der Weg liegt auf der Mittelsenkrechten von AB. Sie geht durch die Mitte der Strecke.",
+    "w": "Die Mittelsenkrechte von AB geht durch den Mittelpunkt von [AB]. Die x-Koordinate der Mitte ist (−6 + 12) : 2 = 3. Der Weg liegt auf der Geraden x = 3."
+   }
+  },
+  {
+   "kennung": "R15-V051",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "mittelsenkrechte",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "AC und BC zusammen als Länge von AC genommen"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die halbe Länge von AB genommen"
+    },
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den halben Umfang genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "mittelsenkrechte",
+    "t": "mittelsenkrechte",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Im Dreieck ABC liegt der Punkt C auf der Mittelsenkrechten der Seite [AB]. Es gilt AB = 12 cm. Der Umfang des Dreiecks beträgt 30 cm. Wie lang ist die Seite [AC]?"
+    },
+    "o": {
+     "wert": 9,
+     "einheit": "cm"
+    },
+    "c": "(30 - 12) / 2",
+    "h": "Jeder Punkt auf der Mittelsenkrechten ist von A und B gleich weit entfernt. Was folgt für AC und BC?",
+    "w": "C liegt auf der Mittelsenkrechten, also gilt AC = BC. Der Umfang ist AB + AC + BC = 30. Mit AB = 12 bleiben für AC und BC zusammen 18 cm, also AC = 9 cm."
+   }
+  },
+  {
+   "kennung": "R15-V052",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "winkelhalbierende",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Winkel γ selbst angegeben, ohne zu halbieren"
+    },
+    {
+     "antwort": 34,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Winkel α halbiert"
+    },
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zweimal halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "winkelhalbierende",
+    "t": "winkelhalbierende",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Im Dreieck ABC gilt α = 68° und β = 52°. Die Winkelhalbierende von γ teilt den Winkel γ in zwei gleich große Teile. Wie groß ist der Winkel zwischen dieser Winkelhalbierenden und der Seite [AC]?"
+    },
+    "o": {
+     "wert": 30,
+     "einheit": "°"
+    },
+    "c": "(180 - 68 - 52) / 2",
+    "h": "Berechne zuerst γ mit der Winkelsumme im Dreieck. Halbiere dann.",
+    "w": "γ = 180° − 68° − 52° = 60°. Die Winkelhalbierende teilt γ in zwei Teile zu je 30°. Der gesuchte Winkel ist 30°."
+   }
+  },
+  {
+   "kennung": "R15-V053",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "winkelhalbierende",
+   "stufe": 3,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Schnitt aus der Mittelsenkrechten der beiden Straßen und der Winkelhalbierenden von [H1H2]",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Linien vertauscht"
+    },
+    {
+     "index": 2,
+     "antwort": "Schnitt zweier Winkelhalbierender",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Haltestellen sind Punkte, bei ihnen hilft keine Winkelhalbierende"
+    },
+    {
+     "index": 3,
+     "antwort": "Schnitt zweier Mittelsenkrechter",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Straßen sind Geraden, bei ihnen hilft keine Mittelsenkrechte"
+    }
+   ],
+   "aufgabe": {
+    "l": "winkelhalbierende",
+    "t": "winkelhalbierende",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Café soll von zwei sich kreuzenden Straßen gleich weit entfernt sein und außerdem von den Bushaltestellen H1 und H2 gleich weit entfernt. Wie findest du die möglichen Orte?"
+    },
+    "a": [
+     "Schnitt aus der Winkelhalbierenden der beiden Straßen und der Mittelsenkrechten von [H1H2]",
+     "Schnitt aus der Mittelsenkrechten der beiden Straßen und der Winkelhalbierenden von [H1H2]",
+     "Schnitt zweier Winkelhalbierender",
+     "Schnitt zweier Mittelsenkrechter"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Gleich weit von zwei Geraden entfernt und gleich weit von zwei Punkten entfernt sind zwei verschiedene Bedingungen. Welche Linie gehört zu welcher?",
+    "w": "Gleicher Abstand zu zwei Geraden: Winkelhalbierende der Geraden. Gleicher Abstand zu zwei Punkten: Mittelsenkrechte der Strecke zwischen den Punkten. Der gesuchte Ort liegt auf beiden Linien, also im Schnittpunkt."
+   }
+  },
+  {
+   "kennung": "R15-V054",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "symmetrie",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Achsen durch gegenüberliegende Ecken gezählt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Achsen durch gegenüberliegende Ecken gezählt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Achsenzahlen malgenommen statt addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "symmetrie",
+    "t": "symmetrie",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein regelmäßiges Sechseck hat ① Symmetrieachsen. Ein regelmäßiges Achteck hat ② Symmetrieachsen. Beide Figuren zusammen haben ③ Symmetrieachsen.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      6,
+      8,
+      14
+     ]
+    },
+    "c": [
+     "6",
+     "8",
+     "(6) + (8)"
+    ],
+    "h": "Bei einem regelmäßigen Vieleck mit n Ecken gibt es eine Achse durch jede Ecke und die gegenüberliegende Seite oder Ecke. Wie viele Achsen sind das?",
+    "w": "Ein regelmäßiges n-Eck hat n Symmetrieachsen. Sechseck: 6, Achteck: 8, zusammen 6 + 8 = 14."
+   }
+  },
+  {
+   "kennung": "R15-V055",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "symmetrie",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Achteck nur die Hälfte der Achsen gezählt"
+    },
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Quadrat die Diagonalen nicht gezählt"
+    },
+    {
+     "antwort": 19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Achsen des Quadrats doppelt gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "symmetrie",
+    "t": "symmetrie",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Auf Reisen siehst du drei Verkehrsschilder: ein Vorfahrt-gewähren-Schild (gleichseitiges Dreieck), ein Stoppschild (regelmäßiges Achteck) und ein Vorfahrtstraßen-Schild (Quadrat, auf der Spitze stehend). Wie viele Symmetrieachsen haben die drei Schilder zusammen? Bunte Zeichen und Schrift bleiben unbeachtet, nur die Umrissform zählt."
+    },
+    "o": {
+     "wert": 15,
+     "einheit": "Achsen"
+    },
+    "c": "3 + 8 + 4",
+    "h": "Zähle für jede Umrissform die Achsen. Ein regelmäßiges Vieleck mit n Ecken hat n Achsen.",
+    "w": "Gleichseitiges Dreieck: 3 Achsen. Regelmäßiges Achteck: 8 Achsen. Quadrat: 4 Achsen (zwei Mittellinien und zwei Diagonalen). Zusammen 3 + 8 + 4 = 15 Achsen."
+   }
+  },
+  {
+   "kennung": "R15-V056",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "symmetrie",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "symmetrie",
+    "t": "symmetrie",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Alex untersucht ein Rechteck, das kein Quadrat ist, und schreibt auf: Zeile 1: Ein Rechteck hat zwei Paare gleich langer Seiten. Zeile 2: Die beiden Diagonalen sind gleich lang, also sind sie auch Symmetrieachsen. Zeile 3: Zusammen mit den zwei Mittellinien hat das Rechteck 4 Symmetrieachsen. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Falte ein Rechteck gedanklich entlang einer Diagonalen. Passen die beiden Hälften genau aufeinander?",
+    "w": "Faltet man ein Rechteck (das kein Quadrat ist) an einer Diagonalen, passen die Hälften nicht aufeinander. Nur die beiden Mittellinien sind Symmetrieachsen, also hat es 2 Achsen. Der Fehler steckt in Zeile 2. Zeile 3 rechnet mit der falschen Aussage weiter."
+   }
+  },
+  {
+   "kennung": "R15-V057",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "vierecke_ordnen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "ein Rechteck",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Rechteck hat gleich lange Diagonalen"
+    },
+    {
+     "index": 1,
+     "antwort": "ein Drachen, der keine Raute ist",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Drachen hat zwei verschieden lange Seitenpaare und die Diagonalen halbieren sich nicht beide"
+    },
+    {
+     "index": 3,
+     "antwort": "ein Quadrat",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Quadrat hat gleich lange Diagonalen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke_ordnen",
+    "t": "vierecke_ordnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Viereck hat vier gleich lange Seiten. Seine Diagonalen stehen senkrecht aufeinander und halbieren sich. Die Diagonalen sind aber verschieden lang. Welches Viereck ist es?"
+    },
+    "a": [
+     "ein Rechteck",
+     "ein Drachen, der keine Raute ist",
+     "eine Raute, die kein Quadrat ist",
+     "ein Quadrat"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Gehe im Haus der Vierecke nach den Eigenschaften vor: Vier gleich lange Seiten, senkrechte Diagonalen, verschieden lange Diagonalen.",
+    "w": "Vier gleich lange Seiten und sich halbierende, senkrechte Diagonalen passen zur Raute. Gleich lange Diagonalen hätte nur das Quadrat. Da sie verschieden lang sind, ist es eine Raute, die kein Quadrat ist."
+   }
+  },
+  {
+   "kennung": "R15-V058",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "vierecke_ordnen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": "fb.deckungsgleich.diagonale_als_achse",
+     "regel_des_fehlbilds": "id.geometrie.deckungsgleich",
+     "beschreibung": "das Parallelogramm mitgezählt, weil die Diagonalen als Achsen gelten"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das gleichschenklige Trapez nicht gezählt"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur Quadrat, Rechteck und Raute gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke_ordnen",
+    "t": "vierecke_ordnen",
+    "p": "uebung",
+    "s": 3,
+    "g": "pruefung",
+    "y": "zahl",
+    "f": {
+     "text": "Bei einem Puzzle-Spiel liegen sechs Vierecke bereit: Quadrat, Rechteck, Raute, Parallelogramm, Drachen und gleichschenkliges Trapez. Kim soll alle heraussuchen, die mindestens eine Symmetrieachse haben. Wie viele sind das?"
+    },
+    "o": {
+     "wert": 5,
+     "einheit": "Vierecke"
+    },
+    "c": "5",
+    "h": "Prüfe jedes Viereck einzeln: Gibt es eine Gerade, an der man die Figur falten kann, sodass beide Hälften genau aufeinanderliegen?",
+    "w": "Quadrat, Rechteck, Raute, Drachen und gleichschenkliges Trapez haben mindestens eine Symmetrieachse. Das Parallelogramm (ohne rechten Winkel und ohne gleich lange Nachbarseiten) hat keine, nur eine Punktsymmetrie. Es sind 5 Vierecke."
+   }
+  },
+  {
+   "kennung": "R15-V059",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "eigenschaften",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 128,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Winkel von 180° abgezogen"
+    },
+    {
+     "antwort": 71,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Winkel β übernommen"
+    },
+    {
+     "antwort": 303,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Winkel an einer Gerade ergänzt statt γ angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "eigenschaften",
+    "t": "eigenschaften",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Kim zeichnet ein Dreieck ABC mit α = 52° und β = 71°. Sie spiegelt es an einer Geraden und verschiebt das Bild danach um einige Einheiten. Wie groß ist der Winkel γ' im Bilddreieck A'B'C'?"
+    },
+    "o": {
+     "wert": 57,
+     "einheit": "°"
+    },
+    "c": "180 - 52 - 71",
+    "h": "Welche Größen ändern sich bei Spiegeln und Verschieben, und welche bleiben gleich? Berechne γ aus der Winkelsumme.",
+    "w": "Spiegeln und Verschieben erhalten alle Winkel. Also ist γ' = γ = 180° − 52° − 71° = 57°."
+   }
+  },
+  {
+   "kennung": "R15-V060",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "eigenschaften",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "eigenschaften",
+    "t": "eigenschaften",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Dreieck ABC ist gegen den Uhrzeigersinn beschriftet. Es wird einmal gespiegelt, dann noch einmal an einer anderen Achse gespiegelt und schließlich verschoben. Kim schreibt auf: Zeile 1: Eine Verschiebung ändert den Umlaufsinn nicht. Zeile 2: Die erste Spiegelung kehrt den Umlaufsinn um: A'B'C' ist im Uhrzeigersinn beschriftet. Zeile 3: Die zweite Spiegelung kehrt ihn noch einmal um: A''B''C'' ist wieder gegen den Uhrzeigersinn beschriftet. Zeile 4: Also ist das Endbild nach dem Verschieben im Uhrzeigersinn beschriftet. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Zähle, wie oft der Umlaufsinn insgesamt umgekehrt wird. Gerade oder ungerade Zahl?",
+    "w": "Zwei Spiegelungen kehren den Umlaufsinn zweimal um, das Verschieben ändert nichts. Das Endbild ist wieder gegen den Uhrzeigersinn beschriftet. Die Zeilen 1 bis 3 sind richtig. Der Fehler steckt in Zeile 4: Sie passt nicht zu Zeile 3."
+   }
+  }
+ ]
+}

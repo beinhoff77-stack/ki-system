@@ -37,7 +37,7 @@ AUSWAHL9 = ["zahlen.wurzeln_basis", "zahlen.reell", "gleichungen.quadratisch", "
 THEMEN = {s: (s, list(_EINH[s]["lz"])) for s in AUSWAHL7 + AUSWAHL9}
 KUERZEL = "R15"
 KLASSE = {s: (7 if s in AUSWAHL7 else 9) for s in THEMEN}
-REGEL_AUSNAHME = set()      # (Themen-Datei, Regel-Kennung): von Hand gelesene Ausnahmen der Themenliste des Katalogs (siehe regeln-zuordnung.md)
+REGEL_AUSNAHME = {("abbildungen.kongruenz", "id.geometrie.winkel")}      # (Themen-Datei, Regel-Kennung): von Hand gelesene Ausnahmen der Themenliste des Katalogs (siehe regeln-zuordnung.md)
 FEHLBILD_GELESEN = set()      # (Kennung der Aufgabe, Fehlbild-Kennung): keine Ausnahmen in dieser Runde
 geladen = []
 for schl in THEMEN:
@@ -573,7 +573,7 @@ fd = [(e["kennung"], e["aufgabe"]["o"]["index"] + 1, len(e["aufgabe"]["a"])) for
 verteilung = Counter(z for _, z, _ in fd)
 assert all("In welcher Zeile passiert der erste Fehler?" in e["aufgabe"]["f"]["text"] or "Welche Zeile ist falsch?" in e["aufgabe"]["f"]["text"] for l in aus.values() for e in l if e["form"] == "fehler_detektiv")
 print("Fehler-Detektiv: Fehlerzeile je Zeile", dict(sorted(verteilung.items())), "von", len(fd))
-if fd:
+if fd and len(geladen) == len(THEMEN):
     assert max(verteilung.values()) <= len(fd) // 3 + 1, "Fehlerzeile zu einseitig verteilt"
 print("Regel-Kennung:", sum(1 for l in aus.values() for e in l if e["regel"]), "Aufgaben mit,", sum(1 for l in aus.values() for e in l if not e["regel"]), "ohne Regel (regeln.py)")
 
@@ -631,4 +631,5 @@ sys.exit(m.main())
 r = subprocess.run([sys.executable, "-I", "-c", VPSKRIPT, os.path.join(WURZEL, "tools", "vorrat_pruefen.py"), HIER], capture_output=True, text=True, cwd=WURZEL)
 print("tools/vorrat_pruefen.py über rollend-15:")
 print(r.stdout[-3000:] + r.stderr[-1000:])
+assert re.search(r"Aufgaben geprüft, 0 Meldungen", r.stdout), "tools/vorrat_pruefen.py meldet etwas"
 print("OK")

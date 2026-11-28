@@ -2,7 +2,7 @@
 
 Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt), nicht das Thema. Jede Kennung wurde gegen `inhalte/mathe-profi/regeln-uebersicht/kennungen.json` gelesen; `bauen.py` prüft, dass sie im Katalog steht und das Thema in der Themenliste der Regel steht (Ausnahmen unten). Quelle der Daten: die Angaben `regel` / `ohne` / `zweifel` in `th_*.py`; `regeln.py` und diese Tabelle werden von `bauen.py` erzeugt.
 
-**31 Aufgaben mit Regel, 0 ohne.**
+**60 Aufgaben mit Regel, 0 ohne.**
 
 ## Verteilung
 
@@ -10,10 +10,19 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 |---|---|---|
 | `rr.potenz` | Potenzen | 15 |
 | `id.verhaeltnisse.prozent` | Prozent als Faktor | 14 |
+| `id.geometrie.deckungsgleich` | Deckungsgleich | 9 |
+| `rr.tauschen` | Tauschen, Klammern, Zusammenfassen | 5 |
+| `rr.ausmultiplizieren` | Ausmultiplizieren und Ausklammern | 4 |
+| `id.geometrie.abstand` | Gleicher Abstand | 3 |
+| `rr.minusklammer` | Minus vor der Klammer | 3 |
+| `id.algebra.term` | Term | 2 |
+| `id.geometrie.winkel` | Winkel an Geraden | 2 |
 | `rr.gegenrechnung` | Gegenrechnung | 2 |
+| `rr.vorzeichen` | Vorzeichen bei Mal und Geteilt | 1 |
 
 ## Ausnahmen von der Themenliste des Katalogs (von Hand gelesen)
 
+- `abbildungen.kongruenz` mit `id.geometrie.winkel`: V052, V059
 
 ## Aufgaben ohne Regel (mit Begründung)
 
@@ -26,6 +35,10 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 |---|---|---|---|
 | R15-V007 | bruch.prozent_grundwert.zurueck | `rr.gegenrechnung` | Rückwärts durch den Faktor teilen: rr.gegenrechnung (Umkehr des Malnehmens); id.verhaeltnisse.prozent wäre ebenfalls vertretbar |
 | R15-V008 | bruch.prozent_grundwert.zurueck | `rr.gegenrechnung` | Rückwärts durch den Faktor teilen: rr.gegenrechnung; id.verhaeltnisse.prozent wäre ebenfalls vertretbar |
+| R15-V035 | terme.umformen.produkte | `rr.tauschen` | Produkte tauschen und zusammenfassen: rr.tauschen; die Lernkarte nennt rr.vorzeichen, hier kommen aber keine negativen Zahlen vor |
+| R15-V037 | terme.umformen.produkte | `rr.tauschen` | Produkt vereinfachen (tauschen) und zurückrechnen; keine Regel des Katalogs für das Umkehren von a² in dieser Klassenstufe |
+| R15-V052 | abbildungen.kongruenz.winkelhalbierende | `id.geometrie.winkel` | Winkelsumme im Dreieck trägt die Rechnung (id.geometrie.winkel, Ausnahme der Themenliste); die Lernkarte nennt id.geometrie.abstand |
+| R15-V059 | abbildungen.kongruenz.eigenschaften | `id.geometrie.winkel` | Winkelsumme im Dreieck plus Erhaltung der Winkel; Ausnahme der Themenliste (id.geometrie.winkel), die Lernkarte nennt id.geometrie.deckungsgleich |
 
 ## Alle Aufgaben
 
@@ -62,3 +75,32 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V029 | terme.potenzgesetze_natuerlich.anwenden | `rr.potenz` |
 | R15-V030 | terme.potenzgesetze_natuerlich.anwenden | `rr.potenz` |
 | R15-V031 | terme.potenzgesetze_natuerlich.anwenden | `rr.potenz` |
+| R15-V032 | terme.umformen.zusammenfassen | `rr.tauschen` |
+| R15-V033 | terme.umformen.zusammenfassen | `rr.tauschen` |
+| R15-V034 | terme.umformen.zusammenfassen | `rr.tauschen` |
+| R15-V035 | terme.umformen.produkte | `rr.tauschen` |
+| R15-V036 | terme.umformen.produkte | `rr.vorzeichen` |
+| R15-V037 | terme.umformen.produkte | `rr.tauschen` |
+| R15-V038 | terme.umformen.minusklammer | `rr.minusklammer` |
+| R15-V039 | terme.umformen.minusklammer | `rr.minusklammer` |
+| R15-V040 | terme.umformen.minusklammer | `rr.minusklammer` |
+| R15-V041 | terme.umformen.ausmultiplizieren | `rr.ausmultiplizieren` |
+| R15-V042 | terme.umformen.ausmultiplizieren | `rr.ausmultiplizieren` |
+| R15-V043 | terme.umformen.ausmultiplizieren | `rr.ausmultiplizieren` |
+| R15-V044 | terme.umformen.aequivalenz | `id.algebra.term` |
+| R15-V045 | terme.umformen.aequivalenz | `id.algebra.term` |
+| R15-V046 | terme.umformen.aequivalenz | `rr.ausmultiplizieren` |
+| R15-V047 | abbildungen.kongruenz.achsenspiegelung | `id.geometrie.deckungsgleich` |
+| R15-V048 | abbildungen.kongruenz.achsenspiegelung | `id.geometrie.deckungsgleich` |
+| R15-V049 | abbildungen.kongruenz.achsenspiegelung | `id.geometrie.deckungsgleich` |
+| R15-V050 | abbildungen.kongruenz.mittelsenkrechte | `id.geometrie.abstand` |
+| R15-V051 | abbildungen.kongruenz.mittelsenkrechte | `id.geometrie.abstand` |
+| R15-V052 | abbildungen.kongruenz.winkelhalbierende | `id.geometrie.winkel` |
+| R15-V053 | abbildungen.kongruenz.winkelhalbierende | `id.geometrie.abstand` |
+| R15-V054 | abbildungen.kongruenz.symmetrie | `id.geometrie.deckungsgleich` |
+| R15-V055 | abbildungen.kongruenz.symmetrie | `id.geometrie.deckungsgleich` |
+| R15-V056 | abbildungen.kongruenz.symmetrie | `id.geometrie.deckungsgleich` |
+| R15-V057 | abbildungen.kongruenz.vierecke_ordnen | `id.geometrie.deckungsgleich` |
+| R15-V058 | abbildungen.kongruenz.vierecke_ordnen | `id.geometrie.deckungsgleich` |
+| R15-V059 | abbildungen.kongruenz.eigenschaften | `id.geometrie.winkel` |
+| R15-V060 | abbildungen.kongruenz.eigenschaften | `id.geometrie.deckungsgleich` |

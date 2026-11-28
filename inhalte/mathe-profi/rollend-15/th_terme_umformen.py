@@ -68,7 +68,7 @@ neu(T, "ausmultiplizieren", "zwei_wege", Z(
     "Berechne 8 · 197 auf zwei Wegen. Weg A: Schriftlich malnehmen. Weg B: 197 als 200 − 3 schreiben und 8 · (200 − 3) ausmultiplizieren. Welches Ergebnis ist richtig?",
     1576, "8 * 197", "8 * 200 - 8 * 3", "Bei Weg B: Der Faktor 8 trifft beide Glieder in der Klammer, auch das zweite mit seinem Minus.",
     "Weg B: 8 · (200 − 3) = 8 · 200 − 8 · 3 = 1 600 − 24 = 1 576. Weg A: 8 · 197 = 1 576. Beide Wege stimmen überein.",
-    [B("8 * 200 - 3", "den Faktor 8 nur mit der 200 malgenommen", "fb.ausmultiplizieren.nur_erster_summand"), B("8 * 203", "aus 200 − 3 ein 200 + 3 gemacht"), B("200 - 3 * 8", "den Faktor 8 nur mit dem zweiten Glied in der Klammer malgenommen")]), g="mehrschritt", regel="rr.ausmultiplizieren")
+    [B("8 * 200 - 3", "den Faktor 8 nur mit der 200 malgenommen", "fb.ausmultiplizieren.nur_erster_summand"), B("8 * 203", "aus dem Minus in der Klammer ein Plus gemacht"), B("200 - 3 * 8", "den Faktor 8 nur mit dem zweiten Glied in der Klammer malgenommen")]), g="mehrschritt", regel="rr.ausmultiplizieren")
 neu(T, "ausmultiplizieren", "umkehren", Z(
     "Welche Zahl gehört in das Kästchen, damit 5 · (2x + □) = 10x + 35 für jede Zahl x stimmt?",
     7, "35 // 5", 7, "Der Faktor 5 muss mit jedem Glied der Klammer malgenommen den passenden Summanden rechts ergeben.",

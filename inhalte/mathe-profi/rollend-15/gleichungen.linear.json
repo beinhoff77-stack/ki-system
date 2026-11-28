@@ -497,8 +497,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "rr.waage",
-   "regel_name": "Gleichung als Waage",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -546,8 +546,8 @@
    "typ": "Verfahren wählen (einfache Form)",
    "form": "verfahren_waehlen",
    "antwortform": "auswahl",
-   "regel": "rr.waage",
-   "regel_name": "Gleichung als Waage",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -652,7 +652,7 @@
      "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Zahlen in der Klammer addiert"
+     "beschreibung": "5 und 2 addiert statt malgenommen"
     },
     {
      "antwort": 13,
@@ -664,7 +664,7 @@
      "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 3x als Zahl eingesetzt"
+     "beschreibung": "von der 10 noch das Dreifache von 2 abgezogen, weil das −3x mit der 2 aus der Klammer verrechnet wurde"
     }
    ],
    "aufgabe": {

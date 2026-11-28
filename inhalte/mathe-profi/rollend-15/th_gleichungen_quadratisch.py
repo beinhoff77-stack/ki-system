@@ -3,19 +3,20 @@ GR = "rr.gegenrechnung"
 NP = "rr.nullprodukt"
 HG = "id.algebra.hoeherer_grad"
 RF = "rr.reihenfolge"
+TR_RF = "Nur Teilregel: rr.reihenfolge trägt die Rechenreihenfolge beim Auswerten (Klammer, Hoch, Punkt vor Strich), nicht die Wahl der Formel und nicht das Deuten der Diskriminante"
 WG = "rr.waage"
 # ───────── reinquadratisch ─────────
 neu(T, "reinquadratisch", "anwenden", Z(
     "Die Gleichung 4x² − 196 = 0 hat zwei Lösungen. Wie lautet die negative Lösung?",
     -7, "-7", -7, "Bringe zuerst das x² allein auf eine Seite. Welche Zahlen ergeben quadriert dieses Ergebnis?",
     "4x² = 196, also x² = 49. Zwei Zahlen haben das Quadrat 49: 7 und −7. Die negative Lösung ist −7. Probe: 4 · 49 − 196 = 0.",
-    [B("7", "nur die positive Lösung genannt", "fb.gegenrechnung.zweite_loesung_fehlt"), B("-49", "das Quadrat als Lösung mit Minuszeichen genommen"), B("-196 / 2", "durch 2 statt durch 4 geteilt und das Minus mitgenommen")]), g="mehrschritt", regel=GR)
+    [B("7", "nur die positive Lösung genannt", "fb.gegenrechnung.zweite_loesung_fehlt"), B("-49", "x² = 49 mit Minuszeichen als Lösung genommen"), B("-196 / 2", "durch 2 statt durch 4 geteilt (x² = 98) und −98 als Lösung genommen")]), g="mehrschritt", regel=GR)
 neu(T, "reinquadratisch", "lueckenweg", L(
     "Du löst 2x² − 98 = 0. Es folgt x² = ①. ② ist die positive und ③ die negative Lösung.",
     "① = □; ② = □; ③ = □", [49, 7, -7], ["98 / 2", "7", "-{2}"], ["round(98 / 2)", "round(sqrt(49))", "-round(sqrt(49))"],
     "Addiere erst 98 auf beiden Seiten, teile dann durch 2. Zu x² = Zahl gehören zwei Lösungen mit entgegengesetztem Vorzeichen.",
     "2x² = 98, also x² = 49. Die Lösungen sind 7 und −7, denn 7² = 49 und (−7)² = 49.",
-    {0: [(96, None, "2 von 98 abgezogen statt durch 2 geteilt", "98 - 2")], 1: [(48, None, "von 49 eins abgezogen statt die Wurzel zu ziehen", "{1} - 1")], 2: [(14, None, "die beiden Lösungen addiert statt gespiegelt", "{2} * 2")]}), regel=GR)
+    {0: [(96, None, "2 von 98 abgezogen statt durch 2 geteilt", "98 - 2")], 1: [(48, None, "von 49 eins abgezogen statt die Wurzel zu ziehen", "{1} - 1")], 2: [(14, None, "die Beträge der beiden Lösungen addiert (7 + 7) statt die Gegenzahl −7 zu nehmen", "{2} + {2}")]}), regel=GR)
 # ───────── ausklammern ─────────
 neu(T, "ausklammern", "verfahren_waehlen", W(
     "Welche Lösungsmenge hat die Gleichung 4x² − 28x = 0?",
@@ -56,20 +57,21 @@ neu(T, "loesungsformel", "lueckenweg", L(
     "① = □; ② = □; ③ = □", [324, 18, 7], ["576 - 4 * 3 * 21", "18", "(24 + {2}) / 6"], ["24 ** 2 - 4 * 3 * 21", "round(sqrt(324))", "(24 + 18) / 6"],
     "Rechne b² zuerst (576), dann 4 · a · c, dann die Differenz. Beachte: Punkt vor Strich.",
     "b² = 576, 4ac = 4 · 3 · 21 = 252, also 576 − 252 = 324. √324 = 18. Die größere Lösung ist (24 + 18) : 6 = 7. Die andere ist (24 − 18) : 6 = 1.",
-    {0: [(828, None, "−4ac mit Plus gerechnet", "576 + 4 * 3 * 21")], 1: [(162, None, "324 durch 2 geteilt statt die Wurzel gezogen", "{1} / 2")], 2: [(14, None, "nur durch a statt durch 2a geteilt", "(24 + {2}) / 3")]}), regel=RF)
+    {0: [(828, None, "−4ac mit Plus gerechnet", "576 + 4 * 3 * 21")], 1: [(162, None, "324 durch 2 geteilt statt die Wurzel gezogen", "{1} / 2")], 2: [(14, None, "nur durch a statt durch 2a geteilt", "(24 + {2}) / 3")]}), regel=RF,
+    zweifel=TR_RF)
 neu(T, "loesungsformel", "anwenden", Z(
     "Löse 2x² + 3x − 20 = 0 mit der Lösungsformel. Wie lautet die negative Lösung?",
     -4, "(-3 - 13) / 4", -4, "Berechne zuerst die Diskriminante b² − 4ac. Beachte, dass c negativ ist.",
     "D = 3² − 4 · 2 · (−20) = 9 + 160 = 169, √169 = 13. x = (−3 ± 13) : 4. Die Lösungen sind 2,5 und −4. Die negative Lösung ist −4.",
     [B("(-3 - 13) / 2", "nur durch a statt durch 2a geteilt"), B("(3 - 13) / 4", "das Vorzeichen von b nicht gewechselt"), B("(-3 + 13) / 4", "die positive Lösung genannt")]), g="mehrschritt", regel=RF,
-    zweifel="Lösungsformel: tragender Schritt ist die Diskriminante (Klammer, Hoch, Punkt vor Strich); es gibt keine eigene Formelregel im Katalog")
+    zweifel=TR_RF)
 # ───────── bruchgleichung ─────────
 neu(T, "bruchgleichung", "anwenden", Z(
     "Für x ≠ 0 gilt die Gleichung 40 : x = x − 6. Wie lautet die positive Lösung?",
     10, "10", 10, "Multipliziere beide Seiten mit x, damit der Bruch verschwindet. Bringe dann alles auf eine Seite.",
     "Mit x multiplizieren: 40 = x² − 6x, also x² − 6x − 40 = 0. Das ist (x − 10)(x + 4) = 0, also x = 10 oder x = −4. Die positive Lösung ist 10. Probe: 40 : 10 = 4 und 10 − 6 = 4.",
     [B("40 + 6", "nur eine Seite mit x multipliziert und 40 = x − 6 gelöst"), B("40 / 2", "40 halbiert"), B("6", "den Summanden 6 als Lösung genommen")]), g="mehrschritt", regel=WG,
-    zweifel="Bruchgleichung: Waage (mit x malnehmen), danach Nullprodukt")
+    zweifel="Nur Teilregel: Waage trägt das Malnehmen mit x, das Lösen der entstehenden quadratischen Gleichung (Nullprodukt, Formel) deckt sie nicht ab")
 # ───────── diskriminante ─────────
 neu(T, "diskriminante", "umkehren", Z(
     "Für welchen positiven Wert von k hat die Gleichung 3x² + kx + 27 = 0 genau eine Lösung?",
@@ -82,7 +84,7 @@ neu(T, "diskriminante", "verfahren_waehlen", W(
     "Setze y = 0. Berechne die Diskriminante b² − 4ac und vergleiche sie mit 0.",
     "2x² + 3x + 5 = 0 hat D = 3² − 4 · 2 · 5 = 9 − 40 = −31. Die Diskriminante ist negativ, also gibt es keinen Schnittpunkt.",
     lambda: 3 * 3 - 4 * 2 * 5 < 0), g="pruefung", regel=RF,
-    zweifel="Diskriminante bestimmen und deuten: tragend ist die Rechenreihenfolge; die Deutung (Vorzeichen) hat keine eigene Regel")
+    zweifel=TR_RF)
 # ───────── sachaufgabe ─────────
 neu(T, "sachaufgabe", "anwenden", Z(
     "Ein Stein wird vom Rand einer Klippe in Kroatien nach oben geworfen. Seine Höhe über dem Meer ist h(t) = −5t² + 20t + 25 in Metern, t in Sekunden. Nach wie vielen Sekunden trifft er auf das Wasser (h = 0)?",
@@ -95,4 +97,4 @@ neu(T, "sachaufgabe", "anwenden", Z(
     15, "15", 15, "Nenne die Breite x. Wie groß ist dann die Länge? Stelle eine Gleichung für die Fläche auf.",
     "Länge x + 9, Fläche x(x + 9) = 360. Also x² + 9x − 360 = 0. Diskriminante: 81 + 1440 = 1521 = 39². x = (−9 + 39) : 2 = 15. Die andere Lösung −24 passt nicht. Probe: 15 · 24 = 360.",
     [B("360 / 9", "die Fläche durch den Unterschied geteilt"), B("15 + 9", "die Länge statt der Breite angegeben"), B("(9 + 39) / 4", "bei −b das Vorzeichen falsch gesetzt (9 statt −9) und durch 4 geteilt")], einheit="m"), g="mehrschritt", regel=RF,
-    zweifel="Sachaufgabe: Lösungsformel (Diskriminante nach Rechenreihenfolge), Prüfen gegen die Sachlage")
+    zweifel=TR_RF)

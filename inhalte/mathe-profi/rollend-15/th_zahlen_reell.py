@@ -8,14 +8,14 @@ neu(T, "zahlarten", "verfahren_waehlen", W(
     "Welche dieser Zahlen ist irrational?",
     "√50", [("√0,81", "0,9 · 0,9 = 0,81, die Wurzel ist die Dezimalzahl 0,9"), ("∛64", "4 · 4 · 4 = 64, die dritte Wurzel ist die ganze Zahl 4"), ("√(49/9)", "7/3 · 7/3 = 49/9, die Wurzel ist ein Bruch")],
     "Eine Wurzel ist rational, wenn der Radikand das Quadrat (oder die dritte Potenz) einer rationalen Zahl ist. Prüfe jede Zahl.",
-    "√50 liegt zwischen 7 und 8, denn 7² = 49 und 8² = 64; keine Bruchzahl mit sich selbst malgenommen ergibt 50. Die anderen sind 0,9, 4 und 7/3, also rational.",
+    "50 ist keine Quadratzahl (7² = 49 und 8² = 64), und die Wurzel aus einer natürlichen Zahl, die keine Quadratzahl ist, ist nicht als Bruch darstellbar. Also ist √50 irrational. Die anderen sind 0,9, 4 und 7/3, also rational.",
     lambda: 0.9 ** 2 == 0.81 and 4 ** 3 == 64 and F(7, 3) ** 2 == F(49, 9) and all(F(p, q) ** 2 != 50 for q in range(1, 40) for p in range(1, 400))), g="erkennen", regel=HZ,
     zweifel="Rationale und irrationale Zahlen unterscheiden: hoch_zurueck trägt das Zurückrechnen der Wurzel, die Zahlarten selbst hat keine eigene Regel")
 liste = [("√16", True), ("√20", False), ("7/3", True), ("π", False), ("√2,25", True), ("∛27", True), ("√45", False)]
 neu(T, "zahlarten", "anwenden", Z(
     "Kim sortiert sieben Zahlen: √16, √20, 7/3, π, √(2,25), ∛27 und √45. Wie viele davon sind rational?",
     4, "4", sum(b for _, b in liste), "Prüfe bei jeder Wurzel, ob der Radikand das Quadrat (oder die dritte Potenz) einer Bruchzahl ist. Brüche sind immer rational.",
-    "√16 = 4, 7/3, √(2,25) = 1,5 und ∛27 = 3 sind rational. √20 und √45 liegen zwischen ganzen Zahlen und sind irrational, ebenso π. Es sind 4 rationale Zahlen.",
+    "√16 = 4, 7/3, √(2,25) = 1,5 und ∛27 = 3 sind rational. 20 und 45 sind keine Quadratzahlen (4² = 16 < 20 < 25 = 5² und 6² = 36 < 45 < 49 = 7²), und die Wurzel aus einer natürlichen Zahl, die keine Quadratzahl ist, ist irrational. Also sind √20 und √45 irrational, ebenso π. Es sind 4 rationale Zahlen.",
     [B("3", "den Bruch siebendrittel für irrational gehalten"), B("5", "√20 oder √45 für rational gehalten"), B("7", "alle sieben Zahlen für rational gehalten")]), g="mehrschritt", regel=HZ,
     zweifel="Zahlen sortieren: hoch_zurueck trägt das Prüfen der Wurzeln")
 # ───────── eingrenzen ─────────
@@ -29,7 +29,7 @@ neu(T, "eingrenzen", "lueckenweg", L(
 neu(T, "eingrenzen", "anwenden", Z(
     "Kim schachtelt √7 ein: 2,6² = 6,76 und 2,7² = 7,29. Jetzt prüft sie die neun Zahlen 2,61 bis 2,69 mit zwei Nachkommastellen. Wie viele davon sind kleiner als √7?",
     4, "4", sum(1 for k in range(261, 270) if k * k < 7 * 10 ** 4), "Quadriere die Zahlen, bis das Quadrat größer als 7 wird. Ab dann sind alle weiteren Zahlen zu groß.",
-    "2,64² = 6,9696 < 7 und 2,65² = 7,0225 > 7. Kleiner als √7 sind also 2,61, 2,62, 2,63 und 2,64: das sind 4 Zahlen.",
+    "2,64² = 6,9696 < 7 und 2,65² = 7,0225 > 7. Kleiner als √7 sind also 2,61, 2,62, 2,63 und 2,64: das sind 4 Zahlen. Alle weiteren Zahlen (2,65 bis 2,69) haben ein Quadrat über 7.",
     [B("5", "2,65 mitgezählt, obwohl 2,65² größer als 7 ist"), B("3", "2,61 nicht mitgezählt"), B("9", "alle neun Zahlen gezählt")]), g="mehrschritt", regel=HZ,
     zweifel="Eingrenzen durch Quadrieren: hoch_zurueck trägt das Rückrechnen")
 # ───────── heron ─────────
@@ -38,12 +38,12 @@ neu(T, "heron", "anwenden", Z(
     "Beim Heron-Verfahren für √20 startest du mit 4. Der erste Schritt gibt (4 + 20 : 4) : 2 = 4,5. Wie lautet der zweite Wert (4,5 + 20 : 4,5) : 2? Runde auf zwei Dezimalstellen.",
     w_h, c_h, "round((4.5 + 20 / 4.5) / 2, 2)", "Rechne erst 20 : 4,5, addiere dann 4,5 und teile die Summe durch 2.",
     "20 : 4,5 ≈ 4,444. Die Summe 4,5 + 4,444 ≈ 8,944. Halbiert: 4,472, gerundet 4,47. Das ist nahe an √20 ≈ 4,4721.",
-    [B("4.5", "nur den ersten Schritt gerechnet"), B("(4.5 + 20) / 2", "die Klammer weggelassen und 20 statt des Quotienten zu 4,5 addiert"), B("20 / 4.5", "nur den Quotienten genommen, ohne den Mittelwert")], einheit=None, toleranz=0.01), g="mehrschritt", ohne="Heron-Verfahren (Mittelwert aus Näherung und Quotient): keine Regel des Katalogs trägt den Rechenschritt")
+    [B("4.5", "nur den ersten Schritt gerechnet"), B("(4.5 + 20) / 2", "20 statt des Quotienten von 20 und 4,5 zu 4,5 addiert und halbiert"), B("20 / 4.5", "nur den Quotienten genommen, ohne den Mittelwert")], einheit=None), g="mehrschritt", ohne="Heron-Verfahren (Mittelwert aus Näherung und Quotient): keine Regel des Katalogs trägt den Rechenschritt")
 neu(T, "heron", "umkehren", Z(
     "Ein Rechteck hat die Seiten 8 cm und 4,5 cm, die Fläche ist 36 cm². Man ersetzt die Länge durch den Mittelwert beider Seiten, also 6,25 cm, und passt die Breite so an, dass die Fläche 36 cm² bleibt. Wie breit ist das neue Rechteck in Zentimetern?",
     5.76, "36 / 6.25", "36 / ((8 + 4.5) / 2)", "Die Fläche bleibt gleich: Länge mal Breite = 36. Teile 36 durch die neue Länge.",
     "Die neue Länge ist (8 + 4,5) : 2 = 6,25 cm. Aus 6,25 · b = 36 folgt b = 36 : 6,25 = 5,76 cm. Die Seiten 6,25 und 5,76 liegen näher an √36 = 6.",
-    [B("36 / 8", "mit der alten Länge geteilt"), B("6.25 - 4.5", "den Unterschied der Seiten statt der neuen Breite berechnet"), B("36 * 6.25", "mit der neuen Länge malgenommen statt geteilt")], einheit="cm"), g="umkehr", ohne="Flächenerhaltung beim Rechteck (Länge mal Breite bleibt gleich): keine Regel des Katalogs trägt den Rechenschritt")
+    [B("36 / 8", "mit der alten Länge geteilt"), B("6.25 - 4.5", "von der neuen Länge 6,25 die alte Breite 4,5 abgezogen statt 36 durch 6,25 zu teilen"), B("36 * 6.25", "mit der neuen Länge malgenommen statt geteilt")], einheit="cm"), g="umkehr", ohne="Flächenerhaltung beim Rechteck (Länge mal Breite bleibt gleich): keine Regel des Katalogs trägt den Rechenschritt")
 # ───────── wurzel_mal ─────────
 neu(T, "wurzel_mal", "anwenden", Z(
     "Wie groß ist √18 · √50? Fasse die beiden Wurzeln zu einer zusammen.",
@@ -67,7 +67,7 @@ neu(T, "teilweise", "lueckenweg", L(
     "① = □; ② = □; ③ = □", [49, 7, 14], ["49", "7", "2 * {2}"], ["round(245 / 5)", "round(sqrt(49))", "2 * round(sqrt(245 / 5))"],
     "Suche eine Quadratzahl, die 245 teilt. Ziehe aus ihr die Wurzel und lasse den Rest unter der Wurzel.",
     "245 = 49 · 5 und √49 = 7, also √245 = 7 · √5. Das Doppelte ist 2 · 7 · √5 = 14 · √5.",
-    {0: [(35, None, "den Faktor 7 statt der Quadratzahl 49 genommen", "35")], 1: [(49, None, "die Quadratzahl selbst statt ihre Wurzel genommen", "{1}")], 2: [(9, None, "2 zu 7 addiert statt malgenommen", "2 + {2}")]}), regel=HZ)
+    {0: [(35, None, "245 durch 7 statt durch 5 geteilt", "245 / 7")], 1: [(49, None, "die Quadratzahl selbst statt ihre Wurzel genommen", "{1}")], 2: [(9, None, "2 zu 7 addiert statt malgenommen", "2 + {2}")]}), regel=HZ)
 # ───────── zusammenfassen ─────────
 neu(T, "zusammenfassen", "fehler_detektiv", FD(
     "Noa vereinfacht √8 + √2:",
@@ -87,12 +87,12 @@ neu(T, "nenner_rational", "anwenden", Z(
 neu(T, "irrational_beweis", "verfahren_waehlen", W(
     "Man beweist, dass √2 nicht als gekürzter Bruch p/q geschrieben werden kann. Aus p² = 2q² folgt, dass p gerade ist. Welcher nächste Gedanke führt zum Widerspruch?",
     "Mit p = 2k folgt q² = 2k², also ist auch q gerade. Dann ließe sich der Bruch p/q durch 2 kürzen.",
-    [("Mit p = 2k folgt q = k, also ist p/q = 2.", "aus p = 2k folgt nicht q = k, und p/q wäre dann die Zahl 2, nicht √2"), ("Weil p gerade ist, muss q ungerade sein, das ist kein Widerspruch.", "q ist nicht automatisch ungerade; es folgt, dass auch q gerade ist")],
+    [("Mit p = 2k folgt q = k, also ist p/q = 2.", "aus p = 2k folgt nicht q = k, und p/q wäre dann die Zahl 2, nicht √2"), ("Weil p gerade ist, muss q ungerade sein, das ist kein Widerspruch.", "bei gekürztem Bruch wäre q zwar ungerade, aus p = 2k folgt aber q² = 2k², also ist q gerade: genau das ist der Widerspruch")],
     "Setze p = 2k in die Gleichung p² = 2q² ein. Was folgt für q?",
     "Aus p = 2k folgt p² = 4k² = 2q², also q² = 2k². Dann ist q² gerade, also ist q gerade. Damit sind p und q beide gerade, der Bruch ist nicht gekürzt. Das widerspricht der Annahme.",
     lambda: all((2 * k) ** 2 == 2 * (2 * k * k) for k in range(1, 20))), g="begruenden", ohne=OHNE_BEW)
 neu(T, "irrational_beweis", "fehler_detektiv", FD(
-    "Sam beweist, dass √2 irrational ist. Er nimmt an, dass √2 = p/q ein gekürzter Bruch ist:",
+    "Sam beweist, dass √2 irrational ist. Er nimmt an, dass √2 = p/q ein gekürzter Bruch mit positiven ganzen Zahlen p und q ist:",
     [("Aus √2 = p/q folgt durch Quadrieren 2 = p²/q², also p² = 2q².", True, True),
      ("Weil p² gerade ist, ist auch p gerade, also p = 2k.", True, True),
      ("Dann ist p² = 2k², und mit p² = 2q² folgt k² = q².", False, True),

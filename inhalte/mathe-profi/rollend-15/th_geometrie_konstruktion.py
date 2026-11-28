@@ -34,8 +34,8 @@ neu(T, "kongruenzsatz", "verfahren_waehlen", W(
     "c = 6 cm, α = 50°, β = 70°",
     [("α = 40°, β = 60°, γ = 80°", "nur Winkel: die Größe des Dreiecks bleibt offen"), ("a = 3 cm, b = 4 cm, c = 8 cm", "aus diesen Seiten lässt sich gar kein Dreieck bauen"), ("a = 5 cm, b = 7 cm, α = 40° (α liegt der Seite a gegenüber)", "der Winkel liegt der kleineren Seite gegenüber, es gibt zwei verschiedene Dreiecke")],
     "Prüfe jede Angabe: Gibt es einen Kongruenzsatz dazu? Die Seiten müssen außerdem ein Dreieck ergeben.",
-    "Bei c = 6 cm, α = 50° und β = 70° liegen die Winkel an der gegebenen Seite: Das ist WSW, das Dreieck ist festgelegt. Drei Winkel allein legen nur die Form fest. Bei 3 cm, 4 cm und 8 cm ist 3 + 4 = 7 < 8, es gibt kein Dreieck. Bei SsW müsste der Winkel der größeren Seite (7 cm) gegenüberliegen; hier liegt er der kleineren gegenüber.",
-    lambda: 3 + 4 < 8), g="mehrschritt", regel=D)
+    "Bei c = 6 cm, α = 50° und β = 70° liegen die Winkel an der gegebenen Seite: Das ist WSW, das Dreieck ist festgelegt. Drei Winkel allein legen nur die Form fest. Bei 3 cm, 4 cm und 8 cm ist 3 + 4 = 7 < 8, es gibt kein Dreieck. Bei SsW müsste der Winkel der größeren Seite (7 cm) gegenüberliegen; hier liegt er der kleineren gegenüber (a = 5 cm < b = 7 cm). Wegen 7 · sin 40° ≈ 4,5 < 5 < 7 gibt es dann zwei verschiedene Dreiecke.",
+    lambda: 3 + 4 < 8 and 7 * math.sin(math.radians(40)) < 5 < 7), g="mehrschritt", regel=D)
 neu(T, "kongruenzsatz", "fehler_detektiv", FD(
     "Zwei Dreiecke haben jeweils die Winkel 50°, 60° und 70°. Alex will ihre Umfänge vergleichen und schreibt auf:",
     [("Beide Dreiecke haben die Winkel 50°, 60° und 70°.", True, True),
@@ -54,7 +54,7 @@ neu(T, "konstruierbar", "lueckenweg", L(
     "Zwei Seiten eines Dreiecks sind 5 cm und 8 cm lang. Die dritte Seite c muss kürzer als ① cm sein und länger als ② cm. Wenn c eine ganze Zahl in Zentimetern ist, gibt es ③ Möglichkeiten.",
     "① = □; ② = □; ③ = □", [13, 3, 9], ["5 + 8", "8 - 5", "{1} - {2} - 1"], ["13", "3", "9"],
     "Je zwei Seiten müssen zusammen länger sein als die dritte. Die dritte Seite liegt zwischen der Summe und dem Unterschied der beiden anderen.",
-    "c < 5 + 8 = 13 und c > 8 − 5 = 3. Ganze Zahlen von 4 bis 12: Das sind 12 − 4 + 1 = 9 Möglichkeiten (13 − 3 − 1 = 9).",
+    "c < 5 + 8 = 13 und c > 8 − 5 = 3. Ganze Zahlen von 4 bis 12 (genau c = 4, 5, 6, 7, 8, 9, 10, 11, 12): Das sind 12 − 4 + 1 = 9 Möglichkeiten (13 − 3 − 1 = 9).",
     {0: [(3, None, "den Unterschied statt der Summe der Seiten genommen", "8 - 5")], 1: [(13, None, "die Summe statt des Unterschieds genommen", "5 + 8")], 2: [(10, None, "nur 13 − 3 gerechnet und die Grenzen nicht beachtet", "{1} - {2}")]}), g="direkt", ohne=OHNE_UNGL)
 neu(T, "konstruierbar", "verfahren_waehlen", W(
     "Kim behauptet: „Aus Stäben von 3 cm, 4 cm und 7 cm kann man ein Dreieck bilden, denn 3 + 4 = 7.“ Was stimmt?",
@@ -94,10 +94,10 @@ neu(T, "satz_kehrsatz", "anwenden", W(
     lambda: 8 % 2 == 0 and 8 % 6 != 0 and all(n % 2 == 0 for n in range(0, 100, 6))), g="einkleidung", ohne=OHNE_SATZ)
 neu(T, "satz_kehrsatz", "umkehren", W(
     "Der Satz „Wenn ein Viereck ein Quadrat ist, dann sind seine Diagonalen gleich lang“ ist wahr. Sein Kehrsatz ist falsch. Welches Viereck ist ein Gegenbeispiel zum Kehrsatz?",
-    "ein Rechteck mit den Seiten 3 cm und 4 cm", [("eine Raute mit der Seite 5 cm, die kein Quadrat ist", "bei einer Raute (ohne rechte Winkel) sind die Diagonalen verschieden lang"), ("ein Parallelogramm mit den Seiten 3 cm und 5 cm und einem Winkel von 60°", "die Diagonalen sind hier verschieden lang"), ("ein Quadrat mit der Seite 4 cm", "ein Quadrat erfüllt den Kehrsatz, es widerlegt ihn nicht")],
+    "ein Rechteck mit den Seiten 3 cm und 4 cm", [("eine Raute mit der Seite 5 cm, die kein Quadrat ist", "bei dieser Raute, die kein Quadrat ist, sind die Diagonalen verschieden lang"), ("ein Parallelogramm mit den Seiten 3 cm und 5 cm und einem Winkel von 60°", "bei diesem Parallelogramm sind die Diagonalen verschieden lang (7 cm und etwa 4,36 cm)"), ("ein Quadrat mit der Seite 4 cm", "ein Quadrat erfüllt den Kehrsatz, es widerlegt ihn nicht")],
     "Der Kehrsatz lautet: Wenn die Diagonalen gleich lang sind, ist das Viereck ein Quadrat. Gesucht ist ein Viereck mit gleich langen Diagonalen, das kein Quadrat ist.",
-    "Beim Rechteck sind die beiden Diagonalen gleich lang. Hat das Rechteck unterschiedliche Seiten (3 cm und 4 cm), ist es kein Quadrat. Damit ist der Kehrsatz widerlegt. Bei einer Raute und beim Parallelogramm sind die Diagonalen verschieden lang.",
-    lambda: True), g="begruenden", ohne=OHNE_SATZ)
+    "Beim Rechteck sind die beiden Diagonalen gleich lang. Hat das Rechteck unterschiedliche Seiten (3 cm und 4 cm), ist es kein Quadrat. Damit ist der Kehrsatz widerlegt. Bei der angebotenen Raute (kein Quadrat) und bei dem Parallelogramm mit 3 cm, 5 cm und 60° sind die Diagonalen verschieden lang.",
+    lambda: abs(math.sqrt(9 + 25 + 15) - math.sqrt(9 + 25 - 15)) > 1), g="begruenden", ohne=OHNE_SATZ)
 saetze = {"gleichseitiges Dreieck / alle Winkel 60°": True, "durch 10 teilbar / durch 5 teilbar": False, "vier gleich lange Seiten / Raute": True, "durch 4 teilbar / gerade": False}
 neu(T, "satz_kehrsatz", "anwenden", Z(
     "Wie viele dieser vier Sätze bleiben wahr, wenn man sie umkehrt? (1) Wenn ein Dreieck gleichseitig ist, dann sind alle seine Winkel 60° groß. (2) Wenn eine Zahl durch 10 teilbar ist, dann ist sie durch 5 teilbar. (3) Wenn ein Viereck eine Raute ist, dann hat es vier gleich lange Seiten. (4) Wenn eine Zahl durch 4 teilbar ist, dann ist sie gerade.",

@@ -15,12 +15,12 @@ neu(T, "achsenspiegelung", "anwenden", Z(
     "A hat vom Kanal den Abstand 5 − 1 = 4. B liegt 4 Einheiten links vom Kanal: x = 1 − 4 = −3. Die y-Koordinate bleibt −2. B(−3 | −2).",
     [B("-5", "an der y-Achse gespiegelt statt am Kanal", "fb.deckungsgleich.an_koordinatenachse_gespiegelt"), B("1 + 5", "die x-Koordinate von A zum Wert der Achse addiert"), B("3", "den Abstand falsch herum abgetragen und das Vorzeichen vertauscht")]), g="einkleidung", regel=D)
 neu(T, "achsenspiegelung", "fehler_detektiv", FD(
-    "Der Punkt P(4 | −3) wird an der x-Achse gespiegelt. Kim schreibt auf:",
-    [("Bei einer Spiegelung an der x-Achse wechselt die x-Koordinate das Vorzeichen.", False, True),
-     ("Also wird P(4 | −3) zu P'(−4 | −3).", True, True),
-     ("Der Abstand von P' zur x-Achse ist 3.", True, True)],
-    "Die x-Achse liegt waagerecht. Zeichne P und seine Spiegelung: Ändert sich die Höhe oder die Lage links und rechts?",
-    "Die x-Achse ist waagerecht. Beim Spiegeln an ihr wechselt die y-Koordinate das Vorzeichen, die x-Koordinate bleibt: P'(4 | 3). Der Fehler steckt in Zeile 1. Zeile 2 und 3 folgen richtig aus Zeile 1."), g="fehler", regel=D)
+    "Das Dreieck mit A(2 | 1), B(5 | 1) und C(2 | 4) wird an der y-Achse gespiegelt. Kim schreibt auf:",
+    [("Bei einer Spiegelung an der y-Achse wechselt die x-Koordinate das Vorzeichen, die y-Koordinate bleibt.", True, True),
+     ("Also wird A zu A'(−2 | 1), B zu B'(−5 | 1) und C zu C'(−2 | −4).", False, True),
+     ("Die Strecke [A'C'] ist dann 5 Einheiten lang, die Strecke [AC] war nur 3 Einheiten lang.", True, True)],
+    "Vergleiche die Koordinaten der Bildpunkte mit der Regel aus Zeile 1. Bleibt bei einer Spiegelung die Länge einer Strecke gleich?",
+    "Nach der Regel in Zeile 1 bleibt die y-Koordinate gleich, daher ist C'(−2 | 4) richtig und nicht C'(−2 | −4). Der Fehler steckt in Zeile 2. Zeile 3 rechnet mit dem falschen C' richtig weiter. Der Widerspruch (5 und 3 Einheiten) zeigt, dass etwas nicht stimmt, denn eine Spiegelung erhält Längen."), g="fehler", regel=D)
 # ───────── mittelsenkrechte ─────────
 neu(T, "mittelsenkrechte", "anwenden", Z(
     "Zwei Bergstationen liegen im Koordinatensystem bei A(−6 | 2) und B(12 | 2). Ein Wanderweg soll überall gleich weit von A und B entfernt sein und verläuft senkrecht (parallel zur y-Achse). Er liegt auf der Geraden x = k. Wie groß ist k?",
@@ -40,17 +40,17 @@ neu(T, "winkelhalbierende", "anwenden", Z(
     [B("180 - 68 - 52", "den Winkel γ selbst angegeben, ohne zu halbieren"), B("68 / 2", "den Winkel α halbiert"), B("(180 - 68 - 52) / 4", "zweimal halbiert")], einheit="°"), g="mehrschritt", regel=WI,
     zweifel="Winkelsumme im Dreieck trägt die Rechnung (id.geometrie.winkel, Ausnahme der Themenliste); die Lernkarte nennt id.geometrie.abstand")
 neu(T, "winkelhalbierende", "verfahren_waehlen", W(
-    "Ein Café soll von zwei sich kreuzenden Straßen gleich weit entfernt sein und außerdem von den Bushaltestellen H1 und H2 gleich weit entfernt. Wie findest du die möglichen Orte?",
-    "Schnitt aus der Winkelhalbierenden der beiden Straßen und der Mittelsenkrechten von [H1H2]",
+    "Ein Café soll von zwei sich kreuzenden Straßen gleich weit entfernt sein und außerdem von den Bushaltestellen H1 und H2 gleich weit entfernt. Wie findest du alle möglichen Orte?",
+    "Schnitt aus den beiden Winkelhalbierenden der Straßen und der Mittelsenkrechten von [H1H2]",
     [("Schnitt aus der Mittelsenkrechten der beiden Straßen und der Winkelhalbierenden von [H1H2]", "die beiden Linien vertauscht"), ("Schnitt zweier Winkelhalbierender", "Haltestellen sind Punkte, bei ihnen hilft keine Winkelhalbierende"), ("Schnitt zweier Mittelsenkrechter", "Straßen sind Geraden, bei ihnen hilft keine Mittelsenkrechte")],
     "Gleich weit von zwei Geraden entfernt und gleich weit von zwei Punkten entfernt sind zwei verschiedene Bedingungen. Welche Linie gehört zu welcher?",
-    "Gleicher Abstand zu zwei Geraden: Winkelhalbierende der Geraden. Gleicher Abstand zu zwei Punkten: Mittelsenkrechte der Strecke zwischen den Punkten. Der gesuchte Ort liegt auf beiden Linien, also im Schnittpunkt.",
+    "Gleicher Abstand zu zwei sich kreuzenden Geraden: eine der beiden Winkelhalbierenden der Geraden (es gibt zwei, senkrecht zueinander). Gleicher Abstand zu zwei Punkten: Mittelsenkrechte der Strecke zwischen den Punkten. Der gesuchte Ort liegt auf der Mittelsenkrechten und auf einer der beiden Winkelhalbierenden, also in deren Schnittpunkten (höchstens zwei Orte).",
     lambda: True), g="verknuepfen", regel=AB)
 # ───────── symmetrie ─────────
 neu(T, "symmetrie", "lueckenweg", L(
     "Ein regelmäßiges Sechseck hat ① Symmetrieachsen. Ein regelmäßiges Zwölfeck hat ② Symmetrieachsen. Beide Figuren zusammen haben ③ Symmetrieachsen.",
     "① = □; ② = □; ③ = □", [6, 12, 18], ["6", "12", "{1} + {2}"], ["6", "12", "6 + 12"],
-    "Bei einem regelmäßigen Vieleck mit n Ecken gibt es eine Achse durch jede Ecke und die gegenüberliegende Seite oder Ecke. Wie viele Achsen sind das?",
+    "Ein regelmäßiges n-Eck hat n Symmetrieachsen. Bei geradem n gehen sie durch gegenüberliegende Ecken oder durch gegenüberliegende Seitenmitten. Addiere für die letzte Lücke die Anzahlen der beiden einzelnen Figuren.",
     "Ein regelmäßiges n-Eck hat n Symmetrieachsen. Sechseck: 6, Zwölfeck: 12, zusammen 6 + 12 = 18.",
     {0: [(3, None, "nur die Achsen durch gegenüberliegende Ecken gezählt", "3")], 1: [(6, None, "nur die Achsen durch gegenüberliegende Ecken gezählt", "6")], 2: [(72, None, "die beiden Achsenzahlen malgenommen statt addiert", "{1} * {2}")]}, ), g="direkt", regel=D)
 neu(T, "symmetrie", "anwenden", Z(
@@ -74,7 +74,7 @@ neu(T, "vierecke_ordnen", "bruecke", W(
     lambda: True), g="darstellung", regel=D)
 zaehl = sum(1 for achsen in {"Quadrat": 4, "Rechteck": 2, "Raute": 2, "Parallelogramm": 0, "Drachen": 1, "gleichschenkliges Trapez": 1}.values() if achsen >= 1)
 neu(T, "vierecke_ordnen", "anwenden", Z(
-    "Bei einem Puzzle-Spiel liegen sechs Vierecke bereit: Quadrat, Rechteck, Raute, Parallelogramm, Drachen und gleichschenkliges Trapez. Kim soll alle heraussuchen, die mindestens eine Symmetrieachse haben. Wie viele sind das?",
+    "Bei einem Puzzle-Spiel liegen sechs Vierecke bereit: Quadrat, Rechteck, Raute, Parallelogramm (ein allgemeines Parallelogramm, das weder Rechteck noch Raute ist), Drachen und gleichschenkliges Trapez. Kim soll alle heraussuchen, die mindestens eine Symmetrieachse haben. Wie viele sind das?",
     5, "5", zaehl, "Prüfe jedes Viereck einzeln: Gibt es eine Gerade, an der man die Figur falten kann, sodass beide Hälften genau aufeinanderliegen?",
     "Quadrat, Rechteck, Raute, Drachen und gleichschenkliges Trapez haben mindestens eine Symmetrieachse. Das Parallelogramm (ohne rechten Winkel und ohne gleich lange Nachbarseiten) hat keine, nur eine Punktsymmetrie. Es sind 5 Vierecke.",
     [B("6", "das Parallelogramm mitgezählt, weil die Diagonalen als Achsen gelten", "fb.deckungsgleich.diagonale_als_achse"), B("4", "das gleichschenklige Trapez nicht gezählt"), B("3", "nur Quadrat, Rechteck und Raute gezählt")], einheit="Vierecke"), g="pruefung", regel=D)
@@ -83,7 +83,7 @@ neu(T, "eigenschaften", "anwenden", Z(
     "Kim zeichnet ein Dreieck ABC mit α = 52° und β = 71°. Sie spiegelt es an einer Geraden und verschiebt das Bild danach um einige Einheiten. Wie groß ist der Winkel γ' im Bilddreieck A'B'C'?",
     57, "180 - 52 - 71", "180 - (52 + 71)", "Welche Größen ändern sich bei Spiegeln und Verschieben, und welche bleiben gleich? Berechne γ aus der Winkelsumme.",
     "Spiegeln und Verschieben erhalten alle Winkel. Also ist γ' = γ = 180° − 52° − 71° = 57°.",
-    [B("180 - 52", "nur einen Winkel von 180° abgezogen"), B("71", "den Winkel β übernommen"), B("360 - 57", "vom Vollwinkel 360° statt von 180° gerechnet")], einheit="°"), g="mehrschritt", regel=WI,
+    [B("180 - 52", "nur einen Winkel von 180° abgezogen"), B("71", "den Winkel β übernommen"), B("360 - 52 - 71", "vom Vollwinkel 360° statt von 180° gerechnet")], einheit="°"), g="mehrschritt", regel=WI,
     zweifel="Winkelsumme im Dreieck plus Erhaltung der Winkel; Ausnahme der Themenliste (id.geometrie.winkel), die Lernkarte nennt id.geometrie.deckungsgleich")
 neu(T, "eigenschaften", "fehler_detektiv", FD(
     "Ein Dreieck ABC ist gegen den Uhrzeigersinn beschriftet. Es wird einmal gespiegelt, dann noch einmal an einer anderen Achse gespiegelt und schließlich verschoben. Kim schreibt auf:",

@@ -57,10 +57,10 @@ neu(T, "prozentsatz", "anwenden", Z(
     "Im Mai bekam man für 100 € auf einer Reise 4 300 Baht. Im Juli waren es nur noch 4 085 Baht. Um wie viel Prozent ist der Baht-Betrag für 100 € gesunken?",
     5, "(4300 - 4085) / 4300 * 100", "100 - 4085 / 4300 * 100", "Vergleiche die Änderung mit dem Wert vom Mai, nicht mit dem vom Juli.",
     "Die Änderung ist 4 300 − 4 085 = 215 Baht. Bezogen auf den alten Wert: 215 : 4 300 = 0,05 = 5 %. Der Betrag ist um 5 % gesunken.",
-    [B("(4300 - 4085) / 4085 * 100", "die Änderung auf den neuen statt auf den alten Wert bezogen", "fb.prozent.falscher_grundwert"), B("4300 - 4085", "den Unterschied in Baht als Prozent angegeben"), B("4085 / 4300 * 100", "den neuen Wert in Prozent des alten angegeben (95 %)")], einheit="%", toleranz=0.1), g="einkleidung", regel=P)
+    [B("(4300 - 4085) / 4085 * 100", "die Änderung auf den neuen statt auf den alten Wert bezogen", "fb.prozent.falscher_grundwert"), B("4300 - 4085", "den Unterschied in Baht als Prozent angegeben"), B("4085 / 4300 * 100", "den neuen Wert in Prozent des alten angegeben (95 %)")], einheit="%"), g="einkleidung", regel=P)
 neu(T, "prozentsatz", "bruecke", W(
     "In der Tabelle stehen alter und neuer Preis von drei Angeboten auf einer Reise. Bei welchem Angebot ist die Preiserhöhung in Prozent am größten?",
-    "beim Bus", [("beim Hotel, weil dort die Erhöhung in Euro am größten ist", "den Unterschied in Euro statt in Prozent verglichen"), ("beim Museum, weil es die größte Zahl 18 hat", "den neuen Preis statt die Änderung betrachtet")],
+    "beim Bus", [("beim Hotel, weil dort die Erhöhung in Euro am größten ist", "den Unterschied in Euro statt in Prozent verglichen"), ("beim Museum, weil es mit 3 € mehr steigt als der Bus (0,60 €) und im Verhältnis zum Preis mehr als das Hotel", "Bus und Museum nur in Euro verglichen und das Verhältnis zum alten Preis beim Bus nicht berechnet")],
     "Berechne für jede Zeile: Änderung geteilt durch den alten Preis.",
     "Bus: 0,60 : 2,40 = 25 %. Museum: 3 : 15 = 20 %. Hotel: 9 : 90 = 10 %. Die größte Erhöhung in Prozent hat der Bus, auch wenn sie in Euro am kleinsten ist.",
     lambda: round(0.6 / 2.4, 4) == 0.25 and 3 / 15 == 0.2 and 9 / 90 == 0.1 and 9 > 3 > 0.6,
@@ -76,7 +76,7 @@ neu(T, "mehrfach", "umkehren", Z(
     "Ein Preis steigt zuerst um 20 %. Danach soll er um einen Prozentsatz sinken, sodass er wieder genau so hoch ist wie am Anfang. Um wie viel Prozent muss er sinken? Runde auf eine Dezimalstelle.",
     wert_mf, c_mf, "round(100 - 100 / 1.2, 1)", "Nach der Erhöhung ist der Preis das 1,2-Fache. Mit welchem Faktor kommst du von 1,2 zurück auf 1?",
     "Nach der Erhöhung gilt: Preis · 1,2. Gesucht ist der Faktor q mit 1,2 · q = 1, also q = 1 : 1,2 ≈ 0,8333. Das ist eine Abnahme um 1 − 0,8333 = 0,1667, also etwa 16,7 %.",
-    [B("20", "angenommen, dieselben 20 % machen die Erhöhung wieder rückgängig", "fb.prozent.prozente_addiert"), (83.3, None, "den verbleibenden Anteil (83,3 %) statt der Abnahme angegeben", "round(100 / 1.2, 1)"), (1.2, None, "den Faktor 1,2 als Prozentsatz gelesen", "1.2")], einheit="%", toleranz=0.1), g="rueckwaerts", regel=P)
+    [B("20", "angenommen, dieselben 20 % machen die Erhöhung wieder rückgängig", "fb.prozent.prozente_addiert"), (83.3, None, "den verbleibenden Anteil (83,3 %) statt der Abnahme angegeben", "round(100 / 1.2, 1)"), (1.2, None, "den Faktor 1,2 als Prozentsatz gelesen", "1.2")], einheit="%"), g="rueckwaerts", regel=P)
 # ───────── formel ─────────
 neu(T, "formel", "zwei_wege", Z(
     "Kim legt 5 000 € für 3 Jahre zu 4 % Zinsen im Jahr an. Die Zinsen bleiben auf dem Konto und werden mitverzinst. Berechne das Guthaben nach 3 Jahren auf zwei Wegen. Weg A: Jahr für Jahr mit 1,04 malnehmen. Weg B: mit 1,04³. Runde auf Cent. Wie viel Euro sind es?",
@@ -91,7 +91,7 @@ neu(T, "formel", "umkehren", Z(
     [B("4", "schon nach 4 Jahren gestoppt: dann sind es erst etwa 2 431 €"), B("6", "ohne Zinseszins gerechnet (nur 100 € Zinsen je Jahr): nach 5 Jahren sind es dann erst genau 2 500 €")], einheit="Jahre"), g="rueckwaerts", regel=P)
 # ───────── argumente ─────────
 neu(T, "argumente", "anwenden", W(
-    "Eine Stadt am Mittelmeer hatte im Vorjahr 200 000 Übernachtungen und dieses Jahr 230 000. Eine kleine Insel hatte im Vorjahr 50 000 und dieses Jahr 62 000. Welche Aussage ist mathematisch richtig begründet?",
+    "Eine Stadt am Mittelmeer hatte im Vorjahr 200 000 Übernachtungen und dieses Jahr 230 000. Eine kleine Insel hatte im Vorjahr 50 000 und dieses Jahr 62 000. Welche Aussage vergleicht das relative Wachstum (den prozentualen Zuwachs) von Stadt und Insel richtig?",
     "Die Insel ist prozentual stärker gewachsen: 12 000 : 50 000 = 24 %, in der Stadt sind es 30 000 : 200 000 = 15 %.",
     [("Die Stadt ist stärker gewachsen, denn 30 000 ist mehr als 12 000.", "den Zuwachs in Übernachtungen statt in Prozent verglichen"), ("Beide sind gleich stark gewachsen, denn jeweils kamen etwa ein Fünftel mehr Übernachtungen dazu.", "ungefähr geschätzt statt gerechnet")],
     "Ein Vergleich in Prozent braucht jeweils den Zuwachs geteilt durch den Wert des Vorjahrs.",

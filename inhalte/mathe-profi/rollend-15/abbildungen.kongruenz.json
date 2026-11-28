@@ -136,11 +136,11 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 0,
+     "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
      "index": 2,
@@ -158,7 +158,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Der Punkt P(4 | −3) wird an der x-Achse gespiegelt. Kim schreibt auf: Zeile 1: Bei einer Spiegelung an der x-Achse wechselt die x-Koordinate das Vorzeichen. Zeile 2: Also wird P(4 | −3) zu P'(−4 | −3). Zeile 3: Der Abstand von P' zur x-Achse ist 3. In welcher Zeile passiert der erste Fehler?"
+     "text": "Das Dreieck mit A(2 | 1), B(5 | 1) und C(2 | 4) wird an der y-Achse gespiegelt. Kim schreibt auf: Zeile 1: Bei einer Spiegelung an der y-Achse wechselt die x-Koordinate das Vorzeichen, die y-Koordinate bleibt. Zeile 2: Also wird A zu A'(−2 | 1), B zu B'(−5 | 1) und C zu C'(−2 | −4). Zeile 3: Die Strecke [A'C'] ist dann 5 Einheiten lang, die Strecke [AC] war nur 3 Einheiten lang. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -166,10 +166,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
-    "h": "Die x-Achse liegt waagerecht. Zeichne P und seine Spiegelung: Ändert sich die Höhe oder die Lage links und rechts?",
-    "w": "Die x-Achse ist waagerecht. Beim Spiegeln an ihr wechselt die y-Koordinate das Vorzeichen, die x-Koordinate bleibt: P'(4 | 3). Der Fehler steckt in Zeile 1. Zeile 2 und 3 folgen richtig aus Zeile 1."
+    "h": "Vergleiche die Koordinaten der Bildpunkte mit der Regel aus Zeile 1. Bleibt bei einer Spiegelung die Länge einer Strecke gleich?",
+    "w": "Nach der Regel in Zeile 1 bleibt die y-Koordinate gleich, daher ist C'(−2 | 4) richtig und nicht C'(−2 | −4). Der Fehler steckt in Zeile 2. Zeile 3 rechnet mit dem falschen C' richtig weiter. Der Widerspruch (5 und 3 Einheiten) zeigt, dass etwas nicht stimmt, denn eine Spiegelung erhält Längen."
    }
   },
   {
@@ -363,10 +363,10 @@
     "g": "verknuepfen",
     "y": "auswahl",
     "f": {
-     "text": "Ein Café soll von zwei sich kreuzenden Straßen gleich weit entfernt sein und außerdem von den Bushaltestellen H1 und H2 gleich weit entfernt. Wie findest du die möglichen Orte?"
+     "text": "Ein Café soll von zwei sich kreuzenden Straßen gleich weit entfernt sein und außerdem von den Bushaltestellen H1 und H2 gleich weit entfernt. Wie findest du alle möglichen Orte?"
     },
     "a": [
-     "Schnitt aus der Winkelhalbierenden der beiden Straßen und der Mittelsenkrechten von [H1H2]",
+     "Schnitt aus den beiden Winkelhalbierenden der Straßen und der Mittelsenkrechten von [H1H2]",
      "Schnitt aus der Mittelsenkrechten der beiden Straßen und der Winkelhalbierenden von [H1H2]",
      "Schnitt zweier Winkelhalbierender",
      "Schnitt zweier Mittelsenkrechter"
@@ -375,7 +375,7 @@
      "index": 0
     },
     "h": "Gleich weit von zwei Geraden entfernt und gleich weit von zwei Punkten entfernt sind zwei verschiedene Bedingungen. Welche Linie gehört zu welcher?",
-    "w": "Gleicher Abstand zu zwei Geraden: Winkelhalbierende der Geraden. Gleicher Abstand zu zwei Punkten: Mittelsenkrechte der Strecke zwischen den Punkten. Der gesuchte Ort liegt auf beiden Linien, also im Schnittpunkt."
+    "w": "Gleicher Abstand zu zwei sich kreuzenden Geraden: eine der beiden Winkelhalbierenden der Geraden (es gibt zwei, senkrecht zueinander). Gleicher Abstand zu zwei Punkten: Mittelsenkrechte der Strecke zwischen den Punkten. Der gesuchte Ort liegt auf der Mittelsenkrechten und auf einer der beiden Winkelhalbierenden, also in deren Schnittpunkten (höchstens zwei Orte)."
    }
   },
   {
@@ -436,7 +436,7 @@
      "12",
      "(6) + (12)"
     ],
-    "h": "Bei einem regelmäßigen Vieleck mit n Ecken gibt es eine Achse durch jede Ecke und die gegenüberliegende Seite oder Ecke. Wie viele Achsen sind das?",
+    "h": "Ein regelmäßiges n-Eck hat n Symmetrieachsen. Bei geradem n gehen sie durch gegenüberliegende Ecken oder durch gegenüberliegende Seitenmitten. Addiere für die letzte Lücke die Anzahlen der beiden einzelnen Figuren.",
     "w": "Ein regelmäßiges n-Eck hat n Symmetrieachsen. Sechseck: 6, Zwölfeck: 12, zusammen 6 + 12 = 18."
    }
   },
@@ -635,7 +635,7 @@
     "g": "pruefung",
     "y": "zahl",
     "f": {
-     "text": "Bei einem Puzzle-Spiel liegen sechs Vierecke bereit: Quadrat, Rechteck, Raute, Parallelogramm, Drachen und gleichschenkliges Trapez. Kim soll alle heraussuchen, die mindestens eine Symmetrieachse haben. Wie viele sind das?"
+     "text": "Bei einem Puzzle-Spiel liegen sechs Vierecke bereit: Quadrat, Rechteck, Raute, Parallelogramm (ein allgemeines Parallelogramm, das weder Rechteck noch Raute ist), Drachen und gleichschenkliges Trapez. Kim soll alle heraussuchen, die mindestens eine Symmetrieachse haben. Wie viele sind das?"
     },
     "o": {
      "wert": 5,
@@ -671,7 +671,7 @@
      "beschreibung": "den Winkel β übernommen"
     },
     {
-     "antwort": 303,
+     "antwort": 237,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "vom Vollwinkel 360° statt von 180° gerechnet"

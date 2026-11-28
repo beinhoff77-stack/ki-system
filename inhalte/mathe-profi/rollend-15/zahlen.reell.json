@@ -66,7 +66,7 @@
      "index": 1
     },
     "h": "Eine Wurzel ist rational, wenn der Radikand das Quadrat (oder die dritte Potenz) einer rationalen Zahl ist. Prüfe jede Zahl.",
-    "w": "√50 liegt zwischen 7 und 8, denn 7² = 49 und 8² = 64; keine Bruchzahl mit sich selbst malgenommen ergibt 50. Die anderen sind 0,9, 4 und 7/3, also rational."
+    "w": "50 ist keine Quadratzahl (7² = 49 und 8² = 64), und die Wurzel aus einer natürlichen Zahl, die keine Quadratzahl ist, ist nicht als Bruch darstellbar. Also ist √50 irrational. Die anderen sind 0,9, 4 und 7/3, also rational."
    }
   },
   {
@@ -115,7 +115,7 @@
     },
     "c": "4",
     "h": "Prüfe bei jeder Wurzel, ob der Radikand das Quadrat (oder die dritte Potenz) einer Bruchzahl ist. Brüche sind immer rational.",
-    "w": "√16 = 4, 7/3, √(2,25) = 1,5 und ∛27 = 3 sind rational. √20 und √45 liegen zwischen ganzen Zahlen und sind irrational, ebenso π. Es sind 4 rationale Zahlen."
+    "w": "√16 = 4, 7/3, √(2,25) = 1,5 und ∛27 = 3 sind rational. 20 und 45 sind keine Quadratzahlen (4² = 16 < 20 < 25 = 5² und 6² = 36 < 45 < 49 = 7²), und die Wurzel aus einer natürlichen Zahl, die keine Quadratzahl ist, ist irrational. Also sind √20 und √45 irrational, ebenso π. Es sind 4 rationale Zahlen."
    }
   },
   {
@@ -226,7 +226,7 @@
     },
     "c": "4",
     "h": "Quadriere die Zahlen, bis das Quadrat größer als 7 wird. Ab dann sind alle weiteren Zahlen zu groß.",
-    "w": "2,64² = 6,9696 < 7 und 2,65² = 7,0225 > 7. Kleiner als √7 sind also 2,61, 2,62, 2,63 und 2,64: das sind 4 Zahlen."
+    "w": "2,64² = 6,9696 < 7 und 2,65² = 7,0225 > 7. Kleiner als √7 sind also 2,61, 2,62, 2,63 und 2,64: das sind 4 Zahlen. Alle weiteren Zahlen (2,65 bis 2,69) haben ein Quadrat über 7."
    }
   },
   {
@@ -251,7 +251,7 @@
      "antwort": 12.25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Klammer weggelassen und 20 statt des Quotienten zu 4,5 addiert"
+     "beschreibung": "20 statt des Quotienten von 20 und 4,5 zu 4,5 addiert und halbiert"
     },
     {
      "antwort": 4.444444444444445,
@@ -271,8 +271,7 @@
      "text": "Beim Heron-Verfahren für √20 startest du mit 4. Der erste Schritt gibt (4 + 20 : 4) : 2 = 4,5. Wie lautet der zweite Wert (4,5 + 20 : 4,5) : 2? Runde auf zwei Dezimalstellen."
     },
     "o": {
-     "wert": 4.47,
-     "toleranz": 0.01
+     "wert": 4.47
     },
     "c": "round(4.472222222222222, 2)",
     "h": "Rechne erst 20 : 4,5, addiere dann 4,5 und teile die Summe durch 2.",
@@ -301,7 +300,7 @@
      "antwort": 1.75,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Unterschied der Seiten statt der neuen Breite berechnet"
+     "beschreibung": "von der neuen Länge 6,25 die alte Breite 4,5 abgezogen statt 36 durch 6,25 zu teilen"
     },
     {
      "antwort": 225,
@@ -444,7 +443,7 @@
      "antwort": 35,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Faktor 7 statt der Quadratzahl 49 genommen"
+     "beschreibung": "245 durch 7 statt durch 5 geteilt"
     },
     {
      "luecke": 2,
@@ -668,7 +667,7 @@
      "antwort": "Weil p gerade ist, muss q ungerade sein, das ist kein Widerspruch.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "q ist nicht automatisch ungerade; es folgt, dass auch q gerade ist"
+     "beschreibung": "bei gekürztem Bruch wäre q zwar ungerade, aus p = 2k folgt aber q² = 2k², also ist q gerade: genau das ist der Widerspruch"
     }
    ],
    "aufgabe": {
@@ -735,7 +734,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Sam beweist, dass √2 irrational ist. Er nimmt an, dass √2 = p/q ein gekürzter Bruch ist: Zeile 1: Aus √2 = p/q folgt durch Quadrieren 2 = p²/q², also p² = 2q². Zeile 2: Weil p² gerade ist, ist auch p gerade, also p = 2k. Zeile 3: Dann ist p² = 2k², und mit p² = 2q² folgt k² = q². Zeile 4: Also ist k = q, und der Bruch p/q hat die Form 2k/k. In welcher Zeile passiert der erste Fehler?"
+     "text": "Sam beweist, dass √2 irrational ist. Er nimmt an, dass √2 = p/q ein gekürzter Bruch mit positiven ganzen Zahlen p und q ist: Zeile 1: Aus √2 = p/q folgt durch Quadrieren 2 = p²/q², also p² = 2q². Zeile 2: Weil p² gerade ist, ist auch p gerade, also p = 2k. Zeile 3: Dann ist p² = 2k², und mit p² = 2q² folgt k² = q². Zeile 4: Also ist k = q, und der Bruch p/q hat die Form 2k/k. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",

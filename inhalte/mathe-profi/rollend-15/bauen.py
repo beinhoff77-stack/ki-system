@@ -207,7 +207,7 @@ def setze_ein(ausdruck, frueher):
     return GGT.sub(lambda m: str(math.gcd(int(m.group(1).strip("()")), int(m.group(2).strip("()")))), t)
 
 
-MATHENAMEN = re.compile(r"\b(sqrt|sin|cos|tan|asin|acos|atan|pi)\b")
+MATHENAMEN = re.compile(r"\b(sqrt|sin|cos|tan|asin|acos|atan|pi|floor)\b")
 
 
 def _wurzeln(t, quot=False):
@@ -270,6 +270,93 @@ def fb_pruefen(kenn, ort, wert, rechnung, frueher=()):
     assert ok, (kenn, ort, "Fehlbild: Rechnung", t, "ergibt", float(v), "nicht", wert)
     return True
 
+
+import ast as _ast
+
+FB_ZAHL_FEHLER = []
+FB_ZAHL_OK = {      # (Kennung, Wert): Zahl in der Fehlbild-Beschreibung, die weder in der Aufgabe noch in der Rechnung steht – von Hand nachgerechnet
+    ("R15-V014", 6): "5 % von 2000 € = 100 € Zinsen je Jahr, 5 Jahre = 500 €, also 2 500 €",
+    ("R15-V072", 12): "n = 15 Ecken, n − 3 = 12 Diagonalen von einer Ecke",
+    ("R15-V092", "ein Parallelogramm mit den Seiten 3 cm und 5 cm und einem Winkel von 60°"): "Diagonalen √49 = 7 und √19 ≈ 4,36 (Kosinussatz, im Probe-Lambda nachgerechnet)",
+    ("R15-V114", 1.3): "0,13 m mit 10 statt 100 malgenommen",
+    ("R15-V116", 18): "√343 ≈ 18,52 (unten maschinell geprüft), abgerundet 18",
+    ("R15-V121", "Weil 25 keine Quadratzahl ist."): "5 · 5 = 25",
+    ("R15-V133", "√9 + √16 = √25"): "3 + 4 = 7, √25 = 5",
+    ("R15-V133", "√100 − √36 = √64"): "10 − 6 = 4, √64 = 8",
+    ("R15-V151", "zwei"): "9 + 40 = 49 (−4ac mit Plus)",
+    ("R15-V172", "7, 24, 26"): "49 + 576 = 625, 26² = 676",
+    ("R15-V172", "9, 12, 16"): "81 + 144 = 225, 16² = 256",
+}
+WURZEL_BEHAUPTUNG = re.compile(r"√\(?(\d+(?:,\d+)?)\)?\s*≈\s*(\d+(?:,\d+)?)")
+SMALL = {F(0), F(1), F(2)}
+
+
+def _teilwerte(ausdruck):
+    """Alle Zwischenwerte eines Ausdrucks (jeder Teilausdruck, Gleitkomma mit Mathe-Funktionen, Winkel in Grad)."""
+    r = set()
+    try:
+        baum = _ast.parse(str(ausdruck), mode="eval")
+    except SyntaxError:
+        return r
+    for kn in _ast.walk(baum):
+        if isinstance(kn, (_ast.BinOp, _ast.UnaryOp, _ast.Call, _ast.Constant)):
+            try:
+                v = eval(compile(_ast.Expression(kn), "<fb>", "eval"), {"__builtins__": {}}, dict(kern.MATHE))
+            except Exception:
+                continue
+            if isinstance(v, (int, float)) and not isinstance(v, bool):
+                r.add(F(str(round(v, 9))) if isinstance(v, float) else F(v))
+    return r
+
+
+def _mit_rundung(werte):
+    r = set()
+    for v in werte:
+        r.add(abs(v))
+        for k in range(0, 4):
+            r.add(abs(F(str(round(float(v), k)))))
+    return r
+
+
+def fb_zahlen_pruefen(kenn, wert, beschr, rechnung, q, soll_vor=()):
+    """Jede Zahl in der Fehlbild-Beschreibung muss aus der Aufgabe oder aus der Rechnung des Fehlbilds stammen (Text ↔ Zahl)."""
+    for m in WURZEL_BEHAUPTUNG.finditer(beschr):      # „√N ≈ x“ in der Beschreibung muss stimmen (auf die genannten Stellen)
+        rad, beh = (float(g.replace(",", ".")) for g in m.groups())
+        st = len(m.group(2).split(",")[1]) if "," in m.group(2) else 0
+        assert round(math.sqrt(rad), st) == beh, (kenn, wert, "Wurzelbehauptung in der Beschreibung stimmt nicht", m.group(0))
+    gemeint = zahlen_im(beschr)
+    if not gemeint:
+        return
+    erlaubt = set(SMALL)
+    for t in texte_von(q):
+        erlaubt |= zahlen_im(t)
+    if isinstance(rechnung, str):
+        r = rechnung
+        for n, v in enumerate(soll_vor, 1):
+            r = r.replace("{%d}" % n, "(%s)" % v)
+        erlaubt |= _teilwerte(r)
+    if isinstance(wert, (int, float)):
+        erlaubt.add(F(str(wert)))
+    erlaubt = _mit_rundung(erlaubt)
+    fremd = {x for x in gemeint if abs(x) not in erlaubt}
+    if fremd and not FB_ZAHL_OK.get((kenn, wert)):
+        FB_ZAHL_FEHLER.append((kenn, wert, sorted(float(x) for x in fremd), beschr))
+
+
+def toleranz_pruefen(kenn, q):
+    """Toleranz (App wertet inklusiv): bei verlangter Rundung gar keine; sonst nur mit Begründung und kleiner als der Abstand der Nachbarwerte der letzten Stelle."""
+    tol = q["o"].get("toleranz")
+    text = q["f"]["text"]
+    if tol is None:
+        return
+    assert "Runde" not in text and "runde" not in text, (kenn, "bei verlangter Rundung zählt nur der gerundete Wert, keine Toleranz")
+    assert kenn in TOL_BEGRUENDET, (kenn, "Toleranz nur mit Begründung in TOL_BEGRUENDET")
+    wert = F(str(q["o"]["wert"]))
+    stellen = len(str(q["o"]["wert"]).split(".")[1]) if "." in str(q["o"]["wert"]) else 0
+    assert F(str(tol)) < F(1, 10 ** stellen), (kenn, "Nachbarwert der letzten Stelle würde mitgewertet")
+
+
+TOL_BEGRUENDET = {}      # Kennung: Begründung (jede Toleranz einzeln); in Runde 15 gibt es keine Toleranz mehr
 
 # ═════════ Prüfen ═════════
 reihe = {schl: i for i, schl in enumerate(THEMEN)}
@@ -340,6 +427,7 @@ for a in A:
             GEZ_SET.add(kenn)
         zwv = z2(zw) if isinstance(zw, str) else F(str(zw))
         tol = q["o"].get("toleranz")
+        toleranz_pruefen(kenn, q)
         if tol is None:
             assert F(zwv) == soll, (kenn, "zweite Rechnung", zwv, soll)
         else:
@@ -357,6 +445,7 @@ for a in A:
             werte.add(w)
             tol_ = q["o"].get("toleranz")        # Bewertung der App ist inklusiv (<=): kein Fehlbild darf innerhalb Soll ± Toleranz liegen
             assert tol_ is None or abs(F(str(w)) - F(str(q["o"]["wert"]))) > F(str(tol_)), (kenn, w, "Fehlbild liegt innerhalb von Soll ± Toleranz")
+            fb_zahlen_pruefen(kenn, w, beschr, rech, q)
             if fb_pruefen(kenn, "Zahl", w, rech):
                 n_fb_rechnung += 1
             else:
@@ -404,6 +493,7 @@ for a in A:
                 w, fbk, beschr, rech = t
                 assert w != soll[i] and w not in werte, (kenn, i, w)
                 werte.add(w)
+                fb_zahlen_pruefen(kenn, w, beschr, rech, q, soll[:i])
                 if fb_pruefen(kenn, f"Lücke {i + 1}", w, rech, soll[:i]):
                     n_fb_rechnung += 1
                 else:
@@ -414,10 +504,14 @@ for a in A:
         assert set(a["fb"]) == set(range(len(q["a"]))) - {q["o"]["index"]}, kenn
         n_rechnung += 1
         for i, (fbk, beschr) in sorted(a["fb"].items()):
+            fb_zahlen_pruefen(kenn, q["a"][i], beschr, None, q)
             fb_eintrag({"index": i}, q["a"][i], fbk, beschr)
     eintrag["aufgabe"] = q
     aus[a["thema"]].append(eintrag)
 
+for _f in FB_ZAHL_FEHLER:
+    print("FEHLBILD-ZAHL:", *_f)
+assert not FB_ZAHL_FEHLER, "Fehlbild-Beschreibung nennt Zahlen, die weder in der Aufgabe noch in der Rechnung vorkommen"
 # ═════════ Mischung je Einheit und Etappe ═════════
 FORMEN_OK = ("umkehren", "zwei_wege", "bruecke", "anwenden", "fehler_detektiv", "verfahren_waehlen", "lueckenweg")
 mix = []

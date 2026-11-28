@@ -588,7 +588,7 @@
     },
     "c": "8 * 197",
     "h": "Bei Weg B: Der Faktor 8 trifft beide Glieder in der Klammer, auch das zweite mit seinem Minus.",
-    "w": "Weg B: 8 · (200 − 3) = 8 · 200 − 8 · 3 = 1 600 − 24 = 1 576. Weg A: 8 · 197 = 1 576. Beide Wege stimmen überein."
+    "w": "Weg B: 8 · (200 − 3) = 8 · 200 − 8 · 3 = 1 600 − 24 = 1 576. Weg A schriftlich: 8 · 7 = 56, schreibe 6 und merke 5; 8 · 9 = 72 und 5 dazu sind 77, schreibe 7 und merke 7; 8 · 1 = 8 und 7 dazu sind 15. Das Ergebnis ist 1 576. Beide Wege stimmen überein."
    }
   },
   {

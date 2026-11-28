@@ -236,25 +236,25 @@ Aufgaben, bei denen die Wahl der Regel nicht eindeutig ist (Kennung, gewählte R
 | R15-V128 | zahlen.reell.eingrenzen | `id.zahlen.hoch_zurueck` | Eingrenzen durch Quadrieren: hoch_zurueck trägt das Rückrechnen |
 | R15-V129 | zahlen.reell.eingrenzen | `id.zahlen.hoch_zurueck` | Eingrenzen durch Quadrieren: hoch_zurueck trägt das Rückrechnen |
 | R15-V145 | gleichungen.quadratisch.faktorisieren | `rr.nullprodukt` | Zurück von den Lösungen zur Gleichung: Nullprodukt trägt den Weg rückwärts |
-| R15-V148 | gleichungen.quadratisch.loesungsformel | `rr.reihenfolge` | Lösungsformel: tragender Schritt ist die Diskriminante (Klammer, Hoch, Punkt vor Strich); es gibt keine eigene Formelregel im Katalog |
-| R15-V149 | gleichungen.quadratisch.bruchgleichung | `rr.waage` | Bruchgleichung: Waage (mit x malnehmen), danach Nullprodukt |
-| R15-V151 | gleichungen.quadratisch.diskriminante | `rr.reihenfolge` | Diskriminante bestimmen und deuten: tragend ist die Rechenreihenfolge; die Deutung (Vorzeichen) hat keine eigene Regel |
+| R15-V147 | gleichungen.quadratisch.loesungsformel | `rr.reihenfolge` | Nur Teilregel: rr.reihenfolge trägt die Rechenreihenfolge beim Auswerten (Klammer, Hoch, Punkt vor Strich), nicht die Wahl der Formel und nicht das Deuten der Diskriminante |
+| R15-V148 | gleichungen.quadratisch.loesungsformel | `rr.reihenfolge` | Nur Teilregel: rr.reihenfolge trägt die Rechenreihenfolge beim Auswerten (Klammer, Hoch, Punkt vor Strich), nicht die Wahl der Formel und nicht das Deuten der Diskriminante |
+| R15-V149 | gleichungen.quadratisch.bruchgleichung | `rr.waage` | Nur Teilregel: Waage trägt das Malnehmen mit x, das Lösen der entstehenden quadratischen Gleichung (Nullprodukt, Formel) deckt sie nicht ab |
+| R15-V151 | gleichungen.quadratisch.diskriminante | `rr.reihenfolge` | Nur Teilregel: rr.reihenfolge trägt die Rechenreihenfolge beim Auswerten (Klammer, Hoch, Punkt vor Strich), nicht die Wahl der Formel und nicht das Deuten der Diskriminante |
 | R15-V152 | gleichungen.quadratisch.sachaufgabe | `rr.nullprodukt` | Sachaufgabe: Nullprodukt nach dem Umformen; Prüfen der Lösung gegen die Sachlage |
-| R15-V153 | gleichungen.quadratisch.sachaufgabe | `rr.reihenfolge` | Sachaufgabe: Lösungsformel (Diskriminante nach Rechenreihenfolge), Prüfen gegen die Sachlage |
-| R15-V161 | funktionen.quadratisch.nullstellen | `id.funktionen.zuordnung` | Nullstellen: y = 0 setzen (Zuordnung y zu x), das Lösen selbst gehört zu Nullprodukt, das für diese Einheit nicht im Katalog steht |
-| R15-V162 | funktionen.quadratisch.nullstellen | `id.funktionen.zuordnung` | Nullstellen: y = 0 setzen; das Wurzelziehen mit zwei Lösungen hat im Katalog keine eigene Regel für diese Einheit |
+| R15-V153 | gleichungen.quadratisch.sachaufgabe | `rr.reihenfolge` | Nur Teilregel: rr.reihenfolge trägt die Rechenreihenfolge beim Auswerten (Klammer, Hoch, Punkt vor Strich), nicht die Wahl der Formel und nicht das Deuten der Diskriminante |
+| R15-V161 | funktionen.quadratisch.nullstellen | `id.funktionen.zuordnung` | Nur Teilregel: id.funktionen.zuordnung trägt das Setzen von y = 0, das Lösen der Gleichung (Nullprodukt) steht für diese Einheit nicht im Katalog |
+| R15-V162 | funktionen.quadratisch.nullstellen | `id.funktionen.zuordnung` | Nur Teilregel: id.funktionen.zuordnung trägt das Setzen von y = 0, das Wurzelziehen mit zwei Lösungen und die Abstandsbildung deckt sie nicht ab |
 | R15-V167 | funktionen.quadratisch.extremwert | `id.funktionen.gleichung_form` | Extremwert: Scheitel der Parabel gesucht; gleichung_form trägt das Lesen der Form, das Aufstellen der Zielfunktion hat keine Regel |
-| R15-V182 | trigo.rechtwinklig.verhaeltnisse | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
-| R15-V183 | trigo.rechtwinklig.verhaeltnisse | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
-| R15-V184 | trigo.rechtwinklig.seite | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
-| R15-V185 | trigo.rechtwinklig.seite | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
-| R15-V186 | trigo.rechtwinklig.winkel | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
-| R15-V189 | trigo.rechtwinklig.anwendung | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
-| R15-V190 | trigo.rechtwinklig.anwendung | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
+| R15-V180 | trigo.rechtwinklig.seiten | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig trägt das rechtwinklige Dreieck, das Benennen der Katheten relativ zum gewählten Winkel (Gegenkathete, Ankathete) steht nicht ausdrücklich im Katalogtext; die Aufgabe nennt den Winkel und die Lage des rechten Winkels |
+| R15-V181 | trigo.rechtwinklig.seiten | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig trägt das rechtwinklige Dreieck, das Benennen der Katheten relativ zum gewählten Winkel (Gegenkathete, Ankathete) steht nicht ausdrücklich im Katalogtext; die Aufgabe nennt den Winkel und die Lage des rechten Winkels |
+| R15-V182 | trigo.rechtwinklig.verhaeltnisse | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig nennt, dass Sinus, Kosinus und Tangens Seiten und Winkel verbinden, die konkreten Verhältnisformeln (sin α = Gegenkathete : Hypotenuse usw.) stehen nicht im Katalogtext; die Aufgabe stützt sich darauf |
+| R15-V183 | trigo.rechtwinklig.verhaeltnisse | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig nennt, dass Sinus, Kosinus und Tangens Seiten und Winkel verbinden, die konkreten Verhältnisformeln (sin α = Gegenkathete : Hypotenuse usw.) stehen nicht im Katalogtext; die Aufgabe stützt sich darauf |
+| R15-V184 | trigo.rechtwinklig.seite | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig nennt, dass Sinus, Kosinus und Tangens Seiten und Winkel verbinden, die konkreten Verhältnisformeln (sin α = Gegenkathete : Hypotenuse usw.) stehen nicht im Katalogtext; die Aufgabe stützt sich darauf |
+| R15-V185 | trigo.rechtwinklig.seite | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig nennt, dass Sinus, Kosinus und Tangens Seiten und Winkel verbinden, die konkreten Verhältnisformeln (sin α = Gegenkathete : Hypotenuse usw.) stehen nicht im Katalogtext; die Aufgabe stützt sich darauf |
+| R15-V186 | trigo.rechtwinklig.winkel | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig nennt, dass Sinus, Kosinus und Tangens Seiten und Winkel verbinden, die konkreten Verhältnisformeln (sin α = Gegenkathete : Hypotenuse usw.) stehen nicht im Katalogtext; die Aufgabe stützt sich darauf |
+| R15-V189 | trigo.rechtwinklig.anwendung | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig nennt, dass Sinus, Kosinus und Tangens Seiten und Winkel verbinden, die konkreten Verhältnisformeln (sin α = Gegenkathete : Hypotenuse usw.) stehen nicht im Katalogtext; die Aufgabe stützt sich darauf |
+| R15-V190 | trigo.rechtwinklig.anwendung | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig nennt, dass Sinus, Kosinus und Tangens Seiten und Winkel verbinden, die konkreten Verhältnisformeln (sin α = Gegenkathete : Hypotenuse usw.) stehen nicht im Katalogtext; die Aufgabe stützt sich darauf |
 | R15-V202 | stochastik.verknuepft.tafel_wkeit | `id.daten.anteil` | Vierfeldertafel mit Wahrscheinlichkeiten: id.daten.anteil trägt die Deutung als Anteil, das Ausfüllen der Tafel hat keine eigene Regel |
-| R15-V203 | stochastik.verknuepft.bedingt | `id.daten.anteil` | Bedingte Wahrscheinlichkeit als Anteil: id.daten.anteil trägt Günstige durch Mögliche |
-| R15-V206 | stochastik.verknuepft.verstehen | `id.daten.anteil` | Deutung der bedingten Wahrscheinlichkeit: id.daten.anteil (Anteil von was?) |
-| R15-V207 | stochastik.verknuepft.verstehen | `id.daten.anteil` | Bedingte Wahrscheinlichkeit richtig herum lesen: id.daten.anteil (Anteil von was?) |
 
 ## Aufgaben bewusst ohne Regel
 
@@ -268,6 +268,8 @@ Keine Regel des Katalogs trägt den Lösungsweg; die Begründung steht je Aufgab
 | R15-V091 | geometrie.konstruktion.satz_kehrsatz | Satz und Kehrsatz (Logik, Gegenbeispiel): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V092 | geometrie.konstruktion.satz_kehrsatz | Satz und Kehrsatz (Logik, Gegenbeispiel): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V093 | geometrie.konstruktion.satz_kehrsatz | Satz und Kehrsatz (Logik, Gegenbeispiel): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V103 | gleichungen.linear.probe | Probe durch Einsetzen (beide Seiten ausrechnen und vergleichen): rr.waage beschreibt das Umformen, nicht das Einsetzen, keine andere Regel des Katalogs trägt den Lösungsweg |
+| R15-V104 | gleichungen.linear.probe | Probe durch Einsetzen (beide Seiten ausrechnen und vergleichen): rr.waage beschreibt das Umformen, nicht das Einsetzen, keine andere Regel des Katalogs trägt den Lösungsweg |
 | R15-V123 | zahlen.wurzeln_basis.wurzel_deuten | Wurzel und Summe (Wurzel verteilt sich nicht auf Summanden): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V130 | zahlen.reell.heron | Heron-Verfahren (Mittelwert aus Näherung und Quotient): keine Regel des Katalogs trägt den Rechenschritt |
 | R15-V131 | zahlen.reell.heron | Flächenerhaltung beim Rechteck (Länge mal Breite bleibt gleich): keine Regel des Katalogs trägt den Rechenschritt |
@@ -293,6 +295,11 @@ Keine Regel des Katalogs trägt den Lösungsweg; die Begründung steht je Aufgab
 | R15-V199 | stochastik.verknuepft.mengen_verstehen | Mengen und Mengenoperationen zählen (Elemente, Schnitt, Vereinigung): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V200 | stochastik.verknuepft.vierfeld | Vierfeldertafel ausfüllen (Zeilen- und Spaltensummen): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V201 | stochastik.verknuepft.vierfeld | Vierfeldertafel ausfüllen (Zeilen- und Spaltensummen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V203 | stochastik.verknuepft.bedingt | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V204 | stochastik.verknuepft.bedingt | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V205 | stochastik.verknuepft.rueckschluss | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V206 | stochastik.verknuepft.verstehen | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V207 | stochastik.verknuepft.verstehen | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
 
 ## Ausnahmen von der Themenliste des Katalogs
 
@@ -301,21 +308,21 @@ Keine Regel des Katalogs trägt den Lösungsweg; die Begründung steht je Aufgab
 
 ## Prüfungen (alle in `bauen.py`, Lauf endet mit `OK`)
 
-- Jede Lösung zweifach nachgerechnet (Rechenanker und unabhängige Zweitrechnung); Zählaufgaben zusätzlich mit einer Zählschleife im Programm bestätigt (48 Aufgaben).
-- Jedes Fehlbild ist eine nachgerechnete, typische Fehlrechnung (Rechnung steht im Quelltext) und nie gleich der richtigen Antwort; Fehlbild-Kennungen aus dem Katalog nur, wo der Katalogtext genau passt (47 Fehlbilder mit Kennung).
+- Jede Lösung zweifach nachgerechnet (Rechenanker und unabhängige Zweitrechnung); Zählaufgaben zusätzlich mit einer Zählschleife im Programm bestätigt (50 Aufgaben).
+- Jedes Fehlbild ist eine nachgerechnete, typische Fehlrechnung (Rechnung steht im Quelltext) und nie gleich der richtigen Antwort; Fehlbild-Kennungen aus dem Katalog nur, wo der Katalogtext genau passt (44 Fehlbilder mit Kennung; 420 Fehlbilder der Zahl- und Lückenaufgaben als Rechnung nachgerechnet).
 - Doppelungsprüfung gegen den gesamten Bestand und alle früheren Runden einschließlich R14; Negativproben der Selbstprüfung schlagen an. Viele Entwürfe mussten dafür geändert werden (andere Zahlen, andere Einkleidung).
 - `tools/vorrat_pruefen.py` über `rollend-15`: 207 Aufgaben, 0 Meldungen in allen vier Gruppen. `tools/rollend_sql.py --runden 15` (nur Übersicht) liest die Runde ohne Eintrag in eine Rundenliste: 207 Aufgaben, 14 Einheiten.
-- Seit der Vorprüfung zusätzlich in `bauen.py`: Bei jeder Zahlaufgabe mit `toleranz` liegt kein Fehlbild innerhalb Soll ± Toleranz (die App wertet inklusiv); Lückenwege dürfen keine zwei Lücken in beliebiger Reihenfolge füllbar lassen. Korrekturen: `korrektur-nach-vorpruefung.md`, Befunde: `vorpruefung.md`.
-- Fehler-Detektiv: Fehlerzeile je Zeile {1: 5, 2: 7, 3: 8, 4: 4} bei 24 Aufgaben (Grenze n/3 + 1 je Zeile eingehalten).
-- Regel-Kennung: 176 Aufgaben mit, 31 ohne Regel.
+- Seit der Vorprüfung zusätzlich in `bauen.py`: Bei jeder Zahlaufgabe mit `toleranz` liegt kein Fehlbild innerhalb Soll ± Toleranz (die App wertet inklusiv); Lückenwege dürfen keine zwei Lücken in beliebiger Reihenfolge füllbar lassen. Korrekturen: `korrektur-nach-vorpruefung.md`, `korrektur-nach-gegenpruefung.md` (Gegenprüfung 1197); eigene Neuberechnung aller Sollwerte: `gegenrechnung.py`; Befunde: `vorpruefung.md`.
+- Fehler-Detektiv: Fehlerzeile je Zeile {1: 4, 2: 8, 3: 8, 4: 4} bei 24 Aufgaben (Grenze n/3 + 1 je Zeile eingehalten).
+- Regel-Kennung: 169 Aufgaben mit, 38 ohne Regel.
 
 ## Worauf ein Vorprüfer achten sollte
 
-1. **Regel-Zuordnung bei Sinus/Kosinus/Tangens** (`trigo.rechtwinklig`, 7 Aufgaben mit Zweifel): Die Lernkarten-Vorgabe nennt `id.geometrie.rechtwinklig`, die Regel trägt aber nur die Lage der Seiten. Das Rechnen mit dem Verhältnis hat keine Regel im Katalog. Wer das streng liest, nimmt die Kennung dort heraus.
+1. **Regel-Zuordnung bei Sinus/Kosinus/Tangens** (`trigo.rechtwinklig`, 9 Aufgaben, als Teilregel ausgewiesen): Die Lernkarten-Vorgabe nennt `id.geometrie.rechtwinklig`, die Regel trägt aber nur die Lage der Seiten. Das Rechnen mit dem Verhältnis hat keine Regel im Katalog. Wer das streng liest, nimmt die Kennung dort heraus.
 2. **Zweifelsfälle** (Liste oben): besonders `rr.gegenrechnung` statt `id.verhaeltnisse.prozent` bei Rückwärtsrechnen von Prozent (R15-V007, V008), Nullstellen und Bruchgleichung (`id.funktionen.zuordnung`, `rr.waage`), Wurzeln (`id.zahlen.hoch_zurueck` bei Zahlarten und Eingrenzen; Heron, Flächenerhaltung und Wurzelgesetze stehen nach der Vorprüfung ohne Regel).
-3. **Aufgaben ohne Regel** (31): Begründung je Aufgabe oben. Prüfen, ob der Katalog nicht doch eine Regel für Satz/Kehrsatz, Dreiecksungleichung, Mengenaufgaben, Vierfeldertafel, Additionssatz, Wurzelvereinfachen und Diskriminante hat.
+3. **Aufgaben ohne Regel** (38): Begründung je Aufgabe oben. Prüfen, ob der Katalog nicht doch eine Regel für Satz/Kehrsatz, Dreiecksungleichung, Mengenaufgaben, Vierfeldertafel, Additionssatz, Wurzelvereinfachen und Diskriminante hat.
 4. **Auswahl** (`auswahl.md`): Die Datei wurde nach dem Schreiben angelegt, nicht davor. Die Klasse-7-Wahl folgt dem Kriterium „in R8/9/10/14 nicht bedient“; reiner Anteil würde `daten.boxplot` und `geometrie.kreis` vor `bruch.prozent_grundwert`, `geometrie.winkelsaetze` und `gleichungen.linear` setzen.
 5. **Lückenwege:** `bruch.prozent_grundwert` hat keinen Lückenweg (alle 16 zählen), `trigo.rechtwinklig` nur einen; sonst zwei bis drei je Einheit (26 insgesamt, 13 %).
 6. **Eindeutigkeit und Zählaufgaben:** Aufgaben mit Zählen (die 48 Kennungen, die `bauen.py` als „mit unabhängiger Zählung bestätigt“ ausgibt, darunter die Mengenaufgaben in `stochastik.verknuepft`) von Hand gegenlesen; die Zahl ist im Programm bestätigt, die Formulierung (zum Beispiel „beide Grenzen eingeschlossen“) sollte ein Mensch lesen.
-7. **Rundung:** Aufgaben mit Dezimalantwort haben `toleranz` nur, wo gerundet wird (Winkel, Wurzeln, Heron, Seilbahn, Leuchtturm, Rückschluss). Die Rundung steht jeweils im Fragetext.
+7. **Rundung:** Keine Aufgabe hat `toleranz`; gerundete Werte zählen exakt, die verlangte Rundung steht im Fragetext.
 

@@ -8,7 +8,7 @@ neu(T, "hypotenuse", "lueckenweg", L(
     "① = □; ② = □; ③ = □", [1681, 41, 90], ["81 + 1600", "41", "9 + 40 + {2}"], ["9 ** 2 + 40 ** 2", "round(sqrt(9 ** 2 + 40 ** 2))", "9 + 40 + 41"],
     "Im rechtwinkligen Dreieck gilt: Kathete im Quadrat plus Kathete im Quadrat ist Hypotenuse im Quadrat.",
     "9² = 81 und 40² = 1600, die Summe ist 1681. Weil 41 · 41 = 1681 gilt, ist die Hypotenuse 41 cm lang. Umfang: 9 + 40 + 41 = 90 cm.",
-    {0: [(49, OP, "die Längen 9 und 40 addiert statt ihre Quadrate", "9 + 40")], 1: [(840, None, "1681 durch 2 geteilt und gerundet statt die Wurzel gezogen", "round({1} / 2)")], 2: [(49, None, "die Hypotenuse im Umfang vergessen", "9 + 40")]}), regel=RW)
+    {0: [(49, OP, "die Längen 9 und 40 addiert statt ihre Quadrate", "9 + 40")], 1: [(840, None, "1681 durch 2 geteilt statt die Wurzel gezogen (840,5) und auf 840 abgerundet", "round({1} / 2)")], 2: [(49, None, "die Hypotenuse im Umfang vergessen", "9 + 40")]}), regel=RW)
 neu(T, "hypotenuse", "anwenden", Z(
     "Eine Seilbahn überwindet einen waagerechten Abstand von 1,2 km und einen Höhenunterschied von 0,5 km. Wie lang ist das Seil in Kilometern, wenn man es als gerade Strecke ansieht?",
     1.3, "1.3", "round(sqrt(1.2 ** 2 + 0.5 ** 2), 6)", "Waagerechter Abstand, Höhenunterschied und Seil bilden ein rechtwinkliges Dreieck. Welche Seite ist die längste?",
@@ -20,7 +20,7 @@ neu(T, "kathete", "anwenden", Z(
     "Ein 61 m langes Stahlseil spannt von der Spitze eines senkrechten Funkmasts zu einem Punkt am Boden, der 11 m vom Fuß des Masts entfernt ist. Wie hoch ist der Mast in Metern?",
     60, "60", "round(sqrt(61 ** 2 - 11 ** 2))", "Das Seil ist die längste Seite im Dreieck. Welche Seite suchst du, und wie rechnest du dann?",
     "Das Seil ist die Hypotenuse (61 m), der Abstand 11 m eine Kathete, der Mast die andere. h² = 61² − 11² = 3721 − 121 = 3600, also h = 60 m.",
-    [(w_k, KH, "das Seil wie eine Kathete behandelt und die Quadrate addiert", c_k), B("61 - 11", "die Längen ohne Quadrate voneinander abgezogen", OP), B("61 + 11", "die Längen addiert")], einheit="m"), g="mehrschritt", regel=RW)
+    [(w_k, KH, "das Seil wie eine Kathete behandelt, die Quadrate addiert und die Wurzel (≈ 61,98) auf 62 gerundet", c_k), B("61 - 11", "die Längen ohne Quadrate voneinander abgezogen", OP), B("61 + 11", "die Längen addiert")], einheit="m"), g="mehrschritt", regel=RW)
 neu(T, "kathete", "verfahren_waehlen", W(
     "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 17 cm und die Kathete a = 8 cm. Welche Gleichung liefert die zweite Kathete b?",
     "b² = 17² − 8²", [("b² = 17² + 8²", "die Hypotenuse wie eine Kathete behandelt", KH), ("b = 17 − 8", "die Längen ohne Quadrate subtrahiert", OP)],
@@ -45,7 +45,7 @@ neu(T, "koordinaten", "anwenden", Z(
     "Im Koordinatensystem liegen die Punkte A(−2|3) und B(4|11). Wie lang ist die Strecke [AB]?",
     10, "10", "round(sqrt((4 + 2) ** 2 + (11 - 3) ** 2))", "Zeichne ein rechtwinkliges Dreieck mit [AB] als Hypotenuse. Wie lang sind die beiden Katheten?",
     "Waagerechter Unterschied: 4 − (−2) = 6. Senkrechter Unterschied: 11 − 3 = 8. AB² = 6² + 8² = 36 + 64 = 100, also AB = 10.",
-    [B("6 + 8", "die Katheten addiert", OP), (w_ko, None, "das Minus bei −2 übersehen: waagerechter Unterschied 2 statt 6", c_ko), B("6 * 8", "die Katheten malgenommen")], einheit="LE"), g="mehrschritt", regel=RW)
+    [B("6 + 8", "die Katheten addiert", OP), (w_ko, None, "das Minus bei −2 übersehen: waagerechter Unterschied 2 statt 6, also √(2² + 8²) ≈ 8,246, auf eine Dezimalstelle 8,2", c_ko), B("6 * 8", "die Katheten malgenommen")], einheit="LE"), g="mehrschritt", regel=RW)
 neu(T, "koordinaten", "umkehren", Z(
     "Der Punkt P(x|7) mit x > 0 hat von A(0|1) den Abstand 10. Welchen Wert hat x?",
     8, "8", "round(sqrt(10 ** 2 - (7 - 1) ** 2))", "Zeichne die Strecke [AP] als Hypotenuse. Der senkrechte Unterschied ist eine Kathete, der waagerechte Unterschied x die andere.",

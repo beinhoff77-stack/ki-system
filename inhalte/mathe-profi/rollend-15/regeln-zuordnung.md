@@ -2,12 +2,13 @@
 
 Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt), nicht das Thema. Jede Kennung wurde gegen `inhalte/mathe-profi/regeln-uebersicht/kennungen.json` gelesen; `bauen.py` prüft, dass sie im Katalog steht und das Thema in der Themenliste der Regel steht (Ausnahmen unten). Quelle der Daten: die Angaben `regel` / `ohne` / `zweifel` in `th_*.py`; `regeln.py` und diese Tabelle werden von `bauen.py` erzeugt.
 
-**60 Aufgaben mit Regel, 0 ohne.**
+**78 Aufgaben mit Regel, 0 ohne.**
 
 ## Verteilung
 
 | Regel | Name | Aufgaben |
 |---|---|---|
+| `id.geometrie.winkel` | Winkel an Geraden | 20 |
 | `rr.potenz` | Potenzen | 15 |
 | `id.verhaeltnisse.prozent` | Prozent als Faktor | 14 |
 | `id.geometrie.deckungsgleich` | Deckungsgleich | 9 |
@@ -16,7 +17,6 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | `id.geometrie.abstand` | Gleicher Abstand | 3 |
 | `rr.minusklammer` | Minus vor der Klammer | 3 |
 | `id.algebra.term` | Term | 2 |
-| `id.geometrie.winkel` | Winkel an Geraden | 2 |
 | `rr.gegenrechnung` | Gegenrechnung | 2 |
 | `rr.vorzeichen` | Vorzeichen bei Mal und Geteilt | 1 |
 
@@ -104,3 +104,21 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V058 | abbildungen.kongruenz.vierecke_ordnen | `id.geometrie.deckungsgleich` |
 | R15-V059 | abbildungen.kongruenz.eigenschaften | `id.geometrie.winkel` |
 | R15-V060 | abbildungen.kongruenz.eigenschaften | `id.geometrie.deckungsgleich` |
+| R15-V061 | geometrie.winkelsaetze.scheitel_neben | `id.geometrie.winkel` |
+| R15-V062 | geometrie.winkelsaetze.scheitel_neben | `id.geometrie.winkel` |
+| R15-V063 | geometrie.winkelsaetze.stufen_wechsel | `id.geometrie.winkel` |
+| R15-V064 | geometrie.winkelsaetze.stufen_wechsel | `id.geometrie.winkel` |
+| R15-V065 | geometrie.winkelsaetze.parallel_pruefen | `id.geometrie.winkel` |
+| R15-V066 | geometrie.winkelsaetze.parallel_pruefen | `id.geometrie.winkel` |
+| R15-V067 | geometrie.winkelsaetze.innenwinkelsumme | `id.geometrie.winkel` |
+| R15-V068 | geometrie.winkelsaetze.innenwinkelsumme | `id.geometrie.winkel` |
+| R15-V069 | geometrie.winkelsaetze.aussenwinkel | `id.geometrie.winkel` |
+| R15-V070 | geometrie.winkelsaetze.aussenwinkel | `id.geometrie.winkel` |
+| R15-V071 | geometrie.winkelsaetze.vieleck | `id.geometrie.winkel` |
+| R15-V072 | geometrie.winkelsaetze.vieleck | `id.geometrie.winkel` |
+| R15-V073 | geometrie.winkelsaetze.parkett | `id.geometrie.winkel` |
+| R15-V074 | geometrie.winkelsaetze.parkett | `id.geometrie.winkel` |
+| R15-V075 | geometrie.winkelsaetze.figuren | `id.geometrie.winkel` |
+| R15-V076 | geometrie.winkelsaetze.figuren | `id.geometrie.winkel` |
+| R15-V077 | geometrie.winkelsaetze.beweisen | `id.geometrie.winkel` |
+| R15-V078 | geometrie.winkelsaetze.beweisen | `id.geometrie.winkel` |

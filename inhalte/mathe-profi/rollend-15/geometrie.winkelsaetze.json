@@ -1,0 +1,965 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-15",
+ "kuerzel": "R15",
+ "flug": "r15-geometrie.winkelsaetze",
+ "titel": "geometrie.winkelsaetze",
+ "fuer": "Klasse 7",
+ "klasse": 7,
+ "themen": [
+  "geometrie.winkelsaetze"
+ ],
+ "themen_datei_im_bestand": "geometrie.winkelsaetze",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R15-V061",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "scheitel_neben",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 360,
+     "fehlbild": "fb.winkel.teil_der_drehung",
+     "regel_des_fehlbilds": "id.geometrie.winkel",
+     "beschreibung": "die Summe der Nebenwinkel mit dem Vollwinkel verwechselt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe nur durch 3 geteilt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 90,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hälfte der Summe als α genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheitel_neben",
+    "t": "scheitel_neben",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Zwei Geraden schneiden sich. Der Winkel α ist dreimal so groß wie sein Nebenwinkel β. Zusammen ergeben α und β ①°. Dann ist β = ②° und α = ③°.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      180,
+      45,
+      135
+     ]
+    },
+    "c": [
+     "180",
+     "(180) / 4",
+     "(180) - ((180) / 4)"
+    ],
+    "h": "Nebenwinkel liegen nebeneinander an einer Geraden. Wenn α das Dreifache von β ist, besteht die Summe aus 4 gleich großen Teilen.",
+    "w": "Nebenwinkel ergeben 180°. Die Summe besteht aus 3 Teilen für α und 1 Teil für β, zusammen 4 Teile. β = 180° : 4 = 45°. α = 180° − 45° = 135° (das ist 3 · 45°)."
+   }
+  },
+  {
+   "kennung": "R15-V062",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "scheitel_neben",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 83,
+     "fehlbild": "fb.winkel.neben_statt_scheitel",
+     "regel_des_fehlbilds": "id.geometrie.winkel",
+     "beschreibung": "den Scheitelwinkel genannt statt des Nebenwinkels"
+    },
+    {
+     "antwort": 277,
+     "fehlbild": "fb.winkel.teil_der_drehung",
+     "regel_des_fehlbilds": "id.geometrie.winkel",
+     "beschreibung": "vom ganzen Kreis (360°) abgezogen"
+    },
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von 90° statt von 180° abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheitel_neben",
+    "t": "scheitel_neben",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei gerade Straßen kreuzen sich. Einer der vier Winkel zwischen ihnen misst 83°. Wie groß ist jeder der beiden Winkel, die an diesen Winkel angrenzen?"
+    },
+    "o": {
+     "wert": 97,
+     "einheit": "°"
+    },
+    "c": "180 - 83",
+    "h": "Winkel, die nebeneinander an einer Geraden liegen, bilden zusammen einen gestreckten Winkel.",
+    "w": "Die angrenzenden Winkel sind Nebenwinkel des 83°-Winkels. Nebenwinkel ergeben zusammen 180°: 180° − 83° = 97°."
+   }
+  },
+  {
+   "kennung": "R15-V063",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "stufen_wechsel",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 73,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Wechselwinkel β angegeben"
+    },
+    {
+     "antwort": 253,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zu 180° addiert statt subtrahiert"
+    },
+    {
+     "antwort": 17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von 90° statt von 180° abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "stufen_wechsel",
+    "t": "stufen_wechsel",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Die Geraden g und h sind parallel. Die Gerade q schneidet beide. An g liegt ein Winkel α = 73°. Sein Wechselwinkel an h heißt β, und der Nebenwinkel von β heißt γ. Wie groß ist γ?"
+    },
+    "o": {
+     "wert": 107,
+     "einheit": "°"
+    },
+    "c": "180 - 73",
+    "h": "Wechselwinkel an Parallelen sind gleich groß. Danach brauchst du noch den Nebenwinkel.",
+    "w": "Wechselwinkel an Parallelen sind gleich groß: β = α = 73°. Der Nebenwinkel von β ergänzt zu 180°: γ = 180° − 73° = 107°."
+   }
+  },
+  {
+   "kennung": "R15-V064",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "stufen_wechsel",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Diese Zeile ist für sich richtig: Scheitelwinkel sind gleich groß. Der Fehler steckt schon in Zeile 2, deshalb stimmt auch δ nicht."
+    }
+   ],
+   "aufgabe": {
+    "l": "stufen_wechsel",
+    "t": "stufen_wechsel",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Geraden g und h sind parallel, q schneidet beide. Der Winkel α an g misst 68°. Kim bestimmt weitere Winkel an h: Zeile 1: α und β sind Stufenwinkel, also gilt β = 68°. Zeile 2: Der Winkel γ ist der Nebenwinkel von β, also gilt γ = 68°. Zeile 3: Der Winkel δ ist der Scheitelwinkel von γ, also gilt δ = 68°. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Nebenwinkel liegen nebeneinander an einer Geraden. Wie groß ist die Summe zweier Nebenwinkel?",
+    "w": "Nebenwinkel ergeben zusammen 180°, also γ = 180° − 68° = 112°. Der Fehler steckt in Zeile 2. Zeile 3 ist richtig weitergerechnet: Scheitelwinkel sind gleich groß, δ = γ. Mit dem richtigen γ wäre δ = 112°."
+   }
+  },
+  {
+   "kennung": "R15-V065",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "parallel_pruefen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Die Wege sind parallel, denn 78° und 82° liegen nur 4° auseinander.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein kleiner Unterschied reicht nicht, Stufenwinkel müssen genau gleich sein"
+    },
+    {
+     "index": 1,
+     "antwort": "Die Wege sind parallel, denn 78° + 82° = 160° liegt nahe bei 180°.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe geprüft, die nur bei Nebenwinkeln wichtig ist"
+    },
+    {
+     "index": 3,
+     "antwort": "Man kann nichts sagen, weil nur zwei Winkel gemessen wurden.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zwei gemessene Stufenwinkel reichen für die Prüfung"
+    }
+   ],
+   "aufgabe": {
+    "l": "parallel_pruefen",
+    "t": "parallel_pruefen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Wanderwege werden von einem Querweg geschnitten. Kim misst zwei Stufenwinkel: 78° und 82°. Was folgt daraus?"
+    },
+    "a": [
+     "Die Wege sind parallel, denn 78° und 82° liegen nur 4° auseinander.",
+     "Die Wege sind parallel, denn 78° + 82° = 160° liegt nahe bei 180°.",
+     "Die Wege sind nicht parallel, denn Stufenwinkel an Parallelen müssten gleich groß sein.",
+     "Man kann nichts sagen, weil nur zwei Winkel gemessen wurden."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Prüfe: Müssen gleich liegende Stufenwinkel bei parallelen Geraden gleich groß sein?",
+    "w": "Bei parallelen Geraden sind Stufenwinkel gleich groß. Hier ist 78° ≠ 82°. Deshalb sind die beiden Wege nicht parallel."
+   }
+  },
+  {
+   "kennung": "R15-V066",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "parallel_pruefen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 34,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei 2x = 34 nicht durch 2 geteilt"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen 14 und 20 falsch zusammengefasst und halbiert"
+    },
+    {
+     "antwort": 23.25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Winkel zu 180° ergänzt, als wären es Nebenwinkel"
+    }
+   ],
+   "aufgabe": {
+    "l": "parallel_pruefen",
+    "t": "parallel_pruefen",
+    "p": "uebung",
+    "s": 3,
+    "g": "pruefung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Geraden g und h werden von einer Geraden q geschnitten. Ein Paar Wechselwinkel misst (5x − 20)° und (3x + 14)°. Für welchen Wert von x sind g und h parallel?"
+    },
+    "o": {
+     "wert": 17
+    },
+    "c": "34 // 2",
+    "h": "Parallel heißt: Die Wechselwinkel sind gleich groß. Stelle eine Gleichung auf und löse sie.",
+    "w": "Parallele Geraden haben gleich große Wechselwinkel: 5x − 20 = 3x + 14. Es folgt 2x = 34 und x = 17. Probe: Beide Winkel messen 65°."
+   }
+  },
+  {
+   "kennung": "R15-V067",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "innenwinkelsumme",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 25.714285714285715,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Winkelsatz vergessen und 180° durch die größte Zahl geteilt"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Teil ausgerechnet"
+    },
+    {
+     "antwort": 140,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 360° statt 180° gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "innenwinkelsumme",
+    "t": "innenwinkelsumme",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Drei Wanderwege bilden ein Dreieck. Die Winkel verhalten sich wie 5 : 6 : 7. Wie groß ist der größte Winkel in Grad?"
+    },
+    "o": {
+     "wert": 70,
+     "einheit": "°"
+    },
+    "c": "180 * 7 / (5 + 6 + 7)",
+    "h": "Die Winkelsumme im Dreieck ist 180°. Wie viele gleich große Teile entstehen insgesamt?",
+    "w": "Es sind 5 + 6 + 7 = 18 Teile. Ein Teil ist 180° : 18 = 10°. Der größte Winkel hat 7 Teile: 7 · 10° = 70°."
+   }
+  },
+  {
+   "kennung": "R15-V068",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "innenwinkelsumme",
+   "stufe": 3,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Kim hat in drei Dreiecken die Winkel gemessen und jedes Mal etwa 180° erhalten.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Messen an Beispielen beweist nichts für jedes Dreieck"
+    },
+    {
+     "index": 2,
+     "antwort": "Ein Dreieck hat drei Ecken, und 3 · 60° = 180°.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gilt nur für das gleichseitige Dreieck"
+    }
+   ],
+   "aufgabe": {
+    "l": "innenwinkelsumme",
+    "t": "innenwinkelsumme",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Begründung zeigt für jedes Dreieck, dass die Winkelsumme 180° beträgt?"
+    },
+    "a": [
+     "Man zeichnet durch eine Ecke die Parallele zur gegenüberliegenden Seite. Wechselwinkel zeigen, dass die drei Winkel zusammen einen gestreckten Winkel bilden.",
+     "Kim hat in drei Dreiecken die Winkel gemessen und jedes Mal etwa 180° erhalten.",
+     "Ein Dreieck hat drei Ecken, und 3 · 60° = 180°."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Ein Beweis muss für jedes Dreieck gelten und sich auf bekannte Sätze stützen, etwa Wechselwinkel an Parallelen.",
+    "w": "Die Parallele durch eine Ecke bildet mit den Dreiecksseiten zwei Paare von Wechselwinkeln. Zusammen mit dem dritten Winkel liegen alle drei Winkel an einer Geraden und ergeben 180°. Das gilt für jedes Dreieck. Messungen und der Sonderfall des gleichseitigen Dreiecks zeigen das nicht allgemein."
+   }
+  },
+  {
+   "kennung": "R15-V069",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "aussenwinkel",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 159,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Winkel addiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 121,
+     "fehlbild": "fb.winkel.neben_statt_scheitel",
+     "regel_des_fehlbilds": "id.geometrie.winkel",
+     "beschreibung": "den Außenwinkel selbst als Innenwinkel genommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 242,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Außenwinkel noch einmal dazugezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "aussenwinkel",
+    "t": "aussenwinkel",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "In einem Dreieck misst der Innenwinkel α genau 38°, und der Außenwinkel an C misst 121°. Nach dem Außenwinkelsatz ist β = ①°. Der Innenwinkel an C ist ②°. Alle drei Innenwinkel zusammen sind ③°.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      83,
+      59,
+      180
+     ]
+    },
+    "c": [
+     "121 - 38",
+     "180 - 121",
+     "38 + (121 - 38) + (180 - 121)"
+    ],
+    "h": "Der Außenwinkel ist so groß wie die beiden nicht anliegenden Innenwinkel zusammen. Der Innenwinkel an C ist sein Nebenwinkel.",
+    "w": "β = 121° − 38° = 83°. Der Innenwinkel an C ist der Nebenwinkel des Außenwinkels: 180° − 121° = 59°. Die Summe 38° + 83° + 59° = 180° bestätigt die Rechnung."
+   }
+  },
+  {
+   "kennung": "R15-V070",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "aussenwinkel",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 180,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle drei Innenwinkel addiert"
+    },
+    {
+     "antwort": 68,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Innenwinkel γ statt des Außenwinkels angegeben"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Winkel subtrahiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "aussenwinkel",
+    "t": "aussenwinkel",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Dreieck ABC hat die Innenwinkel α = 47° und β = 65°. Kim verlängert die Seite [AC] über C hinaus. Wie groß ist der Außenwinkel an C, der an γ angrenzt?"
+    },
+    "o": {
+     "wert": 112,
+     "einheit": "°"
+    },
+    "c": "47 + 65",
+    "h": "Der Außenwinkel ist so groß wie die beiden Innenwinkel zusammen, die nicht an ihm liegen.",
+    "w": "Der Außenwinkel an C ist so groß wie die beiden anderen Innenwinkel zusammen: 47° + 65° = 112°. Probe: γ = 180° − 47° − 65° = 68°, und 180° − 68° = 112°."
+   }
+  },
+  {
+   "kennung": "R15-V071",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "vieleck",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 180,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Winkelsumme mit n statt mit n − 2 Dreiecken gerechnet"
+    },
+    {
+     "antwort": 1800,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Winkelsumme angegeben statt eines einzelnen Winkels"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Außenwinkel statt des Innenwinkels angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "vieleck",
+    "t": "vieleck",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Gartenhaus hat als Grundriss ein regelmäßiges Zwölfeck. Wie groß ist jeder Innenwinkel des Grundrisses in Grad?"
+    },
+    "o": {
+     "wert": 150,
+     "einheit": "°"
+    },
+    "c": "(12 - 2) * 180 / 12",
+    "h": "Wie groß ist die Winkelsumme im Zwölfeck? Wie viele gleich große Winkel hat es?",
+    "w": "Die Winkelsumme im Zwölfeck ist (12 − 2) · 180° = 1 800°. Alle 12 Winkel sind gleich groß: 1 800° : 12 = 150°."
+   }
+  },
+  {
+   "kennung": "R15-V072",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "vieleck",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Ecken statt der Dreiecke angegeben"
+    },
+    {
+     "antwort": 6.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 360° statt durch 180° geteilt"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "n − 1 Dreiecke statt n − 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "vieleck",
+    "t": "vieleck",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Die Winkelsumme eines Vielecks beträgt 2 340°. In wie viele Dreiecke lässt sich das Vieleck von einer Ecke aus zerlegen?"
+    },
+    "o": {
+     "wert": 13,
+     "einheit": "Dreiecke"
+    },
+    "c": "2340 // 180",
+    "h": "Jedes Dreieck bringt 180° zur Winkelsumme. Wie oft passen 180° in 2 340°?",
+    "w": "Bei der Zerlegung von einer Ecke aus entstehen (n − 2) Dreiecke, jedes bringt 180°. Aus (n − 2) · 180° = 2 340° folgt n − 2 = 13. Es sind 13 Dreiecke."
+   }
+  },
+  {
+   "kennung": "R15-V073",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "parkett",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 210,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Zwölfeck abgezogen"
+    },
+    {
+     "antwort": 300,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Außenwinkel 30° statt des Innenwinkels abgezogen"
+    },
+    {
+     "antwort": 120,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Vollwinkel einfach durch 3 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "parkett",
+    "t": "parkett",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Platz in Lissabon wird mit zwei regelmäßigen Zwölfecken und einer dritten Sorte regelmäßiger Vielecke so gepflastert, dass sich um jeden Eckpunkt genau diese drei Vielecke lückenlos treffen. Wie groß ist der Innenwinkel der dritten Sorte in Grad?"
+    },
+    "o": {
+     "wert": 60,
+     "einheit": "°"
+    },
+    "c": "360 - 2 * (12 - 2) * 180 / 12",
+    "h": "Wie groß ist der Innenwinkel eines regelmäßigen Zwölfecks? Um einen Punkt herum ergeben alle Winkel 360°.",
+    "w": "Der Innenwinkel des regelmäßigen Zwölfecks ist 150°. Zwei davon sind 300°. Es fehlen 360° − 300° = 60°. Das ist der Innenwinkel eines gleichseitigen Dreiecks."
+   }
+  },
+  {
+   "kennung": "R15-V074",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "parkett",
+   "stufe": 3,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Die Prüfung stimmt: 360° wird durch die Zahl der Ecken geteilt, das geht auf.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Ecken statt den Innenwinkel genommen"
+    },
+    {
+     "index": 2,
+     "antwort": "Der Innenwinkel ist 72°, und 360° : 72° = 5. Die Fünfecke passen lückenlos.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Außenwinkel als Innenwinkel gelesen"
+    },
+    {
+     "index": 3,
+     "antwort": "Der Innenwinkel ist 108°. Weil 108° + 108° + 108° = 324° fast 360° ergibt, passen sie nach etwas Schieben.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Rest bleibt, es ist kein lückenloses Auslegen"
+    }
+   ],
+   "aufgabe": {
+    "l": "parkett",
+    "t": "parkett",
+    "p": "uebung",
+    "s": 3,
+    "g": "pruefung",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim sagt: „Mit regelmäßigen Fünfecken allein kann man den Boden lückenlos auslegen, denn 360° : 5 = 72° ist eine ganze Zahl.“ Welche Prüfung ist richtig?"
+    },
+    "a": [
+     "Der Innenwinkel des regelmäßigen Fünfecks ist 108°. Die Zahl 360 lässt sich nicht ganzzahlig durch 108 teilen. Die Fünfecke passen nicht lückenlos.",
+     "Die Prüfung stimmt: 360° wird durch die Zahl der Ecken geteilt, das geht auf.",
+     "Der Innenwinkel ist 72°, und 360° : 72° = 5. Die Fünfecke passen lückenlos.",
+     "Der Innenwinkel ist 108°. Weil 108° + 108° + 108° = 324° fast 360° ergibt, passen sie nach etwas Schieben."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Entscheidend ist der Innenwinkel der Fläche, nicht die Zahl der Ecken. Teilt er 360° ohne Rest?",
+    "w": "Der Innenwinkel des regelmäßigen Fünfecks ist (5 − 2) · 180° : 5 = 108°. 360° : 108° ist nicht ganzzahlig (3,33 ...). Um einen Punkt bleibt eine Lücke. Fünfecke allein passen nicht lückenlos."
+   }
+  },
+  {
+   "kennung": "R15-V075",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "figuren",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 115,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Innenwinkel δ statt seines Nebenwinkels angegeben"
+    },
+    {
+     "antwort": -65,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "im Viereck mit der Winkelsumme 180° gerechnet"
+    },
+    {
+     "antwort": 245,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von 360° statt von 180° abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "figuren",
+    "t": "figuren",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Segel hat die Form eines Vierecks ABCD mit α = 80°, β = 95° und γ = 70°. Die Seite [AD] wird über D hinaus verlängert. Wie groß ist der Winkel, den die Verlängerung mit [DC] einschließt?"
+    },
+    "o": {
+     "wert": 65,
+     "einheit": "°"
+    },
+    "c": "180 - (360 - 80 - 95 - 70)",
+    "h": "Berechne zuerst δ im Viereck. Die Verlängerung bildet mit [DA] einen gestreckten Winkel.",
+    "w": "Die Winkelsumme im Viereck ist 360°. δ = 360° − 80° − 95° − 70° = 115°. Die Verlängerung von [AD] und die Seite [DA] liegen auf einer Geraden, der gesuchte Winkel ist der Nebenwinkel von δ: 180° − 115° = 65°."
+   }
+  },
+  {
+   "kennung": "R15-V076",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "figuren",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 190,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen der beiden Winkel richtig ergänzt"
+    },
+    {
+     "antwort": 150,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "α und β addiert statt γ und δ bestimmt"
+    },
+    {
+     "antwort": 290,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur α von der Winkelsumme abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "figuren",
+    "t": "figuren",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "In einem Trapez ABCD mit AB ∥ CD gilt α = 70° und β = 80°. Wie groß ist die Summe der beiden Winkel γ und δ?"
+    },
+    "o": {
+     "wert": 210,
+     "einheit": "°"
+    },
+    "c": "(180 - 80) + (180 - 70)",
+    "h": "Winkel an den beiden Schenkeln zwischen den Parallelen ergeben jeweils 180°.",
+    "w": "Zwischen den Parallelen AB und CD gilt: α + δ = 180° und β + γ = 180°. Also δ = 110° und γ = 100°, zusammen 210°. Probe über die Winkelsumme im Viereck: 360° − 70° − 80° = 210°."
+   }
+  },
+  {
+   "kennung": "R15-V077",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "beweisen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Man misst bei einem Viereck alle Winkel und addiert. Es kommt 360° heraus, also gilt es immer.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Messen an einem Beispiel beweist nichts"
+    },
+    {
+     "index": 1,
+     "antwort": "Ein Viereck hat 4 Ecken. Jede Ecke hat 90°. Also 4 · 90° = 360°.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gilt nur für das Rechteck oder Quadrat"
+    },
+    {
+     "index": 2,
+     "antwort": "Man zeichnet beide Diagonalen. Es entstehen 4 Dreiecke zu je 180°, also 4 · 180° = 720° für das Viereck.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Winkel am Schnittpunkt der Diagonalen wurden mitgezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "beweisen",
+    "t": "beweisen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Du willst beweisen, dass die Winkelsumme in jedem Viereck 360° beträgt. Welcher Ablauf ist ein richtiger Beweis?"
+    },
+    "a": [
+     "Man misst bei einem Viereck alle Winkel und addiert. Es kommt 360° heraus, also gilt es immer.",
+     "Ein Viereck hat 4 Ecken. Jede Ecke hat 90°. Also 4 · 90° = 360°.",
+     "Man zeichnet beide Diagonalen. Es entstehen 4 Dreiecke zu je 180°, also 4 · 180° = 720° für das Viereck.",
+     "Man zeichnet eine Diagonale und zerlegt das Viereck in zwei Dreiecke. Jedes Dreieck hat die Winkelsumme 180°. Die Winkel der Dreiecke bilden zusammen die Viereckswinkel: 180° + 180° = 360°."
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Ein Beweis gilt für jedes Viereck. Welcher Satz über Dreiecke kann dabei helfen?",
+    "w": "Eine Diagonale zerlegt jedes Viereck in zwei Dreiecke. Die Winkel der Dreiecke ergeben genau die vier Winkel des Vierecks: 2 · 180° = 360°. Der Ablauf stützt sich auf den bekannten Satz über die Winkelsumme im Dreieck."
+   }
+  },
+  {
+   "kennung": "R15-V078",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "beweisen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "beweisen",
+    "t": "beweisen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Alex beweist, dass die drei Außenwinkel eines Dreiecks zusammen 360° ergeben, und schreibt auf: Zeile 1: An jeder Ecke ergeben Innenwinkel und Außenwinkel zusammen 180°. Zeile 2: An den drei Ecken ergibt das 3 · 180° = 540°. Zeile 3: Die drei Innenwinkel ergeben zusammen 180°. Zeile 4: Die Außenwinkel ergeben also die Summe aus den 540° und den 180° der Innenwinkel, das sind 720°. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Von den 540° gehören 180° zu den Innenwinkeln. Was bleibt für die Außenwinkel übrig?",
+    "w": "Von den 540° gehören 180° zu den Innenwinkeln. Die Außenwinkel sind der Rest: 540° − 180° = 360°. Alex hat in Zeile 4 addiert statt subtrahiert. Die Zeilen 1 bis 3 sind richtig."
+   }
+  }
+ ]
+}

@@ -20,8 +20,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -69,8 +69,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -118,8 +118,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -167,8 +167,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -217,8 +217,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -267,8 +267,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -317,8 +317,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -366,8 +366,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -415,8 +415,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -465,8 +465,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -515,8 +515,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -565,8 +565,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -615,8 +615,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -665,8 +665,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -714,8 +714,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -763,8 +763,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -813,8 +813,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -863,8 +863,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {

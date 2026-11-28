@@ -178,8 +178,8 @@
      "regel": "id.geometrie.deckungsgleich",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 7,
-     "anteil": "7/7"
+     "aufgaben": 10,
+     "anteil": "10/10"
     },
     "symmetrie": {
      "regel": "id.geometrie.deckungsgleich",
@@ -213,8 +213,8 @@
      "regel": "id.geometrie.deckungsgleich",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 6,
-     "anteil": "6/6"
+     "aufgaben": 9,
+     "anteil": "9/9"
     }
    }
   },
@@ -384,9 +384,11 @@
    "klasse_gym_by": 6,
    "lernkarten": {
     "stellenwerte": {
-     "regel": null,
+     "regel": "rr.stellenwert",
      "weitere": [],
-     "quelle": "offen"
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "2/3"
     },
     "vergleichen_ordnen": {
      "regel": null,
@@ -402,29 +404,29 @@
      "regel": "id.zahlen.schreibweisen",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "dezimal_zu_bruch": {
      "regel": "id.zahlen.schreibweisen",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "merkwerte": {
      "regel": "id.zahlen.schreibweisen",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "periodisch": {
      "regel": "id.zahlen.schreibweisen",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "verstehen": {
      "regel": null,
@@ -441,43 +443,43 @@
      "regel": "id.verhaeltnisse.prozent",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "prozentwert": {
      "regel": "id.verhaeltnisse.prozent",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "prozentsatz": {
      "regel": "id.verhaeltnisse.prozent",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "grundwert": {
      "regel": "id.verhaeltnisse.prozent",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "rabatt_aufschlag": {
      "regel": "id.verhaeltnisse.prozent",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "verstehen": {
      "regel": "id.verhaeltnisse.prozent",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     }
    }
   },
@@ -1712,8 +1714,8 @@
      "regel": "id.geometrie.winkel",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 6,
-     "anteil": "6/6"
+     "aufgaben": 9,
+     "anteil": "9/9"
     },
     "satz_kehrsatz": {
      "regel": "id.geometrie.deckungsgleich",
@@ -1724,10 +1726,12 @@
     },
     "vierecke_konstruieren": {
      "regel": "id.geometrie.deckungsgleich",
-     "weitere": [],
+     "weitere": [
+      "id.geometrie.winkel"
+     ],
      "quelle": "aufgaben",
-     "aufgaben": 4,
-     "anteil": "4/4"
+     "aufgaben": 7,
+     "anteil": "5/7"
     }
    }
   },
@@ -2692,8 +2696,8 @@
      "regel": "id.verhaeltnisse.wert_fuer_eins",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 5,
-     "anteil": "5/5"
+     "aufgaben": 8,
+     "anteil": "8/8"
     },
     "vervielfachen": {
      "regel": "rr.verhaeltnis",
@@ -2701,15 +2705,15 @@
       "id.verhaeltnisse.wert_fuer_eins"
      ],
      "quelle": "aufgaben",
-     "aufgaben": 7,
-     "anteil": "5/7"
+     "aufgaben": 10,
+     "anteil": "8/10"
     },
     "pruefen": {
      "regel": "id.verhaeltnisse.wert_fuer_eins",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 7,
-     "anteil": "7/7"
+     "aufgaben": 10,
+     "anteil": "10/10"
     },
     "einheit": {
      "regel": "id.verhaeltnisse.wert_fuer_eins",
@@ -2882,57 +2886,57 @@
      "regel": "id.flaeche_raum.aus_dem_rechteck",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "dreieck": {
      "regel": "id.flaeche_raum.aus_dem_rechteck",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "trapez": {
      "regel": "id.flaeche_raum.aus_dem_rechteck",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "rueckwaerts": {
      "regel": "id.flaeche_raum.aus_dem_rechteck",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "zusammengesetzt": {
      "regel": "id.flaeche_raum.aus_dem_rechteck",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "oberflaeche": {
      "regel": "id.flaeche_raum.haut",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "verstehen": {
      "regel": "id.flaeche_raum.aus_dem_rechteck",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "drachen_raute": {
      "regel": "id.flaeche_raum.aus_dem_rechteck",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     }
    }
   },
@@ -2944,36 +2948,36 @@
      "regel": "id.flaeche_raum.aus_dem_quader",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "oberflaeche": {
      "regel": "id.flaeche_raum.haut",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "sachaufgaben": {
      "regel": "id.flaeche_raum.haut",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "zusammengesetzt": {
      "regel": "id.flaeche_raum.haut",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "verstehen": {
      "regel": "id.flaeche_raum.haut",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     }
    }
   },
@@ -3077,50 +3081,50 @@
      "regel": "id.flaeche_raum.aus_dem_rechteck",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 4,
-     "anteil": "3/4"
+     "aufgaben": 7,
+     "anteil": "6/7"
     },
     "prisma_oberflaeche": {
      "regel": "id.flaeche_raum.haut",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "prisma_umstellen": {
      "regel": "id.flaeche_raum.aus_dem_rechteck",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "zylinder_volumen": {
      "regel": "id.flaeche_raum.aus_dem_rechteck",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "zylinder_oberflaeche": {
      "regel": "id.flaeche_raum.haut",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 4,
-     "anteil": "4/4"
+     "aufgaben": 7,
+     "anteil": "7/7"
     },
     "sach": {
      "regel": "id.flaeche_raum.aus_dem_quader",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "2/3"
+     "aufgaben": 6,
+     "anteil": "5/6"
     },
     "verstehen": {
      "regel": "id.flaeche_raum.aus_dem_rechteck",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "5/6"
     },
     "cavalieri": {
      "regel": "id.flaeche_raum.aus_dem_quader",
@@ -3139,15 +3143,15 @@
      "regel": "id.flaeche_raum.auslegen",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "quader": {
      "regel": "id.flaeche_raum.aus_dem_quader",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "einheiten": {
      "regel": "id.flaeche_raum.auslegen",
@@ -3163,15 +3167,15 @@
      "regel": "id.flaeche_raum.aus_dem_quader",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "zusammengesetzt": {
      "regel": "id.flaeche_raum.aus_dem_quader",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "verstehen": {
      "regel": null,
@@ -3269,8 +3273,8 @@
      "regel": "id.flaeche_raum.haut",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 4,
+     "anteil": "4/4"
     },
     "wahre_groesse": {
      "regel": "id.flaeche_raum.haut",
@@ -3432,15 +3436,15 @@
      "regel": "id.daten.anteil",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 5,
-     "anteil": "5/5"
+     "aufgaben": 8,
+     "anteil": "8/8"
     },
     "rel_haeufigkeit": {
      "regel": "id.daten.anteil",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 5,
-     "anteil": "5/5"
+     "aufgaben": 8,
+     "anteil": "8/8"
     },
     "laplace": {
      "regel": "id.daten.anteil",
@@ -3474,8 +3478,8 @@
      "regel": "id.daten.stufen",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 4,
+     "anteil": "4/4"
     }
    }
   },
@@ -3708,43 +3712,43 @@
      "regel": "id.algebra.term",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "termwert": {
      "regel": "id.algebra.term",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "uebersetzen": {
      "regel": "id.algebra.term",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "sachsituation": {
      "regel": "id.algebra.term",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "muster": {
      "regel": "id.algebra.term",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "deuten": {
      "regel": "id.algebra.term",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     }
    }
   },
@@ -3836,36 +3840,36 @@
      "regel": "rr.potenz",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "gleiche_basis_ganz": {
      "regel": "rr.potenz",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 4,
-     "anteil": "4/4"
+     "aufgaben": 7,
+     "anteil": "7/7"
     },
     "exponent_und_potenz": {
      "regel": "rr.potenz",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 4,
-     "anteil": "4/4"
+     "aufgaben": 7,
+     "anteil": "7/7"
     },
     "terme_vereinfachen": {
      "regel": "rr.potenz",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     },
     "fehler_ganz": {
      "regel": "rr.potenz",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 6,
+     "anteil": "6/6"
     }
    }
   },
@@ -3979,15 +3983,15 @@
      "regel": "rr.ausmultiplizieren",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 6,
-     "anteil": "6/6"
+     "aufgaben": 9,
+     "anteil": "9/9"
     },
     "ausklammern": {
      "regel": "rr.ausmultiplizieren",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 6,
-     "anteil": "6/6"
+     "aufgaben": 9,
+     "anteil": "9/9"
     },
     "aequivalenz": {
      "regel": "id.algebra.term",
@@ -4000,8 +4004,8 @@
      "regel": "rr.ausmultiplizieren",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 6,
-     "anteil": "6/6"
+     "aufgaben": 9,
+     "anteil": "9/9"
     },
     "gleichungen_binomisch": {
      "regel": null,
@@ -4835,7 +4839,7 @@
   {
    "thema": "abbildungen.kongruenz",
    "lernkarte": "punktspiegelung",
-   "grund": "Aufgaben uneinig (id.geometrie.abstand 4, id.geometrie.deckungsgleich 3)",
+   "grund": "Aufgaben uneinig (id.geometrie.deckungsgleich 6, id.geometrie.abstand 4)",
    "kandidaten": [
     "id.geometrie.abstand",
     "id.geometrie.deckungsgleich"
@@ -4959,16 +4963,6 @@
     "id.zahlen.schreibweisen",
     "id.zahlen.zahlengerade",
     "rr.kuerzen"
-   ]
-  },
-  {
-   "thema": "bruch.dezimal",
-   "lernkarte": "stellenwerte",
-   "grund": "Aufgaben uneinig (id.zahlen.buendeln 1, rr.stellenwert 1)",
-   "kandidaten": [
-    "id.zahlen.buendeln",
-    "id.zahlen.schreibweisen",
-    "rr.stellenwert"
    ]
   },
   {
@@ -5961,7 +5955,7 @@
   {
    "thema": "terme.umformen",
    "lernkarte": "gleichungen_binomisch",
-   "grund": "Aufgaben uneinig (rr.ausmultiplizieren 2, id.algebra.gleichung_loesen 2, rr.waage 1)",
+   "grund": "Aufgaben uneinig (rr.ausmultiplizieren 5, id.algebra.gleichung_loesen 2, rr.waage 1)",
    "kandidaten": [
     "id.algebra.gleichung_loesen",
     "id.algebra.term",

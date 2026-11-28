@@ -20,8 +20,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -69,8 +69,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -118,8 +118,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -167,8 +167,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -216,8 +216,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -265,8 +265,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -314,8 +314,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -363,8 +363,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -412,8 +412,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
    "zaehlt": "ja",
    "fehlbilder": [
     {

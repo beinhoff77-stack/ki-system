@@ -9,6 +9,7 @@ Teil 2 (nur wenn lokale Postgres-Programme da sind, z. B. /usr/lib/postgresql/16
 Aufruf: python3 -I tools/tests/regelbezug_sql_test.py   (endet mit OK; Teil 2 wird übersprungen, wenn kein Postgres da ist)
 """
 import glob
+import hashlib
 import json
 import os
 import shutil
@@ -54,6 +55,15 @@ def teil1():
     for r in ALLE:
         rc, out, err = py('tools/regelbezug_sql.py', '--runden', str(r), '--sql')
         assert rc == 0 and out.count('$rbf$') % 2 == 0 and 'do $rbnach$' in out, (r, err[-400:])
+    # Runde 14: seit 28.11. mit 640 Fehlbildern und ohne Regel eingespielt; die Regel kommt nur über rb_nachtrag_r14.sql. Das alte Paket bleibt byteidentisch.
+    z14, abw14, fehlt14, c14, weg14, _ = R.sammeln((14,))
+    assert c14['aufgaben'] == 213 and not fehlt14 and not abw14 and c14['mit_regel'] == 180 and c14['fb_uebernommen'] == 640 and not weg14, (c14, abw14, weg14)
+    assert len(z14) == 213 and sum(len(x['fb']) for x in z14) == 640 and sum(1 for x in z14 if x['regel']) == 180
+    alt14 = (WURZEL / 'tools/tests/aus/rollend14_einspielen.sql').read_bytes()
+    assert hashlib.md5(alt14).hexdigest() == 'b2d081b8da216e6d45691f55d0e73569', 'rollend14_einspielen.sql ist nicht mehr das eingespielte Paket'
+    rc, out, err = py('tools/rollend_sql.py', '--runden', '14', '--sql')
+    assert rc == 0 and out.encode('utf-8') == alt14, 'rollend_sql.py erzeugt für Runde 14 nicht mehr das eingespielte Paket (Regel darf dort nicht stehen)'
+    assert 'neue Aufgaben rollend-14: 213 Aufgaben, 0 Regeln, 640 Fehlbilder.' in out
     # neue Runden bringen den Block mit, --ohne-regelbezug lässt ihn weg
     rc, out, _ = py('tools/rollend_sql.py', '--runden', '8', '--sql')
     assert rc == 0 and 'do $rbnach$' in out
@@ -208,8 +218,19 @@ def teil2(zeilen):
             out1 = pg.paket(paket)
             out2 = pg.paket(paket)
             assert 'Fehlbilder neu' in out1 and ', 0 Regeln neu, 0 Fehlbilder neu' in out2, (runde, out1[-300:], out2[-300:])
+        # Runde 14: erst der Fehlbild-Block des eingespielten Pakets (0 Regeln, 640 Fehlbilder), dann der Nachtrag der Regeln
+        pk14 = (aus / 'rollend14_einspielen.sql').read_text(encoding='utf-8')
+        out = pg.paket(pk14[pk14.index('-- RB-S Regelbezug: neue Aufgaben rollend-14'):])
+        assert 'RB-S Regelbezug: 213 Aufgaben, 0 Regeln neu, 640 Fehlbilder neu' in out, out[-400:]
+        nach14 = (aus / 'rb_nachtrag_r14.sql').read_text(encoding='utf-8')
+        out1 = pg.paket(nach14)
+        out2 = pg.paket(nach14)
+        assert 'RB-S Regelbezug: 213 Aufgaben, 180 Regeln neu, 0 Fehlbilder neu' in out1, out1[-400:]
+        assert 'RB-S Regelbezug: 213 Aufgaben, 0 Regeln neu, 0 Fehlbilder neu' in out2, out2[-400:]
+        print('Runde 14, Nachtrag, 1. Lauf:', [l for l in out1.splitlines() if 'RB-S Regelbezug' in l][-1].strip())
+        print('Runde 14, Nachtrag, 2. Lauf:', [l for l in out2.splitlines() if 'RB-S Regelbezug' in l][-1].strip())
         zahl = pg.sql("\\pset tuples_only on\nselect count(*) || ' ' || (select count(*) from schule.aufgabe_fehlbild) from schule.aufgabe_regel;").split()
-        assert int(zahl[0]) == sum(1 for x in zeilen if x['regel']) and int(zahl[1]) == sum(len(x['fb']) for x in zeilen), zahl
+        assert int(zahl[0]) == sum(1 for x in zeilen if x['regel']) + 180 and int(zahl[1]) == sum(len(x['fb']) for x in zeilen) + 640, zahl
         # eine echte Fehlantwort aus einer Datei (Zahl mit Kennung) über die Bewertung
         x = next(x for x in zeilen if x['y'] == 'zahl' and any(f['fehlbild'] for f in x['fb']))
         f = next(f for f in x['fb'] if f['fehlbild'])

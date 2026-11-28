@@ -20,8 +20,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -70,8 +70,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -120,8 +120,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -170,8 +170,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -220,8 +220,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -270,8 +270,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -320,8 +320,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -370,8 +370,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -420,8 +420,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -470,8 +470,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -520,8 +520,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -570,8 +570,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -620,8 +620,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -670,8 +670,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -720,8 +720,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -770,8 +770,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -820,8 +820,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -870,8 +870,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -920,8 +920,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -970,8 +970,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1019,8 +1019,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
    "zaehlt": "ja",
    "fehlbilder": [
     {

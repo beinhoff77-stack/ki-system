@@ -189,13 +189,19 @@ def sammeln(runden, ohne=()):
     return zeilen, abw, fehlt, z, weg, je_typ
 
 
+# Runde 14 ist am 28.11.2026 ohne Regel eingespielt worden (tools/tests/aus/rollend14_einspielen.sql, md5 b2d081b8da216e6d45691f55d0e73569: 640 Fehlbilder,
+# 0 Regeln). Die Regel-Kennung steht seit dem Nachtrag in den Dateien (inhalte/mathe-profi/rollend-14/regeln.py), kommt aber nur über rb_nachtrag_r14.sql
+# in die Datenbank. Damit das alte Paket bei jedem Neuerzeugen byteidentisch bleibt, lässt zeilen_neu die Regel dieser Kennungen weg.
+REGEL_ERST_IM_NACHTRAG = ('R14-',)
+
+
 def zeilen_neu(plan, je):
     """Für ein Einspiel-Paket von rollend_sql: Regel und Fehlbilder der Aufgaben, wie sie in der Datei stehen (= wie sie gerade eingefügt werden)."""
     rep, zeilen = repo_eintraege(), []
     for t, rows in je.items():
         for k, row in rows:
             e = rep[k]
-            regel = e.get('regel') or None
+            regel = None if k.startswith(REGEL_ERST_IM_NACHTRAG) else (e.get('regel') or None)
             if regel and not KENNUNG.match(regel): raise SystemExit(f'{k}: Regel „{regel}“ ist keine Kennung')
             fb, _ = fehlbilder(e, row)
             if not regel and not fb: continue

@@ -27,23 +27,23 @@
    "bauplan": "e",
    "schema": "nein",
    "alt_kennung": null,
-   "abgrenzung": "Dort wird ein Term ausgerechnet oder ein Fehler benannt; hier wird die Wirkung einer Klammer über die Struktur bestimmt (eine Zahl wechselt von Plus zu Minus), Ausrechnen sechsstelliger Zahlen ist unattraktiv.",
+   "abgrenzung": "Dort wird ein Term ausgerechnet oder ein Fehler benannt; hier wird die Wirkung einer Klammer über die Struktur bestimmt (eine Zahl wechselt von Plus zu Minus). Nach B6 ist die Anfangszahl unbekannt, schriftliches Ausrechnen führt nicht zum Ziel.",
    "regel": "rr.reihenfolge",
    "regel_name": "Reihenfolge beim Rechnen",
    "fehlbilder": [
     {
-     "antwort": 37500,
-     "rechnung": "37500",
+     "antwort": 650,
+     "rechnung": "650",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Nur gesehen, dass 37 500 nicht mehr addiert wird, nicht dass sie jetzt abgezogen wird"
+     "beschreibung": "Nur gesehen, dass 650 nicht mehr addiert wird, nicht dass sie jetzt abgezogen wird"
     },
     {
-     "antwort": 166986,
-     "rechnung": "129486 + 37500",
+     "antwort": 5450,
+     "rechnung": "4800 + 650",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Den Wert der Klammer genannt: 129 486 + 37 500"
+     "beschreibung": "Den Wert der Klammer genannt: 4 800 + 650"
     },
     {
      "antwort": 0,
@@ -54,7 +54,7 @@
     }
    ],
    "ersetzt_test": true,
-   "loesung_rechnung": "2 * 37500",
+   "loesung_rechnung": "2 * 650",
    "aufgabe": {
     "l": "klammern",
     "t": "vorrang",
@@ -63,13 +63,13 @@
     "g": "parameter",
     "y": "zahl",
     "f": {
-     "text": "In der Rechnung 483 917 − 129 486 + 37 500 wird ein Klammerpaar um 129 486 + 37 500 gesetzt. Um wie viel ist das Ergebnis mit Klammer kleiner als das Ergebnis ohne Klammer?"
+     "text": "Von einer Zahl, die größer als 10 000 ist, wird zuerst 4 800 abgezogen und danach 650 addiert. Nun setzt jemand ein Klammerpaar um 4 800 + 650 und rechnet: die Zahl − (4 800 + 650). Um wie viel ist das Ergebnis mit Klammer kleiner als das Ergebnis ohne Klammer?"
     },
     "o": {
-     "wert": 75000
+     "wert": 1300
     },
-    "c": "2 * 37500",
-    "w": "Ohne Klammer wird 129 486 abgezogen und 37 500 addiert. Mit Klammer wird die Summe abgezogen, also wird auch 37 500 abgezogen. Die 37 500 wird nicht mehr dazugezählt, sondern abgezogen; das macht zweimal 37 500 = 75 000 aus. Probe: 391 931 − 316 931 = 75 000."
+    "c": "2 * 650",
+    "w": "Ohne Klammer wird 4 800 abgezogen und 650 addiert. Mit Klammer wird die Summe abgezogen, also wird auch 650 abgezogen. Die 650 wird nicht mehr dazugezählt, sondern abgezogen; das macht zweimal 650 = 1 300 aus. Das gilt für jede Zahl, mit der man beginnt."
    }
   },
   {
@@ -87,33 +87,33 @@
    "bauplan": "b",
    "schema": "nein",
    "alt_kennung": null,
-   "abgrenzung": "Dort wird ein einzelner Fehler benannt oder eine Zeile gesucht; hier muss aus drei Ergebnissen die falsche Regel (Klammern weglassen) erschlossen und auf einen Term mit zwei Klammern angewendet werden.",
+   "abgrenzung": "Dort wird ein Fehler benannt; hier wird die falsche Regel aus drei Ergebnissen erschlossen, gefragt ist der Unterschied zum richtigen Ergebnis (kein falscher Wert als Lösung, B1).",
    "regel": "rr.reihenfolge",
    "regel_name": "Reihenfolge beim Rechnen",
    "fehlbilder": [
+    {
+     "antwort": 23,
+     "rechnung": "6 + 4 * 5 - 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Nur das Ergebnis des Kindes genannt (6 + 4 · 5 − 3)"
+    },
     {
      "antwort": 20,
      "rechnung": "(6 + 4) * (5 - 3)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Richtig gerechnet (10 · 2 = 20) statt mit der Regel des Kindes"
+     "beschreibung": "Nur das richtige Ergebnis genannt (10 · 2)"
     },
     {
-     "antwort": 47,
-     "rechnung": "(6 + 4) * 5 - 3",
+     "antwort": 27,
+     "rechnung": "(6 + 4) * 5 - 3 - (6 + 4) * (5 - 3)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Nur die zweite Klammer weggelassen: (6 + 4) · 5 − 3"
-    },
-    {
-     "antwort": 14,
-     "rechnung": "6 + 4 * (5 - 3)",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "Nur die erste Klammer weggelassen: 6 + 4 · (5 − 3)"
+     "beschreibung": "Eine andere Regel angenommen (nur die zweite Klammer weggelassen): 47 − 20"
     }
    ],
-   "loesung_rechnung": "6 + 4 * 5 - 3",
+   "loesung_rechnung": "(6 + 4 * 5 - 3) - (6 + 4) * (5 - 3)",
    "aufgabe": {
     "l": "klammern",
     "t": "vorrang",
@@ -122,13 +122,13 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Ein Kind rechnet Terme mit Klammern immer nach derselben falschen Regel. Es schreibt: 3 · (4 + 5) = 17, (8 − 2) · 3 = 2 und 2 · (10 − 4) = 16. Welches Ergebnis schreibt es mit seiner Regel bei (6 + 4) · (5 − 3)?"
+     "text": "Ein Kind rechnet Terme mit Klammern immer nach derselben falschen Regel: 3 · (4 + 5) ergibt bei ihm 17, (8 − 2) · 3 ergibt 2, und 2 · (10 − 4) ergibt 16. Um wie viel ist das Ergebnis, das es mit seiner Regel für (6 + 4) · (5 − 3) erhält, größer als das richtige Ergebnis?"
     },
     "o": {
-     "wert": 23
+     "wert": 3
     },
-    "c": "6 + 4 * 5 - 3",
-    "w": "Das Kind lässt die Klammern weg und rechnet Punkt vor Strich: 3 · 4 + 5 = 17, 8 − 2 · 3 = 2, 2 · 10 − 4 = 16. Bei (6 + 4) · (5 − 3) rechnet es also 6 + 4 · 5 − 3 = 6 + 20 − 3 = 23. Richtig ist 10 · 2 = 20."
+    "c": "(6 + 4 * 5 - 3) - (6 + 4) * (5 - 3)",
+    "w": "Das Kind lässt die Klammern weg und rechnet Punkt vor Strich: 3 · 4 + 5 = 17, 8 − 2 · 3 = 2, 2 · 10 − 4 = 16. Bei (6 + 4) · (5 − 3) rechnet es also 6 + 4 · 5 − 3 = 23. Richtig ist 10 · 2 = 20. Das Ergebnis des Kindes ist um 23 − 20 = 3 größer."
    }
   },
   {
@@ -159,7 +159,7 @@
     },
     {
      "index": 2,
-     "antwort": "50 − (3 · 9 − 2)",
+     "antwort": "50 − 3 · 9 + 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Den Rabatt nur einmal statt für jedes Buch gutgeschrieben (Wert 25)"
@@ -185,7 +185,7 @@
     "a": [
      "50 − 3 · 9 − 2",
      "50 − 3 · (9 − 2)",
-     "50 − (3 · 9 − 2)",
+     "50 − 3 · 9 + 2",
      "50 − 3 · (9 + 2)"
     ],
     "o": {
@@ -263,61 +263,57 @@
    "lernkarte": "klammern",
    "pool": "sicherung",
    "stufe": 2,
-   "typ": "darstellung",
-   "form": null,
-   "antwortform": "auswahl",
+   "typ": "mehrschritt",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
    "zaehlt": "ja",
    "lehrplan": "M5 3",
-   "idee": "klammer_vergleich_struktur",
-   "bauplan": "g",
+   "idee": "aenderung_in_klammer",
+   "bauplan": "e",
    "schema": "nein",
    "alt_kennung": null,
-   "abgrenzung": "Ähnliche Einsicht (die Klammer bewirkt, dass mehr malgenommen wird), aber eine andere Leistung: vier Terme mit großen Zahlen werden über ihre Struktur und Größenordnung verglichen statt ausgerechnet oder allgemein bestätigt.",
+   "abgrenzung": "Dort wird eine Zahl gesucht; hier wird die Wirkung einer Änderung in der Klammer bestimmt, die für jede Zahl □ gleich ist (□ unbekannt, Ausrechnen nicht möglich). Ersetzt den Termvergleich 97 · (348 + 6) (A1).",
    "regel": "rr.reihenfolge",
    "regel_name": "Reihenfolge beim Rechnen",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "97 · 348 + 6",
+     "antwort": 5,
+     "rechnung": "5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Gedacht, ohne Klammer komme dasselbe heraus; hier wird aber nur 6 statt 97 · 6 dazugezählt"
+     "beschreibung": "Die Klammer nicht beachtet und nur die Änderung der Zahl selbst genannt"
     },
     {
-     "index": 2,
-     "antwort": "(97 + 348) · 6",
+     "antwort": 8,
+     "rechnung": "5 + 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Gedacht, das Malnehmen am Schluss mache den Wert am größten; 445 · 6 ist aber viel kleiner"
+     "beschreibung": "Die 5 und die 3 addiert"
     },
     {
-     "index": 3,
-     "antwort": "97 + 348 · 6",
+     "antwort": 36,
+     "rechnung": "(5 + 7) * 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Gedacht, der Term mit dem Mal hinten sei am größten; 97 + 2 088 ist viel kleiner"
+     "beschreibung": "Die 5 zur 7 gezählt und das mit 3 malgenommen"
     }
    ],
+   "loesung_rechnung": "5 * 3",
    "aufgabe": {
     "l": "klammern",
     "t": "vorrang",
     "p": "sicherung",
     "s": 2,
-    "g": "darstellung",
-    "y": "auswahl",
+    "g": "mehrschritt",
+    "y": "zahl",
     "f": {
-     "text": "Welcher der vier Terme hat den größten Wert? Entscheide, ohne alle Terme auszurechnen."
+     "text": "Im Term (□ + 7) · 3 steht □ für eine natürliche Zahl. Die Zahl □ wird um 5 vergrößert. Um wie viel wird der Wert des Terms größer?"
     },
-    "a": [
-     "97 · 348 + 6",
-     "97 · (348 + 6)",
-     "(97 + 348) · 6",
-     "97 + 348 · 6"
-    ],
     "o": {
-     "index": 1
+     "wert": 15
     },
-    "w": "97 · (348 + 6) = 97 · 348 + 97 · 6: Hier kommt zu 97 · 348 noch 97 · 6 dazu, bei 97 · 348 + 6 nur 6. Also ist 97 · (348 + 6) größer. Die beiden anderen Terme sind viel kleiner: (97 + 348) · 6 und 97 + 348 · 6 liegen unter 3 000, während 97 · 348 über 30 000 liegt."
+    "c": "5 * 3",
+    "w": "In der Klammer wird die Summe um 5 größer. Diese Summe wird mit 3 malgenommen, also wächst der Wert um 3 · 5 = 15, egal welche Zahl □ ist. Beispiel: (10 + 7) · 3 = 51 und (15 + 7) · 3 = 66, 66 − 51 = 15. Ohne Klammer, bei □ + 7 · 3, wüchse der Wert nur um 5."
    }
   },
   {
@@ -347,14 +343,14 @@
      "beschreibung": "Das Teilen durch 4 vergessen"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Er wird um 36 kleiner, denn jetzt werden 36 € statt 20 € abgezogen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Den neuen Rabatt statt der Änderung genommen"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Er wird um 9 kleiner, denn der neue Rabatt 36 wird durch 4 geteilt.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -374,12 +370,12 @@
     },
     "a": [
      "Er wird um 16 kleiner, denn der Rabatt wird um 16 € größer als vorher.",
+     "Er wird um 4 kleiner, denn 16 € mehr Rabatt werden durch 4 geteilt.",
      "Er wird um 36 kleiner, denn jetzt werden 36 € statt 20 € abgezogen.",
-     "Er wird um 9 kleiner, denn der neue Rabatt 36 wird durch 4 geteilt.",
-     "Er wird um 4 kleiner, denn 16 € mehr Rabatt werden durch 4 geteilt."
+     "Er wird um 9 kleiner, denn der neue Rabatt 36 wird durch 4 geteilt."
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "w": "Der Rabatt wird um 36 − 20 = 16 € größer. Diese 16 werden zusätzlich abgezogen, bevor durch 4 geteilt wird. Also wird der Wert um 16 : 4 = 4 kleiner. Probe: (12 104 + 7 168 − 20) : 4 = 4 813 und (12 104 + 7 168 − 36) : 4 = 4 809."
    }
@@ -418,7 +414,7 @@
      "beschreibung": "Das Minus vor der 4 übersehen (③ ergibt 28)"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Genau ② und ④: Bei beiden fasst eine Klammer die Haltestellen zusammen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -438,11 +434,11 @@
     "a": [
      "Genau ②: Nur bei ② fasst eine Klammer beide Haltestellen zusammen.",
      "Genau ① und ③: Bei ③ steht die 4 wie in der Geschichte am Schluss.",
-     "Genau ① und ②: Beide ziehen nacheinander oder zusammen 6 und 4 Kinder ab.",
-     "Genau ② und ④: Bei beiden fasst eine Klammer die Haltestellen zusammen."
+     "Genau ② und ④: Bei beiden fasst eine Klammer die Haltestellen zusammen.",
+     "Genau ① und ②: Beide ziehen nacheinander oder zusammen 6 und 4 Kinder ab."
     ],
     "o": {
-     "index": 2
+     "index": 3
     },
     "w": "Insgesamt steigen 6 + 4 = 10 Kinder aus, im Bus bleiben 30 − 10 = 20 Kinder. Term ① zieht nacheinander 6 und 4 ab: 24, dann 20. Term ② zieht 6 + 4 = 10 auf einmal ab: 20. Term ③ addiert die 4 und ergibt 28, Term ④ zieht nur 6 − 4 = 2 ab und ergibt ebenfalls 28."
    }
@@ -530,14 +526,14 @@
    "regel_name": "Reihenfolge beim Rechnen",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Es benennt den Term nach dem Rechenzeichen, das ganz links steht.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Nicht an allen Beispielen geprüft: Bei 4 + 6 · 2 steht links ein +, das Kind sagt aber Produkt"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Es benennt den Term nach der Rechnung, die man zuerst ausrechnet.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -562,13 +558,13 @@
      "text": "Ein Kind benennt Terme nach einer falschen Regel. Es sagt: „4 + 6 · 2 ist ein Produkt, 12 : 3 − 1 ist eine Differenz, 20 − (5 + 3) ist eine Summe.“ Nach welcher Regel benennt es die Terme?"
     },
     "a": [
-     "Es benennt den Term nach dem Rechenzeichen, das ganz rechts steht.",
      "Es benennt den Term nach dem Rechenzeichen, das ganz links steht.",
      "Es benennt den Term nach der Rechnung, die man zuerst ausrechnet.",
+     "Es benennt den Term nach dem Rechenzeichen, das ganz rechts steht.",
      "Es benennt den Term nach der Rechnung, die man zuletzt ausrechnet."
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "w": "Prüfe jede Regel an allen drei Beispielen. Ganz rechts steht bei 4 + 6 · 2 das Malzeichen, bei 12 : 3 − 1 das Minus, bei 20 − (5 + 3) das Plus: Das passt zu Produkt, Differenz, Summe. Die anderen Regeln passen nicht zu allen drei. Richtig benannt (nach dem letzten Rechenschritt) ist 4 + 6 · 2 eine Summe und 20 − (5 + 3) eine Differenz."
    }
@@ -584,34 +580,34 @@
    "antwortform": "auswahl",
    "zaehlt": "ja",
    "lehrplan": "M5 3",
-   "idee": "term_gegen_wert",
+   "idee": "klammer_bestimmt_termart",
    "bauplan": "d",
    "schema": "nein",
    "alt_kennung": null,
-   "abgrenzung": "Dort wird zu einem Text ein Term gewählt oder ein Unterschied berechnet; hier werden Aufbau und Wert zweier Terme getrennt beurteilt (zwei mal zwei Urteile).",
+   "abgrenzung": "Dort wird die Art eines gegebenen Terms bestimmt oder eine Aussage über Klammern widerlegt; hier wird beurteilt, wie das Einsetzen einer Summe mit oder ohne Klammer die Termart verändert. Nichts ist auszurechnen. Ersetzt 030 (A2).",
    "regel": "rr.reihenfolge",
    "regel_name": "Reihenfolge beim Rechnen",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "Die Terme sind gleich, ihre Werte sind gleich.",
+     "index": 1,
+     "antwort": "Mit Klammer ist es eine Summe, ohne Klammer eine Differenz.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Gleichen Wert mit gleichem Term verwechselt: A ergibt ein Produkt, B eine Summe"
+     "beschreibung": "Gedacht, die Klammer mit dem Plus darin mache den Term zur Summe"
     },
     {
      "index": 2,
-     "antwort": "Die Terme sind verschieden, ihre Werte sind verschieden.",
+     "antwort": "Mit und ohne Klammer ist es eine Differenz.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Gedacht, verschiedene Terme müssten verschiedene Werte haben; beide ergeben 54"
+     "beschreibung": "Nur auf das Minus vorne geschaut, nicht auf den letzten Rechenschritt"
     },
     {
      "index": 3,
-     "antwort": "Die Terme sind gleich, ihre Werte sind verschieden.",
+     "antwort": "Mit und ohne Klammer ist es eine Summe.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Wegen derselben Zahlen 4, 5 und 6 denselben Term vermutet und beim Rechnen die Reihenfolge verwechselt"
+     "beschreibung": "Gedacht, ein neues Plus mache jeden Term zur Summe"
     }
    ],
    "aufgabe": {
@@ -622,18 +618,18 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "Text A: „Multipliziere die Summe aus 4 und 5 mit 6.“ Text B: „Addiere das Produkt aus 4 und 6 zum Produkt aus 5 und 6.“ Welche Aussage über die Terme zu den beiden Texten stimmt?"
+     "text": "Im Term 20 − 8 wird die 8 durch die Summe 5 + 3 ersetzt, einmal mit Klammer und einmal ohne Klammer. Welche Aussage über die Art der beiden neuen Terme stimmt?"
     },
     "a": [
-     "Die Terme sind gleich, ihre Werte sind gleich.",
-     "Die Terme sind verschieden, ihre Werte sind gleich.",
-     "Die Terme sind verschieden, ihre Werte sind verschieden.",
-     "Die Terme sind gleich, ihre Werte sind verschieden."
+     "Mit Klammer ist es eine Differenz, ohne Klammer eine Summe.",
+     "Mit Klammer ist es eine Summe, ohne Klammer eine Differenz.",
+     "Mit und ohne Klammer ist es eine Differenz.",
+     "Mit und ohne Klammer ist es eine Summe."
     ],
     "o": {
-     "index": 1
+     "index": 0
     },
-    "w": "Text A ergibt (4 + 5) · 6, ein Produkt. Text B ergibt 4 · 6 + 5 · 6, eine Summe. Die Terme sind also verschieden. Ihre Werte sind gleich: 9 · 6 = 54 und 24 + 30 = 54. Das zeigt das Verteilungsgesetz: Verschiedene Terme können denselben Wert haben."
+    "w": "20 − (5 + 3): Zuerst wird die Klammer gerechnet, der letzte Schritt ist das Minus, also ist es eine Differenz. 20 − 5 + 3: Von links nach rechts gerechnet ist der letzte Schritt + 3, also ist es eine Summe (und sie hat einen anderen Wert: 18 statt 12)."
    }
   },
   {
@@ -651,34 +647,34 @@
    "bauplan": "c",
    "schema": "nein",
    "alt_kennung": null,
-   "abgrenzung": "Dort ist eine Lücke bei zwei bekannten Faktoren zu füllen; hier gibt es zwei Lücken, erst das Vertauschen zeigt □ · △ = 100, dann müssen alle passenden Zerlegungen gefunden werden.",
+   "abgrenzung": "Dort ist eine Lücke bei zwei bekannten Faktoren zu füllen; hier gibt es zwei Lücken, erst das Vertauschen zeigt □ · △ = 200, und die Bedingungen lassen genau eine Zerlegung übrig. Nach B5 andere Zahlen (nicht 37 · 100) und kein Abzählen mehr.",
    "regel": "rr.tauschen",
    "regel_name": "Tauschen, Klammern, Zusammenfassen",
    "fehlbilder": [
     {
-     "antwort": 5,
-     "rechnung": "4 + 1",
+     "antwort": 200,
+     "rechnung": "4600 // 23",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Auch die Zerlegung mit zwei gleichen Faktoren mitgezählt, obwohl □ kleiner als △ sein soll"
+     "beschreibung": "Nur □ · △ bestimmt (4 600 : 23)"
     },
     {
-     "antwort": 9,
-     "rechnung": "9",
+     "antwort": 20,
+     "rechnung": "20",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Alle Zerlegungen gezählt, auch die Paare mit □ größer als △"
+     "beschreibung": "Die Zerlegung mit einer Zahl genommen, die auf 0 endet"
     },
     {
-     "antwort": 1,
-     "rechnung": "1",
+     "antwort": 8,
+     "rechnung": "8",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Nur eine einzige Zerlegung gefunden"
+     "beschreibung": "□ statt △ genannt"
     }
    ],
    "ersetzt_test": true,
-   "loesung_rechnung": "4",
+   "loesung_rechnung": "25",
    "aufgabe": {
     "l": "vorteil",
     "t": "gesetze",
@@ -687,13 +683,13 @@
     "g": "parameter",
     "y": "zahl",
     "f": {
-     "text": "In der Rechnung □ · 37 · △ = 3 700 stehen für □ und △ natürliche Zahlen, und □ ist kleiner als △. Wie viele verschiedene Möglichkeiten gibt es für das Paar aus □ und △?"
+     "text": "In der Rechnung □ · 23 · △ = 4 600 stehen für □ und △ natürliche Zahlen. Beide sind größer als 5, keine von beiden endet auf 0, und △ ist größer als □. Welche Zahl ist △?"
     },
     "o": {
-     "wert": 4
+     "wert": 25
     },
-    "c": "4",
-    "w": "Man darf die Faktoren vertauschen: □ · 37 · △ = 37 · (□ · △). Damit 3 700 herauskommt, muss □ · △ = 100 sein. Zerlegungen von 100 mit □ kleiner als △: 1 · 100, 2 · 50, 4 · 25 und 5 · 20. Das sind 4 Möglichkeiten; 10 · 10 zählt nicht, weil □ kleiner als △ sein soll."
+    "c": "25",
+    "w": "Man darf die Faktoren vertauschen: □ · 23 · △ = 23 · (□ · △). Also muss □ · △ = 4 600 : 23 = 200 sein. Zerlegungen von 200 mit beiden Zahlen größer als 5 sind 8 · 25 und 10 · 20. Weil keine Zahl auf 0 enden darf, bleibt nur 8 · 25, also △ = 25."
    }
   },
   {
@@ -723,14 +719,14 @@
      "beschreibung": "Nur 10 und 5 verglichen, 36 und 18 übersehen"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Das erste ist größer, denn 36 ist 2 · 18, also doppelt so groß wie 18.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Nur 36 und 18 verglichen, 5 und 10 übersehen"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Das lässt sich nur durch vollständiges Ausrechnen entscheiden, denn die Faktoren sind verschieden.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -749,12 +745,12 @@
     },
     "a": [
      "Das zweite ist größer, denn 10 ist 2 · 5, also doppelt so groß wie 5.",
+     "Sie sind gleich groß, denn 36 · 5 und 18 · 10 ergeben beide 180.",
      "Das erste ist größer, denn 36 ist 2 · 18, also doppelt so groß wie 18.",
-     "Das lässt sich nur durch vollständiges Ausrechnen entscheiden, denn die Faktoren sind verschieden.",
-     "Sie sind gleich groß, denn 36 · 5 und 18 · 10 ergeben beide 180."
+     "Das lässt sich nur durch vollständiges Ausrechnen entscheiden, denn die Faktoren sind verschieden."
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "w": "Tausche die Faktoren: 36 · 4 375 · 5 = (36 · 5) · 4 375 = 180 · 4 375 und 18 · 4 375 · 10 = (18 · 10) · 4 375 = 180 · 4 375. Beide sind gleich groß (787 500). 36 ist zwar doppelt so groß wie 18, aber 5 ist nur halb so groß wie 10."
    }
@@ -772,9 +768,9 @@
    "lehrplan": "M5 3",
    "idee": "ausgleich_richtung",
    "bauplan": "b",
-   "schema": "nein",
+   "schema": "ja",
    "alt_kennung": null,
-   "abgrenzung": "Dort wird ein Rechenvorteil angewendet; hier wird ein Ausgleich in die falsche Richtung erkannt und seine Wirkung bestimmt, Ausrechnen sechsstelliger Zahlen ist unattraktiv.",
+   "abgrenzung": "Dort wird ein Rechenvorteil angewendet; hier wird ein Ausgleich in die falsche Richtung erkannt und seine Wirkung bestimmt. Nach der Zählung der Vorprüfung (zwei Subtraktionen genügen) als Schema gezählt; einzige im Lernziel.",
    "regel": "rr.tauschen",
    "regel_name": "Tauschen, Klammern, Zusammenfassen",
    "fehlbilder": [
@@ -832,21 +828,21 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Bei nur Plus und Minus darf man umstellen, dabei bleiben die Rechenzeichen an ihrem Platz.",
+     "antwort": "Die Rechenzeichen bleiben an ihrem Platz, dann darf man bei Plus und Minus umstellen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Die Zeichen nicht mitgenommen: 763 − 237 + 289 = 815, richtig ist 711"
     },
     {
-     "index": 2,
-     "antwort": "Sobald ein Minus vorkommt, darf man gar nicht umstellen, auch nicht mit dem Rechenzeichen.",
+     "index": 1,
+     "antwort": "Kommt ein Minus vor, darf man gar nicht umstellen, auch nicht mit dem Rechenzeichen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Das Verbot 69 − 8 ≠ 8 − 69 auf Ketten mit mitgenommenem Zeichen übertragen: 763 + 237 − 289 = 711"
     },
     {
-     "index": 3,
-     "antwort": "Bei nur Mal und Geteilt darf man umstellen, dabei bleiben die Rechenzeichen an ihrem Platz.",
+     "index": 2,
+     "antwort": "Die Rechenzeichen bleiben an ihrem Platz, dann darf man bei Mal und Geteilt umstellen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Die Zeichen nicht mitgenommen: 60 : 3 · 2 = 40, aber 60 : 2 · 3 = 90"
@@ -863,13 +859,13 @@
      "text": "In einer Rechnung sollen Zahlen umgestellt werden, damit man leichter rechnen kann, zum Beispiel bei 763 − 289 + 237. Welche Aussage stimmt?"
     },
     "a": [
-     "Bei nur Plus und Minus darf man umstellen, dabei bleiben die Rechenzeichen an ihrem Platz.",
-     "Bei nur Plus und Minus darf man umstellen, dabei nehmen die Zahlen ihre Rechenzeichen mit.",
-     "Sobald ein Minus vorkommt, darf man gar nicht umstellen, auch nicht mit dem Rechenzeichen.",
-     "Bei nur Mal und Geteilt darf man umstellen, dabei bleiben die Rechenzeichen an ihrem Platz."
+     "Die Rechenzeichen bleiben an ihrem Platz, dann darf man bei Plus und Minus umstellen.",
+     "Kommt ein Minus vor, darf man gar nicht umstellen, auch nicht mit dem Rechenzeichen.",
+     "Die Rechenzeichen bleiben an ihrem Platz, dann darf man bei Mal und Geteilt umstellen.",
+     "Die Zahlen nehmen ihre Rechenzeichen mit, dann darf man bei Plus und Minus umstellen."
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "w": "Jede Zahl gehört zu dem Rechenzeichen davor. Nimmt sie es beim Umstellen mit, bleibt der Wert gleich: 763 − 289 + 237 = 763 + 237 − 289 = 1 000 − 289 = 711. Bleiben die Zeichen an ihrem Platz, ändert sich der Wert: 763 − 237 + 289 = 815. Auch bei Mal und Geteilt geht das nicht: 60 : 3 · 2 = 40, aber 60 : 2 · 3 = 90."
    }
@@ -945,33 +941,33 @@
    "zaehlt": "ja",
    "lehrplan": "M5 3",
    "idee": "zerlegung_pruefen",
-   "bauplan": "d",
+   "bauplan": "b",
    "schema": "nein",
    "alt_kennung": null,
-   "abgrenzung": "Dort wird eine einzelne Zerlegung angewendet; hier werden vier Zerlegungen (Plus, Minus, erster oder zweiter Faktor, beide Faktoren) über ihre Struktur geprüft, Ausrechnen fünfstelliger Produkte ist unattraktiv.",
+   "abgrenzung": "Dort wird ein Faktor zerlegt und angewendet; hier werden beide Faktoren zerlegt, und die fehlenden Teilprodukte müssen am Aufbau erkannt werden (Rechteck aus vier Teilen). Nach B3 nicht mehr „Drei der vier … welche anders?“.",
    "regel": "rr.ausmultiplizieren",
    "regel_name": "Ausmultiplizieren und Ausklammern",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "370 · 47 − 2 · 47",
+     "antwort": "Ihm fehlen 300 · 68 und 40 · 7.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Für anders gehalten, weil mit Minus zerlegt wird; aber 368 = 370 − 2, und beide Teile werden mit 47 malgenommen"
-    },
-    {
-     "index": 1,
-     "antwort": "368 · 40 + 368 · 7",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "Für anders gehalten, weil der zweite Faktor zerlegt wird; aber 47 = 40 + 7, und beide Teile werden mit 368 malgenommen"
+     "beschreibung": "Die beiden Teile derselben Zahl miteinander malgenommen statt mit den Teilen der anderen Zahl"
     },
     {
      "index": 2,
-     "antwort": "300 · 47 + 68 · 47",
+     "antwort": "Ihm fehlt nur 68 · 40.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Für anders gehalten, weil 68 eine ungewöhnliche Zahl ist; aber 368 = 300 + 68, und beide Teile werden mit 47 malgenommen"
+     "beschreibung": "Nur eines der beiden fehlenden Teilprodukte gesehen"
+    },
+    {
+     "index": 3,
+     "antwort": "Ihm fehlt nichts.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Gedacht, beim Zerlegen beider Faktoren nehme man nur Teil mit Teil mal"
     }
    ],
    "ersetzt_test": true,
@@ -983,18 +979,18 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Drei der vier Rechnungen haben denselben Wert wie 368 · 47. Welche Rechnung hat einen anderen Wert?"
+     "text": "Ein Kind soll 368 · 47 rechnen. Es zerlegt beide Zahlen, 368 = 300 + 68 und 47 = 40 + 7, und rechnet 300 · 40 + 68 · 7. Welche Aussage über seine Rechnung stimmt?"
     },
     "a": [
-     "370 · 47 − 2 · 47",
-     "368 · 40 + 368 · 7",
-     "300 · 47 + 68 · 47",
-     "300 · 40 + 68 · 7"
+     "Ihm fehlen 300 · 68 und 40 · 7.",
+     "Ihm fehlen 300 · 7 und 68 · 40.",
+     "Ihm fehlt nur 68 · 40.",
+     "Ihm fehlt nichts."
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
-    "w": "Beim Verteilungsgesetz wird ein Faktor zerlegt, und jeder Teil wird mit dem ganzen anderen Faktor malgenommen: 368 · 47 = 300 · 47 + 68 · 47 = 368 · 40 + 368 · 7 = 370 · 47 − 2 · 47. Bei 300 · 40 + 68 · 7 wurden beide Faktoren zerlegt und nur Teil mit Teil malgenommen; es fehlen 300 · 7 und 68 · 40. Darum ist der Wert kleiner: 12 476 statt 17 296."
+    "w": "Zerlegt man beide Faktoren, muss jeder Teil des einen mit jedem Teil des anderen malgenommen werden, wie bei einem Rechteck aus vier Teilen: 300 · 40 + 300 · 7 + 68 · 40 + 68 · 7. Dem Kind fehlen 300 · 7 = 2 100 und 68 · 40 = 2 720. Sein Ergebnis 12 476 ist darum um 4 820 kleiner als 17 296."
    }
   },
   {
@@ -1069,15 +1065,15 @@
    "lehrplan": "M5 3",
    "idee": "terme_deuten",
    "bauplan": "d",
-   "schema": "nein",
+   "schema": "ja",
    "alt_kennung": null,
-   "abgrenzung": "Dort wird zur Situation ein Term gesucht oder ausgerechnet; hier werden zwei gleichwertige Terme nach ihrer Bedeutung (Bezahlweg) unterschieden.",
+   "abgrenzung": "Dort wird zur Situation ein Term gesucht oder ausgerechnet; hier werden zwei gleichwertige Terme nach ihrer Bedeutung (Bezahlweg) unterschieden. Format Term ↔ Text, nach C4 als Schema gezählt; einzige im Lernziel.",
    "regel": "rr.ausmultiplizieren",
    "regel_name": "Ausmultiplizieren und Ausklammern",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Jedes Kind bezahlt sein Eis und sein Getränk zusammen.",
+     "antwort": "Erst wird ein Eis bezahlt, danach ein Getränk, und das viermal.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Den Weg zur anderen Rechnung 4 · (2 + 3) gewählt"
@@ -1090,7 +1086,7 @@
      "beschreibung": "Nur ein Getränk bezahlt; das wäre 4 · 2 + 3"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Erst wird ein Eis bezahlt, danach alle vier Getränke.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1108,13 +1104,13 @@
      "text": "4 Kinder kaufen jeweils ein Eis für 2 € und ein Getränk für 3 €. Sie können die Kosten als 4 · (2 + 3) oder als 4 · 2 + 4 · 3 berechnen. Welcher Bezahlweg gehört zur Rechnung 4 · 2 + 4 · 3?"
     },
     "a": [
-     "Jedes Kind bezahlt sein Eis und sein Getränk zusammen.",
+     "Erst wird ein Eis bezahlt, danach ein Getränk, und das viermal.",
      "Erst werden alle vier Eis bezahlt, danach ein Getränk für alle.",
-     "Erst werden alle vier Eis bezahlt, danach alle vier Getränke.",
-     "Erst wird ein Eis bezahlt, danach alle vier Getränke."
+     "Erst wird ein Eis bezahlt, danach alle vier Getränke.",
+     "Erst werden alle vier Eis bezahlt, danach alle vier Getränke."
     ],
     "o": {
-     "index": 2
+     "index": 3
     },
     "w": "4 · 2 heißt: viermal 2 € für die Eis, 4 · 3 heißt: viermal 3 € für die Getränke. Also werden erst alle Eis und dann alle Getränke bezahlt: 8 € + 12 € = 20 €. Bezahlt jedes Kind beides zusammen, rechnet man 4 · (2 + 3) = 4 · 5 = 20 €. Beide Wege ergeben dasselbe; das ist das Verteilungsgesetz."
    }
@@ -1134,33 +1130,26 @@
    "bauplan": "b",
    "schema": "nein",
    "alt_kennung": null,
-   "abgrenzung": "Andere Fehlvorstellung als im Bestand (Verteilen über ein Produkt statt nur einen Summanden malnehmen); sie muss aus zwei Ergebnissen erschlossen und angewendet werden.",
+   "abgrenzung": "Andere Fehlvorstellung als im Bestand (Verteilen über ein Produkt); gefragt ist nach dem Fall, in dem die falsche Regel zufällig stimmt (B1), nicht nach einem falschen Wert.",
    "regel": "rr.ausmultiplizieren",
    "regel_name": "Ausmultiplizieren und Ausklammern",
    "fehlbilder": [
     {
-     "antwort": 70,
-     "rechnung": "5 * (2 * 7)",
+     "antwort": 2,
+     "rechnung": "2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Richtig gerechnet (5 · 14 = 70) statt mit der Regel des Kindes"
+     "beschreibung": "Gedacht, mit 2 stimme es, weil die 2 schon in der Klammer steht"
     },
     {
-     "antwort": 45,
-     "rechnung": "5 * 2 + 5 * 7",
+     "antwort": 14,
+     "rechnung": "2 * 7",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Wie bei einer Summe verteilt und addiert: 5 · 2 + 5 · 7"
-    },
-    {
-     "antwort": 140,
-     "rechnung": "5 * 2 * 7 * 2",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "Nur einmal zusätzlich verdoppelt: 5 · 2 · 7 · 2"
+     "beschreibung": "Gedacht, es stimme, wenn vorn das Produkt aus der Klammer steht"
     }
    ],
-   "loesung_rechnung": "5 * 2 * 5 * 7",
+   "loesung_rechnung": "1",
    "aufgabe": {
     "l": "verteilen",
     "t": "gesetze",
@@ -1169,13 +1158,13 @@
     "g": "begruenden",
     "y": "zahl",
     "f": {
-     "text": "Ein Kind wendet das Verteilungsgesetz auch an, wenn in der Klammer ein Produkt steht. Es rechnet: 2 · (3 · 5) = 60 und 3 · (2 · 4) = 72. Welches Ergebnis erhält es mit derselben Regel für 5 · (2 · 7)?"
+     "text": "Ein Kind wendet das Verteilungsgesetz auch an, wenn in der Klammer ein Produkt steht: Es rechnet 2 · (3 · 5) = 2 · 3 · 2 · 5 = 60 und 3 · (2 · 4) = 3 · 2 · 3 · 4 = 72. Für genau eine natürliche Zahl □ (größer als 0) liefert diese falsche Regel bei □ · (2 · 7) trotzdem das richtige Ergebnis. Welche Zahl ist □?"
     },
     "o": {
-     "wert": 350
+     "wert": 1
     },
-    "c": "5 * 2 * 5 * 7",
-    "w": "Das Kind nimmt jeden Faktor in der Klammer mit der Zahl davor mal: 2 · 3 · 2 · 5 = 60 und 3 · 2 · 3 · 4 = 72. Bei 5 · (2 · 7) rechnet es 5 · 2 · 5 · 7 = 350. Richtig ist 5 · 14 = 70: Verteilen darf man nur über eine Summe oder Differenz; steht in der Klammer ein Produkt, wird nur einmal malgenommen."
+    "c": "1",
+    "w": "Das Kind rechnet □ · 2 · □ · 7, richtig ist □ · 2 · 7. Beim Kind steht der Faktor □ einmal zu viel. Das ändert nichts nur dann, wenn □ = 1 ist: 1 · 2 · 1 · 7 = 14 = 1 · (2 · 7). Schon mit □ = 2 erhält das Kind 56 statt 28: Verteilen darf man nur über eine Summe oder Differenz."
    }
   },
   {
@@ -1213,10 +1202,10 @@
     },
     {
      "index": 3,
-     "antwort": "Er wird um das Dreifache der Höhe größer.",
+     "antwort": "Er wird sechsmal so groß.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Den Zuwachs der Höhe mit dem Zuwachs der Fläche verwechselt"
+     "beschreibung": "Für jeden der beiden Teile den Faktor 3 gerechnet und die Faktoren addiert (3 + 3)"
     }
    ],
    "aufgabe": {
@@ -1233,7 +1222,7 @@
      "Er wird neunmal so groß.",
      "Der Flächeninhalt des breiteren Teils wird dreimal so groß, der andere bleibt.",
      "Er wird dreimal so groß.",
-     "Er wird um das Dreifache der Höhe größer."
+     "Er wird sechsmal so groß."
     ],
     "o": {
      "index": 2
@@ -1309,55 +1298,59 @@
    "stufe": 2,
    "typ": "umkehr",
    "form": "umkehren",
-   "antwortform": "zahl",
+   "antwortform": "auswahl",
    "zaehlt": "ja",
    "lehrplan": "M5 3",
-   "idee": "fehlregel_divisor",
-   "bauplan": "b",
+   "idee": "aufgabenfamilie",
+   "bauplan": "d",
    "schema": "nein",
    "alt_kennung": null,
-   "abgrenzung": "Dort wird eine Gleichung gelöst oder eine Rechenregel bestätigt; hier muss aus drei Lösungen erschlossen werden, dass das Kind nicht unterscheidet, ob x vor oder hinter dem Geteilt-Zeichen steht.",
+   "abgrenzung": "Dort wird die Rechnung für x gewählt; hier ist das Produkt □ unbekannt (nichts auszurechnen), gesucht ist eine gleichwertige Gleichung aus derselben Aufgabenfamilie. Ersetzt die Kinderregel-Aufgabe (B1).",
    "regel": "rr.gegenrechnung",
    "regel_name": "Gegenrechnung",
    "fehlbilder": [
     {
-     "antwort": 9,
-     "rechnung": "72 // 8",
+     "index": 0,
+     "antwort": "x : 8 = □",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Richtig gelöst (72 : 8 = 9) statt mit der Regel des Kindes"
+     "beschreibung": "Die Umkehrung falsch herum gedacht: hier wäre x = 8 · □"
     },
     {
-     "antwort": 64,
-     "rechnung": "72 - 8",
+     "index": 1,
+     "antwort": "8 : x = □",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die Umkehrung von Geteilt für Minus gehalten: 72 − 8"
+     "beschreibung": "8 und □ in der Geteilt-Aufgabe vertauscht"
     },
     {
-     "antwort": 80,
-     "rechnung": "72 + 8",
+     "index": 3,
+     "antwort": "x · □ = 8",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die Umkehrung von Geteilt für Plus gehalten: 72 + 8"
+     "beschreibung": "□ und 8 vertauscht"
     }
    ],
-   "loesung_rechnung": "72 * 8",
    "aufgabe": {
     "l": "umkehraufgabe_mal",
     "t": "gleichungen",
     "p": "korrektur",
     "s": 2,
     "g": "umkehr",
-    "y": "zahl",
+    "y": "auswahl",
     "f": {
-     "text": "Ein Kind löst Gleichungen immer nach derselben Regel. Es schreibt: Bei x : 7 = 3 ist x = 21. Bei 48 : x = 6 ist x = 288. Bei 60 : x = 5 ist x = 300. Welches x schreibt es mit seiner Regel bei 72 : x = 8?"
+     "text": "Für eine Zahl □ hat die Gleichung 8 · x = □ die natürliche Lösung x. Welche der vier Gleichungen hat für jede solche Zahl □ dieselbe Lösung x?"
     },
+    "a": [
+     "x : 8 = □",
+     "8 : x = □",
+     "□ : x = 8",
+     "x · □ = 8"
+    ],
     "o": {
-     "wert": 576
+     "index": 2
     },
-    "c": "72 * 8",
-    "w": "Das Kind nimmt bei jeder Geteilt-Gleichung die beiden Zahlen mal. Bei x : 7 = 3 stimmt das (x = 3 · 7 = 21). Steht x aber hinter dem Geteilt-Zeichen, ist das falsch: Bei 48 : x = 6 ist x = 48 : 6 = 8. Bei 72 : x = 8 schreibt das Kind also 72 · 8 = 576; richtig ist x = 72 : 8 = 9."
+    "w": "Aus 8 · x = □ folgt: Teilt man das Produkt □ durch den einen Faktor x, erhält man den anderen Faktor 8, also □ : x = 8. Beispiel: 8 · 6 = 48 und 48 : 6 = 8. Bei x : 8 = □ wäre x = 8 · □; bei 8 : x = □ und x · □ = 8 wäre x meist gar keine natürliche Zahl."
    }
   },
   {
@@ -1428,8 +1421,8 @@
    "thema": "zahlen.rechengesetze",
    "lernkarte": "umkehraufgabe_mal",
    "pool": "sicherung",
-   "stufe": 3,
-   "typ": "parameter",
+   "stufe": 2,
+   "typ": "umkehr",
    "form": null,
    "antwortform": "auswahl",
    "zaehlt": "ja",
@@ -1468,15 +1461,15 @@
     "l": "umkehraufgabe_mal",
     "t": "gleichungen",
     "p": "sicherung",
-    "s": 3,
-    "g": "parameter",
+    "s": 2,
+    "g": "umkehr",
     "y": "auswahl",
     "f": {
      "text": "Die Gleichung a · x = 360 hat eine Lösung x in den natürlichen Zahlen. Nun wird die Zahl a verdreifacht, die 360 bleibt gleich, und die neue Gleichung hat wieder eine natürliche Lösung. Was geschieht mit der Lösung?"
     },
     "a": [
      "Sie wird dreimal so groß.",
-     "Sie wird dreimal so klein.",
+     "Sie wird zu einem Drittel.",
      "Sie bleibt gleich.",
      "Sie wird um 3 kleiner."
     ],
@@ -1491,62 +1484,62 @@
    "thema": "zahlen.rechengesetze",
    "lernkarte": "umkehraufgabe_mal",
    "pool": "sicherung",
-   "stufe": 2,
-   "typ": "umkehr",
+   "stufe": 3,
+   "typ": "begruenden",
    "form": null,
    "antwortform": "auswahl",
    "zaehlt": "ja",
    "lehrplan": "M5 3",
-   "idee": "loesungen_vergleichen",
-   "bauplan": "g",
+   "idee": "loesbarkeit_mal_gegen_geteilt",
+   "bauplan": "f",
    "schema": "nein",
    "alt_kennung": null,
-   "abgrenzung": "Dort wird eine Umkehrrechnung gewählt oder ausgeführt; hier werden die Lösungen von vier Gleichungen über ihre Umkehrrechnungen der Größe nach verglichen, ohne sie auszurechnen.",
+   "abgrenzung": "Dort wird eine einzelne Gleichung beurteilt; hier wird allgemein verglichen, welche Art von Gleichung ohne Lösung sein kann. Ersetzt den Lösungsvergleich (A3).",
    "regel": "rr.gegenrechnung",
    "regel_name": "Gegenrechnung",
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "74 · x = 8 288",
+     "antwort": "Nur die Geteilt-Gleichung kann ohne Lösung sein.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Gedacht, die größten Zahlen geben die größte Lösung; hier ist x = 8 288 : 74 = 112"
+     "beschreibung": "Gedacht, beim Teilen gehe es öfter nicht auf; bei x : a = b ist aber x = a · b, und das gibt es immer"
     },
     {
      "index": 2,
-     "antwort": "37 · x = 8 288",
+     "antwort": "Keine der beiden Gleichungen kann ohne Lösung sein.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Gedacht, eine Mal-Gleichung mit der großen Zahl 8 288 habe die größte Lösung; hier ist x = 224"
+     "beschreibung": "Übersehen, dass b in der Reihe von a stehen muss: 7 · x = 50 hat keine Lösung"
     },
     {
      "index": 3,
-     "antwort": "x : 37 = 224",
+     "antwort": "Jede der beiden Gleichungen kann ohne Lösung sein.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Gedacht, Teilen durch die kleinere Zahl gebe die größere Lösung; hier ist x = 224 · 37 = 8 288"
+     "beschreibung": "Übersehen, dass x = a · b bei x : a = b immer passt"
     }
    ],
    "aufgabe": {
     "l": "umkehraufgabe_mal",
     "t": "gleichungen",
     "p": "sicherung",
-    "s": 2,
-    "g": "umkehr",
+    "s": 3,
+    "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Welche der vier Gleichungen hat die größte Lösung x? Entscheide, ohne alle Gleichungen zu lösen."
+     "text": "Für natürliche Zahlen a und b (beide mindestens 1) werden zwei Arten von Gleichungen verglichen: die Mal-Gleichung a · x = b und die Geteilt-Gleichung x : a = b. Gesucht ist jeweils eine natürliche Zahl x. Welche Aussage stimmt?"
     },
     "a": [
-     "x : 74 = 224",
-     "74 · x = 8 288",
-     "37 · x = 8 288",
-     "x : 37 = 224"
+     "Nur die Mal-Gleichung kann ohne Lösung sein.",
+     "Nur die Geteilt-Gleichung kann ohne Lösung sein.",
+     "Keine der beiden Gleichungen kann ohne Lösung sein.",
+     "Jede der beiden Gleichungen kann ohne Lösung sein."
     ],
     "o": {
      "index": 0
     },
-    "w": "Bei x : 74 = 224 ist x = 224 · 74, also mehr als 224 · 70 = 15 680. Bei x : 37 = 224 ist x = 224 · 37, nur halb so viel. Bei den Mal-Gleichungen ist x = 8 288 : 37 = 224 oder x = 8 288 : 74 = 112, also viel kleiner. Die größte Lösung hat x : 74 = 224 (x = 16 576)."
+    "w": "Bei x : a = b ist x = a · b, und das Produkt zweier natürlicher Zahlen gibt es immer. Bei a · x = b muss b in der Reihe von a stehen, sonst gibt es keine Lösung: 7 · x = 50 hat keine, weil 7 · 7 = 49 und 7 · 8 = 56 ist."
    }
   },
   {
@@ -1556,61 +1549,50 @@
    "pool": "test",
    "stufe": 3,
    "typ": "transfer",
-   "form": null,
-   "antwortform": "auswahl",
+   "form": "anwenden",
+   "antwortform": "zahl",
    "zaehlt": "ja",
    "lehrplan": "M5 3",
-   "idee": "sicher_entscheiden",
-   "bauplan": "h",
+   "idee": "groessenordnung_eingrenzen",
+   "bauplan": "g",
    "schema": "nein",
-   "alt_kennung": null,
-   "abgrenzung": "Dort wird eine einzelne Frage mit einem Überschlag entschieden; hier muss beurteilt werden, wann ein Überschlag überhaupt sicher entscheidet (Rundungsrichtung und Abstand zur Grenze).",
+   "alt_kennung": "VT1A-049",
+   "abgrenzung": "Dort wird ein ungefährer Wert geschätzt; hier führt der grobe Überschlag (9 000 000) zur falschen Stellenzahl, erst eine untere und eine obere Schranke entscheiden (A4). Nach B3 als Zahl-Test statt „Drei der vier …“.",
    "regel": null,
    "regel_name": null,
    "fehlbilder": [
     {
-     "index": 1,
-     "antwort": "Reichen 100 € für 4 Spiele zu je 19 €?",
+     "antwort": 7,
+     "rechnung": "8 - 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Nicht gesehen, dass schon der aufgerundete Überschlag 4 · 20 = 80 € reicht; dann reicht es sicher"
+     "beschreibung": "Nur grob auf Tausender abgerundet überschlagen; das ergibt eine Stelle zu wenig"
     },
     {
-     "index": 2,
-     "antwort": "Passen 6 Kisten zu je 38 kg auf einen Wagen für 300 kg?",
+     "antwort": 9,
+     "rechnung": "8 + 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Nicht gesehen, dass schon 6 · 40 = 240 kg unter 300 kg liegen; aufgerundet und trotzdem darunter heißt sicher"
-    },
-    {
-     "index": 3,
-     "antwort": "Reichen 400 Plätze für 9 Klassen mit je 27 Kindern?",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "Nicht gesehen, dass schon 10 · 30 = 300 Kinder unter 400 liegen; aufgerundet und trotzdem darunter heißt sicher"
+     "beschreibung": "Beim Überschlag eine Null zu viel angehängt und eine Stelle zu viel gezählt"
     }
    ],
    "ersetzt_test": true,
+   "loesung_rechnung": "8",
    "aufgabe": {
     "l": "ueberschlag",
     "t": "verfahren",
     "p": "test",
     "s": 3,
     "g": "transfer",
-    "y": "auswahl",
+    "y": "zahl",
     "f": {
-     "text": "Drei der vier Fragen lassen sich mit einem einfachen Überschlag sicher beantworten. Bei welcher Frage muss man genau rechnen?"
+     "text": "Wie viele Stellen hat das Ergebnis von 3 412 · 3 438? Entscheide mit einem Überschlag, der sicher kleiner, und einem, der sicher größer ist als das genaue Ergebnis."
     },
-    "a": [
-     "Reichen 500 € für 26 Karten zu je 19 €?",
-     "Reichen 100 € für 4 Spiele zu je 19 €?",
-     "Passen 6 Kisten zu je 38 kg auf einen Wagen für 300 kg?",
-     "Reichen 400 Plätze für 9 Klassen mit je 27 Kindern?"
-    ],
     "o": {
-     "index": 0
+     "wert": 8
     },
-    "w": "Rundet man alle Zahlen auf und liegt der Überschlag trotzdem unter der Grenze, reicht es sicher: 4 · 20 = 80 ist höchstens 100, 6 · 40 = 240 ist höchstens 300, 10 · 30 = 300 ist höchstens 400. Bei 26 · 19 ergibt der aufgerundete Überschlag 30 · 20 = 600, das liegt über 500 und entscheidet nichts; bei 25 · 20 = 500 ist eine Zahl ab- und eine aufgerundet. Genau gerechnet ist 26 · 19 = 494, es reicht knapp."
+    "c": "8",
+    "w": "Grob gerundet wäre 3 000 · 3 000 = 9 000 000, das hat 7 Stellen. Weil beide Zahlen dabei stark abgerundet werden, entscheidet das nichts. Sicher kleiner ist 3 400 · 3 400 = 11 560 000, sicher größer ist 3 500 · 3 500 = 12 250 000. Beide haben 8 Stellen, also hat auch das Ergebnis 8 Stellen (genau: 11 730 456)."
    }
   },
   {
@@ -1628,33 +1610,34 @@
    "bauplan": "b",
    "schema": "nein",
    "alt_kennung": null,
-   "abgrenzung": "Dieselbe Fehlvorstellung (Abschneiden statt Runden), aber eine andere Leistung: Dort wird die Fehlerzeile gesucht, hier wird die Regel aus zwei Beispielen erschlossen und angewendet.",
+   "abgrenzung": "Gleiche Fehlvorstellung (Abschneiden statt Runden), aber andere Leistung: Die Regel ist genannt, gefragt ist die größte mögliche Abweichung zum richtigen Runden (kein falscher Wert als Lösung, B1).",
    "regel": null,
    "regel_name": null,
    "fehlbilder": [
     {
-     "antwort": 9000,
-     "rechnung": "6000 + 3000",
+     "antwort": 1000,
+     "rechnung": "1000",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Richtig auf Tausender gerundet statt mit der Regel des Kindes"
+     "beschreibung": "Nur an eine der beiden Zahlen gedacht"
     },
     {
-     "antwort": 8929,
-     "rechnung": "5951 + 2978",
+     "antwort": 999,
+     "rechnung": "1000 - 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Genau gerechnet statt überschlagen"
+     "beschreibung": "Den größten Abstand einer Zahl zum Tausender darunter genommen"
     },
     {
-     "antwort": 8000,
-     "rechnung": "6000 + 2000",
+     "antwort": 1998,
+     "rechnung": "2 * 999",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Nur die erste Zahl richtig gerundet: 6 000 + 2 000"
+     "beschreibung": "Bei beiden Zahlen den größten Abstand zum Tausender darunter addiert"
     }
    ],
-   "loesung_rechnung": "5000 + 2000",
+   "loesung_rechnung": "2 * 1000",
+   "runden": 0,
    "aufgabe": {
     "l": "ueberschlag",
     "t": "verfahren",
@@ -1663,13 +1646,13 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Ein Kind überschlägt Summen immer nach derselben Regel: Für 6 812 + 2 487 schreibt es 6 000 + 2 000, für 3 391 + 1 765 schreibt es 3 000 + 1 000. Welches Ergebnis hat sein Überschlag für 5 951 + 2 978?"
+     "text": "Beim Überschlagen rundet ein Kind nicht, sondern streicht bei jeder Zahl alles hinter der Tausenderstelle weg; aus 6 812 + 3 487 macht es 6 000 + 3 000. Um wie viel kann sein Überschlag für eine Summe aus zwei vierstelligen Zahlen höchstens kleiner sein als der Überschlag mit richtigem Runden auf Tausender?"
     },
     "o": {
-     "wert": 7000
+     "wert": 2000
     },
-    "c": "5000 + 2000",
-    "w": "Das Kind schneidet bei jeder Zahl alles hinter der Tausenderstelle ab, statt zu runden: 2 487 wird 2 000, 1 765 wird 1 000. Für 5 951 + 2 978 schreibt es also 5 000 + 2 000 = 7 000. Richtig auf Tausender gerundet wäre 6 000 + 3 000 = 9 000; das genaue Ergebnis ist 8 929."
+    "c": "2 * 1000",
+    "w": "Das Kind schneidet ab, statt zu runden. Ist die Hunderterziffer 0 bis 4, stimmt das mit richtigem Runden überein; ist sie 5 bis 9, wird richtig aufgerundet, und das Kind liegt um 1 000 darunter. Bei zwei Zahlen kann der Unterschied also höchstens 1 000 + 1 000 = 2 000 sein, zum Beispiel bei 6 812 + 2 587."
    }
   },
   {
@@ -1692,21 +1675,21 @@
    "regel_name": null,
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "A ist besser, weil Tausender einfacher zu rechnen sind und das Ergebnis dann genauer ist.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Einfach mit genau verwechselt (A ergibt 8 000)"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Gleich gut sind sie, weil beide auf volle Hunderter oder Tausender gerundet haben.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Die Rundungsstelle nicht verglichen"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "B ist falsch, weil man bei einer Summe nur auf Tausender runden darf.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1724,13 +1707,13 @@
      "text": "Zwei Kinder überschlagen 4 812 + 3 487. Kind A rundet auf Tausender: 5 000 + 3 000. Kind B rundet auf Hunderter: 4 800 + 3 500. Das genaue Ergebnis ist 8 299. Welche Aussage stimmt?"
     },
     "a": [
+     "B ist genauer als A, weil feiner gerundet wurde; brauchbar sind beide.",
      "A ist besser, weil Tausender einfacher zu rechnen sind und das Ergebnis dann genauer ist.",
      "Gleich gut sind sie, weil beide auf volle Hunderter oder Tausender gerundet haben.",
-     "B ist falsch, weil man bei einer Summe nur auf Tausender runden darf.",
-     "B ist genauer als A, weil feiner gerundet wurde; brauchbar sind beide."
+     "B ist falsch, weil man bei einer Summe nur auf Tausender runden darf."
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
     "w": "A ergibt 5 000 + 3 000 = 8 000, B ergibt 4 800 + 3 500 = 8 300. Das genaue Ergebnis ist 8 299. B liegt nur um 1 daneben, A um 299. Je feiner man rundet, desto genauer wird der Überschlag, aber desto mehr muss man rechnen."
    }
@@ -1742,49 +1725,60 @@
    "pool": "sicherung",
    "stufe": 3,
    "typ": "transfer",
-   "form": "anwenden",
-   "antwortform": "zahl",
+   "form": null,
+   "antwortform": "auswahl",
    "zaehlt": "ja",
    "lehrplan": "M5 3",
-   "idee": "groessenordnung_eingrenzen",
-   "bauplan": "g",
+   "idee": "sicher_entscheiden",
+   "bauplan": "h",
    "schema": "nein",
    "alt_kennung": null,
-   "abgrenzung": "Dort wird ein ungefährer Wert geschätzt; hier wird das Ergebnis mit einer unteren und einer oberen Abschätzung eingegrenzt, um eine sichere Aussage (Stellenzahl) zu erhalten.",
+   "abgrenzung": "Dort wird eine einzelne Frage mit einem Überschlag entschieden; hier muss beurteilt werden, wann ein Überschlag überhaupt sicher entscheidet (Rundungsrichtung und Abstand zur Grenze). Nach B3 aus dem Test in die Sicherung verschoben (früher VT1A-046).",
    "regel": null,
    "regel_name": null,
    "fehlbilder": [
     {
-     "antwort": 7,
-     "rechnung": "8 - 1",
+     "index": 0,
+     "antwort": "Reichen 100 € für 4 Spiele zu je 19 €?",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Beim Überschlag eine Null verloren und deshalb eine Stelle zu wenig gezählt"
+     "beschreibung": "Nicht gesehen, dass schon der aufgerundete Überschlag 4 · 20 = 80 € reicht; dann reicht es sicher"
     },
     {
-     "antwort": 9,
-     "rechnung": "8 + 1",
+     "index": 1,
+     "antwort": "Passen 6 Kisten zu je 38 kg auf einen Wagen für 300 kg?",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Beim Überschlag eine Null zu viel angehängt und eine Stelle zu viel gezählt"
+     "beschreibung": "Nicht gesehen, dass schon 6 · 40 = 240 kg unter 300 kg liegen; aufgerundet und trotzdem darunter heißt sicher"
+    },
+    {
+     "index": 2,
+     "antwort": "Reichen 400 Plätze für 9 Klassen mit je 27 Kindern?",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Nicht gesehen, dass schon 10 · 30 = 300 Kinder unter 400 liegen; aufgerundet und trotzdem darunter heißt sicher"
     }
    ],
-   "loesung_rechnung": "8",
    "aufgabe": {
     "l": "ueberschlag",
     "t": "verfahren",
     "p": "sicherung",
     "s": 3,
     "g": "transfer",
-    "y": "zahl",
+    "y": "auswahl",
     "f": {
-     "text": "Wie viele Stellen hat das Ergebnis von 6 718 · 2 493? Entscheide mit Überschlägen, ohne genau zu rechnen."
+     "text": "Drei der vier Fragen lassen sich mit einem einfachen Überschlag sicher beantworten. Bei welcher Frage muss man genau rechnen?"
     },
+    "a": [
+     "Reichen 100 € für 4 Spiele zu je 19 €?",
+     "Passen 6 Kisten zu je 38 kg auf einen Wagen für 300 kg?",
+     "Reichen 400 Plätze für 9 Klassen mit je 27 Kindern?",
+     "Reichen 500 € für 26 Karten zu je 19 €?"
+    ],
     "o": {
-     "wert": 8
+     "index": 3
     },
-    "c": "8",
-    "w": "6 718 liegt zwischen 6 000 und 7 000, 2 493 zwischen 2 000 und 3 000. Das Produkt liegt also zwischen 6 000 · 2 000 = 12 000 000 und 7 000 · 3 000 = 21 000 000. Beide Grenzen haben 8 Stellen, also hat auch das Ergebnis 8 Stellen (genau: 16 747 974)."
+    "w": "Rundet man alle Zahlen auf und liegt der Überschlag trotzdem unter der Grenze, reicht es sicher: 4 · 20 = 80 ist höchstens 100, 6 · 40 = 240 ist höchstens 300, 10 · 30 = 300 ist höchstens 400. Bei 26 · 19 ergibt der aufgerundete Überschlag 30 · 20 = 600, das liegt über 500 und entscheidet nichts; bei 25 · 20 = 500 ist eine Zahl ab- und eine aufgerundet. Genau gerechnet ist 26 · 19 = 494, es reicht knapp."
    }
   },
   {
@@ -1985,37 +1979,37 @@
    "antwortform": "zahl",
    "zaehlt": "ja",
    "lehrplan": "M5 3",
-   "idee": "fehlregel_umkehrreihenfolge",
-   "bauplan": "b",
+   "idee": "betrag_zerlegen",
+   "bauplan": "c",
    "schema": "nein",
    "alt_kennung": null,
-   "abgrenzung": "Dort wird ein Zahlenrätsel (mit Gerüst) rückwärts gelöst; hier muss aus zwei falschen Lösungen die falsche Umkehr-Reihenfolge erschlossen und angewendet werden.",
+   "abgrenzung": "Dort legt die Personenzahl eine Lösung fest; hier gibt es mehrere Belegungen, und die Bedingung (Rest durch 2 teilbar) entscheidet, welche möglich sind. Ersetzt die Kinderregel-Aufgabe (B1, auch Denkfigur wie 054).",
    "regel": "rr.gegenrechnung",
    "regel_name": "Gegenrechnung",
    "fehlbilder": [
     {
-     "antwort": 13,
-     "rechnung": "(80 - 15) // 5",
+     "antwort": 4,
+     "rechnung": "3 + 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Richtig rückwärts gerechnet ((80 − 15) : 5 = 13) statt mit der Regel des Kindes"
+     "beschreibung": "Auch den Einkauf ganz ohne Hefte mitgezählt"
     },
     {
-     "antwort": 31,
-     "rechnung": "80 // 5 + 15",
+     "antwort": 6,
+     "rechnung": "6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Erst durch 5 geteilt und dann 15 addiert statt abgezogen"
+     "beschreibung": "Alle Heftzahlen von 1 bis 6 gezählt, ohne zu prüfen, ob der Rest durch 2 teilbar ist"
     },
     {
-     "antwort": 65,
-     "rechnung": "80 - 15",
+     "antwort": 1,
+     "rechnung": "1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Nur 15 abgezogen und das Teilen vergessen"
+     "beschreibung": "Nur eine Möglichkeit gefunden"
     }
    ],
-   "loesung_rechnung": "80 // 5 - 15",
+   "loesung_rechnung": "3",
    "aufgabe": {
     "l": "sach",
     "t": "anwenden",
@@ -2024,13 +2018,13 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Ein Kind löst Zahlenrätsel rückwärts immer nach derselben Regel. Bei „Ich nehme eine Zahl mal 3 und addiere 12. Ich erhalte 45.“ schreibt es 3. Bei „Ich nehme eine Zahl mal 2 und addiere 10. Ich erhalte 30.“ schreibt es 5. Welche Zahl schreibt es bei „Ich nehme eine Zahl mal 5 und addiere 15. Ich erhalte 80.“?"
+     "text": "Ein Kind kauft Hefte zu je 3 € und Stifte zu je 2 €, von beidem mindestens ein Stück, und bezahlt genau 20 €. Wie viele verschiedene Möglichkeiten gibt es für die Zahl der Hefte und die Zahl der Stifte?"
     },
     "o": {
-     "wert": 1
+     "wert": 3
     },
-    "c": "80 // 5 - 15",
-    "w": "Das Kind kehrt die Schritte in der falschen Reihenfolge um: Es teilt zuerst und zieht dann ab, 45 : 3 − 12 = 3 und 30 : 2 − 10 = 5. Bei 80 rechnet es 80 : 5 − 15 = 1. Richtig wird der letzte Schritt zuerst umgekehrt: (80 − 15) : 5 = 13. Probe: 13 · 5 + 15 = 80."
+    "c": "3",
+    "w": "Nach den Heften muss ein Rest bleiben, der sich durch 2 teilen lässt. 2 Hefte kosten 6 €, Rest 14 € für 7 Stifte. 4 Hefte kosten 12 €, Rest 8 € für 4 Stifte. 6 Hefte kosten 18 €, Rest 2 € für 1 Stift. Bei 1, 3 oder 5 Heften bleibt ein ungerader Rest. Also gibt es 3 Möglichkeiten."
    }
   },
   {
@@ -2117,10 +2111,10 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "4 · (x + 12) − 4 = 108: Rückwärts ist 108 + 4 = 112, dann 112 : 4 = 28 und 28 − 12 = 16, also x = 16.",
+     "antwort": "4 · x − 12 − 4 = 108: Rückwärts ist 108 + 4 + 12 = 124 und 124 : 4 = 31, also x = 31.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die 12 Flaschen zu jeder Gruppe gezählt statt einmal dazu"
+     "beschreibung": "Die Flaschen vom Hausmeister abgezogen statt dazugezählt"
     },
     {
      "index": 1,
@@ -2148,7 +2142,7 @@
      "text": "Vier Gruppen sammeln jede gleich viele Flaschen, x Flaschen je Gruppe. Dazu kommen 12 Flaschen vom Hausmeister, 4 Flaschen gehen kaputt. Am Ende sind es 108 Flaschen. Welche Gleichung beschreibt die Geschichte, und was ergibt x?"
     },
     "a": [
-     "4 · (x + 12) − 4 = 108: Rückwärts ist 108 + 4 = 112, dann 112 : 4 = 28 und 28 − 12 = 16, also x = 16.",
+     "4 · x − 12 − 4 = 108: Rückwärts ist 108 + 4 + 12 = 124 und 124 : 4 = 31, also x = 31.",
      "4 · x − 12 + 4 = 108: Rückwärts ist 108 + 12 − 4 = 116 und 116 : 4 = 29, also x = 29.",
      "4 · x + 12 − 4 = 108: Rückwärts ist 108 − 12 + 4 = 100 und 100 : 4 = 25, also x = 25.",
      "4 · x + 12 + 4 = 108: Rückwärts ist 108 − 12 − 4 = 92 und 92 : 4 = 23, also x = 23."

@@ -307,6 +307,29 @@ for e in AUSW:
         mit_ = [o for o in a_ if _re.search(rx_, o, _re.I)]
         if len(mit_) == 1 and mit_[0] == ri:
             PROBLEME.append((k_, "Merkmal nur in der richtigen Option", name_))
+    # (2d) Zwillings-Ablenker (Vorprüfung W1-2, B2): Optionen mit gleichem Anfang (5 Wörter) oder mit genau einem
+    # abweichenden Wort bilden Gruppen. Eine Zweiergruppe mit der richtigen Option ist nur erlaubt, wenn es eine zweite Gruppe gibt.
+    tok = [o.split() for o in a_]
+    nachbar = {i: set() for i in range(len(a_))}
+    for i in range(len(a_)):
+        for j in range(i + 1, len(a_)):
+            gleich_anfang = len(tok[i]) >= 5 and len(tok[j]) >= 5 and tok[i][:5] == tok[j][:5]
+            ein_wort = len(tok[i]) == len(tok[j]) and sum(x != y for x, y in zip(tok[i], tok[j])) == 1
+            if gleich_anfang or ein_wort:
+                nachbar[i].add(j); nachbar[j].add(i)
+    gruppen, frei = [], set(range(len(a_)))
+    while frei:
+        st_ = frei.pop(); g_ = {st_}; rand_ = [st_]
+        while rand_:
+            for n_ in nachbar[rand_.pop()]:
+                if n_ not in g_:
+                    g_.add(n_); rand_.append(n_); frei.discard(n_)
+        if len(g_) > 1:
+            gruppen.append(g_)
+    ri_i = e["aufgabe"]["o"]["index"]
+    for g_ in gruppen:
+        if ri_i in g_ and len(g_) == 2 and len(gruppen) == 1:
+            PROBLEME.append((k_, "Zwillings-Ablenker: einziges gleich gebautes Paar enthält die richtige Option"))
     # (3) die richtige Option ist nicht um 25 % oder mehr länger als die längste falsche
     if len(ri) >= 1.25 * max(len(o) for o in fa) and len(ri) > 20:
         PROBLEME.append((k_, "richtige Option mindestens 25 % länger als die längste falsche", len(ri), max(len(o) for o in fa)))

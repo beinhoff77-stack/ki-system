@@ -4,30 +4,30 @@ OU = "Kein Eintrag im Regelkatalog trägt das Überschlagen und Runden (id.zahle
 # Runde VT1A nach Vorprüfung W1: je Lernziel 5 Aufgaben (1 Test, 2 Korrektur, 2 Sicherung). Felder wie in th_zahlen_potenzen_basis.py.
 # ═════════ klammern ═════════
 neu(T, "klammern", "test", "parameter", Z(
-    "In der Rechnung 483 917 − 129 486 + 37 500 wird ein Klammerpaar um 129 486 + 37 500 gesetzt. Um wie viel ist das Ergebnis mit Klammer kleiner als das Ergebnis ohne Klammer?",
-    75000, "2 * 37500", lambda: (483917 - 129486 + 37500) - (483917 - (129486 + 37500)),
-    "Ohne Klammer wird 129 486 abgezogen und 37 500 addiert. Mit Klammer wird die Summe abgezogen, also wird auch 37 500 abgezogen. "
-    "Die 37 500 wird nicht mehr dazugezählt, sondern abgezogen; das macht zweimal 37 500 = 75 000 aus. Probe: 391 931 − 316 931 = 75 000.",
-    [(37500, "Nur gesehen, dass 37 500 nicht mehr addiert wird, nicht dass sie jetzt abgezogen wird", "37500"),
-     (166986, "Den Wert der Klammer genannt: 129 486 + 37 500", "129486 + 37500"),
+    "Von einer Zahl, die größer als 10 000 ist, wird zuerst 4 800 abgezogen und danach 650 addiert. Nun setzt jemand ein Klammerpaar um 4 800 + 650 und rechnet: die Zahl − (4 800 + 650). Um wie viel ist das Ergebnis mit Klammer kleiner als das Ergebnis ohne Klammer?",
+    1300, "2 * 650", lambda: (20000 - 4800 + 650) - (20000 - (4800 + 650)),
+    "Ohne Klammer wird 4 800 abgezogen und 650 addiert. Mit Klammer wird die Summe abgezogen, also wird auch 650 abgezogen. "
+    "Die 650 wird nicht mehr dazugezählt, sondern abgezogen; das macht zweimal 650 = 1 300 aus. Das gilt für jede Zahl, mit der man beginnt.",
+    [(650, "Nur gesehen, dass 650 nicht mehr addiert wird, nicht dass sie jetzt abgezogen wird", "650"),
+     (5450, "Den Wert der Klammer genannt: 4 800 + 650", "4800 + 650"),
      (0, "Gedacht, eine Klammer in einer Rechnung mit Plus und Minus ändert nichts", "0")]), regel=RR, idee="klammer_wirkung", bauplan="e", schema=False, alt=None,
     bestand="themen klammern „Jemand rechnet 30 − (10 − 4) = 30 − 10 − 4 = 16. Was ist falsch?“; rollend-12 „(48 − 12) : 6 auf zwei Wegen“",
-    unterschied="Dort wird ein Term ausgerechnet oder ein Fehler benannt; hier wird die Wirkung einer Klammer über die Struktur bestimmt (eine Zahl wechselt von Plus zu Minus), Ausrechnen sechsstelliger Zahlen ist unattraktiv.")
+    unterschied="Dort wird ein Term ausgerechnet oder ein Fehler benannt; hier wird die Wirkung einer Klammer über die Struktur bestimmt (eine Zahl wechselt von Plus zu Minus). Nach B6 ist die Anfangszahl unbekannt, schriftliches Ausrechnen führt nicht zum Ziel.")
 neu(T, "klammern", "korrektur", "umkehr", Z(
-    "Ein Kind rechnet Terme mit Klammern immer nach derselben falschen Regel. Es schreibt: 3 · (4 + 5) = 17, (8 − 2) · 3 = 2 und 2 · (10 − 4) = 16. Welches Ergebnis schreibt es mit seiner Regel bei (6 + 4) · (5 − 3)?",
-    23, "6 + 4 * 5 - 3", lambda: 6 + 20 - 3,
-    "Das Kind lässt die Klammern weg und rechnet Punkt vor Strich: 3 · 4 + 5 = 17, 8 − 2 · 3 = 2, 2 · 10 − 4 = 16. Bei (6 + 4) · (5 − 3) rechnet es also 6 + 4 · 5 − 3 = 6 + 20 − 3 = 23. "
-    "Richtig ist 10 · 2 = 20.",
-    [(20, "Richtig gerechnet (10 · 2 = 20) statt mit der Regel des Kindes", "(6 + 4) * (5 - 3)"),
-     (47, "Nur die zweite Klammer weggelassen: (6 + 4) · 5 − 3", "(6 + 4) * 5 - 3"),
-     (14, "Nur die erste Klammer weggelassen: 6 + 4 · (5 − 3)", "6 + 4 * (5 - 3)")]), form="umkehren", regel=RR, idee="fehlregel_erschliessen", bauplan="b", schema=False, alt=None,
+    "Ein Kind rechnet Terme mit Klammern immer nach derselben falschen Regel: 3 · (4 + 5) ergibt bei ihm 17, (8 − 2) · 3 ergibt 2, und 2 · (10 − 4) ergibt 16. Um wie viel ist das Ergebnis, das es mit seiner Regel für (6 + 4) · (5 − 3) erhält, größer als das richtige Ergebnis?",
+    3, "(6 + 4 * 5 - 3) - (6 + 4) * (5 - 3)", lambda: 23 - 20,
+    "Das Kind lässt die Klammern weg und rechnet Punkt vor Strich: 3 · 4 + 5 = 17, 8 − 2 · 3 = 2, 2 · 10 − 4 = 16. Bei (6 + 4) · (5 − 3) rechnet es also 6 + 4 · 5 − 3 = 23. "
+    "Richtig ist 10 · 2 = 20. Das Ergebnis des Kindes ist um 23 − 20 = 3 größer.",
+    [(23, "Nur das Ergebnis des Kindes genannt (6 + 4 · 5 − 3)", "6 + 4 * 5 - 3"),
+     (20, "Nur das richtige Ergebnis genannt (10 · 2)", "(6 + 4) * (5 - 3)"),
+     (27, "Eine andere Regel angenommen (nur die zweite Klammer weggelassen): 47 − 20", "(6 + 4) * 5 - 3 - (6 + 4) * (5 - 3)")]), form="umkehren", regel=RR, idee="fehlregel_erschliessen", bauplan="b", schema=False, alt=None,
     bestand="themen klammern „Jemand rechnet 30 − (10 − 4) = 30 − 10 − 4 = 16. Was ist falsch?“; rollend-12 „Jan berechnet (30 − 6) · 3 − 4 · 2 … erster Fehler in Zeile …“",
-    unterschied="Dort wird ein einzelner Fehler benannt oder eine Zeile gesucht; hier muss aus drei Ergebnissen die falsche Regel (Klammern weglassen) erschlossen und auf einen Term mit zwei Klammern angewendet werden.")
+    unterschied="Dort wird ein Fehler benannt; hier wird die falsche Regel aus drei Ergebnissen erschlossen, gefragt ist der Unterschied zum richtigen Ergebnis (kein falscher Wert als Lösung, B1).")
 neu(T, "klammern", "korrektur", "darstellung", W(
     "Mia hat 50 €. Sie kauft 3 Bücher zu je 9 €. Für jedes Buch bekommt sie 2 € Rabatt. Welcher Term gibt an, wie viel Geld ihr danach bleibt?",
     "50 − 3 · (9 − 2)",
     [("50 − 3 · 9 − 2", "Klammer vergessen: Der Rabatt wird nur einmal gezählt und sogar abgezogen statt gutgeschrieben (Wert 21)", 50 - 3 * 9 - 2 == 21),
-     ("50 − (3 · 9 − 2)", "Den Rabatt nur einmal statt für jedes Buch gutgeschrieben (Wert 25)", 50 - (3 * 9 - 2) == 25),
+     ("50 − 3 · 9 + 2", "Den Rabatt nur einmal statt für jedes Buch gutgeschrieben (Wert 25)", 50 - 3 * 9 + 2 == 25),
      ("50 − 3 · (9 + 2)", "Den Rabatt zum Preis addiert statt abgezogen (Wert 17)", 50 - 3 * (9 + 2) == 17)],
     "Ein Buch kostet nach dem Rabatt 9 € − 2 € = 7 €. Drei Bücher kosten 3 · (9 − 2) = 21 €. Es bleiben 50 − 3 · (9 − 2) = 50 − 21 = 29 €. "
     "Die Klammer ist nötig, weil der Rabatt bei jedem Buch abgezogen wird.",
@@ -45,17 +45,16 @@ neu(T, "klammern", "sicherung", "begruenden", W(
     all((a + b) + c == a + (b + c) for a in range(1, 9) for b in range(1, 9) for c in range(1, 9))), regel=RR, idee="verbinden_in_ketten", bauplan="f", schema=False, alt=None,
     bestand="themen vorteil „Welche Gleichung ist falsch? (69 + 8) + 5 = 69 + (8 + 5) / 69 · 8 = 8 · 69 / 69 − 8 = 8 − 69 …“; themen klammern „30 − (10 − 4) = 30 − 10 − 4. Was ist falsch?“",
     unterschied="Dort wird eine einzelne Gleichung beurteilt; hier werden allgemeine Aussagen über alle Ketten einer Rechenart geprüft (immer – nie) und mit Gegenbeispielen widerlegt.")
-neu(T, "klammern", "sicherung", "darstellung", W(
-    "Welcher der vier Terme hat den größten Wert? Entscheide, ohne alle Terme auszurechnen.",
-    "97 · (348 + 6)",
-    [("97 · 348 + 6", "Gedacht, ohne Klammer komme dasselbe heraus; hier wird aber nur 6 statt 97 · 6 dazugezählt", 97 * 348 + 6 < 97 * (348 + 6)),
-     ("(97 + 348) · 6", "Gedacht, das Malnehmen am Schluss mache den Wert am größten; 445 · 6 ist aber viel kleiner", (97 + 348) * 6 < 97 * (348 + 6)),
-     ("97 + 348 · 6", "Gedacht, der Term mit dem Mal hinten sei am größten; 97 + 2 088 ist viel kleiner", 97 + 348 * 6 < 97 * (348 + 6))],
-    "97 · (348 + 6) = 97 · 348 + 97 · 6: Hier kommt zu 97 · 348 noch 97 · 6 dazu, bei 97 · 348 + 6 nur 6. Also ist 97 · (348 + 6) größer. "
-    "Die beiden anderen Terme sind viel kleiner: (97 + 348) · 6 und 97 + 348 · 6 liegen unter 3 000, während 97 · 348 über 30 000 liegt.",
-    97 * (348 + 6) > max(97 * 348 + 6, (97 + 348) * 6, 97 + 348 * 6)), regel=RR, idee="klammer_vergleich_struktur", bauplan="g", schema=False, alt=None,
-    bestand="themen klammern „Stimmt die Aussage? Sind a, b und c größer als 1, dann ist (a + b) · c größer als a + b · c.“; „Bei welchem Term kommt 88 heraus?“",
-    unterschied="Ähnliche Einsicht (die Klammer bewirkt, dass mehr malgenommen wird), aber eine andere Leistung: vier Terme mit großen Zahlen werden über ihre Struktur und Größenordnung verglichen statt ausgerechnet oder allgemein bestätigt.")
+neu(T, "klammern", "sicherung", "mehrschritt", Z(
+    "Im Term (□ + 7) · 3 steht □ für eine natürliche Zahl. Die Zahl □ wird um 5 vergrößert. Um wie viel wird der Wert des Terms größer?",
+    15, "5 * 3", lambda: ((10 + 5) + 7) * 3 - (10 + 7) * 3,
+    "In der Klammer wird die Summe um 5 größer. Diese Summe wird mit 3 malgenommen, also wächst der Wert um 3 · 5 = 15, egal welche Zahl □ ist. "
+    "Beispiel: (10 + 7) · 3 = 51 und (15 + 7) · 3 = 66, 66 − 51 = 15. Ohne Klammer, bei □ + 7 · 3, wüchse der Wert nur um 5.",
+    [(5, "Die Klammer nicht beachtet und nur die Änderung der Zahl selbst genannt", "5"),
+     (8, "Die 5 und die 3 addiert", "5 + 3"),
+     (36, "Die 5 zur 7 gezählt und das mit 3 malgenommen", "(5 + 7) * 3")]), form="zwei_wege", regel=RR, idee="aenderung_in_klammer", bauplan="e", schema=False, alt=None,
+    bestand="themen klammern „Für welche Zahl a ergeben (12 + a) · 2 und 12 + a · 2 zusammen 60?“",
+    unterschied="Dort wird eine Zahl gesucht; hier wird die Wirkung einer Änderung in der Klammer bestimmt, die für jede Zahl □ gleich ist (□ unbekannt, Ausrechnen nicht möglich). Ersetzt den Termvergleich 97 · (348 + 6) (A1).")
 # ═════════ termaufbau ═════════
 neu(T, "termaufbau", "test", "transfer", W(
     "Im Term (136 · 89 + 64 · 112 − 20) : 4 steht die 20 für einen Rabatt in Euro. Der Rabatt wird auf 36 € erhöht, sonst bleibt alles gleich. Wie verändert sich der Wert des Terms?",
@@ -102,27 +101,27 @@ neu(T, "termaufbau", "sicherung", "begruenden", W(
     bestand="themen termaufbau „Jemand sagt: 7 + 3 · 5 ist ein Produkt, weil ein Malzeichen vorkommt. Was ist falsch?“; rollend-5 „Kim benennt den Term 3 · (5 + 2) … erster Fehler in Zeile …“",
     unterschied="Dort wird eine einzelne falsche Benennung beurteilt; hier muss aus drei Benennungen die verborgene Regel bestimmt werden, indem vier mögliche Regeln an allen Beispielen geprüft werden.")
 neu(T, "termaufbau", "sicherung", "darstellung", W(
-    "Text A: „Multipliziere die Summe aus 4 und 5 mit 6.“ Text B: „Addiere das Produkt aus 4 und 6 zum Produkt aus 5 und 6.“ Welche Aussage über die Terme zu den beiden Texten stimmt?",
-    "Die Terme sind verschieden, ihre Werte sind gleich.",
-    [("Die Terme sind gleich, ihre Werte sind gleich.", "Gleichen Wert mit gleichem Term verwechselt: A ergibt ein Produkt, B eine Summe", (4 + 5) * 6 == 4 * 6 + 5 * 6),
-     ("Die Terme sind verschieden, ihre Werte sind verschieden.", "Gedacht, verschiedene Terme müssten verschiedene Werte haben; beide ergeben 54", (4 + 5) * 6 == 54 == 4 * 6 + 5 * 6),
-     ("Die Terme sind gleich, ihre Werte sind verschieden.", "Wegen derselben Zahlen 4, 5 und 6 denselben Term vermutet und beim Rechnen die Reihenfolge verwechselt", 4 + 5 * 6 != (4 + 5) * 6)],
-    "Text A ergibt (4 + 5) · 6, ein Produkt. Text B ergibt 4 · 6 + 5 · 6, eine Summe. Die Terme sind also verschieden. Ihre Werte sind gleich: 9 · 6 = 54 und 24 + 30 = 54. "
-    "Das zeigt das Verteilungsgesetz: Verschiedene Terme können denselben Wert haben.",
-    (4 + 5) * 6 == 4 * 6 + 5 * 6), form="bruecke", regel=RR, idee="term_gegen_wert", bauplan="d", schema=False, alt=None,
-    bestand="themen termaufbau „Welcher Term passt? Multipliziere die Summe aus 10 und 3 mit 6.“; rollend-12 „Term A 6 + 4 · 5, Term B (6 + 4) · 5 … Um wie viel ist B größer?“",
-    unterschied="Dort wird zu einem Text ein Term gewählt oder ein Unterschied berechnet; hier werden Aufbau und Wert zweier Terme getrennt beurteilt (zwei mal zwei Urteile).")
+    "Im Term 20 − 8 wird die 8 durch die Summe 5 + 3 ersetzt, einmal mit Klammer und einmal ohne Klammer. Welche Aussage über die Art der beiden neuen Terme stimmt?",
+    "Mit Klammer ist es eine Differenz, ohne Klammer eine Summe.",
+    [("Mit Klammer ist es eine Summe, ohne Klammer eine Differenz.", "Gedacht, die Klammer mit dem Plus darin mache den Term zur Summe", None),
+     ("Mit und ohne Klammer ist es eine Differenz.", "Nur auf das Minus vorne geschaut, nicht auf den letzten Rechenschritt", None),
+     ("Mit und ohne Klammer ist es eine Summe.", "Gedacht, ein neues Plus mache jeden Term zur Summe", None)],
+    "20 − (5 + 3): Zuerst wird die Klammer gerechnet, der letzte Schritt ist das Minus, also ist es eine Differenz. "
+    "20 − 5 + 3: Von links nach rechts gerechnet ist der letzte Schritt + 3, also ist es eine Summe (und sie hat einen anderen Wert: 18 statt 12).",
+    20 - (5 + 3) == 12 and 20 - 5 + 3 == 18), form="bruecke", regel=RR, idee="klammer_bestimmt_termart", bauplan="d", schema=False, alt=None,
+    bestand="themen termaufbau „Stimmt die Aussage? Jeder Term mit einer Klammer ist ein Produkt.“; „Welche Art von Term ist 7 + 12 · 5?“",
+    unterschied="Dort wird die Art eines gegebenen Terms bestimmt oder eine Aussage über Klammern widerlegt; hier wird beurteilt, wie das Einsetzen einer Summe mit oder ohne Klammer die Termart verändert. Nichts ist auszurechnen. Ersetzt 030 (A2).")
 # ═════════ vorteil ═════════
 neu(T, "vorteil", "test", "parameter", Z(
-    "In der Rechnung □ · 37 · △ = 3 700 stehen für □ und △ natürliche Zahlen, und □ ist kleiner als △. Wie viele verschiedene Möglichkeiten gibt es für das Paar aus □ und △?",
-    4, "4", lambda: sum(1 for a in range(1, 101) for b in range(a + 1, 101) if a * 37 * b == 3700),
-    "Man darf die Faktoren vertauschen: □ · 37 · △ = 37 · (□ · △). Damit 3 700 herauskommt, muss □ · △ = 100 sein. "
-    "Zerlegungen von 100 mit □ kleiner als △: 1 · 100, 2 · 50, 4 · 25 und 5 · 20. Das sind 4 Möglichkeiten; 10 · 10 zählt nicht, weil □ kleiner als △ sein soll.",
-    [(5, "Auch die Zerlegung mit zwei gleichen Faktoren mitgezählt, obwohl □ kleiner als △ sein soll", "4 + 1"),
-     (9, "Alle Zerlegungen gezählt, auch die Paare mit □ größer als △", "9"),
-     (1, "Nur eine einzige Zerlegung gefunden", "1")]), form="umkehren", regel=RT, idee="zerlegungen_nach_vertauschen", bauplan="c", schema=False, alt=None,
+    "In der Rechnung □ · 23 · △ = 4 600 stehen für □ und △ natürliche Zahlen. Beide sind größer als 5, keine von beiden endet auf 0, und △ ist größer als □. Welche Zahl ist △?",
+    25, "25", lambda: next(b for a in range(6, 200) for b in range(a + 1, 200) if a * 23 * b == 4600 and a % 10 and b % 10),
+    "Man darf die Faktoren vertauschen: □ · 23 · △ = 23 · (□ · △). Also muss □ · △ = 4 600 : 23 = 200 sein. "
+    "Zerlegungen von 200 mit beiden Zahlen größer als 5 sind 8 · 25 und 10 · 20. Weil keine Zahl auf 0 enden darf, bleibt nur 8 · 25, also △ = 25.",
+    [(200, "Nur □ · △ bestimmt (4 600 : 23)", "4600 // 23"),
+     (20, "Die Zerlegung mit einer Zahl genommen, die auf 0 endet", "20"),
+     (8, "□ statt △ genannt", "8")]), form="umkehren", regel=RT, idee="zerlegungen_nach_vertauschen", bauplan="c", schema=False, alt=None,
     bestand="themen vorteil „Ergänze: 25 · □ · 4 = 3 700“; rollend-12 „4 · □ · 25 = 1 700“",
-    unterschied="Dort ist eine Lücke bei zwei bekannten Faktoren zu füllen; hier gibt es zwei Lücken, erst das Vertauschen zeigt □ · △ = 100, dann müssen alle passenden Zerlegungen gefunden werden.")
+    unterschied="Dort ist eine Lücke bei zwei bekannten Faktoren zu füllen; hier gibt es zwei Lücken, erst das Vertauschen zeigt □ · △ = 200, und die Bedingungen lassen genau eine Zerlegung übrig. Nach B5 andere Zahlen (nicht 37 · 100) und kein Abzählen mehr.")
 neu(T, "vorteil", "korrektur", "mehrschritt", W(
     "Ohne die Produkte auszurechnen: Welche Aussage über 36 · 4 375 · 5 und 18 · 4 375 · 10 stimmt?",
     "Sie sind gleich groß, denn 36 · 5 und 18 · 10 ergeben beide 180.",
@@ -140,15 +139,15 @@ neu(T, "vorteil", "korrektur", "mehrschritt", Z(
     "200 000 ist um 3 größer als 199 997. Wer 200 000 abzieht, hat also 3 zu viel abgezogen und muss 3 wieder addieren: 748 362 − 200 000 + 3. "
     "Das Kind zieht die 3 aber noch einmal ab. Damit fehlen zweimal 3, sein Ergebnis ist um 6 zu klein.",
     [(3, "Nur gesehen, dass 3 zu viel abgezogen wurden, nicht dass das Kind die 3 noch einmal abzieht", "3"),
-     (0, "Den Ausgleich mit „− 3“ für richtig gehalten", "0")]), form="zwei_wege", regel=RT, idee="ausgleich_richtung", bauplan="b", schema=False, alt=None,
+     (0, "Den Ausgleich mit „− 3“ für richtig gehalten", "0")]), form="zwei_wege", regel=RT, idee="ausgleich_richtung", bauplan="b", schema=True, alt=None,
     bestand="themen vorteil „Rechne geschickt: 198 + 467 + 2“",
-    unterschied="Dort wird ein Rechenvorteil angewendet; hier wird ein Ausgleich in die falsche Richtung erkannt und seine Wirkung bestimmt, Ausrechnen sechsstelliger Zahlen ist unattraktiv.")
+    unterschied="Dort wird ein Rechenvorteil angewendet; hier wird ein Ausgleich in die falsche Richtung erkannt und seine Wirkung bestimmt. Nach der Zählung der Vorprüfung (zwei Subtraktionen genügen) als Schema gezählt; einzige im Lernziel.")
 neu(T, "vorteil", "sicherung", "begruenden", W(
     "In einer Rechnung sollen Zahlen umgestellt werden, damit man leichter rechnen kann, zum Beispiel bei 763 − 289 + 237. Welche Aussage stimmt?",
-    "Bei nur Plus und Minus darf man umstellen, dabei nehmen die Zahlen ihre Rechenzeichen mit.",
-    [("Bei nur Plus und Minus darf man umstellen, dabei bleiben die Rechenzeichen an ihrem Platz.", "Die Zeichen nicht mitgenommen: 763 − 237 + 289 = 815, richtig ist 711", 763 - 237 + 289 == 815 != 763 - 289 + 237),
-     ("Sobald ein Minus vorkommt, darf man gar nicht umstellen, auch nicht mit dem Rechenzeichen.", "Das Verbot 69 − 8 ≠ 8 − 69 auf Ketten mit mitgenommenem Zeichen übertragen: 763 + 237 − 289 = 711", 763 + 237 - 289 == 763 - 289 + 237),
-     ("Bei nur Mal und Geteilt darf man umstellen, dabei bleiben die Rechenzeichen an ihrem Platz.", "Die Zeichen nicht mitgenommen: 60 : 3 · 2 = 40, aber 60 : 2 · 3 = 90", 60 // 3 * 2 != 60 // 2 * 3)],
+    "Die Zahlen nehmen ihre Rechenzeichen mit, dann darf man bei Plus und Minus umstellen.",
+    [("Die Rechenzeichen bleiben an ihrem Platz, dann darf man bei Plus und Minus umstellen.", "Die Zeichen nicht mitgenommen: 763 − 237 + 289 = 815, richtig ist 711", 763 - 237 + 289 == 815 != 763 - 289 + 237),
+     ("Kommt ein Minus vor, darf man gar nicht umstellen, auch nicht mit dem Rechenzeichen.", "Das Verbot 69 − 8 ≠ 8 − 69 auf Ketten mit mitgenommenem Zeichen übertragen: 763 + 237 − 289 = 711", 763 + 237 - 289 == 763 - 289 + 237),
+     ("Die Rechenzeichen bleiben an ihrem Platz, dann darf man bei Mal und Geteilt umstellen.", "Die Zeichen nicht mitgenommen: 60 : 3 · 2 = 40, aber 60 : 2 · 3 = 90", 60 // 3 * 2 != 60 // 2 * 3)],
     "Jede Zahl gehört zu dem Rechenzeichen davor. Nimmt sie es beim Umstellen mit, bleibt der Wert gleich: 763 − 289 + 237 = 763 + 237 − 289 = 1 000 − 289 = 711. "
     "Bleiben die Zeichen an ihrem Platz, ändert sich der Wert: 763 − 237 + 289 = 815. Auch bei Mal und Geteilt geht das nicht: 60 : 3 · 2 = 40, aber 60 : 2 · 3 = 90.",
     763 - 289 + 237 == 763 + 237 - 289 == 711), regel=RT, idee="umstellen_mit_zeichen", bauplan="f", schema=False, alt=None,
@@ -166,16 +165,16 @@ neu(T, "vorteil", "sicherung", "mehrschritt", Z(
     unterschied="Dort wird mit einer erlaubten Umformung gerechnet; hier wird die Wirkung einer unerlaubten (gleichsinnigen) Änderung beider Faktoren auf das Produkt bestimmt, ohne die Produkte auszurechnen.")
 # ═════════ verteilen ═════════
 neu(T, "verteilen", "test", "begruenden", W(
-    "Drei der vier Rechnungen haben denselben Wert wie 368 · 47. Welche Rechnung hat einen anderen Wert?",
-    "300 · 40 + 68 · 7",
-    [("370 · 47 − 2 · 47", "Für anders gehalten, weil mit Minus zerlegt wird; aber 368 = 370 − 2, und beide Teile werden mit 47 malgenommen", 370 * 47 - 2 * 47 == 368 * 47),
-     ("368 · 40 + 368 · 7", "Für anders gehalten, weil der zweite Faktor zerlegt wird; aber 47 = 40 + 7, und beide Teile werden mit 368 malgenommen", 368 * 40 + 368 * 7 == 368 * 47),
-     ("300 · 47 + 68 · 47", "Für anders gehalten, weil 68 eine ungewöhnliche Zahl ist; aber 368 = 300 + 68, und beide Teile werden mit 47 malgenommen", 300 * 47 + 68 * 47 == 368 * 47)],
-    "Beim Verteilungsgesetz wird ein Faktor zerlegt, und jeder Teil wird mit dem ganzen anderen Faktor malgenommen: 368 · 47 = 300 · 47 + 68 · 47 = 368 · 40 + 368 · 7 = 370 · 47 − 2 · 47. "
-    "Bei 300 · 40 + 68 · 7 wurden beide Faktoren zerlegt und nur Teil mit Teil malgenommen; es fehlen 300 · 7 und 68 · 40. Darum ist der Wert kleiner: 12 476 statt 17 296.",
-    300 * 40 + 68 * 7 == 12476 != 368 * 47 == 17296), regel=RA, idee="zerlegung_pruefen", bauplan="d", schema=False, alt=None,
+    "Ein Kind soll 368 · 47 rechnen. Es zerlegt beide Zahlen, 368 = 300 + 68 und 47 = 40 + 7, und rechnet 300 · 40 + 68 · 7. Welche Aussage über seine Rechnung stimmt?",
+    "Ihm fehlen 300 · 7 und 68 · 40.",
+    [("Ihm fehlen 300 · 68 und 40 · 7.", "Die beiden Teile derselben Zahl miteinander malgenommen statt mit den Teilen der anderen Zahl", 300 * 40 + 68 * 7 + 300 * 68 + 40 * 7 != 368 * 47),
+     ("Ihm fehlt nur 68 · 40.", "Nur eines der beiden fehlenden Teilprodukte gesehen", 300 * 40 + 68 * 7 + 68 * 40 != 368 * 47),
+     ("Ihm fehlt nichts.", "Gedacht, beim Zerlegen beider Faktoren nehme man nur Teil mit Teil mal", 300 * 40 + 68 * 7 != 368 * 47)],
+    "Zerlegt man beide Faktoren, muss jeder Teil des einen mit jedem Teil des anderen malgenommen werden, wie bei einem Rechteck aus vier Teilen: 300 · 40 + 300 · 7 + 68 · 40 + 68 · 7. "
+    "Dem Kind fehlen 300 · 7 = 2 100 und 68 · 40 = 2 720. Sein Ergebnis 12 476 ist darum um 4 820 kleiner als 17 296.",
+    300 * 40 + 300 * 7 + 68 * 40 + 68 * 7 == 368 * 47), regel=RA, idee="zerlegung_pruefen", bauplan="b", schema=False, alt=None,
     bestand="themen verteilen „Welcher Term ist gleich 3 · (10 + 3)?“; rollend-12 „8 · 27: Zerlege 27 in 20 + 7 und rechne 8 · 20 + 8 · 7“",
-    unterschied="Dort wird eine einzelne Zerlegung angewendet; hier werden vier Zerlegungen (Plus, Minus, erster oder zweiter Faktor, beide Faktoren) über ihre Struktur geprüft, Ausrechnen fünfstelliger Produkte ist unattraktiv.")
+    unterschied="Dort wird ein Faktor zerlegt und angewendet; hier werden beide Faktoren zerlegt, und die fehlenden Teilprodukte müssen am Aufbau erkannt werden (Rechteck aus vier Teilen). Nach B3 nicht mehr „Drei der vier … welche anders?“.")
 neu(T, "verteilen", "korrektur", "darstellung", Z(
     "Im Produkt 2 347 · 86 wird der zweite Faktor um 3 größer, aus 86 wird 89. Um wie viel wird das Produkt größer?",
     7041, "3 * 2347", lambda: 2347 * 89 - 2347 * 86,
@@ -189,30 +188,29 @@ neu(T, "verteilen", "korrektur", "darstellung", Z(
 neu(T, "verteilen", "korrektur", "darstellung", W(
     "4 Kinder kaufen jeweils ein Eis für 2 € und ein Getränk für 3 €. Sie können die Kosten als 4 · (2 + 3) oder als 4 · 2 + 4 · 3 berechnen. Welcher Bezahlweg gehört zur Rechnung 4 · 2 + 4 · 3?",
     "Erst werden alle vier Eis bezahlt, danach alle vier Getränke.",
-    [("Jedes Kind bezahlt sein Eis und sein Getränk zusammen.", "Den Weg zur anderen Rechnung 4 · (2 + 3) gewählt", None),
+    [("Erst wird ein Eis bezahlt, danach ein Getränk, und das viermal.", "Den Weg zur anderen Rechnung 4 · (2 + 3) gewählt", None),
      ("Erst werden alle vier Eis bezahlt, danach ein Getränk für alle.", "Nur ein Getränk bezahlt; das wäre 4 · 2 + 3", 4 * 2 + 3 != 4 * 2 + 4 * 3),
      ("Erst wird ein Eis bezahlt, danach alle vier Getränke.", "Nur ein Eis bezahlt; das wäre 2 + 4 · 3", 2 + 4 * 3 != 4 * 2 + 4 * 3)],
     "4 · 2 heißt: viermal 2 € für die Eis, 4 · 3 heißt: viermal 3 € für die Getränke. Also werden erst alle Eis und dann alle Getränke bezahlt: 8 € + 12 € = 20 €. "
     "Bezahlt jedes Kind beides zusammen, rechnet man 4 · (2 + 3) = 4 · 5 = 20 €. Beide Wege ergeben dasselbe; das ist das Verteilungsgesetz.",
-    4 * 2 + 4 * 3 == 4 * (2 + 3) == 20), form="bruecke", regel=RA, idee="terme_deuten", bauplan="d", schema=False, alt=None,
+    4 * 2 + 4 * 3 == 4 * (2 + 3) == 20), form="bruecke", regel=RA, idee="terme_deuten", bauplan="d", schema=True, alt=None,
     bestand="themen verteilen „Ein Kino verkauft am Samstag 37 und am Sonntag 63 Karten zu je 9 €. Wie viel Geld …?“; rollend-5 „Zwei Teile eines Rechtecks: Welcher Term gibt die ganze Fläche?“",
-    unterschied="Dort wird zur Situation ein Term gesucht oder ausgerechnet; hier werden zwei gleichwertige Terme nach ihrer Bedeutung (Bezahlweg) unterschieden.")
+    unterschied="Dort wird zur Situation ein Term gesucht oder ausgerechnet; hier werden zwei gleichwertige Terme nach ihrer Bedeutung (Bezahlweg) unterschieden. Format Term ↔ Text, nach C4 als Schema gezählt; einzige im Lernziel.")
 neu(T, "verteilen", "sicherung", "begruenden", Z(
-    "Ein Kind wendet das Verteilungsgesetz auch an, wenn in der Klammer ein Produkt steht. Es rechnet: 2 · (3 · 5) = 60 und 3 · (2 · 4) = 72. Welches Ergebnis erhält es mit derselben Regel für 5 · (2 · 7)?",
-    350, "5 * 2 * 5 * 7", lambda: 5 * 2 * 5 * 7,
-    "Das Kind nimmt jeden Faktor in der Klammer mit der Zahl davor mal: 2 · 3 · 2 · 5 = 60 und 3 · 2 · 3 · 4 = 72. Bei 5 · (2 · 7) rechnet es 5 · 2 · 5 · 7 = 350. "
-    "Richtig ist 5 · 14 = 70: Verteilen darf man nur über eine Summe oder Differenz; steht in der Klammer ein Produkt, wird nur einmal malgenommen.",
-    [(70, "Richtig gerechnet (5 · 14 = 70) statt mit der Regel des Kindes", "5 * (2 * 7)"),
-     (45, "Wie bei einer Summe verteilt und addiert: 5 · 2 + 5 · 7", "5 * 2 + 5 * 7"),
-     (140, "Nur einmal zusätzlich verdoppelt: 5 · 2 · 7 · 2", "5 * 2 * 7 * 2")]), regel=RA, idee="fehlregel_verteilen_produkt", bauplan="b", schema=False, alt=None,
+    "Ein Kind wendet das Verteilungsgesetz auch an, wenn in der Klammer ein Produkt steht: Es rechnet 2 · (3 · 5) = 2 · 3 · 2 · 5 = 60 und 3 · (2 · 4) = 3 · 2 · 3 · 4 = 72. Für genau eine natürliche Zahl □ (größer als 0) liefert diese falsche Regel bei □ · (2 · 7) trotzdem das richtige Ergebnis. Welche Zahl ist □?",
+    1, "1", lambda: next(a for a in range(1, 100) if a * 2 * a * 7 == a * (2 * 7)),
+    "Das Kind rechnet □ · 2 · □ · 7, richtig ist □ · 2 · 7. Beim Kind steht der Faktor □ einmal zu viel. Das ändert nichts nur dann, wenn □ = 1 ist: 1 · 2 · 1 · 7 = 14 = 1 · (2 · 7). "
+    "Schon mit □ = 2 erhält das Kind 56 statt 28: Verteilen darf man nur über eine Summe oder Differenz.",
+    [(2, "Gedacht, mit 2 stimme es, weil die 2 schon in der Klammer steht", "2"),
+     (14, "Gedacht, es stimme, wenn vorn das Produkt aus der Klammer steht", "2 * 7")]), regel=RA, idee="fehlregel_verteilen_produkt", bauplan="b", schema=False, alt=None,
     bestand="themen verteilen „Jemand rechnet 6 · (20 + 4) = 6 · 20 + 4 = 124. Was ist falsch?“; rollend-12 „Nina berechnet 6 · 43 … erster Fehler in Zeile …“",
-    unterschied="Andere Fehlvorstellung als im Bestand (Verteilen über ein Produkt statt nur einen Summanden malnehmen); sie muss aus zwei Ergebnissen erschlossen und angewendet werden.")
+    unterschied="Andere Fehlvorstellung als im Bestand (Verteilen über ein Produkt); gefragt ist nach dem Fall, in dem die falsche Regel zufällig stimmt (B1), nicht nach einem falschen Wert.")
 neu(T, "verteilen", "sicherung", "darstellung", W(
     "Ein Rechteck besteht aus zwei Teilrechtecken, die nebeneinander liegen und gleich hoch sind. Die Höhe wird verdreifacht, die beiden Breiten bleiben gleich. Wie verändert sich der Flächeninhalt des ganzen Rechtecks?",
     "Er wird dreimal so groß.",
     [("Er wird neunmal so groß.", "Gedacht, bei zwei Teilen wirke die Verdreifachung zweimal (3 · 3)", None),
      ("Der Flächeninhalt des breiteren Teils wird dreimal so groß, der andere bleibt.", "Übersehen, dass die Höhe in beiden Teilen vorkommt", None),
-     ("Er wird um das Dreifache der Höhe größer.", "Den Zuwachs der Höhe mit dem Zuwachs der Fläche verwechselt", None)],
+     ("Er wird sechsmal so groß.", "Für jeden der beiden Teile den Faktor 3 gerechnet und die Faktoren addiert (3 + 3)", None)],
     "Jede Teilfläche ist Höhe mal Breite. Wird die Höhe verdreifacht, wird jede Teilfläche dreimal so groß, also auch ihre Summe. "
     "Beispiel mit Höhe 8 und Breiten 30 und 2: vorher 8 · 30 + 8 · 2 = 256, nachher 24 · 30 + 24 · 2 = 768 = 3 · 256.",
     24 * 30 + 24 * 2 == 3 * (8 * 30 + 8 * 2)), regel=RA, idee="gemeinsamer_faktor_skalieren", bauplan="e", schema=False, alt="VT1A-054",
@@ -228,16 +226,17 @@ neu(T, "umkehraufgabe_mal", "test", "parameter", Z(
      (9, "Alle Teiler von 36 gezählt, auch die, die über der Grenze liegen", "9")]), form="umkehren", regel=RG, idee="loesbarkeit_teiler", bauplan="c", schema=False, alt="VT1A-057",
     bestand="themen umkehraufgabe_mal (Bonus) „Für wie viele ganze Zahlen x ist (−60) : x eine ganze Zahl, die größer als 5 ist?“",
     unterschied="Dort wird eine Divisionsaufgabe mit ganzen Zahlen durchsucht; hier wird die Lösbarkeit einer Gleichung mit Parameter als Teilbarkeit gedeutet (nur natürliche Zahlen, Grenzen eingeschlossen).")
-neu(T, "umkehraufgabe_mal", "korrektur", "umkehr", Z(
-    "Ein Kind löst Gleichungen immer nach derselben Regel. Es schreibt: Bei x : 7 = 3 ist x = 21. Bei 48 : x = 6 ist x = 288. Bei 60 : x = 5 ist x = 300. Welches x schreibt es mit seiner Regel bei 72 : x = 8?",
-    576, "72 * 8", lambda: 72 * 8,
-    "Das Kind nimmt bei jeder Geteilt-Gleichung die beiden Zahlen mal. Bei x : 7 = 3 stimmt das (x = 3 · 7 = 21). Steht x aber hinter dem Geteilt-Zeichen, ist das falsch: Bei 48 : x = 6 ist x = 48 : 6 = 8. "
-    "Bei 72 : x = 8 schreibt das Kind also 72 · 8 = 576; richtig ist x = 72 : 8 = 9.",
-    [(9, "Richtig gelöst (72 : 8 = 9) statt mit der Regel des Kindes", "72 // 8"),
-     (64, "Die Umkehrung von Geteilt für Minus gehalten: 72 − 8", "72 - 8"),
-     (80, "Die Umkehrung von Geteilt für Plus gehalten: 72 + 8", "72 + 8")]), form="umkehren", regel=RG, idee="fehlregel_divisor", bauplan="b", schema=False, alt=None,
-    bestand="themen umkehraufgabe_mal „Löse 72 : x = 9“; „Stimmt die Aussage? Bei x : 8 = 5 rechnet man x = 5 : 8.“",
-    unterschied="Dort wird eine Gleichung gelöst oder eine Rechenregel bestätigt; hier muss aus drei Lösungen erschlossen werden, dass das Kind nicht unterscheidet, ob x vor oder hinter dem Geteilt-Zeichen steht.")
+neu(T, "umkehraufgabe_mal", "korrektur", "umkehr", W(
+    "Für eine Zahl □ hat die Gleichung 8 · x = □ die natürliche Lösung x. Welche der vier Gleichungen hat für jede solche Zahl □ dieselbe Lösung x?",
+    "□ : x = 8",
+    [("x : 8 = □", "Die Umkehrung falsch herum gedacht: hier wäre x = 8 · □", None),
+     ("8 : x = □", "8 und □ in der Geteilt-Aufgabe vertauscht", None),
+     ("x · □ = 8", "□ und 8 vertauscht", None)],
+    "Aus 8 · x = □ folgt: Teilt man das Produkt □ durch den einen Faktor x, erhält man den anderen Faktor 8, also □ : x = 8. Beispiel: 8 · 6 = 48 und 48 : 6 = 8. "
+    "Bei x : 8 = □ wäre x = 8 · □; bei 8 : x = □ und x · □ = 8 wäre x meist gar keine natürliche Zahl.",
+    48 // 6 == 8 and 6 * 8 == 48), form="umkehren", regel=RG, idee="aufgabenfamilie", bauplan="d", schema=False, alt=None,
+    bestand="themen umkehraufgabe_mal „Welche Umkehraufgabe löst die Gleichung 5 · x = −10?“",
+    unterschied="Dort wird die Rechnung für x gewählt; hier ist das Produkt □ unbekannt (nichts auszurechnen), gesucht ist eine gleichwertige Gleichung aus derselben Aufgabenfamilie. Ersetzt die Kinderregel-Aufgabe (B1).")
 neu(T, "umkehraufgabe_mal", "korrektur", "darstellung", W(
     "Zu welcher Geschichte gehört die Gleichung 48 : x = 6?",
     "48 Murmeln werden gleichmäßig verteilt. Jedes Kind bekommt 6. Wie viele Kinder sind es?",
@@ -249,9 +248,9 @@ neu(T, "umkehraufgabe_mal", "korrektur", "darstellung", W(
     48 // 8 == 6), form="bruecke", regel=RG, idee="gleichung_zu_geschichte", bauplan="d", schema=True, alt="VT1A-061",
     bestand="themen umkehraufgabe_mal „Welche Gleichung passt zu: Das (−4)-Fache einer Zahl ist 28?“",
     unterschied="Umgekehrte Richtung (Gleichung → Geschichte), Ablenker vertauschen die Rollen von Gesamtzahl, Anteil und Anzahl. Weil es im Kern das Bestandsformat „Text ↔ Gleichung“ ist, zähle ich die Aufgabe als Schema.")
-neu(T, "umkehraufgabe_mal", "sicherung", "parameter", W(
+neu(T, "umkehraufgabe_mal", "sicherung", "umkehr", W(
     "Die Gleichung a · x = 360 hat eine Lösung x in den natürlichen Zahlen. Nun wird die Zahl a verdreifacht, die 360 bleibt gleich, und die neue Gleichung hat wieder eine natürliche Lösung. Was geschieht mit der Lösung?",
-    "Sie wird dreimal so klein.",
+    "Sie wird zu einem Drittel.",
     [("Sie wird dreimal so groß.", "Gedacht, die Lösung verändere sich wie a", 12 * 30 == 360 and 30 < 90),
      ("Sie bleibt gleich.", "Gedacht, nur die 360 bestimme die Lösung", 4 * 90 == 360 and 12 * 90 != 360),
      ("Sie wird um 3 kleiner.", "Verdreifachen mit dem Abziehen von 3 verwechselt", 90 - 3 != 30)],
@@ -260,39 +259,37 @@ neu(T, "umkehraufgabe_mal", "sicherung", "parameter", W(
     all((360 // a) == 3 * (360 // (3 * a)) for a in range(1, 121) if 360 % (3 * a) == 0)), regel=RG, idee="parameter_wirkung", bauplan="e", schema=False, alt=None,
     bestand="themen umkehraufgabe_mal „Für welche Zahl a hat die Gleichung a · x = −48 die Lösung x = −6?“",
     unterschied="Dort wird ein Parameter aus einer gegebenen Lösung bestimmt; hier wird ohne konkrete Zahlen beurteilt, wie sich die Lösung ändert, wenn sich der Parameter ändert.")
-neu(T, "umkehraufgabe_mal", "sicherung", "umkehr", W(
-    "Welche der vier Gleichungen hat die größte Lösung x? Entscheide, ohne alle Gleichungen zu lösen.",
-    "x : 74 = 224",
-    [("74 · x = 8 288", "Gedacht, die größten Zahlen geben die größte Lösung; hier ist x = 8 288 : 74 = 112", 8288 // 74 == 112),
-     ("37 · x = 8 288", "Gedacht, eine Mal-Gleichung mit der großen Zahl 8 288 habe die größte Lösung; hier ist x = 224", 8288 // 37 == 224),
-     ("x : 37 = 224", "Gedacht, Teilen durch die kleinere Zahl gebe die größere Lösung; hier ist x = 224 · 37 = 8 288", 224 * 37 == 8288)],
-    "Bei x : 74 = 224 ist x = 224 · 74, also mehr als 224 · 70 = 15 680. Bei x : 37 = 224 ist x = 224 · 37, nur halb so viel. "
-    "Bei den Mal-Gleichungen ist x = 8 288 : 37 = 224 oder x = 8 288 : 74 = 112, also viel kleiner. Die größte Lösung hat x : 74 = 224 (x = 16 576).",
-    224 * 74 == 16576 > max(8288 // 74, 8288 // 37, 224 * 37)), regel=RG, idee="loesungen_vergleichen", bauplan="g", schema=False, alt=None,
-    bestand="themen umkehraufgabe_mal „Welche Rechnung führt zur Lösung von x : 6 = 27?“; „Löse 72 : x = 9“",
-    unterschied="Dort wird eine Umkehrrechnung gewählt oder ausgeführt; hier werden die Lösungen von vier Gleichungen über ihre Umkehrrechnungen der Größe nach verglichen, ohne sie auszurechnen.")
+neu(T, "umkehraufgabe_mal", "sicherung", "begruenden", W(
+    "Für natürliche Zahlen a und b (beide mindestens 1) werden zwei Arten von Gleichungen verglichen: die Mal-Gleichung a · x = b und die Geteilt-Gleichung x : a = b. Gesucht ist jeweils eine natürliche Zahl x. Welche Aussage stimmt?",
+    "Nur die Mal-Gleichung kann ohne Lösung sein.",
+    [("Nur die Geteilt-Gleichung kann ohne Lösung sein.", "Gedacht, beim Teilen gehe es öfter nicht auf; bei x : a = b ist aber x = a · b, und das gibt es immer", None),
+     ("Keine der beiden Gleichungen kann ohne Lösung sein.", "Übersehen, dass b in der Reihe von a stehen muss: 7 · x = 50 hat keine Lösung", 50 % 7 != 0),
+     ("Jede der beiden Gleichungen kann ohne Lösung sein.", "Übersehen, dass x = a · b bei x : a = b immer passt", None)],
+    "Bei x : a = b ist x = a · b, und das Produkt zweier natürlicher Zahlen gibt es immer. Bei a · x = b muss b in der Reihe von a stehen, sonst gibt es keine Lösung: "
+    "7 · x = 50 hat keine, weil 7 · 7 = 49 und 7 · 8 = 56 ist.",
+    all(any(x // a == b and x % a == 0 for x in [a * b]) for a in range(1, 20) for b in range(1, 20)) and 50 % 7 != 0), regel=RG, idee="loesbarkeit_mal_gegen_geteilt", bauplan="f", schema=False, alt=None,
+    bestand="themen umkehraufgabe_mal „Stimmt die Aussage? Die Gleichung 0 · x = 5 hat keine Lösung.“",
+    unterschied="Dort wird eine einzelne Gleichung beurteilt; hier wird allgemein verglichen, welche Art von Gleichung ohne Lösung sein kann. Ersetzt den Lösungsvergleich (A3).")
 # ═════════ ueberschlag ═════════
-neu(T, "ueberschlag", "test", "transfer", W(
-    "Drei der vier Fragen lassen sich mit einem einfachen Überschlag sicher beantworten. Bei welcher Frage muss man genau rechnen?",
-    "Reichen 500 € für 26 Karten zu je 19 €?",
-    [("Reichen 100 € für 4 Spiele zu je 19 €?", "Nicht gesehen, dass schon der aufgerundete Überschlag 4 · 20 = 80 € reicht; dann reicht es sicher", 4 * 19 <= 4 * 20 <= 100),
-     ("Passen 6 Kisten zu je 38 kg auf einen Wagen für 300 kg?", "Nicht gesehen, dass schon 6 · 40 = 240 kg unter 300 kg liegen; aufgerundet und trotzdem darunter heißt sicher", 6 * 38 <= 6 * 40 <= 300),
-     ("Reichen 400 Plätze für 9 Klassen mit je 27 Kindern?", "Nicht gesehen, dass schon 10 · 30 = 300 Kinder unter 400 liegen; aufgerundet und trotzdem darunter heißt sicher", 9 * 27 <= 10 * 30 <= 400)],
-    "Rundet man alle Zahlen auf und liegt der Überschlag trotzdem unter der Grenze, reicht es sicher: 4 · 20 = 80 ist höchstens 100, 6 · 40 = 240 ist höchstens 300, 10 · 30 = 300 ist höchstens 400. "
-    "Bei 26 · 19 ergibt der aufgerundete Überschlag 30 · 20 = 600, das liegt über 500 und entscheidet nichts; bei 25 · 20 = 500 ist eine Zahl ab- und eine aufgerundet. Genau gerechnet ist 26 · 19 = 494, es reicht knapp.",
-    26 * 19 == 494 <= 500 < 30 * 20), regel=None, ohne=OU, idee="sicher_entscheiden", bauplan="h", schema=False, alt=None,
-    bestand="themen ueberschlag „Ein Kino hat 12 Reihen mit je 28 Plätzen. Reichen die Plätze für 3 Klassen mit je 105 Kindern? Entscheide mit einem Überschlag.“",
-    unterschied="Dort wird eine einzelne Frage mit einem Überschlag entschieden; hier muss beurteilt werden, wann ein Überschlag überhaupt sicher entscheidet (Rundungsrichtung und Abstand zur Grenze).")
+neu(T, "ueberschlag", "test", "transfer", Z(
+    "Wie viele Stellen hat das Ergebnis von 3 412 · 3 438? Entscheide mit einem Überschlag, der sicher kleiner, und einem, der sicher größer ist als das genaue Ergebnis.",
+    8, "8", lambda: len(str(3412 * 3438)),
+    "Grob gerundet wäre 3 000 · 3 000 = 9 000 000, das hat 7 Stellen. Weil beide Zahlen dabei stark abgerundet werden, entscheidet das nichts. "
+    "Sicher kleiner ist 3 400 · 3 400 = 11 560 000, sicher größer ist 3 500 · 3 500 = 12 250 000. Beide haben 8 Stellen, also hat auch das Ergebnis 8 Stellen (genau: 11 730 456).",
+    [(7, "Nur grob auf Tausender abgerundet überschlagen; das ergibt eine Stelle zu wenig", "8 - 1"),
+     (9, "Beim Überschlag eine Null zu viel angehängt und eine Stelle zu viel gezählt", "8 + 1")]), form="anwenden", regel=None, ohne=OU, idee="groessenordnung_eingrenzen", bauplan="g", schema=False, alt="VT1A-049",
+    bestand="themen ueberschlag „Ein Stadion hat 18 900 Plätze. Wie oft passt eine Schule mit 612 Kindern ungefähr hinein?“",
+    unterschied="Dort wird ein ungefährer Wert geschätzt; hier führt der grobe Überschlag (9 000 000) zur falschen Stellenzahl, erst eine untere und eine obere Schranke entscheiden (A4). Nach B3 als Zahl-Test statt „Drei der vier …“.")
 neu(T, "ueberschlag", "korrektur", "umkehr", Z(
-    "Ein Kind überschlägt Summen immer nach derselben Regel: Für 6 812 + 2 487 schreibt es 6 000 + 2 000, für 3 391 + 1 765 schreibt es 3 000 + 1 000. Welches Ergebnis hat sein Überschlag für 5 951 + 2 978?",
-    7000, "5000 + 2000", lambda: (5951 // 1000) * 1000 + (2978 // 1000) * 1000,
-    "Das Kind schneidet bei jeder Zahl alles hinter der Tausenderstelle ab, statt zu runden: 2 487 wird 2 000, 1 765 wird 1 000. Für 5 951 + 2 978 schreibt es also 5 000 + 2 000 = 7 000. "
-    "Richtig auf Tausender gerundet wäre 6 000 + 3 000 = 9 000; das genaue Ergebnis ist 8 929.",
-    [(9000, "Richtig auf Tausender gerundet statt mit der Regel des Kindes", "6000 + 3000"),
-     (8929, "Genau gerechnet statt überschlagen", "5951 + 2978"),
-     (8000, "Nur die erste Zahl richtig gerundet: 6 000 + 2 000", "6000 + 2000")]), form="umkehren", regel=None, ohne=OU, idee="fehlregel_abschneiden", bauplan="b", schema=False, alt=None,
+    "Beim Überschlagen rundet ein Kind nicht, sondern streicht bei jeder Zahl alles hinter der Tausenderstelle weg; aus 6 812 + 3 487 macht es 6 000 + 3 000. Um wie viel kann sein Überschlag für eine Summe aus zwei vierstelligen Zahlen höchstens kleiner sein als der Überschlag mit richtigem Runden auf Tausender?",
+    2000, "2 * 1000", lambda: max(((a + 500) // 1000 + (b + 500) // 1000 - a // 1000 - b // 1000) * 1000 for a in range(1000, 10000, 7) for b in range(1000, 10000, 13)),
+    "Das Kind schneidet ab, statt zu runden. Ist die Hunderterziffer 0 bis 4, stimmt das mit richtigem Runden überein; ist sie 5 bis 9, wird richtig aufgerundet, und das Kind liegt um 1 000 darunter. "
+    "Bei zwei Zahlen kann der Unterschied also höchstens 1 000 + 1 000 = 2 000 sein, zum Beispiel bei 6 812 + 2 587.",
+    [(1000, "Nur an eine der beiden Zahlen gedacht", "1000"),
+     (999, "Den größten Abstand einer Zahl zum Tausender darunter genommen", "1000 - 1"),
+     (1998, "Bei beiden Zahlen den größten Abstand zum Tausender darunter addiert", "2 * 999")]), form="umkehren", regel=None, ohne=OU, idee="fehlregel_abschneiden", bauplan="b", schema=False, alt=None,
     bestand="rollend-5 ueberschlag „Kim überschlägt 4 987 · 21 … Zeile 1: Ich runde 4 987 auf Tausender: 4 000 … erster Fehler in Zeile …“",
-    unterschied="Dieselbe Fehlvorstellung (Abschneiden statt Runden), aber eine andere Leistung: Dort wird die Fehlerzeile gesucht, hier wird die Regel aus zwei Beispielen erschlossen und angewendet.")
+    unterschied="Gleiche Fehlvorstellung (Abschneiden statt Runden), aber andere Leistung: Die Regel ist genannt, gefragt ist die größte mögliche Abweichung zum richtigen Runden (kein falscher Wert als Lösung, B1).")
 neu(T, "ueberschlag", "korrektur", "mehrschritt", W(
     "Zwei Kinder überschlagen 4 812 + 3 487. Kind A rundet auf Tausender: 5 000 + 3 000. Kind B rundet auf Hunderter: 4 800 + 3 500. Das genaue Ergebnis ist 8 299. Welche Aussage stimmt?",
     "B ist genauer als A, weil feiner gerundet wurde; brauchbar sind beide.",
@@ -304,15 +301,17 @@ neu(T, "ueberschlag", "korrektur", "mehrschritt", W(
     4812 + 3487 == 8299 and abs(8300 - 8299) < abs(8000 - 8299)), form="zwei_wege", regel=None, ohne=OU, idee="genauigkeit_der_rundung", bauplan="a", schema=True, alt="VT1A-067",
     bestand="rollend-5 ueberschlag „Überschlage 612 + 349 + 98. Weg A rundet auf Hunderter, Weg B auf Zehner. Um wie viel ist B größer?“",
     unterschied="Dort wird der Unterschied zweier Überschläge berechnet; hier wird die Genauigkeit beurteilt. Weil das genaue Ergebnis genannt ist, genügt Ausrechnen und Vergleichen; ich zähle die Aufgabe als Schema.")
-neu(T, "ueberschlag", "sicherung", "transfer", Z(
-    "Wie viele Stellen hat das Ergebnis von 6 718 · 2 493? Entscheide mit Überschlägen, ohne genau zu rechnen.",
-    8, "8", lambda: len(str(6718 * 2493)),
-    "6 718 liegt zwischen 6 000 und 7 000, 2 493 zwischen 2 000 und 3 000. Das Produkt liegt also zwischen 6 000 · 2 000 = 12 000 000 und 7 000 · 3 000 = 21 000 000. "
-    "Beide Grenzen haben 8 Stellen, also hat auch das Ergebnis 8 Stellen (genau: 16 747 974).",
-    [(7, "Beim Überschlag eine Null verloren und deshalb eine Stelle zu wenig gezählt", "8 - 1"),
-     (9, "Beim Überschlag eine Null zu viel angehängt und eine Stelle zu viel gezählt", "8 + 1")]), form="anwenden", regel=None, ohne=OU, idee="groessenordnung_eingrenzen", bauplan="g", schema=False, alt=None,
-    bestand="themen ueberschlag „Ein Stadion hat 18 900 Plätze. Wie oft passt eine Schule mit 612 Kindern ungefähr hinein?“",
-    unterschied="Dort wird ein ungefährer Wert geschätzt; hier wird das Ergebnis mit einer unteren und einer oberen Abschätzung eingegrenzt, um eine sichere Aussage (Stellenzahl) zu erhalten.")
+neu(T, "ueberschlag", "sicherung", "transfer", W(
+    "Drei der vier Fragen lassen sich mit einem einfachen Überschlag sicher beantworten. Bei welcher Frage muss man genau rechnen?",
+    "Reichen 500 € für 26 Karten zu je 19 €?",
+    [("Reichen 100 € für 4 Spiele zu je 19 €?", "Nicht gesehen, dass schon der aufgerundete Überschlag 4 · 20 = 80 € reicht; dann reicht es sicher", 4 * 19 <= 4 * 20 <= 100),
+     ("Passen 6 Kisten zu je 38 kg auf einen Wagen für 300 kg?", "Nicht gesehen, dass schon 6 · 40 = 240 kg unter 300 kg liegen; aufgerundet und trotzdem darunter heißt sicher", 6 * 38 <= 6 * 40 <= 300),
+     ("Reichen 400 Plätze für 9 Klassen mit je 27 Kindern?", "Nicht gesehen, dass schon 10 · 30 = 300 Kinder unter 400 liegen; aufgerundet und trotzdem darunter heißt sicher", 9 * 27 <= 10 * 30 <= 400)],
+    "Rundet man alle Zahlen auf und liegt der Überschlag trotzdem unter der Grenze, reicht es sicher: 4 · 20 = 80 ist höchstens 100, 6 · 40 = 240 ist höchstens 300, 10 · 30 = 300 ist höchstens 400. "
+    "Bei 26 · 19 ergibt der aufgerundete Überschlag 30 · 20 = 600, das liegt über 500 und entscheidet nichts; bei 25 · 20 = 500 ist eine Zahl ab- und eine aufgerundet. Genau gerechnet ist 26 · 19 = 494, es reicht knapp.",
+    26 * 19 == 494 <= 500 < 30 * 20), regel=None, ohne=OU, idee="sicher_entscheiden", bauplan="h", schema=False, alt=None,
+    bestand="themen ueberschlag „Ein Kino hat 12 Reihen mit je 28 Plätzen. Reichen die Plätze für 3 Klassen mit je 105 Kindern? Entscheide mit einem Überschlag.“",
+    unterschied="Dort wird eine einzelne Frage mit einem Überschlag entschieden; hier muss beurteilt werden, wann ein Überschlag überhaupt sicher entscheidet (Rundungsrichtung und Abstand zur Grenze). Nach B3 aus dem Test in die Sicherung verschoben (früher VT1A-046).")
 neu(T, "ueberschlag", "sicherung", "mehrschritt", W(
     "Ein Kind überschlägt 7 236 : 9 mit 7 000 : 10 = 700. Ist das genaue Ergebnis größer oder kleiner als 700?",
     "Größer: Beide Rundungen machen das Ergebnis des Überschlags kleiner.",
@@ -347,16 +346,15 @@ neu(T, "sach", "korrektur", "darstellung", W(
     bestand="themen sach „Eine Klasse fährt mit dem Bus ins Museum. Der Bus kostet 420 €, jedes Kind zahlt 15 €. Welche Angabe fehlt …?“",
     unterschied="Dort wird nach einer fehlenden Angabe gefragt; hier ist die Rechnung gegeben, und der Rest einer Division muss je nach Frage verschieden gedeutet werden (aufrunden, abrunden, Rest, Ergänzung).")
 neu(T, "sach", "korrektur", "umkehr", Z(
-    "Ein Kind löst Zahlenrätsel rückwärts immer nach derselben Regel. Bei „Ich nehme eine Zahl mal 3 und addiere 12. Ich erhalte 45.“ schreibt es 3. Bei „Ich nehme eine Zahl mal 2 und addiere 10. Ich erhalte 30.“ schreibt es 5. "
-    "Welche Zahl schreibt es bei „Ich nehme eine Zahl mal 5 und addiere 15. Ich erhalte 80.“?",
-    1, "80 // 5 - 15", lambda: 80 // 5 - 15,
-    "Das Kind kehrt die Schritte in der falschen Reihenfolge um: Es teilt zuerst und zieht dann ab, 45 : 3 − 12 = 3 und 30 : 2 − 10 = 5. Bei 80 rechnet es 80 : 5 − 15 = 1. "
-    "Richtig wird der letzte Schritt zuerst umgekehrt: (80 − 15) : 5 = 13. Probe: 13 · 5 + 15 = 80.",
-    [(13, "Richtig rückwärts gerechnet ((80 − 15) : 5 = 13) statt mit der Regel des Kindes", "(80 - 15) // 5"),
-     (31, "Erst durch 5 geteilt und dann 15 addiert statt abgezogen", "80 // 5 + 15"),
-     (65, "Nur 15 abgezogen und das Teilen vergessen", "80 - 15")]), form="umkehren", regel=RG, idee="fehlregel_umkehrreihenfolge", bauplan="b", schema=False, alt=None,
-    bestand="rollend-5 sach „Ich denke mir eine Zahl. Ich addiere 12 und multipliziere die Summe mit 4. Dann erhalte ich 120. Rückwärts kehrst du zuerst den letzten Schritt um …“; themen „Ich multipliziere sie mit 4 und addiere 3. Ich erhalte 51.“",
-    unterschied="Dort wird ein Zahlenrätsel (mit Gerüst) rückwärts gelöst; hier muss aus zwei falschen Lösungen die falsche Umkehr-Reihenfolge erschlossen und angewendet werden.")
+    "Ein Kind kauft Hefte zu je 3 € und Stifte zu je 2 €, von beidem mindestens ein Stück, und bezahlt genau 20 €. Wie viele verschiedene Möglichkeiten gibt es für die Zahl der Hefte und die Zahl der Stifte?",
+    3, "3", lambda: sum(1 for h in range(1, 7) for t in range(1, 10) if 3 * h + 2 * t == 20),
+    "Nach den Heften muss ein Rest bleiben, der sich durch 2 teilen lässt. 2 Hefte kosten 6 €, Rest 14 € für 7 Stifte. 4 Hefte kosten 12 €, Rest 8 € für 4 Stifte. 6 Hefte kosten 18 €, Rest 2 € für 1 Stift. "
+    "Bei 1, 3 oder 5 Heften bleibt ein ungerader Rest. Also gibt es 3 Möglichkeiten.",
+    [(4, "Auch den Einkauf ganz ohne Hefte mitgezählt", "3 + 1"),
+     (6, "Alle Heftzahlen von 1 bis 6 gezählt, ohne zu prüfen, ob der Rest durch 2 teilbar ist", "6"),
+     (1, "Nur eine Möglichkeit gefunden", "1")]), form="umkehren", regel=RG, idee="betrag_zerlegen", bauplan="c", schema=False, alt=None,
+    bestand="themen sach (Bonus) „Kinderkarten kosten 6 €, Erwachsenenkarten 10 €. 30 Personen zahlen zusammen 220 €. Wie viele Kinder?“",
+    unterschied="Dort legt die Personenzahl eine Lösung fest; hier gibt es mehrere Belegungen, und die Bedingung (Rest durch 2 teilbar) entscheidet, welche möglich sind. Ersetzt die Kinderregel-Aufgabe (B1, auch Denkfigur wie 054).")
 neu(T, "sach", "sicherung", "begruenden", W(
     "Mia und Tom starten mit derselben natürlichen Zahl. Mia addiert zuerst 6 und verdoppelt dann. Tom verdoppelt zuerst und addiert dann 6. Welche Aussage über die beiden Ergebnisse stimmt?",
     "Mias Ergebnis ist immer um 6 größer als Toms.",
@@ -371,7 +369,7 @@ neu(T, "sach", "sicherung", "begruenden", W(
 neu(T, "sach", "sicherung", "umkehr", W(
     "Vier Gruppen sammeln jede gleich viele Flaschen, x Flaschen je Gruppe. Dazu kommen 12 Flaschen vom Hausmeister, 4 Flaschen gehen kaputt. Am Ende sind es 108 Flaschen. Welche Gleichung beschreibt die Geschichte, und was ergibt x?",
     "4 · x + 12 − 4 = 108: Rückwärts ist 108 − 12 + 4 = 100 und 100 : 4 = 25, also x = 25.",
-    [("4 · (x + 12) − 4 = 108: Rückwärts ist 108 + 4 = 112, dann 112 : 4 = 28 und 28 − 12 = 16, also x = 16.", "Die 12 Flaschen zu jeder Gruppe gezählt statt einmal dazu", 4 * (16 + 12) - 4 == 108 and 4 * 16 + 12 - 4 != 108),
+    [("4 · x − 12 − 4 = 108: Rückwärts ist 108 + 4 + 12 = 124 und 124 : 4 = 31, also x = 31.", "Die Flaschen vom Hausmeister abgezogen statt dazugezählt", 4 * 31 - 12 - 4 == 108 and 4 * 31 + 12 - 4 != 108),
      ("4 · x − 12 + 4 = 108: Rückwärts ist 108 + 12 − 4 = 116 und 116 : 4 = 29, also x = 29.", "Plus und Minus bei den 12 und den 4 vertauscht", 4 * 29 - 12 + 4 == 108 and 4 * 29 + 12 - 4 != 108),
      ("4 · x + 12 + 4 = 108: Rückwärts ist 108 − 12 − 4 = 92 und 92 : 4 = 23, also x = 23.", "Die kaputten Flaschen dazugezählt statt abgezogen", 4 * 23 + 12 + 4 == 108 and 4 * 23 + 12 - 4 != 108)],
     "Vier Gruppen mit je x Flaschen sind 4 · x. Dazu kommen 12 (plus), 4 gehen kaputt (minus): 4 · x + 12 − 4 = 108. Rückwärts: erst die 4 wieder dazu und die 12 weg, 108 − 12 + 4 = 100, dann durch 4 teilen: x = 25. "

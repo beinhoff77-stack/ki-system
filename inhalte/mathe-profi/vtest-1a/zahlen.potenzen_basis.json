@@ -87,37 +87,37 @@
    "antwortform": "zahl",
    "zaehlt": "ja",
    "lehrplan": "M5 3",
-   "idee": "fehlregel_erschliessen",
-   "bauplan": "b",
+   "idee": "summe_gleicher_potenzen",
+   "bauplan": "d",
    "schema": "nein",
    "alt_kennung": null,
-   "abgrenzung": "Dort wird ein genannter Fehler bestätigt oder eine Zeile gesucht; hier muss aus drei Ergebnissen eine unbekannte falsche Regel (Vertauschen) erschlossen und angewendet werden.",
+   "abgrenzung": "Dort wird ein Produkt kleiner Zahlen als Potenz geschrieben oder eine Hochzahl durch Ausrechnen gesucht; hier wird eine Summe gleicher Potenzen umgedeutet (viermal = mal 4 = zwei Faktoren 2 mehr), Ausrechnen (über eine Milliarde) ist unmöglich. Ersetzt die Kinderregel-Aufgabe (B1).",
    "regel": "rr.potenz",
    "regel_name": "Potenzen",
    "fehlbilder": [
     {
-     "antwort": 32,
-     "rechnung": "2 ** 5",
+     "antwort": 120,
+     "rechnung": "30 + 30 + 30 + 30",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Richtig gerechnet (2 · 2 · 2 · 2 · 2 = 32) statt mit der Regel des Kindes"
+     "beschreibung": "Die vier Hochzahlen addiert: 30 + 30 + 30 + 30"
     },
     {
-     "antwort": 10,
-     "rechnung": "2 * 5",
+     "antwort": 34,
+     "rechnung": "30 + 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Eine andere falsche Regel angenommen: Basis mal Hochzahl, 2 · 5 = 10"
+     "beschreibung": "Für jeden der vier Summanden einen Faktor 2 dazugezählt: 30 + 4"
     },
     {
-     "antwort": 7,
-     "rechnung": "2 + 5",
+     "antwort": 31,
+     "rechnung": "30 + 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Basis und Hochzahl addiert: 2 + 5 = 7"
+     "beschreibung": "Nur einmal verdoppelt: 30 + 1"
     }
    ],
-   "loesung_rechnung": "5 * 5",
+   "loesung_rechnung": "30 + 2",
    "aufgabe": {
     "l": "schreibweise",
     "t": "begriff",
@@ -126,13 +126,13 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Ein Kind rechnet Potenzen immer nach derselben falschen Regel aus. Es schreibt: 2³ = 9, 3² = 8 und 5² = 32. Welchen Wert schreibt es mit seiner Regel für 2⁵ auf?"
+     "text": "Vier gleiche Potenzen werden addiert: 2³⁰ + 2³⁰ + 2³⁰ + 2³⁰. Das Ergebnis lässt sich als eine einzige Potenz mit der Basis 2 schreiben. Welche Hochzahl hat diese Potenz?"
     },
     "o": {
-     "wert": 25
+     "wert": 32
     },
-    "c": "5 * 5",
-    "w": "Das Kind vertauscht Basis und Hochzahl. Für 2³ rechnet es 3 · 3 = 9, für 3² rechnet es 2 · 2 · 2 = 8, für 5² rechnet es 2 · 2 · 2 · 2 · 2 = 32. Für 2⁵ rechnet es also 5 · 5 = 25. Richtig wäre 2⁵ = 32."
+    "c": "30 + 2",
+    "w": "Viermal dieselbe Zahl addieren heißt, sie mit 4 malzunehmen: 4 · 2³⁰. Weil 4 = 2 · 2 ist, kommen zu den 30 Faktoren 2 noch zwei Faktoren 2 dazu. Das sind 32 Faktoren, also 2³². Beim Addieren werden die Hochzahlen nicht zusammengezählt."
    }
   },
   {
@@ -258,7 +258,7 @@
     "o": {
      "index": 1
     },
-    "w": "Probiere kleine Zahlen: 2² = 4 und 2 · 2 = 4, hier sind beide gleich. 2³ = 8 und 2 · 3 = 6, 3² = 9 und 3 · 2 = 6: Hier ist die Potenz größer. Wird Basis oder Hochzahl noch größer, wächst die Potenz viel schneller als das Produkt. Also stimmt Leas Satz fast immer, nur 2² ist eine Ausnahme."
+    "w": "Probiere kleine Zahlen: 2² = 4 und 2 · 2 = 4, hier sind beide gleich. 2³ = 8 und 2 · 3 = 6, 3² = 9 und 3 · 2 = 6: Hier ist die Potenz größer. Wird Basis oder Hochzahl noch größer, wächst die Potenz viel schneller als das Produkt: Jeder weitere Faktor (mindestens 2) verdoppelt die Potenz mindestens, während das Produkt nur um die Basis wächst. Also stimmt Leas Satz fast immer, nur 2² ist eine Ausnahme."
    }
   },
   {
@@ -296,10 +296,10 @@
     },
     {
      "index": 2,
-     "antwort": "In 4 Kisten liegen je 3 Stifte, und in einer Schachtel liegen noch 4 Stifte. Wie viele Stifte sind es?",
+     "antwort": "In 4 Kisten stehen je 3 Schachteln, in jeder Schachtel liegt 1 Stift. Wie viele Stifte sind es?",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die Potenz als Mal und Plus gedeutet: 4 · 3 + 4"
+     "beschreibung": "Basis mal Hochzahl gerechnet: 4 · 3 = 12"
     }
    ],
    "aufgabe": {
@@ -315,13 +315,13 @@
     "a": [
      "In 3 Kisten stehen je 4 Schachteln, in jeder Schachtel liegen 4 Stifte. Wie viele Stifte sind es?",
      "In 4 Kisten stehen je 3 Schachteln, in jeder Schachtel liegen 3 Stifte. Wie viele Stifte sind es?",
-     "In 4 Kisten liegen je 3 Stifte, und in einer Schachtel liegen noch 4 Stifte. Wie viele Stifte sind es?",
+     "In 4 Kisten stehen je 3 Schachteln, in jeder Schachtel liegt 1 Stift. Wie viele Stifte sind es?",
      "In 4 Kisten stehen je 4 Schachteln, in jeder Schachtel liegen 4 Stifte. Wie viele Stifte sind es?"
     ],
     "o": {
      "index": 3
     },
-    "w": "4³ = 4 · 4 · 4: Die 4 steht dreimal als Faktor da. Das passt zu 4 Kisten mit je 4 Schachteln mit je 4 Stiften, also 4 · 4 · 4 = 64 Stifte. Die anderen Geschichten gehören zu 3 · 4 · 4 = 48, 4 · 3 · 3 = 36 und 4 · 3 + 4 = 16."
+    "w": "4³ = 4 · 4 · 4: Die 4 steht dreimal als Faktor da. Das passt zu 4 Kisten mit je 4 Schachteln mit je 4 Stiften, also 4 · 4 · 4 = 64 Stifte. Die anderen Geschichten gehören zu 3 · 4 · 4 = 48, 4 · 3 · 3 = 36 und 4 · 3 · 1 = 12."
    }
   },
   {
@@ -606,7 +606,7 @@
     },
     {
      "index": 2,
-     "antwort": "Die Anzahl ist immer gleich groß.",
+     "antwort": "Die Anzahl ist immer gleich.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Nur ein Beispiel angesehen; zwischen 1 und 4 liegen 2 Zahlen, zwischen 4 und 9 liegen 4"
@@ -625,7 +625,7 @@
     "a": [
      "Die Anzahl ist immer ungerade.",
      "Die Anzahl ist mal gerade, mal ungerade.",
-     "Die Anzahl ist immer gleich groß.",
+     "Die Anzahl ist immer gleich.",
      "Die Anzahl ist immer gerade."
     ],
     "o": {
@@ -685,7 +685,7 @@
     "g": "parameter",
     "y": "zahl",
     "f": {
-     "text": "Welche kleinste natürliche Zahl □ macht die Zahl □ · 10⁸ größer als 7 · 10¹¹?"
+     "text": "Welche kleinste natürliche Zahl □ macht die Zahl □ · 10⁸ größer als 7 · 10¹¹ (also nicht nur gleich groß)?"
     },
     "o": {
      "wert": 7001
@@ -700,57 +700,57 @@
    "lernkarte": "zehner",
    "pool": "korrektur",
    "stufe": 2,
-   "typ": "umkehr",
-   "form": "umkehren",
+   "typ": "darstellung",
+   "form": "bruecke",
    "antwortform": "zahl",
    "zaehlt": "ja",
    "lehrplan": "M5 3",
-   "idee": "fehlregel_erschliessen",
-   "bauplan": "b",
+   "idee": "zehnerpotenzen_einordnen",
+   "bauplan": "g",
    "schema": "nein",
    "alt_kennung": null,
-   "abgrenzung": "Dort wird mit Zehnerpotenzen gerechnet; hier muss aus zwei Ergebnissen eine falsche Regel (Hochzahlen malnehmen) erschlossen und angewendet werden.",
+   "abgrenzung": "Dort wird eine Schreibweise gelesen; hier werden Zahlen der Form □ · 10ⁿ zwischen Zehnerpotenzen eingeordnet, beide Grenzen müssen beachtet werden. Ersetzt die Kinderregel-Aufgabe (B1).",
    "regel": "rr.potenz",
    "regel_name": "Potenzen",
    "fehlbilder": [
     {
-     "antwort": 7,
-     "rechnung": "3 + 4",
+     "antwort": 5,
+     "rechnung": "7 - 3 + 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Richtig gerechnet (Nullen zusammengezählt: 3 + 4 = 7) statt mit der Regel des Kindes"
+     "beschreibung": "Von 10³ bis 10⁷ gezählt, obwohl 10³ kleiner als 5 · 10³ ist: 7 − 3 + 1"
     },
     {
-     "antwort": 34,
-     "rechnung": "34",
+     "antwort": 3,
+     "rechnung": "7 - 3 - 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die beiden Hochzahlen nebeneinander geschrieben"
+     "beschreibung": "Nur die Zehnerpotenzen echt zwischen 10³ und 10⁷ gezählt: 7 − 3 − 1"
     },
     {
-     "antwort": 1,
-     "rechnung": "4 - 3",
+     "antwort": 6,
+     "rechnung": "8 - 3 + 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die Hochzahlen voneinander abgezogen: 4 − 3"
+     "beschreibung": "Bis 10⁸ gezählt, weil 5 · 10⁷ größer als 10⁷ ist: 8 − 3 + 1"
     }
    ],
-   "loesung_rechnung": "3 * 4",
+   "loesung_rechnung": "7 - 4 + 1",
    "aufgabe": {
     "l": "zehner",
     "t": "zehner",
     "p": "korrektur",
     "s": 2,
-    "g": "umkehr",
+    "g": "darstellung",
     "y": "zahl",
     "f": {
-     "text": "Ein Kind nimmt Zehnerpotenzen nach einer falschen Regel mal. Es schreibt: 10² · 10³ = 10⁶ und 10¹ · 10⁴ = 10⁴. Welche Hochzahl schreibt es mit seiner Regel bei 10³ · 10⁴?"
+     "text": "Wie viele Zehnerpotenzen (10¹, 10², 10³, …) sind größer als 5 · 10³ und kleiner als 5 · 10⁷?"
     },
     "o": {
-     "wert": 12
+     "wert": 4
     },
-    "c": "3 * 4",
-    "w": "Das Kind nimmt die Hochzahlen mal: 2 · 3 = 6 und 1 · 4 = 4. Bei 10³ · 10⁴ schreibt es also 3 · 4 = 12. Richtig ist 1 000 · 10 000 = 10 000 000 = 10⁷: Beim Malnehmen werden die Nullen zusammengezählt, die Hochzahlen also addiert."
+    "c": "7 - 4 + 1",
+    "w": "5 · 10³ = 5 000 liegt zwischen 10³ = 1 000 und 10⁴ = 10 000. 5 · 10⁷ = 50 000 000 liegt zwischen 10⁷ und 10⁸. Dazwischen liegen also 10⁴, 10⁵, 10⁶ und 10⁷, das sind 4 Zehnerpotenzen. 10³ ist zu klein, 10⁸ ist zu groß."
    }
   },
   {
@@ -957,34 +957,34 @@
    "bauplan": "b",
    "schema": "nein",
    "alt_kennung": null,
-   "abgrenzung": "Dort wird der Fehler benannt oder vorwärts gerechnet; hier muss die Folge der falschen Basis (Startzahl unter der Hochzahl) als Verhältnis über die Zahl der Faktoren bestimmt werden.",
+   "abgrenzung": "Dort wird der Fehler benannt oder vorwärts gerechnet; hier wird die Folge der falschen Basis (Startzahl unter der Hochzahl) über die Zahl der Faktoren bestimmt. Nach B4 wird nach den überzähligen Faktoren gefragt, nicht mehr nach dem Verhältnis (46 656 : 1 458).",
    "regel": "rr.potenz",
    "regel_name": "Potenzen",
    "fehlbilder": [
-    {
-     "antwort": 64,
-     "rechnung": "2 ** 6",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "Die Startzahl 2 im richtigen Ergebnis vergessen: sechs Faktoren 2 zu viel"
-    },
-    {
-     "antwort": 3,
-     "rechnung": "6 // 2",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "Nur 6 und 2 verglichen: 6 : 2"
-    },
     {
      "antwort": 6,
      "rechnung": "6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die Zahl der Tage als Faktor genommen"
+     "beschreibung": "Vergessen, dass auch in der richtigen Rechnung die Startzahl 2 einmal vorkommt"
+    },
+    {
+     "antwort": 1,
+     "rechnung": "1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Gedacht, das Kind habe nur eine 2 zu viel"
+    },
+    {
+     "antwort": 0,
+     "rechnung": "0",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Gedacht, 6⁶ und die richtige Rechnung enthielten gleich viele Zweier"
     }
    ],
    "ersetzt_test": true,
-   "loesung_rechnung": "2 ** 5",
+   "loesung_rechnung": "6 - 1",
    "aufgabe": {
     "l": "sach",
     "t": "anwenden",
@@ -993,13 +993,13 @@
     "g": "begruenden",
     "y": "zahl",
     "f": {
-     "text": "Eine Pflanze hat am Anfang 2 Blätter und verdreifacht jeden Tag ihre Blätterzahl. Ein Kind will die Blätterzahl nach 6 Tagen ausrechnen und schreibt 6⁶, weil 2 · 3 = 6 ist. Wievielmal so groß ist das Ergebnis des Kindes wie die richtige Blätterzahl?"
+     "text": "Eine Pflanze hat am Anfang 2 Blätter und verdreifacht jeden Tag ihre Blätterzahl. Ein Kind will die Blätterzahl nach 6 Tagen ausrechnen und schreibt 6⁶, weil 2 · 3 = 6 ist. Wie viele Faktoren 2 stehen in der Rechnung des Kindes mehr als in einer richtigen Rechnung?"
     },
     "o": {
-     "wert": 32
+     "wert": 5
     },
-    "c": "2 ** 5",
-    "w": "Richtig ist 2 · 3 · 3 · 3 · 3 · 3 · 3 = 2 · 3⁶: einmal die 2 und sechsmal die 3. Das Kind rechnet 6⁶ = (2 · 3) · (2 · 3) · (2 · 3) · (2 · 3) · (2 · 3) · (2 · 3): sechsmal die 2 und sechsmal die 3. Es hat also fünf Faktoren 2 zu viel: 2 · 2 · 2 · 2 · 2 = 32. Probe: 6⁶ = 46 656 und 2 · 3⁶ = 1 458, 46 656 : 1 458 = 32."
+    "c": "6 - 1",
+    "w": "Richtig ist 2 · 3 · 3 · 3 · 3 · 3 · 3 = 2 · 3⁶: einmal die 2 (die Startzahl) und sechsmal die 3. Das Kind rechnet 6⁶ = (2 · 3) · (2 · 3) · (2 · 3) · (2 · 3) · (2 · 3) · (2 · 3): sechsmal die 2 und sechsmal die 3. Es hat also 6 − 1 = 5 Faktoren 2 zu viel; sein Ergebnis ist 2 · 2 · 2 · 2 · 2 = 32-mal zu groß."
    }
   },
   {
@@ -1052,7 +1052,7 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Die Zahl der Bakterien in einer Schale verdoppelt sich jede Stunde. Lea zählt 96 Bakterien. Sie weiß nicht, wie viele Stunden die Schale schon steht, aber es ist mindestens eine volle Stunde. Wie viele verschiedene Anfangszahlen sind möglich?"
+     "text": "Die Zahl der Bakterien in einer Schale verdoppelt sich jede Stunde. Lea zählt 96 Bakterien. Sie weiß nicht, wie viele Stunden die Schale schon steht, aber es ist mindestens eine volle Stunde. Die Zahl verdoppelt sich immer genau zur vollen Stunde, und am Anfang war es eine natürliche Zahl von Bakterien. Wie viele verschiedene Anfangszahlen sind möglich?"
     },
     "o": {
      "wert": 5
@@ -1076,30 +1076,30 @@
    "bauplan": "d",
    "schema": "ja",
    "alt_kennung": "VT1A-025",
-   "abgrenzung": "Umgekehrte Richtung (Vorschlag B5): Zur Rechnung wird die Geschichte gewählt; die Ablenker vertauschen Startzahl und Faktor, deuten Verdoppeln als Dazulegen oder fassen Startzahl und Faktor zusammen. Im Kern das Format „Term ↔ Text“, darum als Schema gezählt.",
+   "abgrenzung": "Umgekehrte Richtung (Vorschlag B5): Zur Rechnung wird die Geschichte gewählt; die Ablenker vertauschen Startzahl und Faktor, deuten Verdoppeln als Dazulegen oder vertauschen Startzahl und Hochzahl (nicht mehr „6⁵“, das ist die Fehlvorstellung des Tests, B7). Im Kern das Format „Term ↔ Text“, darum als Schema gezählt.",
    "regel": "rr.potenz",
    "regel_name": "Potenzen",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Am Anfang liegen 2 Blätter auf einem Stapel. Der Stapel wird 5-mal hintereinander verdreifacht.",
+     "antwort": "Ein Stapel hat am Anfang 2 Blätter. Er wird 5-mal hintereinander verdreifacht.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Startzahl und Faktor vertauscht: 2 · 3⁵"
     },
     {
      "index": 1,
-     "antwort": "Am Anfang liegen 3 Blätter auf einem Stapel. 5-mal hintereinander kommen 2 Blätter dazu.",
+     "antwort": "Ein Stapel hat am Anfang 3 Blätter. Er bekommt 5-mal hintereinander 2 Blätter dazu.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Verdoppeln als Dazulegen gedeutet: 3 + 5 · 2"
     },
     {
      "index": 2,
-     "antwort": "Am Anfang liegt 1 Blatt auf einem Stapel. Der Stapel wird 5-mal hintereinander versechsfacht.",
+     "antwort": "Ein Stapel hat am Anfang 5 Blätter. Er wird 3-mal hintereinander verdoppelt.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Startzahl und Faktor zu 6 zusammengefasst: 6⁵"
+     "beschreibung": "Startzahl und Hochzahl vertauscht: 5 · 2³"
     }
    ],
    "aufgabe": {
@@ -1113,15 +1113,15 @@
      "text": "Zu welcher Geschichte passt die Rechnung 3 · 2⁵?"
     },
     "a": [
-     "Am Anfang liegen 2 Blätter auf einem Stapel. Der Stapel wird 5-mal hintereinander verdreifacht.",
-     "Am Anfang liegen 3 Blätter auf einem Stapel. 5-mal hintereinander kommen 2 Blätter dazu.",
-     "Am Anfang liegt 1 Blatt auf einem Stapel. Der Stapel wird 5-mal hintereinander versechsfacht.",
-     "Am Anfang liegen 3 Blätter auf einem Stapel. Der Stapel wird 5-mal hintereinander verdoppelt."
+     "Ein Stapel hat am Anfang 2 Blätter. Er wird 5-mal hintereinander verdreifacht.",
+     "Ein Stapel hat am Anfang 3 Blätter. Er bekommt 5-mal hintereinander 2 Blätter dazu.",
+     "Ein Stapel hat am Anfang 5 Blätter. Er wird 3-mal hintereinander verdoppelt.",
+     "Ein Stapel hat am Anfang 3 Blätter. Er wird 5-mal hintereinander verdoppelt."
     ],
     "o": {
      "index": 3
     },
-    "w": "In 3 · 2⁵ ist 3 die Startzahl und 2⁵ heißt: 5-mal hintereinander mal 2, also 5-mal verdoppeln. Das ergibt 3 · 32 = 96 Blätter. Die anderen Geschichten gehören zu 2 · 3⁵ = 486, zu 3 + 5 · 2 = 13 und zu 6⁵ = 7 776."
+    "w": "In 3 · 2⁵ ist 3 die Startzahl und 2⁵ heißt: 5-mal hintereinander mal 2, also 5-mal verdoppeln. Das ergibt 3 · 32 = 96 Blätter. Die anderen Geschichten gehören zu 2 · 3⁵ = 486, zu 3 + 5 · 2 = 13 und zu 5 · 2³ = 40."
    }
   },
   {

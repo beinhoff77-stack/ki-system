@@ -71,9 +71,7 @@ def erste(f, bis=100000, ab=0):
 # ═════════ zahlen.potenzen_basis ═════════
 # schreibweise
 wahl_genau("001", lambda o: term(o) != 2 ** 20)
-regel_kind = lambda b, h: h ** b                                     # Kind vertauscht Basis und Hochzahl
-assert (regel_kind(2, 3), regel_kind(3, 2), regel_kind(5, 2)) == (9, 8, 32)
-zahl("002", regel_kind(2, 5))
+zahl("002", next(n for n in range(1, 200) if 2 ** n == sum(2 ** 30 for _ in range(4))))
 def wert_003(o):
     z = [int(x) for x in re.findall(r"\d+", o)]
     return z[1] ** 12 if o.startswith("Die Basis") else 3 ** z[1]
@@ -93,9 +91,7 @@ anzahlen = [(n + 1) ** 2 - n ** 2 - 1 for n in range(1, 500)]
 wahl("010", "Die Anzahl ist immer gerade", all(x % 2 == 0 for x in anzahlen) and len(set(anzahlen)) > 1)
 # zehner
 zahl("011", erste(lambda x: x * 10 ** 8 > 7 * 10 ** 11, 10 ** 6, 1))
-regel_kind2 = lambda m, n: m * n                                       # Kind nimmt die Hochzahlen mal
-assert (regel_kind2(2, 3), regel_kind2(1, 4)) == (6, 4)
-zahl("012", regel_kind2(3, 4))
+zahl("012", len([n for n in range(0, 40) if 5 * 10 ** 3 < 10 ** n < 5 * 10 ** 7]))
 vorher = 7 * 10 ** 9 + 5 * 10 ** 6 + 3 * 10 ** 2
 nachher = 7 * 10 ** 10 + 5 * 10 ** 7 + 3 * 10 ** 3
 wahl("013", "Sie wird 10-mal so groß", nachher == 10 * vorher)
@@ -103,9 +99,10 @@ wahl("014", "10⁶ ist um 1 000 größer", 10 ** 6 - (9 * 10 ** 5 + 9 * 10 ** 4 
 nullen = lambda z: len(str(z)) - len(str(z).rstrip("0"))
 wahl("015", "Manchmal", nullen(50 * 10 ** 3) == 4 != 3 and nullen(3 * 10 ** 2) == 2)
 # sach
-zahl("016", F(6 ** 6, 2 * 3 ** 6))
+zweier = lambda z: next(k for k in range(60) if z % 2 ** (k + 1))      # Zahl der Faktoren 2
+zahl("016", zweier(6 ** 6) - zweier(2 * 3 ** 6))
 zahl("017", len({96 // 2 ** n for n in range(1, 10) if 96 % 2 ** n == 0}))
-wahl("018", "Am Anfang liegen 3 Blätter auf einem Stapel. Der Stapel wird 5-mal hintereinander verdoppelt", 3 * 2 ** 5 == 96)
+wahl("018", "Ein Stapel hat am Anfang 3 Blätter. Er wird 5-mal hintereinander verdoppelt", 3 * 2 ** 5 == 96 and 5 * 2 ** 3 != 96)
 a_, b_ = 5, 10
 for _ in range(20):
     a_, b_ = 3 * a_, 3 * b_
@@ -119,18 +116,21 @@ wahl("020", "B überholt A irgendwann und bleibt danach immer vorn", all(vorn[er
 
 # ═════════ zahlen.rechengesetze ═════════
 # klammern
-zahl("021", (483917 - 129486 + 37500) - (483917 - (129486 + 37500)))
+unterschiede = {(z - 4800 + 650) - (z - (4800 + 650)) for z in range(10001, 30000, 97)}
+assert len(unterschiede) == 1
+zahl("021", unterschiede.pop())
 ohne_klammern = lambda t: term(t.replace("(", "").replace(")", ""))   # Regel des Kindes: Klammern weglassen
 assert [ohne_klammern(t) for t in ("3 · (4 + 5)", "(8 − 2) · 3", "2 · (10 − 4)")] == [17, 2, 16]
-zahl("022", ohne_klammern("(6 + 4) · (5 − 3)"))
+zahl("022", ohne_klammern("(6 + 4) · (5 − 3)") - term("(6 + 4) · (5 − 3)"))
 wahl_genau("023", lambda o: term(o) == 50 - 3 * (9 - 2))
 ketten_gleich = {"Plus": all((a + b) + c == a + (b + c) for a in range(1, 20) for b in range(1, 20) for c in range(1, 20)),
                  "Minus": all((a - b) - c == a - (b - c) for a in range(1, 20) for b in range(1, 20) for c in range(1, 20)),
                  "Mal": all((a * b) * c == a * (b * c) for a in range(1, 9) for b in range(1, 9) for c in range(1, 9)),
                  "Geteilt": all(F(F(a, b), c) == F(a, F(b, c)) for a in range(1, 9) for b in range(1, 9) for c in range(1, 9))}
 wahl("024", "Bei einer Kette nur mit Plus ändert", ketten_gleich == {"Plus": True, "Minus": False, "Mal": True, "Geteilt": False})
-werte_025 = [term(o) for o in Q["025"]["a"]]
-wahl_genau("025", lambda o: term(o) == max(werte_025))
+zuwachs = {((z + 5) + 7) * 3 - (z + 7) * 3 for z in range(0, 500)}
+assert len(zuwachs) == 1
+zahl("025", zuwachs.pop())
 # termaufbau
 alt_, neu_ = F(136 * 89 + 64 * 112 - 20, 4), F(136 * 89 + 64 * 112 - 36, 4)
 wahl("026", "Er wird um 4 kleiner", alt_ - neu_ == 4 and neu_.denominator == 1)
@@ -162,54 +162,59 @@ links = lambda t: namen[[z for z in t if z in namen][0]]
 zuletzt = lambda t: namen[letzter_schritt(t)]
 wahl("029", "Es benennt den Term nach dem Rechenzeichen, das ganz rechts",
      all(rechts(t) == n for t, n in beispiele.items()) and not all(links(t) == n for t, n in beispiele.items()) and not all(zuletzt(t) == n for t, n in beispiele.items()))
-wahl("030", "Die Terme sind verschieden, ihre Werte sind gleich", letzter_schritt("(4 + 5) · 6") != letzter_schritt("4 · 6 + 5 · 6") and (4 + 5) * 6 == 4 * 6 + 5 * 6)
+wahl("030", "Mit Klammer ist es eine Differenz, ohne Klammer eine Summe", namen[letzter_schritt("20 − (5 + 3)")] == "Differenz" and namen[letzter_schritt("20 − 5 + 3")] == "Summe")
 # vorteil
-zahl("031", sum(1 for a in range(1, 3701) if 3700 % (37 * a) == 0 and a < 3700 // (37 * a)))
+paare = [(a, 200 // a) for a in range(6, 201) if 200 % a == 0 and a < 200 // a and 200 // a > 5 and a % 10 and (200 // a) % 10]
+assert len(paare) == 1 and 4600 // 23 == 200
+zahl("031", paare[0][1])
 wahl("032", "Sie sind gleich groß", 36 * 4375 * 5 == 18 * 4375 * 10)
 zahl("033", (748362 - 199997) - (748362 - 200000 - 3))
-wahl("034", "Bei nur Plus und Minus darf man umstellen, dabei nehmen", 763 - 289 + 237 == 763 + 237 - 289 != 763 - 237 + 289)
+wahl("034", "Die Zahlen nehmen ihre Rechenzeichen mit", 763 - 289 + 237 == 763 + 237 - 289 != 763 - 237 + 289)
 zahl("035", F(4368 * 75, 1456 * 25))
 # verteilen
-wahl_genau("036", lambda o: term(o) != 368 * 47)
+def fehlt_036(o):
+    teile = [term(t) for t in re.findall(r"\d+ · \d+", o)]
+    return 300 * 40 + 68 * 7 + sum(teile) == 368 * 47
+
+
+wahl_genau("036", fehlt_036)
 zahl("037", 2347 * 89 - 2347 * 86)
 wahl("038", "Erst werden alle vier Eis bezahlt, danach alle vier Getränke", 4 * 2 + 4 * 3 == 4 * (2 + 3))
 verteilt_produkt = lambda a, b, c: a * b * a * c                     # Regel des Kindes: a · (b · c) = a · b · a · c
 assert (verteilt_produkt(2, 3, 5), verteilt_produkt(3, 2, 4)) == (60, 72)
-zahl("039", verteilt_produkt(5, 2, 7))
+stimmt = [a for a in range(1, 100) if verteilt_produkt(a, 2, 7) == a * 2 * 7]
+assert len(stimmt) == 1
+zahl("039", stimmt[0])
 wahl("040", "Er wird dreimal so groß", all(3 * h * b1 + 3 * h * b2 == 3 * (h * b1 + h * b2) for h in range(1, 9) for b1 in range(1, 9) for b2 in range(1, 9)))
 # umkehraufgabe_mal
 zahl("041", sum(1 for a in range(1, 13) if any(a * x == 36 for x in range(1, 37))))
-kind_mal = lambda p, q: p * q                                          # Kind nimmt die beiden Zahlen immer mal
-assert (kind_mal(7, 3), kind_mal(48, 6), kind_mal(60, 5)) == (21, 288, 300)
-zahl("042", kind_mal(72, 8))
+def gilt_042(o, x, q):
+    l, rr = o.replace("□", str(q)).replace("x", str(x)).split("=")
+    return term(l) == term(rr)
+
+
+wahl_genau("042", lambda o: all(gilt_042(o, x, 8 * x) for x in range(1, 30)))
 wahl("043", "48 Murmeln werden gleichmäßig verteilt", 48 // 8 == 6 and 48 % 8 == 0)
 loes = {a: 360 // a for a in range(1, 361) if 360 % a == 0}
-wahl("044", "Sie wird dreimal so klein", all(loes[a] == 3 * loes[3 * a] for a in loes if 3 * a in loes))
+wahl("044", "Sie wird zu einem Drittel", all(loes[a] == 3 * loes[3 * a] for a in loes if 3 * a in loes))
 
 
-def loese(gl):
-    """Lösung von „a · x = b“ oder „x : a = b“ aus dem Optionstext."""
-    gl = gl.replace(" ", "")
-    m = re.fullmatch(r"(\d+)·x=(\d+)", gl)
-    if m:
-        return F(int(m.group(2)), int(m.group(1)))
-    m = re.fullmatch(r"x:(\d+)=(\d+)", gl)
-    return F(int(m.group(1)) * int(m.group(2)))
-
-
-groesste = max(loese(o) for o in Q["045"]["a"])
-wahl_genau("045", lambda o: loese(o) == groesste)
+mal_immer = all(b % a == 0 for a in range(1, 20) for b in range(1, 20))
+geteilt_immer = all((a * b) % a == 0 and (a * b) // a == b for a in range(1, 20) for b in range(1, 20))
+wahl("045", "Nur die Mal-Gleichung kann ohne Lösung sein", not mal_immer and geteilt_immer)
 # ueberschlag
 fragen = {"Reichen 500 € für 26 Karten zu je 19 €?": (26, 19, 500), "Reichen 100 € für 4 Spiele zu je 19 €?": (4, 19, 100),
           "Passen 6 Kisten zu je 38 kg auf einen Wagen für 300 kg?": (6, 38, 300), "Reichen 400 Plätze für 9 Klassen mit je 27 Kindern?": (9, 27, 400)}
 auf = lambda z: z if z < 10 else -(-z // 10) * 10                       # zweistellige Zahlen auf Zehner aufrunden, einstellige genau lassen
 sicher = {f: auf(a) * auf(b) <= g for f, (a, b, g) in fragen.items()}     # aufgerundeter Überschlag unter der Grenze = sicher
-wahl_genau("046", lambda o: not sicher[o])
+wahl_genau("049", lambda o: not sicher[o])
 abschneiden = lambda z: z // 1000 * 1000
-assert (abschneiden(6812) + abschneiden(2487), abschneiden(3391) + abschneiden(1765)) == (8000, 4000)
-zahl("047", abschneiden(5951) + abschneiden(2978))
+runden = lambda z: (z + 500) // 1000 * 1000
+assert (abschneiden(6812) + abschneiden(3487),) == (9000,)
+zahl("047", max(runden(a) + runden(b) - abschneiden(a) - abschneiden(b) for a in range(1000, 10000) for b in (1000, 1499, 1500, 9999)))
 wahl("048", "B ist genauer als A", abs(4800 + 3500 - 8299) < abs(5000 + 3000 - 8299) and 4812 + 3487 == 8299)
-zahl("049", len(str(6718 * 2493)))
+assert len(str(3000 * 3000)) == 7 and len(str(3400 * 3400)) == len(str(3500 * 3500)) == 8
+zahl("046", len(str(3412 * 3438)))
 wahl("050", "Größer", F(7236, 9) > 700 and F(7000, 10) < F(7236, 10) < F(7236, 9))
 # sach
 zahl("051", erste(lambda g: 4 + 4 * g > 12 + 2 * g, 100))
@@ -219,9 +224,7 @@ while rest > 0:
     busse += 1
     rest -= 52
 wahl("052", "Wie viele Busse werden gebraucht", busse == 4 and 189 // 52 == 3 and 189 % 52 == 33)
-falsch_rueck = lambda m, p, e: F(e, m) - p                             # Regel des Kindes: erst teilen, dann abziehen
-assert (falsch_rueck(3, 12, 45), falsch_rueck(2, 10, 30)) == (3, 5)
-zahl("053", falsch_rueck(5, 15, 80))
+zahl("053", sum(1 for h in range(1, 21) for t in range(1, 21) if 3 * h + 2 * t == 20))
 wahl("054", "Mias Ergebnis ist immer um 6 größer", {(x + 6) * 2 - (2 * x + 6) for x in range(1, 2000)} == {6})
 wahl("055", "4 · x + 12 − 4 = 108", erste(lambda x: 4 * x + 12 - 4 == 108, 1000, 1) == 25)
 

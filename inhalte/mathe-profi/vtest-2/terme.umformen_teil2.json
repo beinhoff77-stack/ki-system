@@ -15,33 +15,49 @@
    "lernkarte": "ausklammern",
    "pool": "test",
    "ersetzt_test": true,
-   "typ": "pruefung",
-   "form": "umkehren",
+   "typ": "begruenden",
+   "form": null,
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.ausmultiplizieren",
-   "abgrenzung": "Die Übungen verlangen das Ausklammern selbst; hier wird die Umkehrprobe (Ausmultiplizieren) auf vier fertige Lösungen angewendet.",
-   "antwortform": "auswahl",
+   "abgrenzung": "Eine Probe durch Ausmultiplizieren trennt die richtige von der falschen Umformung, danach wird berichtigt; die Übungen prüfen nur eine Umformung.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "1",
+    "9 : 3",
+    "6 : 3"
+   ],
    "fehlbilder": [
     {
-     "index": 1,
-     "antwort": "8a² − 12a = 4a(2a − 3)",
-     "beschreibung": "Richtig: 4a · 2a = 8a² und 4a · (−3) = −12a.",
+     "luecke": 1,
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "Nummer 4 für falsch gehalten, obwohl 5 · 3x = 15x und 5 · 2 = 10 stimmen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
-     "antwort": "7b − 14b² = 7b(1 − 2b)",
-     "beschreibung": "Richtig: 7b · 1 = 7b und 7b · (−2b) = −14b².",
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "2",
+     "beschreibung": "Nummer 2 für falsch gehalten, obwohl 4a · 2a = 8a² und 4a · 3 = 12a stimmen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
-     "antwort": "15x + 10 = 5(3x + 2)",
-     "beschreibung": "Richtig: 5 · 3x = 15x und 5 · 2 = 10.",
+     "luecke": 3,
+     "antwort": 6,
+     "rechnung": "6",
+     "beschreibung": "die 6 aus dem Term in die Klammer übernommen, ohne durch 3y zu teilen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 9,
+     "rechnung": "9",
+     "beschreibung": "die 9 aus dem Term in die Klammer übernommen, ohne durch 3y zu teilen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -51,21 +67,21 @@
     "t": "ausklammern",
     "p": "test",
     "s": 3,
-    "g": "pruefung",
-    "y": "auswahl",
+    "g": "begruenden",
+    "y": "luecken",
     "f": {
-     "text": "Vier Schüler haben ausgeklammert. Prüfe jede Umformung, indem du die Klammer wieder ausmultiplizierst. Welche Umformung ist falsch?"
+     "text": "Vier Schüler haben ausgeklammert: (1) 9y² − 6y = 3y(3y − 6); (2) 8a² − 12a = 4a(2a − 3); (3) 7b − 14b² = 7b(1 − 2b); (4) 15x + 10 = 5(3x + 2). Genau eine Umformung ist falsch. Welche Nummer ist es, und wie muss die Klammer dort richtig lauten?",
+     "schablone": "Falsch ist Nummer □; richtig: 9y² − 6y = 3y(□y − □)",
+     "hinweis": "Je Feld eine ganze Zahl."
     },
-    "a": [
-     "9y² − 6y = 3y(3y − 6)",
-     "8a² − 12a = 4a(2a − 3)",
-     "7b − 14b² = 7b(1 − 2b)",
-     "15x + 10 = 5(3x + 2)"
-    ],
     "o": {
-     "index": 0
+     "werte": [
+      1,
+      3,
+      2
+     ]
     },
-    "w": "Probe durch Ausmultiplizieren. Bei 3y(3y − 6) ergibt sich 9y² − 18y, nicht 9y² − 6y. Richtig wäre 9y² − 6y = 3y(3y − 2). Die anderen drei Umformungen stimmen."
+    "w": "Probe durch Ausmultiplizieren: (2) 4a · 2a = 8a², 4a · 3 = 12a stimmt. (3) 7b · 1 = 7b, 7b · 2b = 14b², stimmt. (4) 5 · 3x = 15x, 5 · 2 = 10, stimmt. (1) 3y · 3y = 9y², aber 3y · 6 = 18y und nicht 6y. Richtig ist 6y : 3y = 2, also 9y² − 6y = 3y(3y − 2)."
    },
    "idee": "Ausklammern durch Ausmultiplizieren prüfen"
   },
@@ -74,48 +90,34 @@
    "thema": "terme.umformen_teil2",
    "lernkarte": "ausklammern",
    "pool": "korrektur",
-   "typ": "umkehr",
-   "form": "umkehren",
+   "typ": "parameter",
+   "form": null,
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.ausmultiplizieren",
-   "abgrenzung": "Die Übungen klammern Zahlen und Variable direkt aus; hier steht der Faktor schon fest und die zweite Seite wird rückwärts bestimmt.",
-   "antwortform": "luecken",
-   "loesung_rechnung": [
-    "15 : 5",
-    "10 : 5"
-   ],
+   "abgrenzung": "Ein Parameter im ausmultiplizierten Term wird aus der Faktorzerlegung bestimmt; die Übungen suchen nur die fehlende Seite.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "3 · 5",
    "fehlbilder": [
     {
-     "luecke": 1,
-     "antwort": 10,
-     "rechnung": "15 − 5",
-     "beschreibung": "die 5 subtrahiert statt durch 5 geteilt",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 2,
      "antwort": 5,
-     "rechnung": "10 − 5",
-     "beschreibung": "die 5 subtrahiert statt durch 5 geteilt",
+     "rechnung": "5",
+     "beschreibung": "die Zahl 5 der Seite als k übernommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 1,
-     "antwort": 75,
-     "rechnung": "15 · 5",
-     "beschreibung": "multipliziert statt geteilt",
+     "antwort": 10,
+     "rechnung": "2 · 5",
+     "beschreibung": "die Zahlen 2 und 5 der Seite multipliziert, ohne den Faktor 3 der Seite",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 2,
-     "antwort": 50,
-     "rechnung": "10 · 5",
-     "beschreibung": "multipliziert statt geteilt",
+     "antwort": 8,
+     "rechnung": "3 + 5",
+     "beschreibung": "die Zahlen 3 und 5 addiert statt multipliziert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -125,20 +127,15 @@
     "t": "ausklammern",
     "p": "korrektur",
     "s": 2,
-    "g": "umkehr",
-    "y": "luecken",
+    "g": "parameter",
+    "y": "zahl",
     "f": {
-     "text": "Ein Rechteck hat den Flächeninhalt 15x² + 10x. Eine Seite ist 5x lang. Wie lang ist die andere Seite?",
-     "schablone": "andere Seite: □x + □",
-     "hinweis": "Je Feld eine ganze Zahl."
+     "text": "Ein Rechteck hat den Flächeninhalt 6x² + kx. Eine Seite ist 3x lang, die andere Seite ist (2x + 5) lang. Wie groß ist k?"
     },
     "o": {
-     "werte": [
-      3,
-      2
-     ]
+     "wert": 15
     },
-    "w": "Fläche = Seite · Seite. Also (5x) · (□x + □) = 15x² + 10x. Man teilt jedes Glied durch 5x: 15x² : 5x = 3x und 10x : 5x = 2. Die andere Seite ist 3x + 2. Probe: 5x · 3x = 15x², 5x · 2 = 10x."
+    "w": "Fläche = 3x · (2x + 5) = 6x² + 15x. Also ist k = 15. Probe: 15x : 3x = 5."
    },
    "idee": "Umkehren: Faktor aus Fläche"
   },
@@ -165,7 +162,7 @@
      "luecke": 3,
      "antwort": 6,
      "rechnung": "12 : 2",
-     "beschreibung": "wie Ben 12 durch 2 statt durch 6 geteilt: 6",
+     "beschreibung": "wie Ben 12 : 6 falsch gerechnet und 6 in die Klammer geschrieben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
@@ -179,9 +176,9 @@
     },
     {
      "luecke": 2,
-     "antwort": 9,
-     "rechnung": "18 : 2",
-     "beschreibung": "auch 18 durch 2 statt durch 6 geteilt",
+     "antwort": 6,
+     "rechnung": "18 : 3",
+     "beschreibung": "nur durch 3 geteilt statt durch den ganzen Faktor 6",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
@@ -228,28 +225,43 @@
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.ausmultiplizieren",
-   "abgrenzung": "Ausklammern als Rechenvorteil mit Zahlen (Umkehrung des Distributivgesetzes); die Übungen klammern nur Terme aus.",
-   "antwortform": "zahl",
-   "loesung_rechnung": "37 · (28 + 72)",
+   "abgrenzung": "Der größtmögliche gemeinsame Faktor wird gesucht; die Übungen geben einen gemeinsamen Faktor vor.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "6",
+    "12 : 6",
+    "18 : 6"
+   ],
    "fehlbilder": [
     {
-     "antwort": 1036,
-     "rechnung": "37 · 28",
-     "beschreibung": "nur den ersten Summanden berechnet",
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "beschreibung": "nur den Faktor 3 ausgeklammert; er ist nicht der größte gemeinsame Teiler",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 2664,
-     "rechnung": "37 · 72",
-     "beschreibung": "nur den zweiten Summanden berechnet",
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "2",
+     "beschreibung": "nur den Faktor 2 ausgeklammert; er ist nicht der größte gemeinsame Teiler",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 100,
-     "rechnung": "28 + 72",
-     "beschreibung": "nur die Summe in der Klammer angegeben und den Faktor 37 vergessen",
+     "luecke": 2,
+     "antwort": 4,
+     "rechnung": "12 : 3",
+     "beschreibung": "durch 3 geteilt, aber den Faktor 6 vor die Klammer geschrieben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 6,
+     "rechnung": "18 : 3",
+     "beschreibung": "durch 3 geteilt, aber den Faktor 6 vor die Klammer geschrieben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -260,14 +272,20 @@
     "p": "korrektur",
     "s": 2,
     "g": "transfer",
-    "y": "zahl",
+    "y": "luecken",
     "f": {
-     "text": "Berechne geschickt, indem du einen gemeinsamen Faktor ausklammerst: 37 · 28 + 37 · 72."
+     "text": "Der Term 12x + 18 soll in ein Produkt umgeformt werden, bei dem vor der Klammer der größtmögliche Faktor steht. Trage ein: 12x + 18 = □ · (□x + □).",
+     "schablone": "12x + 18 = □ · (□x + □)",
+     "hinweis": "Je Feld eine ganze Zahl."
     },
     "o": {
-     "wert": 3700
+     "werte": [
+      6,
+      2,
+      3
+     ]
     },
-    "w": "37 · 28 + 37 · 72 = 37 · (28 + 72) = 37 · 100 = 3 700. Der gemeinsame Faktor 37 wird ausgeklammert, in der Klammer steht 100."
+    "w": "Der größte gemeinsame Teiler von 12 und 18 ist 6. 12x : 6 = 2x und 18 : 6 = 3. Also 12x + 18 = 6 · (2x + 3). Probe: 6 · 2x = 12x und 6 · 3 = 18."
    },
    "idee": "Geschickt rechnen"
   },
@@ -321,7 +339,7 @@
      "6x² + 4x + 5 = x(6x + 4 + 5), denn x steckt in jedem Glied der Summe und lässt sich ausklammern.",
      "6x² + 4x + 5 = 2(3x² + 2x + 5), denn die 2 steckt in 6 und in 4 und lässt sich ausklammern.",
      "6x² + 4x + 5 = 2x(3x + 2 + 5), denn 2x steckt in den ersten beiden Gliedern und die 5 bleibt.",
-     "Kein Faktor außer 1 steckt in allen drei Gliedern; deshalb lässt sich nichts ausklammern."
+     "Kein ganzzahliger Faktor außer 1 steckt in 6, 4 und 5; es lässt sich nichts ausklammern."
     ],
     "o": {
      "index": 3
@@ -375,7 +393,7 @@
     "g": "parameter",
     "y": "zahl",
     "f": {
-     "text": "Der Term 18x² + kx hat den größten gemeinsamen Faktor 9x, und k ist eine positive Zahl kleiner als 20. Wie groß ist k?"
+     "text": "Der Term 18x² + kx hat den größten gemeinsamen Faktor 9x, und k ist eine positive ganze Zahl kleiner als 20. Wie groß ist k?"
     },
     "o": {
      "wert": 9
@@ -391,47 +409,37 @@
    "pool": "sicherung",
    "typ": "transfer",
    "form": "anwenden",
-   "stufe": 3,
+   "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.ausmultiplizieren",
-   "abgrenzung": "Sachzusammenhang: Ausklammern als Zusammenlegen zweier Rechtecke mit gleicher Seite; die Übungen sind reine Terme.",
+   "abgrenzung": "Die Breite wird aus Fläche und Länge durch Ausklammern erschlossen; die Übungen geben die Breite vor.",
    "antwortform": "luecken",
    "loesung_rechnung": [
-    "4",
-    "5",
-    "3"
+    "20 : 5"
    ],
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 20,
-     "rechnung": "4 · 5",
-     "beschreibung": "die Zahlen 4 und 5 schon multipliziert",
+     "antwort": 3,
+     "rechnung": "3",
+     "beschreibung": "die Zahl 3 der Länge als Breite genommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 2,
-     "antwort": 9,
-     "rechnung": "4 + 5",
-     "beschreibung": "Breite und Länge addiert",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 3,
+     "luecke": 1,
      "antwort": 12,
-     "rechnung": "4 · 3",
-     "beschreibung": "die Fläche des zweiten Rechtecks (12 m²) als Länge angegeben",
+     "rechnung": "12 : 1",
+     "beschreibung": "den Faktor vor x im zweiten Glied (12) als Breite genommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 3,
-     "antwort": 7,
-     "rechnung": "4 + 3",
-     "beschreibung": "Breite und zweite Länge addiert",
+     "luecke": 1,
+     "antwort": 15,
+     "rechnung": "20 − 5",
+     "beschreibung": "die Zahlen vor x subtrahiert statt dividiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -440,22 +448,20 @@
     "l": "ausklammern",
     "t": "ausklammern",
     "p": "sicherung",
-    "s": 3,
+    "s": 2,
     "g": "transfer",
     "y": "luecken",
     "f": {
-     "text": "Ein Beet besteht aus zwei Rechtecken mit derselben Breite 4x (in m). Das eine ist 5x lang, das andere 3 m lang. Schreibe die Gesamtfläche als Produkt: Breite mal Gesamtlänge.",
-     "schablone": "Fläche = □x · (□x + □)",
+     "text": "Ein Beet ist (5x + 3) m lang. Seine Fläche beträgt 20x² + 12x Quadratmeter. Wie breit ist das Beet? Trage die Breite als Term ein.",
+     "schablone": "Breite = □x m",
      "hinweis": "Je Feld eine ganze Zahl."
     },
     "o": {
      "werte": [
-      4,
-      5,
-      3
+      4
      ]
     },
-    "w": "Fläche 1: 4x · 5x = 20x². Fläche 2: 4x · 3 = 12x. Gesamt: 20x² + 12x. Weil beide Rechtecke die Breite 4x haben, klammert man sie aus: 4x · (5x + 3). Das entspricht der Gesamtlänge 5x + 3."
+    "w": "Fläche = Länge · Breite, also 20x² + 12x = (5x + 3) · Breite. Man klammert 4x aus: 20x² + 12x = 4x · (5x + 3). Die Breite ist 4x m."
    },
    "idee": "Fläche als Produkt"
   },
@@ -550,48 +556,34 @@
    "thema": "terme.umformen_teil2",
    "lernkarte": "binomisch",
    "pool": "korrektur",
-   "typ": "umkehr",
+   "typ": "parameter",
    "form": null,
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.ausmultiplizieren",
-   "abgrenzung": "Rückwärts: ein vorgegebenes Quadrat wird erkannt und ergänzt; die Übungen quadrieren eine Klammer.",
-   "antwortform": "luecken",
-   "loesung_rechnung": [
-    "2 · 7",
-    "7"
-   ],
+   "abgrenzung": "Der Parameter liegt im Mittelglied; die Übungen ergänzen nur ein Glied bei kleinen Zahlen.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "2 · 3 · 4",
    "fehlbilder": [
     {
-     "luecke": 1,
+     "antwort": 12,
+     "rechnung": "3 · 4",
+     "beschreibung": "das doppelte Produkt ohne den Faktor 2 gerechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
      "antwort": 7,
-     "rechnung": "7",
-     "beschreibung": "das Mittelglied gleich der Zahl 7 gesetzt, den Faktor 2 vergessen",
+     "rechnung": "3 + 4",
+     "beschreibung": "die beiden Zahlen 3 und 4 addiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 1,
-     "antwort": 49,
-     "rechnung": "7 · 7",
-     "beschreibung": "das Mittelglied gleich dem letzten Glied 49 gesetzt",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 2,
-     "antwort": 49,
-     "rechnung": "7 · 7",
-     "beschreibung": "in die Klammer 49 statt 7 geschrieben",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 2,
-     "antwort": 14,
-     "rechnung": "2 · 7",
-     "beschreibung": "in die Klammer das Mittelglied 14 statt der Zahl 7 geschrieben",
+     "antwort": 25,
+     "rechnung": "9 + 16",
+     "beschreibung": "die beiden Quadratzahlen addiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -601,20 +593,15 @@
     "t": "binomisch",
     "p": "korrektur",
     "s": 2,
-    "g": "umkehr",
-    "y": "luecken",
+    "g": "parameter",
+    "y": "zahl",
     "f": {
-     "text": "Ergänze so, dass eine binomische Formel entsteht (beide Zahlen positiv): x² + □x + 49 = (x + □)².",
-     "schablone": "x² + □x + 49 = (x + □)²",
-     "hinweis": "Je Feld eine ganze Zahl."
+     "text": "Für welche positive Zahl k ist der Term 9x² + kx + 16 das Quadrat einer Summe (a + b)²?"
     },
     "o": {
-     "werte": [
-      14,
-      7
-     ]
+     "wert": 24
     },
-    "w": "Das letzte Glied 49 = 7² zeigt: In der Klammer steht 7. Das Mittelglied ist 2 · x · 7 = 14x. Probe: (x + 7)² = x² + 14x + 49."
+    "w": "9x² = (3x)² und 16 = 4². Das Quadrat ist (3x + 4)² = 9x² + 2 · 3x · 4 + 16 = 9x² + 24x + 16. Also ist k = 24."
    },
    "idee": "Ergänzen zur binomischen Formel"
   },
@@ -633,7 +620,7 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Die Formel stimmt nur, wenn b negativ ist.",
      "beschreibung": "Erfindet eine Einschränkung; die Formel stimmt nur, wenn a oder b gleich 0 ist (dann ist 2ab = 0).",
      "fehlbild": null,
@@ -665,13 +652,13 @@
      "text": "Warum gilt (a + b)² = a² + b² nicht? Welche Antwort stimmt?"
     },
     "a": [
+     "Für a = 3, b = 4 ist (3 + 4)² = 49, aber 3² + 4² = 25; es fehlt 2ab.",
      "Die Formel stimmt nur, wenn b negativ ist.",
-     "Für a = 3 und b = 4 ist (3 + 4)² = 49, aber 3² + 4² = 25; es fehlt das doppelte Produkt 2ab = 24.",
      "Für a = 3 und b = 4 ist (3 + 4)² = 14 und 3² + 4² = 25; das Quadrat der Summe ist immer kleiner.",
      "Für a = 3 und b = 4 ist (3 + 4)² = 25 und 3² + 4² = 25; die Formel stimmt für alle Zahlen."
     ],
     "o": {
-     "index": 1
+     "index": 0
     },
     "w": "(3 + 4)² = 7² = 49. 3² + 4² = 9 + 16 = 25. Der Unterschied 24 ist 2 · 3 · 4 = 2ab. Allgemein: (a + b)² = a² + 2ab + b²."
    },
@@ -757,32 +744,32 @@
    "pool": "sicherung",
    "typ": "transfer",
    "form": "bruecke",
-   "stufe": 2,
+   "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.ausmultiplizieren",
-   "abgrenzung": "Binomische Formel als Rechenhilfe im Kopf (Brücke Zahlen ↔ Terme); die Übungen arbeiten nur mit Variablen.",
+   "abgrenzung": "Die zweite binomische Formel erklärt den Abstand benachbarter Quadratzahlen; die Übungen berechnen nur ein Quadrat.",
    "antwortform": "zahl",
-   "loesung_rechnung": "50 · 50 − 2 · 50 · 1 + 1 · 1",
+   "loesung_rechnung": "50 · 50 − (50 · 50 − 2 · 50 · 1 + 1)",
    "fehlbilder": [
     {
-     "antwort": 2499,
-     "rechnung": "2500 − 1",
-     "beschreibung": "(50 − 1)² als 50² − 1² gerechnet",
+     "antwort": 100,
+     "rechnung": "2 · 50 · 1",
+     "beschreibung": "nur das doppelte Produkt genommen, das letzte Quadrat vergessen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 2400,
-     "rechnung": "2500 − 100",
-     "beschreibung": "das letzte Glied +1² vergessen",
+     "antwort": 1,
+     "rechnung": "1",
+     "beschreibung": "nur das letzte Quadrat 1² als Unterschied genommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 2601,
-     "rechnung": "2500 + 100 + 1",
-     "beschreibung": "wie bei (50 + 1)² gerechnet, also das Vorzeichen des Mittelglieds nicht beachtet",
+     "antwort": 101,
+     "rechnung": "2 · 50 + 1",
+     "beschreibung": "den Unterschied zu 51² statt zu 49² berechnet",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -791,16 +778,16 @@
     "l": "binomisch",
     "t": "binomisch",
     "p": "sicherung",
-    "s": 2,
+    "s": 3,
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Berechne 49² im Kopf, indem du 49 = 50 − 1 schreibst und eine binomische Formel benutzt."
+     "text": "Um wie viel ist 50² größer als 49²? Überlege mit (50 − 1)²."
     },
     "o": {
-     "wert": 2401
+     "wert": 99
     },
-    "w": "(50 − 1)² = 50² − 2 · 50 · 1 + 1² = 2 500 − 100 + 1 = 2 401. Probe: 49 · 49 = 2 401."
+    "w": "49² = (50 − 1)² = 50² − 2 · 50 · 1 + 1² = 2 500 − 100 + 1 = 2 401. Der Unterschied zu 50² = 2 500 ist 2 500 − 2 401 = 99."
    },
    "idee": "Kopfrechnen mit binomischer Formel"
   },
@@ -819,7 +806,7 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "In Zeile 3, weil 2 · 4x · 3 = 12x ist.",
      "beschreibung": "2 · 4x · 3 = 24x stimmt.",
      "fehlbild": null,
@@ -851,13 +838,13 @@
      "text": "Mia berechnet (4x + 3)². Zeile 1: (4x + 3)² = (4x)² + 2 · 4x · 3 + 3². Zeile 2: (4x)² = 4x². Zeile 3: 2 · 4x · 3 = 24x. Zeile 4: Also ist (4x + 3)² = 4x² + 24x + 9. In welcher Zeile steckt der erste Fehler, und warum?"
     },
     "a": [
-     "In Zeile 2, weil (4x)² = 16x² ist; auch die 4 wird quadriert.",
      "In Zeile 3, weil 2 · 4x · 3 = 12x ist.",
+     "In Zeile 2, weil (4x)² = 16x² ist; auch die 4 wird quadriert.",
      "In Zeile 1, weil bei (a + b)² das doppelte Produkt 2ab nicht vorkommen darf.",
      "In Zeile 4, weil 3² = 6 ist."
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
     "w": "Zeile 1 stimmt. In Zeile 2: (4x)² = 4² · x² = 16x². Also (4x + 3)² = 16x² + 24x + 9. Probe mit x = 1: 7² = 49 und 16 + 24 + 9 = 49."
    },
@@ -874,42 +861,42 @@
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.ausmultiplizieren",
-   "abgrenzung": "Das Quadrat muss in der Fläche erkannt werden (Umkehren), danach folgt eine weitere Rechnung (Umfang); die Übungen quadrieren nur.",
+   "abgrenzung": "Aus der Fläche wird mit der binomischen Formel auf die Seite geschlossen; die Übungen berechnen die Fläche aus der Seite.",
    "antwortform": "luecken",
    "loesung_rechnung": [
-    "4 · 2",
-    "4 · 5"
+    "4 · 3",
+    "4 · 2"
    ],
    "fehlbilder": [
     {
      "luecke": 1,
+     "antwort": 6,
+     "rechnung": "3 + 3",
+     "beschreibung": "nur zwei Seiten statt vier gerechnet (Umfang von 2 Seiten)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 9,
+     "rechnung": "9",
+     "beschreibung": "den Faktor 9 der Fläche als Faktor des Umfangs genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "die Zahl 4 der Fläche als Zahl im Umfang genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
      "antwort": 2,
      "rechnung": "2",
-     "beschreibung": "nur die Seitenlänge 2x + 5 statt des Umfangs angegeben",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 2,
-     "antwort": 5,
-     "rechnung": "5",
-     "beschreibung": "nur die Seitenlänge 2x + 5 statt des Umfangs angegeben",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 2,
-     "antwort": 100,
-     "rechnung": "4 · 25",
-     "beschreibung": "die Seitenlänge als 2x + 25 gelesen und mit 4 malgenommen",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 2,
-     "antwort": 80,
-     "rechnung": "4 · 20",
-     "beschreibung": "die Seitenlänge als 2x + 20 gelesen und mit 4 malgenommen",
+     "beschreibung": "nur die Seitenzahl 2 genommen, nicht mal 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -922,17 +909,17 @@
     "g": "umkehr",
     "y": "luecken",
     "f": {
-     "text": "Ein Quadrat hat den Flächeninhalt 4x² + 20x + 25 (in cm²). Wie groß ist sein Umfang? Gib ihn als Term an.",
+     "text": "Ein Quadrat hat den Flächeninhalt 9x² + 12x + 4 (in cm²). Wie groß ist sein Umfang? Gib ihn als Term an.",
      "schablone": "Umfang = □x + □ cm",
      "hinweis": "Je Feld eine ganze Zahl."
     },
     "o": {
      "werte": [
-      8,
-      20
+      12,
+      8
      ]
     },
-    "w": "Weil 4x² = (2x)² und 25 = 5² und 20x = 2 · 2x · 5 ist, gilt 4x² + 20x + 25 = (2x + 5)². Die Seite ist 2x + 5 cm lang. Umfang = 4 · (2x + 5) = 8x + 20 cm."
+    "w": "9x² + 12x + 4 = (3x + 2)², denn (3x)² = 9x², 2 · 3x · 2 = 12x und 2² = 4. Die Seite ist (3x + 2) cm lang. Der Umfang ist 4 · (3x + 2) = 12x + 8 cm."
    },
    "idee": "Aus der Fläche auf die Seite schließen"
   }

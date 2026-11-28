@@ -15,41 +15,34 @@
    "lernkarte": "stellenwert",
    "pool": "test",
    "ersetzt_test": true,
-   "typ": "parameter",
+   "typ": "rueckwaerts",
    "form": null,
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "rr.stellenwert",
-   "abgrenzung": "Die Übungen fragen nach Wert oder Ziffer einer Stelle; hier muss die Wirkung einer Ziffernvertauschung über zwei Stellenwerte bestimmt werden.",
+   "abgrenzung": "Aus der Wirkung eines Ziffernaustauschs wird die Ziffer erschlossen (Rückwärts über zwei Stellenwerte); die Übungen fragen nach dem Wert einer Ziffer.",
    "antwortform": "zahl",
-   "loesung_rechnung": "70000 − 7000",
+   "loesung_rechnung": "27000 : 9000",
    "fehlbilder": [
     {
-     "antwort": 7000,
-     "rechnung": "7 · 1000",
-     "beschreibung": "nur den Wert der 7 an der alten Stelle (7 000) genannt",
+     "antwort": 27,
+     "rechnung": "27000 : 1000",
+     "beschreibung": "nur durch den Wert 1 000 geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 70000,
-     "rechnung": "7 · 10000",
-     "beschreibung": "nur den Wert der 7 an der neuen Stelle (70 000) genannt",
+     "antwort": 9,
+     "rechnung": "27000 : 3000",
+     "beschreibung": "durch 3 000 statt durch 9 000 geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 6300,
-     "rechnung": "7 · 1000 − 7 · 100",
-     "beschreibung": "als wäre die 7 nur um eine Stelle nach links gerückt",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "antwort": 63,
-     "rechnung": "70 − 7",
-     "beschreibung": "ohne die Stellenwerte gerechnet: 70 − 7",
+     "antwort": 6,
+     "rechnung": "27000 : 4500",
+     "beschreibung": "durch 4 500 (Mitte beider Stellenwerte) geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -59,15 +52,15 @@
     "t": "stellenwert",
     "p": "test",
     "s": 3,
-    "g": "parameter",
+    "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "In der Zahl 507 304 vertauschen die Ziffern 0 und 7 ihre Plätze (Zehntausender- und Tausenderstelle), es entsteht 570 304. Um wie viel wird die Zahl dadurch größer?"
+     "text": "In einer Zahl vertauschen die Ziffern an der Zehntausender- und der Tausenderstelle ihre Plätze. Eine der beiden Ziffern ist 0. Dadurch wird die Zahl um 27 000 größer. Welche Ziffer steht außer der 0 an diesen beiden Stellen?"
     },
     "o": {
-     "wert": 63000
+     "wert": 3
     },
-    "w": "Vorher steht die 7 an der Tausenderstelle: 7 · 1 000 = 7 000. Nachher steht sie an der Zehntausenderstelle: 7 · 10 000 = 70 000. Die 0 ist null wert. Die Zahl wird um 70 000 − 7 000 = 63 000 größer. Probe: 570 304 − 507 304 = 63 000."
+    "w": "Steht die Ziffer d zuerst an der Tausenderstelle, danach an der Zehntausenderstelle, so wird die Zahl um d · 10 000 − d · 1 000 = d · 9 000 größer. Aus d · 9 000 = 27 000 folgt d = 3. Probe: 03 000 wird zu 30 000, der Unterschied ist 27 000."
    },
    "idee": "Ziffern vertauschen, Wert vergleichen"
   },
@@ -86,21 +79,21 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Die vordere 5 ist 100-mal so viel wert wie die hintere.",
      "beschreibung": "Wäre die vordere 5 an der Hunderterstelle, wäre sie 100-mal so viel wert; hier steht sie an der Tausenderstelle.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Die vordere 5 ist 10-mal so viel wert wie die hintere.",
      "beschreibung": "Wäre die vordere 5 an der Zehnerstelle, wäre sie 10-mal so viel wert; hier steht sie an der Tausenderstelle.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Beide Fünfen sind gleich viel wert, denn es ist dieselbe Ziffer.",
      "beschreibung": "Der Wert einer Ziffer hängt von ihrer Stelle ab, nicht nur von der Ziffer.",
      "fehlbild": null,
@@ -118,13 +111,13 @@
      "text": "In der Zahl 5 205 kommt die Ziffer 5 zweimal vor. Welche Aussage über die beiden Fünfen stimmt?"
     },
     "a": [
-     "Die vordere 5 ist 1 000-mal so viel wert wie die hintere.",
      "Die vordere 5 ist 100-mal so viel wert wie die hintere.",
      "Die vordere 5 ist 10-mal so viel wert wie die hintere.",
-     "Beide Fünfen sind gleich viel wert, denn es ist dieselbe Ziffer."
+     "Beide Fünfen sind gleich viel wert, denn es ist dieselbe Ziffer.",
+     "Die vordere 5 ist 1 000-mal so viel wert wie die hintere."
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "w": "Die vordere 5 steht an der Tausenderstelle und ist 5 000 wert, die hintere steht an der Einerstelle und ist 5 wert. 5 000 : 5 = 1 000."
    },
@@ -305,7 +298,7 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Die Nullen sind nichts wert und dürfen weggelassen werden: 7 090 ist dasselbe wie 79.",
      "beschreibung": "Die Nullen sind selbst nichts wert, bestimmen aber, an welchen Stellen die anderen Ziffern stehen.",
      "fehlbild": null,
@@ -325,11 +318,11 @@
     "a": [
      "Die Null an der Einerstelle zählt als ein Einer; deshalb sind es 7 Tausender, 9 Zehner und 1 Einer.",
      "Die Nullen bedeuten, dass die Zahl mit 0 malgenommen wird; deshalb wäre 7 090 gleich 0.",
-     "Die Nullen sind nichts wert und dürfen weggelassen werden: 7 090 ist dasselbe wie 79.",
-     "Die Nullen halten die Hunderter- und Einerstelle frei; ohne sie stünden 7 und 9 an anderen Stellen, die Zahl wäre 79."
+     "Die Nullen halten die Hunderter- und Einerstelle frei; ohne sie stünden 7 und 9 an anderen Stellen, die Zahl wäre 79.",
+     "Die Nullen sind nichts wert und dürfen weggelassen werden: 7 090 ist dasselbe wie 79."
     ],
     "o": {
-     "index": 3
+     "index": 2
     },
     "w": "7 090 = 7 Tausender + 0 Hunderter + 9 Zehner + 0 Einer. Die Nullen sind Platzhalter: Ohne sie würden 7 und 9 nach rechts rücken (79)."
    },
@@ -449,33 +442,34 @@
    "lernkarte": "ziffern_zu_zahlwort",
    "pool": "test",
    "ersetzt_test": true,
-   "typ": "darstellung",
+   "typ": "transfer",
    "form": null,
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.schreibweisen",
-   "abgrenzung": "Die Übungen lesen Zahlen mit wenigen Nullen; hier muss dreimal 080 in verschiedenen Klassen unterschieden werden.",
-   "antwortform": "auswahl",
+   "abgrenzung": "Die Klassen müssen mit führenden und eingeschlossenen Nullen belegt werden; die Übungen lesen Zahlen vor, hier wird aus den Wörtern die Stellenzahl bestimmt.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "8 − 3",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "achtzig Millionen achtzigtausend achtzig",
-     "beschreibung": "Die Millionenklasse ist nur die 8: es sind acht Millionen, nicht achtzig Millionen.",
+     "antwort": 3,
+     "rechnung": "3",
+     "beschreibung": "nur die Nullen gezählt, die in den Wörtern vorkommen (vierzig, hunderttausend, siebzig)",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
-     "antwort": "acht Millionen achtzigtausend achthundert",
-     "beschreibung": "Die Einerklasse ist 080 = achtzig, nicht achthundert.",
+     "antwort": 7,
+     "rechnung": "8 − 1",
+     "beschreibung": "alle Ziffern außer der 7 als Nullen gezählt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
-     "antwort": "acht Millionen achthunderttausend achtzig",
-     "beschreibung": "Die Tausenderklasse ist 080 = achtzigtausend, nicht achthunderttausend.",
+     "antwort": 4,
+     "rechnung": "8 − 4",
+     "beschreibung": "die Stellen der Tausenderklasse als Nullen gezählt, aber die Ziffer 3 nicht beachtet",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -485,21 +479,15 @@
     "t": "ziffern_zu_zahlwort",
     "p": "test",
     "s": 3,
-    "g": "darstellung",
-    "y": "auswahl",
+    "g": "transfer",
+    "y": "zahl",
     "f": {
-     "text": "Wie liest man die Zahl 8 080 080?"
+     "text": "Wie viele Nullen hat die Zahl „vierzig Millionen dreihunderttausend siebzig“, wenn man sie in Ziffern schreibt?"
     },
-    "a": [
-     "achtzig Millionen achtzigtausend achtzig",
-     "acht Millionen achtzigtausend achtzig",
-     "acht Millionen achtzigtausend achthundert",
-     "acht Millionen achthunderttausend achtzig"
-    ],
     "o": {
-     "index": 1
+     "wert": 5
     },
-    "w": "Man teilt von rechts in Dreiergruppen: 8 | 080 | 080. Millionenklasse 8: acht Millionen. Tausenderklasse 080: achtzigtausend. Einerklasse 080: achtzig. Zusammen: acht Millionen achtzigtausend achtzig."
+    "w": "Vierzig Millionen: 40 in der Millionenklasse. Dreihunderttausend: 300 in der Tausenderklasse. Siebzig: 070 in der Einerklasse. Ziffern: 40 | 300 | 070, also 40 300 070 mit acht Ziffern: 4, 0, 3, 0, 0, 0, 7, 0. Die Ziffern 4, 3 und 7 sind keine Nullen, also gibt es 8 − 3 = 5 Nullen."
    },
    "idee": "Zahl mit Nullen lesen"
   },
@@ -695,14 +683,14 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Die zweite ist größer, weil ihr Wort länger ist.",
      "beschreibung": "Die Länge des Wortes sagt nichts über die Größe der Zahl.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Die zweite ist größer, denn hunderttausend ist mehr als eine Million.",
      "beschreibung": "Hunderttausend ist ein Zehntel einer Million; eine Million ist größer.",
      "fehlbild": null,
@@ -727,13 +715,13 @@
      "text": "Welche Aussage über die Zahlen „zwei Millionen dreihundert“ (2 000 300) und „zweihunderttausenddreihundert“ (200 300) ist richtig?"
     },
     "a": [
+     "Die erste ist größer: 2 000 300 hat sieben Stellen, 200 300 nur sechs; Millionen sind mehr als Hunderttausende.",
      "Die zweite ist größer, weil ihr Wort länger ist.",
      "Die zweite ist größer, denn hunderttausend ist mehr als eine Million.",
-     "Die erste ist größer: 2 000 300 hat sieben Stellen, 200 300 nur sechs; Millionen sind mehr als Hunderttausende.",
      "Beide sind gleich groß, denn beide beginnen mit zwei und enden auf dreihundert."
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "w": "2 000 300 hat sieben Stellen, 200 300 hat sechs Stellen. Die Zahl mit mehr Stellen ist größer: „zwei Millionen dreihundert“ ist etwa zehnmal so groß wie „zweihunderttausenddreihundert“."
    },
@@ -785,7 +773,7 @@
      "luecke": 1,
      "antwort": 4,
      "rechnung": "4",
-     "beschreibung": "den Folgefehler in Zeile 4 für den ersten Fehler gehalten",
+     "beschreibung": "Zeile 4 für falsch gehalten, obwohl 100 einhundert heißt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -827,7 +815,7 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "vierhundertdrei Millionen zwanzigtausend",
      "beschreibung": "Die 2 steht an der Tausenderstelle (zweitausend), nicht an der Zehntausenderstelle.",
      "fehlbild": null,
@@ -859,13 +847,13 @@
      "text": "Die Zahl vierhundertdreitausendzwei (403 002) wird mit 1 000 malgenommen. Wie liest man das Ergebnis?"
     },
     "a": [
-     "vierhundertdrei Millionen zweitausend",
      "vierhundertdrei Millionen zwanzigtausend",
+     "vierhundertdrei Millionen zweitausend",
      "vierhundertdrei Millionen zweihundert",
      "vierhundertdreitausend zweitausend"
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
     "w": "Malnehmen mit 1 000 schiebt jede Ziffer um drei Stellen nach links: 403 002 · 1 000 = 403 002 000. Von rechts in Dreiergruppen: 403 | 002 | 000. Das sind 403 Millionen und 2 Tausender: vierhundertdrei Millionen zweitausend."
    },
@@ -938,35 +926,38 @@
    "thema": "zahlen.natuerlich",
    "lernkarte": "strahl_eintragen",
    "pool": "korrektur",
-   "typ": "darstellung",
+   "typ": "begruenden",
    "form": null,
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.zahlengerade",
-   "abgrenzung": "Die Skala muss aus zwei Marken erschlossen werden (Zahl der Abschnitte); die Übungen geben die Teilung an.",
+   "abgrenzung": "Eine fertige Skala wird auf gleichmäßige Abschnitte geprüft; die Übungen tragen Zahlen ein.",
    "antwortform": "auswahl",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "3 300",
-     "beschreibung": "Das ist die Mitte zwischen 3 000 und 3 600, aber nicht ein Teilstrich der Fünfteilung.",
+     "antwort": "250",
+     "beschreibung": "Der erste Abschnitt von 0 bis 250 legt den Schritt 250 fest; 250 passt.",
      "fehlbild": null,
-     "regel_des_fehlbilds": null
+     "regel_des_fehlbilds": null,
+     "rechnung": "250"
     },
     {
-     "index": 2,
-     "antwort": "3 120",
-     "beschreibung": "Das ist der erste Teilstrich nach der 3 000.",
+     "index": 1,
+     "antwort": "500",
+     "beschreibung": "500 = 2 · 250 passt zum Schritt 250.",
      "fehlbild": null,
-     "regel_des_fehlbilds": null
+     "regel_des_fehlbilds": null,
+     "rechnung": "500"
     },
     {
      "index": 3,
-     "antwort": "3 200",
-     "beschreibung": "Als wäre jeder Abschnitt 100 lang; 600 : 5 = 120.",
+     "antwort": "1 000",
+     "beschreibung": "1 000 = 4 · 250 passt zum Schritt 250.",
      "fehlbild": null,
-     "regel_des_fehlbilds": null
+     "regel_des_fehlbilds": null,
+     "rechnung": "1000"
     }
    ],
    "aufgabe": {
@@ -974,21 +965,21 @@
     "t": "strahl_eintragen",
     "p": "korrektur",
     "s": 2,
-    "g": "darstellung",
+    "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Auf einem Zahlenstrahl sind die Zahlen 3 000 und 3 600 markiert. Zwischen ihnen liegen 4 weitere Teilstriche, sodass fünf gleich lange Abschnitte entstehen. Welche Zahl gehört zum zweiten Teilstrich nach der 3 000?"
+     "text": "Ein Zahlenstrahl hat gleich große Abschnitte. Die Striche sind mit 0, 250, 500, 800 und 1 000 beschriftet. Welche Beschriftung passt nicht zur Skala?"
     },
     "a": [
-     "3 300",
-     "3 240",
-     "3 120",
-     "3 200"
+     "250",
+     "500",
+     "800",
+     "1 000"
     ],
     "o": {
-     "index": 1
+     "index": 2
     },
-    "w": "Ein Abschnitt ist 600 : 5 = 120 lang. Erster Teilstrich: 3 120, zweiter Teilstrich: 3 240."
+    "w": "Der Schritt ist 250. Die Striche gehören zu 0, 250, 500, 750 und 1 000. Die Beschriftung 800 passt nicht; dort müsste 750 stehen."
    },
    "idee": "Zahl an Teilstrichen ablesen"
   },
@@ -997,48 +988,48 @@
    "thema": "zahlen.natuerlich",
    "lernkarte": "strahl_eintragen",
    "pool": "korrektur",
-   "typ": "rueckwaerts",
-   "form": null,
+   "typ": "transfer",
+   "form": "anwenden",
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.zahlengerade",
-   "abgrenzung": "Zahlen an Teilstrichen werden aus zwei Marken erschlossen; die Übungen geben die Abschnittslänge vor.",
+   "abgrenzung": "Der Abstand zu zwei Marken wird verglichen (Vorbereitung auf das Runden); die Übungen lesen Teilstriche ab.",
    "antwortform": "luecken",
    "loesung_rechnung": [
-    "20000 + 30000 : 3",
-    "20000 + 2 · 30000 : 3"
+    "8000",
+    "8000 − 7640"
    ],
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 35000,
-     "rechnung": "20000 + 30000 : 2",
-     "beschreibung": "in zwei Abschnitte geteilt statt in drei",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 1,
-     "antwort": 25000,
-     "rechnung": "20000 + 30000 : 6",
-     "beschreibung": "die Teilung durch die Zahl der Teilstriche mal 3 verfälscht",
+     "antwort": 7000,
+     "rechnung": "7000",
+     "beschreibung": "die weiter entfernte Marke gewählt, weil 7 640 mit 7 beginnt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 2,
-     "antwort": 50000,
-     "rechnung": "20000 + 30000",
-     "beschreibung": "den Endpunkt als zweiten Teilstrich genommen",
+     "antwort": 640,
+     "rechnung": "7640 − 7000",
+     "beschreibung": "den Abstand zur anderen Marke angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 2,
-     "antwort": 20000,
-     "rechnung": "20000",
-     "beschreibung": "den Anfangspunkt 20 000 als zweiten Teilstrich genommen",
+     "antwort": 1000,
+     "rechnung": "8000 − 7000",
+     "beschreibung": "den Abstand der beiden Marken als Abstand von P genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 7640,
+     "rechnung": "7640",
+     "beschreibung": "die Zahl P selbst als Abstand genommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1048,20 +1039,20 @@
     "t": "strahl_eintragen",
     "p": "korrektur",
     "s": 2,
-    "g": "rueckwaerts",
+    "g": "transfer",
     "y": "luecken",
     "f": {
-     "text": "Auf einem Zahlenstrahl sind 20 000 und 50 000 markiert. Zwischen ihnen liegen zwei weitere Teilstriche; alle drei Abschnitte sind gleich lang. Welche Zahlen gehören zu den beiden Teilstrichen?",
-     "schablone": "erster Teilstrich: □, zweiter Teilstrich: □",
+     "text": "Auf einem Zahlenstrahl sind die Marken 7 000 und 8 000 eingezeichnet. Der Punkt P liegt bei 7 640. Trage ein, an welcher Marke P näher liegt (7 000 oder 8 000) und wie weit P von dieser Marke entfernt ist.",
+     "schablone": "P liegt näher an □; Abstand □",
      "hinweis": "Je Feld eine ganze Zahl."
     },
     "o": {
      "werte": [
-      30000,
-      40000
+      8000,
+      360
      ]
     },
-    "w": "Von 20 000 bis 50 000 sind es 30 000, geteilt in drei gleiche Abschnitte von je 10 000. Erster Teilstrich: 20 000 + 10 000 = 30 000. Zweiter Teilstrich: 40 000."
+    "w": "Von 7 000 bis P sind es 7 640 − 7 000 = 640, von P bis 8 000 sind es 8 000 − 7 640 = 360. Weil 360 kleiner ist als 640, liegt P näher an 8 000. Die Mitte zwischen den Marken ist 7 500, und 7 640 liegt rechts davon."
    },
    "idee": "Rückwärts: Schrittweite aus Marken"
   },
@@ -1202,34 +1193,34 @@
    "thema": "zahlen.natuerlich",
    "lernkarte": "strahl_eintragen",
    "pool": "sicherung",
-   "typ": "rueckwaerts",
-   "form": null,
-   "stufe": 3,
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.zahlengerade",
-   "abgrenzung": "Zahlenstrahl ohne Nullpunkt: Der Abstand der Teilstriche wird aus zwei Marken bestimmt und weitergeführt; die Übungen geben den Nullpunkt vor.",
+   "abgrenzung": "Striche und Abschnitte werden unterschieden (n Striche → n + 1 Abschnitte); die Übungen geben die Abschnitte vor.",
    "antwortform": "zahl",
-   "loesung_rechnung": "3000 + 4 · (3000 − 2400) : 3",
+   "loesung_rechnung": "600 : 6 · 4",
    "fehlbilder": [
     {
-     "antwort": 3600,
-     "rechnung": "3000 + 3 · 200",
-     "beschreibung": "einen Teilstrich zu wenig weitergezählt",
+     "antwort": 480,
+     "rechnung": "600 : 5 · 4",
+     "beschreibung": "durch 5 Striche geteilt statt durch 6 Abschnitte",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 4000,
-     "rechnung": "3000 + 5 · 200",
-     "beschreibung": "einen Teilstrich zu viel weitergezählt",
+     "antwort": 300,
+     "rechnung": "600 : 4 · 2",
+     "beschreibung": "nur zwei Abschnitte gerechnet",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 3750,
-     "rechnung": "3000 + 3 · 250",
-     "beschreibung": "mit einem Abstand von 250 statt 200 gerechnet",
+     "antwort": 500,
+     "rechnung": "600 : 6 · 5",
+     "beschreibung": "den fünften Strich statt den vierten gewählt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1238,16 +1229,16 @@
     "l": "strahl_eintragen",
     "t": "strahl_eintragen",
     "p": "sicherung",
-    "s": 3,
-    "g": "rueckwaerts",
+    "s": 2,
+    "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Auf einem Zahlenstrahl haben alle Teilstriche gleichen Abstand. Der dritte Teilstrich (gezählt von links) gehört zur Zahl 2 400, der sechste Teilstrich zur Zahl 3 000. Zu welcher Zahl gehört der zehnte Teilstrich?"
+     "text": "Zwischen den Marken 0 und 600 sind fünf Striche in gleichen Abständen eingezeichnet. Welche Zahl gehört zum vierten dieser fünf Striche (von 0 aus gezählt)?"
     },
     "o": {
-     "wert": 3800
+     "wert": 400
     },
-    "w": "Vom dritten zum sechsten Teilstrich sind es drei Abschnitte, zusammen 3 000 − 2 400 = 600, also je Abschnitt 200. Vom sechsten zum zehnten Teilstrich sind es vier Abschnitte: 3 000 + 4 · 200 = 3 800."
+    "w": "Fünf Striche zwischen 0 und 600 teilen die Strecke in 6 gleich große Abschnitte. Ein Abschnitt hat die Länge 600 : 6 = 100. Der vierte Strich gehört zu 4 · 100 = 400."
    },
    "idee": "Rückwärts: Zahl am dritten Teilstrich"
   },
@@ -1449,27 +1440,28 @@
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.buendeln",
-   "abgrenzung": "Eine Zahl mit der Rundungsgrenze im Grenzbereich; die Übungen geben die zu rundende Zahl direkt an.",
-   "antwortform": "auswahl",
+   "abgrenzung": "Der größtmögliche Rundungsfehler wird über die Grenzfälle der Regel bestimmt; die Übungen runden einzelne Zahlen.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "100 : 2",
    "fehlbilder": [
     {
-     "index": 1,
-     "antwort": "12 500",
-     "beschreibung": "12 500 ergibt gerundet 13 000, denn die Hunderterstelle ist 5.",
+     "antwort": 49,
+     "rechnung": "50 − 1",
+     "beschreibung": "den Fall 4 950, der nach 5 000 aufrundet, übersehen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
-     "antwort": "13 000",
-     "beschreibung": "13 000 ist schon eine runde Tausenderzahl und bleibt 13 000.",
+     "antwort": 100,
+     "rechnung": "100",
+     "beschreibung": "die ganze Stufe 100 als größte Abweichung genommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
-     "antwort": "11 499",
-     "beschreibung": "11 499 ergibt gerundet 11 000, denn die Hunderterstelle ist 4.",
+     "antwort": 99,
+     "rechnung": "100 − 1",
+     "beschreibung": "die Zahl direkt unter der nächsten Stufe als Abweichung genommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1480,20 +1472,14 @@
     "p": "korrektur",
     "s": 2,
     "g": "begruenden",
-    "y": "auswahl",
+    "y": "zahl",
     "f": {
-     "text": "Auf Tausender gerundet ergibt genau eine der folgenden Zahlen 12 000. Welche?"
+     "text": "Eine natürliche Zahl wird auf Hunderter gerundet. Um wie viel kann die gerundete Zahl höchstens von der ursprünglichen Zahl abweichen?"
     },
-    "a": [
-     "11 500",
-     "12 500",
-     "13 000",
-     "11 499"
-    ],
     "o": {
-     "index": 0
+     "wert": 50
     },
-    "w": "Bei 11 500 ist die Hunderterstelle 5, also wird aufgerundet: 12 000. Bei 11 499 wird abgerundet (11 000). Bei 12 500 wird aufgerundet (13 000)."
+    "w": "Beim Runden auf Hunderter liegt jede Zahl höchstens bis zur Mitte (50) von der gerundeten Zahl entfernt. 4 950 wird zu 5 000 aufgerundet, Abweichung 50. 4 949 wird zu 4 900 abgerundet, Abweichung 49. Größer als 50 geht nicht."
    },
    "idee": "Welche Zahl rundet auf den Wert?"
   },
@@ -1592,7 +1578,7 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "immer größer, denn gerundete Zahlen sind „voller“.",
      "beschreibung": "Wird abgerundet, ist die gerundete Zahl kleiner.",
      "fehlbild": null,
@@ -1618,12 +1604,12 @@
     },
     "a": [
      "immer kleiner oder gleich, denn Runden schneidet Stellen ab.",
-     "manchmal größer (wenn aufgerundet wird), manchmal kleiner (wenn abgerundet wird) und manchmal gleich (wenn die Zahl schon eine Zehntausenderzahl ist).",
      "immer größer, denn gerundete Zahlen sind „voller“.",
+     "manchmal größer (wenn aufgerundet wird), manchmal kleiner (wenn abgerundet wird) und manchmal gleich (wenn die Zahl schon eine Zehntausenderzahl ist).",
      "nie größer, denn Runden verkleinert die Zahl."
     ],
     "o": {
-     "index": 1
+     "index": 2
     },
     "w": "Beispiele: 64 000 wird zu 60 000 (kleiner), 66 000 wird zu 70 000 (größer), 60 000 bleibt 60 000 (gleich). Es hängt von der Zehntausender-Folgestelle ab."
    },
@@ -1644,21 +1630,21 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Beide haben unrecht, richtig wäre 3 650.",
      "beschreibung": "3 650 ist auf Hunderter gar nicht gerundet (es ist eine Zehnerzahl).",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Ben hat recht, denn Runden in zwei Schritten ist genauer.",
      "beschreibung": "Zweimal runden verfälscht: 3 649 liegt näher an 3 600 als an 3 700.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Beide haben recht, denn 3 600 und 3 700 sind beide Näherungen von 3 649.",
      "beschreibung": "Gerundet auf Hunderter gibt es nur ein richtiges Ergebnis: 3 600, denn 3 649 liegt näher an 3 600.",
      "fehlbild": null,
@@ -1676,13 +1662,13 @@
      "text": "Ben rundet 3 649 so: erst auf Zehner (3 650), dann auf Hunderter (3 700). Mia rundet 3 649 sofort auf Hunderter. Welche Aussage stimmt?"
     },
     "a": [
+     "Mia hat recht (3 600): Es zählt nur die Zehnerstelle 4 der ursprünglichen Zahl. Ben rundet zweimal und macht aus 3 649 fälschlich 3 700.",
      "Beide haben unrecht, richtig wäre 3 650.",
      "Ben hat recht, denn Runden in zwei Schritten ist genauer.",
-     "Beide haben recht, denn 3 600 und 3 700 sind beide Näherungen von 3 649.",
-     "Mia hat recht (3 600): Es zählt nur die Zehnerstelle 4 der ursprünglichen Zahl. Ben rundet zweimal und macht aus 3 649 fälschlich 3 700."
+     "Beide haben recht, denn 3 600 und 3 700 sind beide Näherungen von 3 649."
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
     "w": "3 649 liegt zwischen 3 600 und 3 700. Die Zehnerstelle ist 4, also wird abgerundet: 3 600. Ben macht erst 3 650 und dann 3 700. Der Abstand von 3 649 zu 3 600 ist 49, zu 3 700 aber 51."
    },
@@ -1693,34 +1679,34 @@
    "thema": "zahlen.natuerlich",
    "lernkarte": "runden_regel",
    "pool": "sicherung",
-   "typ": "parameter",
+   "typ": "transfer",
    "form": null,
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.buendeln",
-   "abgrenzung": "Zwei Randzahlen der Rundungsmenge werden verglichen; die Übungen runden eine Zahl.",
+   "abgrenzung": "Zwei Rundungen auf verschiedene Stellen gleichzeitig; die Übungen betrachten eine Rundung.",
    "antwortform": "zahl",
-   "loesung_rechnung": "8499 − 7500",
+   "loesung_rechnung": "354 − 350 + 1",
    "fehlbilder": [
     {
-     "antwort": 1000,
-     "rechnung": "8500 − 7500",
-     "beschreibung": "die obere Grenze 8 500 mitgezählt, die schon auf 9 000 gerundet wird",
+     "antwort": 10,
+     "rechnung": "354 − 345 + 1",
+     "beschreibung": "nur die Bedingung „auf Zehner 350“ beachtet",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 500,
-     "rechnung": "8500 − 8000",
-     "beschreibung": "nur den Abstand von 8 000 zur Obergrenze",
+     "antwort": 50,
+     "rechnung": "399 − 350 + 1",
+     "beschreibung": "die Zahlen von 350 bis 399 gezählt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 499,
-     "rechnung": "8499 − 8000",
-     "beschreibung": "nur den Abstand von 8 000 zum oberen Rand",
+     "antwort": 6,
+     "rechnung": "355 − 350 + 1",
+     "beschreibung": "355 mitgezählt, obwohl sie auf Zehner 360 ergibt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1730,15 +1716,15 @@
     "t": "runden_regel",
     "p": "sicherung",
     "s": 3,
-    "g": "parameter",
+    "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Zwei natürliche Zahlen a und b ergeben, jeweils auf Tausender gerundet, beide 8 000. Wie groß kann der Unterschied zwischen a und b höchstens sein?"
+     "text": "Eine natürliche Zahl ergibt auf Zehner gerundet 350 und auf Hunderter gerundet 400. Wie viele natürliche Zahlen kommen dafür in Frage?"
     },
     "o": {
-     "wert": 999
+     "wert": 5
     },
-    "w": "Die kleinste Zahl, die auf 8 000 gerundet wird, ist 7 500; die größte ist 8 499. Der größte mögliche Unterschied ist 8 499 − 7 500 = 999."
+    "w": "Auf Zehner gerundet ergibt 350 die Zahlen 345 bis 354. Von diesen runden auf Hunderter nur 350 bis 354 auf 400 auf (ab 350 wird aufgerundet); 345 bis 349 ergeben 300. Das sind die Zahlen 350, 351, 352, 353, 354, also 5."
    },
    "idee": "Abstand zweier Zahlen mit gleichem Rundungsergebnis"
   },
@@ -1748,33 +1734,34 @@
    "lernkarte": "runden_sinnvoll",
    "pool": "test",
    "ersetzt_test": true,
-   "typ": "begruenden",
+   "typ": "transfer",
    "form": null,
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.buendeln",
-   "abgrenzung": "Entscheidung, ob Runden sinnvoll ist, mit Begründung; die Übungen wählen die passende Rundungsstelle für eine Zahl.",
-   "antwortform": "auswahl",
+   "abgrenzung": "Ein Rundungsfehler wird beim Weiterrechnen vervielfacht; die Übungen runden die Ausgangszahl nur und beurteilen sie.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "1234 · 6 − 1200 · 6",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "Die Einwohnerzahl 83 207 einer Stadt, weil sich die Zahl täglich ändert und nie genau stimmt.",
-     "beschreibung": "Gerade weil sich die Einwohnerzahl täglich ändert, ist eine gerundete Angabe sinnvoll.",
+     "antwort": 34,
+     "rechnung": "1234 − 1200",
+     "beschreibung": "nur den Fehler der Besucherzahl angegeben, nicht den Fehler der Einnahmen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
-     "antwort": "Die Entfernung zum Mond, etwa 384 400 km, weil sie so groß ist und große Zahlen genau genannt werden müssen.",
-     "beschreibung": "Entfernungen werden ohnehin gerundet angegeben; die Größe der Zahl verbietet das Runden nicht.",
+     "antwort": 7200,
+     "rechnung": "1200 · 6",
+     "beschreibung": "die geschätzten Einnahmen statt der Abweichung angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
-     "antwort": "Die Zuschauerzahl 41 237 im Stadion, weil man Personen nicht runden darf; jeder Besucher zählt einzeln.",
-     "beschreibung": "Bei einer Zuschauerzahl kommt es auf einzelne Personen nicht an; Runden (etwa 41 000) ist sinnvoll.",
+     "antwort": 7404,
+     "rechnung": "1234 · 6",
+     "beschreibung": "die genauen Einnahmen statt der Abweichung angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1784,21 +1771,16 @@
     "t": "runden_sinnvoll",
     "p": "test",
     "s": 3,
-    "g": "begruenden",
-    "y": "auswahl",
+    "g": "transfer",
+    "y": "zahl",
     "f": {
-     "text": "Eine Zahl darf man nicht runden. Welche, und warum?"
+     "text": "Ein Schwimmbad hatte 1 234 Besucher. Eine Karte kostet 6 €. Die Leiterin rundet die Besucherzahl auf Hunderter und rechnet damit die Einnahmen aus. Um wie viel Euro weicht die Schätzung vom genauen Wert ab?"
     },
-    "a": [
-     "Die Einwohnerzahl 83 207 einer Stadt, weil sich die Zahl täglich ändert und nie genau stimmt.",
-     "Die Entfernung zum Mond, etwa 384 400 km, weil sie so groß ist und große Zahlen genau genannt werden müssen.",
-     "Die Kontonummer 7 305 214, weil jede Ziffer zur Nummer gehört: Eine gerundete Nummer wäre ein anderes Konto.",
-     "Die Zuschauerzahl 41 237 im Stadion, weil man Personen nicht runden darf; jeder Besucher zählt einzeln."
-    ],
     "o": {
-     "index": 2
+     "wert": 204,
+     "einheit": "€"
     },
-    "w": "Runden ist sinnvoll, wenn es auf die genaue Zahl nicht ankommt. Eine Kontonummer ist ein Name: Schon eine geänderte Ziffer bezeichnet ein anderes Konto. Zählwerte und Messwerte kann man runden."
+    "w": "Genaue Einnahmen: 1 234 · 6 € = 7 404 €. Geschätzt: 1 200 · 6 € = 7 200 €. Die Abweichung ist 204 €. Der Rundungsfehler 34 Besucher wird mit dem Kartenpreis 6 € vervielfacht."
    },
    "idee": "Wann Runden unsinnig ist"
   },
@@ -1871,21 +1853,21 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Nur die zweite ist richtig, denn 20 000 ist eine rundere Zahl und deshalb besser zu merken.",
      "beschreibung": "20 000 ist nicht richtiger, sondern gröber gerundet und weicht um fast 3 000 vom genauen Wert ab.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Beide Angaben sind falsch, denn eine Läuferzahl wie 22 817 darf man nie runden.",
      "beschreibung": "Bei einer Läuferzahl kommt es nicht auf die genaue Zahl an; Runden ist sinnvoll.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Nur die erste ist richtig, denn man muss immer auf Tausender runden, auch bei kleineren Zahlen.",
      "beschreibung": "Es gibt keine feste Rundungsstelle; sie hängt von der gewünschten Genauigkeit ab.",
      "fehlbild": null,
@@ -1903,13 +1885,13 @@
      "text": "Ein Marathon hatte 22 817 Läufer. Eine Zeitung schreibt „rund 23 000 Läufer“, eine andere „rund 20 000 Läufer“. Welche Aussage stimmt?"
     },
     "a": [
-     "Beide sind richtig gerundet (auf Tausender bzw. Zehntausender); die erste ist genauer.",
      "Nur die zweite ist richtig, denn 20 000 ist eine rundere Zahl und deshalb besser zu merken.",
      "Beide Angaben sind falsch, denn eine Läuferzahl wie 22 817 darf man nie runden.",
-     "Nur die erste ist richtig, denn man muss immer auf Tausender runden, auch bei kleineren Zahlen."
+     "Nur die erste ist richtig, denn man muss immer auf Tausender runden, auch bei kleineren Zahlen.",
+     "Beide sind richtig gerundet (auf Tausender bzw. Zehntausender); die erste ist genauer."
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "w": "22 817 auf Tausender: Hunderterstelle 8, also aufrunden: 23 000. Auf Zehntausender: Tausenderstelle 2, also abrunden: 20 000. Beide Angaben sind richtig gerundet, die erste weicht weniger ab."
    },
@@ -2010,14 +1992,14 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Mia hat recht, denn Runden liefert immer die richtige Entscheidung, wenn man auf Hunderter rundet.",
      "beschreibung": "Runden liefert nur eine ungefähre Größe; für „reicht es?“ sind genaue Beträge nötig.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Mia hat recht, denn gerundet sind beide Beträge gleich, und gleich viel Geld reicht für einen gleich hohen Preis.",
      "beschreibung": "Das Runden hat hier wichtige Unterschiede (12 €) verwischt.",
      "fehlbild": null,
@@ -2036,12 +2018,12 @@
     },
     "a": [
      "Mia hat unrecht, weil man beide Beträge auf Tausender hätte runden müssen und nicht auf Hunderter.",
+     "Mia hat unrecht: Ob das Geld reicht, zeigen nur die genauen Beträge; 237 € sind weniger als 249 €.",
      "Mia hat recht, denn Runden liefert immer die richtige Entscheidung, wenn man auf Hunderter rundet.",
-     "Mia hat recht, denn gerundet sind beide Beträge gleich, und gleich viel Geld reicht für einen gleich hohen Preis.",
-     "Mia hat unrecht: Ob das Geld reicht, zeigen nur die genauen Beträge; 237 € sind weniger als 249 €."
+     "Mia hat recht, denn gerundet sind beide Beträge gleich, und gleich viel Geld reicht für einen gleich hohen Preis."
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "w": "237 € auf Hunderter gerundet ist 200 €, 249 € auch. Aber 237 € < 249 €: Das Geld reicht nicht. Runden ist nur sinnvoll, wenn kleine Unterschiede keine Rolle spielen."
    },
@@ -2123,7 +2105,7 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Der Unterschied kommt daher, dass man die Zahlen hätte aufrunden müssen, weil 5 830 größer ist.",
      "beschreibung": "Die Zahlen werden nach Regel gerundet: Hunderterstelle 4 gibt abrunden.",
      "fehlbild": null,
@@ -2155,13 +2137,13 @@
      "text": "Mia rundet die vier Zahlen 1 480, 1 460, 1 440 und 1 450 jeweils auf Tausender und addiert sie: 4 000. Die genaue Summe ist 5 830. Wie erklärt man den großen Unterschied?"
     },
     "a": [
-     "Der Unterschied kommt daher, dass man die Zahlen hätte aufrunden müssen, weil 5 830 größer ist.",
      "Jede Zahl wurde um 440 bis 480 abgerundet; diese gleich gerichteten Fehler addieren sich zu 1 830.",
+     "Der Unterschied kommt daher, dass man die Zahlen hätte aufrunden müssen, weil 5 830 größer ist.",
      "Mia hat beim Addieren einen Fehler gemacht; 1 000 + 1 000 + 1 000 + 1 000 ist 5 000.",
      "Runden auf Tausender ist immer falsch, wenn man mehrere Zahlen addiert."
     ],
     "o": {
-     "index": 1
+     "index": 0
     },
     "w": "Jede Zahl hat Hunderterstelle 4 und wird abgerundet: Die Rundungsfehler sind 480, 460, 440 und 450. Weil sie alle in dieselbe Richtung gehen, addieren sie sich: 480 + 460 + 440 + 450 = 1 830 = 5 830 − 4 000."
    },
@@ -2179,27 +2161,42 @@
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.schreibweisen",
-   "abgrenzung": "Fehler-Detektiv an einer mehrstufigen Umwandlung mit den Regeln der römischen Zahlen; die Übungen schreiben einfache Zahlen.",
-   "antwortform": "auswahl",
+   "abgrenzung": "Der Fehler muss ohne genannte Regel erkannt werden (Vierer-Wiederholung); die Übungen nennen die Regel.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2",
+    "7"
+   ],
    "fehlbilder": [
     {
-     "index": 1,
-     "antwort": "In Zeile 3, weil 40 als XXXX geschrieben werden muss, denn man darf nie abziehen.",
-     "beschreibung": "XXXX verstößt gegen die Dreierregel; 40 schreibt man XL.",
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "beschreibung": "Zeile 3 für falsch gehalten, obwohl XL für 40 richtig ist",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
-     "antwort": "In Zeile 1, weil 1 000 mit D geschrieben wird; das M steht für 500.",
-     "beschreibung": "1 000 wird mit M geschrieben, D bedeutet 500.",
+     "luecke": 1,
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "Zeile 4 für falsch gehalten, obwohl IX für 9 richtig ist",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
-     "antwort": "In Zeile 4, weil 9 als VIIII geschrieben werden muss, denn I darf nicht vor X stehen.",
-     "beschreibung": "VIIII verstößt gegen die Dreierregel (und ist unüblich); 9 schreibt man IX.",
+     "luecke": 2,
+     "antwort": 9,
+     "rechnung": "9",
+     "beschreibung": "die Zeichen von Nils’ falscher Zahl MCCCCXLIX gezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "rechnung": "6",
+     "beschreibung": "ein Zeichen vergessen: MCDXLI statt MCDXLIX gezählt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -2210,20 +2207,19 @@
     "p": "test",
     "s": 3,
     "g": "fehler",
-    "y": "auswahl",
+    "y": "luecken",
     "f": {
-     "text": "Tom schreibt 1 949 als römische Zahl. Zeile 1: 1 000 schreibt man M. Zeile 2: 900 schreibt man DCCCC. Zeile 3: 40 schreibt man XL. Zeile 4: 9 schreibt man IX. Tom schreibt also MDCCCCXLIX. Regel: Ein Zeichen steht höchstens dreimal hintereinander. In welcher Zeile steckt der erste Fehler, und warum?"
+     "text": "Nils schreibt 1 449 als römische Zahl. Zeile 1: 1 000 ist M. Zeile 2: 400 ist CCCC. Zeile 3: 40 ist XL. Zeile 4: 9 ist IX. Also schreibt er MCCCCXLIX. In welcher Zeile steckt der erste Fehler, und aus wie vielen Zeichen besteht die richtig geschriebene römische Zahl 1 449?",
+     "schablone": "Fehler in Zeile □, die richtige römische Zahl hat □ Zeichen",
+     "hinweis": "Je Feld eine ganze Zahl."
     },
-    "a": [
-     "In Zeile 2, weil ein Zeichen höchstens dreimal hintereinander stehen darf; 900 schreibt man CM.",
-     "In Zeile 3, weil 40 als XXXX geschrieben werden muss, denn man darf nie abziehen.",
-     "In Zeile 1, weil 1 000 mit D geschrieben wird; das M steht für 500.",
-     "In Zeile 4, weil 9 als VIIII geschrieben werden muss, denn I darf nicht vor X stehen."
-    ],
     "o": {
-     "index": 0
+     "werte": [
+      2,
+      7
+     ]
     },
-    "w": "Zeilen 1, 3 und 4 sind richtig. DCCCC hat viermal C hintereinander. 900 = 1 000 − 100 schreibt man CM. Richtig: 1 949 = M CM XL IX = MCMXLIX."
+    "w": "Zeile 1 stimmt, Zeile 3 und 4 auch. In Zeile 2 stehen vier C hintereinander; 400 schreibt man mit der Subtraktionsregel CD. Richtig ist 1 449 = M + CD + XL + IX = MCDXLIX. Das sind 7 Zeichen."
    },
    "idee": "Fehlersuche bei Subtraktionsregel"
   },
@@ -2297,28 +2293,28 @@
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.schreibweisen",
-   "abgrenzung": "Die Zeichenzahl der schwersten Zahl bis 2 000 wird bestimmt, ohne Subtraktionsregel nötig; die Übungen schreiben die Zahl nur.",
+   "abgrenzung": "Die längste Schreibweise wird über die Bausteine begründet; die Übungen schreiben eine Zahl.",
    "antwortform": "zahl",
-   "loesung_rechnung": "1 + 1 + 3 + 1 + 3 + 1 + 3",
+   "loesung_rechnung": "3 + 1 + 3 + 1 + 3 + 4",
    "fehlbilder": [
     {
      "antwort": 12,
-     "rechnung": "1 + 1 + 3 + 1 + 3 + 3",
-     "beschreibung": "die V (5) vergessen",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "antwort": 10,
-     "rechnung": "1 + 1 + 3 + 1 + 3 + 1",
-     "beschreibung": "die letzten drei I (III) vergessen",
+     "rechnung": "3 + 3 + 3 + 3",
+     "beschreibung": "jede Stelle mit drei Zeichen gerechnet",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "antwort": 14,
-     "rechnung": "1 + 1 + 3 + 1 + 3 + 1 + 4",
-     "beschreibung": "die 8 als VIIII (vier I) statt VIII geschrieben",
+     "rechnung": "3 + 1 + 3 + 1 + 3 + 3",
+     "beschreibung": "die vier Zeichen von VIII mit drei angesetzt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "nur die Anzahl der Stellen genannt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -2331,12 +2327,12 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Wie viele Zeichen (Buchstaben) hat die römische Zahl für 1 888 (nach den üblichen Regeln geschrieben)?"
+     "text": "Unter den Zahlen von 1 bis 3 999 hat die Zahl 3 888 die längste römische Schreibweise. Wie viele Zeichen hat sie (nach den üblichen Regeln geschrieben)?"
     },
     "o": {
-     "wert": 13
+     "wert": 15
     },
-    "w": "1 888 = 1 000 + 500 + 300 + 50 + 30 + 5 + 3 = M D CCC L XXX V III = MDCCCLXXXVIII. Das sind 1 + 1 + 3 + 1 + 3 + 1 + 3 = 13 Zeichen."
+    "w": "3 888 = 3 000 + 800 + 80 + 8 = MMM + DCCC + LXXX + VIII. Das sind 3 + 4 + 4 + 4 = 15 Zeichen, nämlich MMMDCCCLXXXVIII."
    },
    "idee": "Zeichen zählen"
   },
@@ -2590,33 +2586,34 @@
    "lernkarte": "dualsystem",
    "pool": "test",
    "ersetzt_test": true,
-   "typ": "begruenden",
+   "typ": "transfer",
    "form": null,
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.buendeln",
-   "abgrenzung": "Die Stellenwertidee wird auf das Zweiersystem übertragen (Was passiert beim Anhängen einer 0?); die Übungen wandeln einzelne Zahlen um.",
-   "antwortform": "auswahl",
+   "abgrenzung": "Die Wirkung des Anhängens einer Ziffer wird als Verdoppeln plus Ziffer erkannt; die Übungen wandeln Zahl für Zahl um.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "13 · 2 + 1",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "Er bleibt gleich, weil eine 0 nichts bedeutet und deshalb auch nichts verändern kann.",
-     "beschreibung": "Die 0 verändert die Stellen aller anderen Ziffern.",
+     "antwort": 26,
+     "rechnung": "13 · 2",
+     "beschreibung": "nur verdoppelt, die angehängte 1 vergessen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
-     "antwort": "Er wird um 2 größer, weil die angehängte 0 für die Zahl 2 steht und zum Rest addiert wird.",
-     "beschreibung": "Die angehängte 0 ist nichts wert, aber alle anderen Ziffern wandern eine Stelle nach links.",
+     "antwort": 14,
+     "rechnung": "13 + 1",
+     "beschreibung": "die 1 einfach zum Wert 13 addiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
-     "antwort": "Er verzehnfacht sich, wie beim Zehnersystem, weil eine 0 angehängt wird.",
-     "beschreibung": "Im Zehnersystem verzehnfacht sich die Zahl, im Zweiersystem verdoppelt sie sich.",
+     "antwort": 131,
+     "rechnung": "13 · 10 + 1",
+     "beschreibung": "wie im Zehnersystem mit 10 malgenommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -2626,21 +2623,15 @@
     "t": "dualsystem",
     "p": "test",
     "s": 3,
-    "g": "begruenden",
-    "y": "auswahl",
+    "g": "transfer",
+    "y": "zahl",
     "f": {
-     "text": "An eine Zweierzahl (ungleich 0) wird rechts eine 0 angehängt, zum Beispiel aus 101 wird 1010. Was geschieht mit dem Wert der Zahl?"
+     "text": "Die Zweierzahl 1101 hat im Zehnersystem den Wert 13. Hängt man rechts eine 1 an, entsteht 11011. Welchen Wert hat 11011 im Zehnersystem?"
     },
-    "a": [
-     "Er bleibt gleich, weil eine 0 nichts bedeutet und deshalb auch nichts verändern kann.",
-     "Er wird um 2 größer, weil die angehängte 0 für die Zahl 2 steht und zum Rest addiert wird.",
-     "Er verdoppelt sich: Jede Ziffer rückt eine Stelle nach links, und jeder Stellenwert ist doppelt so groß.",
-     "Er verzehnfacht sich, wie beim Zehnersystem, weil eine 0 angehängt wird."
-    ],
     "o": {
-     "index": 2
+     "wert": 27
     },
-    "w": "101 ist 4 + 1 = 5. 1010 ist 8 + 2 = 10. Jede Ziffer hat jetzt den doppelten Stellenwert, also wird die Zahl doppelt so groß."
+    "w": "Beim Anhängen einer Ziffer rückt jede Stelle um eins nach links, jeder Stellenwert verdoppelt sich. Der Wert 13 wird zu 2 · 13 = 26, und die neue 1 an der Einerstelle zählt 1. Also 26 + 1 = 27. Probe: 16 + 8 + 2 + 1 = 27."
    },
    "idee": "Anhängen einer Null im Zweiersystem"
   },
@@ -2649,52 +2640,34 @@
    "thema": "zahlen.natuerlich",
    "lernkarte": "dualsystem",
    "pool": "korrektur",
-   "typ": "darstellung",
+   "typ": "transfer",
    "form": null,
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M5 1 (Natürliche Zahlen)",
    "regel": "id.zahlen.buendeln",
-   "abgrenzung": "Umkehrrichtung: Zerlegung einer Zehnerzahl in Zweierpotenzen, die Übungen rechnen von der Zweierzahl zur Zehnerzahl.",
-   "antwortform": "luecken",
-   "loesung_rechnung": [
-    "1",
-    "0",
-    "0",
-    "1",
-    "0",
-    "1"
-   ],
+   "abgrenzung": "Die Stellenwerte 1, 2, 4, 8, 16 werden als die Zahlen mit genau einer Eins erkannt; die Übungen zerlegen eine einzelne Zahl.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "6",
    "fehlbilder": [
     {
-     "luecke": 2,
-     "antwort": 1,
-     "rechnung": "1",
-     "beschreibung": "die 16 mitgenommen: 32 + 16 = 48 ist schon größer als 37",
+     "antwort": 5,
+     "rechnung": "5",
+     "beschreibung": "die Zahl 32 nicht mitgezählt, weil sechs Stellen ungewohnt sind",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 3,
-     "antwort": 1,
-     "rechnung": "1",
-     "beschreibung": "die 8 mitgenommen, obwohl 32 + 8 + 4 + 1 nur 45 wären",
+     "antwort": 7,
+     "rechnung": "7",
+     "beschreibung": "die 0 oder die 64 mitgezählt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 4,
-     "antwort": 0,
-     "rechnung": "0",
-     "beschreibung": "die 4 nicht gebraucht, obwohl 37 − 32 = 5 noch 4 + 1 braucht",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 6,
-     "antwort": 0,
-     "rechnung": "0",
-     "beschreibung": "die 1 nicht gebraucht, obwohl 37 ungerade ist",
+     "antwort": 63,
+     "rechnung": "63",
+     "beschreibung": "alle Zahlen gezählt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -2704,24 +2677,15 @@
     "t": "dualsystem",
     "p": "korrektur",
     "s": 2,
-    "g": "darstellung",
-    "y": "luecken",
+    "g": "transfer",
+    "y": "zahl",
     "f": {
-     "text": "Zerlege die Zahl 37 in Stellenwerte des Zweiersystems. Jedes Feld ist 0 oder 1.",
-     "schablone": "37 = □ · 32 + □ · 16 + □ · 8 + □ · 4 + □ · 2 + □ · 1",
-     "hinweis": "Je Feld eine ganze Zahl."
+     "text": "Im Zweiersystem schreibt man die Zahlen von 1 bis 63. Bei wie vielen davon kommt die Ziffer 1 nur ein einziges Mal vor?"
     },
     "o": {
-     "werte": [
-      1,
-      0,
-      0,
-      1,
-      0,
-      1
-     ]
+     "wert": 6
     },
-    "w": "Größter passender Stellenwert: 32 (37 − 32 = 5). 16 und 8 passen nicht mehr (5 < 8). 4 passt (5 − 4 = 1), 2 passt nicht (1 < 2), 1 passt. Also 37 = 32 + 4 + 1, in Zweierschreibweise 100101."
+    "w": "Eine Zweierzahl mit genau einer Eins ist eine Eins mit lauter Nullen: 1, 10, 100, 1000, 10000 und 100000. Das sind die Zahlen 1, 2, 4, 8, 16 und 32. Also gibt es 6 solche Zahlen."
    },
    "idee": "Zerlegen in Zweierpotenzen"
   },
@@ -2740,14 +2704,14 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "1111 ist größer, denn sie besteht nur aus Einsen.",
      "beschreibung": "Der Wert hängt von den Stellen ab: 1111 = 8 + 4 + 2 + 1 = 15, 10001 = 16 + 1 = 17.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Beide sind gleich groß, denn sie unterscheiden sich nur durch Nullen.",
      "beschreibung": "Die Zahlen sind verschieden: 15 und 17.",
      "fehlbild": null,
@@ -2772,13 +2736,13 @@
      "text": "Welche Aussage über die Zweierzahlen 1111 und 10001 stimmt?"
     },
     "a": [
-     "10001 ist größer, denn sie hat eine Stelle mehr: 17 gegen 15.",
      "1111 ist größer, denn sie besteht nur aus Einsen.",
      "Beide sind gleich groß, denn sie unterscheiden sich nur durch Nullen.",
+     "10001 ist größer, denn sie hat eine Stelle mehr: 17 gegen 15.",
      "1111 ist größer: 1111 gegen 10001 sind im Zehnersystem 15 gegen 12."
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "w": "1111 = 8 + 4 + 2 + 1 = 15. 10001 = 16 + 1 = 17. Eine Zweierzahl mit mehr Stellen ist größer als eine mit weniger Stellen (bei führender 1)."
    },
@@ -2983,7 +2947,7 @@
     {
      "antwort": 6,
      "rechnung": "7 − 1",
-     "beschreibung": "den Wert 64 = 2⁶ als Stellenzahl gedeutet",
+     "beschreibung": "beim Wert 64 (der siebten Stelle) die Stellen falsch gezählt und 6 genannt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
@@ -2997,7 +2961,7 @@
     {
      "antwort": 8,
      "rechnung": "7 + 1",
-     "beschreibung": "127 + 1 = 128 = 2⁷ als 8 Ziffern gedeutet",
+     "beschreibung": "weil 127 + 1 = 128 eine Zweierzahl-Stelle mehr hat, 8 Ziffern genannt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -3015,7 +2979,7 @@
     "o": {
      "wert": 7
     },
-    "w": "Mit n Einsen ist der Wert 2ⁿ − 1 (1, 3, 7, 15, 31, 63, 127). 127 + 1 = 128 = 2⁷, also n = 7. Probe: 1111111 = 64 + 32 + 16 + 8 + 4 + 2 + 1 = 127."
+    "w": "Mit lauter Einsen ergeben sich die Werte 1, 3, 7, 15, 31, 63, 127: Jede weitere Eins verdoppelt den Wert und addiert 1. Bei 127 sind es 7 Einsen. Probe: 1111111 = 64 + 32 + 16 + 8 + 4 + 2 + 1 = 127."
    },
    "idee": "Rückwärts: Länge aus dem Wert"
   }

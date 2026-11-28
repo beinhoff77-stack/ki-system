@@ -26,11 +26,11 @@
    "abgrenzung": "Die Übungen bestimmen D bei einem Nenner; hier kommen mehrere Nenner, Fehlersuche, Sachaufgaben und die Frage dazu, was D mit der Lösungsmenge zu tun hat.",
    "idee": "identitaet_und_D",
    "antwortform": "zahl",
-   "loesung_rechnung": "11 - 1",
+   "loesung_rechnung": "25 - 1",
    "fehlbilder": [
     {
-     "antwort": 11,
-     "rechnung": "11",
+     "antwort": 25,
+     "rechnung": "25",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Zahl 2 mitgezählt, obwohl für x = 2 der Nenner 0 wird"
@@ -43,11 +43,11 @@
      "beschreibung": "die immer wahre Aussage nach dem Malnehmen als „keine Lösung“ gedeutet"
     },
     {
-     "antwort": 1,
-     "rechnung": "1",
+     "antwort": 2,
+     "rechnung": "2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die verbotene Zahl 2 als Lösung genommen"
+     "beschreibung": "die verbotene Zahl 2 und die Null als Lösungen genommen"
     }
    ],
    "regel": "id.algebra.erlaubte_zahlen",
@@ -60,14 +60,14 @@
     "g": "begruenden",
     "y": "zahl",
     "f": {
-     "text": "Beim Lösen von 3/(x − 2) = 1/(x − 2) + 2/(x − 2) multipliziert Jan beide Seiten mit (x − 2) und erhält 3 = 1 + 2. Er sagt: „Jetzt stehen keine Nenner mehr da, also gibt es keine Einschränkung.“ Wie viele der ganzen Zahlen von −5 bis 5 (einschließlich) sind Lösung der Ausgangsgleichung?"
+     "text": "Beim Lösen von 3/(x − 2) = 1/(x − 2) + 2/(x − 2) multipliziert Jan beide Seiten mit (x − 2) und erhält 3 = 1 + 2. Er sagt: „Jetzt stehen keine Nenner mehr da, also gibt es keine Einschränkung.“ Wie viele der ganzen Zahlen von −12 bis 12 (einschließlich) sind Lösung der Ausgangsgleichung?"
     },
     "o": {
-     "wert": 10,
+     "wert": 24,
      "einheit": "Zahlen"
     },
-    "c": "11 - 1",
-    "w": "Die Definitionsmenge bestimmt man an der Ausgangsgleichung: Der Nenner x − 2 darf nicht 0 werden, also D = ℚ \\ {2}. Nach dem Malnehmen mit (x − 2) steht 3 = 1 + 2, eine für jedes x wahre Aussage. Also ist jede Zahl aus D eine Lösung, die Zahl 2 aber nicht, weil die Brüche für x = 2 nicht definiert sind. Von den 11 ganzen Zahlen −5 bis 5 bleiben 10."
+    "c": "25 - 1",
+    "w": "Die Definitionsmenge bestimmt man an der Ausgangsgleichung: Der Nenner x − 2 darf nicht 0 werden, also D = ℚ \\ {2}. Nach dem Malnehmen mit (x − 2) steht 3 = 1 + 2, eine für jedes x wahre Aussage. Also ist jede Zahl aus D eine Lösung, die Zahl 2 aber nicht, weil die Brüche für x = 2 nicht definiert sind. Von den 25 ganzen Zahlen −12 bis 12 bleiben 24."
    }
   },
   {
@@ -484,25 +484,25 @@
    "abgrenzung": "Die Übungen lösen mit dem Über-Kreuz-Verfahren; hier wird entschieden, wann es erlaubt ist, wie sich die Gleichung dabei umformt und wann eine Gleichung keine Lösung hat.",
    "idee": "parameter_keine_loesung",
    "antwortform": "zahl",
-   "loesung_rechnung": "8 - 2",
+   "loesung_rechnung": "20 - 2",
    "fehlbilder": [
     {
-     "antwort": 7,
-     "rechnung": "8 - 1",
+     "antwort": 19,
+     "rechnung": "20 - 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur k = 4 als Zahl ohne Lösung gefunden und die Scheinlösung bei k = 0 übersehen"
     },
     {
-     "antwort": 8,
-     "rechnung": "8",
+     "antwort": 20,
+     "rechnung": "20",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "geglaubt, dass sich für jedes k eine Lösung findet"
     },
     {
-     "antwort": 5,
-     "rechnung": "8 - 3",
+     "antwort": 17,
+     "rechnung": "20 - 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "einen weiteren Wert von k ausgeschlossen, für den es doch eine Lösung gibt"
@@ -518,14 +518,14 @@
     "g": "parameter",
     "y": "zahl",
     "f": {
-     "text": "Für wie viele ganze Zahlen k von −1 bis 6 (einschließlich) hat die Gleichung 4/(x − 1) = k/(x + 2) mindestens eine Lösung?"
+     "text": "Für wie viele ganze Zahlen k von −5 bis 14 (einschließlich) hat die Gleichung 4/(x − 1) = k/(x + 2) mindestens eine Lösung?"
     },
     "o": {
-     "wert": 6,
+     "wert": 18,
      "einheit": "Zahlen"
     },
-    "c": "8 - 2",
-    "w": "Über Kreuz: 4(x + 2) = k(x − 1), also (4 − k)x = −k − 8. Für k = 4 steht 0 · x = −12: keine Lösung. Für k = 0 folgt 4x = −8, also x = −2; das ist aber ausgeschlossen (Nenner x + 2), eine Scheinlösung. Für alle anderen k gibt es x = (−k − 8)/(4 − k), das weder 1 noch −2 ist. Von den 8 Zahlen von −1 bis 6 haben also 8 − 2 = 6 eine Lösung (alle außer 0 und 4)."
+    "c": "20 - 2",
+    "w": "Über Kreuz: 4(x + 2) = k(x − 1), also (4 − k)x = −k − 8. Für k = 4 steht 0 · x = −12: keine Lösung. Für k = 0 folgt 4x = −8, also x = −2; das ist aber ausgeschlossen (Nenner x + 2), eine Scheinlösung. Für alle anderen k gibt es x = (−k − 8)/(4 − k), das weder 1 noch −2 ist. Von den 20 Zahlen von −5 bis 14 haben also 20 − 2 = 18 eine Lösung (alle außer 0 und 4)."
    }
   },
   {
@@ -622,7 +622,7 @@
      "antwort": "4/(x − 4) = 2/(x − 2)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die beiden Nenner vertauscht; für x = 6 steht links das Doppelte von rechts"
+     "beschreibung": "die beiden Nenner vertauscht; für x = 6 steht links das Vierfache von rechts"
     }
    ],
    "regel": "rr.waage",
@@ -906,11 +906,11 @@
    "abgrenzung": "Die Übungen prüfen eine Lösung gegen D; hier wird begründet, warum eine Scheinlösung keine Lösung ist, wann eine Gleichung für alle Zahlen aus D gilt und wann kein Kandidat übrig bleibt.",
    "idee": "parameter_identitaet",
    "antwortform": "zahl",
-   "loesung_rechnung": "7 - 1",
+   "loesung_rechnung": "19 - 1",
    "fehlbilder": [
     {
-     "antwort": 7,
-     "rechnung": "7",
+     "antwort": 19,
+     "rechnung": "19",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "geglaubt, dass die Gleichung für jedes b ohne Lösung bleibt"
@@ -923,8 +923,8 @@
      "beschreibung": "b = −1 als einzigen Wert ohne Lösung gezählt, den Fall mit unendlich vielen Lösungen verwechselt"
     },
     {
-     "antwort": 5,
-     "rechnung": "7 - 2",
+     "antwort": 17,
+     "rechnung": "19 - 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "zusätzlich den Wert b = 3 (Zahl im Zähler der rechten Seite) als Lösungsfall gezählt"
@@ -940,14 +940,14 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Für wie viele ganze Zahlen b von −3 bis 3 (einschließlich) hat die Gleichung (x + b)/(x − 4) = 3/(x − 4) + 1 keine Lösung?"
+     "text": "Für wie viele ganze Zahlen b von −9 bis 9 (einschließlich) hat die Gleichung (x + b)/(x − 4) = 3/(x − 4) + 1 keine Lösung?"
     },
     "o": {
-     "wert": 6,
+     "wert": 18,
      "einheit": "Zahlen"
     },
-    "c": "7 - 1",
-    "w": "Beide Seiten mit (x − 4) malgenommen: x + b = 3 + (x − 4), also x + b = x − 1. Das x fällt weg, übrig bleibt b = −1. Für b = −1 ist die Gleichung für jedes x ≠ 4 wahr, es gibt unendlich viele Lösungen. Für jedes andere b steht eine falsche Aussage da, es gibt keine Lösung. Von den 7 Zahlen von −3 bis 3 ist nur b = −1 ausgenommen, also haben 6 keine Lösung."
+    "c": "19 - 1",
+    "w": "Beide Seiten mit (x − 4) malgenommen: x + b = 3 + (x − 4), also x + b = x − 1. Das x fällt weg, übrig bleibt b = −1. Für b = −1 ist die Gleichung für jedes x ≠ 4 wahr, es gibt unendlich viele Lösungen. Für jedes andere b steht eine falsche Aussage da, es gibt keine Lösung. Von den 19 Zahlen von −9 bis 9 ist nur b = −1 ausgenommen, also haben 18 keine Lösung."
    }
   },
   {

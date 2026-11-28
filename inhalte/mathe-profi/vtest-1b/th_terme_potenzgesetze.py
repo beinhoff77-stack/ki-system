@@ -4,13 +4,12 @@ REGEL[(T, "negativer_exponent")] = REGEL[(T, "fehler_finden")] = "rr.potenz"
 ABG[(T, "negativer_exponent")] = "Die Übungen berechnen negative Exponenten nach Regel; hier werden Werte in einem Bereich gezählt, Exponenten gesucht und Potenzen mit verschiedenen Basen verglichen."
 ABG[(T, "fehler_finden")] = "Die Übungen nennen den Fehler in einer Zeile oder das richtige Ergebnis; hier muss die erste fehlerhafte Zeile in einer Rechenkette gefunden werden, und Aussagen über Potenzen werden begründet oder widerlegt."
 # ───────── negativer_exponent ─────────
-neu(T, "negativer_exponent", "test", "parameter", Z(
-    "Für wie viele ganze Zahlen n von −4 bis 4 (einschließlich) liegt der Wert von 2ⁿ zwischen 1/10 und 3? (Die Grenzen 1/10 und 3 gehören nicht dazu.)",
-    5, "5", sum(1 for n in range(-4, 5) if F(1, 10) < F(2) ** n < 3),
-    "Die Werte von 2ⁿ sind für n = −4 bis 4: 1/16, 1/8, 1/4, 1/2, 1, 2, 4, 8, 16. Zwischen 1/10 = 0,1 und 3 liegen 1/8, 1/4, 1/2, 1 und 2, das sind 5 Werte. 1/16 = 0,0625 ist kleiner als 0,1, und 4 ist größer als 3.",
-    [B("2", "nur die Exponenten 0 und 1 beachtet; negative Exponenten wurden als negative Werte abgetan"),
-     B("4", "den Wert vergessen, der knapp über der unteren Grenze liegt"),
-     B("6", "auch den Wert mitgezählt, der noch unter der unteren Grenze liegt")], einheit="Zahlen"), lp=LP, idee="zaehlen_im_bereich")
+neu(T, "negativer_exponent", "test", "parameter", L(
+    "Die Zahl 2ⁿ liegt zwischen 1/200 und 40 (die Grenzen gehören nicht dazu). Ergänze den kleinsten und den größten ganzen Exponenten n, für den das gilt: kleinstes n = □ und größtes n = □.",
+    "kleinstes n = □ und größtes n = □", [-7, 5], ["0 - 7", "5"], ["1 - 8", "10 - 5"],
+    "Die Potenzen von 2 mit negativem Exponenten sind 1/2, 1/4, 1/8, 1/16, 1/32, 1/64, 1/128, 1/256. Der Wert 1/128 ist noch größer als 1/200, 1/256 aber schon kleiner; das kleinste n ist also −7. Nach oben ist 2⁵ = 32 kleiner als 40, 2⁶ = 64 aber größer; das größte n ist 5.",
+    {0: [(-8, "den Wert noch mitgenommen, der schon unter der unteren Grenze liegt", "0 - 8"), (7, "das Minus im Exponenten vergessen", "7")],
+     1: [(6, "den Wert noch mitgenommen, der schon über der oberen Grenze liegt", "6"), (-5, "die obere Grenze mit der unteren verwechselt", "0 - 5")]}), lp=LP, idee="zaehlen_im_bereich")
 neu(T, "negativer_exponent", "korrektur", "umkehr", L(
     "Ergänze zwei wahre Gleichungen: 7⁻² = 1/□ und 2^□ = 1/32.",
     "7⁻² = 1/□ und 2^□ = 1/32", [49, -5], ["7 ** 2", "0 - 5"], ["7 * 7", "5 - 10"],

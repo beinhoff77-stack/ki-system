@@ -52,7 +52,7 @@ def zaehle_k():
     n = 0
     kand = [F(i, 2520) for i in range(-30 * 2520, 30 * 2520 + 1, 7)] + [F(i, 2520) for i in range(-30 * 2520, 30 * 2520 + 1) if i % 2520 == 0 or i % 840 == 0 or i % 360 == 0 or i % 280 == 0 or i % 315 == 0 or i % 252 == 0 or i % 504 == 0 or i % 630 == 0 or i % 1260 == 0 or i % 420 == 0]
     kand = sorted(set(kand) | {F(a, b) for b in range(1, 13) for a in range(-30 * b, 30 * b + 1)})
-    for k in range(-1, 7):
+    for k in range(-5, 15):
         # 4/(x-1) = k/(x+2): gesucht ist ein x ungleich 1 und −2 mit 4(x+2) = k(x−1)
         if any(x not in (1, -2) and 4 * (x + 2) == k * (x - 1) for x in kand):
             n += 1
@@ -109,7 +109,9 @@ NEU = {
     "Anna rechnet (3 + 4)²": lambda: 7 ** 2 - (3 ** 2 + 4 ** 2),
     "Wie viele Stücke der Größe": lambda: F(10) ** -1 / F(10) ** -4,
     "Für wie viele ganze Zahlen k von": lambda: zaehle_k(),
-    "Wie viele der ganzen Zahlen von −5 bis 5": lambda: sum(1 for x in range(-5, 6) if x != 2 and F(3, x - 2) == F(1, x - 2) + F(2, x - 2)),
+    "Die Zahl 2ⁿ liegt zwischen 1/200": lambda: [min(n for n in range(-12, 12) if F(1, 200) < F(2) ** n < 40), max(n for n in range(-12, 12) if F(1, 200) < F(2) ** n < 40)],
+    "Für wie viele ganze Zahlen b von": lambda: sum(1 for b in range(-9, 10) if not any(x != 4 and F(x + b, x - 4) == F(3, x - 4) + 1 for x in [F(i, 2) for i in range(-60, 61)])),
+    "Wie viele der ganzen Zahlen von −12 bis 12": lambda: sum(1 for x in range(-12, 13) if x != 2 and F(3, x - 2) == F(1, x - 2) + F(2, x - 2)),
     "Bei wie vielen dieser fünf Gleichungen": lambda: 3,
     "Ein Drucker allein braucht": lambda: sum(1 for x in range(-3, 10) if x not in (0, 5)),
     "Für drei Größen a, b und c gilt": lambda: next(c for a in [24] for b in [F(3 * a, 2)] for c in [F(5 * b, 4)]),

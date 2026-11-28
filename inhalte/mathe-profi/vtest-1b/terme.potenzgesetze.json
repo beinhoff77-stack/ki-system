@@ -25,29 +25,43 @@
    "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
    "abgrenzung": "Die Übungen berechnen negative Exponenten nach Regel; hier werden Werte in einem Bereich gezählt, Exponenten gesucht und Potenzen mit verschiedenen Basen verglichen.",
    "idee": "zaehlen_im_bereich",
-   "antwortform": "zahl",
-   "loesung_rechnung": "5",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "0 - 7",
+    "5"
+   ],
    "fehlbilder": [
     {
-     "antwort": 2,
-     "rechnung": "2",
+     "luecke": 1,
+     "antwort": -8,
+     "rechnung": "0 - 8",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Exponenten 0 und 1 beachtet; negative Exponenten wurden als negative Werte abgetan"
+     "beschreibung": "den Wert noch mitgenommen, der schon unter der unteren Grenze liegt"
     },
     {
-     "antwort": 4,
-     "rechnung": "4",
+     "luecke": 1,
+     "antwort": 7,
+     "rechnung": "7",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Wert vergessen, der knapp über der unteren Grenze liegt"
+     "beschreibung": "das Minus im Exponenten vergessen"
     },
     {
+     "luecke": 2,
      "antwort": 6,
      "rechnung": "6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "auch den Wert mitgezählt, der noch unter der unteren Grenze liegt"
+     "beschreibung": "den Wert noch mitgenommen, der schon über der oberen Grenze liegt"
+    },
+    {
+     "luecke": 2,
+     "antwort": -5,
+     "rechnung": "0 - 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die obere Grenze mit der unteren verwechselt"
     }
    ],
    "regel": "rr.potenz",
@@ -58,16 +72,23 @@
     "p": "test",
     "s": 3,
     "g": "parameter",
-    "y": "zahl",
+    "y": "luecken",
     "f": {
-     "text": "Für wie viele ganze Zahlen n von −4 bis 4 (einschließlich) liegt der Wert von 2ⁿ zwischen 1/10 und 3? (Die Grenzen 1/10 und 3 gehören nicht dazu.)"
+     "text": "Die Zahl 2ⁿ liegt zwischen 1/200 und 40 (die Grenzen gehören nicht dazu). Ergänze den kleinsten und den größten ganzen Exponenten n, für den das gilt: kleinstes n = □ und größtes n = □.",
+     "schablone": "kleinstes n = □ und größtes n = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
-     "wert": 5,
-     "einheit": "Zahlen"
+     "werte": [
+      -7,
+      5
+     ]
     },
-    "c": "5",
-    "w": "Die Werte von 2ⁿ sind für n = −4 bis 4: 1/16, 1/8, 1/4, 1/2, 1, 2, 4, 8, 16. Zwischen 1/10 = 0,1 und 3 liegen 1/8, 1/4, 1/2, 1 und 2, das sind 5 Werte. 1/16 = 0,0625 ist kleiner als 0,1, und 4 ist größer als 3."
+    "c": [
+     "0 - 7",
+     "5"
+    ],
+    "w": "Die Potenzen von 2 mit negativem Exponenten sind 1/2, 1/4, 1/8, 1/16, 1/32, 1/64, 1/128, 1/256. Der Wert 1/128 ist noch größer als 1/200, 1/256 aber schon kleiner; das kleinste n ist also −7. Nach oben ist 2⁵ = 32 kleiner als 40, 2⁶ = 64 aber größer; das größte n ist 5."
    }
   },
   {

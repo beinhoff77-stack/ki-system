@@ -72,12 +72,12 @@ neu(T, "rueckwaerts", "korrektur", "umkehr", Z(
      B("50 / 2", "50 durch 2 geteilt und als Grundseite genommen"),
      B("50 / 4", "50 durch 4 geteilt, weil von „halb“ die 2 zweimal gezählt wurde")], einheit="cm"), form="umkehren", lp=LP, idee="gleichung_g_mal_g")
 neu(T, "rueckwaerts", "korrektur", "darstellung", Z(
-    "Ein Parallelogramm hat den Flächeninhalt 96 cm², die Höhe 8 cm und die schräge Nachbarseite 10 cm. Es wird zu einem Rechteck mit derselben Höhe und demselben Flächeninhalt umgebaut: Ein Dreieck wird auf der einen Seite abgeschnitten und auf der anderen Seite wieder angesetzt. Wie lang ist das Rechteck?",
-    12, "96 / 8", "12",
-    "Das Rechteck hat die Fläche 96 cm² und die Höhe 8 cm. Seine Länge ist 96 : 8 = 12 cm. Das ist zugleich die Grundseite des Parallelogramms. Die schräge Seite 10 cm spielt keine Rolle: Beim Umbauen ändert sich nur die Form, nicht Fläche, Höhe und Grundseite. Probe: 12 · 8 = 96.",
-    [B("10", "die schräge Seite als Länge genommen"),
-     B("96 / 8 / 2", "wie bei einem Dreieck durch 2 geteilt"),
-     B("96 - 8", "die Höhe von der Fläche abgezogen")], einheit="cm"), lp=LP, idee="parallelogramm_zu_rechteck")
+    "Ein Parallelogramm hat die Grundseite 12 cm, die Höhe 8 cm und die schräge Nachbarseite 10 cm. Es wird zu einem Rechteck umgebaut: Ein rechtwinkliges Dreieck mit den Katheten 8 cm und 6 cm wird auf der einen Seite abgeschnitten und auf der anderen Seite wieder angesetzt. Wie groß ist die Fläche des Rechtecks?",
+    96, "12 * 8", "12 * 8 - 6 * 8 / 2 + 6 * 8 / 2",
+    "Das abgeschnittene Dreieck wird auf der anderen Seite wieder angesetzt, die Fläche bleibt also gleich. Das Rechteck hat dieselbe Grundseite 12 cm und dieselbe Höhe 8 cm wie das Parallelogramm: A = 12 · 8 = 96 cm². Die schräge Seite 10 cm und die Kathete 6 cm spielen für die Fläche keine Rolle. Probe: Das Dreieck hat 6 · 8 : 2 = 24 cm², es geht auf der einen Seite weg und kommt auf der anderen dazu.",
+    [B("12 * 10", "die schräge Seite statt der Höhe genommen"),
+     B("12 * 8 - 6 * 8 / 2", "das abgeschnittene Dreieck nicht wieder angesetzt"),
+     B("12 * 8 / 2", "wie bei einem Dreieck durch 2 geteilt")], einheit="cm²"), lp=LP, idee="parallelogramm_zu_rechteck")
 neu(T, "rueckwaerts", "korrektur", "darstellung", L(
     "Zwei gleiche Trapeze mit den parallelen Seiten 5 cm und 9 cm und der Höhe 4 cm werden zu einem Parallelogramm zusammengelegt. Die Grundseite des Parallelogramms ist □ cm lang. Ein einzelnes Trapez hat die Fläche □ cm².",
     "Grundseite □ cm, Trapez □ cm²", [14, 28], ["5 + 9", "(5 + 9) * 4 / 2"], ["14", "56 / 2"],

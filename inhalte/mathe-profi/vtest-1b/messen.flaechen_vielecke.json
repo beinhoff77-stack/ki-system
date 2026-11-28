@@ -585,28 +585,28 @@
    "abgrenzung": "Die Übungen stellen die Flächenformel nach h oder g um; hier wird begründet, warum ein Parallelogramm einem Rechteck gleicher Fläche entspricht und zwei Trapeze ein Parallelogramm ergeben, und eine Schranke für die Fläche erkannt.",
    "idee": "parallelogramm_zu_rechteck",
    "antwortform": "zahl",
-   "loesung_rechnung": "96 / 8",
+   "loesung_rechnung": "12 * 8",
    "fehlbilder": [
     {
-     "antwort": 10,
-     "rechnung": "10",
+     "antwort": 120,
+     "rechnung": "12 * 10",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die schräge Seite als Länge genommen"
+     "beschreibung": "die schräge Seite statt der Höhe genommen"
     },
     {
-     "antwort": 6,
-     "rechnung": "96 / 8 / 2",
+     "antwort": 72,
+     "rechnung": "12 * 8 - 6 * 8 / 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das abgeschnittene Dreieck nicht wieder angesetzt"
+    },
+    {
+     "antwort": 48,
+     "rechnung": "12 * 8 / 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "wie bei einem Dreieck durch 2 geteilt"
-    },
-    {
-     "antwort": 88,
-     "rechnung": "96 - 8",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Höhe von der Fläche abgezogen"
     }
    ],
    "regel": "id.flaeche_raum.aus_dem_rechteck",
@@ -618,14 +618,14 @@
     "g": "darstellung",
     "y": "zahl",
     "f": {
-     "text": "Ein Parallelogramm hat den Flächeninhalt 96 cm², die Höhe 8 cm und die schräge Nachbarseite 10 cm. Es wird zu einem Rechteck mit derselben Höhe und demselben Flächeninhalt umgebaut: Ein Dreieck wird auf der einen Seite abgeschnitten und auf der anderen Seite wieder angesetzt. Wie lang ist das Rechteck?"
+     "text": "Ein Parallelogramm hat die Grundseite 12 cm, die Höhe 8 cm und die schräge Nachbarseite 10 cm. Es wird zu einem Rechteck umgebaut: Ein rechtwinkliges Dreieck mit den Katheten 8 cm und 6 cm wird auf der einen Seite abgeschnitten und auf der anderen Seite wieder angesetzt. Wie groß ist die Fläche des Rechtecks?"
     },
     "o": {
-     "wert": 12,
-     "einheit": "cm"
+     "wert": 96,
+     "einheit": "cm²"
     },
-    "c": "96 / 8",
-    "w": "Das Rechteck hat die Fläche 96 cm² und die Höhe 8 cm. Seine Länge ist 96 : 8 = 12 cm. Das ist zugleich die Grundseite des Parallelogramms. Die schräge Seite 10 cm spielt keine Rolle: Beim Umbauen ändert sich nur die Form, nicht Fläche, Höhe und Grundseite. Probe: 12 · 8 = 96."
+    "c": "12 * 8",
+    "w": "Das abgeschnittene Dreieck wird auf der anderen Seite wieder angesetzt, die Fläche bleibt also gleich. Das Rechteck hat dieselbe Grundseite 12 cm und dieselbe Höhe 8 cm wie das Parallelogramm: A = 12 · 8 = 96 cm². Die schräge Seite 10 cm und die Kathete 6 cm spielen für die Fläche keine Rolle. Probe: Das Dreieck hat 6 · 8 : 2 = 24 cm², es geht auf der einen Seite weg und kommt auf der anderen dazu."
    }
   },
   {

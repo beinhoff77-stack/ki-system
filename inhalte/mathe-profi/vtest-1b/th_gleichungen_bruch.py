@@ -30,13 +30,13 @@ ABG[(T, "scheinloesung")] = "Die Übungen prüfen eine Lösung gegen D; hier wir
 ABG[(T, "verhaeltnis")] = "Die Übungen lösen eine Verhältnisgleichung; hier wird begründet, warum Verhältnisse nicht additiv wachsen, aus Teilen auf das Ganze geschlossen und ein Fehler im Ansatz gefunden."
 # ───────── definitionsmenge ─────────
 neu(T, "definitionsmenge", "test", "begruenden", Z(
-    "Beim Lösen von 3/(x − 2) = 1/(x − 2) + 2/(x − 2) multipliziert Jan beide Seiten mit (x − 2) und erhält 3 = 1 + 2. Er sagt: „Jetzt stehen keine Nenner mehr da, also gibt es keine Einschränkung.“ Wie viele der ganzen Zahlen von −5 bis 5 (einschließlich) sind Lösung der Ausgangsgleichung?",
-    10, "11 - 1", sum(1 for x in range(-5, 6) if x != 2 and F(3, x - 2) == F(1, x - 2) + F(2, x - 2)),
+    "Beim Lösen von 3/(x − 2) = 1/(x − 2) + 2/(x − 2) multipliziert Jan beide Seiten mit (x − 2) und erhält 3 = 1 + 2. Er sagt: „Jetzt stehen keine Nenner mehr da, also gibt es keine Einschränkung.“ Wie viele der ganzen Zahlen von −12 bis 12 (einschließlich) sind Lösung der Ausgangsgleichung?",
+    24, "25 - 1", sum(1 for x in range(-12, 13) if x != 2 and F(3, x - 2) == F(1, x - 2) + F(2, x - 2)),
     "Die Definitionsmenge bestimmt man an der Ausgangsgleichung: Der Nenner x − 2 darf nicht 0 werden, also D = ℚ \\ {2}. Nach dem Malnehmen mit (x − 2) steht 3 = 1 + 2, eine für jedes x wahre Aussage. Also ist jede Zahl aus D eine Lösung, die Zahl 2 aber nicht, weil die Brüche für x = 2 nicht definiert sind. "
-    "Von den 11 ganzen Zahlen −5 bis 5 bleiben 10.",
-    [B("11", "die Zahl 2 mitgezählt, obwohl für x = 2 der Nenner 0 wird"),
+    "Von den 25 ganzen Zahlen −12 bis 12 bleiben 24.",
+    [B("25", "die Zahl 2 mitgezählt, obwohl für x = 2 der Nenner 0 wird"),
      B("0", "die immer wahre Aussage nach dem Malnehmen als „keine Lösung“ gedeutet"),
-     B("1", "nur die verbotene Zahl 2 als Lösung genommen")], einheit="Zahlen"), lp=LP, idee="identitaet_und_D")
+     B("2", "die verbotene Zahl 2 und die Null als Lösungen genommen")], einheit="Zahlen"), lp=LP, idee="identitaet_und_D")
 neu(T, "definitionsmenge", "korrektur", "umkehr", L(
     "Für wie viele rationale Zahlen ist die Gleichung 5/(x² + 4) = 1 nicht definiert, und wie viele Lösungen hat sie?",
     "nicht definiert für □ Zahlen, □ Lösungen", [0, 2], ["0", "2"], ["1 - 1", "1 + 1"],
@@ -88,12 +88,12 @@ def _kreuz_zahl():
 
 
 neu(T, "ueber_kreuz", "test", "parameter", Z(
-    "Für wie viele ganze Zahlen k von −1 bis 6 (einschließlich) hat die Gleichung 4/(x − 1) = k/(x + 2) mindestens eine Lösung?",
-    6, "8 - 2", "6",
-    "Über Kreuz: 4(x + 2) = k(x − 1), also (4 − k)x = −k − 8. Für k = 4 steht 0 · x = −12: keine Lösung. Für k = 0 folgt 4x = −8, also x = −2; das ist aber ausgeschlossen (Nenner x + 2), eine Scheinlösung. Für alle anderen k gibt es x = (−k − 8)/(4 − k), das weder 1 noch −2 ist. Von den 8 Zahlen von −1 bis 6 haben also 8 − 2 = 6 eine Lösung (alle außer 0 und 4).",
-    [B("8 - 1", "nur k = 4 als Zahl ohne Lösung gefunden und die Scheinlösung bei k = 0 übersehen"),
-     B("8", "geglaubt, dass sich für jedes k eine Lösung findet"),
-     B("8 - 3", "einen weiteren Wert von k ausgeschlossen, für den es doch eine Lösung gibt")], einheit="Zahlen"), lp=LP, idee="parameter_keine_loesung")
+    "Für wie viele ganze Zahlen k von −5 bis 14 (einschließlich) hat die Gleichung 4/(x − 1) = k/(x + 2) mindestens eine Lösung?",
+    18, "20 - 2", "18",
+    "Über Kreuz: 4(x + 2) = k(x − 1), also (4 − k)x = −k − 8. Für k = 4 steht 0 · x = −12: keine Lösung. Für k = 0 folgt 4x = −8, also x = −2; das ist aber ausgeschlossen (Nenner x + 2), eine Scheinlösung. Für alle anderen k gibt es x = (−k − 8)/(4 − k), das weder 1 noch −2 ist. Von den 20 Zahlen von −5 bis 14 haben also 20 − 2 = 18 eine Lösung (alle außer 0 und 4).",
+    [B("20 - 1", "nur k = 4 als Zahl ohne Lösung gefunden und die Scheinlösung bei k = 0 übersehen"),
+     B("20", "geglaubt, dass sich für jedes k eine Lösung findet"),
+     B("20 - 3", "einen weiteren Wert von k ausgeschlossen, für den es doch eine Lösung gibt")], einheit="Zahlen"), lp=LP, idee="parameter_keine_loesung")
 neu(T, "ueber_kreuz", "korrektur", "darstellung", W(
     "Kim will die Gleichung 4/(x − 1) = 7/(x + 3) ohne Brüche und ohne Klammern schreiben und rechnet dazu über Kreuz. Welche Gleichung steht danach da?",
     "4x + 12 = 7x − 7",
@@ -108,7 +108,7 @@ neu(T, "ueber_kreuz", "korrektur", "umkehr", W(
     "4/(x − 2) = 2/(x − 4)",
     [("4/(x − 2) = 2/(x + 4)", "für x = 6 links 1 und rechts einen kleineren Wert; das Vorzeichen im rechten Nenner wurde nicht beachtet"),
      ("4/(x + 2) = 2/(x − 4)", "für x = 6 links einen kleineren Wert als rechts; das Vorzeichen im linken Nenner wurde nicht beachtet"),
-     ("4/(x − 4) = 2/(x − 2)", "die beiden Nenner vertauscht; für x = 6 steht links das Doppelte von rechts")],
+     ("4/(x − 4) = 2/(x − 2)", "die beiden Nenner vertauscht; für x = 6 steht links das Vierfache von rechts")],
     "Man setzt x = 6 ein. 4/(6 − 2) = 1 und 2/(6 − 4) = 1: Beide Seiten sind gleich, die erste Gleichung hat die Lösung 6. Bei den anderen steht links 4/(6 − 2) = 1 gegen 2/10, 4/8 gegen 2/2 und 4/2 gegen 2/4.",
     lambda: F(4, 6 - 2) == F(2, 6 - 4) and F(4, 6 - 2) != F(2, 6 + 4) and F(4, 6 + 2) != F(2, 6 - 4) and F(4, 6 - 4) != F(2, 6 - 2)), lp=LP, idee="gleichung_zur_loesung")
 neu(T, "ueber_kreuz", "korrektur", "mehrschritt", W(
@@ -153,12 +153,12 @@ neu(T, "ueber_kreuz", "sicherung", "darstellung", Z(
      B("15 + 5", "die Gesamtmenge 20 cl als Zugabe genommen")], einheit="cl"), lp=LP, idee="modell_aufstellen")
 # ───────── scheinloesung ─────────
 neu(T, "scheinloesung", "test", "transfer", Z(
-    "Für wie viele ganze Zahlen b von −3 bis 3 (einschließlich) hat die Gleichung (x + b)/(x − 4) = 3/(x − 4) + 1 keine Lösung?",
-    6, "7 - 1", "6",
-    "Beide Seiten mit (x − 4) malgenommen: x + b = 3 + (x − 4), also x + b = x − 1. Das x fällt weg, übrig bleibt b = −1. Für b = −1 ist die Gleichung für jedes x ≠ 4 wahr, es gibt unendlich viele Lösungen. Für jedes andere b steht eine falsche Aussage da, es gibt keine Lösung. Von den 7 Zahlen von −3 bis 3 ist nur b = −1 ausgenommen, also haben 6 keine Lösung.",
-    [B("7", "geglaubt, dass die Gleichung für jedes b ohne Lösung bleibt"),
+    "Für wie viele ganze Zahlen b von −9 bis 9 (einschließlich) hat die Gleichung (x + b)/(x − 4) = 3/(x − 4) + 1 keine Lösung?",
+    18, "19 - 1", "18",
+    "Beide Seiten mit (x − 4) malgenommen: x + b = 3 + (x − 4), also x + b = x − 1. Das x fällt weg, übrig bleibt b = −1. Für b = −1 ist die Gleichung für jedes x ≠ 4 wahr, es gibt unendlich viele Lösungen. Für jedes andere b steht eine falsche Aussage da, es gibt keine Lösung. Von den 19 Zahlen von −9 bis 9 ist nur b = −1 ausgenommen, also haben 18 keine Lösung.",
+    [B("19", "geglaubt, dass die Gleichung für jedes b ohne Lösung bleibt"),
      B("1", "b = −1 als einzigen Wert ohne Lösung gezählt, den Fall mit unendlich vielen Lösungen verwechselt"),
-     B("7 - 2", "zusätzlich den Wert b = 3 (Zahl im Zähler der rechten Seite) als Lösungsfall gezählt")], einheit="Zahlen"), lp=LP, idee="parameter_identitaet")
+     B("19 - 2", "zusätzlich den Wert b = 3 (Zahl im Zähler der rechten Seite) als Lösungsfall gezählt")], einheit="Zahlen"), lp=LP, idee="parameter_identitaet")
 neu(T, "scheinloesung", "korrektur", "darstellung", W(
     "Eine Bruchgleichung hat die Definitionsmenge ℚ \\ {−2; 3}. Nach dem Multiplizieren mit den Nennern und Umformen steht da x² = 9. Welche Aussage über die Lösungsmenge L stimmt?",
     "L = {−3}, denn von den beiden Zahlen mit dem Quadrat 9 gehört nur −3 zu D.",

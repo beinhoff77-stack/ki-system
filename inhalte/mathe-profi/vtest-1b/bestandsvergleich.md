@@ -9,10 +9,10 @@ Bestand je Einheit (themen + rollend): bruch.prozent und bruch.prozent_grundwert
 | prozentwert | 590 | „Doppelrabatt 40/25 %“, „30 % von 50 gegen 50 % von 30“ | 001 (mehrere Ganze, Lücken), 002 (zwei Wege, Entscheidung), 003 bis 007 anderer Zugriff; 002 als Hinweis in der README |
 | grundwert | 590 | `bruch.prozent_grundwert` („nach 35 % Rabatt 52 €“), „12 Kinder sind 8 %“ in anderer Zahl | 009 neu als Auswahl mit Überschlag, Fehlbetrag, gemeinsames Ganzes, Winkel zurück |
 | verstehen (prozent) | 590 | „50 % von 20 gegen 40 % von 30“, Wachstum über 100 % | 015 Anteil vom Anteil (Lücken), 018 Rückwärts bei 150 %; 018 als Hinweis |
-| definitionsmenge | 365 | `rollend-7` K8-V074 (a mit x = 3), `rollend-13` R8-V032 | 022 identisch auf D, 023 nie null, 024 a aus D; 027 Fehler mit x² |
-| ueber_kreuz | 365 | `rollend-7` K8-V074 | 029 Parameter k mit Einordnung statt a mit x = 3; 032 zwei echte Wege (Kreuzprodukt gegen Überlegung des Zählers) |
-| scheinloesung | 365 | „Welche Gleichung liefert x = 4, obwohl 4 nicht zu D gehört?“ | 036 Parameter b, 039 c aus Kürzen, 042 Bruch gleich null |
-| verhaeltnis | 365 | `groessen.verhaeltnisse` („3 : 5, je 4 dazu ergibt 2 : 3“, „Bonbons 2 : 3 : 4“) | 043 x in zwei Verhältnissen (neu, kein 3 : 5 mit +4), 045 Obstschale, 048 Mittelwert, 049 gemeinsames Glied (Hinweis) |
+| definitionsmenge | 365 (+ `terme.bruchterme`) | siehe Abschnitt „Einheit 20 nach Vorprüfung W1“ unten | je Aufgabe einzeln |
+| ueber_kreuz | 365 | siehe Abschnitt unten | je Aufgabe einzeln |
+| scheinloesung | 365 | siehe Abschnitt unten | je Aufgabe einzeln |
+| verhaeltnis | 365 + `groessen.verhaeltnisse` 230 + `groessen.indirekt` | siehe Abschnitt unten | je Aufgabe einzeln |
 | negativer_exponent (terme) | 591 | „Muster der Zweierpotenzen nach rechts“, „Ben: 10⁻⁴ größer als 10⁻²“ | 053 Zählen mit Grenze 1/50, 054 Begründung mit Basis 2, 055 Dezimalzahl zu Potenz, 056 Stücke (Hinweis) |
 | fehler_finden | 591 | Basis · Exponent (`potenzen_basis`), „5⁻² = −25“ | 057 Exponenten addiert, 060 Potenz von Summe, 061 Basis mal Hochzahl bei 4⁻², 063 Vorzeichen; 062 Hochzahl 0 (Hinweis) |
 | gross_wissenschaftlich | 295 | `rollend-8` K7-V028/V029, „Die Zahl 4,5 · 10ⁿ hat genau 11 Stellen“, „Welche Darstellung von … ist die wissenschaftliche?“ | 066 rückwärts vom Doppelten, 067 Nullen-Fehlvorstellung, 068 Bücher im Speicher: weder Ziffernzahl noch Auswahl der Schreibweise im Bestandsstil |
@@ -27,3 +27,57 @@ Bestand je Einheit (themen + rollend): bruch.prozent und bruch.prozent_grundwert
 Mit 0 Treffern im Werkzeug heißt „Abstand“ hier: andere Zahlen, anderer Kontext oder andere Frage; die Denkfigur selbst (Schema) kann bei einzelnen Aufgaben dieselbe sein und ist dort benannt.
 
 Fehlerberichtigung zur Vorprüfung 2: In der ersten Fassung stand bei `zusammengesetzt`, es gebe „kein Bestandsfünfeck“. Das ist falsch; das Fünfeck K7-V132 (`abbildungen.determinanten2`) und mehrere Übungen zu „Fünfeck aus Rechteck und Dreieck“ stehen im Bestand. Die frühere Aufgabe 110 war darum eine Bestandsdoppelung und ist ersetzt. Die Liste der Aufgaben mit gleicher Einsicht, aber anderer Form, steht im Abschnitt „Hinweise für die Gegenprüfung“ der README.
+
+## Einheit 20 (gleichungen.bruch) nach Vorprüfung W1
+
+**Was von Hand gelesen wurde (vollständig, nicht nur Nachbarschaft):** alle 325 Aufgaben von `inhalte/themen/gleichungen.bruch.json` (Zahlen „T n“ = Position n ab 0), alle Bruchgleichungs- und Verhältnisaufgaben aus `rollend-7` (K8-V067 bis V087), `rollend-11` (S3-V044 bis V048), `rollend-13` (R8-V045 bis V058); `rollend-15` enthält keine Datei dieser Einheit. Dazu alle Aufgaben von `inhalte/themen/groessen.verhaeltnisse.json` (Zahlen „V n“), die Definitionsmengen-Aufgaben von `terme.bruchterme`, die Aufgabentexte von `groessen.indirekt` und die Proportionalitätsaufgaben in `rollend-2/3/4/12/14`. Das Werkzeug (Bauskript und `tools/vtest_pruefen.py`) meldet 0 Treffer.
+
+Bei der Lektüre bestätigte Doppelungen der vorigen Fassung (zusätzlich zu den Befunden der Vorprüfung): alte 037 = V 36 (`groessen.verhaeltnisse`: Verhältnis 3 : 5, je 4 dazu, dann 2 : 3); alte 039 = V 147 (Handyfoto 6 cm × 10 cm, Poster 45 cm breit, Höhe gesucht); alte 041 nahe T 250 und `rollend-10` K9B-V038 (Fläche mit Faktor zum Quadrat). Alle drei sind ersetzt.
+
+| Kennung | Lernziel / Pool | nächstliegender Bestandskern | Unterschied |
+|---|---|---|---|
+| 022 | definitionsmenge / test | T 183 (2/x + 1 = 5/x, alle Glieder malnehmen); `terme.bruchterme` „Haben 1/(x − 2) und x/(x² − 2x) dieselbe Definitionsmenge?“ | Im Bestand wird keine Umformung auf ihre Wirkung auf D untersucht. Hier verkleinert das Addieren von 1/x die Definitionsmenge (die einzige Lösung 0 geht verloren), das Malnehmen vergrößert sie. |
+| 023 | definitionsmenge / korrektur | T 33 (a in 2/(x − a) mit D = ℚ \ {−1}), `rollend-7` K8-V074 | unverändert aus der vorigen Fassung (ohne Befund): Koeffizient 2 vor x, a aus der Nullstelle 7 |
+| 024 | definitionsmenge / korrektur | T 45 (Hüttenmiete), T 9, T 42, `terme.bruchterme` (Feier, Gastgeber) | Gleichung wird aus dem Text selbst aufgestellt; gefragt ist eine Grenze des sinnvollen Bereichs (beide Breiten positiv), nicht nur eine verbotene Zahl |
+| 025 | definitionsmenge / sicherung | T 38 („Kann eine Bruchgleichung die Definitionsmenge ℚ haben?“) | anderer Kern: Zusammenhang von Lösungsmenge und Definitionsmenge zweier Gleichungen, Urteil über eine allgemeine Aussage |
+| 026 | definitionsmenge / sicherung | T 7, T 46 („Wie viele Zahlen schließt D aus?“), T 47 | Grundmenge ℤ statt ℚ (die Nullstelle −1,5 zählt nicht), rückwärts: b aus einer vorgegebenen ausgeschlossenen Zahl; Grundmenge kommt im Bestand nicht vor |
+| 027 | ueber_kreuz / test | T 225 (a, damit (x + a)/(x − 5) = 3/(x − 5) keine Lösung hat), `rollend-7` K8-V081 | dort gleiche Nenner und ein einziger Fall (Scheinlösung); hier verschiedene Nenner und zwei Fälle verschiedener Art (gleiche Zähler ⇒ 0 · x = 49; Zähler 0 ⇒ verbotener Kandidat) |
+| 028 | ueber_kreuz / korrektur | T 81 (Zähler ersetzen, damit x = 4 Lösung ist), T 131, T 134 | keine Lösung vorgegeben; gesucht ist der Zähler, der dieselbe Lösung wie eine andere Gleichung liefert (Verhältnis der Zähler). Grenzfall: Wer erst x = −9,5 ausrechnet, rechnet wie T 131. |
+| 029 | ueber_kreuz / korrektur | T 104 (warum a · d = c · b), `rollend-7` K8-V071 (Kehrwert als Weg B bei 18/x = 3), T 274 | Vergleich Über-Kreuz gegen Kehrwert bei zwei Nennern mit x; gefragt ist, ob beide Wege erlaubt sind und warum (Zähler nicht 0) |
+| 030 | ueber_kreuz / sicherung | T 99, T 107, T 125, T 144 (Gleichungen, bei denen x² wegfällt, lösen) | Aussage über alle Gleichungen dieser Form, Gegenbeispiel ohne Lösung (4 = 6) |
+| 031 | ueber_kreuz / sicherung | T 130 („Über Kreuz geht nur, wenn auf jeder Seite genau ein Bruch steht“) | gleiche Regel, hier angewandt auf vier Gleichungen, darunter eine mit Summe im Zähler (erlaubt); Schema-Aufgabe des Lernziels |
+| 032 | scheinloesung / test | T 224 ((x² − 1)/(x − 1) = 2), Bestandskern (x² − a²)/(x − a) = c | andere Gleichung (Ausklammern von x, Bruch = −3), gefragt ist der Schritt, an dem die Einschränkung verloren geht (zwei Wege, Probe in der gekürzten Gleichung) |
+| 033 | scheinloesung / korrektur | T 180 (2/(x − 3) − 1/x = 6/(x² − 3x) lösen), T 225, K8-V081 | rückwärts: Zahl c so bestimmen, dass eine vorgegebene verbotene Zahl als Kandidat entsteht, zwei Fälle (2 und 0) |
+| 034 | scheinloesung / korrektur | T 229 (x/(x − 2) = 2/(x − 2) + 3), `rollend-7` K8-V079 (Kandidat und Zahl der Lösungen) | Zahlenrätsel, Gleichung selbst aufstellen; nur die Anzahl ist gefragt; Schema-Aufgabe des Lernziels |
+| 035 | scheinloesung / sicherung | T 192, T 199, T 203 („Warum ist x = … keine Lösung?“) | Urteil über allgemeine Regeln aus Beispielen (nie, immer, nur negativ), Gegenbeispiel finden |
+| 036 | scheinloesung / sicherung | `rollend-13` R8-V053 (Graphen von x/(x − 2) und 2/(x − 2)), T 233 ((x − 4)/(x − 4) = 1) | Differenz der beiden Seiten ist konstant −1; der Bruch (x − 3)/(x − 3) tritt nur als Zwischenschritt auf, gefragt sind Differenz und Zahl der gemeinsamen Punkte |
+| 037 | verhaeltnis / test | T 279 (Sirup zugeben: 1 : 4 → 1 : 2), V 73 (Wasser zugeben), V 71 | dort kommt ein reiner Bestandteil dazu; hier eine zweite Mischung, beide Bestandteile wachsen verschieden; kein „a : b, n dazu, dann c : d“ |
+| 038 | verhaeltnis / korrektur | V 45, V 58 (zu beiden Gliedern dieselbe Zahl addieren), T 243 (Rezept), Altersaufgaben anderer Einheiten (Summe der Alter) | Modellwahl: dieselbe Angabe 2 : 3 einmal additiv (Alter), einmal multiplikativ (Rezept) |
+| 039 | verhaeltnis / korrektur | V 16 (Anteil aus Verhältnis 3 : 4) | rückwärts vom halbierten Anteil zum neuen Verhältnis; Fehlvorstellung „Wasser verdoppeln“ |
+| 040 | verhaeltnis / sicherung | `groessen.indirekt` („Doppelt so schnell heißt halb so lange“, indirekt proportionale Wertepaare) | kein fehlender Wert, sondern das umgekehrte Verhältnis mit Begründung; Ablenker „man braucht die Strecke“ |
+| 041 | verhaeltnis / sicherung | V 16, V 34 (Anteil als gekürzter Bruch) | unverändert aus der vorigen Fassung (Ganzes : Teil aus Teil : Teil); Schema-Aufgabe des Lernziels |
+
+### Nachtrag nach Vorprüfung W1-2 (geänderte und neue Aufgaben)
+
+Vorher gelesen: wie oben, dazu erneut `terme.bruchterme` (Definitionsmenge, Kürzen), `groessen.verhaeltnisse` (Prozent und Verhältnis) und `groessen.indirekt`; Werkzeug 0 Treffer (Zwischenfassungen von 033 und 037 trafen über gleiche Zahlenmenge und gleichen Sollwert T 163, T 171, T 263 und Aufgaben fremder Einheiten; Zahlen geändert, 035 vorsorglich ebenfalls).
+
+| Kennung | nächstliegender Bestandskern | Unterschied |
+|---|---|---|
+| 022 | T 183; BT 36 | nur noch Leas Umformung (Addieren von 1/x): Lösung geht verloren, D schließt 3 Zahlen aus |
+| 026 | T 7, T 46 („Wie viele Zahlen schließt D aus?“) | Term nur in Worten gegeben (Darstellungswechsel), Vergleich Grundmenge ℤ gegen ℚ; Grundmenge kommt im Bestand nicht vor |
+| 027 | T 225, K8-V081 | nur noch der Über-Kreuz-Fall a = 7 (a ≠ 0 vorgegeben) und eine Anwendung (a = 14); keine Überschneidung mehr mit 033 |
+| 028 | T 81, T 131, T 134 | allgemein mit p, q: Ausrechnen einer Lösung ist nicht möglich, nur das Zählerverhältnis entscheidet |
+| 030 | T 99, T 107, T 144 | richtige Aussage jetzt „nie mehr als eine Lösung“ (mit a ≠ b, c ≠ d, b ≠ d) |
+| 032 | T 224; BT 36 (Nenner x² − 2x) | Nenner x² − 4x, Bruch = −1; gefragt sind Lösungszahl der gekürzten und der Ausgangsgleichung und die Größe von D, ohne Hinweis auf die Richtung |
+| 033 | K8-V081, T 180 | ein Wert (c = 28) statt zwei; Hauptnenner x(x − 4) mit zwei Brüchen links |
+| 034 | T 229, T 222 (Bruch + Zahl = Bruch mit gleichem Nenner); T 178 (zwei Nenner, Produkt rechts, Lösung 0) | Rätsel mit zwei verschiedenen linearen Nennern und ihrem Produkt; Kandidat 2 verboten |
+| 035 | T 192, T 199 (warum keine Lösung) | Fehler-Detektiv: alle Rechnungen stimmen, der Denkfehler ist die Probe in der umgeformten Gleichung; im Bestand nicht gefunden |
+| 036 | T 179, T 180 (Lösungsmenge angeben) | für jede Zahl c gleichwertige Aussage ohne Brüche: Bedingungen aus D gehören dazu; nicht durch Ausrechnen eines Einzelfalls lösbar |
+| 037 | T 279, V 73 | Zahlen vereinfacht (200 ml A, B 1 : 3, Ergebnis 400 ml) |
+| 041 | V 72 (Teil als Prozent des Ganzen), `bruch.prozent` | Verhältnis zweier Größen in einen relativen Unterschied übersetzen, Bezugswert entscheidet (25 % gegen 20 %) |
+
+### Nachtrag nach Vorprüfung W1-3
+
+- 034 (Zahlenrätsel, Schema-Aufgabe): nächste Bestandskerne sind auch T 180 (2/(x − 3) − 1/x = 6/(x(x − 3)), L = { }) und T 198 (1/(x − 1) + 1/(x + 1) = 2/(x² − 1), L = { }). Rechnung und Frage sind dort gleich, neu ist nur die Einkleidung als Rätsel. Das steht auch in der `abgrenzung` von scheinloesung.
+- 035: Nenner jetzt x² + 3x mit Scheinlösung −3. Damit hat 035 einen anderen Nenner und eine andere Scheinlösung als 032 und 033.
+- Kennungen in ueber_kreuz getauscht: Test ist jetzt 027 (allgemein mit p, q), Korrektur ist 028 (a = 7, a = 14).

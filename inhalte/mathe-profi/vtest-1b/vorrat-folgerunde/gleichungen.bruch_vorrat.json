@@ -1,0 +1,535 @@
+{
+ "stand": "2026-11-29",
+ "runde": "vtest-1b",
+ "kuerzel": "VT1B",
+ "titel": "gleichungen.bruch",
+ "klasse": {
+  "gym_by": 8,
+  "rs_by": 8,
+  "ib_myp": 4
+ },
+ "themen": [
+  "gleichungen.bruch"
+ ],
+ "hinweis": "Vorrat für eine Folgerunde: geprüfte Aufgaben, die nach der Entscheidung „je Lernziel 5 Aufgaben“ aus der Runde genommen wurden (Schema, doppelte Denkfigur oder Bestandsnähe). Nicht Teil der Runden-JSON, vom Prüfwerkzeug nicht gezählt. Vor Aufnahme neu prüfen.",
+ "aufgaben": [
+  {
+   "kennung": "VT1B-VR01",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "definitionsmenge",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "Die Übungen bestimmen D an einer gegebenen Gleichung; hier wird untersucht, wie Umformungen D verändern, wie D von der Lösungsmenge und von der Grundmenge abhängt und wie sich D von den sachlich sinnvollen Werten unterscheidet.",
+   "idee": "menge_zuordnen",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "D = ℚ \\ {−16; 0; 16}",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x² − 16 = 0 so gelesen, als sei x = 16 und x = −16 gemeint; gesucht sind aber die Zahlen, deren Quadrat 16 ist"
+    },
+    {
+     "index": 2,
+     "antwort": "D = ℚ \\ {−4; 4}",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den zweiten Nenner x nicht beachtet; für x = 0 ist 1/x nicht definiert"
+    },
+    {
+     "index": 3,
+     "antwort": "D = ℚ \\ {0; 4}",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von x² = 16 nur die Lösung 4 genommen und −4 vergessen"
+    }
+   ],
+   "regel": "id.algebra.erlaubte_zahlen",
+   "aufgabe": {
+    "l": "definitionsmenge",
+    "t": "definitionsmenge",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Menge ist die Definitionsmenge der Gleichung 4/(x² − 16) + 1/x = 2?"
+    },
+    "a": [
+     "D = ℚ \\ {−4; 0; 4}",
+     "D = ℚ \\ {−16; 0; 16}",
+     "D = ℚ \\ {−4; 4}",
+     "D = ℚ \\ {0; 4}"
+    ],
+    "o": {
+     "index": 0
+    },
+    "w": "x² − 16 = (x − 4)(x + 4) ist 0 für x = 4 und x = −4; der Nenner x ist 0 für x = 0. Alle drei Zahlen müssen ausgeschlossen werden."
+   }
+  },
+  {
+   "kennung": "VT1B-VR02",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "definitionsmenge",
+   "pool": "sicherung",
+   "typ": "einkleidung",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "Die Übungen bestimmen D an einer gegebenen Gleichung; hier wird untersucht, wie Umformungen D verändern, wie D von der Lösungsmenge und von der Grundmenge abhängt und wie sich D von den sachlich sinnvollen Werten unterscheidet.",
+   "idee": "text_zu_D",
+   "antwortform": "zahl",
+   "loesung_rechnung": "9 - 5",
+   "fehlbilder": [
+    {
+     "antwort": 11,
+     "rechnung": "13 - 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Nenner beachtet und 0 und 5 ausgeschlossen, aber nicht verlangt, dass beide Zeiten positiv sind"
+    },
+    {
+     "antwort": 5,
+     "rechnung": "9 - 5 + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 5 mitgezählt, obwohl die zweite Druckzeit dann 0 Minuten wäre"
+    },
+    {
+     "antwort": 13,
+     "rechnung": "13",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "keine Bedingung beachtet und alle Zahlen gezählt"
+    }
+   ],
+   "regel": "id.algebra.erlaubte_zahlen",
+   "aufgabe": {
+    "l": "definitionsmenge",
+    "t": "definitionsmenge",
+    "p": "sicherung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Drucker allein braucht x Minuten für einen Auftrag, ein zweiter braucht 5 Minuten weniger, also x − 5 Minuten. Zusammen schaffen sie den Auftrag in 3 Minuten, das gibt die Gleichung 1/x + 1/(x − 5) = 1/3. Beide Druckzeiten müssen positive Zeiten sein. Wie viele ganze Zahlen von −3 bis 9 (einschließlich) kommen für x infrage?"
+    },
+    "o": {
+     "wert": 4,
+     "einheit": "Zahlen"
+    },
+    "c": "9 - 5",
+    "w": "Die Nenner x und x − 5 dürfen nicht 0 sein, also fallen 0 und 5 weg. Das reicht hier aber nicht: Eine Druckzeit ist eine positive Zahl. Aus x > 0 und x − 5 > 0 folgt x > 5. Von den ganzen Zahlen −3 bis 9 erfüllen das nur 6, 7, 8 und 9, also 4 Zahlen. Die Definitionsmenge allein (11 Zahlen) beschreibt nur, wann die Gleichung einen Sinn hat, nicht, wann die Aufgabe einen Sinn hat."
+   }
+  },
+  {
+   "kennung": "VT1B-VR03",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "ueber_kreuz",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "Die Übungen lösen mit dem Über-Kreuz-Verfahren; hier wird entschieden, wann das Verfahren direkt erlaubt ist, was über Kreuz aus Zählern und Nennern folgt und wann eine solche Gleichung keine Lösung hat.",
+   "idee": "gleichung_zur_loesung",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "4/(x − 2) = 2/(x + 4)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "für x = 6 links 1 und rechts einen kleineren Wert; das Vorzeichen im rechten Nenner wurde nicht beachtet"
+    },
+    {
+     "index": 2,
+     "antwort": "4/(x + 2) = 2/(x − 4)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "für x = 6 links einen kleineren Wert als rechts; das Vorzeichen im linken Nenner wurde nicht beachtet"
+    },
+    {
+     "index": 3,
+     "antwort": "4/(x − 4) = 2/(x − 2)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Nenner vertauscht; für x = 6 steht links das Vierfache von rechts"
+    }
+   ],
+   "regel": "rr.waage",
+   "aufgabe": {
+    "l": "ueber_kreuz",
+    "t": "ueber_kreuz",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche der folgenden Gleichungen hat die Lösung x = 6?"
+    },
+    "a": [
+     "4/(x − 2) = 2/(x − 4)",
+     "4/(x − 2) = 2/(x + 4)",
+     "4/(x + 2) = 2/(x − 4)",
+     "4/(x − 4) = 2/(x − 2)"
+    ],
+    "o": {
+     "index": 0
+    },
+    "w": "Man setzt x = 6 ein. 4/(6 − 2) = 1 und 2/(6 − 4) = 1: Beide Seiten sind gleich, die erste Gleichung hat die Lösung 6. Bei den anderen steht links 4/(6 − 2) = 1 gegen 2/10, 4/8 gegen 2/2 und 4/2 gegen 2/4."
+   }
+  },
+  {
+   "kennung": "VT1B-VR04",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "ueber_kreuz",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "Die Übungen lösen mit dem Über-Kreuz-Verfahren; hier wird entschieden, wann das Verfahren direkt erlaubt ist, was über Kreuz aus Zählern und Nennern folgt und wann eine solche Gleichung keine Lösung hat.",
+   "idee": "warum_ueber_kreuz",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Kim irrt, denn über Kreuz hätte 3 · x = 5 · (x + 2) dastehen müssen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Faktoren beim Über-Kreuz-Multiplizieren falsch zugeordnet, obwohl Kims Schritt stimmt"
+    },
+    {
+     "index": 2,
+     "antwort": "Kim irrt, denn über Kreuz gilt nur, wenn beide Nenner gleich sind.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "geglaubt, über Kreuz sei nur bei gleichen Nennern erlaubt"
+    },
+    {
+     "index": 3,
+     "antwort": "Kim irrt, denn man muss zuerst alle Brüche addieren und dann malnehmen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Addieren von Brüchen mit dem Malnehmen beim Auflösen von Gleichungen verwechselt"
+    }
+   ],
+   "regel": "rr.waage",
+   "aufgabe": {
+    "l": "ueber_kreuz",
+    "t": "ueber_kreuz",
+    "p": "sicherung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim löst 3/x = 5/(x + 2) und schreibt: „Also gilt 3 · (x + 2) = 5 · x.“ Welche Aussage über Kims Schritt stimmt?"
+    },
+    "a": [
+     "Kim irrt, denn über Kreuz hätte 3 · x = 5 · (x + 2) dastehen müssen.",
+     "Kim hat recht, denn mit x · (x + 2) malgenommen kürzt sich auf jeder Seite ein Nenner.",
+     "Kim irrt, denn über Kreuz gilt nur, wenn beide Nenner gleich sind.",
+     "Kim irrt, denn man muss zuerst alle Brüche addieren und dann malnehmen."
+    ],
+    "o": {
+     "index": 1
+    },
+    "w": "Multipliziert man beide Seiten mit x · (x + 2), erhält man links 3/x · x · (x + 2) = 3 · (x + 2) und rechts 5/(x + 2) · x · (x + 2) = 5 · x. Das ist genau das Kreuzprodukt. Voraussetzung ist, dass x und x + 2 nicht 0 sind. Probe mit x = 3: 3/3 = 1 und 5/5 = 1."
+   }
+  },
+  {
+   "kennung": "VT1B-VR05",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "scheinloesung",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht (nahe Bestand: T 180, T 198, T 224, K8-V081 – dort wird nur gelöst bzw. ein Parameter bestimmt), eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
+   "idee": "kandidaten_gegen_D",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "L = {−3; 3}, denn beide Zahlen erfüllen die Gleichung x² = 9.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Gleichung nach dem Umformen gelöst, aber die Zahlen nicht mit D verglichen"
+    },
+    {
+     "index": 1,
+     "antwort": "L = {3}, denn x² = 9 ergibt x = 3.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die zweite Lösung −3 vergessen und die verbotene Zahl 3 als Lösung genommen"
+    },
+    {
+     "index": 3,
+     "antwort": "L = { }, denn die Zahl 3 ist ausgeschlossen und deshalb gibt es keine Lösung.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine ausgeschlossene Zahl so gewertet, als sei die ganze Gleichung unlösbar; die zweite Zahl −3 ist erlaubt"
+    }
+   ],
+   "regel": "id.algebra.erlaubte_zahlen",
+   "aufgabe": {
+    "l": "scheinloesung",
+    "t": "scheinloesung",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Bruchgleichung hat die Definitionsmenge ℚ \\ {−2; 3}. Nach dem Multiplizieren mit den Nennern und Umformen steht da x² = 9. Welche Aussage über die Lösungsmenge L stimmt?"
+    },
+    "a": [
+     "L = {−3; 3}, denn beide Zahlen erfüllen die Gleichung x² = 9.",
+     "L = {3}, denn x² = 9 ergibt x = 3.",
+     "L = {−3}, denn von den beiden Zahlen mit dem Quadrat 9 gehört nur −3 zu D.",
+     "L = { }, denn die Zahl 3 ist ausgeschlossen und deshalb gibt es keine Lösung."
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "Aus x² = 9 folgen die Kandidaten x = 3 und x = −3. Die Zahl 3 gehört nicht zu D = ℚ \\ {−2; 3}: Für x = 3 wäre ein Nenner 0 (Scheinlösung). Die Zahl −3 gehört zu D und bleibt Lösung: L = {−3}."
+   }
+  },
+  {
+   "kennung": "VT1B-VR06",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "scheinloesung",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht (nahe Bestand: T 180, T 198, T 224, K8-V081 – dort wird nur gelöst bzw. ein Parameter bestimmt), eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
+   "idee": "fehler_nicht_alle_glieder",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "1",
+    "2"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "1 + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den zweiten Satz „Das stimmt für jede Zahl“ für den Fehler gehalten"
+    },
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Schlusszeile genannt, weil dort „alle Zahlen“ steht"
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die verbotene Zahl 1 als Lösung genommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "rechnung": "7 - 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aus 2x + 3 = 7 nur 7 − 3 gerechnet und nicht durch 2 geteilt"
+    }
+   ],
+   "regel": "id.algebra.erlaubte_zahlen",
+   "aufgabe": {
+    "l": "scheinloesung",
+    "t": "scheinloesung",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Ina löst 5/(x − 1) + 2 = 7/(x − 1) so: Zeile 1: Mal (x − 1) gibt 5 + 2 = 7. Zeile 2: Das stimmt für jede Zahl. Zeile 3: Also sind alle Zahlen Lösung. In welcher Zeile steckt der erste Fehler, und welche Zahl ist die einzige Lösung der Gleichung?",
+     "schablone": "Fehler in Zeile □, einzige Lösung: x = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      1,
+      2
+     ]
+    },
+    "c": [
+     "1",
+     "2"
+    ],
+    "w": "Beim Malnehmen mit (x − 1) muss jedes Glied malgenommen werden, auch die 2: 5 + 2(x − 1) = 7. Das gibt 2x + 3 = 7, also x = 2. Die 2 liegt in D = ℚ \\ {1}. Probe: 5/1 + 2 = 7 und 7/1 = 7. Zeile 1 ist der Fehler; Zeile 2 und 3 folgen daraus."
+   }
+  },
+  {
+   "kennung": "VT1B-VR07",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "verhaeltnis",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "Die Übungen lösen eine Verhältnisgleichung; hier wird zwischen additivem und multiplikativem Modell gewählt, zwischen Verhältnis und Anteil gewechselt und mit Mischungen und umgekehrten Verhältnissen argumentiert.",
+   "idee": "anteil_aus_verhaeltnis",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "3/5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Verhältnis Rot : Blau als Anteil an der Mischung gelesen; die 5 Teile Blau gehören nicht zum Rot"
+    },
+    {
+     "index": 1,
+     "antwort": "5/8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anteil des Blau genommen statt des Rot"
+    },
+    {
+     "index": 2,
+     "antwort": "3/2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Rot durch die Differenz 5 − 3 geteilt"
+    }
+   ],
+   "regel": "rr.verhaeltnis",
+   "aufgabe": {
+    "l": "verhaeltnis",
+    "t": "verhaeltnis",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "In einer Farbmischung verhalten sich die roten zu den blauen Teilen wie 3 : 5. Welchen Anteil der ganzen Mischung macht das Rot aus?"
+    },
+    "a": [
+     "3/5",
+     "5/8",
+     "3/2",
+     "3/8"
+    ],
+    "o": {
+     "index": 3
+    },
+    "w": "Das Verhältnis 3 : 5 vergleicht die Teile Rot und Blau. Die ganze Mischung hat 3 + 5 = 8 Teile, davon sind 3 Teile rot. Der Anteil Rot ist also 3/8 (37,5 %). Das Blau macht 5/8 aus."
+   }
+  },
+  {
+   "kennung": "VT1B-VR08",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "verhaeltnis",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
+   "abgrenzung": "Die Übungen lösen eine Verhältnisgleichung; hier wird zwischen additivem und multiplikativem Modell gewählt, zwischen Verhältnis und Anteil gewechselt und mit Mischungen und umgekehrten Verhältnissen argumentiert.",
+   "idee": "fehler_aussen_innen",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2",
+    "4 * 18 / 6"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Schlusszeile genannt, weil dort der falsche Wert 27 steht"
+    },
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "rechnung": "1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zuordnung der Außenglieder in Zeile 1 für falsch gehalten"
+    },
+    {
+     "luecke": 2,
+     "antwort": 27,
+     "rechnung": "6 * 18 / 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie Lena x mit 4 gekreuzt: 6 · 18 : 4"
+    },
+    {
+     "luecke": 2,
+     "antwort": 20,
+     "rechnung": "6 + 18 - 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "additiv gerechnet: 6 + 18 − 4"
+    },
+    {
+     "luecke": 2,
+     "antwort": 108,
+     "rechnung": "6 * 18",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 6 · 18 gerechnet und nicht geteilt"
+    }
+   ],
+   "regel": "rr.verhaeltnis",
+   "aufgabe": {
+    "l": "verhaeltnis",
+    "t": "verhaeltnis",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Lena löst die Verhältnisgleichung 4 : x = 6 : 18 so: Zeile 1: Außenglieder sind 4 und 18, Innenglieder sind x und 6. Zeile 2: Also 4 · x = 6 · 18. Zeile 3: Also x = 108 : 4 = 27. In welcher Zeile steckt der erste Fehler, und welchen Wert hat x richtig?",
+     "schablone": "Fehler in Zeile □, richtig: x = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      2,
+      12
+     ]
+    },
+    "c": [
+     "2",
+     "4 * 18 / 6"
+    ],
+    "w": "Außenglieder mal Außenglieder = Innenglieder mal Innenglieder. Zeile 1 stimmt: Außenglieder 4 und 18, Innenglieder x und 6. Also gilt 4 · 18 = x · 6, das heißt 72 = 6x und x = 12 (Zeile 2 ist der Fehler: Lena kreuzt x mit 4). Probe: 4 : 12 = 1 : 3 = 6 : 18."
+   }
+  }
+ ]
+}

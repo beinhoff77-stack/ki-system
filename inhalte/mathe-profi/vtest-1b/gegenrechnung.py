@@ -89,7 +89,7 @@ NEU = {
     "Für wie viele Zahlen ist die Gleichung 7/(2x − 6)": lambda: d2_ausgeschlossen(),
     "Wie viele der folgenden drei Gleichungen": lambda: s3_zahl(),
     "Wie viele ganze Zahlen von −2 bis 5": lambda: s6_zahl(),
-    "Das Dreieck ABC hat die Ecken A(1|1), B(9|1) und C(12|6)": lambda: flaeche([(1, 1), (9, 1), (12, 6)]),
+    "Das Dreieck ABC hat die Ecken A(1|1), B(9|1) und C(12|6)": lambda: 11 * 5 - flaeche([(1, 1), (9, 1), (12, 6)]),
     "Der Grundriss eines Pavillons": lambda: flaeche([(0, 0), (8, 0), (8, 5), (4, 8), (0, 5)]),
     "Das Viereck ABCD hat die Ecken A(0|0), B(6|0), C(6|4)": lambda: flaeche([(0, 0), (6, 0), (6, 4), (0, 2)]),
     "Ein Händler erhöht einen Preis um 40 %": lambda: F(140) * F(75, 100),

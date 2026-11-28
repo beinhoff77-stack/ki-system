@@ -47,7 +47,7 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 
 - VT2-029 (test): „für jede positive Zahl x“; für x > 0 sind alle Seiten positiv (Quadratseite 2x + 4). Der Koeffizientenvergleich bleibt gültig, weil die Gleichheit für unendlich viele x gilt; Lösung a = 4 eindeutig.
 - VT2-030 (korrektur): Zeilen 1 und 2 stimmen, erster Fehler eindeutig in Zeile 3; jede Möglichkeit nennt eine andere Zeile.
-- VT2-031 (korrektur): 3x + 2 = 5x genau für x = 1 (nachgerechnet für −50 … 50); die Möglichkeit „x = 0 und x = 1“ ist an x = 0 widerlegt (2 gegen 0).
+- VT2-031 (korrektur): Jedes mögliche neue Glied ist zu einem vorhandenen gleichartig (a ≠ 0); für alle a von −20 bis 20 und alle drei Arten nachgezählt: 2 bis 3 Glieder.
 - VT2-032 (sicherung): Die x-Glieder heben sich für jedes x auf; die große Zahl 987 654 macht Einsetzen von Hand unbequem, ändert aber nichts am Wert 6.
 - VT2-033 (sicherung): Änderung −1 für jedes Ausgangspaar (a, b) nachgerechnet; gefragt ist „um wie viel kleiner“, die Antwort 1 ist positiv.
 
@@ -57,14 +57,14 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 - VT2-035 (korrektur): Erster Fehler in Zeile 2, Zeile 3 enthält nur den Folgefehler; Fehlbild „Zeile 3“ als eigener Fall.
 - VT2-036 (korrektur): Das Pfand wird vom Preis abgezogen (steht im Text); für x < 3 bekäme Lisa Geld zurück, auch dann gilt 50 − (x − 3).
 - VT2-037 (sicherung): Bildungsregel der Terme ausdrücklich beschrieben; gerade Nummern ergeben 1, ungerade x − 1 (rekursiv nachgerechnet).
-- VT2-038 (sicherung): −(x − 7) = 7 − x für alle x (−30 … 30 geprüft); Bens Einschränkung an x = 10 widerlegt.
+- VT2-038 (sicherung): a und b verschieden aus 1 … 5 (steht im Text); alle 20 Paare ergeben 8 Werte von 16 bis 24 ohne 20.
 
 ## terme.umformen / aequivalenz
 
 - VT2-039 (test): Beide Terme haben ausdrücklich die Form a · x + b; nur dann genügen zwei Einsetzungen. Der Lösungsweg nennt das Gegenbeispiel x² und 3x − 2 (gleich bei 1 und 2), damit die Einsicht nicht übertragen wird.
-- VT2-040 (korrektur): Lenas Term gibt schon bei n = 1 einen falschen Wert; Mias und Bens Term für n = 1 … 39 gleich der Musterzahl.
+- VT2-040 (korrektur): Alle vier Zählweisen zählen richtig (gleichwertige Terme, für n = 1 … 29 geprüft); eindeutig ist nur, welche zum Aufbau 4 + 3 · (n − 1) passt.
 - VT2-041 (korrektur): Das Ergebnis (2x + k) : 2 − x = k : 2 hängt nicht von x ab; k = 20 eindeutig, Brüche treten bei ungeraden x nicht auf, weil 2x + 20 gerade ist.
-- VT2-042 (sicherung): 3(x + 4) − x = 2x + 12 ist für jedes x um 3 größer als 2x + 9; die Lösung 0 ist eine erlaubte ganze Zahl.
+- VT2-042 (sicherung): Fallunterscheidung über (a − 2) · x + (9 − b) für a von −5 bis 5, b von −9 bis 19 und x von −60 bis 60 nachgeprüft; das Beispiel a = 3, b = 4 (x = −5) im Fehlbild ist ganzzahlig.
 - VT2-043 (sicherung): sechs Terme, Paare ohne Reihenfolge gezählt (A–B, A–C, B–C, D–E); F ist zu keinem gleichwertig.
 
 ## terme.umformen_teil2 / ausklammern
@@ -135,40 +135,40 @@ Zu jeder Aufgabe ein Satz: welcher Sonderfall geprüft wurde und wie er behandel
 
 ## zahlen.natuerlich / strahl_eintragen
 
-- VT2-095 (test): Skala ohne Nullpunkt; 1 cm = 200, beide Antworten ganzzahlig (11 cm, 3 000).
+- VT2-095 (test): „dieselben zwei Zahlen“ steht im Text; der Unterschied 300 ist auf beiden Strahlen gleich, 300 : 4 = 75 ganzzahlig.
 - VT2-096 (korrektur): Für 200 Strichzahlen geprüft, dass das Doppelte nie auf einem Strich liegt; die Beschriftung 300, 500, 700, … steht im Text.
-- VT2-097 (korrektur): Die Lage der 0 ist absichtlich nicht angegeben (der Abstand hängt nur vom Unterschied ab); 12 cm gegen 3 cm.
-- VT2-098 (sicherung): Ränder 0 und 1 200 ausgeschlossen (steht im Text); nur 600 liegt auf beiden Teilungen.
+- VT2-097 (korrektur): Für alle Zehnerzahlen 10 … 1 000 nachgerechnet: Lenas Marke liegt immer genau 10 zu weit links.
+- VT2-098 (sicherung): Ränder 0 und 12 000 ausgeschlossen; gemeinsame Striche alle 600, also 19; Auflisten aller 59 bzw. 79 Striche ist absichtlich unbequem.
 - VT2-099 (sicherung): Die Abstände sind gleich groß (steht im Text), die Beschriftung 0, 10, 100, 1 000 wächst „regelmäßig“ um das Zehnfache – genau das ist die Fehlvorstellung.
 
 ## zahlen.natuerlich / runden_regel
 
-- VT2-100 (test): Zahlen 1 bis 100 einschließlich; die 5 ergibt 10 gegen 0 und zählt nicht.
+- VT2-100 (test): Zahlen 1 bis 100 einschließlich; der Hinweis „auch 0 kann herauskommen“ steht im Text (B3); die 5 ergibt 10 gegen 0 und zählt nicht.
 - VT2-101 (korrektur): Höchstabweichung 50 bei 4 950 (Aufrunden ab 5), über 0 … 19 999 geprüft.
 - VT2-102 (korrektur): Zeile 1 stimmt; erster Fehler in Zeile 2.
-- VT2-103 (sicherung): Die drei Fälle stehen in der Frage; Beispiele 64 000, 66 000, 60 000 im Lösungsweg und in den Fehlbildern.
-- VT2-104 (sicherung): Monotonie für a < b < a + 120, a < 2 000 geprüft; Gleichheit an 4 760 und 4 770.
+- VT2-103 (sicherung): Die drei Fälle stehen in der Frage; ein Ablenker ist ebenfalls eine Sammel-Aussage („Alle drei Fälle … nur über 100 000“), widerlegt an 3 000, 6 000, 10 000.
+- VT2-104 (sicherung): Monotonie für a < b < a + 120, a < 2 000 geprüft; zwei Möglichkeiten sind zweiteilig (B6).
 
 ## zahlen.natuerlich / runden_sinnvoll
 
 - VT2-105 (test): Länge ganzzahlig in Metern (steht im Text), Bereich 25 … 34 m; Rest unter 3 m zählt nicht.
 - VT2-106 (korrektur): 1 000 : 36 = 27 Rest 28 ohne Dezimalbruch; A abrunden, B aufrunden.
 - VT2-107 (korrektur): 22 817 auf Tausender 23 000, auf Zehntausender 20 000; beide richtig.
-- VT2-108 (sicherung): Abweichungen 108 und 48 sind verschieden, das erste Feld verrät das zweite nicht.
-- VT2-109 (sicherung): Alle vier Zahlen haben die Hunderterziffer 4 (Abrunden); auch die gerundete genaue Summe 14 000 trifft 13 790 nicht, deshalb ist „erst addieren, dann runden, dann stimmt es genau“ falsch.
+- VT2-108 (sicherung): Keiner der Faktoren ist eine Zehnerzahl (steht im Text), also wird Leas Schätzung sicher größer; für alle Faktoren 11 … 59 geprüft. Tom: Beispiele für zu groß (18 · 11) und zu klein (12 · 19).
+- VT2-109 (sicherung): Alle vier Zahlen haben die Hunderterziffer 4 (Abrunden); der Ablenker „verrechnet, 14 000“ hat ein falsches Urteil (B7).
 
 ## zahlen.natuerlich / roemisch_schreiben
 
-- VT2-110 (test): Beide Schreibweisen im Text festgelegt („möglichst wenige Zeichen“ bei Art 1); Bereich 1 bis 90, damit die größte Zahl nicht zufällig richtig ist. Durch Aufzählen: 49 spart als einzige 5 Zeichen.
+- VT2-110 (test): Kurzer Text mit Beispielen statt Regelwerk (B1); für 10 … 99 nachgezählt: genau 49 und 94 sparen 5 Zeichen.
 - VT2-111 (korrektur): Regeln ausgeschrieben; nur VC verstößt (V darf nicht vor C).
-- VT2-112 (korrektur): Beispiel (XII > X) und Gegenbeispiel (VIII < L) in der richtigen Möglichkeit, beide ohne Subtraktionspaar.
-- VT2-113 (sicherung): Stufenweise Schreibweise, nur M für Tausender, höchstens dreimal, kein Zeichen über 1 000 – alles im Text; damit ist 3 999 die größte Zahl (4 000 bräuchte MMMM).
+- VT2-112 (korrektur): Gegenbeispiel XVIII → XIX in der richtigen Möglichkeit; auch unter 10 gibt es Fälle (VIII → IX), der Ablenker „recht bei Zahlen unter 10“ ist damit widerlegt.
+- VT2-113 (sicherung): Nur Regeln im Text, keine Bauanleitung (A3); „V, L, D höchstens einmal“ und „der Größe nach“ schließen DD und MMMCMM aus. 3 999.
 - VT2-114 (sicherung): Regeln ausgeschrieben (B11); ohne „höchstens dreimal“ wäre schon 19 = XVIIII sechsstellig.
 
 ## zahlen.natuerlich / dualsystem
 
-- VT2-115 (test): Mias Fehler ist an 110 gezeigt (3 statt 6), diese Zahl ist keine Lösung. Für 1 … 31 nachgezählt: 10 Spiegelzahlen; Zahlen mit Endziffer 0 werden bei Mia immer kleiner.
-- VT2-116 (korrektur): 0111 und 111 beide 7.
-- VT2-117 (korrektur): Für alle 32 siebenstelligen Zweierzahlen mit 1 vorn und 0 hinten nachgerechnet: Unterschied immer 63.
-- VT2-118 (sicherung): Kein Beispiel im Text (sonst ließe sich durch Ausrechnen entscheiden); für alle Zahlen 4 … 2 047 mit Endung 00 geprüft: durch 4 teilbar, nicht alle enden im Zehnersystem auf 00.
+- VT2-115 (test): Vorn darf eine 0 stehen (steht im Text), sonst gäbe es keine Gegenzahl; Summe immer 31; einziges Paar mit Unterschied 7: 19 und 12 (nachgeprüft).
+- VT2-116 (korrektur): 0111 und 111 beide 7; die richtige Möglichkeit ist keine Sammel-Aussage mehr (B5).
+- VT2-117 (korrektur): Für alle Paare 1 … 63 geprüft: mehr Einsen kommt mit größerem und mit kleinerem Wert vor; „nichts Sicheres“ ist hier richtig (B4).
+- VT2-118 (sicherung): Die Zahlen 0 bis 31 (einschließlich 0); 16 davon haben an der Vierer-Stelle eine 0.
 - VT2-119 (sicherung): zehnstellig im Zweiersystem = 512 … 1 023, also 3 oder 4 Ziffern im Zehnersystem.

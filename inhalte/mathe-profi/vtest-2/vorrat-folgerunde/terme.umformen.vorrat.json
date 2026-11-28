@@ -351,6 +351,190 @@
     "gestrichen_in": "Welle 1, Runde 2 (korrektur-nach-vorpruefung-w1.md)",
     "vor_neuer_verwendung": "Schema (Umformungskette prüfen); nicht zusammen mit einer Test-Aufgabe „wie viele sind gleichwertig“ verwenden."
    }
+  },
+  {
+   "thema": "terme.umformen",
+   "lernkarte": "zusammenfassen",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "rr.tauschen",
+   "abgrenzung": "Die Übungen beurteilen eine falsche Zusammenfassung nur als falsch; hier wird untersucht, an welchen Stellen sie zufällig stimmt und warum das nicht genügt.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Sie haben für x = 0 und für x = 1 denselben Wert, denn bei 0 und 1 fällt das x beim Rechnen nicht ins Gewicht.",
+     "beschreibung": "Für x = 0 ergibt 3x + 2 den Wert 2, 5x aber 0; nur bei x = 1 stimmen die Werte überein.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Sie haben für keine Zahl x denselben Wert, denn ein x-Glied und eine Zahl sind nie gleich viel wert.",
+     "beschreibung": "Für x = 1 ergeben beide Terme 5; an einzelnen Stellen können die Werte durchaus übereinstimmen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Sie haben für jede Zahl x denselben Wert, denn 3 und 2 ergeben zusammen 5; Ben hat also richtig gerechnet.",
+     "beschreibung": "Nur gleichartige Glieder darf man zusammenfassen; für x = 2 ergibt 3x + 2 den Wert 8, 5x aber 10.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammenfassen",
+    "t": "zusammenfassen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Ben fasst 3x + 2 zu 5x zusammen. Welche Aussage über die Terme 3x + 2 und 5x stimmt?"
+    },
+    "a": [
+     "Sie haben nur für x = 1 denselben Wert, denn nur dort ergeben beide 5; Bens Zusammenfassung ist also falsch.",
+     "Sie haben für x = 0 und für x = 1 denselben Wert, denn bei 0 und 1 fällt das x beim Rechnen nicht ins Gewicht.",
+     "Sie haben für keine Zahl x denselben Wert, denn ein x-Glied und eine Zahl sind nie gleich viel wert.",
+     "Sie haben für jede Zahl x denselben Wert, denn 3 und 2 ergeben zusammen 5; Ben hat also richtig gerechnet."
+    ],
+    "o": {
+     "index": 0
+    },
+    "w": "Der Unterschied der beiden Terme ist 5x − (3x + 2) = 2x − 2. Er ist nur für x = 1 null (beide Werte 5), für jede andere Zahl nicht, zum Beispiel x = 0: 2 und 0; x = 2: 8 und 10. 3x und 2 sind nicht gleichartig und dürfen nicht zusammengefasst werden; dass es für x = 1 zufällig passt, macht die Umformung nicht richtig."
+   },
+   "idee": "Falsche Zusammenfassung stimmt nur an einer Stelle",
+   "alte_kennung": "VT2-031 (Stand 9a986063)",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2, nach Vorprüfung W1-2 (korrektur-nach-vorpruefung-w1-2.md)",
+    "vor_neuer_verwendung": "Schema nach Vorprüfung W1-2 (A5): Die Möglichkeiten nennen die Prüfwerte x = 0 und x = 1 selbst; Einsetzen entscheidet."
+   }
+  },
+  {
+   "thema": "terme.umformen",
+   "lernkarte": "minusklammer",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "rr.minusklammer",
+   "abgrenzung": "Die Übungen lösen Klammern auf; hier wird begründet, dass eine Minusklammer eine Differenz umdreht, und eine falsche Einschränkung widerlegt.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Ben hat recht, denn für x größer als 7 ist x − 7 positiv, und dann ist −(x − 7) negativ, 7 − x aber nicht.",
+     "beschreibung": "Für x = 10 ist −(10 − 7) = −3 und 7 − 10 = −3: Auch 7 − x ist dann negativ.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Keiner hat recht, denn −(x − 7) ist −x − 7, und das ist nie dasselbe wie 7 − x.",
+     "beschreibung": "Das Minus vor der Klammer kehrt auch das Vorzeichen der 7 um: −(x − 7) = −x + 7.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Keiner hat recht, denn −(x − 7) ist x + 7, weil zweimal Minus zusammen Plus ergibt.",
+     "beschreibung": "Nur das Vorzeichen der 7 wird zu Plus, das des x wird zu Minus: −x + 7, nicht x + 7.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "minusklammer",
+    "t": "minusklammer",
+    "p": "sicherung",
+    "s": 2,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Mia sagt: „−(x − 7) ist dasselbe wie 7 − x.“ Ben widerspricht: „Das gilt nur, wenn x kleiner als 7 ist.“ Welche Aussage stimmt?"
+    },
+    "a": [
+     "Ben hat recht, denn für x größer als 7 ist x − 7 positiv, und dann ist −(x − 7) negativ, 7 − x aber nicht.",
+     "Keiner hat recht, denn −(x − 7) ist −x − 7, und das ist nie dasselbe wie 7 − x.",
+     "Mia hat recht, für jede Zahl x, denn das Minus kehrt beide Vorzeichen um und −x + 7 ist 7 − x.",
+     "Keiner hat recht, denn −(x − 7) ist x + 7, weil zweimal Minus zusammen Plus ergibt."
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "−(x − 7) = −x + 7 = 7 − x für jede Zahl x. Probe: x = 3: −(3 − 7) = 4 und 7 − 3 = 4; x = 10: −(10 − 7) = −3 und 7 − 10 = −3. Ein Minus vor einer Differenz dreht sie um."
+   },
+   "idee": "Minusklammer dreht eine Differenz um",
+   "alte_kennung": "VT2-038 (Stand 9a986063)",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2, nach Vorprüfung W1-2 (korrektur-nach-vorpruefung-w1-2.md)",
+    "vor_neuer_verwendung": "Schema nach Vorprüfung W1-2 (A6): einmaliges Auflösen entscheidet; nahe themen #93."
+   }
+  },
+  {
+   "thema": "terme.umformen",
+   "lernkarte": "aequivalenz",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "id.algebra.term",
+   "abgrenzung": "Die Übungen suchen die eine Stelle, an der zwei verschiedene Terme übereinstimmen; hier zeigt der gleichbleibende Unterschied, dass es keine solche Stelle gibt.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "12 − 9 − 3",
+   "fehlbilder": [
+    {
+     "antwort": 201,
+     "rechnung": "100 + 100 + 1",
+     "beschreibung": "die beiden Terme für gleichwertig gehalten",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 1,
+     "rechnung": "1",
+     "beschreibung": "angenommen, zwei verschiedene Terme stimmten immer an genau einer Stelle überein",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 3,
+     "rechnung": "12 − 9",
+     "beschreibung": "den Unterschied 3 der beiden Terme für die Zahl der Übereinstimmungen gehalten",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "aequivalenz",
+    "t": "aequivalenz",
+    "p": "sicherung",
+    "s": 2,
+    "g": "begruenden",
+    "y": "zahl",
+    "f": {
+     "text": "Die Terme 3(x + 4) − x und 2x + 9 sehen ähnlich aus. Für wie viele ganze Zahlen x von −100 bis 100 haben sie denselben Wert?"
+    },
+    "o": {
+     "wert": 0
+    },
+    "w": "3(x + 4) − x = 3x + 12 − x = 2x + 12. Verglichen mit 2x + 9 ist das x-Glied gleich, die Zahl aber um 3 größer. Der erste Term ist also für jede Zahl x um genau 3 größer; die Werte stimmen nie überein: 0 Zahlen."
+   },
+   "idee": "Gleicher x-Teil, andere Zahl: nie gleich",
+   "alte_kennung": "VT2-042 (Stand 9a986063)",
+   "vorrat": {
+    "gestrichen_in": "Welle 1, Runde 2, nach Vorprüfung W1-2 (korrektur-nach-vorpruefung-w1-2.md)",
+    "vor_neuer_verwendung": "Schema nach Vorprüfung W1-2 (A7): Vereinfachen und Vergleichen; loesung_rechnung künstlich (C3)."
+   }
   }
  ]
 }

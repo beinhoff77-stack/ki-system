@@ -88,6 +88,13 @@ for x in au:
         if tr == [r] and len(ops) > 1: _bau_nur.setdefault(x['kennung'], []).append(m_)
 print('Bauart: nur in der richtigen Möglichkeit:', _bau_nur)
 if len(_bau_nur) > 0.10 * len(au): fehler.append(f'Bauart-Muster (Zeichen/Wort nur in der richtigen Möglichkeit) in {len(_bau_nur)} von {len(au)} Aufgaben: {sorted(_bau_nur)}')
+# ---- Vorprüfung W1-2, B4: „nicht entscheidbar / nichts Sicheres“ darf nicht systematisch falsch sein -----------------------
+_OFFEN = _re.compile(r'(nicht entscheid|nichts Sicheres|lässt sich nichts sagen|lässt sich nicht sagen|kann man nicht sagen|weiß man nicht|weiß man erst|hängt vom Rest ab)', _re.I)
+_off = [(x['kennung'], i == x['aufgabe']['o']['index']) for x in au for i, m in enumerate(x['aufgabe']['a']) if _OFFEN.search(m)]
+_off_r = sorted({k for k, r in _off if r})
+print('Offen-Möglichkeiten („nicht entscheidbar“ u. ä.):', len(_off), '| davon richtig in', _off_r)
+if len(_off) >= 4 and (len(_off_r) < 2 or len(_off_r) < 0.2 * len(_off)):
+    fehler.append(f'„nicht entscheidbar“-Möglichkeit ist systematisch falsch: {len(_off)} Vorkommen, richtig nur in {_off_r} (verlangt mindestens 2 und 20 %)')
 if fehler:
     print('FEHLER in den festen Prüfungen:'); [print('  ', f) for f in fehler]; raise SystemExit(1)
 print('feste Prüfungen: ok')

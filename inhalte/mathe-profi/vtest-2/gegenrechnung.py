@@ -189,7 +189,9 @@ waehle('VT2-082', lambda m: m.startswith('Er liegt bei einem beliebigen Dreieck 
 # terme.umformen / zusammenfassen
 pruefe('VT2-029', [a for a in range(-20, 21) if ev(lambda x: 2 * ((3*x + 2) + (x + 6)), xs=(1, 2, 5, 7, 11)) == ev(lambda x: 4 * (2*x + a), xs=(1, 2, 5, 7, 11))][0])
 waehle('VT2-030', lambda m: m.startswith('In Zeile 3') and -4 + 5 == 1)
-waehle('VT2-031', lambda m: m.startswith('Sie haben nur für x = 1') and [x for x in range(-50, 51) if 3*x + 2 == 5*x] == [1])
+_g31 = [(2, 3, 5, -2)]  # Koeffizienten x², x, Zahl
+_n31 = [sum(1 for c in (c2 + (a if k == 0 else 0), c1 + (a if k == 1 else 0), c0 + (a if k == 2 else 0)) if c) for c2, c1, c0 in [(3, 5, -2)] for k in range(3) for a in range(-20, 21) if a]
+pruefe('VT2-031', [min(_n31), max(_n31)])
 pruefe('VT2-032', (lambda x: 5*x - 7 + 3 - 4*x - x + 10)(987654))
 _t33 = lambda a, b: 7*a - 2*b + 3 - 4*a + 5*b - a
 _d33 = {_t33(a, b) - _t33(a + 1, b - 1) for a in range(-6, 7) for b in range(-6, 7)}
@@ -202,13 +204,19 @@ pruefe('VT2-035', [2, _f35(1) - _f35(0), _f35(0)])
 waehle('VT2-036', lambda m: m.startswith('Mia hat recht') and all(50 - (x - 3) == 53 - x != 50 - x - 3 for x in range(0, 50)))
 def _T37(n, x): return x - 1 if n == 1 else x - _T37(n - 1, x)
 pruefe('VT2-037', [_T37(10, 50), _T37(11, 50)])
-waehle('VT2-038', lambda m: m.startswith('Mia hat recht, für jede Zahl x') and all(-(x - 7) == 7 - x for x in range(-30, 31)))
+_w38 = {20 - (a - b) for a in range(1, 6) for b in range(1, 6) if a != b}
+pruefe('VT2-038', [len(_w38), max(_w38)])
 # aequivalenz
 _z39 = all((a == c and b == d) for a in range(-5, 6) for b in range(-5, 6) for c in range(-5, 6) for d in range(-5, 6) if b == d and a + b == c + d)
 waehle('VT2-039', lambda m: m.startswith('Sie sind gleichwertig') and _z39 and [x for x in (1, 2) if x*x == 3*x - 2] == [1, 2])
-pruefe('VT2-040', (lambda T, w: [sum(all(t(n) == w(n) for n in range(1, 40)) for t in T), w(10)])([lambda n: 4 + 3*(n - 1), lambda n: 3*n + 1, lambda n: 4*n - n - 1], lambda n: 4*n - (n - 1)))
+_t40 = {'erst': lambda n: 4 + 3 * (n - 1), 'je3': lambda n: 3 * n + 1, 'ab': lambda n: 4 * n - (n - 1), 'getrennt': lambda n: n + n + (n + 1)}
+assert len({tuple(t(n) for n in range(1, 30)) for t in _t40.values()}) == 1
+waehle('VT2-040', lambda m: m.startswith('Sie hat das erste Quadrat mit 4 Hölzern'))
 pruefe('VT2-041', [k for k in range(-50, 51) if all(F(2*x + k, 2) - x == 10 for x in range(-5, 6))][0])
-pruefe('VT2-042', sum(1 for x in range(-100, 101) if 3*(x + 4) - x == 2*x + 9))
+def _f42(a, b): return sum(1 for x in range(-60, 61) if a * x + 9 == 2 * x + b)
+assert all(_f42(2, b) == 0 for b in range(-9, 20) if b != 9) and _f42(2, 9) == 121 and all(_f42(a, b) <= 1 for a in range(-5, 6) if a != 2 for b in range(-9, 20))
+assert _f42(3, 9) == 1 and _f42(3, 4) == 1
+waehle('VT2-042', lambda m: m.startswith('Ist a = 2 und b nicht 9'))
 _g43 = [lambda x: 2*(x + 3), lambda x: 2*x + 6, lambda x: 3*(x + 2) - x, lambda x: 5*x - 2*(x + 1), lambda x: 3*x - 2, lambda x: 3*x + 2]
 pruefe('VT2-043', sum(1 for i in range(6) for j in range(i + 1, 6) if ev(_g43[i]) == ev(_g43[j])))
 
@@ -257,10 +265,11 @@ pruefe('VT2-094', [3 * max(_c94), min(x for x in range(1000) if _c94[x]) * (10**
 assert wort(100100100).count('hundert') == 3
 # strahl_eintragen
 _m95 = F(2000 - 1200, 4)
-pruefe('VT2-095', [[d for d in range(1, 40) if 1200 + d * _m95 == 3400][0], 1200 + 9 * _m95])
+pruefe('VT2-095', [c for c in range(1, 500) if 4 * c == 6 * 50][0])
 waehle('VT2-096', lambda m: m.startswith('Das stimmt nie') and all((2 * (300 + 200 * k) - 300) % 200 != 0 for k in range(200)))
-waehle('VT2-097', lambda m: m.startswith('Auf A liegen') and F(1000 - 400, 50) / F(1000 - 400, 200) == 4)
-pruefe('VT2-098', sum(1 for n in range(1, 1200) if n % (1200 // 6) == 0 and n % (1200 // 8) == 0))
+_l97 = {n - (n // 10 - 1) * 10 for n in range(10, 1001, 10)}
+waehle('VT2-097', lambda m: m.startswith('Jede ihrer Marken liegt genau 10 zu weit links') and _l97 == {10})
+pruefe('VT2-098', sum(1 for n in range(1, 12000) if n % (12000 // 60) == 0 and n % (12000 // 80) == 0))
 waehle('VT2-099', lambda m: m.startswith('Er ist falsch beschriftet') and len({10 - 0, 100 - 10, 1000 - 100}) == 3)
 # runden_regel
 pruefe('VT2-100', sum(1 for n in range(1, 101) if rund(n, 10) == rund(n, 100)))
@@ -272,7 +281,9 @@ waehle('VT2-104', lambda m: m.startswith('Die gerundete Zahl von a ist nie grö�
 pruefe('VT2-105', [min(n // 3 for n in range(1, 100) if rund(n, 10) == 30), max(n // 3 for n in range(1, 100) if rund(n, 10) == 30)])
 pruefe('VT2-106', [max(n for n in range(1, 100) if n * 36 <= 1000), min(n for n in range(1, 100) if n * 36 >= 1000)])
 waehle('VT2-107', lambda m: m.startswith('Beide sind richtig gerundet') and rund(22817, 1000) == 23000 and rund(22817, 10000) == 20000)
-pruefe('VT2-108', [50*30 - 48*29, 48*30 - 48*29])
+_ok108 = all(a2 * b2 > a * b for a in range(11, 60) for b in range(11, 60) if a % 10 and b % 10 for a2, b2 in [(-(-a // 10) * 10, -(-b // 10) * 10)])
+_tom = {(a // 10 * 10) * (-(-b // 10) * 10) > a * b for a in range(11, 60) for b in range(11, 60) if a % 10 and b % 10}
+waehle('VT2-108', lambda m: m.startswith('Leas Schätzung ist zu groß, denn') and _ok108 and _tom == {True, False})
 _z109 = (3460, 3420, 3440, 3470)
 waehle('VT2-109', lambda m: m.startswith('Jede Zahl wurde um 420 bis 470') and sum(_z109) == 13790 and sum(rund(z, 1000) for z in _z109) == 12000
        and {z - rund(z, 1000) for z in _z109} <= set(range(420, 471)) and rund(sum(_z109), 1000) != sum(_z109))
@@ -284,19 +295,21 @@ def _add(n):
 _sp = {n: _add(n) - len(roem(n)) for n in range(1, 91)}
 _best = [n for n in _sp if _sp[n] == max(_sp.values())]
 assert len(_best) == 1
-pruefe('VT2-110', [_best[0], _sp[_best[0]]])
+_sp110 = {n: _add(n) - len(roem(n)) for n in range(10, 100)}
+pruefe('VT2-110', [n for n in _sp110 if _sp110[n] == 5])
 waehle('VT2-111', lambda m: roem(roem_wert(m)) != m)
-waehle('VT2-112', lambda m: m.startswith('Es stimmt nur manchmal') and len(roem(12)) > len(roem(10)) and 12 > 10 and len(roem(8)) > len(roem(50)) and 8 < 50)
+waehle('VT2-112', lambda m: m.startswith('Ben irrt sich') and len(roem(19)) < len(roem(18)) == 5 and any(len(roem(n + 1)) < len(roem(n)) for n in range(1, 9)))
 pruefe('VT2-113', max(n for n in range(1, 6000) if 'MMMM' not in roem(n)))
 pruefe('VT2-114', min(n for n in range(1, 200) if len(roem(n)) == 6))
 # dualsystem
-pruefe('VT2-115', sum(1 for n in range(1, 32) if sum(int(d) * 2**i for i, d in enumerate(format(n, 'b'))) == n))
-waehle('VT2-116', lambda m: m.startswith('Beide sind gleich groß') and int('0111', 2) == int('111', 2) == 7)
+_p115 = [(a, 31 - a) for a in range(32) if a - (31 - a) == 7 and int(''.join('1' if c == '0' else '0' for c in format(a, '05b')), 2) == 31 - a]
+pruefe('VT2-115', list(_p115[0]) if len(_p115) == 1 else None)
+waehle('VT2-116', lambda m: m.startswith('0111 und 111 haben denselben Wert') and int('0111', 2) == int('111', 2) == 7)
 _d117 = {int(s, 2) - int(s[-1] + s[1:-1] + s[0], 2) for s in (format(n, 'b') for n in range(64, 128)) if s.endswith('0')}
 assert len(_d117) == 1
-pruefe('VT2-117', _d117.pop())
-waehle('VT2-118', lambda m: m.startswith('Sie lässt sich ohne Rest durch 4 teilen') and all(n % 4 == 0 for n in range(4, 2048) if format(n, 'b').endswith('00'))
-       and any(n % 100 for n in range(4, 2048) if format(n, 'b').endswith('00')))
+_e117 = {(format(a, 'b').count('1') > format(b, 'b').count('1'), a > b) for a in range(1, 64) for b in range(1, 64)}
+waehle('VT2-117', lambda m: m.startswith('Nichts Sicheres') and (True, True) in _e117 and (True, False) in _e117)
+pruefe('VT2-118', sum(1 for n in range(32) if not n & 4))
 _l119 = [len(str(n)) for n in range(1, 5000) if len(format(n, 'b')) == 10]
 pruefe('VT2-119', [min(_l119), max(_l119)])
 

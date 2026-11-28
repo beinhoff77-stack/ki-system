@@ -35,18 +35,15 @@ def bauen():
        3: 'Meint, ein Ergebnis dürfe nur eine Variable enthalten; 8x und y-Glieder bleiben getrennt stehen.'},
       'Zeile 1 und 2 stimmen. In Zeile 3 gilt −4y + 5y = (−4 + 5)y = y. Das richtige Ergebnis ist 8x + y.',
       'Fehler-Detektiv mit Begründung; die Übungen enthalten keine Rechnung zum Prüfen.')
-    A(lz, 'korrektur', 'begruenden', None, 2, LP,
-      'Ben fasst 3x + 2 zu 5x zusammen. Welche Aussage über die Terme 3x + 2 und 5x stimmt?',
-      ['Sie haben nur für x = 1 denselben Wert, denn nur dort ergeben beide 5; Bens Zusammenfassung ist also falsch.',
-       'Sie haben für jede Zahl x denselben Wert, denn 3 und 2 ergeben zusammen 5; Ben hat also richtig gerechnet.',
-       'Sie haben für keine Zahl x denselben Wert, denn ein x-Glied und eine Zahl sind nie gleich viel wert.',
-       'Sie haben für x = 0 und für x = 1 denselben Wert, denn bei 0 und 1 fällt das x beim Rechnen nicht ins Gewicht.'], 0,
-      {1: 'Nur gleichartige Glieder darf man zusammenfassen; für x = 2 ergibt 3x + 2 den Wert 8, 5x aber 10.',
-       2: 'Für x = 1 ergeben beide Terme 5; an einzelnen Stellen können die Werte durchaus übereinstimmen.',
-       3: 'Für x = 0 ergibt 3x + 2 den Wert 2, 5x aber 0; nur bei x = 1 stimmen die Werte überein.'},
-      'Der Unterschied der beiden Terme ist 5x − (3x + 2) = 2x − 2. Er ist nur für x = 1 null (beide Werte 5), für jede andere Zahl nicht, zum Beispiel x = 0: 2 und 0; x = 2: 8 und 10. '
-      '3x und 2 sind nicht gleichartig und dürfen nicht zusammengefasst werden; dass es für x = 1 zufällig passt, macht die Umformung nicht richtig.',
-      'Die Übungen beurteilen eine falsche Zusammenfassung nur als falsch; hier wird untersucht, an welchen Stellen sie zufällig stimmt und warum das nicht genügt.')
+    L(lz, 'korrektur', 'darstellung', None, 2, LP,
+      'Zum Term 3x² + 5x − 2 wird genau ein weiteres Glied addiert: entweder a · x² oder a · x oder eine Zahl a (a ist eine ganze Zahl, aber nicht 0). Danach wird zusammengefasst. Wie viele Glieder kann das Ergebnis mindestens haben, und wie viele höchstens?',
+      'mindestens □ Glieder, höchstens □ Glieder', [2, 3], ['3 − 1', '3'],
+      [(1, 3, '3', 'übersehen, dass sich ein Glied ganz aufheben kann, zum Beispiel mit −3x²'),
+       (1, 1, '3 − 2', 'gemeint, das neue Glied könne zwei Glieder auf einmal aufheben'),
+       (2, 4, '3 + 1', 'das neue Glied als eigenes Glied gezählt, obwohl es mit einem gleichartigen Glied zusammengefasst wird')],
+      'Jedes mögliche neue Glied ist gleichartig zu einem der drei vorhandenen (x²-Glied, x-Glied, Zahl) und wird mit ihm zusammengefasst; eine neue Art kommt nicht dazu. Also höchstens 3 Glieder. '
+      'Ist das neue Glied genau das Gegenteil eines vorhandenen (−3x², −5x oder +2), hebt sich dieses Glied auf, zum Beispiel 3x² + 5x − 2 − 3x² = 5x − 2: 2 Glieder. Weniger geht nicht, weil nur ein Glied verändert wird.',
+      'Die Übungen fassen gegebene Terme zusammen; hier wird über alle Möglichkeiten überlegt, was ein einziges gleichartiges Glied am Ergebnis ändern kann.')
     Z(lz, 'sicherung', 'transfer', 'anwenden', 2, LP,
       'Der Term 5x − 7 + 3 − 4x − x + 10 wird zusammengefasst. Welchen Wert hat er für x = 987 654?',
       6, '−7 + 3 + 10',
@@ -106,18 +103,17 @@ def bauen():
        (2, 51, '50 + 1', 'beim Auflösen die 1 mit dem falschen Vorzeichen genommen: x + 1 statt x − 1')],
       'T2 = x − (x − 1) = x − x + 1 = 1. T3 = x − T2 = x − 1, also wieder T1. T4 = x − T3 = 1, und so weiter: Jede gerade Nummer ergibt 1, jede ungerade x − 1. Also T10 = 1 und T11 = x − 1 = 49 für x = 50.',
       'Die Übungen lösen höchstens doppelt geschachtelte Klammern auf; hier wird ein Muster aus immer neuen Minusklammern erkannt und fortgesetzt.')
-    A(lz, 'sicherung', 'begruenden', None, 2, LP,
-      'Mia sagt: „−(x − 7) ist dasselbe wie 7 − x.“ Ben widerspricht: „Das gilt nur, wenn x kleiner als 7 ist.“ Welche Aussage stimmt?',
-      ['Mia hat recht, für jede Zahl x, denn das Minus kehrt beide Vorzeichen um und −x + 7 ist 7 − x.',
-       'Ben hat recht, denn für x größer als 7 ist x − 7 positiv, und dann ist −(x − 7) negativ, 7 − x aber nicht.',
-       'Keiner hat recht, denn −(x − 7) ist −x − 7, und das ist nie dasselbe wie 7 − x.',
-       'Keiner hat recht, denn −(x − 7) ist x + 7, weil zweimal Minus zusammen Plus ergibt.'], 0,
-      {1: 'Für x = 10 ist −(10 − 7) = −3 und 7 − 10 = −3: Auch 7 − x ist dann negativ.',
-       2: 'Das Minus vor der Klammer kehrt auch das Vorzeichen der 7 um: −(x − 7) = −x + 7.',
-       3: 'Nur das Vorzeichen der 7 wird zu Plus, das des x wird zu Minus: −x + 7, nicht x + 7.'},
-      '−(x − 7) = −x + 7 = 7 − x für jede Zahl x. Probe: x = 3: −(3 − 7) = 4 und 7 − 3 = 4; x = 10: −(10 − 7) = −3 und 7 − 10 = −3. Ein Minus vor einer Differenz dreht sie um.',
-      'Die Übungen lösen Klammern auf; hier wird begründet, dass eine Minusklammer eine Differenz umdreht, und eine falsche Einschränkung widerlegt.')
-
+    L(lz, 'sicherung', 'transfer', None, 3, LP,
+      'Für a und b werden zwei verschiedene Zahlen aus 1, 2, 3, 4 und 5 gewählt. Wie viele verschiedene Werte kann der Term 20 − (a − b) annehmen, und welches ist der größte?',
+      'verschiedene Werte: □; größter Wert: □', [8, 24], ['4 + 4', '20 − (1 − 5)'],
+      [(1, 20, '5 · 4', 'alle Paare (a, b) gezählt, auch wenn verschiedene Paare denselben Wert ergeben'),
+       (1, 9, '4 + 4 + 1', 'den Wert 20 mitgezählt, der nur bei a = b entstünde'),
+       (1, 4, '4', 'nur die Paare mit a größer als b betrachtet'),
+       (2, 16, '20 − (5 − 1)', 'a möglichst groß und b möglichst klein gewählt'),
+       (2, 14, '20 − 5 − 1', 'die Klammer weggelassen, ohne das Vorzeichen von b zu ändern')],
+      '20 − (a − b) = 20 − a + b = 20 + (b − a). Der Wert hängt also nur vom Unterschied b − a ab. Bei zwei verschiedenen Zahlen aus 1 bis 5 kann b − a die Werte −4, −3, −2, −1, 1, 2, 3, 4 haben, also 8 verschiedene Werte (16 bis 24 ohne 20). '
+      'Am größten wird der Term für b = 5 und a = 1: 20 − (1 − 5) = 24.',
+      'Die Übungen lösen eine Klammer für gegebene Zahlen auf; hier zeigt das Auflösen, dass der Wert nur vom Unterschied zweier Zahlen abhängt, und darüber wird gezählt.')
     # ---------------- aequivalenz ----------------
     lz = 'aequivalenz'
     A(lz, 'test', 'begruenden', None, 3, LP,
@@ -132,15 +128,18 @@ def bauen():
       'Für x = 0 hat a · x + b den Wert b. Gleiche Werte bei x = 0 heißen also: Beide Terme haben dasselbe b. Für x = 1 hat der Term den Wert a + b; sind diese Werte gleich und ist b gleich, muss auch a gleich sein. '
       'Dann sind es dieselben Terme, also gleichwertig. Vorsicht: Das gilt nur, weil beide die Form a · x + b haben. x² und 3x − 2 haben zum Beispiel für x = 1 und x = 2 denselben Wert und sind trotzdem nicht gleichwertig.',
       'Die Übungen zeigen, dass ein einzelnes Beispiel keine Gleichwertigkeit beweist; hier wird begründet, warum bei Termen der Form a · x + b zwei Einsetzungen doch genügen.')
-    L(lz, 'korrektur', 'darstellung', None, 2, LP,
-      'Figur 1 besteht aus einem Quadrat aus 4 Streichhölzern, Figur 2 aus zwei Quadraten nebeneinander mit einem gemeinsamen Streichholz (7 Streichhölzer), und so weiter. Figur n besteht aus n Quadraten in einer Reihe. Mia zählt 4 + 3(n − 1), Ben zählt 3n + 1, Lena zählt 4n − n − 1. Wie viele der drei Terme geben für jede Figur die richtige Anzahl, und wie viele Streichhölzer hat Figur 10?',
-      'richtige Terme: □; Streichhölzer bei Figur 10: □', [2, 31], ['2', '3 · 10 + 1'],
-      [(1, 3, '3', 'alle drei Terme für gleichwertig gehalten'),
-       (1, 1, '1', 'nur Bens fertigen Term als richtig anerkannt'),
-       (2, 29, '3 · 10 − 1', 'mit Lenas falschem Term gerechnet'),
-       (2, 40, '4 · 10', 'jedes Quadrat mit 4 Streichhölzern gezählt, gemeinsame Hölzer nicht abgezogen')],
-      'Mia: 4 + 3(n − 1) = 4 + 3n − 3 = 3n + 1. Ben: 3n + 1. Lena: 4n − n − 1 = 3n − 1, das gibt schon für n = 1 nur 2 statt 4 Streichhölzer. Zwei Terme sind richtig. Figur 10 hat 3 · 10 + 1 = 31 Streichhölzer.',
-      'Zwei Zählweisen für ein Muster werden als Terme verglichen; die Übungen vergleichen Terme ohne Sachbezug.')
+    A(lz, 'korrektur', 'darstellung', None, 2, LP,
+      'Figur n besteht aus n Quadraten aus Streichhölzern in einer Reihe; benachbarte Quadrate haben ein Streichholz gemeinsam (Figur 1: 4 Hölzer, Figur 2: 7 Hölzer). Mia hat die Hölzer von Figur n mit dem Term 4 + 3 · (n − 1) gezählt. Wie hat Mia gezählt?',
+      ['Sie hat das erste Quadrat mit 4 Hölzern gezählt und für jedes weitere Quadrat 3 Hölzer dazugenommen.',
+       'Sie hat für jedes Quadrat 3 Hölzer gezählt und am Ende noch ein einzelnes Holz für den Anfang dazugenommen.',
+       'Sie hat jedes Quadrat mit 4 Hölzern gezählt und danach die gemeinsamen Hölzer wieder abgezogen.',
+       'Sie hat die n Hölzer oben, die n Hölzer unten und die senkrechten Hölzer jeweils getrennt gezählt.'], 0,
+      {1: 'Diese Zählweise führt zu 3 · n + 1; das ist gleichwertig, aber nicht Mias Term.',
+       2: 'Diese Zählweise führt zu 4 · n − (n − 1); auch gleichwertig, aber anders gebaut als Mias Term.',
+       3: 'Diese Zählweise führt zu n + n + (n + 1); gleichwertig, aber nicht die Form 4 + 3 · (n − 1).'},
+      'In 4 + 3 · (n − 1) steht die 4 einzeln, und 3 wird (n − 1)-mal genommen: erst ein ganzes Quadrat mit 4 Hölzern, dann für jedes der n − 1 weiteren Quadrate 3 neue Hölzer. '
+      'Die anderen Zählweisen ergeben 3n + 1, 4n − (n − 1) und n + n + (n + 1). Alle vier Terme sind gleichwertig (jeweils 3n + 1), denn alle zählen dieselben Hölzer richtig; nur ihr Aufbau verrät den Zählweg.',
+      'Die Übungen prüfen, ob zwei Zählterme gleichwertig sind; hier wird umgekehrt aus dem Aufbau eines Terms die Zählweise erschlossen, während alle angebotenen Zählweisen richtig zählen.')
     Z(lz, 'korrektur', 'rueckwaerts', None, 2, LP,
       'Mia stellt ein Zahlenrätsel: „Denke dir eine Zahl. Verdopple sie, addiere eine Zahl k, halbiere das Ergebnis und ziehe die gedachte Zahl ab.“ Mia will, dass für jede gedachte Zahl 10 herauskommt. Welche Zahl muss sie für k wählen?',
       20, '2 · 10',
@@ -149,14 +148,18 @@ def bauen():
        (40, '4 · 10', 'zweimal verdoppelt, weil im Rätsel „verdoppeln“ und „halbieren“ vorkommen')],
       'Als Term mit der gedachten Zahl x: (2x + k) : 2 − x = x + k : 2 − x = k : 2. Die gedachte Zahl fällt heraus; übrig bleibt die Hälfte von k. Damit immer 10 herauskommt, muss k : 2 = 10 sein, also k = 20. Probe mit 7: 14, 34, 17, 17 − 7 = 10.',
       'Die Übungen vergleichen gegebene Terme; hier wird ein Zahlenrätsel als Term geschrieben, um zu sehen, warum das Ergebnis nicht von der gedachten Zahl abhängt, und rückwärts eine Zahl bestimmt.')
-    Z(lz, 'sicherung', 'begruenden', None, 2, LP,
-      'Die Terme 3(x + 4) − x und 2x + 9 sehen ähnlich aus. Für wie viele ganze Zahlen x von −100 bis 100 haben sie denselben Wert?',
-      0, '12 − 9 − 3',
-      [(201, '100 + 100 + 1', 'die beiden Terme für gleichwertig gehalten'),
-       (1, '1', 'angenommen, zwei verschiedene Terme stimmten immer an genau einer Stelle überein'),
-       (3, '12 − 9', 'den Unterschied 3 der beiden Terme für die Zahl der Übereinstimmungen gehalten')],
-      '3(x + 4) − x = 3x + 12 − x = 2x + 12. Verglichen mit 2x + 9 ist das x-Glied gleich, die Zahl aber um 3 größer. Der erste Term ist also für jede Zahl x um genau 3 größer; die Werte stimmen nie überein: 0 Zahlen.',
-      'Die Übungen suchen die eine Stelle, an der zwei verschiedene Terme übereinstimmen; hier zeigt der gleichbleibende Unterschied, dass es keine solche Stelle gibt.')
+    A(lz, 'sicherung', 'begruenden', None, 3, LP,
+      'Gegeben sind die Terme a · x + 9 und 2x + b; a und b sind feste Zahlen. Welche Aussage stimmt?',
+      ['Ist a = 2 und b nicht 9, so haben die beiden Terme für keine Zahl x denselben Wert.',
+       'Ist a nicht 2 und b = 9, so haben die beiden Terme für keine Zahl x denselben Wert.',
+       'Ist a = 2 und b = 9, so haben die beiden Terme für genau eine Zahl x denselben Wert.',
+       'Ist a nicht 2 und b nicht 9, so haben die beiden Terme für keine Zahl x denselben Wert.'], 0,
+      {1: 'Für x = 0 haben beide den Wert 9; bei a nicht 2 stimmen sie genau dort überein.',
+       2: 'Bei a = 2 und b = 9 sind es dieselben Terme; sie stimmen für jede Zahl x überein, nicht nur für eine.',
+       3: 'Bei verschiedenen Zahlen vor x gibt es genau eine Stelle, an der beide Werte gleich sind, zum Beispiel a = 3, b = 4: 3x + 9 = 2x + 4 für x = −5.'},
+      'Der Unterschied der Terme ist (a · x + 9) − (2x + b) = (a − 2) · x + (9 − b). Ist a = 2, fällt das x weg, und der Unterschied ist immer 9 − b: für b = 9 immer 0 (gleichwertig), für b nicht 9 nie 0 (keine Übereinstimmung). '
+      'Ist a nicht 2, ändert sich der Unterschied mit x und ist an genau einer Stelle 0.',
+      'Die Übungen suchen eine einzelne Übereinstimmung oder prüfen zwei feste Terme; hier werden alle Fälle (keine, genau eine, jede Zahl) nach den Zahlen vor x und den Zahlgliedern unterschieden.')
     Z(lz, 'sicherung', 'darstellung', None, 2, LP,
       'Anna schreibt sechs Terme auf: A = 2(x + 3), B = 2x + 6, C = 3(x + 2) − x, D = 5x − 2(x + 1), E = 3x − 2, F = 3x + 2. Zwei Terme bilden ein gleichwertiges Paar, wenn sie für jede Zahl x denselben Wert haben (zum Beispiel A und B). Wie viele solche Paare gibt es insgesamt? Jedes Paar wird nur einmal gezählt.',
       4, '3 + 1',

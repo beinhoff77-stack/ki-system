@@ -143,3 +143,14 @@ IDEEN.update({
  117: 'Tausch zweier Stellen: Änderung unabhängig vom Rest', 118: 'Endziffern im Zweiersystem und Teilbarkeit durch 4',
  119: 'Stellenzahl im Zweier- und im Zehnersystem',
 })
+
+# Welle 1, Runde 2, nach der zweiten Vorprüfung (vorpruefung-w1-2.md): ersetzte oder umgebaute Aufgaben
+IDEEN.update({
+ 31: 'Was ein einziges gleichartiges Glied am Ergebnis ändern kann', 38: 'Wert einer Minusklammer hängt nur vom Unterschied ab',
+ 40: 'Aus dem Aufbau eines Terms die Zählweise erschließen', 42: 'Keine, eine oder jede Übereinstimmung nach den Zahlen unterscheiden',
+ 95: 'Gleicher Unterschied auf zwei Strahlen: Maßstab umgekehrt', 97: 'Striche statt Abstände gezählt: Fehler immer ein Abschnitt',
+ 98: 'Zwei Teilungen: gemeinsame Striche in festem Abstand', 108: 'Richtung des Schätzfehlers beim Produkt',
+ 110: 'Rückwärts aus der Ersparnis der Subtraktionsregel', 112: 'Plus 1 kann die Schreibweise verkürzen',
+ 113: 'Größte schreibbare Zahl aus den Regeln', 115: 'Zahl und Gegenzahl ergeben zusammen 11111',
+ 117: 'Zahl der Einsen sagt nichts über die Größe', 118: 'Jede Stelle wird von genau der Hälfte der Zahlen gebraucht',
+})

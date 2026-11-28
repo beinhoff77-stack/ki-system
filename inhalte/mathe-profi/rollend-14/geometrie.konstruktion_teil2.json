@@ -31,10 +31,10 @@
      "beschreibung": "den Rest nicht auf B und D verteilt, also beide Winkel zusammen angegeben"
     },
     {
-     "antwort": 60,
+     "antwort": 30,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit der Winkelsumme 180° statt 360° gerechnet"
+     "beschreibung": "mit der Winkelsumme 180° statt 360° gerechnet: (180° − 70° − 50°) : 2"
     },
     {
      "antwort": 145,
@@ -84,7 +84,7 @@
      "antwort": 60,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch 3 statt durch 4 Teile geteilt"
+     "beschreibung": "durch 3 statt durch 4 Teile geteilt und den einen Teil als Antwort angegeben"
     },
     {
      "antwort": 540,
@@ -201,7 +201,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Für ein Bastelprojekt sollst du ein Quadrat, eine Raute, ein Rechteck und ein Parallelogramm zeichnen. Du willst jede Figur mit so wenigen Angaben wie möglich festlegen. Wie viele Angaben brauchst du für alle vier Figuren zusammen?"
+     "text": "Für ein Bastelprojekt sollst du ein Quadrat, eine Raute, ein Rechteck und ein Parallelogramm zeichnen. Jede Figur wird für sich und unabhängig von den anderen mit möglichst wenigen einzelnen Angaben (Seitenlängen oder Winkel) so festgelegt, dass sie bis auf Lage und Drehung eindeutig ist. Wie viele Angaben brauchst du für alle vier Figuren zusammen?"
     },
     "o": {
      "wert": 8
@@ -233,7 +233,7 @@
      "antwort": 10,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit der Winkelsumme 180° wie im Dreieck gerechnet"
+     "beschreibung": "mit der Winkelsumme 180° wie im Dreieck gerechnet und dabei den Winkel bei D weggelassen"
     },
     {
      "antwort": 95,
@@ -250,7 +250,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Gartenbeet hat die Form eines Drachenvierecks ABCD mit der Symmetrieachse AC. Beim Abstecken misst Noa den Winkel bei A mit 100° und den Winkel bei B mit 70°. Wie groß ist der Winkel bei C?"
+     "text": "Noa konstruiert ein Drachenviereck ABCD mit der Symmetrieachse AC. Gezeichnet sind schon die Seite AB, der Winkel bei A (100°) und der Winkel bei B (70°). Nun trägt Noa den letzten Winkel bei C an. Wie groß muss dieser Winkel sein?"
     },
     "o": {
      "wert": 120,
@@ -300,7 +300,7 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein Schild hat die Form eines Parallelogramms ABCD. Der stumpfe Winkel bei B ist um 36° kleiner als das Dreifache des spitzen Winkels bei A. Wie groß ist der stumpfe Winkel bei B?"
+     "text": "Du konstruierst ein Schild in Form eines Parallelogramms ABCD: Du zeichnest die Seite AB und trägst bei A und bei B die Winkel an. Der stumpfe Winkel bei B ist um 36° kleiner als das Dreifache des spitzen Winkels bei A. Unter welchem Winkel (in Grad) trägst du bei B an?"
     },
     "o": {
      "wert": 126,

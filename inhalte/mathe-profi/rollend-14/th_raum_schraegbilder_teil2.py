@@ -11,7 +11,7 @@ a2(T, "koordinaten", Z(
     "Die Ecke G liegt A gegenüber: G(7 | 5 | 4). M ist die Mitte von A und G: x = (1 + 7) : 2 = 4, y = (2 + 5) : 2 = 3,5, z = (0 + 4) : 2 = 2. Also M(4 | 3,5 | 2). Die Summe ist 4 + 3,5 + 2 = 9,5.",
     [(7.5, None, "den Mittelpunkt der Grundfläche genommen: z-Koordinate 0", "4 + 3.5 + 0"), (16, None, "die Ecke G statt des Mittelpunkts genommen", "7 + 5 + 4"), (6.5, None, "die Verschiebung von A vergessen: Mitte der Kantenlängen 3, 1,5 und 2", "3 + 1.5 + 2")]))
 a3(T, "koordinaten", Z(
-    "Ein Quader steht auf dem Boden (der xy-Ebene) mit der Ecke A im Ursprung und ragt nach oben. Seine Kanten verlaufen parallel zu den Achsen. Die Ecke G, die A gegenüberliegt, hat die Koordinaten (8 | 6 | h). Das Volumen ist 240 Volumeneinheiten. Ein zweiter Quader hat dieselbe Grundfläche, ist aber doppelt so hoch. Wie groß ist die Summe der drei Koordinaten seiner Ecke G′, die A gegenüberliegt?",
+    "Ein Quader steht auf dem Boden (der xy-Ebene) mit der Ecke A im Ursprung und ragt nach oben. Seine Kanten verlaufen parallel zu den Achsen. Die Ecke G, die A gegenüberliegt, hat die Koordinaten (8 | 6 | h). Das Volumen ist 240 Volumeneinheiten. Ein zweiter Quader steht auf demselben Bodenrechteck mit derselben Ecke A im Ursprung, ist aber doppelt so hoch. Wie groß ist die Summe der drei Koordinaten seiner Ecke G′, die A gegenüberliegt?",
     24, "8 + 6 + 2 * (240 / (8 * 6))", "14 + 10", "Berechne zuerst h aus dem Volumen. Die Koordinaten von G′ sind die Kantenlängen des zweiten Quaders.",
     "Die Kanten sind 8, 6 und h lang. Das Volumen ist 8 · 6 · h = 240, also h = 5. Der zweite Quader ist 2 · 5 = 10 hoch, also G′(8 | 6 | 10). Die Summe ist 8 + 6 + 10 = 24.",
     [(19, None, "die Höhe des ersten Quaders statt der doppelten Höhe genommen", "8 + 6 + 240 / (8 * 6)"), (38, None, "alle drei Koordinaten des ersten Quaders verdoppelt", "2 * (8 + 6 + 240 / (8 * 6))"), (74, None, "beim Berechnen der Höhe das Volumen nur durch die Länge 8 geteilt und die Höhe verdoppelt", "8 + 6 + 2 * 240 / 8")]), g="rueckwaerts")
@@ -33,7 +33,7 @@ a3(T, "rotation", Z(
     [(9, None, "die Wurzel nicht gezogen: r² als Breite angegeben", "226.08 / 3.14 / 8"), (28.26, None, "das Volumen nur durch die Höhe geteilt", "226.08 / 8"), (72, None, "das Volumen nur durch 3,14 geteilt", "226.08 / 3.14")], "cm"), g="rueckwaerts")
 # ───────── axialschnitt ─────────
 a1(T, "axialschnitt", Z(
-    "Eine Eiswaffel hat die Form eines Kegels mit dem Radius 3 cm und der Höhe 12 cm. Sam schneidet sie der Länge nach genau durch die Achse. Wie groß ist die Fläche der Schnittfläche in cm²?",
+    "Ein massiver Holzkegel hat den Radius 3 cm und die Höhe 12 cm. Sam sägt ihn der Länge nach genau durch die Achse durch. Wie groß ist die Fläche der Schnittfläche in cm²?",
     36, "6 * 12 / 2", "3 * 12", "Der Axialschnitt eines Kegels ist ein Dreieck. Wie lang ist seine Grundseite, und wie hoch ist es?",
     "Der Axialschnitt ist ein gleichschenkliges Dreieck. Die Grundseite ist der Durchmesser 2 · 3 = 6 cm, die Höhe ist 12 cm. A = 6 · 12 : 2 = 36 cm².",
     [(72, None, "das Dreieck wie ein Rechteck berechnet: Durchmesser mal Höhe", "6 * 12"), (18, None, "mit dem Radius 3 cm statt des Durchmessers als Grundseite gerechnet", "3 * 12 / 2"), (24, None, "durch 3 statt durch 2 geteilt, wie bei einem Volumen", "6 * 12 / 3")], "cm²"))
@@ -43,23 +43,23 @@ a2(T, "axialschnitt", Z(
     "Der Schnitt ist ein Kreis mit dem Radius r der Kugel. Aus dem Umfang 2 · 3,14 · r = 62,8 folgt r = 62,8 : 6,28 = 10 cm. Die Fläche ist 3,14 · 10 · 10 = 314 cm².",
     [(100, None, "den Radius quadriert, aber nicht mit π malgenommen", "10 ** 2"), (628, None, "Umfang mal Radius gerechnet", "62.8 * 10"), (62.8, None, "den Umfang als Fläche angegeben", "62.8")], "cm²"))
 a3(T, "axialschnitt", Z(
-    "Der Axialschnitt eines Zylinders ist ein Quadrat mit dem Umfang 48 cm. Rechne mit π ≈ 3,14. Wie groß ist das Volumen des Zylinders in cm³?",
-    1356.48, "3.14 * (48 / 4 / 2) ** 2 * (48 / 4)", "3.14 * 36 * 12", "Wie lang ist die Seite des Quadrats? Welche Seite des Quadrats ist der Durchmesser, welche die Höhe des Zylinders?",
-    "Die Seite des Quadrats ist 48 : 4 = 12 cm. Sie ist zugleich der Durchmesser und die Höhe. Also ist r = 6 cm und h = 12 cm. V = 3,14 · 36 · 12 = 1 356,48 cm³.",
-    [(5425.92, None, "die Seite 12 cm als Radius genommen", "3.14 * 12 ** 2 * 12"), (10851.84, None, "den Umfang nur durch 2 geteilt: Seite 24 cm", "3.14 * 12 ** 2 * 24"), (678.24, None, "die Höhe 6 cm statt 12 cm genommen", "3.14 * 6 * 6 * 6")], "cm³"), g="transfer")
+    "Der Axialschnitt eines Zylinders ist ein Rechteck mit dem Umfang 60 cm. Die Höhe des Zylinders ist doppelt so groß wie sein Durchmesser. Rechne mit π ≈ 3,14. Wie groß ist die Mantelfläche des Zylinders in cm²?",
+    628, "3.14 * (60 / 6) * (2 * 60 / 6)", "3.14 * 200", "Der Axialschnitt hat die Seiten d und 2d. Wie groß ist sein Umfang, wenn du ihn mit d aufschreibst? Wie berechnet man die Mantelfläche?",
+    "Der Axialschnitt hat die Seiten d und h = 2d. Umfang: 2 · (d + 2d) = 6d = 60, also d = 10 cm und h = 20 cm. Mantelfläche M = π · d · h = 3,14 · 10 · 20 = 628 cm².",
+    [B("3.14 * 5 * 20", "mit dem Radius 5 cm statt mit dem Durchmesser als Umfang der Grundfläche gerechnet"), B("3.14 * 5 ** 2 * 20", "das Volumen π · r² · h statt der Mantelfläche berechnet"), B("3.14 * 15 * 15", "den Axialschnitt als Quadrat behandelt und die Seite aus dem Umfang durch 4 bestimmt")], "cm²"), g="transfer")
 # ───────── koerper_symmetrie ─────────
 a1(T, "koerper_symmetrie", Z(
-    "Eine Pralinenschachtel hat die Form eines Quaders. Ihre Grundfläche ist ein Quadrat, die Höhe ist aber nicht gleich der Länge der Grundseite. Wie viele Symmetrieebenen hat die Schachtel?",
-    5, "4 + 1", "2 + 2 + 1", "Zähle erst die Ebenen, die die Höhe enthalten (Symmetrieachsen des Quadrats). Dann die Ebene parallel zur Grundfläche.",
-    "Ebenen durch die Höhe: Sie entsprechen den 4 Symmetrieachsen des Quadrats (2 Mittellinien, 2 Diagonalen). Dazu kommt die Ebene in halber Höhe, parallel zur Grundfläche. Zusammen 4 + 1 = 5 Symmetrieebenen.",
-    [(3, None, "wie bei einem Quader mit lauter verschiedenen Kanten gezählt", "3"), (9, None, "wie beim Würfel gezählt", "9"), (4, None, "die Ebene in halber Höhe vergessen", "4")]))
+    "Ein Schmuckkästchen ist ein gerades Prisma. Seine Grundfläche ist ein gleichseitiges Dreieck, die Höhe ist größer als die Seite des Dreiecks. Wie viele Symmetrieebenen hat das Kästchen?",
+    4, "3 + 1", "1 + 3", "Zähle erst die Ebenen, die die Höhe enthalten (Symmetrieachsen des Dreiecks). Dann die Ebene parallel zur Grundfläche.",
+    "Ebenen durch die Höhe: Sie entsprechen den 3 Symmetrieachsen des gleichseitigen Dreiecks. Dazu kommt die Ebene in halber Höhe, parallel zur Grundfläche. Zusammen 3 + 1 = 4 Symmetrieebenen.",
+    [B("3", "die Ebene in halber Höhe vergessen"), B("9", "wie beim Würfel gezählt"), B("4 + 1", "wie bei einem Prisma über einem Quadrat gezählt")]))
 a2(T, "koerper_symmetrie", Z(
     "Ein Spielzeughändler hat drei Körper: einen Würfel, eine gerade Pyramide mit quadratischer Grundfläche und ein gerades Prisma, dessen Grundfläche ein gleichseitiges Dreieck ist. Wie viele Symmetrieebenen haben die drei Körper zusammen?",
     17, "9 + 4 + (3 + 1)", "9 + 4 + 4", "Der Würfel hat 9 Ebenen. Für Pyramide und Prisma zählst du erst die Symmetrieachsen der Grundfläche. Beim Prisma kommt noch eine Ebene dazu.",
     "Würfel: 9 Ebenen. Gerade Pyramide über dem Quadrat: 4 Ebenen (eine je Symmetrieachse des Quadrats). Gerades Prisma über dem gleichseitigen Dreieck: 3 Ebenen durch die Achsen des Dreiecks und 1 Ebene in halber Höhe, also 4. Zusammen 9 + 4 + 4 = 17.",
     [(16, None, "beim Prisma die Ebene in halber Höhe vergessen", "9 + 4 + 3"), (18, None, "bei der Pyramide eine Ebene in halber Höhe dazugezählt", "9 + 5 + 4"), (13, None, "den Würfel mit 5 Ebenen gezählt", "5 + 4 + 4")], "Ebenen"))
 a3(T, "koerper_symmetrie", Z(
-    "Ein gerades Prisma hat als Grundfläche ein regelmäßiges Vieleck mit n Ecken und genau 7 Symmetrieebenen. Wie viele Kanten hat das Prisma?",
+    "Ein gerades Prisma hat als Grundfläche ein regelmäßiges Vieleck mit n Ecken. Das Prisma hat genau 7 Symmetrieebenen. Wie viele Kanten hat das Prisma?",
     18, "3 * (7 - 1)", "6 * 3", "Wie hängt die Zahl der Symmetrieebenen eines geraden Prismas mit der Eckenzahl n der Grundfläche zusammen? Wie viele Kanten hat ein Prisma mit n-Eck?",
-    "Ein gerades Prisma über einem regelmäßigen n-Eck hat n + 1 Symmetrieebenen. Aus n + 1 = 7 folgt n = 6. Ein Prisma über einem Sechseck hat 6 Kanten unten, 6 oben und 6 senkrechte: 3 · 6 = 18 Kanten.",
+    "Die Symmetrieebenen des Prismas sind n Ebenen durch die Höhe (eine je Symmetrieachse des n-Ecks) und die Ebene in halber Höhe: zusammen n + 1. Eine Ausnahme ist der Würfel (n = 4, Höhe gleich Seitenlänge): Er hat 9 Symmetrieebenen, nicht 5. Hier sind es 7, also ist n = 6. Ein Prisma über einem Sechseck hat 6 Kanten unten, 6 oben und 6 senkrechte: 3 · 6 = 18 Kanten.",
     [(21, None, "n = 7 genommen: die Zahl der Ebenen als Eckenzahl", "3 * 7"), (12, None, "nur die Kanten der Grund- und der Deckfläche gezählt", "2 * 6"), (6, None, "die Eckenzahl der Grundfläche als Kantenzahl angegeben", "6")], "Kanten"), g="rueckwaerts")

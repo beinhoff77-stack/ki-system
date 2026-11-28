@@ -11,10 +11,10 @@ a2(T, "parallelogramm", Z(
     "Fläche: 2,4 · 1,5 = 3,6 m². Preis: 3,6 · 8 = 28,80 €.",
     [B("2.4 * 1.5", "nur die Fläche angegeben"), B("2.4 * 8", "die Höhe vergessen"), B("2.4 * 1.5 * 8 / 2", "die Formel für das Dreieck benutzt")], "€"))
 a3(T, "parallelogramm", Z(
-    "Ein Parallelogramm hat die Seiten 9 cm und 12 cm. Die Höhe zur 9-cm-Seite ist 8 cm. Wie groß ist die Höhe zur 12-cm-Seite?",
-    6, "9 * 8 / 12", "72 / 12", "Berechne zuerst die Fläche mit der Grundseite 9 cm. Dieselbe Fläche gilt auch für die Grundseite 12 cm.",
-    "Fläche: 9 · 8 = 72 cm². Mit der Grundseite 12 cm gilt: 72 : 12 = 6 cm.",
-    [B("9 * 12 / 8", "mit der anderen Seite malgenommen und durch die Höhe geteilt"), B("9 * 8", "die Fläche statt der Höhe angegeben"), B("9 + 12 - 8", "die Seiten addiert und die Höhe abgezogen")], "cm"), g="transfer")
+    "Ein Parallelogramm hat die Fläche 96 cm² und die Seitenlängen 12 cm und 8 cm. Wie groß ist die Summe der beiden zugehörigen Höhen in Zentimetern?",
+    20, "96 / 12 + 96 / 8", "8 + 12", "Die Fläche ist Grundseite mal Höhe. Berechne zu jeder der beiden Seiten die zugehörige Höhe.",
+    "Zur Seite 12 cm gehört die Höhe 96 : 12 = 8 cm. Zur Seite 8 cm gehört die Höhe 96 : 8 = 12 cm. Summe: 8 + 12 = 20 cm.",
+    [B("96 / 8", "nur die Höhe zur Seite 8 cm angegeben"), B("96 / 12", "nur die Höhe zur Seite 12 cm angegeben"), B("96 / (12 + 8)", "die Fläche durch die Summe der Seiten geteilt")], "cm"), g="transfer")
 # ───────── dreieck ─────────
 a1(T, "dreieck", Z(
     "Ein Segel ist ein Dreieck mit der Grundseite 7 m und der Höhe 4 m. Wie groß ist die Fläche des Segels?",
@@ -25,7 +25,7 @@ a2(T, "dreieck", Z(
     "Eine Wimpelkette hat 8 gleiche Dreiecke aus Stoff. Jedes Dreieck hat die Grundseite 30 cm und die Höhe 40 cm. Wie viele Quadratzentimeter Stoff braucht man für alle Wimpel?",
     4800, "8 * 30 * 40 / 2", "8 * 600", "Berechne zuerst die Fläche eines Wimpels. Dann rechnest du mal 8.",
     "Ein Wimpel: 30 · 40 : 2 = 600 cm². Alle 8 Wimpel: 8 · 600 = 4 800 cm².",
-    [B("8 * 30 * 40", "nicht durch 2 geteilt"), B("30 * 40 / 2", "nur einen Wimpel berechnet"), B("8 * (30 + 40) / 2", "Grundseite und Höhe addiert")], "cm²"))
+    [B("8 * 30 * 40", "nicht durch 2 geteilt"), B("30 * 40 / 2", "nur einen Wimpel berechnet"), B("8 * (30 + 40) / 2", "Grundseite und Höhe addiert, dann mal 8 und durch 2 geteilt")], "cm²"))
 a3(T, "dreieck", Z(
     "Ein Dreieck hat die Grundseite 14 cm und die Höhe 5 cm. Ein zweites Dreieck hat denselben Flächeninhalt, aber die Grundseite 10 cm. Wie hoch ist das zweite Dreieck?",
     7, "14 * 5 / 10", "70 / 10", "Das erste Dreieck hat die Fläche 14 · 5 : 2. Für das zweite gilt dieselbe Fläche mit der Grundseite 10 cm.",
@@ -54,15 +54,15 @@ a1(T, "rueckwaerts", Z(
     "Die Seite am Weg ist die Grundseite. h = A : g = 96 : 12 = 8 m. Probe: 12 · 8 = 96.",
     [B("96 * 12", "mit der Grundseite malgenommen"), B("96 / 12 / 2", "zusätzlich durch 2 geteilt"), B("96 - 12", "die Grundseite abgezogen")], "m"))
 a2(T, "rueckwaerts", Z(
-    "Ein Stoffwimpel hat die Form eines Dreiecks mit der Fläche 60 cm². Er ist 8 cm hoch. Wie lang ist die Seite, an der er an der Schnur befestigt ist?",
-    15, "2 * 60 / 8", "120 / 8", "Beim Dreieck ist die Fläche g · h : 2. Rechne zuerst zweimal die Fläche.",
-    "2 · 60 = 120. Grundseite: 120 : 8 = 15 cm. Probe: 15 · 8 : 2 = 60.",
-    [B("60 / 8", "zweimal die Fläche vergessen"), B("60 * 8 / 2", "die Fläche mit der Höhe malgenommen und durch 2 geteilt"), B("2 * 60 * 8", "alles malgenommen")], "cm"))
+    "Ein dreieckiger Wimpel hat die Fläche 60 cm² und ist 8 cm hoch, gemessen senkrecht zu der Seite, mit der er an der Schnur befestigt ist. An einer Schnur hängen 12 solche Wimpel lückenlos nebeneinander, jeweils mit der Befestigungsseite an der Schnur. Wie lang ist das Schnurstück, an dem alle Wimpel hängen, in Zentimetern?",
+    180, "12 * 2 * 60 / 8", "12 * 15", "Berechne zuerst die Befestigungsseite eines Wimpels: zweimal die Fläche, geteilt durch die Höhe.",
+    "Dreieck: A = g · h : 2. Also g = 2 · 60 : 8 = 15 cm. Für 12 Wimpel: 12 · 15 = 180 cm. Probe: 15 · 8 : 2 = 60.",
+    [B("12 * 60 / 8", "die Fläche vor dem Teilen nicht verdoppelt"), B("2 * 60 / 8", "nur die Seite eines Wimpels angegeben"), B("12 * 60 * 8 / 2", "die Fläche mit der Höhe malgenommen und durch 2 geteilt, dann mal 12")], "cm"))
 a3(T, "rueckwaerts", Z(
     "Ein Rechteck ist 6 cm breit und 12 cm lang. Ein Dreieck hat denselben Flächeninhalt und die Grundseite 16 cm. Wie hoch ist das Dreieck?",
     9, "2 * 6 * 12 / 16", "144 / 16", "Berechne die Fläche des Rechtecks. Beim Dreieck rechnest du dann zweimal die Fläche geteilt durch die Grundseite.",
     "Rechteck: 6 · 12 = 72 cm². Dreieck: 2 · 72 : 16 = 9 cm. Probe: 16 · 9 : 2 = 72.",
-    [B("6 * 12 / 16", "zweimal die Fläche vergessen"), B("6 * 12 * 16 / 2", "die Fläche mit der Grundseite malgenommen und durch 2 geteilt"), B("6 * 12 - 16", "die Grundseite von der Fläche abgezogen")], "cm"), g="verknuepfen")
+    [B("6 * 12 / 16", "die Fläche vor dem Teilen nicht verdoppelt"), B("6 * 12 * 16 / 2", "die Fläche mit der Grundseite malgenommen und durch 2 geteilt"), B("6 * 12 - 16", "die Grundseite von der Fläche abgezogen")], "cm"), g="verknuepfen")
 # ───────── zusammengesetzt ─────────
 a1(T, "zusammengesetzt", Z(
     "Ein Zimmer ist ein Rechteck von 8 m mal 5 m. An einer Seite hat es einen Erker, der ein Quadrat mit 2 m Seitenlänge ist. Wie groß ist die Bodenfläche mit dem Erker?",
@@ -78,7 +78,7 @@ a3(T, "zusammengesetzt", Z(
     "Ein Bild ist 40 cm breit und 30 cm hoch. Es hat einen Rahmen, der rundherum 5 cm breit ist. Wie groß ist die Fläche des Rahmens ohne das Bild?",
     800, "(40 + 2 * 5) * (30 + 2 * 5) - 40 * 30", "50 * 40 - 40 * 30", "Der Rahmen macht das Rechteck auf jeder Seite größer. Berechne das Außenrechteck und ziehe das Bild ab.",
     "Außen: (40 + 10) · (30 + 10) = 50 · 40 = 2 000 cm². Bild: 40 · 30 = 1 200 cm². Rahmen: 2 000 − 1 200 = 800 cm².",
-    [B("(40 + 5) * (30 + 5) - 40 * 30", "den Rahmen nur auf einer Seite gerechnet"), B("2 * 5 * (40 + 30)", "die vier Ecken vergessen"), B("(40 - 2 * 5) * (30 - 2 * 5)", "die Fläche innerhalb des Rahmens gerechnet")], "cm²"), g="transfer")
+    [B("(40 + 5) * (30 + 5) - 40 * 30", "den Rahmen nur auf einer Seite gerechnet"), B("2 * 5 * (40 + 30)", "die vier Ecken vergessen"), B("(40 - 2 * 5) * (30 - 2 * 5)", "40 cm mal 30 cm als Außenmaße gelesen und das Innenrechteck 30 · 20 berechnet")], "cm²"), g="transfer")
 # ───────── oberflaeche ─────────
 a1(T, "oberflaeche", Z(
     "Ein Geschenk ist ein Quader: 25 cm lang, 12 cm breit und 6 cm hoch. Es wird rundherum in Papier eingepackt, ohne dass sich das Papier überlappt. Wie viele Quadratzentimeter Papier braucht man mindestens?",
@@ -86,10 +86,10 @@ a1(T, "oberflaeche", Z(
     "Boden und Deckel: 25 · 12 = 300. Vorder- und Rückseite: 25 · 6 = 150. Die beiden Seiten: 12 · 6 = 72. Summe: 522. Doppelt: 1 044 cm².",
     [B("25 * 12 * 6", "das Volumen statt der Oberfläche berechnet"), B("25 * 12 + 25 * 6 + 12 * 6", "die drei Flächensorten nur einmal gezählt"), B("2 * (25 * 12 + 25 * 6)", "ein Flächenpaar vergessen")], "cm²"))
 a2(T, "oberflaeche", Z(
-    "Ein Aquarium aus Glas hat keinen Deckel. Es ist 50 cm lang, 30 cm breit und 40 cm hoch. Wie viele Quadratzentimeter Glas braucht man für Boden und vier Seitenwände?",
-    7900, "50 * 30 + 2 * (50 * 40 + 30 * 40)", "1500 + 6400", "Rechne den Boden und die vier Seitenwände getrennt. Es gibt zwei lange und zwei kurze Wände.",
-    "Boden: 50 · 30 = 1 500 cm². Lange Wände: 2 · 50 · 40 = 4 000 cm². Kurze Wände: 2 · 30 · 40 = 2 400 cm². Zusammen 1 500 + 4 000 + 2 400 = 7 900 cm².",
-    [B("2 * (50 * 30 + 50 * 40 + 30 * 40)", "den Deckel mitgerechnet"), B("50 * 30 + 50 * 40 + 30 * 40", "die Flächen nur einmal gezählt"), B("50 * 30 + 2 * 50 * 40", "die beiden kurzen Wände vergessen")], "cm²"))
+    "Eine Dachrinne ist 2 m lang. Ihr Querschnitt ist ein Rechteck, 12 cm breit und 8 cm hoch. Die Rinne ist oben offen, ihre beiden Enden sind mit Blech verschlossen. Wie viele Quadratzentimeter Blech werden für Boden, beide Seitenwände und beide Enden gebraucht?",
+    5792, "12 * 200 + 2 * 8 * 200 + 2 * 12 * 8", "2400 + 3200 + 192", "Rechne in cm: 2 m sind 200 cm. Berechne Boden, zwei lange Seitenwände und zwei kleine Endflächen.",
+    "Boden: 12 · 200 = 2 400 cm². Zwei Seitenwände: 2 · 8 · 200 = 3 200 cm². Zwei Enden: 2 · 12 · 8 = 192 cm². Zusammen 2 400 + 3 200 + 192 = 5 792 cm².",
+    [B("2 * 12 * 200 + 2 * 8 * 200 + 2 * 12 * 8", "einen Deckel mitgerechnet"), B("12 * 200 + 2 * 8 * 200", "die beiden Enden vergessen"), B("12 * 200 + 2 * 12 * 8", "die Seitenwände vergessen")], "cm²"))
 a3(T, "oberflaeche", Z(
     "Ein Würfel hat die Oberfläche 54 cm². Zwei solche Würfel werden mit je einer ganzen Fläche zu einem Quader zusammengeklebt. Wie groß ist die Oberfläche des Quaders?",
     90, "2 * 54 - 2 * (54 / 6)", "108 - 18", "Wie groß ist eine Würfelfläche? Beim Zusammenkleben verschwinden zwei Würfelflächen.",
@@ -110,7 +110,7 @@ a3(T, "verstehen", Z(
     "Kim berechnet ein Trapez mit den parallelen Seiten 8 cm und 4 cm und der Höhe 5 cm so: „8 · 4 · 5 : 2 = 80 cm².“ Um wie viele Quadratzentimeter ist Kims Ergebnis zu groß?",
     50, "8 * 4 * 5 / 2 - (8 + 4) * 5 / 2", "80 - 30", "Welche Formel gilt beim Trapez? Berechne die richtige Fläche und vergleiche mit Kims 80.",
     "Richtig: (8 + 4) · 5 : 2 = 30 cm². Kim hat die Seiten malgenommen statt addiert und kommt auf 80 cm². Unterschied: 80 − 30 = 50 cm².",
-    [B("8 * 4 * 5 / 2", "Kims falsche Fläche angegeben"), B("(8 + 4) * 5 / 2", "die richtige Fläche angegeben"), B("8 * 4 * 5", "nicht durch 2 geteilt")], "cm²"), g="fehler")
+    [B("8 * 4 * 5 / 2", "Kims falsche Fläche angegeben"), B("(8 + 4) * 5 / 2", "die richtige Fläche angegeben"), B("8 * 4 * 5 / 2 - (8 + 4) * 5", "die richtige Fläche ohne Teilen durch 2 berechnet (60 statt 30)")], "cm²"), g="fehler")
 # ───────── drachen_raute ─────────
 a1(T, "drachen_raute", Z(
     "Ein Papierdrache hat die Diagonalen 60 cm und 40 cm. Wie groß ist die Fläche des Drachens?",
@@ -123,7 +123,7 @@ a2(T, "drachen_raute", Z(
     "Eine Fliese: 18 · 10 : 2 = 90 cm². Zwei Fliesen: 2 · 90 = 180 cm².",
     [B("18 * 10 / 2", "nur eine Fliese berechnet"), B("2 * 18 * 10", "die Fläche nicht durch 2 geteilt"), B("2 * (18 + 10)", "die Diagonalen addiert")], "cm²"))
 a3(T, "drachen_raute", Z(
-    "Eine Raute hat die Fläche 120 cm². Die eine Diagonale ist 24 cm lang. Wie lang ist die andere Diagonale?",
-    10, "2 * 120 / 24", "240 / 24", "Die Fläche ist e · f : 2. Rechne zuerst zweimal die Fläche. Dann teilst du durch die bekannte Diagonale.",
-    "2 · 120 = 240. Andere Diagonale: 240 : 24 = 10 cm. Probe: 24 · 10 : 2 = 120.",
-    [B("120 / 24", "zweimal die Fläche vergessen"), B("120 * 24 / 2", "die Fläche mit der Diagonale malgenommen und durch 2 geteilt"), B("2 * 120 * 24", "alles malgenommen")], "cm"), g="rueckwaerts")
+    "Eine Raute hat die Fläche 120 cm². Die eine Diagonale ist 24 cm lang. Ein Rechteck hat als Seitenlängen genau die beiden Diagonalen der Raute. Wie groß ist der Umfang des Rechtecks in Zentimetern?",
+    68, "2 * (24 + 2 * 120 / 24)", "2 * 34", "Berechne zuerst die andere Diagonale: zweimal die Fläche, geteilt durch die bekannte Diagonale. Dann bestimmst du den Umfang des Rechtecks.",
+    "Fläche der Raute: e · f : 2 = 120, also f = 2 · 120 : 24 = 10 cm. Das Rechteck hat die Seiten 24 cm und 10 cm. Umfang: 2 · (24 + 10) = 68 cm.",
+    [B("2 * (24 + 120 / 24)", "die Fläche vor dem Teilen nicht verdoppelt"), B("24 + 2 * 120 / 24", "nur die halbe Summe der Seiten statt des Umfangs angegeben"), B("24 * 2 * 120 / 24", "die Fläche des Rechtecks statt des Umfangs angegeben")], "cm"), g="rueckwaerts")

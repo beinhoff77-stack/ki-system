@@ -185,6 +185,6 @@ Stufe 2: ein = Einkleidung, mehr = Mehrschritt. Stufe 3: Tätigkeit (g) in Klamm
 - Alle Aufgaben haben dieselbe Form (`anwenden`, Zahlantwort). Das folgt dem Auftrag (Sach- und Anwendungsaufgaben), bringt aber keine neuen Formen.
 - Ein Teil der Stufe-3-Aufgaben ist nur mäßig schwerer als die Stufe-2-Aufgabe derselben Etappe (Rückwärts- und Umkehraufgaben mit einem zusätzlichen Schritt). Siehe Befundliste.
 - Rechnungen mit π nennen π ≈ 3,14 im Text; Aufgaben mit Dezimalergebnis: siehe Befundliste (Toleranz).
-- Rundungsaufgaben (bruch.dezimal, runden) vermeiden den Fall „genau 5“, damit keine Rundungsregel-Streitfrage entsteht.
+- Rundungsaufgaben (bruch.dezimal, runden): V172, V173 und V184 vermeiden den Fall „genau 5“. V174 nennt ihn ausdrücklich (Anzeige mit zwei Nachkommastellen, ab der Zehntelziffer 5 wird aufgerundet), damit die Zahl der möglichen Anzeigen (5,50 bis 6,49, also 100) eindeutig ist.
 - Zeichnungen gibt es nicht (0 Aufgaben mit Grafik).
 - Der Bauplan-Vergleich prüft nur den Fragetext mit maskierten Zahlen. Ähnliche Sachverhalte mit anderem Wortlaut (zum Beispiel Quader mit Würfel-Gleichung in messen.volumen) erkennt er nicht; nur stichprobenartig von Hand gegen den Bestand gelesen (vollständig für die letzten vier Einheiten).

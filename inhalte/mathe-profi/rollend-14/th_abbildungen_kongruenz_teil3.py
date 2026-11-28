@@ -46,4 +46,4 @@ a3(T, "vektor_drehen", Z(
     "Ein Vektor v wird nacheinander um +90°, um 180° und um −90° gedreht. Das Ergebnis ist der Vektor (−3 | 7). Dabei gilt: +90°: (x | y) → (−y | x); −90°: (x | y) → (y | −x); 180°: (x | y) → (−x | −y). Wie groß ist die Summe der beiden Koordinaten von v?",
     -4, "3 + (-7)", "-(-3 + 7)", "Wie viel wird insgesamt gedreht? Fasse die drei Drehungen zu einer zusammen.",
     "Insgesamt wird um 90° + 180° − 90° = 180° gedreht. Eine Drehung um 180° macht aus v = (x | y) den Vektor (−x | −y) = (−3 | 7). Also ist v = (3 | −7). Die Summe ist 3 + (−7) = −4.",
-    [(4, None, "den Ergebnisvektor als v genommen und die Koordinaten addiert", "-3 + 7"), (10, None, "die Beträge der Koordinaten addiert", "3 + 7"), (-10, None, "beide Vorzeichen vertauscht: v = (−3 | −7)", "-3 - 7")]), g="verknuepfen")
+    [(4, None, "den Ergebnisvektor als v genommen und die Koordinaten addiert", "-3 + 7"), (10, None, "die Beträge der Koordinaten addiert", "3 + 7"), (-10, None, "nur das Vorzeichen der y-Koordinate umgedreht: v = (−3 | −7)", "-3 - 7")]), g="verknuepfen")

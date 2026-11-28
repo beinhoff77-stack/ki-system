@@ -22,10 +22,10 @@ a1(T, "vergleichen_ordnen", Z(
     "Am weitesten: 0,63 m = 630 mm. Am wenigsten: 0,306 m = 306 mm. Unterschied: 630 − 306 = 324 mm.",
     [B("(0.6 - 0.306) * 1000", "die zweitschnellste statt der schnellsten Schnecke genommen"), B("(0.63 - 0.306) * 100", "mit 100 statt mit 1 000 umgerechnet"), B("(0.63 - 0.36) * 1000", "die zweitlangsamste statt der langsamsten Schnecke genommen")], "mm"))
 a2(T, "vergleichen_ordnen", Z(
-    "Alex misst Körpergrößen in Metern mit zwei Nachkommastellen. Wie viele verschiedene Werte liegen zwischen 1,20 m und 1,50 m? Die beiden Grenzen zählen nicht mit.",
-    29, "(1.5 - 1.2) * 100 - 1", "149 - 121 + 1", "Schreibe 1,2 als 1,20 und 1,5 als 1,50. Zähle die Hundertstel dazwischen.",
-    "1,20 sind 120 Hundertstel, 1,50 sind 150 Hundertstel. Dazwischen liegen 121 bis 149, das sind 29 Werte.",
-    [B("(1.5 - 1.2) * 100", "die Grenze 1,50 mitgezählt"), B("(1.5 - 1.2) * 100 + 1", "beide Grenzen mitgezählt"), B("(1.5 - 1.2) * 1000 - 1", "mit Tausendsteln statt mit Hundertsteln gerechnet")]))
+    "Für wie viele Ziffern □ liegt die Zahl 3,4□ zwischen 3,42 und 3,48? Die Zahlen 3,42 und 3,48 selbst zählen nicht mit.",
+    5, "8 - 2 - 1", "7 - 3 + 1", "Welche Ziffern □ machen 3,4□ größer als 3,42? Welche machen es kleiner als 3,48?",
+    "Größer als 3,42 ist 3,4□ ab □ = 3. Kleiner als 3,48 ist es bis □ = 7. Möglich sind 3, 4, 5, 6 und 7: das sind 5 Ziffern.",
+    [B("8 - 2 + 1", "beide Grenzen 2 und 8 mitgezählt"), B("7 - 2 + 1", "die Ziffer 2 der Grenze 3,42 mitgezählt"), B("10", "alle zehn Ziffern gezählt")]))
 a3(T, "vergleichen_ordnen", Z(
     "Eine Zahl hat genau zwei Nachkommastellen und liegt zwischen 3,7 und 3,8. Die Quersumme aller ihrer Ziffern ist 18. Welche Zahl ist es?",
     3.78, "3.7 + (18 - 3 - 7) / 100", "3.78", "Die Zahl sieht so aus: 3,7 und eine letzte Ziffer. Welche Ziffer fehlt, damit die Quersumme 18 ist?",
@@ -38,14 +38,14 @@ a1(T, "runden", Z(
     "Hundertstel: 0,38. Die Ziffer rechts davon ist 4, also wird abgerundet. Ergebnis: 0,38 m³.",
     [B("round(0.3846 * 10) / 10", "auf Zehntel gerundet"), B("round(0.3846 * 1000) / 1000", "auf Tausendstel gerundet"), B("round(0.3846 * 100) / 10", "das Komma beim Runden falsch gesetzt")], "m³"))
 a2(T, "runden", Z(
-    "Kim tankt 34 Liter Benzin. Ein Liter kostet 1,748 €. Wie viel Euro kostet die Tankfüllung, gerundet auf ganze Cent?",
-    59.43, "round(34 * 1.748 * 100) / 100", "5943 / 100", "Rechne zuerst den genauen Preis aus. Dann rundest du auf Hundertstel.",
-    "34 · 1,748 = 59,432. Auf Hundertstel gerundet: Die Ziffer rechts ist 2, also abrunden. Ergebnis: 59,43 €.",
-    [B("34 * 1.748", "den Preis nicht gerundet"), B("round(34 * 1.75 * 100) / 100", "den Literpreis zuerst auf 1,75 gerundet"), B("round(34 * 1.748 * 10) / 10", "auf Zehntel gerundet")], "€"))
+    "Alex tauscht 85 € in Schweizer Franken. Für 1 € bekommt man 0,9432 Franken. Wie viele Franken sind das, auf Rappen genau (zwei Nachkommastellen) gerundet?",
+    80.17, "round(85 * 0.9432 * 100) / 100", "8017 / 100", "Rechne zuerst den genauen Betrag aus. Dann rundest du auf Hundertstel.",
+    "85 · 0,9432 = 80,172. Auf Hundertstel gerundet: Die Ziffer rechts ist 2, also abrunden. Ergebnis: 80,17 Franken.",
+    [B("round(85 * 0.9432 * 10) / 10", "auf Zehntel gerundet"), B("round(85 * 0.9432 * 100 + 0.5) / 100", "aufgerundet statt gerundet"), B("round(85 * 0.94 * 100) / 100", "den Kurs zuerst auf 0,94 gerundet")], "Franken"))
 a3(T, "runden", Z(
-    "Eine Dezimalzahl mit genau zwei Nachkommastellen wird auf eine ganze Zahl gerundet. Das Ergebnis ist 6. Wie viele solche Zahlen gibt es?",
+    "Auf einem Display steht eine Zahl mit genau zwei Nachkommastellen, zum Beispiel 6,00. Sie wird auf eine ganze Zahl gerundet: Hat die Zehntelziffer den Wert 5 oder mehr, wird aufgerundet. Das Ergebnis ist 6. Wie viele verschiedene Anzeigen kann es gewesen sein?",
     100, "649 - 550 + 1", "99 + 1", "Welche ist die kleinste, welche die größte Zahl, die auf 6 gerundet wird? Zähle die Hundertstel von der kleinsten bis zur größten.",
-    "Ab 5,50 wird auf 6 aufgerundet, bis 6,49 wird auf 6 abgerundet. Die Zahlen sind 5,50 bis 6,49, also 550 bis 649 Hundertstel. Das sind 649 − 550 + 1 = 100 Zahlen.",
+    "Ab 5,50 (Zehntelziffer 5) wird auf 6 aufgerundet, bis 6,49 (Zehntelziffer 4) wird auf 6 abgerundet. Die Zahlen sind 5,50 bis 6,49, also 550 bis 649 Hundertstel. Das sind 649 − 550 + 1 = 100 Zahlen.",
     [B("649 - 551 + 1", "die Zahl 5,50 nicht mitgezählt"), B("599 - 550 + 1", "nur die Zahlen von 5,50 bis 5,99 gezählt"), B("650 - 550 + 1", "auch 6,50 mitgezählt, die schon auf 7 aufgerundet wird")]), g="rueckwaerts")
 # ───────── bruch_zu_dezimal ─────────
 a1(T, "bruch_zu_dezimal", Z(
@@ -68,7 +68,7 @@ a1(T, "dezimal_zu_bruch", Z(
     "Eine Schnur ist 0,35 m lang. Schreibe 0,35 als vollständig gekürzten Bruch. Welche Zahl steht im Zähler?",
     7, "35 / 5", "7", "0,35 sind 35/100. Kürze mit der größten Zahl, die in 35 und in 100 steckt.",
     "0,35 = 35/100. Der größte gemeinsame Teiler ist 5. Gekürzt: 7/20. Im Zähler steht 7.",
-    [B("35", "den Zähler des ungekürzten Bruchs angegeben"), B("100 / 5", "den Nenner statt den Zähler angegeben"), B("35 / 7", "durch 7 statt durch 5 gekürzt")]))
+    [B("35", "den Zähler des ungekürzten Bruchs angegeben"), B("20", "den Nenner statt den Zähler angegeben"), B("35 / 7", "nur den Zähler 35 durch 7 geteilt")]))
 a2(T, "dezimal_zu_bruch", Z(
     "Ein Rezept braucht 0,625 kg Mehl. Wie viele Achtel Kilogramm sind das?",
     5, "0.625 * 8", "625 / 125", "0,625 sind 625/1 000. Kürze mit 125. Welchen Nenner erhältst du?",
@@ -102,26 +102,26 @@ a1(T, "periodisch", Z(
     "10 : 3 = 3,3333… Die Ziffer 3 wiederholt sich. Auf Hundertstel gerundet: 3,33 m.",
     [B("round(10 / 3 * 100)", "die Länge in Zentimetern statt in Metern angegeben"), B("round(10 / 3 * 10) / 10", "auf Zehntel gerundet"), B("round(10 / 3)", "auf ganze Meter gerundet")], "m"))
 a2(T, "periodisch", Z(
-    "Es gilt 4/11 = 0,363636… Die Ziffernfolge wiederholt sich immer weiter. Welche Ziffer steht an der 37. Stelle nach dem Komma?",
-    3, "(4 * 10 ** 37 // 11) % 10", "3", "Welche Ziffern wiederholen sich? Wie viele Ziffern hat eine Wiederholung? Wo liegt die 37. Stelle in einer Wiederholung?",
-    "Die Ziffern 3 und 6 wiederholen sich, eine Wiederholung hat 2 Ziffern. Die 1. Stelle ist 3, die 2. Stelle ist 6, die 3. Stelle ist wieder 3, und so weiter. Ungerade Stellen haben die Ziffer 3. Die 37. Stelle ist ungerade, also steht dort 3.",
-    [B("6", "gerade und ungerade Stellen verwechselt"), B("3 + 6", "die beiden Ziffern addiert"), B("37 // 2", "die Zahl der vollen Wiederholungen angegeben")]))
+    "Es gilt 4/11 = 0,363636… Die Ziffernfolge 36 wiederholt sich immer weiter. Wie groß ist die Summe aller Ziffern von der 1. bis zur 37. Stelle nach dem Komma?",
+    165, "18 * (3 + 6) + 3", "162 + 3", "Wie groß ist die Ziffernsumme einer Wiederholung? Wie viele ganze Wiederholungen passen in 37 Stellen, und welche Ziffer bleibt übrig?",
+    "Eine Wiederholung „36“ hat 2 Ziffern und die Ziffernsumme 3 + 6 = 9. In 37 Stellen passen 18 ganze Wiederholungen (36 Stellen): 18 · 9 = 162. Die 37. Stelle ist die erste Ziffer einer neuen Wiederholung, also 3. Summe: 162 + 3 = 165.",
+    [B("18 * 9", "die 37. Stelle vergessen"), B("18 * 9 + 6", "die 37. Stelle als 6 statt als 3 gezählt"), B("37 * 9", "jede der 37 Stellen mit der Ziffernsumme 9 gerechnet")]))
 a3(T, "periodisch", Z(
-    "Es gilt 2/7 = 0,285714285714… Die Ziffernfolge 285714 wiederholt sich immer weiter. Welche Ziffer steht an der 50. Stelle nach dem Komma?",
-    8, "(2 * 10 ** 50 // 7) % 10", "8", "Eine Wiederholung hat 6 Ziffern. Teile 50 durch 6 mit Rest. Der Rest sagt dir, die wievielte Ziffer der Wiederholung gemeint ist.",
-    "50 : 6 = 8 Rest 2. Nach 8 vollen Wiederholungen (48 Stellen) kommt die 2. Ziffer einer neuen Wiederholung. Die Folge 285714 hat an zweiter Stelle die 8. Die 50. Stelle ist also 8.",
-    [B("2", "die erste Ziffer der Wiederholung genommen"), B("4", "die letzte Ziffer der Wiederholung genommen"), B("5", "die dritte Ziffer der Wiederholung genommen")]), g="transfer")
+    "Es gilt 3/11 = 0,272727… Die Ziffernfolge 27 wiederholt sich immer weiter. Wie oft steht die Ziffer 7 unter den ersten 25 Nachkommastellen?",
+    12, "25 // 2", "12", "An welchen Stellen steht die 7? Wie viele gerade Zahlen gibt es bis 25?",
+    "Die Ziffern wechseln: 2, 7, 2, 7, … Die 7 steht an jeder zweiten Stelle, nämlich an den Stellen 2, 4, 6, …, 24. Das sind 12 Stellen. Die 25. Stelle ist eine 2.",
+    [B("25 // 2 + 1", "die Ziffer 2 gezählt, die an 13 Stellen steht"), B("25", "alle 25 Stellen gezählt"), B("25 // 2 * 2", "bei jeder der 12 Wiederholungen beide Ziffern gezählt")]), g="transfer")
 # ───────── verstehen ─────────
 a1(T, "verstehen", Z(
-    "Sam schätzt das Ergebnis von 4,98 · 2,02. Dazu rundet er auf ganze Zahlen. Welchen Wert erhält er beim Überschlag?",
-    10, "5 * 2", "5 * 2", "Runde 4,98 und 2,02 auf ganze Zahlen. Dann multiplizierst du.",
-    "4,98 ≈ 5 und 2,02 ≈ 2. Überschlag: 5 · 2 = 10. Das genaue Ergebnis (10,0596) liegt nahe dabei.",
-    [B("5 + 2", "die gerundeten Zahlen addiert"), B("4.98 * 2.02", "genau gerechnet statt überschlagen"), B("5 * 0.2", "2,02 als 0,2 gerundet")]))
+    "Sam schätzt 4,98 · 2,02, indem er beide Zahlen auf ganze Zahlen rundet. Er behauptet: „Der Überschlag ist größer als das genaue Ergebnis.“ Prüfe das nach: Um wie viele Zehntausendstel unterscheiden sich der Überschlag und das genaue Ergebnis?",
+    596, "498 * 202 - 100000", "100596 - 100000", "Berechne den Überschlag 5 · 2. Rechne das genaue Ergebnis ohne Komma als 498 · 202. Wie viele Zehntausendstel liegen dazwischen?",
+    "Überschlag: 5 · 2 = 10 = 100 000 Zehntausendstel. Genau: 4,98 · 2,02 = 10,0596 = 100 596 Zehntausendstel. Der Überschlag ist kleiner als das genaue Ergebnis, Sams Behauptung stimmt also nicht. Unterschied: 100 596 − 100 000 = 596 Zehntausendstel.",
+    [B("498 * 202", "das genaue Ergebnis in Zehntausendsteln statt den Unterschied angegeben"), B("(498 * 202 - 100000) / 100", "den Unterschied in Hundertsteln statt in Zehntausendsteln angegeben"), B("600", "den Unterschied auf 0,06 gerundet und in Zehntausendstel umgerechnet")], "Zehntausendstel"))
 a2(T, "verstehen", Z(
-    "Auf einem Zahlenstrahl liegt der Punkt A bei 4,35 und der Punkt B bei 4,41. Welche Zahl liegt genau in der Mitte zwischen A und B?",
-    4.38, "(4.35 + 4.41) / 2", "4.35 + 0.03", "Wie weit liegen A und B auseinander? Die Mitte liegt eine halbe Strecke von A entfernt.",
-    "Der Abstand ist 4,41 − 4,35 = 0,06. Die Hälfte davon ist 0,03. Die Mitte ist 4,35 + 0,03 = 4,38.",
-    [B("4.35 + 4.41", "die beiden Zahlen addiert"), B("4.41 - 4.35", "den Abstand statt der Mitte angegeben"), B("4.35 + 0.01", "nur ein Hundertstel weitergezählt")]))
+    "Auf einem Zahlenstrahl liegt der Punkt A bei 4,35 und der Punkt B bei 4,47. M ist der Mittelpunkt der Strecke AB. Wie viele Zahlen mit genau zwei Nachkommastellen liegen zwischen M und B? M und B zählen nicht mit.",
+    5, "447 - 441 - 1", "46 - 42 + 1", "Wie weit liegen A und B auseinander? Wo liegt M? Zähle die Hundertstel zwischen M und B.",
+    "A = 4,35 sind 435 Hundertstel, B = 4,47 sind 447 Hundertstel. Der Abstand ist 12 Hundertstel, die Hälfte 6: M liegt bei 441 Hundertsteln, also bei 4,41. Zwischen M und B liegen 4,42; 4,43; 4,44; 4,45; 4,46. Das sind 5 Zahlen.",
+    [B("447 - 435 - 1", "alle Zahlen zwischen A und B gezählt"), B("447 - 441", "die Zahl B mitgezählt"), B("447 - 441 + 1", "M und B mitgezählt")]))
 a3(T, "verstehen", Z(
     "Kim behauptet: „Je mehr Ziffern nach dem Komma, desto größer ist die Zahl.“ Kim vergleicht 0,7 und 0,689. Um wie viele Tausendstel ist die Zahl mit weniger Ziffern größer?",
     11, "(0.7 - 0.689) * 1000", "700 - 689", "Schreibe 0,7 als 0,700 und vergleiche mit 0,689 Stelle für Stelle.",

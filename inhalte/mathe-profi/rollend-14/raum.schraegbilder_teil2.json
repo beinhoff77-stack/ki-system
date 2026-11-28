@@ -149,7 +149,7 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein Quader steht auf dem Boden (der xy-Ebene) mit der Ecke A im Ursprung und ragt nach oben. Seine Kanten verlaufen parallel zu den Achsen. Die Ecke G, die A gegenüberliegt, hat die Koordinaten (8 | 6 | h). Das Volumen ist 240 Volumeneinheiten. Ein zweiter Quader hat dieselbe Grundfläche, ist aber doppelt so hoch. Wie groß ist die Summe der drei Koordinaten seiner Ecke G′, die A gegenüberliegt?"
+     "text": "Ein Quader steht auf dem Boden (der xy-Ebene) mit der Ecke A im Ursprung und ragt nach oben. Seine Kanten verlaufen parallel zu den Achsen. Die Ecke G, die A gegenüberliegt, hat die Koordinaten (8 | 6 | h). Das Volumen ist 240 Volumeneinheiten. Ein zweiter Quader steht auf demselben Bodenrechteck mit derselben Ecke A im Ursprung, ist aber doppelt so hoch. Wie groß ist die Summe der drei Koordinaten seiner Ecke G′, die A gegenüberliegt?"
     },
     "o": {
      "wert": 24
@@ -348,7 +348,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Eine Eiswaffel hat die Form eines Kegels mit dem Radius 3 cm und der Höhe 12 cm. Sam schneidet sie der Länge nach genau durch die Achse. Wie groß ist die Fläche der Schnittfläche in cm²?"
+     "text": "Ein massiver Holzkegel hat den Radius 3 cm und die Höhe 12 cm. Sam sägt ihn der Länge nach genau durch die Achse durch. Wie groß ist die Fläche der Schnittfläche in cm²?"
     },
     "o": {
      "wert": 36,
@@ -422,22 +422,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 5425.92,
+     "antwort": 314,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Seite 12 cm als Radius genommen"
+     "beschreibung": "mit dem Radius 5 cm statt mit dem Durchmesser als Umfang der Grundfläche gerechnet"
     },
     {
-     "antwort": 10851.84,
+     "antwort": 1570,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Umfang nur durch 2 geteilt: Seite 24 cm"
+     "beschreibung": "das Volumen π · r² · h statt der Mantelfläche berechnet"
     },
     {
-     "antwort": 678.24,
+     "antwort": 706.5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Höhe 6 cm statt 12 cm genommen"
+     "beschreibung": "den Axialschnitt als Quadrat behandelt und die Seite aus dem Umfang durch 4 bestimmt"
     }
    ],
    "aufgabe": {
@@ -448,15 +448,15 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Der Axialschnitt eines Zylinders ist ein Quadrat mit dem Umfang 48 cm. Rechne mit π ≈ 3,14. Wie groß ist das Volumen des Zylinders in cm³?"
+     "text": "Der Axialschnitt eines Zylinders ist ein Rechteck mit dem Umfang 60 cm. Die Höhe des Zylinders ist doppelt so groß wie sein Durchmesser. Rechne mit π ≈ 3,14. Wie groß ist die Mantelfläche des Zylinders in cm²?"
     },
     "o": {
-     "wert": 1356.48,
-     "einheit": "cm³"
+     "wert": 628,
+     "einheit": "cm²"
     },
-    "c": "3.14 * (48 / 4 / 2) ** 2 * (48 / 4)",
-    "h": "Wie lang ist die Seite des Quadrats? Welche Seite des Quadrats ist der Durchmesser, welche die Höhe des Zylinders?",
-    "w": "Die Seite des Quadrats ist 48 : 4 = 12 cm. Sie ist zugleich der Durchmesser und die Höhe. Also ist r = 6 cm und h = 12 cm. V = 3,14 · 36 · 12 = 1 356,48 cm³."
+    "c": "3.14 * (60 / 6) * (2 * 60 / 6)",
+    "h": "Der Axialschnitt hat die Seiten d und 2d. Wie groß ist sein Umfang, wenn du ihn mit d aufschreibst? Wie berechnet man die Mantelfläche?",
+    "w": "Der Axialschnitt hat die Seiten d und h = 2d. Umfang: 2 · (d + 2d) = 6d = 60, also d = 10 cm und h = 20 cm. Mantelfläche M = π · d · h = 3,14 · 10 · 20 = 628 cm²."
    }
   },
   {
@@ -475,7 +475,7 @@
      "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "wie bei einem Quader mit lauter verschiedenen Kanten gezählt"
+     "beschreibung": "die Ebene in halber Höhe vergessen"
     },
     {
      "antwort": 9,
@@ -484,10 +484,10 @@
      "beschreibung": "wie beim Würfel gezählt"
     },
     {
-     "antwort": 4,
+     "antwort": 5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Ebene in halber Höhe vergessen"
+     "beschreibung": "wie bei einem Prisma über einem Quadrat gezählt"
     }
    ],
    "aufgabe": {
@@ -498,14 +498,14 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Eine Pralinenschachtel hat die Form eines Quaders. Ihre Grundfläche ist ein Quadrat, die Höhe ist aber nicht gleich der Länge der Grundseite. Wie viele Symmetrieebenen hat die Schachtel?"
+     "text": "Ein Schmuckkästchen ist ein gerades Prisma. Seine Grundfläche ist ein gleichseitiges Dreieck, die Höhe ist größer als die Seite des Dreiecks. Wie viele Symmetrieebenen hat das Kästchen?"
     },
     "o": {
-     "wert": 5
+     "wert": 4
     },
-    "c": "4 + 1",
-    "h": "Zähle erst die Ebenen, die die Höhe enthalten (Symmetrieachsen des Quadrats). Dann die Ebene parallel zur Grundfläche.",
-    "w": "Ebenen durch die Höhe: Sie entsprechen den 4 Symmetrieachsen des Quadrats (2 Mittellinien, 2 Diagonalen). Dazu kommt die Ebene in halber Höhe, parallel zur Grundfläche. Zusammen 4 + 1 = 5 Symmetrieebenen."
+    "c": "3 + 1",
+    "h": "Zähle erst die Ebenen, die die Höhe enthalten (Symmetrieachsen des Dreiecks). Dann die Ebene parallel zur Grundfläche.",
+    "w": "Ebenen durch die Höhe: Sie entsprechen den 3 Symmetrieachsen des gleichseitigen Dreiecks. Dazu kommt die Ebene in halber Höhe, parallel zur Grundfläche. Zusammen 3 + 1 = 4 Symmetrieebenen."
    }
   },
   {
@@ -597,7 +597,7 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein gerades Prisma hat als Grundfläche ein regelmäßiges Vieleck mit n Ecken und genau 7 Symmetrieebenen. Wie viele Kanten hat das Prisma?"
+     "text": "Ein gerades Prisma hat als Grundfläche ein regelmäßiges Vieleck mit n Ecken. Das Prisma hat genau 7 Symmetrieebenen. Wie viele Kanten hat das Prisma?"
     },
     "o": {
      "wert": 18,
@@ -605,7 +605,7 @@
     },
     "c": "3 * (7 - 1)",
     "h": "Wie hängt die Zahl der Symmetrieebenen eines geraden Prismas mit der Eckenzahl n der Grundfläche zusammen? Wie viele Kanten hat ein Prisma mit n-Eck?",
-    "w": "Ein gerades Prisma über einem regelmäßigen n-Eck hat n + 1 Symmetrieebenen. Aus n + 1 = 7 folgt n = 6. Ein Prisma über einem Sechseck hat 6 Kanten unten, 6 oben und 6 senkrechte: 3 · 6 = 18 Kanten."
+    "w": "Die Symmetrieebenen des Prismas sind n Ebenen durch die Höhe (eine je Symmetrieachse des n-Ecks) und die Ebene in halber Höhe: zusammen n + 1. Eine Ausnahme ist der Würfel (n = 4, Höhe gleich Seitenlänge): Er hat 9 Symmetrieebenen, nicht 5. Hier sind es 7, also ist n = 6. Ein Prisma über einem Sechseck hat 6 Kanten unten, 6 oben und 6 senkrechte: 3 · 6 = 18 Kanten."
    }
   }
  ]

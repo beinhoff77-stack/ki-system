@@ -74,22 +74,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 36,
+     "antwort": 64,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Würfel vor dem Wegnehmen angegeben"
+     "beschreibung": "die Pyramide als Quader aus 4 · 4 · 4 Würfeln gezählt"
     },
     {
-     "antwort": 30,
+     "antwort": 10,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur eine Reihe statt einer Schicht weggenommen"
+     "beschreibung": "nur die Würfel einer Seitenreihe addiert"
     },
     {
-     "antwort": 16,
+     "antwort": 29,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl der Schichten von den Würfeln einer Schicht abgezogen"
+     "beschreibung": "den obersten Würfel vergessen"
     }
    ],
    "aufgabe": {
@@ -100,14 +100,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Quader ist aus Würfeln gebaut: 6 Würfel in der Länge, 3 in der Breite und 2 Schichten übereinander. Sam nimmt die oberste Schicht ganz weg. Wie viele Würfel bleiben liegen?"
+     "text": "Sam baut eine Pyramide aus Würfeln mit 1 cm Kante: Die unterste Schicht ist 4 Würfel lang und 4 Würfel breit, die nächste Schicht 3 mal 3, dann 2 mal 2, und ganz oben liegt ein einzelner Würfel. Wie viele Würfel hat die Pyramide?"
     },
     "o": {
-     "wert": 18
+     "wert": 30,
+     "einheit": "Würfel"
     },
-    "c": "6 * 3 * 2 - 6 * 3",
-    "h": "Wie viele Würfel hat eine Schicht? Wie viele Schichten bleiben übrig?",
-    "w": "Eine Schicht hat 6 · 3 = 18 Würfel. Von 2 Schichten bleibt 1 Schicht. Es bleiben 18 Würfel liegen."
+    "c": "4 * 4 + 3 * 3 + 2 * 2 + 1",
+    "h": "Wie viele Würfel hat jede Schicht? Addiere die vier Schichten.",
+    "w": "Schicht 1: 4 · 4 = 16 Würfel. Schicht 2: 3 · 3 = 9 Würfel. Schicht 3: 2 · 2 = 4 Würfel. Schicht 4: 1 Würfel. Zusammen 16 + 9 + 4 + 1 = 30 Würfel."
    }
   },
   {
@@ -272,22 +273,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 32,
+     "antwort": 360,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur durch die Länge geteilt"
+     "beschreibung": "das Volumen als Höhe angegeben"
     },
     {
-     "antwort": 16,
+     "antwort": 60,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Volumen des Würfels nicht benutzt"
+     "beschreibung": "nur durch eine Seitenlänge 6 geteilt"
     },
     {
-     "antwort": 384,
+     "antwort": 30,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Grundfläche vom Volumen abgezogen"
+     "beschreibung": "die beiden Seitenlängen der neuen Grundfläche addiert statt malgenommen"
     }
    ],
    "aufgabe": {
@@ -298,15 +299,15 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein Würfel mit 8 cm Kante und ein Quader mit 16 cm Länge und 8 cm Breite haben genau dasselbe Volumen. Wie hoch ist der Quader?"
+     "text": "Aus einem Wachsblock (12 cm lang, 6 cm breit, 5 cm hoch) wird ohne Verlust ein neuer Quader mit quadratischer Grundfläche gegossen. Die Grundfläche hat die Seitenlänge 6 cm. Wie hoch wird der neue Quader in Zentimetern?"
     },
     "o": {
-     "wert": 4,
+     "wert": 10,
      "einheit": "cm"
     },
-    "c": "8 * 8 * 8 / (16 * 8)",
-    "h": "Berechne zuerst das Volumen des Würfels. Dann fehlt beim Quader nur die Höhe.",
-    "w": "Würfel: 8 · 8 · 8 = 512 cm³. Die Grundfläche des Quaders ist 16 · 8 = 128 cm². Höhe: 512 : 128 = 4 cm."
+    "c": "12 * 6 * 5 / (6 * 6)",
+    "h": "Das Volumen bleibt gleich. Berechne zuerst das Volumen des Wachsblocks. Wie groß ist die neue Grundfläche?",
+    "w": "Wachsblock: 12 · 6 · 5 = 360 cm³. Neue Grundfläche: 6 · 6 = 36 cm². Höhe: 360 : 36 = 10 cm. Probe: 36 · 10 = 360."
    }
   },
   {
@@ -433,10 +434,10 @@
      "beschreibung": "den mittleren statt den kleinsten Tank genommen"
     },
     {
-     "antwort": -2496,
+     "antwort": 3196,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit 1 000 statt mit 1 000 000 umgerechnet"
+     "beschreibung": "mit 1 000 statt mit 1 000 000 umgerechnet: 0,004 m³ als 4 cm³ gelesen"
     }
    ],
    "aufgabe": {

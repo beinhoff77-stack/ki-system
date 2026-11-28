@@ -51,7 +51,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Aufzug fährt gleichmäßig schnell. In 4 Sekunden fährt er 10 m. Die Zuordnung Zeit → Strecke ist proportional. Wie viele Meter fährt er in 10 Sekunden?"
+     "text": "Ein Aufzug fährt gleichmäßig schnell. In 4 Sekunden fährt er 10 m. Wie viele Meter fährt er in 10 Sekunden?"
     },
     "o": {
      "wert": 25,
@@ -175,22 +175,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 18,
+     "antwort": 43.75,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur 300 km gerechnet"
+     "beschreibung": "mit dem Kehrwert des richtigen Faktors gerechnet"
     },
     {
-     "antwort": 2100,
+     "antwort": 140,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Verbrauch mit 350 malgenommen"
+     "beschreibung": "die Euro mit 4 malgenommen"
     },
     {
-     "antwort": 256,
+     "antwort": 34,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "250 km dazugezählt und 250 Liter addiert"
+     "beschreibung": "den Unterschied 1 zwischen 5 und 4 abgezogen"
     }
    ],
    "aufgabe": {
@@ -201,15 +201,15 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Auto verbraucht auf 100 km genau 6 Liter Benzin. Der Verbrauch ist auf jedem Kilometer gleich. Wie viele Liter Benzin verbraucht es auf 350 km?"
+     "text": "Bei einem Bäcker kosten 4 Brezeln zusammen 5 €. Wie viele Brezeln bekommt man für 35 €?"
     },
     "o": {
-     "wert": 21,
-     "einheit": "l"
+     "wert": 28,
+     "einheit": "Brezeln"
     },
-    "c": "6 * 350 / 100",
-    "h": "Wie viele Liter sind es auf 50 km? Zerlege 350 km in 300 km und 50 km.",
-    "w": "300 km sind 3 · 100 km: 3 · 6 = 18 Liter. 50 km sind die Hälfte von 100 km: 3 Liter. Zusammen 18 + 3 = 21 Liter."
+    "c": "35 * 4 / 5",
+    "h": "Wie oft passen 5 € in 35 €? So oft bekommst du 4 Brezeln.",
+    "w": "5 € ergeben 4 Brezeln. 35 € sind 7 mal 5 €, also bekommt man 7 · 4 = 28 Brezeln."
    }
   },
   {
@@ -225,22 +225,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 3.5,
+     "antwort": 1.25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl 63 : 18 als Minuten angegeben"
+     "beschreibung": "das Ergebnis in Stunden statt in Minuten angegeben"
     },
     {
-     "antwort": 49,
+     "antwort": 20,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Liter-Differenz zur Zeit addiert"
+     "beschreibung": "5 mit den 4 km je Stunde malgenommen"
     },
     {
-     "antwort": 283.5,
+     "antwort": 900,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit 63 malgenommen statt geteilt"
+     "beschreibung": "nicht durch 12 geteilt"
     }
    ],
    "aufgabe": {
@@ -251,15 +251,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Wasserhahn füllt gleichmäßig 18 Liter in 4 Minuten. Wie viele Minuten braucht er, um 63 Liter einzufüllen?"
+     "text": "Ein Wanderer legt gleichmäßig 12 km in 3 Stunden zurück. Wie viele Minuten braucht er für 5 km?"
     },
     "o": {
-     "wert": 14,
+     "wert": 75,
      "einheit": "Minuten"
     },
-    "c": "63 / 18 * 4",
-    "h": "Wie viele Liter fließen in 1 Minute? Wie oft passt das in 63 Liter? Oder: Wie viele Liter sind es in 2 Minuten?",
-    "w": "In 4 Minuten fließen 18 Liter, in 1 Minute 18 : 4 = 4,5 Liter. 63 : 4,5 = 14 Minuten. Probe: 14 · 4,5 = 63."
+    "c": "5 * 3 * 60 / 12",
+    "h": "Wie viele Kilometer schafft er in 1 Stunde? Wie viele Minuten braucht er dann für 1 km?",
+    "w": "In 3 Stunden sind es 12 km, also 4 km in einer Stunde (60 Minuten). Für 1 km braucht er 60 : 4 = 15 Minuten, für 5 km also 5 · 15 = 75 Minuten."
    }
   },
   {
@@ -351,7 +351,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Kim zahlt für 2 kg Birnen 5 €, für 3 kg Birnen 7,50 € und für 5 kg Birnen 12,50 €. Die Zuordnung Gewicht → Preis ist proportional. Wie viel Euro kosten 8 kg Birnen?"
+     "text": "Kim zahlt für 2 kg Birnen 5 €, für 3 kg Birnen 7,50 € und für 5 kg Birnen 12,50 €. Kim möchte wissen, was 8 kg Birnen kosten, wenn sich der Preis weiter in dieser Weise ändert. Wie viel Euro kosten 8 kg Birnen?"
     },
     "o": {
      "wert": 20,
@@ -450,7 +450,7 @@
     "g": "pruefung",
     "y": "zahl",
     "f": {
-     "text": "Eine Tabelle zeigt, wie viel Benzin ein Motorroller auf verschiedenen Strecken verbraucht: 40 km → 1 l; 60 km → 1,5 l; 100 km → 2,5 l. Die Zuordnung ist proportional. Wie viele Kilometer kommt der Roller mit 7,5 Litern?"
+     "text": "Eine Tabelle zeigt, wie viel Benzin ein Motorroller auf verschiedenen Strecken verbraucht: 40 km → 1 l; 60 km → 1,5 l; 100 km → 2,5 l. Wie viele Kilometer kommt der Roller mit 7,5 Litern, wenn der Verbrauch weiter in dieser Weise zunimmt?"
     },
     "o": {
      "wert": 300,

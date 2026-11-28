@@ -25,22 +25,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 4,
+     "antwort": 84,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Fläche des Querschnitts angegeben"
+     "beschreibung": "das Dreieck wie ein Rechteck berechnet: Breite mal Höhe"
     },
     {
-     "antwort": 200,
+     "antwort": 11,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "beim Trapez nicht durch 2 geteilt"
+     "beschreibung": "nur die Fläche der Giebelseite angegeben"
     },
     {
-     "antwort": 150,
+     "antwort": 48,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Querschnitt als Rechteck oben mal tief gerechnet"
+     "beschreibung": "das Dreieck vergessen"
     }
    ],
    "aufgabe": {
@@ -51,15 +51,15 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Für eine Wasserleitung wird ein Graben ausgehoben. Sein Querschnitt ist ein Trapez: oben 3 m breit, unten 1 m breit und 2 m tief. Der Graben ist 25 m lang. Wie viele Kubikmeter Erde werden ausgehoben?"
+     "text": "Ein Schuppen hat die Form eines Prismas. Die Giebelseite ist ein Rechteck mit aufgesetztem Dreieck: Das Rechteck ist 4 m breit und 2 m hoch, das Dreieck hat die Höhe 1,5 m. Der Schuppen ist 6 m lang. Wie viele Kubikmeter Raum hat der Schuppen?"
     },
     "o": {
-     "wert": 100,
+     "wert": 66,
      "einheit": "m³"
     },
-    "c": "(3 + 1) / 2 * 2 * 25",
-    "h": "Der Graben ist ein Prisma. Die Grundfläche ist der trapezförmige Querschnitt. Berechne zuerst seine Fläche.",
-    "w": "Querschnitt: (3 + 1) : 2 · 2 = 4 m². Volumen = Grundfläche · Länge = 4 · 25 = 100 m³."
+    "c": "(4 * 2 + 4 * 1.5 / 2) * 6",
+    "h": "Der Schuppen ist ein Prisma. Die Grundfläche ist die Giebelseite aus Rechteck und Dreieck. Berechne zuerst ihre Fläche.",
+    "w": "Rechteck: 4 · 2 = 8 m². Dreieck: 4 · 1,5 : 2 = 3 m². Giebelseite: 11 m². Volumen = Grundfläche · Länge = 11 · 6 = 66 m³."
    }
   },
   {
@@ -201,7 +201,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Holzprisma wird komplett lackiert. Seine Grundfläche ist ein rechtwinkliges Dreieck mit den Seiten 6 cm, 8 cm und 10 cm. Das Prisma ist 15 cm hoch. Wie viele Quadratzentimeter müssen lackiert werden?"
+     "text": "Ein gerades Holzprisma wird komplett lackiert. Seine Grundfläche ist ein rechtwinkliges Dreieck mit den Seiten 6 cm, 8 cm und 10 cm. Das Prisma ist 15 cm hoch. Wie viele Quadratzentimeter müssen lackiert werden?"
     },
     "o": {
      "wert": 408,
@@ -575,22 +575,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 60,
+     "antwort": 1884,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Verhältnis der Radien 2 nicht quadriert"
+     "beschreibung": "den Radius nicht quadriert"
     },
     {
-     "antwort": 7.5,
+     "antwort": 62.8,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Höhe durch 4 geteilt statt mit 4 malgenommen"
+     "beschreibung": "nur eine Sekunde gerechnet"
     },
     {
-     "antwort": 15,
+     "antwort": 15072,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Höhe durch das Verhältnis der Radien geteilt"
+     "beschreibung": "den Durchmesser 4 cm statt des Radius genommen"
     }
    ],
    "aufgabe": {
@@ -601,15 +601,15 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Ein Zylinder A hat den Radius 10 cm. Er ist 30 cm hoch mit Wasser gefüllt. Das ganze Wasser wird in einen Zylinder B mit dem Radius 5 cm gegossen. B ist hoch genug. Wie hoch steht das Wasser in B in Zentimetern?"
+     "text": "Durch ein Rohr mit dem Innenradius 2 cm fließt Wasser gleichmäßig: Der Wasserfaden legt in jeder Sekunde 5 cm zurück. Wie viele Kubikzentimeter Wasser fließen in einer Minute durch das Rohr? Rechne mit π ≈ 3,14."
     },
     "o": {
-     "wert": 120,
-     "einheit": "cm"
+     "wert": 3768,
+     "einheit": "cm³"
     },
-    "c": "30 * (10 / 5) ** 2",
-    "h": "Das Volumen bleibt gleich. Wie viel kleiner ist die Grundfläche von B als die von A? Denke an r².",
-    "w": "Die Grundfläche ist π · r². A: π · 100, B: π · 25. B hat nur ein Viertel der Grundfläche von A. Bei gleichem Volumen steht das Wasser viermal so hoch: 4 · 30 = 120 cm. Probe: π · 100 · 30 = π · 25 · 120."
+    "c": "3.14 * 2 ** 2 * 5 * 60",
+    "h": "Das Wasser einer Sekunde ist ein Zylinder mit dem Radius 2 cm und der Höhe 5 cm. Wie viele Sekunden hat eine Minute?",
+    "w": "In einer Sekunde fließt ein Zylinder mit r = 2 cm und h = 5 cm: 3,14 · 2² · 5 = 62,8 cm³. In einer Minute (60 Sekunden): 60 · 62,8 = 3 768 cm³."
    }
   },
   {
@@ -978,19 +978,19 @@
      "antwort": 144,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur das Volumen von Dose B angegeben"
+     "beschreibung": "nur den Faktor vor π bei Dose B (144) angegeben"
     },
     {
      "antwort": 96,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur das Volumen von Dose A angegeben"
+     "beschreibung": "nur den Faktor vor π bei Dose A (96) angegeben"
     },
     {
      "antwort": 240,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die beiden Volumina addiert"
+     "beschreibung": "die beiden Faktoren vor π addiert"
     }
    ],
    "aufgabe": {
@@ -1036,10 +1036,10 @@
      "beschreibung": "das Volumen halbiert, weil der Stapel schief steht"
     },
     {
-     "antwort": 565.2,
+     "antwort": 1695.6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit dem Durchmesser als Dicke gerechnet"
+     "beschreibung": "den Durchmesser 6 cm als Dicke einer Scheibe genommen"
     }
    ],
    "aufgabe": {

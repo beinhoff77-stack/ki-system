@@ -83,7 +83,7 @@
     },
     "w": "Probe durch Ausmultiplizieren: (2) 4a · 2a = 8a², 4a · 3 = 12a stimmt. (3) 7b · 1 = 7b, 7b · 2b = 14b², stimmt. (4) 5 · 3x = 15x, 5 · 2 = 10, stimmt. (1) 3y · 3y = 9y², aber 3y · 6 = 18y und nicht 6y. Richtig ist 6y : 3y = 2, also 9y² − 6y = 3y(3y − 2)."
    },
-   "idee": "Ausklammern durch Ausmultiplizieren prüfen"
+   "idee": "Falsche Umformung durch Probe finden"
   },
   {
    "kennung": "VT2-051",
@@ -137,7 +137,7 @@
     },
     "w": "Fläche = 3x · (2x + 5) = 6x² + 15x. Also ist k = 15. Probe: 15x : 3x = 5."
    },
-   "idee": "Umkehren: Faktor aus Fläche"
+   "idee": "Parameter aus der Faktorzerlegung"
   },
   {
    "kennung": "VT2-052",
@@ -287,7 +287,7 @@
     },
     "w": "Der größte gemeinsame Teiler von 12 und 18 ist 6. 12x : 6 = 2x und 18 : 6 = 3. Also 12x + 18 = 6 · (2x + 3). Probe: 6 · 2x = 12x und 6 · 3 = 18."
    },
-   "idee": "Geschickt rechnen"
+   "idee": "Größtmöglichen Faktor wählen"
   },
   {
    "kennung": "VT2-054",
@@ -463,7 +463,7 @@
     },
     "w": "Fläche = Länge · Breite, also 20x² + 12x = (5x + 3) · Breite. Man klammert 4x aus: 20x² + 12x = 4x · (5x + 3). Die Breite ist 4x m."
    },
-   "idee": "Fläche als Produkt"
+   "idee": "Breite aus Fläche und Länge"
   },
   {
    "kennung": "VT2-057",
@@ -603,7 +603,7 @@
     },
     "w": "9x² = (3x)² und 16 = 4². Das Quadrat ist (3x + 4)² = 9x² + 2 · 3x · 4 + 16 = 9x² + 24x + 16. Also ist k = 24."
    },
-   "idee": "Ergänzen zur binomischen Formel"
+   "idee": "Parameter für ein Quadrat"
   },
   {
    "kennung": "VT2-059",
@@ -789,7 +789,7 @@
     },
     "w": "49² = (50 − 1)² = 50² − 2 · 50 · 1 + 1² = 2 500 − 100 + 1 = 2 401. Der Unterschied zu 50² = 2 500 ist 2 500 − 2 401 = 99."
    },
-   "idee": "Kopfrechnen mit binomischer Formel"
+   "idee": "Abstand benachbarter Quadrate"
   },
   {
    "kennung": "VT2-062",

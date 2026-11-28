@@ -175,7 +175,7 @@
     },
     "w": "Bei einem rechten Winkel bei C ist AB der Durchmesser des Umkreises (Umkehrung des Satzes des Thales). Der Durchmesser ist doppelt so lang wie der Radius: 2 · 6 cm = 12 cm."
    },
-   "idee": "Ortslinie: alle Punkte gleich weit von M"
+   "idee": "Umkreisradius und Hypotenuse"
   },
   {
    "kennung": "VT2-067",
@@ -299,7 +299,7 @@
     "a": [
      "Die Mittelsenkrechte von AB, also die Gerade durch M senkrecht zu AB",
      "Ein Kreis um A mit Radius 6 cm, also mit AB als Radius",
-     "Ein Kreis um die Mitte M von AB mit Radius 3 cm, ohne die Punkte A und B",
+     "Ein Kreis um die Mitte M von AB mit Radius 3 cm (ohne A und B)",
      "Ein Kreis um die Mitte M von AB mit Radius 6 cm, also mit AB als Radius"
     ],
     "o": {
@@ -307,7 +307,7 @@
     },
     "w": "Nach der Umkehrung des Satzes des Thales liegt C bei einem rechten Winkel auf dem Kreis um M mit Durchmesser AB, also Radius 3 cm. Die Punkte A und B selbst gehören nicht dazu, denn dort gibt es kein Dreieck."
    },
-   "idee": "Lage zum Kreis an Koordinaten prüfen"
+   "idee": "Ortslinie aller Punkte mit rechtem Winkel"
   },
   {
    "kennung": "VT2-069",
@@ -332,7 +332,7 @@
     },
     {
      "index": 2,
-     "antwort": "Richtig, denn die längste Seite eines Dreiecks ist immer ein Durchmesser seines Umkreises.",
+     "antwort": "Richtig, denn die längste Seite ist in jedem Dreieck ein Durchmesser seines Umkreises.",
      "beschreibung": "Die Schlussfolgerung stimmt hier, aber die Begründung nicht: In einem stumpfwinkligen Dreieck ist die längste Seite kein Durchmesser.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -356,9 +356,9 @@
      "text": "Jemand behauptet: „In jedem Dreieck ABC mit einem rechten Winkel bei C ist die Seite AB ein Durchmesser des Umkreises.“ Welche Antwort stimmt?"
     },
     "a": [
-     "Richtig, denn C liegt auf dem Kreis über AB; dieser Kreis geht durch A, B und C und ist der Umkreis.",
+     "Richtig, denn C liegt auf dem Kreis über AB, und dieser Kreis ist der Umkreis.",
      "Falsch, denn das gilt nur, wenn das Dreieck zusätzlich gleichschenklig ist.",
-     "Richtig, denn die längste Seite eines Dreiecks ist immer ein Durchmesser seines Umkreises.",
+     "Richtig, denn die längste Seite ist in jedem Dreieck ein Durchmesser seines Umkreises.",
      "Falsch, denn bei einem rechten Winkel ist die längere Kathete der Durchmesser."
     ],
     "o": {
@@ -379,7 +379,7 @@
    "zaehlt": "ja",
    "lehrplan": "M7 5 (Kreis)",
    "regel": "id.geometrie.deckungsgleich",
-   "abgrenzung": "Aus dem rechten Winkel werden gleichschenklige Teildreiecke gewonnen und Winkel berechnet; die Übungen nennen MA = MB = MC nicht.",
+   "abgrenzung": "Aus dem rechten Winkel werden gleichschenklige Teildreiecke gewonnen und Winkel berechnet; die Übungen liefern MA = MB = MC nicht fertig.",
    "antwortform": "luecken",
    "loesung_rechnung": [
     "40",
@@ -428,7 +428,7 @@
     "g": "umkehr",
     "y": "luecken",
     "f": {
-     "text": "Im Dreieck ABC ist der Winkel bei C ein rechter, M ist die Mitte von AB, und der Winkel bei A beträgt 40°. Nach der Umkehrung des Satzes des Thales gilt MA = MB = MC. Wie groß sind der Winkel ACM, der Winkel MCB und der Winkel AMC?",
+     "text": "Im Dreieck ABC ist der Winkel bei C ein rechter, M ist die Mitte von AB, und der Winkel bei A beträgt 40°. Wie groß sind der Winkel ACM, der Winkel MCB und der Winkel AMC?",
      "schablone": "ACM = □°, MCB = □°, AMC = □°",
      "hinweis": "Je Feld eine ganze Zahl."
     },
@@ -497,7 +497,7 @@
     },
     "w": "Passanten haben einen Abstand größer als der Radius: d = r + 1, …, 10. Das sind 10 − r Geraden. Aus 10 − r = 4 folgt r = 6. Probe: Passanten sind d = 7, 8, 9, 10, die vier gesuchten; d = 6 ist Tangente."
    },
-   "idee": "Abstand variieren, Schnittpunkte zählen"
+   "idee": "Radius aus der Zahl der Passanten"
   },
   {
    "kennung": "VT2-072",
@@ -629,7 +629,7 @@
     },
     "w": "Bei einer Tangente ist der Abstand von M gleich dem Radius r. Beim doppelten Radius 2r ist der Abstand kleiner als der Radius: g schneidet den Kreis in 2 Punkten. Beim halben Radius r/2 ist der Abstand größer als der Radius: kein gemeinsamer Punkt."
    },
-   "idee": "Radius so wählen, dass nichts schneidet"
+   "idee": "Gerade fest, Radius ändert sich"
   },
   {
    "kennung": "VT2-074",
@@ -684,7 +684,7 @@
     },
     "w": "Eine Tangente steht senkrecht auf dem Berührradius MB, also ist der Winkel bei B im Dreieck ABM ein rechter Winkel. Die Winkelsumme im Dreieck ist 180°: 180° − 90° − 35° = 55°."
    },
-   "idee": "Passante, Tangente oder Sekante bestimmen"
+   "idee": "Tangente steht senkrecht auf dem Berührradius"
   },
   {
    "kennung": "VT2-075",
@@ -757,7 +757,7 @@
     },
     "w": "Der Kreis berührt g und reicht bis zur anderen Seite um seinen Durchmesser 9 cm. Die Gerade h liegt 12 cm von g entfernt, also 12 cm − 9 cm = 3 cm außerhalb des Kreises: h hat keinen gemeinsamen Punkt mit dem Kreis."
    },
-   "idee": "Tangentenabstand aus dem Durchmesser"
+   "idee": "Abstand einer Geraden zum Kreis"
   },
   {
    "kennung": "VT2-076",
@@ -891,7 +891,7 @@
     },
     "w": "Es gibt drei Fälle je nach Radius r und Abstand d (d > 0): r < d: kein gemeinsamer Punkt; r = d: ein Punkt (Tangente); r > d: zwei Punkte (Sekante). Mehr als zwei Punkte sind nie möglich, also gibt es nicht „immer mehr“."
    },
-   "idee": "Radius vergrößern, Lage ändert sich"
+   "idee": "Höchstens zwei Schnittpunkte"
   },
   {
    "kennung": "VT2-078",
@@ -946,7 +946,7 @@
     },
     "w": "γ = 180° − 50° − β = 130° − β. Außerhalb liegt der Mittelpunkt genau dann, wenn ein Winkel größer als 90° ist (α = 50° ist es nicht). Fall 1: β > 90°, also β = 91, …, 129 (dann ist γ ≥ 1): 39 Werte. Fall 2: γ > 90°, also γ = 91, …, 129 und β = 130° − γ = 1, …, 39: 39 Werte. Zusammen 78."
    },
-   "idee": "Umkreismittelpunkt außerhalb"
+   "idee": "Lage außen über beide stumpfen Fälle zählen"
   },
   {
    "kennung": "VT2-079",
@@ -1153,7 +1153,7 @@
     },
     "w": "Zeile 1 und 2 stimmen. In Zeile 3 hat Mia die Höhen gewählt; richtig sind die Mittelsenkrechten der Seiten, denn der Umkreismittelpunkt liegt von allen drei Ecken gleich weit entfernt."
    },
-   "idee": "Fehlersuche beim Inkreis"
+   "idee": "Fehlersuche bei der Umkreiskonstruktion"
   },
   {
    "kennung": "VT2-082",
@@ -1178,7 +1178,7 @@
     },
     {
      "index": 2,
-     "antwort": "Falsch, denn bei einem rechtwinkligen Dreieck liegt er auf der Hypotenuse.",
+     "antwort": "Falsch, denn bei einem rechtwinkligen Dreieck liegt er auf der Hypotenuse des Dreiecks.",
      "beschreibung": "Das gilt für den Umkreismittelpunkt des rechtwinkligen Dreiecks, nicht für den Inkreismittelpunkt.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -1202,9 +1202,9 @@
      "text": "Jemand behauptet: „Der Mittelpunkt des Inkreises liegt in jedem Dreieck innerhalb des Dreiecks.“ Welche Antwort stimmt?"
     },
     "a": [
-     "Richtig, denn der Inkreis liegt im Dreieck, und die Winkelhalbierenden schneiden sich darin.",
+     "Richtig, denn der Inkreis liegt im Dreieck, also auch sein Mittelpunkt.",
      "Falsch, denn er liegt nur bei gleichseitigen Dreiecken innerhalb.",
-     "Falsch, denn bei einem rechtwinkligen Dreieck liegt er auf der Hypotenuse.",
+     "Falsch, denn bei einem rechtwinkligen Dreieck liegt er auf der Hypotenuse des Dreiecks.",
      "Falsch, denn bei einem stumpfwinkligen Dreieck liegt er außerhalb."
     ],
     "o": {
@@ -1212,7 +1212,7 @@
     },
     "w": "Die Winkelhalbierenden laufen vom Eckpunkt ins Innere und schneiden sich im Inneren des Dreiecks. Der Inkreis liegt ganz im Dreieck, also auch sein Mittelpunkt. Beim Umkreis ist das anders: Dort hängt die Lage von den Winkeln ab."
    },
-   "idee": "Gegenbeispiel zu einer Immer-Aussage"
+   "idee": "Inkreismittelpunkt liegt immer innen"
   },
   {
    "kennung": "VT2-083",
@@ -1287,7 +1287,7 @@
     },
     "w": "Der Inkreismittelpunkt liegt auf den Winkelhalbierenden. Also ist der Winkel IAB die Hälfte von α: 25°, und der Winkel IBA die Hälfte von β: 35°. Im Dreieck ABI bleibt für den Winkel AIB: 180° − 25° − 35° = 120°."
    },
-   "idee": "Winkelbedingung für die Lage"
+   "idee": "Winkelhalbierende halbiert den Winkel"
   },
   {
    "kennung": "VT2-084",
@@ -1305,7 +1305,7 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Sie fallen nie zusammen, denn sie werden durch verschiedene Geraden bestimmt.",
+     "antwort": "Sie fallen nie zusammen, denn sie werden durch verschiedene Geraden bestimmt, die sich nicht decken.",
      "beschreibung": "Die Geraden sind zwar verschieden definiert, aber im gleichseitigen Dreieck stimmen sie überein.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -1336,8 +1336,8 @@
      "text": "Welche Aussage über den Mittelpunkt des Umkreises und den Mittelpunkt des Inkreises eines gleichseitigen Dreiecks stimmt?"
     },
     "a": [
-     "Sie fallen nie zusammen, denn sie werden durch verschiedene Geraden bestimmt.",
-     "Sie fallen zusammen, weil im gleichseitigen Dreieck Mittelsenkrechten und Winkelhalbierende dieselben Geraden sind.",
+     "Sie fallen nie zusammen, denn sie werden durch verschiedene Geraden bestimmt, die sich nicht decken.",
+     "Sie fallen zusammen: Mittelsenkrechten und Winkelhalbierende sind hier dieselben Geraden.",
      "Der Inkreismittelpunkt liegt außerhalb, der Umkreismittelpunkt innerhalb des Dreiecks.",
      "Nur bei einem rechtwinkligen Dreieck fallen beide Mittelpunkte zusammen."
     ],

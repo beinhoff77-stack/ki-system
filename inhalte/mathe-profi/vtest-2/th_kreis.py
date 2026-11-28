@@ -43,7 +43,7 @@ def bauen():
       'Fehler-Detektiv an einer Schlusskette der Umkehrung (Durchmesser ↔ Radius); die Übungen verwenden den Thaleskreis nur vorwärts.')
     A(lz, 'sicherung', 'darstellung', None, 2, LP,
       'Die Strecke AB ist 6 cm lang. Du suchst alle Punkte C, von denen aus AB unter einem rechten Winkel erscheint (der Winkel bei C ist 90°). Welche Figur bilden diese Punkte?',
-      ['Ein Kreis um die Mitte M von AB mit Radius 3 cm, ohne die Punkte A und B',
+      ['Ein Kreis um die Mitte M von AB mit Radius 3 cm (ohne A und B)',
        'Die Mittelsenkrechte von AB, also die Gerade durch M senkrecht zu AB',
        'Ein Kreis um A mit Radius 6 cm, also mit AB als Radius',
        'Ein Kreis um die Mitte M von AB mit Radius 6 cm, also mit AB als Radius'], 0,
@@ -54,8 +54,8 @@ def bauen():
       'Die Gesamtheit aller Punkte mit rechtem Winkel wird als Figur erkannt; die Übungen untersuchen einzelne Punkte.')
     A(lz, 'sicherung', 'begruenden', None, 3, LP,
       'Jemand behauptet: „In jedem Dreieck ABC mit einem rechten Winkel bei C ist die Seite AB ein Durchmesser des Umkreises.“ Welche Antwort stimmt?',
-      ['Richtig, denn C liegt auf dem Kreis über AB; dieser Kreis geht durch A, B und C und ist der Umkreis.',
-       'Richtig, denn die längste Seite eines Dreiecks ist immer ein Durchmesser seines Umkreises.',
+      ['Richtig, denn C liegt auf dem Kreis über AB, und dieser Kreis ist der Umkreis.',
+       'Richtig, denn die längste Seite ist in jedem Dreieck ein Durchmesser seines Umkreises.',
        'Falsch, denn das gilt nur, wenn das Dreieck zusätzlich gleichschenklig ist.',
        'Falsch, denn bei einem rechten Winkel ist die längere Kathete der Durchmesser.'], 0,
       {1: 'Die Schlussfolgerung stimmt hier, aber die Begründung nicht: In einem stumpfwinkligen Dreieck ist die längste Seite kein Durchmesser.',
@@ -64,14 +64,14 @@ def bauen():
       'Bei γ = 90° liegt C auf dem Kreis mit Durchmesser AB. Dieser Kreis geht durch A, B und C, ist also der Umkreis des Dreiecks. Die Hypotenuse AB ist sein Durchmesser, immer.',
       '„Immer“-Aussage über alle rechtwinkligen Dreiecke wird begründet, auch gegen eine Aussage mit richtigem Ergebnis und falscher Begründung.')
     L(lz, 'sicherung', 'umkehr', 'umkehren', 3, LP,
-      'Im Dreieck ABC ist der Winkel bei C ein rechter, M ist die Mitte von AB, und der Winkel bei A beträgt 40°. Nach der Umkehrung des Satzes des Thales gilt MA = MB = MC. Wie groß sind der Winkel ACM, der Winkel MCB und der Winkel AMC?',
+      'Im Dreieck ABC ist der Winkel bei C ein rechter, M ist die Mitte von AB, und der Winkel bei A beträgt 40°. Wie groß sind der Winkel ACM, der Winkel MCB und der Winkel AMC?',
       'ACM = □°, MCB = □°, AMC = □°', [40, 50, 100], ['40', '90 − 40', '180 − 2 · 40'],
       [(2, 40, '40', 'den Winkel MCB gleich ACM gesetzt'),
        (2, 140, '180 − 40', 'die Winkelsumme minus 40° als Winkel genommen'),
        (3, 80, '2 · 40', 'die Summe der beiden Basiswinkel (80°) statt des Winkels AMC angegeben'),
        (3, 140, '180 − 40', 'vom Winkel bei A (40°) aus nur einmal abgezogen')],
       'Weil MA = MC gilt, ist das Dreieck AMC gleichschenklig: Der Winkel ACM ist gleich α = 40°. Der Winkel AMC ist 180° − 2 · 40° = 100°. Der Winkel bei C ist 90°, also MCB = 90° − 40° = 50°.',
-      'Aus dem rechten Winkel werden gleichschenklige Teildreiecke gewonnen und Winkel berechnet; die Übungen nennen MA = MB = MC nicht.')
+      'Aus dem rechten Winkel werden gleichschenklige Teildreiecke gewonnen und Winkel berechnet; die Übungen liefern MA = MB = MC nicht fertig.')
     # ---------------- lage ----------------
     lz = 'lage'
     Z(lz, 'test', 'rueckwaerts', None, 3, LP,
@@ -177,9 +177,9 @@ def bauen():
       'Fehler-Detektiv, bei dem der Beweisschritt stimmt und die Konstruktion nicht; die Übungen konstruieren selbst.')
     A(lz, 'sicherung', 'begruenden', None, 2, LP,
       'Jemand behauptet: „Der Mittelpunkt des Inkreises liegt in jedem Dreieck innerhalb des Dreiecks.“ Welche Antwort stimmt?',
-      ['Richtig, denn der Inkreis liegt im Dreieck, und die Winkelhalbierenden schneiden sich darin.',
+      ['Richtig, denn der Inkreis liegt im Dreieck, also auch sein Mittelpunkt.',
        'Falsch, denn bei einem stumpfwinkligen Dreieck liegt er außerhalb.',
-       'Falsch, denn bei einem rechtwinkligen Dreieck liegt er auf der Hypotenuse.',
+       'Falsch, denn bei einem rechtwinkligen Dreieck liegt er auf der Hypotenuse des Dreiecks.',
        'Falsch, denn er liegt nur bei gleichseitigen Dreiecken innerhalb.'], 0,
       {1: 'Das gilt für den Umkreismittelpunkt, nicht für den Inkreismittelpunkt.',
        2: 'Das gilt für den Umkreismittelpunkt des rechtwinkligen Dreiecks, nicht für den Inkreismittelpunkt.',
@@ -197,8 +197,8 @@ def bauen():
       'Der Inkreismittelpunkt liegt auf den Winkelhalbierenden; daraus werden Winkel im Teildreieck berechnet; die Übungen konstruieren nur.')
     A(lz, 'sicherung', 'begruenden', None, 3, LP,
       'Welche Aussage über den Mittelpunkt des Umkreises und den Mittelpunkt des Inkreises eines gleichseitigen Dreiecks stimmt?',
-      ['Sie fallen zusammen, weil im gleichseitigen Dreieck Mittelsenkrechten und Winkelhalbierende dieselben Geraden sind.',
-       'Sie fallen nie zusammen, denn sie werden durch verschiedene Geraden bestimmt.',
+      ['Sie fallen zusammen: Mittelsenkrechten und Winkelhalbierende sind hier dieselben Geraden.',
+       'Sie fallen nie zusammen, denn sie werden durch verschiedene Geraden bestimmt, die sich nicht decken.',
        'Der Inkreismittelpunkt liegt außerhalb, der Umkreismittelpunkt innerhalb des Dreiecks.',
        'Nur bei einem rechtwinkligen Dreieck fallen beide Mittelpunkte zusammen.'], 0,
       {1: 'Die Geraden sind zwar verschieden definiert, aber im gleichseitigen Dreieck stimmen sie überein.',

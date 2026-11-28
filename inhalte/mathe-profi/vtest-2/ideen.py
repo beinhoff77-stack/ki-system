@@ -29,3 +29,22 @@ IDEEN = {
  120: 'Fehlersuche bei Subtraktionsregel', 121: 'Regeln der römischen Zahlen anwenden', 122: 'Zeichen zählen', 123: 'Bausteine bewerten', 124: 'Rückwärts: Zahl zur römischen Schreibweise', 125: 'Zwei Schreibweisen vergleichen', 126: 'Muster in einer Zahlenfolge',
  127: 'Anhängen einer Null im Zweiersystem', 128: 'Zerlegen in Zweierpotenzen', 129: 'Zweierzahlen vergleichen', 130: 'Fehlersuche beim Umwandeln', 131: 'Eins und Nullen: Zweierpotenz', 132: 'Anzahl darstellbarer Zahlen', 133: 'Rückwärts: Länge aus dem Wert',
 }
+
+IDEEN.update({
+ 1: 'Nettosatz: nur der Zinsunterschied zählt', 2: 'Nettobilanz gegen das Bauchgefühl', 5: 'Rückzahlung enthält Kredit und Zinsen', 7: 'Rollen aus Sicht der Bank',
+ 9: 'Zinssatz zehnmal kleiner, Zinsen zehnmal kleiner', 10: 'Zinssatz als Rechenfaktor schreiben', 11: 'Ergebnis mit Begründung prüfen', 12: 'Zinssatz aus dem Zinsbetrag zurückschließen',
+ 13: 'Kapital und Zinssatz gegeneinander verrechnen', 14: 'Zinssatz zerlegen',
+ 15: 'Altes und neues Kapital vergleichen', 22: 'Laufzeit aus den Zinsen rückwärts', 23: 'Zinssatz und Zeit gleichen sich aus', 24: 'Zeitanteil als Prozent des Kapitals',
+ 25: 'Zeitanteile als Bruch des Jahres', 27: 'Proportionalität der Zeit ohne Kapital', 28: 'Zinsen wachsen mit der Zeit',
+ 31: 'Gegenbeispiel zum Zusammenfassen', 33: 'Fehlende Zahlen rückwärts ergänzen', 37: 'Variable fällt beim Auflösen weg', 40: 'Einsetzprobe als Kontrolle', 42: 'Geschickt rechnen mit Minusklammer',
+ 44: 'Konstanter Unterschied: nie gleich', 45: 'Zwei Übereinstimmungen beweisen nichts', 47: 'Term aus Wertetabelle erschließen',
+ 50: 'Falsche Umformung durch Probe finden', 51: 'Parameter aus der Faktorzerlegung', 53: 'Größtmöglichen Faktor wählen', 56: 'Breite aus Fläche und Länge',
+ 58: 'Parameter für ein Quadrat', 61: 'Abstand benachbarter Quadrate', 63: 'Aus der Fläche auf die Seite schließen',
+ 64: 'Rechter Winkel legt C auf den Kreis', 65: 'Koordinate aus rechtem Winkel', 66: 'Umkreisradius und Hypotenuse', 67: 'Fehlersuche Radius und Durchmesser',
+ 68: 'Ortslinie aller Punkte mit rechtem Winkel', 69: 'Hypotenuse als Durchmesser des Umkreises', 70: 'Gleichschenklige Teildreiecke und Winkel',
+ 71: 'Radius aus der Zahl der Passanten', 73: 'Gerade fest, Radius ändert sich', 74: 'Tangente steht senkrecht auf dem Berührradius', 75: 'Abstand einer Geraden zum Kreis', 77: 'Höchstens zwei Schnittpunkte',
+ 78: 'Lage außen über beide stumpfen Fälle zählen', 81: 'Fehlersuche bei der Umkreiskonstruktion', 82: 'Inkreismittelpunkt liegt immer innen', 83: 'Winkelhalbierende halbiert den Winkel',
+ 85: 'Tausch benachbarter Stellen rückwärts', 92: 'Nullen bei Zahlwörtern', 100: 'Falsch beschriftete Skala erkennen', 101: 'Näher an welcher Marke', 104: 'Striche und Abschnitte',
+ 108: 'Größter Rundungsfehler', 112: 'Zwei Rundungen gleichzeitig', 113: 'Rundungsfehler wird vervielfacht', 120: 'Fehlersuche ohne genannte Regel', 122: 'Längste römische Schreibweise',
+ 127: 'Ziffer anhängen: doppelt plus Ziffer', 128: 'Zahlen mit genau einer Eins',
+})

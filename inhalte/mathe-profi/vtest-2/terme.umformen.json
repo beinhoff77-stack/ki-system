@@ -189,7 +189,7 @@
     },
     "w": "Für x = 2: 3x + 4x² = 3 · 2 + 4 · 4 = 6 + 16 = 22, und 7x³ = 7 · 8 = 56. Der Unterschied ist 56 − 22 = 34. Glieder mit x und mit x² sind nicht gleichartig; sie dürfen nicht zusammengefasst werden, auch wenn bei x = 0 und x = 1 zufällig dasselbe herauskommt."
    },
-   "idee": "Umfang als Term"
+   "idee": "Gegenbeispiel zum Zusammenfassen"
   },
   {
    "kennung": "VT2-032",
@@ -321,7 +321,7 @@
     },
     "w": "x²-Glieder: 5x² − □x² soll 3x² ergeben, also □ = 2. x-Glieder: −3x + □x soll −2x ergeben, also □ = 1. Probe: 5x² − 3x − 2x² + 1x = 3x² − 2x."
    },
-   "idee": "Rückwärts: Term zum Ergebnis finden"
+   "idee": "Fehlende Zahlen rückwärts ergänzen"
   },
   {
    "kennung": "VT2-034",
@@ -409,43 +409,28 @@
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.tauschen",
-   "abgrenzung": "Einkauf als Term aufstellen und mit Rabatt verknüpfen; die Übungen geben den Term schon vor.",
-   "antwortform": "luecken",
-   "loesung_rechnung": [
-    "3 + 4",
-    "2 + 3",
-    "−6"
-   ],
+   "abgrenzung": "Die Differenz zweier Terme mit Minusklammer wird in einer Sachsituation gebildet; die Übungen fassen vorgegebene Terme nur zusammen.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "4 · 5 + 3 · 2 − (3 · 5 + 2 · 2)",
    "fehlbilder": [
     {
-     "luecke": 1,
-     "antwort": 12,
-     "rechnung": "3 · 4",
-     "beschreibung": "die Zahlen vor x multipliziert statt addiert",
+     "antwort": 26,
+     "rechnung": "4 · 5 + 3 · 2",
+     "beschreibung": "nur Bens Betrag angegeben, nicht den Unterschied",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 2,
-     "antwort": 6,
-     "rechnung": "2 · 3",
-     "beschreibung": "die Zahlen vor y multipliziert statt addiert",
+     "antwort": 45,
+     "rechnung": "26 + 19",
+     "beschreibung": "beide Beträge addiert statt den Unterschied zu bilden",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "luecke": 3,
-     "antwort": 6,
-     "rechnung": "6",
-     "beschreibung": "den Rabatt addiert statt abgezogen",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 1,
-     "antwort": 1,
-     "rechnung": "4 − 3",
-     "beschreibung": "die Zahlen vor x subtrahiert statt addiert",
+     "antwort": 19,
+     "rechnung": "3 · 5 + 2 · 2",
+     "beschreibung": "nur Annas Betrag angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -456,20 +441,14 @@
     "p": "sicherung",
     "s": 3,
     "g": "transfer",
-    "y": "luecken",
+    "y": "zahl",
     "f": {
-     "text": "Anna kauft x Brötchen zu je 3 € und y Getränke zu je 2 €. Ben zahlt für seinen Einkauf 4x + 3y Euro. An der Kasse bekommen beide zusammen 6 € Rabatt auf den gemeinsamen Betrag. Wie viel Euro zahlen beide zusammen? Gib den zusammengefassten Term an.",
-     "schablone": "Zusammen □x + □y + □ Euro",
-     "hinweis": "Je Feld eine ganze Zahl."
+     "text": "Anna kauft x Brötchen zu je 3 € und y Getränke zu je 2 €. Ben zahlt für seinen Einkauf 4x + 3y Euro. Wie viel Euro zahlt Ben mehr als Anna, wenn x = 5 und y = 2 ist? Stelle zuerst den Unterschied als Term auf."
     },
     "o": {
-     "werte": [
-      7,
-      5,
-      -6
-     ]
+     "wert": 7
     },
-    "w": "Anna zahlt 3x + 2y Euro, Ben 4x + 3y Euro, beide zusammen (3x + 2y) + (4x + 3y) = 7x + 5y. Der Rabatt von 6 € wird abgezogen: 7x + 5y − 6."
+    "w": "Annas Betrag: 3x + 2y. Der Unterschied Ben − Anna ist (4x + 3y) − (3x + 2y) = 4x + 3y − 3x − 2y = x + y. Für x = 5 und y = 2 sind das 7 €. Probe: Ben zahlt 4 · 5 + 3 · 2 = 26 €, Anna 3 · 5 + 2 · 2 = 19 €, Unterschied 7 €."
    },
    "idee": "Sachsituation in Terme übersetzen"
   },
@@ -585,41 +564,41 @@
     },
     "w": "9 − (x − 4) − (6 − x) = 9 − x + 4 − 6 + x. Die x-Glieder −x und +x heben sich auf. Übrig bleiben 9 + 4 − 6 = 7. Probe mit x = 10: 9 − 6 − (−4) = 7."
    },
-   "idee": "Probe durch Einsetzen"
+   "idee": "Variable fällt beim Auflösen weg"
   },
   {
    "kennung": "VT2-038",
    "thema": "terme.umformen",
    "lernkarte": "minusklammer",
    "pool": "korrektur",
-   "typ": "umkehr",
+   "typ": "parameter",
    "form": null,
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M7 1 (Terme)",
    "regel": "rr.minusklammer",
-   "abgrenzung": "Parameter in der Klammer wird rückwärts bestimmt; die Übungen haben nur Zahlen in der Klammer.",
+   "abgrenzung": "Ein Parameter in einer Minusklammer wird aus einem Einsetzwert bestimmt; die Übungen vergleichen Terme.",
    "antwortform": "zahl",
-   "loesung_rechnung": "7 − 2",
+   "loesung_rechnung": "7 + 3 − 5",
    "fehlbilder": [
     {
-     "antwort": 9,
-     "rechnung": "7 + 2",
-     "beschreibung": "7 − k = 2 falsch umgestellt: k = 7 + 2",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "antwort": -5,
-     "rechnung": "2 − 7",
-     "beschreibung": "das Minus vor der Klammer vergessen: 7 + k = 2, also k = 2 − 7",
+     "antwort": -1,
+     "rechnung": "4 − 5",
+     "beschreibung": "die Klammer ohne Vorzeichenwechsel aufgelöst: 7 − k − 3 = 5",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "antwort": 2,
-     "rechnung": "2",
-     "beschreibung": "k gleich der 2 aus 2x + 3 gesetzt",
+     "rechnung": "7 − 5",
+     "beschreibung": "nur 7 − k = 5 gerechnet, die +3 vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 15,
+     "rechnung": "7 + 3 + 5",
+     "beschreibung": "alle Zahlen addiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -629,15 +608,15 @@
     "t": "minusklammer",
     "p": "korrektur",
     "s": 2,
-    "g": "umkehr",
+    "g": "parameter",
     "y": "zahl",
     "f": {
-     "text": "Für welche Zahl k ist der Term 7x − (kx − 3) zu 2x + 3 gleichwertig?"
+     "text": "Setzt man in den Term 7x − (kx − 3) die Zahl x = 1 ein, erhält man 5. Welche Zahl ist k?"
     },
     "o": {
      "wert": 5
     },
-    "w": "7x − (kx − 3) = 7x − kx + 3 = (7 − k)x + 3. Das soll 2x + 3 sein, also 7 − k = 2 und k = 5. Probe: 7x − (5x − 3) = 2x + 3."
+    "w": "7 · 1 − (k · 1 − 3) = 7 − k + 3 = 10 − k. Das soll 5 sein, also k = 5. Probe mit x = 1: 7 − (5 − 3) = 7 − 2 = 5."
    },
    "idee": "Parameter durch Koeffizientenvergleich"
   },
@@ -690,7 +669,7 @@
     "a": [
      "Nele hat unrecht, denn eine Klammer mit Plus darf man nie auflösen.",
      "Nele hat unrecht: Für a = 2 ist 10 − (2 + 3) = 11 und 10 − 2 + 3 = 5. Richtig ist 10 − a + 3.",
-     "Nele hat unrecht: Für a = 2 ist 10 − (2 + 3) = 5, aber 10 − 2 + 3 = 11. Richtig ist 10 − a − 3.",
+     "Nele hat unrecht: Für a = 2 ist 10 − (2 + 3) = 5, aber 10 − 2 + 3 = 11.",
      "Nele hat recht, denn das Minus gilt nur für das erste Glied a der Klammer."
     ],
     "o": {
@@ -773,7 +752,7 @@
     },
     "w": "Ben: 3 · 0 − (0 − 5) − (0 + 4) = 0 + 5 − 4 = 1. Anna: 3x − 2x + 5 − x − 4 = (3 − 2 − 1)x + (5 − 4) = 0x + 1 = 1. Der Term hat für jedes x den Wert 1."
    },
-   "idee": "Zwei Wege: Umformen oder Einsetzen"
+   "idee": "Einsetzprobe als Kontrolle"
   },
   {
    "kennung": "VT2-041",
@@ -902,7 +881,7 @@
     },
     "w": "2 500 − (2 500 − 43) = 2 500 − 2 500 + 43 = 43, denn das Minus vor der Klammer kehrt beide Vorzeichen in der Klammer um. Probe: 2 500 − 2 457 = 43."
    },
-   "idee": "Länge als Term"
+   "idee": "Geschickt rechnen mit Minusklammer"
   },
   {
    "kennung": "VT2-043",
@@ -952,7 +931,7 @@
      "text": "Paul behauptet: „Die Terme 5x − 4 und 3x + 2 sind gleichwertig, denn für x = 3 kommt bei beiden 11 heraus.“ Welche Antwort mit Begründung stimmt?"
     },
     "a": [
-     "Paul hat unrecht: Terme sind nur gleichwertig, wenn alle Einsetzungen denselben Wert ergeben; für x = 0 sind es −4 und 2.",
+     "Paul hat unrecht: Gleichwertig heißt, bei allen Einsetzungen gleich; für x = 0 sind es −4 und 2.",
      "Paul hat unrecht, denn zwei Terme mit verschiedenen Zahlen vor x können nie gleichwertig sein, egal was man einsetzt.",
      "Paul hat unrecht, denn man darf in Terme nur Zahlen einsetzen, die kleiner als 3 sind.",
      "Paul hat recht, denn beide Terme haben für x = 3 denselben Wert, und ein gemeinsamer Wert genügt als Beweis."
@@ -1035,7 +1014,7 @@
     },
     "w": "Bei x = 5: 2 · (5 + 3) = 16 und 2 · 5 + 3 = 13, Unterschied 3. Bei x = 100: 2 · 103 = 206 und 203, Unterschied 3. Der Unterschied ist immer 3, denn 2(x + 3) = 2x + 6 und 2x + 6 − (2x + 3) = 3. Darum sind die Terme für keine Zahl gleich."
    },
-   "idee": "Gleicher Wert nur an einer Stelle"
+   "idee": "Konstanter Unterschied: nie gleich"
   },
   {
    "kennung": "VT2-045",
@@ -1089,7 +1068,7 @@
     },
     "w": "Man setzt alle Zahlen von −5 bis 5 ein. Bei x = 0: 0 und 0. Bei x = 1: 4 und 4. Bei x = 2: 10 und 12, also verschieden. Auch bei den übrigen Zahlen sind die Werte verschieden. Nur zwei Übereinstimmungen: Die Terme sind nicht gleichwertig, obwohl sie zweimal übereinstimmen."
    },
-   "idee": "Parameter durch Ausmultiplizieren"
+   "idee": "Zwei Übereinstimmungen beweisen nichts"
   },
   {
    "kennung": "VT2-046",
@@ -1202,7 +1181,7 @@
     },
     "w": "Bei x = 0 ist der Wert b = 4. Von x = 0 nach x = 1 wächst der Wert um 3, also a = 3. Der Term ist 3x + 4. Für x = 10: 3 · 10 + 4 = 34. Probe: x = 2 gibt 6 + 4 = 10."
    },
-   "idee": "Wie viele Einsetzungen beweisen?"
+   "idee": "Term aus Wertetabelle erschließen"
   },
   {
    "kennung": "VT2-048",

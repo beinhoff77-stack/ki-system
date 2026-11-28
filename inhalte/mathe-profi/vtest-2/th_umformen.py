@@ -59,16 +59,14 @@ def bauen():
        (3, -4, '−3 − 1', 'Vorzeichen vertauscht: (−3) − 1')],
       'Es gilt 9x² − 4x + 1 − U = 5x² − 4x − 3, also U = (9x² − 4x + 1) − (5x² − 4x − 3). x²: 9 − 5 = 4. x: −4 − (−4) = 0. Zahl: 1 − (−3) = 4. Also U = 4x² + 4. Probe: 9x² − 4x + 1 − (4x² + 4) = 5x² − 4x − 3.',
       'Ein fehlender Term wird durch Umkehren der Subtraktion bestimmt, wobei ein Glied wegfällt (0x); die Übungen suchen einen Summanden.')
-    L(lz, 'sicherung', 'transfer', 'anwenden', 3, LP,
-      'Anna kauft x Brötchen zu je 3 € und y Getränke zu je 2 €. Ben zahlt für seinen Einkauf 4x + 3y Euro. An der Kasse bekommen beide zusammen 6 € Rabatt auf den gemeinsamen Betrag. Wie viel Euro zahlen beide zusammen? Gib den zusammengefassten Term an.',
-      'Zusammen □x + □y + □ Euro', [7, 5, -6], ['3 + 4', '2 + 3', '−6'],
-      [(1, 12, '3 · 4', 'die Zahlen vor x multipliziert statt addiert'),
-       (2, 6, '2 · 3', 'die Zahlen vor y multipliziert statt addiert'),
-       (3, 6, '6', 'den Rabatt addiert statt abgezogen'),
-       (1, 1, '4 − 3', 'die Zahlen vor x subtrahiert statt addiert')],
-      'Anna zahlt 3x + 2y Euro, Ben 4x + 3y Euro, beide zusammen (3x + 2y) + (4x + 3y) = 7x + 5y. Der Rabatt von 6 € wird abgezogen: 7x + 5y − 6.',
-      'Einkauf als Term aufstellen und mit Rabatt verknüpfen; die Übungen geben den Term schon vor.')
-
+    Z(lz, 'sicherung', 'transfer', 'anwenden', 3, LP,
+      'Anna kauft x Brötchen zu je 3 € und y Getränke zu je 2 €. Ben zahlt für seinen Einkauf 4x + 3y Euro. Wie viel Euro zahlt Ben mehr als Anna, wenn x = 5 und y = 2 ist? Stelle zuerst den Unterschied als Term auf.',
+      7, '4 · 5 + 3 · 2 − (3 · 5 + 2 · 2)',
+      [(26, '4 · 5 + 3 · 2', 'nur Bens Betrag angegeben, nicht den Unterschied'),
+       (45, '26 + 19', 'beide Beträge addiert statt den Unterschied zu bilden'),
+       (19, '3 · 5 + 2 · 2', 'nur Annas Betrag angegeben')],
+      'Annas Betrag: 3x + 2y. Der Unterschied Ben − Anna ist (4x + 3y) − (3x + 2y) = 4x + 3y − 3x − 2y = x + y. Für x = 5 und y = 2 sind das 7 €. Probe: Ben zahlt 4 · 5 + 3 · 2 = 26 €, Anna 3 · 5 + 2 · 2 = 19 €, Unterschied 7 €.',
+      'Die Differenz zweier Terme mit Minusklammer wird in einer Sachsituation gebildet; die Übungen fassen vorgegebene Terme nur zusammen.')
     # ---------------- minusklammer ----------------
     lz = 'minusklammer'
     A(lz, 'test', 'fehler', 'fehler_detektiv', 3, LP,
@@ -90,18 +88,18 @@ def bauen():
        (11, '9 + 4 − 6 + 4', 'eine Zahl falsch verrechnet')],
       '9 − (x − 4) − (6 − x) = 9 − x + 4 − 6 + x. Die x-Glieder −x und +x heben sich auf. Übrig bleiben 9 + 4 − 6 = 7. Probe mit x = 10: 9 − 6 − (−4) = 7.',
       'Eine Variable fällt beim Auflösen zweier Minusklammern ganz weg; die Übungen haben immer ein x-Glied im Ergebnis.')
-    Z(lz, 'korrektur', 'umkehr', None, 2, LP,
-      'Für welche Zahl k ist der Term 7x − (kx − 3) zu 2x + 3 gleichwertig?',
-      5, '7 − 2',
-      [(9, '7 + 2', '7 − k = 2 falsch umgestellt: k = 7 + 2'),
-       (-5, '2 − 7', 'das Minus vor der Klammer vergessen: 7 + k = 2, also k = 2 − 7'),
-       (2, '2', 'k gleich der 2 aus 2x + 3 gesetzt')],
-      '7x − (kx − 3) = 7x − kx + 3 = (7 − k)x + 3. Das soll 2x + 3 sein, also 7 − k = 2 und k = 5. Probe: 7x − (5x − 3) = 2x + 3.',
-      'Parameter in der Klammer wird rückwärts bestimmt; die Übungen haben nur Zahlen in der Klammer.')
+    Z(lz, 'korrektur', 'parameter', None, 2, LP,
+      'Setzt man in den Term 7x − (kx − 3) die Zahl x = 1 ein, erhält man 5. Welche Zahl ist k?',
+      5, '7 + 3 − 5',
+      [(-1, '4 − 5', 'die Klammer ohne Vorzeichenwechsel aufgelöst: 7 − k − 3 = 5'),
+       (2, '7 − 5', 'nur 7 − k = 5 gerechnet, die +3 vergessen'),
+       (15, '7 + 3 + 5', 'alle Zahlen addiert')],
+      '7 · 1 − (k · 1 − 3) = 7 − k + 3 = 10 − k. Das soll 5 sein, also k = 5. Probe mit x = 1: 7 − (5 − 3) = 7 − 2 = 5.',
+      'Ein Parameter in einer Minusklammer wird aus einem Einsetzwert bestimmt; die Übungen vergleichen Terme.')
     A(lz, 'korrektur', 'begruenden', None, 2, LP,
       'Nele behauptet: „10 − (a + 3) ist dasselbe wie 10 − a + 3.“ Welche Antwort mit Begründung stimmt?',
       ['Nele hat recht, denn das Minus gilt nur für das erste Glied a der Klammer.',
-       'Nele hat unrecht: Für a = 2 ist 10 − (2 + 3) = 5, aber 10 − 2 + 3 = 11. Richtig ist 10 − a − 3.',
+       'Nele hat unrecht: Für a = 2 ist 10 − (2 + 3) = 5, aber 10 − 2 + 3 = 11.',
        'Nele hat unrecht: Für a = 2 ist 10 − (2 + 3) = 11 und 10 − 2 + 3 = 5. Richtig ist 10 − a + 3.',
        'Nele hat unrecht, denn eine Klammer mit Plus darf man nie auflösen.'], 1,
       {0: 'Meint, das Minus wirke nur auf das erste Glied; es gilt für die ganze Klammer.',
@@ -140,7 +138,7 @@ def bauen():
     A(lz, 'test', 'begruenden', None, 3, LP,
       'Paul behauptet: „Die Terme 5x − 4 und 3x + 2 sind gleichwertig, denn für x = 3 kommt bei beiden 11 heraus.“ Welche Antwort mit Begründung stimmt?',
       ['Paul hat recht, denn beide Terme haben für x = 3 denselben Wert, und ein gemeinsamer Wert genügt als Beweis.',
-       'Paul hat unrecht: Terme sind nur gleichwertig, wenn alle Einsetzungen denselben Wert ergeben; für x = 0 sind es −4 und 2.',
+       'Paul hat unrecht: Gleichwertig heißt, bei allen Einsetzungen gleich; für x = 0 sind es −4 und 2.',
        'Paul hat unrecht, denn man darf in Terme nur Zahlen einsetzen, die kleiner als 3 sind.',
        'Paul hat unrecht, denn zwei Terme mit verschiedenen Zahlen vor x können nie gleichwertig sein, egal was man einsetzt.'], 1,
       {0: 'Ein einziger gemeinsamer Wert beweist keine Gleichwertigkeit; sie muss für alle Einsetzungen gelten.',

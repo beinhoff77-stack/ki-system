@@ -85,12 +85,12 @@
     "w": "Die Summe wächst um 8. Der Mittelwert ist die Summe geteilt durch 4, also wächst er um 8 : 4 = 2.",
     "a": [
      "Er steigt um 8, denn eine Zahl wächst um 8.",
-     "Er steigt um 2, denn die Summe wächst um 8, geteilt durch 4.",
      "Er bleibt gleich, denn die Anzahl der Zahlen ändert sich nicht.",
+     "Er steigt um 2, denn die Summe wächst um 8, geteilt durch 4.",
      "Er steigt um 4, denn man teilt 8 durch 2."
     ],
     "o": {
-     "index": 1
+     "index": 2
     }
    },
    "regel": "id.daten.kennzahl",
@@ -103,7 +103,7 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Er bleibt gleich, denn die Anzahl der Zahlen ändert sich nicht.",
      "beschreibung": "nur auf die Anzahl geschaut, die Summe vergessen",
      "fehlbild": null,
@@ -190,41 +190,46 @@
     "t": "mittelwert",
     "p": "korrektur",
     "s": 2,
-    "y": "zahl",
+    "y": "auswahl",
     "f": {
-     "text": "Zwei Gruppen haben denselben Mittelwert 8. In der einen Gruppe sind 10 Personen, in der anderen 20 Personen. Wie groß ist der Mittelwert aller 30 Personen zusammen?"
+     "text": "Gruppe A hat 10 Personen mit dem Mittelwert 8, Gruppe B hat 20 Personen mit dem Mittelwert 11. Welche Aussage über den Mittelwert aller 30 Personen stimmt?"
     },
-    "w": "Die Summe der ersten Gruppe ist 10 · 8 = 80, die der zweiten 20 · 8 = 160. Zusammen 240 bei 30 Personen: 240 : 30 = 8. Wenn alle Werte im Mittel 8 sind, ist auch der Mittelwert aller 8, unabhängig von den Gruppengrößen.",
+    "w": "Gruppe A hat die Summe 10 · 8 = 80, Gruppe B die Summe 20 · 11 = 220. Zusammen 300 für 30 Personen: Mittelwert 10. Das liegt näher bei 11 als bei 8, weil Gruppe B größer ist.",
+    "a": [
+     "Er beträgt 9,5, denn der Mittelwert liegt in der Mitte zwischen 8 und 11.",
+     "Er liegt über 11, denn die größere Gruppe zählt doppelt.",
+     "Er lässt sich nicht bestimmen, denn die Werte der einzelnen Personen sind nicht bekannt und es fehlen Angaben.",
+     "Er liegt näher bei 11, denn Gruppe B hat doppelt so viele Personen wie A."
+    ],
     "o": {
-     "wert": 8
+     "index": 3
     }
    },
    "regel": "id.daten.kennzahl",
-   "loesung_rechnung": "(10 · 8 + 20 · 8) : 30",
    "fehlbilder": [
     {
-     "antwort": 16,
-     "rechnung": "8 + 8",
-     "beschreibung": "die beiden Mittelwerte addiert",
+     "index": 0,
+     "antwort": "Er beträgt 9,5, denn der Mittelwert liegt in der Mitte zwischen 8 und 11.",
+     "beschreibung": "die beiden Mittelwerte einfach gemittelt, ohne die Gruppengrößen zu beachten",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 4,
-     "rechnung": "8 : 2",
-     "beschreibung": "den Mittelwert durch die Zahl der Gruppen geteilt",
+     "index": 1,
+     "antwort": "Er liegt über 11, denn die größere Gruppe zählt doppelt.",
+     "beschreibung": "übersehen, dass der Gesamtmittelwert immer zwischen den beiden Mittelwerten liegt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 12,
-     "rechnung": "8 · 3 : 2",
-     "beschreibung": "mit dem Verhältnis der Gruppengrößen weitergerechnet",
+     "index": 2,
+     "antwort": "Er lässt sich nicht bestimmen, denn die Werte der einzelnen Personen sind nicht bekannt und es fehlen Angaben.",
+     "beschreibung": "übersehen, dass Mittelwert und Zahl der Personen schon die Summen der Gruppen festlegen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "zusammenhang|gleiche Mittelwerte, Gesamtmittelwert ohne Rechnung"
+   "idee": "zusammenhang|Gesamtmittelwert liegt näher bei der größeren Gruppe"
   },
   {
    "kennung": "VT3-054",
@@ -248,19 +253,19 @@
     },
     "w": "Eine Zahl, die genau dem Mittelwert gleicht, ändert den Mittelwert nicht: (24 + 6) : 5 = 6. Bei den anderen Möglichkeiten ergibt sich 7, 5,75 und etwa 6,17.",
     "a": [
-     "Man fügt eine weitere 6 hinzu.",
      "Man streicht die 3.",
      "Man ersetzt die 3 durch 4 und die 9 durch 7.",
+     "Man fügt eine weitere 6 hinzu.",
      "Man fügt die Zahlen 5 und 8 hinzu."
     ],
     "o": {
-     "index": 0
+     "index": 2
     }
    },
    "regel": "id.daten.kennzahl",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Man streicht die 3.",
      "beschreibung": "die kleinste Zahl gestrichen: (5 + 7 + 9) : 3 = 7",
      "fehlbild": null,
@@ -268,7 +273,7 @@
      "rechnung": "(5 + 7 + 9) : 3"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Man ersetzt die 3 durch 4 und die 9 durch 7.",
      "beschreibung": "die Summe sinkt um 1: (4 + 5 + 7 + 7) : 4 = 5,75",
      "fehlbild": null,
@@ -359,10 +364,10 @@
     },
     "w": "Neue Summe: 50 + 60 = 110 kg. 110 : 6 ≈ 18,3 kg. Das ist mehr als jeder der fünf ersten Hunde wiegt. Ein einzelner sehr großer Wert zieht den Mittelwert stark nach oben.",
     "a": [
-     "Er bleibt bei 10 kg, weil nur ein einzelner Wert dazukommt.",
-     "Er beträgt 35 kg, weil man den Mittelwert aus 10 kg und 60 kg bildet, also (10 + 60) : 2.",
-     "Er sinkt unter 10 kg, weil nun mehr Werte vorhanden sind.",
-     "Er beträgt etwa 18 kg und liegt über dem Gewicht von fünf der sechs Hunde."
+     "Er bleibt bei 10 kg, denn es kommt nur ein einzelner Wert dazu.",
+     "Er beträgt 35 kg, denn man bildet den Mittelwert aus 10 kg und 60 kg: (10 + 60) : 2.",
+     "Er sinkt unter 10 kg, denn nun sind mehr Werte vorhanden und der Durchschnitt wird dadurch kleiner.",
+     "Er beträgt etwa 18 kg, denn (50 + 60) : 6 ist etwa 18,3 und das liegt über fünf Hunden."
     ],
     "o": {
      "index": 3
@@ -372,21 +377,21 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Er bleibt bei 10 kg, weil nur ein einzelner Wert dazukommt.",
+     "antwort": "Er bleibt bei 10 kg, denn es kommt nur ein einzelner Wert dazu.",
      "beschreibung": "nicht beachtet, dass die Summe stark wächst",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 1,
-     "antwort": "Er beträgt 35 kg, weil man den Mittelwert aus 10 kg und 60 kg bildet, also (10 + 60) : 2.",
+     "antwort": "Er beträgt 35 kg, denn man bildet den Mittelwert aus 10 kg und 60 kg: (10 + 60) : 2.",
      "beschreibung": "den alten Mittelwert wie einen einzelnen Wert behandelt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 2,
-     "antwort": "Er sinkt unter 10 kg, weil nun mehr Werte vorhanden sind.",
+     "antwort": "Er sinkt unter 10 kg, denn nun sind mehr Werte vorhanden und der Durchschnitt wird dadurch kleiner.",
      "beschreibung": "mehr Werte mit sinkendem Mittelwert verwechselt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -465,39 +470,32 @@
     "s": 2,
     "y": "zahl",
     "f": {
-     "text": "Fünf Zahlen haben den Mittelwert 12. Ersetzt man eine der Zahlen durch 20, so haben die fünf Zahlen den Mittelwert 14. Welche Zahl wurde ersetzt?"
+     "text": "Fünf Zahlen haben den Mittelwert 12. Vier dieser Zahlen weichen um −5, +3, +4 und −1 vom Mittelwert ab. Um wie viel weicht die fünfte Zahl vom Mittelwert ab? (Mit Vorzeichen angeben.)"
     },
-    "w": "Steigt der Mittelwert von 12 auf 14, so wächst die Summe der fünf Zahlen um 5 · 2 = 10. Die neue Zahl 20 ist also um 10 größer als die ersetzte. Ersetzt wurde die Zahl 20 − 10 = 10. Probe: Vorher Summe 60, nachher 60 − 10 + 20 = 70 und 70 : 5 = 14.",
+    "w": "Die Abweichungen aller Zahlen vom Mittelwert ergeben zusammen immer 0. Die vier bekannten Abweichungen ergeben −5 + 3 + 4 − 1 = 1. Die fünfte Abweichung ist deshalb −1, die fünfte Zahl wäre 11.",
     "o": {
-     "wert": 10
+     "wert": -1
     }
    },
    "regel": "id.daten.kennzahl",
-   "loesung_rechnung": "20 − 5 · (14 − 12)",
+   "loesung_rechnung": "0 − (−5 + 3 + 4 − 1)",
    "fehlbilder": [
     {
-     "antwort": 8,
-     "rechnung": "20 − 12",
-     "beschreibung": "den alten Mittelwert statt der ersetzten Zahl abgezogen",
+     "antwort": 1,
+     "rechnung": "−5 + 3 + 4 − 1",
+     "beschreibung": "die Summe der vier Abweichungen als fünfte Abweichung angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 6,
-     "rechnung": "20 − 14",
-     "beschreibung": "den neuen Mittelwert abgezogen",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "antwort": 2,
-     "rechnung": "14 − 12",
-     "beschreibung": "nur den Unterschied der beiden Mittelwerte angegeben",
+     "antwort": 11,
+     "rechnung": "12 − 1",
+     "beschreibung": "die fünfte Zahl statt ihrer Abweichung angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "was_waere_wenn|eine Zahl ersetzt, Mittelwert ändert sich"
+   "idee": "zusammenhang|Abweichungen vom Mittelwert ergeben zusammen 0"
   },
   {
    "kennung": "VT3-059",
@@ -627,53 +625,64 @@
     "t": "mittel_rueckwaerts",
     "p": "sicherung",
     "s": 3,
-    "y": "zahl",
+    "y": "luecken",
     "f": {
-     "text": "Mia berechnet den Mittelwert der Zahlen 98, 101, 103, 99 und 104 über die Abweichungen von 100. Wie groß ist der Mittelwert dieser fünf Zahlen?"
+     "text": "Mia berechnet den Mittelwert der Zahlen 98, 101, 103, 99 und 104 über die Abweichungen von 100. Wie groß ist die Summe der fünf Abweichungen (mit Vorzeichen), und wie groß ist der Mittelwert der fünf Zahlen?",
+     "schablone": "Summe der Abweichungen: □, Mittelwert: □",
+     "hinweis": "Je Feld eine ganze Zahl."
     },
-    "w": "Die Abweichungen von 100 sind −2, +1, +3, −1 und +4, zusammen +5. Im Mittel liegen die Zahlen also 5 : 5 = 1 über 100. Der Mittelwert ist 101. Kontrolle: 505 : 5 = 101.",
+    "w": "Die Abweichungen von 100 sind −2, +1, +3, −1 und +4. Ihre Summe ist 5, die mittlere Abweichung 5 : 5 = 1. Der Mittelwert ist 100 + 1 = 101.",
     "o": {
-     "wert": 101
+     "werte": [
+      5,
+      101
+     ]
     }
    },
    "regel": "id.daten.kennzahl",
-   "loesung_rechnung": "100 + (−2 + 1 + 3 − 1 + 4) : 5",
+   "loesung_rechnung": [
+    "−2 + 1 + 3 − 1 + 4",
+    "100 + 5 : 5"
+   ],
    "fehlbilder": [
     {
-     "antwort": 5,
-     "rechnung": "−2 + 1 + 3 − 1 + 4",
-     "beschreibung": "die Summe der Abweichungen als Mittelwert angegeben",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "antwort": 100,
-     "rechnung": "100",
-     "beschreibung": "den Bezugswert 100 als Mittelwert angegeben",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
+     "luecke": 1,
      "antwort": 505,
      "rechnung": "98 + 101 + 103 + 99 + 104",
-     "beschreibung": "die Summe aller Zahlen als Mittelwert angegeben",
+     "beschreibung": "die Zahlen selbst addiert statt ihrer Abweichungen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 11,
+     "rechnung": "2 + 1 + 3 + 1 + 4",
+     "beschreibung": "die Abweichungen ohne Vorzeichen addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "5 : 5",
+     "beschreibung": "die mittlere Abweichung als Mittelwert angegeben, ohne 100 dazuzuzählen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "zwei_wege|Mittelwert über Abweichungen von 100"
+   "idee": "darstellung|Mittelwert über Abweichungen von 100"
   },
   {
    "kennung": "VT3-062",
    "thema": "daten.kennwerte",
    "lernkarte": "mittel_rueckwaerts",
    "pool": "sicherung",
-   "typ": "umkehr",
-   "form": "umkehren",
+   "typ": "parameter",
+   "form": null,
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3",
-   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Was-wäre-wenn.",
    "aufgabe": {
     "l": "mittel_rueckwaerts",
     "t": "mittel_rueckwaerts",
@@ -681,93 +690,96 @@
     "s": 3,
     "y": "zahl",
     "f": {
-     "text": "Bei einer Busfahrt sind 30 Personen im Mittel 40 Jahre alt. 10 davon sind Kinder, die im Mittel 10 Jahre alt sind. Wie alt sind die übrigen 20 Personen im Mittel?"
+     "text": "Der Mittelwert von sechs Zahlen ist 20. Eine dieser Zahlen wird um 18 vergrößert, eine andere um 6 verkleinert, die übrigen vier bleiben gleich. Wie groß ist der neue Mittelwert?"
     },
-    "w": "Alle 30 Personen haben zusammen 30 · 40 = 1 200 Jahre, die 10 Kinder zusammen 10 · 10 = 100 Jahre. Die übrigen 20 haben 1 100 Jahre, im Mittel also 1 100 : 20 = 55 Jahre.",
+    "w": "Die Summe der sechs Zahlen steigt um 18 − 6 = 12. Der Mittelwert steigt deshalb um 12 : 6 = 2 und ist 22.",
     "o": {
-     "wert": 55,
-     "einheit": "Jahre"
+     "wert": 22
     }
    },
    "regel": "id.daten.kennzahl",
-   "loesung_rechnung": "(30 · 40 − 10 · 10) : 20",
+   "loesung_rechnung": "20 + (18 − 6) : 6",
    "fehlbilder": [
     {
-     "antwort": 25,
-     "rechnung": "(40 + 10) : 2",
-     "beschreibung": "den Mittelwert der beiden Mittelwerte gebildet",
+     "antwort": 32,
+     "rechnung": "20 + 18 − 6",
+     "beschreibung": "die Änderung der Summe zum Mittelwert addiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 1100,
-     "rechnung": "30 · 40 − 10 · 10",
-     "beschreibung": "die Summe der Alter der übrigen Personen als Mittelwert angegeben",
+     "antwort": 23,
+     "rechnung": "20 + 18 : 6",
+     "beschreibung": "nur die Vergrößerung beachtet und die Verkleinerung vergessen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 30,
-     "rechnung": "40 − 10",
-     "beschreibung": "den Unterschied der beiden Mittelwerte angegeben",
+     "antwort": 24,
+     "rechnung": "20 + (18 + 6) : 6",
+     "beschreibung": "die Verkleinerung wie eine Vergrößerung gerechnet",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "transfer|Gruppenmittel, Mittelwert der übrigen Personen"
+   "idee": "was_waere_wenn|Summe ändert sich um Plus und Minus, wie ändert sich der Mittelwert"
   },
   {
    "kennung": "VT3-063",
    "thema": "daten.kennwerte",
    "lernkarte": "mittel_rueckwaerts",
    "pool": "sicherung",
-   "typ": "transfer",
-   "form": "anwenden",
+   "typ": "begruenden",
+   "form": null,
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3",
-   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Transfer auf eine neue Situation.",
+   "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Begründung wählen.",
    "aufgabe": {
     "l": "mittel_rueckwaerts",
     "t": "mittel_rueckwaerts",
     "p": "sicherung",
     "s": 3,
-    "y": "zahl",
+    "y": "auswahl",
     "f": {
-     "text": "Eine Läuferin hat bei 5 Runden im Mittel 70 Sekunden gebraucht. Die schnellste Runde dauerte 65 s, die langsamste 78 s, die drei übrigen Runden waren gleich lang. Wie lang war jede der drei übrigen Runden?"
+     "text": "Fünf Zahlen haben den Mittelwert 12. Man streicht die größte dieser Zahlen. Welche Aussage über den Mittelwert der übrigen vier Zahlen stimmt auf jeden Fall?"
     },
-    "w": "Gesamtzeit: 5 · 70 = 350 s. Schnellste und langsamste Runde: 65 + 78 = 143 s. Die drei übrigen Runden: 350 − 143 = 207 s, jede 207 : 3 = 69 s.",
+    "w": "Die größte Zahl ist mindestens so groß wie der Mittelwert 12. Streicht man sie, ist der Rest im Mittel höchstens 12. Sind alle Zahlen gleich 12, bleibt der Mittelwert 12; bei 10, 11, 12, 13, 14 sinkt er auf 11,5.",
+    "a": [
+     "Er sinkt unter 12, denn die größte Zahl fehlt jetzt und die übrigen Zahlen sind kleiner.",
+     "Er bleibt 12, denn der Mittelwert hängt nicht davon ab, welche Zahl man streicht.",
+     "Er steigt über 12, denn bei weniger Zahlen zählt jede einzelne Zahl stärker.",
+     "Er ist höchstens 12, denn die größte Zahl ist mindestens so groß wie der Mittelwert."
+    ],
     "o": {
-     "wert": 69,
-     "einheit": "s"
+     "index": 3
     }
    },
    "regel": "id.daten.kennzahl",
-   "loesung_rechnung": "(70 · 5 − 65 − 78) : 3",
    "fehlbilder": [
     {
-     "antwort": 207,
-     "rechnung": "70 · 5 − 65 − 78",
-     "beschreibung": "die Summe der drei Runden als Länge einer Runde angegeben",
+     "index": 0,
+     "antwort": "Er sinkt unter 12, denn die größte Zahl fehlt jetzt und die übrigen Zahlen sind kleiner.",
+     "beschreibung": "den Sonderfall übersehen, dass alle fünf Zahlen 12 sein können, dann bleibt der Mittelwert gleich",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 70,
-     "rechnung": "70",
-     "beschreibung": "den Mittelwert als Länge der drei Runden angenommen",
+     "index": 1,
+     "antwort": "Er bleibt 12, denn der Mittelwert hängt nicht davon ab, welche Zahl man streicht.",
+     "beschreibung": "geglaubt, Streichen ändere den Mittelwert nie: Bei 10, 11, 12, 13, 14 sinkt er auf 11,5",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 71.5,
-     "rechnung": "(65 + 78) : 2",
-     "beschreibung": "den Mittelwert der beiden äußeren Runden als Länge der übrigen genommen",
+     "index": 2,
+     "antwort": "Er steigt über 12, denn bei weniger Zahlen zählt jede einzelne Zahl stärker.",
+     "beschreibung": "geglaubt, die kleinere Anzahl lasse den Mittelwert steigen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "transfer|Rundenzeiten, drei gleiche Runden gesucht"
+   "idee": "gegenbeispiel|größte Zahl streichen, Sonderfall alle Zahlen gleich"
   }
  ]
 }

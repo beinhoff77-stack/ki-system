@@ -54,20 +54,20 @@ def m3(*kanten):
 # ---- messen.volumen / quader
 X[1] = (F(3, 2) * F(4, 5) * 2 - 1) * 100
 assert m3(F(1, 2), F(1, 2), F(1, 2)) == F(1, 8)
-X[2] = opt("ein Achtel")
-X[3] = F(6, 2) ** 3
-X[4] = [3, 6 * 4 * 3]
+X[2] = next(n ** 3 for n in range(0, 10) if n == 5 - 2)                # Innenwürfel: Kante 5 − 2 = 3
+X[3] = 5 * 4 * 3 + 3 * 3 * 3
+X[4] = [3, 8 * 3 * 5]
 assert 20 * 3 * 5 == 300 and 2 * 10 * 3 * 5 == 300         # 2 m = 20 dm, 30 cm = 3 dm, 5 dm  -> 300 dm³
 X[5] = opt("20 · 3 · 5")
-X[6] = [next(b for b in range(1, 60) if 2 * b * b * F(b, 2) == 216)] * 2
-X[6][1] = F(X[6][0], 2)
+X[6] = (lambda e: e ** 3 // (1 * 2 * 4))(next(e for e in range(1, 50) if e % 4 == 0 and e % 2 == 0 and e % 1 == 0))   # kleinster Würfel: Kante 4
 assert 4 ** 3 > 3 * 4 * 5 and 4 * (4 + 4 + 4) == 4 * (3 + 4 + 5) == 48
 X[7] = opt("Der Würfel hat das größere Volumen")
 # ---- liter
 X[8] = F(150, 10) ** 3                                 # Kante 150 cm : 10 cm = 15, 15³ Behälter
 X[9] = opt("1 000 Liter")
 X[10] = [2, F(50 * 30 * 40, 1000)]
-X[11] = next(k for k in range(1, 200) if k ** 3 == 64 * 1000)
+X[11] = opt("15 cm lang, 15 cm breit")
+assert 15 * 15 * 10 != 2000 and 10 * 10 * 20 == 25 * 8 * 10 == 1 * 2 * 1 * 1000 == 2000
 assert 40 * 20 * 10 == 20 ** 3 == 8000
 X[12] = opt("Beide fassen gleich viel")
 assert F(25, 10) == F(2500, 1000) == F(2500) / 1000 and F(1, 4) * 1000 != F(5, 2)       # 0,25 m³ = 250 l
@@ -79,19 +79,21 @@ assert 1200 / (20 * 5) == 12
 X[17] = opt("1 200 : (20 · 5)")
 assert F(120, 24) > F(120, 40)
 X[18] = opt("Quader A ist höher")
-X[19] = F(8 * 5 * F(1, 200)) * 1000                    # 0,5 cm = 0,005 m; 40 m² · 0,005 m = 0,2 m³ = 200 l
+X[19] = opt("5 cm, denn 36 : 5")
+assert all(36 % k == 0 for k in (4, 6, 9)) and 36 % 5 != 0
 X[20] = [A for A in [(A, h) for A in range(1, 300) for h in range(1, 300) if A * h == 180 and A * (h + 3) == 240]][0][0:2] and \
     list([(A, h) for A in range(1, 300) for h in range(1, 300) if A * h == 180 and A * (h + 3) == 240][0])
 X[21] = F(192, 2 * 3 * 2 * 2) * 1                      # Grundfläche 6 cm · 4 cm = 24 cm² -> 192 : 24 = 8 cm
 X[21] = F(192, (3 * 2) * (2 * 2))
 # ---- verstehen (Volumen)
-X[22] = (F(30, 24) - 1) * 100
+X[22] = (50 // 15) * (40 // 15) * (30 // 15)
 X[23] = opt("2 cm · Länge · Breite")
 X[24] = [2, F(4 * 3 * 250, 100)]
-X[25] = F(10 * 10 * (10 - 4), 10 ** 3) * 100
+X[25] = F(30, 18 - 12)
 assert 10 * 4 * 6 == 10 * 6 * 4
 X[26] = opt("Beide haben dasselbe Volumen")
-X[27] = (50 // 15) * (40 // 15) * (30 // 15)
+X[27] = opt("etwa 170 m³")
+assert 8 * 7 * 3 == 168
 X[28] = ((F(3, 2) * F(3, 2)) - 1) * 100
 X[28] = opt("um 125 %")
 # ---- daten.darstellen / relative Häufigkeit
@@ -99,29 +101,32 @@ X[29] = F(25 * 100, 100) - 10
 assert F(18, 24) == F(3, 4)
 X[30] = opt("0,75")
 X[31] = [2, F(40, 250) * 100]
-X[32] = F(36 * 100, 15)
+X[32] = opt("Nein, denn 30 % von 8")
+assert (8 * F(30, 100)).denominator != 1 and 2 * 12.5 == 25
 assert F(8, 25) > F(9, 30)
-X[33] = opt("Jonas hat nicht recht, denn in der 6a sind es 8 : 25")
-X[34] = opt("mindestens bei 0 % und höchstens bei 100 %")
+X[33] = opt("Jonas hat nicht recht, denn 8 : 25 ergibt 32 %")
+X[34] = opt("Vielfaches von 1/120")
 X[35] = F(6, 24 + 6) * 100
 # ---- saeulendiagramm
-X[36] = (6 - 4) * 2
-X[37] = [3, F(45, 10) * 8 - 3 * 8]
-X[38] = 3 * F(20, 7 - 3)
+X[36] = F(10) / (F(5, 2))
+X[37] = [3, F(55, 10) * 6 - 2 * 6]
+X[38] = opt("1 cm für 10 Kinder")
+assert max(k for k in (5, 10, 20, 100) if F(90, k) <= 12 and F(90, k) >= 8) == 10 and F(90, 5) > 12
 assert F(6, 3) == 2
 X[39] = opt("doppelt so viele Kinder")
 X[40] = opt("3 cm, 2 cm, 1 cm, 4 cm")
 assert [h * 6 for h in (3, 2, 1, 4)] == [18, 12, 6, 24]
 assert 4 * 8 > 6 * 5
 X[41] = opt("Bens Säule steht für mehr Kinder")
-X[42] = [(F(3) + F(9, 2) + F(5, 2)) * 20, F(9, 2) / (F(3) + F(9, 2) + F(5, 2)) * 100]
+X[42] = opt("anderthalbmal so hoch")
+assert F(27, 18) == F(3, 2) and F(27, 9) / F(18, 9) == F(3, 2) and F(27, 3) / F(18, 3) == F(3, 2)
 # ---- irrefuehrend
-X[43] = F(5040 - 4800, 4800) * 100
-X[44] = F(80, 20)
+X[43] = F((4700 + F(34, 10) * 100) - (4700 + 100), 4700 + 100) * 100
+X[44] = F({1: 10, 2: 20, 3: 40, 4: 80, 5: 160}[4], {1: 10, 2: 20, 3: 40, 4: 80, 5: 160}[2])
 assert 22 - 20 == 2 and 220 - 200 == 20 and F(6 - 4, 4) == F(1, 2)
 X[45] = opt("Verein B hat mehr neue Mitglieder gewonnen")
 X[46] = [2, F(30 - 20, 20) * 100]
-X[47] = 3 ** 2
+X[47] = F(26, 40) * 100 - F(6, 60) * 100
 X[48] = opt("Beide Säulen stehen für gleich viel")
 assert F(60 - 40, 40) == F(1, 2)
 X[49] = opt("Beide zeigen dieselben Werte")
@@ -130,7 +135,8 @@ X[50] = 8 * 2 - 3                                       # Mittelwert folgt der R
 X[51] = opt("steigt um 2")
 assert F(8, 4) == 2
 X[52] = [3, F(2 + 3 + 2 + 5, 4)]
-X[53] = 8
+X[53] = opt("Er liegt näher bei 11")
+assert F(10 * 8 + 20 * 11, 30) == 10 and abs(10 - 11) < abs(10 - 8)
 X[54] = opt("weitere 6")
 X[55] = 20 + 2 * 2                                    # fünf gerade Zahlen um die Mitte 20: 16, 18, 20, 22, 24
 assert sum(range(16, 25, 2)) / 5 == 20
@@ -138,13 +144,14 @@ assert F(50 + 60, 6) > 18 and F(50 + 60, 6) < 19 and F(50 + 60, 6) > 12
 X[56] = opt("etwa 18 kg")
 # ---- mittel_rueckwaerts
 X[57] = F(6 * 12 - 4 * 10, 2)
-X[58] = 20 - (5 * 14 - 5 * 12)
+X[58] = -(-5 + 3 + 4 - 1)
 X[59] = [2, 5 * 48 - 4 * 50]
 assert all(any(x >= 10 for x in z) for z in [(1, 1, 1, 37), (10, 10, 10, 10), (9, 9, 11, 11)])
 X[60] = opt("mindestens 10, denn sonst")
-X[61] = 100 + F(-2 + 1 + 3 - 1 + 4, 5)
-X[62] = F(30 * 40 - 10 * 10, 20)
-X[63] = F(5 * 70 - 65 - 78, 3)
+X[61] = [sum(z - 100 for z in (98, 101, 103, 99, 104)), F(sum((98, 101, 103, 99, 104)), 5)]
+X[62] = F(20) + F(18 - 6, 6)
+X[63] = opt("Er ist höchstens 12, denn")
+assert F(10 + 11 + 12 + 13, 4) < 12 and F(12 * 4, 4) == 12
 # ---- funktionen.grundbegriffe / mengen
 X[64] = opt("höchstens 12 Elemente")
 f65 = lambda x: x * x - 9
@@ -161,14 +168,15 @@ X[71] = next(x for x in range(-50, 50) if x * x - 6 * x == -8 and x != 4)
 X[72] = next(a for a in range(-50, 50) if 2 * a - 6 == 8) - next(b for b in range(-50, 50) if 2 * b - 6 == -2)
 X[73] = [2, F(15 - 6, 3)]
 assert 12 + F(3, 2) * 12 == 30
-X[74] = opt("12 + 1,5 · t = 30")
+X[74] = opt("8 + 2 · t = 30")
 X[75] = [next(x for x in range(-100, 100) if x != 1 and F(20, x - 1) == w) for w in (4, -5)]
 assert all(-2 * F(k, 8) ** 2 <= 0 for k in range(-80, 80))
 X[76] = opt("keine Lösung")
 X[77] = F(17 - 5, F(12, 10))
 # ---- graph_lesen
 m_ = F(1 - (-3), 2)
-X[78] = opt("f(x) = 2x − 3")
+X[78] = opt("g geht auch durch Q(2 | 9)")
+assert F(5, 2) == F(5 - 0, 2 - 0) and -3 * 2 + 11 == 5 and 2 * 2 + 1 == 5
 assert m_ == 2 and 2 * 0 - 3 == -3 and 2 * 2 - 3 == 1
 mm = F(-3 - 5, 7 - 1) if False else F(-7 - 5, 7 - 1)
 X[79] = 5 - mm * 1                                      # y = 5 + m·(x − 1) bei x = 0
@@ -178,19 +186,21 @@ X[81] = opt("parallel und verschieden")
 ys = [1, 3, 9, 27]
 assert len({ys[i + 1] - ys[i] for i in range(3)}) == 3
 X[82] = opt("keine Gerade")
-X[83] = 5 + F(-1, 2) * 6
+X[83] = opt("y-Achse bei −4 und die x-Achse bei 2")
+assert 2 * 0 - 4 == -4 and 2 * 2 - 4 == 0
 assert -3 < 0
 X[84] = opt("Jonas hat nicht recht, denn die Steigung −3 ist negativ")
 X[85] = (lambda b: b * 9 - 5)(next(b for b in range(-20, 20) if b * 4 - 5 == 7))
 assert 3 - 2 * 4 == -5
-X[86] = opt("Ja, denn für x = 4")
+X[86] = opt("Ja, denn setzt man 4 ein")
 X[87] = [3, 3 ** 2 - 1]
 assert all((2 * F(k, 3) + 1).denominator != 1 or True for k in range(-9, 9))
 assert (2 * F(1, 2) + 1) == 2 and 2 * 3 + 1 == 7
 X[88] = opt("Ist die Zahl a ganz, so ist auch die Zahl b ganz")
 X[89] = (lambda c: c - 2 * 4)(3 * 4 - 2)
 X[90] = opt("Für jede Zahl a")
-X[91] = [F(47 - 12, 5), 12 + 5 * 3]
+X[91] = opt("7 Tage ausleiht, zahlt 47 Euro")
+assert 12 + 5 * 7 == 47
 # ---- sachzusammenhang
 X[92] = opt("I(t) = 120 − 15t, sinnvoll für 0 ≤ t ≤ 8")
 assert 120 / 15 == 8
@@ -199,21 +209,24 @@ X[93] = opt("weniger als das Doppelte")
 X[94] = [2, 8 + F(10, 100) * 50]
 assert [4 + 3 * (n - 1) for n in (1, 2, 3)] == [4, 7, 10] and [3 * n + 1 for n in (1, 2, 3)] == [4, 7, 10]
 X[95] = opt("richtig ist 3n + 1")
-X[96] = opt("V(t) = 6 + 6t")
-X[97] = opt("verliert täglich 8 Liter")
+X[96] = opt("s(t) = 1,5t")
+assert F(90, 60) * 60 == 90
+X[97] = opt("Preis von Äpfeln")
+assert len({(n + 1) ** 2 - n ** 2 for n in range(1, 6)}) > 1
 X[98] = next(n for n in range(1, 500) if 60 + F(3, 2) * n < 4 * n)
 # ---- geometrie.winkel / kreuzung
-X[99] = opt("Ein Nachbarwinkel ist 180° − 90° = 90°")
-X[100] = 180 - 50 - 70
+X[99] = opt("Mia hat recht, denn ein Nachbarwinkel ist 180° − 90°")
+X[100] = (lambda w: sum(1 for x in w + w if x < 90))([100, 30, 50])
+assert 100 + 30 + 50 == 180
 X[101] = [2, 48]
 X[102] = [360 - 310, 180 - (360 - 310)]
 X[103] = opt("Gegenüberliegende Winkel sind gleich groß")
-X[104] = 90 - 35
+X[104] = 90 - 25
 X[105] = opt("α = 72°, β = 108°, γ = 72°, δ = 108°")
 # ---- uhr
-X[106] = next(h for h in range(1, 13) if h != 7 and winkel_uhr(h, 0) == 150)
+X[106] = winkel_uhr(3, 15)
 X[107] = F(180, 6) * F(1, 2)
-X[108] = [2, winkel_uhr(4, 30)]
+X[108] = [3, winkel_uhr(8, 0)]
 assert winkel_uhr(9, 0) == winkel_uhr(3, 0) == 90 and winkel_uhr(9, 15) == F(345, 2)
 X[109] = opt("Nur Mia hat recht")
 assert all(winkel_uhr(h, 0) % 30 == 0 and winkel_uhr(h, 0) <= 180 for h in range(1, 13))
@@ -221,14 +234,15 @@ X[110] = opt("Vielfaches von 30°")
 zeiten = [(3, 0), (6, 0), (1, 5), (12, 15)]
 X[111] = opt("1:05 Uhr")
 assert min(zeiten, key=lambda t: winkel_uhr(*t)) == (1, 5)
-X[112] = winkel_uhr(3, 15)
+X[112] = next(h for h in range(1, 13) if h != 7 and winkel_uhr(h, 0) == 150)
 # ---- figuren
-X[113] = [3, F(90 - 30, 3)]
+X[113] = [2, F(2 * 90, 6)]
 X[114] = opt("In Zeile 2")
 X[115] = F(360, 20) // 2
 X[116] = opt("β ist größer als α")
 assert F(180, 4) > F(90, 3)
-X[117] = F(90, 18) - 1
+X[117] = opt("Er ist immer 90°")
+assert all(F(a, 2) + F(180 - a, 2) == 90 for a in range(1, 180))
 zer = [(a, b, 90 - a - b) for a in range(1, 89) for b in range(1, 90 - a)]
 assert all(min(z) <= 30 for z in zer) and any(max(z) <= 30 for z in zer) and any(min(z) < 20 for z in zer) and any(len(set(z)) < 3 for z in zer)
 X[118] = opt("höchstens 30° groß")
@@ -236,9 +250,9 @@ X[119] = [F(90 - 20, 2), F(90 - 20, 2) + 20]
 # ---- verstehen (Winkel)
 X[120] = opt("größer als 90°")
 assert all(a + s > 90 for a in range(1, 90) for s in range(91, 180))
-X[121] = opt("180° − 62° = 118°")
-X[122] = next(al for al in range(1, 90) if (180 - al) - (180 - 2 * al) == 30)
-X[123] = [1, 180 - 65]
+X[121] = opt("180° − 64° = 116°")
+X[122] = next(al for al in range(1, 60) if (180 - al) - (180 - 3 * al) == 40)
+X[123] = [2, 360 - 250]
 X[124] = [900 // 360, 900 % 360]
 assert F(40) < F(60)
 X[125] = opt("β ist größer als α")

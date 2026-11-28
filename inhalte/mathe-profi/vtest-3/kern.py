@@ -29,9 +29,6 @@ TYPNAME = {
 }
 
 
-_ZAEHL = 0
-
-
 class Bau:
     """Sammelt die Aufgaben einer Einheit."""
 
@@ -98,17 +95,7 @@ class Bau:
     def auswahl(self, lz, pool, stufe, typ, form, text, opts, idx, fb, w, abgr=None):
         """fb: {index: Beschreibung} oder {index: (Beschreibung, Rechnung)} für alle falschen Möglichkeiten."""
         e = self._basis(lz, pool, stufe, typ, form, "auswahl", text, w, abgr)
-        # Platz der richtigen Option gleichmäßig verteilen (die App mischt nach Stand der Vorprüfung nicht):
-        # fortlaufender Zähler über alle Auswahl-Aufgaben, Platz = (3 · Zähler + 1) mod 4; aufeinanderfolgende Aufgaben haben nie denselben Platz
-        global _ZAEHL
-        ziel = (3 * _ZAEHL + 1) % 4
-        _ZAEHL += 1
-        rest = [i for i in range(len(opts)) if i != idx]
-        reihe = rest[:ziel] + [idx] + rest[ziel:]
-        neu = {alt: pos for pos, alt in enumerate(reihe)}
-        opts = [opts[i] for i in reihe]
-        fb = {neu[i]: v for i, v in fb.items()}
-        idx = ziel
+        # Die Reihenfolge der Optionen wird erst in zusammen() festgelegt (Platz der richtigen Option, siehe plaetze()).
         e["aufgabe"]["a"] = list(opts)
         e["aufgabe"]["o"] = {"index": idx}
         e["fehlbilder"] = []
@@ -118,6 +105,54 @@ class Bau:
                 d["rechnung"] = v[1]
             e["fehlbilder"].append(d)
         return e
+
+
+def plaetze(out, seed=20261128):
+    """Legt für alle Auswahl-Aufgaben den Platz der richtigen Option fest: unregelmäßig (festes Seed, Rückverfolgung),
+    jeder Platz etwa ein Viertel, nie zweimal derselbe Platz hintereinander (auch über Lernziele hinweg),
+    keine Folge von drei Aufgaben mit gleichem Schritt (mod 4). Ordnet Optionen und Fehlbilder entsprechend um."""
+    import random
+    es = [e for liste in out.values() for e in liste if e["aufgabe"]["y"] == "auswahl"]
+    n = len(es)
+    rng = random.Random(seed)
+    grenze = -(-n // 4)
+    folge = []
+    zaehl = [0, 0, 0, 0]
+
+    def geht(p):
+        if folge and folge[-1] == p: return False
+        if zaehl[p] >= grenze: return False
+        if len(folge) >= 2:
+            d1 = (folge[-1] - folge[-2]) % 4
+            d2 = (p - folge[-1]) % 4
+            if d1 == d2: return False
+        return True
+
+    def los(i):
+        if i == n: return min(zaehl) >= n // 4
+        if n - i < sum(max(0, n // 4 - z) for z in zaehl): return False
+        cand = [0, 1, 2, 3]
+        rng.shuffle(cand)
+        for p in cand:
+            if geht(p):
+                folge.append(p); zaehl[p] += 1
+                if los(i + 1): return True
+                folge.pop(); zaehl[p] -= 1
+        return False
+
+    assert los(0), "keine Platzfolge gefunden"
+    for e, ziel in zip(es, folge):
+        a = e["aufgabe"]
+        idx = a["o"]["index"]
+        opts = a["a"]
+        rest = [i for i in range(len(opts)) if i != idx]
+        reihe = rest[:ziel] + [idx] + rest[ziel:]
+        neu = {alt: pos for pos, alt in enumerate(reihe)}
+        a["a"] = [opts[i] for i in reihe]
+        a["o"] = {"index": ziel}
+        for f in e["fehlbilder"]:
+            f["index"] = neu[f["index"]]
+        e["fehlbilder"].sort(key=lambda f: f["index"])
 
 
 def zusammen(baus, kuerzel="VT3"):
@@ -139,4 +174,5 @@ def zusammen(baus, kuerzel="VT3"):
             n += 1
             e["kennung"] = f"{kuerzel}-{n:03d}"
         out[b.thema] = feste
+    plaetze(out)
     return out

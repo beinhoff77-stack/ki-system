@@ -144,7 +144,7 @@ Maßgeblich ist die jüngste Fassung: nachgerechnet aus `20261114_w150_lernkarte
 
 ## 5. Gebaut (Server-Entwurf) – `supabase/migrations/20261207_tempo_s1.sql`
 
-Nachgebessert nach den Gegenprüfungen Werkstatt 1175 und 1181/1183. Die Migration hat 11 181 Bytes, md5 `3b97578bfacff84b4078c061704d9275`.
+Nachgebessert nach den Gegenprüfungen Werkstatt 1175, 1181/1183 und 1190. Die Migration hat 11 181 Bytes, md5 `3b97578bfacff84b4078c061704d9275`.
 
 **Teil 1 – Funktion** (`schule.etappen_stand` neu, create or replace, gleiches Ergebnis):
 - Was sich ändert:
@@ -157,23 +157,61 @@ Nachgebessert nach den Gegenprüfungen Werkstatt 1175 und 1181/1183. Die Migrati
   - exakt neu (md5 `3f49198f8dbf5c822a0be4650a5ebce5`, nachgerechnet und bestätigt) → nichts tun;
   - alles andere → Abbruch. Ein Kommentar „TEMPO-S1“ in einer alten Fassung reicht nicht mehr zum Überspringen.
 - Nach dem Ersetzen muss der neue md5 stehen.
-- Die Eigenschaften werden vor dem ersten Lauf gegen den Sollwert, in der Migration noch einmal und im Endzustand gegen vorher geprüft:
-  - Signatur `p_lernender bigint, p_einheit bigint`;
-  - Rückgabe skalar `jsonb` (`pg_get_function_result` = `jsonb`, `proretset = false`), Sprache `sql`;
-  - `STABLE`, `SECURITY INVOKER`;
-  - **nicht STRICT** (`proisstrict = false`; 1181: `create or replace` würde STRICT sonst still entfernen und `etappen_stand(NULL, …)` von NULL auf `{}` ändern);
-  - `search_path=""`.
-  - Als Zeichenkette (Bericht `funktion_*.eigenschaften`): `p_lernender bigint, p_einheit bigint|jsonb|sql|s|f|f|f|{"search_path=\"\""}`. Dazu stehen im Bericht einzeln `strict`, `ergebnis` und `menge`.
+- **Funktionseigenschaften (1190: alle Spalten von `pg_proc`):** Geprüft wird vor dem ersten Lauf (Paket), in der Migration vor und nach dem Ersetzen und im Endzustand. Soll als Zeichenkette `funktion_*.eigenschaften` = `f|sql|100|0|0|0|f|f|f|f|s|u|2|0|jsonb|p_lernender bigint, p_einheit bigint|bigint,bigint|-|-|{p_lernender,p_einheit}|-|-|-|-|{"search_path=\"\""}`.
+
+  | `pg_proc`-Spalte | Prüfung |
+  |---|---|
+  | `oid`, `proname`, `pronamespace` | über die Signatur `schule.etappen_stand(bigint, bigint)` (genau diese Funktion) |
+  | `prokind` | gegen Soll `f` (Funktion) |
+  | `prolang` | gegen Soll `sql` |
+  | `procost` | gegen Soll `100` (live laut 1190) |
+  | `prorows` | gegen Soll `0` (keine Menge) |
+  | `provariadic` | gegen Soll `0` |
+  | `prosupport` | gegen Soll `0` (keine Hilfsfunktion; 1192) |
+  | `prosecdef` | gegen Soll `f` (SECURITY INVOKER) |
+  | `proleakproof` | gegen Soll `f` |
+  | `proisstrict` | gegen Soll `f` (NULL-Verhalten, 1181) |
+  | `proretset` | gegen Soll `f` |
+  | `provolatile` | gegen Soll `s` (STABLE) |
+  | `proparallel` | gegen Soll `u` (PARALLEL UNSAFE, live laut 1190) |
+  | `pronargs`, `pronargdefaults` | gegen Soll `2`, `0` |
+  | `prorettype` | über `pg_get_function_result` gegen Soll `jsonb` |
+  | `proargtypes` | gegen Soll `bigint,bigint` |
+  | `proallargtypes`, `proargmodes`, `proargdefaults`, `protrftypes` | gegen Soll leer (`-`) |
+  | `proargnames` | gegen Soll `{p_lernender,p_einheit}` |
+  | `prosrc` | gegen Soll md5 alt bzw. neu (genau zwei Zustände) |
+  | `probin`, `prosqlbody` | gegen Soll leer (`-`; kein `BEGIN ATOMIC`-Körper) |
+  | `proconfig` | gegen Soll `{search_path=""}` |
+  | `proowner`, `proacl`, Kommentar | **vorher = nachher** (`funktion_*.besitz`, `besitz_gleich`). Kein festes Soll, weil der Besitzer bzw. die Rechte live nicht im Repo stehen. `create or replace` behält sie, die Prüfung weist eine Änderung nach. |
+
+  Der Bericht nennt `strict`, `ergebnis`, `menge`, `kosten`, `parallel` und `leakproof` zusätzlich einzeln. Migration und Pakete prüfen mit demselben Ausdruck; der Test vergleicht ihn als Text.
 
 **Teil 2 – Indizes** (`create index if not exists`):
 - `aufgabe_einheit_pool_lz_idx` auf `schule.aufgabe (einheit_id, pool, variante_gruppe)`
 - `versuch_kind_aufgabe_idx` auf `schule.versuch (lernender_id, aufgabe_id)`
-- Danach wird geprüft, was unter beiden Namen wirklich liegt:
-  - ein gültiger und bereiter B-Baum (`indisvalid`, `indisready`);
-  - nicht eindeutig, ohne Bedingung, ohne Ausdruck;
-  - auf der richtigen Tabelle in `schule`;
-  - mit genau diesen Schlüsselspalten in dieser Reihenfolge.
-  - Sonst Abbruch: Ein gleichnamiger anderer Index wird nicht mehr hingenommen.
+- **Index-Eigenschaften (1190):** Danach wird jede Eigenschaft unter beiden Namen gegen ein festes Soll geprüft. Dieselbe Prüfung läuft im Paket nach Teil 2 und im Mess-Paket (`indizes_soll: "ok"`).
+
+  | Eigenschaft | Prüfung |
+  |---|---|
+  | vollständige Definition (`pg_get_indexdef`) | exakt gegen `CREATE INDEX aufgabe_einheit_pool_lz_idx ON schule.aufgabe USING btree (einheit_id, pool, variante_gruppe)` bzw. `CREATE INDEX versuch_kind_aufgabe_idx ON schule.versuch USING btree (lernender_id, aufgabe_id)`. Das deckt ab: Methode, UNIQUE, Spalten und Reihenfolge, nicht-Standard-Kollation, nicht-Standard-Operatorklasse, DESC/NULLS FIRST, INCLUDE, WITH-Optionen, WHERE, Ausdrücke. |
+  | Zugriffsmethode (`relam`) | gegen Soll `btree` |
+  | `relkind`, Schema, Tabelle | gegen Soll `i`, `schule`, `aufgabe` bzw. `versuch` |
+  | `indnatts`, `indnkeyatts` | gegen Soll 3/3 bzw. 2/2 (kein INCLUDE) |
+  | `indisunique`, `indnullsnotdistinct`, `indisprimary`, `indisexclusion` | gegen Soll `false` |
+  | `indimmediate` | gegen Soll `true` |
+  | `indisclustered`, `indisreplident` | gegen Soll `false` |
+  | `indisvalid`, `indisready`, `indislive` | gegen Soll `true` |
+  | `indcollation` | **jeder** Schlüssel gegen Soll = Kollation der Spalte (`attcollation`); Negativtests an `pool` und `variante_gruppe` (1190/1192) |
+  | `indclass` | je Schlüssel gegen Soll Standard-Operatorklasse (`opcdefault`) der Methode |
+  | `indoption` | gegen Soll alle `0` (ASC, NULLS LAST) |
+  | `indpred`, `indexprs` | gegen Soll leer |
+  | `reltablespace` | gegen Soll `0` (Standard-Tablespace) |
+  | `reloptions` | gegen Soll leer |
+  | `relpersistence`, `relispartition` | gegen Soll `p`, `false` |
+  | `indcheckxmin` | **bewusst nicht gegen ein Soll geprüft**, weil es vom Zustand der Tabelle (HOT-Ketten) abhängt und nicht von der Definition. Es wird berichtet (`indizes_nachher[].indcheckxmin`) und erklärt nur eine längere Sperrzeit. |
+  | Größe, Statistik, Besitzer des Index | **bewusst nicht geprüft**: Sie ändern nichts an Ergebnis oder Plan-Gültigkeit. Der Besitzer ist der des Ausführenden. |
+
+  Abweichungen nennt die Meldung je Eigenschaft („Abweichung: kollation: false statt true; …“).
 
 Kein DELETE, keine Tabelle, keine andere Funktion. `api.schule_merkheft` bleibt, wie sie ist.
 
@@ -191,6 +229,8 @@ Kein DELETE, keine Tabelle, keine andere Funktion. `api.schule_merkheft` bleibt,
    - SQL-NULL, JSON-null, `ok = false` oder ein fehlendes `einheiten` brechen ab, auch bei nur einem Kind. Ebenso jeder andere Fehler.
 4. Teil 1 (Funktion), dann Lauf „neu“. Noch keine Sperre an `aufgabe` oder `versuch`.
 5. Vergleich alt/neu. Beide Läufe müssen „verglichen“ sein, mit derselben vollständigen Kindermenge, Merkheft für jedes Kind, allen Paaren (Kinder × Einheiten) und 0 Abweichungen. Sonst Abbruch.
+   - 1190: Kinder, Einheiten und Paare müssen jeweils **mehr als 0** sein. Ein Vergleich über null Paare gilt nicht als bestanden.
+   - Der interne Rückroll-Fehler (SQLSTATE TP999) gilt nur nach dem ausdrücklich gesetzten Abschlusskennzeichen und mit eigener Meldung. Ein TP999 aus einer gerufenen Funktion bricht ab („fremdes TP999“).
 6. Teil 2 (Indizes). **Ab hier SHARE auf `schule.aufgabe` und `schule.versuch`**: Lesen geht, Schreiben wartet.
 7. Lauf „endzustand“ (nur Gleichheitsbeweis), Vergleich alt/endzustand wie in Schritt 5. Danach muss der Hash neu stehen und die Eigenschaften gleich sein.
 8. Aufräumen, auch bei Erfolg: Merkheft-Kopie, alle Hilfsfunktionen und Hilfstabellen werden ausdrücklich gelöscht und das Ergebnis geprüft (`rueckstaende: []`).
@@ -210,7 +250,7 @@ Kein DELETE, keine Tabelle, keine andere Funktion. `api.schule_merkheft` bleibt,
 |---|---|---|---|
 | `tools/tests/aus/tempo_s1_probe.sql` | 24 985 | `e39fc681a06c9e55ee5685696e21a8b7` | Fehler „PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt): {…}“ |
 | `tools/tests/aus/tempo_s1_einspielen.sql` | 25 199 | `2080303f10fd363a389de728cf3ef97d` | Hinweis „TEMPO-S1 eingespielt: {…}“ |
-| `tools/tests/aus/tempo_s1_messen.sql` | 9 971 | `33f7aefb7744962a914cc374aa319a12` | Fehler „MESSUNG (nichts geändert): {…}“ |
+| `tools/tests/aus/tempo_s1_messen.sql` | 9 971 | `33f7aefb7744962a914cc374aa319a12` | Fehler „MESSUNG (nichts geändert): {…}“ – nur nach positivem Nachweis (siehe unten) |
 
 Alle anderen Dateien unter `tools/tests/aus/` sind byteidentisch (md5 vorher/nachher verglichen).
 
@@ -222,13 +262,23 @@ Jeder echte Schritt nur mit dem ausdrücklichen Satz des Nutzers. Vorher `werkst
    - Wie Schritt 0 in `einspiel-reihenfolge-rb-ww.md`: kein Kind übt, kein Import läuft.
    - Eine frische Admin-Verbindung nutzen, nichts parallel.
    - Nicht in Einzelstücken und nicht mit Autocommit ausführen.
-   - **Direkt vor dem Lauf den Live-Stand bestätigen** (nur lesend):
+   - Keine weitere Migration in derselben Pause.
+   - **Reihenfolge TEMPO-S1 / NF-S (1190):** Die Reihenfolge ist beliebig, aber die beiden laufen **nacheinander, nie parallel**.
+     - `api.schule_merkheft` ruft `etappen_stand` **und** `nachtest_stand` auf, und NF-S ändert bei betroffenen Einheiten das Feld `nachtest` im Merkheft.
+     - Die drei Läufe von TEMPO (alt, neu, endzustand) müssen deshalb unter einheitlichem NF-S-Stand laufen. Innerhalb einer Transaktion ist das gesichert, solange NF-S nicht gleichzeitig eingespielt wird.
+     - Für vergleichbare Zeiten die ganze TEMPO-Folge (Probe, Einspielen, Messen) beim selben NF-S-Stand ausführen. Wird NF-S dazwischen eingespielt, nach NF-S eine neue Basis messen.
+   - **Direkt vor dem Lauf den Live-Stand bestätigen** (nur lesend; dazu Planer-Eigenschaften, freie Indexnamen und eine positive Paarzahl):
      ```sql
      select md5(p.prosrc), pg_get_function_result(p.oid), p.proretset, p.proisstrict, p.provolatile, p.prosecdef, p.proconfig
        from pg_proc p where p.oid = 'schule.etappen_stand(bigint, bigint)'::regprocedure;
        -- bf3152e9a378a1d4e41c98965acf738e | jsonb | f | f | s | f | {"search_path=\"\""}
      select md5(p.prosrc), p.proisstrict, p.proretset from pg_proc p where p.oid = 'api.schule_merkheft(text, jsonb)'::regprocedure;
        -- 5cb2502d146b3af514a826a03eb96490 | f | f
+     select p.procost, p.proparallel, p.proleakproof from pg_proc p where p.oid = 'schule.etappen_stand(bigint, bigint)'::regprocedure;
+       -- 100 | u | f
+     select count(*) from pg_class c join pg_namespace n on n.oid = c.relnamespace
+      where n.nspname = 'schule' and c.relname in ('aufgabe_einheit_pool_lz_idx', 'versuch_kind_aufgabe_idx');   -- 0 (Namen frei)
+     select (select count(*) from schule.lernender) * (select count(*) from schule.einheit);   -- > 0 (live laut 1190: 3 × 105 = 315)
      ```
      Weicht etwas ab: nicht ausführen, an den Helfer melden.
 2. **Probe:** eine Transaktion, Zeitgrenzen als eigene Anweisungen **vor** dem äußeren `do`.
@@ -241,11 +291,13 @@ Jeder echte Schritt nur mit dem ausdrücklichen Satz des Nutzers. Vorher `werkst
    ```
    Anerkannt wird nur dieser Abschlussfehler mit vollständigem Bericht. Für „bestanden“ müssen **alle** folgenden Felder stimmen:
    - `funktion_vorher.md5` = `bf3152e9a378a1d4e41c98965acf738e`, `funktion_nachher.md5` = `3f49198f8dbf5c822a0be4650a5ebce5`;
-   - `funktion_vorher.strict` und `funktion_nachher.strict` = `false`, `ergebnis` = `jsonb`, `menge` = `false`;
-   - `eigenschaften_gleich: true`, `funktion_nachher.eigenschaften` = `p_lernender bigint, p_einheit bigint|jsonb|sql|s|f|f|f|{"search_path=\"\""}`;
+   - `funktion_vorher` und `funktion_nachher`: `strict` = `false`, `ergebnis` = `jsonb`, `menge` = `false`, `kosten` = 100, `parallel` = `u`, `leakproof` = `false`;
+   - `eigenschaften_gleich: true`, `besitz_gleich: true`, `funktion_nachher.eigenschaften` = Soll-Zeichenkette oben;
+   - `indizes_soll: "ok"`;
+   - `laeufe.alt|neu|endzustand`: `paare` = Kinder × Einheiten **> 0**, `einheiten` > 0;
    - `vergleich_alt_neu` und `vergleich_alt_endzustand`: `merkheft: "verglichen"`, `kinder` = alle Lernenden, `paare` = Kinder × Einheiten, `abweichungen_etappen_stand: 0`, `abweichungen_merkheft: 0`;
    - `laeufe.alt|neu|endzustand.merkheft` jeweils „verglichen“ mit denselben `kinder`;
-   - `indizes_nachher` enthält beide Soll-Indizes mit `gueltig: true` (`indcheckxmin` beachten), `indizes_vorher` keinen der beiden Namen;
+   - `indizes_nachher` enthält **genau** die beiden Soll-Indizes zusätzlich zu `indizes_vorher`, mit `gueltig: true` (`indcheckxmin` beachten); `indizes_vorher` enthält keinen der beiden Namen;
    - `rueckstaende: []`;
    - `schon_umgestellt_vorher: false`;
    - `ms_unter_sperre_bis_vor_aufraeumen`: Wert über 10 s → **vor dem Einspielen melden**. Das Feld ist keine Obergrenze für wartende Schreiber (siehe „Sperrzeit“).
@@ -262,6 +314,13 @@ Jeder echte Schritt nur mit dem ausdrücklichen Satz des Nutzers. Vorher `werkst
    - Funktionshash = `3f49198f8dbf5c822a0be4650a5ebce5`;
    - `pg_indexes` zeigt `aufgabe_einheit_pool_lz_idx … USING btree (einheit_id, pool, variante_gruppe)` und `versuch_kind_aufgabe_idx … USING btree (lernender_id, aufgabe_id)`.
 6. **Messen:** in einer **neuen** Transaktion `tempo_s1_messen.sql` (`set local statement_timeout = '300s'` vorher).
+   - „MESSUNG (nichts geändert)“ erscheint nur nach positivem Nachweis (1190):
+     - Funktion im eingespielten Stand (md5 neu und alle Soll-Eigenschaften);
+     - beide Soll-Indizes;
+     - mehr als 0 Kinder und Einheiten;
+     - ein vollständiger Lauf (`merkheft: verglichen`, alle Paare, genau eine Einzelmessung je Kind);
+     - eigenes Abschlusskennzeichen.
+   - Sonst kommt „TEMPO-S1 MESSUNG ABBRUCH …“, zum Beispiel vor dem Einspielen („Vorbedingung“) oder bei einem fremden TP999.
    - Erwartet ist „MESSUNG (nichts geändert): {…}“ mit `ms_merkheft_je_kind`. Es rollt immer zurück.
    - Danach `schule_merkheft` in der App bzw. im Netzwerk-Tab neu messen. Die Antwort ist unverändert groß (1,2 MB).
 

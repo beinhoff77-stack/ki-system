@@ -48,11 +48,11 @@ neu(T, "winkelhalbierende", "verfahren_waehlen", W(
     lambda: True), g="verknuepfen", regel=AB)
 # ───────── symmetrie ─────────
 neu(T, "symmetrie", "lueckenweg", L(
-    "Ein regelmäßiges Sechseck hat ① Symmetrieachsen. Ein regelmäßiges Achteck hat ② Symmetrieachsen. Beide Figuren zusammen haben ③ Symmetrieachsen.",
-    "① = □; ② = □; ③ = □", [6, 8, 14], ["6", "8", "{1} + {2}"], ["6", "8", "6 + 8"],
+    "Ein regelmäßiges Sechseck hat ① Symmetrieachsen. Ein regelmäßiges Zwölfeck hat ② Symmetrieachsen. Beide Figuren zusammen haben ③ Symmetrieachsen.",
+    "① = □; ② = □; ③ = □", [6, 12, 18], ["6", "12", "{1} + {2}"], ["6", "12", "6 + 12"],
     "Bei einem regelmäßigen Vieleck mit n Ecken gibt es eine Achse durch jede Ecke und die gegenüberliegende Seite oder Ecke. Wie viele Achsen sind das?",
-    "Ein regelmäßiges n-Eck hat n Symmetrieachsen. Sechseck: 6, Achteck: 8, zusammen 6 + 8 = 14.",
-    {0: [(3, None, "nur die Achsen durch gegenüberliegende Ecken gezählt", "3")], 1: [(4, None, "nur die Achsen durch gegenüberliegende Ecken gezählt", "4")], 2: [(48, None, "die beiden Achsenzahlen malgenommen statt addiert", "{1} * {2}")]}, ), g="direkt", regel=D)
+    "Ein regelmäßiges n-Eck hat n Symmetrieachsen. Sechseck: 6, Zwölfeck: 12, zusammen 6 + 12 = 18.",
+    {0: [(3, None, "nur die Achsen durch gegenüberliegende Ecken gezählt", "3")], 1: [(6, None, "nur die Achsen durch gegenüberliegende Ecken gezählt", "6")], 2: [(72, None, "die beiden Achsenzahlen malgenommen statt addiert", "{1} * {2}")]}, ), g="direkt", regel=D)
 neu(T, "symmetrie", "anwenden", Z(
     "Auf Reisen siehst du drei Verkehrsschilder: ein Vorfahrt-gewähren-Schild (gleichseitiges Dreieck), ein Stoppschild (regelmäßiges Achteck) und ein Vorfahrtstraßen-Schild (Quadrat, auf der Spitze stehend). Wie viele Symmetrieachsen haben die drei Schilder zusammen? Bunte Zeichen und Schrift bleiben unbeachtet, nur die Umrissform zählt.",
     15, "3 + 8 + 4", 15, "Zähle für jede Umrissform die Achsen. Ein regelmäßiges Vieleck mit n Ecken hat n Achsen.",
@@ -83,7 +83,7 @@ neu(T, "eigenschaften", "anwenden", Z(
     "Kim zeichnet ein Dreieck ABC mit α = 52° und β = 71°. Sie spiegelt es an einer Geraden und verschiebt das Bild danach um einige Einheiten. Wie groß ist der Winkel γ' im Bilddreieck A'B'C'?",
     57, "180 - 52 - 71", "180 - (52 + 71)", "Welche Größen ändern sich bei Spiegeln und Verschieben, und welche bleiben gleich? Berechne γ aus der Winkelsumme.",
     "Spiegeln und Verschieben erhalten alle Winkel. Also ist γ' = γ = 180° − 52° − 71° = 57°.",
-    [B("180 - 52", "nur einen Winkel von 180° abgezogen"), B("71", "den Winkel β übernommen"), B("360 - 57", "den Winkel an einer Gerade ergänzt statt γ angegeben")], einheit="°"), g="mehrschritt", regel=WI,
+    [B("180 - 52", "nur einen Winkel von 180° abgezogen"), B("71", "den Winkel β übernommen"), B("360 - 57", "vom Vollwinkel 360° statt von 180° gerechnet")], einheit="°"), g="mehrschritt", regel=WI,
     zweifel="Winkelsumme im Dreieck plus Erhaltung der Winkel; Ausnahme der Themenliste (id.geometrie.winkel), die Lernkarte nennt id.geometrie.deckungsgleich")
 neu(T, "eigenschaften", "fehler_detektiv", FD(
     "Ein Dreieck ABC ist gegen den Uhrzeigersinn beschriftet. Es wird einmal gespiegelt, dann noch einmal an einer anderen Achse gespiegelt und schließlich verschoben. Kim schreibt auf:",

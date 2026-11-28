@@ -34,7 +34,7 @@ neu(T, "gleicher_exponent", "verfahren_waehlen", W(
     "Beide Potenzen haben die Hochzahl 5. Dann gilt aⁿ · bⁿ = (a · b)ⁿ: 2⁵ · 5⁵ = (2 · 5)⁵ = 10⁵ = 100 000. Das geht im Kopf.",
     lambda: 2 ** 5 * 5 ** 5 == 10 ** 5 == 100000 and 10 ** 10 != 100000), g="mehrschritt", regel=R)
 neu(T, "gleicher_exponent", "umkehren", Z(
-    "Für welche Zahl im Kästchen gilt 14⁴ = 2⁴ · □⁴ ?",
+    "Für welche natürliche Zahl im Kästchen gilt 14⁴ = 2⁴ · □⁴ ?",
     7, "14 // 2", 7, "Bei gleicher Hochzahl werden die Basen malgenommen. Welche Zahl ergibt mit 2 zusammen die Basis 14?",
     "Nach dem Gesetz aⁿ · bⁿ = (a · b)ⁿ muss 2 · □ = 14 gelten. Also ist □ = 7. Probe: 2⁴ · 7⁴ = 16 · 2 401 = 38 416 = 14⁴.",
     [B("14 - 2", "die Basen subtrahiert statt geteilt"), B("14 ** 4 - 2 ** 4", "die Hochzahl 4 mitgerechnet und die Potenzen subtrahiert"), B("14 + 2", "die Basen addiert statt geteilt")]), g="rueckwaerts", regel=R)
@@ -91,4 +91,4 @@ neu(T, "anwenden", "anwenden", Z(
     "Eine Rechenmaschine soll (2⁴ · 2⁵)² : 2¹⁰ berechnen, ohne die Potenzen einzeln auszurechnen. Welches Ergebnis ist richtig?",
     256, "(2 ** 4 * 2 ** 5) ** 2 // 2 ** 10", "2 ** ((4 + 5) * 2 - 10)", "Fasse zuerst die Klammer zusammen. Dann nimm die Potenz von der Potenz und teile am Ende.",
     "Klammer: 2⁴ · 2⁵ = 2⁹. Potenz von einer Potenz: (2⁹)² = 2¹⁸. Teilen: 2¹⁸ : 2¹⁰ = 2⁸ = 256.",
-    [(0.5, None, "das Quadrat vergessen: 2⁹ : 2¹⁰ ergibt einen Bruch", "2 ** (9 - 10)"), B("2 ** 28", "beim Teilen die Hochzahlen addiert statt subtrahiert"), (2048, None, "bei der Potenz von einer Potenz die Hochzahlen addiert statt malgenommen", "2 ** 11")]), g="verknuepfen", regel=R)
+    [(0.5, None, "das Quadrat vergessen: 2⁹ : 2¹⁰ ergibt einen Bruch", "2 ** (9 - 10)"), B("2 ** 28", "beim Teilen die Hochzahlen addiert statt subtrahiert"), (2048, None, "bei (2⁹)² die Hochzahlen addiert (2¹¹) und das Teilen durch 2¹⁰ vergessen", "2 ** 11")]), g="verknuepfen", regel=R)

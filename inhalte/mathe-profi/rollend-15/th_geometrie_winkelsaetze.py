@@ -39,7 +39,7 @@ neu(T, "parallel_pruefen", "umkehren", Z(
     "Die Geraden g und h werden von einer Geraden q geschnitten. Ein Paar Wechselwinkel misst (5x − 20)° und (3x + 14)°. Für welchen Wert von x sind g und h parallel?",
     17, "34 // 2", next(x for x in range(1, 100) if 5 * x - 20 == 3 * x + 14), "Parallel heißt: Die Wechselwinkel sind gleich groß. Stelle eine Gleichung auf und löse sie.",
     "Parallele Geraden haben gleich große Wechselwinkel: 5x − 20 = 3x + 14. Es folgt 2x = 34 und x = 17. Probe: Beide Winkel messen 65°.",
-    [B("34", "bei 2x = 34 nicht durch 2 geteilt"), B("20 / 2", "die Zahlen 14 und 20 falsch zusammengefasst und halbiert"), B("(180 + 20 - 14) / 8", "die Winkel zu 180° ergänzt, als wären es Nebenwinkel")], einheit=None), g="pruefung", regel=R)
+    [B("34", "bei 2x = 34 nicht durch 2 geteilt"), B("20 / 2", "nur die 20 halbiert, ohne die Gleichung zu lösen"), B("(180 + 20 - 14) / 8", "die Winkel zu 180° ergänzt, als wären es Nebenwinkel")], einheit=None), g="pruefung", regel=R)
 # ───────── innenwinkelsumme ─────────
 neu(T, "innenwinkelsumme", "anwenden", Z(
     "Drei Wanderwege bilden ein Dreieck. Die Winkel verhalten sich wie 5 : 6 : 7. Wie groß ist der größte Winkel in Grad?",
@@ -95,7 +95,7 @@ neu(T, "figuren", "anwenden", Z(
     "Ein Segel hat die Form eines Vierecks ABCD mit α = 80°, β = 95° und γ = 70°. Die Seite [AD] wird über D hinaus verlängert. Wie groß ist der Winkel, den die Verlängerung mit [DC] einschließt?",
     65, "180 - (360 - 80 - 95 - 70)", "80 + 95 + 70 - 180", "Berechne zuerst δ im Viereck. Die Verlängerung bildet mit [DA] einen gestreckten Winkel.",
     "Die Winkelsumme im Viereck ist 360°. δ = 360° − 80° − 95° − 70° = 115°. Die Verlängerung von [AD] und die Seite [DA] liegen auf einer Geraden, der gesuchte Winkel ist der Nebenwinkel von δ: 180° − 115° = 65°.",
-    [B("360 - 80 - 95 - 70", "den Innenwinkel δ statt seines Nebenwinkels angegeben"), B("180 - 80 - 95 - 70", "im Viereck mit der Winkelsumme 180° gerechnet"), B("360 - 115", "von 360° statt von 180° abgezogen")], einheit="°"), g="mehrschritt", regel=R)
+    [B("360 - 80 - 95 - 70", "den Innenwinkel δ statt seines Nebenwinkels angegeben"), B("180 - 80", "den Nebenwinkel von α statt von δ genommen"), B("360 - 115", "von 360° statt von 180° abgezogen")], einheit="°"), g="mehrschritt", regel=R)
 neu(T, "figuren", "anwenden", Z(
     "In einem Trapez ABCD mit AB ∥ CD gilt α = 70° und β = 80°. Wie groß ist die Summe der beiden Winkel γ und δ?",
     210, "(180 - 80) + (180 - 70)", "360 - 70 - 80", "Winkel an den beiden Schenkeln zwischen den Parallelen ergeben jeweils 180°.",

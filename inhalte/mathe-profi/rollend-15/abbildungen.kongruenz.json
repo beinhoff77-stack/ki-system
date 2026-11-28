@@ -399,14 +399,14 @@
     },
     {
      "luecke": 2,
-     "antwort": 4,
+     "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur die Achsen durch gegenüberliegende Ecken gezählt"
     },
     {
      "luecke": 3,
-     "antwort": 48,
+     "antwort": 72,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die beiden Achsenzahlen malgenommen statt addiert"
@@ -420,24 +420,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein regelmäßiges Sechseck hat ① Symmetrieachsen. Ein regelmäßiges Achteck hat ② Symmetrieachsen. Beide Figuren zusammen haben ③ Symmetrieachsen.",
+     "text": "Ein regelmäßiges Sechseck hat ① Symmetrieachsen. Ein regelmäßiges Zwölfeck hat ② Symmetrieachsen. Beide Figuren zusammen haben ③ Symmetrieachsen.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       6,
-      8,
-      14
+      12,
+      18
      ]
     },
     "c": [
      "6",
-     "8",
-     "(6) + (8)"
+     "12",
+     "(6) + (12)"
     ],
     "h": "Bei einem regelmäßigen Vieleck mit n Ecken gibt es eine Achse durch jede Ecke und die gegenüberliegende Seite oder Ecke. Wie viele Achsen sind das?",
-    "w": "Ein regelmäßiges n-Eck hat n Symmetrieachsen. Sechseck: 6, Achteck: 8, zusammen 6 + 8 = 14."
+    "w": "Ein regelmäßiges n-Eck hat n Symmetrieachsen. Sechseck: 6, Zwölfeck: 12, zusammen 6 + 12 = 18."
    }
   },
   {
@@ -674,7 +674,7 @@
      "antwort": 303,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Winkel an einer Gerade ergänzt statt γ angegeben"
+     "beschreibung": "vom Vollwinkel 360° statt von 180° gerechnet"
     }
    ],
    "aufgabe": {

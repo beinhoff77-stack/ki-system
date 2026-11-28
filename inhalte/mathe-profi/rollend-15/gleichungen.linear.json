@@ -517,7 +517,7 @@
      "antwort": 26,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "beide Seiten in einer Rechnung vermischt"
+     "beschreibung": "die x-Glieder beider Seiten zu 2x zusammengefasst und dann 2 · 11 − 9 + 13 gerechnet"
     }
    ],
    "aufgabe": {
@@ -611,7 +611,7 @@
      "antwort": "unendlich viele Lösungen",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die beiden Seiten stimmen erst nach dem Zusammenfassen, und zwar gerade nicht überein"
+     "beschreibung": "nach dem Zusammenfassen stehen links 10 und rechts 13, das ist nie gleich"
     }
    ],
    "aufgabe": {
@@ -770,7 +770,7 @@
      "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Vorsprung mit Alex' Tempo berechnet"
+     "beschreibung": "Kims Fahrzeit statt Alex' Fahrzeit angegeben"
     }
    ],
    "aufgabe": {

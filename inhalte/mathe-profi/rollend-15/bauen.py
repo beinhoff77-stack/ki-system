@@ -355,6 +355,8 @@ for a in A:
             w, fbk, beschr, rech = t
             assert w != q["o"]["wert"] and w not in werte, (kenn, w)
             werte.add(w)
+            tol_ = q["o"].get("toleranz")        # Bewertung der App ist inklusiv (<=): kein Fehlbild darf innerhalb Soll ± Toleranz liegen
+            assert tol_ is None or abs(F(str(w)) - F(str(q["o"]["wert"]))) > F(str(tol_)), (kenn, w, "Fehlbild liegt innerhalb von Soll ± Toleranz")
             if fb_pruefen(kenn, "Zahl", w, rech):
                 n_fb_rechnung += 1
             else:
@@ -362,6 +364,7 @@ for a in A:
             fb_eintrag({}, w, fbk, beschr)
     elif q["y"] == "luecken":
         assert not KOMMA_LUECKE.search(text + " " + q["f"]["schablone"]), (kenn, "Lücke hinter dem Komma")
+        assert not re.search(r"[①②③④⑤] (?:und|oder|,) [①②③④⑤]", text.replace("zwischen ① und ②", "")), (kenn, "zwei Lücken in beliebiger Reihenfolge füllbar (Rollen benennen)")
         assert not KOMMA_NEBEN.search(text + " " + q["f"]["schablone"]), (kenn, "Komma direkt neben einer Lücke")
         vorlagen = [str(c) for c in q["c"]]
         soll, c_fertig = [], []

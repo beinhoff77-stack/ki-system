@@ -60,7 +60,7 @@ neu(T, "probe", "anwenden", Z(
     "Kim behauptet, die Lösung von 4x − 9 = 2x + 13 ist x = 11. Setzt man 11 ein, so haben beide Seiten denselben Wert. Wie groß ist er?",
     35, "4 * 11 - 9", "2 * 11 + 13", "Setze 11 für x ein: links und rechts. Beide Seiten müssen denselben Wert ergeben.",
     "Links: 4 · 11 − 9 = 44 − 9 = 35. Rechts: 2 · 11 + 13 = 22 + 13 = 35. Beide Seiten sind 35, die Probe stimmt.",
-    [B("4 * 11 + 9", "die 9 addiert statt subtrahiert"), B("2 * 11", "die Zahl 13 vergessen"), B("(4 - 2) * 11 - 9 + 13", "beide Seiten in einer Rechnung vermischt")]), g="pruefung", regel=WG)
+    [B("4 * 11 + 9", "die 9 addiert statt subtrahiert"), B("2 * 11", "die Zahl 13 vergessen"), B("(4 - 2) * 11 - 9 + 13", "die x-Glieder beider Seiten zu 2x zusammengefasst und dann 2 · 11 − 9 + 13 gerechnet")]), g="pruefung", regel=WG)
 neu(T, "probe", "verfahren_waehlen", W(
     "Welche dieser Zahlen ist Lösung der Gleichung 6x − 17 = 2x + 15? Prüfe durch Einsetzen.",
     "x = 8", [("x = 4", "links 7, rechts 23: die beiden Seiten sind verschieden"), ("x = 12", "links 55, rechts 39: die beiden Seiten sind verschieden")],
@@ -70,7 +70,7 @@ neu(T, "probe", "verfahren_waehlen", W(
 # ───────── sonderfaelle ─────────
 neu(T, "sonderfaelle", "verfahren_waehlen", W(
     "Wie viele Lösungen hat die Gleichung 5(x + 2) − 3x = 2x + 13?",
-    "keine Lösung", [("genau eine Lösung", "x steht auf beiden Seiten gleich oft, trotzdem bleibt nicht x = Zahl übrig"), ("unendlich viele Lösungen", "die beiden Seiten stimmen erst nach dem Zusammenfassen, und zwar gerade nicht überein")],
+    "keine Lösung", [("genau eine Lösung", "x steht auf beiden Seiten gleich oft, trotzdem bleibt nicht x = Zahl übrig"), ("unendlich viele Lösungen", "nach dem Zusammenfassen stehen links 10 und rechts 13, das ist nie gleich")],
     "Fasse beide Seiten zusammen. Was bleibt nach dem Subtrahieren von 2x übrig?",
     "5(x + 2) − 3x = 5x + 10 − 3x = 2x + 10. Die Gleichung heißt 2x + 10 = 2x + 13. Subtrahiere 2x: 10 = 13. Das ist falsch, egal welche Zahl x ist: keine Lösung.",
     lambda: loes("5*(x+2)-3*x=2*x+13") == "keine"), g="mehrschritt", regel=WG)
@@ -92,7 +92,7 @@ neu(T, "sach", "anwenden", Z(
     "Kim startet in Passau mit dem Rad und fährt mit 18 km/h donauabwärts. Alex startet 2 Stunden später am selben Ort mit 27 km/h. Wie viele Stunden nach Alex' Start hat Alex Kim eingeholt?",
     4, "18 * 2 / (27 - 18)", 4, "Beide haben bis zum Treffpunkt dieselbe Strecke zurückgelegt. Wie lange ist Kim unterwegs, wenn Alex x Stunden fährt?",
     "Alex fährt x Stunden, Kim x + 2 Stunden. Gleiche Strecke: 27x = 18(x + 2). Ausmultiplizieren: 27x = 18x + 36. Subtrahiere 18x: 9x = 36. Also x = 4 Stunden.",
-    [B("18 * 2 / 18", "nur durch Kims Tempo geteilt"), B("18 * 2 / (27 + 18)", "die beiden Geschwindigkeiten addiert"), B("27 * 2 / (27 - 18)", "den Vorsprung mit Alex' Tempo berechnet")], einheit="h"), g="einkleidung", regel=WG)
+    [B("18 * 2 / 18", "nur durch Kims Tempo geteilt"), B("18 * 2 / (27 + 18)", "die beiden Geschwindigkeiten addiert"), B("27 * 2 / (27 - 18)", "Kims Fahrzeit statt Alex' Fahrzeit angegeben")], einheit="h"), g="einkleidung", regel=WG)
 neu(T, "sach", "anwenden", Z(
     "In Oslo tauscht Kim Euro in Kronen. Die Wechselstube behält zuerst 3 € Gebühr ein und tauscht den Rest zum Kurs 1 € = 11,2 Kronen. Kim erhält 616 Kronen. Wie viele Euro hat Kim insgesamt abgegeben?",
     58, "616 / 11.2 + 3", "(616 + 3 * 11.2) / 11.2", "Wie viele Euro wurden getauscht? Dazu kommt noch etwas.",

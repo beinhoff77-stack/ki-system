@@ -10,7 +10,7 @@ neu(T, "elemente", "anwenden", Z(
     "Wie viele zweistellige Zahlen haben die Ziffernsumme 9?",
     9, "9", sum(1 for n in range(10, 100) if n // 10 + n % 10 == 9), "Schreibe die Zahlen geordnet auf: Die Zehnerziffer läuft von 1 bis 9, die Einerziffer ergänzt zur Ziffernsumme.",
     "Es sind 18, 27, 36, 45, 54, 63, 72, 81 und 90. Das sind 9 Zahlen. 09 zählt nicht, weil es keine zweistellige Zahl ist.",
-    [B("8", "die 90 vergessen"), B("10", "die 09 mitgezählt"), B("11", "die Zahlen 9 und 99 mitgezählt, obwohl ihre Ziffernsumme 9 und 18 ist")]), g="mehrschritt", ohne=OHNE_M)
+    [B("8", "die 90 vergessen"), B("10", "die 09 mitgezählt"), B("11", "die einstellige 9 und die 99 (Ziffernsumme 18) mitgezählt")]), g="mehrschritt", ohne=OHNE_M)
 # ───────── schnitt ─────────
 neu(T, "schnitt", "anwenden", Z(
     "A ist die Menge aller Teiler von 36, B die Menge aller Teiler von 48. Wie viele Elemente hat der Schnitt A ∩ B?",
@@ -19,7 +19,7 @@ neu(T, "schnitt", "anwenden", Z(
     [B("3", "nur die Zahlen 1, 2 und 3 gefunden"), B("12", "den größten gemeinsamen Teiler als Anzahl genommen"), B("9", "die Anzahl der Teiler von 36 genommen")]), g="verknuepfen", ohne=OHNE_M)
 # ───────── verknuepfen ─────────
 neu(T, "verknuepfen", "anwenden", Z(
-    "A ist die Menge der Vielfachen von 6 bis 60, B die Menge der Vielfachen von 4 bis 60. Wie viele Elemente hat die Vereinigung A ∪ B?",
+    "A ist die Menge der Vielfachen von 6 zwischen 1 und 60 (60 eingeschlossen), B die Menge der Vielfachen von 4 zwischen 1 und 60 (60 eingeschlossen). Wie viele Elemente hat die Vereinigung A ∪ B?",
     20, "10 + 15 - 5", sum(1 for n in range(1, 61) if n % 6 == 0 or n % 4 == 0), "Zähle erst A und B, dann die Zahlen, die in beiden stehen. Welche Zahlen sind das?",
     "A hat 10 Elemente (6, 12, …, 60), B hat 15 Elemente (4, 8, …, 60). In beiden stehen die Vielfachen von 12: 12, 24, 36, 48, 60, das sind 5. Vereinigung: 10 + 15 − 5 = 20.",
     [B("10 + 15", "die Elemente beider Mengen addiert, die gemeinsamen doppelt gezählt"), B("5", "nur den Schnitt genommen"), B("15", "nur die größere Menge genommen")]), g="mehrschritt", ohne=OHNE_M)
@@ -69,10 +69,10 @@ neu(T, "tafel_wkeit", "anwenden", Z(
     zweifel="Vierfeldertafel mit Wahrscheinlichkeiten: id.daten.anteil trägt die Deutung als Anteil, das Ausfüllen der Tafel hat keine eigene Regel")
 # ───────── bedingt ─────────
 neu(T, "bedingt", "anwenden", Z(
-    "Mit Wahrscheinlichkeit 0,6 ist ein Gast eine Frau, mit 0,45 fährt er Ski, und mit 0,24 ist er eine Frau, die Ski fährt. Ein Gast ist eine Frau. Wie groß ist die Wahrscheinlichkeit, dass sie Ski fährt?",
-    0.4, "0.24 / 0.6", 0.4, "Es geht nur um die Frauen. Welcher Anteil der Frauen fährt Ski?",
-    "P(Ski | Frau) = P(Frau ∩ Ski) : P(Frau) = 0,24 : 0,6 = 0,4.",
-    [BR("0.24 / 0.45", "durch die Wahrscheinlichkeit für Ski geteilt, also die umgekehrte bedingte Wahrscheinlichkeit", None, 2), B("0.24 * 0.6", "die Wahrscheinlichkeiten malgenommen"), B("0.6 - 0.24", "den Wert für Frauen ohne Ski berechnet")]), g="mehrschritt", regel=AN,
+    "Von den Besuchern einer Therme sind 55 % Frauen, 44 % nutzen die Sauna, und 33 % sind Frauen, die die Sauna nutzen. Ein Besucher wird zufällig angesprochen und ist eine Frau. Wie groß ist die Wahrscheinlichkeit, dass sie die Sauna nutzt?",
+    0.6, "0.33 / 0.55", 0.6, "Es geht nur um die Frauen. Welcher Anteil der Frauen nutzt die Sauna?",
+    "P(Sauna | Frau) = P(Frau ∩ Sauna) : P(Frau) = 0,33 : 0,55 = 0,6.",
+    [B("0.33 / 0.44", "durch die Wahrscheinlichkeit für Sauna geteilt, also die umgekehrte bedingte Wahrscheinlichkeit"), B("0.33 * 0.55", "die Wahrscheinlichkeiten malgenommen"), B("0.55 - 0.33", "den Anteil der Frauen ohne Sauna berechnet")]), g="mehrschritt", regel=AN,
     zweifel="Bedingte Wahrscheinlichkeit als Anteil: id.daten.anteil trägt Günstige durch Mögliche")
 w_g, c_g = rd("6 / 10 * 5 / 9", 3)
 neu(T, "bedingt", "anwenden", Z(
@@ -95,9 +95,10 @@ neu(T, "verstehen", "verfahren_waehlen", W(
     "P(Regen | Wolken) betrachtet nur die Tage mit Wolken am Morgen. Von diesen regnet es an 80 %. Das ist etwas anderes als der Anteil der Wolkentage unter den Regentagen.",
     lambda: True), g="begruenden", regel=AN, zweifel="Deutung der bedingten Wahrscheinlichkeit: id.daten.anteil (Anteil von was?)")
 neu(T, "verstehen", "fehler_detektiv", FD(
-    "Alex untersucht Reisende: 30 % fliegen (F), 40 % buchen ein Hotel (H), 12 % tun beides. Er schreibt:",
-    [("Es gilt P(F ∩ H) = 0,12.", True, True),
-     ("Außerdem ist P(F) · P(H) = 0,3 · 0,4 = 0,12, also sind F und H unabhängig.", True, True),
-     ("Unabhängige Ereignisse schließen sich aus, also ist F ∩ H leer.", False, True)],
-    "Wenn F ∩ H leer wäre, was wäre P(F ∩ H)? Passt das zu Zeile 1?",
-    "Unabhängig und unvereinbar sind verschiedene Begriffe. Unabhängig heißt P(F ∩ H) = P(F) · P(H). Unvereinbar heißt, dass F ∩ H leer ist, also P(F ∩ H) = 0. Hier ist P(F ∩ H) = 0,12, also nicht leer. Der Fehler steckt in Zeile 3."), g="fehler", ohne="Unabhängigkeit und Unvereinbarkeit unterscheiden: keine Regel des Katalogs trägt den Lösungsweg")
+    "Alex untersucht Kinder in einem Urlaubsclub: 25 % der Gäste sind Kinder (K), 40 % nutzen den Pool (P), und 15 % sind Kinder, die den Pool nutzen. Er schreibt:",
+    [("Es gilt P(K ∩ P) = 0,15.", True, True),
+     ("Unter den Kindern nutzen 0,15 : 0,25 = 0,6 den Pool, das ist die bedingte Wahrscheinlichkeit P(P | K).", True, True),
+     ("Dieselbe Zahl 0,6 gibt auch an, wie wahrscheinlich ein Poolnutzer ein Kind ist: P(K | P) = 0,6.", False, True)],
+    "Bei P(K | P) sind die Poolnutzer die Grundmenge. Durch welche Wahrscheinlichkeit musst du dann teilen?",
+    "Bei P(K | P) betrachtet man nur die Poolnutzer: P(K | P) = P(K ∩ P) : P(P) = 0,15 : 0,4 = 0,375. Die beiden bedingten Wahrscheinlichkeiten sind verschieden, weil ihre Grundmengen verschieden sind. Der Fehler steckt in Zeile 3."), g="fehler", regel=AN,
+    zweifel="Bedingte Wahrscheinlichkeit richtig herum lesen: id.daten.anteil (Anteil von was?)")

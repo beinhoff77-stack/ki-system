@@ -235,9 +235,6 @@ Aufgaben, bei denen die Wahl der Regel nicht eindeutig ist (Kennung, gewählte R
 | R15-V127 | zahlen.reell.zahlarten | `id.zahlen.hoch_zurueck` | Zahlen sortieren: hoch_zurueck trägt das Prüfen der Wurzeln |
 | R15-V128 | zahlen.reell.eingrenzen | `id.zahlen.hoch_zurueck` | Eingrenzen durch Quadrieren: hoch_zurueck trägt das Rückrechnen |
 | R15-V129 | zahlen.reell.eingrenzen | `id.zahlen.hoch_zurueck` | Eingrenzen durch Quadrieren: hoch_zurueck trägt das Rückrechnen |
-| R15-V130 | zahlen.reell.heron | `id.zahlen.hoch_zurueck` | Heron-Verfahren (Mittelwert aus Näherung und Quotient): hoch_zurueck trägt nur die Probe |
-| R15-V131 | zahlen.reell.heron | `id.zahlen.hoch_zurueck` | Heron-Verfahren als Rechteck: Flächenerhaltung, hoch_zurueck nur als Zielgröße |
-| R15-V133 | zahlen.reell.wurzel_mal | `id.zahlen.hoch_zurueck` | Rechengesetze für Wurzeln: hoch_zurueck, aber kein eigener Eintrag für das Zusammenfassen unter einer Wurzel |
 | R15-V145 | gleichungen.quadratisch.faktorisieren | `rr.nullprodukt` | Zurück von den Lösungen zur Gleichung: Nullprodukt trägt den Weg rückwärts |
 | R15-V148 | gleichungen.quadratisch.loesungsformel | `rr.reihenfolge` | Lösungsformel: tragender Schritt ist die Diskriminante (Klammer, Hoch, Punkt vor Strich); es gibt keine eigene Formelregel im Katalog |
 | R15-V149 | gleichungen.quadratisch.bruchgleichung | `rr.waage` | Bruchgleichung: Waage (mit x malnehmen), danach Nullprodukt |
@@ -257,6 +254,7 @@ Aufgaben, bei denen die Wahl der Regel nicht eindeutig ist (Kennung, gewählte R
 | R15-V202 | stochastik.verknuepft.tafel_wkeit | `id.daten.anteil` | Vierfeldertafel mit Wahrscheinlichkeiten: id.daten.anteil trägt die Deutung als Anteil, das Ausfüllen der Tafel hat keine eigene Regel |
 | R15-V203 | stochastik.verknuepft.bedingt | `id.daten.anteil` | Bedingte Wahrscheinlichkeit als Anteil: id.daten.anteil trägt Günstige durch Mögliche |
 | R15-V206 | stochastik.verknuepft.verstehen | `id.daten.anteil` | Deutung der bedingten Wahrscheinlichkeit: id.daten.anteil (Anteil von was?) |
+| R15-V207 | stochastik.verknuepft.verstehen | `id.daten.anteil` | Bedingte Wahrscheinlichkeit richtig herum lesen: id.daten.anteil (Anteil von was?) |
 
 ## Aufgaben bewusst ohne Regel
 
@@ -271,6 +269,9 @@ Keine Regel des Katalogs trägt den Lösungsweg; die Begründung steht je Aufgab
 | R15-V092 | geometrie.konstruktion.satz_kehrsatz | Satz und Kehrsatz (Logik, Gegenbeispiel): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V093 | geometrie.konstruktion.satz_kehrsatz | Satz und Kehrsatz (Logik, Gegenbeispiel): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V123 | zahlen.wurzeln_basis.wurzel_deuten | Wurzel und Summe (Wurzel verteilt sich nicht auf Summanden): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V130 | zahlen.reell.heron | Heron-Verfahren (Mittelwert aus Näherung und Quotient): keine Regel des Katalogs trägt den Rechenschritt |
+| R15-V131 | zahlen.reell.heron | Flächenerhaltung beim Rechteck (Länge mal Breite bleibt gleich): keine Regel des Katalogs trägt den Rechenschritt |
+| R15-V133 | zahlen.reell.wurzel_mal | Rechengesetze für Wurzeln (Malnehmen und Teilen unter einer Wurzel zusammenfassen): keine Regel des Katalogs trägt genau diesen Schritt |
 | R15-V136 | zahlen.reell.zusammenfassen | Wurzeln zusammenfassen und umschreiben (a√b): keine Regel des Katalogs trägt genau diesen Schritt |
 | R15-V137 | zahlen.reell.nenner_rational | Nenner rational machen (Erweitern mit der Wurzel): keine Regel des Katalogs trägt genau diesen Schritt |
 | R15-V138 | zahlen.reell.irrational_beweis | Beweis durch Widerspruch (gerade/ungerade, gekürzter Bruch): keine Regel des Katalogs trägt den Lösungsweg |
@@ -292,7 +293,6 @@ Keine Regel des Katalogs trägt den Lösungsweg; die Begründung steht je Aufgab
 | R15-V199 | stochastik.verknuepft.mengen_verstehen | Mengen und Mengenoperationen zählen (Elemente, Schnitt, Vereinigung): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V200 | stochastik.verknuepft.vierfeld | Vierfeldertafel ausfüllen (Zeilen- und Spaltensummen): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V201 | stochastik.verknuepft.vierfeld | Vierfeldertafel ausfüllen (Zeilen- und Spaltensummen): keine Regel des Katalogs trägt den Lösungsweg |
-| R15-V207 | stochastik.verknuepft.verstehen | Unabhängigkeit und Unvereinbarkeit unterscheiden: keine Regel des Katalogs trägt den Lösungsweg |
 
 ## Ausnahmen von der Themenliste des Katalogs
 
@@ -305,14 +305,15 @@ Keine Regel des Katalogs trägt den Lösungsweg; die Begründung steht je Aufgab
 - Jedes Fehlbild ist eine nachgerechnete, typische Fehlrechnung (Rechnung steht im Quelltext) und nie gleich der richtigen Antwort; Fehlbild-Kennungen aus dem Katalog nur, wo der Katalogtext genau passt (47 Fehlbilder mit Kennung).
 - Doppelungsprüfung gegen den gesamten Bestand und alle früheren Runden einschließlich R14; Negativproben der Selbstprüfung schlagen an. Viele Entwürfe mussten dafür geändert werden (andere Zahlen, andere Einkleidung).
 - `tools/vorrat_pruefen.py` über `rollend-15`: 207 Aufgaben, 0 Meldungen in allen vier Gruppen. `tools/rollend_sql.py --runden 15` (nur Übersicht) liest die Runde ohne Eintrag in eine Rundenliste: 207 Aufgaben, 14 Einheiten.
+- Seit der Vorprüfung zusätzlich in `bauen.py`: Bei jeder Zahlaufgabe mit `toleranz` liegt kein Fehlbild innerhalb Soll ± Toleranz (die App wertet inklusiv); Lückenwege dürfen keine zwei Lücken in beliebiger Reihenfolge füllbar lassen. Korrekturen: `korrektur-nach-vorpruefung.md`, Befunde: `vorpruefung.md`.
 - Fehler-Detektiv: Fehlerzeile je Zeile {1: 5, 2: 7, 3: 8, 4: 4} bei 24 Aufgaben (Grenze n/3 + 1 je Zeile eingehalten).
-- Regel-Kennung: 178 Aufgaben mit, 29 ohne Regel.
+- Regel-Kennung: 176 Aufgaben mit, 31 ohne Regel.
 
 ## Worauf ein Vorprüfer achten sollte
 
 1. **Regel-Zuordnung bei Sinus/Kosinus/Tangens** (`trigo.rechtwinklig`, 7 Aufgaben mit Zweifel): Die Lernkarten-Vorgabe nennt `id.geometrie.rechtwinklig`, die Regel trägt aber nur die Lage der Seiten. Das Rechnen mit dem Verhältnis hat keine Regel im Katalog. Wer das streng liest, nimmt die Kennung dort heraus.
-2. **Zweifelsfälle** (Liste oben): besonders `rr.gegenrechnung` statt `id.verhaeltnisse.prozent` bei Rückwärtsrechnen von Prozent (R15-V007, V008), Nullstellen und Bruchgleichung (`id.funktionen.zuordnung`, `rr.waage`), Wurzeln (`id.zahlen.hoch_zurueck` bei Zahlarten, Eingrenzen, Heron).
-3. **Aufgaben ohne Regel** (29): Begründung je Aufgabe oben. Prüfen, ob der Katalog nicht doch eine Regel für Satz/Kehrsatz, Dreiecksungleichung, Mengenaufgaben, Vierfeldertafel, Additionssatz, Wurzelvereinfachen und Diskriminante hat.
+2. **Zweifelsfälle** (Liste oben): besonders `rr.gegenrechnung` statt `id.verhaeltnisse.prozent` bei Rückwärtsrechnen von Prozent (R15-V007, V008), Nullstellen und Bruchgleichung (`id.funktionen.zuordnung`, `rr.waage`), Wurzeln (`id.zahlen.hoch_zurueck` bei Zahlarten und Eingrenzen; Heron, Flächenerhaltung und Wurzelgesetze stehen nach der Vorprüfung ohne Regel).
+3. **Aufgaben ohne Regel** (31): Begründung je Aufgabe oben. Prüfen, ob der Katalog nicht doch eine Regel für Satz/Kehrsatz, Dreiecksungleichung, Mengenaufgaben, Vierfeldertafel, Additionssatz, Wurzelvereinfachen und Diskriminante hat.
 4. **Auswahl** (`auswahl.md`): Die Datei wurde nach dem Schreiben angelegt, nicht davor. Die Klasse-7-Wahl folgt dem Kriterium „in R8/9/10/14 nicht bedient“; reiner Anteil würde `daten.boxplot` und `geometrie.kreis` vor `bruch.prozent_grundwert`, `geometrie.winkelsaetze` und `gleichungen.linear` setzen.
 5. **Lückenwege:** `bruch.prozent_grundwert` hat keinen Lückenweg (alle 16 zählen), `trigo.rechtwinklig` nur einen; sonst zwei bis drei je Einheit (26 insgesamt, 13 %).
 6. **Eindeutigkeit und Zählaufgaben:** Aufgaben mit Zählen (die 48 Kennungen, die `bauen.py` als „mit unabhängiger Zählung bestätigt“ ausgibt, darunter die Mengenaufgaben in `stochastik.verknuepft`) von Hand gegenlesen; die Zahl ist im Programm bestätigt, die Formulierung (zum Beispiel „beide Grenzen eingeschlossen“) sollte ein Mensch lesen.

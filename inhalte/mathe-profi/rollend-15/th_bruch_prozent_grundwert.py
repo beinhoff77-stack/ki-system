@@ -67,10 +67,10 @@ neu(T, "prozentsatz", "bruecke", W(
     grafik=TAB(["Angebot", "alter Preis", "neuer Preis"], ["Bus", "2,40 €", "3,00 €"], ["Museum", "15 €", "18 €"], ["Hotel", "90 €", "99 €"])), g="verknuepfen", regel=P)
 # ───────── mehrfach ─────────
 neu(T, "mehrfach", "anwenden", Z(
-    "Der Grundpreis für einen Mietwagen auf Sizilien beträgt 320 €. Zuerst wird der Preis wegen der Hochsaison um 15 % erhöht. Auf diesen neuen Preis kommen für die Vollkasko-Versicherung noch einmal 8 %. Wie viel Euro kostet der Wagen insgesamt?",
-    397.44, "320 * 1.15 * 1.08", "320 * 1.15 + 320 * 1.15 * 0.08", "Die zweite Erhöhung bezieht sich auf den schon erhöhten Preis. Nimm beide Faktoren mal.",
-    "Nach der ersten Erhöhung: 320 · 1,15 = 368 €. Darauf 8 %: 368 · 1,08 = 397,44 €. Man darf die Prozente nicht addieren (23 % wären nur 393,60 €).",
-    [B("320 * 1.23", "die Prozentsätze 15 und 8 addiert, obwohl die zweite Erhöhung vom neuen Preis gilt", "fb.prozent.prozente_addiert"), B("320 * 1.15", "nur die erste Erhöhung gerechnet"), B("368 + 8", "8 € statt 8 % aufgeschlagen")], einheit="€"), g="mehrschritt", regel=P)
+    "Die Fähre nach Sardinien kostet für das Auto 480 €. Wegen der Hochsaison steigt der Preis zuerst um 12 %. Auf diesen neuen Preis kommen für die Stornoversicherung noch einmal 5 %. Wie viel Euro kostet die Überfahrt insgesamt?",
+    564.48, "480 * 1.12 * 1.05", "480 * 1.12 + 480 * 1.12 * 0.05", "Die zweite Erhöhung bezieht sich auf den schon erhöhten Preis. Nimm beide Faktoren mal.",
+    "Nach der ersten Erhöhung: 480 · 1,12 = 537,60 €. Darauf 5 %: 537,60 · 1,05 = 564,48 €. Man darf die Prozente nicht addieren (17 % wären nur 561,60 €).",
+    [B("480 * 1.17", "die Prozentsätze 12 und 5 addiert, obwohl die zweite Erhöhung vom neuen Preis gilt", "fb.prozent.prozente_addiert"), B("480 * 1.12", "nur die erste Erhöhung gerechnet"), B("537.6 + 5", "5 € statt 5 % aufgeschlagen")], einheit="€"), g="mehrschritt", regel=P)
 wert_mf, c_mf = rd("(1 - 1 / 1.2) * 100", 1)
 neu(T, "mehrfach", "umkehren", Z(
     "Ein Preis steigt zuerst um 20 %. Danach soll er um einen Prozentsatz sinken, sodass er wieder genau so hoch ist wie am Anfang. Um wie viel Prozent muss er sinken? Runde auf eine Dezimalstelle.",

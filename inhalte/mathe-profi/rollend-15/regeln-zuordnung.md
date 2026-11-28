@@ -2,22 +2,22 @@
 
 Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt), nicht das Thema. Jede Kennung wurde gegen `inhalte/mathe-profi/regeln-uebersicht/kennungen.json` gelesen; `bauen.py` prüft, dass sie im Katalog steht und das Thema in der Themenliste der Regel steht (Ausnahmen unten). Quelle der Daten: die Angaben `regel` / `ohne` / `zweifel` in `th_*.py`; `regeln.py` und diese Tabelle werden von `bauen.py` erzeugt.
 
-**178 Aufgaben mit Regel, 29 ohne.**
+**176 Aufgaben mit Regel, 31 ohne.**
 
 ## Verteilung
 
 | Regel | Name | Aufgaben |
 |---|---|---|
 | `id.geometrie.winkel` | Winkel an Geraden | 24 |
-| `id.zahlen.hoch_zurueck` | Hoch und zurück | 24 |
 | `id.geometrie.rechtwinklig` | Rechtwinkliges Dreieck | 21 |
+| `id.zahlen.hoch_zurueck` | Hoch und zurück | 21 |
 | `rr.waage` | Gleichung als Waage | 18 |
 | `rr.potenz` | Potenzen | 15 |
 | `id.geometrie.deckungsgleich` | Deckungsgleich | 14 |
 | `id.verhaeltnisse.prozent` | Prozent als Faktor | 14 |
 | `id.funktionen.gleichung_form` | Gleichung und Form | 9 |
+| `id.daten.anteil` | Anteil | 5 |
 | `rr.tauschen` | Tauschen, Klammern, Zusammenfassen | 5 |
-| `id.daten.anteil` | Anteil | 4 |
 | `rr.ausmultiplizieren` | Ausmultiplizieren und Ausklammern | 4 |
 | `rr.gegenrechnung` | Gegenrechnung | 4 |
 | `rr.reihenfolge` | Reihenfolge beim Rechnen | 4 |
@@ -29,7 +29,7 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | `id.algebra.term` | Term | 2 |
 | `id.daten.stufen` | Stufen | 1 |
 | `rr.vorzeichen` | Vorzeichen bei Mal und Geteilt | 1 |
-| – (ohne Regel) |  | 29 |
+| – (ohne Regel) |  | 31 |
 
 ## Ausnahmen von der Themenliste des Katalogs (von Hand gelesen)
 
@@ -47,6 +47,9 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V092 | geometrie.konstruktion.satz_kehrsatz | Satz und Kehrsatz (Logik, Gegenbeispiel): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V093 | geometrie.konstruktion.satz_kehrsatz | Satz und Kehrsatz (Logik, Gegenbeispiel): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V123 | zahlen.wurzeln_basis.wurzel_deuten | Wurzel und Summe (Wurzel verteilt sich nicht auf Summanden): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V130 | zahlen.reell.heron | Heron-Verfahren (Mittelwert aus Näherung und Quotient): keine Regel des Katalogs trägt den Rechenschritt |
+| R15-V131 | zahlen.reell.heron | Flächenerhaltung beim Rechteck (Länge mal Breite bleibt gleich): keine Regel des Katalogs trägt den Rechenschritt |
+| R15-V133 | zahlen.reell.wurzel_mal | Rechengesetze für Wurzeln (Malnehmen und Teilen unter einer Wurzel zusammenfassen): keine Regel des Katalogs trägt genau diesen Schritt |
 | R15-V136 | zahlen.reell.zusammenfassen | Wurzeln zusammenfassen und umschreiben (a√b): keine Regel des Katalogs trägt genau diesen Schritt |
 | R15-V137 | zahlen.reell.nenner_rational | Nenner rational machen (Erweitern mit der Wurzel): keine Regel des Katalogs trägt genau diesen Schritt |
 | R15-V138 | zahlen.reell.irrational_beweis | Beweis durch Widerspruch (gerade/ungerade, gekürzter Bruch): keine Regel des Katalogs trägt den Lösungsweg |
@@ -68,7 +71,6 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V199 | stochastik.verknuepft.mengen_verstehen | Mengen und Mengenoperationen zählen (Elemente, Schnitt, Vereinigung): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V200 | stochastik.verknuepft.vierfeld | Vierfeldertafel ausfüllen (Zeilen- und Spaltensummen): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V201 | stochastik.verknuepft.vierfeld | Vierfeldertafel ausfüllen (Zeilen- und Spaltensummen): keine Regel des Katalogs trägt den Lösungsweg |
-| R15-V207 | stochastik.verknuepft.verstehen | Unabhängigkeit und Unvereinbarkeit unterscheiden: keine Regel des Katalogs trägt den Lösungsweg |
 
 ## Zweifelsfälle
 
@@ -86,9 +88,6 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V127 | zahlen.reell.zahlarten | `id.zahlen.hoch_zurueck` | Zahlen sortieren: hoch_zurueck trägt das Prüfen der Wurzeln |
 | R15-V128 | zahlen.reell.eingrenzen | `id.zahlen.hoch_zurueck` | Eingrenzen durch Quadrieren: hoch_zurueck trägt das Rückrechnen |
 | R15-V129 | zahlen.reell.eingrenzen | `id.zahlen.hoch_zurueck` | Eingrenzen durch Quadrieren: hoch_zurueck trägt das Rückrechnen |
-| R15-V130 | zahlen.reell.heron | `id.zahlen.hoch_zurueck` | Heron-Verfahren (Mittelwert aus Näherung und Quotient): hoch_zurueck trägt nur die Probe |
-| R15-V131 | zahlen.reell.heron | `id.zahlen.hoch_zurueck` | Heron-Verfahren als Rechteck: Flächenerhaltung, hoch_zurueck nur als Zielgröße |
-| R15-V133 | zahlen.reell.wurzel_mal | `id.zahlen.hoch_zurueck` | Rechengesetze für Wurzeln: hoch_zurueck, aber kein eigener Eintrag für das Zusammenfassen unter einer Wurzel |
 | R15-V145 | gleichungen.quadratisch.faktorisieren | `rr.nullprodukt` | Zurück von den Lösungen zur Gleichung: Nullprodukt trägt den Weg rückwärts |
 | R15-V148 | gleichungen.quadratisch.loesungsformel | `rr.reihenfolge` | Lösungsformel: tragender Schritt ist die Diskriminante (Klammer, Hoch, Punkt vor Strich); es gibt keine eigene Formelregel im Katalog |
 | R15-V149 | gleichungen.quadratisch.bruchgleichung | `rr.waage` | Bruchgleichung: Waage (mit x malnehmen), danach Nullprodukt |
@@ -108,6 +107,7 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V202 | stochastik.verknuepft.tafel_wkeit | `id.daten.anteil` | Vierfeldertafel mit Wahrscheinlichkeiten: id.daten.anteil trägt die Deutung als Anteil, das Ausfüllen der Tafel hat keine eigene Regel |
 | R15-V203 | stochastik.verknuepft.bedingt | `id.daten.anteil` | Bedingte Wahrscheinlichkeit als Anteil: id.daten.anteil trägt Günstige durch Mögliche |
 | R15-V206 | stochastik.verknuepft.verstehen | `id.daten.anteil` | Deutung der bedingten Wahrscheinlichkeit: id.daten.anteil (Anteil von was?) |
+| R15-V207 | stochastik.verknuepft.verstehen | `id.daten.anteil` | Bedingte Wahrscheinlichkeit richtig herum lesen: id.daten.anteil (Anteil von was?) |
 
 ## Alle Aufgaben
 
@@ -242,10 +242,10 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V127 | zahlen.reell.zahlarten | `id.zahlen.hoch_zurueck` |
 | R15-V128 | zahlen.reell.eingrenzen | `id.zahlen.hoch_zurueck` |
 | R15-V129 | zahlen.reell.eingrenzen | `id.zahlen.hoch_zurueck` |
-| R15-V130 | zahlen.reell.heron | `id.zahlen.hoch_zurueck` |
-| R15-V131 | zahlen.reell.heron | `id.zahlen.hoch_zurueck` |
+| R15-V130 | zahlen.reell.heron | – |
+| R15-V131 | zahlen.reell.heron | – |
 | R15-V132 | zahlen.reell.wurzel_mal | `id.zahlen.hoch_zurueck` |
-| R15-V133 | zahlen.reell.wurzel_mal | `id.zahlen.hoch_zurueck` |
+| R15-V133 | zahlen.reell.wurzel_mal | – |
 | R15-V134 | zahlen.reell.teilweise | `id.zahlen.hoch_zurueck` |
 | R15-V135 | zahlen.reell.teilweise | `id.zahlen.hoch_zurueck` |
 | R15-V136 | zahlen.reell.zusammenfassen | – |
@@ -319,4 +319,4 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V204 | stochastik.verknuepft.bedingt | `id.daten.stufen` |
 | R15-V205 | stochastik.verknuepft.rueckschluss | `id.daten.anteil` |
 | R15-V206 | stochastik.verknuepft.verstehen | `id.daten.anteil` |
-| R15-V207 | stochastik.verknuepft.verstehen | – |
+| R15-V207 | stochastik.verknuepft.verstehen | `id.daten.anteil` |

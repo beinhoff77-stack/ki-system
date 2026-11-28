@@ -56,10 +56,10 @@ neu(T, "beziehungen", "anwenden", Z(
     [B("1 - 0.28", "von 1 abgezogen, ohne zu quadrieren und die Wurzel zu ziehen"), B("1 - 0.28 ** 2", "die Wurzel nicht gezogen"), B("0.28", "den Sinus als Kosinus angegeben")]), g="mehrschritt", ohne=OHNE_B)
 neu(T, "beziehungen", "verfahren_waehlen", W(
     "Es gilt sin 70° ≈ 0,9397. Für welchen Winkel hat der Kosinus denselben Wert?",
-    "für 20°", [("für 70°", "derselbe Winkel hat Sinus und Kosinus nicht gleich, nur bei 45°"), ("für 110°", "180° − 70°, das gilt für den Sinus, nicht für den Kosinus im spitzen Bereich"), ("für 160°", "90° + 70° ist keine Ergänzung zu 90°")],
+    "für 20°", [("für 70°", "derselbe Winkel hat Sinus und Kosinus nicht gleich, nur bei 45°"), ("für 45°", "bei 45° sind Sinus und Kosinus gleich, aber sin 70° ist größer als cos 45°"), ("für 50°", "70° und 50° ergänzen sich nicht zu 90°")],
     "In einem rechtwinkligen Dreieck ist die Gegenkathete des einen spitzen Winkels die Ankathete des anderen. Die beiden spitzen Winkel ergeben zusammen 90°.",
     "Die beiden spitzen Winkel eines rechtwinkligen Dreiecks ergänzen sich zu 90°. Es gilt sin α = cos(90° − α). Mit α = 70° folgt sin 70° = cos 20°.",
-    lambda: abs(math.sin(math.radians(70)) - math.cos(math.radians(20))) < 1e-9 and abs(math.sin(math.radians(70)) - math.cos(math.radians(70))) > 0.1), g="begruenden", ohne=OHNE_B)
+    lambda: abs(math.sin(math.radians(70)) - math.cos(math.radians(20))) < 1e-9 and abs(math.sin(math.radians(70)) - math.cos(math.radians(70))) > 0.1 and all(abs(math.sin(math.radians(70)) - math.cos(math.radians(x))) > 0.01 for x in (45, 50))), g="begruenden", ohne=OHNE_B)
 # ───────── anwendung ─────────
 w4, c4 = rd("38 / tan(4)", 0)
 neu(T, "anwendung", "anwenden", Z(

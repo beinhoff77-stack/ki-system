@@ -108,14 +108,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Kim sortiert sieben Zahlen: √16, √20, 7/3, π, √2,25, ∛27 und √45. Wie viele davon sind rational?"
+     "text": "Kim sortiert sieben Zahlen: √16, √20, 7/3, π, √(2,25), ∛27 und √45. Wie viele davon sind rational?"
     },
     "o": {
      "wert": 4
     },
     "c": "4",
     "h": "Prüfe bei jeder Wurzel, ob der Radikand das Quadrat (oder die dritte Potenz) einer Bruchzahl ist. Brüche sind immer rational.",
-    "w": "√16 = 4, 7/3, √2,25 = 1,5 und ∛27 = 3 sind rational. √20 und √45 liegen zwischen ganzen Zahlen und sind irrational, ebenso π. Es sind 4 rationale Zahlen."
+    "w": "√16 = 4, 7/3, √(2,25) = 1,5 und ∛27 = 3 sind rational. √20 und √45 liegen zwischen ganzen Zahlen und sind irrational, ebenso π. Es sind 4 rationale Zahlen."
    }
   },
   {
@@ -160,7 +160,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Du schachtelst √10 ein. Es gilt ①² = 9 und ②² = 16, also liegt √10 zwischen ① und ②. Für die Zehntel gilt 31² = 961 < 1000 < ③² = 1024.",
+     "text": "Du schachtelst √10 ein. Für positive Zahlen gilt ①² = 9 und ②² = 16, also liegt √10 zwischen ① und ②. Für die Zehntel gilt 31² = 961 < 1000 < ③² = 1024.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -237,8 +237,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.zahlen.hoch_zurueck",
-   "regel_name": "Hoch und zurück",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -287,8 +287,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.zahlen.hoch_zurueck",
-   "regel_name": "Hoch und zurück",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -386,8 +386,8 @@
    "typ": "Verfahren wählen (einfache Form)",
    "form": "verfahren_waehlen",
    "antwortform": "auswahl",
-   "regel": "id.zahlen.hoch_zurueck",
-   "regel_name": "Hoch und zurück",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {

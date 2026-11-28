@@ -10,7 +10,7 @@ neu(T, "zusammenfassen", "anwenden", Z(
     "Kim kauft 3 Erwachsenen- und 2 Kinderkarten für einen Freizeitpark, Alex kauft 5 Erwachsenen- und 4 Kinderkarten. Eine Erwachsenenkarte kostet a €, eine Kinderkarte b €. Zusammen zahlen sie 3a + 2b + 5a + 4b. Wie viel Euro sind das für a = 12 und b = 7?",
     138, "8 * 12 + 6 * 7", "3 * 12 + 2 * 7 + 5 * 12 + 4 * 7", "Fasse erst zusammen: Wie viele Erwachsenenkarten sind es insgesamt, wie viele Kinderkarten?",
     "Erwachsenenkarten: 3a + 5a = 8a. Kinderkarten: 2b + 4b = 6b. Zusammen 8a + 6b. Für a = 12 und b = 7: 8 · 12 + 6 · 7 = 96 + 42 = 138 €.",
-    [B("14 * 12 * 7", "alle Glieder zu einem Glied mit ab zusammengefasst"), B("14 * 12", "alle Glieder zusammengefasst, als wären a und b gleichartig"), B("8 * 12 + 4 * 7", "das Glied 2b nicht mitgezählt")], einheit="€"), g="einkleidung", regel="rr.tauschen")
+    [B("14 * 12 * 7", "alle Glieder zu einem Glied mit ab zusammengefasst"), B("14 * 12", "alle Glieder zu 14a zusammengefasst, b nicht mehr beachtet"), B("8 * 12 + 4 * 7", "das Glied 2b nicht mitgezählt")], einheit="€"), g="einkleidung", regel="rr.tauschen")
 neu(T, "zusammenfassen", "fehler_detektiv", FD(
     "Kim soll 6x + 5y − 2x + y zusammenfassen und schreibt auf:",
     [("Gleichartig sind 6x und −2x sowie 5y und y.", True, True),
@@ -45,7 +45,7 @@ neu(T, "minusklammer", "lueckenweg", L(
     "① = □; ② = □; ③ = □", [7, 9, 23], ["11 - 4", "6 + 3", "{1} * 2 + {2}"], ["7", "9", "11 * 2 - (4 * 2 - 6) + 3"],
     "Ein Minus vor der Klammer ändert die Vorzeichen aller Glieder in der Klammer. Achte besonders auf das zweite Glied.",
     "−(4x − 6) = −4x + 6. Dann: 11x − 4x + 6 + 3 = 7x + 9. Für x = 2: 7 · 2 + 9 = 23. Probe mit dem Ausgangsterm: 22 − (8 − 6) + 3 = 22 − 2 + 3 = 23.",
-    {0: [(15, None, "die x-Glieder addiert", "11 + 4")], 1: [(-3, "fb.minusklammer.nur_erstes_zeichen", "nur das erste Vorzeichen in der Klammer gewechselt, die 6 blieb negativ", "-6 + 3")], 2: [(25, None, "x nur beim Zahlglied eingesetzt", "{1} + {2} * 2")]}), g="direkt", regel="rr.minusklammer")
+    {0: [(15, None, "die x-Glieder addiert", "11 + 4")], 1: [(-3, "fb.minusklammer.nur_erstes_zeichen", "nur das erste Vorzeichen in der Klammer gewechselt, die 6 blieb negativ", "-6 + 3")], 2: [(25, None, "x = 2 beim falschen Glied eingesetzt: 7 + 9 · 2 statt 7 · 2 + 9", "{1} + {2} * 2")]}), g="direkt", regel="rr.minusklammer")
 neu(T, "minusklammer", "anwenden", Z(
     "Kim hat 400 € Reisegeld. Für eine Zugfahrt zahlt sie (3x + 15) €, dabei ist x die Zahl der Fahrtstunden, 15 € sind eine feste Gebühr. Der Rest ist 400 − (3x + 15). Wie viel Euro bleiben bei 20 Stunden Fahrt übrig?",
     325, "400 - (3 * 20 + 15)", "385 - 3 * 20", "Löse zuerst die Klammer auf. Das Minus davor wirkt auf beide Glieder in der Klammer.",

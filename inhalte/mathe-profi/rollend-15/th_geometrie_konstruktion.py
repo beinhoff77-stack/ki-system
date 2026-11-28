@@ -55,7 +55,7 @@ neu(T, "konstruierbar", "lueckenweg", L(
     "① = □; ② = □; ③ = □", [13, 3, 9], ["5 + 8", "8 - 5", "{1} - {2} - 1"], ["13", "3", "9"],
     "Je zwei Seiten müssen zusammen länger sein als die dritte. Die dritte Seite liegt zwischen der Summe und dem Unterschied der beiden anderen.",
     "c < 5 + 8 = 13 und c > 8 − 5 = 3. Ganze Zahlen von 4 bis 12: Das sind 12 − 4 + 1 = 9 Möglichkeiten (13 − 3 − 1 = 9).",
-    {0: [(3, None, "den Unterschied statt der Summe der Seiten genommen", "8 - 5")], 1: [(13, None, "die Summe statt des Unterschieds genommen", "5 + 8")], 2: [(10, None, "die Grenzen 3 und 13 mitgezählt", "{1} - {2}")]}), g="direkt", ohne=OHNE_UNGL)
+    {0: [(3, None, "den Unterschied statt der Summe der Seiten genommen", "8 - 5")], 1: [(13, None, "die Summe statt des Unterschieds genommen", "5 + 8")], 2: [(10, None, "nur 13 − 3 gerechnet und die Grenzen nicht beachtet", "{1} - {2}")]}), g="direkt", ohne=OHNE_UNGL)
 neu(T, "konstruierbar", "verfahren_waehlen", W(
     "Kim behauptet: „Aus Stäben von 3 cm, 4 cm und 7 cm kann man ein Dreieck bilden, denn 3 + 4 = 7.“ Was stimmt?",
     "Es entsteht kein Dreieck: Die zwei kürzeren Stäbe müssen zusammen länger sein als der längste. Bei 3 + 4 = 7 liegen sie flach aufeinander.",
@@ -71,10 +71,10 @@ neu(T, "planfigur", "anwenden", Z(
     "C liegt auf dem Kreis um A, also ist AC = 5 cm, und auf dem Kreis um B, also ist BC = 6 cm. Mit AB = 7 cm ist der Umfang 7 + 5 + 6 = 18 cm.",
     [B("5 + 6", "die Seite [AB] vergessen"), B("7 + 5", "die Seite [BC] vergessen"), B("7 * 5 * 6", "die drei Längen malgenommen statt addiert")], einheit="cm"), g="einkleidung", regel=D)
 neu(T, "planfigur", "verfahren_waehlen", W(
-    "Du sollst ein Dreieck ABC mit c = 6 cm, α = 35° und β = 70° konstruieren. Welche Reihenfolge der Schritte ist richtig?",
+    "Du sollst ein Dreieck ABC mit c = 6 cm, α = 35° (bei A) und β = 70° (bei B) konstruieren. Welche Reihenfolge der Schritte ist richtig?",
     "Strecke [AB] mit 6 cm zeichnen. Bei A den Winkel 35° antragen und bei B den Winkel 70° antragen. Der Schnittpunkt der beiden freien Schenkel ist C.",
     [("Strecke [AB] mit 6 cm zeichnen. Um A einen Kreis mit 35 cm und um B einen Kreis mit 70 cm Radius zeichnen.", "Winkelangaben als Radien benutzt"), ("Bei A den Winkel 35° zeichnen, bei B den Winkel 70° zeichnen. Danach die Strecke [AB] von 6 cm in das entstandene Dreieck einpassen.", "ohne die Seite zu beginnen geht es nicht, die Größe wäre offen"),
-     ("Strecke [AB] mit 6 cm zeichnen. Bei A den Winkel 70° und bei B den Winkel 35° antragen.", "die Winkel an den falschen Ecken angetragen")],
+     ("Strecke [AB] mit 6 cm zeichnen. Bei A den Winkel 70° und bei B den Winkel 35° antragen.", "die Winkel an den falschen Ecken angetragen: 70° gehört zu β bei B, 35° zu α bei A")],
     "Beginne mit der Seite, die du kennst. Welcher Winkel gehört an welche Ecke?",
     "Mit der gegebenen Seite beginnen: [AB] = 6 cm. Dann α = 35° bei A und β = 70° bei B antragen. Die Schenkel schneiden sich in C. Das ist die Konstruktion nach WSW.",
     lambda: True), g="mehrschritt", regel=D)

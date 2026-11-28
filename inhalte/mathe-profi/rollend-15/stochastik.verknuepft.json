@@ -40,7 +40,7 @@
      "antwort": 11,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahlen 9 und 99 mitgezählt, obwohl ihre Ziffernsumme 9 und 18 ist"
+     "beschreibung": "die einstellige 9 und die 99 (Ziffernsumme 18) mitgezählt"
     }
    ],
    "aufgabe": {
@@ -149,7 +149,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "A ist die Menge der Vielfachen von 6 bis 60, B die Menge der Vielfachen von 4 bis 60. Wie viele Elemente hat die Vereinigung A ∪ B?"
+     "text": "A ist die Menge der Vielfachen von 6 zwischen 1 und 60 (60 eingeschlossen), B die Menge der Vielfachen von 4 zwischen 1 und 60 (60 eingeschlossen). Wie viele Elemente hat die Vereinigung A ∪ B?"
     },
     "o": {
      "wert": 20
@@ -549,22 +549,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 0.53,
+     "antwort": 0.75,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch die Wahrscheinlichkeit für Ski geteilt, also die umgekehrte bedingte Wahrscheinlichkeit"
+     "beschreibung": "durch die Wahrscheinlichkeit für Sauna geteilt, also die umgekehrte bedingte Wahrscheinlichkeit"
     },
     {
-     "antwort": 0.144,
+     "antwort": 0.1815,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Wahrscheinlichkeiten malgenommen"
     },
     {
-     "antwort": 0.36,
+     "antwort": 0.22,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Wert für Frauen ohne Ski berechnet"
+     "beschreibung": "den Anteil der Frauen ohne Sauna berechnet"
     }
    ],
    "aufgabe": {
@@ -575,14 +575,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Mit Wahrscheinlichkeit 0,6 ist ein Gast eine Frau, mit 0,45 fährt er Ski, und mit 0,24 ist er eine Frau, die Ski fährt. Ein Gast ist eine Frau. Wie groß ist die Wahrscheinlichkeit, dass sie Ski fährt?"
+     "text": "Von den Besuchern einer Therme sind 55 % Frauen, 44 % nutzen die Sauna, und 33 % sind Frauen, die die Sauna nutzen. Ein Besucher wird zufällig angesprochen und ist eine Frau. Wie groß ist die Wahrscheinlichkeit, dass sie die Sauna nutzt?"
     },
     "o": {
-     "wert": 0.4
+     "wert": 0.6
     },
-    "c": "0.24 / 0.6",
-    "h": "Es geht nur um die Frauen. Welcher Anteil der Frauen fährt Ski?",
-    "w": "P(Ski | Frau) = P(Frau ∩ Ski) : P(Frau) = 0,24 : 0,6 = 0,4."
+    "c": "0.33 / 0.55",
+    "h": "Es geht nur um die Frauen. Welcher Anteil der Frauen nutzt die Sauna?",
+    "w": "P(Sauna | Frau) = P(Frau ∩ Sauna) : P(Frau) = 0,33 : 0,55 = 0,6."
    }
   },
   {
@@ -742,8 +742,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -769,7 +769,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Alex untersucht Reisende: 30 % fliegen (F), 40 % buchen ein Hotel (H), 12 % tun beides. Er schreibt: Zeile 1: Es gilt P(F ∩ H) = 0,12. Zeile 2: Außerdem ist P(F) · P(H) = 0,3 · 0,4 = 0,12, also sind F und H unabhängig. Zeile 3: Unabhängige Ereignisse schließen sich aus, also ist F ∩ H leer. In welcher Zeile passiert der erste Fehler?"
+     "text": "Alex untersucht Kinder in einem Urlaubsclub: 25 % der Gäste sind Kinder (K), 40 % nutzen den Pool (P), und 15 % sind Kinder, die den Pool nutzen. Er schreibt: Zeile 1: Es gilt P(K ∩ P) = 0,15. Zeile 2: Unter den Kindern nutzen 0,15 : 0,25 = 0,6 den Pool, das ist die bedingte Wahrscheinlichkeit P(P | K). Zeile 3: Dieselbe Zahl 0,6 gibt auch an, wie wahrscheinlich ein Poolnutzer ein Kind ist: P(K | P) = 0,6. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -779,8 +779,8 @@
     "o": {
      "index": 2
     },
-    "h": "Wenn F ∩ H leer wäre, was wäre P(F ∩ H)? Passt das zu Zeile 1?",
-    "w": "Unabhängig und unvereinbar sind verschiedene Begriffe. Unabhängig heißt P(F ∩ H) = P(F) · P(H). Unvereinbar heißt, dass F ∩ H leer ist, also P(F ∩ H) = 0. Hier ist P(F ∩ H) = 0,12, also nicht leer. Der Fehler steckt in Zeile 3."
+    "h": "Bei P(K | P) sind die Poolnutzer die Grundmenge. Durch welche Wahrscheinlichkeit musst du dann teilen?",
+    "w": "Bei P(K | P) betrachtet man nur die Poolnutzer: P(K | P) = P(K ∩ P) : P(P) = 0,15 : 0,4 = 0,375. Die beiden bedingten Wahrscheinlichkeiten sind verschieden, weil ihre Grundmengen verschieden sind. Der Fehler steckt in Zeile 3."
    }
   }
  ]

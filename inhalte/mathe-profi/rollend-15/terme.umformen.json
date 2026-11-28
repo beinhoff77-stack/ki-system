@@ -96,7 +96,7 @@
      "antwort": 168,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "alle Glieder zusammengefasst, als wären a und b gleichartig"
+     "beschreibung": "alle Glieder zu 14a zusammengefasst, b nicht mehr beachtet"
     },
     {
      "antwort": 124,
@@ -362,7 +362,7 @@
      "antwort": 25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "x nur beim Zahlglied eingesetzt"
+     "beschreibung": "x = 2 beim falschen Glied eingesetzt: 7 + 9 · 2 statt 7 · 2 + 9"
     }
    ],
    "aufgabe": {

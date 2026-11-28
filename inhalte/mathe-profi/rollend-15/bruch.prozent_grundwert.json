@@ -555,22 +555,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 393.6,
+     "antwort": 561.6,
      "fehlbild": "fb.prozent.prozente_addiert",
      "regel_des_fehlbilds": "id.verhaeltnisse.prozent",
-     "beschreibung": "die Prozentsätze 15 und 8 addiert, obwohl die zweite Erhöhung vom neuen Preis gilt"
+     "beschreibung": "die Prozentsätze 12 und 5 addiert, obwohl die zweite Erhöhung vom neuen Preis gilt"
     },
     {
-     "antwort": 368,
+     "antwort": 537.6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur die erste Erhöhung gerechnet"
     },
     {
-     "antwort": 376,
+     "antwort": 542.6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "8 € statt 8 % aufgeschlagen"
+     "beschreibung": "5 € statt 5 % aufgeschlagen"
     }
    ],
    "aufgabe": {
@@ -581,15 +581,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Der Grundpreis für einen Mietwagen auf Sizilien beträgt 320 €. Zuerst wird der Preis wegen der Hochsaison um 15 % erhöht. Auf diesen neuen Preis kommen für die Vollkasko-Versicherung noch einmal 8 %. Wie viel Euro kostet der Wagen insgesamt?"
+     "text": "Die Fähre nach Sardinien kostet für das Auto 480 €. Wegen der Hochsaison steigt der Preis zuerst um 12 %. Auf diesen neuen Preis kommen für die Stornoversicherung noch einmal 5 %. Wie viel Euro kostet die Überfahrt insgesamt?"
     },
     "o": {
-     "wert": 397.44,
+     "wert": 564.48,
      "einheit": "€"
     },
-    "c": "320 * 1.15 * 1.08",
+    "c": "480 * 1.12 * 1.05",
     "h": "Die zweite Erhöhung bezieht sich auf den schon erhöhten Preis. Nimm beide Faktoren mal.",
-    "w": "Nach der ersten Erhöhung: 320 · 1,15 = 368 €. Darauf 8 %: 368 · 1,08 = 397,44 €. Man darf die Prozente nicht addieren (23 % wären nur 393,60 €)."
+    "w": "Nach der ersten Erhöhung: 480 · 1,12 = 537,60 €. Darauf 5 %: 537,60 · 1,05 = 564,48 €. Man darf die Prozente nicht addieren (17 % wären nur 561,60 €)."
    }
   },
   {

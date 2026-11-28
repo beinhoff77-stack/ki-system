@@ -367,7 +367,7 @@
      "antwort": 10,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Grenzen 3 und 13 mitgezählt"
+     "beschreibung": "nur 13 − 3 gerechnet und die Grenzen nicht beachtet"
     }
    ],
    "aufgabe": {
@@ -586,7 +586,7 @@
      "antwort": "Strecke [AB] mit 6 cm zeichnen. Bei A den Winkel 70° und bei B den Winkel 35° antragen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Winkel an den falschen Ecken angetragen"
+     "beschreibung": "die Winkel an den falschen Ecken angetragen: 70° gehört zu β bei B, 35° zu α bei A"
     }
    ],
    "aufgabe": {
@@ -597,7 +597,7 @@
     "g": "mehrschritt",
     "y": "auswahl",
     "f": {
-     "text": "Du sollst ein Dreieck ABC mit c = 6 cm, α = 35° und β = 70° konstruieren. Welche Reihenfolge der Schritte ist richtig?"
+     "text": "Du sollst ein Dreieck ABC mit c = 6 cm, α = 35° (bei A) und β = 70° (bei B) konstruieren. Welche Reihenfolge der Schritte ist richtig?"
     },
     "a": [
      "Strecke [AB] mit 6 cm zeichnen. Bei A den Winkel 35° antragen und bei B den Winkel 70° antragen. Der Schnittpunkt der beiden freien Schenkel ist C.",

@@ -25,7 +25,7 @@ neu(T, "wurzel_dezimal", "anwenden", Z(
     "Eine quadratische Fliese hat die Fläche 0,0169 m². Wie lang ist eine Seite in Zentimetern?",
     13, "0.13 * 100", "round(sqrt(0.0169) * 100)", "Die Wurzel aus 0,0169 ist kleiner als 1. Rechne zuerst in Metern und wechsle dann in Zentimeter.",
     "0,13 · 0,13 = 0,0169, also ist die Seite √0,0169 = 0,13 m lang. Das sind 0,13 · 100 = 13 cm.",
-    [B("0.13", "die Seite in Metern angegeben, nicht in Zentimetern"), B("1.3", "die Wurzel mit einer Dezimalstelle zu hoch gesetzt und mit 10 statt 100 umgerechnet"), B("130", "0,0169 mit der Zahl 100 statt der Wurzel in Zentimeter umgerechnet")], einheit="cm"), g="einkleidung", regel=HZ)
+    [B("0.13", "die Seite in Metern angegeben, nicht in Zentimetern"), B("1.3", "mit 10 statt mit 100 in Zentimeter umgerechnet"), B("130", "0,13 m in Millimeter statt in Zentimeter umgerechnet")], einheit="cm"), g="einkleidung", regel=HZ)
 w_sp, c_sp = rd("sqrt(3.8)", 2)
 neu(T, "wurzel_dezimal", "anwenden", Z(
     "Ein quadratisches Solarpanel hat eine Fläche von 3,8 m². Wie lang ist eine Seite? Runde auf zwei Dezimalstellen.",
@@ -38,7 +38,7 @@ neu(T, "kubikwurzel", "lueckenweg", L(
     "① = □; ② = □; ③ = □", [7, 49, 294], ["7", "{1} * {1}", "6 * {2}"], ["round(343 ** (1 / 3))", "round(343 ** (1 / 3)) ** 2", "6 * round(343 ** (1 / 3)) ** 2"],
     "Beim Würfel ist das Volumen Kante mal Kante mal Kante. Welche Zahl dreimal mit sich malgenommen ergibt 343?",
     "7 · 7 · 7 = 343, also ist die Kante ∛343 = 7 dm lang. Die Bodenfläche ist 7 · 7 = 49 dm². Die sechs Seitenflächen: 6 · 49 = 294 dm².",
-    {0: [(18, None, "die Quadratwurzel statt der dritten Wurzel gezogen", False)], 1: [(14, None, "Kante mal 2 gerechnet statt Kante mal Kante", "{1} * 2")], 2: [(196, None, "nur vier Seitenflächen gezählt", "4 * {2}")]}), regel=HZ)
+    {0: [(18, None, "die Quadratwurzel statt der dritten Wurzel gezogen und gerundet (√343 ≈ 18)", False)], 1: [(14, None, "Kante mal 2 gerechnet statt Kante mal Kante", "{1} * 2")], 2: [(196, None, "nur vier Seitenflächen gezählt", "4 * {2}")]}), regel=HZ)
 neu(T, "kubikwurzel", "anwenden", Z(
     "Ein würfelförmiger Container hat das Volumen 2744 dm³. Wie groß ist seine gesamte Oberfläche in Quadratdezimetern?",
     1176, "6 * 14 * 14", "6 * round(2744 ** (1 / 3)) ** 2", "Berechne zuerst die Kantenlänge. Wie viele Seitenflächen hat ein Würfel?",
@@ -63,7 +63,7 @@ neu(T, "abschaetzen", "anwenden", Z(
     "Kim will wissen, wie lang die Seite eines quadratischen Zeltbodens mit 85 m² Fläche ungefähr ist. Wie lang ist sie? Runde auf eine Dezimalstelle.",
     w_85, c_85, "round(85 ** 0.5, 1)", "Die Seite liegt zwischen zwei ganzen Zahlen. Probiere dann Zehntel: Welches Zehntel passt am besten?",
     "9² = 81 und 10² = 100, also liegt √85 zwischen 9 und 10. Es gilt 9,2 · 9,2 = 84,64 und 9,3 · 9,3 = 86,49. Näher an 85 liegt 9,2. Die Seite ist etwa 9,2 m lang.",
-    [B("85 / 2", "die Wurzel wie „geteilt durch 2“ gerechnet", HK), B("(9 + 10) / 2", "die Mitte der beiden Nachbarzahlen als Wurzel genommen"), B("9.3", "zu weit gerundet: 9,3² ist 86,49 und liegt weiter von 85 weg")], einheit="m", toleranz=0.1), g="einkleidung", regel=HZ)
+    [B("85 / 2", "die Wurzel wie „geteilt durch 2“ gerechnet", HK), B("(9 + 10) / 2", "die Mitte der beiden Nachbarzahlen als Wurzel genommen"), B("9.3", "zu weit gerundet: 9,3² ist 86,49 und liegt weiter von 85 weg")], einheit="m"), g="einkleidung", regel=HZ)
 # ───────── wurzel_deuten ─────────
 neu(T, "wurzel_deuten", "verfahren_waehlen", W(
     "Warum hat √(−25) im Bereich der reellen Zahlen keinen Wert?",

@@ -11,7 +11,7 @@ neu(T, "reinquadratisch", "anwenden", Z(
     "4x² = 196, also x² = 49. Zwei Zahlen haben das Quadrat 49: 7 und −7. Die negative Lösung ist −7. Probe: 4 · 49 − 196 = 0.",
     [B("7", "nur die positive Lösung genannt", "fb.gegenrechnung.zweite_loesung_fehlt"), B("-49", "das Quadrat als Lösung mit Minuszeichen genommen"), B("-196 / 2", "durch 2 statt durch 4 geteilt und das Minus mitgenommen")]), g="mehrschritt", regel=GR)
 neu(T, "reinquadratisch", "lueckenweg", L(
-    "Du löst 2x² − 98 = 0. Es folgt x² = ①. Die beiden Lösungen sind ② und ③.",
+    "Du löst 2x² − 98 = 0. Es folgt x² = ①. ② ist die positive und ③ die negative Lösung.",
     "① = □; ② = □; ③ = □", [49, 7, -7], ["98 / 2", "7", "-{2}"], ["round(98 / 2)", "round(sqrt(49))", "-round(sqrt(49))"],
     "Addiere erst 98 auf beiden Seiten, teile dann durch 2. Zu x² = Zahl gehören zwei Lösungen mit entgegengesetztem Vorzeichen.",
     "2x² = 98, also x² = 49. Die Lösungen sind 7 und −7, denn 7² = 49 und (−7)² = 49.",
@@ -25,11 +25,12 @@ neu(T, "ausklammern", "verfahren_waehlen", W(
     lambda: all(4 * x * x - 28 * x == 0 for x in (0, 7)) and 4 * 49 - 28 * (-7) != 0 and 4 * 28 * 28 - 28 * 28 != 0), g="mehrschritt", regel=HG)
 neu(T, "ausklammern", "fehler_detektiv", FD(
     "Sam löst 6x² = 18x:",
-    [("Teile ich beide Seiten durch 6x, bleibt x = 3.", True, True),
-     ("Probe: Für x = 3 ist 6 · 9 = 54 und 18 · 3 = 54.", True, True),
-     ("Also hat die Gleichung nur die Lösung x = 3.", False, True)],
-    "Setze x = 0 in die Gleichung ein. Stimmt sie dann?",
-    "Auch x = 0 löst die Gleichung: 6 · 0 = 18 · 0. Beim Teilen durch 6x ging diese Lösung verloren (durch 0 darf man nicht teilen). Besser: 6x² − 18x = 6x(x − 3) = 0, also x = 0 oder x = 3. Der Fehler steckt in Zeile 3."), g="fehler", regel=HG)
+    [("Ich bringe alles auf eine Seite: 6x² − 18x = 0.", True, True),
+     ("Ich klammere 6x aus: 6x(x − 3) = 0.", True, True),
+     ("Ein Produkt ist null, wenn ein Faktor null ist, also muss hier nur der Faktor x − 3 null sein.", False, True),
+     ("Die Gleichung hat deshalb nur die Lösung x = 3.", True, True)],
+    "Das Produkt 6x(x − 3) hat zwei Faktoren. Wann ist der erste Faktor null?",
+    "Beim Nullprodukt kann jeder Faktor null sein: 6x = 0 gibt x = 0, und x − 3 = 0 gibt x = 3. Sam hat den Faktor 6x übersehen. Probe: Für x = 0 gilt 6 · 0 = 18 · 0. Die Lösungen sind x = 0 und x = 3. Der Fehler steckt in Zeile 3, Zeile 4 folgt daraus."), g="fehler", regel=HG)
 # ───────── faktorisieren ─────────
 neu(T, "faktorisieren", "umkehren", Z(
     "Eine Wasserrutsche folgt der Linie y = x² + px + q (Meter). Sie liegt bei den Stellen 4 und −9 auf Höhe null. Welchen Wert hat q?",
@@ -93,5 +94,5 @@ neu(T, "sachaufgabe", "anwenden", Z(
     "Ein rechteckiger Campingplatz am Gardasee ist 9 m länger als breit und 360 m² groß. Wie breit ist er?",
     15, "15", 15, "Nenne die Breite x. Wie groß ist dann die Länge? Stelle eine Gleichung für die Fläche auf.",
     "Länge x + 9, Fläche x(x + 9) = 360. Also x² + 9x − 360 = 0. Diskriminante: 81 + 1440 = 1521 = 39². x = (−9 + 39) : 2 = 15. Die andere Lösung −24 passt nicht. Probe: 15 · 24 = 360.",
-    [B("360 / 9", "die Fläche durch den Unterschied geteilt"), B("15 + 9", "die Länge statt der Breite angegeben"), B("(9 + 39) / 4", "durch 4 geteilt statt durch 2")], einheit="m"), g="mehrschritt", regel=RF,
+    [B("360 / 9", "die Fläche durch den Unterschied geteilt"), B("15 + 9", "die Länge statt der Breite angegeben"), B("(9 + 39) / 4", "bei −b das Vorzeichen falsch gesetzt (9 statt −9) und durch 4 geteilt")], einheit="m"), g="mehrschritt", regel=RF,
     zweifel="Sachaufgabe: Lösungsformel (Diskriminante nach Rechenreihenfolge), Prüfen gegen die Sachlage")

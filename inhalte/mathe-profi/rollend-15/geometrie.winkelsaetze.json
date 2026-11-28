@@ -302,7 +302,7 @@
      "antwort": 10,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahlen 14 und 20 falsch zusammengefasst und halbiert"
+     "beschreibung": "nur die 20 halbiert, ohne die Gleichung zu lösen"
     },
     {
      "antwort": 23.25,
@@ -766,10 +766,10 @@
      "beschreibung": "den Innenwinkel δ statt seines Nebenwinkels angegeben"
     },
     {
-     "antwort": -65,
+     "antwort": 100,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "im Viereck mit der Winkelsumme 180° gerechnet"
+     "beschreibung": "den Nebenwinkel von α statt von δ genommen"
     },
     {
      "antwort": 245,

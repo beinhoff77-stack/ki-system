@@ -445,17 +445,17 @@
     },
     {
      "index": 2,
-     "antwort": "für 110°",
+     "antwort": "für 45°",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "180° − 70°, das gilt für den Sinus, nicht für den Kosinus im spitzen Bereich"
+     "beschreibung": "bei 45° sind Sinus und Kosinus gleich, aber sin 70° ist größer als cos 45°"
     },
     {
      "index": 3,
-     "antwort": "für 160°",
+     "antwort": "für 50°",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "90° + 70° ist keine Ergänzung zu 90°"
+     "beschreibung": "70° und 50° ergänzen sich nicht zu 90°"
     }
    ],
    "aufgabe": {
@@ -471,8 +471,8 @@
     "a": [
      "für 20°",
      "für 70°",
-     "für 110°",
-     "für 160°"
+     "für 45°",
+     "für 50°"
     ],
     "o": {
      "index": 0

@@ -310,7 +310,7 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Für welche Zahl im Kästchen gilt 14⁴ = 2⁴ · □⁴ ?"
+     "text": "Für welche natürliche Zahl im Kästchen gilt 14⁴ = 2⁴ · □⁴ ?"
     },
     "o": {
      "wert": 7
@@ -761,7 +761,7 @@
      "antwort": 2048,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "bei der Potenz von einer Potenz die Hochzahlen addiert statt malgenommen"
+     "beschreibung": "bei (2⁹)² die Hochzahlen addiert (2¹¹) und das Teilen durch 2¹⁰ vergessen"
     }
    ],
    "aufgabe": {

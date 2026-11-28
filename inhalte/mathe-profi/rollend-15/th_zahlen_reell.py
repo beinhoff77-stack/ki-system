@@ -13,14 +13,14 @@ neu(T, "zahlarten", "verfahren_waehlen", W(
     zweifel="Rationale und irrationale Zahlen unterscheiden: hoch_zurueck trägt das Zurückrechnen der Wurzel, die Zahlarten selbst hat keine eigene Regel")
 liste = [("√16", True), ("√20", False), ("7/3", True), ("π", False), ("√2,25", True), ("∛27", True), ("√45", False)]
 neu(T, "zahlarten", "anwenden", Z(
-    "Kim sortiert sieben Zahlen: √16, √20, 7/3, π, √2,25, ∛27 und √45. Wie viele davon sind rational?",
+    "Kim sortiert sieben Zahlen: √16, √20, 7/3, π, √(2,25), ∛27 und √45. Wie viele davon sind rational?",
     4, "4", sum(b for _, b in liste), "Prüfe bei jeder Wurzel, ob der Radikand das Quadrat (oder die dritte Potenz) einer Bruchzahl ist. Brüche sind immer rational.",
-    "√16 = 4, 7/3, √2,25 = 1,5 und ∛27 = 3 sind rational. √20 und √45 liegen zwischen ganzen Zahlen und sind irrational, ebenso π. Es sind 4 rationale Zahlen.",
+    "√16 = 4, 7/3, √(2,25) = 1,5 und ∛27 = 3 sind rational. √20 und √45 liegen zwischen ganzen Zahlen und sind irrational, ebenso π. Es sind 4 rationale Zahlen.",
     [B("3", "den Bruch siebendrittel für irrational gehalten"), B("5", "√20 oder √45 für rational gehalten"), B("7", "alle sieben Zahlen für rational gehalten")]), g="mehrschritt", regel=HZ,
     zweifel="Zahlen sortieren: hoch_zurueck trägt das Prüfen der Wurzeln")
 # ───────── eingrenzen ─────────
 neu(T, "eingrenzen", "lueckenweg", L(
-    "Du schachtelst √10 ein. Es gilt ①² = 9 und ②² = 16, also liegt √10 zwischen ① und ②. Für die Zehntel gilt 31² = 961 < 1000 < ③² = 1024.",
+    "Du schachtelst √10 ein. Für positive Zahlen gilt ①² = 9 und ②² = 16, also liegt √10 zwischen ① und ②. Für die Zehntel gilt 31² = 961 < 1000 < ③² = 1024.",
     "① = □; ② = □; ③ = □", [3, 4, 32], ["3", "{1} + 1", "{1} * 10 + 2"], ["round(sqrt(9))", "round(sqrt(16))", "round(sqrt(1024))"],
     "Suche die Quadratzahlen links und rechts von 10. Bei den Zehnteln rechnest du mit 100-mal so großen Zahlen.",
     "3² = 9 < 10 < 16 = 4². Also liegt √10 zwischen 3 und 4. Bei Zehnteln gilt 31² = 961 und 32² = 1024, also liegt √10 zwischen 3,1 und 3,2.",
@@ -38,14 +38,12 @@ neu(T, "heron", "anwenden", Z(
     "Beim Heron-Verfahren für √20 startest du mit 4. Der erste Schritt gibt (4 + 20 : 4) : 2 = 4,5. Wie lautet der zweite Wert (4,5 + 20 : 4,5) : 2? Runde auf zwei Dezimalstellen.",
     w_h, c_h, "round((4.5 + 20 / 4.5) / 2, 2)", "Rechne erst 20 : 4,5, addiere dann 4,5 und teile die Summe durch 2.",
     "20 : 4,5 ≈ 4,444. Die Summe 4,5 + 4,444 ≈ 8,944. Halbiert: 4,472, gerundet 4,47. Das ist nahe an √20 ≈ 4,4721.",
-    [B("4.5", "nur den ersten Schritt gerechnet"), B("(4.5 + 20) / 2", "die Klammer weggelassen und 20 statt des Quotienten zu 4,5 addiert"), B("20 / 4.5", "nur den Quotienten genommen, ohne den Mittelwert")], einheit=None, toleranz=0.01), g="mehrschritt", regel=HZ,
-    zweifel="Heron-Verfahren (Mittelwert aus Näherung und Quotient): hoch_zurueck trägt nur die Probe")
+    [B("4.5", "nur den ersten Schritt gerechnet"), B("(4.5 + 20) / 2", "die Klammer weggelassen und 20 statt des Quotienten zu 4,5 addiert"), B("20 / 4.5", "nur den Quotienten genommen, ohne den Mittelwert")], einheit=None, toleranz=0.01), g="mehrschritt", ohne="Heron-Verfahren (Mittelwert aus Näherung und Quotient): keine Regel des Katalogs trägt den Rechenschritt")
 neu(T, "heron", "umkehren", Z(
     "Ein Rechteck hat die Seiten 8 cm und 4,5 cm, die Fläche ist 36 cm². Man ersetzt die Länge durch den Mittelwert beider Seiten, also 6,25 cm, und passt die Breite so an, dass die Fläche 36 cm² bleibt. Wie breit ist das neue Rechteck in Zentimetern?",
     5.76, "36 / 6.25", "36 / ((8 + 4.5) / 2)", "Die Fläche bleibt gleich: Länge mal Breite = 36. Teile 36 durch die neue Länge.",
     "Die neue Länge ist (8 + 4,5) : 2 = 6,25 cm. Aus 6,25 · b = 36 folgt b = 36 : 6,25 = 5,76 cm. Die Seiten 6,25 und 5,76 liegen näher an √36 = 6.",
-    [B("36 / 8", "mit der alten Länge geteilt"), B("6.25 - 4.5", "den Unterschied der Seiten statt der neuen Breite berechnet"), B("36 * 6.25", "mit der neuen Länge malgenommen statt geteilt")], einheit="cm"), g="umkehr", regel=HZ,
-    zweifel="Heron-Verfahren als Rechteck: Flächenerhaltung, hoch_zurueck nur als Zielgröße")
+    [B("36 / 8", "mit der alten Länge geteilt"), B("6.25 - 4.5", "den Unterschied der Seiten statt der neuen Breite berechnet"), B("36 * 6.25", "mit der neuen Länge malgenommen statt geteilt")], einheit="cm"), g="umkehr", ohne="Flächenerhaltung beim Rechteck (Länge mal Breite bleibt gleich): keine Regel des Katalogs trägt den Rechenschritt")
 # ───────── wurzel_mal ─────────
 neu(T, "wurzel_mal", "anwenden", Z(
     "Wie groß ist √18 · √50? Fasse die beiden Wurzeln zu einer zusammen.",
@@ -57,8 +55,7 @@ neu(T, "wurzel_mal", "verfahren_waehlen", W(
     "√100 : √4 = √25", [("√9 + √16 = √25", "3 + 4 = 7, aber √25 = 5: Plus unter der Wurzel gilt nicht"), ("√100 − √36 = √64", "10 − 6 = 4, aber √64 = 8: Minus unter der Wurzel gilt nicht")],
     "Rechne beide Seiten jeder Gleichung einzeln aus und vergleiche.",
     "√100 : √4 = 10 : 2 = 5 = √25. Beim Teilen und Malnehmen darf man unter einer Wurzel zusammenfassen, bei Plus und Minus nicht.",
-    lambda: math.isclose(math.sqrt(100) / math.sqrt(4), math.sqrt(25)) and not math.isclose(math.sqrt(9) + math.sqrt(16), math.sqrt(25)) and not math.isclose(math.sqrt(100) - math.sqrt(36), math.sqrt(64))), g="pruefung", regel=HZ,
-    zweifel="Rechengesetze für Wurzeln: hoch_zurueck, aber kein eigener Eintrag für das Zusammenfassen unter einer Wurzel")
+    lambda: math.isclose(math.sqrt(100) / math.sqrt(4), math.sqrt(25)) and not math.isclose(math.sqrt(9) + math.sqrt(16), math.sqrt(25)) and not math.isclose(math.sqrt(100) - math.sqrt(36), math.sqrt(64))), g="pruefung", ohne="Rechengesetze für Wurzeln (Malnehmen und Teilen unter einer Wurzel zusammenfassen): keine Regel des Katalogs trägt genau diesen Schritt")
 # ───────── teilweise ─────────
 neu(T, "teilweise", "anwenden", Z(
     "Ein quadratisches Beet hat 98 m² Fläche. Seine Seite lässt sich als a · √2 Meter schreiben. Welche ganze Zahl ist a?",

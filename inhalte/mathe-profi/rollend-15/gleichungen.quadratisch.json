@@ -54,7 +54,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Du löst 2x² − 98 = 0. Es folgt x² = ①. Die beiden Lösungen sind ② und ③.",
+     "text": "Du löst 2x² − 98 = 0. Es folgt x² = ①. ② ist die positive und ③ die negative Lösung.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -205,6 +205,13 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
     }
    ],
    "aufgabe": {
@@ -215,18 +222,19 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Sam löst 6x² = 18x: Zeile 1: Teile ich beide Seiten durch 6x, bleibt x = 3. Zeile 2: Probe: Für x = 3 ist 6 · 9 = 54 und 18 · 3 = 54. Zeile 3: Also hat die Gleichung nur die Lösung x = 3. In welcher Zeile passiert der erste Fehler?"
+     "text": "Sam löst 6x² = 18x: Zeile 1: Ich bringe alles auf eine Seite: 6x² − 18x = 0. Zeile 2: Ich klammere 6x aus: 6x(x − 3) = 0. Zeile 3: Ein Produkt ist null, wenn ein Faktor null ist, also muss hier nur der Faktor x − 3 null sein. Zeile 4: Die Gleichung hat deshalb nur die Lösung x = 3. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
      "In Zeile 2",
-     "In Zeile 3"
+     "In Zeile 3",
+     "In Zeile 4"
     ],
     "o": {
      "index": 2
     },
-    "h": "Setze x = 0 in die Gleichung ein. Stimmt sie dann?",
-    "w": "Auch x = 0 löst die Gleichung: 6 · 0 = 18 · 0. Beim Teilen durch 6x ging diese Lösung verloren (durch 0 darf man nicht teilen). Besser: 6x² − 18x = 6x(x − 3) = 0, also x = 0 oder x = 3. Der Fehler steckt in Zeile 3."
+    "h": "Das Produkt 6x(x − 3) hat zwei Faktoren. Wann ist der erste Faktor null?",
+    "w": "Beim Nullprodukt kann jeder Faktor null sein: 6x = 0 gibt x = 0, und x − 3 = 0 gibt x = 3. Sam hat den Faktor 6x übersehen. Probe: Für x = 0 gilt 6 · 0 = 18 · 0. Die Lösungen sind x = 0 und x = 3. Der Fehler steckt in Zeile 3, Zeile 4 folgt daraus."
    }
   },
   {
@@ -712,7 +720,7 @@
      "antwort": 12,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch 4 geteilt statt durch 2"
+     "beschreibung": "bei −b das Vorzeichen falsch gesetzt (9 statt −9) und durch 4 geteilt"
     }
    ],
    "aufgabe": {

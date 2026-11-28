@@ -39,6 +39,12 @@ const AUFG = {
   501: { id: 501, lernziel: 'stellenwert', stufe: 3, typ: 'knobel', bonus: true, antworttyp: 'zahl', frage: { text: 'Knobel: Welche Zahl ist um 4 kleiner, wenn man sie erst um 20 % erhöht und dann um 20 % senkt?' }, loesung: { wert: 100 } },
   14: { id: 14, lernziel: 'lesen', antworttyp: 'auswahl', frage: { text: 'Wie liest man 11 490 051?' }, antworten: ['elf Millionen vierhundertneuntausend…', 'elf Millionen vierhundertneunzigtausendeinundfünfzig'], loesung: { index: 1 } },
 };
+// MI: Auswahl-Bordkarten mit vier Optionen für das Mischen im Test (31, 32 werden gemischt, 33 nicht – „Beide gleich“ ist eine Sammeloption)
+Object.assign(AUFG, {
+  31: { id: 31, lernziel: 'lesen', antworttyp: 'auswahl', frage: { text: 'Welche Zahl ist am größten?' }, antworten: ['Neun Zehntel', 'Drei Halbe', 'Sieben Viertel', 'Zwei Drittel'], loesung: { index: 2 } },
+  32: { id: 32, lernziel: 'strahl', antworttyp: 'auswahl', frage: { text: 'Welche Form hat vier gleich lange Seiten?' }, antworten: ['Dreieck', 'Raute', 'Trapez', 'Fünfeck'], loesung: { index: 1 } },
+  33: { id: 33, lernziel: 'binomisch', antworttyp: 'auswahl', frage: { text: 'Welcher Datensatz hat die größere Spannweite?' }, antworten: ['Datensatz A', 'Datensatz B', 'Beide gleich'], loesung: { index: 2 } },
+});
 const ETAPPEN = [
   { lernziel: 'stellenwert', titel: 'Welchen Wert hat eine Ziffer?', regel: 'Jeder Platz ist ⟦10-mal⟧ so viel wert wie der rechts daneben.', schritte: ['In 4 052 steht die ⟦4⟧ bei den Tausendern.', 'Also ist sie 4 000 wert.'],
     fehler: 'Die 0 hält einen Platz frei.', bild: { typ: 'stellentafel', stellen: ['T', 'H', 'Z', 'E'], ziffern: ['4', '0', '5', '2'], markiert: 0 } },
@@ -422,6 +428,124 @@ test('Lernen: Test ohne Lösungen bis zur Abgabe, danach Auswertung', async (t) 
   await page.getByText('Richtig: ', { exact: false }).first().waitFor();
   assert.deepEqual(calls.filter((c) => c.aktion === 'schule_test_antwort').map((c) => c.daten.antwort), [{ index: 1 }, { index: 2 }]);
   assert.equal(calls.filter((c) => c.aktion === 'schule_test_abschliessen').length, 1);
+});
+
+// MI: Mischen der Auswahl-Optionen im Test – Server simuliert mit wechselnder Sitzungs-ID
+async function miSetup(t) {
+  const st = { sitzung: 501, antworten: {} };
+  const ohneLoesung = (a) => { const { loesung, ...r } = a; return r; };
+  const r = await setup(t, { anpassen: (aktion, e, d) => {
+    if (aktion === 'schule_test_starten') return { ok: true, sitzung_id: st.sitzung, art: d.art, aufgaben: [AUFG[31], AUFG[32], AUFG[33]].map(ohneLoesung), beantwortet: [] };
+    if (aktion === 'schule_test_antwort') { st.antworten[d.aufgabe_id] = d.antwort; return e; }
+    if (aktion === 'schule_test_abschliessen') {
+      const erg = [AUFG[31], AUFG[32], AUFG[33]].map((a) => ({ aufgabe_id: a.id, lernziel: a.lernziel, frage: a.frage, antworten: a.antworten, antwort: st.antworten[a.id] ?? null,
+        richtig: st.antworten[a.id]?.index === a.loesung.index, loesung: a.loesung, loesungsweg: 'Weg.' }));
+      return { ok: true, sitzung_id: st.sitzung, richtig: erg.filter((x) => x.richtig).length, gesamt: 3, ergebnisse: erg, lernziele: [], einheit_abgeschlossen: false, ort: { abgeschlossen: false } };
+    }
+    return e;
+  } });
+  return { ...r, st };
+}
+const miOptionen = (page) => page.locator('.lern-test .lern-option').allInnerTexts().then((l) => l.map((x) => x.trim()));
+const miErwartet = (page, id, sitzung) => page.evaluate(([a, s]) => { const r = lernTestReihenfolge(a, s); return r ? r.map((i) => a.antworten[i]) : a.antworten.slice(); }, [AUFG[id], sitzung]);
+
+test('MI: Auswahl im Test gemischt – fest je Sitzung und Aufgabe, Antwort an den Server = Originalindex, Tastatur, Neuladen, neue Sitzung', async (t) => {
+  const { page, calls, st } = await miSetup(t);
+  await page.goto(origin + '/#/lerneinheit/1-1-test');
+  await page.getByRole('button', { name: 'Test starten' }).click();
+  await page.locator('.lern-test .lern-option').first().waitFor();
+  const e31 = await miErwartet(page, 31, 501), e32 = await miErwartet(page, 32, 501);
+  assert.notDeepEqual(e31, AUFG[31].antworten, 'Sitzung 501 mischt Bordkarte 31 (fester Zufall)');
+  assert.deepEqual(await miOptionen(page), e31, 'Anzeige = Reihenfolge aus Sitzung + Aufgabe');
+  assert.equal(await page.locator('.lern-test .lern-auswahl[data-gemischt="1"]').count(), 1);
+  // „Drei Halbe“ (Original 1) steht in Sitzung 501 an Stelle 0: gesendet wird Index 1
+  assert.equal(e31.indexOf('Drei Halbe'), 0, 'Anzeigestelle ≠ Originalindex (sonst prüft der Test nichts)');
+  await page.locator('.lern-test .lern-option', { hasText: 'Drei Halbe' }).click();
+  await page.getByRole('button', { name: 'Weiter ›' }).click();
+  await page.getByText('Bordkarte 2 von 3').waitFor();
+  assert.deepEqual(await miOptionen(page), e32);
+  // Tastatur: erste angezeigte Option fokussieren, zweimal Pfeil runter = dritte ANGEZEIGTE Option; gesendet wird deren Originalindex
+  await page.locator('.lern-test .lern-option input').first().focus();
+  await page.keyboard.press('Space'); await page.keyboard.press('ArrowDown'); await page.keyboard.press('ArrowDown');
+  const zweite = AUFG[32].antworten.indexOf(e32[2]);
+  assert.notEqual(zweite, 2, 'Anzeigestelle ≠ Originalindex');
+  assert.equal((await page.locator('.lern-test .lern-option:has(input:checked)').innerText()).trim(), e32[2]);
+  await page.getByRole('button', { name: 'Weiter ›' }).click();
+  await page.getByText('Bordkarte 3 von 3').waitFor();
+  assert.deepEqual(await miOptionen(page), AUFG[33].antworten, 'Sammeloption „Beide gleich“: nicht gemischt');
+  assert.equal(await page.locator('.lern-test .lern-auswahl[data-gemischt]').count(), 0);
+  // Zurück: dieselbe Reihenfolge, gewählte Option bleibt markiert
+  await page.getByRole('button', { name: '‹ Zurück' }).click(); await page.getByText('Bordkarte 2 von 3').waitFor();
+  await page.getByRole('button', { name: '‹ Zurück' }).click(); await page.getByText('Bordkarte 1 von 3').waitFor();
+  assert.deepEqual(await miOptionen(page), e31);
+  assert.equal((await page.locator('.lern-test .lern-option:has(input:checked)').innerText()).trim(), 'Drei Halbe');
+  const gesendet = calls.filter((c) => c.aktion === 'schule_test_antwort').map((c) => [c.daten.aufgabe_id, c.daten.antwort]);
+  assert.deepEqual(gesendet.slice(0, 2), [[31, { index: 1 }], [32, { index: zweite }]], 'Antwort im bisherigen Format mit Originalindex');
+  // Neuladen (oder zweites Gerät): gleiche Sitzung → gleiche Reihenfolge
+  await page.reload();
+  await page.getByRole('button', { name: 'Test starten' }).click();
+  await page.locator('.lern-test .lern-option').first().waitFor();
+  assert.deepEqual(await miOptionen(page), e31, 'nach Neuladen gleich');
+  // neue Sitzung → andere Reihenfolge (fester Zufall: für 502 bei Bordkarte 31 oder 32 verschieden)
+  st.sitzung = 502; await page.reload();
+  await page.getByRole('button', { name: 'Test starten' }).click();
+  await page.locator('.lern-test .lern-option').first().waitFor();
+  const n31 = await miErwartet(page, 31, 502), n32 = await miErwartet(page, 32, 502);
+  assert.deepEqual(await miOptionen(page), n31);
+  assert.ok(JSON.stringify([n31, n32]) !== JSON.stringify([e31, e32]), 'neue Sitzung, neue Reihenfolge');
+  // Abgeben: Auswertung nennt die richtige Option (Text über den Originalindex)
+  assert.notEqual(n31.indexOf('Neun Zehntel'), 0); assert.notEqual(n32.indexOf('Raute'), 1);
+  await page.locator('.lern-test .lern-option', { hasText: 'Neun Zehntel' }).click(); // falsch (Original 0)
+  await page.getByRole('button', { name: 'Weiter ›' }).click(); await page.getByText('Bordkarte 2 von 3').waitFor();
+  await page.locator('.lern-test .lern-option', { hasText: 'Raute' }).click(); // richtig (Original 1)
+  await page.getByRole('button', { name: 'Weiter ›' }).click(); await page.getByText('Bordkarte 3 von 3').waitFor();
+  await page.locator('.lern-test .lern-option', { hasText: 'Beide gleich' }).click();
+  await page.getByRole('button', { name: 'Abgeben' }).click();
+  await page.getByText('2 von 3 richtig').waitFor();
+  const karte = page.locator('.lern-rueck-karte').first();
+  assert.match(await karte.innerText(), /Deine Antwort: Neun Zehntel[\s\S]*Richtig: Sieben Viertel/);
+  assert.deepEqual(calls.filter((c) => c.aktion === 'schule_test_antwort').slice(-3).map((c) => c.daten.antwort), [{ index: 0 }, { index: 1 }, { index: 2 }]);
+});
+
+test('MI: Lösungsanzeige auf gemischter Bordkarte, Ausnahmen der Erkennung, Übung unverändert, Schalter', async (t) => {
+  const { page } = await setup(t);
+  await page.goto(origin + '/#/lerneinheit/1-1-test');
+  await page.getByRole('button', { name: 'Test starten' }).waitFor();
+  const r = await page.evaluate((a) => {
+    const auf = lernAufgabe(a, { index: 1 }, { reihenfolge: [2, 0, 3, 1] }); document.body.append(auf.node);
+    auf.zeigeLoesung({ index: 2 });
+    const texte = [...auf.node.querySelectorAll('.lern-option')].map((x) => x.querySelector('span').textContent);
+    const ue = lernAufgabe(a); // Übung: ohne Reihenfolge
+    return { texte, richtig: auf.node.querySelector('.ist-richtig span').textContent, falsch: auf.node.querySelector('.ist-falsch span').textContent,
+      gewaehlt: auf.node.querySelector('input:checked').closest('label').querySelector('span').textContent, antwort: auf.antwort(),
+      uebung: [...ue.node.querySelectorAll('.lern-option span')].map((x) => x.textContent), ungueltig: [...lernAufgabe(a, null, { reihenfolge: [0, 0, 1, 2] }).node.querySelectorAll('.lern-option span')].map((x) => x.textContent),
+      zweimal: JSON.stringify(lernTestReihenfolge(a, 9)) === JSON.stringify(lernTestReihenfolge(a, 9)), ohneSitzung: lernTestReihenfolge(a, null) };
+  }, AUFG[31]);
+  assert.deepEqual(r.texte, ['Sieben Viertel', 'Neun Zehntel', 'Zwei Drittel', 'Drei Halbe']);
+  assert.equal(r.richtig, 'Sieben Viertel', 'grün = Originalindex der Lösung'); assert.equal(r.falsch, 'Drei Halbe', 'rot = gewählte Option');
+  assert.equal(r.gewaehlt, 'Drei Halbe'); assert.deepEqual(r.antwort, { index: 1 });
+  assert.deepEqual(r.uebung, AUFG[31].antworten, 'Übung: Reihenfolge wie geliefert'); assert.deepEqual(r.ungueltig, AUFG[31].antworten, 'kaputte Reihenfolge: unverändert');
+  assert.ok(r.zweimal); assert.equal(r.ohneSitzung, null);
+  // Erkennung: nicht mischen (Grund) bzw. mischen (null) – Beispiele aus den Aufgabendateien und Muster
+  const faelle = await page.evaluate((liste) => liste.map(([antworten, frage]) => lernMischAusnahme({ antworttyp: 'auswahl', antworten, frage: { text: frage || 'Frage?' } })), [
+    [['Datensatz A', 'Datensatz B', 'Beide gleich']], [['geometrisch', 'arithmetisch', 'weder noch']], [['x', 'y', 'beides']],
+    [['keine dieser Symmetrien', 'achsensymmetrisch zur y-Achse', 'punktsymmetrisch zum Ursprung']], [['keine davon', 'h', 'k', 'g']],
+    [['durch 3 und durch 9', 'weder durch 3 noch durch 9', 'nur durch 9']], [['A und B', 'B und C', 'nur A']], [['alle oben genannten', '1', '2']],
+    [['a) 12', 'b) 13', 'c) 14']], [['3', '4', 'keine der anderen Antworten']], [['5', '6', '7']], [['wie die erste Antwort', '1', '2']],
+    [['1', '2', '3'], 'Ist Antwort B richtig?'], [['1', '2', '3'], 'Welche der obigen Zahlen ist gerade?'],
+    // mischen: eigene Inhalte, auch mit „kein“, „beide“, „erste“
+    [['keine Lösung', 'zwei Lösungen: x = −2 und x = 12', 'unendlich viele']], [['kein Zusammenhang', 'positiv', 'negativ']],
+    [['Beide Angaben sind falsch, denn man darf nie runden.', 'Nur die erste ist richtig, denn man rundet auf Tausender.', 'Nur die zweite ist richtig.']],
+    [['Punkt B', 'Punkt D', 'Punkt A']], [['233,1°', '306,9°', '53,1°'], 'cos x = −0,6 hat x₁ ≈ 126,9°. Welche ist die zweite Lösung?'],
+    [['Ja, keine der Zahlen 2, 3, 5, 7 geht auf.', 'Nein, durch 3.', 'Nein, durch 7.']], [['0,025 %', '0,25 %', '2,5 %', '25 %']],
+  ]);
+  assert.deepEqual(faelle, ['sammeloption', 'sammeloption', 'sammeloption', 'sammeloption', 'sammeloption', 'weder_noch', 'buchstaben', 'bezug', 'beschriftet', 'bezug', null, 'position',
+    'frage_kennung', 'frage_lage', null, null, null, null, null, null, null]);
+  // Schalter an einer Stelle; nur die Test-Sitzung reicht eine Reihenfolge weiter (Übung, Wiederholung, Knobel, Expedition nicht)
+  const quelle = fs.readFileSync(path.join(root, 'lernen.js'), 'utf8');
+  assert.match(quelle, /^const LERN_TEST_MISCHEN = true;/m);
+  assert.equal((quelle.match(/reihenfolge: lernTestReihenfolge\(/g) || []).length, 1);
+  assert.ok(quelle.indexOf('reihenfolge: lernTestReihenfolge(') > quelle.indexOf('function lernTestLauf('), 'nur in lernTestLauf');
 });
 
 test('Lehrplan (LM, früher LA-7): Inhaltsstand, Aufträge, Lernstand je Kind, Inhalte ansehen und Bauen lassen im Detail der Matrix', async (t) => {
@@ -7948,7 +8072,19 @@ test('ADV 12: Karte – Sonderfälle 6.12. Stiefel, 24.12. Schlitten quer über 
     assert.equal(await page.locator('.rk').getAttribute('data-fest-sonder'), sonder, `${tag}.12.`);
     assert.equal(await page.locator('#rkf-weltbahn').count(), tag === 24 ? 1 : 0, `${tag}.12. Weltbahn`);
     assert.equal(await page.locator('.rk-fest .feuerwerk').count(), tag === 31 ? 3 : 0);
-    if (tag === 24) { await page.waitForTimeout(1500); assert.notEqual(await page.locator('.rkf-schlitten').evaluate((e) => getComputedStyle(e).display), 'none', 'Schlitten fliegt'); }
+    if (tag === 24) {
+      // Früher fest 1,5 s gewartet und einmal geprüft: unter Last kam das erste Bild der Schleife später, und ein zweiter Aufbau der Rand-Ebene (z. B. Schild lädt nach,
+      // „Gerade dran“ wird höher) beendete den Flug („heute schon geflogen“). Jetzt: warten, bis er fliegt (Flug dauert 7 s), dann Neuaufbau mitten im Flug – er fliegt weiter.
+      const fliegt = () => page.locator('.rkf-schlitten').evaluate((e) => getComputedStyle(e).display !== 'none' && /translate/.test(e.style.transform));
+      await page.waitForFunction(() => { const e = document.querySelector('.rkf-schlitten'); return e && getComputedStyle(e).display !== 'none' && /translate/.test(e.style.transform); }, null, { timeout: 6000 });
+      const lage1 = await page.locator('.rkf-schlitten').evaluate((e) => e.style.transform);
+      await page.setViewportSize({ width: 391, height: 844 }); await page.waitForTimeout(400); // Rand-Ebene wird neu aufgebaut
+      assert.ok(await fliegt(), 'Schlitten fliegt nach Neuaufbau weiter');
+      assert.notEqual(await page.locator('.rkf-schlitten').evaluate((e) => e.style.transform), lage1, 'und bewegt sich');
+      // einmal am Tag: neu laden (gleiches Gerät, gleicher Tag) – kein zweiter Flug
+      await page.reload(); await page.locator('.rk .rk-pin').first().waitFor(); await page.waitForTimeout(1500);
+      assert.equal(await page.locator('.rkf-schlitten').evaluate((e) => getComputedStyle(e).display), 'none', 'am selben Tag nur einmal');
+    }
     await page.close();
   }
 });
@@ -7992,4 +8128,47 @@ test('ADV 14: Ladezeit – Reiseseite im Fenster: höchstens ein Advent-Abruf je
   const med = (xs) => xs.map((x) => x.fps).sort((a, b) => a - b)[1];
   console.log(`# ADV Bildrate beim Ziehen (390 px, CPU 4×): ohne Ebene ${med(fps.aus).toFixed(1)} fps, mit Ebene ${med(fps.an).toFixed(1)} fps; längstes Bild ${Math.round(Math.max(...fps.aus.map((x) => x.max)))} / ${Math.round(Math.max(...fps.an.map((x) => x.max)))} ms`);
   assert.ok(med(fps.an) > 5, 'Karte bleibt bedienbar');
+});
+
+// ---------- Advent-Feinschliff: Bilder vorher/nachher (nur mit ADV_BILDER=vorher|nachher) ----------
+// Kalender (Tür „nachholen“) bei 390 und 320 px, Karte unten (Quellenzeile, Jugendwort-Schild) bei 390 und 320 px
+// Beschriftungen der Türen, deren Text über das Feld hinausragt (Text als Range gemessen, nicht nur scrollWidth)
+const advAngeschnitten = (page) => page.evaluate(() => [...document.querySelectorAll('.td2 .s')].filter((s) => s.textContent.trim()).flatMap((s) => {
+  const b = s.getBoundingClientRect(); const k = s.closest('.td2').getBoundingClientRect(); const w = document.createTreeWalker(s, NodeFilter.SHOW_TEXT); const t = [];
+  for (let n = w.nextNode(); n; n = w.nextNode()) { const r = document.createRange(); r.selectNodeContents(n); t.push(...r.getClientRects()); }
+  return t.some((x) => x.width && (x.right > Math.min(b.right, k.right - 2) + .5 || x.left < Math.max(b.left, k.left) - .5)) ? [`${s.closest('.td2').dataset.nr}:${s.textContent.trim()}`] : []; }));
+const advUeberlapp = (page) => page.evaluate(() => { // Mützen/Häubchen, die in die Quellenzeile oder das Jugendwort-Schild ragen (Bildschirm-Rechtecke)
+  const r = (e) => e && e.getBoundingClientRect(); const ziele = [['quelle', r(document.querySelector('.rk-quelle'))], ['jw', r(document.querySelector('.rk-schwebe-karte .lr-jw-ecke'))], ['schwebe', r(document.querySelector('.rk-schwebe-karte'))]].filter(([, b]) => b && b.width);
+  const schnitt = (a, b) => Math.max(0, Math.min(a.right, b.right) - Math.max(a.left, b.left)) * Math.max(0, Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top));
+  return [...document.querySelectorAll('.rk-fest use')].flatMap((u) => { const b = u.getBoundingClientRect(); return ziele.filter(([, z]) => schnitt(b, z) > 1).map(([n]) => `${u.getAttribute('href')}→${n}`); }); });
+test('ADV 15: Feinschliff – Tür „nachholen“ bei 390 und 320 px nicht angeschnitten; Mützen, Häubchen und die Mütze am Jugendwort-Schild lassen die Quellenzeile frei', async (t) => {
+  for (const breite of [390, 320]) {
+    const { page } = await advSeite(t, { karte: true, srv: { offen: [1, 2, 5], etappen: 0, heute: '2026-12-07' }, gestaltung: 'nacht', breite });
+    await page.goto(origin + '/#/advent/1'); await page.locator('.tafel').waitFor();
+    assert.equal(await page.locator('.td2.nachholen').count(), 3);
+    assert.deepEqual(await advAngeschnitten(page), [], `${breite} px: keine Beschriftung über den Rand`);
+    await advReise(page); await page.locator('.rk-schwebe-karte .lr-jw-ecke').waitFor(); await page.waitForTimeout(300);
+    assert.deepEqual(await advUeberlapp(page), [], `${breite} px: keine Mütze/kein Häubchen in Quellenzeile oder Schild`);
+    const jw = await page.evaluate(() => { const m = document.querySelector('.rk-schwebe-karte .lr-jw-ecke > .lr-fest-jw-muetze'); const q = document.querySelector('.rk-quelle').getBoundingClientRect();
+      const b = m.getBoundingClientRect(); return { seite: m.dataset.seite, frei: b.width === 0 || b.right < q.left || b.left > q.right || b.bottom < q.top || b.top > q.bottom, hidden: m.getAttribute('aria-hidden') }; });
+    assert.ok(jw.frei && jw.hidden === 'true', `${breite} px: Mütze am Schild ${JSON.stringify(jw)}`);
+    const haube = await page.evaluate(() => { const k = document.querySelector('.rk-schwebe-karte').getBoundingClientRect(); const q = document.querySelector('.rk-quelle').getBoundingClientRect(); return k.top - 3 >= q.bottom - .5; });
+    assert.ok(haube, `${breite} px: Schneehaube unter der Quellenzeile`);
+    await page.close();
+  }
+});
+
+test('ADV Bilder: Kalender „nachholen“ 390/320 px und Karte unten (Mützen und Quellenzeile) – Bilder vorher/nachher', { skip: !process.env.ADV_BILDER }, async (t) => {
+  const ziel = path.join(root, 'inhalte/design/advent/umsetzung-bilder'); fs.mkdirSync(ziel, { recursive: true }); const art = process.env.ADV_BILDER;
+  for (const breite of [390, 320]) for (const gestaltung of ['tag', 'nacht']) {
+    const { page } = await advSeite(t, { karte: true, srv: { offen: [1, 2, 5], etappen: 0, heute: '2026-12-07' }, gestaltung, breite });
+    await page.goto(origin + '/#/advent/1'); await page.locator('.tafel').waitFor(); await page.waitForTimeout(300);
+    console.log(`# ADV Bilder ${art} Kalender ${breite} ${gestaltung}: angeschnitten ${JSON.stringify(await advAngeschnitten(page))}`);
+    await page.locator('.tafel').screenshot({ path: path.join(ziel, `${art}-a-kalender-nachholen-${breite}-${gestaltung}.png`) });
+    await advReise(page); await page.waitForTimeout(800);
+    console.log(`# ADV Bilder ${art} Karte ${breite} ${gestaltung}: ${JSON.stringify(await advUeberlapp(page))}`);
+    const rb = await page.locator('.rk-rahmen').boundingBox();
+    await page.screenshot({ path: path.join(ziel, `${art}-b-karte-unten-${breite}-${gestaltung}.png`), clip: { x: rb.x, y: Math.max(rb.y, rb.y + rb.height - 300), width: rb.width, height: Math.min(300, rb.height) } });
+    await page.close();
+  }
 });

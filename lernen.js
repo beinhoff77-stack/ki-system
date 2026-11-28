@@ -3324,12 +3324,16 @@ function lernAufgabe(a, vorher, opts = {}) {
   } else if (f.grafik) teile.push(f.grafik.typ && f.grafik.typ !== 'zahlenstrahl' ? lernBild(f.grafik) : lernZahlenstrahl(f.grafik, false));
   if (a.antworttyp === 'auswahl') {
     const name = 'a' + a.id + '-' + Math.random().toString(36).slice(2, 7);
-    teile.push(el('div', { class: 'lern-auswahl', role: 'radiogroup' }, (a.antworten || []).map((t, i) => {
+    // MI (Mischen im Test): opts.reihenfolge = Originalindizes in Anzeige-Reihenfolge. i bleibt überall der ORIGINALindex
+    // (Antwort an den Server, Vorbelegung, Lösungsanzeige); nur die Reihenfolge im DOM ändert sich.
+    const liste = a.antworten || [];
+    const folge = lernReihenfolgeGueltig(opts.reihenfolge, liste.length) ? opts.reihenfolge : liste.map((_, i) => i);
+    teile.push(el('div', { class: 'lern-auswahl', role: 'radiogroup', ...(folge.some((x, p) => x !== p) ? { 'data-gemischt': '1' } : {}) }, folge.map((i) => [liste[i], i]).map(([t, i]) => {
       const inp = el('input', { type: 'radio', name, value: String(i) });
       if (wert?.index === i) inp.checked = true;
       inp.addEventListener('change', () => { wert = { index: i }; });
       felder.push(inp);
-      const lab = el('label', { class: 'lern-option' }, inp, el('span', {}, lernMathe(t))); optionen.push(lab); return lab;
+      const lab = el('label', { class: 'lern-option' }, inp, el('span', {}, lernMathe(t))); lab.dataset.index = String(i); optionen.push(lab); return lab;
     })));
   } else if (a.antworttyp === 'zahl' || a.antworttyp === 'text') {
     const inp = el('input', { type: 'text', autocomplete: 'off', autocapitalize: a.antworttyp === 'text' ? 'characters' : 'off',
@@ -3431,7 +3435,7 @@ function lernAufgabe(a, vorher, opts = {}) {
   } : null;
   // Nach dem Prüfen (Auswahl): gewählte falsche Antwort rot mit ✗, richtige grün mit ✓ – nicht nur über Farbe.
   const zeigeLoesung = (loesung) => { if (a.antworttyp !== 'auswahl' || loesung?.index === undefined) return;
-    optionen.forEach((lab, i) => { const richtigHier = i === loesung.index, gewaehlt = wert?.index === i; if (!richtigHier && !gewaehlt) return;
+    optionen.forEach((lab) => { const i = Number(lab.dataset.index); const richtigHier = i === loesung.index, gewaehlt = wert?.index === i; if (!richtigHier && !gewaehlt) return;
       lab.classList.add(richtigHier ? 'ist-richtig' : 'ist-falsch'); lernAnhaengen(lab, el('span', { class: 'lern-option-zeichen', 'aria-label': richtigHier ? 'richtig' : 'falsch' }, richtigHier ? '✓' : '✗')); }); };
   return { node: el('div', { class: 'lern-aufgabe' }, ...teile), antwort: () => wert, fehlerText: () => fehler, tasten, zeigeLoesung,
     sperren: (an = true) => { felder.forEach((x) => { x.disabled = an; }); stellenNeu?.(); } };
@@ -5277,6 +5281,68 @@ async function viewMerkheft(arg) {
 }
 
 // ---------- Test ----------
+// MI (Entscheidung des Nutzers): Auswahl-Bordkarten im Test (Flug-Test, Verbessern, Nachtest – alles über die Test-Sitzung) zeigen die Optionen
+// gemischt, damit die Position nicht erratbar ist. Gemischt wird NUR in der Anzeige: an den Server geht weiter { index: <Originalindex> };
+// Auswertung, Fehlbilder (art 'index'), Ergebnis, Merkheft, Eltern-/Lehrer-Ansichten arbeiten unverändert mit dem Originalindex.
+// Reihenfolge fest aus Sitzungs-ID + Aufgaben-ID (gleich bei Neuladen, Zurück/Vor, zweitem Gerät; neue Sitzung = neue Reihenfolge).
+// Übungen, Wiederholung, Knobel und Expedition mischen nicht.
+const LERN_TEST_MISCHEN = true; // Schalter: false = Reihenfolge wie in der Datenbank (wie bis 0.96.0)
+const LERN_MISCHEN_ZAHLENFOLGE_BEHALTEN = false; // true = rein numerische, schon auf- oder absteigend sortierte Optionen nicht mischen (offene Frage an den Nutzer)
+// Nicht mischen, wenn eine Option auf andere Optionen oder auf ihre Position verweist (vorsichtig: lieber einmal zu oft ausnehmen).
+const LERN_MISCH_SAMMELWORT = /^(beide|beides|beiden|kein|keine|keiner|keines|keins|keinen|alle|alles|weder|sowohl|nichts|niemand|jede|jeder|jedes)$/;
+// Kurze Sammeloption: „beide“, „keine“, „alle“, „beide gleich“, „keins davon“, „keiner der beiden“, „alle richtig“ … – NICHT „keine Lösung“, „kein Zusammenhang“, „jede Zahl“ (eigene Inhalte)
+const LERN_MISCH_SAMMEL_ZWEIT = /^(gleich|gleichzeitig|gleich\p{L}*|richtig|falsch|stimmt|stimmen|davon|dieser|diese|sind|ist|haben|hat|beide|beiden|noch|zusammen|von|der|die|des|genannten|anderen|übrigen|möglich|zutreffend|treffen|passen|passt)$/u;
+const LERN_MISCH_MUSTER = [
+  ['bezug', /(^|[^\p{L}])(keine|keiner|keines|keins|kein|alle|allen|aller|beide|beiden|beides|nichts|jede|jeder|jedes)\s+(davon|dieser|diese|diesen|genannten|obigen|oben|vorigen|vorherigen)(?![\p{L}])/u],
+  ['bezug', /(^|[^\p{L}])(keine|keiner|keines|keins|alle|allen|aller|beide|beiden)\s+(?:(?:der|die|den)\s+)?(?:(?:anderen|übrigen|beiden)\s+)?(antwort\p{L}*|aussage\p{L}*|möglichkeit\p{L}*|option\p{L}*|angabe\p{L}*|auswahl\p{L}*|anderen|übrigen)\s*([.,;:!)]|$)/u],
+  ['beides', /(^|[^\p{L}])beides(?![\p{L}])/u],
+  ['weder_noch', /(^|[^\p{L}])(weder|sowohl)(?![\p{L}])/u],
+  ['lage', /(^|[^\p{L}])(obig\p{L}*|oben\s+genannt\p{L}*|unten\s+genannt\p{L}*|untenstehend\p{L}*|obenstehend\p{L}*|vorstehend\p{L}*|nachstehend\p{L}*|vorig\p{L}*|vorherig\p{L}*|nachfolgend\p{L}*)(?![\p{L}])/u],
+  ['position', /(^|[^\p{L}])(erste|zweite|dritte|vierte|fünfte|letzte|vorletzte|obere|untere|mittlere)[nrsm]?\s+(antwort|option|aussage|möglichkeit|auswahl|wahl|zeile)(?![\p{L}])/u],
+  ['kennung', /(^|[^\p{L}])(antwort|option|möglichkeit|auswahl|aussage|angabe)(en)?\s*\(?[a-e1-5]\)?(?![\p{L}\d])/u],
+  ['beschriftet', /^\(?[a-e1-5][).:]\s/u],
+  ['buchstaben', /^(nur\s+)?[a-e](\s*(,|und|oder|sowie|&|\+)\s*[a-e])+$/u],
+];
+const LERN_MISCH_FRAGE = LERN_MISCH_MUSTER.filter(([g]) => ['lage', 'position', 'kennung'].includes(g)); // Frage verweist auf Optionen („Antwort B“, „obige“, „die erste Antwort“)
+const lernMischText = (t) => String(t ?? '').replace(/[⟦⟧]/g, '').toLocaleLowerCase('de').replace(/\s+/g, ' ').trim();
+const lernMischZahl = (t) => { const m = String(t ?? '').trim().match(/^([−–-]?\d{1,3}(?:[\s  ]\d{3})*(?:,\d+)?|[−–-]?\d+(?:,\d+)?)\s*([^\d\s].*)?$/u);
+  return m ? { v: Number(m[1].replace(/[\s  ]/g, '').replace(/[−–]/, '-').replace(',', '.')), e: (m[2] || '').trim() } : null; };
+// Grund, warum NICHT gemischt wird (null = mischen erlaubt). Auch für die Prüfung der Aufgabendateien (Bericht MI).
+function lernMischAusnahme(a) {
+  const liste = a?.antworten || [];
+  if (a?.antworttyp !== 'auswahl' || liste.length < 2) return 'keine_auswahl';
+  for (const roh of liste) {
+    const t = lernMischText(roh);
+    const woerter = t.replace(/[.,;:!?()„“”"'«»–-]/g, ' ').trim().split(/\s+/).filter(Boolean);
+    if (woerter.length <= 3 && LERN_MISCH_SAMMELWORT.test(woerter[0] || '') && (woerter.length === 1 || LERN_MISCH_SAMMEL_ZWEIT.test(woerter[1]))) return 'sammeloption';
+    for (const [grund, re] of LERN_MISCH_MUSTER) if (re.test(t)) return grund;
+  }
+  const f = lernMischText(a.frage?.text);
+  for (const [grund, re] of LERN_MISCH_FRAGE) if (re.test(f)) return 'frage_' + grund;
+  if (LERN_MISCHEN_ZAHLENFOLGE_BEHALTEN) {
+    const z = liste.map(lernMischZahl);
+    if (z.every(Boolean) && new Set(z.map((x) => x.e)).size === 1) {
+      const auf = z.every((x, i) => !i || x.v > z[i - 1].v), ab = z.every((x, i) => !i || x.v < z[i - 1].v);
+      if (auf || ab) return 'zahlenfolge';
+    }
+  }
+  return null;
+}
+const lernReihenfolgeGueltig = (r, n) => Array.isArray(r) && r.length === n && r.every((x) => Number.isInteger(x) && x >= 0 && x < n) && new Set(r).size === n;
+// Fester Zufall: FNV-1a (32 Bit) über „Sitzung:Aufgabe“, daraus mulberry32; Fisher-Yates. Kein Math.random.
+function lernMischFolge(n, schluessel) {
+  let h = 0x811c9dc5; const s = 'mi1:' + schluessel;
+  for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+  let z = h; const zufall = () => { z = (z + 0x6d2b79f5) >>> 0; let t = z; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+  const r = Array.from({ length: n }, (_, i) => i);
+  for (let i = n - 1; i > 0; i--) { const j = Math.floor(zufall() * (i + 1)); [r[i], r[j]] = [r[j], r[i]]; }
+  return r;
+}
+// Anzeige-Reihenfolge (Originalindizes) einer Auswahl-Bordkarte in einer Test-Sitzung; null = nicht mischen.
+function lernTestReihenfolge(a, sitzungId) {
+  if (!LERN_TEST_MISCHEN || sitzungId === undefined || sitzungId === null || sitzungId === '' || a?.id === undefined || lernMischAusnahme(a)) return null;
+  return lernMischFolge(a.antworten.length, `${sitzungId}:${a.id}`);
+}
 const lernNtTitel = (nt) => nt.art === 'wiederholung' ? 'Nachtest wiederholen' : nt.folgerunde ? 'Weiterer Nachtest (bis alles sicher ist)' : `Nachtest ${nt.runde} von 3`;
 
 // W177: Pflicht-Etappen, die nach dem Flugtest dazukamen und noch durch keinen Test gegangen sind
@@ -5338,7 +5404,7 @@ function lernTestLauf(ctx, box, t) {
   // ein zweites Abgeben noch Weiter/Zurück/Punkte. Bei Hinweis (Formatfehler, leere Bordkarten) oder Fehler wird sie gezielt gelöst.
   let belegt = false;
   const zeige = () => {
-    const a = aufg[i]; const auf = lernAufgabe(a, antworten.get(a.id));
+    const a = aufg[i]; const auf = lernAufgabe(a, antworten.get(a.id), { reihenfolge: lernTestReihenfolge(a, t.sitzung_id) }); // MI: gemischt, Antwort bleibt Originalindex
     const meldung = el('div', { role: 'status', 'aria-live': 'polite' });
     const navKnoepfe = [];
     const sperren = (knopf, text) => {

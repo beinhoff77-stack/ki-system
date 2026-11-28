@@ -1,0 +1,1315 @@
+{
+ "stand": "2026-11-28",
+ "runde": "vtest-2",
+ "kuerzel": "VT2",
+ "titel": "terme.umformen",
+ "klasse": 7,
+ "themen": [
+  "terme.umformen"
+ ],
+ "hinweis": "Verstehen in Tests, Stufe 1. Nicht eingespielt.",
+ "aufgaben": [
+  {
+   "kennung": "VT2-029",
+   "thema": "terme.umformen",
+   "lernkarte": "zusammenfassen",
+   "pool": "test",
+   "ersetzt_test": true,
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "rr.tauschen",
+   "abgrenzung": "Die Übungen lassen zusammenfassen; hier muss in einer fertigen Lösung die Zeile mit dem Vorzeichenfehler gefunden und berichtigt werden.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "3",
+    "3 − 7"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "rechnung": "7 − 3",
+     "beschreibung": "wie Nina den kleineren vom größeren Faktor abgezogen und das Minus vergessen: 7 − 3 = 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "rechnung": "3 + 7",
+     "beschreibung": "die Beträge addiert: 3 + 7 = 10",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -10,
+     "rechnung": "−3 − 7",
+     "beschreibung": "beide Vorzeichen als Minus gelesen: −3 − 7 = −10",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "2",
+     "beschreibung": "Zeile 2 für falsch gehalten, obwohl 5x² − 2x² = 3x² stimmt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammenfassen",
+    "t": "zusammenfassen",
+    "p": "test",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Nina fasst 5x² + 3x − 2x² − 7x + 4 zusammen. Zeile 1: Gleichartig sind 5x² und −2x², außerdem 3x und −7x; die 4 steht allein. Zeile 2: 5x² − 2x² = 3x². Zeile 3: 3x − 7x = 4x. Zeile 4: Also ist der Term gleich 3x² + 4x + 4. In welcher Zeile steckt der erste Fehler, und wie lautet dort richtig der Faktor vor x (3x − 7x = □x)?",
+     "schablone": "Fehler in Zeile □, richtig: 3x − 7x = □x",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      3,
+      -4
+     ]
+    },
+    "w": "Zeile 1 und 2 stimmen. In Zeile 3 ist das Vorzeichen verlorengegangen: 3x − 7x = (3 − 7)x = −4x. Das richtige Ergebnis ist 3x² − 4x + 4."
+   }
+  },
+  {
+   "kennung": "VT2-030",
+   "thema": "terme.umformen",
+   "lernkarte": "zusammenfassen",
+   "pool": "korrektur",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "rr.tauschen",
+   "abgrenzung": "Rückwärts: Ein Parameter wird so bestimmt, dass ein Glied wegfällt; die Übungen haben nur feste Zahlen.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "8",
+   "fehlbilder": [
+    {
+     "antwort": -8,
+     "rechnung": "0 − 8",
+     "beschreibung": "das Vorzeichen von −8x übernommen: k = −8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 0,
+     "rechnung": "0",
+     "beschreibung": "k = 0 gesetzt, weil „kein x-Glied“ bedeutet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 16,
+     "rechnung": "8 + 8",
+     "beschreibung": "die beiden x-Zahlen k und 8 addiert statt k − 8 = 0 zu verlangen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammenfassen",
+    "t": "zusammenfassen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Der Term 9x² + kx − 4x² − 8x soll nach dem Zusammenfassen nur noch aus einem Glied bestehen, nämlich aus 5x². Welche Zahl muss k sein?"
+    },
+    "o": {
+     "wert": 8
+    },
+    "w": "Die x-Glieder sind kx und −8x, zusammen (k − 8)x. Damit das x-Glied verschwindet, muss k − 8 = 0 sein, also k = 8. Die x²-Glieder: 9x² − 4x² = 5x²."
+   }
+  },
+  {
+   "kennung": "VT2-031",
+   "thema": "terme.umformen",
+   "lernkarte": "zusammenfassen",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "rr.tauschen",
+   "abgrenzung": "Darstellungswechsel Figur → Term mit drei gleichartigen Gliedern (das „a“ der dritten Seite hat den Faktor 1); die Übungen haben nur zwei Seiten.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "3 + 5 + 1",
+    "2 − 1 + 4"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 8,
+     "rechnung": "3 + 5",
+     "beschreibung": "bei der dritten Seite das a (= 1a) vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 7,
+     "rechnung": "2 + 1 + 4",
+     "beschreibung": "bei der zweiten Seite −1 als +1 gerechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -3,
+     "rechnung": "2 − 1 − 4",
+     "beschreibung": "die 4 der dritten Seite subtrahiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 15,
+     "rechnung": "3 · 5 · 1",
+     "beschreibung": "die Faktoren vor a multipliziert statt addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammenfassen",
+    "t": "zusammenfassen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "luecken",
+    "f": {
+     "text": "Die Seiten eines Dreiecks sind (3a + 2), (5a − 1) und (a + 4) lang. Gib den Umfang als zusammengefassten Term an.",
+     "schablone": "Umfang = □a + □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      9,
+      5
+     ]
+    },
+    "w": "Umfang = (3a + 2) + (5a − 1) + (a + 4). a-Glieder: 3a + 5a + a = 9a. Zahlen: 2 − 1 + 4 = 5. Also 9a + 5."
+   }
+  },
+  {
+   "kennung": "VT2-032",
+   "thema": "terme.umformen",
+   "lernkarte": "zusammenfassen",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "rr.tauschen",
+   "abgrenzung": "Fehler-Detektiv mit Begründung; die Übungen enthalten keine Rechnung zum Prüfen.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1, weil x-Glieder und y-Glieder zusammengehören, denn in beiden steht eine Variable.",
+     "beschreibung": "Glaubt, alle Variablen seien gleichartig; gleichartig sind nur Glieder mit derselben Variablen (und Hochzahl).",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2, weil man 6x und 2x nicht addieren darf, wenn dazwischen y-Glieder stehen.",
+     "beschreibung": "Meint, die Reihenfolge im Term verbiete das Zusammenfassen; die Glieder dürfen vertauscht werden.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4, weil das Ergebnis nur ein x-Glied haben darf.",
+     "beschreibung": "Meint, ein Ergebnis dürfe nur eine Variable enthalten; 8x und y-Glieder bleiben getrennt stehen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammenfassen",
+    "t": "zusammenfassen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Tim fasst 6x − 4y + 2x + 5y zusammen. Zeile 1: Gleichartig sind 6x und 2x sowie −4y und 5y. Zeile 2: Für die x-Glieder gilt 6x + 2x = 8x. Zeile 3: Für die y-Glieder gilt −4y + 5y = −9y. Zeile 4: Also ist 6x − 4y + 2x + 5y = 8x − 9y. In welcher Zeile steckt der erste Fehler, und warum?"
+    },
+    "a": [
+     "In Zeile 1, weil x-Glieder und y-Glieder zusammengehören, denn in beiden steht eine Variable.",
+     "In Zeile 2, weil man 6x und 2x nicht addieren darf, wenn dazwischen y-Glieder stehen.",
+     "In Zeile 3, weil −4y + 5y = 1y = y ist; Tim hat 4 und 5 addiert, statt sie zu verrechnen.",
+     "In Zeile 4, weil das Ergebnis nur ein x-Glied haben darf."
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "Zeile 1 und 2 stimmen. In Zeile 3 gilt −4y + 5y = (−4 + 5)y = y. Das richtige Ergebnis ist 8x + y."
+   }
+  },
+  {
+   "kennung": "VT2-033",
+   "thema": "terme.umformen",
+   "lernkarte": "zusammenfassen",
+   "pool": "sicherung",
+   "typ": "rueckwaerts",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "rr.tauschen",
+   "abgrenzung": "Rückwärts aus vorgegebenem Ergebnis den passenden Ausgangsterm finden; Ablenker unterscheiden sich nur in Vorzeichen und Hochzahl.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "5x² − 3x − 2x² − x",
+     "beschreibung": "Zusammengefasst 3x² − 4x: die x-Glieder −3x und −x ergeben −4x.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "5x² − 3x − 2x + x",
+     "beschreibung": "Zusammengefasst 5x² − 4x: das Glied −2x ist ein x-Glied, nicht ein x²-Glied.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "5x² + 3x − 2x² − x",
+     "beschreibung": "Zusammengefasst 3x² + 2x: die x-Glieder +3x und −x ergeben +2x.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammenfassen",
+    "t": "zusammenfassen",
+    "p": "sicherung",
+    "s": 2,
+    "g": "rueckwaerts",
+    "y": "auswahl",
+    "f": {
+     "text": "Welcher der vier Terme ergibt zusammengefasst 3x² − 2x?"
+    },
+    "a": [
+     "5x² − 3x − 2x² + x",
+     "5x² − 3x − 2x² − x",
+     "5x² − 3x − 2x + x",
+     "5x² + 3x − 2x² − x"
+    ],
+    "o": {
+     "index": 0
+    },
+    "w": "Man fasst jeden Term zusammen. Erster Term: 5x² − 2x² = 3x² und −3x + x = −2x, also 3x² − 2x. Die anderen ergeben 3x² − 4x, 5x² − 4x und 3x² + 2x."
+   }
+  },
+  {
+   "kennung": "VT2-034",
+   "thema": "terme.umformen",
+   "lernkarte": "zusammenfassen",
+   "pool": "sicherung",
+   "typ": "umkehr",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "rr.tauschen",
+   "abgrenzung": "Ein fehlender Term wird durch Umkehren der Subtraktion bestimmt, wobei ein Glied wegfällt (0x); die Übungen suchen einen Summanden.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "9 − 5",
+    "−4 − (−4)",
+    "1 − (−3)"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 14,
+     "rechnung": "9 + 5",
+     "beschreibung": "die x²-Zahlen addiert statt subtrahiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -8,
+     "rechnung": "−4 − 4",
+     "beschreibung": "das x-Glied −4x nicht als gleich erkannt und wie 4 − (−4) gerechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 3,
+     "antwort": -2,
+     "rechnung": "1 − 3",
+     "beschreibung": "die 3 ohne Vorzeichen gelesen: 1 − 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 3,
+     "antwort": -4,
+     "rechnung": "−3 − 1",
+     "beschreibung": "Vorzeichen vertauscht: (−3) − 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammenfassen",
+    "t": "zusammenfassen",
+    "p": "sicherung",
+    "s": 3,
+    "g": "umkehr",
+    "y": "luecken",
+    "f": {
+     "text": "Von 9x² − 4x + 1 wird ein Term U abgezogen, und es bleibt 5x² − 4x − 3 übrig. Wie heißt U?",
+     "schablone": "U = □x² + □x + □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      4,
+      0,
+      4
+     ]
+    },
+    "w": "Es gilt 9x² − 4x + 1 − U = 5x² − 4x − 3, also U = (9x² − 4x + 1) − (5x² − 4x − 3). x²: 9 − 5 = 4. x: −4 − (−4) = 0. Zahl: 1 − (−3) = 4. Also U = 4x² + 4. Probe: 9x² − 4x + 1 − (4x² + 4) = 5x² − 4x − 3."
+   }
+  },
+  {
+   "kennung": "VT2-035",
+   "thema": "terme.umformen",
+   "lernkarte": "zusammenfassen",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "rr.tauschen",
+   "abgrenzung": "Einkauf als Term aufstellen und mit Rabatt verknüpfen; die Übungen geben den Term schon vor.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2 + 5",
+    "3 + 1",
+    "−4"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 10,
+     "rechnung": "2 · 5",
+     "beschreibung": "die Zahlen vor x multipliziert statt addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "rechnung": "3 · 1",
+     "beschreibung": "die Zahlen vor y multipliziert statt addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "den Rabatt addiert statt abgezogen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "5 − 2",
+     "beschreibung": "die Preise abgezogen statt addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammenfassen",
+    "t": "zusammenfassen",
+    "p": "sicherung",
+    "s": 3,
+    "g": "transfer",
+    "y": "luecken",
+    "f": {
+     "text": "Anna kauft x Brezeln zu je 2 € und y Getränke zu je 3 €. Ben zahlt für seinen Einkauf 5x + y Euro. An der Kasse bekommen beide zusammen 4 € Rabatt auf den gemeinsamen Betrag. Wie viel Euro zahlen beide zusammen? Gib den Term an.",
+     "schablone": "Zusammen □x + □y + □ Euro",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      7,
+      4,
+      -4
+     ]
+    },
+    "w": "Anna zahlt 2x + 3y Euro, Ben 5x + y Euro, beide zusammen (2x + 3y) + (5x + y) = 7x + 4y. Der Rabatt von 4 € wird abgezogen: 7x + 4y − 4."
+   }
+  },
+  {
+   "kennung": "VT2-036",
+   "thema": "terme.umformen",
+   "lernkarte": "minusklammer",
+   "pool": "test",
+   "ersetzt_test": true,
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "rr.minusklammer",
+   "abgrenzung": "Die Übungen lösen eine Minusklammer auf; hier muss in einer Rechnung mit zwei Minusklammern der halb richtige Schritt erkannt werden.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1, weil bei − (4x − 3) beide Vorzeichen in der Klammer gleich bleiben müssen.",
+     "beschreibung": "Glaubt, ein Minus vor der Klammer ändere nichts; es kehrt jedes Vorzeichen in der Klammer um.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3, weil man 9x und 4x nicht zusammenfassen darf.",
+     "beschreibung": "Meint, gleichartige Glieder dürften nicht zusammengefasst werden; 9x, −4x und die anderen x-Glieder dürfen es.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4, weil das Ergebnis keine Zahl ohne x enthalten darf.",
+     "beschreibung": "Meint, ein Ergebnis dürfe keine Zahl ohne x enthalten; ein Term darf Zahlenglieder haben.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "minusklammer",
+    "t": "minusklammer",
+    "p": "test",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Paul vereinfacht 9x − (4x − 3) − (2 − x). Zeile 1: 9x − (4x − 3) = 9x − 4x + 3. Zeile 2: − (2 − x) = −2 − x. Zeile 3: Zusammen ist 9x − 4x + 3 − 2 − x = 4x + 1. Zeile 4: Das Ergebnis lautet 4x + 1. In welcher Zeile steckt der erste Fehler, und warum?"
+    },
+    "a": [
+     "In Zeile 1, weil bei − (4x − 3) beide Vorzeichen in der Klammer gleich bleiben müssen.",
+     "In Zeile 2, weil − (2 − x) = −2 + x ist: Das Minus kehrt auch das Vorzeichen vor x um.",
+     "In Zeile 3, weil man 9x und 4x nicht zusammenfassen darf.",
+     "In Zeile 4, weil das Ergebnis keine Zahl ohne x enthalten darf."
+    ],
+    "o": {
+     "index": 1
+    },
+    "w": "Zeile 1 stimmt. In Zeile 2 kehrt das Minus beide Vorzeichen um: −(2 − x) = −2 + x. Dann ist 9x − 4x + 3 − 2 + x = 6x + 1. Zeile 3 und 4 sind Folgefehler."
+   }
+  },
+  {
+   "kennung": "VT2-037",
+   "thema": "terme.umformen",
+   "lernkarte": "minusklammer",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "rr.minusklammer",
+   "abgrenzung": "Fehler durch Einsetzen eingegrenzt (konstanter Unterschied) statt nur Aufgabe lösen; die Übungen rechnen die Klammer nur auf.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "17 − 7",
+   "fehlbilder": [
+    {
+     "antwort": -10,
+     "rechnung": "7 − 17",
+     "beschreibung": "den Unterschied andersherum gebildet (Jonas’ Term minus Ausgangsterm)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 5,
+     "rechnung": "12 − 7",
+     "beschreibung": "nur die Zahlen 12 und 7 verglichen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 0,
+     "rechnung": "0",
+     "beschreibung": "angenommen, die Terme sind gleich, weil das x-Glied gleich ist",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "minusklammer",
+    "t": "minusklammer",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Jonas formt 12 − (3x − 5) zu 7 − 3x um. Setze zur Probe nacheinander x = 0 und x = 4 ein. Um wie viel ist der Wert des Ausgangsterms jeweils größer als der Wert von Jonas’ Term?"
+    },
+    "o": {
+     "wert": 10
+    },
+    "w": "Ausgangsterm: x = 0: 12 − (0 − 5) = 17; x = 4: 12 − (12 − 5) = 5. Jonas’ Term: x = 0: 7; x = 4: 7 − 12 = −5. Beide Male ist der Unterschied 10. Richtig wäre 12 − 3x + 5 = 17 − 3x; Jonas hat die 5 nicht umgedreht."
+   }
+  },
+  {
+   "kennung": "VT2-038",
+   "thema": "terme.umformen",
+   "lernkarte": "minusklammer",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "rr.minusklammer",
+   "abgrenzung": "Parameter in der Klammer wird rückwärts bestimmt; die Übungen haben nur Zahlen in der Klammer.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "7 − 2",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "rechnung": "7 + 2",
+     "beschreibung": "das Minus vor der Klammer vergessen: 7x + kx = 2x + …",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": -5,
+     "rechnung": "2 − 7",
+     "beschreibung": "Vorzeichen vertauscht: k = 2 − 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 2,
+     "rechnung": "2",
+     "beschreibung": "k gleich der 2 aus 2x + 3 gesetzt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "minusklammer",
+    "t": "minusklammer",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche Zahl k ist der Term 7x − (kx − 3) zu 2x + 3 gleichwertig?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "w": "7x − (kx − 3) = 7x − kx + 3 = (7 − k)x + 3. Das soll 2x + 3 sein, also 7 − k = 2 und k = 5. Probe: 7x − (5x − 3) = 2x + 3."
+   }
+  },
+  {
+   "kennung": "VT2-039",
+   "thema": "terme.umformen",
+   "lernkarte": "minusklammer",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "rr.minusklammer",
+   "abgrenzung": "Gegenbeispiel durch Einsetzen als Begründung; die Übungen wenden die Regel nur an.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Nele hat recht, denn das Minus gilt nur für das erste Glied a der Klammer.",
+     "beschreibung": "Meint, das Minus wirke nur auf das erste Glied; es gilt für die ganze Klammer.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Nele hat unrecht: Für a = 2 ist 10 − (2 + 3) = 11 und 10 − 2 + 3 = 5. Richtig ist 10 − a + 3.",
+     "beschreibung": "Die Rechnung mit a = 2 falsch ausgeführt: 10 − (2 + 3) = 10 − 5 = 5.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Nele hat unrecht, denn eine Klammer mit Plus darf man nie auflösen.",
+     "beschreibung": "Behauptet etwas, was nicht zur Frage gehört; Klammern dürfen aufgelöst werden, wenn man die Regel beachtet.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "minusklammer",
+    "t": "minusklammer",
+    "p": "korrektur",
+    "s": 2,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Nele behauptet: „10 − (a + 3) ist dasselbe wie 10 − a + 3.“ Welche Antwort mit Begründung stimmt?"
+    },
+    "a": [
+     "Nele hat recht, denn das Minus gilt nur für das erste Glied a der Klammer.",
+     "Nele hat unrecht: Für a = 2 ist 10 − (2 + 3) = 5, aber 10 − 2 + 3 = 11. Richtig ist 10 − a − 3.",
+     "Nele hat unrecht: Für a = 2 ist 10 − (2 + 3) = 11 und 10 − 2 + 3 = 5. Richtig ist 10 − a + 3.",
+     "Nele hat unrecht, denn eine Klammer mit Plus darf man nie auflösen."
+    ],
+    "o": {
+     "index": 1
+    },
+    "w": "Mit a = 2: 10 − (2 + 3) = 10 − 5 = 5, aber 10 − 2 + 3 = 11. Die Terme sind nicht gleich. Das Minus gilt für die ganze Klammer: 10 − (a + 3) = 10 − a − 3."
+   }
+  },
+  {
+   "kennung": "VT2-040",
+   "thema": "terme.umformen",
+   "lernkarte": "minusklammer",
+   "pool": "sicherung",
+   "typ": "pruefung",
+   "form": "zwei_wege",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "rr.minusklammer",
+   "abgrenzung": "Zwei Wege (Umformen und Einsetzen) müssen übereinstimmen; das x-Glied fällt weg – die Übungen haben immer ein x-Glied im Ergebnis.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "0 − (0 − 5) − (0 + 4)",
+    "3 − 2 − 1",
+    "5 − 4"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -9,
+     "rechnung": "0 − 5 − 4",
+     "beschreibung": "beide Minusklammern ohne Vorzeichenwechsel gerechnet: −5 − 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 9,
+     "rechnung": "5 + 4",
+     "beschreibung": "die Klammerinhalte −5 und +4 als +5 und +4 addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "rechnung": "3 + 2 + 1",
+     "beschreibung": "die x-Zahlen addiert statt 3 − 2 − 1 zu rechnen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 9,
+     "rechnung": "5 + 4",
+     "beschreibung": "die Zahlen 5 und 4 addiert statt 5 − 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "minusklammer",
+    "t": "minusklammer",
+    "p": "sicherung",
+    "s": 2,
+    "g": "pruefung",
+    "y": "luecken",
+    "f": {
+     "text": "Anna löst die Klammern auf und fasst zusammen: 3x − (2x − 5) − (x + 4). Ben setzt stattdessen x = 0 ein und kommt auf denselben Wert wie Anna. Wie groß ist Bens Wert, und wie lautet Annas Ergebnis?",
+     "schablone": "Bens Wert □; Annas Ergebnis □x + □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      1,
+      0,
+      1
+     ]
+    },
+    "w": "Ben: 3 · 0 − (0 − 5) − (0 + 4) = 0 + 5 − 4 = 1. Anna: 3x − 2x + 5 − x − 4 = (3 − 2 − 1)x + (5 − 4) = 0x + 1 = 1. Der Term hat für jedes x den Wert 1."
+   }
+  },
+  {
+   "kennung": "VT2-041",
+   "thema": "terme.umformen",
+   "lernkarte": "minusklammer",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "rr.minusklammer",
+   "abgrenzung": "Unterschied Plus- und Minusklammer im selben Term; Fehler-Detektiv mit Berichtigung der ganzen Lösung.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2",
+    "4 + 2 + 1",
+    "−3 − 1"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 3,
+     "antwort": -2,
+     "rechnung": "−3 + 1",
+     "beschreibung": "wie Mia + (a − 1) als + a + 1 gerechnet: −3 + 1 = −2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "beschreibung": "den Folgefehler in Zeile 3 für den ersten Fehler gehalten",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "4 − 2 − 1",
+     "beschreibung": "die 2a der ersten Klammer abgezogen statt addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 4,
+     "rechnung": "3 + 1",
+     "beschreibung": "die Zahlen −3 und −1 als +3 und +1 gerechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "minusklammer",
+    "t": "minusklammer",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Mia löst auf: 4a − (3 − 2a) + (a − 1). Zeile 1: 4a − (3 − 2a) = 4a − 3 + 2a. Zeile 2: + (a − 1) = + a + 1. Zeile 3: Zusammen 4a − 3 + 2a + a + 1 = 7a − 2. In welcher Zeile steckt der erste Fehler, und wie lautet das richtige Ergebnis?",
+     "schablone": "Fehler in Zeile □, richtig: □a + □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      2,
+      7,
+      -4
+     ]
+    },
+    "w": "Zeile 1 stimmt. Bei einer Plusklammer bleiben die Vorzeichen: + (a − 1) = + a − 1. Dann ist 4a − 3 + 2a + a − 1 = 7a − 4."
+   }
+  },
+  {
+   "kennung": "VT2-042",
+   "thema": "terme.umformen",
+   "lernkarte": "minusklammer",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "rr.minusklammer",
+   "abgrenzung": "Sachaufgabe mit zwei Minusklammern; Vorzeichen begründen im Sachzusammenhang (Abziehen einer Länge mit Minus).",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "6 − 2 − 1",
+    "5 + 1 − 3"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "5 − 1 − 3",
+     "beschreibung": "das Minus vor (2x − 1) nur auf 2x bezogen: −1 bleibt −1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 9,
+     "rechnung": "5 + 1 + 3",
+     "beschreibung": "beide Stücke als Zugabe gerechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 7,
+     "rechnung": "6 + 2 − 1",
+     "beschreibung": "das erste Stück addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 5,
+     "rechnung": "6 − 1",
+     "beschreibung": "die zweite Länge x + 3 nicht berücksichtigt (nur 6x − x)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "minusklammer",
+    "t": "minusklammer",
+    "p": "sicherung",
+    "s": 3,
+    "g": "transfer",
+    "y": "luecken",
+    "f": {
+     "text": "Eine Latte ist (6x + 5) cm lang. Zuerst wird ein Stück von (2x − 1) cm abgesägt, danach noch ein Stück von (x + 3) cm. Wie lang ist die Restlatte? Gib den zusammengefassten Term an.",
+     "schablone": "Restlatte: □x + □ cm",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      3,
+      3
+     ]
+    },
+    "w": "Rest = 6x + 5 − (2x − 1) − (x + 3) = 6x + 5 − 2x + 1 − x − 3 = (6 − 2 − 1)x + (5 + 1 − 3) = 3x + 3."
+   }
+  },
+  {
+   "kennung": "VT2-043",
+   "thema": "terme.umformen",
+   "lernkarte": "aequivalenz",
+   "pool": "test",
+   "ersetzt_test": true,
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "id.algebra.term",
+   "abgrenzung": "Die Übungen suchen den gleichwertigen Term; hier muss ein Scheinbeweis durch einen zufällig gleichen Wert widerlegt werden.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Paul hat recht, denn die Terme haben für x = 3 denselben Wert, und ein gemeinsamer Wert genügt.",
+     "beschreibung": "Ein einziger gemeinsamer Wert beweist keine Gleichwertigkeit; sie muss für alle Einsetzungen gelten.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Paul hat unrecht, denn man darf nur Zahlen kleiner als 3 einsetzen.",
+     "beschreibung": "Erfindet eine Einschränkung der Einsetzzahlen, die es nicht gibt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Paul hat unrecht, denn zwei Terme mit verschiedenen Zahlen vor x können nie gleichwertig sein.",
+     "beschreibung": "Verallgemeinert falsch: z. B. sind 2x + x und 3x gleichwertig, obwohl vor x verschiedene Zahlen stehen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "aequivalenz",
+    "t": "aequivalenz",
+    "p": "test",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Paul behauptet: „Die Terme 5x − 4 und 3x + 2 sind gleichwertig, denn für x = 3 kommt bei beiden 11 heraus.“ Welche Antwort mit Begründung stimmt?"
+    },
+    "a": [
+     "Paul hat recht, denn die Terme haben für x = 3 denselben Wert, und ein gemeinsamer Wert genügt.",
+     "Paul hat unrecht: Gleichwertig sind Terme nur, wenn sie für jede Einsetzung denselben Wert haben. Für x = 0 ergibt der erste −4, der zweite 2.",
+     "Paul hat unrecht, denn man darf nur Zahlen kleiner als 3 einsetzen.",
+     "Paul hat unrecht, denn zwei Terme mit verschiedenen Zahlen vor x können nie gleichwertig sein."
+    ],
+    "o": {
+     "index": 1
+    },
+    "w": "5 · 3 − 4 = 11 und 3 · 3 + 2 = 11: Bei x = 3 stimmen beide überein. Bei x = 0 aber ist 5 · 0 − 4 = −4 und 3 · 0 + 2 = 2. Ein einziges Gegenbeispiel genügt, um zu zeigen, dass die Terme nicht gleichwertig sind."
+   }
+  },
+  {
+   "kennung": "VT2-044",
+   "thema": "terme.umformen",
+   "lernkarte": "aequivalenz",
+   "pool": "korrektur",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "id.algebra.term",
+   "abgrenzung": "Gesucht ist der „Zufallstreffer“ zweier nicht gleichwertiger Terme; die Übungen suchen den gleichwertigen Term.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "x = 2",
+     "beschreibung": "Bei x = 2 sind die Werte 5 und 9; sie sind verschieden.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "x = 3",
+     "beschreibung": "Bei x = 3 sind die Werte 9 und 11; sie sind verschieden.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "x = 5",
+     "beschreibung": "Bei x = 5 sind die Werte 17 und 15; sie sind verschieden.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "aequivalenz",
+    "t": "aequivalenz",
+    "p": "korrektur",
+    "s": 2,
+    "g": "parameter",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Terme 4x − 3 und 2x + 5 haben nur für einen einzigen Wert von x denselben Wert, sind also nicht gleichwertig. Für welches x haben sie denselben Wert?"
+    },
+    "a": [
+     "x = 2",
+     "x = 3",
+     "x = 4",
+     "x = 5"
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "Man setzt ein: x = 2: 5 und 9. x = 3: 9 und 11. x = 4: 4 · 4 − 3 = 13 und 2 · 4 + 5 = 13. x = 5: 17 und 15. Nur bei x = 4 stimmen die Werte überein."
+   }
+  },
+  {
+   "kennung": "VT2-045",
+   "thema": "terme.umformen",
+   "lernkarte": "aequivalenz",
+   "pool": "korrektur",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "id.algebra.term",
+   "abgrenzung": "Der Parameter a wird so bestimmt, dass die Terme für jedes x übereinstimmen; die Übungen suchen nur einen passenden Term.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "2 · 3",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "rechnung": "3",
+     "beschreibung": "die 3 aus der Klammer übernommen, ohne mit 2 zu multiplizieren",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 5,
+     "rechnung": "2 + 3",
+     "beschreibung": "die Zahlen addiert statt 2 mit 3 zu multiplizieren",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 8,
+     "rechnung": "2 · 3 + 2",
+     "beschreibung": "noch einmal die 2 addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "aequivalenz",
+    "t": "aequivalenz",
+    "p": "korrektur",
+    "s": 2,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "In 2x + a soll a so gewählt werden, dass der Term gleichwertig zu 2(x + 3) ist. Wie groß ist a?"
+    },
+    "o": {
+     "wert": 6
+    },
+    "w": "2(x + 3) = 2x + 2 · 3 = 2x + 6. Damit 2x + a gleichwertig ist, muss a = 6 sein. Probe mit x = 1: 2 · 4 = 8 und 2 + 6 = 8."
+   }
+  },
+  {
+   "kennung": "VT2-046",
+   "thema": "terme.umformen",
+   "lernkarte": "aequivalenz",
+   "pool": "korrektur",
+   "typ": "pruefung",
+   "form": "zwei_wege",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "id.algebra.term",
+   "abgrenzung": "Zwei Wege (Umformen oder Einsetzen mit zwei Zahlen) führen zum selben Term; ein Ablenker besteht den Test mit x = 0 und fällt erst bei x = 1 durch.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "4x − 6",
+     "beschreibung": "Minus mal Minus vergessen: −2 · (−3) als −6 gerechnet. Bei x = 0 ergibt 4x − 6 den Wert −6, der Ausgangsterm aber 6.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "8x − 6",
+     "beschreibung": "Das Vorzeichen bei 2x umgedreht (6x + 2x), bei der −3 aber nicht (−6). Bei x = 0 ergibt 8x − 6 den Wert −6, der Ausgangsterm aber 6.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "8x + 6",
+     "beschreibung": "Das Minus vor 2x falsch als Plus behandelt (6x + 2x + 6). Bei x = 0 passt 6, aber bei x = 1 ist der Ausgangsterm 10, 8x + 6 aber 14.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "aequivalenz",
+    "t": "aequivalenz",
+    "p": "korrektur",
+    "s": 2,
+    "g": "pruefung",
+    "y": "auswahl",
+    "f": {
+     "text": "Welcher der vier Terme ist gleichwertig zu 6x − 2(x − 3)? (Du kannst umformen oder mit x = 0 und x = 1 prüfen.)"
+    },
+    "a": [
+     "4x − 6",
+     "4x + 6",
+     "8x − 6",
+     "8x + 6"
+    ],
+    "o": {
+     "index": 1
+    },
+    "w": "Umformen: 6x − 2(x − 3) = 6x − 2x + 6 = 4x + 6. Einsetzen: x = 0 gibt 0 − 2 · (0 − 3) = 6; x = 1 gibt 6 − 2 · (1 − 3) = 6 + 4 = 10. Nur 4x + 6 passt zu 6 und 10."
+   }
+  },
+  {
+   "kennung": "VT2-047",
+   "thema": "terme.umformen",
+   "lernkarte": "aequivalenz",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "id.algebra.term",
+   "abgrenzung": "Reine Begründung zur Beweiskraft des Einsetzens; die Übungen wenden Einsetzen an.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Damit sind die Terme bewiesen gleichwertig, denn drei gleiche Ergebnisse genügen.",
+     "beschreibung": "Einige gleiche Werte reichen nicht: man müsste alle Zahlen prüfen oder umformen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Gleichwertige Terme haben nie für irgendeine Zahl denselben Wert.",
+     "beschreibung": "Gleichwertige Terme haben bei jeder Zahl denselben Wert, nicht „nie“.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Man darf überhaupt nicht einsetzen, weil x eine Variable ist.",
+     "beschreibung": "Einsetzen ist erlaubt und liefert Gegenbeispiele.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "aequivalenz",
+    "t": "aequivalenz",
+    "p": "sicherung",
+    "s": 2,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Terme haben für x = 1, x = 2 und x = 3 jeweils denselben Wert. Welche Aussage über Einsetzen und Gleichwertigkeit ist richtig?"
+    },
+    "a": [
+     "Damit sind die Terme bewiesen gleichwertig, denn drei gleiche Ergebnisse genügen.",
+     "Ein einziger Wert, bei dem sich die Terme unterscheiden, zeigt, dass sie nicht gleichwertig sind; gleiche Werte bei einigen Zahlen beweisen es noch nicht.",
+     "Gleichwertige Terme haben nie für irgendeine Zahl denselben Wert.",
+     "Man darf überhaupt nicht einsetzen, weil x eine Variable ist."
+    ],
+    "o": {
+     "index": 1
+    },
+    "w": "Einsetzen kann Gleichwertigkeit nur widerlegen: Ein Gegenbeispiel genügt. Ob zwei Terme gleichwertig sind, zeigt man durch Umformen. Beispiel: x² und 4x − 3 stimmen bei x = 1 und x = 3 überein, aber nicht bei x = 2 (4 und 5)."
+   }
+  },
+  {
+   "kennung": "VT2-048",
+   "thema": "terme.umformen",
+   "lernkarte": "aequivalenz",
+   "pool": "sicherung",
+   "typ": "pruefung",
+   "form": "verfahren_waehlen",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "id.algebra.term",
+   "abgrenzung": "Vier Terme mit Plus- und Minusklammern werden verglichen, das Verfahren (Umformen oder Einsetzen) ist frei; die Übungen vergleichen zwei Terme.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "A",
+     "beschreibung": "A = 3x + 6 − x = 2x + 6; das ist gleichwertig zu B und C.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "B",
+     "beschreibung": "B = 2x + 6; das ist gleichwertig zu A und C.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "C",
+     "beschreibung": "C = 4x − 2x + 6 = 2x + 6; das Minus kehrt beide Vorzeichen um. Ohne Wechsel käme 2x − 6 heraus.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "aequivalenz",
+    "t": "aequivalenz",
+    "p": "sicherung",
+    "s": 3,
+    "g": "pruefung",
+    "y": "auswahl",
+    "f": {
+     "text": "Vier Terme: A = 3(x + 2) − x, B = 2(x + 3), C = 4x − (2x − 6), D = 4x − (2x + 6). Genau einer ist nicht gleichwertig zu den drei anderen. Welcher? (Du kannst umformen oder passende Zahlen einsetzen.)"
+    },
+    "a": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ],
+    "o": {
+     "index": 3
+    },
+    "w": "A = 3x + 6 − x = 2x + 6. B = 2x + 6. C = 4x − 2x + 6 = 2x + 6. D = 4x − 2x − 6 = 2x − 6. D unterscheidet sich; man erkennt es auch bei x = 0: A, B, C ergeben 6, D ergibt −6."
+   }
+  },
+  {
+   "kennung": "VT2-049",
+   "thema": "terme.umformen",
+   "lernkarte": "aequivalenz",
+   "pool": "sicherung",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M7 1 (Terme)",
+   "regel": "id.algebra.term",
+   "abgrenzung": "Der Parameter steht im Koeffizienten und die Klammer muss erst aufgelöst werden; die Übungen suchen nur einen Term.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "7 − 3",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "rechnung": "7 + 3",
+     "beschreibung": "die Zahlen 7 und 3 addiert statt subtrahiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": -4,
+     "rechnung": "3 − 7",
+     "beschreibung": "Vorzeichen vertauscht",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 7,
+     "rechnung": "7",
+     "beschreibung": "a gleich der 7 aus 7x − 6 gesetzt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "aequivalenz",
+    "t": "aequivalenz",
+    "p": "sicherung",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Gegeben sind 3(x − 2) + a · x und 7x − 6. Bestimme a so, dass beide Terme bei jeder Einsetzung denselben Wert haben."
+    },
+    "o": {
+     "wert": 4
+    },
+    "w": "3(x − 2) + a·x = 3x − 6 + a·x = (3 + a)x − 6. Das soll 7x − 6 sein, also 3 + a = 7 und a = 4. Probe mit x = 1: 3 · (−1) + 4 = 1 und 7 − 6 = 1."
+   }
+  }
+ ]
+}

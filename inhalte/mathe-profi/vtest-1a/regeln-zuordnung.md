@@ -1,0 +1,108 @@
+# Runde VT1A: Regel-Kennung je Aufgabe
+
+Maßstab: die Regel, die das Kind zum Lösen am stärksten braucht (tragender Lösungsschritt). Kennungen aus `inhalte/mathe-profi/regeln-uebersicht/kennungen.json`; `bauen.py` prüft, dass die Kennung im Katalog steht und die Einheit in der Themenliste der Regel vorkommt. Die Fehlbild-Kennungen des Katalogs (`fb.*`) sind nicht vergeben (die Fehlbilder stehen als Beschreibung mit Rechnung in den JSON-Dateien).
+
+**77 Aufgaben mit Regel, 0 ohne.**
+
+## Verteilung
+
+| Regel | Name | Aufgaben |
+|---|---|---|
+| `rr.potenz` | Potenzen | 28 |
+| `rr.gegenrechnung` | Gegenrechnung | 14 |
+| `rr.reihenfolge` | Reihenfolge beim Rechnen | 14 |
+| `id.zahlen.buendeln` | Bündeln in Zehnern | 7 |
+| `rr.ausmultiplizieren` | Ausmultiplizieren und Ausklammern | 7 |
+| `rr.tauschen` | Tauschen, Klammern, Zusammenfassen | 7 |
+
+## Aufgaben ohne Regel (mit Begründung)
+
+| Aufgabe | Einheit.Lernziel | Begründung |
+|---|---|---|
+
+## Zweifelsfälle
+
+| Aufgabe | Einheit.Lernziel | gewählt | Bemerkung |
+|---|---|---|---|
+
+## Alle Aufgaben
+
+| Aufgabe | Einheit.Lernziel | Regel |
+|---|---|---|
+| VT1A-001 | zahlen.potenzen_basis.schreibweise | `rr.potenz` |
+| VT1A-002 | zahlen.potenzen_basis.schreibweise | `rr.potenz` |
+| VT1A-003 | zahlen.potenzen_basis.schreibweise | `rr.potenz` |
+| VT1A-004 | zahlen.potenzen_basis.schreibweise | `rr.potenz` |
+| VT1A-005 | zahlen.potenzen_basis.schreibweise | `rr.potenz` |
+| VT1A-006 | zahlen.potenzen_basis.schreibweise | `rr.potenz` |
+| VT1A-007 | zahlen.potenzen_basis.schreibweise | `rr.potenz` |
+| VT1A-008 | zahlen.potenzen_basis.quadrat | `rr.potenz` |
+| VT1A-009 | zahlen.potenzen_basis.quadrat | `rr.potenz` |
+| VT1A-010 | zahlen.potenzen_basis.quadrat | `rr.potenz` |
+| VT1A-011 | zahlen.potenzen_basis.quadrat | `rr.potenz` |
+| VT1A-012 | zahlen.potenzen_basis.quadrat | `rr.potenz` |
+| VT1A-013 | zahlen.potenzen_basis.quadrat | `rr.potenz` |
+| VT1A-014 | zahlen.potenzen_basis.quadrat | `rr.potenz` |
+| VT1A-015 | zahlen.potenzen_basis.zehner | `rr.potenz` |
+| VT1A-016 | zahlen.potenzen_basis.zehner | `rr.potenz` |
+| VT1A-017 | zahlen.potenzen_basis.zehner | `rr.potenz` |
+| VT1A-018 | zahlen.potenzen_basis.zehner | `rr.potenz` |
+| VT1A-019 | zahlen.potenzen_basis.zehner | `rr.potenz` |
+| VT1A-020 | zahlen.potenzen_basis.zehner | `rr.potenz` |
+| VT1A-021 | zahlen.potenzen_basis.zehner | `rr.potenz` |
+| VT1A-022 | zahlen.potenzen_basis.sach | `rr.potenz` |
+| VT1A-023 | zahlen.potenzen_basis.sach | `rr.potenz` |
+| VT1A-024 | zahlen.potenzen_basis.sach | `rr.potenz` |
+| VT1A-025 | zahlen.potenzen_basis.sach | `rr.potenz` |
+| VT1A-026 | zahlen.potenzen_basis.sach | `rr.potenz` |
+| VT1A-027 | zahlen.potenzen_basis.sach | `rr.potenz` |
+| VT1A-028 | zahlen.potenzen_basis.sach | `rr.potenz` |
+| VT1A-029 | zahlen.rechengesetze.klammern | `rr.reihenfolge` |
+| VT1A-030 | zahlen.rechengesetze.klammern | `rr.reihenfolge` |
+| VT1A-031 | zahlen.rechengesetze.klammern | `rr.reihenfolge` |
+| VT1A-032 | zahlen.rechengesetze.klammern | `rr.reihenfolge` |
+| VT1A-033 | zahlen.rechengesetze.klammern | `rr.reihenfolge` |
+| VT1A-034 | zahlen.rechengesetze.klammern | `rr.reihenfolge` |
+| VT1A-035 | zahlen.rechengesetze.klammern | `rr.reihenfolge` |
+| VT1A-036 | zahlen.rechengesetze.termaufbau | `rr.reihenfolge` |
+| VT1A-037 | zahlen.rechengesetze.termaufbau | `rr.reihenfolge` |
+| VT1A-038 | zahlen.rechengesetze.termaufbau | `rr.reihenfolge` |
+| VT1A-039 | zahlen.rechengesetze.termaufbau | `rr.reihenfolge` |
+| VT1A-040 | zahlen.rechengesetze.termaufbau | `rr.reihenfolge` |
+| VT1A-041 | zahlen.rechengesetze.termaufbau | `rr.reihenfolge` |
+| VT1A-042 | zahlen.rechengesetze.termaufbau | `rr.reihenfolge` |
+| VT1A-043 | zahlen.rechengesetze.vorteil | `rr.tauschen` |
+| VT1A-044 | zahlen.rechengesetze.vorteil | `rr.tauschen` |
+| VT1A-045 | zahlen.rechengesetze.vorteil | `rr.tauschen` |
+| VT1A-046 | zahlen.rechengesetze.vorteil | `rr.tauschen` |
+| VT1A-047 | zahlen.rechengesetze.vorteil | `rr.tauschen` |
+| VT1A-048 | zahlen.rechengesetze.vorteil | `rr.tauschen` |
+| VT1A-049 | zahlen.rechengesetze.vorteil | `rr.tauschen` |
+| VT1A-050 | zahlen.rechengesetze.verteilen | `rr.ausmultiplizieren` |
+| VT1A-051 | zahlen.rechengesetze.verteilen | `rr.ausmultiplizieren` |
+| VT1A-052 | zahlen.rechengesetze.verteilen | `rr.ausmultiplizieren` |
+| VT1A-053 | zahlen.rechengesetze.verteilen | `rr.ausmultiplizieren` |
+| VT1A-054 | zahlen.rechengesetze.verteilen | `rr.ausmultiplizieren` |
+| VT1A-055 | zahlen.rechengesetze.verteilen | `rr.ausmultiplizieren` |
+| VT1A-056 | zahlen.rechengesetze.verteilen | `rr.ausmultiplizieren` |
+| VT1A-057 | zahlen.rechengesetze.umkehraufgabe_mal | `rr.gegenrechnung` |
+| VT1A-058 | zahlen.rechengesetze.umkehraufgabe_mal | `rr.gegenrechnung` |
+| VT1A-059 | zahlen.rechengesetze.umkehraufgabe_mal | `rr.gegenrechnung` |
+| VT1A-060 | zahlen.rechengesetze.umkehraufgabe_mal | `rr.gegenrechnung` |
+| VT1A-061 | zahlen.rechengesetze.umkehraufgabe_mal | `rr.gegenrechnung` |
+| VT1A-062 | zahlen.rechengesetze.umkehraufgabe_mal | `rr.gegenrechnung` |
+| VT1A-063 | zahlen.rechengesetze.umkehraufgabe_mal | `rr.gegenrechnung` |
+| VT1A-064 | zahlen.rechengesetze.ueberschlag | `id.zahlen.buendeln` |
+| VT1A-065 | zahlen.rechengesetze.ueberschlag | `id.zahlen.buendeln` |
+| VT1A-066 | zahlen.rechengesetze.ueberschlag | `id.zahlen.buendeln` |
+| VT1A-067 | zahlen.rechengesetze.ueberschlag | `id.zahlen.buendeln` |
+| VT1A-068 | zahlen.rechengesetze.ueberschlag | `id.zahlen.buendeln` |
+| VT1A-069 | zahlen.rechengesetze.ueberschlag | `id.zahlen.buendeln` |
+| VT1A-070 | zahlen.rechengesetze.ueberschlag | `id.zahlen.buendeln` |
+| VT1A-071 | zahlen.rechengesetze.sach | `rr.gegenrechnung` |
+| VT1A-072 | zahlen.rechengesetze.sach | `rr.gegenrechnung` |
+| VT1A-073 | zahlen.rechengesetze.sach | `rr.gegenrechnung` |
+| VT1A-074 | zahlen.rechengesetze.sach | `rr.gegenrechnung` |
+| VT1A-075 | zahlen.rechengesetze.sach | `rr.gegenrechnung` |
+| VT1A-076 | zahlen.rechengesetze.sach | `rr.gegenrechnung` |
+| VT1A-077 | zahlen.rechengesetze.sach | `rr.gegenrechnung` |

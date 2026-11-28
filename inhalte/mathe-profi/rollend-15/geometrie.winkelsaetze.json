@@ -342,10 +342,10 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 25.714285714285715,
+     "antwort": 25.71,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Winkelsatz vergessen und 180° durch die größte Zahl geteilt"
+     "beschreibung": "den Winkelsatz vergessen und 180° durch die größte Zahl geteilt (auf zwei Stellen gerundet)"
     },
     {
      "antwort": 10,

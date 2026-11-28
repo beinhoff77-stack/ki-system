@@ -254,10 +254,10 @@
      "beschreibung": "20 statt des Quotienten von 20 und 4,5 zu 4,5 addiert und halbiert"
     },
     {
-     "antwort": 4.444444444444445,
+     "antwort": 4.44,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur den Quotienten genommen, ohne den Mittelwert"
+     "beschreibung": "nur den Quotienten genommen, ohne den Mittelwert (auf zwei Stellen gerundet)"
     }
    ],
    "aufgabe": {

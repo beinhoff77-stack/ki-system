@@ -38,7 +38,7 @@ neu(T, "heron", "anwenden", Z(
     "Beim Heron-Verfahren für √20 startest du mit 4. Der erste Schritt gibt (4 + 20 : 4) : 2 = 4,5. Wie lautet der zweite Wert (4,5 + 20 : 4,5) : 2? Runde auf zwei Dezimalstellen.",
     w_h, c_h, "round((4.5 + 20 / 4.5) / 2, 2)", "Rechne erst 20 : 4,5, addiere dann 4,5 und teile die Summe durch 2.",
     "20 : 4,5 ≈ 4,444. Die Summe 4,5 + 4,444 ≈ 8,944. Halbiert: 4,472, gerundet 4,47. Das ist nahe an √20 ≈ 4,4721.",
-    [B("4.5", "nur den ersten Schritt gerechnet"), B("(4.5 + 20) / 2", "20 statt des Quotienten von 20 und 4,5 zu 4,5 addiert und halbiert"), B("20 / 4.5", "nur den Quotienten genommen, ohne den Mittelwert")], einheit=None), g="mehrschritt", ohne="Heron-Verfahren (Mittelwert aus Näherung und Quotient): keine Regel des Katalogs trägt den Rechenschritt")
+    [B("4.5", "nur den ersten Schritt gerechnet"), B("(4.5 + 20) / 2", "20 statt des Quotienten von 20 und 4,5 zu 4,5 addiert und halbiert"), BR("20 / 4.5", "nur den Quotienten genommen, ohne den Mittelwert (auf zwei Stellen gerundet)", stellen=2)], einheit=None), g="mehrschritt", ohne="Heron-Verfahren (Mittelwert aus Näherung und Quotient): keine Regel des Katalogs trägt den Rechenschritt")
 neu(T, "heron", "umkehren", Z(
     "Ein Rechteck hat die Seiten 8 cm und 4,5 cm, die Fläche ist 36 cm². Man ersetzt die Länge durch den Mittelwert beider Seiten, also 6,25 cm, und passt die Breite so an, dass die Fläche 36 cm² bleibt. Wie breit ist das neue Rechteck in Zentimetern?",
     5.76, "36 / 6.25", "36 / ((8 + 4.5) / 2)", "Die Fläche bleibt gleich: Länge mal Breite = 36. Teile 36 durch die neue Länge.",

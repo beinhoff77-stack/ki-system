@@ -43,7 +43,7 @@ neu(T, "kubikwurzel", "anwenden", Z(
     "Ein würfelförmiger Container hat das Volumen 2744 dm³. Wie groß ist seine gesamte Oberfläche in Quadratdezimetern?",
     1176, "6 * 14 * 14", "6 * round(2744 ** (1 / 3)) ** 2", "Berechne zuerst die Kantenlänge. Wie viele Seitenflächen hat ein Würfel?",
     "14 · 14 · 14 = 2744, also ist die Kante 14 dm lang. Eine Seitenfläche hat 14 · 14 = 196 dm². Die Oberfläche ist 6 · 196 = 1176 dm².",
-    [B("6 * 14", "sechs Kanten statt sechs Flächen berechnet"), B("14 * 14", "nur eine Seitenfläche genommen"), B("2744 / 6", "das Volumen durch 6 geteilt")], einheit="dm²"), g="mehrschritt", regel=HZ)
+    [B("6 * 14", "sechs Kanten statt sechs Flächen berechnet"), B("14 * 14", "nur eine Seitenfläche genommen"), BR("2744 / 6", "das Volumen durch 6 geteilt (auf zwei Stellen gerundet)", stellen=2)], einheit="dm²"), g="mehrschritt", regel=HZ)
 neu(T, "kubikwurzel", "fehler_detektiv", FD(
     "Alex bestimmt die Kante eines Würfels mit dem Volumen 216 cm³:",
     [("Die Kante ist die dritte Wurzel aus 216, also 216 geteilt durch 3.", False, True),

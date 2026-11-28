@@ -65,12 +65,31 @@ def teil1():
     assert rc == 0 and out.encode('utf-8') == alt14, 'rollend_sql.py erzeugt für Runde 14 nicht mehr das eingespielte Paket (Regel darf dort nicht stehen)'
     assert 'neue Aufgaben rollend-14: 213 Aufgaben, 0 Regeln, 640 Fehlbilder.' in out
     # Auflage Werkstatt 1177: eine Nur-Lesen-Runde (14) zusammen mit anderen Runden bricht mit klarer Meldung ab (kein gemeinsamer schreibender Block)
-    assert R.FEHLBILD_NUR_LESEN_RUNDEN == (14,)
+    assert R.FEHLBILD_NUR_LESEN_RUNDEN == (14, 15)   # Runde 15 seit Werkstatt 1209 nach demselben Muster wie Runde 14
     assert R.gemischte_runden((14,)) is None and R.gemischte_runden((13,)) is None and R.gemischte_runden((12, 13)) is None
     assert R.gemischte_runden((13, 14)) and R.gemischte_runden((1, 5, 14)) and R.gemischte_runden((14, 13))
-    for rl in ('13,14', '14,13', '1,2,3,4,14', 'alle'):
+    assert R.gemischte_runden((15,)) is None and R.gemischte_runden((14, 15)) is None
+    assert R.gemischte_runden((13, 15)) and R.gemischte_runden((15, 1)) and R.gemischte_runden((13, 14, 15))
+    # Runde 15: Aufgaben-Paket mit Fehlbildern und ohne Regel, Regel nur über rb_nachtrag_r15.sql; vier Dateien von tools/rollend_paket_sql.py
+    z15, abw15, fehlt15, c15, weg15, _ = R.sammeln((15,))
+    assert c15['aufgaben'] == 207 and not fehlt15 and not abw15 and c15['mit_regel'] == 169 and c15['fb_uebernommen'] == 585 and not weg15, (c15, abw15, weg15)
+    assert len(z15) == 207 and sum(len(x['fb']) for x in z15) == 585 and sum(1 for x in z15 if x['regel']) == 169
+    rc, out, err = py('tools/rollend_sql.py', '--runden', '15', '--sql')
+    assert rc == 0 and 'neue Aufgaben rollend-15: 207 Aufgaben, 0 Regeln, 585 Fehlbilder.' in out, err[-300:]
+    pk15 = (WURZEL / 'tools/tests/aus/rollend15_einspielen.sql').read_text(encoding='utf-8')
+    assert out[out.index('do $einspielen$'):out.index('select einheit_id, count(*) filter')] in pk15 and out[out.index('do $rbnach$'):] in pk15
+    rc, out, err = py('tools/rollend_paket_sql.py', '--runde', '15', '--pruefen')
+    assert rc == 0, 'Dateien von Runde 15 unter tools/tests/aus nicht auf dem Stand: python3 -I tools/rollend_paket_sql.py --runde 15\n' + err
+    for n in ('rollend15_probe.sql', 'rollend15_einspielen.sql', 'rb_nachtrag_r15_probe.sql', 'rb_nachtrag_r15.sql'):
+        t = (WURZEL / 'tools/tests/aus' / n).read_text(encoding='utf-8')
+        erste = [l for l in t.splitlines() if not l.startswith('--')][0]
+        assert erste.startswith("select set_config('lock_timeout', '3s', true), set_config('statement_timeout', '120s', true);"), (n, erste[:80])
+        assert 'savepoint' not in t.lower() and 'exception when' not in t.lower() and len(t.encode('utf-8')) < 1_500_000, n
+    assert 'insert into schule.aufgabe_fehlbild' not in (WURZEL / 'tools/tests/aus/rb_nachtrag_r15.sql').read_text(encoding='utf-8')
+    for rl in ('13,14', '14,13', '1,2,3,4,14', '13,15', '14,15,13', 'alle'):
+        lesen = ','.join(str(r) for r in sorted(R.FEHLBILD_NUR_LESEN_RUNDEN) if r in (range(1, 16) if rl == 'alle' else [int(x) for x in rl.split(',')]))
         rc, out, err = py('tools/regelbezug_sql.py', '--runden', rl, '--sql')
-        assert rc == 1 and out == '' and err.startswith('ABBRUCH: Runde 14 darf nur lesend verglichen werden') and 'getrennt erzeugen' in err, (rl, rc, err[:300])
+        assert rc == 1 and out == '' and err.startswith(f'ABBRUCH: Runde {lesen} darf nur lesend verglichen werden') and 'getrennt erzeugen' in err, (rl, rc, err[:300])
         rc, out, err = py('tools/regelbezug_sql.py', '--runden', rl, '--sql', '--probe')
         assert rc == 1 and out == '' and 'ABBRUCH' in err, (rl, 'probe')
     rc, out, err = py('tools/regelbezug_sql.py', '--runden', '14', '--sql')
@@ -202,15 +221,79 @@ def nachbau_sql():
       (4, 'teiler', 'auswahl', '{"text": "Bestand auswahl"}', '["a", "b", "c"]', '{"index": 1}', 't', 'w', 2),
       (4, 'teiler', 'luecken', '{"text": "Bestand luecken"}', null, '{"werte": [3, 4, 5]}', 't', 'w', 3);""")
     # alles, was laut tools/tests/aus eingespielt ist
-    aus, _ = R.eingespielt()
+    aus, quelle = R.eingespielt()
     werte = []
     for (eid, r), row in sorted(aus.items()):
+        if quelle[(eid, r)] == 'rollend15_einspielen.sql': continue    # Runde 15 ist noch NICHT eingespielt: der Test spielt sie mit dem echten Paket ein (teil2)
         js = json.dumps(row, ensure_ascii=False)
         werte.append(f"({eid}, $j${js}$j$::jsonb)")
     teile.append('insert into schule.aufgabe (einheit_id, variante_gruppe, antworttyp, frage, antworten, loesung, tipp, loesungsweg, reihenfolge, stufe, typ, form, zaehlt) '
                  "select e, x->>'l', x->>'y', x->'f', x->'a', x->'o', x->>'h', x->>'w', (x->>'r')::int, (x->>'s')::smallint, x->>'g', x->>'form', x->>'zaehlt' from (values "
                  + ',\n'.join(werte) + ') v(e, x);')
     return '\n'.join(teile)
+
+
+def zahl1(pg, sql):
+    return int(pg.sql('\\pset tuples_only on\n' + sql).split()[0])
+
+
+def runde15(pg):
+    """Runde 15 mit den ECHTEN Dateien aus tools/tests/aus: Probe -> Einspielen -> Nachtrag-Probe -> Nachtrag; Zahlen, Bericht, Wiederholung, Negativtests."""
+    aus = WURZEL / 'tools/tests/aus'
+    plan = json.loads((WURZEL / 'inhalte/plan/rollend-einheiten.json').read_text(encoding='utf-8'))
+    ein = sorted({x['e'] for x in R.sammeln((15,))[0]})
+    # Bausteine, die der Nachbau nicht hat: aufgaben_einfuegen (Migration, mit form/zaehlt wie FT-S), Lernziele je Einheit, ein Bestandsplatz je Einheit (max_r)
+    kb = auszug('20261118_w150_f_stufen_typ_bonus.sql', 'create or replace function schule.aufgaben_einfuegen(', '$function$;\n')
+    for alt, neu in (("reihenfolge, pool, typ)", "reihenfolge, pool, typ, form, zaehlt)"), ("x->>'g' from q", "x->>'g', x->>'form', x->>'zaehlt' from q")):
+        assert kb.count(alt) == 1, alt
+        kb = kb.replace(alt, neu)
+    pg.sql(kb)
+    for t, e in plan['einheiten'].items():
+        if e['id'] not in ein: continue
+        etappen = json.dumps({'etappen': [{'lernziel': l} for l in e['lz']]}, ensure_ascii=False)
+        pg.sql(f"""update schule.einheit set inhalt = $j${etappen}$j$::jsonb where id = {e['id']};
+insert into schule.aufgabe (einheit_id, variante_gruppe, antworttyp, frage, loesung, tipp, loesungsweg, reihenfolge, pool) values
+  ({e['id']}, '{e['lz'][0]}', 'zahl', '{{"text": "Bestand {t}"}}', '{{"wert": 1}}', 't', 'w', {e['max_r']}, 'uebung');""")
+    a0, f0, r0 = (zahl1(pg, f'select count(*) from schule.{x};') for x in ('aufgabe', 'aufgabe_fehlbild', 'aufgabe_regel'))
+    # 1. Probe: rollt zurück, Bericht am ANFANG der Meldung
+    out = pg.paket((aus / 'rollend15_probe.sql').read_text(encoding='utf-8'), erwartet_fehler='PROBELAUF bestanden')
+    assert 'BERICHT Runde 15 Aufgaben-Paket: 207 Aufgaben, 585 Fehlbilder, 0 Regelzuordnungen neu' in out and f'Bestand vorher {a0} / {f0} / {r0}' in out, out[:1200]
+    assert 'WEICHT AB' in out, 'der Nachbau hat nicht die Live-Zahlen: der Bericht muss die Abweichung ausweisen, ohne abzubrechen'
+    assert (zahl1(pg, 'select count(*) from schule.aufgabe;'), zahl1(pg, 'select count(*) from schule.aufgabe_fehlbild;')) == (a0, f0), 'Probe hat etwas zurückgelassen'
+    # Nachtrag vor den Aufgaben: Abbruch ohne Änderung
+    pg.paket((aus / 'rb_nachtrag_r15.sql').read_text(encoding='utf-8'), erwartet_fehler='ist nichts')
+    # 2. Einspielen (mit Bericht), Wiederholung bricht ab
+    out = pg.paket((aus / 'rollend15_einspielen.sql').read_text(encoding='utf-8'))
+    assert 'BERICHT Runde 15 Aufgaben-Paket: 207 Aufgaben, 585 Fehlbilder, 0 Regelzuordnungen neu' in out, out[:1200]
+    assert (zahl1(pg, 'select count(*) from schule.aufgabe;'), zahl1(pg, 'select count(*) from schule.aufgabe_fehlbild;'), zahl1(pg, 'select count(*) from schule.aufgabe_regel;')) == (a0 + 207, f0 + 585, r0)
+    pg.paket((aus / 'rollend15_einspielen.sql').read_text(encoding='utf-8'), erwartet_fehler='schon belegt')
+    assert zahl1(pg, 'select count(*) from schule.aufgabe;') == a0 + 207
+    # 3. Nachtrag: Probe, dann echt, dann Wiederholung
+    pg.paket((aus / 'rb_nachtrag_r15_probe.sql').read_text(encoding='utf-8'), erwartet_fehler='PROBELAUF bestanden')
+    assert zahl1(pg, 'select count(*) from schule.aufgabe_regel;') == r0, 'Nachtrag-Probe hat Regeln zurückgelassen'
+    n1 = pg.paket((aus / 'rb_nachtrag_r15.sql').read_text(encoding='utf-8'))
+    assert 'BERICHT Runde 15 Regel-Nachtrag: 0 Aufgaben, 0 Fehlbilder, 169 Regelzuordnungen neu' in n1 and 'RB-S Regelbezug: 207 Aufgaben, 169 Regeln neu, 0 Fehlbilder neu' in n1, n1[:1200]
+    n2 = pg.paket((aus / 'rb_nachtrag_r15.sql').read_text(encoding='utf-8'))
+    assert '0 Aufgaben, 0 Fehlbilder, 0 Regelzuordnungen neu' in n2 and 'RB-S Regelbezug: 207 Aufgaben, 0 Regeln neu, 0 Fehlbilder neu' in n2, n2[:1200]
+    assert zahl1(pg, 'select count(*) from schule.aufgabe_regel;') == r0 + 169
+    # Negativtest: ein Fehlbild der Runde fehlt -> der Nachtrag bricht ab und lässt keine Regel zurück (Regeln erst entfernen: Erstlauf nachstellen)
+    x0 = R.sammeln((15,))[0][0]
+    aid = f"(select id from schule.aufgabe where einheit_id = {x0['e']} and pool = 'uebung' and reihenfolge = {x0['r']})"
+    ids = ','.join(map(str, ein))
+    offen = f"update schule.einheit set status = 'geprueft' where id in ({ids});\n"
+    zu = f"\nupdate schule.einheit set status = 'freigegeben' where id in ({ids});"
+    if x0['fb']:
+        pg.sql(offen + 'delete from schule.aufgabe_regel where aufgabe_id in (select id from schule.aufgabe where einheit_id in (' + ','.join(map(str, ein)) + ')' + " and reihenfolge > 15000);"
+               + f"delete from schule.aufgabe_fehlbild where aufgabe_id = {aid} and nr = {x0['fb'][0]['nr']};" + zu)
+        assert zahl1(pg, 'select count(*) from schule.aufgabe_regel;') == r0
+        pg.paket((aus / 'rb_nachtrag_r15.sql').read_text(encoding='utf-8'), erwartet_fehler='RB-S Regelbezug ABBRUCH')
+        assert zahl1(pg, 'select count(*) from schule.aufgabe_regel;') == r0, 'Abbruch hat Regeln von R15 zurückgelassen'
+        pg.sql(offen + f"insert into schule.aufgabe_fehlbild (aufgabe_id, nr, art, luecke, wert, beschreibung, fehlbild, regel) values ({aid}, {x0['fb'][0]['nr']}, '{x0['fb'][0]['art']}', "
+               + ('null' if x0['fb'][0]['luecke'] is None else str(x0['fb'][0]['luecke'])) + f", '{x0['fb'][0]['wert']}', $b${x0['fb'][0]['text']}$b$, "
+               + ('null' if not x0['fb'][0]['fehlbild'] else "'" + x0['fb'][0]['fehlbild'] + "'") + ', ' + ('null' if not x0['fb'][0]['regel'] else "'" + x0['fb'][0]['regel'] + "'") + ');' + zu)
+        pg.paket((aus / 'rb_nachtrag_r15.sql').read_text(encoding='utf-8'))      # Erstlauf (wieder) möglich: 169 Regeln neu
+        assert zahl1(pg, 'select count(*) from schule.aufgabe_regel;') == r0 + 169
+    print('Runde 15 (echte Dateien): Probe, Einspielen (+207 Aufgaben, +585 Fehlbilder), Wiederholung bricht ab, Nachtrag-Probe, Nachtrag (+169 Regeln), Wiederholung 0; Bericht ausgewiesen')
 
 
 def teil2(zeilen):
@@ -285,8 +368,9 @@ def teil2(zeilen):
         assert 'RB-S Regelbezug: 213 Aufgaben, 0 Regeln neu, 0 Fehlbilder neu' in out2, out2[-400:]
         print('Runde 14, Nachtrag, 1. Lauf:', [l for l in out1.splitlines() if 'RB-S Regelbezug' in l][-1].strip())
         print('Runde 14, Nachtrag, 2. Lauf:', [l for l in out2.splitlines() if 'RB-S Regelbezug' in l][-1].strip())
+        runde15(pg)
         zahl = pg.sql("\\pset tuples_only on\nselect count(*) || ' ' || (select count(*) from schule.aufgabe_fehlbild) from schule.aufgabe_regel;").split()
-        assert int(zahl[0]) == sum(1 for x in zeilen if x['regel']) + 195 and int(zahl[1]) == sum(len(x['fb']) for x in zeilen) + 640, zahl
+        assert int(zahl[0]) == sum(1 for x in zeilen if x['regel']) + 195 + 169 and int(zahl[1]) == sum(len(x['fb']) for x in zeilen) + 640 + 585, zahl
         # eine echte Fehlantwort aus einer Datei (Zahl mit Kennung) über die Bewertung
         x = next(x for x in zeilen if x['y'] == 'zahl' and any(f['fehlbild'] for f in x['fb']))
         f = next(f for f in x['fb'] if f['fehlbild'])

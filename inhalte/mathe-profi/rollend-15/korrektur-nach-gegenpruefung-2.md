@@ -126,3 +126,13 @@ Ergebnis der Durchsicht: Funde und Änderungen bei V053, V064, V065, V188, V202,
 - `tools/tests/rollend_sql_test.py`: Die Liste `SOLL` kennt nur die Runden 1 bis 14. `rollend_sql.py` nimmt Runde 15 bei „alle“ automatisch mit, die Summe stimmt dann nicht mehr („Summe der Soll-Zahlen“). Nötig: ein Eintrag `15: 207` in `SOLL`. Probe in einer Wegwerfkopie: Mit diesem Eintrag läuft der Test bis „OK“. Das ändert kein Paket.
 - `tools/tests/regelbezug_sql_test.py`: Die Meldung „regelbezug-lernkarten.json ist nicht auf dem Stand“ kommt daher, dass die erzeugte Datei `inhalte/plan/regelbezug-lernkarten.json` die Lernkarten-Zählungen ohne Runde 15 enthält. Neu erzeugen mit `python3 -I tools/regelbezug_lernkarten.py` ändert nur Zähler („aufgaben“, „anteil“) in dieser Datei; `tools/tests/rb_ww_pakete.py --pruefen` bleibt danach OK, und die md5-Summen aller 45 Dateien unter `tools/tests/aus/` sind vorher und nachher gleich. Danach scheitert der Test aber an einer weiteren Stelle: `ALLE = tuple(range(1, 14))` und der Vergleich „Aufgaben ohne eingespieltes Gegenstück“ (R15-V047 … sind in der Datenbank noch nicht eingespielt). Dafür braucht es eine Entscheidung zum Einspielen von Runde 15 (Paket `rollend15_einspielen.sql`, Regel-Nachtrag, Soll-Zahlen für Fehlbilder), also neue Pakete und Testanpassung.
 - Entscheidung: Ich habe weder den Test noch die erzeugte JSON-Datei im Branch geändert (Auftrag: nur beschreiben, wenn mehr als das Registrieren nötig ist). Die JSON-Datei habe ich zur Probe neu erzeugt und wieder auf den Stand der Datei im Repository zurückgesetzt.
+
+## Nachtrag nach Gegenprüfung 1209 (Paketbau)
+
+Inhaltlich freigegeben; vier kleine Hinweise eingearbeitet:
+- V057: Fehlbild nennt „ein Drachen, der keine Raute ist, hat …“.
+- V084: Erklärung ergänzt: Aus gleichen Winkeln folgt die Kongruenz nicht, die Dreiecke könnten zufällig deckungsgleich sein, sicher ist es nicht.
+- V089: richtige Option und Fehlbild nennen „auf derselben Seite von [AB]“ bei beiden Winkeln; das Fehlbild zur falschen Schrittfolge sagt „In dieser Schrittfolge fehlt die festgelegte Strecke“.
+- V202 (und V206): Zeichen ⊆ statt ⊂.
+
+Beim Bau der Pakete aufgefallen und behoben: Fünf Fehlbilder mit nicht abbrechenden Dezimalzahlen (V009, V067, V099, V117, V130; 16 Stellen) verletzten die Prüfbedingung `aufgabe_fehlbild_wert_check` (höchstens 15 Nachkommastellen) und hätten das Aufgaben-Paket abgebrochen. Sie stehen jetzt auf zwei Stellen gerundet (5,26; 25,71; 6,86; 457,33; 4,44), wie ein Kind sie eingeben würde; die Beschreibung sagt „(auf zwei Stellen gerundet)“. Lösungen und Aufgabentexte sind unverändert. `bauen.py` OK, `gegenrechnung.py` 0 Abweichungen.

@@ -360,10 +360,10 @@
      "beschreibung": "nur eine Seitenfläche genommen"
     },
     {
-     "antwort": 457.3333333333333,
+     "antwort": 457.33,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Volumen durch 6 geteilt"
+     "beschreibung": "das Volumen durch 6 geteilt (auf zwei Stellen gerundet)"
     }
    ],
    "aufgabe": {

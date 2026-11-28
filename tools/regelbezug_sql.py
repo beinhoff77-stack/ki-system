@@ -7,7 +7,7 @@ Aufruf:  python3 -I tools/regelbezug_sql.py [--runden 1,2,3,4 | 5 | alle]       
          python3 -I tools/regelbezug_sql.py --runden 5 --sql --probe > x.sql     -> dasselbe, rollt am Ende absichtlich zurück (Bericht in der Meldung)
          --json                                                                   -> Zählungen als JSON (für inhalte/plan/regelbezug.md)
 Vorgabe für --runden wie tools/rollend_sql.py (1,2,3,4). Je Runde ein Paket (Größe); die Reihenfolge ist egal, ein zweiter Lauf ändert nichts.
-Runde 14 (FEHLBILD_NUR_LESEN_RUNDEN) darf mit --sql NUR ALLEIN erzeugt werden: ihre Fehlbilder sind schon eingespielt und werden nur lesend verglichen.
+Runde 14 und 15 (FEHLBILD_NUR_LESEN_RUNDEN) dürfen mit --sql nur ALLEIN oder zusammen (nicht mit anderen Runden) erzeugt werden: ihre Fehlbilder sind schon eingespielt und werden nur lesend verglichen.
 Eine Mischung mit anderen Runden (auch „alle“) bricht mit Meldung ab (Auflage Werkstatt 1177); die Übersicht ohne --sql ist davon nicht betroffen.
 
 ZUORDNUNG Repo-Aufgabe -> Datenbank-Aufgabe (es gibt in der Datenbank keine Kennung):
@@ -194,8 +194,9 @@ def sammeln(runden, ohne=()):
 # Runde 14 ist am 28.11.2026 ohne Regel eingespielt worden (tools/tests/aus/rollend14_einspielen.sql, md5 b2d081b8da216e6d45691f55d0e73569: 640 Fehlbilder,
 # 0 Regeln). Die Regel-Kennung steht seit dem Nachtrag in den Dateien (inhalte/mathe-profi/rollend-14/regeln.py), kommt aber nur über rb_nachtrag_r14.sql
 # in die Datenbank. Damit das alte Paket bei jedem Neuerzeugen byteidentisch bleibt, lässt zeilen_neu die Regel dieser Kennungen weg.
-REGEL_ERST_IM_NACHTRAG = ('R14-',)
-FEHLBILD_NUR_LESEN_RUNDEN = (14,)   # Nachtrag dieser Runden schreibt keine Fehlbilder (sie sind mit der Runde eingespielt), vergleicht sie nur lesend
+# Runde 15 (Paketbau nach Gegenprüfung 1209) ist nach demselben Muster gebaut: Aufgaben-Paket mit Fehlbildern, 0 Regeln; Regeln über rb_nachtrag_r15.sql.
+REGEL_ERST_IM_NACHTRAG = ('R14-', 'R15-')
+FEHLBILD_NUR_LESEN_RUNDEN = (14, 15)   # Nachtrag dieser Runden schreibt keine Fehlbilder (sie sind mit der Runde eingespielt), vergleicht sie nur lesend
 
 
 def gemischte_runden(runden):

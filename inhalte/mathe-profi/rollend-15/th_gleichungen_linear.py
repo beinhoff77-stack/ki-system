@@ -36,7 +36,7 @@ neu(T, "beide_seiten", "umkehren", Z(
     "Für welche Zahl haben die Terme 7x − 8 und 3x + 40 denselben Wert?",
     12, "(40 + 8) / (7 - 3)", int(loes("7*x-8=3*x+40")), "Setze die beiden Terme gleich und löse die Gleichung.",
     "7x − 8 = 3x + 40. Subtrahiere 3x: 4x − 8 = 40. Addiere 8: 4x = 48. Teile durch 4: x = 12. Probe: 7 · 12 − 8 = 76 und 3 · 12 + 40 = 76.",
-    [B("(40 - 8) / (7 + 3)", "ein Minus beim Umformen verloren und 3x addiert statt subtrahiert"), B("48 / 7", "3x gar nicht beachtet"), B("(40 - 8) / (7 - 3)", "die 8 abgezogen statt addiert")]), g="rueckwaerts", regel=WG)
+    [B("(40 - 8) / (7 + 3)", "ein Minus beim Umformen verloren und 3x addiert statt subtrahiert"), BR("48 / 7", "3x gar nicht beachtet (auf zwei Stellen gerundet)", stellen=2), B("(40 - 8) / (7 - 3)", "die 8 abgezogen statt addiert")]), g="rueckwaerts", regel=WG)
 # ───────── klammern ─────────
 neu(T, "klammern", "lueckenweg", L(
     "Du löst 5(x − 4) = 2x + 19. Nach dem Ausmultiplizieren steht links 5x − ①. Subtrahiere 2x, dann steht links 3x − ①. Addiere ① auf beiden Seiten: 3x = ②. Also ist x = ③.",

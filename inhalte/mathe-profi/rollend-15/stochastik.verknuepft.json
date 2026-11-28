@@ -510,7 +510,7 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Es gilt A ⊂ B: Jedes Element von A liegt auch in B. Welche Aussage über die Schnittmenge und die Vereinigung gilt immer?"
+     "text": "Es gilt A ⊆ B: Jedes Element von A liegt auch in B. Welche Aussage über die Schnittmenge und die Vereinigung gilt immer?"
     },
     "a": [
      "A ∩ B = B und A ∪ B = A",
@@ -699,10 +699,10 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "A liegt ganz in B (A ⊂ B).",
+     "antwort": "A liegt ganz in B (A ⊆ B).",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "bei A ⊂ B ist die Vereinigung gleich B, es gilt P(A ∪ B) = P(B)"
+     "beschreibung": "bei A ⊆ B ist die Vereinigung gleich B, es gilt P(A ∪ B) = P(B)"
     },
     {
      "index": 2,
@@ -723,7 +723,7 @@
      "text": "Für zwei Ereignisse A und B gilt P(A ∪ B) = P(A) + P(B). Was folgt daraus?"
     },
     "a": [
-     "A liegt ganz in B (A ⊂ B).",
+     "A liegt ganz in B (A ⊆ B).",
      "Der Schnitt hat die Wahrscheinlichkeit 0: P(A ∩ B) = 0.",
      "A und B sind gleich wahrscheinlich."
     ],

@@ -70,7 +70,7 @@ Ratewahrscheinlichkeit nach Antworttyp [R] (`bestand.md` c)). „Ja*“ = ja mit
 | Geeignete V-Formen im Test | Umkehren, Zwei Wege (zahl), Brücke (Zahlenstrahl/Tabelle), Fehler-Detektiv mit 3 Zeilen gekoppelt | alle sechs; Fehler-Detektiv an Termumformungen, Verfahren wählen (Gleichungen, Funktionen), viele_antworten |
 | Lesestoff | ein bis zwei Sätze; Sachaufgaben kurz | mehrteilig möglich |
 | Anteil V im Test [M] | Hälfte, Nachtest nicht mehr | Hälfte, Nachtest bis zwei Drittel |
-| Besonderheit | Testlänge zählt mehr (Ausdauer): Flugtest mit 1 R + 1 V verdoppelt die Länge – große Flüge (bis 14 Etappen [R]) werden mit 28 Karten lang; Unterbrechen geht schon heute („Angefangener Test – Weitermachen“, `lernen.js` 5150) | 2 Einheiten ohne jede Form im Üben (`funktionen.gebrochen`, `gleichungen.formeln` [R]) → dort zuerst Übungsformen, dann Test-V |
+| Besonderheit | Testlänge zählt mehr (Ausdauer): Flugtest mit 1 R + 1 V verdoppelt die Länge – große Flüge (bis 14 Etappen [R]) werden mit 28 Karten lang; Unterbrechen geht schon heute („Angefangener Test – Weitermachen“, `lernen.js` 5149) | 2 Einheiten ohne jede Form im Üben (`funktionen.gebrochen`, `gleichungen.formeln` [R]) → dort zuerst Übungsformen, dann Test-V |
 
 ## 8. Fazit
 

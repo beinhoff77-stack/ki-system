@@ -90,9 +90,9 @@ Vollständige aktuelle Fassungen: `test_starten_intern`, `nachtest_auswahl`, `na
 
 | Testart | Auswahl [B] | Bewertung |
 |---|---|---|
-| **Flugtest** (`blocktest`) | **alle** freigegebenen Aufgaben des Pools `test` der Einheit, nach `reihenfolge` (nf_s Z. 152 ff. `array_agg … where pool = 'test' and freigegeben`) – auch Kür-Etappen (`bau-motivation.md` „Blocktest-Auswahl … nur Pflicht“ offen) | je Etappe „alle richtig“ (bool_and), keine Quote; falsch → Status `fehler` → Korrektur (`bau-motivation.md` Z. 1030, live gelesen 22.11.) |
-| **Nachtragstest** (blocktest nach abgeschlossenem Flugtest, W177) | je **offene** Pflicht-Etappe **eine** ungesehene Aufgabe, zuerst Pool `test`, sonst `korrektur`, nach `reihenfolge` (nf_s Z. 138–150) | wie Flugtest: richtig → nachgewiesen, falsch → fehler (`M/20261118_w177_nachtragstest.sql` Kopf) |
-| **Korrektur** („Verbessern“) | je Etappe mit Status `fehler` **eine** ungesehene Aufgabe aus `korrektur`, nach `reihenfolge` (nf_s Z. 172–181) | richtig → korrigiert [A: falsch → bleibt fehler; Grundfassung fehlt] |
+| **Flugtest** (`blocktest`) | **alle** freigegebenen Aufgaben des Pools `test` der Einheit, nach `reihenfolge` (nf_s Z. 157 `array_agg … where pool = 'test' and freigegeben`) – auch Kür-Etappen (`bau-motivation.md` „Blocktest-Auswahl … nur Pflicht“ offen) | je Etappe „alle richtig“ (bool_and), keine Quote; falsch → Status `fehler` → Korrektur (`bau-motivation.md` Z. 1030, live gelesen 22.11.) |
+| **Nachtragstest** (blocktest nach abgeschlossenem Flugtest, W177) | je **offene** Pflicht-Etappe **eine** ungesehene Aufgabe, zuerst Pool `test`, sonst `korrektur`, nach `reihenfolge` (nf_s Z. 140–155) | wie Flugtest: richtig → nachgewiesen, falsch → fehler (`M/20261118_w177_nachtragstest.sql` Kopf) |
+| **Korrektur** („Verbessern“) | je Etappe mit Status `fehler` **eine** ungesehene Aufgabe aus `korrektur`, nach `reihenfolge` (nf_s Z. 178–186) | richtig → korrigiert [A: falsch → bleibt fehler; Grundfassung fehlt] |
 | **Nachtest** (10/25/60 Lerntage) | je Pflicht-Etappe `nachtest_je_etappe` = ⌈5 / Pflicht-Etappen⌉ Aufgaben aus `sicherung` (`M/20261124_nt_s_nachtest_menge.sql` Z. 14); ungestellte zuerst, aufgefüllt mit am längsten zurückliegenden; ohne ungestellte → „Vorrat erschöpft“, kein verkürzter Test (nf_s Z. 57–70) | Quote über alle: ≥ 0,8 bestanden (Runde +1, nach 3 „gesichert“), ≥ 0,6 wiederholen, sonst Rückreise (NT-S Kopf; `L` 5157, 5240–5243). Wertung je Etappe „wie bisher“ [?, Grundfassung fehlt] |
 
 [R] Vorrat je Lernziel im Repo (`inhalte/themen/*.json`, entspricht in der Summe fast genau den freigegebenen Live-Zahlen 675/2 096/4 252): `test` **genau 1** je Lernziel (675 Lernziele), `korrektur` 3 (603) oder 4 (72), `sicherung` meist 6 (585), sonst 7–12. Live am 22.11.: 546 Etappen mit 1, 84 mit 2, 1 mit 3 Test-Aufgaben (vor der Sperre) [B] `bau-motivation.md` Z. 1029.
@@ -103,7 +103,7 @@ Vollständige aktuelle Fassungen: `test_starten_intern`, `nachtest_auswahl`, `na
 - App: der Test nutzt **dieselbe** Aufgabendarstellung wie das Üben (`lernTestLauf`, `L` 5170: `lernAufgabe(a, antworten.get(a.id))`; `lernAufgabe` `L` 3150 ff. kann alle sechs Antworttypen inkl. `bedingung` `L` 3201).
 - **Die acht Formen sind keine eigenen Antworttypen**, sondern Inhalte in den alten Typen [R]: Fehler-Detektiv 344× auswahl (256 mit **3**, 88 mit 4 Möglichkeiten), 10× zahl, 1× luecken; Lückenweg 413× luecken; viele_antworten 80× bedingung; Umkehren 307× zahl; Zwei Wege 237× zahl; Anwenden 566× zahl; Brücke 141× auswahl, 87× zahl; Verfahren wählen 173× auswahl (153 mit 4). Eine echte „Zeilenauswahl“ gibt es nicht – die Zeile wird als Auswahl („in Zeile 2 / 3 / in keiner“) gefragt.
 - ⇒ **Alle 2 241 Form-Aufgaben lassen sich im Test-Bildschirm heute darstellen und prüfen.** `bedingung` im Test ist serverseitig nachgewiesen: Prüfpaket BD-S2 legt eine Probe-Aufgabe in den Pool `test`, ruft `test_antwort_intern` und `test_abschliessen_intern` und verlangt `antworttyp: bedingung` und die geschützte Lösung im Ergebnis (`tools/tests/bedingung_einspielen2.py` Z. 118–125, 164–166).
-- Im Test **nicht** vorhanden [B]: Tipp (`aufgabe_anzeige(a, false)`, nf_s Z. 191; `M/20261118_w150_f_…` Z. 52), zweiter Versuch, Rückmeldung vor dem Abgeben, Fehlbild-Rückmeldung („Flug-Test liefert kein Fehlbild“, `offene-punkte.md` Eintrag „Entwurf Regelkarte“), Tastenfeld (Designer Nachtrag 3). Nach dem Abgeben: richtig/falsch je Karte, bei falsch Lösung und Lösungsweg (`L` 5225 ff.).
+- Im Test **nicht** vorhanden [B]: Tipp (`aufgabe_anzeige(a, false)`, nf_s Z. 199; `M/20261118_w150_f_…` Z. 52), zweiter Versuch, Rückmeldung vor dem Abgeben, Fehlbild-Rückmeldung („Flug-Test liefert kein Fehlbild“, `offene-punkte.md` Eintrag „Entwurf Regelkarte“), Tastenfeld (Designer Nachtrag 3). Nach dem Abgeben: richtig/falsch je Karte, bei falsch Lösung und Lösungsweg (`L` 5225 ff.).
 - Hinweis Form im Test [B]: `aufgabe_anzeige` liefert seit FT-S `form` und `zaehlt` auch im Test mit; die App nutzt `form` nur im Üben („Zum Aufwärmen – zählt nicht“, `L` 4735). Der Test kennt `zaehlt` nicht: ein Lückenweg im Test-Pool würde voll zählen.
 - Texte, die ein Umbau berührt: „Eine Bordkarte je Etappe, ohne Tipps“ (`L` 5152), Nachtragstest-Text (`L` 5154), Nachtest-Text (`L` 5157).
 
@@ -118,9 +118,9 @@ Vollständige aktuelle Fassungen: `test_starten_intern`, `nachtest_auswahl`, `na
 
 [B] Weg heute: Rundenordner `inhalte/mathe-profi/rollend-N/` (je Thema eine JSON, `bauen.py`, bei neueren Runden `th_*.py`, `kern.py`, `regeln.py`, Vorprüfung) → `tools/vorrat_pruefen.py` (Hinweise: verratene Lückenwerte, Abhängigkeit, Fehlbilder, Detektiv-Zeilen; nur Runden 1–4 + fachwoerter fest verdrahtet, Z. 24–25) → `tools/rollend_sql.py --runden N --sql` → Paket mit `schule.aufgaben_einfuegen` + Regelbezug-Block (`tools/regelbezug_sql.py`).
 Sperren im Werkzeug [B] `tools/rollend_sql.py`:
-- Z. 129: `if a['p'] != 'uebung': fehler … Vorrat … statt uebung` – **nur Übungen**.
-- Z. 147–153: Reihenfolge-Nummern ab `max_r` der Einheit (Pool uebung, aus `inhalte/plan/rollend-einheiten.json`) + 1000·Runde.
-- SQL prüft `max(reihenfolge) … pool = 'uebung'` (Z. 212).
+- Z. 120: `if a['p'] != 'uebung': fehler … Vorrat … statt uebung` – **nur Übungen**.
+- Z. 140–145: Reihenfolge-Nummern ab `max_r` der Einheit (Pool uebung, aus `inhalte/plan/rollend-einheiten.json`) + 1000·Runde.
+- SQL prüft `max(reihenfolge) … pool = 'uebung'` (Z. 228).
 Server [B] `schule.aufgaben_einfuegen` (`M/20261118_w150_f_…` Z. 39, FT-S-Patch) nimmt **jeden** Pool an (Feld `p`; `art` = blocktest für test, nachtest für korrektur/sicherung), übernimmt `form`, `zaehlt`, `typ` (`g`), und fügt nur ein, was es in der Einheit (gleiche Frage, gleiche Antworten) – **poolübergreifend** – noch nicht gibt.
 [B] Freigegebene Einheiten/Aufgaben sind durch Trigger `einheit_schutz`/`aufgabe_schutz` unveränderlich (`bau-motivation.md`, LK-S Punkt 2). Bestehende Test-Aufgaben kann man **nicht nachträglich** mit `typ`/`form` versehen, ohne diese Schranke anzufassen.
 
@@ -129,7 +129,7 @@ Ein Generator für Test-Pools müsste [M]:
 2. Sperren: kein `lueckenweg`, `zaehlt` nur `ja`, Lernkarte ist Pflicht-Etappe, keine Frage, die einer Übung derselben Einheit gleicht oder nur andere Zahlen hat (sonst „schon gesehen“; `aufgaben_einfuegen` würde gleiche Fragen still überspringen, das Paket bricht dann an der Zählung ab).
 3. Ratesperre: `auswahl` mit mindestens 4 Möglichkeiten, Fehler-Detektiv als `luecken` (Zeile + berichtigter Wert) statt 3er-Auswahl (Regeln in `didaktik.md`).
 4. Stufe: Test-Aufgaben haben heute alle Stufe 2 [L]; neue ebenso (Stufe 3 nur Kür/Bonus).
-5. `typ` mitsetzen (für Auswertung „Rechnen/Verstehen“) und die Tippspalte füllen (wird im Test nicht gezeigt, aber vom Werkzeug verlangt, Z. 136).
+5. `typ` mitsetzen (für Auswertung „Rechnen/Verstehen“) und die Tippspalte füllen (wird im Test nicht gezeigt, aber vom Werkzeug verlangt, Z. 124).
 6. Vorprüfung (`vorrat_pruefen.py`) auf beliebige Runden ausweiten.
 
 ## f) Verteilung der Form-Aufgaben (Repo-Sicht)

@@ -24,7 +24,7 @@ before(async () => {
     let body = fs.readFileSync(file);
     if (release === 'neu' && ['.html', '.js'].includes(path.extname(file))) {
       let s = body.toString('utf8');
-      if (name === '/index.html' || name === '/' || name === '/sw.js') s = s.split('?v=' + VERSION).join('?v=9.9.9');
+      if (['/index.html', '/', '/sw.js', '/lernen/', '/lernen/index.html'].includes(name)) s = s.split('?v=' + VERSION).join('?v=9.9.9');
       if (name === '/sw.js') s = s.replace(`CACHE_PREFIX + '${CACHE_NR}'`, "CACHE_PREFIX + 'v999'");
       if (name === '/lernen.js' && u.searchParams.get('v') === '9.9.9') s += '\n;window.__TEMPO_NEU = true;\n';
       body = Buffer.from(s, 'utf8');
@@ -170,7 +170,11 @@ test('1175/5 Release-Regel: beide HTML-Einstiege, sw.js-Hülle und App-Version n
   assert.equal(v.size, 1, 'eine Version überall: ' + [...v].join(', '));
   const [ver] = v;
   for (const m of lies('index.html').matchAll(/(?:src|href)="([^"]+\?v=[^"]+)"/g)) assert.ok(huelle.includes('./' + m[1]), `${m[1]} fehlt in HUELLE`);
-  const app = lies('app.js').match(/APP_VERSION\s*=\s*'([^']+)'/); if (app) assert.equal(app[1], ver, 'APP_VERSION = ?v=');
+  // 1199: auch der Schul-Einstieg – jede ?v=-Datei von lernen/index.html (relativ zu lernen/) steht in HUELLE, ebenso lernen/ und lernen/index.html
+  for (const m of lies('lernen/index.html').matchAll(/(?:src|href)="([^"]+\?v=[^"]+)"/g)) {
+    const p = path.posix.normalize('lernen/' + m[1]); assert.ok(huelle.includes('./' + p), `lernen/index.html: ${p} fehlt in HUELLE`); }
+  for (const p of ['./', './index.html', './lernen/', './lernen/index.html']) assert.ok(huelle.includes(p), `${p} fehlt in HUELLE`);
+  for (const f of ['app.js', 'lernen/schule.js']) { const a = lies(f).match(/APP_VERSION\s*=\s*'([^']+)'/); assert.ok(a, `${f}: APP_VERSION fehlt`); assert.equal(a[1], ver, `${f}: APP_VERSION = ?v=`); }
 });
 function swLaden(cacheInhalt, netz) {
   const events = {}; const self = { registration: { scope: 'https://example.com/ki/' }, addEventListener: (n, cb) => { events[n] = cb; }, skipWaiting: () => {}, clients: { claim: () => {} } };
@@ -227,5 +231,43 @@ test('TEMPO sw.js im Browser: Hülle beim Neuladen aus dem Cache; ein neues Rele
   await page.reload(); await page.waitForFunction(() => typeof lernCall === 'function');
   assert.equal(await page.evaluate(() => window.__TEMPO_NEU === true), true);
   assert.equal(zaehle('/lernen.js?v=9.9.9'), n, 'neue Version jetzt aus dem neuen Cache');
+  // 1199: zweiter Einstieg (Schul-Seite lernen/) bekommt dieselbe neue Version aus derselben Hülle
+  await page.goto(origin + '/lernen/'); await page.waitForFunction(() => typeof lernCall === 'function');
+  assert.equal(await page.evaluate(() => window.__TEMPO_NEU === true), true, 'lernen/: neues lernen.js');
+  assert.equal(zaehle('/lernen.js?v=9.9.9'), n, 'lernen/: aus dem Cache der neuen Hülle');
   assert.deepEqual(errors, []);
+});
+test('1199/2: erschöpftes Wiederholungsbudget – überholte Antwort wird verworfen, nie ausgeliefert; Lehrer-Vorab nur mit Stand beim Abruf', async (t) => {
+  const { page, srv } = await seite(t, { ms: 30 });
+  srv.msJe.schule_konto = 300;
+  const r = await page.evaluate(async () => {
+    const p = lernCall('schule_konto', { lernender_id: 1 }).then((x) => 'stand ' + x.stand, (e) => (e.veraltet ? 'verworfen' : e.message));
+    for (let i = 0; i < 4; i++) { await new Promise((ok) => setTimeout(ok, 150)); await lernCall('schule_uebung_pruefen', { lernender_id: 1, aufgabe_id: 9, antwort: { wert: i } }); }
+    return p; });
+  assert.equal(r, 'verworfen');
+  // Ohne Stand beim Abruf hinterlegt lernVorabSetzen nichts
+  const n = await page.evaluate(() => { lernVorabSetzen('schule_wiederholung', { lernender_id: 7 }, Promise.resolve({ x: 1 })); return lernSpeicher.has(lernSpeicherSchl('schule_wiederholung', { lernender_id: 7 })); });
+  assert.equal(n, false);
+});
+test('1199/4: laufende Abfrage an das Kind gebunden (A → B → A holt für A frisch); gleiche Schreibaktion doppelt = ein POST', async (t) => {
+  const { page, zahlKind, zahl } = await seite(t, { ms: 300 });
+  await page.evaluate(async () => { const a1 = lernCall('schule_einheit_lesen', { lernender_id: 1, einheit_id: 5 }); await new Promise((ok) => setTimeout(ok, 30));
+    const b = lernCall('schule_einheit_lesen', { lernender_id: 2, einheit_id: 5 }); await new Promise((ok) => setTimeout(ok, 30));
+    const a2 = lernCall('schule_einheit_lesen', { lernender_id: 1, einheit_id: 5 }); await Promise.all([a1, b, a2]); });
+  assert.equal(zahlKind('schule_einheit_lesen', 1), 2, 'A nach B neu');
+  await page.evaluate(async () => { const d = { lernender_id: 1, belohnung_id: 5 }; await Promise.all([lernCall('schule_einloesen', d), lernCall('schule_einloesen', d)]); });
+  assert.equal(zahl('schule_einloesen'), 1);
+});
+test('1199/4: app.js – verspätetes 401 einer Anfrage des alten Zugangs meldet den neuen nicht ab', async (t) => {
+  const context = await browser.newContext({ serviceWorkers: 'block' }); t.after(() => context.close());
+  await context.addInitScript(() => { localStorage.setItem('ks_token', 'synthetic-alt'); });
+  const page = await context.newPage(); await page.route('https://cdnjs.cloudflare.com/**', (r) => r.abort());
+  await page.route('**/functions/v1/app-api/**', async (r) => { const tok = (r.request().headers().authorization || '').replace('Bearer ', '');
+    if (r.request().url().includes('/langsam')) { await new Promise((ok) => setTimeout(ok, 400)); return r.fulfill({ status: tok === 'synthetic-alt' ? 401 : 200, contentType: 'application/json', body: JSON.stringify({ ok: false, fehler: 'abgelaufen' }) }); }
+    return r.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: {} }) }); });
+  await page.route('**/functions/v1/lernen-api/**', (r) => r.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: {} }) }));
+  await page.goto(origin + '/#/meldungen'); await page.waitForFunction(() => typeof http === 'function');
+  const x = await page.evaluate(async () => { const p = http('/langsam').then(() => 'ok', (e) => e.message); await new Promise((ok) => setTimeout(ok, 50));
+    store.token = 'synthetic-neu'; const m = await p; return { m, token: store.token }; });
+  assert.equal(x.token, 'synthetic-neu'); assert.match(x.m, /Zugang gewechselt/);
 });

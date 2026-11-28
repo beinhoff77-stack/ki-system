@@ -139,10 +139,13 @@ const store = {
 
 async function http(path, { method = 'GET', body, auth = true, signal } = {}) {
   const headers = { 'Content-Type': 'application/json' };
-  if (auth && store.token) headers.Authorization = 'Bearer ' + store.token;
+  const tok = store.token || null; // 1199: Antwort gehört zum Zugang beim Absenden
+  if (auth && tok) headers.Authorization = 'Bearer ' + tok;
   const r = await fetch(mitRegion(API + path), { method, headers, body: body ? JSON.stringify(body) : undefined, signal });
   let j; try { j = await r.json(); } catch { j = { ok: false, fehler: 'Keine Antwort (' + r.status + ')' }; }
-  if (r.status === 401 && auth) { store.token = null; route('login'); throw new Error(j?.fehler || 'Nicht angemeldet'); }
+  if (r.status === 401 && auth) {
+    if ((store.token || null) !== tok) throw new Error('Zugang gewechselt'); // verspätetes 401 einer Anfrage des alten Zugangs: den neuen nicht abmelden
+    store.token = null; if (typeof lernSitzungPruefen === 'function') lernSitzungPruefen(); route('login'); throw new Error(j?.fehler || 'Nicht angemeldet'); }
   if (!r.ok) throw new Error(j?.fehler || 'Die Anfrage ist fehlgeschlagen (HTTP ' + r.status + ').');
   return j;
 }

@@ -27,7 +27,7 @@ import tempo_einspielen as E  # noqa: E402
 WURZEL = T.WURZEL
 AUS = WURZEL / 'tools/tests/aus'
 ALT, NEU = 'bf3152e9a378a1d4e41c98965acf738e', '3f49198f8dbf5c822a0be4650a5ebce5'
-EIGENSCHAFTEN = 'p_lernender bigint, p_einheit bigint|jsonb|sql|s|f|f|f|{"search_path=\\"\\""}'
+EIGENSCHAFTEN = 'f|sql|100|0|0|0|f|f|f|f|s|u|2|0|jsonb|p_lernender bigint, p_einheit bigint|bigint,bigint|-|-|{p_lernender,p_einheit}|-|-|-|-|{"search_path=\\"\\""}'
 
 
 def py(*args):
@@ -44,12 +44,18 @@ def lauf(pg, text, erwartet_fehler=None, danach=''):
 
 def fehlerzeile(out, stichwort):
     z = [x for x in out.splitlines() if 'ERROR:' in x]
-    assert len(z) == 1 and stichwort in z[0], (stichwort, out[-2500:])
+    assert len(z) == 1 and stichwort in z[0], (stichwort, [x[:700] for x in z], out[-800:])
     return z[0]
 
 
 def bericht(zeile):
-    return json.loads(zeile[zeile.index('{'):])
+    """Meldung „… KURZ {…} VOLL {…}“ (Probe/Einspielen) bzw. „… {…}“ (Messung): voller Bericht plus Kurzbericht unter 'kurz'."""
+    d = json.JSONDecoder()
+    if ' KURZ {' in zeile:
+        kurz, _ = d.raw_decode(zeile[zeile.index(' KURZ {') + 6:]); voll, _ = d.raw_decode(zeile[zeile.index(' VOLL {') + 6:])
+        assert zeile.index(' KURZ {') < zeile.index(' VOLL {') and len(json.dumps(kurz)) < 1200, 'Kurzbericht vorn und kompakt'
+        return {**voll, 'kurz': kurz}
+    return d.raw_decode(zeile[zeile.index('{'):])[0]
 
 
 def wert(pg, sql):
@@ -76,12 +82,20 @@ def pruefe_bericht(r, *, schon=False):
         assert r['laeufe'][n]['merkheft'] == 'verglichen' and r['laeufe'][n]['kinder'] == [1, 2, 3, 4] and r['laeufe'][n]['paare'] == 380, r['laeufe'][n]
     assert r['funktion_vorher']['md5'] == (NEU if schon else ALT) and r['funktion_nachher']['md5'] == NEU and r['eigenschaften_gleich'], r
     assert r['funktion_nachher']['eigenschaften'] == EIGENSCHAFTEN, r['funktion_nachher']
-    for f in ('funktion_vorher', 'funktion_nachher'): assert r[f]['strict'] is False and r[f]['ergebnis'] == 'jsonb' and r[f]['menge'] is False, r[f]
+    for f in ('funktion_vorher', 'funktion_nachher'):
+        assert r[f]['strict'] is False and r[f]['ergebnis'] == 'jsonb' and r[f]['menge'] is False, r[f]
+        assert r[f]['kosten'] == 100 and r[f]['parallel'] == 'u' and r[f]['leakproof'] is False, r[f]
+    assert r['besitz_gleich'] is True and r['funktion_vorher']['besitz'] == r['funktion_nachher']['besitz'] and r['indizes_soll'] == 'ok', r
     soll = {'aufgabe_einheit_pool_lz_idx': 'aufgabe (einheit_id, pool, variante_gruppe)', 'versuch_kind_aufgabe_idx': 'versuch (lernender_id, aufgabe_id)'}
     for name, spalten in soll.items():
         x = [i for i in r['indizes_nachher'] if i['name'] == name]
         assert len(x) == 1 and x[0]['gueltig'] and f'ON schule.{spalten.split(" (")[0]} USING btree ({spalten.split(" (")[1]}' in x[0]['def'], (name, x)
     assert r['rueckstaende'] == [], r['rueckstaende']
+    k = r['kurz']
+    assert k['md5_vor'] == (NEU if schon else ALT) and k['md5_nach'] == NEU and k['eig_gleich'] and k['besitz_gleich'] and k['indizes_soll'] == 'ok', k
+    assert k['alt_neu'] == k['alt_end'] == {'merkheft': 'verglichen', 'paare': 380, 'abweichungen_etappen_stand': 0, 'abweichungen_merkheft': 0}, k
+    assert k['neue_indizes'] == ([] if schon else ['aufgabe_einheit_pool_lz_idx', 'versuch_kind_aufgabe_idx']) and k['indizes_vorher_gleich'] and k['rueckstaende'] == [], k
+    assert isinstance(k['ms_unter_sperre'], (int, float)), k
 
 
 ZUSATZ = """
@@ -121,6 +135,12 @@ def main():
     assert rc == 0, 'Pakete nicht auf dem Stand: python3 -I tools/tests/tempo_einspielen.py\n' + err
     t1, t2, neu, art = E.migration()
     assert art == EIGENSCHAFTEN, art
+    # Migration und Pakete prüfen mit demselben Ausdruck (Funktionseigenschaften) bzw. derselben Index-Soll-Liste
+    mig = E.MIGRATION.read_text(encoding='utf-8'); pk = (AUS / 'tempo_s1_probe.sql').read_text(encoding='utf-8')
+    eig = re.search(r"(concat_ws\('\|', p\.prokind.*?coalesce\(p\.proconfig::text, '-'\)\))", mig).group(1)
+    assert mig.count(eig) == 2 and eig in pk and pk.count(eig) >= 2, 'Eigenschafts-Ausdruck verschieden'
+    idx = mig[mig.index('  for r in select * from (values', mig.index('do $tempoidx$')):mig.index('end $tempoidx$;')]
+    assert idx.replace('  end loop;\n', '') in pk.replace("  end loop;\n  return 'ok';\n", ''), 'Index-Prüfung verschieden'
     assert neu == NEU and hashlib.md5(E.alter_text().encode('utf-8')).hexdigest() == ALT
     alt_sql = E.alter_sql()
     b = T.pg_bin()
@@ -164,6 +184,22 @@ def main():
             ('Merkheft ohne einheiten', mh.replace("return jsonb_build_object('ok', true, 'einheiten',", "return jsonb_build_object('ok', true, 'einheiten_weg',"), mh, 'Merkheft-Antwort für Kind 1 nicht im Vertrag'),
             ('Merkheft JSON-null', mh.replace("return jsonb_build_object('ok', true, 'einheiten',", "return 'null'::jsonb; return jsonb_build_object('ok', true, 'einheiten',"), mh, 'Merkheft-Antwort für Kind 1 nicht im Vertrag'),
             ('security definer', alt_sql.replace("language sql stable set search_path", "language sql stable security definer set search_path"), alt_sql + 'alter function schule.etappen_stand(bigint, bigint) security invoker;', 'Eigenschaften von etappen_stand'),
+            ('COST 77', 'alter function schule.etappen_stand(bigint, bigint) cost 77;', 'alter function schule.etappen_stand(bigint, bigint) cost 100;', 'Eigenschaften von etappen_stand'),
+            ('PARALLEL RESTRICTED', 'alter function schule.etappen_stand(bigint, bigint) parallel restricted;', 'alter function schule.etappen_stand(bigint, bigint) parallel unsafe;', 'Eigenschaften von etappen_stand'),
+            ('LEAKPROOF', 'alter function schule.etappen_stand(bigint, bigint) leakproof;', 'alter function schule.etappen_stand(bigint, bigint) not leakproof;', 'Eigenschaften von etappen_stand'),
+            ('ROWS/SET anders', "alter function schule.etappen_stand(bigint, bigint) set work_mem = '8MB';", 'alter function schule.etappen_stand(bigint, bigint) reset work_mem;', 'Eigenschaften von etappen_stand'),
+            ('Merkheft wirft TP999', mh.replace('perform schule.zugriff(p_schluessel, v_l);', "perform schule.zugriff(p_schluessel, v_l);\n  if v_l = 2 then raise exception using errcode = 'TP999', message = 'tempo-zurueck'; end if;"), mh, 'fremdes TP999'),
+            ('keine Einheiten', 'alter table schule.einheit rename to einheit_weg; create table schule.einheit (like schule.einheit_weg including all);',
+             'drop table schule.einheit; alter table schule.einheit_weg rename to einheit;', 'Kindermengen leer'),
+            ('Index Kollation C', 'create index aufgabe_einheit_pool_lz_idx on schule.aufgabe (einheit_id, pool, variante_gruppe collate "C");', 'drop index schule.aufgabe_einheit_pool_lz_idx;', 'Index schule.aufgabe_einheit_pool_lz_idx ist nicht'),
+            ('Index Kollation C an pool', 'create index aufgabe_einheit_pool_lz_idx on schule.aufgabe (einheit_id, pool collate "C", variante_gruppe);', 'drop index schule.aufgabe_einheit_pool_lz_idx;', 'Index schule.aufgabe_einheit_pool_lz_idx ist nicht'),
+            ('Index Operatorklasse', 'create index aufgabe_einheit_pool_lz_idx on schule.aufgabe (einheit_id, pool text_pattern_ops, variante_gruppe);', 'drop index schule.aufgabe_einheit_pool_lz_idx;', 'Index schule.aufgabe_einheit_pool_lz_idx ist nicht'),
+            ('Index DESC', 'create index versuch_kind_aufgabe_idx on schule.versuch (lernender_id, aufgabe_id desc);', 'drop index schule.versuch_kind_aufgabe_idx;', 'Index schule.versuch_kind_aufgabe_idx ist nicht'),
+            ('Index NULLS FIRST', 'create index versuch_kind_aufgabe_idx on schule.versuch (lernender_id nulls first, aufgabe_id);', 'drop index schule.versuch_kind_aufgabe_idx;', 'Index schule.versuch_kind_aufgabe_idx ist nicht'),
+            ('Index mit Bedingung', 'create index versuch_kind_aufgabe_idx on schule.versuch (lernender_id, aufgabe_id) where testsitzung_id is null;', 'drop index schule.versuch_kind_aufgabe_idx;', 'Index schule.versuch_kind_aufgabe_idx ist nicht'),
+            ('Index INCLUDE', 'create index versuch_kind_aufgabe_idx on schule.versuch (lernender_id, aufgabe_id) include (richtig);', 'drop index schule.versuch_kind_aufgabe_idx;', 'Index schule.versuch_kind_aufgabe_idx ist nicht'),
+            ('Index fillfactor', 'create index versuch_kind_aufgabe_idx on schule.versuch (lernender_id, aufgabe_id) with (fillfactor = 70);', 'drop index schule.versuch_kind_aufgabe_idx;', 'Index schule.versuch_kind_aufgabe_idx ist nicht'),
+            ('Index hash', 'create index aufgabe_einheit_pool_lz_idx on schule.aufgabe using hash (einheit_id);', 'drop index schule.aufgabe_einheit_pool_lz_idx;', 'Index schule.aufgabe_einheit_pool_lz_idx ist nicht'),
             ('Index falsche Spalte', 'create index aufgabe_einheit_pool_lz_idx on schule.aufgabe (id);', 'drop index schule.aufgabe_einheit_pool_lz_idx;', 'Index schule.aufgabe_einheit_pool_lz_idx ist nicht'),
             ('Index falsche Reihenfolge', 'create index versuch_kind_aufgabe_idx on schule.versuch (aufgabe_id, lernender_id);', 'drop index schule.versuch_kind_aufgabe_idx;', 'Index schule.versuch_kind_aufgabe_idx ist nicht'),
             ('Index ungültig', "create index versuch_kind_aufgabe_idx on schule.versuch (lernender_id, aufgabe_id); update pg_index set indisvalid = false where indexrelid = 'schule.versuch_kind_aufgabe_idx'::regclass;",
@@ -187,6 +223,11 @@ def main():
         assert x != m
         fehlerzeile(lauf(pg, E.paket(True, x), erwartet_fehler='ist nicht der erwartete'), 'Index schule.aufgabe_einheit_pool_lz_idx ist nicht')
         assert zustand(pg) == z0; print('Gegenprobe ok: Index in falscher Reihenfolge angelegt')
+
+        # 3b. Mess-Paket vor dem Einspielen: Abbruch (Vorbedingung), keine Messmeldung
+        out = pg.sql("set local statement_timeout = '300s';\n" + f'do $rbpaket$ begin execute $rbpaketinhalt${messen}$rbpaketinhalt$; end $rbpaket$;', 'MESSUNG ABBRUCH')
+        fehlerzeile(out, 'MESSUNG ABBRUCH, Vorbedingung'); assert not any('MESSUNG (nichts geändert)' in z for z in out.splitlines() if 'ERROR:' in z)
+        print('Messung vor dem Einspielen: Abbruch ok')
 
         # 4. Zusatzfälle vorher speichern
         pg.sql(ZUSATZ)
@@ -221,8 +262,16 @@ def main():
         # 7. Messung: ändert nichts, keine Rückstände (Rollback)
         out = pg.sql("set local statement_timeout = '300s';\n" + f'do $rbpaket$ begin execute $rbpaketinhalt${messen}$rbpaketinhalt$; end $rbpaket$;', 'MESSUNG')
         mz = bericht(fehlerzeile(out, 'MESSUNG (nichts geändert)'))
-        assert mz['funktion']['md5'] == NEU and mz['merkheft'] == 'verglichen' and mz['kinder'] == [1, 2, 3, 4], mz
+        assert mz['md5'] == NEU and mz['merkheft'] == 'verglichen' and mz['kinder'] == [1, 2, 3, 4] and mz['je_kind_gemessen'] == 4 and mz['paare'] == 380 and mz['indizes_soll'] == 'ok', mz
         assert zustand(pg) == z2
+        pg.sql(mh.replace('perform schule.zugriff(p_schluessel, v_l);', "perform schule.zugriff(p_schluessel, v_l);\n  if v_l = 2 then raise exception using errcode = 'TP999', message = 'tempo-zurueck'; end if;"))
+        out = pg.sql("set local statement_timeout = '300s';\n" + f'do $rbpaket$ begin execute $rbpaketinhalt${messen}$rbpaketinhalt$; end $rbpaket$;', 'fremdes TP999')
+        fehlerzeile(out, 'fremdes TP999'); assert not any('MESSUNG (nichts geändert)' in z for z in out.splitlines() if 'ERROR:' in z); pg.sql(mh)
+        print('Messung mit fremdem TP999: Abbruch ok')
+        pg.sql(mh.replace('perform schule.zugriff(p_schluessel, v_l);', "perform schule.zugriff(p_schluessel, v_l);\n  if v_l = 2 then raise exception 'innerer Fehler bei Kind 2'; end if;"))
+        out = pg.sql("set local statement_timeout = '300s';\n" + f'do $rbpaket$ begin execute $rbpaketinhalt${messen}$rbpaketinhalt$; end $rbpaket$;', 'innerer Fehler bei Kind 2')
+        fehlerzeile(out, 'fehlgeschlagen'); assert not any('MESSUNG (nichts geändert)' in z for z in out.splitlines() if 'ERROR:' in z); pg.sql(mh)
+        print('Messung mit innerem Fehler beim zweiten Kind: Abbruch ok')
         print('Messung danach:', json.dumps({k: mz[k] for k in ('ms_etappen_stand_alle', 'ms_merkheft_summe', 'ms_merkheft_je_kind')}))
     finally:
         pg.ende()

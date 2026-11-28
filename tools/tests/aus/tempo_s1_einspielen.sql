@@ -32,8 +32,9 @@ create temp table tempo_mig on commit drop as select $tempoteil$-- TEMPO-S1 (Bau
 --     exakt neu (md5 3f49198f…) → nichts tun. Alles andere (auch eine alte Fassung mit dem Wort TEMPO-S1) → Abbruch. Danach muss der neue md5 stehen;
 --     Signatur, Rückgabe (skalar jsonb, keine Menge), Sprache, STABLE, SECURITY INVOKER, nicht STRICT (NULL-Verhalten) und search_path werden vor und nach
 --     dem Ersetzen geprüft (1181: create or replace setzt STRICT zurück – eine STRICT-Altfassung wird deshalb abgelehnt, nicht still umgestellt).
---  4. Nach dem Anlegen der Indizes: unter beiden Namen ein gültiger, bereiter, nicht eindeutiger B-Baum ohne Bedingung auf der richtigen Tabelle mit
---     genau diesen Spalten in dieser Reihenfolge – sonst Abbruch (create index if not exists nimmt einen gleichnamigen anderen Index sonst hin).
+--  4. Nach dem Anlegen der Indizes: unter beiden Namen genau die beabsichtigte Definition (pg_get_indexdef exakt; Kollation und Operatorklasse wie die
+--     Spalte bzw. Standard, Sortieroptionen ASC, keine Bedingung/Ausdrücke/Optionen, Standard-Tablespace) und alle Kennzeichen aus pg_index/pg_class
+--     (gültig, bereit, lebendig, nicht eindeutig, …) – sonst Abbruch (create index if not exists nimmt einen gleichnamigen anderen Index sonst hin).
 -- WAS NICHT: keine Tabelle, keine Spalte, kein Trigger, keine andere Funktion; kein DROP, kein DELETE, kein UPDATE; api.schule_merkheft bleibt, wie sie ist
 --   (Antwort unverändert; Vorschlag für eine schlankere Antwort nur in der Analyse). Wiederholbar: ein zweiter Lauf ändert nichts.
 -- Sperren: create index hält SHARE auf schule.aufgabe und schule.versuch bis zum Ende der Transaktion (Lesen geht, Schreiben wartet). Das Paket legt die
@@ -49,13 +50,17 @@ do $tempo$
 declare v_f constant regprocedure := to_regprocedure('schule.etappen_stand(bigint, bigint)');
   v_alt constant text := 'bf3152e9a378a1d4e41c98965acf738e';   -- md5 des Funktionstexts nach 20261203_ft_s_form_takt.sql (tools/tests/tempo_einspielen.py)
   v_neu constant text := '3f49198f8dbf5c822a0be4650a5ebce5';   -- md5 des Funktionstexts unten (TEMPO-S1)
-  -- Argumente | Rückgabe (pg_get_function_result) | Sprache | Volatilität | SECURITY DEFINER | STRICT | Menge | Einstellungen (1181: STRICT und Menge mitgeprüft)
-  v_art_soll constant text := 'p_lernender bigint, p_einheit bigint|jsonb|sql|s|f|f|f|{"search_path=\"\""}';
-  d text; v_art_vor text; v_art_nach text;
+  -- Alle Spalten von pg_proc, die das Verhalten bestimmen, gegen ein festes Soll (1190): prokind | Sprache | procost | prorows | provariadic | prosupport |
+  -- SECURITY DEFINER | LEAKPROOF | STRICT | Menge | Volatilität | PARALLEL | Zahl Argumente | Zahl Vorgaben | Rückgabe | Argumente | Argumenttypen |
+  -- proallargtypes | proargmodes | proargnames | proargdefaults | protrftypes | probin | prosqlbody | proconfig.
+  -- Name/Schema über die Signatur; prosrc über die md5; Besitzer, Rechte (proacl) und Kommentar: vorher = nachher (create or replace behält sie).
+  v_art_soll constant text := 'f|sql|100|0|0|0|f|f|f|f|s|u|2|0|jsonb|p_lernender bigint, p_einheit bigint|bigint,bigint|-|-|{p_lernender,p_einheit}|-|-|-|-|{"search_path=\"\""}';
+  d text; v_art_vor text; v_art_nach text; v_bes_vor text; v_bes_nach text;
 begin
   if v_f is null then raise exception 'TEMPO-S1 ABBRUCH: schule.etappen_stand(bigint, bigint) fehlt – nichts geändert'; end if;
-  select p.prosrc, concat_ws('|', pg_get_function_arguments(p.oid), pg_get_function_result(p.oid), l.lanname, p.provolatile, p.prosecdef, p.proisstrict, p.proretset, coalesce(p.proconfig::text, ''))
-    into d, v_art_vor from pg_proc p join pg_language l on l.oid = p.prolang where p.oid = v_f;
+  select p.prosrc, concat_ws('|', p.prokind, l.lanname, p.procost, p.prorows, p.provariadic, p.prosupport::oid, p.prosecdef, p.proleakproof, p.proisstrict, p.proretset, p.provolatile, p.proparallel, p.pronargs, p.pronargdefaults, pg_get_function_result(p.oid), pg_get_function_arguments(p.oid), array_to_string(p.proargtypes::oid[]::regtype[], ','), coalesce(p.proallargtypes::text, '-'), coalesce(p.proargmodes::text, '-'), coalesce(p.proargnames::text, '-'), coalesce(p.proargdefaults::text, '-'), coalesce(p.protrftypes::text, '-'), coalesce(p.probin, '-'), coalesce(p.prosqlbody::text, '-'), coalesce(p.proconfig::text, '-'))
+         , concat_ws('|', p.proowner::regrole, coalesce(p.proacl::text, '-'), coalesce(obj_description(p.oid, 'pg_proc'), '-'))
+    into d, v_art_vor, v_bes_vor from pg_proc p join pg_language l on l.oid = p.prolang where p.oid = v_f;
   if v_art_vor is distinct from v_art_soll then
     raise exception 'TEMPO-S1 ABBRUCH, Vorbedingung: Eigenschaften von etappen_stand anders als erwartet (%, erwartet %) – nichts geändert', v_art_vor, v_art_soll;
   end if;
@@ -90,10 +95,12 @@ as $function$
   left join schule.karte_stand k on k.lernender_id = p_lernender and k.einheit_id = p_einheit and k.lernziel = z.lz;
 $function$
 $neu$;
-  select p.prosrc, concat_ws('|', pg_get_function_arguments(p.oid), pg_get_function_result(p.oid), l.lanname, p.provolatile, p.prosecdef, p.proisstrict, p.proretset, coalesce(p.proconfig::text, ''))
-    into d, v_art_nach from pg_proc p join pg_language l on l.oid = p.prolang where p.oid = v_f;
+  select p.prosrc, concat_ws('|', p.prokind, l.lanname, p.procost, p.prorows, p.provariadic, p.prosupport::oid, p.prosecdef, p.proleakproof, p.proisstrict, p.proretset, p.provolatile, p.proparallel, p.pronargs, p.pronargdefaults, pg_get_function_result(p.oid), pg_get_function_arguments(p.oid), array_to_string(p.proargtypes::oid[]::regtype[], ','), coalesce(p.proallargtypes::text, '-'), coalesce(p.proargmodes::text, '-'), coalesce(p.proargnames::text, '-'), coalesce(p.proargdefaults::text, '-'), coalesce(p.protrftypes::text, '-'), coalesce(p.probin, '-'), coalesce(p.prosqlbody::text, '-'), coalesce(p.proconfig::text, '-'))
+         , concat_ws('|', p.proowner::regrole, coalesce(p.proacl::text, '-'), coalesce(obj_description(p.oid, 'pg_proc'), '-'))
+    into d, v_art_nach, v_bes_nach from pg_proc p join pg_language l on l.oid = p.prolang where p.oid = v_f;
   if md5(d) is distinct from v_neu then raise exception 'TEMPO-S1 ABBRUCH: neuer Funktionstext hat md5 %, erwartet %', md5(d), v_neu; end if;
   if v_art_nach is distinct from v_art_vor then raise exception 'TEMPO-S1 ABBRUCH: Eigenschaften von etappen_stand geändert (% → %)', v_art_vor, v_art_nach; end if;
+  if v_bes_nach is distinct from v_bes_vor then raise exception 'TEMPO-S1 ABBRUCH: Besitzer/Rechte/Kommentar von etappen_stand geändert (% → %)', v_bes_vor, v_bes_nach; end if;
 end $tempo$;
 
 $tempoteil$::text as teil1, $tempoteil$-- ==== TEMPO-S1 Teil 2: Indizes ====
@@ -101,20 +108,33 @@ $tempoteil$::text as teil1, $tempoteil$-- ==== TEMPO-S1 Teil 2: Indizes ====
 create index if not exists aufgabe_einheit_pool_lz_idx on schule.aufgabe (einheit_id, pool, variante_gruppe);
 create index if not exists versuch_kind_aufgabe_idx on schule.versuch (lernender_id, aufgabe_id);
 do $tempoidx$
-declare r record; v_ist text;
+-- 1190: jede Eigenschaft gegen ein festes Soll – die vollständige Definition (pg_get_indexdef: Methode, Eindeutigkeit, Spalten, Reihenfolge, Kollation,
+-- Operatorklasse, Sortieroptionen, INCLUDE, WITH-Optionen, Bedingung, Ausdrücke) exakt wie beabsichtigt; dazu einzeln aus pg_index/pg_class.
+declare r record; v jsonb; soll jsonb; abw text;
 begin
-  for r in select * from (values ('aufgabe_einheit_pool_lz_idx', 'aufgabe', 'einheit_id,pool,variante_gruppe'),
-                                 ('versuch_kind_aufgabe_idx', 'versuch', 'lernender_id,aufgabe_id')) x(name, tabelle, spalten) loop
-    select string_agg(a.attname, ',' order by k.nr) into v_ist
-      from pg_class c join pg_namespace n on n.oid = c.relnamespace and n.nspname = 'schule'
-      join pg_index i on i.indexrelid = c.oid join pg_class t on t.oid = i.indrelid and t.relname = r.tabelle and t.relnamespace = n.oid
-      join pg_am am on am.oid = c.relam and am.amname = 'btree'
-      cross join lateral unnest(i.indkey::int2[]) with ordinality k(att, nr) join pg_attribute a on a.attrelid = t.oid and a.attnum = k.att
-     where c.relname = r.name and c.relkind = 'i' and i.indisvalid and i.indisready and i.indpred is null and i.indexprs is null
-       and i.indnkeyatts = i.indnatts and not i.indisunique;
-    if v_ist is distinct from r.spalten then
-      raise exception 'TEMPO-S1 ABBRUCH: Index schule.% ist nicht der erwartete gültige B-Baum auf schule.% (%), gefunden: % – nichts geändert',
-        r.name, r.tabelle, r.spalten, coalesce(v_ist, 'anderer/ungültiger Index');
+  for r in select * from (values
+      ('aufgabe_einheit_pool_lz_idx', 'aufgabe', 'CREATE INDEX aufgabe_einheit_pool_lz_idx ON schule.aufgabe USING btree (einheit_id, pool, variante_gruppe)', 3),
+      ('versuch_kind_aufgabe_idx', 'versuch', 'CREATE INDEX versuch_kind_aufgabe_idx ON schule.versuch USING btree (lernender_id, aufgabe_id)', 2)) x(name, tabelle, def, n) loop
+    select jsonb_build_object('def', pg_get_indexdef(c.oid), 'am', am.amname, 'relkind', c.relkind, 'tabelle', t.relname, 'schema_t', nt.nspname,
+             'natts', i.indnatts, 'nkeyatts', i.indnkeyatts, 'unique', i.indisunique, 'nulls_not_distinct', i.indnullsnotdistinct, 'primary', i.indisprimary,
+             'exclusion', i.indisexclusion, 'immediate', i.indimmediate, 'clustered', i.indisclustered, 'valid', i.indisvalid, 'ready', i.indisready,
+             'live', i.indislive, 'replident', i.indisreplident, 'pred', i.indpred is not null, 'exprs', i.indexprs is not null,
+             'option', (select coalesce(bool_and(o = 0), true) from unnest(i.indoption::int2[]) o),
+             'opclass_default', (select coalesce(bool_and(oc.opcdefault and oc.opcmethod = c.relam), false) from unnest(i.indclass::oid[]) k join pg_opclass oc on oc.oid = k),
+             'kollation', (select coalesce(bool_and(k.coll = a.attcollation), false) from unnest(i.indcollation::oid[], i.indkey::int2[]) k(coll, att) join pg_attribute a on a.attrelid = t.oid and a.attnum = k.att),
+             'tablespace_standard', c.reltablespace = 0, 'reloptions', c.reloptions is not null, 'persistence', c.relpersistence, 'partition', c.relispartition)
+      into v
+      from pg_class c join pg_namespace n on n.oid = c.relnamespace and n.nspname = 'schule' join pg_index i on i.indexrelid = c.oid
+      join pg_class t on t.oid = i.indrelid join pg_namespace nt on nt.oid = t.relnamespace join pg_am am on am.oid = c.relam
+     where c.relname = r.name;
+    soll := jsonb_build_object('def', r.def, 'am', 'btree', 'relkind', 'i', 'tabelle', r.tabelle, 'schema_t', 'schule',
+             'natts', r.n, 'nkeyatts', r.n, 'unique', false, 'nulls_not_distinct', false, 'primary', false,
+             'exclusion', false, 'immediate', true, 'clustered', false, 'valid', true, 'ready', true,
+             'live', true, 'replident', false, 'pred', false, 'exprs', false, 'option', true, 'opclass_default', true, 'kollation', true,
+             'tablespace_standard', true, 'reloptions', false, 'persistence', 'p', 'partition', false);
+    if v is distinct from soll then
+      select string_agg(k || ': ' || coalesce(v->>k, '–') || ' statt ' || (soll->>k), '; ' order by k) into abw from jsonb_object_keys(soll) k where v->k is distinct from soll->k;
+      raise exception 'TEMPO-S1 ABBRUCH: Index schule.% ist nicht der erwartete Index (Soll: %), Abweichung: % – nichts geändert', r.name, r.def, coalesce(abw, 'kein Index dieses Namens');
     end if;
   end loop;
 end $tempoidx$;
@@ -148,7 +168,7 @@ end $f$;
 -- Ein Lauf: alle Kinder × alle Einheiten (etappen_stand) und je Kind die Merkheft-Kopie, md5 und Laufzeit. Was dabei geschrieben würde, rollt der
 -- Unterblock zurück; die Ergebnisse bleiben in den Variablen. Jeder Fehler (auch bei einem einzelnen Kind) → Abbruch des ganzen Pakets.
 create or replace function pg_temp.tempo_lauf(p_name text) returns jsonb language plpgsql as $f$
-declare h jsonb; mh jsonb := '{}'; x jsonb; t0 timestamptz; t1 timestamptz; ms_es numeric; ms_mh numeric := 0; je jsonb := '{}'; r record; ms numeric; kinder jsonb; status text;
+declare h jsonb; mh jsonb := '{}'; x jsonb; fertig boolean := false; t0 timestamptz; t1 timestamptz; ms_es numeric; ms_mh numeric := 0; je jsonb := '{}'; r record; ms numeric; kinder jsonb; status text;
 begin
   begin
     perform setseed(0.5);
@@ -168,11 +188,15 @@ begin
       je := je || jsonb_build_object(r.id::text, ms);
     end loop;
     status := 'verglichen';
-    raise exception using errcode = 'TP999', message = 'zurueck';
-  exception when sqlstate 'TP999' then null;
+    fertig := true;   -- 1190: nur dieser eigene Abschluss gilt als Rollback-Signal
+    raise exception using errcode = 'TP999', message = 'tempo-zurueck';
+  exception when sqlstate 'TP999' then
+      if not fertig or sqlerrm is distinct from 'tempo-zurueck' then
+        raise exception 'TEMPO-S1 ABBRUCH, alles zurückgerollt: Lauf „%“ fehlgeschlagen (fremdes TP999 vor dem Abschluss): %', p_name, sqlerrm; end if;
     when others then raise exception 'TEMPO-S1 ABBRUCH, alles zurückgerollt: Lauf „%“ fehlgeschlagen (Merkheft/etappen_stand nicht für alle verglichen): %', p_name, sqlerrm;
   end;
-  return jsonb_build_object('lauf', p_name, 'merkheft', status, 'kinder', kinder, 'paare', (select count(*) from jsonb_object_keys(h)), 'h', h, 'mh', mh,
+  if not fertig then raise exception 'TEMPO-S1 ABBRUCH: Lauf „%“ ohne Abschluss', p_name; end if;
+  return jsonb_build_object('lauf', p_name, 'merkheft', status, 'einheiten', (select count(*) from schule.einheit), 'je_kind_gemessen', (select count(*) from jsonb_object_keys(je)), 'kinder', kinder, 'paare', (select count(*) from jsonb_object_keys(h)), 'h', h, 'mh', mh,
     'ms_etappen_stand_alle', ms_es, 'ms_merkheft_summe', ms_mh, 'ms_merkheft_je_kind', je);
 end $f$;
 -- Vergleich zweier Läufe: beide „verglichen“, gleiche vollständige Kinder- und Paarmengen, keine Abweichung – sonst Abbruch
@@ -181,7 +205,7 @@ declare abw jsonb; abw_mh jsonb; n_kinder int := jsonb_array_length(a->'kinder')
 begin
   if a->>'merkheft' is distinct from 'verglichen' or b->>'merkheft' is distinct from 'verglichen' then
     raise exception 'TEMPO-S1 ABBRUCH: Merkheft nicht verglichen (%: %, %: %)', a->>'lauf', a->>'merkheft', b->>'lauf', b->>'merkheft'; end if;
-  if n_kinder = 0 or a->'kinder' is distinct from b->'kinder' then raise exception 'TEMPO-S1 ABBRUCH: Kindermengen leer oder verschieden (% / %)', a->'kinder', b->'kinder'; end if;
+  if n_kinder = 0 or (select count(*) from schule.einheit) = 0 or coalesce((a->>'paare')::int, 0) = 0 or a->'kinder' is distinct from b->'kinder' then raise exception 'TEMPO-S1 ABBRUCH: Kindermengen leer oder verschieden (% / %)', a->'kinder', b->'kinder'; end if;
   if (select count(*) from jsonb_object_keys(a->'mh')) <> n_kinder or (select count(*) from jsonb_object_keys(b->'mh')) <> n_kinder
      or exists (select 1 from jsonb_array_elements_text(a->'kinder') k where not (a->'mh') ? k or not (b->'mh') ? k) then
     raise exception 'TEMPO-S1 ABBRUCH: Merkheft nicht für jedes Kind verglichen (% / %)', a->'lauf', b->'lauf'; end if;
@@ -205,23 +229,57 @@ create or replace function pg_temp.tempo_indizes() returns jsonb language sql as
 $f$;
 create or replace function pg_temp.tempo_funktion() returns jsonb language sql as $f$
   select jsonb_build_object('md5', md5(p.prosrc), 'strict', p.proisstrict, 'ergebnis', pg_get_function_result(p.oid), 'menge', p.proretset,
-           'eigenschaften', concat_ws('|', pg_get_function_arguments(p.oid), pg_get_function_result(p.oid), l.lanname, p.provolatile,
-           p.prosecdef, p.proisstrict, p.proretset, coalesce(p.proconfig::text, '')))
+           'kosten', p.procost, 'parallel', p.proparallel, 'leakproof', p.proleakproof,
+           'eigenschaften', concat_ws('|', p.prokind, l.lanname, p.procost, p.prorows, p.provariadic, p.prosupport::oid, p.prosecdef, p.proleakproof, p.proisstrict, p.proretset, p.provolatile, p.proparallel, p.pronargs, p.pronargdefaults, pg_get_function_result(p.oid), pg_get_function_arguments(p.oid), array_to_string(p.proargtypes::oid[]::regtype[], ','), coalesce(p.proallargtypes::text, '-'), coalesce(p.proargmodes::text, '-'), coalesce(p.proargnames::text, '-'), coalesce(p.proargdefaults::text, '-'), coalesce(p.protrftypes::text, '-'), coalesce(p.probin, '-'), coalesce(p.prosqlbody::text, '-'), coalesce(p.proconfig::text, '-')),
+           'besitz', concat_ws('|', p.proowner::regrole, coalesce(p.proacl::text, '-'), coalesce(obj_description(p.oid, 'pg_proc'), '-')))
     from pg_proc p join pg_language l on l.oid = p.prolang where p.oid = 'schule.etappen_stand(bigint, bigint)'::regprocedure;
 $f$;
+-- Index-Prüfung wie in der Migration (gleicher Text, Test prüft das): wirft bei Abweichung, sonst 'ok'
+create or replace function pg_temp.tempo_index_pruefen() returns text language plpgsql as $tempoidxf$
+-- 1190: jede Eigenschaft gegen ein festes Soll – die vollständige Definition (pg_get_indexdef: Methode, Eindeutigkeit, Spalten, Reihenfolge, Kollation,
+-- Operatorklasse, Sortieroptionen, INCLUDE, WITH-Optionen, Bedingung, Ausdrücke) exakt wie beabsichtigt; dazu einzeln aus pg_index/pg_class.
+declare r record; v jsonb; soll jsonb; abw text;
+begin
+  for r in select * from (values
+      ('aufgabe_einheit_pool_lz_idx', 'aufgabe', 'CREATE INDEX aufgabe_einheit_pool_lz_idx ON schule.aufgabe USING btree (einheit_id, pool, variante_gruppe)', 3),
+      ('versuch_kind_aufgabe_idx', 'versuch', 'CREATE INDEX versuch_kind_aufgabe_idx ON schule.versuch USING btree (lernender_id, aufgabe_id)', 2)) x(name, tabelle, def, n) loop
+    select jsonb_build_object('def', pg_get_indexdef(c.oid), 'am', am.amname, 'relkind', c.relkind, 'tabelle', t.relname, 'schema_t', nt.nspname,
+             'natts', i.indnatts, 'nkeyatts', i.indnkeyatts, 'unique', i.indisunique, 'nulls_not_distinct', i.indnullsnotdistinct, 'primary', i.indisprimary,
+             'exclusion', i.indisexclusion, 'immediate', i.indimmediate, 'clustered', i.indisclustered, 'valid', i.indisvalid, 'ready', i.indisready,
+             'live', i.indislive, 'replident', i.indisreplident, 'pred', i.indpred is not null, 'exprs', i.indexprs is not null,
+             'option', (select coalesce(bool_and(o = 0), true) from unnest(i.indoption::int2[]) o),
+             'opclass_default', (select coalesce(bool_and(oc.opcdefault and oc.opcmethod = c.relam), false) from unnest(i.indclass::oid[]) k join pg_opclass oc on oc.oid = k),
+             'kollation', (select coalesce(bool_and(k.coll = a.attcollation), false) from unnest(i.indcollation::oid[], i.indkey::int2[]) k(coll, att) join pg_attribute a on a.attrelid = t.oid and a.attnum = k.att),
+             'tablespace_standard', c.reltablespace = 0, 'reloptions', c.reloptions is not null, 'persistence', c.relpersistence, 'partition', c.relispartition)
+      into v
+      from pg_class c join pg_namespace n on n.oid = c.relnamespace and n.nspname = 'schule' join pg_index i on i.indexrelid = c.oid
+      join pg_class t on t.oid = i.indrelid join pg_namespace nt on nt.oid = t.relnamespace join pg_am am on am.oid = c.relam
+     where c.relname = r.name;
+    soll := jsonb_build_object('def', r.def, 'am', 'btree', 'relkind', 'i', 'tabelle', r.tabelle, 'schema_t', 'schule',
+             'natts', r.n, 'nkeyatts', r.n, 'unique', false, 'nulls_not_distinct', false, 'primary', false,
+             'exclusion', false, 'immediate', true, 'clustered', false, 'valid', true, 'ready', true,
+             'live', true, 'replident', false, 'pred', false, 'exprs', false, 'option', true, 'opclass_default', true, 'kollation', true,
+             'tablespace_standard', true, 'reloptions', false, 'persistence', 'p', 'partition', false);
+    if v is distinct from soll then
+      select string_agg(k || ': ' || coalesce(v->>k, '–') || ' statt ' || (soll->>k), '; ' order by k) into abw from jsonb_object_keys(soll) k where v->k is distinct from soll->k;
+      raise exception 'TEMPO-S1 ABBRUCH: Index schule.% ist nicht der erwartete Index (Soll: %), Abweichung: % – nichts geändert', r.name, r.def, coalesce(abw, 'kein Index dieses Namens');
+    end if;
+  end loop;
+  return 'ok';
+end $tempoidxf$;
 -- Hilfen dieser Sitzung im temporären Schema? (vor dem ersten Aufruf geprüft; am Ende: keine mehr)
 create or replace function pg_temp.tempo_hilfen() returns jsonb language sql as $f$
   select coalesce(jsonb_agg(p.proname::text order by p.proname), '[]') from pg_proc p where p.pronamespace = pg_my_temp_schema() and p.proname like 'tempo\_%';
 $f$;
 do $h$ begin
   if (select count(*) from pg_proc p where p.pronamespace = pg_my_temp_schema() and p.proname in
-      ('tempo_zugriff', 'tempo_merkheft_anlegen', 'tempo_lauf', 'tempo_gleich', 'tempo_indizes', 'tempo_funktion', 'tempo_hilfen')) <> 7
+      ('tempo_zugriff', 'tempo_merkheft_anlegen', 'tempo_lauf', 'tempo_gleich', 'tempo_indizes', 'tempo_funktion', 'tempo_hilfen', 'tempo_index_pruefen')) <> 8
   then raise exception 'TEMPO-S1 ABBRUCH: Hilfen nicht im temporären Schema'; end if;
 end $h$;
 
 create temp table tempo_bericht (b jsonb) on commit drop;
 do $p$
-declare f_vor jsonb; f_nach jsonb; idx_vor jsonb; idx_nach jsonb; l_alt jsonb; l_neu jsonb; l_end jsonb; g1 jsonb; g2 jsonb; t_sperre timestamptz; v_art constant text := 'p_lernender bigint, p_einheit bigint|jsonb|sql|s|f|f|f|{"search_path=\"\""}'; v_neu constant text := '3f49198f8dbf5c822a0be4650a5ebce5';
+declare f_vor jsonb; f_nach jsonb; idx_vor jsonb; idx_nach jsonb; l_alt jsonb; l_neu jsonb; l_end jsonb; g1 jsonb; g2 jsonb; t_sperre timestamptz; v_art constant text := 'f|sql|100|0|0|0|f|f|f|f|s|u|2|0|jsonb|p_lernender bigint, p_einheit bigint|bigint,bigint|-|-|{p_lernender,p_einheit}|-|-|-|-|{"search_path=\"\""}'; v_neu constant text := '3f49198f8dbf5c822a0be4650a5ebce5';
 begin
   f_vor := pg_temp.tempo_funktion(); idx_vor := pg_temp.tempo_indizes();
   -- 1181: Sollzustand vor dem ersten Lauf (skalares jsonb, nicht STRICT, keine Menge, STABLE, Invoker, leerer search_path)
@@ -234,13 +292,16 @@ begin
   g1 := pg_temp.tempo_gleich(l_alt, l_neu);
   t_sperre := clock_timestamp();
   execute (select teil2 from tempo_mig);
+  perform pg_temp.tempo_index_pruefen();
   l_end := pg_temp.tempo_lauf('endzustand');
   g2 := pg_temp.tempo_gleich(l_alt, l_end);
   f_nach := pg_temp.tempo_funktion(); idx_nach := pg_temp.tempo_indizes();
   if f_nach->>'md5' is distinct from v_neu then raise exception 'TEMPO-S1 ABBRUCH: Funktionstext am Ende % statt %', f_nach->>'md5', v_neu; end if;
   if f_nach->'eigenschaften' is distinct from f_vor->'eigenschaften' then raise exception 'TEMPO-S1 ABBRUCH: Eigenschaften geändert % → %', f_vor->'eigenschaften', f_nach->'eigenschaften'; end if;
+  if f_nach->'besitz' is distinct from f_vor->'besitz' then raise exception 'TEMPO-S1 ABBRUCH: Besitzer/Rechte/Kommentar geändert % → %', f_vor->'besitz', f_nach->'besitz'; end if;
   insert into tempo_bericht select jsonb_build_object(
-    'funktion_vorher', f_vor, 'funktion_nachher', f_nach, 'eigenschaften_gleich', f_vor->'eigenschaften' = f_nach->'eigenschaften',
+    'funktion_vorher', f_vor, 'funktion_nachher', f_nach, 'eigenschaften_gleich', f_vor->'eigenschaften' = f_nach->'eigenschaften', 'besitz_gleich', f_vor->'besitz' = f_nach->'besitz',
+    'indizes_soll', pg_temp.tempo_index_pruefen(),
     'schon_umgestellt_vorher', f_vor->>'md5' = v_neu,
     'vergleich_alt_neu', g1, 'vergleich_alt_endzustand', g2,
     'laeufe', jsonb_build_object('alt', l_alt - 'h' - 'mh', 'neu', l_neu - 'h' - 'mh', 'endzustand', l_end - 'h' - 'mh'),
@@ -257,6 +318,7 @@ drop function if exists pg_temp.tempo_lauf(text);
 drop function if exists pg_temp.tempo_gleich(jsonb, jsonb);
 drop function if exists pg_temp.tempo_indizes();
 drop function if exists pg_temp.tempo_funktion();
+drop function if exists pg_temp.tempo_index_pruefen();
 drop table if exists pg_temp.tempo_mig;
 do $r$ declare n int := (select count(*) from pg_proc p where p.pronamespace = pg_my_temp_schema() and p.proname like 'tempo\_%' and p.proname <> 'tempo_hilfen');
 begin
@@ -267,5 +329,14 @@ begin
   drop table pg_temp.tempo_bericht;
   drop function pg_temp.tempo_hilfen();
   if (select count(*) from pg_proc p where p.pronamespace = pg_my_temp_schema() and p.proname like 'tempo\_%') <> 0 then raise exception 'TEMPO-S1 ABBRUCH: Rückstände in pg_temp'; end if;
-  raise notice 'TEMPO-S1 eingespielt: %', b::text;
+  raise notice 'TEMPO-S1 eingespielt: KURZ % VOLL %', jsonb_build_object(
+    'ms_unter_sperre', b->'ms_unter_sperre_bis_vor_aufraeumen',
+    'alt_neu', (b->'vergleich_alt_neu') - 'gegen' - 'kinder', 'alt_end', (b->'vergleich_alt_endzustand') - 'gegen' - 'kinder', 'kinder', b#>'{vergleich_alt_neu,kinder}',
+    'md5_vor', b#>>'{funktion_vorher,md5}', 'md5_nach', b#>>'{funktion_nachher,md5}',
+    'eig_gleich', b->'eigenschaften_gleich', 'besitz_gleich', b->'besitz_gleich', 'indizes_soll', b->'indizes_soll',
+    'neue_indizes', (select coalesce(jsonb_agg(x->>'name' order by x->>'name'), '[]') from jsonb_array_elements(b->'indizes_nachher') x
+                      where not exists (select 1 from jsonb_array_elements(b->'indizes_vorher') y where y->>'name' = x->>'name')),
+    'indizes_vorher_gleich', (select coalesce(jsonb_agg(y), '[]') from jsonb_array_elements(b->'indizes_vorher') y)
+                              <@ (select coalesce(jsonb_agg(x - 'indcheckxmin'), '[]') || coalesce(jsonb_agg(x), '[]') from jsonb_array_elements(b->'indizes_nachher') x),
+    'rueckstaende', b->'rueckstaende')::text, b::text;
 end $p$;

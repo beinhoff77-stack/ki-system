@@ -23,7 +23,7 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "abgrenzung": "",
+   "abgrenzung": "Die Übungen berechnen einen Prozentsatz vorwärts; hier muss entschieden werden, worauf sich die Prozente beziehen (Grundwert) oder der Ansatz umgekehrt gelesen werden.",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -82,7 +82,7 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "abgrenzung": "",
+   "abgrenzung": "Die Übungen berechnen einen Prozentsatz vorwärts; hier muss entschieden werden, worauf sich die Prozente beziehen (Grundwert) oder der Ansatz umgekehrt gelesen werden.",
    "antwortform": "zahl",
    "loesung_rechnung": "0.85 * 40",
    "fehlbilder": [
@@ -132,11 +132,11 @@
    "lernkarte": "prozentsatz",
    "pool": "korrektur",
    "typ": "einkleidung",
-   "form": "anwenden",
+   "form": "bruecke",
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "abgrenzung": "",
+   "abgrenzung": "Die Übungen berechnen einen Prozentsatz vorwärts; hier muss entschieden werden, worauf sich die Prozente beziehen (Grundwert) oder der Ansatz umgekehrt gelesen werden.",
    "antwortform": "zahl",
    "loesung_rechnung": "27 / 30 * 100 - 18 / 24 * 100",
    "fehlbilder": [
@@ -184,13 +184,67 @@
    "kennung": "VT1B-004",
    "thema": "bruch.prozent",
    "lernkarte": "prozentsatz",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
+   "abgrenzung": "Die Übungen berechnen einen Prozentsatz vorwärts; hier muss entschieden werden, worauf sich die Prozente beziehen (Grundwert) oder der Ansatz umgekehrt gelesen werden.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "126 / 360 * 100",
+   "fehlbilder": [
+    {
+     "antwort": 70,
+     "rechnung": "126 / 180 * 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Halbkreis (180°) als Ganzes genommen statt des vollen Kreises"
+    },
+    {
+     "antwort": 1.26,
+     "rechnung": "126 / 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Winkel durch 100 geteilt, ohne ihn zum vollen Kreis ins Verhältnis zu setzen"
+    },
+    {
+     "antwort": 26,
+     "rechnung": "126 - 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Winkel 126° minus 100 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "prozentsatz",
+    "t": "prozentsatz",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Kreisdiagramm zeigt, wie Kinder zur Schule kommen. Der Kreis hat 360° im Ganzen; der Sektor „Fahrrad“ hat den Mittelpunktswinkel 126°. Wie viel Prozent der Kinder kommen mit dem Fahrrad?"
+    },
+    "o": {
+     "wert": 35,
+     "einheit": "%"
+    },
+    "c": "126 / 360 * 100",
+    "w": "Der volle Kreis (360°) entspricht 100 %. Der Anteil ist 126 : 360 = 0,35 = 35 %. Probe: 35 % von 360° sind 0,35 · 360° = 126°."
+   }
+  },
+  {
+   "kennung": "VT1B-005",
+   "thema": "bruch.prozent",
+   "lernkarte": "prozentsatz",
    "pool": "sicherung",
    "typ": "darstellung",
    "form": "bruecke",
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "abgrenzung": "",
+   "abgrenzung": "Die Übungen berechnen einen Prozentsatz vorwärts; hier muss entschieden werden, worauf sich die Prozente beziehen (Grundwert) oder der Ansatz umgekehrt gelesen werden.",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -239,7 +293,7 @@
    }
   },
   {
-   "kennung": "VT1B-005",
+   "kennung": "VT1B-006",
    "thema": "bruch.prozent",
    "lernkarte": "prozentsatz",
    "pool": "sicherung",
@@ -248,7 +302,7 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "abgrenzung": "",
+   "abgrenzung": "Die Übungen berechnen einen Prozentsatz vorwärts; hier muss entschieden werden, worauf sich die Prozente beziehen (Grundwert) oder der Ansatz umgekehrt gelesen werden.",
    "antwortform": "luecken",
    "loesung_rechnung": [
     "2",
@@ -306,7 +360,7 @@
    }
   },
   {
-   "kennung": "VT1B-006",
+   "kennung": "VT1B-007",
    "thema": "bruch.prozent",
    "lernkarte": "prozentsatz",
    "pool": "sicherung",
@@ -315,7 +369,7 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "abgrenzung": "",
+   "abgrenzung": "Die Übungen berechnen einen Prozentsatz vorwärts; hier muss entschieden werden, worauf sich die Prozente beziehen (Grundwert) oder der Ansatz umgekehrt gelesen werden.",
    "antwortform": "zahl",
    "loesung_rechnung": "18 / 30 * (30 + 10) - 18",
    "fehlbilder": [
@@ -360,7 +414,7 @@
    }
   },
   {
-   "kennung": "VT1B-007",
+   "kennung": "VT1B-008",
    "thema": "bruch.prozent",
    "lernkarte": "rabatt_aufschlag",
    "pool": "test",
@@ -369,7 +423,7 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "abgrenzung": "",
+   "abgrenzung": "Die Übungen rechnen Rabatt oder Aufschlag in einem Schritt; hier geht es um den Bezugswert, hintereinander ausgeführte Änderungen und das Rückwärtsrechnen auf den alten Preis.",
    "antwortform": "luecken",
    "loesung_rechnung": [
     "2",
@@ -428,7 +482,7 @@
    }
   },
   {
-   "kennung": "VT1B-008",
+   "kennung": "VT1B-009",
    "thema": "bruch.prozent",
    "lernkarte": "rabatt_aufschlag",
    "pool": "korrektur",
@@ -437,7 +491,7 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "abgrenzung": "",
+   "abgrenzung": "Die Übungen rechnen Rabatt oder Aufschlag in einem Schritt; hier geht es um den Bezugswert, hintereinander ausgeführte Änderungen und das Rückwärtsrechnen auf den alten Preis.",
    "antwortform": "zahl",
    "loesung_rechnung": "117 / 0.65",
    "fehlbilder": [
@@ -482,16 +536,16 @@
    }
   },
   {
-   "kennung": "VT1B-009",
+   "kennung": "VT1B-010",
    "thema": "bruch.prozent",
    "lernkarte": "rabatt_aufschlag",
    "pool": "korrektur",
    "typ": "mehrschritt",
-   "form": "anwenden",
+   "form": "bruecke",
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "abgrenzung": "",
+   "abgrenzung": "Die Übungen rechnen Rabatt oder Aufschlag in einem Schritt; hier geht es um den Bezugswert, hintereinander ausgeführte Änderungen und das Rückwärtsrechnen auf den alten Preis.",
    "antwortform": "zahl",
    "loesung_rechnung": "840 * 1.12 / 6",
    "fehlbilder": [
@@ -536,7 +590,61 @@
    }
   },
   {
-   "kennung": "VT1B-010",
+   "kennung": "VT1B-011",
+   "thema": "bruch.prozent",
+   "lernkarte": "rabatt_aufschlag",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
+   "abgrenzung": "Die Übungen rechnen Rabatt oder Aufschlag in einem Schritt; hier geht es um den Bezugswert, hintereinander ausgeführte Änderungen und das Rückwärtsrechnen auf den alten Preis.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "1.4 * 0.75 * 100",
+   "fehlbilder": [
+    {
+     "antwort": 115,
+     "rechnung": "100 + 40 - 25",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentzahlen 40 und 25 einfach verrechnet statt die Faktoren zu multiplizieren"
+    },
+    {
+     "antwort": 165,
+     "rechnung": "100 + 40 + 25",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Änderungen als Aufschlag addiert"
+    },
+    {
+     "antwort": 85,
+     "rechnung": "100 - 40 + 25",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Aufschlag und Rabatt mit vertauschten Vorzeichen verrechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "rabatt_aufschlag",
+    "t": "rabatt_aufschlag",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Händler erhöht einen Preis um 40 %. Danach gibt er auf den erhöhten Preis 25 % Rabatt. Wie viel Prozent des ursprünglichen Preises muss man am Ende zahlen?"
+    },
+    "o": {
+     "wert": 105,
+     "einheit": "%"
+    },
+    "c": "1.4 * 0.75 * 100",
+    "w": "Der ursprüngliche Preis ist 100 %. Nach 40 % Aufschlag sind es 140 %. Der Rabatt von 25 % bezieht sich auf 140 %: 25 % von 140 % sind 35 %. Es bleiben 140 % − 35 % = 105 %. Der Faktor ist 1,4 · 0,75 = 1,05."
+   }
+  },
+  {
+   "kennung": "VT1B-012",
    "thema": "bruch.prozent",
    "lernkarte": "rabatt_aufschlag",
    "pool": "sicherung",
@@ -545,7 +653,7 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "abgrenzung": "",
+   "abgrenzung": "Die Übungen rechnen Rabatt oder Aufschlag in einem Schritt; hier geht es um den Bezugswert, hintereinander ausgeführte Änderungen und das Rückwärtsrechnen auf den alten Preis.",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -594,7 +702,7 @@
    }
   },
   {
-   "kennung": "VT1B-011",
+   "kennung": "VT1B-013",
    "thema": "bruch.prozent",
    "lernkarte": "rabatt_aufschlag",
    "pool": "sicherung",
@@ -603,7 +711,7 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "abgrenzung": "",
+   "abgrenzung": "Die Übungen rechnen Rabatt oder Aufschlag in einem Schritt; hier geht es um den Bezugswert, hintereinander ausgeführte Änderungen und das Rückwärtsrechnen auf den alten Preis.",
    "antwortform": "zahl",
    "loesung_rechnung": "600 * 0.8 - 620 * 3 / 4",
    "fehlbilder": [
@@ -648,7 +756,7 @@
    }
   },
   {
-   "kennung": "VT1B-012",
+   "kennung": "VT1B-014",
    "thema": "bruch.prozent",
    "lernkarte": "rabatt_aufschlag",
    "pool": "sicherung",
@@ -657,7 +765,7 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "abgrenzung": "",
+   "abgrenzung": "Die Übungen rechnen Rabatt oder Aufschlag in einem Schritt; hier geht es um den Bezugswert, hintereinander ausgeführte Änderungen und das Rückwärtsrechnen auf den alten Preis.",
    "antwortform": "zahl",
    "loesung_rechnung": "(120 - 96) / 96 * 100",
    "fehlbilder": [
@@ -702,7 +810,7 @@
    }
   },
   {
-   "kennung": "VT1B-013",
+   "kennung": "VT1B-015",
    "thema": "bruch.prozent",
    "lernkarte": "verstehen",
    "pool": "test",
@@ -711,7 +819,7 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "abgrenzung": "",
+   "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum Prozentzahlen nur Anteile vergleichen und Auf- und Abstieg nicht dieselbe Prozentzahl haben.",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -761,16 +869,16 @@
    }
   },
   {
-   "kennung": "VT1B-014",
+   "kennung": "VT1B-016",
    "thema": "bruch.prozent",
    "lernkarte": "verstehen",
    "pool": "korrektur",
    "typ": "einkleidung",
-   "form": "anwenden",
+   "form": "bruecke",
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "abgrenzung": "",
+   "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum Prozentzahlen nur Anteile vergleichen und Auf- und Abstieg nicht dieselbe Prozentzahl haben.",
    "antwortform": "zahl",
    "loesung_rechnung": "30 + 30 * 200 / 100",
    "fehlbilder": [
@@ -815,7 +923,7 @@
    }
   },
   {
-   "kennung": "VT1B-015",
+   "kennung": "VT1B-017",
    "thema": "bruch.prozent",
    "lernkarte": "verstehen",
    "pool": "korrektur",
@@ -824,7 +932,7 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "abgrenzung": "",
+   "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum Prozentzahlen nur Anteile vergleichen und Auf- und Abstieg nicht dieselbe Prozentzahl haben.",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
@@ -873,16 +981,70 @@
    }
   },
   {
-   "kennung": "VT1B-016",
+   "kennung": "VT1B-018",
+   "thema": "bruch.prozent",
+   "lernkarte": "verstehen",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
+   "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum Prozentzahlen nur Anteile vergleichen und Auf- und Abstieg nicht dieselbe Prozentzahl haben.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "40 / 0.5",
+   "fehlbilder": [
+    {
+     "antwort": 60,
+     "rechnung": "40 * 1.5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "50 % auf den neuen Preis aufgeschlagen, obwohl sich die 50 % auf den alten Preis beziehen"
+    },
+    {
+     "antwort": 20,
+     "rechnung": "40 / 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den neuen Preis halbiert, statt den Grundwert zu bestimmen"
+    },
+    {
+     "antwort": 90,
+     "rechnung": "40 + 50",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 50 als 50 € gelesen und addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Kleid wurde um 50 % reduziert und kostet jetzt 40 €. Wie viel Euro hat es vorher gekostet?"
+    },
+    "o": {
+     "wert": 80,
+     "einheit": "€"
+    },
+    "c": "40 / 0.5",
+    "w": "Nach 50 % Abzug zahlt man noch 50 % vom alten Preis. 40 € sind also 50 % des alten Preises (des Grundwerts), der alte Preis ist das Doppelte: 80 €. Probe: 50 % von 80 € sind 40 €."
+   }
+  },
+  {
+   "kennung": "VT1B-019",
    "thema": "bruch.prozent",
    "lernkarte": "verstehen",
    "pool": "sicherung",
    "typ": "mehrschritt",
-   "form": null,
+   "form": "bruecke",
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "abgrenzung": "",
+   "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum Prozentzahlen nur Anteile vergleichen und Auf- und Abstieg nicht dieselbe Prozentzahl haben.",
    "antwortform": "zahl",
    "loesung_rechnung": "0.3 * 0.4 * 100",
    "fehlbilder": [
@@ -927,7 +1089,7 @@
    }
   },
   {
-   "kennung": "VT1B-017",
+   "kennung": "VT1B-020",
    "thema": "bruch.prozent",
    "lernkarte": "verstehen",
    "pool": "sicherung",
@@ -936,7 +1098,7 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "abgrenzung": "",
+   "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum Prozentzahlen nur Anteile vergleichen und Auf- und Abstieg nicht dieselbe Prozentzahl haben.",
    "antwortform": "luecken",
    "loesung_rechnung": [
     "3",
@@ -994,7 +1156,7 @@
    }
   },
   {
-   "kennung": "VT1B-018",
+   "kennung": "VT1B-021",
    "thema": "bruch.prozent",
    "lernkarte": "verstehen",
    "pool": "sicherung",
@@ -1003,7 +1165,7 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)",
-   "abgrenzung": "",
+   "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum Prozentzahlen nur Anteile vergleichen und Auf- und Abstieg nicht dieselbe Prozentzahl haben.",
    "antwortform": "zahl",
    "loesung_rechnung": "0.1 * 200 / 0.2",
    "fehlbilder": [

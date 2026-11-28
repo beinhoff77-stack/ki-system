@@ -1,5 +1,8 @@
 T = "bruch.prozent"
 LP = "M6 3 Prozentrechnung (Prozentsatz, Prozentwert, Grundwert; Rabatt und Aufschlag)"
+ABG[(T, "prozentsatz")] = "Die Übungen berechnen einen Prozentsatz vorwärts; hier muss entschieden werden, worauf sich die Prozente beziehen (Grundwert) oder der Ansatz umgekehrt gelesen werden."
+ABG[(T, "rabatt_aufschlag")] = "Die Übungen rechnen Rabatt oder Aufschlag in einem Schritt; hier geht es um den Bezugswert, hintereinander ausgeführte Änderungen und das Rückwärtsrechnen auf den alten Preis."
+ABG[(T, "verstehen")] = "Die Übungen rechnen mit Prozenten; hier wird begründet, warum Prozentzahlen nur Anteile vergleichen und Auf- und Abstieg nicht dieselbe Prozentzahl haben."
 # ───────── prozentsatz ─────────
 neu(T, "prozentsatz", "test", "begruenden", W(
     "Ein Verein hatte letztes Jahr 40 Mitglieder, dieses Jahr sind es 50. Welche Aussage über die Prozentzahlen ist richtig?",
@@ -26,7 +29,7 @@ neu(T, "prozentsatz", "korrektur", "einkleidung", Z(
     "Mai: 18 : 24 = 0,75 = 75 %. Juni: 27 : 30 = 0,9 = 90 %. Der Unterschied der Prozentzahlen ist 90 − 75 = 15 Prozentpunkte. Die richtigen Aufgaben allein (27 gegen 18) sagen nichts, weil die Tests verschieden lang waren.",
     [B("27 - 18", "die Anzahlen richtiger Aufgaben statt der Anteile verglichen: 27 − 18"),
      B("18 / 24 * 100 + 27 / 30 * 100", "die beiden Prozentzahlen addiert, statt ihren Unterschied zu bilden"),
-     B("27 / 30 - 18 / 24", "die Anteile als Dezimalzahlen abgezogen und nicht in Prozent umgewandelt: 0,9 − 0,75")], einheit="Prozentpunkte"), form="anwenden", lp=LP)
+     B("27 / 30 - 18 / 24", "die Anteile als Dezimalzahlen abgezogen und nicht in Prozent umgewandelt: 0,9 − 0,75")], einheit="Prozentpunkte"), form="bruecke", lp=LP)
 neu(T, "prozentsatz", "sicherung", "darstellung", W(
     "Von 40 befragten Kindern lesen 14 jeden Tag. Drei der folgenden vier Angaben beschreiben genau diesen Anteil. Welche Angabe beschreibt einen anderen Anteil?",
     "14 %",
@@ -67,7 +70,7 @@ neu(T, "rabatt_aufschlag", "korrektur", "mehrschritt", Z(
     "Aufschlag: 12 % von 840 € sind 100,80 €. Der Gesamtpreis beim Ratenkauf ist 840 € + 100,80 € = 940,80 € (112 % von 840 €). Verteilt auf 6 Raten: 940,80 € : 6 = 156,80 €.",
     [B("840 * 1.12", "den Gesamtpreis 940,80 € angegeben und nicht auf 6 Raten verteilt"),
      B("840 / 6", "ohne den Aufschlag gerechnet: 840 : 6"),
-     B("840 * 12 / 100 / 6", "nur den Aufschlag (100,80 €) auf die 6 Raten verteilt")], einheit="€"), form="anwenden", lp=LP)
+     B("840 * 12 / 100 / 6", "nur den Aufschlag (100,80 €) auf die 6 Raten verteilt")], einheit="€"), form="bruecke", lp=LP)
 neu(T, "rabatt_aufschlag", "sicherung", "darstellung", W(
     "Ein Händler schreibt auf ein Plakat: „Alle Preise werden mit dem Faktor 0,92 malgenommen.“ Was bedeutet das für die Kunden?",
     "Alle Waren werden um 8 % billiger (92 % des alten Preises).",
@@ -106,7 +109,7 @@ neu(T, "verstehen", "korrektur", "einkleidung", Z(
     "200 % von 30 € sind 2 · 30 € = 60 €. Der Preis steigt um 60 €, also kostet der Eintritt danach 30 € + 60 € = 90 €. Das ist das Dreifache (300 % des alten Preises). „Um 200 % steigen“ heißt nicht „auf 200 % steigen“.",
     [B("2 * 30", "„um 200 % steigen“ als „auf 200 % steigen“ gelesen: nur 2 · 30"),
      B("30 + 200", "die 200 % als 200 € gelesen und zum alten Preis addiert"),
-     B("30 * 200", "mit der Prozentzahl 200 malgenommen, ohne sie in einen Anteil umzuwandeln")], einheit="€"), form="anwenden", lp=LP)
+     B("30 * 200", "mit der Prozentzahl 200 malgenommen, ohne sie in einen Anteil umzuwandeln")], einheit="€"), form="bruecke", lp=LP)
 neu(T, "verstehen", "korrektur", "darstellung", W(
     "In einer Stadt hat sich die Zahl der Radfahrer im Vergleich zum Vorjahr verdoppelt. Welche Angabe beschreibt dasselbe?",
     "Die Zahl der Radfahrer ist um 100 % gestiegen.",
@@ -121,7 +124,7 @@ neu(T, "verstehen", "sicherung", "mehrschritt", Z(
     "30 % von 200 sind 60 Kinder mit Instrument. 40 % von diesen 60 Kindern sind 24 Gitarrenspieler. 24 von 200 sind 24 : 200 = 0,12 = 12 %. Der Grundwert der 40 % sind die 60 Kinder, nicht alle 200.",
     [B("30 + 40", "die beiden Prozentsätze addiert, obwohl sie sich auf verschiedene Grundwerte beziehen"),
      B("40 - 30", "die beiden Prozentsätze abgezogen"),
-     B("30 * 40", "die beiden Prozentzahlen einfach malgenommen, ohne sie in Anteile umzuwandeln")], einheit="%"), lp=LP)
+     B("30 * 40", "die beiden Prozentzahlen einfach malgenommen, ohne sie in Anteile umzuwandeln")], einheit="%"), form="bruecke", lp=LP)
 neu(T, "verstehen", "sicherung", "fehler", L(
     "Zwei Klassen stellen fest: Zeile 1: In Klasse A haben 80 % der Kinder die Hausaufgabe gemacht, in Klasse B nur 60 %. Zeile 2: 80 % sind mehr als 60 %, also ist der Anteil in A größer. Zeile 3: Also haben in A mehr Kinder die Hausaufgabe gemacht. In welcher Zeile steckt der erste Fehler? Probe an einem Beispiel: Klasse A hat 5 Kinder, Klasse B hat 30 Kinder. Wie viele Kinder mehr haben in B die Hausaufgabe gemacht als in A?",
     "Fehler in Zeile □, Unterschied in B: □ Kinder", [3, 14], ["3", "0.6 * 30 - 0.8 * 5"], ["6 / 2", "18 - 4"],
@@ -134,3 +137,25 @@ neu(T, "verstehen", "sicherung", "transfer", Z(
     [B("200 - 0.2 * 200", "20 % des alten Gewichts abgezogen: 200 − 40"),
      B("0.2 * 200", "20 % von 200 kg als neues Gewicht genommen"),
      B("200 - 0.1 * 200", "10 Prozentpunkte weniger Wasser als 10 % des alten Gewichts abgezogen: 200 − 20")], einheit="kg"), lp=LP)
+# ───────── dritte Korrektur-Aufgabe je Lernziel ─────────
+neu(T, "prozentsatz", "korrektur", "darstellung", Z(
+    "Ein Kreisdiagramm zeigt, wie Kinder zur Schule kommen. Der Kreis hat 360° im Ganzen; der Sektor „Fahrrad“ hat den Mittelpunktswinkel 126°. Wie viel Prozent der Kinder kommen mit dem Fahrrad?",
+    35, "126 / 360 * 100", "126 * 100 / 360",
+    "Der volle Kreis (360°) entspricht 100 %. Der Anteil ist 126 : 360 = 0,35 = 35 %. Probe: 35 % von 360° sind 0,35 · 360° = 126°.",
+    [B("126 / 180 * 100", "den Halbkreis (180°) als Ganzes genommen statt des vollen Kreises"),
+     B("126 / 100", "den Winkel durch 100 geteilt, ohne ihn zum vollen Kreis ins Verhältnis zu setzen"),
+     B("126 - 100", "den Winkel 126° minus 100 gerechnet")], einheit="%"), lp=LP)
+neu(T, "rabatt_aufschlag", "korrektur", "darstellung", Z(
+    "Ein Händler erhöht einen Preis um 40 %. Danach gibt er auf den erhöhten Preis 25 % Rabatt. Wie viel Prozent des ursprünglichen Preises muss man am Ende zahlen?",
+    105, "1.4 * 0.75 * 100", "(140 - 140 * 25 / 100)",
+    "Der ursprüngliche Preis ist 100 %. Nach 40 % Aufschlag sind es 140 %. Der Rabatt von 25 % bezieht sich auf 140 %: 25 % von 140 % sind 35 %. Es bleiben 140 % − 35 % = 105 %. Der Faktor ist 1,4 · 0,75 = 1,05.",
+    [B("100 + 40 - 25", "die Prozentzahlen 40 und 25 einfach verrechnet statt die Faktoren zu multiplizieren"),
+     B("100 + 40 + 25", "beide Änderungen als Aufschlag addiert"),
+     B("100 - 40 + 25", "Aufschlag und Rabatt mit vertauschten Vorzeichen verrechnet")], einheit="%"), lp=LP)
+neu(T, "verstehen", "korrektur", "umkehr", Z(
+    "Ein Kleid wurde um 50 % reduziert und kostet jetzt 40 €. Wie viel Euro hat es vorher gekostet?",
+    80, "40 / 0.5", "40 + 40",
+    "Nach 50 % Abzug zahlt man noch 50 % vom alten Preis. 40 € sind also 50 % des alten Preises (des Grundwerts), der alte Preis ist das Doppelte: 80 €. Probe: 50 % von 80 € sind 40 €.",
+    [B("40 * 1.5", "50 % auf den neuen Preis aufgeschlagen, obwohl sich die 50 % auf den alten Preis beziehen"),
+     B("40 / 2", "den neuen Preis halbiert, statt den Grundwert zu bestimmen"),
+     B("40 + 50", "die Zahl 50 als 50 € gelesen und addiert")], einheit="€"), form="umkehren", lp=LP)

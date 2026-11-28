@@ -20,6 +20,10 @@ def loesungen(links, rechts, bereich=range(-60, 61)):
     return r
 
 
+ABG[(T, "definitionsmenge")] = "Die Übungen bestimmen D bei einem Nenner; hier kommen mehrere Nenner, Fehlersuche und Anwendungen dazu."
+ABG[(T, "ueber_kreuz")] = "Die Übungen lösen mit dem Über-Kreuz-Verfahren; hier wird das Verfahren verglichen, begründet und umgekehrt (Parameter gesucht)."
+ABG[(T, "scheinloesung")] = "Die Übungen prüfen eine Lösung gegen D; hier wird begründet, warum eine Scheinlösung keine Lösung ist, und die Bedingung für eine Scheinlösung gesucht."
+ABG[(T, "verhaeltnis")] = "Die Übungen lösen eine Verhältnisgleichung; hier wird das Modell aus einem Sachverhalt selbst aufgestellt und ein Fehler im Ansatz gefunden."
 # ───────── definitionsmenge ─────────
 neu(T, "definitionsmenge", "test", "begruenden", W(
     "Beim Lösen von 3/(x − 2) = 1/(x − 2) + 2/(x − 2) multipliziert Jan beide Seiten mit (x − 2) und erhält 3 = 1 + 2. Er sagt: „Jetzt stehen keine Nenner mehr da, also gibt es keine Einschränkung: Alle Zahlen sind Lösung.“ Welche Aussage ist richtig?",
@@ -30,7 +34,7 @@ neu(T, "definitionsmenge", "test", "begruenden", W(
     "Die Definitionsmenge bestimmt man an der Ausgangsgleichung: Der Nenner x − 2 darf nicht 0 werden, also D = ℚ \\ {2}. Nach dem Malnehmen mit (x − 2) steht 3 = 1 + 2, eine für jedes x wahre Aussage. "
     "Also ist jede Zahl aus D eine Lösung, die Zahl 2 aber nicht, weil die Brüche für x = 2 nicht definiert sind: L = ℚ \\ {2}.",
     lambda: all(bruch_gl("F(3)/(x-2)", "F(1)/(x-2) + F(2)/(x-2)", x) is not None and bruch_gl("F(3)/(x-2)", "F(1)/(x-2) + F(2)/(x-2)", x)[0] == bruch_gl("F(3)/(x-2)", "F(1)/(x-2) + F(2)/(x-2)", x)[1] for x in range(-9, 10) if x != 2) and bruch_gl("F(3)/(x-2)", "F(1)/(x-2)", 2) is None), lp=LP)
-neu(T, "definitionsmenge", "korrektur", "mehrschritt", Z(
+neu(T, "definitionsmenge", "korrektur", "darstellung", Z(
     "Für wie viele Zahlen ist die Gleichung 7/(2x − 6) + 1/(x + 3) = 4/(x² − 9) nicht definiert? (Gemeint sind alle rationalen Zahlen x.)",
     2, "1 + 1", len({F(6, 2), F(-3)} | {F(3), F(-3)}),
     "Ein Bruch ist nicht definiert, wenn sein Nenner 0 wird. Erster Nenner: 2x − 6 = 0 für x = 3. Zweiter Nenner: x + 3 = 0 für x = −3. Dritter Nenner: x² − 9 = (x − 3)(x + 3) = 0 für x = 3 oder x = −3. "
@@ -51,7 +55,7 @@ neu(T, "definitionsmenge", "sicherung", "einkleidung", Z(
     "Der Nenner x darf nicht 0 sein, der Nenner x − 5 darf nicht 0 sein, also ist x = 5 verboten. Ausgeschlossen sind 0 und 5, die Summe ist 0 + 5 = 5.",
     [B("0", "nur den ersten Nenner x beachtet: ausgeschlossen wäre dann nur 0"),
      B("0 + (-5)", "die Zahl aus x − 5 = 0 mit falschem Vorzeichen als −5 gezählt"),
-     B("5 + 5", "die Zahl 5 doppelt gezählt")]), form="anwenden", lp=LP)
+     B("5 + 5", "die Zahl 5 doppelt gezählt")]), form="bruecke", lp=LP)
 neu(T, "definitionsmenge", "sicherung", "fehler", L(
     "Mara bestimmt die Definitionsmenge von 3/(x² − 9) = 2/(x − 3) so: Zeile 1: Aus x² − 9 = 0 folgt x = 3. Zeile 2: Aus x − 3 = 0 folgt auch x = 3. Zeile 3: Also ist D = ℚ \\ {3}. In welcher Zeile steckt der erste Fehler, und welche negative Zahl muss zusätzlich aus D ausgeschlossen werden?",
     "Fehler in Zeile □, zusätzlich ausgeschlossen: □", [1, -3], ["1", "0 - 3"], ["3 - 2", "-3"],
@@ -95,7 +99,7 @@ neu(T, "ueber_kreuz", "korrektur", "einkleidung", Z(
     "Aus x/(x + 9) = 2/3 folgt über Kreuz 3x = 2(x + 9), also 3x = 2x + 18, damit x = 18. Probe: 18/(18 + 9) = 18/27 = 2/3. Die Mädchen gehören auch in den Nenner des Anteils.",
     [B("9 * 2 / 3", "die Mädchen im Nenner vergessen: x gleich 9 mal 2 geteilt durch 3 gesetzt"),
      B("9 / (3 - 2)", "die Klammer nicht ausmultipliziert: 3x = 2x + 9 gibt x = 9"),
-     B("27 / (2 - 3)", "über Kreuz falsch gekreuzt: 2x = 3(x + 9) gibt x = −27")], einheit="Mädchen"), form="anwenden", lp=LP)
+     B("27 / (2 - 3)", "über Kreuz falsch gekreuzt: 2x = 3(x + 9) gibt x = −27")], einheit="Mädchen"), form="bruecke", lp=LP)
 neu(T, "ueber_kreuz", "korrektur", "darstellung", W(
     "Kim will die Gleichung 4/(x − 1) = 7/(x + 3) ohne Brüche schreiben und rechnet dazu über Kreuz. Welche Gleichung steht danach da?",
     "4(x + 3) = 7(x − 1)",
@@ -159,7 +163,7 @@ neu(T, "scheinloesung", "korrektur", "darstellung", W(
     "Aus 5x = 15 folgt x = 3. Die Zahl 3 ist aber nicht in D = ℚ \\ {−2; 3}: Für x = 3 wäre ein Nenner 0. Deshalb ist 3 eine Scheinlösung, und es bleibt keine Lösung übrig: L = { }.",
     lambda: 15 / 5 == 3 and 3 not in (set(range(-50, 50)) - {-2, 3})), form="bruecke", lp=LP)
 _GL3 = [("(x+1)/(x-3)", "F(4)/(x-3)"), ("F(6)/(x+2)", "F(3)/(x+2) + 1"), ("x/(x-5)", "F(5)/(x-5)")]
-neu(T, "scheinloesung", "korrektur", "mehrschritt", Z(
+neu(T, "scheinloesung", "korrektur", "darstellung", Z(
     "Wie viele der folgenden drei Gleichungen haben mindestens eine Lösung? (A) (x + 1)/(x − 3) = 4/(x − 3); (B) 6/(x + 2) = 3/(x + 2) + 1; (C) x/(x − 5) = 5/(x − 5).",
     1, "3 - 2", sum(1 for l, r in _GL3 if loesungen(l, r)),
     "(A): Mal (x − 3) gibt x + 1 = 4, also x = 3. Die 3 ist verboten: keine Lösung. (B): Mal (x + 2) gibt 6 = 3 + (x + 2), also x = 1. Die 1 ist erlaubt (D = ℚ \\ {−2}): Lösung. "
@@ -179,7 +183,7 @@ neu(T, "scheinloesung", "sicherung", "fehler", L(
     "Fehler in Zeile □, einzige Lösung: x = □", [1, 2], ["1", "2"], ["4 - 3", "(7 - 5) / 1"],
     "Beim Malnehmen mit (x − 1) muss jedes Glied malgenommen werden, auch die 2: 5 + 2(x − 1) = 7. Das gibt 2x + 3 = 7, also x = 2. Die 2 liegt in D = ℚ \\ {1}. Probe: 5/1 + 2 = 7 und 7/1 = 7. Zeile 1 ist der Fehler; Zeile 2 und 3 folgen daraus.",
     {1: [(1, "die verbotene Zahl 1 als Lösung genommen", "1"), (4, "aus 2x + 3 = 7 nur 7 − 3 gerechnet und nicht durch 2 geteilt", "7 - 3")]}), form="fehler_detektiv", lp=LP)
-neu(T, "scheinloesung", "sicherung", "verknuepfen", Z(
+neu(T, "scheinloesung", "sicherung", "parameter", Z(
     "Wie viele ganze Zahlen von −2 bis 5 (einschließlich) liegen in der Lösungsmenge von (x² − 6x + 9)/(x − 3) = x − 3?",
     7, "8 - 1", sum(1 for x in range(-2, 6) if x != 3 and F(x * x - 6 * x + 9, x - 3) == x - 3),
     "Der Zähler ist eine binomische Formel: x² − 6x + 9 = (x − 3)². Für x ≠ 3 gilt (x − 3)²/(x − 3) = x − 3, die Gleichung ist also für jede Zahl aus D wahr: L = ℚ \\ {3}. "
@@ -202,7 +206,7 @@ neu(T, "verhaeltnis", "korrektur", "einkleidung", Z(
     45, "18 * 30 / 12", "18 * 5 / 2",
     "Das Verhältnis Höhe : Breite bleibt gleich: h : 30 = 18 : 12. Außenglieder: h und 12, Innenglieder: 30 und 18. Also 12h = 30 · 18 = 540 und h = 45 cm. Der Vergrößerungsfaktor 30 : 12 = 2,5 gilt für beide Seiten: 18 · 2,5 = 45.",
     [B("18 + (30 - 12)", "additiv gerechnet: Die Breite wuchs um 18 cm, also wuchs auch die Höhe um 18 cm"),
-     B("18 * 12 / 30", "das Verhältnis falsch herum angesetzt: 18 · 12 : 30")], einheit="cm"), form="anwenden", lp=LP)
+     B("18 * 12 / 30", "das Verhältnis falsch herum angesetzt: 18 · 12 : 30")], einheit="cm"), form="bruecke", lp=LP)
 neu(T, "verhaeltnis", "korrektur", "darstellung", W(
     "In einer Farbmischung verhalten sich die roten zu den blauen Teilen wie 3 : 5. Welchen Anteil der ganzen Mischung macht das Rot aus?",
     "3/8",
@@ -217,7 +221,7 @@ neu(T, "verhaeltnis", "sicherung", "mehrschritt", Z(
     "Insgesamt gibt es 2 + 3 + 4 = 9 Teile. Ein Teil ist 540 € : 9 = 60 €. Der größte Anteil sind 4 Teile: 4 · 60 € = 240 €. Probe: 2 · 60 + 3 · 60 + 4 · 60 = 120 + 180 + 240 = 540.",
     [B("540 / 9 * 3", "mit 3 Teilen statt mit 4 Teilen gerechnet (der mittlere Anteil)"),
      B("540 / 4", "durch 4 statt durch die Summe 9 aller Teile geteilt"),
-     B("540 / 9", "nur den Wert eines Teils angegeben")], einheit="€"), lp=LP)
+     B("540 / 9", "nur den Wert eines Teils angegeben")], einheit="€"), form="bruecke", lp=LP)
 neu(T, "verhaeltnis", "sicherung", "fehler", L(
     "Lena löst die Verhältnisgleichung 4 : x = 6 : 18 so: Zeile 1: Außenglieder sind 4 und 18, Innenglieder sind x und 6. Zeile 2: Also 4 · x = 6 · 18. Zeile 3: Also x = 108 : 4 = 27. In welcher Zeile steckt der erste Fehler, und welchen Wert hat x richtig?",
     "Fehler in Zeile □, richtig: x = □", [2, 12], ["2", "4 * 18 / 6"], ["1 + 1", "72 / 6"],
@@ -231,3 +235,33 @@ neu(T, "verhaeltnis", "sicherung", "parameter", Z(
     [B("7 * 6", "die größere der beiden Zahlen (42) angegeben"),
      B("5 * 6 + 6", "die kleinere neue Zahl 36 statt der ursprünglichen angegeben"),
      B("6", "nur den Faktor k = 6 angegeben")]), form="umkehren", lp=LP)
+# ───────── dritte Korrektur-Aufgabe je Lernziel ─────────
+neu(T, "definitionsmenge", "korrektur", "darstellung", W(
+    "Welche Menge ist die Definitionsmenge der Gleichung 4/(x² − 16) + 1/x = 2?",
+    "D = ℚ \\ {−4; 0; 4}",
+    [("D = ℚ \\ {4; 16}", "x² − 16 = 0 als x = 16 gelesen und den Nenner x vergessen"),
+     ("D = ℚ \\ {−4; 4}", "den zweiten Nenner x nicht beachtet; für x = 0 ist 1/x nicht definiert"),
+     ("D = ℚ \\ {4}", "von x² = 16 nur die Lösung 4 genommen und den Nenner x vergessen")],
+    "x² − 16 = (x − 4)(x + 4) ist 0 für x = 4 und x = −4; der Nenner x ist 0 für x = 0. Alle drei Zahlen müssen ausgeschlossen werden.",
+    lambda: {x for x in range(-20, 21) if x * x - 16 == 0 or x == 0} == {-4, 0, 4}), form="bruecke", lp=LP)
+neu(T, "ueber_kreuz", "korrektur", "umkehr", Z(
+    "Für x = 3 ist die Gleichung 8/(x + a) = 2/x erfüllt. Welche Zahl steht für a?",
+    9, "(8 * 3 - 2 * 3) / 2", "3 * 3",
+    "Über Kreuz: 8x = 2(x + a). Für x = 3 gilt 24 = 2(3 + a) = 6 + 2a, also 2a = 18 und a = 9. Probe: 8/(3 + 9) = 2/3 und 2/3 = 2/3.",
+    [B("24 / 2", "24 durch 2 geteilt: die 3 in der Klammer vergessen"),
+     B("24 - 6", "2a = 18 nicht durch 2 geteilt"),
+     B("8 - 3", "8 minus 3 gerechnet, ohne die Gleichung zu benutzen")]), form="umkehren", lp=LP)
+neu(T, "scheinloesung", "korrektur", "umkehr", Z(
+    "Für welche Zahl b ist x = 4 eine Scheinlösung der Gleichung (2x + b)/(x − 4) = 17/(x − 4)? (Mal (x − 4) nehmen und den Kandidaten bestimmen.)",
+    9, "17 - 2 * 4", "17 - 8",
+    "Mal (x − 4): 2x + b = 17, also b = 17 − 2x. Der Kandidat ist eine Scheinlösung, wenn er der verbotene Wert 4 ist: b = 17 − 2 · 4 = 9. Probe: Für b = 9 gilt 2x + 9 = 17, also x = 4, und die 4 liegt nicht in D.",
+    [B("17 - 4", "den Faktor 2 vor dem x übersehen: b = 17 − x gerechnet"),
+     B("17 + 2 * 4", "17 + 8 gerechnet: das Vorzeichen von 2x falsch gesetzt"),
+     B("17 - 2", "17 − 2 gerechnet: nur 2 statt 2 · 4 abgezogen")]), lp=LP)
+neu(T, "verhaeltnis", "korrektur", "umkehr", Z(
+    "Zwei Zahlen verhalten sich wie 4 : 7. Die größere Zahl ist 77. Wie groß ist die kleinere Zahl?",
+    44, "77 * 4 / 7", "77 / 7 * 4",
+    "Die größere Zahl entspricht 7 Teilen, ein Teil ist 77 : 7 = 11. Die kleinere Zahl sind 4 Teile: 4 · 11 = 44. Probe: 44 : 77 = 4 : 7.",
+    [B("77 - 7 + 4", "additiv gerechnet: den Unterschied der Verhältniszahlen verwechselt"),
+     B("77 * 4 / 11", "77 als Summe aller Teile gelesen, obwohl 77 die größere Zahl ist"),
+     B("77 * 7 / 11", "77 als Summe der Teile genommen und 7 Teile davon gebildet")]), lp=LP)

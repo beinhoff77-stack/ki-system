@@ -148,7 +148,7 @@ def paket(paare, probe=False):
     ende = ("  raise exception 'PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt): %', v_bericht::text;\n" if probe
             else "  raise notice 'BB1 eingespielt: %', v_bericht::text;\n")
     return f"""-- Bestands-Berichtigung 1 ({modus}): {n} Paare (alte Aufgabe -> berichtigte neue), {n_regel} Regeln, {n_fb} Fehlbilder, {len(einheiten)} Einheiten.
--- VORAUSSETZUNG: NF-S (nachtest_auswahl/nachtest_stand nur mit freigegebenen Aufgaben, tools/tests/aus/nf_s_einspielen.sql) ist eingespielt – sonst Abbruch.
+-- VORAUSSETZUNG: NF-S (nachtest_auswahl/nachtest_stand/test_starten_intern nur mit freigegebenen Aufgaben, tools/tests/aus/nf_s_einspielen.sql) ist eingespielt – sonst Abbruch.
 -- LERNPAUSE: von VOR der Verweisprüfung bis zum Ende dieses Aufrufs (Mischkarten-Fenster, siehe inhalte/mathe-profi/bestand-berichtigung-1/einspielen.md).
 -- Ein Aufruf, eine Transaktion, kein BEGIN/COMMIT. Jede Abweichung = Abbruch, ALLES zurück. Wiederholbar: ein zweiter Lauf erkennt „schon berichtigt“ (voller Sollvergleich) und schreibt nichts.
 -- Je Paar: Zustand neu (alte freigegeben, neue fehlt) | fertig (alte gesperrt, neue da und gleich dem Soll in ALLEN Feldern, Regel und Fehlbildern) | zurueckgestellt (offener Verweis:
@@ -184,9 +184,11 @@ begin
     if to_regprocedure('schule.' || fn || '(bigint, text)') is null then raise exception 'BB1 ABBRUCH: schule.%(bigint, text) fehlt (Pflichtprüfung der Lernkarten-Regeln)', fn; end if;
   end loop;
   if to_regprocedure('schule.nachtest_auswahl(bigint, bigint, text, integer)') is null or to_regprocedure('schule.nachtest_stand(bigint, bigint)') is null
+     or to_regprocedure('schule.test_starten_intern(bigint, jsonb)') is null
+     or md5((select prosrc from pg_proc where oid = to_regprocedure('schule.test_starten_intern(bigint, jsonb)'))) <> '{NF.md5(NF.tsi_neu())}'
      or md5((select prosrc from pg_proc where oid = to_regprocedure('schule.nachtest_auswahl(bigint, bigint, text, integer)'))) <> '{NF.md5(NF.auswahl_neu())}'
      or md5((select prosrc from pg_proc where oid = to_regprocedure('schule.nachtest_stand(bigint, bigint)'))) <> '{NF.md5(NF.stand_neu())}' then
-    raise exception 'BB1 ABBRUCH: erst NF-S einspielen (nachtest_auswahl und nachtest_stand müssen exakt die neue Fassung mit Freigabefilter haben)'; end if;
+    raise exception 'BB1 ABBRUCH: erst NF-S einspielen (nachtest_auswahl, nachtest_stand und test_starten_intern müssen exakt die neue Fassung mit Freigabefilter haben)'; end if;
   create temp table bb1_p on commit drop as
     select x.*, null::bigint alt_id, null::bigint neu_id, null::text zustand, null::text grund_zurueck from (values
 {(',' + chr(10)).join(werte)}

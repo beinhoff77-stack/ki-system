@@ -2,16 +2,16 @@
 
 Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt), nicht das Thema. Jede Kennung wurde gegen `inhalte/mathe-profi/regeln-uebersicht/kennungen.json` gelesen; `bauen.py` prüft, dass sie im Katalog steht und das Thema in der Themenliste der Regel steht (Ausnahmen unten). Quelle der Daten: die Angaben `regel` / `ohne` / `zweifel` in `th_*.py`; `regeln.py` und diese Tabelle werden von `bauen.py` erzeugt.
 
-**78 Aufgaben mit Regel, 0 ohne.**
+**87 Aufgaben mit Regel, 6 ohne.**
 
 ## Verteilung
 
 | Regel | Name | Aufgaben |
 |---|---|---|
-| `id.geometrie.winkel` | Winkel an Geraden | 20 |
+| `id.geometrie.winkel` | Winkel an Geraden | 24 |
 | `rr.potenz` | Potenzen | 15 |
+| `id.geometrie.deckungsgleich` | Deckungsgleich | 14 |
 | `id.verhaeltnisse.prozent` | Prozent als Faktor | 14 |
-| `id.geometrie.deckungsgleich` | Deckungsgleich | 9 |
 | `rr.tauschen` | Tauschen, Klammern, Zusammenfassen | 5 |
 | `rr.ausmultiplizieren` | Ausmultiplizieren und Ausklammern | 4 |
 | `id.geometrie.abstand` | Gleicher Abstand | 3 |
@@ -19,15 +19,23 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | `id.algebra.term` | Term | 2 |
 | `rr.gegenrechnung` | Gegenrechnung | 2 |
 | `rr.vorzeichen` | Vorzeichen bei Mal und Geteilt | 1 |
+| – (ohne Regel) |  | 6 |
 
 ## Ausnahmen von der Themenliste des Katalogs (von Hand gelesen)
 
 - `abbildungen.kongruenz` mit `id.geometrie.winkel`: V052, V059
+- `geometrie.konstruktion` mit `id.geometrie.winkel`: V079, V080, V081, V090
 
 ## Aufgaben ohne Regel (mit Begründung)
 
 | Aufgabe | Einheit.Lernkarte | Begründung |
 |---|---|---|
+| R15-V085 | geometrie.konstruktion.konstruierbar | Dreiecksungleichung (zwei Seiten zusammen länger als die dritte): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V086 | geometrie.konstruktion.konstruierbar | Dreiecksungleichung (zwei Seiten zusammen länger als die dritte): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V087 | geometrie.konstruktion.konstruierbar | Dreiecksungleichung (zwei Seiten zusammen länger als die dritte): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V091 | geometrie.konstruktion.satz_kehrsatz | Satz und Kehrsatz (Logik, Gegenbeispiel): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V092 | geometrie.konstruktion.satz_kehrsatz | Satz und Kehrsatz (Logik, Gegenbeispiel): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V093 | geometrie.konstruktion.satz_kehrsatz | Satz und Kehrsatz (Logik, Gegenbeispiel): keine Regel des Katalogs trägt den Lösungsweg |
 
 ## Zweifelsfälle
 
@@ -122,3 +130,18 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V076 | geometrie.winkelsaetze.figuren | `id.geometrie.winkel` |
 | R15-V077 | geometrie.winkelsaetze.beweisen | `id.geometrie.winkel` |
 | R15-V078 | geometrie.winkelsaetze.beweisen | `id.geometrie.winkel` |
+| R15-V079 | geometrie.konstruktion.gleichschenklig | `id.geometrie.winkel` |
+| R15-V080 | geometrie.konstruktion.gleichschenklig | `id.geometrie.winkel` |
+| R15-V081 | geometrie.konstruktion.gleichschenklig | `id.geometrie.winkel` |
+| R15-V082 | geometrie.konstruktion.kongruenzsatz | `id.geometrie.deckungsgleich` |
+| R15-V083 | geometrie.konstruktion.kongruenzsatz | `id.geometrie.deckungsgleich` |
+| R15-V084 | geometrie.konstruktion.kongruenzsatz | `id.geometrie.deckungsgleich` |
+| R15-V085 | geometrie.konstruktion.konstruierbar | – |
+| R15-V086 | geometrie.konstruktion.konstruierbar | – |
+| R15-V087 | geometrie.konstruktion.konstruierbar | – |
+| R15-V088 | geometrie.konstruktion.planfigur | `id.geometrie.deckungsgleich` |
+| R15-V089 | geometrie.konstruktion.planfigur | `id.geometrie.deckungsgleich` |
+| R15-V090 | geometrie.konstruktion.planfigur | `id.geometrie.winkel` |
+| R15-V091 | geometrie.konstruktion.satz_kehrsatz | – |
+| R15-V092 | geometrie.konstruktion.satz_kehrsatz | – |
+| R15-V093 | geometrie.konstruktion.satz_kehrsatz | – |

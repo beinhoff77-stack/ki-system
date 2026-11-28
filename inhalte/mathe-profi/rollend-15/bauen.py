@@ -37,7 +37,7 @@ AUSWAHL9 = ["zahlen.wurzeln_basis", "zahlen.reell", "gleichungen.quadratisch", "
 THEMEN = {s: (s, list(_EINH[s]["lz"])) for s in AUSWAHL7 + AUSWAHL9}
 KUERZEL = "R15"
 KLASSE = {s: (7 if s in AUSWAHL7 else 9) for s in THEMEN}
-REGEL_AUSNAHME = {("abbildungen.kongruenz", "id.geometrie.winkel")}      # (Themen-Datei, Regel-Kennung): von Hand gelesene Ausnahmen der Themenliste des Katalogs (siehe regeln-zuordnung.md)
+REGEL_AUSNAHME = {("abbildungen.kongruenz", "id.geometrie.winkel"), ("geometrie.konstruktion", "id.geometrie.winkel")}      # (Themen-Datei, Regel-Kennung): von Hand gelesene Ausnahmen der Themenliste des Katalogs (siehe regeln-zuordnung.md)
 FEHLBILD_GELESEN = set()      # (Kennung der Aufgabe, Fehlbild-Kennung): keine Ausnahmen in dieser Runde
 geladen = []
 for schl in THEMEN:

@@ -2865,9 +2865,17 @@ test('LM-5/LW-1: unter Nachschlagen → Lehrplan keine Stufen-Knöpfe mehr; „F
   assert.equal(await page.getByRole('group', { name: 'Klassen' }).getByRole('button', { name: /^Klasse 6/ }).getAttribute('aria-pressed'), 'true');
 });
 
+// Layout-Abnahmen (LM, LM-6): gemessen mit den Schriften der Prüfumgebung. Lehrer-Seiten nutzen die System-Schrift (--font-ui → sans-serif), die
+// Kinderseiten Space Grotesk (vendor/, font-display: swap). Voraussetzung: sans-serif = Inter (wie in der Bau-Umgebung; fc-match sans-serif).
+// Mit einer anderen, breiteren Systemschrift (z. B. DejaVu Sans) brechen Kennzeichen anders um – dann werden die Abnahmen übersprungen statt falsch rot.
+// Vor jeder Messung wird auf document.fonts.ready gewartet (sonst misst der Test manchmal noch mit der Ersatzschrift).
+const LAYOUT_SCHRIFT = (() => { try { return require('node:child_process').execFileSync('fc-match', ['sans-serif'], { encoding: 'utf8' }).trim(); } catch { return ''; } })();
+const layoutVoraussetzung = (t) => { if (!/Inter/.test(LAYOUT_SCHRIFT)) { t.skip(`Layout-Abnahme an Inter kalibriert; hier sans-serif = ${LAYOUT_SCHRIFT || 'unbekannt'}`); return false; } return true; };
+const schriftenBereit = (page) => page.evaluate(() => document.fonts.ready.then(() => true));
 test('LM Abnahme: 400, 820, 1280 px – kein Wort ohne Trennstrich umbrochen, nichts läuft über, kein Querrollen, Handy als Liste ohne Linien', async (t) => {
+  if (!layoutVoraussetzung(t)) return;
   for (const breite of [400, 820, 1280]) {
-    const { page } = await mxOeffnen(t, breite);
+    const { page } = await mxOeffnen(t, breite); await schriftenBereit(page);
     for (const modus of ['Aus', 'Kind A', 'Beide vergleichen']) {
       await page.getByRole('group', { name: 'Lernstand' }).getByRole('button', { name: modus }).click();
       for (const aufbau of breite < 760 ? ['z'] : ['Klassen als Zeilen', 'Klassen als Spalten']) {
@@ -3238,10 +3246,11 @@ test('LM-6: Detail eines Flugs – was du lernst, muss sitzen, brauchst du vorhe
 });
 
 test('LM-6 Abnahme: 400, 820, 1280 – Liste auf Handy und Tablet (Detail unter dem Flug, keine Linien), Matrix mit Linien ab 1000 px, nichts läuft über, kein Querrollen; hell und Nacht', async (t) => {
+  if (!layoutVoraussetzung(t)) return;
   for (const g of ['nacht', 'tag']) for (const breite of [400, 820, 1280]) {
     const { page } = await setup(t, { gestaltung: g }); await page.setViewportSize({ width: breite, height: breite < 760 ? 860 : 900 });
     await page.route('**/functions/v1/lernen-api/**', rtMock());
-    await page.goto(origin + '/#/route/1'); await page.locator('.rt-chip').first().waitFor();
+    await page.goto(origin + '/#/route/1'); await page.locator('.rt-chip').first().waitFor(); await schriftenBereit(page);
     assert.deepEqual(await ueberlaeuft(page.locator('.rt-chip, .rt-chip > span, .mx-geb, .mx-kl, .mx-liste-kopf, .rt-legende span')), [], `${g} ${breite}: überläuft`);
     assert.deepEqual(await gebrocheneWoerter(page.locator('.mx-stand, .rt-kann, .rt-legende span, .rt-ort')), [], `${g} ${breite}: gebrochene Wörter`);
     assert.ok(await ohneQuerrollen(page), `${g} ${breite}: Querrollen`);
@@ -7499,4 +7508,72 @@ test('Zusatz e: „Meine Route“ läuft in der Haupt-App im Bereich Lernen und 
   await page.goto(origin + '/#/route/1'); await page.waitForFunction(() => !document.querySelector('#main .spinner'));
   assert.equal(await page.evaluate(() => document.body.dataset.area), 'lernen');
   assert.equal(await page.evaluate(() => document.body.hasAttribute('data-kindmodus')), true);
+});
+
+// ---------- 1199 (Gegenprüfung Client): Doppelte Abgabe, Frische, Startziel, Kind/Zugang, Bedienung ----------
+test('1199/1: Test – Abgeben doppelt und Weiter/Zurück während des Speicherns: ein Speichern, ein Abschluss, keine Navigation dazwischen', async (t) => {
+  const { page, calls } = await setup(t, { verzoegerungJe: (a) => (['schule_test_antwort', 'schule_test_abschliessen'].includes(a) ? 700 : 0) });
+  await page.goto(origin + '/#/lerneinheit/1-1-test');
+  await page.getByRole('button', { name: 'Test starten' }).click();
+  await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click();
+  // Weiter doppelt, dazwischen Zurück und ein Punkt: nur ein Speichern, danach genau Bordkarte 2
+  const weiter = page.getByRole('button', { name: 'Weiter ›' });
+  await weiter.evaluate((b) => { b.click(); b.click(); document.querySelector('.lern-punkte button')?.click(); document.querySelector('.lern-knoepfe .secondary')?.click(); });
+  await page.getByRole('button', { name: 'Markierung 2' }).waitFor();
+  assert.equal(calls.filter((c) => c.aktion === 'schule_test_antwort').length, 1, 'ein Speichern');
+  await page.getByRole('button', { name: 'Markierung 2' }).click();
+  const ab = page.getByRole('button', { name: 'Abgeben' });
+  await ab.evaluate((b) => { b.click(); b.click(); b.dispatchEvent(new MouseEvent('click', { bubbles: true })); document.querySelector('.lern-knoepfe .secondary')?.click(); });
+  await page.getByText('1 von 2 richtig').waitFor(); await page.waitForTimeout(300);
+  assert.equal(calls.filter((c) => c.aktion === 'schule_test_antwort').length, 2, 'letzte Antwort genau einmal gespeichert');
+  assert.equal(calls.filter((c) => c.aktion === 'schule_test_abschliessen').length, 1, 'genau ein Abschluss');
+});
+test('1199/3: verbindlicher Weiter-Schritt nur mit frischem Serverstand (zwei Geräte, innerhalb von 15 s); Wiederholungen unbekannt → kein Übungsziel', async (t) => {
+  const srv = wk93Server(); const { page } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen });
+  await page.setViewportSize({ width: 1280, height: 800 }); await page.goto(origin + '/#/reise/1'); await rkEndstand(page);
+  assert.match(await page.evaluate(() => lernSchrittLaden(1).then((z) => z.ziel)), /-ueben-3-start$/);
+  srv.daten.kontinente.flatMap((k) => k.fluege).filter((f) => f.thema_id === 15).forEach((f) => f.staedte.forEach((c) => { if (c.nr === 3) c.stand = 'gelandet'; }));
+  assert.match(await page.evaluate(() => lernSchrittLaden(1).then((z) => z.ziel)), /-ueben-4-start$/, 'Gerät B war weiter – sofort, nicht erst nach 15 s');
+  await page.route('**/functions/v1/lernen-api/**', async (route) => { const b = JSON.parse(route.request().postData() || '{}');
+    if (b.aktion === 'schule_wiederholung') return route.fulfill({ status: 503, contentType: 'application/json', body: JSON.stringify({ ok: false, fehler: 'weg' }) }); return route.fallback(); });
+  const z = await page.evaluate(() => lernSchrittLaden(1));
+  assert.equal(z.art, 'neutral'); assert.equal(z.ziel, '#/reise/1');
+});
+test('1199/3: alte Karte und fehlgeschlagene Aktualisierung – der alte Link wird nicht wieder frei', async (t) => {
+  const srv = rkServer(); const { page } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen });
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto(origin + '/#/stationen/1'); await page.waitForFunction(() => !document.querySelector('#main .spinner') && document.querySelector('#main').children.length > 0); await page.waitForTimeout(600);
+  await page.evaluate(() => lernCall('schule_landung_nachbuchung_gesehen', { lernender_id: 1 }));
+  await page.route('**/functions/v1/lernen-api/**', async (route) => { const b = JSON.parse(route.request().postData() || '{}');
+    if (b.aktion === 'schule_reise_karte') return route.fulfill({ status: 503, contentType: 'application/json', body: JSON.stringify({ ok: false, fehler: 'weg' }) }); return route.fallback(); });
+  await page.evaluate(() => { location.hash = '#/reise/1'; });
+  await page.locator('.lr-ziel-offen .rk-start').waitFor();
+  await page.locator('.lr-ziel-fehler').waitFor({ timeout: 8000 });
+  assert.equal(await page.locator('.lr-ziel-offen .rk-start').count(), 1, 'Hauptknopf bleibt gesperrt');
+  assert.equal(await page.locator('.lr-ziel-offen .rk-start').first().getAttribute('aria-disabled'), 'true');
+  await page.locator('.lr-ziel-offen .rk-start').first().evaluate((b) => b.click()); await page.waitForTimeout(100);
+  assert.equal(await page.evaluate(() => location.hash), '#/reise/1', 'Tippen auf den gesperrten Knopf tut nichts');
+});
+test('1199/2: Buchung zwischen Teilantworten der Reiseseite – kein Zeichnen mit gemischtem Stand, frischer Neuaufbau', async (t) => {
+  const srv = rkServer(); const { page, calls } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen, verzoegerungJe: (a) => (a === 'schule_reise_karte' ? 600 : a === 'schule_uebung_pruefen' ? 0 : 100) });
+  await page.setViewportSize({ width: 1280, height: 800 }); await page.goto(origin + '/#/info'); await page.waitForTimeout(300); calls.length = 0;
+  await page.evaluate(() => { location.hash = '#/reise/1'; setTimeout(() => lernCall('schule_landung_nachbuchung_gesehen', { lernender_id: 1 }), 250); });
+  await rkEndstand(page);
+  const k = calls.filter((c) => c.aktion === 'schule_konto').length;
+  assert.ok(k >= 2, `konto nach der Buchung neu geholt (${k})`);
+});
+test('1199/5: wartender Weiter-Knopf per Tastatur erreichbar, Statusmeldung; alte Ansicht inert', async (t) => {
+  const srv = wk93Server(); const { page } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen, verzoegerungJe: (a) => (a === 'schule_reise_karte' ? 1500 : 100) });
+  await page.setViewportSize({ width: 1280, height: 800 }); await page.goto(origin + '/#/reise/1'); await rkEndstand(page);
+  await page.evaluate(() => { const k = lernSchrittKnopf(1, { gross: false }); k.id = 'tk'; document.querySelector('#main').append(k); });
+  assert.equal(await page.locator('#tk').getAttribute('tabindex'), '0'); assert.equal(await page.locator('#tk').getAttribute('aria-disabled'), 'true');
+  assert.match(await page.locator('#lern-ansage').textContent(), /wird geladen/);
+  await page.locator('#tk').focus(); await page.keyboard.press('Enter'); assert.equal(await page.evaluate(() => location.hash), '#/reise/1', 'Enter am wartenden Knopf tut nichts');
+  await page.waitForFunction(() => !document.querySelector('#tk').classList.contains('lr-schritt-wartet'), null, { timeout: 6000 });
+  assert.match(await page.locator('#lern-ansage').textContent(), /bereit/);
+  // alte Ansicht beim Rückweg: inert
+  await page.evaluate(() => { location.hash = '#/info'; }); await page.waitForTimeout(200);
+  await page.evaluate(() => lernCall('schule_landung_nachbuchung_gesehen', { lernender_id: 1 }));
+  await page.evaluate(() => { location.hash = '#/reise/1'; }); await page.locator('.lr-veraltet').waitFor();
+  assert.equal(await page.locator('.lr-veraltet').evaluate((x) => x.inert), true);
 });

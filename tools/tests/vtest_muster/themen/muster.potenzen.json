@@ -1,0 +1,308 @@
+{
+ "thema_schluessel": "muster.potenzen",
+ "hinweis": "erfundener Bestand für den Test",
+ "inhalt": {
+  "etappen": [
+   {
+    "lernziel": "potenz_sinn"
+   },
+   {
+    "lernziel": "rechnen"
+   },
+   {
+    "lernziel": "vorzeichen"
+   }
+  ]
+ },
+ "aufgaben": [
+  {
+   "l": "potenz_sinn",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 3⁴."
+   },
+   "o": {
+    "wert": 81
+   },
+   "c": "81",
+   "w": "Lösungsweg Berechne 3⁴.",
+   "h": "Tipp"
+  },
+  {
+   "l": "potenz_sinn",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 5 · 5 · 5 als Potenz. Wie heißt der Exponent?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Lösungsweg Schreibe 5 · 5 · 5 als Potenz. Wie heißt der Exponent?",
+   "h": "Tipp"
+  },
+  {
+   "l": "rechnen",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2⁵."
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "32",
+   "w": "Lösungsweg Berechne 2⁵.",
+   "h": "Tipp"
+  },
+  {
+   "l": "vorzeichen",
+   "t": "negativ",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−2)³."
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "-8",
+   "w": "Lösungsweg Berechne (−2)³.",
+   "h": "Tipp"
+  },
+  {
+   "l": "potenz_sinn",
+   "t": "begriff",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 4³."
+   },
+   "o": {
+    "wert": 64
+   },
+   "c": "64",
+   "w": "Lösungsweg Berechne 4³."
+  },
+  {
+   "l": "rechnen",
+   "t": "berechnen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 6²."
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "36",
+   "w": "Lösungsweg Berechne 6²."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "negativ",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−3)²."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "9",
+   "w": "Lösungsweg Berechne (−3)²."
+  },
+  {
+   "l": "potenz_sinn",
+   "t": "begriff",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 7²."
+   },
+   "o": {
+    "wert": 49
+   },
+   "c": "49",
+   "w": "Lösungsweg Berechne 7²."
+  },
+  {
+   "l": "potenz_sinn",
+   "t": "begriff",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 10³."
+   },
+   "o": {
+    "wert": 1000
+   },
+   "c": "1000",
+   "w": "Lösungsweg Berechne 10³."
+  },
+  {
+   "l": "rechnen",
+   "t": "berechnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 3³."
+   },
+   "o": {
+    "wert": 27
+   },
+   "c": "27",
+   "w": "Lösungsweg Berechne 3³."
+  },
+  {
+   "l": "rechnen",
+   "t": "berechnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 9²."
+   },
+   "o": {
+    "wert": 81
+   },
+   "c": "81",
+   "w": "Lösungsweg Berechne 9²."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "negativ",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−1)⁵."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "-1",
+   "w": "Lösungsweg Berechne (−1)⁵."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "negativ",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−4)²."
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "16",
+   "w": "Lösungsweg Berechne (−4)²."
+  },
+  {
+   "l": "potenz_sinn",
+   "t": "begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 5³."
+   },
+   "o": {
+    "wert": 125
+   },
+   "c": "125",
+   "w": "Lösungsweg Berechne 5³."
+  },
+  {
+   "l": "potenz_sinn",
+   "t": "begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2⁴."
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "16",
+   "w": "Lösungsweg Berechne 2⁴."
+  },
+  {
+   "l": "rechnen",
+   "t": "berechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 11²."
+   },
+   "o": {
+    "wert": 121
+   },
+   "c": "121",
+   "w": "Lösungsweg Berechne 11²."
+  },
+  {
+   "l": "rechnen",
+   "t": "berechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 4⁴."
+   },
+   "o": {
+    "wert": 256
+   },
+   "c": "256",
+   "w": "Lösungsweg Berechne 4⁴."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "negativ",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−5)²."
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "25",
+   "w": "Lösungsweg Berechne (−5)²."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "negativ",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−2)⁴."
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "16",
+   "w": "Lösungsweg Berechne (−2)⁴."
+  }
+ ]
+}

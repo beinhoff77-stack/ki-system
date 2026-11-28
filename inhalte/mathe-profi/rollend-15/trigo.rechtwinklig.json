@@ -1,0 +1,689 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-15",
+ "kuerzel": "R15",
+ "flug": "r15-trigo.rechtwinklig",
+ "titel": "trigo.rechtwinklig",
+ "fuer": "Klasse 9",
+ "klasse": 9,
+ "themen": [
+  "trigo.rechtwinklig"
+ ],
+ "themen_datei_im_bestand": "trigo.rechtwinklig",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R15-V180",
+   "thema": "trigo.rechtwinklig",
+   "lernkarte": "seiten",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "b (die Seite AC)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "b liegt am Winkel α an, ist also die Ankathete"
+    },
+    {
+     "index": 1,
+     "antwort": "c (die Seite AB)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "c liegt dem rechten Winkel gegenüber, ist also die Hypotenuse"
+    }
+   ],
+   "aufgabe": {
+    "l": "seiten",
+    "t": "seiten",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Im Dreieck ABC liegt der rechte Winkel bei C. Welche Seite ist die Gegenkathete des Winkels α bei A?"
+    },
+    "a": [
+     "b (die Seite AC)",
+     "c (die Seite AB)",
+     "a (die Seite BC)"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Die Gegenkathete liegt dem Winkel gegenüber, ohne ihn zu berühren.",
+    "w": "Bei A liegt der Winkel α. Gegenüber von A liegt die Seite a = BC. Sie berührt A nicht und ist keine Hypotenuse. Also ist a die Gegenkathete von α."
+   }
+  },
+  {
+   "kennung": "R15-V181",
+   "thema": "trigo.rechtwinklig",
+   "lernkarte": "seiten",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "a (die Seite BC)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "a ist die Gegenkathete von α und die Ankathete von β, also genau umgekehrt"
+    },
+    {
+     "index": 2,
+     "antwort": "c (die Seite AB)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "c ist die Hypotenuse, die weder Gegenkathete noch Ankathete ist"
+    }
+   ],
+   "aufgabe": {
+    "l": "seiten",
+    "t": "seiten",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Im Dreieck ABC liegt der rechte Winkel bei C. Welche Seite ist zugleich Gegenkathete von β (bei B) und Ankathete von α (bei A)?"
+    },
+    "a": [
+     "b (die Seite AC)",
+     "a (die Seite BC)",
+     "c (die Seite AB)"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Zeichne das Dreieck. Welche Seite liegt gegenüber von B? Berührt diese Seite A?",
+    "w": "Gegenüber von B liegt die Seite b = AC. Sie berührt A, ist also Ankathete von α. Damit ist b Gegenkathete von β und Ankathete von α."
+   }
+  },
+  {
+   "kennung": "R15-V182",
+   "thema": "trigo.rechtwinklig",
+   "lernkarte": "verhaeltnisse",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Kosinus statt mit dem Sinus gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Sinus statt mit dem Kosinus gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 49,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hypotenuse im Umfang vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "verhaeltnisse",
+    "t": "verhaeltnisse",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "In einem rechtwinkligen Dreieck ist die Hypotenuse 35 cm lang, es gilt sin α = 0,6 und cos α = 0,8. Die Gegenkathete von α ist ① cm lang. Die Ankathete von α ist ② cm lang. Der Umfang des Dreiecks ist ③ cm.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      21,
+      28,
+      84
+     ]
+    },
+    "c": [
+     "21",
+     "28",
+     "35 + (21) + (28)"
+    ],
+    "h": "Der Sinus ist Gegenkathete durch Hypotenuse, der Kosinus ist Ankathete durch Hypotenuse. Stelle um.",
+    "w": "Gegenkathete = sin α · Hypotenuse = 0,6 · 35 = 21. Ankathete = cos α · Hypotenuse = 0,8 · 35 = 28. Umfang: 35 + 21 + 28 = 84. Probe: 21² + 28² = 441 + 784 = 1225 = 35²."
+   }
+  },
+  {
+   "kennung": "R15-V183",
+   "thema": "trigo.rechtwinklig",
+   "lernkarte": "verhaeltnisse",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 42.7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch den Tangens geteilt statt mit ihm malgenommen (32 : 0,75 ≈ 42,7)"
+    },
+    {
+     "antwort": 31.25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Tangenswert von der Länge abgezogen"
+    },
+    {
+     "antwort": 32.75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Tangenswert zur Länge addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "verhaeltnisse",
+    "t": "verhaeltnisse",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Hang bildet mit der Waagerechten einen Winkel α mit tan α = 0,75. Die Strecke waagerecht gemessen ist 32 m lang. Wie hoch liegt der Hangpunkt über dem Ausgangspunkt?"
+    },
+    "o": {
+     "wert": 24,
+     "einheit": "m"
+    },
+    "c": "24",
+    "h": "Der Tangens ist Gegenkathete durch Ankathete. Welche Seite ist die Waagerechte, welche die Höhe?",
+    "w": "tan α = Gegenkathete : Ankathete. Die Höhe ist die Gegenkathete: 0,75 · 32 = 24 m."
+   }
+  },
+  {
+   "kennung": "R15-V184",
+   "thema": "trigo.rechtwinklig",
+   "lernkarte": "seite",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2.82,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch den Tangens geteilt statt malgenommen"
+    },
+    {
+     "antwort": 0.7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Sinus statt den Tangens genommen"
+    },
+    {
+     "antwort": 1.32,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Kosinus statt den Tangens genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "seite",
+    "t": "seite",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Seilbahn steigt unter einem Winkel von 28° zur Waagerechten an. Waagerecht gemessen legt sie 1,5 km zurück. Welchen Höhenunterschied überwindet sie? Runde erst das Endergebnis auf zwei Dezimalstellen."
+    },
+    "o": {
+     "wert": 0.8,
+     "einheit": "km"
+    },
+    "c": "round(0.7975641474922182, 2)",
+    "h": "Die waagerechte Strecke ist die Ankathete des Winkels, der Höhenunterschied die Gegenkathete. Welches Verhältnis verbindet beide?",
+    "w": "tan 28° = Höhe : 1,5 km, also Höhe = 1,5 · tan 28° ≈ 1,5 · 0,5317 ≈ 0,80 km."
+   }
+  },
+  {
+   "kennung": "R15-V185",
+   "thema": "trigo.rechtwinklig",
+   "lernkarte": "seite",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Sinus malgenommen statt geteilt"
+    },
+    {
+     "antwort": 0.92,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Kosinus statt den Sinus genommen"
+    },
+    {
+     "antwort": 4.23,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Tangens statt den Sinus genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "seite",
+    "t": "seite",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Rampe soll einen Höhenunterschied von 0,9 m überwinden und mit der Waagerechten einen Winkel von 12° bilden. Wie lang ist die Rampe (die schräge Strecke)? Runde erst das Endergebnis auf zwei Dezimalstellen."
+    },
+    "o": {
+     "wert": 4.33,
+     "einheit": "m"
+    },
+    "c": "round(4.328760910269717, 2)",
+    "h": "Die Höhe ist die Gegenkathete des Winkels, die Rampe die Hypotenuse. Welches Verhältnis passt?",
+    "w": "sin 12° = 0,9 : Länge, also Länge = 0,9 : sin 12° ≈ 0,9 : 0,2079 ≈ 4,33 m."
+   }
+  },
+  {
+   "kennung": "R15-V186",
+   "thema": "trigo.rechtwinklig",
+   "lernkarte": "winkel",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 61.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Katheten vertauscht"
+    },
+    {
+     "antwort": 32.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Sinus statt den Tangens genommen"
+    },
+    {
+     "antwort": 0.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Verhältnis selbst als Winkel genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "winkel",
+    "t": "winkel",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Treppenstufe ist 15 cm hoch und 28 cm tief. Unter welchem Winkel zur Waagerechten steigt die Treppe an? Runde erst das Endergebnis auf eine Dezimalstelle (in Grad)."
+    },
+    "o": {
+     "wert": 28.2,
+     "einheit": "°"
+    },
+    "c": "round(28.178590109959174, 1)",
+    "h": "Stufenhöhe und Stufentiefe sind die Katheten. Welches Verhältnis kennst du, und wie kommst du von ihm zum Winkel?",
+    "w": "tan α = 15 : 28 ≈ 0,5357. Mit der Umkehrfunktion des Tangens: α ≈ 28,2°."
+   }
+  },
+  {
+   "kennung": "R15-V187",
+   "thema": "trigo.rechtwinklig",
+   "lernkarte": "beziehungen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von 1 abgezogen, ohne zu quadrieren und die Wurzel zu ziehen"
+    },
+    {
+     "antwort": 0.9216,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel nicht gezogen"
+    },
+    {
+     "antwort": 0.28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Sinus als Kosinus angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "beziehungen",
+    "t": "beziehungen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein spitzer Winkel α hat sin α = 0,28. Wie groß ist cos α?"
+    },
+    "o": {
+     "wert": 0.96
+    },
+    "c": "0.96",
+    "h": "Für jeden spitzen Winkel gilt (sin α)² + (cos α)² = 1. Stelle um und ziehe die Wurzel.",
+    "w": "(cos α)² = 1 − 0,28² = 1 − 0,0784 = 0,9216. Die Wurzel ist 0,96. Probe: 0,96² = 0,9216."
+   }
+  },
+  {
+   "kennung": "R15-V188",
+   "thema": "trigo.rechtwinklig",
+   "lernkarte": "beziehungen",
+   "stufe": 3,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "für 70°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "derselbe Winkel hat Sinus und Kosinus nicht gleich, nur bei 45°"
+    },
+    {
+     "index": 2,
+     "antwort": "für 45°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei 45° sind Sinus und Kosinus gleich, aber sin 70° ist größer als cos 45°"
+    },
+    {
+     "index": 3,
+     "antwort": "für 50°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "70° und 50° ergänzen sich nicht zu 90°"
+    }
+   ],
+   "aufgabe": {
+    "l": "beziehungen",
+    "t": "beziehungen",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Es gilt sin 70° ≈ 0,9397. Für welchen spitzen Winkel hat der Kosinus denselben Wert?"
+    },
+    "a": [
+     "für 20°",
+     "für 70°",
+     "für 45°",
+     "für 50°"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "In einem rechtwinkligen Dreieck ist die Gegenkathete des einen spitzen Winkels die Ankathete des anderen. Die beiden spitzen Winkel ergeben zusammen 90°.",
+    "w": "Die beiden spitzen Winkel eines rechtwinkligen Dreiecks ergänzen sich zu 90°. Es gilt sin α = cos(90° − α). Mit α = 70° folgt sin 70° = cos 20°."
+   }
+  },
+  {
+   "kennung": "R15-V189",
+   "thema": "trigo.rechtwinklig",
+   "lernkarte": "anwendung",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Tangens malgenommen statt geteilt"
+    },
+    {
+     "antwort": 38,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Kosinus statt den Tangens genommen"
+    },
+    {
+     "antwort": 545,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Sinus statt den Tangens genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "anwendung",
+    "t": "anwendung",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Vom Leuchtturm in Kroatien, dessen Spitze 38 m über dem Meer liegt, sieht man ein Boot unter einem Tiefenwinkel von 4°. Der Fuß des Leuchtturms liegt auf Meereshöhe. Wie weit ist das Boot waagerecht vom Fuß des Leuchtturms entfernt? Runde erst das Endergebnis auf ganze Meter."
+    },
+    "o": {
+     "wert": 543,
+     "einheit": "m"
+    },
+    "c": "round(543.4253177550532, 0)",
+    "h": "Der Tiefenwinkel ist genauso groß wie der Winkel am Boot im Dreieck. Welche Seiten sind bekannt, welche gesucht?",
+    "w": "Im rechtwinkligen Dreieck gilt tan 4° = 38 : Entfernung. Also Entfernung = 38 : tan 4° ≈ 38 : 0,06993 ≈ 543 m."
+   }
+  },
+  {
+   "kennung": "R15-V190",
+   "thema": "trigo.rechtwinklig",
+   "lernkarte": "anwendung",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "anwendung",
+    "t": "anwendung",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Alex berechnet im rechtwinkligen Dreieck (Hypotenuse 20 cm, α = 40°) die Ankathete von α: Zeile 1: Die Ankathete liegt am Winkel an, deshalb gilt cos α = Ankathete : Hypotenuse. Zeile 2: Also ist die Ankathete gleich 20 : cos 40°. Zeile 3: Das sind etwa 26,1 cm. Zeile 4: Die Ankathete wäre länger als die Hypotenuse mit 20 cm. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Stelle cos α = Ankathete : Hypotenuse nach der Ankathete um. Muss die Ankathete länger oder kürzer als die Hypotenuse sein?",
+    "w": "Aus cos α = Ankathete : Hypotenuse folgt Ankathete = cos α · Hypotenuse = cos 40° · 20 ≈ 15,3 cm. In Zeile 2 wurde geteilt statt malgenommen. Zeile 4 zeigt den Widerspruch: Eine Kathete ist nie länger als die Hypotenuse."
+   }
+  },
+  {
+   "kennung": "R15-V191",
+   "thema": "trigo.rechtwinklig",
+   "lernkarte": "schnittwinkel",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentzahl als Winkel in Grad genommen"
+    },
+    {
+     "antwort": 85.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 statt 0,12 in den Arkustangens eingesetzt (arctan 12 ≈ 85,2°)"
+    },
+    {
+     "antwort": 83.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Höhe und Strecke vertauscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "schnittwinkel",
+    "t": "schnittwinkel",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Straße in Norwegen hat 12 % Steigung, das heißt 12 m Höhenunterschied auf 100 m waagerechte Strecke. Unter welchem Winkel steigt sie gegenüber der Waagerechten an? Runde erst das Endergebnis auf eine Dezimalstelle (in Grad)."
+    },
+    "o": {
+     "wert": 6.8,
+     "einheit": "°"
+    },
+    "c": "round(6.84277341263094, 1)",
+    "h": "Die Steigung ist das Verhältnis von Höhe zu waagerechter Strecke, also der Tangens des Winkels.",
+    "w": "tan α = 12 : 100 = 0,12. Mit der Umkehrfunktion: α ≈ 6,8°. Bei 12 % Steigung ist der Winkel also viel kleiner als 12°."
+   }
+  },
+  {
+   "kennung": "R15-V192",
+   "thema": "trigo.rechtwinklig",
+   "lernkarte": "schnittwinkel",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 71.6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Winkel der steileren Geraden genommen"
+    },
+    {
+     "antwort": 63.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Steigungen subtrahiert und davon den Winkel genommen"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied der Steigungen als Winkel genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "schnittwinkel",
+    "t": "schnittwinkel",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Die Geraden y = x und y = 3x schneiden sich im Ursprung. Unter welchem Winkel schneiden sie sich? Runde erst das Endergebnis auf eine Dezimalstelle (in Grad)."
+    },
+    "o": {
+     "wert": 26.6,
+     "einheit": "°"
+    },
+    "c": "round(26.56505117707799, 1)",
+    "h": "Jede Gerade bildet mit der x-Achse einen Winkel, dessen Tangens die Steigung ist. Der Schnittwinkel ist der Unterschied.",
+    "w": "Die Gerade y = x hat den Winkel 45° zur x-Achse, die Gerade y = 3x den Winkel arctan 3 ≈ 71,6°. Der Schnittwinkel ist 71,6° − 45° = 26,6°."
+   }
+  }
+ ]
+}

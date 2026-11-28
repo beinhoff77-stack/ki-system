@@ -1,6 +1,11 @@
 // lernen-api (Werkstatt #150, Claude): Schnittstelle der App für „Lernen Schule“.
 // Gleiche Anmeldung wie app-api (Sitzungs-Token -> app.sitzung), ruft nur die api.schule_*-Funktionen als council_mcp auf.
 // Die Datenbank prüft Zugriff (schule.zugriff) und Sichtbarkeit (Entwürfe nur fürs Testkind) bei jeder Aktion.
+// v0.10.0 (vorbereitet, NICHT ausgeliefert; erst nach ADVENT-S = 20261209_advent_s.sql in der Datenbank): Adventskalender – Kind: schule_advent_stand,
+//         schule_advent_oeffnen, schule_advent_tuer_lesen, schule_advent_gutscheine, schule_advent_einloesen, schule_advent_tauschen; Eltern: schule_advent_eltern,
+//         schule_advent_belegung_lesen, schule_advent_belegung_setzen, schule_advent_gutschein_eltern, schule_advent_protokoll. Rechte prüft die Datenbank
+//         (Kind nur eigenes, Eltern-Aktionen nur Eltern, Öffnen/Einlösen/Tauschen durch Eltern nur fürs Testkind). Schnittstelle: inhalte/design/advent/server.md.
+//         Enthält 0.9.6 (falls noch nicht ausgeliefert, kommt es mit).
 // v0.9.6 (vorbereitet, NICHT ausgeliefert; erst nach WW-S3 in der Datenbank): schule_fehler_abhaken in zwei Formen – Markieren {lernender_id, versuch_ids}
 //         oder Zurückholen {lernender_id, zurueck: true, markierung_ids} (holt genau diese Markierungen zurück; Zurückholen über versuch_ids gibt es nicht
 //         mehr). Antworten mit stand, geaendert_ids, markierung_ids. GET /hilfe nennt die beiden Formen im Feld „hinweis“. Sonst unverändert gegenüber 0.9.5.
@@ -21,7 +26,7 @@ import { Hono } from 'npm:hono@^4.9.7'
 import postgres from 'npm:postgres@3.4.5'
 
 const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false, max: 3, idle_timeout: 20 })
-const VERSION = '0.9.6'
+const VERSION = '0.10.0'
 
 const AKTIONEN: Record<string, string[]> = {
   schule_uebersicht: [],
@@ -62,11 +67,25 @@ const AKTIONEN: Record<string, string[]> = {
   schule_wackelt_analyse: ['lernender_id', 'tage?', 'erledigt?'],
   // zwei Formen (siehe HINWEISE): Markieren lernender_id + versuch_ids; Zurückholen lernender_id + zurueck (true) + markierung_ids
   schule_fehler_abhaken: ['lernender_id', 'versuch_ids?', 'zurueck?', 'markierung_ids?'],
+  // ADVENT-S (0.10.0): Adventskalender
+  schule_advent_stand: ['lernender_id'],
+  schule_advent_oeffnen: ['lernender_id', 'client_id'],
+  schule_advent_tuer_lesen: ['lernender_id', 'nr'],
+  schule_advent_gutscheine: ['lernender_id'],
+  schule_advent_einloesen: ['lernender_id', 'gutschein_id'],
+  schule_advent_tauschen: ['lernender_id', 'tauschkarte_id', 'mein_gutschein_id', 'fremder_gutschein_id', 'client_id'],
+  schule_advent_eltern: ['protokoll?'],
+  schule_advent_belegung_lesen: ['lernender_id?'],
+  schule_advent_belegung_setzen: ['lernender_id?', 'lernender_ids?', 'tueren', 'nur_geschlossene?'],
+  schule_advent_gutschein_eltern: ['gutschein_id', 'aktion'],
+  schule_advent_protokoll: ['lernender_id?', 'anzahl?'],
 }
 
 // Zusatz für GET /hilfe bei Aktionen mit mehreren Aufrufformen (die Parameterliste allein kann „entweder – oder“ nicht ausdrücken)
 const HINWEISE: Record<string, string> = {
   schule_fehler_abhaken: 'Markieren: lernender_id, versuch_ids. Zurückholen: lernender_id, zurueck = true, markierung_ids (ohne versuch_ids).',
+  schule_advent_belegung_setzen: 'Ein Kind: lernender_id. Beide zugleich: lernender_ids [..]. tueren: [{nr, art, variante?, titel?, text?, sterne?, motiv?}]. nur_geschlossene = true überspringt offene Türchen.',
+  schule_advent_gutschein_eltern: 'aktion: einloesen | zurueckholen (Gutschein, Tauschkarte) oder erledigt | noch_nicht (Krampus).',
 }
 
 const CORS = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Content-Type, Authorization', 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS' }

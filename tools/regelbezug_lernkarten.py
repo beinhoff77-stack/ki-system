@@ -34,6 +34,37 @@ def grundthema(s):
     return re.sub(r'_teil\d+$', '', s or '')
 
 
+GRUNDSTAND_BIS = 14   # Runden bis hier stehen für die Zuordnung „wie eingespielt“ fest (Auflage Werkstatt 1209: Runde 15 darf keiner Lernkarte die Regel entziehen)
+
+
+def entscheiden(c, tr):
+    """Regel einer Lernkarte aus den Regel-Zählungen c (Regel oder None -> Anzahl) und den Regeln tr, deren Themenliste das Thema nennt. -> (Eintrag, Grund)."""
+    mit = Counter({r: n for r, n in c.items() if r})
+    n_mit = sum(mit.values())
+    e = None
+    grund = None
+    if n_mit >= 2:
+        (top, n_top), = mit.most_common(1)
+        gleich = [r for r, n in mit.items() if n == n_top]
+        if len(gleich) == 1 and 3 * n_top >= 2 * n_mit:
+            weitere = [r for r, n in mit.most_common() if r != top and n >= 2][:2]
+            e = {'regel': top, 'weitere': weitere, 'quelle': 'aufgaben', 'aufgaben': n_mit, 'anteil': f'{n_top}/{n_mit}'}
+        else:
+            grund = f'Aufgaben uneinig ({", ".join(f"{r} {n}" for r, n in mit.most_common())})'
+    if e is None and grund is None:
+        if len(tr) == 1 and all(r == tr[0] for r in mit):
+            e = {'regel': tr[0], 'weitere': [], 'quelle': 'thema'}
+        elif len(tr) == 1:
+            grund = f'Thema hat genau {tr[0]}, eine Aufgabe trägt aber {", ".join(r for r in mit if r != tr[0])}'
+        elif not tr:
+            grund = 'Thema steht in keiner Themenliste' + (f'; Aufgaben: {", ".join(mit)} (zu wenige)' if mit else '')
+        else:
+            grund = f'Thema steht bei {len(tr)} Regeln' + (f'; Aufgaben: {", ".join(f"{r} {n}" for r, n in mit.items())} (zu wenige)' if mit else '')
+    if e is None:
+        e = {'regel': None, 'weitere': [], 'quelle': 'offen'}
+    return e, grund
+
+
 def bauen():
     kenn = json.loads((WURZEL / 'inhalte/mathe-profi/regeln-uebersicht/kennungen.json').read_text(encoding='utf-8'))
     gueltig = {k['kennung'] for k in kenn['kennungen']}
@@ -46,19 +77,20 @@ def bauen():
         d = json.loads(Path(p).read_text(encoding='utf-8'))
         themen[d['thema_schluessel']] = d
     # Regeln der neuen Aufgaben je (Grundthema, Lernkarte)
-    aufg = defaultdict(Counter)   # Regel oder None
+    aufg_alle, aufg_fest = defaultdict(Counter), defaultdict(Counter)   # Regel oder None; fest = nur Runden bis GRUNDSTAND_BIS
     for p in sorted(glob.glob(str(WURZEL / 'inhalte/mathe-profi/rollend-*/*.json'))):
         for e in json.loads(Path(p).read_text(encoding='utf-8'))['aufgaben']:
             r = e.get('regel') or None
             if r is not None and r not in gueltig: raise SystemExit(f'{e["kennung"]}: Regel {r} steht nicht in kennungen.json')
-            aufg[(grundthema(e.get('thema')), e['aufgabe']['l'])][r] += 1
+            aufg_alle[(grundthema(e.get('thema')), e['aufgabe']['l'])][r] += 1
+            if int(re.search(r'rollend-(\d+)', p).group(1)) <= GRUNDSTAND_BIS: aufg_fest[(grundthema(e.get('thema')), e['aufgabe']['l'])][r] += 1
     plan = json.loads((WURZEL / 'inhalte/plan/rollend-einheiten.json').read_text(encoding='utf-8'))
     teile = {k: grundthema(k) for k in sorted(plan['einheiten']) if grundthema(k) != k}
 
     eintraege, redaktion = {}, []
     zahl = {'gesamt': Counter(), 'klasse5': Counter(), 'klasse8': Counter(), 'rest': Counter()}
     unbekannt = []
-    for (t, l), c in aufg.items():
+    for (t, l), c in aufg_alle.items():
         if t not in themen or l not in [x['lernziel'] for x in themen[t]['inhalt'].get('etappen', [])]:
             unbekannt.append(f'{t}/{l}')
     for t in sorted(themen):
@@ -69,31 +101,14 @@ def bauen():
         lks = {}
         for et in d['inhalt'].get('etappen', []):
             l = et['lernziel']
-            c = aufg.get((t, l), Counter())
-            mit = Counter({r: n for r, n in c.items() if r})
-            n_mit = sum(mit.values())
-            e = None
-            grund = None
-            if n_mit >= 2:
-                (top, n_top), = mit.most_common(1)
-                gleich = [r for r, n in mit.items() if n == n_top]
-                if len(gleich) == 1 and 3 * n_top >= 2 * n_mit:
-                    weitere = [r for r, n in mit.most_common() if r != top and n >= 2][:2]
-                    e = {'regel': top, 'weitere': weitere, 'quelle': 'aufgaben', 'aufgaben': n_mit, 'anteil': f'{n_top}/{n_mit}'}
-                else:
-                    grund = f'Aufgaben uneinig ({", ".join(f"{r} {n}" for r, n in mit.most_common())})'
-            if e is None and grund is None:
-                if len(tr) == 1 and all(r == tr[0] for r in mit):
-                    e = {'regel': tr[0], 'weitere': [], 'quelle': 'thema'}
-                elif len(tr) == 1:
-                    grund = f'Thema hat genau {tr[0]}, eine Aufgabe trägt aber {", ".join(r for r in mit if r != tr[0])}'
-                elif not tr:
-                    grund = 'Thema steht in keiner Themenliste' + (f'; Aufgaben: {", ".join(mit)} (zu wenige)' if mit else '')
-                else:
-                    grund = f'Thema steht bei {len(tr)} Regeln' + (f'; Aufgaben: {", ".join(f"{r} {n}" for r, n in mit.items())} (zu wenige)' if mit else '')
-            if e is None:
-                e = {'regel': None, 'weitere': [], 'quelle': 'offen'}
-                redaktion.append({'thema': t, 'lernkarte': l, 'grund': grund, 'kandidaten': sorted(set(tr) | set(mit))})
+            e, grund = entscheiden(aufg_alle.get((t, l), Counter()), tr)
+            fest, _ = entscheiden(aufg_fest.get((t, l), Counter()), tr)
+            if fest['regel'] is not None:
+                # Eine eingespielte Zuordnung bleibt unverändert (Auflage 1209): Aufgaben späterer Runden ändern weder Hauptregel noch weitere Regeln dieser Karte,
+                # auch wenn sie eine andere (Teil-)Regel tragen; sie zählen nur für Karten, die bis dahin offen waren.
+                e, grund = fest, None
+            if e['quelle'] == 'offen':
+                redaktion.append({'thema': t, 'lernkarte': l, 'grund': grund, 'kandidaten': sorted(set(tr) | set(r for r in aufg_alle.get((t, l), Counter()) if r))})
             lks[l] = e
             for g in ('gesamt', gruppe): zahl[g][e['quelle']] += 1
         eintraege[t] = {'thema_id': d.get('thema_id'), 'klasse_gym_by': kl, 'lernkarten': lks}

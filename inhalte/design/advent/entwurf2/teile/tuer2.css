@@ -1,0 +1,109 @@
+/* ===== Entwurf 2 · Tür als Klappe ===== */
+.rahmen2 { position: relative; width: 196px; height: 246px; perspective: 1100px; }
+.rahmen2::before { content: ""; position: absolute; inset: -12px; border-radius: 22px; background: linear-gradient(160deg, #0B2A1C, #031009); box-shadow: inset 0 3px 8px #000c, inset 0 -1px 0 #ffffff14, 0 24px 50px #000a; }
+.ab2.hell .rahmen2::before { background: linear-gradient(160deg, #0F3A26, #052014); }
+.rahmen2.tuer-krampus::before { background: linear-gradient(160deg, #1A0508, #050102); }
+.rahmen2.tuer-t24::before { background: linear-gradient(160deg, #0A1240, #02041A); box-shadow: inset 0 3px 8px #000c, 0 0 0 2px #FFD23F55, 0 24px 50px #000a; }
+/* Licht hinter der Klappe: warmer Kern + Strahlen, erscheint beim Öffnen */
+.licht2 { position: absolute; inset: 0; border-radius: 14px; overflow: hidden; background: radial-gradient(circle at 42% 50%, #FFFDF0 0, #FFE27A 26%, #F2B417 55%, #6B4400 100%); }
+.licht2 i { position: absolute; inset: -40%; background: repeating-conic-gradient(from 0deg at 42% 50%, #FFFFFF55 0 7deg, #FFFFFF00 7deg 22deg); opacity: 0; transform: scale(.7); }
+.tuer-krampus .licht2 { background: radial-gradient(circle at 42% 50%, #FFE9D6 0, #FF8A5B 30%, #B3122B 62%, #2A0508 100%); }
+.klappe { position: absolute; inset: 0; padding: 0; border: 0; background: none; border-radius: 14px; transform-origin: 0 50%; transform-style: preserve-3d; cursor: pointer; }
+.klappe .tuer-svg { position: absolute; left: -6px; top: -40px; width: 208px; height: 300px; overflow: visible; filter: drop-shadow(0 6px 10px #0007); }
+.klappe-schatten { position: absolute; inset: 0; border-radius: 14px; background: linear-gradient(90deg, #0000, #000c); opacity: 0; pointer-events: none; }
+.rahmen2.auf .klappe { transform: rotateY(-104deg); }
+.rahmen2.auf .klappe-schatten { opacity: .85; }
+.rahmen2.auf .licht2 i { opacity: 1; transform: scale(1); }
+.rahmen2.halb .klappe { transform: rotateY(-68deg); }
+.rahmen2.halb .klappe-schatten { opacity: .55; }
+.ab2 .antippen { margin-top: 30px; }
+@media (prefers-reduced-motion: no-preference) {
+  .bewegt .rahmen2:not(.auf) { animation: wackel2 3.2s ease-in-out infinite; transform-origin: 50% 100%; }
+  .bewegt .rahmen2 .klappe { transition: transform .62s cubic-bezier(.25, .9, .3, 1.12); }
+  .bewegt .rahmen2 .klappe-schatten { transition: opacity .62s ease-out; }
+  .bewegt .rahmen2 .licht2 i { transition: opacity .5s ease-out .12s, transform .9s cubic-bezier(.2, .8, .2, 1) .12s; }
+  .bewegt .inhalt-r { animation: auftauch2 .5s cubic-bezier(.2, 1.2, .4, 1) both .15s; }
+  .bewegt .funken i { animation: funke 2.4s ease-in-out infinite; }
+  .bewegt .funken i:nth-child(3n) { animation-delay: -.8s; } .bewegt .funken i:nth-child(3n+1) { animation-delay: -1.6s; }
+}
+@keyframes wackel2 { 0%, 82%, 100% { transform: rotate(0); } 86% { transform: rotate(-1.6deg); } 90% { transform: rotate(1.4deg); } 94% { transform: rotate(-.6deg); } }
+@keyframes auftauch2 { from { opacity: 0; transform: scale(.82) translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes funke { 50% { opacity: .15; } }
+.ab2 .funken i { width: 4px; height: 4px; background: #FFF3C4; box-shadow: 0 0 6px #FFD23F, 0 0 12px #FFD23F88; }
+.sorte-t24 .szene { background: radial-gradient(90% 60% at 50% 46%, #2A3F9E 0, #111C5C 50%, #050A2A 100%) !important; }
+
+/* ===== Inhalt: Motiv ===== */
+.motiv-gross2 { width: min(296px, 76vw); aspect-ratio: 1; border-radius: 18px; overflow: hidden; background: #FFFBEF; padding: 7px; box-shadow: 0 0 0 1px #0002, 0 22px 50px #000a, 0 2px 0 #E9DDBF; transform: rotate(-1.2deg); }
+.motiv-gross2 svg { width: 100%; height: 100%; display: block; border-radius: 12px; }
+
+/* ===== Gutschein als Ticket: Kerben, Lochung, Guilloche, Blindprägung ===== */
+.ticket-w { filter: drop-shadow(0 18px 24px #0009); }
+.ticket { position: relative; width: min(318px, 84vw); border-radius: 16px; background: #FFFBEF; color: #1B0C3A;
+  -webkit-mask: radial-gradient(circle 11px at 0 calc(100% - 60px), #0000 98%, #000) , radial-gradient(circle 11px at 100% calc(100% - 60px), #0000 98%, #000); -webkit-mask-composite: source-in; mask: radial-gradient(circle 11px at 0 calc(100% - 60px), #0000 98%, #000), radial-gradient(circle 11px at 100% calc(100% - 60px), #0000 98%, #000); mask-composite: intersect; }
+.tk-kopf { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border-radius: 16px 16px 0 0; background: linear-gradient(90deg, #1B0C3A, #3B1D5E); color: #FFD23F; font-family: ui-monospace, Menlo, monospace; font-size: 11.5px; font-weight: 800; letter-spacing: .12em; }
+.tk-marke { display: inline-flex; align-items: center; gap: 6px; } .tk-marke svg { width: 13px; height: 13px; }
+.tk-kopf span:last-child { color: #E8DDFF; opacity: .85; font-weight: 700; }
+.tk-koerper { position: relative; overflow: hidden; padding: 16px 16px 16px; min-height: 140px; box-shadow: inset 0 0 0 2px #FFD23F; border-radius: 0; }
+.tk-koerper > * { position: relative; }
+.guilloche { position: absolute !important; inset: 0; width: 100%; height: 100%; opacity: .55; }
+.tk-koerper small { font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: .1em; font-weight: 800; color: #7B1E6E; }
+.tk-koerper h3 { font-size: 27px; line-height: 1.02; font-weight: 700; margin-top: 6px; letter-spacing: -.015em; max-width: 230px; }
+.tk-koerper p { font-size: 14.5px; margin-top: 8px; color: #4A3A66; max-width: 200px; }
+.praegung { position: absolute !important; right: 10px; bottom: 8px; width: 76px; height: 76px; transform: rotate(-12deg); }
+.tk-perf { height: 8px; margin: 0 14px; background: radial-gradient(circle, #1B0C3A2e 1.7px, #0000 2.2px) 0 50% / 9px 8px repeat-x; }
+.tk-fuss { display: flex; align-items: center; gap: 10px; height: 52px; padding: 0 16px 0 14px; font-size: 14.5px; font-weight: 700; border-radius: 0 0 16px 16px; background: #FFF4D6; }
+.tk-ico { width: 32px; height: 32px; flex: none; border-radius: 10px; display: grid; place-items: center; background: #1B0C3A; color: #FFD23F; } .tk-ico svg { width: 18px; }
+.tk-st { margin-left: auto; font-size: 18px; color: #9A6A08; white-space: nowrap; } .tk-st i { font-style: normal; margin-left: 2px; color: #E0A40E; }
+
+/* ===== Krampus: dunkler Zettel, Kratzer im Kopf, Hufabdruck ===== */
+.kr-karte { width: min(330px, 86vw); border-radius: 16px; background: #23100F linear-gradient(170deg, #2C1214, #170809); color: #F3E6DE; box-shadow: 0 0 0 1.5px #6B1E26, 0 20px 50px #000c; overflow: hidden; transform: rotate(1deg); }
+.kr-kopf { position: relative; display: flex; justify-content: space-between; padding: 10px 16px; background: #D9363E; color: #1C0A0E; font-family: ui-monospace, Menlo, monospace; font-size: 12px; font-weight: 800; letter-spacing: .12em; overflow: hidden; }
+.kr-kratz { position: absolute; right: 64px; top: -2px; width: 60px; height: 44px; opacity: .9; }
+.kr-in { display: grid; grid-template-columns: 108px 1fr; gap: 12px; align-items: center; padding: 14px 14px 10px; }
+.kr-bild { width: 108px; height: 108px; border-radius: 14px; overflow: hidden; box-shadow: 0 0 0 2px #5A1A22, 0 6px 14px #0008; transform: rotate(-3deg); } .kr-bild svg { width: 100%; height: 100%; display: block; }
+.kr-in small { font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: .1em; font-weight: 800; color: #FF9A8A; }
+.kr-in h3 { font-size: 21px; line-height: 1.08; margin-top: 4px; } .kr-in p { font-size: 14.5px; margin-top: 6px; color: #E2C8C2; }
+.kr-perf { height: 8px; margin: 0 14px; background: radial-gradient(circle, #FF9A8A40 1.6px, #0000 2.1px) 0 50% / 9px 8px repeat-x; }
+.kr-fuss { display: flex; align-items: center; gap: 10px; padding: 10px 14px 12px 16px; font-weight: 700; font-size: 15px; }
+.kr-box { width: 22px; height: 22px; border-radius: 6px; border: 2px solid #FF9A8A; flex: none; }
+.kr-huf { margin-left: auto; width: 30px; height: 30px; color: #D9363E; opacity: .55; transform: rotate(16deg); flex: none; }
+.sorte-krampus .szene { background: radial-gradient(90% 60% at 50% 46%, #3D1015 0, #1D080B 50%, #0A0304 100%) !important; }
+
+/* ===== Jackpot: Samt, Goldrahmen, Walzen mit Wölbung ===== */
+.jackpot2 { width: min(316px, 84vw); border-radius: 22px; padding: 16px 14px 18px; text-align: center; background: radial-gradient(120% 90% at 50% 0, #3A1550, #14061E 70%); box-shadow: 0 0 0 2px #FFD23F, 0 0 0 5px #14061E, 0 0 0 6px #B57A06, 0 22px 50px #000b, 0 0 60px #FFD23F33; }
+.jp-fenster { position: relative; display: flex; justify-content: center; gap: 7px; padding: 8px; border-radius: 14px; background: #0B0410; box-shadow: inset 0 0 0 1.5px #B57A06, inset 0 4px 10px #000; }
+.jp-walze { width: 76px; height: 92px; border-radius: 9px; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(#5A4A3A 0, #E9DFC8 22%, #FFFDF5 50%, #E9DFC8 78%, #5A4A3A 100%); box-shadow: inset 0 0 0 1px #0006; }
+.jp-zeile { display: block; width: 50px; height: 50px; flex: none; } .jp-zeile svg { width: 100%; height: 100%; display: block; }
+.jp-zeile.weg { height: 22px; overflow: hidden; opacity: .45; filter: blur(.4px); } .jp-zeile.weg:first-child svg { margin-top: -28px; }
+.jp-linie { position: absolute; left: 3px; right: 3px; top: 50%; height: 1.5px; background: linear-gradient(90deg, #0000, #FFD23F 12%, #FFD23F 88%, #0000); z-index: 2; }
+.jp-linie::before, .jp-linie::after { content: ""; position: absolute; top: -4px; border: 4.5px solid transparent; }
+.jp-linie::before { left: -4px; border-left-color: #FFD23F; } .jp-linie::after { right: -4px; border-right-color: #FFD23F; }
+.jp-wort2 { margin-top: 12px; font-size: 30px; font-weight: 700; letter-spacing: .22em; padding-left: .22em; }
+.jp-wort2 span { background: linear-gradient(180deg, #FFF6C8 0, #FFD23F 45%, #C98A0A 55%, #FFE27A 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.jp-zahl2 { font-size: 46px; font-weight: 700; color: #FFFBEF; line-height: 1; margin-top: 4px; letter-spacing: -.01em; } .jp-zahl2 i { font-style: normal; color: #FFD23F; margin-left: 6px; font-size: .8em; }
+.sorte-jackpot .szene { background: radial-gradient(90% 60% at 50% 46%, #5A3B00 0, #241500 50%, #0B0700 100%) !important; }
+@media (prefers-reduced-motion: no-preference) { .bewegt .jp-wort2 span { background-size: 100% 200%; animation: glanz 2.4s ease-in-out 1 both .6s; } }
+@keyframes glanz { from { background-position: 0 100%; } to { background-position: 0 0; } }
+
+/* ===== Niete: grauer Schein, Gummistempel, Trost-Stern mit Pflaster ===== */
+.niete2 { position: relative; width: min(296px, 80vw); padding: 20px 18px 16px; text-align: center; background: #E7E4DC; color: #3E4450; border-radius: 14px 4px 4px 14px; box-shadow: 0 18px 40px #0009;
+  clip-path: polygon(0 0, 100% 0, 97% 6%, 100% 12%, 97% 18%, 100% 24%, 97% 30%, 100% 36%, 97% 42%, 100% 48%, 97% 54%, 100% 60%, 97% 66%, 100% 72%, 97% 78%, 100% 84%, 97% 90%, 100% 96%, 98% 100%, 0 100%); }
+.nt-stempel2 { display: inline-block; transform: rotate(-7deg); padding: 3px; border: 3px solid #8A909B; border-radius: 10px; }
+.nt-stempel2 span { display: block; font-size: 40px; font-weight: 700; letter-spacing: .16em; padding: 0 12px 0 18px; color: #8A909B; border: 1.5px solid #8A909B; border-radius: 6px;
+  -webkit-mask: radial-gradient(circle at 20% 30%, #0000 1.2px, #000 1.6px) 0 0 / 7px 9px, linear-gradient(#000, #000); -webkit-mask-composite: source-in; mask: radial-gradient(circle at 20% 30%, #0000 1.2px, #000 1.6px) 0 0 / 7px 9px; }
+.nt-preis { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 10px; }
+.nt-stern { width: 74px; height: 74px; transform: rotate(-10deg); filter: drop-shadow(0 3px 3px #0003); flex: none; }
+.niete2 .nt-zahl { font-size: 42px; font-weight: 700; color: #9A6A08; line-height: 1; text-align: left; } .niete2 .nt-klein { text-align: left; margin-top: 3px; }
+.sorte-niete .szene { background: radial-gradient(90% 60% at 50% 46%, #3A4150 0, #1C2029 50%, #0B0D12 100%) !important; }
+
+/* ===== Nur Sterne: Goldmünze ===== */
+.sterne2 { text-align: center; } .muenze { width: 168px; height: 168px; display: block; margin: 0 auto; filter: drop-shadow(0 0 30px #FFD23F55); }
+.st-zahl { font-size: 52px; font-weight: 700; color: #FFFBEF; line-height: 1; margin-top: 8px; } .st-zahl i { font-style: normal; color: #FFD23F; margin-left: 6px; font-size: .78em; }
+.st-klein { font-family: ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: .16em; font-weight: 800; color: #FFE27A; margin-top: 6px; }
+.sorte-sterne .szene { background: radial-gradient(90% 60% at 50% 46%, #6B4B00 0, #2A1D00 50%, #0B0700 100%) !important; }
+
+/* ===== Karten Tür 6 / 24: Goldrahmen mit Innenlinie ===== */
+.karte-gross2 { width: min(304px, 80vw); aspect-ratio: 1; border-radius: 20px; overflow: hidden; padding: 6px; background: linear-gradient(145deg, #FFF1A8, #E0A40E 40%, #FFE27A 60%, #B57A06); box-shadow: 0 22px 50px #000b, 0 0 40px #FFD23F44; }
+.karte-gross2 svg { width: 100%; height: 100%; display: block; border-radius: 15px; box-shadow: 0 0 0 1.5px #5A3A0066; }
+.leer-licht2 { width: 230px; height: 230px; border-radius: 50%; display: grid; place-items: center; background: radial-gradient(circle, #FFFDF0 0, #FFE27A 28%, #FFD23F00 70%), repeating-conic-gradient(#FFE27A33 0 8deg, #0000 8deg 24deg); }
+.leer-licht2 b { font-size: 34px; font-weight: 700; font-style: italic; color: #1B0C3A; transform: rotate(-6deg); }

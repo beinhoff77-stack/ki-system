@@ -1,0 +1,792 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-15",
+ "kuerzel": "R15",
+ "flug": "r15-zahlen.wurzeln_basis",
+ "titel": "zahlen.wurzeln_basis",
+ "fuer": "Klasse 9",
+ "klasse": 9,
+ "themen": [
+  "zahlen.wurzeln_basis"
+ ],
+ "themen_datei_im_bestand": "zahlen.wurzeln_basis",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R15-V111",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "quadratwurzel",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 648,
+     "fehlbild": "fb.hoch_zurueck.wurzel_halbiert",
+     "regel_des_fehlbilds": "id.zahlen.hoch_zurueck",
+     "beschreibung": "die Wurzel wie „geteilt durch 2“ gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Umfang mit 2 statt mit 4 Seiten gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 432,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 3 malgenommen statt durch 3 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "quadratwurzel",
+    "t": "quadratwurzel",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein quadratisches Grundstück hat 1296 m² Fläche. Eine Seite ist ① m lang. Der Zaun um das ganze Grundstück ist ② m lang. Aus Zaunstücken zu je 3 m braucht man ③ Stück.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      36,
+      144,
+      48
+     ]
+    },
+    "c": [
+     "36",
+     "4 * (36)",
+     "(4 * (36)) / 3"
+    ],
+    "h": "Die Fläche eines Quadrats ist Seite mal Seite. Welche Zahl mit sich selbst malgenommen ergibt 1296?",
+    "w": "36 · 36 = 1296, also ist die Seite √1296 = 36 m lang. Der Umfang ist 4 · 36 = 144 m. Mit 3-m-Stücken braucht man 144 : 3 = 48 Stück."
+   }
+  },
+  {
+   "kennung": "R15-V112",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "quadratwurzel",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 77,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Seitenlänge als Rundenlänge genommen"
+    },
+    {
+     "antwort": 1482.25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche durch 4 geteilt statt die Wurzel zu ziehen und das Ergebnis als Rundenlänge genommen"
+    },
+    {
+     "antwort": 11858,
+     "fehlbild": "fb.hoch_zurueck.wurzel_halbiert",
+     "regel_des_fehlbilds": "id.zahlen.hoch_zurueck",
+     "beschreibung": "die Wurzel wie „geteilt durch 2“ gerechnet (5929 : 2 = 2964,5) und dann mit 4 malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "quadratwurzel",
+    "t": "quadratwurzel",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein quadratischer Sportplatz hat 5929 m² Fläche. Kim läuft eine Runde am Rand entlang. Wie viele Meter ist eine Runde lang?"
+    },
+    "o": {
+     "wert": 308,
+     "einheit": "m"
+    },
+    "c": "4 * 77",
+    "h": "Zuerst brauchst du die Seitenlänge. Welche Zahl mit sich selbst malgenommen ergibt 5929?",
+    "w": "77 · 77 = 5929, also ist eine Seite 77 m lang. Eine Runde ist der Umfang: 4 · 77 = 308 m."
+   }
+  },
+  {
+   "kennung": "R15-V113",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "quadratwurzel",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "48",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel mit 2 malgenommen statt 24 mit sich selbst"
+    },
+    {
+     "index": 2,
+     "antwort": "12",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "24 durch 2 geteilt statt 24 mit sich selbst malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "quadratwurzel",
+    "t": "quadratwurzel",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Zahl hat die Quadratwurzel 24?"
+    },
+    "a": [
+     "576",
+     "48",
+     "12"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Quadratwurzel und Quadrat gehören zusammen: Rechne von 24 zurück.",
+    "w": "Gesucht ist die Zahl, deren Wurzel 24 ist, also das Quadrat von 24: 24 · 24 = 576. Probe: √576 = 24."
+   }
+  },
+  {
+   "kennung": "R15-V114",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "wurzel_dezimal",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Seite in Metern angegeben, nicht in Zentimetern"
+    },
+    {
+     "antwort": 1.3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10 statt mit 100 in Zentimeter umgerechnet"
+    },
+    {
+     "antwort": 130,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "0,13 m in Millimeter statt in Zentimeter umgerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_dezimal",
+    "t": "wurzel_dezimal",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine quadratische Fliese hat die Fläche 0,0169 m². Wie lang ist eine Seite in Zentimetern?"
+    },
+    "o": {
+     "wert": 13,
+     "einheit": "cm"
+    },
+    "c": "0.13 * 100",
+    "h": "Die Wurzel aus 0,0169 ist kleiner als 1. Rechne zuerst in Metern und wechsle dann in Zentimeter.",
+    "w": "0,13 · 0,13 = 0,0169, also ist die Seite √0,0169 = 0,13 m lang. Das sind 0,13 · 100 = 13 cm."
+   }
+  },
+  {
+   "kennung": "R15-V115",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "wurzel_dezimal",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1.9,
+     "fehlbild": "fb.hoch_zurueck.wurzel_halbiert",
+     "regel_des_fehlbilds": "id.zahlen.hoch_zurueck",
+     "beschreibung": "3,8 durch 2 geteilt statt die Wurzel gezogen"
+    },
+    {
+     "antwort": 0.95,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche durch 4 geteilt, wie beim Umfang"
+    },
+    {
+     "antwort": 3.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche als Seitenlänge genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_dezimal",
+    "t": "wurzel_dezimal",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein quadratisches Solarpanel hat eine Fläche von 3,8 m². Wie lang ist eine Seite? Runde auf zwei Dezimalstellen."
+    },
+    "o": {
+     "wert": 1.95,
+     "einheit": "m"
+    },
+    "c": "round(1.9493588689617927, 2)",
+    "h": "Suche die Zahl, die mit sich selbst malgenommen 3,8 ergibt. Probiere mit einer Zahl zwischen 1 und 2.",
+    "w": "Die Seite ist √3,8 ≈ 1,95 m lang. Probe: 1,95 · 1,95 = 3,8025, das ist fast 3,8."
+   }
+  },
+  {
+   "kennung": "R15-V116",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "kubikwurzel",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Quadratwurzel statt der dritten Wurzel gezogen (√343 ≈ 18,52) und auf 18 abgerundet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Kante mal 2 gerechnet statt Kante mal Kante"
+    },
+    {
+     "luecke": 3,
+     "antwort": 196,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur vier Seitenflächen gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "kubikwurzel",
+    "t": "kubikwurzel",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein würfelförmiges Aquarium fasst 343 Liter, das sind 343 dm³. Seine Kante ist ① dm lang, die Bodenfläche ② dm². Die Oberfläche aller sechs Seitenflächen ist ③ dm².",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      7,
+      49,
+      294
+     ]
+    },
+    "c": [
+     "7",
+     "(7) * (7)",
+     "6 * ((7) * (7))"
+    ],
+    "h": "Beim Würfel ist das Volumen Kante mal Kante mal Kante. Welche Zahl dreimal mit sich malgenommen ergibt 343?",
+    "w": "7 · 7 · 7 = 343, also ist die Kante ∛343 = 7 dm lang. Die Bodenfläche ist 7 · 7 = 49 dm². Die sechs Seitenflächen: 6 · 49 = 294 dm²."
+   }
+  },
+  {
+   "kennung": "R15-V117",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "kubikwurzel",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 84,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "sechs Kanten statt sechs Flächen berechnet"
+    },
+    {
+     "antwort": 196,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Seitenfläche genommen"
+    },
+    {
+     "antwort": 457.33,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen durch 6 geteilt (auf zwei Stellen gerundet)"
+    }
+   ],
+   "aufgabe": {
+    "l": "kubikwurzel",
+    "t": "kubikwurzel",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein würfelförmiger Container hat das Volumen 2744 dm³. Wie groß ist seine gesamte Oberfläche in Quadratdezimetern?"
+    },
+    "o": {
+     "wert": 1176,
+     "einheit": "dm²"
+    },
+    "c": "6 * 14 * 14",
+    "h": "Berechne zuerst die Kantenlänge. Wie viele Seitenflächen hat ein Würfel?",
+    "w": "14 · 14 · 14 = 2744, also ist die Kante 14 dm lang. Eine Seitenfläche hat 14 · 14 = 196 dm². Die Oberfläche ist 6 · 196 = 1176 dm²."
+   }
+  },
+  {
+   "kennung": "R15-V118",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "kubikwurzel",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "kubikwurzel",
+    "t": "kubikwurzel",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Alex bestimmt die Kante eines Würfels mit dem Volumen 216 cm³: Zeile 1: Die Kante ist die dritte Wurzel aus 216, also 216 geteilt durch 3. Zeile 2: Das sind 72 cm. Zeile 3: Die Grundfläche wäre dann 72 · 72 = 5184 cm². In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Die dritte Wurzel fragt: Welche Zahl dreimal mit sich selbst malgenommen ergibt 216? Ist 216 geteilt durch 3 so eine Zahl?",
+    "w": "Die dritte Wurzel ist keine Division durch 3. Gesucht ist die Zahl, die dreimal mit sich malgenommen 216 ergibt: 6 · 6 · 6 = 216, die Kante ist 6 cm. Zeile 1 ist der erste Fehler, die Zeilen 2 und 3 rechnen mit dem falschen Wert richtig weiter."
+   }
+  },
+  {
+   "kennung": "R15-V119",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "abschaetzen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "zwischen 12 dm und 13 dm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12² = 144 ist schon größer als 130"
+    },
+    {
+     "index": 1,
+     "antwort": "zwischen 10 dm und 11 dm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "11² = 121 ist kleiner als 130, also liegt die Seite über 11 dm"
+    },
+    {
+     "index": 2,
+     "antwort": "zwischen 65 dm und 66 dm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "130 durch 2 geteilt, die Wurzel aber nicht halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "abschaetzen",
+    "t": "abschaetzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein quadratischer Teppich hat 130 dm² Fläche. Die Länge seiner Seite liegt in dm zwischen welchen zwei ganzen Zahlen?"
+    },
+    "a": [
+     "zwischen 12 dm und 13 dm",
+     "zwischen 10 dm und 11 dm",
+     "zwischen 65 dm und 66 dm",
+     "zwischen 11 dm und 12 dm"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Suche die Quadratzahlen links und rechts von 130.",
+    "w": "11² = 121 und 12² = 144. Weil 121 < 130 < 144 gilt, liegt √130 zwischen 11 und 12."
+   }
+  },
+  {
+   "kennung": "R15-V120",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "abschaetzen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 42.5,
+     "fehlbild": "fb.hoch_zurueck.wurzel_halbiert",
+     "regel_des_fehlbilds": "id.zahlen.hoch_zurueck",
+     "beschreibung": "die Wurzel wie „geteilt durch 2“ gerechnet"
+    },
+    {
+     "antwort": 9.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Mitte der beiden Nachbarzahlen als Wurzel genommen"
+    },
+    {
+     "antwort": 9.3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zu weit gerundet: 9,3² ist 86,49 und liegt weiter von 85 weg"
+    }
+   ],
+   "aufgabe": {
+    "l": "abschaetzen",
+    "t": "abschaetzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Kim will wissen, wie lang die Seite eines quadratischen Zeltbodens mit 85 m² Fläche ungefähr ist. Wie lang ist sie? Runde auf eine Dezimalstelle."
+    },
+    "o": {
+     "wert": 9.2,
+     "einheit": "m"
+    },
+    "c": "round(9.219544457292887, 1)",
+    "h": "Die Seite liegt zwischen zwei ganzen Zahlen. Probiere dann Zehntel: Welches Zehntel passt am besten?",
+    "w": "9² = 81 und 10² = 100, also liegt √85 zwischen 9 und 10. Es gilt 9,2 · 9,2 = 84,64 und 9,3 · 9,3 = 86,49. Näher an 85 liegt 9,2. Die Seite ist etwa 9,2 m lang."
+   }
+  },
+  {
+   "kennung": "R15-V121",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "wurzel_deuten",
+   "stufe": 3,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Weil 25 keine Quadratzahl ist.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "25 ist eine Quadratzahl, 5 · 5 = 25"
+    },
+    {
+     "index": 1,
+     "antwort": "Weil man nur aus geraden Zahlen die Wurzel ziehen kann.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das hat mit gerade oder ungerade nichts zu tun"
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_deuten",
+    "t": "wurzel_deuten",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Warum hat √(−25) im Bereich der reellen Zahlen keinen Wert?"
+    },
+    "a": [
+     "Weil 25 keine Quadratzahl ist.",
+     "Weil man nur aus geraden Zahlen die Wurzel ziehen kann.",
+     "Keine reelle Zahl mit sich selbst malgenommen ergibt eine negative Zahl."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Prüfe: Was kommt heraus, wenn du eine positive oder eine negative Zahl mit sich selbst malnimmst?",
+    "w": "Ein Quadrat ist nie negativ: positiv mal positiv ist positiv, negativ mal negativ ist ebenfalls positiv. Also gibt es keine reelle Zahl, deren Quadrat −25 ist."
+   }
+  },
+  {
+   "kennung": "R15-V122",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "wurzel_deuten",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 5 nicht mitgezählt"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle ganzen Zahlen von −3 bis 12 gezählt"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "schon bei x = 4 begonnen"
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_deuten",
+    "t": "wurzel_deuten",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Für wie viele ganze Zahlen x von −3 bis 12 (beide Grenzen eingeschlossen) ist der Ausdruck √(x − 5) im Bereich der reellen Zahlen definiert?"
+    },
+    "o": {
+     "wert": 8
+    },
+    "c": "5 + 3",
+    "h": "Der Wert unter der Wurzel darf nicht negativ sein. Ab welchem x ist x − 5 mindestens 0?",
+    "w": "Es muss x − 5 ≥ 0 gelten, also x ≥ 5. Die Zahlen 5, 6, 7, 8, 9, 10, 11 und 12 erfüllen das. Das sind 8 Zahlen."
+   }
+  },
+  {
+   "kennung": "R15-V123",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "wurzel_deuten",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_deuten",
+    "t": "wurzel_deuten",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Sam berechnet die Wurzel aus der Summe 4 + 25: Zeile 1: Die Wurzel kann man auf die Summanden verteilen: √(4 + 25) = √4 + √25. Zeile 2: Mit √4 = 2 und √25 = 5 folgt für √29 der Wert 7. Zeile 3: Dann müsste 29 gleich 7 mal 7 sein. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Berechne 7 · 7. Passt das Ergebnis zu 29?",
+    "w": "Bei Plus darf man die Wurzel nicht auf die Summanden verteilen. √29 ist etwa 5,4, nicht 7. Zeile 3 zeigt den Widerspruch: 7 · 7 = 49 und nicht 29. Der Fehler steckt in Zeile 1."
+   }
+  },
+  {
+   "kennung": "R15-V124",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "wurzel_sache",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zeit in Stunden angegeben, nicht in Minuten"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Seite gegangen"
+    },
+    {
+     "antwort": 27,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche statt des Wegs durch die Geschwindigkeit geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_sache",
+    "t": "wurzel_sache",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein quadratisches Stadtviertel in Lissabon hat eine Fläche von 2,25 km². Kim geht einmal am Rand des Viertels herum, mit 5 km/h. Wie viele Minuten braucht sie?"
+    },
+    "o": {
+     "wert": 72,
+     "einheit": "min"
+    },
+    "c": "4 * 1.5 / 5 * 60",
+    "h": "Rechne zuerst die Seitenlänge aus. Dann den Weg um das Viertel, dann die Zeit.",
+    "w": "1,5 · 1,5 = 2,25, also ist die Seite 1,5 km lang. Der Weg ist 4 · 1,5 = 6 km. Bei 5 km/h dauert das 6 : 5 = 1,2 Stunden, das sind 1,2 · 60 = 72 Minuten."
+   }
+  },
+  {
+   "kennung": "R15-V125",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "wurzel_sache",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur sechs Kanten beklebt"
+    },
+    {
+     "antwort": 13.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Kante als Volumen durch 3 berechnet"
+    },
+    {
+     "antwort": 27,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Kantenlänge quadriert"
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_sache",
+    "t": "wurzel_sache",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Eine würfelförmige Kiste hat das Volumen 3,375 m³. Kim klebt ein Band an allen zwölf Kanten entlang. Wie viele Meter Band braucht sie?"
+    },
+    "o": {
+     "wert": 18,
+     "einheit": "m"
+    },
+    "c": "12 * 1.5",
+    "h": "Wie lang ist eine Kante, wenn dreimal Kante malgenommen 3,375 ergibt?",
+    "w": "1,5 · 1,5 · 1,5 = 3,375, also ist eine Kante 1,5 m lang. Ein Würfel hat 12 Kanten: 12 · 1,5 = 18 m."
+   }
+  }
+ ]
+}

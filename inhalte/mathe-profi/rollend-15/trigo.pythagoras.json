@@ -1,0 +1,644 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-15",
+ "kuerzel": "R15",
+ "flug": "r15-trigo.pythagoras",
+ "titel": "trigo.pythagoras",
+ "fuer": "Klasse 9",
+ "klasse": 9,
+ "themen": [
+  "trigo.pythagoras"
+ ],
+ "themen_datei_im_bestand": "trigo.pythagoras",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R15-V168",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "hypotenuse",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 49,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die Längen 9 und 40 addiert statt ihre Quadrate"
+    },
+    {
+     "luecke": 2,
+     "antwort": 840,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1681 durch 2 geteilt statt die Wurzel gezogen (840,5) und auf 840 abgerundet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 49,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hypotenuse im Umfang vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "hypotenuse",
+    "t": "hypotenuse",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein rechtwinkliges Dreieck hat die Katheten 9 cm und 40 cm. Die Summe der Kathetenquadrate ist ①. Die Hypotenuse ist ② cm lang. Der Umfang des Dreiecks ist ③ cm.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      1681,
+      41,
+      90
+     ]
+    },
+    "c": [
+     "81 + 1600",
+     "41",
+     "9 + 40 + (41)"
+    ],
+    "h": "Im rechtwinkligen Dreieck gilt: Kathete im Quadrat plus Kathete im Quadrat ist Hypotenuse im Quadrat.",
+    "w": "9² = 81 und 40² = 1600, die Summe ist 1681. Weil 41 · 41 = 1681 gilt, ist die Hypotenuse 41 cm lang. Umfang: 9 + 40 + 41 = 90 cm."
+   }
+  },
+  {
+   "kennung": "R15-V169",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "hypotenuse",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1.7,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die Längen addiert statt ihre Quadrate"
+    },
+    {
+     "antwort": 1.69,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel nicht gezogen"
+    },
+    {
+     "antwort": 0.7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied der Längen genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "hypotenuse",
+    "t": "hypotenuse",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Seilbahn überwindet einen waagerechten Abstand von 1,2 km und einen Höhenunterschied von 0,5 km. Wie lang ist das Seil in Kilometern, wenn man es als gerade Strecke ansieht?"
+    },
+    "o": {
+     "wert": 1.3,
+     "einheit": "km"
+    },
+    "c": "1.3",
+    "h": "Waagerechter Abstand, Höhenunterschied und Seil bilden ein rechtwinkliges Dreieck. Welche Seite ist die längste?",
+    "w": "Das Seil ist die Hypotenuse: 1,2² + 0,5² = 1,44 + 0,25 = 1,69. Die Wurzel aus 1,69 ist 1,3, denn 1,3 · 1,3 = 1,69. Das Seil ist 1,3 km lang."
+   }
+  },
+  {
+   "kennung": "R15-V170",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "kathete",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 62,
+     "fehlbild": "fb.rechtwinklig.kathete_als_hypotenuse",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "das Seil wie eine Kathete behandelt, die Quadrate addiert und die Wurzel (≈ 61,98) auf 62 gerundet"
+    },
+    {
+     "antwort": 50,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die Längen ohne Quadrate voneinander abgezogen"
+    },
+    {
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Längen addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "kathete",
+    "t": "kathete",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein 61 m langes Stahlseil spannt von der Spitze eines senkrechten Funkmasts zu einem Punkt am Boden, der 11 m vom Fuß des Masts entfernt ist. Wie hoch ist der Mast in Metern?"
+    },
+    "o": {
+     "wert": 60,
+     "einheit": "m"
+    },
+    "c": "60",
+    "h": "Das Seil ist die längste Seite im Dreieck. Welche Seite suchst du, und wie rechnest du dann?",
+    "w": "Das Seil ist die Hypotenuse (61 m), der Abstand 11 m eine Kathete, der Mast die andere. h² = 61² − 11² = 3721 − 121 = 3600, also h = 60 m."
+   }
+  },
+  {
+   "kennung": "R15-V171",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "kathete",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "b² = 17² + 8²",
+     "fehlbild": "fb.rechtwinklig.kathete_als_hypotenuse",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die Hypotenuse wie eine Kathete behandelt"
+    },
+    {
+     "index": 2,
+     "antwort": "b = 17 − 8",
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die Längen ohne Quadrate subtrahiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "kathete",
+    "t": "kathete",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 17 cm und die Kathete a = 8 cm. Welche Gleichung liefert die zweite Kathete b?"
+    },
+    "a": [
+     "b² = 17² − 8²",
+     "b² = 17² + 8²",
+     "b = 17 − 8"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Welche der drei Seiten ist die längste? Sie steht auf der anderen Seite der Gleichung a² + b² = c².",
+    "w": "Nach dem Satz des Pythagoras gilt a² + b² = c². Umgestellt: b² = c² − a² = 289 − 64 = 225. Also ist b = 15 cm."
+   }
+  },
+  {
+   "kennung": "R15-V172",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "umkehrung",
+   "stufe": 3,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "7, 24, 26",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "49 + 576 = 625 ist nicht 676 = 26²"
+    },
+    {
+     "index": 1,
+     "antwort": "9, 12, 16",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "81 + 144 = 225 ist nicht 256 = 16²"
+    }
+   ],
+   "aufgabe": {
+    "l": "umkehrung",
+    "t": "umkehrung",
+    "p": "uebung",
+    "s": 3,
+    "g": "pruefung",
+    "y": "auswahl",
+    "f": {
+     "text": "Welches Dreieck mit den angegebenen Seitenlängen (in cm) ist rechtwinklig?"
+    },
+    "a": [
+     "7, 24, 26",
+     "9, 12, 16",
+     "8, 15, 17"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Quadriere die zwei kürzeren Seiten, addiere und vergleiche mit dem Quadrat der längsten Seite.",
+    "w": "8² + 15² = 64 + 225 = 289 = 17². Dann ist das Dreieck nach der Umkehrung des Satzes des Pythagoras rechtwinklig. Bei 7, 24, 26 ist 625 ≠ 676, bei 9, 12, 16 ist 225 ≠ 256."
+   }
+  },
+  {
+   "kennung": "R15-V173",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "umkehrung",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 50,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die Längen ohne Quadrate subtrahiert"
+    },
+    {
+     "antwort": 128,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Längen addiert"
+    },
+    {
+     "antwort": 6400,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel nicht gezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "umkehrung",
+    "t": "umkehrung",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Dreieck hat die Seiten 39 cm, 89 cm und x cm, wobei 89 cm die längste Seite ist. Für welche Zahl x ist es rechtwinklig?"
+    },
+    "o": {
+     "wert": 80,
+     "einheit": "cm"
+    },
+    "c": "80",
+    "h": "Die längste Seite ist die Hypotenuse. Wie lautet die Gleichung, wenn x eine Kathete ist?",
+    "w": "x² + 39² = 89², also x² = 7921 − 1521 = 6400. Weil 80 · 80 = 6400 ist, gilt x = 80. Das Dreieck mit 39, 80, 89 ist rechtwinklig."
+   }
+  },
+  {
+   "kennung": "R15-V174",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "koordinaten",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 14,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die Katheten addiert"
+    },
+    {
+     "antwort": 8.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus bei −2 übersehen: waagerechter Unterschied 2 statt 6, also √(2² + 8²) ≈ 8,246, auf eine Dezimalstelle 8,2"
+    },
+    {
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Katheten malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Im Koordinatensystem liegen die Punkte A(−2|3) und B(4|11). Wie lang ist die Strecke [AB]?"
+    },
+    "o": {
+     "wert": 10,
+     "einheit": "LE"
+    },
+    "c": "10",
+    "h": "Zeichne ein rechtwinkliges Dreieck mit [AB] als Hypotenuse. Wie lang sind die beiden Katheten?",
+    "w": "Waagerechter Unterschied: 4 − (−2) = 6. Senkrechter Unterschied: 11 − 3 = 8. AB² = 6² + 8² = 36 + 64 = 100, also AB = 10."
+   }
+  },
+  {
+   "kennung": "R15-V175",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "koordinaten",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die Längen ohne Quadrate subtrahiert"
+    },
+    {
+     "antwort": 64,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel nicht gezogen"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Längen addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Der Punkt P(x|7) mit x > 0 hat von A(0|1) den Abstand 10. Welchen Wert hat x?"
+    },
+    "o": {
+     "wert": 8
+    },
+    "c": "8",
+    "h": "Zeichne die Strecke [AP] als Hypotenuse. Der senkrechte Unterschied ist eine Kathete, der waagerechte Unterschied x die andere.",
+    "w": "Senkrechter Unterschied: 7 − 1 = 6. Es gilt x² + 6² = 10², also x² = 100 − 36 = 64 und x = 8."
+   }
+  },
+  {
+   "kennung": "R15-V176",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "raum",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 28,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die Kanten 12 und 16 addiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 35,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die Diagonale 20 und die Höhe 15 addiert"
+    },
+    {
+     "luecke": 3,
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Raumdiagonale und die Diagonale der Grundfläche addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "raum",
+    "t": "raum",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Quader hat die Kanten 12 cm, 16 cm und 15 cm. Die Diagonale der Grundfläche (12 cm und 16 cm) ist ① cm lang. Die Raumdiagonale ist ② cm lang. Sie ist ③ cm länger als die Diagonale der Grundfläche.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      20,
+      25,
+      5
+     ]
+    },
+    "c": [
+     "20",
+     "25",
+     "(25) - (20)"
+    ],
+    "h": "Die Diagonale der Grundfläche ist eine Kathete in einem zweiten rechtwinkligen Dreieck mit der Höhe 15 cm.",
+    "w": "d² = 144 + 256 = 400, also d = 20. D² = 20² + 15² = 400 + 225 = 625, also D = 25. Unterschied: 25 − 20 = 5."
+   }
+  },
+  {
+   "kennung": "R15-V177",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "raum",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 29,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die drei Kanten addiert"
+    },
+    {
+     "antwort": 289,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel nicht gezogen"
+    },
+    {
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur zwei Kanten addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "raum",
+    "t": "raum",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Koffer ist 8 dm lang, 9 dm breit und 12 dm hoch. Wie lang ist der längste gerade Stab, der hineinpasst (Raumdiagonale)?"
+    },
+    "o": {
+     "wert": 17,
+     "einheit": "dm"
+    },
+    "c": "17",
+    "h": "Rechne zuerst die Diagonale der Grundfläche. Sie ist eine Kathete in einem zweiten rechtwinkligen Dreieck.",
+    "w": "Grundfläche (8 und 9): d² = 64 + 81 = 145. Raumdiagonale: D² = 145 + 12² = 145 + 144 = 289. D = 17 dm."
+   }
+  },
+  {
+   "kennung": "R15-V178",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "anwendung",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die halbe Breite als Schräge genommen"
+    },
+    {
+     "antwort": 42,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "halbe Breite und Höhe addiert"
+    },
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Dachfläche gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "anwendung",
+    "t": "anwendung",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Zelt hat zwei gleiche rechteckige Dachflächen. Es ist am Boden 4 m breit, der First ist 1,5 m hoch, und die Dachflächen sind 6 m lang. Wie viele Quadratmeter Stoff haben die beiden Dachflächen zusammen?"
+    },
+    "o": {
+     "wert": 30,
+     "einheit": "m²"
+    },
+    "c": "2 * 2.5 * 6",
+    "h": "Die Breite einer Dachfläche ist die Schräge im Querschnitt. Der Querschnitt ist ein gleichschenkliges Dreieck: Zerlege es in zwei rechtwinklige.",
+    "w": "Halbe Breite 2 m, Höhe 1,5 m. Schräge: s² = 2² + 1,5² = 4 + 2,25 = 6,25, also s = 2,5 m. Eine Dachfläche: 2,5 · 6 = 15 m². Zwei: 30 m²."
+   }
+  },
+  {
+   "kennung": "R15-V179",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "anwendung",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "anwendung",
+    "t": "anwendung",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Alex berechnet die Höhe eines gleichschenkligen Dreiecks mit der Basis 10 cm und den Schenkeln 13 cm: Zeile 1: Die Höhe halbiert die Basis, die halbe Basis ist 5 cm lang. Zeile 2: Höhe, halbe Basis und Schenkel bilden ein rechtwinkliges Dreieck, der Schenkel ist die Hypotenuse. Zeile 3: Daraus folgt h² = 13² + 5², also ist h² größer als 169. Zeile 4: Die Höhe ist deshalb etwa 14 cm lang. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Welche Seite ist im kleinen rechtwinkligen Dreieck die längste? Wie lautet dann die Gleichung?",
+    "w": "Weil der Schenkel die Hypotenuse ist, gilt h² + 5² = 13², also h² = 169 − 25 = 144 und h = 12 cm. In Zeile 3 wurde die Hypotenuse wie eine Kathete addiert. Zeile 4 folgt aus dem falschen Wert."
+   }
+  }
+ ]
+}

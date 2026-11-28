@@ -1,0 +1,829 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-15",
+ "kuerzel": "R15",
+ "flug": "r15-geometrie.konstruktion",
+ "titel": "geometrie.konstruktion",
+ "fuer": "Klasse 7",
+ "klasse": 7,
+ "themen": [
+  "geometrie.konstruktion"
+ ],
+ "themen_datei_im_bestand": "geometrie.konstruktion",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R15-V079",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "gleichschenklig",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Winkel an der Spitze als Summe der Basiswinkel genommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 140,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe der Basiswinkel nicht geteilt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 180,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle drei Winkel addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleichschenklig",
+    "t": "gleichschenklig",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein gleichschenkliges Dreieck hat an der Spitze den Winkel 40°. Die beiden Basiswinkel zusammen messen ①°. Jeder Basiswinkel misst ②°. Ein Basiswinkel und der Winkel an der Spitze zusammen messen ③°.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      140,
+      70,
+      110
+     ]
+    },
+    "c": [
+     "180 - 40",
+     "(180 - 40) / 2",
+     "((180 - 40) / 2) + 40"
+    ],
+    "h": "Die Winkelsumme im Dreieck ist 180°. Die Basiswinkel sind gleich groß.",
+    "w": "Die Basiswinkel zusammen: 180° − 40° = 140°. Jeder Basiswinkel: 140° : 2 = 70°. Ein Basiswinkel plus Spitzenwinkel: 70° + 40° = 110°."
+   }
+  },
+  {
+   "kennung": "R15-V080",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "gleichschenklig",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 142,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Basiswinkel von 180° abgezogen"
+    },
+    {
+     "antwort": 76,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die beiden Basiswinkel zusammengezählt"
+    },
+    {
+     "antwort": 71,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie beim Berechnen des Basiswinkels gerechnet, obwohl dieser schon bekannt ist"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleichschenklig",
+    "t": "gleichschenklig",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Der Giebel eines Hauses ist ein gleichschenkliges Dreieck. An der Dachtraufe, also an der Basis, misst jeder Winkel 38°. Wie groß ist der Winkel am First an der Spitze?"
+    },
+    "o": {
+     "wert": 104,
+     "einheit": "°"
+    },
+    "c": "180 - 2 * 38",
+    "h": "Beide Basiswinkel sind gleich groß, beide kommen in die Winkelsumme.",
+    "w": "Die zwei Basiswinkel zusammen messen 2 · 38° = 76°. Der Winkel an der Spitze ist 180° − 76° = 104°."
+   }
+  },
+  {
+   "kennung": "R15-V081",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "gleichschenklig",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleichschenklig",
+    "t": "gleichschenklig",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein gleichschenkliges Dreieck hat die Basiswinkel 52°. Kim berechnet den Winkel an der Spitze: Zeile 1: Im gleichschenkligen Dreieck sind die beiden Basiswinkel gleich groß. Zeile 2: Beide Basiswinkel zusammen messen 52° + 52° = 104°. Zeile 3: Von der Winkelsumme bleibt nach einem Basiswinkel der Rest übrig, also misst der Winkel an der Spitze 128°. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Wie viele Winkel gehören zur Summe von 180°? Welche kennst du schon?",
+    "w": "Von den 180° müssen beide Basiswinkel abgezogen werden: 180° − 104° = 76°. Kim hat in Zeile 3 nur einen Basiswinkel abgezogen. Die Zeilen 1 und 2 sind richtig."
+   }
+  },
+  {
+   "kennung": "R15-V082",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "kongruenzsatz",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "SSS: drei Seiten",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "es ist nur von zwei Seiten die Rede"
+    },
+    {
+     "index": 2,
+     "antwort": "WSW: eine Seite und zwei anliegende Winkel",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "es ist nur ein Winkel gegeben"
+    },
+    {
+     "index": 3,
+     "antwort": "SsW: zwei Seiten und der Winkel der größeren Seite gegenüber",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "der Winkel liegt zwischen den Seiten und nicht der größeren gegenüber"
+    }
+   ],
+   "aufgabe": {
+    "l": "kongruenzsatz",
+    "t": "kongruenzsatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Zimmerleute bauen dreieckige Dachrahmen aus Balken. Kim gibt vor: zwei Balken mit 5 m und 7 m Länge, die an der Ecke einen Winkel von 40° einschließen. Welcher Kongruenzsatz sichert, dass alle so gebauten Rahmen deckungsgleich sind?"
+    },
+    "a": [
+     "SSS: drei Seiten",
+     "SWS: zwei Seiten und der eingeschlossene Winkel",
+     "WSW: eine Seite und zwei anliegende Winkel",
+     "SsW: zwei Seiten und der Winkel der größeren Seite gegenüber"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wo liegt der gegebene Winkel: zwischen den zwei gegebenen Seiten oder gegenüber einer von ihnen?",
+    "w": "Gegeben sind zwei Seiten (5 m und 7 m) und der Winkel zwischen ihnen. Das ist der Satz SWS: Alle Dreiecke mit diesen Angaben sind deckungsgleich."
+   }
+  },
+  {
+   "kennung": "R15-V083",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "kongruenzsatz",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "α = 40°, β = 60°, γ = 80°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur Winkel: die Größe des Dreiecks bleibt offen"
+    },
+    {
+     "index": 2,
+     "antwort": "a = 3 cm, b = 4 cm, c = 8 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aus diesen Seiten lässt sich gar kein Dreieck bauen"
+    },
+    {
+     "index": 3,
+     "antwort": "a = 5 cm, b = 7 cm, α = 40° (α liegt der Seite a gegenüber)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "der Winkel liegt der kleineren Seite gegenüber, es gibt zwei verschiedene Dreiecke"
+    }
+   ],
+   "aufgabe": {
+    "l": "kongruenzsatz",
+    "t": "kongruenzsatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche dieser Angaben legt genau ein Dreieck fest (alle so konstruierten Dreiecke sind deckungsgleich)?"
+    },
+    "a": [
+     "α = 40°, β = 60°, γ = 80°",
+     "c = 6 cm, α = 50°, β = 70°",
+     "a = 3 cm, b = 4 cm, c = 8 cm",
+     "a = 5 cm, b = 7 cm, α = 40° (α liegt der Seite a gegenüber)"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Prüfe jede Angabe: Gibt es einen Kongruenzsatz dazu? Die Seiten müssen außerdem ein Dreieck ergeben.",
+    "w": "Bei c = 6 cm, α = 50° und β = 70° liegen die Winkel an der gegebenen Seite: Das ist WSW, das Dreieck ist festgelegt. Drei Winkel allein legen nur die Form fest. Bei 3 cm, 4 cm und 8 cm ist 3 + 4 = 7 < 8, es gibt kein Dreieck. Bei SsW müsste der Winkel der größeren Seite (7 cm) gegenüberliegen; hier liegt er der kleineren gegenüber (a = 5 cm < b = 7 cm). Zeichnet man b = 7 cm und bei A den Winkel 40°, hat C vom freien Schenkel nur etwa 4,5 cm Abstand: Der Kreis um C mit Radius a = 5 cm schneidet den Schenkel in zwei Punkten, es gibt zwei verschiedene Dreiecke."
+   }
+  },
+  {
+   "kennung": "R15-V084",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "kongruenzsatz",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Diese Zeile ist für sich richtig: Deckungsgleiche Dreiecke haben denselben Umfang. Falsch war schon Zeile 2, deshalb darf man diese Regel hier nicht anwenden."
+    }
+   ],
+   "aufgabe": {
+    "l": "kongruenzsatz",
+    "t": "kongruenzsatz",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Dreiecke haben jeweils die Winkel 50°, 60° und 70°. Alex will ihre Umfänge vergleichen und schreibt auf: Zeile 1: Beide Dreiecke haben die Winkel 50°, 60° und 70°. Zeile 2: Alle drei Winkel stimmen überein, also sind die Dreiecke deckungsgleich. Zeile 3: Deckungsgleiche Dreiecke haben denselben Umfang, also haben beide Dreiecke denselben Umfang. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Ein großes und ein kleines Dreieck können dieselben Winkel haben. Welche Angabe fehlt, damit die Größe festgelegt ist?",
+    "w": "Gleiche Winkel legen nur die Form fest, nicht die Größe: Ein kleines und ein großes Dreieck können dieselben Winkel haben. Aus gleichen Winkeln folgt die Kongruenz nicht: Die Dreiecke könnten zufällig deckungsgleich sein, sicher ist das aber nicht. Für Deckungsgleichheit braucht man mindestens eine passende Seite (etwa WSW). Der Fehler steckt in Zeile 2. Zeile 3 ist aus Zeile 2 richtig gefolgert."
+   }
+  },
+  {
+   "kennung": "R15-V085",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "konstruierbar",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied statt der Summe der Seiten genommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe statt des Unterschieds genommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 13 − 3 gerechnet und die Grenzen nicht beachtet"
+    }
+   ],
+   "aufgabe": {
+    "l": "konstruierbar",
+    "t": "konstruierbar",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Zwei Seiten eines Dreiecks sind 5 cm und 8 cm lang. Die dritte Seite c muss kürzer als ① cm sein und länger als ② cm. Wenn c eine ganze Zahl in Zentimetern ist, gibt es ③ Möglichkeiten.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      13,
+      3,
+      9
+     ]
+    },
+    "c": [
+     "5 + 8",
+     "8 - 5",
+     "(5 + 8) - (8 - 5) - 1"
+    ],
+    "h": "Je zwei Seiten müssen zusammen länger sein als die dritte. Die dritte Seite liegt zwischen der Summe und dem Unterschied der beiden anderen.",
+    "w": "c < 5 + 8 = 13 und c > 8 − 5 = 3. Ganze Zahlen von 4 bis 12 (genau c = 4, 5, 6, 7, 8, 9, 10, 11, 12): Das sind 12 − 4 + 1 = 9 Möglichkeiten (13 − 3 − 1 = 9)."
+   }
+  },
+  {
+   "kennung": "R15-V086",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "konstruierbar",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe selbst erlaubt, obwohl dann nur eine flache Figur entsteht"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied als größte Länge genommen"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die längste gegebene Stange als Grenze genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "konstruierbar",
+    "t": "konstruierbar",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei Zeltstangen sind 4 m und 9 m lang. Mit einer dritten Stange, deren Länge eine ganze Zahl in Metern ist, soll ein Dreieck entstehen. Wie lang darf die dritte Stange höchstens sein?"
+    },
+    "o": {
+     "wert": 12,
+     "einheit": "m"
+    },
+    "c": "4 + 9 - 1",
+    "h": "Je zwei Seiten müssen zusammen länger sein als die dritte. Welche Bedingung gilt für die längste Seite?",
+    "w": "Die dritte Seite c muss kürzer sein als 4 + 9 = 13 (und länger als 9 − 4 = 5). Die größte ganze Zahl unter 13 ist 12. Bei 13 würden die Stangen flach aufeinanderliegen."
+   }
+  },
+  {
+   "kennung": "R15-V087",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "konstruierbar",
+   "stufe": 3,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Es entsteht ein Dreieck, denn die zwei kürzeren Stäbe sind zusammen nicht kürzer als der längste.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„nicht kürzer“ genügt nicht, sie müssen länger sein"
+    },
+    {
+     "index": 1,
+     "antwort": "Es entsteht ein sehr flaches, aber echtes Dreieck.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aus einem flachen Stab-Paar wird kein Dreieck mit drei Ecken"
+    },
+    {
+     "index": 2,
+     "antwort": "Es entsteht kein Dreieck, weil 7 eine Primzahl ist.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Primzahlen haben mit der Konstruierbarkeit nichts zu tun"
+    }
+   ],
+   "aufgabe": {
+    "l": "konstruierbar",
+    "t": "konstruierbar",
+    "p": "uebung",
+    "s": 3,
+    "g": "pruefung",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim behauptet: „Aus Stäben von 3 cm, 4 cm und 7 cm kann man ein Dreieck bilden, denn 3 + 4 = 7.“ Was stimmt?"
+    },
+    "a": [
+     "Es entsteht ein Dreieck, denn die zwei kürzeren Stäbe sind zusammen nicht kürzer als der längste.",
+     "Es entsteht ein sehr flaches, aber echtes Dreieck.",
+     "Es entsteht kein Dreieck, weil 7 eine Primzahl ist.",
+     "Es entsteht kein Dreieck: Die zwei kürzeren Stäbe müssen zusammen länger sein als der längste. Bei 3 + 4 = 7 liegen sie flach aufeinander."
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Prüfe die Bedingung für die längste Seite: Müssen die beiden anderen zusammen länger sein, oder reicht gleich lang?",
+    "w": "Ein Dreieck braucht: zwei Seiten zusammen länger als die dritte. Hier gilt 3 + 4 = 7, nicht länger. Die beiden kurzen Stäbe würden genau auf dem langen Stab liegen, die drei Ecken fallen auf eine Gerade."
+   }
+  },
+  {
+   "kennung": "R15-V088",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "planfigur",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Seite [AB] vergessen"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Seite [BC] vergessen"
+    },
+    {
+     "antwort": 210,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die drei Längen malgenommen statt addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "planfigur",
+    "t": "planfigur",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Konstruktionsbeschreibung lautet: 1. Zeichne [AB] mit 7 cm. 2. Zeichne um A einen Kreis mit 5 cm Radius. 3. Zeichne um B einen Kreis mit 6 cm Radius. 4. Ein Schnittpunkt der Kreise ist C. Wie groß ist der Umfang des Dreiecks ABC?"
+    },
+    "o": {
+     "wert": 18,
+     "einheit": "cm"
+    },
+    "c": "7 + 5 + 6",
+    "h": "Der Punkt C liegt auf beiden Kreisen. Welche Entfernungen hat C von A und von B?",
+    "w": "C liegt auf dem Kreis um A, also ist AC = 5 cm, und auf dem Kreis um B, also ist BC = 6 cm. Mit AB = 7 cm ist der Umfang 7 + 5 + 6 = 18 cm."
+   }
+  },
+  {
+   "kennung": "R15-V089",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "planfigur",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Strecke [AB] mit 6 cm zeichnen. Um A einen Kreis mit 35 cm und um B einen Kreis mit 70 cm Radius zeichnen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Winkelangaben als Radien benutzt"
+    },
+    {
+     "index": 2,
+     "antwort": "Bei A den Winkel 35° zeichnen, bei B den Winkel 70° zeichnen. Danach die Strecke [AB] von 6 cm in das entstandene Dreieck einpassen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "In dieser Schrittfolge fehlt die festgelegte Strecke: Ohne die Seite [AB] mit 6 cm bleibt die Größe des Dreiecks offen"
+    },
+    {
+     "index": 3,
+     "antwort": "Strecke [AB] mit 6 cm zeichnen. Bei A den Winkel 70° und bei B den Winkel 35° auf derselben Seite von [AB] antragen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Winkel an den falschen Ecken angetragen: 70° gehört zu β bei B, 35° zu α bei A"
+    }
+   ],
+   "aufgabe": {
+    "l": "planfigur",
+    "t": "planfigur",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Du sollst ein Dreieck ABC mit c = 6 cm, α = 35° (bei A) und β = 70° (bei B) konstruieren. Welche Reihenfolge der Schritte ist richtig?"
+    },
+    "a": [
+     "Strecke [AB] mit 6 cm zeichnen. Bei A den Winkel 35° und bei B den Winkel 70° auf derselben Seite von [AB] antragen. Der Schnittpunkt der beiden freien Schenkel ist C.",
+     "Strecke [AB] mit 6 cm zeichnen. Um A einen Kreis mit 35 cm und um B einen Kreis mit 70 cm Radius zeichnen.",
+     "Bei A den Winkel 35° zeichnen, bei B den Winkel 70° zeichnen. Danach die Strecke [AB] von 6 cm in das entstandene Dreieck einpassen.",
+     "Strecke [AB] mit 6 cm zeichnen. Bei A den Winkel 70° und bei B den Winkel 35° auf derselben Seite von [AB] antragen."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Beginne mit der Seite, die du kennst. Welcher Winkel gehört an welche Ecke?",
+    "w": "Mit der gegebenen Seite beginnen: [AB] = 6 cm. Dann α = 35° bei A und β = 70° bei B auf derselben Seite von [AB] antragen. Die Schenkel schneiden sich in C. Das ist die Konstruktion nach WSW."
+   }
+  },
+  {
+   "kennung": "R15-V090",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "planfigur",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 110,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen der beiden bekannten Winkel abgezogen"
+    },
+    {
+     "antwort": 120,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden bekannten Winkel addiert"
+    },
+    {
+     "antwort": 240,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von 360° statt von 180° abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "planfigur",
+    "t": "planfigur",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Dreieck soll aus der Seite c = 10 cm und den Winkeln α = 50° und γ = 70° konstruiert werden. Zum Antragen an der Seite c braucht man die Winkel an ihren beiden Enden. Wie groß ist der Winkel β bei B?"
+    },
+    "o": {
+     "wert": 60,
+     "einheit": "°"
+    },
+    "c": "180 - 50 - 70",
+    "h": "Von den drei Winkeln liegt einer nicht an der Seite c. Welchen Winkel kannst du mit der Winkelsumme berechnen?",
+    "w": "Die Winkelsumme im Dreieck ist 180°. β = 180° − 50° − 70° = 60°. Jetzt kann man bei A den Winkel 50° und bei B den Winkel 60° an die Seite [AB] antragen."
+   }
+  },
+  {
+   "kennung": "R15-V091",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "satz_kehrsatz",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Kehrsatz: „Wenn eine Zahl nicht durch 6 teilbar ist, dann ist sie nicht gerade.“ Er ist wahr.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Wenn und Dann nicht vertauscht, sondern beide verneint"
+    },
+    {
+     "index": 1,
+     "antwort": "Kehrsatz: „Wenn eine Zahl gerade ist, dann ist sie durch 6 teilbar.“ Er ist wahr, denn der Satz ist wahr.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aus der Wahrheit des Satzes auf den Kehrsatz geschlossen"
+    },
+    {
+     "index": 3,
+     "antwort": "Kehrsatz: „Wenn eine Zahl durch 6 teilbar ist, dann ist sie durch 2 teilbar.“ Er ist wahr.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Satz nur umformuliert statt Wenn und Dann vertauscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "satz_kehrsatz",
+    "t": "satz_kehrsatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Satz lautet: „Wenn eine Zahl durch 6 teilbar ist, dann ist sie gerade.“ Welche Aussage nennt den Kehrsatz und beurteilt ihn richtig?"
+    },
+    "a": [
+     "Kehrsatz: „Wenn eine Zahl nicht durch 6 teilbar ist, dann ist sie nicht gerade.“ Er ist wahr.",
+     "Kehrsatz: „Wenn eine Zahl gerade ist, dann ist sie durch 6 teilbar.“ Er ist wahr, denn der Satz ist wahr.",
+     "Kehrsatz: „Wenn eine Zahl gerade ist, dann ist sie durch 6 teilbar.“ Er ist falsch, denn 8 ist gerade, aber nicht durch 6 teilbar.",
+     "Kehrsatz: „Wenn eine Zahl durch 6 teilbar ist, dann ist sie durch 2 teilbar.“ Er ist wahr."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Beim Kehrsatz werden Wenn-Teil und Dann-Teil vertauscht. Suche danach eine gerade Zahl, die nicht durch 6 teilbar ist.",
+    "w": "Der Satz hat die Form „Wenn A, dann B“ mit A: durch 6 teilbar und B: gerade. Der Kehrsatz heißt „Wenn B, dann A“. Er ist falsch: 8 ist gerade, aber 8 : 6 geht nicht auf. Ein Gegenbeispiel genügt."
+   }
+  },
+  {
+   "kennung": "R15-V092",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "satz_kehrsatz",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "eine Raute mit der Seite 5 cm, die kein Quadrat ist",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei dieser Raute, die kein Quadrat ist, sind die Diagonalen verschieden lang"
+    },
+    {
+     "index": 1,
+     "antwort": "ein Parallelogramm mit den Seiten 3 cm und 5 cm und einem Winkel von 60°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei diesem Parallelogramm sind die Diagonalen verschieden lang (7 cm und etwa 4,36 cm)"
+    },
+    {
+     "index": 3,
+     "antwort": "ein Quadrat mit der Seite 4 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Quadrat erfüllt den Kehrsatz, es widerlegt ihn nicht"
+    }
+   ],
+   "aufgabe": {
+    "l": "satz_kehrsatz",
+    "t": "satz_kehrsatz",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Satz „Wenn ein Viereck ein Quadrat ist, dann sind seine Diagonalen gleich lang“ ist wahr. Sein Kehrsatz ist falsch. Welches Viereck ist ein Gegenbeispiel zum Kehrsatz?"
+    },
+    "a": [
+     "eine Raute mit der Seite 5 cm, die kein Quadrat ist",
+     "ein Parallelogramm mit den Seiten 3 cm und 5 cm und einem Winkel von 60°",
+     "ein Rechteck mit den Seiten 3 cm und 4 cm",
+     "ein Quadrat mit der Seite 4 cm"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Der Kehrsatz lautet: Wenn die Diagonalen gleich lang sind, ist das Viereck ein Quadrat. Gesucht ist ein Viereck mit gleich langen Diagonalen, das kein Quadrat ist.",
+    "w": "Beim Rechteck sind die beiden Diagonalen gleich lang. Hat das Rechteck unterschiedliche Seiten (3 cm und 4 cm), ist es kein Quadrat. Damit ist der Kehrsatz widerlegt. Bei der angebotenen Raute (kein Quadrat) und bei dem Parallelogramm mit 3 cm, 5 cm und 60° sind die Diagonalen verschieden lang."
+   }
+  },
+  {
+   "kennung": "R15-V093",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "satz_kehrsatz",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle vier Sätze für umkehrbar gehalten"
+    },
+    {
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "keinen Kehrsatz für wahr gehalten"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei einem der falschen Kehrsätze das Gegenbeispiel übersehen"
+    }
+   ],
+   "aufgabe": {
+    "l": "satz_kehrsatz",
+    "t": "satz_kehrsatz",
+    "p": "uebung",
+    "s": 3,
+    "g": "pruefung",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele dieser vier Sätze bleiben wahr, wenn man sie umkehrt? (1) Wenn ein Dreieck gleichseitig ist, dann sind alle seine Winkel 60° groß. (2) Wenn eine Zahl durch 10 teilbar ist, dann ist sie durch 5 teilbar. (3) Wenn ein Viereck eine Raute ist, dann hat es vier gleich lange Seiten. (4) Wenn eine Zahl durch 4 teilbar ist, dann ist sie gerade."
+    },
+    "o": {
+     "wert": 2
+    },
+    "c": "2",
+    "h": "Kehre jeden Satz um und suche ein Gegenbeispiel. Eine Zahl, die durch 5, aber nicht durch 10 teilbar ist, hilft bei Satz (2).",
+    "w": "Die Kehrsätze: (1) Wenn alle Winkel 60° sind, ist das Dreieck gleichseitig: wahr. (2) Wenn eine Zahl durch 5 teilbar ist, ist sie durch 10 teilbar: falsch (Gegenbeispiel 15). (3) Wenn ein Viereck vier gleich lange Seiten hat, ist es eine Raute: wahr. (4) Wenn eine Zahl gerade ist, ist sie durch 4 teilbar: falsch (Gegenbeispiel 6). Zwei Sätze bleiben wahr."
+   }
+  }
+ ]
+}

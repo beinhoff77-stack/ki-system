@@ -1,0 +1,753 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-15",
+ "kuerzel": "R15",
+ "flug": "r15-zahlen.reell",
+ "titel": "zahlen.reell",
+ "fuer": "Klasse 9",
+ "klasse": 9,
+ "themen": [
+  "zahlen.reell"
+ ],
+ "themen_datei_im_bestand": "zahlen.reell",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R15-V126",
+   "thema": "zahlen.reell",
+   "lernkarte": "zahlarten",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "√0,81",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "0,9 · 0,9 = 0,81, die Wurzel ist die Dezimalzahl 0,9"
+    },
+    {
+     "index": 2,
+     "antwort": "∛64",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 · 4 · 4 = 64, die dritte Wurzel ist die ganze Zahl 4"
+    },
+    {
+     "index": 3,
+     "antwort": "√(49/9)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "7/3 · 7/3 = 49/9, die Wurzel ist ein Bruch"
+    }
+   ],
+   "aufgabe": {
+    "l": "zahlarten",
+    "t": "zahlarten",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche dieser Zahlen ist irrational?"
+    },
+    "a": [
+     "√0,81",
+     "√50",
+     "∛64",
+     "√(49/9)"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Eine Quadratwurzel ist rational, wenn der Radikand das Quadrat einer rationalen Zahl ist; eine dritte Wurzel, wenn er die dritte Potenz einer rationalen Zahl ist. Prüfe jede Zahl.",
+    "w": "50 ist keine Quadratzahl (7² = 49 und 8² = 64), und die Wurzel aus einer natürlichen Zahl, die keine Quadratzahl ist, ist nicht als Bruch darstellbar. Also ist √50 irrational. Die anderen sind 0,9, 4 und 7/3, also rational."
+   }
+  },
+  {
+   "kennung": "R15-V127",
+   "thema": "zahlen.reell",
+   "lernkarte": "zahlarten",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Bruch siebendrittel für irrational gehalten"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "√20 oder √45 für rational gehalten"
+    },
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle sieben Zahlen für rational gehalten"
+    }
+   ],
+   "aufgabe": {
+    "l": "zahlarten",
+    "t": "zahlarten",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Kim sortiert sieben Zahlen: √16, √20, 7/3, π, √(2,25), ∛27 und √45. Wie viele davon sind rational?"
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "4",
+    "h": "Prüfe bei jeder Wurzel, ob der Radikand das Quadrat (oder die dritte Potenz) einer Bruchzahl ist. Brüche sind immer rational.",
+    "w": "√16 = 4, 7/3, √(2,25) = 1,5 und ∛27 = 3 sind rational. 20 und 45 sind keine Quadratzahlen (4² = 16 < 20 < 25 = 5² und 6² = 36 < 45 < 49 = 7²), und die Wurzel aus einer natürlichen Zahl, die keine Quadratzahl ist, ist irrational. Also sind √20 und √45 irrational, ebenso π. Es sind 4 rationale Zahlen."
+   }
+  },
+  {
+   "kennung": "R15-V128",
+   "thema": "zahlen.reell",
+   "lernkarte": "eingrenzen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "10 durch 2 geteilt statt eine Quadratzahl gesucht"
+    },
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Radikanden als obere Grenze genommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 31,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die untere Grenze der Zehntel statt der oberen genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "eingrenzen",
+    "t": "eingrenzen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Du schachtelst √10 ein. Für positive Zahlen gilt ①² = 9 und ②² = 16, also liegt √10 zwischen ① und ②. Für die Zehntel gilt 31² = 961 < 1000 < ③² = 1024.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      4,
+      32
+     ]
+    },
+    "c": [
+     "3",
+     "(3) + 1",
+     "(3) * 10 + 2"
+    ],
+    "h": "Suche die Quadratzahlen links und rechts von 10. Bei den Zehnteln rechnest du mit 100-mal so großen Zahlen.",
+    "w": "3² = 9 < 10 < 16 = 4². Also liegt √10 zwischen 3 und 4. Bei Zehnteln gilt 31² = 961 und 32² = 1024, also liegt √10 zwischen 3,1 und 3,2."
+   }
+  },
+  {
+   "kennung": "R15-V129",
+   "thema": "zahlen.reell",
+   "lernkarte": "eingrenzen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2,65 mitgezählt, obwohl 2,65² größer als 7 ist"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2,61 nicht mitgezählt"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle neun Zahlen gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "eingrenzen",
+    "t": "eingrenzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Kim schachtelt √7 ein: 2,6² = 6,76 und 2,7² = 7,29. Jetzt prüft sie die neun Zahlen 2,61 bis 2,69 mit zwei Nachkommastellen. Wie viele davon sind kleiner als √7?"
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "4",
+    "h": "Quadriere die Zahlen, bis das Quadrat größer als 7 wird. Ab dann sind alle weiteren Zahlen zu groß.",
+    "w": "2,64² = 6,9696 < 7 und 2,65² = 7,0225 > 7. Kleiner als √7 sind also 2,61, 2,62, 2,63 und 2,64: das sind 4 Zahlen. Alle weiteren Zahlen (2,65 bis 2,69) haben ein Quadrat über 7."
+   }
+  },
+  {
+   "kennung": "R15-V130",
+   "thema": "zahlen.reell",
+   "lernkarte": "heron",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den ersten Schritt gerechnet"
+    },
+    {
+     "antwort": 12.25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 statt des Quotienten von 20 und 4,5 zu 4,5 addiert und halbiert"
+    },
+    {
+     "antwort": 4.44,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Quotienten genommen, ohne den Mittelwert (auf zwei Stellen gerundet)"
+    }
+   ],
+   "aufgabe": {
+    "l": "heron",
+    "t": "heron",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Beim Heron-Verfahren für √20 startest du mit 4. Der erste Schritt gibt (4 + 20 : 4) : 2 = 4,5. Wie lautet der zweite Wert (4,5 + 20 : 4,5) : 2? Runde auf zwei Dezimalstellen."
+    },
+    "o": {
+     "wert": 4.47
+    },
+    "c": "round(4.472222222222222, 2)",
+    "h": "Rechne erst 20 : 4,5, addiere dann 4,5 und teile die Summe durch 2.",
+    "w": "20 : 4,5 ≈ 4,444. Die Summe 4,5 + 4,444 ≈ 8,944. Halbiert: 4,472, gerundet 4,47. Das ist nahe an √20 ≈ 4,4721."
+   }
+  },
+  {
+   "kennung": "R15-V131",
+   "thema": "zahlen.reell",
+   "lernkarte": "heron",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der alten Länge geteilt"
+    },
+    {
+     "antwort": 1.75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von der neuen Länge 6,25 die alte Breite 4,5 abgezogen statt 36 durch 6,25 zu teilen"
+    },
+    {
+     "antwort": 225,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der neuen Länge malgenommen statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "heron",
+    "t": "heron",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Rechteck hat die Seiten 8 cm und 4,5 cm, die Fläche ist 36 cm². Man ersetzt die Länge durch den Mittelwert beider Seiten, also 6,25 cm, und passt die Breite so an, dass die Fläche 36 cm² bleibt. Wie breit ist das neue Rechteck in Zentimetern?"
+    },
+    "o": {
+     "wert": 5.76,
+     "einheit": "cm"
+    },
+    "c": "36 / 6.25",
+    "h": "Die Fläche bleibt gleich: Länge mal Breite = 36. Teile 36 durch die neue Länge.",
+    "w": "Die neue Länge ist (8 + 4,5) : 2 = 6,25 cm. Aus 6,25 · b = 36 folgt b = 36 : 6,25 = 5,76 cm. Die Seiten 6,25 und 5,76 liegen näher an √36 = 6."
+   }
+  },
+  {
+   "kennung": "R15-V132",
+   "thema": "zahlen.reell",
+   "lernkarte": "wurzel_mal",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 68,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen unter den Wurzeln addiert und die Wurzel (√68) weggelassen"
+    },
+    {
+     "antwort": 900,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Produkt nicht wieder unter die Wurzel genommen"
+    },
+    {
+     "antwort": 450,
+     "fehlbild": "fb.hoch_zurueck.wurzel_halbiert",
+     "regel_des_fehlbilds": "id.zahlen.hoch_zurueck",
+     "beschreibung": "die Wurzel aus 900 wie „geteilt durch 2“ gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_mal",
+    "t": "wurzel_mal",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Wie groß ist √18 · √50? Fasse die beiden Wurzeln zu einer zusammen."
+    },
+    "o": {
+     "wert": 30
+    },
+    "c": "30",
+    "h": "Beim Malnehmen darf man die Zahlen unter den Wurzeln malnehmen: √a · √b = √(a · b).",
+    "w": "√18 · √50 = √(18 · 50) = √900 = 30, denn 30 · 30 = 900."
+   }
+  },
+  {
+   "kennung": "R15-V133",
+   "thema": "zahlen.reell",
+   "lernkarte": "wurzel_mal",
+   "stufe": 3,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "√9 + √16 = √25",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 + 4 = 7, aber √25 = 5: Plus unter der Wurzel gilt nicht"
+    },
+    {
+     "index": 1,
+     "antwort": "√100 − √36 = √64",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "10 − 6 = 4, aber √64 = 8: Minus unter der Wurzel gilt nicht"
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_mal",
+    "t": "wurzel_mal",
+    "p": "uebung",
+    "s": 3,
+    "g": "pruefung",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche dieser Gleichungen stimmt?"
+    },
+    "a": [
+     "√9 + √16 = √25",
+     "√100 − √36 = √64",
+     "√100 : √4 = √25"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Rechne beide Seiten jeder Gleichung einzeln aus und vergleiche.",
+    "w": "√100 : √4 = 10 : 2 = 5 = √25. Beim Teilen und Malnehmen darf man unter einer Wurzel zusammenfassen, bei Plus und Minus nicht."
+   }
+  },
+  {
+   "kennung": "R15-V134",
+   "thema": "zahlen.reell",
+   "lernkarte": "teilweise",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "245 durch 7 statt durch 5 geteilt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 49,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Quadratzahl selbst statt ihre Wurzel genommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 zu 7 addiert statt malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "teilweise",
+    "t": "teilweise",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Du vereinfachst √245. Es gilt √245 = √(① · 5) = ② · √5. Damit ist 2 · √245 = ③ · √5.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      49,
+      7,
+      14
+     ]
+    },
+    "c": [
+     "49",
+     "7",
+     "2 * (7)"
+    ],
+    "h": "Suche eine Quadratzahl, die 245 teilt. Ziehe aus ihr die Wurzel und lasse den Rest unter der Wurzel.",
+    "w": "245 = 49 · 5 und √49 = 7, also √245 = 7 · √5. Das Doppelte ist 2 · 7 · √5 = 14 · √5."
+   }
+  },
+  {
+   "kennung": "R15-V135",
+   "thema": "zahlen.reell",
+   "lernkarte": "teilweise",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 49,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Quadratzahl 49 selbst statt ihre Wurzel genommen"
+    },
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "98 durch 7 geteilt"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor unter der Wurzel als a genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "teilweise",
+    "t": "teilweise",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein quadratisches Beet hat 98 m² Fläche. Seine Seite lässt sich als a · √2 Meter schreiben. Welche ganze Zahl ist a?"
+    },
+    "o": {
+     "wert": 7
+    },
+    "c": "7",
+    "h": "Zerlege 98 in ein Produkt, bei dem ein Faktor eine Quadratzahl ist.",
+    "w": "√98 = √(49 · 2) = √49 · √2 = 7 · √2. Also ist a = 7."
+   }
+  },
+  {
+   "kennung": "R15-V136",
+   "thema": "zahlen.reell",
+   "lernkarte": "zusammenfassen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammenfassen",
+    "t": "zusammenfassen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Noa vereinfacht √8 + √2: Zeile 1: Es gilt √8 = √4 · √2 = 2√2. Zeile 2: Damit ist √8 + √2 = 2√2 + √2. Zeile 3: Gleiche Wurzeln fasst man zusammen, das ergibt 3√2. Zeile 4: Die 3 darf ich unter die Wurzel schreiben, ohne sie zu quadrieren: 3√2 = √6. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Was gilt für eine Zahl vor der Wurzel, wenn sie unter die Wurzel wandert?",
+    "w": "Eine Zahl vor der Wurzel muss unter der Wurzel quadriert werden: 3√2 = √(9 · 2) = √18. Der Fehler steckt in Zeile 4. Die Zeilen 1 bis 3 sind richtig."
+   }
+  },
+  {
+   "kennung": "R15-V137",
+   "thema": "zahlen.reell",
+   "lernkarte": "nenner_rational",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 44,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Zähler erweitert und den Nenner stehen lassen"
+    },
+    {
+     "antwort": 22,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 2 statt durch 11 geteilt"
+    },
+    {
+     "antwort": 484,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 11 malgenommen statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "nenner_rational",
+    "t": "nenner_rational",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Der Term 44 : √11 soll ohne Wurzel im Nenner geschrieben werden, und zwar in der Form a · √11. Welche ganze Zahl ist a?"
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "44 / 11",
+    "h": "Erweitere den Bruch mit √11, damit der Nenner eine ganze Zahl wird.",
+    "w": "44 / √11 = (44 · √11) / (√11 · √11) = 44√11 / 11 = 4√11. Also ist a = 4."
+   }
+  },
+  {
+   "kennung": "R15-V138",
+   "thema": "zahlen.reell",
+   "lernkarte": "irrational_beweis",
+   "stufe": 3,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Mit p = 2k folgt q = k, also ist p/q = 2.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aus p = 2k folgt nicht q = k, und p/q wäre dann die Zahl 2, nicht √2"
+    },
+    {
+     "index": 2,
+     "antwort": "Weil p gerade ist, muss q ungerade sein, das ist kein Widerspruch.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei gekürztem Bruch wäre q zwar ungerade, aus p = 2k folgt aber q² = 2k², also ist q gerade: genau das ist der Widerspruch"
+    }
+   ],
+   "aufgabe": {
+    "l": "irrational_beweis",
+    "t": "irrational_beweis",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Man beweist, dass √2 nicht als gekürzter Bruch p/q geschrieben werden kann. Aus p² = 2q² folgt, dass p gerade ist. Welcher nächste Gedanke führt zum Widerspruch?"
+    },
+    "a": [
+     "Mit p = 2k folgt q² = 2k², also ist auch q gerade. Dann ließe sich der Bruch p/q durch 2 kürzen.",
+     "Mit p = 2k folgt q = k, also ist p/q = 2.",
+     "Weil p gerade ist, muss q ungerade sein, das ist kein Widerspruch."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Setze p = 2k in die Gleichung p² = 2q² ein. Was folgt für q?",
+    "w": "Aus p = 2k folgt p² = 4k² = 2q², also q² = 2k². Dann ist q² gerade, also ist q gerade. Damit sind p und q beide gerade, der Bruch ist nicht gekürzt. Das widerspricht der Annahme."
+   }
+  },
+  {
+   "kennung": "R15-V139",
+   "thema": "zahlen.reell",
+   "lernkarte": "irrational_beweis",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "irrational_beweis",
+    "t": "irrational_beweis",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Sam beweist, dass √2 irrational ist. Er nimmt an, dass √2 = p/q ein gekürzter Bruch mit positiven ganzen Zahlen p und q ist: Zeile 1: Aus √2 = p/q folgt durch Quadrieren 2 = p²/q², also p² = 2q². Zeile 2: Weil p² gerade ist, ist auch p gerade, also p = 2k. Zeile 3: Dann ist p² = 2k², und mit p² = 2q² folgt k² = q². Zeile 4: Also ist k = q, und der Bruch p/q hat die Form 2k/k. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Wie lautet p² für p = 2k? Rechne (2k)² nach.",
+    "w": "Es gilt (2k)² = 4k², nicht 2k². Aus 4k² = 2q² folgt q² = 2k², also ist q gerade. Der Fehler steckt in Zeile 3. Zeile 4 rechnet mit dem falschen Ergebnis weiter."
+   }
+  }
+ ]
+}

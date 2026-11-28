@@ -1,0 +1,315 @@
+{
+ "stand": "2026-11-28",
+ "runde": "vtest-muster",
+ "kuerzel": "VTM",
+ "hinweis": "Sechs Muster-Aufgaben NUR zum Testen der Werkzeuge (erfundene Einheit muster.potenzen, id 9001). Nicht einspielen.",
+ "aufgaben": [
+  {
+   "kennung": "VTM-001",
+   "thema": "muster.potenzen",
+   "lernkarte": "potenz_sinn",
+   "pool": "test",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M5 3.1",
+   "regel": "rr.potenz",
+   "abgrenzung": "Fragt die Beziehung, nicht das Ausrechnen wie die Übungen.",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "rechnung": "2 · 5",
+     "beschreibung": "wie Mia Basis mal Exponent gerechnet: 2 · 5 = 10",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 25,
+     "rechnung": "5 · 5",
+     "beschreibung": "Basis und Exponent vertauscht: 5² = 5 · 5 = 25",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "t": "begriff",
+    "y": "luecken",
+    "f": {
+     "text": "Mia rechnet 2⁵ so. Zeile 1: 2⁵ = 2 · 5 Zeile 2: 2 · 5 = 10 Zeile 3: Also ist 2⁵ = 10. In welcher Zeile steckt der erste Fehler, und welchen Wert hat 2⁵ wirklich?",
+     "schablone": "Fehler in Zeile □, richtig: 2⁵ = □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      1,
+      32
+     ]
+    },
+    "c": [
+     "1",
+     "2 · 2 · 2 · 2 · 2"
+    ],
+    "w": "Schon Zeile 1 ist falsch: 2⁵ heißt 2 · 2 · 2 · 2 · 2 (fünfmal die 2), nicht 2 · 5. Richtig ist 2⁵ = 32.",
+    "l": "potenz_sinn",
+    "p": "test",
+    "s": 3
+   },
+   "ersetzt_test": true
+  },
+  {
+   "kennung": "VTM-002",
+   "thema": "muster.potenzen",
+   "lernkarte": "potenz_sinn",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M5 3.1",
+   "regel": "rr.potenz",
+   "abgrenzung": "Fragt die Beziehung, nicht das Ausrechnen wie die Übungen.",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "rechnung": "81 : 9",
+     "beschreibung": "die Zahl gesucht, deren Quadrat 81 ist (hoch 2 statt hoch 4): 81 : 9 = 9",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 27,
+     "rechnung": "81 : 3",
+     "beschreibung": "81 durch 3 geteilt statt die Zahl gesucht, die viermal mit sich malgenommen 81 ergibt: 81 : 3 = 27",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "t": "begriff",
+    "y": "zahl",
+    "f": {
+     "text": "Welche natürliche Zahl ergibt, viermal mit sich selbst malgenommen, 81?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "81 : 27",
+    "w": "3 · 3 · 3 · 3 = 9 · 9 = 81, also ist die Zahl 3 (3⁴ = 81).",
+    "l": "potenz_sinn",
+    "p": "korrektur",
+    "s": 2
+   }
+  },
+  {
+   "kennung": "VTM-003",
+   "thema": "muster.potenzen",
+   "lernkarte": "potenz_sinn",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M5 3.1",
+   "regel": "rr.potenz",
+   "abgrenzung": "Fragt die Beziehung, nicht das Ausrechnen wie die Übungen.",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "2³ ist größer, denn 2³ = 8 und 3² = 9.",
+     "beschreibung": "richtig gerechnet, aber falsch verglichen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Beide sind gleich groß, denn in beiden kommen die Zahlen 2 und 3 vor.",
+     "beschreibung": "glaubt, Basis und Exponent dürfe man tauschen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "2³ ist größer, denn der Exponent 3 ist größer als der Exponent 2.",
+     "beschreibung": "nur auf den Exponenten geschaut",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "t": "begriff",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Aussage über 2³ und 3² stimmt?"
+    },
+    "a": [
+     "2³ ist größer, denn 2³ = 8 und 3² = 9.",
+     "3² ist größer, denn 3² = 9 und 2³ = 8.",
+     "Beide sind gleich groß, denn in beiden kommen die Zahlen 2 und 3 vor.",
+     "2³ ist größer, denn der Exponent 3 ist größer als der Exponent 2."
+    ],
+    "o": {
+     "index": 1
+    },
+    "w": "2³ = 2 · 2 · 2 = 8 und 3² = 3 · 3 = 9. Also ist 3² größer.",
+    "l": "potenz_sinn",
+    "p": "sicherung",
+    "s": 2
+   }
+  },
+  {
+   "kennung": "VTM-004",
+   "thema": "muster.potenzen",
+   "lernkarte": "vorzeichen",
+   "pool": "test",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M5 3.1",
+   "regel": "rr.vorzeichen",
+   "abgrenzung": "Fragt die Beziehung, nicht das Ausrechnen wie die Übungen.",
+   "fehlbilder": [
+    {
+     "antwort": -8,
+     "rechnung": "(−2) · (−2) · (−2)",
+     "beschreibung": "den negativen Wert mit dem kleinsten Betrag genommen: (−2)³ = −8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 4,
+     "rechnung": "(−2) · (−2)",
+     "beschreibung": "den Wert mit dem kleinsten Exponenten genommen: (−2)² = 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 32,
+     "rechnung": "2 · 2 · 2 · 2 · 2",
+     "beschreibung": "das Minus vergessen: 2⁵ = 32",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "t": "negativ",
+    "y": "zahl",
+    "f": {
+     "text": "Welcher der vier Werte (−2)², (−2)³, (−2)⁴ und (−2)⁵ ist der kleinste? Gib ihn an."
+    },
+    "o": {
+     "wert": -32
+    },
+    "c": "(−2) · (−2) · (−2) · (−2) · (−2)",
+    "w": "(−2)² = 4, (−2)³ = −8, (−2)⁴ = 16, (−2)⁵ = −32. Ungerade Exponenten geben negative Werte; der kleinste ist −32.",
+    "l": "vorzeichen",
+    "p": "test",
+    "s": 3
+   },
+   "ersetzt_test": true
+  },
+  {
+   "kennung": "VTM-005",
+   "thema": "muster.potenzen",
+   "lernkarte": "vorzeichen",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M5 3.1",
+   "regel": "rr.vorzeichen",
+   "abgrenzung": "Fragt die Beziehung, nicht das Ausrechnen wie die Übungen.",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 1, weil man nur die 3 viermal malnehmen darf.",
+     "beschreibung": "verwechselt (−3)⁴ mit −3⁴",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3, weil 3² gleich 6 ist.",
+     "beschreibung": "Basis mal Exponent",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4, weil man 81 und 9 addieren muss.",
+     "beschreibung": "Minus vor der Klammer als Plus gelesen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "t": "negativ",
+    "y": "auswahl",
+    "f": {
+     "text": "Tom rechnet (−3)⁴ − 3². Zeile 1: (−3)⁴ = (−3) · (−3) · (−3) · (−3) Zeile 2: (−3) · (−3) · (−3) · (−3) = −81 Zeile 3: 3² = 9 Zeile 4: −81 − 9 = −90 Wo steckt der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 2, weil vier Minuszeichen beim Malnehmen ein Plus ergeben.",
+     "In Zeile 1, weil man nur die 3 viermal malnehmen darf.",
+     "In Zeile 3, weil 3² gleich 6 ist.",
+     "In Zeile 4, weil man 81 und 9 addieren muss."
+    ],
+    "o": {
+     "index": 0
+    },
+    "w": "(−3) · (−3) = 9, 9 · (−3) = −27, −27 · (−3) = 81. Zeile 2 ist falsch; richtig ist 81 − 9 = 72.",
+    "l": "vorzeichen",
+    "p": "korrektur",
+    "s": 2
+   }
+  },
+  {
+   "kennung": "VTM-006",
+   "thema": "muster.potenzen",
+   "lernkarte": "vorzeichen",
+   "pool": "sicherung",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M5 3.1",
+   "regel": "rr.vorzeichen",
+   "abgrenzung": "Fragt die Beziehung, nicht das Ausrechnen wie die Übungen.",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "rechnung": "64 : 16",
+     "beschreibung": "das Vorzeichen vergessen: 4 · 4 · 4 = 64",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": -16,
+     "rechnung": "−64 : 4",
+     "beschreibung": "durch 4 geteilt statt die Zahl gesucht, die dreimal mit sich malgenommen −64 ergibt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "t": "negativ",
+    "y": "zahl",
+    "f": {
+     "text": "Eine negative ganze Zahl, dreimal mit sich selbst malgenommen, ergibt −64. Welche Zahl ist es?"
+    },
+    "o": {
+     "wert": -4
+    },
+    "c": "−64 : 16",
+    "w": "4 · 4 · 4 = 64; mit drei Minuszeichen bleibt das Ergebnis negativ: (−4) · (−4) · (−4) = −64. Die Zahl ist −4.",
+    "l": "vorzeichen",
+    "p": "sicherung",
+    "s": 3
+   }
+  }
+ ]
+}

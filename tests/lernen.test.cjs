@@ -7670,3 +7670,326 @@ async function advFehlerRoute(page, srv) {
   });
 }
 const advAktionen = (calls, a) => calls.filter((c) => c.aktion === a);
+async function advSeite(t, { srv = {}, gestaltung = 'nacht', breite = 390, hoehe = 844, karte = false, advent = 'an', bewegung = 'reduce', datum = null, lernSeite = false, rolle, basis = null } = {}) {
+  const adv = advServer({ ...srv, basis }); const anpassen = karte ? rkServer({ basis: adv }).anpassen : adv;
+  const { page, calls } = await setup(t, { gestaltung, anpassen, advent, lernSeite, rolle });
+  if (datum) await page.clock.setFixedTime(new Date(datum));
+  const dateien = []; page.on('request', (r) => { if (/lernen-advent\.(js|css)/.test(r.url())) dateien.push(r.url()); });
+  await advFehlerRoute(page, adv); await page.emulateMedia({ reducedMotion: bewegung }); await page.setViewportSize({ width: breite, height: hoehe });
+  return { page, calls, adv, dateien, aufrufe: (a) => adv.st.aufrufe.filter((x) => !a || x.aktion === a) };
+}
+const advReise = async (page) => { await page.goto(origin + '/#/reise/1'); await page.locator('.rk .rk-pin').first().waitFor(); await page.waitForTimeout(400); };
+
+test('ADV 1: außerhalb 1.12.–6.1. keine Ebene, kein Menü, kein Advent-Abruf und keine Advent-Datei; 1.12. und 6.1. an', async (t) => {
+  for (const [datum, an] of [['2026-11-30T23:30:00', false], ['2026-12-01T00:10:00', true], ['2027-01-06T22:00:00', true], ['2027-01-07T00:05:00', false]]) {
+    const { page, aufrufe, dateien } = await advSeite(t, { karte: true, advent: null, datum, gestaltung: 'tag' });
+    await advReise(page); await page.waitForTimeout(600);
+    await page.locator('.rk-menue').first().click(); await page.locator('dialog.lr-blatt[open]').waitFor();
+    assert.equal(await page.locator('.rk-fest-rand').count(), an ? 1 : 0, datum);
+    assert.equal(await page.evaluate(() => lernAdventFenster()), an, datum);
+    assert.equal(await page.locator('dialog.lr-blatt[open] a[href^="#/advent/"]').count(), an ? 1 : 0, `${datum}: Menü`);
+    assert.equal(aufrufe().length, an ? 1 : 0, `${datum}: Abrufe ${JSON.stringify(aufrufe())}`); assert.equal(dateien.length, an ? 2 : 0, `${datum}: Dateien`);
+    if (!an) assert.equal(await page.locator('.rk-adv-zeile, .lr-fest').count(), 0);
+    await page.close();
+  }
+});
+
+test('ADV 2: Schalter aus (nicht_aktiv) bzw. Server ohne Advent („Unbekannte Aktion“) – nichts sichtbar, ein Abruf je Sitzung, keine Schleife; die Ebene der Karte bleibt (braucht keinen Server)', async (t) => {
+  for (const srv of [{ aktiv: 0 }, { unbekannt: true }]) {
+    const { page, aufrufe } = await advSeite(t, { karte: true, srv, gestaltung: 'tag' });
+    const fehler = []; page.on('pageerror', (e) => fehler.push(e.message));
+    await advReise(page); await page.waitForTimeout(800);
+    await page.goto(origin + '/#/weg/1'); await page.waitForTimeout(500); await advReise(page); await page.waitForTimeout(800);
+    await page.locator('.rk-menue').first().click(); await page.locator('dialog.lr-blatt[open]').waitFor();
+    assert.equal(await page.locator('dialog.lr-blatt[open] a[href^="#/advent/"], dialog.lr-blatt[open] a[href^="#/gutscheine/"]').count(), 0);
+    assert.equal(await page.locator('.rk-adv-zeile').count(), 0, 'keine Hinweiszeile');
+    assert.equal(await page.locator('.rk-fest-rand').count(), 1, 'Weihnachts-Ebene ohne Server');
+    assert.equal(aufrufe('schule_advent_stand').length, 1, JSON.stringify(srv)); assert.deepEqual(fehler, []);
+    // Landung ohne Server: kein Türchen, es geht direkt weiter
+    await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText(/BORDKARTE 1 · ROM/).waitFor(); await landeEtappe1(page);
+    if (await page.getByRole('button', { name: 'Heute keine Knobel-Bordkarte' }).count()) await page.getByRole('button', { name: 'Heute keine Knobel-Bordkarte' }).click();
+    await page.locator('.lr-abschluss-etappe .lr-ab-gross').click(); await page.waitForTimeout(400);
+    assert.equal(await page.locator('.lr-advent').count(), 0); assert.equal(aufrufe('schule_advent_oeffnen').length, 0);
+    assert.equal(aufrufe('schule_advent_stand').length, 1, 'auch nach der Landung kein zweiter Stand');
+    await page.close();
+  }
+});
+
+async function advLanden(page) {
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText(/BORDKARTE 1 · ROM/).waitFor(); await landeEtappe1(page);
+  if (await page.getByRole('button', { name: 'Heute keine Knobel-Bordkarte' }).count()) await page.getByRole('button', { name: 'Heute keine Knobel-Bordkarte' }).click();
+  await page.locator('.lr-abschluss-etappe').waitFor();
+}
+test('ADV 3: Tür nach der Landung – tippen öffnet die älteste (Sterne, Konto neu), Weiter führt zum ursprünglichen Ziel; „Später öffnen“ überspringt; Tastatur und aria-live', async (t) => {
+  const { page, aufrufe, calls } = await advSeite(t, { srv: { offen: [1, 2, 3, 4, 5, 6] } });
+  await advLanden(page); const ziel = await page.locator('.lr-abschluss-etappe .lr-ab-gross').innerText();
+  await page.locator('.lr-abschluss-etappe .lr-ab-gross').click(); const tuer = page.locator('.lr-advent'); await tuer.waitFor();
+  assert.match(await tuer.locator('.lr-ab-titel').innerText(), /Türchen 7/i); assert.match(await tuer.locator('.lr-ab-oben').innerText(), /ADVENTSKALENDER · MO, 7\. DEZEMBER/);
+  const klappe = page.getByRole('button', { name: 'Türchen 7 öffnen' }); assert.equal(await klappe.count(), 2, 'Klappe und großer Knopf');
+  assert.match(await tuer.locator('.adv-spaeter').innerText(), /Später öffnen – weiter zu: Zahlenstrahl/);
+  const konto0 = calls.filter((c) => c.aktion === 'schule_konto').length;
+  await page.locator('.adv-tuer-knopf').focus(); await page.keyboard.press('Enter');
+  await tuer.locator('.sterne2').waitFor(); assert.equal(aufrufe('schule_advent_oeffnen').length, 1);
+  assert.match(await tuer.locator('[role=status]').innerText(), /Türchen 7 ist offen: plus 500 Sterne\./);
+  assert.match(await tuer.locator('.lr-ab-blatt').innerText(), /TÜRCHEN 7 IST OFFEN[\s\S]*500 Sterne sind schon auf deinem Konto\.[\s\S]*Weiter: Zahlenstrahl/);
+  const k = tuer.locator('.lr-ab-blatt .lr-ab-gross'); assert.equal(await k.innerText().then((x) => x.split('\n')[0]), ziel.split('\n')[0], 'Knopf mit dem ursprünglichen Text');
+  await k.click(); await page.waitForTimeout(400); assert.equal(await page.locator('.lr-abschluss').count(), 0); assert.match(await page.evaluate(() => location.hash), /#\/lerneinheit\/1-1-erklaeren-2/);
+  const cid = aufrufe('schule_advent_oeffnen')[0].d.client_id; assert.ok(cid && cid.length <= 200, 'client_id');
+  // nächste Landung (Etappe 2): Später öffnen → kein Öffnen, weiter zum Ziel
+  await page.evaluate(() => { lernAbschlussZu(); }); const { page: p2, aufrufe: a2 } = await advSeite(t, { srv: { offen: [1, 2, 3, 4, 5, 6] } });
+  await advLanden(p2); await p2.locator('.lr-abschluss-etappe .lr-ab-gross').click(); await p2.locator('.lr-advent').waitFor();
+  await p2.locator('.adv-spaeter').click(); await p2.waitForTimeout(400);
+  assert.equal(a2('schule_advent_oeffnen').length, 0); assert.equal(await p2.locator('.lr-abschluss').count(), 0); assert.match(await p2.evaluate(() => location.hash), /erklaeren-2/);
+  // Türchen bleibt bereit: Hinweiszeile auf der Karte gold
+  await p2.goto(origin + '/#/advent/1'); await p2.locator('.td2.bereit').waitFor(); assert.equal(await p2.locator('.td2.bereit').getAttribute('data-nr'), '7');
+  assert.ok(calls.filter((c) => c.aktion === 'schule_konto').length >= konto0);
+});
+
+test('ADV 4: „Sitzt wieder!“ (Nachbessern) zählt als Etappe – dieselbe Tür vor dem nächsten Schritt', async (t) => {
+  const nb = (aktion, e) => { if (aktion !== 'schule_uebung_pruefen' || !e) return e; return { ok: true, format_ok: true, richtig: true, loesung: { wert: 2000 }, loesungsweg: 'So.', karte: { ...(e.karte || {}), folge: 3, neu_sitzt: true, sitzt: true }, sterne: 10 }; };
+  const adv = advServer({ offen: [1, 2, 3, 4, 5, 6] }); const kombi = (a, e, d) => adv(a, nb(a, e, d), d); kombi.neueAktionen = false;
+  const { page } = await setup(t, { gestaltung: 'tag', anpassen: kjServer({ basis: kombi }), advent: 'an' }); await advFehlerRoute(page, adv);
+  await page.emulateMedia({ reducedMotion: 'reduce' }); await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.locator('.lr-nb-leiste').waitFor();
+  await page.locator('.lr-bordkarte input').first().fill('7'); await page.getByRole('button', { name: 'Prüfen' }).click();
+  const ab = page.locator('.lr-nb-fertig'); await ab.waitFor(); const knopf = ab.locator('.lr-ab-gross'); assert.match(await knopf.innerText(), /Weiter nachbessern: Zahlenstrahl/);
+  await knopf.click(); const tuer = page.locator('.lr-advent'); await tuer.waitFor(); assert.match(await tuer.locator('.lr-ab-blatt').innerText(), /Etappe gelandet ✓[\s\S]*Türchen 7 öffnen/i);
+  await tuer.locator('.adv-tuer-knopf').click(); await tuer.locator('.sterne2').waitFor();
+  await tuer.locator('.lr-ab-blatt .lr-ab-gross').click(); await page.waitForTimeout(400);
+  assert.match(await page.evaluate(() => location.hash), /lerneinheit\/1-1-ueben-2|nachbessern|lerneinheit/); assert.equal(adv.st.aufrufe.filter((x) => x.aktion === 'schule_advent_oeffnen').length, 1);
+});
+
+test('ADV 5: zweites Türchen am selben Tag nach der zweiten Etappe, ein drittes nicht (Limit 2); doppelter Tipp öffnet einmal; zweites Gerät zeigt das schon offene', async (t) => {
+  const { page, aufrufe, adv } = await advSeite(t, { srv: { offen: [1, 2, 3], heute: '2026-12-07' } });
+  const st = adv.st; st.etappen[1] = 1;
+  await page.goto(origin + '/#/advent/1-oeffnen'); const tuer = page.locator('.lr-advent'); await tuer.waitFor();
+  assert.match(await tuer.locator('.lr-ab-titel').innerText(), /Türchen 4/i); assert.match(await tuer.locator('.adv-badge').innerText(), /NACHGEHOLT/);
+  await page.evaluate(() => { const k = document.querySelector('.adv-tuer-knopf'); const kl = document.querySelector('.adv-klappe'); k.click(); k.click(); kl.click(); k.dispatchEvent(new MouseEvent('click', { bubbles: true })); });
+  await tuer.locator('.niete2').waitFor(); await page.waitForTimeout(300);
+  assert.equal(aufrufe('schule_advent_oeffnen').length, 1, 'doppelter Tipp: ein Öffnen');
+  await tuer.locator('.lr-ab-blatt .lr-ab-gross').click(); await page.locator('.tafel').waitFor();
+  // zweite Etappe → zweites Türchen (5, Krampus)
+  st.etappen[1] = 2; await page.evaluate(() => render()); await page.locator('.td2.bereit').waitFor(); assert.equal(await page.locator('.td2.bereit').getAttribute('data-nr'), '5');
+  assert.match(await page.locator('.kal-held').innerText(), /Türchen 5 ist bereit/);
+  await page.locator('.td2.bereit').click(); await tuer.waitFor(); assert.match(await tuer.locator('.lr-ab-oben').innerText(), /2\. TÜRCHEN HEUTE/);
+  await tuer.locator('.adv-tuer-knopf').click(); await tuer.locator('.kr-karte').waitFor(); await tuer.locator('.lr-ab-blatt .lr-ab-gross').click(); await page.locator('.tafel').waitFor();
+  // dritte Etappe: Limit – kein drittes Türchen, Kalender „Für heute: alles raus.“, Hinweiszeile „morgen“
+  st.etappen[1] = 3; await page.evaluate(() => render()); await page.locator('.kal-held h2').filter({ hasText: 'Für heute: alles raus.' }).waitFor();
+  assert.equal(await page.locator('.td2.bereit').count(), 0); assert.match(await page.locator('.kal-banner').innerText(), /Morgen geht’s weiter/);
+  await page.locator('.td2[data-nr="6"]').click(); assert.match(await page.locator('.adv-ansage').innerText(), /Heute sind schon 2 Türchen offen – Türchen 6 geht morgen auf\./);
+  const z = await page.evaluate(async () => { const st = await lernAdventStand(1, { frisch: true }); return lernAdventZeile(1, st)?.textContent; });
+  assert.match(z, /2 Türchen heute offen – morgen geht’s weiter/);
+  // zweites Gerät: Server meldet limit mit letzte_nr → zeigt die schon offene Tür, kein Fehler
+  const n0 = aufrufe('schule_advent_oeffnen').length;
+  await page.evaluate(() => lernAdventTuerZeigen({ kindObj: { id: 1 }, kindId: 1, stand: { aktiv: true, bereit: true, naechste_nr: 6, heute: '2026-12-07', tag_nr: 7, phase: 'laeuft', offen_heute: 1 }, quelle: 'kalender', weiter: () => lernAbschlussZu() }));
+  await page.locator('.adv-tuer-knopf').click(); await page.locator('.lr-advent .kr-karte').waitFor();
+  assert.match(await page.locator('.lr-advent .adv-zeile').innerText(), /Schon offen – auf einem anderen Gerät\./); assert.equal(aufrufe('schule_advent_oeffnen').length, n0 + 1);
+});
+
+test('ADV 6: jede Art – Bild, Gutschein, Tauschkarte (Tausch aus), Jackpot, Niete, Krampus, Karte 6, Sterne, leer, Tür 24 Karte + Jackpot; Sticker; Bewegung reduzieren ohne Drehung', async (t) => {
+  const erwartet = { 1: ['.motiv-gross2', /Bild: Koala/, /Bleibt im Adventskalender[\s\S]*50 Sterne sind schon/], 2: ['.ticket', /Gutschein: Gutschein 2/, /Einlösen, wann du willst/], 3: ['.jackpot2', /Jackpot: plus 1111 Sterne/, /1 111 Sterne sind schon/],
+    4: ['.niete2', /Niete mit Trostpreis: plus 1 Stern/, /Nicht jedes Türchen ist ein Jackpot/], 5: ['.kr-karte', /Krampus-Karte: Aufgabe 5/, /Mama oder Papa haken ab/], 6: ['.karte-gross2.nikolaus', /Karte: Nikolaus-Stiefel/, /das Geschenk gibt’s von Mama und Papa/],
+    7: ['.sterne2', /Plus 500 Sterne/, /500 Sterne sind schon/], 8: ['.leer-licht2', /Nur Licht/, /Bleibt im Adventskalender/], 9: ['.ticket', /Gutschein: Tauschkarte/, /Zeig ihn Mama oder Papa/], 24: ['.karte-gross2.heiligabend', /Karte: Heiligabend am Strand/, /unterm Baum[\s\S]*2 000 Sterne sind schon/] };
+  const { page, adv } = await advSeite(t, { srv: { heute: '2026-12-24', offen: [] }, gestaltung: 'tag' });
+  for (const nr of Object.keys(erwartet).map(Number)) {
+    adv.st.offen[1] = new Map(Array.from({ length: nr - 1 }, (_, i) => [i + 1, { tag: '2026-12-01', am: 'x', nachgeholt: false, inhalt: { art: 'leer', sterne: 0 }, gs: null }])); adv.st.etappen[1] = 99; adv.st.verbraucht[1] = 0;
+    await page.goto(origin + `/#/advent/1-oeffnen`); const tuer = page.locator('.lr-advent'); await tuer.waitFor();
+    assert.match(await tuer.locator('.lr-ab-titel').innerText(), new RegExp(`Türchen ${nr}`, 'i'));
+    if (nr === 24) assert.equal(await tuer.locator('.adv-rahmen.tuer-t24').count(), 1, 'Festtür 24'); if (nr === 6) assert.equal(await tuer.locator('.adv-rahmen.tuer-t6').count(), 1, 'Tür 6 mit Stiefel');
+    await tuer.locator('.adv-tuer-knopf').click(); const [sel, aria, txt] = erwartet[nr]; await tuer.locator(sel).waitFor();
+    assert.equal(await tuer.locator('.adv-rahmen').count(), 0, 'reduziert: Inhalt sofort, keine Drehung');
+    const labels = await tuer.locator('[role=img]').evaluateAll((xs) => xs.map((x) => x.getAttribute('aria-label')).join(' | ')); assert.match(labels, aria, `${nr}: ${labels}`);
+    assert.match(await tuer.locator('.lr-ab-blatt').innerText(), txt, `${nr}`);
+    if (nr === 24) { assert.match(labels, /Dazu plus 2000 Sterne/); assert.match(await tuer.locator('.adv-dazu').innerText(), /\+2 000 ★[\s\S]*JACKPOT/); assert.match(await tuer.locator('.adv-zeile').innerText(), /Frohe Weihnachten!/); }
+    if (nr === 5) { assert.match(await tuer.locator('.lr-ab-oben').innerText(), /KRAMPUS WAR DA/); assert.equal(await tuer.getByRole('button', { name: /Eingelöst|Erledigt/ }).count(), 0, 'Krampus: kein Einlösen'); }
+    const st = tuer.locator('.lr-jw-sticker'); await st.waitFor(); const s0 = await st.innerText(); const anl = nr === 4 ? 'advent_niete' : nr === 5 ? 'advent_krampus' : 'advent';
+    assert.ok(JW.sprueche.filter((x) => x.anlass === anl).some((x) => s0.startsWith(x.sticker)), `${nr}: Sticker ${s0}`);
+    assert.doesNotMatch(await tuer.innerText(), /null|undefined/);
+  }
+});
+
+test('ADV 7: Kalender – 24 Türen als Buttons, Zustände offen/bereit/heute/nachholen/morgen/zu, offene Tür als Blatt (Inhalt nur über tuer_lesen); Hinweiszeile in „Gerade dran“; Kalender ohne Inhalte geschlossener Türen', async (t) => {
+  const { page, aufrufe } = await advSeite(t, { karte: true, srv: { offen: [1, 2, 5], etappen: 0, heute: '2026-12-07' }, gestaltung: 'tag' });
+  await advReise(page); const z = page.locator('.rk-schwebe .rk-adv-zeile'); await z.waitFor();
+  assert.match(await z.innerText(), /Türchen 3, 4 \+ 6 warten – je Etappe eins/); assert.equal(await z.getAttribute('href'), '#/advent/1');
+  await page.goto(origin + '/#/advent/1'); await page.locator('.tafel').waitFor();
+  assert.equal(await page.locator('.tueren2 button.td2').count(), 24);
+  const zust = await page.locator('.td2').evaluateAll((xs) => Object.fromEntries(xs.map((x) => [x.dataset.nr, x.className.replace('td2 ', '').split(' ')[0]])));
+  assert.deepEqual([zust[1], zust[2], zust[5], zust[3], zust[6], zust[7], zust[8], zust[9]], ['offen', 'offen', 'offen', 'nachholen', 'nachholen', 'heute', 'morgen', 'zu']);
+  assert.equal(await page.locator('.td2[data-nr="7"]').getAttribute('aria-label'), 'Türchen 7, heute dran, nach deiner nächsten Etappe');
+  assert.equal(await page.locator('.td2[data-nr="5"]').getAttribute('aria-label'), 'Türchen 5, offen: Krampus – Aufgabe 5');
+  assert.match(await page.locator('.kal-held').innerText(), /Türchen 3, 4, 6 und 7 warten\./);
+  // keine Inhalte geschlossener Türen im Netz (Stand) – der Server schickt sie nicht, die App fragt sie nicht ab
+  assert.equal(aufrufe('schule_advent_tuer_lesen').length, 0);
+  await page.locator('.td2[data-nr="2"]').click(); const bl = page.locator('dialog.adv-blatt[open]'); await bl.waitFor();
+  assert.match(await bl.innerText(), /TÜRCHEN 2[\s\S]*Gutschein 2/); assert.deepEqual(aufrufe('schule_advent_tuer_lesen').map((x) => x.d), [{ lernender_id: 1, nr: 2 }]);
+  await bl.getByRole('button', { name: 'Schließen' }).click(); await page.locator('.td2[data-nr="8"]').click(); assert.match(await page.locator('.adv-ansage').innerText(), /Türchen 8 ist morgen dran\./);
+});
+
+test('ADV 8: Meine Gutscheine – „Eingelöst“ mit Rückfrage in der Seite (kein confirm), danach grau, durchgestrichen, unten; Krampus ohne Knopf; Tauschkarte bei Tausch aus wie ein Gutschein; Tausch an: Kind tauscht', async (t) => {
+  const { page, adv, aufrufe } = await advSeite(t, { srv: { offen: [1, 2, 3, 4, 5, 6, 7, 8, 9] }, gestaltung: 'tag' });
+  adv.st.gs.push({ id: 50, nr: 12, lernender_id: 1, art: 'gutschein', titel: 'Gutschein 12', text: 'Ein Beispiel.', zustand: 'offen', getauscht: false });
+  let dialoge = 0; page.on('dialog', (d) => { dialoge++; d.dismiss(); });
+  await page.goto(origin + '/#/gutscheine/1'); const liste = page.locator('.gs-liste').first(); await liste.waitFor();
+  const titel = () => liste.locator('.gs2 h3').allInnerTexts(); assert.deepEqual(await titel(), ['Gutschein 2', 'Tauschkarte', 'Gutschein 12']);
+  assert.equal(await liste.locator('.gs2').filter({ hasText: 'Tauschkarte' }).getByRole('button').count(), 0, 'Tausch aus: kein Knopf');
+  assert.match(await liste.locator('.gs2').filter({ hasText: 'Tauschkarte' }).innerText(), /Zeig ihn Mama oder Papa\./);
+  const kr = page.locator('.gs-liste').nth(1); assert.match(await kr.innerText(), /KRAMPUS WAR DA[\s\S]*Aufgabe 5[\s\S]*Erledigt\? Mama oder Papa haken ab\./); assert.equal(await kr.locator('button').count(), 0, 'Krampus: Kind hakt nicht ab');
+  await page.getByRole('button', { name: 'Eingelöst: Gutschein 2' }).click();
+  assert.match(await liste.locator('.gs-frage').innerText(), /„Gutschein 2“ schon bei Mama oder Papa eingelöst\?/); assert.equal(aufrufe('schule_advent_einloesen').length, 0, 'erst nach der Rückfrage');
+  await page.getByRole('button', { name: 'Doch nicht' }).click(); assert.equal(await liste.locator('.gs-frage').count(), 0);
+  await page.getByRole('button', { name: 'Eingelöst: Gutschein 2' }).click(); const ja = page.getByRole('button', { name: 'Ja, eingelöst' });
+  await page.evaluate(() => { const b = [...document.querySelectorAll('.gs-ein')].find((x) => x.textContent === 'Ja, eingelöst'); b.click(); b.click(); });
+  await page.locator('.gs2.eingeloest').waitFor(); await page.waitForTimeout(300);
+  assert.equal(aufrufe('schule_advent_einloesen').length, 1, 'doppelt: einmal'); assert.equal(dialoge, 0, 'kein confirm()');
+  assert.deepEqual(await titel(), ['Tauschkarte', 'Gutschein 12', 'Gutschein 2'], 'eingelöst unten'); assert.equal(await ja.count(), 0);
+  const ein = liste.locator('.gs2.eingeloest'); assert.match(await ein.innerText(), /✓ Eingelöst am 7\.12\.[\s\S]*EINGELÖST/);
+  assert.equal(await ein.locator('h3').evaluate((e) => getComputedStyle(e).textDecorationLine), 'line-through'); assert.ok(Number(await ein.evaluate((e) => getComputedStyle(e).opacity)) < 1);
+  assert.match(await page.locator('[role=status]').filter({ hasText: 'ist eingelöst' }).first().innerText(), /„Gutschein 2“ ist eingelöst\./);
+  // Tausch an (Server-Schalter): Kind tauscht die Tauschkarte – mit client_id
+  adv.st.tausch = 1; adv.st.gs.push({ id: 60, nr: 3, lernender_id: 2, art: 'gutschein', titel: 'Gutschein von Kind 2', zustand: 'offen', getauscht: false });
+  await page.evaluate(() => render()); await page.getByRole('button', { name: 'Tauschen' }).click(); await page.locator('.gs-tausch').waitFor();
+  assert.match(await page.locator('.gs-tausch').innerText(), /Du gibst ab:[\s\S]*Gutschein 12[\s\S]*Du bekommst:[\s\S]*Gutschein von Kind 2 \(Kind 2\)/);
+  await page.getByRole('button', { name: 'Jetzt tauschen' }).click(); await page.waitForTimeout(500);
+  const tausch = aufrufe('schule_advent_tauschen'); assert.equal(tausch.length, 1); assert.deepEqual({ ...tausch[0].d, client_id: !!tausch[0].d.client_id }, { lernender_id: 1, tauschkarte_id: 3, mein_gutschein_id: 50, fremder_gutschein_id: 60, client_id: true });
+  assert.ok((await titel()).includes('Gutschein von Kind 2'));
+});
+
+test('ADV 9: Eltern – Übersicht beider Kinder, wer was wann eingelöst hat, Zurückholen, Krampus Erledigt/Noch nicht, Tür ändern nur geschlossen (Regeln Tür 6/24, Krampus), beide am selben Tag; keine Zeile in „Zu tun“', async (t) => {
+  const { page, adv, aufrufe } = await advSeite(t, { srv: { offen: [1, 2, 3, 4, 5] }, gestaltung: 'tag', breite: 1280, hoehe: 900 });
+  adv.st.gs.find((x) => x.nr === 2).zustand = 'eingeloest'; Object.assign(adv.st.gs.find((x) => x.nr === 2), { eingeloest_am: '2026-12-07T18:30:00+01:00', eingeloest_von: 'kind' });
+  await page.goto(origin + '/#/lernen'); await page.locator('.lern-zutun').waitFor(); assert.doesNotMatch(await page.locator('.lern-zutun').innerText(), /Advent|Krampus|Gutschein|Türchen/, 'keine Zeile in „Zu tun“');
+  assert.equal(await page.locator('a[href="#/adventeltern"]').count(), 1, 'Verwalten: Adventskalender');
+  await page.goto(origin + '/#/adventeltern'); const s0 = page.locator('.lr-adv-el'); await s0.waitFor();
+  assert.match(await s0.locator('.heute-z').first().innerText(), /Kind 1[\s\S]*5 von 24 offen/);
+  const gz = s0.locator('.ab-z').filter({ hasText: 'Gutschein 2' }); assert.match(await gz.innerText(), /Kind 1 · Tür 2[\s\S]*Kind 1 hat eingelöst am \d{1,2}\.12\. um \d\d:\d\d Uhr/);
+  await gz.getByRole('button', { name: 'Zurückholen: Kind 1 – Gutschein 2' }).click(); await page.waitForTimeout(400);
+  assert.deepEqual(aufrufe('schule_advent_gutschein_eltern').map((x) => x.d), [{ gutschein_id: 1, aktion: 'zurueckholen' }]); assert.equal(adv.st.gs.find((x) => x.nr === 2).zustand, 'offen');
+  await s0.getByRole('button', { name: 'Erledigt: Kind 1 – Aufgabe 5' }).click(); await page.waitForTimeout(400); assert.equal(adv.st.gs.find((x) => x.nr === 5).zustand, 'erledigt');
+  await s0.getByRole('button', { name: 'Noch nicht: Kind 1 – Aufgabe 5' }).click(); await page.waitForTimeout(400); assert.equal(adv.st.gs.find((x) => x.nr === 5).zustand, 'offen');
+  // Raster: offene Tür nicht änderbar, geschlossene Tür 12 → Gutschein für beide
+  await s0.getByRole('button', { name: /^Tür 3: Sterne – Jackpot \+1 111, schon offen$/ }).click(); assert.match(await s0.locator('.meldung').first().innerText(), /Tür 3 ist schon offen/);
+  assert.equal(await page.locator('dialog.adv-el-blatt').count(), 0);
+  await s0.getByRole('button', { name: /^Tür 12: leer.*ändern$/ }).click(); const bl = page.locator('dialog.adv-el-blatt[open]'); await bl.waitFor();
+  assert.equal(await bl.getByRole('radio', { name: 'Karte' }).isDisabled(), true, 'Karten nur auf 6 und 24');
+  await bl.getByRole('radio', { name: 'Gutschein', exact: true }).check(); await bl.getByRole('button', { name: 'Speichern' }).click(); assert.match(await bl.locator('.fehler').innerText(), /Bitte einen Titel eingeben\./);
+  await bl.getByLabel(/^Titel/).fill('Beispiel-Gutschein'); await bl.getByRole('textbox', { name: 'Text' }).fill('Neutraler Beispieltext.'); await bl.getByRole('switch', { name: 'Beide am selben Tag' }).click();
+  await bl.getByRole('button', { name: 'Speichern' }).click(); await page.waitForTimeout(500);
+  assert.deepEqual(aufrufe('schule_advent_belegung_setzen').map((x) => x.d), [{ lernender_ids: [1, 2], tueren: [{ nr: 12, art: 'gutschein', variante: 'normal', titel: 'Beispiel-Gutschein', text: 'Neutraler Beispieltext.', sterne: 0 }], nur_geschlossene: true }]);
+  // Tür 6: nur Karte; Krampus nicht neben Tür 5 (Krampus) und nicht auf 1/24
+  await page.locator('.lr-adv-el').getByRole('button', { name: /^Tür 6:/ }).click(); const b6 = page.locator('dialog.adv-el-blatt[open]'); await b6.waitFor();
+  assert.equal(await b6.getByRole('radio', { name: 'Gutschein', exact: true }).isDisabled(), true); assert.equal(await b6.getByRole('radio', { name: 'Karte' }).isChecked(), true);
+  await b6.getByRole('button', { name: 'Abbrechen' }).click();
+  await page.locator('.lr-adv-el').getByRole('button', { name: /^Tür 7:/ }).click(); const b7 = page.locator('dialog.adv-el-blatt[open]'); await b7.waitFor();
+  assert.equal(await b7.getByRole('radio', { name: 'Krampus' }).isDisabled(), true, 'nicht zwei Krampus hintereinander (über Tür 6)'); await b7.getByRole('button', { name: 'Abbrechen' }).click();
+  // Kind 2 im Umschalter
+  await page.locator('.seg').getByRole('button', { name: 'Kind 2' }).click(); assert.match(await page.locator('.raster-kopf h3').innerText(), /Kind 2/);
+});
+
+test('ADV 10: Kindwechsel – Antworten gehören zu Kind und Zugang; eine späte Antwort von Kind 1 erscheint nie bei Kind 2', async (t) => {
+  const adv = advServer({ offen: [1, 2] }); adv.st.offen[2].set(1, { tag: '2026-12-01', am: 'x', nachgeholt: false, inhalt: { art: 'bild', motiv: 'pinguin', text: 'Satz für Kind 2', sterne: 0 }, gs: null });
+  const { page } = await setup(t, { gestaltung: 'tag', anpassen: adv, advent: 'an' });
+  await page.route('**/functions/v1/lernen-api/**', async (route) => { const b = JSON.parse(route.request().postData() || '{}');
+    if (String(b.aktion).startsWith('schule_advent_')) { if (b.aktion === 'schule_advent_stand' && b.daten.lernender_id === 1) await new Promise((r) => setTimeout(r, 900));
+      await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: adv(b.aktion, null, b.daten) }) }); return; } await route.fallback(); });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(origin + '/#/advent/1'); await page.waitForTimeout(200); await page.goto(origin + '/#/advent/2'); await page.locator('.tafel').waitFor(); await page.waitForTimeout(1200);
+  assert.equal(await page.locator('.td2.offen').count(), 1, 'nur die offene Tür von Kind 2'); assert.match(await page.locator('.td2.offen').getAttribute('aria-label'), /Pinguin/);
+  assert.match(await page.evaluate(() => location.hash), /#\/advent\/2/);
+  // Gutscheine von Kind 2 zeigen keine von Kind 1
+  await page.goto(origin + '/#/gutscheine/2'); await page.locator('.gs-unter').first().waitFor(); await page.waitForTimeout(300);
+  assert.doesNotMatch(await page.locator('main').innerText(), /Gutschein 2/);
+});
+
+test('ADV 11: Reisekarte Winternacht – Ebene nur im Fenster, fängt keine Tipps ab (Pin, Zoom-Knopf, Sonne, Startknopf), Tönung unter den Pins, Mützen-Regel, Stern am aktuellen Pin, still bei „Bewegung reduzieren“, ≤ 7 bewegte Knoten, Hintergrund-Tab ohne Zeichnen', async (t) => {
+  const { page } = await advSeite(t, { karte: true, gestaltung: 'tag', bewegung: 'no-preference' }); await advReise(page); await page.waitForTimeout(600);
+  const lage = await page.evaluate(() => { const svg = document.querySelector('.rk-svg'); const kids = [...svg.children].map((x) => x.getAttribute('class') || x.tagName);
+    return { unter: kids.indexOf('rk-fest-unter'), route: kids.indexOf('rk-routen'), oben: kids.indexOf('rk-oben'), muetzen: document.querySelectorAll('.rk-fest use[href="#rkf-mu"]').length, haeubchen: document.querySelectorAll('.rk-fest use[href="#rkf-hb"]').length,
+      bewegt: document.getAnimations().filter((a) => a.playState === 'running' && a.effect?.target?.closest?.('.rk-fest, .rk-fest-rand, .rk-fest-unter')).length }; });
+  assert.ok(lage.unter > 0 && lage.unter < lage.route && lage.route < lage.oben, `Tönung unter Routen und Pins: ${JSON.stringify(lage)}`);
+  assert.ok(lage.muetzen >= 3 && lage.haeubchen >= 3, JSON.stringify(lage)); assert.ok(lage.bewegt <= 7 && lage.bewegt >= 1, `bewegte Knoten ${lage.bewegt}`);
+  // Stern statt Mütze am Pin „gerade dran“ (Italien)
+  const mueIt = await page.evaluate(() => { const rb = document.querySelector('.rk-rahmen').getBoundingClientRect(); const k = document.querySelector('.rk-pin[data-id="IT"] .rk-kopfring').getBoundingClientRect();
+    const x = k.left + k.width / 2 - rb.left, y = k.top + k.height / 2 - rb.top;
+    return [...document.querySelectorAll('.rk-fest use[href="#rkf-mu"]')].some((u) => { const m = (u.getAttribute('transform') || '').match(/translate\(([-\d.]+) ([-\d.]+)\)/); return m && Math.hypot(Number(m[1]) - x, Number(m[2]) - y) < 4; }); });
+  const sternDa = await page.evaluate(() => !!document.querySelector('.rk-fest .halo'));
+  assert.ok(sternDa, 'Stern über dem Ziel');
+  assert.equal(mueIt, false, 'keine Mütze am aktuellen Pin');
+  // Tipps gehen durch: an Mützen, Haube, Schnee liegt nie ein Ziel der Ebene
+  const durch = await page.evaluate(() => { const r = [...document.querySelectorAll('.rk-fest use')].map((u) => u.getBoundingClientRect()).concat([document.querySelector('.rk-zoom button').getBoundingClientRect(), document.querySelector('.rk-universum').getBoundingClientRect(), document.querySelector('.rk-start').getBoundingClientRect()]);
+    return r.map((b) => document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2)).filter((e) => e && e.closest('.rk-fest, .rk-fest-rand, .rk-fest-unter')).length; });
+  assert.equal(durch, 0, 'kein Element der Ebene unter dem Finger');
+  // Tipp auf einen Pin mit Mütze (Mitte des Kopfs, unter der Krempe) öffnet sein Blatt
+  const ziel = await page.evaluate(() => { const rb = document.querySelector('.rk-rahmen').getBoundingClientRect();
+    for (const u of document.querySelectorAll('.rk-fest use[href="#rkf-mu"]')) { const m = (u.getAttribute('transform') || '').match(/translate\(([-\d.]+) ([-\d.]+)\)/); if (!m) continue;
+      const x = rb.left + Number(m[1]), y = rb.top + Number(m[2]) - 3; const e = document.elementFromPoint(x, y); const pin = e?.closest('.rk-pin');
+      if (pin) return { x, y, id: pin.dataset.id, name: pin.getAttribute('aria-label').split(',')[0] }; } return null; });
+  assert.ok(ziel, 'Pin mit Mütze erreichbar'); await page.mouse.click(ziel.x, ziel.y); await page.locator('.rk-blatt:not([hidden])').waitFor();
+  assert.match(await page.locator('.rk-blatt').innerText(), new RegExp(ziel.name)); await page.locator('.rk-blatt .rk-x').click();
+  const vb0 = await page.locator('.rk-svg').getAttribute('viewBox'); await page.getByRole('button', { name: 'Hineinzoomen' }).click(); await page.waitForTimeout(300);
+  assert.notEqual(await page.locator('.rk-svg').getAttribute('viewBox'), vb0, 'Zoom-Knopf unter der Lichterkette geht');
+  // Hintergrund-Tab: Schnee steht
+  const bild = () => page.evaluate(() => document.querySelector('canvas.rkf-schnee').toDataURL().length + ':' + document.querySelector('canvas.rkf-schnee').toDataURL().slice(-60));
+  await page.evaluate(() => { Object.defineProperty(document, 'hidden', { configurable: true, get: () => true }); document.dispatchEvent(new Event('visibilitychange')); });
+  const a = await bild(); await page.waitForTimeout(400); assert.equal(await bild(), a, 'versteckt: kein Zeichnen');
+  await page.evaluate(() => { Object.defineProperty(document, 'hidden', { configurable: true, get: () => false }); document.dispatchEvent(new Event('visibilitychange')); }); await page.waitForTimeout(300); assert.notEqual(await bild(), a, 'wieder sichtbar: läuft');
+  // Bewegung reduzieren: alles still (keine CSS-Animation der Ebene, kein Schnee, kein Schlitten)
+  const { page: p2 } = await advSeite(t, { karte: true, gestaltung: 'nacht', bewegung: 'reduce' }); await advReise(p2); await p2.waitForTimeout(600);
+  const still = await p2.evaluate(() => ({ anim: document.getAnimations().filter((a) => a.effect?.target?.closest?.('.rk-fest, .rk-fest-rand, .rk-fest-unter')).length,
+    schnee: (() => { const c = document.querySelector('canvas.rkf-schnee'); const d = c.getContext('2d').getImageData(0, 0, c.width, c.height).data; let s = 0; for (let i = 3; i < d.length; i += 4) s += d[i]; return s; })(),
+    schlitten: getComputedStyle(document.querySelector('.rkf-schlitten')).display, klasse: document.querySelector('.rk').classList.contains('lr-adv-bewegt') }));
+  assert.deepEqual(still, { anim: 0, schnee: 0, schlitten: 'none', klasse: false });
+});
+
+test('ADV 12: Karte – Sonderfälle 6.12. Stiefel, 24.12. Schlitten quer über die Karte (einmal am Tag), 31.12. Feuerwerk neben dem Ziel; sonst keiner', async (t) => {
+  for (const [tag, sonder] of [[6, 'stiefel'], [24, ''], [31, 'feuerwerk'], [12, '']]) {
+    const { page } = await advSeite(t, { karte: true, advent: null, datum: `2026-12-${String(tag).padStart(2, '0')}T10:00:00`, gestaltung: 'nacht', bewegung: 'no-preference' });
+    await advReise(page); await page.waitForTimeout(500);
+    assert.equal(await page.locator('.rk').getAttribute('data-fest-sonder'), sonder, `${tag}.12.`);
+    assert.equal(await page.locator('#rkf-weltbahn').count(), tag === 24 ? 1 : 0, `${tag}.12. Weltbahn`);
+    assert.equal(await page.locator('.rk-fest .feuerwerk').count(), tag === 31 ? 3 : 0);
+    if (tag === 24) { await page.waitForTimeout(1500); assert.notEqual(await page.locator('.rkf-schlitten').evaluate((e) => getComputedStyle(e).display), 'none', 'Schlitten fliegt'); }
+    await page.close();
+  }
+});
+
+test('ADV 13: beide Einstiege – Schul-Seite (lernen/) mit Kind-Code: Menü „Adventskalender“/„Meine Gutscheine“, Kalender und Gutscheine; Eltern-Seite dort für Kinder gesperrt; Hülle enthält die Advent-Dateien', async (t) => {
+  const { page } = await advSeite(t, { srv: { offen: [1, 2] }, lernSeite: true, rolle: 'kind', gestaltung: 'tag', karte: true });
+  await page.goto(origin + '/lernen/'); await page.getByLabel('Lern-Code').fill('ABCD-EFGH-JKLM'); await page.getByRole('button', { name: 'Anmelden' }).click(); await page.waitForURL(/#\/reise\/1$/);
+  await page.locator('.rk .rk-pin').first().waitFor(); await page.waitForTimeout(500);
+  await page.locator('.rk-menue').first().click(); const m = page.locator('dialog.lr-blatt[open]'); await m.waitFor();
+  await m.locator('a[href="#/advent/1"]').waitFor(); assert.match(await m.innerText(), /Adventskalender[\s\S]*Meine Gutscheine/);
+  await m.locator('a[href="#/advent/1"]').click(); await page.locator('.tafel').waitFor(); assert.equal(await page.locator('.td2').count(), 24);
+  await page.goto(origin + '/lernen/#/gutscheine/1'); await page.locator('.gs-liste').first().waitFor();
+  await page.goto(origin + '/lernen/#/adventeltern'); await page.waitForURL(/#\/reise\/1$/);
+  const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8'); const v = fs.readFileSync(path.join(root, 'index.html'), 'utf8').match(/lernen\.js\?v=([\w.-]+)/)[1];
+  for (const f of ['lernen-advent.js', 'lernen-advent.css']) assert.ok(sw.includes(`'./${f}?v=${v}'`), `${f} in HUELLE`);
+  const geladen = await page.evaluate(() => [...document.querySelectorAll('script[src*="lernen-advent"], link[href*="lernen-advent"]')].map((x) => x.src || x.href));
+  assert.ok(geladen.every((u) => u.endsWith('?v=' + v)) && geladen.length === 2, JSON.stringify(geladen));
+});
+
+test('ADV 14: Ladezeit – Reiseseite im Fenster: höchstens ein Advent-Abruf je Sitzung (zweimal öffnen = ein Stand), sonst gleiche Abrufe wie ohne Advent; Bildrate beim Ziehen gemessen (CPU 4× gedrosselt)', async (t) => {
+  const abrufe = {};
+  for (const modus of ['aus', 'an']) {
+    const { page, calls, aufrufe } = await advSeite(t, { karte: true, advent: modus, gestaltung: 'tag' });
+    await advReise(page); await page.waitForTimeout(800); await page.goto(origin + '/#/weg/1'); await page.waitForTimeout(400); await advReise(page); await page.waitForTimeout(800);
+    abrufe[modus] = { api: calls.length + aufrufe().length, advent: aufrufe().length, liste: [...new Set(calls.map((c) => c.aktion))].sort().join(',') };
+    await page.close();
+  }
+  console.log('# ADV Abrufe', JSON.stringify(abrufe));
+  assert.equal(abrufe.an.advent, 1); assert.ok(abrufe.an.api <= abrufe.aus.api + 1, 'höchstens ein Abruf mehr'); assert.equal(abrufe.an.liste, abrufe.aus.liste);
+  const fps = {};
+  for (let w = 0; w < 3; w++) for (const modus of ['aus', 'an']) {
+    const { page } = await advSeite(t, { karte: true, advent: modus, gestaltung: 'tag', bewegung: 'no-preference' }); await advReise(page); await page.waitForTimeout(1200);
+    const cdp = await page.context().newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+    const r = await page.evaluate(() => new Promise((ok) => { const ra = document.querySelector('.rk-rahmen'); const b = ra.getBoundingClientRect(); const x0 = b.left + b.width / 2, y0 = b.top + 250;
+      const ev = (typ, x, y) => ra.dispatchEvent(new PointerEvent(typ, { pointerId: 7, clientX: x, clientY: y, bubbles: true, isPrimary: true, pointerType: 'touch' }));
+      ev('pointerdown', x0, y0); const f = []; const t0 = performance.now(); let i = 0;
+      const l = (tt) => { f.push(tt); i++; ev('pointermove', x0 + Math.sin(i / 8) * 90 + 20, y0 + Math.cos(i / 11) * 60); if (tt - t0 < 3000) requestAnimationFrame(l); else { ev('pointerup', x0, y0); const d = f.slice(1).map((x, j) => x - f[j]); ok({ fps: d.length / ((f.at(-1) - f[0]) / 1000), max: Math.max(...d) }); } };
+      requestAnimationFrame(l); }));
+    (fps[modus] ||= []).push(r); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 }); await page.close();
+  }
+  const med = (xs) => xs.map((x) => x.fps).sort((a, b) => a - b)[1];
+  console.log(`# ADV Bildrate beim Ziehen (390 px, CPU 4×): ohne Ebene ${med(fps.aus).toFixed(1)} fps, mit Ebene ${med(fps.an).toFixed(1)} fps; längstes Bild ${Math.round(Math.max(...fps.aus.map((x) => x.max)))} / ${Math.round(Math.max(...fps.an.map((x) => x.max)))} ms`);
+  assert.ok(med(fps.an) > 5, 'Karte bleibt bedienbar');
+});

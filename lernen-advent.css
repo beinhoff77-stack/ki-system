@@ -373,20 +373,20 @@ a.karte2.gs-link { display: block; text-decoration: none; }
 .adv-prot { font-size: 13.5px; } .adv-prot li { margin: 4px 0; } .adv-prot summary { min-height: 44px; display: flex; align-items: center; font-weight: 700; cursor: pointer; padding: 0 16px; }
 
 /* ================= Reisekarte: Weihnachts-Ebene „Winternacht“ ================= */
-.rk-fest-unter, .rk-fest, .rk-fest-rand, .rk-fest-rand * { pointer-events: none !important; }
-.rk-fest-rand { position: absolute; inset: 0; overflow: hidden; z-index: 1; }
+.rk-fest-unter, .rk-fest-unter *, .rk-fest, .rk-fest *, .rk-fest-rand, .rk-fest-rand * { pointer-events: none !important; }
+.rk-fest { position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: visible; z-index: 1; transform-origin: 0 0; will-change: transform; }
+.rk-fest-rand { position: absolute; inset: 0; overflow: hidden; z-index: 1; will-change: transform; } /* eigene Ebene: beim Ziehen der Karte nicht neu gezeichnet */
 .rk-fest-rand > svg, .rk-fest-rand > canvas { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; overflow: visible; }
+.rk-fest-rand > svg.rkf-bahn-svg { width: 1px; height: 1px; visibility: hidden; }
+.rk-fest-rand > svg.rkf-schlitten { width: auto; height: auto; will-change: transform; transform-origin: center; }
 @media (prefers-reduced-motion: no-preference) {
-  .lr-adv-bewegt .fk-glanz { animation: advFkGlanz 2.8s ease-in-out infinite; }
-  .lr-adv-bewegt .fk-glanz.fk1 { animation-delay: -.93s; } .lr-adv-bewegt .fk-glanz.fk2 { animation-delay: -1.87s; }
-  .lr-adv-bewegt .rk-fest .halo { animation: advHalo 3.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-  .lr-adv-bewegt .rk-fest-unter .nordlicht { animation: advNord 14s ease-in-out infinite alternate; }
+  .lr-adv-bewegt .rk-fest-rand .rkf-glanz { animation: advFkGlanz 2.8s ease-in-out infinite; will-change: opacity; }
+  .lr-adv-bewegt .rk-fest-rand .rkf-glanz.fk1 { animation-delay: -.93s; } .lr-adv-bewegt .rk-fest-rand .rkf-glanz.fk2 { animation-delay: -1.87s; }
+  /* Nordlicht und Stern-Halo liegen in der Karten-SVG: still (eine Animation dort zeichnete die ganze Karte in jedem Bild neu) */
   .lr-adv-bewegt .rk-fest .feuerwerk { animation: advKnall 2.4s ease-out 3 both; transform-box: fill-box; transform-origin: center; }
   .lr-adv-bewegt .rk-fest .feuerwerk.f1 { animation-delay: .6s; } .lr-adv-bewegt .rk-fest .feuerwerk.f2 { animation-delay: 1.2s; }
 }
 @keyframes advFkGlanz { 50% { opacity: .35; } }
-@keyframes advHalo { 50% { opacity: .45; transform: scale(.85); } }
-@keyframes advNord { to { transform: translateX(-18px); } }
 @keyframes advKnall { 0% { opacity: 0; transform: scale(.2); } 20% { opacity: 1; } 70% { opacity: .9; transform: scale(1); } 100% { opacity: 0; transform: scale(1.08); } }
 /* Schneehaube auf „Gerade dran“, Mütze am Jugendwort-Schild – reine Grafik */
 .lr-fest .rk-schwebe-karte { position: relative; }

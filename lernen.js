@@ -2505,11 +2505,11 @@ function lernReisekarte(d, karte, start) {
   const ebenen = { meer: s('g'), land: s('g', { class: 'rk-laender' }), kette: s('g', { class: 'rk-kette' }), route: s('g', { class: 'rk-routen' }), oben: s('g', { class: 'rk-oben' }) };
   // Advent: Weihnachts-Ebene „Winternacht“ (nur Grafik, fängt keine Tipps ab) – Tönung/Nordlicht UNTER Routen, Pins und Namen; Mützen, Stern, Stiefel, Feuerwerk
   // darüber; Lichterkette, Schneehaube, Schnee und Schlitten als feste Ebene am Kartenrand. Gezeichnet in lernen-advent.js (lernFestZeichnen).
-  const fest = lernAdventFenster() && lernNeu(kind) ? { unter: s('g', { class: 'rk-fest-unter', 'pointer-events': 'none', 'aria-hidden': 'true' }), oben: s('g', { class: 'rk-fest', 'pointer-events': 'none', 'aria-hidden': 'true' }),
+  const fest = lernAdventFenster() && lernNeu(kind) ? { unter: s('g', { class: 'rk-fest-unter', 'pointer-events': 'none', 'aria-hidden': 'true' }), oben: s('svg', { class: 'rk-fest', 'aria-hidden': 'true', focusable: 'false' }),
     rand: el('div', { class: 'rk-fest-rand', 'aria-hidden': 'true' }), nacht: lernGestaltung(kind) === 'nacht' } : null;
   svg.append(s('defs', {}, s('pattern', { id: 'rk-schraffur', width: 6, height: 6, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)' }, s('rect', { width: 6, height: 6, class: 'rk-schr-g' }), s('line', { x1: 0, y1: 0, x2: 0, y2: 6, class: 'rk-schr-l' })),
-    s('clipPath', { id: 'rk-kreis', clipPathUnits: 'objectBoundingBox' }, s('circle', { cx: 0.5, cy: 0.5, r: 0.5 }))), ebenen.meer, ebenen.land, fest?.unter, ebenen.kette, ebenen.route, ebenen.oben, fest?.oben);
-  const rahmen = el('div', { class: 'rk-rahmen' }, svg, fest?.rand);
+    s('clipPath', { id: 'rk-kreis', clipPathUnits: 'objectBoundingBox' }, s('circle', { cx: 0.5, cy: 0.5, r: 0.5 }))), ebenen.meer, ebenen.land, fest?.unter, ebenen.kette, ebenen.route, ebenen.oben);
+  const rahmen = el('div', { class: 'rk-rahmen' }, svg, fest?.oben, fest?.rand); // Mützen & Co. als eigene Ebene über den Pins (beim Ziehen nur verschoben, nicht neu gezeichnet)
   const pfad = el('nav', { class: 'rk-pfad', 'aria-label': 'Ebene der Karte' });
   const blatt = el('section', { class: 'rk-blatt', 'aria-live': 'polite', hidden: true });
   const seite = el('aside', { class: 'rk-seite' });
@@ -2865,7 +2865,7 @@ function lernReisekarte(d, karte, start) {
   function festZeichnen(lage) {
     if (!fest || !window.lernFestZeichnen) return;
     const kb = rahmen.getBoundingClientRect(); const rel = (e0) => { if (!e0) return null; const r = e0.getBoundingClientRect(); return r.width ? [r.left - kb.left, r.top - kb.top, r.width, r.height] : null; };
-    window.lernFestZeichnen(fest, { ...lage, ebene: z.ebene, vb: z.vb, uni: rel(universum), zoom: rel(zoomKnoepfe), quelle: rel(quelle), unten: Math.round(unten()), wurzel, tag: new Date() });
+    window.lernFestZeichnen(fest, { ...lage, ebene: z.ebene, ort: `${z.kont}/${z.land}/${z.sel}`, vb: z.vb, uni: rel(universum), zoom: rel(zoomKnoepfe), quelle: rel(quelle), unten: Math.round(unten()), wurzel, tag: new Date() });
   }
   if (fest) { wurzel.classList.add('lr-fest'); lernAdventLaden().then(() => { if (document.body.contains(wurzel) && z.vb) zeichneOben(); }).catch(() => { fest.rand.remove(); }); }
   const hinweis = el('div', { class: 'rk-hinweis' }); kartenTeil.append(hinweis);

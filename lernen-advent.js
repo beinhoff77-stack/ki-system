@@ -260,7 +260,7 @@ const M2 = {
 const MOTIV_NAME = { koala: 'Koala im Sommer-Dezember', surf: 'Surf-Schlitten', neonbaum: 'Neon-Baum', pinguin: 'Pinguin mit Kopfhörern', polarlicht: 'Polarlicht', flieger: 'Flieger mit Lichterkette',
   kaenguru: 'Känguru mit Geschenk', sandmann: 'Schneemann aus Sand', erdkugel: 'Weltkugel als Christbaumkugel', rentier: 'Rentier mit VR-Brille', bordkarte: 'Bordkarte zum Nordpol',
   controller: 'Lebkuchen-Controller', strandfeuer: 'Lichter am Strand', kompass: 'Kompass mit Stern', schneeflocke: 'Pixel-Schneeflocke', stern: 'Kometen-Stern',
-  krampus: 'Krampus mit Besen', nikolaus: 'Karte: Nikolaus-Stiefel', heiligabend: 'Karte: Heiligabend' };
+  krampus: 'Krampus mit Besen', nikolaus: 'Nikolaus-Stiefel', heiligabend: 'Heiligabend am Strand' };
 const MOTIVE_ALLGEMEIN = ['koala', 'surf', 'neonbaum', 'pinguin', 'polarlicht', 'flieger', 'kaenguru', 'sandmann', 'erdkugel', 'rentier', 'bordkarte', 'controller', 'strandfeuer', 'kompass', 'schneeflocke', 'stern'];
 // Ein Objekt mit allen Motiven als SVG-Text (Schlüssel wie auf dem Server, server.md 3.9)
 const LERN_ADVENT_MOTIVE = Object.fromEntries(Object.keys(MOTIV_NAME).map((k) => [k, { name: MOTIV_NAME[k], svg: (u) => M2[k](u || uid('m' + k)), sonder: !MOTIVE_ALLGEMEIN.includes(k) }]));
@@ -379,12 +379,12 @@ function sterneKarte(n) { const d = el('div', {}); d.innerHTML = STERNE_HTML(uid
 
 // ---------- Inhalt eines offenen Türchens ----------
 const sorteVon = (t) => (t.art === 'krampus' ? 'krampus' : t.art === 'sterne' ? (t.variante === 'jackpot' ? 'jackpot' : t.variante === 'niete' ? 'niete' : 'sterne') : t.art === 'karte' ? 'karte' : t.art === 'bild' ? 'bild' : t.art === 'gutschein' ? 'gutschein' : 'leer');
-function inhaltEl(t) {
+function inhaltEl(t, { tausch = false } = {}) {
   const n = Number(t.sterne) || 0; const sorte = sorteVon(t); const kids = [];
   if (sorte === 'bild') { const m = motivFuer(t); kids.push(m ? grafik(motivSvg(m), 'motiv-gross2') : el('div', { class: 'leer-licht2', 'aria-hidden': 'true' }, el('b', {}, 'Licht.')));
     if (m) { kids[0].removeAttribute('aria-hidden'); kids[0].setAttribute('role', 'img'); kids[0].setAttribute('aria-label', 'Bild: ' + LERN_ADVENT_MOTIVE[m].name); }
     if (t.titel) kids.push(el('p', { class: 'adv-satz' }, el('b', {}, t.titel))); if (t.text) kids.push(el('p', { class: 'adv-satz' }, t.text)); }
-  else if (sorte === 'gutschein') kids.push(gutscheinKarte({ nr: t.nr, titel: t.titel, text: t.text, sterne: n, tausch: t.variante === 'tausch' }));
+  else if (sorte === 'gutschein') kids.push(gutscheinKarte({ nr: t.nr, titel: t.titel, text: t.text, sterne: n, tausch: tausch && t.variante === 'tausch' })); // Tausch aus: wie ein Gutschein
   else if (sorte === 'krampus') kids.push(krampusKarte(t));
   else if (sorte === 'jackpot') kids.push(jackpotKarte(n), el('p', { class: 'adv-satz' }, t.text || 'Schon gutgeschrieben. Einfach so.'));
   else if (sorte === 'niete') kids.push(nieteKarte(n || 1), el('p', { class: 'adv-satz' }, t.text || 'Morgen wartet ein neues Türchen.'));
@@ -396,12 +396,13 @@ function inhaltEl(t) {
   if (n && ['bild', 'krampus', 'leer'].includes(sorte)) kids.push(el('span', { class: 'adv-plus' }, `+${zahlS(n)} ★`));
   return el('div', { class: 'adv-inhalt' }, ...kids);
 }
-function inhaltText(t) {
+function inhaltText(t, { tausch = false } = {}) {
   const n = Number(t.sterne) || 0; const sorte = sorteVon(t); const st = n ? ` ${n === 1 ? '1 Stern ist' : `${zahlS(n)} Sterne sind`} schon auf deinem Konto.` : '';
   if (sorte === 'krampus') return 'Steht in „Meine Gutscheine“ unter „Vom Krampus“. Mama oder Papa haken ab, wenn’s erledigt ist.';
   if (sorte === 'jackpot' || sorte === 'sterne') return st.trim();
   if (sorte === 'niete') return `${st.trim()} Nicht jedes Türchen ist ein Jackpot.`;
   if (sorte === 'karte') return (Number(t.nr) === 6 ? 'Heute nur eine Karte – das Geschenk gibt’s von Mama und Papa.' : 'Heute nur eine Karte – die Geschenke gibt’s unterm Baum.') + st;
+  if (sorte === 'gutschein' && t.variante === 'tausch') return (tausch ? 'Liegt in „Meine Gutscheine“ – dort kannst du tauschen.' : 'Liegt in „Meine Gutscheine“. Zeig ihn Mama oder Papa.') + st;
   if (sorte === 'gutschein') return 'Einlösen, wann du willst: Menü › Meine Gutscheine.' + st;
   return 'Bleibt im Adventskalender – du kannst es jederzeit wieder ansehen.' + st;
 }
@@ -434,7 +435,7 @@ function tuerZeigen({ kindObj, kindId, stand, weiter, weiterText = 'Weiter', que
   const szene = el('div', { class: 'lr-ab-szene' }, oben, titel, zeile, buehne, ansage);
   const meldung = el('p', { class: 'adv-fehler', role: 'alert', hidden: true });
   const oeffnenK = lernGrossKnopf(`Türchen ${nr0} öffnen`, null, { class: 'adv-tuer-knopf', onclick: () => oeffne() });
-  const spaeter = el('button', { type: 'button', class: 'lr-ab-pause adv-spaeter', onclick: () => { if (!sperre) weiter(); } }, quelle === 'etappe' ? `Später öffnen – weiter zu: ${weiterText}` : 'Später öffnen');
+  const spaeter = el('button', { type: 'button', class: 'lr-ab-pause adv-spaeter', onclick: () => { if (!sperre) weiter(); } }, quelle === 'etappe' ? `Später öffnen – weiter zu: ${weiterText.replace(/^Weiter:\s*/, '')}` : 'Später öffnen');
   const blatt = el('div', { class: 'lr-ab-blatt' }, el('p', { class: 'adv-klein' }, quelle === 'etappe' ? 'Etappe gelandet ✓' : 'Adventskalender'),
     el('p', { class: 'adv-txt' }, 'Dahinter ist ein Bild oder ein Geschenk von Mama und Papa.'), meldung, oeffnenK, spaeter);
   const app = el('div', { class: 'lr-ab-app lr-advent sorte-' + (tuerSorte(nr0) === 't24' ? 't24' : 'tuer') + (wenig ? '' : ' lr-adv-bewegt'), 'data-nr': String(nr0) }, szene, blatt);
@@ -462,16 +463,18 @@ function tuerZeigen({ kindObj, kindId, stand, weiter, weiterText = 'Weiter', que
     app.className = app.className.replace(/sorte-\S+/, 'sorte-' + (sorte === 'bild' || sorte === 'gutschein' || sorte === 'leer' ? (nr === 24 ? 't24' : 'tuer') : sorte));
     lernErsetze(titel, `Türchen ${nr}`, t.nachgeholt ? el('span', { class: 'adv-badge' }, 'NACHGEHOLT') : null);
     oben.textContent = `${sorte === 'krampus' ? 'KRAMPUS WAR DA' : 'ADVENTSKALENDER'} · ${datumOben(t.tag || stand.heute)}`;
-    zeile.textContent = sorte === 'krampus' ? 'Kein Sterne-Abzug. Nur eine kleine Aufgabe.' : sorte === 'karte' && nr === 24 ? 'Frohe Weihnachten!' : schon ? 'Schon offen – auf einem anderen Gerät.' : '';
+    zeile.textContent = schon ? 'Schon offen – auf einem anderen Gerät.' : sorte === 'krampus' ? 'Kein Sterne-Abzug. Nur eine kleine Aufgabe.' : sorte === 'karte' && nr === 24 ? 'Frohe Weihnachten!' : '';
     zeile.hidden = !zeile.textContent;
-    const inhaltZeigen = () => { if (!huelle.isConnected) return; lernErsetze(buehne, inhaltEl(t)); szene.prepend(funkenEl());
+    const tauschAn = !!(LERN_ADVENT.tausch && stand.tausch);
+    const inhaltZeigen = () => { if (!huelle.isConnected) return; lernErsetze(buehne, inhaltEl(t, { tausch: tauschAn })); szene.prepend(funkenEl());
       const st0 = lernJwPlatz(kid, stickerAnlass(t)); if (st0) { szene.classList.add('lr-jw-mit'); szene.append(st0); } };
+    buehne.querySelector('.adv-antippen')?.remove();
     if (wenig) inhaltZeigen(); // Bewegung reduzieren: keine Drehung, der Inhalt steht sofort da
     else { if (sorte === 'krampus') { const neu = tuerRahmen(nr, 'krampus', `Türchen ${nr}`); rahmen.replaceWith(neu); requestAnimationFrame(() => neu.classList.add('auf')); }
       else rahmen.classList.add('auf'); setTimeout(inhaltZeigen, 650); }
     const naechst = r ? (Number(r.frei_heute) > 0 ? `Türchen ${r.naechste_nr} ist auch bereit – im Adventskalender.` : Number(r.moeglich_heute) > 0 ? 'Heute geht noch ein Türchen – nach deiner nächsten Etappe.' : nr < 24 && stand.phase === 'laeuft' ? 'Das nächste Türchen gibt’s morgen – nach deiner nächsten Etappe.' : '') : '';
-    const weiterK = lernGrossKnopf(quelle === 'etappe' ? `Weiter: ${weiterText}` : 'Zurück zum Kalender', null, { onclick: () => weiter() });
-    lernErsetze(blatt, el('p', { class: 'adv-klein' }, `Türchen ${nr} ist offen`), el('p', { class: 'adv-txt' }, inhaltText(t)), naechst ? el('p', { class: 'lr-ab-leise' }, naechst) : null, weiterK,
+    const weiterK = lernGrossKnopf(quelle === 'etappe' ? (/^Weiter\b/.test(weiterText) ? weiterText : `Weiter: ${weiterText}`) : 'Zurück zum Kalender', null, { onclick: () => weiter() });
+    lernErsetze(blatt, el('p', { class: 'adv-klein' }, `Türchen ${nr} ist offen`), el('p', { class: 'adv-txt' }, inhaltText(t, { tausch: tauschAn })), naechst ? el('p', { class: 'lr-ab-leise' }, naechst) : null, weiterK,
       quelle === 'etappe' ? el('a', { class: 'lr-ab-pause', href: `#/advent/${kid}` }, 'Adventskalender ansehen') : null);
     ansage.textContent = ansageText({ ...t, nr }); setTimeout(() => weiterK.focus({ preventScroll: true }), wenig ? 30 : 700);
   }
@@ -795,7 +798,7 @@ async function lernAdventElternSeite() {
     function zeige() {
       const kids = [];
       if (art === 'sterne') { varWahl([['normal', 'normal'], ['jackpot', 'Jackpot'], ['niete', 'Niete (+1 Trost)']], b.art === 'sterne' ? b.variante || 'normal' : 'normal'); kids.push(el('div', { class: 'feld' }, el('span', {}, 'Sorte'), variante)); }
-      if (art === 'gutschein') { varWahl([['normal', 'Gutschein'], ['tausch', 'Tauschkarte']], b.art === 'gutschein' ? b.variante || 'normal' : 'normal'); kids.push(el('div', { class: 'feld' }, el('span', {}, 'Sorte'), variante)); }
+      if (art === 'gutschein') { varWahl([['normal', 'normaler Gutschein'], ['tausch', 'Tauschkarte']], b.art === 'gutschein' ? b.variante || 'normal' : 'normal'); kids.push(el('div', { class: 'feld' }, el('span', {}, 'Sorte'), variante)); }
       if (['gutschein', 'krampus', 'karte', 'bild'].includes(art)) kids.push(feld(art === 'krampus' ? 'Aufgabe (Titel)' : 'Titel', titelI, art === 'gutschein' || art === 'krampus' ? 'Pflicht, höchstens 80 Zeichen' : 'freiwillig, höchstens 80 Zeichen'));
       if (art !== 'leer') kids.push(feld(art === 'bild' || art === 'karte' ? 'Satz von Mama und Papa' : 'Text', textI, 'höchstens 300 Zeichen'));
       if (art === 'bild' || art === 'karte') { zeigeMotive(art === 'karte' ? ['nikolaus', 'heiligabend', ...MOTIVE_ALLGEMEIN] : MOTIVE_ALLGEMEIN); kids.push(el('div', { class: 'feld' }, el('span', {}, art === 'bild' ? 'Motiv (Pflicht)' : 'Motiv'), motivWahl)); }
@@ -990,9 +993,9 @@ function festStiefel(x, y, s) {
 // 31.12.: drei Feuerwerks-Bouquets neben dem Ziel (verjüngte Strahlen, heller Kern, fallende Funken)
 function festFeuerwerk(orte) {
   const farben = [['#FFC94A', '#FFF3D1'], ['#FF5A5F', '#FFD0D2'], ['#3DDC84', '#D7FBE7']];
-  return orte.map(([bx, by, r], i) => [bx, by, farben[i % 3], r]).map(([bx, by, [f, h], r], i) => `<path d="M${f1(bx + 6)} ${f1(by + r * 2.6)} Q${f1(bx + 3)} ${f1(by + r * 1.4)} ${f1(bx)} ${f1(by + r * .3)}" stroke="${h}" stroke-width="1" fill="none" stroke-dasharray="1 2.4" opacity=".7"/><g class="feuerwerk f${i}" transform="translate(${f1(bx)} ${f1(by)})"><circle r="${r * .5}" fill="${h}" opacity=".35"/>
+  return orte.map(([bx, by, r], i) => [bx, by, farben[i % 3], r]).map(([bx, by, [f, h], r], i) => `<path d="M${f1(bx + 6)} ${f1(by + r * 2.6)} Q${f1(bx + 3)} ${f1(by + r * 1.4)} ${f1(bx)} ${f1(by + r * .3)}" stroke="${h}" stroke-width="1" fill="none" stroke-dasharray="1 2.4" opacity=".7"/><g transform="translate(${f1(bx)} ${f1(by)})"><g class="feuerwerk f${i}"><circle r="${r * .5}" fill="${h}" opacity=".35"/>
     ${Array.from({ length: 14 }, (_, j) => { const a = j / 14 * 360 + i * 9; const l = r * (j % 2 ? .78 : 1); return `<path d="M0 -.7 L${l} 0 L0 .7Z" transform="rotate(${a}) translate(${r * .22} 0)" fill="${f}"/><circle cx="${f1(Math.cos(a * Math.PI / 180) * (l + r * .38))}" cy="${f1(Math.sin(a * Math.PI / 180) * (l + r * .38))}" r=".9" fill="${h}"/>`; }).join('')}
-    <circle r="2" fill="#fff"/>${[[-3, r + 4], [4, r + 7], [-6, r + 10]].map(([fx2, fy2], q) => `<circle cx="${fx2}" cy="${fy2}" r="${.8 - q * .15}" fill="${f}" opacity="${.8 - q * .2}"/>`).join('')}</g>`).join('');
+    <circle r="2" fill="#fff"/>${[[-3, r + 4], [4, r + 7], [-6, r + 10]].map(([fx2, fy2], q) => `<circle cx="${fx2}" cy="${fy2}" r="${.8 - q * .15}" fill="${f}" opacity="${.8 - q * .2}"/>`).join('')}</g></g>`).join(''); // App: Verschiebung außen, Animation (transform) innen
 }
 // ================= Reisekarte: Weihnachts-Ebene „Winternacht“ (Entwurf 2, Variante v5) =================
 // Drei Ebenen, alle pointer-events none und aria-hidden (fangen keine Tipps ab):
@@ -1004,18 +1007,19 @@ const FEST_SVG = 'http://www.w3.org/2000/svg';
 const hashZahl = (t) => { let h = 7; for (const c of String(t)) h = (h * 31 + c.charCodeAt(0)) % 100003; return h; };
 const datenUrl = (svg) => `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
 function festUnterZeichnen(fest, W, H, s, nacht) {
-  const u = 'rkfu'; const op = nacht ? 1 : .8;
-  const tint = `<rect x="-60" y="-60" width="${W + 120}" height="${H + 120}" fill="${nacht ? '#3D6FD6' : '#8DB8E6'}" opacity="${nacht ? .18 : .26}"/>`;
-  const frost = `<defs><radialGradient id="${u}frost" cx=".5" cy=".55" r=".75"><stop offset=".62" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="${nacht ? '#9CC8FF' : '#FFFFFF'}" stop-opacity="${nacht ? .3 : .8}"/></radialGradient></defs><rect width="${W}" height="${H}" fill="url(#${u}frost)"/>`;
-  fest.unter.innerHTML = tint + frost + '<image class="nordlicht" x="0" y="0" width="' + W + '" height="' + H + '" preserveAspectRatio="none"/>';
-  // Nordlicht einmal gerastert (Unschärfe-Filter nur einmal gerechnet, beim Ziehen nicht neu) – Bild statt Live-Filter
-  const nl = `<svg xmlns="${FEST_SVG}" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"><defs><filter id="${u}nlb" x="-10%" y="-50%" width="120%" height="200%"><feGaussianBlur stdDeviation="${f1(7 * s)}"/></filter><filter id="${u}nlb2" x="-10%" y="-50%" width="120%" height="200%"><feGaussianBlur stdDeviation="${f1(1.6 * s)}"/></filter>
+  // Tönung, Frost-Rand und Nordlicht als EIN gerastertes Bild (Unschärfe-Filter und Verläufe nur einmal gerechnet; beim Ziehen nur ein Bild je Frame)
+  const u = 'rkfu';
+  const svg = `<svg xmlns="${FEST_SVG}" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"><defs><filter id="${u}nlb" x="-10%" y="-50%" width="120%" height="200%"><feGaussianBlur stdDeviation="${f1(7 * s)}"/></filter><filter id="${u}nlb2" x="-10%" y="-50%" width="120%" height="200%"><feGaussianBlur stdDeviation="${f1(1.6 * s)}"/></filter>
+    <radialGradient id="${u}frost" cx=".5" cy=".55" r=".75"><stop offset=".62" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="${nacht ? '#9CC8FF' : '#FFFFFF'}" stop-opacity="${nacht ? .3 : .8}"/></radialGradient>
     <linearGradient id="${u}nlmaske" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".2" stop-color="#fff" stop-opacity=".15"/><stop offset=".42" stop-color="#fff" stop-opacity="1"/><stop offset=".9" stop-color="#fff" stop-opacity="1"/><stop offset="1" stop-color="#fff" stop-opacity=".5"/></linearGradient>
-    <mask id="${u}nlm"><rect width="${W}" height="${H * .36}" fill="url(#${u}nlmaske)"/></mask></defs>${festNordlicht(u, W, H, s, nacht)}</svg>`;
+    <mask id="${u}nlm"><rect width="${W}" height="${H * .36}" fill="url(#${u}nlmaske)"/></mask></defs>
+    <rect width="${W}" height="${H}" fill="${nacht ? '#3D6FD6' : '#8DB8E6'}" opacity="${nacht ? .18 : .26}"/><rect width="${W}" height="${H}" fill="url(#${u}frost)"/>
+    <g opacity="${nacht ? 1 : .8}">${festNordlicht(u, W, H, s, nacht)}</g></svg>`;
+  fest.unter.innerHTML = `<rect x="-60" y="-60" width="${W + 120}" height="${H + 120}" fill="${nacht ? '#3D6FD6' : '#8DB8E6'}" opacity="${nacht ? .18 : .26}"/><image class="rkf-unter-bild" x="0" y="0" width="${W}" height="${H}" preserveAspectRatio="none"/>`;
   const bild = new Image(); const nr = (fest.nlNr = (fest.nlNr || 0) + 1);
   bild.onload = () => { if (fest.nlNr !== nr) return; try { const c = document.createElement('canvas'); c.width = W; c.height = H; c.getContext('2d').drawImage(bild, 0, 0);
-    const img = fest.unter.querySelector('image.nordlicht'); img?.setAttribute('href', c.toDataURL('image/png')); img?.setAttribute('opacity', String(op)); } catch { /* ohne Nordlicht */ } };
-  bild.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(nl);
+    const img = fest.unter.querySelector('image.rkf-unter-bild'); img?.setAttribute('href', c.toDataURL('image/png')); fest.unter.querySelector('rect')?.remove(); } catch { /* nur Tönung */ } };
+  bild.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
 }
 function festRandZeichnen(fest, L, s, nacht) {
   const { W, H } = L; const u = 'rkfr'; const g = [];
@@ -1028,9 +1032,18 @@ function festRandZeichnen(fest, L, s, nacht) {
   const tag24 = L.tag.getMonth() === 11 && L.tag.getDate() === 24;
   if (tag24) { const d = `M${f1(-70 * s)} ${f1(H * .64)} C${f1(W * .25)} ${f1(H * .2)} ${f1(W * .7)} ${f1(H * .12)} ${f1(W + 80 * s)} ${f1(H * .36)}`;
     g.push(`<path id="rkf-weltbahn" d="${d}" fill="none" stroke="none"/><path d="${d}" fill="none" stroke="#FFD23F" stroke-width="${f1(2.2 * s)}" stroke-dasharray="${f1(.1 * s)} ${f1(9 * s)}" stroke-linecap="round" opacity=".95"/><path d="${d}" fill="none" stroke="#FFF3D1" stroke-width="${f1(1.2 * s)}" stroke-dasharray="${f1(.1 * s)} ${f1(23 * s)}" stroke-dashoffset="${f1(5 * s)}" stroke-linecap="round"/>`); }
-  g.push(`<path id="rkf-bahn" d="" fill="none" stroke="none"/><g class="rkf-schlitten" style="display:none">${festSchlitten(nacht, (tag24 ? 1.9 : 1.15) * s)}</g>`);
+
+  const sk = (tag24 ? 1.9 : 1.15) * s; const sb = Math.round(110 * sk), sh = Math.round(46 * sk); // Schlitten als eigenes kleines SVG (per CSS-transform bewegt – kein Neuzeichnen der Ebene)
   const mask = `<mask id="${u}frei" maskUnits="userSpaceOnUse" x="-20" y="-20" width="${W + 40}" height="${H + 40}"><rect x="-20" y="-20" width="${W + 40}" height="${H + 40}" fill="#fff"/>${zoom ? `<rect x="${zoom[0]}" y="${zoom[1]}" width="${zoom[2]}" height="${zoom[3]}" rx="12" fill="#000"/>` : ''}${uni ? `<circle cx="${uni[0] + uni[2] / 2}" cy="${uni[1] + 29}" r="30" fill="#000"/>` : ''}</mask>`;
-  fest.rand.innerHTML = `<canvas class="rkf-schnee" width="${Math.round(W * 2)}" height="${Math.round(H * 2)}"></canvas><svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}"><defs>${festDefs(u, nacht)}${mask}</defs><g mask="url(#${u}frei)">${g.join('')}</g></svg>`;
+  const dpr = Math.min(2, window.devicePixelRatio || 1); fest.dpr = dpr;
+  fest.rand.innerHTML = `<canvas class="rkf-schnee" width="${Math.round(W * dpr)}" height="${Math.round(H * dpr)}"></canvas><svg class="rkf-statisch" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}"><defs>${festDefs(u, nacht)}${mask}</defs><g mask="url(#${u}frei)">${g.join('')}</g></svg>`
+    + '<svg class="rkf-bahn-svg" width="1" height="1" aria-hidden="true"><path id="rkf-bahn" d="" fill="none" stroke="none"/></svg>' // Bahn unsichtbar: Ändern zeichnet nichts neu
+    + `<svg class="rkf-schlitten" viewBox="${-sb} ${-sh} ${2 * sb} ${2 * sh}" width="${2 * sb}" height="${2 * sh}" style="display:none">${festSchlitten(nacht, sk)}</svg>`;
+  fest.schlittenMass = [sb, sh];
+  // Lampen-Leuchten: drei eigene SVG-Ebenen (nur Deckkraft animiert – der Rest der Ebene wird nicht neu gezeichnet)
+  const st = fest.rand.querySelector('svg.rkf-statisch');
+  st.querySelectorAll('g.fk-glanz').forEach((gl) => { const w = document.createElementNS(FEST_SVG, 'svg'); w.setAttribute('viewBox', `0 0 ${W} ${H}`); w.setAttribute('width', W); w.setAttribute('height', H);
+    w.setAttribute('class', gl.getAttribute('class') + ' rkf-glanz'); gl.removeAttribute('class'); w.append(gl); fest.rand.append(w); });
   fest.bahnTag24 = tag24;
 }
 // Mützen-Regel (grafik-bericht.md): nur große Pins (Kopfradius ≥ 12) bekommen eine Mütze; kleine und bedrängte Pins ein Schneehäubchen; die Mütze weicht
@@ -1089,7 +1102,7 @@ function festLaufStarten(fest, L, s, nacht) {
   festLaufStop(fest);
   const c = fest.rand.querySelector('canvas.rkf-schnee'); const ctx = c?.getContext('2d'); if (!ctx) return;
   if (lernWenigBewegung()) { ctx.clearRect(0, 0, c.width, c.height); return; } // Bewegung reduzieren: kein Schnee, kein Schlitten
-  const W2 = c.width, H2 = c.height; const s2 = s * 2; let sd = 11; const zf = () => (sd = (sd * 16807) % 2147483647) / 2147483647;
+  const W2 = c.width, H2 = c.height; const dp = fest.dpr || 1; const s2 = s * dp; let sd = 11; const zf = () => (sd = (sd * 16807) % 2147483647) / 2147483647;
   const sprite = (r, weich) => { const q = document.createElement('canvas'); const d = Math.ceil(r * 2 + 6); q.width = q.height = d; const x = q.getContext('2d'); const m = d / 2;
     const gr = x.createRadialGradient(m, m, 0, m, m, r + (weich ? 2 : .6)); gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(weich ? .25 : .7, 'rgba(255,255,255,.95)'); gr.addColorStop(1, 'rgba(255,255,255,0)');
     if (!nacht) { x.beginPath(); x.arc(m, m + .6, r + .3, 0, 7); x.fillStyle = weich ? 'rgba(70,110,150,.18)' : 'rgba(70,110,150,.42)'; x.fill(); }
@@ -1097,17 +1110,18 @@ function festLaufStarten(fest, L, s, nacht) {
   const breit = L.W >= 700;
   const T = [{ n: breit ? 70 : 34, r: [.9, 1.5], v: [.22, .38], a: nacht ? .7 : .85, weich: false }, { n: breit ? 30 : 15, r: [1.9, 2.6], v: [.5, .7], a: .95, weich: false }, { n: breit ? 9 : 5, r: [4.2, 6], v: [1, 1.3], a: nacht ? .6 : .75, weich: true }];
   const fl = []; T.forEach((l, li) => { for (let i = 0; i < l.n; i++) { const r = (l.r[0] + zf() * (l.r[1] - l.r[0])) * s2; fl.push({ x: zf() * W2, y: zf() * H2, r, v: (l.v[0] + zf() * (l.v[1] - l.v[0])) * s2 * .5, p: zf() * 6, a: l.a, sp: sprite(r, l.weich), li }); } });
-  const fz = [L.uni, L.zoom, L.quelle].filter(Boolean).map(([x, y, w, h]) => [x * 2, y * 2, w * 2, h * 2]);
+  const fz = [L.uni, L.zoom, L.quelle].filter(Boolean).map(([x, y, w, h]) => [x * dp, y * dp, w * dp, h * dp]);
   const male = () => { ctx.clearRect(0, 0, W2, H2); for (const p of fl) { if (fz.some(([x, y, w, h]) => p.x > x - 6 && p.x < x + w + 6 && p.y > y - 6 && p.y < y + h + 6)) continue; ctx.globalAlpha = p.a; ctx.drawImage(p.sp, p.x - p.sp.width / 2, p.y - p.sp.height / 2); } ctx.globalAlpha = 1; };
   const g = fest.rand.querySelector('.rkf-schlitten');
   const pfad = () => fest.rand.querySelector(fest.bahnTag24 ? '#rkf-weltbahn' : '#rkf-bahn');
   const setze = (t) => { const pf = pfad(); const PL = pf?.getTotalLength?.() || 0; if (!PL) { g.style.display = 'none'; return; }
     const p = pf.getPointAtLength(PL * t), q = pf.getPointAtLength(Math.min(PL, PL * t + 2)); let r = Math.atan2(q.y - p.y, q.x - p.x) * 180 / Math.PI; const flip = q.x < p.x; if (flip) r += 180; if (r > 180) r -= 360; r = Math.max(-16, Math.min(16, r));
-    g.style.display = ''; g.setAttribute('transform', `translate(${f1(p.x)} ${f1(p.y - 8)}) rotate(${f1(r)})${flip ? ' scale(-1 1)' : ''}`); };
+    const [sb, sh] = fest.schlittenMass || [110, 46]; g.style.display = ''; g.style.transform = `translate(${f1(p.x - sb)}px, ${f1(p.y - 8 - sh)}px) rotate(${f1(r)}deg)${flip ? ' scaleX(-1)' : ''}`; };
   let einmal24 = false; if (fest.bahnTag24) { const schl = 'lern.fest.24'; const heute = lernAdventTag(L.tag); try { einmal24 = localStorage.getItem(schl) !== heute; localStorage.setItem(schl, heute); } catch { einmal24 = true; } }
   const dauer = fest.bahnTag24 ? 7000 : 6000, pause = fest.bahnTag24 ? 1e9 : 8000; const t0 = performance.now() - (fest.bahnTag24 ? 0 : dauer + pause - 1500);
   const lauf = (t) => {
     if (!document.body.contains(fest.rand)) { festLaufStop(fest); return; }
+    if (t < (fest.ruheBis || 0)) { fest.lauf = requestAnimationFrame(lauf); return; } // Karte wird gezogen/gezoomt: Schnee und Schlitten warten (die Karte hat Vorrang)
     for (const p of fl) { p.y += p.v; p.x += Math.sin((p.y / s2 + p.p * 40) / 40) * .18 * (p.li + 1); if (p.y > H2 + 12) { p.y = -12; p.x = zf() * W2; } } male();
     if (g) { const x = (t - t0) % (dauer + pause); if ((fest.bahnTag24 && (!einmal24 || t - t0 > dauer)) || x > dauer) g.style.display = 'none'; else setze(x / dauer); }
     fest.lauf = requestAnimationFrame(lauf);
@@ -1118,6 +1132,7 @@ function festLaufStarten(fest, L, s, nacht) {
 }
 function festLaufStop(fest) { if (fest.lauf) cancelAnimationFrame(fest.lauf); fest.lauf = 0; if (fest.sicht) document.removeEventListener('visibilitychange', fest.sicht); fest.sicht = null; }
 function lernFestZeichnen(fest, L) {
+  fest.ruheBis = performance.now() + 180; // jedes Neuzeichnen der Karte (Ziehen, Zoomen) hält Schnee/Schlitten kurz an
   const nacht = !!fest.nacht; const s = L.W >= 700 ? 1.2 : 1; const wenig = lernWenigBewegung();
   L.wurzel?.classList.toggle('lr-adv-bewegt', !wenig);
   if (!fest.css && L.wurzel) { fest.css = true; // Schneehaube auf „Gerade dran“, Mütze am Jugendwort-Schild (CSS, pointer-events none)
@@ -1126,19 +1141,27 @@ function lernFestZeichnen(fest, L) {
   // unter: nur bei neuer Größe neu; Transformation hält sie am Kartenrand
   const schlU = [Math.round(L.W), Math.round(L.H), nacht].join('|');
   if (fest.schlUnter !== schlU) { fest.schlUnter = schlU; festUnterZeichnen(fest, L.W, L.H, s, nacht); }
-  fest.vb = (vb, W0) => fest.unter.setAttribute('transform', `translate(${f1(vb[0])} ${f1(vb[1])}) scale(${(vb[2] / W0).toFixed(5)})`);
+  fest.vb = (vb, W0) => { fest.unter.setAttribute('transform', `translate(${f1(vb[0])} ${f1(vb[1])}) scale(${(vb[2] / W0).toFixed(5)})`);
+    const v0 = fest.vb0; if (!v0) return; const k = vb[2] / W0, k0 = v0[2] / W0; // Ebene „oben“ folgt dem Ausschnitt per CSS (Compositor), bis sie neu gezeichnet ist
+    fest.oben.style.transform = `translate(${((v0[0] - vb[0]) / k).toFixed(2)}px, ${((v0[1] - vb[1]) / k).toFixed(2)}px) scale(${(k0 / k).toFixed(5)})`; };
   if (L.vb) fest.vb(L.vb, L.W);
   // rand: neu bei Größe, Lage von Sonne/Knöpfen/Quelle, Höhe „Gerade dran“, Tag
   const schlR = [schlU, JSON.stringify([L.uni, L.zoom, L.quelle].map((r) => r && r.map(Math.round))), Math.round(L.unten || 0), lernAdventTag(L.tag), wenig].join('|');
   if (fest.schlRand !== schlR) { fest.schlRand = schlR; festRandZeichnen(fest, L, s, nacht); festLaufStarten(fest, L, s, nacht); }
   // Bahn des Schlittens: die letzten drei Stationen der Route (Bildschirm)
   const r = L.route || []; const bahn = fest.rand.querySelector('#rkf-bahn');
-  if (bahn) { const n = r.length; const a = r[Math.max(0, n - 3)], b = r[Math.max(0, n - 2)], c = r[n - 1]; bahn.setAttribute('d', n >= 2 ? `M${f1(a[0])} ${f1(a[1])} Q${f1(b[0])} ${f1(b[1])} ${f1(c[0])} ${f1(c[1])}` : ''); }
+  if (bahn) { const n = r.length; const a = r[Math.max(0, n - 3)], b = r[Math.max(0, n - 2)], c = r[n - 1]; const d = n >= 2 ? `M${f1(a[0])} ${f1(a[1])} Q${f1(b[0])} ${f1(b[1])} ${f1(c[0])} ${f1(c[1])}` : ''; if (bahn.getAttribute('d') !== d) bahn.setAttribute('d', d); }
   // oben: bewegt sich mit der Karte (Inhalt in Bildschirm-Pixeln, Transformation = Ausschnitt beim Zeichnen)
   if (fest.defsNacht !== nacht || !fest.oben.querySelector('#rkf-mu')) { fest.defsNacht = nacht; fest.oben.innerHTML = festDefsOben(nacht) + '<g class="rkf-inhalt"></g>'; }
-  const inhalt = fest.oben.querySelector('.rkf-inhalt'); fest.sonder = null;
-  inhalt.innerHTML = festObenZeichnen(fest, L, s, nacht);
-  if (L.vb) inhalt.setAttribute('transform', `translate(${f1(L.vb[0])} ${f1(L.vb[1])}) scale(${(L.vb[2] / L.W).toFixed(5)})`);
+  // Ziehen/Zoomen: Mützen & Co. liegen in Kartenkoordinaten und wandern ohne Neuzeichnen mit; neu gezeichnet wird erst nach 140 ms Ruhe
+  // (sofort beim ersten Bild und beim Wechsel der Ebene) – so kostet die Ebene beim Ziehen kein Neuaufbauen je Bild.
+  const schlO = [L.ebene, L.ort, Math.round(L.W), Math.round(L.H), nacht].join('|');
+  const zeichne = () => { fest.obenT = 0; const inhalt = fest.oben.querySelector('.rkf-inhalt'); if (!inhalt) return; fest.sonder = null;
+    inhalt.innerHTML = festObenZeichnen(fest, L, s, nacht);
+    if (L.wurzel) { L.wurzel.dataset.festSonder = fest.sonder || ''; L.wurzel.dataset.festMuetzen = String(fest.zahl?.muetzen ?? 0); } // für Tests/Prüfung
+    fest.vb0 = L.vb ? L.vb.slice() : null; fest.oben.style.transform = ''; fest.oben.setAttribute('viewBox', `0 0 ${f1(L.W)} ${f1(L.H)}`); };
+  clearTimeout(fest.obenT);
+  if (fest.schlOben !== schlO) { fest.schlOben = schlO; zeichne(); } else fest.obenT = setTimeout(zeichne, 140);
 }
 
 

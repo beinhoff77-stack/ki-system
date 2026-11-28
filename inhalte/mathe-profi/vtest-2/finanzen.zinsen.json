@@ -396,7 +396,7 @@
     },
     "w": "Kreditzinsen: 3 000 € · 0,08 = 240 €. Das Sparbuch muss ebenfalls 240 € bringen, also 2 % von G = 240 €. Dann ist G = 240 € : 0,02 = 12 000 €."
    },
-   "idee": "Rückwärts: Zinssatz aus Differenz"
+   "idee": "Guthaben, bei dem sich die Rollen ausgleichen"
   },
   {
    "kennung": "VT2-007",

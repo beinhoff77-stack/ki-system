@@ -113,6 +113,14 @@
      "beschreibung": "alle Zahlen vor x² ohne Vorzeichen addiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "1",
+     "beschreibung": "das Vorzeichen verloren: x² statt −x² als Ergebnis",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
     }
    ],
    "aufgabe": {

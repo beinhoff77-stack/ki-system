@@ -85,3 +85,5 @@ IDEEN.update({
  80: 'Dritter Winkel entscheidet die Lage', 81: 'Bedingung für den Umkreis schon in Zeile 1 falsch',
  116: 'Rundungsbereich in eine Preisrechnung übernehmen', 118: 'Rundungsbereich durch eine Zahl geteilt',
 })
+
+IDEEN.update({6: 'Guthaben, bei dem sich die Rollen ausgleichen'})

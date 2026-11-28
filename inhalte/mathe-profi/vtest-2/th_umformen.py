@@ -19,7 +19,8 @@ def bauen():
       [(1, 7, '7', 'die Glieder des ursprünglichen Terms gezählt'),
        (1, 4, '3 + 1', 'die Zahlen 4 und 7 nicht zusammengefasst'),
        (2, 2, '3 − 1', 'das letzte x²-Glied −3x² vergessen'),
-       (2, 7, '3 + 1 + 3', 'alle Zahlen vor x² ohne Vorzeichen addiert')],
+       (2, 7, '3 + 1 + 3', 'alle Zahlen vor x² ohne Vorzeichen addiert'),
+       (2, 1, '1', 'das Vorzeichen verloren: x² statt −x² als Ergebnis')],
       'x²-Glieder: 3x² − x² − 3x² = −x². x-Glieder: 2x + 5x = 7x. Zahlen: 4 + 7 = 11. Das Ergebnis −x² + 7x + 11 hat 3 Glieder, vor x² steht −1.',
       'Die Übungen verlangen das ganze Ergebnis; hier zählt, wie viele Glieder übrig bleiben und wie das x²-Glied ausfällt (Vorzeichen).')
     Z(lz, 'korrektur', 'begruenden', None, 2, LP,

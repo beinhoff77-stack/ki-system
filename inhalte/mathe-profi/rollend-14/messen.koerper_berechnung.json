@@ -175,22 +175,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 42,
+     "antwort": 16,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Kantenlänge statt der Fläche mit 6 malgenommen"
+     "beschreibung": "die Größe einer Fläche statt der Kante angegeben"
     },
     {
-     "antwort": 49,
+     "antwort": 20,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur eine Fläche angegeben"
+     "beschreibung": "nur durch 4 geteilt, weil der Boden vergessen wurde"
     },
     {
-     "antwort": 196,
+     "antwort": 40,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur 4 Seitenflächen gezählt"
+     "beschreibung": "die Oberfläche halbiert"
     }
    ],
    "aufgabe": {
@@ -201,15 +201,15 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Spielwürfel aus Holz mit der Kantenlänge 7 cm wird rundum lackiert. Wie groß ist die Fläche, die lackiert wird?"
+     "text": "Für einen würfelförmigen Blumenkasten ohne Deckel werden 80 dm² Holz gebraucht, ohne Verschnitt. Wie lang ist eine Kante des Kastens in Dezimetern?"
     },
     "o": {
-     "wert": 294,
-     "einheit": "cm²"
+     "wert": 4,
+     "einheit": "dm"
     },
-    "c": "6 * 7 * 7",
-    "h": "Ein Würfel hat 6 gleich große Flächen. Wie groß ist eine Fläche?",
-    "w": "Eine Fläche ist ein Quadrat: 7 · 7 = 49 cm². Sechs Flächen: 6 · 49 = 294 cm²."
+    "c": "4",
+    "h": "Ein Kasten ohne Deckel hat nur 5 Flächen. Wie groß ist eine davon? Welche Zahl mal sich selbst ergibt diese Fläche?",
+    "w": "80 : 5 = 16 dm² ist eine Fläche. Wegen 4 · 4 = 16 ist die Kante 4 dm lang. Probe: 5 · 4 · 4 = 80."
    }
   },
   {
@@ -275,19 +275,19 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 8.2,
+     "antwort": 4.875,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur eine Grundfläche abgezogen"
     },
     {
-     "antwort": 14,
+     "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Mantel mit 1 · (l + b) statt 2 · (l + b) gerechnet"
     },
     {
-     "antwort": 9.4,
+     "antwort": 6.75,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Grundflächen gar nicht abgezogen"
@@ -301,15 +301,15 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein Quader ist 6 cm lang und 4 cm breit. Seine Oberfläche ist 188 cm² groß. Wie hoch ist der Quader in Zentimetern?"
+     "text": "Ein Würfel mit 6 cm Kantenlänge und ein Quader haben dieselbe Oberfläche. Der Quader ist 10 cm lang und 6 cm breit. Wie hoch ist der Quader in Zentimetern?"
     },
     "o": {
-     "wert": 7,
+     "wert": 3,
      "einheit": "cm"
     },
-    "c": "(188 / 2 - 6 * 4) / (6 + 4)",
-    "h": "Die Oberfläche ist 2 · (l · b + l · h + b · h). Was bleibt übrig, wenn du die beiden Grundflächen abziehst?",
-    "w": "Boden und Deckel: 2 · 6 · 4 = 48 cm². Der Rest 188 − 48 = 140 cm² sind die vier Seitenflächen: 2 · 6 · h + 2 · 4 · h = 20h. Also 20h = 140 und h = 7 cm. Probe: 2 · (24 + 42 + 28) = 188."
+    "c": "(6 * 6 * 6 / 2 - 10 * 6) / (10 + 6)",
+    "h": "Berechne zuerst die Oberfläche des Würfels. Beim Quader sind Boden und Deckel zusammen 2 · 10 · 6 groß. Was bleibt für den Mantel?",
+    "w": "Würfel: 6 · 6 · 6 = 216 cm². Quader: Boden und Deckel 2 · 10 · 6 = 120 cm². Rest für den Mantel: 216 − 120 = 96 cm². Mantel: 2 · 10 · h + 2 · 6 · h = 32h = 96, also h = 3 cm. Probe: 2 · (60 + 30 + 18) = 216."
    }
   },
   {
@@ -325,22 +325,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 198,
+     "antwort": 13600,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "oben eine Deckfläche mitgezählt"
+     "beschreibung": "auch die offene Vorderseite mitgezählt"
     },
     {
-     "antwort": 72,
+     "antwort": 8000,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur den Boden gerechnet"
+     "beschreibung": "die Seitenwände vergessen"
     },
     {
-     "antwort": 54,
+     "antwort": 7200,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Boden vergessen"
+     "beschreibung": "die Rückwand vergessen"
     }
    ],
    "aufgabe": {
@@ -351,15 +351,15 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein offenes Becken im Garten hat die Form eines Quaders: 12 m lang, 6 m breit und 1,5 m tief. Boden und die vier Wände werden mit Folie ausgekleidet. Wie viele Quadratmeter Folie werden gebraucht?"
+     "text": "Ein Regalfach ist vorne offen und 80 cm breit, 30 cm tief und 40 cm hoch. Boden, Decke, Rückwand und beide Seitenwände sind aus Holz. Wie viele Quadratzentimeter Holz werden gebraucht?"
     },
     "o": {
-     "wert": 126,
-     "einheit": "m²"
+     "wert": 10400,
+     "einheit": "cm²"
     },
-    "c": "12 * 6 + 2 * (12 * 1.5) + 2 * (6 * 1.5)",
-    "h": "Das Becken hat oben keine Fläche. Berechne den Boden und die vier Wände, die Wände paarweise.",
-    "w": "Boden: 12 · 6 = 72 m². Zwei lange Wände: 2 · (12 · 1,5) = 36 m². Zwei kurze Wände: 2 · (6 · 1,5) = 18 m². Zusammen 72 + 36 + 18 = 126 m²."
+    "c": "2 * 80 * 30 + 80 * 40 + 2 * 30 * 40",
+    "h": "Welche fünf Flächen sind aus Holz? Berechne Boden und Decke zusammen, die Rückwand und die zwei Seitenwände.",
+    "w": "Boden und Decke: 2 · 80 · 30 = 4 800 cm². Rückwand: 80 · 40 = 3 200 cm². Zwei Seitenwände: 2 · 30 · 40 = 2 400 cm². Zusammen 4 800 + 3 200 + 2 400 = 10 400 cm²."
    }
   },
   {
@@ -525,22 +525,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 132,
+     "antwort": 144,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Berührfläche nicht abgezogen"
+     "beschreibung": "alle 36 Würfelflächen gezählt, die verklebten nicht abgezogen"
     },
     {
-     "antwort": 128,
+     "antwort": 84,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Berührfläche nur einmal abgezogen"
+     "beschreibung": "die Unterseite vergessen"
     },
     {
-     "antwort": 104,
+     "antwort": 72,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Würfel nicht dazugezählt, aber die Berührfläche vom Quader abgezogen"
+     "beschreibung": "die Rückseite vergessen"
     }
    ],
    "aufgabe": {
@@ -551,15 +551,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Auf einen Quader (6 cm lang, 4 cm breit, 3 cm hoch) wird ein Würfel mit 2 cm Kantenlänge geklebt. Der Würfel liegt mit seiner ganzen Unterseite auf der oberen Fläche des Quaders. Wie groß ist die Oberfläche des neuen Körpers?"
+     "text": "Ein Treppenmodell besteht aus drei Türmen aus Würfeln mit 2 cm Kantenlänge, die in einer Reihe nebeneinander stehen und mit ganzen Flächen zusammengeklebt sind: Der erste Turm hat 1 Würfel, der zweite 2 Würfel und der dritte 3 Würfel übereinander. Wie groß ist die Oberfläche des Modells?"
     },
     "o": {
-     "wert": 124,
+     "wert": 96,
      "einheit": "cm²"
     },
-    "c": "2 * (6 * 4 + 6 * 3 + 4 * 3) + 6 * 2 * 2 - 2 * (2 * 2)",
-    "h": "Berechne beide Oberflächen einzeln. Wie groß ist die Fläche, an der beide Körper sich berühren?",
-    "w": "Quader: 2 · (24 + 18 + 12) = 108 cm². Würfel: 6 · 4 = 24 cm². Berührfläche: 2 · 2 = 4 cm². Sie fällt beim Quader und beim Würfel weg: 108 + 24 − 2 · 4 = 124 cm²."
+    "c": "(6 + 6 + 3 + 3 + 3 + 3) * 2 * 2",
+    "h": "Wie viele Würfelflächen siehst du von vorn, von hinten, von oben, von unten und von beiden Seiten? Eine Würfelfläche hat 2 · 2 = 4 cm².",
+    "w": "Von vorn sehen wir 1 + 2 + 3 = 6 Würfelflächen, von hinten ebenso 6. Von oben sind es 3 (je Turm eine), von unten 3. Von der linken Seite sieht man 3 Flächen (vom ersten Turm 1 und vom zweiten und dritten Turm je 1 oberhalb des Nachbarturms), von der rechten Seite ebenfalls 3 (nur der dritte Turm). Zusammen 6 + 6 + 3 + 3 + 3 + 3 = 24 Würfelflächen zu je 4 cm²: 24 · 4 = 96 cm². Gegenprobe: 6 Würfel haben 36 Flächen, die 6 Klebestellen verdecken 12 davon: 36 − 12 = 24."
    }
   },
   {
@@ -601,7 +601,7 @@
     "g": "begruenden",
     "y": "zahl",
     "f": {
-     "text": "Aus einem Quader (5 cm lang, 4 cm breit, 3 cm hoch) wird an einer Ecke ein Würfel mit 2 cm Kantenlänge herausgesägt. Wie viele Quadratzentimeter ist die Oberfläche des Körpers nach dem Heraussägen größer als vorher? Gib den Unterschied an."
+     "text": "Aus einem Quader (5 cm lang, 4 cm breit, 3 cm hoch) wird an einer Ecke ein Würfel mit 2 cm Kantenlänge herausgesägt. Wie verändert sich die Oberfläche durch das Heraussägen? Gib den Unterschied „Oberfläche nachher minus Oberfläche vorher“ in cm² an."
     },
     "o": {
      "wert": 0,

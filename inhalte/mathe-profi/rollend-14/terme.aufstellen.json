@@ -25,22 +25,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 14,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "nur Sams Ergebnis angegeben"
-    },
-    {
      "antwort": 11,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur Kims Ergebnis angegeben"
+     "beschreibung": "Term A als Produkt gelesen, weil x · 2 zuerst gerechnet wird"
     },
     {
-     "antwort": 0,
+     "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "bei Kim Punkt vor Strich nicht beachtet, beide Terme gleich gerechnet"
+     "beschreibung": "Term B als Summe gelesen, weil in der Klammer zuerst 3 + x steht"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Term D als Produkt gelesen, weil Teilen und Malnehmen beides Punktrechnungen sind"
     }
    ],
    "aufgabe": {
@@ -51,14 +51,14 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Kim rechnet den Term 3 + x · 2, Sam rechnet den Term (3 + x) · 2. Beide setzen x = 4 ein. Um wie viel ist Sams Ergebnis größer als Kims Ergebnis?"
+     "text": "Kim schreibt vier Terme auf: A: 3 + x · 2, B: (3 + x) · 2, C: 3 · x + 2 · x, D: 12 : (x − 1). Alex bestimmt für jeden Term die zuletzt ausgeführte Rechenart und gibt eine Kennzahl: Summe = 1, Differenz = 2, Produkt = 3, Quotient = 4. Wie groß ist die Summe der vier Kennzahlen?"
     },
     "o": {
-     "wert": 3
+     "wert": 9
     },
-    "c": "(3 + 4) * 2 - (3 + 4 * 2)",
-    "h": "Rechne beide Terme einzeln aus. Beachte: Klammern zuerst, dann Punkt vor Strich.",
-    "w": "Kim: 3 + 4 · 2 = 3 + 8 = 11 (Punkt vor Strich). Sam: (3 + 4) · 2 = 7 · 2 = 14 (Klammer zuerst). Unterschied: 14 − 11 = 3."
+    "c": "1 + 3 + 1 + 4",
+    "h": "Welche Rechenart wird bei jedem Term zuletzt ausgeführt? Beachte Punkt vor Strich und die Klammern.",
+    "w": "A: Erst x · 2, zuletzt wird 3 addiert: Summe (1). B: Erst die Klammer, zuletzt mal 2: Produkt (3). C: Erst 3 · x und 2 · x, zuletzt addiert: Summe (1). D: Erst die Klammer x − 1, zuletzt geteilt: Quotient (4). Zusammen 1 + 3 + 1 + 4 = 9."
    }
   },
   {
@@ -74,22 +74,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den kleineren Summanden angegeben"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Wert der ganzen Summe statt des größeren Summanden angegeben"
+    },
+    {
      "antwort": 72,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "von links nach rechts gerechnet, ohne Punkt vor Strich"
-    },
-    {
-     "antwort": 19,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Klammer nicht beachtet"
-    },
-    {
-     "antwort": 1.5,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Klammer zu weit gesetzt"
+     "beschreibung": "den Term als Produkt (… + 2) · x gelesen"
     }
    ],
    "aufgabe": {
@@ -100,14 +100,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Berechne den Wert des Terms 36 : (x − 3) + 2 · x für x = 9. Beachte, welche Rechnungen zuerst kommen."
+     "text": "Der Term 36 : (x − 3) + 2 · x wird für x = 9 berechnet. Er ist eine Summe aus zwei Summanden. Wie groß ist der größere Summand?"
     },
     "o": {
-     "wert": 24
+     "wert": 18
     },
-    "c": "36 / (9 - 3) + 2 * 9",
-    "h": "Die Klammer kommt zuerst. Danach: Punktrechnung vor Strichrechnung. Zuletzt addierst du.",
-    "w": "Klammer: 9 − 3 = 6. Dann 36 : 6 = 6 und 2 · 9 = 18. Zuletzt 6 + 18 = 24."
+    "c": "2 * 9",
+    "h": "Welche zwei Summanden hat der Term? Berechne beide für x = 9.",
+    "w": "Die Summe hat zwei Summanden: 36 : (x − 3) und 2 · x. Für x = 9 ist der erste 36 : 6 = 6 und der zweite 2 · 9 = 18. Der größere Summand ist 18."
    }
   },
   {
@@ -126,19 +126,19 @@
      "antwort": 2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Unterschied 5x − 3x = 2 als Lösung genommen"
+     "beschreibung": "nur Aussage (2) als falsch erkannt"
     },
     {
-     "antwort": 0.4,
+     "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "2 durch 5 geteilt"
+     "beschreibung": "nur Aussage (3) als falsch erkannt"
     },
     {
-     "antwort": 5,
+     "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die beiden Zahlen addiert"
+     "beschreibung": "die Aussagen (3) und (4) für falsch gehalten"
     }
    ],
    "aufgabe": {
@@ -149,14 +149,14 @@
     "g": "pruefung",
     "y": "zahl",
     "f": {
-     "text": "Kim berechnet für eine Zahl x den Term 2 + 3x, Sam berechnet den Term (2 + 3) · x. Für genau eine Zahl x kommen beide auf dasselbe Ergebnis. Welche Zahl ist x?"
+     "text": "Kim bestimmt die Art von vier Termen. (1) 2 + 3 · x ist eine Summe. (2) (2 + 3) · x ist eine Summe. (3) 12 : x − 2 ist ein Quotient. (4) 5 · (x − 2) ist ein Produkt. Einige Aussagen sind falsch. Wie groß ist die Summe der Nummern der falschen Aussagen?"
     },
     "o": {
-     "wert": 1
+     "wert": 5
     },
-    "c": "2 / (5 - 3)",
-    "h": "Fasse Sams Term zusammen: (2 + 3) · x. Wie viele x hat jeder Term, und was bleibt übrig?",
-    "w": "Sams Term ist 5x. Kims Term ist 3x + 2. Beide sind gleich, wenn 3x + 2 = 5x ist. Das ist 2 = 2x, also x = 1. Probe: 2 + 3 · 1 = 5 und (2 + 3) · 1 = 5."
+    "c": "2 + 3",
+    "h": "Bestimme bei jedem Term die Rechenart, die zuletzt ausgeführt wird.",
+    "w": "(1) Erst 3 · x, zuletzt +: Summe, richtig. (2) Erst die Klammer 2 + 3, zuletzt mal x: ein Produkt, also falsch. (3) Erst 12 : x, zuletzt − 2: eine Differenz, also falsch. (4) Erst die Klammer, zuletzt mal 5: Produkt, richtig. Falsch sind (2) und (3): 2 + 3 = 5."
    }
   },
   {
@@ -175,7 +175,7 @@
      "antwort": 606,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Grundgebühr mit der Zahl der Minuten malgenommen"
+     "beschreibung": "(5 + 0,05) · 120 gerechnet: Grundgebühr und Minutenpreis zusammen mit den Minuten malgenommen"
     },
     {
      "antwort": 125.05,
@@ -187,7 +187,7 @@
      "antwort": 600.05,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Grundgebühr mit 120 malgenommen"
+     "beschreibung": "nur die Grundgebühr mit 120 malgenommen und 0,05 dazugezählt"
     }
    ],
    "aufgabe": {
@@ -237,7 +237,7 @@
      "antwort": 36,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Klammer als Minus 3 minus 2 gelesen"
+     "beschreibung": "statt der Klammer 50 − 4 · 3 − 2 gerechnet"
     }
    ],
    "aufgabe": {
@@ -306,7 +306,7 @@
     },
     "c": "((120 - 63) / 3 - 5) / 2",
     "h": "Setze den Term gleich 63. Arbeite von außen nach innen rückwärts: Was kommt zuletzt, was zuerst?",
-    "w": "120 − 3 · (2t + 5) = 63. Dann 3 · (2t + 5) = 57, also 2t + 5 = 19, 2t = 14 und t = 7. Probe: 2 · 7 + 5 = 19, 3 · 19 = 57, 120 − 57 = 63."
+    "w": "Rückwärts rechnen: Von 120 Litern sind 120 − 63 = 57 Liter abgeflossen. Das sind 3 mal etwas: 57 : 3 = 19 ist der Wert der Klammer 2t + 5. Davon 5 abziehen: 19 − 5 = 14 ist 2t, also ist t = 14 : 2 = 7 Minuten. Probe: 2 · 7 + 5 = 19, 3 · 19 = 57, 120 − 57 = 63."
    }
   },
   {
@@ -423,19 +423,19 @@
      "antwort": 20,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "6x = 60 nur durch 3 geteilt"
+     "beschreibung": "vom Umfang 70 nur 10 abgezogen und den Rest 60 durch 3 statt durch 6 geteilt"
     },
     {
      "antwort": 60,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Ergebnis 60 = 6x als Breite angegeben"
+     "beschreibung": "vom Umfang 70 nur 10 abgezogen und den Rest 60 als Breite angegeben"
     },
     {
      "antwort": 30,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "vom halben Umfang nur 5 abgezogen"
+     "beschreibung": "vom halben Umfang 35 nur 5 abgezogen und den Rest 30 als Breite angegeben"
     }
    ],
    "aufgabe": {
@@ -453,8 +453,8 @@
      "einheit": "cm"
     },
     "c": "(70 - 10) / 6",
-    "h": "Schreibe die Länge als Term mit x. Stelle den Umfang 2 · (Breite + Länge) auf.",
-    "w": "Länge: 2x + 5. Umfang: 2 · (x + 2x + 5) = 2 · (3x + 5) = 6x + 10. Aus 6x + 10 = 70 folgt 6x = 60 und x = 10. Probe: Länge 25 cm, Umfang 2 · (10 + 25) = 70."
+    "h": "Rechne mit dem halben Umfang: Breite plus Länge. Wie viele Breiten und wie viele Zentimeter stecken in der Länge? Probiere Breiten aus oder rechne rückwärts.",
+    "w": "Der halbe Umfang ist 35 cm: Breite plus Länge. Die Länge ist 2 Breiten und 5 cm. Probiere: Bei 5 cm Breite ist die Länge 15 cm und Breite plus Länge 20 cm (zu wenig). Bei 10 cm Breite ist die Länge 25 cm und Breite plus Länge 35 cm (stimmt). Rückwärts: 35 − 5 = 30 cm sind 3 Breiten, also ist die Breite 30 : 3 = 10 cm. Probe: Umfang 2 · (10 + 25) = 70."
    }
   },
   {
@@ -535,7 +535,7 @@
      "antwort": 113,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahlen einfach addiert"
+     "beschreibung": "die Zahlen 120, 15 und 8 addiert und die Abhebung 30 abgezogen"
     }
    ],
    "aufgabe": {
@@ -585,7 +585,7 @@
      "antwort": 5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "eine Person zu wenig genommen"
+     "beschreibung": "eine Person weniger als beim Gleichstand genommen"
     }
    ],
    "aufgabe": {
@@ -603,8 +603,8 @@
      "einheit": "Personen"
     },
     "c": "36 / (10 - 4) + 1",
-    "h": "Stelle für beide Angebote einen Term auf. Wann sind beide gleich teuer? Ab wann ist die Gruppenkarte günstiger?",
-    "w": "Gruppe: 36 + 4n. Einzeln: 10n. Gleich teuer: 36 + 4n = 10n, also 36 = 6n und n = 6. Bei 6 Personen kosten beide gleich viel (60 €). Erst bei 7 Personen ist die Gruppenkarte günstiger (64 € gegen 70 €)."
+    "h": "Rechne für 5, 6 und 7 Personen aus, was beide Angebote kosten. Wann sind sie gleich teuer, ab wann ist die Gruppenkarte günstiger?",
+    "w": "Probiere mit einer Tabelle (Gruppe: 36 + 4 je Person, einzeln: 10 je Person): 5 Personen 56 € und 50 €, 6 Personen 60 € und 60 € (gleich teuer), 7 Personen 64 € und 70 €. Erst ab 7 Personen ist die Gruppenkarte günstiger."
    }
   },
   {
@@ -620,22 +620,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 65,
+     "antwort": 42,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 4 Plättchen 15-mal dazugerechnet, obwohl Figur 1 schon 5 hat"
+     "beschreibung": "die 2 cm 15-mal dazugerechnet, obwohl der erste Becher schon 12 cm hat"
     },
     {
-     "antwort": 75,
+     "antwort": 30,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "15 mal die Zahl der Plättchen von Figur 1"
+     "beschreibung": "nur die Zunahme mit 15 malgenommen, die Grundhöhe vergessen"
     },
     {
-     "antwort": 28,
+     "antwort": 27,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "zu Figur 3 einfach 15 addiert"
+     "beschreibung": "die Zahl der Becher und die Höhe des ersten Bechers addiert"
     }
    ],
    "aufgabe": {
@@ -646,15 +646,15 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Eine Folge von Figuren aus Plättchen: Figur 1 hat 5 Plättchen, Figur 2 hat 9 Plättchen, Figur 3 hat 13 Plättchen. So geht es weiter. Wie viele Plättchen hat Figur 15?"
+     "text": "Becher werden ineinander gestapelt. Ein einzelner Becher ist 12 cm hoch. Ein Stapel aus 2 Bechern ist 14 cm hoch, ein Stapel aus 3 Bechern ist 16 cm hoch. So geht es weiter. Wie hoch ist ein Stapel aus 15 Bechern in Zentimetern?"
     },
     "o": {
-     "wert": 61,
-     "einheit": "Plättchen"
+     "wert": 40,
+     "einheit": "cm"
     },
-    "c": "4 * 15 + 1",
-    "h": "Um wie viele Plättchen wird es von Figur zu Figur mehr? Prüfe deinen Term mit Figur 1.",
-    "w": "Es kommen immer 4 Plättchen dazu. Der Term ist 4n + 1. Probe: n = 1 gibt 5, n = 2 gibt 9, n = 3 gibt 13. Für n = 15: 4 · 15 + 1 = 61 Plättchen."
+    "c": "2 * 15 + 10",
+    "h": "Um wie viele Zentimeter wächst der Stapel mit jedem weiteren Becher? Prüfe deinen Term mit 3 Bechern.",
+    "w": "Mit jedem weiteren Becher wächst der Stapel um 2 cm. Der Term ist 2n + 10. Probe: n = 1 gibt 12, n = 2 gibt 14, n = 3 gibt 16. Für n = 15: 2 · 15 + 10 = 40 cm."
    }
   },
   {
@@ -670,22 +670,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 15,
+     "antwort": 16,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 2 Plätze am Anfang vergessen"
+     "beschreibung": "abgerundet: Figur 16 hat erst 97 Perlen"
     },
     {
-     "antwort": 28,
+     "antwort": 16.5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Wert 28 als Zahl der Tische angegeben"
+     "beschreibung": "das Ergebnis der Division nicht auf eine ganze Figur gerundet"
     },
     {
-     "antwort": 7.5,
+     "antwort": 103,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch die 4 Plätze am ersten Tisch geteilt"
+     "beschreibung": "die Zahl der Perlen von Figur 17 statt der Figurnummer angegeben"
     }
    ],
    "aufgabe": {
@@ -696,15 +696,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Im Kursraum werden Tische in einer Reihe zusammengeschoben. An einem Tisch sitzen 4 Kinder, an zwei zusammengeschobenen Tischen 6 Kinder, an drei Tischen 8 Kinder. So geht es weiter. Für 30 Kinder wird eine Tischreihe gebraucht. Wie viele Tische müssen zusammengeschoben werden?"
+     "text": "Perlenketten wachsen nach einem Muster: Figur 1 hat 7 Perlen, Figur 2 hat 13 Perlen, Figur 3 hat 19 Perlen. So geht es weiter. Ab welcher Figur hat die Kette mehr als 100 Perlen?"
     },
     "o": {
-     "wert": 14,
-     "einheit": "Tische"
+     "wert": 17
     },
-    "c": "(30 - 2) / 2",
-    "h": "Wie viele Plätze kommen mit jedem weiteren Tisch dazu? Stelle den Term für n Tische auf.",
-    "w": "Mit jedem Tisch kommen 2 Plätze dazu. Der Term ist 2n + 2. Probe: n = 1 gibt 4, n = 2 gibt 6. Aus 2n + 2 = 30 folgt 2n = 28 und n = 14 Tische."
+    "c": "(100 - 1) // 6 + 1",
+    "h": "Um wie viele Perlen wird die Kette von Figur zu Figur länger? Stelle den Term auf und probiere, wann 100 überschritten wird.",
+    "w": "Es kommen immer 6 Perlen dazu. Der Term ist 6n + 1. Probe: n = 1 gibt 7, n = 2 gibt 13, n = 3 gibt 19. Probieren: Figur 16 hat 6 · 16 + 1 = 97 Perlen (zu wenig), Figur 17 hat 6 · 17 + 1 = 103 Perlen. Ab Figur 17 sind es mehr als 100."
    }
   },
   {
@@ -752,8 +751,8 @@
      "wert": 3
     },
     "c": "(2 + 4) / (6 - 4)",
-    "h": "Setze die beiden Terme gleich. Bringe alle Glieder mit n auf eine Seite.",
-    "w": "4n + 2 = 6n − 4. Auf beiden Seiten 4n abziehen: 2 = 2n − 4. Dann 4 addieren: 6 = 2n, also n = 3. Probe: 4 · 3 + 2 = 14 und 6 · 3 − 4 = 14."
+    "h": "Berechne beide Muster für n = 1, 2, 3, … in einer Tabelle. Wo stehen gleiche Zahlen?",
+    "w": "Lege eine Tabelle an. Figur 1: Muster A 6, Muster B 2. Figur 2: A 10, B 8. Figur 3: A 14, B 14. Bei Figur 3 sind beide gleich. Danach ist B immer größer, weil B bei jeder Figur 2 Plättchen mehr dazubekommt als A."
    }
   },
   {
@@ -819,22 +818,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 40,
+     "antwort": 16,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die beiden Zahlen subtrahiert"
+     "beschreibung": "nur die Zeit bis zur Leere angegeben"
     },
     {
-     "antwort": 225,
+     "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die beiden Zahlen malgenommen"
+     "beschreibung": "nur die Zeit bis zu 35 Litern angegeben"
     },
     {
-     "antwort": 54,
+     "antwort": 25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "zur Lösung noch die Anfangsmenge addiert"
+     "beschreibung": "beide Zeiten addiert statt den Unterschied gebildet"
     }
    ],
    "aufgabe": {
@@ -845,15 +844,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Die Wassermenge in einem Tank in Litern ist nach t Minuten 45 − 5t. Nach wie vielen Minuten ist der Tank ganz leer?"
+     "text": "Die Wassermenge in einem Tank in Litern ist nach t Minuten 80 − 5t. Wie viele Minuten dauert es länger, bis der Tank ganz leer ist, als bis nur noch 35 Liter im Tank sind?"
     },
     "o": {
-     "wert": 9,
+     "wert": 7,
      "einheit": "Minuten"
     },
-    "c": "45 / 5",
-    "h": "Der Tank ist leer, wenn die Wassermenge 0 ist. Wann ist 45 − 5t gleich 0?",
-    "w": "45 − 5t = 0 heißt 5t = 45, also t = 9. Nach 9 Minuten ist die Wassermenge 0. Probe: 45 − 5 · 9 = 0."
+    "c": "80 / 5 - (80 - 35) / 5",
+    "h": "Wann ist der Tank leer, wann sind noch 35 Liter darin? Probiere oder rechne rückwärts: Wie viele Liter sind bis dahin abgeflossen?",
+    "w": "Leer: 80 Liter sind abgeflossen, bei 5 Litern je Minute nach 80 : 5 = 16 Minuten. Noch 35 Liter: 80 − 35 = 45 Liter sind abgeflossen, nach 45 : 5 = 9 Minuten. Der Unterschied ist 16 − 9 = 7 Minuten."
    }
   },
   {

@@ -224,22 +224,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 30,
+     "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Grenze 1,50 mitgezählt"
+     "beschreibung": "beide Grenzen 2 und 8 mitgezählt"
     },
     {
-     "antwort": 31,
+     "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "beide Grenzen mitgezählt"
+     "beschreibung": "die Ziffer 2 der Grenze 3,42 mitgezählt"
     },
     {
-     "antwort": 299,
+     "antwort": 10,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit Tausendsteln statt mit Hundertsteln gerechnet"
+     "beschreibung": "alle zehn Ziffern gezählt"
     }
    ],
    "aufgabe": {
@@ -250,14 +250,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Alex misst Körpergrößen in Metern mit zwei Nachkommastellen. Wie viele verschiedene Werte liegen zwischen 1,20 m und 1,50 m? Die beiden Grenzen zählen nicht mit."
+     "text": "Für wie viele Ziffern □ liegt die Zahl 3,4□ zwischen 3,42 und 3,48? Die Zahlen 3,42 und 3,48 selbst zählen nicht mit."
     },
     "o": {
-     "wert": 29
+     "wert": 5
     },
-    "c": "(1.5 - 1.2) * 100 - 1",
-    "h": "Schreibe 1,2 als 1,20 und 1,5 als 1,50. Zähle die Hundertstel dazwischen.",
-    "w": "1,20 sind 120 Hundertstel, 1,50 sind 150 Hundertstel. Dazwischen liegen 121 bis 149, das sind 29 Werte."
+    "c": "8 - 2 - 1",
+    "h": "Welche Ziffern □ machen 3,4□ größer als 3,42? Welche machen es kleiner als 3,48?",
+    "w": "Größer als 3,42 ist 3,4□ ab □ = 3. Kleiner als 3,48 ist es bis □ = 7. Möglich sind 3, 4, 5, 6 und 7: das sind 5 Ziffern."
    }
   },
   {
@@ -372,22 +372,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 59.432,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "den Preis nicht gerundet"
-    },
-    {
-     "antwort": 59.5,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "den Literpreis zuerst auf 1,75 gerundet"
-    },
-    {
-     "antwort": 59.4,
+     "antwort": 80.2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "auf Zehntel gerundet"
+    },
+    {
+     "antwort": 80.18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aufgerundet statt gerundet"
+    },
+    {
+     "antwort": 79.9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Kurs zuerst auf 0,94 gerundet"
     }
    ],
    "aufgabe": {
@@ -398,15 +398,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Kim tankt 34 Liter Benzin. Ein Liter kostet 1,748 €. Wie viel Euro kostet die Tankfüllung, gerundet auf ganze Cent?"
+     "text": "Alex tauscht 85 € in Schweizer Franken. Für 1 € bekommt man 0,9432 Franken. Wie viele Franken sind das, auf Rappen genau (zwei Nachkommastellen) gerundet?"
     },
     "o": {
-     "wert": 59.43,
-     "einheit": "€"
+     "wert": 80.17,
+     "einheit": "Franken"
     },
-    "c": "round(34 * 1.748 * 100) / 100",
-    "h": "Rechne zuerst den genauen Preis aus. Dann rundest du auf Hundertstel.",
-    "w": "34 · 1,748 = 59,432. Auf Hundertstel gerundet: Die Ziffer rechts ist 2, also abrunden. Ergebnis: 59,43 €."
+    "c": "round(85 * 0.9432 * 100) / 100",
+    "h": "Rechne zuerst den genauen Betrag aus. Dann rundest du auf Hundertstel.",
+    "w": "85 · 0,9432 = 80,172. Auf Hundertstel gerundet: Die Ziffer rechts ist 2, also abrunden. Ergebnis: 80,17 Franken."
    }
   },
   {
@@ -448,14 +448,14 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Eine Dezimalzahl mit genau zwei Nachkommastellen wird auf eine ganze Zahl gerundet. Das Ergebnis ist 6. Wie viele solche Zahlen gibt es?"
+     "text": "Auf einem Display steht eine Zahl mit genau zwei Nachkommastellen, zum Beispiel 6,00. Sie wird auf eine ganze Zahl gerundet: Hat die Zehntelziffer den Wert 5 oder mehr, wird aufgerundet. Das Ergebnis ist 6. Wie viele verschiedene Anzeigen kann es gewesen sein?"
     },
     "o": {
      "wert": 100
     },
     "c": "649 - 550 + 1",
     "h": "Welche ist die kleinste, welche die größte Zahl, die auf 6 gerundet wird? Zähle die Hundertstel von der kleinsten bis zur größten.",
-    "w": "Ab 5,50 wird auf 6 aufgerundet, bis 6,49 wird auf 6 abgerundet. Die Zahlen sind 5,50 bis 6,49, also 550 bis 649 Hundertstel. Das sind 649 − 550 + 1 = 100 Zahlen."
+    "w": "Ab 5,50 (Zehntelziffer 5) wird auf 6 aufgerundet, bis 6,49 (Zehntelziffer 4) wird auf 6 abgerundet. Die Zahlen sind 5,50 bis 6,49, also 550 bis 649 Hundertstel. Das sind 649 − 550 + 1 = 100 Zahlen."
    }
   },
   {
@@ -634,7 +634,7 @@
      "antwort": 5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch 7 statt durch 5 gekürzt"
+     "beschreibung": "nur den Zähler 35 durch 7 geteilt"
     }
    ],
    "aufgabe": {
@@ -971,22 +971,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 6,
+     "antwort": 162,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "gerade und ungerade Stellen verwechselt"
+     "beschreibung": "die 37. Stelle vergessen"
     },
     {
-     "antwort": 9,
+     "antwort": 168,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die beiden Ziffern addiert"
+     "beschreibung": "die 37. Stelle als 6 statt als 3 gezählt"
     },
     {
-     "antwort": 18,
+     "antwort": 333,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl der vollen Wiederholungen angegeben"
+     "beschreibung": "jede der 37 Stellen mit der Ziffernsumme 9 gerechnet"
     }
    ],
    "aufgabe": {
@@ -997,14 +997,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Es gilt 4/11 = 0,363636… Die Ziffernfolge wiederholt sich immer weiter. Welche Ziffer steht an der 37. Stelle nach dem Komma?"
+     "text": "Es gilt 4/11 = 0,363636… Die Ziffernfolge 36 wiederholt sich immer weiter. Wie groß ist die Summe aller Ziffern von der 1. bis zur 37. Stelle nach dem Komma?"
     },
     "o": {
-     "wert": 3
+     "wert": 165
     },
-    "c": "(4 * 10 ** 37 // 11) % 10",
-    "h": "Welche Ziffern wiederholen sich? Wie viele Ziffern hat eine Wiederholung? Wo liegt die 37. Stelle in einer Wiederholung?",
-    "w": "Die Ziffern 3 und 6 wiederholen sich, eine Wiederholung hat 2 Ziffern. Die 1. Stelle ist 3, die 2. Stelle ist 6, die 3. Stelle ist wieder 3, und so weiter. Ungerade Stellen haben die Ziffer 3. Die 37. Stelle ist ungerade, also steht dort 3."
+    "c": "18 * (3 + 6) + 3",
+    "h": "Wie groß ist die Ziffernsumme einer Wiederholung? Wie viele ganze Wiederholungen passen in 37 Stellen, und welche Ziffer bleibt übrig?",
+    "w": "Eine Wiederholung „36“ hat 2 Ziffern und die Ziffernsumme 3 + 6 = 9. In 37 Stellen passen 18 ganze Wiederholungen (36 Stellen): 18 · 9 = 162. Die 37. Stelle ist die erste Ziffer einer neuen Wiederholung, also 3. Summe: 162 + 3 = 165."
    }
   },
   {
@@ -1020,22 +1020,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 2,
+     "antwort": 13,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die erste Ziffer der Wiederholung genommen"
+     "beschreibung": "die Ziffer 2 gezählt, die an 13 Stellen steht"
     },
     {
-     "antwort": 4,
+     "antwort": 25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die letzte Ziffer der Wiederholung genommen"
+     "beschreibung": "alle 25 Stellen gezählt"
     },
     {
-     "antwort": 5,
+     "antwort": 24,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die dritte Ziffer der Wiederholung genommen"
+     "beschreibung": "bei jeder der 12 Wiederholungen beide Ziffern gezählt"
     }
    ],
    "aufgabe": {
@@ -1046,14 +1046,14 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Es gilt 2/7 = 0,285714285714… Die Ziffernfolge 285714 wiederholt sich immer weiter. Welche Ziffer steht an der 50. Stelle nach dem Komma?"
+     "text": "Es gilt 3/11 = 0,272727… Die Ziffernfolge 27 wiederholt sich immer weiter. Wie oft steht die Ziffer 7 unter den ersten 25 Nachkommastellen?"
     },
     "o": {
-     "wert": 8
+     "wert": 12
     },
-    "c": "(2 * 10 ** 50 // 7) % 10",
-    "h": "Eine Wiederholung hat 6 Ziffern. Teile 50 durch 6 mit Rest. Der Rest sagt dir, die wievielte Ziffer der Wiederholung gemeint ist.",
-    "w": "50 : 6 = 8 Rest 2. Nach 8 vollen Wiederholungen (48 Stellen) kommt die 2. Ziffer einer neuen Wiederholung. Die Folge 285714 hat an zweiter Stelle die 8. Die 50. Stelle ist also 8."
+    "c": "25 // 2",
+    "h": "An welchen Stellen steht die 7? Wie viele gerade Zahlen gibt es bis 25?",
+    "w": "Die Ziffern wechseln: 2, 7, 2, 7, … Die 7 steht an jeder zweiten Stelle, nämlich an den Stellen 2, 4, 6, …, 24. Das sind 12 Stellen. Die 25. Stelle ist eine 2."
    }
   },
   {
@@ -1069,22 +1069,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 7,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die gerundeten Zahlen addiert"
-    },
-    {
      "antwort": 10.0596,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "genau gerechnet statt überschlagen"
+     "beschreibung": "das genaue Ergebnis statt des Unterschieds angegeben"
     },
     {
-     "antwort": 1,
+     "antwort": 0.00596,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "2,02 als 0,2 gerundet"
+     "beschreibung": "das Komma um eine Stelle falsch gesetzt"
+    },
+    {
+     "antwort": 0.06,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied auf Hundertstel gerundet"
     }
    ],
    "aufgabe": {
@@ -1095,14 +1095,14 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Sam schätzt das Ergebnis von 4,98 · 2,02. Dazu rundet er auf ganze Zahlen. Welchen Wert erhält er beim Überschlag?"
+     "text": "Sam schätzt 4,98 · 2,02, indem er beide Zahlen auf ganze Zahlen rundet. Er behauptet: „Der Überschlag ist größer als das genaue Ergebnis.“ Prüfe das nach: Um wie viel unterscheiden sich der Überschlag und das genaue Ergebnis? Gib den Unterschied als Dezimalzahl an."
     },
     "o": {
-     "wert": 10
+     "wert": 0.0596
     },
-    "c": "5 * 2",
-    "h": "Runde 4,98 und 2,02 auf ganze Zahlen. Dann multiplizierst du.",
-    "w": "4,98 ≈ 5 und 2,02 ≈ 2. Überschlag: 5 · 2 = 10. Das genaue Ergebnis (10,0596) liegt nahe dabei."
+    "c": "(498 * 202 - 100000) / 10000",
+    "h": "Berechne den Überschlag 5 · 2. Rechne das genaue Ergebnis ohne Komma als 498 · 202 und setze das Komma wieder ein: vier Nachkommastellen.",
+    "w": "Überschlag: 5 · 2 = 10. Genau: 4,98 · 2,02 = 10,0596. Der Überschlag ist kleiner als das genaue Ergebnis, Sams Behauptung stimmt also nicht. Unterschied: 10,0596 − 10 = 0,0596."
    }
   },
   {
@@ -1118,22 +1118,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 8.76,
+     "antwort": 11,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die beiden Zahlen addiert"
+     "beschreibung": "alle Zahlen zwischen A und B gezählt"
     },
     {
-     "antwort": 0.06,
+     "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Abstand statt der Mitte angegeben"
+     "beschreibung": "die Zahl B mitgezählt"
     },
     {
-     "antwort": 4.36,
+     "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur ein Hundertstel weitergezählt"
+     "beschreibung": "M und B mitgezählt"
     }
    ],
    "aufgabe": {
@@ -1144,14 +1144,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Auf einem Zahlenstrahl liegt der Punkt A bei 4,35 und der Punkt B bei 4,41. Welche Zahl liegt genau in der Mitte zwischen A und B?"
+     "text": "Auf einem Zahlenstrahl liegt der Punkt A bei 4,35 und der Punkt B bei 4,47. M ist der Mittelpunkt der Strecke AB. Wie viele Zahlen mit genau zwei Nachkommastellen liegen zwischen M und B? M und B zählen nicht mit."
     },
     "o": {
-     "wert": 4.38
+     "wert": 5
     },
-    "c": "(4.35 + 4.41) / 2",
-    "h": "Wie weit liegen A und B auseinander? Die Mitte liegt eine halbe Strecke von A entfernt.",
-    "w": "Der Abstand ist 4,41 − 4,35 = 0,06. Die Hälfte davon ist 0,03. Die Mitte ist 4,35 + 0,03 = 4,38."
+    "c": "447 - 441 - 1",
+    "h": "Wie weit liegen A und B auseinander? Wo liegt M? Zähle die Hundertstel zwischen M und B.",
+    "w": "A = 4,35 sind 435 Hundertstel, B = 4,47 sind 447 Hundertstel. Der Abstand ist 12 Hundertstel, die Hälfte 6: M liegt bei 441 Hundertsteln, also bei 4,41. Zwischen M und B liegen 4,42; 4,43; 4,44; 4,45; 4,46. Das sind 5 Zahlen."
    }
   },
   {

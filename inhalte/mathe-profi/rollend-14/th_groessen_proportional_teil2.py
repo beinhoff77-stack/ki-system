@@ -1,7 +1,7 @@
 T = "groessen.proportional_teil2"
 # ───────── erkennen ─────────
 a1(T, "erkennen", Z(
-    "Ein Aufzug fährt gleichmäßig schnell. In 4 Sekunden fährt er 10 m. Die Zuordnung Zeit → Strecke ist proportional. Wie viele Meter fährt er in 10 Sekunden?",
+    "Ein Aufzug legt in 4 Sekunden 10 m zurück. Kim rechnet damit, dass er in der gleichen Weise weiterfährt. Wie viele Meter fährt er in 10 Sekunden?",
     25, "10 / 4 * 10", "10 * 2.5", "Proportional heißt: Zur doppelten Zeit gehört die doppelte Strecke. Wie weit fährt der Aufzug in 1 Sekunde?",
     "In 1 Sekunde fährt er 10 : 4 = 2,5 m. In 10 Sekunden fährt er 10 · 2,5 = 25 m. Probe: In 8 Sekunden wären es 20 m, dazu noch 2 Sekunden mit 5 m.",
     [B("10 + (10 - 4)", "die Sekunden dazugezählt: 6 Sekunden mehr, also 6 Meter mehr"), B("10 / 4", "nur die Strecke in einer Sekunde angegeben"), B("10 * 10", "die Strecke mit der Zeit malgenommen")], "m"))
@@ -17,15 +17,15 @@ a3(T, "erkennen", Z(
     [B("128 / 8 * 20", "die proportionale Größe als Unterschied angegeben"), B("180 - 128", "den Unterschied zu 128 cm statt zur Vorhersage berechnet"), B("152 - 128", "das tatsächliche Wachstum bis 12 Jahre angegeben")], "cm"), g="pruefung")
 # ───────── vervielfachen ─────────
 a1(T, "vervielfachen", Z(
-    "Ein Auto verbraucht auf 100 km genau 6 Liter Benzin. Der Verbrauch ist auf jedem Kilometer gleich. Wie viele Liter Benzin verbraucht es auf 350 km?",
-    21, "6 * 350 / 100", "6 * 3 + 3", "Wie viele Liter sind es auf 50 km? Zerlege 350 km in 300 km und 50 km.",
-    "300 km sind 3 · 100 km: 3 · 6 = 18 Liter. 50 km sind die Hälfte von 100 km: 3 Liter. Zusammen 18 + 3 = 21 Liter.",
-    [B("6 * 3", "nur 300 km gerechnet"), B("6 * 350", "den Verbrauch mit 350 malgenommen"), B("6 + 250", "250 km dazugezählt und 250 Liter addiert")], "l"))
+    "Bei einem Bäcker kosten 4 Brezeln zusammen 5 €. Wie viele Brezeln bekommt man für 35 €?",
+    28, "35 * 4 / 5", "(35 / 5) * 4", "Wie oft passen 5 € in 35 €? So oft bekommst du 4 Brezeln.",
+    "5 € ergeben 4 Brezeln. 35 € sind 7 mal 5 €, also bekommt man 7 · 4 = 28 Brezeln.",
+    [B("35 * 5 / 4", "mit dem Kehrwert des richtigen Faktors gerechnet"), B("35 * 4", "die Euro mit 4 malgenommen"), B("35 - 1", "den Unterschied 1 zwischen 5 und 4 abgezogen")], "Brezeln"))
 a2(T, "vervielfachen", Z(
-    "Ein Wasserhahn füllt gleichmäßig 18 Liter in 4 Minuten. Wie viele Minuten braucht er, um 63 Liter einzufüllen?",
-    14, "63 / 18 * 4", "63 / 4.5", "Wie viele Liter fließen in 1 Minute? Wie oft passt das in 63 Liter? Oder: Wie viele Liter sind es in 2 Minuten?",
-    "In 4 Minuten fließen 18 Liter, in 1 Minute 18 : 4 = 4,5 Liter. 63 : 4,5 = 14 Minuten. Probe: 14 · 4,5 = 63.",
-    [B("63 / 18", "die Zahl 63 : 18 als Minuten angegeben"), B("63 - 18 + 4", "die Liter-Differenz zur Zeit addiert"), B("18 / 4 * 63", "mit 63 malgenommen statt geteilt")], "Minuten"))
+    "Ein Wanderer legt gleichmäßig 12 km in 3 Stunden zurück. Wie viele Minuten braucht er für 5 km?",
+    75, "5 * 3 * 60 / 12", "75", "Wie viele Kilometer schafft er in 1 Stunde? Wie viele Minuten braucht er dann für 1 km?",
+    "In 3 Stunden sind es 12 km, also 4 km in einer Stunde (60 Minuten). Für 1 km braucht er 60 : 4 = 15 Minuten, für 5 km also 5 · 15 = 75 Minuten.",
+    [B("5 * 3 / 12", "das Ergebnis in Stunden statt in Minuten angegeben"), B("5 * 12 / 3", "5 mit den 4 km je Stunde malgenommen"), B("5 * 3 * 60", "nicht durch 12 geteilt")], "Minuten"))
 a3(T, "vervielfachen", Z(
     "Ein Rezept für 8 Personen braucht 600 g Mehl und 300 ml Milch. Zu Hause sind 1,5 kg Mehl und 600 ml Milch da. Für wie viele Personen reichen die Zutaten höchstens, wenn man nach dem Rezept kocht?",
     16, "600 / 300 * 8", "min(1500 / 600 * 8, 600 / 300 * 8)", "Berechne getrennt, für wie viele Personen das Mehl und für wie viele die Milch reicht. Was begrenzt?",
@@ -33,7 +33,7 @@ a3(T, "vervielfachen", Z(
     [B("1500 / 600 * 8", "nur das Mehl berücksichtigt"), B("20 + 16", "die beiden Personenzahlen addiert"), B("600 / 300", "nur die Zahl der Rezepte für die Milch angegeben")], "Personen"), g="verknuepfen")
 # ───────── pruefen ─────────
 a1(T, "pruefen", Z(
-    "Kim zahlt für 2 kg Birnen 5 €, für 3 kg Birnen 7,50 € und für 5 kg Birnen 12,50 €. Die Zuordnung Gewicht → Preis ist proportional. Wie viel Euro kosten 8 kg Birnen?",
+    "Kim zahlt für 2 kg Birnen 5 €, für 3 kg Birnen 7,50 € und für 5 kg Birnen 12,50 €. Kim möchte wissen, was 8 kg Birnen kosten, wenn sich der Preis weiter in dieser Weise ändert. Wie viel Euro kosten 8 kg Birnen?",
     20, "5 / 2 * 8", "7.5 + 12.5", "Prüfe mit Preis : Gewicht in jeder Spalte, ob immer dieselbe Zahl herauskommt. Dann rechnest du weiter.",
     "5 : 2 = 2,5; 7,5 : 3 = 2,5; 12,5 : 5 = 2,5. Immer 2,50 € je kg, die Tabelle ist proportional. 8 kg kosten 8 · 2,5 = 20 €. Probe: 3 kg + 5 kg: 7,50 + 12,50 = 20.",
     [B("12.5 + 8", "8 € zum Preis von 5 kg addiert"), B("5 * 8", "die 5 € mit 8 malgenommen"), B("2.5 * 8 + 5", "5 € Grundpreis dazugezählt")], "€"))
@@ -43,7 +43,7 @@ a2(T, "pruefen", Z(
     "18 : 4 = 4,5 und 27 : 6 = 4,5. Der Faktor ist 4,5. Bei 10 müsste 4,5 · 10 = 45 stehen, nicht 46. Probe: 46 : 10 = 4,6, das passt nicht zu 4,5.",
     [B("27 + 10", "10 zum Wert 27 addiert"), B("10 * 4", "mit 4 statt mit 4,5 malgenommen"), B("10 * 6", "10 mit 6 malgenommen")]))
 a3(T, "pruefen", Z(
-    "Eine Tabelle zeigt, wie viel Benzin ein Motorroller auf verschiedenen Strecken verbraucht: 40 km → 1 l; 60 km → 1,5 l; 100 km → 2,5 l. Die Zuordnung ist proportional. Wie viele Kilometer kommt der Roller mit 7,5 Litern?",
+    "Eine Tabelle zeigt, wie viel Benzin ein Motorroller auf verschiedenen Strecken verbraucht: 40 km → 1 l; 60 km → 1,5 l; 100 km → 2,5 l. Wie viele Kilometer kommt der Roller mit 7,5 Litern, wenn der Verbrauch weiter in dieser Weise zunimmt?",
     300, "7.5 / (1.5 / 60)", "7.5 * 40", "Prüfe, ob in jeder Spalte Liter : Kilometer dieselbe Zahl ergibt. Wie viele Kilometer fährt der Roller mit einem Liter? Dann rechnest du mit 7,5 Litern.",
     "1 : 40 = 0,025; 1,5 : 60 = 0,025; 2,5 : 100 = 0,025. Es sind immer 0,025 l je km, die Zuordnung ist proportional. Mit 1 l kommt der Roller 40 km weit, mit 7,5 l also 7,5 · 40 = 300 km.",
     [B("7.5 * 1.5", "mit 1,5 malgenommen statt mit der Strecke je Liter"), B("7.5 * 100", "die Strecke für einen Liter als 100 km angenommen"), B("7.5 + 40", "40 km zu den Litern addiert")], "km"), g="pruefung")

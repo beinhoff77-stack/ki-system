@@ -168,6 +168,8 @@ def dp_vergleich(a, b):
     ws, jn = jac(a["W"], b["W"]), jac(a["N"], b["N"])
     gleich = a["S"] is not None and a["S"] == b["S"]
     da, db = dp_dez(a["N"]), dp_dez(b["N"])
+    if gleich and jn >= .99 and (len(a["N"]) >= 2 or (a["N"] and max(a["N"]) >= 50)):
+        return "gleiche Zahlenmenge und gleicher Sollwert (ohne Maskierung der Zahlen verglichen)"
     if gleich and len(a["N"]) >= 2 and jn >= .75 and ws >= .2:
         return "gleiche Zahlen und gleicher Sollwert"
     if gleich and jn >= .99 and len(a["N"]) >= 3 and ws >= .15:
@@ -465,6 +467,115 @@ with tempfile.TemporaryDirectory() as tmp:
             print(aus1[-2500:])
         assert code0 == 0 and code1 == 0, datei
 
+# ═════════ Unabhängige Zählung: Aufgaben, deren Lösung auf Abzählen beruht, werden nicht nur mit zwei Formeln, sondern durch ein Modell nachgezählt ═════════
+import ast
+import itertools
+
+
+def wuerfel_flaechen(zellen):
+    """Zahl der Einheitsflächen, die an keinen Nachbarwürfel grenzen (Körper als Menge von Einheitswürfeln)"""
+    z = set(zellen)
+    return sum(1 for (x, y, k) in z for d in ((1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1)) if (x + d[0], y + d[1], k + d[2]) not in z)
+
+
+def symmetrieebenen(ecken):
+    """Zahl der Spiegelebenen eines Körpers aus seinen Ecken: Jede Spiegelebene ist Mittelebene eines Eckenpaars; jede wird geprüft."""
+    r = lambda p: tuple(round(c, 6) + 0.0 for c in p)
+    menge = {r(p) for p in ecken}
+    ebenen = set()
+    for p, q in itertools.combinations(ecken, 2):
+        n = [q[i] - p[i] for i in range(3)]
+        l = math.sqrt(sum(c * c for c in n))
+        n = [c / l for c in n]
+        m = [(p[i] + q[i]) / 2 for i in range(3)]
+        d = sum(n[i] * m[i] for i in range(3))
+        if all(r(tuple(c[i] - 2 * (sum(n[j] * c[j] for j in range(3)) - d) * n[i] for i in range(3))) in menge for c in ecken):
+            if next(c for c in n if abs(c) > 1e-9) < 0:
+                n, d = [-c for c in n], -d
+            ebenen.add((tuple(round(c, 6) + 0.0 for c in n), round(d, 6) + 0.0))
+    return len(ebenen)
+
+
+def prisma_ecken(n, h):
+    return [(math.cos(2 * math.pi * k / n), math.sin(2 * math.pi * k / n), z) for k in range(n) for z in (0, h)]
+
+
+def pyramide_ecken(n, h):
+    return [(math.cos(2 * math.pi * k / n), math.sin(2 * math.pi * k / n), 0) for k in range(n)] + [(0, 0, h)]
+
+
+def nachkommastellen(zaehler, nenner, anzahl):
+    """Nachkommaziffern des Bruchs durch schriftliche Division"""
+    ziffern, rest = [], zaehler % nenner
+    for _ in range(anzahl):
+        rest *= 10
+        ziffern.append(rest // nenner)
+        rest %= nenner
+    return ziffern
+
+
+def art(t):
+    """zuletzt ausgeführte Rechenart eines Terms: Summe 1, Differenz 2, Produkt 3, Quotient 4"""
+    op = ast.parse(t, mode="eval").body.op
+    return {ast.Add: 1, ast.Sub: 2, ast.Mult: 3, ast.Div: 4}[type(op)]
+
+
+def runde_hundertstel_auf_ganze(h):
+    return h // 100 + (1 if h % 100 >= 50 else 0)
+
+
+def zaehle_wuerfel_pyramide():
+    return len({(x, y, k) for k, seite in enumerate((4, 3, 2, 1)) for x in range(seite) for y in range(seite)})
+
+
+GEZAEHLT = {}
+# Würfelbauten und Flächen
+turm = [(0, 0, 0), (1, 0, 0), (1, 0, 1), (2, 0, 0), (2, 0, 1), (2, 0, 2)]
+GEZAEHLT["R14-V095"] = wuerfel_flaechen(turm) * 4
+loch = [(x, y, k) for x in range(3) for y in range(3) for k in range(3) if (x, y) != (1, 1)]
+GEZAEHLT["R14-V094"] = wuerfel_flaechen(loch) * 4
+quader = {(x, y, k) for x in range(5) for y in range(4) for k in range(3)}
+GEZAEHLT["R14-V096"] = wuerfel_flaechen(quader - {(x, y, k) for x in range(2) for y in range(2) for k in range(2)}) - wuerfel_flaechen(quader)
+GEZAEHLT["R14-V146"] = len({(0, 0, 0)} | {(s * d[0] * j, s * d[1] * j, s * d[2] * j) for j in (1, 2, 3) for s in (1, -1) for d in ((1, 0, 0), (0, 1, 0), (0, 0, 1))})
+GEZAEHLT["R14-V147"] = sum(1 for (x, y, k) in quader if 0 < x < 4 and 0 < y < 3 and 0 < k < 2)
+# Symmetrieebenen
+GEZAEHLT["R14-V040"] = symmetrieebenen(prisma_ecken(9, 1.7)) - symmetrieebenen(pyramide_ecken(7, 1.3))
+GEZAEHLT["R14-V042"] = next(n for n in range(3, 13) if symmetrieebenen(prisma_ecken(n, 1.7)) == 7) * 3
+# Plättchenmuster und Folgen
+GEZAEHLT["R14-V130"] = (lambda h: [h := h + 2 for _ in range(14)][-1])(12)
+GEZAEHLT["R14-V131"] = next(n for n in itertools.count(1) if 6 * n + 1 > 100)
+# Ergebnisräume und Ereignisse
+GEZAEHLT["R14-V076"] = len(list(itertools.permutations(range(5), 2)))
+GEZAEHLT["R14-V077"] = sum(1 for a_, m_ in itertools.product(range(1, 7), ("Wappen", "Zahl")) if a_ > 4 or m_ == "Wappen")
+GEZAEHLT["R14-V078"] = sum(1 for k in range(1, 31) if (k % 3 == 0) != (k % 5 == 0))
+# Dezimalzahlen: Hundertstel abzählen, Ziffern per schriftlicher Division
+GEZAEHLT["R14-V170"] = sum(1 for d in range(10) if 342 < 340 + d < 348)
+GEZAEHLT["R14-V174"] = sum(1 for h in range(0, 1300) if runde_hundertstel_auf_ganze(h) == 6)
+GEZAEHLT["R14-V188"] = len(range(441 + 1, 447))
+GEZAEHLT["R14-V185"] = sum(nachkommastellen(4, 11, 37))
+GEZAEHLT["R14-V186"] = nachkommastellen(3, 11, 25).count(7)
+# Termart und Termwert
+GEZAEHLT["R14-V118"] = sum(art(t) for t in ("3 + x * 2", "(3 + x) * 2", "3 * x + 2 * x", "12 / (x - 1)"))
+GEZAEHLT["R14-V119"] = max(eval(t, {"x": 9}) for t in ("36 / (x - 3)", "2 * x"))
+GEZAEHLT["R14-V120"] = sum(i for i, (t, w) in enumerate((("2 + 3 * x", 1), ("(2 + 3) * x", 1), ("12 / x - 2", 4), ("5 * (x - 2)", 3)), 1) if art(t) != w)
+# Suchen statt Formel
+GEZAEHLT["R14-V123"] = next(t for t in itertools.count(0) if 120 - 3 * (2 * t + 5) == 63)
+GEZAEHLT["R14-V126"] = next(x for x in itertools.count(1) if 2 * (x + 2 * x + 5) == 70)
+GEZAEHLT["R14-V128"] = (lambda g: [g := g + 15 - (30 if w == 4 else 0) for w in range(1, 9)][-1])(120)
+GEZAEHLT["R14-V129"] = next(n for n in itertools.count(1) if 36 + 4 * n < 10 * n)
+GEZAEHLT["R14-V132"] = next(n for n in itertools.count(1) if 4 * n + 2 == 6 * n - 4)
+GEZAEHLT["R14-V134"] = next(t for t in itertools.count(0) if 80 - 5 * t == 0) - next(t for t in itertools.count(0) if 80 - 5 * t == 35)
+GEZAEHLT["R14-V030"] = next(x + y for x in range(-9, 10) for y in range(-9, 10) if (lambda v: (-v[0], -v[1]))((lambda v: (v[1], -v[0]))((lambda v: (-v[1], v[0]))((x, y)))) == (-3, 7))
+_alle = {e["kennung"]: e for lst in aus.values() for e in lst}
+for _k, _w in GEZAEHLT.items():
+    assert _k in _alle, _k
+    assert F(str(_alle[_k]["aufgabe"]["o"]["wert"])) == F(str(_w)), (_k, "unabhängige Zählung ergibt", _w, "Sollwert", _alle[_k]["aufgabe"]["o"]["wert"])
+print(len(GEZAEHLT), "Aufgaben mit unabhängiger Zählung bestätigt:", " ".join(k[4:] for k in sorted(GEZAEHLT)))
+# Negativproben: die Zählung findet den alten Fehler (88 statt 96)
+assert GEZAEHLT["R14-V095"] != 88 and wuerfel_flaechen(turm) == 24 and wuerfel_flaechen([(0, 0, 0)]) == 6 and wuerfel_flaechen([(0, 0, 0), (1, 0, 0)]) == 10
+assert symmetrieebenen(pyramide_ecken(7, 1.3)) == 7 and symmetrieebenen(prisma_ecken(9, 1.7)) == 10 and symmetrieebenen([(1, 1, 1), (1, -1, -1), (-1, 1, -1), (-1, -1, 1)]) == 6 and symmetrieebenen(prisma_ecken(4, math.sqrt(2))) == 9 and symmetrieebenen(prisma_ecken(4, 1.5)) == 5
+ZAEHL_PROBEN = 3
+
 for _t in dp_treffer:
     print("DOPPELUNG", *_t)
 assert not dp_treffer, "Doppelungen mit dem Bestand (siehe oben)"
@@ -519,6 +630,7 @@ for a in A:
         n_neg["Fehlbild ist nicht die richtige Antwort"] += 1
 # 8. Doppelungsprüfung über Zahlen, Sollwert und Wortlaut: die zwölf Aufgaben des ersten Entwurfs (Stand df4ba006), die ein Prüfer als Doppelung
 #    mit dem Bestand gefunden hat, müssen erkannt werden; der Bauplan-Vergleich allein hat sie übersehen
+n_neg["unabhängige Zählung (Würfel, Symmetrie): bekannte Fälle und alter Fehler 88"] += ZAEHL_PROBEN
 DP_ALT = [
     ('011', 'terme.potenzgesetze_ganzzahlig', 'Ein Transistor auf einem Chip ist 5 · 10⁻⁹ m breit. Ein Streifen auf dem Chip ist 2 · 10⁻⁵ m lang. Auf dem Streifen sollen Transistoren lückenlos nebeneinander liegen. Wie viele Transistoren passen auf den Streifen?', 4000),
     ('091', 'messen.koerper_berechnung', 'Ein offenes Schwimmbecken hat die Form eines Quaders: 10 m lang, 5 m breit und 2 m tief. Boden und die vier Wände werden gefliest. Wie viele Quadratmeter Fliesen werden gebraucht?', 110),
@@ -530,6 +642,7 @@ DP_ALT = [
     ('170', 'bruch.dezimal', 'Wie viele Dezimalzahlen mit genau zwei Nachkommastellen liegen zwischen 0,4 und 0,5? Die Zahlen 0,4 und 0,5 selbst zählen nicht mit.', 9),
     ('174', 'bruch.dezimal', 'Eine Dezimalzahl mit zwei Nachkommastellen wird auf Zehntel gerundet. Das Ergebnis ist 4,3. Welche ist die größte Zahl, für die das gilt?', 4.34),
     ('174b', 'bruch.dezimal', 'Eine Dezimalzahl mit genau zwei Nachkommastellen wird auf Zehntel gerundet. Das Ergebnis ist 5,8. Wie viele solche Zahlen gibt es?', 10),
+    ('088', 'messen.koerper_berechnung', 'Für einen würfelförmigen Geschenkkarton werden 384 cm² Pappe gebraucht, ohne Verschnitt und ohne Klebekanten. Wie lang ist eine Kante des Würfels in Zentimetern?', 8),
     ('175', 'bruch.dezimal', 'Kim trinkt 3/8 Liter Saft. Schreibe die Menge als Dezimalzahl.', 0.375),
     ('188', 'bruch.dezimal', 'Welche Dezimalzahl liegt genau in der Mitte zwischen 2,4 und 2,5?', 2.45),
     ('208', 'messen.flaechen_vielecke', 'Ein Dreieck hat die Grundseite 8 cm und die Höhe 6 cm. Die Grundseite wird verdoppelt, die Höhe bleibt gleich. Wie groß ist die neue Fläche?', 48),

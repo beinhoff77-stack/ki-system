@@ -1,10 +1,10 @@
 T = "stochastik.grundbegriffe"
 # ───────── begriffe ─────────
 a1(T, "begriffe", Z(
-    "In einer Lostrommel liegen Lose mit den Nummern 1 bis 20. Ein Los wird gezogen. Wie viele Ergebnisse gehören zum Ereignis „Die Nummer ist durch 5 teilbar“?",
-    4, "20 // 5", "20 / 5", "Schreibe die Nummern auf, die durch 5 teilbar sind. Zähle sie.",
-    "Zu dem Ereignis gehören die Nummern 5, 10, 15 und 20. Das sind 4 Ergebnisse. Der Ergebnisraum hat 20 Ergebnisse.",
-    [B("20 // 4", "durch 4 statt durch 5 geteilt"), B("20", "alle Ergebnisse des Ergebnisraums gezählt"), B("20 // 5 - 1", "die Nummer 20 nicht mitgezählt")], "Ergebnisse"))
+    "Aus einem Beutel mit fünf verschiedenfarbigen Kugeln (rot, blau, gelb, grün, weiß) werden nacheinander zwei Kugeln ohne Zurücklegen gezogen. Die Reihenfolge der Farben zählt. Wie viele Ergebnisse hat der Ergebnisraum?",
+    20, "5 * 4", "4 + 4 + 4 + 4 + 4", "Wie viele Möglichkeiten gibt es für die erste Kugel? Wie viele bleiben dann für die zweite?",
+    "Für die erste Kugel gibt es 5 Möglichkeiten, für die zweite danach noch 4. Das sind 5 · 4 = 20 Ergebnisse, zum Beispiel (rot | blau) und (blau | rot).",
+    [B("5 * 5", "mit Zurücklegen gerechnet"), B("5 * 4 / 2", "die Reihenfolge nicht beachtet"), B("5 + 4", "die Möglichkeiten addiert statt multipliziert")], "Ergebnisse"))
 a2(T, "begriffe", Z(
     "Ein Würfel mit den Augenzahlen 1 bis 6 und eine Münze (Seiten „Wappen“ und „Zahl“) werden einmal geworfen. Ein Ergebnis ist ein Paar aus Augenzahl und Münzseite, zum Beispiel (5 | Wappen). Wie viele Ergebnisse gehören zum Ereignis „Die Augenzahl ist größer als 4 oder die Münze zeigt Wappen“?",
     8, "2 * 2 + 6 - 2", "12 - 4", "Zähle zuerst die Ergebnisse mit Würfelzahl 5 oder 6. Zähle dann die Ergebnisse mit Wappen. Was wurde doppelt gezählt?",

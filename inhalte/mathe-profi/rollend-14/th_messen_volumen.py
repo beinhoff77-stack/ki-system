@@ -6,10 +6,10 @@ a1(T, "einheitswuerfel", Z(
     "Eine Schicht hat 5 · 4 = 20 Würfel. Es passen 3 Schichten hinein: 20 · 3 = 60 Würfel.",
     [B("5 * 4", "nur die unterste Schicht gezählt"), B("5 + 4 + 3", "die Kantenlängen addiert"), B("2 * (5 * 4 + 5 * 3 + 4 * 3)", "die Oberfläche statt der Würfelzahl berechnet")]))
 a2(T, "einheitswuerfel", Z(
-    "Ein Quader ist aus Würfeln gebaut: 6 Würfel in der Länge, 3 in der Breite und 2 Schichten übereinander. Sam nimmt die oberste Schicht ganz weg. Wie viele Würfel bleiben liegen?",
-    18, "6 * 3 * 2 - 6 * 3", "6 * 3 * (2 - 1)", "Wie viele Würfel hat eine Schicht? Wie viele Schichten bleiben übrig?",
-    "Eine Schicht hat 6 · 3 = 18 Würfel. Von 2 Schichten bleibt 1 Schicht. Es bleiben 18 Würfel liegen.",
-    [B("6 * 3 * 2", "die Würfel vor dem Wegnehmen angegeben"), B("6 * 3 * 2 - 6", "nur eine Reihe statt einer Schicht weggenommen"), B("6 * 3 - 2", "die Zahl der Schichten von den Würfeln einer Schicht abgezogen")]))
+    "Aus Würfeln mit 1 cm Kante baut Sam ein Raumkreuz: In der Mitte liegt ein Würfel. An jeder der sechs Seiten dieses Würfels schließt sich ein Arm aus 3 Würfeln an, die in einer geraden Reihe nach außen liegen. Wie viele Würfel braucht Sam?",
+    19, "1 + 6 * 3", "3 * 2 * 3 + 1", "Wie viele Arme gibt es, und wie viele Würfel hat jeder Arm? Vergiss den Würfel in der Mitte nicht.",
+    "Es gibt 6 Arme mit je 3 Würfeln: 6 · 3 = 18 Würfel. Dazu kommt der Würfel in der Mitte: 18 + 1 = 19 Würfel.",
+    [B("6 * 3", "den Würfel in der Mitte vergessen"), B("6 * 4", "zu jedem Arm den Mittelwürfel dazugezählt"), B("1 + 4 * 3", "nur die vier Arme in einer Ebene gezählt")], "Würfel"))
 a3(T, "einheitswuerfel", Z(
     "Ein Quader besteht aus 5 · 4 · 3 kleinen Würfeln. Er wird außen ganz angemalt, auch unten. Wie viele kleine Würfel haben dann keine angemalte Fläche?",
     6, "(5 - 2) * (4 - 2) * (3 - 2)", "3 * 2 * 1", "Welche kleinen Würfel liegen ganz innen? Wie viele Schichten bleiben in jeder Richtung ohne die äußeren?",
@@ -27,10 +27,10 @@ a2(T, "quader", Z(
     "Grundfläche: 8 · 4,5 = 36 m². Volumen: 36 · 1,5 = 54 m³.",
     [B("8 * 4.5", "nur die Grundfläche angegeben"), B("8 + 4.5 + 1.5", "die Kantenlängen addiert"), B("8 * 4.5 * 1.5 * 1000", "das Ergebnis in Liter statt in Kubikmeter angegeben")], "m³"))
 a3(T, "quader", Z(
-    "Ein Würfel mit 8 cm Kante und ein Quader mit 16 cm Länge und 8 cm Breite haben genau dasselbe Volumen. Wie hoch ist der Quader?",
-    4, "8 * 8 * 8 / (16 * 8)", "(8 * 8 * 8) / (16 * 8)", "Berechne zuerst das Volumen des Würfels. Dann fehlt beim Quader nur die Höhe.",
-    "Würfel: 8 · 8 · 8 = 512 cm³. Die Grundfläche des Quaders ist 16 · 8 = 128 cm². Höhe: 512 : 128 = 4 cm.",
-    [B("8 * 8 * 8 / 16", "nur durch die Länge geteilt"), B("16 * 8 / 8", "das Volumen des Würfels nicht benutzt"), B("8 * 8 * 8 - 16 * 8", "die Grundfläche vom Volumen abgezogen")], "cm"), g="rueckwaerts")
+    "Aus einem Wachsblock (12 cm lang, 6 cm breit, 5 cm hoch) wird ohne Verlust ein neuer Quader mit quadratischer Grundfläche gegossen. Die Grundfläche hat die Seitenlänge 6 cm. Wie hoch wird der neue Quader in Zentimetern?",
+    10, "12 * 6 * 5 / (6 * 6)", "360 / 36", "Das Volumen bleibt gleich. Berechne zuerst das Volumen des Wachsblocks. Wie groß ist die neue Grundfläche?",
+    "Wachsblock: 12 · 6 · 5 = 360 cm³. Neue Grundfläche: 6 · 6 = 36 cm². Höhe: 360 : 36 = 10 cm. Probe: 36 · 10 = 360.",
+    [B("12 * 6 * 5", "das Volumen als Höhe angegeben"), B("12 * 6 * 5 / 6", "nur durch eine Seitenlänge 6 geteilt"), B("12 * 6 * 5 / (6 + 6)", "die beiden Seitenlängen der neuen Grundfläche addiert statt malgenommen")], "cm"), g="rueckwaerts")
 # ───────── einheiten ─────────
 a1(T, "einheiten", Z(
     "Ein Regenwassertank fasst 3,6 m³. Wie viele Kubikdezimeter sind das?",
@@ -46,7 +46,7 @@ a3(T, "einheiten", Z(
     "Tank A fasst 0,004 m³, Tank B fasst 3,2 dm³ und Tank C fasst 2 500 cm³. Um wie viele Kubikzentimeter ist der größte Tank größer als der kleinste?",
     1500, "0.004 * 1000000 - 2500", "4000 - 2500", "Schreibe alle drei Angaben in derselben Einheit, am besten in cm³. Dann suchst du den größten und den kleinsten Tank.",
     "0,004 m³ = 4 000 cm³ und 3,2 dm³ = 3 200 cm³. Tank C hat 2 500 cm³. Der größte Tank ist A, der kleinste ist C: 4 000 − 2 500 = 1 500 cm³.",
-    [B("0.004 * 1000000", "nur die Größe des größten Tanks angegeben"), B("4000 - 3200", "den mittleren statt den kleinsten Tank genommen"), B("0.004 * 1000 - 2500", "mit 1 000 statt mit 1 000 000 umgerechnet")], "cm³"), g="verknuepfen")
+    [B("0.004 * 1000000", "nur die Größe des größten Tanks angegeben"), B("4000 - 3200", "den mittleren statt den kleinsten Tank genommen"), B("3200 - 4", "mit 1 000 statt mit 1 000 000 umgerechnet: 0,004 m³ als 4 cm³ gelesen")], "cm³"), g="verknuepfen")
 # ───────── liter ─────────
 a1(T, "liter", Z(
     "Eine Regentonne ist innen 50 cm lang, 40 cm breit und 60 cm hoch. Wie viele Liter passen hinein, wenn sie ganz voll ist?",

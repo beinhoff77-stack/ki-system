@@ -1,10 +1,10 @@
 T = "messen.prisma_zylinder"
 # ───────── prisma_volumen ─────────
 a1(T, "prisma_volumen", Z(
-    "Für eine Wasserleitung wird ein Graben ausgehoben. Sein Querschnitt ist ein Trapez: oben 3 m breit, unten 1 m breit und 2 m tief. Der Graben ist 25 m lang. Wie viele Kubikmeter Erde werden ausgehoben?",
-    100, "(3 + 1) / 2 * 2 * 25", "4 * 25", "Der Graben ist ein Prisma. Die Grundfläche ist der trapezförmige Querschnitt. Berechne zuerst seine Fläche.",
-    "Querschnitt: (3 + 1) : 2 · 2 = 4 m². Volumen = Grundfläche · Länge = 4 · 25 = 100 m³.",
-    [B("4", "nur die Fläche des Querschnitts angegeben"), B("(3 + 1) * 2 * 25", "beim Trapez nicht durch 2 geteilt"), B("3 * 2 * 25", "den Querschnitt als Rechteck oben mal tief gerechnet")], "m³"))
+    "Ein Schuppen hat die Form eines Prismas. Die Giebelseite ist ein Rechteck mit aufgesetztem Dreieck: Das Rechteck ist 4 m breit und 2 m hoch, das Dreieck hat die Höhe 1,5 m. Der Schuppen ist 6 m lang. Wie viele Kubikmeter Raum hat der Schuppen?",
+    66, "(4 * 2 + 4 * 1.5 / 2) * 6", "11 * 6", "Der Schuppen ist ein Prisma. Die Grundfläche ist die Giebelseite aus Rechteck und Dreieck. Berechne zuerst ihre Fläche.",
+    "Rechteck: 4 · 2 = 8 m². Dreieck: 4 · 1,5 : 2 = 3 m². Giebelseite: 11 m². Volumen = Grundfläche · Länge = 11 · 6 = 66 m³.",
+    [B("(4 * 2 + 4 * 1.5) * 6", "das Dreieck wie ein Rechteck berechnet: Breite mal Höhe"), B("4 * 2 + 4 * 1.5 / 2", "nur die Fläche der Giebelseite angegeben"), B("4 * 2 * 6", "das Dreieck vergessen")], "m³"))
 a2(T, "prisma_volumen", Z(
     "Ein Betonprofil ist 2 m lang. Sein Querschnitt hat die Form eines L: Der Fuß ist 30 cm breit und 10 cm hoch. Darauf steht ein Steg, der 10 cm breit und 30 cm hoch ist. Fuß und Steg überlappen sich nicht. Wie viele Kubikdezimeter Beton enthält das Profil?",
     120, "(30 * 10 + 10 * 30) * 200 / 1000", "(3 * 1 + 1 * 3) * 20", "Rechne die Fläche des Querschnitts aus zwei Rechtecken. Achte auf die Einheiten: 1 dm³ = 1 000 cm³.",
@@ -17,7 +17,7 @@ a3(T, "prisma_volumen", Z(
     [B("6 ** 3 / (9 * 6)", "die Dreiecksfläche nicht durch 2 geteilt"), B("6 ** 3 / 6", "das Würfelvolumen durch die Kantenlänge geteilt"), B("6 * 6 * 6 / 9", "durch die Grundseite 9 cm statt durch die Grundfläche geteilt")], "cm"), g="verknuepfen")
 # ───────── prisma_oberflaeche ─────────
 a1(T, "prisma_oberflaeche", Z(
-    "Ein Holzprisma wird komplett lackiert. Seine Grundfläche ist ein rechtwinkliges Dreieck mit den Seiten 6 cm, 8 cm und 10 cm. Das Prisma ist 15 cm hoch. Wie viele Quadratzentimeter müssen lackiert werden?",
+    "Ein gerades Holzprisma wird komplett lackiert. Seine Grundfläche ist ein rechtwinkliges Dreieck mit den Seiten 6 cm, 8 cm und 10 cm. Das Prisma ist 15 cm hoch. Wie viele Quadratzentimeter müssen lackiert werden?",
     408, "2 * (6 * 8 / 2) + (6 + 8 + 10) * 15", "48 + 24 * 15", "Die Oberfläche besteht aus zwei Grundflächen und dem Mantel. Der Mantel ist ein Rechteck: Umfang der Grundfläche mal Höhe.",
     "Grundfläche: 6 · 8 : 2 = 24 cm². Zwei Grundflächen: 48 cm². Umfang: 6 + 8 + 10 = 24 cm. Mantel: 24 · 15 = 360 cm². O = 48 + 360 = 408 cm².",
     [B("6 * 8 / 2 + (6 + 8 + 10) * 15", "nur eine Grundfläche gezählt"), B("2 * (6 * 8 / 2) + (6 + 8) * 15", "die Hypotenuse beim Umfang vergessen"), B("(6 + 8 + 10) * 15", "nur den Mantel angegeben")], "cm²"))
@@ -59,10 +59,10 @@ a2(T, "zylinder_volumen", Z(
     "Rechne in dm: R = 3 dm, r = 2 dm, Länge 20 dm. V = (π · R² − π · r²) · h = 3,14 · (9 − 4) · 20 = 3,14 · 100 = 314 dm³.",
     [B("3.14 * 3 ** 2 * 20", "nur den großen Zylinder gerechnet"), B("3.14 * (3 - 2) ** 2 * 20", "erst die Radien subtrahiert und dann quadriert"), B("3.14 * (30 ** 2 - 20 ** 2) * 200", "in cm gerechnet: Ergebnis in cm³")], "dm³"))
 a3(T, "zylinder_volumen", Z(
-    "Ein Zylinder A hat den Radius 10 cm. Er ist 30 cm hoch mit Wasser gefüllt. Das ganze Wasser wird in einen Zylinder B mit dem Radius 5 cm gegossen. B ist hoch genug. Wie hoch steht das Wasser in B in Zentimetern?",
-    120, "30 * (10 / 5) ** 2", "30 * 4", "Das Volumen bleibt gleich. Wie viel kleiner ist die Grundfläche von B als die von A? Denke an r².",
-    "Die Grundfläche ist π · r². A: π · 100, B: π · 25. B hat nur ein Viertel der Grundfläche von A. Bei gleichem Volumen steht das Wasser viermal so hoch: 4 · 30 = 120 cm. Probe: π · 100 · 30 = π · 25 · 120.",
-    [B("30 * (10 / 5)", "das Verhältnis der Radien 2 nicht quadriert"), B("30 / (10 / 5) ** 2", "die Höhe durch 4 geteilt statt mit 4 malgenommen"), B("30 / (10 / 5)", "die Höhe durch das Verhältnis der Radien geteilt")], "cm"), g="transfer")
+    "Durch ein Rohr mit dem Innenradius 2 cm fließt Wasser gleichmäßig: Der Wasserfaden legt in jeder Sekunde 5 cm zurück. Wie viele Kubikzentimeter Wasser fließen in einer Minute durch das Rohr? Rechne mit π ≈ 3,14.",
+    3768, "3.14 * 2 ** 2 * 5 * 60", "3.14 * 4 * 300", "Das Wasser einer Sekunde ist ein Zylinder mit dem Radius 2 cm und der Höhe 5 cm. Wie viele Sekunden hat eine Minute?",
+    "In einer Sekunde fließt ein Zylinder mit r = 2 cm und h = 5 cm: 3,14 · 2² · 5 = 62,8 cm³. In einer Minute (60 Sekunden): 60 · 62,8 = 3 768 cm³.",
+    [B("3.14 * 2 * 5 * 60", "den Radius nicht quadriert"), B("3.14 * 2 ** 2 * 5", "nur eine Sekunde gerechnet"), B("3.14 * 4 ** 2 * 5 * 60", "den Durchmesser 4 cm statt des Radius genommen")], "cm³"), g="transfer")
 # ───────── zylinder_oberflaeche ─────────
 a1(T, "zylinder_oberflaeche", Z(
     "Ein zylinderförmiger Blecheimer ist oben offen. Er hat den Radius 15 cm und die Höhe 30 cm. Wie viele Quadratzentimeter Blech braucht man für Boden und Mantel? Rechne mit π ≈ 3,14.",
@@ -105,9 +105,9 @@ a2(T, "verstehen", Z(
     "Dose A ist ein Zylinder mit dem Radius 4 cm und der Höhe 6 cm. Dose B ist ein Zylinder mit dem Radius 6 cm und der Höhe 4 cm. Das Volumen von Dose B ist um n · π cm³ größer als das von Dose A. Welche Zahl ist n?",
     48, "6 ** 2 * 4 - 4 ** 2 * 6", "144 - 96", "Berechne beide Volumina als Vielfache von π. Beachte, welche Größe quadriert wird.",
     "A: π · 4² · 6 = 96π cm³. B: π · 6² · 4 = 144π cm³. Unterschied: 144π − 96π = 48π. Also ist n = 48. Die Dose mit dem größeren Radius ist größer, obwohl sie niedriger ist.",
-    [B("6 ** 2 * 4", "nur das Volumen von Dose B angegeben"), B("4 ** 2 * 6", "nur das Volumen von Dose A angegeben"), B("6 ** 2 * 4 + 4 ** 2 * 6", "die beiden Volumina addiert")]))
+    [B("6 ** 2 * 4", "nur den Faktor vor π bei Dose B (144) angegeben"), B("4 ** 2 * 6", "nur den Faktor vor π bei Dose A (96) angegeben"), B("6 ** 2 * 4 + 4 ** 2 * 6", "die beiden Faktoren vor π addiert")]))
 a3(T, "verstehen", Z(
     "Ein Stapel aus 10 runden Pappscheiben steht gerade. Jede Scheibe hat den Radius 3 cm und ist 1 cm dick. Dann wird der Stapel seitlich verschoben, sodass er schief steht. Dabei ändert sich keine Scheibe. Wie groß ist das Volumen des schiefen Stapels in cm³? Rechne mit π ≈ 3,14.",
     282.6, "10 * 3.14 * 3 ** 2 * 1", "3.14 * 9 * 10", "Jede Scheibe hat dasselbe Volumen wie vorher. Wie viele Scheiben gibt es?",
     "Das Volumen einer Scheibe ist 3,14 · 3² · 1 = 28,26 cm³. Beim Verschieben ändert sich keine Scheibe, also bleibt auch die Summe gleich: 10 · 28,26 = 282,6 cm³. Ein schiefer Zylinder hat dasselbe Volumen wie der gerade mit gleicher Grundfläche und Höhe.",
-    [B("10 * 3.14 * 3 * 1", "den Radius nicht quadriert"), B("10 * 3.14 * 3 ** 2 * 1 / 2", "das Volumen halbiert, weil der Stapel schief steht"), B("10 * 3.14 * 3 ** 2 * 2", "mit dem Durchmesser als Dicke gerechnet")], "cm³"), g="begruenden")
+    [B("10 * 3.14 * 3 * 1", "den Radius nicht quadriert"), B("10 * 3.14 * 3 ** 2 * 1 / 2", "das Volumen halbiert, weil der Stapel schief steht"), B("10 * 3.14 * 3 ** 2 * 6", "den Durchmesser 6 cm als Dicke einer Scheibe genommen")], "cm³"), g="begruenden")

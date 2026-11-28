@@ -425,22 +425,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 54,
+     "antwort": 18,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Anteil von Fußball und Schwimmen statt von Sonstiges berechnet"
+     "beschreibung": "den Anteil der Senioren statt der Nicht-Senioren berechnet"
     },
     {
-     "antwort": 69,
+     "antwort": 60,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl der Kinder als Prozentzahl angegeben"
+     "beschreibung": "die Senioren nicht abgezogen"
     },
     {
-     "antwort": 19,
+     "antwort": 58,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahlen der Kinder von 100 abgezogen"
+     "beschreibung": "Kinder und Senioren zusammen in Prozent angegeben"
     }
    ],
    "aufgabe": {
@@ -451,15 +451,15 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Bei einer Umfrage unter 150 Kindern wählen 36 Kinder „Fußball“ und 45 Kinder „Schwimmen“. Alle anderen Kinder wählen „Sonstiges“. Wie viel Prozent der Kinder haben „Sonstiges“ gewählt?"
+     "text": "Ein Freibad hat an einem Tag 500 Besucher. 40 % davon sind Kinder. Von den Erwachsenen sind 90 Senioren. Wie viel Prozent aller Besucher sind erwachsene Nicht-Senioren?"
     },
     "o": {
-     "wert": 46,
+     "wert": 42,
      "einheit": "%"
     },
-    "c": "(150 - 36 - 45) / 150 * 100",
-    "h": "Wie viele Kinder haben „Sonstiges“ gewählt? Bezogen auf wie viele Kinder?",
-    "w": "Sonstiges: 150 − 36 − 45 = 69 Kinder. 69 : 150 = 0,46 = 46 %. Kontrolle: Fußball 24 %, Schwimmen 30 %, Sonstiges 46 %, zusammen 100 %."
+    "c": "(500 - 500 * 40 / 100 - 90) / 500 * 100",
+    "h": "Wie viele der 500 Besucher sind Kinder? Wie viele sind erwachsen, aber keine Senioren?",
+    "w": "Kinder: 40 % von 500 = 200. Erwachsene: 500 − 200 = 300. Davon sind 90 Senioren, also 300 − 90 = 210 erwachsene Nicht-Senioren. 210 : 500 = 0,42 = 42 %."
    }
   },
   {
@@ -725,22 +725,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 36,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "den Rabatt in Euro als Preis genommen"
-    },
-    {
      "antwort": 25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Rabatt bei Jacke A nicht berücksichtigt"
+     "beschreibung": "den Preis von Jacke A vor dem Rabatt mit Jacke B verglichen"
     },
     {
      "antwort": 59,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Rabatt statt des neuen Preises verglichen"
+     "beschreibung": "den Rabatt statt des neuen Preises von Jacke A verglichen"
+    },
+    {
+     "antwort": 120,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den alten Preis von Jacke A angegeben"
     }
    ],
    "aufgabe": {
@@ -751,15 +751,15 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Alex vergleicht zwei Jacken. Jacke A kostet 120 €, dafür gibt es 30 % Rabatt. Jacke B kostet 95 € ohne Rabatt. Um wie viel Euro ist die günstigere Jacke billiger als die andere?"
+     "text": "Alex vergleicht zwei Jacken. Bei Jacke A beträgt der Rabatt von 30 % genau 36 €. Jacke B kostet 95 € ohne Rabatt. Um wie viel Euro ist Jacke A nach dem Rabatt günstiger als Jacke B?"
     },
     "o": {
      "wert": 11,
      "einheit": "€"
     },
-    "c": "95 - 120 * 70 / 100",
-    "h": "Berechne zuerst, wie viel Jacke A nach dem Rabatt kostet. Dann vergleichst du mit 95 €.",
-    "w": "Jacke A: 30 % von 120 € = 36 €, also 120 − 36 = 84 €. Jacke B kostet 95 €. Jacke A ist günstiger: 95 − 84 = 11 €."
+    "c": "95 - (36 * 100 / 30 - 36)",
+    "h": "Die 36 € sind 30 % des alten Preises. Wie viel Euro sind 10 %, wie viel 100 %? Dann berechnest du den Preis nach dem Rabatt.",
+    "w": "30 % sind 36 €, also sind 10 % genau 12 € und 100 % genau 120 €. Jacke A kostet nach dem Rabatt 120 − 36 = 84 €. Jacke B kostet 95 €. Unterschied: 95 − 84 = 11 €."
    }
   },
   {
@@ -875,22 +875,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 50,
+     "antwort": 75,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "wie Kim angenommen, der Preis sei wieder derselbe"
+     "beschreibung": "Kims Prozentzahl als Ergebnis angegeben"
     },
     {
-     "antwort": 60,
+     "antwort": 35,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Erhöhung gerechnet"
+     "beschreibung": "nur den richtigen Prozentsatz 35 % angegeben, ohne zu vergleichen"
     },
     {
-     "antwort": 40,
+     "antwort": 65,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Senkung gerechnet"
+     "beschreibung": "den Anteil der übrigen angegeben"
     }
    ],
    "aufgabe": {
@@ -901,15 +901,15 @@
     "g": "pruefung",
     "y": "zahl",
     "f": {
-     "text": "Ein Preis von 50 € wird erst um 20 % erhöht. Danach wird der neue Preis um 20 % gesenkt. Kim sagt: „Dann ist der Preis wieder 50 €.“ Wie viel Euro kostet es wirklich am Ende?"
+     "text": "Kim behauptet: „Der Anteil 7/20 sind 75 %.“ Um wie viele Prozentpunkte ist Kims Angabe zu groß?"
     },
     "o": {
-     "wert": 48,
-     "einheit": "€"
+     "wert": 40,
+     "einheit": "Prozentpunkte"
     },
-    "c": "50 * 120 / 100 * 80 / 100",
-    "h": "Die zweiten 20 % beziehen sich auf den neuen Preis, nicht auf 50 €. Rechne in zwei Schritten.",
-    "w": "Erhöhung: 20 % von 50 € = 10 €, neuer Preis 60 €. Senkung: 20 % von 60 € = 12 €. Endpreis: 60 − 12 = 48 €. Der Preis ist niedriger als am Anfang, weil sich die zweiten 20 % auf den größeren Preis 60 € beziehen."
+    "c": "75 - 7 * 100 / 20",
+    "h": "Rechne 7/20 in Prozent um: Erweitere auf den Nenner 100. Dann vergleichst du mit Kims 75 %.",
+    "w": "7/20 = 35/100 = 35 %. Kim hat 75 % gesagt, das sind 75 − 35 = 40 Prozentpunkte zu viel."
    }
   }
  ]

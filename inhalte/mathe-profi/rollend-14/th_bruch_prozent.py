@@ -43,10 +43,10 @@ a2(T, "prozentsatz", Z(
     "Die Erhöhung ist 280 − 250 = 30 €. Bezogen auf den alten Preis: 30 : 250 = 0,12 = 12 %.",
     [B("280 - 250", "die Erhöhung in Euro als Prozentsatz angegeben"), B("280 / 250 * 100", "den neuen Preis in Prozent des alten Preises angegeben"), B("(280 - 250) / 250", "als Dezimalzahl angegeben und nicht in Prozent umgerechnet")], "%"))
 a3(T, "prozentsatz", Z(
-    "Bei einer Umfrage unter 150 Kindern wählen 36 Kinder „Fußball“ und 45 Kinder „Schwimmen“. Alle anderen Kinder wählen „Sonstiges“. Wie viel Prozent der Kinder haben „Sonstiges“ gewählt?",
-    46, "(150 - 36 - 45) / 150 * 100", "100 - 24 - 30", "Wie viele Kinder haben „Sonstiges“ gewählt? Bezogen auf wie viele Kinder?",
-    "Sonstiges: 150 − 36 − 45 = 69 Kinder. 69 : 150 = 0,46 = 46 %. Kontrolle: Fußball 24 %, Schwimmen 30 %, Sonstiges 46 %, zusammen 100 %.",
-    [B("(36 + 45) / 150 * 100", "den Anteil von Fußball und Schwimmen statt von Sonstiges berechnet"), B("150 - 36 - 45", "die Zahl der Kinder als Prozentzahl angegeben"), B("100 - 36 - 45", "die Zahlen der Kinder von 100 abgezogen")], "%"), g="verknuepfen")
+    "Ein Freibad hat an einem Tag 500 Besucher. 40 % davon sind Kinder. Von den Erwachsenen sind 90 Senioren. Wie viel Prozent aller Besucher sind erwachsene Nicht-Senioren?",
+    42, "(500 - 500 * 40 / 100 - 90) / 500 * 100", "100 - 40 - 18", "Wie viele der 500 Besucher sind Kinder? Wie viele sind erwachsen, aber keine Senioren?",
+    "Kinder: 40 % von 500 = 200. Erwachsene: 500 − 200 = 300. Davon sind 90 Senioren, also 300 − 90 = 210 erwachsene Nicht-Senioren. 210 : 500 = 0,42 = 42 %.",
+    [B("90 / 500 * 100", "den Anteil der Senioren statt der Nicht-Senioren berechnet"), B("(500 - 500 * 40 / 100) / 500 * 100", "die Senioren nicht abgezogen"), B("40 + 90 / 500 * 100", "Kinder und Senioren zusammen in Prozent angegeben")], "%"), g="verknuepfen")
 # ───────── grundwert ─────────
 a1(T, "grundwert", Z(
     "In einem Orchester spielen 18 Kinder Geige. Das sind 30 % aller Kinder im Orchester. Wie viele Kinder spielen insgesamt im Orchester?",
@@ -75,10 +75,10 @@ a2(T, "rabatt_aufschlag", Z(
     "Rabatt: 20 % von 60 € = 12 €. Preis nach dem Rabatt: 60 − 12 = 48 €. Gutschein: 48 − 8 = 40 €. Kim zahlt 40 €.",
     [B("60 - 8", "nur den Gutschein abgezogen"), B("60 * 80 / 100", "den Gutschein vergessen"), B("60 * 20 / 100 - 8", "den Rabatt in Euro statt des Preises mit dem Gutschein verrechnet")], "€"))
 a3(T, "rabatt_aufschlag", Z(
-    "Alex vergleicht zwei Jacken. Jacke A kostet 120 €, dafür gibt es 30 % Rabatt. Jacke B kostet 95 € ohne Rabatt. Um wie viel Euro ist die günstigere Jacke billiger als die andere?",
-    11, "95 - 120 * 70 / 100", "95 - 84", "Berechne zuerst, wie viel Jacke A nach dem Rabatt kostet. Dann vergleichst du mit 95 €.",
-    "Jacke A: 30 % von 120 € = 36 €, also 120 − 36 = 84 €. Jacke B kostet 95 €. Jacke A ist günstiger: 95 − 84 = 11 €.",
-    [B("120 * 30 / 100", "den Rabatt in Euro als Preis genommen"), B("120 - 95", "den Rabatt bei Jacke A nicht berücksichtigt"), B("95 - 120 * 30 / 100", "den Rabatt statt des neuen Preises verglichen")], "€"), g="verknuepfen")
+    "Alex vergleicht zwei Jacken. Bei Jacke A beträgt der Rabatt von 30 % genau 36 €. Jacke B kostet 95 € ohne Rabatt. Um wie viel Euro ist Jacke A nach dem Rabatt günstiger als Jacke B?",
+    11, "95 - (36 * 100 / 30 - 36)", "95 - 84", "Die 36 € sind 30 % des alten Preises. Wie viel Euro sind 10 %, wie viel 100 %? Dann berechnest du den Preis nach dem Rabatt.",
+    "30 % sind 36 €, also sind 10 % genau 12 € und 100 % genau 120 €. Jacke A kostet nach dem Rabatt 120 − 36 = 84 €. Jacke B kostet 95 €. Unterschied: 95 − 84 = 11 €.",
+    [B("120 - 95", "den Preis von Jacke A vor dem Rabatt mit Jacke B verglichen"), B("95 - 36", "den Rabatt statt des neuen Preises von Jacke A verglichen"), B("36 * 100 / 30", "nur den alten Preis von Jacke A angegeben")], "€"), g="verknuepfen")
 # ───────── verstehen ─────────
 a1(T, "verstehen", Z(
     "Kim sagt: „Beide Läden geben 20 % Rabatt auf eine Jacke, also spare ich in beiden Läden gleich viel.“ Im Laden A kostet die Jacke 80 €, im Laden B kostet sie 120 €. Wie viel Euro spart man in Laden B mehr als in Laden A?",
@@ -91,7 +91,7 @@ a2(T, "verstehen", Z(
     "A: 9 : 12 = 0,75 = 75 %. B: 18 : 25 = 0,72 = 72 %. Unterschied: 75 − 72 = 3 Prozentpunkte. A gewinnt anteilig öfter, obwohl B mehr Siege hat.",
     [B("18 - 9", "die Zahl der Siege verglichen"), B("(9 * 25 - 18 * 12) / 300", "den Unterschied als Dezimalzahl angegeben und nicht in Prozentpunkten"), B("75 + 72", "die beiden Prozentsätze addiert")], "Prozentpunkte"))
 a3(T, "verstehen", Z(
-    "Ein Preis von 50 € wird erst um 20 % erhöht. Danach wird der neue Preis um 20 % gesenkt. Kim sagt: „Dann ist der Preis wieder 50 €.“ Wie viel Euro kostet es wirklich am Ende?",
-    48, "50 * 120 / 100 * 80 / 100", "60 - 12", "Die zweiten 20 % beziehen sich auf den neuen Preis, nicht auf 50 €. Rechne in zwei Schritten.",
-    "Erhöhung: 20 % von 50 € = 10 €, neuer Preis 60 €. Senkung: 20 % von 60 € = 12 €. Endpreis: 60 − 12 = 48 €. Der Preis ist niedriger als am Anfang, weil sich die zweiten 20 % auf den größeren Preis 60 € beziehen.",
-    [B("50", "wie Kim angenommen, der Preis sei wieder derselbe"), B("50 * 120 / 100", "nur die Erhöhung gerechnet"), B("50 * 80 / 100", "nur die Senkung gerechnet")], "€"), g="pruefung")
+    "Kim behauptet: „Der Anteil 7/20 sind 75 %.“ Um wie viele Prozentpunkte ist Kims Angabe zu groß?",
+    40, "75 - 7 * 100 / 20", "75 - 35", "Rechne 7/20 in Prozent um: Erweitere auf den Nenner 100. Dann vergleichst du mit Kims 75 %.",
+    "7/20 = 35/100 = 35 %. Kim hat 75 % gesagt, das sind 75 − 35 = 40 Prozentpunkte zu viel.",
+    [B("75", "Kims Prozentzahl als Ergebnis angegeben"), B("7 * 100 / 20", "nur den richtigen Prozentsatz 35 % angegeben, ohne zu vergleichen"), B("100 - 7 * 100 / 20", "den Anteil der übrigen angegeben")], "Prozentpunkte"), g="pruefung")

@@ -25,22 +25,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 5,
+     "antwort": 25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch 4 statt durch 5 geteilt"
+     "beschreibung": "mit Zurücklegen gerechnet"
     },
     {
-     "antwort": 20,
+     "antwort": 10,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "alle Ergebnisse des Ergebnisraums gezählt"
+     "beschreibung": "die Reihenfolge nicht beachtet"
     },
     {
-     "antwort": 3,
+     "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Nummer 20 nicht mitgezählt"
+     "beschreibung": "die Möglichkeiten addiert statt multipliziert"
     }
    ],
    "aufgabe": {
@@ -51,15 +51,15 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "In einer Lostrommel liegen Lose mit den Nummern 1 bis 20. Ein Los wird gezogen. Wie viele Ergebnisse gehören zum Ereignis „Die Nummer ist durch 5 teilbar“?"
+     "text": "Aus einem Beutel mit fünf verschiedenfarbigen Kugeln (rot, blau, gelb, grün, weiß) werden nacheinander zwei Kugeln ohne Zurücklegen gezogen. Die Reihenfolge der Farben zählt. Wie viele Ergebnisse hat der Ergebnisraum?"
     },
     "o": {
-     "wert": 4,
+     "wert": 20,
      "einheit": "Ergebnisse"
     },
-    "c": "20 // 5",
-    "h": "Schreibe die Nummern auf, die durch 5 teilbar sind. Zähle sie.",
-    "w": "Zu dem Ereignis gehören die Nummern 5, 10, 15 und 20. Das sind 4 Ergebnisse. Der Ergebnisraum hat 20 Ergebnisse."
+    "c": "5 * 4",
+    "h": "Wie viele Möglichkeiten gibt es für die erste Kugel? Wie viele bleiben dann für die zweite?",
+    "w": "Für die erste Kugel gibt es 5 Möglichkeiten, für die zweite danach noch 4. Das sind 5 · 4 = 20 Ergebnisse, zum Beispiel (rot | blau) und (blau | rot)."
    }
   },
   {

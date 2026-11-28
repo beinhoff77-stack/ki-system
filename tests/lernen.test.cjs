@@ -6273,7 +6273,7 @@ test('Teil 1: Reisekarte ohne zusätzliche Leiste; Karte als Gruppe mit einzeln 
 // ---------- Teil 2 (0.96.0) / Teil 1 „Besprochen“: „Was wackelt“ für Eltern/Lehrer – nachgebildete Server-Antworten in der Form von inhalte/plan/wackelt-server.md ----------
 // Der Nachbau folgt dem Server WW-S3 (supabase/migrations/20261206_ww_s3_wackelt.sql): stand 3; offen höchstens 300 (neueste zuerst); Zeitraum nach dem Zeitpunkt
 // des Fehlers (am > jetzt − tage); „erledigt“ nur im Zeitraum und höchstens 200 (zuletzt besprochen zuerst) mit erledigt {art, id (Markierungs-ID), am, tag};
-// auswertung.themen[] nullsicher (Einheit ohne Thema: kein thema_id, offen richtig gezählt) mit besprochen {zuletzt, tage, neu_seit} aus allen gültigen
+// auswertung.themen[] nullsicher (Einheit ohne Thema: kein thema_id, offen richtig gezählt) mit besprochen {zuletzt, zuletzt_tag, tage, fehler, neu_seit} aus allen gültigen
 // Markierungen (ohne Zeitraum, ohne 200er-Grenze); mit_tipp immer Boolean; danach_richtig true oder fehlt (Zeitpunkte in danach_richtig_am).
 // schule_fehler_abhaken: Markieren {versuch_ids} → geaendert, geaendert_ids, markierung_ids, uebersprungen [{versuch_id, grund}]; Zurückholen {zurueck: true,
 // markierung_ids} → genau diese noch gültigen Markierungen, sonst übersprungen mit grund „überholt“ / „schon zurückgeholt“ / „nicht gefunden“.
@@ -6326,7 +6326,7 @@ function wwServer({ leer = false, viele = 0, vorher = true, vieleAm = null, ohne
     // besprochen je Thema: alle gültigen Markierungen (ohne Zeitraum, ohne 200er-Grenze); neu_seit: offene Fehler des Themas nach der letzten Markierung
     const besprochen = (tid) => { const ms = st.marks.filter((m) => !m.zurueck_am && vonVersuch(m.versuch_id) && gleich(vonVersuch(m.versuch_id).thema_id, tid)); if (!ms.length) return undefined;
       const zuletzt = ms.map((m) => m.am).sort().at(-1);
-      return { zuletzt, tage: new Set(ms.map((m) => lokTag(m.am))).size, neu_seit: basis.filter((x) => gleich(x.thema_id, tid) && x.am > zuletzt && !gueltig(x.versuch_id)).length }; };
+      return { zuletzt, zuletzt_tag: lokTag(zuletzt), tage: new Set(ms.map((m) => lokTag(m.am))).size, fehler: ms.length, neu_seit: basis.filter((x) => gleich(x.thema_id, tid) && x.am > zuletzt && !gueltig(x.versuch_id)).length }; };
     // Themen mit Antworten im Zeitraum (je Thema zwei richtige Antworten heute – darum stehen alle Themen da), offen nullsicher
     const themen = [...new Set(basis.map((x) => x.thema_id ?? null))].map((id) => { const b = basis.filter((x) => gleich(x.thema_id, id));
       const t = { ...(id === null ? {} : { thema_id: id, thema: b[0].thema }), offen: offenAlle.filter((x) => gleich(x.thema_id, id)).length, gesamt: alle.filter((x) => gleich(x.thema_id, id)).length + 2 };
@@ -6738,6 +6738,12 @@ test('Auflagen 1158 (7): Antwortform vollständig – falsche Typen beim ersten 
     'besprochen.tage als Text': (r) => { r.auswertung.themen.find((x) => x.besprochen).besprochen.tage = '2'; },
     'besprochen.neu_seit negativ': (r) => { r.auswertung.themen.find((x) => x.besprochen).besprochen.neu_seit = -1; },
     'besprochen.zuletzt kein Zeitpunkt': (r) => { r.auswertung.themen.find((x) => x.besprochen).besprochen.zuletzt = 'gestern'; },
+    'besprochen.zuletzt_tag fehlt': (r) => { delete r.auswertung.themen.find((x) => x.besprochen).besprochen.zuletzt_tag; },
+    'besprochen.zuletzt_tag falsche Form': (r) => { r.auswertung.themen.find((x) => x.besprochen).besprochen.zuletzt_tag = '25.11.2026'; },
+    'besprochen.fehler fehlt': (r) => { delete r.auswertung.themen.find((x) => x.besprochen).besprochen.fehler; },
+    'besprochen.fehler 0': (r) => { r.auswertung.themen.find((x) => x.besprochen).besprochen.fehler = 0; },
+    'besprochen.fehler als Text': (r) => { r.auswertung.themen.find((x) => x.besprochen).besprochen.fehler = '2'; },
+    'besprochen.tage 0': (r) => { r.auswertung.themen.find((x) => x.besprochen).besprochen.tage = 0; },
   };
   for (const [wie, f] of Object.entries(verdorben)) {
     const srv = wwServer(); srv.st.verderben = (r, d) => { if (!d.erledigt) f(r); return r; };
@@ -6834,6 +6840,8 @@ test('Auflagen 1158 (9/10): Schreibfehler – gesperrter Zeitraum während des S
 // ---------- WW-S3 (Folgemigration, inhalte/plan/wackelt-server.md Abschnitt WW-S3): ein Vertrag, Zurückholen über Markierungs-IDs, besprochen je Thema vom Server ----------
 const ww4Bild = async (page, name, { oben = true } = {}) => { if (!process.env.APP4_BILDER) return; await page.waitForTimeout(300); if (oben) await page.evaluate(() => scrollTo(0, 0)); await page.waitForTimeout(100);
   await page.screenshot({ path: path.join(process.env.APP4_BILDER, `ww4-${name}.png`), fullPage: true }); };
+const ww5Bild = async (page, name, { oben = true } = {}) => { if (!process.env.APP4_BILDER) return; await page.waitForTimeout(300); if (oben) await page.evaluate(() => scrollTo(0, 0)); await page.waitForTimeout(100);
+  await page.screenshot({ path: path.join(process.env.APP4_BILDER, `ww5-${name}.png`), fullPage: true }); };
 const wwDatum = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return `${d.getDate()}.${d.getMonth() + 1}.`; };
 const wwTagIso = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
 const wwRe = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -6909,11 +6917,11 @@ test('WW-S3 (3): Rest nach Teilerfolg überlebt keinen Zeitraumwechsel – Rest 
 });
 
 test('WW-S3 (4): Abschnitt „Besprochen“ – Tage aus erledigt.tag (Zeitzone des Kindes), volle Liste: „alle hier gezeigten n zurückholen“, Untergrenzen nur, wo etwas fehlen kann', async (t) => {
-  // erledigt.tag vom Server statt Gerätetag: 9010 (am Gerät vor 3 Tagen besprochen) liegt in der Zeitzone des Kindes auf dem Tag davor
+  // Tage nur vom Server (Zeitzone des Kindes), nie vom Gerät: Liste nach erledigt.tag (9010 hier auf den Tag davor gelegt), Themenzeile aus zuletzt_tag
   { const srv = wwServer(); srv.st.verderben = (r) => { for (const x of r.erledigt || []) if (x.versuch_id === 9010) x.erledigt.tag = wwTagIso(4); return r; };
     const { page } = await setup(t, { anpassen: srv.anpassen }); await page.setViewportSize({ width: 1280, height: 900 }); await page.goto(origin + '/#/kind/1-wackelt');
     const ww = page.locator('.ww'); await ww.locator('.ww-th-wieder').first().waitFor(); await wwRuhig(page);
-    assert.match(await ww.locator('.ww-thema[aria-label="Terme umformen"] .ww-th-wieder').innerText(), new RegExp(`^↺ Schon besprochen am ${wwRe(wwDatum(4))} – `), 'Tag der letzten Markierung aus erledigt.tag');
+    assert.match(await ww.locator('.ww-thema[aria-label="Terme umformen"] .ww-th-wieder').innerText(), new RegExp(`^↺ Schon besprochen am ${wwRe(wwDatum(3))} – `), 'Themenzeile aus zuletzt_tag (nicht aus der Liste)');
     await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
     const z = await page.locator('.ww-erledigt li').allInnerTexts();
     assert.ok(z.some((x) => new RegExp(`besprochen am ${wwRe(wwDatum(4))} · 1 Fehler`).test(x)) && !z.some((x) => x.includes(`am ${wwDatum(3)}`)), z.join(' | ')); }
@@ -6923,17 +6931,52 @@ test('WW-S3 (4): Abschnitt „Besprochen“ – Tage aus erledigt.tag (Zeitzone 
     await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
     assert.equal(await page.locator('.ww-erledigt summary .ww-zaehler').innerText(), '3', 'Themen laut Server (auch die nicht in der Liste)');
     const knoepfe = await page.locator('.ww-erledigt li button').allInnerTexts();
-    assert.ok(knoepfe.length && knoepfe.every((x) => /^(alle hier gezeigten \d+|den hier gezeigten) zurückholen$/.test(x)), knoepfe.join(' | '));
+    assert.ok(knoepfe.length && knoepfe.every((x) => /^(alle hier gezeigten \d+|den hier gezeigten) zurückholen$/.test(x)), knoepfe.join(' | ')); // nur Bruchrechnen hat Einträge in der Liste
     assert.match(await page.locator('.ww-erledigt .ww-bs-erkl').innerText(), /holt die hier gezeigten Fehler des Themas zurück[\s\S]*Ältere Markierungen, die nicht in der Liste stehen, bleiben/);
     assert.match(await page.locator('.ww-erledigt .ww-grenze').innerText(), /die 200 zuletzt besprochenen Fehler – ältere Gespräche können fehlen/);
     const z = await page.locator('.ww-erledigt li').allInnerTexts();
-    assert.match(z[0], new RegExp(`^Bruchrechnen · besprochen am ${wwRe(wwDatum(0))} · mindestens 200 Fehler`), 'Tag an der Grenze der Liste: Untergrenze');
-    assert.ok(z.some((x) => new RegExp(`^Terme umformen · zuletzt besprochen am ${wwRe(wwDatum(3))} · an 2 Tagen besprochen · älter als die hier gezeigten – nicht in der Liste$`).test(x)), z.join(' | '));
+    const nBr = srv.st.marks.filter((m) => m.versuch_id >= 20000 && !m.zurueck_am).length; assert.ok(nBr > 200);
+    assert.match(z[0], new RegExp(`^Bruchrechnen · besprochen am ${wwRe(wwDatum(0))} · 200 von ${nBr} besprochenen Fehlern gezeigt`), 'weniger in der Liste als besprochen.fehler');
+    assert.ok(z.some((x) => new RegExp(`^Terme umformen · zuletzt besprochen am ${wwRe(wwDatum(3))} · an 2 Tagen besprochen · 2 Fehler · älter als die hier gezeigten – nicht in der Liste$`).test(x)), z.join(' | '));
     assert.equal(await page.locator('.ww-erledigt li', { hasText: 'Terme umformen' }).locator('button').count(), 0, 'nicht geladen: kein Zurückholen');
-    if (b === 1280) await ww4Bild(page, '1280-hell-besprochen-voll', { oben: false });
+    if (b === 1280) { await ww4Bild(page, '1280-hell-besprochen-voll', { oben: false }); await ww5Bild(page, '1280-hell-besprochen-voll', { oben: false }); }
     await page.locator('.ww-erledigt').getByRole('button', { name: /^Zurückholen: Bruchrechnen, die hier gezeigten 200 am/ }).click(); await toast.getByText(/200 zurückgeholt/).waitFor(); await wwRuhig(page);
     assert.equal(await toast.innerText(), 'Bruchrechnen: 200 zurückgeholt'); assert.equal(abhakCalls(srv).at(-1).markierung_ids.length, 200);
   }
+});
+
+test('WW-S3 (6): zuletzt_tag und fehler je Thema – Kind in anderer Zeitzone (Markierung kurz nach Mitternacht beim Kind): „Schon besprochen am …“ ist der Tag des Kindes, auch ohne Eintrag in der Liste; volle Liste genau nur, wo nichts fehlt', async (t) => {
+  // Markierung um 00:05 beim Kind (UTC+13) – auf dem Gerät ist es dann noch der Vortag (sofern das Gerät nicht selbst so weit östlich liegt)
+  const zuletzt = `${wwTagIso(2)}T00:05:00+13:00`; const geraetTag = (() => { const d = new Date(zuletzt); return `${d.getDate()}.${d.getMonth() + 1}.`; })();
+  if (geraetTag === wwDatum(2)) { t.skip('Zeitzone des Testrechners liegt beim Kind'); return; }
+  for (const b of [1280, 390]) {
+    const srv = wwServer(); srv.st.verderben = (r, d) => { const th = r.auswertung.themen.find((x) => x.thema_id === 29); th.besprochen.zuletzt = zuletzt; th.besprochen.zuletzt_tag = wwTagIso(2);
+      if (d.erledigt) r.erledigt = r.erledigt.filter((x) => x.thema_id !== 29); return r; }; // passender Eintrag fehlt in der Liste
+    const { page } = await setup(t, { anpassen: srv.anpassen }); await page.setViewportSize({ width: b, height: b > 1000 ? 900 : 844 }); await page.goto(origin + '/#/kind/1-wackelt');
+    const ww = page.locator('.ww'); await ww.locator('.ww-th-wieder').first().waitFor(); await wwRuhig(page);
+    assert.match(await ww.locator('.ww-thema[aria-label="Terme umformen"] .ww-th-wieder').innerText(), new RegExp(`^↺ Schon besprochen am ${wwRe(wwDatum(2))} – seitdem `), 'Tag des Kindes');
+    assert.equal(await ww.getByRole('table', { name: 'Letzte Fehler' }).locator('.ww-z[data-versuch="9001"] .ww-schon').getAttribute('aria-label'), `Thema schon besprochen am ${wwDatum(2)}`);
+    assert.equal(await page.getByText(`besprochen am ${geraetTag}`).count(), 0, 'nirgends der Tag des Geräts');
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+    const z = await page.locator('.ww-erledigt li').allInnerTexts();
+    assert.ok(z.some((x) => new RegExp(`^Terme umformen · zuletzt besprochen am ${wwRe(wwDatum(2))} · an 2 Tagen besprochen · 2 Fehler · älter als die hier gezeigten – nicht in der Liste$`).test(x)), z.join(' | '));
+    // Liste nicht voll, alle Einträge da: genaue Formulierung
+    assert.ok(z.some((x) => new RegExp(`^Lineare Gleichungen · besprochen am ${wwRe(wwDatum(9))} · 1 Fehler`).test(x)), z.join(' | '));
+    assert.equal(await page.locator('.ww-erledigt li button', { hasText: /hier gezeigten/ }).count(), 0);
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt summary').click();
+    if (b === 390) await ww5Bild(page, '390-hell-gefuellt');
+  }
+  // volle Liste, aber ein Thema vollständig darin: dort genau („alle n zurückholen“), nur beim Thema mit fehlenden Einträgen „hier gezeigten“
+  { const { page, srv, ww, toast } = await wwOeffnen(t, 1280, { srv: { viele: 320 } });
+    await ww.locator('.ww-thema[aria-label="Bruchrechnen"]').getByRole('button', { name: /^Besprochen: Bruchrechnen/ }).click(); await toast.getByText(/Bruchrechnen als besprochen markiert/).waitFor(); await wwRuhig(page);
+    await ww.locator('.ww-thema[aria-label="Satz des Pythagoras"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/Satz des Pythagoras als besprochen markiert/).waitFor(); await wwRuhig(page);
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+    assert.match(await page.locator('.ww-erledigt .ww-grenze').innerText(), /ältere Gespräche können fehlen/);
+    const z = await page.locator('.ww-erledigt li').allInnerTexts();
+    assert.match(z[0], new RegExp(`^Satz des Pythagoras · besprochen am ${wwRe(wwDatum(0))} · 2 Fehler`), 'vollständig in der Liste: genau');
+    assert.equal(await page.locator('.ww-erledigt li', { hasText: 'Satz des Pythagoras' }).getByRole('button').innerText(), 'alle 2 zurückholen');
+    assert.match(z[1], /^Bruchrechnen · besprochen am .+ · 198 von \d+ besprochenen Fehlern gezeigt/);
+    assert.equal(await page.locator('.ww-erledigt li', { hasText: 'Bruchrechnen' }).getByRole('button').innerText(), 'alle hier gezeigten 198 zurückholen'); }
 });
 
 test('WW-S3 (5): „Noch einmal versuchen“ im Abschnitt „Besprochen“ (Lesefehler) ist während eines Schreibaufrufs gesperrt', async (t) => {

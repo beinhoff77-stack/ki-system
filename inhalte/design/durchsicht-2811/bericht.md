@@ -3,7 +3,7 @@
 Designer, 28.11.2026. Stand `lernen-app` 615962e (App-Version 0.96.0). Kein App-Code geändert.
 
 **Kennzeichnung in diesem Bericht:**
-**[B]** am Bild gesehen · **[C]** nur aus dem Code geschlossen · **[M]** meine Meinung
+**[B]** am Bild gesehen · **[C]** nur aus dem Code geschlossen · **[L]** an der laufenden App gemessen · **[M]** meine Meinung
 
 **Wie ich vorgegangen bin.** Der Zweig `helfer-bilder` lag beim Beginn der Arbeit nicht vor (`refs/heads/helfer-bilder` gibt es nicht), darum habe ich alle Bilder selbst gemacht: Server nachgebaut über das Setup aus `tests/lernen.test.cjs`, Chrome, 390 px und 1280 px, hell und dunkel, erfundene Beispieldaten, Kinder heißen „Kind A/B". 129 Bilder in `bilder/`. Zusätzlich habe ich am gerenderten DOM gemessen: 290 sichtbare Knöpfe und Links, 51 Kartenflächen, 66 Überschriften, 778 Textknoten auf 18 Seiten. Die Zahlen in Teil 2 sind Messwerte, keine Schätzungen.
 
@@ -13,7 +13,7 @@ Designer, 28.11.2026. Stand `lernen-app` 615962e (App-Version 0.96.0). Kein App-
 
 ## 1. Gesamturteil
 
-Die App ist **nicht aus einem Guss, aber sie ist auch nicht schlecht gebaut** – sie besteht aus drei Welten, die jede für sich stimmig sind und untereinander fast nichts teilen: der Kinderbereich (creme, schwarze Karten, Gelb als Akzent, Großbuchstaben-Reiter), der Lehrerbereich (weiß-grau, Dunkelgrün als Akzent, Pillen-Filter) und das Regel-Universum (weiß, bunte Gebietskreise, schwarzer Umschalter, Brotkrume). Die drei größten Baustellen sind: **erstens die Kopfzeile**, die auf fast jeder Seite anders aufgebaut ist und den Menü-Knopf an drei verschiedene Stellen setzt; **zweitens die Knöpfe**, von denen ich auf 18 Seiten 89 verschiedene Erscheinungsformen gemessen habe, mit vier verschiedenen Farben für „dieser Reiter ist aktiv"; **drittens die Schrift**, 31 verschiedene Größen im sichtbaren Text, davon 261 Textknoten unter 13 px. Das Regel-Universum ist der am saubersten gestaltete Teil und taugt als Vorbild für den Rest. Der Lehrerbereich ist in sich am konsequentesten, wirkt aber wie ein Verwaltungswerkzeug neben einer Kinder-App – und er hat als einziger Bereich **keine dunkle Ansicht**.
+Die App ist **nicht aus einem Guss, aber sie ist auch nicht schlecht gebaut** – sie besteht aus drei Welten, die jede für sich stimmig sind und untereinander fast nichts teilen: der Kinderbereich (creme, schwarze Karten, Gelb als Akzent, Großbuchstaben-Reiter), der Lehrerbereich (weiß-grau, Dunkelgrün als Akzent, Pillen-Filter) und das Regel-Universum (weiß, bunte Gebietskreise, schwarzer Umschalter, Brotkrume). Die drei größten Baustellen sind: **erstens die Kopfzeile**, die auf fast jeder Seite anders aufgebaut ist und den Menü-Knopf an drei verschiedene Stellen setzt; **zweitens die Knöpfe**, von denen ich auf 18 Seiten 89 verschiedene Erscheinungsformen gemessen habe, mit vier verschiedenen Farben für „dieser Reiter ist aktiv"; **drittens die Schrift**, 31 verschiedene Größen im sichtbaren Text, davon 261 Textknoten unter 13 px. Das Regel-Universum ist der am saubersten gestaltete Teil und taugt als Vorbild für den Rest. Die Prüfung an der laufenden App (Nachtrag unten) hat zwei Dinge ergeben, die kein Standbild zeigt: Knöpfe geben beim Antippen fast nie eine Rückmeldung, und auf zwei Seiten wartet man sechs Sekunden auf nichts als das Wort „Lade …“. Der Lehrerbereich ist in sich am konsequentesten, wirkt aber wie ein Verwaltungswerkzeug neben einer Kinder-App – und er hat als einziger Bereich **keine dunkle Ansicht**.
 
 ---
 
@@ -334,10 +334,71 @@ Der Menü-Knopf ≡ sitzt an **drei** Stellen (oben rechts als Kasten, in der We
 
 ---
 
+## Nachtrag vom 28.11., nachmittags: an der laufenden App geprüft **[L]**
+
+Auf Zuruf des Projektleiters habe ich die **echte App** geöffnet (Claude in Chrome, angemeldeter Lehrer-Zugang, `beinhoff77-stack.github.io/ki-system/lernen/`) und dort gearbeitet, wo Standbilder nicht hinkommen. Gearbeitet habe ich mit dem **Testkind (`#/reise/3`)**, nicht mit den Zugängen der Kinder. **Nichts geschrieben, nichts gespeichert, keine Aufgabe beantwortet.** Aus den Lehrer-Seiten stehen hier keine Namen und keine Zugangscodes, und davon ist kein Bild im Repo.
+
+**[L]** = an der laufenden App gemessen.
+
+### N1. Gedrückt-Zustand – die offene Frage 2 ist beantwortet **[L]**
+Von den **7 Knopfklassen**, die auf den Kinderseiten sichtbar sind, hat **genau eine** (`lr-knopf`) eine `:active`-Regel. Ohne jede Rückmeldung beim Antippen – kein `:active`, kein `:hover`, kein Übergang – sind: `rk-legende-knopf`, `lr-knopf-klein`, `lr-textlink`, `rk-ru-link`, `iconbtn`, `lr-chip-stern`.
+Auf dem Handy heißt das: Das Kind tippt, und bis die neue Seite kommt, passiert sichtbar nichts. Bei den unten gemessenen Ladezeiten sind das mehrere Sekunden ohne Bestätigung, dass der Tipp angekommen ist. **[M]**
+*Vorschlag:* Eine gemeinsame Regel für alle Knopfklassen – beim Drücken kurz dunkler und 1 px nach unten. Ein Eintrag im CSS, wirkt überall. **[M]**
+
+### N2. Wie lange man wartet – gemessen **[L]**
+Zeit vom Antippen bis der Inhalt steht (eigene Messung in der laufenden App, je einmal, kalt):
+
+| Seite | Ladezeit |
+|---|---|
+| Mein Weg · Stand | **6,3 s** |
+| Merkheft | **6,7 s** |
+| Regel-Universum | 3,8 s |
+| Expeditionen | 2,9 s |
+| Reisepass | 2,8 s |
+| Meine Route | 2,5 s |
+| Wiederholen (Check-in) | 2,1 s |
+| Reisekarte (schon geladen) | 0,1 s |
+
+In dieser ganzen Zeit steht nur das Wort **„Lade …"** auf der Seite – kein Fortschritt, kein Gerüst, keine Angabe, worauf gewartet wird. Dass an den Ladezeiten selbst gearbeitet wird, steht im Auftrag; die **Gestaltung des Wartens** gehört hierher: Sechs Sekunden „Lade …" fühlen sich länger an als sechs Sekunden mit einem Platzhalter-Gerüst, das schon die Form der Seite zeigt. **[M]** Das stützt Idee 7 im Bericht.
+
+### N3. „Wiederholen" ist der Check-in – jetzt gesehen **[L]**
+Die Seite, die mir im Nachbau fehlte, heißt im Betrieb **„CHECK-IN · 1 VON 4"**: vier kleine Kästchen als Fortschritt, darunter eine Aufgabenkarte mit der Herkunft („Jahreszinsen berechnen · aus Washington, D.C."), ein Eingabefeld mit Einheit („€"), ein großer gelber Knopf „Prüfen", darunter der Textlink „Pause – später weiter einchecken".
+*Passt:* Der Fortschritt aus vier Kästchen ist auf einen Blick lesbar; die Herkunftszeile ordnet die Aufgabe ein. **[L]**
+*Fällt auf – und das ist ein neuer Befund:* **Dieselbe Tätigkeit hat zwei verschiedene Bedienungen.**
+
+| | Lerneinheit | Check-in, Knobel-Bordkarte, Expedition |
+|---|---|---|
+| Eingabe | Stellenwert-Kästchen (T H Z E) | ein einfaches Feld |
+| Tastatur | **eigenes Tastenfeld** im Daumenbereich, mit „−", „,", „⌫" und einer Taste „⌨" für die Gerätetastatur | die Tastatur des Geräts |
+| Prüfen | gelbe Taste **im** Tastenfeld | eigener Knopf über die ganze Breite (gemessen 1008 px bei 1920 px Fenster) |
+
+Im Code steht das ausdrücklich: `lernAufgabe(…, { tasten: false })` an drei Stellen (Knobel-Bordkarte, Expedition und der Check-in), `{ tasten: neu }` in der Lerneinheit. **[C]** Ein Kind, das von der Etappe in den Check-in wechselt, bedient dieselbe Art Aufgabe anders. **[M]**
+*Vorschlag:* Das Tastenfeld überall einsetzen, wo eine Zahl einzugeben ist. **[M]**
+
+**Was ich dabei fast falsch gemeldet hätte:** Die Antwortfelder stehen im Quelltext mit `inputmode: 'text'`, was die Buchstabentastatur holen würde. Die Lerneinheit setzt aber zur Laufzeit `inputmode: 'none'`, sobald das Gerät einen groben Zeiger hat (`pointer: fine` ist falsch) – dort ist es also **richtig gelöst**. Nur die drei Stellen ohne eigenes Tastenfeld haben weder das eine noch `inputmode="numeric"`; dort kommt am Handy für eine Zahlenantwort die Buchstabentastatur. **[C]** Am Handy nachgesehen habe ich das nicht.
+
+### N4. „Zugänge": eine Sperre, die wie ein Netzwerkfehler aussieht **[L]**
+In meinem Nachbau hielt ich die Fehlerseite auf `#/zugaenge` für ein Artefakt meines fehlenden Server-Nachbaus. **Sie kommt auch in der laufenden App** – mit dem Zusatz „Nur Eltern". Der angemeldete Lehrer-Zugang darf die Seite nicht sehen, und das wird ihm so gezeigt:
+
+> Das hat gerade nicht geklappt. / Prüfe das Internet und versuch es nochmal. / **[Nochmal versuchen]**
+
+Eine Rechte-Beschränkung erscheint als Netzwerkstörung, mit einem Knopf, der nie zum Ziel führt. **[L]** Das ist der härteste einzelne Bedienfehler, den ich in der Durchsicht gefunden habe. **[M]**
+*Vorschlag:* Eigene Meldung: „Diese Seite ist nur für Eltern. Mit einem Lehrer-Zugang gibt es keine Zugangscodes." Kein „Nochmal versuchen", stattdessen ein Weg zurück. **[M]**
+*Allgemein:* Unterscheiden zwischen „geht gerade nicht" (Netz) und „darfst du nicht" (Rechte) – heute landet beides auf derselben Seite. **[M]**
+
+### N5. Was gut ist **[L]**
+- **`prefers-reduced-motion` wird beachtet** – wer am Gerät weniger Bewegung eingestellt hat, bekommt sie auch hier nicht. Das ist sorgfältig und in der Durchsicht sonst selten.
+- Die **Brüche stehen gestapelt** auch im Check-in (2/3 in der Zinsaufgabe) – die Arbeit vom 27.11. trägt bis in diese Seite.
+- Die **Reisekarte lädt aus dem Zwischenspeicher in 0,1 s** – wenn die Daten schon da sind, ist die App sofort da.
+
+### N6. Was auch live offen bleibt
+Nicht geprüft habe ich weiterhin: **Flug-Test, Landung mit Stempel und Sternen, Knobel-Bordkarte, Wiederholungs- und Mischkarten** – sie erscheinen erst, wenn man Aufgaben beantwortet, und das hätte in die Datenbank geschrieben. Der Auftrag sagt „nichts live, nichts in die Datenbank", darum habe ich es gelassen. Mit einem Wort des Projektleiters spiele ich sie am Testkind durch.
+Ebenso offen: **echtes Handy** (die Fensterbreite ließ sich in Chrome nicht auf 390 px zwingen; die Live-Prüfung lief in Rechner-Breite), Safari, Firefox, Kontrastwerte.
+
 ## Fragen an den Projektleiter
 
-1. **Bilder, die mir fehlen:** `wiederholen`, `zugaenge`, einzelne Expedition, Flug-Test, Landung mit Stempel und Sternen, Knobel-Bordkarte, Wiederholungs- und Mischkarten, „Einstellen je Kind". Mein Nachbau hat für diese Aktionen keine Antworten. Liefert der Helfer sie, beurteile ich sie nach.
-2. **Gedrückt-Zustand:** Ob jeder Knopf beim Antippen sichtbar reagiert, kann ich am Standbild nicht prüfen. Soll ich das als eigene Messung nachholen (Knopf für Knopf `:active` prüfen)?
+1. **Bilder, die mir fehlen:** `wiederholen` und `zugaenge` sind durch die Live-Prüfung erledigt (N3, N4). Weiter offen: einzelne Expedition, Flug-Test, Landung mit Stempel und Sternen, Knobel-Bordkarte, Wiederholungs- und Mischkarten, „Ändern lassen“ aufgeklappt, „Einstellen je Kind“ – sie entstehen erst beim Beantworten von Aufgaben. **Darf ich sie am Testkind durchspielen?** Das schreibt Lernstand in die Datenbank, was der Auftrag ausschließt.
+2. ~~Gedrückt-Zustand~~ – **erledigt**, siehe Nachtrag N1: von sieben Knopfklassen hat genau eine einen Gedrückt-Zustand.
 3. **„Yurr, Digga!"** auf der Reisekarte – gewollte Tonlage oder Rest aus einem Versuch?
 4. **„Bisheriges Design"**: Darf ich davon ausgehen, dass es abgekündigt werden kann, oder benutzt es jemand?
 5. Die Weltkarte ist laut Auftrag gesetzt – gilt das auch für die **Abflugtafel** (die schwarze Karte auf der Reiseseite), oder darf ich dort Vorschläge machen?

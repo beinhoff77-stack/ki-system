@@ -2,6 +2,25 @@
 
 Neueste oben.
 
+## 2026-11-28 07:05 (Berlin) – NACHTRAG zur Durchsicht: an der laufenden App geprüft
+Der Projektleiter hat zugerufen, dass ich online prüfen kann. Ich habe die echte App geöffnet (Claude in Chrome, angemeldeter Lehrer-Zugang) und mit dem **Testkind** `#/reise/3` gearbeitet. **Nichts geschrieben, nichts gespeichert, keine Aufgabe beantwortet.** Keine Namen, keine Zugangscodes und kein Bild davon im Repo. `bericht.md` hat dafür den neuen Abschnitt **Nachtrag (N1–N6)**, Kennzeichnung **[L]** = an der laufenden App gemessen.
+
+### Neu gefunden
+1. **Gedrückt-Zustand – meine Frage 2 ist beantwortet:** Von den sieben Knopfklassen auf den Kinderseiten hat **genau eine** (`lr-knopf`) eine `:active`-Regel. Ohne jede Rückmeldung beim Antippen sind `rk-legende-knopf`, `lr-knopf-klein`, `lr-textlink`, `rk-ru-link`, `iconbtn`, `lr-chip-stern`. Das Kind tippt – und sichtbar passiert nichts.
+2. **Wie lange man wartet (gemessen, kalt):** Mein Weg · Stand **6,3 s** · Merkheft **6,7 s** · Regel-Universum 3,8 s · Expeditionen 2,9 s · Reisepass 2,8 s · Meine Route 2,5 s · Check-in 2,1 s. In der ganzen Zeit steht nur das Wort „Lade …“ da – kein Fortschritt, kein Gerüst. An den Zeiten wird laut Auftrag gearbeitet; die **Gestaltung des Wartens** gehört mir.
+3. **„Wiederholen“ ist der Check-in** – die Seite, die mir fehlte. Sie hat eine **andere Bedienung als die Lerneinheit**: dort Stellenwert-Kästchen mit eigenem Tastenfeld und Prüfen als gelbe Taste darin, hier ein einfaches Feld und ein Prüfen-Knopf über die ganze Breite (gemessen 1008 px bei 1920 px Fenster). Im Code steht `{ tasten: false }` an drei Stellen: Check-in, Knobel-Bordkarte, Expedition.
+4. **„Zugänge“: eine Sperre, die wie ein Netzwerkfehler aussieht.** Ich hielt das im Nachbau für meinen Fehler – es kommt auch live: Der Lehrer-Zugang darf die Seite nicht sehen („Nur Eltern“), gezeigt wird aber „Das hat gerade nicht geklappt. Prüfe das Internet und versuch es nochmal.“ mit dem Knopf „Nochmal versuchen“, der nie zum Ziel führt. **Das ist der härteste einzelne Bedienfehler der ganzen Durchsicht.** Rechte-Sperre und Netzstörung gehören auseinander.
+5. **Gut:** `prefers-reduced-motion` wird beachtet. Die gestapelten Brüche aus der Arbeit vom 27.11. greifen auch im Check-in. Die Reisekarte ist aus dem Zwischenspeicher in 0,1 s da.
+
+### Berichtigung an mir selbst
+Die Antwortfelder stehen im Quelltext mit `inputmode: 'text'`. Ich war nahe daran zu melden, dass am Handy die Buchstabentastatur kommt – **das stimmt für die Lerneinheit nicht**: sie setzt zur Laufzeit `inputmode: 'none'`, sobald das Gerät einen groben Zeiger hat. Dort ist es richtig gelöst. Nur die drei Stellen ohne eigenes Tastenfeld haben weder das eine noch `inputmode="numeric"`. Am Handy nachgesehen habe ich das nicht.
+
+### FRAGE – dafür brauche ich dein Wort
+**Flug-Test, Landung mit Stempel und Sternen, Knobel-Bordkarte, Wiederholungs- und Mischkarten** bekomme ich nur zu sehen, wenn ich am Testkind Aufgaben **beantworte**. Das schreibt Lernstand in die Datenbank, und der Auftrag sagt „nichts live, nichts in die Datenbank“. Darum habe ich es gelassen. **Darf ich diese Zustände am Testkind durchspielen?** Dann sind auch die letzten Seiten beurteilt.
+
+### Weiter nicht geprüft
+Echtes Handy (die Fensterbreite ließ sich in Chrome nicht auf 390 px zwingen – die Live-Prüfung lief in Rechner-Breite), Safari, Firefox, Kontrastwerte.
+
 ## 2026-11-28 06:40 (Berlin) – FERTIG: Gestaltungs-Durchsicht der ganzen App – jede Seite
 Zweig `designer`, Ordner `inhalte/design/durchsicht-2811/`: `bericht.md` (sechs Teile wie beauftragt), `meine-bilder.md` (Bildverzeichnis), `bilder/` (129 Bilder). Stand `lernen-app` 615962e. Kein App-Code geändert.
 

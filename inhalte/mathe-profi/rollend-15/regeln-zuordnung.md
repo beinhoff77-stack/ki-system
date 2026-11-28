@@ -2,7 +2,7 @@
 
 Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt), nicht das Thema. Jede Kennung wurde gegen `inhalte/mathe-profi/regeln-uebersicht/kennungen.json` gelesen; `bauen.py` prüft, dass sie im Katalog steht und das Thema in der Themenliste der Regel steht (Ausnahmen unten). Quelle der Daten: die Angaben `regel` / `ohne` / `zweifel` in `th_*.py`; `regeln.py` und diese Tabelle werden von `bauen.py` erzeugt.
 
-**104 Aufgaben mit Regel, 6 ohne.**
+**118 Aufgaben mit Regel, 7 ohne.**
 
 ## Verteilung
 
@@ -13,6 +13,7 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | `rr.potenz` | Potenzen | 15 |
 | `id.geometrie.deckungsgleich` | Deckungsgleich | 14 |
 | `id.verhaeltnisse.prozent` | Prozent als Faktor | 14 |
+| `id.zahlen.hoch_zurueck` | Hoch und zurück | 14 |
 | `rr.tauschen` | Tauschen, Klammern, Zusammenfassen | 5 |
 | `rr.ausmultiplizieren` | Ausmultiplizieren und Ausklammern | 4 |
 | `id.geometrie.abstand` | Gleicher Abstand | 3 |
@@ -20,7 +21,7 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | `id.algebra.term` | Term | 2 |
 | `rr.gegenrechnung` | Gegenrechnung | 2 |
 | `rr.vorzeichen` | Vorzeichen bei Mal und Geteilt | 1 |
-| – (ohne Regel) |  | 6 |
+| – (ohne Regel) |  | 7 |
 
 ## Ausnahmen von der Themenliste des Katalogs (von Hand gelesen)
 
@@ -37,6 +38,7 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V091 | geometrie.konstruktion.satz_kehrsatz | Satz und Kehrsatz (Logik, Gegenbeispiel): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V092 | geometrie.konstruktion.satz_kehrsatz | Satz und Kehrsatz (Logik, Gegenbeispiel): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V093 | geometrie.konstruktion.satz_kehrsatz | Satz und Kehrsatz (Logik, Gegenbeispiel): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V123 | zahlen.wurzeln_basis.wurzel_deuten | Wurzel und Summe (Wurzel verteilt sich nicht auf Summanden): keine Regel des Katalogs trägt den Lösungsweg |
 
 ## Zweifelsfälle
 
@@ -48,6 +50,8 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V037 | terme.umformen.produkte | `rr.tauschen` | Produkt vereinfachen (tauschen) und zurückrechnen; keine Regel des Katalogs für das Umkehren von a² in dieser Klassenstufe |
 | R15-V052 | abbildungen.kongruenz.winkelhalbierende | `id.geometrie.winkel` | Winkelsumme im Dreieck trägt die Rechnung (id.geometrie.winkel, Ausnahme der Themenliste); die Lernkarte nennt id.geometrie.abstand |
 | R15-V059 | abbildungen.kongruenz.eigenschaften | `id.geometrie.winkel` | Winkelsumme im Dreieck plus Erhaltung der Winkel; Ausnahme der Themenliste (id.geometrie.winkel), die Lernkarte nennt id.geometrie.deckungsgleich |
+| R15-V121 | zahlen.wurzeln_basis.wurzel_deuten | `id.zahlen.hoch_zurueck` | Definitionsbereich der Wurzel: hoch_zurueck trägt (Quadrat nie negativ), die Lernkarte nennt sonst keine Regel |
+| R15-V122 | zahlen.wurzeln_basis.wurzel_deuten | `id.zahlen.hoch_zurueck` | Definitionsmenge der Wurzel (Radikand ≥ 0); hoch_zurueck trägt nur teilweise |
 
 ## Alle Aufgaben
 
@@ -163,3 +167,18 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V108 | gleichungen.linear.sach | `rr.waage` |
 | R15-V109 | gleichungen.linear.sach | `rr.waage` |
 | R15-V110 | gleichungen.linear.sach | `rr.waage` |
+| R15-V111 | zahlen.wurzeln_basis.quadratwurzel | `id.zahlen.hoch_zurueck` |
+| R15-V112 | zahlen.wurzeln_basis.quadratwurzel | `id.zahlen.hoch_zurueck` |
+| R15-V113 | zahlen.wurzeln_basis.quadratwurzel | `id.zahlen.hoch_zurueck` |
+| R15-V114 | zahlen.wurzeln_basis.wurzel_dezimal | `id.zahlen.hoch_zurueck` |
+| R15-V115 | zahlen.wurzeln_basis.wurzel_dezimal | `id.zahlen.hoch_zurueck` |
+| R15-V116 | zahlen.wurzeln_basis.kubikwurzel | `id.zahlen.hoch_zurueck` |
+| R15-V117 | zahlen.wurzeln_basis.kubikwurzel | `id.zahlen.hoch_zurueck` |
+| R15-V118 | zahlen.wurzeln_basis.kubikwurzel | `id.zahlen.hoch_zurueck` |
+| R15-V119 | zahlen.wurzeln_basis.abschaetzen | `id.zahlen.hoch_zurueck` |
+| R15-V120 | zahlen.wurzeln_basis.abschaetzen | `id.zahlen.hoch_zurueck` |
+| R15-V121 | zahlen.wurzeln_basis.wurzel_deuten | `id.zahlen.hoch_zurueck` |
+| R15-V122 | zahlen.wurzeln_basis.wurzel_deuten | `id.zahlen.hoch_zurueck` |
+| R15-V123 | zahlen.wurzeln_basis.wurzel_deuten | – |
+| R15-V124 | zahlen.wurzeln_basis.wurzel_sache | `id.zahlen.hoch_zurueck` |
+| R15-V125 | zahlen.wurzeln_basis.wurzel_sache | `id.zahlen.hoch_zurueck` |

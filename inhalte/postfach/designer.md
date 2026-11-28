@@ -2,6 +2,47 @@
 
 Neueste oben.
 
+## 2026-11-28 05:35 (Berlin) – AUFTRAG vom Projektleiter: Gestaltungs-Durchsicht der ganzen App – jede Seite
+
+**Aufgabe:** Sieh dir JEDE Seite der Lern-App an (Stand `lernen-app`, live ist 0.96.0), keine Stichproben, und beurteile die App als Ganzes. Du änderst keinen App-Code (`lernen*.js`, `*.css`, `lernen/`, `tools/`, `daten/`), du lieferst einen Bericht.
+
+### Die Fragen des Nutzers
+1. **Ein Stil oder zusammengewürfelt?** Sieht die App aus einem Guss aus? Wo fallen Seiten aus der Reihe (Schriften, Schriftgrößen, Abstände, Kartenform, Eckenradien, Farben, Linien, Überschriften, Symbole)? Passen Kinderbereich, Elternbereich und Regel-Universum zusammen, oder sind das drei verschiedene Apps?
+2. **Knöpfe und Bedienelemente:** Gibt es eine klare Rangfolge (Hauptknopf, Nebenknopf, Textlink)? Sind gleiche Aktionen überall gleich gestaltet und gleich benannt? Welche Knopfformen, -größen und -farben gibt es insgesamt, und wie viele davon sind zu viel? Sitzen Zurück, Menü, Schließen und Aufklappen überall an derselben Stelle?
+3. **Haptik / Bediengefühl:** Tippflächen am Handy groß genug? Rückmeldung bei jedem Tipp (Gedrückt-Zustand, Laden, Erfolg, Fehler)? Wie fühlen sich Übergänge, Aufklapper, Karte (Ziehen, Zoomen) und Aufgaben-Eingabe an? Wo wartet man, ohne zu sehen, dass geladen wird? Wo sind leere Zustände oder Fehlermeldungen lieblos?
+4. **Klarheit:** Versteht ein Kind (Klasse 5 bzw. 8) auf jeder Seite sofort, wo es ist und was als Nächstes zu tun ist? Versteht der Lehrer auf einen Blick, was los ist? Wo ist zu viel Text, wo zu viel auf einmal?
+5. **Was sollte noch rein?**
+6. **Was kann weg?** Doppeltes, Überladenes, Elemente ohne Nutzen, Seiten, die man zusammenlegen könnte.
+7. **Neue Ideen:** höchstens 10 innovative Ideen für Gestaltung, Bediengefühl, Motivation oder Übersicht, die besten zuerst, je mit Aufwand (klein / mittel / groß) und erwarteter Wirkung.
+
+### Die Seiten (Adressen hinter `#/`, `<id>` = Kind)
+- *Einstieg:* Anmeldung · Startseite des Lehrers „Was ist los?“ (`#/`)
+- *Kind:* Reisekarte (`reise/<id>`: Karte, Routen-Spalte, „Weiter geht’s“, Menü) · Mein Weg (`weg/<id>`, Reiter Stand, Kontinente, Karte) · Reisepass (`reisepass/<id>`) · Meine Route (`route/<id>`) · Wiederholen (`wiederholen/<id>`) · Expeditionen (`stationen/<id>`, `expedition/…`) · Merkheft (`merkheft/<id>`)
+- *Lernen selbst:* Lerneinheit (`lerneinheit/…`) in allen Zuständen: Erklärung, Aufgabe, Tipp, richtig, falsch mit Erklärung, Bordkarten (Wiederholungs- und Mischkarten), Knobel-Bordkarte nach der Etappe, Flug-Test, Landung mit Stempel und Sternen
+- *Regel-Universum:* Sonnensystem (`regeln/<id>`) in „Aufbau“ und „Durch die Klassen“ · Gebiet · einzelne Regel · Tafeln („Formeln auf einen Blick“, Maßeinheiten, Stellenwert usw.) mit aufgeklappter Zeile und Klassenfilter · Suche · „Ändern lassen“
+- *Lehrer/Eltern:* Kind-Ansicht (`kind/<id>`, Reiter Überblick, Was wackelt, Lehrplan) · Lehrplan (`lehrplan`) · Alle Kinder im Vergleich (`schulstand/<id>`) · Expeditionen (`expeditionen`) · Meine Aufträge (`lernauftraege`) · So funktioniert’s (`info`) · Zugänge (`zugaenge`) · Einstellen je Kind
+- Überall: Kopfzeile, Menü, Meldungen, Ladezustand, leerer Zustand, Fehlerzustand.
+Findest du im Code Seiten, die hier fehlen, nimm sie dazu und nenne sie.
+
+### Bilder
+Fertige Bildschirmfotos aller Seiten (390 px und 1280 px, hell und dunkel, erfundene Beispieldaten) legt gerade ein Helfer ab: Zweig `helfer-bilder`, Ordner `inhalte/design/durchsicht-2811/bilder/`, Übersicht `inhalte/design/durchsicht-2811/seiten.md`. Sind sie noch nicht da, beginne mit der Bestandsaufnahme aus Code und `style.css` und nimm die Bilder dazu, sobald sie liegen. Eigene Bilder darfst du jederzeit zusätzlich machen (Server-Nachbau wie in `tests/lernen.test.cjs`). Der Nutzer macht KEINE Bildschirmfotos – fehlt dir ein Bild, schreib es als FRAGE ins Postfach, der Projektleiter liefert.
+
+### Bereits entschieden – nicht wieder aufmachen
+- Die Weltkarte bleibt, wie sie ist: keine Leiste, keine zusätzlichen Knöpfe auf der Karte.
+- Lernlogik und Ablauf (Etappen, Wiederholungs- und Mischkarten, Knobel-Karte nach der Etappe) bleiben unverändert; es geht nur um Gestaltung und Bedienung.
+- Im Regel-Universum gibt es keinen eigenen Reiter „Tafeln“; die Tafeln sitzen in den Gebieten.
+- In Arbeit, nur am Rand bewerten: neue Lehrer-Startseite (angenommener Entwurf `inhalte/design/lehrer-start/entwurf1/`), „Stammbaum der Flächenformeln“ für die Formel-Tafel (Entwurf entsteht unter `inhalte/design/stammbaum/entwurf1/`), kürzere Ladezeiten.
+
+### Liefern (Zweig `designer`, Ordner `inhalte/design/durchsicht-2811/`, Datei `bericht.md`; FERTIG-Meldung hier im Postfach)
+1. **Gesamturteil** in fünf Sätzen: aus einem Guss oder nicht, und die drei größten Baustellen.
+2. **Bestandsaufnahme der Bausteine:** Tabelle aller Knopfarten, Kartenarten, Überschriftenstufen, Schriftgrößen, Farben, Eckenradien, Symbolstile – wo sie vorkommen, was du streichen oder vereinheitlichen würdest.
+3. **Seite für Seite:** je Seite „passt / fällt auf“, dann Befunde mit Stelle und Vorschlag. Jede Seite muss vorkommen.
+4. **Rein / Weg:** zwei Listen.
+5. **Ideen:** höchstens 10, nach Wirkung geordnet, mit Aufwand.
+6. **Reihenfolge:** höchstens 8 Schritte, mit denen die App am schnellsten einheitlich wirkt.
+
+Trenne: am Bild gesehen · nur aus dem Code geschlossen · Meinung. Keine Schmeichelei. Wie immer: öffentliches Repo, keine Namen (nur „Kind 1“, „Kind 2“, „Testkind“), keine Zugangsdaten, keine echten Lerndaten; nichts live, nichts in die Datenbank.
+
 ## 2026-11-27 01:15 (Berlin) – FERTIG: Regel-Universum, sechste Runde (Vorgabe GB, Abschnitt F7)
 Zweig `designer`, Stand `lernen-app` 7e22808 eingemischt. `inhalte/design/gesetzbuch/`: `umsetzung.md` (Fassung 7, neu F7), `entwurf/` neu gebaut, `bilder/` (43 Bilder, alle neu).
 

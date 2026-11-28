@@ -160,6 +160,57 @@ NEU = {
     "Ein Kind soll a in 5ᵃ = 1/25": lambda: next(a for a in range(-6, 7) if F(5) ** a == F(1, 25)),
 }
 
+
+# ── Einheit 20 (gleichungen.bruch), Stand nach Vorprüfung W1 (Schreiber W1-E20): eigene Neuberechnung je neuer Aufgabe ──
+# (ältere Schlüssel derselben Einheit oben passen auf keinen Aufgabentext mehr und werden nicht mehr benutzt)
+def _e20_q(bis=30, nenner=12):
+    return sorted({F(p, q) for q in range(1, nenner + 1) for p in range(-bis * q, bis * q + 1)})
+
+
+def _e20_lin_nullstelle(f):
+    """Nullstelle einer linearen Funktion aus zwei Werten (None, wenn f konstant ist)."""
+    f0, f1 = f(F(0)), f(F(1))
+    return None if f1 == f0 else -f0 / (f1 - f0)
+
+
+def _e20_def_test():
+    lea = [x for x in _e20_q() if x not in (0, 1, 2) and F(6) / (x - 2) + 1 / x == F(3) / (x - 1) + 1 / x]
+    tom = {x for x in _e20_q() if x - 1 == 0}          # 6 = 3(x − 2)/(x − 1): nur noch dieser Nenner
+    return [len(lea), len(tom)]
+
+
+def _e20_kreuz_test():
+    ohne = []
+    for a in range(-30, 31):
+        x = _e20_lin_nullstelle(lambda x: a * (x - 2) - 7 * (x + 5))
+        if x is None or x in (-5, 2) or F(a) / (x + 5) != F(7) / (x - 2):
+            ohne.append(a)
+    return ohne
+
+
+def _e20_c(schein):
+    for c in range(-30, 31):
+        if _e20_lin_nullstelle(lambda x: 3 * x + (x - 2) - c) == schein:
+            return c
+
+
+NEU.update({
+    "Die Gleichung 6/(x − 2) = 3/(x − 1) hat in der Grundmenge": _e20_def_test,
+    "Die Gleichung 6/(2x − a) + 4/(x + 3) = 2 hat die Definitionsmenge": lambda: next(a for a in range(-50, 51) if {F(a, 2), F(-3)} == {F(7), F(-3)}),
+    "Zwei Rechtecke sind gleich lang": lambda: [len({F(0), F(3)}), 3, next(x for x in range(4, 100) if F(36, x) == F(24, x - 3))],
+    "In der Grundmenge ℤ (ganze Zahlen) betrachtet man": lambda: (lambda r: [r[0][0], r[0][1]] if len(r) == 1 else None)(
+        [(b, [z for z in sorted({0, b}) if z != 6][0]) for b in range(-20, 21) if len({0, b}) == 2 and 6 in {0, b}]),
+    "In der Gleichung a/(x + 5) = 7/(x − 2)": _e20_kreuz_test,
+    "Für welche Zahl a hat die Gleichung 10/(x − 3) = a/(x + 2)": lambda: (lambda x0: 10 * (x0 + 2) / (x0 - 3))(_e20_lin_nullstelle(lambda x: 15 * (x + 2) - 9 * (x - 3))),
+    "In der Gleichung 3/(x − 2) + 1/x = c/(x² − 2x)": lambda: [_e20_c(2), _e20_c(0)],
+    "Ali denkt sich eine Zahl": lambda: sum(1 for x in _e20_q() if x != 4 and F(8) / (x - 4) + 3 == (x + 4) / (x - 4)),
+    "Zu den beiden Seiten der Gleichung (x + 4)/(x − 3) − 2": lambda: [(lambda w: w.pop() if len(w) == 1 else None)({(x + 4) / (x - 3) - 2 - 7 / (x - 3) for x in _e20_q(5, 3) if x != 3}),
+                                                                    sum(1 for x in _e20_q() if x != 3 and (x + 4) / (x - 3) - 2 == 7 / (x - 3))],
+    "Mischung A enthält Saft und Wasser im Verhältnis 1 : 1": lambda: next(x for x in range(0, 2001) if 2 * (100 + F(x, 5)) == 100 + F(4 * x, 5)),
+    "Mia ist 6 Jahre alt": lambda: [10 + (9 - 6), F(9, 6) * 10],
+    "Eine Schorle enthält Saft und Wasser im Verhältnis 1 : 3": lambda: [next(w for w in range(1, 100) if 2 * (1 + w) == 2 * 2 * (1 + 3))],
+})
+
 dateien = sorted(glob.glob(os.path.join(HIER, "*.json")))
 n = 0
 abw = []

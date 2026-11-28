@@ -1,0 +1,1799 @@
+{
+ "stand": "2026-11-28",
+ "runde": "vtest-1b",
+ "kuerzel": "VT1B",
+ "titel": "zahlen.potenzen_zehner",
+ "klasse": {
+  "gym_by": 6,
+  "rs_by": 7,
+  "ib_myp": 4
+ },
+ "themen": [
+  "zahlen.potenzen_zehner"
+ ],
+ "hinweis": "Verstehens-Aufgaben für Tests (Pools test, korrektur, sicherung), je Lernziel 1 + 2 + 3. Nicht eingespielt. Je Eintrag: thema, lernkarte, pool, typ (Aufgabentyp g), form, stufe, zaehlt, lehrplan, ersetzt_test (nur test), Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md (ohne Tipp h, ohne Toleranz).",
+ "aufgaben": [
+  {
+   "kennung": "VT1B-064",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "gross_wissenschaftlich",
+   "pool": "test",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen schreiben eine große Zahl als a · 10ⁿ; hier wird ein Fehler beim Komma-Verschieben gefunden, eine Fehlvorstellung zu den Nullen geklärt, rückwärts geschlossen und die Bedingung für den Vorfaktor begründet.",
+   "idee": "komma_ausgleich",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "3",
+    "4 + 1"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 2 genannt, weil dort das Komma verschoben wird, obwohl diese Zeile stimmt"
+    },
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "rechnung": "1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 1 genannt, obwohl dort nur das Vorgehen steht"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "rechnung": "4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten unverändert übernommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "rechnung": "4 - 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten beim Verschieben des Kommas verkleinert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 14,
+     "rechnung": "4 + 10",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zehn zum Exponenten addiert"
+    }
+   ],
+   "regel": "rr.stellenwert",
+   "ersetzt_test": true,
+   "aufgabe": {
+    "l": "gross_wissenschaftlich",
+    "t": "gross_wissenschaftlich",
+    "p": "test",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kind soll 23,1 · 10⁴ in wissenschaftliche Schreibweise bringen und rechnet: Zeile 1: Ich muss das Komma verschieben. Zeile 2: 23,1 = 2,31 · 10. Zeile 3: Die Zahl bleibt dieselbe, also bleibt der Exponent 4: 23,1 · 10⁴ = 2,31 · 10⁴. In welcher Zeile steckt der erste Fehler? Welcher Exponent gehört richtig an die 10?",
+     "schablone": "Fehler in Zeile □, richtig: 23,1 · 10⁴ = 2,31 · 10^□",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      5
+     ]
+    },
+    "c": [
+     "3",
+     "4 + 1"
+    ],
+    "w": "Zeile 1 sagt nur, was getan wird. Zeile 2 stimmt (2,31 · 10 = 23,1). In Zeile 3 wird die Zehn aus Zeile 2 vergessen: 23,1 · 10⁴ = 2,31 · 10 · 10⁴ = 2,31 · 10⁵. Wird das Komma um eine Stelle nach links geschoben, muss der Exponent um 1 größer werden, sonst ändert sich der Wert der Zahl."
+   }
+  },
+  {
+   "kennung": "VT1B-065",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "gross_wissenschaftlich",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen schreiben eine große Zahl als a · 10ⁿ; hier wird ein Fehler beim Komma-Verschieben gefunden, eine Fehlvorstellung zu den Nullen geklärt, rückwärts geschlossen und die Bedingung für den Vorfaktor begründet.",
+   "idee": "zehnerpotenz_in_worten",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "3,85 Millionen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Million mit 10⁶ gleichgesetzt, aber 10⁷ ist das Zehnfache davon: der Exponent wurde nicht beachtet"
+    },
+    {
+     "index": 1,
+     "antwort": "385 Millionen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Komma beim Vorfaktor nach rechts verschoben, aber den Exponenten dabei nicht verkleinert"
+    },
+    {
+     "index": 3,
+     "antwort": "3,85 Milliarden",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Milliarde mit 10⁷ verwechselt; 10⁹ ist eine Milliarde"
+    }
+   ],
+   "regel": "rr.stellenwert",
+   "aufgabe": {
+    "l": "gross_wissenschaftlich",
+    "t": "gross_wissenschaftlich",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Angabe beschreibt die Zahl 3,85 · 10⁷?"
+    },
+    "a": [
+     "3,85 Millionen",
+     "385 Millionen",
+     "38,5 Millionen",
+     "3,85 Milliarden"
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "10⁷ sind zehn Millionen. 3,85 · 10⁷ = 3,85 · 10 Millionen = 38,5 Millionen = 38 500 000. Eine Million ist 10⁶, eine Milliarde 10⁹."
+   }
+  },
+  {
+   "kennung": "VT1B-066",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "gross_wissenschaftlich",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen schreiben eine große Zahl als a · 10ⁿ; hier wird ein Fehler beim Komma-Verschieben gefunden, eine Fehlvorstellung zu den Nullen geklärt, rückwärts geschlossen und die Bedingung für den Vorfaktor begründet.",
+   "idee": "rueckwaerts_halbieren",
+   "antwortform": "zahl",
+   "loesung_rechnung": "10 - 1",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "rechnung": "10",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Vorfaktor halbiert und den Exponenten unverändert gelassen"
+    },
+    {
+     "antwort": 11,
+     "rechnung": "11",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten beim Halbieren vergrößert statt verkleinert"
+    },
+    {
+     "antwort": 8,
+     "rechnung": "8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten um eins zu klein gesetzt"
+    }
+   ],
+   "regel": "rr.stellenwert",
+   "aufgabe": {
+    "l": "gross_wissenschaftlich",
+    "t": "gross_wissenschaftlich",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Zahl a · 10ⁿ ist in wissenschaftlicher Schreibweise geschrieben. Verdoppelt man sie, erhält man 1,6 · 10¹⁰. Wie groß ist n bei der ursprünglichen Zahl?"
+    },
+    "o": {
+     "wert": 9
+    },
+    "c": "10 - 1",
+    "w": "Die ursprüngliche Zahl ist die Hälfte von 1,6 · 10¹⁰, also 0,8 · 10¹⁰. Der Vorfaktor 0,8 ist kleiner als 1: 0,8 · 10¹⁰ = 8 · 10⁹. Die ursprüngliche Zahl ist also 8 · 10⁹ und n = 9. Probe: 2 · 8 · 10⁹ = 16 · 10⁹ = 1,6 · 10¹⁰."
+   }
+  },
+  {
+   "kennung": "VT1B-067",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "gross_wissenschaftlich",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen schreiben eine große Zahl als a · 10ⁿ; hier wird ein Fehler beim Komma-Verschieben gefunden, eine Fehlvorstellung zu den Nullen geklärt, rückwärts geschlossen und die Bedingung für den Vorfaktor begründet.",
+   "idee": "nullen_fehlvorstellung",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Kim hat recht, denn der Exponent gibt bei jeder Zahl der Form a · 10ⁿ die Zahl der Nullen an.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten allgemein als Zahl der Nullen gedeutet; die Ziffern des Vorfaktors nehmen aber Stellen weg"
+    },
+    {
+     "index": 1,
+     "antwort": "Kim hat recht, denn in 3 500 000 stehen sechs Nullen, wenn man die 5 mitzählt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ziffer 5 als Null mitgezählt"
+    },
+    {
+     "index": 2,
+     "antwort": "Kim irrt, denn der Exponent gibt die Zahl der Ziffern an, und dort stehen sechs Ziffern.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten als Zahl der Ziffern gedeutet; es sind sieben Ziffern"
+    }
+   ],
+   "regel": "rr.stellenwert",
+   "aufgabe": {
+    "l": "gross_wissenschaftlich",
+    "t": "gross_wissenschaftlich",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim sagt: „In der Zahl 3,5 · 10⁶ stehen sechs Nullen, denn im Exponenten steht die 6.“ Welche Aussage stimmt?"
+    },
+    "a": [
+     "Kim hat recht, denn der Exponent gibt bei jeder Zahl der Form a · 10ⁿ die Zahl der Nullen an.",
+     "Kim hat recht, denn in 3 500 000 stehen sechs Nullen, wenn man die 5 mitzählt.",
+     "Kim irrt, denn der Exponent gibt die Zahl der Ziffern an, und dort stehen sechs Ziffern.",
+     "Kim irrt, denn ausgeschrieben ist 3,5 · 10⁶ = 3 500 000, und dort stehen nicht sechs, sondern nur fünf Nullen."
+    ],
+    "o": {
+     "index": 3
+    },
+    "w": "3,5 · 10⁶ = 3,5 · 1 000 000 = 3 500 000. Das Komma wandert um 6 Stellen nach rechts: Die 5 füllt die erste Stelle auf, danach stehen noch fünf Nullen. Der Exponent gibt die Zahl der Stellen an, um die das Komma wandert, nicht die Zahl der Nullen."
+   }
+  },
+  {
+   "kennung": "VT1B-068",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "gross_wissenschaftlich",
+   "pool": "sicherung",
+   "typ": "umkehr",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen schreiben eine große Zahl als a · 10ⁿ; hier wird ein Fehler beim Komma-Verschieben gefunden, eine Fehlvorstellung zu den Nullen geklärt, rückwärts geschlossen und die Bedingung für den Vorfaktor begründet.",
+   "idee": "passt_wie_oft",
+   "antwortform": "zahl",
+   "loesung_rechnung": "2000000000 / 400000",
+   "fehlbilder": [
+    {
+     "antwort": 500,
+     "rechnung": "500",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten um eins zu klein gerechnet"
+    },
+    {
+     "antwort": 50000,
+     "rechnung": "50000",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten um eins zu groß gerechnet"
+    },
+    {
+     "antwort": 20000,
+     "rechnung": "20000",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Vorfaktoren falsch herum geteilt"
+    }
+   ],
+   "regel": "rr.stellenwert",
+   "aufgabe": {
+    "l": "gross_wissenschaftlich",
+    "t": "gross_wissenschaftlich",
+    "p": "sicherung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Buch hat etwa 4 · 10⁵ Zeichen. Ein Speicher fasst 2 · 10⁹ Zeichen. Wie viele solcher Bücher passen höchstens in den Speicher?"
+    },
+    "o": {
+     "wert": 5000,
+     "einheit": "Bücher"
+    },
+    "c": "2000000000 / 400000",
+    "w": "2 · 10⁹ = 2 000 000 000 und 4 · 10⁵ = 400 000. Es passen 2 000 000 000 : 400 000 = 5 000 Bücher. Mit Potenzen: 2 : 4 = 0,5 und 10⁹ : 10⁵ = 10⁴, also 0,5 · 10⁴ = 5 000."
+   }
+  },
+  {
+   "kennung": "VT1B-069",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "gross_wissenschaftlich",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen schreiben eine große Zahl als a · 10ⁿ; hier wird ein Fehler beim Komma-Verschieben gefunden, eine Fehlvorstellung zu den Nullen geklärt, rückwärts geschlossen und die Bedingung für den Vorfaktor begründet.",
+   "idee": "bedingung_begruenden",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Der Exponent 8 ist zu groß; man darf höchstens 10⁷ verwenden.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Höchstgrenze für den Exponenten erfunden; Exponenten dürfen beliebig groß sein"
+    },
+    {
+     "index": 1,
+     "antwort": "0,5 · 10⁸ ist eine andere Zahl als 50 000 000; richtig wäre 0,05 · 10⁸.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Wert falsch gerechnet: 0,5 · 10⁸ ist bereits 50 000 000, nur der Vorfaktor passt nicht"
+    },
+    {
+     "index": 3,
+     "antwort": "Der Vorfaktor muss eine ganze Zahl sein; 0,5 ist keine ganze Zahl.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "verlangt, dass der Vorfaktor ganzzahlig ist; auch Dezimalzahlen zwischen 1 und 10 sind erlaubt"
+    }
+   ],
+   "regel": "rr.stellenwert",
+   "aufgabe": {
+    "l": "gross_wissenschaftlich",
+    "t": "gross_wissenschaftlich",
+    "p": "sicherung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Warum ist 0,5 · 10⁸ keine wissenschaftliche Schreibweise der Zahl 50 000 000?"
+    },
+    "a": [
+     "Der Exponent 8 ist zu groß; man darf höchstens 10⁷ verwenden.",
+     "0,5 · 10⁸ ist eine andere Zahl als 50 000 000; richtig wäre 0,05 · 10⁸.",
+     "Der Vorfaktor 0,5 ist kleiner als 1, wissenschaftlich wäre 5 · 10⁷.",
+     "Der Vorfaktor muss eine ganze Zahl sein; 0,5 ist keine ganze Zahl."
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "0,5 · 10⁸ = 50 000 000 ist richtig als Wert. Es fehlt nur die Bedingung 1 ≤ a < 10: 0,5 ist kleiner als 1. Man verschiebt das Komma um eine Stelle nach rechts und verkleinert den Exponenten: 5 · 10⁷ = 50 000 000."
+   }
+  },
+  {
+   "kennung": "VT1B-070",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "gross_wissenschaftlich",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen schreiben eine große Zahl als a · 10ⁿ; hier wird ein Fehler beim Komma-Verschieben gefunden, eine Fehlvorstellung zu den Nullen geklärt, rückwärts geschlossen und die Bedingung für den Vorfaktor begründet.",
+   "idee": "mal_rechnen_uebertrag",
+   "antwortform": "zahl",
+   "loesung_rechnung": "7 + 1",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "rechnung": "7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten unverändert gelassen, obwohl der Vorfaktor 30 zu groß ist"
+    },
+    {
+     "antwort": 11,
+     "rechnung": "7 + 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 4 zum Exponenten addiert"
+    },
+    {
+     "antwort": 28,
+     "rechnung": "7 * 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten mit dem Faktor 4 malgenommen"
+    }
+   ],
+   "regel": "rr.stellenwert",
+   "aufgabe": {
+    "l": "gross_wissenschaftlich",
+    "t": "gross_wissenschaftlich",
+    "p": "sicherung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Die Zahl 7,5 · 10⁷ wird mit 4 malgenommen. Das Ergebnis wird wieder in wissenschaftlicher Schreibweise a · 10ⁿ geschrieben. Wie groß ist n?"
+    },
+    "o": {
+     "wert": 8
+    },
+    "c": "7 + 1",
+    "w": "7,5 · 4 = 30. Also ist das Ergebnis 30 · 10⁷. Der Vorfaktor 30 ist zu groß für die wissenschaftliche Schreibweise: 30 · 10⁷ = 3 · 10 · 10⁷ = 3 · 10⁸. Der Exponent wird um 1 größer, also n = 8."
+   }
+  },
+  {
+   "kennung": "VT1B-071",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "negativer_exponent",
+   "pool": "test",
+   "typ": "transfer",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen schreiben 10⁻ⁿ als Dezimalzahl; hier werden Vorfaktor und Exponent zusammen betrachtet, in Stücken gedacht, rückwärts gerechnet und die Fehlvorstellung „Minus macht negativ“ geklärt.",
+   "idee": "vorfaktor_und_exponent",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "0 - 5",
+    "0 - 6"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 5,
+     "rechnung": "5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus im Exponenten vergessen"
+    },
+    {
+     "luecke": 1,
+     "antwort": -4,
+     "rechnung": "0 - 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Nullen hinter dem Komma gezählt"
+    },
+    {
+     "luecke": 2,
+     "antwort": -5,
+     "rechnung": "0 - 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten vom ersten Vorfaktor unverändert übernommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": -4,
+     "rechnung": "0 - 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten in die falsche Richtung um eins verändert"
+    },
+    {
+     "luecke": 2,
+     "antwort": -7,
+     "rechnung": "0 - 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten um zwei statt um eins verkleinert"
+    }
+   ],
+   "regel": "rr.potenz",
+   "ersetzt_test": true,
+   "aufgabe": {
+    "l": "negativer_exponent",
+    "t": "negativer_exponent",
+    "p": "test",
+    "s": 3,
+    "g": "transfer",
+    "y": "luecken",
+    "f": {
+     "text": "Die Zahl 0,000 04 wird auf zwei Arten mit einer Zehnerpotenz geschrieben. Ergänze die Exponenten: 0,000 04 = 4 · 10^□ und 0,000 04 = 40 · 10^□.",
+     "schablone": "4 · 10^□ und 40 · 10^□",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      -5,
+      -6
+     ]
+    },
+    "c": [
+     "0 - 5",
+     "0 - 6"
+    ],
+    "w": "Die 4 steht an der 5. Stelle hinter dem Komma, also ist 0,000 04 = 4 · 10⁻⁵. Wird der Vorfaktor zehnmal so groß (40 statt 4), muss die Zehnerpotenz zehnmal so klein werden, der Exponent also um 1 kleiner: 40 · 10⁻⁶. Probe: 40 · 0,000 001 = 0,000 04."
+   }
+  },
+  {
+   "kennung": "VT1B-072",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "negativer_exponent",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen schreiben 10⁻ⁿ als Dezimalzahl; hier werden Vorfaktor und Exponent zusammen betrachtet, in Stücken gedacht, rückwärts gerechnet und die Fehlvorstellung „Minus macht negativ“ geklärt.",
+   "idee": "teilungen_zaehlen",
+   "antwortform": "zahl",
+   "loesung_rechnung": "3 + 7",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "rechnung": "9",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "schon beim Erreichen des Wertes gestoppt, obwohl dieser nicht kleiner, sondern gleich ist"
+    },
+    {
+     "antwort": 6,
+     "rechnung": "6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Nullen der kleinen Zahl gezählt"
+    },
+    {
+     "antwort": 7,
+     "rechnung": "7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten des Ergebnisses statt der Teilungen genannt"
+    }
+   ],
+   "regel": "rr.potenz",
+   "aufgabe": {
+    "l": "negativer_exponent",
+    "t": "negativer_exponent",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Man startet bei 1 000 und teilt immer wieder durch zehn. Nach wie vielen Teilungen ist das Ergebnis zum ersten Mal kleiner als 0,000 001?"
+    },
+    "o": {
+     "wert": 10,
+     "einheit": "Teilungen"
+    },
+    "c": "3 + 7",
+    "w": "1 000 = 10³. Jede Teilung durch 10 senkt den Exponenten um 1. 0,000 001 = 10⁻⁶. Nach 9 Teilungen ist das Ergebnis 10⁻⁶, also genau 0,000 001 und noch nicht kleiner. Nach 10 Teilungen ist es 10⁻⁷ und damit zum ersten Mal kleiner."
+   }
+  },
+  {
+   "kennung": "VT1B-073",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "negativer_exponent",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen schreiben 10⁻ⁿ als Dezimalzahl; hier werden Vorfaktor und Exponent zusammen betrachtet, in Stücken gedacht, rückwärts gerechnet und die Fehlvorstellung „Minus macht negativ“ geklärt.",
+   "idee": "groessenvorstellung_stuecke",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Zehn solche Stücke zusammen sind ein Millionstel vom Ganzen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "geglaubt, dass sich der Wert beim Zusammenlegen nicht ändert"
+    },
+    {
+     "index": 2,
+     "antwort": "Hundert solche Stücke zusammen sind ein Hunderttausendstel vom Ganzen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Zusammenlegen um eine Stufe zu weit gegangen"
+    },
+    {
+     "index": 3,
+     "antwort": "Zehn solche Stücke zusammen sind ein Zehnmillionstel vom Ganzen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Zusammenlegen in die falsche Richtung gerechnet: mehr Stücke ergeben etwas Größeres"
+    }
+   ],
+   "regel": "rr.potenz",
+   "aufgabe": {
+    "l": "negativer_exponent",
+    "t": "negativer_exponent",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Ganzes wird in eine Million gleiche Stücke zerlegt. Ein Stück ist 10⁻⁶ vom Ganzen. Welche Aussage stimmt?"
+    },
+    "a": [
+     "Zehn solche Stücke zusammen sind ein Millionstel vom Ganzen.",
+     "Zehn solche Stücke zusammen sind ein Hunderttausendstel vom Ganzen.",
+     "Hundert solche Stücke zusammen sind ein Hunderttausendstel vom Ganzen.",
+     "Zehn solche Stücke zusammen sind ein Zehnmillionstel vom Ganzen."
+    ],
+    "o": {
+     "index": 1
+    },
+    "w": "Ein Stück ist 10⁻⁶ = 0,000 001. Zehn Stücke sind 10 · 10⁻⁶ = 10⁻⁵ = 0,000 01, also ein Hunderttausendstel. Hundert Stücke wären 10⁻⁴, ein Zehntausendstel. Mehr Stücke ergeben immer einen größeren Anteil, nie einen kleineren."
+   }
+  },
+  {
+   "kennung": "VT1B-074",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "negativer_exponent",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen schreiben 10⁻ⁿ als Dezimalzahl; hier werden Vorfaktor und Exponent zusammen betrachtet, in Stücken gedacht, rückwärts gerechnet und die Fehlvorstellung „Minus macht negativ“ geklärt.",
+   "idee": "skalierung_rueckwaerts",
+   "antwortform": "zahl",
+   "loesung_rechnung": "0 - 8",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "rechnung": "8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus im Exponenten vergessen"
+    },
+    {
+     "antwort": -2,
+     "rechnung": "0 - 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten von 1 000 addiert statt abgezogen"
+    },
+    {
+     "antwort": -15,
+     "rechnung": "0 - 15",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen malgenommen statt abgezogen"
+    }
+   ],
+   "regel": "rr.potenz",
+   "aufgabe": {
+    "l": "negativer_exponent",
+    "t": "negativer_exponent",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Zehnerpotenz 10ⁿ ist 1 000-mal so klein wie 0,000 01. Wie groß ist n?"
+    },
+    "o": {
+     "wert": -8
+    },
+    "c": "0 - 8",
+    "w": "0,000 01 = 10⁻⁵. 1 000-mal so klein heißt durch 1 000 = 10³ teilen: 10⁻⁵ : 10³ = 10⁻⁸. Probe: 0,000 01 : 1 000 = 0,000 000 01, die 1 steht an der achten Stelle."
+   }
+  },
+  {
+   "kennung": "VT1B-075",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "negativer_exponent",
+   "pool": "sicherung",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen schreiben 10⁻ⁿ als Dezimalzahl; hier werden Vorfaktor und Exponent zusammen betrachtet, in Stücken gedacht, rückwärts gerechnet und die Fehlvorstellung „Minus macht negativ“ geklärt.",
+   "idee": "zehnerpotenzen_verketten",
+   "antwortform": "zahl",
+   "loesung_rechnung": "6 + 3 - 1",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "rechnung": "9",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten als Zahl der Nullen genommen"
+    },
+    {
+     "antwort": 7,
+     "rechnung": "5 + 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Nullen der beiden Dezimalzahlen zusammengezählt"
+    },
+    {
+     "antwort": 18,
+     "rechnung": "6 * 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen malgenommen statt addiert"
+    }
+   ],
+   "regel": "rr.potenz",
+   "aufgabe": {
+    "l": "negativer_exponent",
+    "t": "negativer_exponent",
+    "p": "sicherung",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Man nimmt ein Millionstel von einem Tausendstel. Wie viele Nullen stehen zwischen dem Komma und der 1, wenn man das Ergebnis als Dezimalzahl schreibt?"
+    },
+    "o": {
+     "wert": 8,
+     "einheit": "Nullen"
+    },
+    "c": "6 + 3 - 1",
+    "w": "Ein Millionstel ist 10⁻⁶, ein Tausendstel ist 10⁻³. Ein Millionstel von einem Tausendstel ist 10⁻⁶ · 10⁻³ = 10⁻⁹ = 0,000 000 001. Die 1 steht an der neunten Stelle, davor stehen 8 Nullen."
+   }
+  },
+  {
+   "kennung": "VT1B-076",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "negativer_exponent",
+   "pool": "sicherung",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen schreiben 10⁻ⁿ als Dezimalzahl; hier werden Vorfaktor und Exponent zusammen betrachtet, in Stücken gedacht, rückwärts gerechnet und die Fehlvorstellung „Minus macht negativ“ geklärt.",
+   "idee": "gleichung_wahr",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "0,0004 = 4 · 10⁻³",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten um eins zu klein gezählt: die Stelle der 4 hinter dem Komma falsch bestimmt"
+    },
+    {
+     "index": 1,
+     "antwort": "0,0004 = 4 · 10⁻⁵",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten um eins zu groß gezählt: ein Nullen-Platz zu viel"
+    },
+    {
+     "index": 3,
+     "antwort": "0,0004 = 0,4 · 10⁻⁴",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Vorfaktor verkleinert, ohne den Exponenten anzupassen"
+    }
+   ],
+   "regel": "rr.potenz",
+   "aufgabe": {
+    "l": "negativer_exponent",
+    "t": "negativer_exponent",
+    "p": "sicherung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Gleichung ist wahr?"
+    },
+    "a": [
+     "0,0004 = 4 · 10⁻³",
+     "0,0004 = 4 · 10⁻⁵",
+     "0,0004 = 4 · 10⁻⁴",
+     "0,0004 = 0,4 · 10⁻⁴"
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "Die 4 steht an der 4. Stelle hinter dem Komma: 0,0004 = 4 · 10⁻⁴. Mit dem Vorfaktor 0,4 müsste der Exponent −3 sein (0,4 · 10⁻³ = 0,0004); 0,4 · 10⁻⁴ ist nur 0,00004."
+   }
+  },
+  {
+   "kennung": "VT1B-077",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "negativer_exponent",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen schreiben 10⁻ⁿ als Dezimalzahl; hier werden Vorfaktor und Exponent zusammen betrachtet, in Stücken gedacht, rückwärts gerechnet und die Fehlvorstellung „Minus macht negativ“ geklärt.",
+   "idee": "minus_macht_negativ",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2",
+    "1 + 0"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "rechnung": "1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 1 genannt, obwohl dort die Bedeutung richtig angegeben ist"
+    },
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Schlusszeile genannt, weil dort das falsche Ergebnis steht"
+    },
+    {
+     "luecke": 2,
+     "antwort": -1,
+     "rechnung": "0 - 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus aus dem Exponenten mit in die Zahl genommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 0,
+     "rechnung": "0",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die kleine Zahl mit dem Tausendfachen als null gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": -3,
+     "rechnung": "0 - 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten als Ergebnis genommen"
+    }
+   ],
+   "regel": "rr.potenz",
+   "aufgabe": {
+    "l": "negativer_exponent",
+    "t": "negativer_exponent",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kind rechnet: Zeile 1: 10⁻³ bedeutet 1 : 10³, also 1 : 1 000. Zeile 2: Der Exponent ist negativ, also ist auch die Zahl 10⁻³ negativ, nämlich −0,001. Zeile 3: Also ist 10⁻³ · 1 000 = −0,001 · 1 000 = −1. In welcher Zeile steckt der erste Fehler? Wie viel ist 10⁻³ · 1 000 richtig?",
+     "schablone": "Fehler in Zeile □, richtig: 10⁻³ · 1 000 = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      2,
+      1
+     ]
+    },
+    "c": [
+     "2",
+     "1 + 0"
+    ],
+    "w": "Zeile 1 stimmt: 10⁻³ = 1 : 1 000 = 0,001. In Zeile 2 steckt der Fehler: Das Minus im Exponenten macht die Zahl nicht negativ, sondern klein. 10⁻³ = 0,001 ist positiv. Zeile 3 folgt aus dem Fehler. Richtig: 10⁻³ · 1 000 = 0,001 · 1 000 = 1."
+   }
+  },
+  {
+   "kennung": "VT1B-078",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vorsilben_klein",
+   "pool": "test",
+   "typ": "transfer",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen wandeln eine Einheit um; hier werden Modelle und Zeichnungen vergrößert, Maßzahl und Länge unterschieden, Verhältnisse über Einheiten gebildet und eine fehlerhafte Umrechnungskette berichtigt.",
+   "idee": "modell_vergroessern",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "8 * 1000 / 1000",
+    "5 * 10 ** 6 / 10 ** 6"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 8000,
+     "rechnung": "8 * 1000",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit dem Faktor malgenommen und die Einheit nicht gewechselt"
+    },
+    {
+     "luecke": 1,
+     "antwort": 8000000,
+     "rechnung": "8 * 10 ** 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit einer Million statt mit tausend malgenommen und die Einheit nicht gewechselt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 5000000,
+     "rechnung": "5 * 10 ** 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit dem Faktor malgenommen und die Einheit nicht gewechselt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 5000,
+     "rechnung": "5 * 10 ** 6 / 1000",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Nanometer wie Mikrometer in Millimeter umgerechnet"
+    }
+   ],
+   "regel": "id.verhaeltnisse.groesse",
+   "ersetzt_test": true,
+   "aufgabe": {
+    "l": "vorsilben_klein",
+    "t": "vorsilben_klein",
+    "p": "test",
+    "s": 3,
+    "g": "transfer",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Bakterium ist 8 µm lang. Ein Modell davon ist 1 000-mal so lang und damit □ mm lang. Ein Molekül ist 0,5 nm lang. Ein Modell davon ist 10 000 000-mal so lang und damit □ mm lang. (1 nm = 10⁻⁹ m, 1 µm = 10⁻⁶ m, 1 mm = 10⁻³ m)",
+     "schablone": "Bakterienmodell: □ mm; Molekülmodell: □ mm",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      8,
+      5
+     ]
+    },
+    "c": [
+     "8 * 1000 / 1000",
+     "5 * 10 ** 6 / 10 ** 6"
+    ],
+    "w": "Bakterium: 8 µm · 1 000 = 8 000 µm. Weil 1 mm = 1 000 µm ist, sind das 8 mm. Molekül: 0,5 nm · 10 000 000 = 5 000 000 nm. Weil 1 mm = 1 000 000 nm ist, sind das 5 mm. Erst vergrößern, dann die Einheit wechseln."
+   }
+  },
+  {
+   "kennung": "VT1B-079",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vorsilben_klein",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen wandeln eine Einheit um; hier werden Modelle und Zeichnungen vergrößert, Maßzahl und Länge unterschieden, Verhältnisse über Einheiten gebildet und eine fehlerhafte Umrechnungskette berichtigt.",
+   "idee": "maszahl_statt_laenge",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Tom hat recht, denn die Einheit spielt beim Vergleich von Längen keine Rolle.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Maßzahl und Länge gleichgesetzt; die Einheit entscheidet mit"
+    },
+    {
+     "index": 2,
+     "antwort": "Tom hat recht, denn ein Nanometer ist eine größere Einheit als ein Mikrometer.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Nano und Mikro in der Größe vertauscht"
+    },
+    {
+     "index": 3,
+     "antwort": "Die beiden Längen sind gleich lang, denn 800 nm und 2 µm sind nur verschieden aufgeschrieben.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Längen für gleich gehalten, obwohl der Faktor zwischen den Einheiten nicht zu den Maßzahlen passt"
+    }
+   ],
+   "regel": "id.verhaeltnisse.groesse",
+   "aufgabe": {
+    "l": "vorsilben_klein",
+    "t": "vorsilben_klein",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Tom sagt: „800 nm sind länger als 2 µm, denn 800 ist größer als 2.“ Welche Aussage stimmt?"
+    },
+    "a": [
+     "Tom hat recht, denn die Einheit spielt beim Vergleich von Längen keine Rolle.",
+     "Tom irrt, denn 800 nm sind 0,8 µm, und das ist nicht länger, sondern kürzer als 2 µm.",
+     "Tom hat recht, denn ein Nanometer ist eine größere Einheit als ein Mikrometer.",
+     "Die beiden Längen sind gleich lang, denn 800 nm und 2 µm sind nur verschieden aufgeschrieben."
+    ],
+    "o": {
+     "index": 1
+    },
+    "w": "1 µm = 1 000 nm. Also sind 800 nm = 0,8 µm. 0,8 µm sind kürzer als 2 µm. Die Maßzahl allein sagt nichts über die Länge: Man muss erst in dieselbe Einheit umrechnen. Nano ist tausendmal kleiner als Mikro."
+   }
+  },
+  {
+   "kennung": "VT1B-080",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vorsilben_klein",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen wandeln eine Einheit um; hier werden Modelle und Zeichnungen vergrößert, Maßzahl und Länge unterschieden, Verhältnisse über Einheiten gebildet und eine fehlerhafte Umrechnungskette berichtigt.",
+   "idee": "umrechnen_wissenschaftlich",
+   "antwortform": "zahl",
+   "loesung_rechnung": "0 - 3",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "rechnung": "3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus im Exponenten vergessen"
+    },
+    {
+     "antwort": -6,
+     "rechnung": "0 - 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Faktor zwischen Nanometer und Millimeter als Exponenten genommen"
+    },
+    {
+     "antwort": -9,
+     "rechnung": "0 - 9",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahl der Vorsilbe Nano als Exponenten genommen"
+    }
+   ],
+   "regel": "id.verhaeltnisse.groesse",
+   "aufgabe": {
+    "l": "vorsilben_klein",
+    "t": "vorsilben_klein",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Virus ist 4 500 nm lang. In Millimetern schreibt man die Länge als 4,5 · 10ⁿ mm. Wie groß ist n? (1 nm = 10⁻⁹ m, 1 mm = 10⁻³ m)"
+    },
+    "o": {
+     "wert": -3
+    },
+    "c": "0 - 3",
+    "w": "1 mm = 10⁶ nm. 4 500 nm = 4 500 : 1 000 000 mm = 0,0045 mm. Das Komma steht dann hinter der ersten Ziffer, es ist drei Stellen nach rechts gewandert: 0,0045 = 4,5 · 10⁻³. Also ist n = −3."
+   }
+  },
+  {
+   "kennung": "VT1B-081",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vorsilben_klein",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen wandeln eine Einheit um; hier werden Modelle und Zeichnungen vergrößert, Maßzahl und Länge unterschieden, Verhältnisse über Einheiten gebildet und eine fehlerhafte Umrechnungskette berichtigt.",
+   "idee": "verhaeltnis_einheiten",
+   "antwortform": "zahl",
+   "loesung_rechnung": "2 * 1000 / 20",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "rechnung": "200 / 20",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Mücke mit nur 200 µg gerechnet, die Einheit um eine Stufe zu klein umgerechnet"
+    },
+    {
+     "antwort": 2000,
+     "rechnung": "2 * 1000",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Mücke umgerechnet und nicht durch das Gewicht eines Korns geteilt"
+    },
+    {
+     "antwort": 40000,
+     "rechnung": "2000 * 20",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen statt geteilt"
+    }
+   ],
+   "regel": "id.verhaeltnisse.groesse",
+   "aufgabe": {
+    "l": "vorsilben_klein",
+    "t": "vorsilben_klein",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Mücke wiegt etwa 2 mg, ein Pollenkorn etwa 20 µg. Wie viele Pollenkörner wiegen zusammen so viel wie eine Mücke? (1 mg = 1 000 µg)"
+    },
+    "o": {
+     "wert": 100,
+     "einheit": "Pollenkörner"
+    },
+    "c": "2 * 1000 / 20",
+    "w": "2 mg = 2 000 µg. Ein Pollenkorn wiegt 20 µg. 2 000 : 20 = 100. Man muss beide Gewichte in derselben Einheit angeben, bevor man teilt. Probe: 100 · 20 µg = 2 000 µg = 2 mg."
+   }
+  },
+  {
+   "kennung": "VT1B-082",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vorsilben_klein",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen wandeln eine Einheit um; hier werden Modelle und Zeichnungen vergrößert, Maßzahl und Länge unterschieden, Verhältnisse über Einheiten gebildet und eine fehlerhafte Umrechnungskette berichtigt.",
+   "idee": "fehler_kette",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "3",
+    "10 ** 3"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "rechnung": "4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Schlusszeile genannt, weil dort der falsche Wert 10⁻³ steht"
+    },
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "rechnung": "1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 1 genannt, obwohl dort die Vorsilbe richtig steht"
+    },
+    {
+     "luecke": 2,
+     "antwort": -3,
+     "rechnung": "0 - 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das falsche Ergebnis 10⁻³ als Zahl −3 genommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Vorsilben als Faktor 1 gelesen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 1000000,
+     "rechnung": "10 ** 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10⁶ gerechnet statt 10³"
+    }
+   ],
+   "regel": "id.verhaeltnisse.groesse",
+   "aufgabe": {
+    "l": "vorsilben_klein",
+    "t": "vorsilben_klein",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kind rechnet: Zeile 1: 1 nm = 10⁻⁹ m. Zeile 2: 1 µm = 10⁻⁶ m. Zeile 3: Also ist 10⁻⁶ : 10⁻⁹ = 10⁻³. Zeile 4: Also sind 1 µm gleich 10⁻³ nm. In welcher Zeile steckt der erste Fehler? Wie viele Nanometer sind 1 µm richtig?",
+     "schablone": "Fehler in Zeile □, richtig: 1 µm = □ nm",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      1000
+     ]
+    },
+    "c": [
+     "3",
+     "10 ** 3"
+    ],
+    "w": "Zeile 1 und Zeile 2 sind richtig. In Zeile 3 ist die Rechnung falsch: 10⁻⁶ : 10⁻⁹ = 10⁻⁶ · 10⁹ = 10³, nicht 10⁻³. Also sind 1 µm gleich 10³ nm = 1000 nm. Zeile 4 folgt aus dem Fehler in Zeile 3."
+   }
+  },
+  {
+   "kennung": "VT1B-083",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vorsilben_klein",
+   "pool": "sicherung",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen wandeln eine Einheit um; hier werden Modelle und Zeichnungen vergrößert, Maßzahl und Länge unterschieden, Verhältnisse über Einheiten gebildet und eine fehlerhafte Umrechnungskette berichtigt.",
+   "idee": "skalierung_zeichnung",
+   "antwortform": "zahl",
+   "loesung_rechnung": "12 * 5000 / 10000",
+   "fehlbilder": [
+    {
+     "antwort": 60000,
+     "rechnung": "60000",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit dem Faktor malgenommen und die Einheit nicht gewechselt"
+    },
+    {
+     "antwort": 60,
+     "rechnung": "60",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in Millimeter statt in Zentimeter umgerechnet"
+    },
+    {
+     "antwort": 0.6,
+     "rechnung": "12 * 5000 / 100000",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Einheit um eine Stufe zu groß gewählt"
+    }
+   ],
+   "regel": "id.verhaeltnisse.groesse",
+   "aufgabe": {
+    "l": "vorsilben_klein",
+    "t": "vorsilben_klein",
+    "p": "sicherung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Zelle ist 12 µm lang. Auf einer Zeichnung ist sie 5 000-mal vergrößert. Wie lang ist die Zeichnung in Zentimetern? (1 cm = 10 000 µm)"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "cm"
+    },
+    "c": "12 * 5000 / 10000",
+    "w": "12 µm · 5 000 = 60 000 µm. Weil 1 cm = 10 000 µm ist, sind das 60 000 : 10 000 = 6 cm. Probe: 6 cm = 60 000 µm, und 60 000 : 5 000 = 12 µm."
+   }
+  },
+  {
+   "kennung": "VT1B-084",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vorsilben_klein",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen wandeln eine Einheit um; hier werden Modelle und Zeichnungen vergrößert, Maßzahl und Länge unterschieden, Verhältnisse über Einheiten gebildet und eine fehlerhafte Umrechnungskette berichtigt.",
+   "idee": "maszahl_gegenlaeufig",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Das stimmt: Die Maßzahl in Mikrometern ist tausendmal kleiner, denn kleinere Einheiten haben kleinere Maßzahlen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Größe der Einheit und Maßzahl gleichgesetzt; mit einer kleineren Einheit braucht man mehr davon"
+    },
+    {
+     "index": 1,
+     "antwort": "Das stimmt nicht: Die Maßzahl bleibt gleich, denn die Länge ändert sich beim Umrechnen nicht.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Länge und Maßzahl verwechselt; die Länge bleibt gleich, die Maßzahl ändert sich"
+    },
+    {
+     "index": 2,
+     "antwort": "Das stimmt nicht: Die Maßzahl in Mikrometern ist hundertmal größer, denn ein Mikrometer ist hundertmal kleiner als ein Millimeter.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor zwischen Milli und Mikro falsch angegeben; es ist ein Faktor tausend"
+    }
+   ],
+   "regel": "id.verhaeltnisse.groesse",
+   "aufgabe": {
+    "l": "vorsilben_klein",
+    "t": "vorsilben_klein",
+    "p": "sicherung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kind sagt: „Ein Mikrometer ist tausendmal kleiner als ein Millimeter, also muss die Maßzahl in Mikrometern tausendmal kleiner sein als in Millimetern.“ Welche Aussage stimmt?"
+    },
+    "a": [
+     "Das stimmt: Die Maßzahl in Mikrometern ist tausendmal kleiner, denn kleinere Einheiten haben kleinere Maßzahlen.",
+     "Das stimmt nicht: Die Maßzahl bleibt gleich, denn die Länge ändert sich beim Umrechnen nicht.",
+     "Das stimmt nicht: Die Maßzahl in Mikrometern ist hundertmal größer, denn ein Mikrometer ist hundertmal kleiner als ein Millimeter.",
+     "Das stimmt nicht: Die Maßzahl in Mikrometern ist tausendmal größer, denn man braucht tausendmal so viele der kleineren Einheiten."
+    ],
+    "o": {
+     "index": 3
+    },
+    "w": "1 mm = 1000 µm. Dieselbe Länge wird in der kleineren Einheit durch eine größere Maßzahl angegeben: 2 mm sind 2000 µm. Die Maßzahl wird tausendmal größer, nicht kleiner. Die Länge selbst bleibt gleich."
+   }
+  },
+  {
+   "kennung": "VT1B-085",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vergleichen_pruefen",
+   "pool": "test",
+   "typ": "transfer",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen vergleichen zwei einfache Zehnerpotenzen; hier werden nicht normierte Zahlen geordnet, Verhältnisse in Potenzform gebildet, ein Fehler beim Angleichen der Exponenten gefunden und der Vergleich begründet.",
+   "idee": "normalisieren_ordnen",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "3",
+    "1 + 1"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Vorfaktoren verglichen: 0,2 ist der kleinste Vorfaktor"
+    },
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "rechnung": "1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "A für die kleinste gehalten, weil der Exponent −6 der größte ist"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "rechnung": "3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Vorfaktoren verglichen: 30 ist der größte Vorfaktor"
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "A für die größte gehalten, weil der Exponent −6 der größte ist"
+    }
+   ],
+   "regel": "id.zahlen.schreibweisen",
+   "ersetzt_test": true,
+   "aufgabe": {
+    "l": "vergleichen_pruefen",
+    "t": "vergleichen_pruefen",
+    "p": "test",
+    "s": 3,
+    "g": "transfer",
+    "y": "luecken",
+    "f": {
+     "text": "Gegeben sind drei Zahlen: A = 5 · 10⁻⁶, B = 0,2 · 10⁻⁴ und C = 30 · 10⁻⁷. Welche Zahl ist die kleinste, welche die größte? Trage jeweils die Nummer ein (1 = A, 2 = B, 3 = C).",
+     "schablone": "kleinste Zahl: □, größte Zahl: □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      2
+     ]
+    },
+    "c": [
+     "3",
+     "1 + 1"
+    ],
+    "w": "Alle drei Zahlen mit dem Exponenten −7: A = 50 · 10⁻⁷, B = 0,2 · 10⁻⁴ = 200 · 10⁻⁷, C = 30 · 10⁻⁷. Die kleinste ist C (30), die größte ist B (200). Ausgeschrieben: A = 0,000 005, B = 0,000 02, C = 0,000 003."
+   }
+  },
+  {
+   "kennung": "VT1B-086",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vergleichen_pruefen",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen vergleichen zwei einfache Zehnerpotenzen; hier werden nicht normierte Zahlen geordnet, Verhältnisse in Potenzform gebildet, ein Fehler beim Angleichen der Exponenten gefunden und der Vergleich begründet.",
+   "idee": "gleiche_zahl",
+   "antwortform": "zahl",
+   "loesung_rechnung": "1 + 1 + 1",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "rechnung": "1 + 1 + 1 + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auch die vierte Zahl mitgezählt, ohne durch 100 zu teilen"
+    },
+    {
+     "antwort": 1,
+     "rechnung": "1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die wissenschaftliche Schreibweise gezählt"
+    },
+    {
+     "antwort": 2,
+     "rechnung": "1 + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl mit dem Vorfaktor kleiner als 1 und die mit dem großen Vorfaktor nicht mitgezählt"
+    }
+   ],
+   "regel": "id.zahlen.schreibweisen",
+   "aufgabe": {
+    "l": "vergleichen_pruefen",
+    "t": "vergleichen_pruefen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele der Zahlen 5 · 10⁵, 50 · 10⁴, 0,5 · 10⁶ und 5 000 000 · 10⁻² sind gleich 500 000?"
+    },
+    "o": {
+     "wert": 3,
+     "einheit": "Zahlen"
+    },
+    "c": "1 + 1 + 1",
+    "w": "5 · 10⁵ = 500 000. 50 · 10⁴ = 500 000. 0,5 · 10⁶ = 500 000. Aber 5 000 000 · 10⁻² = 50 000, denn 10⁻² teilt durch 100. Es sind 3 Zahlen gleich 500 000."
+   }
+  },
+  {
+   "kennung": "VT1B-087",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vergleichen_pruefen",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen vergleichen zwei einfache Zehnerpotenzen; hier werden nicht normierte Zahlen geordnet, Verhältnisse in Potenzform gebildet, ein Fehler beim Angleichen der Exponenten gefunden und der Vergleich begründet.",
+   "idee": "verhaeltnis_potenzform",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Probe A enthält mehr als Probe B, denn 4 ist größer als 2.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Vorfaktoren verglichen"
+    },
+    {
+     "index": 1,
+     "antwort": "Probe B enthält zehnmal so viel wie Probe A, denn die Exponenten unterscheiden sich um eins.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Vorfaktoren nicht beachtet"
+    },
+    {
+     "index": 3,
+     "antwort": "Beide Proben enthalten gleich viel, denn die beiden Angaben unterscheiden sich nur in der Schreibweise.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Angaben für verschiedene Schreibweisen derselben Menge gehalten"
+    }
+   ],
+   "regel": "id.zahlen.schreibweisen",
+   "aufgabe": {
+    "l": "vergleichen_pruefen",
+    "t": "vergleichen_pruefen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Probe A enthält 4 · 10⁻⁶ g Salz, Probe B enthält 2 · 10⁻⁵ g Salz. Welche Aussage stimmt?"
+    },
+    "a": [
+     "Probe A enthält mehr als Probe B, denn 4 ist größer als 2.",
+     "Probe B enthält zehnmal so viel wie Probe A, denn die Exponenten unterscheiden sich um eins.",
+     "Probe B enthält fünfmal so viel wie Probe A, denn 2 · 10⁻⁵ = 20 · 10⁻⁶.",
+     "Beide Proben enthalten gleich viel, denn die beiden Angaben unterscheiden sich nur in der Schreibweise."
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "Man schreibt B mit demselben Exponenten wie A: 2 · 10⁻⁵ = 20 · 10⁻⁶. Dann steht bei B der Vorfaktor 20, bei A der Vorfaktor 4. 20 : 4 = 5, also hat B fünfmal so viel. Ausgeschrieben: 0,000 004 g gegen 0,000 02 g."
+   }
+  },
+  {
+   "kennung": "VT1B-088",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vergleichen_pruefen",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen vergleichen zwei einfache Zehnerpotenzen; hier werden nicht normierte Zahlen geordnet, Verhältnisse in Potenzform gebildet, ein Fehler beim Angleichen der Exponenten gefunden und der Vergleich begründet.",
+   "idee": "raster_grenzen",
+   "antwortform": "zahl",
+   "loesung_rechnung": "49 - 31 + 1",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "rechnung": "20",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine der beiden Grenzen mitgezählt"
+    },
+    {
+     "antwort": 21,
+     "rechnung": "21",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Grenzen mitgezählt"
+    },
+    {
+     "antwort": 1,
+     "rechnung": "1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Exponenten nicht angeglichen und nur die Zahl zwischen den Vorfaktoren gezählt"
+    }
+   ],
+   "regel": "id.zahlen.schreibweisen",
+   "aufgabe": {
+    "l": "vergleichen_pruefen",
+    "t": "vergleichen_pruefen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Für wie viele ganze Zahlen k liegt k · 10⁻⁵ zwischen 3 · 10⁻⁴ und 5 · 10⁻⁴? Die beiden Grenzen selbst zählen nicht mit."
+    },
+    "o": {
+     "wert": 19,
+     "einheit": "Zahlen"
+    },
+    "c": "49 - 31 + 1",
+    "w": "3 · 10⁻⁴ = 30 · 10⁻⁵ und 5 · 10⁻⁴ = 50 · 10⁻⁵. Gesucht sind die ganzen Zahlen k mit 30 < k < 50, also k = 31 bis 49. Das sind 49 − 31 + 1 = 19 Zahlen."
+   }
+  },
+  {
+   "kennung": "VT1B-089",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vergleichen_pruefen",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen vergleichen zwei einfache Zehnerpotenzen; hier werden nicht normierte Zahlen geordnet, Verhältnisse in Potenzform gebildet, ein Fehler beim Angleichen der Exponenten gefunden und der Vergleich begründet.",
+   "idee": "angleichen_richtung",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2",
+    "4 * 10"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Schlusszeile genannt, weil dort das falsche Ergebnis steht"
+    },
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "rechnung": "1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 1 genannt, obwohl dort nur das Vorgehen steht"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "rechnung": "4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Vorfaktor unverändert übernommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 400,
+     "rechnung": "4 * 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Vorfaktor um zwei Stellen verschoben statt um eine"
+    }
+   ],
+   "regel": "id.zahlen.schreibweisen",
+   "aufgabe": {
+    "l": "vergleichen_pruefen",
+    "t": "vergleichen_pruefen",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kind vergleicht 6 · 10⁻⁷ und 4 · 10⁻⁶ und rechnet: Zeile 1: Ich schreibe beide Zahlen mit dem Exponenten −7. Zeile 2: Dann ist 4 · 10⁻⁶ = 0,4 · 10⁻⁷, denn das Komma geht eine Stelle nach links. Zeile 3: Also ist 6 · 10⁻⁷ größer als 4 · 10⁻⁶. In welcher Zeile steckt der erste Fehler? Welcher Vorfaktor gehört richtig vor 10⁻⁷?",
+     "schablone": "Fehler in Zeile □, richtig: 4 · 10⁻⁶ = □ · 10⁻⁷",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      2,
+      40
+     ]
+    },
+    "c": [
+     "2",
+     "4 * 10"
+    ],
+    "w": "Zeile 1 sagt nur, was getan wird. In Zeile 2 steckt der Fehler: 10⁻⁷ ist zehnmal kleiner als 10⁻⁶, deshalb muss der Vorfaktor zehnmal größer werden: 4 · 10⁻⁶ = 40 · 10⁻⁷. Zeile 3 folgt aus dem Fehler. Richtig ist: 4 · 10⁻⁶ ist größer als 6 · 10⁻⁷."
+   }
+  },
+  {
+   "kennung": "VT1B-090",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vergleichen_pruefen",
+   "pool": "sicherung",
+   "typ": "umkehr",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen vergleichen zwei einfache Zehnerpotenzen; hier werden nicht normierte Zahlen geordnet, Verhältnisse in Potenzform gebildet, ein Fehler beim Angleichen der Exponenten gefunden und der Vergleich begründet.",
+   "idee": "faktor_rueckwaerts",
+   "antwortform": "zahl",
+   "loesung_rechnung": "0.006 * 10000",
+   "fehlbilder": [
+    {
+     "antwort": 0.6,
+     "rechnung": "0.006 * 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 100 statt mit 10 000 malgenommen"
+    },
+    {
+     "antwort": 6,
+     "rechnung": "0.006 * 1000",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 1 000 statt mit 10 000 malgenommen"
+    },
+    {
+     "antwort": 600,
+     "rechnung": "6 * 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ziffer 6 mit 100 malgenommen"
+    }
+   ],
+   "regel": "id.zahlen.schreibweisen",
+   "aufgabe": {
+    "l": "vergleichen_pruefen",
+    "t": "vergleichen_pruefen",
+    "p": "sicherung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Zahl wird mit 10⁻⁴ malgenommen und ergibt 0,006. Welche Zahl war es?"
+    },
+    "o": {
+     "wert": 60
+    },
+    "c": "0.006 * 10000",
+    "w": "Malnehmen mit 10⁻⁴ heißt durch 10 000 teilen. Rückwärts muss man mit 10 000 malnehmen: 0,006 · 10 000 = 60. Probe: 60 · 10⁻⁴ = 60 : 10 000 = 0,006."
+   }
+  },
+  {
+   "kennung": "VT1B-091",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vergleichen_pruefen",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen vergleichen zwei einfache Zehnerpotenzen; hier werden nicht normierte Zahlen geordnet, Verhältnisse in Potenzform gebildet, ein Fehler beim Angleichen der Exponenten gefunden und der Vergleich begründet.",
+   "idee": "referenz_vergleich",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Die Zahl mit dem größeren Betrag im Exponenten ist immer die größere, denn −7 liegt weiter von null entfernt als −6.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Betrag des negativen Exponenten für die Größe gehalten; 10⁻⁷ ist kleiner als 10⁻⁶"
+    },
+    {
+     "index": 2,
+     "antwort": "Die Vorfaktoren entscheiden immer allein, denn der Exponent ist nur eine Schreibhilfe.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten für unwichtig gehalten"
+    },
+    {
+     "index": 3,
+     "antwort": "Die beiden Zahlen lassen sich gar nicht vergleichen, denn die Vorfaktoren 9 und 4 sind verschieden.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "geglaubt, nur Zahlen mit gleichem Vorfaktor ließen sich vergleichen"
+    }
+   ],
+   "regel": "id.zahlen.schreibweisen",
+   "aufgabe": {
+    "l": "vergleichen_pruefen",
+    "t": "vergleichen_pruefen",
+    "p": "sicherung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Warum ist 9 · 10⁻⁶ größer als 4 · 10⁻⁷? Welche Begründung stimmt?"
+    },
+    "a": [
+     "Die Zahl mit dem größeren Betrag im Exponenten ist immer die größere, denn −7 liegt weiter von null entfernt als −6.",
+     "Man kann beide mit 10⁻⁶ vergleichen, denn 4 · 10⁻⁷ = 0,4 · 10⁻⁶ ist kleiner und 9 · 10⁻⁶ ist größer.",
+     "Die Vorfaktoren entscheiden immer allein, denn der Exponent ist nur eine Schreibhilfe.",
+     "Die beiden Zahlen lassen sich gar nicht vergleichen, denn die Vorfaktoren 9 und 4 sind verschieden."
+    ],
+    "o": {
+     "index": 1
+    },
+    "w": "4 · 10⁻⁷ ist ein Zehntel von 4 · 10⁻⁶, also ist 4 · 10⁻⁷ = 0,4 · 10⁻⁶. Beide Zahlen haben nun den Exponenten −6, und die Vorfaktoren 0,4 und 9 zeigen: 9 · 10⁻⁶ ist größer. Ausgeschrieben: 0,000 009 gegen 0,000 000 4."
+   }
+  }
+ ]
+}

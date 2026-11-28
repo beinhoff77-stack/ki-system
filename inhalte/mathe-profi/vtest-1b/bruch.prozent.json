@@ -1,0 +1,1395 @@
+{
+ "stand": "2026-11-28",
+ "runde": "vtest-1b",
+ "kuerzel": "VT1B",
+ "titel": "bruch.prozent",
+ "klasse": {
+  "gym_by": 6,
+  "rs_by": 6,
+  "ib_myp": 1
+ },
+ "themen": [
+  "bruch.prozent"
+ ],
+ "hinweis": "Verstehens-Aufgaben für Tests (Pools test, korrektur, sicherung), je Lernziel 1 + 2 + 3. Nicht eingespielt. Je Eintrag: thema, lernkarte, pool, typ (Aufgabentyp g), form, stufe, zaehlt, lehrplan, ersetzt_test (nur test), Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md (ohne Tipp h, ohne Toleranz).",
+ "aufgaben": [
+  {
+   "kennung": "VT1B-001",
+   "thema": "bruch.prozent",
+   "lernkarte": "prozentwert",
+   "pool": "test",
+   "typ": "transfer",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen berechnen einen Prozentwert mit einem Satz; hier müssen mehrere Prozentsätze auf verschiedene Ganze bezogen, Größenordnungen abgeschätzt oder eine Prozentangabe in eine andere Darstellung gebracht werden.",
+   "idee": "mehrere_ganze",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "490 / (0.4 * 0.5 + 0.6 * 0.25)",
+    "490 / (0.4 * 0.5 + 0.6 * 0.25) * 0.6"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 980,
+     "rechnung": "490 / 0.5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Satz der Jungen (50 %) genommen: 490 : 0,5"
+    },
+    {
+     "luecke": 1,
+     "antwort": 1960,
+     "rechnung": "490 / 0.25",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Satz der Mädchen (25 %) genommen: 490 : 0,25"
+    },
+    {
+     "luecke": 1,
+     "antwort": 700,
+     "rechnung": "490 / 0.7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Sätze 50 % und 25 % nicht gewichtet, sondern den Gesamtanteil grob mit 0,7 geschätzt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 560,
+     "rechnung": "1400 * 0.4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Jungen statt der Mädchen angegeben"
+    },
+    {
+     "luecke": 2,
+     "antwort": 350,
+     "rechnung": "1400 * 0.25",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "25 % von allen 1 400 Kindern als Mädchen genommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 980,
+     "rechnung": "1400 * 0.7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1 400 mit 0,7 malgenommen und den Anteil der Mädchen falsch bestimmt"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "ersetzt_test": true,
+   "aufgabe": {
+    "l": "prozentwert",
+    "t": "prozentwert",
+    "p": "test",
+    "s": 3,
+    "g": "transfer",
+    "y": "luecken",
+    "f": {
+     "text": "In einer Schule sind 40 % der Kinder Jungen. 50 % der Jungen und 25 % der Mädchen fahren mit dem Rad, das sind zusammen 490 Kinder. Wie viele Kinder hat die Schule, und wie viele davon sind Mädchen?",
+     "schablone": "□ Kinder an der Schule, davon □ Mädchen",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      1400,
+      840
+     ]
+    },
+    "c": [
+     "490 / (0.4 * 0.5 + 0.6 * 0.25)",
+     "490 / (0.4 * 0.5 + 0.6 * 0.25) * 0.6"
+    ],
+    "w": "Man schätzt den Anteil der Radfahrer an allen Kindern: 50 % von 40 % sind 20 %, 25 % von 60 % sind 15 %, zusammen 35 % aller Kinder. 490 Kinder sind 35 %, also 1 % = 14 Kinder und 100 % = 1 400 Kinder. Mädchen sind 60 % von 1 400, das sind 840. Probe: 560 Jungen, davon 280 mit Rad, 840 Mädchen, davon 210 mit Rad, zusammen 490."
+   }
+  },
+  {
+   "kennung": "VT1B-002",
+   "thema": "bruch.prozent",
+   "lernkarte": "prozentwert",
+   "pool": "korrektur",
+   "typ": "einkleidung",
+   "form": "zwei_wege",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen berechnen einen Prozentwert mit einem Satz; hier müssen mehrere Prozentsätze auf verschiedene Ganze bezogen, Größenordnungen abgeschätzt oder eine Prozentangabe in eine andere Darstellung gebracht werden.",
+   "idee": "kopfrechnen_zwei_wege",
+   "antwortform": "zahl",
+   "loesung_rechnung": "12 * 75 / 100",
+   "fehlbilder": [
+    {
+     "antwort": 900,
+     "rechnung": "12 * 75",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Prozentzahl 12 malgenommen, ohne durch 100 zu teilen"
+    },
+    {
+     "antwort": 108,
+     "rechnung": "0.12 * 75 * 12",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zuerst 12 % berechnet und dann noch einmal mit 12 malgenommen"
+    },
+    {
+     "antwort": 63,
+     "rechnung": "75 - 12",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentzahl vom Betrag abgezogen"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "prozentwert",
+    "t": "prozentwert",
+    "p": "korrektur",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Für 12 % von 75 € gibt es zwei Rechenwege. Kim rechnet 0,12 · 75 €. Ben rechnet stattdessen 75 % von 12 € und sagt: „Das geht im Kopf schneller.“ Wie viele Euro sind 12 % von 75 €?"
+    },
+    "o": {
+     "wert": 9,
+     "einheit": "€"
+    },
+    "c": "12 * 75 / 100",
+    "w": "12 % von 75 € sind 0,12 · 75 € = 9 €. Ben rechnet 75 % von 12 €, also drei Viertel von 12 €: 3 · 3 € = 9 €. Beide Wege geben dasselbe, weil 12/100 · 75 und 75/100 · 12 dieselbe Zahl 900/100 ergeben: Man darf Prozentsatz und Grundwert vertauschen."
+   }
+  },
+  {
+   "kennung": "VT1B-003",
+   "thema": "bruch.prozent",
+   "lernkarte": "prozentwert",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen berechnen einen Prozentwert mit einem Satz; hier müssen mehrere Prozentsätze auf verschiedene Ganze bezogen, Größenordnungen abgeschätzt oder eine Prozentangabe in eine andere Darstellung gebracht werden.",
+   "idee": "winkel_im_kreisdiagramm",
+   "antwortform": "zahl",
+   "loesung_rechnung": "0.35 * 360",
+   "fehlbilder": [
+    {
+     "antwort": 210,
+     "rechnung": "0.35 * 600",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Prozentwert in Kindern (210) als Winkel genommen"
+    },
+    {
+     "antwort": 35,
+     "rechnung": "35",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentzahl selbst als Winkel in Grad hingeschrieben"
+    },
+    {
+     "antwort": 3.6,
+     "rechnung": "360 / 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Prozent des Kreises berechnet und nicht mit der Prozentzahl malgenommen"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "prozentwert",
+    "t": "prozentwert",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Von 600 Kindern kommen 35 % mit dem Fahrrad zur Schule. Im Kreisdiagramm wird diese Gruppe als Sektor gezeichnet. Welchen Mittelpunktswinkel hat dieser Sektor (in Grad)?"
+    },
+    "o": {
+     "wert": 126,
+     "einheit": "Grad"
+    },
+    "c": "0.35 * 360",
+    "w": "Der ganze Kreis hat 360° und steht für 100 % der Kinder. Der Sektor für 35 % hat also 35 % von 360° = 126°. Die Zahl 600 der Kinder wird für den Winkel nicht gebraucht, nur der Prozentsatz."
+   }
+  },
+  {
+   "kennung": "VT1B-004",
+   "thema": "bruch.prozent",
+   "lernkarte": "prozentwert",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen berechnen einen Prozentwert mit einem Satz; hier müssen mehrere Prozentsätze auf verschiedene Ganze bezogen, Größenordnungen abgeschätzt oder eine Prozentangabe in eine andere Darstellung gebracht werden.",
+   "idee": "rest_ueber_prozente",
+   "antwortform": "zahl",
+   "loesung_rechnung": "100 - 15 - 168 / 280 * 100",
+   "fehlbilder": [
+    {
+     "antwort": 60,
+     "rechnung": "168 / 280 * 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anteil der noch ungelesenen Seiten als Antwort angegeben"
+    },
+    {
+     "antwort": 85,
+     "rechnung": "100 - 15",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den ersten Tag vom ganzen Buch abgezogen"
+    },
+    {
+     "antwort": 40,
+     "rechnung": "100 - 168 / 280 * 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den gesamten gelesenen Anteil angegeben statt nur den zweiten Tag"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "prozentwert",
+    "t": "prozentwert",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Buch hat 280 Seiten. Lia liest am ersten Tag 15 % des ganzen Buchs. Am zweiten Tag liest sie weitere Seiten, danach hat sie noch 168 Seiten vor sich. Wie viel Prozent des ganzen Buchs liest sie am zweiten Tag?"
+    },
+    "o": {
+     "wert": 25,
+     "einheit": "%"
+    },
+    "c": "100 - 15 - 168 / 280 * 100",
+    "w": "Die 168 übrigen Seiten sind 168 : 280 = 0,6 = 60 % des Buchs. Gelesen sind also 100 % − 60 % = 40 %. Davon gehören 15 % zum ersten Tag, also bleiben 40 % − 15 % = 25 % für den zweiten Tag. Probe: 25 % von 280 sind 70 Seiten, 42 + 70 + 168 = 280."
+   }
+  },
+  {
+   "kennung": "VT1B-005",
+   "thema": "bruch.prozent",
+   "lernkarte": "prozentwert",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen berechnen einen Prozentwert mit einem Satz; hier müssen mehrere Prozentsätze auf verschiedene Ganze bezogen, Größenordnungen abgeschätzt oder eine Prozentangabe in eine andere Darstellung gebracht werden.",
+   "idee": "groessenordnung",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "etwa 200",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Komma um eine Stelle falsch gesetzt: etwa ein Zehntel des richtigen Werts"
+    },
+    {
+     "index": 1,
+     "antwort": "etwa 20",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "um zwei Stellen verrutscht: aus 51 % wurde 0,51 % gemacht"
+    },
+    {
+     "index": 3,
+     "antwort": "etwa 20 000",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Komma um eine Stelle falsch: zehnmal so groß wie der richtige Wert"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "prozentwert",
+    "t": "prozentwert",
+    "p": "sicherung",
+    "s": 3,
+    "g": "transfer",
+    "y": "auswahl",
+    "f": {
+     "text": "Ohne genau zu rechnen: Welche Zahl ist ungefähr 51 % von 3 980?"
+    },
+    "a": [
+     "etwa 200",
+     "etwa 20",
+     "etwa 2 000",
+     "etwa 20 000"
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "51 % sind etwas mehr als die Hälfte, und 3 980 ist ungefähr 4 000. Die Hälfte von 4 000 ist 2 000. Genau: 0,51 · 3 980 = 2 029,8. Die anderen Zahlen sind um Zehnerpotenzen daneben."
+   }
+  },
+  {
+   "kennung": "VT1B-006",
+   "thema": "bruch.prozent",
+   "lernkarte": "prozentwert",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen berechnen einen Prozentwert mit einem Satz; hier müssen mehrere Prozentsätze auf verschiedene Ganze bezogen, Größenordnungen abgeschätzt oder eine Prozentangabe in eine andere Darstellung gebracht werden.",
+   "idee": "fehler_komma",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "1",
+    "0.08 * 450"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "2 * 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Rechnung in Zeile 2 für falsch gehalten, obwohl dort nur der Fehler aus Zeile 1 fortgeführt wird"
+    },
+    {
+     "luecke": 2,
+     "antwort": 360,
+     "rechnung": "0.8 * 450",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 0,8 statt 0,08 gerechnet, wie in Zeile 1"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3600,
+     "rechnung": "8 * 450",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Prozentzahl 8 malgenommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 442,
+     "rechnung": "450 - 8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentzahl 8 vom Preis abgezogen"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "prozentwert",
+    "t": "prozentwert",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Max soll 8 % von 450 € berechnen und schreibt: Zeile 1: 8 % = 8/100 = 0,8. Zeile 2: 0,8 · 450 = 360. Zeile 3: Also sind 8 % von 450 € genau 360 €. In welcher Zeile steckt der erste Fehler, und wie viele Euro sind 8 % von 450 € richtig?",
+     "schablone": "Fehler in Zeile □, richtig: □ €",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      1,
+      36
+     ]
+    },
+    "c": [
+     "1",
+     "0.08 * 450"
+    ],
+    "w": "Zeile 1 ist falsch: 8/100 ist 0,08 und nicht 0,8 (0,8 wären 80 %). Zeile 2 ist als Rechnung richtig (0,8 · 450 = 360), übernimmt aber den Fehler. Richtig: 0,08 · 450 € = 36 €. Probe: 10 % von 450 € sind 45 €, 8 % müssen etwas weniger sein."
+   }
+  },
+  {
+   "kennung": "VT1B-007",
+   "thema": "bruch.prozent",
+   "lernkarte": "prozentwert",
+   "pool": "sicherung",
+   "typ": "darstellung",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen berechnen einen Prozentwert mit einem Satz; hier müssen mehrere Prozentsätze auf verschiedene Ganze bezogen, Größenordnungen abgeschätzt oder eine Prozentangabe in eine andere Darstellung gebracht werden.",
+   "idee": "bruch_prozent_wert",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "3 / 5 * 100",
+    "3 / 5 * 240"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 3 aus dem Bruch direkt als Prozentzahl genommen"
+    },
+    {
+     "luecke": 1,
+     "antwort": 5,
+     "rechnung": "5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 5 aus dem Bruch als Prozentzahl genommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 720,
+     "rechnung": "3 * 240",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler 3 mit 240 malgenommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 48,
+     "rechnung": "240 / 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Fünftel der Kinder genommen"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "prozentwert",
+    "t": "prozentwert",
+    "p": "sicherung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "luecken",
+    "f": {
+     "text": "3/5 der 240 Kinder einer Schule lesen gern. Als Prozentsatz geschrieben sind das □ %, und die Zahl der Kinder, die gern lesen, ist □.",
+     "schablone": "□ % und □ Kinder",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      60,
+      144
+     ]
+    },
+    "c": [
+     "3 / 5 * 100",
+     "3 / 5 * 240"
+    ],
+    "w": "3/5 = 0,6 = 60 %. Der Prozentwert ist dann 60 % von 240 = 0,6 · 240 = 144 Kinder; das ist dasselbe wie 3/5 von 240 (240 : 5 = 48, 48 · 3 = 144)."
+   }
+  },
+  {
+   "kennung": "VT1B-008",
+   "thema": "bruch.prozent",
+   "lernkarte": "grundwert",
+   "pool": "test",
+   "typ": "transfer",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen berechnen den Grundwert aus Prozentwert und Prozentsatz; hier wird der Grundwert für weitere Aussagen über dasselbe Ganze gebraucht, in Darstellungen gelesen oder mit anderen Grundwerten verglichen.",
+   "idee": "gemeinsames_ganzes",
+   "antwortform": "zahl",
+   "loesung_rechnung": "18 / 0.45 * (1 - 0.45 - 0.3)",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "rechnung": "18 / 0.45 * 0.3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Kinder gezählt, die zu Fuß kommen (30 % von allen)"
+    },
+    {
+     "antwort": 22,
+     "rechnung": "18 / 0.45 - 18",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Jahrgangsstufe minus die Busfahrer gerechnet, also alle Kinder, die nicht mit dem Bus fahren"
+    },
+    {
+     "antwort": 4.5,
+     "rechnung": "0.25 * 18",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "25 % von den 18 Kindern im Bus genommen, obwohl sich die Prozente auf alle Kinder beziehen"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "ersetzt_test": true,
+   "aufgabe": {
+    "l": "grundwert",
+    "t": "grundwert",
+    "p": "test",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Im Schulbus fahren 18 Kinder, das sind 45 % aller Kinder einer Jahrgangsstufe. 30 % aller Kinder dieser Jahrgangsstufe kommen zu Fuß, alle anderen fahren mit dem Rad. Wie viele Kinder fahren mit dem Rad?"
+    },
+    "o": {
+     "wert": 10,
+     "einheit": "Kinder"
+    },
+    "c": "18 / 0.45 * (1 - 0.45 - 0.3)",
+    "w": "Alle Angaben beziehen sich auf dasselbe Ganze, die ganze Jahrgangsstufe. Aus 18 = 45 % folgt: 1 % sind 0,4 Kinder, also sind es 40 Kinder. Mit dem Rad fahren 100 % − 45 % − 30 % = 25 % von 40 Kindern, das sind 10 Kinder. Probe: 18 + 12 + 10 = 40."
+   }
+  },
+  {
+   "kennung": "VT1B-009",
+   "thema": "bruch.prozent",
+   "lernkarte": "grundwert",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen berechnen den Grundwert aus Prozentwert und Prozentsatz; hier wird der Grundwert für weitere Aussagen über dasselbe Ganze gebraucht, in Darstellungen gelesen oder mit anderen Grundwerten verglichen.",
+   "idee": "grundwert_direkt",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "etwa 1 Kind",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Prozentsatz durch den Prozentwert geteilt: 8 : 12 ist weniger als 1"
+    },
+    {
+     "index": 2,
+     "antwort": "etwa 1 500 Kinder",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "um eine Stelle zu groß: den Prozentsatz um eine Stelle falsch behandelt"
+    },
+    {
+     "index": 3,
+     "antwort": "etwa 100 Kinder",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Prozentwert mit dem Prozentsatz gleichgesetzt und die Prozentzahl falsch gerundet"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "grundwert",
+    "t": "grundwert",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "auswahl",
+    "f": {
+     "text": "12 Kinder sind 8 % aller Kinder einer Schule. Ungefähr wie viele Kinder hat die Schule?"
+    },
+    "a": [
+     "etwa 150 Kinder",
+     "etwa 1 Kind",
+     "etwa 1 500 Kinder",
+     "etwa 100 Kinder"
+    ],
+    "o": {
+     "index": 0
+    },
+    "w": "8 % sind etwa ein Zwölftel. Die 12 Kinder sind also ein Zwölftel der Schule, die Schule hat etwa 12 · 12 = 144 Kinder. Genau: 12 : 0,08 = 150 Kinder. Probe: 8 % von 150 sind 12."
+   }
+  },
+  {
+   "kennung": "VT1B-010",
+   "thema": "bruch.prozent",
+   "lernkarte": "grundwert",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen berechnen den Grundwert aus Prozentwert und Prozentsatz; hier wird der Grundwert für weitere Aussagen über dasselbe Ganze gebraucht, in Darstellungen gelesen oder mit anderen Grundwerten verglichen.",
+   "idee": "winkel_zurueck",
+   "antwortform": "zahl",
+   "loesung_rechnung": "63 / (54 / 360)",
+   "fehlbilder": [
+    {
+     "antwort": 9.45,
+     "rechnung": "63 * 54 / 360",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "15 % von 63 berechnet, obwohl 63 schon der Teil ist"
+    },
+    {
+     "antwort": 3402,
+     "rechnung": "63 * 54",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Kinderzahl mit dem Winkel malgenommen"
+    },
+    {
+     "antwort": 369,
+     "rechnung": "63 + 360 - 54",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen aus dem Text gemischt addiert und subtrahiert"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "grundwert",
+    "t": "grundwert",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "In einem Kreisdiagramm gehört zum Sektor „Fußweg“ der Mittelpunktswinkel 54°. Diesem Sektor entsprechen 63 Kinder. Wie viele Kinder wurden insgesamt befragt?"
+    },
+    "o": {
+     "wert": 420,
+     "einheit": "Kinder"
+    },
+    "c": "63 / (54 / 360)",
+    "w": "Der volle Kreis hat 360°, der Sektor 54° ist 54 : 360 = 0,15 = 15 % des Kreises. 63 Kinder sind also 15 % aller Kinder. 1 % sind 4,2 Kinder, 100 % sind 420 Kinder."
+   }
+  },
+  {
+   "kennung": "VT1B-011",
+   "thema": "bruch.prozent",
+   "lernkarte": "grundwert",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen berechnen den Grundwert aus Prozentwert und Prozentsatz; hier wird der Grundwert für weitere Aussagen über dasselbe Ganze gebraucht, in Darstellungen gelesen oder mit anderen Grundwerten verglichen.",
+   "idee": "fehlbetrag",
+   "antwortform": "zahl",
+   "loesung_rechnung": "105 / 0.7 - 105",
+   "fehlbilder": [
+    {
+     "antwort": 150,
+     "rechnung": "105 / 0.7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Preis (150 €) als gesparten Betrag angegeben"
+    },
+    {
+     "antwort": 31.5,
+     "rechnung": "105 * 0.3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "30 % von den fehlenden 105 € genommen statt vom Preis"
+    },
+    {
+     "antwort": 80,
+     "rechnung": "105 / 0.7 - 70",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von dem Preis die Prozentzahl 70 abgezogen statt die fehlenden 105 €"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "grundwert",
+    "t": "grundwert",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ben spart für ein Fahrrad. Ihm fehlen noch 105 €, das sind 70 % des Preises. Wie viel Euro hat er schon gespart?"
+    },
+    "o": {
+     "wert": 45,
+     "einheit": "€"
+    },
+    "c": "105 / 0.7 - 105",
+    "w": "Die fehlenden 105 € sind 70 % des Preises, also ist der Preis 105 € : 0,7 = 150 €. Gespart hat Ben 150 € − 105 € = 45 €. Probe: 45 € sind 30 % von 150 €."
+   }
+  },
+  {
+   "kennung": "VT1B-012",
+   "thema": "bruch.prozent",
+   "lernkarte": "grundwert",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen berechnen den Grundwert aus Prozentwert und Prozentsatz; hier wird der Grundwert für weitere Aussagen über dasselbe Ganze gebraucht, in Darstellungen gelesen oder mit anderen Grundwerten verglichen.",
+   "idee": "grundwerte_vergleichen",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Anna, denn ihr Sparziel ist 600 € und Bens Sparziel ist 160 €.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 % als Faktor 20 gelesen und mit den gesparten 30 € malgenommen"
+    },
+    {
+     "index": 1,
+     "antwort": "Die Sparziele sind gleich groß, denn beide haben ungefähr gleich viel Prozent gespart.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Prozentsätze für fast gleich gehalten und die verschiedenen gesparten Beträge nicht beachtet"
+    },
+    {
+     "index": 3,
+     "antwort": "Anna, denn 20 % sind weniger als 25 %, und weniger Prozent bedeuten ein größeres Sparziel.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentsätze verglichen, aber nicht bedacht, dass die gesparten Beträge verschieden sind"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "grundwert",
+    "t": "grundwert",
+    "p": "sicherung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Anna hat 30 € gespart, das sind 20 % ihres Sparziels. Ben hat 40 € gespart, das sind 25 % seines Sparziels. Welche Aussage über die Sparziele stimmt?"
+    },
+    "a": [
+     "Anna, denn ihr Sparziel ist 600 € und Bens Sparziel ist 160 €.",
+     "Die Sparziele sind gleich groß, denn beide haben ungefähr gleich viel Prozent gespart.",
+     "Ben, denn sein Sparziel ist 160 € und Annas Sparziel ist 150 €.",
+     "Anna, denn 20 % sind weniger als 25 %, und weniger Prozent bedeuten ein größeres Sparziel."
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "Annas Sparziel ist der Grundwert: 30 € sind 20 %, also 1 % = 1,50 € und 100 % = 150 €. Bens Sparziel: 40 € sind 25 %, also ist das Ziel 40 € : 0,25 = 160 €. Bens Ziel ist höher. Aus den Prozentsätzen allein lässt sich nichts schließen, weil auch die Beträge verschieden sind."
+   }
+  },
+  {
+   "kennung": "VT1B-013",
+   "thema": "bruch.prozent",
+   "lernkarte": "grundwert",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen berechnen den Grundwert aus Prozentwert und Prozentsatz; hier wird der Grundwert für weitere Aussagen über dasselbe Ganze gebraucht, in Darstellungen gelesen oder mit anderen Grundwerten verglichen.",
+   "idee": "fehler_multiplizieren",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2",
+    "20 / 0.25"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Schlusszeile genannt, weil dort das unsinnige Ergebnis 5 steht"
+    },
+    {
+     "luecke": 2,
+     "antwort": 5,
+     "rechnung": "20 * 0.25",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Prozentwert mit dem Prozentsatz malgenommen, wie in Zeile 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 500,
+     "rechnung": "20 * 25",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Prozentzahl 25 malgenommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 45,
+     "rechnung": "20 + 25",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Zahlen im Text addiert"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "grundwert",
+    "t": "grundwert",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Lena bestimmt, wie viele Mitglieder ein Verein hat, wenn 20 Mitglieder 25 % aller Mitglieder sind. Zeile 1: 20 Mitglieder sind 25 % aller Mitglieder. Zeile 2: Alle Mitglieder = 20 · 25 % = 20 · 0,25 = 5. Zeile 3: Der Verein hat also 5 Mitglieder. In welcher Zeile steckt der erste Fehler, und wie viele Mitglieder hat der Verein richtig?",
+     "schablone": "Fehler in Zeile □, richtig: □ Mitglieder",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      2,
+      80
+     ]
+    },
+    "c": [
+     "2",
+     "20 / 0.25"
+    ],
+    "w": "Der Grundwert ist Prozentwert durch Prozentsatz, nicht mal: 20 : 0,25 = 80. Zeile 1 ist richtig. Zeile 2 multipliziert statt zu teilen. Zeile 3 übernimmt den Fehler; das Ergebnis 5 ist ein Warnzeichen, denn 20 Mitglieder können nicht Teil von nur 5 sein."
+   }
+  },
+  {
+   "kennung": "VT1B-014",
+   "thema": "bruch.prozent",
+   "lernkarte": "grundwert",
+   "pool": "sicherung",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen berechnen den Grundwert aus Prozentwert und Prozentsatz; hier wird der Grundwert für weitere Aussagen über dasselbe Ganze gebraucht, in Darstellungen gelesen oder mit anderen Grundwerten verglichen.",
+   "idee": "eins_prozent",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "42 / 7",
+    "42 / 7 * 100"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 294,
+     "rechnung": "7 * 42",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 7 malgenommen statt durch 7 geteilt"
+    },
+    {
+     "luecke": 1,
+     "antwort": 35,
+     "rechnung": "42 - 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "7 von 42 abgezogen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4200,
+     "rechnung": "42 * 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "42 mit 100 malgenommen, ohne vorher durch 7 zu teilen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 49,
+     "rechnung": "42 + 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Zahlen im Text addiert"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "grundwert",
+    "t": "grundwert",
+    "p": "sicherung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "luecken",
+    "f": {
+     "text": "7 % der Murmeln in einem Beutel sind 42 Murmeln. Dann sind 1 % genau □ Murmeln, und alle Murmeln im Beutel (100 %) sind □ Murmeln.",
+     "schablone": "1 % sind □ Murmeln, 100 % sind □ Murmeln",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      6,
+      600
+     ]
+    },
+    "c": [
+     "42 / 7",
+     "42 / 7 * 100"
+    ],
+    "w": "Aus 7 % = 42 Murmeln folgt durch Teilen durch 7: 1 % = 6 Murmeln. Mit 100 malgenommen: 100 % = 600 Murmeln. Probe: 7 % von 600 sind 42."
+   }
+  },
+  {
+   "kennung": "VT1B-015",
+   "thema": "bruch.prozent",
+   "lernkarte": "verstehen",
+   "pool": "test",
+   "typ": "transfer",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum sich Prozentzahlen immer auf ein bestimmtes Ganzes beziehen und was sich ändert, wenn das Ganze wechselt.",
+   "idee": "anteil_von_anteil",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "60 / (0.4 * 0.3)",
+    "60 / 0.3"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 150,
+     "rechnung": "60 / 0.4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 60 Kinder als 40 % gedeutet: 60 : 0,4"
+    },
+    {
+     "luecke": 1,
+     "antwort": 200,
+     "rechnung": "60 / 0.3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Kinderzahl bestimmt und als Einwohnerzahl angegeben"
+    },
+    {
+     "luecke": 1,
+     "antwort": 1500,
+     "rechnung": "60 / 0.04",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 60 Kinder als einen viel zu kleinen Prozentsatz der Einwohner gedeutet, das Komma verrutscht"
+    },
+    {
+     "luecke": 2,
+     "antwort": 60,
+     "rechnung": "60",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Kinder im Verein als Zahl aller Kinder angegeben"
+    },
+    {
+     "luecke": 2,
+     "antwort": 150,
+     "rechnung": "0.4 * 375",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "40 % von 375 genommen, den Grundwert falsch bestimmt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 300,
+     "rechnung": "60 / 0.2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "60 : 0,2 gerechnet, die beiden Prozentzahlen 40 und 30 verwechselt"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "ersetzt_test": true,
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "test",
+    "s": 3,
+    "g": "transfer",
+    "y": "luecken",
+    "f": {
+     "text": "In einem Dorf sind 40 % der Einwohner Kinder. Von den Kindern sind 30 % im Sportverein. Im Sportverein sind 60 Kinder. Wie viele Einwohner hat das Dorf, und wie viele Kinder wohnen dort?",
+     "schablone": "□ Einwohner im Dorf, davon □ Kinder",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      500,
+      200
+     ]
+    },
+    "c": [
+     "60 / (0.4 * 0.3)",
+     "60 / 0.3"
+    ],
+    "w": "Die 30 % beziehen sich nur auf die Kinder. 60 Kinder im Verein sind 30 % aller Kinder, also gibt es 60 : 0,3 = 200 Kinder. Diese 200 Kinder sind 40 % aller Einwohner, also hat das Dorf 200 : 0,4 = 500 Einwohner. Kürzer: 30 % von 40 % sind 12 %, und 60 : 0,12 = 500."
+   }
+  },
+  {
+   "kennung": "VT1B-016",
+   "thema": "bruch.prozent",
+   "lernkarte": "verstehen",
+   "pool": "korrektur",
+   "typ": "einkleidung",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum sich Prozentzahlen immer auf ein bestimmtes Ganzes beziehen und was sich ändert, wenn das Ganze wechselt.",
+   "idee": "um_oder_auf",
+   "antwortform": "zahl",
+   "loesung_rechnung": "30 + 30 * 200 / 100",
+   "fehlbilder": [
+    {
+     "antwort": 60,
+     "rechnung": "2 * 30",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„um 200 % steigen“ als „auf 200 % steigen“ gelesen: nur 2 · 30"
+    },
+    {
+     "antwort": 230,
+     "rechnung": "30 + 200",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 200 % als 200 € gelesen und zum alten Preis addiert"
+    },
+    {
+     "antwort": 6000,
+     "rechnung": "30 * 200",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Prozentzahl 200 malgenommen, ohne sie in einen Anteil umzuwandeln"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Der Eintritt für ein Schwimmbad kostete 30 €. Nach dem Umbau steigt der Preis um 200 %. Wie viel Euro kostet der Eintritt danach?"
+    },
+    "o": {
+     "wert": 90,
+     "einheit": "€"
+    },
+    "c": "30 + 30 * 200 / 100",
+    "w": "200 % von 30 € sind 2 · 30 € = 60 €. Der Preis steigt um 60 €, also kostet der Eintritt danach 30 € + 60 € = 90 €. Das ist das Dreifache (300 % des alten Preises). „Um 200 % steigen“ heißt nicht „auf 200 % steigen“."
+   }
+  },
+  {
+   "kennung": "VT1B-017",
+   "thema": "bruch.prozent",
+   "lernkarte": "verstehen",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum sich Prozentzahlen immer auf ein bestimmtes Ganzes beziehen und was sich ändert, wenn das Ganze wechselt.",
+   "idee": "darstellungen_vergleichen",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "0,36 der Kinder",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "als Prozentzahl 36 % gelesen und für größer gehalten als 37,5 %: Der Bruch 3/8 wurde nicht umgewandelt"
+    },
+    {
+     "index": 1,
+     "antwort": "37 % der Kinder",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentzahl 37 für die größte gehalten, ohne 3/8 als 37,5 % zu erkennen"
+    },
+    {
+     "index": 2,
+     "antwort": "7/20 der Kinder",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Bruch mit der größeren Zahl 20 im Nenner für den größten gehalten"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche dieser vier Angaben beschreibt den größten Anteil?"
+    },
+    "a": [
+     "0,36 der Kinder",
+     "37 % der Kinder",
+     "7/20 der Kinder",
+     "3/8 der Kinder"
+    ],
+    "o": {
+     "index": 3
+    },
+    "w": "Alle Angaben als Prozent: 3/8 = 0,375 = 37,5 %; 0,36 = 36 %; 37 %; 7/20 = 35 %. Der größte Anteil ist 37,5 %, also 3/8. Schon 3/8 und 37 % liegen nur 0,5 Prozentpunkte auseinander."
+   }
+  },
+  {
+   "kennung": "VT1B-018",
+   "thema": "bruch.prozent",
+   "lernkarte": "verstehen",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum sich Prozentzahlen immer auf ein bestimmtes Ganzes beziehen und was sich ändert, wenn das Ganze wechselt.",
+   "idee": "ganzes_aendert_sich",
+   "antwortform": "zahl",
+   "loesung_rechnung": "54 / 1.5",
+   "fehlbilder": [
+    {
+     "antwort": 18,
+     "rechnung": "54 / 1.5 / 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nach dem Teilen noch durch 2 geteilt, weil 150 % als anderthalbfach und zugleich als Hälfte gelesen wurde"
+    },
+    {
+     "antwort": 27,
+     "rechnung": "54 - 54 * 0.5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "50 % von der heutigen Höhe abgezogen statt vom alten Wert"
+    },
+    {
+     "antwort": 81,
+     "rechnung": "54 * 1.5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die heutige Höhe mit 1,5 malgenommen, statt durch 1,5 zu teilen"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Sonnenblume ist heute 150 % so hoch wie vor einem Monat und misst 54 cm. Wie hoch war sie vor einem Monat?"
+    },
+    "o": {
+     "wert": 36,
+     "einheit": "cm"
+    },
+    "c": "54 / 1.5",
+    "w": "Vor einem Monat war die Sonnenblume das Ganze, also 100 %. Heute sind es 150 %, das ist das Eineinhalbfache. 150 % sind 54 cm, also 50 % sind 18 cm und 100 % sind 36 cm. Probe: 150 % von 36 cm sind 54 cm."
+   }
+  },
+  {
+   "kennung": "VT1B-019",
+   "thema": "bruch.prozent",
+   "lernkarte": "verstehen",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum sich Prozentzahlen immer auf ein bestimmtes Ganzes beziehen und was sich ändert, wenn das Ganze wechselt.",
+   "idee": "anzahl_oder_anteil",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "3",
+    "0.4 * 30 - 0.75 * 8"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "1 + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Vergleich der Prozentzahlen in Zeile 2 für falsch gehalten"
+    },
+    {
+     "luecke": 2,
+     "antwort": -6,
+     "rechnung": "0.75 * 8 - 0.4 * 30",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Differenz andersherum gebildet: A minus B"
+    },
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "rechnung": "0.4 * 30",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Kinder aus Klasse B gezählt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 35,
+     "rechnung": "75 - 40",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied der Prozentzahlen als Kinderzahl gelesen"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "sicherung",
+    "s": 3,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Zwei Klassen vergleichen die Hausaufgaben. Zeile 1: Klasse A hat 8 Kinder, Klasse B hat 30 Kinder. In A haben 75 % der Kinder die Hausaufgabe gemacht, in B nur 40 %. Zeile 2: 75 % sind mehr als 40 %, also ist der Anteil in A größer. Zeile 3: Also haben in A mehr Kinder die Hausaufgabe gemacht als in B. In welcher Zeile steckt der erste Fehler, und wie viele Kinder haben in B mehr die Hausaufgabe gemacht als in A?",
+     "schablone": "Fehler in Zeile □, Unterschied: □ Kinder",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      6
+     ]
+    },
+    "c": [
+     "3",
+     "0.4 * 30 - 0.75 * 8"
+    ],
+    "w": "Prozentzahlen vergleichen Anteile, nicht Anzahlen. Zeile 1 und 2 sind richtig. Zeile 3 ist falsch: In A haben 75 % von 8 = 6 Kinder die Hausaufgabe gemacht, in B 40 % von 30 = 12 Kinder. In B sind es also 12 − 6 = 6 Kinder mehr, obwohl der Anteil dort kleiner ist."
+   }
+  },
+  {
+   "kennung": "VT1B-020",
+   "thema": "bruch.prozent",
+   "lernkarte": "verstehen",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum sich Prozentzahlen immer auf ein bestimmtes Ganzes beziehen und was sich ändert, wenn das Ganze wechselt.",
+   "idee": "ganze_verschieden",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Verein A hat weniger Mitglieder als Verein B, denn 20 % sind weniger als 30 %.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentzahlen verglichen und vergessen, dass sie sich auf verschiedene Ganze beziehen"
+    },
+    {
+     "index": 1,
+     "antwort": "Verein A hat genau doppelt so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aus der Ungleichung einen genauen Wert gemacht; es folgt nur, dass A mehr als anderthalbmal so groß ist"
+    },
+    {
+     "index": 3,
+     "antwort": "Verein A hat genau anderthalbmal so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Verhältnis 30 : 20 als genauen Wert genommen, obwohl der Vergleich nur mehr als sagt"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "sicherung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Bei Verein A sind 20 % der Mitglieder mehr Personen als 30 % der Mitglieder von Verein B. Welche Aussage über die Mitgliederzahlen folgt sicher?"
+    },
+    "a": [
+     "Verein A hat weniger Mitglieder als Verein B, denn 20 % sind weniger als 30 %.",
+     "Verein A hat genau doppelt so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B.",
+     "Verein A hat mehr als anderthalbmal so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B.",
+     "Verein A hat genau anderthalbmal so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B."
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "Es gilt 0,2 · A > 0,3 · B. Teilt man durch 0,2, folgt A > 1,5 · B. A ist also mehr als anderthalbmal so groß wie B; ein genauer Wert folgt nicht. Beispiel: B = 100 Mitglieder, dann muss A größer als 150 sein."
+   }
+  },
+  {
+   "kennung": "VT1B-021",
+   "thema": "bruch.prozent",
+   "lernkarte": "verstehen",
+   "pool": "sicherung",
+   "typ": "umkehr",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
+   "abgrenzung": "Die Übungen rechnen mit Prozenten; hier wird begründet, warum sich Prozentzahlen immer auf ein bestimmtes Ganzes beziehen und was sich ändert, wenn das Ganze wechselt.",
+   "idee": "anteil_vom_rest",
+   "antwortform": "zahl",
+   "loesung_rechnung": "18 / (1 - 0.2 - (1 - 0.2) / 4)",
+   "fehlbilder": [
+    {
+     "antwort": 45,
+     "rechnung": "18 / 0.4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Bens und Idas Stücke zusammen als die verbleibenden Stücke gedeutet"
+    },
+    {
+     "antwort": 22.5,
+     "rechnung": "18 / 0.8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Idas Stück vergessen und nur Bens Stück berücksichtigt"
+    },
+    {
+     "antwort": 90,
+     "rechnung": "18 / 0.2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur Bens Anteil als die gegebenen 18 Stücke gedeutet"
+    }
+   ],
+   "regel": "id.verhaeltnisse.prozent",
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "sicherung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ben isst 20 % eines Kuchens. Ida isst ein Viertel des Rests. Danach bleiben 18 Stücke übrig. Aus wie vielen Stücken bestand der ganze Kuchen?"
+    },
+    "o": {
+     "wert": 30,
+     "einheit": "Stücke"
+    },
+    "c": "18 / (1 - 0.2 - (1 - 0.2) / 4)",
+    "w": "Ben isst 20 %, es bleiben 80 %. Ida isst ein Viertel von diesen 80 %, das sind 20 % des ganzen Kuchens. Es bleiben 80 % − 20 % = 60 %. Diese 60 % sind 18 Stücke, also 100 % = 18 : 0,6 = 30 Stücke. Das Viertel gehört zum Rest und nicht zum ganzen Kuchen."
+   }
+  }
+ ]
+}

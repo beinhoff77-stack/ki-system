@@ -46,16 +46,21 @@ def teil1():
         assert erste.startswith("select set_config('lock_timeout', '3s', true), set_config('statement_timeout'"), erste
         assert not re.search(r'(?im)^\s*(begin|commit|rollback)\s*;', t), 'kein BEGIN/COMMIT'
         assert '$rbpaketinhalt$' not in t
-    assert probe.count('ADVENT-S PROBELAUF bestanden') == 1 and 'PROBELAUF' not in einsp
+    assert probe.count('ADVENT-S PROBELAUF bestanden') == 1 and probe.count('ADVENT-S PROBELAUF NICHT bestanden') == 1 and 'PROBELAUF' not in einsp
+    assert f'n_fn_soll constant int := {AP.funktionen_soll()};' in probe and "'sterne_unveraendert', st_ok" in probe and 'sterne_unveraendert\', true' not in probe
+    ts = (WURZEL / 'supabase/functions/lernen-api/index.ts').read_text(encoding='utf-8')
+    assert "schule_advent_oeffnen: ['lernender_id', 'client_id', 'erwartet_nr?']," in ts and "schule_advent_oeffnen: 'erwartet_nr = " in ts
     # bestehende Pakete byteidentisch zu origin/lernen-app
     alt = subprocess.run(['git', 'ls-tree', '-r', '--name-only', 'origin/lernen-app', 'tools/tests/aus/'], capture_output=True, text=True, cwd=str(WURZEL))
     if alt.returncode == 0 and alt.stdout.strip():
         n = 0
         for name in alt.stdout.split():
+            if name.startswith('tools/tests/aus/advent_s_'):    # die eigenen Pakete (noch nicht eingespielt, Urteil 1215 direkt nachgebessert)
+                continue
             b = subprocess.run(['git', 'show', f'origin/lernen-app:{name}'], capture_output=True, cwd=str(WURZEL)).stdout
             assert hashlib.md5(b).hexdigest() == hashlib.md5((WURZEL / name).read_bytes()).hexdigest(), f'{name} verändert'
             n += 1
-        print(f'Teil 1: {n} bestehende Pakete unter tools/tests/aus/ byteidentisch zu origin/lernen-app')
+        print(f'Teil 1: {n} bestehende Pakete unter tools/tests/aus/ (außer advent_s_*) byteidentisch zu origin/lernen-app')
     doku = (WURZEL / 'inhalte/design/advent/server.md').read_text(encoding='utf-8')
     for f, m in AP.bestand_md5().items():
         assert f'`schule.{f}` `{m}`' in doku, f'server.md: md5 von {f} nicht auf dem Stand'
@@ -226,20 +231,33 @@ def zustand(db):
 
 
 # ---------------------------------------------------------------- Teil 2: Einspielen
+def kurz(err, bestanden=True):
+    """Erste Zeile des Probe-Berichts: „ADVENT-S PROBELAUF [NICHT ]bestanden … KURZ {…}“ -> (Zeile, KURZ als dict)."""
+    i = err.index('ADVENT-S PROBELAUF')
+    zeile = err[i:].splitlines()[0]
+    kopf = 'ADVENT-S PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt). KURZ {' if bestanden else 'ADVENT-S PROBELAUF NICHT bestanden ('
+    assert zeile.startswith(kopf) and len(zeile) < 600, zeile[:700]
+    return zeile, json.loads(zeile[zeile.index('KURZ {') + 5:])
+
+
 def einspielen(db, probe, einsp):
     db.sql(nachbau_sql())
+    n_fn = AP.funktionen_soll()
+    assert n_fn == 38, n_fn
     err = db.fehler(probe, 'ADVENT-S PROBELAUF bestanden')
-    i = err.index('ADVENT-S PROBELAUF')
-    assert err[i:].startswith('ADVENT-S PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt). KURZ: Tabellen 6 (vorher 0), Funktionen 37 (vorher 0)'), err[i:i + 300]
-    assert 'ZEITZONE FEHLT/UNGÜLTIG: lernender 4' in err and 'weicht vom Repo ab' not in err, err[i:i + 900]
+    zeile, k = kurz(err)
+    assert k == {'befunde': 0, 'hinweise': 1, 'tabellen': 6, 'funktionen': n_fn, 'funktionen_soll': n_fn, 'aktiv': 0, 'tausch': 0, 'sterne_unveraendert': True,
+                 'karte_unveraendert': True, 'zeitzone_fehlt': [4], 'landungen': '0/0'}, k
+    assert 'HINWEISE: ZEITZONE FEHLT/UNGÜLTIG: lernender 4' in err and 'BEFUNDE: keine' in err and 'weicht vom Repo ab' not in err, err[-1500:]
+    assert 'Sterne Zeilen 2/2, Summe 90/90' in err, err[-1500:]
     assert db.sql("select count(*) from pg_class where relname like 'advent\\_%';") == '0', 'Probe hat etwas zurückgelassen'
     db.pg.paket(probe, erwartet_fehler='ADVENT-S PROBELAUF bestanden')          # auch als ein execute im do-Block (wie der Projektleiter)
     db.pg.paket(einsp)
     z1 = zustand(db)
-    db.pg.paket(einsp)
+    err = db.pg.paket(einsp, erwartet_fehler='ADVENT-S ABBRUCH (schon da: ')   # Zweitlauf: Abbruch, kein Weiterlaufen auf schon Vorhandenem
     assert zustand(db) == z1, 'Zweitlauf hat etwas geändert'
-    err = db.fehler(probe, 'ADVENT-S PROBELAUF bestanden')                    # Probe nach dem Einspielen: alles „schon da“
-    assert 'Funktionen 37 (vorher 37)' in err and 'Grund advent schon da' in err, err[-800:]
+    err = db.fehler(probe, 'ADVENT-S ABBRUCH (schon da: ')                      # Probe nach dem Einspielen: derselbe Abbruch, nicht „bestanden“
+    assert 'PROBELAUF bestanden' not in err.split('CONTEXT')[0] and 'schule.advent_tuer (relkind r)' in err and 'schule.regel advent_aktiv' in err, err[-800:]
     assert zustand(db) == z1
     # Rechte: nur council_mcp darf die Aktionen, niemand die Tabellen
     assert db.sql("select count(*) from pg_proc p join pg_namespace n on n.oid = p.pronamespace where n.nspname = 'api' and p.proname like 'schule\\_advent\\_%' "
@@ -252,7 +270,8 @@ def einspielen(db, probe, einsp):
     db.fehler("set role council_mcp; select * from schule.advent_belegung;", 'permission denied')
     db.fehler("set role council_mcp; insert into schule.advent_tuer (jahr) values (2026);", 'permission denied')
     db.sql(UHR)
-    print('Einspielen: Probe rollt zurück (Bericht vorn, Zeitzone fehlt gemeldet), Einspielen, Zweitlauf ohne Änderung, Rechte wie im Bestand')
+    print(f'Einspielen: Probe „bestanden“ mit KURZ-Zeile ({len(zeile)} Zeichen, {n_fn} Funktionen, Sterne echt verglichen, Zeitzone fehlt als Hinweis), rollt zurück; '
+          'Einspielen; Zweitlauf und Probe danach brechen ab („schon da“), nichts geändert; Rechte wie im Bestand')
 
 
 def belegen_alle(db):
@@ -427,6 +446,85 @@ def gleichzeitig(db):
     print('Gleichzeitig (zwei Verbindungen): gleiche client_id -> eine Tür + Wiederholung, verschiedene -> eine Tür; 6 Klicks mit 3 Etappen -> 2 Türchen; Sterne genau einmal')
 
 
+def oeffnen_q(schluessel, l, cid, erwartet=None, schlaf=0.0):
+    d = {'lernender_id': l, 'client_id': cid}
+    if erwartet is not None: d['erwartet_nr'] = erwartet
+    return f"set role council_mcp;\nselect api.schule_advent_oeffnen('lern:{schluessel}', $j${json.dumps(d)}$j$::jsonb)::text;\n" + (f"select pg_sleep({schlaf});" if schlaf else '')
+
+
+def erwartet(db):
+    """Öffnen an die angezeigte Tür gebunden (Urteil 1215, Auflage 1). Testkind 3: Gerät A = Kind-App (k3), Gerät B = Eltern-App (e, fürs Testkind erlaubt)."""
+    zeit(db, '2026-12-09 20:00+11')
+    landen(db, 3, '2026-12-09 19:00+11'); landen(db, 3, '2026-12-09 19:10+11')
+    r = api(db, 'k3', 'advent_stand', {'lernender_id': 3})
+    assert r['naechste_nr'] == 1 and r['frei_heute'] == 2, r                # beide Geräte zeigen „Tür 1 öffnen“
+    st0 = zahl(db, "select coalesce(sum(menge), 0) from schule.sterne where lernender_id = 3;")
+    # ungültige erwartet_nr: Fehler, nichts geöffnet
+    for falsch in (0, 25, -1, 1.5, 'x', '1a', True, [1], {'nr': 1}):
+        api(db, 'k3', 'advent_oeffnen', {'lernender_id': 3, 'client_id': 'ef', 'erwartet_nr': falsch}, fehler='erwartet_nr: 1 bis 24')
+    assert zahl(db, "select count(*) from schule.advent_tuer where lernender_id = 3;") == 0
+    # falsche erwartete Tür: nichts geöffnet, grund andere_tuer + Stand
+    r = api(db, 'k3', 'advent_oeffnen', {'lernender_id': 3, 'client_id': 'e0', 'erwartet_nr': 2})
+    assert r['ok'] and r['aktiv'] and r['geoeffnet'] is False and r['grund'] == 'andere_tuer' and r['erwartet_nr'] == 2 and r['naechste_nr'] == 1 \
+        and r['frei_heute'] == 2 and r['stand']['naechste_nr'] == 1 and len(r['stand']['tueren']) == 24 and 'tuer' not in r, r
+    kein_geheimnis(db, 3, r, 'oeffnen andere_tuer')
+    assert zahl(db, "select count(*) from schule.advent_tuer where lernender_id = 3;") == 0
+    # Gerät A öffnet Tür 1 (richtige erwartete Tür)
+    a1 = api(db, 'k3', 'advent_oeffnen', {'lernender_id': 3, 'client_id': 'A1', 'erwartet_nr': 1})
+    assert a1['geoeffnet'] and not a1['wiederholt'] and a1['schon_offen'] is False and a1['tuer']['nr'] == 1 and a1['tuer']['sterne_gutgeschrieben'] and 'sterne_gutgeschrieben' not in a1, a1
+    # Gerät B (andere client_id) tippt „Tür 1 öffnen“: Tür 1 als schon offen, Tür 2 bleibt zu, keine Buchung
+    b1 = api(db, 'e', 'advent_oeffnen', {'lernender_id': 3, 'client_id': 'B1', 'erwartet_nr': 1})
+    assert b1['geoeffnet'] and b1['wiederholt'] and b1['schon_offen'] is True and b1['tuer'] == a1['tuer'] and b1['naechste_nr'] == 2 and b1['frei_heute'] == 1 \
+        and b1['stand']['tueren'][0]['zustand'] == 'offen' and b1['stand']['tueren'][1]['zustand'] == 'bereit', b1
+    kein_geheimnis(db, 3, b1, 'oeffnen schon_offen')
+    assert zahl(db, "select count(*) from schule.advent_tuer where lernender_id = 3;") == 1
+    assert zahl(db, "select coalesce(sum(menge), 0) from schule.sterne where lernender_id = 3;") == st0 + 50
+    # Wiederholungen: gleiche client_id (A1) -> wiederholt, nicht schon_offen; B1 noch einmal -> wieder schon_offen; nichts Neues
+    a1b = api(db, 'k3', 'advent_oeffnen', {'lernender_id': 3, 'client_id': 'A1', 'erwartet_nr': 1})
+    assert a1b['wiederholt'] and a1b['schon_offen'] is False and a1b['tuer'] == a1['tuer'] and 'stand' not in a1b, a1b
+    assert api(db, 'k3', 'advent_oeffnen', {'lernender_id': 3, 'client_id': 'A1'})['tuer']['nr'] == 1              # auch ohne erwartet_nr
+    assert api(db, 'e', 'advent_oeffnen', {'lernender_id': 3, 'client_id': 'B1', 'erwartet_nr': 1})['schon_offen'] is True
+    assert zahl(db, "select count(*) from schule.advent_tuer where lernender_id = 3;") == 1
+    # jetzt zeigt B „Tür 2 öffnen“ (aus dem mitgelieferten Stand): öffnet Tür 2 mit der zweiten Etappe; Erwartung als Text „2“ geht auch
+    b2 = api(db, 'e', 'advent_oeffnen', {'lernender_id': 3, 'client_id': 'B2', 'erwartet_nr': '2'})
+    assert b2['geoeffnet'] and not b2['wiederholt'] and b2['tuer']['nr'] == 2 and b2['moeglich_heute'] == 0, b2
+    # Limit erreicht: Erwartung einer offenen Tür -> schon_offen (nicht limit); Erwartung der nächsten -> limit wie bisher
+    assert api(db, 'k3', 'advent_oeffnen', {'lernender_id': 3, 'client_id': 'A2', 'erwartet_nr': 2})['schon_offen'] is True
+    r = api(db, 'k3', 'advent_oeffnen', {'lernender_id': 3, 'client_id': 'A3', 'erwartet_nr': 3})
+    assert r['geoeffnet'] is False and r['grund'] == 'limit', r
+    # 10.12.: ohne erwartet_nr wie bisher (heutiger App-Stand): älteste fällige Tür; erwartet_nr null = fehlt
+    zeit(db, '2026-12-10 20:00+11')
+    landen(db, 3, '2026-12-10 19:00+11')
+    r = api(db, 'k3', 'advent_oeffnen', {'lernender_id': 3, 'client_id': 'F1'})
+    assert r['geoeffnet'] and r['tuer']['nr'] == 3 and r['schon_offen'] is False, r
+    landen(db, 3, '2026-12-10 19:05+11')
+    r = api(db, 'k3', 'advent_oeffnen', {'lernender_id': 3, 'client_id': 'F2', 'erwartet_nr': None})
+    assert r['geoeffnet'] and r['tuer']['nr'] == 4, r
+    # Zukunftstür erwartet (veraltete Anzeige) -> andere_tuer; ohne freie Etappe und richtige Erwartung -> keine_etappe wie bisher
+    zeit(db, '2026-12-11 20:00+11')
+    r = api(db, 'k3', 'advent_oeffnen', {'lernender_id': 3, 'client_id': 'Z1', 'erwartet_nr': 15})
+    assert r['grund'] == 'andere_tuer' and r['naechste_nr'] == 5, r
+    assert api(db, 'k3', 'advent_oeffnen', {'lernender_id': 3, 'client_id': 'Z2', 'erwartet_nr': 5})['grund'] == 'keine_etappe'
+    # zwei Geräte GLEICHZEITIG, zwei freie Etappen, beide zeigen „Tür 5“: genau eine Tür geht auf, das andere Gerät bekommt Tür 5 als schon offen
+    landen(db, 3, '2026-12-11 19:00+11'); landen(db, 3, '2026-12-11 19:10+11')
+    erg = parallel(db, [oeffnen_q('k3', 3, 'P1', 5, 0.5), oeffnen_q('e', 3, 'P2', 5, 0.5)])
+    assert all(e[0] == 0 for e in erg), erg
+    antw = [json.loads(e[1].strip().splitlines()[0]) for e in erg]
+    neu = [x for x in antw if x['geoeffnet'] and not x['wiederholt']]
+    alt = [x for x in antw if x.get('schon_offen')]
+    assert len(neu) == 1 and len(alt) == 1 and neu[0]['tuer']['nr'] == 5 and alt[0]['tuer']['nr'] == 5, antw
+    assert zahl(db, "select count(*) from schule.advent_tuer where lernender_id = 3 and tag = '2026-12-11';") == 1, 'nur Tür 5, nicht Tür 6'
+    # Gegenprobe ohne erwartet_nr (alter App-Stand): dieselbe Lage öffnet zwei Türen – genau das verhindert erwartet_nr
+    zeit(db, '2026-12-12 10:00+11')
+    landen(db, 3, '2026-12-12 09:00+11'); landen(db, 3, '2026-12-12 09:10+11')
+    erg = parallel(db, [oeffnen_q('k3', 3, 'Q1', None, 0.5), oeffnen_q('e', 3, 'Q2', None, 0.5)])
+    assert sorted(json.loads(e[1].strip().splitlines()[0])['tuer']['nr'] for e in erg) == [6, 7], erg
+    assert db.sql("""select count(*) from schule.advent_tuer t where t.lernender_id = 3 and t.sterne > 0 and (select count(*) from schule.sterne s
+                     where s.lernender_id = 3 and s.grund = 'advent' and s.bezug = 'advent:' || t.jahr || ':' || t.nr and s.menge = t.sterne) <> 1;""") == '0'
+    print('Erwartete Tür: falsche -> andere_tuer + Stand (nichts auf), richtige -> öffnet, zweites Gerät -> schon_offen (keine Buchung, Tür 2 bleibt zu), '
+          'Wiederholung gleiche client_id, Limit/Zukunft/keine Etappe, fehlend/null wie bisher, 9 ungültige Werte abgewiesen; gleichzeitig mit zwei Etappen: eine Tür')
+
+
 def gid(db, l, nr):
     return zahl(db, f"select g.id from schule.advent_gutschein g join schule.advent_tuer t on t.id = g.tuer_id where t.lernender_id = {l} and t.nr = {nr};")
 
@@ -496,6 +594,16 @@ def tausch(db):
     assert [g['lernender_id'] for g in gs] == [2, 4], gs          # alle anderen Kinder der Familie (nicht das Testkind)
     assert gs[0]['name'] == 'Kind 2' and y in [g['id'] for g in gs[0]['gutscheine']], gs
     assert all(g['id'] != gid(db, 2, 4) and g['id'] != gid(db, 2, 7) for g in gs[0]['gutscheine']), 'Krampus/Tauschkarte nicht im Angebot'
+    # Gutscheinjahr (Urteil 1215, Auflage 5): offener Gutschein des Geschwisters aus einem früheren Advent steht nicht im Angebot und ist nicht tauschbar
+    alt_g = zahl(db, """with t as (insert into schule.advent_tuer (jahr, lernender_id, nr, tag, client_id, von, inhalt, sterne, sterne_gebucht, nachgeholt, ausl_einheit, ausl_lernziel, ausl_sitzt_am)
+      values (2025, 2, 9, '2025-12-09', 'alt-2025', 'test', '{"art": "gutschein"}', 0, false, false, 1, 'alt', '2025-12-09') returning id)
+      insert into schule.advent_gutschein (tuer_id, jahr, nr, herkunft_lernender_id, lernender_id, art, titel) select t.id, 2025, 9, 2, 2, 'gutschein', 'ALT-2025' from t returning id;""")
+    r = api(db, 'k1', 'advent_gutscheine', {'lernender_id': 1})
+    angebot = [g['id'] for g in r['tausch']['geschwister'][0]['gutscheine']]
+    assert alt_g not in angebot and y in angebot, (alt_g, angebot)
+    api(db, 'k1', 'advent_tauschen', {**d, 'fremder_gutschein_id': alt_g, 'client_id': 'talt'}, fehler='nur Gutscheine aus diesem Advent')
+    assert zahl(db, f"select lernender_id from schule.advent_gutschein where id = {alt_g};") == 2
+    db.sql(f"delete from schule.advent_gutschein where id = {alt_g}; delete from schule.advent_tuer where client_id = 'alt-2025';")   # nur Nachbau-Testzeilen
     s = kein_geheimnis(db, 1, r, 'tausch-angebot')         # Geschwister-Gutscheine sind geöffnete Türen des Geschwisters
     # Verbote
     gk1, gk2, g2_1, g2_2 = gid(db, 1, 4), gid(db, 2, 4), gid(db, 1, 2), gid(db, 2, 2)
@@ -552,7 +660,8 @@ def tausch(db):
     assert zahl(db, f"select count(*) from schule.advent_tausch where tauschkarte_id = {k12};") == 1
     # Summenprobe: jeder Gutschein hat genau einen Besitzer, verbrauchte Karten = Tausche
     assert zahl(db, "select count(*) from schule.advent_gutschein where art = 'tausch' and zustand = 'verbraucht';") == zahl(db, "select count(*) from schule.advent_tausch;")
-    print('Tausch: Schalter aus -> tausch_aus; Verbote (Krampus, eingelöst, Tauschkarte, gleiche IDs, fremde Karte, Testkind) abgewiesen; Tausch tauscht genau zwei, '
+    print('Tausch: Schalter aus -> tausch_aus; Verbote (Krampus, eingelöst, Tauschkarte, gleiche IDs, fremde Karte, Testkind, Gutschein aus früherem Advent) abgewiesen; '
+          'Angebot nur aus diesem Advent; Tausch tauscht genau zwei, '
           'Karte verbraucht, Protokoll beide Kinder; Wiederholung; gleichzeitig Einlösen/Tauschen und zwei Tausche: genau einer')
 
 
@@ -702,24 +811,30 @@ def negativ(db, probe, einsp):
         ('landung fehlt', "alter table schule.karte_stand rename column landung to ld;", 'Spalte fehlt: schule.karte_stand.landung', "alter table schule.karte_stand rename column ld to landung;", ()),
         ('eindeutiger Schlüssel fehlt', "alter table schule.sterne drop constraint sterne_lernender_id_grund_bezug_key;", 'eindeutiger Schlüssel (lernender_id, grund, bezug) fehlt',
          "alter table schule.sterne add constraint sterne_lernender_id_grund_bezug_key unique (lernender_id, grund, bezug);", ()),
-        ('advent_tuer anders', "create table schule.advent_tuer (id bigint, jahr smallint);", 'schule.advent_tuer besteht mit anderen Spalten', "drop table schule.advent_tuer;", ('advent_tuer',)),
-        ('advent_belegung anders', "create table schule.advent_belegung (jahr smallint, lernender_id bigint, nr smallint, art text, variante text, titel text, text text, sterne integer, motiv text, "
-         "geaendert_am timestamptz, geaendert_von text, extra text);", 'schule.advent_belegung besteht mit anderen Spalten', "drop table schule.advent_belegung;", ('advent_belegung',)),
-        ('api-Funktion anders', "create function api.schule_advent_stand(p_schluessel text, p_daten jsonb) returns text language sql as $$ select 'x' $$;",
-         'besteht mit anderer Form', "drop function api.schule_advent_stand(text, jsonb);", ('api',)),
-        ('Regel Start ungültig', "insert into schule.regel values ('advent_start', '\"abc\"', 'x');", 'Einstellung in schule.regel ungültig', "delete from schule.regel where schluessel = 'advent_start';", ()),
-        ('Regel Ende vor Start', "insert into schule.regel values ('advent_nachholen_bis', '\"2026-11-30\"', 'x');", 'Einstellung in schule.regel ungültig',
-         "delete from schule.regel where schluessel = 'advent_nachholen_bis';", ()),
-        ('Regel aktiv 5', "insert into schule.regel values ('advent_aktiv', '5', 'x');", 'Einstellung in schule.regel ungültig', "delete from schule.regel where schluessel = 'advent_aktiv';", ()),
-        ('Regel sichtbar vor nachholen', "insert into schule.regel values ('advent_sichtbar_bis', '\"2026-12-20\"', 'x');", 'Einstellung in schule.regel ungültig',
-         "delete from schule.regel where schluessel = 'advent_sichtbar_bis';", ()),
+        # Mischstand (Urteil 1215, Auflage 3): irgendein Advent-Objekt schon da -> Abbruch mit Liste, nichts geändert
+        ('Mischstand: eine Tabelle', "create table schule.advent_tuer (id bigint, jahr smallint);", 'ADVENT-S ABBRUCH (schon da: 1 Advent-Objekte)', "drop table schule.advent_tuer;", ('advent_tuer',)),
+        ('Mischstand: Tabelle wie die echte', "create table schule.advent_belegung (jahr smallint, lernender_id bigint, nr smallint, art text, variante text, titel text, text text, "
+         "sterne integer, motiv text, geaendert_am timestamptz, geaendert_von text);", 'schule.advent_belegung (relkind r)', "drop table schule.advent_belegung;", ('advent_belegung',)),
+        ('Mischstand: Index', "create table schule.x_hilf (a int); create index advent_gutschein_kind on schule.x_hilf (a);", 'schule.advent_gutschein_kind (relkind i)',
+         "drop table schule.x_hilf;", ()),
+        ('Mischstand: api-Funktion', "create function api.schule_advent_stand(p_schluessel text, p_daten jsonb) returns jsonb language sql as $$ select '{}'::jsonb $$;",
+         'api.schule_advent_stand(text,jsonb)', "drop function api.schule_advent_stand(text, jsonb);", ('api',)),
+        ('Mischstand: interne Funktion', "create function schule.advent_jetzt() returns timestamptz language sql as $$ select now() $$;", 'schule.advent_jetzt()',
+         "drop function schule.advent_jetzt();", ('api',)),
+        ('Mischstand: Regel', "insert into schule.regel values ('advent_aktiv', '0', 'x');", 'schule.regel advent_aktiv', "delete from schule.regel where schluessel = 'advent_aktiv';", ()),
+        ('Mischstand: Regel ungültig', "insert into schule.regel values ('advent_start', '\"abc\"', 'x');", 'schule.regel advent_start', "delete from schule.regel where schluessel = 'advent_start';", ()),
+        ('Mischstand: Prüfregel schon mit advent', "alter table schule.sterne drop constraint sterne_grund_check; alter table schule.sterne add constraint sterne_grund_check check (grund = any (array[" + grund + ", 'advent']));",
+         'sterne_grund_check enthält advent', "alter table schule.sterne drop constraint sterne_grund_check; alter table schule.sterne add constraint sterne_grund_check check (grund = any (array[" + grund + "]));", ()),
+        ('Mischstand: mehrere', "create table schule.advent_protokoll (id bigint); insert into schule.regel values ('advent_tausch', '1', 'x');", 'ADVENT-S ABBRUCH (schon da: 2 Advent-Objekte)',
+         "drop table schule.advent_protokoll; delete from schule.regel where schluessel = 'advent_tausch';", ('advent_protokoll',)),
     ]
     for name, vor, msg, zurueck, ausser in faelle:
-        r0 = db.sql("select count(*) from schule.regel where schluessel like 'advent\\_%';")
         db.sql(vor)
-        r0 = str(int(r0) + (1 if 'insert into schule.regel' in vor else 0))
-        db.pg.paket(einsp, erwartet_fehler=msg)
-        db.pg.paket(probe, erwartet_fehler=msg)                 # die Probe meldet denselben Abbruch (nicht „bestanden“)
+        z0 = zustand(db) if 'regel_weg' not in vor else None      # (ohne schule.regel lässt sich der Zustand so nicht erheben)
+        err = db.pg.paket(einsp, erwartet_fehler=msg)
+        assert z0 is None or zustand(db) == z0, name
+        err = db.pg.paket(probe, erwartet_fehler=msg)           # die Probe meldet denselben Abbruch (nicht „bestanden“)
+        assert 'PROBELAUF' not in err.split('CONTEXT')[0], (name, err[-600:])
         db.sql(zurueck)
         nichts_da(db)
         assert db.sql("select count(*) from schule.regel where schluessel like 'advent\\_%';") == '0'
@@ -728,10 +843,36 @@ def negativ(db, probe, einsp):
                         "select pg_sleep(0.5);\n" + einsp])
     assert erg[0][0] == 0 and erg[1][0] != 0 and 'lock timeout' in erg[1][2], erg[1][2][-400:]
     nichts_da(db)
-    print(f'Negativfälle Paket: {len(faelle) + 1} (Prüfregel anders/fehlt, Funktionen/Tabelle/Spalten fehlen, eindeutiger Schlüssel fehlt, Tabellen mit anderen Spalten, '
-          'api-Funktion anderer Form, vier ungültige Regeln, Sperre -> lock_timeout): jeweils Abbruch, nichts geändert; Probe meldet denselben Abbruch')
+    print(f'Negativfälle Paket: {len(faelle) + 1} (Prüfregel anders/fehlt, Funktionen/Tabelle/Spalten fehlen, eindeutiger Schlüssel fehlt, Mischstand: Tabelle, Index, '
+          'api-/interne Funktion, Regel, Prüfregel mit advent, mehrere; Sperre -> lock_timeout): jeweils Abbruch, nichts geändert; Probe meldet denselben Abbruch')
+    probe_befund(db, probe)
     # danach läuft es sauber durch
     db.pg.paket(einsp)
+
+
+def probe_befund(db, probe):
+    """Probe bricht bei künstlichem Befund mit „NICHT bestanden“ ab (Urteil 1215, Auflage 2) – und rollt trotzdem alles zurück."""
+    z0 = zustand(db)
+    s0 = db.sql("select count(*) || '/' || sum(menge) from schule.sterne;")
+    # 1. schule.sterne ändert sich während des Einspielens (künstlich: Trigger auf schule.regel bucht einen Stern) -> sterne_unveraendert = false
+    db.sql("""create function public.t_stern() returns trigger language plpgsql as $f$ begin
+  if new.schluessel = 'advent_tausch' then insert into schule.sterne (lernender_id, menge, grund, bezug) values (1, 7, 'bonus', 'probe:kuenstlich'); end if; return new; end $f$;
+create trigger t_stern after insert on schule.regel for each row execute function public.t_stern();""")
+    err = db.pg.paket(probe, erwartet_fehler='ADVENT-S PROBELAUF NICHT bestanden (1 Befunde)')
+    zeile, k = kurz(err, bestanden=False)
+    assert k['befunde'] == 1 and k['sterne_unveraendert'] is False and k['tabellen'] == 6 and k['aktiv'] == 0, k
+    assert 'BEFUNDE: schule.sterne verändert (Zeilen 2 -> 3, Summe 90 -> 97, Inhalt anders)' in err and 'PROBELAUF bestanden' not in err.split('CONTEXT')[0], err[-1200:]
+    db.sql("drop trigger t_stern on schule.regel; drop function public.t_stern();")
+    # 2. Bestandsfunktion weicht vom Repo ab (künstlich: Kommentar im Rumpf von schule.sieht) -> Befund, nicht „nur Hinweis“
+    d = db.sql("select pg_get_functiondef('schule.sieht'::regproc);")
+    db.sql(d.replace('$$', '$$ -- anders', 1) if '$$' in d else d.replace('$function$', '$function$ -- anders', 1))
+    err = db.pg.paket(probe, erwartet_fehler='ADVENT-S PROBELAUF NICHT bestanden (1 Befunde)')
+    assert 'Bestandsfunktion schule.sieht weicht vom Repo ab' in err and kurz(err, False)[1]['sterne_unveraendert'] is True, err[-1200:]
+    db.sql(d)
+    db.pg.paket(probe, erwartet_fehler='ADVENT-S PROBELAUF bestanden')
+    nichts_da(db)
+    assert zustand(db) == z0 and db.sql("select count(*) || '/' || sum(menge) from schule.sterne;") == s0, 'Probe hat etwas zurückgelassen'
+    print('Probe mit künstlichem Befund (Stern während des Laufs gebucht; Bestandsfunktion abweichend): jeweils „NICHT bestanden“ mit Befund, nichts zurückgelassen')
 
 
 def main():
@@ -750,6 +891,7 @@ def main():
             schalter_und_zugriff(db)
             tageslauf(db)
             gleichzeitig(db)
+            erwartet(db)
             gutscheine(db)
             tausch(db)
             grenzen(db)
@@ -803,9 +945,27 @@ def belegung_werkzeug(db, einsp):
         d = db.sql("select pg_get_functiondef('schule.advent_belegen(bigint[], jsonb, boolean, text)'::regprocedure);")
         db.sql(d.replace("declare e jsonb", "declare -- geändert\n  e jsonb", 1))
         db.pg.paket(einsp_b, erwartet_fehler='andere Fassung')
-        db.pg.paket(einsp)                                              # Migration stellt die Fassung wieder her
-        db.sql(UHR)
+        db.pg.paket(einsp, erwartet_fehler='ADVENT-S ABBRUCH (schon da: ')    # Migration läuft nicht über einen Bestand (Auflage 3)
+        db.sql(d)                                                         # ursprüngliche Fassung zurück
         db.pg.paket(einsp_b)
+        # Tür 6 und 24 fest „karte“ (Urteil 1215, Auflage 6 – nur im Werkzeug): Abbruch, bevor ein Paket entsteht
+        for f in ('advent_belegung_probe.sql', 'advent_belegung_einspielen.sql'): (Path(td) / f).unlink()
+        n6 = 0
+        for aend, msg in ((lambda d: d['tueren'][5].update(art='gutschein', titel='x'), 'Tür 6 für Kind 1: art „gutschein“ – Tür 6 und Tür 24 sind fest eine Karte'),
+                          (lambda d: d['tueren'][23].update(art='sterne', variante='jackpot', sterne=1111), 'Tür 24 für Kind 1: art „sterne“'),
+                          (lambda d: d['tueren'][23].update(art='bild', motiv='stern'), 'Tür 24 für Kind 2: art „bild“'),
+                          (lambda d: d['tueren'][5].update(sterne=50), 'Tür 6 für Kind 1: Karte ohne Sterne'),
+                          (lambda d: d['tueren'].append({'nr': 6, 'fuer': 'Kind 9', 'art': 'leer'}) or d['kinder'].update({'Kind 9': 9}) or d['tueren'][5].update(fuer=['Kind 1', 'Kind 2']),
+                           'Tür 6 für Kind 9: art „leer“')):
+            d = json.loads(json.dumps(bsp)); aend(d)
+            pr = bauen(d)
+            assert pr.returncode == 1 and msg in pr.stderr, (msg, pr.stderr)
+            assert not (Path(td) / 'advent_belegung_einspielen.sql').exists(), 'kein Paket bei Abbruch'
+            n6 += 1
+        d = json.loads(json.dumps(bsp)); d['tueren'] = [t for t in d['tueren'] if t['nr'] not in (6, 24)]
+        pr = bauen(d)                                                     # 6/24 nicht in der Datei: bleibt in der Datenbank, wie es ist (Hinweis)
+        assert pr.returncode == 0 and 'HINWEIS: Tür 6 für Kind 1 nicht in der Datei' in pr.stderr and 'HINWEIS: Tür 24 für Kind 2' in pr.stderr, pr.stderr
+        assert bsp['tueren'][23]['art'] == 'karte' and bsp['tueren'][23]['sterne'] > 0                 # 24 = Karte mit Sternen (Jackpot) ist erlaubt
         # Werkzeug weist ab
         n = 0
         for aend, msg in ((lambda d: d['tueren'].append({'nr': 1, 'fuer': 'Kind 1', 'art': 'leer'}), 'doppelt belegt'),
@@ -831,7 +991,7 @@ def belegung_werkzeug(db, einsp):
         finally:
             kopie.unlink()
     print(f'Belegungs-Werkzeug: Probe rollt zurück, Einspielen überspringt geöffnete Türchen, Zweitlauf 0 gesetzt; Paket bricht ab (Jahr, Kind fehlt/inaktiv, andere Fassung); '
-          f'{n + 2} ungültige Eingaben/Orte abgewiesen')
+          f'{n + 2} ungültige Eingaben/Orte abgewiesen; Tür 6/24 nicht Karte (bzw. 6 mit Sternen): {n6} Abbrüche ohne Paket, fehlend nur Hinweis, 24 Karte + Sterne erlaubt')
 
 
 if __name__ == '__main__':

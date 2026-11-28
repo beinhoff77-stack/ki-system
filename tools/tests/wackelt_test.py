@@ -5,10 +5,11 @@ Einspiel-Paket läuft durch und ein zweites Mal (wiederholbar); dann RB-S und di
 Rechte über die api-Aktionen: Kind bekommt keine Analyse und hakt nicht ab, fremdes Kind auch nicht, Eltern schon; Nachüben-Aktionen gibt es nicht.
 WW-S3 (Folgemigration): Probe vor WW-S2 bricht mit „Vorbedingung“ ab; nach WW-S2 (ohne RB-S) „PROBELAUF bestanden“ mit allen Nachweisen
 (Parallelfall, ohne Thema auch jenseits der 300, besprochen je Thema, Typen, Karte, Rechte); Einspielen zweimal; nach RB-S noch einmal (mit Fehlbild,
-Stand 3 vorher); Rechte und neue Antwortformen über die api-Aktionen; Edge-Liste 0.9.6.
+Stand 3 vorher); Rechte und neue Antwortformen über die api-Aktionen; Edge-Liste ab 0.9.6 (Version aus index.ts).
 Aufruf: python3 -I tools/tests/wackelt_test.py   (endet mit OK; ohne Postgres: übersprungen)
 """
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -134,9 +135,12 @@ insert into schule.lern_sitzung (token_hash, login_id, laeuft_ab) select 't' || 
             pg.sql(f"select api.schule_fehler_abhaken({kid(4)}, '{q}');", erwartet_fehler='Zurückholen nur mit markierung_ids')
         pg.sql(f"select schule.fehler_abhaken(1, '[{v}]', true, 'test');", erwartet_fehler='Zurückholen nur mit markierung_ids')   # auch intern
         assert tq(f"select count(*) from schule.fehler_erledigt where id = {mid2} and zurueckgenommen_am is null;") == '1'
-        # Edge-Funktion: genau die zwei Aktionen, keine Nachüben-Aktion, Version 0.9.6 mit markierung_ids?
+        # Edge-Funktion: genau die zwei Aktionen, keine Nachüben-Aktion, mit markierung_ids?. Die Version steht in index.ts und wächst mit späteren
+        # Entwürfen (0.10.0 = ADVENT-S enthält 0.9.6) – geprüft wird nur „mindestens 0.9.6“, nicht eine feste Zahl.
         ts = (T.WURZEL / 'supabase/functions/lernen-api/index.ts').read_text(encoding='utf-8')
-        assert "const VERSION = '0.9.6'" in ts and "schule_wackelt_analyse: ['lernender_id', 'tage?', 'erledigt?']," in ts
+        vm = re.search(r"^const VERSION = '(\d+)\.(\d+)\.(\d+)'$", ts, re.M)
+        assert vm and tuple(int(x) for x in vm.groups()) >= (0, 9, 6), vm and vm.group(0)
+        assert "schule_wackelt_analyse: ['lernender_id', 'tage?', 'erledigt?']," in ts
         assert "schule_fehler_abhaken: ['lernender_id', 'versuch_ids?', 'zurueck?', 'markierung_ids?']," in ts and 'schule_nachueben' not in ts.split('const AKTIONEN')[1]
         assert "schule_fehler_abhaken: 'Markieren: lernender_id, versuch_ids. Zurückholen: lernender_id, zurueck = true, markierung_ids (ohne versuch_ids).'," in ts
         assert '...(HINWEISE[aktion] ? { hinweis: HINWEISE[aktion] } : {})' in ts

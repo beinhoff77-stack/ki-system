@@ -1,0 +1,746 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-15",
+ "kuerzel": "R15",
+ "flug": "r15-gleichungen.quadratisch",
+ "titel": "gleichungen.quadratisch",
+ "fuer": "Klasse 9",
+ "klasse": 9,
+ "themen": [
+  "gleichungen.quadratisch"
+ ],
+ "themen_datei_im_bestand": "gleichungen.quadratisch",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R15-V140",
+   "thema": "gleichungen.quadratisch",
+   "lernkarte": "reinquadratisch",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 96,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 von 98 abgezogen statt durch 2 geteilt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von 49 eins abgezogen statt die Wurzel zu ziehen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Lösungen addiert statt gespiegelt"
+    }
+   ],
+   "aufgabe": {
+    "l": "reinquadratisch",
+    "t": "reinquadratisch",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Du löst 2x² − 98 = 0. Es folgt x² = ①. ② ist die positive und ③ die negative Lösung.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      49,
+      7,
+      -7
+     ]
+    },
+    "c": [
+     "98 / 2",
+     "7",
+     "-(7)"
+    ],
+    "h": "Addiere erst 98 auf beiden Seiten, teile dann durch 2. Zu x² = Zahl gehören zwei Lösungen mit entgegengesetztem Vorzeichen.",
+    "w": "2x² = 98, also x² = 49. Die Lösungen sind 7 und −7, denn 7² = 49 und (−7)² = 49."
+   }
+  },
+  {
+   "kennung": "R15-V141",
+   "thema": "gleichungen.quadratisch",
+   "lernkarte": "reinquadratisch",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "fehlbild": "fb.gegenrechnung.zweite_loesung_fehlt",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "nur die positive Lösung genannt"
+    },
+    {
+     "antwort": -49,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Quadrat als Lösung mit Minuszeichen genommen"
+    },
+    {
+     "antwort": -98,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 2 statt durch 4 geteilt und das Minus mitgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "reinquadratisch",
+    "t": "reinquadratisch",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Die Gleichung 4x² − 196 = 0 hat zwei Lösungen. Wie lautet die negative Lösung?"
+    },
+    "o": {
+     "wert": -7
+    },
+    "c": "-7",
+    "h": "Bringe zuerst das x² allein auf eine Seite. Welche Zahlen ergeben quadriert dieses Ergebnis?",
+    "w": "4x² = 196, also x² = 49. Zwei Zahlen haben das Quadrat 49: 7 und −7. Die negative Lösung ist −7. Probe: 4 · 49 − 196 = 0."
+   }
+  },
+  {
+   "kennung": "R15-V142",
+   "thema": "gleichungen.quadratisch",
+   "lernkarte": "ausklammern",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.hoeherer_grad",
+   "regel_name": "Höherer Grad",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "nur x = 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch x geteilt, dabei geht die Lösung 0 verloren"
+    },
+    {
+     "index": 2,
+     "antwort": "x = 7 oder x = −7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie bei x² = Zahl gedacht"
+    },
+    {
+     "index": 3,
+     "antwort": "x = 0 oder x = 28",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nach dem Ausklammern 28 statt 28 : 4 genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "ausklammern",
+    "t": "ausklammern",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Lösungsmenge hat die Gleichung 4x² − 28x = 0?"
+    },
+    "a": [
+     "nur x = 7",
+     "x = 0 oder x = 7",
+     "x = 7 oder x = −7",
+     "x = 0 oder x = 28"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Klammere x aus. Ein Produkt ist null, wenn einer der Faktoren null ist.",
+    "w": "4x² − 28x = 4x · (x − 7) = 0. Ein Faktor muss null sein: 4x = 0 gibt x = 0, x − 7 = 0 gibt x = 7. Beide Zahlen erfüllen die Gleichung."
+   }
+  },
+  {
+   "kennung": "R15-V143",
+   "thema": "gleichungen.quadratisch",
+   "lernkarte": "ausklammern",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.hoeherer_grad",
+   "regel_name": "Höherer Grad",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "ausklammern",
+    "t": "ausklammern",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Sam löst 6x² = 18x: Zeile 1: Ich bringe alles auf eine Seite: 6x² − 18x = 0. Zeile 2: Ich klammere 6x aus: 6x(x − 3) = 0. Zeile 3: Ein Produkt ist null, wenn ein Faktor null ist, also muss hier nur der Faktor x − 3 null sein. Zeile 4: Die Gleichung hat deshalb nur die Lösung x = 3. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Das Produkt 6x(x − 3) hat zwei Faktoren. Wann ist der erste Faktor null?",
+    "w": "Beim Nullprodukt kann jeder Faktor null sein: 6x = 0 gibt x = 0, und x − 3 = 0 gibt x = 3. Sam hat den Faktor 6x übersehen. Probe: Für x = 0 gilt 6 · 0 = 18 · 0. Die Lösungen sind x = 0 und x = 3. Der Fehler steckt in Zeile 3, Zeile 4 folgt daraus."
+   }
+  },
+  {
+   "kennung": "R15-V144",
+   "thema": "gleichungen.quadratisch",
+   "lernkarte": "faktorisieren",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.nullprodukt",
+   "regel_name": "Nullprodukt",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die kleinere Lösung genannt"
+    },
+    {
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Absolutglied als Lösung genommen"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": "fb.nullprodukt.vorzeichen_der_loesung",
+     "regel_des_fehlbilds": "rr.nullprodukt",
+     "beschreibung": "aus x + 3 = 0 die Lösung 3 gemacht"
+    }
+   ],
+   "aufgabe": {
+    "l": "faktorisieren",
+    "t": "faktorisieren",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Löse x² − 4x − 21 = 0. Wie lautet die größere Lösung?"
+    },
+    "o": {
+     "wert": 7
+    },
+    "c": "7",
+    "h": "Suche zwei Zahlen mit dem Produkt −21 und der Summe −4. Dann zerlege in zwei Klammern.",
+    "w": "x² − 4x − 21 = (x − 7)(x + 3) = 0. Ein Faktor muss null sein: x = 7 oder x = −3. Die größere Lösung ist 7."
+   }
+  },
+  {
+   "kennung": "R15-V145",
+   "thema": "gleichungen.quadratisch",
+   "lernkarte": "faktorisieren",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.nullprodukt",
+   "regel_name": "Nullprodukt",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen des Produkts übersehen"
+    },
+    {
+     "antwort": -5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Lösungen addiert statt malgenommen"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Beiwert p statt q angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "faktorisieren",
+    "t": "faktorisieren",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Wasserrutsche folgt der Linie y = x² + px + q (Meter). Sie liegt bei den Stellen 4 und −9 auf Höhe null. Welchen Wert hat q?"
+    },
+    "o": {
+     "wert": -36
+    },
+    "c": "4 * -9",
+    "h": "Schreibe die Gleichung als Produkt (x − Lösung) · (x − Lösung) = 0 und multipliziere aus.",
+    "w": "Es gilt (x − 4)(x + 9) = x² + 5x − 36. Also ist p = 5 und q = −36. Probe: 4² + 5 · 4 − 36 = 0."
+   }
+  },
+  {
+   "kennung": "R15-V146",
+   "thema": "gleichungen.quadratisch",
+   "lernkarte": "ergaenzung",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 9 nicht verrechnet"
+    },
+    {
+     "antwort": 34,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 9 addiert statt abgezogen"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 9 statt der Ergänzung als rechte Seite genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "ergaenzung",
+    "t": "ergaenzung",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Mit der quadratischen Ergänzung wird x² + 10x + 9 = 0 zu (x + 5)² = b. Wie groß ist b?"
+    },
+    "o": {
+     "wert": 16
+    },
+    "c": "25 - 9",
+    "h": "Ergänze die Hälfte von 10 zum Quadrat auf beiden Seiten, die 9 gehört danach auf die andere Seite.",
+    "w": "Die Hälfte von 10 ist 5, ihr Quadrat 25. x² + 10x + 25 = 25 − 9, also (x + 5)² = 16. Die Lösungen sind x = −1 und x = −9."
+   }
+  },
+  {
+   "kennung": "R15-V147",
+   "thema": "gleichungen.quadratisch",
+   "lernkarte": "loesungsformel",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 828,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "−4ac mit Plus gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 162,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "324 durch 2 geteilt statt die Wurzel gezogen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch a statt durch 2a geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "loesungsformel",
+    "t": "loesungsformel",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Für 3x² − 24x + 21 = 0 gilt a = 3, b = −24, c = 21. Die Diskriminante b² − 4ac ist ①. Ihre Wurzel ist ②. Die größere Lösung x = (24 + ②) : 6 ist ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      324,
+      18,
+      7
+     ]
+    },
+    "c": [
+     "576 - 4 * 3 * 21",
+     "18",
+     "(24 + (18)) / 6"
+    ],
+    "h": "Rechne b² zuerst (576), dann 4 · a · c, dann die Differenz. Beachte: Punkt vor Strich.",
+    "w": "b² = 576, 4ac = 4 · 3 · 21 = 252, also 576 − 252 = 324. √324 = 18. Die größere Lösung ist (24 + 18) : 6 = 7. Die andere ist (24 − 18) : 6 = 1."
+   }
+  },
+  {
+   "kennung": "R15-V148",
+   "thema": "gleichungen.quadratisch",
+   "lernkarte": "loesungsformel",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch a statt durch 2a geteilt"
+    },
+    {
+     "antwort": -2.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen von b nicht gewechselt"
+    },
+    {
+     "antwort": 2.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die positive Lösung genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "loesungsformel",
+    "t": "loesungsformel",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Löse 2x² + 3x − 20 = 0 mit der Lösungsformel. Wie lautet die negative Lösung?"
+    },
+    "o": {
+     "wert": -4
+    },
+    "c": "(-3 - 13) / 4",
+    "h": "Berechne zuerst die Diskriminante b² − 4ac. Beachte, dass c negativ ist.",
+    "w": "D = 3² − 4 · 2 · (−20) = 9 + 160 = 169, √169 = 13. x = (−3 ± 13) : 4. Die Lösungen sind 2,5 und −4. Die negative Lösung ist −4."
+   }
+  },
+  {
+   "kennung": "R15-V149",
+   "thema": "gleichungen.quadratisch",
+   "lernkarte": "bruchgleichung",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 46,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Seite mit x multipliziert und 40 = x − 6 gelöst"
+    },
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "40 halbiert"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Summanden 6 als Lösung genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "bruchgleichung",
+    "t": "bruchgleichung",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Für x ≠ 0 gilt die Gleichung 40 : x = x − 6. Wie lautet die positive Lösung?"
+    },
+    "o": {
+     "wert": 10
+    },
+    "c": "10",
+    "h": "Multipliziere beide Seiten mit x, damit der Bruch verschwindet. Bringe dann alles auf eine Seite.",
+    "w": "Mit x multiplizieren: 40 = x² − 6x, also x² − 6x − 40 = 0. Das ist (x − 10)(x + 4) = 0, also x = 10 oder x = −4. Die positive Lösung ist 10. Probe: 40 : 10 = 4 und 10 − 6 = 4."
+   }
+  },
+  {
+   "kennung": "R15-V150",
+   "thema": "gleichungen.quadratisch",
+   "lernkarte": "diskriminante",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 324,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "k² = 324 nicht zurückgerechnet"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "c durch a geteilt"
+    },
+    {
+     "antwort": 54,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 2 statt mit 4a malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "diskriminante",
+    "t": "diskriminante",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Für welchen positiven Wert von k hat die Gleichung 3x² + kx + 27 = 0 genau eine Lösung?"
+    },
+    "o": {
+     "wert": 18
+    },
+    "c": "18",
+    "h": "Genau eine Lösung gibt es, wenn die Diskriminante k² − 4 · 3 · 27 gleich null ist.",
+    "w": "D = k² − 4 · 3 · 27 = k² − 324. D = 0 gilt für k² = 324, also k = 18 (oder −18). Der positive Wert ist 18. Dann ist 3x² + 18x + 27 = 3(x + 3)² = 0 mit der einzigen Lösung −3."
+   }
+  },
+  {
+   "kennung": "R15-V151",
+   "thema": "gleichungen.quadratisch",
+   "lernkarte": "diskriminante",
+   "stufe": 3,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "zwei",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "−4ac mit Plus gerechnet: 9 + 40 = 49 sieht nach zwei Schnittpunkten aus"
+    },
+    {
+     "index": 2,
+     "antwort": "genau einen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Diskriminante ist nicht null"
+    }
+   ],
+   "aufgabe": {
+    "l": "diskriminante",
+    "t": "diskriminante",
+    "p": "uebung",
+    "s": 3,
+    "g": "pruefung",
+    "y": "auswahl",
+    "f": {
+     "text": "Wie viele gemeinsame Punkte hat die Parabel y = 2x² + 3x + 5 mit der x-Achse?"
+    },
+    "a": [
+     "zwei",
+     "keinen",
+     "genau einen"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Setze y = 0. Berechne die Diskriminante b² − 4ac und vergleiche sie mit 0.",
+    "w": "2x² + 3x + 5 = 0 hat D = 3² − 4 · 2 · 5 = 9 − 40 = −31. Die Diskriminante ist negativ, also gibt es keinen Schnittpunkt."
+   }
+  },
+  {
+   "kennung": "R15-V152",
+   "thema": "gleichungen.quadratisch",
+   "lernkarte": "sachaufgabe",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.nullprodukt",
+   "regel_name": "Nullprodukt",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die negative Lösung ohne Vorzeichen genommen"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die beiden mittleren Zahlen dividiert"
+    },
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anfangswert 25 als Zeit genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgabe",
+    "t": "sachaufgabe",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Stein wird vom Rand einer Klippe in Kroatien nach oben geworfen. Seine Höhe über dem Meer ist h(t) = −5t² + 20t + 25 in Metern, t in Sekunden. Nach wie vielen Sekunden trifft er auf das Wasser (h = 0)?"
+    },
+    "o": {
+     "wert": 5,
+     "einheit": "s"
+    },
+    "c": "5",
+    "h": "Setze h(t) = 0. Teile durch −5, damit vor t² die 1 steht. Prüfe, welche Lösung zur Frage passt.",
+    "w": "−5t² + 20t + 25 = 0 | : (−5) gibt t² − 4t − 5 = 0, also (t − 5)(t + 1) = 0. Es folgt t = 5 oder t = −1. Negative Zeit passt nicht, also nach 5 Sekunden."
+   }
+  },
+  {
+   "kennung": "R15-V153",
+   "thema": "gleichungen.quadratisch",
+   "lernkarte": "sachaufgabe",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche durch den Unterschied geteilt"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Länge statt der Breite angegeben"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei −b das Vorzeichen falsch gesetzt (9 statt −9) und durch 4 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgabe",
+    "t": "sachaufgabe",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein rechteckiger Campingplatz am Gardasee ist 9 m länger als breit und 360 m² groß. Wie breit ist er?"
+    },
+    "o": {
+     "wert": 15,
+     "einheit": "m"
+    },
+    "c": "15",
+    "h": "Nenne die Breite x. Wie groß ist dann die Länge? Stelle eine Gleichung für die Fläche auf.",
+    "w": "Länge x + 9, Fläche x(x + 9) = 360. Also x² + 9x − 360 = 0. Diskriminante: 81 + 1440 = 1521 = 39². x = (−9 + 39) : 2 = 15. Die andere Lösung −24 passt nicht. Probe: 15 · 24 = 360."
+   }
+  }
+ ]
+}

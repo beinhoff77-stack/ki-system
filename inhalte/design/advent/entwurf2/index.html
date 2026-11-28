@@ -481,6 +481,188 @@ body.foto *, body.foto *::before, body.foto *::after { animation: none !importan
   .bewegt .fk-glanz.fk1 { animation-delay: -.93s; } .bewegt .fk-glanz.fk2 { animation-delay: -1.87s; }
 }
 @keyframes fkglanz { 50% { opacity: .35; } }
+/* ===== Entwurf 2 · Tür als Klappe ===== */
+.rahmen2 { position: relative; width: 196px; height: 246px; perspective: 1100px; }
+.rahmen2::before { content: ""; position: absolute; inset: -12px; border-radius: 22px; background: linear-gradient(160deg, #0B2A1C, #031009); box-shadow: inset 0 3px 8px #000c, inset 0 -1px 0 #ffffff14, 0 24px 50px #000a; }
+.ab2.hell .rahmen2::before { background: linear-gradient(160deg, #0F3A26, #052014); }
+.rahmen2.tuer-krampus::before { background: linear-gradient(160deg, #1A0508, #050102); }
+.rahmen2.tuer-t24::before { background: linear-gradient(160deg, #0A1240, #02041A); box-shadow: inset 0 3px 8px #000c, 0 0 0 2px #FFD23F55, 0 24px 50px #000a; }
+/* Licht hinter der Klappe: warmer Kern + Strahlen, erscheint beim Öffnen */
+.licht2 { position: absolute; inset: 0; border-radius: 14px; overflow: hidden; background: radial-gradient(circle at 42% 50%, #FFFDF0 0, #FFE27A 26%, #F2B417 55%, #6B4400 100%); }
+.licht2 i { position: absolute; inset: -40%; background: repeating-conic-gradient(from 0deg at 42% 50%, #FFFFFF55 0 7deg, #FFFFFF00 7deg 22deg); opacity: 0; transform: scale(.7); }
+.tuer-krampus .licht2 { background: radial-gradient(circle at 42% 50%, #FFE9D6 0, #FF8A5B 30%, #B3122B 62%, #2A0508 100%); }
+.klappe { position: absolute; inset: 0; padding: 0; border: 0; background: none; border-radius: 14px; transform-origin: 0 50%; transform-style: preserve-3d; cursor: pointer; }
+.klappe .tuer-svg { position: absolute; left: -6px; top: -40px; width: 208px; height: 300px; overflow: visible; filter: drop-shadow(0 6px 10px #0007); }
+.klappe-schatten { position: absolute; inset: 0; border-radius: 14px; background: linear-gradient(90deg, #0000, #000c); opacity: 0; pointer-events: none; }
+.rahmen2.auf .klappe { transform: rotateY(-104deg); }
+.rahmen2.auf .klappe-schatten { opacity: .85; }
+.rahmen2.auf .licht2 i { opacity: 1; transform: scale(1); }
+.rahmen2.halb .klappe { transform: rotateY(-68deg); }
+.rahmen2.halb .klappe-schatten { opacity: .55; }
+.ab2 .antippen { margin-top: 30px; }
+@media (prefers-reduced-motion: no-preference) {
+  .bewegt .rahmen2:not(.auf) { animation: wackel2 3.2s ease-in-out infinite; transform-origin: 50% 100%; }
+  .bewegt .rahmen2 .klappe { transition: transform .62s cubic-bezier(.25, .9, .3, 1.12); }
+  .bewegt .rahmen2 .klappe-schatten { transition: opacity .62s ease-out; }
+  .bewegt .rahmen2 .licht2 i { transition: opacity .5s ease-out .12s, transform .9s cubic-bezier(.2, .8, .2, 1) .12s; }
+  .bewegt .inhalt-r { animation: auftauch2 .5s cubic-bezier(.2, 1.2, .4, 1) both .15s; }
+  .bewegt .funken i { animation: funke 2.4s ease-in-out infinite; }
+  .bewegt .funken i:nth-child(3n) { animation-delay: -.8s; } .bewegt .funken i:nth-child(3n+1) { animation-delay: -1.6s; }
+}
+@keyframes wackel2 { 0%, 82%, 100% { transform: rotate(0); } 86% { transform: rotate(-1.6deg); } 90% { transform: rotate(1.4deg); } 94% { transform: rotate(-.6deg); } }
+@keyframes auftauch2 { from { opacity: 0; transform: scale(.82) translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes funke { 50% { opacity: .15; } }
+.ab2 .funken i { width: 4px; height: 4px; background: #FFF3C4; box-shadow: 0 0 6px #FFD23F, 0 0 12px #FFD23F88; }
+.sorte-t24 .szene { background: radial-gradient(90% 60% at 50% 46%, #2A3F9E 0, #111C5C 50%, #050A2A 100%) !important; }
+
+/* ===== Inhalt: Motiv ===== */
+.motiv-gross2 { width: min(296px, 76vw); aspect-ratio: 1; border-radius: 18px; overflow: hidden; background: #FFFBEF; padding: 7px; box-shadow: 0 0 0 1px #0002, 0 22px 50px #000a, 0 2px 0 #E9DDBF; transform: rotate(-1.2deg); }
+.motiv-gross2 svg { width: 100%; height: 100%; display: block; border-radius: 12px; }
+
+/* ===== Gutschein als Ticket: Kerben, Lochung, Guilloche, Blindprägung ===== */
+.ticket-w { filter: drop-shadow(0 18px 24px #0009); }
+.ticket { position: relative; width: min(318px, 84vw); border-radius: 16px; background: #FFFBEF; color: #1B0C3A;
+  -webkit-mask: radial-gradient(circle 11px at 0 calc(100% - 60px), #0000 98%, #000) , radial-gradient(circle 11px at 100% calc(100% - 60px), #0000 98%, #000); -webkit-mask-composite: source-in; mask: radial-gradient(circle 11px at 0 calc(100% - 60px), #0000 98%, #000), radial-gradient(circle 11px at 100% calc(100% - 60px), #0000 98%, #000); mask-composite: intersect; }
+.tk-kopf { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border-radius: 16px 16px 0 0; background: linear-gradient(90deg, #1B0C3A, #3B1D5E); color: #FFD23F; font-family: ui-monospace, Menlo, monospace; font-size: 11.5px; font-weight: 800; letter-spacing: .12em; }
+.tk-marke { display: inline-flex; align-items: center; gap: 6px; } .tk-marke svg { width: 13px; height: 13px; }
+.tk-kopf span:last-child { color: #E8DDFF; opacity: .85; font-weight: 700; }
+.tk-koerper { position: relative; overflow: hidden; padding: 16px 16px 16px; min-height: 140px; box-shadow: inset 0 0 0 2px #FFD23F; border-radius: 0; }
+.tk-koerper > * { position: relative; }
+.guilloche { position: absolute !important; inset: 0; width: 100%; height: 100%; opacity: .55; }
+.tk-koerper small { font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: .1em; font-weight: 800; color: #7B1E6E; }
+.tk-koerper h3 { font-size: 27px; line-height: 1.02; font-weight: 700; margin-top: 6px; letter-spacing: -.015em; max-width: 230px; }
+.tk-koerper p { font-size: 14.5px; margin-top: 8px; color: #4A3A66; max-width: 200px; }
+.praegung { position: absolute !important; right: 10px; bottom: 8px; width: 76px; height: 76px; transform: rotate(-12deg); }
+.tk-perf { height: 8px; margin: 0 14px; background: radial-gradient(circle, #1B0C3A2e 1.7px, #0000 2.2px) 0 50% / 9px 8px repeat-x; }
+.tk-fuss { display: flex; align-items: center; gap: 10px; height: 52px; padding: 0 16px 0 14px; font-size: 14.5px; font-weight: 700; border-radius: 0 0 16px 16px; background: #FFF4D6; }
+.tk-ico { width: 32px; height: 32px; flex: none; border-radius: 10px; display: grid; place-items: center; background: #1B0C3A; color: #FFD23F; } .tk-ico svg { width: 18px; }
+.tk-st { margin-left: auto; font-size: 18px; color: #9A6A08; white-space: nowrap; } .tk-st i { font-style: normal; margin-left: 2px; color: #E0A40E; }
+
+/* ===== Krampus: dunkler Zettel, Kratzer im Kopf, Hufabdruck ===== */
+.kr-karte { width: min(330px, 86vw); border-radius: 16px; background: #23100F linear-gradient(170deg, #2C1214, #170809); color: #F3E6DE; box-shadow: 0 0 0 1.5px #6B1E26, 0 20px 50px #000c; overflow: hidden; transform: rotate(1deg); }
+.kr-kopf { position: relative; display: flex; justify-content: space-between; padding: 10px 16px; background: #D9363E; color: #1C0A0E; font-family: ui-monospace, Menlo, monospace; font-size: 12px; font-weight: 800; letter-spacing: .12em; overflow: hidden; }
+.kr-kratz { position: absolute; right: 64px; top: -2px; width: 60px; height: 44px; opacity: .9; }
+.kr-in { display: grid; grid-template-columns: 108px 1fr; gap: 12px; align-items: center; padding: 14px 14px 10px; }
+.kr-bild { width: 108px; height: 108px; border-radius: 14px; overflow: hidden; box-shadow: 0 0 0 2px #5A1A22, 0 6px 14px #0008; transform: rotate(-3deg); } .kr-bild svg { width: 100%; height: 100%; display: block; }
+.kr-in small { font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: .1em; font-weight: 800; color: #FF9A8A; }
+.kr-in h3 { font-size: 21px; line-height: 1.08; margin-top: 4px; } .kr-in p { font-size: 14.5px; margin-top: 6px; color: #E2C8C2; }
+.kr-perf { height: 8px; margin: 0 14px; background: radial-gradient(circle, #FF9A8A40 1.6px, #0000 2.1px) 0 50% / 9px 8px repeat-x; }
+.kr-fuss { display: flex; align-items: center; gap: 10px; padding: 10px 14px 12px 16px; font-weight: 700; font-size: 15px; }
+.kr-box { width: 22px; height: 22px; border-radius: 6px; border: 2px solid #FF9A8A; flex: none; }
+.kr-huf { margin-left: auto; width: 30px; height: 30px; color: #D9363E; opacity: .55; transform: rotate(16deg); flex: none; }
+.sorte-krampus .szene { background: radial-gradient(90% 60% at 50% 46%, #3D1015 0, #1D080B 50%, #0A0304 100%) !important; }
+
+/* ===== Jackpot: Samt, Goldrahmen, Walzen mit Wölbung ===== */
+.jackpot2 { width: min(316px, 84vw); border-radius: 22px; padding: 16px 14px 18px; text-align: center; background: radial-gradient(120% 90% at 50% 0, #3A1550, #14061E 70%); box-shadow: 0 0 0 2px #FFD23F, 0 0 0 5px #14061E, 0 0 0 6px #B57A06, 0 22px 50px #000b, 0 0 60px #FFD23F33; }
+.jp-fenster { position: relative; display: flex; justify-content: center; gap: 7px; padding: 8px; border-radius: 14px; background: #0B0410; box-shadow: inset 0 0 0 1.5px #B57A06, inset 0 4px 10px #000; }
+.jp-walze { width: 76px; height: 92px; border-radius: 9px; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(#5A4A3A 0, #E9DFC8 22%, #FFFDF5 50%, #E9DFC8 78%, #5A4A3A 100%); box-shadow: inset 0 0 0 1px #0006; }
+.jp-zeile { display: block; width: 50px; height: 50px; flex: none; } .jp-zeile svg { width: 100%; height: 100%; display: block; }
+.jp-zeile.weg { height: 22px; overflow: hidden; opacity: .45; filter: blur(.4px); } .jp-zeile.weg:first-child svg { margin-top: -28px; }
+.jp-linie { position: absolute; left: 3px; right: 3px; top: 50%; height: 1.5px; background: linear-gradient(90deg, #0000, #FFD23F 12%, #FFD23F 88%, #0000); z-index: 2; }
+.jp-linie::before, .jp-linie::after { content: ""; position: absolute; top: -4px; border: 4.5px solid transparent; }
+.jp-linie::before { left: -4px; border-left-color: #FFD23F; } .jp-linie::after { right: -4px; border-right-color: #FFD23F; }
+.jp-wort2 { margin-top: 12px; font-size: 30px; font-weight: 700; letter-spacing: .22em; padding-left: .22em; }
+.jp-wort2 span { background: linear-gradient(180deg, #FFF6C8 0, #FFD23F 45%, #C98A0A 55%, #FFE27A 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.jp-zahl2 { font-size: 46px; font-weight: 700; color: #FFFBEF; line-height: 1; margin-top: 4px; letter-spacing: -.01em; } .jp-zahl2 i { font-style: normal; color: #FFD23F; margin-left: 6px; font-size: .8em; }
+.sorte-jackpot .szene { background: radial-gradient(90% 60% at 50% 46%, #5A3B00 0, #241500 50%, #0B0700 100%) !important; }
+@media (prefers-reduced-motion: no-preference) { .bewegt .jp-wort2 span { background-size: 100% 200%; animation: glanz 2.4s ease-in-out 1 both .6s; } }
+@keyframes glanz { from { background-position: 0 100%; } to { background-position: 0 0; } }
+
+/* ===== Niete: grauer Schein, Gummistempel, Trost-Stern mit Pflaster ===== */
+.niete2 { position: relative; width: min(296px, 80vw); padding: 20px 18px 16px; text-align: center; background: #E7E4DC; color: #3E4450; border-radius: 14px 4px 4px 14px; box-shadow: 0 18px 40px #0009;
+  clip-path: polygon(0 0, 100% 0, 97% 6%, 100% 12%, 97% 18%, 100% 24%, 97% 30%, 100% 36%, 97% 42%, 100% 48%, 97% 54%, 100% 60%, 97% 66%, 100% 72%, 97% 78%, 100% 84%, 97% 90%, 100% 96%, 98% 100%, 0 100%); }
+.nt-stempel2 { display: inline-block; transform: rotate(-7deg); padding: 3px; border: 3px solid #8A909B; border-radius: 10px; }
+.nt-stempel2 span { display: block; font-size: 40px; font-weight: 700; letter-spacing: .16em; padding: 0 12px 0 18px; color: #8A909B; border: 1.5px solid #8A909B; border-radius: 6px;
+  -webkit-mask: radial-gradient(circle at 20% 30%, #0000 1.2px, #000 1.6px) 0 0 / 7px 9px, linear-gradient(#000, #000); -webkit-mask-composite: source-in; mask: radial-gradient(circle at 20% 30%, #0000 1.2px, #000 1.6px) 0 0 / 7px 9px; }
+.nt-preis { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 10px; }
+.nt-stern { width: 74px; height: 74px; transform: rotate(-10deg); filter: drop-shadow(0 3px 3px #0003); flex: none; }
+.niete2 .nt-zahl { font-size: 42px; font-weight: 700; color: #9A6A08; line-height: 1; text-align: left; } .niete2 .nt-klein { text-align: left; margin-top: 3px; }
+.sorte-niete .szene { background: radial-gradient(90% 60% at 50% 46%, #3A4150 0, #1C2029 50%, #0B0D12 100%) !important; }
+
+/* ===== Nur Sterne: Goldmünze ===== */
+.sterne2 { text-align: center; } .muenze { width: 168px; height: 168px; display: block; margin: 0 auto; filter: drop-shadow(0 0 30px #FFD23F55); }
+.st-zahl { font-size: 52px; font-weight: 700; color: #FFFBEF; line-height: 1; margin-top: 8px; } .st-zahl i { font-style: normal; color: #FFD23F; margin-left: 6px; font-size: .78em; }
+.st-klein { font-family: ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: .16em; font-weight: 800; color: #FFE27A; margin-top: 6px; }
+.sorte-sterne .szene { background: radial-gradient(90% 60% at 50% 46%, #6B4B00 0, #2A1D00 50%, #0B0700 100%) !important; }
+
+/* ===== Karten Tür 6 / 24: Goldrahmen mit Innenlinie ===== */
+.karte-gross2 { width: min(304px, 80vw); aspect-ratio: 1; border-radius: 20px; overflow: hidden; padding: 6px; background: linear-gradient(145deg, #FFF1A8, #E0A40E 40%, #FFE27A 60%, #B57A06); box-shadow: 0 22px 50px #000b, 0 0 40px #FFD23F44; }
+.karte-gross2 svg { width: 100%; height: 100%; display: block; border-radius: 15px; box-shadow: 0 0 0 1.5px #5A3A0066; }
+.leer-licht2 { width: 230px; height: 230px; border-radius: 50%; display: grid; place-items: center; background: radial-gradient(circle, #FFFDF0 0, #FFE27A 28%, #FFD23F00 70%), repeating-conic-gradient(#FFE27A33 0 8deg, #0000 8deg 24deg); }
+.leer-licht2 b { font-size: 34px; font-weight: 700; font-style: italic; color: #1B0C3A; transform: rotate(-6deg); }
+/* ===== Entwurf 2 · Kalender als Tafel mit Klappen ===== */
+.tafel { position: relative; margin-top: 14px; padding: 12px; border-radius: 22px; background: radial-gradient(120% 80% at 20% 0, #1B6B45 0, #0D3D28 50%, #072216 100%); box-shadow: inset 0 1px 0 #ffffff1c, inset 0 -3px 0 #0004, 0 10px 24px #0d3b2833; overflow: hidden; }
+.kd[data-g="nacht"] .tafel { background: radial-gradient(120% 80% at 20% 0, #11402A 0, #082417 55%, #030D08 100%); box-shadow: inset 0 0 0 1px #1F3A2C, 0 10px 24px #0006; }
+.tafel-deko { position: absolute; inset: 0; pointer-events: none; opacity: .5;
+  background: radial-gradient(circle at 12% 18%, #fff 0 1px, #0000 1.6px), radial-gradient(circle at 78% 9%, #fff 0 1.2px, #0000 1.8px), radial-gradient(circle at 46% 54%, #FFE27A 0 1px, #0000 1.6px), radial-gradient(circle at 90% 70%, #fff 0 1px, #0000 1.6px), radial-gradient(circle at 30% 88%, #fff 0 1.1px, #0000 1.7px), radial-gradient(circle at 64% 32%, #fff 0 .9px, #0000 1.5px); }
+.tueren2 { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 9px; }
+@media (min-width: 600px) { .tueren2 { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 11px; } }
+@media (min-width: 1100px) { .tueren2 { grid-template-columns: repeat(8, minmax(0, 1fr)); } }
+.td2 { position: relative; aspect-ratio: 5 / 6; min-height: 76px; border: 0; padding: 0; border-radius: 11px; text-align: left; font: inherit; color: #1D4A33; cursor: pointer;
+  background: linear-gradient(160deg, #F7F0DE, #E9DFC6); box-shadow: inset 0 1px 0 #fff, inset 0 -3px 0 #0000001a, 0 2px 0 #031009, 0 4px 8px #0005; }
+.td2::after { content: ""; position: absolute; inset: 5px; border-radius: 7px; border: 1.5px dotted #1D4A3340; pointer-events: none; }
+.td2 .n { position: absolute; left: 8px; top: 5px; font-weight: 700; font-size: 25px; line-height: 1; letter-spacing: -.03em; z-index: 3; }
+.td2 .s { position: absolute; left: 7px; right: 6px; bottom: 7px; font-size: 11.5px; font-weight: 700; line-height: 1.15; z-index: 3; display: flex; align-items: center; gap: 3px; }
+.td2 .s svg { width: 11px; height: 11px; flex: none; }
+.td2.zu .n { color: #1D4A33AA; font-weight: 600; }
+.td2.morgen { background: linear-gradient(160deg, #E9E2CF, #D9CFB6); } .td2.morgen .n { color: #1D4A3399; } .td2.morgen .s { color: #3B4A6B; }
+.td2.nach { background: linear-gradient(160deg, #FFF1E2, #F7DCC2); color: #A8410F; } .td2.nach::after { border: 2px dashed #E0662F; }
+.td2.heute { background: linear-gradient(155deg, #26A065, #0D5232); color: #fff; box-shadow: inset 0 1px 0 #6FE3A8, inset 0 -3px 0 #0004, 0 0 0 2px #FFD23F, 0 0 16px #FFD23F66, 0 2px 0 #031009; }
+.td2.heute::after { border-color: #C9F5DD66; } .td2.heute .n { color: #FFE27A; text-shadow: 0 2px 0 #062E1B; } .td2.heute .s { color: #D7FBE7; }
+.td2.bereit { background: linear-gradient(155deg, #FFF1A8, #FFD23F 45%, #E0A40E); color: #1B0C3A; box-shadow: inset 0 1px 0 #fff, inset 0 -3px 0 #9A6A0855, 0 0 0 2px #FFF1A8, 0 0 22px #FFD23Fbb, 0 2px 0 #031009; }
+.td2.bereit::after { border-color: #9A6A0866; } .td2.bereit .n { text-shadow: 0 1px 0 #FFF6C8; }
+.k-schleife { position: absolute; left: 50%; top: -3px; width: 34px; margin-left: -17px; z-index: 4; filter: drop-shadow(0 1px 1px #0005); }
+/* offen: Klappe steht offen (schmaler Flügel links), dahinter das Fach mit Inhalt */
+.td2.offen { background: #0A1F15; box-shadow: inset 0 0 0 1px #000, 0 2px 0 #031009, 0 4px 8px #0005; overflow: visible; }
+.td2.offen::after { display: none; }
+.td2 .fach { position: absolute; inset: 0; border-radius: 11px; overflow: hidden; }
+.td2 .fach > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.td2 .fach::after { content: ""; position: absolute; inset: 0; border-radius: 11px; box-shadow: inset 5px 5px 10px #000a, inset 0 0 0 1px #0008; }
+.td2 .fluegel { position: absolute; left: -4px; top: 3px; bottom: 3px; width: 10px; border-radius: 3px 2px 2px 3px; background: linear-gradient(90deg, #CFC4A8, #F7F0DE 60%, #E9DFC6); box-shadow: 1px 0 3px #0007; transform: skewY(-8deg); z-index: 2; }
+.td2.offen .n { color: #fff; font-size: 18px; text-shadow: 0 1px 4px #000c; left: 10px; }
+.td2.offen .s { color: #fff; text-shadow: 0 1px 4px #000; font-weight: 600; left: 9px; }
+.td2.offen.geschenk .fach { background: radial-gradient(circle at 50% 40%, #4A2A78, #1B0C3A); }
+.td2.offen .gico { position: absolute; left: 50%; top: 45%; width: 36%; transform: translate(-50%, -50%); color: #FFD23F; }
+.td2.offen.krampus .fach { background: radial-gradient(circle at 50% 40%, #6B1E26, #1C0A0E); } .td2.offen.krampus .gico { color: #FF9A8A; }
+.td2.offen.jackpot .fach { background: radial-gradient(circle at 50% 40%, #FFF3B0, #FFD23F 45%, #B57A06); } .td2.offen.jackpot .n, .td2.offen.jackpot .s { color: #1B0C3A; text-shadow: none; }
+.td2.offen.niete .fach { background: linear-gradient(160deg, #B4B9C2, #8A909B); }
+.td2.offen.leer .fach { background: radial-gradient(circle at 50% 45%, #FFFDF0 0, #FFE27A 30%, #8A6200 85%); } .td2.offen.leer .s { color: #1B0C3A; text-shadow: none; }
+.td2 .gross-z { position: absolute; left: 0; right: 0; top: 40%; text-align: center; font-weight: 700; font-size: 17px; z-index: 3; } .td2 .gross-z i { font-style: normal; font-size: .8em; margin-left: 1px; }
+.td2.offen.jackpot .gross-z { color: #1B0C3A; } .td2.offen.niete .gross-z { color: #fff; }
+@media (prefers-reduced-motion: no-preference) { .bewegt .td2.bereit { animation: puls2 1.8s ease-in-out infinite; } }
+@keyframes puls2 { 50% { box-shadow: inset 0 1px 0 #fff, inset 0 -3px 0 #9A6A0855, 0 0 0 2px #FFF1A8, 0 0 34px #FFD23F, 0 2px 0 #031009; } }
+.legende2 { display: flex; flex-wrap: wrap; gap: 6px 12px; margin-top: 12px; font-size: 13.5px; color: var(--lr-leise); }
+.legende2 span { display: inline-flex; align-items: center; gap: 6px; }
+.legende2 i { width: 15px; height: 18px; border-radius: 4px; display: inline-block; box-shadow: inset 0 0 0 1px #0002; }
+.legende2 i.o { background: #0A1F15; box-shadow: inset 3px 0 0 #E9DFC6; } .legende2 i.b { background: linear-gradient(155deg, #FFF1A8, #E0A40E); } .legende2 i.h { background: #1F8A55; box-shadow: 0 0 0 2px #FFD23F; }
+.legende2 i.n { background: #FFF1E2; box-shadow: inset 0 0 0 2px #E0662F; } .legende2 i.m { background: #D9CFB6; } .legende2 i.z { background: #F0E8D3; }
+
+/* ===== Meine Gutscheine: Tickets mit Kerben, Stempel ===== */
+.gs2 { position: relative; border-radius: 16px; background: #FFFBEF; color: #1B0C3A; filter: drop-shadow(0 6px 10px #0003);
+  -webkit-mask: radial-gradient(circle 9px at 0 calc(100% - 64px), #0000 98%, #000), radial-gradient(circle 9px at 100% calc(100% - 64px), #0000 98%, #000); -webkit-mask-composite: source-in; mask: radial-gradient(circle 9px at 0 calc(100% - 64px), #0000 98%, #000), radial-gradient(circle 9px at 100% calc(100% - 64px), #0000 98%, #000); mask-composite: intersect; }
+.gs2 .gk { display: flex; justify-content: space-between; padding: 8px 14px; border-radius: 16px 16px 0 0; background: linear-gradient(90deg, #1B0C3A, #3B1D5E); color: #FFD23F; font-family: ui-monospace, Menlo, monospace; font-size: 11.5px; font-weight: 800; letter-spacing: .1em; }
+.gs2 .gk span:first-child { display: inline-flex; align-items: center; gap: 5px; } .gs2 .gk svg { width: 11px; height: 11px; } .gs2 .gk span:last-child { color: #E8DDFF; opacity: .85; }
+.gs2 .gs-in { position: relative; padding: 12px 14px 10px; } .gs2 .gs-in h3 { font-size: 21px; line-height: 1.1; max-width: 80%; } .gs2 .gs-in p { font-size: 14.5px; color: #4A3A66; margin-top: 4px; max-width: 86%; }
+.gs-perf { height: 8px; margin: 0 12px; background: radial-gradient(circle, #1B0C3A30 1.6px, #0000 2.1px) 0 50% / 9px 8px repeat-x; }
+.gs2 .gs-fuss { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; min-height: 56px; padding: 4px 14px 8px; border-radius: 0 0 16px 16px; background: #FFF4D6; border-top: 0; margin-top: 0; }
+.gs-stempel { margin-left: auto; font-family: ui-monospace, Menlo, monospace; font-size: 12px; font-weight: 800; letter-spacing: .14em; color: #5A6270; border: 2px solid currentColor; border-radius: 6px; padding: 3px 7px; transform: rotate(-9deg); opacity: .85; }
+.gs-stempel.blau { color: #275D98; }
+.sanduhr { display: inline-block; width: 10px; height: 13px; margin-right: 6px; vertical-align: -2px; background: currentColor; clip-path: polygon(0 0, 100% 0, 100% 12%, 62% 50%, 100% 88%, 100% 100%, 0 100%, 0 88%, 38% 50%, 0 12%); }
+.gs2.angefragt .gk { background: linear-gradient(90deg, #1E3A5C, #2E5A86); color: #CFE3FF; } .gs2.angefragt .gs-fuss { background: #E8F1FC; }
+.gs2.spaeter .gs-fuss { background: #FFEFD6; }
+.gs2.eingeloest { background: #ECEAE3; color: #6B7280; filter: grayscale(1) drop-shadow(0 2px 4px #0001); opacity: .82; }
+.gs2.eingeloest .gk { background: #9AA1AD; color: #fff; } .gs2.eingeloest .gs-in { box-shadow: none; } .gs2.eingeloest h3 { text-decoration: line-through; text-decoration-thickness: 2px; } .gs2.eingeloest .gs-fuss { background: #E2DFD6; } .gs2.eingeloest .gs-in p { color: #7A808A; }
+.kd[data-g="nacht"] .gs2.eingeloest { background: #1A212B; color: #8792a2; } .kd[data-g="nacht"] .gs2.eingeloest .gs-fuss { background: #151B24; } .kd[data-g="nacht"] .gs2.eingeloest .gs-in p, .kd[data-g="nacht"] .gs2.eingeloest .gs-status { color: #8792a2; } .kd[data-g="nacht"] .gs2.eingeloest .gs-stempel { color: #8792a2; }
+.kd[data-g="nacht"] .gs2 { filter: drop-shadow(0 6px 10px #0008); }
+.gs2.krampus { background: linear-gradient(170deg, #2C1214, #170809); color: #F3E6DE; }
+.gs2.krampus .gk { background: #D9363E; color: #1C0A0E; } .gs2.krampus .gs-in p { color: #E2C8C2; }
+.gs2.krampus .gs-perf { background-image: radial-gradient(circle, #FF9A8A40 1.6px, #0000 2.1px); } .gs2.krampus .gs-fuss { background: #1C0A0E; }
+.kr-huf2 { position: absolute; right: 12px; top: 12px; width: 28px; height: 28px; color: #D9363E; opacity: .5; transform: rotate(14deg); }
+.td2.nach .s, .td2.heute .s, .td2.morgen .s { font-size: 10.5px; letter-spacing: -.01em; }
+.td2.offen .s { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.kd[data-g="nacht"] .td2:not(.offen):not(.heute):not(.bereit) { background: linear-gradient(160deg, #D9CFB7, #C2B696); box-shadow: inset 0 1px 0 #EFE6CF, inset 0 -3px 0 #0000002a, 0 2px 0 #000, 0 4px 8px #0008; }
+.kd[data-g="nacht"] .td2.nach { background: linear-gradient(160deg, #F2D9BF, #DDB993); }
+.kd[data-g="nacht"] .td2 .fluegel { background: linear-gradient(90deg, #A99E82, #D9CFB7 60%, #C2B696); }
 </style>
 </head>
 <body>
@@ -1406,6 +1588,176 @@ function festLauf(K, nacht, v) {
     if (g && pfad) { const x = (t - t0) % (dauer + pause); if (P.tag === 24 && t - t0 > dauer + pause) g.style.display = 'none'; else if (x > dauer) g.style.display = 'none'; else { g.style.display = ''; setze(x / dauer); } }
     id = requestAnimationFrame(lauf); };
   id = requestAnimationFrame(lauf); kartenLauf.push(() => cancelAnimationFrame(id));
+}
+// ================= ENTWURF 2 · Tür, Inhalte, Kalender, Gutscheine =================
+// Tür als gezeichnete Klappe (SVG): Rahmen-Fase, zwei Füllungen, Stanzlinie, Scharniere links, Zahl als Goldprägung.
+// Sorten: normal (grün) · krampus (dunkles Holz, Hörner, Kratzer, Schwanzspitze) · t6 (Stiefel am Knauf) · t24 (Festtür blau-gold)
+function tuerSvg(nr, sorte) {
+  const u = 'td' + sorte; const kr = sorte === 'krampus', t24 = sorte === 't24';
+  const f = kr ? { a: '#5A1F26', b: '#2A0A0F', hell: '#8A3A42', dunkel: '#16050A', fuell: '#3A1016', linie: '#F1E4C8' }
+    : t24 ? { a: '#2A4BB0', b: '#0E1A55', hell: '#6C8CF0', dunkel: '#070D33', fuell: '#16287A', linie: '#FFE9A8' }
+    : { a: '#22935A', b: '#0D5232', hell: '#5FD39A', dunkel: '#062E1B', fuell: '#0F5E39', linie: '#C9F5DD' };
+  const ziffer = String(nr); const gr = ziffer.length > 1 ? 96 : 112;
+  const zahl = kr ? ['#FFF6E2', '#E8D7B2', '#B89B6A'] : ['#FFF6C8', '#FFD23F', '#C98A0A'];
+  const fuellung = (x, y, w, h) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="9" fill="${f.dunkel}" opacity=".85"/><rect x="${x + 2}" y="${y + 2}" width="${w - 2}" height="${h - 2}" rx="8" fill="${f.hell}" opacity=".55"/><rect x="${x + 2.5}" y="${y + 2.5}" width="${w - 4.5}" height="${h - 4.5}" rx="7.5" fill="${f.fuell}"/><rect x="${x + 2.5}" y="${y + 2.5}" width="${w - 4.5}" height="${(h - 4.5) * .5}" rx="7.5" fill="url(#${u}glanz)"/>`;
+  const maserung = kr ? `<g stroke="#6E2A31" stroke-width="1.4" fill="none" opacity=".55">${[18, 44, 70, 104, 132, 160, 182].map((x, i) => `<path d="M${x} 6 C${x + 6} 60 ${x - 6} 120 ${x + 4} 170 S${x - 2} 230 ${x + 2} 240"/>`).join('')}<ellipse cx="128" cy="96" rx="5" ry="11" opacity=".8"/></g>` : '';
+  const muster = t24 ? `<g fill="#FFE9A8" opacity=".5">${[[30, 40], [160, 52], [44, 204], [150, 196], [100, 26], [24, 120], [172, 124]].map(([x, y]) => `<path d="M${x} ${y - 4} l1.2 2.8 2.8 1.2 -2.8 1.2 -1.2 2.8 -1.2 -2.8 -2.8 -1.2 2.8 -1.2z"/>`).join('')}</g>` : `<rect width="196" height="246" fill="url(#${u}lein)" opacity="${kr ? .0 : .07}"/>`;
+  const knauf = kr ? `<g transform="translate(174 128)"><circle r="8.5" fill="none" stroke="#2A2A2E" stroke-width="3.4"/><circle r="8.5" fill="none" stroke="#6B6B73" stroke-width="1.2" stroke-dasharray="10 40" transform="rotate(200)"/><circle cy="-8.5" r="3.4" fill="#3A3A40"/><circle cx="-1" cy="-9.4" r="1.1" fill="#8A8A92"/></g>`
+    : `<g transform="translate(174 126)"><ellipse cx="1.5" cy="3" rx="8" ry="7" fill="#000" opacity=".25"/><circle r="8" fill="url(#${u}messing)"/><circle r="4.2" fill="none" stroke="#9A6A08" stroke-width="1.2" opacity=".8"/><ellipse cx="-2.6" cy="-3" rx="2.2" ry="1.4" fill="#FFF6C8" opacity=".9" transform="rotate(-35 -2.6 -3)"/></g>`;
+  const scharnier = (y) => `<rect x="-3" y="${y}" width="9" height="22" rx="2" fill="url(#${u}messing)"/><path d="M-3 ${y + 7} H6 M-3 ${y + 15} H6" stroke="#9A6A08" stroke-width="1"/>`;
+  const horn = (m) => `<g transform="scale(${m} 1)"><path d="M-36 8 C-47 0 -52 -16 -45 -34 C-44 -36 -42 -36 -42 -33 C-42 -20 -36 -10 -18 6 Z" fill="url(#${u}horn)"/><path d="M-42 -33 C-42 -20 -36 -10 -18 6 L-24 7 C-34 -2 -40 -14 -42 -33Z" fill="#9C7E52" opacity=".45"/>
+      <path d="M-44.6 -24 q4 0 6.4 2.4 M-46 -13 q5 -.6 8 2.6 M-44 -2 q5 -1 8.4 2.6" stroke="#9C7E52" stroke-width="1.4" fill="none" stroke-linecap="round"/><path d="M-46.4 -28 C-48 -14 -44 -4 -36 4" stroke="#FFFBEF" stroke-width="1.5" fill="none" opacity=".7" stroke-linecap="round"/></g>`;
+  const oben = kr ? `<g transform="translate(98 -1)">${horn(1)}${horn(-1)}</g>`
+    : `<g transform="translate(98 2)"><path d="M-3 4 L-14 30 L-8 28 L-5 35 L2 8Z" fill="${t24 ? '#C98A0A' : '#B3122B'}"/><path d="M3 4 L14 32 L8 29 L6 36 L-1 8Z" fill="${t24 ? '#E0A40E' : '#C8172F'}"/>
+      <path d="M0 2 C-10 -14 -30 -14 -30 -3 C-30 7 -14 8 0 3 Z" fill="url(#${u}band)"/><path d="M0 2 C10 -14 30 -14 30 -3 C30 7 14 8 0 3 Z" fill="url(#${u}band)"/>
+      <path d="M0 2 C-8 -6 -18 -8 -24 -4 C-16 -4 -8 -1 0 3Z M0 2 C8 -6 18 -8 24 -4 C16 -4 8 -1 0 3Z" fill="#000" opacity=".22"/><path d="M-26 -8 C-22 -12 -14 -11 -9 -7" stroke="#fff" stroke-width="1.6" fill="none" opacity=".55" stroke-linecap="round"/>
+      <rect x="-6" y="-4" width="12" height="11" rx="4" fill="${t24 ? '#E0A40E' : '#C8172F'}"/><path d="M-4 -2 h5" stroke="#fff" stroke-width="1.2" opacity=".5" stroke-linecap="round"/></g>`;
+  const extra = kr ? `<g transform="translate(118 198)" stroke-linecap="round"><path d="M0 0 L22 -30 M10 6 L33 -24 M20 12 L43 -18" stroke="#16050A" stroke-width="5.6"/><path d="M0 0 L22 -30 M10 6 L33 -24 M20 12 L43 -18" stroke="#C25A5A" stroke-width="2.2"/><path d="M1 -1 L21 -29 M11 5 L32 -23 M21 11 L42 -17" stroke="#FFC2B8" stroke-width=".7" opacity=".7"/></g>
+      <path d="M192 206 C200 204 206 210 205 218 C204 226 210 230 216 226" stroke="#8A1A26" stroke-width="3.4" fill="none" stroke-linecap="round"/><path d="M213 219 L224 222 L216 232 Z" fill="#8A1A26"/><path d="M213 219 L224 222 L218 225Z" fill="#B3263A"/>`
+    : sorte === 't6' ? `<g transform="translate(174 126)"><path d="M0 4 C-2 14 2 22 -1 30" stroke="#FFF3D1" stroke-width="1.2" fill="none"/><g transform="translate(-13 30) rotate(6) scale(1.35)"><rect x="-1" y="-1" width="15" height="5" rx="2.5" fill="#fff"/><path d="M0 4 H12 V16 L18 18 C21 19 21 23 18 23 H0Z" fill="#E5243B"/><path d="M12 4 V16 L18 18 C21 19 21 23 18 23 H11 C13 22 14 20 10 18 V4Z" fill="#B3122B"/><circle cx="5" cy="-3" r="2.6" fill="#FFC94A"/><circle cx="9" cy="-4" r="2.2" fill="#F2B417"/></g></g>` : '';
+  return `<svg class="tuer-svg" viewBox="-6 -40 208 300" aria-hidden="true"><defs>
+    <linearGradient id="${u}holz" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${f.a}"/><stop offset="1" stop-color="${f.b}"/></linearGradient>
+    <linearGradient id="${u}zahl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${zahl[0]}"/><stop offset=".45" stop-color="${zahl[1]}"/><stop offset="1" stop-color="${zahl[2]}"/></linearGradient>
+    <radialGradient id="${u}messing" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#FFF1A8"/><stop offset=".5" stop-color="#FFC94A"/><stop offset="1" stop-color="#9A6A08"/></radialGradient>
+    <linearGradient id="${u}band" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${t24 ? '#FFE27A' : '#FF5A6B'}"/><stop offset="1" stop-color="${t24 ? '#E0A40E' : '#C8172F'}"/></linearGradient>
+    <linearGradient id="${u}horn" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#E8D7B2"/><stop offset=".7" stop-color="#F6ECD6"/><stop offset="1" stop-color="#B89B6A"/></linearGradient>
+    <linearGradient id="${u}glanz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><linearGradient id="${u}sheen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".16"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <pattern id="${u}lein" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><path d="M0 0 V6" stroke="#fff" stroke-width="1"/></pattern></defs>
+    <rect width="196" height="246" rx="14" fill="url(#${u}holz)"/>${maserung}${muster}<rect width="196" height="246" rx="14" fill="url(#${u}sheen)"/>
+    <path d="M2 232 V14 Q2 2 14 2 H182" stroke="${f.hell}" stroke-width="3" fill="none" opacity=".7"/><path d="M194 14 V232 Q194 244 182 244 H14" stroke="${f.dunkel}" stroke-width="4" fill="none" opacity=".8"/>
+    <rect x="9" y="9" width="178" height="228" rx="9" fill="none" stroke="${f.linie}" stroke-width="1.6" stroke-dasharray=".1 5.2" stroke-linecap="round" opacity="${kr ? .35 : .5}"/>
+    ${kr ? `<rect x="0" y="48" width="196" height="12" fill="#1C1C22"/><rect x="0" y="186" width="196" height="12" fill="#1C1C22"/><path d="M0 49 H196 M0 187 H196" stroke="#55555E" stroke-width="1"/>${[14, 60, 136, 182].flatMap((x) => [[x, 54], [x, 192]]).map(([x, y]) => `<circle cx="${x}" cy="${y}" r="3" fill="#3A3A42"/><circle cx="${x - .8}" cy="${y - .9}" r="1" fill="#9A9AA6"/>`).join('')}`
+      : `${fuellung(28, 28, 140, 82)}${fuellung(28, 128, 140, 92)}`}
+    ${scharnier(30)}${scharnier(194)}
+    <g font-family="Space Grotesk, system-ui, sans-serif" font-weight="700" font-size="${gr}" text-anchor="middle" letter-spacing="-4">
+      <text x="${98 + 1}" y="${160 + 5}" fill="${f.dunkel}" opacity=".8">${ziffer}</text><text x="98" y="160" fill="url(#${u}zahl)">${ziffer}</text>
+      <text x="98" y="160" fill="none" stroke="${kr ? '#FFFFFF' : '#FFFBE0'}" stroke-width="1" opacity=".45" transform="translate(-.8 -.8)">${ziffer}</text></g>
+    ${knauf}${extra}${oben}</svg>`;
+}
+
+function tuerAnsicht(s) {
+  const nacht = P.g === 'nacht'; const nr = { zweite: 6, 'tuer-krampus': 5, 'inhalt-krampus': 5, 'inhalt-jackpot': 13, 'inhalt-niete': 19, 'inhalt-karte6': 6, 'inhalt-karte24': 24, 'inhalt-sterne': 11 }[s] || P.tag;
+  const tagD = { 'tuer-krampus': 5, 'inhalt-krampus': 5, 'inhalt-karte6': 6, 'inhalt-karte24': 24, 'inhalt-jackpot': 13, 'inhalt-niete': 19, 'inhalt-sterne': 11 }[s] || P.tag;
+  const sorte = s.includes('krampus') ? 'krampus' : s === 'inhalt-jackpot' ? 'jackpot' : s === 'inhalt-niete' ? 'niete' : s.includes('karte') ? 'karte' : s === 'inhalt-sterne' ? 'sterne' : '';
+  const zu = s === 'tuer' || s === 'zweite' || s === 'tuer-krampus';
+  const tuerSorte = s === 'tuer-krampus' ? 'krampus' : nr === 6 ? 't6' : nr === 24 ? 't24' : 'normal';
+  const ober = s === 'zweite' ? `2. TÜRCHEN HEUTE · ${datumText(P.tag).toUpperCase()}` : sorte === 'krampus' && !zu ? `KRAMPUS WAR DA · ${datumText(tagD).toUpperCase()}` : `ADVENTSKALENDER · ${datumText(tagD).toUpperCase()}`;
+  const zeile = s === 'tuer-krampus' ? 'Hm. Diese Tür sieht anders aus …' : s === 'inhalt-krampus' ? 'Kein Sterne-Abzug. Nur eine kleine Aufgabe.' : s === 'inhalt-karte24' ? 'Frohe Weihnachten!' : s === 'tuer' ? 'Für deine Etappe. Tippen zum Öffnen.' : s === 'zweite' ? 'Zweite Etappe heute – du holst Türchen 6 nach. Mehr als 2 am Tag gehen nicht.' : '';
+  const halb = P.auf === '1';
+  const tuer = `<div class="rahmen2 ${halb ? 'auf halb' : ''} tuer-${tuerSorte}" id="rahmen"><div class="licht2" aria-hidden="true"><i></i></div><button type="button" class="klappe" id="tuerknopf" aria-label="Türchen ${nr} öffnen">${tuerSvg(nr, tuerSorte)}<span class="klappe-schatten" aria-hidden="true"></span></button></div>`;
+  let buehne;
+  if (zu) buehne = `${tuer}<div class="antippen">${halb ? 'STANDBILD · BEWEGUNG REDUZIERT' : '▲ TIPPEN ZUM ÖFFNEN'}</div>`;
+  else if (s === 'inhalt-bild') buehne = `<div class="inhalt-r"><div class="motiv-gross2" role="img" aria-label="Bild: Koala mit Sonnenbrille und Weihnachtsmütze">${motivSvg('koala')}</div><p class="satz">31 Grad, Mütze trotzdem. Stil ist Stil.</p></div>`;
+  else if (s === 'inhalt-geschenk') buehne = `<div class="inhalt-r">${gutscheinKarte({ nr, titel: 'Du bestimmst das Abendessen.', text: 'An einem Abend deiner Wahl. Sag einfach Bescheid.', sterne: 50 })}</div>`;
+  else if (s === 'inhalt-krampus') buehne = `<div class="inhalt-r">${krampusKarte(5)}</div>`;
+  else if (s === 'inhalt-jackpot') buehne = `<div class="inhalt-r">${jackpotKarte()}<p class="satz">Schon gutgeschrieben. Einfach so.</p></div>`;
+  else if (s === 'inhalt-niete') buehne = `<div class="inhalt-r">${nieteKarte()}<p class="satz">Morgen wartet ein neues Türchen.</p></div>`;
+  else if (s === 'inhalt-sterne') buehne = `<div class="inhalt-r">${sterneKarte(500)}</div>`;
+  else if (s === 'inhalt-karte6' || s === 'inhalt-karte24') { const m = s === 'inhalt-karte6' ? 'nikolaus' : 'heiligabend'; buehne = `<div class="inhalt-r"><div class="karte-gross2 ${m}" role="img" aria-label="Karte ${m === 'nikolaus' ? 'Nikolaus' : 'Heiligabend'}">${motivSvg(m)}</div><p class="satz karte-satz">„${esc(MOTIVE.find((x) => x.id === m).satz)}“<small>– Mama und Papa</small></p></div>`; }
+  else buehne = `<div class="inhalt-r"><div class="leer-licht2"><b>nur Licht.</b></div><p class="satz">Hier ist heute nichts versteckt. Aber die Etappe hast du – und die bleibt.</p></div>`;
+  const funken = zu ? '' : `<div class="funken" aria-hidden="true">${Array.from({ length: 14 }, (_, i) => `<i style="left:${(10 + ((i * 37) % 80))}%;top:${(16 + ((i * 53) % 52))}%;opacity:${0.35 + ((i * 7) % 6) / 10};transform:scale(${.6 + (i % 3) * .3})"></i>`).join('')}</div>`;
+  const badge = s === 'zweite' ? '<span class="badge">NACHGEHOLT</span>' : '';
+  const STK = { ...STICKER, 'inhalt-sterne': ['Sheesh!', 's3'] };
+  const st = STK[s] ? `<div class="sticker ${STK[s][1]}" aria-hidden="true">${STK[s][0]}</div>` : '';
+  const weiter = `<a class="gross" href="#s=kalender&g=${P.g}"><span>Weiter: Zahlenstrahl<small>Etappe 3 von 6</small></span><span class="pf">›</span></a>`;
+  const blatt = zu
+    ? `<div class="blatt-ab"><p class="klein">Etappe gelandet ✓</p><p class="txt">${sorte === 'krampus' ? 'Diese Tür riecht nach … Aufgabe. Trotzdem aufmachen?' : 'Dahinter ist ein Bild oder ein Geschenk von Mama und Papa.'}</p><button type="button" class="gross gold" id="oeffnenknopf"><span>Türchen ${nr} öffnen</span><span class="pf">›</span></button><a class="textlink" href="#s=kalender-bereit&g=${P.g}">Später öffnen – weiter zu: Zahlenstrahl</a></div>`
+    : `<div class="blatt-ab"><p class="klein">Türchen ${nr} ist offen</p><p class="txt">${sorte === 'krampus' ? 'Steht in „Meine Gutscheine“ unter „Vom Krampus“. Mama oder Papa haken ab, wenn’s erledigt ist.' : sorte === 'jackpot' ? '1.111 Sterne sind schon auf deinem Konto.' : sorte === 'niete' ? '1 Stern ist schon auf deinem Konto. Nicht jedes Türchen ist ein Jackpot.' : sorte === 'sterne' ? '500 Sterne sind schon auf deinem Konto.' : sorte === 'karte' ? (nr === 6 ? 'Heute nur eine Karte – das Geschenk gibt’s von Mama und Papa.' : 'Heute nur eine Karte – die Geschenke gibt’s unterm Baum.') : s === 'inhalt-geschenk' ? 'Einlösen, wann du willst: Menü › Meine Gutscheine. Die 50 Sterne sind schon gutgeschrieben.' : 'Bleibt im Adventskalender – du kannst es jederzeit wieder ansehen.'}</p>${nr < 24 ? `<p class="leise">Türchen ${nr + 1} wartet morgen – nach deiner nächsten Etappe.</p>` : ''}${weiter}<a class="textlink" href="#s=kalender&g=${P.g}">Adventskalender ansehen</a></div>`;
+  const band = P.vorschau === '1' ? '<div class="vorschau-band">Vorschau – so sieht es Kind 1 · <a href="#s=eltern">zurück</a></div>' : '';
+  const sorteKl = sorte ? 'sorte-' + sorte : tuerSorte === 't24' ? 'sorte-t24' : '';
+  return `${band}<div class="ab ab2 ${nacht ? 'nacht' : 'hell'} ${sorteKl}" role="dialog" aria-modal="true" aria-label="Türchen ${nr}"><div class="szene">${funken}<div class="oben">${ober}</div><h2 class="titel">Türchen ${nr}${badge}</h2>${zeile ? `<p class="zeile">${zeile}</p>` : ''}<div class="buehne">${buehne}</div>${st}</div>${blatt}</div>`;
+}
+
+// ---------- Inhaltskarten ----------
+const PRAEGUNG = (id) => `<svg class="praegung" viewBox="0 0 80 80" aria-hidden="true"><defs><path id="${id}" d="M40 40 m-29 0 a29 29 0 1 1 58 0 a29 29 0 1 1 -58 0"/></defs>
+  <g fill="none" stroke-width="1.4"><circle cx="40" cy="40" r="36" stroke="#fff"/><circle cx="40" cy="40" r="36" stroke="#A8873A" opacity=".35" transform="translate(.9 .9)"/><circle cx="40" cy="40" r="22" stroke="#fff"/><circle cx="40" cy="40" r="22" stroke="#A8873A" opacity=".35" transform="translate(.9 .9)"/></g>
+  <text font-family="ui-monospace, Menlo, monospace" font-size="7.4" font-weight="800" letter-spacing="2.2" fill="#A8873A" opacity=".45"><textPath href="#${id}">ADVENTSKALENDER · 2026 · ECHT ·</textPath></text>
+  <path d="M40 27 l3.6 8 8.7 .8 -6.6 5.8 2 8.6 -7.7 -4.6 -7.7 4.6 2 -8.6 -6.6 -5.8 8.7 -.8z" fill="#A8873A" opacity=".3" transform="translate(.8 .8)"/><path d="M40 27 l3.6 8 8.7 .8 -6.6 5.8 2 8.6 -7.7 -4.6 -7.7 4.6 2 -8.6 -6.6 -5.8 8.7 -.8z" fill="#FFF9E6"/></svg>`;
+const GUILLOCHE = `<svg class="guilloche" viewBox="0 0 320 160" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke="#E7D39A" stroke-width=".7">${Array.from({ length: 9 }, (_, i) => `<path d="M0 ${18 + i * 16} ${Array.from({ length: 16 }, (_, j) => `Q${j * 20 + 10} ${18 + i * 16 + (j % 2 ? -7 : 7)} ${j * 20 + 20} ${18 + i * 16}`).join(' ')}"/>`).join('')}</g></svg>`;
+function gutscheinKarte({ nr, titel, text, sterne }) {
+  return `<div class="ticket-w"><div class="ticket" role="img" aria-label="Gutschein: ${esc(titel)} Hol dir bei Mama oder Papa ab."><div class="tk-kopf"><span class="tk-marke">${STERN_ICO}GUTSCHEIN</span><span>TÜR ${nr} · NR. ${String(nr).padStart(2, '0')}/24</span></div>
+    <div class="tk-koerper">${GUILLOCHE}<small>HOL DIR BEI MAMA ODER PAPA AB</small><h3>${esc(titel)}</h3><p>${esc(text)}</p>${PRAEGUNG('pr' + nr)}</div>
+    <div class="tk-perf" aria-hidden="true"></div><div class="tk-fuss"><span class="tk-ico">${GESCHENK_ICO}</span><span>Liegt jetzt in „Meine Gutscheine“.</span>${sterne ? `<b class="tk-st">+${sterne}<i>★</i></b>` : ''}</div></div></div>`;
+}
+const HUF = `<svg viewBox="0 0 40 40" aria-hidden="true"><g fill="currentColor"><path d="M8 4 C3 6 2 16 6 20 C9 22 13 20 14 16 C15 10 13 3 8 4Z"/><path d="M26 4 C31 6 32 16 28 20 C25 22 21 20 20 16 C19 10 21 3 26 4Z"/><path d="M12 26 C9 28 9 34 12 36 C14 37 16 35 16 33 C16 30 15 25 12 26Z" opacity=".7"/><path d="M22 26 C25 28 25 34 22 36 C20 37 18 35 18 33 C18 30 19 25 22 26Z" opacity=".7"/></g></svg>`;
+function krampusKarte(nr) {
+  return `<div class="kr-karte" role="img" aria-label="Krampus-Karte: Zimmer aufräumen, heute noch. Erledigt bestätigen Mama oder Papa.">
+    <div class="kr-kopf"><span>KRAMPUS WAR DA</span><span>TÜR ${nr}</span><svg class="kr-kratz" viewBox="0 0 90 40" aria-hidden="true"><path d="M10 38 L30 2 M28 38 L48 2 M46 38 L66 2" stroke="#1C0A0E" stroke-width="6" stroke-linecap="round"/></svg></div>
+    <div class="kr-in"><div class="kr-bild">${motivSvg('krampus')}</div><div><small>DEINE AUFGABE</small><h3>Zimmer aufräumen – heute noch.</h3><p>Bis zum Abendessen.</p></div></div>
+    <div class="kr-perf" aria-hidden="true"></div><div class="kr-fuss"><span class="kr-box" aria-hidden="true"></span><span>Erledigt? Bestätigen Mama oder Papa.</span><span class="kr-huf" aria-hidden="true">${HUF}</span></div></div>`;
+}
+const WALZEN_STERN = (u) => `<svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="${u}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF6C8"/><stop offset=".45" stop-color="#FFD23F"/><stop offset="1" stop-color="#B57A06"/></linearGradient></defs><path d="M30 9 l6 13.2 14.4 1.4 -10.9 9.6 3.2 14.2 -12.7 -7.5 -12.7 7.5 3.2 -14.2 -10.9 -9.6 14.4 -1.4z" fill="url(#${u})"/><path d="M30 9 l6 13.2 14.4 1.4 -10.9 9.6 3.2 14.2 -12.7 -7.5z" fill="#8A5A00" opacity=".22"/><path d="M30 13 l4.4 9.6" stroke="#FFFBEA" stroke-width="1.4" stroke-linecap="round" opacity=".8"/></svg>`;
+function jackpotKarte() {
+  const walze = (i) => `<span class="jp-walze"><span class="jp-zeile weg">${WALZEN_STERN('jw' + i + 'a')}</span><span class="jp-zeile">${WALZEN_STERN('jw' + i + 'b')}</span><span class="jp-zeile weg">${WALZEN_STERN('jw' + i + 'c')}</span></span>`;
+  return `<div class="jackpot2" role="img" aria-label="Jackpot: plus 1111 Sterne"><div class="jp-fenster"><i class="jp-linie"></i>${[0, 1, 2].map(walze).join('')}</div><div class="jp-wort2"><span>JACKPOT</span></div><div class="jp-zahl2">+1.111<i>★</i></div></div>`;
+}
+function nieteKarte() {
+  return `<div class="niete2" role="img" aria-label="Niete mit Trostpreis: plus 1 Stern"><div class="nt-stempel2"><span>NIETE</span></div><div class="nt-trost">…aber nicht ganz.</div>
+    <div class="nt-preis"><svg class="nt-stern" viewBox="0 0 80 80" aria-hidden="true"><path d="M40 6 l9.4 20.6 22.6 2.2 -17 15 5 22.2 -20 -11.8 -20 11.8 5 -22.2 -17 -15 22.6 -2.2z" fill="#FFD23F"/><path d="M40 6 l9.4 20.6 22.6 2.2 -17 15 5 22.2 -20 -11.8z" fill="#E0A40E"/>
+      <g transform="rotate(-32 40 42)"><rect x="18" y="35" width="44" height="14" rx="7" fill="#F4C9A8"/><rect x="33" y="36.5" width="14" height="11" rx="2" fill="#E8B48E"/>${[[23, 39], [26, 45], [53, 39], [56, 45], [36, 39], [41, 44], [44, 39]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r=".9" fill="#C98E66"/>`).join('')}</g>
+      <circle cx="33" cy="36" r="2.2" fill="#3A2A12"/><circle cx="47" cy="36" r="2.2" fill="#3A2A12"/><path d="M34 52 q6 -4 12 0" stroke="#3A2A12" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+      <div><div class="nt-zahl">+1 ★</div><div class="nt-klein">TROSTPREIS</div></div></div></div>`;
+}
+function sterneKarte(n) {
+  return `<div class="sterne2" role="img" aria-label="Plus ${n} Sterne"><svg class="muenze" viewBox="0 0 160 160" aria-hidden="true"><defs><radialGradient id="mzg" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#FFF6C8"/><stop offset=".5" stop-color="#FFD23F"/><stop offset="1" stop-color="#B57A06"/></radialGradient><linearGradient id="mzr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE27A"/><stop offset="1" stop-color="#8A5A00"/></linearGradient></defs>
+    <circle cx="82" cy="84" r="70" fill="#000" opacity=".28"/><circle cx="80" cy="80" r="70" fill="url(#mzr)"/><circle cx="80" cy="80" r="66" fill="none" stroke="#FFF1A8" stroke-width="3" stroke-dasharray="2 4" opacity=".7"/><circle cx="80" cy="80" r="58" fill="url(#mzg)"/>
+    <circle cx="80" cy="80" r="58" fill="none" stroke="#8A5A00" stroke-width="1.5" opacity=".5"/><path d="M80 38 l11 24 26 2.6 -19.6 17.2 5.8 25.6 -23.2 -13.6 -23.2 13.6 5.8 -25.6 -19.6 -17.2 26 -2.6z" fill="#E0A40E"/><path d="M80 38 l11 24 26 2.6 -19.6 17.2 5.8 25.6 -23.2 -13.6z" fill="#B57A06" opacity=".7"/><path d="M80 44 l8.6 18.8" stroke="#FFF6C8" stroke-width="2" stroke-linecap="round"/>
+    <path d="M38 52 A50 50 0 0 1 70 26" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" opacity=".55"/></svg><div class="st-zahl">+${n}<i>★</i></div><div class="st-klein">GUTGESCHRIEBEN</div></div>`;
+}
+// ================= ENTWURF 2 · Kalender (Tafel mit Klappen) und „Meine Gutscheine“ =================
+function kindSeite(s) {
+  const g = P.g;
+  if (['tuer', 'inhalt-bild', 'inhalt-geschenk', 'zweite', 'leer', 'tuer-krampus', 'inhalt-krampus', 'inhalt-jackpot', 'inhalt-niete', 'inhalt-karte6', 'inhalt-karte24', 'inhalt-sterne'].includes(s)) return `<div class="kd" data-g="${g}">${tuerAnsicht(s)}</div>`;
+  if (s === 'gutscheine') return `<div class="kd" data-g="${g}">${gutscheinSeite()}</div>`;
+  if (['hinweis', 'hinweis-bereit', 'hinweis-limit', 'menue'].includes(s)) return `<div class="kd" data-g="${g}">${karteHinweis(s)}</div>`;
+  return `<div class="kd" data-g="${g}">${kalender(s)}</div>`;
+}
+const SCHLEIFE_KL = (gold) => `<svg class="k-schleife" viewBox="0 0 40 20" aria-hidden="true"><path d="M20 9 C14 0 3 1 4 8 C5 13 14 12 20 10 Z M20 9 C26 0 37 1 36 8 C35 13 26 12 20 10 Z" fill="${gold ? '#C98A0A' : '#E5243B'}"/><path d="M20 9 C15 4 9 4 7 7 C11 7 15 8 20 10Z M20 9 C25 4 31 4 33 7 C29 7 25 8 20 10Z" fill="#000" opacity=".2"/><path d="M18 10 L14 19 M22 10 L26 19" stroke="${gold ? '#C98A0A' : '#E5243B'}" stroke-width="3" stroke-linecap="round"/><rect x="16.5" y="6.5" width="7" height="6" rx="2.5" fill="${gold ? '#E0A40E' : '#C8172F'}"/></svg>`;
+const MOND_ICO = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10.5 1.5a6.5 6.5 0 1 0 4 11.6A7 7 0 0 1 10.5 1.5z" fill="currentColor"/></svg>';
+const UHR_ICO = '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 4.6V8l2.4 1.6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>';
+function kalender(s) {
+  const szen = s === 'kalender' || s === 'kalender-tuer' ? 'kalender' : s === 'kalender-bereit' ? 'bereit' : s;
+  const st = stand(1, szen, P.tag); const z = st.z;
+  const offen = z.filter((x) => x === 'offen').length;
+  const nach = z.map((x, i) => (x === 'nach' || x === 'bereit' ? i : 0)).filter(Boolean);
+  let ober, h1, p, chips, banner = '';
+  if (szen === 'vor1') { ober = 'SAMSTAG, 28. NOVEMBER'; h1 = 'Adventskalender'; p = 'Ab Dienstag, 1. Dezember: Nach jeder geschafften Etappe geht ein Türchen auf. Dahinter: ein Bild oder ein Geschenk von Mama und Papa.'; chips = '<span class="gold">Noch 3 Tage</span>'; }
+  else if (szen === 'nach24') { ober = 'SAMSTAG, 26. DEZEMBER'; h1 = 'Frohe Weihnachten'; p = '22 von 24 Türchen sind offen. Türchen 23 und 24 holst du bis 31. Dezember nach – eins je Etappe, höchstens 2 am Tag.'; chips = '<span>22 offen</span><span class="gold">2 nachholen</span>'; }
+  else if (szen === 'limit') { ober = datumText(P.tag).toUpperCase(); h1 = 'Für heute: alles raus.'; p = 'Du hast heute 2 Türchen geöffnet – mehr geht an einem Tag nicht. Türchen 7 wartet morgen auf dich.'; chips = `<span>${offen} offen</span><span>heute 2 von 2</span>`; banner = `<div class="kal-banner mond"><span class="sym">☾</span><span><b>Morgen geht’s weiter.</b> Deine Etappen zählen trotzdem – nur Türchen gibt’s höchstens 2 am Tag.</span></div>`; }
+  else { ober = datumText(P.tag).toUpperCase(); h1 = 'Adventskalender'; chips = `<span>${offen} offen</span>${nach.length ? `<span class="gold">${nach.length + (z[P.tag] === 'heute' ? 1 : 0)} warten</span>` : ''}`;
+    p = szen === 'bereit' ? 'Türchen 6 ist bereit – du hast heute schon eine Etappe geschafft. Tippen und öffnen.' : `Türchen 6 und ${P.tag} warten. Je geschaffte Etappe geht eins auf – höchstens 2 am Tag, das älteste zuerst.`; }
+  const kachel = (n) => { const zs = z[n]; const i = inhalt(K1[n]);
+    if (zs === 'offen') { const innen = i.art === 'bild' || i.art === 'karte' ? motivSvg(i.id).replace('<svg ', '<svg preserveAspectRatio="xMidYMid slice" ')
+        : i.art === 'krampus' ? `<span class="gico">${HORN_ICO}</span>` : i.art === 'jackpot' || i.art === 'niete' ? `<span class="gross-z">+${i.sterne}<i>★</i></span>` : i.art === 'leer' ? '' : `<span class="gico">${GESCHENK_ICO}</span>`;
+      const kl = i.art === 'bild' || i.art === 'karte' ? 'bild' : i.art === 'krampus' ? 'krampus' : i.art === 'jackpot' ? 'jackpot' : i.art === 'niete' ? 'niete' : i.art === 'leer' ? 'leer' : 'geschenk';
+      const titel = i.art === 'krampus' ? 'Krampus' : i.art === 'jackpot' ? 'Jackpot' : i.art === 'niete' ? 'Trostpreis' : i.art === 'leer' ? 'nur Licht' : i.titel;
+      return `<button type="button" class="td2 offen ${kl}" aria-label="Türchen ${n}, offen: ${esc(i.art === 'krampus' ? 'Krampus – ' + i.titel : i.titel)}" data-tuer="${n}"><span class="fach">${innen}</span><span class="fluegel" aria-hidden="true"></span><span class="n">${n}</span><span class="s">${esc(titel)}</span></button>`; }
+    const lab = { nach: `${UHR_ICO}nachholen`, heute: 'heute · nach Etappe', bereit: 'öffnen!', morgen: `${MOND_ICO}morgen`, zu: '' }[zs];
+    const aria = { nach: 'nachholen', heute: 'heute dran, nach deiner nächsten Etappe', bereit: 'bereit, jetzt öffnen', morgen: 'morgen', zu: 'noch zu' }[zs];
+    const deko = zs === 'heute' || zs === 'bereit' ? SCHLEIFE_KL(zs === 'bereit') : '';
+    return `<button type="button" class="td2 ${zs}" aria-label="Türchen ${n}, ${aria}"${zs === 'bereit' ? ` data-go="tuer"` : ''}>${deko}<span class="n">${n}</span><span class="s">${lab}</span></button>`; };
+  const abholen = szen === 'vor1' ? '' : `<a class="karte2 gs-link" href="#s=gutscheine&g=${P.g}"><h2>MEINE GUTSCHEINE</h2><div class="abholen-z"><span class="gi">${GESCHENK_ICO}</span><span><b>2 einlösbar · 1 angefragt</b><small>Eis oder Bubble Tea, Einmal Abwasch frei …</small></span></div></a>`;
+  const regeln = `<div class="karte2"><h2>SO GEHT’S</h2><ul class="regel-l"><li>Etappe geschafft → ein Türchen geht auf.</li><li>Verpasst? Holst du nach – das älteste zuerst.</li><li>Höchstens 2 am Tag, dann braucht’s 2 Etappen.</li><li>Morgen-Türchen bleiben zu bis morgen.</li></ul></div>`;
+  const legende = `<div class="legende2"><span><i class="o"></i>offen</span><span><i class="b"></i>bereit</span><span><i class="h"></i>heute</span><span><i class="n"></i>nachholen</span><span><i class="m"></i>morgen</span><span><i class="z"></i>noch zu</span></div>`;
+  const links = `<div><div class="kal-held"><div class="licht"></div><div class="ober">${ober}</div><h1>${h1}</h1><p>${p}</p><div class="kal-status">${chips}</div></div>${banner}<div class="tafel"><div class="tafel-deko" aria-hidden="true"></div><div class="tueren2">${UMORDNUNG.map(kachel).join('')}</div></div>${legende}</div>`;
+  const rechts = `<div class="seite-r">${abholen}${regeln}</div>`;
+  let blatt = '';
+  if (s === 'kalender-tuer') { const i = inhalt(K1[5]); blatt = `<div class="kd-blatt-hg"><div class="kd-blatt" role="dialog" aria-modal="true" aria-label="Türchen 5"><div class="griff"></div><div class="ober">TÜRCHEN 5 · GEÖFFNET AM 5.12.</div><h2>${esc(i.titel)}</h2><div class="motiv-gross2" style="margin:10px auto 0">${motivSvg(i.id)}</div><p class="satz" style="margin:14px auto 0">${esc(i.text)}</p><a class="knopf2" href="#s=kalender&g=${P.g}">Schließen</a></div></div>`; }
+  return `<div class="kd-seite"><div class="kd-kopf"><a class="zur" href="#s=hinweis&g=${P.g}" aria-label="Zurück zur Reisekarte">‹</a><b>Adventskalender</b><span class="stern-chip">★ 340</span><button class="menue-k" type="button" aria-label="Menü">≡</button></div><div class="kd-inhalt">${links}${rechts}</div>${blatt}</div>`;
+}
+function gutscheinSeite() {
+  const L = GUTSCHEINE[1]; const W = { offen: 0, spaeter: 0, angefragt: 1, eingeloest: 2 };
+  const liste = [...L].sort((a, b) => W[a.z] - W[b.z]);
+  const karte = (x) => { const ein = x.z === 'eingeloest';
+    const unten = x.z === 'angefragt' ? `<span class="gs-status wartet"><i class="sanduhr" aria-hidden="true"></i>Angefragt – wartet auf Mama oder Papa</span>`
+      : ein ? `<span class="gs-status">✓ Eingelöst am ${x.ein}</span>`
+      : `${x.z === 'spaeter' ? '<span class="gs-status spaeter">Heute nicht – ein andermal. Bleibt gültig.</span>' : ''}<button type="button" class="gs-ein" aria-label="Einlösen: ${esc(x.t)}">Einlösen</button>`;
+    const stempel = ein ? '<span class="gs-stempel" aria-hidden="true">EINGELÖST</span>' : x.z === 'angefragt' ? '<span class="gs-stempel blau" aria-hidden="true">ANGEFRAGT</span>' : '';
+    return `<li class="gs2 ${x.z}" ${ein ? 'aria-disabled="true"' : ''}><div class="gk"><span>${STERN_ICO}GUTSCHEIN${x.neu ? ' · NEU' : ''}</span><span>TÜR ${x.n} · ${x.am}</span></div><div class="gs-in"><h3>${esc(x.t)}</h3><p>${esc(x.x || Object.values(G).find((v) => x.t.startsWith(v[0].slice(0, 10)))?.[1] || '')}</p></div><div class="gs-perf" aria-hidden="true"></div><div class="gs-fuss">${unten}${stempel}</div></li>`; };
+  return `<div class="kd-seite"><div class="kd-kopf"><a class="zur" href="#s=kalender&g=${P.g}" aria-label="Zurück">‹</a><b>Meine Gutscheine</b><span class="stern-chip">★ 390</span><button class="menue-k" type="button" aria-label="Menü">≡</button></div>
+    <div class="kd-inhalt gs-seite"><div><p class="gs-unter">Aus deinem Adventskalender. Gelten, bis du sie einlöst – auch nach Weihnachten.</p><ul class="gs-liste">${liste.map(karte).join('')}</ul>
+    <h2 class="gs-h">VOM KRAMPUS</h2><ul class="gs-liste"><li class="gs2 krampus"><div class="gk"><span>KRAMPUS WAR DA</span><span>TÜR 5 · 5.12.</span></div><div class="gs-in"><span class="kr-huf2" aria-hidden="true">${HUF}</span><h3>Zimmer aufräumen – heute noch.</h3><p>Bis zum Abendessen.</p></div><div class="gs-perf" aria-hidden="true"></div><div class="gs-fuss"><span class="gs-status kr">☐ Erledigt? Mama oder Papa haken ab.</span></div></li></ul>
+    <p class="gs-unter klein">Einlösen = Mama oder Papa bekommen Bescheid und bestätigen. Bilder aus den Türchen findest du im <a href="#s=kalender&g=${P.g}">Adventskalender</a>.</p></div></div></div>`;
 }
 
 zeichne();

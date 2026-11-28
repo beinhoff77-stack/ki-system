@@ -15,12 +15,12 @@ neu(T, "dreieck", "test", "transfer", L(
      1: [(34, "die x-Koordinate von D als Grundseite genommen: 17 · 4 : 2", "17 * 4 / 2"), (68, "die x-Koordinate von D als Grundseite ohne Halbieren: 17 · 4", "17 * 4")]}),
     lp=LP, idee="hoehe_ausserhalb")
 neu(T, "dreieck", "korrektur", "mehrschritt", Z(
-    "Das Dreieck ABC hat die Ecken A(1|1), B(9|1) und C(12|6) (eine Einheit ist 1 cm). Ben legt das kleinste Rechteck mit achsenparallelen Seiten um das Dreieck; es hat 55 cm². Dann zieht er die beiden überstehenden Dreiecke ab. Wie viele cm² muss er insgesamt von den 55 cm² abziehen?",
-    35, "11 * 5 / 2 + 3 * 5 / 2", "55 - 20",
-    "Das Rechteck reicht von x = 1 bis x = 12 und von y = 1 bis y = 6, es ist 11 cm breit und 5 cm hoch. Überstehend sind zwei rechtwinklige Dreiecke: eines mit den Katheten 11 und 5 (11 · 5 : 2 = 27,5 cm²) und eines mit den Katheten 3 und 5 (3 · 5 : 2 = 7,5 cm²). Zusammen sind das 35 cm². Es bleiben 55 − 35 = 20 cm², das ist die Fläche des Dreiecks.",
-    [B("55 - 35", "die Fläche des Dreiecks (20 cm²) angegeben statt der abzuziehenden Fläche"),
-     B("11 * 5 / 2", "nur das große überstehende Dreieck abgezogen"),
-     B("3 * 5 / 2 + 11 * 5", "das große überstehende Dreieck ohne Halbieren gerechnet")], einheit="cm²"), form="zwei_wege", lp=LP, idee="ergaenzen_rechteck")
+    "Das Dreieck ABC hat die Ecken A(1|1), B(9|1) und C(13|6) (eine Einheit ist 1 cm). Ben legt das kleinste Rechteck mit achsenparallelen Seiten um das Dreieck; es hat 60 cm². Dann zieht er die beiden überstehenden Dreiecke ab. Wie viele cm² muss er insgesamt von den 60 cm² abziehen?",
+    40, "12 * 5 / 2 + 4 * 5 / 2", "60 - 20",
+    "Das Rechteck reicht von x = 1 bis x = 13 und von y = 1 bis y = 6, es ist 12 cm breit und 5 cm hoch. Überstehend sind zwei rechtwinklige Dreiecke: eines mit den Katheten 12 und 5 (12 · 5 : 2 = 30 cm²) und eines mit den Katheten 4 und 5 (4 · 5 : 2 = 10 cm²). Zusammen sind das 40 cm². Es bleiben 60 − 40 = 20 cm², das ist die Fläche des Dreiecks.",
+    [B("60 - 40", "die Fläche des Dreiecks angegeben statt der abzuziehenden Fläche"),
+     B("12 * 5 / 2", "nur das große überstehende Dreieck abgezogen"),
+     B("4 * 5 / 2 + 12 * 5", "das große überstehende Dreieck ohne Halbieren gerechnet")], einheit="cm²"), form="zwei_wege", lp=LP, idee="ergaenzen_rechteck")
 neu(T, "dreieck", "korrektur", "darstellung", Z(
     "Zwei gleiche Dreiecke werden so aneinandergelegt, dass ein Parallelogramm mit der Grundseite 12 cm und der Höhe 7 cm entsteht. Wie groß ist die Fläche eines der beiden Dreiecke?",
     42, "12 * 7 / 2", "84 / 2",
@@ -147,11 +147,11 @@ neu(T, "zusammengesetzt", "sicherung", "darstellung", W(
     "Die Figur lässt sich in zwei Rechtecke zerlegen: links 6 cm breit und 7 cm hoch, rechts 3 cm breit und 7 − 2 = 5 cm hoch. Das ergibt 6 · 7 + 3 · 5 = 42 + 15 = 57 cm². Gleichwertig ist die Ergänzung: 9 · 7 − 3 · 2 = 63 − 6 = 57 cm².",
     lambda: 6 * 7 + 3 * 5 == 9 * 7 - 3 * 2 == 57 and 9 * 7 - 3 * 5 != 57 and 6 * 7 + 3 * 2 != 57 and 9 * 5 + 3 * 2 != 57), lp=LP, idee="zerlegen_rechnungen")
 neu(T, "zusammengesetzt", "sicherung", "transfer", Z(
-    "Das Viereck ABCD hat die Ecken A(0|0), B(10|0), C(7|6) und D(1|6) (eine Einheit ist 1 cm). Wie viele cm² hat es?",
-    48, "(10 + 6) * 6 / 2", "10 * 6 - 3 * 6 / 2 - 1 * 6 / 2",
-    "AB und DC liegen auf Parallelen zur x-Achse im Abstand 6 cm: AB = 10 cm, DC = 7 − 1 = 6 cm. Das Viereck ist ein Trapez mit A = (10 + 6) · 6 : 2 = 48 cm². Kontrolle durch Ergänzen: Rechteck 10 · 6 = 60 cm², abzüglich der Dreiecke links (1 · 6 : 2 = 3 cm²) und rechts (3 · 6 : 2 = 9 cm²): 60 − 12 = 48 cm².",
+    "Das Viereck ABCD hat die Ecken A(0|0), B(10|0), C(7|6) und D(2|6) (eine Einheit ist 1 cm). Wie viele cm² hat es?",
+    45, "(10 + 5) * 6 / 2", "10 * 6 - 3 * 6 / 2 - 2 * 6 / 2",
+    "AB und DC liegen auf Parallelen zur x-Achse im Abstand 6 cm: AB = 10 cm, DC = 7 − 2 = 5 cm. Das Viereck ist ein Trapez mit A = (10 + 5) · 6 : 2 = 45 cm². Kontrolle durch Ergänzen: Rechteck 10 · 6 = 60 cm², abzüglich der Dreiecke links (2 · 6 : 2 = 6 cm²) und rechts (3 · 6 : 2 = 9 cm²): 60 − 15 = 45 cm².",
     [B("(10 + 7) * 6 / 2", "die x-Koordinate 7 von C statt der Länge DC genommen"),
-     B("(10 + 6) * 6", "das Halbieren vergessen"),
+     B("(10 + 5) * 6", "das Halbieren vergessen"),
      B("10 * 6 / 2", "nur das Dreieck über AB berechnet")], einheit="cm²"), form="zwei_wege", lp=LP, idee="koordinaten_trapez")
 # ───────── verstehen ─────────
 neu(T, "verstehen", "test", "rueckwaerts", Z(

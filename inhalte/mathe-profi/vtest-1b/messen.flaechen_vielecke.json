@@ -103,25 +103,25 @@
    "abgrenzung": "Die Übungen setzen g und h in g · h : 2 ein; hier wird erklärt, warum zwei gleiche Dreiecke ein Parallelogramm ergeben, warum die Höhe und nicht die schräge Seite zählt, auch wenn sie außen liegt, und das Dreieck über Koordinaten berechnet.",
    "idee": "ergaenzen_rechteck",
    "antwortform": "zahl",
-   "loesung_rechnung": "11 * 5 / 2 + 3 * 5 / 2",
+   "loesung_rechnung": "12 * 5 / 2 + 4 * 5 / 2",
    "fehlbilder": [
     {
      "antwort": 20,
-     "rechnung": "55 - 35",
+     "rechnung": "60 - 40",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Fläche des Dreiecks (20 cm²) angegeben statt der abzuziehenden Fläche"
+     "beschreibung": "die Fläche des Dreiecks angegeben statt der abzuziehenden Fläche"
     },
     {
-     "antwort": 27.5,
-     "rechnung": "11 * 5 / 2",
+     "antwort": 30,
+     "rechnung": "12 * 5 / 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur das große überstehende Dreieck abgezogen"
     },
     {
-     "antwort": 62.5,
-     "rechnung": "3 * 5 / 2 + 11 * 5",
+     "antwort": 70,
+     "rechnung": "4 * 5 / 2 + 12 * 5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das große überstehende Dreieck ohne Halbieren gerechnet"
@@ -136,14 +136,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Das Dreieck ABC hat die Ecken A(1|1), B(9|1) und C(12|6) (eine Einheit ist 1 cm). Ben legt das kleinste Rechteck mit achsenparallelen Seiten um das Dreieck; es hat 55 cm². Dann zieht er die beiden überstehenden Dreiecke ab. Wie viele cm² muss er insgesamt von den 55 cm² abziehen?"
+     "text": "Das Dreieck ABC hat die Ecken A(1|1), B(9|1) und C(13|6) (eine Einheit ist 1 cm). Ben legt das kleinste Rechteck mit achsenparallelen Seiten um das Dreieck; es hat 60 cm². Dann zieht er die beiden überstehenden Dreiecke ab. Wie viele cm² muss er insgesamt von den 60 cm² abziehen?"
     },
     "o": {
-     "wert": 35,
+     "wert": 40,
      "einheit": "cm²"
     },
-    "c": "11 * 5 / 2 + 3 * 5 / 2",
-    "w": "Das Rechteck reicht von x = 1 bis x = 12 und von y = 1 bis y = 6, es ist 11 cm breit und 5 cm hoch. Überstehend sind zwei rechtwinklige Dreiecke: eines mit den Katheten 11 und 5 (11 · 5 : 2 = 27,5 cm²) und eines mit den Katheten 3 und 5 (3 · 5 : 2 = 7,5 cm²). Zusammen sind das 35 cm². Es bleiben 55 − 35 = 20 cm², das ist die Fläche des Dreiecks."
+    "c": "12 * 5 / 2 + 4 * 5 / 2",
+    "w": "Das Rechteck reicht von x = 1 bis x = 13 und von y = 1 bis y = 6, es ist 12 cm breit und 5 cm hoch. Überstehend sind zwei rechtwinklige Dreiecke: eines mit den Katheten 12 und 5 (12 · 5 : 2 = 30 cm²) und eines mit den Katheten 4 und 5 (4 · 5 : 2 = 10 cm²). Zusammen sind das 40 cm². Es bleiben 60 − 40 = 20 cm², das ist die Fläche des Dreiecks."
    }
   },
   {
@@ -1367,7 +1367,7 @@
    "abgrenzung": "Die Übungen zerlegen eine vorgegebene Figur; hier wird ein Trapez auf zwei Arten zerlegt, Ecken werden abgeschnitten und eine Teilfläche rückwärts gesucht.",
    "idee": "koordinaten_trapez",
    "antwortform": "zahl",
-   "loesung_rechnung": "(10 + 6) * 6 / 2",
+   "loesung_rechnung": "(10 + 5) * 6 / 2",
    "fehlbilder": [
     {
      "antwort": 51,
@@ -1377,8 +1377,8 @@
      "beschreibung": "die x-Koordinate 7 von C statt der Länge DC genommen"
     },
     {
-     "antwort": 96,
-     "rechnung": "(10 + 6) * 6",
+     "antwort": 90,
+     "rechnung": "(10 + 5) * 6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Halbieren vergessen"
@@ -1400,14 +1400,14 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Das Viereck ABCD hat die Ecken A(0|0), B(10|0), C(7|6) und D(1|6) (eine Einheit ist 1 cm). Wie viele cm² hat es?"
+     "text": "Das Viereck ABCD hat die Ecken A(0|0), B(10|0), C(7|6) und D(2|6) (eine Einheit ist 1 cm). Wie viele cm² hat es?"
     },
     "o": {
-     "wert": 48,
+     "wert": 45,
      "einheit": "cm²"
     },
-    "c": "(10 + 6) * 6 / 2",
-    "w": "AB und DC liegen auf Parallelen zur x-Achse im Abstand 6 cm: AB = 10 cm, DC = 7 − 1 = 6 cm. Das Viereck ist ein Trapez mit A = (10 + 6) · 6 : 2 = 48 cm². Kontrolle durch Ergänzen: Rechteck 10 · 6 = 60 cm², abzüglich der Dreiecke links (1 · 6 : 2 = 3 cm²) und rechts (3 · 6 : 2 = 9 cm²): 60 − 12 = 48 cm²."
+    "c": "(10 + 5) * 6 / 2",
+    "w": "AB und DC liegen auf Parallelen zur x-Achse im Abstand 6 cm: AB = 10 cm, DC = 7 − 2 = 5 cm. Das Viereck ist ein Trapez mit A = (10 + 5) · 6 : 2 = 45 cm². Kontrolle durch Ergänzen: Rechteck 10 · 6 = 60 cm², abzüglich der Dreiecke links (2 · 6 : 2 = 6 cm²) und rechts (3 · 6 : 2 = 9 cm²): 60 − 15 = 45 cm²."
    }
   },
   {

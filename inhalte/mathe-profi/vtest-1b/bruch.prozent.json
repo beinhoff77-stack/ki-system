@@ -255,21 +255,21 @@
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "7/20",
+     "antwort": "7 von 20 Kindern",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "7/20 ist 14/40 gekürzt und beschreibt denselben Anteil wie 14 von 40; gesucht ist aber die Ausnahme"
     },
     {
      "index": 2,
-     "antwort": "0,35",
+     "antwort": "0,35 aller Kinder",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "0,35 ist 14 : 40 als Dezimalzahl und beschreibt denselben Anteil; gesucht ist aber die Ausnahme"
     },
     {
      "index": 3,
-     "antwort": "35 %",
+     "antwort": "35 von 100 Kindern",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "35 % ist 14 : 40 = 0,35 in Prozent und beschreibt denselben Anteil; gesucht ist aber die Ausnahme"
@@ -286,10 +286,10 @@
      "text": "Von 40 befragten Kindern lesen 14 jeden Tag. Drei der folgenden vier Angaben beschreiben genau diesen Anteil. Welche Angabe beschreibt einen anderen Anteil?"
     },
     "a": [
-     "14 %",
-     "7/20",
-     "0,35",
-     "35 %"
+     "14 % der Kinder",
+     "7 von 20 Kindern",
+     "0,35 aller Kinder",
+     "35 von 100 Kindern"
     ],
     "o": {
      "index": 0
@@ -440,19 +440,19 @@
    "fehlbilder": [
     {
      "luecke": 2,
-     "antwort": 187.5,
-     "rechnung": "150 * 1.25",
+     "antwort": 300,
+     "rechnung": "150 * 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "wie Ben 25 % auf den neuen Preis aufgeschlagen: 150 · 1,25"
+     "beschreibung": "den Preis verdoppelt: 150 · 2"
     },
     {
      "luecke": 2,
-     "antwort": 112.5,
-     "rechnung": "150 * 0.75",
+     "antwort": 125,
+     "rechnung": "150 - 25",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Rabatt noch einmal vom neuen Preis abgezogen: 150 · 0,75"
+     "beschreibung": "die 25 % als 25 € gelesen und abgezogen: 150 − 25"
     },
     {
      "luecke": 2,

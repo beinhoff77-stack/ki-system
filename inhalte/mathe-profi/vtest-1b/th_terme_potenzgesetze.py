@@ -79,11 +79,11 @@ neu(T, "fehler_finden", "korrektur", "umkehr", W(
     lambda: F(2) ** -1 > 0 and F(-2) ** -1 < 0 and 2 ** 3 > 0 and 2 ** 0 > 0), lp=LP)
 neu(T, "fehler_finden", "korrektur", "einkleidung", Z(
     "In einem Datenblatt steht: Dicke der Folie 10⁻³ m. Ein Kind sagt: „Das sind −1000 m.“ Wie viele Nanometer ist die Folie dick? (1 Nanometer = 10⁻⁹ m)",
-    1000000, "10 ** 9 / 10 ** 3", "1000000000 / 1000",
+    1000000, "1000000000 / 1000", "1000000000 / 1000",
     "10⁻³ m = 1/1000 m ist positiv und klein, nicht −1000 m. Ein Nanometer ist 1/1 000 000 000 m. Die Folie ist (1/1000) : (1/1 000 000 000) = 1 000 000 000 : 1000 = 1 000 000 Nanometer dick.",
     [B("10 ** 3", "10³ statt 10⁻³ gerechnet und das Minus übersehen"),
      B("9 - 3", "die Exponenten 9 und 3 abgezogen und das Ergebnis 6 als Zahl genommen"),
-     B("10 ** 9", "den Umrechnungsfaktor 10⁹ als Ergebnis genommen")], einheit="Nanometer"), lp=LP)
+     B("1000000000", "den Umrechnungsfaktor 10⁹ als Ergebnis genommen")], einheit="Nanometer"), form="bruecke", lp=LP)
 neu(T, "fehler_finden", "sicherung", "fehler", W(
     "Ein Kind rechnet: Zeile 1: 4⁻² = 1/(4 · 2). Zeile 2: 1/(4 · 2) = 1/8. Zeile 3: Also 4⁻² + 4⁻² = 2/8. Zeile 4: 2/8 = 1/4. In welcher Zeile steckt der erste Fehler?",
     "In Zeile 1, weil 4⁻² = 1/4² = 1/16 ist, nicht 1/(4 · 2).",

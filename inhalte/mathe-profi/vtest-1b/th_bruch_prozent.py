@@ -35,10 +35,10 @@ neu(T, "prozentsatz", "korrektur", "einkleidung", Z(
      B("27 / 30 - 18 / 24", "die Anteile als Dezimalzahlen abgezogen und nicht in Prozent umgewandelt: 0,9 − 0,75")], einheit="Prozentpunkte"), form="bruecke", lp=LP)
 neu(T, "prozentsatz", "sicherung", "darstellung", W(
     "Von 40 befragten Kindern lesen 14 jeden Tag. Drei der folgenden vier Angaben beschreiben genau diesen Anteil. Welche Angabe beschreibt einen anderen Anteil?",
-    "14 %",
-    [("7/20", "7/20 ist 14/40 gekürzt und beschreibt denselben Anteil wie 14 von 40; gesucht ist aber die Ausnahme"),
-     ("0,35", "0,35 ist 14 : 40 als Dezimalzahl und beschreibt denselben Anteil; gesucht ist aber die Ausnahme"),
-     ("35 %", "35 % ist 14 : 40 = 0,35 in Prozent und beschreibt denselben Anteil; gesucht ist aber die Ausnahme")],
+    "14 % der Kinder",
+    [("7 von 20 Kindern", "7/20 ist 14/40 gekürzt und beschreibt denselben Anteil wie 14 von 40; gesucht ist aber die Ausnahme"),
+     ("0,35 aller Kinder", "0,35 ist 14 : 40 als Dezimalzahl und beschreibt denselben Anteil; gesucht ist aber die Ausnahme"),
+     ("35 von 100 Kindern", "35 % ist 14 : 40 = 0,35 in Prozent und beschreibt denselben Anteil; gesucht ist aber die Ausnahme")],
     "Der Anteil ist 14 von 40, also 14 : 40 = 0,35 = 35 %. Als Bruch 14/40 = 7/20. Damit beschreiben 7/20, 0,35 und 35 % den Anteil. Die Angabe 14 % ist 14/100 und damit nur ein kleinerer Anteil: Die Zahl 14 der Kinder darf nicht ohne Bezug auf die 40 Kinder zur Prozentzahl gemacht werden.",
     lambda: F(14, 40) == F(7, 20) == F(35, 100) == F("0.35") != F(14, 100)), form="bruecke", lp=LP)
 neu(T, "prozentsatz", "sicherung", "fehler", L(
@@ -59,7 +59,7 @@ neu(T, "rabatt_aufschlag", "test", "fehler", L(
     "Fehler in Zeile □, richtig: □ €", [2, 200], ["2", "150 / 0.75"], ["3 - 1", "150 * 4 / 3"],
     "Der alte Preis ist der Grundwert (100 %). Nach 25 % Rabatt zahlt man noch 75 %, also sind 150 € = 75 % des alten Preises: 1 % sind 2 €, 100 % sind 200 €. Zeile 1 ist richtig. Zeile 2 ist der Fehler: Die 25 % gelten vom alten Preis, nicht vom neuen Preis 150 €. "
     "Zeile 3 rechnet mit dem falschen Ansatz richtig weiter. Probe: 25 % von 200 € sind 50 €, und 200 € − 50 € = 150 €.",
-    {1: [(187.5, "wie Ben 25 % auf den neuen Preis aufgeschlagen: 150 · 1,25", "150 * 1.25"), (112.5, "den Rabatt noch einmal vom neuen Preis abgezogen: 150 · 0,75", "150 * 0.75"), (175, "die 25 % als 25 € gelesen und addiert: 150 + 25", "150 + 25")]}), form="fehler_detektiv", lp=LP)
+    {1: [(300, "den Preis verdoppelt: 150 · 2", "150 * 2"), (125, "die 25 % als 25 € gelesen und abgezogen: 150 − 25", "150 - 25"), (175, "die 25 % als 25 € gelesen und addiert: 150 + 25", "150 + 25")]}), form="fehler_detektiv", lp=LP)
 neu(T, "rabatt_aufschlag", "korrektur", "umkehr", Z(
     "Zum Saisonende wird ein Zelt um 35 % billiger. Es kostet jetzt 117 €. Wie viel Euro kostete es vorher?",
     180, "117 / 0.65", "117 / 65 * 100",

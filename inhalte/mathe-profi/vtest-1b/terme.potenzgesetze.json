@@ -619,14 +619,14 @@
    "lernkarte": "fehler_finden",
    "pool": "korrektur",
    "typ": "einkleidung",
-   "form": null,
+   "form": "bruecke",
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Potenzen mit ganzzahligen Exponenten, Hoch 0, negative Exponenten)",
    "abgrenzung": "Die Übungen nennen den Fehler in einer Zeile oder das richtige Ergebnis; hier muss die erste fehlerhafte Zeile in einer Rechenkette gefunden und mit Begründung berichtigt werden.",
    "idee": "darstellung_wechseln",
    "antwortform": "zahl",
-   "loesung_rechnung": "10 ** 9 / 10 ** 3",
+   "loesung_rechnung": "1000000000 / 1000",
    "fehlbilder": [
     {
      "antwort": 1000,
@@ -644,7 +644,7 @@
     },
     {
      "antwort": 1000000000,
-     "rechnung": "10 ** 9",
+     "rechnung": "1000000000",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Umrechnungsfaktor 10⁹ als Ergebnis genommen"
@@ -664,7 +664,7 @@
      "wert": 1000000,
      "einheit": "Nanometer"
     },
-    "c": "10 ** 9 / 10 ** 3",
+    "c": "1000000000 / 1000",
     "w": "10⁻³ m = 1/1000 m ist positiv und klein, nicht −1000 m. Ein Nanometer ist 1/1 000 000 000 m. Die Folie ist (1/1000) : (1/1 000 000 000) = 1 000 000 000 : 1000 = 1 000 000 Nanometer dick."
    }
   },

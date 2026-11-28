@@ -1533,11 +1533,11 @@
     },
     {
      "luecke": 2,
-     "antwort": 13.5,
-     "rechnung": "6 * 18 / 4 / 2",
+     "antwort": 108,
+     "rechnung": "6 * 18",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Lenas 27 noch halbiert"
+     "beschreibung": "nur 6 · 18 gerechnet und nicht geteilt"
     }
    ],
    "aufgabe": {

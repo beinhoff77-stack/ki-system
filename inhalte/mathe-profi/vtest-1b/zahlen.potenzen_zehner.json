@@ -710,7 +710,7 @@
    "fehlbilder": [
     {
      "antwort": 1000000000000000,
-     "rechnung": "10 ** 15",
+     "rechnung": "1000000000000000",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Beträge der Exponenten addiert statt subtrahiert"
@@ -724,7 +724,7 @@
     },
     {
      "antwort": 1000000000,
-     "rechnung": "10 ** 9",
+     "rechnung": "1000000000",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Exponenten der Virenlänge als Anzahl genommen"
@@ -1020,11 +1020,11 @@
     },
     {
      "luecke": 2,
-     "antwort": 0.25,
-     "rechnung": "0.25",
+     "antwort": 2500,
+     "rechnung": "0.25 * 10000",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "ohne Umrechnung übernommen"
+     "beschreibung": "um eine Zehnerpotenz zu viel verschoben"
     }
    ],
    "aufgabe": {
@@ -1549,8 +1549,8 @@
      "beschreibung": "die Vorfaktoren ignoriert"
     },
     {
-     "antwort": 200000,
-     "rechnung": "2 * 10 ** 5",
+     "antwort": 2000000,
+     "rechnung": "2 * 10 ** 6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Vorfaktoren verkehrt herum geteilt"
@@ -1564,13 +1564,13 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Die Sonne hat die Masse 3 · 10³⁰ kg, die Erde 6 · 10²⁴ kg. Wievielmal so schwer wie die Erde ist die Sonne?"
+     "text": "Die Sonne hat die Masse 4 · 10³⁰ kg, die Erde 8 · 10²⁴ kg. Wievielmal so schwer wie die Erde ist die Sonne?"
     },
     "o": {
      "wert": 500000
     },
     "c": "5 * 10 ** 5",
-    "w": "Der Quotient ist (3 · 10³⁰) : (6 · 10²⁴) = (3 : 6) · 10⁶ = 0,5 · 10⁶ = 5 · 10⁵ = 500 000. Die Sonne ist etwa 500 000-mal so schwer wie die Erde."
+    "w": "Der Quotient ist (4 · 10³⁰) : (8 · 10²⁴) = (4 : 8) · 10⁶ = 0,5 · 10⁶ = 5 · 10⁵ = 500 000. Die Sonne ist etwa 500 000-mal so schwer wie die Erde."
    }
   },
   {
@@ -1609,11 +1609,11 @@
     },
     {
      "luecke": 2,
-     "antwort": 0.2,
-     "rechnung": "2 / 10",
+     "antwort": 1,
+     "rechnung": "1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Komma in die falsche Richtung geschoben"
+     "beschreibung": "den Unterschied 1 der Exponenten als Faktor genommen"
     },
     {
      "luecke": 2,

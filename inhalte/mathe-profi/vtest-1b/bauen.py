@@ -337,6 +337,30 @@ if os.path.exists(vorlage) and not TEIL:
     txt = txt.replace("{{FEHLBILDER}}", f"{n_fb}").replace("{{FB_RECHNUNG}}", f"{n_fb_rechnung}")
     open(os.path.join(HIER, "README.md"), "w", encoding="utf-8").write(txt)
 
+
+# ═════════ sonderfaelle.md: Kurzvermerk je Auswahl-Aufgabe ═════════
+if not TEIL:
+    BESONDER = {
+        "Welche Angabe beschreibt einen anderen Anteil": "Verneinte Frage (Ausnahme gesucht): drei Möglichkeiten beschreiben denselben Anteil, die vierte nicht; im Text steht „anderen“.",
+        "Welche der Rechnungen ist falsch": "Verneinte Frage (falsche Rechnung gesucht): drei Rechnungen sind richtig (zwei Zerlegungen, ein Ergänzen), eine ist falsch; im Text steht „falsch“.",
+        "Bei welcher der folgenden Gleichungen darf man sofort über Kreuz": "Verfahren wählen: genau eine Gleichung hat auf jeder Seite genau einen Bruch.",
+    }
+    zeilen = ["# Sonderfälle der Auswahl-Aufgaben (vtest-1b)", "", "Kurzvermerk je Aufgabe mit Antwortform auswahl: Platz der richtigen Möglichkeit, Besonderheit. Alle Auswahl-Aufgaben haben genau 4 Möglichkeiten und genau eine richtige; im Bauskript über eine Probe (Rechnung oder Aussage) geprüft.", "", "| Kennung | Lernziel | Pool | richtig auf Platz | Besonderheit |", "|---|---|---|---|---|"]
+    for s_ in geladen:
+        for e in aus[s_]:
+            q = e["aufgabe"]
+            if q["y"] != "auswahl":
+                continue
+            bes = [v for k_, v in BESONDER.items() if q["f"]["text"].find(k_) >= 0]
+            if e["form"] == "fehler_detektiv":
+                bes.append("Fehler-Detektiv: Möglichkeiten nach Zeilennummer geordnet (Platz = Fehlerzeile), jede nennt Zeile und Begründung.")
+            if any(("<" in o_ or ">" in o_) for o_ in q["a"]):
+                bes.append("Möglichkeiten sind Ordnungen; genau eine ist richtig geordnet.")
+            if any(re.match(r"^(D|L) = ", o_) for o_ in q["a"]):
+                bes.append("Möglichkeiten sind Mengen; sie unterscheiden sich in mindestens einer Zahl.")
+            zeilen.append(f"| {e['kennung']} | {s_} / {e['lernkarte']} | {e['pool']} | {q['o']['index'] + 1} | {' '.join(bes) if bes else 'keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben.'} |")
+    open(os.path.join(HIER, "sonderfaelle.md"), "w", encoding="utf-8").write("\n".join(zeilen) + "\n")
+
 # ═════════ vorrat_pruefen.py (Fehlbild-Rechnung in der Beschreibung) über Kopien mit typ = Formname ═════════
 VPSKRIPT = r"""
 import importlib.util, sys, glob, os

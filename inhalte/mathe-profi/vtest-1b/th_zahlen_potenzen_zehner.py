@@ -88,9 +88,9 @@ neu(T, "negativer_exponent", "sicherung", "transfer", Z(
     "Ein Virus ist etwa 10⁻⁹ m lang. Eine Bakterie ist 10⁻⁶ m lang. Wie viele Viren passen der Länge nach nebeneinander auf die Länge einer Bakterie?",
     1000, "10 ** 3", "10 ** 9 / 10 ** 6",
     "Gesucht ist der Quotient der Längen: 10⁻⁶ : 10⁻⁹ = 10³ = 1000. Probe: 1000 Viren zu je 10⁻⁹ m sind 1000 · 10⁻⁹ m = 10⁻⁶ m.",
-    [B("10 ** 15", "die Beträge der Exponenten addiert statt subtrahiert"),
+    [B("1000000000000000", "die Beträge der Exponenten addiert statt subtrahiert"),
      B("9 - 6", "die Exponenten subtrahiert und das Ergebnis 3 nicht als Zehnerpotenz gelesen"),
-     B("10 ** 9", "den Exponenten der Virenlänge als Anzahl genommen")], einheit="Viren"), form="anwenden", lp=LP)
+     B("1000000000", "den Exponenten der Virenlänge als Anzahl genommen")], einheit="Viren"), form="anwenden", lp=LP)
 neu(T, "negativer_exponent", "sicherung", "parameter", Z(
     "Die Zehnerpotenz 10⁻² wird zehnmal so klein gemacht. Sie hat dann die Form 10ⁿ. Welche Zahl ist n?",
     -3, "0 - 3", "0 - 2 - 1",
@@ -126,7 +126,7 @@ neu(T, "vorsilben_klein", "korrektur", "darstellung", L(
     "Ergänze: 3 000 nm = □ µm und 0,25 mm = □ µm.",
     "3 000 nm = □ µm; 0,25 mm = □ µm", [3, 250], ["3000 / 1000", "0.25 * 1000"], ["3", "250"],
     "1 µm = 1000 nm, also 3 000 nm = 3 µm. 1 mm = 1000 µm, also 0,25 mm = 0,25 · 1000 µm = 250 µm.",
-    {0: [(3000, "die Zahl 3 000 unverändert übernommen", "3000"), (3000000, "mit 1000 malgenommen statt geteilt", "3000 * 1000")], 1: [(25, "das Komma nur um eine Stelle verschoben", "0.25 * 100"), (0.25, "ohne Umrechnung übernommen", "0.25")]}), form="bruecke", lp=LP)
+    {0: [(3000, "die Zahl 3 000 unverändert übernommen", "3000"), (3000000, "mit 1000 malgenommen statt geteilt", "3000 * 1000")], 1: [(25, "das Komma nur um eine Stelle verschoben", "0.25 * 100"), (2500, "um eine Zehnerpotenz zu viel verschoben", "0.25 * 10000")]}), form="bruecke", lp=LP)
 neu(T, "vorsilben_klein", "korrektur", "umkehr", Z(
     "Eine Länge ist 0,000 06 m lang und wird als a µm geschrieben (1 µm = 10⁻⁶ m). Welche Zahl ist a?",
     60, "6 * 10", "60",
@@ -185,17 +185,17 @@ neu(T, "vergleichen_pruefen", "korrektur", "darstellung", Z(
      B("1", "nur die wissenschaftliche Schreibweise gezählt"),
      B("1 + 1", "die Zahl mit dem Vorfaktor kleiner als 1 und die mit dem großen Vorfaktor nicht mitgezählt")], einheit="Zahlen"), lp=LP)
 neu(T, "vergleichen_pruefen", "sicherung", "transfer", Z(
-    "Die Sonne hat die Masse 3 · 10³⁰ kg, die Erde 6 · 10²⁴ kg. Wievielmal so schwer wie die Erde ist die Sonne?",
-    500000, "5 * 10 ** 5", "3 * 10 ** 30 / (6 * 10 ** 24)",
-    "Der Quotient ist (3 · 10³⁰) : (6 · 10²⁴) = (3 : 6) · 10⁶ = 0,5 · 10⁶ = 5 · 10⁵ = 500 000. Die Sonne ist etwa 500 000-mal so schwer wie die Erde.",
+    "Die Sonne hat die Masse 4 · 10³⁰ kg, die Erde 8 · 10²⁴ kg. Wievielmal so schwer wie die Erde ist die Sonne?",
+    500000, "5 * 10 ** 5", "4 * 10 ** 30 / (8 * 10 ** 24)",
+    "Der Quotient ist (4 · 10³⁰) : (8 · 10²⁴) = (4 : 8) · 10⁶ = 0,5 · 10⁶ = 5 · 10⁵ = 500 000. Die Sonne ist etwa 500 000-mal so schwer wie die Erde.",
     [B("30 - 24", "nur die Exponenten subtrahiert"),
      B("10 ** 6", "die Vorfaktoren ignoriert"),
-     B("2 * 10 ** 5", "die Vorfaktoren verkehrt herum geteilt")]), form="anwenden", lp=LP)
+     B("2 * 10 ** 6", "die Vorfaktoren verkehrt herum geteilt")]), form="anwenden", lp=LP)
 neu(T, "vergleichen_pruefen", "sicherung", "fehler", L(
     "Ein Kind vergleicht 3 · 10⁻⁵ und 2 · 10⁻⁴ und rechnet: Zeile 1: Ich vergleiche die beiden Zahlen. Zeile 2: Es gilt 3 > 2. Zeile 3: Also ist 3 · 10⁻⁵ größer als 2 · 10⁻⁴. In welcher Zeile steckt der erste Fehler? Ergänze: 2 · 10⁻⁴ = □ · 10⁻⁵.",
     "Fehler in Zeile □, richtig: 2 · 10⁻⁴ = □ · 10⁻⁵", [2, 20], ["2", "2 * 10"], ["3 - 1", "20"],
     "Zeile 1 ist in Ordnung. Zeile 2 vergleicht nur die Vorfaktoren und lässt die Exponenten außer Acht. Auf gleichen Exponenten gebracht: 2 · 10⁻⁴ = 20 · 10⁻⁵. Dann gilt 3 · 10⁻⁵ < 20 · 10⁻⁵. Zeile 3 folgt aus dem Fehler in Zeile 2.",
-    {0: [(3, "die Schlusszeile genannt, weil dort das falsche Ergebnis steht", "3")], 1: [(2, "den Vorfaktor 2 unverändert übernommen", "2"), (0.2, "das Komma in die falsche Richtung geschoben", "2 / 10"), (200, "um zwei Zehnerpotenzen zu viel verschoben", "2 * 100")]}), form="fehler_detektiv", lp=LP)
+    {0: [(3, "die Schlusszeile genannt, weil dort das falsche Ergebnis steht", "3")], 1: [(2, "den Vorfaktor 2 unverändert übernommen", "2"), (1, "den Unterschied 1 der Exponenten als Faktor genommen", "1"), (200, "um zwei Zehnerpotenzen zu viel verschoben", "2 * 100")]}), form="fehler_detektiv", lp=LP)
 neu(T, "vergleichen_pruefen", "sicherung", "darstellung", W(
     "Welche der folgenden Zahlen liegt zwischen 3 · 10⁻³ und 4 · 10⁻³?",
     "3,5 · 10⁻³",

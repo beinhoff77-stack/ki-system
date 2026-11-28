@@ -1,51 +1,32 @@
-# vtest-1b – Auswahl der Lernziele (vor dem Schreiben der Aufgaben)
+# vtest-1b – Auswahl der Lernziele
 
-Runde „Verstehen in Tests“, Teil 1b (Kennungen `VT1B-001` ff.). Auftrag: `auftrag.md`. Nichts davon ist eingespielt; nur neue Dateien in diesem Ordner.
-Je Einheit die Hälfte der **Pflicht**-Lernziele (`bewertung.lernziele_pflicht` in `inhalte/themen/<einheit>.json`, aufgerundet), je gewähltem Lernziel 6 Aufgaben (1 test, 2 korrektur, 3 sicherung).
+Runde „Verstehen in Tests“, Teil 1b (Kennungen `VT1B-001` bis `VT1B-119`). Auftrag: `auftrag.md`. Nichts davon ist eingespielt; nur neue Dateien in diesem Ordner.
+Regel (verbindlich laut Koordination): je Einheit ⌈n/2⌉ Lernziele, n = **alle** Lernziele der Einheit (`lz` in `inhalte/plan/rollend-einheiten.json`); je gewähltem Lernziel 7 Aufgaben (1 test, 3 korrektur, 3 sicherung). Ergebnis: 3 + 4 + 2 + 4 + 4 = 17 Lernziele, **119** Aufgaben. (Die frühere Fassung dieser Datei zählte nur die Pflicht-Lernziele und kam auf 16 Lernziele und 96 Aufgaben; das ist überholt.)
 
-## Abweichung von der Vorgabe (Zahl der Pflicht-Lernziele)
+## Auswahl und Abgleich mit dem Vorschlag (`inhalte/mathe-profi/vtest-1/auswahl.json`)
 
-`terme.potenzgesetze` hat nur **2** Pflicht-Lernziele (`potenz_begriff`, `negativer_exponent`); `fehler_finden` ist dort Vertiefung (laut `inhalte/README.md`: „nicht testrelevant“). Auftragsregel: Hälfte der tatsächlichen Pflichtzahl, aufgerundet = **1** Lernziel (nicht 2). Alle anderen Zahlen stimmen mit der Vorgabe überein (`messen.flaechen_vielecke`: 7 Pflicht + Vertiefung `drachen_raute`, Hälfte aufgerundet = 4).
-Folge: 16 Lernziele und **96** Aufgaben statt 17 und 102. Wird ein zweites Lernziel für `terme.potenzgesetze` gewünscht (dann `potenz_begriff`), ist das ein eigener kleiner Nachtrag.
-
-## Auswahl
-
-| Einheit | Lehrplan-Ort (laut Repo) | Pflicht | gewählt | Aufgaben |
+| Einheit | Lernziele der Einheit (n) | gewählt | Vorschlag | Abweichung |
 |---|---|---|---|---|
-| `bruch.prozent` | M6 3 Prozentrechnung | 6 | `prozentsatz`, `rabatt_aufschlag`, `verstehen` | 18 |
-| `gleichungen.bruch` | M8 4 Bruchterme und Bruchgleichungen | 7 | `definitionsmenge`, `ueber_kreuz`, `scheinloesung`, `verhaeltnis` | 24 |
-| `terme.potenzgesetze` | M6 1 Rationale Zahlen | 2 (+1 Vertiefung) | `negativer_exponent` | 6 |
-| `zahlen.potenzen_zehner` | M6 1 Rationale Zahlen | 7 | `gross_wissenschaftlich`, `negativer_exponent`, `vorsilben_klein`, `vergleichen_pruefen` | 24 |
-| `messen.flaechen_vielecke` | M6 2 Flächeninhalt und Volumen | 7 (+1 Vertiefung) | `parallelogramm`, `trapez`, `zusammengesetzt`, `verstehen` | 24 |
+| `bruch.prozent` | 6 (prozent_bedeutung, prozentwert, prozentsatz, grundwert, rabatt_aufschlag, verstehen) | `prozentsatz`, `rabatt_aufschlag`, `verstehen` | `prozentwert`, `grundwert`, `verstehen` | ja, 2 von 3 |
+| `gleichungen.bruch` | 7 | `definitionsmenge`, `ueber_kreuz`, `scheinloesung`, `verhaeltnis` | `definitionsmenge`, `ueber_kreuz`, `scheinloesung`, `graphisch` | ja, 1 von 4 |
+| `terme.potenzgesetze` | 3 | `negativer_exponent`, `fehler_finden` | gleich | nein |
+| `zahlen.potenzen_zehner` | 7 | `gross_wissenschaftlich`, `negativer_exponent`, `vorsilben_klein`, `vergleichen_pruefen` | gleich | nein |
+| `messen.flaechen_vielecke` | 8 | `dreieck`, `rueckwaerts`, `zusammengesetzt`, `verstehen` | gleich | nein |
 
-## Begründung je Lernziel
+## Begründung der Abweichungen
 
-**bruch.prozent**
-- `prozentsatz`: Hier steckt die Grundwert-Falle „Teil durch Ganzes, nicht umgekehrt“ und der Vergleich zweier Ganzer (Anteile statt absoluter Zahlen), also Begründen und Vergleichen statt Einsetzen.
-- `rabatt_aufschlag`: Der Faktor 100 % ± p % und die Frage, welche Größe der Grundwert ist, lassen Umkehren (neuer Preis → alter Preis) und den Vergleich zweier Angebote mit Begründung zu.
-- `verstehen`: Prozentaussagen prüfen (Prozent wovon? Änderung hin und zurück, Prozentpunkte) ist selbst ein Verstehens-Lernziel; die Aufgaben dazu müssen im Test hart genug sein.
-- Nicht gewählt: `prozent_bedeutung` (Darstellungswechsel steckt teilweise in den gewählten), `prozentwert` und `grundwert` (Grundwert-Fallen kommen in `rabatt_aufschlag` und `verstehen` vor).
+- `bruch.prozent`: Die Aufgaben zu `prozentsatz` (Bezugsgröße, Prozentpunkte gegen Prozent, Vergleich zweier Anteile) und `rabatt_aufschlag` (Faktor, Umkehren auf den alten Preis, zwei Änderungen hintereinander) waren bereits geschrieben und tragen die Denkfiguren des Vorschlags (Umkehren, Fehler-Detektiv, Brücke) mit. `prozentwert` und `grundwert` kommen als Umkehr-Aufgaben in `rabatt_aufschlag` und `verstehen` vor. Folge: Das Auswahlmuster ist RRVRVV, das Prüfwerkzeug meldet „nicht abwechselnd“ nur als Hinweis; wer es beheben will, tauscht `prozentsatz` gegen `grundwert` und lässt `prozentwert` als drittes Lernziel schreiben.
+- `gleichungen.bruch`: `graphisch` verlangt ein Bild; ohne Bild ist eine Aufgabe dazu nur eindeutig, wenn beide Funktionsterme angegeben sind, und damit wäre sie wieder Rechnen. Stattdessen `verhaeltnis`: Aufstellen einer Verhältnisgleichung aus einem Sachverhalt, Fehler im Ansatz, Aufteilen im Verhältnis. Das Muster VRVRVVR bleibt abwechselnd genug (kein RR, kein VVV).
+- `messen.flaechen_vielecke`: Der Vorschlag wurde übernommen; die frühere eigene Wahl (`parallelogramm`, `trapez`) entfällt. Die Leitgedanken (zwei Dreiecke ergeben ein Parallelogramm, die Höhe und nicht die schräge Seite, Zerlegen gegen Ergänzen) stecken in `dreieck`, `zusammengesetzt` und `verstehen`.
 
-**gleichungen.bruch**
-- `definitionsmenge`: Warum Nenner nicht 0 sein dürfen und was das für die Gleichung bedeutet (Parameter, Aufstellen aus einem Sachverhalt) ist Verstehen statt Nenner-gleich-0-Rechnen.
-- `ueber_kreuz`: Verfahren wählen (über Kreuz nur bei je einem Bruch pro Seite), Fehler bei Summen finden, Rückwärts-Aufgaben (Parameter aus bekannter Lösung).
-- `scheinloesung`: Kernverstehen der Einheit: Eine gerechnete Zahl ist erst nach der Prüfung gegen D eine Lösung; Begründen und Fehler richtigstellen.
-- `verhaeltnis`: Aufstellen einer Verhältnisgleichung aus einem Sachverhalt (Mischung, Maßstab, Proportionalität) ist der typische Transfer.
-- Nicht gewählt: `ein_bruch`, `hauptnenner` (reine Rechenverfahren, ihre Idee steckt in den gewählten) und `graphisch` (braucht eine Zeichnung; die App zeichnet Graphen, aber ohne Bild eindeutig zu bleiben ist hier unnötig riskant).
+## Lehrplan-Orte (laut `inhalte/themenliste.json`, am Repo nicht weiter belegbar)
 
-**terme.potenzgesetze**
-- `negativer_exponent`: Die typischen Fehlvorstellungen (negative Hochzahl ≠ negative Zahl, Hoch 0 ist 1 und nicht 0, negative Basis in Klammern, Kehrbruch) lassen sich gut als Begründen, Fehler richtigstellen und Größenvergleich prüfen. `potenz_begriff` wird dabei mitgeprüft ((−2)⁴ gegen −2⁴), ist aber nicht eigenes Lernziel dieser Runde.
+`bruch.prozent`: M6 3 Prozentrechnung. `gleichungen.bruch`: M8 4 Bruchterme und Bruchgleichungen. `terme.potenzgesetze`, `zahlen.potenzen_zehner`: M6 1 Rationale Zahlen. `messen.flaechen_vielecke`: M6 2 Flächeninhalt und Volumen. Der Lehrplanbezug jeder Aufgabe beginnt mit diesem Lernbereich. Offen: ob negative Exponenten und die wissenschaftliche Schreibweise im bayerischen Gymnasium schon in M6 1 oder erst später stehen, konnte ohne Zugriff auf den Lehrplantext nicht belegt werden; das sollte die Vorprüfung klären.
 
-**zahlen.potenzen_zehner**
-- `gross_wissenschaftlich`: Warum „15 · 10⁷“ nicht wissenschaftlich ist, Umschreiben und Rechnen mit Zehnerpotenzen, Größenordnung – Begründen und Fehler finden.
-- `negativer_exponent`: Minus im Exponenten heißt klein, nicht negativ; Umkehren (n aus dem Wert) und Darstellungswechsel.
-- `vorsilben_klein`: Einheiten umrechnen über Zehnerpotenzen (µ, n, m) ist Transfer auf Sachzusammenhänge und verlangt Umkehren (welche Vorsilbe passt?).
-- `vergleichen_pruefen`: Größenordnungen vergleichen und einordnen („wie viel mal so groß?“) ist das Verstehens-Lernziel der Einheit.
-- Nicht gewählt: `zehnerpotenz`, `vorsilben_gross`, `klein_wissenschaftlich` (Grundformen, ihre Einsicht steckt in den gewählten).
+## Begründung je Lernziel (Denkfiguren)
 
-**messen.flaechen_vielecke** (Leitgedanke: Formeln logisch erklären können)
-- `parallelogramm`: Warum die Höhe zählt und nicht die schräge Seite (Scherung/Umlegen eines Dreiecks), und dass die Fläche bei gleicher Grundseite und Höhe gleich bleibt.
-- `trapez`: Zwei gleiche Trapeze ergeben ein Parallelogramm; Zerlegung in Dreiecke; Mittellinie als Mittelwert von a und c.
-- `zusammengesetzt`: Zerlegen oder Ergänzen und zwei Wege vergleichen; Figur nur in Worten/Koordinaten.
-- `verstehen`: Selbst das Verstehens-Lernziel (Herleitungen, Fehlvorstellungen, Vergleiche ohne Rechnen).
-- Nicht gewählt: `dreieck` (die Einsicht „zwei gleiche Dreiecke ergeben ein Parallelogramm“ steckt in `parallelogramm` und `verstehen`), `rueckwaerts` (Umkehren kommt als Aufgabenform in jedem gewählten Lernziel vor), `oberflaeche` (Netze brauchen Bilder).
+**bruch.prozent**: `prozentsatz` (Bezugsgröße, Prozentpunkte, Kreisdiagramm, Fehler beim Teil-durch-Ganzes), `rabatt_aufschlag` (Bezugspreis, Faktor, hintereinander ausgeführte Änderungen, zwei Angebote), `verstehen` (50 % billiger heißt 100 % teurer, 200 % mehr, Anteil vom Anteil, Gegenbeispiel mit Klassengrößen).
+**gleichungen.bruch**: `definitionsmenge` (Begründen, Parameter, Sachsituation, Menge aus mehreren Nennern), `ueber_kreuz` (wann erlaubt, zwei Wege, Parameter, Fehler beim Ausmultiplizieren), `scheinloesung` (begründen, Bedingung für Scheinlösung, Identitäten), `verhaeltnis` (Schatten, Foto, Aufteilen, Fehler beim Kreuzen).
+**terme.potenzgesetze**: `negativer_exponent` (Muster fortsetzen, Größen ordnen, Faktor bei Exponentenänderung), `fehler_finden` (Zeilen mit Fehler, Gegenbeispiel, Klammer bei negativer Basis, Hoch 0).
+**zahlen.potenzen_zehner**: `gross_wissenschaftlich` (Bedingung 1 ≤ a < 10, Verschiebefehler, Ziffernzahl), `negativer_exponent` (Stellen statt Nullen, Vergleich), `vorsilben_klein` (mm gegen µm, Umrechnungskette), `vergleichen_pruefen` (Vorfaktor und Exponent zugleich, gleiche Zahl in anderer Schreibweise).
+**messen.flaechen_vielecke**: `dreieck` (Höhe außerhalb, Koordinaten, zwei Wege, Verschieben der Spitze), `rueckwaerts` (kein Winkel nötig, Trapezhöhe, Gleichung aufstellen, Umstellfehler), `zusammengesetzt` (Zerlegen gegen Ergänzen, Pavillon, falsche Rechnung erkennen), `verstehen` (Faktoren statt Summen, Prozent, flächengleiche Figuren, Verdoppeln des Quadrats).

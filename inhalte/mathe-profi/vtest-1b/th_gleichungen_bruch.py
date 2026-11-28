@@ -230,7 +230,7 @@ neu(T, "verhaeltnis", "sicherung", "fehler", L(
     "Lena löst die Verhältnisgleichung 4 : x = 6 : 18 so: Zeile 1: Außenglieder sind 4 und 18, Innenglieder sind x und 6. Zeile 2: Also 4 · x = 6 · 18. Zeile 3: Also x = 108 : 4 = 27. In welcher Zeile steckt der erste Fehler, und welchen Wert hat x richtig?",
     "Fehler in Zeile □, richtig: x = □", [2, 12], ["2", "4 * 18 / 6"], ["1 + 1", "72 / 6"],
     "Außenglieder mal Außenglieder = Innenglieder mal Innenglieder. Zeile 1 stimmt: Außenglieder 4 und 18, Innenglieder x und 6. Also gilt 4 · 18 = x · 6, das heißt 72 = 6x und x = 12 (Zeile 2 ist der Fehler: Lena kreuzt x mit 4). Probe: 4 : 12 = 1 : 3 = 6 : 18.",
-    {1: [(27, "wie Lena x mit 4 gekreuzt: 6 · 18 : 4", "6 * 18 / 4"), (20, "additiv gerechnet: 6 + 18 − 4", "6 + 18 - 4"), (13.5, "Lenas 27 noch halbiert", "6 * 18 / 4 / 2")]}), form="fehler_detektiv", lp=LP)
+    {1: [(27, "wie Lena x mit 4 gekreuzt: 6 · 18 : 4", "6 * 18 / 4"), (20, "additiv gerechnet: 6 + 18 − 4", "6 + 18 - 4"), (108, "nur 6 · 18 gerechnet und nicht geteilt", "6 * 18")]}), form="fehler_detektiv", lp=LP)
 neu(T, "verhaeltnis", "sicherung", "parameter", Z(
     "Zwei Zahlen verhalten sich wie 5 : 7. Addiert man zu jeder der beiden Zahlen 6, verhalten sich die neuen Zahlen wie 3 : 4. Welche der beiden ursprünglichen Zahlen ist die kleinere?",
     30, "5 * 6", next(a for a in range(1, 400) for b in [F(7 * a, 5)] if b.denominator == 1 and F(a + 6, b + 6) == F(3, 4)),

@@ -1,21 +1,23 @@
-# Verstehen in Tests, Stufe 1, Runde 2 (VT2-001 bis VT2-133)
+# Verstehen in Tests, Stufe 1, Runde 2 (VT2-001 bis VT2-119)
 
-Nicht eingespielt. 19 Lernziele je 7 Aufgaben: 1 Test (`ersetzt_test: true`), 3 Korrektur, 3 Sicherung. Auswahl und Gründe stehen in `auswahl.md`. Die Überarbeitung nach der Vorprüfung (Zweig `vorpruefer-vt2`) steht Kennung für Kennung in `korrektur-nach-vorpruefung.md` `korrektur-nach-vorpruefung-2.md` und `korrektur-nach-vorpruefung-3.md`; der Handvergleich mit dem Bestand steht in `bestandsvergleich.md`.
+Nicht eingespielt. 19 Lernziele. **Welle 1, Runde 2 (Entscheidung des Nutzers):** zahlen.natuerlich und terme.umformen haben je Lernziel genau 5 Aufgaben (1 Test, 2 Korrektur, 2 Sicherung), Kennungen VT2-029 … 043 und VT2-085 … 119 (VT2-044 … 049 und 120 … 133 sind frei). Die übrigen drei Einheiten haben weiter 7 je Lernziel: 1 Test (`ersetzt_test: true`), 3 Korrektur, 3 Sicherung. Zuordnung alt → neu, abgearbeitete Befunde und die Tabelle je Lernziel: `korrektur-nach-vorpruefung-w1.md`; gestrichene, brauchbare Aufgaben: `vorrat-folgerunde/`. Auswahl und Gründe stehen in `auswahl.md`. Die Überarbeitung nach der Vorprüfung (Zweig `vorpruefer-vt2`) steht Kennung für Kennung in `korrektur-nach-vorpruefung.md` `korrektur-nach-vorpruefung-2.md` und `korrektur-nach-vorpruefung-3.md`; der Handvergleich mit dem Bestand steht in `bestandsvergleich.md`.
 
 ## Übersicht
 
 | Einheit | Lernziele | Aufgaben | Lehrplan |
 |---|---|---|---|
 | finanzen.zinsen | rollen, jahreszinsen_komma, kapital, zeitanteil | 28 | M6 3 (Zinsen) |
-| terme.umformen | zusammenfassen, minusklammer, aequivalenz | 21 | M7 1 (Terme) |
+| terme.umformen | zusammenfassen, minusklammer, aequivalenz | 15 | M7 1 (Terme) |
 | terme.umformen_teil2 | ausklammern, binomisch | 14 | M7 1 (Terme) |
 | geometrie.kreis | umkehrung, lage, umkreis_inkreis | 21 | M7 5 (Kreis) |
-| zahlen.natuerlich | stellenwert, ziffern_zu_zahlwort, strahl_eintragen, runden_regel, runden_sinnvoll, roemisch_schreiben, dualsystem | 49 | M5 1 (Natürliche Zahlen) |
-| Summe | 19 | 133 | |
+| zahlen.natuerlich | stellenwert, ziffern_zu_zahlwort, strahl_eintragen, runden_regel, runden_sinnvoll, roemisch_schreiben, dualsystem | 35 | M5 1 (Natürliche Zahlen) |
+| Summe | 19 | 113 | |
 
 Nummerierung nach der Themenliste im Repo (Gymnasium).
 
 ## Verteilung (Stand nach der Überarbeitung)
+
+Stand Welle 1, Runde 2 (113 Aufgaben): Pool test 19, korrektur 47, sicherung 47; Stufe 2: 71, Stufe 3: 42, alle 19 Tests Stufe 3; Antwortform luecken 39, auswahl 44, zahl 30 (Test-Pool: luecken 10, zahl 8, auswahl 1); Plätze der richtigen Möglichkeit A–D 11/13/10/10; richtige strikt am längsten in 9 von 44; Länge richtig/falsch 1,06; denn/weil 80/77 %, Absolutwörter 39/39 %, Nebensatz-Marker 8/11 %; Sammel-Möglichkeiten 7, davon 5 richtig; Fehler-Detektive 11 (Zeile 1: 3, Zeile 2: 4, Zeile 3: 4). Die Angaben darunter beschreiben den Stand vor Welle 1, Runde 2.
 
 - Pool: test 19, korrektur 57, sicherung 57.
 - Stufe: 2 hat 81, 3 hat 52. Alle 19 Tests sind Stufe 3.
@@ -28,15 +30,15 @@ Nummerierung nach der Themenliste im Repo (Gymnasium).
 
 ## Denkfiguren
 
-Jede Aufgabe trägt das Feld `idee` (Liste in `ideen.py`). Je Lernziel gibt es sieben verschiedene, keine öfter als zweimal; das prüft `bauen.py` fest. Umkehr- und Rückwärtsaufgaben zählen als eine Idee. Der Vorprüfer hatte bei umkehrung und jahreszinsen_komma nur 2–3 echte Denkfiguren gesehen; beide Lernziele wurden neu aufgebaut:
+Jede Aufgabe trägt das Feld `idee` (Liste in `ideen.py`). Je Lernziel gibt es mindestens fünf verschiedene, keine öfter als zweimal; das prüft `bauen.py` fest (in den 5er-Sätzen sind alle fünf verschieden). Umkehr- und Rückwärtsaufgaben zählen als eine Idee. Der Vorprüfer hatte bei umkehrung und jahreszinsen_komma nur 2–3 echte Denkfiguren gesehen; beide Lernziele wurden neu aufgebaut:
 - umkehrung: Länge MC aus rechtem Winkel (064), Koordinate (065), Umkreisradius und Hypotenuse (066), Fehlersuche Radius/Durchmesser (067), Ortslinie aller Punkte mit rechtem Winkel (068), Hypotenuse als Durchmesser des Umkreises (069), Winkel in den gleichschenkligen Teildreiecken (070).
 - jahreszinsen_komma: Fehlersuche Faktor (008), Zehnerpotenzen (009), Zinssatz als Faktor (010), Ergebnis mit Begründung (011), Zinssatz aus dem Zinsbetrag (012), Kapital und Zinssatz verrechnen (013), Zinssatz zerlegen (014).
 
 ## Feste Prüfungen
 
 - `python3 -I inhalte/mathe-profi/vtest-2/bauen.py` baut die JSON-Dateien und bricht mit Fehler ab, wenn: die richtige Möglichkeit in mehr als 35 % der Auswahlaufgaben die eindeutig längste ist, ein Platz A bis D unter 16 % oder über 34 % liegt, mehr als die Hälfte aller Aufgaben Auswahl ist, mehr als 7 Test-Aufgaben Auswahl sind, ein Lernziel weniger als 5 verschiedene Ideen oder eine Idee öfter als zweimal hat, die richtige Möglichkeit als einzige mit oder ohne denn/weil gebaut ist, die Lücke bei denn/weil oder Absolutwörtern über 12 Punkte liegt, Sammel-Möglichkeiten (ab 5) unter 25 % richtig sind die mittlere Länge richtig/falsch außerhalb 0,90 bis 1,15 liegt, eine Lücke kein Fehlbild hat, die Fehlerzeilen der Fehler-Detektive ungünstig verteilt sind (mindestens zwei Aufgaben mit Zeile 1, keine Zeile über 45 %, in den Tests mindestens drei verschiedene Zeilen), die richtige Möglichkeit in mehr als 15 % der Auswahlaufgaben mindestens 25 % länger als die längste falsche ist oder die Nebensatz-Marker (Semikolon, „aber“, „, nicht“, „, auch“) zwischen richtigen und falschen um mehr als 12 Punkte abweichen.
-- `python3 -I tools/vtest_pruefen.py --runde 2`: keine Fehler, zwei Hinweise „Text verlangt Runden, Feld runden fehlt“ (VT2-106, 108). Falscher Alarm: Gerundet wird nur in der Voraussetzung, die Soll-Antwort ist eine exakte ganze Zahl (Anzahl, größte Abweichung, Euro-Unterschied). Ein Feld `runden` würde die Prüfung der Fehlbilder verfälschen.
-- `python3 -I inhalte/mathe-profi/vtest-2/gegenrechnung.py`: rechnet alle 133 Sollwerte auf einem anderen Weg nach (Bruchrechnung, Aufzählen, Einsetzen, Zeichenketten), prüft zusätzlich, dass jede Aufgabe abgedeckt ist und keine zwei Aufgaben im selben Pool und Lernziel dieselbe Sollantwort haben. Ausgabe: „0 Abweichungen“.
+- `python3 -I tools/vtest_pruefen.py --runde 2`: Seit Welle 1, Runde 2 meldet das Werkzeug für die zehn Lernziele von zahlen.natuerlich und terme.umformen erwartungsgemäß „2 sicherung-Aufgaben, Soll 3“ (5er-Regel des Nutzers; `auswahl.json` verlangt noch 3); sonst keine Fehler. Zwei Hinweise „Text verlangt Runden, Feld runden fehlt“ (VT2-100, 101, vorher 106, 108). Falscher Alarm: Gerundet wird nur in der Voraussetzung, die Soll-Antwort ist eine exakte ganze Zahl (Anzahl, größte Abweichung, Euro-Unterschied). Ein Feld `runden` würde die Prüfung der Fehlbilder verfälschen.
+- `python3 -I inhalte/mathe-profi/vtest-2/gegenrechnung.py`: rechnet alle 113 Sollwerte auf einem anderen Weg nach (Bruchrechnung, Aufzählen, Einsetzen, Zeichenketten), prüft zusätzlich, dass jede Aufgabe abgedeckt ist und keine zwei Aufgaben im selben Pool und Lernziel dieselbe Sollantwort haben. Ausgabe: „0 Abweichungen“.
 - `sonderfaelle.md`: zu jeder Aufgabe ein Satz zum geprüften Sonderfall.
 
 ## Lehrplan und Zweifel
@@ -58,3 +60,10 @@ Jede Aufgabe trägt das Feld `idee` (Liste in `ideen.py`). Je Lernziel gibt es s
 - Die ersetzten Test-Aufgaben: VT2-001, 008, 015, 022, 029, 043, 050, 071, 078, 085, 092, 099, 106, 120, 127 (Schwierigkeit, Eindeutigkeit).
 - Die Lücken-Aufgaben mit Zeilenfehlern (VT2-081, 120) und die Aufgaben mit zwei gleichen Lückenwerten (023, 046).
 - Doppelungen mit `rollend-*` und `themen`, die das Werkzeug nicht erkennt.
+
+## Welle 1, Runde 2: Bauweise
+
+- `th_umformen.py` setzt am Ende Kennungs- und Auswahl-Zähler auf den alten Stand (VT2-049, zwei gemischte Auswahlaufgaben), damit terme.umformen_teil2 und geometrie.kreis ihre Kennungen behalten.
+- `kern.EINGEFROREN`: finanzen.zinsen, terme.umformen_teil2 und geometrie.kreis werden nicht neu geschrieben, sondern von der Platte gelesen. Grund: Schon der Stand `88ec767c` ließ sich nicht genau nachbauen (unter Python 3.13 ändert sich die Reihenfolge der Möglichkeiten bei VT2-010, 017, 054, 069). `kern._einfrieren` prüft, dass sich der Neubau nur in dieser Reihenfolge unterscheidet; die festen Prüfungen laufen damit über genau die Dateien im Repo.
+- `bauen.py`: Fehlerzeilen der Auswahl-Detektive jetzt `VT2-030` und `VT2-092` (vorher 032, 094).
+- `gegenrechnung.py`: neuer Abschnitt für VT2-029 … 043 und 085 … 119 mit eigenem Rechenweg (Aufzählen, echte Zahlwörter, Rekursion); die alten Zeilen dieser Kennungen sind entfernt.

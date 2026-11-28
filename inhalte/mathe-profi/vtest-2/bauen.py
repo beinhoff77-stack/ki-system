@@ -58,7 +58,7 @@ for x in alle:
         fehlt = [i for i in range(1, n + 1) if i not in fb_l]
         if fehlt: fehler.append(f'{x["kennung"]}: Lücke {fehlt} hat kein Fehlbild (jede Lücke braucht eins)')
 fd = {x['kennung']: (x['aufgabe']['o']['werte'][0] if x['aufgabe']['y'] == 'luecken' else None) for x in alle if x.get('form') == 'fehler_detektiv'}
-FD_AUSWAHL = {'VT2-032': 3, 'VT2-094': 3}      # bei Auswahl-Detektiven steht die Fehlerzeile im Text der richtigen Möglichkeit
+FD_AUSWAHL = {'VT2-030': 3, 'VT2-092': 3}      # bei Auswahl-Detektiven steht die Fehlerzeile im Text der richtigen Möglichkeit
 fd.update({k: v for k, v in FD_AUSWAHL.items() if k in fd})
 zeilen = list(fd.values())
 if None in zeilen: fehler.append('Fehler-Detektiv als Auswahl ohne eingetragene Fehlerzeile (FD_AUSWAHL in bauen.py)')

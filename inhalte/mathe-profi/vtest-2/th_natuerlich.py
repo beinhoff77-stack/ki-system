@@ -1,37 +1,39 @@
 from kern import *
 
+# Welle 1, Runde 2 (nach Vorprüfung W1 und Urteil 1222): je Lernziel 5 Aufgaben (1 Test, 2 Korrektur, 2 Sicherung).
+# Kennungen VT2-085 … VT2-119. Zuordnung alt → neu und Abarbeitung der Befunde: korrektur-nach-vorpruefung-w1.md.
+
+
 def bauen():
     einheit('zahlen.natuerlich')
     LP = 'M5 1 (Natürliche Zahlen)'
     # ---------------- stellenwert ----------------
     lz = 'stellenwert'
     Z(lz, 'test', 'rueckwaerts', None, 3, LP,
-      'In einer Zahl vertauschen die Ziffern an der Zehntausender- und der Tausenderstelle ihre Plätze. Eine der beiden Ziffern ist 0. Dadurch wird die Zahl um 27 000 größer. Welche Ziffer steht außer der 0 an diesen beiden Stellen?',
-      3, '27000 : 9000',
-      [(27, '27000 : 1000', 'nur durch den Wert 1 000 geteilt'),
-       (9, '27000 : 3000', 'durch 3 000 statt durch 9 000 geteilt'),
-       (6, '27000 : 4500', 'durch 4 500 (Mitte beider Stellenwerte) geteilt')],
-      'Steht die Ziffer d zuerst an der Tausenderstelle, danach an der Zehntausenderstelle, so wird die Zahl um d · 10 000 − d · 1 000 = d · 9 000 größer. Aus d · 9 000 = 27 000 folgt d = 3. Probe: 03 000 wird zu 30 000, der Unterschied ist 27 000.',
-      'Aus der Wirkung eines Ziffernaustauschs wird die Ziffer erschlossen (Rückwärts über zwei Stellenwerte); die Übungen fragen nach dem Wert einer Ziffer.')
+      'Eine sechsstellige Zahl enthält die Ziffer 4 genau zweimal. Die vordere 4 ist 1 000-mal so viel wert wie die hintere 4. Die vier übrigen Ziffern sind alle voneinander verschieden. Wie heißt die größte Zahl, für die das alles gilt?',
+      984764, '900000 + 80000 + 4000 + 700 + 60 + 4',
+      [(987644, '987644', 'die beiden Vieren nebeneinander ans Ende gesetzt; dann ist die vordere 4 nur 10-mal so viel wert wie die hintere'),
+       (987464, '987464', 'zwei Stellen Abstand gewählt; dann ist die vordere 4 nur 100-mal so viel wert wie die hintere'),
+       (948764, '948764', 'vier Stellen Abstand gewählt, weil 1 000 vier Ziffern hat; dann ist die vordere 4 sogar 10 000-mal so viel wert'),
+       (948746, '948746', 'den Abstand von drei Stellen richtig gewählt, die Vieren aber an die 2. und 5. statt an die 3. und 6. Stelle gesetzt')],
+      '1 000-mal so viel wert heißt: Die vordere 4 steht drei Stellen weiter links als die hintere (zum Beispiel Tausender und Einer). '
+      'In einer sechsstelligen Zahl geht das an den Stellen 1 und 4, 2 und 5 oder 3 und 6 (von links gezählt). Damit die Zahl groß wird, sollen vorn '
+      'möglichst große Ziffern stehen: 9 und 8 vor der vorderen 4, dann 7 und 6 auf die übrigen Plätze: 984 764. Probe: Die vordere 4 ist 4 000 wert, '
+      'die hintere 4 ist 4 wert, das ist 1 000-mal so viel. Mit den Vieren an Stelle 2 und 5 wäre die größte Zahl nur 948 746.',
+      'Die Übungen fragen nach dem Wert einer Ziffer an einer genannten Stelle; hier muss aus einem Wertverhältnis der Abstand zweier Stellen erschlossen und daraus die größte passende Zahl gebaut werden.')
     A(lz, 'korrektur', 'begruenden', None, 2, LP,
-      'In der Zahl 5 205 kommt die Ziffer 5 zweimal vor. Welche Aussage über die beiden Fünfen stimmt?',
-      ['Beide Fünfen sind gleich viel wert, denn es ist dieselbe Ziffer.',
-       'Die vordere 5 ist 10-mal so viel wert wie die hintere, denn sie steht eine Stelle weiter links.',
-       'Die vordere 5 ist 100-mal so viel wert wie die hintere, denn sie steht zwei Stellen weiter links.',
-       'Die vordere 5 ist 1 000-mal so viel wert wie die hintere, denn sie steht drei Stellen weiter links.'], 3,
-      {0: 'Der Wert einer Ziffer hängt von ihrer Stelle ab, nicht nur von der Ziffer.',
-       1: 'Wäre die vordere 5 an der Zehnerstelle, wäre sie 10-mal so viel wert; hier steht sie an der Tausenderstelle.',
-       2: 'Wäre die vordere 5 an der Hunderterstelle, wäre sie 100-mal so viel wert; hier steht sie an der Tausenderstelle.'},
-      'Die vordere 5 steht an der Tausenderstelle und ist 5 000 wert, die hintere steht an der Einerstelle und ist 5 wert. 5 000 : 5 = 1 000.',
-      'Zwei gleiche Ziffern an verschiedenen Stellen werden verglichen; die Übungen fragen nach dem Wert einer einzelnen Stelle.')
-    Z(lz, 'korrektur', 'darstellung', None, 2, LP,
-      'In der Zahl 7 777 werden die beiden mittleren Siebenen durch Nullen ersetzt, es entsteht 7 007. Um wie viel wird die Zahl dadurch kleiner?',
-      770, '700 + 70',
-      [(700, '700', 'nur die Siebene an der Hunderterstelle verändert gesehen'),
-       (140, '70 + 70', 'beide mittleren Siebenen als Zehner gezählt'),
-       (14, '7 + 7', 'die Ziffern statt ihrer Stellenwerte addiert')],
-      'Die beiden mittleren Siebenen stehen an der Hunderter- und an der Zehnerstelle: 700 und 70. Beim Ersetzen durch Nullen fallen 700 + 70 = 770 weg. Probe: 7 777 − 7 007 = 770.',
-      'Ziffern werden ersetzt und die Stellenwerte der betroffenen Stellen verrechnet; die Übungen lesen Stellenwerte nur ab.')
+      'In einer Zahl tauschen die Ziffer an der Zehntausenderstelle und die Ziffer an der Tausenderstelle ihre Plätze; alle anderen Ziffern bleiben, wie sie sind. Dadurch wird die Zahl um genau 36 000 größer. Welche Aussage folgt sicher daraus?',
+      ['Die Tausenderziffer war um 4 größer als die Zehntausenderziffer, denn jeder Unterschied von 1 bringt hier 9 000.',
+       'Die beiden Ziffern waren 0 und 4, denn nur dann wird die Zahl durch den Tausch um genau 36 000 größer.',
+       'Die Zehntausenderziffer war um 4 größer als die Tausenderziffer, denn sie steht weiter links und zählt deshalb mehr.',
+       'Über die beiden Ziffern lässt sich nichts sagen, denn der Zuwachs hängt auch von den übrigen Ziffern ab.'], 0,
+      {1: 'Hält ein passendes Beispiel für das einzige: Auch 1 und 5, 2 und 6 bis 5 und 9 ergeben 36 000, denn es zählt nur der Unterschied der beiden Ziffern.',
+       2: 'Verwechselt die Richtung: Rückt die größere Ziffer von der Zehntausender- an die Tausenderstelle, wird die Zahl kleiner, nicht größer.',
+       3: 'Übersieht, dass die übrigen Ziffern an ihrem Platz bleiben und zum Zuwachs nichts beitragen.'},
+      'Nur die beiden getauschten Stellen ändern sich. Ist die Tausenderziffer um 1 größer als die Zehntausenderziffer, so gewinnt die Zahl nach dem Tausch an der '
+      'Zehntausenderstelle 10 000 und verliert an der Tausenderstelle 1 000, zusammen 9 000. Bei einem Unterschied von 4 sind es 4 · 9 000 = 36 000. '
+      'Die Tausenderziffer war also um 4 größer; welche zwei Ziffern es genau waren (0 und 4, 1 und 5, …, 5 und 9), lässt sich nicht sagen.',
+      'Die Übungen tauschen zwei Ziffern einer gegebenen Zahl und rechnen den Zuwachs aus; hier wird aus dem Zuwachs geschlossen, was über die Ziffern sicher feststeht und was offen bleibt.')
     L(lz, 'korrektur', 'fehler', 'fehler_detektiv', 2, LP,
       'Ben bestimmt den Wert der Ziffer 6 in der Zahl 360 482. Zeile 1: Die 6 ist die zweite Ziffer von links. Zeile 2: Die zweite Stelle von links ist die Tausenderstelle. Zeile 3: Also ist die 6 hier 6 · 1 000 = 6 000 wert. In welcher Zeile steckt der erste Fehler, und wie viel ist die 6 wirklich wert?',
       'Fehler in Zeile □, die 6 ist □ wert', [2, 60000], ['2', '6 · 10000'],
@@ -45,49 +47,50 @@ def bauen():
       'Welche Aussage über die beiden Nullen in der Zahl 7 090 stimmt?',
       ['Die Nullen sind nichts wert und dürfen weggelassen werden: 7 090 ist dasselbe wie 79.',
        'Die Nullen halten Hunderter- und Einerstelle frei, ohne sie wäre die Zahl 79.',
-       'Die Nullen bedeuten, dass die Zahl mit 0 malgenommen wird; deshalb wäre 7 090 gleich 0.',
-       'Die Null an der Einerstelle zählt als ein Einer; deshalb sind es 7 Tausender, 9 Zehner und 1 Einer.'], 1,
-      {0: 'Die Nullen sind selbst nichts wert, bestimmen aber, an welchen Stellen die anderen Ziffern stehen.',
-       2: 'Eine Ziffer 0 steht für „kein Bündel dieser Stufe“, nicht für eine Multiplikation.',
-       3: 'Eine Null zählt keinen Einer; sie zeigt, dass es keine Einer gibt.'},
-      '7 090 = 7 Tausender + 0 Hunderter + 9 Zehner + 0 Einer. Die Nullen sind Platzhalter: Ohne sie würden 7 und 9 nach rechts rücken (79).',
-      'Die Rolle der Null als Platzhalter wird begründet; die Übungen lesen Ziffern ab.')
-    Z(lz, 'sicherung', 'transfer', 'anwenden', 3, LP,
-      'Aus den Ziffern 0, 4 und 6 (jede genau einmal) werden dreistellige Zahlen gebildet. Eine Zahl darf nicht mit 0 beginnen. Wie viele verschiedene Zahlen gibt es?',
-      4, '2 · 2',
-      [(6, '3 · 2 · 1', 'alle Anordnungen gezählt, auch die mit der 0 vorn'),
-       (3, '3', 'nur die Zahl der Ziffern genommen'),
-       (2, '2', 'nur die Möglichkeiten für die erste Stelle gezählt')],
-      'Die erste Stelle kann nur 4 oder 6 sein (2 Möglichkeiten). Für die beiden anderen Stellen bleiben zwei Ziffern in beliebiger Reihenfolge (2 Möglichkeiten). Das sind 2 · 2 = 4 Zahlen: 406, 460, 604 und 640.',
-      'Eine führende 0 macht aus einer dreistelligen Zahl keine; die Übungen vergleichen gegebene Zahlen.')
-    Z(lz, 'sicherung', 'rueckwaerts', None, 3, LP,
-      'Hängt man an eine Zahl rechts eine Null an, so wird die Zahl um 4 050 größer. Wie heißt die Zahl?',
-      450, '4050 : 9',
-      [(405, '4050 : 10', 'durch 10 geteilt, als wäre 4 050 die neue Zahl'),
-       (45, '4050 : 90', 'durch 90 geteilt'),
-       (4050, '4050', 'den Zuwachs selbst als Zahl angegeben')],
-      'Durch die angehängte Null wird jede Ziffer um eine Stelle nach links geschoben, die Zahl wird zehnmal so groß. Zuwachs = 10 · n − n = 9 · n = 4 050. Also n = 4 050 : 9 = 450. Probe: 4 500 − 450 = 4 050.',
-      'Rückwärts aus dem Zuwachs auf die Zahl; die Übungen fragen nach dem Wert der neuen Zahl.')
+       'Nur die mittlere Null wird gebraucht, die Null am Ende darf wegfallen, denn 709 ist so viel wie 7 090.',
+       'Nur die Null am Ende wird gebraucht, denn die mittlere Null spricht man nicht mit: 7 090 ist wie 790.'], 1,
+      {0: 'Die Nullen sind selbst nichts wert, bestimmen aber, an welchen Stellen die 7 und die 9 stehen; 79 ist viel kleiner als 7 090.',
+       2: 'Auch die Null am Ende hält eine Stelle frei: Ohne sie rücken 7, 0 und 9 eine Stelle nach rechts, 709 ist zehnmal kleiner als 7 090.',
+       3: 'Was man nicht spricht, kann trotzdem nötig sein: Ohne die mittlere Null stünde die 7 an der Hunderterstelle, 790 ist viel kleiner.'},
+      '7 090 = 7 Tausender + 0 Hunderter + 9 Zehner + 0 Einer. Beide Nullen sind Platzhalter: Lässt man eine von ihnen weg, rücken die Ziffern davor nach rechts (709 oder 790), ohne beide wird die Zahl 79.',
+      'Die Rolle beider Nullen als Platzhalter wird begründet, auch der nicht gesprochenen; die Übungen lesen Ziffern ab oder schreiben eine Zahl aus einer Stellenwerttafel.')
+    L(lz, 'sicherung', 'transfer', None, 3, LP,
+      'In eine Stellenwerttafel mit den Spalten T (Tausender), H, Z und E werden genau 12 gleiche Plättchen gelegt. In einer Spalte dürfen höchstens 9 Plättchen liegen, eine Spalte darf auch leer bleiben. Die Zahl der Plättchen in einer Spalte ist die Ziffer an dieser Stelle. Welches ist die kleinste und welches die größte Zahl, die man so legen kann?',
+      'kleinste Zahl □; größte Zahl □', [39, 9300], ['3 · 10 + 9', '9 · 1000 + 3 · 100'],
+      [(1, 12, '12', 'alle 12 Plättchen in die Einerspalte gelegt und die Grenze von 9 Plättchen je Spalte übersehen'),
+       (1, 93, '9 · 10 + 3', '9 Plättchen in die Zehner- und 3 in die Einerspalte gelegt; umgekehrt wird die Zahl kleiner'),
+       (1, 66, '6 · 10 + 6', 'die Plättchen gleichmäßig auf Zehner und Einer verteilt'),
+       (2, 3900, '3 · 1000 + 9 · 100', '9 Plättchen in die Hunderter- und nur 3 in die Tausenderspalte gelegt'),
+       (2, 3333, '3 · 1000 + 3 · 100 + 3 · 10 + 3', 'die Plättchen gleichmäßig auf alle vier Spalten verteilt'),
+       (2, 12000, '12 · 1000', 'alle 12 Plättchen in die Tausenderspalte gelegt, obwohl höchstens 9 erlaubt sind')],
+      'Ein Plättchen ist umso weniger wert, je weiter rechts es liegt. Für die kleinste Zahl legt man so viele wie möglich nach rechts: 9 in die Einerspalte, die übrigen 3 in die Zehnerspalte: 39. '
+      'Mit nur einer Spalte geht es nicht, weil dort höchstens 9 Plättchen liegen dürfen. Für die größte Zahl legt man so viele wie möglich nach links: 9 in die Tausenderspalte, 3 in die Hunderterspalte: 9 300.',
+      'Die Übungen lesen eine fertige Stellenwerttafel ab; hier muss man den Wert der Spalten nutzen, um mit einer festen Zahl von Plättchen die kleinste und die größte Zahl zu bauen.')
 
     # ---------------- ziffern_zu_zahlwort ----------------
     lz = 'ziffern_zu_zahlwort'
-    L(lz, 'test', 'transfer', None, 3, LP,
-      'Die Zahl „zweihundertvier Millionen siebentausendfünf“ wird in Ziffern geschrieben. Wie viele Stellen hat sie, und welche Ziffer steht an der Tausenderstelle?',
-      'Stellen: □; Ziffer an der Tausenderstelle: □', [9, 7], ['3 + 3 + 3', '7'],
-      [(1, 7, '3 + 1 + 3', 'die Tausenderklasse nur mit der einen Ziffer 7 statt dreistellig als 007 gezählt'),
-       (1, 6, '3 + 3', 'nur Millionen- und Tausenderklasse gezählt, die Einerklasse vergessen'),
-       (2, 5, '5', 'die Ziffer an der Einerstelle statt an der Tausenderstelle genommen'),
-       (2, 0, '0', 'die Hunderterstelle statt der Tausenderstelle angegeben')],
-      'Die Zahl lautet 204 007 005: Millionenklasse 204, Tausenderklasse 007 (die Nullen vorn gehören dazu), Einerklasse 005. Das sind 3 + 3 + 3 = 9 Stellen. An der Tausenderstelle, der letzten Stelle der Tausenderklasse, steht die 7.',
-      'Eine Zahl mit leeren Stellen in jeder Klasse wird aus dem Zahlwort aufgebaut und nach Stellenzahl und Stelle befragt; die Übungen lesen Zahlen vor.')
-    Z(lz, 'korrektur', 'transfer', None, 2, LP,
-      'Die Zahl „dreißig Millionen dreitausendzwanzig“ wird in Ziffern geschrieben. Wie viele Nullen stehen darin?',
-      5, '8 − 3',
-      [(6, '8 − 2', 'die 2 und die 3 der Tausenderklasse als eine Ziffer gezählt'),
-       (4, '8 − 4', 'die Null der Zehnerstelle nicht mitgezählt'),
-       (7, '9 − 2', 'eine Stelle zu viel angenommen')],
-      '„dreißig Millionen“ sind 30 000 000, „dreitausendzwanzig“ sind 3 020. Zusammen 30 003 020. Das sind 8 Stellen, davon 3 von 0 verschieden (3, 3, 2); also 5 Nullen.',
-      'Die Nullen müssen aus den Klassen erschlossen werden; die Übungen setzen eine Null an einer Stelle ein.')
+    Z(lz, 'test', 'transfer', None, 3, LP,
+      'Betrachtet werden alle Zahlen, die größer als eine Million und kleiner als zwei Millionen sind. Bei wie vielen dieser Zahlen kommt im Zahlwort das Wort „tausend“ nicht vor (auch nicht als Teil eines Wortes wie „dreitausend“ oder „hunderttausend“)?',
+      999, '1000999 − 1000001 + 1',
+      [(1000, '999 + 1', 'die Zahl 1 000 000 mitgezählt, obwohl sie nicht größer als eine Million ist'),
+       (0, '0', 'gemeint, in jeder siebenstelligen Zahl komme das Wort „tausend“ vor'),
+       (999000, '999999 − 999', 'die Zahlen gezählt, in denen „tausend“ vorkommt, statt die ohne')],
+      'Alle diese Zahlen haben sieben Stellen: Millionenklasse 1, dann Tausenderklasse und Einerklasse. Das Wort „tausend“ fällt genau dann weg, wenn die Tausenderklasse 000 ist; '
+      'eine leere Klasse wird nicht gesprochen. Das sind die Zahlen 1 000 001 („eine Million eins“) bis 1 000 999 („eine Million neunhundertneunundneunzig“), also 1 000 999 − 1 000 001 + 1 = 999 Zahlen. '
+      'Schon 1 001 000 heißt „eine Million eintausend“.',
+      'Die Übungen lesen einzelne Zahlen; hier muss man aus dem Aufbau des Zahlworts nach Klassen erschließen, wann ein Wort wegfällt, und alle passenden Zahlen eines Bereichs zählen.')
+    A(lz, 'korrektur', 'begruenden', None, 2, LP,
+      'Das Zahlwort einer Zahl beginnt mit „zehn Millionen“; danach kann noch etwas folgen oder auch nichts. Wie viele Stellen hat die Zahl, wenn man sie mit Ziffern schreibt?',
+      ['Immer acht, denn hinter der Millionenklasse 10 stehen stets zwei volle Dreiergruppen, notfalls aus Nullen.',
+       'Das hängt vom Rest ab, denn nur wenn danach noch Tausender und Einer genannt werden, braucht man alle Stellen.',
+       'Immer sieben, denn eine Million hat sieben Stellen, und zehn Millionen gehören ebenfalls zu den Millionen.',
+       'Mehr als acht, sobald noch etwas folgt, denn jedes weitere Wort wie „tausend“ oder „hundert“ hängt Stellen an.'], 0,
+      {1: 'Auch Klassen, die man nicht spricht, schreibt man mit Nullen: „zehn Millionen fünf“ ist 10 000 005 mit acht Stellen.',
+       2: 'Zehn Millionen sind schon 10 000 000 mit acht Stellen; die Millionenklasse ist hier zweistellig.',
+       3: 'Weitere Wörter füllen nur die Nullen der Tausender- und Einerklasse; auch „zehn Millionen neunhundertneunundneunzigtausend…“ hat acht Stellen.'},
+      '„zehn Millionen“ heißt: Die Millionenklasse ist 10. Dahinter kommen immer die Tausenderklasse und die Einerklasse mit je drei Stellen, auch wenn sie nur Nullen enthalten und man sie nicht spricht. '
+      'Also 2 + 3 + 3 = 8 Stellen, von 10 000 000 („zehn Millionen“) bis 10 999 999.',
+      'Die Übungen lesen einzelne Zahlen; hier wird allgemein begründet, dass nicht gesprochene Klassen trotzdem ihre Stellen behalten.')
     A(lz, 'korrektur', 'fehler', 'fehler_detektiv', 2, LP,
       'Nina liest die Zahl 3 000 900. Zeile 1: Die Zahl hat sieben Stellen: Millionenklasse, Tausenderklasse und Einerklasse. Zeile 2: Die Millionenklasse ist 3, die Tausenderklasse besteht nur aus Nullen. Zeile 3: Die 9 steht deshalb an der Hunderttausenderstelle: neunhunderttausend. Zeile 4: Nina liest also „drei Millionen neunhunderttausend“. In welcher Zeile steckt der erste Fehler, und warum?',
       ['In Zeile 1, weil eine siebenstellige Zahl keine Millionenklasse hat, sondern nur eine Tausenderklasse.',
@@ -99,45 +102,27 @@ def bauen():
        3: 'Das Wort „Millionen“ kann mit jedem anderen Zahlwort verbunden werden; der Fehler liegt schon bei der Stelle der 9.'},
       'Von rechts in Dreiergruppen: 3 | 000 | 900. Die Tausenderklasse ist 000 und wird nicht gesprochen. Die 900 steht in der Einerklasse: neunhundert. Richtig: drei Millionen neunhundert.',
       'Fehler-Detektiv beim Lesen einer Zahl mit ausgefallener Tausenderklasse; die Übungen haben keine ganze Nullklasse.')
-    A(lz, 'korrektur', 'begruenden', None, 2, LP,
-      'Warum liest man die Zahl 300 300 als „dreihunderttausenddreihundert“ und nicht als „dreihundert dreihundert“?',
-      ['Weil die Zahl zweimal die 300 enthält und man das so sagt, ohne dass es etwas mit den Stellen zu tun hat.',
-       'Weil die vordere 300 in der Tausenderklasse steht und die hintere in der Einerklasse.',
-       'Weil man bei sechsstelligen Zahlen immer „tausend“ in die Mitte setzt, egal welche Ziffern vorn stehen.',
-       'Weil die vordere 300 „dreitausend“ heißt, die hintere dagegen „dreihundert“; beide werden einfach nebeneinander gelesen.'], 1,
-      {0: 'Die zwei 300 bedeuten nicht dasselbe: die vordere ist 300 000, die hintere 300.',
-       2: 'Das Wort „tausend“ gehört zur Klasse, nicht zu jeder sechsstelligen Zahl (z. B. 300 000 hat keine Einerklasse im Wort).',
-       3: '300 Tausender sind 300 000, also dreihunderttausend, nicht dreitausend.'},
-      '300 300 = 300 Tausender + 300 Einer = 300 000 + 300. Dafür sagt man dreihundert (Tausender) + tausend + dreihundert (Einer): dreihunderttausenddreihundert.',
-      'Der Aufbau des Zahlworts aus Klassen wird begründet; die Übungen lesen die Zahl nur.')
-    A(lz, 'sicherung', 'begruenden', None, 2, LP,
-      'Welche Aussage über die Zahlen „zwei Millionen dreihundert“ (2 000 300) und „zweihunderttausenddreihundert“ (200 300) ist richtig?',
-      ['Die zweite ist größer, weil ihr Wort länger ist und ein längeres Wort immer eine größere Zahl bedeutet.',
-       'Die erste ist größer, denn 2 000 300 hat sieben Stellen, 200 300 dagegen nur sechs.',
-       'Man kann sie nicht vergleichen, denn nur eines der beiden Wörter enthält „Million“.',
-       'Die zweite ist größer, denn hunderttausend ist mehr als eine Million.'], 1,
-      {0: 'Die Länge des Wortes sagt nichts über die Größe der Zahl.',
-       2: 'Auch Zahlwörter lassen sich vergleichen: Man übersetzt sie in Ziffern und zählt die Stellen (sieben gegen sechs).',
-       3: 'Hunderttausend ist ein Zehntel einer Million; eine Million ist größer.'},
-      '2 000 300 hat sieben Stellen, 200 300 hat sechs Stellen. Die Zahl mit mehr Stellen ist größer: „zwei Millionen dreihundert“ ist etwa zehnmal so groß wie „zweihunderttausenddreihundert“.',
-      'Größenvergleich zweier Zahlwörter ohne Ziffernschreibweise; die Übungen lesen eine Zahl.')
-    L(lz, 'sicherung', 'fehler', 'fehler_detektiv', 3, LP,
-      'Tom liest die Zahl 10 010 100. Zeile 1: Die Klassen sind 10 | 010 | 100. Zeile 2: Die Millionenklasse 10 heißt zehn Millionen. Zeile 3: Die Tausenderklasse 010 heißt hunderttausend. Zeile 4: Die Einerklasse 100 heißt einhundert. In welcher Zeile steckt der erste Fehler, und wie viele Tausender sind die 010 wirklich?',
-      'Fehler in Zeile □, die Klasse 010 sind □ Tausender', [3, 10], ['3', '10'],
-      [(2, 100, '100', 'die Klasse 010 als 100 Tausender gelesen (also hunderttausend)'),
-       (2, 1, '1', 'die Null an der Hunderterstelle der Klasse nicht beachtet und nur 1 Tausender gelesen'),
-       (1, 1, '1', 'Zeile 1 für falsch gehalten, obwohl die Klasseneinteilung stimmt'),
-       (1, 4, '4', 'Zeile 4 für falsch gehalten, obwohl 100 einhundert heißt')],
-      'Zeile 1 und 2 stimmen. In Zeile 3 steht in der Tausenderklasse 010, das sind 10 Tausender, also zehntausend. Die ganze Zahl heißt zehn Millionen zehntausend einhundert.',
-      'Fehler-Detektiv bei einer Klasse mit führender Null; die Übungen enthalten höchstens eine Null in der Mitte.')
-    A(lz, 'sicherung', 'transfer', None, 2, LP,
-      'Welche Zahl wird gesprochen „sechs Millionen sechshundert“? Welche Ziffernfolge ist richtig?',
-      ['6 000 600', '6 600', '6 600 000', '60 000 600'], 0,
-      {1: '6 600 ist „sechstausendsechshundert“; die Millionenklasse fehlt.',
-       2: '6 600 000 ist „sechs Millionen sechshunderttausend“; die Tausenderklasse ist nicht leer.',
-       3: '60 000 600 sind „sechzig Millionen sechshundert“; die Millionenklasse ist 6, nicht 60.'},
-      '„sechs Millionen“ sind 6 000 000 (Millionenklasse 6). „sechshundert“ gehört zur Einerklasse. Die Tausenderklasse ist leer, also 000: 6 000 600.',
-      'Leere Klassen müssen mit Nullen gefüllt werden; die Übungen lesen vorgegebene Ziffernfolgen.')
+    Z(lz, 'sicherung', 'transfer', None, 3, LP,
+      'Tim teilt eine Zahl zum Lesen von links in Dreiergruppen ein statt von rechts und liest die Gruppen dann wie üblich mit „Millionen“ und „tausend“. Aus 45 000 120 macht er so 450 | 001 | 20. Wie viele der Zahlen von 1 000 bis 999 999 liest Tim trotzdem richtig?',
+      900000, '999999 − 100000 + 1',
+      [(999000, '999999 − 1000 + 1', 'alle Zahlen von 1 000 bis 999 999 gezählt, als ändere die Einteilung von links nichts'),
+       (0, '0', 'gemeint, eine Einteilung von links führe immer zu einem falschen Zahlwort'),
+       (990000, '999999 − 10000 + 1', 'die fünfstelligen Zahlen mitgezählt; bei ihnen bekommt die erste Gruppe von links aber drei statt zwei Ziffern')],
+      'Die Klassen (Einer, Tausender, Millionen) beginnen immer rechts bei den Einern. Teilt man von links ein, stimmen die Gruppen nur dann mit den Klassen überein, wenn die Stellenzahl durch 3 teilbar ist. '
+      'Von 1 000 bis 999 999 sind das die sechsstelligen Zahlen 100 000 bis 999 999, also 999 999 − 100 000 + 1 = 900 000 Zahlen. Bei vier- und fünfstelligen Zahlen geht es schief: 4 500 würde zu 450 | 0, also „vierhundertfünfzigtausend“.',
+      'Die Übungen teilen von rechts in Dreiergruppen; hier wird untersucht, warum gerade von rechts und wann eine falsche Einteilung zufällig dasselbe ergibt.')
+    L(lz, 'sicherung', 'transfer', None, 3, LP,
+      'Eine Zahl, die kleiner als eine Milliarde ist, wird laut gelesen. Wie oft kann das Wort „hundert“ im Zahlwort höchstens vorkommen (auch als Teil eines Wortes wie „dreihundert“ oder „hunderttausend“)? Wie heißt die kleinste Zahl, bei der es so oft vorkommt?',
+      'höchstens □-mal; kleinste Zahl □', [3, 100100100], ['3', '100000000 + 100000 + 100'],
+      [(1, 9, '9', 'für jede der neun Stellen ein „hundert“ angenommen'),
+       (1, 6, '3 · 2', 'gemeint, jede Klasse könne „hundert“ zweimal enthalten'),
+       (2, 111111111, '111111111', 'an jeder Stelle eine 1 gesetzt; Zehner- und Einerziffern dürfen aber 0 sein'),
+       (2, 100100, '100000 + 100', 'nur Tausender- und Einerklasse beachtet, die Millionenklasse vergessen')],
+      'Jede Klasse (Millionen, Tausender, Einer) wird wie eine dreistellige Zahl gelesen. „hundert“ kommt in einer Klasse genau einmal vor, wenn ihre Hunderterziffer nicht 0 ist, sonst gar nicht. '
+      'Eine Zahl unter einer Milliarde hat höchstens drei Klassen, also kommt „hundert“ höchstens dreimal vor. Dafür muss in jeder Klasse die Hunderterziffer mindestens 1 sein; am kleinsten wird die Zahl, '
+      'wenn alle anderen Ziffern 0 sind: 100 100 100 („einhundert Millionen einhunderttausendeinhundert“).',
+      'Die Übungen zählen, wie oft ein Wort in einer gegebenen Zahl vorkommt; hier wird über alle Zahlen hinweg die Höchstzahl begründet und die kleinste passende Zahl gebaut.')
+
     # ---------------- strahl_eintragen ----------------
     lz = 'strahl_eintragen'
     L(lz, 'test', 'transfer', 'anwenden', 3, LP,
@@ -148,32 +133,31 @@ def bauen():
        (2, 1800, '9 · 200', 'nur den Zuwachs angegeben, die Marke 1 200 nicht dazugerechnet'),
        (2, 1236, '1200 + 9 · 4', 'die 4 cm als Wert je cm genommen')],
       '4 cm entsprechen 2 000 − 1 200 = 800, also steht 1 cm für 200. Von 1 200 bis 3 400 sind es 2 200, das sind 2 200 : 200 = 11 cm. 9 cm entsprechen 9 · 200 = 1 800; 1 200 + 1 800 = 3 000.',
-      'Die Übungen markieren eine Zahl auf einer vorgegebenen Skala ab 0; hier muss ein Maßstab aus zwei Marken ohne Nullpunkt erschlossen und übertragen werden.')
+      'Die Übungen markieren eine Zahl auf einer vorgegebenen Skala ab 0; hier muss ein Maßstab aus zwei Marken ohne Nullpunkt erschlossen und in beide Richtungen übertragen werden.')
     A(lz, 'korrektur', 'begruenden', None, 2, LP,
-      'Ein Zahlenstrahl hat gleich große Abschnitte. Die Striche sind mit 0, 250, 500, 800 und 1 000 beschriftet. Welche Beschriftung passt nicht zur Skala?',
-      ['250', '500', '800', '1 000'], 2,
-      {0: ('Der erste Abschnitt von 0 bis 250 legt den Schritt 250 fest; 250 passt.', '250'),
-       1: ('500 = 2 · 250 passt zum Schritt 250.', '500'),
-       3: ('1 000 = 4 · 250 passt zum Schritt 250.', '1000')},
-      'Der Schritt ist 250. Die Striche gehören zu 0, 250, 500, 750 und 1 000. Die Beschriftung 800 passt nicht; dort müsste 750 stehen.',
-      'Eine fertige Skala wird auf gleichmäßige Abschnitte geprüft; die Übungen tragen Zahlen ein.', fest=True)
-    Z(lz, 'korrektur', 'transfer', 'anwenden', 2, LP,
-      'Auf einem Zahlenstrahl sind Striche im gleichen Abstand von 50 eingezeichnet. Der 5. Strich von links trägt die Zahl 700. Welche Zahl gehört zum 12. Strich?',
-      1050, '700 + 7 · 50',
-      [(1100, '700 + 8 · 50', 'einen Abstand zu viel gezählt'),
-       (600, '12 · 50', 'den Strich einfach mit 50 malgenommen'),
-       (1000, '700 + 6 · 50', 'einen Abstand zu wenig gezählt')],
-      'Vom 5. zum 12. Strich sind es 12 − 5 = 7 Abstände. 7 · 50 = 350. Also gehört zum 12. Strich die Zahl 700 + 350 = 1 050.',
-      'Striche und Abstände werden unterschieden (Zaunpfahl); die Übungen entscheiden nur nach der näheren Marke.')
-    L(lz, 'korrektur', 'fehler', 'fehler_detektiv', 2, LP,
-      'Auf einem Zahlenstrahl liegt 0 beim Nullpunkt, und 10 000 liegt 20 cm davon entfernt. Ben will die Zahl 7 500 eintragen. Zeile 1: 10 000 liegen 20 cm vom Nullpunkt entfernt. Zeile 2: Also gehören zu 1 000 genau 2 cm. Zeile 3: Zu 7 500 gehören 7 · 2 cm = 14 cm. In welcher Zeile steckt der erste Fehler, und wie viele cm liegt die 7 500 wirklich vom Nullpunkt entfernt?',
-      'Fehler in Zeile □, die 7 500 liegt □ cm entfernt', [3, 15], ['3', '7500 : 1000 · 2'],
-      [(2, 14, '7 · 2', 'wie Ben die 500 nicht berücksichtigt'),
-       (2, 16, '8 · 2', 'auf 8 000 aufgerundet'),
-       (2, 150, '7500 : 50', 'ohne den Maßstab gerechnet'),
-       (1, 2, '2', 'Zeile 2 für falsch gehalten, obwohl 20 cm : 10 = 2 cm stimmt')],
-      '1 000 entsprechen 20 cm : 10 = 2 cm. 7 500 sind 7,5 Tausender, also 7,5 · 2 cm = 15 cm. Ben hat die 500 vergessen; 14 cm gehören zu 7 000.',
-      'Fehler-Detektiv bei einem Maßstab; die Übungen setzen die Zahl direkt auf die Skala.')
+      'Ein Zahlenstrahl beginnt bei 300; die Striche haben gleiche Abstände und sind der Reihe nach mit 300, 500, 700, 900, … beschriftet. Tim behauptet: „Wenn eine Zahl auf einem Strich liegt, dann liegt auch das Doppelte dieser Zahl auf einem Strich.“ Welche Aussage stimmt?',
+      ['Das stimmt nie, denn Striche tragen 3, 5, 7, … Hunderter, die Doppelten 600, 1 000, 1 400, … liegen zwischen zwei Strichen.',
+       'Das stimmt immer, denn verdoppelt man eine Zahl, die auf einem Strich liegt, kommt man wieder genau auf einen Strich.',
+       'Das stimmt manchmal, zum Beispiel bei 500, denn das Doppelte 1 000 ist eine runde Zahl und liegt deshalb sicher auf einem Strich.',
+       'Das lässt sich nicht entscheiden, denn man weiß nicht, wie viele Zentimeter ein Abstand zwischen zwei Strichen lang ist.'], 0,
+      {1: 'Das gilt nur, wenn der Strahl bei 0 beginnt; hier beginnt er bei 300, und schon 300 · 2 = 600 liegt zwischen 500 und 700.',
+       2: '1 000 liegt zwischen den Strichen 900 und 1 100; eine runde Zahl muss nicht auf einem Strich liegen.',
+       3: 'Ob eine Zahl auf einem Strich liegt, hängt nur von den Zahlen an den Strichen ab, nicht von der Länge in cm.'},
+      'Die Striche gehören zu 300, 500, 700, 900, 1 100, …: jedes Mal eine ungerade Anzahl von Hundertern (3, 5, 7, 9, 11, …). Verdoppelt man eine solche Zahl, entsteht eine gerade Anzahl von Hundertern: '
+      '600, 1 000, 1 400, 1 800, … Diese Zahlen liegen genau in der Mitte zwischen zwei Strichen. Tims Satz stimmt also für keine einzige Strichzahl.',
+      'Die Übungen tragen einzelne Zahlen ein; hier wird für alle Strichzahlen entschieden, ob eine Eigenschaft gilt, wenn der Strahl nicht bei 0 beginnt.')
+    A(lz, 'korrektur', 'darstellung', None, 2, LP,
+      'Auf Zahlenstrahl A steht 1 cm für 50, auf Zahlenstrahl B steht 1 cm für 200. Auf beiden Strahlen werden die Zahlen 400 und 1 000 eingetragen. Welche Aussage über den Abstand der beiden Marken stimmt?',
+      ['Auf A liegen die Marken 4-mal so weit auseinander wie auf B, denn dort braucht derselbe Unterschied mehr cm.',
+       'Auf B liegen die Marken 4-mal so weit auseinander wie auf A, denn dort steht jeder Zentimeter für eine größere Zahl.',
+       'Auf beiden liegen die Marken gleich weit auseinander, denn es sind auf beiden dieselben zwei Zahlen.',
+       'Das kann man nicht sagen, denn man weiß nicht, an welcher Stelle der beiden Strahlen jeweils die 0 liegt.'], 0,
+      {1: 'Steht 1 cm für mehr, braucht man für den Unterschied 600 weniger cm: auf B 3 cm, auf A 12 cm.',
+       2: 'Dieselben Zahlen liegen nur bei gleichem Maßstab gleich weit auseinander: 12 cm auf A, 3 cm auf B.',
+       3: 'Der Abstand zweier Marken hängt nur vom Unterschied der Zahlen (600) und vom Maßstab ab, nicht von der Lage der 0.'},
+      'Der Abstand hängt nur vom Unterschied 1 000 − 400 = 600 ab. Auf A sind das 600 : 50 = 12 cm, auf B 600 : 200 = 3 cm. 12 cm sind 4-mal so viel wie 3 cm. '
+      'Das sieht man auch ohne Rechnen: Auf A steht 1 cm für ein Viertel so viel wie auf B, also braucht jeder Unterschied auf A 4-mal so viel Platz.',
+      'Die Übungen markieren Zahlen auf einem Strahl; hier werden zwei Maßstäbe verglichen, und es kommt nicht darauf an, wo die Zahlen genau liegen.')
     Z(lz, 'sicherung', 'transfer', None, 3, LP,
       'Anna teilt den Zahlenstrahl von 0 bis 1 200 in 6 gleich große Abschnitte, Ben teilt ihn in 8 gleich große Abschnitte. Wie viele Zahlen zwischen 0 und 1 200 (ohne 0 und 1 200) liegen bei beiden auf einem Teilstrich?',
       1, '1',
@@ -182,25 +166,18 @@ def bauen():
        (12, '5 + 7', 'die Teilstriche beider Strahlen addiert')],
       'Annas Abschnitte sind 1 200 : 6 = 200 lang, Bens Abschnitte 1 200 : 8 = 150. Auf beiden Strahlen liegt eine Zahl auf einem Teilstrich, wenn sie ein Vielfaches von 200 und von 150 ist: 600 (und 1 200, das ist aber das Ende). Zwischen 0 und 1 200 ist es nur die 600.',
       'Die Übungen tragen Zahlen auf einer Skala ein; hier werden zwei verschiedene Teilungen desselben Strahls verglichen.')
-    Z(lz, 'sicherung', 'transfer', 'anwenden', 3, LP,
-      'Auf einem Zahlenstrahl liegt 0 bei 0 cm und 120 bei 6 cm (die Skala ist gleichmäßig). Wie viele ganze Zahlen liegen weniger als 1 cm vom Punkt der Zahl 60 entfernt (die 60 selbst eingeschlossen)?',
-      39, '79 − 41 + 1',
-      [(40, '80 − 40', 'die Zahlen 40 und 80 mitgezählt oder die 60 vergessen'),
-       (41, '80 − 40 + 1', 'beide Randzahlen 40 und 80 mitgezählt'),
-       (19, '20 − 1', 'nur eine Seite von 60 betrachtet')],
-      '1 cm entspricht 120 : 6 = 20. Die Zahl 60 liegt bei 3 cm. Weniger als 1 cm entfernt sind die Zahlen, die weniger als 20 von 60 abweichen, also 41 bis 79 (40 und 80 sind genau 1 cm entfernt). Das sind 79 − 41 + 1 = 39 Zahlen.',
-      'Ein Maßstab wird in einen Zahlenbereich übersetzt, Randzahlen zählen nicht; die Übungen lesen Striche ab.')
     A(lz, 'sicherung', 'begruenden', None, 3, LP,
-      'Mia zeichnet einen Zahlenstrahl und lässt zwischen 0 und 100 genauso viel Platz wie zwischen 100 und 1 000. Warum ist das kein richtiger Zahlenstrahl?',
-      ['Weil gleiche Strecken nur gleiche Unterschiede bedeuten dürfen und 100 bis 1 000 neunmal so weit ist wie 0 bis 100.',
-       'Weil Zahlen mit mehr Ziffern immer weiter rechts stehen müssen, und zwar um ihre Ziffernzahl mal so weit entfernt.',
-       'Weil die Abstände auf dem Zahlenstrahl immer um das Zehnfache wachsen müssen, wenn die Zahlen zehnmal so groß werden.',
-       'Weil der Abstand zwischen zwei Zahlen immer gleich dem Zehnfachen der kleineren Zahl sein muss.'], 0,
-      {1: 'Zahlen mit mehr Ziffern stehen weiter rechts, aber die Strecke muss zur Zahlendifferenz passen.',
-       2: 'Auf einem Zahlenstrahl sind gleich große Zahlenunterschiede gleich lange Strecken, nicht zehnfache.',
-       3: 'Der Abstand von 0 bis 100 ist hier der kleinste, nicht der größte.'},
-      '100 − 0 = 100, aber 1 000 − 100 = 900. Auf einem Zahlenstrahl entspricht gleichen Zahlenunterschieden gleiche Strecke. Der zweite Abschnitt müsste also neunmal so lang sein.',
-      'Der Maßstabsgedanke (gleiche Strecken = gleiche Zahlenunterschiede) wird begründet; die Übungen tragen Zahlen auf einer richtigen Skala ein.')
+      'Mia zeichnet einen Strahl mit gleich großen Abständen zwischen den Strichen und beschriftet die Striche der Reihe nach mit 0, 10, 100 und 1 000. Welche Aussage über Mias Zahlenstrahl stimmt?',
+      ['Er ist falsch beschriftet, denn gleich lange Abschnitte müssen gleich große Unterschiede haben, hier sind es 10, 90 und 900.',
+       'Er ist richtig beschriftet, denn von Strich zu Strich wird die Zahl jedes Mal zehnmal so groß, und das ist doch ganz gleichmäßig.',
+       'Nur der erste Abschnitt passt nicht, denn 10, 100 und 1 000 haben untereinander gleiche Abstände, nur die 0 stört.',
+       'Das lässt sich nicht entscheiden, denn dafür müsste man wissen, wie viele Zentimeter ein Abschnitt lang ist.'], 0,
+      {1: 'Auf einem Zahlenstrahl gehören gleich lange Strecken zu gleichen Unterschieden, nicht zu gleichen Vervielfachungen: 0 bis 10 ist ein Unterschied von 10, 100 bis 1 000 einer von 900.',
+       2: 'Auch 10, 100 und 1 000 haben verschiedene Unterschiede (90 und 900); der Abschnitt von 100 bis 1 000 müsste 10-mal so lang sein wie der von 10 bis 100.',
+       3: 'Die Länge in cm spielt keine Rolle; schon die Zahlen zeigen, dass gleich lange Abschnitte hier verschiedene Unterschiede hätten.'},
+      'Auf einem Zahlenstrahl entspricht jeder gleich lange Abschnitt demselben Unterschied. Bei Mia sind die Unterschiede 10 − 0 = 10, 100 − 10 = 90 und 1 000 − 100 = 900, obwohl die Abschnitte gleich lang sind. '
+      'Richtig wäre zum Beispiel 0, 10, 20, 30; für 0, 10, 100 und 1 000 müssten die Abschnitte 1-, 9- und 90-mal so lang sein wie der erste.',
+      'Der Maßstabsgedanke (gleiche Strecken = gleiche Zahlenunterschiede) wird an einer falschen, aber „regelmäßig“ wirkenden Beschriftung begründet; die Übungen tragen Zahlen auf einer richtigen Skala ein.')
 
     # ---------------- runden_regel ----------------
     lz = 'runden_regel'
@@ -212,15 +189,6 @@ def bauen():
        (11, '4 + 6 + 1', 'die 5 mitgezählt, obwohl sie auf Zehner 10, auf Hunderter aber 0 ergibt')],
       'Auf Hunderter gerundet ergeben die Zahlen 1 bis 49 den Wert 0 und die Zahlen 50 bis 100 den Wert 100. Auf Zehner gerundet ergeben 1 bis 4 den Wert 0, und 95 bis 100 den Wert 100 (95 wird zu 100). Nur dort stimmen beide Rundungen überein: 1, 2, 3, 4 und 95, 96, 97, 98, 99, 100, das sind 4 + 6 = 10 Zahlen.',
       'Zwei Rundungen auf verschiedene Stellen werden für einen ganzen Zahlenbereich verglichen; die Übungen runden einzelne Zahlen oder zählen die Zahlen zu einem Rundungsergebnis.')
-    L(lz, 'korrektur', 'transfer', None, 2, LP,
-      'Eine natürliche Zahl ergibt gerundet auf Hunderter die Zahl 3 700. Wie viele verschiedene natürliche Zahlen kommen dafür in Frage? Und wie viele, wenn eine Zahl gerundet auf Tausender die Zahl 4 000 ergibt?',
-      'auf Hunderter □ Zahlen; auf Tausender □ Zahlen', [100, 1000], ['3749 − 3650 + 1', '4499 − 3500 + 1'],
-      [(1, 99, '3749 − 3650', 'eine Randzahl zu wenig gezählt'),
-       (1, 101, '3750 − 3650 + 1', 'die Zahl 3 750 mitgezählt, die schon auf 3 800 rundet'),
-       (2, 999, '4499 − 3500', 'eine Randzahl zu wenig gezählt'),
-       (2, 1001, '4500 − 3500 + 1', 'die Zahl 4 500 mitgezählt, die schon auf 5 000 rundet')],
-      'Auf Hunderter gerundet 3 700 heißt von 3 650 bis 3 749 (3 650 rundet auf, 3 750 schon auf 3 800): 3 749 − 3 650 + 1 = 100 Zahlen. Auf Tausender gerundet 4 000 heißt von 3 500 bis 4 499: 1 000 Zahlen.',
-      'Die Breite des Rundungsbereichs wird bestimmt (eine Stelle gröber = zehnmal mehr Zahlen); die Übungen runden einzelne Zahlen.')
     Z(lz, 'korrektur', 'begruenden', None, 2, LP,
       'Eine natürliche Zahl wird auf Hunderter gerundet. Um wie viel kann die gerundete Zahl höchstens von der ursprünglichen Zahl abweichen?',
       50, '100 : 2',
@@ -228,7 +196,7 @@ def bauen():
        (100, '100', 'die ganze Stufe 100 als größte Abweichung genommen'),
        (99, '100 − 1', 'die Zahl direkt unter der nächsten Stufe als Abweichung genommen')],
       'Beim Runden auf Hunderter liegt jede Zahl höchstens bis zur Mitte (50) von der gerundeten Zahl entfernt. 4 950 wird zu 5 000 aufgerundet, Abweichung 50. 4 949 wird zu 4 900 abgerundet, Abweichung 49. Größer als 50 geht nicht.',
-      'Der größtmögliche Rundungsfehler wird über die Grenzfälle der Regel bestimmt; die Übungen runden einzelne Zahlen.', einheit_=None)
+      'Der größtmögliche Rundungsfehler wird über die Grenzfälle der Regel bestimmt; die Übungen runden einzelne Zahlen.')
     L(lz, 'korrektur', 'fehler', 'fehler_detektiv', 2, LP,
       'Jonas rundet 4 949 auf Hunderter. Zeile 1: Zum Runden auf Hunderter schaut man auf die Zehnerstelle. Zeile 2: Die Zehnerstelle ist 4, das ist kleiner als 5, also wird aufgerundet. Zeile 3: Aufgerundet ergibt 4 949 gerundet 5 000. In welcher Zeile steckt der erste Fehler, und wie lautet die richtig gerundete Zahl?',
       'Fehler in Zeile □, richtig gerundet: □', [2, 4900], ['2', '4900'],
@@ -239,16 +207,16 @@ def bauen():
       'Zeile 1 stimmt. In Zeile 2: Eine Ziffer kleiner als 5 bedeutet abrunden. Die Zehnerstelle 4 gibt abrunden: 4 949 ≈ 4 900.',
       'Fehler-Detektiv beim Entscheidungsschritt der Rundungsregel (Aufrunden bei Ziffer < 5); die Übungen runden direkt.')
     A(lz, 'sicherung', 'begruenden', None, 2, LP,
-      'Eine natürliche Zahl wird auf Zehntausender gerundet. Die gerundete Zahl ist im Vergleich zur ursprünglichen Zahl … Welche Aussage stimmt?',
-      ['immer größer, denn gerundete Zahlen sind „voller“.',
-       'alle drei Fälle kommen vor, denn es kommt auf die Stelle hinter der Rundungsstelle an.',
-       'manchmal kleiner und manchmal gleich, aber nie größer, denn Runden schneidet hinten Stellen ab.',
-       'manchmal größer und manchmal kleiner, aber nie gleich, denn eine gerundete Zahl ist stets eine andere Zahl.'], 1,
-      {0: 'Wird abgerundet, ist die gerundete Zahl kleiner.',
-       2: 'Wird aufgerundet, ist die gerundete Zahl größer (64 000 → 60 000, aber 66 000 → 70 000).',
-       3: 'Liegt die Zahl schon auf einem Zehntausender (z. B. 60 000), bleibt sie beim Runden gleich.'},
-      'Beispiele: 64 000 wird zu 60 000 (kleiner), 66 000 wird zu 70 000 (größer), 60 000 bleibt 60 000 (gleich). Es hängt von der Zehntausender-Folgestelle ab.',
-      '„Immer, manchmal, nie“ mit Gegenbeispielen; die Übungen runden eine Zahl.')
+      'Eine natürliche Zahl wird auf Zehntausender gerundet. Kann die gerundete Zahl größer als die ursprüngliche Zahl sein, kleiner als sie oder gleich groß? Welche Aussage stimmt?',
+      ['Sie ist immer größer, denn gerundete Zahlen sind „voller“ als die ursprüngliche Zahl.',
+       'Jeder der drei Fälle kommt vor, denn entscheidend sind die Stellen hinter der Zehntausenderstelle.',
+       'Sie ist kleiner oder gleich, denn beim Runden werden hinten Stellen einfach weggeschnitten.',
+       'Sie ist größer oder kleiner, denn eine gerundete Zahl ist stets eine andere Zahl als die Zahl vorher.'], 1,
+      {0: 'Wird abgerundet, ist die gerundete Zahl kleiner: 64 000 wird zu 60 000.',
+       2: 'Wird aufgerundet, ist die gerundete Zahl größer: 66 000 wird zu 70 000.',
+       3: 'Liegt die Zahl schon auf einem Zehntausender, bleibt sie gleich: 60 000 bleibt 60 000.'},
+      'Beispiele: 64 000 wird zu 60 000 (kleiner), 66 000 wird zu 70 000 (größer), 60 000 bleibt 60 000 (gleich). Ob auf- oder abgerundet wird, entscheidet die erste Stelle hinter der Zehntausenderstelle; gleich bleibt die Zahl nur, wenn alle Stellen dahinter 0 sind.',
+      '„Immer, manchmal, nie“ mit Gegenbeispielen für alle drei Fälle; die Übungen runden eine Zahl.')
     A(lz, 'sicherung', 'begruenden', None, 3, LP,
       'Zwei natürliche Zahlen a und b mit a < b werden beide auf Hunderter gerundet. Welche Aussage über die gerundeten Zahlen stimmt?',
       ['Die gerundete Zahl von a ist nie größer als die von b und kann gleich sein, denn die Rundungsbereiche liegen in derselben Reihenfolge.',
@@ -260,37 +228,27 @@ def bauen():
        3: 'Verschiedene Zahlen können denselben Rundungswert haben: 4 760 und 4 770 ergeben beide 4 800.'},
       'Beim Runden auf Hunderter gehört jede Zahl zu einem Bereich, zum Beispiel 4 750 bis 4 849 zu 4 800. Die Bereiche liegen in derselben Reihenfolge wie die Zahlen. Ist a < b, liegt a im selben oder in einem früheren Bereich als b, also ist gerundet a höchstens so groß wie gerundet b. Beispiel: 4 760 und 4 770 ergeben beide 4 800.',
       'Eine Eigenschaft des Rundens (Reihenfolge bleibt erhalten, Gleichheit ist möglich) wird begründet; die Übungen runden einzelne Zahlen.')
-    A(lz, 'sicherung', 'transfer', None, 2, LP,
-      'Auf Hunderter gerundet ergeben mehrere natürliche Zahlen 2 000. Welche Aussage stimmt?',
-      ['Die kleinste dieser Zahlen ist 1 950, die größte 2 049, denn ab 50 wird aufgerundet.',
-       'Die kleinste dieser Zahlen ist 1 951, die größte 2 050, denn die Hälfte gehört zur nächsten Hunderterzahl.',
-       'Die kleinste dieser Zahlen ist 1 900, die größte 2 100, denn Runden ändert eine Zahl um höchstens 100.',
-       'Es gibt nur die Zahl 2 000 selbst, denn gerundete Zahlen entstehen aus genau einer Zahl.'], 0,
-      {1: '1 950 rundet auf 2 000 auf und gehört dazu; 2 050 rundet schon auf 2 100 auf und gehört nicht dazu.',
-       2: '1 900 und 2 100 sind selbst die Hunderterzahlen 1 900 und 2 100; sie runden auf sich selbst, nicht auf 2 000.',
-       3: 'Viele Zahlen haben dieselbe gerundete Zahl: alle von 1 950 bis 2 049.'},
-      'Zwischen 1 950 und 2 049 ist 2 000 die nächste Hunderterzahl: 1 950 wird aufgerundet (ab 50), 2 049 abgerundet. 1 949 rundet auf 1 900, 2 050 auf 2 100. Also sind es die Zahlen von 1 950 bis 2 049.',
-      'Die Randzahlen des Rundungsbereichs werden bestimmt; die Übungen runden vorgegebene Zahlen.')
+
     # ---------------- runden_sinnvoll ----------------
     lz = 'runden_sinnvoll'
-    L(lz, 'sicherung', 'transfer', None, 3, LP,
-      'In einem Saal gibt es 48 Reihen mit je 29 Plätzen. Anna schätzt die Platzzahl mit 50 · 30, Ben mit 48 · 30. Um wie viel liegt jede der beiden Schätzungen über der genauen Platzzahl?',
-      'Annas Schätzung liegt □ darüber, Bens Schätzung liegt □ darüber', [108, 48], ['50 · 30 − 48 · 29', '48 · 30 − 48 · 29'],
-      [(1, 60, '50 · 30 − 48 · 30', 'nur den Unterschied zu Bens Schätzung angegeben'),
-       (1, 1500, '50 · 30', 'die Schätzung selbst statt der Abweichung angegeben'),
-       (2, 1, '30 − 29', 'nur den Fehler je Reihe (1 Platz) angegeben'),
-       (2, 1440, '48 · 30', 'die Schätzung selbst statt der Abweichung angegeben')],
-      'Genau: 48 · 29 = 1 392 Plätze. Anna: 50 · 30 = 1 500, das sind 108 zu viel. Ben: 48 · 30 = 1 440, das sind 48 zu viel (1 Platz zu viel je Reihe). Wer beide Faktoren aufrundet, verstärkt den Fehler.',
-      'Die Übungen runden eine Zahl oder eine Summe; hier wird beim Produkt gerundet, und der Fehler wächst, wenn beide Faktoren aufgerundet werden.')
+    L(lz, 'test', 'transfer', 'anwenden', 3, LP,
+      'Ein Schlauch ist auf Zehner gerundet 30 m lang (die Länge ist eine ganze Zahl in Metern). Er wird in Stücke zu je 3 m zerschnitten; ein Rest, der kürzer als 3 m ist, wird nicht gezählt. Wie viele Stücke sind mindestens und höchstens möglich?',
+      'mindestens □ Stücke, höchstens □ Stücke', [8, 11], ['(25 − 1) : 3', '(34 − 1) : 3'],
+      [(1, 10, '30 : 3', 'mit der gerundeten Länge 30 m gerechnet'),
+       (1, 9, '27 : 3', 'als kleinste Länge 27 m angesetzt'),
+       (2, 10, '30 : 3', 'mit der gerundeten Länge 30 m gerechnet'),
+       (2, 12, '36 : 3', 'als größte Länge 36 m angesetzt')],
+      'Auf Zehner gerundet 30 m heißt: von 25 m bis 34 m. Bei 25 m gibt es 25 : 3 = 8 Stücke (Rest 1 m), bei 34 m gibt es 34 : 3 = 11 Stücke (Rest 1 m). Zwischen 8 und 11 Stücke sind möglich, nicht genau 10.',
+      'Ein Rundungsbereich wird durch eine Zahl geteilt, wobei der Rest wegfällt; die Übungen runden Summen und Produkte.')
     L(lz, 'korrektur', 'transfer', 'anwenden', 2, LP,
-      'Beide Aufgaben beruhen auf derselben Rechnung 1 000 : 36 (etwa 27,8). Aufgabe A: Ein Verein hat 1 000 € und kauft Trikots zu je 36 €. Wie viele Trikots kann er höchstens kaufen? Aufgabe B: 1 000 Kinder bekommen je eine Flasche, die es nur in Kisten zu je 36 Stück gibt. Wie viele Kisten muss man mindestens kaufen?',
+      'Beide Aufgaben beruhen auf derselben Rechnung 1 000 : 36 = 27 Rest 28. Aufgabe A: Ein Verein hat 1 000 € und kauft Trikots zu je 36 €. Wie viele Trikots kann er höchstens kaufen? Aufgabe B: 1 000 Kinder bekommen je eine Flasche, die es nur in Kisten zu je 36 Stück gibt. Wie viele Kisten muss man mindestens kaufen?',
       'Aufgabe A: □ Trikots; Aufgabe B: □ Kisten', [27, 28], ['27', '28'],
       [(1, 28, '28', 'bei A aufgerundet, obwohl 28 Trikots 1 008 € kosten'),
        (2, 27, '27', 'bei B abgerundet; dann fehlen 28 Flaschen'),
        (1, 36, '36', 'den Preis eines Trikots als Anzahl angegeben'),
        (2, 36, '36', 'die Größe einer Kiste als Anzahl der Kisten angegeben')],
-      '1 000 : 36 ist etwa 27,8. A: Man kann nur ganze Trikots kaufen; 27 Trikots kosten 972 €, 28 wären mit 1 008 € zu teuer, also wird abgerundet. B: 27 Kisten haben nur 972 Flaschen, das reicht nicht für 1 000 Kinder; also braucht man 28 Kisten, es wird aufgerundet.',
-      'Dieselbe Rechnung führt je nach Sachzusammenhang zu Abrunden oder Aufrunden; die Übungen runden nach der Regel.')
+      '1 000 : 36 = 27 Rest 28. A: Man kann nur ganze Trikots kaufen; 27 Trikots kosten 972 €, 28 wären mit 1 008 € zu teuer, also bleibt es bei 27. B: 27 Kisten haben nur 972 Flaschen, für die übrigen 28 Kinder braucht man noch eine Kiste, also 28 Kisten.',
+      'Dieselbe Rechnung führt je nach Sachzusammenhang zu Abrunden oder Aufrunden; die Übungen runden nach der Regel oder kennen nur eine der beiden Richtungen.')
     A(lz, 'korrektur', 'begruenden', None, 2, LP,
       'Ein Marathon hatte 22 817 Läufer. Eine Zeitung schreibt „rund 23 000 Läufer“, eine andere „rund 20 000 Läufer“. Welche Aussage stimmt?',
       ['Beide Angaben sind falsch, denn eine Läuferzahl wie 22 817 darf man nie runden.',
@@ -302,60 +260,42 @@ def bauen():
        3: '20 000 ist nicht richtiger, sondern gröber gerundet und weicht um fast 3 000 vom genauen Wert ab.'},
       '22 817 auf Tausender: Hunderterstelle 8, also aufrunden: 23 000. Auf Zehntausender: Tausenderstelle 2, also abrunden: 20 000. Beide Angaben sind richtig gerundet, die erste weicht weniger ab.',
       'Zwei Rundungsstellen werden mit der Genauigkeit begründet verglichen; die Übungen runden nach Vorgabe.')
-    L(lz, 'korrektur', 'transfer', None, 2, LP,
-      'Bei einem Konzert wurden laut Zeitung „rund 4 300 Besucher“ gezählt (auf Hunderter gerundet). Jeder Besucher hat eine Karte zum vollen Preis von 15 € bezahlt (keine Ermäßigung, keine Freikarten). Zwischen welchen Einnahmen in Euro kann die wirkliche Einnahme liegen? Die Besucherzahl ist eine ganze Zahl.',
-      'mindestens □ €, höchstens □ €', [63750, 65235], ['4250 · 15', '4349 · 15'],
-      [(1, 64500, '4300 · 15', 'mit der gerundeten Zahl 4 300 als kleinster Besucherzahl gerechnet'),
-       (1, 63735, '4249 · 15', 'als kleinste Besucherzahl 4 249 genommen, die auf 4 200 rundet'),
-       (2, 64500, '4300 · 15', 'mit der gerundeten Zahl 4 300 als größter Besucherzahl gerechnet'),
-       (2, 65250, '4350 · 15', 'als größte Besucherzahl 4 350 genommen, die schon auf 4 400 rundet')],
-      'Auf Hunderter gerundet 4 300 heißt: von 4 250 bis 4 349 Besucher (4 250 rundet auf, 4 350 schon auf 4 400). Mindestens 4 250 · 15 € = 63 750 €, höchstens 4 349 · 15 € = 65 235 €. Die Rundung der Besucherzahl wirkt sich 15-fach auf die Einnahmen aus.',
-      'Ein Rundungsbereich wird in eine Rechnung mit Preis übernommen; die Übungen bestimmen nur den Bereich der Zahl.')
-    A(lz, 'sicherung', 'begruenden', None, 2, LP,
-      'Mia hat 237 € gespart. Das Fahrrad kostet 249 €. Mia rundet beide Beträge auf Hunderter und sagt: „200 € und 200 €, es reicht!“ Welche Aussage stimmt?',
-      ['Mia hat recht, denn gerundet sind beide Beträge gleich, und gleich viel Geld reicht für einen gleich hohen Preis.',
-       'Mia hat unrecht, denn ob das Geld reicht, zeigen nur die genauen Beträge, und 237 € sind weniger als 249 €.',
-       'Mia hat recht, weil ein Unterschied von 12 € beim Kauf eines Fahrrads keine Rolle spielt.',
-       'Mia hat recht, denn Runden liefert immer die richtige Entscheidung, wenn man auf Hunderter rundet.'], 1,
-      {0: 'Das Runden hat hier wichtige Unterschiede (12 €) verwischt.',
-       2: 'Für „reicht es?“ zählt jeder Euro: 237 € sind 12 € weniger als 249 €, das Geld reicht nicht.',
-       3: 'Runden liefert nur eine ungefähre Größe; für „reicht es?“ sind genaue Beträge nötig.'},
-       '237 € auf Hunderter gerundet ist 200 €, 249 € auch. Aber 237 € < 249 €: Das Geld reicht nicht. Runden ist nur sinnvoll, wenn kleine Unterschiede keine Rolle spielen.',
-      'Gegenbeispiel für unsinniges Runden (Entscheidung hängt an kleinem Unterschied); die Übungen runden ohne Anwendungsbezug.')
-    L(lz, 'test', 'transfer', 'anwenden', 3, LP,
-      'Ein Schlauch ist auf Zehner gerundet 30 m lang (die Länge ist eine ganze Zahl in Metern). Er wird in Stücke zu je 3 m zerschnitten; ein Rest, der kürzer als 3 m ist, wird nicht gezählt. Wie viele Stücke sind mindestens und höchstens möglich?',
-      'mindestens □ Stücke, höchstens □ Stücke', [8, 11], ['(25 − 1) : 3', '(34 − 1) : 3'],
-      [(1, 10, '30 : 3', 'mit der gerundeten Länge 30 m gerechnet'),
-       (1, 9, '27 : 3', 'als kleinste Länge 27 m angesetzt'),
-       (2, 10, '30 : 3', 'mit der gerundeten Länge 30 m gerechnet'),
-       (2, 12, '36 : 3', 'als größte Länge 36 m angesetzt')],
-      'Auf Zehner gerundet 30 m heißt: von 25 m bis 34 m. Bei 25 m gibt es 25 : 3 = 8 Stücke (Rest 1 m), bei 34 m gibt es 34 : 3 = 11 Stücke (Rest 1 m). Zwischen 8 und 11 Stücke sind möglich, nicht genau 10.',
-      'Ein Rundungsbereich wird durch eine Zahl geteilt, wobei der Rest wegfällt; die Übungen runden Summen und Produkte.')
+    L(lz, 'sicherung', 'transfer', None, 3, LP,
+      'In einem Saal gibt es 48 Reihen mit je 29 Plätzen. Anna schätzt die Platzzahl mit 50 · 30, Ben mit 48 · 30. Um wie viel liegt jede der beiden Schätzungen über der genauen Platzzahl?',
+      'Annas Schätzung liegt □ darüber, Bens Schätzung liegt □ darüber', [108, 48], ['50 · 30 − 48 · 29', '48 · 30 − 48 · 29'],
+      [(1, 60, '50 · 30 − 48 · 30', 'nur den Unterschied zu Bens Schätzung angegeben'),
+       (1, 1500, '50 · 30', 'die Schätzung selbst statt der Abweichung angegeben'),
+       (2, 1, '30 − 29', 'nur den Fehler je Reihe (1 Platz) angegeben'),
+       (2, 1440, '48 · 30', 'die Schätzung selbst statt der Abweichung angegeben')],
+      'Genau: 48 · 29 = 1 392 Plätze. Anna: 50 · 30 = 1 500, das sind 108 zu viel. Ben: 48 · 30 = 1 440, das sind 48 zu viel (1 Platz zu viel je Reihe). Wer beide Faktoren aufrundet, verstärkt den Fehler.',
+      'Die Übungen runden eine Zahl oder eine Summe; hier wird beim Produkt gerundet, und der Fehler wächst, wenn beide Faktoren aufgerundet werden.')
     A(lz, 'sicherung', 'begruenden', None, 3, LP,
-      'Mia rundet die vier Zahlen 1 480, 1 460, 1 440 und 1 450 jeweils auf Tausender und addiert sie: 4 000. Die genaue Summe ist 5 830. Wie erklärt man den großen Unterschied?',
-      ['Mia hat beim Addieren einen Fehler gemacht, denn 1 000 + 1 000 + 1 000 + 1 000 ist 5 000.',
-       'Jede Zahl wurde um 440 bis 480 abgerundet, denn alle vier Fehler gehen in dieselbe Richtung und addieren sich zu 1 830.',
+      'Mia rundet die vier Zahlen 3 460, 3 420, 3 440 und 3 470 jeweils auf Tausender und addiert die gerundeten Zahlen: 12 000. Die genaue Summe ist 13 790. Wie erklärt man den großen Unterschied?',
+      ['Mia hätte zuerst genau addieren und erst danach die Summe runden müssen, denn dann kommt genau die richtige Summe heraus.',
+       'Jede Zahl wurde um 420 bis 470 abgerundet, denn alle vier Fehler gehen in dieselbe Richtung und addieren sich zu 1 790.',
        'Runden auf Tausender ist immer falsch, denn beim Addieren mehrerer Zahlen wird jede Rundung zum Fehler.',
-       'Der Unterschied kommt daher, dass man die Zahlen hätte aufrunden müssen, weil 5 830 größer ist.'], 1,
-      {0: '1 000 + 1 000 + 1 000 + 1 000 = 4 000; Mias Addition ist richtig.',
-       2: 'Runden zum Schätzen ist erlaubt; man muss nur die Genauigkeit beachten.',
-       3: 'Die Zahlen werden nach Regel gerundet: Hunderterstelle 4 gibt abrunden.'},
-      'Jede Zahl hat Hunderterstelle 4 und wird abgerundet: Die Rundungsfehler sind 480, 460, 440 und 450. Weil sie alle in dieselbe Richtung gehen, addieren sie sich: 480 + 460 + 440 + 450 = 1 830 = 5 830 − 4 000.',
-      'Wirkung vieler gleichgerichteter Rundungsfehler; die Übungen runden einzelne Zahlen.')
+       'Der Unterschied kommt daher, dass man die Zahlen hätte aufrunden müssen, weil 13 790 größer ist.'], 1,
+      {0: 'Auch die gerundete genaue Summe (14 000) weicht von 13 790 ab; Mias 12 000 ist richtig gerechnet, nur sind ihre Rundungsfehler groß.',
+       2: 'Runden zum Schätzen ist erlaubt; man muss nur wissen, wie genau das Ergebnis dann ist.',
+       3: 'Die Zahlen werden nach der Regel gerundet: Hunderterstelle 4, also abrunden.'},
+      'Jede Zahl hat die Hunderterstelle 4 und wird abgerundet: Die Rundungsfehler sind 460, 420, 440 und 470. Weil sie alle in dieselbe Richtung gehen, addieren sie sich: 460 + 420 + 440 + 470 = 1 790 = 13 790 − 12 000.',
+      'Wirkung vieler gleichgerichteter Rundungsfehler; die Übungen runden einzelne Zahlen oder vergleichen nur zwei Rechenwege.')
 
     # ---------------- roemisch_schreiben ----------------
     lz = 'roemisch_schreiben'
-    L(lz, 'test', 'fehler', 'fehler_detektiv', 3, LP,
-      'Nils schreibt 1 449 als römische Zahl nach den üblichen Regeln (ein Zeichen steht höchstens dreimal hintereinander). Zeile 1: 1 000 ist M. Zeile 2: 400 ist CD. Zeile 3: 40 ist XL. Zeile 4: 9 ist VIIII. Also schreibt er MCDXLVIIII. In welcher Zeile steckt der erste Fehler, aus wie vielen Zeichen besteht Nils’ Ergebnis, und aus wie vielen Zeichen besteht die richtig geschriebene Zahl?',
-      'Fehler in Zeile □; Nils schreibt □ Zeichen; richtig sind □ Zeichen', [4, 10, 7], ['4', '1 + 2 + 2 + 5', '1 + 2 + 2 + 2'],
-      [(1, 2, '2', 'Zeile 2 für falsch gehalten, obwohl CD für 400 richtig ist'),
-       (1, 3, '3', 'Zeile 3 für falsch gehalten, obwohl XL für 40 richtig ist'),
-       (2, 7, '1 + 2 + 2 + 2', 'die Länge der richtigen Zahl schon für Nils’ Ergebnis angegeben'),
-       (2, 9, '10 − 1', 'ein Zeichen von MCDXLVIIII nicht mitgezählt'),
-       (3, 10, '1 + 2 + 2 + 5', 'Nils’ Länge auch für die richtige Zahl angegeben'),
-       (3, 6, '7 − 1', 'ein Zeichen von MCDXLIX nicht mitgezählt')],
-      'Zeile 1 bis 3 stimmen: M, CD und XL sind richtig. In Zeile 4 steht VIIII mit vier I hintereinander; nach der Regel (höchstens dreimal) muss die 9 als IX geschrieben werden. Nils’ Ergebnis MCDXLVIIII hat 1 + 2 + 2 + 5 = 10 Zeichen, die richtige Zahl MCDXLIX hat 1 + 2 + 2 + 2 = 7 Zeichen.',
-      'Regel anwenden und Längen vergleichen; der Fehler liegt in der letzten Zeile (die römische Subtraktionsschreibweise wird nicht verwendet).')
+    L(lz, 'test', 'darstellung', None, 3, LP,
+      'Eine Zahl kann man römisch auf zwei Arten schreiben. Art 1 (nur addieren): Die Zeichen I = 1, V = 5, X = 10, L = 50 und C = 100 stehen der Größe nach, ihre Werte werden addiert, ein Zeichen darf beliebig oft hintereinander stehen, und man nimmt möglichst wenige Zeichen (also V statt IIIII und L statt XXXXX). '
+      'Art 2 (übliche Regeln): Ein Zeichen steht höchstens dreimal hintereinander; ein kleineres Zeichen links von einem größeren wird abgezogen, aber nur I vor V oder X und X vor L oder C. '
+      'Bei welcher Zahl von 1 bis 90 spart Art 2 gegenüber Art 1 die meisten Zeichen, und wie viele Zeichen spart sie dort?',
+      'Zahl □; gespart werden □ Zeichen', [49, 5], ['49', '9 − 4'],
+      [(1, 90, '90', 'die größte erlaubte Zahl genommen; 90 spart nur 3 Zeichen (LXXXX gegen XC)'),
+       (1, 44, '44', 'nur auf die Vieren geachtet; 44 spart 4 Zeichen (XXXXIIII gegen XLIV)'),
+       (1, 9, '9', 'nur die Einerstelle betrachtet; 9 spart 3 Zeichen (VIIII gegen IX)'),
+       (2, 3, '5 − 2', 'bei 49 nur die Ersparnis bei der 9 (VIIII gegen IX) gezählt, die bei der 40 vergessen'),
+       (2, 2, '4 − 2', 'bei 49 nur die Ersparnis bei der 40 (XXXX gegen XL) gezählt')],
+      'Beide Arten schreiben Zehner und Einer getrennt hintereinander. Unterschiede gibt es nur bei den Ziffern 4 und 9: Bei einer 4 spart Art 2 zwei Zeichen (IIII → IV, XXXX → XL), bei einer 9 drei Zeichen (VIIII → IX, LXXXX → XC), '
+      'bei allen anderen Ziffern nichts. Bis 90 spart man am meisten mit der Zehnerziffer 4 und der Einerziffer 9: 49. Art 1: XXXXVIIII (9 Zeichen), Art 2: XLIX (4 Zeichen), gespart 5. Bei 90 sind es nur 3, bei 44 nur 4.',
+      'Die Übungen schreiben Zahlen nach den üblichen Regeln; hier werden zwei Schreibweisen über einen ganzen Zahlenbereich verglichen, um zu sehen, wo die Subtraktionsregel am meisten spart.')
     A(lz, 'korrektur', 'darstellung', None, 2, LP,
       'Es gelten die Regeln: Ein Zeichen steht höchstens dreimal hintereinander. Ein kleineres Zeichen links von einem größeren wird abgezogen, aber nur I vor V oder X, X vor L oder C und C vor D oder M. Welche der vier römischen Zahlen ist nicht regelgerecht geschrieben?',
       ['XLIV', 'CDXC', 'VC', 'MCMXC'], 2,
@@ -364,71 +304,49 @@ def bauen():
        3: 'MCMXC = 1 000 + 900 + 90 = 1 990 ist regelgerecht (M, CM, XC).'},
       'V darf nicht vor C stehen, denn vor einem größeren Zeichen darf nur I, X oder C stehen, und V gehört nicht dazu. 95 schreibt man XCV. Die anderen drei Zahlen halten die Regeln ein.',
       'Regelgerechtheit statt Umwandlung; die Übungen schreiben eine Zahl um.')
-    L(lz, 'korrektur', 'darstellung', None, 2, LP,
-      'Die Zahl 1 999 wird römisch einmal ohne die Subtraktionsregel geschrieben (es wird nur addiert, mit den Zeichen M, D, C, L, X, V und I; ein Zeichen darf dann auch öfter als dreimal stehen) und einmal mit der Subtraktionsregel nach den üblichen Regeln. Aus wie vielen Zeichen besteht jede der beiden Schreibweisen?',
-      'Ohne Subtraktionsregel □ Zeichen; mit der Regel □ Zeichen', [16, 7], ['1 + 1 + 4 + 1 + 4 + 1 + 4', '1 + 2 + 2 + 2'],
-      [(1, 7, '1 + 2 + 2 + 2', 'die Länge der kürzeren Schreibweise auch für die längere angegeben'),
-       (1, 15, '16 − 1', 'ein Zeichen der langen Schreibweise vergessen'),
-       (2, 16, '1 + 1 + 4 + 1 + 4 + 1 + 4', 'die Länge der längeren Schreibweise auch für die Regel-Schreibweise angegeben'),
-       (2, 9, '16 − 7', 'den Unterschied der Längen statt der Länge angegeben')],
-      'Nur addiert: 1 999 = M + D + CCCC + L + XXXX + V + IIII = MDCCCCLXXXXVIIII, das sind 1 + 1 + 4 + 1 + 4 + 1 + 4 = 16 Zeichen. Mit der Subtraktionsregel: M + CM + XC + IX = MCMXCIX, das sind 1 + 2 + 2 + 2 = 7 Zeichen. Die Regel spart 9 Zeichen.',
-      'Wozu die Subtraktionsregel gut ist (Zeichen sparen); die Übungen schreiben Zahlen nur nach der Regel.')
-    L(lz, 'korrektur', 'darstellung', None, 2, LP,
-      'Die römische Zahl MCMXLIV besteht aus den Bausteinen M, CM, XL und IV. Welchen Wert hat jeder Baustein?',
-      'M = □, CM = □, XL = □, IV = □', [1000, 900, 40, 4], ['1000', '1000 − 100', '50 − 10', '5 − 1'],
-      [(2, 1100, '1000 + 100', 'CM als C + M addiert statt M − C'),
-       (3, 60, '50 + 10', 'XL als L + X addiert statt L − X'),
-       (4, 6, '5 + 1', 'IV als V + I addiert statt V − I'),
-       (1, 500, '500', 'M als D gelesen'),
-       (1, 100, '100', 'M als C gelesen'),
-       (2, 100, '100', 'nur das C gelesen und das M ignoriert')],
-      'M = 1 000. CM: das kleinere C steht links vor dem größeren M, wird abgezogen: 1 000 − 100 = 900. XL: 50 − 10 = 40. IV: 5 − 1 = 4. Zusammen 1 944.',
-      'Die Subtraktionsregel wird an den Bausteinen gezeigt; die Übungen schreiben ganze Zahlen.')
-    Z(lz, 'sicherung', 'transfer', None, 3, LP,
-      'Von den Zahlen 1 bis 50 werden die römischen Zahlen nach den üblichen Regeln geschrieben (zum Beispiel IV für 4, IX für 9 und XL für 40). Bei wie vielen dieser Zahlen kommt in der römischen Schreibweise mindestens eines der Paare IV, IX oder XL vor?',
-      18, '10 + 8',
-      [(10, '10', 'nur die Paare IV und IX gezählt, die Zahlen 40 bis 49 mit XL vergessen'),
-       (20, '10 + 10', 'die zehn Zahlen von 40 bis 49 dazugezählt, obwohl 44 und 49 schon mitgezählt waren'),
-       (8, '8', 'nur die 8 zusätzlichen XL-Zahlen (ohne 44 und 49) gezählt, die 10 Zahlen mit IV oder IX vergessen')],
-      'IV und IX stehen bei allen Zahlen, die auf 4 oder 9 enden: 4, 9, 14, 19, 24, 29, 34, 39, 44, 49. Das sind 10 Zahlen. XL steht bei 40 bis 49; davon sind 44 und 49 schon gezählt, es kommen also 8 hinzu: 40, 41, 42, 43, 45, 46, 47, 48. Zusammen 10 + 8 = 18.',
-      'Subtraktionspaare werden über die Endziffern und den Zehnerbaustein gezählt (nichts doppelt); die Übungen schreiben einzelne Zahlen.')
-    A(lz, 'sicherung', 'pruefung', 'zwei_wege', 3, LP,
-      'Es gelten die Regeln: Ein Zeichen steht höchstens dreimal hintereinander; ein kleineres Zeichen links von einem größeren wird abgezogen, aber nur I vor V oder X, X vor L oder C und C vor D oder M. Anna schreibt 1 999 als MCMXCIX, Ben als MIM. Welche Aussage stimmt?',
-      ['Beide stimmen, denn beide Schreibweisen bedeuten 1 999 und sind deshalb gleich gut.',
-       'Nur Annas MCMXCIX ist regelgerecht, denn bei MIM steht I vor M, und das ist nicht erlaubt.',
-       'Nur Bens MIM ist richtig, denn es ist kürzer und deshalb besser lesbar.',
-       'Weder Anna noch Ben hat recht, denn 1 999 kann man mit den Regeln gar nicht schreiben.'], 1,
-      {0: 'Der Wert wäre gleich, aber die Regeln erlauben I nur vor V oder X.',
-       2: 'Kürze ist kein Kriterium; MIM verstößt gegen die Regel für die Subtraktion.',
-       3: '1 999 lässt sich schreiben: MCMXCIX.'},
-      'Anna: M = 1 000, CM = 900, XC = 90, IX = 9, zusammen 1 999. Ben: I vor M wäre „1 000 − 1 = 999“ und ist nach den Regeln nicht erlaubt (nur I vor V oder X).',
-      'Zwei Schreibweisen derselben Zahl werden an den Regeln geprüft; die Übungen schreiben eine Zahl.')
+    A(lz, 'korrektur', 'begruenden', None, 2, LP,
+      'Im Zehnersystem gilt: Eine Zahl mit mehr Ziffern ist größer als eine Zahl mit weniger Ziffern. Gilt bei römischen Zahlen (nach den üblichen Regeln geschrieben) entsprechend: Eine römische Zahl mit mehr Zeichen ist größer als eine mit weniger Zeichen?',
+      ['Es stimmt nur manchmal, denn XII ist mit drei Zeichen größer als X, VIII mit vier Zeichen dagegen kleiner als L.',
+       'Es stimmt immer, denn wie im Zehnersystem macht jedes weitere Zeichen die Zahl größer.',
+       'Es stimmt nie, denn große Zahlen schreibt man römisch mit wenigen großen Zeichen, kleinere mit vielen.',
+       'Es stimmt nur bei Zahlen ohne Subtraktionsregel, denn erst Paare wie IV oder IX bringen die Länge durcheinander.'], 0,
+      {1: 'Römische Zeichen haben verschieden große Werte: Das eine Zeichen L (50) ist mehr als VIII (8) mit vier Zeichen.',
+       2: 'Mehr Zeichen können auch mehr bedeuten: XII (12) hat mehr Zeichen als X (10) und ist größer.',
+       3: 'Auch ohne Subtraktionsregel gilt es nicht: VIII (8) hat mehr Zeichen als L (50), ganz ohne abgezogenes Zeichen.'},
+      'Im Zehnersystem hat jede Ziffer ihren Platz, deshalb bedeutet eine Stelle mehr eine größere Zahl. Römische Zeichen haben feste, aber verschieden große Werte: Ein einziges großes Zeichen kann mehr wert sein als viele kleine. '
+      'Gegenbeispiel: VIII (4 Zeichen) = 8 ist kleiner als L (1 Zeichen) = 50. Beispiel, wo es stimmt: XII (3 Zeichen) = 12 ist größer als X = 10. Die Aussage stimmt also nur manchmal.',
+      'Die Übungen schreiben einzelne Zahlen; hier wird die römische Schrift mit dem Stellenwertsystem verglichen (die Länge sagt nichts über die Größe).')
+    Z(lz, 'sicherung', 'transfer', None, 2, LP,
+      'Römische Zahlen werden so geschrieben: zuerst die Tausender, dann die Hunderter, die Zehner und die Einer, jede Stufe für sich (zum Beispiel 2 024 = MM + XX + IV = MMXXIV). Für die Tausender gibt es nur das Zeichen M, ein Zeichen darf höchstens dreimal hintereinander stehen, und es gibt kein Zeichen, das mehr als 1 000 wert ist. Welches ist die größte Zahl, die man so schreiben kann?',
+      3999, '3000 + 900 + 90 + 9',
+      [(3000, '1000 + 1000 + 1000', 'nur die drei M gezählt und die Hunderter, Zehner und Einer vergessen'),
+       (3888, '3000 + 800 + 80 + 8', 'die längste Schreibweise MMMDCCCLXXXVIII mit der größten Zahl verwechselt'),
+       (4999, '4000 + 900 + 90 + 9', 'vier M zugelassen, obwohl ein Zeichen höchstens dreimal hintereinander stehen darf'),
+       (3333, '3000 + 300 + 30 + 3', 'in jeder Stufe dreimal dasselbe Zeichen genommen')],
+      'Für die Tausender gibt es nur M, und M darf höchstens dreimal stehen: MMM = 3 000. Mehr Tausender lassen sich nicht schreiben, weil es kein größeres Zeichen gibt. Dahinter kommen die größten Hunderter, Zehner und Einer: CM = 900, XC = 90, IX = 9. '
+      'Die größte Zahl ist MMMCMXCIX = 3 999; schon 4 000 bräuchte vier M.',
+      'Die Übungen schreiben einzelne Zahlen; hier wird aus den Regeln erschlossen, wo die römische Schrift an ihre Grenze kommt.')
     Z(lz, 'sicherung', 'parameter', None, 3, LP,
-      'Wie heißt die kleinste natürliche Zahl, deren römische Schreibweise (nach den üblichen Regeln) aus genau sechs Zeichen besteht?',
+      'Römische Zahlen werden nach den üblichen Regeln geschrieben: Ein Zeichen steht höchstens dreimal hintereinander, und ein kleineres Zeichen vor einem größeren wird abgezogen, aber nur I vor V oder X und X vor L oder C (zum Beispiel 4 = IV, 9 = IX, 19 = XIX). Wie heißt die kleinste natürliche Zahl, deren römische Schreibweise aus genau sechs Zeichen besteht?',
       28, '28',
-      [(18, '18', 'XVIII hat nur fünf Zeichen'),
-       (23, '23', 'XXIII hat nur fünf Zeichen'),
-       (38, '38', 'XXXVIII hat sieben Zeichen')],
+      [(18, '18', 'XVIII für sechsstellig gehalten; es sind nur fünf Zeichen'),
+       (38, '38', 'XXXVIII genommen; das hat schon sieben Zeichen, und XXVIII ist kleiner'),
+       (23, '23', 'XXIII für sechsstellig gehalten; es sind nur fünf Zeichen')],
       'Bis 17 hat keine Zahl mehr als vier Zeichen (VIII, XIII, XVII). 18 = XVIII hat fünf, 23 = XXIII und 27 = XXVII haben fünf. 28 = XXVIII hat genau sechs Zeichen, und keine kleinere Zahl hat sechs.',
-      'Die Zeichenzahl wird rückwärts über viele Zahlen gesucht; die Übungen schreiben eine einzelne Zahl.')
+      'Die Zeichenzahl wird über viele Zahlen hinweg gesucht; die Übungen schreiben eine einzelne Zahl.')
+
     # ---------------- dualsystem ----------------
     lz = 'dualsystem'
     Z(lz, 'test', 'transfer', None, 3, LP,
-      'Wie viele Zweierzahlen mit genau 5 Ziffern (die erste Ziffer ist eine 1) haben im Zehnersystem einen Wert über 20?',
-      11, '31 − 21 + 1',
-      [(16, '32 − 16', 'alle Zweierzahlen mit 5 Ziffern gezählt'),
-       (12, '31 − 20 + 1', 'die 20 mitgezählt, obwohl sie nicht über 20 liegt'),
-       (10, '31 − 21', 'beim Zählen das Plus 1 vergessen')],
-      'Mit fünf Ziffern und führender 1 ist die kleinste Zahl 10000 = 16 und die größte 11111 = 16 + 8 + 4 + 2 + 1 = 31. Über 20 liegen die Werte 21 bis 31, das sind 11 Zahlen.',
-      'Eine Länge im Zweiersystem wird in einen Wertebereich übersetzt und mit einer Schwelle abgeglichen; die Übungen wandeln einzelne Zahlen um.')
-    Z(lz, 'korrektur', 'transfer', None, 2, LP,
-      'Wie viele der Zahlen 24, 32, 48, 64, 96 und 128 werden im Zweiersystem mit nur einer einzigen Ziffer 1 geschrieben (alle anderen Ziffern sind Nullen)?',
-      3, '3',
-      [(6, '6', 'alle sechs Zahlen gezählt'),
-       (2, '3 − 1', 'eine der Zweierpotenzen (32, 64, 128) übersehen'),
-       (4, '3 + 1', '96 mitgezählt, obwohl 96 = 64 + 32 zwei Einsen hat')],
-      'Eine Zahl mit nur einer Ziffer 1 ist eine Zweierpotenz. Das sind 32 = 100000, 64 = 1000000 und 128 = 10000000. Dagegen ist 24 = 16 + 8 = 11000, 48 = 32 + 16 = 110000 und 96 = 64 + 32 = 1100000, jeweils mit zwei Einsen. Es sind 3 Zahlen.',
-      'Zweierpotenzen werden an ihrer Zweierschreibweise erkannt (genau eine 1); die Übungen wandeln einzelne Zahlen um.')
+      'Mia rechnet Zweierzahlen ins Zehnersystem um, ordnet die Stellenwerte 1, 2, 4, 8, 16 aber von links nach rechts zu statt von rechts nach links. Aus 110 macht sie so 1 · 1 + 1 · 2 + 0 · 4 = 3 statt 6. Betrachtet werden alle Zweierzahlen mit höchstens fünf Ziffern, die mit einer 1 beginnen (das sind die Zahlen 1 bis 31). Bei wie vielen davon bekommt Mia trotzdem den richtigen Wert?',
+      10, '1 + 1 + 2 + 2 + 4',
+      [(16, '32 − 16', 'alle Zahlen gezählt, die auf 1 enden; es müssen aber alle Ziffern von vorn und von hinten gelesen übereinstimmen'),
+       (5, '5', 'nur die Zahlen aus lauter Einsen gezählt (1, 11, 111, 1111, 11111)'),
+       (31, '31', 'gemeint, die Richtung der Stellenwerte sei egal'),
+       (6, '1 + 1 + 2 + 2', 'die fünfstelligen Zahlen 10001, 10101, 11011 und 11111 vergessen')],
+      'Mia bekommt den richtigen Wert genau dann, wenn die Zahl von hinten gelesen dieselbe Zweierzahl ist wie von vorn (Spiegelzahl). Endet die Zahl auf 0, beginnt sie von hinten gelesen mit 0 und ist bei Mia kleiner. '
+      'Endet sie auf 1, haben beide Lesarten gleich viele Stellen, und gleich groß sind sie nur, wenn alle Ziffern übereinstimmen. Spiegelzahlen: 1; 11; 101, 111; 1001, 1111; 10001, 10101, 11011, 11111. Das sind 1 + 1 + 2 + 2 + 4 = 10.',
+      'Die Übungen rechnen einzelne Zweierzahlen um; hier wird untersucht, wann eine falsche Zuordnung der Stellenwerte zufällig das Richtige liefert.')
     A(lz, 'korrektur', 'begruenden', None, 2, LP,
       'Welche Aussage über die Zweierzahlen 0111 und 111 stimmt?',
       ['0111 ist größer, denn sie hat vier Stellen und 111 nur drei.',
@@ -440,36 +358,34 @@ def bauen():
        3: 'Die Null an der Achterstelle liefert 0 · 8 = 0, nicht 8.'},
       '0111 = 0 · 8 + 1 · 4 + 1 · 2 + 1 · 1 = 7 und 111 = 4 + 2 + 1 = 7. Eine führende Null liefert 0 und ändert den Wert nicht, wie im Zehnersystem 007 = 7.',
       'Führende Nullen bei Zweierzahlen; die Übungen wandeln Zahl für Zahl um.')
-    L(lz, 'korrektur', 'fehler', 'fehler_detektiv', 2, LP,
-      'Ben wandelt die Zweierzahl 1011 ins Zehnersystem um. Zeile 1: Die Stellenwerte sind von rechts 1, 2, 4 und 8. Zeile 2: Die Einsen stehen bei den Stellenwerten 1, 4 und 8. Zeile 3: Also ist 1011 = 1 + 4 + 8 = 13. In welcher Zeile steckt der erste Fehler, und welchen Wert hat 1011 wirklich?',
-      'Fehler in Zeile □, 1011 ist □ im Zehnersystem', [2, 11], ['2', '1 + 2 + 8'],
-      [(2, 13, '1 + 4 + 8', 'wie Ben die Stellenwerte 1, 4 und 8 gewählt'),
-       (2, 15, '1 + 2 + 4 + 8', 'alle vier Stellenwerte addiert, auch den der Null'),
-       (2, 1011, '1011', 'die Zweierzahl als Zehnerzahl gelesen'),
-       (1, 1, '1', 'Zeile 1 für falsch gehalten, obwohl die Stellenwerte stimmen')],
-      'Von rechts: 1 (Stellenwert 1), 1 (Stellenwert 2), 0 (Stellenwert 4), 1 (Stellenwert 8). Die Einsen stehen bei 1, 2 und 8. 1011 = 8 + 2 + 1 = 11.',
-      'Fehler-Detektiv bei der Zuordnung der Ziffern zu den Stellenwerten; die Übungen geben die Stellenwerte vor.')
-    Z(lz, 'sicherung', 'transfer', None, 2, LP,
-      'Die Zweierzahl 1101 hat im Zehnersystem den Wert 13. Eine zweite Zweierzahl entsteht, indem man bei 1101 die erste Ziffer 1 durch 0 ersetzt (0101). Um wie viel ist die erste Zahl größer als die zweite?',
-      8, '13 − 5',
-      [(1, '1', 'die ersetzte Ziffer wie eine Einerziffer gezählt'),
-       (5, '13 − 8', 'den Wert der zweiten Zahl statt des Unterschieds angegeben'),
-       (4, '4', 'den Wert der dritten Stelle statt der vordersten genommen')],
-      '1101 = 8 + 4 + 1 = 13. 0101 = 4 + 1 = 5. Der Unterschied ist 13 − 5 = 8: Die vorderste Ziffer 1 steht an der Achterstelle und ist 8 wert.',
-      'Der Stellenwert der vordersten Stelle wird über den Unterschied zweier Zweierzahlen erschlossen; die Übungen wandeln eine Zahl um.')
-    Z(lz, 'sicherung', 'parameter', None, 3, LP,
-      'Wie viele verschiedene natürliche Zahlen (einschließlich der 0) kann man mit höchstens 5 Ziffern im Zweiersystem schreiben?',
-      32, '2 · 2 · 2 · 2 · 2',
-      [(31, '2 · 2 · 2 · 2 · 2 − 1', 'nur die größte Zahl 11111 = 31 angegeben'),
-       (25, '5 · 5', 'Stellenzahl mit sich selbst multipliziert'),
-       (10, '5 · 2', 'Stellenzahl mal Ziffernzahl (2) gerechnet')],
-      'Jede der 5 Stellen kann 0 oder 1 sein: 2 · 2 · 2 · 2 · 2 = 32 Möglichkeiten. Das sind die Zahlen von 0 (00000) bis 31 (11111), also 32 Zahlen.',
-      'Zahl der darstellbaren Zahlen (Zweierpotenzen) statt einzelner Umrechnungen; die Übungen rechnen Zahl für Zahl um.')
-    Z(lz, 'sicherung', 'rueckwaerts', None, 3, LP,
-      'Eine Zweierzahl besteht nur aus Einsen und hat im Zehnersystem den Wert 127. Wie viele Ziffern hat sie?',
-      7, '8 − 1',
-      [(6, '7 − 1', 'beim Wert 64 (der siebten Stelle) die Stellen falsch gezählt und 6 genannt'),
-       (127, '127', 'den Wert als Ziffernzahl angegeben'),
-       (8, '7 + 1', 'weil 127 + 1 = 128 eine Zweierzahl-Stelle mehr hat, 8 Ziffern genannt')],
-      'Mit lauter Einsen ergeben sich die Werte 1, 3, 7, 15, 31, 63, 127: Jede weitere Eins verdoppelt den Wert und addiert 1. Bei 127 sind es 7 Einsen. Probe: 1111111 = 64 + 32 + 16 + 8 + 4 + 2 + 1 = 127.',
-      'Rückwärts aus dem Wert auf die Stellenzahl; die Übungen wandeln von der Zweierzahl in die Zehnerzahl um.')
+    Z(lz, 'korrektur', 'parameter', None, 2, LP,
+      'Eine Zweierzahl hat sieben Ziffern, beginnt mit 1 und endet mit 0. Man vertauscht ihre erste und ihre letzte Ziffer; die Ziffern dazwischen bleiben stehen. Um wie viel wird der Wert der Zahl dadurch kleiner?',
+      63, '64 − 1',
+      [(64, '64', 'nur gesehen, dass die vordere 1 (Wert 64) wegfällt, die neue 1 an der Einerstelle aber nicht dazugezählt'),
+       (999999, '1000000 − 1', 'die Stellen wie im Zehnersystem bewertet'),
+       (127, '64 + 32 + 16 + 8 + 4 + 2 + 1', 'den größtmöglichen Wert einer siebenstelligen Zweierzahl angegeben'),
+       (62, '64 − 2', 'der letzten Stelle den Wert 2 statt 1 gegeben')],
+      'Von rechts haben die Stellen die Werte 1, 2, 4, 8, 16, 32, 64. Die erste Ziffer steht an der Stelle mit dem Wert 64, die letzte an der Stelle mit dem Wert 1. Nach dem Tausch steht an der 64er-Stelle eine 0 und an der Einerstelle eine 1: '
+      '64 fallen weg, 1 kommt dazu. Die Ziffern dazwischen ändern nichts. Die Zahl wird um 64 − 1 = 63 kleiner, ganz gleich, wie die mittleren Ziffern lauten.',
+      'Die Übungen wandeln eine gegebene Zahl um; hier ist die Zahl nicht bekannt, und man muss sehen, dass die Änderung nur von den beiden getauschten Stellen abhängt.')
+    A(lz, 'sicherung', 'darstellung', None, 3, LP,
+      'Eine Zweierzahl mit mindestens drei Ziffern endet auf 00. Welche Aussage über die Zahl im Zehnersystem folgt daraus sicher?',
+      ['Sie lässt sich ohne Rest durch 4 teilen, denn alle Stellenwerte außer 1 und 2 sind Vielfache von 4.',
+       'Sie endet auch im Zehnersystem auf 00, denn zwei Endnullen bedeuten in jedem Zahlsystem genau dasselbe.',
+       'Sie ist eine Zweierpotenz wie 4, 8 oder 16, denn hinter ihren vorderen Ziffern stehen nur Nullen.',
+       'Es folgt nichts Sicheres, denn wie groß die Zahl ist, hängt allein von ihren vorderen Ziffern ab.'], 0,
+      {1: 'Im Zweiersystem bedeutet eine Endnull „verdoppelt“, nicht „mal 10“: 100 ist 4, 1100 ist 12.',
+       2: 'Nur Zweierzahlen mit genau einer 1 sind Zweierpotenzen; 1100 = 12 endet auch auf 00.',
+       3: 'Die vorderen Ziffern bestimmen die Größe, aber jede von ihnen steht an einer Stelle mit dem Wert 4, 8, 16, …; deshalb ist die Zahl durch 4 teilbar.'},
+      'Von rechts haben die Stellen die Werte 1, 2, 4, 8, 16, … Endet die Zahl auf 00, tragen die Stellen 1 und 2 nichts bei. Alle anderen Stellenwerte (4, 8, 16, 32, …) lassen sich ohne Rest durch 4 teilen, also auch ihre Summe. Beispiele: 100 = 4, 1100 = 12, 10100 = 20.',
+      'Die Übungen wandeln einzelne Zahlen um; hier wird aus den Endziffern im Zweiersystem auf eine Eigenschaft im Zehnersystem geschlossen.')
+    L(lz, 'sicherung', 'darstellung', None, 2, LP,
+      'Eine natürliche Zahl hat im Zweiersystem genau zehn Ziffern (die erste ist eine 1). Wie viele Ziffern kann sie im Zehnersystem mindestens und wie viele höchstens haben?',
+      'mindestens □ Ziffern, höchstens □ Ziffern', [3, 4], ['3', '4'],
+      [(1, 4, '4', 'nur an die größte zehnstellige Zweierzahl 1111111111 = 1 023 gedacht'),
+       (1, 512, '512', 'die kleinste Zahl selbst statt ihrer Ziffernzahl angegeben'),
+       (2, 3, '3', 'nur an die kleinste zehnstellige Zweierzahl 1000000000 = 512 gedacht'),
+       (2, 10, '10', 'gemeint, die Zahl habe in beiden Systemen gleich viele Ziffern')],
+      'Die kleinste Zweierzahl mit zehn Ziffern ist 1000000000; ihre 1 steht an der Stelle mit dem Wert 512 (1, 2, 4, …, 256, 512). Die größte ist 1111111111 = 1 023, eins weniger als 1 024. '
+      'Alle Zahlen von 512 bis 1 023 haben im Zweiersystem zehn Ziffern. Im Zehnersystem haben sie 3 Ziffern (512 bis 999) oder 4 Ziffern (1 000 bis 1 023).',
+      'Die Übungen bestimmen die Stellenzahl einer einzelnen Zahl; hier wird eine Stellenzahl im Zweiersystem über den Wertebereich in eine Stellenzahl im Zehnersystem übersetzt.')

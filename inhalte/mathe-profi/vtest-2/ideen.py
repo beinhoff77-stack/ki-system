@@ -102,3 +102,44 @@ IDEEN.update({
  98: 'Leere Klasse mit Nullen füllen', 101: 'Striche und Abstände unterscheiden', 104: 'Maßstab in Zahlenbereich übersetzen',
  107: 'Breite des Rundungsbereichs bestimmen', 112: 'Randzahlen eines Rundungsbereichs',
 })
+
+# Welle 1, Runde 2 (Vorprüfung W1): terme.umformen und zahlen.natuerlich neu nummeriert (5 je Lernziel).
+# VT2-044 … 049 und VT2-120 … 133 sind nicht mehr vergeben; ihre Einträge oben werden nicht mehr benutzt.
+IDEEN.update({
+ # terme.umformen / zusammenfassen
+ 29: 'Zwei Umfänge für jedes positive x gleichsetzen', 30: 'Fehlersuche bei zwei Variablen',
+ 31: 'Falsche Zusammenfassung stimmt nur an einer Stelle', 32: 'Gegenläufige x-Glieder heben sich auf',
+ 33: 'Zahl vor der Variablen als Änderung je Schritt',
+ # minusklammer
+ 34: 'Folge einer falschen Klammerregel rückwärts', 35: 'Fehlersuche bei Plus- und Minusklammer',
+ 36: 'Minusklammer im Sachzusammenhang deuten', 37: 'Muster wiederholter Minusklammern',
+ 38: 'Minusklammer dreht eine Differenz um',
+ # aequivalenz
+ 39: 'Zwei Stellen legen einen Term a · x + b fest', 40: 'Zwei Zählweisen eines Streichholzmusters',
+ 41: 'Zahlenrätsel rückwärts: Ergebnis hängt nicht von der Zahl ab', 42: 'Gleicher x-Teil, andere Zahl: nie gleich',
+ 43: 'Sechs Terme in gleichwertige Gruppen sortieren',
+ # zahlen.natuerlich / stellenwert
+ 85: 'Wertverhältnis gleicher Ziffern gibt den Stellenabstand', 86: 'Zuwachs beim Ziffertausch hängt nur vom Unterschied ab',
+ 87: 'Fehlersuche beim Stellenwert', 88: 'Null als Platzhalter, auch die nicht gesprochene', 89: 'Kleinste und größte Zahl aus festen Plättchen',
+ # ziffern_zu_zahlwort
+ 90: 'Leere Klasse: Klassenwort fällt weg', 91: 'Nicht gesprochene Klassen behalten ihre Stellen',
+ 92: 'Fehlersuche bei Klassen', 93: 'Warum von rechts in Dreiergruppen geteilt wird', 94: 'Höchstens ein „hundert“ je Klasse',
+ # strahl_eintragen
+ 95: 'Skala ohne Nullpunkt: Maßstab aus zwei Marken', 96: 'Strichzahlen bei verschobenem Anfang',
+ 97: 'Zwei Maßstäbe vergleichen ohne Lage der Zahlen', 98: 'Zwei Teilungen desselben Zahlenstrahls',
+ 99: 'Gleiche Strecke heißt gleicher Unterschied',
+ # runden_regel
+ 100: 'Zehner- und Hunderterrundung über einen Zahlenbereich vergleichen', 101: 'Größter Rundungsfehler',
+ 102: 'Fehlersuche bei der Rundungsstelle', 103: 'Rundung vergrößert, verkleinert oder lässt gleich',
+ 104: 'Reihenfolge bleibt beim Runden erhalten',
+ # runden_sinnvoll
+ 105: 'Rundungsbereich durch eine Zahl geteilt', 106: 'Gleiche Rechnung, andere Rundungsrichtung',
+ 107: 'Verschieden genau runden', 108: 'Fehler beim Aufrunden zweier Faktoren', 109: 'Gleichgerichtete Rundungsfehler addieren sich',
+ # roemisch_schreiben
+ 110: 'Wo die Subtraktionsregel am meisten spart', 111: 'Regeln der römischen Zahlen anwenden',
+ 112: 'Mehr Zeichen heißt nicht größer', 113: 'Größte schreibbare Zahl', 114: 'Kleinste Zahl mit sechs Zeichen',
+ # dualsystem
+ 115: 'Falsche Leserichtung: nur Spiegelzahlen bleiben richtig', 116: 'Führende Null ändert den Wert nicht',
+ 117: 'Tausch zweier Stellen: Änderung unabhängig vom Rest', 118: 'Endziffern im Zweiersystem und Teilbarkeit durch 4',
+ 119: 'Stellenzahl im Zweier- und im Zehnersystem',
+})

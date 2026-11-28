@@ -50,3 +50,13 @@ IDEEN.update({
 })
 
 IDEEN[124] = 'Subtraktionspaare zählen'
+
+# zweite Vorprüfung: umgebaute oder ersetzte Aufgaben
+IDEEN.update({
+ 9: 'Von 1 % aus auf andere Zinssätze schließen', 13: 'Zwei Sparbücher getrennt berechnen und vergleichen', 22: 'Laufzeit bei zwei Anlagen angleichen',
+ 29: 'Zwei Umfänge für jedes x gleichsetzen', 38: 'Parameter durch Einsetzen', 43: 'Eine Übereinstimmung beweist nichts',
+ 45: 'Umformungskette auf Gleichwertigkeit prüfen', 81: 'Inkreisgedanke in der Umkreiskonstruktion', 83: 'Winkel am Inkreismittelpunkt rückwärts',
+ 92: 'Stellenzahl und Stelle aus dem Zahlwort', 99: 'Skala ohne Nullpunkt: Maßstab aus zwei Marken', 106: 'Höchstabstand zweier Rundungsbereiche',
+ 107: 'Randfälle an der Rundungsgrenze', 112: 'Kleiner Unterschied, großer Sprung beim Runden', 114: 'Gleiche Rechnung, andere Rundungsrichtung',
+ 120: 'Regel anwenden und Längen vergleichen', 127: 'Länge im Zweiersystem als Wertebereich', 129: 'Führende Null ändert den Wert nicht',
+})

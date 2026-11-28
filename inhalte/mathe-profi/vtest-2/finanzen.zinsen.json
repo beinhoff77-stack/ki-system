@@ -475,27 +475,50 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 (Zinsen)",
    "regel": "id.verhaeltnisse.prozent",
-   "abgrenzung": "Die Übungen berechnen Jahreszinsen direkt; hier muss in einer fertigen Rechnung die verlorene Kommastelle gefunden und begründet werden.",
-   "antwortform": "auswahl",
+   "abgrenzung": "Die Übungen berechnen Jahreszinsen direkt; hier muss in einer fertigen Rechnung die verlorene Kommastelle gefunden und danach das richtige Guthaben bestimmt werden.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2",
+    "3600 + 3600 · 0,025"
+   ],
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 4, weil man Zinsen nie zum Kapital addieren darf.",
-     "beschreibung": "Meint, Zinsen dürfe man nicht zum Kapital zählen; das Guthaben nach einem Jahr ist aber Kapital plus Zinsen.",
+     "luecke": 1,
+     "antwort": 1,
+     "rechnung": "1",
+     "beschreibung": "Zeile 1 für falsch gehalten, obwohl 3 600 € : 100 = 36 € stimmt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
-     "antwort": "In Zeile 3, weil man Jahreszinsen immer noch durch 12 teilen muss.",
-     "beschreibung": "Verwechselt Jahreszinsen mit Monatszinsen; für ein ganzes Jahr wird nicht durch 12 geteilt.",
+     "luecke": 1,
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "erst die letzte Zeile als Fehler genannt; sie folgt nur aus dem Fehler in Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
-     "antwort": "In Zeile 1, weil 1 % von 3 600 € nicht 36 €, sondern 360 € sind, denn man teilt durch 10.",
-     "beschreibung": "Glaubt, 1 % seien ein Zehntel des Kapitals; es ist ein Hundertstel.",
+     "luecke": 2,
+     "antwort": 4500,
+     "rechnung": "3600 + 900",
+     "beschreibung": "Jonas’ Guthaben übernommen, der Fehler in Zeile 2 blieb unbemerkt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 3636,
+     "rechnung": "3600 + 36",
+     "beschreibung": "nur 1 % Zinsen zum Kapital gerechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 90,
+     "rechnung": "36 · 2,5",
+     "beschreibung": "die Zinsen statt des Guthabens angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -506,20 +529,19 @@
     "p": "test",
     "s": 3,
     "g": "fehler",
-    "y": "auswahl",
+    "y": "luecken",
     "f": {
-     "text": "Jonas berechnet die Jahreszinsen für 3 600 € bei 2,5 %. Zeile 1: 1 % von 3 600 € sind 3 600 € : 100 = 36 €. Zeile 2: 2,5 % sind das 25fache davon, also 25 · 36 € = 900 €. Zeile 3: Die Jahreszinsen sind also 900 €. Zeile 4: Nach einem Jahr sind 3 600 € + 900 € = 4 500 € auf dem Konto. In welcher Zeile steckt der erste Fehler, und warum?"
+     "text": "Jonas berechnet das Guthaben nach einem Jahr für 3 600 € bei 2,5 % Jahreszinsen. Zeile 1: 1 % von 3 600 € sind 3 600 € : 100 = 36 €. Zeile 2: 2,5 % sind das 25fache davon, also 25 · 36 € = 900 €. Zeile 3: Die Jahreszinsen sind also 900 €. Zeile 4: Nach einem Jahr sind 3 600 € + 900 € = 4 500 € auf dem Konto. In welcher Zeile steckt der erste Fehler, und wie viel Euro sind nach einem Jahr wirklich auf dem Konto?",
+     "schablone": "Fehler in Zeile □, nach einem Jahr sind es □ €",
+     "hinweis": "Je Feld eine ganze Zahl."
     },
-    "a": [
-     "In Zeile 4, weil man Zinsen nie zum Kapital addieren darf.",
-     "In Zeile 2, weil 2,5 % das 2,5fache von 1 % sind: 2,5 · 36 € = 90 €.",
-     "In Zeile 3, weil man Jahreszinsen immer noch durch 12 teilen muss.",
-     "In Zeile 1, weil 1 % von 3 600 € nicht 36 €, sondern 360 € sind, denn man teilt durch 10."
-    ],
     "o": {
-     "index": 1
+     "werte": [
+      2,
+      3690
+     ]
     },
-    "w": "Zeile 1 stimmt: 3 600 € : 100 = 36 €. In Zeile 2 ist das Komma verlorengegangen: 2,5 % sind 2,5 mal 1 %, also 2,5 · 36 € = 90 €, nicht 25 · 36 €. Zeile 3 und 4 folgen nur aus diesem Fehler (richtig wären 90 € und 3 690 €)."
+    "w": "Zeile 1 stimmt. In Zeile 2 ist das Komma verlorengegangen: 2,5 % sind das 2,5fache von 1 %, also 2,5 · 36 € = 90 €, nicht 25 · 36 €. Die Zinsen sind 90 €, nach einem Jahr sind 3 600 € + 90 € = 3 690 € auf dem Konto."
    },
    "idee": "Fehlersuche beim Prozentkomma"
   },
@@ -528,49 +550,49 @@
    "thema": "finanzen.zinsen",
    "lernkarte": "jahreszinsen_komma",
    "pool": "korrektur",
-   "typ": "darstellung",
-   "form": null,
+   "typ": "transfer",
+   "form": "anwenden",
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 (Zinsen)",
    "regel": "id.verhaeltnisse.prozent",
-   "abgrenzung": "Die Zinsen werden über die Größenordnung (halbieren, durch 10 teilen) entwickelt; die Übungen rechnen nur einen Zinssatz.",
+   "abgrenzung": "Die Übungen rechnen mit einem bekannten Kapital; hier wird von den Zinsen für 1 % aus auf andere Zinssätze geschlossen, ohne das Kapital zu kennen.",
    "antwortform": "luecken",
    "loesung_rechnung": [
-    "6000 · 0,01",
-    "6000 · 0,005",
-    "6000 · 0,0005"
+    "80 : 4",
+    "80 · 2,5",
+    "80 : 20"
    ],
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 600,
-     "rechnung": "6000 · 0,1",
-     "beschreibung": "für 1 % den Faktor 0,1 genommen",
+     "antwort": 320,
+     "rechnung": "80 · 4",
+     "beschreibung": "für 0,25 % mit 4 malgenommen statt durch 4 geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 2,
-     "antwort": 300,
-     "rechnung": "6000 · 0,05",
-     "beschreibung": "für 0,5 % den Faktor 0,05 genommen",
+     "antwort": 2000,
+     "rechnung": "80 · 25",
+     "beschreibung": "das Komma bei 2,5 % übersehen und mit 25 malgenommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 3,
-     "antwort": 30,
-     "rechnung": "6000 · 0,005",
-     "beschreibung": "für 0,05 % den Faktor 0,005 genommen",
+     "antwort": 8,
+     "rechnung": "80 : 10",
+     "beschreibung": "für 0,05 % durch 10 geteilt statt durch 20",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 3,
-     "antwort": 300,
-     "rechnung": "6000 · 0,05",
-     "beschreibung": "für 0,05 % den Faktor 0,05 genommen",
+     "antwort": 40,
+     "rechnung": "80 : 2",
+     "beschreibung": "für 0,05 % nur halbiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -580,23 +602,23 @@
     "t": "jahreszinsen_komma",
     "p": "korrektur",
     "s": 2,
-    "g": "darstellung",
+    "g": "transfer",
     "y": "luecken",
     "f": {
-     "text": "Auf ein Konto mit 6 000 € werden drei verschiedene Zinssätze angeboten. Wie viel Euro Zinsen gibt es in einem Jahr bei 1 %, bei 0,5 % und bei 0,05 %?",
-     "schablone": "bei 1 %: □ €; bei 0,5 %: □ €; bei 0,05 %: □ €",
+     "text": "Ein Sparbuch bringt bei 1 % Jahreszinsen genau 80 € Zinsen im Jahr. Wie viel Euro Zinsen bringt dasselbe Sparbuch im Jahr bei 0,25 %, bei 2,5 % und bei 0,05 %? (Das Kapital ist nicht genannt.)",
+     "schablone": "bei 0,25 %: □ €; bei 2,5 %: □ €; bei 0,05 %: □ €",
      "hinweis": "Je Feld eine ganze Zahl."
     },
     "o": {
      "werte": [
-      60,
-      30,
-      3
+      20,
+      200,
+      4
      ]
     },
-    "w": "1 % von 6 000 € sind 60 €. 0,5 % ist nur die Hälfte davon: 30 €. 0,05 % ist ein Zehntel von 0,5 %: 3 €. Mit Faktoren: 6 000 € · 0,01 = 60 €, 6 000 € · 0,005 = 30 €, 6 000 € · 0,0005 = 3 €."
+    "w": "1 % bringt 80 €. 0,25 % ist ein Viertel von 1 %: 80 € : 4 = 20 €. 2,5 % ist das 2,5fache von 1 %: 80 € · 2,5 = 200 €. 0,05 % ist ein Zwanzigstel von 1 %: 80 € : 20 = 4 €."
    },
-   "idee": "Zinssatz zehnmal kleiner, Zinsen zehnmal kleiner"
+   "idee": "Von 1 % aus auf andere Zinssätze schließen"
   },
   {
    "kennung": "VT2-010",
@@ -620,14 +642,14 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "0,5 % → 0,5; 2,25 % → 2,25; 12,5 % → 12,5",
      "beschreibung": "Die Prozentzahl unverändert als Faktor genommen; es fehlt das Teilen durch 100.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "0,5 % → 0,005; 2,25 % → 0,225; 12,5 % → 1,25",
      "beschreibung": "Nur beim ersten Zinssatz richtig; 2,25 % ist 0,0225 und 12,5 % ist 0,125.",
      "fehlbild": null,
@@ -646,12 +668,12 @@
     },
     "a": [
      "0,5 % → 0,05; 2,25 % → 0,225; 12,5 % → 0,125",
+     "0,5 % → 0,005; 2,25 % → 0,0225; 12,5 % → 0,125",
      "0,5 % → 0,5; 2,25 % → 2,25; 12,5 % → 12,5",
-     "0,5 % → 0,005; 2,25 % → 0,225; 12,5 % → 1,25",
-     "0,5 % → 0,005; 2,25 % → 0,0225; 12,5 % → 0,125"
+     "0,5 % → 0,005; 2,25 % → 0,225; 12,5 % → 1,25"
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "w": "Man teilt die Prozentzahl durch 100, das Komma wandert zwei Stellen nach links: 0,5 % = 0,005; 2,25 % = 0,0225; 12,5 % = 0,125."
    },
@@ -672,21 +694,21 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "60 €, denn 0,5 % entspricht dem Faktor 0,05, und 1 200 · 0,05 = 60.",
      "beschreibung": "Faktor um eine Stelle zu groß: 0,5 % sind 0,005, nicht 0,05.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "0,60 €, denn 1 200 · 0,5 : 1 000 sind die Zinsen.",
      "beschreibung": "durch 1 000 statt durch 100 geteilt: 0,5 % sind 0,5 : 100.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "600 €, denn 0,5 % von 1 200 € ist die Hälfte des Kapitals von 1 200 €.",
      "beschreibung": "0,5 % mit „einem halben“ verwechselt; 0,5 % sind ein halbes Hundertstel, nicht die Hälfte.",
      "fehlbild": null,
@@ -704,13 +726,13 @@
      "text": "Vier Kinder berechnen die Jahreszinsen für 1 200 € bei 0,5 % und erhalten verschiedene Ergebnisse. Wessen Ergebnis mit Begründung stimmt?"
     },
     "a": [
-     "6 €, denn 1 % von 1 200 € sind 12 €; 0,5 % ist die Hälfte.",
      "60 €, denn 0,5 % entspricht dem Faktor 0,05, und 1 200 · 0,05 = 60.",
      "0,60 €, denn 1 200 · 0,5 : 1 000 sind die Zinsen.",
-     "600 €, denn 0,5 % von 1 200 € ist die Hälfte des Kapitals von 1 200 €."
+     "600 €, denn 0,5 % von 1 200 € ist die Hälfte des Kapitals von 1 200 €.",
+     "6 €, denn 1 % von 1 200 € sind 12 €; 0,5 % ist die Hälfte."
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "w": "1 % von 1 200 € sind 12 €. 0,5 % ist die Hälfte von 1 %, also 12 € : 2 = 6 €. Mit Faktor: 1 200 € · 0,005 = 6 €."
    },
@@ -789,42 +811,34 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 (Zinsen)",
    "regel": "id.verhaeltnisse.prozent",
-   "abgrenzung": "Kapital und Zinssatz werden gegeneinander verrechnet (gleiche Zinsen trotz anderer Zahlen); die Übungen vergleichen nur einen Wert.",
+   "abgrenzung": "Zwei Sparbücher mit unterschiedlichem Kapital und Zinssatz mit Komma werden getrennt berechnet und verglichen; die Übungen rechnen nur ein Konto.",
    "antwortform": "luecken",
    "loesung_rechnung": [
     "2400 · 0,015",
-    "1500 · 0,024"
+    "1500 · 0,026"
    ],
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 3600,
-     "rechnung": "2400 · 1,5",
-     "beschreibung": "bei A das Prozentzeichen ignoriert und 1,5 als Faktor genommen",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 2,
      "antwort": 360,
-     "rechnung": "1500 · 0,24",
-     "beschreibung": "bei B 2,4 % als Faktor 0,24 genommen",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "luecke": 1,
-     "antwort": 24,
-     "rechnung": "2400 : 100",
-     "beschreibung": "bei A nur 1 % der 2 400 € angegeben",
+     "rechnung": "2400 · 0,15",
+     "beschreibung": "das Komma verschoben: 1,5 % als 15 % gerechnet",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 2,
-     "antwort": 15,
-     "rechnung": "1500 : 100",
-     "beschreibung": "bei B nur 1 % der 1 500 € angegeben",
+     "antwort": 390,
+     "rechnung": "1500 · 0,26",
+     "beschreibung": "das Komma verschoben: 2,6 % als 26 % gerechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 36,
+     "rechnung": "2400 · 0,015",
+     "beschreibung": "bei B das Ergebnis von A übernommen, weil beide Zahlen „ähnlich“ aussehen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -837,19 +851,19 @@
     "g": "transfer",
     "y": "luecken",
     "f": {
-     "text": "Sparbuch A hat 2 400 € zu 1,5 % Jahreszinsen. Sparbuch B hat 1 500 € zu 2,4 % Jahreszinsen. Wie viel Euro Zinsen bringen beide Sparbücher in einem Jahr?",
+     "text": "Sparbuch A hat 2 400 € zu 1,5 % Jahreszinsen. Sparbuch B hat 1 500 € zu 2,6 % Jahreszinsen. Wie viel Euro Zinsen bringen die beiden Sparbücher jeweils in einem Jahr?",
      "schablone": "A bringt □ €, B bringt □ €",
      "hinweis": "Je Feld eine ganze Zahl."
     },
     "o": {
      "werte": [
       36,
-      36
+      39
      ]
     },
-    "w": "A: 1 % von 2 400 € sind 24 €, 1,5 % sind 24 € · 1,5 = 36 €. B: 1 % von 1 500 € sind 15 €, 2,4 % sind 15 € · 2,4 = 36 €. Beide bringen gleich viel, obwohl Kapital und Zinssatz verschieden sind."
+    "w": "A: 2 400 € · 0,015 = 36 €. B: 1 500 € · 0,026 = 39 €. Das Sparbuch mit dem kleineren Kapital bringt hier mehr Zinsen, weil sein Zinssatz größer ist."
    },
-   "idee": "Kapital und Zinssatz gegeneinander verrechnen"
+   "idee": "Zwei Sparbücher getrennt berechnen und vergleichen"
   },
   {
    "kennung": "VT2-014",
@@ -866,7 +880,7 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "1 800 · 0,03 + 1 800 · 0,005",
      "beschreibung": "Das ist richtig: 3,5 % sind 3 % und 0,5 %, die Zinsen darf man einzeln berechnen und addieren.",
      "fehlbild": null,
@@ -901,15 +915,15 @@
      "text": "Für 1 800 € sollen die Jahreszinsen bei 3,5 % berechnet werden. Eine der vier Rechnungen liefert NICHT diese Zinsen. Welche?"
     },
     "a": [
+     "1 800 · 0,03 + 1 800 · 0,05",
      "1 800 · 0,03 + 1 800 · 0,005",
-     "1 800 · 0,03 · 0,005",
      "1 800 · 0,04 − 1 800 · 0,005",
      "1 800 · 0,035"
     ],
     "o": {
-     "index": 1
+     "index": 0
     },
-    "w": "Zinsen für 3,5 % darf man zerlegen: 3 % + 0,5 % oder 4 % − 0,5 %. Beide Rechnungen ergeben 54 € + 9 € = 63 € bzw. 72 € − 9 € = 63 €. Nur die Rechnung mit 0,03 · 0,005 malnimmt die Zinssätze und rechnet mit einem viel zu kleinen Faktor (0,00015)."
+    "w": "Zinsen für 3,5 % darf man zerlegen: 3 % + 0,5 % oder 4 % − 0,5 %. Beide Rechnungen ergeben 54 € + 9 € = 63 € bzw. 72 € − 9 € = 63 €. Die Rechnung mit 0,03 und 0,05 gehört dagegen zu 3 % + 5 % = 8 % und liefert 54 € + 90 € = 144 €."
    },
    "idee": "Zinssatz zerlegen"
   },
@@ -991,14 +1005,14 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Das Kapital von A ist halb so groß, denn mit weniger Kapital kommt man auf mehr Zinsen.",
      "beschreibung": "Bei gleichem Zinssatz bringt mehr Kapital mehr Zinsen, nicht weniger.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Das Kapital von A ist gleich groß, denn die Zinsen hängen nur vom Zinssatz ab.",
      "beschreibung": "Die Zinsen hängen von Kapital, Zinssatz und Zeit ab, nicht nur vom Zinssatz.",
      "fehlbild": null,
@@ -1017,12 +1031,12 @@
     },
     "a": [
      "Das Kapital von A ist viermal so groß, denn doppelte Zinsen brauchen doppeltes Kapital und noch einmal doppelt wegen der Zeit.",
+     "Das Kapital von A ist doppelt so groß, denn Zinsen und Kapital sind dann proportional.",
      "Das Kapital von A ist halb so groß, denn mit weniger Kapital kommt man auf mehr Zinsen.",
-     "Das Kapital von A ist gleich groß, denn die Zinsen hängen nur vom Zinssatz ab.",
-     "Das Kapital von A ist doppelt so groß, denn Zinsen und Kapital sind dann proportional."
+     "Das Kapital von A ist gleich groß, denn die Zinsen hängen nur vom Zinssatz ab."
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "w": "Zinsen = Kapital · Zinssatz · Zeit. Sind Zinssatz und Zeit gleich, dann gilt: doppelte Zinsen gehören zum doppelten Kapital. Beispiel: 1 000 € bringen bei 2 % 20 €, 2 000 € bringen 40 €."
    },
@@ -1057,7 +1071,7 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "52 · 0,04 = □",
      "beschreibung": "Die Rechnung für das Kapital umgedreht: die Zinsen mal Faktor ergibt nicht das Kapital, sondern ein Hundertstel der Zinsen.",
      "fehlbild": null,
@@ -1077,11 +1091,11 @@
     "a": [
      "□ : 0,04 = 52",
      "□ · 4 = 52",
-     "□ · 0,04 = 52",
-     "52 · 0,04 = □"
+     "52 · 0,04 = □",
+     "□ · 0,04 = 52"
     ],
     "o": {
-     "index": 2
+     "index": 3
     },
     "w": "Zinsen = Kapital · Zinssatz als Faktor. Also □ · 0,04 = 52. Daraus folgt □ = 52 : 0,04 = 1 300."
    },
@@ -1175,14 +1189,14 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 1,
-     "antwort": "Beide gleich viel, denn die Zinsen sind gleich.",
-     "beschreibung": "Gleiche Zinsen bei verschiedenen Zinssätzen heißen verschiedene Kapitalien.",
+     "index": 0,
+     "antwort": "Das lässt sich ohne Rechnung nicht entscheiden, denn die Zinsen sind gleich hoch.",
+     "beschreibung": "Die Zinssätze sind verschieden; deshalb sind bei gleichen Zinsen auch die Kapitalien verschieden, und man kann sie vergleichen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Ben, denn ein höherer Zinssatz bedeutet, dass mehr Geld angelegt ist.",
      "beschreibung": "Ein höherer Zinssatz bringt mit weniger Kapital dieselben Zinsen; er sagt nichts über ein größeres Kapital aus.",
      "fehlbild": null,
@@ -1207,13 +1221,13 @@
      "text": "Anna und Ben bekommen beide im Jahr 90 € Zinsen. Anna hat einen Zinssatz von 2,5 %, Ben von 3 %. Wer hat mehr Geld angelegt? Entscheide ohne die Kapitalien auszurechnen."
     },
     "a": [
-     "Anna, denn bei kleinerem Zinssatz braucht man für dieselben Zinsen mehr Kapital.",
-     "Beide gleich viel, denn die Zinsen sind gleich.",
+     "Das lässt sich ohne Rechnung nicht entscheiden, denn die Zinsen sind gleich hoch.",
      "Ben, denn ein höherer Zinssatz bedeutet, dass mehr Geld angelegt ist.",
+     "Anna, denn bei kleinerem Zinssatz braucht man für dieselben Zinsen mehr Kapital.",
      "Ben, denn 3 % von seinem Kapital sind genauso viel wie 2,5 % von Annas Kapital, also hat er mehr."
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "w": "Annas Kapital: 90 € : 0,025 = 3 600 €. Bens Kapital: 90 € : 0,03 = 3 000 €. Ohne Rechnung: 2,5 % von Annas Kapital sind so viel wie 3 % von Bens; da 2,5 % kleiner ist als 3 %, muss Annas Kapital größer sein."
    },
@@ -1289,21 +1303,21 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "p ist 1 000-mal so groß wie q, denn 2 000 € − 1 000 € = 1 000 €.",
      "beschreibung": "Die Differenz der Kapitalien als Faktor genommen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "p ist gleich q, denn gleiche Zinsen entstehen nur bei gleichen Zinssätzen.",
      "beschreibung": "Übersehen, dass die Kapitalien verschieden sind; bei verschiedenen Kapitalien müssen die Zinssätze verschieden sein.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "p ist halb so groß wie q, denn Anna legt nur die Hälfte an und braucht deshalb auch weniger Zinssatz als Ben.",
      "beschreibung": "Die Abhängigkeit umgedreht: bei kleinerem Kapital muss der Zinssatz größer sein.",
      "fehlbild": null,
@@ -1321,13 +1335,13 @@
      "text": "Anna legt 1 000 € zu p % und Ben 2 000 € zu q % an (beide ein Jahr, beide Zinssätze größer als 0 %). Beide bekommen gleich viele Zinsen. Welche Aussage stimmt?"
     },
     "a": [
+     "p ist doppelt so groß wie q, denn Ben legt doppelt so viel an und braucht nur den halben Zinssatz.",
      "p ist 1 000-mal so groß wie q, denn 2 000 € − 1 000 € = 1 000 €.",
      "p ist gleich q, denn gleiche Zinsen entstehen nur bei gleichen Zinssätzen.",
-     "p ist halb so groß wie q, denn Anna legt nur die Hälfte an und braucht deshalb auch weniger Zinssatz als Ben.",
-     "p ist doppelt so groß wie q, denn Ben legt doppelt so viel an und braucht nur den halben Zinssatz."
+     "p ist halb so groß wie q, denn Anna legt nur die Hälfte an und braucht deshalb auch weniger Zinssatz als Ben."
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
     "w": "Zinsen Anna = 1 000 · p/100 und Zinsen Ben = 2 000 · q/100 sind gleich. Weil Ben doppelt so viel Kapital hat, genügt ihm der halbe Zinssatz: p = 2 · q. Beispiel: p = 4 % bringt 40 €, q = 2 % bringt auch 40 €."
    },
@@ -1345,28 +1359,50 @@
    "zaehlt": "ja",
    "lehrplan": "M6 3 (Zinsen)",
    "regel": "id.verhaeltnisse.prozent",
-   "abgrenzung": "Aus Zinsen und Kapital wird die Laufzeit erschlossen (Zeit als Unbekannte); die Übungen geben die Zeit vor.",
-   "antwortform": "zahl",
-   "loesung_rechnung": "60 : (3600 · 0,04) · 12",
+   "abgrenzung": "Die Übungen bestimmen die Laufzeit bei einer Anlage; hier werden zwei Anlagen mit verschiedenem Kapital und Zinssatz aufeinander abgestimmt (Zinsen gleich).",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2400 · 0,03 · 10 : 12",
+    "60 : (4500 · 0,02 : 12)"
+   ],
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 72,
+     "rechnung": "2400 · 0,03",
+     "beschreibung": "die Zinsen für ein ganzes Jahr statt für 10 Monate",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 720,
+     "rechnung": "2400 · 0,03 · 10",
+     "beschreibung": "die Jahreszinsen mit 10 malgenommen, aber nicht durch 12 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "rechnung": "10",
+     "beschreibung": "dieselbe Laufzeit eingetragen, obwohl Herr Koch ein anderes Kapital und einen anderen Zinssatz hat",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 18,
+     "rechnung": "90 : 60 · 12",
+     "beschreibung": "den Bruch verkehrt herum angesetzt (Jahreszinsen durch gesuchte Zinsen)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
      "antwort": 12,
      "rechnung": "12",
-     "beschreibung": "ein ganzes Jahr angenommen, ohne die Zinsen zu prüfen",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "antwort": 15,
-     "rechnung": "60 : 4",
-     "beschreibung": "die Zinsen durch den Zinssatz geteilt, ohne Kapital und Jahr zu beachten",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "antwort": 60,
-     "rechnung": "60",
-     "beschreibung": "die gewünschten Zinsen (60 €) als Monate angegeben",
+     "beschreibung": "ein ganzes Jahr eingetragen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1377,17 +1413,21 @@
     "p": "test",
     "s": 3,
     "g": "rueckwaerts",
-    "y": "zahl",
+    "y": "luecken",
     "f": {
-     "text": "Ein Sparer legt 3 600 € zu 4 % Jahreszinsen an und möchte genau 60 € Zinsen bekommen. Wie viele Monate muss das Geld mindestens liegen?"
+     "text": "Frau Berger legt 2 400 € zu 3 % Jahreszinsen für 10 Monate an. Herr Koch legt 4 500 € zu 2 % Jahreszinsen an. Wie viel Euro Zinsen bekommt Frau Berger, und wie viele Monate muss Herr Koch sein Geld anlegen, um genauso viele Zinsen zu bekommen?",
+     "schablone": "Frau Berger bekommt □ €, Herr Koch braucht □ Monate",
+     "hinweis": "Je Feld eine ganze Zahl."
     },
     "o": {
-     "wert": 5,
-     "einheit": "Monate"
+     "werte": [
+      60,
+      8
+     ]
     },
-    "w": "Die Zinsen für ein ganzes Jahr sind 3 600 € · 0,04 = 144 €. Gesucht ist der Anteil des Jahres, der 60 € bringt: 60 : 144 = 5/12. Das Geld muss also 5 Monate liegen. Probe: 144 € · 5 : 12 = 60 €."
+    "w": "Frau Berger: 2 400 € · 0,03 = 72 € im Jahr, für 10 Monate 72 € · 10 : 12 = 60 €. Herr Koch bekommt 4 500 € · 0,02 = 90 € im Jahr, also 90 € : 12 = 7,50 € je Monat. Für 60 € braucht er 60 € : 7,50 € = 8 Monate."
    },
-   "idee": "Laufzeit aus den Zinsen rückwärts"
+   "idee": "Laufzeit bei zwei Anlagen angleichen"
   },
   {
    "kennung": "VT2-023",
@@ -1614,14 +1654,14 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "K · p : 100 · 5",
      "beschreibung": "Die 5 Monate als 5 Jahre gerechnet: Es fehlt das Teilen durch 12.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "K · p : 100 · 12 : 5",
      "beschreibung": "Den Bruch 5/12 auf den Kopf gestellt (12/5): damit würde man mehr als die Jahreszinsen erhalten.",
      "fehlbild": null,
@@ -1640,12 +1680,12 @@
     },
     "a": [
      "K · p : 100 : 5",
-     "K · p : 100 · 5 : 12",
      "K · p : 100 · 5",
-     "K · p : 100 · 12 : 5"
+     "K · p : 100 · 12 : 5",
+     "K · p : 100 · 5 : 12"
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "w": "K · p : 100 sind die Zinsen für ein ganzes Jahr. 5 Monate sind 5/12 eines Jahres, also nimmt man davon 5/12: K · p : 100 · 5 : 12. Probe mit K = 1 200 €, p = 3: 36 € im Jahr, davon 5/12 sind 15 €."
    },
@@ -1721,15 +1761,15 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 1,
-     "antwort": "Sie sind gleich hoch, denn der Jahreszinssatz ändert sich nicht.",
+     "index": 0,
+     "antwort": "Sie ändern sich nicht, denn der Jahreszinssatz ändert sich nicht.",
      "beschreibung": "Den Zinssatz mit den Zinsen verwechselt: der Zinssatz bleibt, die Zinsen wachsen mit der Zeit.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 2,
-     "antwort": "Sie sind um 6 Monate mehr, also 6/12 des Kapitals.",
+     "antwort": "Sie sind um 6 Monate mehr, denn 9 − 3 = 6, also 6/12 des Kapitals.",
      "beschreibung": "Zeit und Zinsbetrag vermischt: Unterschied 6 Monate ist keine Prozentzahl des Kapitals.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -1753,13 +1793,13 @@
      "text": "Ein Kapital bleibt bei gleichem Jahreszinssatz stehen. Wie vergleichen sich die Zinsen für 9 Monate mit den Zinsen für 3 Monate?"
     },
     "a": [
+     "Sie ändern sich nicht, denn der Jahreszinssatz ändert sich nicht.",
      "Sie sind 3-mal so hoch, denn 9 Monate sind dreimal 3 Monate.",
-     "Sie sind gleich hoch, denn der Jahreszinssatz ändert sich nicht.",
-     "Sie sind um 6 Monate mehr, also 6/12 des Kapitals.",
+     "Sie sind um 6 Monate mehr, denn 9 − 3 = 6, also 6/12 des Kapitals.",
      "Sie sind 9-mal so hoch, denn 9 : 1 = 9."
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
     "w": "Bei einfachen Zinsen sind die Zinsen proportional zur Zeit. 9 Monate sind 9 : 3 = 3-mal so lang wie 3 Monate, also sind auch die Zinsen 3-mal so hoch. Beispiel: 1 200 € zu 4 % bringen in 3 Monaten 12 € und in 9 Monaten 36 €."
    },

@@ -162,7 +162,7 @@
      "luecke": 3,
      "antwort": 6,
      "rechnung": "12 : 2",
-     "beschreibung": "wie Ben 12 : 6 falsch gerechnet und 6 in die Klammer geschrieben",
+     "beschreibung": "die 12 durch 2 statt durch 6 geteilt und 6 in die Klammer geschrieben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
@@ -304,22 +304,22 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "6x² + 4x + 5 = x(6x + 4 + 5), denn x steckt in jedem Glied der Summe und lässt sich ausklammern.",
+     "index": 1,
+     "antwort": "Man kann x ausklammern: x(6x + 4 + 5), denn x steckt in jedem Glied der Summe.",
      "beschreibung": "Ausmultipliziert ergibt x(6x + 4 + 5) = 6x² + 4x + 5x; die 5 enthält kein x.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
-     "antwort": "6x² + 4x + 5 = 2(3x² + 2x + 5), denn die 2 steckt in 6 und in 4 und lässt sich ausklammern.",
+     "index": 2,
+     "antwort": "Man kann 2 ausklammern: 2(3x² + 2x + 5), denn die 2 steckt in 6 und in 4.",
      "beschreibung": "Ausmultipliziert ergibt 2(3x² + 2x + 5) = 6x² + 4x + 10; die 5 wurde nicht mit 2 multipliziert.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
-     "antwort": "6x² + 4x + 5 = 2x(3x + 2 + 5), denn 2x steckt in den ersten beiden Gliedern und die 5 bleibt.",
+     "index": 3,
+     "antwort": "Man kann 2x ausklammern: 2x(3x + 2 + 5), denn 2x steckt in den ersten beiden Gliedern und die 5 bleibt.",
      "beschreibung": "Ausmultipliziert ergibt 2x(3x + 2 + 5) = 6x² + 4x + 10x; es stimmt nicht.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -336,13 +336,13 @@
      "text": "Welche Aussage über den Term 6x² + 4x + 5 ist richtig?"
     },
     "a": [
-     "6x² + 4x + 5 = x(6x + 4 + 5), denn x steckt in jedem Glied der Summe und lässt sich ausklammern.",
-     "6x² + 4x + 5 = 2(3x² + 2x + 5), denn die 2 steckt in 6 und in 4 und lässt sich ausklammern.",
-     "6x² + 4x + 5 = 2x(3x + 2 + 5), denn 2x steckt in den ersten beiden Gliedern und die 5 bleibt.",
-     "Kein ganzzahliger Faktor außer 1 steckt in 6, 4 und 5; es lässt sich nichts ausklammern."
+     "Man kann nichts außer 1 ausklammern, denn in alle drei Glieder passt kein gemeinsamer Faktor; die 5 enthält weder die 2 noch ein x.",
+     "Man kann x ausklammern: x(6x + 4 + 5), denn x steckt in jedem Glied der Summe.",
+     "Man kann 2 ausklammern: 2(3x² + 2x + 5), denn die 2 steckt in 6 und in 4.",
+     "Man kann 2x ausklammern: 2x(3x + 2 + 5), denn 2x steckt in den ersten beiden Gliedern und die 5 bleibt."
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
     "w": "Ein Faktor darf nur ausgeklammert werden, wenn er in jedem Glied steckt. Die 5 hat mit 6 und 4 keinen gemeinsamen Teiler außer 1 und enthält kein x. Die Proben ergeben: 2x · 5 = 10x, 2 · 5 = 10 und x · 5 = 5x, nie die 5."
    },
@@ -620,7 +620,7 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Die Formel stimmt nur, wenn b negativ ist.",
      "beschreibung": "Erfindet eine Einschränkung; die Formel stimmt nur, wenn a oder b gleich 0 ist (dann ist 2ab = 0).",
      "fehlbild": null,
@@ -652,13 +652,13 @@
      "text": "Warum gilt (a + b)² = a² + b² nicht? Welche Antwort stimmt?"
     },
     "a": [
-     "Für a = 3, b = 4 ist (3 + 4)² = 49, aber 3² + 4² = 25; es fehlt 2ab.",
      "Die Formel stimmt nur, wenn b negativ ist.",
+     "Für a = 3, b = 4 ist (3 + 4)² = 49, aber 3² + 4² = 25; es fehlt das doppelte Produkt 2ab, das nur 0 ist, wenn a oder b gleich 0 ist.",
      "Für a = 3 und b = 4 ist (3 + 4)² = 14 und 3² + 4² = 25; das Quadrat der Summe ist immer kleiner.",
      "Für a = 3 und b = 4 ist (3 + 4)² = 25 und 3² + 4² = 25; die Formel stimmt für alle Zahlen."
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
     "w": "(3 + 4)² = 7² = 49. 3² + 4² = 9 + 16 = 25. Der Unterschied 24 ist 2 · 3 · 4 = 2ab. Allgemein: (a + b)² = a² + 2ab + b²."
    },
@@ -813,14 +813,14 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "In Zeile 1, weil bei (a + b)² das doppelte Produkt 2ab nicht vorkommen darf.",
      "beschreibung": "Die Formel (a + b)² = a² + 2ab + b² wurde richtig angewendet; das Mittelglied muss vorkommen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "In Zeile 4, weil 3² = 6 ist.",
      "beschreibung": "3² = 9; die 9 in Zeile 4 ist richtig.",
      "fehlbild": null,
@@ -839,12 +839,12 @@
     },
     "a": [
      "In Zeile 3, weil 2 · 4x · 3 = 12x ist.",
-     "In Zeile 2, weil (4x)² = 16x² ist; auch die 4 wird quadriert.",
      "In Zeile 1, weil bei (a + b)² das doppelte Produkt 2ab nicht vorkommen darf.",
-     "In Zeile 4, weil 3² = 6 ist."
+     "In Zeile 4, weil 3² = 6 ist.",
+     "In Zeile 2, weil (4x)² = 16x² ist; auch die 4 wird quadriert."
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "w": "Zeile 1 stimmt. In Zeile 2: (4x)² = 4² · x² = 16x². Also (4x + 3)² = 16x² + 24x + 9. Probe mit x = 1: 7² = 49 und 16 + 24 + 9 = 49."
    },

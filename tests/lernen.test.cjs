@@ -7116,3 +7116,67 @@ test('Teil 3: Flug „Kann er – aber wiederholen“ (stufe wiederholung, geset
       assert.equal(await page.locator('a[href="#/lerneinheit/1-2"], .rk-weiter-knopf').count(), 0, `${b}: auch im Blatt nicht`); }
   }
 });
+
+// ---------- TEMPO (Ladezeiten, Entwurf): Reisekarte ohne Warten auf das Merkheft, „Mein Weg“ früher, Abrufe gleichzeitig ----------
+// Zeitmessung mit nachgestelltem Server: Merkheft langsam (wie live die größte Antwort), alles andere schnell.
+const tempoLog = (page) => { const log = []; const t0 = Date.now();
+  page.on('request', (r) => { if (/lernen-api/.test(r.url())) { const x = { a: JSON.parse(r.postData() || '{}').aktion, von: Date.now() - t0, bis: null }; log.push(x); r.response().then(() => { x.bis = Date.now() - t0; }).catch(() => {}); } });
+  return { log, t0, jetzt: () => Date.now() - t0, zahl: (a) => log.filter((x) => x.a === a).length }; };
+const rkEndstand = async (page) => { await page.waitForFunction(() => document.querySelector('.rk-seite .rk-start') && !document.querySelector('.lr-ziel-offen') && !document.querySelector('.lr-veraltet'));
+  await page.waitForTimeout(400); return page.locator('.rk-seite .rk-start').evaluate((a) => ({ text: a.innerText.replace(/\s+/g, ' ').trim(), href: a.getAttribute('href') })); };
+test('TEMPO: Reisekarte steht, bevor das Merkheft da ist (Hauptknopf gesperrt); danach derselbe Hauptknopf wie mit schnellem Merkheft, jede Aktion einmal', async (t) => {
+  const srv = rkServer();
+  const schnell = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen });
+  await schnell.page.setViewportSize({ width: 1280, height: 800 }); await schnell.page.goto(origin + '/#/reise/1');
+  const soll = await rkEndstand(schnell.page);
+  const { page, calls } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen, verzoegerungJe: (a) => (a === 'schule_merkheft' ? 2500 : 200) });
+  await page.setViewportSize({ width: 1280, height: 800 }); const m = tempoLog(page);
+  await page.goto(origin + '/#/reise/1');
+  await page.locator('.rk .rk-pin').first().waitFor(); const karteDa = m.jetzt();
+  const merk = m.log.find((x) => x.a === 'schule_merkheft');
+  assert.ok(merk && merk.bis === null, `Karte nach ${karteDa} ms, vor dem Merkheft`);
+  assert.equal(await page.locator('.lr-ziel-offen .rk-start').count(), 1, 'Hauptknopf gesperrt, solange das Merkheft fehlt');
+  const ist = await rkEndstand(page);
+  assert.deepEqual(ist, soll, 'gleicher Hauptknopf');
+  for (const a of ['schule_merkheft', 'schule_wiederholung', 'schule_konto', 'schule_uebersicht', 'schule_reise_karte', 'schule_einheit_lesen'])
+    assert.equal(calls.filter((c) => c.aktion === a).length, 1, `${a} genau einmal`);
+});
+test('TEMPO: „Mein Weg“ – Merkheft gleichzeitig mit Übersicht/Konto; Seite steht vorher („…“), danach wie mit schnellem Merkheft', async (t) => {
+  const text = (p) => p.locator('#main').innerText();
+  const a = await setup(t, { gestaltung: 'nacht', anpassen: planKindA([49, 52]) });
+  await a.page.goto(origin + '/#/weg/1'); await a.page.locator('.lr-dran').first().waitFor(); await a.page.waitForTimeout(300); const soll = await text(a.page);
+  const { page, calls } = await setup(t, { gestaltung: 'nacht', anpassen: planKindA([49, 52]), verzoegerungJe: (x) => (x === 'schule_merkheft' ? 2000 : x === 'schule_konto' ? 600 : 100) });
+  const m = tempoLog(page);
+  await page.goto(origin + '/#/weg/1'); await page.locator('.lr-dran').first().waitFor();
+  const kontoBis = m.log.find((x) => x.a === 'schule_konto')?.bis, merk = m.log.find((x) => x.a === 'schule_merkheft');
+  assert.ok(merk.von < kontoBis, `Merkheft startet (${merk.von} ms) vor dem Ende von konto (${kontoBis} ms)`);
+  assert.equal(merk.bis, null, 'Seite steht vor dem Merkheft');
+  await page.waitForFunction(() => !/…/.test(document.querySelector('#main').innerText)); await page.waitForTimeout(2300); // Merkheft da, Seite neu gezeichnet
+  assert.equal(await text(page), soll);
+  assert.equal(calls.filter((c) => c.aktion === 'schule_merkheft').length, 1);
+});
+test('TEMPO: Route, Wiederholen, Merkheft, Expeditionen starten ihren Abruf gleichzeitig mit konto (nicht danach), je einmal', async (t) => {
+  for (const [ziel, aktion] of [['/#/route/1', 'schule_lehrplan_matrix'], ['/#/wiederholen/1', 'schule_wiederholung'], ['/#/merkheft/1', 'schule_merkheft'], ['/#/stationen/1', 'schule_reise_karte']]) {
+    const srv = rkServer();
+    const { page, calls } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen, verzoegerungJe: (a) => (a === 'schule_konto' ? 700 : 50) });
+    const m = tempoLog(page);
+    await page.goto(origin + ziel); await page.waitForFunction(() => !document.querySelector('#main .spinner') && document.querySelector('#main').children.length > 0); await page.waitForTimeout(200);
+    const k = m.log.find((x) => x.a === 'schule_konto'), x = m.log.find((y) => y.a === aktion);
+    assert.ok(k && x && x.von < k.bis, `${ziel}: ${aktion} ab ${x?.von} ms, konto fertig ${k?.bis} ms`);
+    assert.equal(calls.filter((c) => c.aktion === aktion).length, 1, `${ziel}: ${aktion} einmal`);
+    await page.close();
+  }
+});
+test('TEMPO: Reisekarte mit alter Karte gezeichnet (WT) und mit der frischen neu – konto, merkheft, wiederholung, einheit_lesen trotzdem je einmal', async (t) => {
+  const srv = rkServer(); const { page, calls } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen, verzoegerungJe: (a) => (a === 'schule_reise_karte' ? 900 : 100) });
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto(origin + '/#/stationen/1'); await page.waitForFunction(() => !document.querySelector('#main .spinner') && document.querySelector('#main').children.length > 0);
+  await page.waitForTimeout(1200); // Karte gemerkt
+  await page.evaluate(() => lernCall('schule_landung_nachbuchung_gesehen', { lernender_id: 1 })); // eine Änderung: Karte gilt als alt
+  calls.length = 0;
+  await page.evaluate(() => { location.hash = '#/reise/1'; });
+  await page.locator('.lr-ziel-offen .rk-start').waitFor(); // erst mit der alten Karte (Hauptknopf gesperrt)
+  await rkEndstand(page);
+  for (const a of ['schule_merkheft', 'schule_wiederholung', 'schule_konto', 'schule_reise_karte', 'schule_einheit_lesen'])
+    assert.equal(calls.filter((c) => c.aktion === a).length, 1, `${a} genau einmal`);
+});

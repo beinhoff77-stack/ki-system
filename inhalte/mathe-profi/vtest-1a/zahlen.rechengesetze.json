@@ -440,10 +440,10 @@
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "Allein ①: Eine Klammer darf bei einer Geschichte nicht vorkommen.",
+     "antwort": "Genau ②: Nur ② hat eine Klammer, die beide Halte zusammenfasst.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Klammer als nicht erlaubt gedeutet (② gibt denselben Wert 20)"
+     "beschreibung": "Nur den Term mit Klammer für richtig gehalten (① gibt denselben Wert 20)"
     },
     {
      "index": 2,
@@ -473,7 +473,7 @@
     },
     "a": [
      "Genau ① und ②: Beide ziehen insgesamt 10 Kinder ab, einmal in zwei Schritten, einmal auf einmal.",
-     "Allein ①: Eine Klammer darf bei einer Geschichte nicht vorkommen.",
+     "Genau ②: Nur ② hat eine Klammer, die beide Halte zusammenfasst.",
      "Genau ① und ③: Beim zweiten Halt muss man 4 addieren, weil die 4 zuletzt dasteht.",
      "Genau ② und ④: Die Klammer fasst beide Halte zusammen, also werden 6 und 4 abgezogen."
     ],

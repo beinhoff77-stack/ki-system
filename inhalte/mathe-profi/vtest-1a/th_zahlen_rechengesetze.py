@@ -54,7 +54,7 @@ neu(T, "klammern", "sicherung", "begruenden", W(
 neu(T, "termaufbau", "test", "transfer", W(
     "Eine Geschichte: „Im Bus sitzen 30 Kinder. An der ersten Haltestelle steigen 6 Kinder aus, an der zweiten steigen 4 Kinder aus.“ Vier Terme stehen zur Wahl: ① 30 − 6 − 4  ② 30 − (6 + 4)  ③ 30 − 6 + 4  ④ 30 − (6 − 4). Welche Terme passen zur Geschichte?",
     "Genau ① und ②: Beide ziehen insgesamt 10 Kinder ab, einmal in zwei Schritten, einmal auf einmal.",
-    [("Allein ①: Eine Klammer darf bei einer Geschichte nicht vorkommen.", "Klammer als nicht erlaubt gedeutet (② gibt denselben Wert 20)", 30 - (6 + 4) == 30 - 6 - 4),
+    [("Genau ②: Nur ② hat eine Klammer, die beide Halte zusammenfasst.", "Nur den Term mit Klammer für richtig gehalten (① gibt denselben Wert 20)", 30 - (6 + 4) == 30 - 6 - 4),
      ("Genau ① und ③: Beim zweiten Halt muss man 4 addieren, weil die 4 zuletzt dasteht.", "Das Minus vor der 4 übersehen (③ ergibt 28)", 30 - 6 + 4 != 30 - 6 - 4),
      ("Genau ② und ④: Die Klammer fasst beide Halte zusammen, also werden 6 und 4 abgezogen.", "④ zieht nur 2 Kinder ab (④ ergibt 28)", 30 - (6 - 4) != 30 - (6 + 4))],
     "Insgesamt steigen 6 + 4 = 10 Kinder aus, im Bus bleiben 30 − 10 = 20 Kinder. Term ① zieht nacheinander 6 und 4 ab: 24, dann 20. Term ② zieht 6 + 4 = 10 auf einmal ab: 20. Term ③ addiert 4 und ergibt 28, Term ④ zieht nur 6 − 4 = 2 ab und ergibt 28.",

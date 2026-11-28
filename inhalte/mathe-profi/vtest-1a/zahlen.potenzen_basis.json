@@ -930,7 +930,7 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "Welche Schreibweise gehört NICHT zur Zahl 56 000 000?"
+     "text": "Eine der vier Schreibweisen hat einen anderen Wert als 56 000 000. Welche?"
     },
     "a": [
      "56 · 10⁵",
@@ -965,7 +965,7 @@
      "rechnung": "5 + 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die Ziffern der Zahl gezählt statt der Nullen (5 + 1)"
+     "beschreibung": "Die Ziffern der Zahl (6) statt der Nullen gezählt (5 + 1)"
     },
     {
      "antwort": 4,

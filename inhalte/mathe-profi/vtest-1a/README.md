@@ -88,15 +88,15 @@ Aufrufe vom Wurzelordner des Repos: `python3 -I inhalte/mathe-profi/vtest-1a/bau
 
 ## Ehrlich: Zweifelsfälle und Grenzen
 
-(Stand nach der Korrektur zur Vorprüfung, siehe `korrektur-nach-vorpruefung.md`.)
+(Stand nach der zweiten Korrektur, siehe `korrektur-nach-vorpruefung.md` und `korrektur-nach-vorpruefung-2.md`.)
 
 1. **Lehrplan-Nummer.** „M5 3“ ist laut Vorprüfung die Nummer des Gymnasiums; „M5 1.3“ im Repo (`vorschlag-rsib.md`) gehört zur Realschule. Eigene Quelle für den Lehrplanwortlaut habe ich nicht, ich stütze mich auf die Vorprüfung.
 2. **Ideen statt Typ-Etiketten.** Jede Aufgabe trägt ein Feld `idee` (Denkfigur). `bauen.py` verlangt je Lernziel mindestens 5 verschiedene Ideen und keine öfter als zweimal. Die Ideen sind meine Einteilung; die Vorprüfung sollte prüfen, ob sie die Aufgaben wirklich unterscheidet. Knapp sind `klammern` (genau 5) und `zahlen.potenzen_basis/sach` (5).
 3. **Zahl-Aufgaben mit fast fester Lösungsrechnung.** Bei einigen Zählaufgaben (z. B. 004, 017, 021, 023, 024, 070) ist `loesung_rechnung` nur der Wert selbst oder eine kurze Zeile; die eigentliche Probe liefert `gegenrechnung.py` mit einer Zählschleife.
 4. **Typ und Form.** Bei den mehrschritt-Aufgaben 045, 046, 053, 055, 067 trägt die Form (`verfahren_waehlen`, `zwei_wege`) den Verstehens-Anspruch; dort geht es wirklich um die Wahl oder den Vergleich zweier Wege, nicht um ein Etikett. 25 von 77 Aufgaben haben die Form `umkehren` (vorher 31).
 5. **Fehler-Aufgaben.** „Finde den Fehler“ ist als Auswahl vollständiger Aussagen („Fehler: … Richtig wäre …“) gebaut, Typ `begruenden`, nicht Fehler-Detektiv (V8 verlangt dafür nummerierte Zeilen).
-6. **Verneinte Frage.** Nur noch VT1A-016 („gehört NICHT zur Zahl 56 000 000“): eindeutig, drei richtige Schreibweisen, eine falsche.
-7. **Antwortformen.** 50 von 77 Aufgaben sind Auswahl (4 Möglichkeiten, nur VT1A-029 hat 5), 27 Zahl. Das Verhältnis hat sich zu Auswahl hin verschoben, weil Begründen und Darstellungswechsel nur als Auswahl abfragbar sind.
+6. **Verneinte Frage.** Keine mehr: VT1A-016 fragt jetzt positiv nach der einen Schreibweise mit anderem Wert.
+7. **Antwortformen.** 38 von 77 Aufgaben sind Auswahl (4 Möglichkeiten, nur VT1A-029 hat 5), 39 Zahl, keine Lücken. Im Test-Pool sind 3 von 11 Auswahl (001, 029, 036). Optionstexte sind in der Länge angeglichen (richtige Option die längste in 5 von 38), die Lage der richtigen Antwort ist gleichmäßig (9/10/9/9), „Kein Fehler“ und „Beide“ sind teils richtig; `bauen.py` prüft Länge, Lage und Anfangswörter dauerhaft.
 8. **Regeln.** Bei `ueberschlag` steht keine Regel (kein Katalogeintrag trägt Überschlagen); Begründung in `regeln-zuordnung.md`, das Werkzeug meldet 7 Hinweise dazu. Bei `zahlen.rechengesetze` führen `umkehraufgabe_mal` und `sach` die Regel `rr.gegenrechnung`, die im Katalog die Einheit nicht in der Themenliste hat. `quadrat` (`rr.potenz`) und `termaufbau` (`rr.reihenfolge`) haben keine Lernkarten-Regel; das sind Vorschläge.
 9. **x und □.** In Aufgaben zu Gleichungen (VT1A-060 bis 063) steht x (Lehrplan M5 3.1), sonst □ für eine Lücke.
 10. **Auswahl.** Siehe `auswahl.md`: Abweichung vom Vorschlag des Auftraggebers; `negativ`, `mal_ganz`, `geteilt_ganz`, `vertauschen`, `schriftlich` sind für eine Folgerunde vorgemerkt.
@@ -104,8 +104,8 @@ Aufrufe vom Wurzelordner des Repos: `python3 -I inhalte/mathe-profi/vtest-1a/bau
 
 ## Ergebnis der Prüfungen
 
-- `bauen.py`: OK (77 Aufgaben, 229 Fehlbilder/falsche Möglichkeiten geprüft).
+- `bauen.py`: OK (77 Aufgaben, 228 Fehlbilder/falsche Möglichkeiten geprüft).
 - `gegenrechnung.py`: 77 Sollantworten neu gerechnet, 0 Abweichungen.
 - `tools/vorrat_pruefen.py` über die Dateien: 77 Aufgaben, 0 Meldungen.
 - `tools/vtest_pruefen.py --runde 1a`: keine Fehler; 10 Hinweise (Abweichung vom Vorschlag bei beiden Einheiten, Rhythmus RVVVRVRRRVVRRV bei `zahlen.rechengesetze`, 7-mal „Regel fehlt“ bei `ueberschlag`).
-- Weitere Dateien: `sonderfaelle.md` (Durchsicht der Auswahl-Aufgaben), `korrektur-nach-vorpruefung.md`.
+- Weitere Dateien: `sonderfaelle.md` (Durchsicht der Auswahl-Aufgaben), `korrektur-nach-vorpruefung.md`, `korrektur-nach-vorpruefung-2.md`.

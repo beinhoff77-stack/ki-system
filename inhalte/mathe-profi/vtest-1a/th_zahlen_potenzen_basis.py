@@ -96,7 +96,7 @@ neu(T, "zehner", "test", "parameter", Z(
     "10⁶ = 10 · 10⁵, denn eine Zehnerpotenz mit 1 mehr in der Hochzahl ist das Zehnfache. Dann ist 10⁶ − 9 · 10⁵ = 10 · 10⁵ − 9 · 10⁵ = 1 · 10⁵. Probe: 1 000 000 − 900 000 = 100 000.",
     [(10, "Nur den ersten Term umgeformt und den abgezogenen Teil vergessen", "10"), (9, "Die 9 aus der Aufgabe als Lösung genommen", "9"), (5, "Die Hochzahl genannt", "5")]), regel=P, idee="groessenvergleich")
 neu(T, "zehner", "korrektur", "darstellung", W(
-    "Welche Schreibweise gehört NICHT zur Zahl 56 000 000?",
+    "Eine der vier Schreibweisen hat einen anderen Wert als 56 000 000. Welche?",
     "56 · 10⁵",
     [("56 · 10⁶", "Stimmt: 56 mal eine Million ist 56 000 000", 56 * 10 ** 6 == 56000000),
      ("560 · 10⁵", "Stimmt: 560 mal hunderttausend ist 56 000 000", 560 * 10 ** 5 == 56000000),
@@ -107,7 +107,7 @@ neu(T, "zehner", "korrektur", "umkehr", Z(
     "Eine Sammlung von Münzen wiegt zusammen 500 kg. Jede Münze wiegt 5 g (1 kg = 1 000 g). Die Zahl der Münzen lässt sich als 10ⁿ schreiben. Wie groß ist n?",
     5, "5", lambda: next(n for n in range(0, 20) if 10 ** n * 5 == 500 * 1000),
     "500 kg sind 500 · 1 000 g = 500 000 g. Dann gibt es 500 000 : 5 = 100 000 Münzen. 100 000 = 10⁵, denn 100 000 ist eine 1 mit 5 Nullen. Also ist n = 5.",
-    [(6, "Die Ziffern der Zahl gezählt statt der Nullen (5 + 1)", "5 + 1"), (4, "Beim Teilen durch 5 eine Null verloren (5 − 1)", "5 - 1"), (2, "Die Umrechnung von kg in g (mal 1 000) vergessen; dann hat die Zahl der Münzen nur zwei Nullen, also 10²", "2")]), form="umkehren", regel=P, idee="umrechnen_potenz")
+    [(6, "Die Ziffern der Zahl (6) statt der Nullen gezählt (5 + 1)", "5 + 1"), (4, "Beim Teilen durch 5 eine Null verloren (5 − 1)", "5 - 1"), (2, "Die Umrechnung von kg in g (mal 1 000) vergessen; dann hat die Zahl der Münzen nur zwei Nullen, also 10²", "2")]), form="umkehren", regel=P, idee="umrechnen_potenz")
 neu(T, "zehner", "korrektur", "darstellung", W(
     "Anna schreibt die Zahl 4 500 000 als 45 · 10⁵. Ben schreibt sie als 450 · 10⁵. Wer hat recht?",
     "Nur Anna: 45 · 100 000 = 4 500 000. Bei Ben ist der Faktor zehnmal so groß.",

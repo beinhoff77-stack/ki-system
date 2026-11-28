@@ -36,6 +36,7 @@ AUSWAHL = {
     "zahlen.potenzen_zehner": ["gross_wissenschaftlich", "negativer_exponent", "vorsilben_klein", "vergleichen_pruefen"],
     "messen.flaechen_vielecke": ["dreieck", "rueckwaerts", "zusammengesetzt", "verstehen"],
 }
+from vorrat_liste import VORRAT   # noqa: E402
 POOLFOLGE = {"test": 0, "korrektur": 1, "sicherung": 2}
 SOLL_ANZAHL = {"test": 1, "korrektur": 3, "sicherung": 3}
 FORMNAME = {"anwenden": "Anwenden", "umkehren": "Umkehren", "verfahren_waehlen": "Verfahren wählen", "fehler_detektiv": "Fehler-Detektiv", "bruecke": "Brücke",
@@ -206,6 +207,21 @@ for a in A:
     eintrag["aufgabe"] = q
     aus[schl].append(eintrag)
 
+# Entscheidung: je Lernziel 5 statt 7 Aufgaben; die gestrichenen liegen in vorrat-folgerunde/
+VOR = defaultdict(list)
+_i = 0
+for _s in geladen:
+    _keep = []
+    for _e in aus[_s]:
+        if (_s, _e["idee"]) in VORRAT:
+            _e["kennung"] = f"{KUERZEL}-VR{sum(len(v) for v in VOR.values()) + 1:02d}"
+            VOR[_s].append(_e)
+        else:
+            _i += 1
+            _e["kennung"] = f"{KUERZEL}-{_i:03d}"
+            _keep.append(_e)
+    aus[_s] = _keep
+A[:] = [a for a in A if (a["thema"], a["idee"]) not in VORRAT]
 print("Auswahl: Sammeloptionen richtig/falsch", SAMMEL_STAT[True], SAMMEL_STAT[False], "· Absolutwörter richtig/falsch", ABS_STAT[True], ABS_STAT[False])
 assert abs(SAMMEL_STAT[True] - SAMMEL_STAT[False]) <= max(1, (SAMMEL_STAT[True] + SAMMEL_STAT[False]) // 2), "Sammeloptionen (Beide/Keine/Alle) sind überwiegend falsch oder überwiegend richtig"
 _n_r = sum(1 for e_ in sum(aus.values(), []) if e_["aufgabe"]["y"] == "auswahl")
@@ -223,22 +239,24 @@ for schl in geladen:
         c = Counter(e["pool"] for e in xs)
         ide = Counter(("umkehr" if e["idee"] == "rueckwaerts" else e["idee"]) for e in xs)
         assert max(ide.values()) <= 2, (schl, lk, "höchstens zwei Aufgaben je Idee", dict(ide))
+        _k = (len(xs) - 1) // 2
+        assert len(xs) in (5, 7), (schl, lk, len(xs))
         if not TEIL:
-            assert len(ide) >= 5, (schl, lk, "mindestens 5 verschiedene Ideen unter den 7", dict(ide))
+            assert len(ide) >= min(5, len(xs) - 1), (schl, lk, "zu wenige verschiedene Ideen", dict(ide))
         if TEIL:
             assert all(c[p] <= SOLL_ANZAHL[p] for p in SOLL_ANZAHL), (schl, lk, dict(c))
             continue
-        assert all(c[p] == SOLL_ANZAHL[p] for p in SOLL_ANZAHL) and len(xs) == 7, (schl, lk, "1 test + 3 korrektur + 3 sicherung", dict(c))
+        assert c["test"] == 1 and c["korrektur"] == _k and c["sicherung"] == _k, (schl, lk, "1 test + 2 (oder 3) korrektur + 2 (oder 3) sicherung", dict(c))
         t = [e for e in xs if e["pool"] == "test"][0]
         assert t["stufe"] in (2, 3), (schl, lk)
         assert all(e["stufe"] == 2 for e in xs if e["pool"] == "korrektur"), (schl, lk, "Korrektur Stufe 2")
         assert {e["stufe"] for e in xs if e["pool"] == "sicherung"} == {2, 3}, (schl, lk, "Sicherung gemischt 2 und 3")
-        assert len({e["typ"] for e in xs}) >= 5, (schl, lk, "mindestens 5 verschiedene Typen unter den 7", Counter(e["typ"] for e in xs))
-        assert len({(e["typ"], e["form"], e["antwortform"]) for e in xs}) == 7, (schl, lk, "7 verschiedene Bauarten (Typ, Form, Antwortform)")
+        assert len({e["typ"] for e in xs}) >= min(5, len(xs) - 1), (schl, lk, "zu wenige verschiedene Typen", Counter(e["typ"] for e in xs))
+        assert len({(e["typ"], e["form"], e["antwortform"]) for e in xs}) == len(xs), (schl, lk, "verschiedene Bauarten (Typ, Form, Antwortform)")
         zs = Counter(e["antwortform"] for e in xs)
         assert zs["auswahl"] <= 5, (schl, lk, "nicht fast nur Auswahl", dict(zs))
 if not TEIL:
-    assert len(A) == 119, len(A)
+    assert len(A) == sum(len(v) for v in aus.values()), len(A)
     _aw = [e["aufgabe"] for l_ in aus.values() for e in l_ if e["aufgabe"]["y"] == "auswahl"]
     _lang = sum(1 for q_ in _aw if len(q_["a"][q_["o"]["index"]]) == max(map(len, q_["a"])) and [len(x) for x in q_["a"]].count(max(map(len, q_["a"]))) == 1)
     assert _lang <= 0.35 * len(_aw), ("richtige Option zu oft die längste", _lang, len(_aw))
@@ -325,9 +343,14 @@ gesamt = defaultdict(Counter)
 for schl in geladen:
     liste = aus[schl]
     json.dump({"stand": "2026-11-28", "runde": "vtest-1b", "kuerzel": KUERZEL, "titel": schl, "klasse": ALLE_THEMEN[schl]["klasse"], "themen": [schl],
-               "hinweis": "Verstehens-Aufgaben für Tests (Pools test, korrektur, sicherung), je Lernziel 1 + 2 + 3. Nicht eingespielt. Je Eintrag: thema, lernkarte, pool, typ (Aufgabentyp g), "
+               "hinweis": "Verstehens-Aufgaben für Tests (Pools test, korrektur, sicherung), je Lernziel 1 Test + 2 Korrektur + 2 Sicherung (Einheiten, die noch nicht gekürzt sind: 1 + 3 + 3). Nicht eingespielt. Je Eintrag: thema, lernkarte, pool, typ (Aufgabentyp g), "
                           "form, stufe, zaehlt, lehrplan, ersetzt_test (nur test), Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md (ohne Tipp h, ohne Toleranz).",
                "aufgaben": liste}, open(os.path.join(HIER, f"{schl}.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    if VOR.get(schl):
+        os.makedirs(os.path.join(HIER, "vorrat-folgerunde"), exist_ok=True)
+        json.dump({"stand": "2026-11-29", "runde": "vtest-1b", "kuerzel": KUERZEL, "titel": schl, "klasse": ALLE_THEMEN[schl]["klasse"], "themen": [schl],
+                   "hinweis": "Vorrat für eine Folgerunde: geprüfte Aufgaben, die nach der Entscheidung „je Lernziel 5 Aufgaben“ aus der Runde genommen wurden (Schema, doppelte Denkfigur oder Bestandsnähe). Nicht Teil der Runden-JSON, vom Prüfwerkzeug nicht gezählt. Vor Aufnahme neu prüfen.",
+                   "aufgaben": [e for e in VOR[schl]]}, open(os.path.join(HIER, "vorrat-folgerunde", f"{schl}_vorrat.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     for e in liste:
         gesamt["pool"][e["pool"]] += 1
         gesamt["stufe"][e["stufe"]] += 1

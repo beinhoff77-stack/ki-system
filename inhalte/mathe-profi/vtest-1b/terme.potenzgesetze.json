@@ -11,10 +11,10 @@
  "themen": [
   "terme.potenzgesetze"
  ],
- "hinweis": "Verstehens-Aufgaben für Tests (Pools test, korrektur, sicherung), je Lernziel 1 + 2 + 3. Nicht eingespielt. Je Eintrag: thema, lernkarte, pool, typ (Aufgabentyp g), form, stufe, zaehlt, lehrplan, ersetzt_test (nur test), Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md (ohne Tipp h, ohne Toleranz).",
+ "hinweis": "Verstehens-Aufgaben für Tests (Pools test, korrektur, sicherung), je Lernziel 1 Test + 2 Korrektur + 2 Sicherung (Einheiten, die noch nicht gekürzt sind: 1 + 3 + 3). Nicht eingespielt. Je Eintrag: thema, lernkarte, pool, typ (Aufgabentyp g), form, stufe, zaehlt, lehrplan, ersetzt_test (nur test), Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md (ohne Tipp h, ohne Toleranz).",
  "aufgaben": [
   {
-   "kennung": "VT1B-050",
+   "kennung": "VT1B-042",
    "thema": "terme.potenzgesetze",
    "lernkarte": "negativer_exponent",
    "pool": "test",
@@ -92,7 +92,7 @@
    }
   },
   {
-   "kennung": "VT1B-051",
+   "kennung": "VT1B-043",
    "thema": "terme.potenzgesetze",
    "lernkarte": "negativer_exponent",
    "pool": "korrektur",
@@ -161,7 +161,7 @@
    }
   },
   {
-   "kennung": "VT1B-052",
+   "kennung": "VT1B-044",
    "thema": "terme.potenzgesetze",
    "lernkarte": "negativer_exponent",
    "pool": "korrektur",
@@ -217,7 +217,7 @@
    }
   },
   {
-   "kennung": "VT1B-053",
+   "kennung": "VT1B-045",
    "thema": "terme.potenzgesetze",
    "lernkarte": "negativer_exponent",
    "pool": "korrektur",
@@ -273,7 +273,7 @@
    }
   },
   {
-   "kennung": "VT1B-054",
+   "kennung": "VT1B-046",
    "thema": "terme.potenzgesetze",
    "lernkarte": "negativer_exponent",
    "pool": "sicherung",
@@ -289,24 +289,24 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Das Kind hat recht, denn die größere Hochzahl ergibt die größere Zahl.",
+     "antwort": "2⁻⁵ ist größer, denn die Hochzahl 5 ist größer als die Hochzahl 3.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Hochzahl und Wert gleichgesetzt, obwohl das Minus das Verhältnis umdreht"
-    },
-    {
-     "index": 1,
-     "antwort": "Die beiden Zahlen sind gleich groß, denn bei einer negativen Hochzahl zählt nur die Basis.",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "den Einfluss der Hochzahl auf die Größe der Zahl übersehen"
+     "beschreibung": "nur die Hochzahlen verglichen und die verschiedenen Basen nicht beachtet"
     },
     {
      "index": 2,
-     "antwort": "Das Kind hat recht, denn 2⁻⁴ = 1/16 ist größer als 2⁻³ = 1/8.",
+     "antwort": "2⁻⁵ ist größer, denn 2 ist kleiner als 3, und eine kleinere Basis gibt die größere Zahl.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die beiden Brüche falsch verglichen, weil 16 größer ist als 8"
+     "beschreibung": "eine Regel für gleiche Hochzahlen auf verschiedene Hochzahlen übertragen"
+    },
+    {
+     "index": 3,
+     "antwort": "Man kann sie nicht vergleichen, denn die Basen und die Hochzahlen sind verschieden.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "geglaubt, Potenzen mit verschiedenen Basen und Hochzahlen ließen sich nicht ordnen"
     }
    ],
    "regel": "rr.potenz",
@@ -318,22 +318,22 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Ein Kind sagt: „2⁻⁴ ist größer als 2⁻³, denn 4 ist größer als 3.“ Welche Aussage über das Kind stimmt?"
+     "text": "Welche der beiden Zahlen 2⁻⁵ und 3⁻³ ist größer? Welche Aussage stimmt?"
     },
     "a": [
-     "Das Kind hat recht, denn die größere Hochzahl ergibt die größere Zahl.",
-     "Die beiden Zahlen sind gleich groß, denn bei einer negativen Hochzahl zählt nur die Basis.",
-     "Das Kind hat recht, denn 2⁻⁴ = 1/16 ist größer als 2⁻³ = 1/8.",
-     "Das Kind irrt, denn 2⁻⁴ = 1/16 ist kleiner als 2⁻³ = 1/8."
+     "2⁻⁵ ist größer, denn die Hochzahl 5 ist größer als die Hochzahl 3.",
+     "3⁻³ ist größer, denn 3⁻³ = 1/27 und 2⁻⁵ = 1/32, und 1/27 ist größer als 1/32.",
+     "2⁻⁵ ist größer, denn 2 ist kleiner als 3, und eine kleinere Basis gibt die größere Zahl.",
+     "Man kann sie nicht vergleichen, denn die Basen und die Hochzahlen sind verschieden."
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
-    "w": "2⁻³ = 1/2³ = 1/8 und 2⁻⁴ = 1/2⁴ = 1/16. Je größer der Betrag der negativen Hochzahl, desto kleiner ist der Wert: Bei jedem Schritt nach rechts im Muster wird durch 2 geteilt. 1/16 ist die Hälfte von 1/8."
+    "w": "2⁻⁵ = 1/2⁵ = 1/32 und 3⁻³ = 1/3³ = 1/27. Beide Brüche haben den Zähler 1, also ist der Bruch mit dem kleineren Nenner größer: 1/27 ist größer als 1/32. Man muss beide Potenzen in Brüche umschreiben; weder die Hochzahl noch die Basis allein entscheidet."
    }
   },
   {
-   "kennung": "VT1B-055",
+   "kennung": "VT1B-047",
    "thema": "terme.potenzgesetze",
    "lernkarte": "negativer_exponent",
    "pool": "sicherung",
@@ -393,7 +393,7 @@
    }
   },
   {
-   "kennung": "VT1B-056",
+   "kennung": "VT1B-048",
    "thema": "terme.potenzgesetze",
    "lernkarte": "negativer_exponent",
    "pool": "sicherung",
@@ -449,7 +449,7 @@
    }
   },
   {
-   "kennung": "VT1B-057",
+   "kennung": "VT1B-049",
    "thema": "terme.potenzgesetze",
    "lernkarte": "fehler_finden",
    "pool": "test",
@@ -535,7 +535,7 @@
    }
   },
   {
-   "kennung": "VT1B-058",
+   "kennung": "VT1B-050",
    "thema": "terme.potenzgesetze",
    "lernkarte": "fehler_finden",
    "pool": "korrektur",
@@ -550,7 +550,7 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "10⁻² = 0,2, denn die Hochzahl 2 kommt an die erste Stelle hinter dem Komma.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -583,19 +583,19 @@
      "text": "Ein Kind behauptet: „10⁻² = 0,2, denn man setzt die Hochzahl 2 hinter das Komma.“ Welche Aussage über die Zahl 10⁻² ist richtig?"
     },
     "a": [
-     "10⁻² = 0,2, denn die Hochzahl 2 kommt an die erste Stelle hinter dem Komma.",
      "10⁻² = 0,01, denn 10⁻² = 1/10² = 1/100.",
+     "10⁻² = 0,2, denn die Hochzahl 2 kommt an die erste Stelle hinter dem Komma.",
      "10⁻² = −100, denn ein negativer Exponent macht die Zahl negativ.",
      "10⁻² = 0,001, denn man schreibt zwei Nullen hinter das Komma und dann die 1."
     ],
     "o": {
-     "index": 1
+     "index": 0
     },
     "w": "10⁻² = 1/10² = 1/100 = 0,01: Die 1 steht an der zweiten Stelle hinter dem Komma, vor ihr steht eine Null. Das Kind hat die Hochzahl als Ziffer gelesen."
    }
   },
   {
-   "kennung": "VT1B-059",
+   "kennung": "VT1B-051",
    "thema": "terme.potenzgesetze",
    "lernkarte": "fehler_finden",
    "pool": "korrektur",
@@ -610,14 +610,14 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "2³ = 8 ist positiv, obwohl die Behauptung etwas anderes sagt.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "ein Beispiel mit positivem Exponenten gewählt, das die Behauptung nicht berührt"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "2⁰ = 1 ist positiv, obwohl der Exponent nicht positiv ist.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -643,19 +643,19 @@
      "text": "Ein Kind behauptet: „Wenn der Exponent negativ ist, ist die Potenz immer negativ.“ Welches Beispiel zeigt, dass die Behauptung nicht stimmt?"
     },
     "a": [
-     "2⁻¹ = 1/2 ist positiv, obwohl der Exponent −1 negativ ist.",
      "2³ = 8 ist positiv, obwohl die Behauptung etwas anderes sagt.",
      "2⁰ = 1 ist positiv, obwohl der Exponent nicht positiv ist.",
+     "2⁻¹ = 1/2 ist positiv, obwohl der Exponent −1 negativ ist.",
      "2⁻¹ = −2 ist negativ, das passt zur Behauptung und widerlegt sie nicht."
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "w": "Ein Gegenbeispiel muss einen negativen Exponenten haben und einen positiven Wert. 2⁻¹ = 1/2 ist positiv und hat den Exponenten −1. 2³ hat keinen negativen Exponenten, 2⁰ auch nicht, und 2⁻¹ = −2 ist falsch gerechnet."
    }
   },
   {
-   "kennung": "VT1B-060",
+   "kennung": "VT1B-052",
    "thema": "terme.potenzgesetze",
    "lernkarte": "fehler_finden",
    "pool": "korrektur",
@@ -710,7 +710,7 @@
    }
   },
   {
-   "kennung": "VT1B-061",
+   "kennung": "VT1B-053",
    "thema": "terme.potenzgesetze",
    "lernkarte": "fehler_finden",
    "pool": "sicherung",
@@ -770,7 +770,7 @@
    }
   },
   {
-   "kennung": "VT1B-062",
+   "kennung": "VT1B-054",
    "thema": "terme.potenzgesetze",
    "lernkarte": "fehler_finden",
    "pool": "sicherung",
@@ -785,21 +785,21 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Das Kind hat recht, denn jede Zahl mit der Hochzahl 0 ist gleich 0.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Hochzahl 0 mit dem Wert 0 gleichgesetzt"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Das Kind irrt, denn 5⁰ = 5, weil bei der Hochzahl 0 die Basis stehen bleibt.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Exponenten 0 als „nichts ändern“ gelesen und die Basis behalten"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Das Kind irrt, denn 5⁰ ist gar keine Zahl, weil man nicht null Mal malnehmen kann.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -818,19 +818,19 @@
      "text": "Ein Kind behauptet: „5⁰ = 0, denn bei 5⁰ ist keine Fünf mehr da.“ Welche Aussage über die Behauptung ist richtig?"
     },
     "a": [
-     "Das Kind irrt, denn im Muster 125, 25, 5 teilt man jedes Mal durch 5, und dann folgt 5 : 5 = 1.",
      "Das Kind hat recht, denn jede Zahl mit der Hochzahl 0 ist gleich 0.",
      "Das Kind irrt, denn 5⁰ = 5, weil bei der Hochzahl 0 die Basis stehen bleibt.",
-     "Das Kind irrt, denn 5⁰ ist gar keine Zahl, weil man nicht null Mal malnehmen kann."
+     "Das Kind irrt, denn 5⁰ ist gar keine Zahl, weil man nicht null Mal malnehmen kann.",
+     "Das Kind irrt, denn im Muster 125, 25, 5 teilt man jedes Mal durch 5, und dann folgt 5 : 5 = 1."
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "w": "Das Muster 125, 25, 5 teilt bei jedem Schritt nach rechts durch 5. Der nächste Wert ist 5 : 5 = 1, und die Hochzahl ist dann 0. Also ist 5⁰ = 1 und nicht 0."
    }
   },
   {
-   "kennung": "VT1B-063",
+   "kennung": "VT1B-055",
    "thema": "terme.potenzgesetze",
    "lernkarte": "fehler_finden",
    "pool": "sicherung",

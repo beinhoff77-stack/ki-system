@@ -30,13 +30,13 @@ neu(T, "negativer_exponent", "korrektur", "umkehr", Z(
      B("3 - 1", "die mittlere der drei kleinen Zahlen für größer als die Grenze gehalten"),
      B("3 - 2", "nur 10⁻² gezählt, weil nur dort eine Zehnerpotenz vorkommt")], einheit="Zahlen"), lp=LP, idee="kleiner_als_grenze")
 neu(T, "negativer_exponent", "sicherung", "begruenden", W(
-    "Ein Kind sagt: „2⁻⁴ ist größer als 2⁻³, denn 4 ist größer als 3.“ Welche Aussage über das Kind stimmt?",
-    "Das Kind irrt, denn 2⁻⁴ = 1/16 ist kleiner als 2⁻³ = 1/8.",
-    [("Das Kind hat recht, denn die größere Hochzahl ergibt die größere Zahl.", "Hochzahl und Wert gleichgesetzt, obwohl das Minus das Verhältnis umdreht"),
-     ("Die beiden Zahlen sind gleich groß, denn bei einer negativen Hochzahl zählt nur die Basis.", "den Einfluss der Hochzahl auf die Größe der Zahl übersehen"),
-     ("Das Kind hat recht, denn 2⁻⁴ = 1/16 ist größer als 2⁻³ = 1/8.", "die beiden Brüche falsch verglichen, weil 16 größer ist als 8")],
-    "2⁻³ = 1/2³ = 1/8 und 2⁻⁴ = 1/2⁴ = 1/16. Je größer der Betrag der negativen Hochzahl, desto kleiner ist der Wert: Bei jedem Schritt nach rechts im Muster wird durch 2 geteilt. 1/16 ist die Hälfte von 1/8.",
-    lambda: F(1, 16) < F(1, 8) and F(2) ** -4 < F(2) ** -3 and F(2) ** -4 == F(1, 16)), lp=LP, idee="vergleich_begruenden")
+    "Welche der beiden Zahlen 2⁻⁵ und 3⁻³ ist größer? Welche Aussage stimmt?",
+    "3⁻³ ist größer, denn 3⁻³ = 1/27 und 2⁻⁵ = 1/32, und 1/27 ist größer als 1/32.",
+    [("2⁻⁵ ist größer, denn die Hochzahl 5 ist größer als die Hochzahl 3.", "nur die Hochzahlen verglichen und die verschiedenen Basen nicht beachtet"),
+     ("2⁻⁵ ist größer, denn 2 ist kleiner als 3, und eine kleinere Basis gibt die größere Zahl.", "eine Regel für gleiche Hochzahlen auf verschiedene Hochzahlen übertragen"),
+     ("Man kann sie nicht vergleichen, denn die Basen und die Hochzahlen sind verschieden.", "geglaubt, Potenzen mit verschiedenen Basen und Hochzahlen ließen sich nicht ordnen")],
+    "2⁻⁵ = 1/2⁵ = 1/32 und 3⁻³ = 1/3³ = 1/27. Beide Brüche haben den Zähler 1, also ist der Bruch mit dem kleineren Nenner größer: 1/27 ist größer als 1/32. Man muss beide Potenzen in Brüche umschreiben; weder die Hochzahl noch die Basis allein entscheidet.",
+    lambda: F(3) ** -3 > F(2) ** -5 and F(3) ** -3 == F(1, 27) and F(2) ** -5 == F(1, 32)), lp=LP, idee="vergleich_begruenden")
 neu(T, "negativer_exponent", "sicherung", "darstellung", W(
     "Welche der folgenden Potenzen hat den Wert 0,125?",
     "2⁻³",

@@ -11,7 +11,7 @@
  "themen": [
   "bruch.prozent"
  ],
- "hinweis": "Verstehens-Aufgaben für Tests (Pools test, korrektur, sicherung), je Lernziel 1 + 2 + 3. Nicht eingespielt. Je Eintrag: thema, lernkarte, pool, typ (Aufgabentyp g), form, stufe, zaehlt, lehrplan, ersetzt_test (nur test), Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md (ohne Tipp h, ohne Toleranz).",
+ "hinweis": "Verstehens-Aufgaben für Tests (Pools test, korrektur, sicherung), je Lernziel 1 Test + 2 Korrektur + 2 Sicherung (Einheiten, die noch nicht gekürzt sind: 1 + 3 + 3). Nicht eingespielt. Je Eintrag: thema, lernkarte, pool, typ (Aufgabentyp g), form, stufe, zaehlt, lehrplan, ersetzt_test (nur test), Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md (ohne Tipp h, ohne Toleranz).",
  "aufgaben": [
   {
    "kennung": "VT1B-001",
@@ -119,29 +119,29 @@
    "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
    "abgrenzung": "Die Übungen berechnen einen Prozentwert mit einem Satz; hier müssen mehrere Prozentsätze auf verschiedene Ganze bezogen, Größenordnungen abgeschätzt oder eine Prozentangabe in eine andere Darstellung gebracht werden.",
    "idee": "kopfrechnen_zwei_wege",
-   "antwortform": "zahl",
-   "loesung_rechnung": "12 * 75 / 100",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "antwort": 900,
-     "rechnung": "12 * 75",
+     "index": 0,
+     "antwort": "Die Wege geben verschiedene Beträge, denn Prozentsatz und Grundwert dürfen nicht vertauscht werden.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit der Prozentzahl 12 malgenommen, ohne durch 100 zu teilen"
+     "beschreibung": "geglaubt, Prozentsatz und Grundwert seien nicht vertauschbar, obwohl beim Malnehmen die Reihenfolge keine Rolle spielt"
     },
     {
-     "antwort": 108,
-     "rechnung": "0.12 * 75 * 12",
+     "index": 1,
+     "antwort": "Nur Kims Weg ist richtig, denn die 25 € sind der Grundwert und müssen dort stehen, wo der Prozentsatz steht.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "zuerst 12 % berechnet und dann noch einmal mit 12 malgenommen"
+     "beschreibung": "den Grundwert für unantastbar gehalten und nicht gesehen, dass das Produkt gleich bleibt"
     },
     {
-     "antwort": 63,
-     "rechnung": "75 - 12",
+     "index": 3,
+     "antwort": "Bens Weg gibt einen größeren Betrag, denn 25 % sind mehr als 16 %.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Prozentzahl vom Betrag abgezogen"
+     "beschreibung": "nur die beiden Prozentsätze verglichen und die verschiedenen Grundwerte nicht beachtet"
     }
    ],
    "regel": "id.verhaeltnisse.prozent",
@@ -151,16 +151,20 @@
     "p": "korrektur",
     "s": 2,
     "g": "einkleidung",
-    "y": "zahl",
+    "y": "auswahl",
     "f": {
-     "text": "Für 12 % von 75 € gibt es zwei Rechenwege. Kim rechnet 0,12 · 75 €. Ben rechnet stattdessen 75 % von 12 € und sagt: „Das geht im Kopf schneller.“ Wie viele Euro sind 12 % von 75 €?"
+     "text": "Du sollst 16 % von 25 € berechnen. Kim rechnet 0,16 · 25 €. Ben rechnet stattdessen 25 % von 16 €. Welche Aussage über die beiden Rechenwege stimmt?"
     },
+    "a": [
+     "Die Wege geben verschiedene Beträge, denn Prozentsatz und Grundwert dürfen nicht vertauscht werden.",
+     "Nur Kims Weg ist richtig, denn die 25 € sind der Grundwert und müssen dort stehen, wo der Prozentsatz steht.",
+     "Beide Wege geben denselben Betrag, denn in beiden Fällen wird 16 mit 25 malgenommen und durch 100 geteilt.",
+     "Bens Weg gibt einen größeren Betrag, denn 25 % sind mehr als 16 %."
+    ],
     "o": {
-     "wert": 9,
-     "einheit": "€"
+     "index": 2
     },
-    "c": "12 * 75 / 100",
-    "w": "12 % von 75 € sind 0,12 · 75 € = 9 €. Ben rechnet 75 % von 12 €, also drei Viertel von 12 €: 3 · 3 € = 9 €. Beide Wege geben dasselbe, weil 12/100 · 75 und 75/100 · 12 dieselbe Zahl 900/100 ergeben: Man darf Prozentsatz und Grundwert vertauschen."
+    "w": "16 % von 25 € sind 0,16 · 25 € = 4 €. 25 % von 16 € sind ein Viertel von 16 €, das sind ebenfalls 4 €. Beide Rechnungen sind 16 · 25 : 100, nur in anderer Reihenfolge: Beim Malnehmen darf man die Faktoren vertauschen. Bens Weg ist im Kopf bequemer, weil ein Viertel leicht zu bilden ist."
    }
   },
   {
@@ -291,14 +295,14 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "etwa 200",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Komma um eine Stelle falsch gesetzt: etwa ein Zehntel des richtigen Werts"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "etwa 20",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -324,13 +328,13 @@
      "text": "Ohne genau zu rechnen: Welche Zahl ist ungefähr 51 % von 3 980?"
     },
     "a": [
+     "etwa 2 000",
      "etwa 200",
      "etwa 20",
-     "etwa 2 000",
      "etwa 20 000"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "w": "51 % sind etwas mehr als die Hälfte, und 3 980 ist ungefähr 4 000. Die Hälfte von 4 000 ist 2 000. Genau: 0,51 · 3 980 = 2 029,8. Die anderen Zahlen sind um Zehnerpotenzen daneben."
    }
@@ -417,50 +421,36 @@
    "thema": "bruch.prozent",
    "lernkarte": "prozentwert",
    "pool": "sicherung",
-   "typ": "darstellung",
+   "typ": "mehrschritt",
    "form": "bruecke",
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
    "abgrenzung": "Die Übungen berechnen einen Prozentwert mit einem Satz; hier müssen mehrere Prozentsätze auf verschiedene Ganze bezogen, Größenordnungen abgeschätzt oder eine Prozentangabe in eine andere Darstellung gebracht werden.",
    "idee": "bruch_prozent_wert",
-   "antwortform": "luecken",
-   "loesung_rechnung": [
-    "3 / 5 * 100",
-    "3 / 5 * 240"
-   ],
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "luecke": 1,
-     "antwort": 3,
-     "rechnung": "3",
+     "index": 0,
+     "antwort": "In der ersten Gruppe lesen anteilig mehr Kinder gern, denn 3/5 sind 75 %.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl 3 aus dem Bruch direkt als Prozentzahl genommen"
+     "beschreibung": "den Bruch 3/5 falsch in Prozent umgewandelt"
     },
     {
-     "luecke": 1,
-     "antwort": 5,
-     "rechnung": "5",
+     "index": 1,
+     "antwort": "Die Anteile lassen sich nicht vergleichen, denn die beiden Gruppen sind verschieden groß.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl 5 aus dem Bruch als Prozentzahl genommen"
+     "beschreibung": "geglaubt, Anteile könne man nur bei gleich großen Gruppen vergleichen"
     },
     {
-     "luecke": 2,
-     "antwort": 720,
-     "rechnung": "3 * 240",
+     "index": 3,
+     "antwort": "Die Anteile sind gleich, denn 3/5 und 65 % sind beides Angaben für „etwas mehr als die Hälfte“.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Zähler 3 mit 240 malgenommen"
-    },
-    {
-     "luecke": 2,
-     "antwort": 48,
-     "rechnung": "240 / 5",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "nur ein Fünftel der Kinder genommen"
+     "beschreibung": "zwei verschiedene Anteile für gleich gehalten, weil sie ungefähr zusammenpassen"
     }
    ],
    "regel": "id.verhaeltnisse.prozent",
@@ -469,24 +459,21 @@
     "t": "prozentwert",
     "p": "sicherung",
     "s": 2,
-    "g": "darstellung",
-    "y": "luecken",
+    "g": "mehrschritt",
+    "y": "auswahl",
     "f": {
-     "text": "3/5 der 240 Kinder einer Schule lesen gern. Als Prozentsatz geschrieben sind das □ %, und die Zahl der Kinder, die gern lesen, ist □.",
-     "schablone": "□ % und □ Kinder",
-     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+     "text": "In einer Gruppe von 240 Kindern lesen 3/5 gern. In einer anderen Gruppe von 300 Kindern lesen 65 % gern. Welche Aussage über die Anteile stimmt?"
     },
-    "o": {
-     "werte": [
-      60,
-      144
-     ]
-    },
-    "c": [
-     "3 / 5 * 100",
-     "3 / 5 * 240"
+    "a": [
+     "In der ersten Gruppe lesen anteilig mehr Kinder gern, denn 3/5 sind 75 %.",
+     "Die Anteile lassen sich nicht vergleichen, denn die beiden Gruppen sind verschieden groß.",
+     "In der zweiten Gruppe lesen anteilig mehr Kinder gern, denn 3/5 sind 60 % und 65 % ist mehr.",
+     "Die Anteile sind gleich, denn 3/5 und 65 % sind beides Angaben für „etwas mehr als die Hälfte“."
     ],
-    "w": "3/5 = 0,6 = 60 %. Der Prozentwert ist dann 60 % von 240 = 0,6 · 240 = 144 Kinder; das ist dasselbe wie 3/5 von 240 (240 : 5 = 48, 48 · 3 = 144)."
+    "o": {
+     "index": 2
+    },
+    "w": "3/5 = 0,6 = 60 %. In der zweiten Gruppe sind es 65 %, also ein größerer Anteil. Anteile in Bruch- und Prozentschreibweise vergleicht man, indem man beide in dieselbe Schreibweise bringt; die Größe der Gruppen spielt dafür keine Rolle. Zur Probe: 60 % von 240 sind 144 Kinder, 65 % von 300 sind 195 Kinder."
    }
   },
   {
@@ -552,7 +539,7 @@
    "lernkarte": "grundwert",
    "pool": "korrektur",
    "typ": "umkehr",
-   "form": "umkehren",
+   "form": null,
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
@@ -562,25 +549,25 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
-     "antwort": "etwa 1 Kind",
+     "index": 0,
+     "antwort": "Von 80 Kindern fahren 20 % mit dem Bus: Der Grundwert ist 80 und damit größer als die 16 Busfahrer.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Prozentsatz durch den Prozentwert geteilt: 8 : 12 ist weniger als 1"
+     "beschreibung": "ein Beispiel gewählt, in dem der Grundwert tatsächlich der größte Wert ist"
+    },
+    {
+     "index": 1,
+     "antwort": "Ein Pullover kostet nach 10 % Rabatt noch 45 €: Der Grundwert ist 50 € und damit größer als 45 €.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Beispiel mit Rabatt gewählt, bei dem der Grundwert wirklich größer ist als der Prozentwert"
     },
     {
      "index": 2,
-     "antwort": "etwa 1 500 Kinder",
+     "antwort": "Bei 30 % von 200 € ist der Grundwert 200 € und damit größer als der Prozentwert 60 €.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "um eine Stelle zu groß: den Prozentsatz um eine Stelle falsch behandelt"
-    },
-    {
-     "index": 3,
-     "antwort": "etwa 100 Kinder",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "den Prozentwert mit dem Prozentsatz gleichgesetzt und die Prozentzahl falsch gerundet"
+     "beschreibung": "ein Beispiel mit Prozentsatz unter 100 % gewählt, das Kim bestätigt statt widerlegt"
     }
    ],
    "regel": "id.verhaeltnisse.prozent",
@@ -592,18 +579,18 @@
     "g": "umkehr",
     "y": "auswahl",
     "f": {
-     "text": "12 Kinder sind 8 % aller Kinder einer Schule. Ungefähr wie viele Kinder hat die Schule?"
+     "text": "Kim sagt: „Der Grundwert ist immer die größte Zahl in einer Prozentaufgabe.“ Welches Beispiel zeigt, dass Kim irrt?"
     },
     "a": [
-     "etwa 150 Kinder",
-     "etwa 1 Kind",
-     "etwa 1 500 Kinder",
-     "etwa 100 Kinder"
+     "Von 80 Kindern fahren 20 % mit dem Bus: Der Grundwert ist 80 und damit größer als die 16 Busfahrer.",
+     "Ein Pullover kostet nach 10 % Rabatt noch 45 €: Der Grundwert ist 50 € und damit größer als 45 €.",
+     "Bei 30 % von 200 € ist der Grundwert 200 € und damit größer als der Prozentwert 60 €.",
+     "Ein Preis steigt um 25 % auf 15 €: Der Grundwert ist der alte Preis mit 12 € und damit kleiner als der neue Preis."
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
-    "w": "8 % sind etwa ein Zwölftel. Die 12 Kinder sind also ein Zwölftel der Schule, die Schule hat etwa 12 · 12 = 144 Kinder. Genau: 12 : 0,08 = 150 Kinder. Probe: 8 % von 150 sind 12."
+    "w": "Der Grundwert ist die Größe, auf die sich der Prozentsatz bezieht. Bei einer Erhöhung steht der alte Preis für 100 %, der neue für 125 %. Hier ist 15 € = 125 % von 12 €: Der Grundwert 12 € ist kleiner als der neue Preis 15 €. In den anderen Beispielen ist der Grundwert zufällig der größte Wert, das widerlegt Kim nicht."
    }
   },
   {
@@ -1105,14 +1092,14 @@
      "beschreibung": "als Prozentzahl 36 % gelesen und für größer gehalten als 37,5 %: Der Bruch 3/8 wurde nicht umgewandelt"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "37 % der Kinder",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Prozentzahl 37 für die größte gehalten, ohne 3/8 als 37,5 % zu erkennen"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "7/20 der Kinder",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1132,12 +1119,12 @@
     },
     "a": [
      "0,36 der Kinder",
+     "3/8 der Kinder",
      "37 % der Kinder",
-     "7/20 der Kinder",
-     "3/8 der Kinder"
+     "7/20 der Kinder"
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "w": "Alle Angaben als Prozent: 3/8 = 0,375 = 37,5 %; 0,36 = 36 %; 37 %; 7/20 = 35 %. Der größte Anteil ist 37,5 %, also 3/8. Schon 3/8 und 37 % liegen nur 0,5 Prozentpunkte auseinander."
    }
@@ -1305,7 +1292,7 @@
      "beschreibung": "aus der Ungleichung einen genauen Wert gemacht; es folgt nur, dass A mehr als anderthalbmal so groß ist"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Verein A hat genau anderthalbmal so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1326,11 +1313,11 @@
     "a": [
      "Verein A hat weniger Mitglieder als Verein B, denn 20 % sind weniger als 30 %.",
      "Verein A hat genau doppelt so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B.",
-     "Verein A hat mehr als anderthalbmal so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B.",
-     "Verein A hat genau anderthalbmal so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B."
+     "Verein A hat genau anderthalbmal so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B.",
+     "Verein A hat mehr als anderthalbmal so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B."
     ],
     "o": {
-     "index": 2
+     "index": 3
     },
     "w": "Es gilt 0,2 · A > 0,3 · B. Teilt man durch 0,2, folgt A > 1,5 · B. A ist also mehr als anderthalbmal so groß wie B; ein genauer Wert folgt nicht. Beispiel: B = 100 Mitglieder, dann muss A größer als 150 sein."
    }

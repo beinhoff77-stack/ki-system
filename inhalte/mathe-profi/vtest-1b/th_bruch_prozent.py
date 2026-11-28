@@ -12,13 +12,14 @@ neu(T, "prozentwert", "test", "transfer", L(
     {0: [(980, "nur den Satz der Jungen (50 %) genommen: 490 : 0,5", "490 / 0.5"), (1960, "nur den Satz der Mädchen (25 %) genommen: 490 : 0,25", "490 / 0.25"), (700, "die beiden Sätze 50 % und 25 % nicht gewichtet, sondern den Gesamtanteil grob mit 0,7 geschätzt", "490 / 0.7")],
      1: [(560, "die Zahl der Jungen statt der Mädchen angegeben", "1400 * 0.4"), (350, "25 % von allen 1 400 Kindern als Mädchen genommen", "1400 * 0.25"), (980, "1 400 mit 0,7 malgenommen und den Anteil der Mädchen falsch bestimmt", "1400 * 0.7")]}),
     lp=LP, idee="mehrere_ganze")
-neu(T, "prozentwert", "korrektur", "einkleidung", Z(
-    "Für 12 % von 75 € gibt es zwei Rechenwege. Kim rechnet 0,12 · 75 €. Ben rechnet stattdessen 75 % von 12 € und sagt: „Das geht im Kopf schneller.“ Wie viele Euro sind 12 % von 75 €?",
-    9, "12 * 75 / 100", "3 * 12 / 4",
-    "12 % von 75 € sind 0,12 · 75 € = 9 €. Ben rechnet 75 % von 12 €, also drei Viertel von 12 €: 3 · 3 € = 9 €. Beide Wege geben dasselbe, weil 12/100 · 75 und 75/100 · 12 dieselbe Zahl 900/100 ergeben: Man darf Prozentsatz und Grundwert vertauschen.",
-    [B("12 * 75", "mit der Prozentzahl 12 malgenommen, ohne durch 100 zu teilen"),
-     B("0.12 * 75 * 12", "zuerst 12 % berechnet und dann noch einmal mit 12 malgenommen"),
-     B("75 - 12", "die Prozentzahl vom Betrag abgezogen")], einheit="€"), form="zwei_wege", lp=LP, idee="kopfrechnen_zwei_wege")
+neu(T, "prozentwert", "korrektur", "einkleidung", W(
+    "Du sollst 16 % von 25 € berechnen. Kim rechnet 0,16 · 25 €. Ben rechnet stattdessen 25 % von 16 €. Welche Aussage über die beiden Rechenwege stimmt?",
+    "Beide Wege geben denselben Betrag, denn in beiden Fällen wird 16 mit 25 malgenommen und durch 100 geteilt.",
+    [("Die Wege geben verschiedene Beträge, denn Prozentsatz und Grundwert dürfen nicht vertauscht werden.", "geglaubt, Prozentsatz und Grundwert seien nicht vertauschbar, obwohl beim Malnehmen die Reihenfolge keine Rolle spielt"),
+     ("Nur Kims Weg ist richtig, denn die 25 € sind der Grundwert und müssen dort stehen, wo der Prozentsatz steht.", "den Grundwert für unantastbar gehalten und nicht gesehen, dass das Produkt gleich bleibt"),
+     ("Bens Weg gibt einen größeren Betrag, denn 25 % sind mehr als 16 %.", "nur die beiden Prozentsätze verglichen und die verschiedenen Grundwerte nicht beachtet")],
+    "16 % von 25 € sind 0,16 · 25 € = 4 €. 25 % von 16 € sind ein Viertel von 16 €, das sind ebenfalls 4 €. Beide Rechnungen sind 16 · 25 : 100, nur in anderer Reihenfolge: Beim Malnehmen darf man die Faktoren vertauschen. Bens Weg ist im Kopf bequemer, weil ein Viertel leicht zu bilden ist.",
+    lambda: F(16, 100) * 25 == F(25, 100) * 16 == 4 and F(25, 100) > F(16, 100)), form="zwei_wege", lp=LP, idee="kopfrechnen_zwei_wege")
 neu(T, "prozentwert", "korrektur", "darstellung", Z(
     "Von 600 Kindern kommen 35 % mit dem Fahrrad zur Schule. Im Kreisdiagramm wird diese Gruppe als Sektor gezeichnet. Welchen Mittelpunktswinkel hat dieser Sektor (in Grad)?",
     126, "0.35 * 360", "35 * 360 / 100",
@@ -47,13 +48,14 @@ neu(T, "prozentwert", "sicherung", "fehler", L(
     "Zeile 1 ist falsch: 8/100 ist 0,08 und nicht 0,8 (0,8 wären 80 %). Zeile 2 ist als Rechnung richtig (0,8 · 450 = 360), übernimmt aber den Fehler. Richtig: 0,08 · 450 € = 36 €. Probe: 10 % von 450 € sind 45 €, 8 % müssen etwas weniger sein.",
     {0: [(2, "die Rechnung in Zeile 2 für falsch gehalten, obwohl dort nur der Fehler aus Zeile 1 fortgeführt wird", "2 * 1")], 1: [(360, "mit 0,8 statt 0,08 gerechnet, wie in Zeile 1", "0.8 * 450"), (3600, "mit der Prozentzahl 8 malgenommen", "8 * 450"), (442, "die Prozentzahl 8 vom Preis abgezogen", "450 - 8")]}),
     form="fehler_detektiv", lp=LP, idee="fehler_komma")
-neu(T, "prozentwert", "sicherung", "darstellung", L(
-    "3/5 der 240 Kinder einer Schule lesen gern. Als Prozentsatz geschrieben sind das □ %, und die Zahl der Kinder, die gern lesen, ist □.",
-    "□ % und □ Kinder", [60, 144], ["3 / 5 * 100", "3 / 5 * 240"], ["60", "0.6 * 240"],
-    "3/5 = 0,6 = 60 %. Der Prozentwert ist dann 60 % von 240 = 0,6 · 240 = 144 Kinder; das ist dasselbe wie 3/5 von 240 (240 : 5 = 48, 48 · 3 = 144).",
-    {0: [(3, "die Zahl 3 aus dem Bruch direkt als Prozentzahl genommen", "3"), (5, "die Zahl 5 aus dem Bruch als Prozentzahl genommen", "5")],
-     1: [(720, "den Zähler 3 mit 240 malgenommen", "3 * 240"), (48, "nur ein Fünftel der Kinder genommen", "240 / 5")]}),
-    form="bruecke", lp=LP, idee="bruch_prozent_wert")
+neu(T, "prozentwert", "sicherung", "mehrschritt", W(
+    "In einer Gruppe von 240 Kindern lesen 3/5 gern. In einer anderen Gruppe von 300 Kindern lesen 65 % gern. Welche Aussage über die Anteile stimmt?",
+    "In der zweiten Gruppe lesen anteilig mehr Kinder gern, denn 3/5 sind 60 % und 65 % ist mehr.",
+    [("In der ersten Gruppe lesen anteilig mehr Kinder gern, denn 3/5 sind 75 %.", "den Bruch 3/5 falsch in Prozent umgewandelt"),
+     ("Die Anteile lassen sich nicht vergleichen, denn die beiden Gruppen sind verschieden groß.", "geglaubt, Anteile könne man nur bei gleich großen Gruppen vergleichen"),
+     ("Die Anteile sind gleich, denn 3/5 und 65 % sind beides Angaben für „etwas mehr als die Hälfte“.", "zwei verschiedene Anteile für gleich gehalten, weil sie ungefähr zusammenpassen")],
+    "3/5 = 0,6 = 60 %. In der zweiten Gruppe sind es 65 %, also ein größerer Anteil. Anteile in Bruch- und Prozentschreibweise vergleicht man, indem man beide in dieselbe Schreibweise bringt; die Größe der Gruppen spielt dafür keine Rolle. Zur Probe: 60 % von 240 sind 144 Kinder, 65 % von 300 sind 195 Kinder.",
+    lambda: F(3, 5) == F(60, 100) and F(65, 100) > F(3, 5) and F(3, 5) != F(75, 100)), form="bruecke", lp=LP, idee="bruch_prozent_wert")
 # ───────── grundwert ─────────
 neu(T, "grundwert", "test", "transfer", Z(
     "Im Schulbus fahren 18 Kinder, das sind 45 % aller Kinder einer Jahrgangsstufe. 30 % aller Kinder dieser Jahrgangsstufe kommen zu Fuß, alle anderen fahren mit dem Rad. Wie viele Kinder fahren mit dem Rad?",
@@ -64,13 +66,13 @@ neu(T, "grundwert", "test", "transfer", Z(
      B("0.25 * 18", "25 % von den 18 Kindern im Bus genommen, obwohl sich die Prozente auf alle Kinder beziehen")], einheit="Kinder"),
     lp=LP, idee="gemeinsames_ganzes")
 neu(T, "grundwert", "korrektur", "umkehr", W(
-    "12 Kinder sind 8 % aller Kinder einer Schule. Ungefähr wie viele Kinder hat die Schule?",
-    "etwa 150 Kinder",
-    [("etwa 1 Kind", "den Prozentsatz durch den Prozentwert geteilt: 8 : 12 ist weniger als 1"),
-     ("etwa 1 500 Kinder", "um eine Stelle zu groß: den Prozentsatz um eine Stelle falsch behandelt"),
-     ("etwa 100 Kinder", "den Prozentwert mit dem Prozentsatz gleichgesetzt und die Prozentzahl falsch gerundet")],
-    "8 % sind etwa ein Zwölftel. Die 12 Kinder sind also ein Zwölftel der Schule, die Schule hat etwa 12 · 12 = 144 Kinder. Genau: 12 : 0,08 = 150 Kinder. Probe: 8 % von 150 sind 12.",
-    lambda: F(12) / F(8, 100) == 150 and all(x != 150 for x in (1, 1500, 100))), form="umkehren", lp=LP, idee="grundwert_direkt")
+    "Kim sagt: „Der Grundwert ist immer die größte Zahl in einer Prozentaufgabe.“ Welches Beispiel zeigt, dass Kim irrt?",
+    "Ein Preis steigt um 25 % auf 15 €: Der Grundwert ist der alte Preis mit 12 € und damit kleiner als der neue Preis.",
+    [("Von 80 Kindern fahren 20 % mit dem Bus: Der Grundwert ist 80 und damit größer als die 16 Busfahrer.", "ein Beispiel gewählt, in dem der Grundwert tatsächlich der größte Wert ist"),
+     ("Ein Pullover kostet nach 10 % Rabatt noch 45 €: Der Grundwert ist 50 € und damit größer als 45 €.", "ein Beispiel mit Rabatt gewählt, bei dem der Grundwert wirklich größer ist als der Prozentwert"),
+     ("Bei 30 % von 200 € ist der Grundwert 200 € und damit größer als der Prozentwert 60 €.", "ein Beispiel mit Prozentsatz unter 100 % gewählt, das Kim bestätigt statt widerlegt")],
+    "Der Grundwert ist die Größe, auf die sich der Prozentsatz bezieht. Bei einer Erhöhung steht der alte Preis für 100 %, der neue für 125 %. Hier ist 15 € = 125 % von 12 €: Der Grundwert 12 € ist kleiner als der neue Preis 15 €. In den anderen Beispielen ist der Grundwert zufällig der größte Wert, das widerlegt Kim nicht.",
+    lambda: F(12) * F(125, 100) == 15 and 12 < 15 and F(80) * F(20, 100) == 16 and F(50) * F(90, 100) == 45 and F(200) * F(30, 100) == 60), lp=LP, idee="grundwert_direkt")
 neu(T, "grundwert", "korrektur", "darstellung", Z(
     "In einem Kreisdiagramm gehört zum Sektor „Fußweg“ der Mittelpunktswinkel 54°. Diesem Sektor entsprechen 63 Kinder. Wie viele Kinder wurden insgesamt befragt?",
     420, "63 / (54 / 360)", "63 * 360 / 54",

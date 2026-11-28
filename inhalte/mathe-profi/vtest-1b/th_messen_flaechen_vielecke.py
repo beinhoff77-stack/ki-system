@@ -37,11 +37,11 @@ neu(T, "dreieck", "korrektur", "darstellung", W(
     "Die Grundseite AB liegt auf der x-Achse und ist 8 cm lang. Die Höhe ist der Abstand von C zur x-Achse, also die y-Koordinate 5 cm. Es gilt A = 8 · 5 : 2 = 20 cm². Die x-Koordinate 3 von C sagt nur, wo die Spitze liegt, nicht wie hoch sie ist.",
     lambda: abs(0 * (0 - 5) + 8 * (5 - 0) + 3 * (0 - 0)) / 2 == 8 * 5 / 2 and 8 * 3 / 2 != 20 and 8 * 5 != 20 and 5 * 3 / 2 != 20), form="bruecke", lp=LP, idee="formel_aus_koordinaten")
 neu(T, "dreieck", "sicherung", "fehler", L(
-    "Ein Kind überlegt: In ein Rechteck (12 cm lang, 5 cm breit) wird ein Dreieck gezeichnet. Seine Grundseite ist die untere Rechteckseite, seine Spitze liegt auf der oberen Seite, ganz nah an der linken Ecke. Zeile 1: Das Rechteck hat 12 · 5 = 60 cm². Zeile 2: Die Spitze liegt ganz links, also ist das Dreieck kleiner als die Hälfte des Rechtecks, ungefähr ein Drittel. Zeile 3: Das Dreieck hat 20 cm². In welcher Zeile steckt der erste Fehler? Wie groß ist das Dreieck richtig?",
-    "Fehler in Zeile □, richtig: A = □ cm²", [2, 30], ["2", "12 * 5 / 2"], ["3 - 1", "30"],
-    "Zeile 1 stimmt. In Zeile 2 steckt der Fehler: Wo die Spitze auf der oberen Seite liegt, spielt keine Rolle, denn die Höhe ist immer 5 cm. Es gilt A = 12 · 5 : 2 = 30 cm², genau die Hälfte des Rechtecks. Zeile 3 übernimmt die falsche Schätzung. Probe: Verschiebt man die Spitze nach rechts, ändern sich Grundseite und Höhe nicht.",
-    {0: [(3, "die Schlusszeile genannt, weil dort das falsche Ergebnis steht", "3"), (1, "Zeile 1 genannt, obwohl dort die Rechteckfläche richtig steht", "1")],
-     1: [(20, "das falsche Drittel aus Zeile 2 übernommen", "60 / 3"), (60, "die Fläche des Rechtecks statt des Dreiecks angegeben", "12 * 5"), (15, "die Hälfte der Hälfte genommen", "12 * 5 / 4")]}), form="fehler_detektiv", lp=LP, idee="spitze_lage_egal")
+    "Im Koordinatensystem ist das Dreieck ABC mit A(0|0), B(10|0) und C(3|8) gegeben (eine Einheit ist 1 cm). Die Höhe von C trifft die Seite AB im Punkt H(3|0) und zerlegt das Dreieck in zwei Teile. Ein Kind überlegt: Zeile 1: Das Dreieck ABC hat 10 · 8 : 2 = 40 cm². Zeile 2: Die Höhe zerlegt das Dreieck in zwei gleich große Teile. Zeile 3: Das Dreieck AHC hat also 20 cm². In welcher Zeile steckt der erste Fehler? Wie groß ist das Dreieck AHC richtig?",
+    "Fehler in Zeile □, richtig: A = □ cm²", [2, 12], ["2", "3 * 8 / 2"], ["3 - 1", "24 / 2"],
+    "Zeile 1 stimmt. In Zeile 2 steckt der Fehler: Die Höhe halbiert das Dreieck nur, wenn sie genau in der Mitte der Grundseite steht. Hier ist AH = 3 cm und HB = 7 cm. Beide Teile haben die Höhe 8 cm, ihre Flächen verhalten sich wie die Grundseiten 3 : 7. Das Dreieck AHC hat 3 · 8 : 2 = 12 cm², das Dreieck HBC hat 7 · 8 : 2 = 28 cm², zusammen 40 cm².",
+    {0: [(3, "die Schlusszeile genannt, weil dort das falsche Ergebnis steht", "3"), (1, "Zeile 1 genannt, obwohl dort die Fläche richtig berechnet wird", "1")],
+     1: [(20, "die Behauptung aus Zeile 2 übernommen und die Hälfte der Fläche genommen", "40 / 2"), (28, "die Fläche des größeren Teils statt des Dreiecks AHC angegeben", "7 * 8 / 2"), (40, "die Fläche des ganzen Dreiecks angegeben", "10 * 8 / 2")]}), form="fehler_detektiv", lp=LP, idee="hoehe_teilt_nicht_gleich")
 neu(T, "dreieck", "sicherung", "begruenden", Z(
     "Ein Dreieck ABC hat den Flächeninhalt 66 cm². Auf der Seite AB liegt ein Punkt P so, dass die Strecke AP nur ein Sechstel von AB lang ist. Wie groß ist das Dreieck APC?",
     11, "66 / 6", "66 * 1 / 6",
@@ -90,11 +90,13 @@ neu(T, "rueckwaerts", "sicherung", "fehler", L(
     "Fehler in Zeile □, richtig: h = □ cm", [2, 6], ["2", "54 / 9"], ["3 - 1", "6"],
     "Zeile 1 stimmt. In Zeile 2 wurde falsch umgestellt: Aus A = g · h folgt h = A : g, nicht A · g. Richtig ist h = 54 : 9 = 6 cm. Zeile 3 übernimmt das unsinnige Ergebnis 486 cm. Probe: 9 · 6 = 54.",
     {0: [(3, "die Schlusszeile genannt, weil dort der unsinnige Wert 486 steht", "3")], 1: [(486, "mal statt geteilt gerechnet: 54 · 9", "54 * 9"), (3, "zusätzlich noch durch 2 geteilt: 54 : 9 : 2", "54 / 9 / 2"), (63, "Fläche und Grundseite addiert: 54 + 9", "54 + 9")]}), form="fehler_detektiv", lp=LP, idee="umstellfehler")
-neu(T, "rueckwaerts", "sicherung", "umkehr", L(
-    "Ein Dreieck hat den Flächeninhalt 40 cm² und die Grundseite 10 cm. Ergänze: Seine Höhe ist □ cm. Ein zweites Dreieck mit derselben Höhe und dem doppelten Flächeninhalt hat die Grundseite □ cm.",
-    "Höhe □ cm, zweite Grundseite □ cm", [8, 20], ["2 * 40 / 10", "2 * 80 / 8"], ["80 / 10", "10 * 2"],
-    "Höhe des ersten Dreiecks: h = 2 · A : g = 2 · 40 : 10 = 8 cm. Das zweite Dreieck hat A = 80 cm² und h = 8 cm, also g = 2 · 80 : 8 = 20 cm. Bei gleicher Höhe und doppelter Fläche ist die Grundseite doppelt so lang.",
-    {0: [(4, "das Verdoppeln vergessen: 40 : 10", "40 / 10"), (400, "Fläche mal Grundseite gerechnet: 40 · 10", "40 * 10")], 1: [(10, "die Fläche nicht verdoppelt: 2 · 40 : 8", "2 * 40 / 8"), (5, "durch 2 geteilt statt doppelt gerechnet: 40 : 8", "40 / 8")]}), lp=LP, idee="grundseite_hoehe_gegenlaeufig")
+neu(T, "rueckwaerts", "sicherung", "mehrschritt", Z(
+    "Für wie viele ganze Zahlen c von −5 bis 15 (einschließlich) hat das Dreieck mit den Ecken A(0|0), B(10|0) und C(c|7) den Flächeninhalt 35 cm²? (Eine Einheit ist 1 cm.)",
+    21, "15 - (0 - 5) + 1", "21",
+    "Die Grundseite AB ist 10 cm lang und liegt auf der x-Achse. Die Höhe ist der Abstand von C zur x-Achse, also 7 cm, ganz gleich, welche x-Koordinate c hat. Die Fläche ist immer 10 · 7 : 2 = 35 cm². Also passt jede der 15 − (−5) + 1 = 21 ganzen Zahlen von −5 bis 15.",
+    [B("1", "nur die Zahl c = 5 gezählt, bei der die Spitze genau über der Mitte der Grundseite liegt"),
+     B("15 - (0 - 5)", "die Zahl der Schritte statt der Zahlen gezählt"),
+     B("15 + 1", "nur die Zahlen von 0 bis 15 gezählt")], einheit="Zahlen"), form="bruecke", lp=LP, idee="lage_der_spitze_zaehlen")
 neu(T, "rueckwaerts", "sicherung", "begruenden", W(
     "Ein Parallelogramm hat die Seiten 10 cm und 7 cm. Kann sein Flächeninhalt 84 cm² betragen? Welche Aussage stimmt?",
     "Nein, denn die Höhe ist nicht länger als die Nachbarseite, die Fläche also höchstens 10 · 7 = 70 cm².",
@@ -117,13 +119,13 @@ neu(T, "zusammengesetzt", "korrektur", "umkehr", Z(
     [B("102 / 4", "die Restfläche statt der weggenommenen Fläche durch 4 geteilt"),
      B("126 / 4", "die Fläche des ganzen Rechtecks durch 4 geteilt"),
      B("126 - 102", "die weggenommene Fläche 24 als Breite angegeben")], einheit="cm"), form="umkehren", lp=LP, idee="rest_rueckwaerts")
-neu(T, "zusammengesetzt", "korrektur", "darstellung", Z(
-    "Eine rechteckige Flagge ist 12 cm lang und 8 cm hoch. Ein Kreuz aus zwei 2 cm breiten Streifen verläuft einmal über die ganze Länge und einmal über die ganze Höhe der Flagge. Wie groß ist die Fläche des Kreuzes?",
-    36, "12 * 2 + 8 * 2 - 2 * 2", "12 * 8 - 10 * 6",
-    "Der waagerechte Streifen hat 12 · 2 = 24 cm², der senkrechte 8 · 2 = 16 cm². Zusammen sind das 40 cm². Das Quadrat in der Mitte (2 · 2 = 4 cm²) gehört zu beiden Streifen und wurde doppelt gezählt: 40 − 4 = 36 cm². Kontrolle: Die Fläche außerhalb des Kreuzes besteht zusammen aus (12 − 2) · (8 − 2) = 60 cm², und 96 − 60 = 36 cm².",
-    [B("12 * 2 + 8 * 2", "das Quadrat in der Mitte doppelt gezählt"),
-     B("12 * 2 + 8 * 2 - 2 * 2 * 2", "das Quadrat in der Mitte zweimal abgezogen"),
-     B("12 * 2", "nur den langen Streifen berechnet")], einheit="cm²"), lp=LP, idee="flaggenkreuz")
+neu(T, "zusammengesetzt", "korrektur", "darstellung", L(
+    "Eine rechteckige Flagge ist 12 cm lang und 8 cm hoch. Ein Kreuz aus zwei 2 cm breiten Streifen verläuft einmal über die ganze Länge und einmal über die ganze Höhe der Flagge. Wer die beiden Streifen einzeln berechnet und die Flächen addiert, rechnet □ cm² zu viel. Die Fläche des Kreuzes ist □ cm².",
+    "zu viel gerechnet: □ cm², Kreuz: □ cm²", [4, 36], ["2 * 2", "12 * 2 + 8 * 2 - 2 * 2"], ["4", "96 - 10 * 6"],
+    "Der waagerechte Streifen hat 12 · 2 = 24 cm², der senkrechte 8 · 2 = 16 cm², zusammen 40 cm². Das Quadrat in der Mitte (2 · 2 = 4 cm²) gehört zu beiden Streifen und wird doppelt gezählt: Man rechnet 4 cm² zu viel. Das Kreuz hat 40 − 4 = 36 cm². Kontrolle: Außerhalb des Kreuzes liegen vier Ecken, zusammen (12 − 2) · (8 − 2) = 60 cm², und 96 − 60 = 36 cm².",
+    {0: [(2, "die Breite eines Streifens als doppelt gezählte Fläche genommen", "2"), (8, "das Quadrat in der Mitte zweimal gerechnet", "2 * 2 * 2")],
+     1: [(40, "die beiden Streifen einfach addiert", "12 * 2 + 8 * 2"), (32, "das Quadrat in der Mitte zweimal abgezogen", "12 * 2 + 8 * 2 - 2 * 2 * 2"), (24, "nur den langen Streifen berechnet", "12 * 2")]}),
+    lp=LP, idee="flaggenkreuz")
 neu(T, "zusammengesetzt", "korrektur", "darstellung", W(
     "Ein Rechteck (10 cm lang, 6 cm breit) wird mit einem geraden Schnitt in zwei Rechtecke zerlegt, die 2 cm und 4 cm breit sind. Welche Aussage stimmt?",
     "Die Flächen der beiden Teile ergeben zusammen 60 cm², ihre Umfänge zusammen sind aber größer als der Umfang des Rechtecks, denn an der Schnittlinie kommen zwei Randstücke dazu.",
@@ -147,12 +149,12 @@ neu(T, "zusammengesetzt", "sicherung", "darstellung", W(
     "Die Figur lässt sich in zwei Rechtecke zerlegen: links 6 cm breit und 7 cm hoch, rechts 3 cm breit und 7 − 2 = 5 cm hoch. Das ergibt 6 · 7 + 3 · 5 = 42 + 15 = 57 cm². Gleichwertig ist die Ergänzung: 9 · 7 − 3 · 2 = 63 − 6 = 57 cm².",
     lambda: 6 * 7 + 3 * 5 == 9 * 7 - 3 * 2 == 57 and 9 * 7 - 3 * 5 != 57 and 6 * 7 + 3 * 2 != 57 and 9 * 5 + 3 * 2 != 57), lp=LP, idee="zerlegen_rechnungen")
 neu(T, "zusammengesetzt", "sicherung", "transfer", Z(
-    "Das Viereck ABCD hat die Ecken A(0|0), B(6|0), C(8|5) und D(0|3) (eine Einheit ist 1 cm). Wie viele cm² hat es?",
-    27, "6 * 5 / 2 + 3 * 8 / 2", "8 * 5 - 5 - 8",
-    "Zerlegen: Die Diagonale AC teilt das Viereck in zwei Dreiecke. Dreieck ABC: Grundseite AB = 6 cm auf der x-Achse, Höhe 5 cm (y-Koordinate von C), also 6 · 5 : 2 = 15 cm². Dreieck ACD: Grundseite AD = 3 cm auf der y-Achse, Höhe 8 cm (x-Koordinate von C), also 3 · 8 : 2 = 12 cm². Zusammen 27 cm². Ergänzen: Das Rechteck um das Viereck hat 8 · 5 = 40 cm²; abzuziehen sind die Dreiecke rechts unten (2 · 5 : 2 = 5 cm²) und oben (8 · 2 : 2 = 8 cm²): 40 − 13 = 27 cm².",
-    [B("8 * 5", "das umschließende Rechteck als Fläche angegeben"),
-     B("5 + 8", "nur die abgeschnittenen Dreiecke angegeben"),
-     B("6 * 5 + 3 * 8", "beide Dreiecke ohne Halbieren gerechnet")], einheit="cm²"), form="zwei_wege", lp=LP, idee="koordinaten_viereck")
+    "Das Viereck ABCD hat die Ecken A(0|0), B(6|0), C(8|5) und D(0|3) (eine Einheit ist 1 cm). Die Ecke D wird um 2 cm nach oben auf (0|5) verschoben, die anderen drei Ecken bleiben. Um wie viel cm² wächst die Fläche?",
+    8, "2 * 8 / 2", "(15 + 5 * 8 / 2) - 27",
+    "Die Diagonale AC teilt das Viereck in die Dreiecke ABC und ACD. Das Dreieck ABC bleibt unverändert (6 · 5 : 2 = 15 cm²). Beim Dreieck ACD liegt die Grundseite AD auf der y-Achse und wird 2 cm länger, die Höhe ist die x-Koordinate von C, also 8 cm. Die Fläche wächst um 2 · 8 : 2 = 8 cm². Kontrolle: vorher 15 + 3 · 8 : 2 = 27 cm², nachher 15 + 5 · 8 : 2 = 35 cm².",
+    [B("2 * 8", "das Halbieren vergessen"),
+     B("2 * 5 / 2", "die y-Koordinate von C statt der x-Koordinate als Höhe genommen"),
+     B("15 + 5 * 8 / 2", "die neue Fläche statt des Zuwachses angegeben")], einheit="cm²"), lp=LP, idee="koordinaten_viereck")
 # ───────── verstehen ─────────
 neu(T, "verstehen", "test", "transfer", L(
     "Ein Rechteck ist 10 cm lang und 5 cm breit. Jede Seite wird um 20 % länger. Die Fläche wird dadurch um □ % größer, der Umfang um □ cm größer.",
@@ -182,11 +184,11 @@ neu(T, "verstehen", "korrektur", "umkehr", Z(
      B("1", "den Zuwachs der Höhe als Zuwachs der Fläche genommen"),
      B("16 / 2 + 1", "zum Zuwachs der Fläche noch den Zuwachs der Höhe addiert")], einheit="cm²"), lp=LP, idee="zuwachs_dreieck")
 neu(T, "verstehen", "sicherung", "fehler", L(
-    "Ein Kind überlegt: Ein Quadrat hat die Seitenlänge 10 cm. Die Seite wird um 10 % länger. Zeile 1: Die neue Seitenlänge ist 11 cm. Zeile 2: Die alte Fläche ist 100 cm², die neue Fläche ist 11 · 11 = 121 cm². Zeile 3: Die Fläche wird also auch um 10 % größer. In welcher Zeile steckt der erste Fehler? Um wie viel Prozent wird die Fläche richtig größer?",
-    "Fehler in Zeile □, richtig: Fläche □ % größer", [3, 21], ["3", "(121 - 100) * 100 / 100"], ["2 + 1", "21"],
-    "Zeile 1 und Zeile 2 stimmen. In Zeile 3 steckt der Fehler: Die Fläche wächst von 100 cm² auf 121 cm², also um 21 cm², das sind 21 % von 100 cm². Beide Seiten werden länger, deshalb wächst die Fläche stärker als die Seite: 1,1 · 1,1 = 1,21.",
-    {0: [(2, "Zeile 2 genannt, obwohl dort richtig gerechnet wird", "2"), (1, "Zeile 1 genannt, obwohl dort richtig gerechnet wird", "1")],
-     1: [(10, "die Prozentzahl der Seite für die Fläche übernommen", "10"), (121, "die neue Fläche als Prozentzahl angegeben", "11 * 11"), (11, "die neue Seitenlänge als Prozentzahl angegeben", "11")]}), form="fehler_detektiv", lp=LP, idee="streckung_fehler")
+    "Ein Rechteck ABCD hat die Ecken A(0|0), B(14|0), C(14|6) und D(0|6) (eine Einheit ist 1 cm). Der Punkt M ist die Mitte der Seite BC. Ein Kind überlegt: Zeile 1: Das Rechteck hat 14 · 6 = 84 cm². Zeile 2: Die Strecke von A nach M teilt das Rechteck in zwei gleich große Teile. Zeile 3: Das Dreieck ABM hat also 42 cm². In welcher Zeile steckt der erste Fehler? Wie groß ist das Dreieck ABM richtig?",
+    "Fehler in Zeile □, richtig: A = □ cm²", [2, 21], ["2", "14 * 3 / 2"], ["3 - 1", "84 / 4"],
+    "Zeile 1 stimmt. In Zeile 2 steckt der Fehler: Nur die Diagonale von A nach C halbiert das Rechteck. Die Strecke AM führt zur Mitte der Seite BC und schneidet ein kleineres Stück ab. Das Dreieck ABM hat die Grundseite AB = 14 cm und die Höhe BM = 3 cm: 14 · 3 : 2 = 21 cm², ein Viertel des Rechtecks. Der Rest, das Trapez AMCD, hat 63 cm².",
+    {0: [(3, "die Schlusszeile genannt, weil dort das falsche Ergebnis steht", "3"), (1, "Zeile 1 genannt, obwohl dort die Rechteckfläche richtig steht", "1")],
+     1: [(42, "die Hälfte des Rechtecks als Fläche des Dreiecks übernommen", "84 / 2"), (63, "die Fläche des Trapezes AMCD statt des Dreiecks angegeben", "84 - 14 * 3 / 2"), (84, "die Fläche des ganzen Rechtecks angegeben", "14 * 6")]}), form="fehler_detektiv", lp=LP, idee="strecke_halbiert_nicht")
 neu(T, "verstehen", "sicherung", "begruenden", W(
     "In einem Rechteck (12 cm lang, 8 cm breit) liegt ein Punkt P. Er wird mit allen vier Ecken verbunden, dabei entstehen vier Dreiecke. Welche Aussage über die beiden Dreiecke, die an den langen Seiten liegen, stimmt?",
     "Sie haben zusammen immer 48 cm², egal wo P liegt, denn ihre Höhen ergeben zusammen die Breite 8 cm.",
@@ -196,9 +198,9 @@ neu(T, "verstehen", "sicherung", "begruenden", W(
     "Die beiden Dreiecke haben je die Grundseite 12 cm. Ihre Höhen sind die Abstände von P zu den beiden langen Seiten und ergeben zusammen die Breite 8 cm. Die Flächen sind 12 · h₁ : 2 und 12 · h₂ : 2, zusammen 12 · (h₁ + h₂) : 2 = 12 · 8 : 2 = 48 cm², also die Hälfte des Rechtecks, wo P auch liegt.",
     lambda: all(F(12 * y, 2) + F(12 * (8 - y), 2) == 48 for y in range(1, 8)) and 48 * 2 == 12 * 8), lp=LP, idee="hoehen_ergaenzen")
 neu(T, "verstehen", "sicherung", "darstellung", Z(
-    "Ein Quadrat hat die Seitenlänge 8 cm. Die Seite wird um 1 cm länger. Um wie viel cm² wächst die Fläche?",
-    17, "8 + 8 + 1", "9 * 9 - 8 * 8",
-    "Das neue Quadrat hat 9 · 9 = 81 cm², das alte 8 · 8 = 64 cm². Der Zuwachs ist 17 cm². Anschaulich: Es kommen zwei Streifen dazu (8 · 1 und 8 · 1) und ein kleines Eckquadrat (1 · 1): 8 + 8 + 1 = 17.",
-    [B("8 + 8", "das kleine Quadrat in der Ecke vergessen"),
-     B("8", "nur einen Streifen gezählt"),
-     B("8 + 8 + 1 + 1", "das Eckquadrat doppelt gezählt")], einheit="cm²"), form="bruecke", lp=LP, idee="zuwachs_quadrat")
+    "Ein Quadrat wird auf jeder Seite um 1 cm länger. Dadurch wächst seine Fläche um 25 cm². Wie lang war die Seite vorher?",
+    12, "(25 - 1) / 2", "(25 + 1) / 2 - 1",
+    "Die alte Seite sei a. Die neue Fläche ist (a + 1) · (a + 1), die alte a · a. Der Zuwachs besteht aus zwei Streifen (a · 1 und a · 1) und einem kleinen Eckquadrat (1 · 1): 2a + 1 = 25. Also ist 2a = 24 und a = 12 cm. Probe: 13 · 13 − 12 · 12 = 169 − 144 = 25.",
+    [B("25", "den Zuwachs als Seitenlänge genommen"),
+     B("25 - 1", "das Eckquadrat abgezogen, aber nicht durch 2 geteilt"),
+     B("(25 - 1) / 2 + 1", "die neue Seitenlänge statt der alten angegeben")], einheit="cm"), form="bruecke", lp=LP, idee="zuwachs_quadrat")

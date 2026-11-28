@@ -36,7 +36,7 @@ neu(T, "definitionsmenge", "test", "begruenden", Z(
     "Von den 25 ganzen Zahlen −12 bis 12 bleiben 24.",
     [B("25", "die Zahl 2 mitgezählt, obwohl für x = 2 der Nenner 0 wird"),
      B("0", "die immer wahre Aussage nach dem Malnehmen als „keine Lösung“ gedeutet"),
-     B("2", "die verbotene Zahl 2 und die Null als Lösungen genommen")], einheit="Zahlen"), lp=LP, idee="identitaet_und_D")
+     B("1", "nur die verbotene Zahl 2 als Lösung genommen")], einheit="Zahlen"), lp=LP, idee="identitaet_und_D")
 neu(T, "definitionsmenge", "korrektur", "umkehr", L(
     "Für wie viele rationale Zahlen ist die Gleichung 5/(x² + 4) = 1 nicht definiert, und wie viele Lösungen hat sie?",
     "nicht definiert für □ Zahlen, □ Lösungen", [0, 2], ["0", "2"], ["1 - 1", "1 + 1"],
@@ -60,25 +60,25 @@ neu(T, "definitionsmenge", "korrektur", "darstellung", W(
     "x² − 16 = (x − 4)(x + 4) ist 0 für x = 4 und x = −4; der Nenner x ist 0 für x = 0. Alle drei Zahlen müssen ausgeschlossen werden.",
     lambda: {x for x in range(-20, 21) if x * x - 16 == 0 or x == 0} == {-4, 0, 4} and {x for x in range(-20, 21) if x * x - 16 == 0 or x == 0} != {-16, 0, 16}), lp=LP, idee="menge_zuordnen")
 neu(T, "definitionsmenge", "sicherung", "einkleidung", Z(
-    "Ein Drucker allein braucht x Minuten für einen Auftrag, ein zweiter braucht 5 Minuten weniger. Zusammen schaffen sie den Auftrag in 3 Minuten, das gibt die Gleichung 1/x + 1/(x − 5) = 1/3. Wie viele ganze Zahlen von −3 bis 9 (einschließlich) sind als Wert für x erlaubt?",
-    11, "13 - 2", sum(1 for x in range(-3, 10) if x not in (0, 5)),
-    "Der Nenner x darf nicht 0 sein, der Nenner x − 5 darf nicht 0 sein, also sind 0 und 5 ausgeschlossen. Von den 13 ganzen Zahlen −3 bis 9 bleiben 13 − 2 = 11.",
-    [B("13 - 1", "nur einen der beiden Nenner beachtet: nur eine Zahl ausgeschlossen"),
-     B("13", "keine Zahl ausgeschlossen"),
-     B("13 - 3", "drei Zahlen ausgeschlossen, weil die 3 aus der rechten Seite mitgezählt wurde")], einheit="Zahlen"), form="bruecke", lp=LP, idee="text_zu_D")
+    "Ein Drucker allein braucht x Minuten für einen Auftrag, ein zweiter braucht 5 Minuten weniger, also x − 5 Minuten. Zusammen schaffen sie den Auftrag in 3 Minuten, das gibt die Gleichung 1/x + 1/(x − 5) = 1/3. Beide Druckzeiten müssen positive Zeiten sein. Wie viele ganze Zahlen von −3 bis 9 (einschließlich) kommen für x infrage?",
+    4, "9 - 5", sum(1 for x in range(-3, 10) if x > 5),
+    "Die Nenner x und x − 5 dürfen nicht 0 sein, also fallen 0 und 5 weg. Das reicht hier aber nicht: Eine Druckzeit ist eine positive Zahl. Aus x > 0 und x − 5 > 0 folgt x > 5. Von den ganzen Zahlen −3 bis 9 erfüllen das nur 6, 7, 8 und 9, also 4 Zahlen. Die Definitionsmenge allein (11 Zahlen) beschreibt nur, wann die Gleichung einen Sinn hat, nicht, wann die Aufgabe einen Sinn hat.",
+    [B("13 - 2", "nur die Nenner beachtet und 0 und 5 ausgeschlossen, aber nicht verlangt, dass beide Zeiten positiv sind"),
+     B("9 - 5 + 1", "die Zahl 5 mitgezählt, obwohl die zweite Druckzeit dann 0 Minuten wäre"),
+     B("13", "keine Bedingung beachtet und alle Zahlen gezählt")], einheit="Zahlen"), form="bruecke", lp=LP, idee="text_zu_D")
 neu(T, "definitionsmenge", "sicherung", "fehler", L(
-    "Mara bestimmt die Definitionsmenge von 5/(x² − 25) = 3/(x − 5) so: Zeile 1: Aus x² − 25 = 0 folgt x = 5, also ist nur 5 verboten. Zeile 2: Aus x − 5 = 0 folgt x = 5. Zeile 3: Also ist D = ℚ \\ {5}. In welcher Zeile steckt der erste Fehler, und wie viele Zahlen sind richtig aus D ausgeschlossen?",
-    "Fehler in Zeile □, ausgeschlossene Zahlen: □", [1, 2], ["1", "1 + 1"], ["3 - 2", "2"],
-    "x² − 25 = (x − 5)(x + 5) ist 0 für x = 5 und für x = −5. Zeile 1 ist falsch: Es ist nicht nur 5 verboten, auch −5 macht den Nenner 0. Zeile 2 ist richtig (x − 5 = 0 gilt nur für 5). Zeile 3 übernimmt den Fehler. Richtig ist D = ℚ \\ {−5; 5}, also sind zwei Zahlen ausgeschlossen.",
-    {0: [(2, "den richtigen Satz in Zeile 2 für falsch gehalten, obwohl dort nur x − 5 betrachtet wird", "1 + 1"), (3, "die Schlusszeile genannt, weil dort die falsche Menge steht", "3")], 1: [(1, "nur die 5 gezählt, wie in Zeile 3", "1"), (0, "geglaubt, die Gleichung sei überall definiert, weil kein Nenner x selbst ist", "1 - 1"), (3, "x = 5, x = −5 und eine dritte Zahl gezählt, weil drei Nenner im Text stehen", "1 + 1 + 1")]}), form="fehler_detektiv", lp=LP, idee="fehler_x_quadrat")
-neu(T, "definitionsmenge", "sicherung", "transfer", W(
-    "Kinder teilen sich die Kosten von 36 € für ein Taxi gleichmäßig; es sind x Kinder. Kommen 3 weitere Kinder mit, zahlt jedes Kind 2 € weniger. Welche Gleichung beschreibt das, und welche Zahlen sind für x ausgeschlossen?",
-    "36/x − 36/(x + 3) = 2 mit D = ℚ \\ {−3; 0}",
-    [("36/x − 36/(x + 3) = 2 mit D = ℚ \\ {0}", "den zweiten Nenner x + 3 nicht beachtet; für x = −3 ist 36/(x + 3) nicht definiert"),
-     ("36/x + 36/(x + 3) = 2 mit D = ℚ \\ {−3; 0}", "die beiden Kosten addiert; das Kind zahlt mit den Zusatzkindern weniger, der Unterschied ist 2 €"),
-     ("36/(x − 3) − 36/x = 2 mit D = ℚ \\ {0; 3}", "die 3 weiteren Kinder abgezogen statt dazugezählt; mit 3 Kindern mehr sind es x + 3 Kinder")],
-    "Mit x Kindern zahlt jedes 36/x €. Mit 3 weiteren Kindern sind es x + 3 Kinder, und jedes zahlt 36/(x + 3) €, das sind 2 € weniger: 36/x − 36/(x + 3) = 2. "
-    "Die Nenner x und x + 3 dürfen nicht 0 sein, also D = ℚ \\ {−3; 0}. Probe mit x = 6: 36/6 − 36/9 = 6 − 4 = 2.",
+    "Mara löst 8/(x − 5) = 2 und schreibt: Zeile 1: Mal (x − 5) gibt 8 = 2 · (x − 5). Zeile 2: Also 8 = 2x − 10 und x = 9. Zeile 3: Also ist 9 die Zahl, die man nicht einsetzen darf: D = ℚ \\ {9}. In welcher Zeile steckt der erste Fehler, und welche Zahl ist richtig aus D ausgeschlossen?",
+    "Fehler in Zeile □, ausgeschlossene Zahl: □", [3, 5], ["3", "10 / 2"], ["4 - 1", "9 - 4"],
+    "Zeile 1 und Zeile 2 sind richtig: x = 9 ist die Lösung der Gleichung. In Zeile 3 steckt der Fehler: Die Definitionsmenge hängt nur vom Nenner ab. Der Nenner x − 5 ist für x = 5 gleich 0, also ist D = ℚ \\ {5}. Die Lösung 9 ist erlaubt und kein verbotener Wert. Probe: 8/(9 − 5) = 2.",
+    {0: [(2, "den richtigen Rechenschritt in Zeile 2 für den Fehler gehalten", "1 + 1"), (1, "Zeile 1 genannt, obwohl dort richtig mit dem Nenner malgenommen wird", "1")],
+     1: [(9, "die Lösung der Gleichung als ausgeschlossene Zahl genommen", "9"), (0, "geglaubt, es sei keine Zahl ausgeschlossen, weil der Nenner nicht x selbst ist", "1 - 1"), (10, "die Zahl 10 aus Zeile 2 als ausgeschlossen genommen", "10")]}), form="fehler_detektiv", lp=LP, idee="loesung_und_verbot_verwechselt")
+neu(T, "definitionsmenge", "sicherung", "einkleidung", W(
+    "Kinder teilen sich die Kosten von 36 € für ein Taxi gleichmäßig; es sind x Kinder. Kommen 3 weitere Kinder mit, zahlt jedes Kind 2 € weniger. Welche Gleichung beschreibt das, und welche Werte kommen für x als Kinderzahl in Frage?",
+    "36/x − 36/(x + 3) = 2, und als Kinderzahl kommen nur positive ganze Zahlen in Frage, denn x zählt Kinder.",
+    [("36/x − 36/(x + 3) = 2, und für x kommen alle rationalen Zahlen außer −3 und 0 in Frage, denn nur dort wird ein Nenner 0.", "die Definitionsmenge der Gleichung mit den Werten verwechselt, die in der Sachaufgabe möglich sind"),
+     ("36/x + 36/(x + 3) = 2, und als Kinderzahl kommen nur positive ganze Zahlen in Frage, denn x zählt Kinder.", "die beiden Kosten addiert; mit den Zusatzkindern zahlt jedes weniger, der Unterschied ist 2 €"),
+     ("36/(x − 3) − 36/x = 2, und für x kommen alle rationalen Zahlen außer 0 und 3 in Frage, denn dort wird ein Nenner 0.", "die 3 weiteren Kinder abgezogen statt dazugezählt, und die Menge der Kinderzahlen mit der Definitionsmenge verwechselt")],
+    "Mit x Kindern zahlt jedes 36/x €. Mit 3 weiteren Kindern sind es x + 3 Kinder, und jedes zahlt 36/(x + 3) €, das sind 2 € weniger: 36/x − 36/(x + 3) = 2. Die Definitionsmenge der Gleichung ist ℚ \\ {−3; 0}. Für die Aufgabe ist x aber eine Kinderzahl, also eine positive ganze Zahl; Definitionsmenge und Menge der sinnvollen Werte sind zwei verschiedene Mengen. Probe mit x = 6: 36/6 − 36/9 = 6 − 4 = 2.",
     lambda: F(36, 6) - F(36, 9) == 2 and F(36, 6) + F(36, 9) != 2 and F(36, 3) - F(36, 6) != 2), form="bruecke", lp=LP, idee="modell_aufstellen")
 # ───────── ueber_kreuz ─────────
 def _kreuz_zahl():
@@ -145,12 +145,12 @@ neu(T, "ueber_kreuz", "sicherung", "begruenden", W(
     "Multipliziert man beide Seiten mit x · (x + 2), erhält man links 3/x · x · (x + 2) = 3 · (x + 2) und rechts 5/(x + 2) · x · (x + 2) = 5 · x. Das ist genau das Kreuzprodukt. Voraussetzung ist, dass x und x + 2 nicht 0 sind. Probe mit x = 3: 3/3 = 1 und 5/5 = 1.",
     lambda: F(3, 3) == F(5, 5) and 3 * (3 + 2) == 5 * 3), lp=LP, idee="warum_ueber_kreuz")
 neu(T, "ueber_kreuz", "sicherung", "darstellung", Z(
-    "In einem Glas sind 5 cl Sirup und 15 cl Wasser. Wie viel cl Sirup muss man zugießen, damit der Sirup genau die Hälfte der Mischung ausmacht?",
-    10, "15 - 5", "10",
-    "Nach dem Zugießen von x cl Sirup sind (5 + x) cl Sirup in (20 + x) cl Mischung, und der Anteil soll ein Halb sein: (5 + x)/(20 + x) = 1/2. Über Kreuz: 2 · (5 + x) = 20 + x, also 10 + 2x = 20 + x und x = 10. Probe: 15 cl Sirup und 15 cl Wasser.",
-    [B("15 - 5 - 5", "geglaubt, von der Differenz aus Wasser und Sirup müsse noch der vorhandene Sirup abgezogen werden"),
-     B("15", "die vorhandene Wassermenge als Zugabe genommen"),
-     B("15 + 5", "die Gesamtmenge 20 cl als Zugabe genommen")], einheit="cl"), lp=LP, idee="modell_aufstellen")
+    "Zu Zähler und Nenner des Bruchs 5/11 wird dieselbe Zahl addiert. Der neue Bruch ist gleich 2/3. Welche Zahl wurde addiert?",
+    7, "22 - 15", "(2 * 11 - 3 * 5) / (3 - 2)",
+    "Die gesuchte Zahl sei x. Dann gilt (5 + x)/(11 + x) = 2/3. Über Kreuz: 3 · (5 + x) = 2 · (11 + x), also 15 + 3x = 22 + 2x und x = 7. Probe: 12/18 = 2/3. Beide Zahlen werden um 7 größer, der Unterschied 6 zwischen Nenner und Zähler bleibt gleich.",
+    [B("11 - 5", "die Differenz von Nenner und Zähler als gesuchte Zahl genommen"),
+     B("3 * 11 - 2 * 5", "über Kreuz mit vertauschten Brüchen gerechnet und die Unbekannte nicht abgezogen"),
+     B("22 - 15 + 5", "zum richtigen Ergebnis noch den Zähler 5 addiert")], einheit=""), lp=LP, idee="zahl_zu_zaehler_nenner")
 # ───────── scheinloesung ─────────
 neu(T, "scheinloesung", "test", "transfer", Z(
     "Für wie viele ganze Zahlen b von −9 bis 9 (einschließlich) hat die Gleichung (x + b)/(x − 4) = 3/(x − 4) + 1 keine Lösung?",
@@ -176,13 +176,12 @@ neu(T, "scheinloesung", "korrektur", "darstellung", Z(
     [B("3", "für jede Gleichung eine Lösung angenommen, ohne die Kandidaten gegen D zu prüfen"),
      B("2", "bei Gleichung (C) die falsche Aussage 3 = 4 übersehen und sie mitgezählt"),
      B("0", "alle Gleichungen als unlösbar gewertet, auch die mit dem erlaubten Kandidaten x = 1")], einheit="Gleichungen"), lp=LP, idee="gleichungen_vergleichen")
-neu(T, "scheinloesung", "korrektur", "umkehr", Z(
-    "Für welche Zahl c hat die Gleichung (x² − 16)/(x − 4) = c keine Lösung?",
-    8, "4 + 4", "16 / 2",
-    "Für x ≠ 4 lässt sich kürzen: (x² − 16)/(x − 4) = (x − 4)(x + 4)/(x − 4) = x + 4. Die Gleichung x + 4 = c hat die Lösung x = c − 4. Diese Zahl muss in D liegen, also x ≠ 4, das heißt c ≠ 8. Nur für c = 8 wäre die einzige Lösung x = 4, und die ist verboten: Scheinlösung, keine Lösung.",
-    [B("4", "die verbotene Zahl x = 4 selbst als c genommen"),
-     B("16", "die Zahl 16 aus dem Zähler als c genommen"),
-     B("4 - 4", "geglaubt, c = 0 gehe nicht, weil im Zähler x − 4 steckt")], einheit=""), form="umkehren", lp=LP, idee="scheinloesung_kuerzen")
+neu(T, "scheinloesung", "korrektur", "umkehr", L(
+    "Man löst 3/(x − 1) = 6/(x² − 1). Dabei ist x² − 1 = (x − 1)(x + 1). Nach dem Malnehmen mit (x − 1)(x + 1) ergibt sich als einziger Kandidat x = □, und die Gleichung hat □ Lösungen.",
+    "Kandidat x = □, Zahl der Lösungen: □", [1, 0], ["3 - 2", "1 - 1"], ["6 / 3 - 1", "0"],
+    "Mal (x − 1)(x + 1): links bleibt 3 · (x + 1), rechts bleibt 6. Aus 3x + 3 = 6 folgt x = 1. Die Zahl 1 macht aber die Nenner x − 1 und x² − 1 zu 0, gehört also nicht zu D = ℚ \\ {−1; 1}. Sie ist eine Scheinlösung: Die Gleichung hat keine Lösung.",
+    {0: [(2, "aus x + 1 = 2 die 1 nicht abgezogen und x = 2 gelesen", "6 / 3"), (-1, "die zweite verbotene Zahl als Kandidaten genannt", "0 - 1")],
+     1: [(1, "den Kandidaten als Lösung gezählt, ohne ihn gegen D zu prüfen", "1"), (2, "beide Nullstellen des Nenners als Lösungen gezählt", "1 + 1")]}), form=None, lp=LP, idee="scheinloesung_kuerzen")
 neu(T, "scheinloesung", "sicherung", "fehler", L(
     "Ina löst 5/(x − 1) + 2 = 7/(x − 1) so: Zeile 1: Mal (x − 1) gibt 5 + 2 = 7. Zeile 2: Das stimmt für jede Zahl. Zeile 3: Also sind alle Zahlen Lösung. In welcher Zeile steckt der erste Fehler, und welche Zahl ist die einzige Lösung der Gleichung?",
     "Fehler in Zeile □, einzige Lösung: x = □", [1, 2], ["1", "2"], ["4 - 3", "(7 - 5) / 1"],
@@ -206,12 +205,11 @@ neu(T, "scheinloesung", "sicherung", "darstellung", L(
     lp=LP, idee="bruch_null")
 # ───────── verhaeltnis ─────────
 neu(T, "verhaeltnis", "test", "transfer", L(
-    "Es gilt x : 12 = (x + 4) : 20. Dann ist x = □, und dieses Verhältnis ist gekürzt gleich □ : □.",
-    "x = □, gekürzt □ : □", [6, 1, 2], ["4 * 12 / (20 - 12)", "1", "2"], ["6", "6 / 6", "12 / 6"],
-    "Außenglieder mal Außenglieder gleich Innenglieder mal Innenglieder, hier über Kreuz: 20 · x = 12 · (x + 4), also 20x = 12x + 48 und 8x = 48, x = 6. Probe: 6 : 12 = 10 : 20 = 1 : 2. Gekürzt ist das Verhältnis 1 : 2.",
-    {0: [(-10, "die Glieder falsch gekreuzt: 12 · x = 20 · (x + 4)", "80 / (12 - 20)"), (4, "nur die Zahl 4 aus dem Text genommen", "4"), (10, "den Zähler x + 4 als Lösung gedeutet: 6 + 4", "6 + 4")],
-     1: [(6, "das Verhältnis nicht gekürzt hingeschrieben", "6"), (2, "die Glieder vertauscht: 12 : 6", "12 / 6")],
-     2: [(12, "das Verhältnis nicht gekürzt hingeschrieben", "12"), (1, "beide Glieder durch 12 geteilt, aber die 6 vergessen", "6 / 6")]}),
+    "Zwei Zahlen verhalten sich wie 2 : 3. Addiert man zu beiden Zahlen 10, verhalten sich die neuen Zahlen wie 3 : 4. Die ursprünglichen Zahlen sind □ und □.",
+    "kleinere Zahl □, größere Zahl □", [20, 30], ["10 * 2", "10 * 3"], ["50 - 30", "40 - 10"],
+    "Die Zahlen sind 2k und 3k. Nach dem Addieren gilt (2k + 10) : (3k + 10) = 3 : 4, über Kreuz 4 · (2k + 10) = 3 · (3k + 10), also 8k + 40 = 9k + 30 und k = 10. Die Zahlen sind 20 und 30. Probe: 30 : 40 = 3 : 4.",
+    {0: [(10, "den Faktor k als Zahl angegeben", "10"), (2, "die Verhältniszahl statt der Zahl angegeben", "2")],
+     1: [(3, "die Verhältniszahl statt der Zahl angegeben", "3"), (40, "die neue Zahl nach dem Addieren statt der ursprünglichen angegeben", "30 + 10")]}),
     lp=LP, idee="x_in_beiden_verhaeltnissen")
 neu(T, "verhaeltnis", "korrektur", "darstellung", W(
     "In einer Farbmischung verhalten sich die roten zu den blauen Teilen wie 3 : 5. Welchen Anteil der ganzen Mischung macht das Rot aus?",
@@ -241,17 +239,17 @@ neu(T, "verhaeltnis", "sicherung", "fehler", L(
     "Fehler in Zeile □, richtig: x = □", [2, 12], ["2", "4 * 18 / 6"], ["1 + 1", "72 / 6"],
     "Außenglieder mal Außenglieder = Innenglieder mal Innenglieder. Zeile 1 stimmt: Außenglieder 4 und 18, Innenglieder x und 6. Also gilt 4 · 18 = x · 6, das heißt 72 = 6x und x = 12 (Zeile 2 ist der Fehler: Lena kreuzt x mit 4). Probe: 4 : 12 = 1 : 3 = 6 : 18.",
     {0: [(3, "die Schlusszeile genannt, weil dort der falsche Wert 27 steht", "3"), (1, "die Zuordnung der Außenglieder in Zeile 1 für falsch gehalten", "1")], 1: [(27, "wie Lena x mit 4 gekreuzt: 6 · 18 : 4", "6 * 18 / 4"), (20, "additiv gerechnet: 6 + 18 − 4", "6 + 18 - 4"), (108, "nur 6 · 18 gerechnet und nicht geteilt", "6 * 18")]}), form="fehler_detektiv", lp=LP, idee="fehler_aussen_innen")
-neu(T, "verhaeltnis", "sicherung", "umkehr", Z(
-    "Zwei Zahlen verhalten sich wie 3 : 7. Ihr Mittelwert ist 25. Wie groß ist die kleinere der beiden Zahlen?",
-    15, "25 * 2 / (3 + 7) * 3", "50 / 10 * 3",
-    "Der Mittelwert ist 25, also ist die Summe der beiden Zahlen 2 · 25 = 50. Die Summe entspricht 3 + 7 = 10 Teilen, ein Teil ist 5. Die kleinere Zahl hat 3 Teile: 15, die größere 35. Probe: (15 + 35) : 2 = 25 und 15 : 35 = 3 : 7.",
-    [B("25 / (3 + 7) * 3", "den Mittelwert statt der Summe durch die Teile geteilt"),
-     B("25 * 2 / (3 + 7) * 7", "die größere Zahl (35) angegeben statt der kleineren"),
-     B("25 - 3", "die Verhältniszahl 3 vom Mittelwert abgezogen")], einheit=""), lp=LP, idee="mittelwert_summe")
+neu(T, "verhaeltnis", "sicherung", "darstellung", Z(
+    "Für zwei Zahlen a und b gilt a : b = 7 : 12. Dann gilt (a + b) : b = □ : 12.",
+    19, "7 + 12", "(7 + 12) * 12 / 12",
+    "Aus a : b = 7 : 12 folgt: Auf 7 Teile von a kommen 12 Teile von b. Zusammen sind a und b dann 7 + 12 = 19 Teile, und b ist 12 Teile. Also gilt (a + b) : b = 19 : 12. Probe mit a = 14 und b = 24: (14 + 24) : 24 = 38 : 24 = 19 : 12.",
+    [B("7", "den Zähler 7 unverändert gelassen, obwohl a + b statt a steht"),
+     B("12 - 7", "die Differenz der Verhältniszahlen genommen"),
+     B("7 + 12 + 12", "die 12 für b doppelt addiert")], einheit=""), form="bruecke", lp=LP, idee="mittelwert_summe")
 neu(T, "verhaeltnis", "sicherung", "transfer", Z(
-    "In einem Club verhalten sich Jungen zu Mädchen wie 3 : 4 und Mädchen zu Betreuern wie 8 : 1. Es sind 60 Jungen im Club. Wie viele Betreuer gibt es?",
-    10, "60 / 6 * 1", "60 / 3 * 4 / 8",
-    "Die Mädchenzahl muss in beiden Verhältnissen gleich sein: 3 : 4 = 6 : 8 und 8 : 1. Also gilt Jungen : Mädchen : Betreuer = 6 : 8 : 1. Mit 60 Jungen ist ein Teil 60 : 6 = 10. Es gibt 10 Betreuer. Probe: 80 Mädchen, 80 : 8 = 10 Betreuer.",
-    [B("60 / 3 * 1", "die Jungen nur durch 3 geteilt und das zweite Verhältnis nicht abgestimmt"),
-     B("60 / 3 * 4", "die Zahl der Mädchen (80) angegeben statt der Betreuer"),
-     B("60 / 8", "die Jungen direkt durch die 8 aus dem zweiten Verhältnis geteilt")], einheit="Betreuer"), lp=LP, idee="gemeinsames_glied")
+    "Zwei Quadrate haben Seitenlängen im Verhältnis 2 : 3. Das kleinere Quadrat hat den Flächeninhalt 36 cm². Wie groß ist der Flächeninhalt des größeren Quadrats?",
+    81, "36 * 3 * 3 / (2 * 2)", "9 * 9",
+    "Das kleinere Quadrat hat 36 cm², also die Seitenlänge 6 cm. Die Seiten verhalten sich wie 2 : 3, ein Teil ist 3 cm, die größere Seite ist 9 cm lang. Das größere Quadrat hat 9 · 9 = 81 cm². Die Flächen verhalten sich wie 4 : 9, also nicht wie die Seiten: Beide Seitenlängen werden mit demselben Faktor malgenommen, die Fläche mit dem Faktor zum Quadrat.",
+    [B("36 * 3 / 2", "das Seitenverhältnis unmittelbar auf die Flächen übertragen"),
+     B("36 * 3", "die Fläche nur mit der größeren Verhältniszahl 3 malgenommen"),
+     B("36 * 4", "die Fläche mit dem Quadrat der kleineren Verhältniszahl malgenommen")], einheit="cm²"), lp=LP, idee="flaeche_aus_seitenverhaeltnis")

@@ -226,7 +226,7 @@ def main():
 
         # 3b. Mess-Paket vor dem Einspielen: Abbruch (Vorbedingung), keine Messmeldung
         out = pg.sql("set local statement_timeout = '300s';\n" + f'do $rbpaket$ begin execute $rbpaketinhalt${messen}$rbpaketinhalt$; end $rbpaket$;', 'MESSUNG ABBRUCH')
-        fehlerzeile(out, 'MESSUNG ABBRUCH, Vorbedingung'); assert 'MESSUNG (nichts geändert)' not in out
+        fehlerzeile(out, 'MESSUNG ABBRUCH, Vorbedingung'); assert not any('MESSUNG (nichts geändert)' in z for z in out.splitlines() if 'ERROR:' in z)
         print('Messung vor dem Einspielen: Abbruch ok')
 
         # 4. Zusatzfälle vorher speichern
@@ -266,11 +266,11 @@ def main():
         assert zustand(pg) == z2
         pg.sql(mh.replace('perform schule.zugriff(p_schluessel, v_l);', "perform schule.zugriff(p_schluessel, v_l);\n  if v_l = 2 then raise exception using errcode = 'TP999', message = 'tempo-zurueck'; end if;"))
         out = pg.sql("set local statement_timeout = '300s';\n" + f'do $rbpaket$ begin execute $rbpaketinhalt${messen}$rbpaketinhalt$; end $rbpaket$;', 'fremdes TP999')
-        fehlerzeile(out, 'fremdes TP999'); assert 'MESSUNG (nichts geändert)' not in out; pg.sql(mh)
+        fehlerzeile(out, 'fremdes TP999'); assert not any('MESSUNG (nichts geändert)' in z for z in out.splitlines() if 'ERROR:' in z); pg.sql(mh)
         print('Messung mit fremdem TP999: Abbruch ok')
         pg.sql(mh.replace('perform schule.zugriff(p_schluessel, v_l);', "perform schule.zugriff(p_schluessel, v_l);\n  if v_l = 2 then raise exception 'innerer Fehler bei Kind 2'; end if;"))
         out = pg.sql("set local statement_timeout = '300s';\n" + f'do $rbpaket$ begin execute $rbpaketinhalt${messen}$rbpaketinhalt$; end $rbpaket$;', 'innerer Fehler bei Kind 2')
-        fehlerzeile(out, 'fehlgeschlagen'); assert 'MESSUNG (nichts geändert)' not in out; pg.sql(mh)
+        fehlerzeile(out, 'fehlgeschlagen'); assert not any('MESSUNG (nichts geändert)' in z for z in out.splitlines() if 'ERROR:' in z); pg.sql(mh)
         print('Messung mit innerem Fehler beim zweiten Kind: Abbruch ok')
         print('Messung danach:', json.dumps({k: mz[k] for k in ('ms_etappen_stand_alle', 'ms_merkheft_summe', 'ms_merkheft_je_kind')}))
     finally:

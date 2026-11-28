@@ -445,3 +445,58 @@ Der Plan vom Serverteil ist umgesetzt. Jeder Punkt hat einen Test, der mit dem S
   - Geänderte Texte: Spalte „Bordkarte“ statt „Aufgabe“, „Thema › Etappe“ statt „Thema › Lernkarte“, Fazit „n Bordkarten, davon …“.
   - Warum der Reisewörter-Test die Seite nicht erfasste: Er öffnet `wackelt/1` ohne den nachgestellten WW-S3-Server und sieht deshalb nur die Rückfall-Ansicht.
   - Neu: eigener Test mit WW-Server; Fragen, Eingaben und Lösungen als Inhalte ausgenommen.
+
+## 10. Aus 1199 – Client (Gegenprüfung des Stands 18402513)
+
+Jeder Punkt hat einen Test, der mit dem Stand 18402513 fehlschlägt (8 neue Tests in `lernen.test.cjs` und `lernen-tempo.test.cjs` sowie der erweiterte Release-Test – alle rot mit dem alten Stand).
+
+1. **Doppelte Abgabe im Test:**
+   - Eine Sperre für die ganze Test-Sitzung, synchron **vor** dem ersten `await` gesetzt. Sie gilt für Abgeben, Weiter, Zurück und die Punkte-Knöpfe.
+   - Gelöst wird sie gezielt bei Formatfehler, leeren Bordkarten (Rückfrage) und Fehler.
+   - Test „1199/1“: doppeltes Weiter/Abgeben plus Zurück und Punkt während des Speicherns ergibt ein Speichern je Bordkarte und einen Abschluss.
+2. **Frische:**
+   - Überholt heißt jetzt „Eintrag wurde vergessen“ (Schreiben zu diesem Kind bzw. ohne Kind) oder „Zugang gewechselt“; der globale Zähler zählt dafür nicht mehr.
+   - Nach 3 Versuchen wird die Antwort **verworfen** (Fehler `veraltet`), nie ausgeliefert.
+   - Die Reisekarte liefert eine während des Abrufs überholte Antwort nicht aus, sondern holt neu; gab es schon eine neuere, kommt diese.
+   - Die Reiseseite prüft vor **jedem** Zeichnen Stand und Zugang des gesamten Datenstands und baut sonst neu auf.
+   - Tests „1199/2“ (zwei).
+3. **Verbindlicher Weiter-Schritt:**
+   - `lernSchrittLaden` holt Karte, Übersicht und Konto frisch (`maxAlter`/`frischMs`; ein laufender Abruf zählt).
+   - Ist der Stand der Wiederholungen unbekannt (Fehler), gibt es **kein** Übungsziel, sondern `neutral` zur Reisekarte. Auf der Reiseseite wird nach 2 s neu versucht, sonst führt der Start in den Check-in, der selbst lädt.
+   - Alte Karte und fehlgeschlagene Aktualisierung: einmal nach 2 s neu, sonst bleibt der Hauptknopf gesperrt mit „Nochmal versuchen“.
+   - Der 503-Rückfall beim Merkheft bleibt davon getrennt: Erstversuch + ein Versuch nach 2 s, dann Rückfall mit frischer Karte.
+   - Tests „1199/3“ (zwei).
+4. **Kind und Zugang:**
+   - Ein Kindwechsel löscht auch **laufende** Einträge anderer Kinder; A → B → A holt für A frisch.
+   - Die Lehrer-Startseite hinterlegt die Analyse nur mit Stand und Zugang **beim Abruf** (`lernVorabSetzen` verlangt beides).
+   - Schreibende Aktionen mit identischen Daten laufen höchstens einmal gleichzeitig (Doppelklick gibt einen POST).
+   - `app.js` (`http`): Ein verspätetes 401 wird dem Zugang beim Absenden zugeordnet und meldet einen neuen Zugang nicht ab.
+   - Tests „1199/4“ (zwei).
+5. **Bedienung:**
+   - Der wartende Weiter-Knopf ist per Tab erreichbar (`tabindex=0`, `role=link`, `aria-disabled`; Enter tut nichts).
+   - Die Reise-Hauptknöpfe behalten ihren Tab-Platz; neu gezeichnete Knöpfe werden ebenfalls als `aria-disabled` markiert.
+   - Eine höfliche Statusmeldung (`#lern-ansage`, `aria-live=polite`) sagt „wird geladen …“ bzw. „bereit“.
+   - Die nur angezeigte alte Reise-Ansicht ist `inert`.
+   - Test „1199/5“.
+6. **Service Worker und Versionen:**
+   - `HUELLE` enthält jetzt auch den Schul-Einstieg (`lernen/`, `lernen/index.html`, `lernen/schule.js?v=…`, `lernen/manifest.webmanifest`).
+   - Der Release-Test prüft beide Einstiege (jede `?v=`-Datei in `HUELLE`) und beide `APP_VERSION` (`app.js`, `lernen/schule.js`).
+   - Der Browser-Test spielt den Versionswechsel auch für `lernen/` durch.
+   - **Release-Regel** (Abschnitt 9) gilt weiter. Zusätzlich:
+     - Bei Teilauslieferung oder altem HTML kann ein Mischstand entstehen, denn ein `?v=` archiviert keine Datei.
+     - Deshalb müssen versionstreue Assets vor dem neuen HTML veröffentlicht sein, und eine Asset-Adresse wird nie mit neuem Inhalt wiederverwendet.
+
+**Dasselbe Muster an anderen Stellen** (eine Runde weiter gesucht):
+
+| Stelle | Stand |
+|---|---|
+| Knöpfe mit Netzaktion | Prüfen (Übung, Check-in, Knobel, Mischkarte, Expedition) sind synchron gesperrt (`lernBeschaeftigt` vor dem `await`). Expedition „Später“, „Besprochen“ und Rückmeldung senden sperren ebenfalls vorher. |
+| Knöpfe ohne eigene Sperre | Einlösen, Look wählen, Belohnung an/aus und anlegen, Einlösung entscheiden, Plan- und Notiz-Formulare: Sie sind über die neue Schreib-Bündelung geschützt (identische Daten geben einen POST). Die Anzeige wird dabei nicht gesperrt (bewusst klein gehalten). |
+| Stellen, die Antworten ausliefern | `lernCall` (alle Stufen), `lernReiseKarte` und `lernSchrittLaden` prüfen jetzt Stand und Zugang. Ebenso die Reiseseite vor dem Zeichnen. |
+| Weitere Seiten | Mein Weg, Merkheft, Route, Wiederholen und Expeditionen zeichnen mit `viewGuard` (Route/Generation). Eine Buchung während ihres Ladens ist dort nur über `lernCall` abgesichert (überholte Antworten werden nicht ausgeliefert, sondern neu geholt). |
+| Abflugtafel (Rückfall ohne Karte) | Nutzt bei unbekannten Wiederholungen noch die Zahl 0. Bewusst nicht geändert, weil sie nur ohne Kartendaten erscheint. |
+
+**Layout-Abnahmen LM und LM-6:**
+- Sie hängen von der Systemschrift ab. Lehrer-Seiten nutzen `--font-ui` → `sans-serif`; in der Bau-Umgebung ist das Inter (`fc-match sans-serif`). Die Kinderseiten nutzen Space Grotesk mit `font-display: swap`.
+- Beide Tests warten jetzt auf `document.fonts.ready`.
+- Ist `sans-serif` nicht Inter, werden die zwei Abnahmen mit Begründung übersprungen statt falsch rot gemeldet. Voraussetzung für eine Abnahme: Inter als `sans-serif`.

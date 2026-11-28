@@ -1033,7 +1033,7 @@
     },
     "alte_antworten": null
    },
-   "grund": "Vierfach-Lücke: der Zeilenumbruch fällt zwischen Eingabefeld und „;“, die zweite Zeile beginnt mit einem einzelnen „;“. Ersatz ohne Strichpunkte: Umbrüche fallen dann nur noch vor eine Nummer. (Dieselbe Bauart: 282 Bestandsaufgaben mit vier und mehr Lücken, siehe Zusatzfunde.)",
+   "grund": "Vierfach-Lücke: Beschriftung („③ =“) und Feld sind in der App getrennte Zeilenelemente (.lern-lueckenzeile = flex-wrap, Text und Eingabefeld je ein Element); über die Aufgabe lässt sich beides nicht zusammenhalten (geschütztes Leerzeichen hilft nicht; gemessen bei 320–430 px: je nach Breite steht „③ =“ am Zeilenende und sein Feld in der nächsten Zeile). Ersatz ohne Beschriftung im Feld: vier gleiche Felder, die Zuordnung ①–④ steht im Hinweis (Reihenfolge Zeile für Zeile); kein Strichpunkt, kein getrennter Umbruch mehr. Dieselbe Bauart (Beschriftung vor Feld) bei Bestandsaufgaben mit mehreren Lücken: Sache der App (Zusatzfunde).",
    "thema": "terme.aufstellen",
    "lernkarte": "struktur",
    "stufe": 1,
@@ -1094,8 +1094,8 @@
     "y": "luecken",
     "f": {
      "text": "Die Termarten sind der Reihe nach nummeriert, beginnend bei 1: Summe, Differenz, Produkt, Quotient. Welche Nummer hat die Termart von (3 + a) · 4 − 6? ①. Für a = 5 hat die Klammer den Wert ②. Der erste Operand der letzten Rechnung hat den Wert ③. Der ganze Term hat den Wert ④.",
-     "schablone": "① = □ ② = □ ③ = □ ④ = □",
-     "hinweis": "Je Lücke eine ganze Zahl."
+     "schablone": "□ □ □ □",
+     "hinweis": "Vier Felder, der Reihe nach für ①, ②, ③, ④. Je Feld eine ganze Zahl."
     },
     "o": {
      "werte": [
@@ -1609,7 +1609,7 @@
      "antwort": "zwischen 13 und 14",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "eine Spalte zu weit links abgelesen: 200 liegt über 196, nicht darunter",
+     "beschreibung": "die Grenzen falsch gewählt: 196 (= 14²) ist schon kleiner als 200, also liegt √200 nicht zwischen 13 und 14",
      "c": null
     },
     {
@@ -1617,7 +1617,7 @@
      "antwort": "zwischen 15 und 16",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "eine Spalte zu weit rechts abgelesen: 200 liegt unter 225",
+     "beschreibung": "die Grenzen falsch gewählt: 225 (= 15²) ist noch größer als 200, also liegt √200 nicht zwischen 15 und 16",
      "c": null
     }
    ],

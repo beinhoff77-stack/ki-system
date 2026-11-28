@@ -19,6 +19,8 @@ sys.path.insert(0, str(WURZEL / 'tools/tests'))
 import bestand_berichtigung1_sql as B  # noqa: E402
 import regelbezug_sql_test as T  # noqa: E402
 import regelbezug_sql as R  # noqa: E402
+import nf_nachbau as NB  # noqa: E402
+import nf_einspielen as NF  # noqa: E402
 
 AUS = WURZEL / 'tools/tests/aus'
 N = 23
@@ -49,12 +51,18 @@ def teil1():
         mo, mn = [go['kopf']] + go['zeilen'], [gn['kopf']] + gn['zeilen']
         tr = [list(r) for r in zip(*mo)]
         assert len(tr) == len(mn) and all(len(a) == len(b) for a, b in zip(tr, mn)), p['bb']
+        # ALLE Datenzellen verbindlich gleich (kein ODER); die Kopfzeile ist nur bei T03 gekürzt („Becken A (l)“ statt „Wassermenge Becken A in Litern“)
+        assert tr[1:] == mn[1:], f'{p["bb"]}: Datenzellen der gedrehten Tabelle weichen ab'
         if p['bb'] == 'BB1-T03':
-            assert [r[1:] for r in tr[1:]] == [r[1:] for r in mn[1:]] or [r[0] for r in tr[1:]] == [r[0] for r in mn[1:]], p['bb']
-            assert [r[0] for r in tr[1:]] == [r[0] for r in mn[1:]] and all(len(r) == len(mn[0]) for r in mn), p['bb']
+            assert tr[0][0] == mn[0][0] and mn[0] == ['Minute', 'Becken A (l)', 'Becken B (l)'] and tr[0][1:] == ['Wassermenge Becken A in Litern', 'Wassermenge Becken B in Litern'], p['bb']
         else:
-            assert tr == mn, f'{p["bb"]}: Zellen der gedrehten Tabelle weichen ab'
+            assert tr[0] == mn[0], f'{p["bb"]}: Kopfzeile weicht ab'
         assert p['af']['text'] == p['nf']['text'] and p['ao'] == p['row']['o'], p['bb']
+    # Gegenprüfung 1182: K9A-V177 (Fehlbildtexte passend zur gedrehten Tabelle), K6-V202 (Felder ohne Strichpunkt, Zuordnung im Hinweis)
+    p177 = next(p for p in paare if p['kennung'] == 'K9A-V177')
+    assert [f['text'] for f in p177['fb']] and all(('196' in f['text'] or '225' in f['text']) and 'Spalte' not in f['text'] for f in p177['fb']), p177['fb']
+    p202 = next(p for p in paare if p['kennung'] == 'K6-V202')
+    assert p202['nf']['schablone'] == '□ □ □ □' and ';' not in p202['nf']['schablone'] and all(c in p202['nf']['hinweis'] for c in '①②③④')
     rc, out, err = py('tools/bestand_berichtigung1_sql.py', '--pakete', '--pruefen')
     assert rc == 0, 'Pakete unter tools/tests/aus nicht auf dem Stand: python3 -I tools/bestand_berichtigung1_sql.py --pakete\n' + err
     einsp = (AUS / 'bestand_berichtigung1_einspielen.sql').read_text(encoding='utf-8')
@@ -77,7 +85,7 @@ def zahl(pg, sql):
     return int(pg.sql('\\pset tuples_only on\n' + sql).split()[0])
 
 
-def aufbauen(pg, paare):
+def aufbauen(pg, paare, nfs=True):
     pg.sql(T.nachbau_sql())
     pg.paket((AUS / 'rb_s_einspielen.sql').read_text(encoding='utf-8'))
     # Bausteine, die der Nachbau nicht hat (Definitionen aus den Migrationen bzw. minimal)
@@ -86,13 +94,12 @@ def aufbauen(pg, paare):
         assert kb.count(alt) == 1, alt
         kb = kb.replace(alt, neu)
     pg.sql(kb + """
-create table schule.misch_ausgabe (id bigserial primary key, lernender_id bigint not null references schule.lernender(id), aufgabe_id bigint not null references schule.aufgabe(id),
-  ausgegeben_am timestamptz not null default now(), eingeloest_am timestamptz, verfallen_am timestamptz);
-create table schule.testsitzung (id bigserial primary key, lernender_id bigint, art text, einheit_id bigint, aufgaben bigint[], status text, abgeschlossen_am timestamptz);
+""" + NB.nachtest_sql() + """
 alter table schule.aufgabe disable trigger aufgabe_schutz;
 update schule.aufgabe a set thema_id = e.thema_id from schule.einheit e where e.id = a.einheit_id;
 alter table schule.aufgabe enable trigger aufgabe_schutz;
 """)
+    if nfs: pg.paket((AUS / 'nf_s_einspielen.sql').read_text(encoding='utf-8'))      # Voraussetzung NF-S (Gegenprüfung 1182)
     # die drei Vorgänger ohne Kennung (inhalte/themen) wie im Bestand: über aufgaben_einfuegen
     for i, p in enumerate(x for x in paare if x['alt_kennung'] is None):
         d = json.loads((WURZEL / p['datei']).read_text(encoding='utf-8'))['aufgaben'][p['alt_idx']]
@@ -134,6 +141,8 @@ def teil2(paare):
         out = pg.paket(probe, erwartet_fehler='PROBELAUF bestanden')
         assert '"neu_eingefuegt": 23' in out and '"alte_gesperrt": 23' in out and '"regeln_neu": 14' in out and '"fehlbilder_neu": 69' in out, out[:1500]
         assert '"einheiten_geaendert": 18' in out and '"zurueckgestellt": []' in out and '"fehler": 0' in out, out[-1500:]
+        assert '"sollantworten_richtig": 23' in out and '"fehlantworten_gueltig_und_falsch": 69' in out and '"lernkarten_regeln_gleich": true' in out \
+            and '"fingerabdruck_unberuehrter_zeilen_gleich": true' in out and '"nf_s_vorhanden": true' in out and 'grenzen' in out, out[-2500:]
         nichts_geaendert('Probelauf')
         pg.sql(probe, erwartet_fehler='PROBELAUF bestanden')     # auch direkt (psql) lauffähig
         nichts_geaendert('Probelauf direkt')
@@ -151,6 +160,13 @@ def teil2(paare):
         nichts_geaendert('nicht erkannt')
         out = pg.sql("update schule.einheit set status = 'geprueft' where id = 11;\n" + f"do $rbpaket$ begin execute $rbpaketinhalt${einsp}$rbpaketinhalt$; end $rbpaket$;", erwartet_fehler='Einheit 11 ist nicht freigegeben')
         nichts_geaendert('Einheit nicht freigegeben')
+        # Voraussetzung NF-S fehlt (alte Funktionen) oder nur eine Funktion neu -> Abbruch, nichts geändert
+        alt_a = f"create or replace function schule.nachtest_auswahl(p_l bigint, p_e bigint, p_lz text, p_anzahl int) returns bigint[] language sql stable set search_path to '' as $f${NF.auswahl_alt()}$f$;\n"
+        alt_s = f"create or replace function schule.nachtest_stand(p_lernender bigint, p_einheit bigint) returns jsonb language plpgsql stable set search_path to '' as $f${NF.stand_alt()}$f$;\n"
+        for was, vor_sql in (('beide alt', alt_a + alt_s), ('nur nachtest_stand alt', alt_s), ('nur nachtest_auswahl alt', alt_a)):
+            for paket in (einsp, probe):
+                pg.sql(vor_sql + f"do $rbpaket$ begin execute $rbpaketinhalt${paket}$rbpaketinhalt$; end $rbpaket$;", erwartet_fehler='erst NF-S einspielen')
+            nichts_geaendert('NF-S fehlt: ' + was)
         # Zwischenstand: neue Aufgabe von Hand eingefügt, alte noch gültig
         pg.sql(f"select schule.aufgaben_einfuegen({p_b1['e']}, $j${json.dumps([p_b1['row']], ensure_ascii=False)}$j$::jsonb);\n" + f"do $rbpaket$ begin execute $rbpaketinhalt${einsp}$rbpaketinhalt$; end $rbpaket$;",
                erwartet_fehler='beide gültig')

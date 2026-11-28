@@ -63,6 +63,8 @@ def verdorben3(mig):
         'Migration ändert eine übrige WW-S2-Funktion': mig + "\ncreate or replace function schule.ww_von(p_schluessel text)\n returns text language sql stable security definer set search_path to ''\n"
                                                         "as $function$ select 'eltern:App' $function$;\n",
         'Migration ändert eine bestehende Funktion außerhalb von WW': mig + "\ncreate or replace function schule.ist_lern(p_schluessel text) returns boolean language sql immutable as $$ select coalesce(left(p_schluessel, 5) = 'lern:', false) and true $$;\n",
+        'zuletzt_tag in UTC': ersetzt(mig, "'zuletzt_tag', (b.zuletzt at time zone v_tz)::date", "'zuletzt_tag', (b.zuletzt at time zone 'UTC')::date"),
+        'besprochen ohne fehler': ersetzt(mig, "'tage', b.tage, 'fehler', b.fehler,", "'tage', b.tage,"),
         'Markieren liefert falsche markierung_ids': ersetzt(mig, "jsonb_build_object('markierung_ids', to_jsonb(v_mids))", "jsonb_build_object('markierung_ids', to_jsonb(v_ids))"),
     }
 

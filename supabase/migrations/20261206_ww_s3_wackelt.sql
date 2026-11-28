@@ -12,8 +12,9 @@
 --    Vorher nahm das Zurückholen über versuch_ids JEDE gültige Markierung des Versuchs zurück – auch eine, die nach dem Laden neu gesetzt wurde.
 -- 4. schule.fehler_abhaken: Antwort zusätzlich mit stand, geaendert_ids (versuch_ids, die dieser Aufruf wirklich geändert hat) und beim Markieren
 --    markierung_ids (IDs der neu angelegten Zeilen). Der alte Weg „zurueck über versuch_ids“ bleibt (Verträglichkeit), der Client benutzt ihn nicht mehr.
--- 5. schule.wackelt_analyse: auswertung.themen[].besprochen {zuletzt, tage, neu_seit} – ohne 200er-Grenze, nur gültige Markierungen, nur wenn das
---    Thema je besprochen wurde; nullsicher für „ohne Thema“.
+-- 5. schule.wackelt_analyse: auswertung.themen[].besprochen {zuletzt, zuletzt_tag, tage, fehler, neu_seit} – ohne 200er-Grenze, nur gültige
+--    Markierungen, nur wenn das Thema je besprochen wurde; nullsicher für „ohne Thema“. zuletzt_tag und tage in der Zeitzone des Kindes
+--    (wie erledigt.tag); fehler = Zahl der gültig markierten Fehler des Themas insgesamt.
 -- 6. Feste Typen: mit_tipp immer Boolean; danach_richtig nur noch true oder fehlt (die Zeitpunkte stehen in danach_richtig_am); Analyse und
 --    Abhaken melden stand: 3 (fehlt das Feld, läuft am Server noch WW-S2).
 -- 7. api.schule_fehler_abhaken: zusätzlich markierung_ids (nur mit zurueck: true, nicht zusammen mit versuch_ids). Rechteprüfung unverändert:
@@ -87,7 +88,7 @@ begin
        einmal as (select o.* from je_lk j join offen o on o.id = j.id where j.n = 1
                     and not exists (select 1 from wieder w where w.s = o.art->>'schluessel')),
        -- besprochen je Thema: alle gültigen Markierungen des Kindes (ohne Zeitraum, ohne 200er-Grenze)
-       bespr as (select v.thema_id, max(fe.am) zuletzt, count(distinct (fe.am at time zone v_tz)::date) tage
+       bespr as (select v.thema_id, max(fe.am) zuletzt, count(distinct (fe.am at time zone v_tz)::date) tage, count(*) fehler
                    from schule.fehler_erledigt fe join ww3_v v on v.id = fe.versuch_id
                   where fe.lernender_id = p_l and fe.zurueckgenommen_am is null group by 1)
   select jsonb_build_object(
@@ -100,7 +101,7 @@ begin
       'richtig', (select count(*) from ww3_v v where (v_seit is null or v.am > v_seit) and v.richtig),
       'themen', coalesce((select jsonb_agg(jsonb_build_object('thema_id', t.thema_id, 'thema', (select coalesce(x.unterthema, x.schluessel) from schule.thema x where x.id = t.thema_id),
                                    'offen', t.offen, 'gesamt', t.gesamt,
-                                   'besprochen', (select jsonb_build_object('zuletzt', b.zuletzt, 'tage', b.tage,
+                                   'besprochen', (select jsonb_build_object('zuletzt', b.zuletzt, 'zuletzt_tag', (b.zuletzt at time zone v_tz)::date, 'tage', b.tage, 'fehler', b.fehler,
                                                          'neu_seit', (select count(*) from ww3_f f where f.thema_id is not distinct from b.thema_id
                                                                          and f.am > b.zuletzt and f.abgehakt_id is null))
                                                     from bespr b where b.thema_id is not distinct from t.thema_id))

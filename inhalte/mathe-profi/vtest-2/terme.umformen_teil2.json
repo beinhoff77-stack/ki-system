@@ -25,23 +25,23 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "8a² − 12a = 4a(2a − 3)",
      "beschreibung": "Richtig: 4a · 2a = 8a² und 4a · (−3) = −12a.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
-     "antwort": "15x + 10 = 5(3x + 2)",
-     "beschreibung": "Richtig: 5 · 3x = 15x und 5 · 2 = 10.",
+     "index": 2,
+     "antwort": "7b − 14b² = 7b(1 − 2b)",
+     "beschreibung": "Richtig: 7b · 1 = 7b und 7b · (−2b) = −14b².",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 3,
-     "antwort": "7b − 14b² = 7b(1 − 2b)",
-     "beschreibung": "Richtig: 7b · 1 = 7b und 7b · (−2b) = −14b².",
+     "antwort": "15x + 10 = 5(3x + 2)",
+     "beschreibung": "Richtig: 5 · 3x = 15x und 5 · 2 = 10.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -57,16 +57,17 @@
      "text": "Vier Schüler haben ausgeklammert. Prüfe jede Umformung, indem du die Klammer wieder ausmultiplizierst. Welche Umformung ist falsch?"
     },
     "a": [
-     "8a² − 12a = 4a(2a − 3)",
-     "15x + 10 = 5(3x + 2)",
      "9y² − 6y = 3y(3y − 6)",
-     "7b − 14b² = 7b(1 − 2b)"
+     "8a² − 12a = 4a(2a − 3)",
+     "7b − 14b² = 7b(1 − 2b)",
+     "15x + 10 = 5(3x + 2)"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "w": "Probe durch Ausmultiplizieren. Bei 3y(3y − 6) ergibt sich 9y² − 18y, nicht 9y² − 6y. Richtig wäre 9y² − 6y = 3y(3y − 2). Die anderen drei Umformungen stimmen."
-   }
+   },
+   "idee": "Ausklammern durch Ausmultiplizieren prüfen"
   },
   {
    "kennung": "VT2-051",
@@ -138,7 +139,8 @@
      ]
     },
     "w": "Fläche = Seite · Seite. Also (5x) · (□x + □) = 15x² + 10x. Man teilt jedes Glied durch 5x: 15x² : 5x = 3x und 10x : 5x = 2. Die andere Seite ist 3x + 2. Probe: 5x · 3x = 15x², 5x · 2 = 10x."
-   }
+   },
+   "idee": "Umkehren: Faktor aus Fläche"
   },
   {
    "kennung": "VT2-052",
@@ -212,7 +214,8 @@
      ]
     },
     "w": "Zeile 1 stimmt: 6x ist der größte gemeinsame Faktor. In Zeile 2 ist 12x : 6x = 2 (nicht 6). Richtig: 18x² − 12x = 6x(3x − 2). Probe: 6x · (−2) = −12x."
-   }
+   },
+   "idee": "Fehlersuche beim größten gemeinsamen Faktor"
   },
   {
    "kennung": "VT2-053",
@@ -265,7 +268,8 @@
      "wert": 3700
     },
     "w": "37 · 28 + 37 · 72 = 37 · (28 + 72) = 37 · 100 = 3 700. Der gemeinsame Faktor 37 wird ausgeklammert, in der Klammer steht 100."
-   }
+   },
+   "idee": "Geschickt rechnen"
   },
   {
    "kennung": "VT2-054",
@@ -282,23 +286,23 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 1,
-     "antwort": "6x² + 4x + 5 = 2x(3x + 2 + 5), denn 2x steckt in den ersten beiden Gliedern.",
-     "beschreibung": "Ausmultipliziert ergibt 2x(3x + 2 + 5) = 6x² + 4x + 10x; es stimmt nicht.",
+     "index": 0,
+     "antwort": "6x² + 4x + 5 = x(6x + 4 + 5), denn x steckt in jedem Glied der Summe und lässt sich ausklammern.",
+     "beschreibung": "Ausmultipliziert ergibt x(6x + 4 + 5) = 6x² + 4x + 5x; die 5 enthält kein x.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
-     "antwort": "6x² + 4x + 5 = 2(3x² + 2x + 5), denn 2 steckt in 6 und 4.",
+     "index": 1,
+     "antwort": "6x² + 4x + 5 = 2(3x² + 2x + 5), denn die 2 steckt in 6 und in 4 und lässt sich ausklammern.",
      "beschreibung": "Ausmultipliziert ergibt 2(3x² + 2x + 5) = 6x² + 4x + 10; die 5 wurde nicht mit 2 multipliziert.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
-     "antwort": "6x² + 4x + 5 = x(6x + 4 + 5), denn x steckt in jedem Glied.",
-     "beschreibung": "Ausmultipliziert ergibt x(6x + 4 + 5) = 6x² + 4x + 5x; die 5 enthält kein x.",
+     "index": 2,
+     "antwort": "6x² + 4x + 5 = 2x(3x + 2 + 5), denn 2x steckt in den ersten beiden Gliedern und die 5 bleibt.",
+     "beschreibung": "Ausmultipliziert ergibt 2x(3x + 2 + 5) = 6x² + 4x + 10x; es stimmt nicht.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -314,16 +318,17 @@
      "text": "Welche Aussage über den Term 6x² + 4x + 5 ist richtig?"
     },
     "a": [
-     "In allen drei Gliedern steckt kein gemeinsamer Faktor außer 1; deshalb lässt sich nichts sinnvoll ausklammern.",
-     "6x² + 4x + 5 = 2x(3x + 2 + 5), denn 2x steckt in den ersten beiden Gliedern.",
-     "6x² + 4x + 5 = 2(3x² + 2x + 5), denn 2 steckt in 6 und 4.",
-     "6x² + 4x + 5 = x(6x + 4 + 5), denn x steckt in jedem Glied."
+     "6x² + 4x + 5 = x(6x + 4 + 5), denn x steckt in jedem Glied der Summe und lässt sich ausklammern.",
+     "6x² + 4x + 5 = 2(3x² + 2x + 5), denn die 2 steckt in 6 und in 4 und lässt sich ausklammern.",
+     "6x² + 4x + 5 = 2x(3x + 2 + 5), denn 2x steckt in den ersten beiden Gliedern und die 5 bleibt.",
+     "Kein Faktor außer 1 steckt in allen drei Gliedern; deshalb lässt sich nichts ausklammern."
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "w": "Ein Faktor darf nur ausgeklammert werden, wenn er in jedem Glied steckt. Die 5 hat mit 6 und 4 keinen gemeinsamen Teiler außer 1 und enthält kein x. Die Proben ergeben: 2x · 5 = 10x, 2 · 5 = 10 und x · 5 = 5x, nie die 5."
-   }
+   },
+   "idee": "Grenzen des Ausklammerns"
   },
   {
    "kennung": "VT2-055",
@@ -376,7 +381,8 @@
      "wert": 9
     },
     "w": "Der größte gemeinsame Faktor 9x verlangt, dass 9 in 18 und in k steckt, also k ein Vielfaches von 9 ist: 9, 18, … Wegen k < 20 bleiben 9 und 18. Bei k = 18 wäre der größte gemeinsame Faktor aber 18x. Also k = 9: 18x² + 9x = 9x(2x + 1)."
-   }
+   },
+   "idee": "Gemeinsamen Faktor festlegen"
   },
   {
    "kennung": "VT2-056",
@@ -450,7 +456,8 @@
      ]
     },
     "w": "Fläche 1: 4x · 5x = 20x². Fläche 2: 4x · 3 = 12x. Gesamt: 20x² + 12x. Weil beide Rechtecke die Breite 4x haben, klammert man sie aus: 4x · (5x + 3). Das entspricht der Gesamtlänge 5x + 3."
-   }
+   },
+   "idee": "Fläche als Produkt"
   },
   {
    "kennung": "VT2-057",
@@ -535,7 +542,8 @@
      ]
     },
     "w": "Zeile 1 stimmt. In Zeile 2 fehlt das Mittelglied: (a − b)² = a² − 2ab + b². Mit a = 2x, b = 5: (2x)² − 2 · 2x · 5 + 5² = 4x² − 20x + 25. Probe mit x = 1: (2 − 5)² = 9 und 4 − 20 + 25 = 9; Tims 4 − 25 = −21 passt nicht."
-   }
+   },
+   "idee": "Fehlersuche beim Quadrieren"
   },
   {
    "kennung": "VT2-058",
@@ -607,7 +615,8 @@
      ]
     },
     "w": "Das letzte Glied 49 = 7² zeigt: In der Klammer steht 7. Das Mittelglied ist 2 · x · 7 = 14x. Probe: (x + 7)² = x² + 14x + 49."
-   }
+   },
+   "idee": "Ergänzen zur binomischen Formel"
   },
   {
    "kennung": "VT2-059",
@@ -624,23 +633,23 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 1,
-     "antwort": "Für a = 3 und b = 4 ist (3 + 4)² = 25 und 3² + 4² = 25; die Formel stimmt für alle Zahlen.",
-     "beschreibung": "(3 + 4)² = 7² = 49 und nicht 25.",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "index": 2,
+     "index": 0,
      "antwort": "Die Formel stimmt nur, wenn b negativ ist.",
      "beschreibung": "Erfindet eine Einschränkung; die Formel stimmt nur, wenn a oder b gleich 0 ist (dann ist 2ab = 0).",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Für a = 3 und b = 4 ist (3 + 4)² = 14 und 3² + 4² = 25; das Quadrat der Summe ist immer kleiner.",
      "beschreibung": "(3 + 4)² = 7² = 49, nicht 14 (14 ist 2 · 7); und die Summe zum Quadrat ist hier größer.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Für a = 3 und b = 4 ist (3 + 4)² = 25 und 3² + 4² = 25; die Formel stimmt für alle Zahlen.",
+     "beschreibung": "(3 + 4)² = 7² = 49 und nicht 25.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -656,16 +665,17 @@
      "text": "Warum gilt (a + b)² = a² + b² nicht? Welche Antwort stimmt?"
     },
     "a": [
-     "Für a = 3 und b = 4 ist (3 + 4)² = 49, aber 3² + 4² = 25; es fehlt das doppelte Produkt 2ab = 24.",
-     "Für a = 3 und b = 4 ist (3 + 4)² = 25 und 3² + 4² = 25; die Formel stimmt für alle Zahlen.",
      "Die Formel stimmt nur, wenn b negativ ist.",
-     "Für a = 3 und b = 4 ist (3 + 4)² = 14 und 3² + 4² = 25; das Quadrat der Summe ist immer kleiner."
+     "Für a = 3 und b = 4 ist (3 + 4)² = 49, aber 3² + 4² = 25; es fehlt das doppelte Produkt 2ab = 24.",
+     "Für a = 3 und b = 4 ist (3 + 4)² = 14 und 3² + 4² = 25; das Quadrat der Summe ist immer kleiner.",
+     "Für a = 3 und b = 4 ist (3 + 4)² = 25 und 3² + 4² = 25; die Formel stimmt für alle Zahlen."
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
     "w": "(3 + 4)² = 7² = 49. 3² + 4² = 9 + 16 = 25. Der Unterschied 24 ist 2 · 3 · 4 = 2ab. Allgemein: (a + b)² = a² + 2ab + b²."
-   }
+   },
+   "idee": "Warum fehlt das gemischte Glied?"
   },
   {
    "kennung": "VT2-060",
@@ -737,7 +747,8 @@
      ]
     },
     "w": "(x + 5)² = x² + 10x + 25. Davon geht das kleine Quadrat x² ab: Zuwachs = 10x + 25. Das sind zwei Rechtecke 5 · x und ein kleines Quadrat 5 · 5."
-   }
+   },
+   "idee": "Flächenzuwachs am Quadrat"
   },
   {
    "kennung": "VT2-061",
@@ -790,7 +801,8 @@
      "wert": 2401
     },
     "w": "(50 − 1)² = 50² − 2 · 50 · 1 + 1² = 2 500 − 100 + 1 = 2 401. Probe: 49 · 49 = 2 401."
-   }
+   },
+   "idee": "Kopfrechnen mit binomischer Formel"
   },
   {
    "kennung": "VT2-062",
@@ -807,16 +819,16 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1, weil bei (a + b)² das doppelte Produkt 2ab nicht vorkommen darf.",
-     "beschreibung": "Die Formel (a + b)² = a² + 2ab + b² wurde richtig angewendet; das Mittelglied muss vorkommen.",
+     "index": 1,
+     "antwort": "In Zeile 3, weil 2 · 4x · 3 = 12x ist.",
+     "beschreibung": "2 · 4x · 3 = 24x stimmt.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 2,
-     "antwort": "In Zeile 3, weil 2 · 4x · 3 = 12x ist.",
-     "beschreibung": "2 · 4x · 3 = 24x stimmt.",
+     "antwort": "In Zeile 1, weil bei (a + b)² das doppelte Produkt 2ab nicht vorkommen darf.",
+     "beschreibung": "Die Formel (a + b)² = a² + 2ab + b² wurde richtig angewendet; das Mittelglied muss vorkommen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
@@ -839,16 +851,17 @@
      "text": "Mia berechnet (4x + 3)². Zeile 1: (4x + 3)² = (4x)² + 2 · 4x · 3 + 3². Zeile 2: (4x)² = 4x². Zeile 3: 2 · 4x · 3 = 24x. Zeile 4: Also ist (4x + 3)² = 4x² + 24x + 9. In welcher Zeile steckt der erste Fehler, und warum?"
     },
     "a": [
-     "In Zeile 1, weil bei (a + b)² das doppelte Produkt 2ab nicht vorkommen darf.",
      "In Zeile 2, weil (4x)² = 16x² ist; auch die 4 wird quadriert.",
      "In Zeile 3, weil 2 · 4x · 3 = 12x ist.",
+     "In Zeile 1, weil bei (a + b)² das doppelte Produkt 2ab nicht vorkommen darf.",
      "In Zeile 4, weil 3² = 6 ist."
     ],
     "o": {
-     "index": 1
+     "index": 0
     },
     "w": "Zeile 1 stimmt. In Zeile 2: (4x)² = 4² · x² = 16x². Also (4x + 3)² = 16x² + 24x + 9. Probe mit x = 1: 7² = 49 und 16 + 24 + 9 = 49."
-   }
+   },
+   "idee": "Fehlersuche beim gemischten Glied"
   },
   {
    "kennung": "VT2-063",
@@ -920,7 +933,8 @@
      ]
     },
     "w": "Weil 4x² = (2x)² und 25 = 5² und 20x = 2 · 2x · 5 ist, gilt 4x² + 20x + 25 = (2x + 5)². Die Seite ist 2x + 5 cm lang. Umfang = 4 · (2x + 5) = 8x + 20 cm."
-   }
+   },
+   "idee": "Aus der Fläche auf die Seite schließen"
   }
  ]
 }

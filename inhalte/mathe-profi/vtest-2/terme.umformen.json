@@ -80,7 +80,8 @@
      ]
     },
     "w": "Zeile 1 und 2 stimmen. In Zeile 3 ist das Vorzeichen verlorengegangen: 3x − 7x = (3 − 7)x = −4x. Das richtige Ergebnis ist 3x² − 4x + 4."
-   }
+   },
+   "idee": "Fehlersuche beim Zusammenfassen"
   },
   {
    "kennung": "VT2-030",
@@ -133,7 +134,8 @@
      "wert": 8
     },
     "w": "Die x-Glieder sind kx und −8x, zusammen (k − 8)x. Damit das x-Glied verschwindet, muss k − 8 = 0 sein, also k = 8. Die x²-Glieder: 9x² − 4x² = 5x²."
-   }
+   },
+   "idee": "Parameter so wählen, dass ein Glied entfällt"
   },
   {
    "kennung": "VT2-031",
@@ -205,7 +207,8 @@
      ]
     },
     "w": "Umfang = (3a + 2) + (5a − 1) + (a + 4). a-Glieder: 3a + 5a + a = 9a. Zahlen: 2 − 1 + 4 = 5. Also 9a + 5."
-   }
+   },
+   "idee": "Umfang als Term"
   },
   {
    "kennung": "VT2-032",
@@ -222,13 +225,6 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1, weil x-Glieder und y-Glieder zusammengehören, denn in beiden steht eine Variable.",
-     "beschreibung": "Glaubt, alle Variablen seien gleichartig; gleichartig sind nur Glieder mit derselben Variablen (und Hochzahl).",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2, weil man 6x und 2x nicht addieren darf, wenn dazwischen y-Glieder stehen.",
      "beschreibung": "Meint, die Reihenfolge im Term verbiete das Zusammenfassen; die Glieder dürfen vertauscht werden.",
@@ -236,9 +232,16 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "In Zeile 4, weil das Ergebnis nur ein x-Glied haben darf.",
      "beschreibung": "Meint, ein Ergebnis dürfe nur eine Variable enthalten; 8x und y-Glieder bleiben getrennt stehen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 1, weil x-Glieder und y-Glieder zusammengehören, denn in beiden steht eine Variable.",
+     "beschreibung": "Glaubt, alle Variablen seien gleichartig; gleichartig sind nur Glieder mit derselben Variablen (und Hochzahl).",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -254,16 +257,17 @@
      "text": "Tim fasst 6x − 4y + 2x + 5y zusammen. Zeile 1: Gleichartig sind 6x und 2x sowie −4y und 5y. Zeile 2: Für die x-Glieder gilt 6x + 2x = 8x. Zeile 3: Für die y-Glieder gilt −4y + 5y = −9y. Zeile 4: Also ist 6x − 4y + 2x + 5y = 8x − 9y. In welcher Zeile steckt der erste Fehler, und warum?"
     },
     "a": [
-     "In Zeile 1, weil x-Glieder und y-Glieder zusammengehören, denn in beiden steht eine Variable.",
-     "In Zeile 2, weil man 6x und 2x nicht addieren darf, wenn dazwischen y-Glieder stehen.",
      "In Zeile 3, weil −4y + 5y = 1y = y ist; Tim hat 4 und 5 addiert, statt sie zu verrechnen.",
-     "In Zeile 4, weil das Ergebnis nur ein x-Glied haben darf."
+     "In Zeile 2, weil man 6x und 2x nicht addieren darf, wenn dazwischen y-Glieder stehen.",
+     "In Zeile 4, weil das Ergebnis nur ein x-Glied haben darf.",
+     "In Zeile 1, weil x-Glieder und y-Glieder zusammengehören, denn in beiden steht eine Variable."
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "w": "Zeile 1 und 2 stimmen. In Zeile 3 gilt −4y + 5y = (−4 + 5)y = y. Das richtige Ergebnis ist 8x + y."
-   }
+   },
+   "idee": "Fehlersuche bei zwei Variablen"
   },
   {
    "kennung": "VT2-033",
@@ -280,16 +284,16 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 1,
-     "antwort": "5x² − 3x − 2x² − x",
-     "beschreibung": "Zusammengefasst 3x² − 4x: die x-Glieder −3x und −x ergeben −4x.",
+     "index": 0,
+     "antwort": "5x² − 3x − 2x + x",
+     "beschreibung": "Zusammengefasst 5x² − 4x: das Glied −2x ist ein x-Glied, nicht ein x²-Glied.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 2,
-     "antwort": "5x² − 3x − 2x + x",
-     "beschreibung": "Zusammengefasst 5x² − 4x: das Glied −2x ist ein x-Glied, nicht ein x²-Glied.",
+     "antwort": "5x² − 3x − 2x² − x",
+     "beschreibung": "Zusammengefasst 3x² − 4x: die x-Glieder −3x und −x ergeben −4x.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
@@ -312,16 +316,17 @@
      "text": "Welcher der vier Terme ergibt zusammengefasst 3x² − 2x?"
     },
     "a": [
+     "5x² − 3x − 2x + x",
      "5x² − 3x − 2x² + x",
      "5x² − 3x − 2x² − x",
-     "5x² − 3x − 2x + x",
      "5x² + 3x − 2x² − x"
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
     "w": "Man fasst jeden Term zusammen. Erster Term: 5x² − 2x² = 3x² und −3x + x = −2x, also 3x² − 2x. Die anderen ergeben 3x² − 4x, 5x² − 4x und 3x² + 2x."
-   }
+   },
+   "idee": "Rückwärts: Term zum Ergebnis finden"
   },
   {
    "kennung": "VT2-034",
@@ -395,7 +400,8 @@
      ]
     },
     "w": "Es gilt 9x² − 4x + 1 − U = 5x² − 4x − 3, also U = (9x² − 4x + 1) − (5x² − 4x − 3). x²: 9 − 5 = 4. x: −4 − (−4) = 0. Zahl: 1 − (−3) = 4. Also U = 4x² + 4. Probe: 9x² − 4x + 1 − (4x² + 4) = 5x² − 4x − 3."
-   }
+   },
+   "idee": "Umkehroperation: Differenz zum Term"
   },
   {
    "kennung": "VT2-035",
@@ -469,7 +475,8 @@
      ]
     },
     "w": "Anna zahlt 3x + 2y Euro, Ben 4x + 3y Euro, beide zusammen (3x + 2y) + (4x + 3y) = 7x + 5y. Der Rabatt von 6 € wird abgezogen: 7x + 5y − 6."
-   }
+   },
+   "idee": "Sachsituation in Terme übersetzen"
   },
   {
    "kennung": "VT2-036",
@@ -488,6 +495,13 @@
    "fehlbilder": [
     {
      "index": 0,
+     "antwort": "In Zeile 4, weil das Ergebnis keine Zahl ohne x enthalten darf.",
+     "beschreibung": "Meint, ein Ergebnis dürfe keine Zahl ohne x enthalten; ein Term darf Zahlenglieder haben.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
      "antwort": "In Zeile 1, weil bei − (4x − 3) beide Vorzeichen in der Klammer gleich bleiben müssen.",
      "beschreibung": "Glaubt, ein Minus vor der Klammer ändere nichts; es kehrt jedes Vorzeichen in der Klammer um.",
      "fehlbild": null,
@@ -497,13 +511,6 @@
      "index": 2,
      "antwort": "In Zeile 3, weil man 9x und 4x nicht zusammenfassen darf.",
      "beschreibung": "Meint, gleichartige Glieder dürften nicht zusammengefasst werden; 9x, −4x und die anderen x-Glieder dürfen es.",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "index": 3,
-     "antwort": "In Zeile 4, weil das Ergebnis keine Zahl ohne x enthalten darf.",
-     "beschreibung": "Meint, ein Ergebnis dürfe keine Zahl ohne x enthalten; ein Term darf Zahlenglieder haben.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -519,16 +526,17 @@
      "text": "Paul vereinfacht 9x − (4x − 3) − (2 − x). Zeile 1: 9x − (4x − 3) = 9x − 4x + 3. Zeile 2: − (2 − x) = −2 − x. Zeile 3: Zusammen ist 9x − 4x + 3 − 2 − x = 4x + 1. Zeile 4: Das Ergebnis lautet 4x + 1. In welcher Zeile steckt der erste Fehler, und warum?"
     },
     "a": [
+     "In Zeile 4, weil das Ergebnis keine Zahl ohne x enthalten darf.",
      "In Zeile 1, weil bei − (4x − 3) beide Vorzeichen in der Klammer gleich bleiben müssen.",
-     "In Zeile 2, weil − (2 − x) = −2 + x ist: Das Minus kehrt auch das Vorzeichen vor x um.",
      "In Zeile 3, weil man 9x und 4x nicht zusammenfassen darf.",
-     "In Zeile 4, weil das Ergebnis keine Zahl ohne x enthalten darf."
+     "In Zeile 2, weil − (2 − x) = −2 + x ist: Das Minus kehrt auch das Vorzeichen vor x um."
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "w": "Zeile 1 stimmt. In Zeile 2 kehrt das Minus beide Vorzeichen um: −(2 − x) = −2 + x. Dann ist 9x − 4x + 3 − 2 + x = 6x + 1. Zeile 3 und 4 sind Folgefehler."
-   }
+   },
+   "idee": "Fehlersuche bei Minusklammern"
   },
   {
    "kennung": "VT2-037",
@@ -581,7 +589,8 @@
      "wert": 10
     },
     "w": "Ausgangsterm: x = 0: 12 − (0 − 5) = 17; x = 4: 12 − (12 − 5) = 5. Jonas’ Term: x = 0: 7; x = 4: 7 − 12 = −5. Beide Male ist der Unterschied 10. Richtig wäre 12 − 3x + 5 = 17 − 3x; Jonas hat die 5 nicht umgedreht."
-   }
+   },
+   "idee": "Probe durch Einsetzen"
   },
   {
    "kennung": "VT2-038",
@@ -634,7 +643,8 @@
      "wert": 5
     },
     "w": "7x − (kx − 3) = 7x − kx + 3 = (7 − k)x + 3. Das soll 2x + 3 sein, also 7 − k = 2 und k = 5. Probe: 7x − (5x − 3) = 2x + 3."
-   }
+   },
+   "idee": "Parameter durch Koeffizientenvergleich"
   },
   {
    "kennung": "VT2-039",
@@ -651,9 +661,9 @@
    "antwortform": "auswahl",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "Nele hat recht, denn das Minus gilt nur für das erste Glied a der Klammer.",
-     "beschreibung": "Meint, das Minus wirke nur auf das erste Glied; es gilt für die ganze Klammer.",
+     "index": 1,
+     "antwort": "Nele hat unrecht, denn eine Klammer mit Plus darf man nie auflösen.",
+     "beschreibung": "Behauptet etwas, was nicht zur Frage gehört; Klammern dürfen aufgelöst werden, wenn man die Regel beachtet.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
@@ -666,8 +676,8 @@
     },
     {
      "index": 3,
-     "antwort": "Nele hat unrecht, denn eine Klammer mit Plus darf man nie auflösen.",
-     "beschreibung": "Behauptet etwas, was nicht zur Frage gehört; Klammern dürfen aufgelöst werden, wenn man die Regel beachtet.",
+     "antwort": "Nele hat recht, denn das Minus gilt nur für das erste Glied a der Klammer.",
+     "beschreibung": "Meint, das Minus wirke nur auf das erste Glied; es gilt für die ganze Klammer.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -683,16 +693,17 @@
      "text": "Nele behauptet: „10 − (a + 3) ist dasselbe wie 10 − a + 3.“ Welche Antwort mit Begründung stimmt?"
     },
     "a": [
-     "Nele hat recht, denn das Minus gilt nur für das erste Glied a der Klammer.",
      "Nele hat unrecht: Für a = 2 ist 10 − (2 + 3) = 5, aber 10 − 2 + 3 = 11. Richtig ist 10 − a − 3.",
+     "Nele hat unrecht, denn eine Klammer mit Plus darf man nie auflösen.",
      "Nele hat unrecht: Für a = 2 ist 10 − (2 + 3) = 11 und 10 − 2 + 3 = 5. Richtig ist 10 − a + 3.",
-     "Nele hat unrecht, denn eine Klammer mit Plus darf man nie auflösen."
+     "Nele hat recht, denn das Minus gilt nur für das erste Glied a der Klammer."
     ],
     "o": {
-     "index": 1
+     "index": 0
     },
     "w": "Mit a = 2: 10 − (2 + 3) = 10 − 5 = 5, aber 10 − 2 + 3 = 11. Die Terme sind nicht gleich. Das Minus gilt für die ganze Klammer: 10 − (a + 3) = 10 − a − 3."
-   }
+   },
+   "idee": "Begründen mit Gegenbeispiel"
   },
   {
    "kennung": "VT2-040",
@@ -766,7 +777,8 @@
      ]
     },
     "w": "Ben: 3 · 0 − (0 − 5) − (0 + 4) = 0 + 5 − 4 = 1. Anna: 3x − 2x + 5 − x − 4 = (3 − 2 − 1)x + (5 − 4) = 0x + 1 = 1. Der Term hat für jedes x den Wert 1."
-   }
+   },
+   "idee": "Zwei Wege: Umformen oder Einsetzen"
   },
   {
    "kennung": "VT2-041",
@@ -840,7 +852,8 @@
      ]
     },
     "w": "Zeile 1 stimmt. Bei einer Plusklammer bleiben die Vorzeichen: + (a − 1) = + a − 1. Dann ist 4a − 3 + 2a + a − 1 = 7a − 4."
-   }
+   },
+   "idee": "Fehlersuche bei Plus- und Minusklammer"
   },
   {
    "kennung": "VT2-042",
@@ -912,7 +925,8 @@
      ]
     },
     "w": "Rest = 6x + 5 − (2x − 1) − (x + 3) = 6x + 5 − 2x + 1 − x − 3 = (6 − 2 − 1)x + (5 + 1 − 3) = 3x + 3."
-   }
+   },
+   "idee": "Länge als Term"
   },
   {
    "kennung": "VT2-043",
@@ -931,22 +945,22 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Paul hat recht, denn die Terme haben für x = 3 denselben Wert, und ein gemeinsamer Wert genügt.",
-     "beschreibung": "Ein einziger gemeinsamer Wert beweist keine Gleichwertigkeit; sie muss für alle Einsetzungen gelten.",
+     "antwort": "Paul hat unrecht, denn zwei Terme mit verschiedenen Zahlen vor x können nie gleichwertig sein, egal was man einsetzt.",
+     "beschreibung": "Verallgemeinert falsch: z. B. sind 2x + x und 3x gleichwertig, obwohl vor x verschiedene Zahlen stehen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 2,
-     "antwort": "Paul hat unrecht, denn man darf nur Zahlen kleiner als 3 einsetzen.",
+     "antwort": "Paul hat unrecht, denn man darf in Terme nur Zahlen einsetzen, die kleiner als 3 sind.",
      "beschreibung": "Erfindet eine Einschränkung der Einsetzzahlen, die es nicht gibt.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 3,
-     "antwort": "Paul hat unrecht, denn zwei Terme mit verschiedenen Zahlen vor x können nie gleichwertig sein.",
-     "beschreibung": "Verallgemeinert falsch: z. B. sind 2x + x und 3x gleichwertig, obwohl vor x verschiedene Zahlen stehen.",
+     "antwort": "Paul hat recht, denn beide Terme haben für x = 3 denselben Wert, und ein gemeinsamer Wert genügt als Beweis.",
+     "beschreibung": "Ein einziger gemeinsamer Wert beweist keine Gleichwertigkeit; sie muss für alle Einsetzungen gelten.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -962,16 +976,17 @@
      "text": "Paul behauptet: „Die Terme 5x − 4 und 3x + 2 sind gleichwertig, denn für x = 3 kommt bei beiden 11 heraus.“ Welche Antwort mit Begründung stimmt?"
     },
     "a": [
-     "Paul hat recht, denn die Terme haben für x = 3 denselben Wert, und ein gemeinsamer Wert genügt.",
-     "Paul hat unrecht: Gleichwertig sind Terme nur, wenn sie für jede Einsetzung denselben Wert haben. Für x = 0 ergibt der erste −4, der zweite 2.",
-     "Paul hat unrecht, denn man darf nur Zahlen kleiner als 3 einsetzen.",
-     "Paul hat unrecht, denn zwei Terme mit verschiedenen Zahlen vor x können nie gleichwertig sein."
+     "Paul hat unrecht, denn zwei Terme mit verschiedenen Zahlen vor x können nie gleichwertig sein, egal was man einsetzt.",
+     "Paul hat unrecht: Terme sind nur gleichwertig, wenn alle Einsetzungen denselben Wert ergeben; für x = 0 sind es −4 und 2.",
+     "Paul hat unrecht, denn man darf in Terme nur Zahlen einsetzen, die kleiner als 3 sind.",
+     "Paul hat recht, denn beide Terme haben für x = 3 denselben Wert, und ein gemeinsamer Wert genügt als Beweis."
     ],
     "o": {
      "index": 1
     },
     "w": "5 · 3 − 4 = 11 und 3 · 3 + 2 = 11: Bei x = 3 stimmen beide überein. Bei x = 0 aber ist 5 · 0 − 4 = −4 und 3 · 0 + 2 = 2. Ein einziges Gegenbeispiel genügt, um zu zeigen, dass die Terme nicht gleichwertig sind."
-   }
+   },
+   "idee": "Einsetzen widerlegt keine Gleichwertigkeit"
   },
   {
    "kennung": "VT2-044",
@@ -1029,7 +1044,8 @@
      "index": 2
     },
     "w": "Man setzt ein: x = 2: 5 und 9. x = 3: 9 und 11. x = 4: 4 · 4 − 3 = 13 und 2 · 4 + 5 = 13. x = 5: 17 und 15. Nur bei x = 4 stimmen die Werte überein."
-   }
+   },
+   "idee": "Gleicher Wert nur an einer Stelle"
   },
   {
    "kennung": "VT2-045",
@@ -1082,7 +1098,8 @@
      "wert": 6
     },
     "w": "2(x + 3) = 2x + 2 · 3 = 2x + 6. Damit 2x + a gleichwertig ist, muss a = 6 sein. Probe mit x = 1: 2 · 4 = 8 und 2 + 6 = 8."
-   }
+   },
+   "idee": "Parameter durch Ausmultiplizieren"
   },
   {
    "kennung": "VT2-046",
@@ -1100,22 +1117,22 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "4x − 6",
-     "beschreibung": "Minus mal Minus vergessen: −2 · (−3) als −6 gerechnet. Bei x = 0 ergibt 4x − 6 den Wert −6, der Ausgangsterm aber 6.",
+     "antwort": "8x + 6",
+     "beschreibung": "Das Minus vor 2x falsch als Plus behandelt (6x + 2x + 6). Bei x = 0 passt 6, aber bei x = 1 ist der Ausgangsterm 10, 8x + 6 aber 14.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "8x − 6",
      "beschreibung": "Das Vorzeichen bei 2x umgedreht (6x + 2x), bei der −3 aber nicht (−6). Bei x = 0 ergibt 8x − 6 den Wert −6, der Ausgangsterm aber 6.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
-     "antwort": "8x + 6",
-     "beschreibung": "Das Minus vor 2x falsch als Plus behandelt (6x + 2x + 6). Bei x = 0 passt 6, aber bei x = 1 ist der Ausgangsterm 10, 8x + 6 aber 14.",
+     "index": 2,
+     "antwort": "4x − 6",
+     "beschreibung": "Minus mal Minus vergessen: −2 · (−3) als −6 gerechnet. Bei x = 0 ergibt 4x − 6 den Wert −6, der Ausgangsterm aber 6.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1131,16 +1148,17 @@
      "text": "Welcher der vier Terme ist gleichwertig zu 6x − 2(x − 3)? (Du kannst umformen oder mit x = 0 und x = 1 prüfen.)"
     },
     "a": [
-     "4x − 6",
-     "4x + 6",
+     "8x + 6",
      "8x − 6",
-     "8x + 6"
+     "4x − 6",
+     "4x + 6"
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "w": "Umformen: 6x − 2(x − 3) = 6x − 2x + 6 = 4x + 6. Einsetzen: x = 0 gibt 0 − 2 · (0 − 3) = 6; x = 1 gibt 6 − 2 · (1 − 3) = 6 + 4 = 10. Nur 4x + 6 passt zu 6 und 10."
-   }
+   },
+   "idee": "Zwei Wege: Umformen oder Einsetzen"
   },
   {
    "kennung": "VT2-047",
@@ -1158,22 +1176,22 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Damit sind die Terme bewiesen gleichwertig, denn drei gleiche Ergebnisse genügen.",
+     "antwort": "Man darf überhaupt nicht einsetzen, weil x eine Variable ist und keinen bestimmten Wert hat.",
+     "beschreibung": "Einsetzen ist erlaubt und liefert Gegenbeispiele.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Damit sind die Terme bewiesen gleichwertig, denn drei gleiche Ergebnisse reichen als Beweis aus.",
      "beschreibung": "Einige gleiche Werte reichen nicht: man müsste alle Zahlen prüfen oder umformen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
-     "antwort": "Gleichwertige Terme haben nie für irgendeine Zahl denselben Wert.",
-     "beschreibung": "Gleichwertige Terme haben bei jeder Zahl denselben Wert, nicht „nie“.",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
      "index": 3,
-     "antwort": "Man darf überhaupt nicht einsetzen, weil x eine Variable ist.",
-     "beschreibung": "Einsetzen ist erlaubt und liefert Gegenbeispiele.",
+     "antwort": "Gleichwertige Terme haben nie für irgendeine Zahl denselben Wert, sonst wären sie ja gleich.",
+     "beschreibung": "Gleichwertige Terme haben bei jeder Zahl denselben Wert, nicht „nie“.",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1189,16 +1207,17 @@
      "text": "Zwei Terme haben für x = 1, x = 2 und x = 3 jeweils denselben Wert. Welche Aussage über Einsetzen und Gleichwertigkeit ist richtig?"
     },
     "a": [
-     "Damit sind die Terme bewiesen gleichwertig, denn drei gleiche Ergebnisse genügen.",
-     "Ein einziger Wert, bei dem sich die Terme unterscheiden, zeigt, dass sie nicht gleichwertig sind; gleiche Werte bei einigen Zahlen beweisen es noch nicht.",
-     "Gleichwertige Terme haben nie für irgendeine Zahl denselben Wert.",
-     "Man darf überhaupt nicht einsetzen, weil x eine Variable ist."
+     "Man darf überhaupt nicht einsetzen, weil x eine Variable ist und keinen bestimmten Wert hat.",
+     "Damit sind die Terme bewiesen gleichwertig, denn drei gleiche Ergebnisse reichen als Beweis aus.",
+     "Ein einziger Wert mit verschiedenen Ergebnissen widerlegt die Gleichwertigkeit; gleiche Werte bei einigen Zahlen beweisen sie nicht.",
+     "Gleichwertige Terme haben nie für irgendeine Zahl denselben Wert, sonst wären sie ja gleich."
     ],
     "o": {
-     "index": 1
+     "index": 2
     },
     "w": "Einsetzen kann Gleichwertigkeit nur widerlegen: Ein Gegenbeispiel genügt. Ob zwei Terme gleichwertig sind, zeigt man durch Umformen. Beispiel: x² und 4x − 3 stimmen bei x = 1 und x = 3 überein, aber nicht bei x = 2 (4 und 5)."
-   }
+   },
+   "idee": "Wie viele Einsetzungen beweisen?"
   },
   {
    "kennung": "VT2-048",
@@ -1256,7 +1275,8 @@
      "index": 3
     },
     "w": "A = 3x + 6 − x = 2x + 6. B = 2x + 6. C = 4x − 2x + 6 = 2x + 6. D = 4x − 2x − 6 = 2x − 6. D unterscheidet sich; man erkennt es auch bei x = 0: A, B, C ergeben 6, D ergibt −6."
-   }
+   },
+   "idee": "Gleichwertigen Term unter vier finden"
   },
   {
    "kennung": "VT2-049",
@@ -1309,7 +1329,8 @@
      "wert": 4
     },
     "w": "3(x − 2) + a·x = 3x − 6 + a·x = (3 + a)x − 6. Das soll 7x − 6 sein, also 3 + a = 7 und a = 4. Probe mit x = 1: 3 · (−1) + 4 = 1 und 7 − 6 = 1."
-   }
+   },
+   "idee": "Parameter durch Koeffizientenvergleich"
   }
  ]
 }

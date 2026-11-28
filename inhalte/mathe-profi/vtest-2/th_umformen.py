@@ -141,10 +141,10 @@ def bauen():
     lz = 'aequivalenz'
     A(lz, 'test', 'begruenden', None, 3, LP,
       'Paul behauptet: „Die Terme 5x − 4 und 3x + 2 sind gleichwertig, denn für x = 3 kommt bei beiden 11 heraus.“ Welche Antwort mit Begründung stimmt?',
-      ['Paul hat recht, denn die Terme haben für x = 3 denselben Wert, und ein gemeinsamer Wert genügt.',
-       'Paul hat unrecht: Gleichwertig sind Terme nur, wenn sie für jede Einsetzung denselben Wert haben. Für x = 0 ergibt der erste −4, der zweite 2.',
-       'Paul hat unrecht, denn man darf nur Zahlen kleiner als 3 einsetzen.',
-       'Paul hat unrecht, denn zwei Terme mit verschiedenen Zahlen vor x können nie gleichwertig sein.'], 1,
+      ['Paul hat recht, denn beide Terme haben für x = 3 denselben Wert, und ein gemeinsamer Wert genügt als Beweis.',
+       'Paul hat unrecht: Terme sind nur gleichwertig, wenn alle Einsetzungen denselben Wert ergeben; für x = 0 sind es −4 und 2.',
+       'Paul hat unrecht, denn man darf in Terme nur Zahlen einsetzen, die kleiner als 3 sind.',
+       'Paul hat unrecht, denn zwei Terme mit verschiedenen Zahlen vor x können nie gleichwertig sein, egal was man einsetzt.'], 1,
       {0: 'Ein einziger gemeinsamer Wert beweist keine Gleichwertigkeit; sie muss für alle Einsetzungen gelten.',
        2: 'Erfindet eine Einschränkung der Einsetzzahlen, die es nicht gibt.',
        3: 'Verallgemeinert falsch: z. B. sind 2x + x und 3x gleichwertig, obwohl vor x verschiedene Zahlen stehen.'},
@@ -157,7 +157,7 @@ def bauen():
        1: 'Bei x = 3 sind die Werte 9 und 11; sie sind verschieden.',
        3: 'Bei x = 5 sind die Werte 17 und 15; sie sind verschieden.'},
       'Man setzt ein: x = 2: 5 und 9. x = 3: 9 und 11. x = 4: 4 · 4 − 3 = 13 und 2 · 4 + 5 = 13. x = 5: 17 und 15. Nur bei x = 4 stimmen die Werte überein.',
-      'Gesucht ist der „Zufallstreffer“ zweier nicht gleichwertiger Terme; die Übungen suchen den gleichwertigen Term.')
+      'Gesucht ist der „Zufallstreffer“ zweier nicht gleichwertiger Terme; die Übungen suchen den gleichwertigen Term.', fest=True)
     Z(lz, 'korrektur', 'parameter', None, 2, LP,
       'In 2x + a soll a so gewählt werden, dass der Term gleichwertig zu 2(x + 3) ist. Wie groß ist a?',
       6, '2 · 3',
@@ -176,10 +176,10 @@ def bauen():
       'Zwei Wege (Umformen oder Einsetzen mit zwei Zahlen) führen zum selben Term; ein Ablenker besteht den Test mit x = 0 und fällt erst bei x = 1 durch.')
     A(lz, 'sicherung', 'begruenden', None, 2, LP,
       'Zwei Terme haben für x = 1, x = 2 und x = 3 jeweils denselben Wert. Welche Aussage über Einsetzen und Gleichwertigkeit ist richtig?',
-      ['Damit sind die Terme bewiesen gleichwertig, denn drei gleiche Ergebnisse genügen.',
-       'Ein einziger Wert, bei dem sich die Terme unterscheiden, zeigt, dass sie nicht gleichwertig sind; gleiche Werte bei einigen Zahlen beweisen es noch nicht.',
-       'Gleichwertige Terme haben nie für irgendeine Zahl denselben Wert.',
-       'Man darf überhaupt nicht einsetzen, weil x eine Variable ist.'], 1,
+      ['Damit sind die Terme bewiesen gleichwertig, denn drei gleiche Ergebnisse reichen als Beweis aus.',
+       'Ein einziger Wert mit verschiedenen Ergebnissen widerlegt die Gleichwertigkeit; gleiche Werte bei einigen Zahlen beweisen sie nicht.',
+       'Gleichwertige Terme haben nie für irgendeine Zahl denselben Wert, sonst wären sie ja gleich.',
+       'Man darf überhaupt nicht einsetzen, weil x eine Variable ist und keinen bestimmten Wert hat.'], 1,
       {0: 'Einige gleiche Werte reichen nicht: man müsste alle Zahlen prüfen oder umformen.',
        2: 'Gleichwertige Terme haben bei jeder Zahl denselben Wert, nicht „nie“.',
        3: 'Einsetzen ist erlaubt und liefert Gegenbeispiele.'},
@@ -192,7 +192,7 @@ def bauen():
        1: 'B = 2x + 6; das ist gleichwertig zu A und C.',
        2: 'C = 4x − 2x + 6 = 2x + 6; das Minus kehrt beide Vorzeichen um. Ohne Wechsel käme 2x − 6 heraus.'},
       'A = 3x + 6 − x = 2x + 6. B = 2x + 6. C = 4x − 2x + 6 = 2x + 6. D = 4x − 2x − 6 = 2x − 6. D unterscheidet sich; man erkennt es auch bei x = 0: A, B, C ergeben 6, D ergibt −6.',
-      'Vier Terme mit Plus- und Minusklammern werden verglichen, das Verfahren (Umformen oder Einsetzen) ist frei; die Übungen vergleichen zwei Terme.')
+      'Vier Terme mit Plus- und Minusklammern werden verglichen, das Verfahren (Umformen oder Einsetzen) ist frei; die Übungen vergleichen zwei Terme.', fest=True)
     Z(lz, 'sicherung', 'parameter', None, 3, LP,
       'Gegeben sind 3(x − 2) + a · x und 7x − 6. Bestimme a so, dass beide Terme bei jeder Einsetzung denselben Wert haben.',
       4, '7 − 3',

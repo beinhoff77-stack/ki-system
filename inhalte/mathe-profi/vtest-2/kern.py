@@ -70,8 +70,26 @@ def L(lz, pool, typ, form, stufe, lp, text, schablone, werte, rechs, fb, w, abgr
     return _fertig(x, lz, pool, stufe, typ, 'luecken', f, {'werte': werte}, w)
 
 
-def A(lz, pool, typ, form, stufe, lp, text, opts, idx, fb, w, abgr):
-    """auswahl. fb = {index: beschreibung} oder {index: (beschreibung, rechnung)} fuer Zahl-Moeglichkeiten"""
+MUSTER = [0, 1, 3, 0, 1, 3, 2, 0, 3, 1, 0, 1, 3, 2]   # Zielplatz der richtigen Möglichkeit (verteilt die Lösung auf alle vier Plätze)
+_AUSW = [0]
+
+
+def A(lz, pool, typ, form, stufe, lp, text, opts, idx, fb, w, abgr, fest=False):
+    """auswahl. fb = {index: beschreibung} oder {index: (beschreibung, rechnung)} (Index = Platz in der angegebenen Reihenfolge).
+    fest=True: Reihenfolge der Möglichkeiten bleibt (geordnete Zahlen, A-D); sonst werden sie gemischt und die richtige auf einen
+    reihum vorgegebenen Platz gesetzt (kein Platz ist auffällig häufig richtig)."""
+    opts = list(opts)
+    if not fest:
+        import random
+        rng = random.Random(ZAEHLER[0] + 1)
+        ziel = MUSTER[_AUSW[0] % len(MUSTER)]
+        _AUSW[0] += 1
+        rest = [i for i in range(len(opts)) if i != idx]
+        rng.shuffle(rest)
+        neu = rest[:ziel] + [idx] + rest[ziel:]       # neu[p] = alter Index auf Platz p
+        opts = [opts[i] for i in neu]
+        fb = {neu.index(i): v for i, v in fb.items()}
+        idx = ziel
     fbl = []
     for i in range(len(opts)):
         if i == idx: continue
@@ -85,7 +103,10 @@ def A(lz, pool, typ, form, stufe, lp, text, opts, idx, fb, w, abgr):
 
 
 def schreiben():
+    from ideen import IDEEN
     for s, xs in ERGEBNIS.items():
+        for x in xs:
+            x['idee'] = IDEEN[int(x['kennung'].split('-')[1])]
         d = {'stand': '2026-11-28', 'runde': 'vtest-2', 'kuerzel': 'VT2', 'titel': s, 'klasse': KLASSE[s], 'themen': [s],
              'hinweis': 'Verstehen in Tests, Stufe 1. Nicht eingespielt.', 'aufgaben': xs}
         (HIER / f'{s}.json').write_text(json.dumps(d, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')

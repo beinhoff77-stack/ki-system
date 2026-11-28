@@ -1,4 +1,4 @@
-"""Vorprüfung W1, 2. Durchgang (Runde VT1A, 55 Aufgaben, Stand df627805).
+"""Vorprüfung W1, 2. und 3. Durchgang (Runde VT1A, 55 Aufgaben; 3. Durchgang Stand 48c90f32).
 
 Unabhängige, exakte Nachrechnung (Brüche, Aufzählen statt Formeln), nicht aus
 gegenrechnung.py übernommen. Zahlaufgaben: Sollantwort neu bestimmt, dazu
@@ -179,6 +179,55 @@ _d54 = {(n + 6) * 2 - (n * 2 + 6) for n in range(0, 1000)}
 W['054'] = [opt('immer um 6 größer', _d54 == {6}), opt('immer gleich groß', _d54 == {0}), opt('doppelt so groß', False), opt('Mal ist Mias', len(_d54) > 1)]
 def _l(f): return [x for x in range(0, 200) if f(x)]
 W['055'] = [opt('4 · x + 12 − 4 = 108', _l(lambda x: 4 * x + 12 - 4 == 108) == [25]), opt('4 · (x + 12)', _l(lambda x: 4 * (x + 12) - 4 == 108) == [25]),
+            opt('4 · x − 12 + 4', _l(lambda x: 4 * x - 12 + 4 == 108) == [25]), opt('4 · x + 12 + 4', _l(lambda x: 4 * x + 12 + 4 == 108) == [25])]
+
+# ---- 3. Durchgang (Stand 48c90f32): neue und geänderte Aufgaben ----
+ZAHL['002'] = zweier(4 * 2**30)                                   # 32
+ZAHL['012'] = sum(1 for n in range(1, 30) if 5 * 10**3 < 10**n < 5 * 10**7)  # 4
+ZAHL['016'] = 6 - 1   # Faktoren 2: 6⁶ = 2⁶·3⁶, richtig 2·3⁶ (Primfaktoren eindeutig)
+assert 6**6 == 2**6 * 3**6 and 2 * 3**6 == 1458
+_d21 = {(z - 4800 + 650) - (z - (4800 + 650)) for z in range(10001, 30000)}
+ZAHL['021'] = _d21.pop() if len(_d21) == 1 else ('NICHT EINDEUTIG', _d21)   # 1300 für jede Zahl
+_b22 = [('3 * (4 + 5)', 17), ('(8 - 2) * 3', 2), ('2 * (10 - 4)', 16)]
+_p = {n: r('(6 + 4) * (5 - 3)') for n, r in R_KL.items() if all(r(t) == a for t, a in _b22)}
+ZAHL['022'] = _p['Klammern weg, Punkt vor Strich'] - eval('(6 + 4) * (5 - 3)') if set(_p) == {'Klammern weg, Punkt vor Strich'} else ('Regel', _p)  # 3
+_d25 = {(x + 5 + 7) * 3 - (x + 7) * 3 for x in range(0, 1000)}
+ZAHL['025'] = _d25.pop() if len(_d25) == 1 else ('NICHT EINDEUTIG', _d25)   # 15
+_p31 = [(a, b) for a in range(1, 4601) for b in range(1, 4601) if a * 23 * b == 4600 and a > 5 and b > 5 and a % 10 and b % 10 and b > a]
+ZAHL['031'] = _p31[0][1] if len(_p31) == 1 else ('NICHT EINDEUTIG', _p31)   # 25
+ZAHL['039'] = eindeutig(lambda q: q > 0 and q * 2 * q * 7 == q * (2 * 7), range(0, 1000))  # 1
+ZAHL['046'] = len(str(3412 * 3438)) if len(str(3400 * 3400)) == len(str(3500 * 3500)) == 8 else 'Schranken entscheiden nicht'
+def _abs(z): return z // 1000 * 1000
+def _rnd(z): return (z + 500) // 1000 * 1000
+ZAHL['047'] = max((_rnd(a) + _rnd(b)) - (_abs(a) + _abs(b)) for a in range(1000, 10000, 7) for b in range(1000, 10000, 13))  # 2000
+ZAHL['053'] = len([(h, st) for h in range(1, 21) for st in range(1, 21) if 3 * h + 2 * st == 20])  # 3
+W['005'] = [opt('In 4 Kisten stehen je 4', 4 * 4 * 4 == 4**3), opt('In 3 Kisten', 3 * 4 * 4 == 4**3),
+            opt('je 3 Schachteln, in jeder Schachtel liegen 3', 4 * 3 * 3 == 4**3), opt('liegt 1 Stift', 4 * 3 * 1 == 4**3)]
+W['018'] = [opt('3 Blätter. Er wird 5-mal hintereinander verdoppelt', True), opt('2 Blätter', 2 * 3**5 == 96),
+            opt('5 Blätter', 5 * 2**3 == 96), opt('2 Blätter dazu', 3 + 5 * 2 == 96)]
+W['018'][1] = opt('am Anfang 2 Blätter', 2 * 3**5 == 96)
+W['023'] = [opt('50 − 3 · (9 − 2)', True), opt('50 − 3 · 9 − 2', 50 - 3 * 9 - 2 == 29), opt('50 − 3 · 9 + 2', 50 - 3 * 9 + 2 == 29), opt('50 − 3 · (9 + 2)', 50 - 3 * 11 == 29)]
+# 030: letzter Rechenschritt 20 − (5 + 3) -> Minus (Differenz); 20 − 5 + 3 -> Plus (Summe)
+W['030'] = [opt('Mit Klammer ist es eine Differenz, ohne Klammer eine Summe', True), opt('Mit Klammer ist es eine Summe', False),
+            opt('Mit und ohne Klammer ist es eine Differenz', False), opt('Mit und ohne Klammer ist es eine Summe', False)]
+W['034'] = [opt('Die Zahlen nehmen ihre Rechenzeichen mit', 763 + 237 - 289 == 763 - 289 + 237),
+            opt('an ihrem Platz, dann darf man bei Plus', 763 - 237 + 289 == 763 - 289 + 237),
+            opt('gar nicht umstellen', False), opt('bei Mal und Geteilt', F(60, 2) * 3 == F(60, 3) * 2)]
+_fehlt = 368 * 47 - (300 * 40 + 68 * 7)
+W['036'] = [opt('300 · 7 und 68 · 40', _fehlt == 300 * 7 + 68 * 40), opt('300 · 68 und 40 · 7', _fehlt == 300 * 68 + 40 * 7),
+            opt('nur 68 · 40', _fehlt == 68 * 40), opt('nichts', _fehlt == 0)]
+W['038'] = [opt('Erst werden alle vier Eis bezahlt, danach alle vier', True), opt('und das viermal', False), opt('ein Getränk für alle', False), opt('Erst wird ein Eis bezahlt, danach alle', False)]
+W['040'] = [opt('dreimal so groß.', _q40 == 3), opt('neunmal', _q40 == 9), opt('breiteren Teils', False), opt('sechsmal', _q40 == 6)]
+_xs = range(1, 200)
+W['042'] = [opt('□ : x = 8', all(F(8 * x, x) == 8 for x in _xs)), opt('x : 8 = □', all(F(x, 8) == 8 * x for x in _xs)),
+            opt('8 : x = □', all(F(8, x) == 8 * x for x in _xs)), opt('x · □ = 8', all(x * 8 * x == 8 for x in _xs))]
+W['044'] = [opt('zu einem Drittel', all(n == x / 3 for x, n in _l44)), opt('dreimal so groß', all(n == 3 * x for x, n in _l44)),
+            opt('bleibt gleich', all(n == x for x, n in _l44)), opt('um 3 kleiner', all(n == x - 3 for x, n in _l44))]
+_mal_ohne = any(b % a for a in range(1, 30) for b in range(1, 30)); _get_ohne = False  # x = a · b gibt es immer
+W['045'] = [opt('Nur die Mal-Gleichung', _mal_ohne and not _get_ohne), opt('Nur die Geteilt-Gleichung', _get_ohne and not _mal_ohne),
+            opt('Keine der beiden', not _mal_ohne and not _get_ohne), opt('Jede der beiden', _mal_ohne and _get_ohne)]
+W['049'] = W.pop('046')
+W['055'] = [opt('4 · x + 12 − 4 = 108', _l(lambda x: 4 * x + 12 - 4 == 108) == [25]), opt('4 · x − 12 − 4', _l(lambda x: 4 * x - 12 - 4 == 108) == [25]),
             opt('4 · x − 12 + 4', _l(lambda x: 4 * x - 12 + 4 == 108) == [25]), opt('4 · x + 12 + 4', _l(lambda x: 4 * x + 12 + 4 == 108) == [25])]
 
 def main():

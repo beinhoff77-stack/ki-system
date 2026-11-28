@@ -144,7 +144,7 @@ Maßgeblich ist die jüngste Fassung: nachgerechnet aus `20261114_w150_lernkarte
 
 ## 5. Gebaut (Server-Entwurf) – `supabase/migrations/20261207_tempo_s1.sql`
 
-Nachgebessert nach den Gegenprüfungen Werkstatt 1175 und 1181/1183. Die Migration hat 11 181 Bytes  md5 `3b97578bfacff84b4078c061704d9275`.
+Nachgebessert nach den Gegenprüfungen Werkstatt 1175 und 1181/1183. Die Migration hat 11 181 Bytes, md5 `3b97578bfacff84b4078c061704d9275`.
 
 **Teil 1 – Funktion** (`schule.etappen_stand` neu, create or replace, gleiches Ergebnis):
 - Was sich ändert:

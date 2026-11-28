@@ -48,3 +48,24 @@ Für jeden Ersatz habe ich vor dem Festlegen im Bestand der Etappe (`inhalte/the
 | 122, 126 aus Runde 2b | siehe oben | – | – | – |
 
 Ehrlich offen: Bei 042, 116 und 079 bleibt eine Nähe zum Bestand im Teilkern (Klammer mit Minus, Rundungsbereich, Lage des Umkreismittelpunkts). Die Gegenprüfung sollte genau diese drei ansehen.
+
+## Nachtrag Urteil 1222 (einschließlich rollend-15)
+
+Verglichen wurden alle neu gefassten Kerne gegen Übung, Test, `themen`, `rollend-*` und die 207 Aufgaben der Runde 15 (`rollend-15`). Maßstab: gleiche Einsicht bei anderer Denkleistung darf bleiben; bloßer Zahlen- oder Namenswechsel reicht nicht.
+
+| Kennung | Neuer Kern | Nächste Bestandsaufgabe | Urteil |
+|---|---|---|---|
+| 004 | Bekommen und Zahlen gleichen sich aus | rollen (Netto-Aufgaben) | andere Denkleistung (Urteil über Gleichheit) |
+| 012, 013 | Zinssatz-Komma verschieben, Kapital und Zinssatz umgekehrt | jahreszinsen_komma (Zehnerpotenzen) | anderer Fokus (Verhältnis statt Rechnen) |
+| 023, 026 | Zeit mal Zinssatz bzw. Kapital mal Monate als Maß | zeitanteil (Zinsen für Monate) | anderer Fokus, kein Bestand mit Vergleich zweier Anlagen |
+| 030, 035 | Paare gleichartiger Glieder zählen, Wertänderung bei x + 1 | zusammenfassen (Term vereinfachen, `rollend-7` Umfang) | anderer Fokus |
+| 036 | zwei Parameter per Koeffizientenvergleich | produkte (`rollend-7`: ein Parameter) | nahe, aber zwei Unbekannte in einer Minusklammer; Rest anders |
+| 039, 040, 042 | Urteil mit Probe, gleichwertige Terme zählen, Gleichung mit Minusklammer | minusklammer (Vereinfachen) | 042 bleibt nah am Teilkern (Klammer mit Minus); siehe Zweifel |
+| 053, 061, 062 | Ausklammern mit Vollständigkeit, Quadrat gleich 0, Unterschied als Term | `aequivalenz` rollend-15 (Taxi-Terme) | anderer Kern |
+| 067, 069, 079, 080, 082 | Thales/Radius, Umkreis, Lage des Mittelpunkts | lage, `themen` (Passante-Aussage), `rollend-8` | anderer Kern; 079 teilt den Randfall 90° mit dem Bestand |
+| 087, 090, 093, 098 | Ersetzen von Ziffern, Zählen ohne führende Null, Nullen zählen, leere Klasse | stellenwert (`rollend-11`), zahlwort_zu_ziffern (`themen`: Nullen zählen) | 093 nah an „Wie viele Nullen hat das Zahlwort …“ im Bestand; dort aus dem Zahlwort in Ziffern, hier mit zusammengesetztem Zahlwort |
+| 101, 104 | Striche und Abstände, Maßstab in Zahlenbereich | strahl_ablesen (`themen`: 4. und 5. Strich) | verwandter Zaunpfahl-Gedanke, andere Denkleistung (Fortsetzen, Zählen im Bereich) |
+| 107, 112 | Breite und Grenzen des Rundungsbereichs | runden (Rundungsregel) | anderer Fokus |
+| 117 | Entscheidung aus genauen Beträgen | runden_sinnvoll (`themen`: „Fahrkarte rund 20 €“) | gleiche Einsicht, andere Denkleistung (Vergleich zweier Beträge) |
+
+Ehrlich offen: 042 (Minusklammer) und 093 (Nullen im Zahlwort) bleiben im Teilkern nahe am Bestand; die unabhängige Vorprüfung auf Commit 67a9f804 sollte beide ansehen.

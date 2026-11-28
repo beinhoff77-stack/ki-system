@@ -14,7 +14,7 @@
  "hinweis": "Vorrat für eine Folgerunde: geprüfte Aufgaben, die nach der Entscheidung „je Lernziel 5 Aufgaben“ aus der Runde genommen wurden (Schema, doppelte Denkfigur oder Bestandsnähe). Nicht Teil der Runden-JSON, vom Prüfwerkzeug nicht gezählt. Vor Aufnahme neu prüfen.",
  "aufgaben": [
   {
-   "kennung": "VT1B-VR18",
+   "kennung": "VT1B-VR14",
    "thema": "zahlen.potenzen_zehner",
    "lernkarte": "gross_wissenschaftlich",
    "pool": "test",
@@ -23,7 +23,7 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
-   "abgrenzung": "Die Übungen schreiben eine große Zahl als a · 10ⁿ; hier wird ein Fehler beim Komma-Verschieben gefunden, eine Fehlvorstellung zu den Nullen geklärt, rückwärts geschlossen und die Bedingung für den Vorfaktor begründet.",
+   "abgrenzung": "Die Übungen schreiben eine große Zahl als a · 10ⁿ; hier wird der Exponentenbereich zu Ungleichungen bestimmt, nach einem Produkt neu normiert, die Ganzzahligkeit untersucht, rückwärts geschlossen und die Bedingung für den Vorfaktor begründet.",
    "idee": "komma_ausgleich",
    "antwortform": "luecken",
    "loesung_rechnung": [
@@ -100,7 +100,67 @@
    }
   },
   {
-   "kennung": "VT1B-VR19",
+   "kennung": "VT1B-VR15",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "gross_wissenschaftlich",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
+   "abgrenzung": "Die Übungen schreiben eine große Zahl als a · 10ⁿ; hier wird der Exponentenbereich zu Ungleichungen bestimmt, nach einem Produkt neu normiert, die Ganzzahligkeit untersucht, rückwärts geschlossen und die Bedingung für den Vorfaktor begründet.",
+   "idee": "bedingung_begruenden",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Der Exponent 8 ist zu groß; man darf höchstens 10⁷ verwenden.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Höchstgrenze für den Exponenten erfunden; Exponenten dürfen beliebig groß sein"
+    },
+    {
+     "index": 2,
+     "antwort": "0,5 · 10⁸ ist eine andere Zahl als 50 000 000; richtig wäre 0,05 · 10⁸.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Wert falsch gerechnet: 0,5 · 10⁸ ist bereits 50 000 000, nur der Vorfaktor passt nicht"
+    },
+    {
+     "index": 3,
+     "antwort": "Der Vorfaktor muss eine ganze Zahl sein; 0,5 ist keine ganze Zahl.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "verlangt, dass der Vorfaktor ganzzahlig ist; auch Dezimalzahlen zwischen 1 und 10 sind erlaubt"
+    }
+   ],
+   "regel": "rr.stellenwert",
+   "aufgabe": {
+    "l": "gross_wissenschaftlich",
+    "t": "gross_wissenschaftlich",
+    "p": "sicherung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Warum ist 0,5 · 10⁸ keine wissenschaftliche Schreibweise der Zahl 50 000 000?"
+    },
+    "a": [
+     "Der Vorfaktor 0,5 ist kleiner als 1, wissenschaftlich wäre 5 · 10⁷.",
+     "Der Exponent 8 ist zu groß; man darf höchstens 10⁷ verwenden.",
+     "0,5 · 10⁸ ist eine andere Zahl als 50 000 000; richtig wäre 0,05 · 10⁸.",
+     "Der Vorfaktor muss eine ganze Zahl sein; 0,5 ist keine ganze Zahl."
+    ],
+    "o": {
+     "index": 0
+    },
+    "w": "0,5 · 10⁸ = 50 000 000 ist richtig als Wert. Es fehlt nur die Bedingung 1 ≤ a < 10: 0,5 ist kleiner als 1. Man verschiebt das Komma um eine Stelle nach rechts und verkleinert den Exponenten: 5 · 10⁷ = 50 000 000."
+   }
+  },
+  {
+   "kennung": "VT1B-VR16",
    "thema": "zahlen.potenzen_zehner",
    "lernkarte": "gross_wissenschaftlich",
    "pool": "sicherung",
@@ -109,7 +169,7 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
-   "abgrenzung": "Die Übungen schreiben eine große Zahl als a · 10ⁿ; hier wird ein Fehler beim Komma-Verschieben gefunden, eine Fehlvorstellung zu den Nullen geklärt, rückwärts geschlossen und die Bedingung für den Vorfaktor begründet.",
+   "abgrenzung": "Die Übungen schreiben eine große Zahl als a · 10ⁿ; hier wird der Exponentenbereich zu Ungleichungen bestimmt, nach einem Produkt neu normiert, die Ganzzahligkeit untersucht, rückwärts geschlossen und die Bedingung für den Vorfaktor begründet.",
    "idee": "passt_wie_oft",
    "antwortform": "zahl",
    "loesung_rechnung": "2000000000 / 400000",
@@ -156,62 +216,7 @@
    }
   },
   {
-   "kennung": "VT1B-VR20",
-   "thema": "zahlen.potenzen_zehner",
-   "lernkarte": "negativer_exponent",
-   "pool": "korrektur",
-   "typ": "darstellung",
-   "form": "bruecke",
-   "stufe": 2,
-   "zaehlt": "ja",
-   "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
-   "abgrenzung": "Die Übungen schreiben 10⁻ⁿ als Dezimalzahl; hier werden Vorfaktor und Exponent zusammen betrachtet, in Stücken gedacht, rückwärts gerechnet und die Fehlvorstellung „Minus macht negativ“ geklärt.",
-   "idee": "skalierung_rueckwaerts",
-   "antwortform": "zahl",
-   "loesung_rechnung": "0 - 8",
-   "fehlbilder": [
-    {
-     "antwort": 8,
-     "rechnung": "8",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "das Minus im Exponenten vergessen"
-    },
-    {
-     "antwort": -2,
-     "rechnung": "0 - 2",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "den Exponenten von 1 000 addiert statt abgezogen"
-    },
-    {
-     "antwort": -15,
-     "rechnung": "0 - 15",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Hochzahlen malgenommen statt abgezogen"
-    }
-   ],
-   "regel": "rr.potenz",
-   "aufgabe": {
-    "l": "negativer_exponent",
-    "t": "negativer_exponent",
-    "p": "korrektur",
-    "s": 2,
-    "g": "darstellung",
-    "y": "zahl",
-    "f": {
-     "text": "Eine Zehnerpotenz 10ⁿ ist 1 000-mal so klein wie 0,000 01. Wie groß ist n?"
-    },
-    "o": {
-     "wert": -8
-    },
-    "c": "0 - 8",
-    "w": "0,000 01 = 10⁻⁵. 1 000-mal so klein heißt durch 1 000 = 10³ teilen: 10⁻⁵ : 10³ = 10⁻⁸. Probe: 0,000 01 : 1 000 = 0,000 000 01, die 1 steht an der achten Stelle."
-   }
-  },
-  {
-   "kennung": "VT1B-VR21",
+   "kennung": "VT1B-VR17",
    "thema": "zahlen.potenzen_zehner",
    "lernkarte": "negativer_exponent",
    "pool": "sicherung",
@@ -220,7 +225,7 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
-   "abgrenzung": "Die Übungen schreiben 10⁻ⁿ als Dezimalzahl; hier werden Vorfaktor und Exponent zusammen betrachtet, in Stücken gedacht, rückwärts gerechnet und die Fehlvorstellung „Minus macht negativ“ geklärt.",
+   "abgrenzung": "Die Übungen schreiben 10⁻ⁿ als Dezimalzahl; hier werden Zehnerpotenzen verkettet, in Teilungen gedacht, rückwärts skaliert, Kehrwerte gebildet und die Mitte einer Folge von Zehnerpotenzen bestimmt.",
    "idee": "minus_macht_negativ",
    "antwortform": "luecken",
    "loesung_rechnung": [
@@ -296,7 +301,7 @@
    }
   },
   {
-   "kennung": "VT1B-VR22",
+   "kennung": "VT1B-VR18",
    "thema": "zahlen.potenzen_zehner",
    "lernkarte": "vorsilben_klein",
    "pool": "korrektur",
@@ -305,7 +310,7 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
-   "abgrenzung": "Die Übungen wandeln eine Einheit um; hier werden Modelle und Zeichnungen vergrößert, Maßzahl und Länge unterschieden, Verhältnisse über Einheiten gebildet und eine fehlerhafte Umrechnungskette berichtigt.",
+   "abgrenzung": "Die Übungen wandeln eine Einheit um; hier werden Flächen und Geschwindigkeiten mit Vorsilben gerechnet, eine Länge mit Faktor über Einheiten bestimmt und Vorsilben aus Zahlenwerten erschlossen.",
    "idee": "umrechnen_wissenschaftlich",
    "antwortform": "zahl",
    "loesung_rechnung": "0 - 3",
@@ -351,7 +356,7 @@
    }
   },
   {
-   "kennung": "VT1B-VR23",
+   "kennung": "VT1B-VR19",
    "thema": "zahlen.potenzen_zehner",
    "lernkarte": "vorsilben_klein",
    "pool": "sicherung",
@@ -360,7 +365,7 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
-   "abgrenzung": "Die Übungen wandeln eine Einheit um; hier werden Modelle und Zeichnungen vergrößert, Maßzahl und Länge unterschieden, Verhältnisse über Einheiten gebildet und eine fehlerhafte Umrechnungskette berichtigt.",
+   "abgrenzung": "Die Übungen wandeln eine Einheit um; hier werden Flächen und Geschwindigkeiten mit Vorsilben gerechnet, eine Länge mit Faktor über Einheiten bestimmt und Vorsilben aus Zahlenwerten erschlossen.",
    "idee": "fehler_kette",
    "antwortform": "luecken",
    "loesung_rechnung": [
@@ -436,7 +441,7 @@
    }
   },
   {
-   "kennung": "VT1B-VR24",
+   "kennung": "VT1B-VR20",
    "thema": "zahlen.potenzen_zehner",
    "lernkarte": "vergleichen_pruefen",
    "pool": "test",
@@ -445,7 +450,7 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
-   "abgrenzung": "Die Übungen vergleichen zwei einfache Zehnerpotenzen; hier werden nicht normierte Zahlen geordnet, Verhältnisse in Potenzform gebildet, ein Fehler beim Angleichen der Exponenten gefunden und der Vergleich begründet.",
+   "abgrenzung": "Die Übungen vergleichen zwei einfache Zehnerpotenzen; hier werden Zehnerpotenzen zwischen Grenzen gezählt, Zahlen rückwärts bestimmt, Skalenfaktoren gewählt und Bedingungen für Vorfaktoren gezählt.",
    "idee": "normalisieren_ordnen",
    "antwortform": "luecken",
    "loesung_rechnung": [
@@ -514,7 +519,7 @@
    }
   },
   {
-   "kennung": "VT1B-VR25",
+   "kennung": "VT1B-VR21",
    "thema": "zahlen.potenzen_zehner",
    "lernkarte": "vergleichen_pruefen",
    "pool": "sicherung",
@@ -523,7 +528,7 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 1 Rationale Zahlen (Zehnerpotenzen, wissenschaftliche Schreibweise, Vorsilben)",
-   "abgrenzung": "Die Übungen vergleichen zwei einfache Zehnerpotenzen; hier werden nicht normierte Zahlen geordnet, Verhältnisse in Potenzform gebildet, ein Fehler beim Angleichen der Exponenten gefunden und der Vergleich begründet.",
+   "abgrenzung": "Die Übungen vergleichen zwei einfache Zehnerpotenzen; hier werden Zehnerpotenzen zwischen Grenzen gezählt, Zahlen rückwärts bestimmt, Skalenfaktoren gewählt und Bedingungen für Vorfaktoren gezählt.",
    "idee": "angleichen_richtung",
    "antwortform": "luecken",
    "loesung_rechnung": [

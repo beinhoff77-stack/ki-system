@@ -34,13 +34,13 @@ neu(T, "prozentwert", "korrektur", "einkleidung", Z(
     form="bruecke", lp=LP, idee="behaelter_taeglich")
 
 neu(T, "prozentwert", "sicherung", "begruenden", W(
-    "Ein Laden verkauft Hefte für 350 € und Stifte für 150 €. Auf beides gibt es denselben Rabatt von 12 %. Jemand berechnet den Rabatt nicht einzeln, sondern als 12 % von 500 €. Welche Aussage stimmt?",
-    "Das stimmt, denn 0,12 · 350 + 0,12 · 150 ist dasselbe wie 0,12 · (350 + 150).",
+    "Ein Laden verkauft Hefte für h Euro und Stifte für s Euro. Auf beides gibt es denselben Rabatt von 12 %. Jemand berechnet den Rabatt nicht einzeln, sondern als 12 % vom gesamten Preis h + s. Welche Aussage stimmt?",
+    "Das stimmt, denn 0,12 · h + 0,12 · s ist dasselbe wie 0,12 · (h + s).",
     [("Das stimmt nicht, denn der Rabatt bezieht sich auf zwei verschiedene Beträge, und die darf man bei der Rechnung nicht zusammenfassen.", "gedacht, bei verschiedenen Beträgen müsse man den Prozentsatz einzeln anwenden"),
-     ("Das stimmt nicht, denn 12 % von 500 € sind mehr als die beiden einzelnen Rabatte zusammen.", "geglaubt, beim Zusammenfassen der Beträge werde der Rabatt größer"),
+     ("Das stimmt nicht, denn 12 % vom gesamten Preis sind mehr als die beiden einzelnen Rabatte zusammen.", "geglaubt, beim Zusammenfassen der Beträge werde der Rabatt größer"),
      ("Das stimmt nicht, denn nur bei gleich großen Beträgen darf man zuerst addieren und dann den Rabatt berechnen.", "geglaubt, das Zusammenfassen gehe nur bei gleichen Beträgen")],
-    "Beide Rabatte sind 12 % des jeweiligen Betrags: 0,12 · 350 € = 42 € und 0,12 · 150 € = 18 €, zusammen 60 €. 12 % von 500 € sind ebenfalls 60 €. Das gilt allgemein, weil man den gemeinsamen Faktor 0,12 ausklammern darf (Verteilungsgesetz); die Beträge müssen dafür nicht gleich groß sein.",
-    lambda: all(F(12, 100) * a + F(12, 100) * b == F(12, 100) * (a + b) for a in (350, 7, 99) for b in (150, 40, 1)) and F(12, 100) * 350 + F(12, 100) * 150 == 60 == F(12, 100) * 500), lp=LP, idee="distributiv")
+    "Beide Rabatte sind 12 % des jeweiligen Betrags: 0,12 · h und 0,12 · s. Der Faktor 0,12 steht in beiden Summanden und darf ausgeklammert werden (Verteilungsgesetz): 0,12 · h + 0,12 · s = 0,12 · (h + s). Die Beträge müssen dafür nicht gleich groß sein. Zahlenprobe: h = 350 und s = 150 geben 42 + 18 = 60, und 12 % von 500 sind ebenfalls 60.",
+    lambda: all(F(12, 100) * a + F(12, 100) * b == F(12, 100) * (a + b) for a in (350, 7, 99, 1) for b in (150, 40, 1, 12)) and F(12, 100) * 350 + F(12, 100) * 150 == 60 == F(12, 100) * 500), lp=LP, idee="distributiv")
 
 neu(T, "prozentwert", "sicherung", "einkleidung", L(
     "Bei einer Qualitätskontrolle sind 0,15 % von 40 000 Bauteilen fehlerhaft. Es sind □ Bauteile fehlerhaft und □ Bauteile fehlerfrei.",
@@ -85,19 +85,18 @@ neu(T, "grundwert", "sicherung", "begruenden", W(
     "Der gesparte Betrag ist der Prozentwert und bei beiden gleich, etwa 18 €. Annas Ziel: 18 € : 0,3 = 60 €. Bens Ziel: 18 € : 0,6 = 30 €. Je mehr Prozent derselbe Betrag ist, desto kleiner ist das Ganze: Bei doppelt so vielen Prozent ist das Ziel nur halb so groß. Das gilt für jeden Betrag.",
     lambda: all(F(b) / F(3, 10) == 2 * (F(b) / F(6, 10)) for b in (6, 18, 45, 90)) and F(18) / F(3, 10) != F(18) / F(6, 10)), lp=LP, idee="antiproportional")
 
-neu(T, "grundwert", "sicherung", "mehrschritt", Z(
-    "Im Schulbus fahren 18 Kinder, das sind 45 % aller Kinder einer Jahrgangsstufe. 30 % aller Kinder dieser Jahrgangsstufe kommen zu Fuß, alle anderen fahren mit dem Rad. Wie viele Kinder fahren mit dem Rad?",
-    10, "18 / 0.45 * (1 - 0.45 - 0.3)", "18 / 0.45 * 0.25",
-    "Alle Angaben beziehen sich auf dasselbe Ganze, die ganze Jahrgangsstufe. Aus 18 = 45 % folgt: 1 % sind 0,4 Kinder, also sind es 40 Kinder. Mit dem Rad fahren 100 % − 45 % − 30 % = 25 % von 40 Kindern, das sind 10 Kinder. Probe: 18 + 12 + 10 = 40.",
-    [B("18 / 0.45 * 0.3", "nur die Kinder gezählt, die zu Fuß kommen (30 % von allen)"),
-     B("18 / 0.45 - 18", "die Jahrgangsstufe minus die Busfahrer gerechnet, also alle Kinder, die nicht mit dem Bus fahren"),
-     B("0.25 * 18", "25 % von den 18 Kindern im Bus genommen, obwohl sich die Prozente auf alle Kinder beziehen")], einheit="Kinder"),
-    form="bruecke", lp=LP, idee="gemeinsames_ganzes")
+neu(T, "grundwert", "sicherung", "einkleidung", Z(
+    "Ein Müsli besteht zu 25 % aus Nüssen. Man gibt 150 g Nüsse dazu, danach machen die Nüsse 50 % des Müslis aus. Wie viel Gramm Müsli waren es vorher?",
+    300, "150 * 0.5 / (0.75 - 0.5)", "300",
+    "Alles außer den Nüssen bleibt gleich: Das sind vorher 75 % des alten Müslis, nachher 50 % des neuen. Das neue Müsli ist um 150 g schwerer als das alte. Es gilt: 75 % vom alten = 50 % vom alten + 50 % von 150 g, also 25 % vom alten = 75 g und das alte Müsli wiegt 75 g : 0,25 = 300 g. Probe: 25 % von 300 g sind 75 g Nüsse, dazu 150 g gibt 225 g von insgesamt 450 g, das sind 50 %.",
+    [B("150 / 0.25", "die zugegebenen Gramm als Unterschied der beiden Nussanteile gedeutet"),
+     B("150", "die zugegebene Menge als Anfangsmasse genommen"),
+     B("150 * 0.5 / (0.75 - 0.5) + 150", "das Gewicht nach der Zugabe statt vorher angegeben")], einheit="g"), form="bruecke", lp=LP, idee="muesli_nuesse")
 
 # ───────── verstehen ─────────
 neu(T, "verstehen", "test", "begruenden", W(
     "Bei Verein A sind 20 % der Mitglieder mehr Personen als 30 % der Mitglieder von Verein B. Welche Aussage über die Mitgliederzahlen folgt sicher?",
-    "Verein A hat mehr als anderthalbmal so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B.",
+    "A hat mehr als anderthalbmal so viele Mitglieder wie B, denn 20 % von A sind mehr als 30 % von B.",
     [("Verein A hat weniger Mitglieder als Verein B, denn 20 % sind weniger als 30 %.", "die Prozentzahlen verglichen und vergessen, dass sie sich auf verschiedene Ganze beziehen"),
      ("Verein A hat genau doppelt so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B.", "aus der Ungleichung einen genauen Wert gemacht; es folgt nur, dass A mehr als anderthalbmal so groß ist"),
      ("Verein A hat genau anderthalbmal so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B.", "das Verhältnis 30 : 20 als genauen Wert genommen, obwohl der Vergleich nur mehr als sagt")],

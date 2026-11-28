@@ -13,180 +13,92 @@
  "hinweis": "Vorrat für eine Folgerunde: geprüfte Aufgaben, die nach der Entscheidung „je Lernziel 5 Aufgaben“ aus der Runde genommen wurden (Schema, doppelte Denkfigur oder Bestandsnähe). Nicht Teil der Runden-JSON, vom Prüfwerkzeug nicht gezählt. Vor Aufnahme neu prüfen.",
  "aufgaben": [
   {
-   "kennung": "VT1B-VR26",
+   "kennung": "VT1B-VR22",
    "thema": "messen.flaechen_vielecke",
-   "lernkarte": "dreieck",
-   "pool": "korrektur",
-   "typ": "darstellung",
-   "form": null,
-   "stufe": 2,
-   "zaehlt": "ja",
-   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
-   "abgrenzung": "Die Übungen setzen g und h in g · h : 2 ein; hier wird erklärt, warum zwei gleiche Dreiecke ein Parallelogramm ergeben, warum die Lage der Spitze keine Rolle spielt, was ein Teilverhältnis der Grundseite bewirkt und warum +50 % und −50 % sich nicht aufheben; das Dreieck wird auch über Koordinaten berechnet.",
-   "idee": "zwei_dreiecke_parallelogramm",
-   "antwortform": "zahl",
-   "loesung_rechnung": "12 * 7 / 2",
-   "fehlbilder": [
-    {
-     "antwort": 84,
-     "rechnung": "12 * 7",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Fläche des ganzen Parallelogramms angegeben"
-    },
-    {
-     "antwort": 19,
-     "rechnung": "12 + 7",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "Grundseite und Höhe addiert"
-    },
-    {
-     "antwort": 21,
-     "rechnung": "12 * 7 / 4",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "durch 4 statt durch 2 geteilt"
-    }
-   ],
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "aufgabe": {
-    "l": "dreieck",
-    "t": "dreieck",
-    "p": "korrektur",
-    "s": 2,
-    "g": "darstellung",
-    "y": "zahl",
-    "f": {
-     "text": "Zwei gleiche Dreiecke werden so aneinandergelegt, dass ein Parallelogramm mit der Grundseite 12 cm und der Höhe 7 cm entsteht. Wie groß ist die Fläche eines der beiden Dreiecke?"
-    },
-    "o": {
-     "wert": 42,
-     "einheit": "cm²"
-    },
-    "c": "12 * 7 / 2",
-    "w": "Das Parallelogramm hat A = 12 · 7 = 84 cm². Es besteht aus zwei gleichen Dreiecken, jedes hat also die Hälfte: 84 : 2 = 42 cm². Genau deshalb wird bei der Dreiecksformel g · h durch 2 geteilt."
-   }
-  },
-  {
-   "kennung": "VT1B-VR27",
-   "thema": "messen.flaechen_vielecke",
-   "lernkarte": "dreieck",
+   "lernkarte": "rueckwaerts",
    "pool": "korrektur",
    "typ": "darstellung",
    "form": "bruecke",
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
-   "abgrenzung": "Die Übungen setzen g und h in g · h : 2 ein; hier wird erklärt, warum zwei gleiche Dreiecke ein Parallelogramm ergeben, warum die Lage der Spitze keine Rolle spielt, was ein Teilverhältnis der Grundseite bewirkt und warum +50 % und −50 % sich nicht aufheben; das Dreieck wird auch über Koordinaten berechnet.",
-   "idee": "formel_aus_koordinaten",
-   "antwortform": "auswahl",
-   "loesung_rechnung": null,
+   "abgrenzung": "Die Übungen stellen die Flächenformel nach h oder g um; hier werden Verhältnisse und Einheiten einbezogen, ein Parallelogramm zu einem Rechteck umgebaut, Gleichungen mit g · g gelöst und Ganzzahligkeit untersucht.",
+   "idee": "trapez_zu_parallelogramm",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "5 + 9",
+    "(5 + 9) * 4 / 2"
+   ],
    "fehlbilder": [
     {
-     "index": 1,
-     "antwort": "8 · 3 : 2",
+     "luecke": 1,
+     "antwort": 9,
+     "rechnung": "9",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die x-Koordinate von C als Höhe genommen"
+     "beschreibung": "nur die längere parallele Seite genommen"
     },
     {
-     "index": 2,
-     "antwort": "8 · 5",
+     "luecke": 1,
+     "antwort": 45,
+     "rechnung": "5 * 9",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Halbieren vergessen"
+     "beschreibung": "die parallelen Seiten malgenommen: 5 · 9"
     },
     {
-     "index": 3,
-     "antwort": "5 · 3 : 2",
+     "luecke": 2,
+     "antwort": 56,
+     "rechnung": "(5 + 9) * 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Koordinaten von C als Grundseite und Höhe genommen"
+     "beschreibung": "das Halbieren vergessen: 14 · 4"
+    },
+    {
+     "luecke": 2,
+     "antwort": 36,
+     "rechnung": "9 * 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die längere Seite mit der Höhe malgenommen: 9 · 4"
+    },
+    {
+     "luecke": 2,
+     "antwort": 20,
+     "rechnung": "5 * 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die kürzere Seite mit der Höhe malgenommen: 5 · 4"
     }
    ],
    "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "aufgabe": {
-    "l": "dreieck",
-    "t": "dreieck",
-    "p": "korrektur",
-    "s": 2,
-    "g": "darstellung",
-    "y": "auswahl",
-    "f": {
-     "text": "Das Dreieck ABC hat die Ecken A(0|0), B(8|0) und C(3|5) (eine Einheit ist 1 cm). Welche Rechnung gibt seinen Flächeninhalt in cm²?"
-    },
-    "a": [
-     "8 · 5 : 2",
-     "8 · 3 : 2",
-     "8 · 5",
-     "5 · 3 : 2"
-    ],
-    "o": {
-     "index": 0
-    },
-    "w": "Die Grundseite AB liegt auf der x-Achse und ist 8 cm lang. Die Höhe ist der Abstand von C zur x-Achse, also die y-Koordinate 5 cm. Es gilt A = 8 · 5 : 2 = 20 cm². Die x-Koordinate 3 von C sagt nur, wo die Spitze liegt, nicht wie hoch sie ist."
-   }
-  },
-  {
-   "kennung": "VT1B-VR28",
-   "thema": "messen.flaechen_vielecke",
-   "lernkarte": "rueckwaerts",
-   "pool": "test",
-   "typ": "rueckwaerts",
-   "form": null,
-   "stufe": 3,
-   "zaehlt": "ja",
-   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
-   "abgrenzung": "Die Übungen stellen die Flächenformel nach h oder g um; hier wird begründet, warum ein Parallelogramm einem Rechteck gleicher Fläche entspricht und zwei Trapeze ein Parallelogramm ergeben, und eine Schranke für die Fläche erkannt.",
-   "idee": "hoehe_aus_flaeche",
-   "antwortform": "zahl",
-   "loesung_rechnung": "4.5 * 10000 / 300",
-   "fehlbilder": [
-    {
-     "antwort": 75,
-     "rechnung": "45000 / 300 / 2",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "wie bei einem Dreieck durch 2 geteilt"
-    },
-    {
-     "antwort": 15,
-     "rechnung": "4500 / 300",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Hektar mit dem falschen Faktor in m² umgerechnet (um eine Null zu wenig)"
-    },
-    {
-     "antwort": 1.5,
-     "rechnung": "4.5 / 300 * 100",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Hektar nicht in m² umgerechnet"
-    }
-   ],
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "ersetzt_test": true,
    "aufgabe": {
     "l": "rueckwaerts",
     "t": "rueckwaerts",
-    "p": "test",
-    "s": 3,
-    "g": "rueckwaerts",
-    "y": "zahl",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "luecken",
     "f": {
-     "text": "Ein Feld hat die Form eines Parallelogramms ABCD. Im Koordinatensystem (eine Einheit ist 1 m) ist A(0|0) und B(300|0); die Seite DC verläuft parallel zur x-Achse. Das Feld ist 4,5 ha groß (1 ha = 10 000 m²). Welche y-Koordinate hat der Punkt D, wenn D oberhalb der x-Achse liegt?"
+     "text": "Zwei gleiche Trapeze mit den parallelen Seiten 5 cm und 9 cm und der Höhe 4 cm werden zu einem Parallelogramm zusammengelegt. Die Grundseite des Parallelogramms ist □ cm lang. Ein einzelnes Trapez hat die Fläche □ cm².",
+     "schablone": "Grundseite □ cm, Trapez □ cm²",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
-     "wert": 150,
-     "einheit": "m"
+     "werte": [
+      14,
+      28
+     ]
     },
-    "c": "4.5 * 10000 / 300",
-    "w": "4,5 ha = 45 000 m². Die Grundseite AB ist 300 m lang, die Höhe ist der Abstand der Seite DC von der x-Achse, also die y-Koordinate von D. Aus A = g · h folgt h = 45 000 : 300 = 150 m. Probe: 300 · 150 = 45 000 m²."
+    "c": [
+     "5 + 9",
+     "(5 + 9) * 4 / 2"
+    ],
+    "w": "Legt man das zweite Trapez umgedreht an das erste, ergeben die parallelen Seiten zusammen die Grundseite 5 + 9 = 14 cm; die Höhe bleibt 4 cm. Das Parallelogramm hat 14 · 4 = 56 cm², ein Trapez die Hälfte: 28 cm². So entsteht die Trapezformel (a + c) · h : 2."
    }
   },
   {
-   "kennung": "VT1B-VR29",
+   "kennung": "VT1B-VR23",
    "thema": "messen.flaechen_vielecke",
    "lernkarte": "rueckwaerts",
    "pool": "sicherung",
@@ -195,7 +107,7 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
-   "abgrenzung": "Die Übungen stellen die Flächenformel nach h oder g um; hier wird begründet, warum ein Parallelogramm einem Rechteck gleicher Fläche entspricht und zwei Trapeze ein Parallelogramm ergeben, und eine Schranke für die Fläche erkannt.",
+   "abgrenzung": "Die Übungen stellen die Flächenformel nach h oder g um; hier werden Verhältnisse und Einheiten einbezogen, ein Parallelogramm zu einem Rechteck umgebaut, Gleichungen mit g · g gelöst und Ganzzahligkeit untersucht.",
    "idee": "umstellfehler",
    "antwortform": "luecken",
    "loesung_rechnung": [
@@ -263,7 +175,63 @@
    }
   },
   {
-   "kennung": "VT1B-VR30",
+   "kennung": "VT1B-VR24",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "rueckwaerts",
+   "pool": "sicherung",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
+   "abgrenzung": "Die Übungen stellen die Flächenformel nach h oder g um; hier werden Verhältnisse und Einheiten einbezogen, ein Parallelogramm zu einem Rechteck umgebaut, Gleichungen mit g · g gelöst und Ganzzahligkeit untersucht.",
+   "idee": "parallelogramm_zu_rechteck",
+   "antwortform": "zahl",
+   "loesung_rechnung": "12 * 8",
+   "fehlbilder": [
+    {
+     "antwort": 120,
+     "rechnung": "12 * 10",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die schräge Seite statt der Höhe genommen"
+    },
+    {
+     "antwort": 72,
+     "rechnung": "12 * 8 - 6 * 8 / 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das abgeschnittene Dreieck nicht wieder angesetzt"
+    },
+    {
+     "antwort": 48,
+     "rechnung": "12 * 8 / 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie bei einem Dreieck durch 2 geteilt"
+    }
+   ],
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "sicherung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Parallelogramm hat die Grundseite 12 cm, die Höhe 8 cm und die schräge Nachbarseite 10 cm. Es wird zu einem Rechteck umgebaut: Ein rechtwinkliges Dreieck mit den Katheten 8 cm und 6 cm wird auf der einen Seite abgeschnitten und auf der anderen Seite wieder angesetzt. Wie groß ist die Fläche des Rechtecks?"
+    },
+    "o": {
+     "wert": 96,
+     "einheit": "cm²"
+    },
+    "c": "12 * 8",
+    "w": "Das abgeschnittene Dreieck wird auf der anderen Seite wieder angesetzt, die Fläche bleibt also gleich. Das Rechteck hat dieselbe Grundseite 12 cm und dieselbe Höhe 8 cm wie das Parallelogramm: A = 12 · 8 = 96 cm². Die schräge Seite 10 cm und die Kathete 6 cm spielen für die Fläche keine Rolle. Probe: Das Dreieck hat 6 · 8 : 2 = 24 cm², es geht auf der einen Seite weg und kommt auf der anderen dazu."
+   }
+  },
+  {
+   "kennung": "VT1B-VR25",
    "thema": "messen.flaechen_vielecke",
    "lernkarte": "zusammengesetzt",
    "pool": "sicherung",
@@ -272,7 +240,7 @@
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
-   "abgrenzung": "Die Übungen zerlegen eine vorgegebene Figur; hier wird eine Teilfläche rückwärts gesucht, doppelt gezählte Stücke werden erkannt, ein Viereck über Koordinaten zerlegt und Fläche und Umfang beim Zerschneiden unterschieden.",
+   "abgrenzung": "Die Übungen zerlegen eine vorgegebene Figur; hier wird eine Überlappung zurückgerechnet, eine Rahmenbreite gesucht, ein Eckdreieck über Ergänzen bestimmt, Fläche und Umfang beim Zerschneiden unterschieden und ein Viereck über Koordinaten verändert.",
    "idee": "ergaenzen_vorzeichen",
    "antwortform": "luecken",
    "loesung_rechnung": [
@@ -348,7 +316,7 @@
    }
   },
   {
-   "kennung": "VT1B-VR31",
+   "kennung": "VT1B-VR26",
    "thema": "messen.flaechen_vielecke",
    "lernkarte": "zusammengesetzt",
    "pool": "sicherung",
@@ -357,27 +325,27 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
-   "abgrenzung": "Die Übungen zerlegen eine vorgegebene Figur; hier wird eine Teilfläche rückwärts gesucht, doppelt gezählte Stücke werden erkannt, ein Viereck über Koordinaten zerlegt und Fläche und Umfang beim Zerschneiden unterschieden.",
+   "abgrenzung": "Die Übungen zerlegen eine vorgegebene Figur; hier wird eine Überlappung zurückgerechnet, eine Rahmenbreite gesucht, ein Eckdreieck über Ergänzen bestimmt, Fläche und Umfang beim Zerschneiden unterschieden und ein Viereck über Koordinaten verändert.",
    "idee": "zerlegen_rechnungen",
    "antwortform": "auswahl",
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "9 · 7 − 3 · 5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das fehlende Stück falsch bemessen: Es ist 2 cm hoch, nicht 5 cm"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "6 · 7 + 3 · 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das rechte Stück mit der Höhe des fehlenden Stücks gerechnet statt mit der Resthöhe"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "9 · 5 + 3 · 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -396,19 +364,19 @@
      "text": "Eine Figur ist 9 cm breit und 7 cm hoch. Unten rechts fehlt ein Rechteck von 3 cm Breite und 2 cm Höhe. Welche Rechnung gibt den Flächeninhalt der Figur in cm² richtig an?"
     },
     "a": [
-     "6 · 7 + 3 · 5",
      "9 · 7 − 3 · 5",
      "6 · 7 + 3 · 2",
-     "9 · 5 + 3 · 2"
+     "9 · 5 + 3 · 2",
+     "6 · 7 + 3 · 5"
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "w": "Die Figur lässt sich in zwei Rechtecke zerlegen: links 6 cm breit und 7 cm hoch, rechts 3 cm breit und 7 − 2 = 5 cm hoch. Das ergibt 6 · 7 + 3 · 5 = 42 + 15 = 57 cm². Gleichwertig ist die Ergänzung: 9 · 7 − 3 · 2 = 63 − 6 = 57 cm²."
    }
   },
   {
-   "kennung": "VT1B-VR32",
+   "kennung": "VT1B-VR27",
    "thema": "messen.flaechen_vielecke",
    "lernkarte": "verstehen",
    "pool": "korrektur",
@@ -417,7 +385,7 @@
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
-   "abgrenzung": "Die Übungen rechnen mit verdoppelten Maßen; hier wird erklärt, wie Fläche und Umfang beim Strecken wachsen, wie groß ein Anteil ist, wie sich ein Zuwachs der Höhe oder der Seite auswirkt und warum Höhen sich zur Breite ergänzen.",
+   "abgrenzung": "Die Übungen rechnen mit verdoppelten Maßen; hier wird erklärt, warum gegenüberliegende Dreiecke zusammen die halbe Fläche haben, wie sich ein Zuwachs der Höhe oder der Seite auswirkt und warum eine Strecke eine Fläche nicht halbiert.",
    "idee": "anteil_im_rechteck",
    "antwortform": "zahl",
    "loesung_rechnung": "(12 + 6) * 4 / 2 * 100 / (12 * 4)",
@@ -461,66 +429,6 @@
     },
     "c": "(12 + 6) * 4 / 2 * 100 / (12 * 4)",
     "w": "Das Trapez hat (12 + 6) · 4 : 2 = 36 cm², das Rechteck hat 12 · 4 = 48 cm². Der Anteil ist 36 : 48 = 3/4 = 75 %. Die übrigen 25 % sind die beiden Dreiecke an den Seiten."
-   }
-  },
-  {
-   "kennung": "VT1B-VR33",
-   "thema": "messen.flaechen_vielecke",
-   "lernkarte": "verstehen",
-   "pool": "sicherung",
-   "typ": "begruenden",
-   "form": null,
-   "stufe": 3,
-   "zaehlt": "ja",
-   "lehrplan": "M6 2 Flächeninhalt und Volumen (Flächeninhalt von Parallelogramm, Dreieck und Trapez; zusammengesetzte Figuren)",
-   "abgrenzung": "Die Übungen rechnen mit verdoppelten Maßen; hier wird erklärt, wie Fläche und Umfang beim Strecken wachsen, wie groß ein Anteil ist, wie sich ein Zuwachs der Höhe oder der Seite auswirkt und warum Höhen sich zur Breite ergänzen.",
-   "idee": "hoehen_ergaenzen",
-   "antwortform": "auswahl",
-   "loesung_rechnung": null,
-   "fehlbilder": [
-    {
-     "index": 0,
-     "antwort": "Sie haben zusammen nur dann 48 cm², wenn P in der Mitte liegt, denn sonst sind ihre Höhen verschieden.",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "gedacht, verschiedene Höhen änderten die Summe der Flächen; die Höhen ergeben immer zusammen die Breite"
-    },
-    {
-     "index": 1,
-     "antwort": "Sie haben zusammen immer 24 cm², egal wo P liegt, denn jedes Dreieck ist ein Viertel des Rechtecks.",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "angenommen, die vier Dreiecke seien gleich groß"
-    },
-    {
-     "index": 3,
-     "antwort": "Sie haben zusammen 96 cm², denn sie füllen das ganze Rechteck aus.",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "vergessen, dass noch zwei weitere Dreiecke an den kurzen Seiten liegen"
-    }
-   ],
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "aufgabe": {
-    "l": "verstehen",
-    "t": "verstehen",
-    "p": "sicherung",
-    "s": 3,
-    "g": "begruenden",
-    "y": "auswahl",
-    "f": {
-     "text": "In einem Rechteck (12 cm lang, 8 cm breit) liegt ein Punkt P. Er wird mit allen vier Ecken verbunden, dabei entstehen vier Dreiecke. Welche Aussage über die beiden Dreiecke, die an den langen Seiten liegen, stimmt?"
-    },
-    "a": [
-     "Sie haben zusammen nur dann 48 cm², wenn P in der Mitte liegt, denn sonst sind ihre Höhen verschieden.",
-     "Sie haben zusammen immer 24 cm², egal wo P liegt, denn jedes Dreieck ist ein Viertel des Rechtecks.",
-     "Sie haben zusammen immer 48 cm², egal wo P liegt, denn ihre Höhen ergeben zusammen die Breite 8 cm.",
-     "Sie haben zusammen 96 cm², denn sie füllen das ganze Rechteck aus."
-    ],
-    "o": {
-     "index": 2
-    },
-    "w": "Die beiden Dreiecke haben je die Grundseite 12 cm. Ihre Höhen sind die Abstände von P zu den beiden langen Seiten und ergeben zusammen die Breite 8 cm. Die Flächen sind 12 · h₁ : 2 und 12 · h₂ : 2, zusammen 12 · (h₁ + h₂) : 2 = 12 · 8 : 2 = 48 cm², also die Hälfte des Rechtecks, wo P auch liegt."
    }
   }
  ]

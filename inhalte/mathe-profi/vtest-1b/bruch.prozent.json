@@ -206,7 +206,7 @@
     },
     {
      "index": 1,
-     "antwort": "Das stimmt nicht, denn 12 % von 500 € sind mehr als die beiden einzelnen Rabatte zusammen.",
+     "antwort": "Das stimmt nicht, denn 12 % vom gesamten Preis sind mehr als die beiden einzelnen Rabatte zusammen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "geglaubt, beim Zusammenfassen der Beträge werde der Rabatt größer"
@@ -228,18 +228,18 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Ein Laden verkauft Hefte für 350 € und Stifte für 150 €. Auf beides gibt es denselben Rabatt von 12 %. Jemand berechnet den Rabatt nicht einzeln, sondern als 12 % von 500 €. Welche Aussage stimmt?"
+     "text": "Ein Laden verkauft Hefte für h Euro und Stifte für s Euro. Auf beides gibt es denselben Rabatt von 12 %. Jemand berechnet den Rabatt nicht einzeln, sondern als 12 % vom gesamten Preis h + s. Welche Aussage stimmt?"
     },
     "a": [
      "Das stimmt nicht, denn der Rabatt bezieht sich auf zwei verschiedene Beträge, und die darf man bei der Rechnung nicht zusammenfassen.",
-     "Das stimmt nicht, denn 12 % von 500 € sind mehr als die beiden einzelnen Rabatte zusammen.",
-     "Das stimmt, denn 0,12 · 350 + 0,12 · 150 ist dasselbe wie 0,12 · (350 + 150).",
+     "Das stimmt nicht, denn 12 % vom gesamten Preis sind mehr als die beiden einzelnen Rabatte zusammen.",
+     "Das stimmt, denn 0,12 · h + 0,12 · s ist dasselbe wie 0,12 · (h + s).",
      "Das stimmt nicht, denn nur bei gleich großen Beträgen darf man zuerst addieren und dann den Rabatt berechnen."
     ],
     "o": {
      "index": 2
     },
-    "w": "Beide Rabatte sind 12 % des jeweiligen Betrags: 0,12 · 350 € = 42 € und 0,12 · 150 € = 18 €, zusammen 60 €. 12 % von 500 € sind ebenfalls 60 €. Das gilt allgemein, weil man den gemeinsamen Faktor 0,12 ausklammern darf (Verteilungsgesetz); die Beträge müssen dafür nicht gleich groß sein."
+    "w": "Beide Rabatte sind 12 % des jeweiligen Betrags: 0,12 · h und 0,12 · s. Der Faktor 0,12 steht in beiden Summanden und darf ausgeklammert werden (Verteilungsgesetz): 0,12 · h + 0,12 · s = 0,12 · (h + s). Die Beträge müssen dafür nicht gleich groß sein. Zahlenprobe: h = 350 und s = 150 geben 42 + 18 = 60, und 12 % von 500 sind ebenfalls 60."
    }
   },
   {
@@ -569,36 +569,36 @@
    "thema": "bruch.prozent",
    "lernkarte": "grundwert",
    "pool": "sicherung",
-   "typ": "mehrschritt",
+   "typ": "einkleidung",
    "form": "bruecke",
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3 Prozentrechnung (Prozentwert, Grundwert und Prozentsatz; Prozente verstehen)",
    "abgrenzung": "Die Übungen berechnen den Grundwert aus Prozentwert und Prozentsatz; hier wird der Grundwert für weitere Aussagen über dasselbe Ganze gebraucht, in Darstellungen gelesen oder mit anderen Grundwerten verglichen.",
-   "idee": "gemeinsames_ganzes",
+   "idee": "muesli_nuesse",
    "antwortform": "zahl",
-   "loesung_rechnung": "18 / 0.45 * (1 - 0.45 - 0.3)",
+   "loesung_rechnung": "150 * 0.5 / (0.75 - 0.5)",
    "fehlbilder": [
     {
-     "antwort": 12,
-     "rechnung": "18 / 0.45 * 0.3",
+     "antwort": 600,
+     "rechnung": "150 / 0.25",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Kinder gezählt, die zu Fuß kommen (30 % von allen)"
+     "beschreibung": "die zugegebenen Gramm als Unterschied der beiden Nussanteile gedeutet"
     },
     {
-     "antwort": 22,
-     "rechnung": "18 / 0.45 - 18",
+     "antwort": 150,
+     "rechnung": "150",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Jahrgangsstufe minus die Busfahrer gerechnet, also alle Kinder, die nicht mit dem Bus fahren"
+     "beschreibung": "die zugegebene Menge als Anfangsmasse genommen"
     },
     {
-     "antwort": 4.5,
-     "rechnung": "0.25 * 18",
+     "antwort": 450,
+     "rechnung": "150 * 0.5 / (0.75 - 0.5) + 150",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "25 % von den 18 Kindern im Bus genommen, obwohl sich die Prozente auf alle Kinder beziehen"
+     "beschreibung": "das Gewicht nach der Zugabe statt vorher angegeben"
     }
    ],
    "regel": "id.verhaeltnisse.prozent",
@@ -607,17 +607,17 @@
     "t": "grundwert",
     "p": "sicherung",
     "s": 2,
-    "g": "mehrschritt",
+    "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Im Schulbus fahren 18 Kinder, das sind 45 % aller Kinder einer Jahrgangsstufe. 30 % aller Kinder dieser Jahrgangsstufe kommen zu Fuß, alle anderen fahren mit dem Rad. Wie viele Kinder fahren mit dem Rad?"
+     "text": "Ein Müsli besteht zu 25 % aus Nüssen. Man gibt 150 g Nüsse dazu, danach machen die Nüsse 50 % des Müslis aus. Wie viel Gramm Müsli waren es vorher?"
     },
     "o": {
-     "wert": 10,
-     "einheit": "Kinder"
+     "wert": 300,
+     "einheit": "g"
     },
-    "c": "18 / 0.45 * (1 - 0.45 - 0.3)",
-    "w": "Alle Angaben beziehen sich auf dasselbe Ganze, die ganze Jahrgangsstufe. Aus 18 = 45 % folgt: 1 % sind 0,4 Kinder, also sind es 40 Kinder. Mit dem Rad fahren 100 % − 45 % − 30 % = 25 % von 40 Kindern, das sind 10 Kinder. Probe: 18 + 12 + 10 = 40."
+    "c": "150 * 0.5 / (0.75 - 0.5)",
+    "w": "Alles außer den Nüssen bleibt gleich: Das sind vorher 75 % des alten Müslis, nachher 50 % des neuen. Das neue Müsli ist um 150 g schwerer als das alte. Es gilt: 75 % vom alten = 50 % vom alten + 50 % von 150 g, also 25 % vom alten = 75 g und das alte Müsli wiegt 75 g : 0,25 = 300 g. Probe: 25 % von 300 g sind 75 g Nüsse, dazu 150 g gibt 225 g von insgesamt 450 g, das sind 50 %."
    }
   },
   {
@@ -672,7 +672,7 @@
     "a": [
      "Verein A hat weniger Mitglieder als Verein B, denn 20 % sind weniger als 30 %.",
      "Verein A hat genau doppelt so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B.",
-     "Verein A hat mehr als anderthalbmal so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B.",
+     "A hat mehr als anderthalbmal so viele Mitglieder wie B, denn 20 % von A sind mehr als 30 % von B.",
      "Verein A hat genau anderthalbmal so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B."
     ],
     "o": {

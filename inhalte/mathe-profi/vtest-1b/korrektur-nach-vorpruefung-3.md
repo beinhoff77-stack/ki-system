@@ -28,7 +28,7 @@ Vorläufige Kennungen 001 bis 015 (drei Lernziele je 5 Aufgaben). Alle 301 Besta
 | Lernziel | Aufgaben | Schema (streng) | Denkfiguren |
 |---|---|---|---|
 | prozentwert | 001 Test, 002, 003, 004, 005 | 005 | 5: Prozentwert bleibt, Ganzes wächst (001), Ganzzahligkeit über den gekürzten Bruch (002), gleichbleibender Anteil am Anfangswert statt am Rest (003), Verteilungsgesetz begründen (004), Komma bei Bruchteilen von Prozent (005) |
-| grundwert | 006 Test, 007, 008, 009, 010 | 010 | 5: gleichbleibender Teil bei wechselndem Ganzen (006), Unterschied zweier Anteile als Prozentwert (007), Winkel im Kreisdiagramm zurück zum Ganzen (008), gleicher Betrag bei doppeltem Prozentsatz (009), ein Ganzes mit mehreren Anteilen (010) |
+| grundwert | 006 Test, 007, 008, 009, 010 | keine (008 grenzwertig) | 5: gleichbleibender Teil bei wechselndem Ganzen (006), Unterschied zweier Anteile als Prozentwert (007), Winkel im Kreisdiagramm zurück zum Ganzen (008), gleicher Betrag bei doppeltem Prozentsatz (009), Anteil nach Zugabe, Rest bleibt gleich (010) |
 | verstehen | 011 Test, 012, 013, 014, 015 | 015 | 5: Prozente auf verschiedene Ganze (011), Anteil steigt beim kleiner werdenden Ganzen (012), Ganzes wechselt in der Frage (013), Parameter mit zwei Bedingungen (014), „um“ gegen „auf“ (015) |
 
 Geschlossen (Befund, dann wie):
@@ -38,6 +38,31 @@ Geschlossen (Befund, dann wie):
 - Auswahl-Aufgaben (004, 009, 011): jede falsche Möglichkeit hat eine falsche Folgerung; „Ja/Nein“-Lücken gibt es keine; die richtige Möglichkeit ist nirgends die längste.
 - Gestrichen in den Vorrat (nicht in der Runde): fehler_komma, grundwerte_vergleichen, eins_prozent, fehler_multiplizieren. Als Bestandskerne ganz gestrichen: kopfrechnen_zwei_wege, rest_ueber_prozente, groessenordnung, bruch_prozent_wert, winkel_im_kreisdiagramm, grundwert_direkt, fehlbetrag, anteil_von_anteil, ganzes_aendert_sich, anteil_vom_rest, anzahl_oder_anteil, darstellungen_vergleichen.
 
-## Offen (weitere Wellen)
+## Welle 2b: terme.potenzgesetze, zahlen.potenzen_zehner, messen.flaechen_vielecke, fertig
 
-terme.potenzgesetze, zahlen.potenzen_zehner, messen.flaechen_vielecke: Durchsicht nach dem strengen Maßstab (Bestand, Schema, Test, Typ); README-Tabellen (Schema, Denkfiguren, Bestandshinweise) nach der letzten Welle mit nachgezählten Werten.
+Je Lernziel 5 Aufgaben (1 Test, 2 Korrektur, 2 Sicherung); die schwächste Korrektur- und Sicherungs-Aufgabe liegt im Vorrat (`vorrat-folgerunde/`). Alle Bestandsaufgaben der Etappe (Themenliste und `rollend-*` mit `rollend-15`) wurden vor jedem Ersatz gelesen. Kennungen: terme 036 bis 045, zehner 046 bis 065, messen 066 bis 085.
+
+| Lernziel | Aufgaben | Schema (streng) | Denkfiguren |
+|---|---|---|---|
+| terme / negativer_exponent | 036 Test, 037, 038, 039, 040 | 039 | 5 (Zählen im Bereich, Papierformate, Basis gesucht, Längen mit Begründung, Lage zwischen Zehnerpotenzen) |
+| terme / fehler_finden | 041 Test, 042, 043, 044, 045 | 043 | 5 (Potenzturm, Volumen, Vertauschen, Binom über −50 bis 50, Binom größer) |
+| zehner / gross_wissenschaftlich | 046 Test, 047, 048, 049, 050 | 050 | 5 |
+| zehner / negativer_exponent | 051 Test, 052, 053, 054, 055 | keine | 5 |
+| zehner / vorsilben_klein | 056 Test, 057, 058, 059, 060 | 059 | 5 |
+| zehner / vergleichen_pruefen | 061 Test, 062, 063, 064, 065 | 063 | 5 |
+| messen / dreieck | 066 Test, 067, 068, 069, 070 | 070 | 5 |
+| messen / rueckwaerts | 071 Test, 072, 073, 074, 075 | 073 | 5 |
+| messen / zusammengesetzt | 076 Test, 077, 078, 079, 080 | 079 | 5 |
+| messen / verstehen | 081 Test, 082, 083, 084, 085 | 085 | 5 |
+
+Geschlossen (Befund, dann wie):
+- Neue Kerne statt Bestandsnähe: papier_klein (037), potenzen_vertauscht (043), a_mal_vier (050), differenz_flaechen_g (073) und schnitt_umfang (079) sind neu gebaut; die vorherigen Aufgaben mit Bestandskern oder zweitem Schema liegen im Vorrat (differenz_teilen, bedingung_begruenden, parallelogramm_zu_rechteck) oder sind gestrichen.
+- Doppelung mit Bestand „Wie viele Nullen hat 10ⁿ“ und „Rechteck 6 cm hoch“ (Werkzeug) durch andere Zahlen beseitigt (Kehrwert-Filter mit Exponent 9, Flächenunterschied mit Höhe 8).
+- Ehrlicher Typ: jede Aufgabe trägt einen Typ aus der Verstehens-Liste oder eine Verstehens-Form; keine „Ja/Nein“-Lücken; keine Auswahl mit richtiger Folgerung und falscher Begründung; die richtige Auswahl-Möglichkeit ist nirgends die längste und nirgends das einzige Wort mit „kleiner“ oder „größer“.
+- Gestrichen in den Vorrat: terme differenz_teilen; zehner bedingung_begruenden, komma_ausgleich, passt_wie_oft, minus_macht_negativ, umrechnen_wissenschaftlich, fehler_kette, normalisieren_ordnen, angleichen_richtung; messen umstellfehler, ergaenzen_vorzeichen, zerlegen_rechnungen, anteil_im_rechteck, trapez_zu_parallelogramm, parallelogramm_zu_rechteck.
+
+Offene Zweifel: 036 (nah an „erste Potenz unter 0,01“), 041 (Potenzturm in Jgst. 6?), 068 (Bestand „verdoppeln“), 082 (Bestand „a 3 cm länger“), 008 (`rollend-6` Nr. 16), 013 (Schema-Grenzfall); die Kennungen von gleichungen.bruch (016 bis 035) verschieben sich beim Zusammenführen mit `schreiber-w1-e20`.
+
+## Offen
+
+Nichts mehr in dieser Fassung; `tools/vtest_pruefen.py` meldet nur noch die Aufgabenanzahl je Lernziel (Soll 1/3/3, hier 1/2/2).

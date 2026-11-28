@@ -384,11 +384,9 @@
    "klasse_gym_by": 6,
    "lernkarten": {
     "stellenwerte": {
-     "regel": "rr.stellenwert",
+     "regel": null,
      "weitere": [],
-     "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "2/3"
+     "quelle": "offen"
     },
     "vergleichen_ordnen": {
      "regel": null,
@@ -425,13 +423,15 @@
      "regel": "id.zahlen.schreibweisen",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 6,
-     "anteil": "6/6"
+     "aufgaben": 4,
+     "anteil": "4/4"
     },
     "verstehen": {
-     "regel": null,
+     "regel": "rr.stellenwert",
      "weitere": [],
-     "quelle": "offen"
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "2/3"
     }
    }
   },
@@ -2948,8 +2948,8 @@
      "regel": "id.flaeche_raum.aus_dem_quader",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 6,
-     "anteil": "6/6"
+     "aufgaben": 4,
+     "anteil": "4/4"
     },
     "oberflaeche": {
      "regel": "id.flaeche_raum.haut",
@@ -3079,10 +3079,12 @@
    "lernkarten": {
     "prisma_volumen": {
      "regel": "id.flaeche_raum.aus_dem_rechteck",
-     "weitere": [],
+     "weitere": [
+      "id.flaeche_raum.aus_dem_quader"
+     ],
      "quelle": "aufgaben",
      "aufgaben": 7,
-     "anteil": "6/7"
+     "anteil": "5/7"
     },
     "prisma_oberflaeche": {
      "regel": "id.flaeche_raum.haut",
@@ -3092,18 +3094,14 @@
      "anteil": "6/6"
     },
     "prisma_umstellen": {
-     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "regel": null,
      "weitere": [],
-     "quelle": "aufgaben",
-     "aufgaben": 6,
-     "anteil": "6/6"
+     "quelle": "offen"
     },
     "zylinder_volumen": {
-     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "regel": null,
      "weitere": [],
-     "quelle": "aufgaben",
-     "aufgaben": 6,
-     "anteil": "6/6"
+     "quelle": "offen"
     },
     "zylinder_oberflaeche": {
      "regel": "id.flaeche_raum.haut",
@@ -3120,11 +3118,9 @@
      "anteil": "5/6"
     },
     "verstehen": {
-     "regel": "id.flaeche_raum.aus_dem_rechteck",
+     "regel": null,
      "weitere": [],
-     "quelle": "aufgaben",
-     "aufgaben": 6,
-     "anteil": "5/6"
+     "quelle": "offen"
     },
     "cavalieri": {
      "regel": "id.flaeche_raum.aus_dem_quader",
@@ -3154,14 +3150,18 @@
      "anteil": "6/6"
     },
     "einheiten": {
-     "regel": "id.flaeche_raum.auslegen",
+     "regel": "id.verhaeltnisse.groesse",
      "weitere": [],
-     "quelle": "thema"
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
     },
     "liter": {
-     "regel": "id.flaeche_raum.auslegen",
+     "regel": "id.verhaeltnisse.groesse",
      "weitere": [],
-     "quelle": "thema"
+     "quelle": "aufgaben",
+     "aufgaben": 3,
+     "anteil": "3/3"
     },
     "rueckwaerts": {
      "regel": "id.flaeche_raum.aus_dem_quader",
@@ -3178,9 +3178,11 @@
      "anteil": "6/6"
     },
     "verstehen": {
-     "regel": null,
+     "regel": "id.flaeche_raum.aus_dem_quader",
      "weitere": [],
-     "quelle": "offen"
+     "quelle": "aufgaben",
+     "aufgaben": 4,
+     "anteil": "4/4"
     }
    }
   },
@@ -3259,22 +3261,20 @@
      "regel": "id.flaeche_raum.haut",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "aufgaben": 4,
+     "anteil": "3/4"
     },
     "rotation": {
-     "regel": "id.flaeche_raum.haut",
+     "regel": null,
      "weitere": [],
-     "quelle": "aufgaben",
-     "aufgaben": 3,
-     "anteil": "3/3"
+     "quelle": "offen"
     },
     "axialschnitt": {
      "regel": "id.flaeche_raum.haut",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 4,
-     "anteil": "4/4"
+     "aufgaben": 5,
+     "anteil": "4/5"
     },
     "wahre_groesse": {
      "regel": "id.flaeche_raum.haut",
@@ -3436,15 +3436,13 @@
      "regel": "id.daten.anteil",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 8,
-     "anteil": "8/8"
+     "aufgaben": 6,
+     "anteil": "5/6"
     },
     "rel_haeufigkeit": {
-     "regel": "id.daten.anteil",
+     "regel": null,
      "weitere": [],
-     "quelle": "aufgaben",
-     "aufgaben": 8,
-     "anteil": "8/8"
+     "quelle": "offen"
     },
     "laplace": {
      "regel": "id.daten.anteil",
@@ -3478,8 +3476,8 @@
      "regel": "id.daten.stufen",
      "weitere": [],
      "quelle": "aufgaben",
-     "aufgaben": 4,
-     "anteil": "4/4"
+     "aufgaben": 5,
+     "anteil": "4/5"
     }
    }
   },
@@ -4967,11 +4965,24 @@
   },
   {
    "thema": "bruch.dezimal",
-   "lernkarte": "vergleichen_ordnen",
-   "grund": "Thema steht bei 3 Regeln; Aufgaben: rr.stellenwert 1 (zu wenige)",
+   "lernkarte": "stellenwerte",
+   "grund": "Aufgaben uneinig (rr.stellenwert 3, id.verhaeltnisse.groesse 1, id.zahlen.buendeln 1)",
    "kandidaten": [
+    "id.verhaeltnisse.groesse",
     "id.zahlen.buendeln",
     "id.zahlen.schreibweisen",
+    "rr.stellenwert"
+   ]
+  },
+  {
+   "thema": "bruch.dezimal",
+   "lernkarte": "vergleichen_ordnen",
+   "grund": "Aufgaben uneinig (id.verhaeltnisse.groesse 1, id.zahlen.zahlengerade 1, rr.stellenwert 1)",
+   "kandidaten": [
+    "id.verhaeltnisse.groesse",
+    "id.zahlen.buendeln",
+    "id.zahlen.schreibweisen",
+    "id.zahlen.zahlengerade",
     "rr.stellenwert"
    ]
   },
@@ -4979,16 +4990,6 @@
    "thema": "bruch.dezimal",
    "lernkarte": "runden",
    "grund": "Thema steht bei 3 Regeln",
-   "kandidaten": [
-    "id.zahlen.buendeln",
-    "id.zahlen.schreibweisen",
-    "rr.stellenwert"
-   ]
-  },
-  {
-   "thema": "bruch.dezimal",
-   "lernkarte": "verstehen",
-   "grund": "Thema steht bei 3 Regeln; Aufgaben: rr.stellenwert 1 (zu wenige)",
    "kandidaten": [
     "id.zahlen.buendeln",
     "id.zahlen.schreibweisen",
@@ -5643,12 +5644,39 @@
    ]
   },
   {
-   "thema": "messen.volumen",
-   "lernkarte": "verstehen",
-   "grund": "Thema hat genau id.flaeche_raum.auslegen, eine Aufgabe trägt aber id.flaeche_raum.aus_dem_quader",
+   "thema": "messen.prisma_zylinder",
+   "lernkarte": "prisma_umstellen",
+   "grund": "Aufgaben uneinig (id.flaeche_raum.aus_dem_quader 3, id.flaeche_raum.aus_dem_rechteck 3)",
    "kandidaten": [
     "id.flaeche_raum.aus_dem_quader",
-    "id.flaeche_raum.auslegen"
+    "id.flaeche_raum.aus_dem_rechteck"
+   ]
+  },
+  {
+   "thema": "messen.prisma_zylinder",
+   "lernkarte": "zylinder_volumen",
+   "grund": "Aufgaben uneinig (id.flaeche_raum.aus_dem_quader 3, id.flaeche_raum.aus_dem_rechteck 3)",
+   "kandidaten": [
+    "id.flaeche_raum.aus_dem_quader",
+    "id.flaeche_raum.aus_dem_rechteck"
+   ]
+  },
+  {
+   "thema": "messen.prisma_zylinder",
+   "lernkarte": "verstehen",
+   "grund": "Aufgaben uneinig (id.flaeche_raum.aus_dem_quader 3, id.flaeche_raum.aus_dem_rechteck 3)",
+   "kandidaten": [
+    "id.flaeche_raum.aus_dem_quader",
+    "id.flaeche_raum.aus_dem_rechteck"
+   ]
+  },
+  {
+   "thema": "raum.schraegbilder",
+   "lernkarte": "rotation",
+   "grund": "Aufgaben uneinig (id.flaeche_raum.aus_dem_quader 3, id.flaeche_raum.haut 3)",
+   "kandidaten": [
+    "id.flaeche_raum.aus_dem_quader",
+    "id.flaeche_raum.haut"
    ]
   },
   {
@@ -5740,6 +5768,17 @@
    "lernkarte": "sach",
    "grund": "Thema steht in keiner Themenliste",
    "kandidaten": []
+  },
+  {
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "rel_haeufigkeit",
+   "grund": "Aufgaben uneinig (id.daten.anteil 5, id.verhaeltnisse.prozent 3)",
+   "kandidaten": [
+    "id.daten.anteil",
+    "id.daten.kennzahl",
+    "id.daten.teil_ganzes",
+    "id.verhaeltnisse.prozent"
+   ]
   },
   {
    "thema": "stochastik.mehrstufig",

@@ -193,6 +193,7 @@ def sammeln(runden, ohne=()):
 # 0 Regeln). Die Regel-Kennung steht seit dem Nachtrag in den Dateien (inhalte/mathe-profi/rollend-14/regeln.py), kommt aber nur über rb_nachtrag_r14.sql
 # in die Datenbank. Damit das alte Paket bei jedem Neuerzeugen byteidentisch bleibt, lässt zeilen_neu die Regel dieser Kennungen weg.
 REGEL_ERST_IM_NACHTRAG = ('R14-',)
+FEHLBILD_NUR_LESEN_RUNDEN = (14,)   # Nachtrag dieser Runden schreibt keine Fehlbilder (sie sind mit der Runde eingespielt), vergleicht sie nur lesend
 
 
 def zeilen_neu(plan, je):
@@ -214,8 +215,11 @@ def q(s):
     return 'null' if s is None else "'" + str(s).replace("'", "''") + "'"
 
 
-def block(zeilen, titel, probe=False):
-    """SQL-Block: prüft Zuordnung, fügt ein (on conflict nichts), prüft jedes Fehlbild an der Datenbank. Eine Transaktion (ein Aufruf)."""
+def block(zeilen, titel, probe=False, fb_lesen=False):
+    """SQL-Block: prüft Zuordnung, fügt ein (on conflict nichts), prüft jedes Fehlbild an der Datenbank. Eine Transaktion (ein Aufruf).
+    fb_lesen (nur Runde 14, FEHLBILD_NUR_LESEN_RUNDEN): schreibt NICHTS in schule.aufgabe_fehlbild; die Fehlbilder (schon mit der Runde eingespielt) werden nur
+    gelesen und feldweise mit dem Soll verglichen (fehlend, zusätzlich oder abweichend = Abbruch, alles zurück, auch die Regeln). Neue Regeln: nur alle (Erstlauf)
+    oder keine (vollständige Wiederholung); ein Teilvorbestand bricht ab."""
     werte = []
     for x in zeilen:
         js = json.dumps(x['fb'], ensure_ascii=False)
@@ -226,7 +230,7 @@ def block(zeilen, titel, probe=False):
     n_fb = sum(len(x['fb']) for x in zeilen)
     ende = ("  raise exception 'PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt): % Aufgaben, % Regeln neu, % Fehlbilder neu', "
             "array_length(v_ids, 1), n_regel_neu, n_fb_neu;\n" if probe else '')
-    return f"""-- RB-S Regelbezug: {titel}: {len(zeilen)} Aufgaben, {n_regel} Regeln, {n_fb} Fehlbilder. Ein Aufruf, eine Transaktion; Abweichung = alles zurück.
+    text = f"""-- RB-S Regelbezug: {titel}: {len(zeilen)} Aufgaben, {n_regel} Regeln, {n_fb} Fehlbilder. Ein Aufruf, eine Transaktion; Abweichung = alles zurück.
 select set_config('lock_timeout', '3s', true), set_config('statement_timeout', '120s', true);
 do $rbnach$
 declare z record; a schule.aufgabe; n int; f jsonb; b jsonb; v jsonb; fehler text[] := '{{}}'; v_ids bigint[] := '{{}}'; v_alt schule.aufgabe_fehlbild;
@@ -281,6 +285,24 @@ begin
 {ende}  raise notice 'RB-S Regelbezug: % Aufgaben, % Regeln neu, % Fehlbilder neu (zweiter Lauf: 0 und 0)', array_length(v_ids, 1), n_regel_neu, n_fb_neu;
 end $rbnach$;
 """
+    if not fb_lesen:
+        return text
+    teile = [
+        ("""      insert into schule.aufgabe_fehlbild (aufgabe_id, nr, art, luecke, wert, beschreibung, fehlbild, regel)
+      values (a.id, (f->>'nr')::smallint, f->>'art', (f->>'luecke')::smallint, f->>'wert', f->>'text', f->>'fehlbild', f->>'regel') on conflict do nothing;
+      get diagnostics c = row_count; n_fb_neu := n_fb_neu + c;
+""", ""),
+        ("Fehlbild %s steht schon anders da (oder gleicher Schlüssel unter anderer Nummer)", "Fehlbild %s fehlt oder weicht vom Soll ab (nur lesender Vergleich, es wird nichts geschrieben)"),
+        ("  if coalesce(array_length(v_ids, 1), 0) <> ",
+         "  if n_regel_neu not in (0, " + str(n_regel) + ") then\n    raise exception 'RB-S Regelbezug ABBRUCH: % Regeln neu, erlaubt sind nur 0 (Wiederholung) oder " + str(n_regel) + " (Erstlauf) – Teilvorbestand', n_regel_neu; end if;\n"
+         "  if coalesce(array_length(v_ids, 1), 0) <> "),
+        ("-- RB-S Regelbezug: " + titel + ":", "-- RB-S Regelbezug (Fehlbilder nur lesend verglichen, nicht geschrieben): " + titel + ":"),
+    ]
+    for alt, neu in teile:
+        assert text.count(alt) == 1, alt[:60]
+        text = text.replace(alt, neu)
+    assert 'insert into schule.aufgabe_fehlbild' not in text
+    return text
 
 
 def main():
@@ -296,7 +318,7 @@ def main():
         if not zeilen:
             print('ABBRUCH: nichts zu übernehmen', file=sys.stderr); sys.exit(1)
         for a in abw: print('Abweichung:', a, file=sys.stderr)
-        print(block(zeilen, f'Nachtrag rollend-{",".join(map(str, runden))}', '--probe' in argv), end='')
+        print(block(zeilen, f'Nachtrag rollend-{",".join(map(str, runden))}', '--probe' in argv, fb_lesen=all(r in FEHLBILD_NUR_LESEN_RUNDEN for r in runden)), end='')
         return
     print(f'Runden {",".join(map(str, runden))}: {z["aufgaben"]} Aufgaben, mit Regel {z["mit_regel"]}; Fehlbilder {z["fehlbilder"]} '
           f'(mit Kennung {z["fehlbilder_mit_kennung"]}), übernehmbar {z["fb_uebernommen"]} (mit Kennung {z["fb_uebernommen_mit_kennung"]}); '

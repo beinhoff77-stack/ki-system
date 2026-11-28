@@ -318,8 +318,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -368,8 +368,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -417,8 +417,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -467,8 +467,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -517,8 +517,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -566,8 +566,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -916,8 +916,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -966,8 +966,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1016,8 +1016,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
    "zaehlt": "ja",
    "fehlbilder": [
     {

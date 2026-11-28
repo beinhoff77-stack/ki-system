@@ -47,7 +47,7 @@ function parseHash() {
 }
 window.addEventListener('hashchange', render);
 
-const KIND_ANSICHTEN = ['reise', 'weltkarte', 'reisepass', 'lerneinheit', 'weg', 'merkheft', 'wiederholen', 'expedition', 'stationen', 'regeln']; // RU-App: regeln (Kinderansicht; viewRegeln setzt den Kindmodus selbst)
+const KIND_ANSICHTEN = ['reise', 'weltkarte', 'reisepass', 'lerneinheit', 'weg', 'merkheft', 'wiederholen', 'expedition', 'stationen', 'regeln', 'route']; // RU-App: regeln (Kinderansicht; viewRegeln setzt den Kindmodus selbst); LM-6: route („Meine Route“, nur das eigene Kind, nichts zum Ändern)
 function setChrome(title, { back = false } = {}) {
   document.body.dataset.area = 'lernen';
   document.body.toggleAttribute('data-kindmodus', KIND_ANSICHTEN.includes(current.view));
@@ -65,12 +65,9 @@ $('#btn-abmelden').addEventListener('click', async () => {
 
 function loading(text = 'Lade …') { main.replaceChildren(el('div', { class: 'spinner' }, text)); }
 function showError(e) {
-  // Lernbereich: verständlich für Kinder, mit „Nochmal versuchen“ statt stehendem „Lade …“.
+  // Lernbereich: verständlich für Kinder, mit „Nochmal versuchen“ statt stehendem „Lade …“; der technische Text nur hinter „Einzelheiten“ (lernFehlerSeite)
   if (document.body.hasAttribute('data-kindmodus') || document.body.dataset.area === 'lernen') {
-    main.replaceChildren(el('div', { class: 'card lern-fehlerseite' }, el('h2', {}, 'Das hat gerade nicht geklappt.'),
-      el('p', {}, 'Prüfe das Internet und versuch es nochmal.'),
-      el('button', { type: 'button', class: 'primary', onclick: () => render() }, 'Nochmal versuchen'),
-      el('p', { class: 'small muted' }, String(e?.message || e))));
+    main.replaceChildren(lernFehlerSeite(e, () => render()));
     return;
   }
   main.append(el('div', { class: 'card err-text' }, 'Fehler: ' + (e?.message || e)));

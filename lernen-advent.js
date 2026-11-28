@@ -421,9 +421,14 @@ const funkenEl = () => el('div', { class: 'adv-funken', 'aria-hidden': 'true' },
 const FEHLER_KIND = [[/nur in der App des Kindes/, 'Türchen öffnen geht nur in der App des Kindes.'], [/Nicht angemeldet/, 'Bitte neu anmelden.'], [/Kein Zugriff|nicht gefunden/, 'Dieses Türchen gehört nicht hierher.']];
 const freundlich = (e) => (FEHLER_KIND.find(([re]) => re.test(String(e?.message || '')))?.[1] || 'Das Türchen klemmt gerade. Versuch es gleich noch einmal.');
 // st: Stand (bereit, naechste_nr, heute, tag_nr, offen_heute …); weiter(): ursprüngliches Ziel; quelle: 'etappe' | 'kalender'
-function tuerZeigen({ kindObj, kindId, stand, weiter, weiterText = 'Weiter', quelle = 'etappe', zeigeTuer = null }) {
+// Server-Gründe für „nicht geöffnet“, die die App kennt (server.md 3.2); andere (z. B. „andere Tür“/„schon offen“ nach erwartet_nr) → Stand neu laden
+const GRUND_BEKANNT = ['keine_etappe', 'limit', 'alles_offen', 'nachholen_vorbei'];
+function tuerZeigen(args) {
+  const { kindObj, kindId, stand, weiter: weiter0, weiterText = 'Weiter', quelle = 'etappe', zeigeTuer = null, neuVersuch = 0 } = args;
   const kid = Number(kindId); const nr0 = Number(stand.naechste_nr); const wenig = lernWenigBewegung();
   const tok0 = store.token; const cid = lernCid(); let sperre = false; let fertig = false;
+  // Urteil 1219/3: vor jedem Weiter Zugang und Ansicht prüfen (die Hülle muss noch da sein, der Zugang derselbe)
+  const weiter = () => { if (store.token === tok0 && huelle.isConnected) weiter0(); };
   const nachgeholt = stand.phase !== 'laeuft' || nr0 < Number(stand.tag_nr);
   const zweite = Number(stand.offen_heute) >= 1;
   const rahmen = tuerRahmen(nr0, tuerSorte(nr0), `Türchen ${nr0} öffnen`);
@@ -446,17 +451,25 @@ function tuerZeigen({ kindObj, kindId, stand, weiter, weiterText = 'Weiter', que
   async function oeffne() {
     if (sperre || fertig) return; gesperrt(true); meldung.hidden = true; // synchron vor dem ersten await: Doppeltipp/Tastatur öffnet einmal
     let r;
-    try { r = await lernCall('schule_advent_oeffnen', { lernender_id: kid, client_id: cid }); } // Netz-Wiederholung: dieselbe client_id
+    // Urteil 1219/3: erwartete Tür mitsenden (zwei Geräte, zwei freie Etappen: der Server prüft unter Sperre) – server.md (helfer-advent-s2) Abschnitt 0
+    try { r = await lernCall('schule_advent_oeffnen', { lernender_id: kid, client_id: cid, erwartet_nr: nr0 }); } // Netz-Wiederholung: dieselbe client_id
     catch (e) { if (!huelle.isConnected || store.token !== tok0) return; gesperrt(false); meldung.hidden = false; meldung.textContent = freundlich(e); return; }
     if (!huelle.isConnected || store.token !== tok0) return; // Antwort gehört zu dieser Ansicht und diesem Zugang
     lernAdventVergessen(kid);
+    if (r && r.aktiv !== false && r.geoeffnet && r.schon_offen && r.tuer) { zeige(r.tuer, { schon: true }); return; } // anderes Gerät war schneller: Tür zeigen, nichts gebucht, kein Jubel
+    if (r && r.aktiv !== false && r.geoeffnet === false && !GRUND_BEKANNT.includes(r.grund)) { // „andere_tuer“ (veraltete Anzeige) oder ein neuer Grund: nichts öffnen, mit dem Stand neu
+      let st = r.stand?.aktiv ? r.stand : null; if (!st) { try { st = await lernAdventStand(kid, { frisch: true, immer: true }); } catch { /* still */ } }
+      if (!huelle.isConnected || store.token !== tok0) return;
+      if (st?.aktiv && st.bereit && st.naechste_nr && neuVersuch < 1) { tuerZeigen({ ...args, stand: st, neuVersuch: neuVersuch + 1 }); return; } // die jetzt richtige Tür, einmal
+      weiter(); return;
+    }
     if (!r || r.aktiv === false || r.geoeffnet === false) { // erwartbare Zustände: still weiter; zweites Gerät – das zuletzt geöffnete zeigen
       if (r?.letzte_nr) { try { const x = await lernCall('schule_advent_tuer_lesen', { lernender_id: kid, nr: Number(r.letzte_nr) });
         if (huelle.isConnected && store.token === tok0 && x?.tuer) { zeige(x.tuer, { schon: true }); return; } } catch { /* still weiter */ } }
       if (huelle.isConnected) weiter(); return;
     }
-    if (r.sterne_gutgeschrieben) lernVergessen(kid); // Konto und Sterne-Chip neu laden
-    zeige(r.tuer, { r });
+    if (r.tuer?.sterne_gutgeschrieben && !r.wiederholt) lernVergessen(kid); // Konto und Sterne-Chip neu laden (Urteil 1219/2: der Server liefert es in r.tuer)
+    zeige(r.tuer, { r: r.wiederholt ? null : r, schon: !!r.wiederholt && !!r.schon_offen });
   }
   function zeige(t, { r = null, schon = false } = {}) {
     fertig = true; const sorte = sorteVon(t); const nr = Number(t.nr) || nr0;
@@ -638,6 +651,12 @@ async function lernAdventGutscheinSeite(arg) {
       el('div', { class: 'gs-in' }, grafik(HUF, 'kr-huf2', 'span'), el('h3', {}, x.titel || 'Aufgabe'), x.text ? el('p', {}, x.text) : null), el('div', { class: 'gs-perf', 'aria-hidden': 'true' }),
       el('div', { class: 'gs-fuss' }, el('span', { class: 'gs-status' }, erl ? '✓ Erledigt – Mama oder Papa haben abgehakt.' : '☐ Erledigt? Mama oder Papa haken ab.'))); // kein Knopf für das Kind
   }
+  // Fokus nach dem Einlösen (Urteil 1219/8): zum nächsten offenen Gutschein; gibt es keinen mehr, auf die eingelöste Karte selbst (nicht ins Leere)
+  function fokusNachEinloesen(x, still = false) {
+    const naechst = liste.querySelector('.gs2.offen .gs-ein');
+    if (naechst && !still) { naechst.focus(); return; }
+    const li = liste.querySelector(`[data-id="${x.id}"]`); if (!li) return; li.setAttribute('tabindex', '-1'); li.focus({ preventScroll: still });
+  }
   function frage(fuss, x) { // kurze Rückfrage in der Seite (kein confirm())
     const ja = el('button', { type: 'button', class: 'gs-ein', onclick: () => einloesen(fuss, x, ja) }, 'Ja, eingelöst');
     const nein = el('button', { type: 'button', class: 'gs-ein zweit', onclick: () => { zeichne(); liste.querySelector(`[data-id="${x.id}"] .gs-ein`)?.focus(); } }, 'Doch nicht');
@@ -648,10 +667,20 @@ async function lernAdventGutscheinSeite(arg) {
     try {
       const r = await lernCall('schule_advent_einloesen', { lernender_id: kid, gutschein_id: x.id });
       if (!live() || store.token !== tok0) return;
-      if (r?.gutschein) Object.assign(x, r.gutschein, { zustand: r.gutschein.zustand || 'eingeloest' }); else x.zustand = 'eingeloest';
-      if (r?.zaehler) g.zaehler = r.zaehler; lernAdventVergessen(kid);
+      lernAdventVergessen(kid);
+      // Urteil 1219/2: Erfolg nur aus einem bestätigten Gutschein (gleiche ID, Zustand „eingeloest“) – sonst nichts behaupten
+      const ok = r && r.aktiv !== false && r.gutschein && Number(r.gutschein.id) === Number(x.id) && r.gutschein.zustand === 'eingeloest';
+      if (!ok) {
+        if (r?.aktiv === false) { lernErsetze(main, lernRahmen(kind, 'gutscheine', el('div', { class: 'lr-adv gs-seite' }, kopf, el('p', { class: 'gs-unter', role: 'alert' }, 'Der Adventskalender ist gerade aus. Dein Gutschein ist nicht als eingelöst vermerkt.')))); return; }
+        ansage.textContent = 'Das ließ sich nicht bestätigen. Die Liste wird neu geladen.';
+        try { const n = await lernCall('schule_advent_gutscheine', { lernender_id: kid }); if (!live() || store.token !== tok0) return; if (n && n.aktiv !== false) g = n; } catch { /* alte Liste */ }
+        zeichne(); liste.querySelector(`[data-id="${x.id}"] .gs-ein`)?.focus(); return;
+      }
+      Object.assign(x, r.gutschein);
+      if (r.zaehler) g.zaehler = r.zaehler;
       zeichne(); ansage.textContent = `„${x.titel || 'Gutschein'}“ ist eingelöst.`;
-      lernCall('schule_advent_gutscheine', { lernender_id: kid }).then((n) => { if (n && live() && store.token === tok0 && n.aktiv !== false) { g = n; zeichne(); } }).catch(() => { /* bleibt */ });
+      fokusNachEinloesen(x);
+      lernCall('schule_advent_gutscheine', { lernender_id: kid }).then((n) => { if (n && live() && store.token === tok0 && n.aktiv !== false) { const f0 = document.activeElement?.closest?.('[data-id]')?.dataset.id; g = n; zeichne(); if (f0) fokusNachEinloesen({ id: Number(f0) }, true); } }).catch(() => { /* bleibt */ });
     } catch (e) {
       if (!live() || store.token !== tok0) return;
       lernAnhaengen(fuss, el('p', { class: 'gs-fehler', role: 'alert' }, /nicht gefunden/.test(e.message) ? 'Den Gutschein gibt es so nicht mehr. Die Liste wird neu geladen.' : /Krampus/.test(e.message) ? 'Krampus-Aufgaben haken nur Mama oder Papa ab.' : 'Das hat gerade nicht geklappt. Versuch es gleich noch einmal.'));
@@ -682,7 +711,7 @@ async function lernAdventGutscheinSeite(arg) {
   zeichne();
   lernErsetze(main, lernRahmen(kind, 'gutscheine', el('div', { class: 'lr-adv gs-seite' }, kopf,
     el('p', { class: 'gs-unter' }, 'Aus deinem Adventskalender. Sie gelten, bis du sie einlöst – auch nach Weihnachten.'), ansage, liste, kTeil,
-    el('p', { class: 'gs-unter klein' }, 'Hast du einen bei Mama oder Papa eingelöst, tipp auf „Eingelöst“. ', lernAdventFenster() ? el('a', { href: `#/advent/${kid}` }, 'Zum Adventskalender') : null))));
+    el('p', { class: 'gs-unter klein' }, 'Hast du einen bei Mama oder Papa eingelöst, tipp auf „Eingelöst“. ', (lernAdventStandJetzt(kid)?.menue?.kalender ?? lernAdventFenster()) ? el('a', { href: `#/advent/${kid}` }, 'Zum Adventskalender') : null))));
 }
 
 // ================= A4: Eltern-Seite (#/adventeltern) =================
@@ -1134,7 +1163,8 @@ function festLaufStarten(fest, L, s, nacht) {
   const dauer = fest.bahnTag24 ? 7000 : 6000, pause = fest.bahnTag24 ? 1e9 : 8000; const t0 = start24 ?? (performance.now() - (fest.bahnTag24 ? 0 : dauer + pause - 1500));
   const lauf = (t) => {
     if (!document.body.contains(fest.rand)) { festLaufStop(fest); return; }
-    if (t < (fest.ruheBis || 0)) { fest.lauf = requestAnimationFrame(lauf); return; } // Karte wird gezogen/gezoomt: Schnee und Schlitten warten (die Karte hat Vorrang)
+    // Karte wird gezogen/gezoomt: Schnee und Schlitten pausieren – Urteil 1219/8: KEIN weiteres rAF je Bild, sondern ein Wecker nach der Ruhezeit
+    if (t < (fest.ruheBis || 0)) { fest.lauf = 0; clearTimeout(fest.ruheT); fest.ruheT = setTimeout(() => { fest.ruheT = 0; if (!fest.lauf && !document.hidden && document.body.contains(fest.rand)) fest.lauf = requestAnimationFrame(lauf); }, Math.max(16, fest.ruheBis - performance.now() + 4)); return; }
     for (const p of fl) { p.y += p.v; p.x += Math.sin((p.y / s2 + p.p * 40) / 40) * .18 * (p.li + 1); if (p.y > H2 + 12) { p.y = -12; p.x = zf() * W2; } } male();
     if (g) { const x = (t - t0) % (dauer + pause); if ((fest.bahnTag24 && (!einmal24 || t - t0 > dauer)) || x > dauer) g.style.display = 'none'; else setze(x / dauer); }
     fest.lauf = requestAnimationFrame(lauf);
@@ -1143,7 +1173,7 @@ function festLaufStarten(fest, L, s, nacht) {
   document.addEventListener('visibilitychange', fest.sicht);
   if (!document.hidden) fest.lauf = requestAnimationFrame(lauf); // Hintergrund-Tab: keine Zeichenarbeit
 }
-function festLaufStop(fest) { if (fest.lauf) cancelAnimationFrame(fest.lauf); fest.lauf = 0; if (fest.sicht) document.removeEventListener('visibilitychange', fest.sicht); fest.sicht = null; }
+function festLaufStop(fest) { if (fest.lauf) cancelAnimationFrame(fest.lauf); fest.lauf = 0; clearTimeout(fest.ruheT); fest.ruheT = 0; if (fest.sicht) document.removeEventListener('visibilitychange', fest.sicht); fest.sicht = null; }
 // Mütze am Jugendwort-Schild der Karte „Gerade dran“: erst links (wie bisher), dann rechts, dann klein und tief – die erste Lage, die die Quellenzeile
 // nicht berührt; berührt jede, gibt es keine Mütze. Liefert die Lage des Schilds (für die Pin-Mützen), relativ zum Kartenrahmen.
 function festJwMuetze(fest, L) {

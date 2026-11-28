@@ -271,3 +271,13 @@ test('1199/4: app.js – verspätetes 401 einer Anfrage des alten Zugangs meldet
     store.token = 'synthetic-neu'; const m = await p; return { m, token: store.token }; });
   assert.equal(x.token, 'synthetic-neu'); assert.match(x.m, /Zugang gewechselt/);
 });
+
+test('Urteil 1220 B3: laufende Schreibaktion an den Zugang gebunden – gleicher Zugang teilt sie, ein anderer Zugang schickt eigenen POST', async (t) => {
+  const { page, zahl } = await seite(t, { ms: 300 });
+  const r = await page.evaluate(async () => { const d = { lernender_id: 1, belohnung_id: 5 };
+    const a = lernCall('schule_einloesen', d); const b = lernCall('schule_einloesen', d); const schl = [...lernSchreibtGerade.keys()];
+    store.token = 'anderer-zugang-zum-test'; const c = lernCall('schule_einloesen', d); const schl2 = [...lernSchreibtGerade.keys()];
+    await Promise.allSettled([a, b, c]); return { schl, schl2 }; });
+  assert.equal(r.schl.length, 1); assert.ok(r.schl[0].startsWith('synthetic-test-session#'), r.schl[0]);
+  assert.equal(r.schl2.length, 2, 'anderer Zugang: eigener Eintrag'); assert.equal(zahl('schule_einloesen'), 2, 'gleicher Zugang ein POST, anderer Zugang ein eigener');
+});

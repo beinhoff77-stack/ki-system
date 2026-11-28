@@ -1,5 +1,7 @@
 # Bilder dieser Durchsicht (vom Designer selbst aufgenommen)
 
+Sie liegen in `bilder-designer/`; die 376 Bilder des Helfers liegen in `bilder/`.
+
 Chrome, Server nachgebaut über das Setup aus `tests/lernen.test.cjs`, erfundene Beispieldaten, Kinder heißen „Kind A/B“. Stand `lernen-app` 615962e.
 Lange Seiten sind in Spalten geschnitten: von links nach rechts weiterlesen.
 

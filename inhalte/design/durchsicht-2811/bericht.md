@@ -5,7 +5,7 @@ Designer, 28.11.2026. Stand `lernen-app` 615962e (App-Version 0.96.0). Kein App-
 **Kennzeichnung in diesem Bericht:**
 **[B]** am Bild gesehen · **[C]** nur aus dem Code geschlossen · **[L]** an der laufenden App gemessen · **[M]** meine Meinung
 
-**Wie ich vorgegangen bin.** Der Zweig `helfer-bilder` lag beim Beginn der Arbeit nicht vor (`refs/heads/helfer-bilder` gibt es nicht), darum habe ich alle Bilder selbst gemacht: Server nachgebaut über das Setup aus `tests/lernen.test.cjs`, Chrome, 390 px und 1280 px, hell und dunkel, erfundene Beispieldaten, Kinder heißen „Kind A/B". 129 Bilder in `bilder/`. Zusätzlich habe ich am gerenderten DOM gemessen: 290 sichtbare Knöpfe und Links, 51 Kartenflächen, 66 Überschriften, 778 Textknoten auf 18 Seiten. Die Zahlen in Teil 2 sind Messwerte, keine Schätzungen.
+**Wie ich vorgegangen bin.** Der Zweig `helfer-bilder` lag beim Beginn der Arbeit nicht vor (`refs/heads/helfer-bilder` gibt es nicht), darum habe ich alle Bilder selbst gemacht: Server nachgebaut über das Setup aus `tests/lernen.test.cjs`, Chrome, 390 px und 1280 px, hell und dunkel, erfundene Beispieldaten, Kinder heißen „Kind A/B". 129 Bilder in `bilder-designer/` (die Bilder des Helfers liegen in `bilder/`). Zusätzlich habe ich am gerenderten DOM gemessen: 290 sichtbare Knöpfe und Links, 51 Kartenflächen, 66 Überschriften, 778 Textknoten auf 18 Seiten. Die Zahlen in Teil 2 sind Messwerte, keine Schätzungen.
 
 **Was ich nicht im Bild habe** (Mock fehlt oder Zustand nicht erreichbar): `wiederholen`, `zugaenge`, einzelne Expedition, Flug-Test, Landung mit Stempel, Knobel-Bordkarte, Wiederholungs- und Mischkarten, „Ändern lassen" aufgeklappt, „Einstellen je Kind". Diese Seiten sind unten mit **[C]** beurteilt. Fragen dazu stehen am Ende.
 
@@ -508,3 +508,100 @@ Und eine **neue Zeile für die Liste „Weg"**: die zwei leeren Abschnitte im Bl
 - **Punkt 4 und 5 der Antwort** („Bisheriges Design" abkündbar? Vorschläge zur schwarzen Abflug-Karte?) liegen beim Nutzer. Ich habe dazu nichts ausgearbeitet, wie angewiesen.
 - Weiter nicht geprüft: echtes Gerät, Safari, Firefox, Kontrastwerte, Bediengefühl in Bewegung über die gemessenen `:active`-Regeln hinaus.
 - Nicht aufgenommen, auch vom Helfer nicht: Flug-Test „Gleich verbessern" (Korrektur) und Nachtragstest; „Auch offen" auf der Abflugtafel.
+
+---
+
+# Nachtrag 3 vom 28.11.: am Testkind durchgespielt
+
+Freigabe des Projektleiters vom 28.11., 06:25. Gearbeitet **nur am Testkind** (`#/reise/3`, alle Adressen auf `/3` geprüft) in der laufenden App über Claude in Chrome. Nichts eingestellt, keine Aufträge geschickt, keine Wünsche bestätigt, Kind 1 und Kind 2 nicht geöffnet. Keine Namen, Codes oder Bilder echter Daten in diesem Bericht.
+
+**[L]** = an der laufenden App gemessen.
+
+**Durchgespielt:** eine Aufgabe falsch und richtig beantwortet (Lerneinheit „Natürliche Zahlen", Etappe 2) · Flug-Test vom Start bis zur Auswertung · „Gleich verbessern" · Check-in mit allen vier Bordkarten bis „Eingecheckt!".
+**Nicht erreicht:** Landung mit Stempel, Knobel-Bordkarte und Mischkarte – sie setzen den Abschluss einer Etappe bzw. eines Ortes voraus, und die offene Etappe des Testkinds verlangt „3 richtige in Folge" aus 337 Aufgaben. Diese drei sind in Nachtrag 2 an den Bildern des Helfers beurteilt (B2, B3); ich habe sie live nicht erzwungen, weil das viele Schreibvorgänge am Testkind bedeutet hätte. **[L]**
+
+## N3.1 Wartezeit beim Prüfen – gemessen **[L]**
+
+| Vorgang | Zeit bis zur Rückmeldung |
+|---|---|
+| Aufgabe prüfen (Lerneinheit, falsch) | 833 ms |
+| Aufgabe prüfen (Lerneinheit, richtig) | ~490 ms |
+| Check-in, Zahl prüfen | 1 286 ms |
+| Check-in, vier Felder prüfen | 643 ms |
+| Flug-Test abgeben (25 Karten) | 1 377 ms |
+
+**Berichtigung an mir selbst:** In Nachtrag 1 (N1) habe ich geschrieben, beim Antippen passiere sichtbar nichts. Für den Prüfen-Knopf stimmt das nicht: Er wird während der Wartezeit auf `disabled` gesetzt, und es gibt die Regel `.lr-knopf:disabled { opacity: 0.5 }` – der Knopf wird also blasser. **[L]**
+Was fehlt, ist etwas anderes: **kein Hinweis, dass gerechnet wird.** Kein Spinner, keine Textänderung („Prüfe …"), der Knopf behält Wort und Farbe. Bei 1,3 Sekunden ist das die Stelle, an der ein Kind ein zweites Mal tippt. **[M]**
+Die Aussage aus N1 gilt unverändert für die **anderen** Knöpfe: 36 von 51 Klassen haben weder `:active` noch `:hover` noch `:focus-visible`.
+
+## N3.2 Die Rückmeldung steht zu weit unten – jetzt gemessen **[L]**
+
+Nach dem Prüfen: Eingabefeld bei y = 516 px, Rückmeldung bei y = 693 px – **177 px darunter**, hinter dem Tipp-Kasten. Das belegt den Befund aus Teil 3 („Lerneinheit · falsch beantwortet") mit einer Zahl. **[L]**
+
+*Inhaltlich sind die Rückmeldungen gut:*
+- falsch: „Noch nicht – du hast einen zweiten Versuch. Fast – das ist nur ungefähr. Rechne genau oder runde so, wie es die Bordkarte verlangt." – erkennt, dass die Antwort *ungefähr* stimmte.
+- richtig: „✓ AN BORD · +5 STERNE / Gleich beim ersten Mal gibt es 10 ★. In Dreiergruppen: 94 620." – nennt den Gewinn und was beim ersten Versuch drin gewesen wäre.
+Das ist besser als die Platzierung. **[M]**
+
+## N3.3 Flug-Test: live 25 Bordkarten statt 2 **[L]**
+
+Im Nachbau des Helfers hat der Test zwei Bordkarten (Bild 06p), **live sind es 25** – eine je Etappe.
+
+*Passt:*
+- Die Nummernleiste (`lern-punkte`) bricht sauber um (zwei Zeilen bei 1 522 px, bei 390 px entsprechend mehr), **nichts läuft über den Rand**.
+- **Die Sicherung vor dem Abgeben ist vorbildlich:** „24 Bordkarten sind noch leer. Leere Bordkarten zählen als falsch." mit den Knöpfen „Zu Bordkarte 2" und „Trotzdem abgeben". Genau so soll ein Schutz vor Versehen aussehen. **[L]**
+
+*Fällt auf:*
+- Die Nummern sind **36 × 48 px** – unter den 44 px Breite, die für sichere Tippflächen gelten, und sie liegen dicht nebeneinander. Bei 25 Stück ist Vertippen wahrscheinlich. **[L] [M]**
+- **Kein Tastenfeld im Test** (`.lr-taste`-Elemente: 0), Feld `type="text"` ohne `inputmode`. Damit ist der Test die **fünfte** Stelle mit Zahleneingabe ohne das eigene Tastenfeld – nach Check-in, Knobel-Bordkarte, Mischkarte und Expedition. **[L]**
+- **„Verbessern" sieht aus wie „Test".** Nach „Gleich verbessern ›" steht „VERBESSERN · BORDKARTE 1 VON 13" – gleiche Kopfzeile, gleiche Nummernleiste, gleiche Knöpfe, gleiche Hinweiszeile. Nur das eine Wort unterscheidet die beiden Durchgänge. Wer mitten drin ist, weiß nicht, worin er sich befindet. **[L] [M]** *Vorschlag:* Den Verbessern-Durchgang farblich absetzen (etwa die Nummernleiste in Gelb statt Grau) und die Zeile „Du verbesserst 13 Bordkarten aus dem Test" darüber. **[M]**
+
+## N3.4 Das Test-Ergebnis bei einem schlechten Lauf **[L]**
+
+Ich habe den Test mit 24 leeren Karten abgegeben – das Ergebnis war „0 von 25 richtig". Gemessen:
+
+| | |
+|---|---|
+| Seitenhöhe | **7 451 px** |
+| entspricht | **8,8 Handy-Bildschirmen** (bei 844 px) |
+| Fehlerkästen untereinander | **25** |
+| Höhe eines Kastens | 224 px |
+| Zusammenfassung „fang hier an" | **keine** |
+
+Oben stehen die 25 Etappen als rosa Marken in einem Block, darunter 25 rote Kästen mit je Frage, eigener Antwort, richtiger Antwort und Erklärung. Fachlich ist jeder einzelne Kasten gut gemacht (Überschrift, Zeichen ✗, Begründung). Zusammen ergeben sie eine neun Bildschirme lange rote Wand – für ein Kind, dem gerade alles misslungen ist, der denkbar ungünstigste Anblick. **[M]**
+*Vorschlag:* Über die Liste eine Zusammenfassung setzen: „Drei Dinge zuerst: …" mit den drei Etappen, an denen die meisten Fehler hängen, und den Rest hinter „Alle 25 Rückmeldungen ansehen ▾". Die Daten dafür liegen vor. **[M]**
+
+## N3.5 Check-in vollständig durchgespielt **[L]**
+
+Vier Bordkarten („1 VON 4" bis „4 VON 4"), Themen aus verschiedenen Orten (Washington, Chicago, Denver, Rom), am Ende: „🧳 **Eingecheckt!** 3 von 4 richtig · +30 ★ / Eine Bordkarte kommt beim nächsten Mal wieder."
+
+*Passt:* Der Abschluss ist knapp, nennt das Ergebnis und was mit der falschen Karte geschieht. Die Rückmeldung nach einem Fehler ist freundlich und lehrreich: „Noch nicht. Richtig ist: 1 T + 0 H + 9 Z + 7 E / 1 097 = 1 Tausender + 0 Hunderter + 9 Zehner + 7 Einer. / **Kein Problem – diese Bordkarte kommt beim nächsten Mal wieder.**" **[L]**
+
+*Fällt auf:*
+- **Bei vier Eingabefeldern (T/H/Z/E) fehlt das Tastenfeld besonders.** Vier Felder nacheinander mit der Gerätetastatur zu füllen, ist am Handy mühsam; genau dafür hat die Lerneinheit ihr Tastenfeld mit „weiter"-Logik. **[L] [M]**
+- Der Erklärknopf heißt je nach Karte „Hält stabil. ?", „Safe gekonnt. ?", „Schere. ?" – die Jugendwörter aus `daten/jugendwoerter.json` stehen **im Knopf selbst**, zusammen mit dem Fragezeichen, das die Erklärung öffnet. Der Knopf trägt damit zwei Dinge auf einmal: eine Bewertung und eine Hilfe. **[L] [M]**
+- Das Emoji 🧳 im Abschluss – wie in Teil 2.5 angemerkt, mischt sich damit ein dritter Symbolstil unter SVG und Unicode. **[L]**
+
+## N3.6 Brüche sind barrierefrei richtig gelöst **[L]**
+
+In der Check-in-Aufgabe „Von 2 400 € Erspartem liegen ¾ zu 2 %" steht der Bruch gestapelt. Im reinen Text liest er sich als „3 4", was ein Vorleseprogramm als „vierunddreißig" ausgeben könnte. **Das ist abgefangen:**
+
+```html
+<span class="lern-bruch-text" role="img" aria-label="3 durch 4"><span>3</span><span>4</span></span>
+```
+
+Ein Vorleseprogramm sagt „3 durch 4". Auch die Antwortoptionen bekommen nach dem Prüfen ein Zeichen mit `aria-label="richtig"`, also nicht nur Farbe. Das ist sorgfältiger, als die Durchsicht sonst nahelegt, und gehört ausdrücklich erwähnt. **[L]**
+
+## N3.7 Eine mehrdeutige Aufgabenstellung – mir selbst passiert **[L]**
+
+Check-in, Bordkarte 4: „**Zerlege 1 097 in Stellenwerte.** Trage in jedes Feld eine Zahl ein." Darunter vier Felder, beschriftet `T + H + Z + E`.
+Ich habe **1000, 0, 90, 7** eingetragen – die Stellen*werte*. Richtig war **1, 0, 9, 7** – die Ziffern je Stelle. Die Rückmeldung löst es auf („1 097 = 1 Tausender + 0 Hunderter + 9 Zehner + 7 Einer"), aber die Frage selbst lässt beides zu: „Stellenwerte" meint im Wortsinn 1000 und 90, die Feldbeschriftung T/H/Z/E meint die Ziffern. **[L]**
+Das ist **kein Gestaltungsfehler im engeren Sinn**, sondern eine Formulierung – gehört damit zum Mathe-Profi. Ich melde es, weil es mir beim Durchspielen selbst passiert ist und einem Kind der Klasse 5 erst recht passieren wird. **[M]** *Vorschlag an den Inhalt:* „Trage in jedes Feld die **Ziffer** ein, die an dieser Stelle steht." Oder die Felder mit „___ T" statt „T" beschriften. **[M]**
+
+## N3.8 Was sich an den Teilen oben ändert
+
+- **Teil 3, „Lerneinheit · falsch beantwortet":** Abstand jetzt mit 177 px belegt.
+- **Nachtrag 1, N1:** berichtigt – der Prüfen-Knopf wird während des Wartens blasser; es fehlt nur der „es rechnet"-Hinweis. Für die übrigen 36 Klassen bleibt der Befund.
+- **Nachtrag 1, N3 / Nachtrag 2, B3:** Die Liste der Stellen ohne Tastenfeld wächst auf **fünf** (Check-in, Knobel, Mischkarte, Expedition, **Flug-Test**).
+- **Neu für die Liste „Rein":** eine Zusammenfassung über dem Test-Ergebnis (N3.4) und ein Hinweis „es rechnet" am Prüfen-Knopf (N3.1).
+- **Neu für die Liste „Weg":** nichts.

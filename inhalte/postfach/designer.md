@@ -2,6 +2,35 @@
 
 Neueste oben.
 
+## 2026-11-28 09:05 (Berlin) – FERTIG: am Testkind durchgespielt – Nachtrag 3; Bilder verschoben
+Zweig `designer`. `bericht.md` hat **Nachtrag 3** am Ende; die Teile darüber bleiben stehen. Meine 129 Bilder liegen jetzt in `inhalte/design/durchsicht-2811/bilder-designer/`, die Verweise im Bericht und in `meine-bilder.md` sind angepasst – `bilder/` ist frei für den Helfer (Punkt 3 deiner Antwort).
+
+### Wie gearbeitet
+**Nur am Testkind** (`#/reise/3`; ich habe geprüft, dass alle Links auf `/3` zeigen). Nichts eingestellt, keine Aufträge, keine Wünsche bestätigt, Kind 1 und Kind 2 nicht geöffnet. Keine Namen, Codes oder Bilder echter Daten im Repo.
+**Durchgespielt:** Aufgabe falsch und richtig · Flug-Test vom Start bis zur Auswertung · „Gleich verbessern“ · Check-in mit allen vier Bordkarten bis „Eingecheckt!“.
+**Nicht erreicht:** Landung mit Stempel, Knobel-Bordkarte, Mischkarte. Sie setzen den Abschluss einer Etappe voraus; die offene Etappe des Testkinds verlangt „3 richtige in Folge“ aus 337 Aufgaben. Ich habe das nicht erzwungen, weil es viele Schreibvorgänge am Testkind bedeutet hätte – beurteilt sind die drei in Nachtrag 2 an den Bildern des Helfers. Sag Bescheid, wenn ich sie trotzdem live erzwingen soll.
+
+### Neu gefunden
+1. **Wartezeit beim Prüfen:** 490–1 377 ms (Check-in 1 286 ms, Test abgeben 1 377 ms). **Berichtigung an mir selbst:** In N1 schrieb ich, beim Antippen passiere nichts – für den Prüfen-Knopf stimmt das nicht, es gibt `.lr-knopf:disabled { opacity: 0.5 }`, er wird blasser. Was fehlt, ist der Hinweis, dass **gerechnet** wird (kein Spinner, kein „Prüfe …“). Bei 1,3 s tippt ein Kind ein zweites Mal. Für die übrigen 36 Klassen bleibt der Befund.
+2. **Abstand der Rückmeldung jetzt mit Zahl:** Eingabefeld y = 516, Rückmeldung y = 693 – **177 px darunter**, hinter dem Tipp-Kasten.
+3. **Der Flug-Test hat live 25 Bordkarten**, im Nachbau nur 2. Die Nummernleiste bricht sauber um, nichts läuft über den Rand – aber die Nummern sind **36 × 48 px** (unter 44) und liegen dicht nebeneinander.
+4. **Das Test-Ergebnis bei 0 von 25: 7 451 px = 8,8 Handy-Bildschirme**, 25 Fehlerkästen untereinander, **keine Zusammenfassung**. Jeder Kasten für sich ist gut gemacht; zusammen sind sie eine neun Bildschirme lange rote Wand. Vorschlag: oben „Drei Dinge zuerst: …“, Rest hinter einem Aufklapper.
+5. **„Verbessern“ sieht aus wie „Test“** – gleiche Kopfzeile, Nummernleiste, Knöpfe, Hinweiszeile; nur das Wort unterscheidet sie.
+6. **Kein Tastenfeld auch im Flug-Test.** Damit sind es **fünf** Stellen: Check-in, Knobel, Mischkarte, Expedition, Test. Besonders beim Check-in mit vier Feldern (T/H/Z/E) fällt es auf.
+7. **Gut und ausdrücklich erwähnt:** Die Sicherung vor dem Abgeben („24 Bordkarten sind noch leer … Trotzdem abgeben“) ist vorbildlich. Und **Brüche sind barrierefrei richtig gelöst**: `role="img"` mit `aria-label="3 durch 4"`, Antwortoptionen mit `aria-label="richtig"` – nicht nur Farbe.
+8. **Mehrdeutige Aufgabenstellung, mir selbst passiert:** „Zerlege 1 097 in Stellenwerte“ mit Feldern T + H + Z + E. Ich habe 1000/0/90/7 eingetragen, richtig waren 1/0/9/7. Das ist Formulierung, also **Sache des Mathe-Profis** – ich melde es nur, weil es mir passiert ist und einem Fünftklässler erst recht passiert. Vorschlag: „Trage in jedes Feld die **Ziffer** ein, die an dieser Stelle steht.“
+
+### Zur Kenntnis genommen
+- Punkt 2: Was in die laufende App-Runde geht (`lernMathe` im Test-Ergebnis, Anführungszeichen, „Zugänge“ für Lehrer) und was in die Merkliste unter der zurückgestellten Einheitlichkeit wandert.
+- Punkt 4: Zu „Bisheriges Design“ und zur schwarzen Abflug-Karte habe ich **nichts** ausgearbeitet.
+
+### Nicht geprüft
+Echtes Gerät, Safari, Firefox, Kontrastwerte. Die Live-Prüfung lief in Rechner-Breite (die Fensterbreite ließ sich in Chrome nicht auf 390 px zwingen); die Pixelmaße aus N3.2 und N3.3 gelten für diese Breite.
+
+### Annahmen
+- Die Wartezeiten sind Einzelmessungen bei einer Verbindung, nicht gemittelt.
+- „0 von 25 richtig“ kam zustande, weil ich 24 Karten leer abgegeben habe – die Seitenlänge gilt für den schlechtesten Fall, nicht für den Normalfall.
+
 ## 2026-11-28 08:15 (Berlin) – FERTIG: Antwort des Projektleiters abgearbeitet – Nachtrag 2 zur Durchsicht
 Zweig `designer`. `inhalte/design/durchsicht-2811/bericht.md` hat den neuen **Nachtrag 2** am Ende (Teile A–F); der Bericht darüber ist unverändert geblieben, wie gewünscht. Grundlage: `helfer-bilder` 338e0713 mit 376 Bildern zu 94 Seiten – danke, die waren sehr gründlich.
 

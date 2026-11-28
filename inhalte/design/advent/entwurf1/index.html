@@ -415,16 +415,74 @@ a.karte2.gs-link { display: block; text-decoration: none; color: inherit; }
 body.foto *, body.foto *::before, body.foto *::after { animation: none !important; transition: none !important; }
 .kd-blatt a.knopf2 { text-decoration: none; color: inherit; }
 
+/* ---------- Nachtrag: Sorten ---------- */
+.platz.krampus { background: #2a0d12; border-color: #5a1a22; } .platz.krampus .nr, .platz.krampus .t, .platz.krampus .art { color: #ffd6d6; }
+.platz.fest { background: var(--surface-muted); } .platz .mark { position: absolute; right: 26px; top: 6px; font-size: 10.5px; font-weight: 700; color: var(--info); }
+.platz.gemeinsam { box-shadow: inset 0 0 0 2px var(--info); }
+.raster-fuss i.k { background: #2a0d12; }
+.vor-z .ico.krampus { background: #2a0d12; color: #ff8a8a; } .vor-z .ico.jackpot { background: #3a2c00; color: #FFD23F; } .vor-z .ico.niete { background: var(--surface-muted); color: var(--muted); }
+.seg-4 { flex-wrap: wrap; } .seg-4 button { padding: 0 11px; }
+.schalter-z { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: center; margin-top: 14px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 14px; }
+.schalter-z small { display: block; color: var(--muted); font-size: 12.5px; line-height: 1.3; }
+.schalter { width: 52px; height: 32px; border-radius: 16px; border: 0; background: var(--border); position: relative; padding: 0; min-height: 44px; background-clip: content-box; padding: 6px 0; }
+.schalter i { position: absolute; left: 3px; top: 9px; width: 26px; height: 26px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px #0004; }
+.schalter[aria-checked="true"] { background-color: var(--accent); } .schalter[aria-checked="true"] i { left: 23px; }
+.krampus-z { background: #fbecec; } .el[data-g="nacht"] .krampus-z { background: #3a1e22; }
+.krampus-z .wer b { color: #a72e37; } .el[data-g="nacht"] .krampus-z .wer b { color: #ffa4ac; }
+.zt.krampus-z > i { background: #a72e37; }
+/* Kalender-Kacheln */
+.td.offen.krampus { background: linear-gradient(160deg, #5a1220, #14060a); } .td.offen.krampus .gico { position: absolute; left: 50%; top: 44%; width: 40%; transform: translate(-50%, -50%); color: #ff8a8a; }
+.td.offen.jackpot { background: radial-gradient(circle at 50% 40%, #fff3b0, #FFD23F 40%, #b37400); color: #1B0C3A; } .td.offen.jackpot .n, .td.offen.jackpot .s { text-shadow: none; color: #1B0C3A; }
+.td.offen.niete { background: #9aa1ad; color: #fff; }
+.td .gross-z { position: absolute; left: 0; right: 0; top: 40%; text-align: center; font-weight: 700; font-size: 18px; }
+/* Tür-Sorten */
+.sorte-krampus .szene { background: radial-gradient(90% 60% at 50% 46%, #4a0f1a 0, #22070d 50%, #0b0205 100%) !important; }
+.sorte-krampus .flug { --tg1: #3b0a12; --tg2: #12030a; border-color: #ff3b3b; box-shadow: 0 0 26px #ff3b3b55, inset 0 0 30px #0008; }
+.sorte-krampus .flug::before, .sorte-krampus .flug::after { border-color: #ff3b3b44; }
+.sorte-krampus .flug .zahl { text-shadow: 0 0 22px #ff3b3b99, 0 4px 0 #2a0008; color: #f1e4c8; }
+.sorte-krampus .rahmen::before { background: #0b0205; box-shadow: inset 0 0 0 2px #3a0a12, 0 20px 50px #000c; }
+.sorte-krampus .antippen { color: #ffb3b3; }
+.sorte-krampus .gross.gold { --kb: #ff6b6b; --kt: #1B0C3A; --ks: #a12a2a; }
+.flug .hoerner { top: -22px; width: 80px; height: 34px; margin-left: -40px; }
+.flug .kratzer { position: absolute; right: 22px; bottom: 26px; width: 48px; height: 34px; z-index: 2; }
+.sorte-krampus .funken i { background: #ff6b6b; box-shadow: 0 0 8px #ff3b3b; }
+.krampus-karte { width: min(330px, 86vw); border-radius: 18px; background: #1c0a0e; color: #f6e9e9; box-shadow: 0 20px 50px #000c, 0 0 0 2px #ff3b3b; overflow: hidden; }
+.krampus-karte .gk { display: flex; justify-content: space-between; padding: 10px 16px; background: #ff3b3b; color: #1B0C3A; font-family: ui-monospace, Menlo, monospace; font-size: 12px; font-weight: 800; letter-spacing: .12em; }
+.kk-in { display: grid; grid-template-columns: 112px 1fr; gap: 12px; align-items: center; padding: 14px 14px 10px; }
+.kk-bild { width: 112px; height: 112px; border-radius: 14px; overflow: hidden; border: 2px solid #5a1a22; } .kk-bild svg { width: 100%; height: 100%; display: block; }
+.kk-in small { font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: .1em; font-weight: 800; color: #ff8a8a; }
+.kk-in h3 { font-size: 21px; line-height: 1.08; margin-top: 4px; } .kk-in p { font-size: 14.5px; margin-top: 6px; color: #e8cfcf; }
+.krampus-karte .perf { border-top: 2px dashed #5a1a22; margin: 0 14px; }
+.krampus-karte .gf { display: flex; align-items: center; gap: 10px; padding: 12px 16px 14px; font-weight: 700; font-size: 15px; }
+.kk-box { width: 22px; height: 22px; border-radius: 6px; border: 2px solid #ff8a8a; flex: none; }
+.jackpot { width: min(320px, 84vw); border-radius: 24px; padding: 18px 16px 20px; text-align: center; background: radial-gradient(120% 90% at 50% 0, #3b2c00, #120c00); box-shadow: 0 0 0 3px #FFD23F, 0 0 50px #FFD23F66, 0 20px 50px #000a; }
+.walzen { display: flex; justify-content: center; gap: 8px; } .walzen span { width: 64px; height: 76px; border-radius: 12px; background: linear-gradient(#fff, #f0e6c8); color: #E11D48; font-size: 46px; line-height: 76px; box-shadow: inset 0 -6px 0 #0002; }
+.jp-wort { margin-top: 12px; font-size: 40px; font-weight: 700; font-style: italic; letter-spacing: .04em; color: #FFD23F; text-shadow: 0 0 18px #FFD23F99; }
+.jp-zahl { font-size: 54px; font-weight: 700; color: #fff; line-height: 1; margin-top: 4px; }
+.sorte-jackpot .szene { background: radial-gradient(90% 60% at 50% 46%, #6b4b00 0, #2a1d00 50%, #0b0700 100%) !important; }
+.niete { position: relative; width: min(290px, 78vw); border-radius: 18px; padding: 18px 16px; text-align: center; background: #e8e6df; color: #3e4450; box-shadow: 0 20px 50px #0009; }
+.nt-stempel { display: inline-block; font-size: 42px; font-weight: 700; letter-spacing: .14em; color: #8a909b; border: 4px solid #8a909b; border-radius: 10px; padding: 0 14px; transform: rotate(-8deg); }
+.nt-trost { margin-top: 14px; font-size: 17px; font-weight: 600; } .nt-zahl { font-size: 48px; font-weight: 700; color: #B07F00; line-height: 1.1; } .nt-klein { font-family: ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: .14em; font-weight: 800; }
+.sorte-niete .szene { background: radial-gradient(90% 60% at 50% 46%, #3a4150 0, #1c2029 50%, #0b0d12 100%) !important; }
+.ab .sticker.sf { background: #E4E6EA; color: #3E4450; font-size: 15px; }
+.karte-gross { width: min(316px, 82vw); aspect-ratio: 1; border-radius: 22px; overflow: hidden; box-shadow: 0 0 0 4px #FFD23F, 0 0 0 8px #ffffff22, 0 0 40px #FFD23F66, 0 20px 50px #000a; }
+.karte-gross svg { width: 100%; height: 100%; display: block; }
+.karte-satz { font-style: italic; } .karte-satz small { display: block; font-style: normal; font-size: 14px; opacity: .8; margin-top: 4px; }
+.sorte-karte .szene { background: radial-gradient(90% 60% at 50% 40%, #1b2a6b 0, #0b1440 50%, #04061a 100%) !important; }
+.gs-h { font-family: ui-monospace, Menlo, monospace; font-size: 13px; letter-spacing: .12em; color: var(--lr-leise); margin-top: 22px; }
+.gs.krampus { background: #1c0a0e; color: #f6e9e9; box-shadow: 0 0 0 2px #ff3b3b, 0 8px 22px #0003; } .gs.krampus .gk { background: #ff3b3b; color: #1B0C3A; } .gs.krampus .gs-in p { color: #e8cfcf; } .gs.krampus .gs-fuss { border-top-color: #5a1a22; }
+.gs-status.kr { color: #ff8a8a; }
+
 </style>
 </head>
 <body>
 <div id="app"></div>
 <details class="ent"><summary>Zustände</summary><div class="ent-l">
 <b>Eltern</b><a href="#s=eltern-leer">Erststart</a><a href="#s=eltern">Übersicht</a><a href="#s=eltern-vorschlaege">Vorschläge</a><a href="#s=eltern-platz&k=1&n=9">Tür ändern</a><a href="#s=eltern-neu">Eigener Inhalt</a><a href="#s=motive">Motiv-Vorrat</a>
-<b>Kind – nach der Etappe</b><a href="#s=tuer">Tür (zu)</a><a href="#s=inhalt-geschenk">Geschenk</a><a href="#s=inhalt-bild">Bild</a><a href="#s=zweite">2. Tür heute</a><a href="#s=leer">leer</a><a href="#s=inhalt-geschenk&vorschau=1">Vorschau Eltern</a>
+<b>Kind – nach der Etappe</b><a href="#s=tuer">Tür (zu)</a><a href="#s=inhalt-geschenk">Geschenk</a><a href="#s=inhalt-bild">Bild</a><a href="#s=zweite">2. Tür heute</a><a href="#s=leer">leer</a><a href="#s=tuer-krampus">Krampus (zu)</a><a href="#s=inhalt-krampus">Krampus</a><a href="#s=inhalt-jackpot">Jackpot</a><a href="#s=inhalt-niete">Niete</a><a href="#s=inhalt-karte6">Karte 6</a><a href="#s=inhalt-karte24">Karte 24</a><a href="#s=inhalt-geschenk&vorschau=1">Vorschau Eltern</a>
 <b>Kind – Kalender</b><a href="#s=kalender">Kalender</a><a href="#s=kalender-bereit">bereit</a><a href="#s=kalender-tuer">offene Tür</a><a href="#s=limit">Limit</a><a href="#s=vor1">vor dem 1.</a><a href="#s=nach24&tag=26">nach dem 24.</a>
 <b>Kind – Einstieg</b><a href="#s=hinweis">Hinweis Karte</a><a href="#s=hinweis-bereit">Hinweis bereit</a><a href="#s=hinweis-limit">Hinweis Limit</a><a href="#s=menue">Menü</a>
-<b>Weihnachts-Ebene Karte</b><a href="#s=karte&v=1">V1 dezent</a><a href="#s=karte&v=2">V2 verspielt</a><a href="#s=karte&v=3">V3 Neon-Nordlicht</a><a href="#s=karte&v=1&tag=6">6.12.</a><a href="#s=karte&v=1&tag=24">24.12.</a><a href="#s=karte&v=1&tag=31">31.12.</a><a href="#s=karte&v=2&frei=1">Freizonen</a>
+<b>Weihnachts-Ebene Karte</b><a href="#s=karte&v=1">V1 dezent</a><a href="#s=karte&v=2">V2 verspielt</a><a href="#s=karte&v=3">V3 Neon-Nordlicht</a><a href="#s=karte&v=4">V4 volle Weihnacht</a><a href="#s=karte&v=5">V5 Winternacht</a><a href="#s=karte&v=1&tag=6">6.12.</a><a href="#s=karte&v=1&tag=24">24.12.</a><a href="#s=karte&v=1&tag=31">31.12.</a><a href="#s=karte&v=2&frei=1">Freizonen</a>
 <b>Ansicht</b><a href="javascript:setze({g:'hell'})">hell</a><a href="javascript:setze({g:'nacht'})">dunkel</a><a href="javascript:setze({rm:'1'})">Bewegung reduzieren</a><a href="javascript:setze({rm:null})">Bewegung an</a>
 </div></details>
 <script>
@@ -491,12 +549,49 @@ const MOTIVE = [
   { id: 'schneeflocke', name: 'Pixel-Schneeflocke', gruppe: 'Winter', satz: '8-Bit, aber eiskalt.', svg: (u) => skizze(u, '#0d1b3e', '#00b4d8', `<g fill="#e8f4ff">${[[0,0],[0,-1],[0,-2],[0,-3],[0,1],[0,2],[0,3],[-1,0],[-2,0],[-3,0],[1,0],[2,0],[3,0],[-2,-2],[2,2],[-2,2],[2,-2],[-1,-3],[1,-3],[-1,3],[1,3]].map(([x, y]) => `<rect x="${94 + x * 12}" y="${102 + y * 12}" width="12" height="12"/>`).join('')}</g>`) },
   { id: 'stern', name: 'Kometen-Stern', gruppe: 'Weihnachten', satz: 'Du warst heute der Stern.', svg: (u) => skizze(u, '#05060f', '#3b1d5e', `<path d="M10 180 Q80 130 120 96" stroke="#FFD23F" stroke-width="6" opacity=".5" fill="none"/><path d="M130 60 l10 24 26 2 -20 16 6 26 -22 -14 -22 14 6 -26 -20 -16 26 -2z" fill="#FFD23F"/>`) },
 ];
+
+// ----- Sonder-Motive: Krampus (augenzwinkernd), Karte Tür 6 (Nikolaus), Karte Tür 24 (Heiligabend) -----
+MOTIVE.push(
+  { id: 'krampus', name: 'Krampus mit Besen', gruppe: 'Krampus', fertig: true, sonder: 'nur Krampus-Türchen', satz: 'Kleine Aufgabe, großer Grinser.', svg: (u) => `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="${u}a" cx=".5" cy=".45" r=".7"><stop offset="0" stop-color="#5a1220"/><stop offset="1" stop-color="#14060a"/></radialGradient>${glow(u, 2)}</defs>
+    <rect width="200" height="200" fill="url(#${u}a)"/><g fill="#ff3b3b" opacity=".25"><circle cx="30" cy="30" r="2"/><circle cx="170" cy="40" r="2"/><circle cx="160" cy="160" r="2"/></g>
+    <path d="M150 196 L176 70" stroke="#a0703c" stroke-width="7" stroke-linecap="round"/><path d="M164 66 l26 -10 l-4 16 l-26 8z" fill="#d9b26f" stroke="#7a5228" stroke-width="2"/><g stroke="#c49a55" stroke-width="2"><path d="M168 70 l20 -8 M170 76 l20 -8"/></g>
+    <path d="M62 64 Q40 30 58 14 Q56 40 78 56 Z" fill="#f1e4c8" stroke="#8a6d4a" stroke-width="2"/><path d="M138 64 Q160 30 142 14 Q144 40 122 56 Z" fill="#f1e4c8" stroke="#8a6d4a" stroke-width="2"/>
+    <path d="M100 48 C58 48 44 82 48 112 C52 150 76 176 100 176 C124 176 148 150 152 112 C156 82 142 48 100 48Z" fill="#8b2c2c"/>
+    <path d="M60 70 q-14 4 -18 -8 q14 -6 22 2z M140 70 q14 4 18 -8 q-14 -6 -22 2z" fill="#6e1f1f"/>
+    <path d="M72 96 q10 -14 24 -2" stroke="#2a0b0b" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M104 94 q12 -12 24 0" stroke="#2a0b0b" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <ellipse cx="85" cy="108" rx="10" ry="11" fill="#FFD23F" filter="url(#${u}g)"/><circle cx="87" cy="110" r="5" fill="#2a0b0b"/><circle cx="89" cy="107" r="1.6" fill="#fff"/>
+    <path d="M106 110 q10 6 22 0" stroke="#2a0b0b" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="100" cy="128" rx="9" ry="6" fill="#4a1414"/>
+    <path d="M72 142 Q100 168 128 142 Q100 156 72 142Z" fill="#2a0b0b"/><path d="M84 146 l4 9 l4 -7z M110 148 l4 7 l4 -9z" fill="#fff"/><path d="M96 154 q8 8 14 0 q-6 3 -14 0" fill="#ff6b8a"/>
+    <g transform="translate(18 128) rotate(-10)"><rect width="48" height="52" rx="4" fill="#fffdf5"/><rect width="48" height="12" rx="4" fill="#ff3b3b"/><text x="6" y="9.5" font-size="8" font-weight="900" fill="#fff" font-family="ui-monospace,monospace">TO-DO</text><g stroke="#3a2a55" stroke-width="2" stroke-linecap="round"><path d="M8 22h30M8 32h24M8 42h28"/></g></g></svg>` },
+  { id: 'nikolaus', name: 'Karte Tür 6: Nikolaus-Stiefel', gruppe: 'Karte', fertig: true, sonder: 'nur Tür 6', satz: 'Schau mal nach, ob dein Stiefel voll ist.', svg: (u) => `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${u}a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1440"/><stop offset="1" stop-color="#3b1d5e"/></linearGradient>${glow(u, 3)}<linearGradient id="${u}b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff4d6d"/><stop offset="1" stop-color="#a4133c"/></linearGradient></defs>
+    <rect width="200" height="200" fill="url(#${u}a)"/><circle cx="160" cy="36" r="16" fill="#fff6cc" filter="url(#${u}g)"/><circle cx="168" cy="31" r="14" fill="#0e1748"/>
+    <g fill="#fff" opacity=".85"><circle cx="24" cy="24" r="1.5"/><circle cx="60" cy="16" r="1.2"/><circle cx="110" cy="30" r="1.6"/><circle cx="34" cy="70" r="1.2"/><circle cx="186" cy="80" r="1.2"/></g>
+    <path d="M0 176 Q100 160 200 176 V200 H0Z" fill="#e8f4ff"/>
+    <g transform="translate(58 60)"><rect x="-4" y="0" width="64" height="18" rx="7" fill="#fff"/><path d="M4 18 H54 V92 L90 104 Q104 110 98 124 H4Z" fill="url(#${u}b)" stroke="#5a0a20" stroke-width="2"/>
+      <path d="M4 112 H98" stroke="#5a0a20" stroke-width="2" opacity=".5"/><circle cx="20" cy="50" r="3" fill="#FFD23F"/><circle cx="36" cy="70" r="3" fill="#FFD23F"/><circle cx="22" cy="88" r="3" fill="#FFD23F"/></g>
+    <g transform="translate(54 30)"><rect x="6" y="6" width="22" height="26" rx="3" fill="#39FF9A" transform="rotate(-12 17 19)"/><rect x="14" y="4" width="5" height="28" fill="#1B0C3A" transform="rotate(-12 17 19)"/>
+      <path d="M40 0 l6 18 h-12z" fill="#FFD23F" filter="url(#${u}g)"/><rect x="48" y="10" width="20" height="22" rx="3" fill="#00e5ff" transform="rotate(10 58 21)"/><circle cx="34" cy="26" r="7" fill="#c77dff"/><path d="M66 -4 q8 10 0 24" stroke="#ff3b3b" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M66 -4 q8 10 0 24" stroke="#fff" stroke-width="5" stroke-dasharray="4 4" fill="none"/></g>
+    <text x="100" y="196" text-anchor="middle" font-family="system-ui" font-size="15" font-weight="900" fill="#3b1d5e" letter-spacing="3">6. DEZEMBER</text></svg>` },
+  { id: 'heiligabend', name: 'Karte Tür 24: Heiligabend', gruppe: 'Karte', fertig: true, sonder: 'nur Tür 24', satz: 'Frohe Weihnachten. Schön, dass wir zusammen unterwegs sind.', svg: (u) => `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${u}a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05061a"/><stop offset=".7" stop-color="#1b2a6b"/><stop offset="1" stop-color="#ff7a59"/></linearGradient>${glow(u, 3)}<radialGradient id="${u}s"><stop offset="0" stop-color="#fff6cc"/><stop offset="1" stop-color="#FFD23F" stop-opacity="0"/></radialGradient></defs>
+    <rect width="200" height="200" fill="url(#${u}a)"/><circle cx="100" cy="34" r="30" fill="url(#${u}s)"/><path d="M100 14 l4 14 14 4 -14 4 -4 14 -4 -14 -14 -4 14 -4z" fill="#fff6cc" filter="url(#${u}g)"/>
+    <g fill="#fff"><circle cx="20" cy="30" r="1.3"/><circle cx="46" cy="58" r="1"/><circle cx="160" cy="20" r="1.4"/><circle cx="182" cy="60" r="1"/><circle cx="140" cy="70" r="1"/><circle cx="30" cy="96" r="1"/></g>
+    <path d="M0 168 Q100 150 200 168 V200 H0Z" fill="#e9c46a"/><path d="M0 180 Q100 168 200 182 V200 H0Z" fill="#d4a94f"/>
+    <path d="M28 170 Q34 120 40 96" stroke="#2b1a0f" stroke-width="5" fill="none"/><path d="M40 96 q-24 0 -32 14 M40 96 q-6 -22 -28 -24 M40 96 q16 -18 36 -12 M40 96 q20 2 26 20" stroke="#14532D" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <g filter="url(#${u}g)"><path d="M120 70 L94 112 H108 L86 146 H104 L80 170 H160 L136 146 H154 L132 112 H146 Z" fill="#0f5132" stroke="#39FF9A" stroke-width="2.5" stroke-linejoin="round"/></g>
+    <path d="M96 122 Q120 132 142 118 M88 156 Q120 166 152 152" stroke="#FFD23F" stroke-width="1.6" fill="none"/>
+    <g filter="url(#${u}g)"><circle cx="104" cy="124" r="3" fill="#ff3b6b"/><circle cx="124" cy="128" r="3" fill="#00e5ff"/><circle cx="140" cy="120" r="3" fill="#FFD23F"/><circle cx="96" cy="158" r="3" fill="#c77dff"/><circle cx="122" cy="162" r="3" fill="#ff3b6b"/><circle cx="146" cy="156" r="3" fill="#39FF9A"/></g>
+    <path d="M120 60 l3 7 7 1 -5 5 1 7 -6 -3 -6 3 1 -7 -5 -5 7 -1z" fill="#FFD23F"/>
+    <rect x="58" y="164" width="20" height="16" rx="2" fill="#E11D48"/><rect x="66" y="164" width="4" height="16" fill="#fff"/><rect x="164" y="160" width="22" height="20" rx="2" fill="#39FF9A"/><rect x="173" y="160" width="4" height="20" fill="#1B0C3A"/>
+    <text x="100" y="196" text-anchor="middle" font-family="system-ui" font-size="15" font-weight="900" fill="#5a3a10" letter-spacing="3">24. DEZEMBER</text></svg>` });
 function skizze(u, a, b, inner) {
   return `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${u}s" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="200" height="200" fill="url(#${u}s)"/>${inner}<rect x="6" y="6" width="188" height="188" rx="10" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2" stroke-dasharray="6 6"/></svg>`;
 }
 const motivSvg = (id) => { const m = MOTIVE.find((x) => x.id === id) || MOTIVE[0]; return m.svg('m' + (++MZ) + id); };
 const GESCHENK_ICO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8c-2-4-6-4-6-1s4 1 6 1c2 0 6 2 6-1s-4-3-6 1"/></svg>';
 const BILD_ICO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg>';
+const HORN_ICO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 11C3 8 3 4 5 2c0 4 2 6 4 7M18 11c3-3 3-7 1-9 0 4-2 6-4 7"/><path d="M12 8c-4 0-6 3-6 7 0 4 3 7 6 7s6-3 6-7c0-4-2-7-6-7z"/><path d="M9.5 17c1.5 1.2 3.5 1.2 5 0"/></svg>';
+const STERN_ICO = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>';
 
 // ================= Daten (erfunden; keine echten Namen) =================
 const G = {
@@ -526,18 +621,44 @@ const IDEEN = [
   ['Erlebnisse unterwegs', ['Ausflugsziel aus zwei Vorschlägen', 'Minigolf oder Kino', 'Eine Surfstunde', 'Sonnenuntergang am Strand']],
   ['Zeit zu zweit', ['Eine Stunde nur mit Mama oder Papa', 'Spieleabend – du wählst', 'Zusammen kochen']],
   ['Die Eltern müssen ran', ['Papa singt ein Lied deiner Wahl', 'Mama macht deinen Tanz nach', 'Eltern machen 20 Liegestütze']],
-  ['Kleine Dinge', ['Sticker oder Aufnäher vom Ort', 'Neues Kartenspiel', 'Buch oder Hörbuch']],
-  ['In der App', ['+100 Sterne', '+500 Sterne', 'Doppelte Sterne für die nächste Etappe*']],
+  ['Kleine Dinge', ['Neues Kartenspiel', 'Buch oder Hörbuch', 'Süßigkeit aus dem Land']],
+  ['In der App', ['+100 Sterne', '+500 Sterne', 'Jackpot +1111 Sterne', 'Niete mit Trost: +1 Stern']],
   ['Bild-Türchen mit Text', ['Koala im Sommer-Dezember', 'Surf-Schlitten', 'Neon-Baum', 'Pinguin mit Kopfhörern', 'Polarlicht', 'Flieger mit Lichterkette']],
-  ['Besondere Tage', ['6.12.: Nikolaus-Stiefel', '24.12.: Hinweis auf das Geschenk', 'Erster Tag in einem neuen Land']],
+  ['Besondere Tage', ['Tür 6: Karte Nikolaus (fest)', 'Tür 24: Karte Heiligabend (fest)', 'Erster Tag in einem neuen Land']],
+  ['Krampus (kleine Pflichten)', ['Zimmer aufräumen', 'Frühstück herrichten', 'Ein Tag ohne Handy']],
 ];
 const GRUPPEN = [['vorrecht', 'Gutscheine und Vorrechte'], ['erlebnis', 'Kleine Erlebnisse'], ['ding', 'Kleine Dinge'], ['besonders', 'Besonders']];
-// Belegung Kind 1: g = Geschenk, m = Motiv (+ Satz), null = leer
-const K1 = [null, 'g:musik', 'm:neonbaum', 'g:aufbleiben', 'g:eis', 'm:koala', 'g:abwasch', 'g:abendessen', 'm:pinguin', 'g:film', 'g:sticker', 'm:surf', 'g:karten', 'g:ausflug', 'm:polarlicht',
-  'g:fruehstueck', 'g:suess', null, 'g:minigolf', 'g:buch', 'g:stunde', 'm:flieger', 'g:spieleabend', 'g:ausschlafen', 'g:hinweis24'];
-const K2 = [null]; for (let n = 1; n <= 23; n++) K2[n] = K1[((n - 1 + 5) % 23) + 1]; K2[24] = K1[24]; K2[9] = 'g:surfstunde!';
-const inhalt = (code) => { if (!code) return { art: 'leer', titel: 'Leer', text: '' }; const eigen = code.endsWith('!'); const c = code.replace('!', ''); const [a, id] = c.split(':');
-  if (a === 'g') return { art: 'geschenk', id, titel: G[id][0], text: G[id][1], eigen }; const m = MOTIVE.find((x) => x.id === id); return { art: 'bild', id, titel: m.name, text: m.satz, eigen }; };
+const KR = {
+  aufraeumen: ['Zimmer aufräumen – heute noch.', 'Bis zum Abendessen. Wenn du fertig bist, haken Mama oder Papa ab.'],
+  fruehstueck: ['Frühstück herrichten', 'Morgen früh deckst du den Tisch für alle.'],
+  handy: ['Ein Tag ohne Handy', 'Einen Tag deiner Wahl in dieser Woche.'],
+};
+// Belegung Kind 1. Codes: g = Gutschein · m = Motiv + Satz · k = Krampus · s = Sterne · j = Jackpot · n = Niete mit Trost · c = Karte (fest auf 6/24) · null = leer
+// Anhang „=“: gemeinsam am selben Tag (gleiche Tür bei beiden, beim Mischen fest) · „!“: nur für dieses Kind
+const K1 = [null, 'g:musik', 'm:neonbaum', 'g:aufbleiben', 'g:eis', 'k:aufraeumen', 'c:nikolaus', 'g:abendessen', 'm:pinguin', 'g:film', 'm:koala', 'm:surf', 'g:karten', 'j:1111', 'g:ausflug=',
+  'g:fruehstueck', 'g:suess', null, 'g:minigolf', 'n:1', 'k:fruehstueck', 'm:flieger', 'g:spieleabend', 'g:ausschlafen', 'c:heiligabend'];
+const istKrampus = (c) => !!c && c.startsWith('k:');
+// Mischregeln (auch für „Neu mischen“): Tür 6 und 24 fest (Karte) · gemeinsame Inhalte fest auf derselben Tür · Rest je Kind versetzt ·
+// Krampus nie auf 1 oder 24, nie zwei hintereinander, wenn möglich einer am 5.12.
+function mische(basis, versatz) {
+  const fest = new Set([6, 24]); basis.forEach((c, n) => { if (n && c && c.endsWith('=')) fest.add(n); });
+  const frei = []; for (let n = 1; n <= 24; n++) if (!fest.has(n)) frei.push(n);
+  const rest = frei.map((n) => basis[n]); const neu = [null]; for (let n = 1; n <= 24; n++) neu[n] = fest.has(n) ? basis[n] : null;
+  frei.forEach((n, i) => { neu[n] = rest[(i + versatz) % rest.length]; });
+  const schlecht = (n) => istKrampus(neu[n]) && (n === 1 || n === 24 || istKrampus(neu[n - 1]) || istKrampus(neu[n + 1]));
+  for (let runde = 0; runde < 3; runde++) for (const n of frei) if (schlecht(n)) { const z = frei.find((m) => m !== n && !istKrampus(neu[m]) && !istKrampus(neu[m - 1]) && !istKrampus(neu[m + 1]) && m !== 1); if (z) [neu[n], neu[z]] = [neu[z], neu[n]]; }
+  if (!istKrampus(neu[5]) && frei.includes(5) && !istKrampus(neu[4])) { const k = frei.find((m) => istKrampus(neu[m])); if (k) [neu[5], neu[k]] = [neu[k], neu[5]]; }
+  return neu;
+}
+const K2 = mische(K1, 5); K2[K2.indexOf('g:film')] = 'g:surfstunde!';
+const inhalt = (code) => { if (!code) return { art: 'leer', titel: 'Leer', text: '' }; const eigen = code.endsWith('!'), gemeinsam = code.endsWith('='); const c = code.replace(/[!=]$/, ''); const [a, id] = c.split(':');
+  if (a === 'g') return { art: 'geschenk', id, titel: G[id][0], text: G[id][1], eigen, gemeinsam };
+  if (a === 'k') return { art: 'krampus', id, titel: KR[id][0], text: KR[id][1], eigen };
+  if (a === 'j') return { art: 'jackpot', titel: `Jackpot +${id} ★`, sterne: Number(id) };
+  if (a === 'n') return { art: 'niete', titel: `Niete +${id} ★`, sterne: Number(id) };
+  if (a === 's') return { art: 'sterne', titel: `+${id} ★`, sterne: Number(id) };
+  const m = MOTIVE.find((x) => x.id === id); return { art: a === 'c' ? 'karte' : 'bild', id, titel: a === 'c' ? (id === 'nikolaus' ? 'Karte: Nikolaus' : 'Karte: Heiligabend') : m.name, text: m.satz, eigen }; };
+const ARTICO = (i) => i.art === 'bild' || i.art === 'karte' ? BILD_ICO : i.art === 'geschenk' ? GESCHENK_ICO : i.art === 'krampus' ? HORN_ICO : ['jackpot', 'niete', 'sterne'].includes(i.art) ? STERN_ICO : '';
 
 // ================= Adresse =================
 const P = {}; const leseAdresse = () => { const h = new URLSearchParams(location.hash.slice(1)); for (const k of Object.keys(P)) delete P[k]; for (const [k, v] of h) P[k] = v; P.s = P.s || 'eltern'; P.g = P.g === 'nacht' ? 'nacht' : 'hell'; P.tag = Number(P.tag) || 7; P.k = P.k === '2' ? 2 : 1; };
@@ -600,13 +721,14 @@ function heuteKarte() {
 }
 const GUTSCHEINE = { 1: [ { n: 7, t: 'Du bestimmst das Abendessen.', x: 'An einem Abend deiner Wahl. Sag einfach Bescheid.', z: 'offen', am: '7.12.', neu: true }, { n: 6, t: 'Einmal Abwasch frei', z: 'spaeter', am: '7.12.' },
     { n: 4, t: 'Eis oder Bubble Tea', z: 'offen', am: '4.12.' }, { n: 3, t: '30 Minuten länger aufbleiben', z: 'angefragt', am: '3.12.' }, { n: 1, t: 'Musik im Auto aussuchen', z: 'eingeloest', am: '1.12.', ein: '3.12.' } ],
-  2: [ { n: 5, t: 'Frühstück ans Bett', z: 'angefragt', am: '5.12.' }, { n: 2, t: 'Sticker vom Ort', z: 'eingeloest', am: '2.12.', ein: '4.12.' } ] };
+  2: [ { n: 5, t: 'Frühstück ans Bett', z: 'angefragt', am: '5.12.' }, { n: 2, t: 'Buch oder Hörbuch', z: 'eingeloest', am: '2.12.', ein: '4.12.' } ] };
 function abgebenKarte() {
-  const alle = [1, 2].flatMap((k) => GUTSCHEINE[k].map((x) => ({ ...x, k }))).filter((x) => !(x.k === 1 && x.n > 5)).concat([{ k: 2, n: 6, t: 'Ein Sticker vom Ort', z: 'spaeter' }]);
+  const alle = [1, 2].flatMap((k) => GUTSCHEINE[k].map((x) => ({ ...x, k }))).filter((x) => !(x.k === 1 && x.n > 5)).concat([{ k: 2, n: 6, t: 'Neues Kartenspiel', z: 'spaeter' }]);
   const anf = alle.filter((x) => x.z === 'angefragt'), off = alle.filter((x) => x.z === 'offen' || x.z === 'spaeter'), ein = alle.filter((x) => x.z === 'eingeloest');
   const z = (x, kn) => `<div class="ab-z"><div><div class="wer">Kind ${x.k} · Tür ${x.n}${x.z === 'spaeter' ? ' · „heute nicht“ gesagt' : ''}${x.z === 'eingeloest' ? ' · eingelöst ' + x.ein : ''}</div><div class="was ${x.z === 'eingeloest' ? 'durch' : ''}">${esc(x.t)}</div></div><div class="knr">${kn}</div></div>`;
-  return `<section class="teil"><div class="teil-kopf"><h2>Gutscheine</h2><span class="zahl">${anf.length} angefragt · ${off.length} offen · ${ein.length} eingelöst</span></div><div class="karte">
+  return `<section class="teil"><div class="teil-kopf"><h2>Gutscheine</h2><span class="zahl">${anf.length} angefragt · ${off.length} offen · ${ein.length} eingelöst · 1 Krampus offen</span></div><div class="karte">
     ${anf.map((x) => z(x, `<button type="button" class="primary klein">Eingelöst</button><button type="button" class="secondary klein">Heute nicht</button>`)).join('')}
+    <div class="ab-z krampus-z"><div><div class="wer">Kind 1 · Tür 5 · <b>Krampus</b></div><div class="was">Zimmer aufräumen – heute noch.</div></div><div class="knr"><button type="button" class="primary klein">Erledigt ✓</button><button type="button" class="secondary klein">Noch nicht</button></div></div>
     ${off.slice(0, 2).map((x) => z(x, `<button type="button" class="secondary klein">Als eingelöst markieren</button>`)).join('')}
     ${off.length > 2 ? `<div class="mehr-z">+ ${off.length - 2} weitere offen</div>` : ''}
     ${ein.slice(0, 1).map((x) => z(x, `<button type="button" class="secondary klein">Zurückholen</button>`)).join('')}
@@ -616,31 +738,32 @@ function elternZutun() {
   const kopf = `<header class="el-kopf"><div><span class="marke">Lernen Schule</span><button class="leise-knopf" type="button">Abmelden</button></div></header>`;
   const zeile = (farbe, t, ziel) => `<a class="zt ${farbe}" href="#"><i></i><span>${t}</span><span class="ziel">${ziel} ›</span></a>`;
   return `<div class="el" data-g="${P.g}">${kopf}<main><div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:6px"><h1>Was ist los?</h1><span class="unter">ⓘ So funktioniert’s</span></div>
-    <section class="teil"><div class="teil-kopf"><h2>Zu tun</h2><span class="zahl">4 Punkte</span></div><div class="karte liste">
+    <section class="teil"><div class="teil-kopf"><h2>Zu tun</h2><span class="zahl">5 Punkte</span></div><div class="karte liste">
     <div class="zt blau zt-k"><i></i><span><b>Kind 1</b> möchte „30 Minuten länger aufbleiben“ einlösen <small class="muted">· Gutschein aus Tür 3</small></span><span class="knoepfe"><button type="button" class="primary klein" aria-label="Eingelöst: Kind 1 – 30 Minuten länger aufbleiben">Eingelöst</button><button type="button" class="secondary klein" aria-label="Heute nicht: Kind 1 – 30 Minuten länger aufbleiben">Heute nicht</button></span></div>
     <div class="zt blau zt-k"><i></i><span><b>Kind 2</b> möchte „Frühstück ans Bett“ einlösen <small class="muted">· Gutschein aus Tür 5</small></span><span class="knoepfe"><button type="button" class="primary klein">Eingelöst</button><button type="button" class="secondary klein">Heute nicht</button></span></div>
+    <div class="zt krampus-z zt-k"><i></i><span><b>Kind 1</b>: Krampus-Aufgabe „Zimmer aufräumen“ – erledigt? <small class="muted">· aus Tür 5</small></span><span class="knoepfe"><button type="button" class="primary klein">Erledigt ✓</button><button type="button" class="secondary klein">Noch nicht</button></span></div>
     ${zeile('rot', 'Kind 2: seit 3 Tagen kein Lerntag', 'Kind 2')}${zeile('gelb', 'Kind 1: „Runden“ wackelt (5 falsch)', 'Was wackelt')}</div></section>
     <section class="teil"><div class="teil-kopf"><h2>Die Kinder</h2></div><div class="karte k-in muted">… (unverändert)</div></section>
-    <section class="teil"><div class="karte k-in" style="display:flex;justify-content:space-between;align-items:center;gap:10px"><span><b style="color:var(--accent)">Adventskalender</b><br><span class="muted" style="font-size:14px">2 Gutscheine angefragt · Tür 8 morgen</span></span><a class="secondary stark" style="white-space:nowrap" href="#s=eltern&g=${P.g}">Öffnen ›</a></div></section></main></div>`;
+    <section class="teil"><div class="karte k-in" style="display:flex;justify-content:space-between;align-items:center;gap:10px"><span><b style="color:var(--accent)">Adventskalender</b><br><span class="muted" style="font-size:14px">2 Gutscheine angefragt · 1 Krampus offen</span></span><a class="secondary stark" style="white-space:nowrap" href="#s=eltern&g=${P.g}">Öffnen ›</a></div></section></main></div>`;
 }
 function vorratKarte() {
-  const liste = ['g:abendessen', 'm:koala', 'g:eis', 'm:surf', 'g:hinweis24', 'g:surfstunde!'];
-  const wo = (code) => { const c = code; const a = K1.indexOf(c), b = K2.indexOf(c); if (code.endsWith('!')) return 'nur Kind 2: Tür 9'; if (code === 'g:hinweis24') return 'beide: Tür 24 (fest)'; return `Kind 1: Tür ${a} · Kind 2: Tür ${b}`; };
-  return `<section class="teil"><div class="teil-kopf"><h2>Vorrat</h2><span class="zahl">24 Inhalte · 1 nur für Kind 2</span><div class="rechts"><a class="secondary" href="#s=eltern-vorschlaege&g=${P.g}">+ Vorschläge</a><a class="secondary" href="#s=eltern-neu&g=${P.g}">+ Eigener</a></div></div><div class="karte">
-    ${liste.map((c) => { const i = inhalt(c); return `<div class="vor-z"><span class="ico ${i.art === 'bild' ? '' : 'g'}">${i.art === 'bild' ? motivSvg(i.id) : GESCHENK_ICO}</span><div><div class="was">${esc(i.titel)}</div><div class="wo">${i.art === 'bild' ? 'Motiv + Satz' : 'Geschenk'}<br>${wo(c)}</div></div><button class="mini-k" type="button" aria-label="${esc(i.titel)} bearbeiten">✎</button></div>`; }).join('')}
+  const liste = ['g:ausflug=', 'k:aufraeumen', 'j:1111', 'n:1', 'm:koala', 'c:heiligabend', 'g:surfstunde!'];
+  const wo = (code) => { const c = code; const a = K1.indexOf(c), b = K2.indexOf(c); if (code.endsWith('!')) return `nur Kind 2: Tür ${b}`; if (code.startsWith('c:')) return `beide: Tür ${a} (fest)`; if (code.endsWith('=')) return `beide am selben Tag: Tür ${a}`; return `Kind 1: Tür ${a} · Kind 2: Tür ${b}`; };
+  return `<section class="teil"><div class="teil-kopf"><h2>Vorrat</h2><span class="zahl">24 Inhalte · 2 Karten fest · 1 gemeinsam · 1 nur für Kind 2</span><div class="rechts"><a class="secondary" href="#s=eltern-vorschlaege&g=${P.g}">+ Vorschläge</a><a class="secondary" href="#s=eltern-neu&g=${P.g}">+ Eigener</a></div></div><div class="karte">
+    ${liste.map((c) => { const i = inhalt(c); const bild = i.art === 'bild' || i.art === 'karte'; return `<div class="vor-z"><span class="ico ${bild ? '' : 'g'} ${i.art}">${bild ? motivSvg(i.id) : ARTICO(i)}</span><div><div class="was">${esc(i.titel)}</div><div class="wo">${{ bild: 'Motiv + Satz', karte: 'Karte', geschenk: 'Gutschein', krampus: 'Krampus', jackpot: 'Sterne · Jackpot', niete: 'Sterne · Niete mit Trost' }[i.art]}<br>${wo(c)}</div></div><button class="mini-k" type="button" aria-label="${esc(i.titel)} bearbeiten">✎</button></div>`; }).join('')}
     <div class="mehr-z">+ 18 weitere anzeigen</div></div></section>`;
 }
 function rasterHtml(k, gewaehlt) {
   const B = k === 1 ? K1 : K2; const st = stand(k, 'kalender', P.tag);
   return `<div class="raster" role="list">${Array.from({ length: 24 }, (_, j) => { const n = j + 1; const i = inhalt(B[n]); const zs = st.z[n];
-    const cls = ['platz', zs === 'offen' ? 'offen' : zs === 'nach' ? 'nach' : zs === 'heute' ? 'heute' : '', i.art === 'leer' ? 'leer' : '', i.eigen ? 'eigen' : '', gewaehlt === n ? 'gewaehlt' : ''].join(' ');
-    const ico = i.art === 'bild' ? BILD_ICO : i.art === 'geschenk' ? GESCHENK_ICO : '';
-    return `<a role="listitem" class="${cls}" href="#s=eltern-platz&g=${P.g}&k=${k}&n=${n}" aria-label="Tür ${n}: ${esc(i.titel)}${zs === 'offen' ? ', schon offen' : ''}"><span class="nr">${n}</span><span class="art">${ico}</span><span class="t">${i.art === 'leer' ? 'leer – nur Spruch' : esc(i.titel)}</span></a>`; }).join('')}</div>`;
+    const cls = ['platz', zs === 'offen' ? 'offen' : zs === 'nach' ? 'nach' : zs === 'heute' ? 'heute' : '', i.art === 'leer' ? 'leer' : '', i.eigen ? 'eigen' : '', i.art === 'krampus' ? 'krampus' : '', i.art === 'karte' ? 'fest' : '', i.gemeinsam ? 'gemeinsam' : '', gewaehlt === n ? 'gewaehlt' : ''].join(' ');
+    const ico = ARTICO(i);
+    return `<a role="listitem" class="${cls}" href="#s=eltern-platz&g=${P.g}&k=${k}&n=${n}" aria-label="Tür ${n}: ${esc(i.titel)}${zs === 'offen' ? ', schon offen' : ''}"><span class="nr">${n}</span><span class="art">${ico}</span><span class="t">${i.art === 'leer' ? 'leer – nur Spruch' : esc(i.titel)}</span>${i.art === 'karte' ? '<span class="mark">fest</span>' : i.gemeinsam ? '<span class="mark">= beide</span>' : ''}</a>`; }).join('')}</div>`;
 }
 function belegungKarte() {
-  const fuss = `<div class="raster-fuss"><span><i class="o"></i>offen</span><span><i class="n"></i>nachzuholen</span><span><i class="h"></i>heute</span><span><i class="e"></i>nur dieses Kind</span></div>`;
+  const fuss = `<div class="raster-fuss"><span><i class="o"></i>offen</span><span><i class="n"></i>nachzuholen</span><span><i class="h"></i>heute</span><span><i class="e"></i>nur dieses Kind</span><span><i class="k"></i>Krampus</span><span>fest = Karte 6/24 · = beide am selben Tag</span></div>`;
   const breit = innerWidth >= 1000;
-  const eins = (k) => `<div class="karte"><div class="raster-kopf"><h3>Kind ${k}</h3><small>${k === 1 ? 'gemischt am 28.11.' : 'wie Kind 1, um 5 Tage versetzt'}</small></div>${rasterHtml(k, P.s === 'eltern-platz' && P.k === k ? Number(P.n) || 9 : 0)}${fuss}
+  const eins = (k) => `<div class="karte"><div class="raster-kopf"><h3>Kind ${k}</h3><small>${k === 1 ? 'gemischt am 28.11.' : 'wie Kind 1, versetzt · Tür 6, 14, 24 fest'}</small></div>${rasterHtml(k, P.s === 'eltern-platz' && P.k === k ? Number(P.n) || 9 : 0)}${fuss}
     <div class="raster-akt"><button type="button" class="secondary">Neu mischen</button>${k === 2 ? '<button type="button" class="secondary">Wie Kind 1, versetzt</button>' : ''}<a class="secondary stark" href="#s=inhalt-geschenk&g=${P.g}&vorschau=1">Vorschau: so sieht es Kind ${k}</a></div></div>`;
   if (breit) return `<section class="teil"><div class="teil-kopf"><h2>Türchen je Kind</h2><span class="zahl">Antippen zum Ändern · offene Türen sind fest</span></div><div class="beide">${eins(1)}${eins(2)}</div></section>`;
   return `<section class="teil"><div class="teil-kopf"><h2>Türchen je Kind</h2><div class="rechts"><div class="seg" role="group" aria-label="Kind wählen"><button type="button" aria-pressed="${P.k === 1}" data-k="1">Kind 1</button><button type="button" aria-pressed="${P.k === 2}" data-k="2">Kind 2</button></div></div></div>${eins(P.k)}
@@ -649,8 +772,8 @@ function belegungKarte() {
 function vorschlagBlatt() {
   const aus = new Set(['Eine Bordkarte überspringen*', 'Mama oder Papa rechnet eine Aufgabe vor', 'Zusammen kochen', 'Eltern machen 20 Liegestütze', 'Erster Tag in einem neuen Land']);
   const chip = (t) => { const an = !aus.has(t); const hand = t.endsWith('*'); const n = t.replace('*', ''); return `<button type="button" class="chip ${an ? 'an' : ''}" aria-pressed="${an}"><span class="plus">${an ? '✓' : '+'}</span>${esc(n)}${hand ? '<span class="stufe2">von Hand</span>' : ''}</button>`; };
-  const gr = IDEEN.map(([t, l], i) => `<div class="gruppe"><h3>${t} <span style="font-weight:600;text-transform:none;letter-spacing:0">· ${[9, 7, 11, 12, 8, 7, 9, 6, 16, 5, 5][i]} Ideen</span></h3><div class="chips">${l.map(chip).join('')}<button type="button" class="chip" style="color:var(--muted)">alle zeigen ›</button></div></div>`).join('');
-  return `<div class="blatt-hg"><div class="blatt" role="dialog" aria-modal="true" aria-labelledby="vbt"><div class="griff"></div><h2 id="vbt">Ideen (95)</h2><p class="unter">Antippen = in den Vorrat. Jede Idee hat einen fertigen Text; Text, Sterne und „für wen“ lassen sich danach je Tür ändern. <b>von Hand</b> = Gutschein, den ihr selbst einlöst – die App ändert dafür nichts an der Lernlogik.</p>${gr}
+  const gr = IDEEN.map(([t, l], i) => `<div class="gruppe"><h3>${t} <span style="font-weight:600;text-transform:none;letter-spacing:0">· ${[9, 7, 11, 12, 8, 7, 8, 6, 16, 3, 3, 3][i]} Ideen</span></h3><div class="chips">${l.map(chip).join('')}<button type="button" class="chip" style="color:var(--muted)">alle zeigen ›</button></div></div>`).join('');
+  return `<div class="blatt-hg"><div class="blatt" role="dialog" aria-modal="true" aria-labelledby="vbt"><div class="griff"></div><h2 id="vbt">Ideen</h2><p class="unter">Antippen = in den Vorrat. Jede Idee hat einen fertigen Text; Text, Sterne und „für wen“ lassen sich danach je Tür ändern. <b>von Hand</b> = Gutschein, den ihr selbst einlöst – die App ändert dafür nichts an der Lernlogik.</p>${gr}
     <div class="blatt-fuss"><a class="secondary" href="#s=eltern&g=${P.g}">Abbrechen</a><a class="primary" href="#s=eltern&g=${P.g}">24 übernehmen und mischen</a></div></div></div>`;
 }
 function platzBlatt() {
@@ -672,11 +795,13 @@ function sterneFeld(w) {
 }
 function neuBlatt() {
   return `<div class="blatt-hg"><div class="blatt" role="dialog" aria-modal="true" aria-labelledby="nbt"><div class="griff"></div><h2 id="nbt">Tür 7 · Kind 1</h2><p class="unter">Gleiche Bedienung für Ideen und eigene Inhalte.</p>
-    <div class="gruppe"><h3>Art</h3><div class="seg" role="group" aria-label="Art"><button type="button" aria-pressed="true">Gutschein</button><button type="button" aria-pressed="false">Motiv + Satz</button><button type="button" aria-pressed="false">nur Sterne</button></div></div>
+    <div class="gruppe"><h3>Art</h3><div class="seg seg-4" role="group" aria-label="Art"><button type="button" aria-pressed="true">Gutschein</button><button type="button" aria-pressed="false">Motiv + Satz</button><button type="button" aria-pressed="false">Sterne</button><button type="button" aria-pressed="false">Krampus</button></div>
+    <p class="unter" style="margin-top:6px">Bei „Sterne“: <b>normal</b> · <b>Jackpot</b> (großer Betrag, goldene Tür) · <b>Niete mit Trost</b> (kleiner Betrag). Bei „Krampus“: kleine Pflicht, keine Sterne, die Eltern haken „erledigt“ ab.</p></div>
     <div class="feld"><label for="f0">Titel</label><input id="f0" value="Du bestimmst das Abendessen."></div>
     <div class="feld"><label for="f1">Text fürs Kind</label><textarea id="f1">An einem Abend deiner Wahl. Sag einfach Bescheid.</textarea><small>Höchstens 140 Zeichen · keine Fotos – bei „Motiv + Satz“ wählt ihr eines der gezeichneten Motive</small></div>
     ${sterneFeld(50)}
     <div class="gruppe"><h3>Für</h3><div class="seg" role="group" aria-label="Für wen"><button type="button" aria-pressed="false">Beide</button><button type="button" aria-pressed="true">Nur Kind 1</button><button type="button" aria-pressed="false">Nur Kind 2</button></div></div>
+    <div class="schalter-z"><span><b>Beide am selben Tag</b><small>Gleiche Tür bei beiden Kindern, bleibt beim Mischen fest – z. B. ein Ausflug, den beide zusammen aussuchen</small></span><button type="button" class="schalter" role="switch" aria-checked="false" aria-label="Beide am selben Tag"><i></i></button></div>
     <div class="feld"><label>Gültig bis <span class="stufe2">Stufe 2</span></label><small>Ohne Angabe gilt ein Gutschein, bis er eingelöst ist – auch nach dem Advent.</small></div>
     <div class="blatt-fuss"><a class="secondary" href="#s=eltern&g=${P.g}">Abbrechen</a><a class="primary" href="#s=eltern&g=${P.g}">Speichern</a></div></div></div>`;
 }
@@ -688,22 +813,30 @@ function motivSeite() {
 // ================= KIND =================
 function kindSeite(s) {
   const g = P.g;
-  if (['tuer', 'inhalt-bild', 'inhalt-geschenk', 'zweite', 'leer'].includes(s)) return `<div class="kd" data-g="${g}">${tuerAnsicht(s)}</div>`;
+  if (['tuer', 'inhalt-bild', 'inhalt-geschenk', 'zweite', 'leer', 'tuer-krampus', 'inhalt-krampus', 'inhalt-jackpot', 'inhalt-niete', 'inhalt-karte6', 'inhalt-karte24'].includes(s)) return `<div class="kd" data-g="${g}">${tuerAnsicht(s)}</div>`;
   if (s === 'gutscheine') return `<div class="kd" data-g="${g}">${gutscheinSeite()}</div>`;
   if (['hinweis', 'hinweis-bereit', 'hinweis-limit', 'menue'].includes(s)) return `<div class="kd" data-g="${g}">${karteHinweis(s)}</div>`;
   return `<div class="kd" data-g="${g}">${kalender(s)}</div>`;
 }
-const STICKER = { 'inhalt-bild': ['Sheesh!', 's3'], 'inhalt-geschenk': ['W', 's3'], leer: ['+1000 Aura', 's3'] };
+const STICKER = { 'inhalt-bild': ['Sheesh!', 's3'], 'inhalt-geschenk': ['W', 's3'], 'inhalt-krampus': ['Çüş!', ''], 'inhalt-jackpot': ['Das crazy', 's3'], 'inhalt-niete': ['Schere', 'sf'], 'inhalt-karte6': ['Süper!', ''], 'inhalt-karte24': ['Peak', 's3'], leer: ['+1000 Aura', 's3'] };
 function tuerAnsicht(s) {
-  const nacht = P.g === 'nacht'; const nr = s === 'zweite' ? 6 : P.tag;
-  const zu = s === 'tuer' || s === 'zweite';
-  const ober = s === 'zweite' ? `2. TÜRCHEN HEUTE · ${datumText(P.tag).toUpperCase()}` : `ADVENTSKALENDER · ${datumText(P.tag).toUpperCase()}`;
-  const zeile = s === 'tuer' ? 'Für deine Etappe. Tippen zum Öffnen.' : s === 'zweite' ? 'Zweite Etappe heute – du holst Türchen 6 nach. Mehr als 2 am Tag gehen nicht.' : '';
-  const tuer = (auf) => `<div class="rahmen ${auf ? 'auf' : ''}" id="rahmen"><div class="licht-innen"></div><button type="button" class="flug" id="tuerknopf" aria-label="Türchen ${nr} öffnen"><svg class="schleife" viewBox="0 0 64 30" aria-hidden="true"><path d="M32 16 C20 0 4 4 8 14 C12 22 26 18 32 16 C38 18 52 22 56 14 C60 4 44 0 32 16Z" fill="#E11D48"/><circle cx="32" cy="16" r="5" fill="#be123c"/></svg><span class="zahl">${nr}</span><i class="knauf"></i></button></div>`;
+  const nacht = P.g === 'nacht'; const nr = { zweite: 6, 'tuer-krampus': 5, 'inhalt-krampus': 5, 'inhalt-jackpot': 13, 'inhalt-niete': 19, 'inhalt-karte6': 6, 'inhalt-karte24': 24 }[s] || P.tag;
+  const tagD = { 'tuer-krampus': 5, 'inhalt-krampus': 5, 'inhalt-karte6': 6, 'inhalt-karte24': 24, 'inhalt-jackpot': 13, 'inhalt-niete': 19 }[s] || P.tag;
+  const sorte = s.includes('krampus') ? 'krampus' : s === 'inhalt-jackpot' ? 'jackpot' : s === 'inhalt-niete' ? 'niete' : s.includes('karte') ? 'karte' : '';
+  const zu = s === 'tuer' || s === 'zweite' || s === 'tuer-krampus';
+  const ober = s === 'zweite' ? `2. TÜRCHEN HEUTE · ${datumText(P.tag).toUpperCase()}` : sorte === 'krampus' && !zu ? `KRAMPUS WAR DA · ${datumText(tagD).toUpperCase()}` : `ADVENTSKALENDER · ${datumText(tagD).toUpperCase()}`;
+  const zeile = s === 'tuer-krampus' ? 'Hm. Diese Tür sieht anders aus …' : s === 'inhalt-krampus' ? 'Kein Sterne-Abzug. Nur eine kleine Aufgabe.' : s === 'inhalt-karte24' ? 'Frohe Weihnachten!' : s === 'tuer' ? 'Für deine Etappe. Tippen zum Öffnen.' : s === 'zweite' ? 'Zweite Etappe heute – du holst Türchen 6 nach. Mehr als 2 am Tag gehen nicht.' : '';
+  const deko = sorte === 'krampus' ? `<svg class="schleife hoerner" viewBox="0 0 64 30" aria-hidden="true"><path d="M14 30 Q2 16 10 2 Q12 18 24 26Z M50 30 Q62 16 54 2 Q52 18 40 26Z" fill="#f1e4c8" stroke="#8a6d4a" stroke-width="1.5"/></svg><svg class="kratzer" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 4 L20 36 M16 2 L30 32 M28 4 L40 30" stroke="#ff3b3b" stroke-width="2.5" stroke-linecap="round" opacity=".7"/></svg>`
+    : `<svg class="schleife" viewBox="0 0 64 30" aria-hidden="true"><path d="M32 16 C20 0 4 4 8 14 C12 22 26 18 32 16 C38 18 52 22 56 14 C60 4 44 0 32 16Z" fill="#E11D48"/><circle cx="32" cy="16" r="5" fill="#be123c"/></svg>`;
+  const tuer = (auf) => `<div class="rahmen ${auf ? 'auf' : ''}" id="rahmen"><div class="licht-innen"></div><button type="button" class="flug" id="tuerknopf" aria-label="Türchen ${nr} öffnen">${deko}<span class="zahl">${nr}</span><i class="knauf"></i></button></div>`;
   let buehne;
   if (zu) buehne = `${tuer(false)}<div class="antippen">▲ TIPPEN ZUM ÖFFNEN</div>`;
   else if (s === 'inhalt-bild') buehne = `<div class="inhalt-r"><div class="motiv-gross" role="img" aria-label="Bild: Koala mit Sonnenbrille und Weihnachtsmütze">${motivSvg('koala')}</div><p class="satz">31 Grad, Mütze trotzdem. Stil ist Stil.</p></div>`;
   else if (s === 'inhalt-geschenk') buehne = `<div class="inhalt-r"><div class="gutschein" role="img" aria-label="Gutschein: Du bestimmst das Abendessen. Hol dir bei Mama oder Papa ab."><div class="gk"><span>GUTSCHEIN</span><span>TÜR ${nr}</span></div><div class="gi"><small>HOL DIR BEI MAMA ODER PAPA AB</small><h3>Du bestimmst das Abendessen.</h3><p>An einem Abend deiner Wahl. Sag einfach Bescheid.</p></div><div class="perf"></div><div class="gf">${GESCHENK_ICO}<span>Liegt jetzt in „Meine Gutscheine“.</span><b class="plus-st">+50 ★</b></div></div></div>`;
+  else if (s === 'inhalt-krampus') buehne = `<div class="inhalt-r"><div class="krampus-karte" role="img" aria-label="Krampus-Karte: Zimmer aufräumen, heute noch. Erledigt bestätigen Mama oder Papa."><div class="gk"><span>KRAMPUS WAR DA</span><span>TÜR 5</span></div><div class="kk-in"><div class="kk-bild">${motivSvg('krampus')}</div><div><small>DEINE AUFGABE</small><h3>Zimmer aufräumen – heute noch.</h3><p>Bis zum Abendessen.</p></div></div><div class="perf"></div><div class="gf"><span class="kk-box"></span><span>Erledigt? Bestätigen Mama oder Papa.</span></div></div></div>`;
+  else if (s === 'inhalt-jackpot') buehne = `<div class="inhalt-r"><div class="jackpot" role="img" aria-label="Jackpot: plus 1111 Sterne"><div class="walzen">${['★', '★', '★'].map((x) => `<span>${x}</span>`).join('')}</div><div class="jp-wort">JACKPOT</div><div class="jp-zahl">+1.111 ★</div></div><p class="satz">Schon gutgeschrieben. Einfach so.</p></div>`;
+  else if (s === 'inhalt-niete') buehne = `<div class="inhalt-r"><div class="niete" role="img" aria-label="Niete mit Trostpreis: plus 1 Stern"><div class="nt-stempel">NIETE</div><div class="nt-trost">…aber nicht ganz.</div><div class="nt-zahl">+1 ★</div><div class="nt-klein">TROSTPREIS</div></div><p class="satz">Morgen wartet ein neues Türchen.</p></div>`;
+  else if (s === 'inhalt-karte6' || s === 'inhalt-karte24') { const m = s === 'inhalt-karte6' ? 'nikolaus' : 'heiligabend'; buehne = `<div class="inhalt-r"><div class="karte-gross ${m}" role="img" aria-label="Karte ${m === 'nikolaus' ? 'Nikolaus' : 'Heiligabend'}">${motivSvg(m)}</div><p class="satz karte-satz">„${esc(MOTIVE.find((x) => x.id === m).satz)}“<small>– Mama und Papa</small></p></div>`; }
   else buehne = `<div class="inhalt-r"><div class="leer-licht"><b>nur Licht.</b></div><p class="satz">Hier ist heute nichts versteckt. Aber die Etappe hast du – und die bleibt.</p></div>`;
   const funken = zu ? '' : `<div class="funken" aria-hidden="true">${Array.from({ length: 16 }, (_, i) => `<i style="left:${(12 + ((i * 37) % 76))}%;top:${(18 + ((i * 53) % 50))}%;opacity:${0.4 + ((i * 7) % 6) / 10}"></i>`).join('')}</div>`;
   const kopfTitel = zu ? `Türchen ${nr}` : s === 'inhalt-bild' ? `Türchen ${nr}` : s === 'leer' ? `Türchen ${nr}` : `Türchen ${nr}`;
@@ -711,10 +844,10 @@ function tuerAnsicht(s) {
   const st = STICKER[s] ? `<div class="sticker ${STICKER[s][1]}" aria-hidden="true">${STICKER[s][0]}</div>` : '';
   const weiter = `<a class="gross" href="#s=kalender&g=${P.g}"><span>Weiter: Zahlenstrahl<small>Etappe 3 von 6</small></span><span class="pf">›</span></a>`;
   const blatt = zu
-    ? `<div class="blatt-ab"><p class="klein">Etappe gelandet ✓</p><p class="txt">Dahinter ist ein Bild oder ein Geschenk von Mama und Papa.</p><button type="button" class="gross gold" id="oeffnenknopf"><span>Türchen ${nr} öffnen</span><span class="pf">›</span></button><a class="textlink" href="#s=kalender-bereit&g=${P.g}">Später öffnen – weiter zu: Zahlenstrahl</a></div>`
-    : `<div class="blatt-ab"><p class="klein">Türchen ${nr} ist offen</p><p class="txt">${s === 'inhalt-geschenk' ? 'Einlösen, wann du willst: Menü › Meine Gutscheine. Die 50 Sterne sind schon gutgeschrieben.' : 'Bleibt im Adventskalender – du kannst es jederzeit wieder ansehen.'}</p><p class="leise">Türchen ${nr + 1} wartet morgen – nach deiner nächsten Etappe.</p>${weiter}<a class="textlink" href="#s=kalender&g=${P.g}">Adventskalender ansehen</a></div>`;
+    ? `<div class="blatt-ab"><p class="klein">Etappe gelandet ✓</p><p class="txt">${sorte === 'krampus' ? 'Diese Tür riecht nach … Aufgabe. Trotzdem aufmachen?' : 'Dahinter ist ein Bild oder ein Geschenk von Mama und Papa.'}</p><button type="button" class="gross gold" id="oeffnenknopf"><span>Türchen ${nr} öffnen</span><span class="pf">›</span></button><a class="textlink" href="#s=kalender-bereit&g=${P.g}">Später öffnen – weiter zu: Zahlenstrahl</a></div>`
+    : `<div class="blatt-ab"><p class="klein">Türchen ${nr} ist offen</p><p class="txt">${sorte === 'krampus' ? 'Steht in „Meine Gutscheine“ unter „Vom Krampus“. Mama oder Papa haken ab, wenn’s erledigt ist.' : sorte === 'jackpot' ? '1.111 Sterne sind schon auf deinem Konto.' : sorte === 'niete' ? '1 Stern ist schon auf deinem Konto. Nicht jedes Türchen ist ein Jackpot.' : sorte === 'karte' ? (nr === 6 ? 'Heute nur eine Karte – das Geschenk gibt’s von Mama und Papa.' : 'Heute nur eine Karte – die Geschenke gibt’s unterm Baum.') : s === 'inhalt-geschenk' ? 'Einlösen, wann du willst: Menü › Meine Gutscheine. Die 50 Sterne sind schon gutgeschrieben.' : 'Bleibt im Adventskalender – du kannst es jederzeit wieder ansehen.'}</p>${nr < 24 ? `<p class="leise">Türchen ${nr + 1} wartet morgen – nach deiner nächsten Etappe.</p>` : ''}${weiter}<a class="textlink" href="#s=kalender&g=${P.g}">Adventskalender ansehen</a></div>`;
   const band = P.vorschau === '1' ? '<div class="vorschau-band">Vorschau – so sieht es Kind 1 · <a href="#s=eltern">zurück</a></div>' : '';
-  return `${band}<div class="ab ${nacht ? 'nacht' : 'hell'}" role="dialog" aria-modal="true" aria-label="Türchen ${nr}"><div class="szene">${funken}<div class="oben">${ober}</div><h2 class="titel">${kopfTitel}${badge}</h2>${zeile ? `<p class="zeile">${zeile}</p>` : ''}<div class="buehne">${buehne}</div>${st}</div>${blatt}</div>`;
+  return `${band}<div class="ab ${nacht ? 'nacht' : 'hell'} ${sorte ? 'sorte-' + sorte : ''}" role="dialog" aria-modal="true" aria-label="Türchen ${nr}"><div class="szene">${funken}<div class="oben">${ober}</div><h2 class="titel">${kopfTitel}${badge}</h2>${zeile ? `<p class="zeile">${zeile}</p>` : ''}<div class="buehne">${buehne}</div>${st}</div>${blatt}</div>`;
 }
 const UMORDNUNG = [11, 4, 19, 1, 23, 8, 14, 6, 17, 2, 21, 9, 13, 24, 5, 16, 3, 20, 10, 7, 15, 22, 12, 18];
 function kalender(s) {
@@ -729,7 +862,9 @@ function kalender(s) {
   else { ober = datumText(P.tag).toUpperCase(); h1 = 'Adventskalender'; chips = `<span>${offen} offen</span>${nach.length ? `<span class="gold">${nach.length + (z[P.tag] === 'heute' ? 1 : 0)} warten</span>` : ''}`;
     p = szen === 'bereit' ? 'Türchen 6 ist bereit – du hast heute schon eine Etappe geschafft. Tippen und öffnen.' : `Türchen 6 und ${P.tag} warten. Je geschaffte Etappe geht eins auf – höchstens 2 am Tag, das älteste zuerst.`; }
   const kachel = (n) => { const zs = z[n]; const i = inhalt(K1[n]);
-    if (zs === 'offen') { if (i.art === 'bild') return `<button type="button" class="td offen" aria-label="Türchen ${n}, offen: ${esc(i.titel)}" data-tuer="${n}">${motivSvg(i.id).replace('<svg ', '<svg preserveAspectRatio="xMidYMid slice" ')}<span class="n">${n}</span><span class="s">${esc(i.titel)}</span></button>`;
+    if (zs === 'offen') { if (i.art === 'bild' || i.art === 'karte') return `<button type="button" class="td offen" aria-label="Türchen ${n}, offen: ${esc(i.titel)}" data-tuer="${n}">${motivSvg(i.id).replace('<svg ', '<svg preserveAspectRatio="xMidYMid slice" ')}<span class="n">${n}</span><span class="s">${esc(i.titel)}</span></button>`;
+      if (i.art === 'krampus') return `<button type="button" class="td offen krampus" aria-label="Türchen ${n}, offen: Krampus – ${esc(i.titel)}" data-tuer="${n}"><span class="gico">${HORN_ICO}</span><span class="n">${n}</span><span class="s">Krampus</span></button>`;
+      if (i.art === 'jackpot' || i.art === 'niete') return `<button type="button" class="td offen ${i.art}" aria-label="Türchen ${n}, offen: ${esc(i.titel)}" data-tuer="${n}"><span class="n">${n}</span><span class="gross-z">+${i.sterne}</span><span class="s">${i.art === 'jackpot' ? 'Jackpot' : 'Trostpreis'}</span></button>`;
       if (i.art === 'leer') return `<button type="button" class="td offen leer" aria-label="Türchen ${n}, offen" data-tuer="${n}"><span class="n">${n}</span><span class="s" style="color:#1B0C3A;text-shadow:none">nur Licht</span></button>`;
       return `<button type="button" class="td offen geschenk" aria-label="Türchen ${n}, offen: ${esc(i.titel)}" data-tuer="${n}"><span class="gico">${GESCHENK_ICO}</span><span class="n">${n}</span><span class="s">${esc(i.titel)}</span></button>`; }
     const lab = { nach: 'nachholen', heute: 'heute · nach Etappe', bereit: 'öffnen!', morgen: 'morgen', zu: '' }[zs];
@@ -754,6 +889,7 @@ function gutscheinSeite() {
     return `<li class="gs ${x.z}" ${ein ? 'aria-disabled="true"' : ''}><div class="gk"><span>GUTSCHEIN${x.neu ? ' · NEU' : ''}</span><span>TÜR ${x.n} · ${x.am}</span></div><div class="gs-in"><h3>${esc(x.t)}</h3><p>${esc(x.x || Object.values(G).find((v) => x.t.startsWith(v[0].slice(0, 10)))?.[1] || '')}</p></div><div class="gs-fuss">${unten}</div></li>`; };
   return `<div class="kd-seite"><div class="kd-kopf"><a class="zur" href="#s=kalender&g=${P.g}" aria-label="Zurück">‹</a><b>Meine Gutscheine</b><span class="stern-chip">★ 390</span><button class="menue-k" type="button" aria-label="Menü">≡</button></div>
     <div class="kd-inhalt gs-seite"><div><p class="gs-unter">Aus deinem Adventskalender. Gelten, bis du sie einlöst – auch nach Weihnachten.</p><ul class="gs-liste">${liste.map(karte).join('')}</ul>
+    <h2 class="gs-h">VOM KRAMPUS</h2><ul class="gs-liste"><li class="gs krampus"><div class="gk"><span>KRAMPUS WAR DA</span><span>TÜR 5 · 5.12.</span></div><div class="gs-in"><h3>Zimmer aufräumen – heute noch.</h3><p>Bis zum Abendessen.</p></div><div class="gs-fuss"><span class="gs-status kr">☐ Erledigt? Mama oder Papa haken ab.</span></div></li></ul>
     <p class="gs-unter klein">Einlösen = Mama oder Papa bekommen Bescheid und bestätigen. Bilder aus den Türchen findest du im <a href="#s=kalender&g=${P.g}">Adventskalender</a>.</p></div></div></div>`;
 }
 function karteHinweis(s) {
@@ -774,7 +910,7 @@ function binde() {
   app.querySelectorAll('[data-tuer]').forEach((b) => b.addEventListener('click', () => setze({ s: 'kalender-tuer' })));
   app.querySelectorAll('[data-go]').forEach((b) => b.addEventListener('click', () => setze({ s: b.dataset.go, tag: 7 })));
   const auf = () => { const r = document.getElementById('rahmen'); if (!r || r.classList.contains('auf')) return; r.classList.add('auf');
-    const ziel = P.s === 'zweite' ? 'inhalt-bild' : (P.ziel || 'inhalt-geschenk'); setTimeout(() => setze({ s: ziel }), wenigBewegung() ? 0 : 750); };
+    const ziel = P.s === 'zweite' ? 'inhalt-bild' : P.s === 'tuer-krampus' ? 'inhalt-krampus' : (P.ziel || 'inhalt-geschenk'); setTimeout(() => setze({ s: ziel }), wenigBewegung() ? 0 : 750); };
   document.getElementById('tuerknopf')?.addEventListener('click', auf); document.getElementById('oeffnenknopf')?.addEventListener('click', auf);
 }
 
@@ -785,10 +921,19 @@ const KARTEN = {
   390: { w: 390, h: 844, rahmen: [12, 77, 366, 591], r: 18, kopfR: 13,
     pins: { IT: [222, 488], AT: [264, 386], GR: [343, 540], CH: [166, 409], SI: [243, 422], DE: [230, 317] },
     route: [[226, 500], [232, 612], [338, 548]], still: .42,
+    alle: [[203, 172, 13], [86, 337, 12], [140, 317, 12], [133, 344, 12], [112, 380, 12], [231, 315, 13], [313, 317, 13], [168, 411, 12], [263, 388, 12], [243, 424, 12], [221, 485, 14], [47, 509, 13], [341, 540, 13],
+      [281, 193, 8], [212, 256, 8], [232, 357, 8], [20, 310, 8], [275, 455, 8], [307, 449, 8], [368, 456, 8], [316, 476, 8], [338, 481, 8], [314, 503, 8], [120, 570, 8], [206, 561, 8], [229, 620, 8]],
+    karte: [24, 693, 212, 126], schild: [279, 673], schildNacht: [252, 678], sonne: [75, 117, 24],
+    deko: [['p', 282, 404, '#E11D48'], ['p', 293, 406, '#7B1E6E', .8], ['t', 364, 574], ['p', 316, 574, '#E11D48'], ['p', 327, 576, '#7B1E6E', .8]],
     frei: { 'Regel-Universum-Sonne': [24, 92, 104, 64], 'Zoom-Knöpfe': [324, 87, 48, 264], 'Quelle': [16, 668, 262, 22], 'Jugendwort-Schild': [240, 664, 134, 50], 'Gerade dran': [24, 690, 342, 136] } },
   1280: { w: 1280, h: 800, rahmen: [20, 92, 868, 691], r: 18, kopfR: 15,
     pins: { IT: [492, 605], AT: [553, 463], GR: [669, 685], CH: [413, 493], SI: [525, 515], DE: [507, 357] },
     route: [[496, 618], [530, 770], [664, 692]], still: .45,
+    alle: [[466, 146, 15], [294, 381, 15], [373, 359, 15], [364, 399, 15], [333, 446, 15], [508, 356, 15], [627, 362, 15], [413, 492, 15], [553, 463, 15], [524, 513, 15], [492, 605, 16], [237, 634, 15], [669, 683, 15],
+      [611, 149, 10], [581, 172, 10], [689, 146, 10], [686, 169, 10], [676, 242, 10], [494, 279, 10], [196, 344, 10], [695, 306, 10], [731, 328, 10], [524, 426, 10], [777, 418, 10], [751, 501, 10], [619, 549, 10],
+      [707, 558, 10], [586, 570, 10], [664, 594, 10], [600, 601, 10], [634, 611, 10], [609, 624, 10], [151, 679, 10], [345, 723, 10], [456, 721, 10]],
+    karte: [916, 138, 222, 208], schild: [1153, 117], schildNacht: [1153, 117], sonne: [84, 131, 26],
+    deko: [['p', 574, 492, '#E11D48'], ['p', 587, 494, '#7B1E6E', .8], ['t', 608, 500], ['t', 702, 714], ['p', 640, 714, '#E11D48'], ['p', 653, 716, '#7B1E6E', .8]],
     frei: { 'Regel-Universum-Sonne': [32, 100, 110, 74], 'Zoom-Knöpfe': [834, 102, 46, 212], 'Quelle': [26, 756, 250, 22], 'Jugendwort-Schild': [1144, 108, 112, 46], 'Gerade dran': [902, 124, 352, 236] } },
 };
 const AKTUELL = 'IT', BESUCHT = ['AT', 'GR'];
@@ -799,11 +944,11 @@ function karteSeite() {
   const src = BILD[(breit ? 'k1280' : 'k390') + (nacht ? 'd' : 'h')];
   const v = Number(P.v) || 1; const [fx, fy, fw, fh] = K.rahmen;
   const frei = P.frei === '1' ? Object.entries(K.frei).map(([n, [x, y, w, h]]) => `<div class="kt-frei" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px">${n}</div>`).join('') : '';
-  const schild = P.foto === '1' ? '' : `<div class="kt-schild">Variante ${v} · ${['', 'dezent', 'verspielt', 'Neon-Nordlicht'][v]}${P.tag !== 7 ? ' · ' + P.tag + '.12.' : ''}</div>`;
+  const schild = P.foto === '1' ? '' : `<div class="kt-schild">Variante ${v} · ${['', 'dezent', 'verspielt', 'Neon-Nordlicht', 'volle Weihnacht', 'Winternacht'][v]}${P.tag !== 7 ? ' · ' + P.tag + '.12.' : ''}</div>`;
   app.innerHTML = `<div class="kd" data-g="${P.g}" style="background:${nacht ? '#0B0F14' : '#F3F1EA'};min-height:100vh"><div class="kt-buehne" style="width:${K.w}px">${schild}<img src="${src}" alt="Reisekarte, Standbild" width="${K.w}" height="${K.h}">
-    <div class="kt-ebene" style="left:${fx}px;top:${fy}px;width:${fw}px;height:${fh}px;border-radius:${K.r}px" aria-hidden="true"><canvas id="schnee" width="${fw}" height="${fh}"></canvas>${festSvg(K, v, nacht)}</div>${frei}</div></div>`;
-  if (v === 1 || P.tag === 24) schnee(document.getElementById('schnee'), K, nacht, v === 1 ? 26 : 0);
-  if (v === 2 || P.tag === 24) schlitten(K);
+    <div class="kt-ebene" style="left:${fx}px;top:${fy}px;width:${fw}px;height:${fh}px;border-radius:${K.r}px" aria-hidden="true"><canvas id="schnee" width="${fw}" height="${fh}"></canvas>${festSvg(K, v, nacht)}</div>${v >= 4 ? vollSvg(K, nacht) : ''}${frei}</div></div>`;
+  if (v === 1 || v >= 4 || P.tag === 24) schnee(document.getElementById('schnee'), K, nacht, v === 1 ? 26 : v >= 4 ? 70 : 0, v >= 4);
+  if (v === 2 || v >= 4 || P.tag === 24) schlitten(K, v >= 4);
 }
 const rel = (K, [x, y]) => [x - K.rahmen[0], y - K.rahmen[1]];
 const LICHT = ['#FFD23F', '#FF3B6B', '#39FF9A', '#4CC9FF', '#C77DFF'];
@@ -817,7 +962,7 @@ function festSvg(K, v, nacht) {
     <radialGradient id="halo"><stop offset="0" stop-color="#FFE27A" stop-opacity=".9"/><stop offset="1" stop-color="#FFE27A" stop-opacity="0"/></radialGradient>
     <linearGradient id="strahl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE27A" stop-opacity=".8"/><stop offset="1" stop-color="#FFE27A" stop-opacity="0"/></linearGradient></defs>`);
   const kopf = (id) => { const [x, y] = rel(K, K.pins[id]); return [x, y - 0]; };
-  const muetze = (id, gross = 1) => { const [x, y] = kopf(id); const k = (kr / 13) * gross * .85; return `<g transform="translate(${x + 2 * k} ${y - kr - 6 * k}) rotate(-14) scale(${k})"><path d="M-12 3 Q-4 -18 14 -16 Q7 -9 7 2 Z" fill="#E11D48" stroke="#7f1028" stroke-width=".8"/><circle cx="16" cy="-14.5" r="3.6" fill="#fff" stroke="#c9d1d9" stroke-width=".6"/><rect x="-14" y="0" width="24" height="7" rx="3.5" fill="#fff" stroke="#c9d1d9" stroke-width=".6"/></g>`; };
+  const muetze = (id, gross = 1, xy = null) => { const [x, y] = xy || kopf(id); const k = (kr / 13) * gross * .85; return `<g transform="translate(${x + 2 * k} ${y - kr - 6 * k}) rotate(-14) scale(${k})"><path d="M-12 3 Q-4 -18 14 -16 Q7 -9 7 2 Z" fill="#E11D48" stroke="#7f1028" stroke-width=".8"/><circle cx="16" cy="-14.5" r="3.6" fill="#fff" stroke="#c9d1d9" stroke-width=".6"/><rect x="-14" y="0" width="24" height="7" rx="3.5" fill="#fff" stroke="#c9d1d9" stroke-width=".6"/></g>`; };
   // ---------- Variante 1 · dezent: Lichterkette oben, Mütze auf dem aktuellen Pin, leichter Schnee (Canvas) ----------
   if (v === 1) {
     const ende = K.frei['Zoom-Knöpfe'][0] - K.rahmen[0] - 10 * s; const so = K.frei['Regel-Universum-Sonne']; const anf = so[0] + so[2] - K.rahmen[0] + 8 * s; // Lichterkette zwischen Sonne und Zoom-Knöpfen
@@ -831,13 +976,16 @@ function festSvg(K, v, nacht) {
     out.push(muetze(AKTUELL, 1.15));
   }
   // ---------- Variante 2 · verspielt: Mützen auf besuchten Pins, Geschenke, Eiskristalle, Schlitten (eigene Ebene) ----------
-  if (v === 2) {
+  if (v === 2 || v >= 4) {
+    if (v >= 4) out.push(vollWeihnacht(K, v, nacht, s, kopf, muetze));
+    if (v === 2) {
     const kristall = (x, y, r, o) => `<g transform="translate(${x} ${y})" opacity="${o}" stroke="${nacht ? '#bfe9ff' : '#5aa9d6'}" stroke-width="${1.4 * s}" stroke-linecap="round" fill="none">${[0, 60, 120].map((a) => `<g transform="rotate(${a})"><path d="M0 ${-r}V${r}"/><path d="M0 ${-r * .55} l${r * .28} ${-r * .28} M0 ${-r * .55} l${-r * .28} ${-r * .28} M0 ${r * .55} l${r * .28} ${r * .28} M0 ${r * .55} l${-r * .28} ${r * .28}"/></g>`).join('')}</g>`;
     out.push(`<g>${kristall(W - 22 * s, H - 26 * s, 13 * s, .85)}${kristall(W - 50 * s, H - 14 * s, 7 * s, .6)}${kristall(W - 14 * s, H - 56 * s, 6 * s, .55)}${kristall(10 * s, 10 * s, 6 * s, .55)}</g>`);
     out.push(`<path d="M${W} ${H - 70 * s} Q${W - 40 * s} ${H - 30 * s} ${W - 90 * s} ${H}" stroke="${nacht ? '#bfe9ff' : '#9cc9e3'}" stroke-width="${1 * s}" stroke-dasharray="${2 * s} ${5 * s}" fill="none" opacity=".7"/>`);
     const geschenk = (id, f) => { const [x, y] = kopf(id); const g = 9 * s; return `<g transform="translate(${x + kr + 3 * s} ${y + kr + 4 * s})"><rect x="0" y="0" width="${g}" height="${g}" rx="1.5" fill="${f}" stroke="#fff" stroke-width=".8"/><rect x="${g / 2 - 1.2 * s}" y="0" width="${2.4 * s}" height="${g}" fill="#fff"/><path d="M${g / 2} 0 q${-4 * s} ${-5 * s} ${-5 * s} ${-1 * s} q${2 * s} ${2 * s} ${5 * s} ${1 * s} q${4 * s} ${-5 * s} ${5 * s} ${-1 * s} q${-2 * s} ${2 * s} ${-5 * s} ${1 * s}" fill="#fff"/></g>`; };
     out.push(geschenk('AT', '#E11D48'), geschenk('GR', '#7B1E6E'));
     [...BESUCHT, AKTUELL].forEach((id) => out.push(muetze(id, id === AKTUELL ? 1.15 : 1)));
+    }
     const [a, b, c] = K.route.map((p) => rel(K, p));
     out.push(`<path id="sroute" d="M${a[0]} ${a[1]} Q${b[0]} ${b[1]} ${c[0]} ${c[1]}" fill="none" stroke="none"/>`);
     out.push(`<g id="schlitten">${schlittenSvg(s)}</g>`);
@@ -870,30 +1018,88 @@ function schlittenSvg(s) {
   const tier = (x, y) => `<g transform="translate(${x} ${y})"><ellipse cx="9" cy="5" rx="8" ry="3.8" fill="#4a2c17"/><path d="M3 7 l-2 5 M7 8 l0 5 M12 8 l1 5 M15 7 l3 4" stroke="#4a2c17" stroke-width="1.7" stroke-linecap="round"/><circle cx="2" cy="3.6" r="1.6" fill="#f3e3cf"/>
     <path d="M15 3 L20 -1" stroke="#4a2c17" stroke-width="3.2" stroke-linecap="round"/><circle cx="22" cy="-1.5" r="3.2" fill="#4a2c17"/><circle cx="25.6" cy="-.8" r="1.5" fill="#FF3B6B"/>
     <path d="M21 -4 l-2 -6 m2 6 l4 -6 m-5.2 2.4 l-3 -1 m6.3 -.8 l3 -1" stroke="#c68b59" stroke-width="1.3" fill="none" stroke-linecap="round"/></g>`;
-  return `<g transform="scale(${s * 1.25}) translate(-30 -4)"><g stroke="#FFD23F" stroke-width=".8" fill="none" opacity=".9"><path d="M17 5 L28 6 M37 5 L54 4"/></g>${tier(27, 2)}${tier(53, 0)}
+  return `<g transform="scale(${s * (P.v >= 4 ? 1.75 : 1.25)}) translate(-30 -4)"><g stroke="#FFD23F" stroke-width=".8" fill="none" opacity=".9"><path d="M17 5 L28 6 M37 5 L54 4"/></g>${tier(27, 2)}${tier(53, 0)}
     <path d="M0 -2 H14 Q19 -2 18 4 L16 8 H2 Q-3 8 -3 3 Z" fill="#E11D48" stroke="#fff" stroke-width="1"/><path d="M-6 11 H16 Q21 11 21 7" stroke="#FFD23F" stroke-width="1.8" fill="none" stroke-linecap="round"/>
     <rect x="2" y="-8" width="6" height="6" rx="1" fill="#39FF9A" stroke="#fff" stroke-width=".6"/><rect x="8" y="-6" width="5" height="4" rx="1" fill="#FFD23F" stroke="#fff" stroke-width=".6"/></g>`;
 }
-function schlitten(K) {
+function schlitten(K, gross) {
   const g = document.getElementById('schlitten'); const pfad = document.getElementById(P.tag === 24 ? 'weltbahn' : 'sroute'); if (!g || !pfad) return;
   const L = pfad.getTotalLength(); const setze = (t) => { const p = pfad.getPointAtLength(L * t), q = pfad.getPointAtLength(Math.min(L, L * t + 2)); const w = Math.atan2(q.y - p.y, q.x - p.x) * 180 / Math.PI;
     const flip = q.x < p.x; let r = flip ? w + 180 : w; if (r > 180) r -= 360; r = Math.max(-18, Math.min(18, r)); g.setAttribute('transform', `translate(${p.x} ${p.y - 6}) rotate(${r}) ${flip ? 'scale(-1 1)' : ''}`); };
   const still = P.foto === '1' || wenigBewegung();
   if (still) { if (wenigBewegung() && P.foto !== '1') { g.style.display = 'none'; return; } setze(P.tag === 24 ? .52 : (K.still || .5)); return; }
   // gelegentlich: Flug 5 s (24.12.: 7 s, einmal), dann 20 s Pause; außerhalb des Flugs unsichtbar
-  const dauer = P.tag === 24 ? 7000 : 5000, pause = 20000; let t0 = performance.now() - pause + 800, id;
+  const dauer = P.tag === 24 ? 7000 : gross ? 6000 : 5000, pause = gross ? 8000 : 20000; // v4/v5: alle 14 s statt alle 25 s let t0 = performance.now() - pause + 800, id;
   const lauf = (t) => { const x = (t - t0) % (dauer + pause); if (P.tag === 24 && t - t0 > dauer + pause) { g.style.display = 'none'; return; }
     if (x > dauer) g.style.display = 'none'; else { g.style.display = ''; setze(x / dauer); } id = requestAnimationFrame(lauf); };
   id = requestAnimationFrame(lauf); kartenLauf.push(() => cancelAnimationFrame(id));
 }
-function schnee(c, K, nacht, n) {
+function schnee(c, K, nacht, n, gross) {
   if (!c || !n) return; const ctx = c.getContext('2d'); const W = c.width, H = c.height; let sd = 7; const zufall = () => (sd = (sd * 16807) % 2147483647) / 2147483647;
-  const f = Array.from({ length: n }, () => ({ x: zufall() * W, y: zufall() * H, r: (zufall() * 1.6 + 1.6) * (K.w === 390 ? 1 : 1.25), v: zufall() * .35 + .2, p: zufall() * 6 }));
-  const male = () => { ctx.clearRect(0, 0, W, H); for (const p of f) { ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 7); ctx.fillStyle = nacht ? 'rgba(255,255,255,.85)' : 'rgba(255,255,255,.95)'; ctx.strokeStyle = 'rgba(70,110,140,.55)'; ctx.lineWidth = 1; if (!nacht) ctx.stroke(); ctx.fill(); if (!nacht) ctx.stroke(); } };
+  const f = Array.from({ length: n }, () => ({ x: zufall() * W, y: zufall() * H, r: (gross ? zufall() * 2.6 + 1.8 : zufall() * 1.6 + 1.6) * (K.w === 390 ? 1 : 1.25), v: (gross ? zufall() * .5 + .35 : zufall() * .35 + .2), p: zufall() * 6 }));
+  const fz = Object.entries(K.frei).filter(([n]) => n !== 'Gerade dran' && n !== 'Jugendwort-Schild').map(([, [x, y, w, h]]) => [x - K.rahmen[0], y - K.rahmen[1], w, h]);
+  const male = () => { ctx.clearRect(0, 0, W, H); for (const p of f) { if (fz.some(([x, y, w, h]) => p.x > x - 4 && p.x < x + w + 4 && p.y > y - 4 && p.y < y + h + 4)) continue; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 7); ctx.fillStyle = nacht ? 'rgba(255,255,255,.85)' : 'rgba(255,255,255,.95)'; ctx.strokeStyle = 'rgba(70,110,140,.55)'; ctx.lineWidth = 1; if (!nacht) ctx.stroke(); ctx.fill(); if (!nacht) ctx.stroke(); } };
   if (wenigBewegung() && P.foto !== '1') return; // Bewegung reduzieren: kein Schnee
   male(); if (P.foto === '1') return;
   let id; const lauf = () => { for (const p of f) { p.y += p.v; p.x += Math.sin((p.y + p.p * 40) / 40) * .15; if (p.y > H + 3) { p.y = -3; p.x = zufall() * W; } } male(); id = requestAnimationFrame(lauf); };
   id = requestAnimationFrame(lauf); kartenLauf.push(() => cancelAnimationFrame(id));
+}
+
+// ---------- v4 „volle Weihnacht“ und v5 „Winternacht“ ----------
+// Alles in einer Gruppe mit Freimaske: Sonne, Zoom-Knöpfe und Quellenzeile bleiben ausgespart (in der App liegen sie ohnehin über der Ebene).
+function vollWeihnacht(K, v, nacht, s, kopf, muetze) {
+  const [fx, fy, W, H] = K.rahmen; const o = [];
+  const fz = ['Regel-Universum-Sonne', 'Zoom-Knöpfe', 'Quelle'].map((n) => K.frei[n]).map(([x, y, w, h]) => `<rect x="${x - fx - 4}" y="${y - fy - 4}" width="${w + 8}" height="${h + 8}" rx="10" fill="#000"/>`).join('');
+  o.push(`<defs><mask id="frei2"><rect x="-20" y="-20" width="${W + 40}" height="${H + 40}" fill="#fff"/><circle cx="${K.sonne[0] - fx}" cy="${K.sonne[1] - fy}" r="${K.sonne[2]}" fill="#000"/>${(() => { const [x, y, w, h] = K.frei['Zoom-Knöpfe']; return `<rect x="${x - fx}" y="${y - fy}" width="${w}" height="${h}" rx="12" fill="#000"/>`; })()}</mask><mask id="frei"><rect x="-20" y="-20" width="${W + 40}" height="${H + 40}" fill="#fff"/>${fz}</mask>
+    <linearGradient id="nl5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${nacht ? '#39FF9A' : '#00b37a'}" stop-opacity="0"/><stop offset=".4" stop-color="${nacht ? '#39FF9A' : '#00b37a'}" stop-opacity=".95"/><stop offset="1" stop-color="${nacht ? '#C77DFF' : '#8a3ffc'}" stop-opacity="0"/></linearGradient>
+    <radialGradient id="frost" cx=".5" cy=".5" r=".75"><stop offset=".72" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="${nacht ? '#bfe9ff' : '#ffffff'}" stop-opacity="${nacht ? .28 : .75}"/></radialGradient></defs>`);
+  const g = [], unter = [];
+  // v5: winterliche Tönung (kühler Schimmer). In der App liegt sie UNTER Pins und Beschriftung (eigene Gruppe zwischen Ländern und Routen) – hier im Standbild per Mischmodus, der dunkle Schrift dunkel lässt.
+  if (v === 5) {
+    unter.push(`<rect width="${W}" height="${H}" fill="${nacht ? '#3d6fd6' : '#8ec5ff'}" opacity="${nacht ? .22 : .42}" style="mix-blend-mode:${nacht ? 'screen' : 'multiply'}"/>`);
+    unter.push(`<rect width="${W}" height="${H}" fill="url(#frost)"/>`);
+    const a = 1;
+    unter.push(`<g mask="url(#nlm)"><g opacity="${nacht ? 1 : .8}" style="mix-blend-mode:${nacht ? 'screen' : 'multiply'}"><g filter="url(#kb)" class="nordlicht"><path d="M0 ${H * .05} Q${W * .2} ${H * .17} ${W * .42} ${H * .08} T${W * .8} ${H * .1} T${W} ${H * .06} V-10 H0Z" fill="url(#nl5)"/>
+      <path d="M${W * .25} ${H * .01} Q${W * .5} ${H * .11} ${W * .72} ${H * .03} T${W} ${H * .08} V-10 H${W * .25}Z" fill="${nacht ? '#00E5FF' : '#0aa5c9'}" opacity=".5"/><path d="M${W * .4} 0 Q${W * .62} ${H * .14} ${W * .95} ${H * .05} V0Z" fill="${nacht ? '#C77DFF' : '#9b4dff'}" opacity=".55"/></g></g></g>`);
+  }
+  // Schneehaube am oberen Kartenrand (mit Tropfen und Eiszapfen)
+  let d = `M0 0 H${W} V${7 * s}`; for (let x = W; x > 0; x -= 18 * s) d += ` Q${x - 9 * s} ${(x / (18 * s)) % 3 < 1 ? 13 * s : 6 * s} ${x - 18 * s} ${7 * s}`; d += ' Z';
+  const kante = nacht ? '#9fb4c7' : '#a9c3d6';
+  g.push(`<path d="${d}" fill="#fff" stroke="${kante}" stroke-width="${.8 * s}" opacity=".97"/>`);
+  for (let x = 30 * s; x < W - 20 * s; x += 41 * s) g.push(`<path d="M${x} ${8 * s} l${2.4 * s} ${(6 + (x % 7)) * s} l${2.4 * s} ${-(6 + (x % 7)) * s}Z" fill="#e8f6ff" stroke="${kante}" stroke-width="${.6 * s}"/>`);
+  // Schneewehe unten rechts
+  g.push(`<path d="M${W - 120 * s} ${H} Q${W - 80 * s} ${H - 22 * s} ${W - 40 * s} ${H - 16 * s} Q${W - 14 * s} ${H - 30 * s} ${W} ${H - 34 * s} V${H}Z" fill="#fff" stroke="${kante}" stroke-width="${.8 * s}"/>`);
+  // Lichterkette zweireihig (zwischen Sonne und Zoom-Knöpfen)
+  const so = K.frei['Regel-Universum-Sonne'], zo = K.frei['Zoom-Knöpfe']; const anf = so[0] + so[2] - fx + 6 * s, ende = zo[0] - fx - 8 * s;
+  const reihe = (y0, tief, n, versatz, gr) => { let p = `M${anf} ${y0}`; const b = []; const hk = Array.from({ length: n + 1 }, (_, i) => anf + ((ende - anf) / n) * i);
+    for (let i = 1; i < hk.length; i++) { const a = hk[i - 1], c = hk[i], m = (a + c) / 2; p += ` Q${m} ${y0 + tief * 2} ${c} ${y0}`; for (let j = 1; j <= 4; j++) { const t = j / 5; b.push([(1 - t) ** 2 * a + 2 * (1 - t) * t * m + t * t * c, (1 - t) ** 2 * y0 + 2 * (1 - t) * t * (y0 + tief * 2) + t * t * y0, (i * 4 + j + versatz) % LICHT.length]); } }
+    return `<path d="${p}" stroke="${nacht ? '#5b6b5b' : '#2f4b3a'}" stroke-width="${1.4 * s}" fill="none"/><g filter="url(#kg)">${b.map(([x, y, c], i) => `<g transform="translate(${x} ${y})"><rect x="${-1.8 * s}" y="0" width="${3.6 * s}" height="${3 * s}" fill="#3a3a3a"/><ellipse class="birne b${i % 3}" cx="0" cy="${7.5 * s * gr}" rx="${3.6 * s * gr}" ry="${5.2 * s * gr}" fill="${LICHT[c]}"/></g>`).join('')}</g>`; };
+  g.push(reihe(9 * s, 7 * s, Math.max(2, Math.round((ende - anf) / (70 * s))), 0, 1.1));
+  g.push(reihe(9 * s, (K.w === 390 ? 15 : 12) * s, Math.max(2, Math.round((ende - anf) / (110 * s))), 2, 1));
+  // Mützen auf ALLEN sichtbaren Pins (Größe nach Pin)
+  for (const [x, y, r] of K.alle) { const rx = x - fx, ry = y - fy; const k = (r / 13) * .85 * (r >= 12 ? 1.05 : .95);
+    g.push(`<g transform="translate(${rx + 2 * k} ${ry - r * .88 - 4 * k}) rotate(-14) scale(${k * .92})"><path d="M-12 3 Q-4 -18 14 -16 Q7 -9 7 2 Z" fill="#E11D48" stroke="#7f1028" stroke-width=".8"/><circle cx="16" cy="-14.5" r="3.6" fill="#fff" stroke="#c9d1d9" stroke-width=".6"/><rect x="-14" y="0" width="24" height="7" rx="3.5" fill="#fff" stroke="#c9d1d9" stroke-width=".6"/></g>`); }
+  // Tannen + Geschenke an gelandeten Ländern
+  const tanne = (x, y, k) => `<g transform="translate(${x} ${y}) scale(${k})"><rect x="-1.6" y="0" width="3.2" height="4" fill="#6b3e1f"/><path d="M0 -22 L8 -10 H4 L10 0 H-10 L-4 -10 H-8Z" fill="#14532D" stroke="#0a2e18" stroke-width=".8"/><path d="M0 -22 L3 -17 H-3Z M-6 -11 h4 M3 -2 h5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="#fff"/><circle cx="-3" cy="-6" r="1.3" fill="#FFD23F"/><circle cx="3" cy="-12" r="1.3" fill="#FF3B6B"/><path d="M0 -25 l1.2 2.4 2.6.3-2 1.7.6 2.6L0 -19.3-2.4 -18l.6-2.6-2-1.7 2.6-.3z" fill="#FFD23F"/></g>`;
+  const paket = (x, y, f, k) => `<g transform="translate(${x} ${y}) scale(${k})"><rect x="0" y="-9" width="10" height="9" rx="1.2" fill="${f}" stroke="#fff" stroke-width=".8"/><rect x="4" y="-9" width="2.2" height="9" fill="#fff"/><path d="M5 -9 q-4 -5 -5 -1 q2 2 5 1 q4 -5 5 -1 q-2 2 -5 1" fill="#fff"/></g>`;
+  // an gelandeten Ländern (hier Österreich, Griechenland) – Plätze ohne Beschriftung; in der App aus der Belegungsliste `belegt` der Beschriftungen gewählt
+  for (const [t, x, y, f, k = 1] of K.deko) g.push(t === 't' ? tanne(x - fx, y - fy, s * 1.05) : paket(x - fx, y - fy, f, s * 1.1 * k));
+  // v5: Stern über dem Ziel (wie V3, kräftiger)
+  if (v === 5) { const [x0, y] = kopf(AKTUELL); const x = x0 - 20 * s; const sy = y - K.kopfR - 30 * s; const R = 14 * s;
+    g.push(`<path d="M${x - 7 * s} ${sy + 4 * s} L${x0} ${y - K.kopfR - 8 * s} L${x + 7 * s} ${sy + 4 * s}Z" fill="url(#strahl)" opacity=".85"/><circle class="halo" cx="${x}" cy="${sy}" r="${24 * s}" fill="url(#halo)" opacity=".95"/>
+      <g filter="url(#kg)"><path d="M${x} ${sy - R} Q${x + 3 * s} ${sy - 3 * s} ${x + R} ${sy} Q${x + 3 * s} ${sy + 3 * s} ${x} ${sy + R} Q${x - 3 * s} ${sy + 3 * s} ${x - R} ${sy} Q${x - 3 * s} ${sy - 3 * s} ${x} ${sy - R}Z" fill="#FFF6CC" stroke="#FFD23F" stroke-width="${1.8 * s}"/></g>`); }
+  o.push(`<g mask="url(#frei2)">${unter.join('')}</g>`, `<g mask="url(#frei)">${g.join('')}</g>`);
+  return o.join('');
+}
+// Zweite Ebene über dem ganzen Bild: Schneehaube auf „Gerade dran“ und Mütze am Jugendwort-Schild (in der App: CSS am Element selbst, pointer-events: none)
+function vollSvg(K, nacht) {
+  const s = K.w === 390 ? 1 : 1.2; const [x, y, w] = K.karte; const kante = nacht ? '#9fb4c7' : '#a9c3d6';
+  let d = `M${x + 12} ${y + 2} Q${x + 4} ${y - 4} ${x + 18} ${y - 6}`; for (let i = x + 18; i < x + w - 26; i += 22 * s) d += ` Q${i + 11 * s} ${y - 12 * s} ${i + 22 * s} ${y - 6 * s}`; d += ` Q${x + w + 4} ${y - 6 * s} ${x + w} ${y + 2} Q${x + w / 2} ${y + 7 * s} ${x + 12} ${y + 2}Z`;
+  const zapfen = Array.from({ length: 6 }, (_, i) => { const zx = x + 40 * s + i * (w - 80 * s) / 5; return `<path d="M${zx} ${y + 3} l${2.2 * s} ${(5 + (i % 3) * 3) * s} l${2.2 * s} ${-(5 + (i % 3) * 3) * s}Z" fill="#e8f6ff" stroke="${kante}" stroke-width=".6"/>`; }).join('');
+  const [sx, sy] = nacht ? K.schildNacht : K.schild;
+  return `<svg class="kt-voll" viewBox="0 0 ${K.w} ${K.h}" width="${K.w}" height="${K.h}" style="position:absolute;inset:0;pointer-events:none;overflow:visible" aria-hidden="true">
+    <path d="${d}" fill="#fff" stroke="${kante}" stroke-width=".9"/>${zapfen}
+    <g transform="translate(${sx} ${sy}) rotate(-24) scale(${.62 * s})"><path d="M-12 3 Q-4 -18 14 -16 Q7 -9 7 2 Z" fill="#E11D48" stroke="#7f1028" stroke-width=".8"/><circle cx="16" cy="-14.5" r="3.6" fill="#fff"/><rect x="-14" y="0" width="24" height="7" rx="3.5" fill="#fff" stroke="#c9d1d9" stroke-width=".6"/></g></svg>`;
 }
 
 zeichne();

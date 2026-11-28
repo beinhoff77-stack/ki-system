@@ -169,3 +169,20 @@ const rahmen = el('div', { class: 'rk-rahmen' }, svg);
 **Unabhängig:**
 - Die Ebene braucht keinen Server, keine Daten und keine Migration und berührt den Kalender nicht.
 - Sie kann vor oder nach dem Adventskalender live gehen und lässt sich jederzeit mit `lernFestAn = () => null` abschalten.
+
+---
+
+## C. Nachtrag 28.11.
+
+- **Tür-Sorten** in `lernAdventTuerZeigen`: Klasse `lr-advent-<sorte>` (krampus · jackpot · niete · karte). Die Krampus-Tür bekommt Hörnchen und Kratzer statt der Schleife (Frage 3). Inhalte und Stile stehen im Entwurf (`.krampus-karte`, `.jackpot`, `.niete`, `.karte-gross`) und können als CSS übernommen werden.
+- **Sonder-Motive** `krampus`, `nikolaus` (Tür 6), `heiligabend` (Tür 24) aus `MOTIVE` des Entwurfs in `LERN_ADVENT_MOTIVE`. Sie stehen nicht in der allgemeinen Motiv-Auswahl.
+- **„Meine Gutscheine“:** Rubrik „Vom Krampus“ unter der Liste (Typ `krampus`), ohne Knopf.
+- **Eltern:**
+  - Bearbeiten-Blatt mit Art „Gutschein · Motiv + Satz · Sterne · Krampus“, bei Sterne die Sorte (normal/Jackpot/Niete) und den Schalter **„Beide am selben Tag“** (`role="switch"`).
+  - Im Raster: Tür 6/24 „fest“, gemeinsame Türen „= beide“, Krampus dunkel.
+  - „Zu tun“ bekommt die Krampus-Zeile über denselben Weg wie die Gutschein-Anfragen (`lernZuTun(…, wuensche)`).
+- **Mischen:** `lernAdventMischen(basis, versatz)` nach den Regeln in Konzept 13 (Entwurf: `mische()`). Der Server prüft dieselben Regeln in `schule_advent_belegen`.
+- **Weihnachts-Ebene v4/v5:** wie Teil B, dazu
+  1. die Gruppe `ebenen.fest_unter` zwischen `ebenen.land` und `ebenen.route` (Tönung, Nordlicht), gezeichnet in `zeichneOben()` am aktuellen `z.vb`;
+  2. CSS-Schneehaube an `.rk-schwebe-karte::before` und Mütze an `.lr-jw-ecke::after` (beide `pointer-events: none`), nur wenn `lernFestAn()`;
+  3. die Lampen in 3 Gruppen animieren statt einzeln.

@@ -1,6 +1,6 @@
 # Adventskalender mit echten Türchen – technisches Konzept (Entwurf 1)
 
-Stand 28.11.2026 · Designer-Helfer · **kein App-Code, keine Migration, nichts eingespielt.**
+Stand 28.11.2026 (Nachtrag am selben Tag: Abschnitt 13 – Sorten Krampus/Jackpot/Niete, Karten Tür 6 und 24, gemeinsame Türen, Mischregeln, Karten-Varianten v4/v5) · Designer-Helfer · **kein App-Code, keine Migration, nichts eingespielt.**
 Entwurf: `index.html` (eine Datei, ohne Netz, Schalter unten rechts bzw. per Adresse). Bilder: `bilder/`. Wo es in der App eingehängt wird: `umsetzung1.md`.
 Die Weihnachts-Ebene auf der Reisekarte ist ein **eigener Teil** (Abschnitt 11) und lässt sich unabhängig vom Kalender bauen und live schalten.
 
@@ -64,11 +64,13 @@ Alle Tabellen liegen in `schule`, mit RLS an und ohne direkten Zugriff. Gelesen 
 schule.advent_inhalt          -- Vorrat (gemeinsam), auch Zusatz-Inhalte für nur ein Kind
   id bigserial pk
   jahr smallint not null default 2026
-  art text not null check (art in ('gutschein','motiv','sterne'))
+  art text not null check (art in ('gutschein','motiv','sterne','krampus','karte'))   -- Nachtrag: krampus, karte (Tür 6/24)
+  sorte text check (sorte in ('normal','jackpot','niete'))                         -- nur bei art='sterne'
+  gemeinsam boolean not null default false                                         -- „beide am selben Tag“: gleiche Tür bei beiden Kindern, beim Mischen fest
   titel text not null check (char_length(titel) <= 80)
   text text check (char_length(text) <= 140)          -- Satz fürs Kind
   motiv text                                           -- id aus dem Motiv-Vorrat der App (Pflicht bei art='motiv')
-  sterne int not null default 0 check (sterne between 0 and 5000 and sterne % 10 = 0)
+  sterne int not null default 0 check (sterne between 0 and 5000 and (sterne % 10 = 0 or sorte in ('jackpot','niete')))  -- Jackpot 1111, Niete 1
   nur_fuer bigint references schule.lernender(id)      -- null = beide
   idee text                                            -- Schlüssel der Idee, aus der er entstand (Startvorrat)
   von_hand boolean not null default false              -- Idee mit Lern-Wirkung (Joker …): reiner Gutschein, Eltern lösen von Hand ein
@@ -98,7 +100,8 @@ schule.advent_gutschein       -- nur für art='gutschein'
   tuer_id bigint unique not null references schule.advent_tuer(id)
   lernender_id bigint not null
   titel text, text text                               -- Kopie aus dem Schnappschuss
-  zustand text not null default 'offen' check (zustand in ('offen','angefragt','spaeter','eingeloest'))
+  typ text not null default 'gutschein' check (typ in ('gutschein','krampus'))    -- Nachtrag: Krampus-Aufgaben in derselben Tabelle
+  zustand text not null default 'offen' check (zustand in ('offen','angefragt','spaeter','eingeloest','erledigt'))  -- Krampus: offen → erledigt (nur Eltern)
   angefragt_am, entschieden_am timestamptz, entschieden_von text
   eingeloest_am timestamptz
   gueltig_bis date                                    -- Stufe 2; null = gilt, bis eingelöst (kein Verfall)
@@ -291,9 +294,92 @@ Die Vorgabe des Nutzers war: „Du kannst nur Grafiken drüber legen.“ Umsetzu
 
 ---
 
-## 12. Offene Fragen an den Nutzer (Auswahl)
+## 12. Offene Fragen an den Nutzer (Auswahl, Stand Nachtrag)
 
 1. **Gutscheine einlösen:** **A** Das Kind fragt an, die Eltern tippen „Eingelöst / Heute nicht“ (Empfehlung) · **B** nur die Eltern schalten aus.
-2. **Nachholen nach dem 24.:** **A** bis 31.12. (Empfehlung; Weihnachtstage sind oft lernfrei) · **B** nur bis 24.12. · **C** bis 6.1.
-3. **Zählt „Sitzt wieder!“ (Nachbessern) als geschaffte Etappe?** **A** ja, eigene Landung ist eigene Landung (Empfehlung) · **B** nein, nur neue Etappen.
-4. **Weihnachts-Ebene auf der Karte:** **1** dezent · **2** verspielt · **3** Neon-Nordlicht · **2+3** gemischt (Mützen, Geschenke und Schlitten aus 2, Stern aus 3).
+2. **Nachholen nach dem 24.:** **A** bis 31.12. (Empfehlung) · **B** nur bis 24.12. · **C** bis 6.1.
+3. **Krampus-Tür vorher erkennbar?** **A** ja, dunkle Tür mit Hörnchen (wie gewünscht, Bild `tuer-krampus`) · **B** Überraschung: normale grüne Tür, Krampus erst innen.
+4. **Weihnachts-Ebene:** **v4** volle Weihnacht · **v5** Winternacht (Empfehlung für Australien im Dezember: v4; v5, wenn „Winter“ trotz Sommer gewünscht) · oder eine der leiseren v1–v3.
+
+(„Zählt Nachbessern als Etappe?“ bleibt mit Empfehlung „ja“ stehen und wird ohne Rückmeldung so gebaut.)
+
+---
+
+## 13. Nachtrag 28.11.: Sorten, feste Karten, gemeinsame Türen, Mischregeln
+
+**Stand der Inhalte:**
+- Der Nutzer hat **23 eigene Inhalte** gewählt. Sie liegen beim Projektleiter und **nicht im Repo**; persönliche Texte kommen nicht ins Repo, der Entwurf zeigt nur neutrale Beispieltexte.
+- Darunter ist je ein Inhalt **nur für ein Kind**.
+- **Entschieden (späterer Satz des Nutzers):** „+1 Stern“ als Niete ist gewünscht. „Doppelte Sterne“ und „Sticker“ **entfallen**; sie stehen nicht mehr in den Ideen.
+
+**Sorten (Bilder `inhalt-*`, `tuer-krampus`):**
+
+| Sorte | Tür vorher | Inhalt | Beim Kind danach | Sterne |
+|---|---|---|---|---|
+| Gutschein | grün | Gutschein-Karte | „Meine Gutscheine“ · Einlösen | optional 0–5000 |
+| Motiv + Satz | grün | großes Motiv, Satz der Eltern | Kalender | optional |
+| **Karte Tür 6 / Tür 24** | grün | eigenes, ausgearbeitetes Kartenmotiv (Nikolaus-Stiefel / Heiligabend am Strand mit Baum), Satz der Eltern, goldener Rahmen | Kalender | **keine** – an diesen Tagen gibt es ohnehin Geschenke; kein Gutschein |
+| **Krampus** | **dunkle Tür mit Hörnchen und Kratzern** (Frage 3) | dunkle Karte „KRAMPUS WAR DA“, augenzwinkerndes Krampus-Motiv mit Besen und To-do-Zettel, Aufgabe der Eltern (z. B. „Zimmer aufräumen – heute noch.“) | „Meine Gutscheine“, eigene Rubrik **„Vom Krampus“** unten; **kein Einlösen-Knopf**, nur „Erledigt? Mama oder Papa haken ab.“ | keine, und kein Abzug |
+| **Jackpot** | grün | drei Walzen ★★★, „JACKPOT“, „+1.111 ★“ auf goldener Szene | Kalender (goldene Kachel) | sofort gutgeschrieben |
+| **Niete mit Trost** | grün | grauer Schein „NIETE“, „…aber nicht ganz. +1 ★ Trostpreis“ | Kalender (graue Kachel) | +1, sofort |
+
+**Vorschlag zur Rubrik:**
+- Krampus-Aufgaben **in „Meine Gutscheine“ als eigene Rubrik unten**: dunkel, nicht antippbar, zählt nicht in den Gutschein-Zähler.
+- Bei den Eltern stehen sie in „Zu tun“ („Kind 1: Krampus-Aufgabe ‚Zimmer aufräumen‘ – erledigt?“ mit **Erledigt ✓ | Noch nicht**) und in der Gutschein-Karte der Adventskalender-Seite (Bilder `eltern-zutun-*`, `eltern-*`).
+- „Erledigt“ setzt `zustand = 'erledigt'`. Das kann nur die Eltern-Rolle (`schule_advent_gutschein_entscheiden`, zusätzlicher Wert `erledigt`). Erledigte Aufgaben werden beim Kind grau.
+
+**Mischregeln (`schule_advent_belegen` prüft sie auf dem Server, „Neu mischen“ hält sie auf dem Gerät ein; Entwurf: Funktion `mische()` in `index.html`):**
+1. **Tür 6 und Tür 24 sind fest**, bei beiden Kindern mit Art `karte`. Andere Arten weist der Server dort ab.
+2. **Gemeinsame Inhalte** (`gemeinsam = true`, Schalter „Beide am selben Tag“ im Bearbeiten-Blatt) stehen bei beiden Kindern auf **derselben Tür** und bleiben beim Mischen fest. Ein gemeinsamer Inhalt kann nicht auf 6 oder 24.
+3. **Krampus:**
+   - nie auf Tür 1 oder 24,
+   - nie zwei hintereinander (auch nicht über eine feste Tür hinweg, also nicht 5 und 7, wenn 6 die Karte ist – Vorschlag),
+   - wenn es einen gibt, gern einer auf Tür 5 (Krampusnacht).
+4. **Rest je Kind versetzt:** Kind 2 bekommt die Folge von Kind 1, um 3–8 Tage verschoben. Danach werden die Regeln 1–3 durch Tauschen repariert.
+5. Inhalte „nur für ein Kind“ füllen genau die Lücke, die beim anderen Kind ein anderer Inhalt hat.
+6. Jackpot höchstens zweimal, nicht in der ersten Woche (Vorschlag, damit er besonders bleibt).
+
+**Datenmodell und API:** Die Änderungen sind in Abschnitt 3 eingetragen (`art` + `krampus`/`karte`, `sorte`, `gemeinsam`, Gutschein `typ`, Zustand `erledigt`). Neue Aktionen braucht es nicht; `schule_advent_gutschein_entscheiden` nimmt zusätzlich `erledigt`.
+
+**Aufwand (geändert):** Stufe 1a steigt um etwa **3–4 h** auf **19–24 h**:
+- Server ~1 h (Werte, Prüfungen der Mischregeln),
+- App ~2–3 h (Tür- und Kartenstil der Sorten, drei Sonder-Motive aus dem Entwurf übernehmen, Rubrik „Vom Krampus“, Eltern-Zeile).
+
+Der 1.12. bleibt knapp. Fällt es eng aus, kommen Jackpot und Niete in 1a (nur Optik einer Sterne-Tür) und Krampus mit 1b.
+
+### 13b. Weihnachts-Ebene kräftiger: v4 „volle Weihnacht“, v5 „Winternacht“
+
+Bilder: `karte-v4-*`, `karte-v5-*` (390 hell/dunkel, 1280 hell), Vergleich `vergleich-v2-v4-v5-390-hell.png` / `-dunkel.png`, Freizonen `karte-v4-freizonen-390-hell.png`.
+
+**v4 „volle Weihnacht“:**
+- Mützen auf **allen** sichtbaren Pins, je nach Pin-Größe: 26 auf 390, 36 auf 1280.
+- Schneehaube mit Eiszapfen am oberen Kartenrand, Schneewehe unten rechts.
+- Zweireihige Lichterkette zwischen Sonne und Zoom-Knöpfen.
+- 70 große Flocken.
+- Tannen und Geschenke an gelandeten Ländern, auf Plätzen ohne Beschriftung.
+- Schlitten größer (×1,4) und alle 14 s statt 25 s.
+- Schneehaube mit Eiszapfen auf „Gerade dran“, ausgespart unter dem Jugendwort-Schild.
+- Kleine Mütze am Jugendwort-Schild.
+
+**v5 „Winternacht“:** v4 plus
+- kühle Tönung der Karte mit Frost-Rand,
+- kräftiges Nordlicht am Nordrand,
+- Neon-Stern mit Strahl über dem Ziel.
+
+Im hellen Modus ist v5 jetzt deutlich sichtbar (bläulich-winterlich). **In der App liegen Tönung und Nordlicht als eigene Gruppe *unter* Pins, Routen und Beschriftung** (zwischen `ebenen.land` und `ebenen.route`, in Kartenkoordinaten am Bildrand verankert). Ländernamen und Pins bleiben dadurch unverändert scharf. Im Standbild ist das mit Mischmodus nachgestellt, der dunkle Schrift dunkel lässt.
+
+**Freizonen:** Sonne, Zoom-Knöpfe und Quellenzeile sind ausgespart; in der App liegen sie ohnehin über der Ebene. Mützen halten den Flaggenkern frei. Wo eine Mütze eine Beschriftung berührt (z. B. „Niederlande“ auf 1280), kommt sie in die Belegungsliste `belegt`, damit die Beschriftung ausweicht. Bei sehr dichten Ansichten entfällt die Mütze auf kleinen Pins.
+
+**Animierte Elemente (altes Handy):**
+
+| Variante | CSS-animiert | rAF-Schleifen | Bemerkung |
+|---|---|---|---|
+| v1 | 15 Lampen (opacity) | 1 (26 Flocken) | |
+| v2 | 0 | 1 (Schlitten) | |
+| v3 | 2 (Nordlicht, Halo) | 0 | |
+| v4 | 20 Lampen auf 390 / 52 auf 1280 – **Vorschlag: 3 Gruppen statt einzelner Lampen animieren → 3 Knoten** | **1 gemeinsame Schleife** für 70 Flocken + Schlitten (Canvas) | Mützen, Hauben, Tannen sind statisch |
+| v5 | wie v4 + 2 (Nordlicht, Halo) = 5 Knoten | 1 | Unschärfe-Filter des Nordlichts einmal gezeichnet, nicht animiert neu berechnet |
+
+Bei „Bewegung reduzieren“: kein Schnee, kein Schlitten, Lampen und Nordlicht still. Bei `document.hidden` steht alles.
+
+**Aufwand:** v4 6–8 h, v5 8–10 h (die Gruppe unter den Pins ist der aufwendigste Teil). Weiter ohne Server und unabhängig vom Kalender.

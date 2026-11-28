@@ -1,0 +1,319 @@
+# Runde 14: Regel-Kennung je Aufgabe (Selbstkontrolle der Zuordnung)
+
+Stand 28.11.2026. Die 213 Aufgaben R14-V001 bis R14-V213 sind eingespielt (ohne Regel); hier steht, welche Regel jede bekommt (Nachtrag `tools/tests/aus/rb_nachtrag_r14.sql`). Quelle der Daten: `regeln.py` (bauen.py übernimmt daraus das Feld `regel` in die Dateien). Fragetexte, Lösungen, Fehlbilder und Plätze sind unverändert.
+
+Maßstab: die Regel, die das Kind zum Lösen braucht (tragende Regel des Lösungswegs), nicht das Thema. **Lösungsweg** = der Lösungsweg nutzt die Regel erkennbar. **Lernkarten-Vorgabe** = Regel der Lernkarte aus `inhalte/plan/regelbezug-lernkarten.json`, der Lösungsweg lässt mehrere Regeln zu (im Zweifel die der Lernkarte). **–** = keine Regel des Katalogs trägt den Lösungsweg. Zweifelsfälle sind mit „Z“ markiert.
+
+**180 Aufgaben mit Regel, 33 ohne.**
+
+## Verteilung
+
+| Regel | Name | Aufgaben |
+|---|---|---|
+| `id.flaeche_raum.aus_dem_rechteck` | Aus dem Rechteck | 32 |
+| `id.flaeche_raum.haut` | Haut des Körpers | 22 |
+| `id.verhaeltnisse.prozent` | Prozent als Faktor | 18 |
+| `id.algebra.term` | Term | 18 |
+| `id.flaeche_raum.aus_dem_quader` | Aus dem Quader | 16 |
+| `rr.potenz` | Potenzen | 15 |
+| `rr.ausmultiplizieren` | Ausmultiplizieren und Ausklammern | 12 |
+| `id.zahlen.schreibweisen` | Schreibweisen | 12 |
+| `id.geometrie.deckungsgleich` | Deckungsgleich | 10 |
+| `id.daten.anteil` | Anteil | 6 |
+| `id.verhaeltnisse.wert_fuer_eins` | Wert für eins | 6 |
+| `id.geometrie.winkel` | Winkel an Geraden | 5 |
+| `rr.verhaeltnis` | Verhältnis (Dreisatz) | 3 |
+| `id.flaeche_raum.auslegen` | Auslegen und zählen | 3 |
+| `id.daten.stufen` | Stufen | 1 |
+| `rr.stellenwert` | Stellenwert | 1 |
+| – (ohne Regel) | | 33 |
+
+Quelle der 180 Zuordnungen: Lösungsweg 160, Lernkarten-Vorgabe 20.
+
+## Aufgaben ohne Regel (mit Begründung)
+
+| Aufgabe | Lernkarte | Begründung |
+|---|---|---|
+| R14-V031 | raum.schraegbilder_teil2.koordinaten | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V032 | raum.schraegbilder_teil2.koordinaten | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V033 | raum.schraegbilder_teil2.koordinaten | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V034 | raum.schraegbilder_teil2.rotation | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V035 | raum.schraegbilder_teil2.rotation | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V036 | raum.schraegbilder_teil2.rotation | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V037 | raum.schraegbilder_teil2.axialschnitt | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V038 | raum.schraegbilder_teil2.axialschnitt | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V040 | raum.schraegbilder_teil2.koerper_symmetrie | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V041 | raum.schraegbilder_teil2.koerper_symmetrie | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V042 | raum.schraegbilder_teil2.koerper_symmetrie | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V082 | stochastik.grundbegriffe.darstellen | Vierfeldertafel: Häufigkeiten auszählen; wie R11 S3-V057 und die Baum-Aufgaben R13 ohne Regel (Z) |
+| R14-V084 | stochastik.grundbegriffe.darstellen | Teile von Teilen (Frauen, Radfahrer) mit Prozentanteil am Schluss; keine Regel des Katalogs trägt den Weg; wie V082 (Z) |
+| R14-V151 | messen.volumen.einheiten | Umrechnen von Einheiten bzw. Liter; Lernkarten-Datei nur „thema“-Rückfall (schwach); frühere Runden: ohne Regel (Z) |
+| R14-V152 | messen.volumen.einheiten | Umrechnen von Einheiten bzw. Liter; Lernkarten-Datei nur „thema“-Rückfall (schwach); frühere Runden: ohne Regel (Z) |
+| R14-V153 | messen.volumen.einheiten | Umrechnen von Einheiten bzw. Liter; Lernkarten-Datei nur „thema“-Rückfall (schwach); frühere Runden: ohne Regel (Z) |
+| R14-V154 | messen.volumen.liter | Umrechnen von Einheiten bzw. Liter; Lernkarten-Datei nur „thema“-Rückfall (schwach); frühere Runden: ohne Regel (Z) |
+| R14-V155 | messen.volumen.liter | Umrechnen von Einheiten bzw. Liter; Lernkarten-Datei nur „thema“-Rückfall (schwach); frühere Runden: ohne Regel (Z) |
+| R14-V156 | messen.volumen.liter | Umrechnen von Einheiten bzw. Liter; Lernkarten-Datei nur „thema“-Rückfall (schwach); frühere Runden: ohne Regel (Z) |
+| R14-V163 | messen.volumen.verstehen | Überschlag mit gerundeter Höhe; wie R6 K6-V182 ohne Regel |
+| R14-V164 | messen.volumen.verstehen | Faktor 2 · 2 auf V = l · b · h; wie R6 K6-V183 (Würfel, Kante verdoppeln) ohne Regel (Z) |
+| R14-V165 | messen.volumen.verstehen | Faktor (1/2)³; wie R6 K6-V183 ohne Regel (Z) |
+| R14-V167 | bruch.dezimal.stellenwerte | Meter in Zentimeter umrechnen und Unterschied bilden; wie R6 K6-V048 ohne Regel (Z) |
+| R14-V168 | bruch.dezimal.stellenwerte | Ziffern anordnen, Unterschied bilden; keine Regel trägt den Weg (Z) |
+| R14-V169 | bruch.dezimal.vergleichen_ordnen | Längen ordnen, in Millimeter umrechnen, Unterschied; wie R6 K6-V048 ohne Regel (Z) |
+| R14-V170 | bruch.dezimal.vergleichen_ordnen | Lernkarten-Datei: offen; Ordnen und Unterschied bilden, Runde 6 (K6-V047, K6-V048) ebenso ohne Regel |
+| R14-V171 | bruch.dezimal.vergleichen_ordnen | Lernkarten-Datei: offen; Ordnen und Unterschied bilden, Runde 6 (K6-V047, K6-V048) ebenso ohne Regel |
+| R14-V172 | bruch.dezimal.runden | Lernkarten-Datei: offen; Runde 6 ebenso ohne Regel |
+| R14-V173 | bruch.dezimal.runden | Lernkarten-Datei: offen; Runde 6 ebenso ohne Regel |
+| R14-V174 | bruch.dezimal.runden | Lernkarten-Datei: offen; Runde 6 ebenso ohne Regel |
+| R14-V187 | bruch.dezimal.verstehen | Lernkarten-Datei: offen; Runde 6 überwiegend ohne Regel |
+| R14-V188 | bruch.dezimal.verstehen | Lernkarten-Datei: offen; Runde 6 überwiegend ohne Regel |
+| R14-V189 | bruch.dezimal.verstehen | Lernkarten-Datei: offen; Runde 6 überwiegend ohne Regel |
+
+## Zweifelsfälle (Entscheidung für die Durchsicht)
+
+| Aufgabe | Lernkarte | gewählt | Bemerkung |
+|---|---|---|---|
+| R14-V004 | geometrie.konstruktion_teil2.vierecke_konstruieren | `id.geometrie.deckungsgleich` | Zahl der festlegenden Angaben; Lösungsweg zählt nur, Regel aus der Lernkarte (wie R8-V124) |
+| R14-V005 | geometrie.konstruktion_teil2.vierecke_konstruieren | `id.geometrie.winkel` | Winkelsumme im Viereck und Symmetrie; die Lernkarte nennt id.geometrie.deckungsgleich |
+| R14-V006 | geometrie.konstruktion_teil2.vierecke_konstruieren | `id.geometrie.winkel` | Nachbarwinkel im Parallelogramm (α + β = 180°); die Lernkarte nennt id.geometrie.deckungsgleich |
+| R14-V039 | raum.schraegbilder_teil2.axialschnitt | `id.flaeche_raum.haut` | letzter Schritt: Mantelfläche des Zylinders; die Lernkarten-Datei nennt für die ganze Einheit id.flaeche_raum.haut |
+| R14-V057 | messen.prisma_zylinder.prisma_volumen | `id.flaeche_raum.aus_dem_rechteck` | V = G · h mit Dreiecksgrundfläche; id.flaeche_raum.aus_dem_quader wäre die Alternative |
+| R14-V061 | messen.prisma_zylinder.prisma_umstellen | `id.flaeche_raum.aus_dem_rechteck` | h = V : G; id.flaeche_raum.aus_dem_quader wäre die Alternative (wie bei R7-Aufgaben dieser Etappe: aus_dem_rechteck) |
+| R14-V062 | messen.prisma_zylinder.prisma_umstellen | `id.flaeche_raum.aus_dem_rechteck` | Trapez-Grundfläche, dann h = V : G |
+| R14-V063 | messen.prisma_zylinder.prisma_umstellen | `id.flaeche_raum.aus_dem_rechteck` | Dreiecks-Grundfläche, dann h = V : G |
+| R14-V075 | messen.prisma_zylinder.verstehen | `id.flaeche_raum.aus_dem_quader` | schiefer Stapel (Cavalieri): Grundfläche mal Höhe; Lernkarte der Etappe „verstehen“ nennt id.flaeche_raum.aus_dem_rechteck, frühere Runden ordnen Cavalieri-Aufgaben aus_dem_quader zu |
+| R14-V076 | stochastik.grundbegriffe.begriffe | `id.daten.anteil` | Zahl der möglichen Ergebnisse (Nenner) ohne Zurücklegen; Lernkarte begriffe → id.daten.anteil |
+| R14-V082 | stochastik.grundbegriffe.darstellen | – | Vierfeldertafel: Häufigkeiten auszählen; wie R11 S3-V057 und die Baum-Aufgaben R13 ohne Regel |
+| R14-V083 | stochastik.grundbegriffe.darstellen | `id.daten.stufen` | Wege im Baum: entlang des Pfades malnehmen, Pfade addieren; Lernkarte darstellen → id.daten.stufen (Ausnahme der Themenliste) |
+| R14-V084 | stochastik.grundbegriffe.darstellen | – | Teile von Teilen (Frauen, Radfahrer) mit Prozentanteil am Schluss; keine Regel des Katalogs trägt den Weg; wie V082 |
+| R14-V151 | messen.volumen.einheiten | – | Umrechnen von Einheiten bzw. Liter; Lernkarten-Datei nur „thema“-Rückfall (schwach); frühere Runden: ohne Regel |
+| R14-V152 | messen.volumen.einheiten | – | Umrechnen von Einheiten bzw. Liter; Lernkarten-Datei nur „thema“-Rückfall (schwach); frühere Runden: ohne Regel |
+| R14-V153 | messen.volumen.einheiten | – | Umrechnen von Einheiten bzw. Liter; Lernkarten-Datei nur „thema“-Rückfall (schwach); frühere Runden: ohne Regel |
+| R14-V154 | messen.volumen.liter | – | Umrechnen von Einheiten bzw. Liter; Lernkarten-Datei nur „thema“-Rückfall (schwach); frühere Runden: ohne Regel |
+| R14-V155 | messen.volumen.liter | – | Umrechnen von Einheiten bzw. Liter; Lernkarten-Datei nur „thema“-Rückfall (schwach); frühere Runden: ohne Regel |
+| R14-V156 | messen.volumen.liter | – | Umrechnen von Einheiten bzw. Liter; Lernkarten-Datei nur „thema“-Rückfall (schwach); frühere Runden: ohne Regel |
+| R14-V164 | messen.volumen.verstehen | – | Faktor 2 · 2 auf V = l · b · h; wie R6 K6-V183 (Würfel, Kante verdoppeln) ohne Regel |
+| R14-V165 | messen.volumen.verstehen | – | Faktor (1/2)³; wie R6 K6-V183 ohne Regel |
+| R14-V166 | bruch.dezimal.stellenwerte | `rr.stellenwert` | 1 Einer = 1 000 Tausendstel: zwischen den Stellen umrechnen (wie R6 K6-V044) |
+| R14-V167 | bruch.dezimal.stellenwerte | – | Meter in Zentimeter umrechnen und Unterschied bilden; wie R6 K6-V048 ohne Regel |
+| R14-V168 | bruch.dezimal.stellenwerte | – | Ziffern anordnen, Unterschied bilden; keine Regel trägt den Weg |
+| R14-V169 | bruch.dezimal.vergleichen_ordnen | – | Längen ordnen, in Millimeter umrechnen, Unterschied; wie R6 K6-V048 ohne Regel |
+
+Ausnahmen von der Themenliste in `kennungen.json` (von Hand gelesen, in `bauen.py` unter `REGEL_AUSNAHME`): geometrie.konstruktion · id.geometrie.winkel; messen.prisma_zylinder · id.flaeche_raum.aus_dem_rechteck und · id.flaeche_raum.haut; messen.koerper_berechnung · id.flaeche_raum.aus_dem_quader; messen.volumen · id.flaeche_raum.aus_dem_quader; stochastik.grundbegriffe · id.daten.stufen.
+
+## Tabelle aller Aufgaben
+
+| Aufgabe | Lernkarte | Regel | Quelle | Bemerkung |
+|---|---|---|---|---|
+| R14-V001 | geometrie.konstruktion_teil2.vierecke | `id.geometrie.winkel` | Lösungsweg | Winkelsumme und Nachbarwinkel; wie Runde 13 (Ausnahme der Themenliste) |
+| R14-V002 | geometrie.konstruktion_teil2.vierecke | `id.geometrie.winkel` | Lösungsweg | Winkelsumme und Nachbarwinkel; wie Runde 13 (Ausnahme der Themenliste) |
+| R14-V003 | geometrie.konstruktion_teil2.vierecke | `id.geometrie.winkel` | Lösungsweg | Winkelsumme und Nachbarwinkel; wie Runde 13 (Ausnahme der Themenliste) |
+| R14-V004 | geometrie.konstruktion_teil2.vierecke_konstruieren | `id.geometrie.deckungsgleich` | Lernkarten-Vorgabe (Z) | Zahl der festlegenden Angaben; Lösungsweg zählt nur, Regel aus der Lernkarte (wie R8-V124) |
+| R14-V005 | geometrie.konstruktion_teil2.vierecke_konstruieren | `id.geometrie.winkel` | Lösungsweg (Z) | Winkelsumme im Viereck und Symmetrie; die Lernkarte nennt id.geometrie.deckungsgleich |
+| R14-V006 | geometrie.konstruktion_teil2.vierecke_konstruieren | `id.geometrie.winkel` | Lösungsweg (Z) | Nachbarwinkel im Parallelogramm (α + β = 180°); die Lernkarte nennt id.geometrie.deckungsgleich |
+| R14-V007 | terme.potenzgesetze_ganzzahlig.warum_gilt | `rr.potenz` | Lösungsweg |  |
+| R14-V008 | terme.potenzgesetze_ganzzahlig.warum_gilt | `rr.potenz` | Lösungsweg |  |
+| R14-V009 | terme.potenzgesetze_ganzzahlig.warum_gilt | `rr.potenz` | Lösungsweg |  |
+| R14-V010 | terme.potenzgesetze_ganzzahlig.gleiche_basis_ganz | `rr.potenz` | Lösungsweg |  |
+| R14-V011 | terme.potenzgesetze_ganzzahlig.gleiche_basis_ganz | `rr.potenz` | Lösungsweg |  |
+| R14-V012 | terme.potenzgesetze_ganzzahlig.gleiche_basis_ganz | `rr.potenz` | Lösungsweg |  |
+| R14-V013 | terme.potenzgesetze_ganzzahlig.exponent_und_potenz | `rr.potenz` | Lösungsweg |  |
+| R14-V014 | terme.potenzgesetze_ganzzahlig.exponent_und_potenz | `rr.potenz` | Lösungsweg |  |
+| R14-V015 | terme.potenzgesetze_ganzzahlig.exponent_und_potenz | `rr.potenz` | Lösungsweg |  |
+| R14-V016 | terme.potenzgesetze_ganzzahlig.terme_vereinfachen | `rr.potenz` | Lösungsweg |  |
+| R14-V017 | terme.potenzgesetze_ganzzahlig.terme_vereinfachen | `rr.potenz` | Lösungsweg |  |
+| R14-V018 | terme.potenzgesetze_ganzzahlig.terme_vereinfachen | `rr.potenz` | Lösungsweg |  |
+| R14-V019 | terme.potenzgesetze_ganzzahlig.fehler_ganz | `rr.potenz` | Lösungsweg |  |
+| R14-V020 | terme.potenzgesetze_ganzzahlig.fehler_ganz | `rr.potenz` | Lösungsweg |  |
+| R14-V021 | terme.potenzgesetze_ganzzahlig.fehler_ganz | `rr.potenz` | Lösungsweg |  |
+| R14-V022 | abbildungen.kongruenz_teil3.punktspiegelung | `id.geometrie.deckungsgleich` | Lösungsweg | Lernkarten-Datei: offen; Runde 13 ordnet dieser Etappe dieselbe Regel zu |
+| R14-V023 | abbildungen.kongruenz_teil3.punktspiegelung | `id.geometrie.deckungsgleich` | Lösungsweg | Lernkarten-Datei: offen; Runde 13 ordnet dieser Etappe dieselbe Regel zu |
+| R14-V024 | abbildungen.kongruenz_teil3.punktspiegelung | `id.geometrie.deckungsgleich` | Lösungsweg | Lernkarten-Datei: offen; Runde 13 ordnet dieser Etappe dieselbe Regel zu |
+| R14-V025 | abbildungen.kongruenz_teil3.drehung | `id.geometrie.deckungsgleich` | Lösungsweg |  |
+| R14-V026 | abbildungen.kongruenz_teil3.drehung | `id.geometrie.deckungsgleich` | Lösungsweg |  |
+| R14-V027 | abbildungen.kongruenz_teil3.drehung | `id.geometrie.deckungsgleich` | Lösungsweg |  |
+| R14-V028 | abbildungen.kongruenz_teil3.vektor_drehen | `id.geometrie.deckungsgleich` | Lösungsweg |  |
+| R14-V029 | abbildungen.kongruenz_teil3.vektor_drehen | `id.geometrie.deckungsgleich` | Lösungsweg |  |
+| R14-V030 | abbildungen.kongruenz_teil3.vektor_drehen | `id.geometrie.deckungsgleich` | Lösungsweg |  |
+| R14-V031 | raum.schraegbilder_teil2.koordinaten | – | – | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V032 | raum.schraegbilder_teil2.koordinaten | – | – | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V033 | raum.schraegbilder_teil2.koordinaten | – | – | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V034 | raum.schraegbilder_teil2.rotation | – | – | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V035 | raum.schraegbilder_teil2.rotation | – | – | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V036 | raum.schraegbilder_teil2.rotation | – | – | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V037 | raum.schraegbilder_teil2.axialschnitt | – | – | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V038 | raum.schraegbilder_teil2.axialschnitt | – | – | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V039 | raum.schraegbilder_teil2.axialschnitt | `id.flaeche_raum.haut` | Lösungsweg (Z) | letzter Schritt: Mantelfläche des Zylinders; die Lernkarten-Datei nennt für die ganze Einheit id.flaeche_raum.haut |
+| R14-V040 | raum.schraegbilder_teil2.koerper_symmetrie | – | – | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V041 | raum.schraegbilder_teil2.koerper_symmetrie | – | – | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V042 | raum.schraegbilder_teil2.koerper_symmetrie | – | – | keine Regel des Katalogs trägt den Lösungsweg (Haut/Oberfläche kommt nicht vor); wie Runde 13 für dieselbe Etappe |
+| R14-V043 | terme.umformen_teil2.summe_mal_summe | `rr.ausmultiplizieren` | Lösungsweg |  |
+| R14-V044 | terme.umformen_teil2.summe_mal_summe | `rr.ausmultiplizieren` | Lösungsweg |  |
+| R14-V045 | terme.umformen_teil2.summe_mal_summe | `rr.ausmultiplizieren` | Lösungsweg |  |
+| R14-V046 | terme.umformen_teil2.ausklammern | `rr.ausmultiplizieren` | Lösungsweg |  |
+| R14-V047 | terme.umformen_teil2.ausklammern | `rr.ausmultiplizieren` | Lösungsweg |  |
+| R14-V048 | terme.umformen_teil2.ausklammern | `rr.ausmultiplizieren` | Lösungsweg |  |
+| R14-V049 | terme.umformen_teil2.binomisch | `rr.ausmultiplizieren` | Lösungsweg |  |
+| R14-V050 | terme.umformen_teil2.binomisch | `rr.ausmultiplizieren` | Lösungsweg |  |
+| R14-V051 | terme.umformen_teil2.binomisch | `rr.ausmultiplizieren` | Lösungsweg |  |
+| R14-V052 | terme.umformen_teil2.gleichungen_binomisch | `rr.ausmultiplizieren` | Lösungsweg | Lernkarten-Datei: offen; Binome ausmultiplizieren ist der tragende Schritt, danach bleibt eine lineare Gleichung |
+| R14-V053 | terme.umformen_teil2.gleichungen_binomisch | `rr.ausmultiplizieren` | Lösungsweg | Lernkarten-Datei: offen; Binome ausmultiplizieren ist der tragende Schritt, danach bleibt eine lineare Gleichung |
+| R14-V054 | terme.umformen_teil2.gleichungen_binomisch | `rr.ausmultiplizieren` | Lösungsweg | Lernkarten-Datei: offen; Binome ausmultiplizieren ist der tragende Schritt, danach bleibt eine lineare Gleichung |
+| R14-V055 | messen.prisma_zylinder.prisma_volumen | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg | Grundfläche aus Rechteck und Dreieck |
+| R14-V056 | messen.prisma_zylinder.prisma_volumen | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg | Grundfläche aus Rechteck und Dreieck |
+| R14-V057 | messen.prisma_zylinder.prisma_volumen | `id.flaeche_raum.aus_dem_rechteck` | Lernkarten-Vorgabe (Z) | V = G · h mit Dreiecksgrundfläche; id.flaeche_raum.aus_dem_quader wäre die Alternative |
+| R14-V058 | messen.prisma_zylinder.prisma_oberflaeche | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V059 | messen.prisma_zylinder.prisma_oberflaeche | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V060 | messen.prisma_zylinder.prisma_oberflaeche | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V061 | messen.prisma_zylinder.prisma_umstellen | `id.flaeche_raum.aus_dem_rechteck` | Lernkarten-Vorgabe (Z) | h = V : G; id.flaeche_raum.aus_dem_quader wäre die Alternative (wie bei R7-Aufgaben dieser Etappe: aus_dem_rechteck) |
+| R14-V062 | messen.prisma_zylinder.prisma_umstellen | `id.flaeche_raum.aus_dem_rechteck` | Lernkarten-Vorgabe (Z) | Trapez-Grundfläche, dann h = V : G |
+| R14-V063 | messen.prisma_zylinder.prisma_umstellen | `id.flaeche_raum.aus_dem_rechteck` | Lernkarten-Vorgabe (Z) | Dreiecks-Grundfläche, dann h = V : G |
+| R14-V064 | messen.prisma_zylinder.zylinder_volumen | `id.flaeche_raum.aus_dem_rechteck` | Lernkarten-Vorgabe |  |
+| R14-V065 | messen.prisma_zylinder.zylinder_volumen | `id.flaeche_raum.aus_dem_rechteck` | Lernkarten-Vorgabe |  |
+| R14-V066 | messen.prisma_zylinder.zylinder_volumen | `id.flaeche_raum.aus_dem_rechteck` | Lernkarten-Vorgabe |  |
+| R14-V067 | messen.prisma_zylinder.zylinder_oberflaeche | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V068 | messen.prisma_zylinder.zylinder_oberflaeche | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V069 | messen.prisma_zylinder.zylinder_oberflaeche | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V070 | messen.prisma_zylinder.sach | `id.flaeche_raum.aus_dem_quader` | Lernkarten-Vorgabe |  |
+| R14-V071 | messen.prisma_zylinder.sach | `id.flaeche_raum.aus_dem_quader` | Lernkarten-Vorgabe |  |
+| R14-V072 | messen.prisma_zylinder.sach | `id.flaeche_raum.aus_dem_quader` | Lernkarten-Vorgabe |  |
+| R14-V073 | messen.prisma_zylinder.verstehen | `id.flaeche_raum.aus_dem_rechteck` | Lernkarten-Vorgabe |  |
+| R14-V074 | messen.prisma_zylinder.verstehen | `id.flaeche_raum.aus_dem_rechteck` | Lernkarten-Vorgabe |  |
+| R14-V075 | messen.prisma_zylinder.verstehen | `id.flaeche_raum.aus_dem_quader` | Lösungsweg (Z) | schiefer Stapel (Cavalieri): Grundfläche mal Höhe; Lernkarte der Etappe „verstehen“ nennt id.flaeche_raum.aus_dem_rechteck, frühere Runden ordnen Cavalieri-Aufgaben aus_dem_quader zu |
+| R14-V076 | stochastik.grundbegriffe.begriffe | `id.daten.anteil` | Lernkarten-Vorgabe (Z) | Zahl der möglichen Ergebnisse (Nenner) ohne Zurücklegen; Lernkarte begriffe → id.daten.anteil |
+| R14-V077 | stochastik.grundbegriffe.begriffe | `id.daten.anteil` | Lösungsweg |  |
+| R14-V078 | stochastik.grundbegriffe.begriffe | `id.daten.anteil` | Lösungsweg |  |
+| R14-V079 | stochastik.grundbegriffe.rel_haeufigkeit | `id.daten.anteil` | Lösungsweg |  |
+| R14-V080 | stochastik.grundbegriffe.rel_haeufigkeit | `id.daten.anteil` | Lösungsweg |  |
+| R14-V081 | stochastik.grundbegriffe.rel_haeufigkeit | `id.daten.anteil` | Lösungsweg |  |
+| R14-V082 | stochastik.grundbegriffe.darstellen | – | – (Z) | Vierfeldertafel: Häufigkeiten auszählen; wie R11 S3-V057 und die Baum-Aufgaben R13 ohne Regel |
+| R14-V083 | stochastik.grundbegriffe.darstellen | `id.daten.stufen` | Lösungsweg (Z) | Wege im Baum: entlang des Pfades malnehmen, Pfade addieren; Lernkarte darstellen → id.daten.stufen (Ausnahme der Themenliste) |
+| R14-V084 | stochastik.grundbegriffe.darstellen | – | – (Z) | Teile von Teilen (Frauen, Radfahrer) mit Prozentanteil am Schluss; keine Regel des Katalogs trägt den Weg; wie V082 |
+| R14-V085 | messen.koerper_berechnung.quader | `id.flaeche_raum.aus_dem_quader` | Lernkarten-Vorgabe | Kantenmodell (Etappenregel wie Runde 6) |
+| R14-V086 | messen.koerper_berechnung.quader | `id.flaeche_raum.aus_dem_quader` | Lernkarten-Vorgabe | Kantenmodell (Etappenregel wie Runde 6) |
+| R14-V087 | messen.koerper_berechnung.quader | `id.flaeche_raum.aus_dem_quader` | Lernkarten-Vorgabe | Kantenmodell (Etappenregel wie Runde 6) |
+| R14-V088 | messen.koerper_berechnung.oberflaeche | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V089 | messen.koerper_berechnung.oberflaeche | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V090 | messen.koerper_berechnung.oberflaeche | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V091 | messen.koerper_berechnung.sachaufgaben | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V092 | messen.koerper_berechnung.sachaufgaben | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V093 | messen.koerper_berechnung.sachaufgaben | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V094 | messen.koerper_berechnung.zusammengesetzt | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V095 | messen.koerper_berechnung.zusammengesetzt | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V096 | messen.koerper_berechnung.zusammengesetzt | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V097 | messen.koerper_berechnung.verstehen | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V098 | messen.koerper_berechnung.verstehen | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V099 | messen.koerper_berechnung.verstehen | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V100 | bruch.prozent.prozent_bedeutung | `id.verhaeltnisse.prozent` | Lösungsweg |  |
+| R14-V101 | bruch.prozent.prozent_bedeutung | `id.verhaeltnisse.prozent` | Lösungsweg |  |
+| R14-V102 | bruch.prozent.prozent_bedeutung | `id.verhaeltnisse.prozent` | Lösungsweg |  |
+| R14-V103 | bruch.prozent.prozentwert | `id.verhaeltnisse.prozent` | Lösungsweg |  |
+| R14-V104 | bruch.prozent.prozentwert | `id.verhaeltnisse.prozent` | Lösungsweg |  |
+| R14-V105 | bruch.prozent.prozentwert | `id.verhaeltnisse.prozent` | Lösungsweg |  |
+| R14-V106 | bruch.prozent.prozentsatz | `id.verhaeltnisse.prozent` | Lösungsweg |  |
+| R14-V107 | bruch.prozent.prozentsatz | `id.verhaeltnisse.prozent` | Lösungsweg |  |
+| R14-V108 | bruch.prozent.prozentsatz | `id.verhaeltnisse.prozent` | Lösungsweg |  |
+| R14-V109 | bruch.prozent.grundwert | `id.verhaeltnisse.prozent` | Lösungsweg |  |
+| R14-V110 | bruch.prozent.grundwert | `id.verhaeltnisse.prozent` | Lösungsweg |  |
+| R14-V111 | bruch.prozent.grundwert | `id.verhaeltnisse.prozent` | Lösungsweg |  |
+| R14-V112 | bruch.prozent.rabatt_aufschlag | `id.verhaeltnisse.prozent` | Lösungsweg |  |
+| R14-V113 | bruch.prozent.rabatt_aufschlag | `id.verhaeltnisse.prozent` | Lösungsweg |  |
+| R14-V114 | bruch.prozent.rabatt_aufschlag | `id.verhaeltnisse.prozent` | Lösungsweg |  |
+| R14-V115 | bruch.prozent.verstehen | `id.verhaeltnisse.prozent` | Lösungsweg |  |
+| R14-V116 | bruch.prozent.verstehen | `id.verhaeltnisse.prozent` | Lösungsweg |  |
+| R14-V117 | bruch.prozent.verstehen | `id.verhaeltnisse.prozent` | Lösungsweg |  |
+| R14-V118 | terme.aufstellen.struktur | `id.algebra.term` | Lösungsweg |  |
+| R14-V119 | terme.aufstellen.struktur | `id.algebra.term` | Lösungsweg |  |
+| R14-V120 | terme.aufstellen.struktur | `id.algebra.term` | Lösungsweg |  |
+| R14-V121 | terme.aufstellen.termwert | `id.algebra.term` | Lösungsweg |  |
+| R14-V122 | terme.aufstellen.termwert | `id.algebra.term` | Lösungsweg |  |
+| R14-V123 | terme.aufstellen.termwert | `id.algebra.term` | Lösungsweg |  |
+| R14-V124 | terme.aufstellen.uebersetzen | `id.algebra.term` | Lösungsweg |  |
+| R14-V125 | terme.aufstellen.uebersetzen | `id.algebra.term` | Lösungsweg |  |
+| R14-V126 | terme.aufstellen.uebersetzen | `id.algebra.term` | Lösungsweg |  |
+| R14-V127 | terme.aufstellen.sachsituation | `id.algebra.term` | Lösungsweg |  |
+| R14-V128 | terme.aufstellen.sachsituation | `id.algebra.term` | Lösungsweg |  |
+| R14-V129 | terme.aufstellen.sachsituation | `id.algebra.term` | Lösungsweg |  |
+| R14-V130 | terme.aufstellen.muster | `id.algebra.term` | Lösungsweg |  |
+| R14-V131 | terme.aufstellen.muster | `id.algebra.term` | Lösungsweg |  |
+| R14-V132 | terme.aufstellen.muster | `id.algebra.term` | Lösungsweg |  |
+| R14-V133 | terme.aufstellen.deuten | `id.algebra.term` | Lösungsweg |  |
+| R14-V134 | terme.aufstellen.deuten | `id.algebra.term` | Lösungsweg |  |
+| R14-V135 | terme.aufstellen.deuten | `id.algebra.term` | Lösungsweg |  |
+| R14-V136 | groessen.proportional_teil2.erkennen | `id.verhaeltnisse.wert_fuer_eins` | Lösungsweg |  |
+| R14-V137 | groessen.proportional_teil2.erkennen | `id.verhaeltnisse.wert_fuer_eins` | Lösungsweg |  |
+| R14-V138 | groessen.proportional_teil2.erkennen | `id.verhaeltnisse.wert_fuer_eins` | Lösungsweg |  |
+| R14-V139 | groessen.proportional_teil2.vervielfachen | `rr.verhaeltnis` | Lernkarten-Vorgabe |  |
+| R14-V140 | groessen.proportional_teil2.vervielfachen | `rr.verhaeltnis` | Lernkarten-Vorgabe |  |
+| R14-V141 | groessen.proportional_teil2.vervielfachen | `rr.verhaeltnis` | Lernkarten-Vorgabe |  |
+| R14-V142 | groessen.proportional_teil2.pruefen | `id.verhaeltnisse.wert_fuer_eins` | Lösungsweg |  |
+| R14-V143 | groessen.proportional_teil2.pruefen | `id.verhaeltnisse.wert_fuer_eins` | Lösungsweg |  |
+| R14-V144 | groessen.proportional_teil2.pruefen | `id.verhaeltnisse.wert_fuer_eins` | Lösungsweg |  |
+| R14-V145 | messen.volumen.einheitswuerfel | `id.flaeche_raum.auslegen` | Lösungsweg |  |
+| R14-V146 | messen.volumen.einheitswuerfel | `id.flaeche_raum.auslegen` | Lösungsweg |  |
+| R14-V147 | messen.volumen.einheitswuerfel | `id.flaeche_raum.auslegen` | Lösungsweg |  |
+| R14-V148 | messen.volumen.quader | `id.flaeche_raum.aus_dem_quader` | Lösungsweg |  |
+| R14-V149 | messen.volumen.quader | `id.flaeche_raum.aus_dem_quader` | Lösungsweg |  |
+| R14-V150 | messen.volumen.quader | `id.flaeche_raum.aus_dem_quader` | Lösungsweg |  |
+| R14-V151 | messen.volumen.einheiten | – | – (Z) | Umrechnen von Einheiten bzw. Liter; Lernkarten-Datei nur „thema“-Rückfall (schwach); frühere Runden: ohne Regel |
+| R14-V152 | messen.volumen.einheiten | – | – (Z) | Umrechnen von Einheiten bzw. Liter; Lernkarten-Datei nur „thema“-Rückfall (schwach); frühere Runden: ohne Regel |
+| R14-V153 | messen.volumen.einheiten | – | – (Z) | Umrechnen von Einheiten bzw. Liter; Lernkarten-Datei nur „thema“-Rückfall (schwach); frühere Runden: ohne Regel |
+| R14-V154 | messen.volumen.liter | – | – (Z) | Umrechnen von Einheiten bzw. Liter; Lernkarten-Datei nur „thema“-Rückfall (schwach); frühere Runden: ohne Regel |
+| R14-V155 | messen.volumen.liter | – | – (Z) | Umrechnen von Einheiten bzw. Liter; Lernkarten-Datei nur „thema“-Rückfall (schwach); frühere Runden: ohne Regel |
+| R14-V156 | messen.volumen.liter | – | – (Z) | Umrechnen von Einheiten bzw. Liter; Lernkarten-Datei nur „thema“-Rückfall (schwach); frühere Runden: ohne Regel |
+| R14-V157 | messen.volumen.rueckwaerts | `id.flaeche_raum.aus_dem_quader` | Lösungsweg |  |
+| R14-V158 | messen.volumen.rueckwaerts | `id.flaeche_raum.aus_dem_quader` | Lösungsweg |  |
+| R14-V159 | messen.volumen.rueckwaerts | `id.flaeche_raum.aus_dem_quader` | Lösungsweg |  |
+| R14-V160 | messen.volumen.zusammengesetzt | `id.flaeche_raum.aus_dem_quader` | Lösungsweg |  |
+| R14-V161 | messen.volumen.zusammengesetzt | `id.flaeche_raum.aus_dem_quader` | Lösungsweg |  |
+| R14-V162 | messen.volumen.zusammengesetzt | `id.flaeche_raum.aus_dem_quader` | Lösungsweg |  |
+| R14-V163 | messen.volumen.verstehen | – | – | Überschlag mit gerundeter Höhe; wie R6 K6-V182 ohne Regel |
+| R14-V164 | messen.volumen.verstehen | – | – (Z) | Faktor 2 · 2 auf V = l · b · h; wie R6 K6-V183 (Würfel, Kante verdoppeln) ohne Regel |
+| R14-V165 | messen.volumen.verstehen | – | – (Z) | Faktor (1/2)³; wie R6 K6-V183 ohne Regel |
+| R14-V166 | bruch.dezimal.stellenwerte | `rr.stellenwert` | Lösungsweg (Z) | 1 Einer = 1 000 Tausendstel: zwischen den Stellen umrechnen (wie R6 K6-V044) |
+| R14-V167 | bruch.dezimal.stellenwerte | – | – (Z) | Meter in Zentimeter umrechnen und Unterschied bilden; wie R6 K6-V048 ohne Regel |
+| R14-V168 | bruch.dezimal.stellenwerte | – | – (Z) | Ziffern anordnen, Unterschied bilden; keine Regel trägt den Weg |
+| R14-V169 | bruch.dezimal.vergleichen_ordnen | – | – (Z) | Längen ordnen, in Millimeter umrechnen, Unterschied; wie R6 K6-V048 ohne Regel |
+| R14-V170 | bruch.dezimal.vergleichen_ordnen | – | – | Lernkarten-Datei: offen; Ordnen und Unterschied bilden, Runde 6 (K6-V047, K6-V048) ebenso ohne Regel |
+| R14-V171 | bruch.dezimal.vergleichen_ordnen | – | – | Lernkarten-Datei: offen; Ordnen und Unterschied bilden, Runde 6 (K6-V047, K6-V048) ebenso ohne Regel |
+| R14-V172 | bruch.dezimal.runden | – | – | Lernkarten-Datei: offen; Runde 6 ebenso ohne Regel |
+| R14-V173 | bruch.dezimal.runden | – | – | Lernkarten-Datei: offen; Runde 6 ebenso ohne Regel |
+| R14-V174 | bruch.dezimal.runden | – | – | Lernkarten-Datei: offen; Runde 6 ebenso ohne Regel |
+| R14-V175 | bruch.dezimal.bruch_zu_dezimal | `id.zahlen.schreibweisen` | Lösungsweg |  |
+| R14-V176 | bruch.dezimal.bruch_zu_dezimal | `id.zahlen.schreibweisen` | Lösungsweg |  |
+| R14-V177 | bruch.dezimal.bruch_zu_dezimal | `id.zahlen.schreibweisen` | Lösungsweg |  |
+| R14-V178 | bruch.dezimal.dezimal_zu_bruch | `id.zahlen.schreibweisen` | Lösungsweg |  |
+| R14-V179 | bruch.dezimal.dezimal_zu_bruch | `id.zahlen.schreibweisen` | Lösungsweg |  |
+| R14-V180 | bruch.dezimal.dezimal_zu_bruch | `id.zahlen.schreibweisen` | Lösungsweg |  |
+| R14-V181 | bruch.dezimal.merkwerte | `id.zahlen.schreibweisen` | Lösungsweg |  |
+| R14-V182 | bruch.dezimal.merkwerte | `id.zahlen.schreibweisen` | Lösungsweg |  |
+| R14-V183 | bruch.dezimal.merkwerte | `id.zahlen.schreibweisen` | Lösungsweg |  |
+| R14-V184 | bruch.dezimal.periodisch | `id.zahlen.schreibweisen` | Lösungsweg |  |
+| R14-V185 | bruch.dezimal.periodisch | `id.zahlen.schreibweisen` | Lösungsweg |  |
+| R14-V186 | bruch.dezimal.periodisch | `id.zahlen.schreibweisen` | Lösungsweg |  |
+| R14-V187 | bruch.dezimal.verstehen | – | – | Lernkarten-Datei: offen; Runde 6 überwiegend ohne Regel |
+| R14-V188 | bruch.dezimal.verstehen | – | – | Lernkarten-Datei: offen; Runde 6 überwiegend ohne Regel |
+| R14-V189 | bruch.dezimal.verstehen | – | – | Lernkarten-Datei: offen; Runde 6 überwiegend ohne Regel |
+| R14-V190 | messen.flaechen_vielecke.parallelogramm | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V191 | messen.flaechen_vielecke.parallelogramm | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V192 | messen.flaechen_vielecke.parallelogramm | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V193 | messen.flaechen_vielecke.dreieck | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V194 | messen.flaechen_vielecke.dreieck | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V195 | messen.flaechen_vielecke.dreieck | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V196 | messen.flaechen_vielecke.trapez | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V197 | messen.flaechen_vielecke.trapez | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V198 | messen.flaechen_vielecke.trapez | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V199 | messen.flaechen_vielecke.rueckwaerts | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V200 | messen.flaechen_vielecke.rueckwaerts | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V201 | messen.flaechen_vielecke.rueckwaerts | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V202 | messen.flaechen_vielecke.zusammengesetzt | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V203 | messen.flaechen_vielecke.zusammengesetzt | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V204 | messen.flaechen_vielecke.zusammengesetzt | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V205 | messen.flaechen_vielecke.oberflaeche | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V206 | messen.flaechen_vielecke.oberflaeche | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V207 | messen.flaechen_vielecke.oberflaeche | `id.flaeche_raum.haut` | Lösungsweg |  |
+| R14-V208 | messen.flaechen_vielecke.verstehen | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V209 | messen.flaechen_vielecke.verstehen | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V210 | messen.flaechen_vielecke.verstehen | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V211 | messen.flaechen_vielecke.drachen_raute | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V212 | messen.flaechen_vielecke.drachen_raute | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |
+| R14-V213 | messen.flaechen_vielecke.drachen_raute | `id.flaeche_raum.aus_dem_rechteck` | Lösungsweg |  |

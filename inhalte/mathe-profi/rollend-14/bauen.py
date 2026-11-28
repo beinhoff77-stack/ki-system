@@ -50,7 +50,19 @@ THEMEN = {
 }
 KUERZEL = "R14"
 KLASSE = {s: (6 if s.split(".")[0] in ("bruch", "groessen") or s in ("messen.koerper_berechnung", "messen.volumen", "messen.flaechen_vielecke", "terme.aufstellen") else 8) for s in THEMEN}
-REGEL_AUSNAHME = set()       # (Thema-Datei, Idee): keine Ausnahmen in dieser Runde
+REGEL_AUSNAHME = {("geometrie.konstruktion", "id.geometrie.winkel"),            # Winkelsumme und Nachbarwinkel im Viereck (wie Runde 13)
+                  ("messen.prisma_zylinder", "id.flaeche_raum.aus_dem_rechteck"),   # Grundfläche aus Rechteck, Dreieck, Kreis (wie Runde 7)
+                  ("messen.prisma_zylinder", "id.flaeche_raum.haut"),               # Oberfläche von Prisma und Zylinder (wie Runde 7)
+                  ("messen.koerper_berechnung", "id.flaeche_raum.aus_dem_quader"),  # Kantenmodell des Quaders (wie Runde 6)
+                  ("messen.volumen", "id.flaeche_raum.aus_dem_quader"),             # Volumen des Quaders (wie Runde 6)
+                  ("stochastik.grundbegriffe", "id.daten.stufen")}                  # (Thema-Datei, Idee): Themenliste nennt das Thema nicht, Text passt trotzdem (von Hand gelesen)
+# Regel-Kennung je Aufgabe, nachträglich (die 213 Aufgaben sind eingespielt; nur dieses Feld kam dazu): regeln.py, Tabelle regeln-zuordnung.md
+_rg = _iu.spec_from_file_location("regeln_r14", os.path.join(HIER, "regeln.py"))
+_rm = _iu.module_from_spec(_rg)
+_rg.loader.exec_module(_rm)
+ZUORD = {z[0]: z for z in _rm.ZUORDNUNG}
+assert len(ZUORD) == len(_rm.ZUORDNUNG) == 213, "regeln.py: 213 Einträge, jede Kennung einmal"
+assert all(z[4] in ("Lösungsweg", "Lernkarten-Vorgabe", "–") and (z[3] is None) == (z[4] == "–") for z in ZUORD.values()), "regeln.py: Quelle passt nicht zur Regel"
 FEHLBILD_GELESEN = set()      # (Kennung der Aufgabe, Fehlbild-Kennung): keine Ausnahmen in dieser Runde
 GEPRUEFT = ("umkehren", "zwei_wege", "bruecke", "anwenden")
 ZAEHLT_JA_AUS = ("umkehren", "zwei_wege", "bruecke", "verfahren_waehlen", "anwenden")
@@ -296,6 +308,9 @@ for a in A:
     gleich_ok = bool(q.pop("_gleich_ok", False))
     zaehler += 1
     kenn = f"{KUERZEL}-V{zaehler:03d}"
+    zu = ZUORD.pop(kenn)           # (Kennung, Thema, Lernkarte, Regel, Quelle, Zweifel, Bemerkung)
+    assert zu[1] == a["thema"] and zu[2] == a["lk"], (kenn, "regeln.py gehört zu einer anderen Aufgabe", zu[1:3])
+    a["regel"] = zu[3]
     assert a["regel"] is None or a["regel"] in REGELN, (kenn, a["regel"])
     # Katalog (kennungen.json): die tragende Idee muss zum Thema passen (Ausnahmen von Hand gelesen); Kennung leer, wenn der Katalog nichts Passendes hat
     assert a["regel"] is None or datei in REGELN[a["regel"]]["themen"] or (datei, a["regel"]) in REGEL_AUSNAHME, (kenn, a["regel"], "Thema steht nicht in der Themenliste der Idee")
@@ -423,6 +438,7 @@ for a in A:
     eintrag["aufgabe"] = q
     aus[a["thema"]].append(eintrag)
 
+assert not ZUORD, ("regeln.py: Einträge ohne Aufgabe", sorted(ZUORD))
 # ═════════ Mischung je Lernkarte und je Thema ═════════
 FORMEN_OK = ("umkehren", "zwei_wege", "bruecke", "anwenden", "fehler_detektiv", "verfahren_waehlen")
 mix = []
@@ -691,6 +707,7 @@ assert all("In welcher Zeile passiert der erste Fehler?" in e["aufgabe"]["f"]["t
 print("Fehler-Detektiv: Fehlerzeile je Zeile", dict(sorted(verteilung.items())), "von", len(fd))
 if fd:
     assert max(verteilung.values()) <= len(fd) // 3 + 1, "Fehlerzeile zu einseitig verteilt"
+print("Regel-Kennung:", sum(1 for l in aus.values() for e in l if e["regel"]), "Aufgaben mit,", sum(1 for l in aus.values() for e in l if not e["regel"]), "ohne Regel (regeln.py)")
 print("Themen geladen:", ", ".join(geladen))
 print("Stufen:", dict(sorted(Counter(e["stufe"] for l in aus.values() for e in l).items())))
 

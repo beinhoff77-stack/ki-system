@@ -15,7 +15,7 @@ AUS = WURZEL / 'tools/tests/aus'
 sys.path.insert(0, str(WURZEL / 'tools'))
 import regelbezug_sql as R  # noqa: E402
 
-RUNDEN = tuple(range(1, 14))
+RUNDEN = tuple(range(1, 15))   # 14: Nachtrag der Regel-Kennungen (Runde 14 ist mit ihren 640 Fehlbildern schon eingespielt)
 GRENZE = 1_500_000
 
 
@@ -31,8 +31,9 @@ def pakete():
     for r in RUNDEN:
         zeilen = R.sammeln((r,))[0]
         n_r, n_f = sum(1 for x in zeilen if x['regel']), sum(len(x['fb']) for x in zeilen)
-        out.append((f'rb_nachtrag_r{r:02d}.sql', erzeugen('tools/regelbezug_sql.py', '--runden', str(r), '--sql'),
-                    f'{len(zeilen)} Aufgaben, {n_r} Regeln neu, {n_f} Fehlbilder neu (zweiter Lauf: 0 und 0)'))
+        erw = (f'{len(zeilen)} Aufgaben, {n_r} Regeln neu, 0 Fehlbilder neu (die {n_f} Fehlbilder stehen mit Runde 14 schon da; zweiter Lauf: 0 und 0)' if r == 14
+               else f'{len(zeilen)} Aufgaben, {n_r} Regeln neu, {n_f} Fehlbilder neu (zweiter Lauf: 0 und 0)')
+        out.append((f'rb_nachtrag_r{r:02d}.sql', erzeugen('tools/regelbezug_sql.py', '--runden', str(r), '--sql'), erw))
     out += [('ww_s_probe.sql', erzeugen('tools/tests/wackelt_einspielen.py', '--probe'), 'Meldung „PROBELAUF bestanden …“ mit "fehler": 0'),
             ('ww_s_einspielen.sql', erzeugen('tools/tests/wackelt_einspielen.py'), 'Hinweis „WW-S eingespielt: …“, "fehler": 0'),
             ('ww_s3_probe.sql', erzeugen('tools/tests/wackelt_einspielen.py', '--ww3', '--probe'), 'Meldung „PROBELAUF bestanden …“ mit "fehler": 0'),

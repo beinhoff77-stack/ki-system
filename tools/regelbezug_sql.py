@@ -7,6 +7,8 @@ Aufruf:  python3 -I tools/regelbezug_sql.py [--runden 1,2,3,4 | 5 | alle]       
          python3 -I tools/regelbezug_sql.py --runden 5 --sql --probe > x.sql     -> dasselbe, rollt am Ende absichtlich zurück (Bericht in der Meldung)
          --json                                                                   -> Zählungen als JSON (für inhalte/plan/regelbezug.md)
 Vorgabe für --runden wie tools/rollend_sql.py (1,2,3,4). Je Runde ein Paket (Größe); die Reihenfolge ist egal, ein zweiter Lauf ändert nichts.
+Runde 14 (FEHLBILD_NUR_LESEN_RUNDEN) darf mit --sql NUR ALLEIN erzeugt werden: ihre Fehlbilder sind schon eingespielt und werden nur lesend verglichen.
+Eine Mischung mit anderen Runden (auch „alle“) bricht mit Meldung ab (Auflage Werkstatt 1177); die Übersicht ohne --sql ist davon nicht betroffen.
 
 ZUORDNUNG Repo-Aufgabe -> Datenbank-Aufgabe (es gibt in der Datenbank keine Kennung):
   1. Einheit und Reihenfolge-Nummer r rechnet tools/rollend_sql.sammeln genau wie beim Einspielen (Runden 1-4: max_r + Platz unter allen Aufgaben
@@ -196,6 +198,18 @@ REGEL_ERST_IM_NACHTRAG = ('R14-',)
 FEHLBILD_NUR_LESEN_RUNDEN = (14,)   # Nachtrag dieser Runden schreibt keine Fehlbilder (sie sind mit der Runde eingespielt), vergleicht sie nur lesend
 
 
+def gemischte_runden(runden):
+    """Auflage Werkstatt 1177: Ein Paket (--sql) ist entweder ganz „nur lesend“ (nur Runden aus FEHLBILD_NUR_LESEN_RUNDEN) oder ganz schreibend.
+    Eine Mischung würde die Fehlbilder der Nur-Lesen-Runde im gemeinsamen schreibenden Block einfügen. Rückgabe: Meldung oder None."""
+    lesen = [r for r in runden if r in FEHLBILD_NUR_LESEN_RUNDEN]
+    if lesen and len(lesen) != len(runden):
+        andere = [r for r in runden if r not in FEHLBILD_NUR_LESEN_RUNDEN]
+        return (f'ABBRUCH: Runde {",".join(map(str, lesen))} darf nur lesend verglichen werden (ihre Fehlbilder sind schon eingespielt), '
+                f'--runden {",".join(map(str, runden))} mischt sie mit schreibenden Runden ({",".join(map(str, andere))}). '
+                f'Bitte getrennt erzeugen: --runden {",".join(map(str, lesen))} --sql und --runden {",".join(map(str, andere))} --sql.')
+    return None
+
+
 def zeilen_neu(plan, je):
     """Für ein Einspiel-Paket von rollend_sql: Regel und Fehlbilder der Aufgaben, wie sie in der Datei stehen (= wie sie gerade eingefügt werden)."""
     rep, zeilen = repo_eintraege(), []
@@ -317,6 +331,9 @@ def main():
             print('ABBRUCH: Aufgaben ohne eingespieltes Gegenstück:\n' + '\n'.join(fehlt), file=sys.stderr); sys.exit(1)
         if not zeilen:
             print('ABBRUCH: nichts zu übernehmen', file=sys.stderr); sys.exit(1)
+        gemischt = gemischte_runden(runden)
+        if gemischt:
+            print(gemischt, file=sys.stderr); sys.exit(1)
         for a in abw: print('Abweichung:', a, file=sys.stderr)
         print(block(zeilen, f'Nachtrag rollend-{",".join(map(str, runden))}', '--probe' in argv, fb_lesen=all(r in FEHLBILD_NUR_LESEN_RUNDEN for r in runden)), end='')
         return

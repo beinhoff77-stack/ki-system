@@ -2,7 +2,7 @@
 
 Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt), nicht das Thema. Jede Kennung wurde gegen `inhalte/mathe-profi/regeln-uebersicht/kennungen.json` gelesen; `bauen.py` prüft, dass sie im Katalog steht und das Thema in der Themenliste der Regel steht (Ausnahmen unten). Quelle der Daten: die Angaben `regel` / `ohne` / `zweifel` in `th_*.py`; `regeln.py` und diese Tabelle werden von `bauen.py` erzeugt.
 
-**128 Aufgaben mit Regel, 11 ohne.**
+**140 Aufgaben mit Regel, 13 ohne.**
 
 ## Verteilung
 
@@ -10,18 +10,21 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 |---|---|---|
 | `id.geometrie.winkel` | Winkel an Geraden | 24 |
 | `id.zahlen.hoch_zurueck` | Hoch und zurück | 24 |
-| `rr.waage` | Gleichung als Waage | 17 |
+| `rr.waage` | Gleichung als Waage | 18 |
 | `rr.potenz` | Potenzen | 15 |
 | `id.geometrie.deckungsgleich` | Deckungsgleich | 14 |
 | `id.verhaeltnisse.prozent` | Prozent als Faktor | 14 |
 | `rr.tauschen` | Tauschen, Klammern, Zusammenfassen | 5 |
 | `rr.ausmultiplizieren` | Ausmultiplizieren und Ausklammern | 4 |
+| `rr.gegenrechnung` | Gegenrechnung | 4 |
+| `rr.reihenfolge` | Reihenfolge beim Rechnen | 4 |
 | `id.geometrie.abstand` | Gleicher Abstand | 3 |
 | `rr.minusklammer` | Minus vor der Klammer | 3 |
+| `rr.nullprodukt` | Nullprodukt | 3 |
+| `id.algebra.hoeherer_grad` | Höherer Grad | 2 |
 | `id.algebra.term` | Term | 2 |
-| `rr.gegenrechnung` | Gegenrechnung | 2 |
 | `rr.vorzeichen` | Vorzeichen bei Mal und Geteilt | 1 |
-| – (ohne Regel) |  | 11 |
+| – (ohne Regel) |  | 13 |
 
 ## Ausnahmen von der Themenliste des Katalogs (von Hand gelesen)
 
@@ -43,6 +46,8 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V137 | zahlen.reell.nenner_rational | Nenner rational machen (Erweitern mit der Wurzel): keine Regel des Katalogs trägt genau diesen Schritt |
 | R15-V138 | zahlen.reell.irrational_beweis | Beweis durch Widerspruch (gerade/ungerade, gekürzter Bruch): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V139 | zahlen.reell.irrational_beweis | Beweis durch Widerspruch (gerade/ungerade, gekürzter Bruch): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V146 | gleichungen.quadratisch.ergaenzung | Quadratische Ergänzung (binomische Formel rückwärts): keine Regel des Katalogs trägt genau diesen Schritt |
+| R15-V150 | gleichungen.quadratisch.diskriminante | Diskriminante null (genau eine Lösung): keine Regel des Katalogs trägt genau diesen Schritt |
 
 ## Zweifelsfälle
 
@@ -63,6 +68,12 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V130 | zahlen.reell.heron | `id.zahlen.hoch_zurueck` | Heron-Verfahren (Mittelwert aus Näherung und Quotient): hoch_zurueck trägt nur die Probe |
 | R15-V131 | zahlen.reell.heron | `id.zahlen.hoch_zurueck` | Heron-Verfahren als Rechteck: Flächenerhaltung, hoch_zurueck nur als Zielgröße |
 | R15-V133 | zahlen.reell.wurzel_mal | `id.zahlen.hoch_zurueck` | Rechengesetze für Wurzeln: hoch_zurueck, aber kein eigener Eintrag für das Zusammenfassen unter einer Wurzel |
+| R15-V145 | gleichungen.quadratisch.faktorisieren | `rr.nullprodukt` | Zurück von den Lösungen zur Gleichung: Nullprodukt trägt den Weg rückwärts |
+| R15-V148 | gleichungen.quadratisch.loesungsformel | `rr.reihenfolge` | Lösungsformel: tragender Schritt ist die Diskriminante (Klammer, Hoch, Punkt vor Strich); es gibt keine eigene Formelregel im Katalog |
+| R15-V149 | gleichungen.quadratisch.bruchgleichung | `rr.waage` | Bruchgleichung: Waage (mit x malnehmen), danach Nullprodukt |
+| R15-V151 | gleichungen.quadratisch.diskriminante | `rr.reihenfolge` | Diskriminante bestimmen und deuten: tragend ist die Rechenreihenfolge; die Deutung (Vorzeichen) hat keine eigene Regel |
+| R15-V152 | gleichungen.quadratisch.sachaufgabe | `rr.nullprodukt` | Sachaufgabe: Nullprodukt nach dem Umformen; Prüfen der Lösung gegen die Sachlage |
+| R15-V153 | gleichungen.quadratisch.sachaufgabe | `rr.reihenfolge` | Sachaufgabe: Lösungsformel (Diskriminante nach Rechenreihenfolge), Prüfen gegen die Sachlage |
 
 ## Alle Aufgaben
 
@@ -207,3 +218,17 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V137 | zahlen.reell.nenner_rational | – |
 | R15-V138 | zahlen.reell.irrational_beweis | – |
 | R15-V139 | zahlen.reell.irrational_beweis | – |
+| R15-V140 | gleichungen.quadratisch.reinquadratisch | `rr.gegenrechnung` |
+| R15-V141 | gleichungen.quadratisch.reinquadratisch | `rr.gegenrechnung` |
+| R15-V142 | gleichungen.quadratisch.ausklammern | `id.algebra.hoeherer_grad` |
+| R15-V143 | gleichungen.quadratisch.ausklammern | `id.algebra.hoeherer_grad` |
+| R15-V144 | gleichungen.quadratisch.faktorisieren | `rr.nullprodukt` |
+| R15-V145 | gleichungen.quadratisch.faktorisieren | `rr.nullprodukt` |
+| R15-V146 | gleichungen.quadratisch.ergaenzung | – |
+| R15-V147 | gleichungen.quadratisch.loesungsformel | `rr.reihenfolge` |
+| R15-V148 | gleichungen.quadratisch.loesungsformel | `rr.reihenfolge` |
+| R15-V149 | gleichungen.quadratisch.bruchgleichung | `rr.waage` |
+| R15-V150 | gleichungen.quadratisch.diskriminante | – |
+| R15-V151 | gleichungen.quadratisch.diskriminante | `rr.reihenfolge` |
+| R15-V152 | gleichungen.quadratisch.sachaufgabe | `rr.nullprodukt` |
+| R15-V153 | gleichungen.quadratisch.sachaufgabe | `rr.reihenfolge` |

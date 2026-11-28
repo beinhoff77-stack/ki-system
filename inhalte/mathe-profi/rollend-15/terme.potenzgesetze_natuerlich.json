@@ -1,0 +1,786 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-15",
+ "kuerzel": "R15",
+ "flug": "r15-terme.potenzgesetze_natuerlich",
+ "titel": "terme.potenzgesetze_natuerlich",
+ "fuer": "Klasse 7",
+ "klasse": 7,
+ "themen": [
+  "terme.potenzgesetze_natuerlich"
+ ],
+ "themen_datei_im_bestand": "terme.potenzgesetze_natuerlich",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R15-V017",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "mal_gleiche_basis",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 12,
+     "fehlbild": "fb.potenz.hochzahlen_malgenommen",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "die Hochzahlen malgenommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 21,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "die Basis mit der Hochzahl malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "mal_gleiche_basis",
+    "t": "mal_gleiche_basis",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Du vereinfachst das Produkt 3³ · 3² · 3². Die Basis 3 bleibt stehen, die Hochzahlen werden verrechnet. Das Ergebnis ist die Potenz 3^①. Der Wert dieser Potenz ist ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      7,
+      2187
+     ]
+    },
+    "c": [
+     "3 + 2 + 2",
+     "3 ** (3 + 2 + 2)"
+    ],
+    "h": "Gleiche Basis beim Malnehmen: Was passiert mit den Hochzahlen? Rechne danach die Potenz aus.",
+    "w": "Die Hochzahlen werden addiert: 3 + 2 + 2 = 7. Also ist das Produkt 3⁷. Ausgerechnet: 3⁷ = 2 187."
+   }
+  },
+  {
+   "kennung": "R15-V018",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "mal_gleiche_basis",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1048576,
+     "fehlbild": "fb.potenz.hochzahlen_malgenommen",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "die Hochzahlen malgenommen statt addiert"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "die Basis mit der Hochzahl malgenommen"
+    },
+    {
+     "antwort": 262144,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Basen malgenommen statt beibehalten"
+    }
+   ],
+   "aufgabe": {
+    "l": "mal_gleiche_basis",
+    "t": "mal_gleiche_basis",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Aus einer Zelle entstehen durch 4 Teilungen 2⁴ Zellen. Jede dieser Zellen teilt sich danach noch 5-mal weiter. Wie viele Zellen sind es nach den insgesamt 9 Teilungen?"
+    },
+    "o": {
+     "wert": 512,
+     "einheit": "Zellen"
+    },
+    "c": "2 ** 4 * 2 ** 5",
+    "h": "Bei jeder Teilung verdoppelt sich die Zahl der Zellen. Wie oft wird insgesamt mit 2 malgenommen?",
+    "w": "Erst gibt es 2⁴ = 16 Zellen. Jede teilt sich 5-mal weiter: 2⁵ = 32 Zellen aus einer. Insgesamt 2⁴ · 2⁵ = 2⁹ = 512 Zellen. Gleiche Basis beim Malnehmen: die Hochzahlen addieren."
+   }
+  },
+  {
+   "kennung": "R15-V019",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "mal_gleiche_basis",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "mal_gleiche_basis",
+    "t": "mal_gleiche_basis",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim soll 3⁴ · 3² vereinfachen und schreibt auf: Zeile 1: Bei beiden Faktoren ist die Basis 3, also gleich. Zeile 2: Bei gleicher Basis werden die Hochzahlen malgenommen. Zeile 3: Also ist 3⁴ · 3² = 3⁸. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Was geschieht mit den Hochzahlen, wenn zwei Potenzen mit gleicher Basis malgenommen werden? Schreibe 3⁴ · 3² einmal als Faktoren aus.",
+    "w": "3⁴ · 3² = (3 · 3 · 3 · 3) · (3 · 3) hat 6 Faktoren 3, also 3⁶. Die Hochzahlen werden addiert, nicht malgenommen. Der Fehler steckt in Zeile 2. Zeile 3 rechnet mit der falschen Regel richtig weiter."
+   }
+  },
+  {
+   "kennung": "R15-V020",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "gleicher_exponent",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1000000000000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen addiert, obwohl sie gleich bleiben"
+    },
+    {
+     "antwort": 24389,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Basen addiert statt malgenommen"
+    },
+    {
+     "antwort": 300,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "die Basis mit der Hochzahl malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleicher_exponent",
+    "t": "gleicher_exponent",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Das Volumen eines Würfels mit der Kante a ist a³. Ein Würfel hat die Kante 4 m, ein zweiter die Kante 25 m. Wie groß ist das Produkt der beiden Volumen (in m⁶)?"
+    },
+    "o": {
+     "wert": 1000000,
+     "einheit": "m⁶"
+    },
+    "c": "(4 * 25) ** 3",
+    "h": "Beide Volumen haben die gleiche Hochzahl. Fasse zuerst die Basen zusammen, bevor du ausrechnest.",
+    "w": "Die Volumen sind 4³ und 25³. Gleicher Exponent: 4³ · 25³ = (4 · 25)³ = 100³ = 1 000 000 m⁶."
+   }
+  },
+  {
+   "kennung": "R15-V021",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "gleicher_exponent",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Gleiche Hochzahl: 2 · 5 = 10 und 5 + 5 = 10, also 10¹⁰.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen addiert, obwohl sie beim Zusammenfassen der Basen gleich bleiben"
+    },
+    {
+     "index": 1,
+     "antwort": "Erst 2⁵ = 32 und 5⁵ = 3 125 ausrechnen und dann 32 · 3 125 schriftlich rechnen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein umständlicher, fehleranfälliger Weg statt der Basen zusammenzufassen"
+    },
+    {
+     "index": 2,
+     "antwort": "Gleiche Basis gibt es nicht, also lässt sich nichts vereinfachen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur auf gleiche Basen geachtet"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleicher_exponent",
+    "t": "gleicher_exponent",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Du sollst 2⁵ · 5⁵ im Kopf ausrechnen. Welcher Weg ist am geschicktesten?"
+    },
+    "a": [
+     "Gleiche Hochzahl: 2 · 5 = 10 und 5 + 5 = 10, also 10¹⁰.",
+     "Erst 2⁵ = 32 und 5⁵ = 3 125 ausrechnen und dann 32 · 3 125 schriftlich rechnen.",
+     "Gleiche Basis gibt es nicht, also lässt sich nichts vereinfachen.",
+     "Gleiche Hochzahl: (2 · 5)⁵ = 10⁵ = 100 000."
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Prüfe zuerst: Welche Zahlen sind bei beiden Faktoren gleich, die Basen oder die Hochzahlen?",
+    "w": "Beide Potenzen haben die Hochzahl 5. Dann gilt aⁿ · bⁿ = (a · b)ⁿ: 2⁵ · 5⁵ = (2 · 5)⁵ = 10⁵ = 100 000. Das geht im Kopf."
+   }
+  },
+  {
+   "kennung": "R15-V022",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "gleicher_exponent",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Basen subtrahiert statt geteilt"
+    },
+    {
+     "antwort": 38400,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahl 4 mitgerechnet und die Potenzen subtrahiert"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Basen addiert statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleicher_exponent",
+    "t": "gleicher_exponent",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche Zahl im Kästchen gilt 14⁴ = 2⁴ · □⁴ ?"
+    },
+    "o": {
+     "wert": 7
+    },
+    "c": "14 // 2",
+    "h": "Bei gleicher Hochzahl werden die Basen malgenommen. Welche Zahl ergibt mit 2 zusammen die Basis 14?",
+    "w": "Nach dem Gesetz aⁿ · bⁿ = (a · b)ⁿ muss 2 · □ = 14 gelten. Also ist □ = 7. Probe: 2⁴ · 7⁴ = 16 · 2 401 = 38 416 = 14⁴."
+   }
+  },
+  {
+   "kennung": "R15-V023",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "potenz_von_potenz",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 128,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen addiert statt malgenommen"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "Basis und Hochzahlen malgenommen"
+    },
+    {
+     "antwort": 32,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 8 mit der Hochzahl 4 malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "potenz_von_potenz",
+    "t": "potenz_von_potenz",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Jede Person, die einen Kettenbrief bekommt, schickt ihn an 2³ neue Personen weiter. Die erste Person verschickt ihn in Runde 1. In Runde 4 bekommen (2³)⁴ Personen den Brief neu. Wie viele Personen sind das?"
+    },
+    "o": {
+     "wert": 4096,
+     "einheit": "Personen"
+    },
+    "c": "(2 ** 3) ** 4",
+    "h": "Die Potenz 2³ wird noch einmal hoch 4 genommen. Wie viele Faktoren 2 sind das zusammen?",
+    "w": "(2³)⁴ = 2³ · 2³ · 2³ · 2³ = 2¹² = 4 096. Bei einer Potenz von einer Potenz werden die Hochzahlen malgenommen: 3 · 4 = 12."
+   }
+  },
+  {
+   "kennung": "R15-V024",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "potenz_von_potenz",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "x⁵, denn bei einer Potenz von einer Potenz werden die Hochzahlen addiert.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen addiert"
+    },
+    {
+     "index": 1,
+     "antwort": "x⁹, denn es sind 3 Faktoren mit jeweils 3 Faktoren x.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Hochzahl und Faktorzahl verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "potenz_von_potenz",
+    "t": "potenz_von_potenz",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim soll (x²)³ vereinfachen. Welche Aussage beschreibt die Potenz richtig?"
+    },
+    "a": [
+     "x⁵, denn bei einer Potenz von einer Potenz werden die Hochzahlen addiert.",
+     "x⁹, denn es sind 3 Faktoren mit jeweils 3 Faktoren x.",
+     "x⁶, denn x² steht dreimal als Faktor da: x² · x² · x² hat zusammen 6 Faktoren x."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Schreibe (x²)³ als Produkt: Wie oft steht der Faktor x² da? Aus wie vielen Faktoren x besteht jeder davon?",
+    "w": "(x²)³ = x² · x² · x². Jedes x² besteht aus 2 Faktoren x, es gibt 3 davon: zusammen 2 · 3 = 6 Faktoren. Also (x²)³ = x⁶."
+   }
+  },
+  {
+   "kennung": "R15-V025",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "potenz_von_potenz",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen subtrahiert statt geteilt"
+    },
+    {
+     "antwort": 96,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen malgenommen statt geteilt"
+    },
+    {
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "potenz_von_potenz",
+    "t": "potenz_von_potenz",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche Hochzahl n gilt (5ⁿ)⁴ = 5²⁴?"
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "24 // 4",
+    "h": "Wie hängen die Hochzahlen n, 4 und 24 bei einer Potenz von einer Potenz zusammen?",
+    "w": "Bei (5ⁿ)⁴ werden die Hochzahlen malgenommen: n · 4 = 24. Also ist n = 24 : 4 = 6. Probe: (5⁶)⁴ = 5²⁴."
+   }
+  },
+  {
+   "kennung": "R15-V026",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "geteilt_gleiche_basis",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen addiert"
+    },
+    {
+     "luecke": 1,
+     "antwort": 35,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "die Hochzahlen malgenommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 8,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "die Basis mit der Hochzahl malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "geteilt_gleiche_basis",
+    "t": "geteilt_gleiche_basis",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Du berechnest 4⁷ : 4⁵ Schritt für Schritt. Erst vereinfachst du zu einer einzigen Potenz mit der Basis 4: Das ist 4^①. Dann rechnest du diese Potenz aus: ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      2,
+      16
+     ]
+    },
+    "c": [
+     "7 - 5",
+     "4 ** (7 - 5)"
+    ],
+    "h": "Bei gleicher Basis beim Teilen werden die Hochzahlen verrechnet. Wie? Die Basis bleibt.",
+    "w": "Teilen mit gleicher Basis: Die Hochzahlen werden subtrahiert, 7 − 5 = 2. Also 4⁷ : 4⁵ = 4². Ausgerechnet: 4² = 16."
+   }
+  },
+  {
+   "kennung": "R15-V027",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "geteilt_gleiche_basis",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen geteilt statt subtrahiert"
+    },
+    {
+     "antwort": 9765625,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen addiert statt subtrahiert"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Differenz der Hochzahlen angegeben und die Potenz nicht ausgerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "geteilt_gleiche_basis",
+    "t": "geteilt_gleiche_basis",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "In einem Hafenlager stehen 5⁶ Bananenkisten. Ein Lkw nimmt bei jeder Fahrt 5⁴ Kisten mit. Wie viele Fahrten sind nötig, bis das Lager leer ist?"
+    },
+    "o": {
+     "wert": 25,
+     "einheit": "Fahrten"
+    },
+    "c": "5 ** 6 // 5 ** 4",
+    "h": "Gesucht ist, wie oft 5⁴ in 5⁶ passt. Teile die beiden Potenzen mit gleicher Basis.",
+    "w": "Gesucht ist 5⁶ : 5⁴. Bei gleicher Basis subtrahiert man die Hochzahlen: 6 − 4 = 2. Also 5² = 25 Fahrten."
+   }
+  },
+  {
+   "kennung": "R15-V028",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "geteilt_gleiche_basis",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "geteilt_gleiche_basis",
+    "t": "geteilt_gleiche_basis",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Alex soll 7⁹ : 7⁴ berechnen und schreibt auf: Zeile 1: Die Basis ist gleich, also werden die Hochzahlen subtrahiert. Zeile 2: Es gilt 9 − 4 = 5, also ist 7⁹ : 7⁴ = 7⁵. Zeile 3: Ausgerechnet ist 7⁵ = 7 · 5 = 35. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Was bedeutet 7⁵? Schreibe es als Produkt aus Faktoren.",
+    "w": "7⁵ = 7 · 7 · 7 · 7 · 7 = 16 807. Die Hochzahl sagt, wie oft die Basis als Faktor vorkommt; man rechnet nicht Basis mal Hochzahl. Der Fehler steckt in Zeile 3. Die Zeilen 1 und 2 sind richtig."
+   }
+  },
+  {
+   "kennung": "R15-V029",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "anwenden",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 65536,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen addiert statt subtrahiert"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Differenz der Hochzahlen angegeben, ohne die Potenz auszurechnen"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "die Basis mit der Hochzahl malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "anwenden",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Beim Reisfeld-Spiel liegt auf Feld 1 ein Korn, auf jedem nächsten Feld doppelt so viele wie auf dem Feld davor. Auf Feld 11 liegen 2¹⁰ Körner, auf Feld 7 liegen 2⁶ Körner. Wie oft ist die Zahl der Körner auf Feld 7 in der Zahl auf Feld 11 enthalten?"
+    },
+    "o": {
+     "wert": 16
+    },
+    "c": "2 ** 10 // 2 ** 6",
+    "h": "Gesucht ist ein Quotient. Beide Zahlen sind Potenzen von 2.",
+    "w": "Gesucht ist 2¹⁰ : 2⁶. Gleiche Basis beim Teilen: Hochzahlen subtrahieren, 10 − 6 = 4. Also 2⁴ = 16. Auf Feld 11 liegen 16-mal so viele Körner wie auf Feld 7."
+   }
+  },
+  {
+   "kennung": "R15-V030",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "anwenden",
+   "stufe": 3,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "2⁵ · 2⁴",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "hat gleiche Basis"
+    },
+    {
+     "index": 2,
+     "antwort": "2⁵ · 3⁵",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "hat gleiche Hochzahl"
+    },
+    {
+     "index": 3,
+     "antwort": "(2⁵)⁴",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ist eine Potenz von einer Potenz"
+    }
+   ],
+   "aufgabe": {
+    "l": "anwenden",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 3,
+    "g": "pruefung",
+    "y": "auswahl",
+    "f": {
+     "text": "Eines dieser Produkte lässt sich mit keinem Potenzgesetz zu einer einzigen Potenz zusammenfassen. Welches?"
+    },
+    "a": [
+     "2⁵ · 2⁴",
+     "2⁵ · 3⁴",
+     "2⁵ · 3⁵",
+     "(2⁵)⁴"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Prüfe bei jedem Produkt: Sind die Basen gleich, oder sind die Hochzahlen gleich, oder steckt eine Potenz in einer Potenz?",
+    "w": "2⁵ · 2⁴ = 2⁹ (gleiche Basis). 2⁵ · 3⁵ = 6⁵ (gleiche Hochzahl). (2⁵)⁴ = 2²⁰. Bei 2⁵ · 3⁴ sind Basen und Hochzahlen verschieden, hier hilft kein Potenzgesetz."
+   }
+  },
+  {
+   "kennung": "R15-V031",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "anwenden",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Quadrat vergessen: 2⁹ : 2¹⁰ ergibt einen Bruch"
+    },
+    {
+     "antwort": 268435456,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Teilen die Hochzahlen addiert statt subtrahiert"
+    },
+    {
+     "antwort": 2048,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei der Potenz von einer Potenz die Hochzahlen addiert statt malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "anwenden",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Rechenmaschine soll (2⁴ · 2⁵)² : 2¹⁰ berechnen, ohne die Potenzen einzeln auszurechnen. Welches Ergebnis ist richtig?"
+    },
+    "o": {
+     "wert": 256
+    },
+    "c": "(2 ** 4 * 2 ** 5) ** 2 // 2 ** 10",
+    "h": "Fasse zuerst die Klammer zusammen. Dann nimm die Potenz von der Potenz und teile am Ende.",
+    "w": "Klammer: 2⁴ · 2⁵ = 2⁹. Potenz von einer Potenz: (2⁹)² = 2¹⁸. Teilen: 2¹⁸ : 2¹⁰ = 2⁸ = 256."
+   }
+  }
+ ]
+}

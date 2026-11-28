@@ -1,0 +1,847 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-15",
+ "kuerzel": "R15",
+ "flug": "r15-bruch.prozent_grundwert",
+ "titel": "bruch.prozent_grundwert",
+ "fuer": "Klasse 7",
+ "klasse": 7,
+ "themen": [
+  "bruch.prozent_grundwert"
+ ],
+ "themen_datei_im_bestand": "bruch.prozent_grundwert",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R15-V001",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "faktor",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die 18 % als Faktor geschrieben (die 100 % vom alten Preis vergessen)"
+    },
+    {
+     "antwort": 0.82,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor einer Abnahme genommen statt den einer Zunahme"
+    },
+    {
+     "antwort": 1.018,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "18 % als 0,018 geschrieben"
+    }
+   ],
+   "aufgabe": {
+    "l": "faktor",
+    "t": "faktor",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Hostel in Lissabon verlangt in der Hauptsaison 18 % mehr als in der Nebensaison. Ein Gast will den Hauptsaison-Preis aus dem Nebensaison-Preis ausrechnen: Preis · Faktor. Welchen Faktor setzt er ein?"
+    },
+    "o": {
+     "wert": 1.18
+    },
+    "c": "1 + 18 / 100",
+    "h": "Der alte Preis bleibt voll erhalten (100 %). Dazu kommen die 18 %.",
+    "w": "Der alte Preis ist 100 %. Dazu kommen 18 %: 100 % + 18 % = 118 %. Als Faktor schreibt man 118 : 100 = 1,18."
+   }
+  },
+  {
+   "kennung": "R15-V002",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "faktor",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "faktor",
+    "t": "faktor",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Reiseveranstalter senkt den Preis einer Tour um 12 %. Kim bestimmt den Faktor und rechnet damit einen Preis aus. Zeile 1: Bei 12 % weniger bleiben 100 % − 12 % = 88 % übrig. Zeile 2: 88 % sind der Faktor 0,088. Zeile 3: Eine Tour, die vorher 450 € kostete, kostet jetzt 450 · 0,088 = 39,60 €. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wie viele Hundertstel sind 88 %? Schreibe 88 : 100 als Dezimalzahl.",
+    "w": "88 % sind 88 : 100 = 0,88, nicht 0,088. Der Fehler steckt in Zeile 2. Zeile 3 rechnet mit dem falschen Faktor richtig weiter. Richtig ist 450 · 0,88 = 396 €."
+   }
+  },
+  {
+   "kennung": "R15-V003",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "vermehrt",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 397.44,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die zweite Erhöhung auf den schon erhöhten Preis gerechnet"
+    },
+    {
+     "antwort": 368,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den ersten Zuschlag gerechnet"
+    },
+    {
+     "antwort": 343,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentzahlen als Euro addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "vermehrt",
+    "t": "vermehrt",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Der Grundpreis für einen Mietwagen auf Sizilien beträgt 320 € für die Woche. Für einen Zusatzfahrer kommen 15 % des Grundpreises dazu, für die Vollkasko-Versicherung noch einmal 8 % des Grundpreises. Wie viel Euro kostet der Wagen insgesamt?"
+    },
+    "o": {
+     "wert": 393.6,
+     "einheit": "€"
+    },
+    "c": "320 * (1 + 15 / 100 + 8 / 100)",
+    "h": "Beide Zuschläge sind Prozente vom Grundpreis (320 €), nicht vom schon erhöhten Preis.",
+    "w": "Beide Zuschläge beziehen sich auf 320 €: 15 % von 320 € sind 48 €, 8 % von 320 € sind 25,60 €. Zusammen: 320 + 48 + 25,60 = 393,60 €. Mit Faktor: 320 · 1,23 = 393,60 €."
+   }
+  },
+  {
+   "kennung": "R15-V004",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "vermehrt",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Aufschlag vergessen"
+    },
+    {
+     "antwort": 600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht in Euro umgerechnet"
+    },
+    {
+     "antwort": 24000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Umrechnen malgenommen statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vermehrt",
+    "t": "vermehrt",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Auf einem Markt in Istanbul nennt ein Händler für einen Teppich 480 Lira. Für Touristen schlägt er 25 % auf. Kim rechnet mit dem Kurs 1 € = 40 Lira. Wie viel Euro muss Kim mit dem Touristen-Aufschlag zahlen?"
+    },
+    "o": {
+     "wert": 15,
+     "einheit": "€"
+    },
+    "c": "480 * 1.25 / 40",
+    "h": "Rechne zuerst in Lira, dann in Euro um.",
+    "w": "Der Preis mit Aufschlag ist 480 · 1,25 = 600 Lira. Bei 40 Lira je Euro sind das 600 : 40 = 15 €."
+   }
+  },
+  {
+   "kennung": "R15-V005",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "vermindert",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 117.6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nachlass auf alle 6 Tage gerechnet"
+    },
+    {
+     "antwort": 58.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die ermäßigten Tage gerechnet"
+    },
+    {
+     "antwort": 138,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "30 € statt 30 % abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vermindert",
+    "t": "vermindert",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Skiverleih berechnet 28 € je Tag. Ab dem vierten Tag gibt es 30 % Nachlass auf den Tagespreis. Familie Berger leiht die Ausrüstung für 6 Tage. Wie viel Euro zahlt sie insgesamt?"
+    },
+    "o": {
+     "wert": 142.8,
+     "einheit": "€"
+    },
+    "c": "3 * 28 + 3 * 28 * 0.7",
+    "h": "Drei Tage kosten den vollen Preis. Für die anderen Tage gilt der Rest-Anteil von 70 %.",
+    "w": "Tage 1 bis 3: 3 · 28 € = 84 €. Ab Tag 4 zahlt man 70 % von 28 €, das sind 19,60 € je Tag. Für 3 Tage: 58,80 €. Zusammen: 84 + 58,80 = 142,80 €."
+   }
+  },
+  {
+   "kennung": "R15-V006",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "vermindert",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 29.75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rabatt als neuen Preis genommen"
+    },
+    {
+     "antwort": 114.75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "35 % aufgeschlagen statt abgezogen"
+    },
+    {
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "35 € statt 35 % abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vermindert",
+    "t": "vermindert",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Rucksack kostet 85 € und wird um 35 % reduziert. Berechne den neuen Preis auf zwei Wegen. Weg A: Rabatt in Euro ausrechnen und abziehen. Weg B: den Preis mit dem Rest-Anteil malnehmen. Wie viel Euro kostet der Rucksack jetzt?"
+    },
+    "o": {
+     "wert": 55.25,
+     "einheit": "€"
+    },
+    "c": "85 * 0.65",
+    "h": "Weg B: Wie viel Prozent vom alten Preis bleiben nach 35 % Rabatt übrig?",
+    "w": "Weg A: 35 % von 85 € sind 29,75 €. 85 − 29,75 = 55,25 €. Weg B: 100 % − 35 % = 65 %, also 85 · 0,65 = 55,25 €. Beide Wege ergeben 55,25 €."
+   }
+  },
+  {
+   "kennung": "R15-V007",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "zurueck",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 149.04,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "8 % vom Endpreis abgezogen"
+    },
+    {
+     "antwort": 154,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "8 € statt 8 % abgezogen"
+    },
+    {
+     "antwort": 174.96,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "noch einmal 8 % aufgeschlagen"
+    }
+   ],
+   "aufgabe": {
+    "l": "zurueck",
+    "t": "zurueck",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "In einem Hotel in Split kostet ein Zimmer inklusive 8 % Ortstaxen-Zuschlag 162 € je Nacht. Wie viel Euro kostet das Zimmer ohne den Zuschlag?"
+    },
+    "o": {
+     "wert": 150,
+     "einheit": "€"
+    },
+    "c": "162 / 1.08",
+    "h": "Der Preis mit Zuschlag ist 108 % vom Preis ohne Zuschlag. Wie kommst du von 108 % zurück auf 100 %?",
+    "w": "Der Preis mit Zuschlag ist 108 % des ursprünglichen Preises, also Preis · 1,08 = 162 €. Zurück geht es durch Teilen: 162 : 1,08 = 150 €."
+   }
+  },
+  {
+   "kennung": "R15-V008",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "zurueck",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "auswahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Ticket A war vorher teurer: 75 € gegenüber 50 €.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Aufschlag und Rabatt vertauscht"
+    },
+    {
+     "index": 1,
+     "antwort": "Beide Tickets kosteten vorher gleich viel, denn 20 % mehr und 20 % weniger gleichen sich aus.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozente einfach gegeneinander aufgerechnet"
+    },
+    {
+     "index": 3,
+     "antwort": "Ticket B war vorher teurer: 72 € gegenüber 48 €.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 % vom Endpreis statt durch den Faktor zurückgerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "zurueck",
+    "t": "zurueck",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "auswahl",
+    "f": {
+     "text": "Ticket A kostet nach einem Aufschlag von 20 % jetzt 60 €. Ticket B kostet nach einem Rabatt von 20 % jetzt 60 €. Welche Aussage stimmt?"
+    },
+    "a": [
+     "Ticket A war vorher teurer: 75 € gegenüber 50 €.",
+     "Beide Tickets kosteten vorher gleich viel, denn 20 % mehr und 20 % weniger gleichen sich aus.",
+     "Ticket B war vorher teurer: 75 € gegenüber 50 €.",
+     "Ticket B war vorher teurer: 72 € gegenüber 48 €."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Zum Zurückrechnen brauchst du jeweils den Faktor: nach Aufschlag und nach Rabatt ist er verschieden.",
+    "w": "Ticket A: Preis · 1,2 = 60 €, also Preis = 60 : 1,2 = 50 €. Ticket B: Preis · 0,8 = 60 €, also Preis = 60 : 0,8 = 75 €. B war vorher teurer."
+   }
+  },
+  {
+   "kennung": "R15-V009",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "prozentsatz",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5.2631578947368425,
+     "fehlbild": "fb.prozent.falscher_grundwert",
+     "regel_des_fehlbilds": "id.verhaeltnisse.prozent",
+     "beschreibung": "die Änderung auf den neuen statt auf den alten Wert bezogen"
+    },
+    {
+     "antwort": 215,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied in Baht als Prozent angegeben"
+    },
+    {
+     "antwort": 95,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den neuen Wert in Prozent des alten angegeben (95 %)"
+    }
+   ],
+   "aufgabe": {
+    "l": "prozentsatz",
+    "t": "prozentsatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Im Mai bekam man für 100 € auf einer Reise 4 300 Baht. Im Juli waren es nur noch 4 085 Baht. Um wie viel Prozent ist der Baht-Betrag für 100 € gesunken?"
+    },
+    "o": {
+     "wert": 5,
+     "einheit": "%",
+     "toleranz": 0.1
+    },
+    "c": "(4300 - 4085) / 4300 * 100",
+    "h": "Vergleiche die Änderung mit dem Wert vom Mai, nicht mit dem vom Juli.",
+    "w": "Die Änderung ist 4 300 − 4 085 = 215 Baht. Bezogen auf den alten Wert: 215 : 4 300 = 0,05 = 5 %. Der Betrag ist um 5 % gesunken."
+   }
+  },
+  {
+   "kennung": "R15-V010",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "prozentsatz",
+   "stufe": 3,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "beim Hotel, weil dort die Erhöhung in Euro am größten ist",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied in Euro statt in Prozent verglichen"
+    },
+    {
+     "index": 2,
+     "antwort": "beim Museum, weil es die größte Zahl 18 hat",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den neuen Preis statt die Änderung betrachtet"
+    }
+   ],
+   "aufgabe": {
+    "l": "prozentsatz",
+    "t": "prozentsatz",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "auswahl",
+    "f": {
+     "text": "In der Tabelle stehen alter und neuer Preis von drei Angeboten auf einer Reise. Bei welchem Angebot ist die Preiserhöhung in Prozent am größten?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Angebot",
+       "alter Preis",
+       "neuer Preis"
+      ],
+      "zeilen": [
+       [
+        "Bus",
+        "2,40 €",
+        "3,00 €"
+       ],
+       [
+        "Museum",
+        "15 €",
+        "18 €"
+       ],
+       [
+        "Hotel",
+        "90 €",
+        "99 €"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "beim Hotel, weil dort die Erhöhung in Euro am größten ist",
+     "beim Bus",
+     "beim Museum, weil es die größte Zahl 18 hat"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Berechne für jede Zeile: Änderung geteilt durch den alten Preis.",
+    "w": "Bus: 0,60 : 2,40 = 25 %. Museum: 3 : 15 = 20 %. Hotel: 9 : 90 = 10 %. Die größte Erhöhung in Prozent hat der Bus, auch wenn sie in Euro am kleinsten ist."
+   }
+  },
+  {
+   "kennung": "R15-V011",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "mehrfach",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 393.6,
+     "fehlbild": "fb.prozent.prozente_addiert",
+     "regel_des_fehlbilds": "id.verhaeltnisse.prozent",
+     "beschreibung": "die Prozentsätze 15 und 8 addiert, obwohl die zweite Erhöhung vom neuen Preis gilt"
+    },
+    {
+     "antwort": 368,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die erste Erhöhung gerechnet"
+    },
+    {
+     "antwort": 376,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "8 € statt 8 % aufgeschlagen"
+    }
+   ],
+   "aufgabe": {
+    "l": "mehrfach",
+    "t": "mehrfach",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Der Grundpreis für einen Mietwagen auf Sizilien beträgt 320 €. Zuerst wird der Preis wegen der Hochsaison um 15 % erhöht. Auf diesen neuen Preis kommen für die Vollkasko-Versicherung noch einmal 8 %. Wie viel Euro kostet der Wagen insgesamt?"
+    },
+    "o": {
+     "wert": 397.44,
+     "einheit": "€"
+    },
+    "c": "320 * 1.15 * 1.08",
+    "h": "Die zweite Erhöhung bezieht sich auf den schon erhöhten Preis. Nimm beide Faktoren mal.",
+    "w": "Nach der ersten Erhöhung: 320 · 1,15 = 368 €. Darauf 8 %: 368 · 1,08 = 397,44 €. Man darf die Prozente nicht addieren (23 % wären nur 393,60 €)."
+   }
+  },
+  {
+   "kennung": "R15-V012",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "mehrfach",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "fehlbild": "fb.prozent.prozente_addiert",
+     "regel_des_fehlbilds": "id.verhaeltnisse.prozent",
+     "beschreibung": "angenommen, dieselben 20 % machen die Erhöhung wieder rückgängig"
+    },
+    {
+     "antwort": 83.3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den verbleibenden Anteil (83,3 %) statt der Abnahme angegeben"
+    },
+    {
+     "antwort": 1.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 1,2 als Prozentsatz gelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "mehrfach",
+    "t": "mehrfach",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Preis steigt zuerst um 20 %. Danach soll er um einen Prozentsatz sinken, sodass er wieder genau so hoch ist wie am Anfang. Um wie viel Prozent muss er sinken? Runde auf eine Dezimalstelle."
+    },
+    "o": {
+     "wert": 16.7,
+     "einheit": "%",
+     "toleranz": 0.1
+    },
+    "c": "round(16.666666666666664, 1)",
+    "h": "Nach der Erhöhung ist der Preis das 1,2-Fache. Mit welchem Faktor kommst du von 1,2 zurück auf 1?",
+    "w": "Nach der Erhöhung gilt: Preis · 1,2. Gesucht ist der Faktor q mit 1,2 · q = 1, also q = 1 : 1,2 ≈ 0,8333. Das ist eine Abnahme um 1 − 0,8333 = 0,1667, also etwa 16,7 %."
+   }
+  },
+  {
+   "kennung": "R15-V013",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "formel",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zinssätze der drei Jahre addiert statt dreimal mit 1,04 malgenommen"
+    },
+    {
+     "antwort": 15600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 1,04 mit 3 malgenommen statt hoch 3"
+    },
+    {
+     "antwort": 13720,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 % als Faktor 1,4 geschrieben"
+    }
+   ],
+   "aufgabe": {
+    "l": "formel",
+    "t": "formel",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Kim legt 5 000 € für 3 Jahre zu 4 % Zinsen im Jahr an. Die Zinsen bleiben auf dem Konto und werden mitverzinst. Berechne das Guthaben nach 3 Jahren auf zwei Wegen. Weg A: Jahr für Jahr mit 1,04 malnehmen. Weg B: mit 1,04³. Runde auf Cent. Wie viel Euro sind es?"
+    },
+    "o": {
+     "wert": 5624.32,
+     "einheit": "€"
+    },
+    "c": "5000 * 1.04 ** 3",
+    "h": "Weg A und Weg B müssen dasselbe ergeben. Wie oft kommt der Faktor 1,04 vor?",
+    "w": "Weg A: 5 000 · 1,04 = 5 200; 5 200 · 1,04 = 5 408; 5 408 · 1,04 = 5 624,32. Weg B: 5 000 · 1,04³ = 5 000 · 1,124864 = 5 624,32 €."
+   }
+  },
+  {
+   "kennung": "R15-V014",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "formel",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "schon nach 4 Jahren gestoppt: dann sind es erst etwa 2 431 €"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ohne Zinseszins gerechnet (nur 100 € Zinsen je Jahr): nach 5 Jahren sind es dann erst genau 2 500 €"
+    }
+   ],
+   "aufgabe": {
+    "l": "formel",
+    "t": "formel",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Guthaben von 2 000 € wird mit 5 % Zinseszins im Jahr angelegt. Nach wie vielen vollen Jahren ist das Guthaben zum ersten Mal höher als 2 500 €?"
+    },
+    "o": {
+     "wert": 5,
+     "einheit": "Jahre"
+    },
+    "c": "5",
+    "h": "Probiere die Jahre nacheinander aus: 2 000 · 1,05, dann · 1,05², und so weiter. Wann liegt das Ergebnis erstmals über 2 500?",
+    "w": "Nach 4 Jahren: 2 000 · 1,05⁴ ≈ 2 431,01 €, das reicht noch nicht. Nach 5 Jahren: 2 000 · 1,05⁵ ≈ 2 552,56 €. Das ist höher als 2 500 €. Es sind 5 Jahre."
+   }
+  },
+  {
+   "kennung": "R15-V015",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "argumente",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Die Stadt ist stärker gewachsen, denn 30 000 ist mehr als 12 000.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zuwachs in Übernachtungen statt in Prozent verglichen"
+    },
+    {
+     "index": 2,
+     "antwort": "Beide sind gleich stark gewachsen, denn jeweils kamen etwa ein Fünftel mehr Übernachtungen dazu.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ungefähr geschätzt statt gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "argumente",
+    "t": "argumente",
+    "p": "uebung",
+    "s": 3,
+    "g": "pruefung",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Stadt am Mittelmeer hatte im Vorjahr 200 000 Übernachtungen und dieses Jahr 230 000. Eine kleine Insel hatte im Vorjahr 50 000 und dieses Jahr 62 000. Welche Aussage ist mathematisch richtig begründet?"
+    },
+    "a": [
+     "Die Insel ist prozentual stärker gewachsen: 12 000 : 50 000 = 24 %, in der Stadt sind es 30 000 : 200 000 = 15 %.",
+     "Die Stadt ist stärker gewachsen, denn 30 000 ist mehr als 12 000.",
+     "Beide sind gleich stark gewachsen, denn jeweils kamen etwa ein Fünftel mehr Übernachtungen dazu."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Ein Vergleich in Prozent braucht jeweils den Zuwachs geteilt durch den Wert des Vorjahrs.",
+    "w": "Stadt: 230 000 − 200 000 = 30 000, das sind 30 000 : 200 000 = 15 %. Insel: 62 000 − 50 000 = 12 000, das sind 12 000 : 50 000 = 24 %. Die Insel ist prozentual stärker gewachsen."
+   }
+  },
+  {
+   "kennung": "R15-V016",
+   "thema": "bruch.prozent_grundwert",
+   "lernkarte": "argumente",
+   "stufe": 3,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "50 + 40 − 40 = 50, also stimmt die Aussage.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Prozente wie Euro addiert und subtrahiert"
+    },
+    {
+     "index": 2,
+     "antwort": "50 · 1,4 · 1,4 = 98, also kostet das Ticket am Ende mehr.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Male mit dem Faktor einer Zunahme gerechnet"
+    },
+    {
+     "index": 3,
+     "antwort": "50 · 0,4 · 0,4 = 8, also kostet das Ticket nur noch 8 €.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit den Prozentwerten statt mit den Faktoren gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "argumente",
+    "t": "argumente",
+    "p": "uebung",
+    "s": 3,
+    "g": "pruefung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Ticket kostet 50 €. Der Preis steigt um 40 % und sinkt später um 40 %. Ein Reiseblogger schreibt: „Dann ist es wieder so billig wie am Anfang.“ Welche Rechnung prüft die Aussage richtig?"
+    },
+    "a": [
+     "50 · 1,4 · 0,6 = 42, also kostet das Ticket am Ende weniger als am Anfang.",
+     "50 + 40 − 40 = 50, also stimmt die Aussage.",
+     "50 · 1,4 · 1,4 = 98, also kostet das Ticket am Ende mehr.",
+     "50 · 0,4 · 0,4 = 8, also kostet das Ticket nur noch 8 €."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Prüfe die Aussage mit einer Rechnung: Die zweite Änderung gilt für den neuen, nicht für den alten Preis.",
+    "w": "Nach +40 % kostet es 50 · 1,4 = 70 €. Nach −40 % davon: 70 · 0,6 = 42 €. Das ist weniger als 50 €. Die Aussage ist falsch, weil sich die 40 % auf verschiedene Grundwerte beziehen."
+   }
+  }
+ ]
+}

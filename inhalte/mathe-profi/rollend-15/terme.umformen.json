@@ -1,0 +1,799 @@
+{
+ "stand": "2026-11-28",
+ "runde": "rollend-15",
+ "kuerzel": "R15",
+ "flug": "r15-terme.umformen",
+ "titel": "terme.umformen",
+ "fuer": "Klasse 7",
+ "klasse": 7,
+ "themen": [
+  "terme.umformen"
+ ],
+ "themen_datei_im_bestand": "terme.umformen",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R15-V032",
+   "thema": "terme.umformen",
+   "lernkarte": "zusammenfassen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.tauschen",
+   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Glieder 9x und 2x addiert, obwohl vor 2x ein Minus steht"
+    },
+    {
+     "luecke": 2,
+     "antwort": -2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die y-Glieder subtrahiert statt addiert"
+    },
+    {
+     "luecke": 3,
+     "antwort": 23,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "für x und y die Werte vertauscht eingesetzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammenfassen",
+    "t": "zusammenfassen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Du fasst 9x + 3y − 2x + 5y zusammen. Das Ergebnis hat die Form ① · x + ② · y. Für x = 2 und y = 1 hat der Term den Wert ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      7,
+      8,
+      22
+     ]
+    },
+    "c": [
+     "9 - 2",
+     "3 + 5",
+     "(9 - 2) * 2 + (3 + 5) * 1"
+    ],
+    "h": "Fasse nur gleichartige Glieder zusammen: die mit x und die mit y. Setze die Zahlen für x und y erst am Ende ein.",
+    "w": "x-Glieder: 9x − 2x = 7x. y-Glieder: 3y + 5y = 8y. Der Term ist 7x + 8y. Für x = 2 und y = 1: 7 · 2 + 8 · 1 = 22. Probe mit dem Ausgangsterm: 18 + 3 − 4 + 5 = 22."
+   }
+  },
+  {
+   "kennung": "R15-V033",
+   "thema": "terme.umformen",
+   "lernkarte": "zusammenfassen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.tauschen",
+   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1176,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Glieder zu einem Glied mit ab zusammengefasst"
+    },
+    {
+     "antwort": 168,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Glieder zusammengefasst, als wären a und b gleichartig"
+    },
+    {
+     "antwort": 124,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Glied 2b nicht mitgezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammenfassen",
+    "t": "zusammenfassen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Kim kauft 3 Erwachsenen- und 2 Kinderkarten für einen Freizeitpark, Alex kauft 5 Erwachsenen- und 4 Kinderkarten. Eine Erwachsenenkarte kostet a €, eine Kinderkarte b €. Zusammen zahlen sie 3a + 2b + 5a + 4b. Wie viel Euro sind das für a = 12 und b = 7?"
+    },
+    "o": {
+     "wert": 138,
+     "einheit": "€"
+    },
+    "c": "8 * 12 + 6 * 7",
+    "h": "Fasse erst zusammen: Wie viele Erwachsenenkarten sind es insgesamt, wie viele Kinderkarten?",
+    "w": "Erwachsenenkarten: 3a + 5a = 8a. Kinderkarten: 2b + 4b = 6b. Zusammen 8a + 6b. Für a = 12 und b = 7: 8 · 12 + 6 · 7 = 96 + 42 = 138 €."
+   }
+  },
+  {
+   "kennung": "R15-V034",
+   "thema": "terme.umformen",
+   "lernkarte": "zusammenfassen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.tauschen",
+   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammenfassen",
+    "t": "zusammenfassen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim soll 6x + 5y − 2x + y zusammenfassen und schreibt auf: Zeile 1: Gleichartig sind 6x und −2x sowie 5y und y. Zeile 2: 6x − 2x = 4x. Zeile 3: 5y + y = 5y, denn ein einzelnes y hat keine Zahl davor. Zeile 4: Das Ergebnis ist 4x + 5y. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Welche Zahl steht vor einem einzelnen y? Prüfe es mit y = 1: y ist dann 1 · y.",
+    "w": "Ein einzelnes y bedeutet 1y. Also gilt 5y + y = 5y + 1y = 6y. Das richtige Ergebnis ist 4x + 6y. Der Fehler steckt in Zeile 3. Zeile 4 übernimmt ihn."
+   }
+  },
+  {
+   "kennung": "R15-V035",
+   "thema": "terme.umformen",
+   "lernkarte": "produkte",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.tauschen",
+   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 150,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aus a · a · a nur a² gemacht"
+    },
+    {
+     "antwort": 27000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 6 mit in die Potenz genommen"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Kanten addiert statt malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "produkte",
+    "t": "produkte",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Reisebox ist ein Quader mit den Kanten 2a, 3a und a (in Zentimetern). Das Volumen ist das Produkt der drei Kanten. Wie groß ist das Volumen in Kubikzentimetern für a = 5?"
+    },
+    "o": {
+     "wert": 750,
+     "einheit": "cm³"
+    },
+    "c": "2 * 5 * 3 * 5 * 5",
+    "h": "Vereinfache das Produkt zuerst: Zahlen mal Zahlen, gleiche Buchstaben zu einer Potenz.",
+    "w": "2a · 3a · a = (2 · 3) · (a · a · a) = 6a³. Für a = 5: 6 · 5³ = 6 · 125 = 750 cm³."
+   }
+  },
+  {
+   "kennung": "R15-V036",
+   "thema": "terme.umformen",
+   "lernkarte": "produkte",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "auswahl",
+   "regel": "rr.vorzeichen",
+   "regel_name": "Vorzeichen bei Mal und Geteilt",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "(−3a) · (−4ab)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Minus mal Minus gibt Plus, das Ergebnis wäre 12a²b"
+    },
+    {
+     "index": 2,
+     "antwort": "(−3a) · 4a",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "kein b im Ergebnis, a² ohne b"
+    },
+    {
+     "index": 3,
+     "antwort": "3a · 4b",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Ergebnis wäre 12ab"
+    }
+   ],
+   "aufgabe": {
+    "l": "produkte",
+    "t": "produkte",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "auswahl",
+    "f": {
+     "text": "Welches Produkt ergibt −12a²b?"
+    },
+    "a": [
+     "(−3a) · (−4ab)",
+     "3a · (−4ab)",
+     "(−3a) · 4a",
+     "3a · 4b"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Zerlege −12a²b in Faktoren: Welche Vorzeichen, Zahlen und Buchstaben müssen links zusammenkommen? Prüfe jedes Angebot durch Ausrechnen.",
+    "w": "3a · (−4ab) = −12a²b: Plus mal Minus gibt Minus, 3 · 4 = 12 und a · a · b = a²b. Die anderen Produkte ergeben (−3a) · (−4ab) = 12a²b, (−3a) · 4a = −12a² und 3a · 4b = 12ab."
+   }
+  },
+  {
+   "kennung": "R15-V037",
+   "thema": "terme.umformen",
+   "lernkarte": "produkte",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.tauschen",
+   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "a² = 25 gelesen und 25 als Ergebnis genommen"
+    },
+    {
+     "antwort": 12.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Wert 25 halbiert statt die Zahl zu suchen, die mit sich selbst malgenommen 25 ergibt"
+    }
+   ],
+   "aufgabe": {
+    "l": "produkte",
+    "t": "produkte",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Eine natürliche Zahl a erfüllt 3a · 4a = 300. Wie groß ist a?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "5",
+    "h": "Vereinfache zuerst das Produkt auf der linken Seite. Welche natürliche Zahl mal sich selbst ergibt das Ergebnis?",
+    "w": "3a · 4a = 12a². Aus 12a² = 300 folgt a² = 25. Nur die natürliche Zahl 5 hat das Quadrat 25. Probe: 3 · 5 · 4 · 5 = 15 · 20 = 300."
+   }
+  },
+  {
+   "kennung": "R15-V038",
+   "thema": "terme.umformen",
+   "lernkarte": "minusklammer",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.minusklammer",
+   "regel_name": "Minus vor der Klammer",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die x-Glieder addiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": -3,
+     "fehlbild": "fb.minusklammer.nur_erstes_zeichen",
+     "regel_des_fehlbilds": "rr.minusklammer",
+     "beschreibung": "nur das erste Vorzeichen in der Klammer gewechselt, die 6 blieb negativ"
+    },
+    {
+     "luecke": 3,
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x nur beim Zahlglied eingesetzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "minusklammer",
+    "t": "minusklammer",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Du löst die Klammer in 11x − (4x − 6) + 3 auf und fasst zusammen. Das Ergebnis hat die Form ① · x + ②. Für x = 2 hat der Term den Wert ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      7,
+      9,
+      23
+     ]
+    },
+    "c": [
+     "11 - 4",
+     "6 + 3",
+     "(11 - 4) * 2 + (6 + 3)"
+    ],
+    "h": "Ein Minus vor der Klammer ändert die Vorzeichen aller Glieder in der Klammer. Achte besonders auf das zweite Glied.",
+    "w": "−(4x − 6) = −4x + 6. Dann: 11x − 4x + 6 + 3 = 7x + 9. Für x = 2: 7 · 2 + 9 = 23. Probe mit dem Ausgangsterm: 22 − (8 − 6) + 3 = 22 − 2 + 3 = 23."
+   }
+  },
+  {
+   "kennung": "R15-V039",
+   "thema": "terme.umformen",
+   "lernkarte": "minusklammer",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.minusklammer",
+   "regel_name": "Minus vor der Klammer",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 355,
+     "fehlbild": "fb.minusklammer.nur_erstes_zeichen",
+     "regel_des_fehlbilds": "rr.minusklammer",
+     "beschreibung": "das Minus nur auf das erste Glied der Klammer bezogen"
+    },
+    {
+     "antwort": 340,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die feste Gebühr vergessen"
+    },
+    {
+     "antwort": 475,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus vor der Klammer überhaupt nicht beachtet"
+    }
+   ],
+   "aufgabe": {
+    "l": "minusklammer",
+    "t": "minusklammer",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Kim hat 400 € Reisegeld. Für eine Zugfahrt zahlt sie (3x + 15) €, dabei ist x die Zahl der Fahrtstunden, 15 € sind eine feste Gebühr. Der Rest ist 400 − (3x + 15). Wie viel Euro bleiben bei 20 Stunden Fahrt übrig?"
+    },
+    "o": {
+     "wert": 325,
+     "einheit": "€"
+    },
+    "c": "400 - (3 * 20 + 15)",
+    "h": "Löse zuerst die Klammer auf. Das Minus davor wirkt auf beide Glieder in der Klammer.",
+    "w": "400 − (3x + 15) = 400 − 3x − 15 = 385 − 3x. Für x = 20: 385 − 60 = 325 €. Probe: Die Fahrt kostet 3 · 20 + 15 = 75 €, und 400 − 75 = 325 €."
+   }
+  },
+  {
+   "kennung": "R15-V040",
+   "thema": "terme.umformen",
+   "lernkarte": "minusklammer",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.minusklammer",
+   "regel_name": "Minus vor der Klammer",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "minusklammer",
+    "t": "minusklammer",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Alex löst die Klammer in 9a − (2a + 7b − 3) auf und schreibt auf: Zeile 1: Das Minus vor der Klammer ändert alle Vorzeichen in der Klammer. Zeile 2: 9a − (2a + 7b − 3) = 9a − 2a − 7b − 3. Zeile 3: Zusammengefasst ist das 7a − 7b − 3. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wie lautet die Klammer nach dem Auflösen, wenn bei jedem Glied das Vorzeichen wechselt? Was passiert mit −3?",
+    "w": "Aus −(−3) wird +3. Richtig ist 9a − 2a − 7b + 3 = 7a − 7b + 3. Der Fehler steckt in Zeile 2: Das letzte Vorzeichen wurde nicht gewechselt. Zeile 3 rechnet mit diesem Fehler richtig weiter."
+   }
+  },
+  {
+   "kennung": "R15-V041",
+   "thema": "terme.umformen",
+   "lernkarte": "ausmultiplizieren",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 306,
+     "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
+     "regel_des_fehlbilds": "rr.ausmultiplizieren",
+     "beschreibung": "den Faktor 6 nur mit dem ersten Glied in der Klammer malgenommen"
+    },
+    {
+     "antwort": 81,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 6 für die Gruppe vergessen"
+    },
+    {
+     "antwort": 87,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Personen dazugezählt statt malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "ausmultiplizieren",
+    "t": "ausmultiplizieren",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Gruppe von 6 Personen bucht ein Hostel. Pro Person kostet das Paket (45 + 12n) €, dabei ist n die Zahl der Zusatznächte. Der Gesamtpreis ist 6 · (45 + 12n). Wie viel Euro zahlt die Gruppe bei 3 Zusatznächten?"
+    },
+    "o": {
+     "wert": 486,
+     "einheit": "€"
+    },
+    "c": "6 * (45 + 12 * 3)",
+    "h": "Der Faktor 6 gilt für jedes Glied in der Klammer. Du kannst auch erst die Klammer ausrechnen und dann mit 6 malnehmen.",
+    "w": "Ausmultiplizieren: 6 · (45 + 12n) = 270 + 72n. Für n = 3: 270 + 216 = 486 €. Probe: Pro Person 45 + 36 = 81 €, für 6 Personen 486 €."
+   }
+  },
+  {
+   "kennung": "R15-V042",
+   "thema": "terme.umformen",
+   "lernkarte": "ausmultiplizieren",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1597,
+     "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
+     "regel_des_fehlbilds": "rr.ausmultiplizieren",
+     "beschreibung": "den Faktor 8 nur mit der 200 malgenommen"
+    },
+    {
+     "antwort": 1624,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aus 200 − 3 ein 200 + 3 gemacht"
+    },
+    {
+     "antwort": 176,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 8 nur mit dem zweiten Glied in der Klammer malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "ausmultiplizieren",
+    "t": "ausmultiplizieren",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne 8 · 197 auf zwei Wegen. Weg A: Schriftlich malnehmen. Weg B: 197 als 200 − 3 schreiben und 8 · (200 − 3) ausmultiplizieren. Welches Ergebnis ist richtig?"
+    },
+    "o": {
+     "wert": 1576
+    },
+    "c": "8 * 197",
+    "h": "Bei Weg B: Der Faktor 8 trifft beide Glieder in der Klammer, auch das zweite mit seinem Minus.",
+    "w": "Weg B: 8 · (200 − 3) = 8 · 200 − 8 · 3 = 1 600 − 24 = 1 576. Weg A: 8 · 197 = 1 576. Beide Wege stimmen überein."
+   }
+  },
+  {
+   "kennung": "R15-V043",
+   "thema": "terme.umformen",
+   "lernkarte": "ausmultiplizieren",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Summanden rechts einfach abgeschrieben"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 5 abgezogen statt durch ihn geteilt"
+    },
+    {
+     "antwort": 175,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Faktor 5 malgenommen statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "ausmultiplizieren",
+    "t": "ausmultiplizieren",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Welche Zahl gehört in das Kästchen, damit 5 · (2x + □) = 10x + 35 für jede Zahl x stimmt?"
+    },
+    "o": {
+     "wert": 7
+    },
+    "c": "35 // 5",
+    "h": "Der Faktor 5 muss mit jedem Glied der Klammer malgenommen den passenden Summanden rechts ergeben.",
+    "w": "Ausmultipliziert: 5 · 2x = 10x und 5 · □ = 35. Also ist □ = 35 : 5 = 7. Probe: 5 · (2x + 7) = 10x + 35."
+   }
+  },
+  {
+   "kennung": "R15-V044",
+   "thema": "terme.umformen",
+   "lernkarte": "aequivalenz",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Sie sind äquivalent, denn für x = 0 ergeben beide Terme 10.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein einziges Beispiel beweist keine Äquivalenz"
+    },
+    {
+     "index": 1,
+     "antwort": "Sie sind nicht äquivalent: 2(x + 5) − x = 2x + 5 − x = x + 5.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammer wurde nur mit dem ersten Glied malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "aequivalenz",
+    "t": "aequivalenz",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim berechnet den Preis einer Taxifahrt mit 2(x + 5) − x, Alex mit x + 10. Welche Aussage über die beiden Terme ist mathematisch richtig begründet?"
+    },
+    "a": [
+     "Sie sind äquivalent, denn für x = 0 ergeben beide Terme 10.",
+     "Sie sind nicht äquivalent: 2(x + 5) − x = 2x + 5 − x = x + 5.",
+     "Sie sind äquivalent: 2(x + 5) − x = 2x + 10 − x = x + 10."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Äquivalent heißt: für jede Zahl gleich. Forme den ersten Term um und vergleiche mit dem zweiten.",
+    "w": "2(x + 5) − x = 2x + 10 − x = x + 10. Das ist der Term von Alex, die beiden Terme sind also für jede Zahl x gleich. Ein Beispiel allein (x = 0) würde das nicht beweisen."
+   }
+  },
+  {
+   "kennung": "R15-V045",
+   "thema": "terme.umformen",
+   "lernkarte": "aequivalenz",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Für x = 1 ergeben beide Terme 9. Also sind sie nicht äquivalent.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gleiche Werte bei einer Zahl widerlegen die Äquivalenz nicht"
+    },
+    {
+     "index": 1,
+     "antwort": "Für x = 1 ergeben beide Terme 9. Also sind sie äquivalent.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aus einem Beispiel mit gleichen Werten auf Äquivalenz geschlossen"
+    },
+    {
+     "index": 2,
+     "antwort": "3x + 6 hat zwei Glieder und 9x nur eines. Also sind sie nicht äquivalent.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahl der Glieder entscheidet nicht über Äquivalenz"
+    }
+   ],
+   "aufgabe": {
+    "l": "aequivalenz",
+    "t": "aequivalenz",
+    "p": "uebung",
+    "s": 3,
+    "g": "pruefung",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim behauptet: „3x + 6 und 9x sind äquivalent.“ Welche Probe zeigt, dass das nicht stimmt?"
+    },
+    "a": [
+     "Für x = 1 ergeben beide Terme 9. Also sind sie nicht äquivalent.",
+     "Für x = 1 ergeben beide Terme 9. Also sind sie äquivalent.",
+     "3x + 6 hat zwei Glieder und 9x nur eines. Also sind sie nicht äquivalent.",
+     "Für x = 0 ergibt der erste Term 6 und der zweite 0. Die Werte sind verschieden."
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Für „nicht äquivalent“ reicht eine einzige Zahl, bei der die beiden Terme verschiedene Werte haben. Probiere kleine Zahlen.",
+    "w": "Für x = 0: 3 · 0 + 6 = 6 und 9 · 0 = 0. Die Werte sind verschieden, die Terme sind nicht äquivalent. Bei x = 1 sind beide Werte 9; das reicht nicht, um etwas zu zeigen."
+   }
+  },
+  {
+   "kennung": "R15-V046",
+   "thema": "terme.umformen",
+   "lernkarte": "aequivalenz",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Zahl in der Klammer übernommen"
+    },
+    {
+     "antwort": 17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen addiert statt malgenommen"
+    },
+    {
+     "antwort": 676,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Faktor 13 doppelt malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "aequivalenz",
+    "t": "aequivalenz",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Für welchen Wert von k sind die Terme 13(x + 4) und 13x + k äquivalent?"
+    },
+    "o": {
+     "wert": 52
+    },
+    "c": "13 * 4",
+    "h": "Multipliziere die Klammer aus. Die Terme müssen für jede Zahl x denselben Wert haben.",
+    "w": "13(x + 4) = 13x + 52. Damit 13x + k für jedes x denselben Wert hat, muss k = 52 sein. Probe: Für x = 1 sind beide Werte 65."
+   }
+  }
+ ]
+}

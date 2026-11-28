@@ -17,10 +17,10 @@ a3(T, "quader", Z(
     [B("9 + 6 + 270 / (9 * 6)", "nur 3 Kanten gezählt"), B("4 * (9 + 6)", "die Höhe vergessen"), B("270 / (9 * 6)", "nur die Höhe angegeben")], "cm"), g="verknuepfen")
 # ───────── oberflaeche ─────────
 a1(T, "oberflaeche", Z(
-    "Für einen würfelförmigen Geschenkkarton werden 384 cm² Pappe gebraucht, ohne Verschnitt und ohne Klebekanten. Wie lang ist eine Kante des Würfels in Zentimetern?",
-    8, "8", "384 / (6 * 8)", "Ein Würfel hat 6 gleich große Quadrate. Wie groß ist eines? Welche Zahl mal sich selbst ergibt diese Fläche?",
-    "384 : 6 = 64 cm² ist eine Seitenfläche. Wegen 8 · 8 = 64 ist die Kante 8 cm lang. Probe: 6 · 8 · 8 = 384.",
-    [B("384 / 6", "die Größe einer Seitenfläche statt der Kante angegeben"), B("384 / 4", "die Oberfläche nur durch 4 geteilt"), B("384 / 6 / 4", "die Fläche 64 durch 4 geteilt statt die Kante zu bestimmen")], "cm"))
+    "Für einen würfelförmigen Blumenkasten ohne Deckel werden 80 dm² Holz gebraucht, ohne Verschnitt. Wie lang ist eine Kante des Kastens in Dezimetern?",
+    4, "4", "80 / 5 / 4", "Ein Kasten ohne Deckel hat nur 5 Flächen. Wie groß ist eine davon? Welche Zahl mal sich selbst ergibt diese Fläche?",
+    "80 : 5 = 16 dm² ist eine Fläche. Wegen 4 · 4 = 16 ist die Kante 4 dm lang. Probe: 5 · 4 · 4 = 80.",
+    [B("80 / 5", "die Größe einer Fläche statt der Kante angegeben"), B("80 / 4", "nur durch 4 geteilt, weil der Boden vergessen wurde"), B("80 / 2", "die Oberfläche halbiert")], "dm"))
 a2(T, "oberflaeche", Z(
     "Ein Schrank ist ein Quader: 1,2 m breit, 0,5 m tief und 2 m hoch. Die Vorderseite, die beiden Seitenwände und die Decke werden gestrichen. Die Rückwand steht an der Wand, der Boden ist unten. Wie viele Quadratmeter werden gestrichen?",
     5, "1.2 * 2 + 2 * (0.5 * 2) + 1.2 * 0.5", "2.4 + 2 + 0.6", "Welche Flächen werden gestrichen? Berechne jede einzeln, auch die beiden gleichen Seitenwände.",
@@ -55,9 +55,9 @@ a1(T, "zusammengesetzt", Z(
     [B("6 * 6 * 6", "das Loch nicht beachtet"), B("6 * 6 * 6 - 2 * (2 * 2)", "die Wände im Loch vergessen"), B("6 * 6 * 6 + 4 * (2 * 6)", "die Öffnungen nicht abgezogen")], "cm²"))
 a2(T, "zusammengesetzt", Z(
     "Ein Treppenmodell besteht aus drei Türmen aus Würfeln mit 2 cm Kantenlänge, die in einer Reihe nebeneinander stehen und mit ganzen Flächen zusammengeklebt sind: Der erste Turm hat 1 Würfel, der zweite 2 Würfel und der dritte 3 Würfel übereinander. Wie groß ist die Oberfläche des Modells?",
-    88, "(1 + 3 + 3 + 3 + 2 * 6) * 2 * 2", "22 * 4", "Wie viele Würfelflächen siehst du von vorn, von hinten, von oben, von unten und von beiden Seiten? Eine Würfelfläche hat 2 · 2 = 4 cm².",
-    "Von vorn sehen wir 1 + 2 + 3 = 6 Würfelflächen, von hinten ebenso 6. Von oben sind es 3 (je Turm eine), von unten 3. Von der linken Seite 1, von der rechten 3. Zusammen 6 + 6 + 3 + 3 + 1 + 3 = 22 Würfelflächen zu je 4 cm²: 22 · 4 = 88 cm².",
-    [B("6 * 6 * 4", "alle 36 Würfelflächen gezählt, die verklebten nicht abgezogen"), B("(22 - 3) * 4", "die Unterseite vergessen"), B("(22 - 6) * 4", "die Rückseite vergessen")], "cm²"))
+    96, "(6 + 6 + 3 + 3 + 3 + 3) * 2 * 2", "24 * 4", "Wie viele Würfelflächen siehst du von vorn, von hinten, von oben, von unten und von beiden Seiten? Eine Würfelfläche hat 2 · 2 = 4 cm².",
+    "Von vorn sehen wir 1 + 2 + 3 = 6 Würfelflächen, von hinten ebenso 6. Von oben sind es 3 (je Turm eine), von unten 3. Von der linken Seite sieht man 3 Flächen (vom ersten Turm 1 und vom zweiten und dritten Turm je 1 oberhalb des Nachbarturms), von der rechten Seite ebenfalls 3 (nur der dritte Turm). Zusammen 6 + 6 + 3 + 3 + 3 + 3 = 24 Würfelflächen zu je 4 cm²: 24 · 4 = 96 cm². Gegenprobe: 6 Würfel haben 36 Flächen, die 6 Klebestellen verdecken 12 davon: 36 − 12 = 24.",
+    [B("6 * 6 * 4", "alle 36 Würfelflächen gezählt, die verklebten nicht abgezogen"), B("(24 - 3) * 4", "die Unterseite vergessen"), B("(24 - 6) * 4", "die Rückseite vergessen")], "cm²"))
 a3(T, "zusammengesetzt", Z(
     "Aus einem Quader (5 cm lang, 4 cm breit, 3 cm hoch) wird an einer Ecke ein Würfel mit 2 cm Kantenlänge herausgesägt. Wie verändert sich die Oberfläche durch das Heraussägen? Gib den Unterschied „Oberfläche nachher minus Oberfläche vorher“ in cm² an.",
     0, "3 * 2 * 2 - 3 * 2 * 2", "0", "Welche Flächen gehen an der Ecke verloren? Welche neuen Flächen entstehen im Ausschnitt? Vergleiche ihre Größen.",

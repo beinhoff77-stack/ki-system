@@ -46,7 +46,7 @@ a3(T, "uebersetzen", Z(
     "Ein Rechteck ist x cm breit. Die Länge ist 5 cm länger als das Doppelte der Breite. Der Umfang beträgt 70 cm. Wie breit ist das Rechteck in Zentimetern?",
     10, "(70 - 10) / 6", "(70 / 2 - 5) / 3", "Rechne mit dem halben Umfang: Breite plus Länge. Wie viele Breiten und wie viele Zentimeter stecken in der Länge? Probiere Breiten aus oder rechne rückwärts.",
     "Der halbe Umfang ist 35 cm: Breite plus Länge. Die Länge ist 2 Breiten und 5 cm. Probiere: Bei 5 cm Breite ist die Länge 15 cm und Breite plus Länge 20 cm (zu wenig). Bei 10 cm Breite ist die Länge 25 cm und Breite plus Länge 35 cm (stimmt). Rückwärts: 35 − 5 = 30 cm sind 3 Breiten, also ist die Breite 30 : 3 = 10 cm. Probe: Umfang 2 · (10 + 25) = 70.",
-    [B("(70 - 10) / 3", "den Rest 60 nur durch 3 geteilt"), B("70 - 10", "den Rest 60 als Breite angegeben"), B("70 / 2 - 5", "vom halben Umfang nur 5 abgezogen")], "cm"), g="rueckwaerts")
+    [B("(70 - 10) / 3", "vom Umfang 70 nur 10 abgezogen und den Rest 60 durch 3 statt durch 6 geteilt"), B("70 - 10", "vom Umfang 70 nur 10 abgezogen und den Rest 60 als Breite angegeben"), B("70 / 2 - 5", "vom halben Umfang 35 nur 5 abgezogen und den Rest 30 als Breite angegeben")], "cm"), g="rueckwaerts")
 # ───────── sachsituation ─────────
 a1(T, "sachsituation", Z(
     "Ein Lieferdienst berechnet 2,50 € Liefergebühr und 8 € für jede Pizza. Wie viel Euro kosten 3 Pizzen mit Lieferung?",
@@ -65,10 +65,10 @@ a3(T, "sachsituation", Z(
     [B("36 / (10 - 4)", "die Personenzahl genannt, bei der beide Angebote gleich teuer sind"), B("36 / 4", "nur durch 4 geteilt"), B("36 / (10 - 4) - 1", "eine Person weniger als beim Gleichstand genommen")], "Personen"), g="verknuepfen")
 # ───────── muster ─────────
 a1(T, "muster", Z(
-    "Quadratische Rahmen aus Plättchen: Figur 3 (3 mal 3) hat 8 Plättchen, Figur 4 hat 12 Plättchen, Figur 5 hat 16 Plättchen. Nur der Rand wird gelegt. Wie viele Plättchen hat Figur 12?",
-    44, "4 * 12 - 4", "8 + 4 * 9", "Um wie viele Plättchen wird es von Figur zu Figur mehr? Prüfe deinen Term mit Figur 3.",
-    "Es kommen immer 4 Plättchen dazu. Der Term ist 4n − 4. Probe: n = 3 gibt 8, n = 4 gibt 12, n = 5 gibt 16. Für n = 12: 4 · 12 − 4 = 44 Plättchen.",
-    [B("4 * 12", "vier Seiten zu je 12 Plättchen gezählt, die Ecken doppelt"), B("12 * 12", "das ganze Quadrat statt nur des Rands gezählt"), B("8 + 4 * 12", "von Figur 3 an noch 12-mal 4 dazugezählt")], "Plättchen"))
+    "Plättchen werden zu Dreiecken gelegt: Figur 1 hat 1 Plättchen, Figur 2 hat 3 Plättchen, Figur 3 hat 6 Plättchen, Figur 4 hat 10 Plättchen. Von Figur zu Figur kommt unten eine neue Reihe mit einem Plättchen mehr dazu. Wie viele Plättchen hat Figur 10?",
+    55, "10 * 11 / 2", "1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10", "Wie viele Plättchen kommen von Figur zu Figur dazu? Figur 10 besteht aus Reihen mit 1, 2, 3, … Plättchen.",
+    "Figur n besteht aus Reihen mit 1, 2, 3, …, n Plättchen. Probe: Figur 4 hat 1 + 2 + 3 + 4 = 10. Figur 10 hat 1 + 2 + … + 10 = 55 Plättchen (zehn Reihen, paarweise 1 + 10, 2 + 9, … ergeben je 11, fünfmal).",
+    [B("10 * 10", "ein Quadrat aus 10 mal 10 Plättchen gerechnet"), B("10 * 11", "die Summe nicht halbiert"), B("1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9", "die letzte Reihe mit 10 Plättchen vergessen")], "Plättchen"))
 a2(T, "muster", Z(
     "Perlenketten wachsen nach einem Muster: Figur 1 hat 7 Perlen, Figur 2 hat 13 Perlen, Figur 3 hat 19 Perlen. So geht es weiter. Ab welcher Figur hat die Kette mehr als 100 Perlen?",
     17, "(100 - 1) // 6 + 1", "17", "Um wie viele Perlen wird die Kette von Figur zu Figur länger? Stelle den Term auf und probiere, wann 100 überschritten wird.",

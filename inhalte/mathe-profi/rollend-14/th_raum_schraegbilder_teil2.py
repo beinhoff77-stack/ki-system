@@ -49,10 +49,10 @@ a3(T, "axialschnitt", Z(
     [B("3.14 * 5 * 20", "mit dem Radius 5 cm statt mit dem Durchmesser als Umfang der Grundfläche gerechnet"), B("3.14 * 5 ** 2 * 20", "das Volumen π · r² · h statt der Mantelfläche berechnet"), B("3.14 * 15 * 15", "den Axialschnitt als Quadrat behandelt und die Seite aus dem Umfang durch 4 bestimmt")], "cm²"), g="transfer")
 # ───────── koerper_symmetrie ─────────
 a1(T, "koerper_symmetrie", Z(
-    "Ein Schmuckkästchen ist ein gerades Prisma. Seine Grundfläche ist ein gleichseitiges Dreieck, die Höhe ist größer als die Seite des Dreiecks. Wie viele Symmetrieebenen hat das Kästchen?",
-    4, "3 + 1", "1 + 3", "Zähle erst die Ebenen, die die Höhe enthalten (Symmetrieachsen des Dreiecks). Dann die Ebene parallel zur Grundfläche.",
-    "Ebenen durch die Höhe: Sie entsprechen den 3 Symmetrieachsen des gleichseitigen Dreiecks. Dazu kommt die Ebene in halber Höhe, parallel zur Grundfläche. Zusammen 3 + 1 = 4 Symmetrieebenen.",
-    [B("3", "die Ebene in halber Höhe vergessen"), B("9", "wie beim Würfel gezählt"), B("4 + 1", "wie bei einem Prisma über einem Quadrat gezählt")]))
+    "Ein Bastelmodell hat die Form eines regelmäßigen Tetraeders: Es besteht aus vier gleich großen gleichseitigen Dreiecken. Wie viele Symmetrieebenen hat das Modell?",
+    6, "6", "3 + 3", "Jede Symmetrieebene enthält eine Kante und halbiert die gegenüberliegende Kante. Wie viele Kanten hat das Tetraeder?",
+    "Das Tetraeder hat 6 Kanten. Durch jede Kante geht genau eine Symmetrieebene, die die gegenüberliegende Kante in der Mitte schneidet. Also gibt es 6 Symmetrieebenen.",
+    [B("4", "so viele Ebenen wie Flächen gezählt"), B("3", "nur die Ebenen durch die Kanten einer Fläche gezählt"), B("12", "jede Ebene doppelt gezählt")]))
 a2(T, "koerper_symmetrie", Z(
     "Ein Spielzeughändler hat drei Körper: einen Würfel, eine gerade Pyramide mit quadratischer Grundfläche und ein gerades Prisma, dessen Grundfläche ein gleichseitiges Dreieck ist. Wie viele Symmetrieebenen haben die drei Körper zusammen?",
     17, "9 + 4 + (3 + 1)", "9 + 4 + 4", "Der Würfel hat 9 Ebenen. Für Pyramide und Prisma zählst du erst die Symmetrieachsen der Grundfläche. Beim Prisma kommt noch eine Ebene dazu.",

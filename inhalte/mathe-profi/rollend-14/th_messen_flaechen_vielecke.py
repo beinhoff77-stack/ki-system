@@ -11,16 +11,16 @@ a2(T, "parallelogramm", Z(
     "Fläche: 2,4 · 1,5 = 3,6 m². Preis: 3,6 · 8 = 28,80 €.",
     [B("2.4 * 1.5", "nur die Fläche angegeben"), B("2.4 * 8", "die Höhe vergessen"), B("2.4 * 1.5 * 8 / 2", "die Formel für das Dreieck benutzt")], "€"))
 a3(T, "parallelogramm", Z(
-    "Ein Parallelogramm hat die Fläche 96 cm² und die Seitenlängen 12 cm und 8 cm. Wie groß ist die Summe der beiden zugehörigen Höhen in Zentimetern?",
-    20, "96 / 12 + 96 / 8", "8 + 12", "Die Fläche ist Grundseite mal Höhe. Berechne zu jeder der beiden Seiten die zugehörige Höhe.",
-    "Zur Seite 12 cm gehört die Höhe 96 : 12 = 8 cm. Zur Seite 8 cm gehört die Höhe 96 : 8 = 12 cm. Summe: 8 + 12 = 20 cm.",
-    [B("96 / 8", "nur die Höhe zur Seite 8 cm angegeben"), B("96 / 12", "nur die Höhe zur Seite 12 cm angegeben"), B("96 / (12 + 8)", "die Fläche durch die Summe der Seiten geteilt")], "cm"), g="transfer")
+    "Ein Parallelogramm hat die Fläche 72 cm² und die Seitenlängen 12 cm und 9 cm. Wie groß ist die Summe der beiden zugehörigen Höhen in Zentimetern?",
+    14, "72 / 12 + 72 / 9", "6 + 8", "Die Fläche ist Grundseite mal Höhe. Berechne zu jeder der beiden Seiten die zugehörige Höhe.",
+    "Zur Seite 12 cm gehört die Höhe 72 : 12 = 6 cm. Zur Seite 9 cm gehört die Höhe 72 : 9 = 8 cm. Summe: 6 + 8 = 14 cm.",
+    [B("72 / 9", "nur die Höhe zur Seite 9 cm angegeben"), B("72 / 12", "nur die Höhe zur Seite 12 cm angegeben"), B("12 + 9", "die beiden Seitenlängen addiert")], "cm"), g="transfer")
 # ───────── dreieck ─────────
 a1(T, "dreieck", Z(
-    "Ein Segel ist ein Dreieck mit der Grundseite 7 m und der Höhe 4 m. Wie groß ist die Fläche des Segels?",
-    14, "7 * 4 / 2", "28 / 2", "Beim Dreieck rechnest du Grundseite mal Höhe und teilst dann durch 2.",
-    "Das Rechteck mit denselben Maßen hat 7 · 4 = 28 m². Das Dreieck ist halb so groß: 28 : 2 = 14 m².",
-    [B("7 * 4", "nicht durch 2 geteilt"), B("7 + 4", "Grundseite und Höhe addiert"), B("7 * 4 / 4", "durch 4 statt durch 2 geteilt")], "m²"))
+    "Ein Segel ist ein Dreieck mit der Grundseite 9 m und der Höhe 6 m. Wie groß ist die Fläche des Segels?",
+    27, "9 * 6 / 2", "54 / 2", "Beim Dreieck rechnest du Grundseite mal Höhe und teilst dann durch 2.",
+    "Das Rechteck mit denselben Maßen hat 9 · 6 = 54 m². Das Dreieck ist halb so groß: 54 : 2 = 27 m².",
+    [B("9 * 6", "nicht durch 2 geteilt"), B("9 + 6", "Grundseite und Höhe addiert"), B("9 * 6 / 6", "durch 6 statt durch 2 geteilt")], "m²"))
 a2(T, "dreieck", Z(
     "Eine Wimpelkette hat 8 gleiche Dreiecke aus Stoff. Jedes Dreieck hat die Grundseite 30 cm und die Höhe 40 cm. Wie viele Quadratzentimeter Stoff braucht man für alle Wimpel?",
     4800, "8 * 30 * 40 / 2", "8 * 600", "Berechne zuerst die Fläche eines Wimpels. Dann rechnest du mal 8.",
@@ -123,7 +123,7 @@ a2(T, "drachen_raute", Z(
     "Eine Fliese: 18 · 10 : 2 = 90 cm². Zwei Fliesen: 2 · 90 = 180 cm².",
     [B("18 * 10 / 2", "nur eine Fliese berechnet"), B("2 * 18 * 10", "die Fläche nicht durch 2 geteilt"), B("2 * (18 + 10)", "die Diagonalen addiert")], "cm²"))
 a3(T, "drachen_raute", Z(
-    "Eine Raute hat die Fläche 120 cm². Die eine Diagonale ist 24 cm lang. Ein Rechteck hat als Seitenlängen genau die beiden Diagonalen der Raute. Wie groß ist der Umfang des Rechtecks in Zentimetern?",
-    68, "2 * (24 + 2 * 120 / 24)", "2 * 34", "Berechne zuerst die andere Diagonale: zweimal die Fläche, geteilt durch die bekannte Diagonale. Dann bestimmst du den Umfang des Rechtecks.",
-    "Fläche der Raute: e · f : 2 = 120, also f = 2 · 120 : 24 = 10 cm. Das Rechteck hat die Seiten 24 cm und 10 cm. Umfang: 2 · (24 + 10) = 68 cm.",
+    "Eine Raute hat die Fläche 120 cm², eine ihrer Diagonalen ist 24 cm lang. Die Raute wird in ein Rechteck gezeichnet, dessen Seiten parallel zu den Diagonalen der Raute liegen und das alle vier Ecken der Raute berührt. Wie groß ist der Umfang dieses Rechtecks in Zentimetern?",
+    68, "2 * (24 + 2 * 120 / 24)", "2 * 34", "Berechne zuerst die andere Diagonale: zweimal die Fläche, geteilt durch die bekannte Diagonale. Die Seiten des Rechtecks sind so lang wie die beiden Diagonalen.",
+    "Fläche der Raute: e · f : 2 = 120, also f = 2 · 120 : 24 = 10 cm. Das Rechteck hat die Seitenlängen e = 24 cm und f = 10 cm. Umfang: 2 · (24 + 10) = 68 cm.",
     [B("2 * (24 + 120 / 24)", "die Fläche vor dem Teilen nicht verdoppelt"), B("24 + 2 * 120 / 24", "nur die halbe Summe der Seiten statt des Umfangs angegeben"), B("24 * 2 * 120 / 24", "die Fläche des Rechtecks statt des Umfangs angegeben")], "cm"), g="rueckwaerts")

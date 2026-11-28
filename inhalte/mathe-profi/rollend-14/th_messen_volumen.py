@@ -6,10 +6,10 @@ a1(T, "einheitswuerfel", Z(
     "Eine Schicht hat 5 · 4 = 20 Würfel. Es passen 3 Schichten hinein: 20 · 3 = 60 Würfel.",
     [B("5 * 4", "nur die unterste Schicht gezählt"), B("5 + 4 + 3", "die Kantenlängen addiert"), B("2 * (5 * 4 + 5 * 3 + 4 * 3)", "die Oberfläche statt der Würfelzahl berechnet")]))
 a2(T, "einheitswuerfel", Z(
-    "Sam baut eine Pyramide aus Würfeln mit 1 cm Kante: Die unterste Schicht ist 4 Würfel lang und 4 Würfel breit, die nächste Schicht 3 mal 3, dann 2 mal 2, und ganz oben liegt ein einzelner Würfel. Wie viele Würfel hat die Pyramide?",
-    30, "4 * 4 + 3 * 3 + 2 * 2 + 1", "16 + 9 + 4 + 1", "Wie viele Würfel hat jede Schicht? Addiere die vier Schichten.",
-    "Schicht 1: 4 · 4 = 16 Würfel. Schicht 2: 3 · 3 = 9 Würfel. Schicht 3: 2 · 2 = 4 Würfel. Schicht 4: 1 Würfel. Zusammen 16 + 9 + 4 + 1 = 30 Würfel.",
-    [B("4 * 4 * 4", "die Pyramide als Quader aus 4 · 4 · 4 Würfeln gezählt"), B("4 + 3 + 2 + 1", "nur die Würfel einer Seitenreihe addiert"), B("4 * 4 + 3 * 3 + 2 * 2", "den obersten Würfel vergessen")], "Würfel"))
+    "Aus Würfeln mit 1 cm Kante baut Sam ein Raumkreuz: In der Mitte liegt ein Würfel. An jeder der sechs Seiten dieses Würfels schließt sich ein Arm aus 3 Würfeln an, die in einer geraden Reihe nach außen liegen. Wie viele Würfel braucht Sam?",
+    19, "1 + 6 * 3", "3 * 2 * 3 + 1", "Wie viele Arme gibt es, und wie viele Würfel hat jeder Arm? Vergiss den Würfel in der Mitte nicht.",
+    "Es gibt 6 Arme mit je 3 Würfeln: 6 · 3 = 18 Würfel. Dazu kommt der Würfel in der Mitte: 18 + 1 = 19 Würfel.",
+    [B("6 * 3", "den Würfel in der Mitte vergessen"), B("6 * 4", "zu jedem Arm den Mittelwürfel dazugezählt"), B("1 + 4 * 3", "nur die vier Arme in einer Ebene gezählt")], "Würfel"))
 a3(T, "einheitswuerfel", Z(
     "Ein Quader besteht aus 5 · 4 · 3 kleinen Würfeln. Er wird außen ganz angemalt, auch unten. Wie viele kleine Würfel haben dann keine angemalte Fläche?",
     6, "(5 - 2) * (4 - 2) * (3 - 2)", "3 * 2 * 1", "Welche kleinen Würfel liegen ganz innen? Wie viele Schichten bleiben in jeder Richtung ohne die äußeren?",

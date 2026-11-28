@@ -725,22 +725,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 11,
+     "antwort": 25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die neuen Preise verglichen"
+     "beschreibung": "den Preis von Jacke A vor dem Rabatt mit Jacke B verglichen"
+    },
+    {
+     "antwort": 59,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rabatt statt des neuen Preises von Jacke A verglichen"
     },
     {
      "antwort": 120,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur den alten Preis von Jacke A angegeben"
-    },
-    {
-     "antwort": 19,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "30 € statt 30 % zum neuen Preis addiert"
     }
    ],
    "aufgabe": {
@@ -748,18 +748,18 @@
     "t": "rabatt_aufschlag",
     "p": "uebung",
     "s": 3,
-    "g": "rueckwaerts",
+    "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Alex vergleicht zwei Jacken. Jacke A kostet nach einem Rabatt von 30 % noch 84 €. Jacke B kostet 95 € ohne Rabatt. Um wie viel Euro war Jacke A vor dem Rabatt teurer als Jacke B?"
+     "text": "Alex vergleicht zwei Jacken. Bei Jacke A beträgt der Rabatt von 30 % genau 36 €. Jacke B kostet 95 € ohne Rabatt. Um wie viel Euro ist Jacke A nach dem Rabatt günstiger als Jacke B?"
     },
     "o": {
-     "wert": 25,
+     "wert": 11,
      "einheit": "€"
     },
-    "c": "84 * 100 / 70 - 95",
-    "h": "Wie teuer war Jacke A vor dem Rabatt? 84 € sind 70 % des alten Preises. Dann vergleichst du mit 95 €.",
-    "w": "84 € sind 100 % − 30 % = 70 % des alten Preises. 10 % sind 84 : 7 = 12 €, 100 % sind 120 €. Jacke A war 120 € teuer, Jacke B kostet 95 €: 120 − 95 = 25 €."
+    "c": "95 - (36 * 100 / 30 - 36)",
+    "h": "Die 36 € sind 30 % des alten Preises. Wie viel Euro sind 10 %, wie viel 100 %? Dann berechnest du den Preis nach dem Rabatt.",
+    "w": "30 % sind 36 €, also sind 10 % genau 12 € und 100 % genau 120 €. Jacke A kostet nach dem Rabatt 120 − 36 = 84 €. Jacke B kostet 95 €. Unterschied: 95 − 84 = 11 €."
    }
   },
   {
@@ -875,16 +875,16 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 70,
+     "antwort": 75,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Kims Prozentzahl als Ergebnis angegeben"
     },
     {
-     "antwort": 0.35,
+     "antwort": 35,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Anteil als Dezimalzahl statt der Prozentpunkte angegeben"
+     "beschreibung": "nur den richtigen Prozentsatz 35 % angegeben, ohne zu vergleichen"
     },
     {
      "antwort": 65,
@@ -901,15 +901,15 @@
     "g": "pruefung",
     "y": "zahl",
     "f": {
-     "text": "Kim behauptet: „Der Anteil 7/20 sind 70 %.“ Um wie viele Prozentpunkte ist Kims Angabe zu groß?"
+     "text": "Kim behauptet: „Der Anteil 7/20 sind 75 %.“ Um wie viele Prozentpunkte ist Kims Angabe zu groß?"
     },
     "o": {
-     "wert": 35,
+     "wert": 40,
      "einheit": "Prozentpunkte"
     },
-    "c": "70 - 7 * 100 / 20",
-    "h": "Rechne 7/20 in Prozent um: Erweitere auf den Nenner 100. Dann vergleichst du mit Kims 70 %.",
-    "w": "7/20 = 35/100 = 35 %. Kim hat 70 % gesagt, das sind 70 − 35 = 35 Prozentpunkte zu viel. (Kim hat den Zähler 7 mit 10 malgenommen statt den Bruch auf Hundertstel zu erweitern.)"
+    "c": "75 - 7 * 100 / 20",
+    "h": "Rechne 7/20 in Prozent um: Erweitere auf den Nenner 100. Dann vergleichst du mit Kims 75 %.",
+    "w": "7/20 = 35/100 = 35 %. Kim hat 75 % gesagt, das sind 75 − 35 = 40 Prozentpunkte zu viel."
    }
   }
  ]

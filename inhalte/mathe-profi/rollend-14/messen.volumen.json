@@ -74,22 +74,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 64,
+     "antwort": 18,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Pyramide als Quader aus 4 · 4 · 4 Würfeln gezählt"
+     "beschreibung": "den Würfel in der Mitte vergessen"
     },
     {
-     "antwort": 10,
+     "antwort": 24,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Würfel einer Seitenreihe addiert"
+     "beschreibung": "zu jedem Arm den Mittelwürfel dazugezählt"
     },
     {
-     "antwort": 29,
+     "antwort": 13,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den obersten Würfel vergessen"
+     "beschreibung": "nur die vier Arme in einer Ebene gezählt"
     }
    ],
    "aufgabe": {
@@ -100,15 +100,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Sam baut eine Pyramide aus Würfeln mit 1 cm Kante: Die unterste Schicht ist 4 Würfel lang und 4 Würfel breit, die nächste Schicht 3 mal 3, dann 2 mal 2, und ganz oben liegt ein einzelner Würfel. Wie viele Würfel hat die Pyramide?"
+     "text": "Aus Würfeln mit 1 cm Kante baut Sam ein Raumkreuz: In der Mitte liegt ein Würfel. An jeder der sechs Seiten dieses Würfels schließt sich ein Arm aus 3 Würfeln an, die in einer geraden Reihe nach außen liegen. Wie viele Würfel braucht Sam?"
     },
     "o": {
-     "wert": 30,
+     "wert": 19,
      "einheit": "Würfel"
     },
-    "c": "4 * 4 + 3 * 3 + 2 * 2 + 1",
-    "h": "Wie viele Würfel hat jede Schicht? Addiere die vier Schichten.",
-    "w": "Schicht 1: 4 · 4 = 16 Würfel. Schicht 2: 3 · 3 = 9 Würfel. Schicht 3: 2 · 2 = 4 Würfel. Schicht 4: 1 Würfel. Zusammen 16 + 9 + 4 + 1 = 30 Würfel."
+    "c": "1 + 6 * 3",
+    "h": "Wie viele Arme gibt es, und wie viele Würfel hat jeder Arm? Vergiss den Würfel in der Mitte nicht.",
+    "w": "Es gibt 6 Arme mit je 3 Würfeln: 6 · 3 = 18 Würfel. Dazu kommt der Würfel in der Mitte: 18 + 1 = 19 Würfel."
    }
   },
   {

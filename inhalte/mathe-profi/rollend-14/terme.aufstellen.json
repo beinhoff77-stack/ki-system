@@ -423,19 +423,19 @@
      "antwort": 20,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Rest 60 nur durch 3 geteilt"
+     "beschreibung": "vom Umfang 70 nur 10 abgezogen und den Rest 60 durch 3 statt durch 6 geteilt"
     },
     {
      "antwort": 60,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Rest 60 als Breite angegeben"
+     "beschreibung": "vom Umfang 70 nur 10 abgezogen und den Rest 60 als Breite angegeben"
     },
     {
      "antwort": 30,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "vom halben Umfang nur 5 abgezogen"
+     "beschreibung": "vom halben Umfang 35 nur 5 abgezogen und den Rest 30 als Breite angegeben"
     }
    ],
    "aufgabe": {
@@ -620,22 +620,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 48,
+     "antwort": 100,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "vier Seiten zu je 12 Plättchen gezählt, die Ecken doppelt"
+     "beschreibung": "ein Quadrat aus 10 mal 10 Plättchen gerechnet"
     },
     {
-     "antwort": 144,
+     "antwort": 110,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das ganze Quadrat statt nur des Rands gezählt"
+     "beschreibung": "die Summe nicht halbiert"
     },
     {
-     "antwort": 56,
+     "antwort": 45,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "von Figur 3 an noch 12-mal 4 dazugezählt"
+     "beschreibung": "die letzte Reihe mit 10 Plättchen vergessen"
     }
    ],
    "aufgabe": {
@@ -646,15 +646,15 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Quadratische Rahmen aus Plättchen: Figur 3 (3 mal 3) hat 8 Plättchen, Figur 4 hat 12 Plättchen, Figur 5 hat 16 Plättchen. Nur der Rand wird gelegt. Wie viele Plättchen hat Figur 12?"
+     "text": "Plättchen werden zu Dreiecken gelegt: Figur 1 hat 1 Plättchen, Figur 2 hat 3 Plättchen, Figur 3 hat 6 Plättchen, Figur 4 hat 10 Plättchen. Von Figur zu Figur kommt unten eine neue Reihe mit einem Plättchen mehr dazu. Wie viele Plättchen hat Figur 10?"
     },
     "o": {
-     "wert": 44,
+     "wert": 55,
      "einheit": "Plättchen"
     },
-    "c": "4 * 12 - 4",
-    "h": "Um wie viele Plättchen wird es von Figur zu Figur mehr? Prüfe deinen Term mit Figur 3.",
-    "w": "Es kommen immer 4 Plättchen dazu. Der Term ist 4n − 4. Probe: n = 3 gibt 8, n = 4 gibt 12, n = 5 gibt 16. Für n = 12: 4 · 12 − 4 = 44 Plättchen."
+    "c": "10 * 11 / 2",
+    "h": "Wie viele Plättchen kommen von Figur zu Figur dazu? Figur 10 besteht aus Reihen mit 1, 2, 3, … Plättchen.",
+    "w": "Figur n besteht aus Reihen mit 1, 2, 3, …, n Plättchen. Probe: Figur 4 hat 1 + 2 + 3 + 4 = 10. Figur 10 hat 1 + 2 + … + 10 = 55 Plättchen (zehn Reihen, paarweise 1 + 10, 2 + 9, … ergeben je 11, fünfmal)."
    }
   },
   {

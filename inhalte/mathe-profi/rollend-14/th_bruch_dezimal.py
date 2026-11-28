@@ -113,10 +113,10 @@ a3(T, "periodisch", Z(
     [B("25 // 2 + 1", "die Ziffer 2 gezählt, die an 13 Stellen steht"), B("25", "alle 25 Stellen gezählt"), B("25 // 2 * 2", "bei jeder der 12 Wiederholungen beide Ziffern gezählt")]), g="transfer")
 # ───────── verstehen ─────────
 a1(T, "verstehen", Z(
-    "Sam schätzt 4,98 · 2,02, indem er beide Zahlen auf ganze Zahlen rundet. Er behauptet: „Der Überschlag ist größer als das genaue Ergebnis.“ Prüfe das nach: Um wie viele Zehntausendstel unterscheiden sich der Überschlag und das genaue Ergebnis?",
-    596, "498 * 202 - 100000", "100596 - 100000", "Berechne den Überschlag 5 · 2. Rechne das genaue Ergebnis ohne Komma als 498 · 202. Wie viele Zehntausendstel liegen dazwischen?",
-    "Überschlag: 5 · 2 = 10 = 100 000 Zehntausendstel. Genau: 4,98 · 2,02 = 10,0596 = 100 596 Zehntausendstel. Der Überschlag ist kleiner als das genaue Ergebnis, Sams Behauptung stimmt also nicht. Unterschied: 100 596 − 100 000 = 596 Zehntausendstel.",
-    [B("498 * 202", "das genaue Ergebnis in Zehntausendsteln statt den Unterschied angegeben"), B("(498 * 202 - 100000) / 100", "den Unterschied in Hundertsteln statt in Zehntausendsteln angegeben"), B("600", "den Unterschied auf 0,06 gerundet und in Zehntausendstel umgerechnet")], "Zehntausendstel"))
+    "Sam schätzt 4,98 · 2,02, indem er beide Zahlen auf ganze Zahlen rundet. Er behauptet: „Der Überschlag ist größer als das genaue Ergebnis.“ Prüfe das nach: Um wie viel unterscheiden sich der Überschlag und das genaue Ergebnis? Gib den Unterschied als Dezimalzahl an.",
+    0.0596, "(498 * 202 - 100000) / 10000", "100596 / 10000 - 10", "Berechne den Überschlag 5 · 2. Rechne das genaue Ergebnis ohne Komma als 498 · 202 und setze das Komma wieder ein: vier Nachkommastellen.",
+    "Überschlag: 5 · 2 = 10. Genau: 4,98 · 2,02 = 10,0596. Der Überschlag ist kleiner als das genaue Ergebnis, Sams Behauptung stimmt also nicht. Unterschied: 10,0596 − 10 = 0,0596.",
+    [B("498 * 202 / 10000", "das genaue Ergebnis statt des Unterschieds angegeben"), B("(498 * 202 - 100000) / 100000", "das Komma um eine Stelle falsch gesetzt"), B("round((498 * 202 - 100000) / 10000 * 100) / 100", "den Unterschied auf Hundertstel gerundet")]))
 a2(T, "verstehen", Z(
     "Auf einem Zahlenstrahl liegt der Punkt A bei 4,35 und der Punkt B bei 4,47. M ist der Mittelpunkt der Strecke AB. Wie viele Zahlen mit genau zwei Nachkommastellen liegen zwischen M und B? M und B zählen nicht mit.",
     5, "447 - 441 - 1", "46 - 42 + 1", "Wie weit liegen A und B auseinander? Wo liegt M? Zähle die Hundertstel zwischen M und B.",

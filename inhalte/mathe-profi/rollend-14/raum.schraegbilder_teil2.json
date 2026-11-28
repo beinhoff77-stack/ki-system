@@ -472,22 +472,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "so viele Ebenen wie Flächen gezählt"
+    },
+    {
      "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Ebene in halber Höhe vergessen"
+     "beschreibung": "nur die Ebenen durch die Kanten einer Fläche gezählt"
     },
     {
-     "antwort": 9,
+     "antwort": 12,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "wie beim Würfel gezählt"
-    },
-    {
-     "antwort": 5,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "wie bei einem Prisma über einem Quadrat gezählt"
+     "beschreibung": "jede Ebene doppelt gezählt"
     }
    ],
    "aufgabe": {
@@ -498,14 +498,14 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Schmuckkästchen ist ein gerades Prisma. Seine Grundfläche ist ein gleichseitiges Dreieck, die Höhe ist größer als die Seite des Dreiecks. Wie viele Symmetrieebenen hat das Kästchen?"
+     "text": "Ein Bastelmodell hat die Form eines regelmäßigen Tetraeders: Es besteht aus vier gleich großen gleichseitigen Dreiecken. Wie viele Symmetrieebenen hat das Modell?"
     },
     "o": {
-     "wert": 4
+     "wert": 6
     },
-    "c": "3 + 1",
-    "h": "Zähle erst die Ebenen, die die Höhe enthalten (Symmetrieachsen des Dreiecks). Dann die Ebene parallel zur Grundfläche.",
-    "w": "Ebenen durch die Höhe: Sie entsprechen den 3 Symmetrieachsen des gleichseitigen Dreiecks. Dazu kommt die Ebene in halber Höhe, parallel zur Grundfläche. Zusammen 3 + 1 = 4 Symmetrieebenen."
+    "c": "6",
+    "h": "Jede Symmetrieebene enthält eine Kante und halbiert die gegenüberliegende Kante. Wie viele Kanten hat das Tetraeder?",
+    "w": "Das Tetraeder hat 6 Kanten. Durch jede Kante geht genau eine Symmetrieebene, die die gegenüberliegende Kante in der Mitte schneidet. Also gibt es 6 Symmetrieebenen."
    }
   },
   {

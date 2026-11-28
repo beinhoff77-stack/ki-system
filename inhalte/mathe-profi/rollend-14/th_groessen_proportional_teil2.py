@@ -1,7 +1,7 @@
 T = "groessen.proportional_teil2"
 # ───────── erkennen ─────────
 a1(T, "erkennen", Z(
-    "Ein Aufzug fährt gleichmäßig schnell. In 4 Sekunden fährt er 10 m. Wie viele Meter fährt er in 10 Sekunden?",
+    "Ein Aufzug legt in 4 Sekunden 10 m zurück. Kim rechnet damit, dass er in der gleichen Weise weiterfährt. Wie viele Meter fährt er in 10 Sekunden?",
     25, "10 / 4 * 10", "10 * 2.5", "Proportional heißt: Zur doppelten Zeit gehört die doppelte Strecke. Wie weit fährt der Aufzug in 1 Sekunde?",
     "In 1 Sekunde fährt er 10 : 4 = 2,5 m. In 10 Sekunden fährt er 10 · 2,5 = 25 m. Probe: In 8 Sekunden wären es 20 m, dazu noch 2 Sekunden mit 5 m.",
     [B("10 + (10 - 4)", "die Sekunden dazugezählt: 6 Sekunden mehr, also 6 Meter mehr"), B("10 / 4", "nur die Strecke in einer Sekunde angegeben"), B("10 * 10", "die Strecke mit der Zeit malgenommen")], "m"))

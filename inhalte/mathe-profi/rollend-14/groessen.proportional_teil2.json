@@ -51,7 +51,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Aufzug fährt gleichmäßig schnell. In 4 Sekunden fährt er 10 m. Wie viele Meter fährt er in 10 Sekunden?"
+     "text": "Ein Aufzug legt in 4 Sekunden 10 m zurück. Kim rechnet damit, dass er in der gleichen Weise weiterfährt. Wie viele Meter fährt er in 10 Sekunden?"
     },
     "o": {
      "wert": 25,

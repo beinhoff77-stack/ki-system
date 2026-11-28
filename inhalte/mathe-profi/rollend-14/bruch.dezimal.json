@@ -1069,22 +1069,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 100596,
+     "antwort": 10.0596,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das genaue Ergebnis in Zehntausendsteln statt den Unterschied angegeben"
+     "beschreibung": "das genaue Ergebnis statt des Unterschieds angegeben"
     },
     {
-     "antwort": 5.96,
+     "antwort": 0.00596,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Unterschied in Hundertsteln statt in Zehntausendsteln angegeben"
+     "beschreibung": "das Komma um eine Stelle falsch gesetzt"
     },
     {
-     "antwort": 600,
+     "antwort": 0.06,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Unterschied auf 0,06 gerundet und in Zehntausendstel umgerechnet"
+     "beschreibung": "den Unterschied auf Hundertstel gerundet"
     }
    ],
    "aufgabe": {
@@ -1095,15 +1095,14 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Sam schätzt 4,98 · 2,02, indem er beide Zahlen auf ganze Zahlen rundet. Er behauptet: „Der Überschlag ist größer als das genaue Ergebnis.“ Prüfe das nach: Um wie viele Zehntausendstel unterscheiden sich der Überschlag und das genaue Ergebnis?"
+     "text": "Sam schätzt 4,98 · 2,02, indem er beide Zahlen auf ganze Zahlen rundet. Er behauptet: „Der Überschlag ist größer als das genaue Ergebnis.“ Prüfe das nach: Um wie viel unterscheiden sich der Überschlag und das genaue Ergebnis? Gib den Unterschied als Dezimalzahl an."
     },
     "o": {
-     "wert": 596,
-     "einheit": "Zehntausendstel"
+     "wert": 0.0596
     },
-    "c": "498 * 202 - 100000",
-    "h": "Berechne den Überschlag 5 · 2. Rechne das genaue Ergebnis ohne Komma als 498 · 202. Wie viele Zehntausendstel liegen dazwischen?",
-    "w": "Überschlag: 5 · 2 = 10 = 100 000 Zehntausendstel. Genau: 4,98 · 2,02 = 10,0596 = 100 596 Zehntausendstel. Der Überschlag ist kleiner als das genaue Ergebnis, Sams Behauptung stimmt also nicht. Unterschied: 100 596 − 100 000 = 596 Zehntausendstel."
+    "c": "(498 * 202 - 100000) / 10000",
+    "h": "Berechne den Überschlag 5 · 2. Rechne das genaue Ergebnis ohne Komma als 498 · 202 und setze das Komma wieder ein: vier Nachkommastellen.",
+    "w": "Überschlag: 5 · 2 = 10. Genau: 4,98 · 2,02 = 10,0596. Der Überschlag ist kleiner als das genaue Ergebnis, Sams Behauptung stimmt also nicht. Unterschied: 10,0596 − 10 = 0,0596."
    }
   },
   {

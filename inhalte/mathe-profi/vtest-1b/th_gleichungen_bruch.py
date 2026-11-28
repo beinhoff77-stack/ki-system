@@ -31,10 +31,10 @@ IDEEN[(T, "verhaeltnis")] = ['modell_aufstellen', 'modell_aufstellen', 'darstell
 # ───────── definitionsmenge ─────────
 neu(T, "definitionsmenge", "test", "begruenden", W(
     "Beim Lösen von 3/(x − 2) = 1/(x − 2) + 2/(x − 2) multipliziert Jan beide Seiten mit (x − 2) und erhält 3 = 1 + 2. Er sagt: „Jetzt stehen keine Nenner mehr da, also gibt es keine Einschränkung: Alle Zahlen sind Lösung.“ Welche Aussage ist richtig?",
-    "Die Definitionsmenge gilt für die Ausgangsgleichung: x = 2 ist ausgeschlossen. Für alle anderen Zahlen ist die Gleichung wahr, also L = ℚ \\ {2}.",
-    [("Alle Zahlen sind Lösung, also L = ℚ, denn 3 = 1 + 2 ist eine wahre Aussage.", "die Einschränkung aus der Ausgangsgleichung vergessen, weil nach dem Malnehmen keine Nenner mehr stehen; für x = 2 ist die Ausgangsgleichung nicht definiert"),
-     ("Es gibt keine Lösung, also L = { }, denn in 3 = 1 + 2 kommt kein x mehr vor.", "die wahre Aussage 3 = 1 + 2 als „keine Lösung“ gedeutet; eine immer wahre Aussage heißt: jede Zahl aus D ist Lösung"),
-     ("Nur x = 2 ist Lösung, denn nur dort haben alle drei Brüche denselben Nenner.", "die verbotene Zahl 2 zur Lösung gemacht; bei x = 2 ist der Nenner 0 und die Gleichung nicht definiert")],
+    "x = 2 ist ausgeschlossen, für alle anderen Zahlen ist die Gleichung wahr: L = ℚ \\ {2}.",
+    [("Alle Zahlen sind Lösung, also L = ℚ, denn 3 = 1 + 2 ist eine wahre Aussage für jedes x.", "die Einschränkung aus der Ausgangsgleichung vergessen, weil nach dem Malnehmen keine Nenner mehr stehen; für x = 2 ist die Ausgangsgleichung nicht definiert"),
+     ("Es gibt keine Lösung, also L = { }, denn in 3 = 1 + 2 kommt kein x mehr vor und nichts lässt sich einsetzen.", "die wahre Aussage 3 = 1 + 2 als „keine Lösung“ gedeutet; eine immer wahre Aussage heißt: jede Zahl aus D ist Lösung"),
+     ("Nur x = 2 ist Lösung, denn nur dort sind die drei Nenner gleich und die Brüche damit vergleichbar.", "die verbotene Zahl 2 zur Lösung gemacht; bei x = 2 ist der Nenner 0 und die Gleichung nicht definiert")],
     "Die Definitionsmenge bestimmt man an der Ausgangsgleichung: Der Nenner x − 2 darf nicht 0 werden, also D = ℚ \\ {2}. Nach dem Malnehmen mit (x − 2) steht 3 = 1 + 2, eine für jedes x wahre Aussage. "
     "Also ist jede Zahl aus D eine Lösung, die Zahl 2 aber nicht, weil die Brüche für x = 2 nicht definiert sind: L = ℚ \\ {2}.",
     lambda: all(bruch_gl("F(3)/(x-2)", "F(1)/(x-2) + F(2)/(x-2)", x) is not None and bruch_gl("F(3)/(x-2)", "F(1)/(x-2) + F(2)/(x-2)", x)[0] == bruch_gl("F(3)/(x-2)", "F(1)/(x-2) + F(2)/(x-2)", x)[1] for x in range(-9, 10) if x != 2) and bruch_gl("F(3)/(x-2)", "F(1)/(x-2)", 2) is None), lp=LP)
@@ -114,7 +114,7 @@ neu(T, "ueber_kreuz", "korrektur", "darstellung", W(
     lambda: 4 * (2 + 3) - 7 * (2 - 1) == F(4, 2 - 1) * (2 - 1) * (2 + 3) - F(7, 2 + 3) * (2 + 3) * (2 - 1)), form="bruecke", lp=LP)
 neu(T, "ueber_kreuz", "sicherung", "mehrschritt", W(
     "Zwei Kinder lösen 2/(x − 1) = 3/(x + 4). Kim multipliziert über Kreuz. Jo multipliziert beide Seiten mit dem Produkt der Nenner, also mit (x − 1)(x + 4), und kürzt. Welche Aussage stimmt?",
-    "Beide erhalten dieselbe Gleichung 2(x + 4) = 3(x − 1) und damit x = 11; über Kreuz ist eine Abkürzung für das Malnehmen mit beiden Nennern.",
+    "Beide erhalten 2(x + 4) = 3(x − 1) und damit x = 11; über Kreuz ist eine Abkürzung dafür.",
     [("Die Wege liefern verschiedene Gleichungen; Jo erhält 2(x − 1) = 3(x + 4) und damit x = −14.", "Jos Weg falsch gedeutet: Beim Malnehmen mit (x − 1)(x + 4) kürzt sich links x − 1 weg, es bleibt 2(x + 4), nicht 2(x − 1)"),
      ("Jos Weg ist nicht erlaubt, weil man nie mit zwei Nennern zugleich malnehmen darf; nur Kim erhält x = 11.", "geglaubt, das Malnehmen mit dem Produkt der Nenner sei verboten; es ist eine Äquivalenzumformung, solange der Faktor nicht 0 ist"),
      ("Beide erhalten dieselbe Gleichung 2(x + 4) = 3(x − 1) und damit x = −11.", "die Gleichung richtig aufgestellt, aber falsch gelöst: 2x + 8 = 3x − 3 gibt x = 11, nicht −11")],
@@ -151,16 +151,16 @@ neu(T, "ueber_kreuz", "sicherung", "parameter", Z(
 # ───────── scheinloesung ─────────
 neu(T, "scheinloesung", "test", "begruenden", W(
     "Kim löst (x + 2)/(x − 5) = 7/(x − 5). Sie multipliziert mit (x − 5), erhält x + 2 = 7 und damit x = 5. Zur Probe setzt sie x = 5 ein: „7/0 = 7/0, das stimmt also: L = {5}.“ Welche Aussage ist richtig?",
-    "L = { }: Bei x = 5 ist der Nenner 0, beide Seiten sind gar nicht definiert. „7/0 = 7/0“ ist deshalb keine wahre Aussage, und 5 ist eine Scheinlösung.",
-    [("L = {5}, denn auf beiden Seiten steht bei x = 5 dasselbe.", "gleiches Aussehen mit „stimmt“ verwechselt; durch 0 darf man nicht teilen, die Aussage 7/0 = 7/0 hat keinen Wert"),
-     ("L = ℚ \\ {5}, denn ohne die 5 sind beide Seiten für jede Zahl gleich.", "gedacht, die Gleichung gelte für alle zugelassenen Zahlen; für x ≠ 5 ist x + 2 = 7 falsch, also sind die Seiten verschieden"),
-     ("L = {5}, denn 7 : 0 ist 0, und 0 = 0 stimmt.", "7 : 0 mit 0 gleichgesetzt; die Division durch 0 ist nicht erklärt")],
+    "L = { }: Bei x = 5 ist der Nenner 0, also ist 5 eine Scheinlösung.",
+    [("L = {5}, denn auf beiden Seiten steht bei x = 5 dasselbe, nämlich 7/0.", "gleiches Aussehen mit „stimmt“ verwechselt; durch 0 darf man nicht teilen, die Aussage 7/0 = 7/0 hat keinen Wert"),
+     ("L = ℚ \\ {5}, denn ohne die 5 sind beide Seiten für jede andere Zahl gleich.", "gedacht, die Gleichung gelte für alle zugelassenen Zahlen; für x ≠ 5 ist x + 2 = 7 falsch, also sind die Seiten verschieden"),
+     ("L = {5}, denn 7 : 0 ist 0, und 0 = 0 stimmt, die Probe geht also auf.", "7 : 0 mit 0 gleichgesetzt; die Division durch 0 ist nicht erklärt")],
     "Die Definitionsmenge ist D = ℚ \\ {5}, weil der Nenner x − 5 nicht 0 werden darf. Die Umformung liefert x = 5, aber 5 gehört nicht zu D. Für x = 5 sind beide Seiten nicht definiert, es gibt keine wahre Aussage. "
     "Für jedes x ≠ 5 ist die Gleichung gleichwertig zu x + 2 = 7, also falsch. Damit ist L = { }, und x = 5 ist eine Scheinlösung.",
     lambda: all(bruch_gl("(x+2)/(x-5)", "F(7)/(x-5)", x)[0] != bruch_gl("(x+2)/(x-5)", "F(7)/(x-5)", x)[1] for x in range(-20, 21) if x != 5) and bruch_gl("(x+2)/(x-5)", "F(7)/(x-5)", 5) is None), lp=LP)
 neu(T, "scheinloesung", "korrektur", "darstellung", W(
     "Eine Bruchgleichung hat die Definitionsmenge ℚ \\ {−2; 3}. Nach dem Multiplizieren mit den Nennern und Umformen steht da 5x = 15. Welche Aussage über die Lösungsmenge L ist richtig?",
-    "L = { }, denn x = 3 gehört nicht zur Definitionsmenge (Scheinlösung).",
+    "L = { }, denn x = 3 gehört nicht zur Definitionsmenge.",
     [("L = {3}, denn 5x = 15 ergibt x = 3.", "die Rechnung als Ergebnis genommen, ohne mit D zu vergleichen; 3 ist ausgeschlossen"),
      ("L = {−2; 3}, denn das sind die besonderen Zahlen der Gleichung.", "die ausgeschlossenen Zahlen als Lösungen angegeben; sie sind gerade keine Lösungen"),
      ("L = {5}, denn 15 : 3 = 5.", "5x = 15 als 15 : 3 gelesen; durch 5 teilen gibt x = 3")],

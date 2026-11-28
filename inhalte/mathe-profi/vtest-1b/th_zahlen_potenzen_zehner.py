@@ -36,10 +36,10 @@ neu(T, "gross_wissenschaftlich", "sicherung", "transfer", Z(
      B("14", "eine Ziffer zu viel gezählt")], einheit="Ziffern"), form="anwenden", lp=LP)
 neu(T, "gross_wissenschaftlich", "sicherung", "begruenden", W(
     "Warum ist 0,5 · 10⁸ keine wissenschaftliche Schreibweise der Zahl 50 000 000?",
-    "Der Vorfaktor 0,5 ist kleiner als 1; wissenschaftlich muss er mindestens 1 und kleiner als 10 sein, also 5 · 10⁷.",
+    "Der Vorfaktor 0,5 ist kleiner als 1, wissenschaftlich wäre 5 · 10⁷.",
     [("Der Exponent 8 ist zu groß; man darf höchstens 10⁷ verwenden.", "eine Höchstgrenze für den Exponenten erfunden; Exponenten dürfen beliebig groß sein"),
      ("0,5 · 10⁸ ist eine andere Zahl als 50 000 000; richtig wäre 0,05 · 10⁸.", "den Wert falsch gerechnet: 0,5 · 10⁸ ist bereits 50 000 000, nur der Vorfaktor passt nicht"),
-     ("Der Vorfaktor muss eine ganze Zahl sein; 0,5 ist keine.", "verlangt, dass der Vorfaktor ganzzahlig ist; auch Dezimalzahlen zwischen 1 und 10 sind erlaubt")],
+     ("Der Vorfaktor muss eine ganze Zahl sein; 0,5 ist keine ganze Zahl.", "verlangt, dass der Vorfaktor ganzzahlig ist; auch Dezimalzahlen zwischen 1 und 10 sind erlaubt")],
     "0,5 · 10⁸ = 50 000 000 ist richtig als Wert. Es fehlt nur die Bedingung 1 ≤ a < 10: 0,5 ist kleiner als 1. Man verschiebt das Komma um eine Stelle nach rechts und verkleinert den Exponenten: 5 · 10⁷ = 50 000 000.",
     lambda: 0.5 * 10 ** 8 == 5 * 10 ** 7 == 50000000 and not 1 <= 0.5 < 10 and 1 <= 5 < 10 and 1 <= 2.5 < 10), lp=LP)
 neu(T, "gross_wissenschaftlich", "sicherung", "umkehr", Z(
@@ -59,7 +59,7 @@ neu(T, "gross_wissenschaftlich", "korrektur", "darstellung", Z(
 # ───────── negativer_exponent ─────────
 neu(T, "negativer_exponent", "test", "begruenden", W(
     "Ein Datenblatt nennt den Wert 10⁻³. Welche Deutung dieser Zehnerpotenz stimmt?",
-    "10⁻³ = 1/1000 = 0,001: Die 1 steht an der dritten Stelle nach dem Komma.",
+    "10⁻³ = 0,001: Die 1 steht an der dritten Stelle nach dem Komma.",
     [("10⁻³ = −1000, denn das Minus im Exponenten macht die Zahl negativ.", "das Minus im Exponenten auf den Wert übertragen"),
      ("10⁻³ = 0,0001, denn hinter dem Komma stehen drei Nullen.", "die Nullen statt der Stelle der 1 gezählt; es sind zwei Nullen vor der 1"),
      ("10⁻³ = 0,03, denn man teilt 10 durch die Hochzahl 3 mal 10.", "10 mit dem Exponenten 3 zu 0,03 verrechnet statt dreimal durch 10 zu teilen")],
@@ -109,10 +109,10 @@ neu(T, "negativer_exponent", "sicherung", "darstellung", W(
 # ───────── vorsilben_klein ─────────
 neu(T, "vorsilben_klein", "test", "begruenden", W(
     "Wie verhalten sich ein Millimeter (mm) und ein Mikrometer (µm) zueinander?",
-    "1 mm = 1000 µm, denn Milli steht für 10⁻³ und Mikro für 10⁻⁶; 10⁻³ ist 1000-mal so groß wie 10⁻⁶.",
-    [("1 µm = 1000 mm, denn Mikro ist die größere Vorsilbe.", "Mikro für größer gehalten; Mikro (10⁻⁶) ist kleiner als Milli (10⁻³)"),
+    "1 mm = 1000 µm, denn 10⁻³ ist 1000-mal so groß wie 10⁻⁶.",
+    [("1 µm = 1000 mm, denn Mikro ist die größere Vorsilbe von beiden.", "Mikro für größer gehalten; Mikro (10⁻⁶) ist kleiner als Milli (10⁻³)"),
      ("1 mm = 100 µm, denn zwischen beiden liegen zwei Stellen.", "die Vorsilben nicht als 10⁻³ und 10⁻⁶ gelesen; der Abstand der Exponenten ist 3, nicht 2"),
-     ("1 mm = 10⁶ µm, denn Mikro steht für Millionen.", "Mikro mit Mega verwechselt; Mikro (µ) steht für den Millionstel Teil")],
+     ("1 mm = 10⁶ µm, denn Mikro steht für Millionen von Millimetern.", "Mikro mit Mega verwechselt; Mikro (µ) steht für den Millionstel Teil")],
     "Milli bedeutet 10⁻³ (ein Tausendstel), Mikro bedeutet 10⁻⁶ (ein Millionstel). Es gilt 10⁻³ : 10⁻⁶ = 10³ = 1000. Also sind 1 mm = 1000 µm.",
     lambda: F(10) ** -3 / F(10) ** -6 == 1000 and F(10) ** -6 < F(10) ** -3 and F(10) ** -3 / F(10) ** -6 != 100 and F(10) ** -3 / F(10) ** -6 != 10 ** 6), lp=LP)
 neu(T, "vorsilben_klein", "korrektur", "darstellung", Z(

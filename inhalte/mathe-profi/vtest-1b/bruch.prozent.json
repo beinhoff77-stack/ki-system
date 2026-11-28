@@ -671,7 +671,7 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Alle Waren werden um 92 % billiger.",
+     "antwort": "Alle Waren werden um 92 % billiger, also fast gratis.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Faktor als Rabatt gelesen: 0,92 sind 92 % des Preises, die man noch zahlt, nicht der Rabatt"
@@ -702,10 +702,10 @@
      "text": "Ein Händler schreibt auf ein Plakat: „Alle Preise werden mit dem Faktor 0,92 malgenommen.“ Was bedeutet das für die Kunden?"
     },
     "a": [
-     "Alle Waren werden um 92 % billiger.",
+     "Alle Waren werden um 92 % billiger, also fast gratis.",
      "Alle Waren werden um 8 % teurer.",
      "Von jedem Preis werden 0,92 € abgezogen.",
-     "Alle Waren werden um 8 % billiger (92 % des alten Preises)."
+     "Alle Waren werden um 8 % billiger."
     ],
     "o": {
      "index": 3
@@ -873,7 +873,7 @@
     },
     "a": [
      "Die Preise bei Händler B sind 50 % höher als bei A.",
-     "Die Preise bei Händler B sind 100 % höher als bei A (B verlangt das Doppelte).",
+     "Die Preise bei Händler B sind 100 % höher als bei A.",
      "Die Preise bei Händler B sind 150 % höher als bei A.",
      "Die Preise bei Händler B sind 200 % höher als bei A."
     ],

@@ -7,7 +7,7 @@ IDEEN[(T, "fehler_finden")] = ['fehler_finden_richtigstellen', 'groessenvergleic
 # ───────── negativer_exponent ─────────
 neu(T, "negativer_exponent", "test", "begruenden", W(
     "Ein Kind setzt die Reihe 2³ = 8, 2² = 4, 2¹ = 2, 2⁰ = 1 nach rechts fort. Welche Aussage über die nächsten Werte 2⁻¹ und 2⁻² ist richtig?",
-    "2⁻¹ = 1/2 und 2⁻² = 1/4, denn bei jedem Schritt nach rechts wird der Wert halbiert.",
+    "2⁻¹ = 1/2 und 2⁻² = 1/4, denn es wird jedes Mal halbiert.",
     [("2⁻¹ = −2 und 2⁻² = −4, denn ein negativer Exponent macht die Zahl negativ.", "das Minus im Exponenten auf den Wert übertragen; es führt nur im Muster weiter nach rechts, der Wert bleibt positiv"),
      ("2⁻¹ = 0 und 2⁻² = −1, denn bei jedem Schritt wird 1 abgezogen.", "das Muster mit Minus 1 statt durch 2 fortgesetzt: 1 − 1 = 0"),
      ("2⁻¹ = 1/2 und 2⁻² = 1/3, denn die Nenner werden bei jedem Schritt um 1 größer.", "den Nenner additiv fortgesetzt (2, 3) statt zu verdoppeln (2, 4)")],
@@ -63,10 +63,10 @@ neu(T, "fehler_finden", "test", "fehler", L(
     {0: [(3, "die letzte Zeile genannt, weil das Ergebnis falsch aussieht", "3")], 1: [(6, "Basis mal Exponent als Nenner genommen: 3 · 2", "3 * 2"), (-9, "dem Nenner das Minus aus dem Exponenten gegeben: −3²", "0 - 3 ** 2"), (3, "nur die Basis 3 als Nenner genommen", "3")]}), form="fehler_detektiv", lp=LP)
 neu(T, "fehler_finden", "korrektur", "darstellung", W(
     "Ein Kind behauptet: „(−3)² und −3² sind dasselbe, weil ja beide Male die 3 zweimal vorkommt.“ Welche Aussage über die beiden Werte ist richtig?",
-    "(−3)² = 9 und −3² = −9; sie sind verschieden, denn im ersten Fall wird die Klammer mit −3 zweimal malgenommen, im zweiten nur die 3 und dann das Minus davorgesetzt.",
-    [("(−3)² = −9 und −3² = −9; sie sind gleich, denn minus mal minus bleibt minus.", "minus mal minus als minus gerechnet und (−3) · (−3) = −9 behauptet"),
-     ("(−3)² = 9 und −3² = 9; sie sind gleich, denn das Quadrat macht jede Zahl positiv.", "das Quadrat auch auf das Minus vor der 3 bezogen, obwohl ohne Klammer nur die 3 zum Quadrat genommen wird"),
-     ("(−3)² = −6 und −3² = −6; sie sind gleich, denn 3 mal 2 ist 6 und das Minus bleibt.", "Potenz als Mal gedeutet: 3 · 2 = 6")],
+    "(−3)² = 9 und −3² = −9; sie sind verschieden, denn bei (−3)² gehört das Minus mit zur Potenz.",
+    [("(−3)² = −9 und −3² = −9; sie sind gleich, denn minus mal minus bleibt minus, das Vorzeichen ändert sich nie.", "minus mal minus als minus gerechnet und (−3) · (−3) = −9 behauptet"),
+     ("(−3)² = 9 und −3² = 9; sie sind gleich, denn das Quadrat macht jede Zahl positiv, auch mit dem Minus davor.", "das Quadrat auch auf das Minus vor der 3 bezogen, obwohl ohne Klammer nur die 3 zum Quadrat genommen wird"),
+     ("(−3)² = −6 und −3² = −6; sie sind gleich, denn 3 mal 2 ist 6 und das Minus bleibt als Vorzeichen stehen.", "Potenz als Mal gedeutet: 3 · 2 = 6")],
     "(−3)² = (−3) · (−3) = 9, denn minus mal minus ist plus. Bei −3² gehört der Exponent nur zur 3: −3² = −(3 · 3) = −9. Ohne Klammer wird zuerst potenziert, dann das Minus angewendet. Darum sind 9 und −9 verschieden.",
     lambda: (-3) * (-3) == 9 and -3 ** 2 == -9 and (-3) ** 2 != -3 ** 2), lp=LP)
 neu(T, "fehler_finden", "korrektur", "umkehr", W(
@@ -95,10 +95,10 @@ neu(T, "fehler_finden", "sicherung", "fehler", W(
     lambda: F(4) ** -2 == F(1, 16) and F(4) ** -2 != F(1, 8) and 4 * 2 == 8 and F(1, 8) + F(1, 8) == F(2, 8) and F(2, 8) == F(1, 4) and F(2, 8) != F(1, 8), pos=0), form="fehler_detektiv", lp=LP)
 neu(T, "fehler_finden", "sicherung", "begruenden", W(
     "Ein Kind soll begründen, warum 5⁰ = 1 gilt. Welche Begründung ist richtig?",
-    "Im Muster 5³ = 125, 5² = 25, 5¹ = 5 wird bei jedem Schritt nach rechts durch 5 geteilt; 5 : 5 = 1, also ist 5⁰ = 1.",
-    [("5⁰ = 0, denn 0 mal die Basis 5 ist 0.", "den Exponenten 0 als Faktor gelesen: 0 · 5 = 0, obwohl der Exponent die Anzahl der Faktoren angibt"),
-     ("5⁰ = 5, denn mit dem Exponenten 0 bleibt die Basis unverändert.", "Exponent 0 als „nichts tun“ gelesen und die Basis 5 behalten"),
-     ("5⁰ = −1, denn der Exponent 0 dreht das Vorzeichen um.", "ein Vorzeichenwechsel aus dem Exponenten erfunden; −1 kommt im Muster nicht vor")],
+    "Im Muster 125, 25, 5 wird durch 5 geteilt; 5 : 5 = 1, also ist 5⁰ = 1.",
+    [("5⁰ = 0, denn 0 mal die Basis 5 ist 0, es wird also nichts malgenommen.", "den Exponenten 0 als Faktor gelesen: 0 · 5 = 0, obwohl der Exponent die Anzahl der Faktoren angibt"),
+     ("5⁰ = 5, denn mit dem Exponenten 0 bleibt die Basis unverändert stehen, ohne Faktor.", "Exponent 0 als „nichts tun“ gelesen und die Basis 5 behalten"),
+     ("5⁰ = −1, denn der Exponent 0 dreht das Vorzeichen der Basis um, wie ein Minus.", "ein Vorzeichenwechsel aus dem Exponenten erfunden; −1 kommt im Muster nicht vor")],
     "Das Muster 125, 25, 5 teilt bei jedem Schritt nach rechts durch 5. Der nächste Wert ist 5 : 5 = 1, und der Exponent ist dann 0. Das passt zur Regel, dass jede Basis ungleich 0 mit Exponent 0 den Wert 1 hat.",
     lambda: 5 ** 3 // 5 == 25 and 25 // 5 == 5 and 5 // 5 == 1 and 5 ** 0 == 1 and 5 ** 0 != 0 and 5 ** 0 != 5), lp=LP)
 neu(T, "fehler_finden", "sicherung", "umkehr", Z(

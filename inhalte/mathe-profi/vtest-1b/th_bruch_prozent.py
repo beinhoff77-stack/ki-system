@@ -76,8 +76,8 @@ neu(T, "rabatt_aufschlag", "korrektur", "mehrschritt", Z(
      B("840 * 12 / 100 / 6", "nur den Aufschlag (100,80 €) auf die 6 Raten verteilt")], einheit="€"), form="bruecke", lp=LP)
 neu(T, "rabatt_aufschlag", "sicherung", "darstellung", W(
     "Ein Händler schreibt auf ein Plakat: „Alle Preise werden mit dem Faktor 0,92 malgenommen.“ Was bedeutet das für die Kunden?",
-    "Alle Waren werden um 8 % billiger (92 % des alten Preises).",
-    [("Alle Waren werden um 92 % billiger.", "den Faktor als Rabatt gelesen: 0,92 sind 92 % des Preises, die man noch zahlt, nicht der Rabatt"),
+    "Alle Waren werden um 8 % billiger.",
+    [("Alle Waren werden um 92 % billiger, also fast gratis.", "den Faktor als Rabatt gelesen: 0,92 sind 92 % des Preises, die man noch zahlt, nicht der Rabatt"),
      ("Alle Waren werden um 8 % teurer.", "Faktor kleiner als 1 mit Aufschlag verwechselt; ein Faktor unter 1 verkleinert den Preis"),
      ("Von jedem Preis werden 0,92 € abgezogen.", "den Faktor als Eurobetrag gelesen; er wird mit dem Preis malgenommen, nicht abgezogen")],
     "Der Faktor 0,92 sind 92 %. Man zahlt also noch 92 % des alten Preises, das heißt, der Preis sinkt um 100 % − 92 % = 8 %. Beispiel: 100 € · 0,92 = 92 €, also 8 € billiger. Ein Faktor unter 1 bedeutet Rabatt, ein Faktor über 1 Aufschlag.",
@@ -99,7 +99,7 @@ neu(T, "rabatt_aufschlag", "sicherung", "transfer", Z(
 # ───────── verstehen ─────────
 neu(T, "verstehen", "test", "begruenden", W(
     "Ein Händler A wirbt: „Bei uns sind alle Preise 50 % niedriger als bei Händler B.“ Welche Aussage folgt daraus?",
-    "Die Preise bei Händler B sind 100 % höher als bei A (B verlangt das Doppelte).",
+    "Die Preise bei Händler B sind 100 % höher als bei A.",
     [("Die Preise bei Händler B sind 50 % höher als bei A.", "den Grundwert nicht gewechselt: Bei der Aussage über B ist der Preis von A der Grundwert, und der Unterschied ist so groß wie A selbst"),
      ("Die Preise bei Händler B sind 150 % höher als bei A.", "100 % + 50 % gerechnet; der Unterschied zwischen B und A ist so groß wie der Preis von A, also 100 % von A"),
      ("Die Preise bei Händler B sind 200 % höher als bei A.", "„das Doppelte“ mit „um 200 % höher“ gleichgesetzt; das Doppelte sind 200 % des Preises von A, aber nur 100 % mehr")],

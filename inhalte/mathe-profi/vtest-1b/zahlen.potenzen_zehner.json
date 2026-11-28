@@ -366,7 +366,7 @@
     },
     {
      "index": 3,
-     "antwort": "Der Vorfaktor muss eine ganze Zahl sein; 0,5 ist keine.",
+     "antwort": "Der Vorfaktor muss eine ganze Zahl sein; 0,5 ist keine ganze Zahl.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "verlangt, dass der Vorfaktor ganzzahlig ist; auch Dezimalzahlen zwischen 1 und 10 sind erlaubt"
@@ -384,9 +384,9 @@
     },
     "a": [
      "Der Exponent 8 ist zu groß; man darf höchstens 10⁷ verwenden.",
-     "Der Vorfaktor 0,5 ist kleiner als 1; wissenschaftlich muss er mindestens 1 und kleiner als 10 sein, also 5 · 10⁷.",
+     "Der Vorfaktor 0,5 ist kleiner als 1, wissenschaftlich wäre 5 · 10⁷.",
      "0,5 · 10⁸ ist eine andere Zahl als 50 000 000; richtig wäre 0,05 · 10⁸.",
-     "Der Vorfaktor muss eine ganze Zahl sein; 0,5 ist keine."
+     "Der Vorfaktor muss eine ganze Zahl sein; 0,5 ist keine ganze Zahl."
     ],
     "o": {
      "index": 1
@@ -497,7 +497,7 @@
      "text": "Ein Datenblatt nennt den Wert 10⁻³. Welche Deutung dieser Zehnerpotenz stimmt?"
     },
     "a": [
-     "10⁻³ = 1/1000 = 0,001: Die 1 steht an der dritten Stelle nach dem Komma.",
+     "10⁻³ = 0,001: Die 1 steht an der dritten Stelle nach dem Komma.",
      "10⁻³ = −1000, denn das Minus im Exponenten macht die Zahl negativ.",
      "10⁻³ = 0,0001, denn hinter dem Komma stehen drei Nullen.",
      "10⁻³ = 0,03, denn man teilt 10 durch die Hochzahl 3 mal 10."
@@ -878,7 +878,7 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "1 µm = 1000 mm, denn Mikro ist die größere Vorsilbe.",
+     "antwort": "1 µm = 1000 mm, denn Mikro ist die größere Vorsilbe von beiden.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Mikro für größer gehalten; Mikro (10⁻⁶) ist kleiner als Milli (10⁻³)"
@@ -892,7 +892,7 @@
     },
     {
      "index": 3,
-     "antwort": "1 mm = 10⁶ µm, denn Mikro steht für Millionen.",
+     "antwort": "1 mm = 10⁶ µm, denn Mikro steht für Millionen von Millimetern.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Mikro mit Mega verwechselt; Mikro (µ) steht für den Millionstel Teil"
@@ -910,10 +910,10 @@
      "text": "Wie verhalten sich ein Millimeter (mm) und ein Mikrometer (µm) zueinander?"
     },
     "a": [
-     "1 µm = 1000 mm, denn Mikro ist die größere Vorsilbe.",
+     "1 µm = 1000 mm, denn Mikro ist die größere Vorsilbe von beiden.",
      "1 mm = 100 µm, denn zwischen beiden liegen zwei Stellen.",
-     "1 mm = 1000 µm, denn Milli steht für 10⁻³ und Mikro für 10⁻⁶; 10⁻³ ist 1000-mal so groß wie 10⁻⁶.",
-     "1 mm = 10⁶ µm, denn Mikro steht für Millionen."
+     "1 mm = 1000 µm, denn 10⁻³ ist 1000-mal so groß wie 10⁻⁶.",
+     "1 mm = 10⁶ µm, denn Mikro steht für Millionen von Millimetern."
     ],
     "o": {
      "index": 2

@@ -11,7 +11,7 @@ IDEEN[(T, "verstehen")] = ['begruenden_ablenker', 'umkehr', 'groessenvergleich',
 # ───────── dreieck ─────────
 neu(T, "dreieck", "test", "begruenden", W(
     "Die Punkte C und D liegen auf einer Parallelen zur Strecke AB. Der Abstand der Parallelen ist 4 cm, und AB ist 10 cm lang. Das Dreieck ABC ist gleichschenklig: C liegt senkrecht über der Mitte von AB. Das Dreieck ABD ist stumpfwinklig: D liegt 7 cm rechts von B auf der Parallelen. Ein Kind sagt: „ABD ist größer, denn seine Seite AD ist viel länger.“ Welche Aussage ist richtig?",
-    "Beide Dreiecke haben 20 cm², denn die Grundseite AB (10 cm) und die Höhe (4 cm) sind gleich; die Höhe ist der Abstand der Parallelen, nicht die Länge einer Seite.",
+    "Beide haben 20 cm², denn Grundseite und Höhe sind bei beiden gleich.",
     [("ABD ist größer, denn je länger eine Seite ist, desto größer ist die Fläche.", "die Länge der Seite AD mit der Höhe verwechselt"),
      ("ABD ist kleiner, denn seine Höhe liegt außerhalb des Dreiecks und zählt nicht mit.", "die Höhe außerhalb für ungültig gehalten; auch dort gilt: Grundseite mal Höhe durch 2"),
      ("ABC ist größer, denn ein gleichschenkliges Dreieck hat die größere Fläche.", "gedacht, dass Symmetrie die Fläche vergrößert")],
@@ -64,10 +64,10 @@ neu(T, "dreieck", "sicherung", "darstellung", W(
 # ───────── rueckwaerts ─────────
 neu(T, "rueckwaerts", "test", "begruenden", W(
     "Ein Parallelogramm hat den Flächeninhalt 48 cm². Seine Grundseite a ist 8 cm lang, die schräge Nachbarseite b ist 7 cm lang. Ein Kind sagt: „Die Höhe zu a ist 7 cm, denn das ist die andere Seite.“ Welche Aussage über die Höhe h zu a ist richtig?",
-    "h = 6 cm, denn aus A = a · h folgt h = A : a = 48 : 8; die Höhe steht senkrecht auf a und ist deshalb kürzer als die schräge Seite b.",
-    [("h = 7 cm, denn die Höhe ist immer so lang wie die Nachbarseite.", "die schräge Nachbarseite mit der Höhe verwechselt; die Höhe steht senkrecht, die Seite ist schräg"),
-     ("h lässt sich nicht bestimmen, denn der Winkel zwischen a und b fehlt.", "geglaubt, dass man den Winkel braucht; aus A = a · h folgt h = A : a ohne Winkel"),
-     ("h = 3 cm, denn man teilt 48 durch 8 und noch einmal durch 2.", "die Dreiecksformel benutzt und noch einmal durch 2 geteilt")],
+    "h = 6 cm, denn h = A : a = 48 : 8; die Höhe ist kürzer als die schräge Seite.",
+    [("h = 7 cm, denn die Höhe ist immer so lang wie die Nachbarseite b des Parallelogramms.", "die schräge Nachbarseite mit der Höhe verwechselt; die Höhe steht senkrecht, die Seite ist schräg"),
+     ("h lässt sich nicht bestimmen, denn der Winkel zwischen a und b fehlt in der Aufgabe.", "geglaubt, dass man den Winkel braucht; aus A = a · h folgt h = A : a ohne Winkel"),
+     ("h = 3 cm, denn man teilt 48 durch 8 und noch einmal durch 2, wie beim Dreieck.", "die Dreiecksformel benutzt und noch einmal durch 2 geteilt")],
     "Für das Parallelogramm gilt A = a · h. Daraus folgt h = A : a = 48 : 8 = 6 cm. Das passt dazu, dass die Höhe kürzer ist als die schräge Seite b = 7 cm: Eine senkrechte Strecke ist kürzer als eine schräge Strecke zwischen denselben Parallelen. Probe: 8 · 6 = 48.",
     lambda: 48 / 8 == 6 and 6 < 7 and 48 / 8 / 2 == 3 and 8 * 6 == 48 and 8 * 7 != 48), lp=LP)
 neu(T, "rueckwaerts", "korrektur", "umkehr", Z(
@@ -112,7 +112,7 @@ neu(T, "rueckwaerts", "sicherung", "umkehr", L(
 # ───────── zusammengesetzt ─────────
 neu(T, "zusammengesetzt", "test", "begruenden", W(
     "Eine L-förmige Figur entsteht aus einem Rechteck (10 cm breit, 8 cm hoch), dem oben rechts ein Rechteck von 4 cm Breite und 3 cm Höhe fehlt. Anna zerlegt die Figur in zwei Rechtecke, Ben ergänzt sie zu einem großen Rechteck und zieht das fehlende Stück ab. Welche Aussage ist richtig?",
-    "Beide kommen auf 68 cm²: Anna rechnet 10 · 5 + 6 · 3, Ben rechnet 10 · 8 − 4 · 3.",
+    "Beide kommen auf 68 cm²: Anna 10 · 5 + 6 · 3, Ben 10 · 8 − 4 · 3.",
     [("Ben erhält mehr als Anna, denn er rechnet mit der größeren Fläche 80 cm².", "den Zwischenwert 80 mit dem Ergebnis verwechselt; das fehlende Stück muss noch abgezogen werden"),
      ("Beide kommen auf 92 cm²: Ben rechnet 80 + 12.", "das fehlende Stück addiert statt abgezogen"),
      ("Anna erhält 68 cm², Ben aber 12 cm², weil er nur das fehlende Stück berechnet.", "das fehlende Stück als Ergebnis genommen")],
@@ -164,7 +164,7 @@ neu(T, "zusammengesetzt", "sicherung", "darstellung", Z(
 # ───────── verstehen ─────────
 neu(T, "verstehen", "test", "begruenden", W(
     "Bei einem Parallelogramm wird die Grundseite verdreifacht und die zugehörige Höhe halbiert. Welche Aussage über den neuen Flächeninhalt ist richtig?",
-    "Er wird das 1,5-fache, denn die Faktoren werden multipliziert: 3 · ½ = 1,5.",
+    "Er wird das 1,5-fache, denn die Faktoren multiplizieren sich: 3 · ½.",
     [("Er bleibt gleich, denn dreimal so lang und halb so hoch gleichen sich aus.", "den Faktor 3 und den Faktor ½ als sich aufhebend gedeutet"),
      ("Er wird das 2,5-fache, denn 3 − ½ = 2,5.", "die Faktoren subtrahiert statt multipliziert"),
      ("Er wird das 3,5-fache, denn 3 + ½ = 3,5.", "die Faktoren addiert statt multipliziert")],

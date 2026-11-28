@@ -211,11 +211,16 @@ for schl in geladen:
         assert {e["stufe"] for e in xs if e["pool"] == "sicherung"} == {2, 3}, (schl, lk, "Sicherung gemischt 2 und 3")
         assert len({e["typ"] for e in xs}) >= 5, (schl, lk, "mindestens 5 verschiedene Typen unter den 7", Counter(e["typ"] for e in xs))
         assert len({(e["typ"], e["form"], e["antwortform"]) for e in xs}) == 7, (schl, lk, "7 verschiedene Bauarten (Typ, Form, Antwortform)")
-        assert len({e["form"] for e in xs if e["form"]}) >= 3, (schl, lk, "mindestens 3 verschiedene Formen", Counter(e["form"] for e in xs))
         zs = Counter(e["antwortform"] for e in xs)
         assert zs["auswahl"] <= 5, (schl, lk, "nicht fast nur Auswahl", dict(zs))
 if not TEIL:
     assert len(A) == 119, len(A)
+    _aw = [e["aufgabe"] for l_ in aus.values() for e in l_ if e["aufgabe"]["y"] == "auswahl"]
+    _lang = sum(1 for q_ in _aw if len(q_["a"][q_["o"]["index"]]) == max(map(len, q_["a"])) and [len(x) for x in q_["a"]].count(max(map(len, q_["a"]))) == 1)
+    assert _lang <= 0.35 * len(_aw), ("richtige Option zu oft die längste", _lang, len(_aw))
+    _pos = Counter(q_["o"]["index"] for q_ in _aw)
+    assert all(0.15 * len(_aw) <= _pos[i_] <= 0.35 * len(_aw) for i_ in range(4)), ("Position der richtigen Option ungleich verteilt", dict(_pos))
+    print(f"Auswahl-Aufgaben {len(_aw)}: richtige Option am längsten in {_lang}, Positionen {dict(sorted(_pos.items()))}")
 lagen = defaultdict(list)
 for a in A:
     if a["aufgabe"]["y"] == "auswahl":

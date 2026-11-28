@@ -30,21 +30,21 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Alle Zahlen sind Lösung, also L = ℚ, denn 3 = 1 + 2 ist eine wahre Aussage.",
+     "antwort": "Alle Zahlen sind Lösung, also L = ℚ, denn 3 = 1 + 2 ist eine wahre Aussage für jedes x.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Einschränkung aus der Ausgangsgleichung vergessen, weil nach dem Malnehmen keine Nenner mehr stehen; für x = 2 ist die Ausgangsgleichung nicht definiert"
     },
     {
      "index": 1,
-     "antwort": "Es gibt keine Lösung, also L = { }, denn in 3 = 1 + 2 kommt kein x mehr vor.",
+     "antwort": "Es gibt keine Lösung, also L = { }, denn in 3 = 1 + 2 kommt kein x mehr vor und nichts lässt sich einsetzen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die wahre Aussage 3 = 1 + 2 als „keine Lösung“ gedeutet; eine immer wahre Aussage heißt: jede Zahl aus D ist Lösung"
     },
     {
      "index": 2,
-     "antwort": "Nur x = 2 ist Lösung, denn nur dort haben alle drei Brüche denselben Nenner.",
+     "antwort": "Nur x = 2 ist Lösung, denn nur dort sind die drei Nenner gleich und die Brüche damit vergleichbar.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die verbotene Zahl 2 zur Lösung gemacht; bei x = 2 ist der Nenner 0 und die Gleichung nicht definiert"
@@ -62,10 +62,10 @@
      "text": "Beim Lösen von 3/(x − 2) = 1/(x − 2) + 2/(x − 2) multipliziert Jan beide Seiten mit (x − 2) und erhält 3 = 1 + 2. Er sagt: „Jetzt stehen keine Nenner mehr da, also gibt es keine Einschränkung: Alle Zahlen sind Lösung.“ Welche Aussage ist richtig?"
     },
     "a": [
-     "Alle Zahlen sind Lösung, also L = ℚ, denn 3 = 1 + 2 ist eine wahre Aussage.",
-     "Es gibt keine Lösung, also L = { }, denn in 3 = 1 + 2 kommt kein x mehr vor.",
-     "Nur x = 2 ist Lösung, denn nur dort haben alle drei Brüche denselben Nenner.",
-     "Die Definitionsmenge gilt für die Ausgangsgleichung: x = 2 ist ausgeschlossen. Für alle anderen Zahlen ist die Gleichung wahr, also L = ℚ \\ {2}."
+     "Alle Zahlen sind Lösung, also L = ℚ, denn 3 = 1 + 2 ist eine wahre Aussage für jedes x.",
+     "Es gibt keine Lösung, also L = { }, denn in 3 = 1 + 2 kommt kein x mehr vor und nichts lässt sich einsetzen.",
+     "Nur x = 2 ist Lösung, denn nur dort sind die drei Nenner gleich und die Brüche damit vergleichbar.",
+     "x = 2 ist ausgeschlossen, für alle anderen Zahlen ist die Gleichung wahr: L = ℚ \\ {2}."
     ],
     "o": {
      "index": 3
@@ -691,7 +691,7 @@
     },
     "a": [
      "Die Wege liefern verschiedene Gleichungen; Jo erhält 2(x − 1) = 3(x + 4) und damit x = −14.",
-     "Beide erhalten dieselbe Gleichung 2(x + 4) = 3(x − 1) und damit x = 11; über Kreuz ist eine Abkürzung für das Malnehmen mit beiden Nennern.",
+     "Beide erhalten 2(x + 4) = 3(x − 1) und damit x = 11; über Kreuz ist eine Abkürzung dafür.",
      "Jos Weg ist nicht erlaubt, weil man nie mit zwei Nennern zugleich malnehmen darf; nur Kim erhält x = 11.",
      "Beide erhalten dieselbe Gleichung 2(x + 4) = 3(x − 1) und damit x = −11."
     ],
@@ -841,21 +841,21 @@
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "L = {5}, denn auf beiden Seiten steht bei x = 5 dasselbe.",
+     "antwort": "L = {5}, denn auf beiden Seiten steht bei x = 5 dasselbe, nämlich 7/0.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "gleiches Aussehen mit „stimmt“ verwechselt; durch 0 darf man nicht teilen, die Aussage 7/0 = 7/0 hat keinen Wert"
     },
     {
      "index": 2,
-     "antwort": "L = ℚ \\ {5}, denn ohne die 5 sind beide Seiten für jede Zahl gleich.",
+     "antwort": "L = ℚ \\ {5}, denn ohne die 5 sind beide Seiten für jede andere Zahl gleich.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "gedacht, die Gleichung gelte für alle zugelassenen Zahlen; für x ≠ 5 ist x + 2 = 7 falsch, also sind die Seiten verschieden"
     },
     {
      "index": 3,
-     "antwort": "L = {5}, denn 7 : 0 ist 0, und 0 = 0 stimmt.",
+     "antwort": "L = {5}, denn 7 : 0 ist 0, und 0 = 0 stimmt, die Probe geht also auf.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "7 : 0 mit 0 gleichgesetzt; die Division durch 0 ist nicht erklärt"
@@ -873,10 +873,10 @@
      "text": "Kim löst (x + 2)/(x − 5) = 7/(x − 5). Sie multipliziert mit (x − 5), erhält x + 2 = 7 und damit x = 5. Zur Probe setzt sie x = 5 ein: „7/0 = 7/0, das stimmt also: L = {5}.“ Welche Aussage ist richtig?"
     },
     "a": [
-     "L = { }: Bei x = 5 ist der Nenner 0, beide Seiten sind gar nicht definiert. „7/0 = 7/0“ ist deshalb keine wahre Aussage, und 5 ist eine Scheinlösung.",
-     "L = {5}, denn auf beiden Seiten steht bei x = 5 dasselbe.",
-     "L = ℚ \\ {5}, denn ohne die 5 sind beide Seiten für jede Zahl gleich.",
-     "L = {5}, denn 7 : 0 ist 0, und 0 = 0 stimmt."
+     "L = { }: Bei x = 5 ist der Nenner 0, also ist 5 eine Scheinlösung.",
+     "L = {5}, denn auf beiden Seiten steht bei x = 5 dasselbe, nämlich 7/0.",
+     "L = ℚ \\ {5}, denn ohne die 5 sind beide Seiten für jede andere Zahl gleich.",
+     "L = {5}, denn 7 : 0 ist 0, und 0 = 0 stimmt, die Probe geht also auf."
     ],
     "o": {
      "index": 0
@@ -934,7 +934,7 @@
     "a": [
      "L = {3}, denn 5x = 15 ergibt x = 3.",
      "L = {−2; 3}, denn das sind die besonderen Zahlen der Gleichung.",
-     "L = { }, denn x = 3 gehört nicht zur Definitionsmenge (Scheinlösung).",
+     "L = { }, denn x = 3 gehört nicht zur Definitionsmenge.",
      "L = {5}, denn 15 : 3 = 5."
     ],
     "o": {

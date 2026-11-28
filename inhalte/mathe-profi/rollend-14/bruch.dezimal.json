@@ -69,8 +69,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -119,8 +119,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -169,8 +169,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -219,8 +219,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -966,8 +966,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.zahlen.schreibweisen",
-   "regel_name": "Schreibweisen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1015,8 +1015,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.zahlen.schreibweisen",
-   "regel_name": "Schreibweisen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1113,8 +1113,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1162,8 +1162,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
    "zaehlt": "ja",
    "fehlbilder": [
     {

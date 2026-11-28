@@ -20,8 +20,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -70,8 +70,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -120,8 +120,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -170,8 +170,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -220,8 +220,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -270,8 +270,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -420,8 +420,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
    "zaehlt": "ja",
    "fehlbilder": [
     {

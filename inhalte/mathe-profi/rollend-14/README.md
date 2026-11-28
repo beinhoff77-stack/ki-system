@@ -192,4 +192,4 @@ Stufe 2: ein = Einkleidung, mehr = Mehrschritt. Stufe 3: Tätigkeit (g) in Klamm
 
 ## Regel-Kennung (nachträglich, 28.11.2026)
 
-Die 213 Aufgaben sind eingespielt. Das Feld `regel` (und `regel_name`) je Aufgabe kam danach dazu und steht in `regeln.py`; `bauen.py` übernimmt es und prüft es gegen `regeln-uebersicht/kennungen.json` (Ausnahmen der Themenliste nur über `REGEL_AUSNAHME`). 180 Aufgaben mit Regel, 33 ohne; Begründungen, Verteilung und Zweifelsfälle: `regeln-zuordnung.md`. Fragetexte, Lösungen, Fehlbilder und Plätze blieben unverändert. Datenbank: `tools/tests/aus/rb_nachtrag_r14.sql`.
+Die 213 Aufgaben sind eingespielt. Das Feld `regel` (und `regel_name`) je Aufgabe kam danach dazu und steht in `regeln.py`; `bauen.py` übernimmt es und prüft es gegen `regeln-uebersicht/kennungen.json` (Ausnahmen der Themenliste nur über `REGEL_AUSNAHME`). 195 Aufgaben mit Regel, 18 ohne; Begründungen, Verteilung und Zweifelsfälle: `regeln-zuordnung.md`. Fragetexte, Lösungen, Fehlbilder und Plätze blieben unverändert. Datenbank: `tools/tests/aus/rb_nachtrag_r14.sql`.

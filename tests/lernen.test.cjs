@@ -6271,62 +6271,100 @@ test('Teil 1: Reisekarte ohne zusätzliche Leiste; Karte als Gruppe mit einzeln 
 });
 
 // ---------- Teil 2 (0.96.0) / Teil 1 „Besprochen“: „Was wackelt“ für Eltern/Lehrer – nachgebildete Server-Antworten in der Form von inhalte/plan/wackelt-server.md ----------
-// Der Nachbau folgt dem Server (supabase/migrations/20261205_ww_s_wackelt.sql): offen höchstens 300 (neueste zuerst), „erledigt“ nur im Zeitraum (nach dem
-// Zeitpunkt des Fehlers) und höchstens 200 (zuletzt besprochen zuerst), schule_fehler_abhaken 1 bis 200 IDs, „geaendert“ ohne einzelne IDs, Doppeltes zählt 0.
+// Der Nachbau folgt dem Server WW-S3 (supabase/migrations/20261206_ww_s3_wackelt.sql): stand 3; offen höchstens 300 (neueste zuerst); Zeitraum nach dem Zeitpunkt
+// des Fehlers (am > jetzt − tage); „erledigt“ nur im Zeitraum und höchstens 200 (zuletzt besprochen zuerst) mit erledigt {art, id (Markierungs-ID), am, tag};
+// auswertung.themen[] nullsicher (Einheit ohne Thema: kein thema_id, offen richtig gezählt) mit besprochen {zuletzt, tage, neu_seit} aus allen gültigen
+// Markierungen (ohne Zeitraum, ohne 200er-Grenze); mit_tipp immer Boolean; danach_richtig true oder fehlt (Zeitpunkte in danach_richtig_am).
+// schule_fehler_abhaken: Markieren {versuch_ids} → geaendert, geaendert_ids, markierung_ids, uebersprungen [{versuch_id, grund}]; Zurückholen {zurueck: true,
+// markierung_ids} → genau diese noch gültigen Markierungen, sonst übersprungen mit grund „überholt“ / „schon zurückgeholt“ / „nicht gefunden“.
+// Zeitzone des Kindes = Zeitzone des Testrechners (der Tag einer Markierung ist ihr Kalendertag dort).
 // vorher: schon besprochene Fehler (Testdaten): Thema 29 zweimal (vor 10 und vor 3 Tagen), Thema 30 einmal vor 9 Tagen (Fehler vor 10 Tagen – außerhalb von 7/14 Tagen).
 // vieleAm(i): Zeitpunkt des i-ten zusätzlichen Fehlers (sonst heute, je eine Minute älter); ohneThema: zwei offene Fehler einer Einheit ohne Thema (thema_id fehlt wie nach jsonb_strip_nulls).
 // st.verderben(r, d): Analyse-Antwort gezielt verderben; st.vorAbhaken/st.nachAbhaken(d): andere Erwachsene nachstellen (vor/nach dem Schreiben auf dem Server).
+// st.abgehakt: has/get/set/delete je Versuch auf den Markierungen (set legt eine neue gültige Markierung an, delete holt die gültige zurück); st.marks: alle Markierungen.
 function wwServer({ leer = false, viele = 0, vorher = true, vieleAm = null, ohneThema = false } = {}) {
-  const heute = new Date(); const tag = (n) => { const d = new Date(heute); d.setDate(d.getDate() - n); return d.toISOString().slice(0, 10); };
+  const heute = new Date(); const zwei = (n) => String(n).padStart(2, '0');
+  const lokTag = (iso) => { const d = new Date(iso); return `${d.getFullYear()}-${zwei(d.getMonth() + 1)}-${zwei(d.getDate())}`; };
   const zeit = (n, h = 12) => { const d = new Date(heute); d.setDate(d.getDate() - n); d.setHours(h, 0, 0, 0); return d.toISOString(); };
   const A = (id, text, wert, extra = {}) => ({ id, antworttyp: 'zahl', frage: { text }, loesung: { wert }, loesungsweg: 'Schritt für Schritt gerechnet.', ...extra });
   const fb = (kennung, text) => ({ quelle: 'fehlbild', schluessel: 'fb:' + kennung, kennung, text });
   const basis = [
-    [9001, 0, 29, 'Terme umformen', 31, 'minusklammer', 'Minus vor der Klammer', A(5001, 'Löse: 20 − (x + 4) = 9', 7), { wert: '15' }, fb('fb.minusklammer.nur_erstes_zeichen', 'nur das erste Zeichen in der Klammer gedreht'), { anlauf: 2, erst_antwort: { wert: '13' }, danach_richtig: { lernkarte_am: tag(0) } }],
+    [9001, 0, 29, 'Terme umformen', 31, 'minusklammer', 'Minus vor der Klammer', A(5001, 'Löse: 20 − (x + 4) = 9', 7), { wert: '15' }, fb('fb.minusklammer.nur_erstes_zeichen', 'nur das erste Zeichen in der Klammer gedreht'), { anlauf: 2, erst_antwort: { wert: '13' }, danach_richtig_am: { lernkarte_am: zeit(0, 18) } }],
     [9002, 1, 29, 'Terme umformen', 31, 'minusklammer', 'Minus vor der Klammer', A(5002, 'Vereinfache: 12 − (4 − a) + 2a', 8), { wert: '9' }, fb('fb.minusklammer.nur_erstes_zeichen', 'nur das erste Zeichen in der Klammer gedreht'), {}],
     [9003, 1, 30, 'Lineare Gleichungen', 32, 'klammern', 'Gleichungen mit Klammern', A(5003, 'Löse: 3 − (2x − 5) = 0', 4), { wert: '−1' }, fb('fb.minusklammer.nur_erstes_zeichen', 'nur das erste Zeichen in der Klammer gedreht'), { mit_tipp: true }],
     [9004, 2, 33, 'Satz des Pythagoras', 34, 'seite', 'Fehlende Seite berechnen', A(5004, 'Eine 5 m lange Leiter lehnt an einer Wand. Ihr Fuß steht 1,4 m von der Wand entfernt. Wie hoch reicht sie?', 4.8), { wert: '23,04' }, null, {}],
     [9005, 3, 33, 'Satz des Pythagoras', 34, 'seite', 'Fehlende Seite berechnen', A(5005, 'Berechne die Länge der Seite b.', 12), { wert: '13,9' }, { quelle: 'grund', schluessel: 'g:komma', grund: 'komma' }, {}],
-    [9006, 4, 24, 'Prozentrechnung', 35, 'grundwert', 'Grundwert berechnen', A(5006, '20 % sind 30 €. Wie viel sind 100 %?', 150), { wert: '6' }, null, { danach_richtig: { lernkarte_am: tag(1) } }],
+    [9006, 4, 24, 'Prozentrechnung', 35, 'grundwert', 'Grundwert berechnen', A(5006, '20 % sind 30 €. Wie viel sind 100 %?', 150), { wert: '6' }, null, { danach_richtig_am: { lernkarte_am: zeit(1, 18) } }],
     [9007, 5, 30, 'Lineare Gleichungen', 32, 'klammern', 'Gleichungen mit Klammern', A(5007, 'Welche Zeile ist falsch?', null, { antworttyp: 'auswahl', antworten: ['Zeile 1', 'Zeile 2', 'Zeile 3'], loesung: { index: 0 } }), { index: 2 }, null, {}],
     // früher schon besprochen (vorher)
     [9010, 4, 29, 'Terme umformen', 31, 'minusklammer', 'Minus vor der Klammer', A(5010, 'Löse: 9 − (x − 1) = 4', 6), { wert: '4' }, null, {}],
     [9011, 10, 30, 'Lineare Gleichungen', 32, 'klammern', 'Gleichungen mit Klammern', A(5011, 'Löse: 2 − (x + 1) = 0', 1), { wert: '3' }, null, {}],
     [9012, 12, 29, 'Terme umformen', 31, 'minusklammer', 'Minus vor der Klammer', A(5012, 'Vereinfache: 5 − (a − 2)', 7), { wert: '3' }, null, {}],
-  ].map(([versuch_id, vor, thema_id, thema, einheit_id, lernziel, lernkarte, aufgabe, antwort, fehlerart, extra]) => ({ versuch_id, am: zeit(vor, 17), tag: tag(vor), thema_id, thema, einheit_id, lernziel, lernkarte, aufgabe, antwort, anlauf: 1, ...(fehlerart ? { fehlerart } : {}), ...extra }));
+  ].map(([versuch_id, vor, thema_id, thema, einheit_id, lernziel, lernkarte, aufgabe, antwort, fehlerart, extra]) => ({ versuch_id, am: zeit(vor, 17), thema_id, thema, einheit_id, lernziel, lernkarte, aufgabe, antwort, anlauf: 1, mit_tipp: false, ...(fehlerart ? { fehlerart } : {}), ...extra }));
   // viele: so viele weitere offene Fehler im Thema „Bruchrechnen“ (heute, älteste zuerst nummeriert) – für die Grenzen 200/300
-  for (let i = 0; i < viele; i++) basis.push({ versuch_id: 20000 + i, am: vieleAm ? vieleAm(i) : new Date(heute.getTime() - (i + 1) * 60000).toISOString(), tag: tag(0), thema_id: 40, thema: 'Bruchrechnen', einheit_id: 41, lernziel: 'kuerzen', lernkarte: 'Kürzen',
-    aufgabe: A(30000 + i, `Kürze ${i + 2}/${2 * i + 4}`, 0.5), antwort: { wert: '1' }, anlauf: 1 });
-  if (ohneThema) for (const [versuch_id, vor] of [[9101, 2], [9102, 3]]) basis.push({ versuch_id, am: zeit(vor, 9), tag: tag(vor), einheit_id: 50, lernziel: 'freie_uebung', lernkarte: 'Freie Übung',
-    aufgabe: A(5100 + versuch_id - 9100, `Rechne: ${versuch_id - 9090} + 5`, versuch_id - 9085), antwort: { wert: '0' }, anlauf: 1 });
-  const st = { abgehakt: new Map(vorher && !leer ? [[9010, zeit(3, 20)], [9011, zeit(9, 20)], [9012, zeit(10, 20)]] : []), calls: [] };
-  const imZeitraum = (x, tage) => !tage || x.tag >= tag(tage);
+  for (let i = 0; i < viele; i++) basis.push({ versuch_id: 20000 + i, am: vieleAm ? vieleAm(i) : new Date(heute.getTime() - (i + 1) * 60000).toISOString(), thema_id: 40, thema: 'Bruchrechnen', einheit_id: 41, lernziel: 'kuerzen', lernkarte: 'Kürzen',
+    aufgabe: A(30000 + i, `Kürze ${i + 2}/${2 * i + 4}`, 0.5), antwort: { wert: '1' }, anlauf: 1, mit_tipp: false });
+  if (ohneThema) for (const [versuch_id, vor] of [[9101, 2], [9102, 3]]) basis.push({ versuch_id, am: zeit(vor, 9), einheit_id: 50, lernziel: 'freie_uebung', lernkarte: 'Freie Übung',
+    aufgabe: A(5100 + versuch_id - 9100, `Rechne: ${versuch_id - 9090} + 5`, versuch_id - 9085), antwort: { wert: '0' }, anlauf: 1, mit_tipp: false });
+  for (const x of basis) { x.tag = lokTag(x.am); if (x.danach_richtig_am) x.danach_richtig = true; } // Tag in der Zeitzone des Kindes; danach_richtig nur true oder fehlt
+  // Markierungen (schule.fehler_erledigt): id, versuch_id, am, zurueck_am; höchstens eine gültige je Versuch
+  const st = { marks: [], naechste: 401, calls: [] };
+  const gueltig = (vid) => st.marks.find((m) => m.versuch_id === vid && !m.zurueck_am);
+  const markieren = (vid, am = new Date().toISOString()) => { const m = { id: st.naechste++, versuch_id: vid, am, zurueck_am: null }; st.marks.push(m); return m; };
+  st.abgehakt = { has: (vid) => !!gueltig(vid), get: (vid) => gueltig(vid)?.am,
+    set: (vid, am) => { const m = gueltig(vid); if (m) m.am = am; else markieren(vid, am); return st.abgehakt; },
+    delete: (vid) => { const m = gueltig(vid); if (!m) return false; m.zurueck_am = new Date().toISOString(); return true; } };
+  if (vorher && !leer) for (const [vid, n] of [[9012, 10], [9011, 9], [9010, 3]]) markieren(vid, zeit(n, 20));
+  const vonVersuch = (vid) => basis.find((x) => x.versuch_id === vid);
+  const gleich = (a, b) => (a ?? null) === (b ?? null); // is not distinct from
   const analyse = (d) => {
-    const tage = d.tage ?? 14; const alle = leer ? [] : basis.filter((x) => imZeitraum(x, tage));
-    const offenAlle = alle.filter((x) => !st.abgehakt.has(x.versuch_id)).sort((a, b) => b.am.localeCompare(a.am) || b.versuch_id - a.versuch_id);
-    // wie der Server: ohne thema_id fehlen thema_id/thema (strip_nulls), und „offen“ ist dort 0 (o.thema_id = v.thema_id ist bei NULL nie wahr)
-    const themen = [...new Set(basis.map((x) => x.thema_id))].map((id) => { const b = basis.filter((x) => x.thema_id === id);
-      return id === undefined ? { offen: 0, gesamt: b.length } : { thema_id: id, thema: b[0].thema, offen: offenAlle.filter((x) => x.thema_id === id).length, gesamt: b.length + 2 }; })
-      .sort((a, b) => b.offen - a.offen);
-    const r = { ok: true, lernender_id: d.lernender_id, tage, heute: tag(0), mit_fehlbild: true, offen_zahl: offenAlle.length, offen: offenAlle.slice(0, 300),
-      auswertung: { antworten: 40, richtig: 33, themen, lerntage: [6, 5, 4, 3, 2, 1, 0].map((n) => ({ tag: tag(n), richtig: 3 + n % 3, falsch: n % 2 + (n === 1 ? 2 : 0) })),
+    const tage = d.tage ?? 14; const seit = tage ? heute.getTime() - tage * 864e5 : null;
+    const imZeitraum = (x) => seit === null || Date.parse(x.am) > seit;
+    const alle = leer ? [] : basis.filter(imZeitraum);
+    const eintrag = (x) => { const m = gueltig(x.versuch_id); return m ? { ...x, erledigt: { art: 'abgehakt', id: m.id, am: m.am, tag: lokTag(m.am) } } : { ...x }; };
+    const offenAlle = alle.filter((x) => !gueltig(x.versuch_id)).sort((a, b) => b.am.localeCompare(a.am) || b.versuch_id - a.versuch_id);
+    // besprochen je Thema: alle gültigen Markierungen (ohne Zeitraum, ohne 200er-Grenze); neu_seit: offene Fehler des Themas nach der letzten Markierung
+    const besprochen = (tid) => { const ms = st.marks.filter((m) => !m.zurueck_am && vonVersuch(m.versuch_id) && gleich(vonVersuch(m.versuch_id).thema_id, tid)); if (!ms.length) return undefined;
+      const zuletzt = ms.map((m) => m.am).sort().at(-1);
+      return { zuletzt, tage: new Set(ms.map((m) => lokTag(m.am))).size, neu_seit: basis.filter((x) => gleich(x.thema_id, tid) && x.am > zuletzt && !gueltig(x.versuch_id)).length }; };
+    // Themen mit Antworten im Zeitraum (je Thema zwei richtige Antworten heute – darum stehen alle Themen da), offen nullsicher
+    const themen = [...new Set(basis.map((x) => x.thema_id ?? null))].map((id) => { const b = basis.filter((x) => gleich(x.thema_id, id));
+      const t = { ...(id === null ? {} : { thema_id: id, thema: b[0].thema }), offen: offenAlle.filter((x) => gleich(x.thema_id, id)).length, gesamt: alle.filter((x) => gleich(x.thema_id, id)).length + 2 };
+      const bs = besprochen(id); if (bs) t.besprochen = bs; return t; })
+      .sort((a, b) => b.offen - a.offen || b.gesamt - a.gesamt || (a.thema_id ?? Infinity) - (b.thema_id ?? Infinity));
+    const r = { ok: true, stand: 3, lernender_id: d.lernender_id, tage, heute: lokTag(heute.toISOString()), mit_fehlbild: true, offen_zahl: offenAlle.length, offen: offenAlle.slice(0, 300).map(eintrag),
+      auswertung: { antworten: 40, richtig: 33, themen, lerntage: [6, 5, 4, 3, 2, 1, 0].map((n) => ({ tag: lokTag(zeit(n)), richtig: 3 + n % 3, falsch: n % 2 + (n === 1 ? 2 : 0) })),
         wiederkehrend: leer ? [] : [{ schluessel: 'fb:fb.minusklammer.nur_erstes_zeichen', kennung: 'fb.minusklammer.nur_erstes_zeichen', text: 'Minus vor der Klammer: nur das erste Zeichen gedreht', anzahl: 3, offen: 3, themen: ohneThema ? [29, 30, null] : [29, 30] }],
         einmal: { lernkarten: leer ? 0 : 2, danach_richtig: leer ? 0 : 1, themen_danach_richtig: leer ? [] : ohneThema ? [24, null] : [24] } } };
-    if (d.tage) r.seit = zeit(d.tage, 0);
-    if (d.erledigt) r.erledigt = alle.filter((x) => st.abgehakt.has(x.versuch_id)).map((x) => ({ ...x, erledigt: { art: 'abgehakt', am: st.abgehakt.get(x.versuch_id) } }))
+    if (tage) r.seit = new Date(seit).toISOString();
+    if (d.erledigt) r.erledigt = alle.filter((x) => gueltig(x.versuch_id)).map(eintrag)
       .sort((a, b) => b.erledigt.am.localeCompare(a.erledigt.am) || b.versuch_id - a.versuch_id).slice(0, 200);
     return st.verderben ? st.verderben(JSON.parse(JSON.stringify(r)), d) : r;
   };
+  const liste = (l, name) => { if (!Array.isArray(l) || !l.length || l.length > 200) throw new Error(`${name}: Liste mit 1 bis 200 Einträgen`);
+    if (l.some((x) => !/^\d{1,18}$/.test(String(x)) || (typeof x !== 'number' && typeof x !== 'string'))) throw new Error(`${name}: nur Zahlen`);
+    return [...new Set(l.map(Number))].sort((a, b) => a - b); };
   const anpassen = (aktion, e, d) => {
     if (aktion === 'schule_wackelt_analyse') { st.calls.push({ aktion, ...d }); return analyse(d); }
-    if (aktion === 'schule_fehler_abhaken') { st.calls.push({ aktion, ...d }); let n = 0; const ueber = [];
-      if (!Array.isArray(d.versuch_ids) || !d.versuch_ids.length || d.versuch_ids.length > 200) throw new Error('versuch_ids: Liste mit 1 bis 200 Einträgen');
-      st.vorAbhaken?.(d);
-      for (const id of d.versuch_ids) { if (!basis.some((x) => x.versuch_id === id)) { ueber.push({ versuch_id: id, grund: 'nicht gefunden' }); continue; }
+    if (aktion === 'schule_fehler_abhaken') { st.calls.push({ aktion, ...d });
+      if (d.markierung_ids !== undefined && d.markierung_ids !== null) { // Zurückholen über Markierungs-IDs (schule.fehler_zurueckholen)
+        if (!d.zurueck) throw new Error('markierung_ids nur mit zurueck: true');
+        if (d.versuch_ids !== undefined && d.versuch_ids !== null) throw new Error('entweder versuch_ids oder markierung_ids');
+        const ids = liste(d.markierung_ids, 'markierung_ids'); st.vorAbhaken?.(d);
+        const neu = []; const jetzt = new Date().toISOString();
+        for (const id of ids) { const m = st.marks.find((x) => x.id === id && !x.zurueck_am); if (m) { m.zurueck_am = jetzt; neu.push(id); } }
+        const ueber = ids.filter((id) => !neu.includes(id)).map((id) => { const m = st.marks.find((x) => x.id === id);
+          return !m ? { markierung_id: id, grund: 'nicht gefunden' } : { markierung_id: id, versuch_id: m.versuch_id, grund: gueltig(m.versuch_id) ? 'überholt' : 'schon zurückgeholt' }; });
+        st.nachAbhaken?.(d);
+        return { ok: true, stand: 3, geaendert: neu.length, geaendert_ids: neu, uebersprungen: ueber }; }
+      const ids = liste(d.versuch_ids, 'versuch_ids'); st.vorAbhaken?.(d);
+      const neu = [], mids = [], ueber = [];
+      for (const id of ids) { if (!vonVersuch(id)) { ueber.push({ versuch_id: id, grund: 'nicht gefunden' }); continue; }
         if (st.abweisen?.has(id)) { ueber.push({ versuch_id: id, grund: 'nicht endgültig falsch' }); continue; }
-        if (d.zurueck) { if (st.abgehakt.delete(id)) n++; } else if (!st.abgehakt.has(id)) { st.abgehakt.set(id, new Date().toISOString()); n++; } }
+        if (d.zurueck) { const m = gueltig(id); if (m) { m.zurueck_am = new Date().toISOString(); neu.push(id); mids.push(m.id); } } // alter Weg (nur Verträglichkeit)
+        else if (!gueltig(id)) { const m = markieren(id); neu.push(id); mids.push(m.id); } }
       st.nachAbhaken?.(d);
-      return { ok: true, geaendert: n, uebersprungen: ueber }; }
+      return { ok: true, stand: 3, geaendert: neu.length, geaendert_ids: neu, uebersprungen: ueber, ...(d.zurueck ? {} : { markierung_ids: mids }) }; }
     return e;
   };
   anpassen.neueAktionen = true; return { anpassen, st, basis };
@@ -6356,8 +6394,8 @@ test('Teil 2: „Was wackelt“ (Entwurf 4, ohne Nachüben) – Auswertung, Letz
     // Wiederkehrer: Terme umformen (besprochen vor 10 und vor 3 Tagen, seitdem 2 neue), Lineare Gleichungen (vor 9 Tagen, Fehler damals außerhalb des Zeitraums)
     const datum = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return `${d.getDate()}.${d.getMonth() + 1}.`; };
     const terme = ww.locator('.ww-thema[aria-label="Terme umformen"]');
-    assert.equal(await terme.locator('.ww-th-wieder').innerText(), `↺ Schon besprochen am ${datum(3)} – seitdem mindestens 2 neue Fehler (im gezeigten Zeitraum) · insgesamt an 2 Tagen besprochen`);
-    assert.equal(await ww.locator('.ww-thema[aria-label="Lineare Gleichungen"] .ww-th-wieder').innerText(), `↺ Schon besprochen am ${datum(9)} – seitdem mindestens 2 neue Fehler (im gezeigten Zeitraum)`);
+    assert.equal(await terme.locator('.ww-th-wieder').innerText(), `↺ Schon besprochen am ${datum(3)} – seitdem 2 neue Fehler · insgesamt an 2 Tagen besprochen`);
+    assert.equal(await ww.locator('.ww-thema[aria-label="Lineare Gleichungen"] .ww-th-wieder').innerText(), `↺ Schon besprochen am ${datum(9)} – seitdem 2 neue Fehler`);
     assert.equal(await ww.locator('.ww-thema[aria-label="Satz des Pythagoras"] .ww-th-wieder').count(), 0);
     assert.match(await ww.locator('.ww-nach').innerText(), /Wieder da nach dem Besprechen[\s\S]*Terme umformen[\s\S]*2 neu seit/);
     // Letzte Fehler: kleines Zeichen bei Themen, die schon besprochen wurden
@@ -6388,12 +6426,13 @@ test('Teil 2: „Was wackelt“ (Entwurf 4, ohne Nachüben) – Auswertung, Letz
     assert.ok(srv.st.calls.some((c) => c.aktion === 'schule_wackelt_analyse' && c.erledigt && c.tage === 0), 'Besprochenes über alle Zeiträume');
     if (b === 1280) await wwBild(page, `${hd}-besprochen`);
     // „zurückholen“ je Tag (alle an dem Tag besprochenen Fehler des Themas)
-    assert.match(await page.locator('.ww-erledigt .ww-bs-erkl').innerText(), /holt alle Fehler des Themas zurück, die an diesem Tag als besprochen markiert wurden/);
+    assert.match(await page.locator('.ww-erledigt .ww-bs-erkl').innerText(), /holt die Fehler des Themas zurück, die an diesem Tag als besprochen markiert wurden/);
     assert.equal(await page.locator('.ww-erledigt li').nth(1).getByRole('button').innerText(), 'alle 2 zurückholen');
     assert.equal(await page.locator('.ww-erledigt li').nth(1).getByRole('button').getAttribute('aria-label'), `Zurückholen: Terme umformen, alle 2 am ${datum(0)} besprochenen Fehler`);
     await page.locator('.ww-erledigt li').nth(1).getByRole('button', { name: /^Zurückholen: Terme umformen/ }).click();
     await ww.locator('.ww-thema[aria-label="Terme umformen"]').waitFor();
-    assert.equal(srv.st.calls.filter((c) => c.aktion === 'schule_fehler_abhaken').pop().zurueck, true);
+    { const c = srv.st.calls.filter((c) => c.aktion === 'schule_fehler_abhaken').pop(); assert.equal(c.zurueck, true); assert.equal(c.versuch_ids, undefined, 'nicht über versuch_ids');
+      assert.equal(c.markierung_ids.length, 2, 'über die Markierungs-IDs der geladenen Einträge'); }
     // Zeitraum: 7 Tage → Server mit tage: 7
     await ww.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: '7 Tage' }).click();
     await page.waitForFunction(() => document.querySelector('.ww-seg button[aria-pressed="true"]')?.textContent === '7 Tage' && document.querySelector('.ww').getAttribute('aria-busy') === 'false');
@@ -6477,21 +6516,23 @@ test('Auflagen 1155/1156 a/b: „Besprochen“ in Paketen ≤ 200, Grenze 300 ke
     { const { page, srv, ww, toast } = await wwOeffnen(t, b);
       const frueher = new Date(Date.now() - 60000).toISOString(); srv.st.abgehakt.set(9004, frueher); srv.st.abgehakt.set(9005, frueher);
       await ww.locator('.ww-thema[aria-label="Satz des Pythagoras"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/nichts neu markiert/).waitFor(); await wwRuhig(page);
-      assert.equal(await toast.innerText(), 'Satz des Pythagoras: nichts neu markiert – 2 waren schon markiert oder nicht mehr offen.');
+      assert.equal(await toast.innerText(), 'Satz des Pythagoras: nichts neu markiert – 2 waren schon markiert.');
       assert.equal(await toast.getByRole('button').count(), 0, 'kein Knopf');
       // einer von zwei schon markiert, der andere vom Server abgewiesen (nicht endgültig falsch): beides erklärt, nichts geändert
       srv.st.abgehakt.set(9003, frueher); srv.st.abweisen = new Set([9007]);
       await ww.locator('.ww-thema[aria-label="Lineare Gleichungen"]').getByRole('button', { name: /^Besprochen:/ }).click();
       await page.waitForFunction(() => /Lineare Gleichungen: nichts neu markiert/.test(document.querySelector('.ww-toast')?.textContent || '')); await wwRuhig(page);
-      assert.equal(await toast.innerText(), 'Lineare Gleichungen: nichts neu markiert – 2 waren schon markiert oder nicht mehr offen.'); }
+      assert.equal(await toast.innerText(), 'Lineare Gleichungen: nichts neu markiert – 1 war schon markiert · 1 nicht angenommen (nicht endgültig falsch).'); }
     // Teil geändert: Thema mit zwei Fehlern, einer davon war schon markiert → Summen getrennt, kein Rückgängig
     { const { page, srv, ww, toast } = await wwOeffnen(t, b);
       srv.st.abgehakt.set(9004, new Date(Date.now() - 60000).toISOString());
       await ww.locator('.ww-thema[aria-label="Satz des Pythagoras"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
-      assert.match(await toast.innerText(), /^Satz des Pythagoras als besprochen markiert \(1 neu markiert · 1 war schon markiert oder nicht mehr offen\) ·\s*zurückholen unter ‚Besprochen‘$/);
+      assert.match(await toast.innerText(), /^Satz des Pythagoras als besprochen markiert \(1 neu markiert · 1 war schon markiert\) ·\s*zurückholen unter ‚Besprochen‘$/);
       assert.deepEqual(await toast.getByRole('button').allInnerTexts(), ['zurückholen unter ‚Besprochen‘']); }
-    // Bestätigung unvollständig (ohne geaendert; nur geaendert ohne uebersprungen) → nicht „gespeichert“, Thema bleibt (neu geladen)
-    for (const halb of [{ ok: true }, { geaendert: 1 }, { geaendert: 1, uebersprungen: 'keine' }]) {
+    // Bestätigung unvollständig (ohne geaendert; nur geaendert ohne uebersprungen; Antwort wie WW-S2 ohne stand/geaendert_ids; geaendert_ids passt nicht) → nicht „gespeichert“, Thema bleibt (neu geladen)
+    for (const halb of [{ ok: true }, { geaendert: 1 }, { geaendert: 1, uebersprungen: 'keine' }, { geaendert: 1, uebersprungen: [] },
+      { stand: 3, geaendert: 1, geaendert_ids: [], markierung_ids: [500], uebersprungen: [] }, { stand: 3, geaendert: 1, geaendert_ids: ['9006'], markierung_ids: [500], uebersprungen: [] },
+      { stand: 3, geaendert: 1, geaendert_ids: [12345], markierung_ids: [500], uebersprungen: [] }, { stand: 3, geaendert: 1, geaendert_ids: [9006], uebersprungen: [] }]) {
       const { page, srv, ww, toast } = await wwOeffnen(t, b, { route: (q) => (q.aktion === 'schule_fehler_abhaken' ? { body: { ok: true, ergebnis: halb } } : null) });
       const n0 = srv.st.calls.filter((c) => c.aktion === 'schule_wackelt_analyse' && !c.erledigt).length;
       await ww.locator('.ww-thema[aria-label="Prozentrechnung"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/Nicht gespeichert/).waitFor(); await wwRuhig(page);
@@ -6533,7 +6574,7 @@ test('Auflagen 1155/1156 c/d: nur vollständige Antworten, letzte Anfrage gewinn
       kaputt = false; await h.getByRole('button', { name: 'Noch einmal versuchen' }).click(); await h.waitFor({ state: 'detached' }); await wwRuhig(page);
       assert.equal(await page.locator('.ww-seg button[aria-pressed="true"]').innerText(), '7 Tage'); assert.match(await page.locator('.ww-teil-kopf span').first().innerText(), /letzte 7 Tage/); }
     // c) unvollständige Antwort beim Neuladen: alte Daten bleiben, Hinweis
-    { let kaputt = false; const { page, ww } = await wwOeffnen(t, b, { route: (q) => (q.aktion === 'schule_wackelt_analyse' && !q.daten.erledigt && kaputt ? { body: { ok: true, ergebnis: { offen: {}, auswertung: {} } } } : null) });
+    { let kaputt = false; const { page, ww } = await wwOeffnen(t, b, { route: (q) => (q.aktion === 'schule_wackelt_analyse' && !q.daten.erledigt && kaputt ? { body: { ok: true, ergebnis: { stand: 3, tage: 0, offen: {}, auswertung: {} } } } : null) });
       kaputt = true; await ww.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: 'Alles' }).click(); await ww.locator('.ww-ladefehler').waitFor();
       assert.match(await ww.locator('.ww-ladefehler').innerText(), /„Alles“ lädt gerade nicht \(Die Antwort des Servers war unvollständig\.\) · angezeigt: 14 Tage/); assert.equal(await ww.locator('.ww-thema').count(), 4); }
     // d) „Besprochen“: Ladefehler lässt die Liste stehen, ausdrücklicher Wiederholen-Knopf, Aufklappen lädt nicht neu
@@ -6579,7 +6620,7 @@ test('Auflagen 1158 (1): kein automatisches Rückgängig – Parallelfall (B mar
     srv.st.nachAbhaken = (d) => { if (!d.zurueck) srv.st.abgehakt.delete(9005); srv.st.vorAbhaken = srv.st.nachAbhaken = null; };
     await ww.locator('.ww-thema[aria-label="Satz des Pythagoras"]').getByRole('button', { name: /^Besprochen:/ }).click();
     await toast.getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
-    assert.match(await toast.innerText(), /^Satz des Pythagoras als besprochen markiert \(1 neu markiert · 1 war schon markiert oder nicht mehr offen\) ·\s*zurückholen unter ‚Besprochen‘$/);
+    assert.match(await toast.innerText(), /^Satz des Pythagoras als besprochen markiert \(1 neu markiert · 1 war schon markiert\) ·\s*zurückholen unter ‚Besprochen‘$/);
     assert.deepEqual(await toast.getByRole('button').allInnerTexts(), ['zurückholen unter ‚Besprochen‘'], 'kein „Rückgängig“ – nur der Verweis');
     assert.equal(await page.getByRole('button', { name: /Rückgängig/ }).count(), 0, 'nirgends ein Rückgängig');
     const vorher = abhakCalls(srv).length;
@@ -6605,24 +6646,25 @@ test('Auflagen 1158 (3): Teilerfolg ehrlich – 1. Paket 200 IDs mit geaendert 0
     srv.st.vorAbhaken = (d) => { for (const id of d.versuch_ids) srv.st.abgehakt.set(id, new Date().toISOString()); srv.st.vorAbhaken = null; }; // jemand anderes hat die 200 schon markiert
     const bruch = ww.locator('.ww-thema[aria-label="Bruchrechnen"]'); await bruch.getByRole('button', { name: /^Besprochen: Bruchrechnen \(299/ }).click();
     const hinweis = ww.locator('.ww-teilerfolg'); await hinweis.waitFor(); await wwRuhig(page);
-    assert.match(await hinweis.innerText(), /^Bruchrechnen: 0 neu markiert · 200 waren schon markiert oder nicht mehr offen · 99 noch nicht gesendet\/fehlgeschlagen \(Zeitüberschreitung der Datenbank\)\s*Noch einmal versuchen$/);
+    assert.match(await hinweis.innerText(), /^Bruchrechnen: 0 neu markiert · 200 waren schon markiert · 99 noch nicht gesendet\/fehlgeschlagen \(Zeitüberschreitung der Datenbank\)\s*Noch einmal versuchen$/);
     for (const x of [hinweis, toast]) { const s = await x.innerText(); assert.doesNotMatch(s, /gespeichert|\d+ von \d+/, s); }
     assert.equal(await bruch.locator('.ww-th-titel .ww-zaehler').innerText(), '99', 'neu geladen: 99 offen');
     kaputt = false; await hinweis.getByRole('button', { name: 'Noch einmal versuchen' }).click(); await toast.getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
     assert.equal(abhakCalls(srv).at(-1).versuch_ids.length, 99, 'nur der Rest'); assert.match(await toast.innerText(), /^Bruchrechnen als besprochen markiert ·/);
   }
-  // Zurückholen: ein Tag mit 2 Fehlern, einer ist schon wieder offen → „1 wieder offen · 1 war schon wieder offen oder nicht zurückholbar“; Fehler → „Nicht gespeichert“ (ohne Zahl)
+  // Zurückholen (über markierung_ids): ein Tag mit 2 Fehlern, einer ist schon wieder offen → „1 zurückgeholt · 1 war inzwischen geändert …“
   { const { page, srv, toast } = await wwOeffnen(t, 1280);
     await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
     srv.st.abgehakt.delete(9012); // vor 10 Tagen besprochen – inzwischen von jemand anderem zurückgeholt; die Liste der Seite kennt das noch nicht
-    await page.locator('.ww-erledigt').getByRole('button', { name: /^Zurückholen: Terme umformen, der am/ }).last().click(); await toast.getByText(/nichts zurückgeholt/).waitFor(); await wwRuhig(page);
-    assert.equal(await toast.innerText(), 'Terme umformen: nichts zurückgeholt – 1 war schon wieder offen oder nicht zurückholbar.');
+    await page.locator('.ww-erledigt').getByRole('button', { name: /^Zurückholen: Terme umformen, der am/ }).last().click(); await toast.getByText(/0 zurückgeholt/).waitFor(); await wwRuhig(page);
+    assert.equal(await toast.innerText(), 'Terme umformen: 0 zurückgeholt · 1 war inzwischen geändert und bleibt, wie er ist');
     // Tag mit zwei Fehlern („Lineare Gleichungen“ heute besprochen: 9003, 9007), einer davon inzwischen schon wieder offen → getrennte Summen
     await page.locator('.ww-thema[aria-label="Lineare Gleichungen"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
     srv.st.abgehakt.delete(9007);
-    await page.locator('.ww-erledigt').getByRole('button', { name: /^Zurückholen: Lineare Gleichungen, alle 2 am/ }).click(); await toast.getByText(/wieder offen/).waitFor(); await wwRuhig(page);
-    assert.equal(await toast.innerText(), 'Lineare Gleichungen: wieder offen (1 wieder offen · 1 war schon wieder offen oder nicht zurückholbar)');
-    assert.deepEqual(abhakCalls(srv).at(-1).versuch_ids.sort(), [9003, 9007]); assert.equal(abhakCalls(srv).at(-1).zurueck, true); }
+    const mids = srv.st.marks.filter((m) => [9003, 9007].includes(m.versuch_id)).map((m) => m.id).sort((a, b) => a - b);
+    await page.locator('.ww-erledigt').getByRole('button', { name: /^Zurückholen: Lineare Gleichungen, alle 2 am/ }).click(); await toast.getByText(/1 zurückgeholt/).waitFor(); await wwRuhig(page);
+    assert.equal(await toast.innerText(), 'Lineare Gleichungen: 1 zurückgeholt · 1 war inzwischen geändert und bleibt, wie er ist');
+    assert.deepEqual(abhakCalls(srv).at(-1).markierung_ids.sort((a, b) => a - b), mids); assert.equal(abhakCalls(srv).at(-1).zurueck, true); assert.equal(abhakCalls(srv).at(-1).versuch_ids, undefined); }
 });
 
 test('Auflagen 1158 (4): Kopf „Nach Themen“ – 337 offene Fehler in 5 Themen, geladen die 300 neuesten aus 2 Themen; nicht geladene Themen als Zeile ohne „Besprochen“', async (t) => {
@@ -6647,21 +6689,29 @@ test('Auflagen 1158 (4): Kopf „Nach Themen“ – 337 offene Fehler in 5 Theme
   }
 });
 
-test('Auflagen 1158 (5/6): Gesprächstage statt „n-mal“; „seitdem N neue Fehler“ genau nur bei „Alles“ ohne Grenze, sonst „mindestens … (im gezeigten Zeitraum)“', async (t) => {
-  const { page, ww } = await wwOeffnen(t, 1280); const datum = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return `${d.getDate()}.${d.getMonth() + 1}.`; };
+test('Auflagen 1158 (5/6), WW-S3: Gesprächstage und „seitdem N neue Fehler“ aus auswertung.themen[].besprochen – genau in jedem Zeitraum, auch mit 300er-Grenze', async (t) => {
+  const { page, srv, ww } = await wwOeffnen(t, 1280); const datum = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return `${d.getDate()}.${d.getMonth() + 1}.`; };
   const terme = () => ww.locator('.ww-thema[aria-label="Terme umformen"] .ww-th-wieder');
-  assert.equal(await terme().innerText(), `↺ Schon besprochen am ${datum(3)} – seitdem mindestens 2 neue Fehler (im gezeigten Zeitraum) · insgesamt an 2 Tagen besprochen`);
-  assert.match(await ww.locator('.ww-nach').innerText(), /mind\. 2 neu seit/);
-  await ww.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: 'Alles' }).click(); await page.waitForFunction(() => /^gesamt$/.test(document.querySelector('.ww-teil-kopf span')?.textContent || '')); await wwRuhig(page);
-  assert.equal(await terme().innerText(), `↺ Schon besprochen am ${datum(3)} – seitdem 2 neue Fehler · insgesamt an 2 Tagen besprochen`, '„Alles“ ohne Grenze: genaue Zahl');
-  assert.match(await ww.locator('.ww-nach').innerText(), /Terme umformen\s*2 neu seit/);
+  const genau = `↺ Schon besprochen am ${datum(3)} – seitdem 2 neue Fehler · insgesamt an 2 Tagen besprochen`;
+  assert.equal(await terme().innerText(), genau, '14 Tage: genaue Zahl vom Server');
+  assert.match(await ww.locator('.ww-nach').innerText(), /Terme umformen\s*2 neu seit/); assert.equal(await page.getByText(/mindestens|mind\./).count(), 0, 'keine Untergrenze');
+  for (const z of ['Alles', '7 Tage']) {
+    await ww.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: z }).click(); await page.waitForFunction((z) => document.querySelector('.ww-seg button[aria-pressed="true"]')?.textContent === z && document.querySelector('.ww').getAttribute('aria-busy') === 'false', z); await wwRuhig(page);
+    assert.equal(await terme().innerText(), genau, z); }
+  assert.ok(srv.st.calls.filter((c) => c.aktion === 'schule_wackelt_analyse' && c.erledigt).every((c) => c.tage === 0), 'Besprochen-Angaben immer aus dem Aufruf mit tage 0');
   await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
   assert.match((await page.locator('.ww-erledigt li').allInnerTexts())[0], /^Terme umformen · an 2 Tagen besprochen · 2 Fehler/);
   assert.equal(await page.getByText(/-mal besprochen/).count(), 0);
-  // „Alles“ mit 300er-Grenze: wieder „mindestens“
+  // Die Zahlen kommen vom Server (nicht aus den geladenen Zeilen und nicht aus der 200er-Liste): meldet er 5 neue an 4 Tagen, steht genau das da
+  srv.st.verderben = (r, d) => { if (d.erledigt) { const t = r.auswertung.themen.find((x) => x.thema_id === 29); t.besprochen.neu_seit = 5; t.besprochen.tage = 4; } return r; };
+  await page.locator('.ww-thema[aria-label="Prozentrechnung"]').getByRole('button', { name: /^Besprochen:/ }).click(); await page.locator('.ww-toast').getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
+  assert.equal(await terme().innerText(), `↺ Schon besprochen am ${datum(3)} – seitdem 5 neue Fehler · insgesamt an 4 Tagen besprochen`);
+  assert.ok((await page.locator('.ww-erledigt li').allInnerTexts()).some((x) => /^Terme umformen · an 4 Tagen besprochen · 2 Fehler$/.test(x)), 'Liste nicht voll: genaue Zahl der gezeigten Fehler');
+  // „Alles“ mit 300er-Grenze: weiterhin genau (der Server zählt ohne Grenze)
   { const { page: p2, ww: w2 } = await wwOeffnen(t, 1280, { srv: { viele: 320 } });
     await w2.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: 'Alles' }).click(); await p2.waitForFunction(() => /^gesamt$/.test(document.querySelector('.ww-teil-kopf span')?.textContent || '')); await wwRuhig(p2);
-    const w = w2.locator('.ww-th-wieder'); if (await w.count()) for (const x of await w.allInnerTexts()) if (/seitdem/.test(x)) assert.match(x, /seitdem mindestens \d+ neue[r]? Fehler \(im gezeigten Zeitraum\)/); }
+    assert.equal(await w2.locator('.ww-thema[aria-label="Terme umformen"] .ww-th-wieder').innerText(), genau);
+    assert.equal(await w2.locator('.ww-th-wieder').filter({ hasText: /mindestens/ }).count(), 0); }
 });
 
 test('Auflagen 1158 (7): Antwortform vollständig – falsche Typen beim ersten Laden → bisherige Ansicht, beim Nachladen alte Daten + Hinweis; Zeichnen bricht nie ab', async (t) => {
@@ -6679,17 +6729,34 @@ test('Auflagen 1158 (7): Antwortform vollständig – falsche Typen beim ersten 
     'themen[].offen als Text': (r) => { r.auswertung.themen[0].offen = '3'; },
     'thema_id als Text': (r) => { r.offen[0].thema_id = '29'; },
     'frage.grafik keine Tabelle': (r) => { r.offen[0].aufgabe.frage.grafik = 'bild'; },
+    // WW-S3: strenge Typen
+    'mit_tipp als Text': (r) => { r.offen.find((x) => x.versuch_id === 9002).mit_tipp = 'false'; },
+    'danach_richtig als Text': (r) => { r.offen.find((x) => x.versuch_id === 9002).danach_richtig = 'nein'; },
+    'danach_richtig als Objekt (wie WW-S2)': (r) => { r.offen[0].danach_richtig = { lernkarte_am: r.offen[0].am }; },
+    'mit_tipp fehlt': (r) => { delete r.offen[0].mit_tipp; },
+    'stand als Text': (r) => { r.stand = '3'; },
+    'besprochen.tage als Text': (r) => { r.auswertung.themen.find((x) => x.besprochen).besprochen.tage = '2'; },
+    'besprochen.neu_seit negativ': (r) => { r.auswertung.themen.find((x) => x.besprochen).besprochen.neu_seit = -1; },
+    'besprochen.zuletzt kein Zeitpunkt': (r) => { r.auswertung.themen.find((x) => x.besprochen).besprochen.zuletzt = 'gestern'; },
   };
   for (const [wie, f] of Object.entries(verdorben)) {
     const srv = wwServer(); srv.st.verderben = (r, d) => { if (!d.erledigt) f(r); return r; };
     const { page } = await setup(t, { anpassen: srv.anpassen }); await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.ls-wackelt, .wk-karte').first().waitFor();
     assert.equal(await page.locator('.ww').count(), 0, wie + ': bisherige Ansicht'); }
-  // Nachladen: alte Daten + Hinweis (zwei Fälle), „Besprochen“ mit verdorbener Liste → Hinweis im Abschnitt
-  for (const wie of ['wiederkehrend[].themen keine Liste', 'tage passt nicht']) {
+  // Nachladen: alte Daten + Hinweis, „Besprochen“ mit verdorbener Liste → Hinweis im Abschnitt
+  for (const wie of ['wiederkehrend[].themen keine Liste', 'tage passt nicht', 'mit_tipp als Text', 'danach_richtig als Text']) {
     const { page, srv, ww } = await wwOeffnen(t, 1280); srv.st.verderben = (r, d) => { if (!d.erledigt) verdorben[wie](r); return r; };
     await ww.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: '7 Tage' }).click(); await ww.locator('.ww-ladefehler').waitFor(); await wwRuhig(page);
     assert.match(await ww.locator('.ww-ladefehler').innerText(), /„7 Tage“ lädt gerade nicht \(Die Antwort des Servers war unvollständig\.\) · angezeigt: 14 Tage/, wie);
-    assert.equal(await ww.locator('.ww-thema').count(), 4, wie + ': alte Daten'); assert.equal(await wwSeg(page).innerText(), '14 Tage'); }
+    assert.equal(await ww.locator('.ww-thema').count(), 4, wie + ': alte Daten'); assert.equal(await wwSeg(page).innerText(), '14 Tage');
+    // 9002 bleibt wie geladen: ohne Tipp, nicht „danach richtig gelöst“ (verdorbene Werte werden nicht angezeigt)
+    await ww.locator('.ww-thema[aria-label="Terme umformen"] .ww-z[data-versuch="9002"] .ww-aufg').click();
+    assert.match(await ww.locator('.ww-thema[aria-label="Terme umformen"] .ww-mehr').innerText(), /Fehler: nur das erste Zeichen in der Klammer gedreht\n/, wie);
+    assert.equal(await ww.locator('.ww-thema[aria-label="Terme umformen"] .ww-z[data-versuch="9002"] .ww-gut').count(), 0, wie); }
+  for (const [wie, f] of [['erledigt.id fehlt', (x) => { delete x.erledigt.id; }], ['erledigt.id als Text', (x) => { x.erledigt.id = String(x.erledigt.id); }], ['erledigt.tag kein Tag', (x) => { x.erledigt.tag = '28.11.2026'; }]]) {
+    const { page, srv } = await wwOeffnen(t, 1280); srv.st.verderben = (r, d) => { if (d.erledigt) f(r.erledigt[0]); return r; }; await page.locator('.ww-erledigt summary').click();
+    await page.locator('.ww-thema[aria-label="Prozentrechnung"]').getByRole('button', { name: /^Besprochen:/ }).click(); await page.locator('.ww-erledigt .err-text').waitFor(); await wwRuhig(page);
+    assert.match(await page.locator('.ww-erledigt .err-text').innerText(), /unvollständig/, wie); }
   { const { page, srv } = await wwOeffnen(t, 1280); srv.st.verderben = (r, d) => { if (d.erledigt) r.erledigt[0].erledigt = {}; return r; };
     await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor(); const n = await page.locator('.ww-erledigt li').count();
     await page.locator('.ww-thema[aria-label="Prozentrechnung"]').getByRole('button', { name: /^Besprochen:/ }).click(); await page.locator('.ww-erledigt .err-text').waitFor(); await wwRuhig(page);
@@ -6707,7 +6774,7 @@ test('Auflagen 1158 (8): thema_id fehlt (Einheit ohne Thema, jsonb_strip_nulls) 
   for (const b of [1280, 390]) {
     const { page, srv, ww, toast } = await wwOeffnen(t, b, { srv: { ohneThema: true } });
     const ohne = ww.locator('.ww-thema[aria-label="Ohne Thema"]'); await ohne.waitFor();
-    assert.equal(await ohne.getAttribute('data-ww-thema'), 'ohne'); assert.equal(await ohne.locator('.ww-th-titel .ww-zaehler').innerText(), '2', 'Zahl aus den geladenen Zeilen (der Server zählt hier 0)');
+    assert.equal(await ohne.getAttribute('data-ww-thema'), 'ohne'); assert.equal(await ohne.locator('.ww-th-titel .ww-zaehler').innerText(), '2', 'Zahl vom Server (WW-S3 zählt nullsicher)');
     assert.match(await ww.locator('#ww-h-themen').locator('..').innerText(), /9 offene Fehler in 5 Themen/);
     assert.match(await ww.locator('.ww-wieder').innerText(), /Terme umformen, Lineare Gleichungen, Ohne Thema/);
     assert.match(await ww.locator('.ww-fazit').innerText(), /Prozentrechnung und Ohne Thema waren Ausrutscher\./);
@@ -6718,7 +6785,12 @@ test('Auflagen 1158 (8): thema_id fehlt (Einheit ohne Thema, jsonb_strip_nulls) 
     await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
     assert.match((await page.locator('.ww-erledigt li').allInnerTexts())[0], /^Ohne Thema · besprochen am .+ · 2 Fehler/);
     await page.locator('.ww-erledigt').getByRole('button', { name: /^Zurückholen: Ohne Thema/ }).click(); await ww.locator('.ww-thema[aria-label="Ohne Thema"]').waitFor();
-    assert.equal(abhakCalls(srv).at(-1).zurueck, true);
+    assert.equal(abhakCalls(srv).at(-1).zurueck, true); assert.equal(abhakCalls(srv).at(-1).markierung_ids.length, 2);
+    // der Client verlässt sich auf die Zahl des Servers (kein eigener Ausgleich): meldet er 7, steht 7 da – mit Hinweis, dass nur die geladenen gezeigt sind
+    srv.st.verderben = (r) => { const t = r.auswertung.themen.find((x) => x.thema_id === undefined); if (t) t.offen = 7; return r; };
+    await ww.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: 'Alles' }).click(); await page.waitForFunction(() => /^gesamt$/.test(document.querySelector('.ww-teil-kopf span')?.textContent || '')); await wwRuhig(page);
+    assert.equal(await ww.locator('.ww-thema[aria-label="Ohne Thema"] .ww-th-titel .ww-zaehler').innerText(), '7');
+    assert.match(await ww.locator('.ww-thema[aria-label="Ohne Thema"] .ww-th-grenze').innerText(), /Gezeigt: die 2 neuesten von 7/);
   }
 });
 
@@ -6757,6 +6829,128 @@ test('Auflagen 1158 (9/10): Schreibfehler – gesperrter Zeitraum während des S
     await ww.locator('.ww-ladefehler').waitFor(); await wwRuhig(page);
     assert.equal(await wwSeg(page).innerText(), '14 Tage'); assert.equal(await ww.locator('.ww-seg .ww-lz').count(), 0);
   }
+});
+
+// ---------- WW-S3 (Folgemigration, inhalte/plan/wackelt-server.md Abschnitt WW-S3): ein Vertrag, Zurückholen über Markierungs-IDs, besprochen je Thema vom Server ----------
+const ww4Bild = async (page, name, { oben = true } = {}) => { if (!process.env.APP4_BILDER) return; await page.waitForTimeout(300); if (oben) await page.evaluate(() => scrollTo(0, 0)); await page.waitForTimeout(100);
+  await page.screenshot({ path: path.join(process.env.APP4_BILDER, `ww4-${name}.png`), fullPage: true }); };
+const wwDatum = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return `${d.getDate()}.${d.getMonth() + 1}.`; };
+const wwTagIso = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+const wwRe = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+test('WW-S3 (1): nur ein Vertrag – Server ohne stand (WW-S2) oder mit stand < 3 → bisherige Ansicht ohne Fehlermeldung, auch beim Nachladen; Bilder (1280/390 hell)', async (t) => {
+  for (const [wie, f] of [['ohne stand', (r) => { delete r.stand; }], ['stand 2', (r) => { r.stand = 2; }], ['stand 2.5', (r) => { r.stand = 2.5; }]]) {
+    const srv = wwServer(); srv.st.verderben = (r) => { f(r); return r; };
+    const { page } = await setup(t, { anpassen: srv.anpassen }); await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.ls-wackelt, .wk-karte').first().waitFor();
+    assert.equal(await page.locator('.ww, .ww-fehler, .err-text').count(), 0, wie + ': bisherige Ansicht, kein Fehler');
+    assert.equal(srv.st.calls.filter((c) => c.aktion === 'schule_fehler_abhaken').length, 0); }
+  // Nachladen: der Server antwortet plötzlich ohne stand (WW-S2) → bisherige Ansicht, keine Mischung der Verträge
+  { const { page, srv, ww } = await wwOeffnen(t, 1280); srv.st.verderben = (r) => { delete r.stand; return r; };
+    await ww.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: '7 Tage' }).click(); await page.locator('.ls-wackelt, .wk-karte').first().waitFor();
+    assert.equal(await page.locator('.ww, .err-text').count(), 0); }
+  for (const b of [1280, 390]) {
+    const srv = wwServer(); srv.st.verderben = (r) => { r.stand = 2; return r; };
+    const { page } = await setup(t, { anpassen: srv.anpassen }); await page.setViewportSize({ width: b, height: b > 1000 ? 900 : 844 });
+    await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.ls-wackelt, .wk-karte').first().waitFor(); await ww4Bild(page, `${b}-hell-rueckfall-stand2`); }
+});
+
+test('WW-S3 (2): Zurückholen nur über markierung_ids – Gegenprüfung: Tagesknopf von vor 10 Tagen geladen, Versuch inzwischen zurückgeholt und heute neu markiert → die heutige Markierung bleibt; Bilder', async (t) => {
+  for (const b of [1280, 390]) {
+    const { page, srv, ww, toast } = await wwOeffnen(t, b);
+    assert.equal(await ww.locator('.ww-thema[aria-label="Terme umformen"] .ww-th-wieder').innerText(), `↺ Schon besprochen am ${wwDatum(3)} – seitdem 2 neue Fehler · insgesamt an 2 Tagen besprochen`);
+    await ww4Bild(page, `${b}-hell-gefuellt`);
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+    await page.locator('.ww-erledigt').scrollIntoViewIfNeeded(); await ww4Bild(page, `${b}-hell-besprochen-offen`, { oben: false });
+    const alt = srv.st.marks.find((m) => m.versuch_id === 9012 && !m.zurueck_am).id;
+    // anderes Gerät: der Fehler 9012 (Tagesknopf vor 10 Tagen) wurde zurückgeholt und heute neu markiert – die Seite kennt das noch nicht
+    srv.st.abgehakt.delete(9012); srv.st.abgehakt.set(9012, new Date().toISOString());
+    const neu = srv.st.marks.find((m) => m.versuch_id === 9012 && !m.zurueck_am).id; assert.notEqual(neu, alt);
+    await page.locator('.ww-erledigt').getByRole('button', { name: new RegExp(`^Zurückholen: Terme umformen, der am ${wwRe(wwDatum(10))} besprochenen Fehler$`) }).click();
+    await toast.getByText(/zurückgeholt/).waitFor(); await wwRuhig(page);
+    assert.equal(await toast.innerText(), 'Terme umformen: 0 zurückgeholt · 1 war inzwischen geändert und bleibt, wie er ist');
+    const c = abhakCalls(srv).at(-1); assert.deepEqual(c.markierung_ids, [alt], 'genau die geladene Markierung'); assert.equal(c.zurueck, true); assert.equal(c.versuch_ids, undefined);
+    assert.equal(srv.st.marks.find((m) => m.versuch_id === 9012 && !m.zurueck_am)?.id, neu, 'die heutige Markierung bleibt');
+    // neu geladen: 9012 steht jetzt unter dem heutigen Tag; der Tag vor 10 Tagen ist weg
+    const zeilen = await page.locator('.ww-erledigt li').allInnerTexts();
+    assert.ok(zeilen.some((x) => new RegExp(`besprochen am ${wwRe(wwDatum(0))} · 1 Fehler`).test(x)), zeilen.join(' | ')); assert.ok(!zeilen.some((x) => x.includes(`am ${wwDatum(10)}`)), zeilen.join(' | '));
+    await page.locator('.ww-erledigt').scrollIntoViewIfNeeded(); await ww4Bild(page, `${b}-hell-zurueckholen-ueberholt`, { oben: false });
+    // zwei Markierungen an einem Tag, eine davon inzwischen zurückgeholt und neu markiert → getrennt gemeldet
+    await ww.locator('.ww-thema[aria-label="Lineare Gleichungen"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
+    srv.st.abgehakt.delete(9007); srv.st.abgehakt.set(9007, new Date().toISOString());
+    await page.locator('.ww-erledigt').getByRole('button', { name: /^Zurückholen: Lineare Gleichungen, alle 2 am/ }).click(); await toast.getByText(/1 zurückgeholt/).waitFor(); await wwRuhig(page);
+    assert.equal(await toast.innerText(), 'Lineare Gleichungen: 1 zurückgeholt · 1 war inzwischen geändert und bleibt, wie er ist');
+    assert.ok(srv.st.abgehakt.has(9007) && !srv.st.abgehakt.has(9003));
+    assert.ok(abhakCalls(srv).filter((x) => x.zurueck).every((x) => Array.isArray(x.markierung_ids) && x.versuch_ids === undefined), 'nie über versuch_ids');
+  }
+});
+
+test('WW-S3 (3): Rest nach Teilerfolg überlebt keinen Zeitraumwechsel – Rest aus 14 Tagen, Wechsel auf 7 Tage: Rest verworfen, nichts mehr aus dem alten Umfang markiert', async (t) => {
+  for (const b of [1280, 390]) {
+    let kaputt = true; const { page, srv, ww, toast } = await wwOeffnen(t, b, { srv: { viele: 230 }, route: (q) => (q.aktion === 'schule_fehler_abhaken' && kaputt && (q.daten.versuch_ids || []).length < 200 ? { status: 500, body: { ok: false, fehler: 'Zeitüberschreitung der Datenbank' } } : null) });
+    await ww.locator('.ww-thema[aria-label="Bruchrechnen"]').getByRole('button', { name: /^Besprochen: Bruchrechnen \(230/ }).click();
+    const hinweis = ww.locator('.ww-teilerfolg'); await hinweis.waitFor(); await wwRuhig(page);
+    assert.match(await hinweis.innerText(), /30 noch nicht gesendet\/fehlgeschlagen/); assert.equal(await toast.getByRole('button', { name: 'Noch einmal versuchen' }).count(), 1);
+    kaputt = false; const n0 = abhakCalls(srv).length;
+    await ww.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: '7 Tage' }).click();
+    await page.waitForFunction(() => document.querySelector('.ww-seg button[aria-pressed="true"]')?.textContent === '7 Tage' && document.querySelector('.ww').getAttribute('aria-busy') === 'false'); await wwRuhig(page);
+    assert.equal(await ww.locator('.ww-teilerfolg').count(), 0, 'Hinweis weg');
+    assert.equal(await toast.innerText(), 'Nicht gesendeter Rest verworfen – bitte im neuen Zeitraum erneut markieren.');
+    assert.equal(await page.getByRole('button', { name: 'Noch einmal versuchen' }).count(), 0, 'kein Wiederholen mehr – weder im Hinweis noch in der Meldung');
+    await page.waitForTimeout(300); assert.equal(abhakCalls(srv).length, n0, 'nichts aus dem alten Umfang gesendet');
+    assert.equal(await ww.locator('.ww-thema[aria-label="Bruchrechnen"] .ww-th-titel .ww-zaehler').innerText(), '30', 'der Rest bleibt offen und kann im neuen Zeitraum markiert werden');
+  }
+  // ganz gescheitert („Nicht gespeichert … Noch einmal versuchen“ in der Meldung): auch dieser Rest wird beim Wechsel verworfen
+  { let kaputt = true; const { page, srv, ww, toast } = await wwOeffnen(t, 1280, { route: (q) => (q.aktion === 'schule_fehler_abhaken' && kaputt ? { status: 500, body: { ok: false, fehler: 'Netz weg' } } : null) });
+    await ww.locator('.ww-thema[aria-label="Prozentrechnung"]').getByRole('button', { name: /^Besprochen:/ }).click(); await toast.getByText(/Nicht gespeichert/).waitFor(); await wwRuhig(page);
+    kaputt = false; const n0 = abhakCalls(srv).length;
+    await ww.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: 'Alles' }).click(); await page.waitForFunction(() => /^gesamt$/.test(document.querySelector('.ww-teil-kopf span')?.textContent || '')); await wwRuhig(page);
+    assert.equal(await toast.innerText(), 'Nicht gesendeter Rest verworfen – bitte im neuen Zeitraum erneut markieren.'); assert.equal(await page.getByRole('button', { name: 'Noch einmal versuchen' }).count(), 0);
+    await page.waitForTimeout(200); assert.equal(abhakCalls(srv).length, n0); }
+});
+
+test('WW-S3 (4): Abschnitt „Besprochen“ – Tage aus erledigt.tag (Zeitzone des Kindes), volle Liste: „alle hier gezeigten n zurückholen“, Untergrenzen nur, wo etwas fehlen kann', async (t) => {
+  // erledigt.tag vom Server statt Gerätetag: 9010 (am Gerät vor 3 Tagen besprochen) liegt in der Zeitzone des Kindes auf dem Tag davor
+  { const srv = wwServer(); srv.st.verderben = (r) => { for (const x of r.erledigt || []) if (x.versuch_id === 9010) x.erledigt.tag = wwTagIso(4); return r; };
+    const { page } = await setup(t, { anpassen: srv.anpassen }); await page.setViewportSize({ width: 1280, height: 900 }); await page.goto(origin + '/#/kind/1-wackelt');
+    const ww = page.locator('.ww'); await ww.locator('.ww-th-wieder').first().waitFor(); await wwRuhig(page);
+    assert.match(await ww.locator('.ww-thema[aria-label="Terme umformen"] .ww-th-wieder').innerText(), new RegExp(`^↺ Schon besprochen am ${wwRe(wwDatum(4))} – `), 'Tag der letzten Markierung aus erledigt.tag');
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+    const z = await page.locator('.ww-erledigt li').allInnerTexts();
+    assert.ok(z.some((x) => new RegExp(`besprochen am ${wwRe(wwDatum(4))} · 1 Fehler`).test(x)) && !z.some((x) => x.includes(`am ${wwDatum(3)}`)), z.join(' | ')); }
+  for (const b of [1280, 390]) {
+    const { page, srv, ww, toast } = await wwOeffnen(t, b, { srv: { viele: 320 } });
+    await ww.locator('.ww-thema[aria-label="Bruchrechnen"]').getByRole('button', { name: /^Besprochen: Bruchrechnen/ }).click(); await toast.getByText(/Bruchrechnen als besprochen markiert/).waitFor(); await wwRuhig(page);
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+    assert.equal(await page.locator('.ww-erledigt summary .ww-zaehler').innerText(), '3', 'Themen laut Server (auch die nicht in der Liste)');
+    const knoepfe = await page.locator('.ww-erledigt li button').allInnerTexts();
+    assert.ok(knoepfe.length && knoepfe.every((x) => /^(alle hier gezeigten \d+|den hier gezeigten) zurückholen$/.test(x)), knoepfe.join(' | '));
+    assert.match(await page.locator('.ww-erledigt .ww-bs-erkl').innerText(), /holt die hier gezeigten Fehler des Themas zurück[\s\S]*Ältere Markierungen, die nicht in der Liste stehen, bleiben/);
+    assert.match(await page.locator('.ww-erledigt .ww-grenze').innerText(), /die 200 zuletzt besprochenen Fehler – ältere Gespräche können fehlen/);
+    const z = await page.locator('.ww-erledigt li').allInnerTexts();
+    assert.match(z[0], new RegExp(`^Bruchrechnen · besprochen am ${wwRe(wwDatum(0))} · mindestens 200 Fehler`), 'Tag an der Grenze der Liste: Untergrenze');
+    assert.ok(z.some((x) => new RegExp(`^Terme umformen · zuletzt besprochen am ${wwRe(wwDatum(3))} · an 2 Tagen besprochen · älter als die hier gezeigten – nicht in der Liste$`).test(x)), z.join(' | '));
+    assert.equal(await page.locator('.ww-erledigt li', { hasText: 'Terme umformen' }).locator('button').count(), 0, 'nicht geladen: kein Zurückholen');
+    if (b === 1280) await ww4Bild(page, '1280-hell-besprochen-voll', { oben: false });
+    await page.locator('.ww-erledigt').getByRole('button', { name: /^Zurückholen: Bruchrechnen, die hier gezeigten 200 am/ }).click(); await toast.getByText(/200 zurückgeholt/).waitFor(); await wwRuhig(page);
+    assert.equal(await toast.innerText(), 'Bruchrechnen: 200 zurückgeholt'); assert.equal(abhakCalls(srv).at(-1).markierung_ids.length, 200);
+  }
+});
+
+test('WW-S3 (5): „Noch einmal versuchen“ im Abschnitt „Besprochen“ (Lesefehler) ist während eines Schreibaufrufs gesperrt', async (t) => {
+  let kaputt = false, langsam = false;
+  const { page, srv, ww } = await wwOeffnen(t, 1280, { route: (q) => (q.aktion === 'schule_wackelt_analyse' && q.daten.erledigt && kaputt ? { status: 500, body: { ok: false, fehler: 'Netz weg' } } : null),
+    verzoegerungJe: (a) => (a === 'schule_fehler_abhaken' && langsam ? 1500 : 0) });
+  const nErl = () => srv.st.calls.filter((c) => c.aktion === 'schule_wackelt_analyse' && c.erledigt).length;
+  await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+  kaputt = true; await ww.locator('.ww-thema[aria-label="Prozentrechnung"]').getByRole('button', { name: /^Besprochen:/ }).click(); await page.locator('.ww-erledigt .err-text').waitFor(); await wwRuhig(page);
+  langsam = true; await ww.locator('.ww-thema[aria-label="Satz des Pythagoras"]').getByRole('button', { name: /^Besprochen:/ }).click();
+  await ww.locator('.ww-thema[aria-label="Satz des Pythagoras"] .ww-bespr', { hasText: 'Speichere …' }).waitFor();
+  const knopf = page.locator('.ww-erledigt .err-text').getByRole('button', { name: 'Noch einmal versuchen' });
+  assert.equal(await knopf.getAttribute('aria-disabled'), 'true', 'gesperrt wie die übrigen Schaltflächen');
+  const n0 = nErl(); await knopf.click({ force: true }); await page.waitForTimeout(150); assert.equal(nErl(), n0, 'kein Laden während des Schreibens');
+  await page.locator('.ww-toast').getByText(/als besprochen markiert/).waitFor(); await wwRuhig(page);
+  kaputt = false; langsam = false; assert.equal(await knopf.getAttribute('aria-disabled'), null, 'danach wieder frei');
+  await knopf.click(); await page.locator('.ww-erledigt .err-text').waitFor({ state: 'detached' });
 });
 
 // ---------- Teil A (0.96.x): offene Flüge von der Kartenseite aus startbar – die Karte selbst bleibt unverändert ----------

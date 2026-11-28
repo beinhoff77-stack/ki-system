@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stammbaum der Flächen und Körper – Entwurf 1 (Designer)</title>
+<style>
+/* Entwurf „Stammbaum“ für die Tafel „Formeln auf einen Blick“ (Regel-Universum, Kinderansicht).
+   Farben, Schriften und Bausteine wie lernen-regeln.css (.ru, Präfix ru-; Tafel-Bausteine ru-tafel-…). Neu: Präfix sb- (Stammbaum).
+   Schalter per Adresse: #g=nacht · #k=6 · #auf=dreieck (kombinierbar mit &). Läuft ohne Netz; Schriften aus vendor/schriften des Repos. */
+@font-face { font-family: "Space Grotesk"; src: url("../../../../vendor/schriften/space-grotesk.woff2") format("woff2"); font-weight: 300 700; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("../../../../vendor/schriften/jetbrains-mono.woff2") format("woff2"); font-weight: 100 800; font-display: swap; }
+html, body { margin: 0; }
+.ru *, .ru *::before, .ru *::after { box-sizing: border-box; }
+.ru { --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace; --grotesk: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif; --s3: #FFD23F;
+  font-family: var(--grotesk); font-size: 17px; font-weight: 500; line-height: 1.4; background: var(--ru-bg); color: var(--ru-text); -webkit-text-size-adjust: 100%; min-height: 100vh; }
+.ru[data-ru-g="nacht"] { color-scheme: dark; --ru-bg: #0B0F14; --ru-flaeche: #151B24; --ru-flaeche2: #1D2530; --ru-text: #F2F4F7; --ru-leise: #A9B3C1; --ru-linie: #2E3947; --ru-marke: #FFD23F; --z-gelb-fl: #6B5714; }
+.ru[data-ru-g="hell"] { color-scheme: light; --ru-bg: #F3F1EA; --ru-flaeche: #FFFFFF; --ru-flaeche2: #F6F4EE; --ru-text: #11161D; --ru-leise: #4A5563; --ru-linie: #C9C4B6; --ru-marke: #FFD23F; --z-gelb-fl: #FFE88A; }
+.ru button { font: inherit; color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.ru a { color: inherit; }
+.ru :focus-visible { outline: 3px solid var(--ru-text); outline-offset: 2px; border-radius: 6px; }
+.ru h1, .ru h2, .ru h3, .ru p { margin: 0; }
+.ru .ru-leise { color: var(--ru-leise); }
+/* Gebiet Fläche und Raum */
+.ru [data-gebiet] { --ru-tafel-f: #5AAEFF; --ru-tafel-tint: color-mix(in srgb, var(--ru-tafel-f) 26%, var(--ru-flaeche)); }
+
+/* Entwurfsleiste (nicht Teil der App) */
+.ent { font-family: var(--mono); font-size: 12.5px; background: var(--ru-flaeche2); border-bottom: 1px dashed var(--ru-linie); color: var(--ru-leise); }
+.ent div { max-width: 1240px; margin: 0 auto; padding: 6px 16px; display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; }
+.ent a { color: var(--ru-text); text-underline-offset: 3px; }
+
+/* Kopf, Pfad, Titel wie im Universum */
+.ru .ru-kopf { position: sticky; top: 0; z-index: 10; background: var(--ru-bg); border-bottom: 1px solid var(--ru-linie); }
+.ru .ru-breite { max-width: 1240px; margin: 0 auto; padding-left: 16px; padding-right: 16px; }
+@media (min-width: 700px) { .ru .ru-breite { padding-left: 28px; padding-right: 28px; } }
+.ru .ru-kopf .ru-breite { display: flex; align-items: center; gap: 10px; min-height: 60px; }
+.ru .ru-kopf-marke { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 17px; min-height: 44px; white-space: nowrap; }
+.ru .ru-kopf-marke i { width: 26px; height: 26px; border-radius: 50%; background: var(--s3); box-shadow: 0 0 0 4px rgba(255, 210, 63, .28); flex: none; }
+.ru .ru-suche { flex: 1; display: flex; justify-content: flex-end; position: relative; }
+.ru .ru-suche input { width: 100%; max-width: 420px; height: 44px; border-radius: 12px; border: 1.5px solid var(--ru-linie); background: var(--ru-flaeche); padding: 0 14px; font: inherit; font-size: 16px; color: var(--ru-text); }
+.ru .ru-suche input::placeholder { color: var(--ru-leise); opacity: 1; }
+.ru .ru-pfad { display: flex; flex-wrap: wrap; gap: 0 6px; align-items: center; font-size: 16px; color: var(--ru-leise); padding: 14px 0 4px; }
+.ru .ru-pfad a { text-decoration: underline; text-underline-offset: 3px; min-height: 40px; display: inline-flex; align-items: center; }
+.ru .ru-titel { font-size: 26px; font-weight: 700; line-height: 1.15; margin-top: 4px; }
+.ru .ru-lead { font-size: 17px; color: var(--ru-leise); margin-top: 4px; }
+.ru .ru-seite { max-width: 760px; margin: 0 auto; padding-bottom: 60px; }
+/* Vorschlag: Formel-Tafel mit Stammbaum am Rechner breiter (wie Tafel „Figuren“: 1120 px) */
+@media (min-width: 900px) { .ru .ru-seite { max-width: 1120px; } }
+
+/* Werkzeug: Klassenfilter, Drucken (wie App) */
+.ru .ru-tafel-kopf { margin-bottom: 10px; }
+.ru .ru-tafel-werkzeug { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px; margin-top: 10px; }
+.ru .ru-tafel-kf { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.ru .ru-tafel-kf > span { font-size: 14px; color: var(--ru-leise); margin-right: 2px; }
+.ru .ru-tafel-kf button { min-width: 40px; min-height: 44px; border-radius: 10px; border: 1.5px solid var(--ru-linie); background: var(--ru-flaeche); font-family: var(--mono); font-weight: 700; font-size: 14px; padding: 0 6px; }
+.ru .ru-tafel-kf button[aria-pressed="true"] { background: var(--ru-text); color: var(--ru-bg); border-color: var(--ru-text); }
+.ru .ru-tafel-drucken { border: 0; background: none; color: var(--ru-leise); text-decoration: underline; text-underline-offset: 3px; font-size: 15px; min-height: 44px; padding: 0 4px; }
+@media (max-width: 420px) { .ru .ru-tafel-kf button { min-width: 37px; padding: 0 4px; } .ru .ru-tafel-kf > span { width: 100%; } }
+
+/* Karten (wie App) */
+.ru .ru-tafel-karte { background: var(--ru-flaeche); border: 1.5px solid var(--ru-linie); border-radius: 16px; padding: 10px 12px 8px; margin: 0 0 12px; min-width: 0; }
+.ru .ru-tafel-karte.ru-tafel-erste { border-top: 6px solid var(--ru-tafel-f); }
+.ru .ru-tafel-h2 { font-size: 20px; font-weight: 700; line-height: 1.2; display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; padding: 4px 0 8px; }
+.ru .ru-tafel-h3 { font-size: 15px; font-weight: 700; color: var(--ru-leise); margin: 12px 0 4px; }
+.ru .ru-tafel-kl { font-family: var(--mono); font-size: 12.5px; font-weight: 600; color: var(--ru-leise); white-space: nowrap; }
+.ru .ru-tafel-hinweis { font-size: 15px; color: var(--ru-leise); margin: 8px 0 4px; }
+.ru .ru-tafel-warum-zeile { display: flex; flex-wrap: wrap; gap: 0 16px; margin: 4px 0 0; }
+.ru .ru-tafel-warum { font-size: 15px; font-weight: 700; text-underline-offset: 3px; display: inline-flex; align-items: center; min-height: 44px; }
+.ru .ru-tafel-liste { margin: 2px 0 6px; padding-left: 20px; font-size: 16px; display: grid; gap: 4px; }
+.ru .ru-tafel-f { font-family: var(--grotesk); font-weight: 700; font-size: 17px; line-height: 1.3; font-variant-numeric: tabular-nums; }
+.ru .ru-tafel-fz { display: block; padding: 1px 0; }
+.ru .ru-tafel-fg { white-space: nowrap; }
+.ru sub { font-size: max(12px, .72em); vertical-align: -.25em; line-height: 0; }
+.ru .ru-tafel-fz + .ru-tafel-fz { margin-top: 4px; }
+.ru .ru-tafel-fz small { display: block; font-weight: 600; font-size: 13px; color: var(--ru-leise); line-height: 1.2; }
+.ru .ru-tafel-bez { display: grid; gap: 2px; margin: 0 0 4px; }
+.ru .ru-tafel-bez > div { display: grid; grid-template-columns: 3.6em minmax(0, 1fr); gap: 6px; }
+.ru .ru-tafel-bez dt { font-family: var(--mono); font-weight: 700; }
+.ru .ru-tafel-bez dd { margin: 0; }
+
+/* Matrix mit aufklappbarer Zeile (wie App) */
+.ru .ru-tafel-roll { overflow-x: auto; max-width: 100%; container-type: inline-size; margin: 2px 0 4px; border: 1px solid var(--ru-linie); border-radius: 12px; background: var(--ru-flaeche); }
+.ru .ru-tafel-matrix { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 16px; }
+.ru .ru-tafel-matrix th, .ru .ru-tafel-matrix td { text-align: left; vertical-align: middle; padding: 6px 10px; border-bottom: 1px solid color-mix(in srgb, var(--ru-linie) 70%, transparent); }
+.ru .ru-tafel-matrix tbody:last-child tr:last-child > * { border-bottom: 0; }
+.ru .ru-tafel-matrix thead th { font-family: var(--mono); font-size: 12.5px; font-weight: 700; color: var(--ru-leise); background: var(--ru-flaeche2); border-bottom: 1.5px solid var(--ru-linie); vertical-align: bottom; }
+.ru .ru-tafel-matrix th.ru-tafel-fest { position: sticky; left: 0; z-index: 1; background: var(--ru-flaeche); box-shadow: inset -1.5px 0 0 var(--ru-linie); font-weight: 500; min-width: 6.5em; max-width: 12em; }
+.ru .ru-tafel-matrix thead th.ru-tafel-fest { background: var(--ru-flaeche2); z-index: 2; }
+.ru .ru-tafel-zk { display: flex; align-items: center; gap: 8px; min-height: 32px; }
+.ru .ru-tafel-zk-text { display: flex; flex-direction: column; line-height: 1.2; }
+.ru .ru-tafel-zk-text b { font-size: 16px; }
+.ru .ru-tafel-auf { display: flex; align-items: center; justify-content: space-between; gap: 6px; width: 100%; min-height: 44px; padding: 0; margin: 0; border: 0; background: none; text-align: left; }
+.ru .ru-tafel-auf:hover .ru-tafel-zk-text b { text-decoration: underline; text-underline-offset: 3px; }
+.ru .ru-chev { width: 22px; height: 22px; flex: none; color: var(--ru-leise); transition: transform .15s; }
+.ru .ru-tafel-auf[aria-expanded="true"] .ru-chev { transform: rotate(180deg); }
+.ru .ru-tafel-z:has(.ru-tafel-auf[aria-expanded="true"]) > tr:first-child > * { background: var(--ru-flaeche2); border-bottom-color: transparent; }
+.ru .ru-tafel-detail > td { padding: 0; background: var(--ru-flaeche2); }
+.ru .ru-tafel-d { position: sticky; left: 0; width: 100cqw; max-width: 100cqw; padding: 4px 12px 12px; white-space: normal; font-size: 16px; }
+.ru .ru-tafel-mini { width: 46px; height: auto; flex: none; color: var(--ru-text); }
+.ru .ru-tafel-ziel { outline: 3px solid var(--ru-marke); outline-offset: -3px; }
+
+/* ===================== Neu: Zeichnungen ===================== */
+.ru svg { display: block; overflow: visible; color: var(--ru-text); }
+.ru .f-n { fill: var(--ru-tafel-tint); stroke: currentColor; stroke-width: 2; stroke-linejoin: round; }
+.ru .f-m { fill: var(--ru-marke); stroke: currentColor; stroke-width: 2; stroke-linejoin: round; }
+.ru .f-o { fill: none; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; }
+.ru .f-d { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-dasharray: 4 3; }
+.ru .f-g { fill: none; stroke: currentColor; stroke-width: 1; opacity: .35; }
+.ru .f-rw { fill: none; stroke: currentColor; stroke-width: 1.3; }
+.ru .f-pf { fill: none; stroke: var(--ru-leise); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ru .f-t { font-family: var(--mono); font-size: 13px; font-weight: 700; fill: currentColor; }
+.ru .f-ts { font-family: var(--grotesk); font-size: 13px; font-weight: 700; fill: currentColor; }
+.ru .f-tl { font-family: var(--grotesk); font-size: 12px; font-weight: 600; fill: var(--ru-leise); }
+.ru .f-punkt { fill: currentColor; }
+
+/* ===================== Neu: Leitsatz und Stammbaum ===================== */
+.ru .sb-leit { display: flex; gap: 10px; align-items: flex-start; margin: 2px 0 12px; padding: 10px 12px; border-radius: 12px; background: var(--ru-flaeche2); border: 1.5px solid var(--ru-linie); }
+.ru .sb-leit::before { content: ""; flex: none; width: 6px; align-self: stretch; border-radius: 3px; background: var(--ru-marke); }
+.ru .sb-leit b { display: block; font-size: 18px; line-height: 1.25; }
+.ru .sb-leit span { display: block; font-size: 15px; color: var(--ru-leise); margin-top: 2px; }
+.ru .sb-baum { margin: 0 0 6px; }
+.ru .sb-baum ul { list-style: none; margin: 0; padding: 0; }
+/* Knoten: antippbar, springt zur Zeile der Matrix und klappt sie auf */
+.ru .sb-knoten { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; width: 100%; text-align: left; border: 1.5px solid var(--ru-text); border-radius: 12px; background: var(--ru-flaeche); padding: 7px 34px 7px 11px; min-height: 44px; position: relative; }
+.ru .sb-knoten:hover { background: var(--ru-flaeche2); }
+.ru .sb-knoten::after { content: "›"; position: absolute; right: 11px; top: 50%; transform: translateY(-52%); font-size: 22px; color: var(--ru-leise); }
+.ru .sb-knoten b { font-size: 16px; line-height: 1.2; }
+.ru .sb-knoten .ru-tafel-f { font-size: 17px; }
+.ru .sb-knoten .ru-tafel-kl { margin-top: 1px; }
+.ru .sb-zwei { display: flex; flex-wrap: wrap; gap: 6px; }
+.ru .sb-zwei .sb-knoten { flex: 1 1 170px; width: auto; }
+.ru .sb-folg-k { border: 0; background: none; padding: 2px 0; text-align: left; display: grid; grid-template-columns: 30px minmax(0, 1fr); align-items: center; gap: 8px; width: 100%; font-size: 14px; min-height: 40px; }
+.ru .sb-folg-k:hover span { text-decoration: underline; text-underline-offset: 3px; }
+.ru .sb-folg-k svg { flex: none; }
+.ru .sb-ziel { position: relative; width: 100%; }
+.ru .sb-ast > .sb-kopf > .sb-ziel::before { content: ""; position: absolute; left: -22px; top: 22px; width: 17px; border-top: 2px solid var(--ru-text); }
+.ru .sb-ast > .sb-kopf > .sb-ziel::after { content: ""; position: absolute; left: -8px; top: 17px; border: 6px solid transparent; border-left: 8px solid var(--ru-text); border-right: 0; }
+.ru .sb-ast.sb-gestr > .sb-kopf > .sb-ziel::before { border-top-style: dashed; }
+/* Ursprung */
+.ru .sb-wurzel { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 12px; align-items: center; border: 2.5px solid var(--ru-text); border-radius: 14px; background: var(--ru-tafel-tint); padding: 10px 12px; width: 100%; text-align: left; position: relative; }
+.ru .sb-wurzel:hover { background: color-mix(in srgb, var(--ru-tafel-f) 36%, var(--ru-flaeche)); }
+.ru .sb-wurzel small { display: block; font-family: var(--mono); font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ru-text); }
+.ru .sb-wurzel b { display: block; font-size: 19px; line-height: 1.2; }
+.ru .sb-wurzel .ru-tafel-f { font-size: 22px; display: block; }
+.ru .sb-wurzel .sb-wz-satz { display: block; font-size: 14px; color: var(--ru-text); margin-top: 2px; }
+/* Kante: Verb + Bild des Tricks (vorher → nachher) */
+.ru .sb-kante { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 10px 0 8px; }
+.ru .sb-verb { display: inline-block; font-family: var(--mono); font-size: 13px; font-weight: 700; border-radius: 999px; padding: 2px 9px; background: var(--ru-text); color: var(--ru-bg); white-space: nowrap; }
+.ru .sb-verb.sb-leicht { background: var(--ru-flaeche2); color: var(--ru-text); border: 1.5px dashed var(--ru-leise); }
+.ru .sb-trick { display: block; padding: 2px 0; }
+.ru .sb-kante small { font-size: 13px; color: var(--ru-leise); line-height: 1.25; max-width: 30ch; }
+/* Folgerungen (weitere Wege) am Knoten */
+.ru .sb-folg { margin: 6px 0 0 !important; display: grid; gap: 4px; }
+.ru .sb-folg li { font-size: 14px; line-height: 1.3; border: 1.5px dashed var(--ru-linie); border-radius: 10px; padding: 4px 9px; background: var(--ru-flaeche); }
+.ru .sb-folg li b { font-family: var(--grotesk); font-weight: 700; font-size: 14.5px; white-space: nowrap; }
+.ru .sb-folg .ru-tafel-kl { font-size: 12px; margin-left: 4px; }
+.ru .sb-folg-t { display: block; font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ru-leise); margin: 6px 0 2px; }
+.ru .sb-fuss { font-size: 15px; color: var(--ru-leise); margin: 10px 0 4px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: center; border-top: 1px dashed var(--ru-linie); padding-top: 10px; }
+.ru .sb-fuss b { color: var(--ru-text); }
+.ru .sb-leer { font-size: 15px; color: var(--ru-leise); border: 1.5px dashed var(--ru-linie); border-radius: 12px; padding: 10px 12px; margin: 8px 0; }
+
+/* --- Handy: senkrechter Baum mit Stamm links --- */
+.ru .sb-aeste { margin-top: 0 !important; }
+.ru .sb-ast { position: relative; padding-left: 22px; }
+.ru .sb-ast::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; border-left: 2px solid var(--ru-text); }
+.ru .sb-ast.sb-letzt::before { bottom: auto; height: var(--sb-bis, 60px); }
+.ru .sb-ast > .sb-kopf { position: relative; }
+.ru .sb-ast.sb-gestr::before { border-left-style: dashed; }
+.ru .sb-kinder { margin-left: 14px !important; }
+.ru .sb-aeste, .ru .sb-kinder { padding-top: 0; }
+.ru .sb-wurzel-wrap { position: relative; }
+
+/* --- Rechner: Stammbaum von oben nach unten, Äste nebeneinander --- */
+@media (min-width: 900px) {
+  .ru .sb-baum { padding: 4px 0 0; }
+  .ru .sb-wurzel-wrap { display: flex; justify-content: center; }
+  .ru .sb-wurzel { width: auto; min-width: 340px; max-width: 460px; }
+  .ru .sb-aeste, .ru .sb-kinder { display: flex; position: relative; padding-top: 18px !important; margin-left: 0 !important; }
+  .ru .sb-aeste::before, .ru .sb-kinder::before { content: ""; position: absolute; top: 0; left: 50%; height: 18px; border-left: 2px solid var(--ru-text); }
+  .ru .sb-ast { flex: var(--sb-w, 1) 1 0; min-width: 0; padding: 18px 6px 0; display: flex; flex-direction: column; align-items: center; }
+  .ru .sb-ast::before, .ru .sb-ast::after { content: ""; position: absolute; top: 0; height: 18px; width: 50%; border-top: 2px solid var(--ru-text); left: auto; bottom: auto; border-left: 0; }
+  .ru .sb-ast::before { right: 50%; }
+  .ru .sb-ast::after { left: 50%; border-left: 2px solid var(--ru-text); }
+  .ru .sb-ast.sb-letzt::before { height: 18px; }
+  .ru .sb-ast.sb-erst::before, .ru .sb-ast.sb-letzt::after { border-top: 0; }
+  .ru .sb-ast.sb-letzt::before { border-right: 2px solid var(--ru-text); border-top-right-radius: 8px; }
+  .ru .sb-ast.sb-erst::after { border-top-left-radius: 8px; }
+  .ru .sb-ast.sb-allein::before { border: 0; }
+  .ru .sb-ast.sb-allein::after { border-top: 0; border-radius: 0; }
+  .ru .sb-ast > .sb-kopf { width: 100%; max-width: 250px; display: flex; flex-direction: column; align-items: center; }
+  .ru .sb-ast > .sb-kopf::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; border-left: 2px solid var(--ru-text); z-index: 0; }
+  .ru .sb-ast.sb-gestr > .sb-kopf::before { border-left-style: dashed; }
+  .ru .sb-ast.sb-gestr::before, .ru .sb-ast.sb-gestr::after { border-left-style: solid; }
+  .ru .sb-ast > .sb-kopf > .sb-ziel::before, .ru .sb-ast > .sb-kopf > .sb-ziel::after { display: none; }
+  .ru .sb-ast.sb-breit > .sb-kopf { max-width: 440px; }
+  .ru .sb-ziel { z-index: 1; }
+  .ru .sb-ziel > .sb-knoten { max-width: 250px; margin: 0 auto; display: flex; }
+  .ru .sb-breit > .sb-kopf > .sb-folg { max-width: 300px; }
+  .ru .sb-kante { align-items: center; text-align: center; position: relative; z-index: 1; padding: 0 0 10px; }
+  .ru .sb-kante > * { background: var(--ru-flaeche); }
+  .ru .sb-kante .sb-verb { background: var(--ru-text); }
+  .ru .sb-kante .sb-verb.sb-leicht { background: var(--ru-flaeche2); }
+  .ru .sb-kante .sb-trick { padding: 4px 6px; border-radius: 8px; }
+  .ru .sb-kante small { padding: 0 4px; }
+  .ru .sb-kopf .sb-knoten, .ru .sb-kopf .sb-zwei { position: relative; z-index: 1; }
+  .ru .sb-kopf .sb-folg { position: relative; z-index: 1; width: 100%; }
+  .ru .sb-kinder { width: 100%; }
+  .ru .sb-fuss { grid-template-columns: auto minmax(0, 1fr); }
+}
+
+/* ===================== Neu: aufgeklappte Zeile ===================== */
+.ru .sb-herl { display: grid; gap: 8px; margin: 6px 0 4px; }
+.ru .sb-schritt { display: grid; grid-template-columns: 26px minmax(0, 1fr); grid-template-rows: auto auto; gap: 4px 8px; align-items: start; background: var(--ru-flaeche); border: 1.5px solid var(--ru-linie); border-radius: 12px; padding: 8px 10px; }
+.ru .sb-nr { width: 26px; height: 26px; border-radius: 50%; background: var(--ru-text); color: var(--ru-bg); display: grid; place-items: center; font-family: var(--mono); font-size: 13px; font-weight: 700; }
+.ru .sb-schritt p { font-size: 15px; line-height: 1.3; grid-column: 2; grid-row: 1; padding-top: 3px; }
+.ru .sb-schritt svg { grid-column: 1 / -1; grid-row: 2; justify-self: center; margin: 2px 0; }
+@media (min-width: 640px) { .ru .sb-herl { grid-template-columns: repeat(var(--sb-n, 3), minmax(0, 1fr)); } }
+.ru .sb-weil { font-size: 16.5px; line-height: 1.35; margin: 10px 0 6px; padding-left: 10px; border-left: 4px solid var(--ru-tafel-f); }
+.ru .sb-weil b { font-weight: 700; }
+.ru .sb-formel { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; margin: 4px 0 2px; }
+.ru .sb-formel .ru-tafel-f { font-size: 22px; background: var(--ru-flaeche); border: 1.5px solid var(--ru-text); border-radius: 10px; padding: 3px 12px; }
+.ru .sb-formel small { font-size: 14px; color: var(--ru-leise); }
+.ru .sb-wege { list-style: none; margin: 2px 0 4px; padding: 0; display: grid; gap: 6px; }
+@media (min-width: 900px) { .ru .sb-wege { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ru .sb-weg { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: center; background: var(--ru-flaeche); border: 1.5px solid var(--ru-linie); border-radius: 12px; padding: 7px 10px; }
+.ru .sb-weg.sb-ohne { grid-template-columns: minmax(0, 1fr); }
+.ru .sb-weg.sb-zusatz { border-style: dashed; }
+.ru .sb-weg b { display: block; font-size: 15px; line-height: 1.25; }
+.ru .sb-weg .ru-tafel-f { font-size: 16.5px; display: block; margin: 1px 0; }
+.ru .sb-weg span.sb-w-satz { display: block; font-size: 14px; color: var(--ru-leise); line-height: 1.3; }
+.ru .sb-weg .ru-tafel-kl { font-size: 12px; }
+.ru .sb-teil2 { display: grid; gap: 4px 18px; border-top: 1px dashed var(--ru-linie); margin-top: 10px; }
+@media (min-width: 640px) { .ru .sb-teil2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.ru .sb-ehrlich { font-size: 15px; border-left: 4px solid var(--ru-linie); padding: 2px 0 2px 10px; margin: 6px 0; color: var(--ru-leise); }
+
+[data-aus] { display: none !important; }
+@media print { .ent, .ru-kopf, .ru-tafel-werkzeug { display: none !important; } }
+</style>
+</head>
+<body>
+<div class="ru" id="app" data-ru-g="hell">
+  <div class="ent"><div><span>Entwurf 1 · Stammbaum der Flächen und Körper · Designer 28.11.2026</span>
+    <a href="#g=hell">hell</a><a href="#g=nacht">dunkel</a><a href="#k=6">bis Klasse 6</a><a href="#auf=dreieck">Dreieck offen</a><a href="#auf=kreis">Kreis offen</a><a href="#auf=pyramide">Pyramide offen</a></div></div>
+  <header class="ru-kopf"><div class="ru-breite"><a class="ru-kopf-marke" href="#"><i></i><span>Regel-Universum</span></a>
+    <label class="ru-suche"><input type="search" placeholder="Regel oder Formel suchen" aria-label="Suchen"></label></div></header>
+  <main class="ru-breite">
+    <div class="ru-seite" data-tafel="formeln" data-gebiet="fur">
+      <nav class="ru-pfad" aria-label="Pfad"><a href="#">Universum</a><span>›</span><a href="#">Fläche und Raum</a><span>›</span><span aria-current="page">Formeln auf einen Blick</span></nav>
+      <header class="ru-tafel-kopf"><h1 class="ru-titel">Formeln auf einen Blick</h1><p class="ru-lead">Flächen, Körper und was man sonst noch braucht</p>
+        <div class="ru-tafel-werkzeug"><div class="ru-tafel-kf" role="group" aria-label="Zeigen bis Klasse"><span>bis Klasse</span>
+          <button type="button" data-bis="5">5</button><button type="button" data-bis="6">6</button><button type="button" data-bis="7">7</button><button type="button" data-bis="8">8</button><button type="button" data-bis="9">9</button><button type="button" data-bis="10">10</button><button type="button" data-bis="alle" aria-pressed="true">alle</button></div>
+          <button type="button" class="ru-tafel-drucken" onclick="window.print()">Drucken</button></div></header>
+      <div id="inhalt"></div>
+    </div>
+  </main>
+</div>
+<script>
+'use strict';
+// ===================== Zeichen-Helfer (Inline-SVG, Maße in px = viewBox, damit Schrift 13 px bleibt) =====================
+const r1 = (x) => Math.round(x * 10) / 10;
+const M = (a) => 'M' + a.map((p) => r1(p[0]) + ' ' + r1(p[1])).join(' L') + ' Z';
+const versch = (a, dx, dy) => a.map(([x, y]) => [x + dx, y + dy]);
+const P = (a, k = 'n', dx = 0, dy = 0) => `<path d="${M(versch(a, dx, dy))}" class="f-${k}"/>`;
+const Lin = (x1, y1, x2, y2, k = 'd') => `<path d="M${r1(x1)} ${r1(y1)} L${r1(x2)} ${r1(y2)}" class="f-${k}"/>`;
+const T = (x, y, t, a = 'middle', k = 't') => `<text x="${r1(x)}" y="${r1(y)}" text-anchor="${a}" class="f-${k}">${t}</text>`;
+const RW = (x, y, dx = 1, dy = -1) => `<path d="M${x + 7 * dx} ${y} V${y + 7 * dy} H${x}" class="f-rw"/>`;
+const PF = (x, y, l = 24) => `<path d="M${x} ${y} H${x + l}" class="f-pf"/><path d="M${x + l - 6} ${y - 5} L${x + l} ${y} L${x + l - 6} ${y + 5}" class="f-pf"/>`;
+const SVG = (w, h, inner, label, kl = '') => `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="${label}"${kl ? ` class="${kl}"` : ''}>${inner}</svg>`;
+const rad = (g) => (g * Math.PI) / 180;
+// Kreis in n Tortenstücke, obere Hälfte gelb (bewegt), untere neutral
+function torte(cx, cy, r, n) {
+  let s = '';
+  for (let i = 0; i < n; i++) { const a = rad((360 / n) * i), b = rad((360 / n) * (i + 1)), oben = (i + 0.5) * (360 / n) < 180;
+    s += `<path d="M${cx} ${cy} L${r1(cx + r * Math.cos(a))} ${r1(cy - r * Math.sin(a))} A${r} ${r} 0 0 0 ${r1(cx + r * Math.cos(b))} ${r1(cy - r * Math.sin(b))} Z" class="f-${oben ? 'm' : 'n'}"/>`; }
+  return s;
+}
+// Tortenstücke abwechselnd umgelegt: untere Hälfte mit Spitze oben (neutral), obere Hälfte mit Spitze unten (gelb). Gibt {svg, breite}
+function reihe(ox, oy, r, n) {
+  const w = rad(360 / n / 2), c = 2 * r * Math.sin(w), hh = r * Math.cos(w); let s = '';
+  for (let i = 0; i < n / 2; i++) { const x = ox + i * c;
+    s += `<path d="M${r1(x)} ${oy} L${r1(x - c / 2)} ${r1(oy + hh)} A${r} ${r} 0 0 0 ${r1(x + c / 2)} ${r1(oy + hh)} Z" class="f-n"/>`;
+    s += `<path d="M${r1(x + c / 2)} ${r1(oy + hh)} L${r1(x)} ${oy} A${r} ${r} 0 0 1 ${r1(x + c)} ${oy} Z" class="f-m"/>`; }
+  return { s, c, hh, links: ox - c / 2, rechts: ox + (n / 2) * c };
+}
+// Gitter (Kästchen) im Rechteck
+const gitter = (x, y, nx, ny, e) => { let s = ''; for (let i = 1; i < nx; i++) s += Lin(x + i * e, y, x + i * e, y + ny * e, 'g'); for (let j = 1; j < ny; j++) s += Lin(x, y + j * e, x + nx * e, y + j * e, 'g'); return s; };
+// Schrägbild-Quader: Ecke vorn unten links (x, y), Breite a, Höhe c, Tiefe (dx, dy)
+function quader(x, y, a, c, dx, dy, o = {}) {
+  const v = [[x, y], [x + a, y], [x + a, y - c], [x, y - c]], h = v.map(([p, q]) => [p + dx, q + dy]);
+  let s = P(v, o.vorn || 'n') + P([v[3], v[2], h[2], h[3]], o.oben || 'n') + P([v[1], h[1], h[2], v[2]], o.seite || 'n');
+  s += `<path d="M${r1(v[0][0])} ${r1(v[0][1])} L${r1(h[0][0])} ${r1(h[0][1])} L${r1(h[1][0])} ${r1(h[1][1])} M${r1(h[0][0])} ${r1(h[0][1])} L${r1(h[3][0])} ${r1(h[3][1])}" class="f-d"/>`;
+  return s;
+}
+const ellipse = (cx, cy, rx, ry, k = 'n') => `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" class="f-${k}"/>`;
+function zylinder(cx, yo, rx, ry, h, o = {}) { // yo: Mitte der Deckfläche
+  return `<path d="M${cx - rx} ${yo} V${yo + h} A${rx} ${ry} 0 0 0 ${cx + rx} ${yo + h} V${yo} Z" class="f-${o.k || 'n'}"/><path d="M${cx - rx} ${yo + h} A${rx} ${ry} 0 0 1 ${cx + rx} ${yo + h}" class="f-d"/>${ellipse(cx, yo, rx, ry, o.deckel || o.k || 'n')}`;
+}
+function kegel(cx, yb, rx, ry, h, k = 'n') { // yb: Mitte der Grundfläche
+  return `<path d="M${cx - rx} ${yb} L${cx} ${yb - h} L${cx + rx} ${yb} A${rx} ${ry} 0 0 1 ${cx - rx} ${yb} Z" class="f-${k}"/><path d="M${cx - rx} ${yb} A${rx} ${ry} 0 0 1 ${cx + rx} ${yb}" class="f-d"/>`;
+}
+
+// ===================== Figuren (Punkte, y nach unten) =====================
+const para = (g, h, s) => [[0, h], [g, h], [g + s, 0], [s, 0]];
+// Trapez: a unten, c oben, Höhe h, obere Seite beginnt bei x = s
+const trapez = (a, c, h, s) => [[0, h], [a, h], [s + c, 0], [s, 0]];
+// um 180° gedrehte Kopie (Drehpunkt m)
+const dreh = (a, m) => a.map(([x, y]) => [2 * m[0] - x, 2 * m[1] - y]);
+const mitte = (p, q) => [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2];
+
+// ---------- Bilder an den Ästen (klein, ohne Maße außer wo nötig) ----------
+const AST = {
+  quadrat: () => SVG(150, 50, `<rect x="2" y="12" width="52" height="30" class="f-n"/>${T(28, 8, 'a', 'middle', 'tl')}${T(58, 31, 'b', 'start', 'tl')}${PF(70, 27)}<rect x="106" y="6" width="36" height="36" class="f-n"/>${T(124, 4, 'a', 'middle', 'tl')}${T(146, 28, 'a', 'start', 'tl')}`, 'Rechteck mit gleich langen Seiten wird zum Quadrat'),
+  parallelogramm: () => { const g = 52, h = 30, s = 16, A = para(g, h, s);
+    return SVG(176, 44, `${P([[s, h], [g, h], [g + s, 0], [s, 0]], 'n', 4, 7)}${P([[0, h], [s, h], [s, 0]], 'm', 4, 7)}${PF(80, 22)}${P([[s, h], [g, h], [g + s, 0], [s, 0]], 'n', 96, 7)}${P([[g, h], [g + s, h], [g + s, 0]], 'm', 96, 7)}`, 'Parallelogramm: Dreieck links abschneiden, rechts ansetzen, ergibt ein Rechteck'); },
+  dreieck: () => { const D = [[0, 30], [44, 30], [28, 0]], K = dreh(D, mitte(D[1], D[2]));
+    return SVG(170, 44, `${P(D, 'n', 4, 7)}${PF(58, 22)}${P(D, 'n', 94, 7)}${P(K, 'm', 94, 7)}`, 'Zwei gleiche Dreiecke ergeben ein Parallelogramm'); },
+  trapez: () => { const Z = trapez(48, 24, 30, 8), K = dreh(Z, mitte(Z[1], Z[2]));
+    return SVG(180, 44, `${P(Z, 'n', 4, 7)}${PF(62, 22)}${P(Z, 'n', 96, 7)}${P(K, 'm', 96, 7)}`, 'Zwei gleiche Trapeze ergeben ein Parallelogramm'); },
+  drachen: () => { const D = [[20, 0], [40, 12], [20, 44], [0, 12]];
+    const ecken = [[[0, 0], [20, 0], [0, 12]], [[20, 0], [40, 0], [40, 12]], [[40, 12], [40, 44], [20, 44]], [[0, 12], [20, 44], [0, 44]]];
+    return SVG(140, 52, `${P(D, 'n', 4, 4)}${Lin(24, 4, 24, 48)}${Lin(4, 16, 44, 16)}${PF(56, 26)}${ecken.map((e) => P(e, 'm', 94, 4)).join('')}${P(D, 'n', 94, 4)}<rect x="94" y="4" width="40" height="44" class="f-o"/>`, 'Drachenviereck im umschließenden Rechteck: die Ecken sind genauso groß wie das Innere'); },
+  kreis: () => { const R = reihe(106, 16, 24, 8);
+    return SVG(186, 56, `${torte(28, 28, 24, 8)}${PF(62, 28)}${R.s}`, 'Kreis in Tortenstücke schneiden und abwechselnd umlegen: fast ein Rechteck'); },
+  vieleck: () => { const V = [[0, 22], [20, 0], [48, 6], [50, 36], [16, 42]];
+    return SVG(150, 46, `${P(V, 'n', 2, 2)}${PF(62, 24)}${P([V[0], V[1], V[2]], 'm', 96, 2)}${P([V[0], V[2], V[3]], 'n', 96, 2)}${P([V[0], V[3], V[4]], 'm', 96, 2)}`, 'Vieleck in Dreiecke zerlegen'); },
+  ausschnitt: () => SVG(130, 50, `<circle cx="24" cy="25" r="22" class="f-n"/>${PF(54, 25)}<circle cx="106" cy="25" r="22" class="f-d"/><path d="M106 25 L128 25 A22 22 0 0 0 ${r1(106 + 22 * Math.cos(rad(100)))} ${r1(25 - 22 * Math.sin(rad(100)))} Z" class="f-m"/>`, 'Kreisausschnitt ist ein Anteil vom Kreis'),
+  ausschnittMini: () => SVG(30, 30, `<circle cx="15" cy="15" r="13" class="f-d"/><path d="M15 15 L28 15 A13 13 0 0 0 ${r1(15 + 13 * Math.cos(rad(100)))} ${r1(15 - 13 * Math.sin(rad(100)))} Z" class="f-m"/>`, ''),
+  ringMini: () => SVG(30, 30, `<path d="M2 15 A13 13 0 1 0 28 15 A13 13 0 1 0 2 15 Z M9 15 A6 6 0 1 1 21 15 A6 6 0 1 1 9 15 Z" fill-rule="evenodd" class="f-m"/>`, ''),
+  ring: () => SVG(130, 50, `<circle cx="24" cy="25" r="22" class="f-n"/>${PF(54, 25)}<path d="M84 25 A22 22 0 1 0 128 25 A22 22 0 1 0 84 25 Z M95 25 A11 11 0 1 1 117 25 A11 11 0 1 1 95 25 Z" fill-rule="evenodd" class="f-m"/><circle cx="106" cy="25" r="11" class="f-d"/>`, 'Kreisring: großer Kreis minus kleiner Kreis'),
+  // Körper
+  wuerfel: () => SVG(150, 56, `${quader(4, 50, 46, 30, 14, -12)}${PF(74, 30)}${quader(108, 50, 30, 30, 10, -8)}`, 'Quader mit gleich langen Kanten wird zum Würfel'),
+  prisma: () => SVG(190, 62, `${quader(4, 56, 40, 30, 14, -12, { vorn: 'n', oben: 'n' })}<path d="M4 56 L44 56 L58 44 L18 44 Z" class="f-m"/>${PF(66, 36)}`
+    + `<path d="M102 56 L138 56 L120 42 Z" class="f-m"/><path d="M102 56 V26 L120 12 L138 26 V56 M102 26 H138 M120 12 V42" class="f-o"/><path d="M120 42 L102 56 M120 42 L138 56" class="f-d"/>`
+    + `<path d="M150 22 V52 A16 5 0 0 0 182 52 V22" class="f-o"/>${ellipse(166, 52, 16, 5, 'm')}${ellipse(166, 22, 16, 5, 'o')}`, 'Statt Rechteck eine andere Grundfläche: Prisma und Zylinder'),
+  pyramide: () => SVG(186, 62, `<path d="M4 56 L44 56 L58 44 L18 44 Z" class="f-n"/><path d="M31 16 L18 44" class="f-d"/><path d="M4 56 L31 16 L44 56 Z" class="f-m"/><path d="M44 56 L31 16 L58 44 Z" class="f-m"/>`
+    + `${T(84, 38, '· 3 =', 'middle', 'ts')}${quader(116, 56, 40, 34, 14, -12)}`, 'Drei Pyramiden füllen ein Prisma mit gleicher Grundfläche und Höhe'),
+  kugel: () => SVG(150, 64, `${zylinder(34, 8, 28, 6, 48, { k: 'o', deckel: 'o' })}<circle cx="34" cy="32" r="24" class="f-m"/>${T(100, 30, '⅔ vom', 'middle', 'ts')}${T(100, 46, 'Zylinder', 'middle', 'ts')}`, 'Kugel im Zylinder: zwei Drittel'),
+};
+
+// ---------- Bilder der Herleitung (größer, mit Maßen) ----------
+const HER = {
+  parallelogramm: () => { const g = 84, h = 48, s = 26, ox = 6, oy = 6, A = para(g, h, s);
+    const s1 = SVG(126, 76, `${P(A, 'n', ox, oy)}${Lin(ox + s, oy, ox + s, oy + h)}${RW(ox + s, oy + h)}${T(ox + g / 2, oy + h + 17, 'g')}${T(ox + s + 6, oy + h / 2 + 4, 'h', 'start')}`, 'Parallelogramm mit Grundseite g und Höhe h');
+    const s2 = SVG(126, 76, `${P([[s, h], [g, h], [g + s, 0], [s, 0]], 'n', ox, oy)}${P([[0, h], [s, h], [s, 0]], 'm', ox, oy)}${T(ox + g / 2 + 10, oy + h + 17, 'g')}`, 'Dreieck links abschneiden');
+    const s3 = SVG(126, 76, `${P([[s, h], [g, h], [g + s, 0], [s, 0]], 'n', ox - s + 4, oy)}${P([[g, h], [g + s, h], [g + s, 0]], 'm', ox - s + 4, oy)}${T(ox + 4 + g / 2, oy + h + 17, 'g')}${T(ox + g + 10, oy + h / 2 + 4, 'h', 'start')}`, 'Rechteck mit g und h');
+    return [[s1, 'Parallelogramm mit Grundseite g und Höhe h (senkrecht auf g).'], [s2, 'Das Dreieck links abschneiden …'], [s3, '… und rechts ansetzen: ein Rechteck mit den Seiten g und h.']]; },
+  dreieck: () => { const D = [[0, 50], [84, 50], [56, 0]], K = dreh(D, mitte(D[1], D[2])), ox = 6, oy = 6;
+    const s1 = SVG(150, 78, `${P(D, 'n', ox, oy)}${Lin(ox + 56, oy, ox + 56, oy + 50)}${RW(ox + 56, oy + 50)}${T(ox + 42, oy + 67, 'g')}${T(ox + 62, oy + 32, 'h', 'start')}`, 'Dreieck mit g und h');
+    const s2 = SVG(150, 78, `${P(D, 'n', ox, oy)}${P(K, 'm', ox, oy)}${T(ox + 42, oy + 67, 'g')}`, 'Zweites gleiches Dreieck gedreht anlegen');
+    const s3 = SVG(150, 78, `<rect x="${ox + 24}" y="${oy}" width="84" height="50" class="f-n"/>${T(ox + 66, oy + 30, 'g · h', 'middle', 'ts')}${T(ox + 66, oy + 67, 'g')}${T(ox + 114, oy + 29, 'h', 'start')}`, 'Rechteck g mal h');
+    return [[s1, 'Dreieck mit Grundseite g und Höhe h.'], [s2, 'Ein zweites, gleiches Dreieck gedreht anlegen: ein Parallelogramm mit g und h.'], [s3, 'Ecke umsetzen: ein Rechteck g · h. Ein Dreieck ist die Hälfte davon.']]; },
+  trapez: () => { const Z = trapez(84, 40, 48, 14), K = dreh(Z, mitte(Z[1], Z[2])), ox = 5, oy = 16;
+    const s1 = SVG(146, 86, `${P(Z, 'n', ox, oy)}${Lin(ox + 22, oy, ox + 22, oy + 48)}${RW(ox + 22, oy + 48)}${T(ox + 42, oy + 65, 'a')}${T(ox + 34, oy - 5, 'c')}${T(ox + 27, oy + 29, 'h', 'start')}`, 'Trapez mit a, c und h');
+    const s2 = SVG(146, 86, `${P(Z, 'n', ox, oy)}${P(K, 'm', ox, oy)}${T(ox + 42, oy + 65, 'a')}${T(ox + 104, oy + 65, 'c')}${T(ox + 96, oy - 5, 'a')}${T(ox + 34, oy - 5, 'c')}`, 'Zweites Trapez gedreht anlegen: Parallelogramm mit a plus c');
+    const s3 = SVG(146, 86, `<rect x="${ox + 8}" y="${oy}" width="124" height="48" class="f-n"/>${T(ox + 70, oy + 29, '(a&nbsp;+&nbsp;c) · h', 'middle', 'ts')}${T(ox + 70, oy + 65, 'a&nbsp;+&nbsp;c')}`, 'Rechteck a plus c mal h');
+    return [[s1, 'Trapez: a und c sind parallel, h ist ihr Abstand.'], [s2, 'Ein zweites, gleiches Trapez umgedreht anlegen: ein Parallelogramm mit Grundseite a&nbsp;+&nbsp;c.'], [s3, 'Ecke umsetzen: Rechteck (a&nbsp;+&nbsp;c) · h. Ein Trapez ist die Hälfte.']]; },
+  kreis: () => { const R8 = reihe(22, 6, 40, 8), R16 = reihe(10, 6, 40, 16);
+    const s1 = SVG(150, 88, `${torte(75, 44, 40, 8)}<path d="M75 44 L115 44" class="f-o"/><circle cx="75" cy="44" r="2.5" class="f-punkt"/>${T(124, 48, 'r', 'start')}`, 'Kreis in 8 Stücke');
+    const s2 = SVG(150, 50, `${R8.s}`, '8 Stücke abwechselnd umgelegt');
+    const s3 = SVG(156, 68, `${R16.s}${T(R16.links + 2 + (R16.rechts - R16.links) / 2, 64, 'π · r')}${Lin(R16.rechts + 6, 6, R16.rechts + 6, 46, 'o')}${T(R16.rechts + 11, 31, 'r', 'start')}`, '16 Stücke: fast ein Rechteck, pi mal r breit und r hoch');
+    return [[s1, 'Den Kreis in Tortenstücke schneiden: die obere Hälfte gelb.'], [s2, 'Abwechselnd umlegen. Unten liegt der halbe Umfang, oben auch.'], [s3, 'Feiner geschnitten: fast ein Rechteck – π · r breit, r hoch.']]; },
+  rechteck: () => { const e = 14;
+    const s1 = SVG(96, 68, `<rect x="4" y="4" width="${4 * e}" height="${3 * e}" class="f-n"/>${gitter(4, 4, 4, 3, e)}${T(4 + 2 * e, 4 + 3 * e + 16, 'a = 4')}${T(4 + 4 * e + 6, 4 + 1.5 * e + 4, 'b = 3', 'start')}`, 'Rechteck 4 mal 3 Kästchen');
+    return [[s1, 'Fläche heißt: Wie viele Kästchen passen hinein? Eine Reihe hat a Kästchen, es gibt b Reihen: 4 · 3 = 12.']]; },
+  quadrat: () => [[SVG(96, 68, `<rect x="4" y="4" width="48" height="48" class="f-n"/>${gitter(4, 4, 4, 4, 12)}${T(28, 66, 'a')}${T(58, 32, 'a', 'start')}`, 'Quadrat'), 'Ein Rechteck, bei dem beide Seiten a lang sind: a · a = a².']],
+  drachen: () => { const D = [[30, 0], [60, 18], [30, 66], [0, 18]], ox = 6, oy = 4;
+    const ecken = [[[0, 0], [30, 0], [0, 18]], [[30, 0], [60, 0], [60, 18]], [[60, 18], [60, 66], [30, 66]], [[0, 18], [30, 66], [0, 66]]];
+    const s1 = SVG(110, 76, `${P(D, 'n', ox, oy)}${Lin(ox + 30, oy, ox + 30, oy + 66)}${Lin(ox, oy + 18, ox + 60, oy + 18)}${T(ox + 36, oy + 50, 'e', 'start')}${T(ox + 66, oy + 22, 'f', 'start')}`, 'Drachenviereck mit Diagonalen e und f');
+    const s2 = SVG(110, 76, `${ecken.map((x) => P(x, 'm', ox, oy)).join('')}${P(D, 'n', ox, oy)}<rect x="${ox}" y="${oy}" width="60" height="66" class="f-o"/>${T(ox + 66, oy + 37, 'e', 'start')}`, 'Rechteck e mal f um das Drachenviereck');
+    return [[s1, 'Die Diagonalen e und f stehen senkrecht aufeinander.'], [s2, 'Rechteck e · f darum legen: Jede gelbe Ecke ist so groß wie das Stück innen daneben. Die Figur ist die Hälfte.']]; },
+  ausschnitt: () => [[SVG(110, 84, `<circle cx="50" cy="44" r="38" class="f-d"/><path d="M50 44 L88 44 A38 38 0 0 0 ${r1(50 + 38 * Math.cos(rad(100)))} ${r1(44 - 38 * Math.sin(rad(100)))} Z" class="f-m"/><path d="M62 44 A12 12 0 0 0 ${r1(50 + 12 * Math.cos(rad(100)))} ${r1(44 - 12 * Math.sin(rad(100)))}" class="f-rw"/>${T(62, 36, 'α', 'start')}${T(70, 58, 'r')}`, 'Kreisausschnitt mit Winkel alpha'), 'Der Ausschnitt ist der Anteil α : 360° vom ganzen Kreis – bei 90° ein Viertel.']],
+  kreisring: () => [[SVG(96, 84, `<path d="M8 42 A40 40 0 1 0 88 42 A40 40 0 1 0 8 42 Z M30 42 A18 18 0 1 1 66 42 A18 18 0 1 1 30 42 Z" fill-rule="evenodd" class="f-m"/><circle cx="48" cy="42" r="18" class="f-d"/><path d="M48 42 L76.3 13.7 M48 42 H66" class="f-o"/>${T(76, 30, 'R', 'start')}${T(56, 56, 'r')}`, 'Kreisring'), 'Großer Kreis minus kleiner Kreis: π · R² − π · r².']],
+  // Körper
+  quader: () => { const e = 12, a = 4, b = 2, c = 3, dx = 8, dy = -6, x0 = 6, y0 = 72;
+    let g = '';
+    const vorn = [[x0, y0], [x0 + a * e, y0], [x0 + a * e, y0 - c * e], [x0, y0 - c * e]];
+    g += P(vorn, 'n') + P([[x0, y0 - (c - 1) * e], [x0 + a * e, y0 - (c - 1) * e], [x0 + a * e, y0 - c * e], [x0, y0 - c * e]], 'm');
+    const ob = [[x0, y0 - c * e], [x0 + a * e, y0 - c * e], [x0 + a * e + b * dx, y0 - c * e + b * dy], [x0 + b * dx, y0 - c * e + b * dy]]; g += P(ob, 'm');
+    const se = [[x0 + a * e, y0], [x0 + a * e + b * dx, y0 + b * dy], [x0 + a * e + b * dx, y0 - c * e + b * dy], [x0 + a * e, y0 - c * e]]; g += P(se, 'n');
+    g += P([[x0 + a * e, y0 - (c - 1) * e], [x0 + a * e + b * dx, y0 - (c - 1) * e + b * dy], [x0 + a * e + b * dx, y0 - c * e + b * dy], [x0 + a * e, y0 - c * e]], 'm');
+    for (let i = 1; i < a; i++) g += Lin(x0 + i * e, y0, x0 + i * e, y0 - c * e, 'g') + Lin(x0 + i * e, y0 - c * e, x0 + i * e + b * dx, y0 - c * e + b * dy, 'g');
+    for (let j = 1; j < c; j++) g += Lin(x0, y0 - j * e, x0 + a * e, y0 - j * e, 'g') + Lin(x0 + a * e, y0 - j * e, x0 + a * e + b * dx, y0 - j * e + b * dy, 'g');
+    for (let k = 1; k < b; k++) g += Lin(x0 + k * dx, y0 - c * e + k * dy, x0 + a * e + k * dx, y0 - c * e + k * dy, 'g') + Lin(x0 + a * e + k * dx, y0 + k * dy, x0 + a * e + k * dx, y0 - c * e + k * dy, 'g');
+    return [[SVG(110, 92, g + T(x0 + a * e / 2, y0 + 16, 'a') + T(x0 - 4, y0 - c * e / 2 + 4, 'c', 'end') + T(x0 + a * e + b * dx / 2 + 5, y0 + b * dy / 2 + 12, 'b', 'start'), 'Quader aus Würfeln, oberste Schicht gelb'), 'Eine Schicht (gelb) hat a · b Würfel – das ist die Grundfläche G. Es gibt c Schichten: V = a · b · c = G · h.']]; },
+  wuerfel: () => [[SVG(96, 84, quader(6, 76, 52, 52, 18, -14) + T(32, 92 - 0, 'a'), 'Würfel'), 'Ein Quader, bei dem alle Kanten a lang sind: a · a · a = a³.']],
+  prisma: () => [[SVG(120, 92, `<path d="M8 80 L56 80 L34 64 Z" class="f-m"/><path d="M8 80 V30 L34 14 L56 30 V80 M8 30 H56 M34 14 V64" class="f-o"/><path d="M34 64 L8 80 M34 64 L56 80" class="f-d"/>${Lin(8, 55, 56, 55, 'g')}${Lin(8, 42, 56, 42, 'g')}${T(30, 76, 'G', 'middle', 'ts')}${T(64, 52, 'h', 'start')}`, 'Prisma mit Grundfläche G und Höhe h'), 'Dieselbe Idee wie beim Quader: Schichten mit der Grundfläche G stapeln, h Schichten hoch. G holst du dir aus dem Flächen-Baum.']],
+  zylinder: () => [[SVG(110, 92, `${zylinder(46, 16, 34, 9, 60, { k: 'n', deckel: 'n' })}${ellipse(46, 76, 34, 9, 'm')}<path d="M46 76 H80" class="f-o"/>${T(64, 72, 'r')}${T(86, 50, 'h', 'start')}`, 'Zylinder mit Kreis als Grundfläche'), 'Ein Prisma mit Kreis als Grundfläche: G = π · r², also V = π · r² · h.']],
+  pyramide: () => { // Würfel, in drei gleiche Pyramiden mit gemeinsamer Spitze (Ecke vorn oben links) zerlegt; gelb: Pyramide über der Bodenfläche
+    const FBL = [10, 86], FBR = [70, 86], FTR = [70, 26], FTL = [10, 26], d = [24, -20], B = (p) => [p[0] + d[0], p[1] + d[1]];
+    const BBL = B(FBL), BBR = B(FBR), BTR = B(FTR), BTL = B(FTL);
+    const g = P([FTL, FBL, FBR, BBR], 'm') + `<path d="M${FBL} L${FBR} L${FTR} L${FTL} Z M${FTR} L${BTR} L${BTL} L${FTL} M${FBR} L${BBR} L${BTR}" class="f-o"/>`
+      + `<path d="M${FBL} L${BBL} L${BBR} M${BBL} L${BTL}" class="f-d"/>` + Lin(FTL[0], FTL[1], FBR[0], FBR[1], 'o') + Lin(FTL[0], FTL[1], BBR[0], BBR[1], 'o') + Lin(FTL[0], FTL[1], BBL[0], BBL[1], 'd') + T(40, 102, 'a');
+    return [[SVG(110, 108, g, 'Würfel aus drei gleichen Pyramiden'), 'Ein Würfel lässt sich in drei gleiche Pyramiden zerlegen (gelb: eine davon). Jede hat die Grundfläche a² und die Höhe a: V = a² · a : 3.'],
+      [SVG(140, 92, `${kegel(30, 80, 22, 6, 56, 'm')}${T(70, 54, '· 3 =', 'middle', 'ts')}${zylinder(112, 24, 22, 6, 56, { k: 'n', deckel: 'n' })}${Lin(90, 42.7, 134, 42.7, 'd')}${Lin(90, 61.3, 134, 61.3, 'd')}`, 'Dreimal Kegel umfüllen ergibt Zylinder'), 'Genauso beim Kegel – Umfüllversuch: Mit Wasser aus dem Kegel füllst du den Zylinder (gleiche Grundfläche, gleiche Höhe) genau dreimal.']]; },
+  kugel: () => [[SVG(110, 92, `${zylinder(50, 10, 40, 8, 72, { k: 'o', deckel: 'o' })}<circle cx="50" cy="46" r="36" class="f-m"/><path d="M50 46 H86" class="f-o"/>${T(68, 41, 'r')}`, 'Kugel im passenden Zylinder'), 'Die Kugel passt genau in einen Zylinder mit Radius r und Höhe 2 · r. Sie füllt zwei Drittel davon.']],
+};
+
+// ---------- Mini-Bilder der weiteren Wege ----------
+const WEG = {
+  jedeSeite: () => SVG(76, 52, `${P([[0, 44], [64, 44], [44, 0]], 'n', 4, 4)}${Lin(48, 4, 48, 48)}${RW(48, 48)}${Lin(68, 48, 4 + 32, 4 + 12)}${T(52, 30, 'h', 'start', 'tl')}`, 'Zwei Höhen im selben Dreieck'),
+  rechtwinklig: () => SVG(76, 50, `${P([[0, 40], [60, 40], [0, 0]], 'n', 6, 4)}${P([[60, 40], [60, 0], [0, 0]], 'm', 6, 4)}${RW(6, 44)}${T(36, 50 - 0, 'a', 'middle', 'tl')}${T(2, 28, 'b', 'end', 'tl')}`, 'Rechtwinkliges Dreieck ist ein halbes Rechteck'),
+  gitter: () => { const e = 9, ox = 4, oy = 4, p = ([x, y]) => [ox + x * e, oy + (4 - y) * e];
+    return SVG(64, 46, `<rect x="${ox}" y="${oy}" width="${6 * e}" height="${4 * e}" class="f-m"/>${gitter(ox, oy, 6, 4, e)}${P([p([0, 0]), p([6, 1]), p([2, 4])], 'n')}`, 'Dreieck im Gitter, zum Rechteck ergänzt'); },
+  gleichseitig: () => SVG(72, 56, `${P([[0, 48], [56, 48], [28, 0]], 'n', 6, 4)}${Lin(34, 4, 34, 52)}${RW(34, 52)}${T(20, 66 - 12, '', 'middle', 'tl')}${T(38, 34, 'h', 'start', 'tl')}`, 'Gleichseitiges Dreieck mit Höhe'),
+  sinus: () => SVG(84, 64, `${P([[0, 48], [70, 48], [46, 4]], 'n', 4, 2)}${Lin(50, 6, 50, 50)}<path d="M18 50 A14 14 0 0 0 ${r1(4 + 14 * Math.cos(rad(43.7)))} ${r1(50 - 14 * Math.sin(rad(43.7)))}" class="f-rw"/>${T(22, 45, 'γ', 'start', 'tl')}${T(18, 22, 'b', 'end', 'tl')}${T(54, 34, 'h', 'start', 'tl')}${T(40, 62, 'a', 'middle', 'tl')}`, 'Höhe ist b mal Sinus gamma'),
+  zerlegen: () => SVG(66, 46, `${P([[0, 36], [56, 36], [12, 0]], 'n', 4, 4)}${P([[56, 36], [40, 0], [12, 0]], 'm', 4, 4)}`, 'Trapez in zwei Dreiecke zerlegt'),
+  mittellinie: () => { const o = (a) => versch(a, 4, 6); // Trapez a = 60, c = 30, h = 36; Mittellinie y = 18 von x = 5 bis 50
+    return SVG(72, 50, `${P(o([[0, 36], [60, 36], [40, 0], [10, 0]]), 'n')}${P(o([[0, 36], [5, 36], [5, 18]]), 'm')}${P(o([[50, 18], [60, 36], [50, 36]]), 'm')}${P(o([[5, 0], [10, 0], [5, 18]]), 'd')}${P(o([[40, 0], [50, 0], [50, 18]]), 'd')}${Lin(9, 24, 54, 24, 'o')}`, 'Trapez: die gelben Ecken klappen nach oben, es entsteht ein Rechteck so breit wie die Mittellinie'); },
+  zweiHoehenPara: () => SVG(80, 48, `${P(para(50, 34, 18), 'n', 4, 6)}${Lin(22, 6, 22, 40)}${RW(22, 40)}${Lin(22, 6, 61.1, 26.7)}`, 'Parallelogramm mit zwei Höhen'),
+  abschaetzen: () => SVG(64, 60, `<rect x="4" y="4" width="52" height="52" class="f-o"/><circle cx="30" cy="30" r="26" class="f-n"/><path d="M30 4 L56 30 L30 56 L4 30 Z" class="f-m"/>`, 'Kreis zwischen innerem und äußerem Quadrat'),
+  netzQuader: () => { const r = (x, y, w, h) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" class="f-n"/>`; // a = 24, b = 14, c = 16
+    return SVG(96, 74, r(18, 2, 24, 14) + r(2, 16, 16, 24) + `<rect x="18" y="16" width="24" height="24" class="f-m"/>` + r(42, 16, 16, 24) + r(58, 16, 24, 24) + r(18, 40, 24, 14) + r(18, 54, 24, 16), 'Netz des Quaders: sechs Rechtecke'); },
+  netz: () => SVG(96, 74, `<rect x="4" y="22" width="88" height="30" class="f-m"/><circle cx="24" cy="11" r="11" class="f-n"/><circle cx="24" cy="63" r="11" class="f-n"/>${T(48, 41, 'u · h', 'middle', 'ts')}`, 'Netz des Zylinders: Mantel ist ein Rechteck'),
+};
+
+// ===================== Inhalt =====================
+// kl: Klassenstufe Gymnasium Bayern aus daten/regeln-universum.json (tafeln → karten.kl bzw. Formel-Einträge); mit „*“ in den Texten unten = Annahme des Designers
+const FIG = {
+  rechteck: { name: 'Rechteck', kl: 5, u: ['u = 2 · (a + b)'], A: ['A = a · b'], warum: 'Rechteck',
+    weil: '<b>Der Ursprung.</b> Fläche messen heißt Kästchen zählen – beim Rechteck liegen sie in Reihen.', formel: 'A = a · b', bez: [['a', 'Länge'], ['b', 'Breite']], wege: [] },
+  quadrat: { name: 'Quadrat', kl: 5, u: ['u = 4 · a'], A: ['A = a²'], warum: 'Rechteck', von: 'Rechteck',
+    weil: '<b>Kommt vom Rechteck,</b> weil ein Quadrat ein Rechteck mit zwei gleich langen Seiten ist.', formel: 'A = a · a = a²', bez: [['a', 'Seitenlänge']], wege: [] },
+  parallelogramm: { name: 'Parallelogramm', kl: 6, u: ['u = 2 · (a + b)'], A: ['A = g · h'], warum: 'Parallelogramm', von: 'Rechteck', bed: 'h steht senkrecht auf g.',
+    weil: '<b>Kommt vom Rechteck,</b> weil das abgeschnittene Dreieck auf der anderen Seite genau in die Lücke passt. Die Fläche bleibt gleich – und aus dem Parallelogramm wird ein Rechteck mit g und h.',
+    formel: 'A = g · h', bez: [['g', 'Grundseite (eine der Seiten a oder b)'], ['h', 'Höhe, senkrecht auf g'], ['a, b', 'zwei benachbarte Seiten']],
+    wege: [
+      { kl: 6, bild: 'zweiHoehenPara', t: 'Jede Seite kann Grundseite sein', f: 'A = a · h<sub>a</sub> = b · h<sub>b</sub>', s: 'Zu jeder Seite gehört ihre eigene Höhe. Beide Wege geben dieselbe Fläche.' },
+      { kl: 6, t: 'Vorsicht: nicht a · b', s: 'Die schräge Seite ist länger als die Höhe. a · b wäre zu viel – das passt nur beim Rechteck.' },
+      { kl: 10, bild: null, t: 'Zwei Seiten und der Winkel dazwischen*', f: 'A = a · b · sin α', s: 'Die Höhe auf a ist b · sin α (rechtwinkliges Dreieck an der schrägen Seite).' } ] },
+  dreieck: { name: 'Dreieck', kl: 6, u: ['u = a + b + c'], A: ['A = g · h : 2'], warum: 'Dreieck', von: 'Parallelogramm', bed: 'h steht senkrecht auf g; beim stumpfwinkligen Dreieck kann h außerhalb liegen.',
+    weil: '<b>Kommt vom Parallelogramm – und damit vom Rechteck,</b> weil zwei gleiche Dreiecke zusammen ein Parallelogramm mit derselben Grundseite und Höhe ergeben. Ein Dreieck ist die Hälfte davon.',
+    formel: 'A = g · h : 2', bez: [['g', 'Grundseite'], ['h', 'Höhe, senkrecht auf g'], ['a, b, c', 'die drei Seiten']],
+    wege: [
+      { kl: 6, bild: 'jedeSeite', t: 'Jede Seite kann Grundseite sein', f: 'a · h<sub>a</sub> : 2 = b · h<sub>b</sub> : 2 = c · h<sub>c</sub> : 2', s: 'Dreh das Dreieck – die Fläche bleibt gleich. Zu jeder Seite gehört ihre Höhe.' },
+      { kl: 6, bild: 'rechtwinklig', t: 'Rechtwinkliges Dreieck', f: 'A = a · b : 2', s: 'a und b liegen am rechten Winkel: Die eine ist Grundseite, die andere Höhe. Zwei davon ergeben ein Rechteck.' },
+      { kl: 6, bild: 'gitter', t: 'Im Gitter: ergänzen und abziehen', f: 'A = 24 − 3 − 6 − 4 = 11', s: 'Zum Rechteck ergänzen (6 · 4 = 24), die drei gelben rechtwinkligen Ecken abziehen.' },
+      { kl: 9, bild: 'gleichseitig', t: 'Gleichseitiges Dreieck', f: 'A = a² · √3 : 4', s: 'Die Höhe kommt aus dem Pythagoras: h = a · √3 : 2. Dann wieder g · h : 2.' },
+      { kl: 10, bild: 'sinus', t: 'Zwei Seiten und der Winkel dazwischen*', f: 'A = ½ · a · b · sin γ', s: 'Die Höhe auf a ist h = b · sin γ. Eingesetzt in a · h : 2.' },
+      { kl: 'zusatz', t: 'Nur aus den drei Seiten (Heron)', f: 'A = √(s · (s − a) · (s − b) · (s − c))', s: 'Mit s = (a + b + c) : 2. Zusatz, kein Pflichtstoff.' } ] },
+  trapez: { name: 'Trapez', kl: 6, u: ['u = a + b + c + d'], A: ['A = (a&nbsp;+&nbsp;c) : 2 · h'], warum: 'Trapez', von: 'Parallelogramm', bed: 'a und c sind parallel, h ist ihr Abstand.',
+    weil: '<b>Kommt vom Parallelogramm – und damit vom Rechteck,</b> weil zwei gleiche Trapeze, eines umgedreht, ein Parallelogramm mit der Grundseite a&nbsp;+&nbsp;c und der Höhe h ergeben. Ein Trapez ist die Hälfte.',
+    formel: 'A = (a&nbsp;+&nbsp;c) · h : 2', fNeben: 'gleich wie (a&nbsp;+&nbsp;c) : 2 · h in der Tabelle – ob du zuerst oder zuletzt durch 2 teilst, ist egal.',
+    bez: [['a', 'untere parallele Seite'], ['c', 'obere parallele Seite'], ['h', 'Höhe (Abstand von a und c)'], ['b, d', 'Schenkel']],
+    wege: [
+      { kl: 6, bild: 'zerlegen', t: 'In zwei Dreiecke zerlegen', f: 'A = a · h : 2 + c · h : 2', s: 'Eine Diagonale teilt das Trapez in zwei Dreiecke mit derselben Höhe h. Zusammen: (a&nbsp;+&nbsp;c) · h : 2.' },
+      { kl: 6, bild: 'mittellinie', t: 'Mittellinie: Ecken umsetzen', f: 'A = m · h,  m = (a&nbsp;+&nbsp;c) : 2', s: 'Die zwei gelben Ecken klappen nach oben: ein Rechteck, so breit wie die Mittellinie m.' } ] },
+  drachen: { name: 'Drachenviereck und Raute', kurz: 'Drachen und Raute', kl: 6, u: ['u = 2 · (a + b)', 'u = 4 · a'], uLab: ['Drachenviereck', 'Raute'], A: ['A = e · f : 2'], warum: 'Drachenviereck und Raute', von: 'Rechteck', bed: 'Die Diagonalen e und f stehen senkrecht aufeinander.',
+    weil: '<b>Kommt vom Rechteck,</b> weil das Rechteck mit den Seiten e und f genau doppelt so groß ist: Jede Ecke außen ist so groß wie das Stück innen daneben.',
+    formel: 'A = e · f : 2', bez: [['e, f', 'die beiden Diagonalen'], ['a, b', 'Seitenlängen']],
+    wege: [ { kl: 6, t: 'Raute ist auch ein Parallelogramm', f: 'A = a · h', s: 'Beide Wege geben dieselbe Fläche.' } ] },
+  vieleck: { nurBaum: true, name: 'Vieleck', kl: 6, A: ['A = Summe der Dreiecke'], von: 'Dreieck' },
+  kreis: { name: 'Kreis', kl: 8, u: ['u = 2 · π · r'], A: ['A = π · r²'], warum: 'Kreis', von: 'Rechteck',
+    weil: '<b>Kommt vom Rechteck,</b> weil die umgelegten Tortenstücke fast ein Rechteck ergeben: unten und oben liegt je der halbe Umfang π · r, die Höhe ist der Radius r. Je feiner du schneidest, desto genauer.',
+    formel: 'A = π · r · r = π · r²', bez: [['r', 'Radius'], ['d', 'Durchmesser, d = 2 · r'], ['π', 'Pi ≈ 3,14 – so oft passt der Durchmesser in den Umfang']],
+    wege: [
+      { kl: 8, t: 'Umfang', f: 'u = π · d = 2 · π · r', s: 'π ist das Verhältnis Umfang : Durchmesser – bei jedem Kreis gleich.' },
+      { kl: 8, bild: 'abschaetzen', t: 'Abschätzen', f: '2 · r² < A < 4 · r²', s: 'Der Kreis ist größer als das gelbe Quadrat innen (2 · r²) und kleiner als das Quadrat außen (4 · r²). π · r² ≈ 3,14 · r² liegt dazwischen.' },
+      { kl: 8, t: 'Kreisausschnitt und Kreisring', s: 'Ein Anteil vom Kreis bzw. großer minus kleiner Kreis – siehe die Zeilen darunter.' } ] },
+  ausschnitt: { name: 'Kreisausschnitt', kl: 8, u: ['u = 2 · r + b', 'b = α : 360° · 2 · π · r'], uLab: ['', 'Bogenlänge'], A: ['A = α : 360° · π · r²'], warum: 'Kreisausschnitt', von: 'Kreis',
+    weil: '<b>Kommt vom Kreis,</b> weil der Ausschnitt ein Anteil davon ist: Der Winkel α sagt, welcher Teil von 360°.', formel: 'A = α : 360° · π · r²', bez: [['α', 'Mittelpunktswinkel'], ['r', 'Radius'], ['b', 'Bogenlänge']], wege: [] },
+  kreisring: { name: 'Kreisring', kl: 8, u: ['u = 2 · π · (R + r)'], A: ['A = π · (R² − r²)'], warum: 'Kreis', von: 'Kreis',
+    weil: '<b>Kommt vom Kreis,</b> weil der Ring übrig bleibt, wenn man aus dem großen Kreis den kleinen herausnimmt.', formel: 'A = π · R² − π · r² = π · (R² − r²)', bez: [['R', 'äußerer Radius'], ['r', 'innerer Radius']], wege: [] },
+};
+const KOE = {
+  quader: { name: 'Quader', kl: 5, klV: 6, O: ['O = 2 · (a · b + a · c + b · c)'], V: ['V = a · b · c'], warum: 'Quader',
+    weil: '<b>Der Ursprung bei den Körpern.</b> Volumen messen heißt Würfel zählen – beim Quader liegen sie in Schichten.', formel: 'V = a · b · c = G · h', bez: [['a', 'Länge'], ['b', 'Breite'], ['c', 'Höhe']],
+    wege: [ { kl: 5, bild: null, t: 'Oberfläche: Netz aufklappen', f: 'O = 2 · (a · b + a · c + b · c)', s: 'Sechs Rechtecke, je zwei gleich. Keine neue Formel – nur Rechtecke addieren.' } ] },
+  wuerfel: { name: 'Würfel', kl: 5, klV: 6, O: ['O = 6 · a²'], V: ['V = a³'], warum: 'Quader', von: 'Quader', weil: '<b>Kommt vom Quader,</b> weil ein Würfel ein Quader mit lauter gleich langen Kanten ist.', formel: 'V = a · a · a = a³', bez: [['a', 'Kantenlänge']], wege: [] },
+  prisma: { name: 'Prisma', kl: 8, O: ['O = 2 · G + M'], V: ['V = G · h'], M: 'M = u · h', warum: 'Prisma und Zylinder', von: 'Quader',
+    weil: '<b>Kommt vom Quader,</b> weil man genauso Schichten stapelt – nur die Grundfläche G hat eine andere Form.', formel: 'V = G · h', bez: [['G', 'Grundfläche'], ['h', 'Höhe'], ['u', 'Umfang der Grundfläche'], ['M', 'Mantelfläche']],
+    wege: [ { kl: 8, t: 'Mantel aufklappen', f: 'M = u · h', s: 'Die Seitenflächen nebeneinander gelegt ergeben ein Rechteck: so lang wie der Umfang u, so hoch wie h.' } ] },
+  zylinder: { name: 'Zylinder', kl: 8, O: ['O = 2 · π · r² + 2 · π · r · h'], V: ['V = π · r² · h'], M: 'M = 2 · π · r · h', warum: 'Prisma und Zylinder', von: 'Prisma',
+    weil: '<b>Kommt vom Prisma – und damit vom Quader,</b> weil der Zylinder ein „Prisma mit Kreis als Grundfläche“ ist: G = π · r² aus dem Flächen-Baum.', formel: 'V = G · h = π · r² · h', bez: [['r', 'Radius der Grundfläche'], ['h', 'Höhe']],
+    wege: [ { kl: 8, bild: 'netz', t: 'Oberfläche: Netz aufklappen', f: 'M = u · h = 2 · π · r · h', s: 'Der Mantel abgerollt ist ein Rechteck. Dazu zweimal der Kreis: O = 2 · π · r² + M.' } ] },
+  pyramide: { name: 'Pyramide', kl: 10, O: ['O = G + M'], V: ['V = G · h : 3'], warum: 'Pyramide und Kegel', von: 'Prisma',
+    weil: '<b>Kommt vom Prisma,</b> weil eine Pyramide genau ein Drittel eines Prismas mit gleicher Grundfläche und gleicher Höhe ist.', formel: 'V = G · h : 3', bez: [['G', 'Grundfläche'], ['h', 'Höhe, senkrecht auf G'], ['M', 'Summe der Seitendreiecke']],
+    wege: [ { kl: 10, t: 'Oberfläche: Netz aufklappen', f: 'O = G + M', s: 'Grundfläche plus alle Seitendreiecke (Dreieck: g · h : 2).' } ] },
+  kegel: { name: 'Kegel', kl: 10, O: ['O = π · r² + π · r · s'], V: ['V = π · r² · h : 3'], M: 'M = π · r · s', warum: 'Pyramide und Kegel', von: 'Zylinder',
+    weil: '<b>Kommt vom Zylinder,</b> weil ein Kegel ein Drittel eines Zylinders mit gleicher Grundfläche und gleicher Höhe ist – wie Pyramide und Prisma.', formel: 'V = G · h : 3 = π · r² · h : 3', bez: [['r', 'Radius der Grundfläche'], ['h', 'Höhe'], ['s', 'Mantellinie']], wege: [] },
+  kugel: { name: 'Kugel', kl: 10, O: ['O = 4 · π · r²'], V: ['V = 4/3 · π · r³'], warum: 'Kugel', von: 'Zylinder',
+    weil: '<b>Hängt mit dem Zylinder zusammen:</b> Die Kugel füllt zwei Drittel des Zylinders, in den sie genau hineinpasst (Höhe 2 · r): ⅔ · π · r² · 2 · r = 4/3 · π · r³.', formel: 'V = 4/3 · π · r³',
+    ehrlich: 'Warum es genau zwei Drittel sind, wird in Klasse 10 begründet. Hier gibt es keine einfache Umlege-Idee wie bei den anderen Körpern.', bez: [['r', 'Radius']],
+    wege: [ { kl: 10, t: 'Kegel : Kugel : Zylinder = 1 : 2 : 3', s: 'Bei gleichem Radius und Höhe 2 · r. Zusammenhang zum Merken.' } ] },
+};
+
+// ===================== Bauen =====================
+const esc = (s) => String(s);
+const CHEV = '<svg class="ru-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const kl = (k) => `<span class="ru-tafel-kl">${k === 'zusatz' ? 'Zusatz' : 'ab Kl. ' + k}</span>`;
+const dkl = (k) => ` data-kl="${k === 'zusatz' ? 99 : k}"`;
+const F = (f) => `<span class="ru-tafel-f">${f}</span>`;
+const knoten = (id, name, formel, k) => `<button type="button" class="sb-knoten" data-ziel="${id}"><b>${name}</b>${F(formel)}${kl(k)}</button>`;
+const folg = (liste) => (liste.length ? `<ul class="sb-folg">${liste.map(([k, t, f, ziel, bild]) => `<li${dkl(k)}>${ziel ? `<button type="button" class="sb-folg-k" data-ziel="${ziel}">${bild || ''}<span>${t}${f ? ` <b>${f}</b>` : ''} ${kl(k)} ›</span></button>` : `${t}${f ? ` <b>${f}</b>` : ''}${kl(k)}`}</li>`).join('')}</ul>` : '');
+function ast(o) { // o: { kl, verb, bild, satz, kopf (HTML Knoten), folg, kinder, w, leicht, gestr }
+  return `<li class="sb-ast${o.gestr ? ' sb-gestr' : ''}${o.w ? ' sb-breit' : ''}"${dkl(o.kl)}${o.w ? ` style="--sb-w:${o.w}"` : ''}><div class="sb-kopf"><div class="sb-kante"><span class="sb-verb${o.leicht ? ' sb-leicht' : ''}">${o.verb}</span>${o.bild ? `<span class="sb-trick">${o.bild}</span>` : ''}${o.satz ? `<small>${o.satz}</small>` : ''}</div><div class="sb-ziel">${o.kopf}</div>${o.folg || ''}</div>${o.kinder ? `<ul class="sb-kinder">${o.kinder.join('')}</ul>` : ''}</li>`;
+}
+function baumFlaechen() {
+  const wurzel = `<div class="sb-wurzel-wrap"${dkl(5)}><button type="button" class="sb-wurzel" data-ziel="rechteck">${SVG(64, 50, `<rect x="2" y="2" width="56" height="42" class="f-n"/>${gitter(2, 2, 4, 3, 14)}`, 'Rechteck aus Kästchen')}<span><small>Ursprung</small><b>Rechteck</b>${F('A = a · b')}<span class="sb-wz-satz">Länge mal Breite – Kästchen zählen</span></span></button></div>`;
+  const aeste = [
+    ast({ kl: 5, verb: 'gleich lang machen', bild: AST.quadrat(), kopf: knoten('quadrat', 'Quadrat', 'A = a²', 5) }),
+    ast({ kl: 6, w: 2, verb: 'Ecke umsetzen', bild: AST.parallelogramm(), kopf: knoten('parallelogramm', 'Parallelogramm', 'A = g · h', 6), folg: folg([[6, 'Jede Seite kann Grundseite sein:', 'a · h<sub>a</sub> = b · h<sub>b</sub>']]),
+      kinder: [
+        ast({ kl: 6, verb: 'verdoppeln', bild: AST.dreieck(), satz: 'Zwei gleiche Dreiecke = ein Parallelogramm', kopf: knoten('dreieck', 'Dreieck', 'A = g · h : 2', 6),
+          folg: `<span class="sb-folg-t"${dkl(6)}>Weitere Wege</span>` + folg([[6, 'Rechtwinklig:', 'A = a · b : 2'], [6, 'Jede Seite als Grundseite'], [9, 'Gleichseitig:', 'A = a² · √3 : 4'], [10, 'Mit Winkel:', 'A = ½ · a · b · sin γ']]),
+          kinder: [ast({ kl: 6, verb: 'zerlegen', bild: AST.vieleck(), kopf: knoten('dreieck', 'Jedes Vieleck', 'Dreiecke addieren', 6) })] }),
+        ast({ kl: 6, verb: 'verdoppeln', bild: AST.trapez(), satz: 'Zwei gleiche Trapeze = ein Parallelogramm mit a&nbsp;+&nbsp;c', kopf: knoten('trapez', 'Trapez', 'A = (a&nbsp;+&nbsp;c) · h : 2', 6), folg: folg([[6, 'Oder in zwei Dreiecke zerlegen']]) }) ] }),
+    ast({ kl: 6, verb: 'einrahmen', bild: AST.drachen(), satz: 'Das Rechteck e · f ist doppelt so groß', kopf: knoten('drachen', 'Drachen und Raute', 'A = e · f : 2', 6) }),
+    ast({ kl: 8, verb: 'umlegen', bild: AST.kreis(), satz: 'Tortenstücke: fast ein Rechteck π · r mal r', kopf: knoten('kreis', 'Kreis', 'A = π · r²', 8),
+      folg: folg([[8, 'Kreisausschnitt: Anteil α : 360° vom Kreis', '', 'ausschnitt', AST.ausschnittMini()], [8, 'Kreisring: großer minus kleiner Kreis', '', 'kreisring', AST.ringMini()]]) }) ];
+  return `<div class="sb-leit"><div><b>Merken musst du nur: Rechteck = Länge · Breite.</b><span>Alles andere kannst du dir herleiten. Der Stammbaum zeigt, mit welchem Trick. Tippe auf eine Figur.</span></div></div>
+    <div class="sb-baum" aria-label="Stammbaum der Flächen">${wurzel}<ul class="sb-aeste">${aeste.join('')}</ul></div>
+    <p class="sb-fuss">${SVG(56, 40, `<rect x="4" y="6" width="44" height="28" class="f-n"/><path d="M4 6 H48 V34 H4 Z" class="f-o" style="stroke:var(--ru-marke);stroke-width:4"/>`, 'Umfang: einmal außen herum')}<span><b>Umfang: keine Formel nötig</b> – einmal außen herum alle Seiten addieren.<span data-kl="8"> Nur beim Kreis brauchst du π: u = 2 · π · r.</span></span></p>`;
+}
+function baumKoerper() {
+  const wurzel = `<div class="sb-wurzel-wrap"${dkl(6)}><button type="button" class="sb-wurzel" data-ziel="quader">${SVG(64, 54, quader(4, 50, 38, 28, 14, -12, { oben: 'm' }), 'Quader')}<span><small>Ursprung</small><b>Quader</b>${F('V = a · b · c = G · h')}<span class="sb-wz-satz">Grundfläche mal Höhe – Schichten stapeln</span></span></button></div>`;
+  const aeste = [
+    ast({ kl: 6, verb: 'gleich lang machen', bild: AST.wuerfel(), kopf: knoten('wuerfel', 'Würfel', 'V = a³', 6) }),
+    ast({ kl: 8, w: 2, verb: 'Grundfläche tauschen', bild: AST.prisma(), satz: 'Gleich stapeln, G aus dem Flächen-Baum', kopf: `<div class="sb-zwei">${knoten('prisma', 'Prisma', 'V = G · h', 8)}${knoten('zylinder', 'Zylinder', 'V = π · r² · h', 8)}</div>`,
+      kinder: [
+        ast({ kl: 10, verb: 'ein Drittel', bild: AST.pyramide(), satz: 'Dreimal umfüllen – dann ist das Prisma voll', kopf: `<div class="sb-zwei">${knoten('pyramide', 'Pyramide', 'V = G · h : 3', 10)}${knoten('kegel', 'Kegel', 'V = π · r² · h : 3', 10)}</div>` }),
+        ast({ kl: 10, gestr: 1, verb: 'zwei Drittel', leicht: 1, bild: AST.kugel(), satz: 'Zusammenhang – begründet wird er in Klasse 10', kopf: knoten('kugel', 'Kugel', 'V = 4/3 · π · r³', 10) }) ] }) ];
+  return `<div class="sb-leit"><div><b>Merken musst du nur: Volumen = Grundfläche · Höhe.</b><span>Die Grundfläche holst du dir aus dem Flächen-Baum. Spitze Körper sind ein Drittel davon.</span></div></div>
+    <p class="sb-leer" data-nur-bis="5">Volumen kommt ab Klasse 6. In Klasse 5: Oberfläche des Quaders – sechs Rechtecke addieren.</p>
+    <div class="sb-baum" aria-label="Stammbaum der Körper">${wurzel}<ul class="sb-aeste">${aeste.join('')}</ul></div>
+    <p class="sb-fuss" data-kl="8">${WEG.netz()}<span><b>Oberfläche: keine Formel nötig</b> – Netz aufklappen, alle Flächen addieren. Der Mantel von Prisma und Zylinder ist ein Rechteck: u · h.</span></p>
+    <p class="sb-fuss" data-nur-bis="7">${WEG.netzQuader()}<span><b>Oberfläche: keine Formel nötig</b> – Netz aufklappen: sechs Rechtecke, je zwei gleich groß. Alle addieren.</span></p>`;
+}
+// Matrix-Zeile mit Einzelheiten
+function detail(id, x, her, istKoerper) {
+  const schritte = her ? her() : [];
+  const herl = schritte.length ? `<h3 class="ru-tafel-h3">${x.von ? 'So kommst du drauf' : 'So ist es gemeint'}</h3><div class="sb-herl" style="--sb-n:${schritte.length}">${schritte.map(([b, t], i) => `<div class="sb-schritt"><span class="sb-nr">${i + 1}</span>${b}<p>${t}</p></div>`).join('')}</div>` : '';
+  const wege = (x.wege || []).length ? `<h3 class="ru-tafel-h3">Weitere Wege</h3><ul class="sb-wege">${x.wege.map((w) => `<li class="sb-weg${w.bild ? '' : ' sb-ohne'}${w.kl === 'zusatz' ? ' sb-zusatz' : ''}"${dkl(w.kl)}>${w.bild ? WEG[w.bild]() : ''}<div><b>${w.t} ${kl(w.kl)}</b>${w.f ? F(w.f) : ''}<span class="sb-w-satz">${w.s}</span></div></li>`).join('')}</ul>` : '';
+  return `${herl}<p class="sb-weil">${x.weil}</p><div class="sb-formel">${F(x.formel)}${x.fNeben ? `<small>${x.fNeben}</small>` : ''}</div>${x.ehrlich ? `<p class="sb-ehrlich">${x.ehrlich}</p>` : ''}${wege}
+    <div class="sb-teil2"><div><h3 class="ru-tafel-h3">Bezeichnungen</h3><dl class="ru-tafel-bez">${x.bez.map(([z, n]) => `<div><dt>${z}</dt><dd>${n}</dd></div>`).join('')}</dl>${x.bed ? `<p class="ru-tafel-hinweis">${x.bed}</p>` : ''}</div>
+    <div><p class="ru-tafel-warum-zeile"><a class="ru-tafel-warum" href="#">Alle Einzelheiten und Beispiele ›</a><a class="ru-tafel-warum" href="#">Warum? ${x.warum} ›</a></p></div></div>`;
+}
+// Formel mit Umbruchstellen nur vor Rechenzeichen außerhalb von Klammern (aus lernen-regeln.js, formel())
+function formel(text) {
+  const [l, ...r] = String(text).split(' = '); if (!r.length || !/ [·+−:] /.test(r.join(' = '))) return text;
+  const gruppen = [], toks = r.join(' = ').split(' '); let g = '', tiefe = 0;
+  for (const tk of toks) { const op = /^[·+−:=<>≤≥-]$/.test(tk);
+    if (g && op && (g + ' ' + tk).length > (tiefe ? 12 : 8)) { gruppen.push(g); g = tk; } else g = g ? g + ' ' + tk : tk;
+    tiefe += (tk.match(/\(/g) || []).length - (tk.match(/\)/g) || []).length; }
+  if (g) gruppen.push(g);
+  return [l + ' = ' + gruppen[0], ...gruppen.slice(1)].map((x) => `<span class="ru-tafel-fg">${x}</span>`).join(' ');
+}
+const zelle = (liste, lab = []) => liste.map((f, i) => `<span class="ru-tafel-fz">${lab[i] ? `<small>${lab[i]}</small>` : ''}<span class="ru-tafel-f">${formel(f)}</span></span>`).join('');
+function matrix(daten, her, kopf, sp) {
+  const zeilen = Object.entries(daten).filter(([, x]) => !x.nurBaum).map(([id, x]) => `<tbody class="ru-tafel-z" id="z-${id}"${dkl(x.kl)}><tr><th scope="row" class="ru-tafel-fest"><button type="button" class="ru-tafel-auf" aria-expanded="false" aria-controls="d-${id}"><span class="ru-tafel-zk">${x.mini || ''}<span class="ru-tafel-zk-text"><b>${x.name}</b>${kl(x.kl)}</span></span>${CHEV}</button></th>`
+    + `<td>${zelle(x[sp[0][1]], x.uLab)}</td><td>${zelle(x[sp[1][1]])}</td></tr><tr class="ru-tafel-detail" id="d-${id}" hidden><td colspan="3"><div class="ru-tafel-d">${detail(id, x, her[id])}</div></td></tr></tbody>`).join('');
+  return `<div class="ru-tafel-roll" role="region" aria-label="${kopf}" tabindex="0"><table class="ru-tafel-matrix"><thead><tr><th scope="col" class="ru-tafel-fest">${kopf}</th><th scope="col">${sp[0][0]}</th><th scope="col">${sp[1][0]}</th></tr></thead>${zeilen}</table></div>`;
+}
+// Mini-Zeichnung der ersten Spalte (wie App: ohne Beschriftung)
+const MINI = { rechteck: '<rect x="14" y="14" width="88" height="52" class="f-n"/>', quadrat: '<rect x="30" y="10" width="58" height="58" class="f-n"/>', parallelogramm: '<path d="M12 66 H86 L108 16 H34 Z" class="f-n"/>',
+  dreieck: '<path d="M10 66 H108 L72 12 Z" class="f-n"/>', trapez: '<path d="M10 66 H110 L86 18 H34 Z" class="f-n"/>', drachen: '<path d="M60 6 L92 30 L60 80 L28 30 Z" class="f-n"/>', kreis: '<circle cx="58" cy="44" r="36" class="f-n"/>',
+  ausschnitt: '<path d="M22 72 L104 72 A82 82 0 0 0 74.7 9.2 Z" class="f-n"/>', kreisring: '<path d="M22 44 A36 36 0 1 0 94 44 A36 36 0 1 0 22 44 Z M41 44 A17 17 0 1 1 75 44 A17 17 0 1 1 41 44 Z" fill-rule="evenodd" class="f-n"/>',
+  quader: '<path d="M14 40 H84 V90 H14 Z" class="f-n"/><path d="M14 40 L42 18 H112 L84 40 M112 18 V68 L84 90" class="f-o"/>', wuerfel: '<path d="M22 42 H74 V94 H22 Z" class="f-n"/><path d="M22 42 L44 24 H96 L74 42 M96 24 V76 L74 94" class="f-o"/>',
+  prisma: '<path d="M12 90 H62 L37 48 Z" class="f-n"/><path d="M62 90 L112 66 L87 24 L37 48" class="f-o"/>', zylinder: '<ellipse cx="62" cy="22" rx="38" ry="10" class="f-n"/><path d="M24 22 V84 M100 22 V84 M24 84 A38 10 0 0 0 100 84" class="f-o"/>',
+  pyramide: '<path d="M14 88 H84 L60 14 Z" class="f-n"/><path d="M84 88 L106 70 L60 14" class="f-o"/>', kegel: '<path d="M22 84 L62 14 L102 84 A40 11 0 0 1 22 84 Z" class="f-n"/>', kugel: '<circle cx="62" cy="54" r="40" class="f-n"/>' };
+for (const [id, x] of Object.entries({ ...FIG, ...KOE })) if (MINI[id]) x.mini = `<svg class="ru-tafel-mini" viewBox="${KOE[id] ? '0 0 124 112' : '0 0 120 90'}" aria-hidden="true">${MINI[id]}</svg>`;
+// Körper: Volumen-Klasse für Baum und Filter der Volumen-Spalte (Quader/Würfel: Oberfläche ab 5, Volumen ab 6)
+document.getElementById('inhalt').innerHTML =
+  `<section class="ru-tafel-karte ru-tafel-erste" id="flaechen"><h2 class="ru-tafel-h2">Ebene Figuren</h2>${baumFlaechen()}
+    <h3 class="ru-tafel-h3">Alle Formeln</h3>${matrix(FIG, HER, 'Figur', [['Umfang', 'u'], ['Flächeninhalt', 'A']])}
+    <p class="ru-tafel-hinweis">Länge: Strecke in cm · Fläche: Flächeninhalt in cm². Tippe auf eine Zeile: zuerst, woher die Formel kommt, dann die Formel.</p></section>
+   <section class="ru-tafel-karte" id="koerper"><h2 class="ru-tafel-h2">Körper</h2>${baumKoerper()}
+    <h3 class="ru-tafel-h3">Alle Formeln</h3>${matrix(KOE, HER, 'Körper', [['Oberfläche', 'O'], ['Volumen', 'V']])}
+    <p class="ru-tafel-hinweis">Volumen in cm³, Oberfläche und Mantel in cm². G ist der Flächeninhalt der Grundfläche, M der Mantel.</p></section>
+   <section class="ru-tafel-karte" id="sonst"><h2 class="ru-tafel-h2">Was man sonst noch braucht</h2><p class="ru-tafel-hinweis">(unverändert wie in der App – im Entwurf nicht ausgeführt)</p></section>`;
+
+// ===================== Verhalten =====================
+const app = document.getElementById('app');
+let zustand = { g: 'hell', k: 'alle', auf: '' };
+function lesen() { const h = new URLSearchParams(location.hash.slice(1)); zustand = { g: h.get('g') === 'nacht' ? 'nacht' : 'hell', k: h.get('k') || 'alle', auf: h.get('auf') || '' }; }
+function schreiben() { const p = []; if (zustand.g === 'nacht') p.push('g=nacht'); if (zustand.k !== 'alle') p.push('k=' + zustand.k); if (zustand.auf) p.push('auf=' + zustand.auf); history.replaceState(null, '', '#' + p.join('&')); }
+function aufklappen(id, an) {
+  document.querySelectorAll('.ru-tafel-auf').forEach((b) => { const mein = b.getAttribute('aria-controls') === 'd-' + id, offen = mein && an;
+    b.setAttribute('aria-expanded', offen); document.getElementById(b.getAttribute('aria-controls')).hidden = !offen; });
+}
+function filtern() {
+  const bis = zustand.k === 'alle' ? 99 : Number(zustand.k);
+  document.querySelectorAll('[data-kl]').forEach((el) => { if (Number(el.dataset.kl) > bis) el.setAttribute('data-aus', ''); else el.removeAttribute('data-aus'); });
+  document.querySelectorAll('[data-nur-bis]').forEach((el) => { if (bis <= Number(el.dataset.nurBis)) el.removeAttribute('data-aus'); else el.setAttribute('data-aus', ''); });
+  document.querySelectorAll('.ru-tafel-kf button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.bis === String(zustand.k)));
+  linien();
+}
+// Äste: erster/letzter sichtbarer Ast je Ebene (für die Verbindungslinien); am Handy endet der Stamm am letzten Knoten
+function linien() {
+  document.querySelectorAll('.sb-aeste, .sb-kinder').forEach((ul) => {
+    const sicht = [...ul.children].filter((li) => !li.hasAttribute('data-aus'));
+    ul.toggleAttribute('data-aus', !sicht.length);
+    [...ul.children].forEach((li) => li.classList.remove('sb-erst', 'sb-letzt', 'sb-allein'));
+    if (sicht.length) { sicht[0].classList.add('sb-erst'); sicht[sicht.length - 1].classList.add('sb-letzt'); if (sicht.length === 1) sicht[0].classList.add('sb-allein'); }
+    sicht.forEach((li) => { const k = li.querySelector(':scope > .sb-kopf > .sb-ziel'); if (k) li.style.setProperty('--sb-bis', (k.getBoundingClientRect().top - li.getBoundingClientRect().top + 23) + 'px'); });
+  });
+}
+const hin = (z, weich) => window.scrollTo({ top: z.getBoundingClientRect().top + window.scrollY - 72, behavior: weich ? 'smooth' : 'auto' });
+function anwenden(scroll) {
+  app.dataset.ruG = zustand.g; document.body.style.background = zustand.g === 'nacht' ? '#0B0F14' : '#F3F1EA';
+  filtern(); aufklappen(zustand.auf, !!zustand.auf);
+  if (scroll && zustand.auf) { const z = document.getElementById('z-' + zustand.auf); if (z) hin(z, false); }
+}
+document.addEventListener('click', (e) => {
+  const kf = e.target.closest('.ru-tafel-kf button'); if (kf) { zustand.k = kf.dataset.bis; schreiben(); filtern(); return; }
+  const auf = e.target.closest('.ru-tafel-auf'); if (auf) { const id = auf.getAttribute('aria-controls').slice(2), an = auf.getAttribute('aria-expanded') !== 'true'; zustand.auf = an ? id : ''; schreiben(); aufklappen(id, an); return; }
+  const kn = e.target.closest('[data-ziel]'); if (kn) { zustand.auf = kn.dataset.ziel; schreiben(); aufklappen(zustand.auf, true);
+    const z = document.getElementById('z-' + zustand.auf); if (z) { hin(z, true); z.classList.add('ru-tafel-ziel'); setTimeout(() => z.classList.remove('ru-tafel-ziel'), 1600); } }
+});
+window.addEventListener('hashchange', () => { lesen(); anwenden(true); });
+window.addEventListener('resize', linien);
+lesen(); anwenden(true);
+if (document.fonts) document.fonts.ready.then(linien);
+</script>
+</body>
+</html>

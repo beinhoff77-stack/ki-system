@@ -11,7 +11,22 @@ sys.path.insert(0, os.path.join(WURZEL, "tools"))
 import inhalt_pruefen as ip      # noqa: E402
 
 A = []
-POSITION = {4: itertools.cycle([2, 0, 3, 1, 1, 3, 0, 2]), 5: itertools.cycle([3, 1, 4, 0, 2, 0, 4, 2, 1, 3])}
+def _lagenfolge(n_runden=10, k=4, saat=0):
+    """Gleichmäßig verteilte, unregelmäßige Lage der richtigen Antwort (festes Saatkorn, damit die Runde reproduzierbar bleibt)."""
+    import random
+    r = random.Random(saat)
+    while True:
+        f = [i for _ in range(n_runden) for i in range(k)]
+        r.shuffle(f)
+        if any(f[i] == f[i + 1] == f[i + 2] or (f[i + 1] - f[i] == f[i + 2] - f[i + 1] and abs(f[i + 1] - f[i]) == 1) for i in range(len(f) - 2)):
+            continue
+        if any(sum(1 for i in range(len(f) - p) if f[i] == f[i + p]) / (len(f) - p) > .4 for p in (2, 3, 4, 5, 6, 8)):
+            continue
+        return f
+
+
+LAGEN_SAAT = 3
+POSITION = {4: iter(_lagenfolge(saat=LAGEN_SAAT)), 5: itertools.cycle([3, 1, 4, 0, 2, 0, 4, 2, 1, 3])}
 POOLS = ("test", "korrektur", "sicherung")
 TYPEN_ERLAUBT = ("mehrschritt", "einkleidung", "umkehr", "darstellung", "rueckwaerts", "verknuepfen", "begruenden", "fehler", "transfer", "parameter", "pruefung")
 FORMEN = ("anwenden", "umkehren", "verfahren_waehlen", "fehler_detektiv", "bruecke", "zwei_wege", "viele_antworten")

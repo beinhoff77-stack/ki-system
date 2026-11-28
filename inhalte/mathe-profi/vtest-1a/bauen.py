@@ -263,41 +263,108 @@ for s in EINHEITEN:
         if max(sa.values()) > 1:
             print("Hinweis: gleiche Sollantwort im Lernziel", s, lz, {k: v for k, v in sa.items() if v > 1})
 
-MUSTER = {p: [0, 0] for p in ("Kein Fehler", "Nur ", "Keiner", "Beide")}
-# ═════════ Lage der richtigen Antwort, Länge, Anfangswörter, Statistik ═════════
+# ═════════ Bauart-Prüfungen der Auswahlaufgaben (Urteil 1222 und frühere Vorprüfungen) ═════════
+import re as _re
 AUSW = [e for l in aus.values() for e in l if e["antwortform"] == "auswahl"]
+PROBLEME = []
+
+
+def _opts(e):
+    a_ = e["aufgabe"]["a"]; r_ = e["aufgabe"]["o"]["index"]
+    return a_[r_], [o for i, o in enumerate(a_) if i != r_]
+
+
+def _urteil(o):
+    """Erster Satzteil einer Option (bis Doppelpunkt, Komma oder Punkt) als Urteil."""
+    return _re.split(r"[:,.]", o, maxsplit=1)[0].strip()
+
+
+def _zahlen(o):
+    return [z.replace(" ", "") for z in _re.findall(r"\d[\d ]*\d|\d", o)]
+
+
+for e in AUSW:
+    k_ = e["kennung"]; ri, fa = _opts(e); a_ = e["aufgabe"]["a"]
+    # (1) genau eine Option mit „=“ ist verboten (sonst verrät sie die richtige Antwort)
+    mit_gleich = [o for o in a_ if "=" in o]
+    if len(mit_gleich) == 1:
+        PROBLEME.append((k_, "genau eine Option enthält „=“"))
+    # (2) kein Ablenker mit gleichem Urteil wie die richtige Option (richtige Folgerung, falsche Begründung)
+    for o in fa:
+        if _urteil(o) == _urteil(ri) and _urteil(ri) not in ("Fehler",):
+            PROBLEME.append((k_, "Ablenker mit gleichem Urteil wie die richtige Option", o[:50]))
+        if _urteil(o) == "Fehler" and _urteil(ri) == "Fehler":
+            zr = _zahlen(ri.split("Richtig wäre")[-1]); zo = _zahlen(o.split("Richtig wäre")[-1])
+            if zr and zo and zr[-1] == zo[-1]:
+                PROBLEME.append((k_, "Ablenker nennt dieselbe Berichtigung wie die richtige Option", o[:50]))
+    # (3) die richtige Option ist nicht um 25 % oder mehr länger als die längste falsche
+    if len(ri) >= 1.25 * max(len(o) for o in fa) and len(ri) > 20:
+        PROBLEME.append((k_, "richtige Option mindestens 25 % länger als die längste falsche", len(ri), max(len(o) for o in fa)))
+laenger = [e["kennung"] for e in AUSW if len(_opts(e)[0]) > max(len(o) for o in _opts(e)[1])]
+kurz = [e["kennung"] for e in AUSW if len(_opts(e)[0]) < min(len(o) for o in _opts(e)[1])]
+if len(laenger) > .35 * len(AUSW):
+    PROBLEME.append(("richtige Option zu oft die längste", len(laenger), len(AUSW)))
+if len(kurz) > .35 * len(AUSW):
+    PROBLEME.append(("richtige Option zu oft die kürzeste", len(kurz), len(AUSW)))
+if os.environ.get("VT_TAB"):
+    for e in AUSW:
+        print(e["kennung"], e["pool"][:4], "r=%d" % e["aufgabe"]["o"]["index"], [len(o) for o in e["aufgabe"]["a"]])
+
+# (4) Merkmale gleich verteilt zwischen richtiger und falschen Optionen (Anteil der richtigen mit Merkmal gegen Anteil der falschen)
+MERKMALE = {
+    "denn/weil": r"\b(denn|weil)\b",
+    "Nebensatz (dass/wenn/damit/sodass/obwohl/während/wobei)": r"\b(dass|wenn|damit|sodass|obwohl|während|wobei|bevor|nachdem)\b",
+    "Sammel (Beide/Genau/Alle/Keine/Weder/Nur/allein)": r"\b(Beide|Genau|Alle|Keine?r?|Weder|Nur|allein)\b",
+    "Absolut (immer/nie/jede/stets/niemals)": r"\b(immer|nie|niemals|stets|jede[rsmn]?|jedes)\b",
+    "höchstens/mindestens": r"\b(höchstens|mindestens)\b",
+    "Verneinung (nicht/kein/ohne)": r"\b(nicht|kein|keine|keinen|ohne)\b",
+    "kleiner/größer": r"\b(kleiner|größer|mehr|weniger)\b",
+    "Rechnung mit „=“": r"=",
+}
+MS = {}
+for name, rx in MERKMALE.items():
+    nr = sum(1 for e in AUSW if _re.search(rx, _opts(e)[0])); nf = sum(1 for e in AUSW for o in _opts(e)[1] if _re.search(rx, o))
+    nfall = sum(len(_opts(e)[1]) for e in AUSW)
+    pr, pf = nr / len(AUSW), nf / nfall
+    MS[name] = (nr, nf, round(pr, 2), round(pf, 2))
+    erw = pf * len(AUSW)
+    if (nr + nf >= 6 and abs(pr - pf) > .2) or (erw >= 2.5 and (nr < .4 * erw or nr > 2.5 * erw + 1)):
+        PROBLEME.append(("Merkmal „%s“ ungleich verteilt: richtige %.2f, falsche %.2f" % (name, pr, pf), nr, nf))
+# (5) Lage der richtigen Antwort: gleichmäßig und unregelmäßig
 lagen = defaultdict(list)
 for e in AUSW:
     lagen[len(e["aufgabe"]["a"])].append(e["aufgabe"]["o"]["index"])
 for k, v in lagen.items():
     c = Counter(v)
-    assert max(c.values()) - min(c.get(i, 0) for i in range(k)) <= 2, ("Lage der richtigen Antwort nicht gleichmäßig", k, dict(c))
-laenger = [e["kennung"] for e in AUSW if len(e["aufgabe"]["a"][e["aufgabe"]["o"]["index"]]) > max(len(o) for i, o in enumerate(e["aufgabe"]["a"]) if i != e["aufgabe"]["o"]["index"])]
-if os.environ.get("VT_TAB"):
-    for e in AUSW:
-        a_ = e["aufgabe"]["a"]; r_ = e["aufgabe"]["o"]["index"]
-        print(e["kennung"], e["pool"][:4], "r=%d" % r_, [len(o) for o in a_], "LANGEST" if e["kennung"] in laenger else "")
-        if os.environ.get("VT_TAB") == "2" and e["kennung"] in laenger:
-            for i_, o_ in enumerate(a_): print("   ", "*" if i_ == r_ else " ", o_)
-assert len(laenger) <= .35 * len(AUSW), ("richtige Option zu oft die längste", len(laenger), len(AUSW))
-kurz = [e["kennung"] for e in AUSW if len(e["aufgabe"]["a"][e["aufgabe"]["o"]["index"]]) < min(len(o) for i, o in enumerate(e["aufgabe"]["a"]) if i != e["aufgabe"]["o"]["index"])]
-assert len(kurz) <= .35 * len(AUSW), ("richtige Option zu oft die kürzeste", len(kurz), len(AUSW))
-def _w(o):
-    return o.split(":")[0] if o.split(" ")[0] in ("Kein", "Nur", "Beide", "Keiner", "Fehler:") or o.startswith("Fehler:") else "-"
+    if max(c.values()) - min(c.get(i, 0) for i in range(k)) > 2:
+        PROBLEME.append(("Lage der richtigen Antwort nicht gleichmäßig", k, dict(c)))
+folge = [e["aufgabe"]["o"]["index"] for e in AUSW if len(e["aufgabe"]["a"]) == 4]
+for i in range(len(folge) - 2):
+    t_ = folge[i:i + 3]
+    if t_[0] == t_[1] == t_[2] or (t_[1] - t_[0] == t_[2] - t_[1] and abs(t_[1] - t_[0]) == 1):
+        PROBLEME.append(("Lage der richtigen Antwort folgt einem Muster (gleich oder Treppe)", i, t_))
+for p_ in (2, 3, 4, 5, 6, 8):
+    gl = sum(1 for i in range(len(folge) - p_) if folge[i] == folge[i + p_]); n_ = len(folge) - p_
+    if n_ >= 8 and gl / n_ > .5:
+        PROBLEME.append(("Lage der richtigen Antwort wiederholt sich mit Abstand %d" % p_, gl, n_))
+# (6) Anfangswörter
+MUSTER = {p: [0, 0] for p in ("Kein Fehler", "Nur ", "Keiner", "Beide")}
 for e in AUSW:
-    a_ = e["aufgabe"]["a"]; ri = e["aufgabe"]["o"]["index"]
-    for pre in ("Kein Fehler", "Nur ", "Keiner", "Beide"):
-        n_alle = sum(1 for o in a_ if o.startswith(pre)); n_ri = int(a_[ri].startswith(pre))
-        if n_alle:
-            MUSTER[pre][0] += n_alle; MUSTER[pre][1] += n_ri
+    a_ = e["aufgabe"]["a"]; ri_ = e["aufgabe"]["o"]["index"]
+    for pre in MUSTER:
+        MUSTER[pre][0] += sum(1 for o in a_ if o.startswith(pre)); MUSTER[pre][1] += int(a_[ri_].startswith(pre))
 for pre, (n_alle, n_ri) in MUSTER.items():
-    assert n_alle == 0 or n_ri / n_alle >= .2, ("Option mit Anfangswort „%s“ fast nie richtig (Ausschlussmuster)" % pre, n_ri, n_alle)
+    if n_alle and n_ri / n_alle < .2:
+        PROBLEME.append(("Anfangswort „%s“ fast nie richtig" % pre, n_ri, n_alle))
 nz = [e for l in aus.values() for e in l if e["antwortform"] == "zahl"]
 tp = [e for l in aus.values() for e in l if e["pool"] == "test"]
 print("Statistik: Auswahl %d, Zahl %d, Lücken %d (gesamt %d); Test-Pool: Auswahl %d von %d" % (len(AUSW), len(nz), sum(1 for l in aus.values() for e in l if e["antwortform"] == "luecken"), len(AUSW) + len(nz), sum(1 for e in tp if e["antwortform"] == "auswahl"), len(tp)))
 print("Länge: richtige Option die längste in %d von %d (%.0f %%), die kürzeste in %d" % (len(laenger), len(AUSW), 100 * len(laenger) / len(AUSW), len(kurz)))
-print("Lage der richtigen Antwort:", {k: dict(sorted(Counter(v).items())) for k, v in lagen.items()})
+print("Lage der richtigen Antwort:", {k: dict(sorted(Counter(v).items())) for k, v in lagen.items()}, "Folge:", "".join(map(str, folge)))
 print("Anfangswörter (alle, davon richtig):", {k: tuple(v) for k, v in MUSTER.items()})
+for name, (nr, nf, pr, pf) in MS.items():
+    print("  Merkmal %-58s richtige %2d (%.2f)  falsche %2d (%.2f)" % (name, nr, pr, nf, pf))
+assert not PROBLEME or os.environ.get("VT_NOCHECK"), PROBLEME
 
 # ═════════ Schreiben ═════════
 KURZ = {"zahlen.potenzen_basis": "Klasse 5, Potenzen als Schreibweise", "zahlen.rechengesetze": "Klasse 5, Grundrechenarten und Rechengesetze"}

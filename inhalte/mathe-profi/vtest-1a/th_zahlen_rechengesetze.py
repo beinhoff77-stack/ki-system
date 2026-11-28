@@ -53,7 +53,7 @@ neu(T, "klammern", "sicherung", "begruenden", W(
 # ═════════ termaufbau ═════════
 neu(T, "termaufbau", "test", "transfer", W(
     "Eine Geschichte: „Im Bus sitzen 30 Kinder. An der ersten Haltestelle steigen 6 Kinder aus, an der zweiten steigen 4 Kinder aus.“ Vier Terme stehen zur Wahl: ① 30 − 6 − 4  ② 30 − (6 + 4)  ③ 30 − 6 + 4  ④ 30 − (6 − 4). Welche Terme passen zur Geschichte?",
-    "Genau ① und ②: Beide ziehen insgesamt 10 Kinder ab, einmal in zwei Schritten, einmal auf einmal.",
+    "Genau ① und ②: Beide ziehen zusammen 10 Kinder ab, es bleiben weniger als 30.",
     [("Genau ②: Nur ② hat eine Klammer, die beide Halte zusammenfasst.", "Nur den Term mit Klammer für richtig gehalten (① gibt denselben Wert 20)", 30 - (6 + 4) == 30 - 6 - 4),
      ("Genau ① und ③: Beim zweiten Halt muss man 4 addieren, weil die 4 zuletzt dasteht.", "Das Minus vor der 4 übersehen (③ ergibt 28)", 30 - 6 + 4 != 30 - 6 - 4),
      ("Genau ② und ④: Die Klammer fasst beide Halte zusammen, also werden 6 und 4 abgezogen.", "④ zieht nur 2 Kinder ab (④ ergibt 28)", 30 - (6 - 4) != 30 - (6 + 4))],
@@ -98,14 +98,17 @@ neu(T, "termaufbau", "sicherung", "transfer", W(
     "Er wird um 4 kleiner, denn 16 € mehr Rabatt werden durch 4 geteilt.",
     [("Er wird um 16 kleiner, denn der Rabatt wird um 16 größer.", "Das Teilen durch 4 vergessen", (36 - 20) / 4 != 16),
      ("Er wird um 4 größer, denn ein größerer Rabatt bedeutet mehr.", "Die Richtung der Änderung falsch gedeutet", (12 * 9 + 8 * 11 - 36) / 4 < (12 * 9 + 8 * 11 - 20) / 4),
-     ("Er wird um 36 kleiner, denn jetzt wird 36 statt 20 abgezogen, also viel mehr.", "Den neuen Rabatt statt der Änderung genommen", (36 - 20) / 4 != 36)],
+     ("Er wird um 36 kleiner, denn jetzt wird 36 statt 20 abgezogen.", "Den neuen Rabatt statt der Änderung genommen", (36 - 20) / 4 != 36)],
     "Vorher: (108 + 88 − 20) : 4 = 176 : 4 = 44. Nachher: (108 + 88 − 36) : 4 = 160 : 4 = 40. Der Wert wird um 4 kleiner. Der Rabatt ist um 16 gewachsen, aber alles wird durch 4 geteilt, deshalb sind es 16 : 4 = 4.",
     (12 * 9 + 8 * 11 - 20) / 4 == 44 and (12 * 9 + 8 * 11 - 36) / 4 == 40), regel=RR, idee="was_waere_wenn")
-neu(T, "vorteil", "test", "transfer", Z(
-    "Berechne geschickt, ohne alles schriftlich zu rechnen: 6 482 − 1 997 + 3 518.",
-    8003, "6482 + 3518 - 1997", lambda: 10000 - 1997,
-    "Jede Zahl nimmt beim Umstellen ihr Rechenzeichen mit: 6 482 − 1 997 + 3 518 = 6 482 + 3 518 − 1 997. Dann ist 6 482 + 3 518 = 10 000 und 10 000 − 1 997 = 8 003.",
-    [(967, "Beide Zahlen abgezogen: 6 482 − (1 997 + 3 518)", "6482 - (1997 + 3518)"), (4961, "Die Zahlen getauscht, aber die Zeichen nicht mitgenommen: 6 482 − 3 518 + 1 997", "6482 - 3518 + 1997"), (11997, "Alles addiert: 6 482 + 1 997 + 3 518", "6482 + 1997 + 3518")]), form="anwenden", regel=RT, idee="erlaubte_umformung")
+neu(T, "vorteil", "test", "pruefung", W(
+    "Ohne die Produkte auszurechnen: Welche Aussage über die Werte von 24 · 125 · 5 und 12 · 125 · 10 stimmt?",
+    "Beide Werte sind gleich, denn 24 · 5 ergibt 120 und 12 · 10 ergibt 120; die Faktoren darf man tauschen.",
+    [("12 · 125 · 10 ist größer: 10 ist doppelt so groß wie 5 und der Faktor 125 bleibt gleich.", "Nur 10 und 5 verglichen, die 24 und die 12 übersehen", 24 * 125 * 5 == 12 * 125 * 10),
+     ("24 · 125 · 5 ist größer, denn 24 ist doppelt so groß wie 12 und der Faktor 125 bleibt gleich.", "Nur 24 und 12 verglichen, die 5 und die 10 übersehen", 24 * 125 * 5 == 12 * 125 * 10),
+     ("Das kann man nur sagen, wenn man beide Produkte vollständig ausrechnet.", "Das Tauschen und Zusammenfassen der Faktoren nicht gesehen", 24 * 5 == 12 * 10)],
+    "Tausche die Faktoren: 24 · 125 · 5 = 24 · 5 · 125 = 120 · 125 und 12 · 125 · 10 = 12 · 10 · 125 = 120 · 125. Die Werte sind gleich (15 000). Es reicht, 24 · 5 und 12 · 10 zu vergleichen; die 24 ist doppelt so groß wie die 12, aber die 5 nur halb so groß wie die 10.",
+    24 * 125 * 5 == 12 * 125 * 10 == 15000), form="zwei_wege", regel=RT, idee="gleicher_wert_begruenden")
 neu(T, "vorteil", "korrektur", "umkehr", Z(
     "Statt nacheinander 37 und 23 abzuziehen, kann man auch auf einmal eine Zahl □ abziehen: 94 − 37 − 23 = 94 − □. Welche Zahl steht im Kästchen?",
     60, "37 + 23", lambda: next(x for x in range(0, 100) if 94 - 37 - 23 == 94 - x),
@@ -119,41 +122,35 @@ neu(T, "vorteil", "korrektur", "mehrschritt", W(
      ("Zuerst 25 + 17 + 4 = 46 rechnen, weil man bei Mal genauso wie bei Plus zusammenzählt.", "Mal mit Plus verwechselt", 25 + 17 + 4 == 46 and 46 != 25 * 17 * 4)],
     "Beim Malnehmen darf man die Faktoren tauschen: 25 · 17 · 4 = 25 · 4 · 17. Dann ist 25 · 4 = 100 und 100 · 17 = 1 700. Das ist viel leichter als 425 · 4 oder 25 · 68, obwohl alle Wege dasselbe Ergebnis liefern.",
     25 * 17 * 4 == 1700 == 25 * 4 * 17), form="verfahren_waehlen", regel=RT, idee="geschickten_weg_waehlen")
-neu(T, "vorteil", "korrektur", "mehrschritt", W(
-    "Mia und Tim rechnen 50 · 37 · 2. Mia rechnet zuerst 50 · 37. Tim rechnet zuerst 50 · 2. Welche Aussage stimmt?",
-    "Beide bekommen 3 700. Tims Weg ist bequemer, weil 50 · 2 = 100 ist.",
-    [("Mia bekommt ein anderes Ergebnis, weil sie die Reihenfolge der Faktoren nicht geändert hat.", "Reihenfolge für das Ergebnis entscheidend gehalten", 50 * 37 * 2 == 50 * 2 * 37),
-     ("Tim bekommt ein anderes Ergebnis, weil er die Faktoren vertauscht hat.", "Vertauschen beim Malnehmen für verboten gehalten", 50 * 2 * 37 == 50 * 37 * 2),
-     ("Beide bekommen dasselbe, aber nur, weil 37 eine ungerade Zahl ist.", "Falsche Begründung: es gilt für alle Zahlen", 50 * 38 * 2 == 50 * 2 * 38)],
-    "Beim Malnehmen darf man die Faktoren tauschen. Mia: 50 · 37 = 1 850, dann 1 850 · 2 = 3 700. Tim: 50 · 2 = 100, dann 100 · 37 = 3 700. Beide bekommen 3 700, bei Tim ist die Rechnung leichter. Es gilt für alle Zahlen, nicht nur für ungerade.",
-    50 * 37 * 2 == 3700 == 50 * 2 * 37), form="zwei_wege", regel=RT, idee="zwei_wege_vergleichen")
+neu(T, "vorteil", "korrektur", "darstellung", W(
+    "Tim behauptet: „Beim Rechnen darf man die beiden Zahlen immer vertauschen.“ Bei welcher Rechnung zeigt das Vertauschen, dass Tim nicht recht hat?",
+    "36 : 4 und 4 : 36",
+    [("7 · 9 und 9 · 7", "Beim Malnehmen darf man vertauschen, die Rechnung widerlegt Tim nicht", 7 * 9 == 9 * 7),
+     ("25 + 17 und 17 + 25", "Beim Addieren darf man vertauschen, die Rechnung widerlegt Tim nicht", 25 + 17 == 17 + 25),
+     ("5 · 12 und 12 · 5", "Beim Malnehmen darf man vertauschen, die Rechnung widerlegt Tim nicht", 5 * 12 == 12 * 5)],
+    "36 : 4 = 9, aber 4 : 36 geht in den natürlichen Zahlen nicht auf. Beim Teilen (und beim Abziehen) darf man die Zahlen nicht vertauschen. Beim Malnehmen und beim Addieren dagegen schon: 7 · 9 = 9 · 7, 25 + 17 = 17 + 25 und 5 · 12 = 12 · 5.",
+    36 % 4 == 0 and 4 % 36 != 0 and 7 * 9 == 9 * 7), form="bruecke", regel=RT, idee="gegenbeispiel_vertauschen")
 neu(T, "vorteil", "sicherung", "umkehr", Z(
     "Bestimme die Zahl im Kästchen möglichst geschickt: 8 · □ · 125 = 4 000.",
     4, "4000 // (8 * 125)", lambda: next(x for x in range(0, 200) if 8 * x * 125 == 4000),
     "Fasse zuerst 8 · 125 = 1 000 zusammen. Dann muss □ · 1 000 = 4 000 gelten, also □ = 4 000 : 1 000 = 4. Probe: 8 · 4 · 125 = 32 · 125 = 4 000.",
     [(500, "Nur durch 8 geteilt: 4 000 : 8", "4000 // 8"), (32, "Nur durch 125 geteilt: 4 000 : 125", "4000 // 125"), (3867, "8 und 125 von 4 000 abgezogen", "4000 - 8 - 125")]), form="umkehren", regel=RT, idee="luecke_rechenvorteil")
-neu(T, "vorteil", "sicherung", "begruenden", W(
-    "Ben rechnet 5 · 34 · 20 so: 5 · 20 = 100, dann 100 · 34 = 3 400. Welche Aussage über Bens Rechnung stimmt?",
-    "Kein Fehler: Beim Malnehmen darf man Faktoren tauschen. 5 · 20 = 100 und 100 · 34 = 3 400.",
-    [("Fehler: Er darf 34 und 20 nicht vertauschen. Richtig wäre 5 · 34 = 170 und dann 170 · 20 = 3 400.", "Das Vertauschen für verboten gehalten (der Wert 3 400 bleibt gleich)", 5 * 34 * 20 == 170 * 20),
-     ("Fehler: Nach 5 · 20 = 100 muss man plus 34 rechnen. Richtig wäre 100 + 34 = 134.", "Aus dem Malzeichen ein Pluszeichen gemacht", 100 + 34 != 5 * 34 * 20),
-     ("Fehler: Er hätte 5 + 34 + 20 rechnen müssen, weil man immer addieren muss. Richtig wäre 59.", "Mal und Plus verwechselt", 5 + 34 + 20 == 59 and 59 != 3400)],
-    "Beim Malnehmen darf man die Faktoren tauschen: 5 · 34 · 20 = 5 · 20 · 34. Dann ist 5 · 20 = 100 und 100 · 34 = 3 400. Bens Rechnung ist richtig und geschickt; ein Fehler wäre nur, nach 100 plus 34 zu rechnen.",
-    5 * 20 * 34 == 3400 == 5 * 34 * 20), regel=RT, idee="aussage_pruefen")
-neu(T, "vorteil", "sicherung", "pruefung", W(
-    "Welche Aussage über die Werte von 24 · 125 · 5 und 12 · 125 · 10 ist richtig begründet?",
-    "Beide Werte sind gleich: 24 · 5 = 120 und 12 · 10 = 120, die Faktoren darf man tauschen.",
-    [("12 · 125 · 10 ist größer, weil 10 größer als 5 ist und der Rest gleich bleibt.", "Nur zwei Faktoren verglichen (10 gegen 5)", 24 * 125 * 5 == 12 * 125 * 10),
-     ("24 · 125 · 5 ist größer, weil 24 größer als 12 ist und der Rest gleich bleibt.", "Nur zwei Faktoren verglichen (24 gegen 12)", 24 * 125 * 5 == 12 * 125 * 10),
-     ("Beide Werte sind gleich, weil in beiden Termen 125 vorkommt und der Rest ähnlich aussieht.", "Falsche Begründung: mit 12 · 125 · 11 wäre der Wert anders", 24 * 125 * 5 != 12 * 125 * 11)],
-    "Tausche die Faktoren: 24 · 125 · 5 = 24 · 5 · 125 = 120 · 125 und 12 · 125 · 10 = 12 · 10 · 125 = 120 · 125. Beide Werte sind 15 000. Dass 125 in beiden Termen vorkommt, ist kein Grund: Mit 12 · 125 · 11 wäre der Wert 16 500.",
-    24 * 125 * 5 == 12 * 125 * 10 == 15000), form="zwei_wege", regel=RT, idee="gleicher_wert_begruenden")
+neu(T, "vorteil", "sicherung", "parameter", Z(
+    "Mia teilt bei 18 · 27 den ersten Faktor durch 3 und schreibt 6 · □. Damit der Wert des Produkts gleich bleibt, muss sie den zweiten Faktor ändern. Welche Zahl steht im Kästchen?",
+    81, "27 * 3", lambda: next(x for x in range(1, 1000) if 6 * x == 18 * 27),
+    "Wird ein Faktor durch 3 geteilt, wird das Produkt dreimal so klein. Damit es gleich bleibt, muss der andere Faktor mit 3 malgenommen werden: 27 · 3 = 81. Probe: 18 · 27 = 486 und 6 · 81 = 486.",
+    [(9, "Auch den zweiten Faktor durch 3 geteilt", "27 // 3"), (30, "Zum zweiten Faktor 3 addiert", "27 + 3"), (486, "Den Wert des Produkts statt des Faktors genannt", "18 * 27")]), form="umkehren", regel=RT, idee="gegenlaeufig_aendern")
+neu(T, "vorteil", "sicherung", "transfer", Z(
+    "Berechne geschickt, ohne alles schriftlich zu rechnen: 6 482 − 1 997 + 3 518.",
+    8003, "6482 + 3518 - 1997", lambda: 10000 - 1997,
+    "Jede Zahl nimmt beim Umstellen ihr Rechenzeichen mit: 6 482 − 1 997 + 3 518 = 6 482 + 3 518 − 1 997. Dann ist 6 482 + 3 518 = 10 000 und 10 000 − 1 997 = 8 003.",
+    [(967, "Beide Zahlen abgezogen: 6 482 − (1 997 + 3 518)", "6482 - (1997 + 3518)"), (4961, "Die Zahlen getauscht, aber die Zeichen nicht mitgenommen: 6 482 − 3 518 + 1 997", "6482 - 3518 + 1997"), (11997, "Alles addiert: 6 482 + 1 997 + 3 518", "6482 + 1997 + 3518")]), form="anwenden", regel=RT, idee="erlaubte_umformung")
 # ═════════ verteilen ═════════
 neu(T, "verteilen", "test", "transfer", Z(
-    "Mia rechnet 7 · 98 geschickt so: 7 · 100 − 7 · □. Welche Zahl steht im Kästchen?",
-    2, "100 - 98", lambda: next(x for x in range(0, 100) if 7 * 98 == 7 * 100 - 7 * x),
-    "98 ist 2 weniger als 100, also ist 7 · 98 = 7 · (100 − 2). Beim Verteilen wird jeder Teil mit 7 malgenommen: 7 · 100 − 7 · 2 = 700 − 14 = 686. Man zieht nicht nur 2 ab, sondern siebenmal die 2.",
-    [(14, "Das Ergebnis von 7 · 2 statt der 2 eingesetzt", "7 * 2"), (98, "Die Zahl 98 selbst eingesetzt", "98"), (7, "Den Faktor 7 selbst eingesetzt", "7")]), form="anwenden", regel=RA, idee="begruenden_geschickt")
+    "Mia rechnet 36 · 99 − 36 · 9 geschickt. Welchen Wert hat die Rechnung?",
+    3240, "36 * (99 - 9)", lambda: 36 * 99 - 36 * 9,
+    "Beide Produkte haben den Faktor 36: 36 · 99 − 36 · 9 = 36 · (99 − 9) = 36 · 90 = 3 240. Probe: 36 · 99 = 3 564, 36 · 9 = 324 und 3 564 − 324 = 3 240.",
+    [(3564, "Nur das erste Produkt ausgerechnet", "36 * 99"), (3888, "Beide Produkte addiert statt abgezogen", "36 * 99 + 36 * 9"), (90, "Nur die Klammer 99 − 9 ausgerechnet", "99 - 9")]), form="anwenden", regel=RA, idee="ausklammern_geschickt")
 neu(T, "verteilen", "korrektur", "umkehr", Z(
     "Das Ergebnis von 17 · □ + 17 · 14 ist so groß wie 17 · 50. Welche Zahl steht im Kästchen?",
     36, "50 - 14", lambda: next(x for x in range(0, 100) if 17 * x + 17 * 14 == 17 * 50),
@@ -168,27 +165,27 @@ neu(T, "verteilen", "korrektur", "darstellung", W(
     "Jede Reihe hat 6 + 4 = 10 Blumen. Bei 9 Reihen sind das 9 · (6 + 4) = 9 · 10 = 90 Blumen. Man kann auch 9 · 6 + 9 · 4 = 54 + 36 rechnen. Bei 9 · 6 + 4 würden die gelben Blumen nur einmal gezählt.",
     9 * (6 + 4) == 90 == 9 * 6 + 9 * 4), form="bruecke", regel=RA, idee="situation_zu_term")
 neu(T, "verteilen", "korrektur", "mehrschritt", W(
-    "Anna rechnet 4 · 27 so: 4 · 20 + 4 · 7. Ben rechnet 4 · 27 so: 4 · 30 − 4 · 3. Welche Aussage stimmt?",
-    "Beide haben recht: 27 = 20 + 7 und 27 = 30 − 3, jeder Teil wird mit 4 malgenommen.",
-    [("Anna allein hat recht: Beim Minus darf man das Verteilen nicht anwenden.", "Das Verteilen nur für Plus für erlaubt gehalten (Bens Weg ergibt auch 108)", 4 * 30 - 4 * 3 == 4 * 27),
-     ("Ben allein hat recht: 30 ist eine glatte Zahl, deshalb ist nur sein Weg erlaubt.", "Die Erlaubnis an glatte Zahlen gebunden (Annas Weg ergibt auch 108)", 4 * 20 + 4 * 7 == 4 * 27),
-     ("Beide haben recht, aber bei Ben müssen am Ende noch 4 · 3 addiert werden, weil die 3 fehlt.", "Den Abzug bei Ben doppelt gezählt", 4 * 30 - 4 * 3 + 4 * 3 != 4 * 27)],
-    "Anna: 27 = 20 + 7, also 4 · 27 = 4 · 20 + 4 · 7 = 80 + 28 = 108. Ben: 27 = 30 − 3, also 4 · 27 = 4 · 30 − 4 · 3 = 120 − 12 = 108. Das Verteilen klappt bei Plus und bei Minus, und es muss jeder Teil mit 4 malgenommen werden.",
+    "Anna rechnet 4 · 27 so: 4 · 20 + 4 · 7. Ben rechnet 4 · 27 so: 4 · 30 − 4 · 3. Wer von beiden bekommt das richtige Ergebnis 108?",
+    "Beide: Annas Rechnung ergibt 80 + 28 = 108, Bens Rechnung ergibt 120 − 12 = 108.",
+    [("Nur Anna: Bens Rechnung ergibt 120 − 3 = 117, beim Minus darf man nicht verteilen.", "Das Verteilen beim Minus für verboten gehalten", 4 * 30 - 3 == 117 and 117 != 108),
+     ("Nur Ben: Annas Rechnung ergibt 80 + 7 = 87, nur beim Minus darf man verteilen.", "Das Verteilen nur beim Minus für erlaubt gehalten", 4 * 20 + 7 == 87 and 87 != 108),
+     ("Weder Anna noch Ben: 27 = 20 + 7 und 27 = 30 − 3, aber man darf eine Zahl nur auf eine Art zerlegen.", "Gedacht, nur eine Zerlegung sei erlaubt", 4 * (20 + 7) == 4 * (30 - 3))],
+    "Jeder Teil der Zerlegung wird mit 4 malgenommen. Anna: 27 = 20 + 7, also 4 · 20 + 4 · 7 = 80 + 28 = 108. Ben: 27 = 30 − 3, also 4 · 30 − 4 · 3 = 120 − 12 = 108. Beide Wege sind erlaubt, auch beim Minus; nur wer die 4 beim zweiten Teil vergisst, kommt auf 117 oder 87.",
     4 * 20 + 4 * 7 == 108 == 4 * 30 - 4 * 3), form="zwei_wege", regel=RA, idee="zwei_wege_vergleichen")
 neu(T, "verteilen", "sicherung", "transfer", W(
     "Ein Rechteck ist 8 cm hoch und aus zwei Teilen mit den Breiten 30 cm und 2 cm zusammengesetzt. Die Höhe wird auf 16 cm verdoppelt, die Breiten bleiben. Wie verändert sich die Gesamtfläche 8 · 30 + 8 · 2?",
     "Sie verdoppelt sich, denn beide Teilflächen werden doppelt so groß.",
-    [("Sie wird um 8 cm² größer, weil die Höhe um 8 cm wächst.", "Den Zuwachs der Höhe als Zuwachs der Fläche gedeutet", 16 * 30 + 16 * 2 != 8 * 30 + 8 * 2 + 8),
+    [("Sie wird um 8 cm² größer: Die Höhe wächst um 8 cm.", "Den Zuwachs der Höhe als Zuwachs der Fläche gedeutet", 16 * 30 + 16 * 2 != 8 * 30 + 8 * 2 + 8),
      ("Nur die erste Teilfläche verdoppelt sich, die zweite bleibt gleich.", "Nur den ersten Summanden verändert", 16 * 30 + 8 * 2 != 16 * 30 + 16 * 2),
      ("Sie wird 16-mal so groß, weil die neue Höhe 16 cm ist.", "Die neue Höhe als Faktor gedeutet", 16 * 32 != 16 * (8 * 32))],
     "Vorher: 8 · 30 + 8 · 2 = 8 · 32 = 256 cm². Nachher: 16 · 30 + 16 · 2 = 16 · 32 = 512 cm². Das ist das Doppelte. Die Höhe 8 kommt in beiden Teilflächen als Faktor vor, deshalb verdoppeln sich beide.",
     16 * 32 == 512 == 2 * 8 * 32), regel=RA, idee="was_waere_wenn")
 neu(T, "verteilen", "sicherung", "mehrschritt", W(
     "Wie rechnet man 19 · 36 + 19 · 64 − 19 · 50 am geschicktesten, und warum?",
-    "Die 19 ausklammern: 19 · (36 + 64 − 50). Dann ist 19 · 50 = 950 ganz leicht zu rechnen.",
-    [("Jedes Produkt einzeln ausrechnen, weil 19 eine kleine Zahl ist und das sicher geht.", "Keinen Rechenvorteil genutzt (richtig, aber umständlich)", 19 * 36 + 19 * 64 - 19 * 50 == 950),
+    "Die 19 ausklammern: 19 · (36 + 64 − 50), denn dann ist 19 · 50 = 950 ganz leicht zu rechnen.",
+    [("Jedes Produkt einzeln ausrechnen: 19 · 36 = 684, 19 · 64 = 1 216 und 19 · 50 = 950, das geht sicher.", "Keinen Rechenvorteil genutzt (richtig, aber umständlich)", 19 * 36 + 19 * 64 - 19 * 50 == 950),
      ("Die Zahlen 36, 64 und 50 addieren und dann mit 19 malnehmen, ohne auf die Zeichen zu achten.", "Das Minus wie ein Plus behandelt", (36 + 64 + 50) * 19 != 950),
-     ("Die 19 abziehen: 36 + 64 − 50 − 19, denn sie kommt in jedem Produkt vor.", "Das Malnehmen mit 19 weggelassen", 36 + 64 - 50 - 19 != 950)],
+     ("Die 19 abziehen: 36 + 64 − 50 − 19 = 31, denn sie kommt in jedem Produkt vor.", "Das Malnehmen mit 19 weggelassen", 36 + 64 - 50 - 19 != 950)],
     "Alle drei Teile haben den Faktor 19. Ausklammern: 19 · (36 + 64 − 50) = 19 · (100 − 50) = 19 · 50 = 950. Die Zahlen in der Klammer sind so gewählt, dass 36 + 64 = 100 ergibt. Einzeln ausgerechnet kommt dasselbe heraus, aber mit mehr Aufwand.",
     19 * (36 + 64 - 50) == 950), form="verfahren_waehlen", regel=RA, idee="geschickten_weg_waehlen")
 neu(T, "verteilen", "sicherung", "begruenden", W(
@@ -200,11 +197,11 @@ neu(T, "verteilen", "sicherung", "begruenden", W(
     "15 · 7 + 15 · 9 = 15 · (7 + 9) = 15 · 16 = 240. Beim Ausklammern bleibt das Rechenzeichen zwischen den Summanden ein Plus. Tom hat 7 · 9 = 63 und 15 · 63 = 945 gerechnet.",
     15 * (7 + 9) == 240 == 15 * 7 + 15 * 9), regel=RA, idee="fehler_richtigstellen")
 # ═════════ umkehraufgabe_mal ═════════
-neu(T, "umkehraufgabe_mal", "test", "rueckwaerts", Z(
-    "Eine Rechenmaschine macht mit jeder eingegebenen Zahl nacheinander drei Schritte: mal 5, plus 12, geteilt durch 4. Am Ende zeigt sie 8 an. Welche Zahl wurde eingegeben?",
-    4, "(8 * 4 - 12) // 5", lambda: next(x for x in range(0, 100) if (x * 5 + 12) / 4 == 8),
-    "Rückwärts, der letzte Schritt zuerst: Geteilt durch 4 kehrt man mit Mal 4 um: 8 · 4 = 32. Plus 12 kehrt man mit Minus 12 um: 32 − 12 = 20. Mal 5 kehrt man mit Geteilt durch 5 um: 20 : 5 = 4. Probe: 4 · 5 = 20, 20 + 12 = 32, 32 : 4 = 8.",
-    [(20, "Das Teilen durch 5 vergessen: 8 · 4 − 12", "8 * 4 - 12"), (44, "Plus statt Minus bei der Umkehrung: 8 · 4 + 12", "8 * 4 + 12"), (32, "Nur das Teilen durch 4 umgekehrt: 8 · 4", "8 * 4")]), form="umkehren", regel=RG, idee="kette_rueckwaerts")
+neu(T, "umkehraufgabe_mal", "test", "parameter", Z(
+    "Für wie viele natürliche Zahlen a von 1 bis 12 (beide Grenzen eingeschlossen) hat die Gleichung a · x = 36 eine Lösung in den natürlichen Zahlen?",
+    7, "7", lambda: sum(1 for a in range(1, 13) if 36 % a == 0),
+    "Die Gleichung hat genau dann eine Lösung, wenn 36 in der a-er-Reihe steht, also wenn a ein Teiler von 36 ist. Die Teiler von 36 bis 12 sind 1, 2, 3, 4, 6, 9 und 12. Das sind 7 Zahlen.",
+    [(6, "Den Teiler 12 nicht mitgezählt (die Grenze gilt einschließlich): 7 − 1", "7 - 1"), (12, "Alle Zahlen von 1 bis 12 gezählt: 13 − 1", "13 - 1")]), form="umkehren", regel=RG, idee="parameter_teiler")
 neu(T, "umkehraufgabe_mal", "korrektur", "umkehr", W(
     "Bei 36 : □ = 9 suchst du die Zahl im Kästchen. Welche Rechnung führt zu ihr?",
     "36 : 9",
@@ -242,11 +239,11 @@ neu(T, "umkehraufgabe_mal", "sicherung", "begruenden", W(
      ("Weil x größer als 50 sein müsste, damit es aufgeht.", "x wäre kleiner als 50, nicht größer", 50 // 7 < 50)],
     "Die 7er-Reihe lautet 7, 14, 21, 28, 35, 42, 49, 56. Die 50 steht nicht darin. 50 : 7 geht nicht ohne Rest auf (7 · 7 = 49, Rest 1). Gerade und ungerade Zahlen spielen keine Rolle, und auch bei einer Primzahl wie 7 gibt es Lösungen, zum Beispiel 7 · 7 = 49.",
     7 * 7 == 49 and 7 * 8 == 56), regel=RG, idee="begruenden_loesbarkeit")
-neu(T, "umkehraufgabe_mal", "sicherung", "parameter", Z(
-    "Für wie viele natürliche Zahlen a von 1 bis 12 (beide Grenzen eingeschlossen) hat die Gleichung a · x = 36 eine Lösung in den natürlichen Zahlen?",
-    7, "7", lambda: sum(1 for a in range(1, 13) if 36 % a == 0),
-    "Die Gleichung hat genau dann eine Lösung, wenn 36 in der a-er-Reihe steht, also wenn a ein Teiler von 36 ist. Die Teiler von 36 bis 12 sind 1, 2, 3, 4, 6, 9 und 12. Das sind 7 Zahlen.",
-    [(6, "Den Teiler 12 nicht mitgezählt (die Grenze gilt einschließlich): 7 − 1", "7 - 1"), (12, "Alle Zahlen von 1 bis 12 gezählt: 13 − 1", "13 - 1")]), form="umkehren", regel=RG, idee="parameter_teiler")
+neu(T, "umkehraufgabe_mal", "sicherung", "rueckwaerts", Z(
+    "Eine Rechenmaschine macht mit jeder eingegebenen Zahl nacheinander drei Schritte: mal 5, plus 12, geteilt durch 4. Am Ende zeigt sie 8 an. Welche Zahl wurde eingegeben?",
+    4, "(8 * 4 - 12) // 5", lambda: next(x for x in range(0, 100) if (x * 5 + 12) / 4 == 8),
+    "Rückwärts, der letzte Schritt zuerst: Geteilt durch 4 kehrt man mit Mal 4 um: 8 · 4 = 32. Plus 12 kehrt man mit Minus 12 um: 32 − 12 = 20. Mal 5 kehrt man mit Geteilt durch 5 um: 20 : 5 = 4. Probe: 4 · 5 = 20, 20 + 12 = 32, 32 : 4 = 8.",
+    [(20, "Das Teilen durch 5 vergessen: 8 · 4 − 12", "8 * 4 - 12"), (44, "Plus statt Minus bei der Umkehrung: 8 · 4 + 12", "8 * 4 + 12"), (32, "Nur das Teilen durch 4 umgekehrt: 8 · 4", "8 * 4")]), form="umkehren", regel=RG, idee="kette_rueckwaerts")
 # ═════════ ueberschlag ═════════
 neu(T, "ueberschlag", "test", "transfer", Z(
     "Tim hat 612 · 49 ausgerechnet und 2 998 erhalten. Wie oft passt sein Ergebnis ungefähr in den Überschlag 600 · 50, das heißt: Um welchen Faktor ist sein Ergebnis ungefähr zu klein?",
@@ -273,18 +270,18 @@ neu(T, "ueberschlag", "korrektur", "mehrschritt", W(
     4812 + 3487 == 8299 and abs(8300 - 8299) < abs(8000 - 8299)), form="zwei_wege", regel=None, ohne=OU, idee="zwei_ueberschlaege_vergleichen")
 neu(T, "ueberschlag", "sicherung", "transfer", W(
     "Ein Lager fasst höchstens 1 000 Flaschen. Es sollen 23 Kisten mit je 48 Flaschen hinein. Mia überschlägt 20 · 50 = 1 000 und sagt: „Das passt genau.“ Welche Aussage ist richtig?",
-    "Reicht nicht: 23 · 48 = 1 104 Flaschen, also zu viele. Mia hat 23 zu stark abgerundet.",
-    [("Mia hat recht: Ein Überschlag zeigt immer das genaue Ergebnis, daher passt alles.", "Überschlag und genaues Ergebnis verwechselt", 20 * 50 == 1000 and 23 * 48 != 1000),
-     ("Es passt sicher, denn 20 ist kleiner als 23 und 50 ist größer als 48, also bleibt es darunter.", "Gegenläufige Rundungen als sich aufhebend gehalten (es sind 1 104)", 23 * 48 > 1000),
-     ("Es passt, denn 23 · 48 ist genau 1 000, das hat Mia vorher ausgerechnet.", "Falsch gerechnet: 23 · 48 ist nicht 1 000", 23 * 48 != 1000)],
+    "Reicht nicht: 23 · 48 = 1 104 Flaschen, das ist mehr als 1 000, weil Mia 23 zu stark abgerundet hat.",
+    [("Man weiß es nicht: Ein Überschlag kann keine Grenze prüfen, es muss genau gerechnet werden.", "Dem Überschlag jede Aussagekraft abgesprochen, obwohl hier der Abstand zur Grenze groß genug ist", 20 * 50 == 1000 and 23 * 48 != 1000),
+     ("Es passt, denn 48 wurde auf 50 aufgerundet: Das echte Ergebnis ist unter 20 · 50 = 1 000.", "Nur auf die Aufrundung von 48 geachtet und die Abrundung von 23 vergessen (es sind 1 104)", 23 * 48 > 1000),
+     ("Es passt, denn 20 ist kleiner als 23 und 50 ist größer als 48, also gleicht sich 20 · 50 = 1 000 aus.", "Die beiden Rundungen als sich aufhebend gehalten (es sind 1 104)", 23 * 48 != 1000)],
     "Genau gerechnet: 23 · 48 = 1 104. Das ist mehr als 1 000, es passt also nicht. Beim Überschlag wurde 23 auf 20 abgerundet (dadurch fehlen 3 · 48 = 144 Flaschen) und 48 auf 50 aufgerundet (das bringt nur 23 · 2 = 46 dazu). Wenn es um eine Grenze geht, sollte man vorsichtig runden.",
     23 * 48 == 1104 > 1000), regel=None, ohne=OU, idee="ueberschlag_entscheidung")
 neu(T, "ueberschlag", "sicherung", "begruenden", W(
     "Mia hat 596 · 12 = 7 152 gerechnet. Zur Kontrolle überschlägt sie 600 · 10 = 6 000 und sagt: „Das passt nicht, 7 152 ist falsch.“ Welche Aussage über Mias Kontrolle stimmt?",
-    "Fehler: Der Überschlag ist zu grob. Richtig wäre: 600 · 12 = 7 200, also ist 7 152 glaubwürdig.",
-    [("Kein Fehler: Der Überschlag 6 000 zeigt, dass 7 152 nicht stimmen kann, weil es zu hoch ist.", "Überschlag und Ergebnis verglichen, ohne die grobe Rundung zu beachten", 596 * 12 == 7152),
+    "Fehler: Der Überschlag ist zu grob, denn 12 wurde auf 10 gerundet. Richtig wäre: 600 · 12 = 7 200, also ist 7 152 glaubwürdig.",
+    [("Kein Fehler: Der Überschlag 6 000 zeigt, dass 7 152 nicht stimmen kann: Es ist zu hoch.", "Überschlag und Ergebnis verglichen, ohne die grobe Rundung zu beachten", 596 * 12 == 7152),
      ("Fehler: Ein Überschlag darf nur eine Zahl runden. Richtig wäre 596 · 10 = 5 960, nur eine Zahl gerundet.", "Eine falsche Regel erfunden (auch dieser Wert ist weit weg)", abs(596 * 10 - 7152) > abs(600 * 12 - 7152)),
-     ("Fehler: Überschläge sind nutzlos, man muss das Ergebnis schriftlich noch einmal berechnen. Richtig wäre das Nachrechnen.", "Den Überschlag für nutzlos gehalten (er hilft, sobald er fein genug ist)", abs(600 * 12 - 7152) < 100)],
+     ("Fehler: Sie hätte 596 auf 500 abrunden müssen, weil man bei Überschlägen abrunden soll. Richtig wäre 500 · 10 = 5 000.", "Eine falsche Rundungsregel erfunden (5 000 liegt noch weiter von 7 152 weg)", abs(500 * 10 - 7152) > abs(600 * 12 - 7152))],
     "Beim Überschlag wurde 12 auf 10 gerundet, das ist ein großer Sprung und macht das Ergebnis zu klein. Mit 600 · 12 = 7 200 liegt der Überschlag nahe an 7 152. Tatsächlich ist 596 · 12 = 7 152 richtig. Ein Überschlag, der weit weg liegt, zeigt nur dann einen Fehler, wenn er nicht zu grob gerundet ist.",
     596 * 12 == 7152 and 600 * 12 == 7200), regel=None, ohne=OU, idee="fehler_richtigstellen")
 neu(T, "ueberschlag", "sicherung", "umkehr", Z(
@@ -292,11 +289,11 @@ neu(T, "ueberschlag", "sicherung", "umkehr", Z(
     9199, "4550 + 4649", lambda: min(n for n in range(0, 10000) if (n + 50) // 100 * 100 == 4600) + max(n for n in range(0, 10000) if (n + 50) // 100 * 100 == 4600),
     "Auf 4 600 runden alle Zahlen von 4 550 bis 4 649. 4 550 wird noch aufgerundet, 4 649 noch abgerundet. Die Summe ist 4 550 + 4 649 = 9 199.",
     [(9200, "Die gerundete Zahl verdoppelt: 4 600 · 2", "4600 * 2"), (9299, "Die größte Zahl falsch bestimmt: 4 650 wird schon aufgerundet", "4650 + 4649"), (9100, "Die kleinste Zahl doppelt genommen", "4550 + 4550")]), form="umkehren", regel=None, ohne=OU, idee="rundungsfenster")
-neu(T, "sach", "test", "rueckwaerts", Z(
-    "In einem Zug steigen an der ersten Haltestelle 14 Fahrgäste aus. An der zweiten Haltestelle steigt die Hälfte der übrigen Fahrgäste aus. An der dritten steigen 8 Fahrgäste ein. Danach sind 20 Fahrgäste im Zug. Wie viele Fahrgäste waren vor der ersten Haltestelle im Zug?",
-    38, "(20 - 8) * 2 + 14", lambda: next(n for n in range(1, 200) if (n - 14) % 2 == 0 and (n - 14) // 2 + 8 == 20),
-    "Rückwärts, der letzte Schritt zuerst. Vor der dritten Haltestelle: 20 − 8 = 12 Fahrgäste. Nach der ersten waren es doppelt so viele wie nach der zweiten: 12 · 2 = 24. Vor der ersten: 24 + 14 = 38. Probe: 38 − 14 = 24, die Hälfte steigt aus: 12, dann +8 = 20.",
-    [(26, "Das Halbieren nicht umgekehrt: 20 − 8 + 14", "20 - 8 + 14"), (70, "Die 8 addiert statt abgezogen: (20 + 8) · 2 + 14", "(20 + 8) * 2 + 14"), (34, "Nur 20 + 14 gerechnet", "20 + 14")], einheit="Fahrgäste"), form="umkehren", regel=RG, idee="kette_rueckwaerts")
+neu(T, "sach", "test", "verknuepfen", Z(
+    "Tarif A kostet 12 € Grundgebühr und 2 € für jedes Gigabyte. Tarif B kostet 4 € Grundgebühr und 4 € für jedes Gigabyte. Bei wie vielen Gigabyte kosten beide Tarife gleich viel?",
+    4, "(12 - 4) // (4 - 2)", lambda: next(g for g in range(0, 100) if 12 + 2 * g == 4 + 4 * g),
+    "B ist am Anfang 12 − 4 = 8 € billiger, aber jedes Gigabyte kostet bei B 4 − 2 = 2 € mehr. Nach 8 : 2 = 4 Gigabyte ist der Unterschied aufgebraucht. Probe: A: 12 + 4 · 2 = 20 €, B: 4 + 4 · 4 = 20 €.",
+    [(8, "Nur die Grundgebühren verglichen: 12 − 4", "12 - 4"), (2, "Nur die Preise je Gigabyte verglichen: 4 − 2", "4 - 2"), (6, "Die Grundgebühr von A durch den Preis je Gigabyte von A geteilt: 12 : 2", "12 // 2")], einheit="Gigabyte"), form="zwei_wege", regel=RG, idee="gleichsetzen")
 neu(T, "sach", "korrektur", "umkehr", Z(
     "Zoe hat 24 € in ihrer Spardose. Sie legt 7 Wochen lang jede Woche denselben Betrag hinein. Danach sind 66 € in der Dose. Wie viel Euro legt sie pro Woche hinein?",
     6, "(66 - 24) // 7", lambda: next(x for x in range(1, 50) if 24 + 7 * x == 66),
@@ -315,21 +312,24 @@ neu(T, "sach", "korrektur", "umkehr", Z(
     24, "(30 // 2 - 6) * 2 + 6", lambda: (lambda x: x * 2 + 6)(next(x for x in range(0, 100) if (x + 6) * 2 == 30)),
     "Mias Zahl: Zuletzt wurde verdoppelt, also war es vorher 30 : 2 = 15. Davor wurde 6 addiert: 15 − 6 = 9. Tom rechnet mit 9: erst verdoppeln, 9 · 2 = 18, dann 6 addieren: 18 + 6 = 24.",
     [(30, "Dasselbe Ergebnis wie Mia genommen: die Reihenfolge für egal gehalten", "30"), (36, "Mias Zahl falsch bestimmt: die 6 nicht abgezogen", "30 // 2 * 2 + 6"), (9, "Nur Mias gedachte Zahl genannt", "30 // 2 - 6")]), form="umkehren", regel=RG, idee="reihenfolge_vertauschen")
-neu(T, "sach", "sicherung", "verknuepfen", Z(
-    "Tarif A kostet 12 € Grundgebühr und 2 € für jedes Gigabyte. Tarif B kostet 4 € Grundgebühr und 4 € für jedes Gigabyte. Bei wie vielen Gigabyte kosten beide Tarife gleich viel?",
-    4, "(12 - 4) // (4 - 2)", lambda: next(g for g in range(0, 100) if 12 + 2 * g == 4 + 4 * g),
-    "B ist am Anfang 12 − 4 = 8 € billiger, aber jedes Gigabyte kostet bei B 4 − 2 = 2 € mehr. Nach 8 : 2 = 4 Gigabyte ist der Unterschied aufgebraucht. Probe: A: 12 + 4 · 2 = 20 €, B: 4 + 4 · 4 = 20 €.",
-    [(8, "Nur die Grundgebühren verglichen: 12 − 4", "12 - 4"), (2, "Nur die Preise je Gigabyte verglichen: 4 − 2", "4 - 2"), (6, "Die Grundgebühr von A durch den Preis je Gigabyte von A geteilt: 12 : 2", "12 // 2")], einheit="Gigabyte"), form="zwei_wege", regel=RG, idee="gleichsetzen")
-neu(T, "sach", "sicherung", "umkehr", Z(
-    "Vier Gruppen sammeln jede gleich viele Flaschen. Dazu kommen 12 Flaschen vom Hausmeister. 4 Flaschen gehen kaputt. Dann sind es 108 Flaschen. Wie viele Flaschen hat jede Gruppe gesammelt?",
-    25, "(108 - 12 + 4) // 4", lambda: next(x for x in range(1, 100) if 4 * x + 12 - 4 == 108),
-    "Rückwärts: Die 4 kaputten Flaschen waren vorher noch da: 108 + 4 = 112. Die 12 vom Hausmeister gehören nicht zu den Gruppen: 112 − 12 = 100. Auf 4 Gruppen verteilt: 100 : 4 = 25. Probe: 4 · 25 + 12 − 4 = 108.",
-    [(23, "Die kaputten Flaschen falsch herum gerechnet: (108 − 12 − 4) : 4", "(108 - 12 - 4) // 4"), (31, "Beide Mengen addiert: (108 + 12 + 4) : 4", "(108 + 12 + 4) // 4"), (100, "Das Teilen durch 4 vergessen: 108 − 12 + 4", "108 - 12 + 4")], einheit="Flaschen"), form="umkehren", regel=RG, idee="gesamt_teil_anzahl")
+neu(T, "sach", "sicherung", "rueckwaerts", Z(
+    "In einem Zug steigen an der ersten Haltestelle 14 Fahrgäste aus. An der zweiten Haltestelle steigt die Hälfte der übrigen Fahrgäste aus. An der dritten steigen 8 Fahrgäste ein. Danach sind 20 Fahrgäste im Zug. Wie viele Fahrgäste waren vor der ersten Haltestelle im Zug?",
+    38, "(20 - 8) * 2 + 14", lambda: next(n for n in range(1, 200) if (n - 14) % 2 == 0 and (n - 14) // 2 + 8 == 20),
+    "Rückwärts, der letzte Schritt zuerst. Vor der dritten Haltestelle: 20 − 8 = 12 Fahrgäste. Nach der ersten waren es doppelt so viele wie nach der zweiten: 12 · 2 = 24. Vor der ersten: 24 + 14 = 38. Probe: 38 − 14 = 24, die Hälfte steigt aus: 12, dann +8 = 20.",
+    [(26, "Das Halbieren nicht umgekehrt: 20 − 8 + 14", "20 - 8 + 14"), (70, "Die 8 addiert statt abgezogen: (20 + 8) · 2 + 14", "(20 + 8) * 2 + 14"), (34, "Nur 20 + 14 gerechnet", "20 + 14")], einheit="Fahrgäste"), form="umkehren", regel=RG, idee="kette_rueckwaerts")
+neu(T, "sach", "sicherung", "umkehr", W(
+    "Vier Gruppen sammeln jede gleich viele Flaschen, x Flaschen je Gruppe. Dazu kommen 12 Flaschen vom Hausmeister, 4 Flaschen gehen kaputt. Am Ende sind es 108 Flaschen. Welche Gleichung beschreibt die Geschichte, und was ergibt x?",
+    "4 · x + 12 − 4 = 108: Rückwärts ist 108 − 12 + 4 = 100 und 100 : 4 = 25, also x = 25.",
+    [("4 · (x + 12) − 4 = 108: Rückwärts ist 108 + 4 = 112, dann 112 : 4 = 28 und 28 − 12 = 16, also x = 16.", "Die 12 Flaschen zu jeder Gruppe gezählt statt einmal dazu", 4 * (16 + 12) - 4 == 108 and 4 * 16 + 12 - 4 != 108),
+     ("4 · x − 12 + 4 = 108: Rückwärts ist 108 + 12 − 4 = 116 und 116 : 4 = 29, also x = 29.", "Plus und Minus bei den 12 und den 4 vertauscht", 4 * 29 - 12 + 4 == 108 and 4 * 29 + 12 - 4 != 108),
+     ("4 · x + 12 + 4 = 108: Rückwärts ist 108 − 12 − 4 = 92 und 92 : 4 = 23, also x = 23.", "Die kaputten Flaschen dazugezählt statt abgezogen", 4 * 23 + 12 + 4 == 108 and 4 * 23 + 12 - 4 != 108)],
+    "Vier Gruppen mit je x Flaschen sind 4 · x. Dazu kommen 12 (plus), 4 gehen kaputt (minus): 4 · x + 12 − 4 = 108. Rückwärts: erst die 4 wieder dazu und die 12 weg, 108 − 12 + 4 = 100, dann durch 4 teilen: x = 25. Probe: 4 · 25 + 12 − 4 = 108.",
+    4 * 25 + 12 - 4 == 108), regel=RG, idee="modellwahl_gleichung")
 neu(T, "sach", "sicherung", "begruenden", W(
     "Ich denke mir eine Zahl, verdopple sie und addiere 6. Ich erhalte 30. Ben rechnet rückwärts: 30 − 6 = 24, dann 24 : 2 = 12. Welche Aussage über Bens Rechnung stimmt?",
-    "Kein Fehler: Man kehrt den letzten Schritt zuerst um, dann den ersten. Probe: 12 · 2 + 6 = 30.",
+    "Kein Fehler: Man kehrt immer den letzten Schritt zuerst um, dann den ersten. Probe: 12 · 2 + 6 = 30.",
     [("Fehler: Er hätte zuerst durch 2 teilen müssen. Richtig wäre 30 : 2 − 6 = 9, denn die 2 kam zuerst.", "Die Reihenfolge der Umkehrung nicht umgedreht: 9 verdoppelt plus 6 ist 24, nicht 30", 9 * 2 + 6 != 30),
-     ("Fehler: Er hätte malnehmen müssen, weil verdoppelt wurde. Richtig wäre 30 · 2 − 6 = 54.", "Mal statt geteilt umgekehrt: 30 · 2 − 6 = 54", 54 * 2 + 6 != 30),
+     ("Fehler: Er hätte malnehmen müssen: Es wurde verdoppelt. Richtig wäre 30 · 2 − 6 = 54.", "Mal statt geteilt umgekehrt: 30 · 2 − 6 = 54", 54 * 2 + 6 != 30),
      ("Fehler: Er hätte 6 addieren müssen. Richtig wäre 30 + 6 = 36 und dann 36 : 2 = 18.", "Plus statt Minus bei der Umkehrung: 18 verdoppelt plus 6 ist 42, nicht 30", 18 * 2 + 6 != 30)],
     "Der letzte Schritt (plus 6) wird zuerst umgekehrt: 30 − 6 = 24. Dann der erste Schritt (verdoppeln) mit Geteilt durch 2: 24 : 2 = 12. Probe: 12 · 2 + 6 = 30. Bens Rechnung ist richtig.",
     12 * 2 + 6 == 30), regel=RG, idee="aussage_pruefen")

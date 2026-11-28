@@ -1,0 +1,1390 @@
+{
+ "stand": "2026-11-28",
+ "runde": "vtest-2",
+ "kuerzel": "VT2",
+ "titel": "geometrie.kreis",
+ "klasse": 7,
+ "themen": [
+  "geometrie.kreis"
+ ],
+ "hinweis": "Verstehen in Tests, Stufe 1. Nicht eingespielt.",
+ "aufgaben": [
+  {
+   "kennung": "VT2-064",
+   "thema": "geometrie.kreis",
+   "lernkarte": "umkehrung",
+   "pool": "test",
+   "ersetzt_test": true,
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.deckungsgleich",
+   "abgrenzung": "Die Übungen berechnen MC für ein bestimmtes Dreieck; hier wird begründet, dass MC bei allen rechtwinkligen Dreiecken über AB gleich bleibt (Invarianz).",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "MC ist stets halb so lang wie AC plus BC, denn M liegt in der Mitte zwischen den Katheten.",
+     "beschreibung": "AC + BC ist nicht 10 cm und hat mit MC nichts zu tun; MC ist der Radius des Kreises, also 5 cm.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "MC wird immer kleiner, wenn AC länger wird, denn die beiden Strecken hängen eng zusammen.",
+     "beschreibung": "Wandert C auf dem Kreis, ändern sich AC und BC, der Abstand zu M aber nicht: Alle Punkte des Kreises haben von M denselben Abstand.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "MC wird größer, wenn AC länger wird, denn C entfernt sich dabei vom Kreis.",
+     "beschreibung": "C liegt bei jedem rechten Winkel auf dem Kreis um M durch A und B; er entfernt sich nie vom Kreis.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "umkehrung",
+    "t": "umkehrung",
+    "p": "test",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "In einem Dreieck ABC ist AB = 10 cm lang, und der Winkel γ bei C ist ein rechter. M ist der Mittelpunkt von AB. Man betrachtet viele solche Dreiecke, bei denen die Seite AC mal länger, mal kürzer ist. Was geschieht dabei mit der Länge der Strecke MC?"
+    },
+    "a": [
+     "MC ist stets halb so lang wie AC plus BC, denn M liegt in der Mitte zwischen den Katheten.",
+     "MC wird immer kleiner, wenn AC länger wird, denn die beiden Strecken hängen eng zusammen.",
+     "MC wird größer, wenn AC länger wird, denn C entfernt sich dabei vom Kreis.",
+     "MC bleibt immer gleich lang, denn alle möglichen Punkte C liegen auf dem Kreis um M."
+    ],
+    "o": {
+     "index": 3
+    },
+    "w": "Bei einem rechten Winkel bei C liegt C auf dem Kreis mit dem Durchmesser AB (Umkehrung des Satzes des Thales). Dieser Kreis hat den Mittelpunkt M und den Radius 5 cm. Alle seine Punkte sind 5 cm von M entfernt, auch wenn AC und BC sich ändern. Also bleibt MC immer 5 cm."
+   },
+   "idee": "Der Abstand zum Mittelpunkt bleibt bei allen rechtwinkligen Dreiecken gleich"
+  },
+  {
+   "kennung": "VT2-065",
+   "thema": "geometrie.kreis",
+   "lernkarte": "umkehrung",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.deckungsgleich",
+   "abgrenzung": "Aus dem rechten Winkel wird eine Koordinate erschlossen; die Übungen nennen den Kreis schon.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "(6 − (−2)) : 2",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "rechnung": "6 − (−2)",
+     "beschreibung": "die Länge von AB (8) als y-Koordinate genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 2,
+     "rechnung": "2",
+     "beschreibung": "die x-Koordinate 2 als y-Koordinate wiederholt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 6,
+     "rechnung": "4 + 2",
+     "beschreibung": "den Radius 4 und die x-Koordinate 2 addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "umkehrung",
+    "t": "umkehrung",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Gegeben sind A(−2 | 0) und B(6 | 0) (1 Einheit = 1 cm). Der Punkt C hat die x-Koordinate 2 und eine positive y-Koordinate. Das Dreieck ABC hat bei C einen rechten Winkel. Welche y-Koordinate hat C?"
+    },
+    "o": {
+     "wert": 4
+    },
+    "w": "Der rechte Winkel bei C bedeutet nach der Umkehrung des Satzes des Thales: C liegt auf dem Kreis mit Durchmesser AB. Mittelpunkt M(2 | 0), Radius 8 cm : 2 = 4 cm. C hat die x-Koordinate 2, liegt also genau über M, im Abstand 4: C(2 | 4)."
+   },
+   "idee": "Koordinate aus rechtem Winkel"
+  },
+  {
+   "kennung": "VT2-066",
+   "thema": "geometrie.kreis",
+   "lernkarte": "umkehrung",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.deckungsgleich",
+   "abgrenzung": "Vom Umkreisradius wird auf die Hypotenuse geschlossen (Durchmesser statt Radius); die Übungen betrachten Winkel und Lage von C.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "6 · 2",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "rechnung": "6",
+     "beschreibung": "den Radius als Länge von AB genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 3,
+     "rechnung": "6 : 2",
+     "beschreibung": "den Radius halbiert statt verdoppelt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 18,
+     "rechnung": "6 · 3",
+     "beschreibung": "mit 3 statt mit 2 malgenommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "umkehrung",
+    "t": "umkehrung",
+    "p": "korrektur",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Der Umkreis eines Dreiecks hat den Radius 6 cm. Das Dreieck ABC hat bei C einen rechten Winkel. Wie lang ist die Seite AB in cm?"
+    },
+    "o": {
+     "wert": 12
+    },
+    "w": "Bei einem rechten Winkel bei C ist AB der Durchmesser des Umkreises (Umkehrung des Satzes des Thales). Der Durchmesser ist doppelt so lang wie der Radius: 2 · 6 cm = 12 cm."
+   },
+   "idee": "Umkreisradius und Hypotenuse"
+  },
+  {
+   "kennung": "VT2-067",
+   "thema": "geometrie.kreis",
+   "lernkarte": "umkehrung",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.deckungsgleich",
+   "abgrenzung": "Fehler-Detektiv an einer Schlusskette der Umkehrung (Durchmesser ↔ Radius); die Übungen verwenden den Thaleskreis nur vorwärts.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "3",
+    "10 : 2"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "rechnung": "10",
+     "beschreibung": "die ganze Strecke AB statt der halben als Radius genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 20,
+     "rechnung": "10 · 2",
+     "beschreibung": "den Durchmesser verdoppelt statt halbiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "rechnung": "1",
+     "beschreibung": "Zeile 1 für falsch gehalten, obwohl die Umkehrung des Thales genau das aussagt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "2",
+     "beschreibung": "Zeile 2 für falsch gehalten, obwohl M der Mittelpunkt des Kreises ist",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "umkehrung",
+    "t": "umkehrung",
+    "p": "korrektur",
+    "s": 2,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Mia untersucht ein Dreieck ABC mit AB = 10 cm und einem rechten Winkel bei C. Zeile 1: Nach der Umkehrung des Satzes des Thales liegt C auf einem Kreis durch A und B. Zeile 2: Der Mittelpunkt dieses Kreises ist die Mitte M von AB. Zeile 3: Der Radius des Kreises ist 10 cm. In welcher Zeile steckt der erste Fehler, und wie groß ist der Radius des Kreises (in cm)?",
+     "schablone": "Fehler in Zeile □, der Radius ist □ cm",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      3,
+      5
+     ]
+    },
+    "w": "Zeile 1 und 2 stimmen: C liegt auf dem Kreis mit Durchmesser AB, sein Mittelpunkt ist M. In Zeile 3 ist 10 cm der Durchmesser. Der Radius ist die Hälfte: 10 cm : 2 = 5 cm."
+   },
+   "idee": "Fehlersuche Radius und Durchmesser"
+  },
+  {
+   "kennung": "VT2-068",
+   "thema": "geometrie.kreis",
+   "lernkarte": "umkehrung",
+   "pool": "sicherung",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.deckungsgleich",
+   "abgrenzung": "Die Gesamtheit aller Punkte mit rechtem Winkel wird als Figur erkannt; die Übungen untersuchen einzelne Punkte.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Die Mittelsenkrechte von AB, also die Gerade durch M senkrecht zu AB",
+     "beschreibung": "Auf der Mittelsenkrechten sind alle Punkte gleich weit von A und B entfernt; der Winkel bei C ist dort nur bei einem Punkt auf jeder Seite 90°.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Ein Kreis um A, dessen Radius 6 cm beträgt",
+     "beschreibung": "Der Kreis um A mit Radius AB hat mit dem Thaleskreis nichts zu tun; der Thaleskreis hat den Mittelpunkt M.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Ein Kreis um die Mitte M von AB, dessen Radius so lang ist wie ganz AB",
+     "beschreibung": "Der Radius des Thaleskreises ist die halbe Strecke AB, also 3 cm und nicht 6 cm.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "umkehrung",
+    "t": "umkehrung",
+    "p": "sicherung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Strecke AB ist 6 cm lang. Du suchst alle Punkte C, von denen aus AB unter einem rechten Winkel erscheint (der Winkel bei C ist 90°). Welche Figur bilden diese Punkte?"
+    },
+    "a": [
+     "Ein Kreis um die Mitte M von AB mit Radius 3 cm (ohne A und B)",
+     "Die Mittelsenkrechte von AB, also die Gerade durch M senkrecht zu AB",
+     "Ein Kreis um A, dessen Radius 6 cm beträgt",
+     "Ein Kreis um die Mitte M von AB, dessen Radius so lang ist wie ganz AB"
+    ],
+    "o": {
+     "index": 0
+    },
+    "w": "Nach der Umkehrung des Satzes des Thales liegt C bei einem rechten Winkel auf dem Kreis um M mit Durchmesser AB, also Radius 3 cm. Die Punkte A und B selbst gehören nicht dazu, denn dort gibt es kein Dreieck."
+   },
+   "idee": "Ortslinie aller Punkte mit rechtem Winkel"
+  },
+  {
+   "kennung": "VT2-069",
+   "thema": "geometrie.kreis",
+   "lernkarte": "umkehrung",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.deckungsgleich",
+   "abgrenzung": "„Immer“-Aussage über alle rechtwinkligen Dreiecke wird begründet, auch gegen eine Aussage mit richtigem Ergebnis und falscher Begründung.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Falsch, denn das gilt nur, wenn das Dreieck zusätzlich gleichschenklig ist.",
+     "beschreibung": "Die Umkehrung des Satzes des Thales gilt für jedes rechtwinklige Dreieck, nicht nur für gleichschenklige.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Richtig, denn die längste Seite ist in jedem Dreieck ein Durchmesser seines Umkreises.",
+     "beschreibung": "Die Schlussfolgerung stimmt hier, aber die Begründung nicht: In einem stumpfwinkligen Dreieck ist die längste Seite kein Durchmesser.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Falsch, denn bei einem rechten Winkel ist die längere Kathete der Durchmesser.",
+     "beschreibung": "Eine Kathete liegt am rechten Winkel an; der Durchmesser ist die Hypotenuse AB.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "umkehrung",
+    "t": "umkehrung",
+    "p": "sicherung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Jemand behauptet: „In jedem Dreieck ABC mit einem rechten Winkel bei C ist die Seite AB ein Durchmesser des Umkreises.“ Welche Antwort stimmt?"
+    },
+    "a": [
+     "Falsch, denn das gilt nur, wenn das Dreieck zusätzlich gleichschenklig ist.",
+     "Richtig, denn C liegt auf dem Kreis über AB, und dieser Kreis ist der Umkreis.",
+     "Richtig, denn die längste Seite ist in jedem Dreieck ein Durchmesser seines Umkreises.",
+     "Falsch, denn bei einem rechten Winkel ist die längere Kathete der Durchmesser."
+    ],
+    "o": {
+     "index": 1
+    },
+    "w": "Bei γ = 90° liegt C auf dem Kreis mit Durchmesser AB. Dieser Kreis geht durch A, B und C, ist also der Umkreis des Dreiecks. Die Hypotenuse AB ist sein Durchmesser, immer."
+   },
+   "idee": "Hypotenuse als Durchmesser des Umkreises"
+  },
+  {
+   "kennung": "VT2-070",
+   "thema": "geometrie.kreis",
+   "lernkarte": "umkehrung",
+   "pool": "sicherung",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.deckungsgleich",
+   "abgrenzung": "Aus dem rechten Winkel werden gleichschenklige Teildreiecke gewonnen und Winkel berechnet; die Übungen liefern MA = MB = MC nicht fertig.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "40",
+    "90 − 40",
+    "180 − 2 · 40"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 50,
+     "rechnung": "90 − 40",
+     "beschreibung": "den Winkel MCB (50°) für ACM genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 40,
+     "rechnung": "40",
+     "beschreibung": "den Winkel MCB gleich ACM gesetzt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 140,
+     "rechnung": "180 − 40",
+     "beschreibung": "die Winkelsumme minus 40° als Winkel genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 80,
+     "rechnung": "2 · 40",
+     "beschreibung": "die Summe der beiden Basiswinkel (80°) statt des Winkels AMC angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 140,
+     "rechnung": "180 − 40",
+     "beschreibung": "vom Winkel bei A (40°) aus nur einmal abgezogen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "umkehrung",
+    "t": "umkehrung",
+    "p": "sicherung",
+    "s": 3,
+    "g": "umkehr",
+    "y": "luecken",
+    "f": {
+     "text": "Im Dreieck ABC ist der Winkel bei C ein rechter, M ist die Mitte von AB, und der Winkel bei A beträgt 40°. Wie groß sind der Winkel ACM, der Winkel MCB und der Winkel AMC?",
+     "schablone": "ACM = □°, MCB = □°, AMC = □°",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      40,
+      50,
+      100
+     ]
+    },
+    "w": "Weil MA = MC gilt, ist das Dreieck AMC gleichschenklig: Der Winkel ACM ist gleich α = 40°. Der Winkel AMC ist 180° − 2 · 40° = 100°. Der Winkel bei C ist 90°, also MCB = 90° − 40° = 50°."
+   },
+   "idee": "Gleichschenklige Teildreiecke und Winkel"
+  },
+  {
+   "kennung": "VT2-071",
+   "thema": "geometrie.kreis",
+   "lernkarte": "lage",
+   "pool": "test",
+   "ersetzt_test": true,
+   "typ": "rueckwaerts",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.abstand",
+   "abgrenzung": "Aus der Anzahl der Passanten wird der Radius erschlossen (Randfälle d = 0 und d = r bedacht); die Übungen geben den Radius vor.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "10 − 4",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "die Anzahl der Passanten als Radius genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 7,
+     "rechnung": "11 − 4",
+     "beschreibung": "elf Geraden minus vier gerechnet, ohne zu beachten, dass d = 0 mitgezählt wird",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 5,
+     "rechnung": "10 − 4 − 1",
+     "beschreibung": "die Tangente ein zweites Mal abgezogen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "lage",
+    "t": "lage",
+    "p": "test",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Kreis um M hat einen Radius r, der eine ganze Zahl in cm ist. Geraden haben von M die Abstände d = 0, 1, 2, …, 10 cm (elf Geraden). Genau vier dieser Geraden sind Passanten, haben also keinen Punkt mit dem Kreis gemeinsam. Wie groß ist r in cm?"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "cm"
+    },
+    "w": "Passanten haben einen Abstand größer als der Radius: d = r + 1, …, 10. Das sind 10 − r Geraden. Aus 10 − r = 4 folgt r = 6. Probe: Passanten sind d = 7, 8, 9, 10, die vier gesuchten; d = 6 ist Tangente."
+   },
+   "idee": "Radius aus der Zahl der Passanten"
+  },
+  {
+   "kennung": "VT2-072",
+   "thema": "geometrie.kreis",
+   "lernkarte": "lage",
+   "pool": "korrektur",
+   "typ": "rueckwaerts",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.abstand",
+   "abgrenzung": "Vom Ergebnis (zwei Schnittpunkte) wird auf den Radius geschlossen; die Übungen schließen vom Abstand auf die Anzahl.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "r < 7 cm",
+     "beschreibung": "Bei r < 7 cm hätte die Gerade keinen Punkt mit dem Kreis gemeinsam (Passante).",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "r = 7 cm",
+     "beschreibung": "Bei r = 7 cm hätte die Gerade genau einen Punkt mit dem Kreis gemeinsam (Tangente).",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "r ≤ 7 cm",
+     "beschreibung": "r ≤ 7 cm schließt den Tangentenfall r = 7 cm ein; dann gäbe es nur einen oder keinen Punkt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "lage",
+    "t": "lage",
+    "p": "korrektur",
+    "s": 2,
+    "g": "rueckwaerts",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Gerade schneidet einen Kreis um M in genau zwei Punkten. Die Gerade hat vom Mittelpunkt M den Abstand 7 cm. Welche Aussage über den Radius r des Kreises stimmt?"
+    },
+    "a": [
+     "r < 7 cm",
+     "r = 7 cm",
+     "r > 7 cm",
+     "r ≤ 7 cm"
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "Zwei gemeinsame Punkte gibt es, wenn der Abstand der Geraden vom Mittelpunkt kleiner als der Radius ist: 7 cm < r. Bei r = 7 cm wäre die Gerade Tangente, bei kleinerem r Passante."
+   },
+   "idee": "Rückwärts: Abstand aus Schnittpunkten"
+  },
+  {
+   "kennung": "VT2-073",
+   "thema": "geometrie.kreis",
+   "lernkarte": "lage",
+   "pool": "korrektur",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.abstand",
+   "abgrenzung": "Der Radius wird verändert, während die Gerade fest bleibt; die Übungen haben feste Zahlen.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2",
+    "0"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "rechnung": "1",
+     "beschreibung": "beim größeren Kreis wieder eine Berührung angenommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "1",
+     "beschreibung": "beim kleineren Kreis wieder eine Berührung angenommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 0,
+     "rechnung": "0",
+     "beschreibung": "beim größeren Kreis keinen gemeinsamen Punkt angenommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "rechnung": "2",
+     "beschreibung": "beim kleineren Kreis zwei Schnittpunkte angenommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "lage",
+    "t": "lage",
+    "p": "korrektur",
+    "s": 2,
+    "g": "transfer",
+    "y": "luecken",
+    "f": {
+     "text": "Eine Gerade g berührt einen Kreis um M. Wie viele gemeinsame Punkte hat g mit einem Kreis um M, der doppelt so großen Radius hat, und wie viele mit einem Kreis um M, der halb so großen Radius hat?",
+     "schablone": "doppelt so großer Kreis: □ Punkte; halb so großer Kreis: □ Punkte",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      2,
+      0
+     ]
+    },
+    "w": "Bei einer Tangente ist der Abstand von M gleich dem Radius r. Beim doppelten Radius 2r ist der Abstand kleiner als der Radius: g schneidet den Kreis in 2 Punkten. Beim halben Radius r/2 ist der Abstand größer als der Radius: kein gemeinsamer Punkt."
+   },
+   "idee": "Gerade fest, Radius ändert sich"
+  },
+  {
+   "kennung": "VT2-074",
+   "thema": "geometrie.kreis",
+   "lernkarte": "lage",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.abstand",
+   "abgrenzung": "Aus der Lage Tangente und Radius wird ein Winkel berechnet; die Übungen vergleichen nur Abstände mit dem Radius.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "180 − 90 − 35",
+   "fehlbilder": [
+    {
+     "antwort": 145,
+     "rechnung": "180 − 35",
+     "beschreibung": "nur 35° von 180° abgezogen, den rechten Winkel bei B nicht beachtet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 35,
+     "rechnung": "35",
+     "beschreibung": "den Winkel bei M als Winkel bei A übernommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 125,
+     "rechnung": "90 + 35",
+     "beschreibung": "den rechten Winkel und 35° addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "lage",
+    "t": "lage",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Gerade t berührt einen Kreis mit dem Mittelpunkt M im Punkt B. A ist ein weiterer Punkt auf t, und der Winkel AMB beträgt 35°. Wie groß ist der Winkel MAB in Grad?"
+    },
+    "o": {
+     "wert": 55,
+     "einheit": "°"
+    },
+    "w": "Eine Tangente steht senkrecht auf dem Berührradius MB, also ist der Winkel bei B im Dreieck ABM ein rechter Winkel. Die Winkelsumme im Dreieck ist 180°: 180° − 90° − 35° = 55°."
+   },
+   "idee": "Tangente steht senkrecht auf dem Berührradius"
+  },
+  {
+   "kennung": "VT2-075",
+   "thema": "geometrie.kreis",
+   "lernkarte": "lage",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.abstand",
+   "abgrenzung": "Abstand zweier Geraden und Durchmesser werden verrechnet; die Übungen vergleichen einen Abstand mit dem Radius.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "0",
+    "12 − 9"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "rechnung": "1",
+     "beschreibung": "angenommen, der Kreis berühre auch h",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "2",
+     "beschreibung": "angenommen, h schneide den Kreis",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "rechnung": "12",
+     "beschreibung": "den Abstand der Geraden als Abstand zum Kreis genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "rechnung": "12 − 8",
+     "beschreibung": "den Radius 4,5 auf 4 gerundet und davon ausgehend gerechnet statt den Durchmesser abzuziehen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "lage",
+    "t": "lage",
+    "p": "sicherung",
+    "s": 2,
+    "g": "transfer",
+    "y": "luecken",
+    "f": {
+     "text": "Zwei parallele Geraden g und h haben 12 cm Abstand. Ein Kreis mit dem Durchmesser 9 cm liegt zwischen ihnen und berührt g. Wie viele gemeinsame Punkte hat h mit dem Kreis, und wie weit (in cm) ist h vom Kreis entfernt?",
+     "schablone": "h hat □ gemeinsame Punkte; Abstand von h zum Kreis: □ cm",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      0,
+      3
+     ]
+    },
+    "w": "Der Kreis berührt g und reicht bis zur anderen Seite um seinen Durchmesser 9 cm. Die Gerade h liegt 12 cm von g entfernt, also 12 cm − 9 cm = 3 cm außerhalb des Kreises: h hat keinen gemeinsamen Punkt mit dem Kreis."
+   },
+   "idee": "Abstand einer Geraden zum Kreis"
+  },
+  {
+   "kennung": "VT2-076",
+   "thema": "geometrie.kreis",
+   "lernkarte": "lage",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.abstand",
+   "abgrenzung": "Zwei Kreise mit verschiedenen Radien werden gleichzeitig beurteilt; die Übungen haben einen Kreis.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "1 + 2",
+    "0 + 2",
+    "0 + 1"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "0 + 2",
+     "beschreibung": "bei d = 3 cm den Berührpunkt des kleinen Kreises vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "0 + 1",
+     "beschreibung": "bei d = 5 cm die Gerade als Tangente des großen Kreises gesehen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 2,
+     "rechnung": "1 + 1",
+     "beschreibung": "bei d = 7 cm einen zweiten Punkt vom kleinen Kreis dazugezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "rechnung": "2 + 2",
+     "beschreibung": "bei d = 5 cm beide Kreise als geschnitten gezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "lage",
+    "t": "lage",
+    "p": "sicherung",
+    "s": 3,
+    "g": "transfer",
+    "y": "luecken",
+    "f": {
+     "text": "Zwei Kreise haben denselben Mittelpunkt M. Der kleine hat den Radius 3 cm, der große den Radius 7 cm. Eine Gerade g hat von M den Abstand d. Wie viele gemeinsame Punkte hat g insgesamt mit beiden Kreisen zusammen, wenn d = 3 cm, d = 5 cm oder d = 7 cm ist?",
+     "schablone": "d = 3 cm: □; d = 5 cm: □; d = 7 cm: □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      3,
+      2,
+      1
+     ]
+    },
+    "w": "d = 3 cm: kleiner Kreis (Radius 3): Tangente, 1 Punkt; großer Kreis (Radius 7): Sekante, 2 Punkte; zusammen 3. d = 5 cm: kleiner Kreis: Passante, 0; großer Kreis: Sekante, 2; zusammen 2. d = 7 cm: kleiner Kreis: 0; großer Kreis: Tangente, 1; zusammen 1."
+   },
+   "idee": "Zwei Kreise mit gleichem Mittelpunkt"
+  },
+  {
+   "kennung": "VT2-077",
+   "thema": "geometrie.kreis",
+   "lernkarte": "lage",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.abstand",
+   "abgrenzung": "Die Abhängigkeit der Punktzahl vom Radius wird begründet, einschließlich der Obergrenze 2; die Übungen rechnen mit festen Werten.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Richtig: Ein größerer Kreis hat mehr Punkte, also schneidet er die Gerade immer öfter.",
+     "beschreibung": "Die Zahl der Punkte eines Kreises ist nicht entscheidend; eine Gerade schneidet einen Kreis in höchstens zwei Punkten.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Falsch: Mit wachsendem Radius nimmt die Anzahl der gemeinsamen Punkte wieder ab.",
+     "beschreibung": "Ist der Radius einmal größer als der Abstand, bleibt es bei zwei Schnittpunkten; sie verschwinden nicht wieder.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Falsch: Die Anzahl der gemeinsamen Punkte bleibt für jeden Radius gleich.",
+     "beschreibung": "Die Anzahl hängt vom Vergleich Radius ↔ Abstand ab und ändert sich mit dem Radius.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "lage",
+    "t": "lage",
+    "p": "sicherung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Gerade g geht nicht durch den Mittelpunkt M. Mia sagt: „Wenn ich den Radius des Kreises um M immer weiter vergrößere, bekommt er mit g immer mehr gemeinsame Punkte, ohne Grenze.“ Welche Antwort stimmt?"
+    },
+    "a": [
+     "Richtig: Ein größerer Kreis hat mehr Punkte, also schneidet er die Gerade immer öfter.",
+     "Falsch: Mit wachsendem Radius nimmt die Anzahl der gemeinsamen Punkte wieder ab.",
+     "Falsch: Die Anzahl der gemeinsamen Punkte bleibt für jeden Radius gleich.",
+     "Falsch: Mehr als 2 Punkte gibt es nie – es sind erst 0, dann 1, danach immer 2."
+    ],
+    "o": {
+     "index": 3
+    },
+    "w": "Es gibt drei Fälle je nach Radius r und Abstand d (d > 0): r < d: kein gemeinsamer Punkt; r = d: ein Punkt (Tangente); r > d: zwei Punkte (Sekante). Mehr als zwei Punkte sind nie möglich, also gibt es nicht „immer mehr“."
+   },
+   "idee": "Höchstens zwei Schnittpunkte"
+  },
+  {
+   "kennung": "VT2-078",
+   "thema": "geometrie.kreis",
+   "lernkarte": "umkreis_inkreis",
+   "pool": "test",
+   "ersetzt_test": true,
+   "typ": "parameter",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.abstand",
+   "abgrenzung": "Eine Winkelbedingung wird in beiden Möglichkeiten (β oder γ stumpf) durchgezählt; die Übungen untersuchen ein Dreieck.",
+   "antwortform": "zahl",
+   "loesung_rechnung": "19 + 19",
+   "fehlbilder": [
+    {
+     "antwort": 19,
+     "rechnung": "109 − 91 + 1",
+     "beschreibung": "nur den Fall mit stumpfem β gezählt, den mit stumpfem γ vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 40,
+     "rechnung": "2 · 20",
+     "beschreibung": "die Randfälle β = 90 und γ = 90 mitgezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 36,
+     "rechnung": "2 · 18",
+     "beschreibung": "bei beiden Fällen das Plus 1 vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "umkreis_inkreis",
+    "t": "umkreis_inkreis",
+    "p": "test",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Dreieck hat den Winkel α = 70° und einen Winkel β, dessen Größe eine ganze Zahl in Grad ist (β ≥ 1, γ ≥ 1). Für wie viele Werte von β liegt der Umkreismittelpunkt außerhalb des Dreiecks?"
+    },
+    "o": {
+     "wert": 38
+    },
+    "w": "γ = 180° − 70° − β = 110° − β. Außerhalb liegt der Mittelpunkt genau dann, wenn ein Winkel größer als 90° ist (α = 70° ist es nicht). Fall 1: β > 90°, also β = 91, …, 109 (dann ist γ ≥ 1): 19 Werte. Fall 2: γ > 90°, also γ = 91, …, 109 und β = 110° − γ = 1, …, 19: 19 Werte. Zusammen 38."
+   },
+   "idee": "Lage außen über beide stumpfen Fälle zählen"
+  },
+  {
+   "kennung": "VT2-079",
+   "thema": "geometrie.kreis",
+   "lernkarte": "umkreis_inkreis",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.abstand",
+   "abgrenzung": "Fünf Dreiecke werden nach der Lage des Umkreismittelpunkts sortiert und gezählt; die Übungen beurteilen ein einzelnes Dreieck.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "1",
+    "2",
+    "2"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 0,
+     "rechnung": "0",
+     "beschreibung": "Dreieck A (nur spitze Winkel) nicht als „innerhalb“ gezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "beschreibung": "alle Dreiecke ohne stumpfen Winkel als „innerhalb“ gezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "1",
+     "beschreibung": "nur das Dreieck B gezählt, das gleichschenklig-rechtwinklige D vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "rechnung": "3",
+     "beschreibung": "ein Dreieck mit stumpfem Winkel mitgezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 1,
+     "rechnung": "1",
+     "beschreibung": "nur Dreieck E gezählt, Dreieck C vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 3,
+     "rechnung": "3",
+     "beschreibung": "ein rechtwinkliges Dreieck als „außerhalb“ mitgezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "umkreis_inkreis",
+    "t": "umkreis_inkreis",
+    "p": "korrektur",
+    "s": 2,
+    "g": "darstellung",
+    "y": "luecken",
+    "f": {
+     "text": "Fünf Dreiecke haben die Winkel A (50°, 60°, 70°), B (30°, 60°, 90°), C (100°, 40°, 40°), D (45°, 45°, 90°) und E (20°, 20°, 140°). Bei wie vielen Dreiecken liegt der Mittelpunkt des Umkreises innerhalb des Dreiecks, bei wie vielen auf einer Seite und bei wie vielen außerhalb?",
+     "schablone": "innerhalb: □; auf einer Seite: □; außerhalb: □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      1,
+      2,
+      2
+     ]
+    },
+    "w": "Innerhalb: nur A (alle Winkel unter 90°). Auf einer Seite: B und D (je ein rechter Winkel, Mittelpunkt in der Mitte der Hypotenuse). Außerhalb: C (100°) und E (140°), jeweils mit stumpfem Winkel. Zusammen 1, 2 und 2."
+   },
+   "idee": "Dreiecke nach Lage des Umkreismittelpunkts zählen"
+  },
+  {
+   "kennung": "VT2-080",
+   "thema": "geometrie.kreis",
+   "lernkarte": "umkreis_inkreis",
+   "pool": "korrektur",
+   "typ": "transfer",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.abstand",
+   "abgrenzung": "Erst der dritte Winkel entscheidet über die Lage; die Übungen geben alle Winkel an.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "180 − 35 − 55",
+    "2"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 125,
+     "rechnung": "180 − 55",
+     "beschreibung": "nur β von 180° abgezogen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 145,
+     "rechnung": "180 − 35",
+     "beschreibung": "nur α von 180° abgezogen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "1",
+     "beschreibung": "weil α und β spitz sind, innen gedacht; der dritte Winkel entscheidet aber auch",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "rechnung": "3",
+     "beschreibung": "außerhalb gewählt, obwohl kein Winkel stumpf ist",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "umkreis_inkreis",
+    "t": "umkreis_inkreis",
+    "p": "korrektur",
+    "s": 2,
+    "g": "transfer",
+    "y": "luecken",
+    "f": {
+     "text": "Von einem Dreieck ABC sind die Winkel α = 35° und β = 55° bekannt. Wie groß ist der Winkel γ? Liegt der Mittelpunkt des Umkreises innerhalb des Dreiecks (1), auf einer Seite (2) oder außerhalb (3)?",
+     "schablone": "γ = □°; Lage: □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      90,
+      2
+     ]
+    },
+    "w": "Der dritte Winkel ist γ = 180° − 35° − 55° = 90°. Bei einem rechten Winkel liegt der Mittelpunkt des Umkreises in der Mitte der gegenüberliegenden Seite AB (Satz des Thales), also auf einer Seite (2)."
+   },
+   "idee": "Dritter Winkel entscheidet die Lage"
+  },
+  {
+   "kennung": "VT2-081",
+   "thema": "geometrie.kreis",
+   "lernkarte": "umkreis_inkreis",
+   "pool": "sicherung",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.abstand",
+   "abgrenzung": "Fehler-Detektiv, bei dem schon die Bedingung in Zeile 1 falsch ist (Inkreisgedanke beim Umkreis); die Übungen konstruieren selbst.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "1",
+    "3"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "rechnung": "2",
+     "beschreibung": "Zeile 2 genannt, die zur Aussage aus Zeile 1 passt und selbst nicht falsch ist",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "rechnung": "3",
+     "beschreibung": "erst Zeile 3 genannt, die nur aus Zeile 1 folgt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "1",
+     "beschreibung": "die Höhen genannt, die einen ganz anderen Schnittpunkt liefern",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "rechnung": "2",
+     "beschreibung": "bei den Winkelhalbierenden geblieben, die den Inkreis liefern",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "umkreis_inkreis",
+    "t": "umkreis_inkreis",
+    "p": "sicherung",
+    "s": 2,
+    "g": "fehler",
+    "y": "luecken",
+    "f": {
+     "text": "Mia will den Umkreis eines Dreiecks mit den Seiten 5 cm, 6 cm und 7 cm konstruieren. Zeile 1: Der Mittelpunkt des Umkreises muss von allen drei Seiten gleich weit entfernt sein. Zeile 2: Solche Punkte liegen auf den Winkelhalbierenden. Zeile 3: Mia konstruiert die Winkelhalbierenden und nimmt ihren Schnittpunkt als Mittelpunkt. In welcher Zeile steckt der erste Fehler, und was muss sie stattdessen konstruieren (1 = Höhen, 2 = Winkelhalbierende, 3 = Mittelsenkrechten)?",
+     "schablone": "Fehler in Zeile □, richtig sind die □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      1,
+      3
+     ]
+    },
+    "w": "Zeile 1 ist falsch: Der Umkreis geht durch die drei Ecken, also muss sein Mittelpunkt von den drei Ecken gleich weit entfernt sein, nicht von den Seiten. Gleich weit von zwei Ecken sind genau die Punkte der Mittelsenkrechten. Mia muss die Mittelsenkrechten konstruieren (3)."
+   },
+   "idee": "Bedingung für den Umkreis schon in Zeile 1 falsch"
+  },
+  {
+   "kennung": "VT2-082",
+   "thema": "geometrie.kreis",
+   "lernkarte": "umkreis_inkreis",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.abstand",
+   "abgrenzung": "Inkreis und Umkreis werden gegeneinander abgegrenzt: Die „immer“-Aussage gilt für den Inkreis, nicht für den Umkreis.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Richtig, denn der Inkreismittelpunkt ist der Schnittpunkt der Höhen, und die liegen immer im Dreieck.",
+     "beschreibung": "Das Urteil stimmt, aber die Begründung nicht: Der Inkreismittelpunkt liegt auf den Winkelhalbierenden, nicht auf den Höhen; und die Höhen liegen bei einem stumpfwinkligen Dreieck nicht im Dreieck.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Falsch, denn bei einem rechtwinkligen Dreieck liegt er auf der Hypotenuse des Dreiecks.",
+     "beschreibung": "Das gilt für den Umkreismittelpunkt des rechtwinkligen Dreiecks, nicht für den Inkreismittelpunkt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Falsch, denn bei einem stumpfwinkligen Dreieck liegt er außerhalb.",
+     "beschreibung": "Das gilt für den Umkreismittelpunkt, nicht für den Inkreismittelpunkt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "umkreis_inkreis",
+    "t": "umkreis_inkreis",
+    "p": "korrektur",
+    "s": 2,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Jemand behauptet: „Der Mittelpunkt des Inkreises liegt in jedem Dreieck innerhalb des Dreiecks.“ Welche Antwort stimmt?"
+    },
+    "a": [
+     "Richtig, denn der Inkreismittelpunkt ist der Schnittpunkt der Höhen, und die liegen immer im Dreieck.",
+     "Falsch, denn bei einem rechtwinkligen Dreieck liegt er auf der Hypotenuse des Dreiecks.",
+     "Richtig, denn der Inkreis liegt im Dreieck, also auch sein Mittelpunkt.",
+     "Falsch, denn bei einem stumpfwinkligen Dreieck liegt er außerhalb."
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "Die Winkelhalbierenden laufen vom Eckpunkt ins Innere und schneiden sich im Inneren des Dreiecks. Der Inkreis liegt ganz im Dreieck, also auch sein Mittelpunkt. Beim Umkreis ist das anders: Dort hängt die Lage von den Winkeln ab."
+   },
+   "idee": "Inkreismittelpunkt liegt immer innen"
+  },
+  {
+   "kennung": "VT2-083",
+   "thema": "geometrie.kreis",
+   "lernkarte": "umkreis_inkreis",
+   "pool": "sicherung",
+   "typ": "rueckwaerts",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.abstand",
+   "abgrenzung": "Aus zwei Teilwinkeln am Inkreismittelpunkt werden alle drei Dreieckswinkel bestimmt; die Übungen berechnen nur einen Winkel.",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "2 · 28",
+    "2 · 17",
+    "180 − 56 − 34"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 28,
+     "rechnung": "28",
+     "beschreibung": "den halben Winkel als α angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 17,
+     "rechnung": "17",
+     "beschreibung": "den halben Winkel als β angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 135,
+     "rechnung": "180 − 28 − 17",
+     "beschreibung": "γ aus den Halbwinkeln statt aus α und β berechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 45,
+     "rechnung": "28 + 17",
+     "beschreibung": "die beiden Halbwinkel addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "umkreis_inkreis",
+    "t": "umkreis_inkreis",
+    "p": "sicherung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "luecken",
+    "f": {
+     "text": "Im Dreieck ABC ist I der Mittelpunkt des Inkreises. Der Winkel IAB beträgt 28° und der Winkel IBC beträgt 17°. Wie groß sind die Winkel α, β und γ des Dreiecks?",
+     "schablone": "α = □°, β = □°, γ = □°",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      56,
+      34,
+      90
+     ]
+    },
+    "w": "I liegt auf den Winkelhalbierenden, also ist α = 2 · 28° = 56° und β = 2 · 17° = 34°. Dann ist γ = 180° − 56° − 34° = 90°."
+   },
+   "idee": "Aus zwei Teilwinkeln am Inkreismittelpunkt alle Winkel"
+  },
+  {
+   "kennung": "VT2-084",
+   "thema": "geometrie.kreis",
+   "lernkarte": "umkreis_inkreis",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M7 5 (Kreis)",
+   "regel": "id.geometrie.abstand",
+   "abgrenzung": "Sonderform gleichseitiges Dreieck: Beide Kreise sind konzentrisch; die Übungen betrachten nur allgemeine Dreiecke.",
+   "antwortform": "auswahl",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Sie fallen nie zusammen, denn sie werden durch verschiedene Geraden bestimmt, die sich nicht decken.",
+     "beschreibung": "Die Geraden sind zwar verschieden definiert, aber im gleichseitigen Dreieck stimmen sie überein.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Der Inkreismittelpunkt liegt außerhalb, der Umkreismittelpunkt innerhalb des Dreiecks, denn der Inkreis berührt die Seiten von außen.",
+     "beschreibung": "Beide Mittelpunkte liegen im gleichseitigen Dreieck innerhalb.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Nur bei einem rechtwinkligen Dreieck fallen beide Mittelpunkte zusammen, denn dort liegt der Umkreismittelpunkt in der Mitte der Hypotenuse.",
+     "beschreibung": "Beim rechtwinkligen Dreieck liegt der Umkreismittelpunkt auf der Hypotenuse, der Inkreismittelpunkt innerhalb: sie fallen nie zusammen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ],
+   "aufgabe": {
+    "l": "umkreis_inkreis",
+    "t": "umkreis_inkreis",
+    "p": "sicherung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Aussage über den Mittelpunkt des Umkreises und den Mittelpunkt des Inkreises eines gleichseitigen Dreiecks stimmt?"
+    },
+    "a": [
+     "Sie fallen nie zusammen, denn sie werden durch verschiedene Geraden bestimmt, die sich nicht decken.",
+     "Der Inkreismittelpunkt liegt außerhalb, der Umkreismittelpunkt innerhalb des Dreiecks, denn der Inkreis berührt die Seiten von außen.",
+     "Sie fallen zusammen, denn Mittelsenkrechten und Winkelhalbierende sind hier dieselben Geraden.",
+     "Nur bei einem rechtwinkligen Dreieck fallen beide Mittelpunkte zusammen, denn dort liegt der Umkreismittelpunkt in der Mitte der Hypotenuse."
+    ],
+    "o": {
+     "index": 2
+    },
+    "w": "Im gleichseitigen Dreieck halbiert jede Mittelsenkrechte einer Seite auch den gegenüberliegenden Winkel. Mittelsenkrechten und Winkelhalbierende sind dieselben Geraden, also ist ihr Schnittpunkt für Umkreis und Inkreis derselbe Punkt."
+   },
+   "idee": "Umkreis und Inkreis im gleichseitigen Dreieck"
+  }
+ ]
+}

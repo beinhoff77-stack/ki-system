@@ -67,7 +67,7 @@ print(f"Auswahl: {len(aus)} Aufgaben, richtige Option längste in {laengste} ({1
 # 3. Auswahl-Bauweise (Vorprüfung 2): alle Optionen einer Aufgabe gleich gebaut, keine Sammel-/Absolut-/Gleichheitszeichen-Verzerrung, keine Zahlenfolge der Plätze
 import re  # noqa: E402
 def _dw(t): return bool(re.search(r"\b(denn|weil)\b", t))
-rr = [0, 0]; ww = [0, 0]; eq = [0, 0]; sam = [0, 0]; ab = [0, 0]
+rr = [0, 0]; ww = [0, 0]; eq = [0, 0]; sam = [0, 0]; ab = [0, 0]; he = [0, 0]; ne = [0, 0]
 for a in aus:
     opts = a["aufgabe"]["a"]; i = a["aufgabe"]["o"]["index"]
     if len({_dw(t) for t in opts}) > 1: fehler.append(f"{a['kennung']}: Optionen ungleich gebaut (denn/weil nur bei einem Teil)")
@@ -77,15 +77,19 @@ for a in aus:
         eq[r] += "=" in t
         sam[r] += bool(re.match(r"(Beide|Kein|Keine|Alle)\b", t))
         ab[r] += bool(re.search(r"\b(immer|nie|niemals|alle|stets)\b", t, re.I))
+        he[r] += bool(re.search(r"\b(höchstens|mindestens|wenigstens)\b", t, re.I))   # Abschwächung (Vorprüfung 3, B6)
+        ne[r] += bool(re.search(r"\b(nicht|kein|keine|keiner|keinen|nie|niemals)\b", t, re.I))            # Verneinung (Vorprüfung 3, B6)
 nr, nw = rr[0], ww[0]
 if abs(eq[0] / nr - eq[1] / nw) > 0.10: fehler.append(f"„=“ in {eq[0]}/{nr} richtigen, {eq[1]}/{nw} falschen Optionen (Unterschied über 10 Prozentpunkte)")
 if abs(sam[0] / nr - sam[1] / nw) > 0.10: fehler.append(f"Sammel-Optionen verzerrt: richtig {sam[0]}/{nr}, falsch {sam[1]}/{nw}")
 if abs(ab[0] / nr - ab[1] / nw) > 0.10: fehler.append(f"Absolutwörter verzerrt: richtig {ab[0]}/{nr}, falsch {ab[1]}/{nw}")
+if abs(he[0] / nr - he[1] / nw) > 0.05: fehler.append(f"„höchstens/mindestens“ verzerrt: richtig {he[0]}/{nr}, falsch {he[1]}/{nw} (Unterschied über 5 Prozentpunkte)")
+if abs(ne[0] / nr - ne[1] / nw) > 0.10: fehler.append(f"Verneinung verzerrt: richtig {ne[0]}/{nr}, falsch {ne[1]}/{nw} (Unterschied über 10 Prozentpunkte)")
 folge_alle = [a["aufgabe"]["o"]["index"] for a in aus]
 for j in range(len(folge_alle) - 4):
     d = [(folge_alle[j + k + 1] - folge_alle[j + k]) % 4 for k in range(4)]
     if len(set(d)) == 1 and d[0] != 0: fehler.append(f"Plätze folgen über 5 Aufgaben einer Zahlenfolge ab Position {j}")
-print(f"Auswahl-Bauweise: „=“ richtig {eq[0]}/{nr}, falsch {eq[1]}/{nw}; Sammel richtig {sam[0]}/{nr}, falsch {sam[1]}/{nw}; Absolutwörter richtig {ab[0]}/{nr}, falsch {ab[1]}/{nw}")
+print(f"Auswahl-Bauweise: „=“ richtig {eq[0]}/{nr}, falsch {eq[1]}/{nw}; Sammel richtig {sam[0]}/{nr}, falsch {sam[1]}/{nw}; Absolutwörter richtig {ab[0]}/{nr}, falsch {ab[1]}/{nw}; Abschwächung richtig {he[0]}/{nr}, falsch {he[1]}/{nw}; Verneinung richtig {ne[0]}/{nr}, falsch {ne[1]}/{nw}")
 if fehler:
     print("FESTE PRÜFUNG FEHLGESCHLAGEN:")
     for f in fehler: print("  ", f)

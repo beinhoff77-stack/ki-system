@@ -14,12 +14,12 @@
    "thema": "daten.kennwerte",
    "lernkarte": "mittelwert",
    "pool": "test",
-   "typ": "parameter",
-   "form": null,
+   "typ": "umkehr",
+   "form": "umkehren",
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M6 3",
-   "abgrenzung": "Die Übungen berechnen den Mittelwert aus einer gegebenen Liste. Diese Aufgabe: Was-wäre-wenn.",
+   "abgrenzung": "Die Übungen berechnen den Mittelwert aus einer gegebenen Liste. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
    "aufgabe": {
     "l": "mittelwert",
     "t": "mittelwert",
@@ -27,40 +27,33 @@
     "s": 3,
     "y": "zahl",
     "f": {
-     "text": "Der Mittelwert von fünf Zahlen ist 8. Jede der fünf Zahlen wird zuerst verdoppelt und dann um 3 verkleinert. Wie groß ist der Mittelwert der neuen fünf Zahlen?"
+     "text": "Fünf Zahlen werden jeweils verdreifacht und danach um 4 verkleinert. Die fünf neuen Zahlen haben den Mittelwert 26. Wie groß war der Mittelwert der fünf ursprünglichen Zahlen?"
     },
-    "w": "Wird jede Zahl verdoppelt, so verdoppelt sich auch die Summe und damit der Mittelwert: 16. Wird dann von jeder Zahl 3 abgezogen, sinkt der Mittelwert um 3: 13. Kontrolle mit Beispielzahlen 8, 8, 8, 8, 8: neue Zahlen 13, 13, 13, 13, 13.",
+    "w": "Der Mittelwert folgt denselben Rechenschritten wie jede einzelne Zahl. Rückwärts: Zuerst die Verkleinerung um 4 rückgängig machen, 26 + 4 = 30, dann das Verdreifachen: 30 : 3 = 10. Probe mit fünf Zahlen 10: neue Zahlen 3 · 10 − 4 = 26.",
     "o": {
-     "wert": 13
+     "wert": 10
     }
    },
    "ersetzt_test": true,
    "regel": "id.daten.kennzahl",
-   "loesung_rechnung": "8 · 2 − 3",
+   "loesung_rechnung": "(26 + 4) : 3",
    "fehlbilder": [
     {
-     "antwort": 16,
-     "rechnung": "8 · 2",
-     "beschreibung": "nur das Verdoppeln berücksichtigt, die Verkleinerung um 3 vergessen",
+     "antwort": 22,
+     "rechnung": "26 − 4",
+     "beschreibung": "die Verkleinerung um 4 falsch herum rückgängig gemacht und das Verdreifachen vergessen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 10,
-     "rechnung": "(8 − 3) · 2",
-     "beschreibung": "die Reihenfolge vertauscht: erst um 3 verkleinert, dann verdoppelt",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null
-    },
-    {
-     "antwort": 5,
-     "rechnung": "8 − 3",
-     "beschreibung": "nur die Verkleinerung um 3 berücksichtigt",
+     "antwort": 30,
+     "rechnung": "26 + 4",
+     "beschreibung": "die Verkleinerung rückgängig gemacht, aber nicht durch 3 geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "was_waere_wenn|Werte verdoppelt und verkleinert, Mittelwert"
+   "idee": "umkehr|Werte verdreifacht und verkleinert, alter Mittelwert gesucht"
   },
   {
    "kennung": "VT3-051",
@@ -80,14 +73,14 @@
     "s": 2,
     "y": "auswahl",
     "f": {
-     "text": "Der Mittelwert von vier Zahlen ist 10. Eine der Zahlen wird um 8 vergrößert, die anderen bleiben gleich. Was passiert mit dem Mittelwert?"
+     "text": "In einer Klasse mit 20 Kindern haben 16 Kinder im Mittel 10 € gespart. Die übrigen 4 Kinder haben nichts gespart. Wie viel Euro hat ein Kind der Klasse im Mittel gespart?"
     },
-    "w": "Die Summe wächst um 8. Der Mittelwert ist die Summe geteilt durch 4, also wächst er um 8 : 4 = 2.",
+    "w": "Alle 20 Kinder zählen mit, auch die mit 0 €. Die Summe ist 16 · 10 = 160 €, geteilt durch 20 Kinder sind das 8 €.",
     "a": [
-     "Er steigt um 8, denn eine Zahl wächst um 8.",
-     "Er bleibt gleich, denn die Anzahl der Zahlen ändert sich nicht.",
-     "Er steigt um 2, denn die Summe wächst um 8, geteilt durch 4.",
-     "Er steigt um 4, denn man teilt 8 durch 2."
+     "Im Mittel 10 €, denn Kinder ohne Erspartes zählen beim Mittelwert nicht mit.",
+     "Im Mittel 6 €, denn die 4 Kinder ohne Erspartes senken den Mittelwert um 4 €.",
+     "Im Mittel 8 €, denn die gesamten 160 € werden auf alle 20 Kinder verteilt.",
+     "Im Mittel 5 €, denn weil ein Teil der Kinder nichts hat, halbiert sich der Wert von 10 €."
     ],
     "o": {
      "index": 2
@@ -97,27 +90,27 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Er steigt um 8, denn eine Zahl wächst um 8.",
-     "beschreibung": "den Zuwachs einer Zahl auf den Mittelwert übertragen",
+     "antwort": "Im Mittel 10 €, denn Kinder ohne Erspartes zählen beim Mittelwert nicht mit.",
+     "beschreibung": "die Kinder mit 0 € nicht mitgezählt, obwohl auch sie zur Klasse gehören",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 1,
-     "antwort": "Er bleibt gleich, denn die Anzahl der Zahlen ändert sich nicht.",
-     "beschreibung": "nur auf die Anzahl geschaut, die Summe vergessen",
+     "antwort": "Im Mittel 6 €, denn die 4 Kinder ohne Erspartes senken den Mittelwert um 4 €.",
+     "beschreibung": "die Zahl der Kinder ohne Erspartes vom Mittelwert abgezogen, statt die Summe durch alle Kinder zu teilen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 3,
-     "antwort": "Er steigt um 4, denn man teilt 8 durch 2.",
-     "beschreibung": "den Zuwachs durch 2 statt durch die Anzahl 4 geteilt",
+     "antwort": "Im Mittel 5 €, denn weil ein Teil der Kinder nichts hat, halbiert sich der Wert von 10 €.",
+     "beschreibung": "den Mittelwert ohne Rechnung halbiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "immer_nie|ein Wert wächst, Wirkung auf den Mittelwert"
+   "idee": "mengen_deuten|Kinder ohne Erspartes zählen beim Mittelwert mit"
   },
   {
    "kennung": "VT3-052",
@@ -308,39 +301,40 @@
     "s": 3,
     "y": "zahl",
     "f": {
-     "text": "Fünf aufeinanderfolgende gerade Zahlen haben den Mittelwert 20. Wie groß ist die größte dieser Zahlen?"
+     "text": "Ein Kind legt jede Woche gleich viel mehr in die Spardose als in der Woche davor. In Woche 1 sind es 4 €, in Woche 9 sind es 20 €. Wie viel Euro legt es im Mittel pro Woche in die Spardose (Woche 1 bis Woche 9)?"
     },
-    "w": "Bei gleichmäßig verteilten Zahlen ist der Mittelwert die mittlere Zahl. Die fünf Zahlen sind 16, 18, 20, 22, 24. Probe: Die Summe ist 100 und 100 : 5 = 20. Die größte Zahl ist 24.",
+    "w": "Bei gleichmäßigem Wachstum liegt der Mittelwert in der Mitte zwischen dem ersten und dem letzten Wert: (4 + 20) : 2 = 12. Probe: Die Beträge sind 4, 6, 8, 10, 12, 14, 16, 18, 20, ihre Summe ist 108 und 108 : 9 = 12.",
     "o": {
-     "wert": 24
+     "wert": 12,
+     "einheit": "€"
     }
    },
    "regel": "id.daten.kennzahl",
-   "loesung_rechnung": "20 + 2 · 2",
+   "loesung_rechnung": "(4 + 20) : 2",
    "fehlbilder": [
     {
-     "antwort": 20,
-     "rechnung": "20",
-     "beschreibung": "den Mittelwert selbst als größte Zahl genommen",
+     "antwort": 24,
+     "rechnung": "4 + 20",
+     "beschreibung": "Anfangs- und Endbetrag addiert und nicht durch 2 geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 22,
-     "rechnung": "20 + 2",
-     "beschreibung": "nur einen Schritt von der mittleren Zahl aus weitergezählt",
+     "antwort": 16,
+     "rechnung": "20 − 4",
+     "beschreibung": "den Unterschied von Anfang und Ende als Mittelwert genommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 30,
-     "rechnung": "20 + 5 · 2",
-     "beschreibung": "die Zahl der Zahlen mit dem Abstand malgenommen",
+     "antwort": 2,
+     "rechnung": "(20 − 4) : 8",
+     "beschreibung": "den Zuwachs pro Woche als Mittelwert angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "zusammenhang|Mittelwert gleichmäßig verteilter Zahlen ist die Mitte"
+   "idee": "zusammenhang|gleichmäßiger Zuwachs, Mittelwert ist die Mitte von Anfang und Ende"
   },
   {
    "kennung": "VT3-056",
@@ -417,40 +411,40 @@
     "s": 3,
     "y": "zahl",
     "f": {
-     "text": "Der Mittelwert von sechs Zahlen ist 12. Streicht man zwei dieser Zahlen, so haben die übrigen vier Zahlen den Mittelwert 10. Wie groß ist der Mittelwert der beiden gestrichenen Zahlen?"
+     "text": "In einer Klasse mit 24 Kindern haben die Mädchen im Mittel 14 Punkte erreicht, die Jungen im Mittel 8 Punkte. Die ganze Klasse hat im Mittel 10 Punkte. Wie viele Mädchen sind in der Klasse?"
     },
-    "w": "Die sechs Zahlen haben die Summe 6 · 12 = 72, die vier übrigen 4 · 10 = 40. Die beiden gestrichenen Zahlen haben zusammen 72 − 40 = 32, im Mittel also 32 : 2 = 16.",
+    "w": "Alle 24 Kinder zusammen haben 24 · 10 = 240 Punkte. Wären alle Kinder Jungen, wären es 24 · 8 = 192 Punkte. Jedes Mädchen bringt 14 − 8 = 6 Punkte mehr. Die fehlenden 240 − 192 = 48 Punkte ergeben 48 : 6 = 8 Mädchen. Probe: 8 · 14 + 16 · 8 = 112 + 128 = 240.",
     "o": {
-     "wert": 16
+     "wert": 8
     }
    },
    "ersetzt_test": true,
    "regel": "id.daten.kennzahl",
-   "loesung_rechnung": "(6 · 12 − 4 · 10) : 2",
+   "loesung_rechnung": "(24 · 10 − 24 · 8) : (14 − 8)",
    "fehlbilder": [
     {
-     "antwort": 2,
-     "rechnung": "12 − 10",
-     "beschreibung": "nur den Unterschied der beiden Mittelwerte genannt",
+     "antwort": 12,
+     "rechnung": "24 : 2",
+     "beschreibung": "angenommen, Mädchen und Jungen seien gleich viele",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 11,
-     "rechnung": "(12 + 10) : 2",
-     "beschreibung": "den Mittelwert der beiden Mittelwerte gebildet",
+     "antwort": 16,
+     "rechnung": "24 − 8",
+     "beschreibung": "die Zahl der Jungen statt der Mädchen angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 32,
-     "rechnung": "6 · 12 − 4 · 10",
-     "beschreibung": "die Summe der beiden gestrichenen Zahlen als Mittelwert angegeben",
+     "antwort": 6,
+     "rechnung": "14 − 8",
+     "beschreibung": "den Unterschied der beiden Mittelwerte als Anzahl genommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "umkehr|Mittelwert der gestrichenen Zahlen"
+   "idee": "umkehr|Zahl der Mädchen aus den Mittelwerten von Gruppe und Klasse"
   },
   {
    "kennung": "VT3-058",
@@ -470,32 +464,32 @@
     "s": 2,
     "y": "zahl",
     "f": {
-     "text": "Fünf Zahlen haben den Mittelwert 12. Vier dieser Zahlen weichen um −5, +3, +4 und −1 vom Mittelwert ab. Um wie viel weicht die fünfte Zahl vom Mittelwert ab? (Mit Vorzeichen angeben.)"
+     "text": "Fünf Zahlen haben den Mittelwert 12. Vier dieser Zahlen liegen 5 unter, 2 über, 6 über und 1 unter dem Mittelwert. Wie groß ist die fünfte Zahl?"
     },
-    "w": "Die Abweichungen aller Zahlen vom Mittelwert ergeben zusammen immer 0. Die vier bekannten Abweichungen ergeben −5 + 3 + 4 − 1 = 1. Die fünfte Abweichung ist deshalb −1, die fünfte Zahl wäre 11.",
+    "w": "Die Abstände unter dem Mittelwert und über dem Mittelwert gleichen sich bei allen Zahlen zusammen aus. Über dem Mittelwert liegen 2 + 6 = 8, darunter 5 + 1 = 6. Die fünfte Zahl muss also 2 unter dem Mittelwert liegen: 12 − 2 = 10. Probe: Die Zahlen sind 7, 14, 18, 11 und 10, die Summe ist 60 und 60 : 5 = 12.",
     "o": {
-     "wert": -1
+     "wert": 10
     }
    },
    "regel": "id.daten.kennzahl",
-   "loesung_rechnung": "0 − (−5 + 3 + 4 − 1)",
+   "loesung_rechnung": "12 − ((2 + 6) − (5 + 1))",
    "fehlbilder": [
     {
-     "antwort": 1,
-     "rechnung": "−5 + 3 + 4 − 1",
-     "beschreibung": "die Summe der vier Abweichungen als fünfte Abweichung angegeben",
+     "antwort": 14,
+     "rechnung": "12 + ((2 + 6) − (5 + 1))",
+     "beschreibung": "die fünfte Zahl über statt unter dem Mittelwert angesetzt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 11,
-     "rechnung": "12 − 1",
-     "beschreibung": "die fünfte Zahl statt ihrer Abweichung angegeben",
+     "antwort": 2,
+     "rechnung": "(2 + 6) − (5 + 1)",
+     "beschreibung": "nur den Abstand der fünften Zahl zum Mittelwert angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "zusammenhang|Abweichungen vom Mittelwert ergeben zusammen 0"
+   "idee": "zusammenhang|Abstände über und unter dem Mittelwert gleichen sich aus"
   },
   {
    "kennung": "VT3-059",
@@ -616,7 +610,7 @@
    "pool": "sicherung",
    "typ": "darstellung",
    "form": null,
-   "stufe": 3,
+   "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 3",
    "abgrenzung": "Die Übungen suchen einen fehlenden Wert mit einfachen Standardzahlen. Diese Aufgabe: Darstellung wechseln.",
@@ -624,7 +618,7 @@
     "l": "mittel_rueckwaerts",
     "t": "mittel_rueckwaerts",
     "p": "sicherung",
-    "s": 3,
+    "s": 2,
     "y": "luecken",
     "f": {
      "text": "Mia berechnet den Mittelwert der Zahlen 98, 101, 103, 99 und 104 über die Abweichungen von 100. Wie groß ist die Summe der fünf Abweichungen (mit Vorzeichen), und wie groß ist der Mittelwert der fünf Zahlen?",
@@ -746,7 +740,7 @@
     },
     "w": "Die größte Zahl ist mindestens so groß wie der Mittelwert 12. Streicht man sie, ist der Rest im Mittel höchstens 12. Sind alle Zahlen gleich 12, bleibt der Mittelwert 12; bei 10, 11, 12, 13, 14 sinkt er auf 11,5.",
     "a": [
-     "Er sinkt unter 12, denn die größte Zahl fehlt jetzt und die übrigen Zahlen sind kleiner.",
+     "Er liegt mindestens 1 unter 12, denn die größte Zahl fehlt jetzt und die übrigen Zahlen sind kleiner.",
      "Er bleibt 12, denn der Mittelwert hängt nicht davon ab, welche Zahl man streicht.",
      "Er steigt über 12, denn bei weniger Zahlen zählt jede einzelne Zahl stärker.",
      "Er ist höchstens 12, denn die größte Zahl ist mindestens so groß wie der Mittelwert."
@@ -759,7 +753,7 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Er sinkt unter 12, denn die größte Zahl fehlt jetzt und die übrigen Zahlen sind kleiner.",
+     "antwort": "Er liegt mindestens 1 unter 12, denn die größte Zahl fehlt jetzt und die übrigen Zahlen sind kleiner.",
      "beschreibung": "den Sonderfall übersehen, dass alle fünf Zahlen 12 sein können, dann bleibt der Mittelwert gleich",
      "fehlbild": null,
      "regel_des_fehlbilds": null

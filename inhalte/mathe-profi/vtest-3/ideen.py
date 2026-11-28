@@ -2,8 +2,8 @@
 Die Kategorie beschreibt, was beim Lösen wirklich gedacht werden muss (nicht das Aufgabenformat)."""
 I = """
 001 was_waere_wenn|Kantenänderungen in Prozent, Faktoren statt Prozentzahlen
-002 zusammenhang|Würfel aus kleinen Würfeln, Würfel im Inneren zählen
-003 transfer|Quader und Würfel zusammengeklebt, Volumen addieren
+002 zusammenhang|drei Kanten im Verhältnis 1 : 2 : 3, kürzeste Kante aus dem Volumen
+003 transfer|Papierstapel: Höhe und Blattzahl proportional
 004 fehler|Fehler-Detektiv: Summe statt Produkt
 005 rechnung_waehlen|gemischte Einheiten, Rechnung in dm³ auswählen
 006 transfer|kleinster Würfel aus gleichen Quadern
@@ -27,22 +27,22 @@ I = """
 024 fehler|Fehler-Detektiv: Luft im Zimmer
 025 umkehr|Gleiche Höhe, Volumenunterschied zweier Quader, Höhe gesucht
 026 groessenvergleich|zwei Quader ohne Ausrechnen vergleichen
-027 pruefen|Rauminhalt eines Klassenzimmers abschätzen
-028 was_waere_wenn|Länge und Breite um 50 % vergrößert
+027 zusammenhang|Wasserhöhe im Becken wächst mit der Zeit gleichmäßig
+028 was_waere_wenn|Länge verdoppelt, Breite halbiert
 029 umkehr|nötige weitere Treffer für Zielhäufigkeit
 030 darstellung|Anteil als Bruch, Dezimalzahl, Prozent
 031 fehler|Fehler-Detektiv: relative Häufigkeit beim Würfeln
 032 pruefen|ist 30 % bei 8 Würfen überhaupt möglich
 033 groessenvergleich|8 von 25 gegen 9 von 30
 034 immer_nie|Aussage über jede Versuchsreihe (Vielfaches von 1/120)
-035 was_waere_wenn|neue Kinder verändern den Anteil
+035 zusammenhang|zwei Versuchsreihen zusammen, Prozentsätze nicht mitteln
 036 was_waere_wenn|anderer Maßstab: alte Höhe aus den Höhenunterschieden
 037 fehler|Fehler-Detektiv: Säulenhöhe in Kindern
 038 rechnung_waehlen|Maßstab für höchstens 12 cm Höhe wählen
 039 begruenden|Säulenverhältnis und Werteverhältnis
 040 darstellung|Werte in Säulenhöhen übersetzen
 041 groessenvergleich|zwei Diagramme mit verschiedenem Maßstab
-042 zusammenhang|anderer Maßstab ändert alle Höhen um denselben Faktor
+042 mengen_deuten|Teilstück einer gestapelten Säule in Kinder umrechnen
 043 darstellung|abgeschnittene Achse, Höhen in Besucher übersetzen, wahre Änderung
 044 pruefen|Nummer der Marke gegen Wert der Marke
 045 begruenden|Prozente mit verschiedener Basis
@@ -50,30 +50,30 @@ I = """
 047 groessenvergleich|Ausschnitt des Jahres täuscht: Anstieg im Ausschnitt gegen ganzes Jahr
 048 darstellung|Säulenbreite und Aussage
 049 zwei_wege|dieselben Daten, zwei Diagramme
-050 was_waere_wenn|Werte verdoppelt und verkleinert, Mittelwert
-051 immer_nie|ein Wert wächst, Wirkung auf den Mittelwert
+050 umkehr|Werte verdreifacht und verkleinert, alter Mittelwert gesucht
+051 mengen_deuten|Kinder ohne Erspartes zählen beim Mittelwert mit
 052 fehler|Fehler-Detektiv: Notenmittel
 053 zusammenhang|Gesamtmittelwert liegt näher bei der größeren Gruppe
 054 begruenden|welche Änderung lässt den Mittelwert gleich
-055 zusammenhang|Mittelwert gleichmäßig verteilter Zahlen ist die Mitte
+055 zusammenhang|gleichmäßiger Zuwachs, Mittelwert ist die Mitte von Anfang und Ende
 056 groessenvergleich|Ausreißer und Mittelwert ohne genaues Rechnen
-057 umkehr|Mittelwert der gestrichenen Zahlen
-058 zusammenhang|Abweichungen vom Mittelwert ergeben zusammen 0
+057 umkehr|Zahl der Mädchen aus den Mittelwerten von Gruppe und Klasse
+058 zusammenhang|Abstände über und unter dem Mittelwert gleichen sich aus
 059 fehler|Fehler-Detektiv: Zielmittelwert beim fünften Lauf
 060 begruenden|Aussage über vier Zahlen mit Mittelwert 10
 061 darstellung|Mittelwert über Abweichungen von 100
 062 was_waere_wenn|Summe ändert sich um Plus und Minus, wie ändert sich der Mittelwert
 063 gegenbeispiel|größte Zahl streichen, Sonderfall alle Zahlen gleich
 064 begruenden|Geburtsmonat als Funktion, Wertemenge
-065 immer_nie|welcher Wert kommt bei x² − 9 vor (−9) und welcher nicht (−10)
-066 umkehr|Definitionsmenge aus Wertemenge
+065 immer_nie|höchstens so viele Funktionswerte wie Elemente der Definitionsmenge
+066 umkehr|Definitionsmenge zu x² und gegebener Wertemenge, mehrere Stellen möglich
 067 fehler|Fehler-Detektiv: Wertemenge von x² − 4
 068 gegenbeispiel|welche Zuordnung ist keine Funktion
 069 mengen_deuten|Definitionslücken eines Terms
 070 mengen_deuten|Schnitt von D und W
 071 umkehr|zweite Stelle zu einem Funktionswert
 072 zusammenhang|Unterschied zweier Stellen über die Steigung
-073 fehler|Fehler-Detektiv: Stelle zu f(x) = 15
+073 fehler|Fehler-Detektiv: doppelter Funktionswert heißt nicht doppelte Stelle
 074 rechnung_waehlen|Ansatz für das Füllen eines Beckens
 075 umkehr|Stellen zu gegebenen Werten bei 20 : (x − 1)
 076 begruenden|Gleichung ohne Lösung
@@ -92,21 +92,21 @@ I = """
 089 bruecke|gemeinsamer Punkt zweier Graphen
 090 immer_nie|Ursprung auf dem Graphen
 091 darstellung|Punkt auf dem Graphen im Sachzusammenhang deuten
-092 darstellung|Fass: Term und sinnvoller Bereich
+092 transfer|Jahreskarte: ab wann günstiger
 093 was_waere_wenn|doppelte Strecke, doppelter Preis?
 094 fehler|Fehler-Detektiv: Handytarif
 095 pruefen|Streichholzmuster, Behauptung prüfen
 096 transfer|Zeiteinheit im Term wechseln
 097 gegenbeispiel|welcher Zusammenhang ist linear
-098 groessenvergleich|zwei Tarife vergleichen
+098 darstellung|Fass: Term und sinnvoller Bereich
 099 begruenden|ein Winkel ist 90°, alle vier Winkel
 100 zusammenhang|sechs Winkel an drei Geraden, wie viele sind spitz
-101 fehler|Fehler-Detektiv: Scheitelwinkel
+101 fehler|Fehler-Detektiv: Scheitelwinkel, falsche Gegenüberstellung
 102 umkehr|vier Winkel aus Summe dreier Winkel
 103 immer_nie|welche Aussage über Kreuzungswinkel gilt immer
 104 transfer|zwei senkrechte und eine dritte Gerade
 105 darstellung|Winkelfolgen um den Schnittpunkt
-106 transfer|Uhr geht vor, Gangunterschied statt Uhrzeit
+106 transfer|Uhr geht vor, Gangunterschied statt Uhrzeit (ganzzahliger Winkel)
 107 zusammenhang|Drehung von Minuten- und Stundenzeiger
 108 fehler|Fehler-Detektiv: kleinerer Winkel um 8:00 Uhr, überstumpfen Winkel genommen
 109 pruefen|gleicher Winkel um 9:00, 3:00 und 9:15 Uhr
@@ -117,13 +117,13 @@ I = """
 114 fehler|Fehler-Detektiv: Teile im Verhältnis 1 : 3
 115 umkehr|Torte, Schnitte durch den Mittelpunkt
 116 groessenvergleich|Bruchteile verschiedener Winkel
-117 begruenden|Halbierungsstrahlen von Nebenwinkeln
+117 begruenden|Quadrat auf einer Geraden, Winkel neben der Ecke
 118 immer_nie|Zerlegung eines rechten Winkels
-119 transfer|Teile eines rechten Winkels, äußere und mittlere
-120 immer_nie|spitzer und stumpfer Winkel nebeneinander
+119 transfer|zwei gegeneinander gedrehte Quadrate, gemeinsamer und überdeckter Winkel
+120 was_waere_wenn|Winkel verdreifacht, Nebenwinkel schrumpft
 121 begruenden|Geodreieck und Augenmaß
-122 was_waere_wenn|Winkel verdreifacht, Nebenwinkel schrumpft
-123 fehler|Fehler-Detektiv: überstumpfen Winkel mit 180° statt 360° ergänzt
+122 immer_nie|spitzer und stumpfer Winkel nebeneinander
+123 fehler|Fehler-Detektiv: gestreckter Winkel gehört nicht zu den stumpfen Winkeln
 124 transfer|volle Umdrehungen und Rest
 125 begruenden|Schenkellänge und Winkelgröße
 126 umkehr|zwei Winkel, Summe und Unterschied

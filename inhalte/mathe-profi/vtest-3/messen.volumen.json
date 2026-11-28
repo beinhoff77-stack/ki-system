@@ -81,39 +81,40 @@
     "s": 2,
     "y": "zahl",
     "f": {
-     "text": "Ein Würfel mit 5 cm Kantenlänge ist aus lauter kleinen Würfeln mit 1 cm Kantenlänge zusammengesetzt. Wie viele dieser kleinen Würfel liegen im Inneren und grenzen nirgends an die Außenseite?"
+     "text": "Die drei Kanten eines Quaders verhalten sich wie 1 : 2 : 3. Das Volumen des Quaders ist 48 cm³. Wie lang ist die kürzeste Kante in cm?"
     },
-    "w": "In jeder Richtung liegen außen links und rechts je eine Schicht. Im Inneren bleiben also 5 − 2 = 3 Würfel in der Länge, Breite und Höhe: 3 · 3 · 3 = 27 kleine Würfel.",
+    "w": "Die Kanten sind x, 2x und 3x. Das Volumen ist x · 2x · 3x = 6 · x · x · x = 48, also x · x · x = 8. Wegen 2 · 2 · 2 = 8 ist x = 2. Die Kanten sind 2 cm, 4 cm und 6 cm; Probe: 2 · 4 · 6 = 48.",
     "o": {
-     "wert": 27
+     "wert": 2,
+     "einheit": "cm"
     }
    },
    "regel": "id.flaeche_raum.aus_dem_quader",
-   "loesung_rechnung": "(5 − 2) · (5 − 2) · (5 − 2)",
+   "loesung_rechnung": "(48 : 6) : 4",
    "fehlbilder": [
     {
-     "antwort": 125,
-     "rechnung": "5 · 5 · 5",
-     "beschreibung": "alle kleinen Würfel gezählt, auch die außen",
+     "antwort": 8,
+     "rechnung": "48 : 6",
+     "beschreibung": "durch 6 geteilt und das Ergebnis x · x · x = 8 als Kante angegeben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 64,
-     "rechnung": "(5 − 1) · (5 − 1) · (5 − 1)",
-     "beschreibung": "nur eine Schicht abgezogen statt zwei (je eine auf beiden Seiten)",
+     "antwort": 4,
+     "rechnung": "48 : 12",
+     "beschreibung": "durch die Summe 1 + 2 + 3 + 6 der Verhältniszahlen geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 9,
-     "rechnung": "(5 − 2) · (5 − 2)",
-     "beschreibung": "nur eine Schicht des inneren Würfels gezählt",
+     "antwort": 16,
+     "rechnung": "48 : 3",
+     "beschreibung": "nur durch die längste Verhältniszahl geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "zusammenhang|Würfel aus kleinen Würfeln, Würfel im Inneren zählen"
+   "idee": "zusammenhang|drei Kanten im Verhältnis 1 : 2 : 3, kürzeste Kante aus dem Volumen"
   },
   {
    "kennung": "VT3-003",
@@ -133,40 +134,39 @@
     "s": 2,
     "y": "zahl",
     "f": {
-     "text": "Ein Quader ist 5 cm lang, 4 cm breit und 3 cm hoch. An seine 4 cm breite und 3 cm hohe Seitenfläche wird ein Würfel mit 3 cm Kantenlänge geklebt, sodass nichts übersteht. Wie groß ist das Volumen des neuen Körpers in cm³?"
+     "text": "Ein Papierstapel ist 21 cm lang, 30 cm breit und 3 cm hoch und besteht aus 120 gleichen Blättern. Wie viele Blätter gehören zu einem Stapel mit derselben Länge und Breite, der 5 cm hoch ist?"
     },
-    "w": "Die Volumen der beiden Teile werden addiert, denn sie überlappen nicht: Quader 5 · 4 · 3 = 60 cm³, Würfel 3 · 3 · 3 = 27 cm³. Zusammen 87 cm³.",
+    "w": "Bei gleicher Länge und Breite ist das Volumen des Stapels proportional zu seiner Höhe. 3 cm Höhe sind 120 Blätter, also 1 cm Höhe 40 Blätter. 5 cm Höhe sind 5 · 40 = 200 Blätter.",
     "o": {
-     "wert": 87,
-     "einheit": "cm³"
+     "wert": 200
     }
    },
    "regel": "id.flaeche_raum.aus_dem_quader",
-   "loesung_rechnung": "5 · 4 · 3 + 3 · 3 · 3",
+   "loesung_rechnung": "120 : 3 · 5",
    "fehlbilder": [
     {
-     "antwort": 60,
-     "rechnung": "5 · 4 · 3",
-     "beschreibung": "nur den Quader gerechnet, den Würfel vergessen",
+     "antwort": 360,
+     "rechnung": "120 · 3",
+     "beschreibung": "die Zahl der Blätter mit der Höhe malgenommen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 27,
-     "rechnung": "3 · 3 · 3",
-     "beschreibung": "nur den Würfel gerechnet",
+     "antwort": 72,
+     "rechnung": "120 · 3 : 5",
+     "beschreibung": "die Höhen vertauscht: je höher der Stapel, desto weniger Blätter",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 180,
-     "rechnung": "5 · 4 · 3 · 3",
-     "beschreibung": "das Volumen des Quaders mit der Kantenlänge des Würfels malgenommen statt das Volumen des Würfels dazuzuzählen",
+     "antwort": 125,
+     "rechnung": "120 + 5",
+     "beschreibung": "die neue Höhe zur Blätterzahl addiert",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "transfer|Quader und Würfel zusammengeklebt, Volumen addieren"
+   "idee": "transfer|Papierstapel: Höhe und Blattzahl proportional"
   },
   {
    "kennung": "VT3-004",
@@ -517,7 +517,7 @@
     "s": 2,
     "y": "luecken",
     "f": {
-     "text": "Ein Aquarium ist 50 cm lang, 30 cm breit und 40 cm hoch. Jana will wissen, wie viele Liter hineinpassen. Zeile 1: Das Volumen ist 50 · 30 · 40 = 60 000 cm³. Zeile 2: Ein Liter sind 100 cm³. Zeile 3: Es passen 60 000 : 100 = 600 Liter hinein. Zeile 4: Das Aquarium fasst also 600 l. In welcher Zeile steckt der erste Fehler, und wie viele Liter passen wirklich hinein?",
+     "text": "Ein Aquarium ist 50 cm lang, 30 cm breit und 40 cm hoch. Jana will wissen, wie viele Liter hineinpassen. Zeile 1: Das Volumen ist 60 000 cm³, denn 50 · 30 · 40 = 60 000. Zeile 2: Ein Liter sind 100 cm³. Zeile 3: Es passen 60 000 : 100 = 600 Liter hinein. Zeile 4: Das Aquarium fasst also 600 l. In welcher Zeile steckt der erste Fehler, und wie viele Liter passen wirklich hinein?",
      "schablone": "Fehler in Zeile □, richtig: □ l",
      "hinweis": "Je Feld eine ganze Zahl."
     },
@@ -576,10 +576,10 @@
     },
     "w": "Ein Liter sind 1 000 cm³, zwei Liter also 2 000 cm³. Drei der Gefäße haben dieses Volumen, das Gefäß 15 · 15 · 10 hat 2 250 cm³ und fasst damit 2,25 Liter.",
     "a": [
-     "15 cm lang, 15 cm breit und 10 cm hoch, denn 15 · 15 · 10 ergibt 2 250 cm³, also 2,25 Liter",
-     "10 cm lang, 10 cm breit und 20 cm hoch, denn 10 · 10 · 20 = 2 000 cm³ sind 2 Liter",
-     "25 cm lang, 8 cm breit und 10 cm hoch, denn 25 · 8 · 10 = 2 000 cm³ sind 2 Liter",
-     "1 dm lang, 2 dm breit und 1 dm hoch, denn 1 · 2 · 1 = 2 dm³ sind 2 Liter"
+     "15 cm lang, 15 cm breit und 10 cm hoch",
+     "10 cm lang, 10 cm breit und 20 cm hoch",
+     "25 cm lang, 8 cm breit und 10 cm hoch",
+     "1 dm lang, 2 dm breit und 1 dm hoch"
     ],
     "o": {
      "index": 0
@@ -589,21 +589,21 @@
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "10 cm lang, 10 cm breit und 20 cm hoch, denn 10 · 10 · 20 = 2 000 cm³ sind 2 Liter",
+     "antwort": "10 cm lang, 10 cm breit und 20 cm hoch",
      "beschreibung": "den Quader richtig gerechnet, er fasst genau 2 Liter und ist deshalb nicht die gesuchte Ausnahme",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 2,
-     "antwort": "25 cm lang, 8 cm breit und 10 cm hoch, denn 25 · 8 · 10 = 2 000 cm³ sind 2 Liter",
+     "antwort": "25 cm lang, 8 cm breit und 10 cm hoch",
      "beschreibung": "den Quader richtig gerechnet, er fasst genau 2 Liter und ist deshalb nicht die gesuchte Ausnahme",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 3,
-     "antwort": "1 dm lang, 2 dm breit und 1 dm hoch, denn 1 · 2 · 1 = 2 dm³ sind 2 Liter",
+     "antwort": "1 dm lang, 2 dm breit und 1 dm hoch",
      "beschreibung": "den Quader richtig gerechnet (1 dm³ ist 1 Liter), er fasst genau 2 Liter",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -1016,10 +1016,10 @@
     },
     "w": "Jede Kante eines solchen Quaders muss das Volumen 36 teilen, denn die beiden anderen Kanten sind ganze Zahlen. 36 ist nicht durch 5 teilbar, also kann keine Kante 5 cm lang sein. Für 4, 6 und 9 gibt es die Quader 4 · 3 · 3, 6 · 2 · 3 und 9 · 2 · 2.",
     "a": [
-     "5 cm, denn 36 : 5 = 7,2 ist keine ganze Zahl, die anderen Kanten wären nicht ganzzahlig",
-     "4 cm, denn 36 : 4 = 9 und 9 = 3 · 3, also zum Beispiel 4 · 3 · 3 mit Volumen 36 cm³",
-     "6 cm, denn 36 : 6 = 6 und 6 = 2 · 3, also zum Beispiel 6 · 2 · 3 mit Volumen 36 cm³",
-     "9 cm, denn 36 : 9 = 4 und 4 = 2 · 2, also zum Beispiel 9 · 2 · 2 mit Volumen 36 cm³"
+     "5 cm, denn 36 : 5 = 7,2 ist keine ganze Zahl und 5 teilt das Volumen nicht",
+     "4 cm, denn 36 : 4 = 9 ist eine ganze Zahl und 4 teilt das Volumen",
+     "6 cm, denn 36 : 6 = 6 ist eine ganze Zahl und 6 teilt das Volumen",
+     "9 cm, denn 36 : 9 = 4 ist eine ganze Zahl und 9 teilt das Volumen"
     ],
     "o": {
      "index": 0
@@ -1029,21 +1029,21 @@
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "4 cm, denn 36 : 4 = 9 und 9 = 3 · 3, also zum Beispiel 4 · 3 · 3 mit Volumen 36 cm³",
+     "antwort": "4 cm, denn 36 : 4 = 9 ist eine ganze Zahl und 4 teilt das Volumen",
      "beschreibung": "den Quader 4 · 3 · 3 nicht nachgerechnet: Er hat das Volumen 36 cm³, die Länge 4 cm ist möglich",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 2,
-     "antwort": "6 cm, denn 36 : 6 = 6 und 6 = 2 · 3, also zum Beispiel 6 · 2 · 3 mit Volumen 36 cm³",
+     "antwort": "6 cm, denn 36 : 6 = 6 ist eine ganze Zahl und 6 teilt das Volumen",
      "beschreibung": "den Quader 6 · 2 · 3 nicht nachgerechnet: Er hat das Volumen 36 cm³, die Länge 6 cm ist möglich",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 3,
-     "antwort": "9 cm, denn 36 : 9 = 4 und 4 = 2 · 2, also zum Beispiel 9 · 2 · 2 mit Volumen 36 cm³",
+     "antwort": "9 cm, denn 36 : 9 = 4 ist eine ganze Zahl und 9 teilt das Volumen",
      "beschreibung": "den Quader 9 · 2 · 2 nicht nachgerechnet: Er hat das Volumen 36 cm³, die Länge 9 cm ist möglich",
      "fehlbild": null,
      "regel_des_fehlbilds": null
@@ -1113,7 +1113,7 @@
    "pool": "sicherung",
    "typ": "transfer",
    "form": "anwenden",
-   "stufe": 3,
+   "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M6 2",
    "abgrenzung": "Die Übungen suchen eine fehlende Kante oder Höhe mit Standardzahlen. Diese Aufgabe: Transfer auf eine neue Situation.",
@@ -1121,7 +1121,7 @@
     "l": "rueckwaerts",
     "t": "rueckwaerts",
     "p": "sicherung",
-    "s": 3,
+    "s": 2,
     "y": "zahl",
     "f": {
      "text": "Ein Quader ist aus Würfeln mit je 2 cm Kantenlänge gebaut. In der Länge liegen 3 Würfel, in der Breite 2 Würfel. Der Quader hat das Volumen 192 cm³. Wie hoch ist der Quader in cm?"
@@ -1191,7 +1191,7 @@
     {
      "antwort": 17,
      "rechnung": "57375 : 3375",
-     "beschreibung": "Rauminhalte geteilt: 60 000 : 3 375 ≈ 17,8, abgerundet 17 (17 · 3 375 = 57 375)",
+     "beschreibung": "die Rauminhalte geteilt: 60 000 : 3 375 ≈ 17,8, abgerundet 17 (als 17 · 3 375 = 57 375 geschrieben)",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
@@ -1368,9 +1368,9 @@
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 10,
-     "rechnung": "30 : 3",
-     "beschreibung": "mit dem Faktor 3 statt mit dem Unterschied 6 der Grundflächen gerechnet",
+     "antwort": 15,
+     "rechnung": "30 : 2",
+     "beschreibung": "durch die Anzahl 2 der Quader geteilt statt durch den Unterschied der Grundflächen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
@@ -1452,14 +1452,14 @@
     "s": 3,
     "y": "auswahl",
     "f": {
-     "text": "Welche Angabe für den Rauminhalt eines Klassenzimmers ist sinnvoll?"
+     "text": "Ein quaderförmiges Becken, das überall gleich breit ist, wird mit gleichmäßigem Zufluss gefüllt. Nach 2 Stunden steht das Wasser 30 cm hoch. Wann steht es 90 cm hoch?"
     },
-    "w": "Ein Klassenzimmer ist etwa 8 m lang, 7 m breit und 3 m hoch. Das Volumen ist 8 · 7 · 3 = 168 m³, also etwa 170 m³. Die Maße sind in Metern, also ist das Ergebnis in Kubikmetern; 170 cm³ wären ein Stück Würfelzucker, 170 dm³ nur eine große Tonne.",
+    "w": "Bei gleichmäßigem Zufluss und gleicher Grundfläche steigt das Wasser gleichmäßig: 30 cm in 2 Stunden, also 15 cm je Stunde. 90 cm sind 3 mal 30 cm, das dauert 3 mal 2 Stunden, also 6 Stunden. Länge und Breite werden dafür nicht gebraucht.",
     "a": [
-     "etwa 170 cm³, denn die Maße 8 · 7 · 3 sind nur Zahlen und die Einheit spielt keine Rolle.",
-     "etwa 170 m³, denn das Zimmer ist etwa 8 m lang, 7 m breit und 3 m hoch.",
-     "etwa 18 m³, denn das Zimmer ist etwa 8 m lang, 7 m breit und 3 m hoch und man addiert 8 + 7 + 3.",
-     "etwa 170 dm³, denn es gilt 8 · 7 · 3 = 168 und 1 m³ ist ebenfalls 1 dm³."
+     "Nach 4 Stunden, denn zu den 30 cm kommen 60 cm dazu und dafür braucht man 2 Stunden mehr.",
+     "Nach 6 Stunden, denn die dreifache Höhe braucht bei gleichem Zufluss die dreifache Zeit.",
+     "Nach 8 Stunden, denn je höher das Wasser steht, desto langsamer steigt es weiter.",
+     "Das lässt sich nicht sagen, denn Länge und Breite des Beckens sind nicht bekannt."
     ],
     "o": {
      "index": 1
@@ -1469,27 +1469,27 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "etwa 170 cm³, denn die Maße 8 · 7 · 3 sind nur Zahlen und die Einheit spielt keine Rolle.",
-     "beschreibung": "die Einheit der Kanten (m) übersehen und Zentimeter angenommen",
+     "antwort": "Nach 4 Stunden, denn zu den 30 cm kommen 60 cm dazu und dafür braucht man 2 Stunden mehr.",
+     "beschreibung": "die Höhe 60 cm mit der ersten Teilhöhe 30 cm verglichen: 60 cm sind doppelt so viel wie 30 cm und brauchen daher 4 Stunden mehr, nicht 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 2,
-     "antwort": "etwa 18 m³, denn das Zimmer ist etwa 8 m lang, 7 m breit und 3 m hoch und man addiert 8 + 7 + 3.",
-     "beschreibung": "die Kantenlängen addiert statt multipliziert",
+     "antwort": "Nach 8 Stunden, denn je höher das Wasser steht, desto langsamer steigt es weiter.",
+     "beschreibung": "angenommen, das Wasser steige mit der Zeit langsamer, obwohl Zufluss und Grundfläche gleich bleiben",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 3,
-     "antwort": "etwa 170 dm³, denn es gilt 8 · 7 · 3 = 168 und 1 m³ ist ebenfalls 1 dm³.",
-     "beschreibung": "Kubikmeter und Kubikdezimeter gleichgesetzt: 1 m³ sind 1 000 dm³",
+     "antwort": "Das lässt sich nicht sagen, denn Länge und Breite des Beckens sind nicht bekannt.",
+     "beschreibung": "übersehen, dass bei gleicher Grundfläche und gleichem Zufluss nur das Verhältnis der Höhen zählt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "pruefen|Rauminhalt eines Klassenzimmers abschätzen"
+   "idee": "zusammenhang|Wasserhöhe im Becken wächst mit der Zeit gleichmäßig"
   },
   {
    "kennung": "VT3-028",
@@ -1509,14 +1509,14 @@
     "s": 3,
     "y": "auswahl",
     "f": {
-     "text": "Bei einem Quader werden Länge und Breite um je 50 % vergrößert, die Höhe bleibt gleich. Um wie viel Prozent wächst das Volumen?"
+     "text": "Bei einem Quader wird die Länge verdoppelt und die Breite halbiert, die Höhe bleibt gleich. Wie ändert sich das Volumen?"
     },
-    "w": "Die Faktoren sind 1,5 · 1,5 · 1 = 2,25. Das Volumen ist 225 % des alten, also um 125 % größer.",
+    "w": "Das Volumen ist Länge · Breite · Höhe. Die neue Länge ist 2 · l, die neue Breite ist b : 2. Das Produkt 2 · l · (b : 2) · h = l · b · h ist unverändert.",
     "a": [
-     "um 125 %",
-     "um 50 %",
-     "um 100 %",
-     "um 225 %"
+     "Es bleibt gleich, denn das Doppelte mal die Hälfte ergibt wieder das Ganze und die Höhe ändert sich nicht.",
+     "Es wird doppelt so groß, denn die Länge wird verdoppelt und die Breite fällt nicht ins Gewicht.",
+     "Es wird halb so groß, denn die Breite wird halbiert und die Länge fällt nicht ins Gewicht.",
+     "Es wird kleiner, denn das Halbieren der Breite wirkt stärker als das Verdoppeln der Länge."
     ],
     "o": {
      "index": 0
@@ -1526,27 +1526,27 @@
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "um 50 %",
-     "beschreibung": "nur eine Kante berücksichtigt",
+     "antwort": "Es wird doppelt so groß, denn die Länge wird verdoppelt und die Breite fällt nicht ins Gewicht.",
+     "beschreibung": "nur die Länge berücksichtigt und die Breite vergessen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 2,
-     "antwort": "um 100 %",
-     "beschreibung": "50 % und 50 % addiert",
+     "antwort": "Es wird halb so groß, denn die Breite wird halbiert und die Länge fällt nicht ins Gewicht.",
+     "beschreibung": "nur die Breite berücksichtigt und die Länge vergessen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 3,
-     "antwort": "um 225 %",
-     "beschreibung": "den neuen Wert 225 % des alten mit dem Zuwachs verwechselt",
+     "antwort": "Es wird kleiner, denn das Halbieren der Breite wirkt stärker als das Verdoppeln der Länge.",
+     "beschreibung": "geglaubt, Halbieren und Verdoppeln gleichen sich nicht aus",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "was_waere_wenn|Länge und Breite um 50 % vergrößert"
+   "idee": "was_waere_wenn|Länge verdoppelt, Breite halbiert"
   }
  ]
 }

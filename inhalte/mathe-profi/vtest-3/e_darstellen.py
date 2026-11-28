@@ -63,11 +63,12 @@ B.auswahl("relative_haeufigkeit", "sicherung", 3, "begruenden", None,
            3: "die Augenzahl mit der Häufigkeit verwechselt"},
           "Bei 120 Würfen ist die Zahl der Sechsen eine ganze Zahl k von 0 bis 120, die relative Häufigkeit ist k/120. Das gilt immer. Dass es genau 20 Sechsen sind, ist nur der Erwartungswert, nicht sicher; auch 0 Sechsen sind möglich.")
 B.zahl("relative_haeufigkeit", "sicherung", 2, "parameter", None,
-       "In einer Klasse mit 24 Kindern tragen 6 Kinder eine Brille. Dann kommen 6 neue Kinder in die Klasse, von denen keines eine Brille trägt. Wie viel Prozent der Kinder tragen jetzt eine Brille?",
-       20, "6 : (24 + 6) · 100",
-       [(25, "6 : 24 · 100", "mit der alten Klassengröße gerechnet"),
-        (40, "(6 + 6) : (24 + 6) · 100", "die neuen Kinder auch zu den Brillenträgern gezählt")],
-       "Die Zahl der Brillenträger bleibt 6, die Klasse hat jetzt 30 Kinder: 6 : 30 = 0,2 = 20 %.", einheit="%")
+       "Mia würfelt 20-mal und erhält 5 Sechsen. Jonas würfelt 80-mal und erhält 10 Sechsen. Wie groß ist die relative Häufigkeit der Sechs bei allen 100 Würfen zusammen (in Prozent)?",
+       15, "(5 + 10) : (20 + 80) · 100",
+       [(18.75, "(5 : 20 + 10 : 80) : 2 · 100", "die beiden relativen Häufigkeiten 25 % und 12,5 % gemittelt, ohne die verschiedene Zahl der Würfe zu beachten"),
+        (37.5, "25 + 12,5", "die beiden Prozentsätze addiert"),
+        (7.5, "(5 + 10) : 2", "die Zahl der Sechsen durch die Zahl der Reihen statt durch die Zahl der Würfe geteilt")],
+       "Bei allen 100 Würfen gab es 5 + 10 = 15 Sechsen. 15 : 100 = 0,15 = 15 %. Die beiden Prozentsätze 25 % und 12,5 % darf man nicht einfach mitteln, denn Jonas hat viermal so oft gewürfelt wie Mia.", einheit="%")
 
 # ---------------- saeulendiagramm ----------------
 B.zahl("saeulendiagramm", "test", 3, "parameter", None,
@@ -125,16 +126,16 @@ B.auswahl("saeulendiagramm", "sicherung", 3, "begruenden", None,
            3: "übersehen, dass man mit den Maßstäben umrechnen kann"},
           "Annas Säule: 6 · 5 = 30 Kinder. Bens Säule: 4 · 8 = 32 Kinder. Bens niedrigere Säule steht für mehr Kinder, weil sein Maßstab größer ist.")
 B.auswahl("saeulendiagramm", "sicherung", 2, "begruenden", None,
-          "Anna und Ben stellen dieselben Daten (Rad 18 Kinder, Bus 27 Kinder) als Säulendiagramm dar, beide mit Hochachse ab 0. Anna wählt 1 cm für 3 Kinder, Ben wählt 1 cm für 9 Kinder. Welche Aussage über die Säulenhöhen stimmt?",
-          ["Alle Säulen in Bens Diagramm sind dreimal so hoch wie in Annas Diagramm, denn Ben wählt den größeren Maßstab.",
-           "In beiden Diagrammen ist die Bus-Säule anderthalbmal so hoch wie die Rad-Säule, denn ein anderer Maßstab ändert alle Höhen gleich.",
-           "In Bens Diagramm sind beide Säulen gleich hoch, denn 18 und 27 liegen bei 1 cm für 9 Kinder nah beieinander.",
-           "Das Höhenverhältnis der Säulen ist in beiden Diagrammen verschieden, denn die Maßstäbe sind verschieden."],
-          1,
-          {0: "Maßstab und Höhe verwechselt: Ein größerer Maßstab (mehr Kinder je cm) macht die Säulen niedriger",
-           2: "übersehen, dass 18 und 27 bei 1 cm für 9 Kinder 2 cm und 3 cm hoch werden",
-           3: "geglaubt, ein anderer Maßstab ändere das Verhältnis der Säulenhöhen"},
-          "Annas Säulen sind 6 cm und 9 cm hoch, Bens 2 cm und 3 cm. In beiden Diagrammen ist die Bus-Säule anderthalbmal so hoch wie die Rad-Säule (27 : 18 = 1,5). Ein anderer Maßstab streckt oder staucht alle Höhen mit demselben Faktor.")
+          "Ein Säulendiagramm (Hochachse beginnt bei 0) zeigt die Klasse 6a als eine gestapelte Säule: unten die Mädchen, darüber die Jungen. Die ganze Säule ist 9 cm hoch, der untere Teil mit den Mädchen ist 5 cm hoch. 1 cm steht für 3 Kinder. Wie viele Jungen gehören zur Klasse?",
+          ["12 Jungen, denn der obere Teil der Säule ist 4 cm hoch und 1 cm steht für 3 Kinder.",
+           "27 Jungen, denn die ganze Säule ist 9 cm hoch und 1 cm steht für 3 Kinder.",
+           "15 Jungen, denn der untere Teil der Säule ist 5 cm hoch und 1 cm steht für 3 Kinder.",
+           "4 Jungen, denn der obere Teil der Säule ist 4 cm hoch."],
+          0,
+          {1: "die ganze Säule gelesen: Das sind alle Kinder der Klasse, nicht nur die Jungen",
+           2: "den unteren Teil gelesen: Das sind die Mädchen, nicht die Jungen",
+           3: "die Höhe in cm als Zahl der Kinder genommen, ohne den Maßstab zu beachten"},
+          "Der obere Teil der Säule steht für die Jungen. Er ist 9 − 5 = 4 cm hoch. Mit 1 cm für 3 Kinder sind das 4 · 3 = 12 Jungen. Die ganze Klasse hat 27 Kinder, davon 15 Mädchen.")
 
 # ---------------- irrefuehrend ----------------
 B.zahl("irrefuehrend", "test", 3, "darstellung", None,

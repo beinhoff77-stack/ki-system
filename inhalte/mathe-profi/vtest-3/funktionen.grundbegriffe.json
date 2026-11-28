@@ -85,14 +85,14 @@
     "s": 2,
     "y": "auswahl",
     "f": {
-     "text": "Für f(x) = x² − 9 mit D = ℚ: Welche der folgenden Aussagen über die Wertemenge W stimmt?"
+     "text": "Eine Funktion f hat die Definitionsmenge D = {1; 2; 3; 4; 5}. Welche Aussage über ihre Wertemenge W stimmt auf jeden Fall?"
     },
-    "w": "x² ist nie negativ, also ist x² − 9 mindestens −9, und der Wert −9 wird bei x = 0 angenommen. Kleinere Werte wie −10 kommen nicht vor. Die Zahl 0 kommt vor: f(3) = 0.",
+    "w": "Jede der 5 Zahlen aus D liefert genau einen Funktionswert. Es entstehen also höchstens 5 verschiedene Werte, bei gleichen Funktionswerten weniger. Bei f(x) = x gibt es 5 Werte, bei f(x) = 7 nur einen. Deshalb sind genau 5, mindestens 6 und höchstens 3 Elemente nicht sicher.",
     "a": [
-     "Die Zahl −9 gehört zu W, denn für x = 0 ergibt sich −9.",
-     "Die Zahl −10 gehört zu W, denn man kann ja x = −1 einsetzen.",
-     "Die Zahl −9 gehört nicht zu W, denn Quadrate sind nie negativ.",
-     "Die Zahl 0 gehört nicht zu W, denn dafür müsste x² = 0 sein."
+     "W hat höchstens 5 Elemente, denn jede Zahl aus D liefert genau einen Funktionswert.",
+     "W hat genau 5 Elemente, denn jede Zahl aus D liefert einen eigenen Funktionswert.",
+     "W hat mindestens 6 Elemente, denn zu jeder Zahl aus D kommt noch ein weiterer Funktionswert dazu.",
+     "W hat höchstens 3 Elemente, denn bei fünf Zahlen wiederholen sich die Funktionswerte immer."
     ],
     "o": {
      "index": 0
@@ -102,27 +102,27 @@
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "Die Zahl −10 gehört zu W, denn man kann ja x = −1 einsetzen.",
-     "beschreibung": "f(−1) = −8 berechnet, nicht −10; x² − 9 ist nie kleiner als −9",
+     "antwort": "W hat genau 5 Elemente, denn jede Zahl aus D liefert einen eigenen Funktionswert.",
+     "beschreibung": "geglaubt, verschiedene Stellen müssten verschiedene Funktionswerte haben: Bei f(x) = 7 für alle x hat W nur 1 Element",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 2,
-     "antwort": "Die Zahl −9 gehört nicht zu W, denn Quadrate sind nie negativ.",
-     "beschreibung": "das Quadrat mit dem Funktionswert verwechselt: Es ist x² nie negativ, aber x² − 9 schon",
+     "antwort": "W hat mindestens 6 Elemente, denn zu jeder Zahl aus D kommt noch ein weiterer Funktionswert dazu.",
+     "beschreibung": "angenommen, eine Stelle könne mehrere Funktionswerte liefern, doch jede Stelle liefert genau einen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 3,
-     "antwort": "Die Zahl 0 gehört nicht zu W, denn dafür müsste x² = 0 sein.",
-     "beschreibung": "f(3) = 0 übersehen: Dafür muss x² = 9 sein",
+     "antwort": "W hat höchstens 3 Elemente, denn bei fünf Zahlen wiederholen sich die Funktionswerte immer.",
+     "beschreibung": "ein Beispiel übersehen: Bei f(x) = x hat W alle 5 Elemente",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "immer_nie|welcher Wert kommt bei x² − 9 vor (−9) und welcher nicht (−10)"
+   "idee": "immer_nie|höchstens so viele Funktionswerte wie Elemente der Definitionsmenge"
   },
   {
    "kennung": "VT3-066",
@@ -130,11 +130,11 @@
    "lernkarte": "mengen",
    "pool": "korrektur",
    "typ": "umkehr",
-   "form": "umkehren",
+   "form": "verfahren_waehlen",
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M8 1",
-   "abgrenzung": "Die Übungen berechnen eine Wertemenge oder eine Definitionsmenge nach Schema. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "abgrenzung": "Die Übungen berechnen eine Wertemenge oder eine Definitionsmenge nach Schema. Diese Aufgabe: Verfahren wählen.",
    "aufgabe": {
     "l": "mengen",
     "t": "mengen",
@@ -142,14 +142,14 @@
     "s": 2,
     "y": "auswahl",
     "f": {
-     "text": "Die Funktion f(x) = 3x − 2 hat die Wertemenge W = {−5; 1; 7}. Welche Definitionsmenge D gehört dazu?"
+     "text": "Die Funktion f(x) = x² hat die Wertemenge W = {1; 4}. Welche der folgenden Mengen kann ihre Definitionsmenge D sein?"
     },
-    "w": "Man rechnet rückwärts: 3x − 2 = y, also x = (y + 2) : 3. Für y = −5, 1, 7 ergibt sich x = −1, 1, 3. Probe: f(−1) = −5, f(1) = 1, f(3) = 7.",
+    "w": "Man prüft jede Stelle: f(−1) = 1 und f(2) = 4, also hat D = {−1; 2} die Wertemenge {1; 4}. Bei D = {1; 4} ist W = {1; 16}, bei D = {1; 2; 3} ist W = {1; 4; 9}, bei D = {2; 3} ist W = {4; 9}.",
     "a": [
-     "D = {−5; 1; 7}",
-     "D = {−1; 1; 3}",
-     "D = {−17; 1; 19}",
-     "D = {−9; 9; 27}"
+     "D = {1; 4}",
+     "D = {−1; 2}",
+     "D = {1; 2; 3}",
+     "D = {2; 3}"
     ],
     "o": {
      "index": 1
@@ -159,27 +159,27 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "D = {−5; 1; 7}",
-     "beschreibung": "Definitions- und Wertemenge gleichgesetzt",
+     "antwort": "D = {1; 4}",
+     "beschreibung": "Definitions- und Wertemenge gleichgesetzt: f(4) = 16, nicht 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 2,
-     "antwort": "D = {−17; 1; 19}",
-     "beschreibung": "die Werte als x eingesetzt: f(−5) = −17, f(1) = 1, f(7) = 19",
+     "antwort": "D = {1; 2; 3}",
+     "beschreibung": "die Stelle 3 mitgenommen: f(3) = 9 liegt nicht in W",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "index": 3,
-     "antwort": "D = {−9; 9; 27}",
-     "beschreibung": "umgekehrt gerechnet, aber mit 3 malgenommen statt durch 3 geteilt: (−5 + 2) · 3 = −9 usw.",
+     "antwort": "D = {2; 3}",
+     "beschreibung": "die Stelle 1 durch 3 ersetzt: f(3) = 9 liegt nicht in W, und der Wert 1 kommt gar nicht vor",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "umkehr|Definitionsmenge aus Wertemenge"
+   "idee": "umkehr|Definitionsmenge zu x² und gegebener Wertemenge, mehrere Stellen möglich"
   },
   {
    "kennung": "VT3-067",
@@ -516,42 +516,42 @@
     "s": 2,
     "y": "luecken",
     "f": {
-     "text": "Jan sucht die Stelle x mit f(x) = 15 für f(x) = 3x + 6. Zeile 1: Er setzt an: 3x + 6 = 15. Zeile 2: Er rechnet 3x = 15 + 6 = 21. Zeile 3: Er teilt durch 3: x = 7. Zeile 4: Die gesuchte Stelle ist x = 7. In welcher Zeile steckt der erste Fehler, und wie lautet die Stelle richtig?",
+     "text": "Jan kennt für f(x) = 3x + 6 den Wert f(4) = 18 und sucht die Stelle x mit f(x) = 36. Zeile 1: Es ist f(4) = 3 · 4 + 6 = 18. Zeile 2: Der gesuchte Funktionswert 36 ist doppelt so groß wie 18. Zeile 3: Also ist auch die gesuchte Stelle doppelt so groß wie 4, das ist x = 8. Zeile 4: Die Stelle zu f(x) = 36 ist x = 8. In welcher Zeile steckt der erste Fehler, und wie lautet die Stelle richtig?",
      "schablone": "Fehler in Zeile □, richtig: x = □",
      "hinweis": "Je Feld eine ganze Zahl."
     },
-    "w": "Zeile 2 ist falsch: Die 6 steht links mit Plus, also zieht man sie ab: 3x = 15 − 6 = 9, x = 3. Probe: 3 · 3 + 6 = 15.",
+    "w": "Zeile 3 ist falsch: Bei f(x) = 3x + 6 ist der Funktionswert nicht proportional zur Stelle, denn die 6 kommt immer dazu. Man muss rechnen: 3x + 6 = 36, also 3x = 30 und x = 10. Probe: 3 · 10 + 6 = 36.",
     "o": {
      "werte": [
-      2,
-      3
+      3,
+      10
      ]
     }
    },
    "regel": "id.funktionen.zuordnung",
    "loesung_rechnung": [
-    "2",
-    "(15 − 6) : 3"
+    "3",
+    "(36 − 6) : 3"
    ],
    "fehlbilder": [
     {
      "luecke": 2,
-     "antwort": 7,
-     "rechnung": "(15 + 6) : 3",
-     "beschreibung": "die 6 addiert statt subtrahiert",
+     "antwort": 8,
+     "rechnung": "2 · 4",
+     "beschreibung": "die Stelle verdoppelt, weil der Funktionswert doppelt so groß ist",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
      "luecke": 2,
-     "antwort": 9,
-     "rechnung": "15 − 6",
-     "beschreibung": "nicht durch 3 geteilt",
+     "antwort": 12,
+     "rechnung": "36 : 3",
+     "beschreibung": "die 6 nicht abgezogen und nur durch 3 geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "fehler|Fehler-Detektiv: Stelle zu f(x) = 15"
+   "idee": "fehler|Fehler-Detektiv: doppelter Funktionswert heißt nicht doppelte Stelle"
   },
   {
    "kennung": "VT3-074",
@@ -872,7 +872,7 @@
     {
      "antwort": 9,
      "rechnung": "5 + 4",
-     "beschreibung": "den Zuwachs für zwei Schritte statt für einen Schritt nach links angesetzt, und in die falsche Richtung",
+     "beschreibung": "den Zuwachs für zwei Schritte statt für einen Schritt nach links angesetzt (y steigt um 4 statt um 2)",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
@@ -1288,11 +1288,11 @@
     "s": 2,
     "y": "luecken",
     "f": {
-     "text": "Lena prüft, ob P(3 | 8) auf dem Graphen von f(x) = x² − 1 liegt. Zeile 1: Sie setzt x = 3 ein. Zeile 2: Gesucht ist f(3) = 3² − 1. Zeile 3: Sie rechnet 3² = 6, also f(3) = 6 − 1 = 5. Zeile 4: Wegen 5 ≠ 8 liegt P nicht auf dem Graphen. In welcher Zeile steckt der erste Fehler, und wie groß ist f(3) richtig?",
+     "text": "Lena prüft, ob P(3 | 5) auf dem Graphen von f(x) = x² − 1 liegt. Zeile 1: Sie setzt x = 3 ein. Zeile 2: Gesucht ist f(3) = 3² − 1. Zeile 3: Sie rechnet 3² = 6, also f(3) = 6 − 1 = 5. Zeile 4: Wegen 5 = 5 liegt P auf dem Graphen. In welcher Zeile steckt der erste Fehler, und wie groß ist f(3) richtig?",
      "schablone": "Fehler in Zeile □, richtig: f(3) = □",
      "hinweis": "Je Feld eine ganze Zahl."
     },
-    "w": "Zeile 3 ist falsch: 3² = 3 · 3 = 9, also f(3) = 9 − 1 = 8. Das ist die y-Koordinate, P liegt auf dem Graphen.",
+    "w": "Zeile 3 ist falsch: 3² = 3 · 3 = 9, also f(3) = 9 − 1 = 8. Das ist nicht die y-Koordinate 5 von P, deshalb liegt P nicht auf dem Graphen.",
     "o": {
      "werte": [
       3,
@@ -1548,58 +1548,54 @@
    "thema": "funktionen.grundbegriffe",
    "lernkarte": "sachzusammenhang",
    "pool": "test",
-   "typ": "darstellung",
-   "form": null,
+   "typ": "transfer",
+   "form": "anwenden",
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M8 1",
-   "abgrenzung": "Die Übungen rechnen mit einem schon gegebenen Term aus einer Sachsituation. Diese Aufgabe: Darstellung wechseln.",
+   "abgrenzung": "Die Übungen rechnen mit einem schon gegebenen Term aus einer Sachsituation. Diese Aufgabe: Transfer auf eine neue Situation.",
    "aufgabe": {
     "l": "sachzusammenhang",
     "t": "sachzusammenhang",
     "p": "test",
     "s": 3,
-    "y": "auswahl",
+    "y": "zahl",
     "f": {
-     "text": "Ein Fass enthält am Anfang 120 Liter Wasser. Es läuft gleichmäßig aus, und zwar 15 Liter pro Stunde. Welcher Term gibt den Inhalt I(t) nach t Stunden an, und für welche Zeiten ist er sinnvoll?"
+     "text": "Eine Jahreskarte im Schwimmbad kostet 60 €, danach kostet jeder Besuch 1,50 €. Ohne Karte kostet jeder Besuch 4 €. Ab wie vielen Besuchen im Jahr ist man mit der Jahreskarte echt günstiger?"
     },
-    "w": "Anfangswert 120, Abnahme 15 pro Stunde: I(t) = 120 − 15t. Das Fass ist leer, wenn 120 − 15t = 0, also nach t = 8 Stunden. Danach gäbe es negative Inhalte, also nur 0 ≤ t ≤ 8.",
-    "a": [
-     "I(t) = 120 − 15t, sinnvoll für 0 ≤ t ≤ 15",
-     "I(t) = 15 − 120t, sinnvoll für 0 ≤ t ≤ 8",
-     "I(t) = 120 − 15t, sinnvoll für 0 ≤ t ≤ 8",
-     "I(t) = 120 + 15t, sinnvoll für 0 ≤ t ≤ 8"
-    ],
+    "w": "Mit Karte: 60 + 1,5x, ohne Karte: 4x. Gleich bei 60 = 2,5x, also x = 24 (je 96 €). Bei 25 Besuchen: 97,50 € gegen 100 €. Ab 25 Besuchen ist die Karte günstiger.",
     "o": {
-     "index": 2
+     "wert": 25,
+     "einheit": "Besuche"
     }
    },
    "ersetzt_test": true,
    "regel": "id.funktionen.zuordnung",
+   "loesung_rechnung": "60 : (4 − 1,5) + 1",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "I(t) = 120 − 15t, sinnvoll für 0 ≤ t ≤ 15",
-     "beschreibung": "den Term richtig, aber die Grenze falsch: nach 15 Stunden wäre der Inhalt negativ",
+     "antwort": 24,
+     "rechnung": "60 : (4 − 1,5)",
+     "beschreibung": "den Gleichstand der Kosten als Antwort angegeben (beide 96 €)",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
-     "antwort": "I(t) = 15 − 120t, sinnvoll für 0 ≤ t ≤ 8",
-     "beschreibung": "Anfangswert und Änderung vertauscht",
+     "antwort": 15,
+     "rechnung": "60 : 4",
+     "beschreibung": "nur die Jahreskarte durch den Einzelpreis geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
-     "antwort": "I(t) = 120 + 15t, sinnvoll für 0 ≤ t ≤ 8",
-     "beschreibung": "die Abnahme als Zunahme gelesen",
+     "antwort": 40,
+     "rechnung": "60 : 1,5",
+     "beschreibung": "die Jahreskarte durch den Preis mit Karte geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "darstellung|Fass: Term und sinnvoller Bereich"
+   "idee": "transfer|Jahreskarte: ab wann günstiger"
   },
   {
    "kennung": "VT3-093",
@@ -1624,12 +1620,12 @@
     "w": "K(4) = 3 + 8 = 11 €, K(8) = 3 + 16 = 19 €. Das ist weniger als 22 €, dem Doppelten. Die Grundgebühr von 3 € wird nur einmal bezahlt, deshalb sind Strecke und Preis nicht proportional.",
     "a": [
      "Die Fahrt über 8 km kostet doppelt so viel, denn 8 km sind doppelt so viele Kilometer wie 4 km.",
-     "Die Fahrt über 8 km kostet weniger als das Doppelte, denn die Grundgebühr zahlt man nur einmal.",
      "Die Fahrt über 8 km kostet genau 4 € mehr, denn die zusätzlichen 4 km kosten je 1 €.",
+     "Die Fahrt über 8 km kostet weniger als das Doppelte, denn die Grundgebühr zahlt man nur einmal.",
      "Die Fahrt über 8 km kostet mehr als das Doppelte, denn die Grundgebühr fällt zweimal an."
     ],
     "o": {
-     "index": 1
+     "index": 2
     }
    },
    "regel": "id.funktionen.zuordnung",
@@ -1642,7 +1638,7 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Die Fahrt über 8 km kostet genau 4 € mehr, denn die zusätzlichen 4 km kosten je 1 €.",
      "beschreibung": "den Preis je Kilometer falsch gelesen: Er beträgt 2 €, nicht 1 €",
      "fehlbild": null,
@@ -1736,12 +1732,12 @@
     "w": "Das erste Quadrat braucht 4 Hölzer, jedes weitere 3: für n Quadrate 4 + 3 · (n − 1) = 3n + 1. Probe: n = 2 gibt 7, n = 1 gibt 4.",
     "a": [
      "Mia hat recht, denn jedes Quadrat hat vier Hölzer, also braucht man 4n Hölzer.",
+     "Mia hat nicht recht, denn für 2 Quadrate braucht man 7 Hölzer und 4n ergäbe 8; richtig ist 3n + 1.",
      "Mia hat nicht recht, denn für 2 Quadrate braucht man 6 Hölzer; richtig wäre der Term 3n.",
-     "Mia hat nicht recht, denn der richtige Term lautet 4 + 3n, weil das erste Quadrat vier Hölzer hat.",
-     "Mia hat nicht recht, denn für 2 Quadrate braucht man 7 Hölzer und 4n ergäbe 8; richtig ist 3n + 1."
+     "Mia hat nicht recht, denn der richtige Term lautet 4 + 3n, weil das erste Quadrat vier Hölzer hat."
     ],
     "o": {
-     "index": 3
+     "index": 1
     }
    },
    "regel": "id.funktionen.zuordnung",
@@ -1754,14 +1750,14 @@
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Mia hat nicht recht, denn für 2 Quadrate braucht man 6 Hölzer; richtig wäre der Term 3n.",
      "beschreibung": "das erste Quadrat mit nur drei Hölzern gezählt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Mia hat nicht recht, denn der richtige Term lautet 4 + 3n, weil das erste Quadrat vier Hölzer hat.",
      "beschreibung": "den Term 4 + 3n für n Quadrate genommen, dabei wird das erste Quadrat doppelt gezählt (n = 1 ergäbe 7)",
      "fehlbild": null,
@@ -1792,33 +1788,33 @@
     },
     "w": "In einer Minute fährt der Zug den 60. Teil der Strecke einer Stunde: 90 : 60 = 1,5 km. Also gilt s(t) = 1,5t, wenn t in Minuten gemessen wird. Nach 60 Minuten: 1,5 · 60 = 90 km.",
     "a": [
-     "s(t) = 1,5t, denn in einer Minute legt der Zug 90 : 60 ergibt 1,5 km zurück.",
      "s(t) = 90t, denn die Geschwindigkeit ändert sich nicht, wenn man die Zeiteinheit wechselt.",
      "s(t) = 5 400t, denn eine Stunde hat 60 Minuten und 90 · 60 = 5 400.",
-     "s(t) = 60t, denn eine Stunde hat 60 Minuten und die Zahl der Minuten gehört in den Term."
+     "s(t) = 60t, denn eine Stunde hat 60 Minuten und die Zahl der Minuten gehört in den Term.",
+     "s(t) = 1,5t, denn in einer Minute legt der Zug 90 : 60 ergibt 1,5 km zurück."
     ],
     "o": {
-     "index": 0
+     "index": 3
     }
    },
    "regel": "id.funktionen.zuordnung",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "s(t) = 90t, denn die Geschwindigkeit ändert sich nicht, wenn man die Zeiteinheit wechselt.",
      "beschreibung": "die Einheit der Zeit übersehen: t zählt jetzt Minuten, nicht Stunden",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "s(t) = 5 400t, denn eine Stunde hat 60 Minuten und 90 · 60 = 5 400.",
      "beschreibung": "mit 60 malgenommen statt durch 60 geteilt",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "s(t) = 60t, denn eine Stunde hat 60 Minuten und die Zahl der Minuten gehört in den Term.",
      "beschreibung": "die Geschwindigkeit 90 durch die Zahl 60 ersetzt",
      "fehlbild": null,
@@ -1849,26 +1845,26 @@
     },
     "w": "Bei einer linearen Funktion ändert sich der Funktionswert bei gleichen Schritten in x immer um dasselbe. Das gilt für den Apfelpreis (je Kilogramm 2 Euro mehr). Die Quadratfläche wächst 3, 5, 7 …, der Ball steigt und fällt, und Kinder wachsen unterschiedlich schnell.",
     "a": [
+     "Der Preis von Äpfeln in Abhängigkeit von der Menge bei 2 Euro je Kilogramm, denn jedes weitere Kilogramm kostet gleich viel.",
      "Die Fläche eines Quadrats in Abhängigkeit von seiner Seitenlänge, denn mit der Seite wächst auch die Fläche.",
      "Die Höhe eines hochgeworfenen Balls in Abhängigkeit von der Zeit, denn die Zeit läuft gleichmäßig weiter.",
-     "Der Preis von Äpfeln in Abhängigkeit von der Menge bei 2 Euro je Kilogramm, denn jedes weitere Kilogramm kostet gleich viel.",
      "Die Körpergröße eines Kindes in Abhängigkeit vom Alter, denn Kinder wachsen jedes Jahr."
     ],
     "o": {
-     "index": 2
+     "index": 0
     }
    },
    "regel": "id.funktionen.zuordnung",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Die Fläche eines Quadrats in Abhängigkeit von seiner Seitenlänge, denn mit der Seite wächst auch die Fläche.",
      "beschreibung": "Wachsen mit gleichmäßigem Wachsen verwechselt: Bei Seite 1, 2, 3 ist die Fläche 1, 4, 9",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Die Höhe eines hochgeworfenen Balls in Abhängigkeit von der Zeit, denn die Zeit läuft gleichmäßig weiter.",
      "beschreibung": "die gleichmäßig laufende Zeit mit einer gleichmäßigen Änderung der Höhe verwechselt: Der Ball steigt und fällt",
      "fehlbild": null,
@@ -1889,53 +1885,57 @@
    "thema": "funktionen.grundbegriffe",
    "lernkarte": "sachzusammenhang",
    "pool": "sicherung",
-   "typ": "transfer",
-   "form": "anwenden",
+   "typ": "darstellung",
+   "form": null,
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M8 1",
-   "abgrenzung": "Die Übungen rechnen mit einem schon gegebenen Term aus einer Sachsituation. Diese Aufgabe: Transfer auf eine neue Situation.",
+   "abgrenzung": "Die Übungen rechnen mit einem schon gegebenen Term aus einer Sachsituation. Diese Aufgabe: Darstellung wechseln.",
    "aufgabe": {
     "l": "sachzusammenhang",
     "t": "sachzusammenhang",
     "p": "sicherung",
     "s": 3,
-    "y": "zahl",
+    "y": "auswahl",
     "f": {
-     "text": "Eine Jahreskarte im Schwimmbad kostet 60 €, danach kostet jeder Besuch 1,50 €. Ohne Karte kostet jeder Besuch 4 €. Ab wie vielen Besuchen im Jahr ist man mit der Jahreskarte echt günstiger?"
+     "text": "Ein Fass enthält am Anfang 120 Liter Wasser. Es läuft gleichmäßig aus, und zwar 15 Liter pro Stunde. Welcher Term gibt den Inhalt I(t) nach t Stunden an, und für welche Zeiten ist er sinnvoll?"
     },
-    "w": "Mit Karte: 60 + 1,5x, ohne Karte: 4x. Gleich bei 60 = 2,5x, also x = 24 (je 96 €). Bei 25 Besuchen: 97,50 € gegen 100 €. Ab 25 Besuchen ist die Karte günstiger.",
+    "w": "Anfangswert 120, Abnahme 15 pro Stunde: I(t) = 120 − 15t. Das Fass ist leer, wenn 120 − 15t = 0, also nach t = 8 Stunden. Danach gäbe es negative Inhalte, also nur 0 ≤ t ≤ 8.",
+    "a": [
+     "I(t) = 120 − 15t, sinnvoll für 0 ≤ t ≤ 15",
+     "I(t) = 15 − 120t, sinnvoll für 0 ≤ t ≤ 8",
+     "I(t) = 120 − 15t, sinnvoll für 0 ≤ t ≤ 8",
+     "I(t) = 120 + 15t, sinnvoll für 0 ≤ t ≤ 8"
+    ],
     "o": {
-     "wert": 25,
-     "einheit": "Besuche"
+     "index": 2
     }
    },
    "regel": "id.funktionen.zuordnung",
-   "loesung_rechnung": "60 : (4 − 1,5) + 1",
    "fehlbilder": [
     {
-     "antwort": 24,
-     "rechnung": "60 : (4 − 1,5)",
-     "beschreibung": "den Gleichstand der Kosten als Antwort angegeben (beide 96 €)",
+     "index": 0,
+     "antwort": "I(t) = 120 − 15t, sinnvoll für 0 ≤ t ≤ 15",
+     "beschreibung": "den Term richtig, aber die Grenze falsch: nach 15 Stunden wäre der Inhalt negativ",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 15,
-     "rechnung": "60 : 4",
-     "beschreibung": "nur die Jahreskarte durch den Einzelpreis geteilt",
+     "index": 1,
+     "antwort": "I(t) = 15 − 120t, sinnvoll für 0 ≤ t ≤ 8",
+     "beschreibung": "Anfangswert und Änderung vertauscht",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     },
     {
-     "antwort": 40,
-     "rechnung": "60 : 1,5",
-     "beschreibung": "die Jahreskarte durch den Preis mit Karte geteilt",
+     "index": 3,
+     "antwort": "I(t) = 120 + 15t, sinnvoll für 0 ≤ t ≤ 8",
+     "beschreibung": "die Abnahme als Zunahme gelesen",
      "fehlbild": null,
      "regel_des_fehlbilds": null
     }
    ],
-   "idee": "groessenvergleich|zwei Tarife vergleichen"
+   "idee": "darstellung|Fass: Term und sinnvoller Bereich"
   }
  ]
 }

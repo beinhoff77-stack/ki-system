@@ -77,7 +77,7 @@ neu(T, "diskriminante", "umkehren", Z(
     "Für welchen positiven Wert von k hat die Gleichung 3x² + kx + 27 = 0 genau eine Lösung?",
     18, "18", 18, "Genau eine Lösung gibt es, wenn die Diskriminante k² − 4 · 3 · 27 gleich null ist.",
     "D = k² − 4 · 3 · 27 = k² − 324. D = 0 gilt für k² = 324, also k = 18 (oder −18). Der positive Wert ist 18. Dann ist 3x² + 18x + 27 = 3(x + 3)² = 0 mit der einzigen Lösung −3.",
-    [B("324", "k² = 324 nicht zurückgerechnet"), B("27 / 3", "c durch a geteilt"), B("27 * 2", "mit 2 statt mit 4a malgenommen")]), g="parameter", ohne="Diskriminante null (genau eine Lösung): keine Regel des Katalogs trägt genau diesen Schritt")
+    [B("324", "k² = 324 nicht zurückgerechnet"), B("27 / 3", "c durch a geteilt"), B("27 * 2", "mit 2 statt mit 4a malgenommen (k² = 54) und die Wurzel weggelassen")]), g="parameter", ohne="Diskriminante null (genau eine Lösung): keine Regel des Katalogs trägt genau diesen Schritt")
 neu(T, "diskriminante", "verfahren_waehlen", W(
     "Wie viele gemeinsame Punkte hat die Parabel y = 2x² + 3x + 5 mit der x-Achse?",
     "keinen", [("zwei", "−4ac mit Plus gerechnet: 9 + 40 = 49 sieht nach zwei Schnittpunkten aus"), ("genau einen", "die Diskriminante ist nicht null")],

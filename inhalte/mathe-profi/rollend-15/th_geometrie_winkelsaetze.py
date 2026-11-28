@@ -25,12 +25,12 @@ neu(T, "stufen_wechsel", "fehler_detektiv", FD(
      ("Der Winkel δ ist der Scheitelwinkel von γ, also gilt δ = 68°.", True, True)],
     "Nebenwinkel liegen nebeneinander an einer Geraden. Wie groß ist die Summe zweier Nebenwinkel?",
     "Nebenwinkel ergeben zusammen 180°, also γ = 180° − 68° = 112°. Der Fehler steckt in Zeile 2. Zeile 3 ist richtig weitergerechnet: Scheitelwinkel sind gleich groß, δ = γ. Mit dem richtigen γ wäre δ = 112°.",
-    rueck={2: "Diese Zeile ist für sich richtig: Scheitelwinkel sind gleich groß. Der Fehler steckt schon in Zeile 2, deshalb stimmt auch δ nicht."}), g="fehler", regel=R)
+    rueck={2: "Die Beziehung δ = γ (Scheitelwinkel) ist richtig. Falsch ist nur der Wert 68°, weil schon γ in Zeile 2 falsch war."}), g="fehler", regel=R)
 # ───────── parallel_pruefen ─────────
 neu(T, "parallel_pruefen", "anwenden", W(
     "Zwei Wanderwege werden von einem Querweg geschnitten. Kim misst zwei Stufenwinkel: 78° und 82°. Was folgt daraus?",
     "Die Wege sind nicht parallel, denn Stufenwinkel an Parallelen müssten gleich groß sein.",
-    [("Die Wege sind parallel, denn 78° und 82° liegen nur 4° auseinander.", "ein kleiner Unterschied reicht nicht, Stufenwinkel müssen genau gleich sein"), ("Die Wege sind parallel, denn 78° + 82° = 160° liegt nahe bei 180°.", "die Summe geprüft, die nur bei Nebenwinkeln wichtig ist"),
+    [("Die Wege sind parallel, denn 78° und 82° liegen nur 4° auseinander.", "ein kleiner Unterschied reicht nicht, Stufenwinkel müssen genau gleich sein"), ("Die Wege sind parallel, denn 78° + 82° = 160° liegt nahe bei 180°.", "die Summe geprüft; für dieses Stufenwinkelpaar prüfst du aber Gleichheit, nicht die Summe"),
      ("Man kann nichts sagen, weil nur zwei Winkel gemessen wurden.", "zwei gemessene Stufenwinkel reichen für die Prüfung")],
     "Prüfe: Müssen gleich liegende Stufenwinkel bei parallelen Geraden gleich groß sein?",
     "Bei parallelen Geraden sind Stufenwinkel gleich groß. Hier ist 78° ≠ 82°. Deshalb sind die beiden Wege nicht parallel.",

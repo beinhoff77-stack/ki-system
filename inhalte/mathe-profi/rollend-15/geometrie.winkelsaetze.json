@@ -198,7 +198,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Diese Zeile ist für sich richtig: Scheitelwinkel sind gleich groß. Der Fehler steckt schon in Zeile 2, deshalb stimmt auch δ nicht."
+     "beschreibung": "Die Beziehung δ = γ (Scheitelwinkel) ist richtig. Falsch ist nur der Wert 68°, weil schon γ in Zeile 2 falsch war."
     }
    ],
    "aufgabe": {
@@ -247,7 +247,7 @@
      "antwort": "Die Wege sind parallel, denn 78° + 82° = 160° liegt nahe bei 180°.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Summe geprüft, die nur bei Nebenwinkeln wichtig ist"
+     "beschreibung": "die Summe geprüft; für dieses Stufenwinkelpaar prüfst du aber Gleichheit, nicht die Summe"
     },
     {
      "index": 3,

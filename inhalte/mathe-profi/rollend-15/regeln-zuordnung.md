@@ -66,15 +66,15 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V193 | stochastik.verknuepft.elemente | Mengen und Mengenoperationen zählen (Elemente, Schnitt, Vereinigung): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V194 | stochastik.verknuepft.schnitt | Mengen und Mengenoperationen zählen (Elemente, Schnitt, Vereinigung): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V195 | stochastik.verknuepft.verknuepfen | Mengen und Mengenoperationen zählen (Elemente, Schnitt, Vereinigung): keine Regel des Katalogs trägt den Lösungsweg |
-| R15-V196 | stochastik.verknuepft.additionssatz | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V196 | stochastik.verknuepft.verknuepfen | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V197 | stochastik.verknuepft.additionssatz | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
-| R15-V198 | stochastik.verknuepft.venn | Mengen und Mengenoperationen zählen (Elemente, Schnitt, Vereinigung): keine Regel des Katalogs trägt den Lösungsweg |
-| R15-V199 | stochastik.verknuepft.mengen_verstehen | Mengen und Mengenoperationen zählen (Elemente, Schnitt, Vereinigung): keine Regel des Katalogs trägt den Lösungsweg |
-| R15-V200 | stochastik.verknuepft.vierfeld | Vierfeldertafel ausfüllen (Zeilen- und Spaltensummen): keine Regel des Katalogs trägt den Lösungsweg |
-| R15-V201 | stochastik.verknuepft.vierfeld | Vierfeldertafel ausfüllen (Zeilen- und Spaltensummen): keine Regel des Katalogs trägt den Lösungsweg |
-| R15-V203 | stochastik.verknuepft.bedingt | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
-| R15-V204 | stochastik.verknuepft.bedingt | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
-| R15-V205 | stochastik.verknuepft.rueckschluss | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V198 | stochastik.verknuepft.additionssatz | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V199 | stochastik.verknuepft.additionssatz | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V200 | stochastik.verknuepft.venn | Mengen und Mengenoperationen zählen (Elemente, Schnitt, Vereinigung): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V201 | stochastik.verknuepft.venn | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V202 | stochastik.verknuepft.mengen_verstehen | Mengen und Mengenoperationen zählen (Elemente, Schnitt, Vereinigung): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V203 | stochastik.verknuepft.vierfeld | Vierfeldertafel ausfüllen (Zeilen- und Spaltensummen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V204 | stochastik.verknuepft.vierfeld | Vierfeldertafel ausfüllen (Zeilen- und Spaltensummen): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V206 | stochastik.verknuepft.verstehen | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V207 | stochastik.verknuepft.verstehen | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
 
@@ -113,7 +113,7 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V186 | trigo.rechtwinklig.winkel | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig nennt, dass Sinus, Kosinus und Tangens Seiten und Winkel verbinden, die konkreten Verhältnisformeln (sin α = Gegenkathete : Hypotenuse usw.) stehen nicht im Katalogtext; die Aufgabe stützt sich darauf |
 | R15-V189 | trigo.rechtwinklig.anwendung | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig nennt, dass Sinus, Kosinus und Tangens Seiten und Winkel verbinden, die konkreten Verhältnisformeln (sin α = Gegenkathete : Hypotenuse usw.) stehen nicht im Katalogtext; die Aufgabe stützt sich darauf |
 | R15-V190 | trigo.rechtwinklig.anwendung | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig nennt, dass Sinus, Kosinus und Tangens Seiten und Winkel verbinden, die konkreten Verhältnisformeln (sin α = Gegenkathete : Hypotenuse usw.) stehen nicht im Katalogtext; die Aufgabe stützt sich darauf |
-| R15-V202 | stochastik.verknuepft.tafel_wkeit | `id.daten.anteil` | Vierfeldertafel mit Wahrscheinlichkeiten: id.daten.anteil trägt die Deutung als Anteil, das Ausfüllen der Tafel hat keine eigene Regel |
+| R15-V205 | stochastik.verknuepft.tafel_wkeit | `id.daten.anteil` | Vierfeldertafel mit Wahrscheinlichkeiten: id.daten.anteil trägt die Deutung als Anteil, das Ausfüllen der Tafel hat keine eigene Regel |
 
 ## Alle Aufgaben
 
@@ -314,15 +314,15 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V193 | stochastik.verknuepft.elemente | – |
 | R15-V194 | stochastik.verknuepft.schnitt | – |
 | R15-V195 | stochastik.verknuepft.verknuepfen | – |
-| R15-V196 | stochastik.verknuepft.additionssatz | – |
+| R15-V196 | stochastik.verknuepft.verknuepfen | – |
 | R15-V197 | stochastik.verknuepft.additionssatz | – |
-| R15-V198 | stochastik.verknuepft.venn | – |
-| R15-V199 | stochastik.verknuepft.mengen_verstehen | – |
-| R15-V200 | stochastik.verknuepft.vierfeld | – |
-| R15-V201 | stochastik.verknuepft.vierfeld | – |
-| R15-V202 | stochastik.verknuepft.tafel_wkeit | `id.daten.anteil` |
-| R15-V203 | stochastik.verknuepft.bedingt | – |
-| R15-V204 | stochastik.verknuepft.bedingt | – |
-| R15-V205 | stochastik.verknuepft.rueckschluss | – |
+| R15-V198 | stochastik.verknuepft.additionssatz | – |
+| R15-V199 | stochastik.verknuepft.additionssatz | – |
+| R15-V200 | stochastik.verknuepft.venn | – |
+| R15-V201 | stochastik.verknuepft.venn | – |
+| R15-V202 | stochastik.verknuepft.mengen_verstehen | – |
+| R15-V203 | stochastik.verknuepft.vierfeld | – |
+| R15-V204 | stochastik.verknuepft.vierfeld | – |
+| R15-V205 | stochastik.verknuepft.tafel_wkeit | `id.daten.anteil` |
 | R15-V206 | stochastik.verknuepft.verstehen | – |
 | R15-V207 | stochastik.verknuepft.verstehen | – |

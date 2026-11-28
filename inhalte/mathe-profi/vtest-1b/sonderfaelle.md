@@ -15,8 +15,7 @@ Kurzvermerk je Aufgabe mit Antwortform auswahl: Platz der richtigen Möglichkeit
 | VT1B-029 | gleichungen.bruch / ueber_kreuz | korrektur | 4 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
 | VT1B-030 | gleichungen.bruch / ueber_kreuz | sicherung | 1 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
 | VT1B-031 | gleichungen.bruch / ueber_kreuz | sicherung | 3 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-032 | gleichungen.bruch / scheinloesung | test | 4 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
-| VT1B-035 | gleichungen.bruch / scheinloesung | sicherung | 2 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
+| VT1B-036 | gleichungen.bruch / scheinloesung | sicherung | 2 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
 | VT1B-040 | gleichungen.bruch / verhaeltnis | sicherung | 1 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
 | VT1B-046 | terme.potenzgesetze / negativer_exponent | sicherung | 2 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |
 | VT1B-047 | terme.potenzgesetze / negativer_exponent | sicherung | 1 | keine; Ablenker sind echte Fehlvorstellungen, in den Fehlbildern beschrieben. |

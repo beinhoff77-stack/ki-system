@@ -35,6 +35,54 @@ def nullstellen_q(*nenner_ausdruecke, nenner=range(1, 7), bis=20):
     return sorted({x for x in kand for a in nenner_ausdruecke if eval(a, {"F": F}, {"x": x}) == 0})
 
 
+def _a_fuer_alle_pq():
+    """a, für das 10/(x − p) = a/(x + q) und 15/(x − p) = 9/(x + q) für alle geprüften Paare p, q dieselbe Lösung haben."""
+    paare = [(p, q) for p in range(-4, 5) for q in range(-4, 5) if p != -q]
+    def loes(z1, z2, p, q):          # z1/(x − p) = z2/(x + q) über Kreuz: z1(x + q) − z2(x − p) = 0, linear
+        f = lambda x: z1 * (x + q) - z2 * (x - p)
+        f0, f1 = f(F(0)), f(F(1))
+        return None if f1 == f0 else -f0 / (f1 - f0)
+    gute = [a for a in range(-30, 31) if all(loes(10, a, p, q) == loes(15, 9, p, q) for p, q in paare)]
+    return gute[0] if len(gute) == 1 else None
+
+
+def _hoechstens_eine():
+    """Für alle a, b, c, d aus −4 … 4 mit a ≠ b, c ≠ d, b ≠ d hat (x + a)/(x + b) = (x + c)/(x + d) höchstens eine Lösung; beide Fälle 0 und 1 kommen vor."""
+    gesehen = set()
+    for a in range(-4, 5):
+        for b in range(-4, 5):
+            for c in range(-4, 5):
+                for d in range(-4, 5):
+                    if a == b or c == d or b == d:
+                        continue
+                    k, m = a + d - b - c, a * d - b * c            # über Kreuz: k · x + m = 0
+                    if k == 0:
+                        n = 0 if m != 0 else None
+                    else:
+                        x = F(-m, k)
+                        n = 0 if x in (-b, -d) else 1
+                    if n is None:
+                        return False
+                    gesehen.add(n)
+    return gesehen == {0, 1}
+
+
+def _aequivalent_fuer_alle_c():
+    """Richtige Möglichkeit von „aequivalent_mit_bedingung“: für jedes c gleiche Lösungsmenge; jede falsche scheitert an mindestens einem c."""
+    def aussage(c, verboten):
+        x = F(c - 2, 5)
+        return [] if x in verboten else [x]
+    ok_r = ok_f = True
+    falsch = {(): False, (0,): False, (2, 0): False}
+    for c in range(-12, 13):
+        L = loesungen_q("F(4)/(x+2) + F(1)/x", f"F({c})/(x*x+2*x)")
+        ok_r = ok_r and aussage(c, (-2, 0)) == L
+        for v in falsch:
+            if aussage(c, v) != L:
+                falsch[v] = True
+    return ok_r and all(falsch.values())
+
+
 REGEL[(T, "definitionsmenge")] = REGEL[(T, "scheinloesung")] = "id.algebra.erlaubte_zahlen"
 REGEL[(T, "ueber_kreuz")] = "rr.waage"
 REGEL[(T, "verhaeltnis")] = "rr.verhaeltnis"
@@ -46,17 +94,16 @@ ABG[(T, "verhaeltnis")] = "Die Übungen lösen eine Verhältnisgleichung; hier w
 # Test: Umformungen verändern D (Lösung geht beim Addieren eines Bruchs verloren, beim Malnehmen fällt eine Einschränkung weg)
 _L_LEA = ("F(6)/(x-2) + F(1)/x", "F(3)/(x-1) + F(1)/x")
 neu(T, "definitionsmenge", "test", "transfer", L(
-    "Die Gleichung 6/(x − 2) = 3/(x − 1) hat in der Grundmenge ℚ die Lösung x = 0. Lea addiert auf beiden Seiten den Bruch 1/x und erhält Gleichung (L). "
-    "Tom multipliziert beide Seiten der Ausgangsgleichung mit (x − 2) und erhält Gleichung (T). Wie viele Lösungen hat Gleichung (L), und wie viele Zahlen schließt die Definitionsmenge von Gleichung (T) aus?",
-    "Gleichung (L): □ Lösungen; Gleichung (T): □ ausgeschlossene Zahlen", [0, 1], ["1 - 1", "2 - 1"],
-    [len(loesungen_q(*_L_LEA)), len(nullstellen_q("x-1"))],
-    "Die Ausgangsgleichung hat D = ℚ \\ {1; 2}, und 0 ist ihre Lösung: 6/(−2) = −3 und 3/(−1) = −3. Lea addiert 1/x. Dadurch steht der Nenner x in der Gleichung, und die Zahl 0 ist in (L) verboten. "
-    "Für jede andere Zahl sagt (L) dasselbe wie die Ausgangsgleichung, deren einzige Lösung aber gerade 0 war. (L) hat also keine Lösung: Durch das Addieren ist die Lösung verloren gegangen. "
-    "Tom erhält 6 = 3(x − 2)/(x − 1). Dort steht nur noch der Nenner x − 1; die Definitionsmenge von (T) schließt nur die Zahl 1 aus, die 2 ist plötzlich erlaubt. "
-    "Umformungen können also die Definitionsmenge verkleinern oder vergrößern. Darum bestimmt man D an der Ausgangsgleichung und prüft am Ende gegen dieses D.",
-    {0: [(1, "geglaubt, das Addieren desselben Bruchs auf beiden Seiten ändere die Lösungsmenge nie; die Lösung 0 ist in (L) aber verboten", "1")],
-     1: [(2, "geglaubt, das Malnehmen ändere die Definitionsmenge nicht, und weiter 1 und 2 ausgeschlossen", "1 + 1"),
-         (0, "geglaubt, nach dem Malnehmen stehe gar kein Nenner mehr da", "1 - 1")]}),
+    "Die Gleichung 6/(x − 2) = 3/(x − 1) hat in der Grundmenge ℚ die Lösung x = 0. Lea addiert auf beiden Seiten den Bruch 1/x und erhält die Gleichung "
+    "6/(x − 2) + 1/x = 3/(x − 1) + 1/x. Wie viele Lösungen hat Leas Gleichung, und wie viele Zahlen schließt ihre Definitionsmenge aus?",
+    "Leas Gleichung: □ Lösungen; ausgeschlossen: □ Zahlen", [0, 3], ["1 - 1", "2 + 1"],
+    [len(loesungen_q(*_L_LEA)), len(nullstellen_q("x-2", "x", "x-1"))],
+    "Die Ausgangsgleichung hat D = ℚ \\ {1; 2}, und 0 ist ihre einzige Lösung: 6(x − 1) = 3(x − 2) gibt 3x = 0. Lea addiert 1/x. Dadurch steht der Nenner x in der Gleichung, "
+    "und ihre Definitionsmenge schließt 0, 1 und 2 aus, also 3 Zahlen. Für jede andere Zahl sagt Leas Gleichung dasselbe wie die Ausgangsgleichung, deren einzige Lösung aber gerade 0 war. "
+    "Leas Gleichung hat also keine Lösung: Durch das Addieren ist die Lösung verloren gegangen. Darum bestimmt man D an der Ausgangsgleichung, und eine Umformung, die einen neuen Nenner bringt, ist keine Äquivalenzumformung.",
+    {0: [(1, "geglaubt, das Addieren desselben Bruchs auf beiden Seiten ändere die Lösungsmenge nie; die Lösung 0 ist in Leas Gleichung aber verboten", "1")],
+     1: [(2, "nur die Nenner der Ausgangsgleichung beachtet; der neue Nenner x verbietet auch die 0", "3 - 1"),
+         (1, "geglaubt, die beiden Brüche 1/x höben sich auf und es bleibe nur der Nenner x", "3 - 2")]}),
     lp=LP, idee="umformung_aendert_D")
 # Korrektur 1: unverändert aus der vorigen Fassung (ohne A-/B-Befund)
 neu(T, "definitionsmenge", "korrektur", "umkehr", Z(
@@ -69,7 +116,7 @@ neu(T, "definitionsmenge", "korrektur", "umkehr", Z(
 # Korrektur 2: Sachsituation selbst aufstellen; algebraischer Ausschluss gegen sachlich sinnvollen Bereich
 neu(T, "definitionsmenge", "korrektur", "einkleidung", L(
     "Zwei Rechtecke sind gleich lang. Das erste hat den Flächeninhalt 36 cm² und ist x cm breit. Das zweite hat den Flächeninhalt 24 cm² und ist 3 cm schmaler als das erste. "
-    "Stelle eine Bruchgleichung für x auf. Wie viele Zahlen schließt ihre Definitionsmenge aus, welche Zahl muss x für die Sachaufgabe übertreffen, und wie breit ist das erste Rechteck?",
+    "Stelle eine Bruchgleichung für x auf. Wie viele Zahlen schließt ihre Definitionsmenge aus, wie groß muss x für die Sachaufgabe mindestens sein (x größer als welche Zahl), und wie breit ist das erste Rechteck?",
     "ausgeschlossen: □ Zahlen; sinnvoll nur für x > □; Breite x = □ cm", [2, 3, 9], ["1 + 1", "3", "108 / 12"],
     [len(nullstellen_q("x", "x-3")), min(x for x in range(-10, 10) if x > 0 and x - 3 >= 0), next(x for x in loesungen("F(36)/x", "F(24)/(x-3)") if x > 3)],
     "Das erste Rechteck ist x cm breit und 36/x cm lang, das zweite ist (x − 3) cm breit und 24/(x − 3) cm lang. Gleich lang heißt: 36/x = 24/(x − 3). "
@@ -107,22 +154,23 @@ def _b_ganz():
     return r
 
 
-neu(T, "definitionsmenge", "sicherung", "umkehr", L(
-    "In der Grundmenge ℤ (ganze Zahlen) betrachtet man die Gleichung 5/(2x + 3) + 1/(x² − bx) = 2 mit einer Zahl b. Ihre Definitionsmenge schließt genau zwei ganze Zahlen aus, eine davon ist 6. "
-    "Welche Zahl ist b, und welche ganze Zahl ist außer 6 ausgeschlossen?",
-    "b = □; außerdem ausgeschlossen: □", [6, 0], ["6", "0"], [_b_ganz()[0][0], _b_ganz()[0][1]] if len(_b_ganz()) == 1 else [None, None],
-    "Der Nenner 2x + 3 ist nur für x = −1,5 null; diese Zahl liegt nicht in ℤ und wird darum gar nicht ausgeschlossen. Die beiden ganzen Zahlen kommen also vom Nenner x² − bx = x(x − b): Er ist null für x = 0 und für x = b. "
-    "Soll 6 ausgeschlossen sein, muss b = 6 sein; die zweite ausgeschlossene Zahl ist 0. In der Grundmenge ℚ wären es drei Zahlen (−1,5; 0; 6). Die Definitionsmenge ist immer die Grundmenge ohne die Zahlen, für die ein Nenner 0 wird.",
-    {0: [(-6, "aus x − b = 0 bei x = 6 mit falschem Vorzeichen auf b = −6 geschlossen", "-6"),
-         (36, "6 für x in x² eingesetzt und b = 6 · 6 genommen", "6 * 6")],
-     1: [(-3, "aus 2x + 3 = 0 fälschlich x = −3 gemacht und diese Zahl genommen", "-3"),
-         (3, "die Zahl 3 aus dem Nenner 2x + 3 als ausgeschlossene Zahl genommen", "3")]}),
-    lp=LP, idee="grundmenge_Z_rueckwaerts")
+neu(T, "definitionsmenge", "sicherung", "darstellung", L(
+    "Ein Term wird so beschrieben: 5 geteilt durch die Summe aus dem Doppelten einer Zahl und 3, vermehrt um 1 geteilt durch das Produkt aus der Zahl und der um 6 verminderten Zahl. "
+    "Für wie viele Zahlen ist dieser Term nicht definiert, wenn die Grundmenge ℤ (die ganzen Zahlen) ist, und für wie viele, wenn die Grundmenge ℚ ist?",
+    "Grundmenge ℤ: □ Zahlen; Grundmenge ℚ: □ Zahlen", [2, 3], ["3 - 1", "2 + 1"],
+    [len([z for z in nullstellen_q("2*x+3", "x*(x-6)") if z.denominator == 1]), len(nullstellen_q("2*x+3", "x*(x-6)"))],
+    "Der Term ist 5/(2x + 3) + 1/(x² − 6x). Die Nenner werden 0 für 2x + 3 = 0, also x = −1,5, und für x(x − 6) = 0, also x = 0 oder x = 6. "
+    "In der Grundmenge ℚ fallen diese 3 Zahlen weg. In der Grundmenge ℤ kommt −1,5 gar nicht vor; ausgeschlossen werden nur 0 und 6, also 2 Zahlen. "
+    "Die Definitionsmenge ist immer die Grundmenge ohne die Zahlen, für die ein Nenner 0 wird.",
+    {0: [(3, "die Zahl −1,5 auch in der Grundmenge ℤ mitgezählt", "2 + 1"),
+         (1, "beim Produkt aus der Zahl und der um 6 verminderten Zahl nur die 6 gefunden und die 0 vergessen", "2 - 1")],
+     1: [(2, "beim Produkt aus der Zahl und der um 6 verminderten Zahl nur die 6 gefunden und die 0 vergessen", "3 - 1")]}),
+    form="bruecke", lp=LP, idee="grundmenge_Z_text")
 # ───────── ueber_kreuz ─────────
 def _ohne_loesung_a():
-    """Alle ganzen a von −50 bis 50, für die a/(x + 5) = 7/(x − 2) in ℚ keine Lösung hat."""
+    """Alle ganzen a ≠ 0 von −50 bis 50, für die a/(x + 5) = 7/(x − 2) in ℚ keine Lösung hat."""
     r = []
-    for a in range(-50, 51):
+    for a in [a for a in range(-50, 51) if a != 0]:
         # über Kreuz: a(x − 2) = 7(x + 5)  ⇔  (a − 7)x = 2a + 35
         if a == 7:
             r.append(a)          # 0 · x = 49
@@ -136,22 +184,24 @@ def _ohne_loesung_a():
 
 _A_OHNE = _ohne_loesung_a()
 neu(T, "ueber_kreuz", "test", "parameter", L(
-    "In der Gleichung a/(x + 5) = 7/(x − 2) steht a für eine Zahl (Grundmenge ℚ). Für genau zwei Zahlen a hat die Gleichung keine Lösung. Welche sind es? Gib die kleinere zuerst an.",
-    "a = □ und a = □", [0, 7], ["0", "7"], [_A_OHNE[0], _A_OHNE[-1]] if len(_A_OHNE) == 2 else [None, None],
+    "In der Gleichung a/(x + 5) = 7/(x − 2) steht a für eine Zahl ungleich 0 (Grundmenge ℚ). Für welche dieser Zahlen a hat die Gleichung keine Lösung? "
+    "Und welche Lösung hat die Gleichung für a = 14?",
+    "keine Lösung für a = □; für a = 14 ist x = □", [7, 9], ["7", "63 / 7"], [_A_OHNE[0] if len(_A_OHNE) == 1 else None, loesungen_q("F(14)/(x+5)", "F(7)/(x-2)")[0]],
     "Über Kreuz: a(x − 2) = 7(x + 5), also ax − 2a = 7x + 35 und (a − 7)x = 2a + 35. Für a = 7 steht 0 · x = 49 da: keine Lösung, denn zwei Brüche mit gleichem Zähler und verschiedenen Nennern sind nie gleich. "
-    "Für a ≠ 7 ist x = (2a + 35)/(a − 7) der einzige Kandidat. Er ist nie 2 (sonst wäre 2a + 35 = 2a − 14), aber für a = 0 ist er −5 – und −5 ist verboten: eine Scheinlösung. "
-    "Das passt zur Gleichung 0/(x + 5) = 7/(x − 2): Links steht immer 0, rechts nie. Für alle anderen a gibt es genau eine Lösung. Also a = 0 und a = 7.",
+    "Für jedes andere a ≠ 0 ist x = (2a + 35)/(a − 7) die Lösung; sie ist nie 2 (sonst wäre 2a + 35 = 2a − 14) und für a ≠ 0 auch nie −5. "
+    "Für a = 14: 14(x − 2) = 7(x + 5), also 14x − 28 = 7x + 35, 7x = 63 und x = 9. Probe: 14/14 = 1 = 7/7. (Für a = 0 gäbe es übrigens auch keine Lösung: links stünde immer 0, rechts nie.)",
     {0: [(-5, "die verbotene Zahl −5 als Wert für a genommen", "-5"),
-         (-7, "beim Fall „gleiche Zähler“ das Vorzeichen falsch gesetzt", "-7")],
-     1: [(2, "die verbotene Zahl 2 als Wert für a genommen", "2"),
-         (5, "die Zahl 5 aus dem Nenner x + 5 als Wert für a genommen", "5")]}),
+         (2, "die verbotene Zahl 2 als Wert für a genommen", "2")],
+     1: [(-12, "über Kreuz falsch zugeordnet: 14(x + 5) = 7(x − 2)", "-84 / 7"),
+         (1, "die Zahlen 35 und 28 voneinander abgezogen statt addiert, also 7x = 7", "7 / 7")]}),
     lp=LP, idee="parameter_keine_loesung")
 # Korrektur 1: rückwärts – nur das Verhältnis der Zähler zählt
 neu(T, "ueber_kreuz", "korrektur", "umkehr", Z(
-    "Für welche Zahl a hat die Gleichung 10/(x − 3) = a/(x + 2) dieselbe Lösung wie die Gleichung 15/(x − 3) = 9/(x + 2)?",
-    6, "10 * 9 / 15", (lambda x0: 10 * (x0 + 2) / (x0 - 3))(loesungen_q("F(15)/(x-3)", "F(9)/(x+2)")[0]),
-    "Über Kreuz wird aus 15/(x − 3) = 9/(x + 2) die Gleichung 15(x + 2) = 9(x − 3). Teilt man durch 3, steht 5(x + 2) = 3(x − 3) da: Es kommt nur auf das Verhältnis 15 : 9 = 5 : 3 der Zähler an. "
-    "Dieselbe Gleichung entsteht aus 10/(x − 3) = a/(x + 2), wenn 10 : a = 5 : 3 ist, also a = 6. Probe: Beide Gleichungen haben die Lösung x = −9,5 (5 · (−7,5) = −37,5 = 3 · (−12,5)).",
+    "p und q sind beliebige Zahlen mit p ≠ −q. Für welche Zahl a haben die Gleichungen 10/(x − p) = a/(x + q) und 15/(x − p) = 9/(x + q) für jede Wahl von p und q dieselbe Lösung?",
+    6, "10 * 9 / 15", _a_fuer_alle_pq(),
+    "Über Kreuz wird aus 15/(x − p) = 9/(x + q) die Gleichung 15(x + q) = 9(x − p), geteilt durch 3: 5(x + q) = 3(x − p). Es kommt nur auf das Verhältnis 15 : 9 = 5 : 3 der Zähler an, nicht auf p und q. "
+    "Dieselbe Gleichung entsteht aus 10/(x − p) = a/(x + q) genau dann, wenn 10 : a = 5 : 3 ist, also a = 6. Ausrechnen geht hier nicht, weil p und q nicht bekannt sind. "
+    "Probe mit p = 3, q = 2: Beide Gleichungen haben die Lösung x = −9,5.",
     [B("9 - 5", "additiv gedacht: von 15 auf 10 sind es 5 weniger, also auch 9 − 5"),
      B("9", "die Zahl 9 einfach übernommen"),
      B("9 * 15 / 10", "das Verhältnis falsch herum angesetzt: 9 · 15 : 10")]), form="umkehren", lp=LP, idee="zaehlerverhaeltnis_rueckwaerts")
@@ -159,7 +209,7 @@ neu(T, "ueber_kreuz", "korrektur", "umkehr", Z(
 neu(T, "ueber_kreuz", "korrektur", "mehrschritt", W(
     "Ali und Bea lösen 3/(x − 2) = 5/(x + 4). Ali multipliziert über Kreuz. Bea nimmt auf beiden Seiten den Kehrwert, erhält (x − 2)/3 = (x + 4)/5 und multipliziert dann beide Seiten mit 15. Welche Aussage über die beiden Wege stimmt?",
     "Beide Wege sind hier erlaubt und führen auf dieselbe Gleichung ohne Brüche, denn kein Zähler ist 0.",
-    [("Beide Wege sind erlaubt, führen aber auf verschiedene Lösungen, denn Bea rechnet mit den Kehrwerten weiter.",
+    [("Beide Wege sind hier erlaubt, führen aber auf verschiedene Lösungen, denn Bea rechnet mit den Kehrwerten weiter.",
       "geglaubt, mit Kehrwerten ändere sich die Lösung; Bea erhält 5(x − 2) = 3(x + 4), genau wie Ali"),
      ("Nur Alis Weg ist erlaubt, denn den Kehrwert darf man bei einer Gleichung nie auf beiden Seiten nehmen.",
       "das Kehrwertbilden für verboten gehalten; sind beide Seiten nicht 0, haben auch die Kehrwerte gleiche Werte"),
@@ -172,19 +222,18 @@ neu(T, "ueber_kreuz", "korrektur", "mehrschritt", W(
     form="zwei_wege", lp=LP, idee="kehrwert_zwei_wege")
 # Sicherung 1 (Stufe 3): immer – manchmal – nie bei (x + a)/(x + b) = (x + c)/(x + d)
 neu(T, "ueber_kreuz", "sicherung", "begruenden", W(
-    "Gleichungen der Form (x + a)/(x + b) = (x + c)/(x + d) mit Zahlen a, b, c, d und b ≠ d löst man über Kreuz (Grundmenge ℚ). Welche Aussage über solche Gleichungen stimmt?",
-    "Sie können auch keine Lösung haben, denn bei (x + 1)/(x + 2) = (x + 3)/(x + 4) bleibt über Kreuz nur 4 = 6 übrig.",
+    "Gleichungen der Form (x + a)/(x + b) = (x + c)/(x + d) mit Zahlen a, b, c, d, bei denen a ≠ b, c ≠ d und b ≠ d ist, löst man über Kreuz (Grundmenge ℚ). Welche Aussage über solche Gleichungen stimmt?",
+    "Sie haben nie mehr als eine Lösung, denn über Kreuz fällt x² auf beiden Seiten weg und es bleibt eine Gleichung ohne x².",
     [("Sie haben immer genau eine Lösung, denn bei (x + 1)/(x + 2) = (x + 4)/(x + 3) fällt x² weg, und es bleibt x = −2,5.",
-      "aus einem Beispiel mit genau einer Lösung auf „immer“ geschlossen; nach dem Wegfallen von x² kann auch 0 · x = Zahl übrig bleiben"),
-     ("Sie haben immer zwei Lösungen, denn nach dem Über-Kreuz-Multiplizieren steht auf beiden Seiten ein x².",
-      "übersehen, dass x² auf beiden Seiten wegfällt; übrig bleibt eine Gleichung ohne x²"),
-     ("Sie können nur dann eine Lösung haben, wenn a = c ist, denn bei (x + 2)/(x + 1) = (x + 2)/(x + 5) ist x = −2 die Lösung.",
-      "aus einem Beispiel mit a = c eine Bedingung gemacht; (x + 1)/(x + 2) = (x + 4)/(x + 3) hat mit a ≠ c die Lösung −2,5")],
-    "Über Kreuz: (x + a)(x + d) = (x + c)(x + b). Auf beiden Seiten steht x², es fällt weg; übrig bleibt eine Gleichung ohne x². "
-    "Bei (x + 1)/(x + 2) = (x + 3)/(x + 4) wird daraus x² + 5x + 4 = x² + 5x + 6, also 4 = 6: keine Lösung. Bei (x + 1)/(x + 2) = (x + 4)/(x + 3) bleibt −2x = 5, also genau die Lösung −2,5. "
-    "„Immer eine“, „immer zwei“ und „nur bei a = c“ sind damit widerlegt; richtig ist: Solche Gleichungen können auch keine Lösung haben.",
-    lambda: (loesungen_q("(x+1)/(x+2)", "(x+3)/(x+4)") == [] and loesungen_q("(x+1)/(x+2)", "(x+4)/(x+3)") == [F(-5, 2)]
-             and loesungen_q("(x+2)/(x+1)", "(x+2)/(x+5)") == [-2] and all((x + 1) * (x + 4) - (x + 3) * (x + 2) == -2 for x in range(-5, 6))), pos=0),
+      "aus einem Beispiel mit genau einer Lösung auf „immer“ geschlossen; bei (x + 1)/(x + 2) = (x + 3)/(x + 4) bleibt 4 = 6, also keine Lösung"),
+     ("Sie haben nie eine Lösung, denn bei (x + 1)/(x + 2) = (x + 3)/(x + 4) bleibt über Kreuz nur 4 = 6 übrig.",
+      "aus einem Beispiel ohne Lösung auf „nie“ geschlossen; (x + 1)/(x + 2) = (x + 4)/(x + 3) hat die Lösung −2,5"),
+     ("Sie können zwei Lösungen haben, denn vor dem Zusammenfassen steht auf beiden Seiten ein x².",
+      "übersehen, dass x² auf beiden Seiten wegfällt; übrig bleibt eine Gleichung ohne x², die höchstens eine Lösung hat")],
+    "Über Kreuz: (x + a)(x + d) = (x + c)(x + b). Auf beiden Seiten steht x², es fällt weg; übrig bleibt (a + d − b − c) · x = bc − ad, eine Gleichung ohne x². "
+    "Sie hat eine Lösung oder keine; unendlich viele Lösungen gäbe es nur, wenn beide Seiten gleich wären, und das schließen a ≠ b, c ≠ d und b ≠ d aus. "
+    "Bei (x + 1)/(x + 2) = (x + 3)/(x + 4) wird daraus 4 = 6: keine Lösung. Bei (x + 1)/(x + 2) = (x + 4)/(x + 3) bleibt −2x = 5, also x = −2,5. Damit sind „immer genau eine“ und „nie eine“ widerlegt.",
+    lambda: (loesungen_q("(x+1)/(x+2)", "(x+3)/(x+4)") == [] and loesungen_q("(x+1)/(x+2)", "(x+4)/(x+3)") == [F(-5, 2)] and _hoechstens_eine()), pos=0),
     lp=LP, idee="x_quadrat_faellt_weg")
 # Sicherung 2 (Stufe 2): Verfahren wählen (Schema-Aufgabe des Lernziels: Regel „auf jeder Seite genau ein Bruch“)
 neu(T, "ueber_kreuz", "sicherung", "mehrschritt", W(
@@ -199,92 +248,81 @@ neu(T, "ueber_kreuz", "sicherung", "mehrschritt", W(
     form="verfahren_waehlen", lp=LP, idee="wann_direkt_ueber_kreuz")
 # ───────── scheinloesung ─────────
 # Test (Stufe 3): zwei Wege – beim Kürzen fällt die Einschränkung x ≠ 0 weg, 0 wird zur Scheinlösung
-neu(T, "scheinloesung", "test", "begruenden", W(
-    "Tim und Ina lösen die Gleichung (x² + 6x)/(x² − 2x) = −3 (Grundmenge ℚ). Tim kürzt zuerst mit x und erhält (x + 6)/(x − 2) = −3. Dann multipliziert er mit (x − 2), erhält x + 6 = −3x + 6 und daraus x = 0. "
-    "Seine Probe in der gekürzten Gleichung, 6/(−2) = −3, stimmt; er schreibt L = {0}. Ina bestimmt zuerst die Definitionsmenge der Ausgangsgleichung und kommt auf L = { }. An welcher Stelle entsteht Tims Fehler?",
-    "Beim Kürzen, denn danach verbietet seine Gleichung die Zahl 0 nicht mehr, obwohl der Nenner x² − 2x für x = 0 null ist.",
-    [("Beim Multiplizieren mit (x − 2), denn das Multiplizieren mit einem Term ist der Schritt, bei dem Scheinlösungen entstehen.",
-      "eine Faustregel angewandt, ohne sie zu prüfen: x − 2 ist für den Kandidaten 0 gleich −2, dieser Schritt macht hier nichts kaputt"),
-     ("Beim Aufschreiben der Lösungsmenge, denn 0 steht für nichts, also bedeuten L = {0} und L = { } dasselbe.",
-      "die Menge mit der Zahl 0 mit der leeren Menge verwechselt; {0} enthält eine Zahl, { } keine"),
-     ("Beim Ausmultiplizieren, denn −3 · (x − 2) ergibt −3x − 6 und nicht −3x + 6.",
-      "das Vorzeichen beim Ausmultiplizieren falsch nachgerechnet; −3 · (−2) = 6, Tims Zeile stimmt")],
-    "Die Ausgangsgleichung hat den Nenner x² − 2x = x(x − 2); er ist für x = 0 und x = 2 null, also D = ℚ \\ {0; 2}. Kürzt Tim mit x, steht nur noch der Nenner x − 2 da, und seine Gleichung verbietet nur die 2. "
-    "Ab hier rechnet Tim richtig: x + 6 = −3x + 6 gibt 4x = 0, also x = 0, und in der gekürzten Gleichung stimmt die Probe. Die Zahl 0 gehört aber nicht zu D der Ausgangsgleichung: Dort steht für x = 0 der Bruch 0/0, der nicht definiert ist. "
-    "0 ist eine Scheinlösung, sie entsteht durch das Kürzen. Richtig ist L = { }.",
-    lambda: (bruch_gl("(x*x+6*x)/(x*x-2*x)", "F(-3)", 0) is None and bruch_gl("(x+6)/(x-2)", "F(-3)", 0) == (-3, -3)
-             and all(-3 * (x - 2) == -3 * x + 6 for x in range(-5, 6)) and loesungen_q("(x*x+6*x)/(x*x-2*x)", "F(-3)") == []
-             and F(0) - 2 != 0), pos=3),
-    form="zwei_wege", lp=LP, idee="kuerzen_scheinloesung")
+neu(T, "scheinloesung", "test", "transfer", L(
+    "Tim löst die Gleichung (x² + 4x)/(x² − 4x) = −1 (Grundmenge ℚ), indem er zuerst Zähler und Nenner durch x teilt; er erhält (x + 4)/(x − 4) = −1. "
+    "Wie viele Lösungen hat Tims neue Gleichung, wie viele hat die Ausgangsgleichung, und wie viele Zahlen schließt die Definitionsmenge der Ausgangsgleichung aus?",
+    "Tims Gleichung: □ Lösungen; Ausgangsgleichung: □ Lösungen; ausgeschlossen: □ Zahlen", [1, 0, 2], ["1", "1 - 1", "1 + 1"],
+    [len(loesungen_q("(x+4)/(x-4)", "F(-1)")), len(loesungen_q("(x*x+4*x)/(x*x-4*x)", "F(-1)")), len(nullstellen_q("x*x-4*x"))],
+    "Die Ausgangsgleichung hat den Nenner x² − 4x = x(x − 4); er ist für x = 0 und x = 4 null, also schließt D zwei Zahlen aus. Tims Gleichung hat nur noch den Nenner x − 4 und verbietet nur die 4. "
+    "Sie hat eine Lösung: x + 4 = −(x − 4) gibt 2x = 0, also x = 0; Probe 4/(−4) = −1. In der Ausgangsgleichung ist 0 aber verboten, dort stünde 0/0. "
+    "0 ist eine Scheinlösung, entstanden durch das Kürzen, das die Einschränkung x ≠ 0 entfernt. Die Ausgangsgleichung hat keine Lösung.",
+    {0: [(0, "auch in Tims gekürzter Gleichung die 0 für verboten gehalten", "0")],
+     1: [(1, "geglaubt, Kürzen ändere die Lösungsmenge nie, und Tims Lösung 0 übernommen", "1")],
+     2: [(1, "die Definitionsmenge erst nach dem Kürzen bestimmt und nur die 4 ausgeschlossen", "2 - 1")]}),
+    lp=LP, idee="kuerzen_scheinloesung")
 # Korrektur 1: rückwärts – Zahl c so wählen, dass eine vorgegebene Zahl Scheinlösung wird
 def _c_fuer(schein):
-    """c, für das der einzige Kandidat von 3/(x − 2) + 1/x = c/(x² − 2x) nach dem Malnehmen mit x(x − 2) die Zahl schein ist."""
-    for c in range(-50, 51):
-        # 3x + (x − 2) = c  ⇔  4x − 2 = c
-        if F(c + 2, 4) == schein and bruch_gl("F(3)/(x-2) + F(1)/x", f"F({c})/(x*x-2*x)", schein) is None and loesungen_q("F(3)/(x-2) + F(1)/x", f"F({c})/(x*x-2*x)") == []:
+    """c, für das der einzige Kandidat von 7/(x − 4) + 2/x = c/(x² − 4x) nach dem Malnehmen mit x(x − 4) die Zahl schein ist."""
+    for c in range(-80, 81):
+        # 7x + 2(x − 4) = c  ⇔  9x − 8 = c
+        if F(c + 8, 9) == schein and bruch_gl("F(7)/(x-4) + F(2)/x", f"F({c})/(x*x-4*x)", schein) is None and loesungen_q("F(7)/(x-4) + F(2)/x", f"F({c})/(x*x-4*x)") == []:
             return c
 
 
-neu(T, "scheinloesung", "korrektur", "umkehr", L(
-    "In der Gleichung 3/(x − 2) + 1/x = c/(x² − 2x) steht c für eine Zahl (Grundmenge ℚ). Für welche Zahl c ist 2 eine Scheinlösung der Gleichung, und für welche Zahl c ist 0 eine Scheinlösung?",
-    "2 ist Scheinlösung für c = □; 0 ist Scheinlösung für c = □", [6, -2], ["4 * 2 - 2", "4 * 0 - 2"], [_c_fuer(2), _c_fuer(0)],
-    "Der Hauptnenner ist x² − 2x = x(x − 2); verboten sind 0 und 2. Malnehmen mit x(x − 2) gibt 3x + (x − 2) = c, also 4x − 2 = c. Der einzige Kandidat ist x = (c + 2)/4. "
-    "Soll er 2 sein, muss c = 4 · 2 − 2 = 6 sein; soll er 0 sein, muss c = 4 · 0 − 2 = −2 sein. In beiden Fällen ist der Kandidat verboten, die Gleichung hat dann keine Lösung. "
-    "Probe für c = 6: 4x − 2 = 6 gibt x = 2, und für x = 2 ist der Nenner x − 2 null.",
-    {0: [(7, "beim Malnehmen den Bruch 1/x nur mit x statt mit x(x − 2) malgenommen: 3 · 2 + 1", "3 * 2 + 1"),
-         (10, "das Minuszeichen bei (x − 2) übersehen: 4 · 2 + 2", "4 * 2 + 2")],
-     1: [(1, "beim Malnehmen den Bruch 1/x nur mit x statt mit x(x − 2) malgenommen: 3 · 0 + 1", "3 * 0 + 1"),
-         (2, "das Minuszeichen bei (x − 2) übersehen: 4 · 0 + 2", "4 * 0 + 2")]}),
+neu(T, "scheinloesung", "korrektur", "umkehr", Z(
+    "In der Gleichung 7/(x − 4) + 2/x = c/(x² − 4x) steht c für eine Zahl (Grundmenge ℚ). Für welche Zahl c ist 4 eine Scheinlösung der Gleichung?",
+    28, "9 * 4 - 8", _c_fuer(4),
+    "Der Hauptnenner ist x² − 4x = x(x − 4); verboten sind 0 und 4. Malnehmen mit x(x − 4) gibt 7x + 2(x − 4) = c, also 9x − 8 = c. Soll der Kandidat 4 sein, muss c = 9 · 4 − 8 = 28 sein. "
+    "Für c = 28 liefert die Rechnung x = 4, und für x = 4 ist der Nenner x − 4 null: Die Gleichung hat keine Lösung, 4 ist eine Scheinlösung.",
+    [B("7 * 4 + 2", "beim Malnehmen den Bruch 2/x nur mit x statt mit x(x − 4) malgenommen: 7 · 4 + 2"),
+     B("9 * 4 + 8", "das Minuszeichen bei (x − 4) übersehen: 9 · 4 + 8")]),
     form="umkehren", lp=LP, idee="scheinloesung_konstruieren")
 # Korrektur 2: Zahlenrätsel mit Scheinlösung (Schema-Aufgabe des Lernziels: D, Malnehmen, Kandidat prüfen)
 neu(T, "scheinloesung", "korrektur", "einkleidung", Z(
-    "Ali denkt sich eine Zahl. Er teilt 8 durch die um 4 verminderte Zahl und addiert 3. Dasselbe Ergebnis erhält er, wenn er die um 4 vergrößerte Zahl durch die um 4 verminderte Zahl teilt. "
-    "Wie viele Zahlen kann Ali sich gedacht haben?",
-    0, "4 - 4", len(loesungen_q("F(8)/(x-4) + 3", "(x+4)/(x-4)")),
-    "Mit der gedachten Zahl x gilt 8/(x − 4) + 3 = (x + 4)/(x − 4). Die Zahl 4 ist verboten. Malnehmen mit (x − 4) gibt 8 + 3(x − 4) = x + 4, also 3x − 4 = x + 4 und x = 4. "
-    "Der einzige Kandidat ist ausgerechnet die verbotene Zahl, eine Scheinlösung. Für jede andere Zahl ist die linke Seite um 2 größer als die rechte. Ali kann sich also keine Zahl gedacht haben.",
-    [B("1", "den Kandidaten 4 als gedachte Zahl gezählt, ohne ihn zu prüfen"),
-     B("4", "die Zahl 4 aus der Rechnung statt der Anzahl angegeben")], einheit="Zahlen"), form="bruecke", lp=LP, idee="raetsel_scheinloesung")
+    "Ali denkt sich eine Zahl. Er teilt 2 durch die um 2 verminderte Zahl und 3 durch die um 3 vergrößerte Zahl und addiert die beiden Ergebnisse. "
+    "Heraus kommt dasselbe, wie wenn er 10 durch das Produkt aus der um 2 verminderten und der um 3 vergrößerten Zahl teilt. Wie viele Zahlen kann Ali sich gedacht haben?",
+    0, "1 - 1", len(loesungen_q("F(2)/(x-2) + F(3)/(x+3)", "F(10)/((x-2)*(x+3))")),
+    "Mit der gedachten Zahl x gilt 2/(x − 2) + 3/(x + 3) = 10/(x² + x − 6) (denn (x − 2)(x + 3) = x² + x − 6); verboten sind 2 und −3. Malnehmen mit (x − 2)(x + 3) gibt 2(x + 3) + 3(x − 2) = 10, also 5x = 10 und x = 2. "
+    "Der einzige Kandidat ist ausgerechnet eine verbotene Zahl, eine Scheinlösung. Ali kann sich also keine Zahl gedacht haben.",
+    [B("1", "den Kandidaten 2 als gedachte Zahl gezählt, ohne ihn zu prüfen"),
+     B("2", "die Zahl 2 aus der Rechnung statt der Anzahl angegeben")], einheit="Zahlen"), form="bruecke", lp=LP, idee="raetsel_scheinloesung")
 # Sicherung 1 (Stufe 3): welche Regel über Scheinlösungen ist durch die Beispiele gedeckt?
-neu(T, "scheinloesung", "sicherung", "begruenden", W(
-    "Vier Kinder haben je eine Bruchgleichung mit dem Hauptnenner multipliziert und aus ihrem Beispiel eine Regel über Scheinlösungen abgeleitet. Alle Rechnungen in den Beispielen stimmen. Welche Regel ist richtig?",
-    "Scheinlösungen können vorkommen: Bei (2x − 1)/(x − 4) = 7/(x − 4) − 1 liefert das Multiplizieren x = 4, und 4 ist verboten.",
-    [("Scheinlösungen kommen nie vor: Bei 8/(x − 1) = 2/(x − 1) + 3 liefert das Multiplizieren x = 3, und 3 ist erlaubt.",
-      "aus einem Beispiel ohne Scheinlösung auf „nie“ geschlossen; das Beispiel mit x = 4 widerlegt die Regel"),
-     ("Scheinlösungen kommen immer vor: Bei (x + 2)/(x − 5) = 7/(x − 5) liefert das Multiplizieren x = 5, und 5 ist verboten.",
-      "aus einem Beispiel mit Scheinlösung auf „immer“ geschlossen; bei 8/(x − 1) = 2/(x − 1) + 3 ist der Kandidat 3 erlaubt"),
-     ("Scheinlösungen können nur bei negativen Kandidaten vorkommen: Bei (x + 6)/(x + 3) = 3/(x + 3) liefert das Multiplizieren x = −3, und −3 ist verboten.",
-      "eine Eigenschaft des einen Beispiels (negativ) zur Regel gemacht; die Scheinlösung 4 ist positiv")],
-    "Ein einzelnes Beispiel kann eine Regel mit „immer“ oder „nie“ nicht beweisen, aber ein Gegenbeispiel kann sie widerlegen. Die Beispiele mit x = 4, x = 5 und x = −3 zeigen: Scheinlösungen kommen vor, also ist „nie“ falsch. "
-    "Das Beispiel mit x = 3 zeigt: Der Kandidat ist nicht immer verboten, also ist „immer“ falsch. Die Scheinlösung 4 ist positiv, also ist „nur bei negativen“ falsch. "
-    "Gedeckt ist nur: Scheinlösungen können vorkommen; darum prüft man jeden Kandidaten gegen D.",
-    lambda: (loesungen_q("(2*x-1)/(x-4)", "F(7)/(x-4) - 1") == [] and all(2 * x - 1 - (7 - (x - 4)) == 3 * x - 12 for x in range(-5, 6))
-             and loesungen("F(8)/(x-1)", "F(2)/(x-1) + 3") == [3] and loesungen_q("(x+2)/(x-5)", "F(7)/(x-5)") == []
-             and loesungen_q("(x+6)/(x+3)", "F(3)/(x+3)") == []), pos=1),
-    lp=LP, idee="regel_aus_beispielen")
+neu(T, "scheinloesung", "sicherung", "fehler", L(
+    "Lena löst 5/(x − 4) + 2/x = (x + 16)/(x² − 4x) so: Zeile 1: Mal x(x − 4): 5x + 2(x − 4) = x + 16. Zeile 2: Also 7x − 8 = x + 16, 6x = 24 und x = 4. "
+    "Zeile 3: Probe in Zeile 1: 5 · 4 + 2 · 0 = 20 und 4 + 16 = 20, das stimmt. Zeile 4: Also L = {4}. In welcher Zeile steckt der erste Fehler, und wie viele Lösungen hat die Gleichung?",
+    "Fehler in Zeile □; Zahl der Lösungen: □", [3, 0], ["3", "1 - 1"], [3, len(loesungen_q("F(5)/(x-4) + F(2)/x", "(x+16)/(x*x-4*x)"))],
+    "Zeile 1 und Zeile 2 sind richtig gerechnet. Der Fehler steckt in Zeile 3: Die Probe gehört in die Ausgangsgleichung, nicht in die Gleichung nach dem Malnehmen. "
+    "Dort ist x = 4 verboten, denn die Nenner x − 4 und x² − 4x sind für x = 4 null. In der umgeformten Gleichung gibt es keine Nenner mehr, deshalb „stimmt“ dort auch die Scheinlösung. "
+    "Die Gleichung hat keine Lösung; Zeile 4 ist nur die Folge.",
+    {0: [(4, "erst die Schlusszeile für falsch gehalten, weil dort L = {4} steht", "4"),
+         (1, "das Malnehmen in Zeile 1 für den Fehler gehalten, obwohl es richtig gerechnet ist", "1")],
+     1: [(1, "der Probe in der umgeformten Gleichung geglaubt", "1")]}),
+    form="fehler_detektiv", lp=LP, idee="probe_am_falschen_ort")
 # Sicherung 2 (Stufe 2): Darstellungswechsel – die beiden Seiten als Graphen; Differenz konstant, kein Schnittpunkt
-neu(T, "scheinloesung", "sicherung", "darstellung", L(
-    "Zu den beiden Seiten der Gleichung (x + 4)/(x − 3) − 2 = 7/(x − 3) zeichnet man die Graphen von f(x) = (x + 4)/(x − 3) − 2 und g(x) = 7/(x − 3). "
-    "Für jede Zahl x ≠ 3 hat die Differenz f(x) − g(x) denselben Wert. Welchen? Und wie viele gemeinsame Punkte haben die beiden Graphen?",
-    "f(x) − g(x) = □; gemeinsame Punkte: □", [-1, 0], ["1 - 2", "0"],
-    [(lambda w: w.pop() if len(w) == 1 else None)({F(x + 4, x - 3) - 2 - F(7, x - 3) for x in range(-20, 21) if x != 3}), len(loesungen_q("(x+4)/(x-3) - 2", "F(7)/(x-3)"))],
-    "f(x) − g(x) = (x + 4 − 7)/(x − 3) − 2 = (x − 3)/(x − 3) − 2 = 1 − 2 = −1 für jedes x ≠ 3. Der Graph von f liegt also überall genau 1 unter dem Graphen von g; sie haben keinen gemeinsamen Punkt. "
-    "Rechnet man die Gleichung mit dem Malnehmen, erhält man x + 4 − 2(x − 3) = 7, also x = 3 – genau die Stelle, an der beide Graphen nicht definiert sind. Das Bild zeigt: 3 ist eine Scheinlösung, L = { }.",
-    {0: [(1, "die Differenz andersherum gebildet, g(x) − f(x)", "1"),
-         (-2, "nur die −2 betrachtet und die beiden Brüche nicht miteinander verrechnet", "-2")],
-     1: [(1, "den Kandidaten x = 3 aus der Rechnung als Schnittpunkt gezählt", "1")]}),
-    lp=LP, idee="graphen_differenz")
+neu(T, "scheinloesung", "sicherung", "darstellung", W(
+    "In der Gleichung 4/(x + 2) + 1/x = c/(x² + 2x) steht c für irgendeine Zahl (Grundmenge ℚ). Welche Aussage ohne Brüche hat für jede Zahl c genau dieselbe Lösungsmenge wie diese Gleichung?",
+    "5x + 2 = c, wobei x ≠ −2 und x ≠ 0 gelten muss",
+    [("5x + 2 = c, wobei keine weitere Bedingung gelten muss",
+      "die Bedingungen weggelassen; für c = 2 hätte 5x + 2 = c die Lösung 0, die Bruchgleichung aber keine"),
+     ("5x + 2 = c, wobei nur x ≠ 0 gelten muss",
+      "nur den Nenner x beachtet; für c = −8 hätte die Aussage die Lösung −2, die Bruchgleichung aber keine"),
+     ("5x + 2 = c, wobei x ≠ 2 und x ≠ 0 gelten muss",
+      "bei x + 2 = 0 das Vorzeichen falsch genommen; für c = −8 wäre −2 erlaubt, ist aber verboten")],
+    "Der Hauptnenner ist x² + 2x = x(x + 2); verboten sind −2 und 0. Malnehmen gibt 4x + (x + 2) = c, also 5x + 2 = c. Diese Gleichung allein ist nicht gleichwertig: "
+    "Für c = 2 liefert sie x = 0, für c = −8 liefert sie x = −2, beides verbotene Zahlen. Gleichwertig für jedes c ist nur „5x + 2 = c, wobei x ≠ −2 und x ≠ 0“: Die Bedingungen aus D gehören zur umgeformten Gleichung dazu.",
+    lambda: _aequivalent_fuer_alle_c(), pos=1),
+    lp=LP, idee="aequivalent_mit_bedingung")
 # ───────── verhaeltnis ─────────
 # Test (Stufe 3): Mischung aus zwei Mischungen – Verhältnisse kann man nicht addieren, man muss auf die Mengen zurückgehen
 neu(T, "verhaeltnis", "test", "transfer", Z(
-    "Mischung A enthält Saft und Wasser im Verhältnis 1 : 1, Mischung B im Verhältnis 1 : 4. Zu 200 ml von Mischung A gießt man so viel von Mischung B, "
+    "Mischung A enthält Saft und Wasser im Verhältnis 1 : 1, Mischung B im Verhältnis 1 : 3. Zu 200 ml von Mischung A gießt man so viel von Mischung B, "
     "dass in der neuen Mischung Saft und Wasser im Verhältnis 1 : 2 stehen. Wie viele Milliliter von Mischung B braucht man?",
-    250, "100 * 5 / 2", next(x for x in range(0, 2001) if F(100 + F(x, 5)) / (100 + F(4 * x, 5)) == F(1, 2)),
-    "In 200 ml von A sind 100 ml Saft und 100 ml Wasser. Von x ml der Mischung B ist ein Fünftel Saft und vier Fünftel Wasser (1 + 4 = 5 Teile). Gesucht ist x mit (100 + x/5) : (100 + 4x/5) = 1 : 2. "
-    "Über Kreuz: 2 · (100 + x/5) = 100 + 4x/5, also 200 + 2x/5 = 100 + 4x/5, 100 = 2x/5 und x = 250. Probe: Saft 100 + 50 = 150 ml, Wasser 100 + 200 = 300 ml, 150 : 300 = 1 : 2. "
+    400, "100 * 4", next(x for x in range(0, 4001) if F(100 + F(x, 4)) / (100 + F(3 * x, 4)) == F(1, 2)),
+    "In 200 ml von A sind 100 ml Saft und 100 ml Wasser. Von x ml der Mischung B ist ein Viertel Saft und drei Viertel Wasser (1 + 3 = 4 Teile). Gesucht ist x mit (100 + x/4) : (100 + 3x/4) = 1 : 2. "
+    "Über Kreuz: 2 · (100 + x/4) = 100 + 3x/4, also 200 + x/2 = 100 + 3x/4, 100 = x/4 und x = 400. Probe: Saft 100 + 100 = 200 ml, Wasser 100 + 300 = 400 ml, 200 : 400 = 1 : 2. "
     "Die Verhältniszahlen der beiden Mischungen darf man nicht einfach addieren; man rechnet mit den Mengen von Saft und Wasser.",
-    [B("100 * 4", "das Verhältnis von Mischung B so gelesen, als sei ein Viertel davon Saft, und damit gerechnet"),
-     B("100 * 5 / 4", "den Saft in Mischung B vergessen und nur verlangt, dass mit B weitere 100 ml Wasser dazukommen")], einheit="ml"),
+    [B("200", "die Verhältniszahlen der beiden Mischungen einfach addiert (aus eins zu eins und eins zu drei wird zwei zu vier) und darum gleich viel von B genommen wie von A"),
+     B("200 * 8", "Mischung A so gelesen, als bestehe sie ganz aus Saft, und damit gerechnet")], einheit="ml"),
     lp=LP, idee="mischung_aus_mischungen")
 # Korrektur 1: Modellwahl – additiv (Alter) oder multiplikativ (Rezept)
 neu(T, "verhaeltnis", "korrektur", "einkleidung", L(
@@ -321,12 +359,13 @@ neu(T, "verhaeltnis", "sicherung", "begruenden", W(
     lp=LP, idee="umgekehrtes_verhaeltnis")
 # Sicherung 2: unverändert aus der vorigen Fassung (Schema-Aufgabe des Lernziels, siehe korrektur-nach-vorpruefung-w1.md)
 neu(T, "verhaeltnis", "sicherung", "darstellung", Z(
-    "Für zwei Zahlen a und b gilt a : b = 7 : 12. Dann gilt (a + b) : b = □ : 12.",
-    19, "7 + 12", "(7 + 12) * 12 / 12",
-    "Aus a : b = 7 : 12 folgt: Auf 7 Teile von a kommen 12 Teile von b. Zusammen sind a und b dann 7 + 12 = 19 Teile, und b ist 12 Teile. Also gilt (a + b) : b = 19 : 12. Probe mit a = 14 und b = 24: (14 + 24) : 24 = 38 : 24 = 19 : 12.",
-    [B("7", "den Zähler 7 unverändert gelassen, obwohl a + b statt a steht"),
-     B("12 - 7", "die Differenz der Verhältniszahlen genommen"),
-     B("7 + 12 + 12", "die 12 für b doppelt addiert")], einheit=""), form="bruecke", lp=LP, idee="mittelwert_summe")
+    "Für zwei positive Zahlen a und b gilt a : b = 4 : 5. Um wie viel Prozent ist b größer als a?",
+    25, "(5 - 4) / 4 * 100", next(p for p in range(0, 101) if F(4) * (1 + F(p, 100)) == 5),
+    "Aus a : b = 4 : 5 folgt: a besteht aus 4 Teilen, b aus 5 gleich großen Teilen. b ist um 1 Teil größer, und 1 Teil ist ein Viertel von a, also 25 % von a. "
+    "Probe mit a = 40 und b = 50: 50 ist um 10 größer als 40, und 10 sind 25 % von 40. Umgekehrt ist a um 20 % kleiner als b: Der Prozentsatz hängt davon ab, worauf man sich bezieht.",
+    [B("(5 - 4) / 5 * 100", "auf b statt auf a bezogen: 1 Teil von 5 Teilen"),
+     B("5 - 4", "den Unterschied der Verhältniszahlen als Prozentsatz genommen"),
+     B("4 / 5 * 100", "den Anteil 4 von 5 als Prozentsatz genommen")], einheit="%"), form="bruecke", lp=LP, idee="verhaeltnis_zu_prozent")
 # ───────── Vorrat für eine Folgerunde (unverändert aus der vorigen Fassung, Plätze der richtigen Möglichkeit festgeschrieben) ─────────
 neu(T, "definitionsmenge", "korrektur", "darstellung", W(
     "Welche Menge ist die Definitionsmenge der Gleichung 4/(x² − 16) + 1/x = 2?",
@@ -385,6 +424,16 @@ neu(T, "verhaeltnis", "sicherung", "fehler", L(
     "Fehler in Zeile □, richtig: x = □", [2, 12], ["2", "4 * 18 / 6"], ["1 + 1", "72 / 6"],
     "Außenglieder mal Außenglieder = Innenglieder mal Innenglieder. Zeile 1 stimmt: Außenglieder 4 und 18, Innenglieder x und 6. Also gilt 4 · 18 = x · 6, das heißt 72 = 6x und x = 12 (Zeile 2 ist der Fehler: Lena kreuzt x mit 4). Probe: 4 : 12 = 1 : 3 = 6 : 18.",
     {0: [(3, "die Schlusszeile genannt, weil dort der falsche Wert 27 steht", "3"), (1, "die Zuordnung der Außenglieder in Zeile 1 für falsch gehalten", "1")], 1: [(27, "wie Lena x mit 4 gekreuzt: 6 · 18 : 4", "6 * 18 / 4"), (20, "additiv gerechnet: 6 + 18 − 4", "6 + 18 - 4"), (108, "nur 6 · 18 gerechnet und nicht geteilt", "6 * 18")]}), form="fehler_detektiv", lp=LP, idee="fehler_aussen_innen")
+# A7 (Vorprüfung W1-2), nur für diese Einheit: Absolutwörter dürfen nicht nur in falschen Möglichkeiten stehen,
+# und die richtige Möglichkeit darf nicht stets die einzige ohne Absolutwort sein.
+import re as _re
+_ABS = _re.compile(r"\b(immer|nie|niemals|stets|jede[rsnm]?|alle[rsnm]?|gar nicht|keine?r?|kein|einzige[rn]?|nur)\b", _re.I)
+_aw20 = [a_ for a_ in A if a_["thema"] == T and a_["aufgabe"]["y"] == "auswahl" and a_["idee"] not in ("menge_zuordnen", "gleichung_zur_loesung", "warum_ueber_kreuz", "kandidaten_gegen_D", "anteil_aus_verhaeltnis")]
+_richtig_abs = [a_["idee"] for a_ in _aw20 if _ABS.search(a_["aufgabe"]["a"][a_["aufgabe"]["o"]["index"]])]
+_nur_richtig_ohne = [a_["idee"] for a_ in _aw20 if not _ABS.search(a_["aufgabe"]["a"][a_["aufgabe"]["o"]["index"]])
+                     and all(_ABS.search(o_) for i_, o_ in enumerate(a_["aufgabe"]["a"]) if i_ != a_["aufgabe"]["o"]["index"])]
+assert _richtig_abs, "Einheit 20: keine richtige Auswahl-Möglichkeit mit Absolutwort"
+assert len(_nur_richtig_ohne) <= 1, ("Einheit 20: richtige Möglichkeit mehrfach als einzige ohne Absolutwort", _nur_richtig_ohne)
 # Platzfolge der folgenden Einheiten unverändert lassen: die vorige Fassung dieser Datei hat 10 Werte aus POSITION4 verbraucht.
 for _ in range(10):
     next(POSITION4)

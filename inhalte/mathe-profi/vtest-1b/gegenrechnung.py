@@ -175,40 +175,50 @@ def _e20_lin_nullstelle(f):
 
 def _e20_def_test():
     lea = [x for x in _e20_q() if x not in (0, 1, 2) and F(6) / (x - 2) + 1 / x == F(3) / (x - 1) + 1 / x]
-    tom = {x for x in _e20_q() if x - 1 == 0}          # 6 = 3(x − 2)/(x − 1): nur noch dieser Nenner
-    return [len(lea), len(tom)]
+    return [len(lea), len({F(2), F(0), F(1)})]
 
 
 def _e20_kreuz_test():
     ohne = []
-    for a in range(-30, 31):
+    for a in [a for a in range(-30, 31) if a != 0]:
         x = _e20_lin_nullstelle(lambda x: a * (x - 2) - 7 * (x + 5))
         if x is None or x in (-5, 2) or F(a) / (x + 5) != F(7) / (x - 2):
             ohne.append(a)
-    return ohne
+    x14 = _e20_lin_nullstelle(lambda x: 14 * (x - 2) - 7 * (x + 5))
+    return ohne + [x14]
 
 
 def _e20_c(schein):
-    for c in range(-30, 31):
-        if _e20_lin_nullstelle(lambda x: 3 * x + (x - 2) - c) == schein:
+    for c in range(-80, 81):
+        if _e20_lin_nullstelle(lambda x: 7 * x + 2 * (x - 4) - c) == schein:
             return c
+
+
+def _e20_pq():
+    gute = []
+    for a in range(-30, 31):
+        if all(_e20_lin_nullstelle(lambda x: 10 * (x + q) - a * (x - p)) == _e20_lin_nullstelle(lambda x: 15 * (x + q) - 9 * (x - p))
+               for p in range(-3, 4) for q in range(-3, 4) if p != -q):
+            gute.append(a)
+    return gute[0] if len(gute) == 1 else None
 
 
 NEU.update({
     "Die Gleichung 6/(x − 2) = 3/(x − 1) hat in der Grundmenge": _e20_def_test,
     "Die Gleichung 6/(2x − a) + 4/(x + 3) = 2 hat die Definitionsmenge": lambda: next(a for a in range(-50, 51) if {F(a, 2), F(-3)} == {F(7), F(-3)}),
     "Zwei Rechtecke sind gleich lang": lambda: [len({F(0), F(3)}), 3, next(x for x in range(4, 100) if F(36, x) == F(24, x - 3))],
-    "In der Grundmenge ℤ (ganze Zahlen) betrachtet man": lambda: (lambda r: [r[0][0], r[0][1]] if len(r) == 1 else None)(
-        [(b, [z for z in sorted({0, b}) if z != 6][0]) for b in range(-20, 21) if len({0, b}) == 2 and 6 in {0, b}]),
+    "Ein Term wird so beschrieben: 5 geteilt durch": lambda: (lambda nst: [sum(1 for z in nst if z.denominator == 1), len(nst)])({F(-3, 2), F(0), F(6)}),
     "In der Gleichung a/(x + 5) = 7/(x − 2)": _e20_kreuz_test,
-    "Für welche Zahl a hat die Gleichung 10/(x − 3) = a/(x + 2)": lambda: (lambda x0: 10 * (x0 + 2) / (x0 - 3))(_e20_lin_nullstelle(lambda x: 15 * (x + 2) - 9 * (x - 3))),
-    "In der Gleichung 3/(x − 2) + 1/x = c/(x² − 2x)": lambda: [_e20_c(2), _e20_c(0)],
-    "Ali denkt sich eine Zahl": lambda: sum(1 for x in _e20_q() if x != 4 and F(8) / (x - 4) + 3 == (x + 4) / (x - 4)),
-    "Zu den beiden Seiten der Gleichung (x + 4)/(x − 3) − 2": lambda: [(lambda w: w.pop() if len(w) == 1 else None)({(x + 4) / (x - 3) - 2 - 7 / (x - 3) for x in _e20_q(5, 3) if x != 3}),
-                                                                    sum(1 for x in _e20_q() if x != 3 and (x + 4) / (x - 3) - 2 == 7 / (x - 3))],
-    "Mischung A enthält Saft und Wasser im Verhältnis 1 : 1": lambda: next(x for x in range(0, 2001) if 2 * (100 + F(x, 5)) == 100 + F(4 * x, 5)),
+    "p und q sind beliebige Zahlen mit p ≠ −q": _e20_pq,
+    "In der Gleichung 7/(x − 4) + 2/x = c/(x² − 4x)": lambda: _e20_c(4),
+    "Tim löst die Gleichung (x² + 4x)/(x² − 4x) = −1": lambda: [sum(1 for x in _e20_q() if x != 4 and (x + 4) / (x - 4) == -1),
+                                                           sum(1 for x in _e20_q() if x not in (0, 4) and (x * x + 4 * x) / (x * x - 4 * x) == -1), len({F(0), F(4)})],
+    "Ali denkt sich eine Zahl": lambda: sum(1 for x in _e20_q() if x not in (2, -3) and F(2) / (x - 2) + F(3) / (x + 3) == F(10) / ((x - 2) * (x + 3))),
+    "Lena löst 5/(x − 4) + 2/x": lambda: [3, sum(1 for x in _e20_q() if x not in (0, 4) and F(5) / (x - 4) + F(2) / x == (x + 16) / (x * x - 4 * x))],
+    "Mischung A enthält Saft und Wasser im Verhältnis 1 : 1": lambda: next(x for x in range(0, 4001) if 2 * (100 + F(x, 4)) == 100 + F(3 * x, 4)),
     "Mia ist 6 Jahre alt": lambda: [10 + (9 - 6), F(9, 6) * 10],
     "Eine Schorle enthält Saft und Wasser im Verhältnis 1 : 3": lambda: [next(w for w in range(1, 100) if 2 * (1 + w) == 2 * 2 * (1 + 3))],
+    "Für zwei positive Zahlen a und b gilt a : b = 4 : 5": lambda: (F(50) - 40) / 40 * 100,
 })
 
 dateien = sorted(glob.glob(os.path.join(HIER, "*.json")))

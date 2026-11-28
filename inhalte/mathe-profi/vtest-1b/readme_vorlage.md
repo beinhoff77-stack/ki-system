@@ -49,9 +49,9 @@ Gruppiert nach der Einsicht, nicht nach der `idee`-Beschriftung. „Schema-nah�
 | bruch.prozent / prozentwert | 6 | Darstellungswechsel Winkel und Bruch (003, 007) | 004, 007 |
 | bruch.prozent / grundwert | 6 | Grundwert direkt und 1 % (009, 014) | 010, 014 |
 | bruch.prozent / verstehen | 6 | verschiedene Ganze (018, 020) | 016, 021 |
-| gleichungen.bruch / definitionsmenge | 5 | – (Stand nach Vorprüfung W1, siehe `korrektur-nach-vorpruefung-w1.md`) | keine sicher; Grenzfälle 022, 026 |
+| gleichungen.bruch / definitionsmenge | 5 | – (Stand nach Vorprüfung W1-2, siehe `korrektur-nach-vorpruefung-w1-2.md`) | 026 (Grenzfall) |
 | gleichungen.bruch / ueber_kreuz | 5 | – | 031 |
-| gleichungen.bruch / scheinloesung | 5 | – | 034 (Grenzfall 036) |
+| gleichungen.bruch / scheinloesung | 5 | – | 034 |
 | gleichungen.bruch / verhaeltnis | 5 | – | 041 |
 | terme.potenzgesetze / negativer_exponent | 5 | Vergleich mit Grenze (050, 053); Exponent aus Wert (051, 055) | 052, 055 |
 | terme.potenzgesetze / fehler_finden | 6 | Rechenregeln auf Summen (057, 060) | 058 |
@@ -85,7 +85,7 @@ Herleitungs-, Zerlegungs- oder Ergänzungsaufgaben je Lernziel (Handzählung): d
 - Lehrplanzuordnung: Die Lernbereiche stammen aus `inhalte/themenliste.json` (M6 1, M6 2, M6 3, M8 4). Ob negative Exponenten und wissenschaftliche Schreibweise im Gymnasium der Jahrgangsstufe 6 genau so im Lernbereich M6 1 stehen, ist am Repo nicht zu belegen und sollte geprüft werden.
 - `regel` ist je Lernziel gesetzt (`regeln-zuordnung.md`); `fehlbild` und `regel_des_fehlbilds` sind leer, weil die Katalogzuordnung nicht sicher ist.
 - Lehrplan, geklärt durch die Vorprüfung 2 (Quelle: LehrplanPLUS Gymnasium Jgst. 6 Mathematik, https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/6/mathematik): Prozentpunkte stehen in M6 3 (Klasse 6), nicht erst in Klasse 7; die Annahme „liegt im Vorrat, weil Klasse 7“ war falsch. Negative Exponenten in Jgst. 6 nur als Brüche mit Zähler 1 und als Zehnerpotenzen (M6 1.4); Trapez und Herleitung durch Zerlegen und Ergänzen stehen in M6 2.1. Folge in dieser Fassung: keine Bruchbasis und keine negative Basis bei negativen Exponenten mehr (053, 058, 059, 061 geändert).
-- Lehrplan, weiter offen (nicht geraten): (1) wissenschaftliche Schreibweise und die Vorsilben nano und mikro (zahlen.potenzen_zehner) sind am Lehrplantext der Jgst. 6 nicht belegt; (2) Gleichungen mit Parameter (gleichungen.bruch 026, 027, 028, 033; Stand nach Vorprüfung W1) und die Prozentrechnung in Flächenaufgaben (113, 114, 117) sind am Lehrplan nicht belegt; Parameterfragen („Für welche Zahl c …“) gibt es im Bestand (`gleichungen.potenz`, `gleichungen.reinquadratisch`, `rollend-7`), dort aber nicht in Jgst. 6. Bitte in der Gegenprüfung gegen den Lehrplantext der Etappe prüfen.
+- Lehrplan, weiter offen (nicht geraten): (1) wissenschaftliche Schreibweise und die Vorsilben nano und mikro (zahlen.potenzen_zehner) sind am Lehrplantext der Jgst. 6 nicht belegt; (2) Gleichungen mit Parameter (gleichungen.bruch 027, 028, 033, 036; Stand nach Vorprüfung W1-2) und die Prozentrechnung in Flächenaufgaben (113, 114, 117) sind am Lehrplan nicht belegt; Parameterfragen („Für welche Zahl c …“) gibt es im Bestand (`gleichungen.potenz`, `gleichungen.reinquadratisch`, `rollend-7`), dort aber nicht in Jgst. 6. Bitte in der Gegenprüfung gegen den Lehrplantext der Etappe prüfen.
 - Doppelungsprüfung gegen den Bestand: werkzeuggestützt (Kern, mit und ohne Maskierung der Zahlen), je Lernziel mit Stichprobe von Hand; `bestandsvergleich.md` nennt die Grenzen.
 - Die Aufgabenanzahl mit „Schema-nahem Rechnen“ (höchstens zwei je Lernziel) ist von Hand eingeschätzt.
 - Mehrdeutigkeit: In den Koordinaten- und Maßaufgaben ist jede Seite und jeder Winkel ausdrücklich genannt; bei Aufgaben zu „Höhe liegt außen“ ist die Lage der Spitze im Text angegeben.

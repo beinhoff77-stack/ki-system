@@ -28,7 +28,7 @@
    "antwortform": "luecken",
    "loesung_rechnung": [
     "1 - 1",
-    "2 - 1"
+    "2 + 1"
    ],
    "fehlbilder": [
     {
@@ -37,23 +37,23 @@
      "rechnung": "1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "geglaubt, das Addieren desselben Bruchs auf beiden Seiten ändere die Lösungsmenge nie; die Lösung 0 ist in (L) aber verboten"
+     "beschreibung": "geglaubt, das Addieren desselben Bruchs auf beiden Seiten ändere die Lösungsmenge nie; die Lösung 0 ist in Leas Gleichung aber verboten"
     },
     {
      "luecke": 2,
      "antwort": 2,
-     "rechnung": "1 + 1",
+     "rechnung": "3 - 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "geglaubt, das Malnehmen ändere die Definitionsmenge nicht, und weiter 1 und 2 ausgeschlossen"
+     "beschreibung": "nur die Nenner der Ausgangsgleichung beachtet; der neue Nenner x verbietet auch die 0"
     },
     {
      "luecke": 2,
-     "antwort": 0,
-     "rechnung": "1 - 1",
+     "antwort": 1,
+     "rechnung": "3 - 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "geglaubt, nach dem Malnehmen stehe gar kein Nenner mehr da"
+     "beschreibung": "geglaubt, die beiden Brüche 1/x höben sich auf und es bleibe nur der Nenner x"
     }
    ],
    "regel": "id.algebra.erlaubte_zahlen",
@@ -66,21 +66,21 @@
     "g": "transfer",
     "y": "luecken",
     "f": {
-     "text": "Die Gleichung 6/(x − 2) = 3/(x − 1) hat in der Grundmenge ℚ die Lösung x = 0. Lea addiert auf beiden Seiten den Bruch 1/x und erhält Gleichung (L). Tom multipliziert beide Seiten der Ausgangsgleichung mit (x − 2) und erhält Gleichung (T). Wie viele Lösungen hat Gleichung (L), und wie viele Zahlen schließt die Definitionsmenge von Gleichung (T) aus?",
-     "schablone": "Gleichung (L): □ Lösungen; Gleichung (T): □ ausgeschlossene Zahlen",
+     "text": "Die Gleichung 6/(x − 2) = 3/(x − 1) hat in der Grundmenge ℚ die Lösung x = 0. Lea addiert auf beiden Seiten den Bruch 1/x und erhält die Gleichung 6/(x − 2) + 1/x = 3/(x − 1) + 1/x. Wie viele Lösungen hat Leas Gleichung, und wie viele Zahlen schließt ihre Definitionsmenge aus?",
+     "schablone": "Leas Gleichung: □ Lösungen; ausgeschlossen: □ Zahlen",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       0,
-      1
+      3
      ]
     },
     "c": [
      "1 - 1",
-     "2 - 1"
+     "2 + 1"
     ],
-    "w": "Die Ausgangsgleichung hat D = ℚ \\ {1; 2}, und 0 ist ihre Lösung: 6/(−2) = −3 und 3/(−1) = −3. Lea addiert 1/x. Dadurch steht der Nenner x in der Gleichung, und die Zahl 0 ist in (L) verboten. Für jede andere Zahl sagt (L) dasselbe wie die Ausgangsgleichung, deren einzige Lösung aber gerade 0 war. (L) hat also keine Lösung: Durch das Addieren ist die Lösung verloren gegangen. Tom erhält 6 = 3(x − 2)/(x − 1). Dort steht nur noch der Nenner x − 1; die Definitionsmenge von (T) schließt nur die Zahl 1 aus, die 2 ist plötzlich erlaubt. Umformungen können also die Definitionsmenge verkleinern oder vergrößern. Darum bestimmt man D an der Ausgangsgleichung und prüft am Ende gegen dieses D."
+    "w": "Die Ausgangsgleichung hat D = ℚ \\ {1; 2}, und 0 ist ihre einzige Lösung: 6(x − 1) = 3(x − 2) gibt 3x = 0. Lea addiert 1/x. Dadurch steht der Nenner x in der Gleichung, und ihre Definitionsmenge schließt 0, 1 und 2 aus, also 3 Zahlen. Für jede andere Zahl sagt Leas Gleichung dasselbe wie die Ausgangsgleichung, deren einzige Lösung aber gerade 0 war. Leas Gleichung hat also keine Lösung: Durch das Addieren ist die Lösung verloren gegangen. Darum bestimmt man D an der Ausgangsgleichung, und eine Umformung, die einen neuen Nenner bringt, ist keine Äquivalenzumformung."
    }
   },
   {
@@ -199,7 +199,7 @@
     "g": "einkleidung",
     "y": "luecken",
     "f": {
-     "text": "Zwei Rechtecke sind gleich lang. Das erste hat den Flächeninhalt 36 cm² und ist x cm breit. Das zweite hat den Flächeninhalt 24 cm² und ist 3 cm schmaler als das erste. Stelle eine Bruchgleichung für x auf. Wie viele Zahlen schließt ihre Definitionsmenge aus, welche Zahl muss x für die Sachaufgabe übertreffen, und wie breit ist das erste Rechteck?",
+     "text": "Zwei Rechtecke sind gleich lang. Das erste hat den Flächeninhalt 36 cm² und ist x cm breit. Das zweite hat den Flächeninhalt 24 cm² und ist 3 cm schmaler als das erste. Stelle eine Bruchgleichung für x auf. Wie viele Zahlen schließt ihre Definitionsmenge aus, wie groß muss x für die Sachaufgabe mindestens sein (x größer als welche Zahl), und wie breit ist das erste Rechteck?",
      "schablone": "ausgeschlossen: □ Zahlen; sinnvoll nur für x > □; Breite x = □ cm",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -283,50 +283,42 @@
    "thema": "gleichungen.bruch",
    "lernkarte": "definitionsmenge",
    "pool": "sicherung",
-   "typ": "umkehr",
-   "form": null,
+   "typ": "darstellung",
+   "form": "bruecke",
    "stufe": 2,
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen bestimmen D an einer gegebenen Gleichung; hier wird untersucht, wie Umformungen D verändern, wie D von der Lösungsmenge und von der Grundmenge abhängt und wie sich D von den sachlich sinnvollen Werten unterscheidet.",
-   "idee": "grundmenge_Z_rueckwaerts",
+   "idee": "grundmenge_Z_text",
    "antwortform": "luecken",
    "loesung_rechnung": [
-    "6",
-    "0"
+    "3 - 1",
+    "2 + 1"
    ],
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": -6,
-     "rechnung": "-6",
+     "antwort": 3,
+     "rechnung": "2 + 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "aus x − b = 0 bei x = 6 mit falschem Vorzeichen auf b = −6 geschlossen"
+     "beschreibung": "die Zahl −1,5 auch in der Grundmenge ℤ mitgezählt"
     },
     {
      "luecke": 1,
-     "antwort": 36,
-     "rechnung": "6 * 6",
+     "antwort": 1,
+     "rechnung": "2 - 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "6 für x in x² eingesetzt und b = 6 · 6 genommen"
+     "beschreibung": "beim Produkt aus der Zahl und der um 6 verminderten Zahl nur die 6 gefunden und die 0 vergessen"
     },
     {
      "luecke": 2,
-     "antwort": -3,
-     "rechnung": "-3",
+     "antwort": 2,
+     "rechnung": "3 - 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "aus 2x + 3 = 0 fälschlich x = −3 gemacht und diese Zahl genommen"
-    },
-    {
-     "luecke": 2,
-     "antwort": 3,
-     "rechnung": "3",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl 3 aus dem Nenner 2x + 3 als ausgeschlossene Zahl genommen"
+     "beschreibung": "beim Produkt aus der Zahl und der um 6 verminderten Zahl nur die 6 gefunden und die 0 vergessen"
     }
    ],
    "regel": "id.algebra.erlaubte_zahlen",
@@ -335,24 +327,24 @@
     "t": "definitionsmenge",
     "p": "sicherung",
     "s": 2,
-    "g": "umkehr",
+    "g": "darstellung",
     "y": "luecken",
     "f": {
-     "text": "In der Grundmenge ℤ (ganze Zahlen) betrachtet man die Gleichung 5/(2x + 3) + 1/(x² − bx) = 2 mit einer Zahl b. Ihre Definitionsmenge schließt genau zwei ganze Zahlen aus, eine davon ist 6. Welche Zahl ist b, und welche ganze Zahl ist außer 6 ausgeschlossen?",
-     "schablone": "b = □; außerdem ausgeschlossen: □",
+     "text": "Ein Term wird so beschrieben: 5 geteilt durch die Summe aus dem Doppelten einer Zahl und 3, vermehrt um 1 geteilt durch das Produkt aus der Zahl und der um 6 verminderten Zahl. Für wie viele Zahlen ist dieser Term nicht definiert, wenn die Grundmenge ℤ (die ganzen Zahlen) ist, und für wie viele, wenn die Grundmenge ℚ ist?",
+     "schablone": "Grundmenge ℤ: □ Zahlen; Grundmenge ℚ: □ Zahlen",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      6,
-      0
+      2,
+      3
      ]
     },
     "c": [
-     "6",
-     "0"
+     "3 - 1",
+     "2 + 1"
     ],
-    "w": "Der Nenner 2x + 3 ist nur für x = −1,5 null; diese Zahl liegt nicht in ℤ und wird darum gar nicht ausgeschlossen. Die beiden ganzen Zahlen kommen also vom Nenner x² − bx = x(x − b): Er ist null für x = 0 und für x = b. Soll 6 ausgeschlossen sein, muss b = 6 sein; die zweite ausgeschlossene Zahl ist 0. In der Grundmenge ℚ wären es drei Zahlen (−1,5; 0; 6). Die Definitionsmenge ist immer die Grundmenge ohne die Zahlen, für die ein Nenner 0 wird."
+    "w": "Der Term ist 5/(2x + 3) + 1/(x² − 6x). Die Nenner werden 0 für 2x + 3 = 0, also x = −1,5, und für x(x − 6) = 0, also x = 0 oder x = 6. In der Grundmenge ℚ fallen diese 3 Zahlen weg. In der Grundmenge ℤ kommt −1,5 gar nicht vor; ausgeschlossen werden nur 0 und 6, also 2 Zahlen. Die Definitionsmenge ist immer die Grundmenge ohne die Zahlen, für die ein Nenner 0 wird."
    }
   },
   {
@@ -369,8 +361,8 @@
    "idee": "parameter_keine_loesung",
    "antwortform": "luecken",
    "loesung_rechnung": [
-    "0",
-    "7"
+    "7",
+    "63 / 7"
    ],
    "fehlbilder": [
     {
@@ -383,14 +375,6 @@
     },
     {
      "luecke": 1,
-     "antwort": -7,
-     "rechnung": "-7",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "beim Fall „gleiche Zähler“ das Vorzeichen falsch gesetzt"
-    },
-    {
-     "luecke": 2,
      "antwort": 2,
      "rechnung": "2",
      "fehlbild": null,
@@ -399,11 +383,19 @@
     },
     {
      "luecke": 2,
-     "antwort": 5,
-     "rechnung": "5",
+     "antwort": -12,
+     "rechnung": "-84 / 7",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl 5 aus dem Nenner x + 5 als Wert für a genommen"
+     "beschreibung": "über Kreuz falsch zugeordnet: 14(x + 5) = 7(x − 2)"
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "7 / 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen 35 und 28 voneinander abgezogen statt addiert, also 7x = 7"
     }
    ],
    "regel": "rr.waage",
@@ -416,21 +408,21 @@
     "g": "parameter",
     "y": "luecken",
     "f": {
-     "text": "In der Gleichung a/(x + 5) = 7/(x − 2) steht a für eine Zahl (Grundmenge ℚ). Für genau zwei Zahlen a hat die Gleichung keine Lösung. Welche sind es? Gib die kleinere zuerst an.",
-     "schablone": "a = □ und a = □",
+     "text": "In der Gleichung a/(x + 5) = 7/(x − 2) steht a für eine Zahl ungleich 0 (Grundmenge ℚ). Für welche dieser Zahlen a hat die Gleichung keine Lösung? Und welche Lösung hat die Gleichung für a = 14?",
+     "schablone": "keine Lösung für a = □; für a = 14 ist x = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      0,
-      7
+      7,
+      9
      ]
     },
     "c": [
-     "0",
-     "7"
+     "7",
+     "63 / 7"
     ],
-    "w": "Über Kreuz: a(x − 2) = 7(x + 5), also ax − 2a = 7x + 35 und (a − 7)x = 2a + 35. Für a = 7 steht 0 · x = 49 da: keine Lösung, denn zwei Brüche mit gleichem Zähler und verschiedenen Nennern sind nie gleich. Für a ≠ 7 ist x = (2a + 35)/(a − 7) der einzige Kandidat. Er ist nie 2 (sonst wäre 2a + 35 = 2a − 14), aber für a = 0 ist er −5 – und −5 ist verboten: eine Scheinlösung. Das passt zur Gleichung 0/(x + 5) = 7/(x − 2): Links steht immer 0, rechts nie. Für alle anderen a gibt es genau eine Lösung. Also a = 0 und a = 7."
+    "w": "Über Kreuz: a(x − 2) = 7(x + 5), also ax − 2a = 7x + 35 und (a − 7)x = 2a + 35. Für a = 7 steht 0 · x = 49 da: keine Lösung, denn zwei Brüche mit gleichem Zähler und verschiedenen Nennern sind nie gleich. Für jedes andere a ≠ 0 ist x = (2a + 35)/(a − 7) die Lösung; sie ist nie 2 (sonst wäre 2a + 35 = 2a − 14) und für a ≠ 0 auch nie −5. Für a = 14: 14(x − 2) = 7(x + 5), also 14x − 28 = 7x + 35, 7x = 63 und x = 9. Probe: 14/14 = 1 = 7/7. (Für a = 0 gäbe es übrigens auch keine Lösung: links stünde immer 0, rechts nie.)"
    }
   },
   {
@@ -479,13 +471,13 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Für welche Zahl a hat die Gleichung 10/(x − 3) = a/(x + 2) dieselbe Lösung wie die Gleichung 15/(x − 3) = 9/(x + 2)?"
+     "text": "p und q sind beliebige Zahlen mit p ≠ −q. Für welche Zahl a haben die Gleichungen 10/(x − p) = a/(x + q) und 15/(x − p) = 9/(x + q) für jede Wahl von p und q dieselbe Lösung?"
     },
     "o": {
      "wert": 6
     },
     "c": "10 * 9 / 15",
-    "w": "Über Kreuz wird aus 15/(x − 3) = 9/(x + 2) die Gleichung 15(x + 2) = 9(x − 3). Teilt man durch 3, steht 5(x + 2) = 3(x − 3) da: Es kommt nur auf das Verhältnis 15 : 9 = 5 : 3 der Zähler an. Dieselbe Gleichung entsteht aus 10/(x − 3) = a/(x + 2), wenn 10 : a = 5 : 3 ist, also a = 6. Probe: Beide Gleichungen haben die Lösung x = −9,5 (5 · (−7,5) = −37,5 = 3 · (−12,5))."
+    "w": "Über Kreuz wird aus 15/(x − p) = 9/(x + q) die Gleichung 15(x + q) = 9(x − p), geteilt durch 3: 5(x + q) = 3(x − p). Es kommt nur auf das Verhältnis 15 : 9 = 5 : 3 der Zähler an, nicht auf p und q. Dieselbe Gleichung entsteht aus 10/(x − p) = a/(x + q) genau dann, wenn 10 : a = 5 : 3 ist, also a = 6. Ausrechnen geht hier nicht, weil p und q nicht bekannt sind. Probe mit p = 3, q = 2: Beide Gleichungen haben die Lösung x = −9,5."
    }
   },
   {
@@ -505,7 +497,7 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Beide Wege sind erlaubt, führen aber auf verschiedene Lösungen, denn Bea rechnet mit den Kehrwerten weiter.",
+     "antwort": "Beide Wege sind hier erlaubt, führen aber auf verschiedene Lösungen, denn Bea rechnet mit den Kehrwerten weiter.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "geglaubt, mit Kehrwerten ändere sich die Lösung; Bea erhält 5(x − 2) = 3(x + 4), genau wie Ali"
@@ -537,7 +529,7 @@
      "text": "Ali und Bea lösen 3/(x − 2) = 5/(x + 4). Ali multipliziert über Kreuz. Bea nimmt auf beiden Seiten den Kehrwert, erhält (x − 2)/3 = (x + 4)/5 und multipliziert dann beide Seiten mit 15. Welche Aussage über die beiden Wege stimmt?"
     },
     "a": [
-     "Beide Wege sind erlaubt, führen aber auf verschiedene Lösungen, denn Bea rechnet mit den Kehrwerten weiter.",
+     "Beide Wege sind hier erlaubt, führen aber auf verschiedene Lösungen, denn Bea rechnet mit den Kehrwerten weiter.",
      "Nur Alis Weg ist erlaubt, denn den Kehrwert darf man bei einer Gleichung nie auf beiden Seiten nehmen.",
      "Nur Beas Weg ist erlaubt, denn über Kreuz darf man nur multiplizieren, wenn beide Nenner gleich sind.",
      "Beide Wege sind hier erlaubt und führen auf dieselbe Gleichung ohne Brüche, denn kein Zähler ist 0."
@@ -568,21 +560,21 @@
      "antwort": "Sie haben immer genau eine Lösung, denn bei (x + 1)/(x + 2) = (x + 4)/(x + 3) fällt x² weg, und es bleibt x = −2,5.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "aus einem Beispiel mit genau einer Lösung auf „immer“ geschlossen; nach dem Wegfallen von x² kann auch 0 · x = Zahl übrig bleiben"
+     "beschreibung": "aus einem Beispiel mit genau einer Lösung auf „immer“ geschlossen; bei (x + 1)/(x + 2) = (x + 3)/(x + 4) bleibt 4 = 6, also keine Lösung"
     },
     {
      "index": 2,
-     "antwort": "Sie haben immer zwei Lösungen, denn nach dem Über-Kreuz-Multiplizieren steht auf beiden Seiten ein x².",
+     "antwort": "Sie haben nie eine Lösung, denn bei (x + 1)/(x + 2) = (x + 3)/(x + 4) bleibt über Kreuz nur 4 = 6 übrig.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "übersehen, dass x² auf beiden Seiten wegfällt; übrig bleibt eine Gleichung ohne x²"
+     "beschreibung": "aus einem Beispiel ohne Lösung auf „nie“ geschlossen; (x + 1)/(x + 2) = (x + 4)/(x + 3) hat die Lösung −2,5"
     },
     {
      "index": 3,
-     "antwort": "Sie können nur dann eine Lösung haben, wenn a = c ist, denn bei (x + 2)/(x + 1) = (x + 2)/(x + 5) ist x = −2 die Lösung.",
+     "antwort": "Sie können zwei Lösungen haben, denn vor dem Zusammenfassen steht auf beiden Seiten ein x².",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "aus einem Beispiel mit a = c eine Bedingung gemacht; (x + 1)/(x + 2) = (x + 4)/(x + 3) hat mit a ≠ c die Lösung −2,5"
+     "beschreibung": "übersehen, dass x² auf beiden Seiten wegfällt; übrig bleibt eine Gleichung ohne x², die höchstens eine Lösung hat"
     }
    ],
    "regel": "rr.waage",
@@ -594,18 +586,18 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Gleichungen der Form (x + a)/(x + b) = (x + c)/(x + d) mit Zahlen a, b, c, d und b ≠ d löst man über Kreuz (Grundmenge ℚ). Welche Aussage über solche Gleichungen stimmt?"
+     "text": "Gleichungen der Form (x + a)/(x + b) = (x + c)/(x + d) mit Zahlen a, b, c, d, bei denen a ≠ b, c ≠ d und b ≠ d ist, löst man über Kreuz (Grundmenge ℚ). Welche Aussage über solche Gleichungen stimmt?"
     },
     "a": [
-     "Sie können auch keine Lösung haben, denn bei (x + 1)/(x + 2) = (x + 3)/(x + 4) bleibt über Kreuz nur 4 = 6 übrig.",
+     "Sie haben nie mehr als eine Lösung, denn über Kreuz fällt x² auf beiden Seiten weg und es bleibt eine Gleichung ohne x².",
      "Sie haben immer genau eine Lösung, denn bei (x + 1)/(x + 2) = (x + 4)/(x + 3) fällt x² weg, und es bleibt x = −2,5.",
-     "Sie haben immer zwei Lösungen, denn nach dem Über-Kreuz-Multiplizieren steht auf beiden Seiten ein x².",
-     "Sie können nur dann eine Lösung haben, wenn a = c ist, denn bei (x + 2)/(x + 1) = (x + 2)/(x + 5) ist x = −2 die Lösung."
+     "Sie haben nie eine Lösung, denn bei (x + 1)/(x + 2) = (x + 3)/(x + 4) bleibt über Kreuz nur 4 = 6 übrig.",
+     "Sie können zwei Lösungen haben, denn vor dem Zusammenfassen steht auf beiden Seiten ein x²."
     ],
     "o": {
      "index": 0
     },
-    "w": "Über Kreuz: (x + a)(x + d) = (x + c)(x + b). Auf beiden Seiten steht x², es fällt weg; übrig bleibt eine Gleichung ohne x². Bei (x + 1)/(x + 2) = (x + 3)/(x + 4) wird daraus x² + 5x + 4 = x² + 5x + 6, also 4 = 6: keine Lösung. Bei (x + 1)/(x + 2) = (x + 4)/(x + 3) bleibt −2x = 5, also genau die Lösung −2,5. „Immer eine“, „immer zwei“ und „nur bei a = c“ sind damit widerlegt; richtig ist: Solche Gleichungen können auch keine Lösung haben."
+    "w": "Über Kreuz: (x + a)(x + d) = (x + c)(x + b). Auf beiden Seiten steht x², es fällt weg; übrig bleibt (a + d − b − c) · x = bc − ad, eine Gleichung ohne x². Sie hat eine Lösung oder keine; unendlich viele Lösungen gäbe es nur, wenn beide Seiten gleich wären, und das schließen a ≠ b, c ≠ d und b ≠ d aus. Bei (x + 1)/(x + 2) = (x + 3)/(x + 4) wird daraus 4 = 6: keine Lösung. Bei (x + 1)/(x + 2) = (x + 4)/(x + 3) bleibt −2x = 5, also x = −2,5. Damit sind „immer genau eine“ und „nie eine“ widerlegt."
    }
   },
   {
@@ -673,36 +665,43 @@
    "thema": "gleichungen.bruch",
    "lernkarte": "scheinloesung",
    "pool": "test",
-   "typ": "begruenden",
-   "form": "zwei_wege",
+   "typ": "transfer",
+   "form": null,
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht, eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
    "idee": "kuerzen_scheinloesung",
-   "antwortform": "auswahl",
-   "loesung_rechnung": null,
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "1",
+    "1 - 1",
+    "1 + 1"
+   ],
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "Beim Multiplizieren mit (x − 2), denn das Multiplizieren mit einem Term ist der Schritt, bei dem Scheinlösungen entstehen.",
+     "luecke": 1,
+     "antwort": 0,
+     "rechnung": "0",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "eine Faustregel angewandt, ohne sie zu prüfen: x − 2 ist für den Kandidaten 0 gleich −2, dieser Schritt macht hier nichts kaputt"
+     "beschreibung": "auch in Tims gekürzter Gleichung die 0 für verboten gehalten"
     },
     {
-     "index": 1,
-     "antwort": "Beim Aufschreiben der Lösungsmenge, denn 0 steht für nichts, also bedeuten L = {0} und L = { } dasselbe.",
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Menge mit der Zahl 0 mit der leeren Menge verwechselt; {0} enthält eine Zahl, { } keine"
+     "beschreibung": "geglaubt, Kürzen ändere die Lösungsmenge nie, und Tims Lösung 0 übernommen"
     },
     {
-     "index": 2,
-     "antwort": "Beim Ausmultiplizieren, denn −3 · (x − 2) ergibt −3x − 6 und nicht −3x + 6.",
+     "luecke": 3,
+     "antwort": 1,
+     "rechnung": "2 - 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Vorzeichen beim Ausmultiplizieren falsch nachgerechnet; −3 · (−2) = 6, Tims Zeile stimmt"
+     "beschreibung": "die Definitionsmenge erst nach dem Kürzen bestimmt und nur die 4 ausgeschlossen"
     }
    ],
    "regel": "id.algebra.erlaubte_zahlen",
@@ -712,21 +711,26 @@
     "t": "scheinloesung",
     "p": "test",
     "s": 3,
-    "g": "begruenden",
-    "y": "auswahl",
+    "g": "transfer",
+    "y": "luecken",
     "f": {
-     "text": "Tim und Ina lösen die Gleichung (x² + 6x)/(x² − 2x) = −3 (Grundmenge ℚ). Tim kürzt zuerst mit x und erhält (x + 6)/(x − 2) = −3. Dann multipliziert er mit (x − 2), erhält x + 6 = −3x + 6 und daraus x = 0. Seine Probe in der gekürzten Gleichung, 6/(−2) = −3, stimmt; er schreibt L = {0}. Ina bestimmt zuerst die Definitionsmenge der Ausgangsgleichung und kommt auf L = { }. An welcher Stelle entsteht Tims Fehler?"
+     "text": "Tim löst die Gleichung (x² + 4x)/(x² − 4x) = −1 (Grundmenge ℚ), indem er zuerst Zähler und Nenner durch x teilt; er erhält (x + 4)/(x − 4) = −1. Wie viele Lösungen hat Tims neue Gleichung, wie viele hat die Ausgangsgleichung, und wie viele Zahlen schließt die Definitionsmenge der Ausgangsgleichung aus?",
+     "schablone": "Tims Gleichung: □ Lösungen; Ausgangsgleichung: □ Lösungen; ausgeschlossen: □ Zahlen",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
-    "a": [
-     "Beim Multiplizieren mit (x − 2), denn das Multiplizieren mit einem Term ist der Schritt, bei dem Scheinlösungen entstehen.",
-     "Beim Aufschreiben der Lösungsmenge, denn 0 steht für nichts, also bedeuten L = {0} und L = { } dasselbe.",
-     "Beim Ausmultiplizieren, denn −3 · (x − 2) ergibt −3x − 6 und nicht −3x + 6.",
-     "Beim Kürzen, denn danach verbietet seine Gleichung die Zahl 0 nicht mehr, obwohl der Nenner x² − 2x für x = 0 null ist."
-    ],
     "o": {
-     "index": 3
+     "werte": [
+      1,
+      0,
+      2
+     ]
     },
-    "w": "Die Ausgangsgleichung hat den Nenner x² − 2x = x(x − 2); er ist für x = 0 und x = 2 null, also D = ℚ \\ {0; 2}. Kürzt Tim mit x, steht nur noch der Nenner x − 2 da, und seine Gleichung verbietet nur die 2. Ab hier rechnet Tim richtig: x + 6 = −3x + 6 gibt 4x = 0, also x = 0, und in der gekürzten Gleichung stimmt die Probe. Die Zahl 0 gehört aber nicht zu D der Ausgangsgleichung: Dort steht für x = 0 der Bruch 0/0, der nicht definiert ist. 0 ist eine Scheinlösung, sie entsteht durch das Kürzen. Richtig ist L = { }."
+    "c": [
+     "1",
+     "1 - 1",
+     "1 + 1"
+    ],
+    "w": "Die Ausgangsgleichung hat den Nenner x² − 4x = x(x − 4); er ist für x = 0 und x = 4 null, also schließt D zwei Zahlen aus. Tims Gleichung hat nur noch den Nenner x − 4 und verbietet nur die 4. Sie hat eine Lösung: x + 4 = −(x − 4) gibt 2x = 0, also x = 0; Probe 4/(−4) = −1. In der Ausgangsgleichung ist 0 aber verboten, dort stünde 0/0. 0 ist eine Scheinlösung, entstanden durch das Kürzen, das die Einschränkung x ≠ 0 entfernt. Die Ausgangsgleichung hat keine Lösung."
    }
   },
   {
@@ -741,43 +745,22 @@
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht, eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
    "idee": "scheinloesung_konstruieren",
-   "antwortform": "luecken",
-   "loesung_rechnung": [
-    "4 * 2 - 2",
-    "4 * 0 - 2"
-   ],
+   "antwortform": "zahl",
+   "loesung_rechnung": "9 * 4 - 8",
    "fehlbilder": [
     {
-     "luecke": 1,
-     "antwort": 7,
-     "rechnung": "3 * 2 + 1",
+     "antwort": 30,
+     "rechnung": "7 * 4 + 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "beim Malnehmen den Bruch 1/x nur mit x statt mit x(x − 2) malgenommen: 3 · 2 + 1"
+     "beschreibung": "beim Malnehmen den Bruch 2/x nur mit x statt mit x(x − 4) malgenommen: 7 · 4 + 2"
     },
     {
-     "luecke": 1,
-     "antwort": 10,
-     "rechnung": "4 * 2 + 2",
+     "antwort": 44,
+     "rechnung": "9 * 4 + 8",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Minuszeichen bei (x − 2) übersehen: 4 · 2 + 2"
-    },
-    {
-     "luecke": 2,
-     "antwort": 1,
-     "rechnung": "3 * 0 + 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "beim Malnehmen den Bruch 1/x nur mit x statt mit x(x − 2) malgenommen: 3 · 0 + 1"
-    },
-    {
-     "luecke": 2,
-     "antwort": 2,
-     "rechnung": "4 * 0 + 2",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "das Minuszeichen bei (x − 2) übersehen: 4 · 0 + 2"
+     "beschreibung": "das Minuszeichen bei (x − 4) übersehen: 9 · 4 + 8"
     }
    ],
    "regel": "id.algebra.erlaubte_zahlen",
@@ -787,23 +770,15 @@
     "p": "korrektur",
     "s": 2,
     "g": "umkehr",
-    "y": "luecken",
+    "y": "zahl",
     "f": {
-     "text": "In der Gleichung 3/(x − 2) + 1/x = c/(x² − 2x) steht c für eine Zahl (Grundmenge ℚ). Für welche Zahl c ist 2 eine Scheinlösung der Gleichung, und für welche Zahl c ist 0 eine Scheinlösung?",
-     "schablone": "2 ist Scheinlösung für c = □; 0 ist Scheinlösung für c = □",
-     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+     "text": "In der Gleichung 7/(x − 4) + 2/x = c/(x² − 4x) steht c für eine Zahl (Grundmenge ℚ). Für welche Zahl c ist 4 eine Scheinlösung der Gleichung?"
     },
     "o": {
-     "werte": [
-      6,
-      -2
-     ]
+     "wert": 28
     },
-    "c": [
-     "4 * 2 - 2",
-     "4 * 0 - 2"
-    ],
-    "w": "Der Hauptnenner ist x² − 2x = x(x − 2); verboten sind 0 und 2. Malnehmen mit x(x − 2) gibt 3x + (x − 2) = c, also 4x − 2 = c. Der einzige Kandidat ist x = (c + 2)/4. Soll er 2 sein, muss c = 4 · 2 − 2 = 6 sein; soll er 0 sein, muss c = 4 · 0 − 2 = −2 sein. In beiden Fällen ist der Kandidat verboten, die Gleichung hat dann keine Lösung. Probe für c = 6: 4x − 2 = 6 gibt x = 2, und für x = 2 ist der Nenner x − 2 null."
+    "c": "9 * 4 - 8",
+    "w": "Der Hauptnenner ist x² − 4x = x(x − 4); verboten sind 0 und 4. Malnehmen mit x(x − 4) gibt 7x + 2(x − 4) = c, also 9x − 8 = c. Soll der Kandidat 4 sein, muss c = 9 · 4 − 8 = 28 sein. Für c = 28 liefert die Rechnung x = 4, und für x = 4 ist der Nenner x − 4 null: Die Gleichung hat keine Lösung, 4 ist eine Scheinlösung."
    }
   },
   {
@@ -819,21 +794,21 @@
    "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht, eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
    "idee": "raetsel_scheinloesung",
    "antwortform": "zahl",
-   "loesung_rechnung": "4 - 4",
+   "loesung_rechnung": "1 - 1",
    "fehlbilder": [
     {
      "antwort": 1,
      "rechnung": "1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Kandidaten 4 als gedachte Zahl gezählt, ohne ihn zu prüfen"
+     "beschreibung": "den Kandidaten 2 als gedachte Zahl gezählt, ohne ihn zu prüfen"
     },
     {
-     "antwort": 4,
-     "rechnung": "4",
+     "antwort": 2,
+     "rechnung": "2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl 4 aus der Rechnung statt der Anzahl angegeben"
+     "beschreibung": "die Zahl 2 aus der Rechnung statt der Anzahl angegeben"
     }
    ],
    "regel": "id.algebra.erlaubte_zahlen",
@@ -845,14 +820,14 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ali denkt sich eine Zahl. Er teilt 8 durch die um 4 verminderte Zahl und addiert 3. Dasselbe Ergebnis erhält er, wenn er die um 4 vergrößerte Zahl durch die um 4 verminderte Zahl teilt. Wie viele Zahlen kann Ali sich gedacht haben?"
+     "text": "Ali denkt sich eine Zahl. Er teilt 2 durch die um 2 verminderte Zahl und 3 durch die um 3 vergrößerte Zahl und addiert die beiden Ergebnisse. Heraus kommt dasselbe, wie wenn er 10 durch das Produkt aus der um 2 verminderten und der um 3 vergrößerten Zahl teilt. Wie viele Zahlen kann Ali sich gedacht haben?"
     },
     "o": {
      "wert": 0,
      "einheit": "Zahlen"
     },
-    "c": "4 - 4",
-    "w": "Mit der gedachten Zahl x gilt 8/(x − 4) + 3 = (x + 4)/(x − 4). Die Zahl 4 ist verboten. Malnehmen mit (x − 4) gibt 8 + 3(x − 4) = x + 4, also 3x − 4 = x + 4 und x = 4. Der einzige Kandidat ist ausgerechnet die verbotene Zahl, eine Scheinlösung. Für jede andere Zahl ist die linke Seite um 2 größer als die rechte. Ali kann sich also keine Zahl gedacht haben."
+    "c": "1 - 1",
+    "w": "Mit der gedachten Zahl x gilt 2/(x − 2) + 3/(x + 3) = 10/(x² + x − 6) (denn (x − 2)(x + 3) = x² + x − 6); verboten sind 2 und −3. Malnehmen mit (x − 2)(x + 3) gibt 2(x + 3) + 3(x − 2) = 10, also 5x = 10 und x = 2. Der einzige Kandidat ist ausgerechnet eine verbotene Zahl, eine Scheinlösung. Ali kann sich also keine Zahl gedacht haben."
    }
   },
   {
@@ -860,36 +835,42 @@
    "thema": "gleichungen.bruch",
    "lernkarte": "scheinloesung",
    "pool": "sicherung",
-   "typ": "begruenden",
-   "form": null,
+   "typ": "fehler",
+   "form": "fehler_detektiv",
    "stufe": 3,
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht, eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
-   "idee": "regel_aus_beispielen",
-   "antwortform": "auswahl",
-   "loesung_rechnung": null,
+   "idee": "probe_am_falschen_ort",
+   "antwortform": "luecken",
+   "loesung_rechnung": [
+    "3",
+    "1 - 1"
+   ],
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "Scheinlösungen kommen nie vor: Bei 8/(x − 1) = 2/(x − 1) + 3 liefert das Multiplizieren x = 3, und 3 ist erlaubt.",
+     "luecke": 1,
+     "antwort": 4,
+     "rechnung": "4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "aus einem Beispiel ohne Scheinlösung auf „nie“ geschlossen; das Beispiel mit x = 4 widerlegt die Regel"
+     "beschreibung": "erst die Schlusszeile für falsch gehalten, weil dort L = {4} steht"
     },
     {
-     "index": 2,
-     "antwort": "Scheinlösungen kommen immer vor: Bei (x + 2)/(x − 5) = 7/(x − 5) liefert das Multiplizieren x = 5, und 5 ist verboten.",
+     "luecke": 1,
+     "antwort": 1,
+     "rechnung": "1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "aus einem Beispiel mit Scheinlösung auf „immer“ geschlossen; bei 8/(x − 1) = 2/(x − 1) + 3 ist der Kandidat 3 erlaubt"
+     "beschreibung": "das Malnehmen in Zeile 1 für den Fehler gehalten, obwohl es richtig gerechnet ist"
     },
     {
-     "index": 3,
-     "antwort": "Scheinlösungen können nur bei negativen Kandidaten vorkommen: Bei (x + 6)/(x + 3) = 3/(x + 3) liefert das Multiplizieren x = −3, und −3 ist verboten.",
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "eine Eigenschaft des einen Beispiels (negativ) zur Regel gemacht; die Scheinlösung 4 ist positiv"
+     "beschreibung": "der Probe in der umgeformten Gleichung geglaubt"
     }
    ],
    "regel": "id.algebra.erlaubte_zahlen",
@@ -898,21 +879,24 @@
     "t": "scheinloesung",
     "p": "sicherung",
     "s": 3,
-    "g": "begruenden",
-    "y": "auswahl",
+    "g": "fehler",
+    "y": "luecken",
     "f": {
-     "text": "Vier Kinder haben je eine Bruchgleichung mit dem Hauptnenner multipliziert und aus ihrem Beispiel eine Regel über Scheinlösungen abgeleitet. Alle Rechnungen in den Beispielen stimmen. Welche Regel ist richtig?"
+     "text": "Lena löst 5/(x − 4) + 2/x = (x + 16)/(x² − 4x) so: Zeile 1: Mal x(x − 4): 5x + 2(x − 4) = x + 16. Zeile 2: Also 7x − 8 = x + 16, 6x = 24 und x = 4. Zeile 3: Probe in Zeile 1: 5 · 4 + 2 · 0 = 20 und 4 + 16 = 20, das stimmt. Zeile 4: Also L = {4}. In welcher Zeile steckt der erste Fehler, und wie viele Lösungen hat die Gleichung?",
+     "schablone": "Fehler in Zeile □; Zahl der Lösungen: □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
-    "a": [
-     "Scheinlösungen kommen nie vor: Bei 8/(x − 1) = 2/(x − 1) + 3 liefert das Multiplizieren x = 3, und 3 ist erlaubt.",
-     "Scheinlösungen können vorkommen: Bei (2x − 1)/(x − 4) = 7/(x − 4) − 1 liefert das Multiplizieren x = 4, und 4 ist verboten.",
-     "Scheinlösungen kommen immer vor: Bei (x + 2)/(x − 5) = 7/(x − 5) liefert das Multiplizieren x = 5, und 5 ist verboten.",
-     "Scheinlösungen können nur bei negativen Kandidaten vorkommen: Bei (x + 6)/(x + 3) = 3/(x + 3) liefert das Multiplizieren x = −3, und −3 ist verboten."
-    ],
     "o": {
-     "index": 1
+     "werte": [
+      3,
+      0
+     ]
     },
-    "w": "Ein einzelnes Beispiel kann eine Regel mit „immer“ oder „nie“ nicht beweisen, aber ein Gegenbeispiel kann sie widerlegen. Die Beispiele mit x = 4, x = 5 und x = −3 zeigen: Scheinlösungen kommen vor, also ist „nie“ falsch. Das Beispiel mit x = 3 zeigt: Der Kandidat ist nicht immer verboten, also ist „immer“ falsch. Die Scheinlösung 4 ist positiv, also ist „nur bei negativen“ falsch. Gedeckt ist nur: Scheinlösungen können vorkommen; darum prüft man jeden Kandidaten gegen D."
+    "c": [
+     "3",
+     "1 - 1"
+    ],
+    "w": "Zeile 1 und Zeile 2 sind richtig gerechnet. Der Fehler steckt in Zeile 3: Die Probe gehört in die Ausgangsgleichung, nicht in die Gleichung nach dem Malnehmen. Dort ist x = 4 verboten, denn die Nenner x − 4 und x² − 4x sind für x = 4 null. In der umgeformten Gleichung gibt es keine Nenner mehr, deshalb „stimmt“ dort auch die Scheinlösung. Die Gleichung hat keine Lösung; Zeile 4 ist nur die Folge."
    }
   },
   {
@@ -926,36 +910,30 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen prüfen einen Kandidaten gegen D; hier wird gesucht, an welchem Schritt eine Scheinlösung entsteht, eine Gleichung mit vorgegebener Scheinlösung gebaut und eine Regel über Scheinlösungen an Beispielen geprüft.",
-   "idee": "graphen_differenz",
-   "antwortform": "luecken",
-   "loesung_rechnung": [
-    "1 - 2",
-    "0"
-   ],
+   "idee": "aequivalent_mit_bedingung",
+   "antwortform": "auswahl",
+   "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "luecke": 1,
-     "antwort": 1,
-     "rechnung": "1",
+     "index": 0,
+     "antwort": "5x + 2 = c, wobei keine weitere Bedingung gelten muss",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Differenz andersherum gebildet, g(x) − f(x)"
+     "beschreibung": "die Bedingungen weggelassen; für c = 2 hätte 5x + 2 = c die Lösung 0, die Bruchgleichung aber keine"
     },
     {
-     "luecke": 1,
-     "antwort": -2,
-     "rechnung": "-2",
+     "index": 2,
+     "antwort": "5x + 2 = c, wobei nur x ≠ 0 gelten muss",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die −2 betrachtet und die beiden Brüche nicht miteinander verrechnet"
+     "beschreibung": "nur den Nenner x beachtet; für c = −8 hätte die Aussage die Lösung −2, die Bruchgleichung aber keine"
     },
     {
-     "luecke": 2,
-     "antwort": 1,
-     "rechnung": "1",
+     "index": 3,
+     "antwort": "5x + 2 = c, wobei x ≠ 2 und x ≠ 0 gelten muss",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Kandidaten x = 3 aus der Rechnung als Schnittpunkt gezählt"
+     "beschreibung": "bei x + 2 = 0 das Vorzeichen falsch genommen; für c = −8 wäre −2 erlaubt, ist aber verboten"
     }
    ],
    "regel": "id.algebra.erlaubte_zahlen",
@@ -965,23 +943,20 @@
     "p": "sicherung",
     "s": 2,
     "g": "darstellung",
-    "y": "luecken",
+    "y": "auswahl",
     "f": {
-     "text": "Zu den beiden Seiten der Gleichung (x + 4)/(x − 3) − 2 = 7/(x − 3) zeichnet man die Graphen von f(x) = (x + 4)/(x − 3) − 2 und g(x) = 7/(x − 3). Für jede Zahl x ≠ 3 hat die Differenz f(x) − g(x) denselben Wert. Welchen? Und wie viele gemeinsame Punkte haben die beiden Graphen?",
-     "schablone": "f(x) − g(x) = □; gemeinsame Punkte: □",
-     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+     "text": "In der Gleichung 4/(x + 2) + 1/x = c/(x² + 2x) steht c für irgendeine Zahl (Grundmenge ℚ). Welche Aussage ohne Brüche hat für jede Zahl c genau dieselbe Lösungsmenge wie diese Gleichung?"
     },
-    "o": {
-     "werte": [
-      -1,
-      0
-     ]
-    },
-    "c": [
-     "1 - 2",
-     "0"
+    "a": [
+     "5x + 2 = c, wobei keine weitere Bedingung gelten muss",
+     "5x + 2 = c, wobei x ≠ −2 und x ≠ 0 gelten muss",
+     "5x + 2 = c, wobei nur x ≠ 0 gelten muss",
+     "5x + 2 = c, wobei x ≠ 2 und x ≠ 0 gelten muss"
     ],
-    "w": "f(x) − g(x) = (x + 4 − 7)/(x − 3) − 2 = (x − 3)/(x − 3) − 2 = 1 − 2 = −1 für jedes x ≠ 3. Der Graph von f liegt also überall genau 1 unter dem Graphen von g; sie haben keinen gemeinsamen Punkt. Rechnet man die Gleichung mit dem Malnehmen, erhält man x + 4 − 2(x − 3) = 7, also x = 3 – genau die Stelle, an der beide Graphen nicht definiert sind. Das Bild zeigt: 3 ist eine Scheinlösung, L = { }."
+    "o": {
+     "index": 1
+    },
+    "w": "Der Hauptnenner ist x² + 2x = x(x + 2); verboten sind −2 und 0. Malnehmen gibt 4x + (x + 2) = c, also 5x + 2 = c. Diese Gleichung allein ist nicht gleichwertig: Für c = 2 liefert sie x = 0, für c = −8 liefert sie x = −2, beides verbotene Zahlen. Gleichwertig für jedes c ist nur „5x + 2 = c, wobei x ≠ −2 und x ≠ 0“: Die Bedingungen aus D gehören zur umgeformten Gleichung dazu."
    }
   },
   {
@@ -997,21 +972,21 @@
    "abgrenzung": "Die Übungen lösen eine Verhältnisgleichung; hier wird zwischen additivem und multiplikativem Modell gewählt, zwischen Verhältnis und Anteil gewechselt und mit Mischungen und umgekehrten Verhältnissen argumentiert.",
    "idee": "mischung_aus_mischungen",
    "antwortform": "zahl",
-   "loesung_rechnung": "100 * 5 / 2",
+   "loesung_rechnung": "100 * 4",
    "fehlbilder": [
     {
-     "antwort": 400,
-     "rechnung": "100 * 4",
+     "antwort": 200,
+     "rechnung": "200",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Verhältnis von Mischung B so gelesen, als sei ein Viertel davon Saft, und damit gerechnet"
+     "beschreibung": "die Verhältniszahlen der beiden Mischungen einfach addiert (aus eins zu eins und eins zu drei wird zwei zu vier) und darum gleich viel von B genommen wie von A"
     },
     {
-     "antwort": 125,
-     "rechnung": "100 * 5 / 4",
+     "antwort": 1600,
+     "rechnung": "200 * 8",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Saft in Mischung B vergessen und nur verlangt, dass mit B weitere 100 ml Wasser dazukommen"
+     "beschreibung": "Mischung A so gelesen, als bestehe sie ganz aus Saft, und damit gerechnet"
     }
    ],
    "regel": "rr.verhaeltnis",
@@ -1024,14 +999,14 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Mischung A enthält Saft und Wasser im Verhältnis 1 : 1, Mischung B im Verhältnis 1 : 4. Zu 200 ml von Mischung A gießt man so viel von Mischung B, dass in der neuen Mischung Saft und Wasser im Verhältnis 1 : 2 stehen. Wie viele Milliliter von Mischung B braucht man?"
+     "text": "Mischung A enthält Saft und Wasser im Verhältnis 1 : 1, Mischung B im Verhältnis 1 : 3. Zu 200 ml von Mischung A gießt man so viel von Mischung B, dass in der neuen Mischung Saft und Wasser im Verhältnis 1 : 2 stehen. Wie viele Milliliter von Mischung B braucht man?"
     },
     "o": {
-     "wert": 250,
+     "wert": 400,
      "einheit": "ml"
     },
-    "c": "100 * 5 / 2",
-    "w": "In 200 ml von A sind 100 ml Saft und 100 ml Wasser. Von x ml der Mischung B ist ein Fünftel Saft und vier Fünftel Wasser (1 + 4 = 5 Teile). Gesucht ist x mit (100 + x/5) : (100 + 4x/5) = 1 : 2. Über Kreuz: 2 · (100 + x/5) = 100 + 4x/5, also 200 + 2x/5 = 100 + 4x/5, 100 = 2x/5 und x = 250. Probe: Saft 100 + 50 = 150 ml, Wasser 100 + 200 = 300 ml, 150 : 300 = 1 : 2. Die Verhältniszahlen der beiden Mischungen darf man nicht einfach addieren; man rechnet mit den Mengen von Saft und Wasser."
+    "c": "100 * 4",
+    "w": "In 200 ml von A sind 100 ml Saft und 100 ml Wasser. Von x ml der Mischung B ist ein Viertel Saft und drei Viertel Wasser (1 + 3 = 4 Teile). Gesucht ist x mit (100 + x/4) : (100 + 3x/4) = 1 : 2. Über Kreuz: 2 · (100 + x/4) = 100 + 3x/4, also 200 + x/2 = 100 + 3x/4, 100 = x/4 und x = 400. Probe: Saft 100 + 100 = 200 ml, Wasser 100 + 300 = 400 ml, 200 : 400 = 1 : 2. Die Verhältniszahlen der beiden Mischungen darf man nicht einfach addieren; man rechnet mit den Mengen von Saft und Wasser."
    }
   },
   {
@@ -1224,30 +1199,30 @@
    "zaehlt": "ja",
    "lehrplan": "M8 4 Bruchterme und Bruchgleichungen (Bruchgleichungen, Definitionsmenge, Verhältnisgleichungen)",
    "abgrenzung": "Die Übungen lösen eine Verhältnisgleichung; hier wird zwischen additivem und multiplikativem Modell gewählt, zwischen Verhältnis und Anteil gewechselt und mit Mischungen und umgekehrten Verhältnissen argumentiert.",
-   "idee": "mittelwert_summe",
+   "idee": "verhaeltnis_zu_prozent",
    "antwortform": "zahl",
-   "loesung_rechnung": "7 + 12",
+   "loesung_rechnung": "(5 - 4) / 4 * 100",
    "fehlbilder": [
     {
-     "antwort": 7,
-     "rechnung": "7",
+     "antwort": 20,
+     "rechnung": "(5 - 4) / 5 * 100",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Zähler 7 unverändert gelassen, obwohl a + b statt a steht"
+     "beschreibung": "auf b statt auf a bezogen: 1 Teil von 5 Teilen"
     },
     {
-     "antwort": 5,
-     "rechnung": "12 - 7",
+     "antwort": 1,
+     "rechnung": "5 - 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Differenz der Verhältniszahlen genommen"
+     "beschreibung": "den Unterschied der Verhältniszahlen als Prozentsatz genommen"
     },
     {
-     "antwort": 31,
-     "rechnung": "7 + 12 + 12",
+     "antwort": 80,
+     "rechnung": "4 / 5 * 100",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 12 für b doppelt addiert"
+     "beschreibung": "den Anteil 4 von 5 als Prozentsatz genommen"
     }
    ],
    "regel": "rr.verhaeltnis",
@@ -1259,13 +1234,14 @@
     "g": "darstellung",
     "y": "zahl",
     "f": {
-     "text": "Für zwei Zahlen a und b gilt a : b = 7 : 12. Dann gilt (a + b) : b = □ : 12."
+     "text": "Für zwei positive Zahlen a und b gilt a : b = 4 : 5. Um wie viel Prozent ist b größer als a?"
     },
     "o": {
-     "wert": 19
+     "wert": 25,
+     "einheit": "%"
     },
-    "c": "7 + 12",
-    "w": "Aus a : b = 7 : 12 folgt: Auf 7 Teile von a kommen 12 Teile von b. Zusammen sind a und b dann 7 + 12 = 19 Teile, und b ist 12 Teile. Also gilt (a + b) : b = 19 : 12. Probe mit a = 14 und b = 24: (14 + 24) : 24 = 38 : 24 = 19 : 12."
+    "c": "(5 - 4) / 4 * 100",
+    "w": "Aus a : b = 4 : 5 folgt: a besteht aus 4 Teilen, b aus 5 gleich großen Teilen. b ist um 1 Teil größer, und 1 Teil ist ein Viertel von a, also 25 % von a. Probe mit a = 40 und b = 50: 50 ist um 10 größer als 40, und 10 sind 25 % von 40. Umgekehrt ist a um 20 % kleiner als b: Der Prozentsatz hängt davon ab, worauf man sich bezieht."
    }
   }
  ]

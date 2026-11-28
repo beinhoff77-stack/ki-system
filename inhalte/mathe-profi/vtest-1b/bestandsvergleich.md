@@ -56,3 +56,22 @@ Bei der Lektüre bestätigte Doppelungen der vorigen Fassung (zusätzlich zu den
 | 039 | verhaeltnis / korrektur | V 16 (Anteil aus Verhältnis 3 : 4) | rückwärts vom halbierten Anteil zum neuen Verhältnis; Fehlvorstellung „Wasser verdoppeln“ |
 | 040 | verhaeltnis / sicherung | `groessen.indirekt` („Doppelt so schnell heißt halb so lange“, indirekt proportionale Wertepaare) | kein fehlender Wert, sondern das umgekehrte Verhältnis mit Begründung; Ablenker „man braucht die Strecke“ |
 | 041 | verhaeltnis / sicherung | V 16, V 34 (Anteil als gekürzter Bruch) | unverändert aus der vorigen Fassung (Ganzes : Teil aus Teil : Teil); Schema-Aufgabe des Lernziels |
+
+### Nachtrag nach Vorprüfung W1-2 (geänderte und neue Aufgaben)
+
+Vorher gelesen: wie oben, dazu erneut `terme.bruchterme` (Definitionsmenge, Kürzen), `groessen.verhaeltnisse` (Prozent und Verhältnis) und `groessen.indirekt`; Werkzeug 0 Treffer (Zwischenfassungen von 033 und 037 trafen über gleiche Zahlenmenge und gleichen Sollwert T 163, T 171, T 263 und Aufgaben fremder Einheiten; Zahlen geändert, 035 vorsorglich ebenfalls).
+
+| Kennung | nächstliegender Bestandskern | Unterschied |
+|---|---|---|
+| 022 | T 183; BT 36 | nur noch Leas Umformung (Addieren von 1/x): Lösung geht verloren, D schließt 3 Zahlen aus |
+| 026 | T 7, T 46 („Wie viele Zahlen schließt D aus?“) | Term nur in Worten gegeben (Darstellungswechsel), Vergleich Grundmenge ℤ gegen ℚ; Grundmenge kommt im Bestand nicht vor |
+| 027 | T 225, K8-V081 | nur noch der Über-Kreuz-Fall a = 7 (a ≠ 0 vorgegeben) und eine Anwendung (a = 14); keine Überschneidung mehr mit 033 |
+| 028 | T 81, T 131, T 134 | allgemein mit p, q: Ausrechnen einer Lösung ist nicht möglich, nur das Zählerverhältnis entscheidet |
+| 030 | T 99, T 107, T 144 | richtige Aussage jetzt „nie mehr als eine Lösung“ (mit a ≠ b, c ≠ d, b ≠ d) |
+| 032 | T 224; BT 36 (Nenner x² − 2x) | Nenner x² − 4x, Bruch = −1; gefragt sind Lösungszahl der gekürzten und der Ausgangsgleichung und die Größe von D, ohne Hinweis auf die Richtung |
+| 033 | K8-V081, T 180 | ein Wert (c = 28) statt zwei; Hauptnenner x(x − 4) mit zwei Brüchen links |
+| 034 | T 229, T 222 (Bruch + Zahl = Bruch mit gleichem Nenner); T 178 (zwei Nenner, Produkt rechts, Lösung 0) | Rätsel mit zwei verschiedenen linearen Nennern und ihrem Produkt; Kandidat 2 verboten |
+| 035 | T 192, T 199 (warum keine Lösung) | Fehler-Detektiv: alle Rechnungen stimmen, der Denkfehler ist die Probe in der umgeformten Gleichung; im Bestand nicht gefunden |
+| 036 | T 179, T 180 (Lösungsmenge angeben) | für jede Zahl c gleichwertige Aussage ohne Brüche: Bedingungen aus D gehören dazu; nicht durch Ausrechnen eines Einzelfalls lösbar |
+| 037 | T 279, V 73 | Zahlen vereinfacht (200 ml A, B 1 : 3, Ergebnis 400 ml) |
+| 041 | V 72 (Teil als Prozent des Ganzen), `bruch.prozent` | Verhältnis zweier Größen in einen relativen Unterschied übersetzen, Bezugswert entscheidet (25 % gegen 20 %) |

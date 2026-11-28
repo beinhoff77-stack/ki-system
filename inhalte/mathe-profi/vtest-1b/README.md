@@ -23,9 +23,9 @@ Je gewähltem Lernziel 7 Aufgaben: 1 **test** (`ersetzt_test: true`, die anspruc
 | `bruch.prozent` | `prozentwert` | 1 | 3 | 3 | 4 / 3 | 2 / 3 / 2 | darstellung 1, einkleidung 1, fehler 1, mehrschritt 1, transfer 2, umkehr 1 | ohne 4, bruecke 1, fehler_detektiv 1, zwei_wege 1 |
 | `bruch.prozent` | `grundwert` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | begruenden 1, darstellung 2, fehler 1, transfer 1, umkehr 2 | ohne 6, fehler_detektiv 1 |
 | `bruch.prozent` | `verstehen` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | begruenden 1, darstellung 1, einkleidung 1, fehler 1, transfer 1, umkehr 2 | ohne 4, bruecke 1, fehler_detektiv 1, umkehren 1 |
-| `gleichungen.bruch` | `definitionsmenge` | 1 | 2 | 2 | 3 / 2 | 1 / 1 / 3 | begruenden 1, einkleidung 1, transfer 1, umkehr 2 | ohne 3, bruecke 1, umkehren 1 |
+| `gleichungen.bruch` | `definitionsmenge` | 1 | 2 | 2 | 3 / 2 | 1 / 1 / 3 | begruenden 1, darstellung 1, einkleidung 1, transfer 1, umkehr 1 | ohne 2, bruecke 2, umkehren 1 |
 | `gleichungen.bruch` | `ueber_kreuz` | 1 | 2 | 2 | 3 / 2 | 1 / 3 / 1 | begruenden 1, mehrschritt 2, parameter 1, umkehr 1 | ohne 2, umkehren 1, verfahren_waehlen 1, zwei_wege 1 |
-| `gleichungen.bruch` | `scheinloesung` | 1 | 2 | 2 | 3 / 2 | 1 / 2 / 2 | begruenden 2, darstellung 1, einkleidung 1, umkehr 1 | ohne 2, bruecke 1, umkehren 1, zwei_wege 1 |
+| `gleichungen.bruch` | `scheinloesung` | 1 | 2 | 2 | 3 / 2 | 2 / 1 / 2 | darstellung 1, einkleidung 1, fehler 1, transfer 1, umkehr 1 | ohne 2, bruecke 1, fehler_detektiv 1, umkehren 1 |
 | `gleichungen.bruch` | `verhaeltnis` | 1 | 2 | 2 | 3 / 2 | 2 / 1 / 2 | begruenden 1, darstellung 2, einkleidung 1, transfer 1 | ohne 2, bruecke 3 |
 | `terme.potenzgesetze` | `negativer_exponent` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | begruenden 1, darstellung 2, parameter 1, transfer 1, umkehr 2 | ohne 6, bruecke 1 |
 | `terme.potenzgesetze` | `fehler_finden` | 1 | 3 | 3 | 4 / 3 | 1 / 4 / 2 | begruenden 1, darstellung 1, fehler 2, mehrschritt 1, umkehr 2 | ohne 3, fehler_detektiv 3, zwei_wege 1 |
@@ -37,17 +37,17 @@ Je gewähltem Lernziel 7 Aufgaben: 1 **test** (`ersetzt_test: true`, die anspruc
 | `messen.flaechen_vielecke` | `rueckwaerts` | 1 | 3 | 3 | 4 / 3 | 4 / 1 / 2 | begruenden 1, darstellung 2, fehler 1, mehrschritt 1, rueckwaerts 1, umkehr 1 | ohne 3, bruecke 2, fehler_detektiv 1, umkehren 1 |
 | `messen.flaechen_vielecke` | `zusammengesetzt` | 1 | 3 | 3 | 4 / 3 | 2 / 2 / 3 | darstellung 3, fehler 1, rueckwaerts 1, transfer 1, umkehr 1 | ohne 4, bruecke 1, fehler_detektiv 1, umkehren 1 |
 | `messen.flaechen_vielecke` | `verstehen` | 1 | 3 | 3 | 4 / 3 | 4 / 1 / 2 | begruenden 1, darstellung 2, fehler 1, transfer 1, umkehr 2 | ohne 4, bruecke 1, fehler_detektiv 1, umkehren 1 |
-| Summe | 17 Lernziele | 17 | 47 | 47 | 64 / 47 | 40 / 36 / 35 | | |
+| Summe | 17 Lernziele | 17 | 47 | 47 | 64 / 47 | 41 / 35 / 35 | | |
 
 Typen insgesamt:
 
 | Typ | Aufgaben | Anteil |
 |---|---|---|
-| darstellung | 27 | 24 % |
-| umkehr | 26 | 23 % |
-| transfer | 14 | 13 % |
-| begruenden | 14 | 13 % |
-| fehler | 13 | 12 % |
+| darstellung | 28 | 25 % |
+| umkehr | 25 | 23 % |
+| transfer | 15 | 14 % |
+| fehler | 14 | 13 % |
+| begruenden | 12 | 11 % |
 | mehrschritt | 6 | 5 % |
 | einkleidung | 5 | 5 % |
 | parameter | 3 | 3 % |
@@ -57,11 +57,11 @@ Formen insgesamt:
 
 | Form | Aufgaben | Anteil |
 |---|---|---|
-| (ohne Form) | 62 | 56 % |
-| bruecke | 18 | 16 % |
-| fehler_detektiv | 14 | 13 % |
+| (ohne Form) | 61 | 55 % |
+| bruecke | 19 | 17 % |
+| fehler_detektiv | 15 | 14 % |
 | umkehren | 11 | 10 % |
-| zwei_wege | 5 | 5 % |
+| zwei_wege | 4 | 4 % |
 | verfahren_waehlen | 1 | 1 % |
 
 ## Kennungen
@@ -74,7 +74,7 @@ Formen insgesamt:
 | `zahlen.potenzen_zehner` | VT1B-056 bis VT1B-083 | 28 |
 | `messen.flaechen_vielecke` | VT1B-084 bis VT1B-111 | 28 |
 
-Fehlbilder: 401 insgesamt; bei Zahl- und Lückenaufgaben trägt jedes Fehlbild eine ausführbare Rechnung (`rechnung`), bei Auswahl steht die falsche Möglichkeit mit der Beschreibung des Denkfehlers.
+Fehlbilder: 398 insgesamt; bei Zahl- und Lückenaufgaben trägt jedes Fehlbild eine ausführbare Rechnung (`rechnung`), bei Auswahl steht die falsche Möglichkeit mit der Beschreibung des Denkfehlers.
 
 ## Denkfiguren je Lernziel (von Hand gruppiert)
 
@@ -85,9 +85,9 @@ Gruppiert nach der Einsicht, nicht nach der `idee`-Beschriftung. „Schema-nah�
 | bruch.prozent / prozentwert | 6 | Darstellungswechsel Winkel und Bruch (003, 007) | 004, 007 |
 | bruch.prozent / grundwert | 6 | Grundwert direkt und 1 % (009, 014) | 010, 014 |
 | bruch.prozent / verstehen | 6 | verschiedene Ganze (018, 020) | 016, 021 |
-| gleichungen.bruch / definitionsmenge | 5 | – (Stand nach Vorprüfung W1, siehe `korrektur-nach-vorpruefung-w1.md`) | keine sicher; Grenzfälle 022, 026 |
+| gleichungen.bruch / definitionsmenge | 5 | – (Stand nach Vorprüfung W1-2, siehe `korrektur-nach-vorpruefung-w1-2.md`) | 026 (Grenzfall) |
 | gleichungen.bruch / ueber_kreuz | 5 | – | 031 |
-| gleichungen.bruch / scheinloesung | 5 | – | 034 (Grenzfall 036) |
+| gleichungen.bruch / scheinloesung | 5 | – | 034 |
 | gleichungen.bruch / verhaeltnis | 5 | – | 041 |
 | terme.potenzgesetze / negativer_exponent | 5 | Vergleich mit Grenze (050, 053); Exponent aus Wert (051, 055) | 052, 055 |
 | terme.potenzgesetze / fehler_finden | 6 | Rechenregeln auf Summen (057, 060) | 058 |
@@ -121,7 +121,7 @@ Herleitungs-, Zerlegungs- oder Ergänzungsaufgaben je Lernziel (Handzählung): d
 - Lehrplanzuordnung: Die Lernbereiche stammen aus `inhalte/themenliste.json` (M6 1, M6 2, M6 3, M8 4). Ob negative Exponenten und wissenschaftliche Schreibweise im Gymnasium der Jahrgangsstufe 6 genau so im Lernbereich M6 1 stehen, ist am Repo nicht zu belegen und sollte geprüft werden.
 - `regel` ist je Lernziel gesetzt (`regeln-zuordnung.md`); `fehlbild` und `regel_des_fehlbilds` sind leer, weil die Katalogzuordnung nicht sicher ist.
 - Lehrplan, geklärt durch die Vorprüfung 2 (Quelle: LehrplanPLUS Gymnasium Jgst. 6 Mathematik, https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/6/mathematik): Prozentpunkte stehen in M6 3 (Klasse 6), nicht erst in Klasse 7; die Annahme „liegt im Vorrat, weil Klasse 7“ war falsch. Negative Exponenten in Jgst. 6 nur als Brüche mit Zähler 1 und als Zehnerpotenzen (M6 1.4); Trapez und Herleitung durch Zerlegen und Ergänzen stehen in M6 2.1. Folge in dieser Fassung: keine Bruchbasis und keine negative Basis bei negativen Exponenten mehr (053, 058, 059, 061 geändert).
-- Lehrplan, weiter offen (nicht geraten): (1) wissenschaftliche Schreibweise und die Vorsilben nano und mikro (zahlen.potenzen_zehner) sind am Lehrplantext der Jgst. 6 nicht belegt; (2) Gleichungen mit Parameter (gleichungen.bruch 026, 027, 028, 033; Stand nach Vorprüfung W1) und die Prozentrechnung in Flächenaufgaben (113, 114, 117) sind am Lehrplan nicht belegt; Parameterfragen („Für welche Zahl c …“) gibt es im Bestand (`gleichungen.potenz`, `gleichungen.reinquadratisch`, `rollend-7`), dort aber nicht in Jgst. 6. Bitte in der Gegenprüfung gegen den Lehrplantext der Etappe prüfen.
+- Lehrplan, weiter offen (nicht geraten): (1) wissenschaftliche Schreibweise und die Vorsilben nano und mikro (zahlen.potenzen_zehner) sind am Lehrplantext der Jgst. 6 nicht belegt; (2) Gleichungen mit Parameter (gleichungen.bruch 027, 028, 033, 036; Stand nach Vorprüfung W1-2) und die Prozentrechnung in Flächenaufgaben (113, 114, 117) sind am Lehrplan nicht belegt; Parameterfragen („Für welche Zahl c …“) gibt es im Bestand (`gleichungen.potenz`, `gleichungen.reinquadratisch`, `rollend-7`), dort aber nicht in Jgst. 6. Bitte in der Gegenprüfung gegen den Lehrplantext der Etappe prüfen.
 - Doppelungsprüfung gegen den Bestand: werkzeuggestützt (Kern, mit und ohne Maskierung der Zahlen), je Lernziel mit Stichprobe von Hand; `bestandsvergleich.md` nennt die Grenzen.
 - Die Aufgabenanzahl mit „Schema-nahem Rechnen“ (höchstens zwei je Lernziel) ist von Hand eingeschätzt.
 - Mehrdeutigkeit: In den Koordinaten- und Maßaufgaben ist jede Seite und jeder Winkel ausdrücklich genannt; bei Aufgaben zu „Höhe liegt außen“ ist die Lage der Spitze im Text angegeben.

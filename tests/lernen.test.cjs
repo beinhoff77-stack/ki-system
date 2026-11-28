@@ -7993,3 +7993,54 @@ test('ADV 14: Ladezeit – Reiseseite im Fenster: höchstens ein Advent-Abruf je
   console.log(`# ADV Bildrate beim Ziehen (390 px, CPU 4×): ohne Ebene ${med(fps.aus).toFixed(1)} fps, mit Ebene ${med(fps.an).toFixed(1)} fps; längstes Bild ${Math.round(Math.max(...fps.aus.map((x) => x.max)))} / ${Math.round(Math.max(...fps.an.map((x) => x.max)))} ms`);
   assert.ok(med(fps.an) > 5, 'Karte bleibt bedienbar');
 });
+
+// Bildschirmfotos der echten App-Ansichten (nur mit ADV_BILDER=1): inhalte/design/advent/umsetzung-bilder/
+test('ADV Bilder: Tür, jede Inhaltsart, Kalender, Meine Gutscheine, Eltern, Reisekarte Winternacht (390 hell/dunkel, Kalender und Karte zusätzlich 320/820/1280)', { skip: !process.env.ADV_BILDER }, async (t) => {
+  const ziel = path.join(root, 'inhalte/design/advent/umsetzung-bilder'); fs.mkdirSync(ziel, { recursive: true });
+  const foto = async (page, name, voll = false) => { await page.mouse.move(1, 1); await page.waitForTimeout(80); await page.screenshot({ path: path.join(ziel, name + '.png'), fullPage: voll }); };
+  const G = { hell: 'tag', dunkel: 'nacht' };
+  for (const [g, gest] of Object.entries(G)) {
+    // Tür nach der Etappe (geschlossen) und jede Inhaltsart
+    const arten = [['tuer', 7], ['tuer6', 6], ['tuer24', 24], ['inhalt-bild', 1], ['inhalt-gutschein', 2], ['inhalt-jackpot', 3], ['inhalt-niete', 4], ['inhalt-krampus', 5], ['inhalt-karte6', 6], ['inhalt-sterne', 7], ['inhalt-leer', 8], ['inhalt-karte24', 24]];
+    const { page, adv } = await advSeite(t, { srv: { heute: '2026-12-24' }, gestaltung: gest, bewegung: 'no-preference' });
+    await page.goto(origin + '/#/weg/1'); await page.waitForTimeout(400);
+    for (const [name, nr] of arten) {
+      if (g === 'dunkel' && ['tuer6'].includes(name)) continue; if (g === 'hell' && name === 'tuer24') continue;
+      adv.st.offen[1] = new Map(Array.from({ length: nr - 1 }, (_, i) => [i + 1, { tag: '2026-12-01', am: 'x', nachgeholt: false, inhalt: { art: 'leer', sterne: 0 }, gs: null }])); adv.st.etappen[1] = 99; adv.st.verbraucht[1] = 0;
+      adv.st.heute = `2026-12-${String(Math.max(nr, 7)).padStart(2, '0')}`;
+      await page.evaluate(async () => { lernAdventVergessen(1); const st = await lernAdventStand(1, { frisch: true, immer: true }); await lernAdventLaden();
+        lernAdventTuerZeigen({ kindObj: { id: 1, klasse: 5 }, kindId: 1, stand: st, quelle: 'etappe', weiterText: 'Weiter: Zahlenstrahl', weiter: () => lernAbschlussZu() }); });
+      await page.locator('.lr-advent').waitFor(); await page.waitForTimeout(500);
+      if (name.startsWith('tuer')) { await foto(page, `${name}-390-${g}`); if (name === 'tuer' && g === 'hell') { await page.setViewportSize({ width: 820, height: 1180 }); await foto(page, 'tuer-820-hell'); await page.setViewportSize({ width: 390, height: 844 }); } continue; }
+      await page.locator('.adv-tuer-knopf').click(); await page.locator('.lr-advent .adv-inhalt').waitFor(); await page.waitForTimeout(1700); await foto(page, `${name}-390-${g}`);
+    }
+    await page.evaluate(() => lernAbschlussZu()); await page.close();
+    // Kalender (Türchen 6 und 7 warten) und Meine Gutscheine
+    for (const [b, h] of [[390, 844], ...(g === 'hell' ? [[320, 640], [1280, 900]] : [[820, 1180]])]) {
+      const { page: p } = await advSeite(t, { srv: { offen: [1, 2, 3, 4, 5], heute: '2026-12-07' }, gestaltung: gest, breite: b, hoehe: h, bewegung: 'no-preference' });
+      await p.goto(origin + '/#/advent/1'); await p.locator('.tafel').waitFor(); await p.waitForTimeout(600); await foto(p, `kalender-${b}-${g}`, true);
+      if (b === 390) { await p.locator('.td2[data-nr="1"]').click(); await p.locator('dialog.adv-blatt[open]').waitFor(); await p.waitForTimeout(300); await foto(p, `kalender-tuer-390-${g}`); }
+      await p.close();
+    }
+    const { page: p2, adv: a2 } = await advSeite(t, { srv: { offen: [1, 2, 3, 4, 5, 6, 7, 8, 9] }, gestaltung: gest });
+    a2.st.gs.push({ id: 50, nr: 11, lernender_id: 1, art: 'gutschein', titel: 'Gutschein 11', text: 'Ein Beispieltext von Mama und Papa.', zustand: 'offen', getauscht: false },
+      { id: 51, nr: 4, lernender_id: 1, art: 'gutschein', titel: 'Gutschein 4', text: 'Ein Beispieltext.', zustand: 'eingeloest', eingeloest_am: '2026-12-05T18:00:00+01:00', eingeloest_von: 'kind', getauscht: false });
+    await p2.goto(origin + '/#/gutscheine/1'); await p2.locator('.gs-liste').first().waitFor(); await p2.waitForTimeout(400); await foto(p2, `gutscheine-390-${g}`, true);
+    await p2.getByRole('button', { name: 'Eingelöst: Gutschein 2' }).click(); await foto(p2, `gutscheine-rueckfrage-390-${g}`, true);
+    await p2.emulateMedia({ colorScheme: g === 'dunkel' ? 'dark' : 'light' });
+    await p2.goto(origin + '/#/adventeltern'); await p2.locator('.lr-adv-el').waitFor(); await p2.waitForTimeout(400); await foto(p2, `eltern-390-${g}`, true);
+    if (g === 'hell') { await p2.locator('.lr-adv-el').getByRole('button', { name: /^Tür 12:/ }).click(); await p2.locator('dialog.adv-el-blatt[open]').waitFor(); await p2.getByRole('radio', { name: 'Bild + Satz' }).check(); await p2.waitForTimeout(200); await foto(p2, 'eltern-tuer-aendern-390-hell'); }
+    await p2.close();
+    // Reisekarte Winternacht
+    for (const [b, h] of [[390, 844], ...(g === 'hell' ? [[320, 640], [1280, 800]] : [[820, 1180]])]) {
+      const { page: p } = await advSeite(t, { karte: true, srv: { offen: [1, 2, 3], etappen: 1 }, gestaltung: gest, breite: b, hoehe: h, bewegung: 'no-preference' });
+      await advReise(p); await p.waitForTimeout(2600); await foto(p, `karte-${b}-${g}`);
+      await p.close();
+    }
+  }
+  for (const tag of [6, 24, 31]) {
+    const { page: p } = await advSeite(t, { karte: true, advent: null, datum: `2026-12-${String(tag).padStart(2, "0")}T10:00:00`, gestaltung: tag === 24 ? 'tag' : 'nacht', bewegung: 'no-preference' });
+    await advReise(p); await p.waitForTimeout(tag === 24 ? 2500 : 1300); await foto(p, `karte-tag${tag}-390-${tag === 24 ? 'hell' : 'dunkel'}`); await p.close();
+  }
+  const { page: p3 } = await advSeite(t, { karte: true, gestaltung: 'nacht', bewegung: 'reduce' }); await advReise(p3); await p3.waitForTimeout(800); await foto(p3, 'karte-bewegung-reduziert-390-dunkel'); await p3.close();
+});

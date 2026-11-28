@@ -473,7 +473,7 @@ function tuerZeigen({ kindObj, kindId, stand, weiter, weiterText = 'Weiter', que
     else { if (sorte === 'krampus') { const neu = tuerRahmen(nr, 'krampus', `Türchen ${nr}`); rahmen.replaceWith(neu); requestAnimationFrame(() => neu.classList.add('auf')); }
       else rahmen.classList.add('auf'); setTimeout(inhaltZeigen, 650); }
     const naechst = r ? (Number(r.frei_heute) > 0 ? `Türchen ${r.naechste_nr} ist auch bereit – im Adventskalender.` : Number(r.moeglich_heute) > 0 ? 'Heute geht noch ein Türchen – nach deiner nächsten Etappe.' : nr < 24 && stand.phase === 'laeuft' ? 'Das nächste Türchen gibt’s morgen – nach deiner nächsten Etappe.' : '') : '';
-    const weiterK = lernGrossKnopf(quelle === 'etappe' ? (/^Weiter\b/.test(weiterText) ? weiterText : `Weiter: ${weiterText}`) : 'Zurück zum Kalender', null, { onclick: () => weiter() });
+    const weiterK = lernGrossKnopf(quelle === 'etappe' ? (/^Weiter\b/.test(weiterText) ? weiterText : `Weiter: ${weiterText}`) : 'Zurück zum Kalender', null, { class: 'adv-weiter', onclick: () => weiter() });
     lernErsetze(blatt, el('p', { class: 'adv-klein' }, `Türchen ${nr} ist offen`), el('p', { class: 'adv-txt' }, inhaltText(t, { tausch: tauschAn })), naechst ? el('p', { class: 'lr-ab-leise' }, naechst) : null, weiterK,
       quelle === 'etappe' ? el('a', { class: 'lr-ab-pause', href: `#/advent/${kid}` }, 'Adventskalender ansehen') : null);
     ansage.textContent = ansageText({ ...t, nr }); setTimeout(() => weiterK.focus({ preventScroll: true }), wenig ? 30 : 700);

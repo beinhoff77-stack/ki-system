@@ -40,6 +40,7 @@
 .lr-advent .lr-ab-blatt .adv-txt { font-size: 15.5px; margin: 2px 0 0; }
 .lr-advent .lr-ab-blatt .adv-fehler { margin: 8px 0 0; color: #C2410C; font-weight: 700; }
 .lr-ab-nacht .lr-advent .lr-ab-blatt .adv-fehler { color: #FFAD7A; }
+.lr-advent .adv-weiter { --ab-kb: #0E9F6E; --ab-kt: #fff; --ab-ks: #08724F; } /* nach dem Öffnen grün wie im Entwurf */
 .lr-advent .adv-tuer-knopf { --ab-kb: #FFD23F; --ab-kt: #1B0C3A; --ab-ks: #B78D00; }
 .lr-advent.sorte-t24 .lr-ab-szene { background: radial-gradient(90% 60% at 50% 46%, #2A3F9E 0, #111C5C 50%, #050A2A 100%); }
 .lr-advent.sorte-krampus .lr-ab-szene { background: radial-gradient(90% 60% at 50% 46%, #3D1015 0, #1D080B 50%, #0A0304 100%); }
@@ -107,7 +108,7 @@
 .tk-st { margin-left: auto; font-size: 18px; color: #9A6A08; white-space: nowrap; } .tk-st i { font-style: normal; margin-left: 2px; color: #E0A40E; }
 .kr-karte { width: min(330px, 86vw); border-radius: 16px; background: #23100F linear-gradient(170deg, #2C1214, #170809); color: #F3E6DE; box-shadow: 0 0 0 1.5px #6B1E26, 0 20px 50px #000c; overflow: hidden; transform: rotate(1deg); text-align: left; }
 .kr-kopf { position: relative; display: flex; justify-content: space-between; padding: 10px 16px; background: #D9363E; color: #1C0A0E; font-family: ui-monospace, Menlo, monospace; font-size: 12px; font-weight: 800; letter-spacing: .12em; overflow: hidden; }
-.kr-kratz { position: absolute; right: 64px; top: -2px; width: 60px; height: 44px; opacity: .9; }
+.kr-kratz-w { position: absolute; inset: 0; pointer-events: none; } .kr-kratz { position: absolute; right: 64px; top: -2px; width: 60px; height: 44px; opacity: .9; }
 .kr-in { display: grid; grid-template-columns: 108px 1fr; gap: 12px; align-items: center; padding: 14px 14px 10px; }
 .kr-bild { width: 108px; height: 108px; border-radius: 14px; overflow: hidden; box-shadow: 0 0 0 2px #5A1A22, 0 6px 14px #0008; transform: rotate(-3deg); } .kr-bild svg { width: 100%; height: 100%; display: block; }
 .kr-in small { font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: .1em; font-weight: 800; color: #FF9A8A; }
@@ -220,6 +221,7 @@ body.lr-adv-oben main.view .lr-menue-zeile:not(.unten) { display: none; }
 @media (prefers-reduced-motion: no-preference) { .lr-adv-bewegt .td2.bereit { animation: advPuls 1.8s ease-in-out infinite; } }
 @keyframes advPuls { 50% { box-shadow: inset 0 1px 0 #fff, inset 0 -3px 0 #9A6A0855, 0 0 0 2px #FFF1A8, 0 0 34px #FFD23F, 0 2px 0 #031009; } }
 .td2.nachholen .s, .td2.heute .s, .td2.morgen .s { font-size: 10.5px; letter-spacing: -.01em; }
+.td2.heute .s { white-space: normal; }
 .lr-abflug-nacht .td2:not(.offen):not(.heute):not(.bereit) { background: linear-gradient(160deg, #D9CFB7, #C2B696); box-shadow: inset 0 1px 0 #EFE6CF, inset 0 -3px 0 #0000002a, 0 2px 0 #000, 0 4px 8px #0008; }
 .lr-abflug-nacht .td2.nachholen { background: linear-gradient(160deg, #F2D9BF, #DDB993); }
 .lr-abflug-nacht .td2 .fluegel { background: linear-gradient(90deg, #A99E82, #D9CFB7 60%, #C2B696); }

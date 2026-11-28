@@ -99,6 +99,11 @@ alter table schule.aufgabe disable trigger aufgabe_schutz;
 update schule.aufgabe a set thema_id = e.thema_id from schule.einheit e where e.id = a.einheit_id;
 alter table schule.aufgabe enable trigger aufgabe_schutz;
 """)
+    # die zwei Live-Schutztrigger, die der Nachbau nicht hat (Wirkung im Test: keine; Namen wie live, feste Soll-Liste des Pakets)
+    pg.sql("""create function schule.einheit_schutz() returns trigger language plpgsql as $$ begin return coalesce(new, old); end $$;
+create trigger einheit_schutz before update or delete on schule.einheit for each row execute function schule.einheit_schutz();
+create function schule.aufgabe_bedingung_schutz() returns trigger language plpgsql as $$ begin return coalesce(new, old); end $$;
+create trigger aufgabe_bedingung_schutz before update on schule.aufgabe for each row execute function schule.aufgabe_bedingung_schutz();""")
     if nfs: pg.paket((AUS / 'nf_s_einspielen.sql').read_text(encoding='utf-8'))      # Voraussetzung NF-S (Gegenprüfung 1182)
     # die drei Vorgänger ohne Kennung (inhalte/themen) wie im Bestand: über aufgaben_einfuegen
     for i, p in enumerate(x for x in paare if x['alt_kennung'] is None):
@@ -177,15 +182,17 @@ def teil2(paare):
               "create trigger t_a after update of status on schule.einheit for each row execute function schule.t_a();\n")
         pg.sql(tg + f"do $rbpaket$ begin execute $rbpaketinhalt${einsp}$rbpaketinhalt$; end $rbpaket$;", erwartet_fehler='schreibt oder meldet')
         tg = ("create function schule.hilf() returns void language plpgsql as $$ begin execute 'insert into schule.' || 'sterne (lernender_id, menge, grund, bezug) values (1, 1, ''x'', ''y'') on conflict do nothing'; end $$;\n"
-              "create function schule.t_b() returns trigger language plpgsql as $$ begin perform schule.hilf(); return new; end $$;\n"
-              "create trigger t_b after update of status on schule.einheit for each row execute function schule.t_b();\n")
+              "create or replace function schule.einheit_schutz() returns trigger language plpgsql as $$ begin perform schule.hilf(); return coalesce(new, old); end $$;\n")
         pg.sql(tg + f"do $rbpaket$ begin execute $rbpaketinhalt${einsp}$rbpaketinhalt$; end $rbpaket$;", erwartet_fehler='Tabelle schule.sterne')
         tg = ("alter table schule.einheit add column geaendert timestamptz;\n"
-              "create function schule.t_c() returns trigger language plpgsql as $$ begin new.geaendert := clock_timestamp(); return new; end $$;\n"
-              "create trigger t_c before update on schule.einheit for each row execute function schule.t_c();\n")
+              "create or replace function schule.einheit_schutz() returns trigger language plpgsql as $$ begin new.geaendert := clock_timestamp(); return coalesce(new, old); end $$;\n")
         out = pg.sql(tg + f"do $rbpaket$ begin execute $rbpaketinhalt${einsp}$rbpaketinhalt$; end $rbpaket$;", erwartet_fehler='durch den Statuswechsel verändert')
+        # feste Soll-Liste der Schutztrigger: ein zusätzlicher harmloser Trigger, ein fehlender
+        pg.sql("create function schule.t_x() returns trigger language plpgsql as $$ begin return new; end $$;\n"
+               "create trigger t_x before update on schule.aufgabe for each row execute function schule.t_x();\n" + f"do $rbpaket$ begin execute $rbpaketinhalt${einsp}$rbpaketinhalt$; end $rbpaket$;", erwartet_fehler='festen Soll-Liste')
+        pg.sql("drop trigger einheit_schutz on schule.einheit;\n" + f"do $rbpaket$ begin execute $rbpaketinhalt${einsp}$rbpaketinhalt$; end $rbpaket$;", erwartet_fehler='festen Soll-Liste')
         nichts_geaendert('Trigger mit Nebenwirkung')
-        print('Negativfälle: nicht erkannt / Einheit nicht freigegeben / Zwischenstand / drei Trigger mit Nebenwirkung -> Abbruch, nichts geblieben')
+        print('Negativfälle: nicht erkannt / Einheit nicht freigegeben / Zwischenstand / Trigger mit Nebenwirkung (sichtbar, versteckt, ändert Einheitszeile) und Abweichung von der festen Soll-Liste (zusätzlich/fehlend) -> Abbruch, nichts geblieben')
 
         # --- Gegenproben mit verfälschtem Paket (das Paket selbst ist die geprüfte Sache)
         # Fehlbild-Wert gleich der Lösung -> wird nicht als falsch bewertet -> Abbruch
@@ -263,6 +270,21 @@ def teil2(paare):
         out = pg.paket(einsp)
         assert 'BB1 eingespielt' in out and '"neu_eingefuegt": 0' in out and '"alte_gesperrt": 0' in out and '"schon_berichtigt": 23' in out, out[-1500:]
         assert {t: sig(pg, t) for t in nach_einsp} == nach_einsp, 'zweiter Lauf hat etwas verändert'
+        # Zustand „fertig“ muss dem Soll VOLLSTÄNDIG und nullsicher gleichen; gemeinsame Voraussetzungen auch hier (jeweils eine Transaktion mit Änderung, Abbruch rollt zurück)
+        nid = f"(select id from schule.aufgabe where einheit_id = {p_b1['e']} and reihenfolge = {p_b1['nr']})"
+        def mutiert(satz):
+            return (f"update schule.einheit set status = 'geprueft' where id = {p_b1['e']};\nalter table schule.aufgabe disable trigger aufgabe_schutz;\n"
+                    f"update schule.aufgabe set {satz} where id = {nid};\nalter table schule.aufgabe enable trigger aufgabe_schutz;\n"
+                    f"update schule.einheit set status = 'freigegeben' where id = {p_b1['e']};\n")
+        for satz, was in (("variante_gruppe = null", 'Lernkarte NULL'), ("zaehlt = case when zaehlt is null then 'nein' else null end", 'zählt abweichend (exakt)'),
+                          ("teil = 'x'", 'teil gesetzt'), ("expedition_id = 1", 'expedition_id gesetzt'), ("form = coalesce(form, 'x') || 'y'", 'Form'), ("tipp = coalesce(tipp, '') || 'y'", 'Tipp')):
+            out = pg.sql(mutiert(satz) + f"do $rbpaket$ begin execute $rbpaketinhalt${einsp}$rbpaketinhalt$; end $rbpaket$;", erwartet_fehler='weicht aber vom Soll ab')
+            assert p_b1['bb'] in out, was
+            assert {t: sig(pg, t) for t in nach_einsp} == nach_einsp, f'{was}: nichts darf geblieben sein'
+        pg.sql(f"update schule.einheit set status = 'geprueft' where id = {p_b1['e']};\n" + f"do $rbpaket$ begin execute $rbpaketinhalt${einsp}$rbpaketinhalt$; end $rbpaket$;", erwartet_fehler='nicht freigegeben')
+        pg.sql(f"update schule.einheit set status = 'geprueft' where id = {p_b1['e']};\n" + f"do $rbpaket$ begin execute $rbpaketinhalt${probe}$rbpaketinhalt$; end $rbpaket$;", erwartet_fehler='nicht freigegeben')
+        assert {t: sig(pg, t) for t in nach_einsp} == nach_einsp
+        print('Zustand fertig: Lernkarte NULL, zählt, teil, expedition_id, Form, Tipp abweichend und falscher Einheitsstatus -> Abbruch (Einspielen und Probe), nichts geblieben')
         out = pg.paket(probe, erwartet_fehler='PROBELAUF bestanden')
         assert '"schon_berichtigt": 23' in out
         print('Einspielen: 23 neu, 23 gesperrt, 14 Regeln, 69 Fehlbilder; Versuche/Karten/Sterne/Lernende/Einheiten byteidentisch; zweiter Lauf: 23 schon berichtigt, nichts geändert')

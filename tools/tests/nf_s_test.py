@@ -17,6 +17,7 @@ WURZEL = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(WURZEL / 'tools/tests'))
 import nf_einspielen as NF  # noqa: E402
 import nf_nachbau as NB  # noqa: E402
+import nf_probe2 as P2  # noqa: E402
 import regelbezug_sql_test as T  # noqa: E402
 
 AUS = WURZEL / 'tools/tests/aus'
@@ -36,6 +37,9 @@ def teil1():
     probe = (AUS / 'nf_s_probe.sql').read_text(encoding='utf-8')
     einsp = (AUS / 'nf_s_einspielen.sql').read_text(encoding='utf-8')
     assert NF.MIGRATION.read_text(encoding='utf-8') == einsp
+    p = subprocess.run([sys.executable, '-I', 'tools/tests/nf_probe2.py', '--pruefen'], capture_output=True, text=True, cwd=str(WURZEL))
+    assert p.returncode == 0, p.stderr
+    assert (AUS / 'nf_s_probe2.sql').read_text(encoding='utf-8').count('PROBELAUF2 bestanden') == 1
     assert 'PROBELAUF bestanden' in probe and 'PROBELAUF' not in einsp and 'NF-S eingespielt' in einsp
     assert not re.search(r'(?im)^\s*(begin|commit|rollback)\s*;', einsp + probe), 'kein BEGIN/COMMIT im Paket'
     a_alt, a_neu, s_alt, s_neu = NF.auswahl_alt(), NF.auswahl_neu(), NF.stand_alt(), NF.stand_neu()
@@ -154,6 +158,15 @@ def teil2(probe, einsp):
         assert zustand(pg) == (z0, rest0)
         print('Probelauf (3 gesperrte Aufgaben): bestanden; Abweichungen nur in Einheiten mit gesperrter Sicherungsaufgabe (gezählt, kein Abbruch)')
 
+        # --- Probe 2 (Härtung, zusätzliche Datei): im Zustand ALT; Zahlen merken
+        probe2 = (AUS / 'nf_s_probe2.sql').read_text(encoding='utf-8')
+        out = pg.paket(probe2, erwartet_fehler='PROBELAUF2 bestanden')
+        assert '"zustand": {"stand": "alt", "auswahl": "alt", "test_starten_intern": "alt"}' in out and '"unerwartet": 0' in out and '"fehler": 0' in out, out[-900:]
+        erlaubt_alt = re.search(r'"erlaubt_wegen_gesperrter_sicherungsaufgaben": (\d+)', out).group(1)
+        assert int(erlaubt_alt) > 0
+        assert zustand(pg) == (z0, rest0)
+        # Fehler werden getrennt gezählt und brechen ab (hier: Tabelle versuch fehlt in der Transaktion)
+        pg.sql("alter table schule.versuch rename to versuch_x;\n" + f"do $nfx$ begin execute $nfxinhalt${probe2}$nfxinhalt$; end $nfx$;", erwartet_fehler='NF-S PROBE2 ABBRUCH: ')
         # --- Gegenprobe: Reihenfolge der Auswahl verändert -> unerwartete Abweichung in einer Einheit OHNE gesperrte Aufgabe -> Abbruch, alles zurück
         pg2 = aufbauen()
         try:
@@ -174,12 +187,20 @@ def teil2(probe, einsp):
         assert z1.count(' s') >= 0 and NF.md5(NF.auswahl_neu()) in z1 and NF.md5(NF.stand_neu()) in z1
         assert re.findall(r'(nachtest_\w+) \w{32} (\S+)', z1) == re.findall(r'(nachtest_\w+) \w{32} (\S+)', z0), 'Eigenschaften verändert'
         assert rest1 == rest0, 'andere Funktionen des Schemas verändert'
+        # Probe 2 im Zustand NEU: vergleicht trotzdem (alte Kopie gegen lebende Funktion) – gleiche erlaubte Abweichungen wie vorher
+        out = pg.paket(probe2, erwartet_fehler='PROBELAUF2 bestanden')
+        assert '"zustand": {"stand": "neu", "auswahl": "neu", "test_starten_intern": "neu"}' in out and '"unerwartet": 0' in out, out[-900:]
+        assert re.search(r'"erlaubt_wegen_gesperrter_sicherungsaufgaben": (\d+)', out).group(1) == erlaubt_alt
+        # eine veränderte lebende Funktion (Reihenfolge der Auswahl) -> Probe 2 bricht ab (Text weder alt noch neu)
+        pg.sql("create or replace function schule.nachtest_auswahl(p_l bigint, p_e bigint, p_lz text, p_anzahl int) returns bigint[] language sql stable set search_path to '' as $f$"
+               + NF.auswahl_neu('order by a.gestellt desc, a.zuletzt desc nulls last') + "$f$;\n" + f"do $nfx$ begin execute $nfxinhalt${probe2}$nfxinhalt$; end $nfx$;", erwartet_fehler='weder alt noch neu')
         # zweiter Lauf: neu -> neu, nichts zu tun
         out = pg.paket(einsp)
         assert '"nachtest_auswahl": "neu -> neu"' in out and '"nachtest_stand": "neu -> neu"' in out and '"verglichen_auswahl": 0' in out, out[-1200:]
         assert zustand(pg) == (z1, rest1)
         out = pg.paket(probe, erwartet_fehler='PROBELAUF bestanden')
         assert 'neu -> neu' in out
+        print('Probe 2 (zusätzliche Datei): im Zustand alt und neu gleiche erlaubte Abweichungen; Fehler getrennt gezählt (Abbruch); veränderte Funktion -> Abbruch')
         print('Einspielen: beide Funktionen neu, Eigenschaften gleich, andere Funktionen unverändert; zweiter Lauf neu -> neu ohne Änderung')
 
         # --- Verhalten NEU

@@ -117,7 +117,7 @@ class PG:
         if erwartet_fehler is None:
             assert p.returncode == 0, p.stderr[-3000:]
         else:
-            assert p.returncode != 0 and erwartet_fehler in p.stderr, (erwartet_fehler, p.stderr[-3000:])
+            assert p.returncode != 0 and erwartet_fehler in p.stderr, (erwartet_fehler, p.stderr[:700], p.stderr[-1500:])
         return p.stdout + p.stderr
 
     def paket(self, text, erwartet_fehler=None):

@@ -36,7 +36,7 @@
      "antwort": 840,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "1681 durch 2 geteilt und gerundet statt die Wurzel gezogen"
+     "beschreibung": "1681 durch 2 geteilt statt die Wurzel gezogen (840,5) und auf 840 abgerundet"
     },
     {
      "luecke": 3,
@@ -140,7 +140,7 @@
      "antwort": 62,
      "fehlbild": "fb.rechtwinklig.kathete_als_hypotenuse",
      "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
-     "beschreibung": "das Seil wie eine Kathete behandelt und die Quadrate addiert"
+     "beschreibung": "das Seil wie eine Kathete behandelt, die Quadrate addiert und die Wurzel (≈ 61,98) auf 62 gerundet"
     },
     {
      "antwort": 50,
@@ -344,7 +344,7 @@
      "antwort": 8.2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Minus bei −2 übersehen: waagerechter Unterschied 2 statt 6"
+     "beschreibung": "das Minus bei −2 übersehen: waagerechter Unterschied 2 statt 6, also √(2² + 8²) ≈ 8,246, auf eine Dezimalstelle 8,2"
     },
     {
      "antwort": 48,

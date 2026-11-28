@@ -238,7 +238,7 @@
      "antwort": "Erst 2⁵ = 32 und 5⁵ = 3 125 ausrechnen und dann 32 · 3 125 schriftlich rechnen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "ein umständlicher, fehleranfälliger Weg statt der Basen zusammenzufassen"
+     "beschreibung": "ein richtiger, aber umständlicher Weg (32 · 3 125 = 100 000), nicht der geschickteste"
     },
     {
      "index": 2,
@@ -256,7 +256,7 @@
     "g": "mehrschritt",
     "y": "auswahl",
     "f": {
-     "text": "Du sollst 2⁵ · 5⁵ im Kopf ausrechnen. Welcher Weg ist am geschicktesten?"
+     "text": "Du sollst 2⁵ · 5⁵ im Kopf ausrechnen. Welcher Weg ist am geschicktesten, also am wenigsten Rechenaufwand? (Mehrere Wege können zum richtigen Ergebnis führen.)"
     },
     "a": [
      "Gleiche Hochzahl: 2 · 5 = 10 und 5 + 5 = 10, also 10¹⁰.",

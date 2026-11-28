@@ -7,16 +7,16 @@ OHNE_ADD = "Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): 
 teil = lambda n: {d for d in range(1, n + 1) if n % d == 0}
 # ───────── elemente ─────────
 neu(T, "elemente", "anwenden", Z(
-    "Wie viele zweistellige Zahlen haben die Ziffernsumme 9?",
-    9, "9", sum(1 for n in range(10, 100) if n // 10 + n % 10 == 9), "Schreibe die Zahlen geordnet auf: Die Zehnerziffer läuft von 1 bis 9, die Einerziffer ergänzt zur Ziffernsumme.",
-    "Es sind 18, 27, 36, 45, 54, 63, 72, 81 und 90. Das sind 9 Zahlen. 09 zählt nicht, weil es keine zweistellige Zahl ist.",
-    [B("8", "die 90 vergessen"), B("10", "die 09 mitgezählt"), B("11", "die einstellige 9 und die 99 (Ziffernsumme 18) mitgezählt")]), g="mehrschritt", ohne=OHNE_M)
+    "Kim schreibt alle Quadratzahlen auf, die größer als 70 und kleiner als 700 sind, und bildet daraus eine Menge. Wie viele Elemente hat die Menge?",
+    18, "26 - 9 + 1", sum(1 for n in range(71, 700) if math.isqrt(n) ** 2 == n), "Suche die kleinste und die größte Quadratzahl in diesem Bereich. Welche Zahlen werden dafür quadriert, und wie viele sind das?",
+    "8² = 64 liegt noch unter 70, 9² = 81 ist die erste Quadratzahl im Bereich. 26² = 676 ist die letzte, denn 27² = 729 ist größer als 700. Es sind die Quadrate der Zahlen 9 bis 26: 26 − 9 + 1 = 18 Elemente.",
+    [B("26 - 9", "die Zahlen 9 bis 26 nur mit 26 − 9 gezählt, also das erste Element vergessen"), B("26 - 8 + 1", "schon bei 8² = 64 begonnen, obwohl 64 kleiner als 70 ist"), B("26", "alle Quadratzahlen von 1² an bis 676 mitgezählt")]), g="mehrschritt", ohne=OHNE_M)
 # ───────── schnitt ─────────
 neu(T, "schnitt", "anwenden", Z(
-    "A ist die Menge aller Teiler von 36, B die Menge aller Teiler von 48. Wie viele Elemente hat der Schnitt A ∩ B?",
-    6, "6", len(teil(36) & teil(48)), "Schreibe beide Teilermengen auf und streiche, was nur in einer von beiden vorkommt. Oder: Welche Zahl teilt beide, und welche Teiler hat sie?",
-    "Die Teiler von 36 sind 1, 2, 3, 4, 6, 9, 12, 18, 36. Die Teiler von 48 sind 1, 2, 3, 4, 6, 8, 12, 16, 24, 48. In beiden stehen 1, 2, 3, 4, 6 und 12. Das sind 6 Elemente.",
-    [B("3", "nur die Zahlen 1, 2 und 3 gefunden"), B("12", "den größten gemeinsamen Teiler als Anzahl genommen"), B("9", "die Anzahl der Teiler von 36 genommen")]), g="verknuepfen", ohne=OHNE_M)
+    "A ist die Menge aller Teiler von 60, B die Menge aller Teiler von 45. Wie viele Elemente liegen in A, aber nicht in B?",
+    8, "12 - 4", len(teil(60) - teil(45)), "Schreibe beide Teilermengen auf. Welche Zahlen kommen in beiden vor (Schnitt A ∩ B)? Diese gehören nicht zur gesuchten Menge.",
+    "Die Teiler von 60 sind 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60 (12 Elemente). Die Teiler von 45 sind 1, 3, 5, 9, 15, 45. In beiden stehen 1, 3, 5 und 15, das sind 4 Elemente. In A, aber nicht in B liegen 12 − 4 = 8 Elemente.",
+    [B("12", "alle Teiler von 60 gezählt, die gemeinsamen Teiler nicht herausgenommen"), B("4", "nur den Schnitt A ∩ B gezählt"), B("6 - 4", "die Elemente gezählt, die nur in B liegen")]), g="verknuepfen", ohne=OHNE_M)
 # ───────── verknuepfen ─────────
 neu(T, "verknuepfen", "anwenden", Z(
     "A ist die Menge der Vielfachen von 6 zwischen 1 und 60 (60 eingeschlossen), B die Menge der Vielfachen von 4 zwischen 1 und 60 (60 eingeschlossen). Wie viele Elemente hat die Vereinigung A ∪ B?",
@@ -69,36 +69,32 @@ neu(T, "tafel_wkeit", "anwenden", Z(
     zweifel="Vierfeldertafel mit Wahrscheinlichkeiten: id.daten.anteil trägt die Deutung als Anteil, das Ausfüllen der Tafel hat keine eigene Regel")
 # ───────── bedingt ─────────
 neu(T, "bedingt", "anwenden", Z(
-    "Von den Besuchern einer Therme sind 55 % Frauen, 44 % nutzen die Sauna, und 33 % sind Frauen, die die Sauna nutzen. Ein Besucher wird zufällig angesprochen und ist eine Frau. Wie groß ist die Wahrscheinlichkeit, dass sie die Sauna nutzt?",
-    0.6, "0.33 / 0.55", 0.6, "Es geht nur um die Frauen. Welcher Anteil der Frauen nutzt die Sauna?",
-    "P(Sauna | Frau) = P(Frau ∩ Sauna) : P(Frau) = 0,33 : 0,55 = 0,6.",
-    [B("0.33 / 0.44", "durch die Wahrscheinlichkeit für Sauna geteilt, also die umgekehrte bedingte Wahrscheinlichkeit"), B("0.33 * 0.55", "die Wahrscheinlichkeiten malgenommen"), B("0.55 - 0.33", "den Anteil der Frauen ohne Sauna berechnet")]), g="mehrschritt", regel=AN,
-    zweifel="Bedingte Wahrscheinlichkeit als Anteil: id.daten.anteil trägt Günstige durch Mögliche")
-w_g, c_g = rd("6 / 10 * 5 / 9", 3)
+    "Von den Besuchern einer Therme sind 55 % Frauen, 44 % nutzen die Sauna, und 33 % sind Frauen, die die Sauna nutzen. Wie viel Prozent aller Besucher sind weder Frau noch nutzen die Sauna?",
+    34, "100 - (55 + 44 - 33)", 34, "Die Besucher, die Frau sind oder die Sauna nutzen, bilden die Vereinigung. Wer beides ist, darf nur einmal zählen. Wie viel bleibt vom Ganzen übrig?",
+    "Frau oder Sauna: 55 + 44 − 33 = 66 (die 33 stehen in beiden Zahlen). Weder noch ist das Gegenteil: 100 − 66 = 34. Es sind 34 % aller Besucher.",
+    [B("55 + 44 - 33", "den Anteil für Frau oder Sauna statt für keines von beiden angegeben"), B("100 - 55 - 44", "die Besucher mit beidem doppelt abgezogen"), B("100 - 55", "nur die Besucher genommen, die keine Frau sind")], einheit="%"), g="mehrschritt", regel=None, ohne=OHNE_ADD)
 neu(T, "bedingt", "anwenden", Z(
-    "Aus einer Tüte mit 6 roten und 4 gelben Gummibärchen zieht Kim zwei ohne Zurücklegen. Wie groß ist die Wahrscheinlichkeit, dass beide rot sind? Runde auf drei Dezimalstellen.",
-    w_g, c_g, "round(1 / 3, 3)", "Nach dem ersten Zug hat sich die Tüte verändert. Wie viele rote und wie viele Bärchen insgesamt sind noch darin?",
-    "Erster Zug rot: 6 von 10. Dann sind noch 5 rote unter 9 Bärchen. Entlang des Pfads wird malgenommen: 6/10 · 5/9 = 30/90 = 1/3 ≈ 0,333.",
-    [B("0.6 * 0.6", "wie beim Ziehen mit Zurücklegen gerechnet", "fb.stufen.ohne_zuruecklegen_uebersehen"), BR("6 / 10 * 4 / 9", "im zweiten Zug die gelben statt der roten gezählt", None, 3), B("0.6 + 5 / 9", "entlang des Pfads addiert statt malgenommen", "fb.stufen.addiert_statt_malgenommen")], toleranz=0.001), g="mehrschritt", regel=ST)
+    "Auf einem Campingplatz leihen 52 % der Gäste ein Fahrrad, 31 % ein Kajak und 18 % beides. Wie viel Prozent aller Gäste leihen genau eines der beiden Geräte?",
+    47, "52 + 31 - 2 * 18", 47, "Wer beides leiht, soll nicht zählen. Trenne: nur Fahrrad, nur Kajak. Wie viel vom Fahrrad-Anteil gehört auch zum Kajak-Anteil?",
+    "Nur Fahrrad: 52 − 18 = 34. Nur Kajak: 31 − 18 = 13. Genau eines: 34 + 13 = 47. Es sind 47 % aller Gäste.",
+    [B("52 + 31 - 18", "die Vereinigung (Fahrrad oder Kajak) statt genau eines der beiden Geräte angegeben"), B("52 + 31", "beide Anteile addiert, die Gäste mit beidem doppelt gezählt"), B("52 - 18", "nur die Gäste genommen, die nur ein Fahrrad leihen")], einheit="%"), g="mehrschritt", regel=None, ohne=OHNE_ADD)
 # ───────── rueckschluss ─────────
-w_r, c_r = rd("8 / 26", 2)
 neu(T, "rueckschluss", "umkehren", Z(
-    "Von 200 Reisenden haben 80 eine Reiseversicherung. Von den Versicherten melden 10 % einen Schaden, von den Nichtversicherten 15 %. Ein Reisender hat einen Schaden gemeldet. Wie groß ist die Wahrscheinlichkeit, dass er versichert ist? Runde auf zwei Dezimalstellen.",
-    w_r, c_r, "round(4 / 13, 2)", "Berechne zuerst, wie viele Reisende insgesamt einen Schaden melden, und davon, wie viele versichert sind.",
-    "Versichert mit Schaden: 10 % von 80 = 8. Nicht versichert (120 Personen) mit Schaden: 15 % von 120 = 18. Insgesamt 26 Schäden. Anteil versichert: 8 : 26 ≈ 0,31.",
-    [BR("8 / 18", "durch die Schäden ohne Versicherung statt durch alle Schäden geteilt", "fb.anteil.guenstig_durch_unguenstig", 2), B("0.1", "die gegebene Wahrscheinlichkeit für Schaden bei Versicherten genommen"), BR("8 / 200", "durch alle Reisenden statt durch alle mit Schaden geteilt", None, 2)], toleranz=0.01), g="rueckwaerts", regel=AN)
+    "Bei einer Verlosung gewinnt man mit Wahrscheinlichkeit 0,42 einen Hotelgutschein (A) und mit 0,35 einen Flugrabatt (B). Mit Wahrscheinlichkeit 0,61 gewinnt man mindestens einen der beiden Preise. Wie groß ist die Wahrscheinlichkeit, beide Preise zu gewinnen?",
+    0.16, "0.42 + 0.35 - 0.61", 0.16, "Der Additionssatz gilt auch rückwärts: P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Stelle nach P(A ∩ B) um.",
+    "Aus P(A ∪ B) = P(A) + P(B) − P(A ∩ B) folgt P(A ∩ B) = P(A) + P(B) − P(A ∪ B) = 0,42 + 0,35 − 0,61 = 0,16.",
+    [B("0.42 + 0.35", "die beiden Wahrscheinlichkeiten nur addiert, die Vereinigung nicht abgezogen"), B("1 - 0.61", "die Wahrscheinlichkeit für keinen der beiden Preise genommen"), B("0.61 - 0.42", "die Vereinigung minus P(A) gerechnet, also den Anteil nur B")]), g="rueckwaerts", regel=None, ohne=OHNE_ADD)
 # ───────── verstehen ─────────
 neu(T, "verstehen", "verfahren_waehlen", W(
-    "An einem Urlaubsort gilt: Wahrscheinlichkeit für Regen unter der Bedingung „Wolken am Morgen“ ist 0,8. Welche Aussage passt dazu?",
-    "Von allen Tagen mit Wolken am Morgen regnet es an 80 %.", [("Von allen Regentagen haben 80 % Wolken am Morgen.", "die Bedingung vertauscht: das wäre P(Wolken | Regen)"), ("An 80 % aller Tage regnet es.", "die Bedingung „Wolken am Morgen“ nicht beachtet")],
-    "Die Bedingung steht hinter dem senkrechten Strich: Auf welche Tage bezieht sich der Anteil 0,8?",
-    "P(Regen | Wolken) betrachtet nur die Tage mit Wolken am Morgen. Von diesen regnet es an 80 %. Das ist etwas anderes als der Anteil der Wolkentage unter den Regentagen.",
-    lambda: True), g="begruenden", regel=AN, zweifel="Deutung der bedingten Wahrscheinlichkeit: id.daten.anteil (Anteil von was?)")
+    "Für zwei Ereignisse A und B gilt P(A ∪ B) = P(A) + P(B). Was folgt daraus?",
+    "Der Schnitt hat die Wahrscheinlichkeit 0: A und B können nicht gleichzeitig eintreten.", [("A liegt ganz in B (A ⊂ B).", "bei A ⊂ B ist die Vereinigung gleich B, es gilt P(A ∪ B) = P(B)"), ("A und B sind gleich wahrscheinlich.", "über die Einzelwahrscheinlichkeiten sagt die Gleichung nichts aus")],
+    "Vergleiche mit dem Additionssatz P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Was muss P(A ∩ B) sein, damit beide Gleichungen stimmen?",
+    "Der Additionssatz lautet P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Soll P(A ∪ B) = P(A) + P(B) gelten, muss P(A ∩ B) = 0 sein. Dann haben A und B keine gemeinsamen Ergebnisse und treten nie zugleich ein.",
+    lambda: (F(1, 6) + F(1, 6) == F(2, 6)) and (F(1, 6) + F(2, 6) != F(2, 6)) and (F(2, 6) + F(3, 6) != F(3, 6))), g="begruenden", regel=None, ohne=OHNE_ADD)
 neu(T, "verstehen", "fehler_detektiv", FD(
-    "Alex untersucht Kinder in einem Urlaubsclub: 25 % der Gäste sind Kinder (K), 40 % nutzen den Pool (P), und 15 % sind Kinder, die den Pool nutzen. Er schreibt:",
-    [("Es gilt P(K ∩ P) = 0,15.", True, True),
-     ("Unter den Kindern nutzen 0,15 : 0,25 = 0,6 den Pool, das ist die bedingte Wahrscheinlichkeit P(P | K).", True, True),
-     ("Dieselbe Zahl 0,6 gibt auch an, wie wahrscheinlich ein Poolnutzer ein Kind ist: P(K | P) = 0,6.", False, True)],
-    "Bei P(K | P) sind die Poolnutzer die Grundmenge. Durch welche Wahrscheinlichkeit musst du dann teilen?",
-    "Bei P(K | P) betrachtet man nur die Poolnutzer: P(K | P) = P(K ∩ P) : P(P) = 0,15 : 0,4 = 0,375. Die beiden bedingten Wahrscheinlichkeiten sind verschieden, weil ihre Grundmengen verschieden sind. Der Fehler steckt in Zeile 3."), g="fehler", regel=AN,
-    zweifel="Bedingte Wahrscheinlichkeit richtig herum lesen: id.daten.anteil (Anteil von was?)")
+    "Alex untersucht die Gäste eines Skiorts: 40 % fahren Ski (A), 30 % sind Kinder (B), und 12 % sind Kinder, die Ski fahren. Er schreibt:",
+    [("Es gilt P(A ∩ B) = 0,12.", True, True),
+     ("Gäste, die Ski fahren und keine Kinder sind: 0,40 − 0,12 = 0,28.", True, True),
+     ("Man addiert die beiden Wahrscheinlichkeiten, also ist die Wahrscheinlichkeit für Ski oder Kind P(A ∪ B) = 0,70.", False, True)],
+    "Wie oft werden die Kinder, die Ski fahren, in 0,40 + 0,30 gezählt? Wie oft sollen sie in der Vereinigung zählen?",
+    "Die Kinder, die Ski fahren, stecken in 0,40 und in 0,30, sie werden also doppelt gezählt. Der Additionssatz zieht den Schnitt ab: P(A ∪ B) = 0,40 + 0,30 − 0,12 = 0,58. Die Zeilen 1 und 2 sind richtig. Der Fehler steckt in Zeile 3."), g="fehler", regel=None, ohne=OHNE_ADD)

@@ -1,5 +1,6 @@
 T = "gleichungen.linear"
 WG = "rr.waage"
+OHNE_PROBE = "Probe durch Einsetzen (beide Seiten ausrechnen und vergleichen): rr.waage beschreibt das Umformen, nicht das Einsetzen, keine andere Regel des Katalogs trägt den Lösungsweg"
 # ───────── waage ─────────
 neu(T, "waage", "lueckenweg", L(
     "Du löst 6x − 23 = 2x + 37 mit der Waage. Subtrahiere auf beiden Seiten 2x, dann steht links ① · x − 23. Addiere auf beiden Seiten 23, dann steht rechts die Zahl ②. Zum Schluss ist x = ③.",
@@ -60,13 +61,13 @@ neu(T, "probe", "anwenden", Z(
     "Kim behauptet, die Lösung von 4x − 9 = 2x + 13 ist x = 11. Setzt man 11 ein, so haben beide Seiten denselben Wert. Wie groß ist er?",
     35, "4 * 11 - 9", "2 * 11 + 13", "Setze 11 für x ein: links und rechts. Beide Seiten müssen denselben Wert ergeben.",
     "Links: 4 · 11 − 9 = 44 − 9 = 35. Rechts: 2 · 11 + 13 = 22 + 13 = 35. Beide Seiten sind 35, die Probe stimmt.",
-    [B("4 * 11 + 9", "die 9 addiert statt subtrahiert"), B("2 * 11", "die Zahl 13 vergessen"), B("(4 - 2) * 11 - 9 + 13", "die x-Glieder beider Seiten zu 2x zusammengefasst und dann 2 · 11 − 9 + 13 gerechnet")]), g="pruefung", regel=WG)
+    [B("4 * 11 + 9", "die 9 addiert statt subtrahiert"), B("2 * 11", "die Zahl 13 vergessen"), B("(4 - 2) * 11 - 9 + 13", "die x-Glieder beider Seiten zu 2x zusammengefasst und dann 2 · 11 − 9 + 13 gerechnet")]), g="pruefung", ohne=OHNE_PROBE)
 neu(T, "probe", "verfahren_waehlen", W(
     "Welche dieser Zahlen ist Lösung der Gleichung 6x − 17 = 2x + 15? Prüfe durch Einsetzen.",
     "x = 8", [("x = 4", "links 7, rechts 23: die beiden Seiten sind verschieden"), ("x = 12", "links 55, rechts 39: die beiden Seiten sind verschieden")],
     "Setze jede Zahl links und rechts ein und vergleiche.",
     "x = 8: links 6 · 8 − 17 = 31, rechts 2 · 8 + 15 = 31. Gleich, also ist 8 die Lösung. Bei 4 sind die Seiten 7 und 23, bei 12 sind sie 55 und 39.",
-    lambda: ist_loesung("6*x-17", "2*x+15", 8) and not ist_loesung("6*x-17", "2*x+15", 4) and not ist_loesung("6*x-17", "2*x+15", 12)), g="pruefung", regel=WG)
+    lambda: ist_loesung("6*x-17", "2*x+15", 8) and not ist_loesung("6*x-17", "2*x+15", 4) and not ist_loesung("6*x-17", "2*x+15", 12)), g="pruefung", ohne=OHNE_PROBE)
 # ───────── sonderfaelle ─────────
 neu(T, "sonderfaelle", "verfahren_waehlen", W(
     "Wie viele Lösungen hat die Gleichung 5(x + 2) − 3x = 2x + 13?",
@@ -78,7 +79,7 @@ neu(T, "sonderfaelle", "umkehren", Z(
     "Für welche Zahl k hat die Gleichung 5(x + 2) − 3x = 2x + k unendlich viele Lösungen?",
     10, "5 * 2", 10, "Fasse die linke Seite zusammen. Wann stehen links und rechts dieselben Terme?",
     "5(x + 2) − 3x = 2x + 10. Die Gleichung heißt 2x + 10 = 2x + k. Sie stimmt für jede Zahl x genau dann, wenn k = 10 ist.",
-    [B("5 + 2", "nur die Zahlen in der Klammer addiert"), B("5 * 2 + 3", "zur 10 noch die 3 addiert"), B("5 * 2 - 3 * 2", "die 3x als Zahl eingesetzt")]), g="parameter", regel=WG)
+    [B("5 + 2", "5 und 2 addiert statt malgenommen"), B("5 * 2 + 3", "zur 10 noch die 3 addiert"), B("5 * 2 - 3 * 2", "von der 10 noch das Dreifache von 2 abgezogen, weil das −3x mit der 2 aus der Klammer verrechnet wurde")]), g="parameter", regel=WG)
 neu(T, "sonderfaelle", "fehler_detektiv", FD(
     "Alex löst 6x − 4 = 2(3x + 5) − 1:",
     [("Rechts ausmultiplizieren und zusammenfassen: 2(3x + 5) − 1 = 6x + 9.", gleichwertig("6*x-4=2*(3*x+5)-1", "6*x-4=6*x+9"), True),

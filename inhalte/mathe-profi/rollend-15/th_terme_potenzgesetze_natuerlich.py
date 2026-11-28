@@ -26,9 +26,9 @@ neu(T, "gleicher_exponent", "anwenden", Z(
     "Die Volumen sind 4³ und 25³. Gleicher Exponent: 4³ · 25³ = (4 · 25)³ = 100³ = 1 000 000 m⁶.",
     [B("100 ** 6", "die Hochzahlen addiert, obwohl sie gleich bleiben"), B("29 ** 3", "die Basen addiert statt malgenommen"), B("100 * 3", "die Basis mit der Hochzahl malgenommen", "fb.potenz.basis_mal_hochzahl")], einheit="m⁶"), g="einkleidung", regel=R)
 neu(T, "gleicher_exponent", "verfahren_waehlen", W(
-    "Du sollst 2⁵ · 5⁵ im Kopf ausrechnen. Welcher Weg ist am geschicktesten?",
+    "Du sollst 2⁵ · 5⁵ im Kopf ausrechnen. Welcher Weg ist am geschicktesten, also am wenigsten Rechenaufwand? (Mehrere Wege können zum richtigen Ergebnis führen.)",
     "Gleiche Hochzahl: (2 · 5)⁵ = 10⁵ = 100 000.",
-    [("Gleiche Hochzahl: 2 · 5 = 10 und 5 + 5 = 10, also 10¹⁰.", "die Hochzahlen addiert, obwohl sie beim Zusammenfassen der Basen gleich bleiben"), ("Erst 2⁵ = 32 und 5⁵ = 3 125 ausrechnen und dann 32 · 3 125 schriftlich rechnen.", "ein umständlicher, fehleranfälliger Weg statt der Basen zusammenzufassen"),
+    [("Gleiche Hochzahl: 2 · 5 = 10 und 5 + 5 = 10, also 10¹⁰.", "die Hochzahlen addiert, obwohl sie beim Zusammenfassen der Basen gleich bleiben"), ("Erst 2⁵ = 32 und 5⁵ = 3 125 ausrechnen und dann 32 · 3 125 schriftlich rechnen.", "ein richtiger, aber umständlicher Weg (32 · 3 125 = 100 000), nicht der geschickteste"),
      ("Gleiche Basis gibt es nicht, also lässt sich nichts vereinfachen.", "nur auf gleiche Basen geachtet")],
     "Prüfe zuerst: Welche Zahlen sind bei beiden Faktoren gleich, die Basen oder die Hochzahlen?",
     "Beide Potenzen haben die Hochzahl 5. Dann gilt aⁿ · bⁿ = (a · b)ⁿ: 2⁵ · 5⁵ = (2 · 5)⁵ = 10⁵ = 100 000. Das geht im Kopf.",

@@ -188,7 +188,7 @@
      "antwort": 42.7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch den Tangens geteilt statt mit ihm malgenommen"
+     "beschreibung": "durch den Tangens geteilt statt mit ihm malgenommen (32 : 0,75 ≈ 42,7)"
     },
     {
      "antwort": 31.25,
@@ -261,12 +261,11 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Eine Seilbahn steigt unter einem Winkel von 28° zur Waagerechten an. Waagerecht gemessen legt sie 1,5 km zurück. Welchen Höhenunterschied überwindet sie? Runde auf zwei Dezimalstellen."
+     "text": "Eine Seilbahn steigt unter einem Winkel von 28° zur Waagerechten an. Waagerecht gemessen legt sie 1,5 km zurück. Welchen Höhenunterschied überwindet sie? Runde erst das Endergebnis auf zwei Dezimalstellen."
     },
     "o": {
      "wert": 0.8,
-     "einheit": "km",
-     "toleranz": 0.01
+     "einheit": "km"
     },
     "c": "round(0.7975641474922182, 2)",
     "h": "Die waagerechte Strecke ist die Ankathete des Winkels, der Höhenunterschied die Gegenkathete. Welches Verhältnis verbindet beide?",
@@ -312,12 +311,11 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Eine Rampe soll einen Höhenunterschied von 0,9 m überwinden und mit der Waagerechten einen Winkel von 12° bilden. Wie lang ist die Rampe (die schräge Strecke)? Runde auf zwei Dezimalstellen."
+     "text": "Eine Rampe soll einen Höhenunterschied von 0,9 m überwinden und mit der Waagerechten einen Winkel von 12° bilden. Wie lang ist die Rampe (die schräge Strecke)? Runde erst das Endergebnis auf zwei Dezimalstellen."
     },
     "o": {
      "wert": 4.33,
-     "einheit": "m",
-     "toleranz": 0.01
+     "einheit": "m"
     },
     "c": "round(4.328760910269717, 2)",
     "h": "Die Höhe ist die Gegenkathete des Winkels, die Rampe die Hypotenuse. Welches Verhältnis passt?",
@@ -363,12 +361,11 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Eine Treppenstufe ist 15 cm hoch und 28 cm tief. Unter welchem Winkel zur Waagerechten steigt die Treppe an? Runde auf eine Dezimalstelle (in Grad)."
+     "text": "Eine Treppenstufe ist 15 cm hoch und 28 cm tief. Unter welchem Winkel zur Waagerechten steigt die Treppe an? Runde erst das Endergebnis auf eine Dezimalstelle (in Grad)."
     },
     "o": {
      "wert": 28.2,
-     "einheit": "°",
-     "toleranz": 0.1
+     "einheit": "°"
     },
     "c": "round(28.178590109959174, 1)",
     "h": "Stufenhöhe und Stufentiefe sind die Katheten. Welches Verhältnis kennst du, und wie kommst du von ihm zum Winkel?",
@@ -520,12 +517,11 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Vom Leuchtturm in Kroatien, dessen Spitze 38 m über dem Meer liegt, sieht man ein Boot unter einem Tiefenwinkel von 4°. Wie weit ist das Boot vom Fuß des Leuchtturms entfernt? Runde auf ganze Meter."
+     "text": "Vom Leuchtturm in Kroatien, dessen Spitze 38 m über dem Meer liegt, sieht man ein Boot unter einem Tiefenwinkel von 4°. Der Fuß des Leuchtturms liegt auf Meereshöhe. Wie weit ist das Boot waagerecht vom Fuß des Leuchtturms entfernt? Runde erst das Endergebnis auf ganze Meter."
     },
     "o": {
      "wert": 543,
-     "einheit": "m",
-     "toleranz": 1
+     "einheit": "m"
     },
     "c": "round(543.4253177550532, 0)",
     "h": "Der Tiefenwinkel ist genauso groß wie der Winkel am Boot im Dreieck. Welche Seiten sind bekannt, welche gesucht?",
@@ -628,12 +624,11 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Eine Straße in Norwegen hat 12 % Steigung, das heißt 12 m Höhenunterschied auf 100 m waagerechte Strecke. Unter welchem Winkel steigt sie gegenüber der Waagerechten an? Runde auf eine Dezimalstelle (in Grad)."
+     "text": "Eine Straße in Norwegen hat 12 % Steigung, das heißt 12 m Höhenunterschied auf 100 m waagerechte Strecke. Unter welchem Winkel steigt sie gegenüber der Waagerechten an? Runde erst das Endergebnis auf eine Dezimalstelle (in Grad)."
     },
     "o": {
      "wert": 6.8,
-     "einheit": "°",
-     "toleranz": 0.1
+     "einheit": "°"
     },
     "c": "round(6.84277341263094, 1)",
     "h": "Die Steigung ist das Verhältnis von Höhe zu waagerechter Strecke, also der Tangens des Winkels.",
@@ -679,12 +674,11 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Die Geraden y = x und y = 3x schneiden sich im Ursprung. Unter welchem Winkel schneiden sie sich? Runde auf eine Dezimalstelle (in Grad)."
+     "text": "Die Geraden y = x und y = 3x schneiden sich im Ursprung. Unter welchem Winkel schneiden sie sich? Runde erst das Endergebnis auf eine Dezimalstelle (in Grad)."
     },
     "o": {
      "wert": 26.6,
-     "einheit": "°",
-     "toleranz": 0.1
+     "einheit": "°"
     },
     "c": "round(26.56505117707799, 1)",
     "h": "Jede Gerade bildet mit der x-Achse einen Winkel, dessen Tangens die Steigung ist. Der Schnittwinkel ist der Unterschied.",

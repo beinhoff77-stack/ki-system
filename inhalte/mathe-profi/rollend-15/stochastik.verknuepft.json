@@ -25,22 +25,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 8,
+     "antwort": 17,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 90 vergessen"
+     "beschreibung": "die Zahlen 9 bis 26 nur mit 26 − 9 gezählt, also das erste Element vergessen"
     },
     {
-     "antwort": 10,
+     "antwort": 19,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 09 mitgezählt"
+     "beschreibung": "schon bei 8² = 64 begonnen, obwohl 64 kleiner als 70 ist"
     },
     {
-     "antwort": 11,
+     "antwort": 26,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die einstellige 9 und die 99 (Ziffernsumme 18) mitgezählt"
+     "beschreibung": "alle Quadratzahlen von 1² an bis 676 mitgezählt"
     }
    ],
    "aufgabe": {
@@ -51,14 +51,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Wie viele zweistellige Zahlen haben die Ziffernsumme 9?"
+     "text": "Kim schreibt alle Quadratzahlen auf, die größer als 70 und kleiner als 700 sind, und bildet daraus eine Menge. Wie viele Elemente hat die Menge?"
     },
     "o": {
-     "wert": 9
+     "wert": 18
     },
-    "c": "9",
-    "h": "Schreibe die Zahlen geordnet auf: Die Zehnerziffer läuft von 1 bis 9, die Einerziffer ergänzt zur Ziffernsumme.",
-    "w": "Es sind 18, 27, 36, 45, 54, 63, 72, 81 und 90. Das sind 9 Zahlen. 09 zählt nicht, weil es keine zweistellige Zahl ist."
+    "c": "26 - 9 + 1",
+    "h": "Suche die kleinste und die größte Quadratzahl in diesem Bereich. Welche Zahlen werden dafür quadriert, und wie viele sind das?",
+    "w": "8² = 64 liegt noch unter 70, 9² = 81 ist die erste Quadratzahl im Bereich. 26² = 676 ist die letzte, denn 27² = 729 ist größer als 700. Es sind die Quadrate der Zahlen 9 bis 26: 26 − 9 + 1 = 18 Elemente."
    }
   },
   {
@@ -74,22 +74,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 3,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Zahlen 1, 2 und 3 gefunden"
-    },
-    {
      "antwort": 12,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den größten gemeinsamen Teiler als Anzahl genommen"
+     "beschreibung": "alle Teiler von 60 gezählt, die gemeinsamen Teiler nicht herausgenommen"
     },
     {
-     "antwort": 9,
+     "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Anzahl der Teiler von 36 genommen"
+     "beschreibung": "nur den Schnitt A ∩ B gezählt"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Elemente gezählt, die nur in B liegen"
     }
    ],
    "aufgabe": {
@@ -100,14 +100,14 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "A ist die Menge aller Teiler von 36, B die Menge aller Teiler von 48. Wie viele Elemente hat der Schnitt A ∩ B?"
+     "text": "A ist die Menge aller Teiler von 60, B die Menge aller Teiler von 45. Wie viele Elemente liegen in A, aber nicht in B?"
     },
     "o": {
-     "wert": 6
+     "wert": 8
     },
-    "c": "6",
-    "h": "Schreibe beide Teilermengen auf und streiche, was nur in einer von beiden vorkommt. Oder: Welche Zahl teilt beide, und welche Teiler hat sie?",
-    "w": "Die Teiler von 36 sind 1, 2, 3, 4, 6, 9, 12, 18, 36. Die Teiler von 48 sind 1, 2, 3, 4, 6, 8, 12, 16, 24, 48. In beiden stehen 1, 2, 3, 4, 6 und 12. Das sind 6 Elemente."
+    "c": "12 - 4",
+    "h": "Schreibe beide Teilermengen auf. Welche Zahlen kommen in beiden vor (Schnitt A ∩ B)? Diese gehören nicht zur gesuchten Menge.",
+    "w": "Die Teiler von 60 sind 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60 (12 Elemente). Die Teiler von 45 sind 1, 3, 5, 9, 15, 45. In beiden stehen 1, 3, 5 und 15, das sind 4 Elemente. In A, aber nicht in B liegen 12 − 4 = 8 Elemente."
    }
   },
   {
@@ -544,27 +544,27 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 0.75,
+     "antwort": 66,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch die Wahrscheinlichkeit für Sauna geteilt, also die umgekehrte bedingte Wahrscheinlichkeit"
+     "beschreibung": "den Anteil für Frau oder Sauna statt für keines von beiden angegeben"
     },
     {
-     "antwort": 0.1815,
+     "antwort": 1,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Wahrscheinlichkeiten malgenommen"
+     "beschreibung": "die Besucher mit beidem doppelt abgezogen"
     },
     {
-     "antwort": 0.22,
+     "antwort": 45,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Anteil der Frauen ohne Sauna berechnet"
+     "beschreibung": "nur die Besucher genommen, die keine Frau sind"
     }
    ],
    "aufgabe": {
@@ -575,14 +575,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Von den Besuchern einer Therme sind 55 % Frauen, 44 % nutzen die Sauna, und 33 % sind Frauen, die die Sauna nutzen. Ein Besucher wird zufällig angesprochen und ist eine Frau. Wie groß ist die Wahrscheinlichkeit, dass sie die Sauna nutzt?"
+     "text": "Von den Besuchern einer Therme sind 55 % Frauen, 44 % nutzen die Sauna, und 33 % sind Frauen, die die Sauna nutzen. Wie viel Prozent aller Besucher sind weder Frau noch nutzen die Sauna?"
     },
     "o": {
-     "wert": 0.6
+     "wert": 34,
+     "einheit": "%"
     },
-    "c": "0.33 / 0.55",
-    "h": "Es geht nur um die Frauen. Welcher Anteil der Frauen nutzt die Sauna?",
-    "w": "P(Sauna | Frau) = P(Frau ∩ Sauna) : P(Frau) = 0,33 : 0,55 = 0,6."
+    "c": "100 - (55 + 44 - 33)",
+    "h": "Die Besucher, die Frau sind oder die Sauna nutzen, bilden die Vereinigung. Wer beides ist, darf nur einmal zählen. Wie viel bleibt vom Ganzen übrig?",
+    "w": "Frau oder Sauna: 55 + 44 − 33 = 66 (die 33 stehen in beiden Zahlen). Weder noch ist das Gegenteil: 100 − 66 = 34. Es sind 34 % aller Besucher."
    }
   },
   {
@@ -593,27 +594,27 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.stufen",
-   "regel_name": "Stufen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 0.36,
-     "fehlbild": "fb.stufen.ohne_zuruecklegen_uebersehen",
-     "regel_des_fehlbilds": "id.daten.stufen",
-     "beschreibung": "wie beim Ziehen mit Zurücklegen gerechnet"
-    },
-    {
-     "antwort": 0.267,
+     "antwort": 65,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "im zweiten Zug die gelben statt der roten gezählt"
+     "beschreibung": "die Vereinigung (Fahrrad oder Kajak) statt genau eines der beiden Geräte angegeben"
     },
     {
-     "antwort": 1.1555555555555554,
-     "fehlbild": "fb.stufen.addiert_statt_malgenommen",
-     "regel_des_fehlbilds": "id.daten.stufen",
-     "beschreibung": "entlang des Pfads addiert statt malgenommen"
+     "antwort": 83,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Anteile addiert, die Gäste mit beidem doppelt gezählt"
+    },
+    {
+     "antwort": 34,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Gäste genommen, die nur ein Fahrrad leihen"
     }
    ],
    "aufgabe": {
@@ -624,15 +625,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Aus einer Tüte mit 6 roten und 4 gelben Gummibärchen zieht Kim zwei ohne Zurücklegen. Wie groß ist die Wahrscheinlichkeit, dass beide rot sind? Runde auf drei Dezimalstellen."
+     "text": "Auf einem Campingplatz leihen 52 % der Gäste ein Fahrrad, 31 % ein Kajak und 18 % beides. Wie viel Prozent aller Gäste leihen genau eines der beiden Geräte?"
     },
     "o": {
-     "wert": 0.333,
-     "toleranz": 0.001
+     "wert": 47,
+     "einheit": "%"
     },
-    "c": "round(0.3333333333333333, 3)",
-    "h": "Nach dem ersten Zug hat sich die Tüte verändert. Wie viele rote und wie viele Bärchen insgesamt sind noch darin?",
-    "w": "Erster Zug rot: 6 von 10. Dann sind noch 5 rote unter 9 Bärchen. Entlang des Pfads wird malgenommen: 6/10 · 5/9 = 30/90 = 1/3 ≈ 0,333."
+    "c": "52 + 31 - 2 * 18",
+    "h": "Wer beides leiht, soll nicht zählen. Trenne: nur Fahrrad, nur Kajak. Wie viel vom Fahrrad-Anteil gehört auch zum Kajak-Anteil?",
+    "w": "Nur Fahrrad: 52 − 18 = 34. Nur Kajak: 31 − 18 = 13. Genau eines: 34 + 13 = 47. Es sind 47 % aller Gäste."
    }
   },
   {
@@ -643,27 +644,27 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 0.44,
-     "fehlbild": "fb.anteil.guenstig_durch_unguenstig",
-     "regel_des_fehlbilds": "id.daten.anteil",
-     "beschreibung": "durch die Schäden ohne Versicherung statt durch alle Schäden geteilt"
-    },
-    {
-     "antwort": 0.1,
+     "antwort": 0.77,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die gegebene Wahrscheinlichkeit für Schaden bei Versicherten genommen"
+     "beschreibung": "die beiden Wahrscheinlichkeiten nur addiert, die Vereinigung nicht abgezogen"
     },
     {
-     "antwort": 0.04,
+     "antwort": 0.39,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch alle Reisenden statt durch alle mit Schaden geteilt"
+     "beschreibung": "die Wahrscheinlichkeit für keinen der beiden Preise genommen"
+    },
+    {
+     "antwort": 0.19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Vereinigung minus P(A) gerechnet, also den Anteil nur B"
     }
    ],
    "aufgabe": {
@@ -674,15 +675,14 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Von 200 Reisenden haben 80 eine Reiseversicherung. Von den Versicherten melden 10 % einen Schaden, von den Nichtversicherten 15 %. Ein Reisender hat einen Schaden gemeldet. Wie groß ist die Wahrscheinlichkeit, dass er versichert ist? Runde auf zwei Dezimalstellen."
+     "text": "Bei einer Verlosung gewinnt man mit Wahrscheinlichkeit 0,42 einen Hotelgutschein (A) und mit 0,35 einen Flugrabatt (B). Mit Wahrscheinlichkeit 0,61 gewinnt man mindestens einen der beiden Preise. Wie groß ist die Wahrscheinlichkeit, beide Preise zu gewinnen?"
     },
     "o": {
-     "wert": 0.31,
-     "toleranz": 0.01
+     "wert": 0.16
     },
-    "c": "round(0.3076923076923077, 2)",
-    "h": "Berechne zuerst, wie viele Reisende insgesamt einen Schaden melden, und davon, wie viele versichert sind.",
-    "w": "Versichert mit Schaden: 10 % von 80 = 8. Nicht versichert (120 Personen) mit Schaden: 15 % von 120 = 18. Insgesamt 26 Schäden. Anteil versichert: 8 : 26 ≈ 0,31."
+    "c": "0.42 + 0.35 - 0.61",
+    "h": "Der Additionssatz gilt auch rückwärts: P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Stelle nach P(A ∩ B) um.",
+    "w": "Aus P(A ∪ B) = P(A) + P(B) − P(A ∩ B) folgt P(A ∩ B) = P(A) + P(B) − P(A ∪ B) = 0,42 + 0,35 − 0,61 = 0,16."
    }
   },
   {
@@ -693,23 +693,23 @@
    "typ": "Verfahren wählen (einfache Form)",
    "form": "verfahren_waehlen",
    "antwortform": "auswahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Von allen Regentagen haben 80 % Wolken am Morgen.",
+     "antwort": "A liegt ganz in B (A ⊂ B).",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Bedingung vertauscht: das wäre P(Wolken | Regen)"
+     "beschreibung": "bei A ⊂ B ist die Vereinigung gleich B, es gilt P(A ∪ B) = P(B)"
     },
     {
      "index": 2,
-     "antwort": "An 80 % aller Tage regnet es.",
+     "antwort": "A und B sind gleich wahrscheinlich.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Bedingung „Wolken am Morgen“ nicht beachtet"
+     "beschreibung": "über die Einzelwahrscheinlichkeiten sagt die Gleichung nichts aus"
     }
    ],
    "aufgabe": {
@@ -720,18 +720,18 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "An einem Urlaubsort gilt: Wahrscheinlichkeit für Regen unter der Bedingung „Wolken am Morgen“ ist 0,8. Welche Aussage passt dazu?"
+     "text": "Für zwei Ereignisse A und B gilt P(A ∪ B) = P(A) + P(B). Was folgt daraus?"
     },
     "a": [
-     "Von allen Regentagen haben 80 % Wolken am Morgen.",
-     "Von allen Tagen mit Wolken am Morgen regnet es an 80 %.",
-     "An 80 % aller Tage regnet es."
+     "A liegt ganz in B (A ⊂ B).",
+     "Der Schnitt hat die Wahrscheinlichkeit 0: A und B können nicht gleichzeitig eintreten.",
+     "A und B sind gleich wahrscheinlich."
     ],
     "o": {
      "index": 1
     },
-    "h": "Die Bedingung steht hinter dem senkrechten Strich: Auf welche Tage bezieht sich der Anteil 0,8?",
-    "w": "P(Regen | Wolken) betrachtet nur die Tage mit Wolken am Morgen. Von diesen regnet es an 80 %. Das ist etwas anderes als der Anteil der Wolkentage unter den Regentagen."
+    "h": "Vergleiche mit dem Additionssatz P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Was muss P(A ∩ B) sein, damit beide Gleichungen stimmen?",
+    "w": "Der Additionssatz lautet P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Soll P(A ∪ B) = P(A) + P(B) gelten, muss P(A ∩ B) = 0 sein. Dann haben A und B keine gemeinsamen Ergebnisse und treten nie zugleich ein."
    }
   },
   {
@@ -742,8 +742,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -769,7 +769,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Alex untersucht Kinder in einem Urlaubsclub: 25 % der Gäste sind Kinder (K), 40 % nutzen den Pool (P), und 15 % sind Kinder, die den Pool nutzen. Er schreibt: Zeile 1: Es gilt P(K ∩ P) = 0,15. Zeile 2: Unter den Kindern nutzen 0,15 : 0,25 = 0,6 den Pool, das ist die bedingte Wahrscheinlichkeit P(P | K). Zeile 3: Dieselbe Zahl 0,6 gibt auch an, wie wahrscheinlich ein Poolnutzer ein Kind ist: P(K | P) = 0,6. In welcher Zeile passiert der erste Fehler?"
+     "text": "Alex untersucht die Gäste eines Skiorts: 40 % fahren Ski (A), 30 % sind Kinder (B), und 12 % sind Kinder, die Ski fahren. Er schreibt: Zeile 1: Es gilt P(A ∩ B) = 0,12. Zeile 2: Gäste, die Ski fahren und keine Kinder sind: 0,40 − 0,12 = 0,28. Zeile 3: Man addiert die beiden Wahrscheinlichkeiten, also ist die Wahrscheinlichkeit für Ski oder Kind P(A ∪ B) = 0,70. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -779,8 +779,8 @@
     "o": {
      "index": 2
     },
-    "h": "Bei P(K | P) sind die Poolnutzer die Grundmenge. Durch welche Wahrscheinlichkeit musst du dann teilen?",
-    "w": "Bei P(K | P) betrachtet man nur die Poolnutzer: P(K | P) = P(K ∩ P) : P(P) = 0,15 : 0,4 = 0,375. Die beiden bedingten Wahrscheinlichkeiten sind verschieden, weil ihre Grundmengen verschieden sind. Der Fehler steckt in Zeile 3."
+    "h": "Wie oft werden die Kinder, die Ski fahren, in 0,40 + 0,30 gezählt? Wie oft sollen sie in der Vereinigung zählen?",
+    "w": "Die Kinder, die Ski fahren, stecken in 0,40 und in 0,30, sie werden also doppelt gezählt. Der Additionssatz zieht den Schnitt ab: P(A ∪ B) = 0,40 + 0,30 − 0,12 = 0,58. Die Zeilen 1 und 2 sind richtig. Der Fehler steckt in Zeile 3."
    }
   }
  ]

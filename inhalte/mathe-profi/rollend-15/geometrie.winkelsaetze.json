@@ -459,7 +459,7 @@
      "antwort": 242,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Außenwinkel noch einmal dazugezählt"
+     "beschreibung": "statt des Innenwinkels an C den Außenwinkel 121° zu α und β addiert"
     }
    ],
    "aufgabe": {
@@ -618,7 +618,7 @@
      "antwort": 12,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "n − 1 Dreiecke statt n − 2"
+     "beschreibung": "die Zahl der Diagonalen von einer Ecke (n − 3 = 12) statt der Dreiecke angegeben"
     }
    ],
    "aufgabe": {
@@ -629,7 +629,7 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Die Winkelsumme eines Vielecks beträgt 2 340°. In wie viele Dreiecke lässt sich das Vieleck von einer Ecke aus zerlegen?"
+     "text": "Die Winkelsumme eines konvexen Vielecks beträgt 2 340°. In wie viele Dreiecke lässt sich das Vieleck durch Diagonalen von einer Ecke aus zerlegen?"
     },
     "o": {
      "wert": 13,
@@ -895,13 +895,13 @@
      "Man misst bei einem Viereck alle Winkel und addiert. Es kommt 360° heraus, also gilt es immer.",
      "Ein Viereck hat 4 Ecken. Jede Ecke hat 90°. Also 4 · 90° = 360°.",
      "Man zeichnet beide Diagonalen. Es entstehen 4 Dreiecke zu je 180°, also 4 · 180° = 720° für das Viereck.",
-     "Man zeichnet eine Diagonale und zerlegt das Viereck in zwei Dreiecke. Jedes Dreieck hat die Winkelsumme 180°. Die Winkel der Dreiecke bilden zusammen die Viereckswinkel: 180° + 180° = 360°."
+     "Man zeichnet eine Diagonale, die im Inneren des Vierecks liegt, und zerlegt das Viereck in zwei Dreiecke. Jedes Dreieck hat die Winkelsumme 180°. Die Winkel der Dreiecke bilden zusammen die Viereckswinkel: 180° + 180° = 360°."
     ],
     "o": {
      "index": 3
     },
     "h": "Ein Beweis gilt für jedes Viereck. Welcher Satz über Dreiecke kann dabei helfen?",
-    "w": "Eine Diagonale zerlegt jedes Viereck in zwei Dreiecke. Die Winkel der Dreiecke ergeben genau die vier Winkel des Vierecks: 2 · 180° = 360°. Der Ablauf stützt sich auf den bekannten Satz über die Winkelsumme im Dreieck."
+    "w": "Eine im Inneren liegende Diagonale zerlegt das Viereck in zwei Dreiecke. Die Winkel der Dreiecke ergeben genau die vier Winkel des Vierecks: 2 · 180° = 360°. Der Ablauf stützt sich auf den bekannten Satz über die Winkelsumme im Dreieck."
    }
   },
   {

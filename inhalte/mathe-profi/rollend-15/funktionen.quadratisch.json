@@ -454,7 +454,7 @@
      "antwort": 5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur den Abstand eines Schnittpunkts zum Scheitel genommen"
+     "beschreibung": "nur den waagerechten Abstand eines Schnittpunkts zur Symmetrieachse x = −2 genommen"
     },
     {
      "antwort": 4,

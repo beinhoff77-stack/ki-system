@@ -56,7 +56,7 @@ def gl(a, b):
 
 MATHE = {"sqrt": math.sqrt, "sin": lambda g: math.sin(math.radians(g)), "cos": lambda g: math.cos(math.radians(g)), "tan": lambda g: math.tan(math.radians(g)),
          "asin": lambda x: math.degrees(math.asin(x)), "acos": lambda x: math.degrees(math.acos(x)), "atan": lambda x: math.degrees(math.atan(x)),
-         "pi": math.pi, "round": round, "abs": abs, "min": min, "max": max}   # Winkel immer in Grad
+         "pi": math.pi, "floor": math.floor, "round": round, "abs": abs, "min": min, "max": max}   # Winkel immer in Grad
 
 
 def rechne_mathe(ausdruck):

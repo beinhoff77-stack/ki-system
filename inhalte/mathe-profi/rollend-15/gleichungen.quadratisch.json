@@ -43,7 +43,7 @@
      "antwort": 14,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die beiden Lösungen addiert statt gespiegelt"
+     "beschreibung": "die Beträge der beiden Lösungen addiert (7 + 7) statt die Gegenzahl −7 zu nehmen"
     }
    ],
    "aufgabe": {
@@ -96,13 +96,13 @@
      "antwort": -49,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Quadrat als Lösung mit Minuszeichen genommen"
+     "beschreibung": "x² = 49 mit Minuszeichen als Lösung genommen"
     },
     {
      "antwort": -98,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch 2 statt durch 4 geteilt und das Minus mitgenommen"
+     "beschreibung": "durch 2 statt durch 4 geteilt (x² = 98) und −98 als Lösung genommen"
     }
    ],
    "aufgabe": {

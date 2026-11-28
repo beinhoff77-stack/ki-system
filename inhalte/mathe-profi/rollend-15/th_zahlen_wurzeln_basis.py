@@ -13,7 +13,7 @@ neu(T, "quadratwurzel", "anwenden", Z(
     "Ein quadratischer Sportplatz hat 5929 m² Fläche. Kim läuft eine Runde am Rand entlang. Wie viele Meter ist eine Runde lang?",
     308, "4 * 77", "4 * round(sqrt(5929))", "Zuerst brauchst du die Seitenlänge. Welche Zahl mit sich selbst malgenommen ergibt 5929?",
     "77 · 77 = 5929, also ist eine Seite 77 m lang. Eine Runde ist der Umfang: 4 · 77 = 308 m.",
-    [B("77", "nur die Seitenlänge als Rundenlänge genommen"), B("5929 / 4", "die Fläche durch 4 geteilt statt die Wurzel zu ziehen"), B("5929 / 2 * 4", "die Wurzel wie „geteilt durch 2“ gerechnet", HK)], einheit="m"), g="einkleidung", regel=HZ)
+    [B("77", "nur die Seitenlänge als Rundenlänge genommen"), B("5929 / 4", "die Fläche durch 4 geteilt statt die Wurzel zu ziehen und das Ergebnis als Rundenlänge genommen"), B("5929 / 2 * 4", "die Wurzel wie „geteilt durch 2“ gerechnet (5929 : 2 = 2964,5) und dann mit 4 malgenommen", HK)], einheit="m"), g="einkleidung", regel=HZ)
 neu(T, "quadratwurzel", "umkehren", W(
     "Welche Zahl hat die Quadratwurzel 24?",
     "576", [("48", "die Wurzel mit 2 malgenommen statt 24 mit sich selbst"), ("12", "24 durch 2 geteilt statt 24 mit sich selbst malgenommen")],
@@ -31,14 +31,14 @@ neu(T, "wurzel_dezimal", "anwenden", Z(
     "Ein quadratisches Solarpanel hat eine Fläche von 3,8 m². Wie lang ist eine Seite? Runde auf zwei Dezimalstellen.",
     w_sp, c_sp, "round(3.8 ** 0.5, 2)", "Suche die Zahl, die mit sich selbst malgenommen 3,8 ergibt. Probiere mit einer Zahl zwischen 1 und 2.",
     "Die Seite ist √3,8 ≈ 1,95 m lang. Probe: 1,95 · 1,95 = 3,8025, das ist fast 3,8.",
-    [(1.9, HK, "3,8 durch 2 geteilt statt die Wurzel gezogen", "round(3.8 / 2, 2)"), (0.95, None, "die Fläche durch 4 geteilt, wie beim Umfang", "round(3.8 / 4, 2)"), (3.8, None, "die Fläche als Seitenlänge genommen", "3.8")], einheit="m", toleranz=0.01), g="einkleidung", regel=HZ)
+    [(1.9, HK, "3,8 durch 2 geteilt statt die Wurzel gezogen", "round(3.8 / 2, 2)"), (0.95, None, "die Fläche durch 4 geteilt, wie beim Umfang", "round(3.8 / 4, 2)"), (3.8, None, "die Fläche als Seitenlänge genommen", "3.8")], einheit="m"), g="einkleidung", regel=HZ)
 # ───────── kubikwurzel ─────────
 neu(T, "kubikwurzel", "lueckenweg", L(
     "Ein würfelförmiges Aquarium fasst 343 Liter, das sind 343 dm³. Seine Kante ist ① dm lang, die Bodenfläche ② dm². Die Oberfläche aller sechs Seitenflächen ist ③ dm².",
     "① = □; ② = □; ③ = □", [7, 49, 294], ["7", "{1} * {1}", "6 * {2}"], ["round(343 ** (1 / 3))", "round(343 ** (1 / 3)) ** 2", "6 * round(343 ** (1 / 3)) ** 2"],
     "Beim Würfel ist das Volumen Kante mal Kante mal Kante. Welche Zahl dreimal mit sich malgenommen ergibt 343?",
     "7 · 7 · 7 = 343, also ist die Kante ∛343 = 7 dm lang. Die Bodenfläche ist 7 · 7 = 49 dm². Die sechs Seitenflächen: 6 · 49 = 294 dm².",
-    {0: [(18, None, "die Quadratwurzel statt der dritten Wurzel gezogen und gerundet (√343 ≈ 18)", False)], 1: [(14, None, "Kante mal 2 gerechnet statt Kante mal Kante", "{1} * 2")], 2: [(196, None, "nur vier Seitenflächen gezählt", "4 * {2}")]}), regel=HZ)
+    {0: [(18, None, "die Quadratwurzel statt der dritten Wurzel gezogen (√343 ≈ 18,52) und auf 18 abgerundet", "floor(sqrt(343))")], 1: [(14, None, "Kante mal 2 gerechnet statt Kante mal Kante", "{1} * 2")], 2: [(196, None, "nur vier Seitenflächen gezählt", "4 * {2}")]}), regel=HZ)
 neu(T, "kubikwurzel", "anwenden", Z(
     "Ein würfelförmiger Container hat das Volumen 2744 dm³. Wie groß ist seine gesamte Oberfläche in Quadratdezimetern?",
     1176, "6 * 14 * 14", "6 * round(2744 ** (1 / 3)) ** 2", "Berechne zuerst die Kantenlänge. Wie viele Seitenflächen hat ein Würfel?",

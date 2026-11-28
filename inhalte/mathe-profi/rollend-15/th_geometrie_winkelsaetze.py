@@ -64,7 +64,7 @@ neu(T, "aussenwinkel", "lueckenweg", L(
     "① = □; ② = □; ③ = □", [83, 59, 180], ["121 - 38", "180 - 121", "38 + {1} + {2}"], ["83", "59", "180"],
     "Der Außenwinkel ist so groß wie die beiden nicht anliegenden Innenwinkel zusammen. Der Innenwinkel an C ist sein Nebenwinkel.",
     "β = 121° − 38° = 83°. Der Innenwinkel an C ist der Nebenwinkel des Außenwinkels: 180° − 121° = 59°. Die Summe 38° + 83° + 59° = 180° bestätigt die Rechnung.",
-    {0: [(159, None, "die beiden Winkel addiert", "121 + 38")], 1: [(121, "fb.winkel.neben_statt_scheitel", "den Außenwinkel selbst als Innenwinkel genommen", "121")], 2: [(242, None, "den Außenwinkel noch einmal dazugezählt", "38 + {1} + {2} + 62")]}), g="direkt", regel=R)
+    {0: [(159, None, "die beiden Winkel addiert", "121 + 38")], 1: [(121, "fb.winkel.neben_statt_scheitel", "den Außenwinkel selbst als Innenwinkel genommen", "121")], 2: [(242, None, "statt des Innenwinkels an C den Außenwinkel 121° zu α und β addiert", "38 + {1} + 121")]}), g="direkt", regel=R)
 # ───────── vieleck ─────────
 neu(T, "vieleck", "anwenden", Z(
     "Ein Gartenhaus hat als Grundriss ein regelmäßiges Zwölfeck. Wie groß ist jeder Innenwinkel des Grundrisses in Grad?",
@@ -72,10 +72,10 @@ neu(T, "vieleck", "anwenden", Z(
     "Die Winkelsumme im Zwölfeck ist (12 − 2) · 180° = 1 800°. Alle 12 Winkel sind gleich groß: 1 800° : 12 = 150°.",
     [B("12 * 180 / 12", "die Winkelsumme mit n statt mit n − 2 Dreiecken gerechnet"), B("(12 - 2) * 180", "die Winkelsumme angegeben statt eines einzelnen Winkels"), B("360 / 12", "den Außenwinkel statt des Innenwinkels angegeben")], einheit="°"), g="einkleidung", regel=R)
 neu(T, "vieleck", "umkehren", Z(
-    "Die Winkelsumme eines Vielecks beträgt 2 340°. In wie viele Dreiecke lässt sich das Vieleck von einer Ecke aus zerlegen?",
+    "Die Winkelsumme eines konvexen Vielecks beträgt 2 340°. In wie viele Dreiecke lässt sich das Vieleck durch Diagonalen von einer Ecke aus zerlegen?",
     13, "2340 // 180", next(n - 2 for n in range(3, 60) if (n - 2) * 180 == 2340), "Jedes Dreieck bringt 180° zur Winkelsumme. Wie oft passen 180° in 2 340°?",
     "Bei der Zerlegung von einer Ecke aus entstehen (n − 2) Dreiecke, jedes bringt 180°. Aus (n − 2) · 180° = 2 340° folgt n − 2 = 13. Es sind 13 Dreiecke.",
-    [B("13 + 2", "die Zahl der Ecken statt der Dreiecke angegeben"), B("2340 / 360", "durch 360° statt durch 180° geteilt"), B("2340 / 180 - 1", "n − 1 Dreiecke statt n − 2")], einheit="Dreiecke"), g="rueckwaerts", regel=R)
+    [B("13 + 2", "die Zahl der Ecken statt der Dreiecke angegeben"), B("2340 / 360", "durch 360° statt durch 180° geteilt"), B("2340 / 180 - 1", "die Zahl der Diagonalen von einer Ecke (n − 3 = 12) statt der Dreiecke angegeben")], einheit="Dreiecke"), g="rueckwaerts", regel=R)
 # ───────── parkett ─────────
 neu(T, "parkett", "anwenden", Z(
     "Ein Platz in Lissabon wird mit zwei regelmäßigen Zwölfecken und einer dritten Sorte regelmäßiger Vielecke so gepflastert, dass sich um jeden Eckpunkt genau diese drei Vielecke lückenlos treffen. Wie groß ist der Innenwinkel der dritten Sorte in Grad?",
@@ -104,11 +104,11 @@ neu(T, "figuren", "anwenden", Z(
 # ───────── beweisen ─────────
 neu(T, "beweisen", "bruecke", W(
     "Du willst beweisen, dass die Winkelsumme in jedem Viereck 360° beträgt. Welcher Ablauf ist ein richtiger Beweis?",
-    "Man zeichnet eine Diagonale und zerlegt das Viereck in zwei Dreiecke. Jedes Dreieck hat die Winkelsumme 180°. Die Winkel der Dreiecke bilden zusammen die Viereckswinkel: 180° + 180° = 360°.",
+    "Man zeichnet eine Diagonale, die im Inneren des Vierecks liegt, und zerlegt das Viereck in zwei Dreiecke. Jedes Dreieck hat die Winkelsumme 180°. Die Winkel der Dreiecke bilden zusammen die Viereckswinkel: 180° + 180° = 360°.",
     [("Man misst bei einem Viereck alle Winkel und addiert. Es kommt 360° heraus, also gilt es immer.", "Messen an einem Beispiel beweist nichts"), ("Ein Viereck hat 4 Ecken. Jede Ecke hat 90°. Also 4 · 90° = 360°.", "gilt nur für das Rechteck oder Quadrat"),
      ("Man zeichnet beide Diagonalen. Es entstehen 4 Dreiecke zu je 180°, also 4 · 180° = 720° für das Viereck.", "die Winkel am Schnittpunkt der Diagonalen wurden mitgezählt")],
     "Ein Beweis gilt für jedes Viereck. Welcher Satz über Dreiecke kann dabei helfen?",
-    "Eine Diagonale zerlegt jedes Viereck in zwei Dreiecke. Die Winkel der Dreiecke ergeben genau die vier Winkel des Vierecks: 2 · 180° = 360°. Der Ablauf stützt sich auf den bekannten Satz über die Winkelsumme im Dreieck.",
+    "Eine im Inneren liegende Diagonale zerlegt das Viereck in zwei Dreiecke. Die Winkel der Dreiecke ergeben genau die vier Winkel des Vierecks: 2 · 180° = 360°. Der Ablauf stützt sich auf den bekannten Satz über die Winkelsumme im Dreieck.",
     lambda: 2 * 180 == 360 and 4 * 180 == 720), g="darstellung", regel=R)
 neu(T, "beweisen", "fehler_detektiv", FD(
     "Alex beweist, dass die drei Außenwinkel eines Dreiecks zusammen 360° ergeben, und schreibt auf:",

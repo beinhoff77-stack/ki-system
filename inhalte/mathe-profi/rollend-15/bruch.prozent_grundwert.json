@@ -460,8 +460,7 @@
     },
     "o": {
      "wert": 5,
-     "einheit": "%",
-     "toleranz": 0.1
+     "einheit": "%"
     },
     "c": "(4300 - 4085) / 4300 * 100",
     "h": "Vergleiche die Änderung mit dem Wert vom Mai, nicht mit dem vom Juli.",
@@ -489,10 +488,10 @@
     },
     {
      "index": 2,
-     "antwort": "beim Museum, weil es die größte Zahl 18 hat",
+     "antwort": "beim Museum, weil es mit 3 € mehr steigt als der Bus (0,60 €) und im Verhältnis zum Preis mehr als das Hotel",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den neuen Preis statt die Änderung betrachtet"
+     "beschreibung": "Bus und Museum nur in Euro verglichen und das Verhältnis zum alten Preis beim Bus nicht berechnet"
     }
    ],
    "aufgabe": {
@@ -533,7 +532,7 @@
     "a": [
      "beim Hotel, weil dort die Erhöhung in Euro am größten ist",
      "beim Bus",
-     "beim Museum, weil es die größte Zahl 18 hat"
+     "beim Museum, weil es mit 3 € mehr steigt als der Bus (0,60 €) und im Verhältnis zum Preis mehr als das Hotel"
     ],
     "o": {
      "index": 1
@@ -635,8 +634,7 @@
     },
     "o": {
      "wert": 16.7,
-     "einheit": "%",
-     "toleranz": 0.1
+     "einheit": "%"
     },
     "c": "round(16.666666666666664, 1)",
     "h": "Nach der Erhöhung ist der Preis das 1,2-Fache. Mit welchem Faktor kommst du von 1,2 zurück auf 1?",
@@ -772,7 +770,7 @@
     "g": "pruefung",
     "y": "auswahl",
     "f": {
-     "text": "Eine Stadt am Mittelmeer hatte im Vorjahr 200 000 Übernachtungen und dieses Jahr 230 000. Eine kleine Insel hatte im Vorjahr 50 000 und dieses Jahr 62 000. Welche Aussage ist mathematisch richtig begründet?"
+     "text": "Eine Stadt am Mittelmeer hatte im Vorjahr 200 000 Übernachtungen und dieses Jahr 230 000. Eine kleine Insel hatte im Vorjahr 50 000 und dieses Jahr 62 000. Welche Aussage vergleicht das relative Wachstum (den prozentualen Zuwachs) von Stadt und Insel richtig?"
     },
     "a": [
      "Die Insel ist prozentual stärker gewachsen: 12 000 : 50 000 = 24 %, in der Stadt sind es 30 000 : 200 000 = 15 %.",

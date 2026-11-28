@@ -54,13 +54,13 @@ neu(T, "nullstellen", "lueckenweg", L(
     "Setze y = 0 und löse die Gleichung, zum Beispiel mit der Lösungsformel oder durch Zerlegen. Die Mitte ist der Mittelwert beider Nullstellen.",
     "x² − 6x − 55 = (x − 11)(x + 5) = 0, also x = 11 oder x = −5. Der Scheitel liegt in der Mitte: (−5 + 11) : 2 = 3. Probe: 3² − 18 − 55 = −64 ist der kleinste y-Wert.",
     {0: [(5, None, "aus x + 5 = 0 die Lösung 5 gemacht", "5")], 1: [(55, None, "das Absolutglied als Nullstelle genommen", "55")], 2: [(6, None, "den Beiwert −6 statt seiner Hälfte genommen", "6")]}), regel=ZU,
-    zweifel="Nullstellen: y = 0 setzen (Zuordnung y zu x), das Lösen selbst gehört zu Nullprodukt, das für diese Einheit nicht im Katalog steht")
+    zweifel="Nur Teilregel: id.funktionen.zuordnung trägt das Setzen von y = 0, das Lösen der Gleichung (Nullprodukt) steht für diese Einheit nicht im Katalog")
 neu(T, "nullstellen", "anwenden", Z(
     "Die Parabel y = (x + 2)² − 25 schneidet die x-Achse zweimal. Wie weit sind die beiden Schnittpunkte voneinander entfernt?",
     10, "3 - -7", 10, "Setze y = 0 und löse nach x. Der Abstand ist der Unterschied der beiden Lösungen.",
     "(x + 2)² = 25, also x + 2 = 5 oder x + 2 = −5. Die Nullstellen sind 3 und −7. Der Abstand ist 3 − (−7) = 10.",
-    [B("5", "nur den Abstand eines Schnittpunkts zum Scheitel genommen"), B("7 - 3", "die Nullstellen ohne Vorzeichen voneinander abgezogen"), B("25", "die rechte Seite als Abstand genommen")]), g="mehrschritt", regel=ZU,
-    zweifel="Nullstellen: y = 0 setzen; das Wurzelziehen mit zwei Lösungen hat im Katalog keine eigene Regel für diese Einheit")
+    [B("5", "nur den waagerechten Abstand eines Schnittpunkts zur Symmetrieachse x = −2 genommen"), B("7 - 3", "die Nullstellen ohne Vorzeichen voneinander abgezogen"), B("25", "die rechte Seite als Abstand genommen")]), g="mehrschritt", regel=ZU,
+    zweifel="Nur Teilregel: id.funktionen.zuordnung trägt das Setzen von y = 0, das Wurzelziehen mit zwei Lösungen und die Abstandsbildung deckt sie nicht ab")
 # ───────── punkte ─────────
 neu(T, "punkte", "anwenden", Z(
     "Ein Torbogen in Dubrovnik hat die Höhe h(x) = −0,02(x − 20)² + 9 (in Metern, x in Metern entlang der Straße). Wie hoch ist der Bogen bei x = 30?",

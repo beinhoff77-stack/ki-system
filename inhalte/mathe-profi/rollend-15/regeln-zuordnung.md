@@ -2,7 +2,7 @@
 
 Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt), nicht das Thema. Jede Kennung wurde gegen `inhalte/mathe-profi/regeln-uebersicht/kennungen.json` gelesen; `bauen.py` prüft, dass sie im Katalog steht und das Thema in der Themenliste der Regel steht (Ausnahmen unten). Quelle der Daten: die Angaben `regel` / `ohne` / `zweifel` in `th_*.py`; `regeln.py` und diese Tabelle werden von `bauen.py` erzeugt.
 
-**176 Aufgaben mit Regel, 31 ohne.**
+**169 Aufgaben mit Regel, 38 ohne.**
 
 ## Verteilung
 
@@ -11,12 +11,11 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | `id.geometrie.winkel` | Winkel an Geraden | 24 |
 | `id.geometrie.rechtwinklig` | Rechtwinkliges Dreieck | 21 |
 | `id.zahlen.hoch_zurueck` | Hoch und zurück | 21 |
-| `rr.waage` | Gleichung als Waage | 18 |
+| `rr.waage` | Gleichung als Waage | 16 |
 | `rr.potenz` | Potenzen | 15 |
 | `id.geometrie.deckungsgleich` | Deckungsgleich | 14 |
 | `id.verhaeltnisse.prozent` | Prozent als Faktor | 14 |
 | `id.funktionen.gleichung_form` | Gleichung und Form | 9 |
-| `id.daten.anteil` | Anteil | 5 |
 | `rr.tauschen` | Tauschen, Klammern, Zusammenfassen | 5 |
 | `rr.ausmultiplizieren` | Ausmultiplizieren und Ausklammern | 4 |
 | `rr.gegenrechnung` | Gegenrechnung | 4 |
@@ -27,9 +26,9 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | `rr.nullprodukt` | Nullprodukt | 3 |
 | `id.algebra.hoeherer_grad` | Höherer Grad | 2 |
 | `id.algebra.term` | Term | 2 |
-| `id.daten.stufen` | Stufen | 1 |
+| `id.daten.anteil` | Anteil | 1 |
 | `rr.vorzeichen` | Vorzeichen bei Mal und Geteilt | 1 |
-| – (ohne Regel) |  | 31 |
+| – (ohne Regel) |  | 38 |
 
 ## Ausnahmen von der Themenliste des Katalogs (von Hand gelesen)
 
@@ -46,6 +45,8 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V091 | geometrie.konstruktion.satz_kehrsatz | Satz und Kehrsatz (Logik, Gegenbeispiel): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V092 | geometrie.konstruktion.satz_kehrsatz | Satz und Kehrsatz (Logik, Gegenbeispiel): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V093 | geometrie.konstruktion.satz_kehrsatz | Satz und Kehrsatz (Logik, Gegenbeispiel): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V103 | gleichungen.linear.probe | Probe durch Einsetzen (beide Seiten ausrechnen und vergleichen): rr.waage beschreibt das Umformen, nicht das Einsetzen, keine andere Regel des Katalogs trägt den Lösungsweg |
+| R15-V104 | gleichungen.linear.probe | Probe durch Einsetzen (beide Seiten ausrechnen und vergleichen): rr.waage beschreibt das Umformen, nicht das Einsetzen, keine andere Regel des Katalogs trägt den Lösungsweg |
 | R15-V123 | zahlen.wurzeln_basis.wurzel_deuten | Wurzel und Summe (Wurzel verteilt sich nicht auf Summanden): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V130 | zahlen.reell.heron | Heron-Verfahren (Mittelwert aus Näherung und Quotient): keine Regel des Katalogs trägt den Rechenschritt |
 | R15-V131 | zahlen.reell.heron | Flächenerhaltung beim Rechteck (Länge mal Breite bleibt gleich): keine Regel des Katalogs trägt den Rechenschritt |
@@ -71,6 +72,11 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V199 | stochastik.verknuepft.mengen_verstehen | Mengen und Mengenoperationen zählen (Elemente, Schnitt, Vereinigung): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V200 | stochastik.verknuepft.vierfeld | Vierfeldertafel ausfüllen (Zeilen- und Spaltensummen): keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V201 | stochastik.verknuepft.vierfeld | Vierfeldertafel ausfüllen (Zeilen- und Spaltensummen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V203 | stochastik.verknuepft.bedingt | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V204 | stochastik.verknuepft.bedingt | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V205 | stochastik.verknuepft.rueckschluss | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V206 | stochastik.verknuepft.verstehen | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V207 | stochastik.verknuepft.verstehen | Additionssatz für zwei Ereignisse (Schnitt nicht doppelt zählen): keine Regel des Katalogs trägt den Lösungsweg |
 
 ## Zweifelsfälle
 
@@ -89,25 +95,25 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V128 | zahlen.reell.eingrenzen | `id.zahlen.hoch_zurueck` | Eingrenzen durch Quadrieren: hoch_zurueck trägt das Rückrechnen |
 | R15-V129 | zahlen.reell.eingrenzen | `id.zahlen.hoch_zurueck` | Eingrenzen durch Quadrieren: hoch_zurueck trägt das Rückrechnen |
 | R15-V145 | gleichungen.quadratisch.faktorisieren | `rr.nullprodukt` | Zurück von den Lösungen zur Gleichung: Nullprodukt trägt den Weg rückwärts |
-| R15-V148 | gleichungen.quadratisch.loesungsformel | `rr.reihenfolge` | Lösungsformel: tragender Schritt ist die Diskriminante (Klammer, Hoch, Punkt vor Strich); es gibt keine eigene Formelregel im Katalog |
-| R15-V149 | gleichungen.quadratisch.bruchgleichung | `rr.waage` | Bruchgleichung: Waage (mit x malnehmen), danach Nullprodukt |
-| R15-V151 | gleichungen.quadratisch.diskriminante | `rr.reihenfolge` | Diskriminante bestimmen und deuten: tragend ist die Rechenreihenfolge; die Deutung (Vorzeichen) hat keine eigene Regel |
+| R15-V147 | gleichungen.quadratisch.loesungsformel | `rr.reihenfolge` | Nur Teilregel: rr.reihenfolge trägt die Rechenreihenfolge beim Auswerten (Klammer, Hoch, Punkt vor Strich), nicht die Wahl der Formel und nicht das Deuten der Diskriminante |
+| R15-V148 | gleichungen.quadratisch.loesungsformel | `rr.reihenfolge` | Nur Teilregel: rr.reihenfolge trägt die Rechenreihenfolge beim Auswerten (Klammer, Hoch, Punkt vor Strich), nicht die Wahl der Formel und nicht das Deuten der Diskriminante |
+| R15-V149 | gleichungen.quadratisch.bruchgleichung | `rr.waage` | Nur Teilregel: Waage trägt das Malnehmen mit x, das Lösen der entstehenden quadratischen Gleichung (Nullprodukt, Formel) deckt sie nicht ab |
+| R15-V151 | gleichungen.quadratisch.diskriminante | `rr.reihenfolge` | Nur Teilregel: rr.reihenfolge trägt die Rechenreihenfolge beim Auswerten (Klammer, Hoch, Punkt vor Strich), nicht die Wahl der Formel und nicht das Deuten der Diskriminante |
 | R15-V152 | gleichungen.quadratisch.sachaufgabe | `rr.nullprodukt` | Sachaufgabe: Nullprodukt nach dem Umformen; Prüfen der Lösung gegen die Sachlage |
-| R15-V153 | gleichungen.quadratisch.sachaufgabe | `rr.reihenfolge` | Sachaufgabe: Lösungsformel (Diskriminante nach Rechenreihenfolge), Prüfen gegen die Sachlage |
-| R15-V161 | funktionen.quadratisch.nullstellen | `id.funktionen.zuordnung` | Nullstellen: y = 0 setzen (Zuordnung y zu x), das Lösen selbst gehört zu Nullprodukt, das für diese Einheit nicht im Katalog steht |
-| R15-V162 | funktionen.quadratisch.nullstellen | `id.funktionen.zuordnung` | Nullstellen: y = 0 setzen; das Wurzelziehen mit zwei Lösungen hat im Katalog keine eigene Regel für diese Einheit |
+| R15-V153 | gleichungen.quadratisch.sachaufgabe | `rr.reihenfolge` | Nur Teilregel: rr.reihenfolge trägt die Rechenreihenfolge beim Auswerten (Klammer, Hoch, Punkt vor Strich), nicht die Wahl der Formel und nicht das Deuten der Diskriminante |
+| R15-V161 | funktionen.quadratisch.nullstellen | `id.funktionen.zuordnung` | Nur Teilregel: id.funktionen.zuordnung trägt das Setzen von y = 0, das Lösen der Gleichung (Nullprodukt) steht für diese Einheit nicht im Katalog |
+| R15-V162 | funktionen.quadratisch.nullstellen | `id.funktionen.zuordnung` | Nur Teilregel: id.funktionen.zuordnung trägt das Setzen von y = 0, das Wurzelziehen mit zwei Lösungen und die Abstandsbildung deckt sie nicht ab |
 | R15-V167 | funktionen.quadratisch.extremwert | `id.funktionen.gleichung_form` | Extremwert: Scheitel der Parabel gesucht; gleichung_form trägt das Lesen der Form, das Aufstellen der Zielfunktion hat keine Regel |
-| R15-V182 | trigo.rechtwinklig.verhaeltnisse | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
-| R15-V183 | trigo.rechtwinklig.verhaeltnisse | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
-| R15-V184 | trigo.rechtwinklig.seite | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
-| R15-V185 | trigo.rechtwinklig.seite | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
-| R15-V186 | trigo.rechtwinklig.winkel | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
-| R15-V189 | trigo.rechtwinklig.anwendung | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
-| R15-V190 | trigo.rechtwinklig.anwendung | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
+| R15-V180 | trigo.rechtwinklig.seiten | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig trägt das rechtwinklige Dreieck, das Benennen der Katheten relativ zum gewählten Winkel (Gegenkathete, Ankathete) steht nicht ausdrücklich im Katalogtext; die Aufgabe nennt den Winkel und die Lage des rechten Winkels |
+| R15-V181 | trigo.rechtwinklig.seiten | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig trägt das rechtwinklige Dreieck, das Benennen der Katheten relativ zum gewählten Winkel (Gegenkathete, Ankathete) steht nicht ausdrücklich im Katalogtext; die Aufgabe nennt den Winkel und die Lage des rechten Winkels |
+| R15-V182 | trigo.rechtwinklig.verhaeltnisse | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig nennt, dass Sinus, Kosinus und Tangens Seiten und Winkel verbinden, die konkreten Verhältnisformeln (sin α = Gegenkathete : Hypotenuse usw.) stehen nicht im Katalogtext; die Aufgabe stützt sich darauf |
+| R15-V183 | trigo.rechtwinklig.verhaeltnisse | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig nennt, dass Sinus, Kosinus und Tangens Seiten und Winkel verbinden, die konkreten Verhältnisformeln (sin α = Gegenkathete : Hypotenuse usw.) stehen nicht im Katalogtext; die Aufgabe stützt sich darauf |
+| R15-V184 | trigo.rechtwinklig.seite | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig nennt, dass Sinus, Kosinus und Tangens Seiten und Winkel verbinden, die konkreten Verhältnisformeln (sin α = Gegenkathete : Hypotenuse usw.) stehen nicht im Katalogtext; die Aufgabe stützt sich darauf |
+| R15-V185 | trigo.rechtwinklig.seite | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig nennt, dass Sinus, Kosinus und Tangens Seiten und Winkel verbinden, die konkreten Verhältnisformeln (sin α = Gegenkathete : Hypotenuse usw.) stehen nicht im Katalogtext; die Aufgabe stützt sich darauf |
+| R15-V186 | trigo.rechtwinklig.winkel | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig nennt, dass Sinus, Kosinus und Tangens Seiten und Winkel verbinden, die konkreten Verhältnisformeln (sin α = Gegenkathete : Hypotenuse usw.) stehen nicht im Katalogtext; die Aufgabe stützt sich darauf |
+| R15-V189 | trigo.rechtwinklig.anwendung | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig nennt, dass Sinus, Kosinus und Tangens Seiten und Winkel verbinden, die konkreten Verhältnisformeln (sin α = Gegenkathete : Hypotenuse usw.) stehen nicht im Katalogtext; die Aufgabe stützt sich darauf |
+| R15-V190 | trigo.rechtwinklig.anwendung | `id.geometrie.rechtwinklig` | Nur Teilregel: id.geometrie.rechtwinklig nennt, dass Sinus, Kosinus und Tangens Seiten und Winkel verbinden, die konkreten Verhältnisformeln (sin α = Gegenkathete : Hypotenuse usw.) stehen nicht im Katalogtext; die Aufgabe stützt sich darauf |
 | R15-V202 | stochastik.verknuepft.tafel_wkeit | `id.daten.anteil` | Vierfeldertafel mit Wahrscheinlichkeiten: id.daten.anteil trägt die Deutung als Anteil, das Ausfüllen der Tafel hat keine eigene Regel |
-| R15-V203 | stochastik.verknuepft.bedingt | `id.daten.anteil` | Bedingte Wahrscheinlichkeit als Anteil: id.daten.anteil trägt Günstige durch Mögliche |
-| R15-V206 | stochastik.verknuepft.verstehen | `id.daten.anteil` | Deutung der bedingten Wahrscheinlichkeit: id.daten.anteil (Anteil von was?) |
-| R15-V207 | stochastik.verknuepft.verstehen | `id.daten.anteil` | Bedingte Wahrscheinlichkeit richtig herum lesen: id.daten.anteil (Anteil von was?) |
 
 ## Alle Aufgaben
 
@@ -215,8 +221,8 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V100 | gleichungen.linear.klammern | `rr.waage` |
 | R15-V101 | gleichungen.linear.klammern | `rr.waage` |
 | R15-V102 | gleichungen.linear.klammern | `rr.waage` |
-| R15-V103 | gleichungen.linear.probe | `rr.waage` |
-| R15-V104 | gleichungen.linear.probe | `rr.waage` |
+| R15-V103 | gleichungen.linear.probe | – |
+| R15-V104 | gleichungen.linear.probe | – |
 | R15-V105 | gleichungen.linear.sonderfaelle | `rr.waage` |
 | R15-V106 | gleichungen.linear.sonderfaelle | `rr.waage` |
 | R15-V107 | gleichungen.linear.sonderfaelle | `rr.waage` |
@@ -315,8 +321,8 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V200 | stochastik.verknuepft.vierfeld | – |
 | R15-V201 | stochastik.verknuepft.vierfeld | – |
 | R15-V202 | stochastik.verknuepft.tafel_wkeit | `id.daten.anteil` |
-| R15-V203 | stochastik.verknuepft.bedingt | `id.daten.anteil` |
-| R15-V204 | stochastik.verknuepft.bedingt | `id.daten.stufen` |
-| R15-V205 | stochastik.verknuepft.rueckschluss | `id.daten.anteil` |
-| R15-V206 | stochastik.verknuepft.verstehen | `id.daten.anteil` |
-| R15-V207 | stochastik.verknuepft.verstehen | `id.daten.anteil` |
+| R15-V203 | stochastik.verknuepft.bedingt | – |
+| R15-V204 | stochastik.verknuepft.bedingt | – |
+| R15-V205 | stochastik.verknuepft.rueckschluss | – |
+| R15-V206 | stochastik.verknuepft.verstehen | – |
+| R15-V207 | stochastik.verknuepft.verstehen | – |

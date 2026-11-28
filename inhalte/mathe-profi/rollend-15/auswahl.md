@@ -145,3 +145,7 @@ Nur Etappen, die zur Einheit in `rollend-einheiten.json` gehören. Nicht dazu ge
 14 Einheiten (7 in Klasse 7, 7 in Klasse 9). Geschrieben wurden 12 bis 18 Aufgaben je Einheit, in jeder Etappe der Einheit mindestens eine zählende Aufgabe auf Stufe 2 oder 3.
 
 Zweifel an der Auswahl für den Vorprüfer: Bei den sieben Klasse-7-Einheiten haben `bruch.prozent_grundwert` (11,1 %), `geometrie.winkelsaetze` (10,5 %) und `gleichungen.linear` (12,3 %) einen höheren Anteil als die in R8 bedienten `daten.boxplot` (6,5 %) und `geometrie.kreis` (7,7 %). Sie sind gewählt, weil sie in keiner der Runden R8, R9, R10, R14 vorkamen (Kriterium oben); wer lieber nach dem reinen Anteil auswählt, tauscht sie in einer späteren Runde gegen Boxplot und Kreis.
+
+## Vormerkung für Runde 16 (Gegenprüfung 1197)
+
+`daten.boxplot` und `geometrie.kreis` (Klasse 7) wurden in R15 nicht bedient und stehen für die nächste Runde vor.

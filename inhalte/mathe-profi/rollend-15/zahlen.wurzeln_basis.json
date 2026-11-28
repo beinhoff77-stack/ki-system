@@ -96,13 +96,13 @@
      "antwort": 1482.25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Fläche durch 4 geteilt statt die Wurzel zu ziehen"
+     "beschreibung": "die Fläche durch 4 geteilt statt die Wurzel zu ziehen und das Ergebnis als Rundenlänge genommen"
     },
     {
      "antwort": 11858,
      "fehlbild": "fb.hoch_zurueck.wurzel_halbiert",
      "regel_des_fehlbilds": "id.zahlen.hoch_zurueck",
-     "beschreibung": "die Wurzel wie „geteilt durch 2“ gerechnet"
+     "beschreibung": "die Wurzel wie „geteilt durch 2“ gerechnet (5929 : 2 = 2964,5) und dann mit 4 malgenommen"
     }
    ],
    "aufgabe": {
@@ -266,8 +266,7 @@
     },
     "o": {
      "wert": 1.95,
-     "einheit": "m",
-     "toleranz": 0.01
+     "einheit": "m"
     },
     "c": "round(1.9493588689617927, 2)",
     "h": "Suche die Zahl, die mit sich selbst malgenommen 3,8 ergibt. Probiere mit einer Zahl zwischen 1 und 2.",
@@ -291,7 +290,7 @@
      "antwort": 18,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Quadratwurzel statt der dritten Wurzel gezogen und gerundet (√343 ≈ 18)"
+     "beschreibung": "die Quadratwurzel statt der dritten Wurzel gezogen (√343 ≈ 18,52) und auf 18 abgerundet"
     },
     {
      "luecke": 2,

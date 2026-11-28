@@ -59,10 +59,10 @@ a2(T, "rueckwaerts", Z(
     "2 · 60 = 120. Grundseite: 120 : 8 = 15 cm. Probe: 15 · 8 : 2 = 60.",
     [B("60 / 8", "zweimal die Fläche vergessen"), B("60 * 8 / 2", "die Fläche mit der Höhe malgenommen und durch 2 geteilt"), B("2 * 60 * 8", "alles malgenommen")], "cm"))
 a3(T, "rueckwaerts", Z(
-    "Ein Rechteck ist 6 cm breit und 10 cm lang. Ein Dreieck hat denselben Flächeninhalt und die Grundseite 15 cm. Wie hoch ist das Dreieck?",
-    8, "2 * 6 * 10 / 15", "120 / 15", "Berechne die Fläche des Rechtecks. Beim Dreieck rechnest du dann zweimal die Fläche geteilt durch die Grundseite.",
-    "Rechteck: 6 · 10 = 60 cm². Dreieck: 2 · 60 : 15 = 8 cm. Probe: 15 · 8 : 2 = 60.",
-    [B("6 * 10 / 15", "zweimal die Fläche vergessen"), B("6 * 10 * 15 / 2", "die Fläche mit der Grundseite malgenommen und durch 2 geteilt"), B("6 * 10 - 15", "die Grundseite von der Fläche abgezogen")], "cm"), g="verknuepfen")
+    "Ein Rechteck ist 6 cm breit und 12 cm lang. Ein Dreieck hat denselben Flächeninhalt und die Grundseite 16 cm. Wie hoch ist das Dreieck?",
+    9, "2 * 6 * 12 / 16", "144 / 16", "Berechne die Fläche des Rechtecks. Beim Dreieck rechnest du dann zweimal die Fläche geteilt durch die Grundseite.",
+    "Rechteck: 6 · 12 = 72 cm². Dreieck: 2 · 72 : 16 = 9 cm. Probe: 16 · 9 : 2 = 72.",
+    [B("6 * 12 / 16", "zweimal die Fläche vergessen"), B("6 * 12 * 16 / 2", "die Fläche mit der Grundseite malgenommen und durch 2 geteilt"), B("6 * 12 - 16", "die Grundseite von der Fläche abgezogen")], "cm"), g="verknuepfen")
 # ───────── zusammengesetzt ─────────
 a1(T, "zusammengesetzt", Z(
     "Ein Zimmer ist ein Rechteck von 8 m mal 5 m. An einer Seite hat es einen Erker, der ein Quadrat mit 2 m Seitenlänge ist. Wie groß ist die Bodenfläche mit dem Erker?",

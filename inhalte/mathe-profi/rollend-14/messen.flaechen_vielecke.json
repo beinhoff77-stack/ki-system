@@ -575,19 +575,19 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 4,
+     "antwort": 4.5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "zweimal die Fläche vergessen"
     },
     {
-     "antwort": 450,
+     "antwort": 576,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Fläche mit der Grundseite malgenommen und durch 2 geteilt"
     },
     {
-     "antwort": 45,
+     "antwort": 56,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Grundseite von der Fläche abgezogen"
@@ -601,15 +601,15 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Ein Rechteck ist 6 cm breit und 10 cm lang. Ein Dreieck hat denselben Flächeninhalt und die Grundseite 15 cm. Wie hoch ist das Dreieck?"
+     "text": "Ein Rechteck ist 6 cm breit und 12 cm lang. Ein Dreieck hat denselben Flächeninhalt und die Grundseite 16 cm. Wie hoch ist das Dreieck?"
     },
     "o": {
-     "wert": 8,
+     "wert": 9,
      "einheit": "cm"
     },
-    "c": "2 * 6 * 10 / 15",
+    "c": "2 * 6 * 12 / 16",
     "h": "Berechne die Fläche des Rechtecks. Beim Dreieck rechnest du dann zweimal die Fläche geteilt durch die Grundseite.",
-    "w": "Rechteck: 6 · 10 = 60 cm². Dreieck: 2 · 60 : 15 = 8 cm. Probe: 15 · 8 : 2 = 60."
+    "w": "Rechteck: 6 · 12 = 72 cm². Dreieck: 2 · 72 : 16 = 9 cm. Probe: 16 · 9 : 2 = 72."
    }
   },
   {

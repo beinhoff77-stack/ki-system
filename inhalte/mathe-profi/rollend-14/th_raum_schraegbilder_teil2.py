@@ -14,7 +14,7 @@ a3(T, "koordinaten", Z(
     "Ein Quader steht auf dem Boden (der xy-Ebene) mit der Ecke A im Ursprung und ragt nach oben. Seine Kanten verlaufen parallel zu den Achsen. Die Ecke G, die A gegenüberliegt, hat die Koordinaten (8 | 6 | h). Das Volumen ist 240 Volumeneinheiten. Ein zweiter Quader hat dieselbe Grundfläche, ist aber doppelt so hoch. Wie groß ist die Summe der drei Koordinaten seiner Ecke G′, die A gegenüberliegt?",
     24, "8 + 6 + 2 * (240 / (8 * 6))", "14 + 10", "Berechne zuerst h aus dem Volumen. Die Koordinaten von G′ sind die Kantenlängen des zweiten Quaders.",
     "Die Kanten sind 8, 6 und h lang. Das Volumen ist 8 · 6 · h = 240, also h = 5. Der zweite Quader ist 2 · 5 = 10 hoch, also G′(8 | 6 | 10). Die Summe ist 8 + 6 + 10 = 24.",
-    [(19, None, "die Höhe des ersten Quaders statt der doppelten Höhe genommen", "8 + 6 + 240 / (8 * 6)"), (38, None, "alle drei Koordinaten des ersten Quaders verdoppelt", "2 * (8 + 6 + 240 / (8 * 6))"), (74, None, "das Volumen nur durch 8 geteilt und verdoppelt", "8 + 6 + 2 * 240 / 8")]), g="rueckwaerts")
+    [(19, None, "die Höhe des ersten Quaders statt der doppelten Höhe genommen", "8 + 6 + 240 / (8 * 6)"), (38, None, "alle drei Koordinaten des ersten Quaders verdoppelt", "2 * (8 + 6 + 240 / (8 * 6))"), (74, None, "beim Berechnen der Höhe das Volumen nur durch die Länge 8 geteilt und die Höhe verdoppelt", "8 + 6 + 2 * 240 / 8")]), g="rueckwaerts")
 # ───────── rotation ─────────
 a1(T, "rotation", Z(
     "Ein Töpfer stellt sich vor, dass ein Rechteck mit den Seiten 4 cm und 9 cm um die 9-cm-Seite rotiert. Es entsteht ein Zylinder. Wie groß ist sein Volumen in cm³? Rechne mit π ≈ 3,14.",

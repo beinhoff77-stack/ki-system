@@ -30,7 +30,7 @@ a3(T, "vergleichen_ordnen", Z(
     "Eine Zahl hat genau zwei Nachkommastellen und liegt zwischen 3,7 und 3,8. Die Quersumme aller ihrer Ziffern ist 18. Welche Zahl ist es?",
     3.78, "3.7 + (18 - 3 - 7) / 100", "3.78", "Die Zahl sieht so aus: 3,7 und eine letzte Ziffer. Welche Ziffer fehlt, damit die Quersumme 18 ist?",
     "Die Zahl hat die Form 3,7x. Die Quersumme ist 3 + 7 + x = 18, also x = 8. Die Zahl ist 3,78. Sie liegt zwischen 3,70 und 3,80.",
-    [B("3.8 + 0.07", "die Ziffern 7 und 8 vertauscht"), B("3.7 + 0.1", "um ein Zehntel weitergezählt"), B("3.7 + 8 / 10", "die 8 als Zehntel angehängt")]), g="transfer")
+    [B("3.8 + 0.07", "die Ziffern 7 und 8 vertauscht"), B("3.7 + 0.1", "um ein Zehntel weitergezählt"), B("3.7 + 8 / 10", "die 8 als Zehntel zu 3,7 addiert")]), g="transfer")
 # ───────── runden ─────────
 a1(T, "runden", Z(
     "Ein Wasserzähler zeigt 0,3846 m³. Runde auf Hundertstel. Wie viele Kubikmeter sind das gerundet?",
@@ -43,10 +43,10 @@ a2(T, "runden", Z(
     "34 · 1,748 = 59,432. Auf Hundertstel gerundet: Die Ziffer rechts ist 2, also abrunden. Ergebnis: 59,43 €.",
     [B("34 * 1.748", "den Preis nicht gerundet"), B("round(34 * 1.75 * 100) / 100", "den Literpreis zuerst auf 1,75 gerundet"), B("round(34 * 1.748 * 10) / 10", "auf Zehntel gerundet")], "€"))
 a3(T, "runden", Z(
-    "Eine Dezimalzahl mit genau zwei Nachkommastellen wird auf Zehntel gerundet. Das Ergebnis ist 5,8. Wie viele solche Zahlen gibt es?",
-    10, "(5.84 - 5.75) * 100 + 1", "584 - 575 + 1", "Welche ist die kleinste, welche die größte Zahl, die auf 5,8 gerundet wird? Zähle die Hundertstel von der kleinsten bis zur größten.",
-    "Ab 5,75 wird auf 5,8 aufgerundet, bis 5,84 wird auf 5,8 abgerundet. Die Zahlen sind 5,75 bis 5,84, also 575 bis 584 Hundertstel. Das sind 584 − 575 + 1 = 10 Zahlen.",
-    [B("(5.84 - 5.76) * 100 + 1", "die Zahl 5,75 nicht mitgezählt"), B("(5.84 - 5.80) * 100 + 1", "nur die Zahlen von 5,80 bis 5,84 gezählt"), B("(5.85 - 5.75) * 100 + 1", "auch 5,85 mitgezählt, die schon auf 5,9 aufgerundet wird")]), g="rueckwaerts")
+    "Eine Dezimalzahl mit genau zwei Nachkommastellen wird auf eine ganze Zahl gerundet. Das Ergebnis ist 6. Wie viele solche Zahlen gibt es?",
+    100, "649 - 550 + 1", "99 + 1", "Welche ist die kleinste, welche die größte Zahl, die auf 6 gerundet wird? Zähle die Hundertstel von der kleinsten bis zur größten.",
+    "Ab 5,50 wird auf 6 aufgerundet, bis 6,49 wird auf 6 abgerundet. Die Zahlen sind 5,50 bis 6,49, also 550 bis 649 Hundertstel. Das sind 649 − 550 + 1 = 100 Zahlen.",
+    [B("649 - 551 + 1", "die Zahl 5,50 nicht mitgezählt"), B("599 - 550 + 1", "nur die Zahlen von 5,50 bis 5,99 gezählt"), B("650 - 550 + 1", "auch 6,50 mitgezählt, die schon auf 7 aufgerundet wird")]), g="rueckwaerts")
 # ───────── bruch_zu_dezimal ─────────
 a1(T, "bruch_zu_dezimal", Z(
     "Kim hat 9/25 des Schulwegs mit dem Rad geschafft. Schreibe den Anteil als Dezimalzahl.",
@@ -89,7 +89,7 @@ a2(T, "merkwerte", Z(
     "Sam hat 3/5 eines Buches mit 250 Seiten gelesen. Wie viele Seiten fehlen noch?",
     100, "250 - 3 / 5 * 250", "2 / 5 * 250", "Du weißt: 1/5 = 0,2. Wie viele Seiten hat Sam gelesen? Dann ziehst du ab.",
     "3/5 = 0,6. Gelesen: 0,6 · 250 = 150 Seiten. Es fehlen 250 − 150 = 100 Seiten.",
-    [B("3 / 5 * 250", "die gelesenen statt die fehlenden Seiten angegeben"), B("0.3 * 250", "drei Fünftel als 0,3 geschrieben"), B("250 - 250 / 5", "nur ein Fünftel abgezogen")]))
+    [B("3 / 5 * 250", "die gelesenen statt die fehlenden Seiten angegeben"), B("250 - 0.3 * 250", "drei Fünftel als 0,3 geschrieben"), B("250 - 250 / 5", "nur ein Fünftel abgezogen")]))
 a3(T, "merkwerte", Z(
     "Wie viel Prozent sind 1/4 + 0,125 + 3/5 zusammen?",
     97.5, "(1 / 4 + 0.125 + 3 / 5) * 100", "25 + 12.5 + 60", "Schreibe jeden Summanden als Dezimalzahl: 1/4 = 0,25 und 3/5 = 0,6. Addiere. Dann rechnest du in Prozent um.",

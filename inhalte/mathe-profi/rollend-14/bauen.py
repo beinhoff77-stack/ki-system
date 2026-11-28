@@ -180,6 +180,8 @@ def dp_vergleich(a, b):
         return "gleiche Zahlen im gleichen Sachverhalt"
     if jn >= .99 and ratio >= .8 and ws >= .25:
         return "gleiche Zahlen, fast gleicher Wortlaut"
+    if gleich and (a["S"].denominator != 1 or a["S"] >= 10) and ws >= .3 and len(a["W"] & b["W"]) >= 4:
+        return "gleicher Sollwert bei ähnlichem Sachverhalt"
     if da & db and ratio >= .7 and ws >= .4:
         return "gleicher Aufbau mit denselben Nachkommastellen"
     if len(da & db) >= 2 and any(dp_fein(x) for x in da & db):
@@ -187,6 +189,8 @@ def dp_vergleich(a, b):
     return None
 
 
+alle_sollwerte = {}
+dp_treffer = []
 DP_BESTAND = {dat: [(f"{dat}:{i}", dp_merk(a)) for i, a in enumerate(d["aufgaben"]) if a["f"].get("text")] for dat, d in BESTAND.items()}
 DP_ANDERE = []
 for _p in sorted(glob.glob(os.path.join(WURZEL, "inhalte", "mathe-profi", "rollend-*", "*.json"))):
@@ -317,7 +321,11 @@ for a in A:
     dm = dp_merk(q)
     for dquelle, db_ in DP_BESTAND[datei] + DP_ANDERE:
         grund = dp_vergleich(dm, db_)
-        assert not grund, (kenn, "Doppelung mit dem Bestand:", grund, dquelle, db_["t"][:100])
+        if grund:
+            dp_treffer.append((kenn, grund, dquelle, db_["t"][:110]))
+    sk = (datei, a["lk"], str(q["o"].get("wert")))
+    assert sk not in alle_sollwerte, (kenn, "gleicher Sollwert in derselben Etappe wie", alle_sollwerte.get(sk))
+    alle_sollwerte[sk] = kenn
     alle_texte.add(text)
     alle_bau[datei].add(b)
     eintrag = dict(kennung=kenn, thema=a["thema"], lernkarte=a["lk"], stufe=a["s"], typ=FORM[a["form"]][0], form=a["form"], antwortform=q["y"],
@@ -457,6 +465,10 @@ with tempfile.TemporaryDirectory() as tmp:
             print(aus1[-2500:])
         assert code0 == 0 and code1 == 0, datei
 
+for _t in dp_treffer:
+    print("DOPPELUNG", *_t)
+assert not dp_treffer, "Doppelungen mit dem Bestand (siehe oben)"
+
 # ═════════ Selbstprüfung mit Negativproben: die Prüfungen müssen kaputte Aufgaben wirklich ablehnen ═════════
 def lehnt_ab(f, *args):
     try:
@@ -517,6 +529,7 @@ DP_ALT = [
     ('169', 'bruch.dezimal', 'Drei Päckchen wiegen 2,35 kg, 2,4 kg und 2,305 kg. Um wie viele Gramm ist das leichteste Päckchen leichter als das schwerste?', 95),
     ('170', 'bruch.dezimal', 'Wie viele Dezimalzahlen mit genau zwei Nachkommastellen liegen zwischen 0,4 und 0,5? Die Zahlen 0,4 und 0,5 selbst zählen nicht mit.', 9),
     ('174', 'bruch.dezimal', 'Eine Dezimalzahl mit zwei Nachkommastellen wird auf Zehntel gerundet. Das Ergebnis ist 4,3. Welche ist die größte Zahl, für die das gilt?', 4.34),
+    ('174b', 'bruch.dezimal', 'Eine Dezimalzahl mit genau zwei Nachkommastellen wird auf Zehntel gerundet. Das Ergebnis ist 5,8. Wie viele solche Zahlen gibt es?', 10),
     ('175', 'bruch.dezimal', 'Kim trinkt 3/8 Liter Saft. Schreibe die Menge als Dezimalzahl.', 0.375),
     ('188', 'bruch.dezimal', 'Welche Dezimalzahl liegt genau in der Mitte zwischen 2,4 und 2,5?', 2.45),
     ('208', 'messen.flaechen_vielecke', 'Ein Dreieck hat die Grundseite 8 cm und die Höhe 6 cm. Die Grundseite wird verdoppelt, die Höhe bleibt gleich. Wie groß ist die neue Fläche?', 48),

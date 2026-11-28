@@ -46,7 +46,7 @@ a3(T, "einheiten", Z(
     "Tank A fasst 0,004 m³, Tank B fasst 3,2 dm³ und Tank C fasst 2 500 cm³. Um wie viele Kubikzentimeter ist der größte Tank größer als der kleinste?",
     1500, "0.004 * 1000000 - 2500", "4000 - 2500", "Schreibe alle drei Angaben in derselben Einheit, am besten in cm³. Dann suchst du den größten und den kleinsten Tank.",
     "0,004 m³ = 4 000 cm³ und 3,2 dm³ = 3 200 cm³. Tank C hat 2 500 cm³. Der größte Tank ist A, der kleinste ist C: 4 000 − 2 500 = 1 500 cm³.",
-    [B("4 - 2.5", "die Zahlen ohne Umrechnung verglichen"), B("4000 - 3200", "den mittleren statt den kleinsten Tank genommen"), B("0.004 * 1000 - 2500", "mit 1 000 statt mit 1 000 000 umgerechnet")], "cm³"), g="verknuepfen")
+    [B("0.004 * 1000000", "nur die Größe des größten Tanks angegeben"), B("4000 - 3200", "den mittleren statt den kleinsten Tank genommen"), B("0.004 * 1000 - 2500", "mit 1 000 statt mit 1 000 000 umgerechnet")], "cm³"), g="verknuepfen")
 # ───────── liter ─────────
 a1(T, "liter", Z(
     "Eine Regentonne ist innen 50 cm lang, 40 cm breit und 60 cm hoch. Wie viele Liter passen hinein, wenn sie ganz voll ist?",
@@ -97,10 +97,10 @@ a3(T, "zusammengesetzt", Z(
     [B("5 * 3 * 2", "den Hohlraum nicht abgezogen"), B("4 * 2 * 1.5", "nur den Hohlraum gerechnet"), B("5 * 3 * 2 - 4 * 2 * 2", "den Hohlraum 2 m statt 1,5 m tief gerechnet")], "m³"), g="transfer")
 # ───────── verstehen ─────────
 a1(T, "verstehen", Z(
-    "Ein Schrank ist 1,9 m hoch, 0,6 m breit und 0,5 m tief. Zum Überschlag rundet Kim auf 2 m, 0,5 m und 0,5 m. Wie viele Kubikmeter ergibt der Überschlag?",
-    0.5, "2 * 0.5 * 0.5", "2 * 0.25", "Beim Überschlag rechnest du mit den gerundeten Kanten: Länge mal Breite mal Höhe.",
-    "Mit den gerundeten Werten: 2 · 0,5 · 0,5 = 0,5 m³. Das genaue Volumen (0,57 m³) liegt nahe dabei.",
-    [B("2 + 0.5 + 0.5", "die gerundeten Kanten addiert"), B("2 * 0.5", "nur zwei der drei Kanten malgenommen"), B("1.9 * 0.6 * 0.5", "genau gerechnet statt überschlagen")], "m³"))
+    "Ein Regal ist 1,9 m hoch, 0,4 m breit und 0,3 m tief. Zum Überschlag rundet Kim nur die Höhe auf 2 m. Wie viele Kubikmeter ergibt der Überschlag?",
+    0.24, "2 * 0.4 * 0.3", "0.8 * 0.3", "Beim Überschlag rechnest du mit der gerundeten Höhe und den beiden anderen Kanten: Länge mal Breite mal Höhe.",
+    "Mit der gerundeten Höhe: 2 · 0,4 · 0,3 = 0,24 m³. Das genaue Volumen (0,228 m³) liegt nahe dabei.",
+    [B("2 + 0.4 + 0.3", "die Kanten addiert statt malgenommen"), B("2 * 0.4", "nur zwei der drei Kanten malgenommen"), B("19 * 4 * 3 / 1000", "genau gerechnet statt überschlagen")], "m³"))
 a2(T, "verstehen", Z(
     "Ein Quader hat das Volumen 20 cm³. Seine Länge und seine Breite werden jeweils verdoppelt. Die Höhe bleibt gleich. Wie groß ist jetzt das Volumen?",
     80, "20 * 2 * 2", "20 * 4", "Wie oft passt der alte Quader in den neuen? Die Länge wird doppelt so groß und die Breite auch.",

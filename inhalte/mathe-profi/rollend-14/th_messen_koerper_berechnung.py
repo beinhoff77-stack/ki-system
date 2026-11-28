@@ -27,10 +27,10 @@ a2(T, "oberflaeche", Z(
     "Vorderseite: 1,2 · 2 = 2,4 m². Zwei Seitenwände: 2 · (0,5 · 2) = 2 m². Decke: 1,2 · 0,5 = 0,6 m². Zusammen 2,4 + 2 + 0,6 = 5 m².",
     [B("2 * (1.2 * 2 + 0.5 * 2 + 1.2 * 0.5)", "alle 6 Flächen gezählt"), B("1.2 * 2 + 2 * (0.5 * 2)", "die Decke vergessen"), B("1.2 * 2 + 0.5 * 2 + 1.2 * 0.5", "nur eine Seitenwand gezählt")], "m²"))
 a3(T, "oberflaeche", Z(
-    "Ein Quader ist 6 cm lang und 4 cm breit. Seine Oberfläche ist 148 cm² groß. Wie hoch ist der Quader in Zentimetern?",
-    5, "(148 / 2 - 6 * 4) / (6 + 4)", "(148 - 2 * 24) / (2 * (6 + 4))", "Die Oberfläche ist 2 · (l · b + l · h + b · h). Was bleibt übrig, wenn du die beiden Grundflächen abziehst?",
-    "Boden und Deckel: 2 · 6 · 4 = 48 cm². Der Rest 148 − 48 = 100 cm² sind die vier Seitenflächen: 2 · 6 · h + 2 · 4 · h = 20h. Also 20h = 100 und h = 5 cm. Probe: 2 · (24 + 30 + 20) = 148.",
-    [B("(148 - 6 * 4) / (2 * (6 + 4))", "nur eine Grundfläche abgezogen"), B("(148 - 2 * 6 * 4) / (6 + 4)", "den Mantel mit 1 · (l + b) statt 2 · (l + b) gerechnet"), B("148 / (2 * (6 + 4))", "die Grundflächen gar nicht abgezogen")], "cm"), g="rueckwaerts")
+    "Ein Quader ist 6 cm lang und 4 cm breit. Seine Oberfläche ist 188 cm² groß. Wie hoch ist der Quader in Zentimetern?",
+    7, "(188 / 2 - 6 * 4) / (6 + 4)", "(188 - 2 * 24) / (2 * (6 + 4))", "Die Oberfläche ist 2 · (l · b + l · h + b · h). Was bleibt übrig, wenn du die beiden Grundflächen abziehst?",
+    "Boden und Deckel: 2 · 6 · 4 = 48 cm². Der Rest 188 − 48 = 140 cm² sind die vier Seitenflächen: 2 · 6 · h + 2 · 4 · h = 20h. Also 20h = 140 und h = 7 cm. Probe: 2 · (24 + 42 + 28) = 188.",
+    [B("(188 - 6 * 4) / (2 * (6 + 4))", "nur eine Grundfläche abgezogen"), B("(188 - 2 * 6 * 4) / (6 + 4)", "den Mantel mit 1 · (l + b) statt 2 · (l + b) gerechnet"), B("188 / (2 * (6 + 4))", "die Grundflächen gar nicht abgezogen")], "cm"), g="rueckwaerts")
 # ───────── sachaufgaben ─────────
 a1(T, "sachaufgaben", Z(
     "Ein offenes Becken im Garten hat die Form eines Quaders: 12 m lang, 6 m breit und 1,5 m tief. Boden und die vier Wände werden mit Folie ausgekleidet. Wie viele Quadratmeter Folie werden gebraucht?",

@@ -138,7 +138,7 @@
      "antwort": 74,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Volumen nur durch 8 geteilt und verdoppelt"
+     "beschreibung": "beim Berechnen der Höhe das Volumen nur durch die Länge 8 geteilt und die Höhe verdoppelt"
     }
    ],
    "aufgabe": {

@@ -819,22 +819,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 22,
+     "antwort": 40,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die beiden Zahlen subtrahiert"
     },
     {
-     "antwort": 48,
+     "antwort": 225,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die beiden Zahlen malgenommen"
     },
     {
-     "antwort": 36,
+     "antwort": 54,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "zur Lösung noch die Anfangshöhe addiert"
+     "beschreibung": "zur Lösung noch die Anfangsmenge addiert"
     }
    ],
    "aufgabe": {
@@ -845,15 +845,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Die Höhe einer Kerze in Zentimetern ist nach t Stunden 24 − 2t. Nach wie vielen Stunden ist die Kerze ganz abgebrannt?"
+     "text": "Die Wassermenge in einem Tank in Litern ist nach t Minuten 45 − 5t. Nach wie vielen Minuten ist der Tank ganz leer?"
     },
     "o": {
-     "wert": 12,
-     "einheit": "Stunden"
+     "wert": 9,
+     "einheit": "Minuten"
     },
-    "c": "24 / 2",
-    "h": "Die Kerze ist abgebrannt, wenn ihre Höhe 0 ist. Wann ist 24 − 2t gleich 0?",
-    "w": "24 − 2t = 0 heißt 2t = 24, also t = 12. Nach 12 Stunden ist die Höhe 0. Probe: 24 − 2 · 12 = 0."
+    "c": "45 / 5",
+    "h": "Der Tank ist leer, wenn die Wassermenge 0 ist. Wann ist 45 − 5t gleich 0?",
+    "w": "45 − 5t = 0 heißt 5t = 45, also t = 9. Nach 9 Minuten ist die Wassermenge 0. Probe: 45 − 5 · 9 = 0."
    }
   },
   {

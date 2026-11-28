@@ -175,19 +175,19 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 5,
+     "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Staubkorn durch Blatt geteilt: 10⁻⁵ : 10⁻⁴ = 10⁻¹, also 50 · 0,1"
+     "beschreibung": "Staubkorn durch Blatt geteilt: 10⁻⁵ : 10⁻⁴ = 10⁻¹, also 30 · 0,1"
     },
     {
-     "antwort": 50,
+     "antwort": 30,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur die Zahl der Blätter angegeben"
     },
     {
-     "antwort": 5000,
+     "antwort": 3000,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "10² statt 10¹ Staubkörner je Blatt gerechnet"
@@ -201,15 +201,15 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Staubkorn ist 10⁻⁵ m dick. Ein Blatt Papier ist 10⁻⁴ m dick. 50 Blätter liegen aufeinander. Wie viele Staubkörner müsste man aufeinanderlegen, um dieselbe Dicke zu erreichen?"
+     "text": "Ein Staubkorn ist 10⁻⁵ m dick. Ein Blatt Papier ist 10⁻⁴ m dick. 30 Blätter liegen aufeinander. Wie viele Staubkörner müsste man aufeinanderlegen, um dieselbe Dicke zu erreichen?"
     },
     "o": {
-     "wert": 500,
+     "wert": 300,
      "einheit": "Staubkörner"
     },
-    "c": "50 / 10 ** 4 * 10 ** 5",
+    "c": "30 / 10 ** 4 * 10 ** 5",
     "h": "Wie viele Staubkörner sind so dick wie ein Blatt? Teile 10⁻⁴ durch 10⁻⁵.",
-    "w": "Ein Blatt: 10⁻⁴ : 10⁻⁵. Man zieht die Hochzahlen ab: −4 − (−5) = −4 + 5 = 1. Also 10¹ = 10 Staubkörner. Bei 50 Blättern sind es 50 · 10 = 500 Staubkörner."
+    "w": "Ein Blatt: 10⁻⁴ : 10⁻⁵. Man zieht die Hochzahlen ab: −4 − (−5) = −4 + 5 = 1. Also 10¹ = 10 Staubkörner. Bei 30 Blättern sind es 30 · 10 = 300 Staubkörner."
    }
   },
   {
@@ -225,22 +225,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 50,
+     "antwort": 40,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Hochzahlen falsch abgezogen: 10² statt 10³"
     },
     {
-     "antwort": 2000,
+     "antwort": 2500,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahlenfaktoren vertauscht (6 durch 3 statt 3 durch 6)"
+     "beschreibung": "die Zahlenfaktoren vertauscht (5 durch 2 statt 2 durch 5)"
     },
     {
-     "antwort": 500000000,
+     "antwort": 1000,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Hochzahlen addiert statt abgezogen"
+     "beschreibung": "nur die Zehnerpotenzen geteilt und die Zahlenfaktoren 2 und 5 vergessen"
     }
    ],
    "aufgabe": {
@@ -251,15 +251,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Eine Zelle ist 6 · 10⁻⁶ m breit. Auf einem Objektträger liegt eine lückenlose Reihe solcher Zellen. Die Reihe ist 3 · 10⁻³ m lang. Wie viele Zellen sind es?"
+     "text": "Eine Zelle ist 5 · 10⁻⁶ m breit. Auf einem Objektträger liegt eine lückenlose Reihe solcher Zellen. Die Reihe ist 2 · 10⁻³ m lang. Wie viele Zellen sind es?"
     },
     "o": {
-     "wert": 500,
+     "wert": 400,
      "einheit": "Zellen"
     },
-    "c": "3 / 10 ** 3 / (6 / 10 ** 6)",
+    "c": "2 / 10 ** 3 / (5 / 10 ** 6)",
     "h": "Teile die Länge der Reihe durch die Breite einer Zelle. Rechne die Zahlen und die Zehnerpotenzen getrennt.",
-    "w": "Anzahl = (3 · 10⁻³) : (6 · 10⁻⁶). Zahlen: 3 : 6 = 0,5. Hochzahlen abziehen: −3 − (−6) = −3 + 6 = 3. Also 0,5 · 10³ = 500 Zellen."
+    "w": "Anzahl = (2 · 10⁻³) : (5 · 10⁻⁶). Zahlen: 2 : 5 = 0,4. Hochzahlen abziehen: −3 − (−6) = −3 + 6 = 3. Also 0,4 · 10³ = 400 Zellen."
    }
   },
   {
@@ -336,10 +336,10 @@
      "beschreibung": "das Vorzeichen der Hochzahl vergessen: 2⁶"
     },
     {
-     "antwort": 0.0625,
+     "antwort": 0.5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Fläche als 2⁻⁴ gerechnet (−3 + (−1))"
+     "beschreibung": "die Hochzahlen der Potenz einer Potenz addiert statt multipliziert, also 2⁻¹"
     }
    ],
    "aufgabe": {
@@ -473,22 +473,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 12,
+     "antwort": 20,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "x⁻² als x² gedeutet"
+     "beschreibung": "x⁻³ als x³ gedeutet"
     },
     {
-     "antwort": 3,
+     "antwort": 2.5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "x⁻² vergessen"
+     "beschreibung": "x⁻³ vergessen"
     },
     {
-     "antwort": 1.5,
+     "antwort": 0.625,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "x⁻² als x⁻¹ gerechnet: 3 : 2"
+     "beschreibung": "x⁻³ als x⁻² gerechnet: 2,5 : 4"
     }
    ],
    "aufgabe": {
@@ -499,14 +499,14 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Kim vereinfacht den Term 6x⁴ : (2x⁶) und setzt danach x = 2 ein. Welchen Wert erhält Kim? Gib das Ergebnis als Dezimalzahl an."
+     "text": "Kim vereinfacht den Term 10x⁴ : (4x⁷) und setzt danach x = 2 ein. Welchen Wert erhält Kim? Gib das Ergebnis als Dezimalzahl an."
     },
     "o": {
-     "wert": 0.75
+     "wert": 0.3125
     },
-    "c": "6 * 2 ** 4 / (2 * 2 ** 6)",
+    "c": "10 * 2 ** 4 / (4 * 2 ** 7)",
     "h": "Vereinfache zuerst: Zahlen für sich, Potenzen von x für sich. Setze x = 2 zuletzt ein.",
-    "w": "6x⁴ : (2x⁶) = (6 : 2) · x⁴⁻⁶ = 3 · x⁻² = 3/x². Für x = 2: 3/4 = 0,75. Probe ohne Vereinfachen: 6 · 16 = 96 und 2 · 64 = 128, und 96 : 128 = 0,75."
+    "w": "10x⁴ : (4x⁷) = (10 : 4) · x⁴⁻⁷ = 2,5 · x⁻³ = 2,5/x³. Für x = 2: 2,5/8 = 0,3125. Probe ohne Vereinfachen: 10 · 16 = 160 und 4 · 128 = 512, und 160 : 512 = 0,3125."
    }
   },
   {
@@ -682,10 +682,10 @@
      "beschreibung": "statt −1 die Hochzahl 1 abgezogen, also 10² statt 10⁴"
     },
     {
-     "antwort": 100000000,
+     "antwort": 1000000,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Hochzahlen alle ohne Vorzeichen addiert"
+     "beschreibung": "die erste Potenz 10⁻² weggelassen und nur 10⁵ : 10⁻¹ gerechnet, also 10⁶"
     }
    ],
    "aufgabe": {

@@ -175,10 +175,10 @@ Stufe 2: ein = Einkleidung, mehr = Mehrschritt. Stufe 3: Tätigkeit (g) in Klamm
 - Kein Fragetext und keine Grundform (Text mit maskierten Zahlen) kommt im Bestand oder in einer anderen Runde vor.
 - Prüfung der Vornamen nur über die bestehenden Prüfsummen (sha256, 12 Zeichen); keine Namen im Klartext.
 - `tools/inhalt_pruefen.py` über Bestand plus neue Aufgaben: ohne Fehler. `tools/vorrat_pruefen.py`: 0 Meldungen in allen vier Gruppen.
-- Selbstprüfung mit Negativproben (am Ende von `bauen.py`): 1 522 Proben, alle bestanden (künstliche Prüfsumme wird gefunden, gleicher Bauplan mit anderen Zahlen wird erkannt,
+- Selbstprüfung mit Negativproben (am Ende von `bauen.py`): 1 523 Proben, alle bestanden (künstliche Prüfsumme wird gefunden, gleicher Bauplan mit anderen Zahlen wird erkannt,
   Ergebnis im Text wird erkannt, falsche Fehlbild-Rechnung wird abgelehnt, unzulässige Rechenausdrücke werden abgelehnt, bei jeder der 213 Aufgaben fällt ein um 1 verschobener Sollwert auf,
-  bei jedem der 640 Fehlbilder fällt ein um 1 verschobener Fehlwert auf und das Fehlbild ist nie die richtige Antwort; die zwölf Aufgaben des ersten Entwurfs, die dem Bestand glichen, werden von der Doppelungsprüfung erkannt, andere Aufgaben schlagen nicht an).
-- Doppelungsprüfung (`bauen.py`, Regeln dp_*): jede neue Aufgabe wird mit allen Aufgaben der gleichen Einheit im Bestand (Themen-, Generator- und Runden-Dateien) und mit allen Aufgaben der Runden 1 bis 13 nach Zahlenmenge, Sollwert, Einheit und Wortlaut verglichen; keine der 213 Aufgaben schlägt an.
+  bei jedem der 640 Fehlbilder fällt ein um 1 verschobener Fehlwert auf und das Fehlbild ist nie die richtige Antwort; die zwölf Aufgaben des ersten Entwurfs und die erste Fassung von V174, die dem Bestand glichen, werden von der Doppelungsprüfung erkannt, andere Aufgaben schlagen nicht an).
+- Doppelungsprüfung (`bauen.py`, Regeln dp_*): jede neue Aufgabe wird mit allen Aufgaben der gleichen Einheit im Bestand (Themen-, Generator- und Runden-Dateien) und mit allen Aufgaben der Runden 1 bis 13 nach Zahlenmenge, Sollwert, Einheit und Wortlaut verglichen; zusätzlich schlägt gleicher Sollwert (nicht klein oder ganzzahlig unter 10) bei vier gemeinsamen Fragewörtern an; innerhalb der Runde darf kein Sollwert in derselben Etappe zweimal vorkommen. Keine der 213 Aufgaben schlägt an.
 - Einspielpaket: `python3 -I tools/rollend_sql.py --runden 14 --sql > tools/tests/aus/rollend14_einspielen.sql`; `python3 tools/tests/rollend_sql_test.py` besteht (SOLL für Runde 14: 213).
 
 ## Annahmen und offene Punkte (nicht als geprüfte Tatsachen zu lesen)

@@ -421,10 +421,10 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 1.5,
+     "antwort": 4000,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahlen ohne Umrechnung verglichen"
+     "beschreibung": "nur die Größe des größten Tanks angegeben"
     },
     {
      "antwort": 800,
@@ -920,19 +920,19 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 3,
+     "antwort": 2.7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die gerundeten Kanten addiert"
+     "beschreibung": "die Kanten addiert statt malgenommen"
     },
     {
-     "antwort": 1,
+     "antwort": 0.8,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur zwei der drei Kanten malgenommen"
     },
     {
-     "antwort": 0.57,
+     "antwort": 0.228,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "genau gerechnet statt überschlagen"
@@ -946,15 +946,15 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Schrank ist 1,9 m hoch, 0,6 m breit und 0,5 m tief. Zum Überschlag rundet Kim auf 2 m, 0,5 m und 0,5 m. Wie viele Kubikmeter ergibt der Überschlag?"
+     "text": "Ein Regal ist 1,9 m hoch, 0,4 m breit und 0,3 m tief. Zum Überschlag rundet Kim nur die Höhe auf 2 m. Wie viele Kubikmeter ergibt der Überschlag?"
     },
     "o": {
-     "wert": 0.5,
+     "wert": 0.24,
      "einheit": "m³"
     },
-    "c": "2 * 0.5 * 0.5",
-    "h": "Beim Überschlag rechnest du mit den gerundeten Kanten: Länge mal Breite mal Höhe.",
-    "w": "Mit den gerundeten Werten: 2 · 0,5 · 0,5 = 0,5 m³. Das genaue Volumen (0,57 m³) liegt nahe dabei."
+    "c": "2 * 0.4 * 0.3",
+    "h": "Beim Überschlag rechnest du mit der gerundeten Höhe und den beiden anderen Kanten: Länge mal Breite mal Höhe.",
+    "w": "Mit der gerundeten Höhe: 2 · 0,4 · 0,3 = 0,24 m³. Das genaue Volumen (0,228 m³) liegt nahe dabei."
    }
   },
   {

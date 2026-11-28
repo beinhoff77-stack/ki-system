@@ -86,10 +86,10 @@ a1(T, "verstehen", Z(
     "Laden A: 20 % von 80 € = 16 €. Laden B: 20 % von 120 € = 24 €. Unterschied: 24 − 16 = 8 €. Gleiche Prozentzahl heißt nicht gleich viel Euro, wenn die Preise verschieden sind.",
     [B("120 - 80", "den Unterschied der Preise angegeben"), B("20 - 20", "weil beide Prozentsätze gleich sind, einen Unterschied von 0 angenommen"), B("120 * 20 / 100", "nur die Ersparnis in Laden B angegeben")], "€"))
 a2(T, "verstehen", Z(
-    "Die Mannschaft A gewinnt 12 von 15 Spielen. Die Mannschaft B gewinnt 18 von 25 Spielen. Um wie viele Prozentpunkte ist der Anteil gewonnener Spiele bei A größer als bei B?",
-    8, "12 / 15 * 100 - 18 / 25 * 100", "80 - 72", "B hat mehr Spiele gewonnen, hat aber auch mehr gespielt. Vergleiche die Anteile in Prozent.",
-    "A: 12 : 15 = 0,8 = 80 %. B: 18 : 25 = 0,72 = 72 %. Unterschied: 80 − 72 = 8 Prozentpunkte. A gewinnt anteilig öfter, obwohl B mehr Siege hat.",
-    [B("18 - 12", "die Zahl der Siege verglichen"), B("12 / 15 - 18 / 25", "den Unterschied als Dezimalzahl angegeben und nicht in Prozentpunkten"), B("80 + 72", "die beiden Prozentsätze addiert")], "Prozentpunkte"))
+    "Die Mannschaft A gewinnt 9 von 12 Spielen. Die Mannschaft B gewinnt 18 von 25 Spielen. Um wie viele Prozentpunkte ist der Anteil gewonnener Spiele bei A größer als bei B?",
+    3, "9 / 12 * 100 - 18 / 25 * 100", "75 - 72", "B hat mehr Spiele gewonnen, hat aber auch mehr gespielt. Vergleiche die Anteile in Prozent.",
+    "A: 9 : 12 = 0,75 = 75 %. B: 18 : 25 = 0,72 = 72 %. Unterschied: 75 − 72 = 3 Prozentpunkte. A gewinnt anteilig öfter, obwohl B mehr Siege hat.",
+    [B("18 - 9", "die Zahl der Siege verglichen"), B("(9 * 25 - 18 * 12) / 300", "den Unterschied als Dezimalzahl angegeben und nicht in Prozentpunkten"), B("75 + 72", "die beiden Prozentsätze addiert")], "Prozentpunkte"))
 a3(T, "verstehen", Z(
     "Ein Preis von 50 € wird erst um 20 % erhöht. Danach wird der neue Preis um 20 % gesenkt. Kim sagt: „Dann ist der Preis wieder 50 €.“ Wie viel Euro kostet es wirklich am Ende?",
     48, "50 * 120 / 100 * 80 / 100", "60 - 12", "Die zweiten 20 % beziehen sich auf den neuen Preis, nicht auf 50 €. Rechne in zwei Schritten.",

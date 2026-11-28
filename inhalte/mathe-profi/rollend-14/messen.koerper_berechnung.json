@@ -275,19 +275,19 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 6.2,
+     "antwort": 8.2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur eine Grundfläche abgezogen"
     },
     {
-     "antwort": 10,
+     "antwort": 14,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Mantel mit 1 · (l + b) statt 2 · (l + b) gerechnet"
     },
     {
-     "antwort": 7.4,
+     "antwort": 9.4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Grundflächen gar nicht abgezogen"
@@ -301,15 +301,15 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein Quader ist 6 cm lang und 4 cm breit. Seine Oberfläche ist 148 cm² groß. Wie hoch ist der Quader in Zentimetern?"
+     "text": "Ein Quader ist 6 cm lang und 4 cm breit. Seine Oberfläche ist 188 cm² groß. Wie hoch ist der Quader in Zentimetern?"
     },
     "o": {
-     "wert": 5,
+     "wert": 7,
      "einheit": "cm"
     },
-    "c": "(148 / 2 - 6 * 4) / (6 + 4)",
+    "c": "(188 / 2 - 6 * 4) / (6 + 4)",
     "h": "Die Oberfläche ist 2 · (l · b + l · h + b · h). Was bleibt übrig, wenn du die beiden Grundflächen abziehst?",
-    "w": "Boden und Deckel: 2 · 6 · 4 = 48 cm². Der Rest 148 − 48 = 100 cm² sind die vier Seitenflächen: 2 · 6 · h + 2 · 4 · h = 20h. Also 20h = 100 und h = 5 cm. Probe: 2 · (24 + 30 + 20) = 148."
+    "w": "Boden und Deckel: 2 · 6 · 4 = 48 cm². Der Rest 188 − 48 = 140 cm² sind die vier Seitenflächen: 2 · 6 · h + 2 · 4 · h = 20h. Also 20h = 140 und h = 7 cm. Probe: 2 · (24 + 42 + 28) = 188."
    }
   },
   {

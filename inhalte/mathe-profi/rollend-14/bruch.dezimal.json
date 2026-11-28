@@ -288,7 +288,7 @@
      "antwort": 4.5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 8 als Zehntel angehängt"
+     "beschreibung": "die 8 als Zehntel zu 3,7 addiert"
     }
    ],
    "aufgabe": {
@@ -422,22 +422,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 9,
+     "antwort": 99,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl 5,75 nicht mitgezählt"
+     "beschreibung": "die Zahl 5,50 nicht mitgezählt"
     },
     {
-     "antwort": 5,
+     "antwort": 50,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Zahlen von 5,80 bis 5,84 gezählt"
+     "beschreibung": "nur die Zahlen von 5,50 bis 5,99 gezählt"
     },
     {
-     "antwort": 11,
+     "antwort": 101,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "auch 5,85 mitgezählt, die schon auf 5,9 aufgerundet wird"
+     "beschreibung": "auch 6,50 mitgezählt, die schon auf 7 aufgerundet wird"
     }
    ],
    "aufgabe": {
@@ -448,14 +448,14 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Eine Dezimalzahl mit genau zwei Nachkommastellen wird auf Zehntel gerundet. Das Ergebnis ist 5,8. Wie viele solche Zahlen gibt es?"
+     "text": "Eine Dezimalzahl mit genau zwei Nachkommastellen wird auf eine ganze Zahl gerundet. Das Ergebnis ist 6. Wie viele solche Zahlen gibt es?"
     },
     "o": {
-     "wert": 10
+     "wert": 100
     },
-    "c": "(5.84 - 5.75) * 100 + 1",
-    "h": "Welche ist die kleinste, welche die größte Zahl, die auf 5,8 gerundet wird? Zähle die Hundertstel von der kleinsten bis zur größten.",
-    "w": "Ab 5,75 wird auf 5,8 aufgerundet, bis 5,84 wird auf 5,8 abgerundet. Die Zahlen sind 5,75 bis 5,84, also 575 bis 584 Hundertstel. Das sind 584 − 575 + 1 = 10 Zahlen."
+    "c": "649 - 550 + 1",
+    "h": "Welche ist die kleinste, welche die größte Zahl, die auf 6 gerundet wird? Zähle die Hundertstel von der kleinsten bis zur größten.",
+    "w": "Ab 5,50 wird auf 6 aufgerundet, bis 6,49 wird auf 6 abgerundet. Die Zahlen sind 5,50 bis 6,49, also 550 bis 649 Hundertstel. Das sind 649 − 550 + 1 = 100 Zahlen."
    }
   },
   {
@@ -828,7 +828,7 @@
      "beschreibung": "die gelesenen statt die fehlenden Seiten angegeben"
     },
     {
-     "antwort": 75,
+     "antwort": 175,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "drei Fünftel als 0,3 geschrieben"

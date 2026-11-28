@@ -86,10 +86,10 @@ a1(T, "deuten", Z(
     "Wenn t um 1 wächst, wird 5t um 5 größer und der Term um 5 kleiner. Die Zahl vor dem t zählt pro Stunde: Die Gruppe wandert 5 km in jeder Stunde. Die 40 ist die Strecke am Anfang.",
     [B("40", "die Strecke am Anfang als Tempo genommen"), B("40 / 5", "die Dauer der ganzen Wanderung angegeben"), B("40 - 5", "die Zahlen subtrahiert")], "km"))
 a2(T, "deuten", Z(
-    "Die Höhe einer Kerze in Zentimetern ist nach t Stunden 24 − 2t. Nach wie vielen Stunden ist die Kerze ganz abgebrannt?",
-    12, "24 / 2", "24 - 2 * 12 + 12", "Die Kerze ist abgebrannt, wenn ihre Höhe 0 ist. Wann ist 24 − 2t gleich 0?",
-    "24 − 2t = 0 heißt 2t = 24, also t = 12. Nach 12 Stunden ist die Höhe 0. Probe: 24 − 2 · 12 = 0.",
-    [B("24 - 2", "die beiden Zahlen subtrahiert"), B("24 * 2", "die beiden Zahlen malgenommen"), B("24 / 2 + 24", "zur Lösung noch die Anfangshöhe addiert")], "Stunden"))
+    "Die Wassermenge in einem Tank in Litern ist nach t Minuten 45 − 5t. Nach wie vielen Minuten ist der Tank ganz leer?",
+    9, "45 / 5", "45 - 5 * 9 + 9", "Der Tank ist leer, wenn die Wassermenge 0 ist. Wann ist 45 − 5t gleich 0?",
+    "45 − 5t = 0 heißt 5t = 45, also t = 9. Nach 9 Minuten ist die Wassermenge 0. Probe: 45 − 5 · 9 = 0.",
+    [B("45 - 5", "die beiden Zahlen subtrahiert"), B("45 * 5", "die beiden Zahlen malgenommen"), B("45 / 5 + 45", "zur Lösung noch die Anfangsmenge addiert")], "Minuten"))
 a3(T, "deuten", Z(
     "Kim übersetzt „das Doppelte der Summe aus x und 3“ in den Term 2x + 3. Der richtige Term ist 2 · (x + 3). Um wie viel unterscheiden sich die beiden Werte für x = 5?",
     3, "2 * (5 + 3) - (2 * 5 + 3)", "16 - 13", "Berechne beide Terme einzeln für x = 5. Was wird bei Kims Term nur einmal und was zweimal gerechnet?",

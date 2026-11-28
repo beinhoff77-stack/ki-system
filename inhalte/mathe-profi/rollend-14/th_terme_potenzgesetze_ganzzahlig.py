@@ -17,15 +17,15 @@ a3(T, "warum_gilt", Z(
     [(0.75, None, "t = 2 statt t = −2 eingesetzt, also mit 2⁻² statt 2² gerechnet", "3 / 2 ** 2"), (6, None, "nur eine Stunde zurückgerechnet: 3 · 2", "3 * 2"), (1.5, None, "die Menge halbiert statt verdoppelt", "3 / 2")], "g"), g="transfer")
 # ───────── gleiche_basis_ganz ─────────
 a1(T, "gleiche_basis_ganz", Z(
-    "Ein Staubkorn ist 10⁻⁵ m dick. Ein Blatt Papier ist 10⁻⁴ m dick. 50 Blätter liegen aufeinander. Wie viele Staubkörner müsste man aufeinanderlegen, um dieselbe Dicke zu erreichen?",
-    500, "50 / 10 ** 4 * 10 ** 5", "50 * 10", "Wie viele Staubkörner sind so dick wie ein Blatt? Teile 10⁻⁴ durch 10⁻⁵.",
-    "Ein Blatt: 10⁻⁴ : 10⁻⁵. Man zieht die Hochzahlen ab: −4 − (−5) = −4 + 5 = 1. Also 10¹ = 10 Staubkörner. Bei 50 Blättern sind es 50 · 10 = 500 Staubkörner.",
-    [(5, None, "Staubkorn durch Blatt geteilt: 10⁻⁵ : 10⁻⁴ = 10⁻¹, also 50 · 0,1", "50 / 10"), (50, None, "nur die Zahl der Blätter angegeben", "50"), (5000, None, "10² statt 10¹ Staubkörner je Blatt gerechnet", "50 * 10 ** 2")], "Staubkörner"))
+    "Ein Staubkorn ist 10⁻⁵ m dick. Ein Blatt Papier ist 10⁻⁴ m dick. 30 Blätter liegen aufeinander. Wie viele Staubkörner müsste man aufeinanderlegen, um dieselbe Dicke zu erreichen?",
+    300, "30 / 10 ** 4 * 10 ** 5", "30 * 10", "Wie viele Staubkörner sind so dick wie ein Blatt? Teile 10⁻⁴ durch 10⁻⁵.",
+    "Ein Blatt: 10⁻⁴ : 10⁻⁵. Man zieht die Hochzahlen ab: −4 − (−5) = −4 + 5 = 1. Also 10¹ = 10 Staubkörner. Bei 30 Blättern sind es 30 · 10 = 300 Staubkörner.",
+    [(3, None, "Staubkorn durch Blatt geteilt: 10⁻⁵ : 10⁻⁴ = 10⁻¹, also 30 · 0,1", "30 / 10"), (30, None, "nur die Zahl der Blätter angegeben", "30"), (3000, None, "10² statt 10¹ Staubkörner je Blatt gerechnet", "30 * 10 ** 2")], "Staubkörner"))
 a2(T, "gleiche_basis_ganz", Z(
-    "Eine Zelle ist 6 · 10⁻⁶ m breit. Auf einem Objektträger liegt eine lückenlose Reihe solcher Zellen. Die Reihe ist 3 · 10⁻³ m lang. Wie viele Zellen sind es?",
-    500, "3 / 10 ** 3 / (6 / 10 ** 6)", "0.5 * 10 ** 3", "Teile die Länge der Reihe durch die Breite einer Zelle. Rechne die Zahlen und die Zehnerpotenzen getrennt.",
-    "Anzahl = (3 · 10⁻³) : (6 · 10⁻⁶). Zahlen: 3 : 6 = 0,5. Hochzahlen abziehen: −3 − (−6) = −3 + 6 = 3. Also 0,5 · 10³ = 500 Zellen.",
-    [(50, None, "die Hochzahlen falsch abgezogen: 10² statt 10³", "3 / 6 * 10 ** 2"), (2000, None, "die Zahlenfaktoren vertauscht (6 durch 3 statt 3 durch 6)", "6 / 3 * 10 ** 3"), (500000000, None, "die Hochzahlen addiert statt abgezogen", "3 / 6 * 10 ** 9")], "Zellen"))
+    "Eine Zelle ist 5 · 10⁻⁶ m breit. Auf einem Objektträger liegt eine lückenlose Reihe solcher Zellen. Die Reihe ist 2 · 10⁻³ m lang. Wie viele Zellen sind es?",
+    400, "2 / 10 ** 3 / (5 / 10 ** 6)", "0.4 * 10 ** 3", "Teile die Länge der Reihe durch die Breite einer Zelle. Rechne die Zahlen und die Zehnerpotenzen getrennt.",
+    "Anzahl = (2 · 10⁻³) : (5 · 10⁻⁶). Zahlen: 2 : 5 = 0,4. Hochzahlen abziehen: −3 − (−6) = −3 + 6 = 3. Also 0,4 · 10³ = 400 Zellen.",
+    [(40, None, "die Hochzahlen falsch abgezogen: 10² statt 10³", "2 / 5 * 10 ** 2"), (2500, None, "die Zahlenfaktoren vertauscht (5 durch 2 statt 2 durch 5)", "5 / 2 * 10 ** 3"), (1000, None, "nur die Zehnerpotenzen geteilt und die Zahlenfaktoren 2 und 5 vergessen", "10 ** 3")], "Zellen"))
 a3(T, "gleiche_basis_ganz", Z(
     "Ein Kristall wiegt 10⁻³ g. Ein Päckchen enthält 10ᵏ solche Kristalle und wiegt zusammen 10² g. Welche ganze Zahl ist k?",
     5, "2 - (-3)", "5", "Gesamtgewicht = Gewicht eines Kristalls mal Anzahl. Die Hochzahlen der Zehnerpotenzen werden dabei addiert.",
@@ -36,7 +36,7 @@ a1(T, "exponent_und_potenz", Z(
     "Ein quadratisches Pixel auf einem Bildschirm hat die Seitenlänge 2⁻³ mm. Wie groß ist die Fläche des Pixels in mm²? Gib sie als Dezimalzahl an.",
     0.015625, "1 / 2 ** 6", "(1 / 8) ** 2", "Fläche eines Quadrats = Seite mal Seite. Welche Hochzahl hat (2⁻³)²?",
     "A = (2⁻³)². Man multipliziert die Hochzahlen: (−3) · 2 = −6. Also A = 2⁻⁶ = 1/64 = 0,015625 mm². Probe: 1/8 · 1/8 = 1/64.",
-    [(0.125, None, "nur die Seitenlänge 2⁻³ als Fläche angegeben", "1 / 8"), (64, None, "das Vorzeichen der Hochzahl vergessen: 2⁶", "2 ** 6"), (0.0625, None, "die Fläche als 2⁻⁴ gerechnet (−3 + (−1))", "1 / 2 ** 4")], "mm²"))
+    [(0.125, None, "nur die Seitenlänge 2⁻³ als Fläche angegeben", "1 / 8"), (64, None, "das Vorzeichen der Hochzahl vergessen: 2⁶", "2 ** 6"), (0.5, None, "die Hochzahlen der Potenz einer Potenz addiert statt multipliziert, also 2⁻¹", "1 / 2")], "mm²"))
 a2(T, "exponent_und_potenz", Z(
     "Ein würfelförmiger Behälter hat die Kantenlänge 5⁻¹ m. Wie viele Liter fasst er? Es gilt 1 m³ = 1 000 Liter.",
     8, "1000 / 5 ** 3", "1000 * 0.2 ** 3", "Das Volumen eines Würfels ist Kante mal Kante mal Kante. Rechne zuerst in m³, dann in Liter.",
@@ -49,10 +49,10 @@ a3(T, "exponent_und_potenz", Z(
     [(4, None, "7 plus 1 statt 7 minus 1 gerechnet", "(7 + 1) / 2"), (-3, None, "das Vorzeichen von k falsch bestimmt", "-(7 - 1) / 2"), (6, None, "die Hochzahl 6 aus −2k + 7 = 1 nicht durch 2 geteilt", "7 - 1")]), g="rueckwaerts")
 # ───────── terme_vereinfachen ─────────
 a1(T, "terme_vereinfachen", Z(
-    "Kim vereinfacht den Term 6x⁴ : (2x⁶) und setzt danach x = 2 ein. Welchen Wert erhält Kim? Gib das Ergebnis als Dezimalzahl an.",
-    0.75, "6 * 2 ** 4 / (2 * 2 ** 6)", "3 / 4", "Vereinfache zuerst: Zahlen für sich, Potenzen von x für sich. Setze x = 2 zuletzt ein.",
-    "6x⁴ : (2x⁶) = (6 : 2) · x⁴⁻⁶ = 3 · x⁻² = 3/x². Für x = 2: 3/4 = 0,75. Probe ohne Vereinfachen: 6 · 16 = 96 und 2 · 64 = 128, und 96 : 128 = 0,75.",
-    [(12, None, "x⁻² als x² gedeutet", "3 * 2 ** 2"), (3, None, "x⁻² vergessen", "3"), (1.5, None, "x⁻² als x⁻¹ gerechnet: 3 : 2", "3 / 2")]))
+    "Kim vereinfacht den Term 10x⁴ : (4x⁷) und setzt danach x = 2 ein. Welchen Wert erhält Kim? Gib das Ergebnis als Dezimalzahl an.",
+    0.3125, "10 * 2 ** 4 / (4 * 2 ** 7)", "2.5 / 8", "Vereinfache zuerst: Zahlen für sich, Potenzen von x für sich. Setze x = 2 zuletzt ein.",
+    "10x⁴ : (4x⁷) = (10 : 4) · x⁴⁻⁷ = 2,5 · x⁻³ = 2,5/x³. Für x = 2: 2,5/8 = 0,3125. Probe ohne Vereinfachen: 10 · 16 = 160 und 4 · 128 = 512, und 160 : 512 = 0,3125.",
+    [(20, None, "x⁻³ als x³ gedeutet", "10 / 4 * 2 ** 3"), (2.5, None, "x⁻³ vergessen", "10 / 4"), (0.625, None, "x⁻³ als x⁻² gerechnet: 2,5 : 4", "10 / 4 / 2 ** 2")]))
 a2(T, "terme_vereinfachen", Z(
     "Der Preis für ein Bastelset (in Euro) wird durch K(x) = 20x⁵ : (4x⁷) beschrieben. Dabei ist x die Zahl der gekauften Hunderterpackungen. Wie viel Euro kostet ein Set bei x = 5?",
     0.2, "20 * 5 ** 5 / (4 * 5 ** 7)", "5 / 25", "Vereinfache K(x) zuerst: Zahlen für sich, Potenzen von x für sich. Danach setzt du x = 5 ein.",
@@ -73,7 +73,7 @@ a2(T, "fehler_ganz", Z(
     "Kim berechnet 10⁻² · 10⁵ : 10⁻¹ und erhält 100. Die Zahlenprobe zeigt: Das stimmt nicht. Wie groß ist der richtige Wert?",
     10000, "10 ** 5 / 10 ** 2 * 10", "0.01 * 100000 / 0.1", "Kim hat beim Teilen durch 10⁻¹ vermutlich die Hochzahl falsch abgezogen. Rechne mit Brüchen nach.",
     "Beim Malnehmen addiert man: −2 + 5 = 3, also 10³. Beim Teilen durch 10⁻¹ zieht man −1 ab: 3 − (−1) = 4, also 10⁴ = 10 000. Probe mit Zahlen: 0,01 · 100 000 = 1 000, und 1 000 : 0,1 = 10 000.",
-    [(1000, None, "das Teilen durch 10⁻¹ nicht beachtet", "10 ** 3"), (100, None, "statt −1 die Hochzahl 1 abgezogen, also 10² statt 10⁴", "10 ** 2"), (100000000, None, "die Hochzahlen alle ohne Vorzeichen addiert", "10 ** 8")]))
+    [(1000, None, "das Teilen durch 10⁻¹ nicht beachtet", "10 ** 3"), (100, None, "statt −1 die Hochzahl 1 abgezogen, also 10² statt 10⁴", "10 ** 2"), (1000000, None, "die erste Potenz 10⁻² weggelassen und nur 10⁵ : 10⁻¹ gerechnet, also 10⁶", "10 ** 6")]))
 a3(T, "fehler_ganz", Z(
     "Kim behauptet für a ≠ 0: (a⁻²)³ · a⁵ : (a⁻¹)⁴ = a⁴. Kims Rechnung stimmt nicht. Wie groß ist die linke Seite für a = 2, wenn man richtig rechnet?",
     8, "1 / 2 ** 6 * 2 ** 5 / (1 / 2 ** 4)", "2 ** 3", "Fasse zuerst jeden Teil zu einer Potenz von a zusammen. Dann rechnest du mit den Hochzahlen von links nach rechts.",

@@ -825,19 +825,19 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 6,
+     "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Zahl der Siege verglichen"
     },
     {
-     "antwort": 0.08,
+     "antwort": 0.03,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Unterschied als Dezimalzahl angegeben und nicht in Prozentpunkten"
     },
     {
-     "antwort": 152,
+     "antwort": 147,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die beiden Prozentsätze addiert"
@@ -851,15 +851,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Die Mannschaft A gewinnt 12 von 15 Spielen. Die Mannschaft B gewinnt 18 von 25 Spielen. Um wie viele Prozentpunkte ist der Anteil gewonnener Spiele bei A größer als bei B?"
+     "text": "Die Mannschaft A gewinnt 9 von 12 Spielen. Die Mannschaft B gewinnt 18 von 25 Spielen. Um wie viele Prozentpunkte ist der Anteil gewonnener Spiele bei A größer als bei B?"
     },
     "o": {
-     "wert": 8,
+     "wert": 3,
      "einheit": "Prozentpunkte"
     },
-    "c": "12 / 15 * 100 - 18 / 25 * 100",
+    "c": "9 / 12 * 100 - 18 / 25 * 100",
     "h": "B hat mehr Spiele gewonnen, hat aber auch mehr gespielt. Vergleiche die Anteile in Prozent.",
-    "w": "A: 12 : 15 = 0,8 = 80 %. B: 18 : 25 = 0,72 = 72 %. Unterschied: 80 − 72 = 8 Prozentpunkte. A gewinnt anteilig öfter, obwohl B mehr Siege hat."
+    "w": "A: 9 : 12 = 0,75 = 75 %. B: 18 : 25 = 0,72 = 72 %. Unterschied: 75 − 72 = 3 Prozentpunkte. A gewinnt anteilig öfter, obwohl B mehr Siege hat."
    }
   },
   {

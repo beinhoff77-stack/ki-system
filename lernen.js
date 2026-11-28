@@ -6720,7 +6720,7 @@ let lernWwZeit = 14;
 // Pflicht: ok ≠ false, stand (Zahl ≥ 3), tage (= angefragt), offen[], offen_zahl, auswertung mit themen[], lerntage[], wiederkehrend[], einmal; mit erledigt: true auch erledigt[].
 // Felder, die der Server bei leerem Wert weglässt (jsonb_strip_nulls), sind erlaubt, aber wenn sie da sind, müssen sie den Typ haben.
 // Streng nach WW-S3: mit_tipp Boolean (immer vorhanden), danach_richtig nur true oder fehlt, erledigt {id ganzzahlig, am Zeitpunkt, tag JJJJ-MM-TT},
-// themen[].besprochen fehlt oder {zuletzt Zeitpunkt, tage ganzzahlig ≥ 1, neu_seit ganzzahlig ≥ 0}.
+// themen[].besprochen fehlt oder – dann alle fünf Felder Pflicht – {zuletzt Zeitpunkt, zuletzt_tag JJJJ-MM-TT, tage ganzzahlig ≥ 1, fehler ganzzahlig ≥ 1, neu_seit ganzzahlig ≥ 0}.
 // thema_id fehlt bei Einheiten ohne Thema (strip_nulls in offen[]/erledigt[] und auswertung.themen[]); in wiederkehrend[].themen und
 // einmal.themen_danach_richtig steht dann null (Listenelemente entfernt strip_nulls nicht). Die Seite führt solche Fehler unter „Ohne Thema“.
 const lernWwObj = (x) => !!x && typeof x === 'object' && !Array.isArray(x);
@@ -6745,7 +6745,8 @@ const lernWwEintrag = (x) => lernWwObj(x) && Number.isInteger(x.versuch_id) && l
   && typeof x.mit_tipp === 'boolean' && lernWwOpt(x.danach_richtig, (v) => v === true)
   && lernWwOpt(x.danach_richtig_am, (o) => lernWwObj(o) && lernWwOpt(o.aufgabe_am, lernWwZp) && lernWwOpt(o.lernkarte_am, lernWwZp));
 const lernWwErlOk = (e) => lernWwObj(e) && lernWwOpt(e.art, lernWwText) && Number.isInteger(e.id) && lernWwZp(e.am) && lernWwTagOk(e.tag);
-const lernWwBesprOk = (b) => lernWwObj(b) && lernWwZp(b.zuletzt) && Number.isInteger(b.tage) && b.tage >= 1 && lernWwGanz(b.neu_seit);
+const lernWwBesprOk = (b) => lernWwObj(b) && lernWwZp(b.zuletzt) && lernWwTagOk(b.zuletzt_tag) && Number.isInteger(b.tage) && b.tage >= 1
+  && Number.isInteger(b.fehler) && b.fehler >= 1 && lernWwGanz(b.neu_seit);
 // stand fehlt oder ist kleiner als 3: Server noch WW-S2 (bzw. älter) → bisherige Ansicht. stand vorhanden, aber keine Zahl: verdorbene Antwort.
 const lernWwAltStand = (r) => lernWwObj(r) && r.ok !== false && (r.stand === undefined || (typeof r.stand === 'number' && r.stand < LERN_WW_STAND));
 function lernWwFormOk(r, { tage, erledigt }) {
@@ -6785,8 +6786,6 @@ const lernWwArt = (x) => (!x.fehlerart ? 'nicht erkannt' : x.fehlerart.quelle ==
   : x.fehlerart.text || 'nicht erkannt');
 const lernWwDatum = (x) => { const t = x.tag || String(x.am || '').slice(0, 10); const m = t.match(/^(\d{4})-(\d{2})-(\d{2})/); return m ? `${Number(m[3])}.${Number(m[2])}.` : ''; };
 const lernWwWochentag = (t) => { const d = new Date(t + 'T12:00:00'); return isNaN(d) ? '' : ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'][d.getDay()]; };
-// Tag eines Zeitpunkts in der Zeitzone des Geräts – nur noch Notbehelf, wenn der Server zu einem Zeitpunkt keinen Tag nennt (besprochen.zuletzt)
-const lernWwTagVon = (iso) => { const d = new Date(iso); return isNaN(d) ? '' : `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
 // Schlüssel und Name eines Themas; ohne thema_id (Einheit ohne Thema) → „Ohne Thema“
 const lernWwTk = (id) => (id === undefined || id === null ? 'ohne' : String(id));
 const lernWwThName = (x) => x.thema || (lernWwTk(x.thema_id) === 'ohne' ? 'Ohne Thema' : `Thema ${x.thema_id}`);
@@ -6849,18 +6848,18 @@ async function lernWwSeite(kindId, ww, live) {
     else S.Bfehler = x.art === 'fehler' ? String(x.fehler?.message || 'Fehler') : 'Die Antwort des Servers war unvollständig.';
     zeichne(); return x.art === 'ok' ? S.B : null;
   };
-  // je Thema: zuletzt, Zahl der Gesprächstage und neue Fehler seitdem vom Server (vollständig); aus der Liste die Termine (Kalendertag erledigt.tag in der
-  // Zeitzone des Kindes) mit den Markierungs-IDs. Ein „Termin“ ist ein Tag – nicht ein einzelnes Gespräch.
+  // je Thema vom Server (vollständig): zuletzt, zuletzt_tag (Zeitzone des Kindes – nie der Tag des Geräts), Zahl der Gesprächstage, Zahl der gültig
+  // markierten Fehler (fehler) und neue Fehler seitdem; aus der Liste die Termine (erledigt.tag, Zeitzone des Kindes) mit den Markierungs-IDs.
+  // Ein „Termin“ ist ein Tag – nicht ein einzelnes Gespräch.
   const besprochenJe = () => { const m = new Map(); if (!S.B) return m;
-    const neu = (k, name) => { if (!m.has(k)) m.set(k, { k, name, zuletzt: 0, zTag: '', tage: 0, neu: 0, server: false, termine: new Map(), n: 0 }); return m.get(k); };
+    const neu = (k, name) => { if (!m.has(k)) m.set(k, { k, name, zuletzt: 0, zTag: '', tage: 0, fehler: 0, neu: 0, server: false, termine: new Map(), n: 0 }); return m.get(k); };
     for (const t of S.B.themen) { const k = lernWwTk(t.thema_id); const b = neu(k, t.thema || (k === 'ohne' ? 'Ohne Thema' : `Thema ${k}`));
-      Object.assign(b, { zuletzt: Date.parse(t.besprochen.zuletzt), tage: t.besprochen.tage, neu: t.besprochen.neu_seit, server: true }); }
+      Object.assign(b, { zuletzt: Date.parse(t.besprochen.zuletzt), zTag: t.besprochen.zuletzt_tag, tage: t.besprochen.tage, fehler: t.besprochen.fehler, neu: t.besprochen.neu_seit, server: true }); }
     for (const x of S.B.liste) { const k = lernWwTk(x.thema_id); const am = Date.parse(x.erledigt.am); const t = neu(k, lernWwThName(x));
       if (!t.termine.has(x.erledigt.tag)) t.termine.set(x.erledigt.tag, { tag: x.erledigt.tag, am, mids: [] });
       const tt = t.termine.get(x.erledigt.tag); tt.mids.push(x.erledigt.id); tt.am = Math.max(tt.am, am); t.n++;
-      if (am === t.zuletzt) t.zTag = x.erledigt.tag;
-      if (!t.server) { t.zuletzt = Math.max(t.zuletzt, am); t.tage = t.termine.size; } } // nur in der Liste (dürfte es nach dem Vertrag nicht geben): aus der Liste
-    for (const t of m.values()) if (!t.zTag) t.zTag = [...t.termine.values()].find((tt) => tt.am === t.zuletzt)?.tag || lernWwTagVon(t.zuletzt); // Notbehelf: Tag des Geräts
+      // nur in der Liste (dürfte es nach dem Vertrag nicht geben): Angaben aus der Liste – der Tag aus erledigt.tag (Server), nie aus dem Gerät
+      if (!t.server) { if (am >= t.zuletzt) { t.zuletzt = am; t.zTag = x.erledigt.tag; } t.tage = t.termine.size; t.fehler = t.n; } }
     return m; };
   // Auflagen (a): höchstens 200 IDs je Aufruf → Pakete; ein Paket zählt nur mit gültiger Bestätigung (lernWwAbhakOk). Bricht ein Paket ab, bleiben
   // seine und alle folgenden IDs als Rest für „Noch einmal versuchen“. Gezählt wird nur, was der Server bestätigt hat – nie die angefragten IDs.
@@ -6999,30 +6998,31 @@ async function lernWwSeite(kindId, ww, live) {
     mitOrt ? el('span', { role: 'columnheader' }, 'Thema › Lernkarte') : null, el('span', { role: 'columnheader' }, 'Aufgabe'), el('span', { role: 'columnheader' }, 'Eingegeben'),
     el('span', { role: 'columnheader' }, 'Richtig'), el('span', { role: 'columnheader' }, 'Fehlerart'), el('span', { role: 'columnheader', class: 'ww-akt' }, el('span', { class: 'lw-vh' }, mitOrt ? 'Thema schon besprochen' : '')));
   // ---------- Besprochen (aufklappbar, je Thema und Tag erledigt.tag, „zurückholen“ holt genau die geladenen Markierungen des Themas an diesem Tag zurück) ----------
-  // Liste höchstens 200 (zuletzt besprochen zuerst): Bei voller Liste kann es ältere Markierungen geben. Untergrenzen („mindestens“) nur, wo wirklich etwas fehlen kann:
-  // an Tagen, die nicht später liegen als der älteste gezeigte Eintrag (grenzTag), und bei Themen mit mehr Gesprächstagen laut Server als in der Liste.
+  // Liste höchstens 200 (zuletzt besprochen zuerst). Ob einem Thema ältere Einträge fehlen, sagt der Server: weniger Einträge in der Liste als besprochen.fehler.
+  // Nur dann „n von m besprochenen Fehlern gezeigt“ und „alle hier gezeigten n zurückholen“; sonst die genaue Formulierung.
   function besprochenTeil(BJ) {
     const themen = [...BJ.values()].sort((a, b) => b.zuletzt - a.zuletzt); const g = !!S.schreibt; const voll = !!S.B?.voll;
-    const grenzTag = voll && S.B.liste.length ? S.B.liste[S.B.liste.length - 1].erledigt.tag : '';
+    const fehlt = (t) => t.n < t.fehler; // ältere Einträge des Themas stehen nicht in der Liste
     const det = el('details', { class: 'ww-erledigt', ...(S.besprAuf ? { open: '' } : {}) }, el('summary', {}, 'Besprochen', S.B ? el('span', { class: 'ww-zaehler', 'aria-label': `${themen.length} Themen` }, String(themen.length)) : null));
     det.addEventListener('toggle', () => { S.besprAuf = det.open; }); // merkt nur den Zustand – kein Laden, kein Neuzeichnen (Inhalt steht schon im Abschnitt)
-    const termin = (t, tt, mitName) => { const n = tt.mids.length; const tag = lernWwDatum(tt); const teilw = voll && tt.tag <= grenzTag;
-      return el('li', { class: 'ww-bs' + (mitName ? '' : ' ww-bs-termin') }, el('span', {}, mitName ? el('b', {}, t.name) : null, el('span', { class: 'muted' }, `${mitName ? ' · ' : ''}besprochen am ${tag} · ${teilw ? 'mindestens ' : ''}${n} Fehler`)),
+    const termin = (t, tt, mitName) => { const n = tt.mids.length; const tag = lernWwDatum(tt); const teilw = fehlt(t);
+      const zahl = mitName && teilw ? `${n} von ${t.fehler} besprochenen Fehlern gezeigt` : teilw ? `${n} gezeigt` : `${n} Fehler`;
+      return el('li', { class: 'ww-bs' + (mitName ? '' : ' ww-bs-termin') }, el('span', {}, mitName ? el('b', {}, t.name) : null, el('span', { class: 'muted' }, `${mitName ? ' · ' : ''}besprochen am ${tag} · ${zahl}`)),
         el('button', { type: 'button', class: 'ww-link' + (g ? ' ww-gesperrt' : ''), ...gesperrtAttr(g),
-          'aria-label': `Zurückholen: ${t.name}, ${voll ? (n === 1 ? 'der hier gezeigte am' : `die hier gezeigten ${n} am`) : n === 1 ? 'der am' : `alle ${n} am`} ${tag} besprochenen Fehler`,
+          'aria-label': `Zurückholen: ${t.name}, ${teilw ? (n === 1 ? 'der hier gezeigte am' : `die hier gezeigten ${n} am`) : n === 1 ? 'der am' : `alle ${n} am`} ${tag} besprochenen Fehler`,
           onclick: () => { if (!g) zurueckholen(tt.mids, t.name); } },
-          S.schreibt === 'bs' ? 'Speichere …' : voll ? (n === 1 ? 'den hier gezeigten zurückholen' : `alle hier gezeigten ${n} zurückholen`) : n === 1 ? 'zurückholen' : `alle ${n} zurückholen`)); };
+          S.schreibt === 'bs' ? 'Speichere …' : teilw ? (n === 1 ? 'den hier gezeigten zurückholen' : `alle hier gezeigten ${n} zurückholen`) : n === 1 ? 'zurückholen' : `alle ${n} zurückholen`)); };
     const zeilen = themen.flatMap((t) => { const ts = [...t.termine.values()].sort((a, b) => b.am - a.am);
       if (!ts.length) return [el('li', { class: 'ww-bs ww-bs-kopf ww-bs-alt' }, el('span', {}, el('b', {}, t.name), el('span', { class: 'muted' },
-        ` · zuletzt besprochen am ${lernWwDatum({ tag: t.zTag })}${t.tage > 1 ? ` · an ${t.tage} Tagen besprochen` : ''} · älter als die hier gezeigten – nicht in der Liste`)))];
-      const unvollst = voll && (ts.length < t.tage || ts.some((tt) => tt.tag <= grenzTag));
+        ` · zuletzt besprochen am ${lernWwDatum({ tag: t.zTag })}${t.tage > 1 ? ` · an ${t.tage} Tagen besprochen` : ''} · ${t.fehler} Fehler · älter als die hier gezeigten – nicht in der Liste`)))];
       return ts.length === 1 && t.tage <= 1 ? [termin(t, ts[0], true)] : [el('li', { class: 'ww-bs ww-bs-kopf' }, el('span', {}, el('b', {}, t.name),
-        el('span', { class: 'muted' }, ` · an ${t.tage} Tagen besprochen · ${unvollst ? 'mindestens ' : ''}${t.n} Fehler`))), ...ts.map((tt) => termin(t, tt, false))]; });
+        el('span', { class: 'muted' }, ` · an ${t.tage} Tagen besprochen · ${fehlt(t) ? `${t.n} von ${t.fehler} besprochenen Fehlern gezeigt` : `${t.fehler} Fehler`}`))), ...ts.map((tt) => termin(t, tt, false))]; });
+    const teilweise = themen.some((t) => t.termine.size && fehlt(t));
     const bg = !!S.schreibt; // Auflage 8: das Neuladen der Liste ist während eines Schreibaufrufs gesperrt wie die übrigen Knöpfe
     lernAnhaengen(det,
       S.Bfehler ? el('p', { class: 'err-text small', role: 'alert' }, 'Besprochenes lädt gerade nicht: ' + S.Bfehler + ' ',
         el('button', { type: 'button', class: 'ww-link' + (bg ? ' ww-gesperrt' : ''), ...gesperrtAttr(bg), onclick: () => { if (!S.schreibt) besprLaden(); } }, 'Noch einmal versuchen')) : null,
-      zeilen.length ? el('p', { class: 'muted small ww-bs-erkl' }, voll
+      zeilen.length ? el('p', { class: 'muted small ww-bs-erkl' }, teilweise
         ? '„zurückholen“ holt die hier gezeigten Fehler des Themas zurück, die an diesem Tag als besprochen markiert wurden – auch von anderen Erwachsenen. Ältere Markierungen, die nicht in der Liste stehen, bleiben. Was inzwischen jemand anderes geändert hat, bleibt, wie es ist.'
         : '„zurückholen“ holt die Fehler des Themas zurück, die an diesem Tag als besprochen markiert wurden – auch von anderen Erwachsenen. Was inzwischen jemand anderes geändert hat, bleibt, wie es ist.') : null,
       !S.B ? el('p', { class: 'muted small', role: 'status' }, S.Blaedt ? 'Lädt …' : '–')

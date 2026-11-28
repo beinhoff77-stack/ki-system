@@ -2,7 +2,7 @@
 
 Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt), nicht das Thema. Jede Kennung wurde gegen `inhalte/mathe-profi/regeln-uebersicht/kennungen.json` gelesen; `bauen.py` prüft, dass sie im Katalog steht und das Thema in der Themenliste der Regel steht (Ausnahmen unten). Quelle der Daten: die Angaben `regel` / `ohne` / `zweifel` in `th_*.py`; `regeln.py` und diese Tabelle werden von `bauen.py` erzeugt.
 
-**164 Aufgaben mit Regel, 15 ohne.**
+**173 Aufgaben mit Regel, 19 ohne.**
 
 ## Verteilung
 
@@ -10,11 +10,11 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 |---|---|---|
 | `id.geometrie.winkel` | Winkel an Geraden | 24 |
 | `id.zahlen.hoch_zurueck` | Hoch und zurück | 24 |
+| `id.geometrie.rechtwinklig` | Rechtwinkliges Dreieck | 21 |
 | `rr.waage` | Gleichung als Waage | 18 |
 | `rr.potenz` | Potenzen | 15 |
 | `id.geometrie.deckungsgleich` | Deckungsgleich | 14 |
 | `id.verhaeltnisse.prozent` | Prozent als Faktor | 14 |
-| `id.geometrie.rechtwinklig` | Rechtwinkliges Dreieck | 12 |
 | `id.funktionen.gleichung_form` | Gleichung und Form | 9 |
 | `rr.tauschen` | Tauschen, Klammern, Zusammenfassen | 5 |
 | `rr.ausmultiplizieren` | Ausmultiplizieren und Ausklammern | 4 |
@@ -27,7 +27,7 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | `id.algebra.hoeherer_grad` | Höherer Grad | 2 |
 | `id.algebra.term` | Term | 2 |
 | `rr.vorzeichen` | Vorzeichen bei Mal und Geteilt | 1 |
-| – (ohne Regel) |  | 15 |
+| – (ohne Regel) |  | 19 |
 
 ## Ausnahmen von der Themenliste des Katalogs (von Hand gelesen)
 
@@ -53,6 +53,10 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V150 | gleichungen.quadratisch.diskriminante | Diskriminante null (genau eine Lösung): keine Regel des Katalogs trägt genau diesen Schritt |
 | R15-V164 | funktionen.quadratisch.bestimmen | Gleichungssystem bzw. Gleichsetzen zweier Funktionsterme: keine Regel des Katalogs trägt den Lösungsweg |
 | R15-V165 | funktionen.quadratisch.schnittpunkte | Gleichungssystem bzw. Gleichsetzen zweier Funktionsterme: keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V187 | trigo.rechtwinklig.beziehungen | Beziehungen zwischen Sinus, Kosinus und Tangens: keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V188 | trigo.rechtwinklig.beziehungen | Beziehungen zwischen Sinus, Kosinus und Tangens: keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V191 | trigo.rechtwinklig.schnittwinkel | Steigung und Winkel einer Geraden (Tangens als Steigung): keine Regel des Katalogs trägt den Lösungsweg |
+| R15-V192 | trigo.rechtwinklig.schnittwinkel | Steigung und Winkel einer Geraden (Tangens als Steigung): keine Regel des Katalogs trägt den Lösungsweg |
 
 ## Zweifelsfälle
 
@@ -82,6 +86,13 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V161 | funktionen.quadratisch.nullstellen | `id.funktionen.zuordnung` | Nullstellen: y = 0 setzen (Zuordnung y zu x), das Lösen selbst gehört zu Nullprodukt, das für diese Einheit nicht im Katalog steht |
 | R15-V162 | funktionen.quadratisch.nullstellen | `id.funktionen.zuordnung` | Nullstellen: y = 0 setzen; das Wurzelziehen mit zwei Lösungen hat im Katalog keine eigene Regel für diese Einheit |
 | R15-V167 | funktionen.quadratisch.extremwert | `id.funktionen.gleichung_form` | Extremwert: Scheitel der Parabel gesucht; gleichung_form trägt das Lesen der Form, das Aufstellen der Zielfunktion hat keine Regel |
+| R15-V182 | trigo.rechtwinklig.verhaeltnisse | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
+| R15-V183 | trigo.rechtwinklig.verhaeltnisse | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
+| R15-V184 | trigo.rechtwinklig.seite | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
+| R15-V185 | trigo.rechtwinklig.seite | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
+| R15-V186 | trigo.rechtwinklig.winkel | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
+| R15-V189 | trigo.rechtwinklig.anwendung | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
+| R15-V190 | trigo.rechtwinklig.anwendung | `id.geometrie.rechtwinklig` | Sinus, Kosinus, Tangens: die einzige Regel der Einheit im Katalog (rechtwinkliges Dreieck, Lage der Seiten) trägt nur das Zuordnen der Seiten, das Rechnen mit dem Verhältnis nicht |
 
 ## Alle Aufgaben
 
@@ -266,3 +277,16 @@ Maßstab: die Regel, die das Kind zum Lösen braucht (tragender Lösungsschritt)
 | R15-V177 | trigo.pythagoras.raum | `id.geometrie.rechtwinklig` |
 | R15-V178 | trigo.pythagoras.anwendung | `id.geometrie.rechtwinklig` |
 | R15-V179 | trigo.pythagoras.anwendung | `id.geometrie.rechtwinklig` |
+| R15-V180 | trigo.rechtwinklig.seiten | `id.geometrie.rechtwinklig` |
+| R15-V181 | trigo.rechtwinklig.seiten | `id.geometrie.rechtwinklig` |
+| R15-V182 | trigo.rechtwinklig.verhaeltnisse | `id.geometrie.rechtwinklig` |
+| R15-V183 | trigo.rechtwinklig.verhaeltnisse | `id.geometrie.rechtwinklig` |
+| R15-V184 | trigo.rechtwinklig.seite | `id.geometrie.rechtwinklig` |
+| R15-V185 | trigo.rechtwinklig.seite | `id.geometrie.rechtwinklig` |
+| R15-V186 | trigo.rechtwinklig.winkel | `id.geometrie.rechtwinklig` |
+| R15-V187 | trigo.rechtwinklig.beziehungen | – |
+| R15-V188 | trigo.rechtwinklig.beziehungen | – |
+| R15-V189 | trigo.rechtwinklig.anwendung | `id.geometrie.rechtwinklig` |
+| R15-V190 | trigo.rechtwinklig.anwendung | `id.geometrie.rechtwinklig` |
+| R15-V191 | trigo.rechtwinklig.schnittwinkel | – |
+| R15-V192 | trigo.rechtwinklig.schnittwinkel | – |

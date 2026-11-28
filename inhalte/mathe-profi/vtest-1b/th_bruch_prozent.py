@@ -89,7 +89,7 @@ neu(T, "grundwert", "sicherung", "begruenden", W(
     "Anna hat 30 € gespart, das sind 20 % ihres Sparziels. Ben hat 40 € gespart, das sind 25 % seines Sparziels. Welche Aussage über die Sparziele stimmt?",
     "Ben, denn sein Sparziel ist 160 € und Annas Sparziel ist 150 €.",
     [("Anna, denn ihr Sparziel ist 600 € und Bens Sparziel ist 160 €.", "20 % als Faktor 20 gelesen und mit den gesparten 30 € malgenommen"),
-     ("Ben, denn sein Sparziel ist 10 € und Annas Sparziel ist 6 €.", "den Prozentwert mit dem Prozentsatz malgenommen, statt durch ihn zu teilen"),
+     ("Die Sparziele sind gleich groß, denn beide haben ungefähr gleich viel Prozent gespart.", "die beiden Prozentsätze für fast gleich gehalten und die verschiedenen gesparten Beträge nicht beachtet"),
      ("Anna, denn 20 % sind weniger als 25 %, und weniger Prozent bedeuten ein größeres Sparziel.", "die Prozentsätze verglichen, aber nicht bedacht, dass die gesparten Beträge verschieden sind")],
     "Annas Sparziel ist der Grundwert: 30 € sind 20 %, also 1 % = 1,50 € und 100 % = 150 €. Bens Sparziel: 40 € sind 25 %, also ist das Ziel 40 € : 0,25 = 160 €. Bens Ziel ist höher. Aus den Prozentsätzen allein lässt sich nichts schließen, weil auch die Beträge verschieden sind.",
     lambda: F(30) / F(1, 5) == 150 and F(40) / F(1, 4) == 160 and 160 > 150 and 30 * 20 == 600), lp=LP, idee="grundwerte_vergleichen")

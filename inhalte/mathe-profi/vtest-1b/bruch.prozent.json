@@ -742,13 +742,13 @@
     },
     {
      "index": 1,
-     "antwort": "Ben, denn sein Sparziel ist 10 € und Annas Sparziel ist 6 €.",
+     "antwort": "Die Sparziele sind gleich groß, denn beide haben ungefähr gleich viel Prozent gespart.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Prozentwert mit dem Prozentsatz malgenommen, statt durch ihn zu teilen"
+     "beschreibung": "die beiden Prozentsätze für fast gleich gehalten und die verschiedenen gesparten Beträge nicht beachtet"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Anna, denn 20 % sind weniger als 25 %, und weniger Prozent bedeuten ein größeres Sparziel.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -768,12 +768,12 @@
     },
     "a": [
      "Anna, denn ihr Sparziel ist 600 € und Bens Sparziel ist 160 €.",
-     "Ben, denn sein Sparziel ist 10 € und Annas Sparziel ist 6 €.",
-     "Anna, denn 20 % sind weniger als 25 %, und weniger Prozent bedeuten ein größeres Sparziel.",
-     "Ben, denn sein Sparziel ist 160 € und Annas Sparziel ist 150 €."
+     "Die Sparziele sind gleich groß, denn beide haben ungefähr gleich viel Prozent gespart.",
+     "Ben, denn sein Sparziel ist 160 € und Annas Sparziel ist 150 €.",
+     "Anna, denn 20 % sind weniger als 25 %, und weniger Prozent bedeuten ein größeres Sparziel."
     ],
     "o": {
-     "index": 3
+     "index": 2
     },
     "w": "Annas Sparziel ist der Grundwert: 30 € sind 20 %, also 1 % = 1,50 € und 100 % = 150 €. Bens Sparziel: 40 € sind 25 %, also ist das Ziel 40 € : 0,25 = 160 €. Bens Ziel ist höher. Aus den Prozentsätzen allein lässt sich nichts schließen, weil auch die Beträge verschieden sind."
    }
@@ -1105,14 +1105,14 @@
      "beschreibung": "als Prozentzahl 36 % gelesen und für größer gehalten als 37,5 %: Der Bruch 3/8 wurde nicht umgewandelt"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "37 % der Kinder",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Prozentzahl 37 für die größte gehalten, ohne 3/8 als 37,5 % zu erkennen"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "7/20 der Kinder",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1132,12 +1132,12 @@
     },
     "a": [
      "0,36 der Kinder",
-     "3/8 der Kinder",
      "37 % der Kinder",
-     "7/20 der Kinder"
+     "7/20 der Kinder",
+     "3/8 der Kinder"
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "w": "Alle Angaben als Prozent: 3/8 = 0,375 = 37,5 %; 0,36 = 36 %; 37 %; 7/20 = 35 %. Der größte Anteil ist 37,5 %, also 3/8. Schon 3/8 und 37 % liegen nur 0,5 Prozentpunkte auseinander."
    }
@@ -1298,7 +1298,7 @@
      "beschreibung": "die Prozentzahlen verglichen und vergessen, dass sie sich auf verschiedene Ganze beziehen"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Verein A hat genau doppelt so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1325,12 +1325,12 @@
     },
     "a": [
      "Verein A hat weniger Mitglieder als Verein B, denn 20 % sind weniger als 30 %.",
-     "Verein A hat mehr als anderthalbmal so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B.",
      "Verein A hat genau doppelt so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B.",
+     "Verein A hat mehr als anderthalbmal so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B.",
      "Verein A hat genau anderthalbmal so viele Mitglieder wie Verein B, denn 20 % von A sind mehr als 30 % von B."
     ],
     "o": {
-     "index": 1
+     "index": 2
     },
     "w": "Es gilt 0,2 · A > 0,3 · B. Teilt man durch 0,2, folgt A > 1,5 · B. A ist also mehr als anderthalbmal so groß wie B; ein genauer Wert folgt nicht. Beispiel: B = 100 Mitglieder, dann muss A größer als 150 sein."
    }

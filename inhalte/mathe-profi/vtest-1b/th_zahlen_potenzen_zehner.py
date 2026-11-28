@@ -30,17 +30,17 @@ neu(T, "gross_wissenschaftlich", "korrektur", "umkehr", Z(
     [B("10", "nur den Vorfaktor halbiert und den Exponenten unverändert gelassen"),
      B("11", "den Exponenten beim Halbieren vergrößert statt verkleinert"),
      B("8", "den Exponenten um eins zu klein gesetzt")]), form="umkehren", lp=LP, idee="rueckwaerts_halbieren")
-neu(T, "gross_wissenschaftlich", "korrektur", "mehrschritt", W(
+neu(T, "gross_wissenschaftlich", "korrektur", "darstellung", W(
     "Kim sagt: „In der Zahl 3,5 · 10⁶ stehen sechs Nullen, denn im Exponenten steht die 6.“ Welche Aussage stimmt?",
-    "Kim irrt, denn ausgeschrieben ist 3,5 · 10⁶ = 3 500 000, und dort stehen nur fünf Nullen.",
+    "Kim irrt, denn ausgeschrieben ist 3,5 · 10⁶ = 3 500 000, und dort stehen nicht sechs, sondern nur fünf Nullen.",
     [("Kim hat recht, denn der Exponent gibt bei jeder Zahl der Form a · 10ⁿ die Zahl der Nullen an.", "den Exponenten allgemein als Zahl der Nullen gedeutet; die Ziffern des Vorfaktors nehmen aber Stellen weg"),
-     ("Kim irrt, denn ausgeschrieben ist 3,5 · 10⁶ = 3 500 000, und dort stehen sieben Nullen.", "die Stellen der Zahl statt der Nullen gezählt"),
-     ("Kim irrt, denn ausgeschrieben ist 3,5 · 10⁶ = 3 500 000, und dort stehen vier Nullen.", "eine Null zu wenig gezählt")],
+     ("Kim hat recht, denn in 3 500 000 stehen sechs Nullen, wenn man die 5 mitzählt.", "die Ziffer 5 als Null mitgezählt"),
+     ("Kim irrt, denn der Exponent gibt die Zahl der Ziffern an, und dort stehen sechs Ziffern.", "den Exponenten als Zahl der Ziffern gedeutet; es sind sieben Ziffern")],
     "3,5 · 10⁶ = 3,5 · 1 000 000 = 3 500 000. Das Komma wandert um 6 Stellen nach rechts: Die 5 füllt die erste Stelle auf, danach stehen noch fünf Nullen. Der Exponent gibt die Zahl der Stellen an, um die das Komma wandert, nicht die Zahl der Nullen.",
     lambda: 3.5e6 == 3500000 and str(3500000).count("0") == 5), lp=LP, idee="nullen_fehlvorstellung")
-neu(T, "gross_wissenschaftlich", "sicherung", "einkleidung", Z(
+neu(T, "gross_wissenschaftlich", "sicherung", "umkehr", Z(
     "Ein Buch hat etwa 4 · 10⁵ Zeichen. Ein Speicher fasst 2 · 10⁹ Zeichen. Wie viele solcher Bücher passen höchstens in den Speicher?",
-    5000, "2 * 10 ** 9 / (4 * 10 ** 5)", "2000000000 / 400000",
+    5000, "2000000000 / 400000", "2000000000 / 400000",
     "2 · 10⁹ = 2 000 000 000 und 4 · 10⁵ = 400 000. Es passen 2 000 000 000 : 400 000 = 5 000 Bücher. Mit Potenzen: 2 : 4 = 0,5 und 10⁹ : 10⁵ = 10⁴, also 0,5 · 10⁴ = 5 000.",
     [B("500", "den Exponenten um eins zu klein gerechnet"),
      B("50000", "den Exponenten um eins zu groß gerechnet"),
@@ -74,7 +74,7 @@ neu(T, "negativer_exponent", "korrektur", "umkehr", Z(
     [B("9", "schon beim Erreichen des Wertes gestoppt, obwohl dieser nicht kleiner, sondern gleich ist"),
      B("6", "nur die Nullen der kleinen Zahl gezählt"),
      B("7", "den Exponenten des Ergebnisses statt der Teilungen genannt")], einheit="Teilungen"), form="umkehren", lp=LP, idee="teilungen_zaehlen")
-neu(T, "negativer_exponent", "korrektur", "mehrschritt", W(
+neu(T, "negativer_exponent", "korrektur", "umkehr", W(
     "Ein Ganzes wird in eine Million gleiche Stücke zerlegt. Ein Stück ist 10⁻⁶ vom Ganzen. Welche Aussage stimmt?",
     "Zehn solche Stücke zusammen sind ein Hunderttausendstel vom Ganzen.",
     [("Zehn solche Stücke zusammen sind ein Millionstel vom Ganzen.", "geglaubt, dass sich der Wert beim Zusammenlegen nicht ändert"),
@@ -89,7 +89,7 @@ neu(T, "negativer_exponent", "korrektur", "darstellung", Z(
     [B("8", "das Minus im Exponenten vergessen"),
      B("0 - 2", "den Exponenten von 1 000 addiert statt abgezogen"),
      B("0 - 15", "die Hochzahlen malgenommen statt abgezogen")]), form="bruecke", lp=LP, idee="skalierung_rueckwaerts")
-neu(T, "negativer_exponent", "sicherung", "transfer", Z(
+neu(T, "negativer_exponent", "sicherung", "parameter", Z(
     "Man nimmt ein Millionstel von einem Tausendstel. Wie viele Nullen stehen zwischen dem Komma und der 1, wenn man das Ergebnis als Dezimalzahl schreibt?",
     8, "6 + 3 - 1", "9 - 1",
     "Ein Millionstel ist 10⁻⁶, ein Tausendstel ist 10⁻³. Ein Millionstel von einem Tausendstel ist 10⁻⁶ · 10⁻³ = 10⁻⁹ = 0,000 000 001. Die 1 steht an der neunten Stelle, davor stehen 8 Nullen.",
@@ -114,15 +114,15 @@ neu(T, "vorsilben_klein", "test", "transfer", L(
     "Ein Bakterium ist 8 µm lang. Ein Modell davon ist 1 000-mal so lang und damit □ mm lang. Ein Molekül ist 0,5 nm lang. Ein Modell davon ist 10 000 000-mal so lang und damit □ mm lang. (1 nm = 10⁻⁹ m, 1 µm = 10⁻⁶ m, 1 mm = 10⁻³ m)",
     "Bakterienmodell: □ mm; Molekülmodell: □ mm", [8, 5], ["8 * 1000 / 1000", "5 * 10 ** 6 / 10 ** 6"], ["8", "5"],
     "Bakterium: 8 µm · 1 000 = 8 000 µm. Weil 1 mm = 1 000 µm ist, sind das 8 mm. Molekül: 0,5 nm · 10 000 000 = 5 000 000 nm. Weil 1 mm = 1 000 000 nm ist, sind das 5 mm. Erst vergrößern, dann die Einheit wechseln.",
-    {0: [(8000, "nur mit dem Faktor malgenommen und die Einheit nicht gewechselt", "8 * 1000"), (0.008, "die Einheit in die falsche Richtung umgerechnet", "8 / 1000")],
+    {0: [(8000, "nur mit dem Faktor malgenommen und die Einheit nicht gewechselt", "8 * 1000"), (8000000, "mit einer Million statt mit tausend malgenommen und die Einheit nicht gewechselt", "8 * 10 ** 6")],
      1: [(5000000, "nur mit dem Faktor malgenommen und die Einheit nicht gewechselt", "5 * 10 ** 6"), (5000, "die Nanometer wie Mikrometer in Millimeter umgerechnet", "5 * 10 ** 6 / 1000")]},
     ), lp=LP, idee="modell_vergroessern")
 neu(T, "vorsilben_klein", "korrektur", "darstellung", W(
     "Tom sagt: „800 nm sind länger als 2 µm, denn 800 ist größer als 2.“ Welche Aussage stimmt?",
-    "Tom irrt, denn 800 nm sind 0,8 µm, und das ist kürzer als 2 µm.",
+    "Tom irrt, denn 800 nm sind 0,8 µm, und das ist nicht länger, sondern kürzer als 2 µm.",
     [("Tom hat recht, denn die Einheit spielt beim Vergleich von Längen keine Rolle.", "Maßzahl und Länge gleichgesetzt; die Einheit entscheidet mit"),
-     ("Tom hat recht, denn ein Nanometer ist größer als ein Mikrometer.", "Nano und Mikro in der Größe vertauscht"),
-     ("Tom irrt, denn 800 nm sind genauso lang wie 2 µm.", "die beiden Längen für gleich gehalten, obwohl der Faktor zwischen den Einheiten nicht zu den Maßzahlen passt")],
+     ("Tom hat recht, denn ein Nanometer ist eine größere Einheit als ein Mikrometer.", "Nano und Mikro in der Größe vertauscht"),
+     ("Die beiden Längen sind gleich lang, denn 800 nm und 2 µm sind nur verschieden aufgeschrieben.", "die beiden Längen für gleich gehalten, obwohl der Faktor zwischen den Einheiten nicht zu den Maßzahlen passt")],
     "1 µm = 1 000 nm. Also sind 800 nm = 0,8 µm. 0,8 µm sind kürzer als 2 µm. Die Maßzahl allein sagt nichts über die Länge: Man muss erst in dieselbe Einheit umrechnen. Nano ist tausendmal kleiner als Mikro.",
     lambda: F(800) * F(10) ** -9 < 2 * F(10) ** -6 and F(800) * F(10) ** -9 == F("0.8") * F(10) ** -6 and F(10) ** -9 < F(10) ** -6), form="bruecke", lp=LP, idee="maszahl_statt_laenge")
 neu(T, "vorsilben_klein", "korrektur", "umkehr", Z(
@@ -144,7 +144,7 @@ neu(T, "vorsilben_klein", "sicherung", "fehler", L(
     "Fehler in Zeile □, richtig: 1 µm = □ nm", [3, 1000], ["3", "10 ** 3"], ["2 + 1", "1000"],
     "Zeile 1 und Zeile 2 sind richtig. In Zeile 3 ist die Rechnung falsch: 10⁻⁶ : 10⁻⁹ = 10⁻⁶ · 10⁹ = 10³, nicht 10⁻³. Also sind 1 µm gleich 10³ nm = 1000 nm. Zeile 4 folgt aus dem Fehler in Zeile 3.",
     {0: [(4, "die Schlusszeile genannt, weil dort der falsche Wert 10⁻³ steht", "4"), (1, "Zeile 1 genannt, obwohl dort die Vorsilbe richtig steht", "1")], 1: [(-3, "das falsche Ergebnis 10⁻³ als Zahl −3 genommen", "0 - 3"), (1, "die Vorsilben als Faktor 1 gelesen", "1"), (1000000, "mit 10⁶ gerechnet statt 10³", "10 ** 6")]}), form="fehler_detektiv", lp=LP, idee="fehler_kette")
-neu(T, "vorsilben_klein", "sicherung", "einkleidung", Z(
+neu(T, "vorsilben_klein", "sicherung", "darstellung", Z(
     "Eine Zelle ist 12 µm lang. Auf einer Zeichnung ist sie 5 000-mal vergrößert. Wie lang ist die Zeichnung in Zentimetern? (1 cm = 10 000 µm)",
     6, "12 * 5000 / 10000", "60000 / 10000",
     "12 µm · 5 000 = 60 000 µm. Weil 1 cm = 10 000 µm ist, sind das 60 000 : 10 000 = 6 cm. Probe: 6 cm = 60 000 µm, und 60 000 : 5 000 = 12 µm.",
@@ -160,7 +160,7 @@ neu(T, "vorsilben_klein", "sicherung", "begruenden", W(
     "1 mm = 1000 µm. Dieselbe Länge wird in der kleineren Einheit durch eine größere Maßzahl angegeben: 2 mm sind 2000 µm. Die Maßzahl wird tausendmal größer, nicht kleiner. Die Länge selbst bleibt gleich.",
     lambda: 2 * 1000 == 2000 and F(10) ** -3 / F(10) ** -6 == 1000), lp=LP, idee="maszahl_gegenlaeufig")
 # ───────── vergleichen_pruefen ─────────
-neu(T, "vergleichen_pruefen", "test", "pruefung", L(
+neu(T, "vergleichen_pruefen", "test", "transfer", L(
     "Gegeben sind drei Zahlen: A = 5 · 10⁻⁶, B = 0,2 · 10⁻⁴ und C = 30 · 10⁻⁷. Welche Zahl ist die kleinste, welche die größte? Trage jeweils die Nummer ein (1 = A, 2 = B, 3 = C).",
     "kleinste Zahl: □, größte Zahl: □", [3, 2], ["3", "1 + 1"], ["1 + 2", "2"],
     "Alle drei Zahlen mit dem Exponenten −7: A = 50 · 10⁻⁷, B = 0,2 · 10⁻⁴ = 200 · 10⁻⁷, C = 30 · 10⁻⁷. Die kleinste ist C (30), die größte ist B (200). Ausgeschrieben: A = 0,000 005, B = 0,000 02, C = 0,000 003.",
@@ -181,13 +181,13 @@ neu(T, "vergleichen_pruefen", "korrektur", "darstellung", W(
      ("Beide Proben enthalten gleich viel, denn die beiden Angaben unterscheiden sich nur in der Schreibweise.", "die Angaben für verschiedene Schreibweisen derselben Menge gehalten")],
     "Man schreibt B mit demselben Exponenten wie A: 2 · 10⁻⁵ = 20 · 10⁻⁶. Dann steht bei B der Vorfaktor 20, bei A der Vorfaktor 4. 20 : 4 = 5, also hat B fünfmal so viel. Ausgeschrieben: 0,000 004 g gegen 0,000 02 g.",
     lambda: F(2) * F(10) ** -5 / (4 * F(10) ** -6) == 5 and F(4) * F(10) ** -6 < F(2) * F(10) ** -5), lp=LP, idee="verhaeltnis_potenzform")
-neu(T, "vergleichen_pruefen", "korrektur", "mehrschritt", Z(
+neu(T, "vergleichen_pruefen", "korrektur", "umkehr", Z(
     "Für wie viele ganze Zahlen k liegt k · 10⁻⁵ zwischen 3 · 10⁻⁴ und 5 · 10⁻⁴? Die beiden Grenzen selbst zählen nicht mit.",
     19, "49 - 31 + 1", "(50 - 30) - 1",
     "3 · 10⁻⁴ = 30 · 10⁻⁵ und 5 · 10⁻⁴ = 50 · 10⁻⁵. Gesucht sind die ganzen Zahlen k mit 30 < k < 50, also k = 31 bis 49. Das sind 49 − 31 + 1 = 19 Zahlen.",
     [B("20", "eine der beiden Grenzen mitgezählt"),
      B("21", "beide Grenzen mitgezählt"),
-     B("1", "die Exponenten nicht angeglichen und nur die Zahl zwischen den Vorfaktoren gezählt")], einheit="Zahlen"), lp=LP, idee="raster_grenzen")
+     B("1", "die Exponenten nicht angeglichen und nur die Zahl zwischen den Vorfaktoren gezählt")], einheit="Zahlen"), form="umkehren", lp=LP, idee="raster_grenzen")
 neu(T, "vergleichen_pruefen", "sicherung", "fehler", L(
     "Ein Kind vergleicht 6 · 10⁻⁷ und 4 · 10⁻⁶ und rechnet: Zeile 1: Ich schreibe beide Zahlen mit dem Exponenten −7. Zeile 2: Dann ist 4 · 10⁻⁶ = 0,4 · 10⁻⁷, denn das Komma geht eine Stelle nach links. Zeile 3: Also ist 6 · 10⁻⁷ größer als 4 · 10⁻⁶. In welcher Zeile steckt der erste Fehler? Welcher Vorfaktor gehört richtig vor 10⁻⁷?",
     "Fehler in Zeile □, richtig: 4 · 10⁻⁶ = □ · 10⁻⁷", [2, 40], ["2", "4 * 10"], ["1 + 1", "400 / 10"],

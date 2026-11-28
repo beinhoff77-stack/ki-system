@@ -34,7 +34,7 @@ neu(T, "negativer_exponent", "sicherung", "begruenden", W(
     "Ein Kind sagt: „2⁻⁴ ist größer als 2⁻³, denn 4 ist größer als 3.“ Welche Aussage über das Kind stimmt?",
     "Das Kind irrt, denn 2⁻⁴ = 1/16 ist kleiner als 2⁻³ = 1/8.",
     [("Das Kind hat recht, denn die größere Hochzahl ergibt die größere Zahl.", "Hochzahl und Wert gleichgesetzt, obwohl das Minus das Verhältnis umdreht"),
-     ("Das Kind irrt, denn 2⁻⁴ ist gleich −8 und 2⁻³ ist gleich −6.", "die negative Hochzahl als Vorzeichen des Ergebnisses gedeutet und mit der Hochzahl multipliziert"),
+     ("Die beiden Zahlen sind gleich groß, denn bei einer negativen Hochzahl zählt nur die Basis.", "den Einfluss der Hochzahl auf die Größe der Zahl übersehen"),
      ("Das Kind hat recht, denn 2⁻⁴ = 1/16 ist größer als 2⁻³ = 1/8.", "die beiden Brüche falsch verglichen, weil 16 größer ist als 8")],
     "2⁻³ = 1/2³ = 1/8 und 2⁻⁴ = 1/2⁴ = 1/16. Je größer der Betrag der negativen Hochzahl, desto kleiner ist der Wert: Bei jedem Schritt nach rechts im Muster wird durch 2 geteilt. 1/16 ist die Hälfte von 1/8.",
     lambda: F(1, 16) < F(1, 8) and F(2) ** -4 < F(2) ** -3 and F(2) ** -4 == F(1, 16)), lp=LP, idee="vergleich_begruenden")
@@ -97,8 +97,8 @@ neu(T, "fehler_finden", "sicherung", "begruenden", W(
     "Das Kind irrt, denn im Muster 125, 25, 5 teilt man jedes Mal durch 5, und dann folgt 5 : 5 = 1.",
     [("Das Kind hat recht, denn jede Zahl mit der Hochzahl 0 ist gleich 0.", "die Hochzahl 0 mit dem Wert 0 gleichgesetzt"),
      ("Das Kind irrt, denn 5⁰ = 5, weil bei der Hochzahl 0 die Basis stehen bleibt.", "den Exponenten 0 als „nichts ändern“ gelesen und die Basis behalten"),
-     ("Das Kind irrt, denn 5⁰ = 1, weil 5 mal 0 gleich 0 ist und dazu die 1 gezählt wird.", "den richtigen Wert mit einer unsinnigen Rechnung begründet")],
-    "Das Muster 125, 25, 5 teilt bei jedem Schritt nach rechts durch 5. Der nächste Wert ist 5 : 5 = 1, und die Hochzahl ist dann 0. Also ist 5⁰ = 1 und nicht 0. Die Rechnung 5 · 0 + 1 liefert nur zufällig 1 und erklärt nichts.",
+     ("Das Kind irrt, denn 5⁰ ist gar keine Zahl, weil man nicht null Mal malnehmen kann.", "die Hochzahl 0 für unmöglich gehalten statt als Fortsetzung des Musters verstanden")],
+    "Das Muster 125, 25, 5 teilt bei jedem Schritt nach rechts durch 5. Der nächste Wert ist 5 : 5 = 1, und die Hochzahl ist dann 0. Also ist 5⁰ = 1 und nicht 0.",
     lambda: 5 ** 3 // 5 == 25 and 25 // 5 == 5 and 5 // 5 == 1 and 5 ** 0 == 1 and 5 ** 0 != 0 and 5 ** 0 != 5), lp=LP, idee="hoch_null_begruenden")
 neu(T, "fehler_finden", "sicherung", "umkehr", L(
     "Ein Kind bestimmt a in 5^a = 0,04 so: Zeile 1: 0,04 = 4/100. Zeile 2: 4/100 = 1/25. Zeile 3: Also 5^a = 1/25 = 5² und damit a = 2. In welcher Zeile steckt der erste Fehler, und welchen Wert hat a richtig?",

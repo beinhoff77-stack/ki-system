@@ -52,7 +52,7 @@ def zaehle_k():
     n = 0
     kand = [F(i, 2520) for i in range(-30 * 2520, 30 * 2520 + 1, 7)] + [F(i, 2520) for i in range(-30 * 2520, 30 * 2520 + 1) if i % 2520 == 0 or i % 840 == 0 or i % 360 == 0 or i % 280 == 0 or i % 315 == 0 or i % 252 == 0 or i % 504 == 0 or i % 630 == 0 or i % 1260 == 0 or i % 420 == 0]
     kand = sorted(set(kand) | {F(a, b) for b in range(1, 13) for a in range(-30 * b, 30 * b + 1)})
-    for k in range(-4, 5):
+    for k in range(-1, 7):
         # 4/(x-1) = k/(x+2): gesucht ist ein x ungleich 1 und −2 mit 4(x+2) = k(x−1)
         if any(x not in (1, -2) and 4 * (x + 2) == k * (x - 1) for x in kand):
             n += 1
@@ -81,7 +81,34 @@ def s6_zahl():
 
 
 NEU = {
-    "Für wie viele ganze Zahlen k": lambda: zaehle_k(),
+    "Für wie viele ganze Zahlen k liegt": lambda: sum(1 for k in range(-1000, 1000) if 3 * F(10) ** -4 < k * F(10) ** -5 < 5 * F(10) ** -4),
+    "Wie viele der Zahlen 3⁻⁴": lambda: sum(1 for v in (F(3) ** -4, F(4) ** -3, F(10) ** -2, F(1) ** -6) if v < F(1, 50)),
+    "Man startet bei 1 000": lambda: next(k for k in range(0, 100) if F(1000) / F(10) ** k < F(1, 10 ** 6)),
+    "Ein Dreieck hat die Grundseite 8 cm und die Höhe 6 cm. Die Grundseite wird": lambda: F(8) * F(3, 2) * (F(6) * F(1, 2)) / 2,
+    "Ein Dreieck ABC hat den Flächeninhalt 66": lambda: F(66, 6),
+    "Ein Kind überlegt: In ein Rechteck (12 cm": lambda: [2, F(12 * 5, 2)],
+    "Eine Figur besteht aus einem Rechteck (9 cm": lambda: (lambda h: [h, 3 + h])(next(h for h in range(1, 60) if 9 * 3 + F(9 * h, 2) == 63)),
+    "Eine rechteckige Flagge": lambda: sum(1 for i in range(12) for j in range(8) if j in (3, 4) or i in (5, 6)),
+    "Das Viereck ABCD hat die Ecken A(0|0), B(6|0), C(8|5)": lambda: flaeche([(0, 0), (6, 0), (8, 5), (0, 3)]),
+    "Ein Rechteck ist 10 cm lang und 5 cm breit. Jede Seite": lambda: [(F(12 * 6) / F(10 * 5) - 1) * 100, 2 * (12 + 6) - 2 * (10 + 5)],
+    "Ein Trapez mit den parallelen Seiten 12 cm": lambda: F((12 + 6) * 4, 2) / (12 * 4) * 100,
+    "Bei einem Parallelogramm ist die Höhe 3 cm": lambda: next(g for g in range(4, 100) if g * (g - 3) == 54),
+    "Ein Dreieck hat die Grundseite 16 cm. Seine Höhe": lambda: F(16 * 7, 2) - F(16 * 6, 2),
+    "Ein Quadrat hat die Seitenlänge 8 cm. Die Seite wird": lambda: 9 * 9 - 8 * 8,
+    "Aus einem Rechteck (14 cm lang": lambda: [2, 14 * 10 - 6 * 4],
+    "Ein Parallelogramm hat den Flächeninhalt 96 cm², die Höhe": lambda: F(96, 8),
+    "Ein Buch hat etwa": lambda: F(2 * 10 ** 9, 4 * 10 ** 5),
+    "Eine Zahl a · 10ⁿ ist in wissenschaftlicher": lambda: next(n for n in range(-20, 20) if 1 <= F(16, 10) * F(10) ** 10 / 2 / F(10) ** n < 10),
+    "Eine Zehnerpotenz 10ⁿ ist 1 000-mal": lambda: next(n for n in range(-30, 30) if F(10) ** n == F(1, 10 ** 5) / 1000),
+    "Man nimmt ein Millionstel": lambda: next(z for z in range(0, 30) if F(1, 10 ** 6) * F(1, 1000) == F(1, 10 ** (z + 1))),
+    "Ein Virus ist 4 500 nm": lambda: next(n for n in range(-20, 20) if F(45, 10) * F(10) ** n == 4500 * F(10) ** -6),
+    "Eine Mücke wiegt etwa 2 mg": lambda: F(2 * 1000, 20),
+    "Eine Zelle ist 12 µm": lambda: F(12 * 5000, 10000),
+    "Gegeben sind drei Zahlen: A": lambda: (lambda w: [1 + min(range(3), key=lambda i: w[i]), 1 + max(range(3), key=lambda i: w[i])])([5 * F(10) ** -6, F(2, 10) * F(10) ** -4, 30 * F(10) ** -7]),
+    "Ein Bakterium ist 8 µm lang": lambda: [8 * 1000 * F(1, 1000), F(5, 10) * 10 ** 7 / 10 ** 6],
+    "Anna rechnet (3 + 4)²": lambda: 7 ** 2 - (3 ** 2 + 4 ** 2),
+    "Wie viele Stücke der Größe": lambda: F(10) ** -1 / F(10) ** -4,
+    "Für wie viele ganze Zahlen k von": lambda: zaehle_k(),
     "Wie viele der ganzen Zahlen von −5 bis 5": lambda: sum(1 for x in range(-5, 6) if x != 2 and F(3, x - 2) == F(1, x - 2) + F(2, x - 2)),
     "Bei wie vielen dieser fünf Gleichungen": lambda: 3,
     "Ein Drucker allein braucht": lambda: sum(1 for x in range(-3, 10) if x not in (0, 5)),

@@ -274,14 +274,14 @@
      "beschreibung": "Hochzahl und Wert gleichgesetzt, obwohl das Minus das Verhältnis umdreht"
     },
     {
-     "index": 2,
-     "antwort": "Das Kind irrt, denn 2⁻⁴ ist gleich −8 und 2⁻³ ist gleich −6.",
+     "index": 1,
+     "antwort": "Die beiden Zahlen sind gleich groß, denn bei einer negativen Hochzahl zählt nur die Basis.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die negative Hochzahl als Vorzeichen des Ergebnisses gedeutet und mit der Hochzahl multipliziert"
+     "beschreibung": "den Einfluss der Hochzahl auf die Größe der Zahl übersehen"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Das Kind hat recht, denn 2⁻⁴ = 1/16 ist größer als 2⁻³ = 1/8.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -301,12 +301,12 @@
     },
     "a": [
      "Das Kind hat recht, denn die größere Hochzahl ergibt die größere Zahl.",
-     "Das Kind irrt, denn 2⁻⁴ = 1/16 ist kleiner als 2⁻³ = 1/8.",
-     "Das Kind irrt, denn 2⁻⁴ ist gleich −8 und 2⁻³ ist gleich −6.",
-     "Das Kind hat recht, denn 2⁻⁴ = 1/16 ist größer als 2⁻³ = 1/8."
+     "Die beiden Zahlen sind gleich groß, denn bei einer negativen Hochzahl zählt nur die Basis.",
+     "Das Kind hat recht, denn 2⁻⁴ = 1/16 ist größer als 2⁻³ = 1/8.",
+     "Das Kind irrt, denn 2⁻⁴ = 1/16 ist kleiner als 2⁻³ = 1/8."
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "w": "2⁻³ = 1/2³ = 1/8 und 2⁻⁴ = 1/2⁴ = 1/16. Je größer der Betrag der negativen Hochzahl, desto kleiner ist der Wert: Bei jedem Schritt nach rechts im Muster wird durch 2 geteilt. 1/16 ist die Hälfte von 1/8."
    }
@@ -327,7 +327,7 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "2⁻⁸",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -360,13 +360,13 @@
      "text": "Welche der folgenden Potenzen hat den Wert 0,125?"
     },
     "a": [
-     "2⁻⁸",
      "2⁻³",
+     "2⁻⁸",
      "8⁻²",
      "3⁻²"
     ],
     "o": {
-     "index": 1
+     "index": 0
     },
     "w": "0,125 = 125/1000 = 1/8, und 8 = 2³. Also ist 0,125 = 1/2³ = 2⁻³. Die anderen: 2⁻⁸ = 1/256, 8⁻² = 1/64, 3⁻² = 1/9."
    }
@@ -536,14 +536,14 @@
      "beschreibung": "die Hochzahl als Ziffer hinter dem Komma gelesen"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "10⁻² = −100, denn ein negativer Exponent macht die Zahl negativ.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "negativen Exponenten als negative Zahl gedeutet"
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "10⁻² = 0,001, denn man schreibt zwei Nullen hinter das Komma und dann die 1.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -563,12 +563,12 @@
     },
     "a": [
      "10⁻² = 0,2, denn die Hochzahl 2 kommt an die erste Stelle hinter dem Komma.",
+     "10⁻² = 0,01, denn 10⁻² = 1/10² = 1/100.",
      "10⁻² = −100, denn ein negativer Exponent macht die Zahl negativ.",
-     "10⁻² = 0,001, denn man schreibt zwei Nullen hinter das Komma und dann die 1.",
-     "10⁻² = 0,01, denn 10⁻² = 1/10² = 1/100."
+     "10⁻² = 0,001, denn man schreibt zwei Nullen hinter das Komma und dann die 1."
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "w": "10⁻² = 1/10² = 1/100 = 0,01: Die 1 steht an der zweiten Stelle hinter dem Komma, vor ihr steht eine Null. Das Kind hat die Hochzahl als Ziffer gelesen."
    }
@@ -764,14 +764,14 @@
    "loesung_rechnung": null,
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Das Kind hat recht, denn jede Zahl mit der Hochzahl 0 ist gleich 0.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Hochzahl 0 mit dem Wert 0 gleichgesetzt"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Das Kind irrt, denn 5⁰ = 5, weil bei der Hochzahl 0 die Basis stehen bleibt.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -779,10 +779,10 @@
     },
     {
      "index": 3,
-     "antwort": "Das Kind irrt, denn 5⁰ = 1, weil 5 mal 0 gleich 0 ist und dazu die 1 gezählt wird.",
+     "antwort": "Das Kind irrt, denn 5⁰ ist gar keine Zahl, weil man nicht null Mal malnehmen kann.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den richtigen Wert mit einer unsinnigen Rechnung begründet"
+     "beschreibung": "die Hochzahl 0 für unmöglich gehalten statt als Fortsetzung des Musters verstanden"
     }
    ],
    "regel": "rr.potenz",
@@ -797,15 +797,15 @@
      "text": "Ein Kind behauptet: „5⁰ = 0, denn bei 5⁰ ist keine Fünf mehr da.“ Welche Aussage über die Behauptung ist richtig?"
     },
     "a": [
+     "Das Kind irrt, denn im Muster 125, 25, 5 teilt man jedes Mal durch 5, und dann folgt 5 : 5 = 1.",
      "Das Kind hat recht, denn jede Zahl mit der Hochzahl 0 ist gleich 0.",
      "Das Kind irrt, denn 5⁰ = 5, weil bei der Hochzahl 0 die Basis stehen bleibt.",
-     "Das Kind irrt, denn im Muster 125, 25, 5 teilt man jedes Mal durch 5, und dann folgt 5 : 5 = 1.",
-     "Das Kind irrt, denn 5⁰ = 1, weil 5 mal 0 gleich 0 ist und dazu die 1 gezählt wird."
+     "Das Kind irrt, denn 5⁰ ist gar keine Zahl, weil man nicht null Mal malnehmen kann."
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "w": "Das Muster 125, 25, 5 teilt bei jedem Schritt nach rechts durch 5. Der nächste Wert ist 5 : 5 = 1, und die Hochzahl ist dann 0. Also ist 5⁰ = 1 und nicht 0. Die Rechnung 5 · 0 + 1 liefert nur zufällig 1 und erklärt nichts."
+    "w": "Das Muster 125, 25, 5 teilt bei jedem Schritt nach rechts durch 5. Der nächste Wert ist 5 : 5 = 1, und die Hochzahl ist dann 0. Also ist 5⁰ = 1 und nicht 0."
    }
   },
   {

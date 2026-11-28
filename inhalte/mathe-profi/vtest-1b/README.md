@@ -24,35 +24,34 @@ Je gewähltem Lernziel 7 Aufgaben: 1 **test** (`ersetzt_test: true`, die anspruc
 | `bruch.prozent` | `grundwert` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | begruenden 1, darstellung 2, fehler 1, transfer 1, umkehr 2 | ohne 5, fehler_detektiv 1, umkehren 1 |
 | `bruch.prozent` | `verstehen` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | begruenden 1, darstellung 1, einkleidung 1, fehler 1, transfer 1, umkehr 2 | ohne 4, bruecke 1, fehler_detektiv 1, umkehren 1 |
 | `gleichungen.bruch` | `definitionsmenge` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | begruenden 1, darstellung 1, einkleidung 1, fehler 1, transfer 1, umkehr 2 | ohne 3, bruecke 2, fehler_detektiv 1, umkehren 1 |
-| `gleichungen.bruch` | `ueber_kreuz` | 1 | 3 | 3 | 4 / 3 | 2 / 4 / 1 | begruenden 1, darstellung 1, einkleidung 1, fehler 1, mehrschritt 1, pruefung 1, umkehr 1 | ohne 5, fehler_detektiv 1, zwei_wege 1 |
+| `gleichungen.bruch` | `ueber_kreuz` | 1 | 3 | 3 | 4 / 3 | 2 / 4 / 1 | begruenden 1, darstellung 2, fehler 1, mehrschritt 1, parameter 1, umkehr 1 | ohne 5, fehler_detektiv 1, zwei_wege 1 |
 | `gleichungen.bruch` | `scheinloesung` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | begruenden 1, darstellung 3, fehler 1, transfer 1, umkehr 1 | ohne 5, fehler_detektiv 1, umkehren 1 |
 | `gleichungen.bruch` | `verhaeltnis` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | darstellung 1, fehler 1, mehrschritt 1, transfer 2, umkehr 2 | ohne 3, bruecke 1, fehler_detektiv 1, umkehren 1, zwei_wege 1 |
 | `terme.potenzgesetze` | `negativer_exponent` | 1 | 3 | 3 | 4 / 3 | 4 / 2 / 1 | begruenden 1, darstellung 2, parameter 1, transfer 1, umkehr 2 | ohne 6, bruecke 1 |
 | `terme.potenzgesetze` | `fehler_finden` | 1 | 3 | 3 | 4 / 3 | 1 / 4 / 2 | begruenden 1, darstellung 1, fehler 2, mehrschritt 1, umkehr 2 | ohne 3, fehler_detektiv 3, zwei_wege 1 |
-| `zahlen.potenzen_zehner` | `gross_wissenschaftlich` | 1 | 3 | 3 | 4 / 3 | 3 / 3 / 1 | begruenden 1, darstellung 1, einkleidung 1, fehler 1, mehrschritt 1, transfer 1, umkehr 1 | ohne 4, bruecke 1, fehler_detektiv 1, umkehren 1 |
-| `zahlen.potenzen_zehner` | `negativer_exponent` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | darstellung 2, fehler 1, mehrschritt 1, transfer 2, umkehr 1 | ohne 4, bruecke 1, fehler_detektiv 1, umkehren 1 |
-| `zahlen.potenzen_zehner` | `vorsilben_klein` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | begruenden 1, darstellung 2, einkleidung 1, fehler 1, transfer 1, umkehr 1 | ohne 3, bruecke 2, fehler_detektiv 1, umkehren 1 |
-| `zahlen.potenzen_zehner` | `vergleichen_pruefen` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | begruenden 1, darstellung 2, fehler 1, mehrschritt 1, pruefung 1, umkehr 1 | ohne 6, fehler_detektiv 1 |
-| `messen.flaechen_vielecke` | `dreieck` | 1 | 3 | 3 | 4 / 3 | 4 / 1 / 2 | darstellung 2, fehler 1, mehrschritt 1, transfer 2, umkehr 1 | ohne 3, bruecke 1, fehler_detektiv 1, umkehren 1, zwei_wege 1 |
+| `zahlen.potenzen_zehner` | `gross_wissenschaftlich` | 1 | 3 | 3 | 4 / 3 | 3 / 3 / 1 | begruenden 1, darstellung 2, fehler 1, transfer 1, umkehr 2 | ohne 4, bruecke 1, fehler_detektiv 1, umkehren 1 |
+| `zahlen.potenzen_zehner` | `negativer_exponent` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | darstellung 2, fehler 1, parameter 1, transfer 1, umkehr 2 | ohne 4, bruecke 1, fehler_detektiv 1, umkehren 1 |
+| `zahlen.potenzen_zehner` | `vorsilben_klein` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | begruenden 1, darstellung 3, fehler 1, transfer 1, umkehr 1 | ohne 3, bruecke 2, fehler_detektiv 1, umkehren 1 |
+| `zahlen.potenzen_zehner` | `vergleichen_pruefen` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | begruenden 1, darstellung 2, fehler 1, transfer 1, umkehr 2 | ohne 5, fehler_detektiv 1, umkehren 1 |
+| `messen.flaechen_vielecke` | `dreieck` | 1 | 3 | 3 | 4 / 3 | 4 / 1 / 2 | begruenden 1, darstellung 3, fehler 1, mehrschritt 1, transfer 1 | ohne 3, bruecke 2, fehler_detektiv 1, zwei_wege 1 |
 | `messen.flaechen_vielecke` | `rueckwaerts` | 1 | 3 | 3 | 4 / 3 | 3 / 1 / 3 | begruenden 1, darstellung 2, fehler 1, rueckwaerts 1, umkehr 2 | ohne 4, bruecke 1, fehler_detektiv 1, umkehren 1 |
-| `messen.flaechen_vielecke` | `zusammengesetzt` | 1 | 3 | 3 | 4 / 3 | 3 / 1 / 3 | darstellung 2, fehler 1, mehrschritt 1, transfer 2, umkehr 1 | ohne 2, bruecke 2, fehler_detektiv 1, umkehren 1, zwei_wege 1 |
-| `messen.flaechen_vielecke` | `verstehen` | 1 | 3 | 3 | 4 / 3 | 3 / 3 / 1 | begruenden 1, darstellung 3, fehler 1, rueckwaerts 1, umkehr 1 | ohne 4, bruecke 2, fehler_detektiv 1 |
-| Summe | 17 Lernziele | 17 | 51 | 51 | 68 / 51 | 50 / 36 / 33 | | |
+| `messen.flaechen_vielecke` | `zusammengesetzt` | 1 | 3 | 3 | 4 / 3 | 3 / 2 / 2 | darstellung 3, fehler 1, rueckwaerts 1, transfer 1, umkehr 1 | ohne 3, bruecke 1, fehler_detektiv 1, umkehren 1, zwei_wege 1 |
+| `messen.flaechen_vielecke` | `verstehen` | 1 | 3 | 3 | 4 / 3 | 4 / 1 / 2 | begruenden 1, darstellung 2, fehler 1, transfer 1, umkehr 2 | ohne 4, bruecke 1, fehler_detektiv 1, umkehren 1 |
+| Summe | 17 Lernziele | 17 | 51 | 51 | 68 / 51 | 51 / 35 / 33 | | |
 
 Typen insgesamt:
 
 | Typ | Aufgaben | Anteil |
 |---|---|---|
-| darstellung | 30 | 25 % |
-| umkehr | 24 | 20 % |
-| transfer | 17 | 14 % |
+| darstellung | 34 | 29 % |
+| umkehr | 27 | 23 % |
 | fehler | 17 | 14 % |
-| begruenden | 12 | 10 % |
-| mehrschritt | 8 | 7 % |
-| einkleidung | 6 | 5 % |
-| pruefung | 2 | 2 % |
+| transfer | 16 | 13 % |
+| begruenden | 13 | 11 % |
+| mehrschritt | 4 | 3 % |
+| einkleidung | 3 | 3 % |
+| parameter | 3 | 3 % |
 | rueckwaerts | 2 | 2 % |
-| parameter | 1 | 1 % |
 
 Formen insgesamt:
 
@@ -60,8 +59,8 @@ Formen insgesamt:
 |---|---|---|
 | (ohne Form) | 68 | 57 % |
 | fehler_detektiv | 18 | 15 % |
-| bruecke | 16 | 13 % |
-| umkehren | 11 | 9 % |
+| bruecke | 15 | 13 % |
+| umkehren | 12 | 10 % |
 | zwei_wege | 6 | 5 % |
 
 ## Kennungen

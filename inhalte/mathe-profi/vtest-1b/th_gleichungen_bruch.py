@@ -87,7 +87,7 @@ def _kreuz_zahl():
     return sum(1 for v in erlaubt.values() if v == (1, 1))
 
 
-neu(T, "ueber_kreuz", "test", "pruefung", Z(
+neu(T, "ueber_kreuz", "test", "parameter", Z(
     "Für wie viele ganze Zahlen k von −1 bis 6 (einschließlich) hat die Gleichung 4/(x − 1) = k/(x + 2) mindestens eine Lösung?",
     6, "8 - 2", "6",
     "Über Kreuz: 4(x + 2) = k(x − 1), also (4 − k)x = −k − 8. Für k = 4 steht 0 · x = −12: keine Lösung. Für k = 0 folgt 4x = −8, also x = −2; das ist aber ausgeschlossen (Nenner x + 2), eine Scheinlösung. Für alle anderen k gibt es x = (−k − 8)/(4 − k), das weder 1 noch −2 ist. Von den 8 Zahlen von −1 bis 6 haben also 8 − 2 = 6 eine Lösung (alle außer 0 und 4).",
@@ -139,12 +139,12 @@ _ZWEIT_K = _zaehle_ohne_loesung()
 neu(T, "ueber_kreuz", "sicherung", "begruenden", W(
     "Kim löst 3/x = 5/(x + 2) und schreibt: „Also gilt 3 · (x + 2) = 5 · x.“ Welche Aussage über Kims Schritt stimmt?",
     "Kim hat recht, denn mit x · (x + 2) malgenommen kürzt sich auf jeder Seite ein Nenner.",
-    [("Kim hat recht, denn man darf die Nenner einfach nach oben schreiben.", "ein Merkwort statt einer Begründung genommen: Die Nenner wandern nicht einfach nach oben"),
+    [("Kim irrt, denn über Kreuz hätte 3 · x = 5 · (x + 2) dastehen müssen.", "die Faktoren beim Über-Kreuz-Multiplizieren falsch zugeordnet, obwohl Kims Schritt stimmt"),
      ("Kim irrt, denn über Kreuz gilt nur, wenn beide Nenner gleich sind.", "geglaubt, über Kreuz sei nur bei gleichen Nennern erlaubt"),
      ("Kim irrt, denn man muss zuerst alle Brüche addieren und dann malnehmen.", "das Addieren von Brüchen mit dem Malnehmen beim Auflösen von Gleichungen verwechselt")],
     "Multipliziert man beide Seiten mit x · (x + 2), erhält man links 3/x · x · (x + 2) = 3 · (x + 2) und rechts 5/(x + 2) · x · (x + 2) = 5 · x. Das ist genau das Kreuzprodukt. Voraussetzung ist, dass x und x + 2 nicht 0 sind. Probe mit x = 3: 3/3 = 1 und 5/5 = 1.",
     lambda: F(3, 3) == F(5, 5) and 3 * (3 + 2) == 5 * 3), lp=LP, idee="warum_ueber_kreuz")
-neu(T, "ueber_kreuz", "sicherung", "einkleidung", Z(
+neu(T, "ueber_kreuz", "sicherung", "darstellung", Z(
     "In einem Glas sind 5 cl Sirup und 15 cl Wasser. Wie viel cl Sirup muss man zugießen, damit der Sirup genau die Hälfte der Mischung ausmacht?",
     10, "15 - 5", "10",
     "Nach dem Zugießen von x cl Sirup sind (5 + x) cl Sirup in (20 + x) cl Mischung, und der Anteil soll ein Halb sein: (5 + x)/(20 + x) = 1/2. Über Kreuz: 2 · (5 + x) = 20 + x, also 10 + 2x = 20 + x und x = 10. Probe: 15 cl Sirup und 15 cl Wasser.",

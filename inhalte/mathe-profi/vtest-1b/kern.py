@@ -20,7 +20,8 @@ A = []
 IDEEN = {}   # (Einheit, Lernziel) -> Liste der Ideen in der Reihenfolge der neu()-Aufrufe
 REGEL = {}    # (Einheit, Lernziel) -> Regel-Kennung
 ABG = {}      # (Einheit, Lernziel) -> Satz „was ist anders als in den Übungen“
-POSITION4 = itertools.cycle([2, 0, 3, 1, 1, 3, 0, 2, 3, 1, 0, 2])
+# Platz der richtigen Möglichkeit: unregelmäßige Folge ohne Periode (eine Aufgabe, 061, setzt ihren Platz selbst und verbraucht keinen Wert)
+POSITION4 = itertools.chain([2, 0, 2, 3, 2, 1, 3, 0, 1, 3, 0, 3, 1, 2, 1, 3, 0, 1, 0, 0, 2, 3, 2, 1, 2, 1, 3, 2, 1, 3, 0, 2, 3, 0], itertools.cycle([2, 0, 3, 1]))
 
 
 def Z(text, wert, c, zweit, w, fb, einheit=None):

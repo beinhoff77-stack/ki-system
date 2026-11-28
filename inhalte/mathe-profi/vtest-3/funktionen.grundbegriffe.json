@@ -1,0 +1,1882 @@
+{
+ "stand": "2026-11-28",
+ "runde": "vtest-3",
+ "kuerzel": "VT3",
+ "klasse": 8,
+ "hinweis": "Verstehen in Tests, Stufe 1, Runde 3. Nicht eingespielt.",
+ "titel": "funktionen.grundbegriffe",
+ "themen": [
+  "funktionen.grundbegriffe"
+ ],
+ "aufgaben": [
+  {
+   "kennung": "VT3-064",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "mengen",
+   "pool": "test",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen berechnen eine Wertemenge oder eine Definitionsmenge nach Schema. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "mengen",
+    "t": "mengen",
+    "p": "test",
+    "s": 3,
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Funktion ordnet jedem der 28 Kinder einer Klasse seinen Geburtsmonat zu (als Zahl von 1 bis 12). Welche Aussage über die Wertemenge W stimmt?"
+    },
+    "w": "D besteht aus den 28 Kindern, W aus den Monatszahlen, die wirklich vorkommen. Das sind höchstens die zwölf Zahlen 1 bis 12, bei einer kleinen Klasse können einige fehlen. Verschiedene Kinder dürfen denselben Wert haben.",
+    "a": [
+     "W hat genau 28 Elemente, denn jedes Kind hat einen Funktionswert.",
+     "W hat genau 12 Elemente, denn es gibt zwölf Monate.",
+     "W hat höchstens 12 Elemente: Es kommen nur die Zahlen 1 bis 12 vor, und nicht jeder Monat muss vorkommen.",
+     "W ist gleich der Definitionsmenge D."
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "ersetzt_test": true,
+   "regel": "id.funktionen.zuordnung",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "W hat genau 28 Elemente, denn jedes Kind hat einen Funktionswert.",
+     "beschreibung": "Wertemenge mit der Zahl der Kinder (Definitionsmenge) verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "W hat genau 12 Elemente, denn es gibt zwölf Monate.",
+     "beschreibung": "angenommen, dass jeder mögliche Wert auch angenommen wird",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "W ist gleich der Definitionsmenge D.",
+     "beschreibung": "Definitions- und Wertemenge gleichgesetzt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-065",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "mengen",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen berechnen eine Wertemenge oder eine Definitionsmenge nach Schema. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "mengen",
+    "t": "mengen",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Für f(x) = 5 − x² mit D = ℚ stimmt genau eine der folgenden Aussagen. Welche?"
+    },
+    "w": "x² ≥ 0, also ist 5 − x² höchstens 5. Der Wert 5 tritt bei x = 0 auf (größter Wert). Für x = 3 ergibt sich −4, also gibt es auch negative Werte.",
+    "a": [
+     "Der Funktionswert 6 kommt vor, zum Beispiel bei x = 1.",
+     "Kein Funktionswert ist größer als 5, denn x² ist nie negativ.",
+     "Alle Funktionswerte sind positiv, denn 5 ist positiv.",
+     "Der kleinste Funktionswert ist 5, denn für x = 0 ergibt sich 5."
+    ],
+    "o": {
+     "index": 1
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Der Funktionswert 6 kommt vor, zum Beispiel bei x = 1.",
+     "beschreibung": "f(1) = 5 − 1 = 4 mit 6 verwechselt: alle Funktionswerte liegen bei höchstens 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Alle Funktionswerte sind positiv, denn 5 ist positiv.",
+     "beschreibung": "nur an x = 0 gedacht; f(3) = −4 ist negativ",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Der kleinste Funktionswert ist 5, denn für x = 0 ergibt sich 5.",
+     "beschreibung": "den größten Funktionswert für den kleinsten gehalten",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-066",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "mengen",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen berechnen eine Wertemenge oder eine Definitionsmenge nach Schema. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "aufgabe": {
+    "l": "mengen",
+    "t": "mengen",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Die Funktion f(x) = 3x − 2 hat die Wertemenge W = {−5; 1; 7}. Welche Definitionsmenge D gehört dazu?"
+    },
+    "w": "Man rechnet rückwärts: 3x − 2 = y, also x = (y + 2) : 3. Für y = −5, 1, 7 ergibt sich x = −1, 1, 3. Probe: f(−1) = −5, f(1) = 1, f(3) = 7.",
+    "a": [
+     "D = {−5; 1; 7}",
+     "D = {−17; 1; 19}",
+     "D = {−1; 1; 3}",
+     "D = {−9; 9; 27}"
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "D = {−5; 1; 7}",
+     "beschreibung": "Definitions- und Wertemenge gleichgesetzt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "D = {−17; 1; 19}",
+     "beschreibung": "die Werte als x eingesetzt: f(−5) = −17, f(1) = 1, f(7) = 19",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "D = {−9; 9; 27}",
+     "beschreibung": "umgekehrt gerechnet, aber mit 3 malgenommen statt durch 3 geteilt: (−5 + 2) · 3 = −9 usw.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-067",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "mengen",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen berechnen eine Wertemenge oder eine Definitionsmenge nach Schema. Diese Aufgabe: Fehler-Detektiv (Zeile finden und richtigstellen).",
+   "aufgabe": {
+    "l": "mengen",
+    "t": "mengen",
+    "p": "korrektur",
+    "s": 2,
+    "y": "luecken",
+    "f": {
+     "text": "Tom bestimmt die Wertemenge von f(x) = x² − 4 mit D = {−2; −1; 0; 1; 2}. Zeile 1: Er berechnet f(−2) = 0, f(−1) = −3, f(0) = −4, f(1) = −3 und f(2) = 0. Zeile 2: Er schreibt W = {0; −3; −4; −3; 0}. Zeile 3: Er zählt fünf Elemente. Zeile 4: Er sagt: W hat genauso viele Elemente wie D. In welcher Zeile steckt der erste Fehler, und wie viele Elemente hat W richtig?",
+     "schablone": "Fehler in Zeile □, W hat richtig □ Elemente",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Zeile 2 ist falsch: In einer Menge schreibt man jedes Element nur einmal. W = {−4; −3; 0} hat 3 Elemente, weniger als D.",
+    "o": {
+     "werte": [
+      2,
+      3
+     ]
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "loesung_rechnung": [
+    "2",
+    "3"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 5,
+     "rechnung": "5",
+     "beschreibung": "die Funktionswerte mit Wiederholungen gezählt, auch doppelte",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "rechnung": "5 − 1",
+     "beschreibung": "nur einen der beiden doppelten Werte gestrichen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-068",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "mengen",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen berechnen eine Wertemenge oder eine Definitionsmenge nach Schema. Diese Aufgabe: Transfer auf eine neue Situation.",
+   "aufgabe": {
+    "l": "mengen",
+    "t": "mengen",
+    "p": "sicherung",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Eine Funktion ordnet jeder natürlichen Zahl von 1 bis 20 ihre Quersumme zu. Wie viele Elemente hat die Wertemenge?"
+    },
+    "w": "Die Quersummen sind 1, 2, …, 9 für die Zahlen 1 bis 9, danach 1, 2, …, 9 für 10 bis 18, dann 10 für 19 und 2 für 20. Es kommen die Werte 1 bis 10 vor: 10 Elemente.",
+    "o": {
+     "wert": 10
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "loesung_rechnung": "9 + 1",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "rechnung": "20",
+     "beschreibung": "die Zahl der Elemente der Definitionsmenge genannt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 9,
+     "rechnung": "10 − 1",
+     "beschreibung": "die Quersumme 10 (von 19) übersehen, nur die Werte 1 bis 9 gezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-069",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "mengen",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen berechnen eine Wertemenge oder eine Definitionsmenge nach Schema. Diese Aufgabe: Transfer auf eine neue Situation.",
+   "aufgabe": {
+    "l": "mengen",
+    "t": "mengen",
+    "p": "sicherung",
+    "s": 3,
+    "y": "luecken",
+    "f": {
+     "text": "Gegeben ist f(x) = 4/(2x − 6) + 1/x mit möglichst großer Definitionsmenge D ⊂ ℚ. Für welche zwei Zahlen ist f nicht definiert? Gib die kleinere zuerst an.",
+     "schablone": "Nicht definiert für x = □ und x = □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Der Nenner 2x − 6 ist 0 für x = 3, der Nenner x ist 0 für x = 0. Beide Zahlen gehören nicht zu D, also D = ℚ \\ {0; 3}.",
+    "o": {
+     "werte": [
+      0,
+      3
+     ]
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "loesung_rechnung": [
+    "0",
+    "6 : 2"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "rechnung": "6",
+     "beschreibung": "aus 2x − 6 = 0 nur die rechte Seite 6 gelesen, nicht durch 2 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -3,
+     "rechnung": "−6 : 2",
+     "beschreibung": "das Vorzeichen vertauscht: 2x = −6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-070",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "mengen",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen berechnen eine Wertemenge oder eine Definitionsmenge nach Schema. Diese Aufgabe: Transfer auf eine neue Situation.",
+   "aufgabe": {
+    "l": "mengen",
+    "t": "mengen",
+    "p": "sicherung",
+    "s": 2,
+    "y": "zahl",
+    "f": {
+     "text": "Für f(x) = x − 2 sei die Definitionsmenge D = {2; 4; 6; 8}. Wie viele Zahlen gehören sowohl zur Definitionsmenge D als auch zur Wertemenge W?"
+    },
+    "w": "W = {0; 2; 4; 6}. Gemeinsam mit D = {2; 4; 6; 8} sind 2, 4 und 6: drei Zahlen. (0 liegt nur in W, 8 nur in D.)",
+    "o": {
+     "wert": 3
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "loesung_rechnung": "4 − 1",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "rechnung": "4",
+     "beschreibung": "die Zahl der Elemente von D genannt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 1,
+     "rechnung": "4 − 3",
+     "beschreibung": "die Zahlen gezählt, die in W, aber nicht in D liegen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-071",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "stelle",
+   "pool": "test",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen lösen f(x) = c für lineare Terme oder Sachsituationen. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "aufgabe": {
+    "l": "stelle",
+    "t": "stelle",
+    "p": "test",
+    "s": 3,
+    "y": "luecken",
+    "f": {
+     "text": "Für f(x) = (x − 3)² mit D = ℚ gilt f(x) = 16 an genau zwei Stellen. Gib beide an, die kleinere zuerst.",
+     "schablone": "x = □ und x = □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "(x − 3)² = 16 heißt x − 3 = 4 oder x − 3 = −4. Also x = 7 oder x = −1. Probe: (7 − 3)² = 16 und (−1 − 3)² = 16.",
+    "o": {
+     "werte": [
+      -1,
+      7
+     ]
+    }
+   },
+   "ersetzt_test": true,
+   "regel": "id.funktionen.zuordnung",
+   "loesung_rechnung": [
+    "3 − 4",
+    "3 + 4"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -7,
+     "rechnung": "−3 − 4",
+     "beschreibung": "so gerechnet, als wäre es (x + 3)²: x = −3 − 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "rechnung": "−3 + 4",
+     "beschreibung": "so gerechnet, als wäre es (x + 3)²: x = −3 + 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 7,
+     "rechnung": "3 + 4",
+     "beschreibung": "nur die positive Wurzel genommen und sie als erste Stelle eingetragen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-072",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "stelle",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen lösen f(x) = c für lineare Terme oder Sachsituationen. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "aufgabe": {
+    "l": "stelle",
+    "t": "stelle",
+    "p": "korrektur",
+    "s": 2,
+    "y": "zahl",
+    "f": {
+     "text": "Zur Funktion f(x) = 4 − x/2 gehört der Punkt P(a | 7). Berechne a."
+    },
+    "w": "4 − a/2 = 7, also −a/2 = 3, also a = −6. Probe: 4 − (−6)/2 = 4 + 3 = 7.",
+    "o": {
+     "wert": -6
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "loesung_rechnung": "(7 − 4) · (−2)",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "rechnung": "(7 − 4) · 2",
+     "beschreibung": "das Vorzeichen übersehen: 4 − a/2 = 7 heißt a/2 = −3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 22,
+     "rechnung": "(7 + 4) · 2",
+     "beschreibung": "4 statt abgezogen addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-073",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "stelle",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen lösen f(x) = c für lineare Terme oder Sachsituationen. Diese Aufgabe: Fehler-Detektiv (Zeile finden und richtigstellen).",
+   "aufgabe": {
+    "l": "stelle",
+    "t": "stelle",
+    "p": "korrektur",
+    "s": 2,
+    "y": "luecken",
+    "f": {
+     "text": "Jan sucht die Stelle x mit f(x) = 15 für f(x) = 3x + 6. Zeile 1: Er setzt an: 3x + 6 = 15. Zeile 2: Er rechnet 3x = 15 + 6 = 21. Zeile 3: Er teilt durch 3: x = 7. Zeile 4: Die gesuchte Stelle ist x = 7. In welcher Zeile steckt der erste Fehler, und wie lautet die Stelle richtig?",
+     "schablone": "Fehler in Zeile □, richtig: x = □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Zeile 2 ist falsch: Die 6 steht links mit Plus, also zieht man sie ab: 3x = 15 − 6 = 9, x = 3. Probe: 3 · 3 + 6 = 15.",
+    "o": {
+     "werte": [
+      2,
+      3
+     ]
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "loesung_rechnung": [
+    "2",
+    "(15 − 6) : 3"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 7,
+     "rechnung": "(15 + 6) : 3",
+     "beschreibung": "die 6 addiert statt subtrahiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 9,
+     "rechnung": "15 − 6",
+     "beschreibung": "nicht durch 3 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-074",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "stelle",
+   "pool": "korrektur",
+   "typ": "umkehr",
+   "form": "verfahren_waehlen",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen lösen f(x) = c für lineare Terme oder Sachsituationen. Diese Aufgabe: Verfahren wählen.",
+   "aufgabe": {
+    "l": "stelle",
+    "t": "stelle",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Pflanze ist anfangs 12 cm hoch und wächst jeden Tag um 1,5 cm: h(t) = 12 + 1,5 · t (t in Tagen). Nach wie vielen Tagen ist sie 30 cm hoch? Welcher Ansatz führt zur Lösung?"
+    },
+    "w": "Gesucht ist die Stelle t mit h(t) = 30, also 12 + 1,5t = 30. Dann 1,5t = 18 und t = 12 Tage.",
+    "a": [
+     "Man berechnet h(30) = 12 + 1,5 · 30.",
+     "Man löst die Gleichung 12 + 1,5 · t = 30 nach t.",
+     "Man rechnet 30 : 1,5 und addiert 12.",
+     "Man löst die Gleichung 12 + 1,5 + t = 30."
+    ],
+    "o": {
+     "index": 1
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Man berechnet h(30) = 12 + 1,5 · 30.",
+     "beschreibung": "Funktionswert und gesuchte Stelle vertauscht: 30 ist hier der Funktionswert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Man rechnet 30 : 1,5 und addiert 12.",
+     "beschreibung": "die Schritte nicht rückwärts geordnet: erst 12 abziehen, dann durch 1,5 teilen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Man löst die Gleichung 12 + 1,5 + t = 30.",
+     "beschreibung": "t nur addiert statt mit 1,5 malgenommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-075",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "stelle",
+   "pool": "sicherung",
+   "typ": "umkehr",
+   "form": "umkehren",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen lösen f(x) = c für lineare Terme oder Sachsituationen. Diese Aufgabe: Umkehren (vom Ergebnis zur Ausgangsgröße).",
+   "aufgabe": {
+    "l": "stelle",
+    "t": "stelle",
+    "p": "sicherung",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Für f(x) = a · x + 2 gilt f(4) = 14. Für welche Stelle x ist f(x) = −4?"
+    },
+    "w": "Aus 4a + 2 = 14 folgt a = 3. Dann 3x + 2 = −4, also 3x = −6 und x = −2.",
+    "o": {
+     "wert": -2
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "loesung_rechnung": "(−4 − 2) : ((14 − 2) : 4)",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "rechnung": "6 : 3",
+     "beschreibung": "das Vorzeichen verloren: a = 3, aber −4 − 2 = −6 durch 3 ergibt −2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": -6,
+     "rechnung": "−4 − 2",
+     "beschreibung": "nicht durch a = 3 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-076",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "stelle",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen lösen f(x) = c für lineare Terme oder Sachsituationen. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "stelle",
+    "t": "stelle",
+    "p": "sicherung",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Für f(x) = −2x² mit D = ℚ soll die Gleichung f(x) = 8 gelöst werden. Welche Aussage stimmt?"
+    },
+    "w": "x² ist nie negativ, also ist −2x² höchstens 0. Der Wert 8 kommt nicht vor. Für x = ±2 ergibt sich −8.",
+    "a": [
+     "x = 2 ist die Lösung, denn 2² = 4 und 2 · 4 = 8.",
+     "Es gibt zwei Lösungen, x = −2 und x = 2.",
+     "Es gibt keine Lösung, denn −2x² ist nie positiv.",
+     "x = −4 ist die Lösung, denn 8 : (−2) = −4."
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "x = 2 ist die Lösung, denn 2² = 4 und 2 · 4 = 8.",
+     "beschreibung": "das Minuszeichen vor 2x² übersehen: f(2) = −8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Es gibt zwei Lösungen, x = −2 und x = 2.",
+     "beschreibung": "wie bei x² = 4 zwei Lösungen angenommen, das Vorzeichen aber nicht beachtet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "x = −4 ist die Lösung, denn 8 : (−2) = −4.",
+     "beschreibung": "nur durch −2 geteilt: x² = −4 wäre das Ergebnis, nicht x = −4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-077",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "stelle",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen lösen f(x) = c für lineare Terme oder Sachsituationen. Diese Aufgabe: Transfer auf eine neue Situation.",
+   "aufgabe": {
+    "l": "stelle",
+    "t": "stelle",
+    "p": "sicherung",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Ein Parkplatz kostet 5 € Grundgebühr plus 1,20 € pro Stunde, höchstens aber 17 € am Tag. Nach wie vielen Stunden wird der Höchstpreis zum ersten Mal erreicht?"
+    },
+    "w": "Gesucht ist t mit 5 + 1,2t = 17. Dann 1,2t = 12 und t = 10 Stunden. Danach bleibt der Preis bei 17 €.",
+    "o": {
+     "wert": 10,
+     "einheit": "h"
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "loesung_rechnung": "(17 − 5) : 1,2",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "rechnung": "17 − 5",
+     "beschreibung": "den Preisanteil für die Stunden als Stundenzahl angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 3.4,
+     "rechnung": "17 : 5",
+     "beschreibung": "17 durch die Grundgebühr geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-078",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "graph_lesen",
+   "pool": "test",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen lesen Werte an einem gezeichneten Graphen ab. Diese Aufgabe: Darstellung wechseln.",
+   "aufgabe": {
+    "l": "graph_lesen",
+    "t": "graph_lesen",
+    "p": "test",
+    "s": 3,
+    "y": "auswahl",
+    "f": {
+     "text": "Der Graph einer Funktion ist eine Gerade, die durch die Punkte A(0 | −3) und B(2 | 1) verläuft. Welcher Funktionsterm gehört dazu?"
+    },
+    "w": "A liegt auf der y-Achse, also ist der Achsenabschnitt −3. Von A nach B geht es 2 nach rechts und 4 nach oben: Steigung 2. f(x) = 2x − 3. Probe: f(2) = 1.",
+    "a": [
+     "f(x) = −3x + 2",
+     "f(x) = 0,5x − 3",
+     "f(x) = 2x − 3",
+     "f(x) = 2x + 1"
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "ersetzt_test": true,
+   "regel": "id.funktionen.zuordnung",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "f(x) = −3x + 2",
+     "beschreibung": "Steigung und Achsenabschnitt vertauscht",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "f(x) = 0,5x − 3",
+     "beschreibung": "die Steigung als Quotient 2 : 4 statt 4 : 2 gebildet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "f(x) = 2x + 1",
+     "beschreibung": "den y-Wert von B als Achsenabschnitt gelesen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-079",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "graph_lesen",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen lesen Werte an einem gezeichneten Graphen ab. Diese Aufgabe: Darstellung wechseln.",
+   "aufgabe": {
+    "l": "graph_lesen",
+    "t": "graph_lesen",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Eine lineare Funktion hat die Wertetabelle: x = −2, 0, 2, 4 und y = 7, 3, −1, −5. Welcher Term passt?"
+    },
+    "w": "Bei x = 0 ist y = 3, also Achsenabschnitt 3. Pro 2 Schritte nach rechts sinkt y um 4, die Steigung ist −2. y = −2x + 3. Probe: x = 4 gibt −5.",
+    "a": [
+     "y = 2x + 3",
+     "y = −2x + 3",
+     "y = −x + 3",
+     "y = −2x − 1"
+    ],
+    "o": {
+     "index": 1
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "y = 2x + 3",
+     "beschreibung": "das Vorzeichen der Steigung übersehen (y fällt, wenn x wächst)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "y = −x + 3",
+     "beschreibung": "die Steigung falsch bestimmt: pro 2 Schritte sinkt y um 4, nicht um 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "y = −2x − 1",
+     "beschreibung": "den Achsenabschnitt falsch abgelesen: bei x = 0 ist y = 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-080",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "graph_lesen",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen lesen Werte an einem gezeichneten Graphen ab. Diese Aufgabe: Fehler-Detektiv (Zeile finden und richtigstellen).",
+   "aufgabe": {
+    "l": "graph_lesen",
+    "t": "graph_lesen",
+    "p": "korrektur",
+    "s": 2,
+    "y": "luecken",
+    "f": {
+     "text": "Zeile 1: Die Gerade geht durch P(0 | 4) und Q(2 | 0). Zeile 2: Die Steigung ist m = (0 − 4) : (2 − 0) = −2. Zeile 3: Der Achsenabschnitt t ist 2. Zeile 4: Also gilt f(x) = −2x + 2. In welcher Zeile steckt der erste Fehler, und wie groß ist der Achsenabschnitt richtig?",
+     "schablone": "Fehler in Zeile □, richtig: t = □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Zeile 3 ist falsch: Der Achsenabschnitt ist der y-Wert bei x = 0, also 4 (Punkt P). f(x) = −2x + 4; Probe: f(2) = 0.",
+    "o": {
+     "werte": [
+      3,
+      4
+     ]
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "loesung_rechnung": [
+    "3",
+    "4"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "rechnung": "2 − 0",
+     "beschreibung": "die x-Koordinate von Q als Achsenabschnitt genommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -2,
+     "rechnung": "(0 − 4) : (2 − 0)",
+     "beschreibung": "die Steigung als Achsenabschnitt eingetragen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-081",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "graph_lesen",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen lesen Werte an einem gezeichneten Graphen ab. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "graph_lesen",
+    "t": "graph_lesen",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Gegeben sind f(x) = 2x + 1 und g(x) = 2x − 3 (D = ℚ). Welche Aussage über die beiden Graphen stimmt?"
+    },
+    "w": "Gleiche Steigung heißt parallel. Weil die Achsenabschnitte 1 und −3 verschieden sind, liegen die Geraden nicht aufeinander. Bei jedem x ist f(x) um 4 größer als g(x).",
+    "a": [
+     "Die Graphen schneiden sich in genau einem Punkt, denn beide Terme enthalten 2x.",
+     "Die Graphen fallen zusammen, denn beide haben die Steigung 2.",
+     "Die Graphen sind parallel und verschieden: Sie haben dieselbe Steigung 2, aber die Achsenabschnitte 1 und −3.",
+     "Die Graphen schneiden sich auf der y-Achse, denn beide Terme enthalten die Zahl 2."
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Die Graphen schneiden sich in genau einem Punkt, denn beide Terme enthalten 2x.",
+     "beschreibung": "gleiche Steigung mit Schnittpunkt verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Die Graphen fallen zusammen, denn beide haben die Steigung 2.",
+     "beschreibung": "gleiche Steigung mit gleicher Gerade verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Die Graphen schneiden sich auf der y-Achse, denn beide Terme enthalten die Zahl 2.",
+     "beschreibung": "die Zahl 2 als gemeinsamen Achsenabschnitt gelesen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-082",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "graph_lesen",
+   "pool": "sicherung",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen lesen Werte an einem gezeichneten Graphen ab. Diese Aufgabe: Darstellung wechseln.",
+   "aufgabe": {
+    "l": "graph_lesen",
+    "t": "graph_lesen",
+    "p": "sicherung",
+    "s": 3,
+    "y": "auswahl",
+    "f": {
+     "text": "Der Graph einer Funktion geht durch die Punkte (−1 | 1), (0 | 0), (1 | 1), (2 | 4) und (3 | 9). Welcher Funktionsterm passt zu allen fünf Punkten?"
+    },
+    "w": "Man setzt die x-Werte ein: x² ergibt 1, 0, 1, 4, 9. Das passt zu allen Punkten. x³ scheitert bei x = −1, 3x − 2 bei x = 0 und 2x bei x = 1.",
+    "a": [
+     "f(x) = x³",
+     "f(x) = 3x − 2",
+     "f(x) = x²",
+     "f(x) = 2x"
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "f(x) = x³",
+     "beschreibung": "die Probe bei x = −1 nicht gemacht: (−1)³ = −1, nicht 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "f(x) = 3x − 2",
+     "beschreibung": "nur zu den Punkten (1 | 1) und (2 | 4) passend gewählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "f(x) = 2x",
+     "beschreibung": "nur zu (0 | 0) und (2 | 4) passend gewählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-083",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "graph_lesen",
+   "pool": "sicherung",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen lesen Werte an einem gezeichneten Graphen ab. Diese Aufgabe: Darstellung wechseln.",
+   "aufgabe": {
+    "l": "graph_lesen",
+    "t": "graph_lesen",
+    "p": "sicherung",
+    "s": 2,
+    "y": "zahl",
+    "f": {
+     "text": "Der Graph einer linearen Funktion geht durch den Punkt (0 | 5) und fällt so: Geht man 2 Einheiten nach rechts, sinkt der Graph um 1 Einheit. Welchen Funktionswert hat die Funktion bei x = 6?"
+    },
+    "w": "Die Steigung ist −1 : 2 = −0,5. Also f(x) = 5 − 0,5x und f(6) = 5 − 3 = 2.",
+    "o": {
+     "wert": 2
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "loesung_rechnung": "5 − 6 : 2",
+   "fehlbilder": [
+    {
+     "antwort": -1,
+     "rechnung": "5 − 6",
+     "beschreibung": "als Steigung −1 gelesen statt −1 : 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 8,
+     "rechnung": "5 + 6 : 2",
+     "beschreibung": "den Graphen steigend gelesen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-084",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "graph_lesen",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen lesen Werte an einem gezeichneten Graphen ab. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "graph_lesen",
+    "t": "graph_lesen",
+    "p": "sicherung",
+    "s": 3,
+    "y": "auswahl",
+    "f": {
+     "text": "Jonas sagt: „Der Graph von f(x) = −3x + 1 verläuft von links unten nach rechts oben, weil die 3 groß ist.“ Welche Aussage stimmt?"
+    },
+    "w": "Die Steigung −3 ist negativ: Wenn x um 1 wächst, sinkt y um 3. Der Graph fällt also, und weil 3 größer als 1 ist, steil. Die +1 ist der Achsenabschnitt.",
+    "a": [
+     "Jonas hat recht, denn je größer die Zahl vor x, desto steiler steigt der Graph.",
+     "Jonas hat nicht recht: Der Graph verläuft waagrecht, weil +1 am Ende steht.",
+     "Jonas hat nicht recht: Die Steigung −3 ist negativ, der Graph fällt von links oben nach rechts unten, und zwar steil.",
+     "Jonas hat nicht recht: Der Graph fällt flach, weil −3 kleiner als 0 ist."
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Jonas hat recht, denn je größer die Zahl vor x, desto steiler steigt der Graph.",
+     "beschreibung": "das Vorzeichen der Steigung übersehen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Jonas hat nicht recht: Der Graph verläuft waagrecht, weil +1 am Ende steht.",
+     "beschreibung": "Achsenabschnitt und Steigung verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Jonas hat nicht recht: Der Graph fällt flach, weil −3 kleiner als 0 ist.",
+     "beschreibung": "Betrag und Vorzeichen verwechselt: Das Minus bestimmt die Richtung, die 3 die Steilheit",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-085",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "punkt_graph",
+   "pool": "test",
+   "typ": "parameter",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen setzen einen Punkt in einen Term ein oder lesen einen Punkt ab. Diese Aufgabe: Was-wäre-wenn.",
+   "aufgabe": {
+    "l": "punkt_graph",
+    "t": "punkt_graph",
+    "p": "test",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Der Graph von f(x) = b · x² − 5 geht durch den Punkt P(3 | 13). Welchen Funktionswert hat f an der Stelle −2?"
+    },
+    "w": "Weil P auf dem Graphen liegt, gilt f(3) = 13: b · 9 − 5 = 13, also b = 2. Dann ist f(−2) = 2 · (−2)² − 5 = 2 · 4 − 5 = 3.",
+    "o": {
+     "wert": 3
+    }
+   },
+   "ersetzt_test": true,
+   "loesung_rechnung": "(13 + 5) : 9 · 4 − 5",
+   "fehlbilder": [
+    {
+     "antwort": 19,
+     "rechnung": "(13 + 5) : 3 · 4 − 5",
+     "beschreibung": "b nur durch 3 statt durch 3² = 9 bestimmt (b = 6)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 67,
+     "rechnung": "(13 + 5) · 4 − 5",
+     "beschreibung": "b = 13 + 5 = 18 gesetzt, nicht durch 9 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-086",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "punkt_graph",
+   "pool": "korrektur",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen setzen einen Punkt in einen Term ein oder lesen einen Punkt ab. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "punkt_graph",
+    "t": "punkt_graph",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Liegt der Punkt P(4 | −5) auf dem Graphen von f(x) = 3 − 2x? Welche Antwort mit Begründung stimmt?"
+    },
+    "w": "Man setzt die x-Koordinate ein: f(4) = 3 − 8 = −5. Das ist die y-Koordinate von P. Also liegt P auf dem Graphen.",
+    "a": [
+     "Nein, denn f(−5) = 3 + 10 = 13 und nicht 4.",
+     "Nein, denn 3 − 2 = 1 und das ist nicht −5.",
+     "Ja, denn f(4) = 3 − 2 · 4 = −5 stimmt mit der y-Koordinate überein.",
+     "Ja, denn 4 und −5 sind verschieden."
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Nein, denn f(−5) = 3 + 10 = 13 und nicht 4.",
+     "beschreibung": "x und y vertauscht: −5 als x-Wert eingesetzt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Nein, denn 3 − 2 = 1 und das ist nicht −5.",
+     "beschreibung": "falsch eingesetzt: nicht 4 in den Term gesetzt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Ja, denn 4 und −5 sind verschieden.",
+     "beschreibung": "keine Probe gemacht, sondern nur die Zahlen verglichen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-087",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "punkt_graph",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen setzen einen Punkt in einen Term ein oder lesen einen Punkt ab. Diese Aufgabe: Fehler-Detektiv (Zeile finden und richtigstellen).",
+   "aufgabe": {
+    "l": "punkt_graph",
+    "t": "punkt_graph",
+    "p": "korrektur",
+    "s": 2,
+    "y": "luecken",
+    "f": {
+     "text": "Lena prüft, ob P(3 | 8) auf dem Graphen von f(x) = x² − 1 liegt. Zeile 1: Sie setzt x = 3 ein. Zeile 2: Gesucht ist f(3) = 3² − 1. Zeile 3: Sie rechnet 3² = 6, also f(3) = 6 − 1 = 5. Zeile 4: Wegen 5 ≠ 8 liegt P nicht auf dem Graphen. In welcher Zeile steckt der erste Fehler, und wie groß ist f(3) richtig?",
+     "schablone": "Fehler in Zeile □, richtig: f(3) = □",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Zeile 3 ist falsch: 3² = 3 · 3 = 9, also f(3) = 9 − 1 = 8. Das ist die y-Koordinate, P liegt auf dem Graphen.",
+    "o": {
+     "werte": [
+      3,
+      8
+     ]
+    }
+   },
+   "loesung_rechnung": [
+    "3",
+    "3² − 1"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 5,
+     "rechnung": "3 · 2 − 1",
+     "beschreibung": "3² als 3 · 2 gerechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 9,
+     "rechnung": "3²",
+     "beschreibung": "die −1 vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-088",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "punkt_graph",
+   "pool": "korrektur",
+   "typ": "pruefung",
+   "form": "bruecke",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen setzen einen Punkt in einen Term ein oder lesen einen Punkt ab. Diese Aufgabe: Brücke zwischen zwei Darstellungen.",
+   "aufgabe": {
+    "l": "punkt_graph",
+    "t": "punkt_graph",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Auf dem Graphen von f(x) = −x + 4 sollen drei Punkte liegen. Bei welcher Auswahl liegen alle drei Punkte auf dem Graphen?"
+    },
+    "w": "f(0) = 4, f(2) = 2 und f(5) = −1. Nur die erste Auswahl besteht aus Punkten, deren y-Wert dem Funktionswert entspricht.",
+    "a": [
+     "A(0 | 4), B(2 | 2), C(5 | −1)",
+     "A(0 | 4), B(2 | 2), C(5 | 1)",
+     "A(1 | 4), B(2 | 2), C(5 | −1)",
+     "A(0 | 4), B(2 | 6), C(5 | −1)"
+    ],
+    "o": {
+     "index": 0
+    }
+   },
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "A(0 | 4), B(2 | 2), C(5 | 1)",
+     "beschreibung": "bei C den Betrag statt −1 genommen: f(5) = −1, nicht 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "A(1 | 4), B(2 | 2), C(5 | −1)",
+     "beschreibung": "bei A falsch eingesetzt: f(1) = 3, nicht 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "A(0 | 4), B(2 | 6), C(5 | −1)",
+     "beschreibung": "bei B das Vorzeichen übersehen: f(2) = 2, nicht 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-089",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "punkt_graph",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen setzen einen Punkt in einen Term ein oder lesen einen Punkt ab. Diese Aufgabe: Transfer auf eine neue Situation.",
+   "aufgabe": {
+    "l": "punkt_graph",
+    "t": "punkt_graph",
+    "p": "sicherung",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Die Punkte A(1 | 3), B(3 | 7) und C(5 | y) liegen auf einer Geraden. Wie groß ist y?"
+    },
+    "w": "Von A nach B geht es 2 nach rechts und 4 nach oben, die Steigung ist 2. Von B nach C geht es wieder 2 nach rechts, also 4 nach oben: y = 7 + 4 = 11.",
+    "o": {
+     "wert": 11
+    }
+   },
+   "loesung_rechnung": "7 + 7 − 3",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "rechnung": "7 + 2",
+     "beschreibung": "nur um 2 weitergezählt, ohne die Steigung zu beachten",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 21,
+     "rechnung": "3 · 7",
+     "beschreibung": "die y-Werte multipliziert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-090",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "punkt_graph",
+   "pool": "sicherung",
+   "typ": "begruenden",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen setzen einen Punkt in einen Term ein oder lesen einen Punkt ab. Diese Aufgabe: Begründung wählen.",
+   "aufgabe": {
+    "l": "punkt_graph",
+    "t": "punkt_graph",
+    "p": "sicherung",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Für welche Funktionen der Form f(x) = a · x (D = ℚ, a eine feste Zahl) liegt der Punkt P(0 | 0) auf dem Graphen?"
+    },
+    "w": "Egal, welche Zahl a ist: a · 0 = 0. Also gilt f(0) = 0 und der Ursprung liegt auf jedem solchen Graphen.",
+    "a": [
+     "Nur für a = 0, denn sonst ist f(0) ungleich 0.",
+     "Nur für positive a, denn negative Zahlen verschieben den Graphen.",
+     "Für jede Zahl a, denn f(0) = a · 0 = 0.",
+     "Für keine, denn 0 gehört nicht zur Definitionsmenge."
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Nur für a = 0, denn sonst ist f(0) ungleich 0.",
+     "beschreibung": "geglaubt, dass a · 0 nur für a = 0 null ist",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "Nur für positive a, denn negative Zahlen verschieben den Graphen.",
+     "beschreibung": "das Vorzeichen von a mit einer Verschiebung verwechselt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Für keine, denn 0 gehört nicht zur Definitionsmenge.",
+     "beschreibung": "die Definitionsmenge ℚ enthält 0, die Aussage ist falsch",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-091",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "punkt_graph",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen setzen einen Punkt in einen Term ein oder lesen einen Punkt ab. Diese Aufgabe: Transfer auf eine neue Situation.",
+   "aufgabe": {
+    "l": "punkt_graph",
+    "t": "punkt_graph",
+    "p": "sicherung",
+    "s": 3,
+    "y": "luecken",
+    "f": {
+     "text": "Eine Leiter kostet beim Ausleihen K(x) = 12 + 5x Euro (x Tage). Der Punkt P(a | 47) liegt auf dem Graphen von K. Wie groß ist a, und wie viel Euro kostet das Ausleihen für 3 Tage?",
+     "schablone": "a = □, Kosten für 3 Tage: □ €",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "P(a | 47) liegt auf dem Graphen: 12 + 5a = 47, also 5a = 35 und a = 7. Für 3 Tage: K(3) = 12 + 15 = 27 €.",
+    "o": {
+     "werte": [
+      7,
+      27
+     ]
+    }
+   },
+   "loesung_rechnung": [
+    "(47 − 12) : 5",
+    "12 + 5 · 3"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 59,
+     "rechnung": "47 + 12",
+     "beschreibung": "die Grundgebühr addiert statt abgezogen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 235,
+     "rechnung": "47 · 5",
+     "beschreibung": "mit 5 malgenommen statt durch 5 geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 15,
+     "rechnung": "5 · 3",
+     "beschreibung": "die Grundgebühr vergessen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 36,
+     "rechnung": "12 · 3",
+     "beschreibung": "die Grundgebühr mit 3 malgenommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-092",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "sachzusammenhang",
+   "pool": "test",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen rechnen mit einem schon gegebenen Term aus einer Sachsituation. Diese Aufgabe: Darstellung wechseln.",
+   "aufgabe": {
+    "l": "sachzusammenhang",
+    "t": "sachzusammenhang",
+    "p": "test",
+    "s": 3,
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Fass enthält am Anfang 120 Liter Wasser. Es läuft gleichmäßig aus, und zwar 15 Liter pro Stunde. Welcher Term gibt den Inhalt I(t) nach t Stunden an, und für welche Zeiten ist er sinnvoll?"
+    },
+    "w": "Anfangswert 120, Abnahme 15 pro Stunde: I(t) = 120 − 15t. Das Fass ist leer, wenn 120 − 15t = 0, also nach t = 8 Stunden. Danach gäbe es negative Inhalte, also nur 0 ≤ t ≤ 8.",
+    "a": [
+     "I(t) = 120 − 15t, sinnvoll für 0 ≤ t ≤ 15",
+     "I(t) = 15 − 120t, sinnvoll für 0 ≤ t ≤ 8",
+     "I(t) = 120 − 15t, sinnvoll für 0 ≤ t ≤ 8",
+     "I(t) = 120 + 15t, sinnvoll für 0 ≤ t ≤ 8"
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "ersetzt_test": true,
+   "regel": "id.funktionen.zuordnung",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "I(t) = 120 − 15t, sinnvoll für 0 ≤ t ≤ 15",
+     "beschreibung": "den Term richtig, aber die Grenze falsch: nach 15 Stunden wäre der Inhalt negativ",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "I(t) = 15 − 120t, sinnvoll für 0 ≤ t ≤ 8",
+     "beschreibung": "Anfangswert und Änderung vertauscht",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "I(t) = 120 + 15t, sinnvoll für 0 ≤ t ≤ 8",
+     "beschreibung": "die Abnahme als Zunahme gelesen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-093",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "sachzusammenhang",
+   "pool": "korrektur",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen rechnen mit einem schon gegebenen Term aus einer Sachsituation. Diese Aufgabe: Darstellung wechseln.",
+   "aufgabe": {
+    "l": "sachzusammenhang",
+    "t": "sachzusammenhang",
+    "p": "korrektur",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Wertetabelle zeigt für x = 1, 2, 3, 4 Mitfahrende die Preise y = 14 €, 19 €, 24 €, 29 €. Welcher Term passt?"
+    },
+    "w": "Pro Person kommen 5 € dazu (14, 19, 24, 29), also y = 5x + b. Für x = 1 ist y = 14, also b = 9. y = 5x + 9.",
+    "a": [
+     "y = 14x",
+     "y = 9x + 5",
+     "y = 5x + 9",
+     "y = x + 13"
+    ],
+    "o": {
+     "index": 2
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "y = 14x",
+     "beschreibung": "nur zum ersten Wert passend gewählt (14 · 1)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 1,
+     "antwort": "y = 9x + 5",
+     "beschreibung": "Grundpreis und Preis je Person vertauscht",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "y = x + 13",
+     "beschreibung": "nur zum ersten Wert passend gewählt (1 + 13)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-094",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "sachzusammenhang",
+   "pool": "korrektur",
+   "typ": "fehler",
+   "form": "fehler_detektiv",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen rechnen mit einem schon gegebenen Term aus einer Sachsituation. Diese Aufgabe: Fehler-Detektiv (Zeile finden und richtigstellen).",
+   "aufgabe": {
+    "l": "sachzusammenhang",
+    "t": "sachzusammenhang",
+    "p": "korrektur",
+    "s": 2,
+    "y": "luecken",
+    "f": {
+     "text": "Zeile 1: Ein Handytarif kostet 8 € Grundgebühr und 0,10 € je SMS. Zeile 2: Die Kosten für x SMS sind K(x) = 8 · x + 0,10. Zeile 3: Für 50 SMS gilt K(50) = 8 · 50 + 0,10 = 400,10 €. Zeile 4: Das ist ein teurer Tarif. In welcher Zeile steckt der erste Fehler, und wie viel Euro kosten 50 SMS richtig?",
+     "schablone": "Fehler in Zeile □, richtig: □ €",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Zeile 2 ist falsch: Die Grundgebühr gilt einmal, die 0,10 € je SMS. K(x) = 8 + 0,10 · x. K(50) = 8 + 5 = 13 €.",
+    "o": {
+     "werte": [
+      2,
+      13
+     ]
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "loesung_rechnung": [
+    "2",
+    "8 + 0,1 · 50"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 400,
+     "rechnung": "8 · 50",
+     "beschreibung": "die Grundgebühr mit der Zahl der SMS malgenommen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 58,
+     "rechnung": "8 + 50",
+     "beschreibung": "die Zahl der SMS ohne den Preis je SMS addiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-095",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "sachzusammenhang",
+   "pool": "korrektur",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen rechnen mit einem schon gegebenen Term aus einer Sachsituation. Diese Aufgabe: Transfer auf eine neue Situation.",
+   "aufgabe": {
+    "l": "sachzusammenhang",
+    "t": "sachzusammenhang",
+    "p": "korrektur",
+    "s": 2,
+    "y": "zahl",
+    "f": {
+     "text": "Aus Streichhölzern werden Quadrate in einer Reihe gelegt. Das erste Quadrat braucht 4 Hölzer, jedes weitere Quadrat braucht 3 weitere Hölzer. Wie viele Hölzer braucht man für 10 Quadrate?"
+    },
+    "w": "Das erste Quadrat braucht 4 Hölzer, die 9 weiteren je 3: 4 + 27 = 31. Als Term: f(n) = 3n + 1.",
+    "o": {
+     "wert": 31
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "loesung_rechnung": "4 + 3 · 9",
+   "fehlbilder": [
+    {
+     "antwort": 40,
+     "rechnung": "4 · 10",
+     "beschreibung": "für jedes Quadrat 4 Hölzer gerechnet",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 34,
+     "rechnung": "4 + 3 · 10",
+     "beschreibung": "auch das erste Quadrat zu den weiteren gezählt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-096",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "sachzusammenhang",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen rechnen mit einem schon gegebenen Term aus einer Sachsituation. Diese Aufgabe: Transfer auf eine neue Situation.",
+   "aufgabe": {
+    "l": "sachzusammenhang",
+    "t": "sachzusammenhang",
+    "p": "sicherung",
+    "s": 3,
+    "y": "luecken",
+    "f": {
+     "text": "Ein Zug fährt auf einer geraden Strecke mit gleichbleibender Geschwindigkeit von A weg. Zwei Stunden nach Messbeginn ist er 190 km von A entfernt, fünf Stunden nach Messbeginn 370 km. Wie schnell fährt er, und wie weit war er bei Messbeginn von A entfernt?",
+     "schablone": "Geschwindigkeit □ km/h, Entfernung bei Messbeginn □ km",
+     "hinweis": "Je Feld eine ganze Zahl."
+    },
+    "w": "Zwischen den Messungen vergehen 3 Stunden, der Zug fährt 370 − 190 = 180 km: 180 : 3 = 60 km/h. In den ersten 2 Stunden fährt er 120 km, also war er bei Messbeginn 190 − 120 = 70 km von A entfernt.",
+    "o": {
+     "werte": [
+      60,
+      70
+     ]
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "loesung_rechnung": [
+    "(370 − 190) : (5 − 2)",
+    "190 − 2 · 60"
+   ],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 90,
+     "rechnung": "180 : 2",
+     "beschreibung": "die 180 km durch 2 statt durch die 3 Stunden zwischen den Messungen geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 74,
+     "rechnung": "370 : 5",
+     "beschreibung": "die Gesamtentfernung durch die Zeit geteilt, obwohl der Zug nicht bei A startete",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 120,
+     "rechnung": "2 · 60",
+     "beschreibung": "die in 2 Stunden gefahrene Strecke als Anfangsentfernung angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 190,
+     "rechnung": "190",
+     "beschreibung": "die Entfernung nach 2 Stunden als Anfangsentfernung angegeben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-097",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "sachzusammenhang",
+   "pool": "sicherung",
+   "typ": "darstellung",
+   "form": null,
+   "stufe": 2,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen rechnen mit einem schon gegebenen Term aus einer Sachsituation. Diese Aufgabe: Darstellung wechseln.",
+   "aufgabe": {
+    "l": "sachzusammenhang",
+    "t": "sachzusammenhang",
+    "p": "sicherung",
+    "s": 2,
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Beschreibung passt zu f(x) = 40 − 8x (x in Tagen, f(x) in Litern)?"
+    },
+    "w": "40 ist der Anfangswert (x = 0), −8x bedeutet 8 Liter weniger pro Tag. Nach 5 Tagen ist der Tank leer: 40 − 8 · 5 = 0.",
+    "a": [
+     "Ein Tank enthält anfangs 8 Liter und wird täglich um 40 Liter gefüllt.",
+     "Ein Tank enthält anfangs 40 Liter und verliert täglich 8 Liter.",
+     "Ein Tank enthält anfangs 40 Liter und wird täglich um 8 Liter gefüllt.",
+     "Ein Tank verliert täglich 40 Liter und ist nach 8 Tagen leer."
+    ],
+    "o": {
+     "index": 1
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Ein Tank enthält anfangs 8 Liter und wird täglich um 40 Liter gefüllt.",
+     "beschreibung": "Anfangswert und Änderung vertauscht",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 2,
+     "antwort": "Ein Tank enthält anfangs 40 Liter und wird täglich um 8 Liter gefüllt.",
+     "beschreibung": "das Minuszeichen als Zunahme gelesen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "index": 3,
+     "antwort": "Ein Tank verliert täglich 40 Liter und ist nach 8 Tagen leer.",
+     "beschreibung": "Anfangswert und Änderung vertauscht, dabei zusätzlich die Leerung eingebaut",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  },
+  {
+   "kennung": "VT3-098",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "sachzusammenhang",
+   "pool": "sicherung",
+   "typ": "transfer",
+   "form": "anwenden",
+   "stufe": 3,
+   "zaehlt": "ja",
+   "lehrplan": "M8 1",
+   "abgrenzung": "Die Übungen rechnen mit einem schon gegebenen Term aus einer Sachsituation. Diese Aufgabe: Transfer auf eine neue Situation.",
+   "aufgabe": {
+    "l": "sachzusammenhang",
+    "t": "sachzusammenhang",
+    "p": "sicherung",
+    "s": 3,
+    "y": "zahl",
+    "f": {
+     "text": "Eine Jahreskarte im Schwimmbad kostet 60 €, danach kostet jeder Besuch 1,50 €. Ohne Karte kostet jeder Besuch 4 €. Ab wie vielen Besuchen im Jahr ist man mit der Jahreskarte echt günstiger?"
+    },
+    "w": "Mit Karte: 60 + 1,5x, ohne Karte: 4x. Gleich bei 60 = 2,5x, also x = 24 (je 96 €). Bei 25 Besuchen: 97,50 € gegen 100 €. Ab 25 Besuchen ist die Karte günstiger.",
+    "o": {
+     "wert": 25,
+     "einheit": "Besuche"
+    }
+   },
+   "regel": "id.funktionen.zuordnung",
+   "loesung_rechnung": "60 : (4 − 1,5) + 1",
+   "fehlbilder": [
+    {
+     "antwort": 24,
+     "rechnung": "60 : (4 − 1,5)",
+     "beschreibung": "den Gleichstand der Kosten als Antwort angegeben (beide 96 €)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 15,
+     "rechnung": "60 : 4",
+     "beschreibung": "nur die Jahreskarte durch den Einzelpreis geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    },
+    {
+     "antwort": 40,
+     "rechnung": "60 : 1,5",
+     "beschreibung": "die Jahreskarte durch den Preis mit Karte geteilt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null
+    }
+   ]
+  }
+ ]
+}
